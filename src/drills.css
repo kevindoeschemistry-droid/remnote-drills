@@ -1,0 +1,106 @@
+@import "katex/dist/katex.min.css";
+
+/* ODE drill widget. All classes are prefixed odd- so nothing leaks into RemNote. */
+.odd-panel {
+  --odd-fg: var(--rn-clr-content-primary, #1f2328);
+  --odd-muted: var(--rn-clr-content-tertiary, #6b7280);
+  --odd-border: var(--rn-clr-border-light-accent, rgba(127, 127, 127, 0.28));
+  --odd-bg: var(--rn-clr-background-primary, transparent);
+  --odd-accent: #3b6fd8;
+  --odd-ok: #1f8a4c;
+  --odd-bad: #c2410c;
+  color: var(--odd-fg);
+  font-size: 15px;
+  line-height: 1.5;
+  padding: 12px 14px 14px;
+  margin: 8px 0;
+  border: 1px solid var(--odd-border);
+  border-radius: 10px;
+  background: var(--odd-bg);
+  box-sizing: border-box;
+  max-width: 100%;
+}
+.odd-panel * { box-sizing: border-box; }
+.odd-header { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; font-size: 12px; }
+.odd-skill { font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; color: var(--odd-muted); }
+.odd-pips { display: inline-flex; gap: 4px; margin-left: auto; }
+.odd-pip { width: 9px; height: 9px; border-radius: 50%; border: 1.5px solid var(--odd-muted); }
+.odd-pip.on { background: var(--odd-ok); border-color: var(--odd-ok); }
+.odd-count { color: var(--odd-muted); font-variant-numeric: tabular-nums; }
+.odd-prompt { font-size: 17px; margin: 4px 0 12px; overflow-x: auto; overflow-y: hidden; padding: 2px 0; }
+.odd-row { display: flex; gap: 8px; }
+.odd-input {
+  flex: 1;
+  min-width: 0;
+  font: 15px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  padding: 8px 10px;
+  border: 1px solid var(--odd-border);
+  border-radius: 7px;
+  background: transparent;
+  color: inherit;
+  outline: none;
+}
+.odd-input:focus { border-color: var(--odd-accent); box-shadow: 0 0 0 2px rgba(59, 111, 216, 0.18); }
+.odd-preview { min-height: 26px; margin-top: 6px; font-size: 13px; color: var(--odd-muted); overflow-x: auto; overflow-y: hidden; }
+.odd-hint { font-size: 12px; }
+.odd-result { margin-top: 8px; padding: 7px 10px; border-radius: 7px; font-size: 14px; font-weight: 500; }
+.odd-result.ok { color: var(--odd-ok); background: rgba(31, 138, 76, 0.1); }
+.odd-result.bad { color: var(--odd-bad); background: rgba(194, 65, 12, 0.1); }
+.odd-result.warn { color: var(--odd-muted); background: rgba(127, 127, 127, 0.1); }
+.odd-solution { margin-top: 12px; padding-top: 10px; border-top: 1px dashed var(--odd-border); }
+.odd-answer { font-size: 16px; margin-bottom: 6px; overflow-x: auto; overflow-y: hidden; padding: 2px 0; }
+.odd-steps { margin: 0; padding-left: 22px; font-size: 14px; }
+.odd-steps li { margin: 4px 0; overflow-x: auto; overflow-y: hidden; padding: 1px 0; }
+.odd-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+.odd-btn {
+  font: inherit;
+  font-size: 13px;
+  padding: 6px 12px;
+  border-radius: 7px;
+  border: 1px solid var(--odd-border);
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+}
+.odd-btn:hover { border-color: var(--odd-accent); }
+.odd-btn.primary { background: var(--odd-accent); border-color: var(--odd-accent); color: #fff; }
+.odd-btn.good { border-color: var(--odd-ok); color: var(--odd-ok); }
+.odd-btn.again { border-color: var(--odd-bad); color: var(--odd-bad); }
+.odd-btn.subtle { margin-left: auto; border: none; color: var(--odd-muted); font-size: 12px; }
+
+.odd-session { padding: 8px; }
+.odd-tabs { display: flex; flex-wrap: wrap; gap: 6px; }
+.odd-tab {
+  font: inherit;
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--rn-clr-border-light-accent, rgba(127, 127, 127, 0.3));
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+}
+.odd-tab.active { background: #3b6fd8; border-color: #3b6fd8; color: #fff; }
+
+/* choice + tuple answers */
+.odd-choices { display: flex; flex-wrap: wrap; gap: 8px; }
+.odd-choice {
+  font: inherit; font-size: 14px; padding: 8px 14px; border-radius: 8px; cursor: pointer;
+  border: 1px solid var(--odd-border); background: transparent; color: inherit;
+}
+.odd-choice:hover:not(:disabled) { border-color: var(--odd-accent); }
+.odd-choice:disabled { cursor: default; opacity: 0.75; }
+.odd-choice.right { border-color: var(--odd-ok); color: var(--odd-ok); background: rgba(31, 138, 76, 0.1); opacity: 1; }
+.odd-choice.missed { border-color: var(--odd-bad); color: var(--odd-bad); background: rgba(194, 65, 12, 0.08); opacity: 1; }
+.odd-fields { display: grid; gap: 8px; }
+.odd-field { display: grid; grid-template-columns: 56px 1fr; align-items: center; gap: 8px; }
+.odd-field-label { text-align: right; font-size: 15px; white-space: nowrap; }
+.odd-field-preview { grid-column: 2; font-size: 13px; color: var(--odd-muted); min-height: 4px; overflow-x: auto; overflow-y: hidden; }
+.odd-fields-check { justify-self: start; margin-left: 64px; }
+.odd-select {
+  font: inherit; font-size: 14px; width: 100%; padding: 6px 8px; border-radius: 8px;
+  border: 1px solid var(--rn-clr-border-light-accent, rgba(127, 127, 127, 0.3));
+  background: transparent; color: inherit;
+}
+.odd-source { color: var(--odd-accent); text-decoration: none; }
+a.odd-source:hover { text-decoration: underline; }

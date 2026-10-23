@@ -1,0 +1,305 @@
+# Drill skill graph — WHAT can be drilled. Book-agnostic.
+#
+# Where a skill appears (textbook sections, courses) lives in drills/sources/*.yaml
+# and drills/courses.yaml, never here. One skill = one set of RemNote cards and one
+# streak, no matter how many books teach it.
+#
+# id:      domain.concept  (stable; cards and streaks hang off it)
+# aliases: old ids that must keep resolving (existing cards + streaks)
+# status:  live (has generators, gets cards) | planned
+# kind:    solve | classify
+# levels:  level -> template names (remnote-plugin/src/drills/registry.ts). Level 1 = Kuta-style.
+
+version: 2
+
+domains:
+  - { id: calc,    title: "Calculus & linear algebra prerequisites" }
+  - { id: ode1,    title: "First-order ODEs" }
+  - { id: ode2,    title: "Second-order & higher linear ODEs" }
+  - { id: odesys,  title: "Systems of ODEs" }
+  - { id: series,  title: "Series solutions" }
+  - { id: laplace, title: "Laplace transforms" }
+  - { id: bvp,     title: "Boundary-value problems & Fourier series" }
+  - { id: pde,     title: "Partial differential equations" }
+  - { id: ht,      title: "Heat transfer" }
+  - { id: thermo,  title: "Classical thermodynamics" }
+  - { id: stat,    title: "Statistical mechanics" }
+
+skills:
+  # ── prerequisites ────────────────────────────────────────────────────────
+  - { id: calc.u-sub, domain: calc, title: "u-substitution", aliases: [calc-u-sub] }
+  - { id: calc.by-parts, domain: calc, title: "Integration by parts", aliases: [calc-by-parts] }
+  - { id: calc.partial-fractions, domain: calc, title: "Partial fractions", aliases: [calc-partial-fractions] }
+  - { id: calc.complex-euler, domain: calc, title: "Complex roots & Euler's formula", aliases: [calc-complex-euler] }
+  - { id: calc.eigen-2x2, domain: calc, title: "2×2 eigenvalues & eigenvectors", aliases: [calc-eigen-2x2] }
+  - { id: calc.sigma-shift, domain: calc, title: "Shifting summation indices", aliases: [calc-sigma-shift] }
+  - { id: calc.multivariable, domain: calc, title: "Partial derivatives & exact differentials" }
+
+  # ── first-order ODEs ────────────────────────────────────────────────────
+  - id: ode1.separable
+    domain: ode1
+    title: "Separable equations"
+    short: "Separable"
+    status: live
+    aliases: [separable, krey-ch01-separable]
+    prereqs: [calc.u-sub, calc.partial-fractions]
+    levels: { 1: [sep-exp-growth, sep-over-y, sep-y-squared, sep-exp-split, sep-over-y2] }
+
+  - id: ode1.substitution
+    domain: ode1
+    title: "Separable via substitution"
+    short: "Substitution"
+    status: live
+    aliases: [substitution, krey-ch01-substitution]
+    prereqs: [ode1.separable]
+    levels: { 1: [sub-ratio, sub-square, sub-exp, sub-linear-square, sub-arctan] }
+
+  - id: ode1.linear
+    domain: ode1
+    title: "Linear: integrating factor"
+    short: "Integrating factor"
+    status: live
+    aliases: [linear, krey-ch01-linear]
+    prereqs: [calc.u-sub]
+    levels: { 1: [lin-exp, lin-const, lin-power, lin-gauss, lin-trig, lin-resonant] }
+
+  - id: ode1.linear-ibp
+    domain: ode1
+    title: "Integrating factor + integration by parts"
+    short: "IF + by parts"
+    status: live
+    aliases: [ibp, krey-ch01-linear-ibp]
+    prereqs: [ode1.linear, calc.by-parts]
+    levels: { 1: [ibp-poly, ibp-over-x-trig, ibp-over-x-exp, ibp-x-exp, ibp-trig-exp, ibp-power-exp] }
+
+  - id: ode1.bernoulli
+    domain: ode1
+    title: "Bernoulli equations"
+    short: "Bernoulli"
+    status: live
+    aliases: [bernoulli, krey-ch01-bernoulli]
+    prereqs: [ode1.linear]
+    levels: { 1: [bern-const, bern-power, bern-exp] }
+
+  - { id: ode1.exact, domain: ode1, title: "Exact equations", aliases: [krey-ch01-exact], prereqs: [calc.multivariable] }
+  - { id: ode1.exact-if, domain: ode1, title: "Integrating factors for exactness", aliases: [krey-ch01-exact-if], prereqs: [ode1.exact] }
+  - { id: ode1.modeling, domain: ode1, title: "Modeling: mixing, cooling, growth", aliases: [krey-ch01-modeling], prereqs: [ode1.separable, ode1.linear] }
+  - { id: ode1.recognize, domain: ode1, title: "Which first-order method?", kind: classify, aliases: [krey-ch01-recognize],
+      pool: [ode1.separable, ode1.substitution, ode1.linear, ode1.bernoulli, ode1.exact] }
+
+  # ── second-order & higher linear ODEs ───────────────────────────────────
+  - id: ode2.characteristic
+    domain: ode2
+    title: "Characteristic equation (3 root cases)"
+    short: "Characteristic eq."
+    status: live
+    aliases: [krey-ch02-characteristic]
+    prereqs: [calc.complex-euler]
+    levels: { 1: [char-distinct, char-repeated, char-complex, char-ivp] }
+  - { id: ode2.reduction, domain: ode2, title: "Reduction of order", aliases: [krey-ch02-reduction] }
+  - { id: ode2.euler-cauchy, domain: ode2, title: "Euler–Cauchy equations", aliases: [krey-ch02-euler-cauchy], prereqs: [ode2.characteristic] }
+
+  - id: ode2.wronskian
+    domain: ode2
+    title: "The Wronskian"
+    short: "Wronskian"
+    status: live
+    aliases: [wronskian, krey-ch02-wronskian]
+    levels: { 1: [wr-exps, wr-repeated, wr-trig, wr-damped, wr-powers, wr-log, wr-three, wr-dependent] }
+
+  - id: ode2.spring-undamped
+    domain: ode2
+    title: "Mass–spring, undamped"
+    short: "Spring (undamped)"
+    status: live
+    aliases: [krey-ch02-spring-undamped]
+    prereqs: [ode2.characteristic]
+    levels: { 1: [spring-frequency, spring-undamped-ivp, spring-amplitude-phase] }
+
+  - id: ode2.spring-damped
+    domain: ode2
+    title: "Mass–spring, damped"
+    short: "Spring (damped)"
+    status: live
+    aliases: [krey-ch02-spring-damped]
+    prereqs: [ode2.characteristic, ode2.spring-undamped]
+    levels: { 1: [spring-classify, spring-over-ivp, spring-critical-ivp, spring-under-ivp] }
+
+  - id: ode2.undetermined
+    domain: ode2
+    title: "Undetermined coefficients"
+    short: "Undetermined coeffs."
+    status: live
+    aliases: [krey-ch02-undetermined]
+    prereqs: [ode2.characteristic]
+    levels: { 1: [uc-poly, uc-exp, uc-trig, uc-resonance, uc-general] }
+  - { id: ode2.spring-forced, domain: ode2, title: "Mass–spring, forced & resonance", aliases: [krey-ch02-spring-forced],
+      prereqs: [ode2.undetermined, ode2.spring-damped] }
+  - { id: ode2.variation, domain: ode2, title: "Variation of parameters", aliases: [krey-ch02-variation], prereqs: [ode2.wronskian] }
+  - { id: ode2.higher-order, domain: ode2, title: "Higher-order characteristic equations", aliases: [krey-ch03-characteristic], prereqs: [ode2.characteristic] }
+
+  # ── systems ─────────────────────────────────────────────────────────────
+  - { id: odesys.eigenvalue, domain: odesys, title: "2×2 systems by eigenvalues", aliases: [krey-ch04-eigenvalue], prereqs: [calc.eigen-2x2] }
+  - id: odesys.kinetics-series
+    domain: odesys
+    title: "Kinetics A → B → C as a 2×2 system"
+    short: "A → B → C kinetics"
+    status: live
+    prereqs: [odesys.eigenvalue, ode1.linear]
+    levels: { 1: [kin-matrix, kin-eigen, kin-B, kin-C, kin-tmax] }
+  - { id: odesys.phase, domain: odesys, title: "Phase portrait type", kind: classify, aliases: [krey-ch04-phase], prereqs: [odesys.eigenvalue] }
+
+  # ── series ──────────────────────────────────────────────────────────────
+  - id: series.points
+    domain: series
+    title: "Ordinary vs. singular points"
+    short: "Classify points"
+    kind: classify
+    status: live
+    aliases: [krey-ch05-points]
+    levels: { 1: [series-classify-point] }
+
+  - id: series.recurrence
+    domain: series
+    title: "Power series: recurrence relation"
+    short: "Recurrence"
+    status: live
+    aliases: [krey-ch05-power-series]
+    prereqs: [calc.sigma-shift]
+    levels: { 1: [series-recurrence, series-recurrence-airy] }
+
+  - id: series.terms
+    domain: series
+    title: "Power series: first terms"
+    short: "Series terms"
+    status: live
+    aliases: [krey-ch05-series-terms]
+    prereqs: [series.recurrence]
+    levels: { 1: [series-terms, series-terms-airy] }
+
+  - id: series.radius
+    domain: series
+    title: "Guaranteed radius of convergence"
+    short: "Radius"
+    status: live
+    aliases: [krey-ch05-radius]
+    prereqs: [series.points]
+    levels: { 1: [series-radius] }
+
+  - id: series.indicial
+    domain: series
+    title: "Frobenius: indicial roots"
+    short: "Indicial roots"
+    status: live
+    aliases: [krey-ch05-indicial]
+    prereqs: [series.points]
+    levels: { 1: [frobenius-indicial] }
+
+  - id: series.frobenius-case
+    domain: series
+    title: "Frobenius: which case?"
+    short: "Frobenius case"
+    kind: classify
+    status: live
+    aliases: [krey-ch05-frobenius-case]
+    prereqs: [series.indicial]
+    levels: { 1: [frobenius-case] }
+
+  - { id: series.special-functions, domain: series, title: "Legendre & Bessel recognition", kind: classify, aliases: [krey-ch05-legendre-bessel] }
+
+  # ── Laplace ─────────────────────────────────────────────────────────────
+  - { id: laplace.table, domain: laplace, title: "Transforms from the table", aliases: [krey-ch06-laplace] }
+  - { id: laplace.inverse, domain: laplace, title: "Inverse transforms (partial fractions)", aliases: [krey-ch06-inverse], prereqs: [calc.partial-fractions] }
+  - { id: laplace.shifting, domain: laplace, title: "s- and t-shifting, Heaviside", aliases: [krey-ch06-shifting] }
+  - { id: laplace.ivp, domain: laplace, title: "Solving IVPs by Laplace", aliases: [krey-ch06-ivp], prereqs: [laplace.table, laplace.inverse] }
+  - { id: laplace.convolution, domain: laplace, title: "Convolution", aliases: [krey-ch06-convolution] }
+
+  # ── boundary-value problems ─────────────────────────────────────────────
+  - id: bvp.sl-eigenvalues
+    domain: bvp
+    title: "S–L: eigenvalues"
+    short: "Eigenvalues"
+    status: live
+    aliases: [krey-ch11-sl-eigenvalues]
+    prereqs: [ode2.characteristic]
+    levels: { 1: [sl-eigenvalues] }
+
+  - id: bvp.sl-eigenfunctions
+    domain: bvp
+    title: "S–L: eigenfunctions"
+    short: "Eigenfunctions"
+    status: live
+    aliases: [krey-ch11-sl-eigenfunctions]
+    prereqs: [bvp.sl-eigenvalues]
+    levels: { 1: [sl-eigenfunctions] }
+
+  - id: bvp.sl-form
+    domain: bvp
+    title: "S–L: self-adjoint form (p, q, r)"
+    short: "S–L form"
+    status: live
+    aliases: [krey-ch11-sl-form]
+    levels: { 1: [sl-form] }
+
+  - id: bvp.sl-classify
+    domain: bvp
+    title: "S–L: regular, periodic, or singular?"
+    short: "Classify S–L"
+    kind: classify
+    status: live
+    aliases: [krey-ch11-sl-classify]
+    prereqs: [bvp.sl-form]
+    levels: { 1: [sl-classify] }
+
+  - id: bvp.sl-shifted
+    domain: bvp
+    title: "S–L: shifted eigenvalue y'' + (λ + c)y = 0"
+    short: "S–L shifted (λ + c)"
+    status: live
+    prereqs: [bvp.sl-eigenvalues]
+    levels: { 1: [sl-shift-eigenvalues, sl-shift-eigenfunctions, sl-shift-negative] }
+
+  - { id: bvp.fourier-series, domain: bvp, title: "Fourier series coefficients" }
+  - { id: pde.separation, domain: pde, title: "Separation of variables (heat & wave equations)", prereqs: [bvp.sl-eigenfunctions, bvp.fourier-series] }
+
+  # ── heat transfer ───────────────────────────────────────────────────────
+  - { id: ht.rate-equations, domain: ht, title: "Rate equations: conduction, convection, radiation", status: live, levels: { 1: [ht-cond, ht-conv, ht-rad] } }
+  - { id: ht.energy-balance, domain: ht, title: "Surface & control-volume energy balances", prereqs: [ht.rate-equations], status: live, levels: { 1: [ht-eb-surface, ht-eb-wire] } }
+  - { id: ht.heat-equation, domain: ht, title: "Heat equation & boundary conditions", status: live, levels: { 1: [ht-he-gen, ht-he-flux, ht-he-dTdt] } }
+  - { id: ht.resistance-plane, domain: ht, title: "Thermal resistance: plane & composite walls", prereqs: [ht.rate-equations], status: live, levels: { 1: [ht-wall, ht-contact] } }
+  - { id: ht.resistance-radial, domain: ht, title: "Thermal resistance: cylinders & spheres, critical radius", prereqs: [ht.resistance-plane], status: live, levels: { 1: [ht-cyl, ht-sphere, ht-rcrit] } }
+  - { id: ht.generation, domain: ht, title: "Conduction with heat generation", prereqs: [ht.heat-equation], status: live, levels: { 1: [ht-gen-wall, ht-gen-cyl] } }
+  - { id: ht.fins, domain: ht, title: "Fins: temperature profile, efficiency, effectiveness", prereqs: [ode2.characteristic, ht.heat-equation], status: live, levels: { 1: [ht-fin-m, ht-fin-infinite, ht-fin-adiabatic, ht-fin-efficiency, ht-fin-tip] } }
+  - { id: ht.shape-factors, domain: ht, title: "2-D conduction shape factors", status: live, levels: { 1: [ht-shape] } }
+  - { id: ht.finite-difference, domain: ht, title: "Finite-difference node equations", status: live, prereqs: [ht.energy-balance], levels: { 1: [ht-fd] } }
+  - { id: ht.lumped, domain: ht, title: "Lumped capacitance & the Biot number", prereqs: [ode1.separable, ht.energy-balance] }
+  - { id: ht.transient-one-term, domain: ht, title: "Transient conduction: one-term solutions", prereqs: [bvp.sl-eigenvalues, ht.lumped] }
+  - { id: ht.semi-infinite, domain: ht, title: "Semi-infinite solid (erf solutions)", prereqs: [ht.heat-equation] }
+  - { id: ht.external-flow, domain: ht, title: "External flow correlations (plate, cylinder, sphere)" }
+  - { id: ht.internal-flow, domain: ht, title: "Internal flow: mean temperature, Nu correlations" }
+  - { id: ht.free-convection, domain: ht, title: "Free convection correlations" }
+  - { id: ht.heat-exchangers, domain: ht, title: "Heat exchangers: LMTD & ε–NTU", prereqs: [ht.internal-flow] }
+  - { id: ht.view-factors, domain: ht, title: "Radiation view factors" }
+  - { id: ht.enclosures, domain: ht, title: "Radiation exchange in enclosures", prereqs: [ht.view-factors] }
+
+  # ── classical thermodynamics ────────────────────────────────────────────
+  - { id: thermo.fundamental-equation, domain: thermo, title: "Fundamental equation & intensive variables", prereqs: [calc.multivariable] }
+  - { id: thermo.first-law, domain: thermo, title: "First law, work & heat for reversible paths" }
+  - { id: thermo.legendre, domain: thermo, title: "Legendre transforms & free energies", prereqs: [thermo.fundamental-equation] }
+  - { id: thermo.maxwell, domain: thermo, title: "Maxwell relations", prereqs: [thermo.legendre, calc.multivariable] }
+  - { id: thermo.stability, domain: thermo, title: "Stability conditions" }
+  - { id: thermo.phase-equilibrium, domain: thermo, title: "Phase equilibrium & Clapeyron" }
+  - { id: thermo.solutions, domain: thermo, title: "Solutions: ideal mixing, activity, Raoult/Henry" }
+  - { id: thermo.chemical-equilibrium, domain: thermo, title: "Chemical equilibrium constants" }
+
+  # ── statistical mechanics ───────────────────────────────────────────────
+  - { id: stat.probability, domain: stat, title: "Probability & combinatorics for counting states" }
+  - { id: stat.multiplicity, domain: stat, title: "Multiplicity & S = k ln W", prereqs: [stat.probability] }
+  - { id: stat.boltzmann, domain: stat, title: "Boltzmann distribution & populations" }
+  - { id: stat.partition-function, domain: stat, title: "Partition functions → U, F, S, Cv", prereqs: [stat.boltzmann] }
+  - { id: stat.ideal-gas, domain: stat, title: "Ideal gas: translational, rotational, vibrational q", prereqs: [stat.partition-function] }
+  - { id: stat.heat-capacity, domain: stat, title: "Temperature & heat capacity from q", prereqs: [stat.partition-function] }
+  - { id: stat.fluctuations, domain: stat, title: "Energy fluctuations in the canonical ensemble", prereqs: [stat.partition-function] }
+  - { id: stat.ensembles, domain: stat, title: "Other ensembles (grand canonical, isobaric)", prereqs: [stat.partition-function] }
+  - { id: stat.binding, domain: stat, title: "Binding & cooperativity (Langmuir, Hill)", prereqs: [stat.partition-function] }
+  - { id: stat.rates, domain: stat, title: "Rates & transition-state theory" }

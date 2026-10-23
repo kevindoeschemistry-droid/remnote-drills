@@ -1,0 +1,86 @@
+# Kreyszig, Advanced Engineering Mathematics, 10th ed. (Wiley, 2011)
+# Section numbers and titles checked against the 10th-edition table of contents.
+# pages: printed [first, last] page of a section, when known. The PDF page offset
+# is per-PDF and lives in RemNote (Drills: Link PDF to a textbook), not here.
+id: kreyszig-10e
+title: "Kreyszig — Advanced Engineering Mathematics"
+short: "Kreyszig"
+edition: 10
+year: 2011
+field: math
+wiki: textbooks/kreyszig-advanced-engineering-mathematics
+conventions:
+  sturm-liouville: "(py')' + (q + λr)y = 0"
+  spring: "m y'' + c y' + k y = 0, y(t)"
+chapters:
+  - n: 1
+    title: "First-Order ODEs"
+    wiki: textbooks/kreyszig-advanced-engineering-mathematics/ch01
+    sections:
+      - { ref: "1.1", title: "Basic Concepts. Modeling" }
+      - { ref: "1.2", title: "Direction Fields, Euler's Method" }
+      - { ref: "1.3", title: "Separable ODEs. Modeling", skills: [ode1.separable, ode1.substitution, ode1.modeling],
+          wiki: textbooks/kreyszig-advanced-engineering-mathematics/ch01-separable }
+      - { ref: "1.4", title: "Exact ODEs. Integrating Factors", skills: [ode1.exact, ode1.exact-if],
+          wiki: textbooks/kreyszig-advanced-engineering-mathematics/ch01-exact }
+      - { ref: "1.5", title: "Linear ODEs. Bernoulli Equation. Population Dynamics", skills: [ode1.linear, ode1.linear-ibp, ode1.bernoulli, ode1.modeling],
+          wiki: textbooks/kreyszig-advanced-engineering-mathematics/ch01-linear }
+      - { ref: "1.6", title: "Orthogonal Trajectories" }
+      - { ref: "1.7", title: "Existence and Uniqueness of Solutions for Initial Value Problems" }
+  - n: 2
+    title: "Second-Order Linear ODEs"
+    wiki: textbooks/kreyszig-advanced-engineering-mathematics/ch02
+    sections:
+      - { ref: "2.1", title: "Homogeneous Linear ODEs of Second Order", skills: [ode2.reduction] }
+      - { ref: "2.2", title: "Homogeneous Linear ODEs with Constant Coefficients", skills: [ode2.characteristic],
+          wiki: textbooks/kreyszig-advanced-engineering-mathematics/ch02-characteristic }
+      - { ref: "2.3", title: "Differential Operators" }
+      - { ref: "2.4", title: "Modeling of Free Oscillations of a Mass–Spring System", skills: [ode2.spring-undamped, ode2.spring-damped],
+          wiki: textbooks/kreyszig-advanced-engineering-mathematics/ch02-oscillator }
+      - { ref: "2.5", title: "Euler–Cauchy Equations", skills: [ode2.euler-cauchy],
+          wiki: textbooks/kreyszig-advanced-engineering-mathematics/ch02-euler-cauchy }
+      - { ref: "2.6", title: "Existence and Uniqueness of Solutions. Wronskian", skills: [ode2.wronskian],
+          wiki: textbooks/kreyszig-advanced-engineering-mathematics/ch02-wronskian }
+      - { ref: "2.7", title: "Nonhomogeneous ODEs", skills: [ode2.undetermined],
+          wiki: textbooks/kreyszig-advanced-engineering-mathematics/ch02-undetermined }
+      - { ref: "2.8", title: "Modeling: Forced Oscillations. Resonance", skills: [ode2.spring-forced] }
+      - { ref: "2.9", title: "Modeling: Electric Circuits" }
+      - { ref: "2.10", title: "Solution by Variation of Parameters", skills: [ode2.variation],
+          wiki: textbooks/kreyszig-advanced-engineering-mathematics/ch02-variation }
+  - n: 3
+    title: "Higher Order Linear ODEs"
+    wiki: textbooks/kreyszig-advanced-engineering-mathematics/ch03
+    skills: [ode2.higher-order]
+  - n: 4
+    title: "Systems of ODEs. Phase Plane. Qualitative Methods"
+    wiki: textbooks/kreyszig-advanced-engineering-mathematics/ch04
+    skills: [odesys.eigenvalue, odesys.phase, odesys.kinetics-series]
+  - n: 5
+    title: "Series Solutions of ODEs. Special Functions"
+    wiki: textbooks/kreyszig-advanced-engineering-mathematics/ch05
+    sections:
+      - { ref: "5.1", title: "Power Series Method", skills: [series.recurrence, series.terms, series.radius],
+          wiki: textbooks/kreyszig-advanced-engineering-mathematics/ch05-power-series }
+      - { ref: "5.2", title: "Legendre's Equation. Legendre Polynomials", skills: [series.special-functions],
+          wiki: textbooks/kreyszig-advanced-engineering-mathematics/ch05-legendre }
+      - { ref: "5.3", title: "Extended Power Series Method: Frobenius Method", skills: [series.points, series.indicial, series.frobenius-case],
+          wiki: textbooks/kreyszig-advanced-engineering-mathematics/ch05-frobenius }
+      - { ref: "5.4", title: "Bessel's Equation. Bessel Functions J", skills: [series.special-functions],
+          wiki: textbooks/kreyszig-advanced-engineering-mathematics/ch05-bessel }
+      - { ref: "5.5", title: "Bessel Functions Y. General Solution" }
+  - n: 6
+    title: "Laplace Transforms"
+    wiki: textbooks/kreyszig-advanced-engineering-mathematics/ch06
+    skills: [laplace.table, laplace.inverse, laplace.shifting, laplace.ivp, laplace.convolution]
+  - n: 11
+    title: "Fourier Analysis"
+    wiki: textbooks/kreyszig-advanced-engineering-mathematics/ch11
+    sections:
+      - { ref: "11.1", title: "Fourier Series", skills: [bvp.fourier-series],
+          wiki: textbooks/kreyszig-advanced-engineering-mathematics/ch11-fourier-series }
+      - { ref: "11.5", title: "Sturm–Liouville Problems. Orthogonal Functions",
+          skills: [bvp.sl-eigenvalues, bvp.sl-eigenfunctions, bvp.sl-shifted, bvp.sl-form, bvp.sl-classify] }
+  - n: 12
+    title: "Partial Differential Equations (PDEs)"
+    wiki: textbooks/kreyszig-advanced-engineering-mathematics/ch12
+    skills: [pde.separation]

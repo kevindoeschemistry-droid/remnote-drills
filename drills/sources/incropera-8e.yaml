@@ -1,0 +1,43 @@
+# Incropera, DeWitt, Bergman & Lavine, Fundamentals of Heat and Mass Transfer, 8th ed. (Wiley)
+# Ch 1, 3, 5 section numbers checked against the 8th-edition table of contents; other
+# chapters are mapped at chapter level until checked (numbering is stable across 7e/8e).
+id: incropera-8e
+title: "Incropera — Fundamentals of Heat and Mass Transfer"
+short: "Incropera"
+edition: 8
+year: 2017
+field: heat-transfer
+chapters:
+  - n: 1
+    title: "Introduction"
+    sections:
+      - { ref: "1.2", title: "Physical Origins and Rate Equations", skills: [ht.rate-equations] }
+      - { ref: "1.3", title: "Relationship to Thermodynamics", skills: [ht.energy-balance] }
+  - n: 2
+    title: "Introduction to Conduction"
+    skills: [ht.heat-equation]
+  - n: 3
+    title: "One-Dimensional, Steady-State Conduction"
+    sections:
+      - { ref: "3.1", title: "The Plane Wall", skills: [ht.resistance-plane] }
+      - { ref: "3.3", title: "Radial Systems", skills: [ht.resistance-radial] }
+      - { ref: "3.5", title: "Conduction with Thermal Energy Generation", skills: [ht.generation] }
+      - { ref: "3.6", title: "Heat Transfer from Extended Surfaces", skills: [ht.fins] }
+  - n: 4
+    title: "Two-Dimensional, Steady-State Conduction"
+    skills: [ht.shape-factors, ht.finite-difference]
+  - n: 5
+    title: "Transient Conduction"
+    sections:
+      - { ref: "5.1–5.3", title: "The Lumped Capacitance Method", skills: [ht.lumped] }
+      - { ref: "5.5–5.6", title: "Plane Wall and Radial Systems with Convection", skills: [ht.transient-one-term] }
+      - { ref: "5.7", title: "The Semi-Infinite Solid", skills: [ht.semi-infinite] }
+  - { n: 6, title: "Introduction to Convection" }
+  - { n: 7, title: "External Flow", skills: [ht.external-flow] }
+  - { n: 8, title: "Internal Flow", skills: [ht.internal-flow] }
+  - { n: 9, title: "Free Convection", skills: [ht.free-convection] }
+  - { n: 10, title: "Boiling and Condensation" }
+  - { n: 11, title: "Heat Exchangers", skills: [ht.heat-exchangers] }
+  - { n: 12, title: "Radiation: Processes and Properties" }
+  - { n: 13, title: "Radiation Exchange Between Surfaces", skills: [ht.view-factors, ht.enclosures] }
+  - { n: 14, title: "Diffusion Mass Transfer" }
