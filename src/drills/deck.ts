@@ -20,7 +20,8 @@
 // courses change; books are views. Re-running is idempotent and migrates the
 // v0.2 / v0.3 layouts in place (synced id map + aliases keep every card).
 import type { RNPlugin, RichTextInterface } from "@remnote/plugin-sdk";
-import { liveByDomain, placesFor, placeText, resolveSkill, Section, SOURCES, sourceLabel } from "./skills";
+import { DOMAINS, liveByDomain, placesFor, placeText, resolveSkill, Section, SOURCES, sourceLabel } from "./skills";
+import graphJson from "./skills.generated.json";
 import { anchorKey, getAnchors } from "./anchors";
 
 export const DRILL_POWERUP = "odeDrill";
@@ -102,20 +103,41 @@ export async function setBinding(plugin: RNPlugin, sourceId: string, binding: Pd
   await plugin.storage.setSynced(BINDINGS_KEY, all);
 }
 
-async function drillDoc(plugin: RNPlugin, rootId: string) {
+/** The pre-v0.15 drills document under the wiki root, if it exists (renaming the v0.2 name). */
+async function legacyDrillDoc(plugin: RNPlugin, rootId: string) {
   const name = await rt(plugin, DRILL_DOC);
   let doc = await plugin.rem.findByName(name, rootId);
   if (!doc)
     for (const legacy of LEGACY_DOCS) {
       const old = await plugin.rem.findByName(await rt(plugin, legacy), rootId);
-      if (old) {
-        await old.setText(name); // rename in place: every card underneath keeps its history
-        doc = old;
-        break;
-      }
+      if (old) return old;
     }
-  return doc ?? (await findOrCreateDocument(plugin, DRILL_DOC, rootId));
+  return doc;
 }
+
+/** A skill's card group = the parent of its cards (found through the card map, wherever it is). */
+async function groupOfCards(plugin: RNPlugin, map: Record<string, string>, skill: { id: string; aliases: string[] }) {
+  for (const k of Object.keys(map)) {
+    const sid = k.slice(0, k.lastIndexOf(":"));
+    if (sid !== skill.id && !skill.aliases.includes(sid)) continue;
+    const card = await plugin.rem.findOne(map[k]);
+    if (card?.parent) return plugin.rem.findOne(card.parent);
+  }
+  return undefined;
+}
+
+/** Remove a rem's empty descendants bottom-up, then the rem itself if nothing is left. Never touches content. */
+async function removeIfEmpty(plugin: RNPlugin, rem: NonNullable<Awaited<ReturnType<RNPlugin["rem"]["findOne"]>>>): Promise<boolean> {
+  let empty = true;
+  for (const c of await rem.getChildrenRem()) {
+    const text = plain(c.text).trim();
+    const structural = text === "" || /^Ch \d+ · /.test(text) || DOMAINS.some((d) => d.title === text);
+    if (!(structural && (await removeIfEmpty(plugin, c)))) empty = false;
+  }
+  if (empty) await rem.remove();
+  return empty;
+}
+
 
 /** Find a skill's card group directly under the drills doc or one level down (old layouts). */
 async function findSkillGroup(plugin: RNPlugin, docId: string, title: string) {
@@ -156,30 +178,46 @@ export async function markCleared(plugin: RNPlugin, skillId: string) {
   return true;
 }
 
+/** The domain → subject map from drills/library.yaml. */
+const SUBJECT_OF: Record<string, string> = (graphJson as any).library?.domains ?? {};
+
 export async function ensureDrillDeck(plugin: RNPlugin, rootName: string, quiet = false) {
   const perSkill = Math.max(1, Math.min(10, (await plugin.settings.getSetting<number>("drill-cards-per-skill")) || 3));
   const map: Record<string, string> = (await plugin.storage.getSynced<Record<string, string>>(MAP_KEY)) ?? {};
 
-  const root = await findOrCreateDocument(plugin, rootName, undefined);
-  if (!root) return void (await plugin.app.toast("Drills: could not create the root document"));
-  const doc = await drillDoc(plugin, root._id);
-  if (!doc) return void (await plugin.app.toast("Drills: could not create the drills document"));
+  // hub: a top-level "Drills" document (book contents live here; cards live in their subjects)
+  const hub = await findOrCreateDocument(plugin, DRILL_DOC, undefined);
+  if (!hub) return void (await plugin.app.toast("Drills: could not create the Drills document"));
+  // the old home (v0.2–v0.14): Wiki Flashcards › Drills — migrated out, then removed once empty
+  const legacyRoot = await plugin.rem.findByName(await rt(plugin, rootName), null);
+  const legacy = legacyRoot ? await legacyDrillDoc(plugin, legacyRoot._id) : undefined;
 
-  // ── cards, homed by domain → skill ─────────────────────────────────────
+  // ── cards, homed by subject → Drills → topic → skill ───────────────────
   let created = 0;
   const groups: Record<string, string> = {}; // skill id -> group rem id
   const domains = liveByDomain();
-  for (let d = 0; d < domains.length; d++) {
-    const { domain, skills } = domains[d];
-    const domainRem = await findOrCreateChild(plugin, domain.title, doc._id, d);
+  const subjectDrills: Record<string, string> = {}; // subject -> its "Drills" rem id
+  const domainPos: Record<string, number> = {};
+  for (const { domain, skills } of domains) {
+    const subjectName = SUBJECT_OF[domain.id] ?? "Other drills";
+    if (!subjectDrills[subjectName]) {
+      const subject = await findOrCreateDocument(plugin, subjectName, undefined);
+      const drills = subject ? await findOrCreateChild(plugin, DRILL_DOC, subject._id, 0) : undefined;
+      if (!drills) continue;
+      if (!(await drills.isDocument())) await drills.setIsDocument(true);
+      subjectDrills[subjectName] = drills._id;
+      domainPos[subjectName] = 0;
+    }
+    const domainRem = await findOrCreateChild(plugin, domain.title, subjectDrills[subjectName], domainPos[subjectName]++);
     if (!domainRem) continue;
     for (let s = 0; s < skills.length; s++) {
       const skill = skills[s];
       let group = await plugin.rem.findByName(await rt(plugin, skill.title), domainRem._id);
       if (!group) {
-        const old = await findSkillGroup(plugin, doc._id, skill.title);
+        // wherever its cards are now (old layout, other subject…), move the group here: history moves with it
+        const old = (await groupOfCards(plugin, map, skill)) ?? (legacy ? await findSkillGroup(plugin, legacy._id, skill.title) : undefined);
         if (old) {
-          await plugin.rem.moveRems([old], domainRem, s); // keeps SRS history
+          await plugin.rem.moveRems([old], domainRem, s);
           group = old;
         } else group = await findOrCreateChild(plugin, skill.title, domainRem._id, s);
       }
@@ -197,12 +235,12 @@ export async function ensureDrillDeck(plugin: RNPlugin, rootName: string, quiet 
         if (!rem) {
           rem = await plugin.rem.createRem();
           if (!rem) continue;
-          await rem.setText(await rt(plugin, `ODE drill · ${skill.title} (${i})`));
+          await rem.setText(await rt(plugin, `Drill · ${skill.title} (${i})`));
           await rem.setBackText(await rt(plugin, BACK));
           await plugin.rem.moveRems([rem], group, i - 1);
           map[key] = rem._id;
           created++;
-        }
+        } else if (rem.parent !== group._id) await plugin.rem.moveRems([rem], group, i - 1);
         if (!(await rem.hasPowerup(DRILL_POWERUP))) await rem.addPowerup(DRILL_POWERUP);
         if ((await rem.getPowerupProperty(DRILL_POWERUP, DRILL_SLOT))?.trim() !== skill.id)
           await rem.setPowerupProperty(DRILL_POWERUP, DRILL_SLOT, [skill.id]);
@@ -212,6 +250,14 @@ export async function ensureDrillDeck(plugin: RNPlugin, rootName: string, quiet 
     }
   }
   await plugin.storage.setSynced(MAP_KEY, map);
+
+  // book contents move to the hub; the old Wiki Flashcards › Drills goes once it's empty
+  if (legacy) {
+    const oldBooks = await plugin.rem.findByName(await rt(plugin, BY_BOOK), legacy._id);
+    if (oldBooks && !(await plugin.rem.findByName(await rt(plugin, BY_BOOK), hub._id))) await plugin.rem.moveRems([oldBooks], hub, 0);
+    await removeIfEmpty(plugin, legacy);
+  }
+  const doc = hub;
 
   // backfill "Cleared ✓" tags for skills cleared before tagging existed
   for (const { skills } of domains)
@@ -232,7 +278,7 @@ export async function ensureDrillDeck(plugin: RNPlugin, rootName: string, quiet 
 
   // ── books as views ─────────────────────────────────────────────────────
   try {
-    await buildTables(plugin, doc._id, groups, domains.length);
+    await buildTables(plugin, doc._id, groups, 0);
   } catch (e) {
     console.error("Drills book contents failed", e);
     await plugin.app.toast(`Drills: book contents failed — ${String(e)}`);

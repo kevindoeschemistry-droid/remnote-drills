@@ -79,6 +79,11 @@ for (const [sid, subj] of Object.entries(library.books ?? {})) {
   if (!sourceIds.has(sid)) errors.push(`library.yaml: unknown source ${sid}`);
   if (!(library.subjects ?? []).includes(subj)) errors.push(`library.yaml: ${sid} files under unknown subject ${subj}`);
 }
+for (const d of g.domains) if (!library.domains?.[d.id]) errors.push(`library.yaml: domain ${d.id} has no subject`);
+for (const [d, subj] of Object.entries(library.domains ?? {})) {
+  if (!domains.has(d)) errors.push(`library.yaml: unknown domain ${d}`);
+  if (!(library.subjects ?? []).includes(subj)) errors.push(`library.yaml: domain ${d} files under unknown subject ${subj}`);
+}
 for (const x of library.extras ?? []) if (!(library.subjects ?? []).includes(x.subject)) errors.push(`library.yaml: ${x.name} files under unknown subject ${x.subject}`);
 
 if (errors.length) {
