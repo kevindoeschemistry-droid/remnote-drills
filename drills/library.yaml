@@ -1,0 +1,22 @@
+# How textbook PDFs are filed in RemNote ("Drills: Organize textbook PDFs").
+# Subject documents are created at the top level; each recognised PDF is renamed
+# "Author — Title (Ne)" and moved inside its subject. Nothing is ever deleted.
+subjects:
+  - "Heat Transfer"
+  - "Engineering Math (ODEs)"
+  - "Linear Algebra"
+  - "Thermo & Stat Mech"
+  - "Physical Chemistry"
+
+# course textbooks (drills/sources) -> subject
+books:
+  incropera-8e: "Heat Transfer"
+  kreyszig-10e: "Engineering Math (ODEs)"
+  lay-5e: "Linear Algebra"
+  dill-bromberg-2e: "Thermo & Stat Mech"
+  shell-2015: "Thermo & Stat Mech"
+
+# other PDFs: every word in `match` must appear in the PDF's name
+extras:
+  - { match: [mcquarrie], name: "McQuarrie & Simon — Physical Chemistry: A Molecular Approach", subject: "Physical Chemistry" }
+  - { match: [interactive, linear, algebra], name: "Margalit & Rabinoff — Interactive Linear Algebra", subject: "Linear Algebra" }

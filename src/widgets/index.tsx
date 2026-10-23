@@ -4,6 +4,7 @@ import "../style.css";
 import { DRILL_POWERUP, DRILL_SLOT, SOURCES_SLOT, ensureDrillDeck, findOrCreateDocument } from "../drills/deck";
 import { SOURCES, sourceLabel } from "../drills/skills";
 import { latestHighlight, pdfOf } from "../drills/anchors";
+import { organizeLibrary } from "../drills/library";
 
 console.log("[WikiSync] bundle loaded");
 
@@ -236,6 +237,19 @@ async function registerDrills(plugin: ReactRNPlugin) {
         return;
       }
       await plugin.widget.openPopup("anchor", { highlightId: hl._id, pdfId: await pdfOf(plugin, hl), rootName: ROOT_NAME });
+    },
+  });
+  await plugin.app.registerCommand({
+    id: "drills-organize-library",
+    name: "Drills: Organize textbook PDFs (subject documents, rename)",
+    action: async () => {
+      await plugin.app.toast("Filing textbook PDFs…");
+      try {
+        const log = await organizeLibrary(plugin);
+        await plugin.app.toast(log.length ? `Filed ${log.length} PDF${log.length > 1 ? "s" : ""}: ${log.join(" · ")}` : "Subject documents ready; no recognised PDFs to file yet.");
+      } catch (e) {
+        await plugin.app.toast(`Organizing failed — ${String(e)}`);
+      }
     },
   });
   await plugin.app.registerCommand({

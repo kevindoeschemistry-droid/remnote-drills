@@ -72,10 +72,19 @@ const coursesFile = path.join(root, "courses.yaml");
 const courses = fs.existsSync(coursesFile) ? load(coursesFile).courses ?? [] : [];
 for (const c of courses) for (const s of c.sources ?? []) if (!sourceIds.has(s)) errors.push(`course ${c.id}: unknown source ${s}`);
 
+// ── library (where PDFs are filed) ────────────────────────────────────────
+const libraryFile = path.join(root, "library.yaml");
+const library = fs.existsSync(libraryFile) ? load(libraryFile) : { subjects: [], books: {}, extras: [] };
+for (const [sid, subj] of Object.entries(library.books ?? {})) {
+  if (!sourceIds.has(sid)) errors.push(`library.yaml: unknown source ${sid}`);
+  if (!(library.subjects ?? []).includes(subj)) errors.push(`library.yaml: ${sid} files under unknown subject ${subj}`);
+}
+for (const x of library.extras ?? []) if (!(library.subjects ?? []).includes(x.subject)) errors.push(`library.yaml: ${x.name} files under unknown subject ${x.subject}`);
+
 if (errors.length) {
   console.error("drills/ is invalid:\n  " + errors.join("\n  "));
   process.exit(1);
 }
-fs.writeFileSync(out, JSON.stringify({ ...g, sources, courses }, null, 1) + "\n");
+fs.writeFileSync(out, JSON.stringify({ ...g, sources, courses, library }, null, 1) + "\n");
 const live = g.skills.filter((s) => s.status === "live").length;
 console.log(`skills: ${g.skills.length} (${live} live), sources: ${sources.length}, courses: ${courses.length} -> ${path.relative(process.cwd(), out)}`);
