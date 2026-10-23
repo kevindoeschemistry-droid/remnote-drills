@@ -131,6 +131,31 @@ async function findSkillGroup(plugin: RNPlugin, docId: string, title: string) {
   return undefined;
 }
 
+// ── "Cleared ✓" tags: a skill you've cleared gets its card group tagged, so other plugins
+// (Study Companions) and RemNote search can see it. Plain RemNote data, no plugin coupling.
+export const CLEARED_TAG = "Cleared ✓";
+
+async function clearedTag(plugin: RNPlugin) {
+  const name = await rt(plugin, CLEARED_TAG);
+  const existing = await plugin.rem.findByName(name, null);
+  if (existing) return existing;
+  const rem = await plugin.rem.createRem();
+  await rem?.setText(name);
+  return rem;
+}
+
+/** Tag a skill's card group as cleared (the group is the parent of its cards). */
+export async function markCleared(plugin: RNPlugin, skillId: string) {
+  const map: Record<string, string> = (await plugin.storage.getSynced<Record<string, string>>(MAP_KEY)) ?? {};
+  const cardId = Object.entries(map).find(([k]) => k.startsWith(`${skillId}:`))?.[1];
+  const card = cardId ? await plugin.rem.findOne(cardId) : undefined;
+  const group = card?.parent ? await plugin.rem.findOne(card.parent) : undefined;
+  const tag = group ? await clearedTag(plugin) : undefined;
+  if (!group || !tag) return false;
+  if (!(await group.getTagRems()).some((t) => t._id === tag._id)) await group.addTag(tag);
+  return true;
+}
+
 export async function ensureDrillDeck(plugin: RNPlugin, rootName: string, quiet = false) {
   const perSkill = Math.max(1, Math.min(10, (await plugin.settings.getSetting<number>("drill-cards-per-skill")) || 3));
   const map: Record<string, string> = (await plugin.storage.getSynced<Record<string, string>>(MAP_KEY)) ?? {};
@@ -187,6 +212,12 @@ export async function ensureDrillDeck(plugin: RNPlugin, rootName: string, quiet 
     }
   }
   await plugin.storage.setSynced(MAP_KEY, map);
+
+  // backfill "Cleared ✓" tags for skills cleared before tagging existed
+  for (const { skills } of domains)
+    for (const skill of skills)
+      if ((await plugin.storage.getSynced<{ cleared?: boolean }>(`odeDrill.progress.${skill.id}`))?.cleared)
+        await markCleared(plugin, skill.id).catch(() => false);
 
   // tidy: v0.3 chapter-unit headers ("Ch 1 · …") left empty by the move
   try {

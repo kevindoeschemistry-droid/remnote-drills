@@ -4,7 +4,8 @@
 // never the repo's.
 import type { RNPlugin } from "@remnote/plugin-sdk";
 import type { Place, Source } from "./skills";
-import { getBindings } from "./deck";
+import { getBindings, plain, setBinding } from "./deck";
+import { BuiltInPowerupCodes } from "@remnote/plugin-sdk";
 
 const ANCHORS_KEY = "drills.anchors"; // "<sourceId>|<ref>" -> highlight rem id
 
@@ -70,7 +71,48 @@ export async function openPlace(plugin: RNPlugin, p: Place): Promise<"anchor" | 
     await plugin.window.openRem(pdf);
     return "pdf";
   }
+  // nothing linked yet: look for a PDF that matches the book and link it
+  const found = await findPdfFor(plugin, p.source);
+  if (found) {
+    await setBinding(plugin, p.source.id, { remId: found._id, name: plain(found.text) || undefined });
+    await plugin.app.toast(`Linked “${plain(found.text)}” as ${p.source.short}. Anchor sections to jump straight to them.`);
+    await plugin.window.openRem(found);
+    return "pdf";
+  }
   return "none";
+}
+
+const words = (s: string) =>
+  s
+    .toLowerCase()
+    .replace(/[^a-z0-9 ]+/g, " ")
+    .split(/\s+/)
+    .filter((w) => w.length > 2 && !["the", "and", "with", "its", "for", "edition"].includes(w));
+
+/** A PDF in RemNote whose name matches the book (author + title words), or undefined. */
+export async function findPdfFor(plugin: RNPlugin, src: Source) {
+  const title = src.title.split(" — ")[1] ?? src.title;
+  const want = new Set([...words(src.short), ...words(title)]);
+  const seen = new Set<string>();
+  let best: { rem: any; score: number } | undefined;
+  for (const q of [`${src.short} ${title}`, title, src.short]) {
+    let hits: any[] = [];
+    try {
+      hits = await plugin.search.search([q], undefined, { numResults: 20 });
+    } catch {
+      continue;
+    }
+    for (const rem of hits) {
+      if (!rem || seen.has(rem._id)) continue;
+      seen.add(rem._id);
+      if (!(await rem.hasPowerup(BuiltInPowerupCodes.UploadedFile))) continue;
+      const have = new Set(words(plain(rem.text)));
+      const score = [...want].filter((w) => have.has(w)).length;
+      // author name + at least one title word
+      if (have.has(src.short.toLowerCase().split(" ")[0]) && score >= 2 && (!best || score > best.score)) best = { rem, score };
+    }
+  }
+  return best?.rem;
 }
 
 /** Guess the section a highlight marks from its text: "3.6 Heat Transfer from…" or "Chapter 4". */

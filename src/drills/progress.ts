@@ -4,6 +4,7 @@
 // Keys use the canonical skill id; a streak saved under an old alias is read once and migrated.
 import type { RNPlugin } from "@remnote/plugin-sdk";
 import { resolveSkill } from "./skills";
+import { markCleared } from "./deck";
 
 export interface SkillProgress {
   consecutive: number;
@@ -40,6 +41,7 @@ export async function recordAttempt(
 ): Promise<SkillProgress> {
   const skill = resolveSkill(name)!;
   const p = await getProgress(plugin, skill.id);
+  const wasCleared = p.cleared;
   p.attempts += outcome === "revealed" ? 0 : 1;
   if (outcome === "correct") {
     p.correct += 1;
@@ -50,6 +52,14 @@ export async function recordAttempt(
   }
   p.lastPracticed = Date.now();
   await plugin.storage.setSynced(key(skill.id), p);
+  if (p.cleared && !wasCleared) {
+    try {
+      await markCleared(plugin, skill.id);
+      await plugin.app.toast(`🎯 ${skill.title}: cleared!`);
+    } catch {
+      /* tagging is a nicety; the streak is saved either way */
+    }
+  }
   return p;
 }
 

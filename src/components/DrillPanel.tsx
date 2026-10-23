@@ -177,7 +177,12 @@ export function DrillPanel({ skill, mode }: { skill: string; mode: "card" | "ses
   const openBook = async () => {
     if (!place) return;
     const r = await openPlace(plugin, place);
-    if (r === "none" && place.wiki) window.open(WIKI_BASE + place.wiki, "_blank", "noopener");
+    if (r !== "none") return setBookTarget((t) => (t === "wiki" ? "pdf" : t));
+    if (place.wiki) window.open(WIKI_BASE + place.wiki, "_blank", "noopener");
+    else
+      await plugin.app.toast(
+        `No ${place.source.short} PDF found in RemNote. Upload it, or open it and run “Drills: Anchor this section”.`
+      );
   };
   const preview = useMemo(() => {
     const s = inputs[0] ?? "";
@@ -199,12 +204,10 @@ export function DrillPanel({ skill, mode }: { skill: string; mode: "card" | "ses
                 >
                   📖 {placeText(place)}
                 </button>
-              ) : place.wiki ? (
-                <a className="odd-source" href={WIKI_BASE + place.wiki} target="_blank" rel="noopener noreferrer" title="Open in the wiki">
-                  {placeText(place)}
-                </a>
               ) : (
-                <span className="odd-source">{placeText(place)}</span>
+                <button className="odd-source odd-source-btn" onClick={openBook} title="Open this section in your PDF (finds and links the book's PDF if it's in RemNote)">
+                  {placeText(place)}
+                </button>
               )}
               {" · "}
             </>
