@@ -164,3 +164,17 @@ export async function latestHighlight(plugin: RNPlugin): Promise<AnyRem | undefi
     if ((!best || r.createdAt > best.createdAt) && (await r.hasPowerup(BuiltInPowerupCodes.PDFHighlight))) best = r;
   return best;
 }
+
+/** Which book a PDF is, from its name: author surname + title words (e.g. "David Lay, Linear Algebra…" → Lay 5e). */
+export function guessSourceForPdf(pdfName: string, sources: Source[]): Source | undefined {
+  const have = new Set(words(pdfName));
+  let best: { src: Source; score: number } | undefined;
+  for (const src of sources) {
+    const title = src.title.split(" — ")[1] ?? src.title;
+    const author = words(src.short)[0];
+    if (!author || !have.has(author)) continue;
+    const score = 2 + words(title).filter((w) => have.has(w)).length;
+    if (!best || score > best.score) best = { src, score };
+  }
+  return best?.src;
+}

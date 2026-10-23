@@ -4,7 +4,7 @@ import React, { useEffect, useMemo, useState } from "react";
 import { renderWidget, usePlugin, useRunAsync, WidgetLocation } from "@remnote/plugin-sdk";
 import { SOURCES, sourceLabel } from "../drills/skills";
 import { ensureDrillDeck, getBindings, plain, setBinding } from "../drills/deck";
-import { getAnchors, anchorKey, guessRef, setAnchor, targets } from "../drills/anchors";
+import { getAnchors, anchorKey, guessRef, guessSourceForPdf, setAnchor, targets } from "../drills/anchors";
 import "../drills.css";
 
 const stop = (e: React.SyntheticEvent) => e.stopPropagation();
@@ -33,12 +33,13 @@ function Anchor() {
     })();
   }, []);
 
-  // default book: the one linked to this PDF, else the first
+  const pdfName = useRunAsync(async () => (pdfId ? plain((await plugin.rem.findOne(pdfId))?.text) : ""), [pdfId]);
+  // default book: the one linked to this PDF, else the one its name matches, else the first
   useEffect(() => {
-    if (source) return;
+    if (source || pdfName === undefined) return;
     const linked = Object.entries(bindings).find(([, b]) => b.remId === pdfId)?.[0];
-    setSource(linked ?? SOURCES[0]?.id ?? "");
-  }, [bindings, pdfId]);
+    setSource(linked ?? guessSourceForPdf(pdfName, SOURCES)?.id ?? SOURCES[0]?.id ?? "");
+  }, [bindings, pdfId, pdfName]);
 
   const src = SOURCES.find((s) => s.id === source);
   const opts = useMemo(() => (src ? targets(src) : []), [src]);
