@@ -132,3 +132,21 @@ export function guessRef(src: Source, text: string): string | undefined {
   }
   return undefined;
 }
+
+type AnyRem = NonNullable<Awaited<ReturnType<RNPlugin["rem"]["findOne"]>>>;
+
+/** The PDF a highlight belongs to: its PdfId slot, else the nearest uploaded-file ancestor. */
+export async function pdfOf(plugin: RNPlugin, hl: AnyRem): Promise<string | undefined> {
+  try {
+    const viaSlot = await hl.getPowerupPropertyAsRem(BuiltInPowerupCodes.PDFHighlight, "PdfId");
+    if (viaSlot) return viaSlot._id;
+  } catch {
+    /* slot not readable */
+  }
+  let cur: AnyRem | undefined = hl;
+  for (let i = 0; i < 6 && cur?.parent; i++) {
+    cur = await plugin.rem.findOne(cur.parent);
+    if (cur && (await cur.hasPowerup(BuiltInPowerupCodes.UploadedFile))) return cur._id;
+  }
+  return hl.parent ?? undefined;
+}

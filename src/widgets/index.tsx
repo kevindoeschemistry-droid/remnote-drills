@@ -3,6 +3,7 @@ type RemObject = NonNullable<Awaited<ReturnType<RNPlugin["rem"]["findOne"]>>>;
 import "../style.css";
 import { DRILL_POWERUP, DRILL_SLOT, SOURCES_SLOT, ensureDrillDeck, findOrCreateDocument } from "../drills/deck";
 import { SOURCES, sourceLabel } from "../drills/skills";
+import { pdfOf } from "../drills/anchors";
 
 console.log("[WikiSync] bundle loaded");
 
@@ -210,6 +211,13 @@ async function registerDrills(plugin: ReactRNPlugin) {
   await plugin.app.registerWidget("anchor", WidgetLocation.Popup, {
     dimensions: { height: "auto", width: 600 },
   });
+  // 📌 button inside the PDF reader: on the selection toolbar and in a highlight's popup
+  await plugin.app.registerWidget("anchor_button", WidgetLocation.PDFHighlightToolbarLocation, {
+    dimensions: { height: 34, width: 150 },
+  });
+  await plugin.app.registerWidget("anchor_button", WidgetLocation.PDFHighlightPopupLocation, {
+    dimensions: { height: 34, width: 150 },
+  });
   await plugin.app.registerCommand({
     id: "drills-anchor-section",
     name: "Drills: Anchor this section (select the heading in your PDF first)",
@@ -222,7 +230,7 @@ async function registerDrills(plugin: ReactRNPlugin) {
         if (f && (await f.hasPowerup(BuiltInPowerupCodes.PDFHighlight))) hl = f;
       }
       if (!hl) {
-        await plugin.app.toast("Select the section heading in your PDF first, then run this again.");
+        await plugin.app.toast("Use the 📌 Anchor section button in the PDF instead: select the heading, or click your highlight of it.");
         return;
       }
       await plugin.widget.openPopup("anchor", { highlightId: hl._id, pdfId: await pdfOf(plugin, hl), rootName: ROOT_NAME });
@@ -238,22 +246,6 @@ async function registerDrills(plugin: ReactRNPlugin) {
       await plugin.widget.openPopup("book_link", { remId, rootName: ROOT_NAME });
     },
   });
-}
-
-/** The PDF a highlight belongs to: its PdfId slot, else the nearest uploaded-file ancestor. */
-async function pdfOf(plugin: ReactRNPlugin, hl: RemObject): Promise<string | undefined> {
-  try {
-    const viaSlot = await hl.getPowerupPropertyAsRem(BuiltInPowerupCodes.PDFHighlight, "PdfId");
-    if (viaSlot) return viaSlot._id;
-  } catch {
-    /* slot not readable */
-  }
-  let cur: RemObject | undefined = hl;
-  for (let i = 0; i < 6 && cur?.parent; i++) {
-    cur = await plugin.rem.findOne(cur.parent);
-    if (cur && (await cur.hasPowerup(BuiltInPowerupCodes.UploadedFile))) return cur._id;
-  }
-  return hl.parent ?? undefined;
 }
 
 async function onActivate(plugin: ReactRNPlugin) {
