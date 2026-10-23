@@ -103,6 +103,7 @@ const expectPlace = (id: string, text: string) => { if (!where(id).includes(text
 expectPlace("ode1.separable", "Kreyszig 10e §1.3");
 expectPlace("ode2.spring-damped", "Kreyszig 10e §2.4");
 expectPlace("ht.fins", "Incropera 8e §3.6");
+expectPlace("la.eigenvalues", "Lay 5e §5.2");
 expectPlace("ht.finite-difference", "Incropera 8e Ch 4");
 expectPlace("bvp.sl-eigenfunctions", "Kreyszig 10e §11.5");
 expectPlace("ht.fins", "Incropera 8e §3.6");
@@ -110,7 +111,7 @@ expectPlace("ht.transient-one-term", "Incropera 8e §5.5–5.6");
 expectPlace("stat.partition-function", "Dill & Bromberg 2e Ch 10");
 expectPlace("stat.partition-function", "Shell Ch 16");
 if (primaryPlace("stat.partition-function", "shell-2015")?.source.id !== "shell-2015") fail("preferred source not honoured");
-if (SOURCES.length !== 4) fail(`expected 4 sources, got ${SOURCES.length}`);
+if (SOURCES.length !== 5) fail(`expected 5 sources, got ${SOURCES.length}`);
 
 // ── 1–3. every template, many seeds ────────────────────────────────────────
 const dump: Problem[] = [];

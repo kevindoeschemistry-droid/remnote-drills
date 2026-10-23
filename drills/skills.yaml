@@ -14,6 +14,7 @@ version: 2
 
 domains:
   - { id: calc,    title: "Calculus & linear algebra prerequisites" }
+  - { id: la,      title: "Linear algebra" }
   - { id: ode1,    title: "First-order ODEs" }
   - { id: ode2,    title: "Second-order & higher linear ODEs" }
   - { id: odesys,  title: "Systems of ODEs" }
@@ -31,7 +32,6 @@ skills:
   - { id: calc.by-parts, domain: calc, title: "Integration by parts", aliases: [calc-by-parts] }
   - { id: calc.partial-fractions, domain: calc, title: "Partial fractions", aliases: [calc-partial-fractions] }
   - { id: calc.complex-euler, domain: calc, title: "Complex roots & Euler's formula", aliases: [calc-complex-euler] }
-  - { id: calc.eigen-2x2, domain: calc, title: "2×2 eigenvalues & eigenvectors", aliases: [calc-eigen-2x2] }
   - { id: calc.sigma-shift, domain: calc, title: "Shifting summation indices", aliases: [calc-sigma-shift] }
   - { id: calc.multivariable, domain: calc, title: "Partial derivatives & exact differentials" }
 
@@ -87,6 +87,14 @@ skills:
   - { id: ode1.recognize, domain: ode1, title: "Which first-order method?", kind: classify, aliases: [krey-ch01-recognize],
       pool: [ode1.separable, ode1.substitution, ode1.linear, ode1.bernoulli, ode1.exact] }
 
+  # ── linear algebra (Lay) ────────────────────────────────────────────────
+  - { id: la.row-reduction, domain: la, title: "Solving a system by row reduction", short: "Row reduction", status: live, levels: { 1: [la-system] } }
+  - { id: la.independence, domain: la, title: "Linear independence", short: "Independence", kind: classify, status: live, prereqs: [la.determinant], levels: { 1: [la-independence] } }
+  - { id: la.inverse, domain: la, title: "Inverse of a 2×2 matrix", short: "2×2 inverse", status: live, levels: { 1: [la-inverse] } }
+  - { id: la.determinant, domain: la, title: "3×3 determinants (cofactor expansion)", short: "Determinants", status: live, levels: { 1: [la-det] } }
+  - { id: la.eigenvalues, domain: la, title: "2×2 eigenvalues", short: "Eigenvalues", status: live, aliases: [calc.eigen-2x2, calc-eigen-2x2], prereqs: [la.determinant], levels: { 1: [la-eigenvalues] } }
+  - { id: la.eigenvectors, domain: la, title: "2×2 eigenvectors", short: "Eigenvectors", status: live, prereqs: [la.eigenvalues, la.row-reduction], levels: { 1: [la-eigenvector] } }
+
   # ── second-order & higher linear ODEs ───────────────────────────────────
   - id: ode2.characteristic
     domain: ode2
@@ -139,7 +147,7 @@ skills:
   - { id: ode2.higher-order, domain: ode2, title: "Higher-order characteristic equations", aliases: [krey-ch03-characteristic], prereqs: [ode2.characteristic] }
 
   # ── systems ─────────────────────────────────────────────────────────────
-  - { id: odesys.eigenvalue, domain: odesys, title: "2×2 systems by eigenvalues", aliases: [krey-ch04-eigenvalue], prereqs: [calc.eigen-2x2] }
+  - { id: odesys.eigenvalue, domain: odesys, title: "2×2 systems by eigenvalues", aliases: [krey-ch04-eigenvalue], prereqs: [la.eigenvalues] }
   - id: odesys.kinetics-series
     domain: odesys
     title: "Kinetics A → B → C as a 2×2 system"

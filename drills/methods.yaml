@@ -77,3 +77,33 @@ odesys.kinetics-series:
   - '$[B] = \frac{k_1[A]_0}{k_2 - k_1}(e^{-k_1t} - e^{-k_2t})$ from pure A; $[C] = [A]_0 - [A] - [B]$ (mass balance).'
   - 'Equal rate constants: a repeated eigenvalue, so a $te^{-kt}$ term appears. Peak of B: $t_{max} = \ln(k_1/k_2)/(k_1 - k_2)$.'
   - 'Check: $[B](0) = [B]_0$, $[B] \to 0$, $[C] \to [A]_0$.'
+
+la.row-reduction:
+  - 'Write the augmented matrix $[A\,|\,\mathbf b]$. Three legal moves: swap rows, scale a row, add a multiple of one row to another.'
+  - 'Clear below each pivot, left to right (echelon form), then back-substitute from the bottom row.'
+  - 'Check your answer in one original equation; arithmetic slips hide in the third row.'
+
+la.independence:
+  - 'Independent means $c_1\mathbf v_1 + \dots + c_p\mathbf v_p = \mathbf 0$ only for all $c_i = 0$.'
+  - '$n$ vectors in $\mathbb R^n$: independent exactly when $\det[\mathbf v_1 \cdots \mathbf v_n] \ne 0$. Otherwise row-reduce: a pivot in every column means independent.'
+  - 'Shortcuts: a zero vector, or more vectors than entries, means dependent.'
+
+la.inverse:
+  - '$A = \begin{bmatrix} a & b\\ c & d\end{bmatrix}$: $A^{-1} = \frac{1}{ad - bc}\begin{bmatrix} d & -b\\ -c & a\end{bmatrix}$. Swap the diagonal, negate the off-diagonal.'
+  - 'If $ad - bc = 0$, there is no inverse.'
+  - 'Check: $AA^{-1} = I$.'
+
+la.determinant:
+  - 'Cofactor expansion: pick the row or column with the most zeros; signs follow the checkerboard $+\,-\,+$.'
+  - 'Each term: entry × sign × the $2\times2$ minor $ad - bc$ left after deleting its row and column.'
+  - 'Row operations: a swap flips the sign; adding a multiple of a row changes nothing; scaling a row scales $\det$.'
+
+la.eigenvalues:
+  - 'Solve $\det(A - \lambda I) = 0$. For $2\times2$: $\lambda^2 - (\operatorname{tr}A)\lambda + \det A = 0$.'
+  - 'Check: the eigenvalues sum to the trace and multiply to the determinant.'
+  - 'Triangular matrix: the eigenvalues are the diagonal entries.'
+
+la.eigenvectors:
+  - 'Solve $(A - \lambda I)\mathbf v = \mathbf 0$. The matrix is singular, so one row of a $2\times2$ is enough.'
+  - 'From $a v_1 + b v_2 = 0$, take $\mathbf v = (-b, a)$ or any nonzero multiple.'
+  - 'Check: $A\mathbf v = \lambda\mathbf v$.'

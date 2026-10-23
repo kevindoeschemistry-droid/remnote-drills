@@ -60,7 +60,7 @@ anchor the label opens the linked PDF, and without a PDF, the wiki page.
 Each drill has a **Method** box (formula, when to use it, the usual traps), from
 `drills/methods.yaml`. It works offline and on mobile.
 
-Live now (31 skills):
+Live now (37 skills):
 
 | Domain | Skills |
 |---|---|
@@ -68,6 +68,7 @@ Live now (31 skills):
 | Second-order | characteristic equation (distinct / double / complex roots, IVPs) · undetermined coefficients (polynomial, exponential, trig, modification rule, general solution) · Wronskian · mass–spring undamped (ω₀/T, IVP, amplitude–phase) · mass–spring damped (classify, over/critical/under IVPs) |
 | Systems | A → B → C kinetics as a 2×2 system (matrix, eigenvalues, [B](t), [C](t), t_max) |
 | Series | classify points · recurrence · first terms · radius of convergence · indicial roots · Frobenius case |
+| Linear algebra (Lay 5e) | row reduction · independence · 2×2 inverse · 3×3 determinant · eigenvalues · eigenvectors |
 | Heat transfer (Incropera Ch 1–4) | rate equations · energy balances · heat equation (q̇, flux, ∂T/∂t from T(x)) · plane & composite walls, contact resistance · cylinders, spheres, critical radius · generation (wall, rod) · pin fins (m, infinite, adiabatic tip, efficiency, tip temperature) · shape factors · finite-difference nodes |
 | BVP | S–L eigenvalues · eigenfunctions · shifted spectrum y″ + (λ + c)y = 0 (eigenvalues, eigenfunctions, how many are negative) · self-adjoint form (p, q, r) · regular/periodic/singular |
 

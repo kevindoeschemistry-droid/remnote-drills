@@ -1,0 +1,38 @@
+# Lay, Lay & McDonald, Linear Algebra and Its Applications, 5th ed. (Pearson, 2016)
+# Section numbers checked against the 5th-edition table of contents.
+id: lay-5e
+title: "Lay — Linear Algebra and Its Applications"
+short: "Lay"
+edition: 5
+year: 2016
+field: linear-algebra
+chapters:
+  - n: 1
+    title: "Linear Equations in Linear Algebra"
+    sections:
+      - { ref: "1.1", title: "Systems of Linear Equations" }
+      - { ref: "1.2", title: "Row Reduction and Echelon Forms", skills: [la.row-reduction] }
+      - { ref: "1.3", title: "Vector Equations" }
+      - { ref: "1.4", title: "The Matrix Equation Ax = b" }
+      - { ref: "1.5", title: "Solution Sets of Linear Systems" }
+      - { ref: "1.7", title: "Linear Independence", skills: [la.independence] }
+      - { ref: "1.8", title: "Introduction to Linear Transformations" }
+      - { ref: "1.9", title: "The Matrix of a Linear Transformation" }
+  - n: 2
+    title: "Matrix Algebra"
+    sections:
+      - { ref: "2.1", title: "Matrix Operations" }
+      - { ref: "2.2", title: "The Inverse of a Matrix", skills: [la.inverse] }
+      - { ref: "2.3", title: "Characterizations of Invertible Matrices" }
+  - n: 3
+    title: "Determinants"
+    sections:
+      - { ref: "3.1", title: "Introduction to Determinants", skills: [la.determinant] }
+      - { ref: "3.2", title: "Properties of Determinants" }
+      - { ref: "3.3", title: "Cramer's Rule, Volume, and Linear Transformations" }
+  - n: 5
+    title: "Eigenvalues and Eigenvectors"
+    sections:
+      - { ref: "5.1", title: "Eigenvectors and Eigenvalues", skills: [la.eigenvectors] }
+      - { ref: "5.2", title: "The Characteristic Equation", skills: [la.eigenvalues] }
+      - { ref: "5.3", title: "Diagonalization" }

@@ -244,10 +244,34 @@ def heat_expected(meta):
     raise KeyError(h_)
 
 
+def linalg_ok(a, meta) -> bool:
+    v = meta["variant"]
+    A = sp.Matrix(meta["A"])
+    if v == "system":
+        x = A.LUsolve(sp.Matrix(meta["b"]))
+        return [sp.nsimplify(f["ref"]) for f in a["fields"]] == list(x)
+    if v == "independence":
+        dep = A.rank() < 3
+        return dep == meta["dependent"] and a["correct"] == ("Linearly dependent" if dep else "Linearly independent")
+    if v == "inverse":
+        inv = A.inv()
+        return [P(f["ref"]) for f in a["fields"]] == [inv[0, 0], inv[0, 1], inv[1, 0], inv[1, 1]]
+    if v == "det":
+        return P(a["ref"]) == A.det()
+    if v == "eigenvalues":
+        return sorted(A.eigenvals(multiple=True)) == sorted(sp.nsimplify(x) for x in a["ref"])
+    if v == "eigenvector":
+        vv = sp.Matrix([P(f["ref"]) for f in a["fields"]])
+        return vv != sp.zeros(2, 1) and A * vv == meta["lam"] * vv
+    raise KeyError(v)
+
+
 def check(p) -> bool:
     a = p["answer"]
     meta = p.get("meta", {})
     kind = a["kind"]
+    if meta.get("variant") in ("system", "independence", "inverse", "det", "eigenvalues", "eigenvector") and "A" in meta:
+        return linalg_ok(a, meta)
     if kind == "ode":
         f = P(a["rhs"])
         lhs, rhs = a["ref"].split("=", 1)
