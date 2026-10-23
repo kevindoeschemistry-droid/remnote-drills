@@ -150,3 +150,17 @@ export async function pdfOf(plugin: RNPlugin, hl: AnyRem): Promise<string | unde
   }
   return hl.parent ?? undefined;
 }
+
+/** The newest highlight in the PDF that's open (or that contains the focused rem). */
+export async function latestHighlight(plugin: RNPlugin): Promise<AnyRem | undefined> {
+  const paneRemId = await plugin.window.getOpenPaneRemId(await plugin.window.getFocusedPaneId());
+  let pdf: AnyRem | undefined = paneRemId ? await plugin.rem.findOne(paneRemId) : undefined;
+  // walk up to the uploaded PDF if the pane is showing something inside it
+  for (let i = 0; i < 6 && pdf && !(await pdf.hasPowerup(BuiltInPowerupCodes.UploadedFile)); i++)
+    pdf = pdf.parent ? await plugin.rem.findOne(pdf.parent) : undefined;
+  if (!pdf) return undefined;
+  let best: AnyRem | undefined;
+  for (const r of await pdf.getDescendants())
+    if ((!best || r.createdAt > best.createdAt) && (await r.hasPowerup(BuiltInPowerupCodes.PDFHighlight))) best = r;
+  return best;
+}

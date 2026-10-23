@@ -86,7 +86,7 @@ function Anchor() {
         )}
       </div>
       <p className="odd-hint">
-        Highlight: <b>{hlText || "(no text)"}</b>
+        Anchoring your highlight: <b>{hlText || "(area highlight, no text)"}</b>. Wrong one? Close this, highlight the heading, and run it again.
       </p>
       <div className="odd-fields">
         <label className="odd-field">

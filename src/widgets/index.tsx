@@ -3,7 +3,7 @@ type RemObject = NonNullable<Awaited<ReturnType<RNPlugin["rem"]["findOne"]>>>;
 import "../style.css";
 import { DRILL_POWERUP, DRILL_SLOT, SOURCES_SLOT, ensureDrillDeck, findOrCreateDocument } from "../drills/deck";
 import { SOURCES, sourceLabel } from "../drills/skills";
-import { pdfOf } from "../drills/anchors";
+import { latestHighlight, pdfOf } from "../drills/anchors";
 
 console.log("[WikiSync] bundle loaded");
 
@@ -220,7 +220,7 @@ async function registerDrills(plugin: ReactRNPlugin) {
   });
   await plugin.app.registerCommand({
     id: "drills-anchor-section",
-    name: "Drills: Anchor this section (select the heading in your PDF first)",
+    name: "Drills: Anchor this section (highlight the heading in your PDF first)",
     action: async () => {
       // 1) the text selected in the PDF reader becomes a highlight
       let hl = await plugin.reader.addHighlight().catch(() => undefined);
@@ -229,8 +229,10 @@ async function registerDrills(plugin: ReactRNPlugin) {
         const f = await plugin.focus.getFocusedRem();
         if (f && (await f.hasPowerup(BuiltInPowerupCodes.PDFHighlight))) hl = f;
       }
+      // 3) or the newest highlight in the PDF that's open: highlight the heading, then run this
+      if (!hl) hl = await latestHighlight(plugin);
       if (!hl) {
-        await plugin.app.toast("Use the 📌 Anchor section button in the PDF instead: select the heading, or click your highlight of it.");
+        await plugin.app.toast("Open the book's PDF, highlight the section heading (Highlight button), then run this again.");
         return;
       }
       await plugin.widget.openPopup("anchor", { highlightId: hl._id, pdfId: await pdfOf(plugin, hl), rootName: ROOT_NAME });
