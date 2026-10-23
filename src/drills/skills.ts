@@ -21,6 +21,8 @@ export interface Skill {
   prereqs: string[];
   levels: Record<number, string[]>;
   pool?: string[];
+  /** "Method" notes: one line each, $…$ math */
+  method?: string[];
 }
 
 export interface Section {

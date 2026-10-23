@@ -50,8 +50,15 @@ Wiki Flashcards / Drills
 Cards live under skills, so their review history never moves when books or
 courses change. Books are views built from `sources/`. Each card header
 shows the place in the book chosen by the *label source* setting, linked to
-the wiki page. **Drills: Link PDF to a textbook** (with the PDF open) binds an
-uploaded PDF to a source.
+your copy of the book: **Drills: Anchor this section** (select a section heading
+in the PDF first) turns it into a highlight tied to that section, so the drill label
+(📖) opens your PDF right there, and the "By textbook" contents get a 📖 link
+to it. Anchors and PDF links live in RemNote's synced plugin storage. Without an
+anchor the label opens the linked PDF, and without a PDF, the wiki page.
+**Drills: Link PDF to a textbook** binds a whole PDF to a book.
+
+Each drill has a **Method** box (formula, when to use it, the usual traps), from
+`drills/methods.yaml`. It works offline and on mobile.
 
 Live now (31 skills):
 

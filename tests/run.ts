@@ -265,6 +265,15 @@ for (const [name, p, good, bad] of cases) {
   }
 }
 
+// method notes render
+let methodLines = 0;
+for (const sk of ALL_SKILLS)
+  for (const line of sk.method ?? []) {
+    methodLines++;
+    for (const c of texChunks(line)) katexOk(`method ${sk.id}`, c);
+  }
+console.log(`method notes: ${methodLines} lines rendered`);
+
 fs.mkdirSync("tests/out", { recursive: true });
 fs.writeFileSync("tests/out/problems.json", JSON.stringify(dump));
 console.log(Object.entries(counts).map(([k, v]) => `${k}: ${v}`).join("\n"));

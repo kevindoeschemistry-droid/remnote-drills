@@ -21,6 +21,7 @@
 // v0.2 / v0.3 layouts in place (synced id map + aliases keep every card).
 import type { RNPlugin, RichTextInterface } from "@remnote/plugin-sdk";
 import { liveByDomain, placesFor, placeText, resolveSkill, Section, SOURCES, sourceLabel } from "./skills";
+import { anchorKey, getAnchors } from "./anchors";
 
 export const DRILL_POWERUP = "odeDrill";
 export const DRILL_SLOT = "skill";
@@ -217,6 +218,7 @@ async function buildTables(plugin: RNPlugin, docId: string, groups: Record<strin
   const byBook = await findOrCreateChild(plugin, BY_BOOK, docId, position);
   if (!byBook) return;
   const bindings = await getBindings(plugin);
+  const anchors = await getAnchors(plugin);
   for (let b = 0; b < SOURCES.length; b++) {
     const src = SOURCES[b];
     const bookRem = await findOrCreateChild(plugin, bookTitle(src), byBook._id, b);
@@ -231,15 +233,27 @@ async function buildTables(plugin: RNPlugin, docId: string, groups: Record<strin
       const chRem = await findOrCreateChild(plugin, `Ch ${ch.n} · ${ch.title}`, bookRem._id, c + 1);
       if (!chRem) continue;
       let pos = 0;
+      if (await bookLine(plugin, chRem._id, anchors[anchorKey(src.id, `ch${ch.n}`)])) pos++;
       for (const sid of ch.skills) await skillLine(plugin, chRem._id, sid, groups, pos++);
       for (const sec of ch.sections) {
         const secRem = await findOrCreateChild(plugin, sectionTitle(sec), chRem._id, pos++);
         if (!secRem) continue;
         let k = 0;
+        if (await bookLine(plugin, secRem._id, anchors[anchorKey(src.id, sec.ref)])) k++;
         for (const sid of sec.skills) await skillLine(plugin, secRem._id, sid, groups, k++);
       }
     }
   }
+}
+
+/** "📖 [[highlight]]" — clicking a reference to a PDF highlight opens the book there. */
+async function bookLine(plugin: RNPlugin, parentId: string, highlightId: string | undefined) {
+  const parent = await plugin.rem.findOne(parentId);
+  for (const c of (await parent?.getChildrenRem()) ?? [])
+    if (plain(c.text).startsWith("📖 ") && plain(c.text) !== `📖 @${highlightId}`) await c.remove();
+  if (!highlightId) return false;
+  await ensureLine(plugin, parentId, ["📖 ", { i: "q", _id: highlightId }] as RichTextInterface, 0);
+  return true;
 }
 
 async function skillLine(plugin: RNPlugin, parentId: string, skillId: string, groups: Record<string, string>, pos: number) {

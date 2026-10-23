@@ -2,6 +2,8 @@ import React, { useCallback, useEffect, useMemo, useRef, useState } from "react"
 import { usePlugin, QueueInteractionScore } from "@remnote/plugin-sdk";
 import { generate } from "../drills/registry";
 import { placeText, primaryPlace, resolveSkill, WIKI_BASE } from "../drills/skills";
+import { anchorFor, openPlace } from "../drills/anchors";
+import { getBindings } from "../drills/deck";
 import { check, previewTex } from "../drills/check";
 import { recurrencePreview } from "../drills/check-kinds";
 import { getProgress, recordAttempt, resetProgress, SkillProgress, EMPTY } from "../drills/progress";
@@ -65,6 +67,7 @@ export function DrillPanel({ skill, mode }: { skill: string; mode: "card" | "ses
   const [clearAt, setClearAt] = useState(5);
   const [prefSource, setPrefSource] = useState<string | undefined>();
   const [missedOnce, setMissedOnce] = useState(false);
+  const [showMethod, setShowMethod] = useState(false);
   const firstRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
@@ -158,6 +161,24 @@ export function DrillPanel({ skill, mode }: { skill: string; mode: "card" | "ses
 
   const help = inputHelp(a);
   const place = primaryPlace(meta.id, prefSource);
+  // where the label goes: "anchor" (your PDF at the section), "pdf" (your PDF), or the wiki
+  const [bookTarget, setBookTarget] = useState<"anchor" | "pdf" | "wiki">("wiki");
+  useEffect(() => {
+    let live = true;
+    (async () => {
+      if (!place) return;
+      const t = (await anchorFor(plugin, place)) ? "anchor" : (await getBindings(plugin))[place.source.id] ? "pdf" : "wiki";
+      if (live) setBookTarget(t);
+    })();
+    return () => {
+      live = false;
+    };
+  }, [plugin, place?.source.id, place?.ref]);
+  const openBook = async () => {
+    if (!place) return;
+    const r = await openPlace(plugin, place);
+    if (r === "none" && place.wiki) window.open(WIKI_BASE + place.wiki, "_blank", "noopener");
+  };
   const preview = useMemo(() => {
     const s = inputs[0] ?? "";
     if (!s.trim()) return null;
@@ -170,7 +191,15 @@ export function DrillPanel({ skill, mode }: { skill: string; mode: "card" | "ses
         <span className="odd-skill">
           {place && (
             <>
-              {place.wiki ? (
+              {bookTarget !== "wiki" ? (
+                <button
+                  className="odd-source odd-source-btn"
+                  onClick={openBook}
+                  title={bookTarget === "anchor" ? "Open your PDF at this section" : "Open your PDF (anchor this section to jump straight to it)"}
+                >
+                  📖 {placeText(place)}
+                </button>
+              ) : place.wiki ? (
                 <a className="odd-source" href={WIKI_BASE + place.wiki} target="_blank" rel="noopener noreferrer" title="Open in the wiki">
                   {placeText(place)}
                 </a>
@@ -302,10 +331,32 @@ export function DrillPanel({ skill, mode }: { skill: string; mode: "card" | "ses
         </div>
       )}
 
+      {showMethod && meta.method && (
+        <div className="odd-method">
+          <div className="odd-method-title">Method · {meta.short}</div>
+          <ul>
+            {meta.method.map((line, i) => (
+              <li key={i}>
+                <MathText text={line} />
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+
       <div className="odd-actions">
         {!done && (
           <button className="odd-btn" onClick={reveal}>
             Show solution
+          </button>
+        )}
+        {meta.method && (
+          <button
+            className={"odd-btn" + (phase === "wrong" && !showMethod ? " nudge" : "")}
+            onClick={() => setShowMethod((v) => !v)}
+            title="Formulas, when to use them, and the usual traps"
+          >
+            {showMethod ? "Hide method" : "Method"}
           </button>
         )}
         {done && (

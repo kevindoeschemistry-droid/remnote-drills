@@ -57,6 +57,16 @@ for (const src of sources) {
   }
 }
 
+// ── method notes ──────────────────────────────────────────────────────────
+const methodsFile = path.join(root, "methods.yaml");
+const methods = fs.existsSync(methodsFile) ? load(methodsFile) ?? {} : {};
+for (const [id, lines] of Object.entries(methods)) {
+  const sk = g.skills.find((s) => s.id === id);
+  if (!sk) errors.push(`methods.yaml: unknown skill ${id}`);
+  else if (!Array.isArray(lines) || lines.some((l) => typeof l !== "string")) errors.push(`methods.yaml: ${id} must be a list of strings`);
+  else sk.method = lines;
+}
+
 // ── courses ───────────────────────────────────────────────────────────────
 const coursesFile = path.join(root, "courses.yaml");
 const courses = fs.existsSync(coursesFile) ? load(coursesFile).courses ?? [] : [];

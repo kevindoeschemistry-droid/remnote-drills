@@ -1,0 +1,79 @@
+# Method notes shown in each drill's "Method" box: what to use, when, and the traps.
+# One short line each, $...$ for math. Keyed by skill id (validated at build time).
+
+ht.rate-equations:
+  - 'Three mechanisms, three laws: conduction $q''''_x = k\,\Delta T/L$ (slab), convection $q'''' = h(T_s - T_\infty)$, radiation $q''''_{rad} = \varepsilon\sigma(T_s^4 - T_{sur}^4)$.'
+  - 'Flux $q''''$ (W/m²) or rate $q = q''''A$ (W)? Read which one is asked. For a rod, $A = \pi DL$, the lateral area.'
+  - 'Radiation in kelvin, always. $\sigma = 5.67\times10^{-8}\ \mathrm{W/m^2K^4}$.'
+  - '$h_r = \varepsilon\sigma(T_s + T_{sur})(T_s^2 + T_{sur}^2)$ rewrites radiation as $h_r(T_s - T_{sur})$.'
+  - 'Lengths in metres: cm ÷ 100, mm ÷ 1000.'
+
+ht.energy-balance:
+  - 'Draw the surface or control volume, then every arrow in and out: $\dot E_{in} - \dot E_{out} + \dot E_g = \dot E_{st}$. Steady means $\dot E_{st} = 0$.'
+  - 'A surface has no volume: no generation, no storage. Conduction in = convection out + radiation out.'
+  - 'Heated wire, per metre: $I^2R''_e = h\pi D(T_s - T_\infty) + \varepsilon\sigma\pi D(T_s^4 - T_{sur}^4)$.'
+  - 'Radiation terms in kelvin; convection differences can stay in °C.'
+
+ht.heat-equation:
+  - '1-D, constant $k$: $\rho c_p\,\partial T/\partial t = k\,\partial^2T/\partial x^2 + \dot q$.'
+  - 'Given $T(x)$, just differentiate: flux $q''''_x = -k\,dT/dx$ (positive in $+x$); steady generation $\dot q = -k\,d^2T/dx^2$.'
+  - 'Curvature tells the story: concave down ($T'''' < 0$) means heat is being generated inside.'
+  - 'Transient: $\partial T/\partial t = (kT'''' + \dot q)/(\rho c_p)$.'
+
+ht.resistance-plane:
+  - 'Heat through layers in series is current through resistors: $q'''' = \Delta T_{overall}/R''''_{tot}$.'
+  - 'Per unit area: $R''''_{conv} = 1/h$, $R''''_{cond} = L/k$, contact $R''''_{t,c}$. Add them; $U = 1/R''''_{tot}$.'
+  - 'Interior temperatures: the same $q''''$ crosses every layer, so walk through it: $T_{s,i} = T_{\infty,i} - q''''/h_i$, then subtract $q''''L/k$ per layer.'
+  - 'The biggest resistance takes the biggest temperature drop.'
+
+ht.resistance-radial:
+  - 'Area grows with $r$, so $L/k$ becomes: cylinder $R''_{cond} = \ln(r_2/r_1)/(2\pi k)$; sphere $R_{cond} = (1/r_1 - 1/r_2)/(4\pi k)$.'
+  - 'Outside convection uses the outer area: $R''_{conv} = 1/(2\pi r_2h)$; sphere $1/(4\pi r_2^2h)$.'
+  - 'Critical radius $r_{cr} = k/h$ (cylinder), $2k/h$ (sphere). Below it, more insulation means more heat loss.'
+  - 'Radii in metres; $r_2 = r_1 +$ insulation thickness.'
+
+ht.generation:
+  - 'Overall balance first: everything generated leaves through the cooled surface. Wall $T_s = T_\infty + \dot qL/h$; rod $T_s = T_\infty + \dot qr_o/(2h)$.'
+  - 'Then the parabola: wall $T_{max} = T_s + \dot qL^2/(2k)$; rod $T_0 = T_s + \dot qr_o^2/(4k)$.'
+  - '$L$ is the half-thickness of a wall cooled on both sides, but the full thickness if one face is insulated (the max sits on that face).'
+
+ht.fins:
+  - '$m = \sqrt{hP/(kA_c)}$. Pin: $P = \pi D$, $A_c = \pi D^2/4$, so $m = \sqrt{4h/(kD)}$.'
+  - '$M = \sqrt{hPkA_c}\,\theta_b$ with $\theta_b = T_b - T_\infty$.'
+  - 'Infinite: $q_f = M$. Adiabatic tip: $q_f = M\tanh mL$ and $\theta(L)/\theta_b = 1/\cosh mL$. If $mL > 2.65$, $\tanh mL \approx 1$: it''s effectively infinite.'
+  - 'Efficiency $\eta_f = \tanh(mL_c)/(mL_c)$, corrected length $L_c = L + D/4$ (pin) or $L + t/2$ (straight fin).'
+
+ht.shape-factors:
+  - 'Between two isothermal surfaces in 2-D: $q = Sk(T_1 - T_2)$, with $S$ (in metres) from Table 4.1.'
+  - 'Buried cylinder $S = 2\pi L/\cosh^{-1}(2z/D)$; buried sphere $S = 2\pi D/(1 - D/4z)$; cylinder centred in a square $S = 2\pi L/\ln(1.08w/D)$.'
+  - '$z$ is measured to the centre or centreline, not to the top of the pipe.'
+
+ht.finite-difference:
+  - 'Energy balance on the node''s own cell: for each neighbour, $k\,(\text{face})\,(T_{nb} - T_m)/\Delta x$; add convection and $\dot q\,(\text{cell area})$; total $= 0$.'
+  - 'Interior, $\Delta x = \Delta y$: $T_m = \left(\sum T_{nb} + \dot q\Delta x^2/k\right)/4$.'
+  - 'Plane surface: half-faces to the two neighbours along the surface, convection over the full face $\Delta y$. External corner: quarter cell, two half-faces.'
+  - 'Sanity check: the node temperature lies between its neighbours and $T_\infty$.'
+
+ode2.characteristic:
+  - 'Try $y = e^{\lambda x}$: $ay'''' + by'' + cy = 0$ becomes $a\lambda^2 + b\lambda + c = 0$.'
+  - 'Distinct real roots: $c_1e^{\lambda_1x} + c_2e^{\lambda_2x}$. Double root: $(c_1 + c_2x)e^{\lambda x}$. Complex $\alpha \pm \beta i$: $e^{\alpha x}(c_1\cos\beta x + c_2\sin\beta x)$.'
+  - 'IVP: write the general solution, then $y(0)$ and $y''(0)$ give two equations for $c_1, c_2$.'
+  - 'Check by plugging back in — especially the sign of $\alpha$.'
+
+ode2.undetermined:
+  - '$y = y_h + y_p$. Guess $y_p$ shaped like the right side: polynomial → full polynomial of the same degree; $Ke^{kx}$; $\cos\omega x$ or $\sin\omega x$ → both $K\cos\omega x + M\sin\omega x$.'
+  - 'Modification rule: if your guess already solves the homogeneous equation, multiply by $x$ (by $x^2$ for a double root).'
+  - 'Apply initial conditions to $y_h + y_p$, never to $y_h$ alone.'
+  - 'Check: $y_p'''' + by_p'' + cy_p$ must give back the right side exactly.'
+
+bvp.sl-shifted:
+  - 'Substitute $\omega = \lambda + c$: now it''s the plain problem $y'''' + \omega y = 0$ with the same boundary conditions.'
+  - 'Run all three cases on $\omega$: $\omega < 0$ (cosh/sinh), $\omega = 0$ ($A + Bx$), $\omega > 0$ (cos/sin). Dirichlet–Dirichlet: only $\omega > 0$ survives; Neumann–Neumann adds $\omega = 0$.'
+  - 'Undo it: $\lambda_n = \omega_n - c$. Eigenfunctions don''t change; eigenvalues shift, and some can go negative or land exactly on 0.'
+
+odesys.kinetics-series:
+  - '$A \to B \to C$: $\frac{d}{dt}([A],[B]) = M([A],[B])$ with $M = \begin{pmatrix}-k_1 & 0\\ k_1 & -k_2\end{pmatrix}$. C never feeds back, so the $2\times2$ block is the whole problem.'
+  - 'Triangular, so the eigenvalues are $-k_1, -k_2$; eigenvectors $(k_2 - k_1, k_1)$ and $(0, 1)$.'
+  - '$[B] = \frac{k_1[A]_0}{k_2 - k_1}(e^{-k_1t} - e^{-k_2t})$ from pure A; $[C] = [A]_0 - [A] - [B]$ (mass balance).'
+  - 'Equal rate constants: a repeated eigenvalue, so a $te^{-kt}$ term appears. Peak of B: $t_{max} = \ln(k_1/k_2)/(k_1 - k_2)$.'
+  - 'Check: $[B](0) = [B]_0$, $[B] \to 0$, $[C] \to [A]_0$.'
