@@ -8,7 +8,7 @@ import { Rng } from "./rng";
 import type { Draft } from "./types";
 import { m } from "./tex";
 import { Q } from "./rational";
-import { require_ } from "./reject";
+import { Reject, require_ } from "./reject";
 import { fmt } from "./gen-heat";
 
 const R = 8.314;
@@ -648,7 +648,21 @@ const vdwGiven = (G: (typeof VDW)[number]) =>
 const dPdVvdw = (a: number, b: number, T: number, V: number) => -(R * T) / (V - b) ** 2 + (2 * a) / V ** 3;
 const STAB2 = ["Stable (κ_T > 0)", "Unstable (κ_T < 0)"];
 
-function stVdwStable(r: Rng): Draft {
+/** Pick the answer first, then redraw inputs until they give it: keeps a two-way choice 50/50. */
+function balanced(r: Rng, make: (want: boolean) => Draft): Draft {
+  const want = r.chance(0.5);
+  for (let i = 0; i < 300; i++) {
+    try {
+      return make(want);
+    } catch (e) {
+      if (!(e instanceof Reject)) throw e;
+    }
+  }
+  throw new Reject();
+}
+
+const stVdwStable = (r: Rng) => balanced(r, (wantStable) => stVdwStableFor(r, wantStable));
+function stVdwStableFor(r: Rng, wantStable: boolean): Draft {
   const G = r.pick(VDW);
   const Tc = (8 * G.a) / (27 * R * G.b);
   const T = Math.round(Tc * r.pick([0.8, 0.85, 0.9, 0.95, 1.1]));
@@ -657,6 +671,7 @@ function stVdwStable(r: Rng): Draft {
   const scale = (R * T) / (V - G.b) ** 2;
   require_(V > 1.2 * G.b && Math.abs(d) > 0.05 * scale);
   const stable = d < 0;
+  require_(stable === wantStable);
   const correct = STAB2[stable ? 0 : 1];
   return choice(STAB2, correct, `\\text{${stable ? "Stable" : "Unstable"}}`, [
     `Mechanical stability: ${m("\\kappa_T = -\\frac1V\\left(\\frac{\\partial V}{\\partial P}\\right)_T > 0")}, i.e. ${m("\\left(\\frac{\\partial P}{\\partial V}\\right)_T < 0")}.`,
@@ -957,7 +972,8 @@ function ceExtent(r: Rng): Draft {
 }
 
 const DIR = ["Forward (toward products)", "Reverse (toward reactants)", "Already at equilibrium"];
-function ceDirection(r: Rng): Draft {
+const ceDirection = (r: Rng) => balanced(r, (wantForward) => ceDirectionFor(r, wantForward));
+function ceDirectionFor(r: Rng, wantForward: boolean): Draft {
   const dG = r.pick([-6, -4, -2, 2, 4, 5, 8]);
   const T = r.pick([298, 350, 400]);
   const pA = r.pick([0.1, 0.25, 0.5, 1, 2]);
@@ -965,7 +981,7 @@ function ceDirection(r: Rng): Draft {
   const K = Math.exp((-dG * 1000) / (R * T));
   const Qv = (pB * pB) / pA;
   const lnr = Math.log(Qv / K);
-  require_(Math.abs(lnr) > 0.3);
+  require_(Math.abs(lnr) > 0.3 && (Qv < K) === wantForward);
   const dGr = dG * 1000 + R * T * Math.log(Qv);
   const correct = DIR[Qv < K ? 0 : 1];
   return choice(DIR, correct, `\\text{${Qv < K ? "Forward" : "Reverse"}}`, [
