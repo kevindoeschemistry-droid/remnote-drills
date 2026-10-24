@@ -1,0 +1,25 @@
+# Classical thermodynamics (Dill & Bromberg 2e; Shell 2015). Generators: src/drills/gen-thermo.ts
+thermo.fundamental-equation:
+  short: "Fundamental equation"
+  levels: { 1: [th-fe-entropy-rep, th-fe-energy-rep, th-fe-ideal, th-fe-euler, th-fe-gibbs-duhem] }
+thermo.first-law:
+  short: "First law, ideal-gas paths"
+  levels: { 1: [th-fl-isothermal, th-fl-adiabatic, th-fl-isobaric, th-fl-isochoric] }
+thermo.legendre:
+  short: "Legendre transforms"
+  levels: { 1: [th-lg-helmholtz, th-lg-enthalpy, th-lg-natural, th-lg-derive, th-lg-gibbs-helmholtz] }
+thermo.maxwell:
+  short: "Maxwell relations"
+  levels: { 1: [th-mx-pick, th-mx-measurable, th-mx-eos, th-mx-triple] }
+thermo.stability:
+  short: "Stability"
+  levels: { 1: [th-st-concavity, th-st-cv, th-st-vdw-stable, th-st-vdw-tc, th-st-vdw-kappa] }
+thermo.phase-equilibrium:
+  short: "Clapeyron & Clausius–Clapeyron"
+  levels: { 1: [th-pe-cc-pressure, th-pe-cc-enthalpy, th-pe-cc-temperature, th-pe-clapeyron] }
+thermo.solutions:
+  short: "Ideal & real solutions"
+  levels: { 1: [th-so-mix-entropy, th-so-mix-gibbs, th-so-raoult, th-so-henry, th-so-activity] }
+thermo.chemical-equilibrium:
+  short: "Chemical equilibrium"
+  levels: { 1: [th-ce-k, th-ce-dg, th-ce-vant-hoff, th-ce-extent, th-ce-direction] }

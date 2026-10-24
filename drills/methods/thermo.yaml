@@ -1,0 +1,50 @@
+# Method notes for classical thermodynamics (one short line each, $...$ for math).
+
+thermo.fundamental-equation:
+  - 'Entropy representation: $\frac1T = \left(\frac{\partial S}{\partial U}\right)_{V,N}$, $\frac PT = \left(\frac{\partial S}{\partial V}\right)_{U,N}$, $\frac{\mu}{T} = -\left(\frac{\partial S}{\partial N}\right)_{U,V}$.'
+  - 'Energy representation: $T = \partial U/\partial S$, $P = -\partial U/\partial V$, $\mu = \partial U/\partial N$. Watch the minus sign on $P$.'
+  - 'Power laws differentiate in one line: $\partial(AU^gV^b)/\partial U = gS/U$. Dividing two derivatives cancels $A$.'
+  - 'Euler (extensivity): $U = TS - PV + \mu N$. Gibbs–Duhem: $S\,dT - V\,dP + N\,d\mu = 0$, so at fixed $T$, $d\mu = v\,dP$.'
+
+thermo.first-law:
+  - '$\Delta U = q + w$, $w$ = work done ON the gas, $\delta w = -P\,dV$. Expansion: $w < 0$.'
+  - 'Isothermal ideal gas: $\Delta U = 0$, $w = -nRT\ln(V_2/V_1)$, $q = -w$.'
+  - 'Reversible adiabatic: $q = 0$, $T_2 = T_1(V_1/V_2)^{R/C_V}$, $w = nC_V(T_2 - T_1)$. $C_V = \tfrac32R$ monatomic, $\tfrac52R$ diatomic.'
+  - 'Isobaric: $w = -nR\Delta T$, $q = nC_P\Delta T$, $C_P = C_V + R$. Isochoric: $w = 0$, $q = nC_V\Delta T$.'
+  - 'Litres to m³: divide by 1000. Temperatures in kelvin.'
+
+thermo.legendre:
+  - 'Each Legendre term swaps a pair: $-TS$ ($S \to T$), $+PV$ ($V \to P$), $-\mu N$ ($N \to \mu$). $F = U - TS$, $H = U + PV$, $G = H - TS$.'
+  - 'To get $F(T, V, N)$: solve $T = \partial U/\partial S$ for $S$, then substitute into $U - TS$. An answer still containing $S$ is not in natural variables.'
+  - 'Derivatives back out: $dF = -S\,dT - P\,dV + \mu\,dN$, $dG = -S\,dT + V\,dP + \mu\,dN$.'
+  - 'Gibbs–Helmholtz: $H = G + TS = G - T(\partial G/\partial T)_P$.'
+
+thermo.maxwell:
+  - 'Pick the potential whose natural variables are the two in the derivative (the one held fixed and the one varied): $(T, V) \to F$, $(T, P) \to G$, $(S, V) \to U$, $(S, P) \to H$.'
+  - 'Equal mixed partials: $(\partial S/\partial V)_T = (\partial P/\partial T)_V$, $(\partial S/\partial P)_T = -(\partial V/\partial T)_P$.'
+  - 'Measurables: $\alpha = \frac1V(\partial V/\partial T)_P$, $\kappa_T = -\frac1V(\partial V/\partial P)_T$; triple product gives $(\partial P/\partial T)_V = \alpha/\kappa_T$.'
+  - 'Internal pressure: $(\partial U/\partial V)_T = T(\partial P/\partial T)_V - P$. Zero for an ideal gas; $a/V^2$ for van der Waals.'
+
+thermo.stability:
+  - 'Stable means $S(U, V)$ is concave: $S_{UU} < 0$ ($C_V > 0$), $S_{VV} < 0$, and $S_{UU}S_{VV} - S_{UV}^2 > 0$.'
+  - 'Mechanical stability: $\kappa_T > 0$, i.e. $(\partial P/\partial V)_T < 0$. van der Waals: $(\partial P/\partial V)_T = -RT/(V-b)^2 + 2a/V^3$.'
+  - 'The unstable region first appears at the critical point, where $P_V = P_{VV} = 0$: $V_c = 3b$, $T_c = 8a/(27Rb)$.'
+  - '$C_V = (\partial U/\partial T)_V$: write $U(T, V)$ first by inverting $1/T = \partial S/\partial U$.'
+
+thermo.phase-equilibrium:
+  - 'Coexistence: $\mu_\alpha = \mu_\beta$ along the line, so $dP/dT = \Delta H/(T\Delta V)$ (Clapeyron).'
+  - 'Vapor ideal, liquid volume neglected: $\ln(P_2/P_1) = -\frac{\Delta H_{vap}}{R}\left(\frac1{T_2} - \frac1{T_1}\right)$.'
+  - 'Order matters: $1/T_2 - 1/T_1$ with the same labels as $P_2/P_1$. Kelvin only; $\Delta H$ in J/mol with $R = 8.314$.'
+  - 'Melting: $\Delta V$ is small and can be negative (ice), so $dP/dT$ is huge and can be negative.'
+
+thermo.solutions:
+  - 'Ideal: $\mu_i = \mu_i^* + RT\ln x_i$. $\Delta G_{mix} = RT\sum n_i\ln x_i$, $\Delta S_{mix} = -R\sum n_i\ln x_i$, $\Delta H_{mix} = 0$.'
+  - 'Raoult (solvent): $p_i = x_iP_i^*$; Henry (dilute solute): $p_i = K_Hx_i$. Vapor composition: $y_i = p_i/P$.'
+  - 'Real: $a_i = \gamma_ix_i$, so $\gamma_i = p_i/(x_iP_i^*)$. $\gamma > 1$ is a positive deviation.'
+  - 'Regular solution: $RT\ln\gamma_A = Wx_B^2$ — the OTHER component''s mole fraction.'
+
+thermo.chemical-equilibrium:
+  - '$\Delta G^\circ = -RT\ln K$; $\Delta G = \Delta G^\circ + RT\ln Q$. $Q < K$: runs forward.'
+  - 'Units: $\Delta G^\circ$ in kJ/mol × 1000 before dividing by $RT$.'
+  - 'van ''t Hoff: $\ln(K_2/K_1) = -\frac{\Delta H^\circ}{R}\left(\frac1{T_2} - \frac1{T_1}\right)$. Exothermic: $K$ falls as $T$ rises.'
+  - 'Extent: write moles of each species in terms of $\xi$, then $p_i = (n_i/n_{tot})P$, plug into $K$, solve for $\xi$ (between 0 and $n_0$).'
