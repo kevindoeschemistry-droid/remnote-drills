@@ -1,0 +1,63 @@
+# Method notes for the calc.* prerequisites and the rest of Kreyszig Ch 1.
+
+calc.u-sub:
+  - 'Look for an inner function whose derivative sits outside: $\int f(g(x))\,g''(x)\,dx = \int f(u)\,du$ with $u = g(x)$.'
+  - 'Write $du = g''(x)\,dx$ and solve for what is in the integrand: $x\,dx = du/2$ for $u = x^2 + 4$. Constants come out front.'
+  - 'Linear inside: $\int f(ax + b)\,dx = \frac{1}{a}F(ax + b)$. Don''t forget the $1/a$.'
+  - 'Numerator = derivative of denominator: $\int \frac{g''}{g}\,dx = \ln|g| + C$.'
+  - 'Back-substitute: the answer is in $x$, not $u$.'
+
+calc.by-parts:
+  - '$\int u\,dv = uv - \int v\,du$. Choose $u$ by LIATE: Log, Inverse trig, Algebraic, Trig, Exponential.'
+  - 'Polynomial times $e^{ax}$ or $\sin/\cos$: $u$ = the polynomial. Degree $n$ means $n$ rounds; tabular: differentiate $u$ to 0, integrate $dv$, alternate $+,-,+$.'
+  - '$\ln x$ or $\arctan x$ alone: $u = \ln x$, $dv = dx$.'
+  - '$e^{ax}\sin bx$: parts twice, the integral comes back; solve for it: $\frac{e^{ax}(a\sin bx - b\cos bx)}{a^2 + b^2}$.'
+
+calc.partial-fractions:
+  - 'Degree on top $\ge$ degree below? Divide first.'
+  - 'Factor the denominator. Distinct linear $\frac{A}{x - a}$; repeated $\frac{A}{x - a} + \frac{B}{(x - a)^2}$; irreducible $\frac{Bx + D}{x^2 + k^2}$.'
+  - 'Cover-up for a simple root: $A = \left.\frac{N(x)}{\text{other factors}}\right|_{x = a}$. Compare coefficients for the rest.'
+  - 'Integrals: $\ln|x - a|$, $-\frac{1}{x - a}$, $\frac{1}{2}\ln(x^2 + k^2)$, $\frac{1}{k}\arctan\frac{x}{k}$.'
+
+calc.complex-euler:
+  - 'Euler: $e^{i\theta} = \cos\theta + i\sin\theta$, so $re^{i\theta} = r\cos\theta + ir\sin\theta$.'
+  - 'Polar: $r = \sqrt{a^2 + b^2}$; pick $\theta$ from the signs of $a, b$ (quadrant), not $\arctan(b/a)$ alone.'
+  - 'De Moivre: $(re^{i\theta})^n = r^ne^{in\theta}$. Reduce $n\theta$ mod $2\pi$ before converting back.'
+  - 'Roots $\alpha \pm \beta i$: $e^{(\alpha + \beta i)x} = e^{\alpha x}(\cos\beta x + i\sin\beta x)$; real and imaginary parts are the two real solutions.'
+
+calc.sigma-shift:
+  - 'To get $x^k$ from $x^{n + j}$: set $k = n + j$, so $n = k - j$. Replace every $n$, including the lower limit.'
+  - 'Differentiating $\sum a_nx^n$ kills the first term: $y'' = \sum_{n=1}^\infty na_nx^{n-1} = \sum_{k=0}^\infty (k+1)a_{k+1}x^k$.'
+  - '$y'''' = \sum_{n=2}^\infty n(n-1)a_nx^{n-2} = \sum_{k=0}^\infty (k+2)(k+1)a_{k+2}x^k$.'
+  - 'A factor $x^p$ in front just adds $p$ to the power. Line all sums up at the same $x^k$ and the same start before adding.'
+
+calc.multivariable:
+  - '$\partial f/\partial x$: differentiate in $x$, treating $y$ as a constant (and vice versa). $\partial_x(y^2e^{3x}) = 3y^2e^{3x}$.'
+  - 'Mixed partials agree: $f_{xy} = f_{yx}$. Watch $e^{kxy}$: $\partial_x e^{kxy} = ky\,e^{kxy}$.'
+  - 'Implicit curve $u(x, y) = c$: $dy/dx = -u_x/u_y$.'
+  - '$M\,dx + N\,dy$ is exact (some $du$) exactly when $M_y = N_x$.'
+
+ode1.exact:
+  - 'Form $M\,dx + N\,dy = 0$. Test $\partial M/\partial y = \partial N/\partial x$ first.'
+  - '$u = \int M\,dx + k(y)$; then $u_y = N$ gives $k''(y)$. Terms of $N$ already produced by $u_y$ don''t go into $k$.'
+  - 'Solution $u(x, y) = c$ (implicit is fine). IVP: $c = u(x_0, y_0)$.'
+  - 'Trap: adding $\int M\,dx$ and $\int N\,dy$ double-counts the mixed terms.'
+
+ode1.exact-if:
+  - 'Not exact: $P\,dx + Q\,dy = 0$ with $P_y \ne Q_x$. Look for $F$ making $FP\,dx + FQ\,dy$ exact.'
+  - '$R = \frac{1}{Q}(P_y - Q_x)$ depends on $x$ only: $F(x) = \exp\int R\,dx$.'
+  - '$R^* = \frac{1}{P}(Q_x - P_y)$ depends on $y$ only: $F^*(y) = \exp\int R^*\,dy$. Note the reversed order.'
+  - 'Then solve the exact equation; the solution is $u(x, y) = c$ for the new $M = FP$, $N = FQ$.'
+
+ode1.modeling:
+  - 'Rate of change = in − out. Mixing: $y'' = (\text{rate})(\text{conc in}) - (\text{rate})\,y/V$; limit $y \to (\text{conc in})V$.'
+  - 'Newton cooling: $T'' = -k(T - T_A)$, $T = T_A + (T_0 - T_A)e^{-kt}$. One measurement fixes $k$.'
+  - 'Decay / growth: $y = y_0e^{\pm kt}$; half-life $H$: $k = \ln 2/H$, $y = y_0 2^{-t/H}$. $^{14}$C: $H = 5715$ yr.'
+  - 'Logistic $y'' = Ay - By^2$: Bernoulli, $y = \frac{A/B}{1 + Ce^{-At}}$, $y \to A/B$.'
+  - 'Units: keep minutes with minutes; $\ln$ of a ratio has none.'
+
+ode1.recognize:
+  - 'Separable: $y'' = g(x)h(y)$ — factor first ($xy^2 + x = x(y^2 + 1)$).'
+  - 'Linear: $y'' + p(x)y = r(x)$, $y$ to the first power only. Bernoulli: the same plus $g(x)y^n$.'
+  - 'Substitution: a function of $y/x$ (homogeneous) or of $ax + by + c$.'
+  - 'Exact: given $M\,dx + N\,dy = 0$, test $M_y = N_x$; if not, try an integrating factor.'

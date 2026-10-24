@@ -16,14 +16,15 @@ chapters:
   - n: 1
     title: "First-Order ODEs"
     wiki: textbooks/kreyszig-advanced-engineering-mathematics/ch01
+    skills: [ode1.recognize]
     sections:
       - { ref: "1.1", title: "Basic Concepts. Modeling" }
       - { ref: "1.2", title: "Direction Fields, Euler's Method" }
-      - { ref: "1.3", title: "Separable ODEs. Modeling", skills: [ode1.separable, ode1.substitution, ode1.modeling],
+      - { ref: "1.3", title: "Separable ODEs. Modeling", skills: [ode1.separable, ode1.substitution, ode1.modeling, calc.u-sub, calc.partial-fractions],
           wiki: textbooks/kreyszig-advanced-engineering-mathematics/ch01-separable }
-      - { ref: "1.4", title: "Exact ODEs. Integrating Factors", skills: [ode1.exact, ode1.exact-if],
+      - { ref: "1.4", title: "Exact ODEs. Integrating Factors", skills: [ode1.exact, ode1.exact-if, calc.multivariable],
           wiki: textbooks/kreyszig-advanced-engineering-mathematics/ch01-exact }
-      - { ref: "1.5", title: "Linear ODEs. Bernoulli Equation. Population Dynamics", skills: [ode1.linear, ode1.linear-ibp, ode1.bernoulli, ode1.modeling],
+      - { ref: "1.5", title: "Linear ODEs. Bernoulli Equation. Population Dynamics", skills: [ode1.linear, ode1.linear-ibp, ode1.bernoulli, ode1.modeling, calc.by-parts],
           wiki: textbooks/kreyszig-advanced-engineering-mathematics/ch01-linear }
       - { ref: "1.6", title: "Orthogonal Trajectories" }
       - { ref: "1.7", title: "Existence and Uniqueness of Solutions for Initial Value Problems" }
@@ -32,7 +33,7 @@ chapters:
     wiki: textbooks/kreyszig-advanced-engineering-mathematics/ch02
     sections:
       - { ref: "2.1", title: "Homogeneous Linear ODEs of Second Order", skills: [ode2.reduction] }
-      - { ref: "2.2", title: "Homogeneous Linear ODEs with Constant Coefficients", skills: [ode2.characteristic],
+      - { ref: "2.2", title: "Homogeneous Linear ODEs with Constant Coefficients", skills: [ode2.characteristic, calc.complex-euler],
           wiki: textbooks/kreyszig-advanced-engineering-mathematics/ch02-characteristic }
       - { ref: "2.3", title: "Differential Operators" }
       - { ref: "2.4", title: "Modeling of Free Oscillations of a Mass–Spring System", skills: [ode2.spring-undamped, ode2.spring-damped],
@@ -59,7 +60,7 @@ chapters:
     title: "Series Solutions of ODEs. Special Functions"
     wiki: textbooks/kreyszig-advanced-engineering-mathematics/ch05
     sections:
-      - { ref: "5.1", title: "Power Series Method", skills: [series.recurrence, series.terms, series.radius],
+      - { ref: "5.1", title: "Power Series Method", skills: [series.recurrence, series.terms, series.radius, calc.sigma-shift],
           wiki: textbooks/kreyszig-advanced-engineering-mathematics/ch05-power-series }
       - { ref: "5.2", title: "Legendre's Equation. Legendre Polynomials", skills: [series.special-functions],
           wiki: textbooks/kreyszig-advanced-engineering-mathematics/ch05-legendre }
