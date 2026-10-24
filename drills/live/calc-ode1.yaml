@@ -1,0 +1,11 @@
+# Switches the calc.* prerequisites and the rest of Kreyszig Ch 1 live (merged into skills.yaml at build).
+calc.u-sub: { short: "u-substitution", levels: { 1: [usub-poly, usub-exp, usub-trig, usub-log, usub-ratio, usub-linear] } }
+calc.by-parts: { short: "By parts", levels: { 1: [parts-x-exp, parts-x-trig, parts-x-log, parts-tabular, parts-exp-trig, parts-inverse] } }
+calc.partial-fractions: { short: "Partial fractions", levels: { 1: [pf-distinct, pf-repeated, pf-three, pf-irreducible, pf-improper, pf-coeffs] } }
+calc.complex-euler: { short: "Complex & Euler", levels: { 1: [euler-rect, euler-polar, euler-demoivre, euler-quad-roots, euler-re-im] } }
+calc.sigma-shift: { short: "Index shifts", levels: { 1: [sigma-shift-down, sigma-shift-up, sigma-prefactor, sigma-derivative, sigma-combine] } }
+calc.multivariable: { short: "Partial derivatives", levels: { 1: [mv-partial, mv-mixed, mv-implicit, mv-exact-test] } }
+ode1.exact: { short: "Exact", levels: { 1: [exact-poly, exact-trans, exact-exy, exact-ivp] } }
+ode1.exact-if: { short: "Integrating factors", levels: { 1: [if-factor-x, if-factor-y, if-solve, if-test] } }
+ode1.modeling: { short: "Modeling", levels: { 1: [model-mixing, model-cooling, model-decay, model-logistic] } }
+ode1.recognize: { short: "Which method?", kind: classify, levels: { 1: [recog-separable, recog-substitution, recog-linear, recog-bernoulli, recog-exact] } }
