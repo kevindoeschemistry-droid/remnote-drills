@@ -17,7 +17,7 @@ interface Compiled {
 
 const KNOWN_FUNCS = new Set([
   "sin", "cos", "tan", "sec", "csc", "cot", "asin", "acos", "atan", "arcsin", "arccos", "arctan",
-  "sinh", "cosh", "tanh", "sqrt", "cbrt", "exp", "log", "ln", "abs", "atan2",
+  "sinh", "cosh", "tanh", "sqrt", "cbrt", "exp", "log", "ln", "abs", "atan2", "heaviside",
 ]);
 
 /** Drop a leading "label =" (W =, y_n =, λ_n =, R =) when there is exactly one "=". */
@@ -67,7 +67,7 @@ function checkExpression(a: ExprAnswer, raw: string): CheckResult {
   const extra = mine.symbols.filter((s) => !vars.includes(s));
   if (extra.length) return syntax(`Unexpected symbol${extra.length > 1 ? "s" : ""}: ${extra.join(", ")}.`);
   const tol = a.tol ?? 1e-6;
-  const points: Scope[] = vars.length ? SAMPLES.map((v) => Object.fromEntries(vars.map((n, i) => [n, v + 0.11 * i]))) : [{}];
+  const points: Scope[] = a.points ?? (vars.length ? SAMPLES.map((v) => Object.fromEntries(vars.map((n, i) => [n, v + 0.11 * i]))) : [{}]);
   let ratio: number | null = null;
   let ok = 0;
   for (const pt of points) {
@@ -495,7 +495,7 @@ function checkTuple(a: TupleAnswer, inputs: string[]): CheckResult {
     comps.push(c);
   }
   const refs = a.fields.map((f) => compile(f.ref, false)!);
-  const points: Scope[] = vars.length ? SAMPLES.slice(0, 5).map((v) => ({ [vars[0]]: v })) : [{}];
+  const points: Scope[] = a.points ?? (vars.length ? SAMPLES.slice(0, 5).map((v) => ({ [vars[0]]: v })) : [{}]);
   let ratio: number | null = null;
   const bad: string[] = [];
   a.fields.forEach((field, i) => {

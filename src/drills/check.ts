@@ -21,17 +21,28 @@ import { checkOther } from "./check-kinds";
 export const math = create(all, {});
 // students write ln; mathjs log(x) is already natural log
 math.import({ ln: (v: number) => Math.log(v), arctan: Math.atan, arcsin: Math.asin, arccos: Math.acos }, { override: true });
+// unit step (Laplace §6.3): u(t-a), H(t-a), u_a(t), heaviside(t-a), step(t-a)
+math.import({ heaviside: (v: number) => (v >= 0 ? 1 : 0) }, { override: true });
 
 const FUNCS = [
   "arcsin", "arccos", "arctan", "asin", "acos", "atan", "sinh", "cosh", "tanh",
-  "sqrt", "cbrt", "sin", "cos", "tan", "sec", "csc", "cot", "exp", "log", "ln", "abs",
+  "sqrt", "cbrt", "sin", "cos", "tan", "sec", "csc", "cot", "exp", "log", "ln", "abs", "heaviside",
 ];
 const RESERVED = new Set(["x", "y", "e", "pi"]);
 export { FUNCS, RESERVED };
 
 // ── input normalisation ─────────────────────────────────────────────────────
+/** Unit-step spellings -> heaviside(...). u and H only when the argument starts with t
+ *  (and may follow a t: "3tu(t-2)"). */
+function unitStep(s: string): string {
+  return s
+    .replace(/(?<![A-Za-su-z])[uH]\s*_\s*\{?\s*([0-9.]+|pi|π)\s*\}?\s*\(\s*t\s*\)/g, "heaviside(t-$1)")
+    .replace(/(?<![A-Za-z])(?:Heaviside|heaviside|step)\s*\(/g, "heaviside(")
+    .replace(/(?<![A-Za-su-z])[uH]\s*\((?=\s*t\b)/g, "heaviside(");
+}
+
 export function normalize(raw: string): string {
-  let s = raw.trim();
+  let s = unitStep(raw.trim());
   s = s
     .replace(/[−–—]/g, "-")
     .replace(/[·×⋅]/g, "*")

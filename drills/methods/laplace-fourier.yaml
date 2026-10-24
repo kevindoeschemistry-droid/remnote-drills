@@ -1,0 +1,54 @@
+# Method notes: Laplace (Kreyszig Ch 6), Fourier series (§11.1–11.3), separation of variables (Ch 12),
+# Legendre & Bessel (§5.2, §5.4). One short line each, $...$ for math.
+
+laplace.table:
+  - 'Linearity first: $\mathcal{L}\{af + bg\} = aF + bG$, then look each piece up.'
+  - 'Core entries: $\mathcal{L}\{t^n\} = n!/s^{n+1}$, $\mathcal{L}\{e^{at}\} = 1/(s - a)$, $\mathcal{L}\{\cos\omega t\} = s/(s^2 + \omega^2)$, $\mathcal{L}\{\sin\omega t\} = \omega/(s^2 + \omega^2)$.'
+  - 'Hyperbolic: same shapes with a minus sign, $\mathcal{L}\{\cosh at\} = s/(s^2 - a^2)$, $\mathcal{L}\{\sinh at\} = a/(s^2 - a^2)$.'
+  - 'Not in the table? Rewrite first: $\sin^2\theta = \tfrac12(1 - \cos 2\theta)$, $\sin\theta\cos\theta = \tfrac12\sin 2\theta$.'
+  - 'Trap: $\sin$ carries $\omega$ in the numerator, $\cos$ carries $s$.'
+
+laplace.inverse:
+  - 'Factor the denominator. Simple real roots: partial fractions, each $A/(s - a) \to Ae^{at}$; cover-up gives $A$ at once.'
+  - 'Repeated root: write the numerator in powers of $(s - a)$; $1/(s - a)^2 \to te^{at}$.'
+  - 'Complex roots: complete the square, $(s - a)^2 + \omega^2$, and split the numerator into $(s - a)$ and a constant: $e^{at}\cos\omega t$, $e^{at}\sin\omega t$.'
+  - 'Irreducible quadratic next to $1/s$: $A/s + (Bs + C)/(s^2 + \omega^2)$; match coefficients.'
+  - 'Check: $f(0)$ equals $\lim_{s\to\infty} sF(s)$.'
+
+laplace.shifting:
+  - 's-shifting: $\mathcal{L}\{e^{at}f(t)\} = F(s - a)$; a factor $e^{at}$ in $t$ is a shift $s \to s - a$.'
+  - 't-shifting: $\mathcal{L}\{f(t - a)u(t - a)\} = e^{-as}F(s)$; a factor $e^{-as}$ in $s$ is a delay with a switch-on at $t = a$.'
+  - 'The function multiplying $u(t - a)$ must be written in $t - a$: $t\,u(t - a) = [(t - a) + a]u(t - a)$.'
+  - 'Piecewise: on at $a$, off at $b$ is $u(t - a) - u(t - b)$. Type the step as u(t-2).'
+
+laplace.ivp:
+  - 'Transform: $\mathcal{L}\{y''''\} = s^2Y - sy(0) - y''(0)$, $\mathcal{L}\{y''\} = sY - y(0)$.'
+  - 'Solve the subsidiary equation (algebra!) for $Y$, then partial fractions, then invert.'
+  - 'The initial conditions enter at the start, so the answer has no arbitrary constants.'
+  - 'Check $y(0)$ and $y''(0)$ before you submit.'
+
+laplace.convolution:
+  - '$(f * g)(t) = \int_0^t f(\tau)g(t - \tau)\,d\tau$, and $\mathcal{L}\{f * g\} = F(s)G(s)$.'
+  - 'Inverse of a product: split $H = FG$ into two table entries and convolve, or use partial fractions.'
+  - 'Integral equations: $\int_0^t k(t - \tau)y(\tau)\,d\tau$ transforms to $K(s)Y(s)$; solve for $Y$.'
+  - 'Inside the integral $t$ is a constant; integrate in $\tau$. $1 * g = \int_0^t g$, so $\mathcal{L}\{\int_0^t g\} = G/s$.'
+
+bvp.fourier-series:
+  - 'Kreyszig: $f = a_0 + \sum(a_n\cos\frac{n\pi x}{L} + b_n\sin\frac{n\pi x}{L})$ with $a_0 = \frac{1}{2L}\int_{-L}^{L} f$ (the mean), $a_n = \frac1L\int f\cos$, $b_n = \frac1L\int f\sin$.'
+  - 'Symmetry first: odd $f$ has $a_0 = a_n = 0$; even $f$ has $b_n = 0$ and integrals twice those over $[0, L]$.'
+  - '$\cos n\pi = (-1)^n$, $\sin n\pi = 0$. Integrate $x\cos$, $x\sin$, $x^2\cos$ by parts.'
+  - 'Half-range on $(0, L)$: sine series $b_n = \frac2L\int_0^L f\sin$ (odd extension); cosine series $a_0 = \frac1L\int_0^L f$, $a_n = \frac2L\int_0^L f\cos$.'
+
+pde.separation:
+  - '$u = F(x)G(t)$: the BCs make $F'''' + p^2F = 0$ an eigenvalue problem; Dirichlet $F_n = \sin\frac{n\pi x}{L}$, insulated $F_n = \cos\frac{n\pi x}{L}$ (with $n = 0$).'
+  - 'Heat $u_t = c^2u_{xx}$: $G_n = e^{-\lambda_n^2t}$, $\lambda_n = cn\pi/L$. Wave $u_{tt} = c^2u_{xx}$: $G_n = B_n\cos\lambda_nt + B_n^*\sin\lambda_nt$.'
+  - 'If $u(x,0)$ is already a finite sine (cosine) sum, read the coefficients off; each mode keeps its own rate.'
+  - 'Wave: $B_n$ from $u(x,0)$, $B_n^*\lambda_n$ from $u_t(x,0)$.'
+  - 'Nonzero end temperatures: subtract the steady line $U(x)$ first, then solve for $u - U$.'
+
+series.special-functions:
+  - 'Legendre: $(1 - x^2)y'''' - 2xy'' + n(n+1)y = 0$; polynomial solution $P_n$ of degree $n$.'
+  - 'Bessel: $x^2y'''' + xy'' + (x^2 - \nu^2)y = 0$; with $k^2x^2$ instead of $x^2$ the solution is $J_\nu(kx)$.'
+  - 'Euler–Cauchy $x^2y'''' + axy'' + by = 0$ looks similar but has no $x^2y$ term.'
+  - 'Divide out a common factor before matching (e.g. $-1$, or multiply $xy'''' + y'' + \dots$ by $x$).'
+  - 'Non-integer $\nu$: $J_\nu$, $J_{-\nu}$ independent. Integer $n$: $J_{-n} = (-1)^nJ_n$, so use $Y_n$.'

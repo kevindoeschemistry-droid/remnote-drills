@@ -24,7 +24,9 @@ export type Answer =
   /** an expression in `vars` (default x); optionally only up to a constant factor */
   | { kind: "expression"; ref: string; vars?: string[]; upToConstant?: boolean; label?: string; tol?: number;
       /** tol is a fraction of the reference value (engineering numbers: 0.01 = within 1%) */
-      rel?: boolean; unit?: string }
+      rel?: boolean; unit?: string;
+      /** sample scopes to check at, instead of the default grid (integer n, both sides of a step, small t) */
+      points?: Record<string, number>[] }
   /** two-term recurrence a_{m+gap} = f(m) a_m ; ref is f in the variable m */
   | { kind: "recurrence"; gap: number; ref: string; from: number }
   /** a list of numbers, order ignored (indicial roots, characteristic roots) */
@@ -44,6 +46,8 @@ export type Answer =
       /** fields are the components of a solution of y' = A y in variable v: with ic = [t0, y1(t0), …]
        *  the IVP solution, otherwise the general solution (n independent constants) */
       system?: { A: number[][]; v: string; ic?: number[] };
+      /** sample scopes to check at, instead of the default grid (e.g. integer n for Fourier coefficients) */
+      points?: Record<string, number>[];
     };
 
 export interface Problem {

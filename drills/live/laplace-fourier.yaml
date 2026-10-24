@@ -1,0 +1,10 @@
+# Laplace (Kreyszig Ch 6), Fourier series (§11.1–11.3), separation of variables (Ch 12),
+# Legendre & Bessel recognition (§5.2, §5.4): switched live with their templates.
+laplace.table: { short: "Laplace table", levels: { 1: [lt-linear, lt-trig, lt-power, lt-hyperbolic, lt-identity] } }
+laplace.inverse: { short: "Inverse transforms", levels: { 1: [ilt-distinct, ilt-repeated, ilt-complex, ilt-three, ilt-quadratic] } }
+laplace.shifting: { short: "Shifting & unit step", levels: { 1: [shift-s-forward, shift-s-inverse, shift-t-forward, shift-t-inverse, shift-piecewise] } }
+laplace.ivp: { short: "IVPs by Laplace", levels: { 1: [livp-real, livp-complex, livp-double, livp-exp, livp-const] } }
+laplace.convolution: { short: "Convolution", levels: { 1: [conv-compute, conv-inverse, conv-transform, conv-volterra] } }
+bvp.fourier-series: { short: "Fourier coefficients", levels: { 1: [fs-step, fs-sawtooth, fs-parabola, fs-abs, fs-period-2l, fs-half-range] } }
+pde.separation: { short: "Separation of variables", levels: { 1: [pde-heat, pde-neumann, pde-steady, pde-wave, pde-rates] } }
+series.special-functions: { short: "Legendre & Bessel", kind: classify, levels: { 1: [spec-identify, spec-legendre-n, spec-bessel-order, spec-bessel-scaled, spec-bessel-independent] } }
