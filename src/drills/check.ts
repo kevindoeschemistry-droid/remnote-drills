@@ -61,6 +61,8 @@ export function normalize(raw: string): string {
     .replace(/\]/g, ")");
   // |u| -> abs(u)   (innermost first)
   for (let i = 0; i < 6 && /\|[^|]*\|/.test(s); i++) s = s.replace(/\|([^|]*)\|/g, "(abs($1))");
+  // a numbered constant glued to what follows: c1e^(3t) -> c1*e^(3t), C2x -> C2*x
+  s = s.replace(/\b([A-Za-z]\d+)(?=[A-Za-z])/g, "$1*");
   // split glued identifiers: xe -> x*e, xsin -> x*sin, Ce -> C*e, 2xy -> 2x*y
   s = s.replace(/[A-Za-z]+[0-9]*/g, (word) => splitWord(word));
   // a function name followed by a bare argument: sin x -> sin(x), ln x -> ln(x)

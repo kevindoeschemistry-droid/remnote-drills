@@ -277,7 +277,7 @@ const cases: [string, Problem, (string | string[])[], (string | string[])[]][] =
   [
     "repeated root general",
     mk({ kind: "ode2", a: 1, b: -4, c: 4, v: "x", ref: "" }),
-    ["y = (C1 + C2 x)e^(2x)", "y = c1 e^{2x} + c2 x e^{2x}", "A e^(2x) + B x e^(2x)"],
+    ["y = (C1 + C2 x)e^(2x)", "y = c1 e^{2x} + c2 x e^{2x}", "A e^(2x) + B x e^(2x)", "y = c1e^(2x) + c2xe^(2x)"],
     ["y = C1 e^(2x) + C2 e^(2x)", "y = (C1 + C2)e^(2x)", "y = C1 e^(2x) + C2 e^(-2x)", "y = C1 x e^(2x)"],
   ],
   [
@@ -303,6 +303,12 @@ const cases: [string, Problem, (string | string[])[], (string | string[])[]][] =
     mk({ kind: "ode2", a: 1, b: -1, c: -2, v: "x", rhs: "6*exp(x)", ref: "" }),
     ["y = C1 e^(-x) + C2 e^(2x) - 3e^x"],
     ["y = C1 e^(-x) + C2 e^(2x)", "y = -3e^x", "y = C1 e^(-x) + C2 e^(2x) + 3e^x"],
+  ],
+  [
+    "engineering number with units",
+    mk({ kind: "expression", ref: "25000", vars: [], tol: 0.01, rel: true }),
+    ["2.5e4 kg/h", "25,000 W", "2.5 x 10^4 µm", "25000 kmol/s·m²", "2.5E+4 J/mol·K", "25 x 10^3 W/m^2"],
+    ["2.5e3 kg/h", "-25000 m/s", "25 kg"],
   ],
   [
     "radius as a number",
