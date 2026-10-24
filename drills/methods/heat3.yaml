@@ -1,0 +1,46 @@
+# Method notes for Incropera 8e Ch 6, §7.6, Ch 10, Ch 12, Ch 14 (generators: src/drills/gen-heat3.ts)
+
+ht.boundary-layers:
+  - '$Re_x = u_\infty x/\nu$, $Pr = \nu/\alpha = \mu c_p/k$, $Nu = hL/k_f$: the $k$ of the fluid, not the wall (that would be a Biot number).'
+  - 'Transition on a flat plate at $Re_{x,c} = 5\times10^5$: $x_c = 5\times10^5\,\nu/u_\infty$.'
+  - 'Average $\bar h_L = \frac{1}{L}\int_0^L h_x\,dx$. Laminar $h_x \propto x^{-1/2}$ gives $\bar h_L = 2h_x(L)$, i.e. $\bar{Nu}_L = 0.664Re_L^{1/2}Pr^{1/3}$ from $Nu_x = 0.332Re_x^{1/2}Pr^{1/3}$.'
+  - 'Laminar plate: $\delta = 5x/Re_x^{1/2}$ and $\delta/\delta_t \approx Pr^{1/3}$ (so $\delta_t < \delta$ when $Pr > 1$).'
+  - 'Chilton–Colburn: $C_f/2 = St\,Pr^{2/3}$, $St = h/(\rho c_pu_\infty)$, $C_f = \tau_s/(\rho u_\infty^2/2)$; $0.6 < Pr < 60$. Drag $F_D$ → $\tau_s = F_D/A$.'
+
+ht.tube-banks:
+  - 'Aligned: $V_{max} = \frac{S_T}{S_T - D}V$. Staggered: same, unless $S_D = \sqrt{S_L^2 + (S_T/2)^2} < (S_T + D)/2$, then $V_{max} = \frac{S_T}{2(S_D - D)}V$.'
+  - 'Zukauskas (Eq 7.58): $\bar{Nu}_D = C_2CRe_{D,max}^mPr^{0.36}(Pr/Pr_s)^{1/4}$; $C$, $m$ from Table 7.5 by $Re_{D,max}$; $C_2 < 1$ only if $N_L < 20$ (Table 7.6). $Pr_s$ at the wall, everything else at the mean fluid temperature.'
+  - 'Outlet (Eq 7.62): $\frac{T_s - T_o}{T_s - T_i} = \exp\left(-\frac{\pi DN\bar h}{\rho VN_TS_Tc_p}\right)$ with $V$, $\rho$ at the inlet; then $q'' = N\bar h\pi D\,\Delta T_{lm}$ per unit length.'
+  - 'Reynolds number uses $V_{max}$, never the approach velocity $V$.'
+
+ht.boiling:
+  - 'Excess temperature $\Delta T_e = T_s - T_{sat}$. Water at 1 atm: free convection $\lesssim 5$ K, nucleate 5–30 K, transition 30–120 K, film beyond.'
+  - 'Rohsenow (Eq 10.5): $q''''_s = \mu_lh_{fg}\left[\frac{g(\rho_l - \rho_v)}{\sigma}\right]^{1/2}\left(\frac{c_{p,l}\Delta T_e}{C_{s,f}h_{fg}Pr_l^n}\right)^3$; $C_{s,f}$, $n$ from Table 10.1 ($n = 1$ for water). Nucleate regime only.'
+  - 'The flux goes as $\Delta T_e^3/C_{s,f}^3$: a 10 % slip in $C_{s,f}$ is a 30 % slip in $q''''_s$. Inverting for $\Delta T_e$ takes a cube root.'
+  - 'Critical flux (Eq 10.6): $q''''_{max} = Ch_{fg}\rho_v\left[\frac{\sigma g(\rho_l - \rho_v)}{\rho_v^2}\right]^{1/4}$, $C = 0.149$ for large horizontal surfaces; $\propto g^{1/4}$.'
+
+ht.condensation:
+  - 'Modified latent heat $h''_{fg} = h_{fg} + 0.68c_{p,l}(T_{sat} - T_s)$; liquid properties at $T_f = (T_{sat} + T_s)/2$, $\rho_v$ and $h_{fg}$ at $T_{sat}$.'
+  - 'Vertical plate, laminar (Eq 10.30): $\bar h_L = 0.943\left[\frac{g\rho_l(\rho_l - \rho_v)k_l^3h''_{fg}}{\mu_l(T_{sat} - T_s)L}\right]^{1/4}$. Horizontal tube: $0.729$ and $D$ in place of $L$.'
+  - '$q = \bar hA(T_{sat} - T_s)$, condensate $\dot m = q/h''_{fg}$ (use $h''_{fg}$, not $h_{fg}$).'
+  - 'Check $Re_\delta = 4\dot m/(\mu_lb) \le 30$ for the laminar wave-free result; above that use the wavy-laminar or turbulent correlations.'
+
+ht.radiation-properties:
+  - 'Kelvin everywhere. Wien: $\lambda_{max}T = 2898\ \mu\mathrm{m\cdot K}$ (µm, not m). $E_b = \sigma T^4$, $E = \varepsilon\sigma T^4$.'
+  - 'Band fraction $F_{(\lambda_1\to\lambda_2)} = F_{(0\to\lambda_2T)} - F_{(0\to\lambda_1T)}$ from Table 12.2 in $\lambda T$; $F_{(\lambda\to\infty)} = 1 - F_{(0\to\lambda T)}$.'
+  - 'Band-wise surfaces: $\varepsilon = \sum\varepsilon_iF_i$ weighted at the surface $T$; solar $\alpha_S = \sum\alpha_iF_i$ weighted at 5800 K.'
+  - 'Opaque: $\alpha + \rho = 1$. Gray and diffuse: $\alpha = \varepsilon$ (Kirchhoff). Radiosity $J = \varepsilon E_b + \rho G$; net out $q''''_{rad} = \varepsilon E_b - \alpha G = J - G$.'
+  - 'Sunlit surface: absorb solar with $\alpha_S$, long-wave sky with $\alpha = \varepsilon$, emit with $\varepsilon$.'
+
+ht.mass-diffusion:
+  - 'Fick: $J^*_A = -CD_{AB}\,dx_A/dx$ (molar) or $j_A = -\rho D_{AB}\,dm_A/dx$ (mass). kmol × $\mathcal M_A$ (kg/kmol) = kg.'
+  - 'Ideal gas $C = p/(\mathcal RT)$ with $\mathcal R = 8.314$ kJ/kmol·K and $p$ in kPa gives kmol/m³.'
+  - 'Stationary medium or equimolar counterdiffusion: linear profile, $N''''_A = D_{AB}(C_{A,1} - C_{A,2})/L$. Gas–solid interface: $C_{A,s} = Sp_A$.'
+  - 'Evaporation through stagnant B (Stefan flow): $N''''_A = \frac{CD_{AB}}{L}\ln\frac{1 - x_{A,L}}{1 - x_{A,0}}$, $x_{A,0} = p_{sat}/p$; bulk motion matters as $x_{A,0}$ grows.'
+  - 'First-order reaction, impermeable bottom: $C_A = C_{A,0}\cosh m(L - x)/\cosh mL$, $m = \sqrt{k_1/D_{AB}}$; surface flux $D_{AB}C_{A,0}m\tanh mL$.'
+
+ht.mass-convection:
+  - 'Rate: $n_A = \bar h_mA(\rho_{A,s} - \rho_{A,\infty})$, $\rho_{A,s} = \rho_{A,sat}(T_s)$, $\rho_{A,\infty} = \phi_\infty\rho_{A,sat}(T_\infty)$.'
+  - 'Analogy: $\bar{Nu}/Pr^n = \bar{Sh}/Sc^n$ ⇒ $\bar h/\bar h_m = k/(D_{AB}Le^{1-n})$ (Eq 6.92), $\approx \rho c_pLe^{2/3}$ for $n = 1/3$, $Le = \alpha/D_{AB}$, $Sc = \nu/D_{AB}$.'
+  - 'Correlations carry over with $Nu \to Sh$, $Pr \to Sc$: laminar plate $\bar{Sh}_L = 0.664Re_L^{1/2}Sc^{1/3}$; sphere $\bar{Sh}_D = 2 + 0.6Re_D^{1/2}Sc^{1/3}$.'
+  - 'Evaporative cooling / wet bulb: $\bar h(T_\infty - T_s) = \bar h_mh_{fg}(\rho_{A,s} - \rho_{A,\infty})$.'
