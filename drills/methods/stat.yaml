@@ -1,0 +1,61 @@
+# Method notes for statistical mechanics (see drills/methods.yaml for the style).
+
+stat.probability:
+  - 'Order matters (labelled places, distinguishable objects)? $n!/(n-k)!$. Only which ones? $\binom{n}{k} = \frac{n!}{k!(n-k)!}$.'
+  - 'Sequences with repeats: $\frac{N!}{n_A!\,n_B!\cdots}$ — divide out swaps of identical items.'
+  - 'Exactly $k$ of $n$ independent trials: $\binom{n}{k}p^k(1-p)^{n-k}$.'
+  - '"At least one" = $1 - P(\text{none}) = 1 - (1-p)^n$. Much easier than adding cases.'
+
+stat.multiplicity:
+  - 'Two-state: $W(N, n) = \binom{N}{n}$. Einstein solid, $q$ quanta on $N$ oscillators: $W = \binom{q + N - 1}{q}$ (stars and bars).'
+  - '$S = k_B\ln W$, so $\Delta S = k_B\ln(W_2/W_1)$ — a ratio, never a difference of $W$s.'
+  - 'Lattice gas: $W = M^N$ with $M \propto V$, so $\Delta S = Nk_B\ln(V_2/V_1) = nR\ln(V_2/V_1)$.'
+  - 'Two solids in contact: every microstate of the combined system is equally likely, $P(q_A) = W_A(q_A)W_B(q - q_A)/W_{tot}$.'
+
+stat.boltzmann:
+  - '$\frac{N_j}{N_i} = \frac{g_j}{g_i}e^{-(E_j - E_i)/k_BT}$ — degeneracies multiply, energies sit in the exponent.'
+  - 'Molar energies use $R$; per-molecule use $k_B$. Wavenumbers: $\Delta E = hc\tilde\nu$ with $c$ in cm/s.'
+  - 'Fractions need the whole sum: $p_i = g_ie^{-E_i/k_BT}/q$.'
+  - 'Solving for $T$: $T = \Delta E/[k_B\ln(g_jN_i/(g_iN_j))]$.'
+
+stat.partition-function:
+  - '$q = \sum_i g_ie^{-\beta E_i}$; then $U = -N\,\partial\ln q/\partial\beta$, $F = -Nk_BT\ln q$ (localized), $S = (U - F)/T$.'
+  - 'Two-level: $q = g_0 + g_1e^{-x}$ with $x = \beta\varepsilon$; $U/N\varepsilon$ is just the excited-state probability.'
+  - 'Oscillator: $q = 1/(1 - e^{-x})$ from the ground state, $U/N\varepsilon = 1/(e^x - 1)$ (add $\tfrac12$ for zero-point).'
+  - 'Shifting every energy by a constant changes $U$ and $F$ by that constant but leaves $S$, $C_V$ and populations alone.'
+
+stat.ideal-gas:
+  - 'Translation: $q = V/\Lambda^3$, $\Lambda = h/\sqrt{2\pi mk_BT}$ — mass in kg ($M$ in g/mol × $1.661\times10^{-27}$).'
+  - 'Rotation (diatomic): $\theta_{rot} = \hbar^2/(2Ik_B)$, $I = \mu r^2$; for $T \gg \theta_{rot}$, $q_{rot} = T/(\sigma\theta_{rot})$, $\sigma = 2$ if homonuclear.'
+  - 'Vibration: $\theta_{vib} = hc\tilde\nu/k_B$; from the ground state $q_{vib} = 1/(1 - e^{-\theta_{vib}/T})$, excited fraction $e^{-\theta_{vib}/T}$.'
+  - 'Usually $\theta_{rot} \ll T \ll \theta_{vib}$: rotations classical, vibrations frozen.'
+
+stat.heat-capacity:
+  - 'Equipartition: $\tfrac12R$ per quadratic term. Translation 3, rotation 2 (linear) or 3, each active vibration 2 (kinetic + potential).'
+  - 'Vibrational modes: $3N - 5$ (linear) or $3N - 6$ (nonlinear).'
+  - 'Quantum mode: $C/k_B = x^2e^x/(e^x - 1)^2$ with $x = \theta/T$; Einstein solid $C_{V,m} = 3R$ times that.'
+  - 'From $U(x)$: $C_V/Nk_B = -x^2\,d(U/N\varepsilon)/dx$, since $dx/dT = -x/T$.'
+
+stat.fluctuations:
+  - '$\sigma_E^2 = \langle E^2\rangle - \langle E\rangle^2 = \partial^2\ln Q/\partial\beta^2 = k_BT^2C_V$.'
+  - 'Two-level: $\sigma_E^2 = \varepsilon^2p_1(1 - p_1)$. Compute $\langle E^2\rangle$ with the same weights as $\langle E\rangle$.'
+  - 'Ideal gas: $\sigma_E/\langle E\rangle = \sqrt{2/(3N)}$ — relative fluctuations die as $N^{-1/2}$.'
+  - 'Molar: $\sigma_{E,m} = \sqrt{RT^2C_{V,m}}$ with $C_V$ in J, not kJ.'
+
+stat.ensembles:
+  - 'Grand canonical: $\Xi = \sum_{N,i}e^{-\beta(E_i - \mu N)} = \sum\lambda^Ne^{-\beta E_i}$, $\lambda = e^{\beta\mu}$.'
+  - '$\langle N\rangle = \lambda\,\partial\ln\Xi/\partial\lambda$; $\sigma_N^2 = \lambda\,\partial\langle N\rangle/\partial\lambda$.'
+  - 'List the states with their weights, then average — independent sites factor: $\Xi = \xi^M$.'
+  - 'Isobaric: weight $e^{-\beta(E + pV)}$; $p\Delta V$ in J/mol needs Pa × m³/mol (1 bar = $10^5$ Pa, 1 mL = $10^{-6}$ m³).'
+
+stat.binding:
+  - 'Langmuir site: weights 1 (empty) and $Kp$ (bound), so $\theta = Kp/(1 + Kp)$; in solution $\theta = c/(K_d + c)$.'
+  - 'Half coverage at $p = 1/K$ (or $c = K_d$).'
+  - 'Hill: $\theta = \frac{(c/K_{1/2})^{n_H}}{1 + (c/K_{1/2})^{n_H}}$; $n_H$ = slope of $\ln\frac{\theta}{1-\theta}$ vs $\ln c$.'
+  - '$\Delta G^\circ_{bind} = RT\ln(K_d/1\,\mathrm{M})$ — negative for tight binding.'
+
+stat.rates:
+  - 'Arrhenius pair: $\ln\frac{k_2}{k_1} = \frac{E_a}{R}\left(\frac{1}{T_1} - \frac{1}{T_2}\right)$ — temperatures in kelvin, $E_a$ in J/mol.'
+  - 'Eyring: $k = \frac{k_BT}{h}e^{-\Delta G^\ddagger/RT}$, $\Delta G^\ddagger = \Delta H^\ddagger - T\Delta S^\ddagger$; $k_BT/h \approx 6.2\times10^{12}\,\mathrm{s^{-1}}$ at 298 K.'
+  - 'Invert: $\Delta G^\ddagger = RT\ln\frac{k_BT}{hk}$.'
+  - 'Rule of thumb: $E_a \approx 50$ kJ/mol roughly doubles $k$ per 10 °C near room temperature.'
