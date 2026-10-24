@@ -14,6 +14,15 @@ const load = (f) => yaml.load(fs.readFileSync(f, "utf8"));
 
 const g = load(path.join(root, "skills.yaml"));
 const errors = [];
+// drills/live/*.yaml: per-area overlays that switch planned skills live ({ id: { short, kind, levels, … } })
+const liveDir = path.join(root, "live");
+if (fs.existsSync(liveDir))
+  for (const f of fs.readdirSync(liveDir).filter((f) => f.endsWith(".yaml")).sort())
+    for (const [id, patch] of Object.entries(load(path.join(liveDir, f)) ?? {})) {
+      const sk = g.skills.find((s) => s.id === id);
+      if (!sk) errors.push(`live/${f}: unknown skill ${id}`);
+      else Object.assign(sk, { status: "live" }, patch);
+    }
 const domains = new Set(g.domains.map((d) => d.id));
 const ids = new Set();
 const names = new Set();
@@ -60,6 +69,14 @@ for (const src of sources) {
 // ── method notes ──────────────────────────────────────────────────────────
 const methodsFile = path.join(root, "methods.yaml");
 const methods = fs.existsSync(methodsFile) ? load(methodsFile) ?? {} : {};
+// drills/methods/*.yaml: per-area method notes
+const methodsDir = path.join(root, "methods");
+if (fs.existsSync(methodsDir))
+  for (const f of fs.readdirSync(methodsDir).filter((f) => f.endsWith(".yaml")).sort())
+    for (const [id, lines] of Object.entries(load(path.join(methodsDir, f)) ?? {})) {
+      if (methods[id]) errors.push(`methods/${f}: ${id} already has method notes`);
+      methods[id] = lines;
+    }
 for (const [id, lines] of Object.entries(methods)) {
   const sk = g.skills.find((s) => s.id === id);
   if (!sk) errors.push(`methods.yaml: unknown skill ${id}`);

@@ -266,7 +266,23 @@ def linalg_ok(a, meta) -> bool:
     raise KeyError(v)
 
 
+# tests/verify/*.py: per-area verifiers. Each defines check(p, H) -> True / False, or None for
+# "not mine"; H is this module (P, zero, the sympy symbols…).
+import importlib.util
+_AREAS = []
+for _f in sorted((Path(__file__).parent / "verify").glob("*.py")):
+    _spec = importlib.util.spec_from_file_location(f"verify_{_f.stem}", _f)
+    _mod = importlib.util.module_from_spec(_spec)
+    _spec.loader.exec_module(_mod)
+    _AREAS.append(_mod)
+
+
 def check(p) -> bool:
+    H = sys.modules[__name__]
+    for mod in _AREAS:
+        r = mod.check(p, H)
+        if r is not None:
+            return bool(r)
     a = p["answer"]
     meta = p.get("meta", {})
     kind = a["kind"]
