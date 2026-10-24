@@ -13,6 +13,7 @@ import { LIVE_SKILLS, ALL_SKILLS, resolveSkill, placesFor, placeText, primaryPla
 import { generate, generateTemplate, TEMPLATES } from "../src/drills/registry";
 import { check } from "../src/drills/check";
 import type { Answer, Problem } from "../src/drills/types";
+import { LAPLACE_FOURIER_CASES } from "./cases/laplace-fourier";
 
 let failures = 0;
 const fail = (msg: string) => {
@@ -255,7 +256,7 @@ const cases: [string, Problem, (string | string[])[], (string | string[])[]][] =
     ["2", "5"],
   ],
 ];
-for (const [name, p, good, bad] of cases) {
+for (const [name, p, good, bad] of [...cases, ...LAPLACE_FOURIER_CASES]) {
   for (const g of good) {
     const r = check(p, g);
     if (r.status !== "correct") fail(`${name}: should accept ${JSON.stringify(g)} (${r.status}: ${r.message})`);
