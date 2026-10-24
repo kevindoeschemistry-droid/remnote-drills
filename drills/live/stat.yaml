@@ -1,0 +1,11 @@
+# Statistical mechanics (Dill & Bromberg 2e; Shell 2015) — generators in src/drills/gen-stat.ts
+stat.probability: { short: "Counting & probability", levels: { 1: [sm-perm, sm-comb, sm-binom, sm-anagram, sm-atleast] } }
+stat.multiplicity: { short: "Multiplicity & S = k ln W", levels: { 1: [sm-two-state, sm-einstein-w, sm-ds-two-state, sm-ds-volume, sm-einstein-share] } }
+stat.boltzmann: { short: "Boltzmann populations", levels: { 1: [sm-bz-ratio, sm-bz-fraction, sm-bz-temperature, sm-bz-exact] } }
+stat.partition-function: { short: "Partition functions", levels: { 1: [sm-pf-q, sm-pf-u-two-level, sm-pf-s-two-level, sm-pf-u-oscillator, sm-pf-f] } }
+stat.ideal-gas: { short: "Ideal-gas q (trans, rot, vib)", levels: { 1: [sm-ig-lambda, sm-ig-qtrans, sm-ig-theta-rot, sm-ig-qrot, sm-ig-qvib] } }
+stat.heat-capacity: { short: "Heat capacity from q", levels: { 1: [sm-cv-equipartition, sm-cv-einstein, sm-cv-two-level, sm-cv-oscillator, sm-cv-diatomic] } }
+stat.fluctuations: { short: "Energy fluctuations", levels: { 1: [sm-fl-two-level, sm-fl-exact, sm-fl-relative, sm-fl-cv, sm-fl-oscillator] } }
+stat.ensembles: { short: "Grand canonical & isobaric", levels: { 1: [sm-ens-site, sm-ens-lattice, sm-ens-n-fluct, sm-ens-pair, sm-ens-isobaric] } }
+stat.binding: { short: "Langmuir & Hill binding", levels: { 1: [sm-bind-langmuir, sm-bind-pressure, sm-bind-hill, sm-bind-hill-n, sm-bind-dg] } }
+stat.rates: { short: "Arrhenius & Eyring", levels: { 1: [sm-rate-ea, sm-rate-k2, sm-rate-factor, sm-rate-eyring, sm-rate-dg] } }

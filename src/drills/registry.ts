@@ -16,6 +16,7 @@ import { ODE2_SYS_TEMPLATES } from "./gen-ode2-sys";
 import { LAPLACE_FOURIER_TEMPLATES } from "./gen-laplace-fourier";
 import { HEAT3_TEMPLATES } from "./gen-heat3";
 import { THERMO_TEMPLATES } from "./gen-thermo";
+import { STAT_TEMPLATES } from "./gen-stat";
 
 export const TEMPLATES: Record<string, (r: Rng) => Draft> = {
   ...FIRST_ORDER_TEMPLATES,
@@ -31,6 +32,7 @@ export const TEMPLATES: Record<string, (r: Rng) => Draft> = {
   ...LAPLACE_FOURIER_TEMPLATES,
   ...HEAT3_TEMPLATES,
   ...THERMO_TEMPLATES,
+  ...STAT_TEMPLATES,
 };
 
 /** Generate one problem for a skill. Same (skill, seed, level) -> same problem. */
