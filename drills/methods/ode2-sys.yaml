@@ -1,0 +1,43 @@
+# Method notes for the ode2-sys area (same style as drills/methods.yaml).
+
+ode2.reduction:
+  - 'Know one solution $y_1$? Put the ODE in standard form $y'''' + p(x)y'' + q(x)y = 0$ first — divide by the leading coefficient.'
+  - 'Then $y_2 = uy_1$ with $U = u'' = \dfrac{1}{y_1^2}e^{-\int p\,dx}$, and $u = \int U\,dx$.'
+  - 'Drop constant factors and any multiple of $y_1$ in $y_2$; the general solution is $c_1y_1 + c_2y_2$.'
+  - 'Double root of the characteristic equation: $U = 1$, so $y_2 = xy_1$. Euler–Cauchy double root: $U = 1/x$, so $y_2 = y_1\ln x$.'
+
+ode2.euler-cauchy:
+  - '$x^2y'''' + axy'' + by = 0$: try $y = x^m$ to get the auxiliary equation $m^2 + (a - 1)m + b = 0$ — note the $a - 1$.'
+  - 'Distinct real roots: $c_1x^{m_1} + c_2x^{m_2}$. Double root: $(c_1 + c_2\ln x)x^m$.'
+  - 'Complex $m = \mu \pm \nu i$: $x^\mu\left[c_1\cos(\nu\ln x) + c_2\sin(\nu\ln x)\right]$.'
+  - 'IVPs are posed at $x = 1$, where $\ln 1 = 0$ and $(x^m)'' = m$.'
+
+ode2.spring-forced:
+  - '$my'''' + cy'' + ky = F_0\cos\omega t$. Damped: the homogeneous part dies out, the steady state is $y_p = a\cos\omega t + b\sin\omega t$ — keep both terms.'
+  - 'Amplitude $C^* = F_0/\sqrt{(k - m\omega^2)^2 + c^2\omega^2}$; it peaks at $\omega_{\max}^2 = \omega_0^2 - c^2/(2m^2)$ when $c^2 < 2mk$.'
+  - 'Undamped, $\omega = \omega_0 = \sqrt{k/m}$: resonance, $y_p = \frac{F_0}{2m\omega_0}t\sin\omega_0t$ (modification rule).'
+  - 'Undamped, $\omega \ne \omega_0$, starting from rest: $y = \frac{F_0}{m(\omega_0^2 - \omega^2)}(\cos\omega t - \cos\omega_0t)$ — beats.'
+
+ode2.variation:
+  - 'Standard form first: $y'''' + p y'' + q y = r$ (divide an Euler–Cauchy equation by $x^2$).'
+  - 'Basis $y_1, y_2$, Wronskian $W = y_1y_2'' - y_2y_1''$. Then $y_p = -y_1\int\frac{y_2r}{W}dx + y_2\int\frac{y_1r}{W}dx$.'
+  - 'Works for any $r$ — $\sec x$, $\csc x$, $e^x/x$, $\ln x$ — where undetermined coefficients fails.'
+  - 'Leftover multiples of $y_1$ or $y_2$ in $y_p$ solve the homogeneous equation; drop them (or keep them — still a particular solution).'
+
+ode2.higher-order:
+  - '$y = e^{\lambda x}$ turns $y^{(n)} + \dots + a_0y = 0$ into a degree-$n$ polynomial. Integer roots divide $a_0$: test them, then divide out.'
+  - 'A root of multiplicity $k$ gives $e^{\lambda x}, xe^{\lambda x}, \dots, x^{k-1}e^{\lambda x}$; a pair $\alpha \pm \beta i$ gives $e^{\alpha x}\cos\beta x,\ e^{\alpha x}\sin\beta x$.'
+  - 'Order $n$ means $n$ constants. IVP: $y, y'', \dots, y^{(n-1)}$ at $x_0$ give $n$ linear equations.'
+
+odesys.eigenvalue:
+  - '$\mathbf y'' = A\mathbf y$: try $\mathbf y = \mathbf x e^{\lambda t}$, so $A\mathbf x = \lambda\mathbf x$. For $2\times2$: $\lambda^2 - (\operatorname{tr}A)\lambda + \det A = 0$.'
+  - 'Distinct real: $\mathbf y = c_1\mathbf x^{(1)}e^{\lambda_1t} + c_2\mathbf x^{(2)}e^{\lambda_2t}$.'
+  - 'Complex $\alpha \pm \beta i$: the real and imaginary parts of $\mathbf x e^{(\alpha + i\beta)t}$ are two real solutions.'
+  - 'Double $\lambda$, one eigenvector: second solution $(\mathbf x t + \mathbf u)e^{\lambda t}$ with $(A - \lambda I)\mathbf u = \mathbf x$.'
+  - 'IVP: solve $c_1\mathbf x^{(1)} + c_2\mathbf x^{(2)} = \mathbf y(0)$.'
+
+odesys.phase:
+  - '$p = \operatorname{tr}A$, $q = \det A$, $\Delta = p^2 - 4q$.'
+  - '$q < 0$: saddle. $q > 0,\ \Delta \ge 0$: node. $q > 0,\ \Delta < 0$: spiral, or a center if $p = 0$.'
+  - 'Stable and attractive iff $p < 0,\ q > 0$; a center is stable but not attractive; $p > 0$ or $q < 0$ is unstable.'
+  - 'A second-order ODE $y'''' + by'' + cy = 0$: $y_1 = y,\ y_2 = y''$ gives $A = \begin{pmatrix} 0 & 1 \\ -c & -b \end{pmatrix}$.'

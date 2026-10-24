@@ -1,0 +1,23 @@
+# Area overlay: second-order extras (Kreyszig §2.1, 2.5, 2.8, 2.10), Ch 3 higher order, Ch 4 systems.
+ode2.reduction:
+  short: "Reduction of order"
+  levels: { 1: [red-euler, red-trig, red-exp, red-gauss, red-const] }
+ode2.euler-cauchy:
+  short: "Euler–Cauchy"
+  levels: { 1: [ec-distinct, ec-double, ec-complex, ec-ivp, ec-roots] }
+ode2.spring-forced:
+  short: "Forced oscillations"
+  levels: { 1: [forced-steady, forced-amplitude, forced-resonance, forced-beats, forced-practical] }
+ode2.variation:
+  short: "Variation of parameters"
+  levels: { 1: [vop-double, vop-trig, vop-euler, vop-general] }
+ode2.higher-order:
+  short: "Higher-order char. eq."
+  levels: { 1: [hi-distinct, hi-repeated, hi-complex, hi-roots, hi-ivp] }
+odesys.eigenvalue:
+  short: "2×2 systems (eigen)"
+  levels: { 1: [sys-eigen, sys-general, sys-ivp, sys-complex, sys-complex-ivp, sys-repeated] }
+odesys.phase:
+  short: "Phase portrait type"
+  kind: classify
+  levels: { 1: [phase-matrix, phase-equations, phase-ode2, phase-stability] }
