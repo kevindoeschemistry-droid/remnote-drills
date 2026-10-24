@@ -1,0 +1,10 @@
+# Incropera Ch 5, 7–9, 11, 13 — templates in src/drills/gen-heat2.ts
+ht.lumped: { short: "Lumped capacitance", levels: { 1: [ht-bi, ht-lumped-time, ht-lumped-temp, ht-lumped-energy] } }
+ht.transient-one-term: { short: "One-term transient", levels: { 1: [ht-ot-wall-center, ht-ot-wall-surface, ht-ot-wall-time, ht-ot-cyl-center, ht-ot-sphere-center] } }
+ht.semi-infinite: { short: "Semi-infinite solid", levels: { 1: [ht-erf-temp, ht-erf-flux, ht-erf-depth, ht-erf-time, ht-erf-contact] } }
+ht.external-flow: { short: "External flow", levels: { 1: [ht-plate-lam, ht-plate-mixed, ht-cyl-cb, ht-sphere-whitaker] } }
+ht.internal-flow: { short: "Internal flow", levels: { 1: [ht-int-re, ht-tm-flux, ht-tm-ts, ht-dittus, ht-lam-fd] } }
+ht.free-convection: { short: "Free convection", levels: { 1: [ht-ra, ht-chu-vertical, ht-free-horiz, ht-free-cyl] } }
+ht.heat-exchangers: { short: "Heat exchangers", levels: { 1: [ht-lmtd-counter, ht-lmtd-parallel, ht-ntu-eff, ht-ntu-outlet, ht-shell-tube] } }
+ht.view-factors: { short: "View factors", levels: { 1: [ht-vf-reciprocity, ht-vf-concentric, ht-vf-duct, ht-vf-cavity] } }
+ht.enclosures: { short: "Radiation enclosures", levels: { 1: [ht-two-surface, ht-shield, ht-black-disks, ht-reradiating] } }
