@@ -10,6 +10,7 @@ import { SPRING_TEMPLATES } from "./gen-spring";
 import { LINEAR2_TEMPLATES } from "./gen-linear2";
 import { KINETICS_TEMPLATES } from "./gen-kinetics";
 import { HEAT_TEMPLATES } from "./gen-heat";
+import { HEAT2_TEMPLATES } from "./gen-heat2";
 import { LINALG_TEMPLATES } from "./gen-linalg";
 
 export const TEMPLATES: Record<string, (r: Rng) => Draft> = {
@@ -20,6 +21,7 @@ export const TEMPLATES: Record<string, (r: Rng) => Draft> = {
   ...LINEAR2_TEMPLATES,
   ...KINETICS_TEMPLATES,
   ...HEAT_TEMPLATES,
+  ...HEAT2_TEMPLATES,
   ...LINALG_TEMPLATES,
 };
 

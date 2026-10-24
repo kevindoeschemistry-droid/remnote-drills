@@ -1,0 +1,60 @@
+# Method notes for Incropera Ch 5, 7–9, 11, 13 (gen-heat2.ts). Same style as drills/methods.yaml.
+
+ht.lumped:
+  - 'Check first: $Bi = hL_c/k < 0.1$ with $L_c = V/A_s$ — sphere $D/6$, long cylinder $D/4$, plate cooled on both faces $t/2$.'
+  - 'Then $\dfrac{T - T_\infty}{T_i - T_\infty} = e^{-t/\tau}$, $\tau = \dfrac{\rho Vc}{hA_s} = \dfrac{\rho cL_c}{h}$; time to reach $T$: $t = \tau\ln\dfrac{T_i - T_\infty}{T - T_\infty}$.'
+  - 'Energy transferred by time $t$: $Q = \rho Vc\,(T_i - T_\infty)(1 - e^{-t/\tau})$.'
+  - 'Traps: using the radius instead of $V/A_s$; taking the log of a ratio upside down (gives a negative time).'
+
+ht.transient-one-term:
+  - 'Bi here uses the half-thickness $L$ or the radius $r_o$, not $V/A_s$: $Bi = hL/k$ or $hr_o/k$. $Fo = \alpha t/L^2$ (or $\alpha t/r_o^2$).'
+  - 'One term is fine when $Fo > 0.2$: $\theta_0^* = C_1e^{-\zeta_1^2Fo}$ at the centre, $\theta^* = (T - T_\infty)/(T_i - T_\infty)$.'
+  - '$\zeta_1$ is the first root of: wall $\zeta\tan\zeta = Bi$; cylinder $\zeta J_1(\zeta)/J_0(\zeta) = Bi$; sphere $1 - \zeta\cot\zeta = Bi$ (Table 5.1 lists $\zeta_1$, $C_1$).'
+  - 'Off-centre: wall $\theta^* = \theta_0^*\cos(\zeta_1x^*)$, cylinder $\theta_0^*J_0(\zeta_1r^*)$, sphere $\theta_0^*\sin(\zeta_1r^*)/(\zeta_1r^*)$ — radians.'
+  - 'If $Bi < 0.1$, lumped capacitance is simpler and just as good.'
+
+ht.semi-infinite:
+  - 'Surface suddenly held at $T_s$: $\dfrac{T(x,t) - T_s}{T_i - T_s} = \operatorname{erf}\eta$, $\eta = \dfrac{x}{2\sqrt{\alpha t}}$.'
+  - 'Surface flux $q''''_s = \dfrac{k(T_s - T_i)}{\sqrt{\pi\alpha t}}$, falling as $t^{-1/2}$.'
+  - 'Depth or time for a given $T$: compute the ratio, invert erf (Table B.2) for $\eta$, then solve $\eta = x/(2\sqrt{\alpha t})$.'
+  - 'Two semi-infinite solids in contact: $T_s = \dfrac{(k\rho c)_A^{1/2}T_A + (k\rho c)_B^{1/2}T_B}{(k\rho c)_A^{1/2} + (k\rho c)_B^{1/2}}$, constant in time.'
+  - 'Valid while the far side has not felt the change — roughly $\eta \gtrsim 2$ at the back face.'
+
+ht.external-flow:
+  - 'Film temperature $T_f = (T_s + T_\infty)/2$ for properties (Whitaker sphere: properties at $T_\infty$, $\mu_s$ at $T_s$).'
+  - 'Flat plate, $Re_L = u_\infty L/\nu$; laminar if $Re_L < 5\times10^5$: $\overline{Nu}_L = 0.664Re_L^{1/2}Pr^{1/3}$ (Eq. 7.31; local is $0.332$, half the average).'
+  - 'Mixed ($5\times10^5 < Re_L \le 10^8$): $\overline{Nu}_L = (0.037Re_L^{4/5} - 871)Pr^{1/3}$ (Eq. 7.38).'
+  - 'Cylinder: Churchill–Bernstein $\overline{Nu}_D = 0.3 + \dfrac{0.62Re_D^{1/2}Pr^{1/3}}{[1 + (0.4/Pr)^{2/3}]^{1/4}}\left[1 + (Re_D/282\,000)^{5/8}\right]^{4/5}$ ($Re_DPr > 0.2$).'
+  - 'Sphere: Whitaker $\overline{Nu}_D = 2 + (0.4Re_D^{1/2} + 0.06Re_D^{2/3})Pr^{0.4}(\mu/\mu_s)^{1/4}$. Then $\bar h = \overline{Nu}\,k/L$ — divide by the right length ($L$ or $D$).'
+
+ht.internal-flow:
+  - '$Re_D = \dfrac{4\dot m}{\pi D\mu}$; laminar below 2300. Laminar entry lengths: $x_{fd,h} \approx 0.05Re_DD$, $x_{fd,t} \approx 0.05Re_DPr\,D$.'
+  - 'Uniform $q''''_s$: $T_m$ rises linearly, $T_{m,o} = T_{m,i} + q''''_s\pi DL/(\dot mc_p)$; wall $T_s = T_m + q''''_s/h$.'
+  - 'Uniform $T_s$: $\dfrac{T_s - T_{m,o}}{T_s - T_{m,i}} = \exp\left(-\dfrac{\pi DL\bar h}{\dot mc_p}\right)$ — exponential approach, never a straight line.'
+  - 'Laminar fully developed: $Nu_D = 4.36$ (uniform $q''''_s$), $3.66$ (uniform $T_s$). Turbulent ($Re_D \gtrsim 10^4$): Dittus–Boelter $Nu_D = 0.023Re_D^{4/5}Pr^n$, $n = 0.4$ heating, $0.3$ cooling.'
+
+ht.free-convection:
+  - '$Ra_L = \dfrac{g\beta(T_s - T_\infty)L^3}{\nu\alpha}$; ideal gas $\beta = 1/T_f$ in kelvin. Properties at $T_f$.'
+  - 'Vertical plate, any $Ra_L$ (Eq. 9.26): $\overline{Nu}_L = \left\{0.825 + \dfrac{0.387Ra_L^{1/6}}{[1 + (0.492/Pr)^{9/16}]^{8/27}}\right\}^2$; laminar below $Ra_L \approx 10^9$.'
+  - 'Horizontal plate, $L = A_s/P$. Hot face up or cold face down: $0.54Ra_L^{1/4}$ ($10^4$–$10^7$), $0.15Ra_L^{1/3}$ ($10^7$–$10^{11}$). Hot face down or cold face up: $0.52Ra_L^{1/5}$ ($10^4$–$10^9$).'
+  - 'Horizontal cylinder (Eq. 9.34): $\overline{Nu}_D = \left\{0.60 + \dfrac{0.387Ra_D^{1/6}}{[1 + (0.559/Pr)^{9/16}]^{8/27}}\right\}^2$, $Ra_D \le 10^{12}$.'
+
+ht.heat-exchangers:
+  - 'Energy balance first: $q = C_h(T_{h,i} - T_{h,o}) = C_c(T_{c,o} - T_{c,i})$, $C = \dot mc_p$.'
+  - 'LMTD: $q = UA\,\Delta T_{lm}$, $\Delta T_{lm} = (\Delta T_1 - \Delta T_2)/\ln(\Delta T_1/\Delta T_2)$. Parallel: $\Delta T_1 = T_{h,i} - T_{c,i}$, $\Delta T_2 = T_{h,o} - T_{c,o}$. Counterflow: $\Delta T_1 = T_{h,i} - T_{c,o}$, $\Delta T_2 = T_{h,o} - T_{c,i}$.'
+  - 'Outlets unknown? Use ε–NTU: $NTU = UA/C_{min}$, $C_r = C_{min}/C_{max}$, $q = \varepsilon C_{min}(T_{h,i} - T_{c,i})$.'
+  - 'Parallel $\varepsilon = \dfrac{1 - e^{-NTU(1 + C_r)}}{1 + C_r}$; counterflow $\varepsilon = \dfrac{1 - e^{-NTU(1 - C_r)}}{1 - C_re^{-NTU(1 - C_r)}}$; 1-shell-pass: Eq. 11.30a.'
+  - 'Traps: the arithmetic mean instead of the log mean; $C_{max}$ in $NTU$; mixing up which end is which in counterflow.'
+
+ht.view-factors:
+  - 'Reciprocity $A_iF_{ij} = A_jF_{ji}$; summation $\sum_jF_{ij} = 1$; a flat or convex surface has $F_{ii} = 0$.'
+  - 'Convex body 1 inside surface 2: $F_{12} = 1$, $F_{21} = A_1/A_2$, $F_{22} = 1 - A_1/A_2$ (spheres $(D_1/D_2)^2$, long cylinders $D_1/D_2$).'
+  - 'Long duct of three flat sides: $F_{ij} = (w_i + w_j - w_k)/(2w_i)$, from summation + reciprocity alone.'
+  - 'Cavities: close the opening with an imaginary surface, find one factor from a chart or Table 13.2, the rest by algebra.'
+
+ht.enclosures:
+  - 'Network: surface resistance $(1 - \varepsilon_i)/(\varepsilon_iA_i)$ between $E_{bi} = \sigma T_i^4$ and radiosity $J_i$; space resistance $1/(A_iF_{ij})$ between radiosities.'
+  - 'Two-surface: $q_{12} = \dfrac{\sigma(T_1^4 - T_2^4)}{\frac{1 - \varepsilon_1}{\varepsilon_1A_1} + \frac{1}{A_1F_{12}} + \frac{1 - \varepsilon_2}{\varepsilon_2A_2}}$; parallel plates per area: $\sigma(T_1^4 - T_2^4)/(1/\varepsilon_1 + 1/\varepsilon_2 - 1)$.'
+  - 'A shield adds $1/\varepsilon_{3,1} + 1/\varepsilon_{3,2} - 1$ to the denominator. Black surfaces: $q_{12} = A_1F_{12}\sigma(T_1^4 - T_2^4)$.'
+  - 'Reradiating (insulated) surface: $q_R = 0$, so $J_R = E_{bR}$ floats between the others — it is a node with no source.'
+  - 'Kelvin always; for the outer of two concentric surfaces use its own area $A_2$.'
