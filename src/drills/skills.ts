@@ -31,6 +31,13 @@ export interface Section {
   skills: string[];
   wiki?: string;
   pages?: [number, number];
+  videos?: Video[];
+}
+
+/** A lecture or screencast that teaches this section (opened in the browser). */
+export interface Video {
+  title: string;
+  url: string;
 }
 
 export interface Chapter {
@@ -40,6 +47,7 @@ export interface Chapter {
   sections: Section[];
   wiki?: string;
   pages?: [number, number];
+  videos?: Video[];
 }
 
 export interface Source {
@@ -107,6 +115,9 @@ export interface Place {
   ref: string; // "§1.3" or "Ch 7"
   wiki?: string;
 }
+
+/** Videos for a place: its section's, else its chapter's. */
+export const videosFor = (p: Place | undefined): Video[] => (p ? p.section?.videos ?? p.chapter.videos ?? [] : []);
 
 export function placesFor(skillId: string): Place[] {
   const out: Place[] = [];

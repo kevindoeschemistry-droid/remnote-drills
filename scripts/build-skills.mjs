@@ -61,6 +61,8 @@ for (const src of sources) {
     ch.skills ??= [];
     ch.sections ??= [];
     for (const sec of ch.sections) sec.skills ??= [];
+    for (const v of [...(ch.videos ?? []), ...ch.sections.flatMap((s) => s.videos ?? [])])
+      if (typeof v?.title !== "string" || !/^https:\/\//.test(v?.url ?? "")) errors.push(`${src.id} ch ${ch.n}: a video needs a title and an https url`);
     for (const sk of [...ch.skills, ...ch.sections.flatMap((s) => s.skills)])
       if (!ids.has(sk)) errors.push(`${src.id} ch ${ch.n}: unknown skill ${sk}`);
   }

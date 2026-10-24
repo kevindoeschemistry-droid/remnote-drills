@@ -13,3 +13,5 @@ const plugin = {
 };
 export const usePlugin = () => plugin;
 export enum QueueInteractionScore { AGAIN = 0, HARD = 0.5, GOOD = 1, EASY = 1.5 }
+export enum BuiltInPowerupCodes { UploadedFile = "f", PDFHighlight = "n" }
+export const renderWidget = () => undefined;

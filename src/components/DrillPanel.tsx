@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { usePlugin, QueueInteractionScore } from "@remnote/plugin-sdk";
 import { generate } from "../drills/registry";
-import { placeText, primaryPlace, resolveSkill, WIKI_BASE } from "../drills/skills";
+import { placeText, primaryPlace, resolveSkill, videosFor, WIKI_BASE } from "../drills/skills";
 import { anchorFor, openPlace } from "../drills/anchors";
 import { getBindings } from "../drills/deck";
 import { check, previewTex } from "../drills/check";
@@ -174,6 +174,8 @@ export function DrillPanel({ skill, mode }: { skill: string; mode: "card" | "ses
       live = false;
     };
   }, [plugin, place?.source.id, place?.ref]);
+  const videos = videosFor(place);
+  const [showVideos, setShowVideos] = useState(false);
   const openBook = async () => {
     if (!place) return;
     const r = await openPlace(plugin, place);
@@ -209,6 +211,16 @@ export function DrillPanel({ skill, mode }: { skill: string; mode: "card" | "ses
                   {placeText(place)}
                 </button>
               )}
+              {videos.length > 0 && " "}
+              {videos.length > 0 && (
+                <button
+                  className="odd-source odd-source-btn"
+                  onClick={() => setShowVideos((v) => !v)}
+                  title="Videos that teach this section"
+                >
+                  🎬{videos.length > 1 ? ` ${videos.length}` : ""}
+                </button>
+              )}
               {" · "}
             </>
           )}
@@ -224,6 +236,16 @@ export function DrillPanel({ skill, mode }: { skill: string; mode: "card" | "ses
           {Math.min(progress.consecutive, clearAt)} / {clearAt}
         </span>
       </div>
+
+      {showVideos && videos.length > 0 && (
+        <div className="odd-videos">
+          {videos.map((v) => (
+            <a key={v.url} className="odd-video" href={v.url} target="_blank" rel="noopener noreferrer">
+              🎬 {v.title}
+            </a>
+          ))}
+        </div>
+      )}
 
       <div className="odd-prompt">
         <MathText text={problem.prompt} />

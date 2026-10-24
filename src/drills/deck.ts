@@ -311,16 +311,31 @@ async function buildTables(plugin: RNPlugin, docId: string, groups: Record<strin
       if (!chRem) continue;
       let pos = 0;
       if (await bookLine(plugin, chRem._id, anchors[anchorKey(src.id, `ch${ch.n}`)])) pos++;
+      pos += await videoLines(plugin, chRem._id, ch.videos, pos);
       for (const sid of ch.skills) await skillLine(plugin, chRem._id, sid, groups, pos++);
       for (const sec of ch.sections) {
         const secRem = await findOrCreateChild(plugin, sectionTitle(sec), chRem._id, pos++);
         if (!secRem) continue;
         let k = 0;
         if (await bookLine(plugin, secRem._id, anchors[anchorKey(src.id, sec.ref)])) k++;
+        k += await videoLines(plugin, secRem._id, sec.videos, k);
         for (const sid of sec.skills) await skillLine(plugin, secRem._id, sid, groups, k++);
       }
     }
   }
+}
+
+/** "🎬 [title](url)" lines, one per video; stale ones (removed from the source) go. Returns how many. */
+async function videoLines(plugin: RNPlugin, parentId: string, videos: { title: string; url: string }[] | undefined, pos: number) {
+  const want = new Set((videos ?? []).map((v) => `🎬 ${v.title}`));
+  const parent = await plugin.rem.findOne(parentId);
+  for (const c of (await parent?.getChildrenRem()) ?? []) if (plain(c.text).startsWith("🎬 ") && !want.has(plain(c.text))) await c.remove();
+  let n = 0;
+  for (const v of videos ?? []) {
+    const text = await plugin.richText.parseFromMarkdown(`🎬 [${v.title.replace(/[[\]]/g, "")}](${v.url})`);
+    await ensureLine(plugin, parentId, text, pos + n++);
+  }
+  return n;
 }
 
 /** "📖 [[highlight]]" — clicking a reference to a PDF highlight opens the book there. */

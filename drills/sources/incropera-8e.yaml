@@ -11,27 +11,84 @@ chapters:
   - n: 1
     title: "Introduction"
     sections:
-      - { ref: "1.2", title: "Physical Origins and Rate Equations", skills: [ht.rate-equations] }
-      - { ref: "1.3", title: "Relationship to Thermodynamics", skills: [ht.energy-balance] }
+      - ref: "1.2"
+        title: "Physical Origins and Rate Equations"
+        skills: [ht.rate-equations]
+        videos:
+          - { title: "LearnChemE: Heat transfer basics", url: "https://www.youtube.com/watch?v=NwOZ1tSe9hs" }
+          - { title: "LearnChemE: Parameters and units", url: "https://www.youtube.com/watch?v=4pz7IgnJG4Y" }
+          - { title: "Cal Poly Pomona: Introduction to heat transfer (1 of 26)", url: "https://www.youtube.com/watch?v=TWTQx3W-2k8" }
+      - ref: "1.3"
+        title: "Relationship to Thermodynamics"
+        skills: [ht.energy-balance]
+        videos:
+          - { title: "LearnChemE: Intro example (potato)", url: "https://www.youtube.com/watch?v=9WwSaIP5pbs" }
   - n: 2
     title: "Introduction to Conduction"
     skills: [ht.heat-equation]
+    videos:
+      - { title: "LearnChemE: Heat equation derivation", url: "https://www.youtube.com/watch?v=AS83QF4X_2M" }
+      - { title: "LearnChemE: Boundary conditions", url: "https://www.youtube.com/watch?v=_F09zV0n22o" }
+      - { title: "LearnChemE: Heat equation, cylindrical", url: "https://www.youtube.com/watch?v=KRklpKkuMx0" }
   - n: 3
     title: "One-Dimensional, Steady-State Conduction"
     sections:
-      - { ref: "3.1", title: "The Plane Wall", skills: [ht.resistance-plane] }
-      - { ref: "3.3", title: "Radial Systems", skills: [ht.resistance-radial] }
-      - { ref: "3.5", title: "Conduction with Thermal Energy Generation", skills: [ht.generation] }
-      - { ref: "3.6", title: "Heat Transfer from Extended Surfaces", skills: [ht.fins] }
+      - ref: "3.1"
+        title: "The Plane Wall"
+        skills: [ht.resistance-plane]
+        videos:
+          - { title: "LearnChemE: Thermal circuits intro", url: "https://www.youtube.com/watch?v=dg-CuuZVNSQ" }
+          - { title: "LearnChemE: Temperatures in a composite wall", url: "https://www.youtube.com/watch?v=HZI65RuGa4M" }
+          - { title: "LearnChemE: Contact resistance example", url: "https://www.youtube.com/watch?v=2kYhQKGSx-U" }
+      - ref: "3.3"
+        title: "Radial Systems"
+        skills: [ht.resistance-radial]
+        videos:
+          - { title: "LearnChemE: Surface temperature of a cylindrical pipe", url: "https://www.youtube.com/watch?v=YAJbZKrPHsM" }
+          - { title: "LearnChemE: Conduction through spherical walls", url: "https://www.youtube.com/watch?v=QoGUUGl_rbo" }
+      - ref: "3.5"
+        title: "Conduction with Thermal Energy Generation"
+        skills: [ht.generation]
+        videos:
+          - { title: "LearnChemE: Uniform generation, maximum temperature", url: "https://www.youtube.com/watch?v=ZvEsCf-68A4" }
+          - { title: "LearnChemE: 1-D conduction with generation", url: "https://www.youtube.com/watch?v=Z4SuGpHcwJ4" }
+          - { title: "LearnChemE: Radial conduction with generation (part 1)", url: "https://www.youtube.com/watch?v=4QacGYOWy2c" }
+      - ref: "3.6"
+        title: "Heat Transfer from Extended Surfaces"
+        skills: [ht.fins]
+        videos:
+          - { title: "LearnChemE: Introduction to fins", url: "https://www.youtube.com/watch?v=iFoC2hd_lu8" }
+          - { title: "LearnChemE: Fin equation derivation", url: "https://www.youtube.com/watch?v=Q4k7WjWjcRk" }
+          - { title: "LearnChemE: Fin efficiency, adiabatic tip", url: "https://www.youtube.com/watch?v=Eo4ocbYdQHU" }
+          - { title: "LearnChemE: Heat loss from a pin fin", url: "https://www.youtube.com/watch?v=YmlpPyF9wgY" }
   - n: 4
     title: "Two-Dimensional, Steady-State Conduction"
     skills: [ht.shape-factors, ht.finite-difference]
+    videos:
+      - { title: "Cal Poly Pomona: Heat Transfer (11) shape factors & finite difference (search)", url: "https://www.youtube.com/results?search_query=Cal+Poly+Pomona+%22Heat+Transfer+(11)%22+shape+factors+finite+difference" }
+      - { title: "Cal Poly Pomona: Heat Transfer (12) finite difference examples (search)", url: "https://www.youtube.com/results?search_query=Cal+Poly+Pomona+%22Heat+Transfer+(12)%22+finite+difference+examples" }
   - n: 5
     title: "Transient Conduction"
     sections:
-      - { ref: "5.1–5.3", title: "The Lumped Capacitance Method", skills: [ht.lumped] }
-      - { ref: "5.5–5.6", title: "Plane Wall and Radial Systems with Convection", skills: [ht.transient-one-term] }
-      - { ref: "5.7", title: "The Semi-Infinite Solid", skills: [ht.semi-infinite] }
+      - ref: "5.1–5.3"
+        title: "The Lumped Capacitance Method"
+        skills: [ht.lumped]
+        videos:
+          - { title: "LearnChemE: Lumped capacitance intro", url: "https://www.youtube.com/watch?v=x9V7QywHACA" }
+          - { title: "LearnChemE: Lumped capacitance, sphere", url: "https://www.youtube.com/watch?v=_Kpoae8Umx0" }
+          - { title: "Cal Poly Pomona: Heat Transfer (13) lumped model", url: "https://www.youtube.com/watch?v=XKPLjuo4Yxw" }
+      - ref: "5.5–5.6"
+        title: "Plane Wall and Radial Systems with Convection"
+        skills: [ht.transient-one-term]
+        videos:
+          - { title: "LearnChemE: One-term approximation", url: "https://www.youtube.com/watch?v=C_kPHlgpdZ0" }
+          - { title: "LearnChemE: Plane wall with convection", url: "https://www.youtube.com/watch?v=346Lc0vFtIA" }
+      - ref: "5.7"
+        title: "The Semi-Infinite Solid"
+        skills: [ht.semi-infinite]
+        videos:
+          - { title: "LearnChemE: Semi-infinite solid example", url: "https://www.youtube.com/watch?v=EMc-C1P_j44" }
+          - { title: "LearnChemE: Modeling a semi-infinite medium", url: "https://www.youtube.com/watch?v=JEsrgjgUOY0" }
   - { n: 6, title: "Introduction to Convection", skills: [ht.boundary-layers, ht.mass-convection] }
   - { n: 7, title: "External Flow", skills: [ht.external-flow, ht.tube-banks, ht.mass-convection] }
   - { n: 8, title: "Internal Flow", skills: [ht.internal-flow] }
