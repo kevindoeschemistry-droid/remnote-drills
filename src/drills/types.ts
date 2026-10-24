@@ -17,7 +17,10 @@ export type Answer =
   /** a y'' + b y' + c y = 0 in variable `v`; IVP if ic = [t0, y0, y0'] */
   /** a y'' + b y' + c y = rhs(v) (rhs default 0). particular: one solution, no constants;
    *  ic: the IVP solution; otherwise the general solution (two independent constants) */
-  | { kind: "ode2"; a: number; b: number; c: number; v: string; rhs?: string; particular?: boolean; ic?: [number, number, number]; ref: string }
+  | { kind: "ode2"; a: number; b: number; c: number; v: string; rhs?: string; particular?: boolean; ic?: [number, number, number, ...number[]]; ref: string;
+      /** variable coefficients and/or higher order: coef[i] multiplies y^(n-i), highest derivative first
+       *  (mathjs in v; n = coef.length - 1). When present a, b, c are ignored and ic = [t0, y, y', …, y^(n-1)]. */
+      coef?: string[] }
   /** an expression in `vars` (default x); optionally only up to a constant factor */
   | { kind: "expression"; ref: string; vars?: string[]; upToConstant?: boolean; label?: string; tol?: number;
       /** tol is a fraction of the reference value (engineering numbers: 0.01 = within 1%) */
@@ -38,6 +41,9 @@ export type Answer =
       fields: { label: string; tex: string; ref: string; mode: "expr" | "number" | "angle" }[];
       vars?: string[];
       proportional?: boolean;
+      /** fields are the components of a solution of y' = A y in variable v: with ic = [t0, y1(t0), …]
+       *  the IVP solution, otherwise the general solution (n independent constants) */
+      system?: { A: number[][]; v: string; ic?: number[] };
     };
 
 export interface Problem {

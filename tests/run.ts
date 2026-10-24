@@ -142,6 +142,61 @@ function mk(answer: Answer, extra: Partial<Problem> = {}): Problem {
   return { skill: "t", template: "t", level: 1, prompt: "", answerTex: "", steps: [], answer, ...extra };
 }
 const cases: [string, Problem, (string | string[])[], (string | string[])[]][] = [
+  // ── ode2 + coef (variable coefficients / higher order) and tuple + system ──
+  [
+    "Euler–Cauchy double root x²y'' - 3xy' + 4y = 0",
+    mk({ kind: "ode2", a: 0, b: 0, c: 0, v: "x", coef: ["x^2", "-3*x", "4"], ref: "" }),
+    ["y = (C1 + C2 ln x) x^2", "c1 x^2 + c2 x^2 ln|x|", "A x^2 + B x^2 log(x)"],
+    ["y = C1 x^2 + C2 x^2", "C1 x^2 + C2 x ln x", "(C1 + C2 x)e^(2x)", "C1 x^2"],
+  ],
+  [
+    "Euler–Cauchy IVP x²y'' - 2y = 0, y(1) = 1, y'(1) = 5",
+    mk({ kind: "ode2", a: 0, b: 0, c: 0, v: "x", coef: ["x^2", "0", "-2"], ic: [1, 1, 5], ref: "" }),
+    ["y = 2x^2 - 1/x", "2x² - x^(-1)"],
+    ["2x^2 + 1/x", "C1 x^2 + C2/x", "2x^2 - 1/x + x"],
+  ],
+  [
+    "reduction of order xy'' + 2y' + xy = 0",
+    mk({ kind: "ode2", a: 0, b: 0, c: 0, v: "x", coef: ["x", "2", "x"], ref: "" }),
+    ["y = (C1 cos x + C2 sin x)/x", "A cos(x)/x + B sin(x)/x"],
+    ["C1 cos(x)/x + C2 cos(x)/x", "C1 cos x + C2 sin x"],
+  ],
+  [
+    "third order y''' - y' = 0",
+    mk({ kind: "ode2", a: 0, b: 0, c: 0, v: "x", coef: ["1", "0", "-1", "0"], ref: "" }),
+    ["y = C1 + C2 e^x + C3 e^(-x)", "A + B cosh(x) + C sinh(x)"],
+    ["C1 + C2 e^x", "C1 + C2 e^x + C3 e^x", "C1 + C2 x + C3 e^x"],
+  ],
+  [
+    "triple root y''' - 3y'' + 3y' - y = 0",
+    mk({ kind: "ode2", a: 0, b: 0, c: 0, v: "x", coef: ["1", "-3", "3", "-1"], ref: "" }),
+    ["y = (C1 + C2 x + C3 x^2) e^x", "c1 e^x + c2 x e^x + c3 x^2 e^x"],
+    ["(C1 + C2 x + C3 x^3)e^x", "(C1 + C2 x)e^x + C3 e^x"],
+  ],
+  [
+    "third-order IVP y''' - y' = 0, y(0) = 2, y'(0) = 0, y''(0) = 2",
+    mk({ kind: "ode2", a: 0, b: 0, c: 0, v: "x", coef: ["1", "0", "-1", "0"], ic: [0, 2, 0, 2], ref: "" }),
+    ["y = e^x + e^(-x)", "2cosh(x)"],
+    ["e^x + e^(-x) + 1", "2e^x", "C1 + e^x + e^(-x)"],
+  ],
+  [
+    "variation of parameters y'' + y = csc x",
+    mk({ kind: "ode2", a: 1, b: 0, c: 1, v: "x", rhs: "1/sin(x)", particular: true, ref: "" }),
+    ["y_p = -x cos x + sin x ln(sin x)", "sin(x) ln|sin x| - x cos(x) + 3 sin x"],
+    ["sin x ln(sin x)", "-x cos x", "-x cos x + sin x ln(sin x) + C1 cos x"],
+  ],
+  [
+    "system y' = [[1,2],[2,1]] y, general",
+    mk({ kind: "tuple", fields: [{ label: "y₁", tex: "y_1", ref: "", mode: "expr" }, { label: "y₂", tex: "y_2", ref: "", mode: "expr" }], system: { A: [[1, 2], [2, 1]], v: "t" } }),
+    [["C1 e^(3t) + C2 e^(-t)", "C1 e^(3t) - C2 e^(-t)"], ["2A e^{3t} + B e^{-t}", "2A e^{3t} - B e^{-t}"], ["y1 = c1 e^(3t) + c2 e^(-t)", "y2 = c1 e^(3t) - c2 e^(-t)"]],
+    [["C1 e^(3t)", "C1 e^(3t)"], ["C1 e^(3t) + C2 e^(-t)", "C1 e^(3t) + C2 e^(-t)"], ["C1 e^(3t) + C2 e^(3t)", "C1 e^(3t) + C2 e^(3t)"]],
+  ],
+  [
+    "system IVP y(0) = (2, 0)",
+    mk({ kind: "tuple", fields: [{ label: "y₁", tex: "y_1", ref: "", mode: "expr" }, { label: "y₂", tex: "y_2", ref: "", mode: "expr" }], system: { A: [[1, 2], [2, 1]], v: "t", ic: [0, 2, 0] } }),
+    [["e^(3t) + e^(-t)", "e^(3t) - e^(-t)"], ["y1 = e^{3t} + e^{-t}", "y2 = e^{3t} - e^{-t}"]],
+    [["e^(3t) - e^(-t)", "e^(3t) + e^(-t)"], ["2e^(3t)", "0"], ["C1 e^(3t) + e^(-t)", "e^(3t) - e^(-t)"]],
+  ],
   [
     "first-order (from v0.2)",
     mk({ kind: "ode", rhs: "x^4*exp(x) + 3*y/x", ref: "" }),

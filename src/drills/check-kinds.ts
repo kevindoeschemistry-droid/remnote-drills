@@ -114,6 +114,7 @@ function plainNumber(s: string): string {
 type Ode2Answer = Extract<Answer, { kind: "ode2" }>;
 function checkOde2(a: Ode2Answer, raw: string): CheckResult {
   if (!raw.trim()) return EMPTY;
+  if (a.coef) return checkOdeN(a, raw);
   const parts = raw.split("=");
   if (parts.length > 2) return syntax(`Write it as  y = …  in terms of ${a.v}.`);
   const mine = compile(parts.length === 2 ? parts[1] : parts[0]);
@@ -170,6 +171,159 @@ function checkOde2(a: Ode2Answer, raw: string): CheckResult {
     }
   if (!independent)
     return wrong("Your constants multiply the same solution — you need two independent ones (for a double root λ: e^{λx} and x·e^{λx}).");
+  return OK;
+}
+
+// ── variable-coefficient / higher-order linear ODE  Σ coef_i(v) y^(n-i) = f ───
+/** number of linearly independent vectors (Gram–Schmidt on normalised copies) */
+function rank(vecs: number[][]): number {
+  const basis: number[][] = [];
+  for (const v0 of vecs) {
+    const nrm = Math.sqrt(v0.reduce((s, x) => s + x * x, 0));
+    if (!(nrm > 1e-9)) continue;
+    let v = v0.map((x) => x / nrm);
+    for (const b of basis) {
+      const d = v.reduce((s, x, i) => s + x * b[i], 0);
+      v = v.map((x, i) => x - d * b[i]);
+    }
+    const r2 = v.reduce((s, x) => s + x * x, 0);
+    if (r2 > 1e-7) basis.push(v.map((x) => x / Math.sqrt(r2)));
+  }
+  return basis.length;
+}
+
+const SYMBOLIC_NAMES: Record<string, string> = { ln: "log", arctan: "atan", arcsin: "asin", arccos: "acos" };
+
+function checkOdeN(a: Ode2Answer, raw: string): CheckResult {
+  const coef = a.coef!;
+  const n = coef.length - 1;
+  const parts = raw.split("=");
+  if (parts.length > 2) return syntax(`Write it as  y = …  in terms of ${a.v}.`);
+  const body = normalize(parts.length === 2 ? parts[1] : parts[0]);
+  const mine = compile(body, false);
+  if (!mine) return syntax("Couldn't read that.");
+  const cs = coef.map((s) => compile(s, false)!);
+  const forcing = a.rhs ? compile(a.rhs, false) : null;
+  const f = (tt: number) => (forcing ? forcing.f({ [a.v]: tt }) : 0);
+  const consts = mine.symbols.filter((s) => s !== a.v);
+  // derivatives y, y', …, y^(n): central differences up to order 2 (as checkOde2), exact above that
+  let derivs: (t: number, c: Scope) => number[];
+  if (n <= 2) {
+    const h = 1e-4;
+    derivs = (t, c) => {
+      const g = (tt: number) => mine.f({ ...c, [a.v]: tt });
+      const y0 = g(t), yp = g(t + h), ym = g(t - h);
+      return [y0, (yp - ym) / (2 * h), (yp - 2 * y0 + ym) / (h * h)].slice(0, n + 1);
+    };
+  } else {
+    let fs: ((s: Scope) => number)[];
+    try {
+      let node: any = math.parse(body).transform((nd: any) =>
+        nd.isFunctionNode && SYMBOLIC_NAMES[nd.fn.name] ? new (math as any).FunctionNode(SYMBOLIC_NAMES[nd.fn.name], nd.args) : nd
+      );
+      const nodes = [node];
+      for (let k = 1; k <= n; k++) nodes.push((node = math.derivative(node, a.v, { simplify: false })));
+      fs = nodes.map((nd) => {
+        const code = nd.compile();
+        return (s: Scope) => {
+          try {
+            const v = real(code.evaluate({ ...s }));
+            return Number.isFinite(v) ? v : NaN;
+          } catch {
+            return NaN;
+          }
+        };
+      });
+    } catch {
+      return syntax("Couldn't differentiate that — check the functions you used.");
+    }
+    derivs = (t, c) => fs.map((g) => g({ ...c, [a.v]: t }));
+  }
+  const residualOk = (c: Scope) => {
+    for (const t of [0.3, 0.7, 1.1, 1.6, 2.2]) {
+      const d = derivs(t, c);
+      if (!d.every(Number.isFinite)) return false;
+      const terms = cs.map((k, i) => k.f({ [a.v]: t }) * d[n - i]);
+      const ft = f(t);
+      const res = terms.reduce((s, x) => s + x, 0) - ft;
+      const scale = Math.max(...terms.map(Math.abs), Math.abs(ft), 1e-3);
+      if (!Number.isFinite(res) || Math.abs(res) > 2e-5 * scale) return false;
+    }
+    return true;
+  };
+  const notIt = a.rhs ? "Not quite — that doesn't satisfy the equation (check the right-hand side)." : "Not quite — that doesn't satisfy the equation.";
+  if (a.ic) {
+    if (consts.length) return { status: "has-constant", message: `Use the initial conditions to find ${consts.join(", ")}.` };
+    if (!residualOk({})) return wrong(notIt);
+    const [t0, ...vals] = a.ic;
+    const d = derivs(t0, {});
+    const names = ["y", "y'", "y''", "y'''"];
+    for (let j = 0; j < Math.min(n, vals.length); j++)
+      if (!close(d[j], vals[j], j === 0 ? 1e-6 : 1e-5)) return wrong(`Not quite — check ${names[j] ?? `y^(${j})`}(${t0}) = ${vals[j]}.`);
+    return OK;
+  }
+  if (a.particular) {
+    if (consts.length) return { status: "has-constant", message: "A particular solution has no arbitrary constants — solve for the coefficients." };
+    return residualOk({}) ? OK : wrong(notIt);
+  }
+  if (consts.length < n) return { status: "needs-constant", message: `A general solution of this order-${n} equation needs ${n} arbitrary constants.` };
+  const base = (vals: number[]) => Object.fromEntries(consts.map((nm, i) => [nm, vals[i % vals.length] + 0.3 * Math.floor(i / vals.length)]));
+  for (const vals of [[0.7, -1.3, 0.45, 1.1], [1.9, 0.4, -0.8, 0.25], [-0.6, 2.2, 1.3, -1.7]]) if (!residualOk(base(vals))) return wrong(notIt);
+  const c0 = base([0.7, -1.3, 0.45, 1.1]);
+  const ts = [0.2, 0.45, 0.7, 1.0, 1.3, 1.6, 2.1];
+  const h = 1e-4;
+  const grads = consts.map((nm) =>
+    ts.map((t) => (mine.f({ ...c0, [nm]: c0[nm] + h, [a.v]: t }) - mine.f({ ...c0, [nm]: c0[nm] - h, [a.v]: t })) / (2 * h))
+  );
+  if (rank(grads) < n) return wrong(`Your constants don't multiply ${n} independent solutions — for a repeated root λ use e^{λx}, x·e^{λx}, x²e^{λx}, ….`);
+  return OK;
+}
+
+// ── linear system  y' = A y  (tuple of components) ─────────────────────────
+type TupleAns = Extract<Answer, { kind: "tuple" }>;
+function checkSystem(a: TupleAns, inputs: string[]): CheckResult {
+  const S = a.system!;
+  const k = S.A.length;
+  if (inputs.length !== k || inputs.some((s) => !s?.trim())) return syntax("Fill in every component.");
+  const comps: Compiled[] = [];
+  for (let i = 0; i < k; i++) {
+    const c = compile(rhsOnly(inputs[i]));
+    if (!c) return syntax(`Couldn't read ${a.fields[i].label}.`);
+    comps.push(c);
+  }
+  const consts = [...new Set(comps.flatMap((c) => c.symbols))].filter((s) => s !== S.v);
+  const h = 1e-4;
+  const residualOk = (c: Scope) => {
+    for (const t of [0.15, 0.4, 0.7, 1.0, 1.35]) {
+      const y = comps.map((g) => g.f({ ...c, [S.v]: t }));
+      const d = comps.map((g) => (g.f({ ...c, [S.v]: t + h }) - g.f({ ...c, [S.v]: t - h })) / (2 * h));
+      if (![...y, ...d].every(Number.isFinite)) return false;
+      for (let i = 0; i < k; i++) {
+        const terms = S.A[i].map((aij, j) => aij * y[j]);
+        const res = d[i] - terms.reduce((s, x) => s + x, 0);
+        const scale = Math.max(Math.abs(d[i]), ...terms.map(Math.abs), ...y.map(Math.abs), 1e-3);
+        if (Math.abs(res) > 2e-5 * scale) return false;
+      }
+    }
+    return true;
+  };
+  const notIt = "Not quite — that doesn't satisfy y' = Ay.";
+  if (S.ic) {
+    if (consts.length) return { status: "has-constant", message: `Use the initial conditions to find ${consts.join(", ")}.` };
+    if (!residualOk({})) return wrong(notIt);
+    const [t0, ...vals] = S.ic;
+    const bad = comps.map((g, i) => (close(g.f({ [S.v]: t0 }), vals[i], 1e-6) ? "" : a.fields[i].label)).filter(Boolean);
+    return bad.length ? wrong(`Not quite — check the initial value of ${bad.join(", ")}.`) : OK;
+  }
+  if (consts.length < k) return { status: "needs-constant", message: `A general solution needs ${k} arbitrary constants (C1, C2).` };
+  const base = (vals: number[]) => Object.fromEntries(consts.map((nm, i) => [nm, vals[i % 2] + 0.3 * Math.floor(i / 2)]));
+  for (const vals of [[0.7, -1.3], [1.9, 0.4], [-0.6, 2.2]]) if (!residualOk(base(vals))) return wrong(notIt);
+  const c0 = base([0.7, -1.3]);
+  const ts = [0.1, 0.35, 0.6, 0.9, 1.2];
+  const grads = consts.map((nm) =>
+    ts.flatMap((t) => comps.map((g) => (g.f({ ...c0, [nm]: c0[nm] + h, [S.v]: t }) - g.f({ ...c0, [nm]: c0[nm] - h, [S.v]: t })) / (2 * h)))
+  );
+  if (rank(grads) < k) return wrong("Your constants multiply the same solution — you need two independent ones (one per eigenvector).");
   return OK;
 }
 
@@ -329,6 +483,7 @@ function checkEigenfunctions(a: EigAnswer, raw: string): CheckResult {
 // ── tuple ───────────────────────────────────────────────────────────────────
 type TupleAnswer = Extract<Answer, { kind: "tuple" }>;
 function checkTuple(a: TupleAnswer, inputs: string[]): CheckResult {
+  if (a.system) return checkSystem(a, inputs);
   if (inputs.length !== a.fields.length || inputs.some((s) => !s?.trim())) return syntax("Fill in every field.");
   const vars = a.vars ?? [];
   const comps: Compiled[] = [];
