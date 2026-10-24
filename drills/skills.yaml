@@ -289,6 +289,13 @@ skills:
   - { id: ht.heat-exchangers, domain: ht, title: "Heat exchangers: LMTD & ε–NTU", prereqs: [ht.internal-flow] }
   - { id: ht.view-factors, domain: ht, title: "Radiation view factors" }
   - { id: ht.enclosures, domain: ht, title: "Radiation exchange in enclosures", prereqs: [ht.view-factors] }
+  - { id: ht.boundary-layers, domain: ht, title: "Convection: boundary layers, dimensionless groups, analogies", prereqs: [ht.rate-equations] }
+  - { id: ht.tube-banks, domain: ht, title: "Flow across tube banks", prereqs: [ht.external-flow] }
+  - { id: ht.boiling, domain: ht, title: "Boiling: nucleate flux, critical heat flux", prereqs: [ht.rate-equations] }
+  - { id: ht.condensation, domain: ht, title: "Film condensation (Nusselt)", prereqs: [ht.rate-equations] }
+  - { id: ht.radiation-properties, domain: ht, title: "Radiation: blackbody, band fractions, emissivity & absorptivity", prereqs: [ht.rate-equations] }
+  - { id: ht.mass-diffusion, domain: ht, title: "Diffusion mass transfer: Fick's law, stationary media, evaporation", prereqs: [ht.heat-equation] }
+  - { id: ht.mass-convection, domain: ht, title: "Convective mass transfer & the heat–mass analogy", prereqs: [ht.boundary-layers] }
 
   # ── classical thermodynamics ────────────────────────────────────────────
   - { id: thermo.fundamental-equation, domain: thermo, title: "Fundamental equation & intensive variables", prereqs: [calc.multivariable] }
