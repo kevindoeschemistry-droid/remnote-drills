@@ -63,6 +63,8 @@ export interface Problem {
   steps: string[];
   /** template-specific extras used by tests (never by the UI) */
   meta?: Record<string, unknown>;
+  /** optional diagram: a self-contained SVG string built by the generator */
+  figure?: string;
 }
 
 /** What a generator returns; the registry stamps skill / template / level. */

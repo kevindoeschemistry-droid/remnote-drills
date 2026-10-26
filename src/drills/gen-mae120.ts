@@ -9,6 +9,7 @@ import type { Draft } from "./types";
 import { m } from "./tex";
 import { Reject, require_ } from "./reject";
 import { fmt } from "./gen-heat";
+import { figureFor } from "./figures";
 
 const PI = Math.PI;
 const g = (x: number) => fmt(x, 4);
@@ -152,7 +153,7 @@ const wallCompare = (r: Rng) =>
       `1-D steady, no generation: the same ${m("q")} crosses both layers, so ${m("\\Delta T_i = qR_{t,i}")}.`,
       `${m(`\\Delta T_1 = ${d1}`)}, ${m(`\\Delta T_2 = ${d2}`)}, so ${m(d1 > d2 ? "R_{t,1} > R_{t,2}" : "R_{t,1} < R_{t,2}")}.`,
       `Equal thickness and area: ${m("R_t = L/kA")}, so the larger resistance has the smaller ${m("k")}: ${m(d1 > d2 ? "k_1 < k_2" : "k_1 > k_2")}.`,
-    ], { mae: "wall-compare", d1, d2, claim },
+    ], { mae: "wall-compare", d1, d2, claim, T1, T2, T3 },
     `A composite wall of materials 1 and 2 (${m("L_1 = L_2")}, same area) carries 1-D steady conduction. The outer faces and the interface are at ${m(`T_1 = ${T1}`)}, ${m(`T_2 = ${T2}`)}, ${m(`T_3 = ${T3}\\,^\\circ\\mathrm{C}`)}. True or false: ${m(claimTex)}.`);
   });
 
@@ -199,7 +200,7 @@ function wallPoint(r: Rng): Draft {
   return numeric(T, "T", "T", "°C", [
     `1-D steady, no generation, constant ${m("k")}: within each layer ${m("T(x)")} is a straight line between that layer's face temperatures.`,
     m(`T = T_${layer === 1 ? 1 : 2} + \\tfrac{x'}{L_${layer}}(T_${layer === 1 ? 2 : 3} - T_${layer === 1 ? 1 : 2}) = ${Ta} + ${fTex}(${Tb} - ${Ta}) = ${fmt(T)}${u("°C")}`),
-  ], { mae: "wall-point", Ta, Tb, f },
+  ], { mae: "wall-point", Ta, Tb, f, layer, T1, T2, T3 },
   `A two-layer wall (material 1 then 2) has its outer faces at ${m(`T_1 = ${T1}`)} and ${m(`T_3 = ${T3}\\,^\\circ\\mathrm{C}`)} and its interface at ${m(`T_2 = ${T2}\\,^\\circ\\mathrm{C}`)} (1-D steady, no generation). Find the temperature ${m(`${fTex}`)} of the way through layer ${layer}, measured from ${layer === 1 ? "the outer face at " + m("T_1") : "the interface"}.`);
 }
 
@@ -393,18 +394,25 @@ function fdExam(r: Rng): Draft {
     `Draw the node's control volume: ${type.startsWith("corner") ? "a quarter cell" : "a half cell"}, ${m(`${type === "side" ? "\\Delta x/2 \\times \\Delta y" : type === "top" ? "\\Delta x \\times \\Delta y/2" : "\\Delta x/2 \\times \\Delta y/2"}`)}. Each conduction path's area is the face it crosses (per unit depth); its length is the distance to that neighbour.`,
     `Energy balance, all heat flows assumed into the node: ${m(`${termTex} = 0`)}${type === "corner-ins" ? " (the insulated top contributes nothing)" : ""}.`,
     `With ${m(`${aTex}`)}, ${m(`\\Delta y = ${g(dy)}`)}, ${m(`\\Delta x = ${g(dx)}\\,\\mathrm{m}`)}: each term is a conductance times a temperature difference. ${m(`T_n = \\frac{\\sum G_iT_i}{\\sum G_i} = \\frac{${fmt(GT, 4)}}{${fmt(G, 4)}} = ${fmt(Tn)}${u("°C")}`)}.`,
-  ], { mae: "fd", faces: faces.map(({ f }) => f), k, h, Tinf, hr, Tsur },
+  ], { mae: "fd", faces: faces.map(({ name, f }) => ({ ...f, name })), k, h, Tinf, hr, Tsur, a, type },
   `A 2-D steady finite-difference node (no generation, ${m(`k = ${k}\\,\\mathrm{W/m\\cdot K}`)}, grid ${m(aTex)} with ${m(`\\Delta y = ${dyCm}\\,\\mathrm{cm}`)}) sits on ${where}. The fluid is at ${m(`T_\\infty = ${Tinf}\\,^\\circ\\mathrm{C}`)}, ${m(`h = ${h}\\,\\mathrm{W/m^2\\cdot K}`)}${rad ? `; radiation to surroundings at ${m(`T_{sur} = ${Tsur}\\,^\\circ\\mathrm{C}`)} is linearised with ${m(`h_r = ${hr}\\,\\mathrm{W/m^2\\cdot K}`)}` : "; neglect radiation"}. Neighbouring nodes: ${nb}. Find the node temperature ${m("T_n")}.`);
 }
+
+/** Attach the problem's diagram (see figures.ts) to whatever the generator built. */
+const withFigure = (fn: (r: Rng) => Draft) => (r: Rng): Draft => {
+  const d = fn(r);
+  const figure = figureFor(d.meta);
+  return figure ? { ...d, figure } : d;
+};
 
 export const MAE120_TEMPLATES: Record<string, (r: Rng) => Draft> = {
   "mae-concept": concept,
   "mae-laplace": laplaceCheck,
-  "mae-wall-compare": wallCompare,
-  "mae-series-parallel": seriesParallel,
-  "mae-wall-point": wallPoint,
-  "mae-rod-slab": rodSlab,
-  "mae-two-spheres": twoSpheres,
-  "mae-pot": pot,
-  "mae-fd": fdExam,
+  "mae-wall-compare": withFigure(wallCompare),
+  "mae-series-parallel": withFigure(seriesParallel),
+  "mae-wall-point": withFigure(wallPoint),
+  "mae-rod-slab": withFigure(rodSlab),
+  "mae-two-spheres": withFigure(twoSpheres),
+  "mae-pot": withFigure(pot),
+  "mae-fd": withFigure(fdExam),
 };

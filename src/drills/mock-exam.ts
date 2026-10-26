@@ -12,6 +12,49 @@ export interface ExamItem {
   problem: Problem;
 }
 
+// which drill teaches each true/false statement
+const CONCEPT_SKILL: Record<string, string> = {
+  "rad-medium": "ht.rate-equations", "k-direction": "ht.rate-equations",
+  "fin-eff-1": "ht.fins", "fin-eta": "ht.fins", "fin-linear": "ht.fins",
+  "wall-linear": "ht.resistance-plane", "series-same-q": "ht.resistance-plane", "biggest-drop": "ht.resistance-plane",
+  "cyl-linear": "ht.resistance-radial", "q-const-cyl": "ht.resistance-radial", "flux-const-cyl": "ht.resistance-radial",
+  "insulation-always": "ht.resistance-radial",
+  "tau-large": "ht.lumped", "bi-small": "ht.lumped", "bi-large": "ht.lumped", "lc-sphere": "ht.lumped",
+  "shape-k": "ht.shape-factors", "steady-zero-storage": "ht.energy-balance", "laplace-cond": "ht.heat-equation",
+  "fd-interior": "ht.finite-difference",
+};
+const TEMPLATE_SKILLS: Record<string, string[]> = {
+  "mae-wall-compare": ["ht.resistance-plane", "ht.exam-concepts"],
+  "mae-series-parallel": ["ht.resistance-plane", "ht.exam-concepts"],
+  "mae-wall-point": ["ht.resistance-plane", "ht.exam-short"],
+  "mae-laplace": ["ht.heat-equation", "ht.exam-concepts"],
+  "mae-two-spheres": ["ht.shape-factors", "ht.exam-short"],
+  "mae-rod-slab": ["ht.shape-factors", "ht.exam-short"],
+  "mae-fd": ["ht.exam-fd", "ht.finite-difference"],
+  "mae-pot": ["ht.exam-short", "ht.heat-equation"],
+  "ht-bi": ["ht.lumped"],
+  "ht-lumped-temp": ["ht.lumped"],
+};
+
+/** The drills to do next, from the questions missed: most points lost first. */
+export function drillsFor(items: ExamItem[], ok: boolean[]): { skill: string; lost: number; questions: number[] }[] {
+  const tally = new Map<string, { lost: number; questions: number[] }>();
+  items.forEach((it, i) => {
+    if (ok[i]) return;
+    const t = it.problem.template;
+    const skills = t === "mae-concept"
+      ? [CONCEPT_SKILL[(it.problem.meta as any)?.id] ?? "ht.exam-concepts", "ht.exam-concepts"]
+      : TEMPLATE_SKILLS[t] ?? [it.problem.skill];
+    for (const s of new Set(skills)) {
+      const cur = tally.get(s) ?? { lost: 0, questions: [] };
+      cur.lost += it.points;
+      cur.questions.push(it.n);
+      tally.set(s, cur);
+    }
+  });
+  return [...tally.entries()].map(([skill, v]) => ({ skill, ...v })).sort((a, b) => b.lost - a.lost);
+}
+
 /** Written parts that can't be auto-graded: prompt + what a full-credit answer contains. */
 export const WRITTEN = [
   {

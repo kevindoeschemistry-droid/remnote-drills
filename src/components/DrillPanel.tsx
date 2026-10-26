@@ -250,6 +250,7 @@ export function DrillPanel({ skill, mode }: { skill: string; mode: "card" | "ses
       <div className="odd-prompt">
         <MathText text={problem.prompt} />
       </div>
+      {problem.figure && <div className="odd-figure" dangerouslySetInnerHTML={{ __html: problem.figure }} />}
 
       {a.kind === "choice" ? (
         <div className="odd-choices">

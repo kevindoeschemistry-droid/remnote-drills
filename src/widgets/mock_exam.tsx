@@ -1,7 +1,8 @@
 // "Drills: Mock exam" — a whole paper at once, timed, graded only when you hand it in.
 import React, { useEffect, useMemo, useState } from "react";
-import { renderWidget } from "@remnote/plugin-sdk";
-import { buildExam, WRITTEN } from "../drills/mock-exam";
+import { renderWidget, usePlugin } from "@remnote/plugin-sdk";
+import { buildExam, drillsFor, WRITTEN } from "../drills/mock-exam";
+import { resolveSkill } from "../drills/skills";
 import { check } from "../drills/check";
 import { MathText, Tex } from "../components/MathText";
 import "../drills.css";
@@ -11,6 +12,7 @@ const newSeed = () => (Date.now() ^ Math.floor(Math.random() * 0xffffffff)) >>> 
 const mmss = (s: number) => `${Math.floor(s / 60)}:${String(s % 60).padStart(2, "0")}`;
 
 function MockExam() {
+  const plugin = usePlugin();
   const [seed, setSeed] = useState(newSeed);
   const items = useMemo(() => buildExam(seed), [seed]);
   const [answers, setAnswers] = useState<Record<number, string[]>>({});
@@ -41,6 +43,7 @@ function MockExam() {
   const total = items.reduce((s, it) => s + it.points, 0);
   const score = results.reduce((s, r, i) => s + (r.ok ? items[i].points : 0), 0);
   const elapsed = Math.round((now - start) / 1000);
+  const todo = useMemo(() => (submitted ? drillsFor(items, results.map((r) => r.ok)) : []), [submitted, items, results]);
 
   const set = (n: number, i: number, v: string) =>
     setAnswers((all) => {
@@ -76,6 +79,30 @@ function MockExam() {
           )}
         </span>
       </div>
+      {submitted && (
+        <div className="mx-todo">
+          {todo.length === 0 ? (
+            <b>Clean paper. Do another one to be sure.</b>
+          ) : (
+            <>
+              <b>Drill these next</b> <span className="odd-hint">(most points lost first; opens the drill)</span>
+              <ol>
+                {todo.map((t) => (
+                  <li key={t.skill}>
+                    <button className="odd-source-btn mx-link" onClick={() => plugin.widget.openPopup("drill_session", { skill: t.skill })}>
+                      {resolveSkill(t.skill)?.title ?? t.skill}
+                    </button>{" "}
+                    <span className="odd-hint">
+                      −{t.lost} pts · problem{t.questions.length > 1 ? "s" : ""} {t.questions.join(", ")}
+                    </span>
+                  </li>
+                ))}
+              </ol>
+              <span className="odd-hint">Opening a drill closes this paper, so look over the solutions below first.</span>
+            </>
+          )}
+        </div>
+      )}
       {!submitted && (
         <p className="odd-hint">
           Work it like the real thing: no notes, no checking as you go. Numeric answers count within 1%; round only at the end.
@@ -100,6 +127,7 @@ function MockExam() {
               <div className="odd-prompt">
                 <MathText text={it.problem.prompt} />
               </div>
+              {it.problem.figure && <div className="odd-figure" dangerouslySetInnerHTML={{ __html: it.problem.figure }} />}
               {a.kind === "choice" ? (
                 <div className="odd-choices">
                   {a.options.map((opt) => (
