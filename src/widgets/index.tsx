@@ -209,6 +209,16 @@ async function registerDrills(plugin: ReactRNPlugin) {
       }
     },
   });
+  await plugin.app.registerWidget("mock_exam", WidgetLocation.Popup, {
+    dimensions: { height: "auto", width: 760 },
+  });
+  await plugin.app.registerCommand({
+    id: "drills-mock-exam",
+    name: "Drills: Mock exam (MAE 120 heat transfer)",
+    action: async () => {
+      await plugin.widget.openPopup("mock_exam");
+    },
+  });
   await plugin.app.registerWidget("anchor", WidgetLocation.Popup, {
     dimensions: { height: "auto", width: 600 },
   });

@@ -14,4 +14,7 @@ const plugin = {
 export const usePlugin = () => plugin;
 export enum QueueInteractionScore { AGAIN = 0, HARD = 0.5, GOOD = 1, EASY = 1.5 }
 export enum BuiltInPowerupCodes { UploadedFile = "f", PDFHighlight = "n" }
-export const renderWidget = () => undefined;
+import * as React_ from "react";
+import * as ReactDOM_ from "react-dom";
+/** Renders a widget into #root, so a widget file can be previewed on its own. */
+export const renderWidget = (C: any) => ReactDOM_.render(React_.createElement(C), document.getElementById("root"));
