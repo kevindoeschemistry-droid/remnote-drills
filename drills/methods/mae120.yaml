@@ -1,0 +1,18 @@
+# Exam-style sets (UCI MAE 120 midterms)
+ht.exam-concepts:
+  - 'Radiation needs no medium; $k$ can depend on direction (anisotropic); fin effectiveness $> 1$ means the fin helps; fin efficiency is at most 1.'
+  - 'Is $T(x,y,z)$ possible (steady, no $\dot q$, constant $k$)? Check $\nabla^2T = 0$. Cross terms like $xy$ drop out; only $x^2, y^2, z^2$ count: $2(a+b+c) = 0$.'
+  - 'Cylindrical: $\nabla^2(r^2) = 4$, $\nabla^2(z^2) = 2$, $\nabla^2(\ln r) = 0$, and $\nabla^2(rz) = z/r$, which is never zero.'
+  - 'Series layers carry the same $q$, so $\Delta T_i = qR_i$: the bigger temperature drop marks the bigger resistance (smaller $k$ for equal $L$).'
+  - 'Series/parallel: blocks in series carry the same rate $q$; blocks in parallel share the same $\Delta T$. Flux $q'''' = q/A$: a block twice as tall carries half the flux for the same rate.'
+ht.exam-short:
+  - 'Inside one layer (1-D, steady, no $\dot q$) $T$ is linear: halfway through layer 1 is $(T_1 + T_2)/2$, a quarter of the way is $\tfrac34T_1 + \tfrac14T_2$.'
+  - 'Rod midway between two isothermal planes (Table 4.1 case 5, $z = y$): $R''_t = \ln(8z/\pi D)/2\pi k$. With generation, $q'' = \dot q\,\pi D^2/4$ must equal $\Delta T/R''_t$.'
+  - 'Two equal spheres: the midplane is isothermal at the mean temperature. Each sphere is case 1 with $z$ = centre to midplane: $S = 2\pi D/(1 - D/4z)$, $q = Sk(T_1 - T_{mid})$. Use the medium''s $k$.'
+  - 'Pot bottom: $T'''' = 0$, $-kT''(0) = q''''$, $-kT''(L) = h[T(L) - T_\infty]$. So $T(L) = T_\infty + q''''/h$ and $T(0) = T(L) + q''''L/k$; raising $q''''$ steepens the line.'
+  - 'Units: W/cm² × $10^4$ = W/m²; mm × $10^{-3}$ = m. The exam rounds to whole numbers with no partial credit, so carry digits.'
+ht.exam-fd:
+  - 'Draw the node''s cell: interior full, surface half, corner quarter. Every face gets a term; assume all heat flows into the node and set the sum to 0.'
+  - 'Conduction to a neighbour: $k \times$ (face length it crosses) $\times (T_{nb} - T_n)/$(distance to that neighbour). With $\Delta x \ne \Delta y$ the face is the perpendicular spacing (halved on a boundary cell).'
+  - 'Exposed face: $h\,\ell(T_\infty - T_n)$, plus $h_r\,\ell(T_{sur} - T_n)$ for radiation, with $\ell$ the exposed length ($\Delta x$, $\Delta y$, or half of one at a corner). Insulated: no term.'
+  - 'Solve: $T_n = \sum G_iT_i/\sum G_i$ with conductances $G_i$. Check: with $\Delta x = \Delta y$, an interior node is the average of its four neighbours.'

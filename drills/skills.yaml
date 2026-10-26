@@ -296,6 +296,10 @@ skills:
   - { id: ht.radiation-properties, domain: ht, title: "Radiation: blackbody, band fractions, emissivity & absorptivity", prereqs: [ht.rate-equations] }
   - { id: ht.mass-diffusion, domain: ht, title: "Diffusion mass transfer: Fick's law, stationary media, evaporation", prereqs: [ht.heat-equation] }
   - { id: ht.mass-convection, domain: ht, title: "Convective mass transfer & the heat–mass analogy", prereqs: [ht.boundary-layers] }
+  # exam-style sets modelled on UCI MAE 120 midterms (practice 2020, 2021, 2026)
+  - { id: ht.exam-concepts, domain: ht, title: "Exam: true/false & multiple-choice concepts (Ch 1–5)", short: "Exam concepts (T/F, MC)", kind: classify, status: live, levels: { 1: [mae-concept, mae-laplace, mae-wall-compare, mae-series-parallel] } }
+  - { id: ht.exam-short, domain: ht, title: "Exam: short answers (wall point, rod in slab, two spheres, pot)", short: "Exam short answers", status: live, prereqs: [ht.shape-factors, ht.resistance-plane], levels: { 1: [mae-wall-point, mae-rod-slab, mae-two-spheres, mae-pot] } }
+  - { id: ht.exam-fd, domain: ht, title: "Exam: finite-difference node with Δx ≠ Δy, convection & radiation", short: "Exam FD node", status: live, prereqs: [ht.finite-difference], levels: { 1: [mae-fd] } }
 
   # ── classical thermodynamics ────────────────────────────────────────────
   - { id: thermo.fundamental-equation, domain: thermo, title: "Fundamental equation & intensive variables", prereqs: [calc.multivariable] }
