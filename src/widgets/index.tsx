@@ -178,7 +178,7 @@ async function registerDrills(plugin: ReactRNPlugin) {
   });
   // Unlimited practice: popup + right sidebar tab
   await plugin.app.registerWidget("drill_session", WidgetLocation.Popup, {
-    dimensions: { height: "auto", width: 720 },
+    dimensions: { height: 620, width: 860 },
   });
   await plugin.app.registerWidget("drill_session", WidgetLocation.RightSidebar, {
     dimensions: { height: "auto", width: "100%" },
@@ -209,8 +209,9 @@ async function registerDrills(plugin: ReactRNPlugin) {
       }
     },
   });
+  // fixed popups that scroll inside: auto height clips long problems + solutions
   await plugin.app.registerWidget("midterm_mix", WidgetLocation.Popup, {
-    dimensions: { height: "auto", width: 760 },
+    dimensions: { height: 620, width: 860 },
   });
   await plugin.app.registerWidget("midterm_mix", WidgetLocation.RightSidebar, {
     dimensions: { height: "auto", width: "100%" },

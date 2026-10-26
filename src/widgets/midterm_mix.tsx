@@ -47,7 +47,7 @@ function MidtermMix() {
   const cleared = MIDTERM_SKILLS.filter((x) => progress[x.skill]?.cleared).length;
   if (!skill) return null;
   return (
-    <div className="odd-session">
+    <div className="odd-session mm-scroll">
       <div className="mm-head">
         <b>Midterm mix</b>
         <span className="odd-hint">

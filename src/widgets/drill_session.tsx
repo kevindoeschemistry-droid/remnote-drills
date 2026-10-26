@@ -41,7 +41,7 @@ function DrillSession() {
 
   if (!skill) return null;
   return (
-    <div className="odd-session">
+    <div className="odd-session mm-scroll">
       <select
         className="odd-select"
         value={skill}
