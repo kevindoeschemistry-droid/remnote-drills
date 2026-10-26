@@ -171,7 +171,7 @@ a.odd-source:hover { text-decoration: underline; }
 }
 
 /* mock exam */
-.mx-exam { max-height: 85vh; overflow-y: auto; }
+.mx-exam { height: 100vh; box-sizing: border-box; overflow-y: auto; }
 .mx-top { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; margin-bottom: 4px; }
 .mx-timer { font-variant-numeric: tabular-nums; font-weight: 600; }
 .mx-section { margin: 14px 0 6px; font-weight: 700; text-transform: uppercase; font-size: 0.78em; letter-spacing: 0.04em; opacity: 0.75; }
