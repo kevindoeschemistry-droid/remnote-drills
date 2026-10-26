@@ -194,3 +194,9 @@ a.odd-source:hover { text-decoration: underline; }
 .mx-todo { margin: 4px 0 10px; padding: 10px 12px; border-radius: 8px; background: rgba(91, 124, 250, 0.08); border: 1px solid rgba(91, 124, 250, 0.35); }
 .mx-todo ol { margin: 6px 0 4px 18px; padding: 0; }
 .mx-todo li { margin: 2px 0; }
+.mm-head { margin-bottom: 6px; }
+.mm-chips { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 8px; }
+.mm-chip { font: inherit; font-size: 0.78em; padding: 2px 8px; border-radius: 999px; border: 1px solid rgba(127, 127, 127, 0.35); background: none; color: inherit; cursor: pointer; opacity: 0.85; }
+.mm-chip.done { border-color: #3aa76d; color: #3aa76d; }
+.mm-chip.now { box-shadow: 0 0 0 2px rgba(91, 124, 250, 0.35); }
+.mm-chip.on { background: rgba(91, 124, 250, 0.15); border-color: #5b7cfa; opacity: 1; }

@@ -209,6 +209,20 @@ async function registerDrills(plugin: ReactRNPlugin) {
       }
     },
   });
+  await plugin.app.registerWidget("midterm_mix", WidgetLocation.Popup, {
+    dimensions: { height: "auto", width: 760 },
+  });
+  await plugin.app.registerWidget("midterm_mix", WidgetLocation.RightSidebar, {
+    dimensions: { height: "auto", width: "100%" },
+    widgetTabTitle: "Midterm mix",
+  });
+  await plugin.app.registerCommand({
+    id: "drills-midterm-mix",
+    name: "Drills: Midterm mix (heat transfer, Ch 1–5 only)",
+    action: async () => {
+      await plugin.widget.openPopup("midterm_mix");
+    },
+  });
   // a fixed, tall popup: the paper scrolls inside it (auto height collapses for long content)
   await plugin.app.registerWidget("mock_exam", WidgetLocation.Popup, {
     dimensions: { height: 620, width: 1000 },

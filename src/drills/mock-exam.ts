@@ -112,3 +112,20 @@ export function buildExam(seed: number): ExamItem[] {
   });
   return out;
 }
+
+/** The midterm's skills (Incropera Ch 1–4 and §5.1–5.3, plus the exam-style sets); weight = how often they come up. */
+export const MIDTERM_SKILLS: { skill: string; weight: number }[] = [
+  { skill: "ht.exam-fd", weight: 3 },
+  { skill: "ht.exam-short", weight: 3 },
+  { skill: "ht.exam-concepts", weight: 3 },
+  { skill: "ht.finite-difference", weight: 2 },
+  { skill: "ht.shape-factors", weight: 2 },
+  { skill: "ht.lumped", weight: 2 },
+  { skill: "ht.fins", weight: 2 },
+  { skill: "ht.resistance-plane", weight: 2 },
+  { skill: "ht.heat-equation", weight: 1.5 },
+  { skill: "ht.resistance-radial", weight: 1 },
+  { skill: "ht.generation", weight: 1 },
+  { skill: "ht.energy-balance", weight: 1 },
+  { skill: "ht.rate-equations", weight: 1 },
+];

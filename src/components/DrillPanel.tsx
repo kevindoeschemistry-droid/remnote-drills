@@ -52,7 +52,7 @@ function inputHelp(a: Answer): { placeholder: string; hint: string } {
   }
 }
 
-export function DrillPanel({ skill, mode }: { skill: string; mode: "card" | "session" }) {
+export function DrillPanel({ skill, mode, onNext }: { skill: string; mode: "card" | "session"; onNext?: () => void }) {
   const plugin = usePlugin();
   const meta = resolveSkill(skill)!;
   const [seed, setSeed] = useState(newSeed);
@@ -129,7 +129,7 @@ export function DrillPanel({ skill, mode }: { skill: string; mode: "card" | "ses
     }
   }, [missedOnce, plugin, meta.id, clearAt]);
 
-  const next = useCallback(() => setSeed(newSeed()), []);
+  const next = useCallback(() => (onNext ? onNext() : setSeed(newSeed())), [onNext]);
 
   const rate = useCallback(
     async (score: QueueInteractionScore) => {
