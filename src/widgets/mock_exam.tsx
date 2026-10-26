@@ -63,7 +63,18 @@ function MockExam() {
     <div className="odd-panel mx-exam" onKeyDown={stop} onKeyUp={stop} onKeyPress={stop}>
       <div className="mx-top">
         <span className="odd-skill">Mock exam · MAE 120 format · Incropera Ch 1–5</span>
-        <span className="mx-timer">{submitted ? `Score ${score} / ${total} · ${mmss(elapsed)}` : `⏱ ${mmss(elapsed)}`}</span>
+        <span className="mx-timer">
+          {submitted ? `Score ${score} / ${total} · ${mmss(elapsed)}` : `⏱ ${mmss(elapsed)}`}
+          {!submitted ? (
+            <button className="odd-btn primary mx-handin" onClick={() => setSubmitted(true)}>
+              Hand in
+            </button>
+          ) : (
+            <button className="odd-btn primary mx-handin" onClick={restart}>
+              New paper
+            </button>
+          )}
+        </span>
       </div>
       {!submitted && (
         <p className="odd-hint">

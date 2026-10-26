@@ -211,7 +211,7 @@ async function registerDrills(plugin: ReactRNPlugin) {
   });
   // a fixed, tall popup: the paper scrolls inside it (auto height collapses for long content)
   await plugin.app.registerWidget("mock_exam", WidgetLocation.Popup, {
-    dimensions: { height: 720, width: 1000 },
+    dimensions: { height: 620, width: 1000 },
   });
   await plugin.app.registerCommand({
     id: "drills-mock-exam",

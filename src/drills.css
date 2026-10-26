@@ -171,8 +171,10 @@ a.odd-source:hover { text-decoration: underline; }
 }
 
 /* mock exam */
-.mx-exam { height: 100vh; box-sizing: border-box; overflow-y: auto; }
-.mx-top { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; margin-bottom: 4px; }
+.mx-exam { height: 100vh; box-sizing: border-box; overflow-y: auto; padding-top: 0; padding-bottom: 120px; }
+.mx-top { display: flex; justify-content: space-between; align-items: center; gap: 8px; margin: 0 -4px 6px; padding: 10px 4px 8px; position: sticky; top: 0; z-index: 5; background: var(--rn-clr-background-primary, #fff); border-bottom: 1px solid rgba(127, 127, 127, 0.25); }
+.mx-handin { margin-left: 10px; }
+@media (prefers-color-scheme: dark) { .mx-top { background: var(--rn-clr-background-primary, #1e1e1e); } }
 .mx-timer { font-variant-numeric: tabular-nums; font-weight: 600; }
 .mx-section { margin: 14px 0 6px; font-weight: 700; text-transform: uppercase; font-size: 0.78em; letter-spacing: 0.04em; opacity: 0.75; }
 .mx-q { padding: 10px 12px; margin-bottom: 8px; border: 1px solid rgba(127, 127, 127, 0.25); border-radius: 8px; }
