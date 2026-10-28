@@ -1,0 +1,71 @@
+# UCI MAE 120 · Heat and Mass Transfer (Prof. Won, Fall 2026) — built as a full course.
+# Units follow the syllabus lecture topics; lessons follow Incropera / Bergman 8e sections.
+# The map is the textbook: every in-scope section is a lesson, so "no gaps" is checkable.
+# A lesson with skills: [] is a known gap (shown in the coverage report). Section numbers
+# are from the 8e table of contents as recalled; verify against your copy.
+id: uci-mae-120
+title: "MAE 120 · Heat Transfer"
+sources: [incropera-8e]
+milestones:
+  - { name: "Midterm", date: 2026-10-27, units: [steady, fins] }
+  - { name: "Final", date: 2026-12-08, units: [steady, fins, transient, convection, radiation, systems] }
+units:
+  - id: steady
+    title: "1 · Steady conduction"
+    lessons:
+      - { ref: "1.2", title: "Rate equations: conduction, convection, radiation", skills: [ht.rate-equations] }
+      - { ref: "1.3", title: "Energy balances on control volumes and surfaces", skills: [ht.energy-balance] }
+      - { ref: "2.1–2.2", title: "Fourier's law and thermal properties", skills: [ht.rate-equations] }
+      - { ref: "2.3", title: "The heat diffusion equation", skills: [ht.heat-equation, ht.exam-concepts] }
+      - { ref: "2.4", title: "Boundary and initial conditions", skills: [], note: "Translating a physical description into a BC (fixed T, flux, insulated, convection, interface) is the root skill under 3.5, fins and FD." }
+      - { ref: "3.1", title: "Plane wall, composite wall, contact resistance", skills: [ht.resistance-plane] }
+      - { ref: "3.2", title: "Alternative conduction analysis (varying area or k)", skills: [] }
+      - { ref: "3.3", title: "Radial systems and the critical radius", skills: [ht.resistance-radial] }
+      - { ref: "3.5", title: "Conduction with thermal energy generation", skills: [ht.generation], note: "Midterm 1 hit this hardest. 2 problem types, one BC set each. Needs atomic skills: CV balance with q̇ → ODE per geometry → integrate → each BC type → constants → T_max → surface T by overall balance → surface flux → generating layer beside a non-generating one." }
+      - { ref: "4.2", title: "Separation of variables in 2-D conduction", skills: [] }
+      - { ref: "4.3", title: "Conduction shape factors", skills: [ht.shape-factors] }
+      - { ref: "4.4–4.5", title: "Finite-difference equations", skills: [ht.finite-difference, ht.exam-fd] }
+      - { ref: "review", title: "Midterm-style mixed problems", skills: [ht.exam-short, ht.exam-concepts] }
+  - id: fins
+    title: "2 · Extended surfaces"
+    lessons:
+      - { ref: "3.6.1–3.6.3", title: "The fin equation and its four tip cases", skills: [ht.fins] }
+      - { ref: "3.6.4", title: "Fin performance: efficiency and effectiveness", skills: [ht.fins] }
+      - { ref: "3.6.5", title: "Fin arrays and overall surface efficiency", skills: [] }
+  - id: transient
+    title: "3 · Transient conduction"
+    lessons:
+      - { ref: "5.1–5.3", title: "Lumped capacitance and the Biot number", skills: [ht.lumped] }
+      - { ref: "5.4–5.6", title: "Plane wall, cylinder, sphere: one-term solutions", skills: [ht.transient-one-term] }
+      - { ref: "5.7", title: "The semi-infinite solid", skills: [ht.semi-infinite] }
+      - { ref: "5.8", title: "Objects with constant surface temperature or flux", skills: [] }
+      - { ref: "5.10", title: "Finite-difference methods in time", skills: [] }
+  - id: convection
+    title: "4 · Single-phase convection"
+    lessons:
+      - { ref: "6.1–6.3", title: "Boundary layers, local vs average h, laminar vs turbulent", skills: [ht.boundary-layers] }
+      - { ref: "6.5–6.7", title: "Dimensionless groups and the Reynolds/Colburn analogy", skills: [ht.boundary-layers] }
+      - { ref: "7.1–7.3", title: "External flow: flat plate", skills: [ht.external-flow] }
+      - { ref: "7.4–7.5", title: "External flow: cylinder and sphere", skills: [ht.external-flow] }
+      - { ref: "7.6", title: "Flow across tube banks", skills: [ht.tube-banks] }
+      - { ref: "8.1–8.3", title: "Internal flow: entry lengths and the mean-temperature balance", skills: [ht.internal-flow] }
+      - { ref: "8.4–8.5", title: "Internal flow: laminar and turbulent Nusselt numbers", skills: [ht.internal-flow] }
+      - { ref: "8.6", title: "Noncircular tubes and annuli", skills: [] }
+      - { ref: "9.1–9.6", title: "Free convection: Ra, plates, cylinders, spheres", skills: [ht.free-convection] }
+      - { ref: "9.8", title: "Free convection in enclosures", skills: [] }
+      - { ref: "9.9", title: "Combined free and forced convection", skills: [] }
+  - id: radiation
+    title: "5 · Radiation"
+    lessons:
+      - { ref: "12.1–12.4", title: "Blackbody radiation, Wien, band fractions", skills: [ht.radiation-properties] }
+      - { ref: "12.5–12.8", title: "Real surfaces: emissivity, absorptivity, Kirchhoff, gray surfaces", skills: [ht.radiation-properties] }
+      - { ref: "12.9", title: "Environmental and solar radiation", skills: [] }
+      - { ref: "13.1", title: "View factors", skills: [ht.view-factors] }
+      - { ref: "13.2–13.3", title: "Exchange in enclosures, shields, reradiating surfaces", skills: [ht.enclosures] }
+  - id: systems
+    title: "6 · System-level thermal analysis"
+    lessons:
+      - { ref: "13.4", title: "Multimode networks: conduction + convection + radiation", skills: [] }
+      - { ref: "11.1–11.2", title: "Heat exchanger types and the overall coefficient U", skills: [] }
+      - { ref: "11.3", title: "Heat exchangers: LMTD method", skills: [ht.heat-exchangers] }
+      - { ref: "11.4–11.5", title: "Heat exchangers: effectiveness–NTU method", skills: [ht.heat-exchangers] }

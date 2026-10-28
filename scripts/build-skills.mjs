@@ -89,7 +89,31 @@ for (const [id, lines] of Object.entries(methods)) {
 // ── courses ───────────────────────────────────────────────────────────────
 const coursesFile = path.join(root, "courses.yaml");
 const courses = fs.existsSync(coursesFile) ? load(coursesFile).courses ?? [] : [];
-for (const c of courses) for (const s of c.sources ?? []) if (!sourceIds.has(s)) errors.push(`course ${c.id}: unknown source ${s}`);
+// drills/courses/*.yaml: full courses (units → lessons → skills, milestones); replace the stub with the same id
+const coursesDir = path.join(root, "courses");
+if (fs.existsSync(coursesDir))
+  for (const f of fs.readdirSync(coursesDir).filter((f) => f.endsWith(".yaml")).sort()) {
+    const c = load(path.join(coursesDir, f));
+    const i = courses.findIndex((x) => x.id === c.id);
+    if (i >= 0) courses[i] = c;
+    else courses.push(c);
+  }
+for (const c of courses) {
+  for (const s of c.sources ?? []) if (!sourceIds.has(s)) errors.push(`course ${c.id}: unknown source ${s}`);
+  const unitIds = new Set();
+  for (const u of c.units ?? []) {
+    if (unitIds.has(u.id)) errors.push(`course ${c.id}: duplicate unit ${u.id}`);
+    unitIds.add(u.id);
+    for (const l of u.lessons ?? []) {
+      l.skills ??= [];
+      for (const sk of l.skills) if (!ids.has(sk)) errors.push(`course ${c.id} › ${u.id} › ${l.ref}: unknown skill ${sk}`);
+    }
+  }
+  for (const m of c.milestones ?? []) {
+    m.date = String(m.date instanceof Date ? m.date.toISOString().slice(0, 10) : m.date);
+    for (const u of m.units ?? []) if (!unitIds.has(u)) errors.push(`course ${c.id}: milestone ${m.name} names unknown unit ${u}`);
+  }
+}
 
 // ── library (where PDFs are filed) ────────────────────────────────────────
 const libraryFile = path.join(root, "library.yaml");

@@ -62,10 +62,23 @@ export interface Source {
   chapters: Chapter[];
 }
 
+export interface Lesson {
+  ref: string;
+  title: string;
+  skills: string[];
+  note?: string;
+}
+export interface Unit {
+  id: string;
+  title: string;
+  lessons: Lesson[];
+}
 export interface Course {
   id: string;
   title: string;
   sources: string[];
+  units?: Unit[];
+  milestones?: { name: string; date: string; units: string[] }[];
 }
 
 export const DOMAINS: Domain[] = (graph as any).domains;

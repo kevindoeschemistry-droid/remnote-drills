@@ -5,6 +5,7 @@ import { DRILL_POWERUP, DRILL_SLOT, SOURCES_SLOT, ensureDrillDeck, findOrCreateD
 import { SOURCES, sourceLabel } from "../drills/skills";
 import { latestHighlight, pdfOf } from "../drills/anchors";
 import { organizeLibrary } from "../drills/library";
+import { coursesWithUnits, ensureCourse } from "../drills/course";
 
 console.log("[Drills] bundle loaded");
 
@@ -149,6 +150,20 @@ async function registerDrills(plugin: ReactRNPlugin) {
 
 async function onActivate(plugin: ReactRNPlugin) {
   await registerDrills(plugin);
+  // one command per full course: builds Course › Unit › Lesson › drill cards
+  for (const c of coursesWithUnits())
+    await plugin.app.registerCommand({
+      id: `drills-course-${c.id}`,
+      name: `Drills: Build course · ${c.title}`,
+      action: async () => {
+        await plugin.app.toast(`Building ${c.title}…`);
+        try {
+          await ensureCourse(plugin, c.id);
+        } catch (e) {
+          await plugin.app.toast(`Building ${c.title} failed — ${String(e)}`);
+        }
+      },
+    });
 }
 
 async function onDeactivate(_plugin: ReactRNPlugin) {}

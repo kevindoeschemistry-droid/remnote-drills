@@ -39,9 +39,9 @@ export interface PdfBinding {
   offset?: number; // PDF page = printed page + offset
 }
 
-const BACK = "Solve the generated problem below this card and press Check. A new problem appears every review.";
+export const BACK = "Solve the generated problem below this card and press Check. A new problem appears every review.";
 
-async function rt(plugin: RNPlugin, text: string) {
+export async function rt(plugin: RNPlugin, text: string) {
   return plugin.richText.parseFromMarkdown(text);
 }
 
@@ -67,7 +67,7 @@ export async function findOrCreateDocument(plugin: RNPlugin, name: string, paren
   return rem;
 }
 
-async function findOrCreateChild(plugin: RNPlugin, name: string, parentId: string, position: number) {
+export async function findOrCreateChild(plugin: RNPlugin, name: string, parentId: string, position: number) {
   const nameRT = await rt(plugin, name);
   const existing = await plugin.rem.findByName(nameRT, parentId);
   if (existing) return existing;
@@ -80,7 +80,7 @@ async function findOrCreateChild(plugin: RNPlugin, name: string, parentId: strin
 }
 
 /** Ensure parent has a child whose text is exactly `text` (references allowed). */
-async function ensureLine(plugin: RNPlugin, parentId: string, text: RichTextInterface, position: number) {
+export async function ensureLine(plugin: RNPlugin, parentId: string, text: RichTextInterface, position: number) {
   const parent = await plugin.rem.findOne(parentId);
   if (!parent) return;
   const want = plain(text);
@@ -326,7 +326,7 @@ async function buildTables(plugin: RNPlugin, docId: string, groups: Record<strin
 }
 
 /** "🎬 [title](url)" lines, one per video; stale ones (removed from the source) go. Returns how many. */
-async function videoLines(plugin: RNPlugin, parentId: string, videos: { title: string; url: string }[] | undefined, pos: number) {
+export async function videoLines(plugin: RNPlugin, parentId: string, videos: { title: string; url: string }[] | undefined, pos: number) {
   const want = new Set((videos ?? []).map((v) => `🎬 ${v.title}`));
   const parent = await plugin.rem.findOne(parentId);
   for (const c of (await parent?.getChildrenRem()) ?? []) if (plain(c.text).startsWith("🎬 ") && !want.has(plain(c.text))) await c.remove();
@@ -339,7 +339,7 @@ async function videoLines(plugin: RNPlugin, parentId: string, videos: { title: s
 }
 
 /** "📖 [[highlight]]" — clicking a reference to a PDF highlight opens the book there. */
-async function bookLine(plugin: RNPlugin, parentId: string, highlightId: string | undefined) {
+export async function bookLine(plugin: RNPlugin, parentId: string, highlightId: string | undefined) {
   const parent = await plugin.rem.findOne(parentId);
   for (const c of (await parent?.getChildrenRem()) ?? [])
     if (plain(c.text).startsWith("📖 ") && plain(c.text) !== `📖 @${highlightId}`) await c.remove();
