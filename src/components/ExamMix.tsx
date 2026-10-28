@@ -1,62 +1,60 @@
-// "Drills: Midterm mix" — an endless stream of problems from the midterm's skills only,
-// weighted toward the exam-style sets and anything not yet cleared. No spaced repetition.
+// An endless, interleaved stream of problems from one exam's skills: anything not yet cleared
+// comes up 3× as often, never the same skill twice in a row. Chips pin one topic.
 import React, { useCallback, useEffect, useState } from "react";
-import { renderWidget, usePlugin } from "@remnote/plugin-sdk";
-import { DrillPanel } from "../components/DrillPanel";
-import { MIDTERM_SKILLS } from "../drills/mock-exam";
+import { usePlugin } from "@remnote/plugin-sdk";
+import { DrillPanel } from "./DrillPanel";
 import { getProgress, SkillProgress } from "../drills/progress";
-import { resolveSkill } from "../drills/skills";
-import "../drills.css";
+import { isLive, resolveSkill } from "../drills/skills";
 
-function MidtermMix() {
+export function ExamMix({ title, skills: all }: { title: string; skills: string[] }) {
   const plugin = usePlugin();
+  const skills = all.filter((s) => isLive(s));
   const [progress, setProgress] = useState<Record<string, SkillProgress>>({});
   const [skill, setSkill] = useState<string | null>(null);
   const [n, setN] = useState(0);
   const [only, setOnly] = useState<string | null>(null);
 
   const refresh = useCallback(async () => {
-    const all: Record<string, SkillProgress> = {};
-    for (const { skill: s } of MIDTERM_SKILLS) all[s] = await getProgress(plugin, s);
-    setProgress(all);
-    return all;
-  }, [plugin]);
+    const out: Record<string, SkillProgress> = {};
+    for (const s of skills) out[s] = await getProgress(plugin, s);
+    setProgress(out);
+    return out;
+  }, [plugin, skills.join()]);
 
   const pick = useCallback(async () => {
-    const all = await refresh();
+    const prog = await refresh();
     if (only) return setSkill(only);
-    // not cleared counts 3x; never the same skill twice in a row when there's a choice
-    const pool = MIDTERM_SKILLS.filter((x) => x.skill !== skill || MIDTERM_SKILLS.length === 1).map((x) => ({
-      ...x,
-      w: x.weight * (all[x.skill]?.cleared ? 1 : 3),
-    }));
-    let t = Math.random() * pool.reduce((s, x) => s + x.w, 0);
-    for (const x of pool) if ((t -= x.w) <= 0) return setSkill(x.skill);
-    setSkill(pool[pool.length - 1].skill);
-  }, [refresh, skill, only]);
+    const pool = skills.filter((s) => s !== skill || skills.length === 1).map((s) => ({ s, w: prog[s]?.cleared ? 1 : 3 }));
+    let t = Math.random() * pool.reduce((a, x) => a + x.w, 0);
+    for (const x of pool) if ((t -= x.w) <= 0) return setSkill(x.s);
+    setSkill(pool[pool.length - 1]?.s ?? null);
+  }, [refresh, skill, only, skills.join()]);
 
   useEffect(() => {
+    setSkill(null);
+    setOnly(null);
     pick();
-  }, []);
+  }, [skills.join()]);
 
   const next = useCallback(() => {
     setN((k) => k + 1);
     pick();
   }, [pick]);
 
-  const cleared = MIDTERM_SKILLS.filter((x) => progress[x.skill]?.cleared).length;
+  if (!skills.length) return <div className="odd-hint">No live drills for this exam yet.</div>;
   if (!skill) return null;
+  const cleared = skills.filter((s) => progress[s]?.cleared).length;
   return (
-    <div className="odd-session mm-scroll">
+    <>
       <div className="mm-head">
-        <b>Midterm mix</b>
+        <b>{title}</b>
         <span className="odd-hint">
           {" "}
-          · {cleared} / {MIDTERM_SKILLS.length} topics cleared · problem {n + 1}
+          · {cleared} / {skills.length} skills cleared · problem {n + 1}
         </span>
       </div>
       <div className="mm-chips">
-        {MIDTERM_SKILLS.map(({ skill: s }) => (
+        {skills.map((s) => (
           <button
             key={s}
             className={"mm-chip" + (progress[s]?.cleared ? " done" : "") + (only === s ? " on" : "") + (skill === s ? " now" : "")}
@@ -76,8 +74,6 @@ function MidtermMix() {
         ))}
       </div>
       <DrillPanel key={`${skill}:${n}`} skill={skill} mode="session" onNext={next} />
-    </div>
+    </>
   );
 }
-
-renderWidget(MidtermMix);

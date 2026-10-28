@@ -65,6 +65,18 @@ export interface Problem {
   meta?: Record<string, unknown>;
   /** optional diagram: a self-contained SVG string built by the generator */
   figure?: string;
+  /** checked steps, in order; the last one is the final answer (== answer). The panel walks
+   *  through them one at a time until the skill has a streak, then asks only the final answer. */
+  parts?: Part[];
+}
+
+export interface Part {
+  /** what this step asks for: text with $...$ */
+  ask: string;
+  answer: Answer;
+  answerTex: string;
+  /** shown once the step is answered or revealed: why, with the numbers */
+  explain?: string;
 }
 
 /** What a generator returns; the registry stamps skill / template / level. */

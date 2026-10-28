@@ -276,7 +276,7 @@ skills:
   - { id: ht.heat-equation, domain: ht, title: "Heat equation & boundary conditions", status: live, levels: { 1: [ht-he-gen, ht-he-flux, ht-he-dTdt] } }
   - { id: ht.resistance-plane, domain: ht, title: "Thermal resistance: plane & composite walls", prereqs: [ht.rate-equations], status: live, levels: { 1: [ht-wall, ht-contact] } }
   - { id: ht.resistance-radial, domain: ht, title: "Thermal resistance: cylinders & spheres, critical radius", prereqs: [ht.resistance-plane], status: live, levels: { 1: [ht-cyl, ht-sphere, ht-rcrit] } }
-  - { id: ht.generation, domain: ht, title: "Conduction with heat generation", prereqs: [ht.heat-equation], status: live, levels: { 1: [ht-gen-wall, ht-gen-cyl] } }
+  - { id: ht.generation, domain: ht, title: "Conduction with heat generation", prereqs: [ht.heat-equation] }  # templates: drills/problems/ht-generation.yaml
   - { id: ht.fins, domain: ht, title: "Fins: temperature profile, efficiency, effectiveness", prereqs: [ode2.characteristic, ht.heat-equation], status: live, levels: { 1: [ht-fin-m, ht-fin-infinite, ht-fin-adiabatic, ht-fin-efficiency, ht-fin-tip] } }
   - { id: ht.shape-factors, domain: ht, title: "2-D conduction shape factors", status: live, levels: { 1: [ht-shape] } }
   - { id: ht.finite-difference, domain: ht, title: "Finite-difference node equations", status: live, prereqs: [ht.energy-balance], levels: { 1: [ht-fd] } }

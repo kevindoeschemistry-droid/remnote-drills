@@ -44,7 +44,7 @@ const U: Record<string, string> = {
   "%": "\\%",
   "m²·K/W": "\\mathrm{m^2\\cdot K/W}",
 };
-const u = (unit: string) => `\\,${U[unit] ?? `\\mathrm{${unit}}`}`;
+export const u = (unit: string) => `\\,${U[unit] ?? `\\mathrm{${unit}}`}`;
 /** value with unit, in math */
 const vu = (x: number, unit: string) => `${g(x)}${u(unit)}`;
 

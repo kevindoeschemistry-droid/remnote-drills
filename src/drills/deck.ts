@@ -39,6 +39,7 @@ export interface PdfBinding {
   offset?: number; // PDF page = printed page + offset
 }
 
+export const LEGACY_ROOT = "Wiki Flashcards"; // v0.2–v0.14 home of the drill cards; ensureDrillDeck migrates out of it
 export const BACK = "Solve the generated problem below this card and press Check. A new problem appears every review.";
 
 export async function rt(plugin: RNPlugin, text: string) {

@@ -83,9 +83,42 @@ Never by string matching — the answer is evaluated and the defining property t
 
 ## Adding a skill
 
-1. Add it to `drills/skills.yaml` (status `planned` first is fine) and list it under the sections that teach it in `drills/sources/*.yaml`.
-2. Write generators in `src/drills/gen-*.ts` — build each problem backward from a clean answer — and register them by name in `registry.ts`.
-3. Flip the skill to `live` with its template names, run `npm test`, then *Drills: Create drill cards & book contents* in RemNote.
+**As data (preferred for numeric, multi-step problems).** Write a template in
+`drills/problems/<area>.yaml` — no TypeScript. It goes live on its skill by itself:
+
+```yaml
+- template: ht-gen-wall-conv
+  skill: ht.generation
+  given: { L: { pick: [0.01, 0.02] }, qdot: { pick: [1.0e+5, 1.0e+6] }, k: { pick: [5, 15] }, h: { pick: [100, 500] }, Tinf: 25 }
+  let: { Ts: Tinf + qdot*L/h, Tmax: Ts + qdot*L^2/(2*k) }       # mathjs, in order
+  require: [Tmax < 1200]                                          # redraw otherwise
+  prompt: "A wall … $\dot q = {{qdot}}\,\mathrm{W/m^3}$ …"         # {{expr}} prints a value (4 sig figs)
+  parts:                                                          # checked steps; the last is the final answer
+    - { ask: "Surface temperature", label: Ts, tex: T_s, value: Ts, unit: "°C", explain: "…" }
+    - { ask: "Maximum temperature", label: Tmax, tex: "T_{max}", value: Tmax, unit: "°C", explain: "…" }
+  verify:                                                         # the independent check (tests/verify/data.py)
+    var: x
+    ode: "k*diff(T(x), x, 2) + qdot"                              # sympy solves the governing equation
+    bcs: ["dT(0) = 0", "-k*dT(L) = h*(T(L) - Tinf)"]
+    expect: { Ts: "T(L)", Tmax: "T(0)" }                          # or residuals: [balances that must vanish]
+```
+
+The build refuses a template whose parts aren't all covered by `verify`. In
+RemNote the parts are asked one at a time (each checked, with **Show this step**)
+until the skill has 3 in a row; after that only the final answer is asked, and a
+miss walks back through the steps to find the one that broke.
+
+**As code** (symbolic answers, odd shapes): write generators in `src/drills/gen-*.ts`,
+register them in `registry.ts`, list them under the skill's levels in `skills.yaml`,
+and add a first-principles case to `tests/verify/`.
+
+Then `npm test`. Courses you've built in RemNote pick up new skills on their own.
+
+## Using it in RemNote
+
+Three commands: **Drills: Open** (the sidebar: Practice in course order with the gaps
+shown, Exam mix for the course's next exam, Courses to build one and the setup tools),
+**Drills: Anchor this section** and **Drills: Link PDF to a textbook** (both need a PDF open).
 
 ## Develop
 

@@ -132,6 +132,22 @@ for (const s of LIVE_SKILLS) {
       }
       for (const txt of [p.prompt, ...p.steps]) for (const c of texChunks(txt)) katexOk(key, c);
       katexOk(key, p.answerTex);
+      // checked steps: each one accepts its own answer and rejects the perturbed ones
+      if (p.parts) {
+        if (JSON.stringify(p.parts[p.parts.length - 1].answer) !== JSON.stringify(p.answer)) fail(`${key} #${seed}: last part is not the final answer`);
+        p.parts.forEach((part, i) => {
+          const q: Problem = { ...p, answer: part.answer, answerTex: part.answerTex };
+          const rr = check(q, reference(q));
+          if (rr.status !== "correct") fail(`${key} #${seed} part ${i + 1}: reference rejected (${rr.message})`);
+          for (const bad of negatives(q)) if (check(q, bad).status === "correct") fail(`${key} #${seed} part ${i + 1}: wrong answer accepted ${JSON.stringify(bad)}`);
+          for (const txt of [part.ask, part.explain ?? ""]) {
+            if (/\{\{|\}\}/.test(txt.replace(/\$[^$]*\$/g, ""))) fail(`${key} part ${i + 1}: unfilled {{…}} in "${txt}"`);
+            for (const c of texChunks(txt)) katexOk(`${key} part ${i + 1}`, c);
+          }
+          katexOk(`${key} part ${i + 1}`, part.answerTex);
+        });
+      }
+      if (/\{\{/.test(p.prompt)) fail(`${key}: unfilled {{…}} in the prompt`);
     }
   }
   // generate() through the graph works too

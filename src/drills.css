@@ -201,3 +201,25 @@ a.odd-source:hover { text-decoration: underline; }
 .mm-chip.now { box-shadow: 0 0 0 2px rgba(91, 124, 250, 0.35); }
 .mm-chip.on { background: rgba(91, 124, 250, 0.15); border-color: #5b7cfa; opacity: 1; }
 .mm-scroll { height: 100vh; box-sizing: border-box; overflow-y: auto; padding-bottom: 80px; }
+
+/* checked steps (problems with parts) */
+.odd-parts { list-style: none; margin: 10px 0 8px; padding: 0; font-size: 14px; }
+.odd-part { display: flex; gap: 8px; padding: 6px 8px; border-radius: 8px; margin: 3px 0; border: 1px solid transparent; }
+.odd-part.now { border-color: var(--odd-accent); background: rgba(91, 124, 250, 0.06); font-weight: 500; }
+.odd-part.todo { opacity: 0.45; }
+.odd-part-mark { flex: 0 0 18px; text-align: center; font-weight: 600; }
+.odd-part.ok .odd-part-mark { color: var(--odd-ok); }
+.odd-part.miss .odd-part-mark { color: var(--odd-bad); }
+.odd-part-body { flex: 1; min-width: 0; overflow-x: auto; }
+.odd-part-answer { display: block; margin-top: 3px; }
+.odd-part-explain { display: block; margin-top: 3px; font-size: 13px; opacity: 0.85; }
+.odd-linkbtn { background: none; border: none; padding: 0; color: var(--odd-accent); cursor: pointer; text-decoration: underline; font: inherit; }
+.odd-fade { margin: 6px 0; }
+
+/* sidebar hub */
+.hub-top { display: flex; flex-direction: column; gap: 6px; margin-bottom: 8px; }
+.hub-tabs { display: flex; gap: 4px; }
+.hub-tab { flex: 1; padding: 5px 8px; border: 1px solid var(--odd-border, rgba(127,127,127,0.28)); border-radius: 8px; background: none; color: inherit; cursor: pointer; font: inherit; font-size: 13px; }
+.hub-tab.on { border-color: #3b6fd8; background: rgba(59, 111, 216, 0.1); font-weight: 600; }
+.hub-course-row { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 8px 0; border-bottom: 1px solid rgba(127,127,127,0.2); }
+.hub-tools { display: flex; flex-direction: column; gap: 6px; margin-top: 14px; align-items: flex-start; }

@@ -8,6 +8,7 @@ import { anchorFor } from "./anchors";
 import { COURSES, Course, placesFor, placeText, resolveSkill } from "./skills";
 
 const COURSE_MAP_KEY = "drills.courseCardMap"; // "<course>|<skill>:<i>" -> remId
+const BUILT_KEY = "drills.builtCourses"; // courseId -> signature of what was last built
 
 export const coursesWithUnits = (): Course[] => COURSES.filter((c) => c.units?.length);
 
@@ -86,8 +87,58 @@ export async function ensureCourse(plugin: RNPlugin, courseId: string, quiet = f
     }
   }
   await plugin.storage.setSynced(COURSE_MAP_KEY, map);
+  const built = (await plugin.storage.getSynced<Record<string, string>>(BUILT_KEY)) ?? {};
+  await plugin.storage.setSynced(BUILT_KEY, { ...built, [course.id]: signature(course, perSkill) });
   if (!quiet || created)
     await plugin.app.toast(created ? `${course.title}: ${created} drill cards created` : `${course.title} is up to date`);
 }
 
 const lessonTitle = (ref: string, title: string) => (/^\d/.test(ref) ? `§${ref} ${title}` : title);
+
+/** What a course build depends on: its definition, its skills' titles and sources, cards per skill. */
+function signature(course: Course, perSkill: number): string {
+  const skills = (course.units ?? []).flatMap((u) => u.lessons.flatMap((l) => l.skills)).map((id) => {
+    const s = resolveSkill(id);
+    return [id, s?.title, placesFor(id).map(placeText).join(";")];
+  });
+  const text = JSON.stringify([course, skills, perSkill]);
+  let h = 2166136261;
+  for (let i = 0; i < text.length; i++) h = Math.imul(h ^ text.charCodeAt(i), 16777619);
+  return (h >>> 0).toString(36);
+}
+
+export async function builtCourses(plugin: RNPlugin): Promise<string[]> {
+  const built = (await plugin.storage.getSynced<Record<string, string>>(BUILT_KEY)) ?? {};
+  const map = (await plugin.storage.getSynced<Record<string, string>>(COURSE_MAP_KEY)) ?? {};
+  return coursesWithUnits()
+    .map((c) => c.id)
+    .filter((id) => id in built || Object.keys(map).some((k) => k.startsWith(`${id}|`)));
+}
+
+/** On start: every course you've built gets rebuilt if its definition changed (new skills, lessons, …). */
+export async function syncCourses(plugin: RNPlugin) {
+  const perSkill = Math.max(1, Math.min(10, (await plugin.settings.getSetting<number>("drill-cards-per-skill")) || 3));
+  const built = (await plugin.storage.getSynced<Record<string, string>>(BUILT_KEY)) ?? {};
+  for (const id of await builtCourses(plugin)) {
+    const course = COURSES.find((c) => c.id === id)!;
+    if (built[id] === signature(course, perSkill)) continue;
+    try {
+      await ensureCourse(plugin, id, true);
+    } catch (e) {
+      console.error(`[Drills] updating ${id} failed`, e);
+    }
+  }
+}
+
+/** The next exam (or the last one, once they're all past) and the skills it covers, in course order. */
+export function nextMilestone(course: Course, today = new Date().toISOString().slice(0, 10)) {
+  const ms = [...(course.milestones ?? [])].sort((a, b) => a.date.localeCompare(b.date));
+  const m = ms.find((x) => x.date >= today) ?? ms[ms.length - 1];
+  if (!m) return undefined;
+  const skills: string[] = [];
+  for (const u of course.units ?? [])
+    if (m.units.includes(u.id))
+      for (const l of u.lessons) for (const s of l.skills) if (!skills.includes(s)) skills.push(s);
+  const days = Math.ceil((Date.parse(m.date) - Date.parse(today)) / 86400000);
+  return { ...m, skills, days };
+}

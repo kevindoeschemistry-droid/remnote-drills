@@ -115,6 +115,40 @@ for (const c of courses) {
   }
 }
 
+// ── problems as data: drills/problems/*.yaml ─────────────────────────────
+// Each entry is a template (givens, derived values, prompt, checked parts, verify block).
+// It joins its skill's levels by itself, so writing the file is all it takes to go live.
+const problems = [];
+const problemsDir = path.join(root, "problems");
+const tplNames = new Set();
+if (fs.existsSync(problemsDir))
+  for (const f of fs.readdirSync(problemsDir).filter((f) => f.endsWith(".yaml")).sort())
+    for (const t of load(path.join(problemsDir, f)) ?? []) {
+      const where = `problems/${f} › ${t.template ?? "?"}`;
+      if (!t.template) errors.push(`${where}: needs a template name`);
+      if (tplNames.has(t.template)) errors.push(`${where}: duplicate template`);
+      tplNames.add(t.template);
+      const sk = g.skills.find((s) => s.id === t.skill);
+      if (!sk) { errors.push(`${where}: unknown skill ${t.skill}`); continue; }
+      if (!t.prompt) errors.push(`${where}: needs a prompt`);
+      if (!Array.isArray(t.parts) || !t.parts.length) errors.push(`${where}: needs at least one part`);
+      for (const p of t.parts ?? []) {
+        if (!p.ask || !p.label) errors.push(`${where}: every part needs ask and label`);
+        if (p.value === undefined && !p.choice) errors.push(`${where} › ${p.label}: needs value (a number) or choice`);
+      }
+      // an answer nobody checked independently doesn't ship
+      const v = t.verify ?? {};
+      if (!v.ode && !v.residuals && !v.truth) errors.push(`${where}: needs a verify block (ode, residuals or truth)`);
+      for (const p of t.parts ?? [])
+        if (p.value !== undefined && !(v.expect ?? {})[p.label] && !new RegExp(`\\b${p.label}\\b`).test(JSON.stringify([v.ode, v.bcs, v.residuals])))
+          errors.push(`${where} › ${p.label}: verify must check this part (verify.expect.${p.label}, or use it in ode / bcs / residuals)`);
+      for (const k of Object.keys(t.given ?? {})) if (!/^[A-Za-z][A-Za-z0-9_]*$/.test(k)) errors.push(`${where}: bad given name ${k}`);
+      const lvl = Number(t.level ?? 1);
+      sk.levels[lvl] = [...(sk.levels[lvl] ?? []).filter((x) => x !== t.template), t.template];
+      sk.status = "live";
+      problems.push(t);
+    }
+
 // ── library (where PDFs are filed) ────────────────────────────────────────
 const libraryFile = path.join(root, "library.yaml");
 const library = fs.existsSync(libraryFile) ? load(libraryFile) : { subjects: [], books: {}, extras: [] };
@@ -133,6 +167,6 @@ if (errors.length) {
   console.error("drills/ is invalid:\n  " + errors.join("\n  "));
   process.exit(1);
 }
-fs.writeFileSync(out, JSON.stringify({ ...g, sources, courses, library }, null, 1) + "\n");
+fs.writeFileSync(out, JSON.stringify({ ...g, sources, courses, library, problems }, null, 1) + "\n");
 const live = g.skills.filter((s) => s.status === "live").length;
 console.log(`skills: ${g.skills.length} (${live} live), sources: ${sources.length}, courses: ${courses.length} -> ${path.relative(process.cwd(), out)}`);

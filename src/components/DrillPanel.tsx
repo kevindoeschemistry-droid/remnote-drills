@@ -8,6 +8,11 @@ import { check, previewTex } from "../drills/check";
 import { recurrencePreview } from "../drills/check-kinds";
 import { getProgress, recordAttempt, resetProgress, SkillProgress, EMPTY } from "../drills/progress";
 import type { Answer, CheckResult, Problem } from "../drills/types";
+
+/** Problems with checked steps walk through them until the skill has this many in a row;
+ *  after that only the final answer is asked, and a miss drops back into the steps. */
+const FADE_AT = 3;
+type PartMark = "ok" | "miss" | "shown";
 import { MathText, Tex } from "./MathText";
 
 type Phase = "answering" | "correct" | "wrong" | "revealed";
@@ -57,7 +62,14 @@ export function DrillPanel({ skill, mode, onNext }: { skill: string; mode: "card
   const meta = resolveSkill(skill)!;
   const [seed, setSeed] = useState(newSeed);
   const problem: Problem = useMemo(() => generate(meta.id, seed), [meta.id, seed]);
-  const a = problem.answer;
+  const parts = problem.parts;
+  const [guided, setGuided] = useState(true);
+  const [partIdx, setPartIdx] = useState(0);
+  const [marks, setMarks] = useState<PartMark[]>([]);
+  const [partMissed, setPartMissed] = useState(false);
+  const stepping = !!parts && guided;
+  // the answer being asked right now: the current step's, or the final one
+  const a: Answer = stepping ? parts![partIdx].answer : problem.answer;
   const nFields = a.kind === "tuple" ? a.fields.length : 1;
   const [inputs, setInputs] = useState<string[]>([""]);
   const [chosen, setChosen] = useState<string | null>(null);
@@ -87,23 +99,85 @@ export function DrillPanel({ skill, mode, onNext }: { skill: string; mode: "card
     };
   }, [plugin, meta.id]);
 
+  const progressRef = useRef(progress);
+  progressRef.current = progress;
   useEffect(() => {
     setInputs(Array(nFields).fill(""));
     setChosen(null);
     setPhase("answering");
     setResult(null);
     setMissedOnce(false);
+    setGuided(progressRef.current.consecutive < FADE_AT);
+    setPartIdx(0);
+    setMarks([]);
+    setPartMissed(false);
     firstRef.current?.focus();
-  }, [problem, nFields]);
+  }, [problem]);
+  useEffect(() => {
+    setInputs(Array(nFields).fill(""));
+    setChosen(null);
+  }, [partIdx, guided, nFields]);
 
   const done = phase === "correct" || phase === "revealed";
+
+  const miss = useCallback(
+    async (kind: "wrong" | "revealed") => {
+      if (missedOnce) return;
+      setMissedOnce(true);
+      setProgress(await recordAttempt(plugin, meta.id, kind, clearAt));
+    },
+    [missedOnce, plugin, meta.id, clearAt]
+  );
+
+  /** a step is settled (right, missed, or shown): mark it and move on, or finish */
+  const settleStep = useCallback(
+    async (mark: PartMark, missedSoFar: boolean) => {
+      setMarks((ms) => {
+        const out = [...ms];
+        out[partIdx] = mark;
+        return out;
+      });
+      setPartMissed(false);
+      if (partIdx < parts!.length - 1) {
+        setPartIdx(partIdx + 1);
+        setPhase("answering");
+        return;
+      }
+      if (missedSoFar) setPhase("revealed");
+      else {
+        setPhase("correct");
+        setProgress(await recordAttempt(plugin, meta.id, "correct", clearAt));
+      }
+    },
+    [partIdx, parts, plugin, meta.id, clearAt]
+  );
 
   const submit = useCallback(
     async (answer: string | string[]) => {
       if (done) return;
-      const r = check(problem, answer);
+      const r = check({ ...problem, answer: a }, answer);
       setResult(r);
       if (r.status === "syntax" || r.status === "needs-constant" || r.status === "has-constant") return;
+      if (stepping) {
+        if (r.status === "correct") {
+          setResult({ status: "correct", message: partIdx < parts!.length - 1 ? `Step ${partIdx + 1} ✓` : r.message });
+          return settleStep(partMissed ? "miss" : "ok", missedOnce);
+        }
+        await miss("wrong");
+        if (a.kind === "choice") return settleStep("miss", true);
+        setPartMissed(true);
+        setPhase("wrong");
+        return;
+      }
+      if (parts && r.status !== "correct") {
+        // final answer only, and it's off: find the step that broke
+        await miss("wrong");
+        setGuided(true);
+        setPartIdx(0);
+        setPhase("answering");
+        setResult({ status: "wrong", message: "Not quite. Let's find the step: work it one piece at a time." });
+        return;
+      }
       if (r.status === "correct") {
         setPhase("correct");
         // a miss earlier on this problem already broke the streak
@@ -116,18 +190,22 @@ export function DrillPanel({ skill, mode, onNext }: { skill: string; mode: "card
         }
       }
     },
-    [done, problem, missedOnce, plugin, meta.id, clearAt, a.kind]
+    [done, problem, a, stepping, partIdx, parts, partMissed, settleStep, miss, missedOnce, plugin, meta.id, clearAt]
   );
 
   const doCheck = useCallback(() => submit(a.kind === "tuple" ? inputs : inputs[0]), [submit, inputs, a.kind]);
 
   const reveal = useCallback(async () => {
     setPhase("revealed");
-    if (!missedOnce) {
-      setMissedOnce(true);
-      setProgress(await recordAttempt(plugin, meta.id, "revealed", clearAt));
-    }
-  }, [missedOnce, plugin, meta.id, clearAt]);
+    if (parts) setMarks((ms) => parts.map((_, i) => ms[i] ?? "shown"));
+    await miss("revealed");
+  }, [miss, parts]);
+
+  const showStep = useCallback(async () => {
+    await miss("revealed");
+    setResult(null);
+    await settleStep("shown", true);
+  }, [miss, settleStep]);
 
   const next = useCallback(() => (onNext ? onNext() : setSeed(newSeed())), [onNext]);
 
@@ -250,7 +328,44 @@ export function DrillPanel({ skill, mode, onNext }: { skill: string; mode: "card
       </div>
       {problem.figure && <div className="odd-figure" dangerouslySetInnerHTML={{ __html: problem.figure }} />}
 
-      {a.kind === "choice" ? (
+      {parts && (stepping || done) && (
+        <ol className="odd-parts">
+          {parts.map((pt, i) => {
+            const settled = done || i < partIdx;
+            const mk = marks[i];
+            return (
+              <li key={i} className={"odd-part" + (settled ? ` done ${mk ?? ""}` : i === partIdx ? " now" : " todo")}>
+                <span className="odd-part-mark">
+                  {settled ? (mk === "ok" ? "✓" : mk === "shown" ? "👁" : mk === "miss" ? "✗" : "•") : i === partIdx ? "→" : i + 1}
+                </span>
+                <span className="odd-part-body">
+                  <MathText text={pt.ask} />
+                  {settled && (
+                    <span className="odd-part-answer">
+                      <Tex tex={pt.answerTex} />
+                      {pt.explain && (
+                        <span className="odd-part-explain">
+                          <MathText text={pt.explain} />
+                        </span>
+                      )}
+                    </span>
+                  )}
+                </span>
+              </li>
+            );
+          })}
+        </ol>
+      )}
+      {parts && !stepping && !done && (
+        <div className="odd-hint odd-fade">
+          Final answer only ({progress.consecutive} in a row).{" "}
+          <button className="odd-linkbtn" onClick={() => setGuided(true)}>
+            Walk me through it
+          </button>
+        </div>
+      )}
+
+      {parts && done ? null : a.kind === "choice" ? (
         <div className="odd-choices">
           {a.options.map((opt) => {
             const cls =
@@ -340,7 +455,7 @@ export function DrillPanel({ skill, mode, onNext }: { skill: string; mode: "card
         </div>
       )}
 
-      {done && (
+      {done && !parts && (
         <div className="odd-solution">
           <div className="odd-answer">
             <Tex tex={problem.answerTex} />
@@ -369,6 +484,11 @@ export function DrillPanel({ skill, mode, onNext }: { skill: string; mode: "card
       )}
 
       <div className="odd-actions">
+        {stepping && !done && (
+          <button className="odd-btn" onClick={showStep} title="See this step's answer and why, then carry on (breaks the streak)">
+            Show this step
+          </button>
+        )}
         {!done && (
           <button className="odd-btn" onClick={reveal}>
             Show solution
