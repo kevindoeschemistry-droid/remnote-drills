@@ -6,135 +6,10 @@ import { SOURCES, sourceLabel } from "../drills/skills";
 import { latestHighlight, pdfOf } from "../drills/anchors";
 import { organizeLibrary } from "../drills/library";
 
-console.log("[WikiSync] bundle loaded");
+console.log("[Drills] bundle loaded");
 
-// ── Config ─────────────────────────────────────────────────────────────────────
-
-const WIKI_URL = "https://wiki.kevindoeschemistry.com/static/flashcards.json";
-const STORAGE_KEY = "wikiCardMap"; // synced: cardId -> remId
+// Legacy home of the drill cards (v0.2–v0.14); ensureDrillDeck migrates out of it.
 const ROOT_NAME = "Wiki Flashcards";
-
-// ── Types ──────────────────────────────────────────────────────────────────────
-
-interface WikiCard {
-  id: string;
-  question: string;
-  answer: string;
-}
-interface WikiChapter {
-  title: string;
-  slug: string;
-  cards: WikiCard[];
-}
-interface WikiSection {
-  title: string;
-  slug: string;
-  chapters: WikiChapter[];
-}
-interface WikiData {
-  generated: string;
-  version: number;
-  sections: WikiSection[];
-}
-
-// ── Rich text helper ───────────────────────────────────────────────────────────
-// Use parseFromMarkdown so LaTeX ($...$, $$...$$) renders natively in RemNote.
-
-async function rt(plugin: RNPlugin, text: string) {
-  return plugin.richText.parseFromMarkdown(text);
-}
-
-// ── Sync ───────────────────────────────────────────────────────────────────────
-
-async function syncWikiCards(plugin: RNPlugin) {
-  await plugin.app.toast("Fetching wiki flashcards...");
-
-  // 1. Fetch JSON from deployed wiki
-  let data: WikiData;
-  try {
-    const res = await fetch(WIKI_URL);
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    data = await res.json();
-  } catch (err) {
-    await plugin.app.toast(`Sync failed: could not fetch wiki (${err})`);
-    return;
-  }
-
-  // 2. Load persisted cardId -> remId map (survives across sessions)
-  const cardMap: Record<string, string> =
-    (await plugin.storage.getSynced(STORAGE_KEY)) ?? {};
-
-  // 3. Find or create root document
-  const rootDoc = await findOrCreateDocument(plugin, ROOT_NAME, undefined);
-  if (!rootDoc) {
-    await plugin.app.toast("Sync failed: could not create root document");
-    return;
-  }
-
-  let created = 0;
-  let updated = 0;
-  let failed = 0;
-
-  // 4. Walk sections -> chapters -> cards
-  for (const section of data.sections) {
-    const sectionRem = await findOrCreateDocument(
-      plugin, section.title, rootDoc._id
-    );
-    if (!sectionRem) { failed++; continue; }
-
-    for (const chapter of section.chapters) {
-      const chapterRem = await findOrCreateDocument(
-        plugin, chapter.title, sectionRem._id
-      );
-      if (!chapterRem) { failed++; continue; }
-
-      for (const card of chapter.cards) {
-        try {
-          const existingRemId = cardMap[card.id];
-
-          if (existingRemId) {
-            // Update — preserves RemNote's SRS scheduling data
-            const existingRem = await plugin.rem.findOne(existingRemId);
-            if (existingRem) {
-              await existingRem.setText(await rt(plugin, card.question));
-              await existingRem.setBackText(await rt(plugin, card.answer));
-              updated++;
-              continue;
-            }
-            // rem was deleted in RemNote — fall through to recreate
-          }
-
-          // Create new flashcard rem
-          const newRem = await plugin.rem.createRem();
-          if (!newRem) { failed++; continue; }
-
-          await newRem.setText(await rt(plugin, card.question));
-          await newRem.setBackText(await rt(plugin, card.answer));
-          await plugin.rem.moveRems([newRem], chapterRem, 0);
-
-          cardMap[card.id] = newRem._id;
-          created++;
-        } catch {
-          failed++;
-        }
-      }
-    }
-  }
-
-  // 5. Persist updated map so future syncs update instead of recreate
-  await plugin.storage.setSynced(STORAGE_KEY, cardMap);
-
-  const msg = [
-    `Sync complete —`,
-    `${created} new,`,
-    `${updated} updated`,
-    failed ? `, ${failed} failed` : "",
-  ].join(" ");
-  await plugin.app.toast(msg);
-
-  // 6. Make sure the ODE drill cards exist alongside the synced cards
-  await ensureDrillDeck(plugin, ROOT_NAME, true);
-}
 
 // ── Plugin lifecycle ───────────────────────────────────────────────────────────
 
@@ -154,13 +29,13 @@ async function registerDrills(plugin: ReactRNPlugin) {
 
   await plugin.settings.registerNumberSetting({
     id: "drill-cards-per-skill",
-    title: "ODE drills: cards per skill",
+    title: "Drills: cards per skill",
     description: "How many drill cards to create for each skill (each review gets a new problem).",
     defaultValue: 3,
   });
   await plugin.settings.registerNumberSetting({
     id: "drill-clear-at",
-    title: "ODE drills: correct in a row to clear a skill",
+    title: "Drills: correct in a row to clear a skill",
     defaultValue: 5,
   });
   await plugin.settings.registerDropdownSetting({
@@ -177,9 +52,6 @@ async function registerDrills(plugin: ReactRNPlugin) {
     dimensions: { height: "auto", width: "100%" },
   });
   // Unlimited practice: popup + right sidebar tab
-  await plugin.app.registerWidget("drill_session", WidgetLocation.Popup, {
-    dimensions: { height: 620, width: 860 },
-  });
   await plugin.app.registerWidget("drill_session", WidgetLocation.RightSidebar, {
     dimensions: { height: "auto", width: "100%" },
     widgetTabTitle: "ODE Drills",
@@ -193,7 +65,7 @@ async function registerDrills(plugin: ReactRNPlugin) {
     id: "ode-drills-practice",
     name: "Drills: Practice",
     action: async () => {
-      await plugin.widget.openPopup("drill_session");
+      await plugin.window.openWidgetInRightSidebar("drill_session");
     },
   });
   await plugin.app.registerCommand({
@@ -209,10 +81,6 @@ async function registerDrills(plugin: ReactRNPlugin) {
       }
     },
   });
-  // fixed popups that scroll inside: auto height clips long problems + solutions
-  await plugin.app.registerWidget("midterm_mix", WidgetLocation.Popup, {
-    dimensions: { height: 620, width: 860 },
-  });
   await plugin.app.registerWidget("midterm_mix", WidgetLocation.RightSidebar, {
     dimensions: { height: "auto", width: "100%" },
     widgetTabTitle: "Midterm mix",
@@ -221,18 +89,7 @@ async function registerDrills(plugin: ReactRNPlugin) {
     id: "drills-midterm-mix",
     name: "Drills: Midterm mix (heat transfer, Ch 1–5 only)",
     action: async () => {
-      await plugin.widget.openPopup("midterm_mix");
-    },
-  });
-  // a fixed, tall popup: the paper scrolls inside it (auto height collapses for long content)
-  await plugin.app.registerWidget("mock_exam", WidgetLocation.Popup, {
-    dimensions: { height: 620, width: 1000 },
-  });
-  await plugin.app.registerCommand({
-    id: "drills-mock-exam",
-    name: "Drills: Mock exam (MAE 120 heat transfer)",
-    action: async () => {
-      await plugin.widget.openPopup("mock_exam");
+      await plugin.window.openWidgetInRightSidebar("midterm_mix");
     },
   });
   await plugin.app.registerWidget("anchor", WidgetLocation.Popup, {
@@ -291,15 +148,7 @@ async function registerDrills(plugin: ReactRNPlugin) {
 }
 
 async function onActivate(plugin: ReactRNPlugin) {
-  console.log("[WikiSync] onActivate called");
   await registerDrills(plugin);
-  await plugin.app.registerCommand({
-    id: "sync-wiki-cards",
-    name: "Sync Wiki Cards",
-    action: async () => {
-      await syncWikiCards(plugin);
-    },
-  });
 }
 
 async function onDeactivate(_plugin: ReactRNPlugin) {}

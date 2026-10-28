@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { usePlugin, QueueInteractionScore } from "@remnote/plugin-sdk";
 import { generate } from "../drills/registry";
-import { placeText, primaryPlace, resolveSkill, videosFor, WIKI_BASE } from "../drills/skills";
+import { placeText, primaryPlace, resolveSkill, videosFor } from "../drills/skills";
 import { anchorFor, openPlace } from "../drills/anchors";
 import { getBindings } from "../drills/deck";
 import { check, previewTex } from "../drills/check";
@@ -180,9 +180,7 @@ export function DrillPanel({ skill, mode, onNext }: { skill: string; mode: "card
     if (!place) return;
     const r = await openPlace(plugin, place);
     if (r !== "none") return setBookTarget((t) => (t === "wiki" ? "pdf" : t));
-    if (place.wiki) window.open(WIKI_BASE + place.wiki, "_blank", "noopener");
-    else
-      await plugin.app.toast(
+    await plugin.app.toast(
         `No ${place.source.short} PDF found in RemNote. Upload it, or open it and run “Drills: Anchor this section”.`
       );
   };

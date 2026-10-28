@@ -1,26 +1,19 @@
-# Wiki Sync — drills for RemNote
+# Drills — Kuta-style practice for RemNote
 
-Kuta-style drill-and-kill practice inside RemNote: each drill card generates a
-fresh problem on every review, checks the typed answer by its defining property
-(never by string matching), and shows worked steps labelled with the textbook
-section (Kreyszig, Incropera, Dill & Bromberg, Shell).
+Each drill card generates a fresh problem on every review, checks the typed answer by its
+defining property (never by string matching), and shows worked steps, a method box, and the
+textbook section it comes from (Kreyszig, Incropera, Lay, Dill & Bromberg, Shell), linked to
+your own PDF in RemNote.
 
 ## Data & network use
 
-- **Drills** run entirely inside RemNote. No network access; nothing leaves your
-  knowledge base. Streaks and PDF links live in RemNote's plugin storage.
-- **Sync Wiki Cards** (only when you run it) downloads one public file,
-  `https://wiki.kevindoeschemistry.com/flashcards.json`, and creates flashcards
-  from it. No user data is sent anywhere.
-- Card headers link to pages on `wiki.kevindoeschemistry.com` (ordinary links).
+- Everything runs inside RemNote. The plugin makes **no network requests** and sends no data
+  anywhere. Progress, PDF links and section anchors live in RemNote's plugin storage.
+- Some drill cards show links to public lecture videos (YouTube, LearnChemE); they open in
+  your browser only when you click them.
 
-
-The plugin does two jobs:
-
-1. **Sync Wiki Cards** — pulls `flashcards.json` from the deployed wiki into
-   `Wiki Flashcards → Textbook → Chapter` (published by the wiki).
-2. **Drills** — Kuta-style drill-and-kill inside RemNote. Every review card
-   generates a new problem and checks the typed answer.
+The plugin id stays `wiki-sync` (RemNote keys card maps, streaks and anchors to it); the
+display name is **Drills**.
 
 ## The drill graph (`drills/`)
 
