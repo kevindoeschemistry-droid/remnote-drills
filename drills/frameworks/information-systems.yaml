@@ -1,0 +1,269 @@
+# Information Systems — curriculum framework (draft 1, for Kevin's markup)
+#
+# Built like an AP Course and Exam Description: Big Ideas run through the subject,
+# Units → Topics → Learning Objectives (one testable action each, verb first), with the
+# Essential Knowledge an LO rests on and the Practices it exercises. The standard is a
+# crosswalk onto this map, never the backbone. Companion to computer-science.yaml: where an
+# IS objective rests on a technical one, `needs` points across (IS → CS).
+#
+# Sources opened:
+#   msis2016 ACM/AIS MSIS 2016 Global Competency Model for Graduate Degree Programs in
+#            Information Systems (Topi et al.; Maynooth University repository copy,
+#            mural.maynoothuniversity.ie/id/eprint/10875). Nine IS competency areas —
+#            BCIA Business Continuity and Information Assurance · DATA Data, Information and
+#            Content Management · EARC Enterprise Architecture · ETIS Ethics, Impacts and
+#            Sustainability · IOCE Innovation, Organizational Change and Entrepreneurship ·
+#            ISMO IS Management and Operations · ISSG IS Strategy and Governance ·
+#            INFR IT Infrastructure · SDAD Systems Development and Deployment — 88 competency
+#            categories, plus individual foundational and domain competencies. Only
+#            categories 1–25 (BCIA, DATA) could be read verbatim; the rest of Table 1 did not
+#            come through, so `book:` cites areas by code, with category numbers for BCIA
+#            and DATA only.
+#   cpu-mscs Catholic Polytechnic University MS in Computer Science — catalog NOT FOUND (see
+#            computer-science.yaml), so whether it has an IS strand is unverified. Every
+#            unit is therefore `extension` until the catalog says otherwise.
+#
+# Fields
+#   units[].scope     core = required by the CPU program; extension = everything else
+#                     (currently all units — see above)
+#   units[].ideas     Big Ideas the unit develops
+#   topics[].book     crosswalk: { msis2016: [area code, or area-category number] }
+#   los[].do          the objective; los[].ek essential knowledge; los[].p practices
+#   los[].needs       prerequisite LOs, IS-… within this framework or CS-… in computer-science
+#   los[].drills      templates that drill it; "~name" = only partly. Empty = a gap.
+id: information-systems
+title: Information Systems
+code: IS
+draft: 1
+domains: []
+
+big_ideas:
+  - id: VAL
+    title: IT creates value only through the business
+    text: Technology pays off when it changes a process, decision or product; an investment is judged by the business outcome it enables, in money and risk.
+  - id: ALIGN
+    title: Strategy, architecture and governance must line up
+    text: Decision rights, the enterprise architecture and the portfolio translate business strategy into systems; misalignment shows up as duplicate systems, shadow IT and stranded spend.
+  - id: RISK
+    title: Risk is managed, never eliminated
+    text: Security, continuity and compliance are trade-offs priced against impact and likelihood, with controls chosen to bring residual risk inside appetite.
+  - id: DATA
+    title: Data is an organisational asset
+    text: Data has owners, quality, lineage and a lifecycle; its value depends on governance and integration as much as on storage technology.
+  - id: SOCIO
+    title: Information systems are sociotechnical
+    text: People, process and technology change together; adoption, incentives and ethics decide whether a technically sound system succeeds.
+
+practices:
+  - id: P1
+    title: Frame the business problem
+    text: State the goal, stakeholders, constraints and what decision the analysis supports.
+  - id: P2
+    title: Quantify
+    text: Put numbers on value, cost, risk, schedule and service levels — NPV, TCO, ALE, EVM, availability.
+  - id: P3
+    title: Model
+    text: Represent processes, data, architecture and requirements in a standard notation (BPMN, ER, capability map, use case).
+  - id: P4
+    title: Choose and justify
+    text: Compare options against explicit criteria and recommend one, naming the trade-off accepted.
+  - id: P5
+    title: Govern and control
+    text: Assign decision rights, controls, metrics and review cycles so the choice stays on track.
+  - id: P6
+    title: Weigh people and ethics
+    text: Account for adoption, change, privacy, fairness, law and sustainability.
+
+units:
+  # ── 1 ────────────────────────────────────────────────────────────────────
+  - id: strategy
+    n: 1
+    title: IS strategy and governance
+    scope: extension
+    ideas: [VAL, ALIGN]
+    topics:
+      - n: 1
+        title: Strategic value of IT
+        book: { msis2016: [ISSG] }
+        los:
+          - { id: A, do: "Classify a described system by its strategic role (cost leadership, differentiation, focus) and the Porter value-chain activity it changes.", ek: ["IT advantage lasts only if hard to copy — complementary processes and data, not the technology itself."], p: [P1], drills: [] }
+          - { id: B, do: "Place each application of a portfolio in the McFarlan grid (support, factory, turnaround, strategic) from its current and future impact.", ek: ["Strategic = high current and future impact; factory = high current, low future; the quadrant sets how it should be governed and funded."], p: [P3, P4], drills: [] }
+      - n: 2
+        title: IT investment appraisal
+        book: { msis2016: [ISSG, ISMO] }
+        los:
+          - { id: A, do: "Compute NPV, ROI and payback period of an IT project from its cash flows and discount rate, and accept or reject it.", ek: ["NPV = Σ CF_t/(1 + r)^t − I₀; accept if NPV > 0; payback ignores the time value of money and later flows."], p: [P2, P4], drills: [] }
+          - { id: B, do: "Compute total cost of ownership over a horizon for build, buy (licence) and SaaS options, including hidden costs.", ek: ["TCO = acquisition + implementation + operation + support + exit; licences are often < 30% of TCO."], p: [P2, P4], drills: [] }
+          - { id: C, do: "Rank a set of proposed projects by a weighted scoring model under a budget constraint.", ek: ["Score = Σ weight × rating; pick in score-per-cost order until the budget binds, checking dependencies."], p: [P2, P4], drills: [] }
+      - n: 3
+        title: Governance frameworks and decision rights
+        book: { msis2016: [ISSG] }
+        los:
+          - { id: A, do: "Assign decision rights for an IT decision domain (principles, architecture, infrastructure, applications, investment) to a governance archetype for a scenario.", ek: ["Weill & Ross archetypes: business monarchy, IT monarchy, federal, duopoly, feudal, anarchy; investment is usually business-led."], p: [P5], drills: [] }
+          - { id: B, do: "Match a governance need to the framework that addresses it — COBIT, ITIL, ISO/IEC 27001, NIST CSF, TOGAF.", ek: ["COBIT governs and audits IT overall; ITIL runs services; 27001 certifies an ISMS; NIST CSF organises cyber risk; TOGAF develops architecture."], p: [P5, P4], drills: [] }
+          - { id: C, do: "Build a RACI matrix for a described process and find its defects (no A, several A's, no R).", ek: ["Exactly one Accountable per activity; at least one Responsible; Consulted is two-way, Informed one-way."], p: [P5], drills: [] }
+
+  # ── 2 ────────────────────────────────────────────────────────────────────
+  - id: architecture
+    n: 2
+    title: Enterprise architecture
+    scope: extension
+    ideas: [ALIGN, DATA]
+    topics:
+      - n: 1
+        title: Architecture domains and method
+        book: { msis2016: [EARC] }
+        los:
+          - { id: A, do: "Assign an artefact or decision to its architecture domain (business, data, application, technology) and to the TOGAF ADM phase that produces it.", ek: ["ADM: Preliminary, A Vision, B Business, C Information Systems (data + application), D Technology, E Opportunities, F Migration, G Governance, H Change."], p: [P3], drills: [] }
+          - { id: B, do: "Build a capability map for a described organisation and mark the capabilities where heat-mapped investment should go.", ek: ["Capabilities say what the business does, independent of org chart and systems; they are stable while processes change."], p: [P3, P4], drills: [] }
+      - n: 2
+        title: Application portfolio and integration
+        book: { msis2016: [EARC, SDAD] }
+        los:
+          - { id: A, do: "Classify applications as Tolerate, Invest, Migrate or Eliminate from their business value and technical fit.", ek: ["Gartner TIME: high value + good fit ⇒ invest; high value + poor fit ⇒ migrate; low + good ⇒ tolerate; low + poor ⇒ eliminate."], p: [P4], drills: [] }
+          - { id: B, do: "Choose an integration style (file transfer, shared database, API/RPC, messaging, event streaming) for a described pair of systems and count point-to-point links avoided by a hub.", ek: ["n systems point-to-point need n(n − 1)/2 links; a bus or hub needs n; asynchronous messaging decouples availability."], p: [P4, P2], drills: [] }
+          - { id: C, do: "Identify which migration strategy a cloud move uses (rehost, replatform, refactor, repurchase, retire, retain) from its description.", ek: ["Rehost = lift-and-shift; refactor rewrites for cloud-native; repurchase moves to SaaS."], p: [P4], needs: [CS-18.2.A], drills: [] }
+
+  # ── 3 ────────────────────────────────────────────────────────────────────
+  - id: development
+    n: 3
+    title: Systems analysis, development and deployment
+    scope: extension
+    ideas: [VAL, SOCIO]
+    topics:
+      - n: 1
+        title: Process and requirements modelling
+        book: { msis2016: [SDAD] }
+        los:
+          - { id: A, do: "Model a described business process in BPMN with pools, lanes, gateways and events, and spot the hand-off that causes delay.", ek: ["Exclusive gateway = one path; parallel = all paths; message flows cross pools, sequence flows stay inside one."], p: [P3], drills: [] }
+          - { id: B, do: "Write a use case (actor, preconditions, main flow, extensions) or user stories with acceptance criteria from an interview transcript.", ek: ["Story = as a <role> I want <goal> so that <benefit>; INVEST: independent, negotiable, valuable, estimable, small, testable."], p: [P3, P1], drills: [] }
+          - { id: C, do: "Prioritise a requirement list with MoSCoW or Kano and justify which items fall out of a release.", ek: ["Must / Should / Could / Won't (this time); Kano: basic, performance and delighter features age into basics."], p: [P4], drills: [] }
+      - n: 2
+        title: Project scheduling and control
+        book: { msis2016: [SDAD, ISMO] }
+        los:
+          - { id: A, do: "Find the critical path, project duration and each activity's slack from an activity-on-node network — auto-checked.", ek: ["Forward pass gives earliest start/finish, backward pass latest; slack = LS − ES; zero-slack activities form the critical path."], p: [P2], drills: [] }
+          - { id: B, do: "Compute earned-value metrics (PV, EV, AC, CV, SV, CPI, SPI, EAC) from a status report and say whether the project is over budget or late.", ek: ["CPI = EV/AC, SPI = EV/PV; < 1 means over cost or behind; EAC = BAC/CPI if the trend continues."], p: [P2, P5], drills: [] }
+          - { id: C, do: "Choose a delivery approach (predictive, agile, hybrid) and a deployment strategy (big bang, phased, parallel, pilot, blue-green, canary) for a described rollout.", ek: ["Parallel running costs most and risks least; canary exposes a small share of users first; regulated or fixed-scope work leans predictive."], p: [P4], drills: [] }
+
+  # ── 4 ────────────────────────────────────────────────────────────────────
+  - id: data
+    n: 4
+    title: Data, information and analytics management
+    scope: extension
+    ideas: [DATA, VAL]
+    topics:
+      - n: 1
+        title: Data requirements and management
+        book: { msis2016: [DATA-11, DATA-12, DATA-13, DATA-16, DATA-20] }
+        los:
+          - { id: A, do: "Capture a scenario's data requirements as a conceptual model and choose the data-management technology the domain needs.", ek: ["Conceptual (entities, relationships) → logical (tables, keys) → physical; the access pattern and consistency need pick the store."], p: [P3, P4], needs: [CS-7.1.A, CS-7.6.A], drills: [] }
+          - { id: B, do: "Compute data-quality scores (completeness, validity, uniqueness, timeliness) for a sample table and name the root cause of the worst one.", ek: ["Completeness = non-null / total; uniqueness = distinct keys / rows; quality problems are fixed at the source process, not downstream."], p: [P2], drills: [] }
+          - { id: C, do: "Assign data owner, steward and custodian roles for a data domain and write the policy decision each makes.", ek: ["Owner is accountable (business); steward defines meaning and quality rules; custodian (IT) operates storage and access."], p: [P5], drills: [] }
+      - n: 2
+        title: Warehousing and integration
+        book: { msis2016: [DATA-18, DATA-19, DATA-22] }
+        los:
+          - { id: A, do: "Design a star schema for a described analytic question: declare the grain, the fact table measures and the dimensions.", ek: ["State the grain first; facts are additive numeric measures at that grain; dimensions carry descriptive attributes, denormalised."], p: [P3], needs: [CS-7.1.A], drills: [] }
+          - { id: B, do: "Choose the slowly-changing-dimension type (1, 2, 3) for an attribute whose history does or doesn't matter, and show the resulting rows.", ek: ["Type 1 overwrites; type 2 adds a new row with effective dates and a surrogate key; type 3 keeps a previous-value column."], p: [P4, P3], drills: [] }
+          - { id: C, do: "Choose between ETL into a warehouse, ELT into a lakehouse and streaming ingestion for a described data volume, variety and latency need.", ek: ["ELT pushes transformation to scalable storage; streaming fits seconds-level latency; schema-on-read trades governance for flexibility."], p: [P4], drills: [] }
+          - { id: D, do: "Write the SQL aggregation that answers a business question over a star schema — auto-checked by result set.", ek: ["Join the fact to the needed dimensions, filter on dimension attributes, GROUP BY the reporting level."], p: [P2], needs: [CS-7.2.A, IS-4.2.A], drills: [] }
+      - n: 3
+        title: Analytics for decisions
+        book: { msis2016: [DATA-23, DATA-24] }
+        los:
+          - { id: A, do: "Match a business question to descriptive, diagnostic, predictive or prescriptive analytics and to a method (dashboard, cohort, regression, classification, optimisation).", ek: ["Descriptive = what happened; diagnostic = why; predictive = what will; prescriptive = what to do."], p: [P4, P1], drills: [] }
+          - { id: B, do: "Compute the expected profit of acting on a classifier's predictions from its confusion matrix and the cost of each error.", ek: ["Expected value = Σ count × payoff per cell; the best threshold depends on error costs, not accuracy."], p: [P2, P4], needs: [CS-13.2.A], drills: [] }
+          - { id: C, do: "Define a KPI for a described objective with formula, target, owner and data source, and flag a vanity metric.", ek: ["A KPI ties to a decision and has a target; vanity metrics (raw sign-ups, page views) move without changing outcomes."], p: [P5], drills: [] }
+
+  # ── 5 ────────────────────────────────────────────────────────────────────
+  - id: infrastructure
+    n: 5
+    title: IT infrastructure and service operations
+    scope: extension
+    ideas: [VAL, RISK]
+    topics:
+      - n: 1
+        title: Infrastructure and sourcing
+        book: { msis2016: [INFR] }
+        los:
+          - { id: A, do: "Size the servers or cloud instances a described workload needs at peak with headroom, and the cost of each option.", ek: ["Capacity = peak demand / (per-unit capacity × target utilisation); size for peak, not average."], p: [P2], needs: [CS-18.2.B], drills: [] }
+          - { id: B, do: "Choose IaaS, PaaS, SaaS or on-premises for a described system and state who manages each layer under the shared-responsibility model.", ek: ["The provider takes more layers as you move IaaS → PaaS → SaaS; data and identity stay the customer's responsibility in every model."], p: [P4, P5], drills: [] }
+          - { id: C, do: "Recommend in-house, outsourced, offshored or cloud sourcing for a function using transaction-cost reasoning.", ek: ["Outsource commodity, well-specified work; keep asset-specific, strategic, hard-to-monitor work inside."], p: [P4], drills: [] }
+      - n: 2
+        title: Service management
+        book: { msis2016: [ISMO] }
+        los:
+          - { id: A, do: "Classify a described event as an incident, problem, service request or change, and the change as standard, normal or emergency.", ek: ["Incident = restore service fast; problem = find the root cause; standard changes are pre-approved and low-risk."], p: [P5], drills: [] }
+          - { id: B, do: "Compute SLA attainment, MTTR and allowed downtime from an incident log and decide whether a credit is owed.", ek: ["Availability = (agreed time − downtime) / agreed time; MTTR = total repair time / incidents."], p: [P2, P5], needs: [CS-6.5.A], drills: [] }
+          - { id: C, do: "Prioritise an incident from its impact and urgency using a priority matrix.", ek: ["Priority = f(impact, urgency): high/high = P1; priority sets the response and resolution targets."], p: [P4], drills: [] }
+          - { id: D, do: "Choose a vendor by a weighted evaluation of a set of RFP responses and name the contract terms that protect exit.", ek: ["Weight criteria before scoring; protect exit with data-portability, termination-assistance and escrow clauses."], p: [P4, P2], drills: [] }
+
+  # ── 6 ────────────────────────────────────────────────────────────────────
+  - id: assurance
+    n: 6
+    title: Business continuity and information assurance
+    scope: extension
+    ideas: [RISK]
+    topics:
+      - n: 1
+        title: IS risk management
+        book: { msis2016: [BCIA-5, BCIA-6, BCIA-7] }
+        los:
+          - { id: A, do: "Score risks on a likelihood × impact matrix and choose a treatment (avoid, mitigate, transfer, accept) for each.", ek: ["Inherent risk before controls, residual after; accept only within the stated risk appetite."], p: [P2, P4], drills: [] }
+          - { id: B, do: "Compute ALE before and after a proposed control and its return on security investment.", ek: ["ROSI = (ALE_before − ALE_after − control cost) / control cost."], p: [P2], needs: [CS-11.4.B], drills: [] }
+          - { id: C, do: "Classify a control as preventive, detective or corrective and administrative, technical or physical.", ek: ["Defense in depth layers control types so one failure is caught by another."], p: [P5], drills: [] }
+      - n: 2
+        title: Continuity and recovery
+        book: { msis2016: [BCIA-2, BCIA-4, BCIA-8] }
+        los:
+          - { id: A, do: "Derive RTO and RPO for a business process from a business-impact analysis, and pick the recovery site and backup frequency that meet them.", ek: ["RPO = tolerable data loss ⇒ backup or replication interval; RTO = tolerable downtime ⇒ hot, warm or cold site."], p: [P1, P4], drills: [] }
+          - { id: B, do: "Compute what a full, incremental or differential backup schedule must restore after a failure on a given day, and the worst-case data loss.", ek: ["Incremental restore = last full + every incremental since; differential = last full + latest differential; loss = time since last backup."], p: [P3, P2], drills: [] }
+      - n: 3
+        title: Security programme and audit
+        book: { msis2016: [BCIA-1, BCIA-3, BCIA-9] }
+        los:
+          - { id: A, do: "Map a described control to its NIST CSF 2.0 function (Govern, Identify, Protect, Detect, Respond, Recover).", ek: ["Govern was added in 2.0 for strategy and supply-chain risk; the functions run concurrently, not as a sequence."], p: [P5], drills: [] }
+          - { id: B, do: "Identify the segregation-of-duties conflict in a described set of user roles and propose the compensating control.", ek: ["No one person should both initiate and approve, or both hold assets and record them; where SoD can't be split, add review."], p: [P5, P6], needs: [CS-11.1.A], drills: [] }
+
+  # ── 7 ────────────────────────────────────────────────────────────────────
+  - id: innovation
+    n: 7
+    title: Innovation, organisational change and entrepreneurship
+    scope: extension
+    ideas: [SOCIO, VAL]
+    topics:
+      - n: 1
+        title: Adoption and change
+        book: { msis2016: [IOCE] }
+        los:
+          - { id: A, do: "Predict adoption of a described system from TAM/UTAUT factors and name the intervention that raises it.", ek: ["Perceived usefulness and ease of use drive intention; UTAUT adds social influence and facilitating conditions."], p: [P6], drills: [] }
+          - { id: B, do: "Place a described organisation's change effort in a change model (Lewin, Kotter, ADKAR) and name the step it skipped.", ek: ["Kotter: urgency, coalition, vision, communicate, empower, short-term wins, consolidate, anchor; skipping urgency stalls most efforts."], p: [P6], drills: [] }
+          - { id: C, do: "Locate a technology's adopters on the diffusion curve and decide how to cross the chasm to the early majority.", ek: ["Innovators 2.5%, early adopters 13.5%, early majority 34%; the early majority buys whole-product solutions and references."], p: [P4, P6], drills: [] }
+      - n: 2
+        title: Digital business models
+        book: { msis2016: [IOCE] }
+        los:
+          - { id: A, do: "Fill a business model canvas for a described digital venture and identify its riskiest assumption.", ek: ["Nine blocks: segments, value proposition, channels, relationships, revenue, resources, activities, partners, costs; test the riskiest first."], p: [P3, P1], drills: [] }
+          - { id: B, do: "Compute customer lifetime value and CAC payback for a subscription product and decide whether growth is profitable.", ek: ["LTV ≈ ARPU × gross margin / churn; healthy SaaS often wants LTV/CAC ≥ 3 and payback < 12 months."], p: [P2], drills: [] }
+          - { id: C, do: "Identify the network effects (direct, indirect/two-sided) in a platform and the side to subsidise.", ek: ["Subsidise the side whose participation most attracts the other and that is more price-sensitive."], p: [P4], drills: [] }
+
+  # ── 8 ────────────────────────────────────────────────────────────────────
+  - id: ethics
+    n: 8
+    title: Ethics, impacts and sustainability
+    scope: extension
+    ideas: [SOCIO, RISK, DATA]
+    topics:
+      - n: 1
+        title: Privacy and regulation
+        book: { msis2016: [ETIS, DATA-17] }
+        los:
+          - { id: A, do: "Determine whether GDPR, CCPA/CPRA, HIPAA or FERPA applies to a described data flow and the lawful basis or consent it needs.", ek: ["GDPR follows EU data subjects; CCPA/CPRA covers qualifying businesses handling California residents' data; HIPAA covers health data of covered entities; FERPA covers education records."], p: [P6, P5], drills: [] }
+          - { id: B, do: "Decide when a data-protection impact assessment is required and list the privacy-by-design measures for a described system.", ek: ["High-risk processing (large-scale sensitive data, profiling, monitoring) needs a DPIA; minimise, pseudonymise, limit retention, default to private."], p: [P6], needs: [CS-16.1.C], drills: [] }
+      - n: 2
+        title: Responsible and sustainable IS
+        book: { msis2016: [ETIS] }
+        los:
+          - { id: A, do: "Analyse a described IS decision with stakeholder, utilitarian and rights-based reasoning and recommend an action.", ek: ["Identify every affected stakeholder; consequences and duties can disagree — state which one governs and why."], p: [P6], drills: [] }
+          - { id: B, do: "Compare the lifetime carbon and cost of keeping versus refreshing a hardware fleet, including embodied emissions.", ek: ["Embodied carbon of manufacture often exceeds years of use-phase emissions for end-user devices; extending life is usually greener."], p: [P2, P6], drills: [] }

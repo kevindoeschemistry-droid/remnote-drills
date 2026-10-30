@@ -1,0 +1,658 @@
+# Computer Science — curriculum framework (draft 1, for Kevin's markup)
+#
+# Built like an AP Course and Exam Description: Big Ideas run through the subject,
+# Units → Topics → Learning Objectives (one testable action each, verb first), with the
+# Essential Knowledge an LO rests on and the Practices it exercises. Courses and the
+# standard are crosswalks onto this map, never the backbone. Written for a graduate student
+# with seven years of full-stack work: the LOs lean toward the theory and systems layers a
+# working web engineer usually skips, and toward reps that can be auto-checked.
+#
+# Sources opened:
+#   cs2023   ACM/IEEE-CS/AAAI Computer Science Curricula 2023, Body of Knowledge
+#            (csed.acm.org/wp-content/uploads/2025/11/CS2023-Report.htm): 17 knowledge areas,
+#            270 CS Core hours — AI 12 · AL 32 · AR 9 · DM 10 · FPL 21 · GIT 4 · HCI 8 ·
+#            MSF 55 · NC 7 · OS 8 · PDC 9 · SDF 43 · SE 6 · SEC 6 · SEP 18 · SF 18 · SPD 4.
+#            Knowledge-unit codes in `book:` are taken verbatim from that report.
+#   cpu-mscs Catholic Polytechnic University (Santa Clara) MS in Computer Science — NOT
+#            FOUND. Web searches returned only Catholic University of America (catholic.edu,
+#            CSC 5xx/6xx) and Santa Clara University, neither of which is this program, and
+#            the CPU site could not be reached from this session. So the `cpu-mscs` crosswalk
+#            is left out until the catalog is in hand, and scope is set from CS2023 instead.
+#
+# Fields
+#   units[].scope     core = CS2023 CS Core material (stand-in for the CPU required courses);
+#                     extension = CS2023 KA Core / elective depth beyond that
+#   units[].ideas     Big Ideas the unit develops
+#   topics[].book     crosswalk: { cs2023: [knowledge-unit codes] } — add cpu-mscs: ["CS 5xx"]
+#                     once the CPU catalog is available
+#   los[].do          the objective; los[].ek essential knowledge; los[].p practices
+#   los[].needs       prerequisite LOs (CS-unit.topic.id)
+#   los[].drills      templates that drill it; "~name" = only partly. Empty = a gap.
+id: computer-science
+title: Computer Science
+code: CS
+draft: 1
+domains: []
+
+big_ideas:
+  - id: ABS
+    title: Abstraction and layering
+    text: Every system is a stack of interfaces — gates, ISA, OS, language, library, service. Working at one layer means trusting the contract of the one below and knowing when it leaks.
+  - id: COST
+    title: Resources are finite and costs scale
+    text: Time, space, bandwidth, energy and money grow with input size; asymptotic analysis and measurement say which design survives growth, and the bottleneck sets the whole.
+  - id: REP
+    title: Representation decides what is cheap
+    text: The same information as an array, a tree, a hash table, a relation, a bit pattern or a vector makes different operations fast, slow or impossible.
+  - id: CORR
+    title: Correctness is argued, not hoped for
+    text: Specifications, invariants, types, proofs and tests are how a program is shown to do what it should — including on the boundary inputs.
+  - id: CONC
+    title: Concurrency and distribution change the rules
+    text: Once work overlaps in time or space, ordering, shared state, partial failure and coordination dominate; single-threaded intuition breaks.
+  - id: ADV
+    title: Assume an adversary
+    text: Security means reasoning about an attacker who chooses the worst input, timing and path; trust boundaries and least privilege, not obscurity, contain them.
+  - id: HUM
+    title: Computing serves people
+    text: Systems are used, misused and governed by people; usability, accessibility, fairness, privacy and law are design constraints, not afterthoughts.
+
+practices:
+  - id: P1
+    title: Model the problem
+    text: Turn a described task into a precise specification — inputs, outputs, constraints, the abstraction (graph, relation, automaton, state machine) it really is.
+  - id: P2
+    title: Analyse cost
+    text: Derive time, space, I/O, latency or throughput — asymptotically or numerically — and identify the dominant term or bottleneck.
+  - id: P3
+    title: Trace execution
+    text: Simulate a structure, algorithm, protocol or machine step by step and state its exact state after k steps.
+  - id: P4
+    title: Choose and design
+    text: Select the structure, algorithm, schema, protocol or architecture that fits a described workload and justify the trade-off.
+  - id: P5
+    title: Implement
+    text: Write the code, query, configuration or expression that realises the design.
+  - id: P6
+    title: Verify
+    text: Prove, test, type-check or find the counterexample; check boundary cases and failure modes.
+  - id: P7
+    title: Evaluate impact
+    text: Judge security, usability, ethical, legal and social consequences of a design choice.
+
+units:
+  # ── 1 ────────────────────────────────────────────────────────────────────
+  - id: foundations
+    n: 1
+    title: Discrete and probabilistic foundations
+    scope: core
+    ideas: [CORR, REP]
+    topics:
+      - n: 1
+        title: Logic and proof
+        book: { cs2023: [MSF-Discrete] }
+        los:
+          - { id: A, do: "Decide whether two propositional formulas are equivalent, by truth table or by algebraic laws.", ek: ["Equivalent ⇔ same truth value on every assignment; p → q ≡ ¬p ∨ q; De Morgan swaps ∧ and ∨ under negation."], p: [P3, P6], drills: [] }
+          - { id: B, do: "Prove a claim about a recursive definition or a loop by induction, naming base case, hypothesis and step.", ek: ["Weak induction assumes P(k) to show P(k+1); strong induction assumes all P(j ≤ k); structural induction follows the recursive definition."], p: [P6], drills: [] }
+      - n: 2
+        title: Counting, sums and recurrences
+        book: { cs2023: [MSF-Discrete] }
+        los:
+          - { id: A, do: "Count arrangements or selections with the product rule, permutations, combinations and inclusion–exclusion, giving a number.", ek: ["Order matters ⇒ P(n,k) = n!/(n−k)!; order ignored ⇒ C(n,k); |A ∪ B| = |A| + |B| − |A ∩ B|."], p: [P1, P2], drills: [] }
+          - { id: B, do: "Evaluate a summation or simple linear recurrence in closed form (e.g. T(n) = T(n−1) + n).", ek: ["Σ i = n(n+1)/2; Σ 2^i = 2^(n+1) − 1; geometric series with ratio < 1 is bounded by its first term."], p: [P2], drills: [] }
+      - n: 3
+        title: Relations and graphs
+        book: { cs2023: [MSF-Discrete] }
+        los:
+          - { id: A, do: "Compute degrees, connectivity, and whether a small graph is bipartite, acyclic or a tree.", ek: ["Σ deg = 2|E|; a tree on n vertices has n − 1 edges; bipartite ⇔ no odd cycle."], p: [P3], drills: [] }
+      - n: 4
+        title: Probability and statistics for computing
+        book: { cs2023: [MSF-Probability, MSF-Statistics] }
+        los:
+          - { id: A, do: "Compute an expected count (collisions, comparisons, hits) using linearity of expectation over indicator variables.", ek: ["E[ΣX_i] = ΣE[X_i] even when the X_i are dependent; E[indicator] = P(event)."], p: [P2], drills: [] }
+          - { id: B, do: "Apply Bayes' rule to a detector or classifier scenario and find the probability an alert is real.", ek: ["P(A|B) = P(B|A)P(A)/P(B); a low base rate makes most positives false even for an accurate test."], p: [P2, P7], drills: [] }
+          - { id: C, do: "Compute the mean, standard deviation and a confidence interval from repeated benchmark runs, and decide whether two configurations differ.", ek: ["CI ≈ x̄ ± t·s/√n; overlapping intervals do not prove no difference; report variance, not one run."], p: [P2, P6], drills: [] }
+
+  # ── 2 ────────────────────────────────────────────────────────────────────
+  - id: analysis
+    n: 2
+    title: Algorithm analysis
+    scope: core
+    ideas: [COST, CORR]
+    topics:
+      - n: 1
+        title: Asymptotic notation
+        book: { cs2023: [AL-Foundational, AL-Complexity] }
+        los:
+          - { id: A, do: "Rank a set of functions by growth rate (constant, log, polylog, polynomial, exponential, factorial).", ek: ["log n ≪ n^ε ≪ n^k ≪ c^n ≪ n!; bases of logs differ by a constant factor."], p: [P2], drills: [] }
+          - { id: B, do: "Compute the Big-O of described or shown code — nested loops, dependent bounds, index doubling or halving — as an auto-checked answer.", ek: ["Nested independent loops multiply; i *= 2 runs log n times; Σ_{i=1..n} i = Θ(n²); sequential blocks add, the largest wins."], p: [P2], needs: [CS-1.2.B], drills: [] }
+      - n: 2
+        title: Recurrences and divide-and-conquer cost
+        book: { cs2023: [AL-Foundational, AL-Strategies] }
+        los:
+          - { id: A, do: "Write the running-time recurrence of a recursive function from its code.", ek: ["T(n) = a·T(n/b) + f(n): a recursive calls on size n/b plus non-recursive work f(n)."], p: [P1, P2], drills: [] }
+          - { id: B, do: "Solve a divide-and-conquer recurrence with the master theorem or a recursion tree, naming the case that applies.", ek: ["Compare f(n) with n^(log_b a): smaller ⇒ Θ(n^(log_b a)); equal ⇒ ×log n; larger (regular) ⇒ Θ(f(n))."], p: [P2], needs: [CS-2.2.A], drills: [] }
+      - n: 3
+        title: Cases and amortization
+        book: { cs2023: [AL-Foundational, AL-Complexity] }
+        los:
+          - { id: A, do: "Identify the best-, worst- and average-case inputs of an algorithm and their costs (e.g. quicksort on sorted input).", ek: ["Worst case is a guarantee over all inputs of size n; average case needs an input distribution."], p: [P2, P6], drills: [] }
+          - { id: B, do: "Compute the amortized cost per operation of a sequence (dynamic-array doubling, binary counter) by the aggregate or accounting method.", ek: ["Doubling capacity costs n total copies over n appends ⇒ O(1) amortized; growing by a constant is O(n) amortized."], p: [P2], drills: [] }
+      - n: 4
+        title: Correctness arguments
+        book: { cs2023: [AL-Foundational, SDF-Algorithms] }
+        los:
+          - { id: A, do: "State a loop invariant for an iterative algorithm and use initialization, maintenance and termination to prove it correct.", ek: ["An invariant holds before each iteration; at exit, invariant + negated loop condition ⇒ postcondition."], p: [P6], needs: [CS-1.1.B], drills: [] }
+          - { id: B, do: "Find the boundary input on which a given binary-search or loop variant fails (off-by-one, infinite loop, overflow in mid).", ek: ["Check empty, one-element and target-at-ends inputs; lo + (hi − lo)/2 avoids overflow; the interval must shrink every step."], p: [P3, P6], drills: [] }
+
+  # ── 3 ────────────────────────────────────────────────────────────────────
+  - id: structures
+    n: 3
+    title: Data structures
+    scope: core
+    ideas: [REP, COST]
+    topics:
+      - n: 1
+        title: Sequences, stacks and queues
+        book: { cs2023: [SDF-Data-Structures, AL-Foundational] }
+        los:
+          - { id: A, do: "State the cost of access, insert-at-front, append and delete for arrays, dynamic arrays, singly and doubly linked lists and deques.", ek: ["Arrays: O(1) index, O(n) front insert; linked lists: O(1) splice given the node, O(n) index; contiguous memory is cache-friendly."], p: [P2], drills: [] }
+      - n: 2
+        title: Hash tables
+        book: { cs2023: [AL-Foundational, SDF-Data-Structures] }
+        los:
+          - { id: A, do: "Trace insertions into a hash table under chaining, linear probing or double hashing for a given hash function, giving the final table.", ek: ["Linear probing tries h, h+1, h+2 … mod m; deletion under open addressing needs tombstones."], p: [P3], drills: [] }
+          - { id: B, do: "Compute the load factor and expected probes for a hash table and decide when it must resize.", ek: ["α = n/m; chaining: expected chain length α; linear probing degrades sharply above α ≈ 0.7."], p: [P2], needs: [CS-1.4.A], drills: [] }
+      - n: 3
+        title: Search trees
+        book: { cs2023: [AL-Foundational, SDF-Data-Structures] }
+        los:
+          - { id: A, do: "Trace BST insertion and deletion and produce the in-, pre- and post-order traversals of the result.", ek: ["In-order of a BST is sorted; deleting a two-child node swaps in its successor; height ranges from log n to n."], p: [P3], drills: [] }
+          - { id: B, do: "Trace the rotations an AVL or red-black tree performs after an insertion.", ek: ["AVL keeps |balance| ≤ 1 via single or double rotations; both guarantee O(log n) height."], p: [P3], needs: [CS-3.3.A], drills: [] }
+          - { id: C, do: "Compute the height of a B-tree or B+-tree of order m holding n keys and explain why databases use it.", ek: ["Height ≈ log_m n; high fanout makes each level one disk page, so a lookup costs a few I/Os."], p: [P2, P4], drills: [] }
+      - n: 4
+        title: Heaps and priority queues
+        book: { cs2023: [AL-Foundational, SDF-Data-Structures] }
+        los:
+          - { id: A, do: "Trace a binary heap's array after insert, extract-min and bottom-up heapify.", ek: ["Children of i at 2i+1, 2i+2; sift-up/down are O(log n); bottom-up build is O(n)."], p: [P3], drills: [] }
+      - n: 5
+        title: Graph representations and disjoint sets
+        book: { cs2023: [AL-Foundational] }
+        los:
+          - { id: A, do: "Choose an adjacency list or matrix for a graph's density and operations and give its space and edge-query cost.", ek: ["List: Θ(V + E) space, O(deg) edge test; matrix: Θ(V²) space, O(1) edge test; sparse graphs favour lists."], p: [P2, P4], needs: [CS-1.3.A], drills: [] }
+          - { id: B, do: "Trace union-find with union by rank and path compression and give the resulting parent array.", ek: ["Both heuristics together give O(α(n)) amortized per operation — effectively constant."], p: [P3], drills: [] }
+      - n: 6
+        title: Choosing a structure
+        book: { cs2023: [SDF-Data-Structures, AL-Strategies] }
+        los:
+          - { id: A, do: "Pick the data structure for a described access pattern (LRU cache, top-k of a stream, prefix search, range queries, membership with false positives allowed) — auto-checked choice.", ek: ["LRU = hash map + doubly linked list; top-k = size-k min-heap; prefixes = trie; ranges = balanced BST/B-tree; approximate membership = Bloom filter."], p: [P4], needs: [CS-3.1.A, CS-3.2.A, CS-3.4.A], drills: [] }
+
+  # ── 4 ────────────────────────────────────────────────────────────────────
+  - id: design
+    n: 4
+    title: Algorithm design and graph algorithms
+    scope: core
+    ideas: [COST, CORR, REP]
+    topics:
+      - n: 1
+        title: Sorting
+        book: { cs2023: [AL-Foundational, SDF-Algorithms] }
+        los:
+          - { id: A, do: "Trace the array after k passes of insertion, selection or bubble sort, a quicksort partition, or a merge step.", ek: ["Insertion sort keeps a sorted prefix; selection places the k-th smallest at pass k; Lomuto/Hoare partitions differ in pivot placement."], p: [P3], drills: [] }
+          - { id: B, do: "Pick a sort for a scenario by worst-case time, stability, extra space and adaptivity, and explain when counting or radix sort beats Ω(n log n).", ek: ["Comparison sorts need Ω(n log n) comparisons; merge sort is stable, heapsort in-place, quicksort fast on average; radix sort is O(d(n + k))."], p: [P2, P4], needs: [CS-2.3.A], drills: [] }
+      - n: 2
+        title: Greedy algorithms
+        book: { cs2023: [AL-Strategies] }
+        los:
+          - { id: A, do: "Apply a greedy rule (interval scheduling by earliest finish, Huffman coding) and give its output; for coin change with non-canonical coins, produce the counterexample.", ek: ["Greedy is correct only with the greedy-choice property and optimal substructure, shown by an exchange argument."], p: [P3, P6], drills: [] }
+          - { id: B, do: "Build a Huffman code for given symbol frequencies and compute the encoded length in bits.", ek: ["Repeatedly merge the two least-frequent nodes; total bits = Σ freq × depth."], p: [P3, P2], drills: [] }
+      - n: 3
+        title: Dynamic programming
+        book: { cs2023: [AL-Strategies] }
+        los:
+          - { id: A, do: "Fill a DP table (LCS, edit distance, 0/1 knapsack, coin-change count) and read off the optimum and one optimal solution.", ek: ["Each cell is a subproblem combined from already-filled cells; traceback through choices recovers the solution."], p: [P3], drills: [] }
+          - { id: B, do: "Write the state, recurrence and base cases for a described optimisation problem and give its time and space.", ek: ["Time ≈ (# states) × (work per state); overlapping subproblems + optimal substructure ⇒ DP."], p: [P1, P2], drills: [] }
+      - n: 4
+        title: Graph traversal
+        book: { cs2023: [AL-Foundational] }
+        los:
+          - { id: A, do: "Trace BFS or DFS from a source (neighbours in given order) and give the visit order, BFS distances or DFS discovery/finish times.", ek: ["BFS finds fewest-edge paths using a queue; DFS uses a stack/recursion; both are O(V + E)."], p: [P3], needs: [CS-3.5.A], drills: [] }
+          - { id: B, do: "Produce a topological order of a DAG, or report the cycle that prevents one.", ek: ["Kahn: repeatedly remove in-degree-0 vertices; DFS: reverse finish order; a back edge means a cycle."], p: [P3, P6], drills: [] }
+      - n: 5
+        title: Shortest paths and spanning trees
+        book: { cs2023: [AL-Foundational] }
+        los:
+          - { id: A, do: "Trace Dijkstra's distance array and settled set after k extractions.", ek: ["Greedily settle the closest unsettled vertex and relax its edges; O((V + E) log V) with a binary heap."], p: [P3], needs: [CS-3.4.A], drills: [] }
+          - { id: B, do: "Run Bellman–Ford to find distances or detect a negative cycle, and explain why Dijkstra fails with negative edges.", ek: ["V − 1 rounds of relaxing every edge; an improvement in round V means a negative cycle."], p: [P3, P6], drills: [] }
+          - { id: C, do: "Compute an MST's weight with Kruskal or Prim and give the order in which edges are chosen.", ek: ["Cut property: the lightest edge crossing any cut is safe; Kruskal uses union-find."], p: [P3], needs: [CS-3.5.B], drills: [] }
+
+  # ── 5 ────────────────────────────────────────────────────────────────────
+  - id: models
+    n: 5
+    title: Models of computation and complexity classes
+    scope: core
+    ideas: [CORR, COST]
+    topics:
+      - n: 1
+        title: Automata and languages
+        book: { cs2023: [AL-Models] }
+        los:
+          - { id: A, do: "Trace a DFA or NFA on an input string and decide whether it accepts.", ek: ["A DFA has exactly one transition per symbol; an NFA accepts if any path does; every NFA has an equivalent DFA."], p: [P3], drills: [] }
+          - { id: B, do: "Write a regular expression or DFA for a described language, or argue it is not regular.", ek: ["Regular languages cannot count unboundedly (e.g. aⁿbⁿ); pumping lemma gives the contradiction."], p: [P1, P5], drills: [] }
+          - { id: C, do: "Derive a string from a context-free grammar and show the grammar is ambiguous by giving two parse trees.", ek: ["CFGs capture nesting (balanced brackets) that regular expressions cannot; ambiguity = two leftmost derivations."], p: [P3], drills: [] }
+      - n: 2
+        title: Computability and NP-completeness
+        book: { cs2023: [AL-Models, AL-Complexity] }
+        los:
+          - { id: A, do: "Show a described problem is undecidable by reducing the halting problem to it.", ek: ["If a decider for X would yield a decider for HALT, X is undecidable; Rice's theorem covers non-trivial semantic properties."], p: [P6], drills: [] }
+          - { id: B, do: "Classify a described problem as in P, NP-complete, or undecidable, and verify a given certificate in polynomial time.", ek: ["NP = polynomially verifiable; NP-complete = in NP and every NP problem reduces to it; P = NP is open."], p: [P4, P6], drills: [] }
+          - { id: C, do: "State the direction of a polynomial reduction needed to prove a new problem NP-hard, and carry out a small one (3-SAT → independent set, vertex cover ↔ independent set).", ek: ["Reduce a known NP-hard problem TO the new one; S is a vertex cover ⇔ V∖S is an independent set."], p: [P6], needs: [CS-5.2.B], drills: [] }
+
+  # ── 6 ────────────────────────────────────────────────────────────────────
+  - id: software-eng
+    n: 6
+    title: Software engineering
+    scope: core
+    ideas: [CORR, ABS, HUM]
+    topics:
+      - n: 1
+        title: Process and requirements
+        book: { cs2023: [SE-Teamwork, SE-Requirements] }
+        los:
+          - { id: A, do: "Rewrite a vague requirement as a testable functional or non-functional requirement with an acceptance criterion.", ek: ["Testable = measurable outcome and condition ('p95 latency < 200 ms at 500 rps'); NFRs cover performance, security, usability, reliability."], p: [P1, P6], drills: [] }
+      - n: 2
+        title: Design principles and patterns
+        book: { cs2023: [SE-Design, FPL-OOP] }
+        los:
+          - { id: A, do: "Identify which SOLID principle a code snippet violates and the refactoring that fixes it.", ek: ["SRP one reason to change; OCP extend without editing; LSP subtypes substitutable; ISP small interfaces; DIP depend on abstractions."], p: [P6], drills: [] }
+          - { id: B, do: "Name the design pattern a snippet implements or needs (strategy, observer, factory, adapter, decorator, singleton, repository).", ek: ["Patterns are named solutions to recurring forces: vary an algorithm ⇒ strategy; notify dependents ⇒ observer; wrap an incompatible API ⇒ adapter."], p: [P4], drills: [] }
+      - n: 3
+        title: Tools and construction
+        book: { cs2023: [SE-Tools, SE-Construction] }
+        los:
+          - { id: A, do: "Predict the commit graph after a git merge, rebase, cherry-pick, revert or reset on a described history.", ek: ["Merge adds a two-parent commit; rebase replays commits with new hashes; revert adds an inverse commit; reset moves the branch pointer."], p: [P3], drills: [] }
+      - n: 4
+        title: Testing and validation
+        book: { cs2023: [SE-Validation] }
+        los:
+          - { id: A, do: "Design test inputs for a specification by equivalence partitioning and boundary-value analysis.", ek: ["One input per partition plus each boundary and its neighbours; invalid partitions need tests too."], p: [P6], drills: [] }
+          - { id: B, do: "Compute statement and branch coverage of a test suite on a given snippet, and add the test that raises it.", ek: ["Branch coverage counts each decision outcome; 100% statement coverage can miss a false branch."], p: [P2, P6], drills: [] }
+      - n: 5
+        title: Reliability and specification
+        book: { cs2023: [SE-Reliability, SE-Formal, SF-Reliability] }
+        los:
+          - { id: A, do: "Compute availability from MTBF and MTTR, and for components in series or redundant parallel; convert nines to downtime per year.", ek: ["A = MTBF/(MTBF + MTTR); series multiply A; parallel 1 − Π(1 − A_i); 99.9% ≈ 8.8 h/yr down."], p: [P2], drills: [] }
+          - { id: B, do: "Write pre- and postconditions for a function and decide whether a given Hoare triple holds.", ek: ["{P} S {Q}: if P holds before S and S terminates, Q holds after; assignment rule substitutes backward."], p: [P6], needs: [CS-2.4.A], drills: [] }
+
+  # ── 7 ────────────────────────────────────────────────────────────────────
+  - id: data
+    n: 7
+    title: Databases and data management
+    scope: core
+    ideas: [REP, CORR, CONC]
+    topics:
+      - n: 1
+        title: Modelling and the relational model
+        book: { cs2023: [DM-Modeling, DM-Relational] }
+        los:
+          - { id: A, do: "Build an ER model with cardinalities for a scenario and map it to relational tables with primary and foreign keys.", ek: ["1:N ⇒ FK on the N side; M:N ⇒ junction table with composite key; weak entities borrow the owner's key."], p: [P1, P5], drills: [] }
+          - { id: B, do: "Evaluate a relational-algebra expression (σ, π, ⋈, ∪, −, ρ) on small tables and give the result.", ek: ["Selection filters rows, projection columns (removing duplicates); natural join matches equal-named attributes."], p: [P3], drills: [] }
+      - n: 2
+        title: SQL
+        book: { cs2023: [DM-Querying] }
+        los:
+          - { id: A, do: "Write a SQL query with joins, GROUP BY and HAVING for a described question — auto-checked by comparing result sets.", ek: ["WHERE filters rows before grouping, HAVING filters groups after; every non-aggregated SELECT column must be grouped."], p: [P5], needs: [CS-7.1.B], drills: [] }
+          - { id: B, do: "Predict the result of an outer join, a comparison with NULL, or an aggregate over a column containing NULLs.", ek: ["NULL = NULL is unknown, not true; COUNT(*) counts rows, COUNT(col) skips NULLs; LEFT JOIN keeps unmatched left rows with NULLs."], p: [P3], drills: [] }
+          - { id: C, do: "Write a query using a correlated subquery, CTE or window function (rank, running total, top-n per group).", ek: ["Window functions compute over a PARTITION BY … ORDER BY frame without collapsing rows."], p: [P5], needs: [CS-7.2.A], drills: [] }
+      - n: 3
+        title: Functional dependencies and normal forms
+        book: { cs2023: [DM-Relational, DM-Modeling] }
+        los:
+          - { id: A, do: "Compute an attribute closure from a set of FDs and find all candidate keys.", ek: ["X⁺ = everything X determines by repeatedly applying FDs; X is a superkey iff X⁺ = all attributes."], p: [P3], drills: [] }
+          - { id: B, do: "Determine the highest normal form (1NF–BCNF) a relation satisfies under given FDs.", ek: ["2NF: no partial dependency on a key; 3NF: every non-trivial FD has a superkey LHS or prime RHS; BCNF: superkey LHS always."], p: [P6], needs: [CS-7.3.A], drills: [] }
+          - { id: C, do: "Decompose a relation into BCNF or 3NF and check the decomposition is lossless and dependency-preserving.", ek: ["Binary split R1, R2 is lossless iff R1 ∩ R2 → R1 or → R2; 3NF synthesis always preserves dependencies, BCNF may not."], p: [P5, P6], needs: [CS-7.3.B], drills: [] }
+      - n: 4
+        title: Transactions and concurrency control
+        book: { cs2023: [DM-Processing, DM-Internals] }
+        los:
+          - { id: A, do: "Name the anomaly (dirty read, non-repeatable read, phantom, lost update, write skew) in a described interleaving and the weakest isolation level that prevents it.", ek: ["READ COMMITTED stops dirty reads; REPEATABLE READ stops non-repeatable reads; SERIALIZABLE stops phantoms and write skew."], p: [P3, P6], drills: [] }
+          - { id: B, do: "Decide whether a schedule is conflict-serializable by drawing its precedence graph, and give an equivalent serial order.", ek: ["Conflicts: two ops on the same item, different transactions, at least one write; acyclic precedence graph ⇔ conflict-serializable."], p: [P3, P6], needs: [CS-4.4.B], drills: [] }
+      - n: 5
+        title: Storage, indexing and query processing
+        book: { cs2023: [DM-Internals, DM-Processing] }
+        los:
+          - { id: A, do: "Estimate the page I/Os of a lookup or range query with no index, a B+-tree index and a hash index, and pick the index for a workload.", ek: ["Scan = all pages; B+-tree = height + matching leaf pages (+ row fetches if unclustered); hash = ~1–2 I/Os for equality only."], p: [P2, P4], needs: [CS-3.3.C], drills: [] }
+      - n: 6
+        title: NoSQL and distributed data
+        book: { cs2023: [DM-NoSQL, DM-Distributed] }
+        los:
+          - { id: A, do: "Choose a data model (relational, document, key-value, wide-column, graph) for a described access pattern and consistency need.", ek: ["Model data around queries in NoSQL; joins and multi-row transactions favour relational; deep traversals favour graph."], p: [P4], drills: [] }
+          - { id: B, do: "Apply CAP and PACELC to say what a described system gives up during a network partition and in normal operation.", ek: ["During a partition choose consistency or availability; else trade latency against consistency."], p: [P4, P6], drills: [] }
+
+  # ── 8 ────────────────────────────────────────────────────────────────────
+  - id: machine
+    n: 8
+    title: Computer architecture and systems performance
+    scope: core
+    ideas: [REP, COST, ABS]
+    topics:
+      - n: 1
+        title: Data representation
+        book: { cs2023: [AR-Representation] }
+        los:
+          - { id: A, do: "Convert integers between binary, hex and decimal, including n-bit two's complement, and detect overflow.", ek: ["Two's complement range −2^(n−1) … 2^(n−1) − 1; negate = invert + 1; overflow iff same-sign operands give opposite-sign result."], p: [P3], drills: [] }
+          - { id: B, do: "Decode an IEEE 754 single-precision bit pattern and explain why 0.1 + 0.2 ≠ 0.3 in binary floating point.", ek: ["(−1)^s × 1.f × 2^(e−127); most decimal fractions have no finite binary expansion, so they round."], p: [P3], drills: [] }
+      - n: 2
+        title: Instruction execution
+        book: { cs2023: [AR-Assembly, AR-Organization] }
+        los:
+          - { id: A, do: "Trace register and memory contents through a short RISC-V or x86 instruction sequence.", ek: ["Loads/stores move data between memory and registers; branches compare and set the PC; the stack grows downward."], p: [P3], drills: [] }
+      - n: 3
+        title: Memory hierarchy
+        book: { cs2023: [AR-Memory, SF-Performance] }
+        los:
+          - { id: A, do: "Split an address into tag, index and offset bits for a given cache size, block size and associativity.", ek: ["offset = log₂(block bytes); sets = size/(block × ways); index = log₂(sets); tag = rest."], p: [P2], needs: [CS-8.1.A], drills: [] }
+          - { id: B, do: "Simulate a direct-mapped or set-associative LRU cache on an address trace and compute the hit rate — auto-checked.", ek: ["Compulsory, capacity and conflict misses; higher associativity removes conflict misses only."], p: [P3], needs: [CS-8.3.A], drills: [] }
+          - { id: C, do: "Compute average memory access time for a multi-level hierarchy.", ek: ["AMAT = hit time + miss rate × miss penalty, applied recursively per level."], p: [P2], drills: [] }
+      - n: 4
+        title: Performance laws
+        book: { cs2023: [AR-Performance-Energy, SF-Performance, SF-Evaluation] }
+        los:
+          - { id: A, do: "Compute CPU time from instruction count, CPI and clock rate, and compare two designs.", ek: ["CPU time = IC × CPI / f; the 'iron law' — no single factor alone measures speed."], p: [P2], drills: [] }
+          - { id: B, do: "Apply Amdahl's law to compute overall speedup, or the fraction that must be sped up to hit a target.", ek: ["S = 1 / ((1 − p) + p/s); the serial fraction caps speedup at 1/(1 − p)."], p: [P2], drills: [] }
+          - { id: C, do: "Apply Little's law and utilisation to relate throughput, latency and queue length in a service.", ek: ["L = λW; utilisation ρ = λ/μ; queueing delay explodes as ρ → 1."], p: [P2], drills: [] }
+
+  # ── 9 ────────────────────────────────────────────────────────────────────
+  - id: os
+    n: 9
+    title: Operating systems and systems programming
+    scope: core
+    ideas: [ABS, CONC, COST]
+    topics:
+      - n: 1
+        title: Processes and system calls
+        book: { cs2023: [OS-Purpose, OS-Process, OS-Principles] }
+        los:
+          - { id: A, do: "Predict the output and number of processes created by code that calls fork(), exec() and wait().", ek: ["fork returns 0 in the child and the child PID in the parent; n sequential forks make 2ⁿ processes; exec replaces the image."], p: [P3], drills: [] }
+      - n: 2
+        title: CPU scheduling
+        book: { cs2023: [OS-Scheduling] }
+        los:
+          - { id: A, do: "Compute the schedule (Gantt order), average waiting and turnaround time under FCFS, SJF, SRTF, round-robin with quantum q, or priority — auto-checked.", ek: ["Turnaround = completion − arrival; waiting = turnaround − burst; SJF minimises average waiting time; RR trades it for response time."], p: [P3, P2], drills: [] }
+      - n: 3
+        title: Concurrency and synchronization
+        book: { cs2023: [OS-Concurrency, PDC-Coordination] }
+        los:
+          - { id: A, do: "Identify the race condition in a shared-memory snippet and give an interleaving that produces a wrong result.", ek: ["count++ is load–add–store; two threads interleaving those steps lose an update."], p: [P3, P6], drills: [] }
+          - { id: B, do: "Fix a race with a mutex, semaphore or condition variable and trace the semaphore values through a schedule.", ek: ["wait/P decrements and blocks below zero; signal/V increments and wakes one; check condition variables in a while loop."], p: [P5, P3], needs: [CS-9.3.A], drills: [] }
+          - { id: C, do: "Detect deadlock in a resource-allocation or wait-for graph, and run the banker's algorithm to decide whether a state is safe.", ek: ["Deadlock needs mutual exclusion, hold-and-wait, no preemption and circular wait; safe ⇔ some order lets every process finish."], p: [P3, P6], drills: [] }
+      - n: 4
+        title: Memory management
+        book: { cs2023: [OS-Memory] }
+        los:
+          - { id: A, do: "Translate a virtual address to a physical one by walking a one- or two-level page table, counting memory accesses — auto-checked.", ek: ["VPN = high bits, offset = low log₂(page size) bits; each level indexes one table; PA = frame × page size + offset."], p: [P3], needs: [CS-8.1.A], drills: [] }
+          - { id: B, do: "Compute page-table size and effective access time with a TLB of given hit rate.", ek: ["Entries = 2^(VA bits − offset bits); EAT = h·(t_TLB + t_mem) + (1 − h)·(t_TLB + (levels + 1)·t_mem)."], p: [P2], needs: [CS-9.4.A], drills: [] }
+          - { id: C, do: "Simulate FIFO, LRU and optimal page replacement on a reference string and count page faults.", ek: ["OPT evicts the page used farthest in future; LRU approximates it; FIFO can suffer Belady's anomaly."], p: [P3], drills: [] }
+      - n: 5
+        title: Files, storage and protection
+        book: { cs2023: [OS-Files, OS-Devices, OS-Protection] }
+        los:
+          - { id: A, do: "Compute the maximum file size for an inode with given direct, single-, double- and triple-indirect pointers.", ek: ["Pointers per block = block size / pointer size; max = (direct + p + p² + p³) × block size."], p: [P2], drills: [] }
+          - { id: B, do: "Decide whether a user can read, write or execute a file from its Unix permission bits, owner and group (e.g. chmod 754).", ek: ["Three octal digits for owner/group/other; r = 4, w = 2, x = 1; the first matching class applies."], p: [P3], drills: [] }
+      - n: 6
+        title: Virtualization
+        book: { cs2023: [OS-Virtualization] }
+        los:
+          - { id: A, do: "Compare a VM and a container for a described deployment by isolation boundary, startup cost and overhead.", ek: ["VMs virtualise hardware with a guest kernel; containers share the host kernel, isolated by namespaces and limited by cgroups."], p: [P4], drills: [] }
+
+  # ── 10 ───────────────────────────────────────────────────────────────────
+  - id: networks
+    n: 10
+    title: Networking
+    scope: core
+    ideas: [ABS, COST, CONC]
+    topics:
+      - n: 1
+        title: Layers and performance
+        book: { cs2023: [NC-Fundamentals] }
+        los:
+          - { id: A, do: "Compute transmission, propagation and total delay of a transfer, and the bandwidth–delay product of a link.", ek: ["d_trans = L/R; d_prop = distance/speed; BDP = R × RTT is the data in flight needed to fill the pipe."], p: [P2], drills: [] }
+      - n: 2
+        title: Application layer
+        book: { cs2023: [NC-Applications, SPD-Web] }
+        los:
+          - { id: A, do: "Trace a DNS resolution and an HTTP request, and predict the status code and caching behaviour from given headers.", ek: ["Recursive resolver walks root → TLD → authoritative, caching by TTL; Cache-Control/ETag decide 200 vs 304."], p: [P3], drills: [] }
+      - n: 3
+        title: Reliable transport
+        book: { cs2023: [NC-Reliability] }
+        los:
+          - { id: A, do: "Trace sequence and acknowledgement numbers through a TCP handshake and data exchange.", ek: ["SYN and FIN each consume one sequence number; ACK = next byte expected."], p: [P3], drills: [] }
+          - { id: B, do: "Compute link utilisation and throughput for stop-and-wait and sliding-window protocols.", ek: ["U = (W · L/R) / (RTT + L/R), capped at 1; window ≥ BDP keeps the link busy."], p: [P2], needs: [CS-10.1.A], drills: [] }
+          - { id: C, do: "Trace TCP's congestion window across RTTs through slow start, congestion avoidance, a timeout and a triple duplicate ACK.", ek: ["Slow start doubles cwnd per RTT until ssthresh; AIMD adds 1 MSS per RTT; loss halves ssthresh (Reno fast recovery) or resets cwnd (timeout)."], p: [P3], drills: [] }
+      - n: 4
+        title: Addressing and routing
+        book: { cs2023: [NC-Routing] }
+        los:
+          - { id: A, do: "Compute the network address, broadcast address, usable host range and host count for an IPv4 CIDR block, or subnet it into k pieces — auto-checked.", ek: ["Mask = prefix ones; network = IP AND mask; hosts = 2^(32 − prefix) − 2; borrowing b bits makes 2^b subnets."], p: [P2], needs: [CS-8.1.A], drills: [] }
+          - { id: B, do: "Forward a packet by longest-prefix match against a routing table.", ek: ["Among matching prefixes, the longest (most specific) wins; 0.0.0.0/0 is the default route."], p: [P3], needs: [CS-10.4.A], drills: [] }
+          - { id: C, do: "Compute a router's table after one round of distance-vector updates, or by link-state Dijkstra.", ek: ["DV: D_x(y) = min_v (c(x,v) + D_v(y)); link-state floods topology then runs Dijkstra locally."], p: [P3], needs: [CS-4.5.A], drills: [] }
+      - n: 5
+        title: Network security
+        book: { cs2023: [NC-Security] }
+        los:
+          - { id: A, do: "Evaluate an ordered firewall rule set against a list of packets and say which are allowed.", ek: ["First match wins; end with default deny; stateful firewalls allow return traffic of established connections."], p: [P3, P7], drills: [] }
+
+  # ── 11 ───────────────────────────────────────────────────────────────────
+  - id: security
+    n: 11
+    title: Security
+    scope: core
+    ideas: [ADV, CORR]
+    topics:
+      - n: 1
+        title: Foundations and threat modelling
+        book: { cs2023: [SEC-Foundations, SEC-Engineering] }
+        los:
+          - { id: A, do: "Classify a described incident by the CIA property violated and separate threat, vulnerability and risk.", ek: ["Confidentiality, integrity, availability; risk = likelihood × impact of a threat exploiting a vulnerability."], p: [P7], drills: [] }
+          - { id: B, do: "Apply STRIDE to a data-flow diagram and list one threat and one mitigation per crossed trust boundary.", ek: ["Spoofing, Tampering, Repudiation, Information disclosure, Denial of service, Elevation of privilege; threats concentrate at trust boundaries."], p: [P1, P7], drills: [] }
+      - n: 2
+        title: Secure coding
+        book: { cs2023: [SEC-Coding, DM-Security] }
+        los:
+          - { id: A, do: "Identify the vulnerability class in a code snippet — SQL injection, XSS, CSRF, buffer overflow, path traversal, IDOR, TOCTOU race, insecure deserialization — and its CWE — auto-checked.", ek: ["Most classes are untrusted input reaching an interpreter or memory without validation; IDOR is a missing authorization check, not an input bug."], p: [P6, P7], drills: [] }
+          - { id: B, do: "Give the specific fix for an identified vulnerability (parameterised query, context-aware output encoding, CSRF token/SameSite, bounds check, server-side authorization).", ek: ["Fix the sink, not the symptom: blocklists fail; parameterisation separates code from data."], p: [P5], needs: [CS-11.2.A], drills: [] }
+      - n: 3
+        title: Cryptography in use
+        book: { cs2023: [SEC-Crypto] }
+        los:
+          - { id: A, do: "Pick the primitive for a goal — confidentiality, integrity, authentication, non-repudiation — among symmetric cipher, hash, MAC, signature and key exchange.", ek: ["Hashes give integrity only against accidents; MACs need a shared key; signatures give non-repudiation; use AEAD for confidentiality + integrity."], p: [P4], drills: [] }
+          - { id: B, do: "Encrypt and decrypt with toy RSA (small primes): compute n, φ(n), d and c = m^e mod n.", ek: ["d = e⁻¹ mod φ(n); modular exponentiation by repeated squaring; security rests on factoring n."], p: [P3], needs: [CS-1.2.A], drills: [] }
+          - { id: C, do: "Compute password entropy and brute-force time at a given guess rate, and state how passwords must be stored.", ek: ["Entropy = L·log₂(alphabet); time = 2^H / rate; store with a unique salt and a slow hash (bcrypt, scrypt, Argon2)."], p: [P2, P7], drills: [] }
+      - n: 4
+        title: Authentication, authorization and risk
+        book: { cs2023: [SEC-Engineering, SEC-Governance] }
+        los:
+          - { id: A, do: "Trace an OAuth 2.0 authorization-code flow with PKCE and identify the token mishandling in a described implementation.", ek: ["Authentication says who; authorization says what; access tokens are bearer credentials; the ID token (OIDC) identifies the user."], p: [P3, P7], drills: [] }
+          - { id: B, do: "Compute annualised loss expectancy for a risk and decide whether a control is worth its cost.", ek: ["SLE = asset value × exposure factor; ALE = SLE × ARO; a control is justified if ΔALE > its annual cost."], p: [P2, P4], drills: [] }
+
+  # ── 12 ───────────────────────────────────────────────────────────────────
+  - id: languages
+    n: 12
+    title: Programming languages
+    scope: core
+    ideas: [ABS, REP, CORR]
+    topics:
+      - n: 1
+        title: Paradigms
+        book: { cs2023: [FPL-OOP, FPL-Functional] }
+        los:
+          - { id: A, do: "Predict the output of a snippet that mixes overriding, overloading and dynamic dispatch.", ek: ["Overloads resolve at compile time on static types; overrides dispatch at run time on the object's dynamic type."], p: [P3], drills: [] }
+          - { id: B, do: "Rewrite a loop with map, filter and reduce, and evaluate an expression built from higher-order functions and closures.", ek: ["A closure captures its defining environment; reduce folds with an accumulator from an initial value."], p: [P5, P3], drills: [] }
+      - n: 2
+        title: Types
+        book: { cs2023: [FPL-Types] }
+        los:
+          - { id: A, do: "Decide whether an expression type-checks and infer the type of a polymorphic function.", ek: ["Hindley–Milner unifies constraints to the most general type, e.g. map : (a → b) → [a] → [b]."], p: [P6], drills: [] }
+          - { id: B, do: "Identify the variance error in a generic subtyping snippet (arrays, List<T>, function parameters).", ek: ["Producers are covariant, consumers contravariant; mutable containers must be invariant; functions are contravariant in arguments."], p: [P6], needs: [CS-12.2.A], drills: [] }
+      - n: 3
+        title: Binding, evaluation and run time
+        book: { cs2023: [FPL-Constructs, FPL-Run-Time, FPL-Semantics] }
+        los:
+          - { id: A, do: "Predict a program's output under lexical versus dynamic scope, and under pass-by-value, -reference and -sharing.", ek: ["Lexical scope resolves names where code is written; pass-by-sharing copies the reference, so mutation is visible but rebinding is not."], p: [P3], drills: [] }
+          - { id: B, do: "Predict the output order of async JavaScript mixing synchronous code, promises, await and setTimeout.", ek: ["Run the call stack to empty, then all microtasks (promise callbacks), then one macrotask (timers, I/O)."], p: [P3], drills: [] }
+      - n: 4
+        title: Translation
+        book: { cs2023: [FPL-Translation, FPL-Syntax] }
+        los:
+          - { id: A, do: "Parse an expression under a grammar's precedence and associativity into an AST and evaluate it.", ek: ["Lower-precedence operators sit nearer the root; left-associative ⇒ left-leaning tree."], p: [P3], needs: [CS-5.1.C], drills: [] }
+
+  # ── 13 ───────────────────────────────────────────────────────────────────
+  - id: ai
+    n: 13
+    title: Artificial intelligence and machine learning
+    scope: core
+    ideas: [REP, COST, HUM]
+    topics:
+      - n: 1
+        title: Search
+        book: { cs2023: [AI-Search] }
+        los:
+          - { id: A, do: "Trace uniform-cost or A* search — frontier and expansion order — and check whether a heuristic is admissible and consistent.", ek: ["A* expands lowest f = g + h; admissible h never overestimates ⇒ optimal tree search; consistent ⇒ optimal graph search."], p: [P3, P6], needs: [CS-4.5.A], drills: [] }
+      - n: 2
+        title: Supervised learning
+        book: { cs2023: [AI-ML] }
+        los:
+          - { id: A, do: "Compute accuracy, precision, recall and F1 from a confusion matrix and pick the metric a scenario needs.", ek: ["Precision = TP/(TP + FP); recall = TP/(TP + FN); imbalanced classes make accuracy misleading."], p: [P2, P4], drills: [] }
+          - { id: B, do: "Diagnose under- or overfitting from training and validation curves and choose a remedy.", ek: ["High train and val error ⇒ bias; low train, high val ⇒ variance; regularise, add data or simplify for variance."], p: [P6], drills: [] }
+          - { id: C, do: "Compute one gradient-descent update for linear or logistic regression on a tiny dataset.", ek: ["w ← w − η∇L; for MSE ∇_w = (2/n)Xᵀ(Xw − y); too large η diverges."], p: [P3], needs: [CS-1.4.A], drills: [] }
+          - { id: D, do: "Classify a point by k-NN, or compute the information gain or Gini decrease of a decision-tree split.", ek: ["Entropy H = −Σ p log₂ p; gain = H(parent) − weighted H(children); Gini = 1 − Σ p²."], p: [P3, P2], drills: [] }
+      - n: 3
+        title: Language models
+        book: { cs2023: [AI-NLP] }
+        los:
+          - { id: A, do: "Compute cosine similarity between embedding vectors and the softmax attention weights for a tiny query–key set.", ek: ["cos = a·b/(|a||b|); attention = softmax(QKᵀ/√d)V; cost grows as n² in sequence length."], p: [P3, P2], drills: [] }
+      - n: 4
+        title: AI and society
+        book: { cs2023: [AI-SEP] }
+        los:
+          - { id: A, do: "Compute demographic parity and equal-opportunity gaps for a classifier from per-group counts, and name the harm.", ek: ["Parity compares positive rates; equal opportunity compares true-positive rates; the two generally cannot both hold when base rates differ."], p: [P2, P7], needs: [CS-13.2.A], drills: [] }
+
+  # ── 14 ───────────────────────────────────────────────────────────────────
+  - id: parallel
+    n: 14
+    title: Parallel and distributed computing
+    scope: core
+    ideas: [CONC, COST]
+    topics:
+      - n: 1
+        title: Parallel performance
+        book: { cs2023: [PDC-Programs, PDC-Evaluation] }
+        los:
+          - { id: A, do: "Compute work, span and parallelism of a task DAG and bound the runtime on p processors.", ek: ["T₁ = work, T∞ = span; parallelism = T₁/T∞; greedy scheduling gives T_p ≤ T₁/p + T∞."], p: [P2], needs: [CS-8.4.B], drills: [] }
+          - { id: B, do: "Compute strong- and weak-scaling efficiency from timings and explain the gap with Amdahl and Gustafson.", ek: ["Efficiency = S/p; Gustafson: scaled speedup = p − α(p − 1) when the problem grows with p."], p: [P2], drills: [] }
+      - n: 2
+        title: Ordering and coordination
+        book: { cs2023: [PDC-Communication, PDC-Coordination] }
+        los:
+          - { id: A, do: "Assign Lamport timestamps or vector clocks to events in a message diagram and decide whether two events are causally ordered or concurrent.", ek: ["Lamport: L = max(local, received) + 1, consistent with but not implying causality; vector clocks capture happened-before exactly."], p: [P3], drills: [] }
+          - { id: B, do: "Decide whether quorum settings R, W, N guarantee read-your-latest-write, and place keys on a consistent-hash ring.", ek: ["R + W > N ⇒ read and write quorums overlap; consistent hashing moves ~1/n of keys when a node joins."], p: [P2, P4], drills: [] }
+
+  # ── 15 ───────────────────────────────────────────────────────────────────
+  - id: hci
+    n: 15
+    title: Human–computer interaction
+    scope: core
+    ideas: [HUM]
+    topics:
+      - n: 1
+        title: Design and evaluation
+        book: { cs2023: [HCI-User, HCI-Design, HCI-Evaluation] }
+        los:
+          - { id: A, do: "Identify which of Nielsen's usability heuristics a described interface violates.", ek: ["Visibility of status, match with the real world, user control, consistency, error prevention, recognition over recall, …"], p: [P7], drills: [] }
+          - { id: B, do: "Use Fitts's law to compare the movement time for two target layouts.", ek: ["MT = a + b·log₂(1 + D/W); bigger, closer targets are faster; screen edges act as infinitely deep targets."], p: [P2], drills: [] }
+          - { id: C, do: "Choose an evaluation method (usability test, heuristic review, A/B test, survey) for a question, and decide whether an A/B result is significant.", ek: ["Formative tests find problems with ~5 users; A/B tests measure effects and need a pre-set sample size and two-proportion z-test."], p: [P4, P6], needs: [CS-1.4.C], drills: [] }
+      - n: 2
+        title: Accessibility
+        book: { cs2023: [HCI-Accessibility] }
+        los:
+          - { id: A, do: "Compute a colour-contrast ratio and identify the WCAG 2.x failure in a markup snippet (alt text, labels, focus, contrast).", ek: ["Ratio = (L₁ + 0.05)/(L₂ + 0.05); AA needs ≥ 4.5:1 for body text, 3:1 for large text; every control needs an accessible name."], p: [P2, P7], drills: [] }
+
+  # ── 16 ───────────────────────────────────────────────────────────────────
+  - id: society
+    n: 16
+    title: Society, ethics and the profession
+    scope: core
+    ideas: [HUM, ADV]
+    topics:
+      - n: 1
+        title: Ethics, IP and privacy
+        book: { cs2023: [SEP-Ethical-Analysis, SEP-Professional-Ethics, SEP-IP, SEP-Privacy] }
+        los:
+          - { id: A, do: "Identify the ACM Code of Ethics principle at stake in a scenario and the action it requires.", ek: ["Avoid harm (1.2) and the public good outrank employer instructions; honesty and competence obligations follow."], p: [P7], drills: [] }
+          - { id: B, do: "State the obligations a reuse scenario triggers under MIT, Apache-2.0, GPL-3.0 or AGPL-3.0.", ek: ["Permissive: keep notice; Apache adds a patent grant; GPL: distribute derived source; AGPL: network use counts as distribution."], p: [P7], drills: [] }
+          - { id: C, do: "Check whether a released table is k-anonymous for given quasi-identifiers and name the re-identification risk.", ek: ["Each quasi-identifier combination must appear ≥ k times; k-anonymity does not stop attribute disclosure (l-diversity)."], p: [P3, P7], drills: [] }
+      - n: 2
+        title: Sustainability
+        book: { cs2023: [SEP-Sustainability] }
+        los:
+          - { id: A, do: "Estimate the energy and carbon of a compute job from hardware power, utilisation, PUE and grid intensity.", ek: ["kWh = W × h × PUE / 1000; CO₂e = kWh × grid intensity (g/kWh); location and time shift matter."], p: [P2, P7], drills: [] }
+
+  # ── 17 ───────────────────────────────────────────────────────────────────
+  - id: adv-algorithms
+    n: 17
+    title: Advanced algorithms
+    scope: extension
+    ideas: [COST, CORR]
+    topics:
+      - n: 1
+        title: Network flow
+        book: { cs2023: [AL-Strategies] }
+        los:
+          - { id: A, do: "Compute a maximum flow and minimum cut with Ford–Fulkerson/Edmonds–Karp, tracing augmenting paths in the residual graph.", ek: ["Max-flow value = min-cut capacity; Edmonds–Karp's BFS paths give O(VE²)."], p: [P3], needs: [CS-4.4.A], drills: [] }
+          - { id: B, do: "Model a bipartite matching or assignment problem as a flow network and read the matching from the flow.", ek: ["Unit capacities source → left → right → sink; integral flow ⇒ a matching of the same size."], p: [P1], needs: [CS-17.1.A], drills: [] }
+      - n: 2
+        title: Randomised, approximation and string algorithms
+        book: { cs2023: [AL-Strategies, AL-Complexity] }
+        los:
+          - { id: A, do: "Compute the approximation ratio of a greedy algorithm (e.g. maximal-matching vertex cover) on an instance and argue its bound.", ek: ["Ratio = ALG/OPT; taking both endpoints of a maximal matching gives a 2-approximation."], p: [P2, P6], needs: [CS-5.2.C], drills: [] }
+          - { id: B, do: "Compute the KMP failure function for a pattern, or a Rabin–Karp rolling hash across a text window.", ek: ["Failure[i] = length of the longest proper prefix that is also a suffix of pattern[0..i]; rolling hash updates in O(1)."], p: [P3], drills: [] }
+
+  # ── 18 ───────────────────────────────────────────────────────────────────
+  - id: distributed
+    n: 18
+    title: Distributed systems and cloud
+    scope: extension
+    ideas: [CONC, COST, ABS]
+    topics:
+      - n: 1
+        title: Consensus and replication
+        book: { cs2023: [PDC-Algorithms, PDC-Coordination, DM-Distributed] }
+        los:
+          - { id: A, do: "Trace Raft leader election and log replication through a described sequence of timeouts, votes and crashes.", ek: ["A candidate needs a majority in its term; an entry commits once replicated on a majority; n = 2f + 1 tolerates f crashes."], p: [P3], needs: [CS-14.2.A], drills: [] }
+          - { id: B, do: "Identify where two-phase commit blocks when the coordinator fails, and what consensus-based commit changes.", ek: ["Participants that voted yes cannot decide alone; replicating the coordinator's decision with consensus removes the block."], p: [P6], drills: [] }
+      - n: 2
+        title: Cloud architecture
+        book: { cs2023: [PDC-Evaluation, SF-Design] }
+        los:
+          - { id: A, do: "Compute the monthly cost of a workload under on-demand, reserved and serverless pricing and pick the cheapest model for its load shape.", ek: ["Serverless bills per request × duration and wins at low or spiky load; reserved wins at steady high utilisation."], p: [P2, P4], drills: [] }
+          - { id: B, do: "Compute the instances an autoscaler needs for a target load and utilisation, and the origin load left after a cache or CDN with a given hit rate.", ek: ["Instances = ⌈load / (per-instance capacity × target utilisation)⌉; origin load = (1 − hit rate) × requests."], p: [P2], needs: [CS-8.4.C], drills: [] }
+          - { id: C, do: "Choose a shard key for a described dataset and query mix and predict hot-spotting.", ek: ["High-cardinality, evenly-accessed keys spread load; monotonic keys (timestamps) send all writes to one shard."], p: [P4], drills: [] }
+
+  # ── 19 ───────────────────────────────────────────────────────────────────
+  - id: deep-learning
+    n: 19
+    title: Machine learning in depth
+    scope: extension
+    ideas: [REP, COST]
+    topics:
+      - n: 1
+        title: Neural networks
+        book: { cs2023: [AI-ML] }
+        los:
+          - { id: A, do: "Compute a forward pass of a small MLP and the backpropagated gradient for one weight.", ek: ["Chain rule layer by layer: ∂L/∂w = δ_out · a_in; ReLU passes gradient only where its input > 0."], p: [P3], needs: [CS-13.2.C], drills: [] }
+          - { id: B, do: "Count the parameters and output shape of a convolutional or fully-connected layer.", ek: ["Conv params = (k_h·k_w·C_in + 1)·C_out; output = ⌊(n + 2p − k)/s⌋ + 1."], p: [P2], drills: [] }
+      - n: 2
+        title: Unsupervised learning
+        book: { cs2023: [AI-ML] }
+        los:
+          - { id: A, do: "Trace one k-means iteration (assign, recompute centroids), or compute variance explained by the top PCA components from eigenvalues.", ek: ["k-means minimises within-cluster squared distance and converges to a local optimum; variance explained = λ_i / Σλ."], p: [P3, P2], drills: [] }
