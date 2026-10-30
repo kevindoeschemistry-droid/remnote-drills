@@ -1,0 +1,406 @@
+# Wushu — curriculum framework (draft 1, for Kevin's markup)
+#
+# Built like the heat-transfer framework (an AP-style CED): Big Ideas run through the subject,
+# Units → Topics → Learning Objectives (one testable or observable action each, verb first),
+# with the Essential Knowledge an LO rests on and the Practices it exercises. Rulebooks, ranking
+# syllabi and papers are crosswalks onto this map, never the backbone. The learner is a working
+# stuntman with a TKD background: the goal is understanding (principles, judging criteria,
+# mechanics, the system of forms), not just reps.
+#
+# Sources actually opened (crosswalk ids used in topics[].book):
+#   iwuf-2024   IWUF Wushu Taolu Competition Rules & Judging Methods (2024), Arts. 1–34 as
+#               mirrored by Kung Fu Wushu Australia: score split 5 / 3 / 2 (difficulty = 1.4
+#               technique + 0.6 connection), judge groups A (3) / B (5, trimmed) / C (3),
+#               time limits, head-judge time deductions, Art. 30 nanquan/nandao/nangun
+#               mandatory techniques. The judging tables (Ch. 10) were not in the excerpt.
+#   iwuf-2019t  JIAYO "Wushu Taolu Competition Rules Tables 2019" (IWUF 2019 tables):
+#               Section A deduction codes 01–85 per event family, Section B score bands,
+#               Section C difficulty codes/values and connection codes with landing suffixes
+#               0–11. All code numbers and values below come from here.
+#   iwuf-2005t  Kazovision "Rules of Taolu" (older IWUF edition, garbled layout): used only to
+#               contrast with 2019 (e.g. code renumbering), never as the value of record.
+#   iwuf-2019x  IWUF 2019 Rules excerpt (Svenska Wushu): table layout 2-1-1 … 2-1-6 and the
+#               "other errors" 70–79 values, cross-checked against iwuf-2019t.
+#   jiayo-1989  JIAYO notes on the 1989 International Wushu Competition Routines (first set:
+#               changquan, nanquan, taijiquan, daoshu, jianshu, gunshu, qiangshu; CWA-approved;
+#               used as Group B routines at World Juniors).
+#   duanwei     Chinese Wushu Duanwei system: Jinli "Introduction to the Chinese Wushu Duanwei
+#               System" (tiers, evaluation areas, per-duan technical content, textbook series),
+#               USAdojo "Chinese Wushu Duanwei Grading System" (exam practice), MartialTalk
+#               thread on CWA duan levels (eagle / tiger / dragon badge names; secondary source).
+#   wiki-stances  Wikipedia "Wushu stances" (pinyin, characters, alignment, weight split).
+#   wiki-sport  Wikipedia "Sport wushu" (history dates, events, style descriptions).
+#   bio-xfj     Atlantis Press: 3-D kinematics of taijiquan xuanfengjiao 360° + knee-lift
+#               landing (5 Hubei team athletes): takeoff knee ≈ 60°, short foot-pat contact,
+#               inward kick done before CoM apex, sequential ankle–knee–hip landing.
+#   bio-isbs    Li & Lu, ISBS 2000: kinematics of cechuai, qiansaotui, xuanfengjiao (abstract).
+#   bio-ang     Merk & Resnick, "Physics of martial arts: incorporation of angular momentum"
+#               (abstract): foot–floor friction supplies the torque; moment-of-inertia model.
+#   inj         "Profile of injuries and musculoskeletal abnormalities of elite wushu athletes"
+#               (Turk J Kinesiol 2017, abstract): 6.85 injuries / 1000 h; lower limb 47.6 %.
+#   safd        Society of American Fight Directors glossary (distance, knap, cue-reaction-
+#               action, contact vs non-contact strikes, eye contact, partnering).
+#   sanda       Ontario amateur wushu sanda rules Part IV (point values by class, fouls,
+#               prohibited techniques) + Wikipedia "Sanda (sport)". Regional amateur rules,
+#               not IWUF — treat point values as representative.
+#
+# Fields
+#   units[].scope     core (every serious taolu/stunt practitioner) or extension
+#   units[].ideas     Big Ideas the unit develops
+#   topics[].book     crosswalk: source id → sections/tables in that source
+#   los[].do          the objective; los[].ek essential knowledge; los[].p practices
+#   los[].needs       prerequisite LOs in this framework
+#   los[].drills      templates that drill it (none yet — every LO is a gap). LOs worded
+#                     "identify … from a description", "assign the code/value", "choose the
+#                     connection", "explain which change fixes" are meant to become
+#                     auto-checked reps.
+#
+# Rule values are the 2019 tables (iwuf-2019t). The 2024 edition keeps the 5/3/2 split and the
+# difficulty/connection values but widens "other errors" to 0.05–0.3; re-check codes against the
+# full 2024 Ch. 10 tables before drilling them as current.
+id: wushu
+title: Wushu
+code: WS
+draft: 1
+domains: []
+
+big_ideas:
+  - id: ROOT
+    title: The stance is the root
+    text: Every technique is built on a standard base — foot angles, thigh height, weight split, alignment of knee over foot. Judges deduct, and stunts fail, at the base first.
+  - id: WHOLE
+    title: Power is whole-body and sequenced
+    text: Force comes from the floor, through legs and waist, out through the hands or weapon; hands, eyes, body and steps arrive together. Isolated limbs look weak on the carpet and on camera.
+  - id: STYLE
+    title: Each style is a coherent set of principles
+    text: Changquan (extension, speed, height), nanquan (rooted stances, bridge arms, short explosive power, sound) and taijiquan (continuity, softness, rising-sinking control) each answer "what is good movement" differently; weapons extend the same body method.
+  - id: MECH
+    title: Jumps and spins obey mechanics
+    text: Takeoff impulse fixes flight time; angular momentum is made on the floor and conserved in the air; shape changes trade inertia for spin; landings are impulse problems. Most faults are a mechanical cause, not a mystery.
+  - id: SCORE
+    title: The score is an explicit model of quality
+    text: Quality of movement (deduction codes), overall performance (graded bands) and degree of difficulty (coded elements and connections) make "good wushu" concrete and checkable.
+  - id: SHOW
+    title: Performance communicates
+    text: Rhythm, spirit (jingshen) and eyes (yanshen) turn correct technique into a performance; for screen work the same principles serve the camera, under strict partner safety.
+
+practices:
+  - id: P1
+    title: Name and classify
+    text: Give a technique its Chinese (pinyin + characters) and English names, its family (stance, hand form, step, kick, balance, jump, tumbling, weapon method) and its code.
+  - id: P2
+    title: Observe and diagnose
+    text: Compare a described or filmed execution to the standard and locate the fault precisely (which joint, which angle, which phase).
+  - id: P3
+    title: Apply the rules
+    text: Assign deduction codes and values, difficulty and connection values, apply caps and judge-panel rules, and compute a score.
+  - id: P4
+    title: Explain the mechanism
+    text: Give the biomechanical or stylistic reason a technique works or fails, and the change that fixes it.
+  - id: P5
+    title: Perform and self-assess
+    text: Execute to standard, film it, check it against the criteria, and log the result.
+  - id: P6
+    title: Compose and adapt
+    text: Build or edit a routine or fight phrase to a constraint — rules, music, carpet, camera, partner.
+
+units:
+  # ── 1 ────────────────────────────────────────────────────────────────────
+  - id: found
+    n: 1
+    title: Foundations (jibengong)
+    scope: core
+    ideas: [ROOT, WHOLE]
+    topics:
+      - n: 1
+        title: Stances (bu xing 步型)
+        book: { iwuf-2019t: ["A·CQ 50–54, 58"], wiki-stances: ["Gong Bu", "Ma Bu", "Xu Bu", "Pu Bu", "Zuo Pan Bu"] }
+        los:
+          - { id: A, do: "Identify a changquan stance from its description and give its pinyin, characters and English name (drillable both directions).", ek: ["Gongbu 弓步 bow · mabu 马步 horse · xubu 虚步 empty · pubu 仆步 drop · xiebu 歇步 cross-legged crouch · zuopan 坐盘 cross-legged sitting."], p: [P1], drills: [] }
+          - { id: B, do: "State the standard alignment of gongbu and mabu and name the deduction criteria that test it.", ek: ["Gongbu: front knee over instep, front thigh level, rear leg straight, rear sole flat, rear foot turned in (code 50).", "Mabu: feet wider than shoulders and parallel, thighs level, knees not caving, heels down, toes not out ≥ 45° (code 51)."], p: [P1, P3], drills: [] }
+          - { id: C, do: "State the standard alignment of xubu, pubu and xiebu and identify which standard a described stance breaks.", ek: ["Xubu: weight on the rear leg, rear thigh level, rear heel down (52).", "Pubu: squatting thigh on calf, extended leg straight, extended foot turned in and flat (53).", "Xiebu: legs crossed, buttock resting on the rear calf (54)."], p: [P2, P3], drills: [] }
+          - { id: D, do: "Hold each standard stance for time and film it front and side, checking every criterion.", ek: ["Stance holds (zhan zhuang) build the leg endurance that keeps thighs level late in a routine."], p: [P5], drills: [] }
+      - n: 2
+        title: Hand forms (shou xing 手型)
+        book: { iwuf-2019t: ["A·CQ 01–04", "A·NQ 01–04"] }
+        los:
+          - { id: A, do: "Identify a hand form from its description and name it in Chinese and English, including the nanquan forms.", ek: ["Quan 拳 fist · zhang 掌 palm · gou 勾 hook · jianzhi 剑指 sword fingers; nanquan adds hu zhao 虎爪 tiger claw, he zui 鹤嘴 crane's beak, single-finger palm."], p: [P1], drills: [] }
+          - { id: B, do: "Assign the code for a described hand-form fault.", ek: ["01 fist face uneven or thumb not on the middle finger · 02 palm fingers apart or thumb not tucked · 03 hook fingers not pinched or wrist not fully hooked · 04 sword fingers not straight and together. 0.1 each."], p: [P3], needs: [WS-1.2.A], drills: [] }
+      - n: 3
+        title: Footwork (bu fa 步法)
+        book: { iwuf-2019t: ["A·TJ 59"], iwuf-2024: ["Art. 30 (qi lin bu)"] }
+        los:
+          - { id: A, do: "Identify a step from its description and name it in Chinese and English.", ek: ["Shangbu 上步 step up · tuibu 退步 step back · gaibu 盖步 cover step (in front) · chabu 插步 insert step (behind) · jibu 击步 strike-hop · genbu 跟步 follow-up step · qilinbu 麒麟步 unicorn step (nanquan)."], p: [P1], drills: [] }
+          - { id: B, do: "Explain why the centre of gravity should not bob during stepping, and assign the taiji step fault code.", ek: ["Level CoM keeps the next technique available and reads as control; taiji code 59: knee–toe misaligned, foot dragged, CoM rises/falls, foot raised too high."], p: [P3, P4], drills: [] }
+      - n: 4
+        title: Flexibility and basic leg techniques (tui fa 腿法)
+        book: { iwuf-2019t: ["A·CQ 20–26"] }
+        los:
+          - { id: A, do: "Identify a basic kick from its description (path, contact surface, straight or bent) and name it in Chinese and English.", ek: ["Straight-leg swings: zhengtitui 正踢腿 front stretch, waibaitui 外摆腿 outside crescent, lihetui 里合腿 inside crescent. Bent-straight: tantui 弹腿 snap, dengtui 蹬腿 heel push, chuaitui 踹腿 side kick. Slaps: paijiao 拍脚. Sweeps: qiansaotui 前扫腿, housaotui 后扫腿."], p: [P1], drills: [] }
+          - { id: B, do: "Assign the code for a described kick or sweep fault.", ek: ["20 front sweep: supporting thigh above level, sweeping sole lifts, sweeping leg bent ≥ 45° · 21 back sweep · 23 snap/heel/side kick not fully straightened · 24 stretch kick: knee bent at apex or supporting heel up · 25 slap kick: toes below shoulder or slap missed."], p: [P3], needs: [WS-1.4.A], drills: [] }
+          - { id: C, do: "Contrast a TKD kick with its nearest wushu counterpart and name the habit that will cost a deduction.", ek: ["TKD chambers and strikes with the ball/instep; wushu straight-leg kicks swing from the hip with a locked knee and slap the foot. A chambered 'stretch kick' bends at the apex (code 24); a TKD 'tornado' is a spinning roundhouse, a wushu xuanfengjiao is an inside-crescent slap."], p: [P2, P4], drills: [] }
+          - { id: D, do: "Plan a flexibility block (dynamic before, static after) that targets the ranges that limit front split, pubu and slap height.", ek: ["Hamstrings and hip flexors gate split and stretch-kick height; adductors and ankle dorsiflexion gate pubu. Dynamic swings warm up; long static holds belong after training."], p: [P5, P6], drills: [] }
+
+  # ── 2 ────────────────────────────────────────────────────────────────────
+  - id: changquan
+    n: 2
+    title: Changquan (long fist)
+    scope: core
+    ideas: [STYLE, WHOLE, SHOW]
+    topics:
+      - n: 1
+        title: Principles of changquan
+        book: { wiki-sport: ["Changquan"], iwuf-2024: ["Art. 30"] }
+        los:
+          - { id: A, do: "Explain changquan's defining qualities and how each shows in a stance, a kick and a jump.", ek: ["Long extension, speed, height and clear stops; derived from chaquan, huaquan, hongquan and Shaolin. Extended limbs, high kicks, big jumps, sharp dong–jing (motion–stillness) contrast."], p: [P4], drills: [] }
+          - { id: B, do: "Match each of the twelve changquan 'shapes' (十二型) to the quality it demands.", ek: ["动如涛 move like waves · 静如岳 still like a mountain · 起如猿 rise like an ape · 落如鹊 land like a magpie · 立如鸡 stand like a rooster · 站如松 stand like a pine · 转如轮 turn like a wheel · 折如弓 bend like a bow · 轻如叶 light as a leaf · 重如铁 heavy as iron · 缓如鹰 slow like a hawk · 快如风 fast as wind."], p: [P1, P4], drills: [] }
+      - n: 2
+        title: Changquan techniques and combinations
+        book: { iwuf-2019t: ["A·CQ 10–34"] }
+        los:
+          - { id: A, do: "Name the hand and leg methods in a described changquan combination and state the stance each must finish in.", ek: ["Chongquan 冲拳 punch, tuizhang 推掌 push palm, liangzhang 亮掌 flash palm; each strike arrives with the stance, not after it."], p: [P1, P2], needs: [WS-1.1.A, WS-1.2.A], drills: [] }
+          - { id: B, do: "Perform a basic changquan combination to standard, filmed, and self-score it against the stance and hand-form codes.", ek: ["Self-scoring with the A-codes is the cheapest feedback loop: one code per fault per occurrence."], p: [P5], drills: [] }
+      - n: 3
+        title: Standard changquan routines
+        book: { jiayo-1989: ["Changquan"], duanwei: ["Changquan textbook"] }
+        los:
+          - { id: A, do: "Identify which standard routine set a described changquan routine belongs to and what it is used for (compulsory event, junior Group B, Duanwei exam).", ek: ["The 1989 CWA-approved international set covers changquan, nanquan, taijiquan, daoshu, jianshu, gunshu, qiangshu; compulsory routines remove choreography choice so judges compare like with like."], p: [P1], drills: [] }
+          - { id: B, do: "Learn a compulsory changquan routine section by section and log which movements fall under which deduction codes.", ek: ["Mapping each movement to its codes turns a routine into a checklist of judgeable standards."], p: [P5, P3], drills: [] }
+
+  # ── 3 ────────────────────────────────────────────────────────────────────
+  - id: nanquan
+    n: 3
+    title: Nanquan (southern fist)
+    scope: core
+    ideas: [STYLE, ROOT, WHOLE]
+    topics:
+      - n: 1
+        title: Principles and stances of nanquan
+        book: { wiki-sport: ["Nanquan"], iwuf-2019t: ["A·NQ 50–57"] }
+        los:
+          - { id: A, do: "Explain how nanquan differs from changquan in stance height, power and acrobatics.", ek: ["From Hung Ga, Choy Li Fut and similar: fewer acrobatics and less flexibility demand, more leg stability and short explosive power from legs–hips–shoulders; vocal fa sheng 发声 is part of the style."], p: [P4], drills: [] }
+          - { id: B, do: "Identify a nanquan stance from its description, name it, and state how its thigh standard differs from changquan.", ek: ["Diebu 蝶步 butterfly stance, guibu 跪步 kneeling, qilongbu 骑龙步 dragon-riding join gongbu, mabu, xubu, pubu. Nanquan thighs sit 0–45° above level (codes 50–52, 57), not flat as in changquan."], p: [P1, P2], needs: [WS-1.1.B], drills: [] }
+          - { id: C, do: "Assign the code for a described nanquan stance fault.", ek: ["55 diebu: inner calf or heel of the kneeling leg off the carpet · 56 kneeling: knee on carpet or buttock off calf · 57 dragon-riding: rear knee on carpet or front thigh out of range."], p: [P3], needs: [WS-3.1.B], drills: [] }
+      - n: 2
+        title: Bridge, hand and leg methods
+        book: { iwuf-2024: ["Art. 30 nanquan"], iwuf-2019t: ["A·NQ 01–04, 20–42"] }
+        los:
+          - { id: A, do: "List the mandatory nanquan techniques an optional routine must contain and identify a missing one in a described routine.", ek: ["Tiger claw; guagai quan 挂盖拳 and pao quan 抛拳; gun qiao 滚桥 rolling bridge; six stances (gong, ma, pu, xu, die, qilong); qilinbu; heng ding tui 横钉腿 horizontal nail kick. Missing a mandatory technique is a code-80 deduction."], p: [P3], drills: [] }
+          - { id: B, do: "Explain what bridge arms (qiao 桥) do and why short power (duan jin) needs a rooted stance.", ek: ["The forearm bridge controls the opponent's arm at close range; with little travel, force must come from ground reaction through a fixed base — a rising stance bleeds it."], p: [P4], drills: [] }
+
+  # ── 4 ────────────────────────────────────────────────────────────────────
+  - id: taiji
+    n: 4
+    title: Taijiquan
+    scope: core
+    ideas: [STYLE, ROOT, SCORE]
+    topics:
+      - n: 1
+        title: Principles of competition taijiquan
+        book: { wiki-sport: ["Taijiquan"], iwuf-2019t: ["A·TJ 02, 05, 06"] }
+        los:
+          - { id: A, do: "Explain the body-method requirements of taijiquan and assign the posture code for a described fault.", ek: ["Head upright, shoulders sunk, elbows down, armpits open, back not rounded, buttocks not out; code 05 hand technique (elbow lifted, arm locked, armpit closed), 06 posture (shrugged, rounded, twisted, protruding)."], p: [P3, P4], drills: [] }
+          - { id: B, do: "Identify which taiji source styles a competition routine draws on and what that means for its look.", ek: ["Competition taiji is largely Yang-style with Chen, Wu, Wu (Hao) and Sun elements; it adds balances and jumps and is performed to music."], p: [P1], drills: [] }
+          - { id: C, do: "Explain why taiji demands continuity and a level centre of gravity, and how a judge would see a break.", ek: ["Taiji power is continuous transfer; a pause before a difficulty element (code 83) or a bob in the CoM (59) shows the movement was not connected."], p: [P2, P4], drills: [] }
+      - n: 2
+        title: Standard taiji routines
+        book: { iwuf-2024: ["time limits"], jiayo-1989: ["Taijiquan"] }
+        los:
+          - { id: A, do: "Match a standard taiji routine to its name and competition time limit.", ek: ["24-form simplified and 42-form taijijian: 4–5 min; 42-form taijiquan and style routines: 5–6 min; 32-form taijijian: 3–4 min (iwuf-2024)."], p: [P1], drills: [] }
+          - { id: B, do: "Perform the 24-form with continuous tempo, filmed, and check stance and step codes 50–53 and 59.", ek: ["Taiji stance standards differ: bow-stance rear knee may not collapse inward; empty-stance front heel may not touch."], p: [P5], drills: [] }
+
+  # ── 5 ────────────────────────────────────────────────────────────────────
+  - id: weapons
+    n: 5
+    title: Weapons (qi xie 器械)
+    scope: core
+    ideas: [STYLE, WHOLE, SCORE]
+    topics:
+      - n: 1
+        title: Short weapons — jian and dao
+        book: { iwuf-2019t: ["A·CQ 60–62, 66, 68"], jiayo-1989: ["Jianshu", "Daoshu"] }
+        los:
+          - { id: A, do: "Identify a sword or broadsword method from its description and name it in Chinese and English.", ek: ["Jian 剑: ci 刺 thrust, pi 劈 chop, liao 撩 upward cut, dian 点 point, beng 崩 snap, gua 挂 hook-parry, chou/dai 抽带 draw. Dao 刀: chantou 缠头 and guonao 裹脑 wrap around head, pi, kan 砍, hua 花 flower."], p: [P1], drills: [] }
+          - { id: B, do: "Explain the stylistic contrast between jian and dao.", ek: ["'刀如猛虎，剑如飞凤' — broadsword fierce like a tiger, straight sword graceful like a flying phoenix: dao drives with the body, jian is light with precise tip work."], p: [P4], drills: [] }
+          - { id: C, do: "Assign the code for a described jian or dao fault.", ek: ["60 hook-parry/uppercut without a clear vertical circle · 61 finger touching the blade on the guard · 62 dao back not close to the body in chantou/guonao · 68 jian envelopment tip not tracing a circle."], p: [P3], drills: [] }
+      - n: 2
+        title: Long weapons — gun and qiang
+        book: { iwuf-2019t: ["A·CQ 63–67"], jiayo-1989: ["Gunshu", "Qiangshu"] }
+        los:
+          - { id: A, do: "Identify a staff or spear method from its description and name it.", ek: ["Qiang 枪: lan 拦, na 拿, zha 扎 (block, seize, thrust); gun 棍: pi, beng, pao, horizontal and vertical wuhua 舞花 (figure-8)."], p: [P1], drills: [] }
+          - { id: B, do: "Assign the code for a described gun or qiang fault.", ek: ["63 spear: head not in a defined arc, tail protruding past the rear hand, thrust not level · 64 horizontal windmill without a clear circle · 65 vertical figure-8 not in a vertical plane · 67 nangun plant: end not planted or tip below head."], p: [P3], drills: [] }
+          - { id: C, do: "Explain why the spear's lan–na–zha is the root method and why the spear is called the king of weapons.", ek: ["Lan and na deflect by a circle at the head, zha thrusts along the line; long reach plus control of the line dominates."], p: [P4], drills: [] }
+      - n: 3
+        title: Weapon errors and safety
+        book: { iwuf-2019t: ["A 66, 73–76"] }
+        los:
+          - { id: A, do: "Assign the code and value for a described weapon accident.", ek: ["73 weapon touches floor, loses grip, strikes body or deforms — 0.1 · 74 breaks — 0.2 · 75 dropped — 0.3 · 76 tassel/ribbon entangles or ornament falls — 0.1 · 66 throw-catch not caught correctly."], p: [P3], drills: [] }
+          - { id: B, do: "Explain how weapon mass and length change the timing of a body technique and the safe distance for a partner.", ek: ["A longer, heavier weapon has more rotational inertia: it starts late and stops late, so the body leads and the weapon follows; partner distance is measured to the tip, not the hand."], p: [P4], needs: [WS-9.1.B], drills: [] }
+
+  # ── 6 ────────────────────────────────────────────────────────────────────
+  - id: nandu
+    n: 6
+    title: Jumps, balances and difficulty elements (nandu 难度)
+    scope: core
+    ideas: [MECH, SCORE]
+    topics:
+      - n: 1
+        title: The difficulty code system
+        book: { iwuf-2019t: ["C p8, 11, 13"], iwuf-2005t: ["Tbl 3-1, 3-2"] }
+        los:
+          - { id: A, do: "Read a difficulty code and say its family and grade (e.g. 323A, 143B, 447A).", ek: ["First digit: 1 balance · 2 leg technique · 3 jump · 4 tumbling/ground. Letter: A 0.2 · B 0.3 · C 0.4."], p: [P1, P3], drills: [] }
+          - { id: B, do: "Identify a jump from its description and give its name (pinyin, English) and changquan code.", ek: ["Tengkong feijiao 腾空飞脚 jumping slap 312A · xuanfengjiao 旋风脚 tornado 360 323A / 540 323B / 720 323C · tengkong bailian 腾空摆莲 lotus 360 324A / 540 324B / 720 324C · xuanzi 旋子 butterfly 333A · xuanzi zhuanti 旋子转体 butterfly twist 360 353B / 720 353C · cekongfan 侧空翻 aerial cartwheel 335A, with 360 twist 355B."], p: [P1], drills: [] }
+          - { id: C, do: "Identify a balance or sweep difficulty from its description and give its code and value.", ek: ["111A grasp-foot balance (leg vertical) · 112A side-kick catch · 112C back-kick hold · 123A backward balance · 133B arms-spread balance · 153A ocean-exploring · 163A gazing-at-moon · 244A front sweep 540 · 244B 900."], p: [P1, P3], drills: [] }
+          - { id: D, do: "Give the value of the same code in different events and explain why it differs.", ek: ["Taiji grades rotation lower: taiji 323A = tornado 180, 323B = 360, 323C = 540, while changquan 323A = 360. Each event's table is its own scale."], p: [P3], needs: [WS-6.1.B], drills: [] }
+          - { id: E, do: "Identify the nanquan and taiji-specific difficulty elements from their descriptions.", ek: ["Nanquan: 346A stationary back flip, 346B single-step back flip, 415A jumping double side kick, 423A jumping cross-legged 360 to side fall, 447A carp kip-up (liyu dating 鲤鱼打挺). Taiji: 142A low-step sole-kick balance, 143A low balance leg forward, 143B leg inserted behind, 212A parting/heel kick."], p: [P1], drills: [] }
+      - n: 2
+        title: Connections and landings
+        book: { iwuf-2019t: ["C p8–15 connection tables, landing suffixes 0–11"] }
+        los:
+          - { id: A, do: "Name the landing position from a connection suffix and vice versa.", ek: ["0 pubu · 1 mabu · 2 diebu · 3 tixi duli 提膝独立 single-leg knee-raise · 4 front split · 5 hurdler's split · 6 zuopan · 7 gongbu · 8 land on take-off foot · 9 weapon throw-catch · 10 scissor · 11 scorpion."], p: [P1], drills: [] }
+          - { id: B, do: "Choose the correct connection value for a described jump + landing in changquan (auto-checkable).", ek: ["A 0.10: 323A+1, 323A+4, 324A+1, 333A+6, 335A+4, 353B+4 · B 0.15: 323A+3, 323B+1, 323B+4, 324B+1 · C 0.20: 323B+3, 323C+1, 324B+3 · D 0.25: 323C+4, 324C+1, 353C+4."], p: [P3], needs: [WS-6.2.A, WS-6.1.B], drills: [] }
+          - { id: C, do: "Choose the correct connection value for a described taiji or nanquan connection.", ek: ["Taiji: 143A+3 A · 323B+3 C · 324B+3 C · 324B+5 B · 323C+3 D. Nanquan: 323A+1 A · 323A+2 A · 346B+2 B · 447A+2 B · 323C+1 D."], p: [P3], needs: [WS-6.2.A], drills: [] }
+          - { id: D, do: "Explain the pattern in connection values: why more rotation and a single-leg landing score higher.", ek: ["More rotation leaves more residual spin to kill; a one-foot base (3) or a split (4) leaves less margin than mabu (1). The value prices the risk of a code-70/71/72 error."], p: [P4], needs: [WS-9.2.C], drills: [] }
+      - n: 3
+        title: Difficulty caps and planning
+        book: { iwuf-2024: ["Art. on degree of difficulty"] }
+        los:
+          - { id: A, do: "Compute a C score from a declared list of elements and connections, applying the caps.", ek: ["Technique total ≤ 1.4, connection total ≤ 0.6; over the cap only the last registered element is reduced. 2 of 3 C-judges must confirm each element."], p: [P3], needs: [WS-6.1.A, WS-6.2.B], drills: [] }
+          - { id: B, do: "Design a difficulty plan that reaches the caps with the lowest-risk element set for a given ability profile.", ek: ["Five B jumps already give 1.5 (> 1.4); trade one C for two A when the C fails often — expected value = value × success rate − expected deductions."], p: [P6], needs: [WS-6.3.A], drills: [] }
+
+  # ── 7 ────────────────────────────────────────────────────────────────────
+  - id: judging
+    n: 7
+    title: Judging and scoring
+    scope: core
+    ideas: [SCORE]
+    topics:
+      - n: 1
+        title: Score structure and judge panels
+        book: { iwuf-2024: ["Arts. on scoring, judge groups"], iwuf-2019t: ["B"] }
+        los:
+          - { id: A, do: "State how a 10-point score splits for events with and without difficulty and which judge group awards each part.", ek: ["With difficulty: A quality of movement 5 · B overall performance 3 · C difficulty 2 (1.4 + 0.6). Without difficulty (2024): A 7, B 3."], p: [P3], drills: [] }
+          - { id: B, do: "Apply the panel rules to a set of raw judge marks and compute the A and B scores.", ek: ["A: 3 judges, a deduction stands only if ≥ 2 confirm it. B: 5 judges, drop high and low, average the middle 3, truncate (not round) to three decimals."], p: [P3], needs: [WS-7.1.A], drills: [] }
+      - n: 2
+        title: Quality of movement (A) deductions
+        book: { iwuf-2019t: ["A·CQ, A·NQ, A·TJ, A 70–79"], iwuf-2019x: ["Tbl 2-1-6"] }
+        los:
+          - { id: A, do: "Assign the code and value for a described balance-loss error.", ek: ["70 sway, shuffle or skip — 0.1 · 71 extra support (hand, elbow, knee touches) — 0.2 · 72 fall (shoulder, buttocks, trunk down) — 0.3 · 77 balance held < 2 s — 0.1 · 78 any part outside the carpet — 0.1 · 79 forgotten movement — 0.1."], p: [P3], drills: [] }
+          - { id: B, do: "Assign the code for a described jump or balance execution fault in changquan.", ek: ["10–16 balances (bent legs, torso > 45°, leg below level) · 30 slapped toes below shoulder or slap missed · 31 hanging leg bent · 32 cartwheel legs bent ≥ 45° · 33 butterfly torso out of range or legs bent · 34 jumping snap leg below level."], p: [P3], needs: [WS-6.1.B], drills: [] }
+          - { id: C, do: "Score a described full sequence: list every A deduction with its code and total them.", ek: ["Each code is per occurrence; a jump that lands short of the slap and then shuffles earns 30 and 70 separately."], p: [P2, P3], needs: [WS-7.2.A, WS-7.2.B], drills: [] }
+      - n: 3
+        title: Overall performance (B) and choreography
+        book: { iwuf-2019t: ["B bands", "A 80–85"], iwuf-2024: ["head judge time deductions"] }
+        los:
+          - { id: A, do: "Place a described performance into a B band and grade, justifying it with the criteria.", ek: ["Criteria: power, coordination, rhythm, style, choreography, music. Bands (difficulty events): superior 2.51–3.00 · average 1.91–2.50 · inferior 1.01–1.90, each split into three grades."], p: [P2, P3], drills: [] }
+          - { id: B, do: "Assign the choreography code and value for a described structural or content fault.", ek: ["80 missing/extra/altered technique — 0.1 or 0.2 · 81 missing/extra step — 0.1 · 82 missing nanquan vocalisation — 0.2 · 83 static pause > 3 s — 0.1 · 84 facing averted > 45° (changquan) or > 90° (taiji) — 0.1 · 85 no music or music with lyrics — 0.5."], p: [P3], drills: [] }
+          - { id: C, do: "Compute the head judge's time deduction for a routine of given length and event.", ek: ["Changquan, nanquan, weapons: adult optional 1:20–1:35; 0.1 per started 2 s outside. Taiji, group: 0.1 per started 5 s outside."], p: [P3], drills: [] }
+          - { id: D, do: "Compare the 2005 and 2019 rule tables for a code and explain why a drill must name its edition.", ek: ["2003 revision introduced nandu (2 of 10 points), first used at the 2005 Worlds; codes were renumbered and criteria tightened by 2019; 2024 widened 'other errors' to 0.05–0.3."], p: [P3, P4], drills: [] }
+
+  # ── 8 ────────────────────────────────────────────────────────────────────
+  - id: perform
+    n: 8
+    title: Performance and choreography
+    scope: core
+    ideas: [SHOW, WHOLE]
+    topics:
+      - n: 1
+        title: Spirit, eyes and rhythm
+        book: { iwuf-2019t: ["B criteria"] }
+        los:
+          - { id: A, do: "Define jingshen, yanshen, jiezou and jin and identify which one a described performance lacks.", ek: ["Jingshen 精神 spirit/intent · yanshen 眼神 eyes leading the technique · jiezou 节奏 rhythm: fast–slow, hard–soft, rise–fall, motion–stillness · jin 劲 trained power, fajin 发劲 its release."], p: [P1, P2], drills: [] }
+          - { id: B, do: "Mark the rhythm of a routine section (accelerations, stops, holds) and justify each against the style.", ek: ["A routine is phrased like music: build, burst, hold. Uniform tempo reads as flat even when technique is clean."], p: [P2, P6], drills: [] }
+          - { id: C, do: "Explain 'hands, eyes, body, steps arrive together' (手眼身法步) and diagnose a described timing error.", ek: ["The eyes turn first, the stance and hand finish on the same beat; a hand that lands after the stance looks weak and reads as disconnected power."], p: [P2, P4], drills: [] }
+      - n: 2
+        title: Routine composition
+        book: { iwuf-2024: ["time limits", "Art. 30"], iwuf-2019t: ["A 83, 84"] }
+        los:
+          - { id: A, do: "Draft an optional routine plan that meets the time limit, mandatory techniques, direction and carpet-use rules.", ek: ["Use corners and centre, avoid > 45° averted facing and > 3 s static holds, place difficulty where fatigue is lowest."], p: [P6], needs: [WS-7.3.B, WS-6.3.B], drills: [] }
+          - { id: B, do: "Choose music and cut points for a routine and check the music rules.", ek: ["Instrumental only: lyrics or no music is code 85 (0.5) where music is required."], p: [P6], drills: [] }
+      - n: 3
+        title: Stage and screen fighting
+        book: { safd: ["Distance", "Knap", "Cue-Reaction-Action", "Eye Contact", "Contact/Non-Contact Strike", "Partnering"] }
+        los:
+          - { id: A, do: "Define the core staged-combat safety terms and identify which one a described unsafe exchange violates.", ek: ["Distance: the measure that makes a technique safe · cue–reaction–action: the attacker cues, the partner reacts, then the action completes · eye contact confirms readiness · non-contact strikes stay out of distance."], p: [P1, P2], drills: [] }
+          - { id: B, do: "Choose the camera angle that sells a described non-contact strike and explain why it works.", ek: ["Along the lens axis, depth vanishes: a strike that misses by 15 cm sideways to camera hides behind the target's head when shot over the shoulder."], p: [P4, P6], drills: [] }
+          - { id: C, do: "Explain how a knap and a reaction sell an impact and pick the knap type for a described shot.", ek: ["Sound plus a reaction timed to the strike sells contact; body knap (self), clap knap, shared knap (both partners) — choose the one hidden from camera."], p: [P4], drills: [] }
+          - { id: D, do: "Adapt a taolu combination into a two-person screen phrase, keeping every strike off-line and every reaction cued.", ek: ["Taolu is shadow-fighting; screen work adds a partner, so each technique needs a target off-line, a cue and a repeatable mark for multiple takes."], p: [P6], needs: [WS-8.3.A], drills: [] }
+          - { id: E, do: "Compare duilian (choreographed sparring) judging with screen-fight priorities.", ek: ["Duilian rewards realism, timing and clean contact control under the same A/B structure; the camera rewards readable shapes and reactions — both depend on partner trust and fixed distance."], p: [P4], drills: [] }
+
+  # ── 9 ────────────────────────────────────────────────────────────────────
+  - id: biomech
+    n: 9
+    title: Biomechanics and injury prevention
+    scope: core
+    ideas: [MECH, ROOT]
+    topics:
+      - n: 1
+        title: Takeoff and flight
+        book: { bio-xfj: ["takeoff", "flight"], bio-isbs: ["xuanfengjiao"] }
+        los:
+          - { id: A, do: "Calculate flight time and jump height from takeoff vertical velocity (and the reverse) for a described jump.", ek: ["t_flight = 2v/g, h = v²/2g; 0.5 s of air needs v ≈ 2.45 m/s and h ≈ 0.31 m of CoM rise."], p: [P4], drills: [] }
+          - { id: B, do: "Explain which takeoff changes raise flight time, and identify the change that fixes a described 'no height' fault.", ek: ["Vertical impulse ∫(F − mg)dt: a short, stiff ground contact with full hip–knee–ankle extension and an upward arm drive. bio-xfj: takeoff knee ≈ 60°, short foot-pat contact gives larger vertical acceleration."], p: [P4], drills: [] }
+      - n: 2
+        title: Rotation and angular momentum
+        book: { bio-ang: ["angular momentum model"], bio-xfj: ["swivel"] }
+        los:
+          - { id: A, do: "Explain where the angular momentum for a tornado kick or butterfly twist comes from and why it can't be added in the air.", ek: ["Friction torque from the feet on the floor (plus the arm and leg wind-up) generates L before takeoff; in flight no external torque acts about the CoM, so L is constant."], p: [P4], drills: [] }
+          - { id: B, do: "Predict how a shape change in flight alters spin rate and identify which change fixes a described under-rotation.", ek: ["L = Iω constant: pulling arms and legs toward the spin axis cuts I and raises ω. Rotations = ω·t/2π, so under-rotation is fixed by more L at takeoff, a tighter shape, or more flight time."], p: [P4], needs: [WS-9.2.A, WS-9.1.A], drills: [] }
+          - { id: C, do: "Explain why residual spin at landing causes shuffles and which landing shapes make it harder to kill.", ek: ["On touchdown the floor must apply an opposite torque; a wide base (mabu) supplies it easily, one foot or a split supplies little, so excess spin becomes a code-70 shuffle or a fall."], p: [P4], needs: [WS-9.2.A], drills: [] }
+          - { id: D, do: "Explain the timing rule for the slap in xuanfengjiao and lotus kick and identify the fault when the slap is late.", ek: ["bio-xfj: the inward kick circle should be completed before the CoM peaks; slapping on the way down leaves no time to land and drops the slap below shoulder (code 30)."], p: [P2, P4], drills: [] }
+      - n: 3
+        title: Landing and balance
+        book: { bio-xfj: ["landing"] }
+        los:
+          - { id: A, do: "Explain how a landing reduces peak force and identify the fix for a described 'stiff landing'.", ek: ["F_avg = Δp/Δt: sequential ankle–knee–hip flexion lengthens stopping time; landing stiff-legged spikes force on knees and spine."], p: [P4], drills: [] }
+          - { id: B, do: "Explain why a balance holds or fails in terms of centre of mass and base of support.", ek: ["Static balance needs the CoM projection inside the base; single-leg balances (≥ 2 s, code 77) leave a base the size of one foot, so the trunk and raised leg must counter each other."], p: [P4], drills: [] }
+          - { id: C, do: "Identify a knee-valgus or knee-over-toe misalignment in a described landing or stance and explain the injury risk.", ek: ["Knees caving inward on landing loads the ACL and MCL; the same alignment is judged in stances (mabu knees buckle in, code 51)."], p: [P2, P4], drills: [] }
+      - n: 4
+        title: Injury prevention and load management
+        book: { inj: ["results"] }
+        los:
+          - { id: A, do: "State where wushu injuries concentrate and plan a prehab routine that targets those sites.", ek: ["Elite wushu study: 6.85 injuries / 1000 h, lower limb 47.6 %, then head/face (contact work); flat feet and shoulder asymmetry common. Ankle, knee and adductor/hamstring work goes first."], p: [P5, P6], drills: [] }
+          - { id: B, do: "Plan a weekly jump and landing volume with progressions and identify signs to back off.", ek: ["Landings are the dose: count them; progress rotation before landing difficulty; mats and lower-rotation drills carry the reps; pain on landing or loss of height signals fatigue."], p: [P6], drills: [] }
+          - { id: C, do: "Explain how fatigue changes takeoff and landing mechanics and why difficulty goes early in a routine or take.", ek: ["Fatigue shortens flight, slows wind-up and softens landing control — all three raise the chance of 70–72 errors and injury."], p: [P4], needs: [WS-9.1.B, WS-9.3.A], drills: [] }
+
+  # ── 10 ───────────────────────────────────────────────────────────────────
+  - id: sanda
+    n: 10
+    title: Sanda basics
+    scope: extension
+    ideas: [WHOLE, ROOT]
+    topics:
+      - n: 1
+        title: Rules and scoring
+        book: { sanda: ["Ontario Part IV points table", "Wikipedia scoring"] }
+        los:
+          - { id: A, do: "Assign the points for a described sanda exchange under amateur rules.", ek: ["Punch to head or body 1 · kick to body 2 · kick to leg 1 · complete throw 2 · opponent exits ring 2 to the other fighter (representative amateur values; IWUF and classes vary)."], p: [P3], drills: [] }
+          - { id: B, do: "Identify whether a described technique or target is legal in amateur sanda.", ek: ["Illegal: elbows, knees (amateur), joint locks, strikes to back of head, neck, spine, groin; clinch allowed only briefly before a throw or break."], p: [P3], drills: [] }
+      - n: 2
+        title: Techniques and transfer
+        book: { sanda: ["techniques"] }
+        los:
+          - { id: A, do: "Explain how the four methods ti, da, shuai, na (踢打摔拿) appear in sanda and in Duanwei content.", ek: ["Kick, strike, throw, seize; sanda emphasises the first three; kick-catch throws (jie tui shuai 接腿摔) punish kicks left extended."], p: [P1, P4], drills: [] }
+          - { id: B, do: "Contrast TKD sparring habits with sanda and name the habit that the throw rule exploits.", ek: ["High, chambered, retracted-late kicks and an upright bounce stance invite catches and throws; sanda kicks are faster to recover and the stance is lower."], p: [P2, P4], needs: [WS-1.4.C], drills: [] }
+
+  # ── 11 ───────────────────────────────────────────────────────────────────
+  - id: history
+    n: 11
+    title: History and the Duanwei ladder
+    scope: core
+    ideas: [STYLE, SCORE]
+    topics:
+      - n: 1
+        title: How modern wushu was built
+        book: { wiki-sport: ["History"] }
+        los:
+          - { id: A, do: "Place the milestones of modern wushu in order and say what each changed.", ek: ["1928 Central Guoshu Institute · 1958 state standardisation of forms and grading · 1986 Chinese National Research Institute of Wushu · 2003 rules add nandu, first used 2005 Worlds · 2014 Youth Olympics demo · 2026 Dakar Youth Olympics."], p: [P1], drills: [] }
+          - { id: B, do: "Explain how standardised taolu differ from traditional forms and why the difference exists.", ek: ["Standard routines fix technique and content so performances can be judged against shared criteria; traditional forms keep lineage-specific methods and applications."], p: [P4], drills: [] }
+      - n: 2
+        title: The Duanwei ranking system
+        book: { duanwei: ["levels", "evaluation", "textbook series", "badge names"] }
+        los:
+          - { id: A, do: "Name a duan from its number or badge and give its tier.", ek: ["Primary 1–3: blue, silver, gold eagle (青鹰 银鹰 金鹰) · Middle 4–6: blue, silver, gold tiger · Advanced 7–9: blue, silver, gold dragon; three pre-duan levels below."], p: [P1], drills: [] }
+          - { id: B, do: "State what each Duanwei level examines and what is added at each step.", ek: ["Evaluation: ethics and etiquette, theory, technique, skill. Each level's form goes solo → partner → applications; content builds 1 punching · 2 kicks · 3 grasping · 4 positioning · 5 wrestling · 6 all combined; high duan adds theory and contribution."], p: [P1], drills: [] }
+          - { id: C, do: "Map a goal (teaching, theory, a specific style) to the Duanwei textbook series and the duan that would test it.", ek: ["4 theory books (ethics and etiquette, history, introduction, exam Q&A), 20 style books (changquan, Shaolin, taiji styles, xingyi, bagua, bajiquan…), 3 weapon courses (jianshu, duangun, erjiegun). Middle duan assumes ability to teach."], p: [P6], drills: [] }
+          - { id: D, do: "Perform the baoquan li salute correctly and explain its meaning in wude (martial ethics).", ek: ["Right fist covered by left palm at chest height; part of the etiquette Duanwei examines."], p: [P5, P1], drills: [] }
