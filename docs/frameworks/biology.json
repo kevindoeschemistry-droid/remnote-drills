@@ -1,0 +1,5166 @@
+{
+ "id": "biology",
+ "title": "Biology (AP)",
+ "code": "BI",
+ "draft": 1,
+ "track": "science",
+ "requires": [
+  "chemistry"
+ ],
+ "level": 4,
+ "domains": [],
+ "big_ideas": [
+  {
+   "id": "EVO",
+   "title": "Evolution",
+   "text": "Life changes over generations; shared ancestry explains the unity of life, and selection, drift and gene flow acting on variation explain its diversity."
+  },
+  {
+   "id": "ENE",
+   "title": "Energetics",
+   "text": "Living things capture, store and spend energy and exchange matter with their surroundings to grow, reproduce and hold a steady internal state."
+  },
+  {
+   "id": "IST",
+   "title": "Information storage and transmission",
+   "text": "Heritable information in DNA (and RNA) is copied, passed on, expressed and regulated; cells and organisms also send and receive signals that change what they do."
+  },
+  {
+   "id": "SYI",
+   "title": "Systems interactions",
+   "text": "Parts interact at every level — molecules, cells, organisms, populations, ecosystems — and the behaviour of the whole emerges from, and constrains, those interactions."
+  }
+ ],
+ "practices": [
+  {
+   "id": "P1",
+   "title": "Concept explanation",
+   "text": "Explain a biological concept, process or model in words, both in general and applied to a concrete situation."
+  },
+  {
+   "id": "P2",
+   "title": "Visual representations",
+   "text": "Read, explain and use diagrams, models, pedigrees, trees and other pictures of biological systems, and say what they leave out."
+  },
+  {
+   "id": "P3",
+   "title": "Questions and methods",
+   "text": "Pose a testable question, pick variables and controls, and judge whether an experimental design can answer it."
+  },
+  {
+   "id": "P4",
+   "title": "Representing and describing data",
+   "text": "Build and read graphs and tables, and describe the trends, patterns and relationships they show."
+  },
+  {
+   "id": "P5",
+   "title": "Statistical tests and data analysis",
+   "text": "Do the calculation — ratios, rates, probabilities, frequencies, chi-square, standard error — and decide what the number supports."
+  },
+  {
+   "id": "P6",
+   "title": "Argumentation",
+   "text": "Make a claim, back it with evidence and reasoning, and predict the effect of a change to a biological system."
+  }
+ ],
+ "units": [
+  {
+   "id": "chemistry-of-life",
+   "n": 1,
+   "title": "Chemistry of Life",
+   "scope": "core",
+   "ideas": [
+    "SYI",
+    "ENE",
+    "IST"
+   ],
+   "weight_est": "8–11%",
+   "topics": [
+    {
+     "n": 1,
+     "title": "Structure of water and hydrogen bonding",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "SYI-1.A"
+       ],
+       "do": "Explain how water's polarity lets it hydrogen-bond to other water molecules and to polar or charged solutes.",
+       "ek": [
+        "O pulls electrons from H, leaving δ− on O and δ+ on each H; each water can H-bond to up to four neighbours."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": []
+      },
+      {
+       "id": "B",
+       "std": [
+        "SYI-1.A"
+       ],
+       "do": "Connect cohesion, adhesion, high specific heat, ice floating and solvent power to hydrogen bonding and to a biological consequence.",
+       "ek": [
+        "Cohesion + adhesion drive transpiration pull; high specific heat buffers temperature; open-lattice ice insulates water below."
+       ],
+       "p": [
+        "P1",
+        "P6"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-1.1.A"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "title": "Elements of life",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "ENE-1.A"
+       ],
+       "do": "Identify which elements each macromolecule class contains and where C, N, P and S enter biological molecules.",
+       "ek": [
+        "C, H, O in all four classes; N in proteins and nucleic acids; P in nucleic acids and phospholipids; S in cysteine and methionine."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": []
+      },
+      {
+       "id": "B",
+       "std": [
+        "ENE-1.A"
+       ],
+       "do": "Predict which macromolecule class picks up a ³⁵S, ³²P or ¹⁵N label.",
+       "ek": [
+        "³⁵S marks protein only; ³²P marks nucleic acid (and phospholipid); ¹⁵N marks protein and nucleic acid."
+       ],
+       "p": [
+        "P1",
+        "P3"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-1.2.A"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 3,
+     "title": "Introduction to biological macromolecules",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "SYI-1.B"
+       ],
+       "do": "Describe dehydration synthesis and hydrolysis as the reactions that build and break polymers.",
+       "ek": [
+        "Joining monomers releases H₂O; hydrolysis adds H₂O to split them; enzymes catalyse both."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": []
+      },
+      {
+       "id": "B",
+       "std": [
+        "SYI-1.B"
+       ],
+       "do": "Count the water molecules released or consumed when n monomers are joined into, or cut out of, a linear polymer.",
+       "ek": [
+        "A linear chain of n monomers has n − 1 linkages, so n − 1 waters."
+       ],
+       "p": [
+        "P5"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-1.3.A"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 4,
+     "title": "Properties of biological macromolecules",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "SYI-1.B"
+       ],
+       "do": "Name the monomer and linking bond of carbohydrates, proteins, nucleic acids and triglycerides.",
+       "ek": [
+        "Monosaccharide–glycosidic; amino acid–peptide; nucleotide–phosphodiester; glycerol + fatty acids–ester."
+       ],
+       "p": [
+        "P1",
+        "P2"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-1.3.A"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "SYI-1.B"
+       ],
+       "do": "Classify an amino acid side chain as nonpolar, polar or charged and predict where it sits in a folded soluble protein.",
+       "ek": [
+        "Nonpolar R groups bury in the core; polar and charged ones face water."
+       ],
+       "p": [
+        "P1",
+        "P2"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-1.4.A",
+        "BI-1.1.A"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "SYI-1.B"
+       ],
+       "do": "Distinguish saturated fats, unsaturated fats, phospholipids and steroids by structure and physical property.",
+       "ek": [
+        "cis double bonds kink tails so fats stay liquid; phospholipids are amphipathic; steroids are four fused rings."
+       ],
+       "p": [
+        "P1",
+        "P2"
+       ],
+       "drills": []
+      },
+      {
+       "id": "D",
+       "std": [
+        "SYI-1.B"
+       ],
+       "do": "Tell structural from storage polysaccharides by linkage and branching.",
+       "ek": [
+        "Cellulose β(1→4) straight chains H-bond into fibres; starch and glycogen α(1→4) with α(1→6) branches are compact and easy to hydrolyse."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": []
+      }
+     ]
+    },
+    {
+     "n": 5,
+     "title": "Structure and function of biological macromolecules",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "SYI-1.C"
+       ],
+       "do": "Describe the four levels of protein structure and the interactions that hold each.",
+       "ek": [
+        "1°: peptide bonds; 2°: backbone H-bonds (α helix, β sheet); 3°: R-group interactions incl. disulfides; 4°: multiple subunits."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-1.4.B"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "SYI-1.C"
+       ],
+       "do": "Predict how substituting one monomer changes a polymer's structure and function.",
+       "ek": [
+        "Swapping a charged for a nonpolar residue (Glu→Val in hemoglobin) can change folding, binding and aggregation."
+       ],
+       "p": [
+        "P6"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-1.5.A"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "SYI-1.C"
+       ],
+       "do": "Identify the directionality of proteins (N→C) and nucleic acids (5′→3′) and why polymers grow at one end only.",
+       "ek": [
+        "New nucleotides add to the 3′-OH; new amino acids add to the C-terminus."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": []
+      }
+     ]
+    },
+    {
+     "n": 6,
+     "title": "Nucleic acids",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "IST-1.A"
+       ],
+       "do": "Compare DNA and RNA by sugar, bases and strandedness.",
+       "ek": [
+        "DNA: deoxyribose, T, double-stranded; RNA: ribose (2′-OH), U, usually single-stranded."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-1.4.A"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "IST-1.A"
+       ],
+       "do": "Write the complementary antiparallel strand of a DNA sequence and compute base percentages from Chargaff's rules.",
+       "ek": [
+        "A pairs T (2 H-bonds), G pairs C (3); %A = %T, %G = %C, strands run 5′→3′ opposite ways."
+       ],
+       "p": [
+        "P5"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-1.6.A",
+        "BI-1.5.C"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "cell-structure",
+   "n": 2,
+   "title": "Cell Structure and Function",
+   "scope": "core",
+   "ideas": [
+    "SYI",
+    "ENE",
+    "EVO"
+   ],
+   "weight_est": "10–13%",
+   "topics": [
+    {
+     "n": 1,
+     "title": "Cell structure: subcellular components",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "SYI-1.D"
+       ],
+       "do": "Describe ribosome composition and explain why ribosomes in every cell point to common ancestry.",
+       "ek": [
+        "Ribosomes are rRNA + protein, not membrane-bound, and make protein in all three domains."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": []
+      },
+      {
+       "id": "B",
+       "std": [
+        "SYI-1.D"
+       ],
+       "do": "Match the rough ER, smooth ER, Golgi, mitochondrion, lysosome, vacuole and chloroplast to their functions.",
+       "ek": [
+        "RER: secreted/membrane proteins; SER: lipids, detox, Ca²⁺ storage; Golgi: modify and sort; lysosome: hydrolytic digestion."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-2.1.A"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "title": "Cell structure and function",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "SYI-1.E"
+       ],
+       "do": "Trace a secreted protein from ribosome through the endomembrane system to the cell surface.",
+       "ek": [
+        "Signal peptide → RER lumen → transport vesicle → Golgi (cis→trans) → secretory vesicle → exocytosis."
+       ],
+       "p": [
+        "P1",
+        "P2"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-2.1.B"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "SYI-1.E"
+       ],
+       "do": "Explain how an organelle's structure supports its function.",
+       "ek": [
+        "Lysosomal pH ~5 suits its acid hydrolases; a central vacuole stores water and gives turgor; cristae add membrane area."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-2.1.B"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "SYI-1.F"
+       ],
+       "do": "Relate the folded inner mitochondrial membrane and stacked thylakoids to capturing and storing energy.",
+       "ek": [
+        "More membrane area holds more electron-transport chains and ATP synthases."
+       ],
+       "p": [
+        "P1",
+        "P2"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-2.2.B"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 3,
+     "title": "Cell size",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "ENE-1.B"
+       ],
+       "do": "Calculate the surface-area-to-volume ratio of a cube, sphere or cylinder and compare cells of different sizes.",
+       "ek": [
+        "Cube: SA/V = 6/s; sphere: 3/r — the ratio falls as size grows."
+       ],
+       "p": [
+        "P5"
+       ],
+       "drills": []
+      },
+      {
+       "id": "B",
+       "std": [
+        "ENE-1.B"
+       ],
+       "do": "Explain why falling SA/V limits cell size and changes heat and material exchange in larger organisms.",
+       "ek": [
+        "Volume (demand) grows as length³, surface (supply) as length²."
+       ],
+       "p": [
+        "P6"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-2.3.A"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "ENE-1.C"
+       ],
+       "do": "Identify structures that raise surface area for exchange and explain the gain.",
+       "ek": [
+        "Microvilli, root hairs, alveoli, intestinal villi and gill lamellae fold surface without adding much volume."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-2.3.B"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 4,
+     "title": "Plasma membranes",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "ENE-2.A"
+       ],
+       "do": "Explain how amphipathic phospholipids self-assemble into a bilayer and what embedded proteins add.",
+       "ek": [
+        "Hydrophilic heads face water, hydrophobic tails face each other; proteins transport, receive signals, anchor and recognise."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-1.4.C"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "ENE-2.B"
+       ],
+       "do": "Describe the fluid mosaic model and predict how temperature, unsaturation and cholesterol change fluidity.",
+       "ek": [
+        "Unsaturated tails and higher temperature raise fluidity; cholesterol buffers it both ways."
+       ],
+       "p": [
+        "P1",
+        "P2"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-2.4.A"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 5,
+     "title": "Membrane permeability",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "ENE-2.C"
+       ],
+       "do": "Predict whether a molecule crosses a bare bilayer from its size, polarity and charge.",
+       "ek": [
+        "Small nonpolar molecules (O₂, CO₂) pass freely; ions and large polar molecules need proteins; water crosses slowly without aquaporins."
+       ],
+       "p": [
+        "P1",
+        "P6"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-2.4.A",
+        "BI-1.1.A"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "ENE-2.D"
+       ],
+       "do": "Compare cell walls of plants, fungi and bacteria and explain how a wall prevents osmotic lysis.",
+       "ek": [
+        "Plants: cellulose; fungi: chitin; bacteria: peptidoglycan; the wall resists turgor pressure."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": []
+      }
+     ]
+    },
+    {
+     "n": 6,
+     "title": "Membrane transport",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "ENE-2.E"
+       ],
+       "do": "Distinguish passive from active transport by energy use and gradient direction.",
+       "ek": [
+        "Passive runs down the concentration gradient with no energy; active runs up it and needs ATP or a coupled gradient."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-2.5.A"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "ENE-2.F"
+       ],
+       "do": "Distinguish phagocytosis, pinocytosis, receptor-mediated endocytosis and exocytosis.",
+       "ek": [
+        "Bulk transport moves large molecules and particles in membrane vesicles and costs energy."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-2.2.A"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 7,
+     "title": "Facilitated diffusion",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "ENE-2.G"
+       ],
+       "do": "Explain how channel and carrier proteins move polar or charged substances down their gradients.",
+       "ek": [
+        "Aquaporins pass water, gated ion channels pass specific ions; no energy is spent."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-2.6.A"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "ENE-2.G"
+       ],
+       "do": "Tell simple from carrier-mediated diffusion on a rate-versus-concentration graph.",
+       "ek": [
+        "Simple diffusion rises linearly; protein-mediated transport saturates when all carriers are busy."
+       ],
+       "p": [
+        "P4"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-2.7.A"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 8,
+     "title": "Tonicity and osmoregulation",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "ENE-2.H"
+       ],
+       "do": "Predict net water movement and the fate of animal and plant cells in hypotonic, isotonic and hypertonic solutions.",
+       "ek": [
+        "Water moves toward higher solute concentration; animal cells lyse or crenate, plant cells go turgid or plasmolyse."
+       ],
+       "p": [
+        "P1",
+        "P6"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-2.6.A"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "ENE-2.H"
+       ],
+       "do": "Calculate solute potential ψs = −iCRT and water potential ψ = ψs + ψp, and predict which way water moves.",
+       "ek": [
+        "R = 0.0831 L·bar/(mol·K), T in kelvin; water flows from higher to lower ψ."
+       ],
+       "p": [
+        "P5"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-2.8.A"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "ENE-2.I"
+       ],
+       "do": "Explain how contractile vacuoles, turgor and kidneys keep an organism's water balance.",
+       "ek": [
+        "Freshwater protists pump water out; plants rely on turgor; animals adjust solute excretion."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-2.8.A"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 9,
+     "title": "Mechanisms of transport",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "ENE-2.J"
+       ],
+       "do": "Explain how the Na⁺/K⁺-ATPase builds ion gradients and a membrane potential.",
+       "ek": [
+        "Each ATP moves 3 Na⁺ out and 2 K⁺ in, leaving the inside negative."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-2.6.A"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "ENE-2.J"
+       ],
+       "do": "Explain cotransport as transport driven by an existing ion gradient.",
+       "ek": [
+        "The Na⁺–glucose symporter lets Na⁺ flow down its gradient and carries glucose up its own."
+       ],
+       "p": [
+        "P1",
+        "P2"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-2.9.A"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 10,
+     "title": "Cell compartmentalization",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "ENE-2.K"
+       ],
+       "do": "Explain how membrane-bound compartments let incompatible reactions run in one cell.",
+       "ek": [
+        "Compartments keep different pH, enzymes and concentrations apart (lysosome vs cytosol)."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-2.2.B"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "ENE-2.L"
+       ],
+       "do": "Explain how internal membranes raise the area available for membrane-bound reactions.",
+       "ek": [
+        "ER, cristae and thylakoids pack large reactive surface into small volume."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-2.2.C"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 11,
+     "title": "Origins of cell compartmentalization",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "EVO-1.A"
+       ],
+       "do": "Compare prokaryotic and eukaryotic cells by nucleus, organelles, ribosomes and chromosome form.",
+       "ek": [
+        "Prokaryotes: no nucleus or membrane organelles, 70S ribosomes, circular chromosome; eukaryotes: nucleus, organelles, 80S, linear chromosomes."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-2.1.B"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "EVO-1.B"
+       ],
+       "do": "Weigh the evidence that mitochondria and chloroplasts descend from engulfed prokaryotes.",
+       "ek": [
+        "Double membranes, own circular DNA, 70S ribosomes and division by fission."
+       ],
+       "p": [
+        "P6"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-2.11.A"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "cellular-energetics",
+   "n": 3,
+   "title": "Cellular Energetics",
+   "scope": "core",
+   "ideas": [
+    "ENE",
+    "SYI"
+   ],
+   "weight_est": "12–16%",
+   "topics": [
+    {
+     "n": 1,
+     "title": "Enzyme structure",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "ENE-1.D"
+       ],
+       "do": "Explain how the shape and charge of an active site make an enzyme specific for its substrate.",
+       "ek": [
+        "Substrate must fit the active site geometrically and chemically; induced fit tightens binding."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-1.5.A"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "title": "Enzyme catalysis",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "ENE-1.E"
+       ],
+       "do": "Explain on an energy diagram how an enzyme lowers activation energy without changing ΔG.",
+       "ek": [
+        "Enzymes stabilise the transition state; reactant and product energies stay the same."
+       ],
+       "p": [
+        "P1",
+        "P2"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-3.1.A"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "ENE-1.E"
+       ],
+       "do": "Calculate an initial reaction rate from the slope of a product-versus-time graph.",
+       "ek": [
+        "Rate = Δ[product]/Δt over the early linear region, before substrate runs low."
+       ],
+       "p": [
+        "P4",
+        "P5"
+       ],
+       "drills": []
+      }
+     ]
+    },
+    {
+     "n": 3,
+     "title": "Environmental impacts on enzyme function",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "ENE-1.F"
+       ],
+       "do": "Predict how temperature and pH changes alter enzyme shape and reaction rate.",
+       "ek": [
+        "Rate rises with temperature to an optimum, then falls as the enzyme denatures; each enzyme has a pH optimum."
+       ],
+       "p": [
+        "P6"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-3.2.A"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "ENE-1.G"
+       ],
+       "do": "Distinguish competitive from noncompetitive inhibition and predict the effect of adding more substrate.",
+       "ek": [
+        "Competitive binds the active site and is outcompeted by substrate; noncompetitive binds elsewhere and is not."
+       ],
+       "p": [
+        "P1",
+        "P6"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-3.2.A"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "ENE-1.G"
+       ],
+       "do": "Read saturation and inhibition from rate-versus-substrate-concentration curves.",
+       "ek": [
+        "Curve plateaus at Vmax; a competitive inhibitor delays the plateau, a noncompetitive one lowers it."
+       ],
+       "p": [
+        "P4"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-3.3.B"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 4,
+     "title": "Cellular energy",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "ENE-1.H"
+       ],
+       "do": "Explain how coupling to ATP hydrolysis drives an endergonic reaction.",
+       "ek": [
+        "Coupled ΔG is the sum; transferring a phosphate to the substrate makes the overall ΔG negative."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-3.2.A"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "ENE-1.H"
+       ],
+       "do": "Explain why organisms need continuous energy input and what happens when it stops.",
+       "ek": [
+        "Order is maintained only by spending energy; energy loss leads to disorder and death."
+       ],
+       "p": [
+        "P1",
+        "P6"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-3.4.A"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 5,
+     "title": "Photosynthesis",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "ENE-1.I"
+       ],
+       "do": "Write the overall photosynthesis equation and locate the light reactions and the Calvin cycle.",
+       "ek": [
+        "6CO₂ + 6H₂O → C₆H₁₂O₆ + 6O₂; light reactions in thylakoid membranes, Calvin cycle in the stroma."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-2.2.C"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "ENE-1.J"
+       ],
+       "do": "Trace electrons from water through PSII, the ETC and PSI to NADPH and explain how the proton gradient drives ATP synthase.",
+       "ek": [
+        "Water is split to replace PSII electrons; H⁺ pumped into the lumen flows back through ATP synthase."
+       ],
+       "p": [
+        "P1",
+        "P2"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-3.5.A",
+        "BI-2.9.A"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "ENE-1.J"
+       ],
+       "do": "Explain how the Calvin cycle spends ATP and NADPH to fix CO₂ into G3P.",
+       "ek": [
+        "Rubisco fixes CO₂ to RuBP; 3 CO₂ in → 1 G3P out, using 9 ATP and 6 NADPH."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-3.5.B"
+       ]
+      },
+      {
+       "id": "D",
+       "std": [
+        "ENE-1.I"
+       ],
+       "do": "Read absorption and action spectra and calculate pigment Rf values from a chromatogram.",
+       "ek": [
+        "Rf = distance pigment moved / distance solvent moved; chlorophylls absorb blue and red, reflect green."
+       ],
+       "p": [
+        "P4",
+        "P5"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-3.5.A"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 6,
+     "title": "Cellular respiration",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "ENE-1.K"
+       ],
+       "do": "Outline glycolysis, pyruvate oxidation, the Krebs cycle and oxidative phosphorylation with location and products.",
+       "ek": [
+        "Glycolysis (cytosol) → acetyl-CoA and Krebs (matrix) → ETC and ATP synthase (inner membrane)."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-3.4.A",
+        "BI-2.2.C"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "ENE-1.L"
+       ],
+       "do": "Explain chemiosmosis in mitochondria and O₂'s role as the final electron acceptor.",
+       "ek": [
+        "NADH and FADH₂ feed the ETC, which pumps H⁺ into the intermembrane space; ATP synthase uses the gradient; O₂ + e⁻ + H⁺ → H₂O."
+       ],
+       "p": [
+        "P1",
+        "P2"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-3.6.A",
+        "BI-2.9.A"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "ENE-1.L"
+       ],
+       "do": "Predict how an ETC inhibitor or an uncoupler changes O₂ use, the proton gradient and ATP output.",
+       "ek": [
+        "Inhibitors stop flow and O₂ use; uncouplers let H⁺ leak, so O₂ use rises while ATP falls and heat rises."
+       ],
+       "p": [
+        "P6"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-3.6.B"
+       ]
+      },
+      {
+       "id": "D",
+       "std": [
+        "ENE-1.K"
+       ],
+       "do": "Compare fermentation with aerobic respiration by NAD⁺ regeneration and ATP yield.",
+       "ek": [
+        "Fermentation regenerates NAD⁺ so glycolysis continues: 2 ATP per glucose vs about 30–32 aerobically."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-3.6.A"
+       ]
+      },
+      {
+       "id": "E",
+       "std": [
+        "ENE-1.K"
+       ],
+       "do": "Calculate a respiration rate from respirometer data.",
+       "ek": [
+        "Rate = O₂ consumed ÷ time (÷ mass); correct for the control respirometer."
+       ],
+       "p": [
+        "P3",
+        "P5"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-3.6.B"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 7,
+     "title": "Fitness",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "SYI-3.A"
+       ],
+       "do": "Explain how molecular variation lets organisms function in different environments.",
+       "ek": [
+        "Several chlorophyll types widen usable light; membrane lipid saturation tracks temperature; fetal hemoglobin binds O₂ tighter."
+       ],
+       "p": [
+        "P1",
+        "P6"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-3.5.D"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "cell-communication",
+   "n": 4,
+   "title": "Cell Communication and Cell Cycle",
+   "scope": "core",
+   "ideas": [
+    "IST",
+    "ENE"
+   ],
+   "weight_est": "10–15%",
+   "topics": [
+    {
+     "n": 1,
+     "title": "Cell communication",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "IST-3.A"
+       ],
+       "do": "Distinguish communication by direct contact from communication by secreted chemical signals.",
+       "ek": [
+        "Gap junctions and plasmodesmata join cytoplasms; surface molecules allow cell–cell recognition (e.g. antigen presentation)."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": []
+      },
+      {
+       "id": "B",
+       "std": [
+        "IST-3.B"
+       ],
+       "do": "Classify a signal as autocrine, paracrine, synaptic or endocrine, and recognise quorum sensing.",
+       "ek": [
+        "Local signals act on neighbours; hormones travel in the blood to distant targets; bacteria sense density by signal concentration."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-4.1.A"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "title": "Introduction to signal transduction",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "IST-3.C"
+       ],
+       "do": "Identify reception, transduction and response and the molecules that carry out each.",
+       "ek": [
+        "Ligand binds receptor → relay proteins and second messengers → change in enzyme activity or gene expression."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-4.1.B"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "IST-3.D"
+       ],
+       "do": "Explain how ligand binding to a GPCR, receptor tyrosine kinase, ion channel or intracellular receptor starts a response.",
+       "ek": [
+        "Binding changes receptor shape; hydrophobic ligands cross the membrane and bind intracellular receptors."
+       ],
+       "p": [
+        "P1",
+        "P2"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-4.2.A",
+        "BI-2.5.A"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 3,
+     "title": "Signal transduction",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "IST-3.E"
+       ],
+       "do": "Explain how second messengers and phosphorylation cascades amplify a signal.",
+       "ek": [
+        "One receptor activates many G proteins → much cAMP → many kinases, each phosphorylating many targets."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-4.2.B"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "IST-3.F"
+       ],
+       "do": "Describe the kinds of cellular response a pathway can produce.",
+       "ek": [
+        "Change in gene expression, enzyme activation (glycogen breakdown after epinephrine), division or apoptosis."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-4.3.A"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 4,
+     "title": "Changes in signal transduction pathways",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "IST-3.G"
+       ],
+       "do": "Predict how a mutation or drug that alters one pathway component changes the response.",
+       "ek": [
+        "A stuck-on component (constitutive Ras, cholera toxin on Gs) signals without ligand; a broken one blocks it."
+       ],
+       "p": [
+        "P6"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-4.3.A"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 5,
+     "title": "Feedback",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "ENE-3.A"
+       ],
+       "do": "Classify a described regulatory loop as positive or negative feedback.",
+       "ek": [
+        "Negative feedback opposes the change; positive feedback amplifies it."
+       ],
+       "p": [
+        "P1",
+        "P2"
+       ],
+       "drills": []
+      },
+      {
+       "id": "B",
+       "std": [
+        "ENE-3.B"
+       ],
+       "do": "Explain how negative feedback holds a set point, using blood glucose or body temperature.",
+       "ek": [
+        "High glucose → insulin → uptake and storage; low glucose → glucagon → release."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-4.5.A"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "ENE-3.C"
+       ],
+       "do": "Explain a positive-feedback example and what ends it.",
+       "ek": [
+        "Oxytocin in labour, ethylene in ripening, platelet clotting — each stops when the triggering event finishes."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-4.5.A"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 6,
+     "title": "Cell cycle",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "IST-1.B"
+       ],
+       "do": "Describe G1, S, G2, M and G0 and track DNA content per cell through the cycle.",
+       "ek": [
+        "S doubles DNA (2c → 4c); cytokinesis returns each daughter to 2c."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-1.6.A"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "IST-1.C"
+       ],
+       "do": "Order the stages of mitosis and describe chromosome behaviour in each.",
+       "ek": [
+        "Prophase condense → metaphase align → anaphase sister chromatids separate → telophase nuclei re-form."
+       ],
+       "p": [
+        "P1",
+        "P2"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-4.6.A"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "IST-1.B"
+       ],
+       "do": "Estimate time spent in each phase from counts of cells in each phase.",
+       "ek": [
+        "Fraction of cells in a phase × total cycle time ≈ time in that phase."
+       ],
+       "p": [
+        "P5"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-4.6.B"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 7,
+     "title": "Regulation of cell cycle",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "IST-1.D"
+       ],
+       "do": "Explain how checkpoints and cyclin–CDK complexes control passage through the cycle.",
+       "ek": [
+        "G1, G2 and M checkpoints check size, DNA damage and spindle attachment; cyclins rise and fall to activate CDKs."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-4.6.A"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "IST-1.E"
+       ],
+       "do": "Explain how failed checkpoint control leads to cancer or apoptosis.",
+       "ek": [
+        "Oncogenes are stuck-on accelerators; loss of tumour suppressors like p53 removes the brakes."
+       ],
+       "p": [
+        "P6"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-4.7.A",
+        "BI-4.4.A"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "heredity",
+   "n": 5,
+   "title": "Heredity",
+   "scope": "core",
+   "ideas": [
+    "IST",
+    "EVO",
+    "SYI"
+   ],
+   "weight_est": "8–11%",
+   "topics": [
+    {
+     "n": 1,
+     "title": "Meiosis",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "IST-1.F"
+       ],
+       "do": "Track chromosome and chromatid number through meiosis I and II from a diploid cell.",
+       "ek": [
+        "Meiosis I separates homologues (2n → n); meiosis II separates sister chromatids."
+       ],
+       "p": [
+        "P1",
+        "P2"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-4.6.B"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "IST-1.G"
+       ],
+       "do": "Compare mitosis and meiosis by number of divisions, products, ploidy and pairing of homologues.",
+       "ek": [
+        "Mitosis: 1 division, 2 identical diploid cells; meiosis: 2 divisions, 4 distinct haploid cells, synapsis in prophase I."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-5.1.A"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "title": "Meiosis and genetic diversity",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "IST-1.H"
+       ],
+       "do": "Explain how crossing over, independent assortment and random fertilisation generate variation, and count assortment combinations.",
+       "ek": [
+        "Independent assortment alone gives 2ⁿ gamete combinations for n chromosome pairs (2²³ in humans)."
+       ],
+       "p": [
+        "P1",
+        "P5"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-5.1.A"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 3,
+     "title": "Mendelian genetics",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "EVO-2.A"
+       ],
+       "do": "Explain why conserved genetic processes across eukaryotes support common ancestry.",
+       "ek": [
+        "DNA as hereditary material, the genetic code and meiosis are shared by all eukaryotes."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-5.1.B"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "IST-1.I"
+       ],
+       "do": "Predict genotype and phenotype ratios of a monohybrid cross with a Punnett square.",
+       "ek": [
+        "Aa × Aa → 1:2:1 genotypes, 3:1 phenotypes; Aa × aa → 1:1."
+       ],
+       "p": [
+        "P5"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-5.1.A"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "IST-1.I"
+       ],
+       "do": "Predict dihybrid and multi-gene outcomes with the product and sum rules.",
+       "ek": [
+        "Independent events multiply; mutually exclusive outcomes add; AaBb × AaBb → 9:3:3:1."
+       ],
+       "p": [
+        "P5"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-5.3.B"
+       ]
+      },
+      {
+       "id": "D",
+       "std": [
+        "IST-1.I"
+       ],
+       "do": "Determine the inheritance pattern from a pedigree and compute a family member's genotype probability.",
+       "ek": [
+        "Autosomal recessive can skip generations; dominant traits appear in every generation; unaffected sibs of affected are 2/3 carriers."
+       ],
+       "p": [
+        "P2",
+        "P5"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-5.3.B"
+       ]
+      },
+      {
+       "id": "E",
+       "std": [
+        "IST-1.I"
+       ],
+       "do": "Use a chi-square test to decide whether cross data fit an expected Mendelian ratio.",
+       "ek": [
+        "χ² = Σ(o − e)²/e; df = categories − 1; reject the null if χ² exceeds the critical value at p = 0.05."
+       ],
+       "p": [
+        "P5"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-5.3.C"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 4,
+     "title": "Non-Mendelian genetics",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "IST-1.J"
+       ],
+       "do": "Predict cross outcomes under incomplete dominance, codominance and multiple alleles.",
+       "ek": [
+        "Incomplete: blended heterozygote (1:2:1 phenotypes); codominant: both expressed (AB blood); ABO has three alleles."
+       ],
+       "p": [
+        "P5"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-5.3.B"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "IST-1.J"
+       ],
+       "do": "Predict offspring ratios for X-linked traits by sex.",
+       "ek": [
+        "Males are hemizygous: one X allele decides the phenotype; carrier mother → half of sons affected."
+       ],
+       "p": [
+        "P5"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-5.3.D"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "IST-1.J"
+       ],
+       "do": "Recognise linkage from offspring counts and convert recombination frequency to map distance.",
+       "ek": [
+        "Recombinants ÷ total × 100 = map units; linked genes give excess parental types."
+       ],
+       "p": [
+        "P5"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-5.2.A",
+        "BI-5.3.C"
+       ]
+      },
+      {
+       "id": "D",
+       "std": [
+        "IST-1.J"
+       ],
+       "do": "Explain maternal inheritance of organelle genes and the continuous variation of polygenic traits.",
+       "ek": [
+        "Mitochondria and chloroplasts come via the egg; many additive genes give a bell-shaped trait distribution."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-2.11.B"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 5,
+     "title": "Environmental effects on phenotype",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "SYI-3.B"
+       ],
+       "do": "Explain how one genotype can give different phenotypes in different environments.",
+       "ek": [
+        "Soil pH changes hydrangea colour; incubation temperature sets sex in some reptiles; diet controls PKU symptoms."
+       ],
+       "p": [
+        "P1",
+        "P6"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-5.3.B"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 6,
+     "title": "Chromosomal inheritance",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "SYI-3.C"
+       ],
+       "do": "Explain how nondisjunction produces aneuploid gametes and name resulting human conditions.",
+       "ek": [
+        "A meiosis I error makes all four gametes abnormal, a meiosis II error two; trisomy 21, XO (Turner), XXY (Klinefelter)."
+       ],
+       "p": [
+        "P1",
+        "P6"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-5.1.A"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "SYI-3.C"
+       ],
+       "do": "Read sex and chromosome-number abnormalities from a karyotype.",
+       "ek": [
+        "Count 22 autosome pairs plus the sex chromosomes; an extra or missing chromosome shows as 47 or 45."
+       ],
+       "p": [
+        "P2"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-5.6.A"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "gene-expression",
+   "n": 6,
+   "title": "Gene Expression and Regulation",
+   "scope": "core",
+   "ideas": [
+    "IST"
+   ],
+   "weight_est": "12–16%",
+   "topics": [
+    {
+     "n": 1,
+     "title": "DNA and RNA structure",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "IST-1.K"
+       ],
+       "do": "Compare how genomes are organised in prokaryotes and eukaryotes.",
+       "ek": [
+        "Prokaryotes: one circular chromosome plus plasmids; eukaryotes: several linear chromosomes wrapped on histones."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-2.11.A"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "IST-1.L"
+       ],
+       "do": "Explain which features suit DNA to carry heredity and the experiments that showed it does.",
+       "ek": [
+        "Complementary pairing allows copying and repair; Griffith, Avery–MacLeod–McCarty and Hershey–Chase identified DNA as the genetic material."
+       ],
+       "p": [
+        "P3",
+        "P6"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-1.6.B",
+        "BI-1.2.B"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "title": "Replication",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "IST-1.M"
+       ],
+       "do": "Describe semiconservative replication and the roles of helicase, topoisomerase, primase, DNA polymerase and ligase.",
+       "ek": [
+        "Each daughter helix keeps one parent strand; polymerase needs a primer and adds only to a 3′ end."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-6.1.B"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "IST-1.M"
+       ],
+       "do": "Explain leading- versus lagging-strand synthesis and Okazaki fragments.",
+       "ek": [
+        "5′→3′ synthesis on antiparallel templates forces one strand to be made in fragments joined by ligase."
+       ],
+       "p": [
+        "P1",
+        "P2"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-6.2.A"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "IST-1.M"
+       ],
+       "do": "Predict Meselson–Stahl density bands after n generations in ¹⁴N medium.",
+       "ek": [
+        "Gen 1: all hybrid; gen n: 2/2ⁿ hybrid, rest light."
+       ],
+       "p": [
+        "P5"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-6.2.A"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 3,
+     "title": "Transcription and RNA processing",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "IST-1.N"
+       ],
+       "do": "Transcribe a template strand into mRNA and tell the template strand from the coding strand.",
+       "ek": [
+        "mRNA matches the coding strand (U for T) and is complementary, antiparallel to the template."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-1.6.B"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "IST-1.N"
+       ],
+       "do": "Describe the 5′ cap, poly-A tail and splicing, and how alternative splicing yields several proteins from one gene.",
+       "ek": [
+        "Introns are removed and exons joined; different exon combinations make different proteins."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-6.3.A"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 4,
+     "title": "Translation",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "IST-1.O"
+       ],
+       "do": "Translate an mRNA into an amino acid sequence with a codon table, finding the start and stop codons.",
+       "ek": [
+        "Read 5′→3′ in triplets from AUG (Met) to UAA, UAG or UGA."
+       ],
+       "p": [
+        "P1",
+        "P5"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-6.3.A"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "IST-1.O"
+       ],
+       "do": "Describe initiation, elongation and termination with the ribosome's A, P and E sites.",
+       "ek": [
+        "Charged tRNA enters A, peptide transfers to it, ribosome shifts so tRNA moves P → E; release factor ends it at a stop codon."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-6.4.A",
+        "BI-2.1.A"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 5,
+     "title": "Regulation of gene expression",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "IST-2.A"
+       ],
+       "do": "Explain how regulatory proteins, histone acetylation and DNA methylation turn eukaryotic genes up or down.",
+       "ek": [
+        "Acetylation loosens chromatin (more transcription); promoter methylation silences; these epigenetic marks can be inherited."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-6.3.A",
+        "BI-6.1.A"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "IST-2.B"
+       ],
+       "do": "Predict lac (inducible) and trp (repressible) operon expression under given conditions.",
+       "ek": [
+        "Lactose inactivates the lac repressor; tryptophan activates the trp repressor; the operator lies between promoter and genes."
+       ],
+       "p": [
+        "P6"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-6.5.A"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 6,
+     "title": "Gene expression and cell specialization",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "IST-2.C"
+       ],
+       "do": "Explain how a combination of transcription factors at enhancers sets a gene's expression level.",
+       "ek": [
+        "Activators and repressors bind regulatory sequences; the particular combination present decides transcription."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-6.5.A"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "IST-2.D"
+       ],
+       "do": "Explain how differential gene expression makes different cell types from one genome.",
+       "ek": [
+        "Every cell has the same DNA; different transcription factors switch on different gene sets."
+       ],
+       "p": [
+        "P1",
+        "P6"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-6.6.A"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 7,
+     "title": "Mutations",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "IST-2.E"
+       ],
+       "do": "Classify a point mutation as silent, missense, nonsense or frameshift and predict its effect on the protein.",
+       "ek": [
+        "Insertions or deletions not in multiples of three shift the reading frame downstream."
+       ],
+       "p": [
+        "P1",
+        "P6"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-6.4.A"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "IST-4.A"
+       ],
+       "do": "Explain how a change in genotype changes phenotype, using sickle-cell anaemia.",
+       "ek": [
+        "One base change → Glu→Val → hemoglobin polymerises → sickled cells."
+       ],
+       "p": [
+        "P6"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-6.7.A",
+        "BI-1.5.B"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "IST-4.B"
+       ],
+       "do": "Explain how replication errors, horizontal gene transfer and viral recombination create variation selection can act on.",
+       "ek": [
+        "Transformation, transduction and conjugation move genes between bacteria; RNA viruses mutate fast."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-6.7.A"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 8,
+     "title": "Biotechnology",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "IST-1.P"
+       ],
+       "do": "Read gel electrophoresis band patterns to compare fragment sizes and match samples.",
+       "ek": [
+        "DNA is negative and runs toward +; smaller fragments travel farther."
+       ],
+       "p": [
+        "P2",
+        "P4"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-6.1.B"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "IST-1.P"
+       ],
+       "do": "Describe the PCR cycle and calculate copies after n cycles.",
+       "ek": [
+        "Denature (~95 °C) → anneal primers → extend with Taq; copies = initial × 2ⁿ."
+       ],
+       "p": [
+        "P1",
+        "P5"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-6.2.A"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "IST-1.P"
+       ],
+       "do": "Describe bacterial transformation with a recombinant plasmid and how restriction enzymes and sequencing are used.",
+       "ek": [
+        "Cut vector and insert with the same restriction enzyme, ligate, transform, select on antibiotic."
+       ],
+       "p": [
+        "P1",
+        "P3"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-6.8.A",
+        "BI-6.7.C"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "natural-selection",
+   "n": 7,
+   "title": "Natural Selection",
+   "scope": "core",
+   "ideas": [
+    "EVO",
+    "SYI"
+   ],
+   "weight_est": "13–20%",
+   "topics": [
+    {
+     "n": 1,
+     "title": "Introduction to natural selection",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "EVO-1.C"
+       ],
+       "do": "Identify the conditions natural selection needs from a scenario.",
+       "ek": [
+        "Heritable variation, more offspring than survive, and differential survival and reproduction tied to that variation."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-6.7.C"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "EVO-1.D"
+       ],
+       "do": "Explain how selection on phenotypes changes allele frequencies and define fitness.",
+       "ek": [
+        "Fitness is reproductive success; selection acts on individuals, but populations evolve."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-7.1.A"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "title": "Natural selection",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "EVO-1.E"
+       ],
+       "do": "Classify selection as directional, stabilising or disruptive from before-and-after trait distributions.",
+       "ek": [
+        "Directional shifts the mean; stabilising narrows it; disruptive favours both extremes."
+       ],
+       "p": [
+        "P4"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-7.1.B"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 3,
+     "title": "Artificial selection",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "EVO-1.F"
+       ],
+       "do": "Explain how human choice of breeders or human-imposed pressures change a population's diversity.",
+       "ek": [
+        "Selective breeding and antibiotic or pesticide use select for chosen or resistant traits."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-7.1.B"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "EVO-1.G"
+       ],
+       "do": "Explain convergent evolution as similar selection in similar environments.",
+       "ek": [
+        "Unrelated lineages evolve analogous traits (wings in birds and bats, fins in sharks and dolphins)."
+       ],
+       "p": [
+        "P1",
+        "P6"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-7.1.B"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 4,
+     "title": "Population genetics",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "EVO-1.H"
+       ],
+       "do": "Distinguish genetic drift, bottleneck, founder effect and gene flow.",
+       "ek": [
+        "Drift is random change in allele frequency; bottleneck and founder effects are drift after a sharp drop or a small colony."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-7.1.B"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "EVO-1.I"
+       ],
+       "do": "Explain why chance changes allele frequencies more in small populations.",
+       "ek": [
+        "Sampling error is larger with fewer breeders; alleles can be lost or fixed regardless of fitness."
+       ],
+       "p": [
+        "P6"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-7.4.A"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "EVO-1.J"
+       ],
+       "do": "Explain how mutation and gene flow shift a population's genetic makeup over time.",
+       "ek": [
+        "Mutation is the ultimate source of new alleles; migration makes populations more alike."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-7.4.A"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 5,
+     "title": "Hardy–Weinberg equilibrium",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "EVO-1.K"
+       ],
+       "do": "Calculate allele and genotype frequencies with p + q = 1 and p² + 2pq + q² = 1.",
+       "ek": [
+        "q² is the recessive phenotype frequency; q = √q²; carriers = 2pq."
+       ],
+       "p": [
+        "P5"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-5.3.B"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "EVO-1.K"
+       ],
+       "do": "State the five conditions under which allele frequencies stay constant.",
+       "ek": [
+        "No mutation, no migration, no selection, random mating, very large population."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-7.4.C"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "EVO-1.L"
+       ],
+       "do": "Decide from frequency data whether a population is evolving and name the condition that is failing.",
+       "ek": [
+        "Observed genotype counts far from p², 2pq, q² (by χ²) or changing across generations mean evolution."
+       ],
+       "p": [
+        "P5",
+        "P6"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-7.5.A",
+        "BI-7.5.B",
+        "BI-5.3.E"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 6,
+     "title": "Evidence of evolution",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "EVO-1.M"
+       ],
+       "do": "Describe the kinds of data that support evolution.",
+       "ek": [
+        "Fossils, comparative anatomy, molecular sequences, embryology and biogeography."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": []
+      },
+      {
+       "id": "B",
+       "std": [
+        "EVO-1.N"
+       ],
+       "do": "Distinguish homologous, analogous and vestigial structures and date fossils from radioisotope half-lives.",
+       "ek": [
+        "Fraction remaining = (1/2)^(t / t½); homology reflects shared ancestry, analogy reflects convergence."
+       ],
+       "p": [
+        "P1",
+        "P5"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-7.6.A",
+        "BI-7.3.B"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 7,
+     "title": "Common ancestry",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "EVO-2.B"
+       ],
+       "do": "Identify molecular features shared by all living things as evidence of a common ancestor.",
+       "ek": [
+        "DNA/RNA genetic material, a nearly universal genetic code, ribosomes and core metabolic pathways like glycolysis."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-6.4.A"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "EVO-2.C"
+       ],
+       "do": "Identify features shared by all eukaryotes as evidence of their common ancestry.",
+       "ek": [
+        "Membrane-bound organelles, linear chromosomes and genes with introns."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-7.7.A",
+        "BI-2.11.B"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 8,
+     "title": "Continuing evolution",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "EVO-3.A"
+       ],
+       "do": "Explain current examples showing evolution is ongoing.",
+       "ek": [
+        "Antibiotic and pesticide resistance, seasonal flu strains, changing fossil and genomic records."
+       ],
+       "p": [
+        "P1",
+        "P6"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-7.3.A"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 9,
+     "title": "Phylogeny",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "EVO-3.B"
+       ],
+       "do": "Describe the morphological and molecular evidence used to infer relatedness, and prefer molecular data when they conflict.",
+       "ek": [
+        "Fewer sequence differences = more recent common ancestor; molecular data avoid convergence errors."
+       ],
+       "p": [
+        "P1",
+        "P3"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-7.6.B"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "EVO-3.C"
+       ],
+       "do": "Read a phylogenetic tree or cladogram for most recent common ancestors, sister taxa and shared derived traits.",
+       "ek": [
+        "Nodes are ancestors; relatedness is read from nodes, not from tip order."
+       ],
+       "p": [
+        "P2"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-7.9.A"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "EVO-3.C"
+       ],
+       "do": "Build the most parsimonious cladogram from a table of shared derived characters.",
+       "ek": [
+        "Group taxa by shared derived traits; prefer the tree with the fewest character changes; the outgroup roots it."
+       ],
+       "p": [
+        "P2",
+        "P4"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-7.9.B"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 10,
+     "title": "Speciation",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "EVO-3.D"
+       ],
+       "do": "Apply the biological species concept and distinguish allopatric from sympatric speciation.",
+       "ek": [
+        "Species = interbreeding populations producing fertile offspring; allopatric needs a geographic barrier, sympatric does not (polyploidy)."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-7.4.A"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "EVO-3.E"
+       ],
+       "do": "Contrast punctuated equilibrium with gradualism and relate rate to adaptive radiation.",
+       "ek": [
+        "Long stasis with rapid bursts vs steady change; open niches speed diversification."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-7.10.A"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "EVO-3.F"
+       ],
+       "do": "Classify a reproductive barrier in a scenario as prezygotic or postzygotic and name its type.",
+       "ek": [
+        "Prezygotic: habitat, temporal, behavioural, mechanical, gametic; postzygotic: hybrid inviability, sterility, breakdown."
+       ],
+       "p": [
+        "P1",
+        "P6"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-7.10.A"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 11,
+     "title": "Extinction",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "EVO-3.G"
+       ],
+       "do": "Describe factors that drive a population to extinction.",
+       "ek": [
+        "Habitat loss, rapid environmental change, disease, competition, small population size."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": []
+      },
+      {
+       "id": "B",
+       "std": [
+        "EVO-3.H"
+       ],
+       "do": "Explain how the speed of environmental change, including human change, affects extinction risk.",
+       "ek": [
+        "Change faster than populations can adapt raises extinction rates."
+       ],
+       "p": [
+        "P6"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-7.11.A"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "EVO-3.I",
+        "EVO-3.J"
+       ],
+       "do": "Explain diversity as speciation rate minus extinction rate and how mass extinctions open niches for adaptive radiation.",
+       "ek": [
+        "After the end-Cretaceous extinction, mammals radiated into vacated niches."
+       ],
+       "p": [
+        "P1",
+        "P4"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-7.10.B",
+        "BI-7.11.A"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 12,
+     "title": "Variations in populations",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "SYI-3.D"
+       ],
+       "do": "Explain how a population's genetic diversity affects its ability to survive environmental pressure.",
+       "ek": [
+        "Low diversity (Irish potato monoculture, cheetahs) means one disease or change can hit everyone."
+       ],
+       "p": [
+        "P6"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-7.4.B"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 13,
+     "title": "Origins of life on Earth",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "SYI-3.E"
+       ],
+       "do": "Describe the evidence for hypotheses about how life began.",
+       "ek": [
+        "Earth ~4.6 Byr, life by ~3.5 Byr; Miller–Urey made organics abiotically; RNA can store information and catalyse (RNA world)."
+       ],
+       "p": [
+        "P1",
+        "P3"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-7.6.B"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ecology",
+   "n": 8,
+   "title": "Ecology",
+   "scope": "core",
+   "ideas": [
+    "ENE",
+    "SYI",
+    "EVO",
+    "IST"
+   ],
+   "weight_est": "10–15%",
+   "topics": [
+    {
+     "n": 1,
+     "title": "Responses to the environment",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "ENE-3.D"
+       ],
+       "do": "Explain how organisms change behaviour or physiology in response to environmental cues.",
+       "ek": [
+        "Taxis and kinesis, photoperiodism, hibernation and migration time activity to conditions."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-4.5.B"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "IST-5.A"
+       ],
+       "do": "Explain how signals between organisms change behaviour and how cooperation can raise fitness.",
+       "ek": [
+        "Visual, auditory, chemical and tactile signals; kin selection explains altruism toward relatives."
+       ],
+       "p": [
+        "P1",
+        "P6"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-8.1.A",
+        "BI-7.1.B"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "title": "Energy flow through ecosystems",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "ENE-1.M"
+       ],
+       "do": "Compare endotherms and ectotherms and relate metabolic rate per gram to body size.",
+       "ek": [
+        "Smaller endotherms have higher mass-specific metabolic rates (larger SA/V)."
+       ],
+       "p": [
+        "P1",
+        "P4"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-2.3.B"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "ENE-1.N"
+       ],
+       "do": "Predict how a change in energy availability changes population size and ecosystem structure.",
+       "ek": [
+        "Less energy at the base shrinks every level above it; surplus energy lets populations grow."
+       ],
+       "p": [
+        "P6"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-8.2.A"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "ENE-1.O"
+       ],
+       "do": "Calculate energy passed between trophic levels and distinguish gross from net primary productivity.",
+       "ek": [
+        "About 10% transfers per level; NPP = GPP − respiration."
+       ],
+       "p": [
+        "P5"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-8.2.B"
+       ]
+      },
+      {
+       "id": "D",
+       "std": [
+        "ENE-1.O"
+       ],
+       "do": "Trace carbon, nitrogen, phosphorus and water through their biogeochemical cycles.",
+       "ek": [
+        "N₂ fixation → nitrification → assimilation → ammonification → denitrification; phosphorus has no atmospheric phase."
+       ],
+       "p": [
+        "P1",
+        "P2"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-3.6.A",
+        "BI-3.5.A"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 3,
+     "title": "Population ecology",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "SYI-1.G"
+       ],
+       "do": "Calculate per-capita birth and death rates and r from population counts.",
+       "ek": [
+        "b = B/N, d = D/N, r = b − d."
+       ],
+       "p": [
+        "P5"
+       ],
+       "drills": []
+      },
+      {
+       "id": "B",
+       "std": [
+        "SYI-1.G"
+       ],
+       "do": "Calculate growth with dN/dt = r_max N and recognise a J-shaped curve.",
+       "ek": [
+        "Unlimited resources give exponential growth; growth rate scales with N."
+       ],
+       "p": [
+        "P4",
+        "P5"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-8.3.A"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 4,
+     "title": "Effect of density of populations",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "SYI-1.H"
+       ],
+       "do": "Calculate logistic growth with dN/dt = r_max N (K − N)/K and locate K on a graph.",
+       "ek": [
+        "Growth is fastest at N = K/2 and stops at K."
+       ],
+       "p": [
+        "P4",
+        "P5"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-8.3.B"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "SYI-1.H"
+       ],
+       "do": "Classify a limiting factor as density-dependent or density-independent.",
+       "ek": [
+        "Competition, disease and predation scale with density; fire, floods and freezes do not."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-8.4.A"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 5,
+     "title": "Community ecology",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "ENE-4.A"
+       ],
+       "do": "Calculate Simpson's diversity index and compare communities by richness and evenness.",
+       "ek": [
+        "D = 1 − Σ(n/N)²; closer to 1 is more diverse."
+       ],
+       "p": [
+        "P5"
+       ],
+       "drills": []
+      },
+      {
+       "id": "B",
+       "std": [
+        "ENE-4.B"
+       ],
+       "do": "Classify species interactions by their +, − or 0 effect on each partner.",
+       "ek": [
+        "Mutualism +/+, commensalism +/0, predation and parasitism +/−, competition −/−."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": []
+      },
+      {
+       "id": "C",
+       "std": [
+        "ENE-4.B"
+       ],
+       "do": "Interpret predator–prey cycles, competitive exclusion and resource partitioning from data.",
+       "ek": [
+        "Predator peaks lag prey peaks; two species cannot share one niche indefinitely."
+       ],
+       "p": [
+        "P4",
+        "P6"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-8.5.B"
+       ]
+      },
+      {
+       "id": "D",
+       "std": [
+        "ENE-4.C"
+       ],
+       "do": "Explain how resource availability drives community change, including primary and secondary succession.",
+       "ek": [
+        "Primary starts on bare rock with pioneer species; secondary starts on existing soil."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-8.5.B"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 6,
+     "title": "Biodiversity",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "SYI-3.F"
+       ],
+       "do": "Explain why ecosystems with higher diversity are more resilient.",
+       "ek": [
+        "More species means redundancy: if one fails another fills the role."
+       ],
+       "p": [
+        "P6"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-8.5.A"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "SYI-3.G"
+       ],
+       "do": "Predict the effect of removing a keystone species, a producer or an essential abiotic factor.",
+       "ek": [
+        "Keystone effects exceed abundance (sea otters → urchins → kelp); losing producers collapses the food web."
+       ],
+       "p": [
+        "P6"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-8.6.A",
+        "BI-8.2.C"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 7,
+     "title": "Disruptions to ecosystems",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "EVO-1.O"
+       ],
+       "do": "Explain how environmental change selects among variants already present in a population.",
+       "ek": [
+        "Heterozygote advantage (sickle-cell trait and malaria) keeps a harmful allele common."
+       ],
+       "p": [
+        "P1",
+        "P6"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-7.1.B",
+        "BI-6.7.B"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "SYI-2.A"
+       ],
+       "do": "Explain how an invasive species spreads and disrupts a native community.",
+       "ek": [
+        "Freed from its natural predators and competitors, it outcompetes natives."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-8.5.B"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "SYI-2.B"
+       ],
+       "do": "Describe how human activity changes ecosystems: habitat loss, biomagnification, eutrophication and climate change.",
+       "ek": [
+        "Fat-soluble toxins concentrate up food chains; excess nutrients → algal bloom → decomposition → O₂ depletion."
+       ],
+       "p": [
+        "P1",
+        "P6"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-8.2.D"
+       ]
+      },
+      {
+       "id": "D",
+       "std": [
+        "SYI-2.C"
+       ],
+       "do": "Explain how geological and meteorological events change ecosystems.",
+       "ek": [
+        "Volcanic eruptions, El Niño and impacts reshape habitats and can trigger succession."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-8.5.D"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "systems",
+   "n": 9,
+   "title": "Anatomy and Physiology",
+   "scope": "extension",
+   "ideas": [
+    "SYI",
+    "ENE",
+    "IST"
+   ],
+   "weight_est": "DAT Biology: Structure and Function of Systems",
+   "topics": [
+    {
+     "n": 1,
+     "title": "Nervous and sensory systems",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "DAT Bio · systems · nervous"
+       ],
+       "do": "Explain how a neuron generates and propagates an action potential.",
+       "ek": [
+        "Threshold opens voltage-gated Na⁺ channels (depolarise), then K⁺ channels (repolarise); myelin gives saltatory conduction."
+       ],
+       "p": [
+        "P1",
+        "P2"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-2.9.A"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "DAT Bio · systems · nervous/sensory"
+       ],
+       "do": "Explain synaptic transmission and match nervous-system divisions and sensory receptors to their roles.",
+       "ek": [
+        "Ca²⁺ entry triggers neurotransmitter release; sympathetic = fight-or-flight, parasympathetic = rest-and-digest; rods dim light, cones colour."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-9.1.A",
+        "BI-4.1.B"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "title": "Endocrine system",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "DAT Bio · systems · endocrine"
+       ],
+       "do": "Distinguish peptide from steroid hormone action.",
+       "ek": [
+        "Peptides bind surface receptors and use second messengers; steroids enter the cell and act as transcription factors."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-4.2.B"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "DAT Bio · systems · endocrine"
+       ],
+       "do": "Match major glands to their hormones and targets and predict hypothalamic–pituitary feedback.",
+       "ek": [
+        "Hypothalamus → anterior pituitary tropic hormones → target gland; the target hormone inhibits both upstream."
+       ],
+       "p": [
+        "P1",
+        "P6"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-9.2.A",
+        "BI-4.5.B"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 3,
+     "title": "Muscular, skeletal and integumentary systems",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "DAT Bio · systems · muscular"
+       ],
+       "do": "Explain the sliding-filament cycle and its dependence on Ca²⁺ and ATP.",
+       "ek": [
+        "Ca²⁺ binds troponin, tropomyosin uncovers actin; ATP binding releases myosin, hydrolysis re-cocks it."
+       ],
+       "p": [
+        "P1",
+        "P2"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-9.1.B"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "DAT Bio · systems · skeletal/integumentary"
+       ],
+       "do": "Predict bone and blood-Ca²⁺ responses to PTH and calcitonin, and name the skin's layers and roles.",
+       "ek": [
+        "Osteoclasts resorb, osteoblasts build; PTH raises blood Ca²⁺, calcitonin lowers it; epidermis protects, dermis holds vessels and glands."
+       ],
+       "p": [
+        "P1",
+        "P6"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-9.2.B"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 4,
+     "title": "Circulatory and respiratory systems",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "DAT Bio · systems · circulatory"
+       ],
+       "do": "Trace blood through the heart and body and relate vessel structure to pressure.",
+       "ek": [
+        "RA → RV → lungs → LA → LV → aorta; arteries thick and high-pressure, veins valved, capillaries one cell thick."
+       ],
+       "p": [
+        "P1",
+        "P2"
+       ],
+       "drills": []
+      },
+      {
+       "id": "B",
+       "std": [
+        "DAT Bio · systems · circulatory"
+       ],
+       "do": "Predict how CO₂, pH and temperature shift the oxygen–hemoglobin dissociation curve.",
+       "ek": [
+        "↑CO₂, ↑H⁺, ↑temperature shift right (lower affinity, more unloading — Bohr effect)."
+       ],
+       "p": [
+        "P4",
+        "P6"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-9.4.A",
+        "BI-1.5.A"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "DAT Bio · systems · respiratory"
+       ],
+       "do": "Explain ventilation, alveolar gas exchange and how blood CO₂ sets breathing rate.",
+       "ek": [
+        "Diaphragm contracts → chest volume up, pressure down → air in; medulla responds to falling blood pH."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-9.4.B",
+        "BI-2.3.C"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 5,
+     "title": "Immune and lymphatic systems",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "DAT Bio · systems · immunological/lymphatic"
+       ],
+       "do": "Distinguish innate from adaptive immunity.",
+       "ek": [
+        "Innate: barriers, phagocytes, inflammation, fast and nonspecific; adaptive: lymphocytes, specific, with memory."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": []
+      },
+      {
+       "id": "B",
+       "std": [
+        "DAT Bio · systems · immunological/lymphatic"
+       ],
+       "do": "Explain humoral and cell-mediated responses, MHC presentation and immunological memory.",
+       "ek": [
+        "B cells → plasma cells → antibodies; CD8⁺ T cells kill MHC-I-presenting infected cells; CD4⁺ helpers see MHC II; memory cells speed the second response."
+       ],
+       "p": [
+        "P1",
+        "P4"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-9.5.A",
+        "BI-4.1.A"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 6,
+     "title": "Digestive and urinary systems",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "DAT Bio · systems · digestive"
+       ],
+       "do": "Trace each macromolecule class through digestion: enzyme, site and absorbed product.",
+       "ek": [
+        "Amylase (mouth, duodenum) → sugars; pepsin, trypsin → amino acids; bile + lipase → fatty acids and monoglycerides."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-1.4.A",
+        "BI-3.1.A"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "DAT Bio · systems · urinary"
+       ],
+       "do": "Trace filtrate through the nephron and predict how ADH and aldosterone change urine.",
+       "ek": [
+        "Glomerulus filters, PCT reabsorbs most solute, loop builds the medullary gradient; ADH adds aquaporins, aldosterone boosts Na⁺ reabsorption."
+       ],
+       "p": [
+        "P1",
+        "P6"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-2.8.C",
+        "BI-9.2.B"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 7,
+     "title": "Reproductive system",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "DAT Bio · systems · reproductive"
+       ],
+       "do": "Sequence the ovarian and menstrual cycle hormone changes and their feedback.",
+       "ek": [
+        "FSH grows follicles → estrogen peak flips to positive feedback → LH surge → ovulation → corpus luteum progesterone."
+       ],
+       "p": [
+        "P1",
+        "P4"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-9.2.B",
+        "BI-4.5.C"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "DAT Bio · systems · reproductive"
+       ],
+       "do": "Compare spermatogenesis with oogenesis by timing and products.",
+       "ek": [
+        "Spermatogenesis is continuous and makes four sperm; oogenesis pauses in prophase I and makes one egg plus polar bodies."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-5.1.B"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "development-diversity",
+   "n": 10,
+   "title": "Developmental Biology and Microbiology",
+   "scope": "extension",
+   "ideas": [
+    "IST",
+    "EVO",
+    "SYI"
+   ],
+   "weight_est": "DAT Biology: Genetics (developmental mechanisms) · Diversity of Life",
+   "topics": [
+    {
+     "n": 1,
+     "title": "Early development",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "DAT Bio · genetics · developmental mechanisms"
+       ],
+       "do": "Order fertilisation, cleavage, blastulation, gastrulation and neurulation and describe each.",
+       "ek": [
+        "Acrosomal reaction and cortical reaction block polyspermy; cleavage divides without growth; gastrulation forms germ layers."
+       ],
+       "p": [
+        "P1",
+        "P2"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-9.7.B"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "DAT Bio · genetics · developmental mechanisms"
+       ],
+       "do": "Assign tissues and organs to ectoderm, mesoderm or endoderm.",
+       "ek": [
+        "Ectoderm: nervous system, epidermis; mesoderm: muscle, bone, blood, kidney; endoderm: gut and lung lining, liver."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-10.1.A"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "title": "Developmental mechanisms",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "DAT Bio · genetics · developmental mechanisms"
+       ],
+       "do": "Explain induction, determination, differentiation, homeotic genes and programmed cell death in shaping an embryo.",
+       "ek": [
+        "Signals from one tissue induce another; Hox genes specify segment identity; apoptosis sculpts digits."
+       ],
+       "p": [
+        "P1",
+        "P6"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-6.6.B",
+        "BI-10.1.A"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 3,
+     "title": "Viruses",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "DAT Bio · diversity · viruses"
+       ],
+       "do": "Describe virus structure and compare lytic, lysogenic and retroviral life cycles.",
+       "ek": [
+        "Capsid around DNA or RNA, no metabolism of its own; lysogenic phage integrates as a prophage; retroviruses use reverse transcriptase."
+       ],
+       "p": [
+        "P1",
+        "P2"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-6.3.A",
+        "BI-6.7.C"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 4,
+     "title": "Prokaryotes",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "DAT Bio · diversity · archaebacteria/eubacteria"
+       ],
+       "do": "Classify a bacterium by shape, Gram stain and O₂ requirement, and distinguish Archaea from Bacteria.",
+       "ek": [
+        "Gram+ thick peptidoglycan; Gram− thin wall plus LPS outer membrane; Archaea have ether-linked lipids and no peptidoglycan."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-2.11.A",
+        "BI-2.5.B"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "DAT Bio · diversity · eubacteria"
+       ],
+       "do": "Calculate bacterial population size after a number of generations of binary fission.",
+       "ek": [
+        "N = N₀ × 2ⁿ, n = elapsed time ÷ generation time."
+       ],
+       "p": [
+        "P5"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-10.4.A"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 5,
+     "title": "Eukaryotic diversity",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "DAT Bio · diversity · fungi/protista"
+       ],
+       "do": "Distinguish fungi, protists, plants and animals by wall, nutrition and life cycle.",
+       "ek": [
+        "Fungi: chitin walls, absorptive heterotrophs, haploid-dominant; Protista is a paraphyletic catch-all."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-2.11.B"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "DAT Bio · diversity · plantae"
+       ],
+       "do": "Describe alternation of generations and order plant groups by key innovation.",
+       "ek": [
+        "Mosses (gametophyte-dominant) → ferns (vascular) → gymnosperms (seeds) → angiosperms (flowers, fruit, double fertilisation)."
+       ],
+       "p": [
+        "P1",
+        "P2"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-10.5.A",
+        "BI-5.1.B"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "DAT Bio · diversity · animalia"
+       ],
+       "do": "Classify an animal by symmetry, germ layers, body cavity and protostome or deuterostome development.",
+       "ek": [
+        "Deuterostomes (echinoderms, chordates): blastopore becomes anus; chordates have notochord, dorsal nerve cord, pharyngeal slits, post-anal tail."
+       ],
+       "p": [
+        "P1",
+        "P2"
+       ],
+       "drills": [],
+       "needs": [
+        "BI-10.1.B",
+        "BI-7.9.B"
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "rows": [
+  {
+   "code": "BI-1.1.A",
+   "unit": 1,
+   "topic": 1,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-1.1.B",
+   "unit": 1,
+   "topic": 1,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-1.2.A",
+   "unit": 1,
+   "topic": 2,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-1.2.B",
+   "unit": 1,
+   "topic": 2,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-1.3.A",
+   "unit": 1,
+   "topic": 3,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-1.3.B",
+   "unit": 1,
+   "topic": 3,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-1.4.A",
+   "unit": 1,
+   "topic": 4,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-1.4.B",
+   "unit": 1,
+   "topic": 4,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-1.4.C",
+   "unit": 1,
+   "topic": 4,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-1.4.D",
+   "unit": 1,
+   "topic": 4,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-1.5.A",
+   "unit": 1,
+   "topic": 5,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-1.5.B",
+   "unit": 1,
+   "topic": 5,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-1.5.C",
+   "unit": 1,
+   "topic": 5,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-1.6.A",
+   "unit": 1,
+   "topic": 6,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-1.6.B",
+   "unit": 1,
+   "topic": 6,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-2.1.A",
+   "unit": 2,
+   "topic": 1,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-2.1.B",
+   "unit": 2,
+   "topic": 1,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-2.2.A",
+   "unit": 2,
+   "topic": 2,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-2.2.B",
+   "unit": 2,
+   "topic": 2,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-2.2.C",
+   "unit": 2,
+   "topic": 2,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-2.3.A",
+   "unit": 2,
+   "topic": 3,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-2.3.B",
+   "unit": 2,
+   "topic": 3,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-2.3.C",
+   "unit": 2,
+   "topic": 3,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-2.4.A",
+   "unit": 2,
+   "topic": 4,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-2.4.B",
+   "unit": 2,
+   "topic": 4,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-2.5.A",
+   "unit": 2,
+   "topic": 5,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-2.5.B",
+   "unit": 2,
+   "topic": 5,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-2.6.A",
+   "unit": 2,
+   "topic": 6,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-2.6.B",
+   "unit": 2,
+   "topic": 6,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-2.7.A",
+   "unit": 2,
+   "topic": 7,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-2.7.B",
+   "unit": 2,
+   "topic": 7,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-2.8.A",
+   "unit": 2,
+   "topic": 8,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-2.8.B",
+   "unit": 2,
+   "topic": 8,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-2.8.C",
+   "unit": 2,
+   "topic": 8,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-2.9.A",
+   "unit": 2,
+   "topic": 9,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-2.9.B",
+   "unit": 2,
+   "topic": 9,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-2.10.A",
+   "unit": 2,
+   "topic": 10,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-2.10.B",
+   "unit": 2,
+   "topic": 10,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-2.11.A",
+   "unit": 2,
+   "topic": 11,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-2.11.B",
+   "unit": 2,
+   "topic": 11,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-3.1.A",
+   "unit": 3,
+   "topic": 1,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-3.2.A",
+   "unit": 3,
+   "topic": 2,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-3.2.B",
+   "unit": 3,
+   "topic": 2,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-3.3.A",
+   "unit": 3,
+   "topic": 3,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-3.3.B",
+   "unit": 3,
+   "topic": 3,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-3.3.C",
+   "unit": 3,
+   "topic": 3,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-3.4.A",
+   "unit": 3,
+   "topic": 4,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-3.4.B",
+   "unit": 3,
+   "topic": 4,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-3.5.A",
+   "unit": 3,
+   "topic": 5,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-3.5.B",
+   "unit": 3,
+   "topic": 5,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-3.5.C",
+   "unit": 3,
+   "topic": 5,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-3.5.D",
+   "unit": 3,
+   "topic": 5,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-3.6.A",
+   "unit": 3,
+   "topic": 6,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-3.6.B",
+   "unit": 3,
+   "topic": 6,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-3.6.C",
+   "unit": 3,
+   "topic": 6,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-3.6.D",
+   "unit": 3,
+   "topic": 6,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-3.6.E",
+   "unit": 3,
+   "topic": 6,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-3.7.A",
+   "unit": 3,
+   "topic": 7,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-4.1.A",
+   "unit": 4,
+   "topic": 1,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-4.1.B",
+   "unit": 4,
+   "topic": 1,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-4.2.A",
+   "unit": 4,
+   "topic": 2,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-4.2.B",
+   "unit": 4,
+   "topic": 2,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-4.3.A",
+   "unit": 4,
+   "topic": 3,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-4.3.B",
+   "unit": 4,
+   "topic": 3,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-4.4.A",
+   "unit": 4,
+   "topic": 4,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-4.5.A",
+   "unit": 4,
+   "topic": 5,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-4.5.B",
+   "unit": 4,
+   "topic": 5,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-4.5.C",
+   "unit": 4,
+   "topic": 5,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-4.6.A",
+   "unit": 4,
+   "topic": 6,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-4.6.B",
+   "unit": 4,
+   "topic": 6,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-4.6.C",
+   "unit": 4,
+   "topic": 6,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-4.7.A",
+   "unit": 4,
+   "topic": 7,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-4.7.B",
+   "unit": 4,
+   "topic": 7,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-5.1.A",
+   "unit": 5,
+   "topic": 1,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-5.1.B",
+   "unit": 5,
+   "topic": 1,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-5.2.A",
+   "unit": 5,
+   "topic": 2,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-5.3.A",
+   "unit": 5,
+   "topic": 3,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-5.3.B",
+   "unit": 5,
+   "topic": 3,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-5.3.C",
+   "unit": 5,
+   "topic": 3,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-5.3.D",
+   "unit": 5,
+   "topic": 3,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-5.3.E",
+   "unit": 5,
+   "topic": 3,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-5.4.A",
+   "unit": 5,
+   "topic": 4,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-5.4.B",
+   "unit": 5,
+   "topic": 4,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-5.4.C",
+   "unit": 5,
+   "topic": 4,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-5.4.D",
+   "unit": 5,
+   "topic": 4,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-5.5.A",
+   "unit": 5,
+   "topic": 5,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-5.6.A",
+   "unit": 5,
+   "topic": 6,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-5.6.B",
+   "unit": 5,
+   "topic": 6,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-6.1.A",
+   "unit": 6,
+   "topic": 1,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-6.1.B",
+   "unit": 6,
+   "topic": 1,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-6.2.A",
+   "unit": 6,
+   "topic": 2,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-6.2.B",
+   "unit": 6,
+   "topic": 2,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-6.2.C",
+   "unit": 6,
+   "topic": 2,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-6.3.A",
+   "unit": 6,
+   "topic": 3,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-6.3.B",
+   "unit": 6,
+   "topic": 3,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-6.4.A",
+   "unit": 6,
+   "topic": 4,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-6.4.B",
+   "unit": 6,
+   "topic": 4,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-6.5.A",
+   "unit": 6,
+   "topic": 5,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-6.5.B",
+   "unit": 6,
+   "topic": 5,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-6.6.A",
+   "unit": 6,
+   "topic": 6,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-6.6.B",
+   "unit": 6,
+   "topic": 6,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-6.7.A",
+   "unit": 6,
+   "topic": 7,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-6.7.B",
+   "unit": 6,
+   "topic": 7,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-6.7.C",
+   "unit": 6,
+   "topic": 7,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-6.8.A",
+   "unit": 6,
+   "topic": 8,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-6.8.B",
+   "unit": 6,
+   "topic": 8,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-6.8.C",
+   "unit": 6,
+   "topic": 8,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-7.1.A",
+   "unit": 7,
+   "topic": 1,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-7.1.B",
+   "unit": 7,
+   "topic": 1,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-7.2.A",
+   "unit": 7,
+   "topic": 2,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-7.3.A",
+   "unit": 7,
+   "topic": 3,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-7.3.B",
+   "unit": 7,
+   "topic": 3,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-7.4.A",
+   "unit": 7,
+   "topic": 4,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-7.4.B",
+   "unit": 7,
+   "topic": 4,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-7.4.C",
+   "unit": 7,
+   "topic": 4,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-7.5.A",
+   "unit": 7,
+   "topic": 5,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-7.5.B",
+   "unit": 7,
+   "topic": 5,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-7.5.C",
+   "unit": 7,
+   "topic": 5,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-7.6.A",
+   "unit": 7,
+   "topic": 6,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-7.6.B",
+   "unit": 7,
+   "topic": 6,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-7.7.A",
+   "unit": 7,
+   "topic": 7,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-7.7.B",
+   "unit": 7,
+   "topic": 7,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-7.8.A",
+   "unit": 7,
+   "topic": 8,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-7.9.A",
+   "unit": 7,
+   "topic": 9,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-7.9.B",
+   "unit": 7,
+   "topic": 9,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-7.9.C",
+   "unit": 7,
+   "topic": 9,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-7.10.A",
+   "unit": 7,
+   "topic": 10,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-7.10.B",
+   "unit": 7,
+   "topic": 10,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-7.10.C",
+   "unit": 7,
+   "topic": 10,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-7.11.A",
+   "unit": 7,
+   "topic": 11,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-7.11.B",
+   "unit": 7,
+   "topic": 11,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-7.11.C",
+   "unit": 7,
+   "topic": 11,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-7.12.A",
+   "unit": 7,
+   "topic": 12,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-7.13.A",
+   "unit": 7,
+   "topic": 13,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-8.1.A",
+   "unit": 8,
+   "topic": 1,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-8.1.B",
+   "unit": 8,
+   "topic": 1,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-8.2.A",
+   "unit": 8,
+   "topic": 2,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-8.2.B",
+   "unit": 8,
+   "topic": 2,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-8.2.C",
+   "unit": 8,
+   "topic": 2,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-8.2.D",
+   "unit": 8,
+   "topic": 2,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-8.3.A",
+   "unit": 8,
+   "topic": 3,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-8.3.B",
+   "unit": 8,
+   "topic": 3,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-8.4.A",
+   "unit": 8,
+   "topic": 4,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-8.4.B",
+   "unit": 8,
+   "topic": 4,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-8.5.A",
+   "unit": 8,
+   "topic": 5,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-8.5.B",
+   "unit": 8,
+   "topic": 5,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-8.5.C",
+   "unit": 8,
+   "topic": 5,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-8.5.D",
+   "unit": 8,
+   "topic": 5,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-8.6.A",
+   "unit": 8,
+   "topic": 6,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-8.6.B",
+   "unit": 8,
+   "topic": 6,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-8.7.A",
+   "unit": 8,
+   "topic": 7,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-8.7.B",
+   "unit": 8,
+   "topic": 7,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-8.7.C",
+   "unit": 8,
+   "topic": 7,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-8.7.D",
+   "unit": 8,
+   "topic": 7,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-9.1.A",
+   "unit": 9,
+   "topic": 1,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-9.1.B",
+   "unit": 9,
+   "topic": 1,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-9.2.A",
+   "unit": 9,
+   "topic": 2,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-9.2.B",
+   "unit": 9,
+   "topic": 2,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-9.3.A",
+   "unit": 9,
+   "topic": 3,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-9.3.B",
+   "unit": 9,
+   "topic": 3,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-9.4.A",
+   "unit": 9,
+   "topic": 4,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-9.4.B",
+   "unit": 9,
+   "topic": 4,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-9.4.C",
+   "unit": 9,
+   "topic": 4,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-9.5.A",
+   "unit": 9,
+   "topic": 5,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-9.5.B",
+   "unit": 9,
+   "topic": 5,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-9.6.A",
+   "unit": 9,
+   "topic": 6,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-9.6.B",
+   "unit": 9,
+   "topic": 6,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-9.7.A",
+   "unit": 9,
+   "topic": 7,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-9.7.B",
+   "unit": 9,
+   "topic": 7,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-10.1.A",
+   "unit": 10,
+   "topic": 1,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-10.1.B",
+   "unit": 10,
+   "topic": 1,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-10.2.A",
+   "unit": 10,
+   "topic": 2,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-10.3.A",
+   "unit": 10,
+   "topic": 3,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-10.4.A",
+   "unit": 10,
+   "topic": 4,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-10.4.B",
+   "unit": 10,
+   "topic": 4,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-10.5.A",
+   "unit": 10,
+   "topic": 5,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-10.5.B",
+   "unit": 10,
+   "topic": 5,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "BI-10.5.C",
+   "unit": 10,
+   "topic": 5,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  }
+ ],
+ "orphanTpl": []
+}
