@@ -1,0 +1,550 @@
+# Thermodynamics and Statistical Mechanics — curriculum framework (draft 1, for Kevin's markup)
+#
+# Built like an AP Course and Exam Description: Big Ideas run through the subject,
+# Units → Topics → Learning Objectives (one testable action each, verb first), with the
+# Essential Knowledge an LO rests on and the Practices it exercises. Textbooks, courses and
+# exams are crosswalks onto this map, never the backbone.
+#
+# Standards it's built from:
+#   cbe240  UCI CBE 240 Advanced Engineering Thermodynamics (4 u), catalogue 2026-27:
+#           "mathematical tools, equilibrium and stability, rigorous equations of state,
+#           molecular-level thermodynamics of real mixtures, and phase and chemical
+#           equilibrium." https://catalogue.uci.edu/allcourses/cbe/
+#           (no public syllabus found; course texts per Kevin: Dill & Bromberg 2e, Shell 2015)
+#   ucsb210a UCSB ChE 210A Thermodynamics and Statistical Mechanics (M. S. Shell) — lecture
+#           order = Shell Ch 2–22; aims: features of equilibrium, macro ↔ micro views,
+#           relations among variables, models of gases/liquids/solids, bulk ↔ molecular.
+#           https://sites.engineering.ucsb.edu/~shell/che210a/syllabus.pdf
+#   mit1040 MIT 10.40 Chemical Engineering Thermodynamics (Trout, Tester; Tester & Modell
+#           text): "connect the principles, concepts, and laws/postulates of classical and
+#           statistical thermodynamics" to property-data applications, macroscopic to molecular.
+#           https://ocw.mit.edu/courses/10-40-chemical-engineering-thermodynamics-fall-2003/pages/syllabus
+#   books   Shell 2015 TOC (sections): https://assets.cambridge.org/97811070/14534/frontmatter/9781107014534_frontmatter.pdf
+#           Dill & Bromberg 2e TOC (34 chapters): https://www.routledge.com/products/9780203809075
+#
+# Fields
+#   units[].scope     core (CBE 240 as catalogued + the stat-mech core both texts share) or
+#                     extension (beyond CBE 240: binding, rates, electrolytes, polymers, simulation)
+#   units[].ideas     Big Ideas the unit develops
+#   topics[].book     crosswalk: shell-2015 sections; dill-bromberg-2e chapters (D&B has no
+#                     numbered sections, so its refs are chapter numbers as in sources/)
+#   los[].do          the objective; los[].ek essential knowledge; los[].p practices
+#   los[].needs       prerequisite LOs in this framework
+#   los[].drills      templates that drill it; "~name" = only partly (one variant, or a
+#                     neighbouring skill). No drills = a gap you can't be drilled on yet.
+id: thermodynamics
+title: Thermodynamics and Statistical Mechanics
+code: TD
+draft: 1
+domains: [thermo, stat]
+
+big_ideas:
+  - id: EQ
+    title: Equilibrium is an extremum under constraints
+    text: An isolated system maximises its entropy; a system coupled to a bath minimises the matching free energy. Every equilibrium condition — equal T, P, μ; K; coexistence — is that extremum written out.
+  - id: FUND
+    title: One fundamental equation holds everything
+    text: S(U,V,N) or U(S,V,N) contains all equilibrium information; F, H, G and Ω are the same information re-expressed in the variables a lab controls, by Legendre transform.
+  - id: MEAS
+    title: Calculus turns the unmeasurable into the measurable
+    text: Maxwell relations and derivative identities rewrite entropy and chemical-potential changes in terms of P–V–T data, heat capacities, α and κ_T.
+  - id: STAB
+    title: Stability is curvature
+    text: Concave entropy (convex energy) means positive heat capacities and compressibilities; where curvature fails, a single phase splits and phase transitions, spinodals and critical points appear.
+  - id: MU
+    title: Chemical potential moves matter
+    text: Matter flows from high to low μ between phases, across membranes, into solution and through reactions; nonideality enters only through fugacity and activity.
+  - id: MICRO
+    title: Macroscopic properties are Boltzmann-weighted averages
+    text: Count microstates, weight them by e^(−βE), sum into a partition function; its logarithm is a free energy, its derivatives are U, S, P, μ, and its second derivatives are fluctuations.
+
+practices:
+  - id: P1
+    title: Define the system and constraints
+    text: Say what is isolated, what exchanges energy, volume or particles with a bath, and which variables are held fixed.
+  - id: P2
+    title: Pick the potential or ensemble
+    text: Match the controlled variables to the potential that is extremised (S, F, G, Ω) and to the ensemble (microcanonical, canonical, grand, isobaric).
+  - id: P3
+    title: Manipulate derivatives
+    text: Use exact differentials, Legendre transforms, Maxwell relations, the triple-product and chain rules to reach a derivative you can evaluate.
+  - id: P4
+    title: Build a molecular model
+    text: Count states, choose a lattice, two-level, oscillator, rotor or ideal-gas model, and assemble the partition function from independent pieces.
+  - id: P5
+    title: Compute with units
+    text: R vs k_B, per mole vs per molecule, kelvin, wavenumbers to energy, standard states for K, fugacity and activity.
+  - id: P6
+    title: Check and reason
+    text: Signs, limiting cases (T → 0, T → ∞, ideal limit, large N), stability, and which way a change pushes equilibrium.
+
+units:
+  # ── 1 ────────────────────────────────────────────────────────────────────
+  - id: probability
+    n: 1
+    title: Probability and counting states
+    scope: core
+    ideas: [MICRO]
+    weight_est: "3–5%"
+    topics:
+      - n: 1
+        title: Counting arrangements
+        book: { dill-bromberg-2e: ["1"], shell-2015: ["2.5"] }
+        los:
+          - { id: A, do: "Count ordered selections of distinguishable objects (permutations).", ek: ["N!/(N − k)! ordered ways to fill k slots from N."], p: [P4], drills: [sm-perm] }
+          - { id: B, do: "Count arrangements of indistinguishable particles on distinguishable sites.", ek: ["C(M, N) = M!/(N!(M − N)!) — the lattice-gas multiplicity."], p: [P4], drills: [sm-comb] }
+          - { id: C, do: "Count distinct sequences of a multiset (multinomial coefficient).", ek: ["N!/(n_A! n_B! …); identical units are not reordered."], p: [P4], drills: [sm-anagram] }
+          - { id: D, do: "Apply Stirling's approximation to ln W for large N.", ek: ["ln N! ≈ N ln N − N; turns ln C(M, N) into −M Σ x ln x."], p: [P4, P6], drills: [] }
+      - n: 2
+        title: Probability distributions
+        book: { dill-bromberg-2e: ["1"], shell-2015: ["2.5", "4.1"] }
+        los:
+          - { id: A, do: "Calculate the probability of exactly k outcomes in N independent two-outcome trials.", ek: ["P(k) = C(N, k) p^k (1 − p)^(N − k)."], p: [P4], drills: [sm-binom] }
+          - { id: B, do: "Calculate an 'at least one' probability through the complement.", ek: ["P(≥ 1) = 1 − (1 − p)^N for independent events."], p: [P4, P6], drills: [sm-atleast] }
+          - { id: C, do: "Calculate the mean and variance of a discrete distribution.", ek: ["⟨x⟩ = Σ p_i x_i; σ² = ⟨x²⟩ − ⟨x⟩²."], p: [P5], drills: ["~sm-fl-exact"] }
+
+  # ── 2 ────────────────────────────────────────────────────────────────────
+  - id: entropy
+    n: 2
+    title: Entropy, equilibrium and the fundamental equation
+    scope: core
+    ideas: [EQ, MICRO, FUND]
+    weight_est: "8–10%"
+    topics:
+      - n: 1
+        title: Multiplicity and S = k ln W
+        book: { dill-bromberg-2e: ["2", "5"], shell-2015: ["2.3", "3.6", "3.7", "4.2"] }
+        los:
+          - { id: A, do: "Calculate the multiplicity of a system of independent two-state units with a given number excited.", ek: ["W = N!/(n!(N − n)!); S = k_B ln W."], p: [P4], drills: [sm-two-state], needs: [TD-1.1.B] }
+          - { id: B, do: "Calculate the multiplicity of an Einstein solid with N oscillators and q quanta.", ek: ["W = (q + N − 1)!/(q!(N − 1)!)."], p: [P4], drills: [sm-einstein-w] }
+          - { id: C, do: "Calculate ΔS from the change in multiplicity of a lattice or spin system.", ek: ["ΔS = k_B ln(W₂/W₁)."], p: [P4, P5], drills: [sm-ds-two-state] }
+          - { id: D, do: "Derive the entropy of isothermal ideal-gas expansion by lattice counting.", ek: ["W ∝ M^N, M ∝ V ⇒ ΔS = nR ln(V₂/V₁)."], p: [P4, P5], drills: [sm-ds-volume] }
+      - n: 2
+        title: Equilibrium as maximum entropy
+        book: { dill-bromberg-2e: ["2", "6"], shell-2015: ["4.4", "4.5", "4.6", "4.7"] }
+        los:
+          - { id: A, do: "Calculate the probability of each energy split between two solids in thermal contact and identify the most probable one.", ek: ["P(q_A) ∝ W_A(q_A) W_B(q − q_A); the peak sharpens as N grows."], p: [P1, P4], drills: [sm-einstein-share] }
+          - { id: B, do: "Derive equality of T, P and μ by maximising total entropy over exchange of U, V and N.", ek: ["∂S/∂U = 1/T, ∂S/∂V = P/T, ∂S/∂N = −μ/T must match across the wall."], p: [P1, P3], drills: [] }
+          - { id: C, do: "Show that maximum entropy at fixed U is equivalent to minimum energy at fixed S.", ek: ["Internal constraints released ⇒ S rises (second law); the energy-minimum principle is its inverse."], p: [P3], drills: [] }
+      - n: 3
+        title: The fundamental equation and its integrated forms
+        book: { dill-bromberg-2e: ["6", "7"], shell-2015: ["5.1", "5.2", "5.3"] }
+        los:
+          - { id: A, do: "Find T, P or μ as derivatives of a given S(U, V, N).", ek: ["dS = (1/T)dU + (P/T)dV − (μ/T)dN."], p: [P3], drills: [th-fe-entropy-rep, th-fe-ideal] }
+          - { id: B, do: "Find T, P or μ as derivatives of a given U(S, V, N).", ek: ["dU = T dS − P dV + μ dN."], p: [P3], drills: [th-fe-energy-rep] }
+          - { id: C, do: "Check that a proposed fundamental equation is extensive (first-order homogeneous).", ek: ["S(λU, λV, λN) = λS(U, V, N); exponents of extensive variables sum to 1."], p: [P6], drills: [] }
+          - { id: D, do: "Calculate U, or any one term, from the Euler relation.", ek: ["U = TS − PV + μN; equivalently G = μN for one component."], p: [P5], drills: [th-fe-euler] }
+          - { id: E, do: "Apply the Gibbs–Duhem equation to relate changes in the intensive variables.", ek: ["S dT − V dP + N dμ = 0; at fixed T, dμ = v dP."], p: [P3, P5], drills: [th-fe-gibbs-duhem] }
+
+  # ── 3 ────────────────────────────────────────────────────────────────────
+  - id: firstlaw
+    n: 3
+    title: The first law and reversibility
+    scope: core
+    ideas: [EQ, FUND]
+    weight_est: "5–7%"
+    topics:
+      - n: 1
+        title: Work and heat on reversible paths
+        book: { dill-bromberg-2e: ["3"], shell-2015: ["6.1", "6.2", "6.3", "6.4"] }
+        los:
+          - { id: A, do: "Calculate q, w and ΔU for a reversible isothermal ideal-gas process.", ek: ["ΔU = 0; w = −nRT ln(V₂/V₁) = −q."], p: [P5], drills: [th-fl-isothermal] }
+          - { id: B, do: "Calculate q, w and ΔU for a reversible isobaric ideal-gas process.", ek: ["w = −PΔV = −nRΔT; q = nC_pΔT."], p: [P5], drills: [th-fl-isobaric] }
+          - { id: C, do: "Calculate q, w and ΔU for a constant-volume ideal-gas process.", ek: ["w = 0; q = ΔU = nC_vΔT."], p: [P5], drills: [th-fl-isochoric] }
+          - { id: D, do: "Find the final state of a reversible adiabatic ideal-gas process.", ek: ["TV^(γ−1) constant; C_v = 3R/2 monatomic, 5R/2 diatomic (no vibration)."], p: [P5], drills: [th-fl-adiabatic] }
+      - n: 2
+        title: Baths, irreversibility and heat engines
+        book: { shell-2015: ["6.5", "6.6", "6.7"] }
+        los:
+          - { id: A, do: "Calculate the total entropy change of system plus bath for an irreversible process and decide whether it can occur.", ek: ["ΔS_bath = −q/T_bath; ΔS_tot ≥ 0, equal only when reversible."], p: [P1, P6], drills: [] }
+          - { id: B, do: "Calculate the maximum efficiency or coefficient of performance of a cycle between two reservoirs.", ek: ["η_max = 1 − T_C/T_H from ΔS_tot = 0."], p: [P5], drills: [] }
+      - n: 3
+        title: Open steady-flow systems
+        book: { shell-2015: ["6.8"] }
+        los:
+          - { id: A, do: "Apply steady-flow energy and entropy balances to a turbine, compressor, nozzle or throttle.", ek: ["Δh = q + w_s per unit mass; throttling is isenthalpic; Δs ≥ q/T."], p: [P1, P5], drills: [] }
+
+  # ── 4 ────────────────────────────────────────────────────────────────────
+  - id: potentials
+    n: 4
+    title: Legendre transforms and thermodynamic potentials
+    scope: core
+    ideas: [FUND, EQ]
+    weight_est: "8–10%"
+    topics:
+      - n: 1
+        title: Multivariable calculus tools
+        book: { dill-bromberg-2e: ["4"], shell-2015: ["8.3"] }
+        los:
+          - { id: A, do: "Test whether a differential is exact (a state function) by equality of cross-derivatives.", ek: ["M dx + N dy exact ⇔ ∂M/∂y = ∂N/∂x; δq and δw are not exact."], p: [P3], drills: [] }
+          - { id: B, do: "Apply the triple-product and chain rules to rewrite a partial derivative.", ek: ["(∂x/∂y)_z (∂y/∂z)_x (∂z/∂x)_y = −1."], p: [P3], drills: ["~th-mx-triple"] }
+      - n: 2
+        title: Potentials and natural variables
+        book: { dill-bromberg-2e: ["8"], shell-2015: ["7.1", "7.2", "7.3", "7.4", "7.5", "7.6", "7.9"] }
+        los:
+          - { id: A, do: "Construct F, H or G from a given U(S, V, N) by Legendre transform.", ek: ["F = U − TS; eliminate S using T = ∂U/∂S. H = U + PV; G = U − TS + PV."], p: [P3], drills: [th-lg-helmholtz, th-lg-enthalpy], needs: [TD-2.3.B] }
+          - { id: B, do: "State the natural variables and differential of any potential, including the grand potential.", ek: ["dF = −S dT − P dV + μ dN; dG = −S dT + V dP + μ dN; dΩ = −S dT − P dV − N dμ."], p: [P2], drills: [th-lg-natural] }
+          - { id: C, do: "Choose the potential minimised at equilibrium for given bath conditions.", ek: ["T, V, N → F; T, P, N → G; T, V, μ → Ω; S, P, N → H."], p: [P1, P2], drills: ["~th-lg-natural"] }
+      - n: 3
+        title: Derivative and integrated relations
+        book: { dill-bromberg-2e: ["8"], shell-2015: ["7.10", "7.11"] }
+        los:
+          - { id: A, do: "Derive P, S, μ or U from a given F(T, V, N) or G(T, P, N).", ek: ["P = −(∂F/∂V)_T, S = −(∂F/∂T)_V, μ = (∂F/∂N)_{T,V}."], p: [P3], drills: [th-lg-derive] }
+          - { id: B, do: "Use the Gibbs–Helmholtz relation to get S or H from G(T).", ek: ["S = −(∂G/∂T)_P; H = −T²[∂(G/T)/∂T]_P."], p: [P3, P5], drills: [th-lg-gibbs-helmholtz] }
+
+  # ── 5 ────────────────────────────────────────────────────────────────────
+  - id: maxwell
+    n: 5
+    title: Maxwell relations and measurable properties
+    scope: core
+    ideas: [MEAS, FUND]
+    weight_est: "7–9%"
+    topics:
+      - n: 1
+        title: Maxwell relations
+        book: { dill-bromberg-2e: ["9"], shell-2015: ["8.1"] }
+        los:
+          - { id: A, do: "Identify the Maxwell relation that equals a given partial derivative.", ek: ["Cross-derivatives of the potential whose natural variables are the two held fixed: (∂S/∂V)_T = (∂P/∂T)_V from F."], p: [P3], drills: [th-mx-pick], needs: [TD-4.2.B] }
+          - { id: B, do: "Evaluate an entropy derivative from an equation of state through a Maxwell relation.", ek: ["(∂S/∂V)_T = (∂P/∂T)_V; (∂S/∂P)_T = −(∂V/∂T)_P."], p: [P3], drills: [th-mx-eos] }
+      - n: 2
+        title: Measurable properties
+        book: { dill-bromberg-2e: ["9"], shell-2015: ["8.2", "8.3"] }
+        los:
+          - { id: A, do: "Express a thermodynamic derivative in terms of α, κ_T and c_p and evaluate it.", ek: ["α = (1/V)(∂V/∂T)_P, κ_T = −(1/V)(∂V/∂P)_T; (∂P/∂T)_V = α/κ_T."], p: [P3, P5], drills: [th-mx-measurable] }
+          - { id: B, do: "Estimate the pressure rise when a liquid is heated at constant volume.", ek: ["ΔP ≈ (α/κ_T) ΔT — large for liquids (tens of bar per K)."], p: [P5, P6], drills: [th-mx-triple] }
+          - { id: C, do: "Derive and evaluate c_p − c_v from α and κ_T.", ek: ["c_p − c_v = Tvα²/κ_T; = R for an ideal gas."], p: [P3, P5], drills: [] }
+          - { id: D, do: "Derive (∂U/∂V)_T or the Joule–Thomson coefficient for a real gas from its equation of state.", ek: ["(∂U/∂V)_T = T(∂P/∂T)_V − P; μ_JT = (v/c_p)(Tα − 1)."], p: [P3], drills: [] }
+
+  # ── 6 ────────────────────────────────────────────────────────────────────
+  - id: stability
+    n: 6
+    title: Stability and metastability
+    scope: core
+    ideas: [STAB, EQ]
+    weight_est: "6–8%"
+    topics:
+      - n: 1
+        title: Stability criteria
+        book: { dill-bromberg-2e: ["25"], shell-2015: ["11.4"] }
+        los:
+          - { id: A, do: "Decide whether a fundamental equation is stable from the concavity of S(U, V).", ek: ["∂²S/∂U² ≤ 0, ∂²S/∂V² ≤ 0, and the Hessian determinant ≥ 0."], p: [P3, P6], drills: [th-st-concavity] }
+          - { id: B, do: "Derive C_V from a fundamental equation and check that it is positive.", ek: ["C_V = (∂U/∂T)_V = −(∂S/∂U)²/(∂²S/∂U²) > 0 for stability."], p: [P3], drills: [th-st-cv] }
+          - { id: C, do: "Test whether a homogeneous van der Waals state is mechanically stable.", ek: ["Stable ⇔ (∂P/∂V)_T < 0 ⇔ κ_T > 0."], p: [P5, P6], drills: [th-st-vdw-stable] }
+          - { id: D, do: "Calculate κ_T of a fluid from its equation of state.", ek: ["κ_T = −1/[V(∂P/∂V)_T]; for vdW (∂P/∂V)_T = −RT/(V − b)² + 2a/V³."], p: [P3, P5], drills: [th-st-vdw-kappa] }
+      - n: 2
+        title: Spinodals and the critical point
+        book: { dill-bromberg-2e: ["25"], shell-2015: ["11.1", "11.3"] }
+        los:
+          - { id: A, do: "Find the critical constants of a cubic equation of state.", ek: ["(∂P/∂V)_T = (∂²P/∂V²)_T = 0; vdW: T_c = 8a/27Rb, V_c = 3b, P_c = a/27b²."], p: [P3, P5], drills: [th-st-vdw-tc] }
+          - { id: B, do: "Locate the spinodal and classify a state as stable, metastable or unstable.", ek: ["Spinodal: (∂P/∂V)_T = 0; between binodal and spinodal the state is metastable."], p: [P6], drills: ["~th-st-vdw-stable"] }
+      - n: 3
+        title: Common-tangent and equal-area constructions
+        book: { shell-2015: ["11.2", "10.5"] }
+        los:
+          - { id: A, do: "Find coexisting states by a common tangent on G or F, or Maxwell's equal-area rule on a vdW isotherm.", ek: ["Equal μ and P in both phases ⇔ common tangent ⇔ ∫P dV over the loop = P_sat ΔV."], p: [P2, P3], drills: [] }
+
+  # ── 7 ────────────────────────────────────────────────────────────────────
+  - id: gases
+    n: 7
+    title: Gases and equations of state
+    scope: core
+    ideas: [FUND, MU, MEAS]
+    weight_est: "7–9%"
+    topics:
+      - n: 1
+        title: Ideal gases and ideal-gas mixtures
+        book: { dill-bromberg-2e: ["11"], shell-2015: ["9.2", "9.3"] }
+        los:
+          - { id: A, do: "Write μ(T, P) for a pure ideal gas and for a component of an ideal-gas mixture and calculate Δμ.", ek: ["μ = μ°(T) + RT ln(P/P°); in a mixture replace P by p_i = y_iP."], p: [P5], drills: ["~th-fe-gibbs-duhem"] }
+      - n: 2
+        title: Nonideal gases
+        book: { dill-bromberg-2e: ["24"], shell-2015: ["9.4", "9.5"] }
+        los:
+          - { id: A, do: "Calculate Z and residual (departure) properties from a virial or cubic equation of state.", ek: ["Z = PV/RT = 1 + B/V + …; h − h^ig = ∫[T(∂P/∂T)_V − P]dV + RT(Z − 1)."], p: [P3, P5], drills: [] }
+          - { id: B, do: "Calculate a fugacity coefficient from a virial or cubic equation of state.", ek: ["ln φ = ∫₀^P (Z − 1) dP/P; truncated virial: ln φ = BP/RT."], p: [P3, P5], drills: [] }
+          - { id: C, do: "Relate the second virial coefficient to the intermolecular pair potential.", ek: ["B(T) = −2πN_A ∫(e^(−βu(r)) − 1) r² dr; B < 0 when attraction dominates."], p: [P4], drills: [] }
+          - { id: D, do: "Estimate properties of a gas or gas mixture by corresponding states and mixing rules.", ek: ["Z = f(T_r, P_r, ω); a_mix = ΣΣ y_iy_j √(a_ia_j)(1 − k_ij), b_mix = Σ y_ib_i."], p: [P3, P5], drills: [] }
+
+  # ── 8 ────────────────────────────────────────────────────────────────────
+  - id: phase
+    n: 8
+    title: Phase equilibrium of pure substances
+    scope: core
+    ideas: [MU, STAB, EQ]
+    weight_est: "6–8%"
+    topics:
+      - n: 1
+        title: Conditions for phase equilibrium and the phase rule
+        book: { dill-bromberg-2e: ["14"], shell-2015: ["10.1", "10.2", "10.4"] }
+        los:
+          - { id: A, do: "State the conditions for phase coexistence and apply the Gibbs phase rule to a phase diagram.", ek: ["T, P, μ_i equal in every phase; F = C − π + 2."], p: [P1, P2], drills: [] }
+      - n: 2
+        title: The Clapeyron and Clausius–Clapeyron equations
+        book: { dill-bromberg-2e: ["14"], shell-2015: ["10.3"] }
+        los:
+          - { id: A, do: "Calculate the slope of a coexistence curve from the Clapeyron equation.", ek: ["dP/dT = Δh/(TΔv)."], p: [P5], drills: [th-pe-clapeyron] }
+          - { id: B, do: "Estimate a vapor pressure at a new temperature with the integrated Clausius–Clapeyron equation.", ek: ["ln(P₂/P₁) = −(Δh_vap/R)(1/T₂ − 1/T₁); ideal vapor, v_liq ≪ v_vap, constant Δh."], p: [P5], drills: [th-pe-cc-pressure] }
+          - { id: C, do: "Find Δh_vap from vapor pressures at two temperatures.", ek: ["Slope of ln P vs 1/T is −Δh_vap/R."], p: [P5], drills: [th-pe-cc-enthalpy] }
+          - { id: D, do: "Find the boiling temperature at a new pressure.", ek: ["1/T₂ = 1/T₁ − (R/Δh_vap) ln(P₂/P₁)."], p: [P5], drills: [th-pe-cc-temperature] }
+      - n: 3
+        title: Order parameters and types of transition
+        book: { dill-bromberg-2e: ["25"], shell-2015: ["10.6"] }
+        los:
+          - { id: A, do: "Classify a transition as first- or second-order from which derivatives of G are discontinuous.", ek: ["First order: jumps in S, V (latent heat); continuous: jumps or divergences in C_p, κ_T; the order parameter vanishes at T_c."], p: [P6], drills: [] }
+
+  # ── 9 ────────────────────────────────────────────────────────────────────
+  - id: solutions
+    n: 9
+    title: Solutions and mixtures
+    scope: core
+    ideas: [MU, EQ, STAB]
+    weight_est: "12–14%"
+    topics:
+      - n: 1
+        title: Ideal solutions
+        book: { dill-bromberg-2e: ["15"], shell-2015: ["12.1"] }
+        los:
+          - { id: A, do: "Calculate the entropy of ideal mixing.", ek: ["ΔS_mix = −nR Σ x_i ln x_i (from lattice counting)."], p: [P5], drills: [th-so-mix-entropy], needs: [TD-1.1.D] }
+          - { id: B, do: "Calculate the Gibbs energy of ideal mixing.", ek: ["ΔG_mix = nRT Σ x_i ln x_i; ΔH_mix = ΔV_mix = 0."], p: [P5], drills: [th-so-mix-gibbs] }
+      - n: 2
+        title: Partial molar quantities and Gibbs–Duhem in mixtures
+        book: { dill-bromberg-2e: ["9"], shell-2015: ["12.8", "12.9"] }
+        los:
+          - { id: A, do: "Calculate partial molar properties from a total property, e.g. by the tangent-intercept method.", ek: ["v̄_i = (∂V/∂n_i)_{T,P,n_j}; V = Σ n_i v̄_i."], p: [P3], drills: [] }
+          - { id: B, do: "Use Gibbs–Duhem to get one activity coefficient from the other or to test data for consistency.", ek: ["Σ x_i d ln γ_i = 0 at fixed T, P."], p: [P3, P6], drills: [], needs: [TD-2.3.E] }
+      - n: 3
+        title: Vapor–liquid equilibrium
+        book: { dill-bromberg-2e: ["15", "16"], shell-2015: ["12.2", "13.1", "13.2", "13.3", "13.4", "13.5"] }
+        los:
+          - { id: A, do: "Calculate total pressure and vapor composition of an ideal solution with Raoult's law.", ek: ["p_i = x_iP_i*; P = Σ x_iP_i*; y_i = p_i/P."], p: [P5], drills: [th-so-raoult] }
+          - { id: B, do: "Calculate the solubility of a dilute solute from Henry's law.", ek: ["p_i = x_iK_H,i for x_i → 0; K_H grows with T for most gases in water."], p: [P5], drills: [th-so-henry] }
+          - { id: C, do: "Perform bubble-point, dew-point and isothermal flash calculations for a multicomponent mixture.", ek: ["K_i = y_i/x_i; flash: Σ z_i(K_i − 1)/[1 + β(K_i − 1)] = 0 (Rachford–Rice)."], p: [P2, P5], drills: [] }
+      - n: 4
+        title: Nonideal solutions and activity
+        book: { dill-bromberg-2e: ["15"], shell-2015: ["12.6", "12.7", "13.6", "13.7"] }
+        los:
+          - { id: A, do: "Calculate activity coefficients from an excess-Gibbs-energy model (regular solution, Margules).", ek: ["G^ex/n = W x_Ax_B ⇒ RT ln γ_A = W x_B²."], p: [P3, P5], drills: [th-so-activity] }
+          - { id: B, do: "Derive the regular-solution model from a lattice with nearest-neighbour interactions and predict when the mixture phase-separates.", ek: ["ΔG_mix/nRT = Σ x ln x + χ x_Ax_B; unstable for χ > 2 (upper critical point at χ = 2, x = ½)."], p: [P4, P6], drills: [], needs: [TD-6.1.A] }
+          - { id: C, do: "Calculate VLE with modified Raoult's law and identify an azeotrope.", ek: ["y_iP = x_iγ_iP_i*; at an azeotrope x_i = y_i and γ_A P_A* = γ_B P_B*."], p: [P5, P6], drills: [] }
+      - n: 5
+        title: Colligative properties
+        book: { dill-bromberg-2e: ["16"], shell-2015: ["12.3", "12.4", "12.5"] }
+        los:
+          - { id: A, do: "Calculate boiling-point elevation, freezing-point depression or osmotic pressure of a dilute solution.", ek: ["ΔT_b = RT_b²x_B/Δh_vap; ΔT_f = RT_f²x_B/Δh_fus; Π = c_BRT (van 't Hoff)."], p: [P5], drills: [] }
+      - n: 6
+        title: Solvation and transfer between phases
+        book: { dill-bromberg-2e: ["16"] }
+        los:
+          - { id: A, do: "Relate a partition coefficient to the free energy of transferring a solute between phases.", ek: ["ΔG°_transfer = −RT ln K_partition; set by μ° differences in the two solvents."], p: [P2, P5], drills: [] }
+
+  # ── 10 ───────────────────────────────────────────────────────────────────
+  - id: reactions
+    n: 10
+    title: Chemical reaction equilibria
+    scope: core
+    ideas: [MU, EQ, MICRO]
+    weight_est: "8–10%"
+    topics:
+      - n: 1
+        title: The equilibrium constant
+        book: { dill-bromberg-2e: ["13"], shell-2015: ["20.1", "20.2", "20.3", "20.4"] }
+        los:
+          - { id: A, do: "Calculate K from ΔG°.", ek: ["K = exp(−ΔG°/RT); standard state fixes the units of each activity."], p: [P5], drills: [th-ce-k] }
+          - { id: B, do: "Calculate ΔG° from K.", ek: ["ΔG° = −RT ln K."], p: [P5], drills: [th-ce-dg] }
+          - { id: C, do: "Predict the direction of reaction from Q versus K.", ek: ["ΔG = ΔG° + RT ln Q = RT ln(Q/K); Q < K ⇒ forward."], p: [P6], drills: [th-ce-direction] }
+      - n: 2
+        title: Equilibrium composition
+        book: { dill-bromberg-2e: ["13"], shell-2015: ["20.3", "20.4"] }
+        los:
+          - { id: A, do: "Solve for the equilibrium extent of reaction and composition from K and the feed.", ek: ["n_i = n_i0 + ν_iξ; K = Π(y_iP/P°)^ν_i for ideal gases."], p: [P2, P5], drills: [th-ce-extent] }
+          - { id: B, do: "Predict how pressure, inerts or a nonideal phase shift an equilibrium.", ek: ["K_y = K(P/P°)^(−Δν); raising P favours fewer gas moles; fugacity or activity replaces y_iP in real phases."], p: [P6], drills: [] }
+      - n: 3
+        title: Temperature dependence of K
+        book: { dill-bromberg-2e: ["13"], shell-2015: ["20.5"] }
+        los:
+          - { id: A, do: "Find ΔH° from K at two temperatures, or K at a new temperature, with the van 't Hoff equation.", ek: ["d ln K/d(1/T) = −ΔH°/R."], p: [P5], drills: [th-ce-vant-hoff] }
+      - n: 4
+        title: Reaction equilibrium from molecular partition functions
+        book: { dill-bromberg-2e: ["13"], shell-2015: ["20.6", "20.7"] }
+        los:
+          - { id: A, do: "Calculate K for a gas-phase reaction from molecular partition functions.", ek: ["K = Π(q_i/V)^ν_i e^(−ΔE₀/k_BT) (per standard volume); dissociation energies set ΔE₀."], p: [P4, P5], drills: [], needs: [TD-12.2.C] }
+
+  # ── 11 ───────────────────────────────────────────────────────────────────
+  - id: boltzmann
+    n: 11
+    title: The Boltzmann distribution and the canonical ensemble
+    scope: core
+    ideas: [MICRO, EQ]
+    weight_est: "8–10%"
+    topics:
+      - n: 1
+        title: The Boltzmann distribution
+        book: { dill-bromberg-2e: ["10"], shell-2015: ["16.2", "16.3"] }
+        los:
+          - { id: A, do: "Calculate the population ratio of two levels at a given temperature.", ek: ["N₂/N₁ = (g₂/g₁) e^(−ΔE/k_BT); 1 cm⁻¹ ↔ 1.439 K."], p: [P5], drills: [sm-bz-ratio] }
+          - { id: B, do: "Calculate the fraction of molecules in a given level of a multi-level system.", ek: ["p_j = g_j e^(−βE_j)/q."], p: [P4, P5], drills: [sm-bz-fraction, sm-bz-exact] }
+          - { id: C, do: "Find the temperature at which a level reaches a given population ratio.", ek: ["T = ΔE/[k_B ln(g₂N₁/g₁N₂)]."], p: [P5], drills: [sm-bz-temperature] }
+      - n: 2
+        title: The partition function and thermodynamic properties
+        book: { dill-bromberg-2e: ["10"], shell-2015: ["16.1", "16.4", "16.5"] }
+        los:
+          - { id: A, do: "Calculate a molecular partition function from a list of levels and degeneracies.", ek: ["q = Σ g_j e^(−βE_j); q counts thermally accessible states."], p: [P4, P5], drills: [sm-pf-q] }
+          - { id: B, do: "Derive the average energy U from ln q for a two-level system or harmonic oscillator.", ek: ["U = −N ∂ln q/∂β; oscillator U/Nε = 1/(e^x − 1)."], p: [P3, P4], drills: [sm-pf-u-two-level, sm-pf-u-oscillator] }
+          - { id: C, do: "Derive the entropy from the partition function.", ek: ["S = U/T + Nk_B ln q (localized); S/Nk_B = ln q + βU/N."], p: [P3, P4], drills: [sm-pf-s-two-level] }
+          - { id: D, do: "Calculate the Helmholtz free energy from the partition function.", ek: ["F = −k_BT ln Q; localized independent molecules: Q = q^N."], p: [P2, P5], drills: [sm-pf-f] }
+          - { id: E, do: "Assemble the system partition function from molecular ones for distinguishable or indistinguishable particles.", ek: ["Q = q^N (localized) or q^N/N! (gas); independent modes multiply: q = q_t q_r q_v q_e."], p: [P4], drills: [] }
+
+  # ── 12 ───────────────────────────────────────────────────────────────────
+  - id: models
+    n: 12
+    title: Molecular models of gases and solids
+    scope: core
+    ideas: [MICRO, FUND]
+    weight_est: "10–12%"
+    topics:
+      - n: 1
+        title: Translation and the classical ideal gas
+        book: { dill-bromberg-2e: ["11"], shell-2015: ["9.1", "18.1", "18.4"] }
+        los:
+          - { id: A, do: "Calculate the thermal de Broglie wavelength of a molecule.", ek: ["Λ = h/√(2πmk_BT); classical when Λ³ ≪ V/N."], p: [P5], drills: [sm-ig-lambda] }
+          - { id: B, do: "Calculate the translational partition function of a molecule in a box.", ek: ["q_trans = V/Λ³."], p: [P5], drills: [sm-ig-qtrans] }
+          - { id: C, do: "Derive the ideal-gas law and the Sackur–Tetrode entropy from Q = q^N/N!.", ek: ["P = k_BT ∂ln Q/∂V = Nk_BT/V; S/Nk_B = ln(V/NΛ³) + 5/2."], p: [P3, P4], drills: [], needs: [TD-11.2.E] }
+      - n: 2
+        title: Rotation and vibration
+        book: { dill-bromberg-2e: ["11"] }
+        los:
+          - { id: A, do: "Calculate the rotational temperature of a diatomic from masses and bond length.", ek: ["I = μr²; θ_rot = ħ²/(2Ik_B)."], p: [P5], drills: [sm-ig-theta-rot] }
+          - { id: B, do: "Calculate the high-temperature rotational partition function, including the symmetry number.", ek: ["q_rot = T/(σθ_rot); σ = 2 homonuclear, 1 heteronuclear."], p: [P5], drills: [sm-ig-qrot] }
+          - { id: C, do: "Calculate the vibrational temperature and vibrational partition function.", ek: ["θ_vib = hcν̃/k_B; q_vib = 1/(1 − e^(−θ_vib/T)) from the ground state."], p: [P5], drills: [sm-ig-qvib] }
+      - n: 3
+        title: Heat capacity
+        book: { dill-bromberg-2e: ["12"], shell-2015: ["14.4", "14.5", "14.6"] }
+        los:
+          - { id: A, do: "Calculate the classical heat capacity of a gas by equipartition.", ek: ["½k_B per quadratic term: 3 translational, 2 or 3 rotational, 2 per vibration (3N − 5 or 3N − 6 modes)."], p: [P4, P6], drills: [sm-cv-equipartition] }
+          - { id: B, do: "Calculate C_V of a diatomic gas with classical translation and rotation and quantum vibration.", ek: ["C_V,m = 5R/2 + R x²eˣ/(eˣ − 1)², x = θ_vib/T."], p: [P4, P5], drills: [sm-cv-diatomic] }
+          - { id: C, do: "Derive the heat capacity of a two-level (Schottky) system.", ek: ["C_V = (∂U/∂T)_V; peaks near k_BT ~ ε and vanishes at both limits."], p: [P3, P6], drills: [sm-cv-two-level] }
+          - { id: D, do: "Derive the heat capacity of a quantum harmonic oscillator.", ek: ["C_V/Nk_B = x²eˣ/(eˣ − 1)² → 1 classically."], p: [P3], drills: [sm-cv-oscillator] }
+          - { id: E, do: "Calculate the molar heat capacity of a crystal from the Einstein model.", ek: ["C_V,m = 3R x²eˣ/(eˣ − 1)², x = θ_E/T; Dulong–Petit 3R at high T."], p: [P5], drills: [sm-cv-einstein] }
+          - { id: F, do: "Apply the Debye T³ law at low temperature and explain why Einstein fails there.", ek: ["C_V ∝ (T/θ_D)³ at T ≪ θ_D: low-frequency acoustic modes stay active."], p: [P6], drills: [] }
+      - n: 4
+        title: Classical continuous degrees of freedom
+        book: { shell-2015: ["18.1", "18.2", "18.3", "18.5"] }
+        los:
+          - { id: A, do: "Compute averages from the Maxwell–Boltzmann speed distribution.", ek: ["f(v) ∝ v² e^(−mv²/2k_BT); v_mp = √(2k_BT/m), ⟨v⟩ = √(8k_BT/πm), v_rms = √(3k_BT/m)."], p: [P4, P5], drills: [] }
+          - { id: B, do: "Write the classical canonical partition function as a phase-space integral and reduce it to a configurational integral.", ek: ["Q = (1/N!h^(3N)) ∫e^(−βH) dp dr = Z/(N!Λ^(3N))."], p: [P4], drills: [] }
+      - n: 5
+        title: The third law
+        book: { shell-2015: ["15.1", "15.2", "15.3", "15.4"] }
+        los:
+          - { id: A, do: "Calculate an absolute entropy from heat-capacity data, including residual entropy of a disordered crystal.", ek: ["S(T) = ∫₀^T C_p/T dT + Σ Δh_trans/T_trans; residual S = R ln W per mole (CO: R ln 2)."], p: [P5, P6], drills: [] }
+
+  # ── 13 ───────────────────────────────────────────────────────────────────
+  - id: fluctuations
+    n: 13
+    title: Fluctuations
+    scope: core
+    ideas: [MICRO, STAB]
+    weight_est: "4–6%"
+    topics:
+      - n: 1
+        title: Energy fluctuations in the canonical ensemble
+        book: { dill-bromberg-2e: ["12"], shell-2015: ["17.1", "17.2", "17.3"] }
+        los:
+          - { id: A, do: "Calculate the energy variance of a molecule with a few discrete levels.", ek: ["σ_E² = ⟨E²⟩ − ⟨E⟩² = ∂²ln q/∂β²."], p: [P4, P5], drills: [sm-fl-two-level, sm-fl-exact], needs: [TD-1.2.C] }
+          - { id: B, do: "Derive the energy variance of a quantum harmonic oscillator.", ek: ["σ_E²/ε² = eˣ/(eˣ − 1)²."], p: [P3], drills: [sm-fl-oscillator] }
+          - { id: C, do: "Calculate the rms energy fluctuation from the heat capacity.", ek: ["σ_E² = k_BT²C_V — positive C_V is the stability condition again."], p: [P5], drills: [sm-fl-cv] }
+          - { id: D, do: "Calculate the relative energy fluctuation of a macroscopic system and explain why ensembles agree.", ek: ["σ_E/⟨E⟩ ∝ N^(−1/2); monatomic ideal gas: √(2/3N)."], p: [P5, P6], drills: [sm-fl-relative] }
+
+  # ── 14 ───────────────────────────────────────────────────────────────────
+  - id: ensembles
+    n: 14
+    title: Other ensembles
+    scope: core
+    ideas: [MICRO, MU]
+    weight_est: "5–7%"
+    topics:
+      - n: 1
+        title: The grand canonical ensemble
+        book: { dill-bromberg-2e: ["27"], shell-2015: ["19.2"] }
+        los:
+          - { id: A, do: "Calculate the occupancy probabilities of a site exchanging molecules with a reservoir at fixed μ.", ek: ["Ξ_site = 1 + e^(β(μ + ε)); p_empty = 1/Ξ."], p: [P2, P5], drills: [sm-ens-site] }
+          - { id: B, do: "Calculate the average number of bound molecules on independent sites from the grand partition function.", ek: ["Ξ = (1 + λe^(βε))^M; ⟨N⟩ = λ ∂ln Ξ/∂λ."], p: [P3, P4], drills: [sm-ens-lattice] }
+          - { id: C, do: "Calculate the particle-number variance in the grand canonical ensemble.", ek: ["σ_N² = λ ∂⟨N⟩/∂λ = k_BT (∂⟨N⟩/∂μ)."], p: [P3], drills: [sm-ens-n-fluct] }
+      - n: 2
+        title: The isothermal–isobaric ensemble
+        book: { shell-2015: ["19.1"] }
+        los:
+          - { id: A, do: "Calculate the population ratio of two states that differ in energy and volume at fixed T and P.", ek: ["P_B/P_A = e^(−β(ΔE + PΔV)); G = −k_BT ln Δ."], p: [P2, P5], drills: [sm-ens-isobaric] }
+      - n: 3
+        title: The Gibbs entropy and choosing an ensemble
+        book: { shell-2015: ["19.3"] }
+        los:
+          - { id: A, do: "Calculate entropy from microstate probabilities with the Gibbs formula and match each ensemble to its potential.", ek: ["S = −k_B Σ p_i ln p_i; NVE ↔ S, NVT ↔ F, NPT ↔ G, μVT ↔ Ω = −PV."], p: [P2], drills: [] }
+
+  # ── 15 ───────────────────────────────────────────────────────────────────
+  - id: binding
+    n: 15
+    title: Binding, adsorption and cooperativity
+    scope: extension
+    ideas: [MICRO, MU]
+    topics:
+      - n: 1
+        title: Single-site binding and Langmuir adsorption
+        book: { dill-bromberg-2e: ["27"] }
+        los:
+          - { id: A, do: "Calculate fractional occupancy of a single-site receptor from K_d.", ek: ["θ = c/(K_d + c)."], p: [P5], drills: [sm-bind-langmuir], needs: [TD-14.1.A] }
+          - { id: B, do: "Find the gas pressure that gives a target Langmuir coverage.", ek: ["θ = KP/(1 + KP) ⇒ P = θ/[K(1 − θ)]."], p: [P5], drills: [sm-bind-pressure] }
+          - { id: C, do: "Calculate the standard binding free energy from K_d.", ek: ["ΔG°_bind = RT ln(K_d/c°), c° = 1 M."], p: [P5], drills: [sm-bind-dg] }
+      - n: 2
+        title: Multi-site and cooperative binding
+        book: { dill-bromberg-2e: ["26", "28"] }
+        los:
+          - { id: A, do: "Calculate the average number bound to a two-site molecule with a pair interaction from its binding polynomial.", ek: ["Ξ = 1 + 2y + wy²; ⟨N⟩ = (2y + 2wy²)/Ξ; w > 1 cooperative."], p: [P4], drills: [sm-ens-pair] }
+          - { id: B, do: "Calculate fractional saturation from the Hill equation.", ek: ["θ = cⁿ/(K_{1/2}ⁿ + cⁿ)."], p: [P5], drills: [sm-bind-hill] }
+          - { id: C, do: "Find the Hill coefficient from saturation at two concentrations.", ek: ["n_H = Δ ln[θ/(1 − θ)] / Δ ln c."], p: [P5, P6], drills: [sm-bind-hill-n] }
+          - { id: D, do: "Solve the Zimm–Bragg helix–coil or 1-D Ising model with a transfer matrix, or a mean-field Ising model for T_c.", ek: ["Q = λ₁^N for large N; mean field: k_BT_c = zJ."], p: [P4], drills: [] }
+
+  # ── 16 ───────────────────────────────────────────────────────────────────
+  - id: rates
+    n: 16
+    title: Reaction rates and transition states
+    scope: extension
+    ideas: [MICRO, EQ]
+    topics:
+      - n: 1
+        title: Arrhenius temperature dependence
+        book: { dill-bromberg-2e: ["19"], shell-2015: ["21.2"] }
+        los:
+          - { id: A, do: "Find the activation energy from rate constants at two temperatures.", ek: ["ln(k₂/k₁) = −(E_a/R)(1/T₂ − 1/T₁)."], p: [P5], drills: [sm-rate-ea] }
+          - { id: B, do: "Find a rate constant at a new temperature from E_a.", ek: ["k₂ = k₁ exp[−(E_a/R)(1/T₂ − 1/T₁)]."], p: [P5], drills: [sm-rate-k2] }
+          - { id: C, do: "Calculate the factor by which a rate rises over a temperature interval.", ek: ["k₂/k₁ = exp[(E_a/R)(1/T₁ − 1/T₂)]; the 'doubles per 10 K' rule ↔ E_a ≈ 50 kJ/mol near 300 K."], p: [P5, P6], drills: [sm-rate-factor] }
+      - n: 2
+        title: Transition-state theory
+        book: { dill-bromberg-2e: ["19"], shell-2015: ["21.1", "21.3", "21.4"] }
+        los:
+          - { id: A, do: "Calculate a rate constant from ΔH‡ and ΔS‡ with the Eyring equation.", ek: ["k = (k_BT/h) e^(ΔS‡/R) e^(−ΔH‡/RT)."], p: [P5], drills: [sm-rate-eyring] }
+          - { id: B, do: "Find the activation free energy from a measured rate constant.", ek: ["ΔG‡ = −RT ln(kh/k_BT)."], p: [P5], drills: [sm-rate-dg] }
+          - { id: C, do: "Relate forward and reverse rate constants to K by detailed balance and read rates off a free-energy profile along a reaction coordinate.", ek: ["k_f/k_r = K; barrier height on F(ξ) sets k; catalysts lower ΔG‡, not ΔG°."], p: [P6], drills: [], needs: [TD-10.1.A] }
+
+  # ── 17 ───────────────────────────────────────────────────────────────────
+  - id: special
+    n: 17
+    title: Electrolytes, polymers and simulation
+    scope: extension
+    ideas: [MU, MICRO]
+    topics:
+      - n: 1
+        title: Electrochemical equilibria and electrolytes
+        book: { dill-bromberg-2e: ["22", "23"], shell-2015: ["13.9"] }
+        los:
+          - { id: A, do: "Calculate an equilibrium potential with the Nernst equation and a mean ionic activity coefficient with Debye–Hückel.", ek: ["E = E° − (RT/zF) ln Q; ln γ± = −A|z₊z₋|√I (dilute limit)."], p: [P5], drills: [] }
+      - n: 2
+        title: Polymer solutions
+        book: { dill-bromberg-2e: ["32"], shell-2015: ["13.8"] }
+        los:
+          - { id: A, do: "Calculate the Flory–Huggins free energy of mixing and the critical χ for a polymer solution.", ek: ["ΔG_mix/k_BT = (φ/N) ln φ + (1 − φ) ln(1 − φ) + χφ(1 − φ); χ_c = ½(1 + 1/√N)²."], p: [P4, P6], drills: [], needs: [TD-9.4.B] }
+      - n: 3
+        title: Molecular simulation
+        book: { shell-2015: ["22.1", "22.2", "22.3", "22.4", "22.5"] }
+        los:
+          - { id: A, do: "Apply the Metropolis acceptance rule and compute an ensemble average from a sampled trajectory.", ek: ["acc = min(1, e^(−βΔE)); ⟨A⟩ = time average over equilibrated, decorrelated samples."], p: [P2, P4], drills: [] }
