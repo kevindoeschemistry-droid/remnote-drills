@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Path</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600&family=Public+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* Layout: a start-to-finish rail across the top, the frameworks in path order down the left, one framework's objectives on the right. */
+:root {
+  --bg: #f6f7f9; --panel: #ffffff; --ink: #18202b; --muted: #5d6877; --line: #dde2e8; --accent: #2a5bd7;
+  --ok: #1f8a4c; --part: #c27c0e; --gap: #b9c1cc;
+  --t-math: #2a5bd7; --t-science: #138a72; --t-computing: #7a4bd0; --t-engineering: #c4561d;
+  --t-health: #0f8299; --t-safety: #b8324a; --t-communication: #a07a12; --t-athletics: #c23f8f;
+  --display: "Newsreader", Georgia, serif; --body: "Public Sans", system-ui, sans-serif; --mono: "JetBrains Mono", ui-monospace, monospace;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #11151b; --panel: #181e26; --ink: #e5e9ef; --muted: #98a3b2; --line: #2a323d; --accent: #7aa2ff;
+  --ok: #4cc685; --part: #e0a63a; --gap: #3b4552;
+  --t-math: #7aa2ff; --t-science: #3cc7a6; --t-computing: #b08cf5; --t-engineering: #f08a52;
+  --t-health: #3cc0d6; --t-safety: #f06b82; --t-communication: #e0b84a; --t-athletics: #f07ac2; color-scheme: dark; } }
+:root[data-theme="dark"] {
+  --bg: #11151b; --panel: #181e26; --ink: #e5e9ef; --muted: #98a3b2; --line: #2a323d; --accent: #7aa2ff;
+  --ok: #4cc685; --part: #e0a63a; --gap: #3b4552;
+  --t-math: #7aa2ff; --t-science: #3cc7a6; --t-computing: #b08cf5; --t-engineering: #f08a52;
+  --t-health: #3cc0d6; --t-safety: #f06b82; --t-communication: #e0b84a; --t-athletics: #f07ac2; color-scheme: dark; }
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body { background: var(--bg); color: var(--ink); font: 15px/1.5 var(--body); }
+header { padding: 20px 20px 10px; display: grid; gap: 10px; max-width: 1400px; margin: 0 auto; }
+h1 { font: 600 30px/1.1 var(--display); margin: 0; text-wrap: balance; }
+.sub { color: var(--muted); margin: 0; max-width: 75ch; }
+.stats { display: flex; flex-wrap: wrap; gap: 8px 20px; font-variant-numeric: tabular-nums; color: var(--muted); font-size: 14px; }
+.stats b { color: var(--ink); font-weight: 600; }
+.rail { display: flex; height: 26px; border-radius: 6px; overflow: hidden; border: 1px solid var(--line); background: var(--panel); }
+.rail button { border: 0; border-right: 1px solid var(--panel); padding: 0; margin: 0; cursor: pointer; position: relative; background: var(--c); opacity: .35; min-width: 2px; }
+.rail button .fill { position: absolute; left: 0; top: 0; bottom: 0; background: var(--c); }
+.rail button.on, .rail button:hover { opacity: 1; }
+.rail button:focus-visible { outline: 2px solid var(--ink); outline-offset: -2px; }
+.railnote { display: flex; justify-content: space-between; color: var(--muted); font-size: 12px; font-family: var(--mono); }
+.search { display: flex; gap: 8px; }
+.search input { flex: 1; font: inherit; padding: 8px 12px; border: 1px solid var(--line); border-radius: 8px; background: var(--panel); color: var(--ink); }
+.search input:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+main { display: grid; grid-template-columns: 290px 1fr; gap: 16px; padding: 0 20px 40px; max-width: 1400px; margin: 0 auto; align-items: start; }
+nav { position: sticky; top: 12px; max-height: calc(100vh - 24px); overflow-y: auto; background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 8px; }
+.trk { font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); margin: 10px 8px 4px; }
+.fw { display: grid; grid-template-columns: 22px 1fr auto; gap: 8px; align-items: center; width: 100%; text-align: left; font: inherit; color: inherit; background: none; border: 0; border-radius: 7px; padding: 6px 8px; cursor: pointer; border-left: 3px solid var(--c); }
+.fw:hover { background: color-mix(in srgb, var(--c) 9%, transparent); }
+.fw.on { background: color-mix(in srgb, var(--c) 15%, transparent); }
+.fw:focus-visible { outline: 2px solid var(--accent); }
+.fw .num { font: 500 12px var(--mono); color: var(--muted); }
+.fw .name { font-size: 14px; line-height: 1.25; }
+.fw .cnt { font: 12px var(--mono); color: var(--muted); font-variant-numeric: tabular-nums; }
+.bar { grid-column: 2 / 4; height: 3px; background: var(--line); border-radius: 2px; overflow: hidden; }
+.bar i { display: block; height: 100%; background: var(--ok); }
+section.view { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 18px 20px; min-width: 0; }
+.vh { display: grid; gap: 6px; border-bottom: 1px solid var(--line); padding-bottom: 12px; margin-bottom: 4px; }
+.vh h2 { font: 600 24px/1.15 var(--display); margin: 0; text-wrap: balance; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; font-size: 13px; color: var(--muted); }
+.chip { font: 12px var(--mono); border: 1px solid var(--line); border-radius: 999px; padding: 1px 8px; background: none; color: var(--ink); cursor: pointer; }
+.chip:hover { border-color: var(--accent); color: var(--accent); }
+.chip.track { border-color: var(--c); color: var(--c); cursor: default; }
+h3 { font: 600 18px/1.25 var(--display); margin: 22px 0 4px; }
+h3 .ext { font: 500 11px var(--body); text-transform: uppercase; letter-spacing: .06em; color: var(--muted); border: 1px solid var(--line); border-radius: 4px; padding: 1px 6px; margin-left: 6px; vertical-align: 3px; }
+h4 { font-size: 13px; font-weight: 600; color: var(--muted); margin: 14px 0 4px; }
+ol.los { list-style: none; margin: 0; padding: 0; }
+.lo { display: grid; grid-template-columns: 52px 12px 1fr; gap: 4px 10px; padding: 7px 6px; border-radius: 7px; scroll-margin-top: 80px; }
+.lo:target, .lo.flash { background: color-mix(in srgb, var(--accent) 12%, transparent); }
+.lo .pos { font: 12px var(--mono); color: var(--muted); text-align: right; padding-top: 2px; font-variant-numeric: tabular-nums; }
+.dot { width: 10px; height: 10px; border-radius: 50%; margin-top: 6px; background: var(--gap); }
+.dot.s2 { background: var(--ok); } .dot.s1 { background: linear-gradient(90deg, var(--part) 50%, var(--gap) 50%); }
+.lo .txt { min-width: 0; }
+.lo .code { font: 500 12px var(--mono); color: var(--muted); margin-right: 6px; }
+.lo .std { font: 11px var(--mono); color: var(--muted); }
+.lo .ek { color: var(--muted); font-size: 13px; margin-top: 2px; }
+.lo .needs { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 4px; align-items: center; font-size: 12px; color: var(--muted); }
+.legend { display: flex; gap: 14px; flex-wrap: wrap; font-size: 13px; color: var(--muted); align-items: center; }
+.legend span { display: inline-flex; align-items: center; gap: 5px; }
+.legend .dot { margin: 0; }
+.results .lo { grid-template-columns: 52px 12px 1fr; }
+.results .fwname { font-size: 12px; color: var(--muted); }
+.empty { color: var(--muted); padding: 20px 0; }
+@media (max-width: 820px) {
+  main { grid-template-columns: 1fr; padding: 0 16px 32px; }
+  header { padding: 16px 16px 8px; }
+  nav { position: static; max-height: 260px; }
+  .lo { grid-template-columns: 40px 12px 1fr; }
+}
+@media (prefers-reduced-motion: no-preference) { .lo.flash { transition: background .6s; } }
+</style>
+</head>
+<body>
+<header>
+  <h1>The Path</h1>
+  <p class="sub">Every learning objective from counting to 100 through graduate engineering, in order. Frameworks follow what they require, and each objective comes after the prerequisites it needs.</p>
+  <div class="stats" id="stats"></div>
+  <div class="rail" id="rail" aria-label="The path from start to finish, one segment per framework"></div>
+  <div class="railnote"><span>1 · start</span><span id="railend"></span></div>
+  <div class="search"><input id="q" type="search" placeholder="Search objectives, codes or standards (e.g. Laplace, K.OA.A.2, LIM-1)" aria-label="Search objectives"></div>
+  <div class="legend"><span><i class="dot s2"></i>drilled</span><span><i class="dot s1"></i>partly drilled</span><span><i class="dot"></i>no drills yet</span></div>
+</header>
+<main>
+  <nav id="nav" aria-label="Frameworks in path order"></nav>
+  <section class="view" id="view" aria-live="polite"></section>
+</main>
+<script>
+const FW = /*DATA*/[];
+const TRACKS = { math: "Math", science: "Science", computing: "Computing", engineering: "Engineering", health: "Health (DAT)", safety: "AI safety", communication: "Communication", athletics: "Athletics" };
+const tc = (t) => `var(--t-${t}, var(--muted))`;
+const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const all = [];
+const byCode = new Map();
+FW.forEach((f, fi) => f.units.forEach((u) => u.topics.forEach((t) => t.los.forEach((lo) => {
+  const o = { code: lo[0], pos: lo[1], do: lo[2], ek: lo[3], std: lo[4], needs: lo[5] ? lo[5].split(" ") : [], s: lo[6], fw: f, fi, unit: u, topic: t };
+  all.push(o); byCode.set(o.code, o);
+}))));
+const total = all.length, drilled = all.filter((o) => o.s === 2).length, part = all.filter((o) => o.s === 1).length;
+const fwStats = FW.map((f) => { const mine = all.filter((o) => o.fw === f); return { n: mine.length, ok: mine.filter((o) => o.s === 2).length, first: Math.min(...mine.map((o) => o.pos)), last: Math.max(...mine.map((o) => o.pos)) }; });
+
+document.getElementById("stats").innerHTML =
+  `<span><b>${total.toLocaleString()}</b> objectives</span><span><b>${FW.length}</b> frameworks</span>` +
+  `<span><b>${drilled}</b> drilled · <b>${part}</b> partly · <b>${(total - drilled - part).toLocaleString()}</b> to build</span>`;
+document.getElementById("railend").textContent = `${total.toLocaleString()} · finish`;
+
+const rail = document.getElementById("rail");
+FW.forEach((f, i) => {
+  const st = fwStats[i];
+  const b = document.createElement("button");
+  b.style.flex = String(st.n);
+  b.style.setProperty("--c", tc(f.track));
+  b.title = `${i + 1}. ${f.title}: objectives ${st.first}–${st.last}, ${st.ok} drilled`;
+  b.setAttribute("aria-label", b.title);
+  b.innerHTML = `<span class="fill" style="width:${(100 * st.ok / st.n).toFixed(1)}%"></span>`;
+  b.onclick = () => (location.hash = f.id);
+  b.dataset.id = f.id;
+  rail.appendChild(b);
+});
+
+const nav = document.getElementById("nav");
+let lastTrack = null;
+FW.forEach((f, i) => {
+  if (f.track !== lastTrack) { const h = document.createElement("div"); h.className = "trk"; h.textContent = TRACKS[f.track] ?? f.track; nav.appendChild(h); lastTrack = f.track; }
+  const st = fwStats[i];
+  const b = document.createElement("button");
+  b.className = "fw"; b.dataset.id = f.id; b.style.setProperty("--c", tc(f.track));
+  b.innerHTML = `<span class="num">${i + 1}</span><span class="name">${esc(f.title)}</span><span class="cnt">${st.n}</span><span class="bar"><i style="width:${(100 * st.ok / st.n).toFixed(1)}%"></i></span>`;
+  b.onclick = () => (location.hash = f.id);
+  nav.appendChild(b);
+});
+
+const loRow = (o, showFw) => `<li class="lo" id="${esc(o.code)}">
+  <span class="pos">${o.pos}</span><i class="dot s${o.s}" title="${["no drills yet", "partly drilled", "drilled"][o.s]}"></i>
+  <div class="txt">${showFw ? `<div class="fwname">${esc(o.fw.title)} · ${esc(o.unit.title)}</div>` : ""}<span class="code">${esc(o.code)}</span>${o.std ? `<span class="std">${esc(o.std)}</span>` : ""}
+    <div>${esc(o.do)}</div>${o.ek ? `<div class="ek">${esc(o.ek)}</div>` : ""}
+    ${o.needs.length ? `<div class="needs">needs ${o.needs.map((n) => `<button class="chip" data-go="${esc(n)}" title="${esc(byCode.get(n)?.do ?? "")}">${esc(n)}</button>`).join("")}</div>` : ""}
+  </div></li>`;
+
+const view = document.getElementById("view");
+function showFw(id, focus) {
+  const fi = FW.findIndex((f) => f.id === id);
+  const f = FW[fi < 0 ? 0 : fi], st = fwStats[fi < 0 ? 0 : fi];
+  document.querySelectorAll("[data-id]").forEach((el) => el.classList.toggle("on", el.dataset.id === f.id));
+  let h = `<div class="vh"><h2>${esc(f.title)}</h2><div class="chips"><span class="chip track" style="--c:${tc(f.track)}">${esc(TRACKS[f.track] ?? f.track)}</span>
+    <span>objectives ${st.first}–${st.last} of ${total.toLocaleString()} · ${st.ok} of ${st.n} drilled</span>
+    ${f.requires.length ? `<span>· after</span>${f.requires.map((r) => `<button class="chip" data-fw="${esc(r)}">${esc(FW.find((x) => x.id === r)?.title ?? r)}</button>`).join("")}` : `<span>· no prerequisites</span>`}</div></div>`;
+  for (const u of f.units) {
+    h += `<h3>Unit ${u.n} · ${esc(u.title)}${u.scope && u.scope !== "core" ? `<span class="ext">${esc(u.scope)}</span>` : ""}</h3>`;
+    for (const t of u.topics) {
+      const los = all.filter((o) => o.unit === u && o.topic === t).sort((a, b) => a.pos - b.pos);
+      h += `<h4>${u.n}.${t.n} ${esc(t.title)}</h4><ol class="los">${los.map((o) => loRow(o, false)).join("")}</ol>`;
+    }
+  }
+  view.innerHTML = h;
+  if (focus) { const el = document.getElementById(focus); if (el) { el.scrollIntoView({ block: "center" }); el.classList.add("flash"); setTimeout(() => el.classList.remove("flash"), 1500); } }
+  else window.scrollTo({ top: 0 });
+}
+function showSearch(q) {
+  const words = q.toLowerCase().split(/\s+/).filter(Boolean);
+  const hits = all.filter((o) => { const s = `${o.code} ${o.std} ${o.do} ${o.ek} ${o.topic.title}`.toLowerCase(); return words.every((w) => s.includes(w)); }).sort((a, b) => a.pos - b.pos);
+  document.querySelectorAll("[data-id]").forEach((el) => el.classList.remove("on"));
+  view.innerHTML = `<div class="vh"><h2>${hits.length.toLocaleString()} objective${hits.length === 1 ? "" : "s"} match “${esc(q)}”</h2></div>` +
+    (hits.length ? `<ol class="los results">${hits.slice(0, 300).map((o) => loRow(o, true)).join("")}</ol>${hits.length > 300 ? `<p class="empty">Showing the first 300 along the path.</p>` : ""}` : `<p class="empty">Nothing on the path matches. Try a code like CA-6.9 or a standard like 5.NF.</p>`);
+}
+view.addEventListener("click", (e) => {
+  const go = e.target.closest("[data-go]"); if (go) { const o = byCode.get(go.dataset.go); if (o) { document.getElementById("q").value = ""; route(o.fw.id, o.code); } return; }
+  const fw = e.target.closest("[data-fw]"); if (fw) location.hash = fw.dataset.fw;
+});
+let pending = null;
+function route(id, focus) { if (location.hash.slice(1) === id) showFw(id, focus); else { pending = focus; location.hash = id; } }
+function onHash() { const id = location.hash.slice(1); showFw(FW.some((f) => f.id === id) ? id : FW[0].id, pending); pending = null; }
+window.addEventListener("hashchange", onHash);
+let timer;
+document.getElementById("q").addEventListener("input", (e) => { clearTimeout(timer); const q = e.target.value.trim(); timer = setTimeout(() => (q.length > 1 ? showSearch(q) : onHash()), 150); });
+onHash();
+</script>
+</body>
+</html>
