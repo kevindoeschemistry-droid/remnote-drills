@@ -1,0 +1,960 @@
+# Physics (AP) — curriculum framework (draft 1, for Kevin's markup)
+#
+# Built like an AP Course and Exam Description: Big Ideas run through the subject,
+# Units → Topics → Learning Objectives (one testable action each, verb first), with the
+# Essential Knowledge an LO rests on and the Practices it exercises. Foundation layer of the
+# start-to-finish path: algebra-based mechanics (AP Physics 1), then algebra-based thermo, E&M,
+# optics, waves and modern physics (AP Physics 2), then the calculus layer (AP Physics C:
+# Mechanics, C: E&M). Heat transfer and thermodynamics downstream lean on units 3, 9, 10–12.
+#
+# Standards it's built from (College Board CED text is paraphrased throughout, never quoted):
+#   P1   AP Physics 1: Algebra-Based CED, effective Fall 2024 — opened: science practices,
+#        Course at a Glance (Units 1–8, all topic titles), LO codes for Unit 1 and Topics 2.1–2.6.
+#        https://apcentral.collegeboard.org/pdf/ap-physics-1-course-and-exam-description.pdf
+#   P2   AP Physics 2: Algebra-Based CED, effective Fall 2024 — opened: Units 9–15 topic list,
+#        LO codes 9.1.A–10.3.B.
+#        https://apcentral.collegeboard.org/media/pdf/ap-physics-2-course-and-exam-description.pdf
+#        https://apcentral.collegeboard.org/media/pdf/ap-physics-2-course-at-a-glance.pdf
+#   CM   AP Physics C: Mechanics CED, effective Fall 2024 — opened: Units 1–7 topic list
+#        (adds 2.9 Resistive Forces, 7.5 Simple and Physical Pendulums; CM 2.10 = circular motion).
+#        https://apcentral.collegeboard.org/pdf/ap-physics-c-mechanics-course-and-exam-description.pdf
+#   CEM  AP Physics C: Electricity and Magnetism CED, effective Fall 2024 — opened: Units 8–13
+#        topic list. https://apcentral.collegeboard.org/pdf/ap-physics-c-electricity-and-magnetism-course-and-exam-description.pdf
+#        https://apcentral.collegeboard.org/media/pdf/ap-physics-c-electricity-and-magnetism-course-overview.pdf
+#
+# std codes: "<course> <unit>.<topic>.<LO>" where the LO code was visible in the text opened
+# (e.g. "P1 1.5.B", "P2 9.5.B"); "<course> <unit>.<topic>" (topic only) where it wasn't.
+# Practices are the three science practices shared by all four revised CEDs (1 Creating
+# Representations, 2 Mathematical Routines, 3 Scientific Questioning and Argumentation) with
+# their sub-skills. The CEDs don't organise by big ideas; the Big Ideas below are written for
+# this framework.
+#
+# Order: units 1–8 = P1 Units 1–8, units 9–15 = P2 Units 9–15 (same numbers as the CEDs),
+# units 16–22 = CM Units 1–7, units 23–28 = CEM Units 8–13. Topic n = the CED topic number, so
+# PH-14.8.A sits in P2 Topic 14.8 and PH-23.6.A in CEM Topic 8.6. C units carry only what
+# calculus adds; every C-level LO `needs` the algebra-based LO it extends.
+#
+# Fields
+#   units[].scope     core throughout (every unit is on the AP path)
+#   units[].layer     algebra (P1, P2) or calculus (C: Mechanics, C: E&M)
+#   units[].ced       which CED unit this is
+#   units[].ideas     Big Ideas the unit develops
+#   los[].std         CED code(s) the LO covers
+#   los[].do          the objective; los[].ek essential knowledge; los[].p practices
+#   los[].needs       prerequisite LOs in this framework (always earlier in the file)
+#   los[].drills      templates that drill it; "~name" = only partly (one variant, or a
+#                     neighbouring skill). No drills = a gap you can't be drilled on yet.
+id: physics
+title: "Physics (AP)"
+code: PH
+draft: 1
+track: science
+requires: [math-hs, calculus]
+level: 3
+domains: []
+
+big_ideas:
+  - id: SYS
+    title: Choose the system first
+    text: Every analysis starts by drawing a boundary. What is inside fixes which forces are internal, which energies are stored, and which quantities are conserved; a system can be treated as one point at its center of mass when its insides don't matter.
+  - id: INT
+    title: Interactions are forces, and forces come from fields
+    text: Objects act on each other in pairs (contact, gravitational, electric, magnetic). The net external force sets how a system's motion changes; at a distance the interaction is carried by a field that exists whether or not a test object is there.
+  - id: CONS
+    title: Conserved quantities shortcut the details
+    text: Energy, momentum, angular momentum and charge are neither created nor destroyed; they move between objects and forms. When the system is chosen so nothing crosses its boundary, before = after, no matter how messy the middle.
+  - id: CHG
+    title: Change has a rate and an accumulation
+    text: Velocity, acceleration, current and power are rates; displacement, work, impulse and charge are accumulations. Slopes and areas on graphs, and derivatives and integrals in the calculus layer, move between them.
+  - id: WAVE
+    title: Waves carry energy and superpose
+    text: Oscillations that propagate move energy without moving matter; overlapping waves add, which produces interference, standing waves, diffraction and beats.
+  - id: QUANT
+    title: At small scales energy comes in packets
+    text: Light arrives as photons of energy hf, matter has a wavelength h/p, atoms have discrete energy levels, and nuclei turn mass into energy.
+
+practices:
+  - id: 1A
+    title: Create diagrams
+    text: Draw a diagram, table or schematic (motion diagram, free-body diagram, energy bar chart, ray diagram, circuit) that represents the situation.
+  - id: 1B
+    title: Graph data
+    text: Plot a quantitative graph with scales and units, linearise where useful, and read slopes and intercepts.
+  - id: 1C
+    title: Sketch qualitative graphs
+    text: Sketch the shape of a graph that a model predicts (x–t, v–t, U–x, I–t) without numbers.
+  - id: 2A
+    title: Derive an expression
+    text: Combine laws and definitions symbolically to get the quantity asked for in terms of the givens.
+  - id: 2B
+    title: Calculate with units
+    text: Compute or estimate a number with correct units and significant figures.
+  - id: 2C
+    title: Compare
+    text: Compare a quantity across situations, times or locations and say which is larger and why.
+  - id: 2D
+    title: Predict from functional dependence
+    text: Say how a quantity changes by what factor when another is changed (doubles, quarters, unchanged).
+  - id: 3A
+    title: Design an experiment
+    text: Propose what to measure, with what, and how to reduce uncertainty to answer a question.
+  - id: 3B
+    title: Apply the right model
+    text: Pick the law, definition or model that fits the situation and its validity limits, and use it to make a claim.
+  - id: 3C
+    title: Justify with evidence
+    text: Support or refute a claim with physical principles, data or a representation.
+
+units:
+  # ── 1 · P1 Unit 1 ────────────────────────────────────────────────────────
+  - id: kinematics
+    n: 1
+    title: Kinematics
+    scope: core
+    layer: algebra
+    ced: "P1 Unit 1"
+    ideas: [CHG, SYS]
+    topics:
+      - n: 1
+        title: Scalars and vectors in one dimension
+        los:
+          - { id: A, std: ["P1 1.1.A"], do: "Classify a quantity as a scalar or a vector and state a vector's magnitude and direction.", ek: ["A vector has magnitude and direction (displacement, velocity, force); a scalar has magnitude only (distance, speed, mass, energy)."], p: [3B], drills: [] }
+          - { id: B, std: ["P1 1.1.B"], do: "Add collinear vectors using a sign convention for direction.", ek: ["In 1-D, pick a positive direction; opposite vectors carry opposite signs and add algebraically."], p: [2B], drills: [], needs: [PH-1.1.A] }
+      - n: 2
+        title: Displacement, velocity and acceleration
+        los:
+          - { id: A, std: ["P1 1.2.A"], do: "Calculate displacement and distinguish it from distance travelled.", ek: ["Δx = x_f − x_i depends only on start and end points; distance is the total path length."], p: [2B], drills: [], needs: [PH-1.1.B] }
+          - { id: B, std: ["P1 1.2.B"], do: "Calculate average velocity and average acceleration over a time interval.", ek: ["v_avg = Δx/Δt; a_avg = Δv/Δt; acceleration opposite to velocity means slowing down."], p: [2B], drills: [], needs: [PH-1.2.A] }
+      - n: 3
+        title: Representing motion
+        los:
+          - { id: A, std: ["P1 1.3.A"], do: "Read instantaneous velocity and acceleration from slopes, and displacement and Δv from areas, on motion graphs.", ek: ["Slope of x–t is v; slope of v–t is a; area under v–t is Δx; area under a–t is Δv."], p: [1C, 3B], drills: [], needs: [PH-1.2.B] }
+          - { id: B, std: ["P1 1.3.A"], do: "Solve a constant-acceleration problem with the kinematic equations.", ek: ["v = v₀ + at; x = x₀ + v₀t + ½at²; v² = v₀² + 2aΔx; pick the one missing the unknown you don't need."], p: [2A, 2B], drills: [], needs: [PH-1.3.A] }
+          - { id: C, std: ["P1 1.3.A"], do: "Analyze vertical free fall as motion with constant acceleration g downward.", ek: ["Near Earth's surface a = −9.8 m/s² (up positive) throughout the flight, including at the top where v = 0."], p: [2B, 3B], drills: [], needs: [PH-1.3.B] }
+          - { id: D, std: ["P1 1.3.A"], do: "Translate between a narrative, a motion diagram and consistent x–t, v–t and a–t sketches.", ek: ["The three graphs must agree: where v–t crosses zero, x–t has a turning point; constant a gives a straight v–t and a parabolic x–t."], p: [1A, 1C], drills: [], needs: [PH-1.3.A] }
+      - n: 4
+        title: Reference frames and relative motion
+        los:
+          - { id: A, std: ["P1 1.4.A", "P1 1.4.B"], do: "Calculate an object's velocity as measured by observers in different inertial frames moving along one line.", ek: ["v_A rel C = v_A rel B + v_B rel C; all inertial observers measure the same acceleration."], p: [2B, 3B], drills: [], needs: [PH-1.2.B] }
+      - n: 5
+        title: Vectors and motion in two dimensions
+        los:
+          - { id: A, std: ["P1 1.5.A"], do: "Resolve a vector into perpendicular components and rebuild a vector from its components.", ek: ["A_x = A cos θ, A_y = A sin θ (θ from +x); |A| = √(A_x² + A_y²), θ = tan⁻¹(A_y/A_x) with quadrant check."], p: [2B], drills: [], needs: [PH-1.1.A] }
+          - { id: B, std: ["P1 1.5.B"], do: "Analyze a horizontally launched projectile by treating horizontal and vertical motion independently.", ek: ["Ignoring air: a_x = 0, a_y = −g; the two directions share only the time."], p: [2A, 2B], drills: [], needs: [PH-1.5.A, PH-1.3.C] }
+          - { id: C, std: ["P1 1.5.B"], do: "Calculate time of flight, maximum height and range of a projectile launched at an angle.", ek: ["v_y = 0 at the top; on level ground R = v₀² sin 2θ / g, maximal at 45°."], p: [2A, 2B, 2D], drills: [], needs: [PH-1.5.B] }
+          - { id: D, std: ["P1 1.5.B", "P1 1.4.B"], do: "Add relative velocities in two dimensions (boat crossing a river, plane in a crosswind).", ek: ["Relative velocities add as vectors; add components, then find magnitude and heading."], p: [1A, 2B], drills: [], needs: [PH-1.4.A, PH-1.5.A] }
+
+  # ── 2 · P1 Unit 2 ────────────────────────────────────────────────────────
+  - id: dynamics
+    n: 2
+    title: Force and translational dynamics
+    scope: core
+    layer: algebra
+    ced: "P1 Unit 2"
+    ideas: [INT, SYS]
+    topics:
+      - n: 1
+        title: Systems and center of mass
+        los:
+          - { id: A, std: ["P1 2.1.A"], do: "Choose a system and sort the forces on it into internal and external.", ek: ["Internal forces cancel in pairs; only external forces change the motion of the system's center of mass."], p: [1A, 3B], drills: [] }
+          - { id: B, std: ["P1 2.1.B"], do: "Calculate the center of mass of a system of point masses.", ek: ["x_cm = Σm_i x_i / Σm_i (each axis separately); it lies closer to the heavier parts."], p: [2B], drills: [], needs: [PH-2.1.A] }
+      - n: 2
+        title: Forces and free-body diagrams
+        los:
+          - { id: A, std: ["P1 2.2.A"], do: "Identify each force on an object as an interaction with a named other object, contact or at a distance.", ek: ["Every force has an agent; no agent, no force (\"force of motion\" is not a force)."], p: [3B], drills: [] }
+          - { id: B, std: ["P1 2.2.B"], do: "Draw a free-body diagram with every force on the object, from its point of action, in the correct direction.", ek: ["Normal force is perpendicular to the surface, tension along the string away from the object, gravity toward Earth's center."], p: [1A], drills: [], needs: [PH-2.2.A] }
+      - n: 3
+        title: Newton's third law
+        los:
+          - { id: A, std: ["P1 2.3.A"], do: "Identify third-law force pairs and distinguish them from balanced forces on one object.", ek: ["A third-law pair is equal and opposite, acts on two different objects and is the same type of force."], p: [3B, 3C], drills: [], needs: [PH-2.2.A] }
+      - n: 4
+        title: Newton's first law
+        los:
+          - { id: A, std: ["P1 2.4.A"], do: "Find an unknown force (tension, normal, applied) on an object in translational equilibrium.", ek: ["Constant velocity (including rest) ⇔ ΣF = 0; write ΣF_x = 0 and ΣF_y = 0 separately."], p: [1A, 2A, 2B], drills: [], needs: [PH-2.2.B, PH-1.5.A] }
+      - n: 5
+        title: Newton's second law
+        los:
+          - { id: A, std: ["P1 2.5.A"], do: "Apply ΣF = ma to one object to find its acceleration or an unknown force.", ek: ["a = ΣF/m points along the net force; the kinematics then follows from Unit 1."], p: [2A, 2B], drills: [], needs: [PH-2.2.B, PH-1.3.B] }
+          - { id: B, std: ["P1 2.5.A"], do: "Find the acceleration and string tension of connected objects (Atwood machine, blocks joined by a string).", ek: ["Treat the whole as one system for a, then isolate one object for the tension; an ideal string has one tension and one |a|."], p: [1A, 2A, 2B], drills: [], needs: [PH-2.5.A, PH-2.3.A, PH-2.1.A] }
+          - { id: C, std: ["P1 2.5.A"], do: "Analyze an object on an incline by resolving gravity along and perpendicular to the surface.", ek: ["Along the incline mg sin θ, into it mg cos θ; on a frictionless incline a = g sin θ."], p: [1A, 2A], drills: [], needs: [PH-2.5.A, PH-1.5.A] }
+      - n: 6
+        title: Gravitational force
+        los:
+          - { id: A, std: ["P1 2.6.A"], do: "Calculate the gravitational force between two masses with Newton's law of gravitation.", ek: ["F = Gm₁m₂/r², r center to center; doubling r quarters F."], p: [2B, 2D], drills: [] }
+          - { id: B, std: ["P1 2.6.A"], do: "Calculate the gravitational field strength g at a planet's surface or at altitude.", ek: ["g = GM/r²; weight mg is the gravitational force, and g is also the free-fall acceleration."], p: [2A, 2B], drills: [], needs: [PH-2.6.A] }
+      - n: 7
+        title: Kinetic and static friction
+        los:
+          - { id: A, std: ["P1 2.7"], do: "Calculate kinetic friction on a sliding object and the acceleration it produces.", ek: ["f_k = μ_k N, opposite to the relative sliding velocity; N is found from the perpendicular force balance, not assumed to be mg."], p: [2A, 2B], drills: [], needs: [PH-2.5.A] }
+          - { id: B, std: ["P1 2.7"], do: "Decide whether static friction can hold an object and find the friction force actually acting.", ek: ["f_s ≤ μ_s N: static friction is whatever the balance needs, up to the maximum; slipping starts when the need exceeds μ_s N."], p: [2C, 3B], drills: [], needs: [PH-2.4.A, PH-2.7.A] }
+      - n: 8
+        title: Spring forces
+        los:
+          - { id: A, std: ["P1 2.8"], do: "Apply Hooke's law to find a spring force, stretch or spring constant, including k from a force–extension graph.", ek: ["F_s = −kΔx, restoring toward equilibrium; k is the slope of F vs Δx."], p: [1B, 2B], drills: [], needs: [PH-2.4.A] }
+      - n: 9
+        title: Circular motion
+        los:
+          - { id: A, std: ["P1 2.9"], do: "Calculate centripetal acceleration and identify which real force supplies the net inward force.", ek: ["a_c = v²/r toward the center; centripetal is a role (tension, friction, gravity, normal), never an extra force on the FBD."], p: [1A, 2B], drills: [], needs: [PH-2.5.A, PH-1.5.A] }
+          - { id: B, std: ["P1 2.9"], do: "Apply ΣF_r = mv²/r to a car on a flat curve, a vertical loop or a conical pendulum.", ek: ["Flat curve: μ_s mg ≥ mv²/r; top of a loop: N + mg = mv²/r, minimum speed √(gr)."], p: [1A, 2A, 2B], drills: [], needs: [PH-2.9.A, PH-2.7.B] }
+          - { id: C, std: ["P1 2.9", "P1 6.6"], do: "Derive the speed and period of a circular orbit from gravity as the centripetal force.", ek: ["GMm/r² = mv²/r ⇒ v = √(GM/r), T² = 4π²r³/(GM); orbital speed is independent of the satellite's mass."], p: [2A, 2D], drills: [], needs: [PH-2.9.A, PH-2.6.B] }
+
+  # ── 3 · P1 Unit 3 ────────────────────────────────────────────────────────
+  - id: energy
+    n: 3
+    title: Work, energy and power
+    scope: core
+    layer: algebra
+    ced: "P1 Unit 3"
+    ideas: [CONS, SYS]
+    topics:
+      - n: 1
+        title: Translational kinetic energy
+        los:
+          - { id: A, std: ["P1 3.1"], do: "Calculate translational kinetic energy and predict how it scales with speed and mass.", ek: ["K = ½mv² is a scalar, never negative; doubling v quadruples K."], p: [2B, 2D], drills: [], needs: [PH-1.2.B] }
+      - n: 2
+        title: Work
+        los:
+          - { id: A, std: ["P1 3.2"], do: "Calculate the work done by a constant force over a straight displacement.", ek: ["W = Fd cos θ; a force perpendicular to the motion (normal, centripetal) does no work; friction on a sliding object does negative work."], p: [2B], drills: [], needs: [PH-1.5.A, PH-2.2.B] }
+          - { id: B, std: ["P1 3.2"], do: "Find work as the area under a force–position graph, including the work to stretch a spring.", ek: ["W = area under F–x; for a spring from 0 to x, W = ½kx²."], p: [1B, 2B], drills: [], needs: [PH-3.2.A, PH-2.8.A] }
+          - { id: C, std: ["P1 3.2"], do: "Apply the work–energy theorem to find a speed or a force.", ek: ["W_net = ΔK; the net work is the sum of the work done by each force."], p: [2A, 2B], drills: [], needs: [PH-3.2.A, PH-3.1.A] }
+      - n: 3
+        title: Potential energy
+        los:
+          - { id: A, std: ["P1 3.3"], do: "Calculate gravitational potential energy near Earth and elastic potential energy of a spring for a system.", ek: ["U_g = mgh (reference level is a choice; only ΔU matters); U_s = ½kx²; potential energy belongs to a system of interacting objects."], p: [2B], drills: [], needs: [PH-3.2.B] }
+          - { id: B, std: ["P1 3.3"], do: "Calculate the gravitational potential energy of two widely separated masses.", ek: ["U_G = −Gm₁m₂/r with U = 0 at infinite separation; it rises toward zero as r grows."], p: [2B, 2D], drills: [], needs: [PH-3.3.A, PH-2.6.A] }
+      - n: 4
+        title: Conservation of energy
+        los:
+          - { id: A, std: ["P1 3.4"], do: "Apply conservation of mechanical energy to find a speed, height or spring compression.", ek: ["With only conservative forces doing work inside the system, K_i + U_i = K_f + U_f."], p: [1A, 2A, 2B], drills: [], needs: [PH-3.3.A, PH-3.2.C] }
+          - { id: B, std: ["P1 3.4"], do: "Account for friction and external work in an energy balance.", ek: ["ΔK + ΔU + ΔE_th = W_ext; sliding friction converts f_k d into thermal energy."], p: [1A, 2A, 2B], drills: [], needs: [PH-3.4.A, PH-2.7.A] }
+          - { id: C, std: ["P1 3.4", "P1 6.6"], do: "Calculate the escape speed from a planet's surface.", ek: ["½mv_esc² − GMm/R = 0 ⇒ v_esc = √(2GM/R), √2 times the circular orbital speed at the same r."], p: [2A, 2B], drills: [], needs: [PH-3.4.A, PH-3.3.B] }
+      - n: 5
+        title: Power
+        los:
+          - { id: A, std: ["P1 3.5"], do: "Calculate average power and the instantaneous power delivered by a force.", ek: ["P_avg = W/Δt = ΔE/Δt; P = Fv cos θ; 1 W = 1 J/s."], p: [2B], drills: [], needs: [PH-3.2.A] }
+
+  # ── 4 · P1 Unit 4 ────────────────────────────────────────────────────────
+  - id: momentum
+    n: 4
+    title: Linear momentum
+    scope: core
+    layer: algebra
+    ced: "P1 Unit 4"
+    ideas: [CONS, SYS]
+    topics:
+      - n: 1
+        title: Linear momentum
+        los:
+          - { id: A, std: ["P1 4.1"], do: "Calculate the momentum of an object and of a system, and relate system momentum to the center-of-mass velocity.", ek: ["p = mv is a vector; p_sys = Σm_i v_i = M v_cm."], p: [2B], drills: [], needs: [PH-1.1.B, PH-2.1.B] }
+      - n: 2
+        title: Change in momentum and impulse
+        los:
+          - { id: A, std: ["P1 4.2"], do: "Calculate impulse as average force times time or as the area under F–t, and equate it to the change in momentum.", ek: ["J = F_avg Δt = Δp; the same Δp over a longer time needs a smaller force (airbags, bent knees)."], p: [1B, 2B, 3C], drills: [], needs: [PH-4.1.A, PH-2.5.A] }
+      - n: 3
+        title: Conservation of linear momentum
+        los:
+          - { id: A, std: ["P1 4.3"], do: "Apply conservation of momentum in one dimension, including explosions and recoil.", ek: ["If the net external impulse on the system is zero, p_sys before = p_sys after; an explosion from rest gives m₁v₁ = −m₂v₂."], p: [2A, 2B], drills: [], needs: [PH-4.2.A, PH-2.3.A] }
+          - { id: B, std: ["P1 4.3"], do: "Apply conservation of momentum in two dimensions by components.", ek: ["Momentum is conserved separately along x and along y."], p: [1A, 2B], drills: [], needs: [PH-4.3.A, PH-1.5.A] }
+      - n: 4
+        title: Elastic and inelastic collisions
+        los:
+          - { id: A, std: ["P1 4.4"], do: "Classify a collision as elastic or inelastic by comparing kinetic energy before and after.", ek: ["Momentum is conserved in every isolated collision; kinetic energy only in elastic ones."], p: [2C, 3C], drills: [], needs: [PH-4.3.A, PH-3.1.A] }
+          - { id: B, std: ["P1 4.4"], do: "Find the final velocity and the kinetic energy lost in a perfectly inelastic collision.", ek: ["Objects stick: v_f = (m₁v₁ + m₂v₂)/(m₁ + m₂); the lost K becomes thermal energy and deformation."], p: [2A, 2B], drills: [], needs: [PH-4.4.A] }
+          - { id: C, std: ["P1 4.4"], do: "Find both final velocities in a one-dimensional elastic collision.", ek: ["Conserve p and K; equivalently the relative speed reverses: v₁ − v₂ = −(v₁′ − v₂′)."], p: [2A, 2B], drills: [], needs: [PH-4.4.A] }
+          - { id: D, std: ["P1 4.4", "P1 3.4"], do: "Solve a two-stage problem (ballistic pendulum) with momentum for the collision and energy afterward.", ek: ["Energy is not conserved through the inelastic collision, momentum is not conserved during the swing; use each only where it holds."], p: [2A, 3B], drills: [], needs: [PH-4.4.B, PH-3.4.A] }
+
+  # ── 5 · P1 Unit 5 ────────────────────────────────────────────────────────
+  - id: rotation
+    n: 5
+    title: Torque and rotational dynamics
+    scope: core
+    layer: algebra
+    ced: "P1 Unit 5"
+    ideas: [INT, CHG]
+    topics:
+      - n: 1
+        title: Rotational kinematics
+        los:
+          - { id: A, std: ["P1 5.1"], do: "Solve constant-angular-acceleration problems with the rotational kinematic equations.", ek: ["ω = ω₀ + αt; θ = ω₀t + ½αt²; ω² = ω₀² + 2αΔθ — the linear equations with θ, ω, α."], p: [2B], drills: [], needs: [PH-1.3.B] }
+      - n: 2
+        title: Connecting linear and rotational motion
+        los:
+          - { id: A, std: ["P1 5.2"], do: "Convert between angular and linear quantities for a point on a rotating object.", ek: ["s = rθ, v = rω, a_t = rα (θ in radians); every point shares ω, speed grows with r."], p: [2B, 2C], drills: [], needs: [PH-5.1.A] }
+      - n: 3
+        title: Torque
+        los:
+          - { id: A, std: ["P1 5.3"], do: "Calculate the torque of a force about an axis and its sense of rotation.", ek: ["τ = rF sin θ = r⊥F (lever arm); counterclockwise positive by convention."], p: [1A, 2B], drills: [], needs: [PH-1.5.A, PH-2.2.B] }
+      - n: 4
+        title: Rotational inertia
+        los:
+          - { id: A, std: ["P1 5.4"], do: "Calculate the rotational inertia of point masses and combine given inertias of rigid shapes.", ek: ["I = Σm_i r_i²; inertias about the same axis add; mass far from the axis costs the most."], p: [2B, 2C], drills: [], needs: [PH-2.1.B] }
+          - { id: B, std: ["P1 5.4"], do: "Shift a rotational inertia to a parallel axis.", ek: ["I = I_cm + Md²; I is smallest about an axis through the center of mass."], p: [2B], drills: [], needs: [PH-5.4.A] }
+      - n: 5
+        title: Rotational equilibrium
+        los:
+          - { id: A, std: ["P1 5.5"], do: "Find unknown forces on a beam, ladder or sign in static equilibrium.", ek: ["ΣF = 0 and Στ = 0 about any axis; choose the axis through an unknown force to drop it."], p: [1A, 2A, 2B], drills: [], needs: [PH-5.3.A, PH-2.4.A] }
+      - n: 6
+        title: Newton's second law in rotational form
+        los:
+          - { id: A, std: ["P1 5.6"], do: "Apply Στ = Iα to find the angular acceleration of a rigid object.", ek: ["α = Στ/I about a fixed axis or the center of mass."], p: [2A, 2B], drills: [], needs: [PH-5.3.A, PH-5.4.A, PH-2.5.A] }
+          - { id: B, std: ["P1 5.6"], do: "Solve a massive-pulley problem by coupling the translational and rotational equations.", ek: ["Each hanging mass: ΣF = ma; pulley: (T₁ − T₂)R = Iα; no-slip: a = Rα. Tensions differ when the pulley has mass."], p: [1A, 2A], drills: [], needs: [PH-5.6.A, PH-5.2.A, PH-2.5.B] }
+
+  # ── 6 · P1 Unit 6 ────────────────────────────────────────────────────────
+  - id: rotation-energy-momentum
+    n: 6
+    title: Energy and momentum of rotating systems
+    scope: core
+    layer: algebra
+    ced: "P1 Unit 6"
+    ideas: [CONS]
+    topics:
+      - n: 1
+        title: Rotational kinetic energy
+        los:
+          - { id: A, std: ["P1 6.1"], do: "Calculate the rotational kinetic energy of a rigid object.", ek: ["K_rot = ½Iω²."], p: [2B], drills: [], needs: [PH-5.4.A, PH-3.1.A] }
+      - n: 2
+        title: Torque and work
+        los:
+          - { id: A, std: ["P1 6.2"], do: "Calculate the work done by a torque and apply the rotational work–energy theorem.", ek: ["W = τΔθ for constant τ; W_net = ΔK_rot."], p: [2A, 2B], drills: [], needs: [PH-6.1.A, PH-5.3.A, PH-3.2.C] }
+      - n: 3
+        title: Angular momentum and angular impulse
+        los:
+          - { id: A, std: ["P1 6.3"], do: "Calculate the angular momentum of a rigid object and of a point mass moving past an axis.", ek: ["L = Iω for a rigid object; L = mvr⊥ for a point mass (r⊥ = perpendicular distance from the axis to the line of motion)."], p: [2B], drills: [], needs: [PH-5.4.A, PH-4.1.A] }
+          - { id: B, std: ["P1 6.3"], do: "Relate angular impulse to the change in angular momentum.", ek: ["τ_avg Δt = ΔL; area under τ–t is ΔL."], p: [1B, 2B], drills: [], needs: [PH-6.3.A, PH-5.3.A] }
+      - n: 4
+        title: Conservation of angular momentum
+        los:
+          - { id: A, std: ["P1 6.4"], do: "Apply conservation of angular momentum to a spinning skater, a merry-go-round or a mass striking a rod.", ek: ["Zero net external torque ⇒ I_iω_i = I_fω_f; K_rot can change (it rises when I drops)."], p: [2A, 2B, 2D], drills: [], needs: [PH-6.3.B] }
+      - n: 5
+        title: Rolling
+        los:
+          - { id: A, std: ["P1 6.5"], do: "Find the speed of an object rolling without slipping down an incline, and rank shapes by speed.", ek: ["v = Rω; K = ½Mv² + ½Iω²; with I = βMR², v = √(2gh/(1 + β)) — smaller β wins."], p: [2A, 2C], drills: [], needs: [PH-6.1.A, PH-5.2.A, PH-3.4.A] }
+      - n: 6
+        title: Motion of orbiting satellites
+        los:
+          - { id: A, std: ["P1 6.6"], do: "Compare a satellite's speed at different points of an elliptical orbit using angular momentum and energy.", ek: ["Gravity exerts no torque about the planet: mv_1r_1 = mv_2r_2 at perigee and apogee; total K + U_G is constant."], p: [2A, 2C], drills: [], needs: [PH-6.4.A, PH-3.3.B, PH-3.4.A] }
+          - { id: B, std: ["P1 6.6"], do: "Calculate the kinetic, potential and total energy of a circular orbit.", ek: ["K = GMm/2r, U = −GMm/r, E = −GMm/2r; a lower orbit is faster but has less total energy."], p: [2A, 2D], drills: [], needs: [PH-2.9.C, PH-3.3.B] }
+
+  # ── 7 · P1 Unit 7 ────────────────────────────────────────────────────────
+  - id: oscillations
+    n: 7
+    title: Oscillations
+    scope: core
+    layer: algebra
+    ced: "P1 Unit 7"
+    ideas: [CHG, CONS, WAVE]
+    topics:
+      - n: 1
+        title: Defining simple harmonic motion
+        los:
+          - { id: A, std: ["P1 7.1"], do: "Identify simple harmonic motion from a restoring force proportional to displacement and locate the equilibrium position.", ek: ["SHM ⇔ F = −kx about equilibrium; a vertical spring oscillates about its stretched equilibrium, not its natural length."], p: [3B], drills: [], needs: [PH-2.8.A, PH-2.5.A] }
+      - n: 2
+        title: Frequency and period of SHM
+        los:
+          - { id: A, std: ["P1 7.2"], do: "Calculate the period and frequency of a mass on a spring.", ek: ["T = 2π√(m/k), f = 1/T, ω = 2πf; independent of amplitude."], p: [2B, 2D], drills: ["~spring-frequency"], needs: [PH-7.1.A] }
+          - { id: B, std: ["P1 7.2"], do: "Calculate the period of a simple pendulum at small amplitude.", ek: ["T = 2π√(L/g), independent of mass; valid for small angles."], p: [2B, 2D], drills: [], needs: [PH-7.1.A, PH-2.5.C] }
+      - n: 3
+        title: Representing and analyzing SHM
+        los:
+          - { id: A, std: ["P1 7.3"], do: "Write x(t) for an oscillator from a graph or a description, and say where speed and acceleration are largest.", ek: ["x = A cos(2πft + φ); |v| is maximum at equilibrium, |a| maximum at the turning points."], p: [1C, 2A], drills: [], needs: [PH-7.2.A] }
+      - n: 4
+        title: Energy of simple harmonic oscillators
+        los:
+          - { id: A, std: ["P1 7.4"], do: "Apply energy conservation to an oscillator to find speed at a position or the maximum speed.", ek: ["½kA² = ½mv² + ½kx² ⇒ v_max = A√(k/m) = Aω."], p: [1A, 2A, 2B], drills: [], needs: [PH-7.3.A, PH-3.4.A, PH-3.3.A] }
+
+  # ── 8 · P1 Unit 8 ────────────────────────────────────────────────────────
+  - id: fluids
+    n: 8
+    title: Fluids
+    scope: core
+    layer: algebra
+    ced: "P1 Unit 8"
+    ideas: [INT, CONS]
+    topics:
+      - n: 1
+        title: Internal structure and density
+        los:
+          - { id: A, std: ["P1 8.1"], do: "Calculate density and use it to compare materials or find a mass or volume.", ek: ["ρ = m/V; water is 1000 kg/m³."], p: [2B], drills: [] }
+      - n: 2
+        title: Pressure
+        los:
+          - { id: A, std: ["P1 8.2"], do: "Calculate pressure from force and area, and convert between absolute and gauge pressure.", ek: ["P = F⊥/A; P_abs = P_gauge + P_atm, P_atm ≈ 1.01 × 10⁵ Pa."], p: [2B], drills: [], needs: [PH-2.2.B] }
+          - { id: B, std: ["P1 8.2"], do: "Calculate the pressure at a depth in a static fluid.", ek: ["P = P₀ + ρgh; depends on depth only, not on the container's shape."], p: [2B, 2D], drills: [], needs: [PH-8.2.A, PH-8.1.A] }
+      - n: 3
+        title: Fluids and Newton's laws
+        los:
+          - { id: A, std: ["P1 8.3"], do: "Calculate the buoyant force on an object and decide whether it floats, and how deep.", ek: ["F_b = ρ_fluid V_displaced g (Archimedes); a floating object displaces its own weight, fraction submerged = ρ_obj/ρ_fluid."], p: [1A, 2A, 2B], drills: [], needs: [PH-8.2.B, PH-2.4.A] }
+          - { id: B, std: ["P1 8.3"], do: "Calculate the force multiplication of a hydraulic lift.", ek: ["Pascal: a pressure change spreads undiminished, F₁/A₁ = F₂/A₂ (work in = work out)."], p: [2B, 2D], drills: [], needs: [PH-8.2.B] }
+      - n: 4
+        title: Fluids and conservation laws
+        los:
+          - { id: A, std: ["P1 8.4"], do: "Apply the continuity equation to find a flow speed or volume flow rate.", ek: ["Incompressible flow: A₁v₁ = A₂v₂ = volume flow rate; narrower pipe ⇒ faster flow."], p: [2B, 2D], drills: [] }
+          - { id: B, std: ["P1 8.4"], do: "Apply Bernoulli's equation to find a pressure or speed, including efflux from a tank.", ek: ["P + ½ρv² + ρgy is constant along a streamline (energy per volume); open tank drain v = √(2gh)."], p: [2A, 2B], drills: [], needs: [PH-8.4.A, PH-8.2.B, PH-3.4.A] }
+
+  # ── 9 · P2 Unit 9 ────────────────────────────────────────────────────────
+  - id: thermodynamics
+    n: 9
+    title: Thermodynamics
+    scope: core
+    layer: algebra
+    ced: "P2 Unit 9"
+    ideas: [CONS, SYS]
+    topics:
+      - n: 1
+        title: Kinetic theory of temperature and pressure
+        los:
+          - { id: A, std: ["P2 9.1.A"], do: "Explain gas pressure as momentum delivered by molecular collisions and predict how it changes with speed and number density.", ek: ["Each wall collision transfers 2mv_x; more molecules per volume or faster molecules ⇒ higher pressure."], p: [3B, 3C], drills: [], needs: [PH-4.2.A] }
+          - { id: B, std: ["P2 9.1.B"], do: "Relate absolute temperature to average molecular kinetic energy and calculate an rms speed.", ek: ["K_avg = (3/2)k_B T; v_rms = √(3k_BT/m); at the same T lighter molecules move faster."], p: [2B, 2D], drills: [], needs: [PH-9.1.A, PH-3.1.A] }
+      - n: 2
+        title: The ideal gas law
+        los:
+          - { id: A, std: ["P2 9.2.A"], do: "Apply the ideal gas law to find an unknown state variable or the change between two states.", ek: ["PV = nRT = Nk_BT with T in kelvin; for a fixed amount P₁V₁/T₁ = P₂V₂/T₂."], p: [2B, 2D], drills: [], needs: [PH-9.1.B] }
+      - n: 3
+        title: Thermal energy transfer and equilibrium
+        los:
+          - { id: A, std: ["P2 9.3.A"], do: "Predict the direction of heat transfer between objects in contact and the condition for thermal equilibrium.", ek: ["Heat flows spontaneously from higher to lower T until temperatures are equal (zeroth law)."], p: [3B], drills: [], needs: [PH-9.1.B] }
+      - n: 4
+        title: The first law of thermodynamics
+        los:
+          - { id: A, std: ["P2 9.4.A"], do: "Calculate the internal energy of a monatomic ideal gas and its change.", ek: ["U = (3/2)nRT for a monatomic ideal gas; ΔU depends only on ΔT."], p: [2B], drills: [], needs: [PH-9.1.B, PH-9.2.A] }
+          - { id: B, std: ["P2 9.4.B"], do: "Calculate the work done on a gas from the area under a P–V curve, and identify isobaric, isochoric, isothermal and adiabatic paths.", ek: ["W_on = −∫P dV = −(area under P–V) for expansion; isobaric W = −PΔV, isochoric W = 0."], p: [1C, 2B], drills: ["~th-fl-isobaric"], needs: [PH-9.2.A, PH-3.2.B] }
+          - { id: C, std: ["P2 9.4.B"], do: "Apply the first law to find Q, W or ΔU for each type of process.", ek: ["ΔU = Q + W (W on the gas); isothermal ΔU = 0, adiabatic Q = 0, isochoric W = 0."], p: [2A, 2B], drills: ["~th-fl-isochoric", "~th-fl-isobaric"], needs: [PH-9.4.A, PH-9.4.B, PH-9.3.A] }
+          - { id: D, std: ["P2 9.4.B"], do: "Analyze a cyclic process on a P–V diagram for net work and net heat.", ek: ["Over a cycle ΔU = 0, so Q_net = −W_net = enclosed area (clockwise = net work done by the gas)."], p: [1C, 2B], drills: [], needs: [PH-9.4.C] }
+      - n: 5
+        title: Specific heat and thermal conductivity
+        los:
+          - { id: A, std: ["P2 9.5.A"], do: "Calculate the heat needed for a temperature change and the final temperature of a calorimetry mixture.", ek: ["Q = mcΔT; in an insulated mixture ΣQ = 0, so heat lost by the hot = heat gained by the cold."], p: [2A, 2B], drills: [], needs: [PH-9.3.A] }
+          - { id: B, std: ["P2 9.5.B"], do: "Calculate the rate of heat conduction through a slab.", ek: ["Q/Δt = kAΔT/L; thicker or less conductive ⇒ slower."], p: [2B, 2D], drills: [ht-cond], needs: [PH-9.5.A] }
+      - n: 6
+        title: Entropy and the second law
+        los:
+          - { id: A, std: ["P2 9.6.A"], do: "Predict whether the entropy of a system and its surroundings increases, decreases or stays the same in a process.", ek: ["The total entropy of an isolated system never decreases; spontaneous heat flow and mixing raise it."], p: [3B, 3C], drills: [], needs: [PH-9.3.A] }
+          - { id: B, std: ["P2 9.6"], do: "Calculate the efficiency of a heat engine and compare it with the Carnot limit.", ek: ["e = W/Q_H = 1 − Q_C/Q_H ≤ 1 − T_C/T_H (kelvin); bridge to engineering thermodynamics — check against the current CED."], p: [2B, 2C], drills: [], needs: [PH-9.6.A, PH-9.4.D] }
+
+  # ── 10 · P2 Unit 10 ──────────────────────────────────────────────────────
+  - id: electrostatics
+    n: 10
+    title: Electric force, field and potential
+    scope: core
+    layer: algebra
+    ced: "P2 Unit 10"
+    ideas: [INT, CONS]
+    topics:
+      - n: 1
+        title: Electric charge and electric force
+        los:
+          - { id: A, std: ["P2 10.1.A"], do: "Calculate the electric force between two point charges with Coulomb's law.", ek: ["F = k|q₁q₂|/r², k = 8.99 × 10⁹ N·m²/C²; like charges repel, unlike attract."], p: [2B, 2D], drills: [], needs: [PH-2.6.A] }
+          - { id: B, std: ["P2 10.1.B"], do: "Find the equilibrium of a charged object acted on by both electric and gravitational forces.", ek: ["Electric force dwarfs gravity between particles; for a hanging charged ball, tan θ = F_e/(mg)."], p: [1A, 2A, 2C], drills: [], needs: [PH-10.1.A, PH-2.4.A] }
+          - { id: C, std: ["P2 10.1.C"], do: "Account for the permittivity of a medium in electric force calculations.", ek: ["k = 1/(4πε), ε = κε₀; a medium with κ > 1 weakens the force by a factor κ."], p: [2D], drills: [], needs: [PH-10.1.A] }
+          - { id: D, std: ["P2 10.1.A"], do: "Find the net electric force on a charge from several others by vector superposition.", ek: ["Each pair force is computed independently; add the vectors by components."], p: [1A, 2B], drills: [], needs: [PH-10.1.A, PH-1.5.A] }
+      - n: 2
+        title: Conservation of charge and charging
+        los:
+          - { id: A, std: ["P2 10.2.A"], do: "Track charge through charging by friction, conduction and induction, including sharing between identical conductors.", ek: ["Charge is conserved and quantized (e = 1.6 × 10⁻¹⁹ C); identical touching spheres end with equal shares."], p: [1A, 3C], drills: [], needs: [PH-10.1.A] }
+      - n: 3
+        title: Electric fields
+        los:
+          - { id: A, std: ["P2 10.3.A"], do: "Calculate the electric field of one or more point charges.", ek: ["E = kq/r², away from + and toward −; fields from several charges add as vectors."], p: [2B], drills: [], needs: [PH-10.1.D] }
+          - { id: B, std: ["P2 10.3.A"], do: "Calculate the force on a charge in a field and its resulting motion in a uniform field.", ek: ["F = qE, a = qE/m; a charge entering a uniform field moves like a projectile."], p: [2A, 2B], drills: [], needs: [PH-10.3.A, PH-1.5.B, PH-2.5.A] }
+          - { id: C, std: ["P2 10.3.B"], do: "Describe the field of charged conductors and the uniform field between oppositely charged parallel plates.", ek: ["In electrostatic equilibrium E = 0 inside a conductor and E is perpendicular to its surface; between large plates E is uniform."], p: [1A, 3B], drills: [], needs: [PH-10.3.A, PH-10.2.A] }
+          - { id: D, std: ["P2 10.3"], do: "Sketch and interpret electric field lines.", ek: ["Lines start on +, end on −, never cross; their density shows field strength."], p: [1A], drills: [], needs: [PH-10.3.A] }
+      - n: 4
+        title: Electric potential energy
+        los:
+          - { id: A, std: ["P2 10.4"], do: "Calculate the electric potential energy of a system of point charges.", ek: ["U = kq₁q₂/r for each pair (sign included), U = 0 at infinity; total = sum over pairs."], p: [2B], drills: [], needs: [PH-10.1.A, PH-3.3.B] }
+      - n: 5
+        title: Electric potential
+        los:
+          - { id: A, std: ["P2 10.5"], do: "Calculate the electric potential at a point due to point charges.", ek: ["V = kq/r, a scalar: add with signs, no components; U = qV."], p: [2B], drills: [], needs: [PH-10.4.A] }
+          - { id: B, std: ["P2 10.5"], do: "Relate potential difference to a uniform field, and sketch equipotentials.", ek: ["|E| = ΔV/d, pointing toward lower V; equipotentials are perpendicular to field lines."], p: [1A, 2B], drills: [], needs: [PH-10.5.A, PH-10.3.C] }
+      - n: 6
+        title: Capacitors
+        los:
+          - { id: A, std: ["P2 10.6"], do: "Calculate the capacitance of a parallel-plate capacitor and the charge it stores.", ek: ["C = κε₀A/d; Q = CΔV."], p: [2B, 2D], drills: [], needs: [PH-10.5.B, PH-10.1.C] }
+          - { id: B, std: ["P2 10.6"], do: "Calculate the energy stored in a capacitor.", ek: ["U_C = ½QΔV = ½C(ΔV)² = Q²/(2C)."], p: [2B, 2D], drills: [], needs: [PH-10.6.A] }
+      - n: 7
+        title: Conservation of electric energy
+        los:
+          - { id: A, std: ["P2 10.7"], do: "Find the speed of a charge accelerated through a potential difference.", ek: ["ΔK = −qΔV; 1 eV = 1.6 × 10⁻¹⁹ J is the energy an electron gains across 1 V."], p: [2A, 2B], drills: [], needs: [PH-10.5.A, PH-3.4.A] }
+
+  # ── 11 · P2 Unit 11 ──────────────────────────────────────────────────────
+  - id: circuits
+    n: 11
+    title: Electric circuits
+    scope: core
+    layer: algebra
+    ced: "P2 Unit 11"
+    ideas: [CONS, CHG]
+    topics:
+      - n: 1
+        title: Electric current
+        los:
+          - { id: A, std: ["P2 11.1"], do: "Calculate current as the rate of charge flow and state its conventional direction.", ek: ["I = ΔQ/Δt (1 A = 1 C/s); conventional current runs from + to − outside the source."], p: [2B], drills: [], needs: [PH-10.2.A] }
+      - n: 3
+        title: Resistance, resistivity and Ohm's law
+        los:
+          - { id: A, std: ["P2 11.3"], do: "Calculate the resistance of a wire from its resistivity and dimensions.", ek: ["R = ρL/A; longer or thinner ⇒ larger R."], p: [2B, 2D], drills: [], needs: [PH-11.1.A] }
+          - { id: B, std: ["P2 11.3"], do: "Apply Ohm's law to find a current, voltage or resistance.", ek: ["ΔV = IR for an ohmic element (linear I–V graph, slope 1/R)."], p: [1B, 2B], drills: [], needs: [PH-11.3.A, PH-10.5.B] }
+      - n: 4
+        title: Electric power
+        los:
+          - { id: A, std: ["P2 11.4"], do: "Calculate the power dissipated by a resistor and rank bulb brightness.", ek: ["P = IΔV = I²R = (ΔV)²/R; brightness follows power."], p: [2B, 2C], drills: [], needs: [PH-11.3.B, PH-3.5.A] }
+      - n: 5
+        title: Compound DC circuits
+        los:
+          - { id: A, std: ["P2 11.5"], do: "Calculate the equivalent resistance of series and parallel combinations.", ek: ["Series R_eq = ΣR (same I); parallel 1/R_eq = Σ1/R (same ΔV); parallel R_eq is less than the smallest branch."], p: [2B], drills: [], needs: [PH-11.3.B] }
+          - { id: B, std: ["P2 11.5"], do: "Calculate the equivalent capacitance of series and parallel combinations.", ek: ["Parallel C_eq = ΣC; series 1/C_eq = Σ1/C — the reverse of resistors."], p: [2B], drills: [], needs: [PH-10.6.A] }
+          - { id: C, std: ["P2 11.5"], do: "Find the terminal voltage of a battery with internal resistance.", ek: ["ΔV_terminal = ε − Ir; equals ε only when no current flows."], p: [2A, 2B], drills: [], needs: [PH-11.5.A] }
+      - n: 6
+        title: Kirchhoff's loop rule
+        los:
+          - { id: A, std: ["P2 11.6"], do: "Apply the loop rule to find an unknown voltage or current in a single loop.", ek: ["ΣΔV = 0 around any closed loop (energy conservation); +ε across a source − to +, −IR going with the current."], p: [2A, 2B], drills: [], needs: [PH-11.3.B, PH-10.7.A] }
+      - n: 7
+        title: Kirchhoff's junction rule
+        los:
+          - { id: A, std: ["P2 11.7"], do: "Apply the junction rule to find an unknown branch current.", ek: ["ΣI_in = ΣI_out at a junction (charge conservation)."], p: [2B], drills: [], needs: [PH-11.1.A, PH-10.2.A] }
+          - { id: B, std: ["P2 11.6", "P2 11.7"], do: "Solve a multi-loop circuit with the loop and junction rules together.", ek: ["Assign branch currents, write one junction equation fewer than junctions and enough loop equations; a negative answer means the guessed direction was wrong."], p: [1A, 2A, 2B], drills: [], needs: [PH-11.6.A, PH-11.7.A] }
+      - n: 8
+        title: RC circuits
+        los:
+          - { id: A, std: ["P2 11.8"], do: "Find the currents in an RC circuit just after the switch closes and after a long time.", ek: ["An uncharged capacitor acts as a wire at t = 0; a fully charged one carries no current (open branch)."], p: [2B, 3B], drills: [], needs: [PH-11.5.B, PH-11.6.A] }
+          - { id: B, std: ["P2 11.8"], do: "Calculate the time constant of an RC circuit and sketch charge and current versus time.", ek: ["τ = RC; charging Q rises toward CΔV and I decays toward 0, ~63% of the change per τ."], p: [1C, 2B], drills: [], needs: [PH-11.8.A] }
+
+  # ── 12 · P2 Unit 12 ──────────────────────────────────────────────────────
+  - id: magnetism
+    n: 12
+    title: Magnetism and electromagnetism
+    scope: core
+    layer: algebra
+    ced: "P2 Unit 12"
+    ideas: [INT, CHG]
+    topics:
+      - n: 1
+        title: Magnetic fields
+        los:
+          - { id: A, std: ["P2 12.1"], do: "Sketch the magnetic field of a bar magnet or of Earth and describe magnetic dipoles.", ek: ["Field lines leave N and enter S and form closed loops; there are no isolated magnetic poles."], p: [1A], drills: [] }
+      - n: 2
+        title: Magnetism and moving charges
+        los:
+          - { id: A, std: ["P2 12.2"], do: "Calculate the magnetic force on a moving charge and find its direction with the right-hand rule.", ek: ["F = |q|vB sin θ, perpendicular to both v and B (reverse for negative charge); it does no work."], p: [2B, 3B], drills: [], needs: [PH-12.1.A, PH-10.3.B] }
+          - { id: B, std: ["P2 12.2"], do: "Calculate the radius and period of a charged particle's circular path in a uniform magnetic field.", ek: ["qvB = mv²/r ⇒ r = mv/(qB); period 2πm/(qB) is independent of speed."], p: [2A, 2B], drills: [], needs: [PH-12.2.A, PH-2.9.A] }
+          - { id: C, std: ["P2 12.2"], do: "Find the speed a velocity selector passes undeflected.", ek: ["Crossed fields balance when qE = qvB ⇒ v = E/B."], p: [2A], drills: [], needs: [PH-12.2.A] }
+      - n: 3
+        title: Magnetism and current-carrying wires
+        los:
+          - { id: A, std: ["P2 12.3"], do: "Calculate the magnetic field near a long straight wire and give its direction.", ek: ["B = μ₀I/(2πr), circling the wire (right-hand grip rule); μ₀ = 4π × 10⁻⁷ T·m/A."], p: [2B, 2D], drills: [], needs: [PH-12.1.A, PH-11.1.A] }
+          - { id: B, std: ["P2 12.3"], do: "Calculate the force on a current-carrying wire in a field, including between two parallel wires.", ek: ["F = ILB sin θ; parallel currents attract, antiparallel repel."], p: [2A, 2B], drills: [], needs: [PH-12.3.A, PH-12.2.A] }
+      - n: 4
+        title: Electromagnetic induction and Faraday's law
+        los:
+          - { id: A, std: ["P2 12.4"], do: "Calculate the magnetic flux through a loop.", ek: ["Φ_B = BA cos θ, θ between B and the loop's normal; unit weber (T·m²)."], p: [2B], drills: [], needs: [PH-12.1.A, PH-1.5.A] }
+          - { id: B, std: ["P2 12.4"], do: "Apply Faraday's law to find the average induced emf from a change in flux.", ek: ["|ε| = N|ΔΦ_B/Δt|; flux can change through B, area or angle."], p: [2B, 2D], drills: [], needs: [PH-12.4.A] }
+          - { id: C, std: ["P2 12.4"], do: "Determine the direction of an induced current with Lenz's law.", ek: ["The induced current makes a field that opposes the change in flux, not the flux itself."], p: [1A, 3C], drills: [], needs: [PH-12.4.B] }
+          - { id: D, std: ["P2 12.4"], do: "Calculate the motional emf, current and magnetic force for a rod sliding on rails.", ek: ["ε = BLv; I = ε/R; the force ILB on the rod opposes its motion."], p: [2A, 2B], drills: [], needs: [PH-12.4.C, PH-12.3.B, PH-11.3.B] }
+
+  # ── 13 · P2 Unit 13 ──────────────────────────────────────────────────────
+  - id: geometric-optics
+    n: 13
+    title: Geometric optics
+    scope: core
+    layer: algebra
+    ced: "P2 Unit 13"
+    ideas: [WAVE]
+    topics:
+      - n: 1
+        title: Reflection
+        los:
+          - { id: A, std: ["P2 13.1"], do: "Apply the law of reflection and locate the image in a plane mirror.", ek: ["θ_i = θ_r from the normal; a plane-mirror image is virtual, upright, same size, as far behind as the object is in front."], p: [1A, 2B], drills: [] }
+      - n: 2
+        title: Images formed by mirrors
+        los:
+          - { id: A, std: ["P2 13.2"], do: "Draw a ray diagram to locate the image formed by a concave or convex mirror.", ek: ["Principal rays: parallel → through F, through F → parallel, through C → back on itself; convex mirrors always give virtual, upright, reduced images."], p: [1A], drills: [], needs: [PH-13.1.A] }
+          - { id: B, std: ["P2 13.2"], do: "Apply the mirror equation and magnification to find image position, size and orientation.", ek: ["1/f = 1/s_o + 1/s_i, f = R/2; M = −s_i/s_o; real images have s_i > 0 and are inverted."], p: [2A, 2B], drills: [], needs: [PH-13.2.A] }
+      - n: 3
+        title: Refraction
+        los:
+          - { id: A, std: ["P2 13.3"], do: "Calculate an index of refraction and apply Snell's law at an interface.", ek: ["n = c/v; n₁ sin θ₁ = n₂ sin θ₂; light bends toward the normal entering a higher-n medium."], p: [1A, 2B], drills: [] }
+          - { id: B, std: ["P2 13.3"], do: "Calculate the critical angle and decide whether total internal reflection occurs.", ek: ["sin θ_c = n₂/n₁, only for light going from higher to lower n."], p: [2B, 3B], drills: [], needs: [PH-13.3.A] }
+      - n: 4
+        title: Images formed by lenses
+        los:
+          - { id: A, std: ["P2 13.4"], do: "Draw a ray diagram to locate the image formed by a converging or diverging lens.", ek: ["Parallel ray → through far F (converging) or away from near F (diverging); ray through the center goes straight."], p: [1A], drills: [], needs: [PH-13.3.A, PH-13.2.A] }
+          - { id: B, std: ["P2 13.4"], do: "Apply the thin-lens equation and magnification and classify the image.", ek: ["1/f = 1/s_o + 1/s_i (f < 0 diverging); M = −s_i/s_o; an object inside f of a converging lens gives a virtual magnified image."], p: [2A, 2B], drills: [], needs: [PH-13.4.A, PH-13.2.B] }
+
+  # ── 14 · P2 Unit 14 ──────────────────────────────────────────────────────
+  - id: waves
+    n: 14
+    title: Waves, sound and physical optics
+    scope: core
+    layer: algebra
+    ced: "P2 Unit 14"
+    ideas: [WAVE]
+    topics:
+      - n: 1
+        title: Properties of wave pulses and waves
+        los:
+          - { id: A, std: ["P2 14.1"], do: "Classify a wave as transverse or longitudinal and describe what it carries.", ek: ["A wave transports energy, not matter; transverse = medium moves ⟂ to propagation, longitudinal = ∥ (sound)."], p: [1A, 3B], drills: [], needs: [PH-7.3.A] }
+      - n: 2
+        title: Periodic waves
+        los:
+          - { id: A, std: ["P2 14.2"], do: "Apply v = fλ to find a wavelength, frequency or speed.", ek: ["v = fλ = λ/T; the medium sets v, the source sets f."], p: [1C, 2B], drills: [], needs: [PH-14.1.A, PH-7.2.A] }
+          - { id: B, std: ["P2 14.2"], do: "Calculate the wave speed on a stretched string.", ek: ["v = √(F_T/μ), μ = mass per length."], p: [2B, 2D], drills: [], needs: [PH-14.2.A] }
+      - n: 3
+        title: Boundary behavior and polarization
+        los:
+          - { id: A, std: ["P2 14.3"], do: "Predict the reflected and transmitted pulses at a boundary between media.", ek: ["Reflection off a fixed end (or a denser medium) inverts the pulse; frequency is unchanged on crossing, speed and wavelength change."], p: [1A, 3B], drills: [], needs: [PH-14.2.A] }
+          - { id: B, std: ["P2 14.3"], do: "Calculate the intensity of light transmitted through polarizers.", ek: ["Only transverse waves polarize; unpolarized → I₀/2, then I = I₀cos²θ through each later polarizer."], p: [2B, 2D], drills: [], needs: [PH-14.1.A] }
+      - n: 4
+        title: Electromagnetic waves
+        los:
+          - { id: A, std: ["P2 14.4"], do: "Place radiation in the electromagnetic spectrum and calculate its frequency or wavelength.", ek: ["All EM waves travel at c = 3.00 × 10⁸ m/s in vacuum, c = fλ; in a medium v = c/n and λ shrinks."], p: [2B], drills: [], needs: [PH-14.2.A, PH-13.3.A] }
+      - n: 5
+        title: The Doppler effect
+        los:
+          - { id: A, std: ["P2 14.5"], do: "Predict and calculate the observed frequency shift when a sound source or observer moves.", ek: ["Approach ⇒ higher f, recede ⇒ lower; f′ = f(v ± v_o)/(v ∓ v_s)."], p: [2B, 3B], drills: [], needs: [PH-14.2.A] }
+      - n: 6
+        title: Wave interference and standing waves
+        los:
+          - { id: A, std: ["P2 14.6"], do: "Apply superposition to decide whether two waves interfere constructively or destructively at a point.", ek: ["In-phase sources: path difference mλ ⇒ constructive, (m + ½)λ ⇒ destructive."], p: [1A, 2B], drills: [], needs: [PH-14.2.A] }
+          - { id: B, std: ["P2 14.6"], do: "Find the harmonic frequencies of a string or an air column open or closed at one end.", ek: ["String or open pipe λ_n = 2L/n (all n); closed pipe λ_n = 4L/n (odd n only); f_n = v/λ_n."], p: [1A, 2A, 2B], drills: [], needs: [PH-14.6.A, PH-14.3.A, PH-14.2.B] }
+          - { id: C, std: ["P2 14.6"], do: "Calculate the beat frequency of two nearby tones.", ek: ["f_beat = |f₁ − f₂|."], p: [2B], drills: [], needs: [PH-14.6.A] }
+      - n: 7
+        title: Diffraction
+        los:
+          - { id: A, std: ["P2 14.7"], do: "Predict how much a wave spreads through an opening and locate single-slit minima.", ek: ["Spreading is large when λ is comparable to the slit width a; dark fringes at a sin θ = mλ (m ≠ 0)."], p: [2B, 2D], drills: [], needs: [PH-14.6.A] }
+      - n: 8
+        title: Double-slit interference and diffraction gratings
+        los:
+          - { id: A, std: ["P2 14.8"], do: "Locate bright fringes for a double slit or grating and calculate fringe spacing.", ek: ["Bright: d sin θ = mλ; small angles Δy = λL/d; a grating gives sharper, brighter maxima."], p: [2A, 2B], drills: [], needs: [PH-14.7.A] }
+      - n: 9
+        title: Thin-film interference
+        los:
+          - { id: A, std: ["P2 14.9"], do: "Find the film thickness that gives constructive or destructive reflection.", ek: ["Reflection off a higher-n layer adds a half-wave shift; count shifts, then 2nt = mλ or (m + ½)λ accordingly."], p: [2A, 2B], drills: [], needs: [PH-14.6.A, PH-13.3.A, PH-14.3.A] }
+
+  # ── 15 · P2 Unit 15 ──────────────────────────────────────────────────────
+  - id: modern
+    n: 15
+    title: Modern physics
+    scope: core
+    layer: algebra
+    ced: "P2 Unit 15"
+    ideas: [QUANT, CONS]
+    topics:
+      - n: 1
+        title: Quantum theory and wave–particle duality
+        los:
+          - { id: A, std: ["P2 15.1"], do: "Calculate the energy of a photon from its frequency or wavelength.", ek: ["E = hf = hc/λ; hc ≈ 1240 eV·nm."], p: [2B], drills: [], needs: [PH-14.4.A] }
+          - { id: B, std: ["P2 15.1"], do: "Calculate the de Broglie wavelength of a moving particle.", ek: ["λ = h/p; wave behavior shows when λ is comparable to the size of what it meets."], p: [2B, 2D], drills: [], needs: [PH-15.1.A, PH-4.1.A] }
+      - n: 2
+        title: The Bohr model of atomic structure
+        los:
+          - { id: A, std: ["P2 15.2"], do: "Use the Bohr model to give the energy levels of hydrogen.", ek: ["E_n = −13.6 eV/n²; electrons occupy only discrete levels; ionization from n is |E_n|."], p: [1A, 2B], drills: [], needs: [PH-10.4.A, PH-2.9.A] }
+      - n: 3
+        title: Emission and absorption spectra
+        los:
+          - { id: A, std: ["P2 15.3"], do: "Calculate the wavelength of light emitted or absorbed in a transition between levels.", ek: ["hf = |E_upper − E_lower|; an atom absorbs only photons that match a level difference."], p: [1A, 2B], drills: [], needs: [PH-15.2.A, PH-15.1.A] }
+      - n: 4
+        title: Blackbody radiation
+        los:
+          - { id: A, std: ["P2 15.4"], do: "Find the peak wavelength of blackbody emission from the temperature, or the reverse.", ek: ["Wien: λ_max T = 2.898 × 10⁻³ m·K; hotter objects peak at shorter λ."], p: [2B, 2D], drills: [ht3-wien], needs: [PH-15.1.A, PH-9.1.B] }
+          - { id: B, std: ["P2 15.4"], do: "Calculate the total power radiated by a hot surface.", ek: ["P = εσAT⁴ with T in kelvin; doubling T multiplies P by 16."], p: [2B, 2D], drills: [ht3-stefan], needs: [PH-15.4.A] }
+      - n: 5
+        title: The photoelectric effect
+        los:
+          - { id: A, std: ["P2 15.5"], do: "Calculate the maximum kinetic energy or stopping potential of photoelectrons and the threshold frequency.", ek: ["K_max = hf − φ = eV_stop; below f₀ = φ/h no electrons at any intensity."], p: [1B, 2B, 3C], drills: [], needs: [PH-15.1.A, PH-10.7.A] }
+      - n: 6
+        title: Compton scattering
+        los:
+          - { id: A, std: ["P2 15.6"], do: "Calculate the wavelength shift of a photon scattered by an electron.", ek: ["Photons carry p = h/λ; Δλ = (h/m_ec)(1 − cos θ) from momentum and energy conservation."], p: [2B], drills: [], needs: [PH-15.1.B, PH-4.3.B] }
+      - n: 7
+        title: Fission, fusion and nuclear decay
+        los:
+          - { id: A, std: ["P2 15.7"], do: "Calculate the energy released in a nuclear reaction from the mass defect.", ek: ["E = Δmc², 1 u ↔ 931.5 MeV; fission of heavy and fusion of light nuclei both move toward higher binding energy per nucleon."], p: [2B], drills: [], needs: [PH-3.4.A] }
+      - n: 8
+        title: Types of radioactive decay
+        los:
+          - { id: A, std: ["P2 15.8"], do: "Write a balanced alpha, beta or gamma decay equation.", ek: ["Nucleon number A and charge Z are conserved; α removes ⁴₂He, β⁻ turns n → p + e⁻ + ν̄, γ changes neither."], p: [2A], drills: [], needs: [PH-15.7.A, PH-10.2.A] }
+          - { id: B, std: ["P2 15.8"], do: "Calculate the amount remaining or the elapsed time from a half-life.", ek: ["N = N₀(½)^(t/T½); decay is random per nucleus but predictable in bulk."], p: [2B, 2D], drills: ["~model-decay"], needs: [PH-15.8.A] }
+
+  # ── 16 · C: Mechanics Unit 1 ─────────────────────────────────────────────
+  - id: c-kinematics
+    n: 16
+    title: "Kinematics with calculus"
+    scope: core
+    layer: calculus
+    ced: "CM Unit 1"
+    ideas: [CHG]
+    topics:
+      - n: 2
+        title: Displacement, velocity and acceleration as derivatives
+        los:
+          - { id: A, std: ["CM 1.2"], do: "Differentiate a position function to get velocity and acceleration as functions of time.", ek: ["v = dx/dt, a = dv/dt = d²x/dt²; turning points where v = 0."], p: [2A], drills: [], needs: [PH-1.3.A] }
+          - { id: B, std: ["CM 1.2", "CM 1.3"], do: "Integrate a time-dependent acceleration or velocity with initial conditions to get v(t) and x(t).", ek: ["v(t) = v₀ + ∫₀ᵗ a dt′, x(t) = x₀ + ∫₀ᵗ v dt′; the constant-a equations are the special case."], p: [2A, 2B], drills: [], needs: [PH-16.2.A] }
+          - { id: C, std: ["CM 1.2"], do: "Find velocity as a function of position when acceleration depends on position or velocity.", ek: ["a = v dv/dx ⇒ ∫v dv = ∫a(x) dx; for a(v), separate dt = dv/a(v)."], p: [2A], drills: [], needs: [PH-16.2.B, PH-2.5.A] }
+      - n: 5
+        title: Motion in two or three dimensions
+        los:
+          - { id: A, std: ["CM 1.5"], do: "Differentiate and integrate a vector position r(t) component by component.", ek: ["r = x î + y ĵ + z k̂; v = dr/dt and a = dv/dt act on each component independently."], p: [2A, 2B], drills: [], needs: [PH-16.2.A, PH-1.5.B] }
+
+  # ── 17 · C: Mechanics Unit 2 ─────────────────────────────────────────────
+  - id: c-dynamics
+    n: 17
+    title: "Dynamics with calculus"
+    scope: core
+    layer: calculus
+    ced: "CM Unit 2"
+    ideas: [INT, CHG]
+    topics:
+      - n: 1
+        title: Center of mass of continuous objects
+        los:
+          - { id: A, std: ["CM 2.1"], do: "Calculate the center of mass of a rod or plate with nonuniform density by integration.", ek: ["x_cm = ∫x dm / ∫dm with dm = λ(x) dx (or σ dA); uniform symmetric objects have it at the geometric center."], p: [2A, 2B], drills: [], needs: [PH-2.1.B, PH-16.2.B] }
+      - n: 5
+        title: Newton's second law with time-varying forces
+        los:
+          - { id: A, std: ["CM 2.5"], do: "Find v(t) and x(t) for an object under a time-dependent net force.", ek: ["ΣF = dp/dt = m dv/dt for constant m; integrate F(t)/m for v(t)."], p: [2A], drills: [], needs: [PH-2.5.A, PH-16.2.B, PH-4.2.A] }
+      - n: 9
+        title: Resistive forces
+        los:
+          - { id: A, std: ["CM 2.9"], do: "Set up and solve the equation of motion for a falling object with linear drag, and find its terminal velocity.", ek: ["m dv/dt = mg − bv ⇒ v(t) = v_T(1 − e^(−t/τ)), v_T = mg/b, τ = m/b."], p: [2A, 2B, 1C], drills: ["~lin-const"], needs: [PH-17.5.A] }
+      - n: 10
+        title: Circular motion
+        los:
+          - { id: A, std: ["CM 2.10"], do: "Resolve the acceleration of an object in nonuniform circular motion into tangential and radial parts.", ek: ["a_t = dv/dt, a_r = v²/r; |a| = √(a_t² + a_r²)."], p: [2A, 2B], drills: [], needs: [PH-2.9.B, PH-16.2.A] }
+
+  # ── 18 · C: Mechanics Unit 3 ─────────────────────────────────────────────
+  - id: c-energy
+    n: 18
+    title: "Work and energy with calculus"
+    scope: core
+    layer: calculus
+    ced: "CM Unit 3"
+    ideas: [CONS, CHG]
+    topics:
+      - n: 2
+        title: Work by a variable force
+        los:
+          - { id: A, std: ["CM 3.2"], do: "Calculate the work done by a position-dependent force by integration.", ek: ["W = ∫F · dr = ∫F_x dx in 1-D; the spring's ½kx² is ∫kx dx."], p: [2A, 2B], drills: [], needs: [PH-3.2.B, PH-16.2.B] }
+      - n: 3
+        title: Potential energy and conservative forces
+        los:
+          - { id: A, std: ["CM 3.3"], do: "Derive the potential energy function of a conservative force.", ek: ["ΔU = −∫F dx; gravity between masses gives U = −GMm/r with U(∞) = 0."], p: [2A], drills: [], needs: [PH-3.3.B, PH-18.2.A] }
+          - { id: B, std: ["CM 3.3"], do: "Find the force from a potential energy function and locate and classify equilibria on a U(x) graph.", ek: ["F_x = −dU/dx; equilibrium where dU/dx = 0, stable at a minimum, unstable at a maximum; turning points where U = E."], p: [1C, 2A, 3B], drills: [], needs: [PH-18.3.A] }
+      - n: 5
+        title: Power
+        los:
+          - { id: A, std: ["CM 3.5"], do: "Calculate instantaneous power as a derivative and the work delivered by a time-varying power.", ek: ["P = dW/dt = F · v; W = ∫P dt."], p: [2A, 2B], drills: [], needs: [PH-3.5.A, PH-18.2.A] }
+
+  # ── 19 · C: Mechanics Unit 4 ─────────────────────────────────────────────
+  - id: c-momentum
+    n: 19
+    title: "Momentum with calculus"
+    scope: core
+    layer: calculus
+    ced: "CM Unit 4"
+    ideas: [CONS, CHG]
+    topics:
+      - n: 2
+        title: Impulse of a time-varying force
+        los:
+          - { id: A, std: ["CM 4.2"], do: "Calculate the impulse of a time-varying force by integration and the resulting velocity.", ek: ["J = ∫F dt = Δp; F = dp/dt."], p: [2A, 2B], drills: [], needs: [PH-4.2.A, PH-16.2.B] }
+
+  # ── 20 · C: Mechanics Unit 5 ─────────────────────────────────────────────
+  - id: c-rotation
+    n: 20
+    title: "Rotational dynamics with calculus"
+    scope: core
+    layer: calculus
+    ced: "CM Unit 5"
+    ideas: [CHG, INT]
+    topics:
+      - n: 1
+        title: Rotational kinematics as derivatives
+        los:
+          - { id: A, std: ["CM 5.1"], do: "Differentiate and integrate θ(t), ω(t) and α(t) for nonconstant angular acceleration.", ek: ["ω = dθ/dt, α = dω/dt; integrate with initial conditions as in linear kinematics."], p: [2A], drills: [], needs: [PH-5.1.A, PH-16.2.B] }
+      - n: 3
+        title: Torque as a cross product
+        los:
+          - { id: A, std: ["CM 5.3"], do: "Compute torque as the cross product r × F from components.", ek: ["τ = r × F, |τ| = rF sin θ, direction by the right-hand rule along the rotation axis."], p: [2B], drills: [], needs: [PH-5.3.A, PH-1.5.A] }
+      - n: 4
+        title: Rotational inertia by integration
+        los:
+          - { id: A, std: ["CM 5.4"], do: "Derive the rotational inertia of a rod, ring or disk by integration.", ek: ["I = ∫r² dm; rod about center ML²/12, about end ML²/3, disk ½MR², ring MR²."], p: [2A], drills: [], needs: [PH-5.4.B, PH-17.1.A] }
+
+  # ── 21 · C: Mechanics Unit 6 ─────────────────────────────────────────────
+  - id: c-rotation-energy-momentum
+    n: 21
+    title: "Angular momentum and rolling with calculus"
+    scope: core
+    layer: calculus
+    ced: "CM Unit 6"
+    ideas: [CONS]
+    topics:
+      - n: 3
+        title: Angular momentum as a vector
+        los:
+          - { id: A, std: ["CM 6.3"], do: "Compute angular momentum as r × p and apply τ_net = dL/dt.", ek: ["L = r × p for a particle, Iω for a rigid body about a symmetry axis; net torque is the rate of change of L."], p: [2A, 2B], drills: [], needs: [PH-6.3.B, PH-20.3.A] }
+      - n: 5
+        title: Rolling with friction
+        los:
+          - { id: A, std: ["CM 6.5"], do: "Find the acceleration and the static friction force for an object rolling without slipping down an incline.", ek: ["Ma = Mg sin θ − f, fR = Iα, a = Rα ⇒ a = g sin θ/(1 + I/MR²); rolling friction does no work."], p: [1A, 2A], drills: [], needs: [PH-6.5.A, PH-5.6.A, PH-2.7.B] }
+
+  # ── 22 · C: Mechanics Unit 7 ─────────────────────────────────────────────
+  - id: c-oscillations
+    n: 22
+    title: "Oscillations with calculus"
+    scope: core
+    layer: calculus
+    ced: "CM Unit 7"
+    ideas: [CHG, WAVE]
+    topics:
+      - n: 1
+        title: SHM as a differential equation
+        los:
+          - { id: A, std: ["CM 7.1", "CM 7.2"], do: "Derive the SHM differential equation from Newton's second law and read the angular frequency off it.", ek: ["F = −kx ⇒ d²x/dt² = −(k/m)x; any system of the form ẍ = −ω²x oscillates with ω."], p: [2A], drills: ["~spring-frequency"], needs: [PH-7.1.A, PH-16.2.A] }
+          - { id: B, std: ["CM 7.3"], do: "Solve for amplitude and phase from initial position and velocity.", ek: ["x = A cos(ωt + φ); A = √(x₀² + (v₀/ω)²), tan φ = −v₀/(ωx₀)."], p: [2A, 2B], drills: [spring-undamped-ivp, spring-amplitude-phase], needs: [PH-22.1.A, PH-7.3.A] }
+      - n: 5
+        title: Simple and physical pendulums
+        los:
+          - { id: A, std: ["CM 7.5"], do: "Derive the small-angle period of a physical pendulum from the rotational equation of motion.", ek: ["−mgd sin θ = Iθ̈, sin θ ≈ θ ⇒ T = 2π√(I/(mgd)); a point mass on a string gives back 2π√(L/g)."], p: [2A, 2B], drills: [], needs: [PH-22.1.A, PH-5.6.A, PH-7.2.B, PH-20.4.A] }
+
+  # ── 23 · C: E&M Unit 8 ───────────────────────────────────────────────────
+  - id: c-fields-gauss
+    n: 23
+    title: "Electric fields and Gauss's law"
+    scope: core
+    layer: calculus
+    ced: "CEM Unit 8"
+    ideas: [INT, CHG]
+    topics:
+      - n: 4
+        title: Electric fields of charge distributions
+        los:
+          - { id: A, std: ["CEM 8.4"], do: "Calculate the electric field of a continuous charge distribution (rod, ring, arc) by integration.", ek: ["dE = k dq/r², dq = λ dl; integrate components and use symmetry to cancel some."], p: [1A, 2A], drills: [], needs: [PH-10.3.A, PH-17.1.A] }
+      - n: 5
+        title: Electric flux
+        los:
+          - { id: A, std: ["CEM 8.5"], do: "Calculate the electric flux through a flat or closed surface.", ek: ["Φ_E = ∫E · dA; uniform field through a flat area Φ = EA cos θ; field lines through a closed surface count net enclosed charge."], p: [2B], drills: [], needs: [PH-10.3.D, PH-12.4.A] }
+      - n: 6
+        title: Gauss's law
+        los:
+          - { id: A, std: ["CEM 8.6"], do: "Apply Gauss's law to find the field of a spherical, cylindrical or planar charge distribution.", ek: ["∮E · dA = Q_enc/ε₀; choose a surface where E is constant and parallel or perpendicular to dA."], p: [1A, 2A], drills: [], needs: [PH-23.5.A, PH-10.3.C] }
+          - { id: B, std: ["CEM 8.6"], do: "Find the field inside a sphere or cylinder with radially varying charge density.", ek: ["Q_enc = ∫ρ(r) dV with dV = 4πr²dr (sphere) or 2πrL dr (cylinder)."], p: [2A], drills: [], needs: [PH-23.6.A] }
+
+  # ── 24 · C: E&M Unit 9 ───────────────────────────────────────────────────
+  - id: c-potential
+    n: 24
+    title: "Electric potential with calculus"
+    scope: core
+    layer: calculus
+    ced: "CEM Unit 9"
+    ideas: [CONS, CHG]
+    topics:
+      - n: 2
+        title: Electric potential from fields and distributions
+        los:
+          - { id: A, std: ["CEM 9.2"], do: "Calculate a potential difference by integrating the electric field along a path.", ek: ["ΔV = −∫E · dr; path-independent because the electrostatic field is conservative."], p: [2A], drills: [], needs: [PH-10.5.B, PH-23.6.A, PH-18.3.A] }
+          - { id: B, std: ["CEM 9.2"], do: "Calculate the potential of a continuous charge distribution by integration.", ek: ["V = ∫k dq/r — a scalar integral, easier than the field."], p: [2A], drills: [], needs: [PH-10.5.A, PH-23.4.A] }
+          - { id: C, std: ["CEM 9.2"], do: "Find the electric field from a potential function.", ek: ["E_x = −∂V/∂x (each component); E points down the steepest potential slope."], p: [2A, 1C], drills: [], needs: [PH-24.2.A, PH-18.3.B] }
+
+  # ── 25 · C: E&M Unit 10 ──────────────────────────────────────────────────
+  - id: c-conductors-capacitors
+    n: 25
+    title: Conductors and capacitors
+    scope: core
+    layer: calculus
+    ced: "CEM Unit 10"
+    ideas: [INT, CONS]
+    topics:
+      - n: 1
+        title: Electrostatics with conductors
+        los:
+          - { id: A, std: ["CEM 10.1"], do: "Find induced charges and fields for a charge inside or near a conducting shell.", ek: ["E = 0 in the conductor ⇒ a Gaussian surface in the metal encloses zero net charge; excess charge sits on surfaces."], p: [1A, 3B], drills: [], needs: [PH-10.3.C, PH-23.6.A] }
+      - n: 2
+        title: Redistribution of charge between conductors
+        los:
+          - { id: A, std: ["CEM 10.2"], do: "Calculate how charge divides between connected conducting spheres.", ek: ["Connected conductors reach equal potential: kQ₁/R₁ = kQ₂/R₂ ⇒ Q ∝ R; total charge conserved."], p: [2A, 2B], drills: [], needs: [PH-25.1.A, PH-24.2.A] }
+      - n: 3
+        title: Capacitors
+        los:
+          - { id: A, std: ["CEM 10.3"], do: "Derive the capacitance of a parallel-plate, spherical or cylindrical capacitor.", ek: ["Find E by Gauss, ΔV = ∫E dr, then C = Q/ΔV; cylindrical C = 2πε₀L/ln(b/a)."], p: [2A], drills: [], needs: [PH-10.6.A, PH-24.2.A] }
+          - { id: B, std: ["CEM 10.3"], do: "Calculate the energy stored in a field from its energy density.", ek: ["u = ½ε₀E²; U = ∫u dV, which reproduces ½CV² for a capacitor."], p: [2A, 2B], drills: [], needs: [PH-25.3.A, PH-10.6.B] }
+      - n: 4
+        title: Dielectrics
+        los:
+          - { id: A, std: ["CEM 10.4"], do: "Predict how inserting a dielectric changes C, Q, V, E and U with the battery connected or disconnected.", ek: ["C = κC₀; connected: V fixed, Q and U rise by κ; isolated: Q fixed, V, E and U fall by κ."], p: [2C, 2D], drills: [], needs: [PH-25.3.A, PH-10.1.C] }
+
+  # ── 26 · C: E&M Unit 11 ──────────────────────────────────────────────────
+  - id: c-circuits
+    n: 26
+    title: "Circuits with calculus"
+    scope: core
+    layer: calculus
+    ced: "CEM Unit 11"
+    ideas: [CHG, CONS]
+    topics:
+      - n: 1
+        title: Current as a rate and drift velocity
+        los:
+          - { id: A, std: ["CEM 11.1"], do: "Calculate current from a charge function and relate it to drift velocity.", ek: ["I = dQ/dt; I = nqAv_d with n carriers per volume."], p: [2A, 2B], drills: [], needs: [PH-11.1.A, PH-16.2.A] }
+      - n: 8
+        title: RC circuits
+        los:
+          - { id: A, std: ["CEM 11.8"], do: "Derive and solve the differential equation for a charging or discharging RC circuit.", ek: ["ε − IR − q/C = 0, I = dq/dt ⇒ q(t) = Cε(1 − e^(−t/RC)); discharge q = Q₀e^(−t/RC)."], p: [2A], drills: ["~lin-const"], needs: [PH-11.8.B, PH-11.6.A, PH-16.2.B] }
+          - { id: B, std: ["CEM 11.8"], do: "Calculate the time to reach a given charge or current fraction, and the energy dissipated in the resistor.", ek: ["t = τ ln(1/(1 − f)) charging; total heat on discharge = initial ½CV²."], p: [2B], drills: ["~model-decay"], needs: [PH-26.8.A] }
+
+  # ── 27 · C: E&M Unit 12 ──────────────────────────────────────────────────
+  - id: c-magnetic-fields
+    n: 27
+    title: "Magnetic fields with calculus"
+    scope: core
+    layer: calculus
+    ced: "CEM Unit 12"
+    ideas: [INT]
+    topics:
+      - n: 2
+        title: Magnetic force as a cross product
+        los:
+          - { id: A, std: ["CEM 12.2"], do: "Compute the magnetic force on a moving charge or current element as a cross product.", ek: ["F = qv × B; dF = I dl × B, integrated along a wire."], p: [2A, 2B], drills: [], needs: [PH-12.2.A, PH-20.3.A] }
+      - n: 3
+        title: The Biot–Savart law
+        los:
+          - { id: A, std: ["CEM 12.3"], do: "Apply the Biot–Savart law to find B at the center of a loop or arc, or on a loop's axis.", ek: ["dB = (μ₀/4π) I dl × r̂ / r²; center of a loop B = μ₀I/(2R)."], p: [2A], drills: [], needs: [PH-12.3.A, PH-23.4.A] }
+      - n: 4
+        title: Ampère's law
+        los:
+          - { id: A, std: ["CEM 12.4"], do: "Apply Ampère's law to find B of a long wire (inside and out), a solenoid or a toroid.", ek: ["∮B · dl = μ₀I_enc; solenoid B = μ₀nI inside, ~0 outside."], p: [1A, 2A], drills: [], needs: [PH-12.3.A, PH-23.6.A] }
+
+  # ── 28 · C: E&M Unit 13 ──────────────────────────────────────────────────
+  - id: c-induction
+    n: 28
+    title: Electromagnetic induction
+    scope: core
+    layer: calculus
+    ced: "CEM Unit 13"
+    ideas: [CHG, CONS]
+    topics:
+      - n: 1
+        title: Magnetic flux of a nonuniform field
+        los:
+          - { id: A, std: ["CEM 13.1"], do: "Calculate the magnetic flux through a loop in a nonuniform field (such as near a long wire) by integration.", ek: ["Φ_B = ∫B · dA; next to a wire, strips dA = L dr give Φ = (μ₀IL/2π) ln(b/a)."], p: [2A], drills: [], needs: [PH-12.4.A, PH-12.3.A, PH-16.2.B] }
+      - n: 2
+        title: Faraday's law with derivatives
+        los:
+          - { id: A, std: ["CEM 13.2"], do: "Calculate the instantaneous emf from a time-varying flux, including a rotating coil (generator).", ek: ["ε = −N dΦ_B/dt; coil rotating at ω: ε = NBAω sin ωt."], p: [2A, 2B], drills: [], needs: [PH-28.1.A, PH-12.4.C] }
+      - n: 3
+        title: Induced currents and magnetic forces
+        los:
+          - { id: A, std: ["CEM 13.3"], do: "Solve for the velocity of a rod on rails slowed or driven by its induced current.", ek: ["Retarding force B²L²v/R ⇒ m dv/dt = −(B²L²/R)v, exponential decay; with a driving force it reaches a terminal speed."], p: [2A], drills: [], needs: [PH-28.2.A, PH-12.4.D, PH-17.9.A] }
+      - n: 4
+        title: Inductance
+        los:
+          - { id: A, std: ["CEM 13.4"], do: "Calculate the self-inductance of a solenoid, the emf across an inductor and its stored energy.", ek: ["ε_L = −L dI/dt; solenoid L = μ₀N²A/ℓ; U = ½LI²."], p: [2A, 2B], drills: [], needs: [PH-28.2.A, PH-27.4.A] }
+      - n: 5
+        title: LR circuits
+        los:
+          - { id: A, std: ["CEM 13.5"], do: "Derive and solve the current in an LR circuit after a switch closes or opens.", ek: ["ε − IR − L dI/dt = 0 ⇒ I = (ε/R)(1 − e^(−t/τ)), τ = L/R; an inductor resists sudden change in current."], p: [2A, 1C], drills: ["~lin-const"], needs: [PH-28.4.A, PH-26.8.A] }
+      - n: 6
+        title: LC circuits
+        los:
+          - { id: A, std: ["CEM 13.6"], do: "Show that an LC circuit oscillates and find its frequency and the energy exchange between C and L.", ek: ["L d²q/dt² + q/C = 0 ⇒ ω = 1/√(LC) — the mass–spring equation with L ↔ m, 1/C ↔ k."], p: [2A, 2B], drills: [], needs: [PH-28.4.A, PH-25.3.B, PH-22.1.B] }
