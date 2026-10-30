@@ -1,20 +1,20 @@
 {
   "name": "wiki-sync",
-  "version": "0.24.0",
+  "version": "0.25.0",
   "private": true,
   "pluginManifest": {
     "id": "wiki-sync",
     "name": "KevinDoesChemistry Library",
     "description": "Drill cards with a fresh, auto-checked problem every review.",
-    "version": "0.24.0",
+    "version": "0.25.0",
     "reqs": []
   },
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack serve --config webpack.config.js",
     "build": "cross-env NODE_ENV=production webpack --config webpack.config.js && cd dist && bestzip ../PluginZip.zip ./*",
     "check-types": "npm run skills && tsc --noEmit",
-    "test": "tsx tests/run.ts && python3 tests/verify_sympy.py",
-    "skills": "node scripts/build-skills.mjs",
+    "test": "tsx tests/run.ts && tsx --require ./tests/sim-preload.cjs tests/library-sim.ts && python3 tests/verify_sympy.py",
+    "skills": "node scripts/build-skills.mjs && node scripts/framework.mjs",
     "predev": "npm run skills",
     "prebuild": "npm run skills",
     "pretest": "npm run skills"

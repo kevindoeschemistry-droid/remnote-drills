@@ -4,6 +4,7 @@
 // Keys use the canonical skill id; a streak saved under an old alias is read once and migrated.
 import type { RNPlugin } from "@remnote/plugin-sdk";
 import { resolveSkill } from "./skills";
+import { LO_DRILLS } from "./target";
 import { markCleared } from "./deck";
 
 export interface SkillProgress {
@@ -18,6 +19,8 @@ const key = (id: string) => `odeDrill.progress.${id}`;
 export const EMPTY: SkillProgress = { consecutive: 0, cleared: false, attempts: 0, correct: 0 };
 
 export async function getProgress(plugin: RNPlugin, name: string): Promise<SkillProgress> {
+  // a learning objective ("lo:CODE") has its own streak; cleared = mastered
+  if (name.startsWith("lo:")) return { ...EMPTY, ...((await plugin.storage.getSynced<SkillProgress>(key(name))) ?? {}) };
   const skill = resolveSkill(name);
   if (!skill) return { ...EMPTY };
   let saved = await plugin.storage.getSynced<SkillProgress>(key(skill.id));
@@ -39,7 +42,8 @@ export async function recordAttempt(
   outcome: "correct" | "wrong" | "revealed",
   clearAt: number
 ): Promise<SkillProgress> {
-  const skill = resolveSkill(name)!;
+  const lo = name.startsWith("lo:");
+  const skill = lo ? { id: name, title: `${name.slice(3)} · ${LO_DRILLS[name.slice(3)]?.t ?? ""}` } : resolveSkill(name)!;
   const p = await getProgress(plugin, skill.id);
   const wasCleared = p.cleared;
   p.attempts += outcome === "revealed" ? 0 : 1;
@@ -54,8 +58,8 @@ export async function recordAttempt(
   await plugin.storage.setSynced(key(skill.id), p);
   if (p.cleared && !wasCleared) {
     try {
-      await markCleared(plugin, skill.id);
-      await plugin.app.toast(`🎯 ${skill.title}: cleared!`);
+      if (!lo) await markCleared(plugin, skill.id);
+      await plugin.app.toast(`🎯 ${skill.title.slice(0, 80)}: ${lo ? "mastered" : "cleared"}!`);
     } catch {
       /* tagging is a nicety; the streak is saved either way */
     }
@@ -64,6 +68,6 @@ export async function recordAttempt(
 }
 
 export async function resetProgress(plugin: RNPlugin, name: string): Promise<void> {
-  const skill = resolveSkill(name)!;
-  await plugin.storage.setSynced(key(skill.id), { ...EMPTY });
+  const id = name.startsWith("lo:") ? name : resolveSkill(name)!.id;
+  await plugin.storage.setSynced(key(id), { ...EMPTY });
 }

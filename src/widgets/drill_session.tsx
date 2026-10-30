@@ -6,6 +6,7 @@ import React, { useEffect, useMemo, useState } from "react";
 import { renderWidget, usePlugin } from "@remnote/plugin-sdk";
 import { DrillPanel } from "../components/DrillPanel";
 import { ExamMix } from "../components/ExamMix";
+import { PathView } from "../components/PathView";
 import { COURSES, isLive, liveByDomain, resolveSkill } from "../drills/skills";
 import { getProgress, SkillProgress } from "../drills/progress";
 import { builtCourses, coursesWithUnits, ensureCourse, nextMilestone } from "../drills/course";
@@ -16,7 +17,7 @@ import "../drills.css";
 const LAST_KEY = "odeDrill.lastSkill";
 const COURSE_KEY = "drills.hubCourse";
 const TAB_KEY = "drills.hubTab";
-type Tab = "practice" | "exam" | "courses";
+type Tab = "path" | "practice" | "exam" | "courses";
 
 const lessonLabel = (ref: string, title: string) => (/^\d/.test(ref) ? `§${ref} ${title}` : title);
 
@@ -31,7 +32,7 @@ async function local<T>(plugin: ReturnType<typeof usePlugin>, key: string): Prom
 function Hub() {
   const plugin = usePlugin();
   const courses = coursesWithUnits();
-  const [tab, setTab] = useState<Tab>("practice");
+  const [tab, setTab] = useState<Tab>("path");
   const [courseId, setCourseId] = useState<string>("all");
   const [skill, setSkill] = useState<string | null>(null);
   const [progress, setProgress] = useState<Record<string, SkillProgress>>({});
@@ -45,7 +46,7 @@ function Hub() {
       setBuilt(b);
       const c = (await local<string>(plugin, COURSE_KEY)) ?? b[0] ?? "all";
       setCourseId(c);
-      setTab((await local<Tab>(plugin, TAB_KEY)) ?? "practice");
+      setTab((await local<Tab>(plugin, TAB_KEY)) ?? "path");
       const last = await local<string>(plugin, LAST_KEY);
       setSkill(isLive(last) ? resolveSkill(last)!.id : liveByDomain()[0].skills[0].id);
     })();
@@ -105,13 +106,15 @@ function Hub() {
           <option value="all">All skills</option>
         </select>
         <div className="hub-tabs">
-          {(["practice", "exam", "courses"] as Tab[]).map((t) => (
+          {(["path", "practice", "exam", "courses"] as Tab[]).map((t) => (
             <button key={t} className={"hub-tab" + (tab === t ? " on" : "")} onClick={() => pickTab(t)}>
-              {t === "practice" ? "Practice" : t === "exam" ? "Exam mix" : "Courses"}
+              {t === "path" ? "Path" : t === "practice" ? "Practice" : t === "exam" ? "Exam mix" : "Courses"}
             </button>
           ))}
         </div>
       </div>
+
+      {tab === "path" && <PathView />}
 
       {tab === "practice" && (
         <>

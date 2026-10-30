@@ -3,7 +3,7 @@
 import React from "react";
 import { renderWidget, usePlugin, useRunAsync, WidgetLocation } from "@remnote/plugin-sdk";
 import { DrillPanel } from "../components/DrillPanel";
-import { isLive } from "../drills/skills";
+import { isDrillable } from "../drills/target";
 import { DRILL_POWERUP, DRILL_SLOT } from "../drills/deck";
 import "../drills.css";
 
@@ -19,7 +19,7 @@ function DrillCard() {
 
   if (!ctx?.remId) return null;
   if (skill === undefined) return null;
-  if (!isLive(skill)) return <div className="odd-panel">Unknown drill skill “{skill}”.</div>;
+  if (!isDrillable(skill)) return <div className="odd-panel">Unknown drill skill “{skill}”.</div>;
   // key on the card so a new card always starts a new problem
   return <DrillPanel key={ctx.cardId ?? ctx.remId} skill={skill} mode="card" />;
 }

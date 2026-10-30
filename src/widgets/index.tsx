@@ -5,6 +5,7 @@ import { DRILL_POWERUP, DRILL_SLOT, LEGACY_ROOT, SOURCES_SLOT } from "../drills/
 import { SOURCES, sourceLabel } from "../drills/skills";
 import { latestHighlight, pdfOf } from "../drills/anchors";
 import { syncCourses } from "../drills/course";
+import { ensureLibrary, libraryIsBuilt, libraryIsCurrent } from "../drills/library-path";
 
 console.log("[Drills] bundle loaded");
 
@@ -113,7 +114,12 @@ async function registerDrills(plugin: ReactRNPlugin) {
 async function onActivate(plugin: ReactRNPlugin) {
   await registerDrills(plugin);
   // courses you've built follow their definition: new lessons and skills arrive on their own
-  setTimeout(() => syncCourses(plugin).catch((e) => console.error("[Drills] course sync failed", e)), 4000);
+  setTimeout(async () => {
+    await syncCourses(plugin).catch((e) => console.error("[Drills] course sync failed", e));
+    // the Library follows the curriculum maps once you've built it (Path tab → Build the Library)
+    if ((await libraryIsBuilt(plugin)) && !(await libraryIsCurrent(plugin)))
+      await ensureLibrary(plugin).catch((e) => console.error("[Drills] library sync failed", e));
+  }, 4000);
 }
 
 async function onDeactivate(_plugin: ReactRNPlugin) {}

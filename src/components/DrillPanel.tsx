@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { usePlugin, QueueInteractionScore } from "@remnote/plugin-sdk";
-import { generate } from "../drills/registry";
+import { generateFor } from "../drills/registry";
+import { resolveTarget } from "../drills/target";
 import { placeText, primaryPlace, resolveSkill, videosFor } from "../drills/skills";
 import { anchorFor, openPlace } from "../drills/anchors";
 import { getBindings } from "../drills/deck";
@@ -57,11 +58,24 @@ function inputHelp(a: Answer): { placeholder: string; hint: string } {
   }
 }
 
-export function DrillPanel({ skill, mode, onNext }: { skill: string; mode: "card" | "session"; onNext?: () => void }) {
+export function DrillPanel({
+  skill,
+  mode,
+  onNext,
+  onResult,
+}: {
+  skill: string;
+  mode: "card" | "session";
+  onNext?: () => void;
+  /** called once per problem when it's settled: right first time, or not */
+  onResult?: (correct: boolean) => void;
+}) {
   const plugin = usePlugin();
-  const meta = resolveSkill(skill)!;
+  const target = resolveTarget(skill)!;
+  const meta = { ...resolveSkill(target.skillId)!, id: target.key, title: target.title };
+  const placeSkill = target.skillId;
   const [seed, setSeed] = useState(newSeed);
-  const problem: Problem = useMemo(() => generate(meta.id, seed), [meta.id, seed]);
+  const problem: Problem = useMemo(() => generateFor(target, seed), [target.key, seed]);
   const parts = problem.parts;
   const [guided, setGuided] = useState(true);
   const [partIdx, setPartIdx] = useState(0);
@@ -119,6 +133,12 @@ export function DrillPanel({ skill, mode, onNext }: { skill: string; mode: "card
   }, [partIdx, guided, nFields]);
 
   const done = phase === "correct" || phase === "revealed";
+  const reported = useRef<Problem | null>(null);
+  useEffect(() => {
+    if (!done || !onResult || reported.current === problem) return;
+    reported.current = problem;
+    onResult(phase === "correct" && !missedOnce);
+  }, [done, phase, missedOnce, problem, onResult]);
 
   const miss = useCallback(
     async (kind: "wrong" | "revealed") => {
@@ -238,7 +258,7 @@ export function DrillPanel({ skill, mode, onNext }: { skill: string; mode: "card
   };
 
   const help = inputHelp(a);
-  const place = primaryPlace(meta.id, prefSource);
+  const place = primaryPlace(placeSkill, prefSource);
   // where the label goes: "anchor" (your PDF at the section), "pdf" (your PDF), or the wiki
   const [bookTarget, setBookTarget] = useState<"anchor" | "pdf" | "wiki">("wiki");
   useEffect(() => {

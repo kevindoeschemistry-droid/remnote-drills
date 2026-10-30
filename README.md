@@ -114,9 +114,23 @@ and add a first-principles case to `tests/verify/`.
 
 Then `npm test`. Courses you've built in RemNote pick up new skills on their own.
 
+## The path and the Library
+
+`drills/frameworks/*.yaml` are curriculum maps (AP/IB style: units → topics → learning objectives,
+with essential knowledge, practices, official standard codes and prerequisites). Each declares the
+frameworks it `requires`; `node scripts/framework.mjs` orders all of them into one start-to-finish
+path (K.CC.A.1 "count to 100" is #1), checks every prerequisite comes first, and writes
+`docs/frameworks/PATH.md` and the data the plugin bundles. `scripts/path-page.mjs` builds the
+browsable page `docs/path/index.html`.
+
+In RemNote, the sidebar's **Path** tab builds *KevinDoesChemistry Library* (Track › Framework ›
+Unit › Topic › Objective, in path order, each objective with its standard, essential knowledge and
+linked prerequisites, and a drill card wherever drills exist), shows the next objective you haven't
+mastered on each track, runs unit test-outs (80% to pass), and lets you mark what you already know.
+
 ## Using it in RemNote
 
-Three commands: **Drills: Open** (the sidebar: Practice in course order with the gaps
+Three commands: **Drills: Open** (the sidebar: Path, Practice in course order with the gaps
 shown, Exam mix for the course's next exam, Courses to build one and the setup tools),
 **Drills: Anchor this section** and **Drills: Link PDF to a textbook** (both need a PDF open).
 

@@ -2,7 +2,8 @@
 import { Rng } from "./rng";
 import { Reject } from "./reject";
 import type { Draft, Problem } from "./types";
-import { resolveSkill, templatesFor } from "./skills";
+import { ALL_SKILLS, resolveSkill, templatesFor } from "./skills";
+import type { Target } from "./target";
 import { FIRST_ORDER_TEMPLATES } from "./gen-first-order";
 import { SERIES_TEMPLATES } from "./gen-series";
 import { STURM_TEMPLATES } from "./gen-sturm";
@@ -73,4 +74,24 @@ export function generateTemplate(skillId: string, name: string, seed: number): P
     }
   }
   throw new Error(`template ${name} keeps rejecting`);
+}
+
+const TEMPLATE_SKILL: Record<string, string> = {};
+for (const s of ALL_SKILLS) for (const ts of Object.values(s.levels ?? {})) for (const t of ts as string[]) TEMPLATE_SKILL[t] ??= s.id;
+
+/** Generate for a skill or a learning objective (which draws only from its own templates). */
+export function generateFor(target: Target, seed: number): Problem {
+  if (!target.templates?.length) return generate(target.skillId, seed);
+  const r = new Rng(seed);
+  for (let i = 0; i < 300; i++) {
+    const name = target.templates[Math.floor(r.next() * target.templates.length)];
+    const fn = TEMPLATES[name];
+    if (!fn) throw new Error(`objective ${target.code} names template "${name}" but no generator exists`);
+    try {
+      return { skill: TEMPLATE_SKILL[name] ?? target.skillId, template: name, level: 1, ...fn(r) };
+    } catch (e) {
+      if (!(e instanceof Reject)) throw e;
+    }
+  }
+  throw new Error(`could not generate a problem for ${target.key}`);
 }

@@ -166,6 +166,35 @@ if (!process.argv[2] && !failed) {
   if (forward.length) md += `\n## Order problems (a prerequisite comes after the objective)\n\n${forward.map((m) => `- ${m}`).join("\n")}\n`;
   fs.writeFileSync(path.join(root, "docs/frameworks/PATH.md"), md);
   fs.writeFileSync(path.join(root, "docs/frameworks/path.json"), JSON.stringify({ frameworks: order, objectives: seq.map((x) => x.code) }));
+
+  // for the plugin: the whole library (Library builder, Path tab) and a small LO → drills map (cards)
+  const TRACK_TITLES = { math: "Math", science: "Science", computing: "Computing", engineering: "Engineering", health: "Health", safety: "AI Safety", communication: "Communication", athletics: "Athletics" };
+  const tplSkill = {};
+  for (const s of graph.skills) for (const ts of Object.values(s.levels ?? {})) for (const t of ts) tplSkill[t] = s.id;
+  const lib = {
+    tracks: TRACK_TITLES,
+    frameworks: order.map((id) => {
+      const f = all[id];
+      return {
+        id, title: f.title, code: f.code, track: f.track ?? "other", requires: f.requires ?? [],
+        units: f.units.map((u) => ({
+          n: u.n, title: u.title, scope: u.scope ?? "core",
+          topics: u.topics.map((t) => ({
+            n: t.n, title: t.title,
+            los: t.los.map((lo) => {
+              const code = `${f.code}-${u.n}.${t.n}.${lo.id}`;
+              return { code, pos: pos.get(code) + 1, do: lo.do, ek: (lo.ek ?? []).join(" "), std: [].concat(lo.std ?? []).join(", "), needs: lo.needs ?? [], drills: (lo.drills ?? []).filter((d) => !d.startsWith("~")) };
+            }),
+          })),
+        })),
+      };
+    }),
+  };
+  const loDrills = {};
+  for (const f of lib.frameworks) for (const u of f.units) for (const t of u.topics) for (const lo of t.los)
+    if (lo.drills.length) loDrills[lo.code] = { t: lo.do, f: f.title, d: lo.drills, s: tplSkill[lo.drills[0]] };
+  fs.writeFileSync(path.join(root, "src/drills/path.generated.json"), JSON.stringify(lib));
+  fs.writeFileSync(path.join(root, "src/drills/lo-drills.generated.json"), JSON.stringify(loDrills));
   console.log(`path: ${seq.length} objectives in ${order.length} frameworks; ${pulled} moved ahead to sit after their prerequisites; ${missing.length} missing requires, ${cyclic.length} in cycles, ${forward.length} order problems -> docs/frameworks/PATH.md`);
 }
 if (failed) process.exit(1);
