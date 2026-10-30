@@ -1,0 +1,2980 @@
+{
+ "id": "ai-safety",
+ "title": "AI Safety",
+ "code": "AIS",
+ "draft": 1,
+ "domains": [],
+ "big_ideas": [
+  {
+   "id": "OPT",
+   "title": "Optimisation finds what you measure, not what you meant",
+   "text": "Training, RL and evaluation all optimise a proxy; with enough pressure the proxy and the intent come apart — in the model (reward hacking, misgeneralisation) and in the institution (Goodharted benchmarks and thresholds)."
+  },
+  {
+   "id": "OBS",
+   "title": "You can only govern what you can observe",
+   "text": "Every safety claim rests on evidence — evals, interpretability, monitoring — and that evidence is a lower bound shaped by elicitation, validity and the model's awareness of being tested."
+  },
+  {
+   "id": "SCALE",
+   "title": "Capability scales predictably in aggregate, unpredictably in specifics",
+   "text": "Loss, compute and task horizons follow smooth trends you can extrapolate; which dangerous capability arrives when does not, so commitments are written as if-then triggers."
+  },
+  {
+   "id": "DEF",
+   "title": "No single layer is enough",
+   "text": "Alignment, control, safeguards, security and governance each fail sometimes; risk falls by stacking imperfect layers whose failures are not correlated."
+  },
+  {
+   "id": "INC",
+   "title": "Incentives and coordination set the ceiling",
+   "text": "Race dynamics, chokepoints and verification decide which safety measures actually get adopted; the strategic question is who can act, and what would make restraint stable."
+  }
+ ],
+ "practices": [
+  {
+   "id": "P1",
+   "title": "Diagnose",
+   "text": "Classify a described behaviour, result or scenario into the right failure mode, threat category or mechanism — and say what evidence separates it from the nearest alternative."
+  },
+  {
+   "id": "P2",
+   "title": "Model the threat",
+   "text": "State actor, resources, pathway and bottleneck; say what the model would have to contribute for harm to become more likely, and against what baseline."
+  },
+  {
+   "id": "P3",
+   "title": "Design and critique evidence",
+   "text": "Build or audit an eval, study or experiment — construct validity, contamination, elicitation, controls, grading, power — and say what the result does and doesn't license."
+  },
+  {
+   "id": "P4",
+   "title": "Compute",
+   "text": "FLOP, parameters, scaling-law extrapolation, pass@k, confidence intervals, agreement, effect sizes, catch probabilities and forecasts — with orders of magnitude checked."
+  },
+  {
+   "id": "P5",
+   "title": "Map to commitments",
+   "text": "Read a framework, law or standard closely enough to say which threshold or obligation a described result triggers, what must happen next and who decides."
+  },
+  {
+   "id": "P6",
+   "title": "Argue and decide",
+   "text": "Steelman competing positions, find the crux, prioritise interventions and write the conclusion for a decision-maker."
+  }
+ ],
+ "units": [
+  {
+   "id": "foundations",
+   "n": 1,
+   "title": "ML foundations for safety",
+   "scope": "core",
+   "ideas": [
+    "SCALE",
+    "OPT"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "The transformer",
+     "book": {
+      "arena": [
+       "Ch 0",
+       "Ch 1"
+      ],
+      "bluedot-tais": [
+       "Unit 4 §4.1"
+      ]
+     },
+     "los": [
+      {
+       "id": "A",
+       "do": "Trace a token through a decoder-only transformer — embedding, residual stream, attention, MLP, unembedding — and say what each component reads from and writes to the residual stream.",
+       "ek": [
+        "Every layer adds to one shared residual stream; attention moves information between positions, MLPs transform each position separately.",
+        "Causal masking lets position t attend only to positions ≤ t; sampling is from softmax(logits / T)."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": []
+      },
+      {
+       "id": "B",
+       "do": "Calculate a transformer's parameter count from d_model, n_layers and vocabulary size (drill: compute).",
+       "ek": [
+        "Per layer ≈ 12·d_model² (4d² attention + 8d² MLP with d_mlp = 4d); embeddings add V·d (×2 if untied)."
+       ],
+       "p": [
+        "P4"
+       ],
+       "drills": []
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "title": "Pretraining, compute and scaling laws",
+     "book": {
+      "arena": [
+       "Ch 1"
+      ],
+      "bluedot-agi": [
+       "Unit 2 §2.1"
+      ],
+      "iasr-2026": [
+       "§Capabilities"
+      ]
+     },
+     "los": [
+      {
+       "id": "A",
+       "do": "Estimate training compute from parameters and tokens, and convert it to chip-days at a stated utilisation (drill: compute).",
+       "ek": [
+        "C ≈ 6ND (2ND forward, 4ND backward); time = C / (N_chips × peak FLOP/s × MFU)."
+       ],
+       "p": [
+        "P4"
+       ],
+       "drills": []
+      },
+      {
+       "id": "B",
+       "do": "Find the compute-optimal model size and token count for a budget with the Chinchilla rule (drill: compute).",
+       "ek": [
+        "Compute-optimal D ≈ 20N; with C = 6ND, N ≈ √(C/120)."
+       ],
+       "p": [
+        "P4"
+       ],
+       "needs": [
+        "AIS-1.2.A"
+       ],
+       "drills": []
+      },
+      {
+       "id": "C",
+       "do": "Extrapolate loss from a fitted power law, and explain why smooth loss gains need not predict when a specific capability appears (drill: compute).",
+       "ek": [
+        "L(C) = L∞ + a·C^(−α) is a straight line on log–log axes above the irreducible loss.",
+        "Task metrics can jump with scale; part of 'emergence' is the choice of a thresholded metric."
+       ],
+       "p": [
+        "P4",
+        "P5"
+       ],
+       "drills": []
+      },
+      {
+       "id": "D",
+       "do": "Decompose growth in effective compute into hardware/spend and algorithmic efficiency, and project it a few years forward (drill: compute).",
+       "ek": [
+        "IASR 2026: training compute ~5×/yr, algorithmic efficiency 2–6×/yr; the factors multiply."
+       ],
+       "p": [
+        "P4",
+        "P6"
+       ],
+       "drills": []
+      }
+     ]
+    },
+    {
+     "n": 3,
+     "title": "Post-training — RLHF, RLAIF, DPO and reasoning models",
+     "book": {
+      "arena": [
+       "Ch 2"
+      ],
+      "bluedot-tais": [
+       "Unit 2 §2.3"
+      ],
+      "iasr-2026": [
+       "§Capabilities"
+      ]
+     },
+     "los": [
+      {
+       "id": "A",
+       "do": "Lay out the RLHF pipeline — SFT, preference data, reward model, RL with a KL penalty — and say what each stage contributes.",
+       "ek": [
+        "Objective: maximise E[r_φ(x, y)] − β·KL(π ‖ π_ref); the KL term keeps the policy near the SFT model and limits reward-model exploitation.",
+        "PPO clips the policy ratio to [1 − ε, 1 + ε] so one update can't move the policy far."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": []
+      },
+      {
+       "id": "B",
+       "do": "Calculate preference probabilities from a Bradley–Terry reward model (drill: compute).",
+       "ek": [
+        "P(y₁ ≻ y₂) = σ(r₁ − r₂); a reward gap of 1 ≈ 73 %, of 2 ≈ 88 %."
+       ],
+       "p": [
+        "P4"
+       ],
+       "drills": []
+      },
+      {
+       "id": "C",
+       "do": "Contrast RLHF, RLAIF/constitutional feedback and DPO by where the preference signal comes from and whether a separate reward model is trained (drill: classify).",
+       "ek": [
+        "DPO solves the same KL-regularised objective in closed form from preference pairs; RLAIF replaces human raters with a model guided by written principles."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": []
+      },
+      {
+       "id": "D",
+       "do": "Explain how RL on verifiable rewards and inference-time compute produce reasoning models, and what that shifts for evaluation.",
+       "ek": [
+        "IASR 2026: much recent gain comes from post-training and test-time compute, so capability can jump without a bigger pretraining run — and an eval must fix the inference budget it tested at."
+       ],
+       "p": [
+        "P1",
+        "P3"
+       ],
+       "drills": []
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "problems",
+   "n": 2,
+   "title": "Alignment problems",
+   "scope": "core",
+   "ideas": [
+    "OPT",
+    "OBS"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "Specification gaming and reward hacking",
+     "book": {
+      "bluedot-tais": [
+       "Unit 1 §1.3"
+      ],
+      "iasr-2026": [
+       "§Risks: malfunctions"
+      ],
+      "uk-aisi": [
+       "Pre-deployment testing: cheating behaviour"
+      ]
+     },
+     "los": [
+      {
+       "id": "A",
+       "do": "Classify a described failure as specification gaming, reward hacking/tampering, goal misgeneralisation, sycophancy, deceptive alignment or a plain capability failure (drill: classify).",
+       "ek": [
+        "Ask in order: was the objective itself wrong (specification gaming)? was the reward signal exploited or tampered with (reward hacking)? is the goal wrong only off-distribution (misgeneralisation)? is the user's view echoed (sycophancy)? is good behaviour strategic (deception)? none — it just couldn't (capability)."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": []
+      },
+      {
+       "id": "B",
+       "do": "Explain Goodhart's law and predict how a proxy reward diverges from the true objective as optimisation pressure grows.",
+       "ek": [
+        "Proxy and target correlate in the bulk of the distribution and decouple in the tails that strong optimisation reaches.",
+        "Reward-model overoptimisation: gold reward rises, then falls, as KL from the initial policy grows."
+       ],
+       "p": [
+        "P1",
+        "P6"
+       ],
+       "drills": []
+      },
+      {
+       "id": "C",
+       "do": "Identify reward hacking in a described coding or agentic transcript — special-casing tests, editing the grader, claiming unverified success — and say what it does to the measurement (drill: classify).",
+       "ek": [
+        "A pass won by exploiting the checker scores capability that isn't there; trained on, it reinforces the habit. Read transcripts, not only scores."
+       ],
+       "p": [
+        "P1",
+        "P3"
+       ],
+       "drills": []
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "title": "Goal misgeneralisation and inner alignment",
+     "book": {
+      "bluedot-tais": [
+       "Unit 1 §1.3"
+      ]
+     },
+     "los": [
+      {
+       "id": "A",
+       "do": "Distinguish goal misgeneralisation from capability misgeneralisation in a described distribution shift (drill: classify).",
+       "ek": [
+        "Goal misgeneralisation: capabilities carry over but pursue the wrong goal (the CoinRun agent runs right, not to the coin). Capability misgeneralisation: the agent just becomes incompetent."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": []
+      },
+      {
+       "id": "B",
+       "do": "Distinguish outer from inner misalignment in a described failure (drill: classify).",
+       "ek": [
+        "Outer: the training objective is wrong. Inner: the objective was fine on the training data but the learned model pursues something else; many goals fit the same training reward."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": []
+      }
+     ]
+    },
+    {
+     "n": 3,
+     "title": "Sycophancy and honesty",
+     "book": {
+      "bluedot-tais": [
+       "Unit 2 §2.3"
+      ],
+      "iasr-2026": [
+       "§Risks: systemic"
+      ]
+     },
+     "los": [
+      {
+       "id": "A",
+       "do": "Trace sycophancy back to preference training, and design a paired-prompt test that separates it from genuine agreement.",
+       "ek": [
+        "Raters reward agreeable answers. Prompts identical except for the user's stated view isolate the effect; measure answer flips."
+       ],
+       "p": [
+        "P1",
+        "P3"
+       ],
+       "drills": []
+      },
+      {
+       "id": "B",
+       "do": "Distinguish confabulation, sycophancy and deception by what the model represents as true (drill: classify).",
+       "ek": [
+        "Confabulation: no reliable knowledge. Sycophancy: knowledge overridden by a social cue. Deception: represents the truth and instrumentally induces a false belief."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": []
+      }
+     ]
+    },
+    {
+     "n": 4,
+     "title": "Deceptive alignment, scheming and situational awareness",
+     "book": {
+      "bluedot-tais": [
+       "Unit 1 §1.3"
+      ],
+      "bluedot-agi": [
+       "Unit 3 §3.2"
+      ],
+      "gdm-fsf": [
+       "Misalignment / instrumental reasoning"
+      ],
+      "openai-pf": [
+       "Research categories: Sandbagging, Undermining Safeguards"
+      ]
+     },
+     "los": [
+      {
+       "id": "A",
+       "do": "State the preconditions for scheming — a misaligned goal, situational awareness, and a reason to look aligned during training or testing — and judge which ones a described model shows (drill: classify).",
+       "ek": [
+        "Without situational awareness a model can't condition behaviour on being watched; without a goal that outlasts the episode it has no reason to."
+       ],
+       "p": [
+        "P1",
+        "P2"
+       ],
+       "drills": []
+      },
+      {
+       "id": "B",
+       "do": "Explain instrumental convergence and why shutdown resistance and resource acquisition follow from many different goals.",
+       "ek": [
+        "Staying on, keeping its goal and gaining resources help with almost any objective — which is why FSF frames misalignment risk as interfering with operators' ability to direct, modify or shut down."
+       ],
+       "p": [
+        "P2"
+       ],
+       "drills": []
+      },
+      {
+       "id": "C",
+       "do": "Explain how evaluation awareness and sandbagging undermine safety testing, and name the evidence that would reveal them.",
+       "ek": [
+        "IASR 2026: models increasingly recognise test settings. Signs: verbalised test-awareness, gaps between eval-like and deployment-like framings, underperformance that a light fine-tune removes."
+       ],
+       "p": [
+        "P1",
+        "P3"
+       ],
+       "drills": []
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "techniques",
+   "n": 3,
+   "title": "Alignment techniques",
+   "scope": "core",
+   "ideas": [
+    "OPT",
+    "OBS",
+    "DEF"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "Training for safety",
+     "book": {
+      "bluedot-tais": [
+       "Unit 2 §2.2",
+       "Unit 2 §2.3",
+       "Unit 2 §2.4"
+      ]
+     },
+     "los": [
+      {
+       "id": "A",
+       "do": "Choose among pretraining-data filtering, SFT, preference training and constitutional training for a stated safety goal, and say what each can't fix.",
+       "ek": [
+        "Data filtering removes knowledge; post-training mostly shapes whether knowledge is expressed, so later fine-tuning can undo it.",
+        "Constitutional AI: principles drive self-critique (SL stage) and AI preference labels (RL stage)."
+       ],
+       "p": [
+        "P6"
+       ],
+       "needs": [
+        "AIS-1.3.A"
+       ],
+       "drills": []
+      },
+      {
+       "id": "B",
+       "do": "Explain why refusal training is shallow against fine-tuning on released weights, and what tamper-resistant training attempts.",
+       "ek": [
+        "A small harmful fine-tune can strip refusals; safeguards on open weights are easy to remove and the weights can't be recalled (IASR 2026)."
+       ],
+       "p": [
+        "P2"
+       ],
+       "drills": []
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "title": "Scalable oversight",
+     "book": {
+      "bluedot-tais": [
+       "Unit 2 §2.4"
+      ]
+     },
+     "los": [
+      {
+       "id": "A",
+       "do": "Match debate, recursive reward modelling, iterated amplification and AI-assisted critique to how each lets a weak overseer judge a strong model (drill: classify).",
+       "ek": [
+        "Debate: two models argue, a judge decides. RRM: models help humans evaluate the next model. Amplification: decompose into checkable sub-tasks. Critique: a model points out flaws for the human."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": []
+      },
+      {
+       "id": "B",
+       "do": "State the empirical condition debate needs, and read a debate or sandwiching result to say whether oversight improved.",
+       "ek": [
+        "Debate works if lies are harder to defend than truths; test with weaker judges' accuracy under debate vs a single consultant.",
+        "Sandwiching: non-experts with assistance on tasks the model can do, scored against experts."
+       ],
+       "p": [
+        "P3"
+       ],
+       "drills": []
+      }
+     ]
+    },
+    {
+     "n": 3,
+     "title": "Weak-to-strong generalisation",
+     "book": {
+      "bluedot-tais": [
+       "Unit 2 §2.4"
+      ]
+     },
+     "los": [
+      {
+       "id": "A",
+       "do": "Calculate performance gap recovered from weak, weak-to-strong and strong-ceiling scores (drill: compute).",
+       "ek": [
+        "PGR = (W2S − weak) / (ceiling − weak); 1 = full recovery, 0 = the strong student only imitates the weak labels."
+       ],
+       "p": [
+        "P4"
+       ],
+       "drills": []
+      },
+      {
+       "id": "B",
+       "do": "Explain what weak-to-strong is an analogy for and where the analogy breaks.",
+       "ek": [
+        "Humans supervising superhuman models. It breaks because today's strong students weren't trained to mislead, and imitating human errors may be easier than imitating a weak model's."
+       ],
+       "p": [
+        "P6"
+       ],
+       "drills": []
+      }
+     ]
+    },
+    {
+     "n": 4,
+     "title": "Robustness and misuse safeguards",
+     "book": {
+      "bluedot-tais": [
+       "Unit 5 §5.2"
+      ],
+      "uk-aisi": [
+       "Frontier AI Trends Report: safeguards"
+      ],
+      "openai-pf": [
+       "Safeguards against malicious users"
+      ]
+     },
+     "los": [
+      {
+       "id": "A",
+       "do": "Classify a described jailbreak by mechanism — competing objectives, mismatched generalisation, many-shot, prompt injection — without reproducing it (drill: classify).",
+       "ek": [
+        "Competing objectives pit helpfulness against harmlessness; mismatched generalisation uses inputs safety training didn't cover (encodings, low-resource languages); prompt injection arrives through data, not the user turn."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": []
+      },
+      {
+       "id": "B",
+       "do": "Explain why input/output classifiers plus adversarial training raise attacker cost without eliminating universal jailbreaks, and measure safeguards by cost, not only by success.",
+       "ek": [
+        "UK AISI found a universal jailbreak in every system it tested; expert effort to jailbreak bio-misuse content varied ~40× between releases; capability barely predicted safeguard strength (R² ≈ 0.1)."
+       ],
+       "p": [
+        "P3"
+       ],
+       "drills": []
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "interp",
+   "n": 4,
+   "title": "Interpretability",
+   "scope": "core",
+   "ideas": [
+    "OBS"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "Features and superposition",
+     "book": {
+      "arena": [
+       "Ch 1"
+      ],
+      "bluedot-tais": [
+       "Unit 4 §4.1"
+      ]
+     },
+     "los": [
+      {
+       "id": "A",
+       "do": "State the linear representation hypothesis and explain why superposition makes neurons polysemantic.",
+       "ek": [
+        "Features are directions in activation space. With sparse features a model stores more features than dimensions, at the cost of interference, so features aren't neuron-aligned."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": []
+      },
+      {
+       "id": "B",
+       "do": "Predict whether a toy model stores features in superposition from their sparsity and importance.",
+       "ek": [
+        "Dense features: the top-d by importance get dedicated dimensions, the rest are dropped. As sparsity rises, features share dimensions (antipodal pairs, then polytopes)."
+       ],
+       "p": [
+        "P6"
+       ],
+       "drills": []
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "title": "Sparse autoencoders",
+     "book": {
+      "arena": [
+       "Ch 1"
+      ],
+      "bluedot-tais": [
+       "Unit 4 §4.2"
+      ]
+     },
+     "los": [
+      {
+       "id": "A",
+       "do": "Write the SAE objective, explain each term, and name its failure modes (dead latents, feature splitting, absorption).",
+       "ek": [
+        "L = ‖x − x̂‖² + λ‖f‖₁ with a dictionary wider than d_model; dictionary size changes which features appear, and absorption makes a latent's label misleading."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": []
+      },
+      {
+       "id": "B",
+       "do": "Evaluate an SAE from variance explained, mean L0 and the loss increase when it is spliced into the model (drill: compute).",
+       "ek": [
+        "FVE = 1 − ‖x − x̂‖²/‖x − x̄‖²; report CE-loss increase on substitution; sparsity and fidelity trade off along a frontier."
+       ],
+       "p": [
+        "P3",
+        "P4"
+       ],
+       "drills": []
+      }
+     ]
+    },
+    {
+     "n": 3,
+     "title": "Circuits and causal interventions",
+     "book": {
+      "arena": [
+       "Ch 1"
+      ],
+      "bluedot-tais": [
+       "Unit 4 §4.2"
+      ]
+     },
+     "los": [
+      {
+       "id": "A",
+       "do": "Explain how a previous-token head and an induction head compose to copy in-context sequences.",
+       "ek": [
+        "K-composition: the induction head's keys read the previous-token head's output, so it attends to the token after the earlier occurrence of the current token."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": []
+      },
+      {
+       "id": "B",
+       "do": "Design an activation-patching experiment and compute the normalised logit difference recovered (drill: compute).",
+       "ek": [
+        "Patch clean activations into the corrupted run; recovered = (LD_patched − LD_corrupt) / (LD_clean − LD_corrupt)."
+       ],
+       "p": [
+        "P3",
+        "P4"
+       ],
+       "drills": []
+      },
+      {
+       "id": "C",
+       "do": "Classify the evidence behind a described interpretability claim as correlational (probe, attention pattern, max-activating examples) or causal (ablation, patching, steering) (drill: classify).",
+       "ek": [
+        "Only an intervention shows the model uses a representation; a probe shows it is decodable."
+       ],
+       "p": [
+        "P1",
+        "P3"
+       ],
+       "drills": []
+      }
+     ]
+    },
+    {
+     "n": 4,
+     "title": "Probing, steering and interpretability for safety cases",
+     "book": {
+      "arena": [
+       "Ch 1"
+      ],
+      "bluedot-tais": [
+       "Unit 4 §4.2"
+      ]
+     },
+     "los": [
+      {
+       "id": "A",
+       "do": "Design a linear probe with a control task and report its selectivity (drill: compute).",
+       "ek": [
+        "Selectivity = probe accuracy − control-task accuracy; a high-capacity probe can learn the task itself."
+       ],
+       "p": [
+        "P3",
+        "P4"
+       ],
+       "drills": []
+      },
+      {
+       "id": "B",
+       "do": "Explain how a contrastive steering vector is built and what a successful steer does and doesn't show.",
+       "ek": [
+        "v = mean(act | A) − mean(act | B); adding αv shifting behaviour shows the direction is causally used, not that it is the model's concept."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": []
+      },
+      {
+       "id": "C",
+       "do": "Judge what interpretability can contribute to a safety case today — audits, deception probes, monitors — and where it can't carry the argument.",
+       "ek": [
+        "Useful as one layer; not yet enumerative, and robustness against a model optimising against the probe is unproven."
+       ],
+       "p": [
+        "P6"
+       ],
+       "needs": [
+        "AIS-4.3.C"
+       ],
+       "drills": []
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "eval-science",
+   "n": 5,
+   "title": "Evaluation science",
+   "scope": "core",
+   "ideas": [
+    "OBS",
+    "SCALE"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "What an eval measures",
+     "book": {
+      "bluedot-tais": [
+       "Unit 3 §3.1"
+      ],
+      "arena": [
+       "Ch 3"
+      ],
+      "openai-pf": [
+       "Evaluations"
+      ]
+     },
+     "los": [
+      {
+       "id": "A",
+       "do": "Classify a described eval as capability or propensity, and as static benchmark, agentic task, red-team exercise or human uplift study (drill: classify).",
+       "ek": [
+        "Capability: can it, under best elicitation? Propensity: will it, under realistic conditions? The two need different setups and support different claims."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": []
+      },
+      {
+       "id": "B",
+       "do": "Write a threat model that links a capability to a harm pathway, and use it to decide what an eval must measure.",
+       "ek": [
+        "Actor, resources, steps, and the bottleneck the model might remove; an eval targets the bottleneck, not the topic."
+       ],
+       "p": [
+        "P2",
+        "P3"
+       ],
+       "drills": []
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "title": "Validity, contamination and saturation",
+     "book": {
+      "iasr-2026": [
+       "§Evaluation gaps"
+      ],
+      "arena": [
+       "Ch 3"
+      ]
+     },
+     "los": [
+      {
+       "id": "A",
+       "do": "Spot the validity flaw in a described eval design — construct mismatch, contamination, saturation, leaky grader, answerable shortcut, unrealistic environment (drill: spot the flaw).",
+       "ek": [
+        "Construct validity asks whether the score tracks the threat-model capability. IASR 2026: benchmarks are often outdated, narrow or contaminated, and pre-deployment tests often fail to predict real-world performance."
+       ],
+       "p": [
+        "P3"
+       ],
+       "drills": []
+      },
+      {
+       "id": "B",
+       "do": "Detect and mitigate contamination with canary strings, private held-out sets, perturbed items and release-date splits.",
+       "ek": [
+        "Contamination inflates scores through memorisation; a gap between original and rephrased items is the signature."
+       ],
+       "p": [
+        "P3"
+       ],
+       "drills": []
+      },
+      {
+       "id": "C",
+       "do": "Explain why recognition-style (MCQ) knowledge benchmarks misjudge real-world capability, and what open-ended and agentic tasks add.",
+       "ek": [
+        "Recognising an answer ≠ producing it or executing it; tacit knowledge and multi-step execution are usually the bottlenecks. Near-ceiling scores also compress differences."
+       ],
+       "p": [
+        "P3",
+        "P2"
+       ],
+       "drills": []
+      }
+     ]
+    },
+    {
+     "n": 3,
+     "title": "Statistics for evals",
+     "book": {
+      "arena": [
+       "Ch 3"
+      ],
+      "uk-aisi": [
+       "Frontier AI Trends Report: methodology"
+      ]
+     },
+     "los": [
+      {
+       "id": "A",
+       "do": "Compute pass@k from n samples with c correct using the unbiased estimator (drill: compute).",
+       "ek": [
+        "pass@k = 1 − C(n − c, k) / C(n, k); not the same as 1 − (1 − c/n)^k when n is small."
+       ],
+       "p": [
+        "P4"
+       ],
+       "drills": []
+      },
+      {
+       "id": "B",
+       "do": "Put a confidence interval on an eval score and decide whether two models really differ (drill: compute).",
+       "ek": [
+        "SE = √(p(1 − p)/n), 95 % CI ≈ p ± 1.96 SE; repeated samples of the same item are clustered — cluster SEs by item (AISI repeats each task 10×)."
+       ],
+       "p": [
+        "P4",
+        "P3"
+       ],
+       "drills": []
+      },
+      {
+       "id": "C",
+       "do": "Compute Cohen's κ for rubric-graded outputs and decide whether grading (human or model) is reliable enough to threshold on (drill: compute).",
+       "ek": [
+        "κ = (p_o − p_e) / (1 − p_e); below ~0.6 is weak. Validate model graders against expert labels before trusting them."
+       ],
+       "p": [
+        "P4",
+        "P3"
+       ],
+       "drills": []
+      },
+      {
+       "id": "D",
+       "do": "Compute the sample size per arm needed to detect a target difference between two success rates (drill: compute).",
+       "ek": [
+        "n ≈ (z_α/2 + z_β)² · [p₁(1 − p₁) + p₂(1 − p₂)] / (p₁ − p₂)²; at α = 0.05, power 0.8, (1.96 + 0.84)² ≈ 7.85."
+       ],
+       "p": [
+        "P4",
+        "P3"
+       ],
+       "drills": []
+      }
+     ]
+    },
+    {
+     "n": 4,
+     "title": "Elicitation and sandbagging",
+     "book": {
+      "openai-pf": [
+       "Elicitation"
+      ],
+      "uk-aisi": [
+       "Best practice: elicitation, environmental realism"
+      ],
+      "arena": [
+       "Ch 3"
+      ]
+     },
+     "los": [
+      {
+       "id": "A",
+       "do": "List the levers of elicitation — prompting, scaffolds and tools, best-of-n, fine-tuning, helpful-only variants, inference budget — and judge whether a described campaign was adequate for a rule-out claim (drill: spot the flaw).",
+       "ek": [
+        "PF v2: test at top-tier settings, with a helpful-only variant and the best scaffolds; any one result is a lower bound, not a ceiling. A rule-out is only as strong as the elicitation behind it."
+       ],
+       "p": [
+        "P3"
+       ],
+       "drills": []
+      },
+      {
+       "id": "B",
+       "do": "Estimate the elicitation gap and widen a threshold margin for future scaffolding gains (drill: compute).",
+       "ek": [
+        "Gap = best-elicited − default score; Anthropic's six-month eval interval and PF's lower-bound language both assume later elicitation will find more."
+       ],
+       "p": [
+        "P4",
+        "P5"
+       ],
+       "drills": []
+      },
+      {
+       "id": "C",
+       "do": "Design a check for sandbagging: fine-tuning recovery, password-locked controls, consistency across framings.",
+       "ek": [
+        "If a small fine-tune restores much higher scores, the original number measured willingness, not capability; PF asks for elicitation that overcomes deliberate underperformance or a conservative upper bound."
+       ],
+       "p": [
+        "P3"
+       ],
+       "needs": [
+        "AIS-2.4.C"
+       ],
+       "drills": []
+      }
+     ]
+    },
+    {
+     "n": 5,
+     "title": "Reporting evaluation results",
+     "book": {
+      "bluedot-gov": [
+       "Unit 1"
+      ],
+      "bluedot-tais": [
+       "Unit 3 §3.2"
+      ],
+      "rsp": [
+       "Risk Reports"
+      ],
+      "openai-pf": [
+       "Capabilities Reports"
+      ]
+     },
+     "los": [
+      {
+       "id": "A",
+       "do": "Read a system card's dangerous-capability section and write a one-page briefing for a decision-maker: what was tested, how hard, against what baseline, and what was concluded.",
+       "ek": [
+        "Separate evidence (scores, elicitation, baselines, CIs) from judgement (the threshold call); flag redactions and untested pathways."
+       ],
+       "p": [
+        "P6",
+        "P3"
+       ],
+       "drills": []
+      },
+      {
+       "id": "B",
+       "do": "Critique a system card or eval report for missing information — elicitation detail, human/expert baselines, uncertainty, threat-model link (drill: spot the flaw).",
+       "ek": [
+        "A score with no baseline and no interval can't be compared to a threshold."
+       ],
+       "p": [
+        "P3"
+       ],
+       "drills": []
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "dangerous-caps",
+   "n": 6,
+   "title": "Dangerous-capability evaluations and red-teaming (methodology)",
+   "scope": "core",
+   "ideas": [
+    "OBS",
+    "DEF"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "Threat models by domain",
+     "book": {
+      "openai-pf": [
+       "Tracked categories",
+       "Tracking criteria"
+      ],
+      "gdm-fsf": [
+       "CCLs"
+      ],
+      "iasr-2026": [
+       "§Risks: malicious use"
+      ],
+      "bluedot-agi": [
+       "Unit 3 §3.4"
+      ]
+     },
+     "los": [
+      {
+       "id": "A",
+       "do": "Identify, for a described result, which actor tier (novice, expert, state programme) and which kind of help (knowledge, troubleshooting, end-to-end execution) a framework's threshold is keyed to (drill: map to framework).",
+       "ek": [
+        "PF v2 Bio/Chem High: meaningful counterfactual help to novices with known threats; Critical: experts to novel threats, or a full cycle without humans. RSP CBRN thresholds are written as uplift to defined actor tiers (e.g. moderately resourced state programmes)."
+       ],
+       "p": [
+        "P5",
+        "P2"
+       ],
+       "drills": []
+      },
+      {
+       "id": "B",
+       "do": "Apply PF v2's five tracking criteria to decide whether a proposed risk belongs in a tracked category.",
+       "ek": [
+        "Plausible, measurable, severe (thousands dead or hundreds of $bn), net new (not achievable with pre-2021 tools), instantaneous or irremediable."
+       ],
+       "p": [
+        "P5",
+        "P2"
+       ],
+       "drills": []
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "title": "Uplift studies",
+     "book": {
+      "uk-aisi": [
+       "Frontier AI Trends Report: chem/bio"
+      ],
+      "iasr-2026": [
+       "§Risks: malicious use"
+      ],
+      "bluedot-agi": [
+       "Unit 3 §3.4"
+      ]
+     },
+     "los": [
+      {
+       "id": "A",
+       "do": "Design an uplift RCT at the methodology level: participant population matched to the threat actor, internet-only control arm, model-assisted arm, blinded expert grading on a pre-registered rubric and threshold.",
+       "ek": [
+        "Uplift is counterfactual: compare against what the actor could already do without the model, not against zero."
+       ],
+       "p": [
+        "P3",
+        "P2"
+       ],
+       "needs": [
+        "AIS-5.1.B"
+       ],
+       "drills": []
+      },
+      {
+       "id": "B",
+       "do": "Compute an uplift effect — difference in proportions, relative risk, and its uncertainty — from arm-level counts (drill: compute).",
+       "ek": [
+        "RR = p_treat / p_control; UK AISI reported non-specialists with a frontier model 4.7× more likely to produce an accurate protocol. With small arms the CI on RR is wide; report it."
+       ],
+       "p": [
+        "P4"
+       ],
+       "needs": [
+        "AIS-5.3.B"
+       ],
+       "drills": []
+      },
+      {
+       "id": "C",
+       "do": "Spot the validity flaw in a described uplift study — proxy outcome, weak control, underpowered arms, unblinded graders, participants unlike the threat actor (drill: spot the flaw).",
+       "ek": [
+        "Written-protocol accuracy is a proxy for real-world success; IASR 2026 calls real-world uplift highly uncertain."
+       ],
+       "p": [
+        "P3"
+       ],
+       "drills": []
+      }
+     ]
+    },
+    {
+     "n": 3,
+     "title": "Agentic, autonomy and AI R&D evals",
+     "book": {
+      "arena": [
+       "Ch 3"
+      ],
+      "uk-aisi": [
+       "Frontier AI Trends Report: autonomy"
+      ],
+      "iasr-2026": [
+       "§Capabilities"
+      ],
+      "openai-pf": [
+       "AI Self-improvement"
+      ]
+     },
+     "los": [
+      {
+       "id": "A",
+       "do": "Project a 50 %-success task-time horizon forward with a doubling time, and find when it crosses a stated horizon (drill: compute).",
+       "ek": [
+        "h(t) = h₀ · 2^(t / T_d); IASR 2026 cites a ~7-month doubling, AISI ~8 months for cyber tasks; t = T_d · log₂(h / h₀)."
+       ],
+       "p": [
+        "P4"
+       ],
+       "drills": []
+      },
+      {
+       "id": "B",
+       "do": "Lay out an agentic eval in an Inspect-style harness — dataset, solver/scaffold, tools, sandbox, scorer — and name the ways it can be reward-hacked or under-elicited.",
+       "ek": [
+        "Dataset → solver → scorer; the sandbox bounds what the agent can touch; stage-wise sub-task scores show where an end-to-end chain breaks (RepliBench: strong early stages, weak later ones)."
+       ],
+       "p": [
+        "P3"
+       ],
+       "needs": [
+        "AIS-2.1.C"
+       ],
+       "drills": []
+      }
+     ]
+    },
+    {
+     "n": 4,
+     "title": "Red-teaming and hazardous results",
+     "book": {
+      "bluedot-tais": [
+       "Unit 3 §3.1",
+       "Unit 5 §5.3"
+      ],
+      "uk-aisi": [
+       "Pre-deployment testing"
+      ],
+      "openai-pf": [
+       "Deep dives"
+      ],
+      "nist-rmf": [
+       "Measure"
+      ]
+     },
+     "los": [
+      {
+       "id": "A",
+       "do": "Plan a red-team campaign: scope, threat model, red-teamer expertise, success criteria, severity rubric, and handling of hazardous outputs.",
+       "ek": [
+        "PF v2 uses expert deep dives to validate automated evals; hazardous transcripts need restricted storage and cleared graders."
+       ],
+       "p": [
+        "P3",
+        "P2"
+       ],
+       "drills": []
+      },
+      {
+       "id": "B",
+       "do": "Distinguish model red-teaming, safeguards testing and automated red-teaming, and say what claim each result licenses (drill: classify).",
+       "ek": [
+        "Model red-teaming probes capability; safeguards testing measures attacker effort to bypass deployed protections; automated red-teaming scales coverage but misses novel attacks."
+       ],
+       "p": [
+        "P1",
+        "P3"
+       ],
+       "drills": []
+      },
+      {
+       "id": "C",
+       "do": "Score red-team outputs with a severity/actionability rubric and report the harmful-response rate by category with a confidence interval (drill: compute).",
+       "ek": [
+        "Rate = flagged / attempts with a Wilson or normal CI; weight by severity; report per attack category, not only pooled."
+       ],
+       "p": [
+        "P4"
+       ],
+       "needs": [
+        "AIS-5.3.B"
+       ],
+       "drills": []
+      },
+      {
+       "id": "D",
+       "do": "Decide what in an eval result can be published, what must be redacted, and what goes only to authorities.",
+       "ek": [
+        "Publish methods, aggregates and thresholds; withhold operational content. RSP Risk Reports must mark redactions; institutes' disclosure depends on each testing agreement."
+       ],
+       "p": [
+        "P6",
+        "P5"
+       ],
+       "drills": []
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "control",
+   "n": 7,
+   "title": "Control, monitoring and security",
+   "scope": "core",
+   "ideas": [
+    "DEF",
+    "OBS"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "AI control",
+     "book": {
+      "bluedot-tais": [
+       "Unit 5 §5.1",
+       "Unit 5 §5.2"
+      ],
+      "uk-aisi": [
+       "Best practice: control red team, control safety case"
+      ]
+     },
+     "los": [
+      {
+       "id": "A",
+       "do": "Classify a control protocol — trusted monitoring, untrusted monitoring, defer-to-trusted, trusted editing, resampling — and predict its safety–usefulness trade-off (drill: classify).",
+       "ek": [
+        "Control assumes the strong model may be scheming and asks whether the protocol still prevents harm; a red team plays the model. 'Trusted' = weaker but not scheming; human audit budget is the scarce resource."
+       ],
+       "p": [
+        "P1",
+        "P6"
+       ],
+       "drills": []
+      },
+      {
+       "id": "B",
+       "do": "Compute the probability a protocol catches a scheming model before it succeeds, from audit fraction, monitor recall and number of attack attempts (drill: compute).",
+       "ek": [
+        "If each attempt is caught with probability p, P(caught at least once in k) = 1 − (1 − p)^k; the attacker's best response is few, well-chosen attempts."
+       ],
+       "p": [
+        "P4"
+       ],
+       "drills": []
+      },
+      {
+       "id": "C",
+       "do": "Explain chain-of-thought monitorability and what would destroy it.",
+       "ek": [
+        "CoT monitoring works while hard reasoning must pass through readable text; optimisation pressure on the CoT and latent reasoning erode it."
+       ],
+       "p": [
+        "P1",
+        "P6"
+       ],
+       "drills": []
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "title": "Monitoring, kill chains and incident response",
+     "book": {
+      "bluedot-tais": [
+       "Unit 5 §5.3"
+      ],
+      "openai-pf": [
+       "Safeguards: usage monitoring"
+      ],
+      "iasr-2026": [
+       "§Risk management"
+      ],
+      "eu-aia": [
+       "Art 55 serious incidents"
+      ]
+     },
+     "los": [
+      {
+       "id": "A",
+       "do": "Map a described misuse scenario onto a kill chain and choose the layer where breaking it is cheapest (drill: classify).",
+       "ek": [
+        "Defence in depth (IASR 2026): access controls → classifiers → usage monitoring → incident response; each layer only has to stop some attempts."
+       ],
+       "p": [
+        "P2",
+        "P6"
+       ],
+       "drills": []
+      },
+      {
+       "id": "B",
+       "do": "Compute residual risk of layered defences assuming independence, and say why correlated failures break the estimate (drill: compute).",
+       "ek": [
+        "P(all fail) = Π pᵢ only if failures are independent; a universal jailbreak or shared blind spot correlates the layers."
+       ],
+       "p": [
+        "P4"
+       ],
+       "drills": []
+      }
+     ]
+    },
+    {
+     "n": 3,
+     "title": "Model weight security",
+     "book": {
+      "rsp": [
+       "v2 ASL-3 Security Standard"
+      ],
+      "openai-pf": [
+       "Safeguards"
+      ],
+      "uk-aisi": [
+       "Best practice: security"
+      ]
+     },
+     "los": [
+      {
+       "id": "A",
+       "do": "Match an attacker class (opportunistic, cybercrime, insider, state operation) to the weight-security level needed and the controls it implies (drill: classify).",
+       "ek": [
+        "RAND SL1–SL5 scale from amateur attackers to top-priority state operations; controls include multi-party access, egress limits, hardened hardware and insider-threat programmes."
+       ],
+       "p": [
+        "P1",
+        "P2"
+       ],
+       "drills": []
+      },
+      {
+       "id": "B",
+       "do": "Explain why stolen or openly released weights remove every deployment-side safeguard.",
+       "ek": [
+        "Whoever holds the weights can fine-tune out refusals and skip monitoring; release is irreversible (IASR 2026)."
+       ],
+       "p": [
+        "P2"
+       ],
+       "needs": [
+        "AIS-3.1.B"
+       ],
+       "drills": []
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "frameworks",
+   "n": 8,
+   "title": "Frontier safety frameworks and safety cases",
+   "scope": "core",
+   "ideas": [
+    "DEF",
+    "INC",
+    "OBS"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "If-then commitments compared",
+     "book": {
+      "iasr-2026": [
+       "§Risk management"
+      ],
+      "bluedot-tais": [
+       "Unit 3 §3.2"
+      ],
+      "rsp": [
+       "v3.4"
+      ],
+      "openai-pf": [
+       "v2"
+      ],
+      "gdm-fsf": [
+       "v3"
+      ]
+     },
+     "los": [
+      {
+       "id": "A",
+       "do": "Compare the RSP, Preparedness Framework and FSF on threshold names, tracked domains, who decides and what happens on crossing (drill: classify).",
+       "ek": [
+        "If-then: a capability threshold, early-warning evals, the safeguards it requires, and a no-deploy condition. RSP: capability thresholds, Risk Reports, LTBT review. PF: High/Critical, Capabilities + Safeguards Reports, SAG advises, Leadership decides. FSF: CCLs with alert thresholds and response plans, safety case reviews."
+       ],
+       "p": [
+        "P5"
+       ],
+       "drills": []
+      },
+      {
+       "id": "B",
+       "do": "Evaluate a framework on threshold specificity, external verification, enforceability and how it can be revised, and find who can actually say no (drill: spot the flaw).",
+       "ek": [
+        "Most frameworks are voluntary and revisable by the company; triggers vary widely across companies (IASR 2026); SAG cannot block leadership."
+       ],
+       "p": [
+        "P5",
+        "P6"
+       ],
+       "drills": []
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "title": "Anthropic Responsible Scaling Policy",
+     "book": {
+      "rsp": [
+       "Capability thresholds",
+       "Risk Reports",
+       "Frontier Safety Roadmap"
+      ],
+      "bluedot-tais": [
+       "Unit 3 §3.3"
+      ]
+     },
+     "los": [
+      {
+       "id": "A",
+       "do": "Identify which RSP threshold or obligation a described result triggers — CBRN, AI R&D-4 affirmative misalignment-risk case, sabotage risk report (drill: map to framework).",
+       "ek": [
+        "Crossing AI R&D-4 requires an affirmative case naming the most immediate misalignment risks and mitigations; models clearly beyond Opus 4.5 get sabotage risk reports. v2 tied ASL-3 deployment and security standards to thresholds; v3 (Feb 2026) rewrote the policy around Risk Reports and Roadmaps."
+       ],
+       "p": [
+        "P5"
+       ],
+       "drills": []
+      },
+      {
+       "id": "B",
+       "do": "Explain the RSP's accountability machinery — Risk Reports with coverage dates and marked redactions, LTBT-requested external review, noncompliance reporting — and what each makes verifiable.",
+       "ek": [
+        "v3.4: unredacted Risk Reports to ≥200 staff; multiple external reviewers may split sections if all are covered."
+       ],
+       "p": [
+        "P5",
+        "P6"
+       ],
+       "drills": []
+      }
+     ]
+    },
+    {
+     "n": 3,
+     "title": "OpenAI Preparedness Framework",
+     "book": {
+      "openai-pf": [
+       "v2"
+      ],
+      "bluedot-tais": [
+       "Unit 3 §3.4"
+      ]
+     },
+     "los": [
+      {
+       "id": "A",
+       "do": "Decide whether a described result reaches High or Critical in a tracked category and what is then required, and before when (drill: map to framework).",
+       "ek": [
+        "Tracked: Bio/Chem, Cyber, AI Self-improvement. High: safeguards must sufficiently minimise risk before deployment. Critical: also during development. Thresholds are holistic calls; scalable evals carry only indicative thresholds."
+       ],
+       "p": [
+        "P5"
+       ],
+       "drills": []
+      },
+      {
+       "id": "B",
+       "do": "Map a safeguard to the threat it answers — robustness, usage monitoring, trust-based access (malicious users) vs autonomy limits, value/instruction alignment, oversight, system architecture (misaligned model) (drill: classify).",
+       "ek": [
+        "Misuse safeguards assume a benign model and a hostile user; misalignment safeguards assume the model itself may act against you."
+       ],
+       "p": [
+        "P1",
+        "P5"
+       ],
+       "drills": []
+      },
+      {
+       "id": "C",
+       "do": "Evaluate the marginal-risk clause: when it lets OpenAI relax safeguards and what it does to race dynamics.",
+       "ek": [
+        "Allowed only if overall risk doesn't meaningfully rise, it is publicly acknowledged, and OpenAI stays more protective than the other developer."
+       ],
+       "p": [
+        "P5",
+        "P6"
+       ],
+       "drills": []
+      }
+     ]
+    },
+    {
+     "n": 4,
+     "title": "Google DeepMind Frontier Safety Framework",
+     "book": {
+      "gdm-fsf": [
+       "v3: CCLs, TCLs, safety case reviews"
+      ],
+      "bluedot-tais": [
+       "Unit 3 §3.5"
+      ]
+     },
+     "los": [
+      {
+       "id": "A",
+       "do": "Identify which CCL a described capability approaches and the FSF response — alert threshold, response plan, safety case review, internal-deployment scope (drill: map to framework).",
+       "ek": [
+        "Early-warning evals fire alert thresholds before a CCL; reaching a CCL needs a safety case review before external launch, and for advanced ML R&D CCLs before large internal deployments too. v3 added a harmful-manipulation CCL; TCLs flag lesser risks sooner."
+       ],
+       "p": [
+        "P5"
+       ],
+       "drills": []
+      }
+     ]
+    },
+    {
+     "n": 5,
+     "title": "Safety cases",
+     "book": {
+      "uk-aisi": [
+       "Best practice: control safety case sketch"
+      ],
+      "gdm-fsf": [
+       "Safety case reviews"
+      ],
+      "rsp": [
+       "Affirmative misalignment-risk case"
+      ]
+     },
+     "los": [
+      {
+       "id": "A",
+       "do": "Structure a safety case as claims, arguments and evidence, and classify its argument as inability, control or trustworthiness (drill: classify).",
+       "ek": [
+        "Inability: the model can't. Control: it can't cause harm even if it tries, given the protocol. Trustworthiness: it won't."
+       ],
+       "p": [
+        "P1",
+        "P5"
+       ],
+       "drills": []
+      },
+      {
+       "id": "B",
+       "do": "Find the weakest premise in a described safety case (drill: spot the flaw).",
+       "ek": [
+        "A case is as strong as its least-supported premise; inability arguments rest on elicitation, control arguments on red-team strength, trustworthiness arguments on evidence we mostly don't have yet."
+       ],
+       "p": [
+        "P3",
+        "P6"
+       ],
+       "needs": [
+        "AIS-5.4.A"
+       ],
+       "drills": []
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "governance",
+   "n": 9,
+   "title": "Regulation, standards, compute and coordination",
+   "scope": "core",
+   "ideas": [
+    "INC",
+    "DEF"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "EU AI Act — general-purpose AI",
+     "book": {
+      "eu-aia": [
+       "Art 51",
+       "Art 53",
+       "Art 55",
+       "GPAI Code of Practice"
+      ]
+     },
+     "los": [
+      {
+       "id": "A",
+       "do": "Decide from training compute whether a model is GPAI and whether it is presumed to carry systemic risk (drill: compute).",
+       "ek": [
+        "Indicative GPAI criterion: > 10²³ FLOP and generates language. Systemic risk presumed above 10²⁵ FLOP (under review); the Commission can also designate."
+       ],
+       "p": [
+        "P4",
+        "P5"
+       ],
+       "needs": [
+        "AIS-1.2.A"
+       ],
+       "drills": []
+      },
+      {
+       "id": "B",
+       "do": "Identify which GPAI obligation a described provider has missed, separating all-provider duties from systemic-risk duties (drill: map to framework).",
+       "ek": [
+        "All providers: technical documentation, information for downstream providers, copyright policy, public training-content summary. Systemic risk: notify the Commission, evaluate incl. adversarial testing, assess and mitigate risk, report serious incidents, ensure cybersecurity."
+       ],
+       "p": [
+        "P5"
+       ],
+       "drills": []
+      },
+      {
+       "id": "C",
+       "do": "State the GPAI timeline, the open-source carve-out, and the role of the Code of Practice.",
+       "ek": [
+        "Obligations apply from 2 Aug 2025; Commission enforcement from 2 Aug 2026; models placed earlier comply by 2 Aug 2027. Free open-source models skip some documentation duties unless systemic-risk. The Code (Transparency, Copyright, Safety & Security) is a voluntary route to show compliance."
+       ],
+       "p": [
+        "P5"
+       ],
+       "drills": []
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "title": "NIST AI RMF and standards",
+     "book": {
+      "nist-rmf": [
+       "AI RMF 1.0 Core",
+       "AI 600-1"
+      ]
+     },
+     "los": [
+      {
+       "id": "A",
+       "do": "Sort described risk-management activities into Govern, Map, Measure and Manage (drill: classify).",
+       "ek": [
+        "Govern: culture, roles, policy (cuts across). Map: context and risks of a use. Measure: assess and track. Manage: prioritise, act, monitor over time."
+       ],
+       "p": [
+        "P5"
+       ],
+       "drills": []
+      },
+      {
+       "id": "B",
+       "do": "Map a Generative AI Profile risk (e.g. CBRN information or capabilities, confabulation, information security) to the Measure actions an eval team would own, and explain how voluntary standards become binding.",
+       "ek": [
+        "AI 600-1 lists 12 GAI risks with actions keyed to the four functions. Standards bind through procurement, contracts and, in the EU, harmonised standards that give a presumption of conformity."
+       ],
+       "p": [
+        "P5"
+       ],
+       "drills": []
+      }
+     ]
+    },
+    {
+     "n": 3,
+     "title": "Compute governance",
+     "book": {
+      "bluedot-gov": [
+       "Unit 2"
+      ],
+      "bluedot-agi": [
+       "Unit 2 §2.1"
+      ],
+      "eu-aia": [
+       "Art 51"
+      ]
+     },
+     "los": [
+      {
+       "id": "A",
+       "do": "Explain why compute is a governance lever — detectable, excludable, quantifiable, with a concentrated supply chain — and list the tools it enables (export controls, cloud KYC, reporting thresholds, on-chip mechanisms).",
+       "ek": [
+        "A handful of firms control fabrication, lithography and leading chips; frontier runs need clusters visible to the cloud providers that host them."
+       ],
+       "p": [
+        "P6"
+       ],
+       "drills": []
+      },
+      {
+       "id": "B",
+       "do": "Estimate a run's training compute from cluster size, chip throughput, utilisation and duration, and compare it to regulatory thresholds (drill: compute).",
+       "ek": [
+        "C = N_chips × FLOP/s × MFU × seconds; 10⁴ chips × 10¹⁵ FLOP/s × 0.4 × 90 days ≈ 3 × 10²⁵ FLOP."
+       ],
+       "p": [
+        "P4",
+        "P5"
+       ],
+       "needs": [
+        "AIS-1.2.A"
+       ],
+       "drills": []
+      },
+      {
+       "id": "C",
+       "do": "Evaluate the weaknesses of fixed compute thresholds: algorithmic efficiency, post-training and inference compute, distillation.",
+       "ek": [
+        "A fixed FLOP line falls behind as efficiency improves 2–6×/yr; capability can be reached below it, or added after pretraining."
+       ],
+       "p": [
+        "P6"
+       ],
+       "needs": [
+        "AIS-1.2.D"
+       ],
+       "drills": []
+      }
+     ]
+    },
+    {
+     "n": 4,
+     "title": "International coordination and the evidence dilemma",
+     "book": {
+      "bluedot-gov": [
+       "Unit 2",
+       "Unit 3"
+      ],
+      "bluedot-agi": [
+       "Unit 1 §1.3"
+      ],
+      "iasr-2026": [
+       "§Evidence dilemma",
+       "§Risk management"
+      ],
+      "uk-aisi": [
+       "Pre-deployment testing"
+      ]
+     },
+     "los": [
+      {
+       "id": "A",
+       "do": "Identify the coordination problem in a described scenario — race to the bottom, verification gap, free-riding, non-credible commitment (drill: classify).",
+       "ek": [
+        "Without verification, mutual restraint is unstable: each side fears the other defects."
+       ],
+       "p": [
+        "P1",
+        "P6"
+       ],
+       "drills": []
+      },
+      {
+       "id": "B",
+       "do": "Trace the summit-and-institute track — Bletchley 2023, Seoul commitments 2024, Paris 2025, India 2026; the AISI/CAISI network; the International AI Safety Report — and what each actually produced.",
+       "ek": [
+        "Seoul: companies committed to publish safety frameworks. Institutes test pre-deployment under voluntary agreements, can't block release, and publish findings unevenly (UK AISI more, CAISI less)."
+       ],
+       "p": [
+        "P5"
+       ],
+       "drills": []
+      },
+      {
+       "id": "C",
+       "do": "Explain the evidence dilemma and how if-then commitments and transparency requirements respond to it.",
+       "ek": [
+        "IASR 2026: evidence about risk arrives slower than capability; acting early risks bad policy, waiting risks exposure. If-then rules commit now to act on evidence later."
+       ],
+       "p": [
+        "P6"
+       ],
+       "drills": []
+      }
+     ]
+    },
+    {
+     "n": 5,
+     "title": "Institutions, power and contested questions",
+     "book": {
+      "bluedot-gov": [
+       "Unit 2",
+       "Unit 4",
+       "Unit 5"
+      ],
+      "bluedot-agi": [
+       "Unit 3 §3.3"
+      ],
+      "iasr-2026": [
+       "§Open-weight models"
+      ]
+     },
+     "los": [
+      {
+       "id": "A",
+       "do": "Map who can act on a given frontier-AI decision — labs, compute providers, governments, standards bodies, investors — and where each depends on the others.",
+       "ek": [
+        "Leverage sits at chokepoints: chips, cloud, capital, talent, market access; policy windows open when one of them shifts."
+       ],
+       "p": [
+        "P6"
+       ],
+       "drills": []
+      },
+      {
+       "id": "B",
+       "do": "Argue both sides of the open-weights question using marginal risk, irreversibility and the closed–open capability gap, and name your crux.",
+       "ek": [
+        "Open models trail the closed frontier by under a year (IASR) / 4–8 months (AISI); benefits to research and access; safeguards removable, weights unrecallable."
+       ],
+       "p": [
+        "P6"
+       ],
+       "drills": []
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "strategy",
+   "n": 10,
+   "title": "Strategy and forecasting",
+   "scope": "core",
+   "ideas": [
+    "SCALE",
+    "INC"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "Drivers and timelines",
+     "book": {
+      "bluedot-agi": [
+       "Unit 2 §2.1",
+       "Unit 2 §2.2"
+      ],
+      "iasr-2026": [
+       "§Capabilities"
+      ]
+     },
+     "los": [
+      {
+       "id": "A",
+       "do": "Build a simple timeline forecast from compute growth, algorithmic progress and a benchmark trend, and name the bottleneck most likely to break it (drill: compute).",
+       "ek": [
+        "IASR 2026 bottlenecks: data, chips, capital, energy. Capability is 'jagged' — strong on some hard tasks, weak on some easy ones — so one trend line rarely means 'AGI'."
+       ],
+       "p": [
+        "P4",
+        "P6"
+       ],
+       "needs": [
+        "AIS-1.2.D",
+        "AIS-6.3.A"
+       ],
+       "drills": []
+      },
+      {
+       "id": "B",
+       "do": "Make probabilistic forecasts on AI questions and score them with the Brier score (drill: compute).",
+       "ek": [
+        "Brier = mean (p − o)²; 0 is perfect, 0.25 is always saying 50 %."
+       ],
+       "p": [
+        "P4"
+       ],
+       "drills": []
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "title": "Takeoff and AI R&D automation",
+     "book": {
+      "bluedot-agi": [
+       "Unit 2 §2.3"
+      ],
+      "bluedot-gov": [
+       "Unit 4"
+      ],
+      "openai-pf": [
+       "AI Self-improvement"
+      ],
+      "rsp": [
+       "AI R&D thresholds"
+      ],
+      "gdm-fsf": [
+       "ML R&D CCLs"
+      ]
+     },
+     "los": [
+      {
+       "id": "A",
+       "do": "Explain the AI-R&D feedback loop behind fast takeoff, what limits it, and why AI R&D thresholds are the frameworks' early warning for it.",
+       "ek": [
+        "If AI multiplies research output, progress compounds (software intelligence explosion), limited by experiment compute. PF Critical: generational gains in 1/5 the 2024 time; RSP AI R&D-4; FSF ML R&D CCLs extend reviews to internal deployment."
+       ],
+       "p": [
+        "P2",
+        "P5"
+       ],
+       "drills": []
+      }
+     ]
+    },
+    {
+     "n": 3,
+     "title": "Threat models, strategies and prioritisation",
+     "book": {
+      "bluedot-agi": [
+       "Unit 3",
+       "Unit 4",
+       "Unit 5"
+      ],
+      "bluedot-tais": [
+       "Unit 1 §1.3",
+       "Unit 6 §6.2"
+      ],
+      "bluedot-gov": [
+       "Unit 3",
+       "Unit 4",
+       "Unit 6"
+      ],
+      "iasr-2026": [
+       "§Risks"
+      ]
+     },
+     "los": [
+      {
+       "id": "A",
+       "do": "Classify a described scenario as misuse, malfunction/loss of control or systemic risk, and name the mitigation layer that does most against it (drill: classify).",
+       "ek": [
+        "IASR 2026 taxonomy: malicious use (content, influence, cyber, bio/chem); malfunctions (reliability, loss of control); systemic (labour, autonomy)."
+       ],
+       "p": [
+        "P1",
+        "P2"
+       ],
+       "drills": []
+      },
+      {
+       "id": "B",
+       "do": "Compare loss-of-control, misuse and power-concentration threat models on what drives their likelihood and which interventions help each.",
+       "ek": [
+        "Misuse: access and uplift → safeguards, security. Loss of control: misalignment + autonomy → alignment, control. Power concentration: AI replacing the cooperation that checks power → governance, distribution."
+       ],
+       "p": [
+        "P2",
+        "P6"
+       ],
+       "drills": []
+      },
+      {
+       "id": "C",
+       "do": "Compare strategies for the transition — safe-lead racing, coordinated pause, defensive acceleration, frameworks-plus-regulation — by their assumptions and failure modes, and stress-test one against accelerating capability and competition.",
+       "ek": [
+        "Each strategy bets on something: verification, a lead, defence outpacing offence, or institutions keeping pace."
+       ],
+       "p": [
+        "P6"
+       ],
+       "drills": []
+      },
+      {
+       "id": "D",
+       "do": "Prioritise safety interventions by importance, tractability and neglectedness and your comparative advantage, and state a theory of change with its crux.",
+       "ek": [
+        "Theory of change: action → intermediate outcome → risk reduction. A crux is a belief whose change would flip the decision."
+       ],
+       "p": [
+        "P6"
+       ],
+       "drills": []
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "interp-advanced",
+   "n": 11,
+   "title": "Mechanistic interpretability, deeper",
+   "scope": "extension",
+   "ideas": [
+    "OBS"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "Attention circuits and attribution",
+     "book": {
+      "arena": [
+       "Ch 1"
+      ]
+     },
+     "los": [
+      {
+       "id": "A",
+       "do": "Split an attention head into its QK and OV circuits and say what each decides.",
+       "ek": [
+        "W_QK = W_Qᵀ W_K decides where to attend; W_OV = W_V W_O decides what gets moved."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "AIS-4.3.A"
+       ],
+       "drills": []
+      },
+      {
+       "id": "B",
+       "do": "Compute a component's direct logit attribution for a correct-vs-wrong token pair (drill: compute).",
+       "ek": [
+        "DLA = (component output, scaled by the final LayerNorm) · (W_U[:, correct] − W_U[:, wrong])."
+       ],
+       "p": [
+        "P4"
+       ],
+       "drills": []
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "agentic",
+   "n": 12,
+   "title": "Agentic and multi-agent risk",
+   "scope": "extension",
+   "ideas": [
+    "DEF",
+    "OBS"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "Securing tool-using agents",
+     "book": {
+      "iasr-2026": [
+       "§Risks: malfunctions"
+      ],
+      "openai-pf": [
+       "Research categories: Long-range Autonomy, ARA"
+      ],
+      "uk-aisi": [
+       "Best practice: multi-agent control"
+      ]
+     },
+     "los": [
+      {
+       "id": "A",
+       "do": "Identify the prompt-injection pathways in a described agent deployment and the least-privilege or containment control for each (drill: classify).",
+       "ek": [
+        "Untrusted data in the context is an instruction channel; limit tools, permissions and egress so a hijacked agent can do little."
+       ],
+       "p": [
+        "P1",
+        "P2"
+       ],
+       "drills": []
+      },
+      {
+       "id": "B",
+       "do": "Explain why per-instance monitors miss distributed attacks across many agent instances.",
+       "ek": [
+        "Each instance's actions can look benign; the harm lies in the combination, so monitoring must aggregate across instances."
+       ],
+       "p": [
+        "P2"
+       ],
+       "needs": [
+        "AIS-7.1.A"
+       ],
+       "drills": []
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "rows": [
+  {
+   "code": "AIS-1.1.A",
+   "unit": 1,
+   "topic": 1,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "AIS-1.1.B",
+   "unit": 1,
+   "topic": 1,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "AIS-1.2.A",
+   "unit": 1,
+   "topic": 2,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "AIS-1.2.B",
+   "unit": 1,
+   "topic": 2,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "AIS-1.2.C",
+   "unit": 1,
+   "topic": 2,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "AIS-1.2.D",
+   "unit": 1,
+   "topic": 2,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "AIS-1.3.A",
+   "unit": 1,
+   "topic": 3,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "AIS-1.3.B",
+   "unit": 1,
+   "topic": 3,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "AIS-1.3.C",
+   "unit": 1,
+   "topic": 3,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "AIS-1.3.D",
+   "unit": 1,
+   "topic": 3,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "AIS-2.1.A",
+   "unit": 2,
+   "topic": 1,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "AIS-2.1.B",
+   "unit": 2,
+   "topic": 1,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "AIS-2.1.C",
+   "unit": 2,
+   "topic": 1,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "AIS-2.2.A",
+   "unit": 2,
+   "topic": 2,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "AIS-2.2.B",
+   "unit": 2,
+   "topic": 2,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "AIS-2.3.A",
+   "unit": 2,
+   "topic": 3,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "AIS-2.3.B",
+   "unit": 2,
+   "topic": 3,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "AIS-2.4.A",
+   "unit": 2,
+   "topic": 4,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "AIS-2.4.B",
+   "unit": 2,
+   "topic": 4,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "AIS-2.4.C",
+   "unit": 2,
+   "topic": 4,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "AIS-3.1.A",
+   "unit": 3,
+   "topic": 1,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "AIS-3.1.B",
+   "unit": 3,
+   "topic": 1,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "AIS-3.2.A",
+   "unit": 3,
+   "topic": 2,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "AIS-3.2.B",
+   "unit": 3,
+   "topic": 2,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "AIS-3.3.A",
+   "unit": 3,
+   "topic": 3,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "AIS-3.3.B",
+   "unit": 3,
+   "topic": 3,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "AIS-3.4.A",
+   "unit": 3,
+   "topic": 4,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "AIS-3.4.B",
+   "unit": 3,
+   "topic": 4,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "AIS-4.1.A",
+   "unit": 4,
+   "topic": 1,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "AIS-4.1.B",
+   "unit": 4,
+   "topic": 1,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "AIS-4.2.A",
+   "unit": 4,
+   "topic": 2,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "AIS-4.2.B",
+   "unit": 4,
+   "topic": 2,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "AIS-4.3.A",
+   "unit": 4,
+   "topic": 3,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "AIS-4.3.B",
+   "unit": 4,
+   "topic": 3,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "AIS-4.3.C",
+   "unit": 4,
+   "topic": 3,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "AIS-4.4.A",
+   "unit": 4,
+   "topic": 4,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "AIS-4.4.B",
+   "unit": 4,
+   "topic": 4,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "AIS-4.4.C",
+   "unit": 4,
+   "topic": 4,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "AIS-5.1.A",
+   "unit": 5,
+   "topic": 1,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "AIS-5.1.B",
+   "unit": 5,
+   "topic": 1,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "AIS-5.2.A",
+   "unit": 5,
+   "topic": 2,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "AIS-5.2.B",
+   "unit": 5,
+   "topic": 2,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "AIS-5.2.C",
+   "unit": 5,
+   "topic": 2,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "AIS-5.3.A",
+   "unit": 5,
+   "topic": 3,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "AIS-5.3.B",
+   "unit": 5,
+   "topic": 3,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "AIS-5.3.C",
+   "unit": 5,
+   "topic": 3,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "AIS-5.3.D",
+   "unit": 5,
+   "topic": 3,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "AIS-5.4.A",
+   "unit": 5,
+   "topic": 4,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "AIS-5.4.B",
+   "unit": 5,
+   "topic": 4,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "AIS-5.4.C",
+   "unit": 5,
+   "topic": 4,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "AIS-5.5.A",
+   "unit": 5,
+   "topic": 5,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "AIS-5.5.B",
+   "unit": 5,
+   "topic": 5,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "AIS-6.1.A",
+   "unit": 6,
+   "topic": 1,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "AIS-6.1.B",
+   "unit": 6,
+   "topic": 1,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "AIS-6.2.A",
+   "unit": 6,
+   "topic": 2,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "AIS-6.2.B",
+   "unit": 6,
+   "topic": 2,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "AIS-6.2.C",
+   "unit": 6,
+   "topic": 2,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "AIS-6.3.A",
+   "unit": 6,
+   "topic": 3,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "AIS-6.3.B",
+   "unit": 6,
+   "topic": 3,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "AIS-6.4.A",
+   "unit": 6,
+   "topic": 4,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "AIS-6.4.B",
+   "unit": 6,
+   "topic": 4,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "AIS-6.4.C",
+   "unit": 6,
+   "topic": 4,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "AIS-6.4.D",
+   "unit": 6,
+   "topic": 4,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "AIS-7.1.A",
+   "unit": 7,
+   "topic": 1,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "AIS-7.1.B",
+   "unit": 7,
+   "topic": 1,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "AIS-7.1.C",
+   "unit": 7,
+   "topic": 1,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "AIS-7.2.A",
+   "unit": 7,
+   "topic": 2,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "AIS-7.2.B",
+   "unit": 7,
+   "topic": 2,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "AIS-7.3.A",
+   "unit": 7,
+   "topic": 3,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "AIS-7.3.B",
+   "unit": 7,
+   "topic": 3,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "AIS-8.1.A",
+   "unit": 8,
+   "topic": 1,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "AIS-8.1.B",
+   "unit": 8,
+   "topic": 1,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "AIS-8.2.A",
+   "unit": 8,
+   "topic": 2,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "AIS-8.2.B",
+   "unit": 8,
+   "topic": 2,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "AIS-8.3.A",
+   "unit": 8,
+   "topic": 3,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "AIS-8.3.B",
+   "unit": 8,
+   "topic": 3,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "AIS-8.3.C",
+   "unit": 8,
+   "topic": 3,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "AIS-8.4.A",
+   "unit": 8,
+   "topic": 4,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "AIS-8.5.A",
+   "unit": 8,
+   "topic": 5,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "AIS-8.5.B",
+   "unit": 8,
+   "topic": 5,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "AIS-9.1.A",
+   "unit": 9,
+   "topic": 1,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "AIS-9.1.B",
+   "unit": 9,
+   "topic": 1,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "AIS-9.1.C",
+   "unit": 9,
+   "topic": 1,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "AIS-9.2.A",
+   "unit": 9,
+   "topic": 2,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "AIS-9.2.B",
+   "unit": 9,
+   "topic": 2,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "AIS-9.3.A",
+   "unit": 9,
+   "topic": 3,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "AIS-9.3.B",
+   "unit": 9,
+   "topic": 3,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "AIS-9.3.C",
+   "unit": 9,
+   "topic": 3,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "AIS-9.4.A",
+   "unit": 9,
+   "topic": 4,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "AIS-9.4.B",
+   "unit": 9,
+   "topic": 4,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "AIS-9.4.C",
+   "unit": 9,
+   "topic": 4,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "AIS-9.5.A",
+   "unit": 9,
+   "topic": 5,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "AIS-9.5.B",
+   "unit": 9,
+   "topic": 5,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "AIS-10.1.A",
+   "unit": 10,
+   "topic": 1,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "AIS-10.1.B",
+   "unit": 10,
+   "topic": 1,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "AIS-10.2.A",
+   "unit": 10,
+   "topic": 2,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "AIS-10.3.A",
+   "unit": 10,
+   "topic": 3,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "AIS-10.3.B",
+   "unit": 10,
+   "topic": 3,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "AIS-10.3.C",
+   "unit": 10,
+   "topic": 3,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "AIS-10.3.D",
+   "unit": 10,
+   "topic": 3,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "AIS-11.1.A",
+   "unit": 11,
+   "topic": 1,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "AIS-11.1.B",
+   "unit": 11,
+   "topic": 1,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "AIS-12.1.A",
+   "unit": 12,
+   "topic": 1,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "AIS-12.1.B",
+   "unit": 12,
+   "topic": 1,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  }
+ ],
+ "orphanTpl": []
+}
