@@ -1,0 +1,482 @@
+# Molecular Simulation — curriculum framework (draft 1, for Kevin's markup)
+#
+# Classical MD and alchemical free-energy methods, aimed at the Hayes group (UCI ChemE):
+# multisite λ dynamics (MSλD) in CHARMM/BLaDE with ALF, starting from the group's T4 lysozyme
+# onboarding tutorial. Built like an AP Course and Exam Description: Big Ideas run through
+# the subject, Units → Topics → Learning Objectives (one testable action each, verb first),
+# with the Essential Knowledge an LO rests on and the Practices it exercises. No official
+# standard exists for this subject, so the map is triangulated from the sources below.
+#
+# Sources actually opened (crosswalk keys in topics[].book):
+#   livecoms-md-basics  Braun, Gilmer, Mayes, Mobley, Monroe, Prasad, Zuckerman, "Best Practices
+#                       for Foundations in Molecular Simulations", LiveCoMS 1 (2019) 5957 (PMC6884151).
+#                       Read §1–4.5 (science topics, force fields, PBC, MD steps, thermostats,
+#                       barostats); the last ~7% (rest of §4, checklist) did not load.
+#   livecoms-afe        Mey, Allen, Bruce Macdonald, Chodera, Hahn, Kuhn, Michel, Mobley, Naden,
+#                       Prasad, Rizzi, Scheen, Shirts, Tresadern, Xu, "Best Practices for Alchemical
+#                       Free Energy Calculations", LiveCoMS 2 (2020) 18378 (arXiv 2008.03067).
+#                       Read §1–7; §8–12 (analysis, software, checklist) did not load.
+#   livecoms-uq         Grossfield, Patrone, Roe, Schultz, Siderius, Zuckerman, "Best Practices for
+#                       Quantification of Uncertainty and Sampling Quality in Molecular Simulations",
+#                       LiveCoMS 1 (2018) 5067. Read §1–7 (autocorrelation, N_ind, block averaging,
+#                       t-based CIs, bootstrap, propagation); §8 truncated.
+#   molssi-mmtools      MolSSI Education, "Molecular Mechanics Tools" workshop (lesson list only).
+#   frenkel-smit        Frenkel & Smit, Understanding Molecular Simulation, 3rd ed. (2023) — TOC
+#                       from the Elsevier page.
+#   allen-tildesley     Allen & Tildesley, Computer Simulation of Liquids, 2nd ed. (2017) — chapter
+#                       list from a bookseller page (no section numbers available).
+#   tuckerman           Tuckerman, Statistical Mechanics: Theory and Molecular Simulation — chapter
+#                       list from a library catalog (unnumbered; numbered here in listed order, which
+#                       matches the 1st ed., 2010).
+#   orientation         Hayes group Orientation repo (github.com/RyanHayes-Lab/orientation):
+#                       Tutorial.md (1 MD in CHARMM, 1.1 Running CHARMM, 1.2 System Setup, 2 MSλD,
+#                       3 ALF, 3.2 routines, 3.3 best practices, 3.4 cleanup, 4.1–4.3 CHARMM
+#                       scripts/engines/docs), Cluster.md (SLURM), Literature.md, Installation.md.
+#   alf-readme          ALF package README + alf/__init__.py docstrings (github.com/RyanLeeHayes/ALF):
+#                       Algorithms, Best Practices, Input Specification.
+#   hayes2017-alf       Hayes, Armacost, Vilseck, Brooks, "Adaptive Landscape Flattening Accelerates
+#                       Sampling of Alchemical Space in Multisite λ Dynamics", JPCB 121 (2017) 3626
+#                       (eScholarship text; equations did not render, parameters did).
+#   hayes2021-blade     Hayes, Buckner, Brooks, "BLaDE: A Basic Lambda Dynamics Engine for GPU
+#                       Accelerated MD Free Energy Calculations", JCTC 17 (2021) 6799 (PMC8626863).
+#   blade-doc           CHARMM c51b1 documentation, BLaDE page (academiccharmm.org).
+#
+# Not opened (cited only through the Orientation reading list): Kong & Brooks 1996; Knight &
+# Brooks 2009, 2011 (implicit constraints; MSλD); Hayes, Vilseck, Brooks 2018 (T4L, Protein
+# Sci.); Hayes & Brooks 2021 (Pro/Gly); Hayes, Vilseck, Brooks 2022 (intersite coupling, Potts);
+# Hayes et al. 2024 (dozens of substitutions, nonlinear loss); Leach (no TOC could be loaded,
+# so no leach crosswalk); CHARMM BLOCK docs (blocked).
+#
+# Fields
+#   units[].scope     core (needed for the onboarding tutorial and routine group work) or
+#                     extension (beyond it)
+#   units[].ideas     Big Ideas the unit develops
+#   topics[].book     crosswalk: source id → sections / chapters
+#   los[].do          the objective; los[].ek essential knowledge; los[].p practices
+#   los[].needs       prerequisite LOs in this framework
+#   los[].drills      templates that drill it; "~name" = only partly. All empty in draft 1.
+#   "— numeric rep" / "— choice rep" at the end of an LO marks it as written to become an
+#   auto-checked drill (a computed number, or a pick from a fixed set of options).
+id: molecular-simulation
+title: Molecular Simulation
+code: MD
+draft: 1
+domains: []
+
+big_ideas:
+  - id: BOLTZ
+    title: Probabilities are free energies
+    text: Every observable is a Boltzmann-weighted average, and every free-energy difference is a log of a population or partition-function ratio. Turning counts into kcal/mol and back is the core move of the field.
+  - id: MODEL
+    title: The answer is only as good as the model
+    text: A force field, water model, protonation state, box and cutoff scheme define the Hamiltonian being sampled. They are one package; change one piece and the results belong to a different model.
+  - id: DYN
+    title: Dynamics is a sampling engine
+    text: Integrators, constraints, thermostats and barostats exist to generate the right ensemble stably and efficiently. Their parameters trade accuracy, speed and fidelity of the dynamics.
+  - id: SAMPLE
+    title: Finite, correlated sampling sets the error bar
+    text: Trajectories are correlated time series of finite length. The number of independent samples, not the number of frames, sets the uncertainty, and unvisited states produce error no error bar shows.
+  - id: PATH
+    title: Free energy is a state function
+    text: Because ΔG depends only on endpoints, non-physical alchemical paths and thermodynamic cycles give physical answers. Good paths keep neighbouring states overlapping.
+  - id: ALCH
+    title: Alchemical space can be sampled like real space
+    text: λ dynamics treats λ as a coordinate with its own dynamics; with implicit constraints and flattened biases, one simulation visits many chemical end states, and their populations give the free energies.
+  - id: WORK
+    title: Simulation is a reproducible pipeline
+    text: Results come from scripts run on shared clusters. Correct scheduling, engine choice, bookkeeping and documentation decide whether a number can be trusted, repeated and published.
+
+practices:
+  - id: P1
+    title: Define the system and ensemble
+    text: State what physical question is asked, which ensemble and endpoints answer it, and which states (folded/unfolded, bound/unbound) must be simulated.
+  - id: P2
+    title: Build the model
+    text: Choose force field, water, protonation and tautomer states, termini, ions, box shape and size, and write them down.
+  - id: P3
+    title: Choose the method and its parameters
+    text: Pick integrator, timestep, constraints, thermostat, barostat, electrostatics, estimator, λ schedule or ALF options to fit the goal, and check each against its validity conditions.
+  - id: P4
+    title: Compute with units
+    text: kcal/mol and k_BT, Å and nm, fs/ps/ns, steps vs time, molar vs per-molecule; never mix them silently.
+  - id: P5
+    title: Check and quantify
+    text: Sanity-check limits and magnitudes, test equilibration and convergence, estimate uncertainty from independent samples, and close cycles.
+  - id: P6
+    title: Run, script and document
+    text: Write and debug engine scripts and job files, run them on the cluster, and keep every input needed to reproduce the result.
+
+units:
+  # ── 1 ────────────────────────────────────────────────────────────────────
+  - id: statmech
+    n: 1
+    title: Statistical mechanics for simulation
+    scope: core
+    ideas: [BOLTZ, SAMPLE]
+    topics:
+      - n: 1
+        title: Ensembles, ergodicity and temperature
+        book: { livecoms-md-basics: ["3.3"], frenkel-smit: ["Ch 2"], tuckerman: ["Ch 3", "Ch 4", "Ch 5"], allen-tildesley: ["Ch 2"] }
+        los:
+          - { id: A, do: "Choose the ensemble (NVE, NVT, NPT, μVT) that matches a described experiment or simulation goal — choice rep.", ek: ["Bench conditions (fixed T and P) ⇒ NPT, whose free energy is G; NVT gives A; NVE conserves H and is used to test integrators and measure unperturbed dynamics."], p: [P1], drills: [] }
+          - { id: B, do: "State the ergodic hypothesis and identify features of a system that break it on simulation timescales.", ek: ["Time average = ensemble average only if the trajectory visits all relevant states; barriers of many k_BT (slow rotamers, buried waters, unfolding) make runs quasi-nonergodic."], p: [P5], drills: [] }
+          - { id: C, do: "Calculate the instantaneous temperature from kinetic energy and the count of degrees of freedom — numeric rep.", ek: ["⟨K⟩ = (N_df/2) k_B T; N_df = 3N − N_constraints − 3 when centre-of-mass motion is removed."], p: [P4], drills: [] }
+      - n: 2
+        title: Boltzmann weights and free energy
+        book: { livecoms-md-basics: ["3.2", "3.3"], frenkel-smit: ["Ch 2"], tuckerman: ["Ch 4", "Ch 5"] }
+        los:
+          - { id: A, do: "Calculate the population ratio of two states from their energy difference at a given temperature — numeric rep.", ek: ["p_i/p_j = exp[−(E_i − E_j)/k_BT]; k_BT = 0.593 kcal/mol at 298.15 K, so 1.36 kcal/mol is a factor of 10."], p: [P4], drills: [] }
+          - { id: B, do: "Convert between a population (or probability) ratio and a free-energy difference — numeric rep.", ek: ["ΔG_A→B = −k_BT ln(P_B/P_A); a free energy counts every microstate of a state, so it includes entropy, not just the lowest energy."], p: [P4], needs: [MD-1.2.A], drills: [] }
+          - { id: C, do: "Distinguish Helmholtz and Gibbs free energy and the potential of mean force along a coordinate, and state which one a given simulation yields.", ek: ["A = −k_BT ln Q (NVT), G = −k_BT ln Δ (NPT); W(ξ) = −k_BT ln P(ξ) + const. Absolute Q is intractable, but ratios of Q are ensemble averages."], p: [P1], drills: [] }
+
+  # ── 2 ────────────────────────────────────────────────────────────────────
+  - id: forcefield
+    n: 2
+    title: Force fields
+    scope: core
+    ideas: [MODEL]
+    topics:
+      - n: 1
+        title: The CHARMM functional form
+        book: { livecoms-md-basics: ["3.5", "4.1"], allen-tildesley: ["Ch 1"], molssi-mmtools: ["Introduction"] }
+        los:
+          - { id: A, do: "Write the CHARMM potential energy function term by term and name each parameter and the pairs each term excludes.", ek: ["Bonds K_b(b − b₀)², angles K_θ(θ − θ₀)², Urey–Bradley, dihedrals K_φ[1 + cos(nφ − δ)], impropers, CMAP, LJ ε[(R_min/r)¹² − 2(R_min/r)⁶], Coulomb; 1-2 and 1-3 pairs excluded, 1-4 pairs use special LJ parameters."], p: [P2], drills: [] }
+          - { id: B, do: "Calculate a Lennard-Jones or Coulomb pair energy from CHARMM parameters using the combining rules — numeric rep.", ek: ["ε_ij = √(ε_i ε_j), R_min,ij = R_min,i/2 + R_min,j/2; Coulomb = 332.06 q_i q_j / r kcal/mol with r in Å and q in e."], p: [P4], drills: [] }
+      - n: 2
+        title: Topology, parameter and structure files
+        book: { orientation: ["Tutorial 2", "Tutorial 4.3"] }
+        los:
+          - { id: A, do: "Explain what RTF, PRM, PSF, CRD and toppar.str files each contain and which ones CHARMM reads in what order.", ek: ["RTF: atoms, types, charges, connectivity and patches per residue (which terms exist); PRM: the constants in those terms; PSF: the generated list of atoms, bonds, angles, dihedrals of this system; CRD: coordinates; toppar.str streams the RTF/PRM set."], p: [P2, P6], drills: [] }
+          - { id: B, do: "Map a residue's chemical state to its CHARMM36 name or patch: ASPP, GLUP, HSD/HSE/HSP, LSN, NTER/CTER, ACE/CT3 — choice rep.", ek: ["ASP, GLU deprotonated and LYS protonated by default; HIS must always be specified; charged termini for a whole protein, neutral ACE/CT3 caps for a peptide cut from a chain."], p: [P2], drills: [] }
+      - n: 3
+        title: Parameterization
+        book: { livecoms-md-basics: ["4.1"], orientation: ["Installation"] }
+        los:
+          - { id: A, do: "Describe how CHARMM36/CGenFF charges, dihedrals and LJ parameters are fitted, and why water model, cutoffs, constraints and 1-4 treatment belong to the parameter set.", ek: ["Charges fit to QM interaction energies with TIP3P water; dihedrals to QM scans; LJ to liquid densities and heats of vaporization. Constraint and cutoff settings are part of the force field definition — match the parameterizing work."], p: [P2], drills: [] }
+          - { id: B, do: "Judge a CGenFF (ParamChem) parameter assignment from its penalty scores and decide whether to validate or reoptimize — choice rep.", ek: ["Penalty < 10 ≈ fine; 10–50 validate; > 50 reparameterize against QM."], p: [P2, P5], drills: [] }
+      - n: 4
+        title: Water models
+        book: { livecoms-md-basics: ["4.1"], orientation: ["Tutorial 2"] }
+        los:
+          - { id: A, do: "Compare TIP3P (CHARMM variant), SPC/E and TIP4P-type models by geometry, rigidity and known property errors, and name the model CHARMM36 assumes.", ek: ["TIP3P: rigid 3-site; the CHARMM variant adds LJ on H; diffuses ~2× too fast but CHARMM36 is fitted with it. TIP4P models add a virtual M site carrying the negative charge."], p: [P2], drills: [] }
+
+  # ── 3 ────────────────────────────────────────────────────────────────────
+  - id: integrate
+    n: 3
+    title: Integration and MD algorithms
+    scope: core
+    ideas: [DYN]
+    topics:
+      - n: 1
+        title: Verlet-family integrators
+        book: { livecoms-md-basics: ["3.1", "4.3"], frenkel-smit: ["Ch 4", "App H"], allen-tildesley: ["Ch 3"], tuckerman: ["Ch 3"] }
+        los:
+          - { id: A, do: "Write one step of velocity Verlet and of leapfrog and explain why their time reversibility and symplecticity give bounded energy error.", ek: ["Leapfrog: v(t + ½Δt) = v(t − ½Δt) + a(t)Δt, x(t + Δt) = x(t) + v(t + ½Δt)Δt. Symplectic integrators conserve a shadow Hamiltonian, so NVE energy fluctuates without drift; drift signals a bad Δt or cutoff artifacts."], p: [P3], drills: [] }
+          - { id: B, do: "Advance positions and velocities through one or two integration steps for a given 1-D force — numeric rep.", ek: ["Velocity Verlet: x₁ = x₀ + v₀Δt + ½a₀Δt²; v₁ = v₀ + ½(a₀ + a₁)Δt."], p: [P4], drills: [] }
+      - n: 2
+        title: Timestep and constraints
+        book: { livecoms-md-basics: ["4.3"], livecoms-afe: ["7.1.1"], hayes2021-blade: ["2"], allen-tildesley: ["Ch 3"] }
+        los:
+          - { id: A, do: "Calculate the period of the fastest vibration from its wavenumber and pick the largest stable timestep with and without hydrogen-bond constraints — numeric rep.", ek: ["T = 1/(c ν̃); X–H stretches at 3000–3600 cm⁻¹ have T ≈ 9–11 fs; with Δt ≲ T/10 that is ~1 fs unconstrained, ~2 fs with X–H constrained (rigid water roughly doubles Δt)."], p: [P3, P4], drills: [] }
+          - { id: B, do: "Explain how SHAKE, RATTLE and SETTLE impose holonomic constraints and count the degrees of freedom they remove.", ek: ["Lagrange multipliers iteratively restore bond lengths each step; SETTLE solves rigid 3-site water analytically; each constraint removes one degree of freedom (enters N_df)."], p: [P3], needs: [MD-1.1.C], drills: [] }
+          - { id: C, do: "Decide when to use hydrogen mass repartitioning at 4 fs, or drop constraints and use 1 fs, including for bonds to alchemical atoms — choice rep.", ek: ["HMR moves mass from heavy atoms to their H, conserving total mass and thermodynamics but altering kinetics. Constraints on bonds that change length between alchemical states bias single-topology results; 1 fs without them is the general fix."], p: [P3], drills: [] }
+          - { id: D, do: "Diagnose an unstable timestep or bad starting structure from run symptoms (SHAKE failures, energy blow-up, temperature spikes).", ek: ["Early crashes usually mean unrelaxed contacts (minimize) or too large a Δt; steady NVE drift means Δt, constraint tolerance or cutoff treatment is too loose."], p: [P5], drills: [] }
+
+  # ── 4 ────────────────────────────────────────────────────────────────────
+  - id: thermobaro
+    n: 4
+    title: Thermostats and barostats
+    scope: core
+    ideas: [DYN, MODEL]
+    topics:
+      - n: 1
+        title: Thermostats
+        book: { livecoms-md-basics: ["4.4"], frenkel-smit: ["Ch 7"], tuckerman: ["Ch 4", "Ch 15"], hayes2021-blade: ["2"] }
+        los:
+          - { id: A, do: "Choose a thermostat for a stated goal — fast equilibration, canonical production, or dynamical properties — and justify it — choice rep.", ek: ["Bussi: general purpose; Nosé–Hoover chains: canonical, better ergodicity in small systems; Langevin: canonical, robust, damps dynamics; Berendsen and simple velocity rescaling give the wrong ensemble (flying ice cube)."], p: [P3], drills: [] }
+          - { id: B, do: "Write the Langevin equation and explain how the friction coefficient (CHARMM fbeta, ps⁻¹) trades temperature control against dynamical fidelity.", ek: ["m dv/dt = F − γmv + R(t), ⟨R(t)R(t′)⟩ = 2γm k_BT δ(t − t′). BLaDE uses a g-BAOAB Langevin integrator; the tutorial's fbeta 0.1 ps⁻¹ is weak coupling."], p: [P3], drills: [] }
+      - n: 2
+        title: Barostats and density
+        book: { livecoms-md-basics: ["4.5"], frenkel-smit: ["Ch 6", "Ch 7"], hayes2021-blade: ["2"], blade-doc: ["BLaDE"] }
+        los:
+          - { id: A, do: "Choose a barostat for equilibration vs production and for isotropic vs anisotropic cells — choice rep.", ek: ["Berendsen only for early equilibration; Monte Carlo barostat, Langevin piston and Parrinello–Rahman sample NPT; anisotropic or semi-isotropic coupling for membranes and crystals."], p: [P3], drills: [] }
+          - { id: B, do: "Explain how a Monte Carlo barostat accepts a volume move and set its BLaDE parameters (prmc, iprs, pref, prdv).", ek: ["Accept with min{1, exp[−β(ΔU + PΔV) + N ln(V′/V)]}; BLaDE's N counts heavy atoms. iprs = steps between attempts (default 50), pref = pressure in atm (1), prdv = σ of ΔV in Å³ (100)."], p: [P3, P6], drills: [] }
+          - { id: C, do: "Calculate a system's density from its box dimensions and total mass and check it against the expected value — numeric rep.", ek: ["ρ = M/(N_A V); 1 g/cm³ = 0.6022 amu/Å³. Pure TIP3P at 298 K should sit near 0.98–1.0 g/cm³."], p: [P4, P5], drills: [] }
+
+  # ── 5 ────────────────────────────────────────────────────────────────────
+  - id: boundaries
+    n: 5
+    title: Periodic boundaries and long-range electrostatics
+    scope: core
+    ideas: [MODEL, DYN]
+    topics:
+      - n: 1
+        title: Periodic boundary conditions and box choice
+        book: { livecoms-md-basics: ["4.2"], orientation: ["Tutorial 1.2", "Tutorial 2"], allen-tildesley: ["Ch 1"], frenkel-smit: ["Ch 4"] }
+        los:
+          - { id: A, do: "Apply the minimum-image convention to find the distance between two atoms in a periodic box — numeric rep.", ek: ["Δx ← Δx − L·round(Δx/L) per axis; valid only when the nonbonded cutoff is below L/2."], p: [P4], drills: [] }
+          - { id: B, do: "Size a solvent box from the solute's extent and edge distance and compare atom counts for cubic, truncated-octahedral and rhombic-dodecahedral cells — numeric rep.", ek: ["Cube side = d_max + 2 × edge (10 Å is standard; more for highly charged solutes like RNA). For the same image distance d: V_cube = d³, V_oct ≈ 0.770 d³ (23% fewer atoms), V_RD ≈ 0.707 d³ (29% fewer). Water ≈ 0.0334 molecules/Å³."], p: [P2, P4], drills: [] }
+          - { id: C, do: "Explain why periodic artifacts are smaller than vacuum-interface artifacts and name the cases where they are not.", ek: ["A droplet's surface distorts the solute; images avoid it. Artifacts grow with net charge, small boxes, and solutes that expand (unfolded chains need a fixed, larger box, e.g. 40 Å for the pentapeptides)."], p: [P2, P5], drills: [] }
+      - n: 2
+        title: Cutoffs and particle-mesh Ewald
+        book: { livecoms-md-basics: ["3.4", "4.2"], frenkel-smit: ["Ch 11"], allen-tildesley: ["Ch 6"], hayes2021-blade: ["2"], orientation: ["Tutorial 1.2", "Tutorial 4.3"] }
+        los:
+          - { id: A, do: "Explain why truncating Coulomb interactions fails in condensed phases and how Ewald splitting into real- and reciprocal-space sums fixes it.", ek: ["1/r decays slower than the number of neighbours grows (∝ r²). Ewald: erfc(κr)/r is short-ranged in real space; the smooth remainder is summed on a reciprocal grid (PME, O(N log N)); a uniform neutralizing background handles net charge."], p: [P3], drills: [] }
+          - { id: B, do: "Choose PME parameters (real-space cutoff, κ, grid spacing, interpolation order) consistent with a target accuracy — choice rep.", ek: ["Typical CHARMM36 setup: 12 Å cutoff, κ ≈ 0.34 Å⁻¹, grid spacing ≤ 1 Å, order 4–6 (BLaDE supports 4, 6, 8). Larger κ shifts work to reciprocal space."], p: [P3], drills: [] }
+          - { id: C, do: "Distinguish switched, shifted and force-switched LJ cutoffs and pick the CHARMM36 standard, including neighbour-list buffer.", ek: ["CHARMM36: vfswitch from 10 to 12 Å, pair list to 14–16 Å; BLaDE requires PME or VSWITCH for electrostatics and VFSWITCH or VSHIFT for LJ. Apply long-range dispersion corrections only if the force field was fitted with them."], p: [P3], drills: [] }
+
+  # ── 6 ────────────────────────────────────────────────────────────────────
+  - id: prep
+    n: 6
+    title: System preparation and equilibration
+    scope: core
+    ideas: [MODEL, SAMPLE]
+    topics:
+      - n: 1
+        title: Building the system
+        book: { orientation: ["Tutorial 1.2"], livecoms-md-basics: ["4.3.1"], livecoms-afe: ["5.1", "5.2"] }
+        los:
+          - { id: A, do: "Assign protonation states from propka pKa predictions at the experimental pH, using predicted pKa for the folded state and model pKa for an unfolded peptide — numeric rep.", ek: ["pH < pKa ⇒ protonated; fraction protonated = 1/(1 + 10^(pH − pKa)). Check ASP, GLU, HIS, LYS; ARG, TYR, CYS rarely titrate. Record the states — they go in the methods section."], p: [P2, P4], drills: [] }
+          - { id: B, do: "Choose a histidine tautomer (HSD, HSE, HSP) from its pKa and hydrogen-bond environment — choice rep.", ek: ["Protonated ⇒ HSP; otherwise put H on the δ or ε N according to nearby donors/acceptors; HSE when exposed or unclear (marginally more stable in the unfolded state)."], p: [P2], needs: [MD-6.1.A], drills: [] }
+          - { id: C, do: "Calculate the number of counterions and salt ion pairs needed to neutralize a box and reach a target concentration — numeric rep.", ek: ["N_pairs ≈ c(M) × V(Å³) × 6.022 × 10⁻⁴; neutralize the net solute charge first. Mimic the experiment; otherwise ~150 mM (Na⁺ extracellular, K⁺ intracellular)."], p: [P2, P4], drills: [] }
+          - { id: D, do: "Build a solvated, ionized protein box in CHARMM-GUI Solution Builder at the experimental temperature, pH and salt, deciding which crystallographic components and termini to keep.", ek: ["Keep crystallographic waters for the folded protein (pockets refill slowly); drop BME/Cl⁻ additives unless relevant; set temperature to the experiment (often 298.15 K, not the 303.15 K default)."], p: [P2, P6], drills: [] }
+      - n: 2
+        title: Minimization, heating and equilibration
+        book: { livecoms-md-basics: ["4.3.2", "4.3.3", "4.3.4", "4.3.5"], livecoms-uq: ["4.1", "5"], orientation: ["Tutorial 1.2"] }
+        los:
+          - { id: A, do: "Order the preparation stages — minimize, assign velocities, restrained NVT, NPT, production — and justify each stage.", ek: ["Minimize to remove clashes; relax solvent at constant volume with solute restrained; then relax volume at constant pressure; NVT production at a set density needs NPT equilibration first."], p: [P1, P3], drills: [] }
+          - { id: B, do: "Calculate the per-component velocity spread or RMS speed of an atom drawn from a Maxwell–Boltzmann distribution — numeric rep.", ek: ["σ_v = √(k_BT/m) per Cartesian component; v_rms = √(3k_BT/m)."], p: [P4], drills: [] }
+          - { id: C, do: "Decide when equilibration is complete from time series of energy, temperature, pressure, density and RMSD, and discard the burn-in.", ek: ["No drift and fluctuation about a stable mean in several observables; if unsure, extend. Analyse only the production portion, applying the cut uniformly."], p: [P5], drills: [] }
+
+  # ── 7 ────────────────────────────────────────────────────────────────────
+  - id: uncertainty
+    n: 7
+    title: Sampling, convergence and uncertainty
+    scope: core
+    ideas: [SAMPLE]
+    topics:
+      - n: 1
+        title: Correlation in time series
+        book: { livecoms-uq: ["6.1", "7.3.1"], frenkel-smit: ["App G"], allen-tildesley: ["Ch 8"], livecoms-md-basics: ["4.3.5"] }
+        los:
+          - { id: A, do: "Compute a normalized autocorrelation function and integrated correlation time from a short time series — numeric rep.", ek: ["C_j = ⟨δx_k δx_{k+j}⟩ / s²; τ_int = Σ_j C_j, summed until it converges but before it integrates noise."], p: [P4], drills: [] }
+          - { id: B, do: "Calculate the statistical inefficiency and effective number of independent samples, and from them the standard error of a mean — numeric rep.", ek: ["g = 1 + 2Σ_{j≥1} C_j (in frames); N_ind = N/g; s(x̄) = s(x)/√N_ind. Saving frames more often than τ adds disk, not information."], p: [P4, P5], needs: [MD-7.1.A], drills: [] }
+      - n: 2
+        title: Error bars
+        book: { livecoms-uq: ["6.2", "7.2", "7.3.2", "7.4", "7.5", "7.6"] }
+        los:
+          - { id: A, do: "Compute a standard error from block averages and identify the block size at which the estimate plateaus — numeric rep.", ek: ["Split N frames into M equal blocks of n; s(x̄) = s(block means)/√M; increase n until s(x̄) stops growing."], p: [P4, P5], drills: [] }
+          - { id: B, do: "Compute a standard error and 95% confidence interval from n independent trials using the Student t factor — numeric rep.", ek: ["SE = s/√n with s over trial means; CI = x̄ ± t·SE, t(0.975, n − 1) = 2.78 for n = 5, 2.57 for n = 6. Starting structures must be independent for this to hold."], p: [P4, P5], drills: [] }
+          - { id: C, do: "Propagate uncertainty through sums, differences and nonlinear functions, e.g. σ(ΔΔG) from two legs — numeric rep.", ek: ["Independent legs: σ²(a − b) = σ²_a + σ²_b; nonlinear F: σ²_F ≈ Σ(∂F/∂x_i)² σ²_i, valid when noise-to-signal is small."], p: [P4], drills: [] }
+          - { id: D, do: "Bootstrap a confidence interval for a derived quantity from correlated data, and report it with significant figures that match the uncertainty.", ek: ["Resample blocks or independent trials, not raw frames; 95% CI = 2.5th–97.5th percentile. Report the confidence level and only meaningful digits."], p: [P5], drills: [] }
+      - n: 3
+        title: Sampling quality
+        book: { livecoms-uq: ["2", "3", "4.2", "4.4", "7.7"], livecoms-afe: ["4.2"] }
+        los:
+          - { id: A, do: "Distinguish statistical uncertainty from sampling error that no error bar reveals, and detect insufficient sampling from drift, rare transitions and disagreement between independent runs.", ek: ["Checks can rule out good sampling but never prove it. Independent runs from diverse starts that disagree beyond their error bars signal unvisited states ('dark uncertainty')."], p: [P5], drills: [] }
+
+  # ── 8 ────────────────────────────────────────────────────────────────────
+  - id: fe-theory
+    n: 8
+    title: Free-energy theory and estimators
+    scope: core
+    ideas: [BOLTZ, PATH, SAMPLE]
+    topics:
+      - n: 1
+        title: Free-energy perturbation
+        book: { livecoms-afe: ["1", "3.2"], frenkel-smit: ["Ch 8"], tuckerman: ["Ch 8"] }
+        los:
+          - { id: A, do: "Calculate ΔA from given ⟨exp(−βΔU)⟩ or a list of ΔU samples with the Zwanzig relation, forward and reverse — numeric rep.", ek: ["ΔA_0→1 = −k_BT ln⟨exp(−βΔU)⟩_0, ΔU = U₁ − U₀ evaluated on state-0 samples; exact in the limit, derived from Q₁/Q₀."], p: [P4], needs: [MD-1.2.B], drills: [] }
+          - { id: B, do: "Estimate ΔA from the mean and variance of ΔU with the second-order cumulant expansion — numeric rep.", ek: ["ΔA ≈ ⟨ΔU⟩₀ − βσ²_ΔU/2; exact for Gaussian ΔU."], p: [P4], drills: [] }
+          - { id: C, do: "Judge whether an FEP estimate is reliable from the ΔU distribution width and forward–reverse hysteresis.", ek: ["The exponential average is biased and dominated by rare low-ΔU samples; reliable only when σ_ΔU ≲ 1–2 k_BT, i.e. neighbouring states overlap. Large forward–reverse disagreement means too few windows."], p: [P5], drills: [] }
+      - n: 2
+        title: Thermodynamic integration
+        book: { livecoms-afe: ["1", "3.2"], frenkel-smit: ["Ch 8"], tuckerman: ["Ch 8"] }
+        los:
+          - { id: A, do: "Calculate ΔA by integrating ⟨∂U/∂λ⟩ over λ windows with the trapezoid or Simpson rule — numeric rep.", ek: ["ΔA = ∫₀¹ ⟨∂U/∂λ⟩_λ dλ; trapezoid needs evenly or explicitly weighted windows; Simpson needs an odd number of evenly spaced points."], p: [P4], drills: [] }
+          - { id: B, do: "Derive ∂U/∂λ for a linear mixing potential and explain why curvature near the endpoints demands more windows or soft-core.", ek: ["U = (1 − λ)U₀ + λU₁ ⇒ ∂U/∂λ = U₁ − U₀; for appearing atoms ⟨∂U/∂λ⟩ diverges as λ → 0 under linear LJ scaling."], p: [P3], drills: [] }
+      - n: 3
+        title: BAR, MBAR and overlap
+        book: { livecoms-afe: ["1", "3.2", "7.2.3"], frenkel-smit: ["Ch 8"] }
+        los:
+          - { id: A, do: "Explain how BAR combines forward and reverse ΔU samples and why it beats one-sided exponential averaging.", ek: ["BAR solves a self-consistent equation for ΔA using both directions; it is the minimum-variance two-state estimator and much less biased than Zwanzig."], p: [P3], drills: [] }
+          - { id: B, do: "Explain MBAR as reweighting all samples to all states, and relate it to BAR and WHAM.", ek: ["MBAR solves for every state's free energy simultaneously from all samples; with two states it reduces to BAR; binned, it is WHAM (used in ALF flattening)."], p: [P3], drills: [] }
+          - { id: C, do: "Read an MBAR overlap matrix and decide where to add λ states — choice rep.", ek: ["Each state should share substantial overlap with its neighbours (off-diagonal elements not near zero); a weak link between two neighbours is where to insert a state. 20–40 states are typical."], p: [P5], needs: [MD-8.3.B], drills: [] }
+      - n: 4
+        title: Alchemical pathways and soft-core
+        book: { livecoms-afe: ["7.1.1", "7.2.3"], hayes2017-alf: ["Methods"] }
+        los:
+          - { id: A, do: "Design an alchemical λ schedule for inserting or deleting atoms: order of electrostatic and LJ changes, soft-core, and number of states.", ek: ["Remove charges while LJ cores are on, then transform LJ with soft-core, then restore charges on inserted atoms; never change both at once on linear paths when sites appear or vanish."], p: [P3], drills: [] }
+          - { id: B, do: "Explain the endpoint catastrophe and how soft-core potentials remove it.", ek: ["As an atom's LJ is scaled to zero, other atoms can overlap it and r⁻¹² diverges; soft-core remaps short distances so the energy stays finite (in MSλD, distances inside a λ-dependent cutoff, r₀ = 2 Å)."], p: [P3], drills: [] }
+          - { id: C, do: "Distinguish single, dual and multiple topology and decoupling vs annihilation, and identify the topology MSλD uses — choice rep.", ek: ["MSλD uses a shared core plus one complete substituent group per alternative; substituents at the same site never interact with each other; decoupling turns off only intermolecular terms."], p: [P2, P3], drills: [] }
+
+  # ── 9 ────────────────────────────────────────────────────────────────────
+  - id: cycles
+    n: 9
+    title: Thermodynamic cycles, binding and stability
+    scope: core
+    ideas: [PATH, BOLTZ]
+    topics:
+      - n: 1
+        title: Relative free energies
+        book: { livecoms-afe: ["3.2", "7.1"], orientation: ["Tutorial 1", "Tutorial 3.2"], alf-readme: ["Best Practices"] }
+        los:
+          - { id: A, do: "Close a thermodynamic cycle to compute a relative binding ΔΔG from alchemical legs in complex and solvent — numeric rep.", ek: ["ΔΔG_bind = ΔG_bind(B) − ΔG_bind(A) = ΔG_complex(A→B) − ΔG_solvent(A→B); the physical binding legs are never simulated."], p: [P1, P4], needs: [MD-1.2.B], drills: [] }
+          - { id: B, do: "Compute a mutational folding ΔΔG from alchemical legs in the folded protein and an unfolded-state peptide model, and state its sign convention — numeric rep.", ek: ["ΔΔG_fold = ΔG_alch(folded) − ΔG_alch(unfolded); positive = destabilizing. The capped pentapeptide (mutating residue ± 2) models a locally solvated unfolded state and ignores nonlocal contacts."], p: [P1, P4], drills: [] }
+          - { id: C, do: "Compute cycle-closure errors in a perturbation network and use them to flag unreliable edges — numeric rep.", ek: ["ΔG summed around any closed loop should be 0; nonzero closure measures error. Star maps are cheap; redundant, connected maps allow error analysis."], p: [P5], drills: [] }
+      - n: 2
+        title: Absolute binding
+        book: { livecoms-afe: ["3.2", "6.1", "7.1.2"] }
+        los:
+          - { id: A, do: "Lay out the double-decoupling cycle with restraints and identify every term in ΔG°_bind, including the standard-state correction.", ek: ["Decouple the ligand in solvent and in the restrained site; add the restraint free energy (analytic for Boresch's six-DOF restraints) and the standard-state term; remove charges before LJ."], p: [P1], drills: [] }
+          - { id: B, do: "Calculate the standard-state correction for confining a ligand to a given restraint volume — numeric rep.", ek: ["ΔG = −k_BT ln(V_site/V°), V° = 1661 Å³ per molecule at 1 M."], p: [P4], drills: [] }
+          - { id: C, do: "Choose a relative or absolute calculation for a described project — choice rep.", ek: ["Relative: congeneric series with a shared core and a reliable bound pose. Absolute: no common substructure, uncertain site, or comparing sites or poses."], p: [P1, P3], drills: [] }
+      - n: 3
+        title: Comparing to experiment
+        book: { livecoms-afe: ["4.1", "4.3", "5.1", "5.4"] }
+        los:
+          - { id: A, do: "Convert between K_d and ΔG° and between fold-changes and ΔΔG, and judge a prediction against expected accuracy — numeric rep.", ek: ["ΔG° = RT ln(K_d/1 M); a 10× change in K_d is 1.36 kcal/mol at 298 K; ~1–2 kcal/mol RMS error is typical in favourable cases."], p: [P4, P5], drills: [] }
+          - { id: B, do: "Match simulation conditions (pH, salt, temperature, construct, protonation) to the experiment being reproduced.", ek: ["The T4 lysozyme sites were measured at pH 3.0 (L99, M106, F153) and 5.4 (V149), so two folded-state setups are needed."], p: [P1, P2], drills: [] }
+
+  # ── 10 ───────────────────────────────────────────────────────────────────
+  - id: lambda
+    n: 10
+    title: λ dynamics and multisite λ dynamics
+    scope: core
+    ideas: [ALCH, PATH, BOLTZ]
+    topics:
+      - n: 1
+        title: λ as a dynamic variable
+        book: { hayes2017-alf: ["Methods"], hayes2021-blade: ["2"], orientation: ["Tutorial 2", "Literature"] }
+        los:
+          - { id: A, do: "Write the λ-dynamics extended Hamiltonian and explain how treating λ as a particle samples several alchemical states in one simulation.", ek: ["H = K(x) + ½ m_λ λ̇² + U(x, λ); λ moves under −∂U/∂λ with a fictitious mass, so its population over time reflects relative free energies."], p: [P3], drills: [] }
+          - { id: B, do: "Write the MSλD potential for several sites and substituents and identify which terms scale with λ.", ek: ["U = U₀ + Σ_s Σ_i λ_si U_si + Σ λ_si λ_tj U_si,tj (s ≠ t); Σ_i λ_si = 1 and λ_si ≥ 0 at each site; the environment U₀ is unscaled; substituents at one site don't see each other."], p: [P3], needs: [MD-10.1.A], drills: [] }
+          - { id: C, do: "Calculate the number of λ variables and chemical end states for a multisite system from its nsubs list — numeric rep.", ek: ["nsubs counts native + each mutant per site (V149 with 5 mutants ⇒ 6); nblocks = Σ nsubs; end states = Π nsubs (15 sites × 2 ⇒ 32 768)."], p: [P4], drills: [] }
+      - n: 2
+        title: Implicit constraints
+        book: { hayes2017-alf: ["Methods"], orientation: ["Tutorial 2", "Literature"] }
+        los:
+          - { id: A, do: "Compute λ values from θ coordinates with the fnex implicit constraint and verify they sum to one — numeric rep.", ek: ["λ_i = exp(c sin θ_i) / Σ_j exp(c sin θ_j), c = 5.5 (fnex); θ is unbounded, λ stays in (0, 1) and sums to 1 automatically."], p: [P4], drills: [] }
+          - { id: B, do: "Calculate the λ bounds an fnex constraint can reach for a given number of substituents and explain the endpoint error it causes — numeric rep.", ek: ["Bounds = [1 + (N − 1)e^{±2c}]⁻¹, so exact endpoints are never sampled (≈ 0.1–0.2 kcal/mol error) and sampling weakens past 8–9 substituents; piecewise constraints (fnpwise2026) reach the exact endpoints."], p: [P4, P5], needs: [MD-10.2.A], drills: [] }
+      - n: 3
+        title: Biasing potentials
+        book: { hayes2017-alf: ["Methods"], alf-readme: ["Best Practices"], orientation: ["Tutorial 2"] }
+        los:
+          - { id: A, do: "Identify the role of each ALF bias term — fixed φ (b), quadratic ψ (c), endpoint χ (x) and ω (s), and the newer t and u terms — on the alchemical landscape.", ek: ["φ offsets each substituent's free energy (≈ −ΔG) so all endpoints are equally populated; ψ_ij/4 changes the barrier between substituents; χ/ω shape the region near endpoints; bcxstu2026 adds t and u terms for many substituents."], p: [P3], drills: [] }
+          - { id: B, do: "Calculate the number of pairwise bias potentials a block setup must allocate for a given nblocks and bias scheme — numeric rep.", ek: ["Pairs = nblocks(nblocks − 1)/2; bcxs2018 uses 5 potentials per pair, bcxstu2026 uses 9 (ldbi count)."], p: [P4, P6], needs: [MD-10.1.C], drills: [] }
+      - n: 4
+        title: Free energies from λ trajectories
+        book: { hayes2017-alf: ["Methods"], alf-readme: ["Best Practices"], orientation: ["Tutorial 3.2", "Tutorial 3.3"] }
+        los:
+          - { id: A, do: "Calculate the free-energy difference between two substituents from their end-state populations (λ > 0.99) and fixed biases — numeric rep.", ek: ["ΔG_i→j = −k_BT ln(P_j/P_i) − (φ_j − φ_i), with P counted only where λ > λ_c (0.99 in production; 0.8 in older work)."], p: [P4], needs: [MD-1.2.B, MD-10.3.A], drills: [] }
+          - { id: B, do: "Interpret nan or very noisy entries in Result.txt as unsampled substituents and decide whether to refine biases before extending production.", ek: ["A histogram estimator needs every end state visited; unvisited substituents mean biases are not yet converged — run another production of the same length first."], p: [P5], drills: [] }
+
+  # ── 11 ───────────────────────────────────────────────────────────────────
+  - id: alf
+    n: 11
+    title: Adaptive Landscape Flattening in practice
+    scope: core
+    ideas: [ALCH, SAMPLE, WORK]
+    topics:
+      - n: 1
+        title: The flattening algorithm
+        book: { alf-readme: ["Algorithms"], hayes2017-alf: ["Methods"], orientation: ["Tutorial 3"] }
+        los:
+          - { id: A, do: "Describe one ALF cycle — run MD, reweight recent runs, compute 1-D and 2-D free-energy profiles, fit bias changes, write the next variables file — and why changes are capped.", ek: ["WHAM/MBAR combine several recent runs at different biases; a linear model of profile response feeds a quadratic penalty on deviations from flat. Only the bottom few kcal/mol of a basin is sampled, so updates are limited to a few kcal/mol."], p: [P3], drills: [] }
+          - { id: B, do: "Judge from PlotFreeEnergy5 profiles whether flattening has converged enough to start production.", ek: ["Sampling should extend across every profile with no large unsampled gaps; perfect flatness isn't required, thermodynamic accessibility is."], p: [P5], drills: [] }
+      - n: 2
+        title: Running ALF
+        book: { alf-readme: ["Best Practices", "Input Specification"], orientation: ["Tutorial 3.2", "Tutorial 3.3"] }
+        los:
+          - { id: A, do: "Plan the flattening schedule and convert it to step counts at a given timestep — numeric rep.", ek: ["initialize; ~100 runflat cycles of 100 ps (200 for arginine), equilibration = ¼ of each run (25 ps + 75 ps, so the sampling-steps argument is 3× the equilibration one); then ~10 cycles of 1 ns. At 2 fs, 25 ps = 12 500 steps."], p: [P3, P4], drills: [] }
+          - { id: B, do: "Plan a production ramp of independent trials extended by factors of 4–5 to a target length, and total its simulation time — numeric rep.", ek: ["5 trials (a–e) each round, e.g. 5 → 20 → 100 ns. Typical totals: solvation 10–20 ns; well-behaved protein point mutations 40 ns; hard or multiple mutations 100 ns; massive spaces 400 ns."], p: [P3, P4], drills: [] }
+          - { id: C, do: "Write alf_info.py for a system: name, nsubs, nblocks, temp, enginepath, nreps, and optional q, loss, bias and impcons keys.", ek: ["name must match prep/name.inp; nblocks = Σ nsubs; nreps = 1 without replica exchange; q lists each substituent's net charge."], p: [P6], needs: [MD-10.1.C], drills: [] }
+          - { id: D, do: "Choose loss function, bias scheme and implicit constraint for a described system — choice rep.", ek: ["Defaults linear2018 / bcxs2018 / fnex2011 are no longer best practice: use nonlinear2024 loss and fnpwise2026; bcxs2018 for ~2 substituents, bcxstu2026 for ~20 (with matching blocksetup.inp edits)."], p: [P3], drills: [] }
+          - { id: E, do: "Compute ΔΔG_fold with its uncertainty from Result.txt values in the folded and unfolded ensembles — numeric rep.", ek: ["ΔΔG = dG(folded) − dG(unfolded) per mutant relative to native; combine the two legs' errors in quadrature."], p: [P4, P5], needs: [MD-9.1.B, MD-7.2.C], drills: [] }
+      - n: 3
+        title: Building the alchemical system in CHARMM
+        book: { orientation: ["Tutorial 2"] }
+        los:
+          - { id: A, do: "Edit alchemical_definitions.inp for a mutation set: site resids, substituent sequence codes, segids and terminal variables.", ek: ["s1seq1 = 0 is the native residue; further entries are one-letter codes (h/b/j = HSD/HSE/HSP); nterres/cterres = first and last resid of the chain (1–162 folded, site ± 2 unfolded)."], p: [P2, P6], drills: [] }
+          - { id: B, do: "Assemble a prep directory — system.inp adapted from step5_production.inp, toppar soft link, aa_stream patch/select/delete/blocksetup streams, nbond.str, alf_info.py — and test it with RunSetup.", ek: ["DIMENS must be in the first script CHARMM reads, so it is removed from system.inp; patchloop adds alchemical atoms, selectloop names them, deleteloop removes spurious angles/dihedrals, blocksetup applies λ scaling and biases."], p: [P6], needs: [MD-11.3.A], drills: [] }
+
+  # ── 12 ───────────────────────────────────────────────────────────────────
+  - id: analysis
+    n: 12
+    title: Trajectory analysis
+    scope: core
+    ideas: [SAMPLE, BOLTZ]
+    topics:
+      - n: 1
+        title: Structural deviation and fluctuation
+        book: { livecoms-uq: ["4.2"], livecoms-afe: ["5.4"], molssi-mmtools: ["MD Simulation of a Protein"] }
+        los:
+          - { id: A, do: "Compute the RMSD between two small coordinate sets after optimal superposition, and use RMSD vs time to judge stability before free-energy runs — numeric rep.", ek: ["RMSD = √[(1/N) Σ |r_i − r_i^ref|²] after Kabsch alignment on a chosen atom set (Cα or backbone); a plateau, not a small number, is the stability signal."], p: [P4, P5], drills: [] }
+          - { id: B, do: "Compute per-residue RMSF and convert it to a crystallographic B-factor for comparison with experiment — numeric rep.", ek: ["RMSF_i = √⟨|r_i − ⟨r_i⟩|²⟩ after alignment; B = (8π²/3) RMSF²."], p: [P4], drills: [] }
+      - n: 2
+        title: Interactions, clustering and distributions
+        book: { livecoms-uq: ["4.2", "4.4"], frenkel-smit: ["Ch 5"] }
+        los:
+          - { id: A, do: "Classify a contact as a hydrogen bond from donor–acceptor distance and angle under a stated criterion — choice rep.", ek: ["Common criterion: D···A ≤ 3.5 Å and D–H···A angle ≥ 120–150°; report occupancy as fraction of frames, and state the criterion used."], p: [P4], drills: [] }
+          - { id: B, do: "Cluster conformations by RMSD and report cluster populations and representative structures.", ek: ["Cutoff-based or hierarchical clustering on pairwise RMSD; combined clustering of independent runs tests whether they sample the same states."], p: [P5], drills: [] }
+          - { id: C, do: "Compute a potential of mean force from a histogram of a coordinate — numeric rep.", ek: ["W(ξ) = −k_BT ln P(ξ) + const; bins with no counts carry no information."], p: [P4], needs: [MD-1.2.B], drills: [] }
+      - n: 3
+        title: Visualization and trajectory handling
+        book: { orientation: ["Tutorial 1.2", "Installation"], molssi-mmtools: ["MD Simulation of a Protein"] }
+        los:
+          - { id: A, do: "Load a trajectory correctly (PSF before DCD in VMD) and re-centre or unwrap periodic coordinates before measuring.", ek: ["A DCD holds only coordinates; the PSF supplies atom identities. Molecules split across box faces corrupt RMSD and distances until imaged."], p: [P6], drills: [] }
+
+  # ── 13 ───────────────────────────────────────────────────────────────────
+  - id: workflow
+    n: 13
+    title: HPC, engines and reproducible workflow
+    scope: core
+    ideas: [WORK, DYN]
+    topics:
+      - n: 1
+        title: The cluster and SLURM
+        book: { orientation: ["Cluster SLURM", "Tutorial 1.1", "Tutorial 3.2"] }
+        los:
+          - { id: A, do: "Write a SLURM script for a GPU CHARMM job with partition, account, time limit, GPU request and memory, and submit or debug it without using the login node.", ek: ["-p free-gpu or gpu; -A rhayes1_lab_gpu on paid partitions only; --time in minutes; --gres=gpu:1 (a GPU partition alone gives no GPU); --mem only after an OOM; srun --pty for interactive debugging; --array=1-4%1 runs chained segments one at a time."], p: [P6], drills: [] }
+          - { id: B, do: "Estimate GPU-hours and cost for a simulation campaign from throughput in ns/day, and choose free vs paid partitions — numeric rep.", ek: ["GPU-h = 24 × total ns / (ns/day); paid gpu is $0.32 per GPU-hour; free-gpu costs nothing but jobs are preempted (ALF tolerates restarts)."], p: [P4, P6], drills: [] }
+      - n: 2
+        title: MD engines
+        book: { orientation: ["Tutorial 4.2"], hayes2021-blade: ["2", "3"], blade-doc: ["BLaDE"] }
+        los:
+          - { id: A, do: "Choose an engine — CHARMM standard, DOMDEC, BLaDE, OpenMM — for a described job — choice rep.", ek: ["Standard CHARMM is CPU and slow; DOMDEC GPU is ~5× slower than BLaDE; BLaDE runs MSλD 5–8× faster than DOMDEC; OpenMM is fast for plain MD but does not run λ dynamics within CHARMM."], p: [P3, P6], drills: [] }
+          - { id: B, do: "Write BLaDE NVT and NPT dynamics commands and state BLaDE's restrictions.", ek: ["Add 'blade' to ENER/MINI/DYNA; NPT adds 'prmc iprs 100 pref 1 prdv 100'; set friction with 'scalar fbeta set 0.1 sele all end'. Langevin or NVE only, MC barostat only, H-bond constraints only, one GPU per OpenMP thread, no MPI."], p: [P6], needs: [MD-4.2.B], drills: [] }
+          - { id: C, do: "Run an equivalent plain-MD simulation through OpenMM's Python API from CHARMM files.", ek: ["Load PSF + parameter set, build the System with PME and H-bond constraints, LangevinMiddleIntegrator at T, MonteCarloBarostat at 1 bar; CHARMM-GUI can emit OpenMM inputs directly."], p: [P6], drills: [] }
+      - n: 3
+        title: CHARMM scripting
+        book: { orientation: ["Tutorial 1.1", "Tutorial 4.1", "Tutorial 4.3"] }
+        los:
+          - { id: A, do: "Read and write CHARMM scripts using titles, set/calc, @ and @@ variables, ? system values, stream, if/goto loops, bomlev and stop, and find the right documentation section.", ek: ["Titles start with * and end at a lone *; ! starts comments; CHARMM is case-insensitive but file paths aren't (quote them). Key docs: BLOCK, CONSTRAINTS (SHAKE, restraints), Ewald, nonbonded, CRYSTAL and IMAGE."], p: [P6], drills: [] }
+      - n: 4
+        title: Reproducibility and data management
+        book: { livecoms-uq: ["2"], orientation: ["Tutorial 1.2", "Tutorial 3.4"], molssi-mmtools: ["Git and GitHub"] }
+        los:
+          - { id: A, do: "Record everything needed to reproduce a run: force-field and engine versions, protonation states, box and ions, seeds, all scripts under version control, and unprocessed data.", ek: ["A result without its inputs and analysis scripts can't be checked; document the full uncertainty procedure too."], p: [P6], drills: [] }
+          - { id: B, do: "Estimate trajectory storage from atom count, save interval and simulation length — numeric rep.", ek: ["DCD stores single-precision x, y, z: 12 bytes per atom per frame; frames = steps / nsavc."], p: [P4, P6], drills: [] }
+          - { id: C, do: "Clean up a finished ALF project, separating disposable intermediates from data that must be kept.", ek: ["run*/output, analysis*/data, Energy, Lambda and slurm logs are disposable; keep alchemical trajectories (run*/res) of published work; spatial DCDs may go after publication."], p: [P6], drills: [] }
+
+  # ── 14 ───────────────────────────────────────────────────────────────────
+  - id: lambda-adv
+    n: 14
+    title: Advanced λ dynamics
+    scope: extension
+    ideas: [ALCH, SAMPLE]
+    topics:
+      - n: 1
+        title: Large chemical spaces
+        book: { alf-readme: ["Best Practices"], orientation: ["Literature"] }
+        los:
+          - { id: A, do: "Decide whether intersite coupling biases are needed and set ntersite for flattening and postprocessing.", ek: ["Default [0,0] ignores coupling; with significant coupling use [0,1] in short runflat cycles and [2,1] in postprocess (adjusting only c intersite biases)."], p: [P3], drills: [] }
+          - { id: B, do: "Choose between the histogram estimator and the Potts-model estimator (likelihood vs pseudolikelihood) for a given chemical-space size — choice rep.", ek: ["Histograms need every end state visited (~100–500 states max); Potts keeps one- and two-site terms only; LM below ~10⁶ end states, PLM above."], p: [P3], needs: [MD-10.1.C], drills: [] }
+          - { id: C, do: "Partition a mutation set across sites and systems to respect substituent-per-site limits — choice rep.", ek: ["The ALF README advises ≤ 6 substituents per site (9 the tested ceiling); split larger sets across systems sharing a reference substituent. Newer constraints and biases (2024–2026) extend this to dozens."], p: [P1, P3], drills: [] }
+      - n: 2
+        title: Hard perturbations
+        book: { alf-readme: ["Best Practices"], orientation: ["Tutorial 1", "Tutorial 3.3", "Literature"], livecoms-afe: ["7.2.2"] }
+        los:
+          - { id: A, do: "Correct a charge-changing perturbation: explain its PME finite-size errors and apply ALF's discrete solvent correction with the q key.", ek: ["Net-charge changes in a neutral PME box introduce artifacts; the discrete solvent correction is the largest computable term; alternatives include co-alchemical ions."], p: [P3, P5], drills: [] }
+          - { id: B, do: "Explain when a site needs replica exchange (e.g. A42, A98, M102 in T4 lysozyme) and how biasing-potential replica exchange helps.", ek: ["Some sites have slow coupled conformational and alchemical barriers; replicas with offset biases exchange to cross them. Replica runs need nreps > 1 and working MPI on the cluster."], p: [P3], drills: [] }
+          - { id: C, do: "Explain why proline and glycine mutations need a dedicated alchemical strategy.", ek: ["Proline bonds its side chain back to the backbone N and glycine lacks Cβ, so backbone terms (CMAP, ring closure) differ between substituents; Hayes & Brooks 2021 give the workaround."], p: [P2], drills: [] }
