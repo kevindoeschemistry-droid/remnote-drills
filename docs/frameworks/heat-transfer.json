@@ -1,0 +1,3242 @@
+{
+ "id": "heat-transfer",
+ "title": "Heat Transfer",
+ "code": "HT",
+ "draft": 1,
+ "big_ideas": [
+  {
+   "id": "ENG",
+   "title": "Energy is conserved",
+   "text": "Every problem starts as an energy balance on a control volume or a surface — in, out, generated, stored. The balance, not a memorised formula, is what fixes the answer."
+  },
+  {
+   "id": "RATE",
+   "title": "Rates follow driving potential over resistance",
+   "text": "Conduction, convection and radiation each move heat at a rate set by a temperature difference and a resistance; resistances add in series and parallel, and the largest one controls."
+  },
+  {
+   "id": "FIELD",
+   "title": "Temperature is a field set by an equation and its boundaries",
+   "text": "The heat equation plus boundary and initial conditions determines T everywhere; geometry and boundaries, not the material alone, shape the profile."
+  },
+  {
+   "id": "SCALE",
+   "title": "Dimensionless groups decide the model",
+   "text": "Bi, Fo, Re, Pr, Gr, Ra and Nu say which simplification is valid — lumped or not, laminar or turbulent, free or forced — before any number is computed."
+  },
+  {
+   "id": "SYS",
+   "title": "Real systems are networks of modes",
+   "text": "Devices combine conduction, convection and radiation in series and parallel; analysing and designing them means building that network and finding the bottleneck."
+  }
+ ],
+ "practices": [
+  {
+   "id": "P1",
+   "title": "Define the system",
+   "text": "Draw the control volume or surface, label every energy term (in, out, generation, storage), state steady or transient."
+  },
+  {
+   "id": "P2",
+   "title": "Set up the model",
+   "text": "State the assumptions (1-D, constant k, …) and translate the physical description into the governing equation and boundary/initial conditions."
+  },
+  {
+   "id": "P3",
+   "title": "Choose the right relation",
+   "text": "Pick the correlation, shape factor, chart or solution that fits — check its validity range (Re, Ra, Pr, Bi, geometry) and the temperature properties are evaluated at."
+  },
+  {
+   "id": "P4",
+   "title": "Compute with units",
+   "text": "SI throughout, kelvin for radiation and property tables, per-unit-length vs per-area vs total rates kept straight."
+  },
+  {
+   "id": "P5",
+   "title": "Check the answer",
+   "text": "Signs and directions, limiting cases, orders of magnitude (typical h, k), energy closes."
+  },
+  {
+   "id": "P6",
+   "title": "Reason and design",
+   "text": "Sketch profiles, predict what changes when a parameter changes, compare options, size a design to a constraint."
+  }
+ ],
+ "units": [
+  {
+   "id": "modes",
+   "n": 1,
+   "title": "Modes and energy balances",
+   "scope": "core",
+   "ideas": [
+    "ENG",
+    "RATE"
+   ],
+   "weight_est": "4–6%",
+   "topics": [
+    {
+     "n": 1,
+     "title": "The three modes and their rate equations",
+     "book": {
+      "incropera-8e": [
+       "1.1",
+       "1.2"
+      ]
+     },
+     "fe": [
+      "me-A",
+      "me-B",
+      "me-C",
+      "che-A",
+      "che-B",
+      "che-C"
+     ],
+     "los": [
+      {
+       "id": "A",
+       "do": "Identify which modes act in a described system and write the rate law for each.",
+       "ek": [
+        "Conduction needs a medium; convection needs fluid motion; radiation needs neither."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "~mae-concept"
+       ]
+      },
+      {
+       "id": "B",
+       "do": "Calculate a conduction flux or rate, or an unknown k, from Fourier's law across a plane layer.",
+       "ek": [
+        "q'' = k ΔT / L; heat flows down the temperature gradient."
+       ],
+       "p": [
+        "P4"
+       ],
+       "drills": [
+        "ht-cond"
+       ]
+      },
+      {
+       "id": "C",
+       "do": "Calculate a convection rate from Newton's law of cooling and judge whether h is plausible.",
+       "ek": [
+        "q = hA(T_s − T∞); h ~ 2–25 free gas, 25–250 forced gas, 50–20 000 forced liquid, 2 500–100 000 phase change (W/m²·K)."
+       ],
+       "p": [
+        "P4",
+        "P5"
+       ],
+       "drills": [
+        "ht-conv"
+       ]
+      },
+      {
+       "id": "D",
+       "do": "Calculate net radiation between a small surface and large surroundings, and linearise it to a radiation coefficient h_r.",
+       "ek": [
+        "q'' = εσ(T_s⁴ − T_sur⁴) in kelvin; h_r = εσ(T_s + T_sur)(T_s² + T_sur²)."
+       ],
+       "p": [
+        "P4"
+       ],
+       "drills": [
+        "~ht-rad"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "title": "Energy balances on control volumes and surfaces",
+     "book": {
+      "incropera-8e": [
+       "1.3"
+      ]
+     },
+     "fe": [
+      "me-A",
+      "che-A"
+     ],
+     "los": [
+      {
+       "id": "A",
+       "do": "Apply conservation of energy to a control volume: in − out + generated = stored.",
+       "ek": [
+        "Generation is volumetric (I²R, reaction); storage is ρcV dT/dt; both vanish from a surface balance."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "ht-eb-wire"
+       ]
+      },
+      {
+       "id": "B",
+       "do": "Apply a surface energy balance linking conduction, convection and radiation at a boundary.",
+       "ek": [
+        "A surface has no volume: what conducts in, convects and radiates out."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "ht-eb-surface"
+       ]
+      },
+      {
+       "id": "C",
+       "do": "Find the instantaneous rate of temperature change of a body from an unsteady energy balance.",
+       "ek": [
+        "dT/dt = (Σq_in − Σq_out + Ė_g)/(ρcV) at that instant."
+       ],
+       "p": [
+        "P1",
+        "P4"
+       ],
+       "drills": []
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "field",
+   "n": 2,
+   "title": "The heat equation and boundary conditions",
+   "scope": "core",
+   "ideas": [
+    "FIELD",
+    "ENG"
+   ],
+   "weight_est": "6–8%",
+   "topics": [
+    {
+     "n": 1,
+     "title": "Fourier's law and thermal properties",
+     "book": {
+      "incropera-8e": [
+       "2.1",
+       "2.2"
+      ]
+     },
+     "fe": [
+      "me-A",
+      "che-A"
+     ],
+     "los": [
+      {
+       "id": "A",
+       "do": "Calculate heat flux (magnitude and direction) from a given temperature field.",
+       "ek": [
+        "q'' = −k∇T; flux points from hot to cold, normal to isotherms."
+       ],
+       "p": [
+        "P4"
+       ],
+       "drills": [
+        "ht-he-flux"
+       ]
+      },
+      {
+       "id": "B",
+       "do": "Use k, ρc_p and α = k/ρc_p to compare how materials conduct, store and diffuse heat.",
+       "ek": [
+        "High k moves heat; high ρc_p stores it; α sets how fast a disturbance spreads."
+       ],
+       "p": [
+        "P6"
+       ],
+       "drills": []
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "title": "The heat diffusion equation",
+     "book": {
+      "incropera-8e": [
+       "2.3"
+      ]
+     },
+     "fe": [
+      "me-A"
+     ],
+     "los": [
+      {
+       "id": "A",
+       "do": "Write the heat equation in Cartesian, cylindrical or spherical coordinates and simplify it for a stated case (steady, 1-D, no generation, constant k).",
+       "ek": [
+        "(1/r)d/dr(r dT/dr) and (1/r²)d/dr(r² dT/dr) are the radial Laplacians; each assumption strikes a term."
+       ],
+       "p": [
+        "P2"
+       ],
+       "drills": []
+      },
+      {
+       "id": "B",
+       "do": "From a given T field, find the generation rate, the surface fluxes or the local rate of change ∂T/∂t.",
+       "ek": [
+        "k∇²T + q̇ = ρc ∂T/∂t; read each term off the derivatives of T."
+       ],
+       "p": [
+        "P2",
+        "P4"
+       ],
+       "drills": [
+        "ht-he-gen",
+        "ht-he-dTdt",
+        "ht-gen-poly"
+       ]
+      },
+      {
+       "id": "C",
+       "do": "Decide whether a temperature field can be a steady, generation-free solution.",
+       "ek": [
+        "Steady, no q̇, constant k ⇒ ∇²T = 0 (Laplace)."
+       ],
+       "p": [
+        "P5"
+       ],
+       "drills": [
+        "mae-laplace"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 3,
+     "title": "Boundary and initial conditions",
+     "book": {
+      "incropera-8e": [
+       "2.4"
+      ]
+     },
+     "fe": [
+      "me-A"
+     ],
+     "los": [
+      {
+       "id": "A",
+       "do": "Translate a physical boundary into its mathematical condition: fixed temperature, fixed flux, insulated or symmetry plane, convection, radiation, perfect-contact interface.",
+       "ek": [
+        "−k dT/dx|_s = q''_s; insulated or symmetric ⇒ dT/dx = 0; convection: −k dT/dx|_s = h(T_s − T∞); interface: T and k dT/dx continuous."
+       ],
+       "p": [
+        "P2"
+       ],
+       "drills": []
+      },
+      {
+       "id": "B",
+       "do": "Write the complete formulation (equation + two BCs, or + IC) of a 1-D problem from a word description.",
+       "ek": [
+        "A second-order ODE needs two independent conditions; a transient one also needs T(x, 0)."
+       ],
+       "p": [
+        "P1",
+        "P2"
+       ],
+       "drills": [
+        "~mae-pot"
+       ]
+      },
+      {
+       "id": "C",
+       "do": "Sketch T(x) and read boundary conditions and k ratios from slopes.",
+       "ek": [
+        "Insulated ⇒ zero slope; in series, slope ∝ 1/k; with generation the profile curves (concave down for q̇ > 0)."
+       ],
+       "p": [
+        "P6"
+       ],
+       "drills": [
+        "~mae-wall-compare"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "steady1d",
+   "n": 3,
+   "title": "Steady 1-D conduction and resistance networks",
+   "scope": "core",
+   "ideas": [
+    "RATE",
+    "FIELD",
+    "SYS"
+   ],
+   "weight_est": "8–10%",
+   "topics": [
+    {
+     "n": 1,
+     "title": "The plane wall and thermal resistance",
+     "book": {
+      "incropera-8e": [
+       "3.1"
+      ]
+     },
+     "fe": [
+      "me-A",
+      "che-A",
+      "che-D"
+     ],
+     "los": [
+      {
+       "id": "A",
+       "do": "Find T(x) and q in a plane wall with fixed-temperature or convective boundaries.",
+       "ek": [
+        "No generation ⇒ linear T(x); q is the same at every x."
+       ],
+       "p": [
+        "P2"
+       ],
+       "drills": [
+        "mae-wall-point"
+       ]
+      },
+      {
+       "id": "B",
+       "do": "Build a series–parallel resistance network for a composite wall and compute q, U and every interface temperature.",
+       "ek": [
+        "R_cond = L/kA, R_conv = 1/hA; series add, parallel add as conductances; U = 1/(R_tot A)."
+       ],
+       "p": [
+        "P1",
+        "P4"
+       ],
+       "drills": [
+        "ht-wall",
+        "mae-series-parallel"
+       ]
+      },
+      {
+       "id": "C",
+       "do": "Include thermal contact resistance and judge when it matters.",
+       "ek": [
+        "R''_t,c in series at the interface; matters when it rivals L/k of the layers."
+       ],
+       "p": [
+        "P3",
+        "P5"
+       ],
+       "drills": [
+        "ht-contact"
+       ]
+      },
+      {
+       "id": "D",
+       "do": "Reason qualitatively about a network: same q in series, largest ΔT across the largest R, which change helps most.",
+       "ek": [
+        "ΔT_i / ΔT_tot = R_i / R_tot."
+       ],
+       "p": [
+        "P6"
+       ],
+       "drills": [
+        "mae-wall-compare",
+        "~mae-concept"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "title": "Varying area or conductivity",
+     "book": {
+      "incropera-8e": [
+       "3.2"
+      ]
+     },
+     "fe": [
+      "me-A"
+     ],
+     "los": [
+      {
+       "id": "A",
+       "do": "Find q and T(x) when the cross-section A(x) or k(T) varies, by integrating Fourier's law with q constant.",
+       "ek": [
+        "Steady, no q̇ ⇒ q_x constant; q ∫dx/A(x) = −∫k(T)dT."
+       ],
+       "p": [
+        "P2"
+       ],
+       "drills": []
+      }
+     ]
+    },
+    {
+     "n": 3,
+     "title": "Radial systems and critical insulation",
+     "book": {
+      "incropera-8e": [
+       "3.3",
+       "3.4"
+      ]
+     },
+     "fe": [
+      "me-A",
+      "che-A"
+     ],
+     "los": [
+      {
+       "id": "A",
+       "do": "Calculate q′ and T(r) for a cylindrical wall or insulated pipe using its resistance.",
+       "ek": [
+        "R′ = ln(r₂/r₁)/(2πk); T(r) is logarithmic."
+       ],
+       "p": [
+        "P4"
+       ],
+       "drills": [
+        "ht-cyl"
+       ]
+      },
+      {
+       "id": "B",
+       "do": "Calculate q for a spherical shell using its resistance.",
+       "ek": [
+        "R = (1/r₁ − 1/r₂)/(4πk)."
+       ],
+       "p": [
+        "P4"
+       ],
+       "drills": [
+        "ht-sphere"
+       ]
+      },
+      {
+       "id": "C",
+       "do": "Find the critical insulation radius and decide whether adding insulation raises or lowers q.",
+       "ek": [
+        "r_cr = k/h (cylinder), 2k/h (sphere); below r_cr insulation increases q."
+       ],
+       "p": [
+        "P5",
+        "P6"
+       ],
+       "drills": [
+        "ht-rcrit"
+       ]
+      },
+      {
+       "id": "D",
+       "do": "State which quantities stay constant with radius in steady radial conduction.",
+       "ek": [
+        "q (or q′) is constant; q″ falls as 1/r (cylinder) or 1/r² (sphere)."
+       ],
+       "p": [
+        "P5"
+       ],
+       "drills": [
+        "~mae-concept"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "generation",
+   "n": 4,
+   "title": "Conduction with thermal energy generation",
+   "scope": "core",
+   "ideas": [
+    "ENG",
+    "FIELD"
+   ],
+   "weight_est": "8–10%",
+   "topics": [
+    {
+     "n": 1,
+     "title": "Plane wall with uniform generation",
+     "book": {
+      "incropera-8e": [
+       "3.5.1"
+      ]
+     },
+     "fe": [
+      "me-A"
+     ],
+     "los": [
+      {
+       "id": "A",
+       "do": "Find the surface temperature from an overall energy balance before solving for the profile.",
+       "ek": [
+        "Everything generated leaves through the cooled surfaces: q̇V = hA(T_s − T∞)."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "ht-gen-wall-conv"
+       ]
+      },
+      {
+       "id": "B",
+       "do": "Solve for the parabolic T(x) and T_max with symmetric fixed-temperature or convective boundaries.",
+       "ek": [
+        "T_max − T_s = q̇L²/2k; the midplane (or insulated face) is adiabatic."
+       ],
+       "p": [
+        "P2"
+       ],
+       "drills": [
+        "ht-gen-wall-fixed",
+        "ht-gen-wall-conv"
+       ]
+      },
+      {
+       "id": "C",
+       "do": "With unequal face temperatures, locate the maximum and find the flux through each face.",
+       "ek": [
+        "x_max = k(T₂ − T₁)/(2q̇L); more heat leaves through the cooler face."
+       ],
+       "p": [
+        "P2",
+        "P5"
+       ],
+       "drills": [
+        "ht-gen-wall-asym"
+       ]
+      },
+      {
+       "id": "D",
+       "do": "Analyse a generating layer bonded to non-generating layers, chaining flux, interface and maximum temperatures.",
+       "ek": [
+        "Flux leaving the generating layer = q̇L_A and passes unchanged through the plain layers."
+       ],
+       "p": [
+        "P1",
+        "P2"
+       ],
+       "drills": [
+        "ht-gen-composite"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "title": "Radial systems with generation",
+     "book": {
+      "incropera-8e": [
+       "3.5.2"
+      ]
+     },
+     "fe": [
+      "me-A"
+     ],
+     "los": [
+      {
+       "id": "A",
+       "do": "Find surface and centreline temperatures of a solid cylinder or wire with generation, including q̇ from Joule heating.",
+       "ek": [
+        "T_s = T∞ + q̇r_o/2h; T₀ − T_s = q̇r_o²/4k; q̇ = I²ρ_e/A²."
+       ],
+       "p": [
+        "P1",
+        "P4"
+       ],
+       "drills": [
+        "ht-gen-rod",
+        "ht-gen-wire",
+        "ht-eb-wire"
+       ]
+      },
+      {
+       "id": "B",
+       "do": "Find surface and centre temperatures of a sphere with generation.",
+       "ek": [
+        "T_s = T∞ + q̇r_o/3h; T₀ − T_s = q̇r_o²/6k."
+       ],
+       "p": [
+        "P4"
+       ],
+       "drills": [
+        "ht-gen-sphere"
+       ]
+      },
+      {
+       "id": "C",
+       "do": "Solve a hollow cylinder with generation and one insulated or convective surface.",
+       "ek": [
+        "General T = −q̇r²/4k + C₁ ln r + C₂; apply one BC per surface."
+       ],
+       "p": [
+        "P2"
+       ],
+       "drills": [
+        "ht-gen-tube"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 3,
+     "title": "Design limits with generation",
+     "book": {
+      "incropera-8e": [
+       "3.5"
+      ]
+     },
+     "fe": [
+      "me-A"
+     ],
+     "los": [
+      {
+       "id": "A",
+       "do": "Find the largest allowable q̇, or the h or thickness needed, to keep T_max below a limit.",
+       "ek": [
+        "T_max − T∞ = q̇L/h + q̇L²/2k: a film rise plus a conduction rise."
+       ],
+       "p": [
+        "P6"
+       ],
+       "drills": [
+        "ht-gen-qmax"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "fins",
+   "n": 5,
+   "title": "Extended surfaces",
+   "scope": "core",
+   "ideas": [
+    "FIELD",
+    "RATE",
+    "SCALE"
+   ],
+   "weight_est": "6–8%",
+   "topics": [
+    {
+     "n": 1,
+     "title": "The fin equation and its solutions",
+     "book": {
+      "incropera-8e": [
+       "3.6.1",
+       "3.6.2",
+       "3.6.3"
+      ]
+     },
+     "fe": [
+      "me-A"
+     ],
+     "los": [
+      {
+       "id": "A",
+       "do": "Derive the fin equation from an energy balance on a fin element and compute m for a given geometry.",
+       "ek": [
+        "d²θ/dx² − m²θ = 0, m² = hP/kA_c; θ = T − T∞."
+       ],
+       "p": [
+        "P1",
+        "P2"
+       ],
+       "drills": [
+        "ht-fin-m"
+       ]
+      },
+      {
+       "id": "B",
+       "do": "Choose the tip condition (infinite, adiabatic, convective via corrected length) and compute fin heat rate and tip or local temperature.",
+       "ek": [
+        "q_f = M tanh mL (adiabatic); M = √(hPkA_c)θ_b; L_c = L + D/4 for a pin."
+       ],
+       "p": [
+        "P2",
+        "P3"
+       ],
+       "drills": [
+        "ht-fin-infinite",
+        "ht-fin-adiabatic",
+        "ht-fin-tip"
+       ]
+      },
+      {
+       "id": "C",
+       "do": "Explain why fin temperature decays exponentially rather than linearly, and how to change the decay.",
+       "ek": [
+        "Side convection removes heat along the length; larger m (low k, high h, thin) ⇒ faster decay."
+       ],
+       "p": [
+        "P6"
+       ],
+       "drills": [
+        "~mae-concept"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "title": "Fin performance",
+     "book": {
+      "incropera-8e": [
+       "3.6.4"
+      ]
+     },
+     "fe": [
+      "me-A"
+     ],
+     "los": [
+      {
+       "id": "A",
+       "do": "Calculate fin efficiency and effectiveness and decide whether a fin is worthwhile.",
+       "ek": [
+        "η_f = q_f/(hA_fθ_b); ε_f = q_f/(hA_c,bθ_b); fins pay off when ε_f ≳ 2, i.e. high k, low h."
+       ],
+       "p": [
+        "P3",
+        "P6"
+       ],
+       "drills": [
+        "ht-fin-efficiency",
+        "~mae-concept"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 3,
+     "title": "Fin arrays",
+     "book": {
+      "incropera-8e": [
+       "3.6.5"
+      ]
+     },
+     "fe": [
+      "me-A"
+     ],
+     "los": [
+      {
+       "id": "A",
+       "do": "Calculate overall surface efficiency and heat rate of a fin array and its resistance.",
+       "ek": [
+        "η_o = 1 − (NA_f/A_t)(1 − η_f); q_t = η_o h A_t θ_b; R_t,o = 1/(η_o h A_t)."
+       ],
+       "p": [
+        "P4"
+       ],
+       "drills": []
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "multidim",
+   "n": 6,
+   "title": "Two-dimensional steady conduction",
+   "scope": "core",
+   "ideas": [
+    "FIELD",
+    "SYS"
+   ],
+   "weight_est": "6–8%",
+   "topics": [
+    {
+     "n": 1,
+     "title": "Separation of variables",
+     "book": {
+      "incropera-8e": [
+       "4.2"
+      ]
+     },
+     "fe": [],
+     "los": [
+      {
+       "id": "A",
+       "do": "Set up the separable solution for a rectangle with one non-homogeneous edge and evaluate its leading terms.",
+       "ek": [
+        "θ = Σ C_n sin(nπx/L) sinh(nπy/L)/sinh(nπW/L); homogeneous BCs set the eigenfunctions."
+       ],
+       "p": [
+        "P2"
+       ],
+       "drills": []
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "title": "Conduction shape factors",
+     "book": {
+      "incropera-8e": [
+       "4.3"
+      ]
+     },
+     "fe": [
+      "me-A"
+     ],
+     "los": [
+      {
+       "id": "A",
+       "do": "Pick the matching shape-factor case and compute q = Sk ΔT.",
+       "ek": [
+        "S has units of length; R = 1/Sk; check the geometric validity condition."
+       ],
+       "p": [
+        "P3"
+       ],
+       "drills": [
+        "ht-shape",
+        "mae-rod-slab"
+       ]
+      },
+      {
+       "id": "B",
+       "do": "Combine shape-factor resistances with other resistances in a network.",
+       "ek": [
+        "Two buried objects ⇒ two resistances in series across T₁ − T₂."
+       ],
+       "p": [
+        "P1",
+        "P3"
+       ],
+       "drills": [
+        "mae-two-spheres"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 3,
+     "title": "Finite-difference equations",
+     "book": {
+      "incropera-8e": [
+       "4.4",
+       "4.5"
+      ]
+     },
+     "fe": [],
+     "los": [
+      {
+       "id": "A",
+       "do": "Write the finite-difference equation of an interior, surface or corner node by an energy balance on its cell, including Δx ≠ Δy, convection and radiation.",
+       "ek": [
+        "Each face: conductance × (T_neighbour − T_m); boundary faces get h·ℓ or h_r·ℓ terms; half cells on edges."
+       ],
+       "p": [
+        "P1",
+        "P2"
+       ],
+       "drills": [
+        "ht-fd",
+        "mae-fd"
+       ]
+      },
+      {
+       "id": "B",
+       "do": "Solve a small node system directly or by Gauss–Seidel iteration and check the energy balance.",
+       "ek": [
+        "Iterate T_i = (Σa_jT_j + b)/a_i until changes are below tolerance."
+       ],
+       "p": [
+        "P4",
+        "P5"
+       ],
+       "drills": []
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "transient",
+   "n": 7,
+   "title": "Transient conduction",
+   "scope": "core",
+   "ideas": [
+    "SCALE",
+    "ENG",
+    "FIELD"
+   ],
+   "weight_est": "10–12%",
+   "topics": [
+    {
+     "n": 1,
+     "title": "Lumped capacitance",
+     "book": {
+      "incropera-8e": [
+       "5.1",
+       "5.2",
+       "5.3"
+      ]
+     },
+     "fe": [
+      "me-D"
+     ],
+     "los": [
+      {
+       "id": "A",
+       "do": "Compute the Biot number with L_c = V/A_s and decide whether lumped capacitance applies.",
+       "ek": [
+        "Bi = hL_c/k < 0.1 ⇒ internal gradients negligible; L_c = r/3 sphere, r/2 cylinder, half-thickness wall."
+       ],
+       "p": [
+        "P3"
+       ],
+       "drills": [
+        "ht-bi"
+       ]
+      },
+      {
+       "id": "B",
+       "do": "Find temperature at a time, or the time to reach a temperature, for a lumped body.",
+       "ek": [
+        "θ/θ_i = exp(−t/τ), τ = ρVc/hA_s."
+       ],
+       "p": [
+        "P4"
+       ],
+       "drills": [
+        "ht-lumped-time",
+        "ht-lumped-temp"
+       ]
+      },
+      {
+       "id": "C",
+       "do": "Find the energy transferred over an interval.",
+       "ek": [
+        "Q = ρVcθ_i[1 − exp(−t/τ)]."
+       ],
+       "p": [
+        "P4"
+       ],
+       "drills": [
+        "ht-lumped-energy"
+       ]
+      },
+      {
+       "id": "D",
+       "do": "Set up and solve a general lumped balance with radiation, surface flux or generation.",
+       "ek": [
+        "ρVc dT/dt = q''_sA − hA(T − T∞) − εσA(T⁴ − T_sur⁴) + Ė_g; solve or integrate numerically."
+       ],
+       "p": [
+        "P1",
+        "P2"
+       ],
+       "drills": []
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "title": "Spatial effects — one-term solutions",
+     "book": {
+      "incropera-8e": [
+       "5.4",
+       "5.5",
+       "5.6"
+      ]
+     },
+     "fe": [
+      "me-D"
+     ],
+     "los": [
+      {
+       "id": "A",
+       "do": "Compute Bi and Fo and find the centre temperature of a wall, cylinder or sphere with the one-term approximation.",
+       "ek": [
+        "θ₀* = C₁exp(−ζ₁²Fo), valid for Fo > 0.2; ζ₁, C₁ from Bi (wall uses half-thickness)."
+       ],
+       "p": [
+        "P3",
+        "P4"
+       ],
+       "drills": [
+        "ht-ot-wall-center",
+        "ht-ot-cyl-center",
+        "ht-ot-sphere-center"
+       ]
+      },
+      {
+       "id": "B",
+       "do": "Find the temperature at another position, or the time to reach a temperature.",
+       "ek": [
+        "θ* = θ₀* cos(ζ₁x*) (wall), θ₀* J₀(ζ₁r*) (cylinder), θ₀* sin(ζ₁r*)/(ζ₁r*) (sphere)."
+       ],
+       "p": [
+        "P4"
+       ],
+       "drills": [
+        "ht-ot-wall-surface",
+        "ht-ot-wall-time"
+       ]
+      },
+      {
+       "id": "C",
+       "do": "Find the fraction of the maximum energy transferred, Q/Q₀.",
+       "ek": [
+        "Wall: Q/Q₀ = 1 − (sin ζ₁/ζ₁)θ₀*; cylinder and sphere have their own forms."
+       ],
+       "p": [
+        "P4"
+       ],
+       "drills": []
+      }
+     ]
+    },
+    {
+     "n": 3,
+     "title": "The semi-infinite solid",
+     "book": {
+      "incropera-8e": [
+       "5.7"
+      ]
+     },
+     "fe": [
+      "me-D"
+     ],
+     "los": [
+      {
+       "id": "A",
+       "do": "Find temperature at a depth and time, the depth reached, or the time needed, after a sudden surface temperature change.",
+       "ek": [
+        "(T − T_s)/(T_i − T_s) = erf(x/2√(αt)); valid while the far side hasn't felt it."
+       ],
+       "p": [
+        "P3",
+        "P4"
+       ],
+       "drills": [
+        "ht-erf-temp",
+        "ht-erf-depth",
+        "ht-erf-time"
+       ]
+      },
+      {
+       "id": "B",
+       "do": "Find the surface heat flux, and the contact temperature when two semi-infinite solids touch.",
+       "ek": [
+        "q''_s = k(T_s − T_i)/√(παt); T_s = (√(kρc)_A T_A + √(kρc)_B T_B)/(√(kρc)_A + √(kρc)_B)."
+       ],
+       "p": [
+        "P4",
+        "P6"
+       ],
+       "drills": [
+        "ht-erf-flux",
+        "ht-erf-contact"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 4,
+     "title": "Multidimensional transient effects",
+     "book": {
+      "incropera-8e": [
+       "5.8"
+      ]
+     },
+     "fe": [],
+     "los": [
+      {
+       "id": "A",
+       "do": "Build a 2-D or 3-D transient solution as a product of 1-D solutions.",
+       "ek": [
+        "Short cylinder = infinite cylinder × plane wall, each in dimensionless θ*."
+       ],
+       "p": [
+        "P2",
+        "P3"
+       ],
+       "drills": []
+      }
+     ]
+    },
+    {
+     "n": 5,
+     "title": "Finite-difference transient methods",
+     "book": {
+      "incropera-8e": [
+       "5.10"
+      ]
+     },
+     "fe": [],
+     "los": [
+      {
+       "id": "A",
+       "do": "Write the explicit finite-difference equation for a transient node and check its stability limit.",
+       "ek": [
+        "T_m^{p+1} = Fo(T_{m+1}^p + T_{m−1}^p) + (1 − 2Fo)T_m^p; stable if Fo ≤ 1/2 (interior, 1-D)."
+       ],
+       "p": [
+        "P2",
+        "P5"
+       ],
+       "drills": []
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "external",
+   "n": 8,
+   "title": "Convection fundamentals and external flow",
+   "scope": "core",
+   "ideas": [
+    "SCALE",
+    "RATE"
+   ],
+   "weight_est": "10–12%",
+   "topics": [
+    {
+     "n": 1,
+     "title": "Boundary layers and dimensionless groups",
+     "book": {
+      "incropera-8e": [
+       "6.1",
+       "6.2",
+       "6.3",
+       "6.5",
+       "6.6",
+       "6.7"
+      ]
+     },
+     "fe": [
+      "me-B",
+      "che-B",
+      "che-D"
+     ],
+     "los": [
+      {
+       "id": "A",
+       "do": "Compute Re, Pr and Nu and identify laminar, transitional or turbulent flow.",
+       "ek": [
+        "Re_x = u∞x/ν (transition ≈ 5×10⁵ on a plate); Pr = ν/α; Nu = hL/k_f."
+       ],
+       "p": [
+        "P3",
+        "P4"
+       ],
+       "drills": [
+        "ht3-bl-groups",
+        "ht3-bl-transition"
+       ]
+      },
+      {
+       "id": "B",
+       "do": "Relate local and average convection coefficients.",
+       "ek": [
+        "h̄ = (1/L)∫h_x dx; laminar h_x ∝ x^(−1/2) ⇒ h̄ = 2h_x(L)."
+       ],
+       "p": [
+        "P4"
+       ],
+       "drills": [
+        "ht3-bl-average"
+       ]
+      },
+      {
+       "id": "C",
+       "do": "Estimate velocity and thermal boundary-layer thicknesses and how Pr relates them.",
+       "ek": [
+        "δ ≈ 5x/√Re_x; δ/δ_t ≈ Pr^(1/3)."
+       ],
+       "p": [
+        "P4",
+        "P6"
+       ],
+       "drills": [
+        "ht3-bl-thickness"
+       ]
+      },
+      {
+       "id": "D",
+       "do": "Use the Reynolds–Colburn analogy to get h from friction (or friction from h).",
+       "ek": [
+        "C_f/2 = St Pr^(2/3)."
+       ],
+       "p": [
+        "P3"
+       ],
+       "drills": [
+        "ht3-bl-colburn"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "title": "The flat plate in parallel flow",
+     "book": {
+      "incropera-8e": [
+       "7.1",
+       "7.2",
+       "7.3"
+      ]
+     },
+     "fe": [
+      "me-B",
+      "che-B"
+     ],
+     "los": [
+      {
+       "id": "A",
+       "do": "Calculate average h and q for laminar flow over a flat plate, with properties at the film temperature.",
+       "ek": [
+        "Nu̅ = 0.664 Re_L^(1/2) Pr^(1/3); T_f = (T_s + T∞)/2."
+       ],
+       "p": [
+        "P3",
+        "P4"
+       ],
+       "drills": [
+        "ht-plate-lam"
+       ]
+      },
+      {
+       "id": "B",
+       "do": "Calculate average h for a mixed laminar–turbulent boundary layer.",
+       "ek": [
+        "Nu̅ = (0.037 Re_L^(4/5) − 871) Pr^(1/3) for Re_x,c = 5×10⁵."
+       ],
+       "p": [
+        "P3",
+        "P4"
+       ],
+       "drills": [
+        "ht-plate-mixed"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 3,
+     "title": "Cylinders and spheres in cross flow",
+     "book": {
+      "incropera-8e": [
+       "7.4",
+       "7.5"
+      ]
+     },
+     "fe": [
+      "me-B",
+      "che-B"
+     ],
+     "los": [
+      {
+       "id": "A",
+       "do": "Calculate h and q for a cylinder or sphere in cross flow with the appropriate correlation.",
+       "ek": [
+        "Churchill–Bernstein (cylinder, Re Pr > 0.2); Whitaker (sphere, μ ratio)."
+       ],
+       "p": [
+        "P3",
+        "P4"
+       ],
+       "drills": [
+        "ht-cyl-cb",
+        "ht-sphere-whitaker"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 4,
+     "title": "Flow across tube banks",
+     "book": {
+      "incropera-8e": [
+       "7.6"
+      ]
+     },
+     "fe": [
+      "che-E"
+     ],
+     "los": [
+      {
+       "id": "A",
+       "do": "Find the maximum velocity, average h and outlet temperature for flow across a tube bank.",
+       "ek": [
+        "V_max from the minimum free area (aligned vs staggered); Žukauskas Nu̅ with row correction; log-mean ΔT across the bank."
+       ],
+       "p": [
+        "P3",
+        "P4"
+       ],
+       "drills": [
+        "ht3-tb-vmax",
+        "ht3-tb-zukauskas",
+        "ht3-tb-outlet"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "internal",
+   "n": 9,
+   "title": "Internal forced convection",
+   "scope": "core",
+   "ideas": [
+    "SCALE",
+    "ENG"
+   ],
+   "weight_est": "8–10%",
+   "topics": [
+    {
+     "n": 1,
+     "title": "Flow conditions and entry lengths",
+     "book": {
+      "incropera-8e": [
+       "8.1",
+       "8.2"
+      ]
+     },
+     "fe": [
+      "me-B",
+      "che-B"
+     ],
+     "los": [
+      {
+       "id": "A",
+       "do": "Compute Re_D from ṁ and decide whether the flow is laminar and how long the entry regions are.",
+       "ek": [
+        "Re_D = 4ṁ/(πDμ); laminar below ≈ 2300; x_fd,h ≈ 0.05 Re_D D; x_fd,t ≈ 0.05 Re_D Pr D."
+       ],
+       "p": [
+        "P3",
+        "P4"
+       ],
+       "drills": [
+        "ht-int-re"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "title": "The mean temperature energy balance",
+     "book": {
+      "incropera-8e": [
+       "8.3"
+      ]
+     },
+     "fe": [
+      "me-B",
+      "che-B"
+     ],
+     "los": [
+      {
+       "id": "A",
+       "do": "Find outlet temperature or required length with uniform wall heat flux.",
+       "ek": [
+        "q = ṁc_p(T_m,o − T_m,i) = q''_s πDL; T_m rises linearly."
+       ],
+       "p": [
+        "P1",
+        "P4"
+       ],
+       "drills": [
+        "ht-tm-flux"
+       ]
+      },
+      {
+       "id": "B",
+       "do": "Find outlet temperature or heat rate with uniform wall temperature, using the log-mean temperature difference.",
+       "ek": [
+        "ΔT_o/ΔT_i = exp(−PL h̄/ṁc_p); q = h̄A_s ΔT_lm."
+       ],
+       "p": [
+        "P1",
+        "P4"
+       ],
+       "drills": [
+        "ht-tm-ts"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 3,
+     "title": "Convection correlations for tubes",
+     "book": {
+      "incropera-8e": [
+       "8.4",
+       "8.5"
+      ]
+     },
+     "fe": [
+      "me-B",
+      "che-B",
+      "che-D"
+     ],
+     "los": [
+      {
+       "id": "A",
+       "do": "Use the fully developed laminar results for constant flux or constant wall temperature.",
+       "ek": [
+        "Nu_D = 4.36 (uniform q''_s), 3.66 (uniform T_s)."
+       ],
+       "p": [
+        "P3"
+       ],
+       "drills": [
+        "ht-lam-fd"
+       ]
+      },
+      {
+       "id": "B",
+       "do": "Calculate h for turbulent flow with Dittus–Boelter (or Gnielinski), choosing the right exponent and property temperature.",
+       "ek": [
+        "Nu_D = 0.023 Re^(4/5) Pr^n, n = 0.4 heating, 0.3 cooling; properties at mean T_m."
+       ],
+       "p": [
+        "P3",
+        "P4"
+       ],
+       "drills": [
+        "ht-dittus"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 4,
+     "title": "Noncircular tubes and annuli",
+     "book": {
+      "incropera-8e": [
+       "8.6"
+      ]
+     },
+     "fe": [
+      "che-B"
+     ],
+     "los": [
+      {
+       "id": "A",
+       "do": "Use the hydraulic diameter and annulus results for noncircular passages.",
+       "ek": [
+        "D_h = 4A_c/P; laminar Nu depends on shape; annulus uses D_o − D_i."
+       ],
+       "p": [
+        "P3"
+       ],
+       "drills": []
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "free",
+   "n": 10,
+   "title": "Free convection",
+   "scope": "core",
+   "ideas": [
+    "SCALE"
+   ],
+   "weight_est": "6–8%",
+   "topics": [
+    {
+     "n": 1,
+     "title": "Buoyancy-driven flow and when it matters",
+     "book": {
+      "incropera-8e": [
+       "9.1",
+       "9.2",
+       "9.3",
+       "9.4",
+       "9.5"
+      ]
+     },
+     "fe": [
+      "me-B",
+      "che-B"
+     ],
+     "los": [
+      {
+       "id": "A",
+       "do": "Compute Gr and Ra and identify laminar or turbulent free convection.",
+       "ek": [
+        "Ra_L = gβΔT L³/(να); β = 1/T_f for an ideal gas; transition near Ra ≈ 10⁹ on a vertical plate."
+       ],
+       "p": [
+        "P3",
+        "P4"
+       ],
+       "drills": [
+        "ht-ra"
+       ]
+      },
+      {
+       "id": "B",
+       "do": "Decide whether free, forced or mixed convection governs.",
+       "ek": [
+        "Gr/Re² ≪ 1 forced, ≫ 1 free, ~1 mixed."
+       ],
+       "p": [
+        "P3"
+       ],
+       "drills": []
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "title": "Correlations for external free convection",
+     "book": {
+      "incropera-8e": [
+       "9.6"
+      ]
+     },
+     "fe": [
+      "me-B",
+      "che-B"
+     ],
+     "los": [
+      {
+       "id": "A",
+       "do": "Calculate h for a vertical plate with the Churchill–Chu correlation.",
+       "ek": [
+        "Nu̅_L = {0.825 + 0.387Ra^(1/6)/[1 + (0.492/Pr)^(9/16)]^(8/27)}²."
+       ],
+       "p": [
+        "P3",
+        "P4"
+       ],
+       "drills": [
+        "ht-chu-vertical"
+       ]
+      },
+      {
+       "id": "B",
+       "do": "Calculate h for horizontal plates (hot side up or down) and horizontal cylinders and spheres.",
+       "ek": [
+        "L = A_s/P for horizontal plates; separate correlations for upper/lower surfaces."
+       ],
+       "p": [
+        "P3",
+        "P4"
+       ],
+       "drills": [
+        "ht-free-horiz",
+        "ht-free-cyl"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 3,
+     "title": "Enclosures and mixed convection",
+     "book": {
+      "incropera-8e": [
+       "9.8",
+       "9.9"
+      ]
+     },
+     "fe": [],
+     "los": [
+      {
+       "id": "A",
+       "do": "Calculate heat transfer across a vertical or horizontal enclosure (e.g. double-pane window).",
+       "ek": [
+        "Ra_L across the gap; Nu = 1 means pure conduction below the critical Ra."
+       ],
+       "p": [
+        "P3",
+        "P4"
+       ],
+       "drills": []
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "radiation",
+   "n": 11,
+   "title": "Thermal radiation",
+   "scope": "core",
+   "ideas": [
+    "RATE",
+    "SYS"
+   ],
+   "weight_est": "12–14%",
+   "topics": [
+    {
+     "n": 1,
+     "title": "Blackbody radiation and surface properties",
+     "book": {
+      "incropera-8e": [
+       "12.1",
+       "12.2",
+       "12.3",
+       "12.4",
+       "12.5",
+       "12.6",
+       "12.7",
+       "12.8"
+      ]
+     },
+     "fe": [
+      "me-C",
+      "che-C"
+     ],
+     "los": [
+      {
+       "id": "A",
+       "do": "Use Stefan–Boltzmann and Wien's law to relate emissive power, peak wavelength and temperature.",
+       "ek": [
+        "E_b = σT⁴; λ_max T = 2898 μm·K."
+       ],
+       "p": [
+        "P4"
+       ],
+       "drills": [
+        "ht3-wien",
+        "ht3-stefan"
+       ]
+      },
+      {
+       "id": "B",
+       "do": "Find the fraction of blackbody emission in a wavelength band.",
+       "ek": [
+        "F(0→λ) from λT (Table 12.2); band = difference of two fractions."
+       ],
+       "p": [
+        "P3",
+        "P4"
+       ],
+       "drills": [
+        "ht3-band"
+       ]
+      },
+      {
+       "id": "C",
+       "do": "Find total emissivity or absorptivity from spectral data and apply Kirchhoff's law and the gray-surface assumption.",
+       "ek": [
+        "α = ∫α_λG_λdλ / G; ε = α only for a gray or diffuse-gray surface at the same T."
+       ],
+       "p": [
+        "P3"
+       ],
+       "drills": [
+        "ht3-spectral"
+       ]
+      },
+      {
+       "id": "D",
+       "do": "Solve a surface energy balance with irradiation, emission and convection for a steady surface temperature.",
+       "ek": [
+        "αG = εσT⁴ (+ h(T − T∞)) at steady state."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "ht3-rad-balance"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "title": "View factors",
+     "book": {
+      "incropera-8e": [
+       "13.1"
+      ]
+     },
+     "fe": [
+      "me-C",
+      "che-C"
+     ],
+     "los": [
+      {
+       "id": "A",
+       "do": "Find view factors with reciprocity, summation and symmetry, including long ducts and cavities.",
+       "ek": [
+        "A_iF_ij = A_jF_ji; Σ_j F_ij = 1; flat or convex surfaces have F_ii = 0."
+       ],
+       "p": [
+        "P3"
+       ],
+       "drills": [
+        "ht-vf-reciprocity",
+        "ht-vf-duct",
+        "ht-vf-cavity"
+       ]
+      },
+      {
+       "id": "B",
+       "do": "Evaluate view factors for standard geometries from formulas or charts.",
+       "ek": [
+        "Concentric cylinders/spheres: F₁₂ = 1; coaxial disks, aligned rectangles from Tables 13.1–13.2."
+       ],
+       "p": [
+        "P3"
+       ],
+       "drills": [
+        "ht-vf-concentric"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 3,
+     "title": "Radiation exchange between surfaces",
+     "book": {
+      "incropera-8e": [
+       "13.2",
+       "13.3"
+      ]
+     },
+     "fe": [
+      "me-C",
+      "che-C"
+     ],
+     "los": [
+      {
+       "id": "A",
+       "do": "Calculate net exchange between black surfaces.",
+       "ek": [
+        "q_ij = A_iF_ijσ(T_i⁴ − T_j⁴)."
+       ],
+       "p": [
+        "P4"
+       ],
+       "drills": [
+        "ht-black-disks"
+       ]
+      },
+      {
+       "id": "B",
+       "do": "Calculate net exchange in a two-surface gray enclosure (parallel plates, concentric cylinders or spheres).",
+       "ek": [
+        "q = σ(T₁⁴ − T₂⁴)/[(1−ε₁)/ε₁A₁ + 1/A₁F₁₂ + (1−ε₂)/ε₂A₂]."
+       ],
+       "p": [
+        "P1",
+        "P4"
+       ],
+       "drills": [
+        "ht-two-surface"
+       ]
+      },
+      {
+       "id": "C",
+       "do": "Quantify the effect of radiation shields.",
+       "ek": [
+        "Each shield adds two surface resistances and one space resistance in series."
+       ],
+       "p": [
+        "P6"
+       ],
+       "drills": [
+        "ht-shield"
+       ]
+      },
+      {
+       "id": "D",
+       "do": "Solve a three-surface enclosure with a reradiating (adiabatic) surface by the radiosity network.",
+       "ek": [
+        "Reradiating: J = E_b at that surface, net q = 0."
+       ],
+       "p": [
+        "P1",
+        "P4"
+       ],
+       "drills": [
+        "ht-reradiating"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 4,
+     "title": "Multimode heat transfer with radiation",
+     "book": {
+      "incropera-8e": [
+       "13.4"
+      ]
+     },
+     "fe": [
+      "me-C"
+     ],
+     "los": [
+      {
+       "id": "A",
+       "do": "Combine radiation exchange with conduction and convection at a surface or in an enclosure.",
+       "ek": [
+        "Radiation and convection from one surface act in parallel; h_r lets radiation join the resistance network."
+       ],
+       "p": [
+        "P1",
+        "P3"
+       ],
+       "drills": []
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "systems",
+   "n": 12,
+   "title": "Heat exchangers and system-level thermal analysis",
+   "scope": "core",
+   "ideas": [
+    "SYS",
+    "ENG",
+    "RATE"
+   ],
+   "weight_est": "10–12%",
+   "topics": [
+    {
+     "n": 1,
+     "title": "The overall heat transfer coefficient",
+     "book": {
+      "incropera-8e": [
+       "11.1",
+       "11.2"
+      ]
+     },
+     "fe": [
+      "me-E",
+      "che-D",
+      "che-E"
+     ],
+     "los": [
+      {
+       "id": "A",
+       "do": "Calculate U for a tube wall including both films, fouling and finned surfaces.",
+       "ek": [
+        "1/UA = 1/(η_o hA)_c + R''_f,c/(η_oA)_c + R_w + R''_f,h/(η_oA)_h + 1/(η_o hA)_h."
+       ],
+       "p": [
+        "P1",
+        "P4"
+       ],
+       "drills": []
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "title": "The log-mean temperature difference method",
+     "book": {
+      "incropera-8e": [
+       "11.3"
+      ]
+     },
+     "fe": [
+      "me-E",
+      "che-E"
+     ],
+     "los": [
+      {
+       "id": "A",
+       "do": "Size a parallel-flow or counterflow exchanger with q = UA ΔT_lm when all inlet and outlet temperatures are known.",
+       "ek": [
+        "ΔT_lm = (ΔT₁ − ΔT₂)/ln(ΔT₁/ΔT₂), end differences defined by flow arrangement; counterflow needs less area."
+       ],
+       "p": [
+        "P3",
+        "P4"
+       ],
+       "drills": [
+        "ht-lmtd-counter",
+        "ht-lmtd-parallel"
+       ]
+      },
+      {
+       "id": "B",
+       "do": "Apply the LMTD correction factor for shell-and-tube and cross-flow exchangers.",
+       "ek": [
+        "q = UAF ΔT_lm,CF with F from P and R charts."
+       ],
+       "p": [
+        "P3"
+       ],
+       "drills": [
+        "ht-shell-tube"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 3,
+     "title": "The effectiveness–NTU method",
+     "book": {
+      "incropera-8e": [
+       "11.4",
+       "11.5"
+      ]
+     },
+     "fe": [
+      "me-E",
+      "che-E"
+     ],
+     "los": [
+      {
+       "id": "A",
+       "do": "Find effectiveness and heat rate from NTU and C_r.",
+       "ek": [
+        "NTU = UA/C_min; C_r = C_min/C_max; ε from the arrangement's relation; q = εC_min(T_h,i − T_c,i)."
+       ],
+       "p": [
+        "P3",
+        "P4"
+       ],
+       "drills": [
+        "ht-ntu-eff"
+       ]
+      },
+      {
+       "id": "B",
+       "do": "Predict outlet temperatures of an existing exchanger when they are unknown.",
+       "ek": [
+        "ε–NTU avoids iteration when outlets are unknown; then energy balances give each outlet."
+       ],
+       "p": [
+        "P3",
+        "P4"
+       ],
+       "drills": [
+        "ht-ntu-outlet"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 4,
+     "title": "System-level thermal networks",
+     "book": {
+      "incropera-8e": [
+       "1.3",
+       "3.1",
+       "13.4"
+      ]
+     },
+     "fe": [
+      "me-A",
+      "me-B",
+      "me-C"
+     ],
+     "los": [
+      {
+       "id": "A",
+       "do": "Model a device (electronics package, building wall, pipe run) as a network of conduction, convection and radiation resistances and find its operating temperature.",
+       "ek": [
+        "One energy balance per node; parallel paths from a surface (convection ∥ radiation); iterate when h_r depends on T."
+       ],
+       "p": [
+        "P1",
+        "P2",
+        "P4"
+       ],
+       "drills": []
+      },
+      {
+       "id": "B",
+       "do": "Identify the controlling resistance and choose the design change that best meets a temperature limit.",
+       "ek": [
+        "Reduce the largest R first; compare options by their effect on R_tot."
+       ],
+       "p": [
+        "P6"
+       ],
+       "drills": []
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "phase-change",
+   "n": 13,
+   "title": "Boiling and condensation",
+   "scope": "extension",
+   "ideas": [
+    "SCALE",
+    "RATE"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "Boiling",
+     "book": {
+      "incropera-8e": [
+       "10.1",
+       "10.2",
+       "10.3",
+       "10.4"
+      ]
+     },
+     "fe": [
+      "che-B",
+      "che-D"
+     ],
+     "los": [
+      {
+       "id": "A",
+       "do": "Identify the boiling regime from the excess temperature on the boiling curve.",
+       "ek": [
+        "Free convection → nucleate → transition → film; CHF at the nucleate peak."
+       ],
+       "p": [
+        "P3"
+       ],
+       "drills": [
+        "ht3-boil-regime"
+       ]
+      },
+      {
+       "id": "B",
+       "do": "Calculate nucleate boiling flux (Rohsenow) and critical heat flux.",
+       "ek": [
+        "q''_s ∝ ΔT_e³; q''_max = 0.149 h_fg ρ_v [σg(ρ_l − ρ_v)/ρ_v²]^(1/4)."
+       ],
+       "p": [
+        "P3",
+        "P4"
+       ],
+       "drills": [
+        "ht3-rohsenow",
+        "ht3-chf"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "title": "Film condensation",
+     "book": {
+      "incropera-8e": [
+       "10.6",
+       "10.7",
+       "10.8"
+      ]
+     },
+     "fe": [
+      "che-B",
+      "che-D"
+     ],
+     "los": [
+      {
+       "id": "A",
+       "do": "Calculate film condensation on a vertical plate or horizontal tube.",
+       "ek": [
+        "Nusselt analysis with h′_fg = h_fg(1 + 0.68 Ja); tube constant 0.729."
+       ],
+       "p": [
+        "P3",
+        "P4"
+       ],
+       "drills": [
+        "ht3-cond-plate",
+        "ht3-cond-tube"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "mass",
+   "n": 14,
+   "title": "Mass transfer",
+   "scope": "extension",
+   "ideas": [
+    "RATE",
+    "SCALE"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "Diffusion",
+     "book": {
+      "incropera-8e": [
+       "14.1",
+       "14.2",
+       "14.3",
+       "14.4",
+       "14.5",
+       "14.6"
+      ]
+     },
+     "fe": [],
+     "los": [
+      {
+       "id": "A",
+       "do": "Calculate a diffusive flux in a stationary medium with Fick's law, including membranes and solubility.",
+       "ek": [
+        "N_A = −D_AB dC_A/dx; at an interface C = S·p."
+       ],
+       "p": [
+        "P4"
+       ],
+       "drills": [
+        "ht3-fick",
+        "ht3-membrane"
+       ]
+      },
+      {
+       "id": "B",
+       "do": "Calculate evaporation through a stagnant gas column (Stefan flow).",
+       "ek": [
+        "N_A = (CD_AB/L) ln[(1 − x_A,L)/(1 − x_A,0)]."
+       ],
+       "p": [
+        "P2",
+        "P4"
+       ],
+       "drills": [
+        "ht3-stefan-flow"
+       ]
+      },
+      {
+       "id": "C",
+       "do": "Solve diffusion with a homogeneous reaction.",
+       "ek": [
+        "D d²C/dx² − k₁C = 0 ⇒ cosh/sinh profile, like a fin."
+       ],
+       "p": [
+        "P2"
+       ],
+       "drills": [
+        "ht3-reaction"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "title": "Convective mass transfer and the analogy",
+     "book": {
+      "incropera-8e": [
+       "6.7",
+       "7.8"
+      ]
+     },
+     "fe": [],
+     "los": [
+      {
+       "id": "A",
+       "do": "Use the heat–mass analogy to convert between h and h_m, and Nu and Sh correlations.",
+       "ek": [
+        "h/h_m = ρc_p Le^(2/3); Sh = f(Re, Sc) mirrors Nu = f(Re, Pr)."
+       ],
+       "p": [
+        "P3"
+       ],
+       "drills": [
+        "ht3-mc-analogy",
+        "ht3-mc-sherwood"
+       ]
+      },
+      {
+       "id": "B",
+       "do": "Solve a coupled heat and mass balance at an evaporating surface (wet bulb).",
+       "ek": [
+        "h(T∞ − T_s) = h_m h_fg(ρ_A,s − ρ_A,∞)."
+       ],
+       "p": [
+        "P1",
+        "P4"
+       ],
+       "drills": [
+        "ht3-mc-evap"
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "rows": [
+  {
+   "code": "HT-1.1.A",
+   "unit": 1,
+   "topic": 1,
+   "status": "partial",
+   "full": [],
+   "partial": [
+    "mae-concept"
+   ]
+  },
+  {
+   "code": "HT-1.1.B",
+   "unit": 1,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ht-cond"
+   ],
+   "partial": []
+  },
+  {
+   "code": "HT-1.1.C",
+   "unit": 1,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ht-conv"
+   ],
+   "partial": []
+  },
+  {
+   "code": "HT-1.1.D",
+   "unit": 1,
+   "topic": 1,
+   "status": "partial",
+   "full": [],
+   "partial": [
+    "ht-rad"
+   ]
+  },
+  {
+   "code": "HT-1.2.A",
+   "unit": 1,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "ht-eb-wire"
+   ],
+   "partial": []
+  },
+  {
+   "code": "HT-1.2.B",
+   "unit": 1,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "ht-eb-surface"
+   ],
+   "partial": []
+  },
+  {
+   "code": "HT-1.2.C",
+   "unit": 1,
+   "topic": 2,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "HT-2.1.A",
+   "unit": 2,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ht-he-flux"
+   ],
+   "partial": []
+  },
+  {
+   "code": "HT-2.1.B",
+   "unit": 2,
+   "topic": 1,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "HT-2.2.A",
+   "unit": 2,
+   "topic": 2,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "HT-2.2.B",
+   "unit": 2,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "ht-he-gen",
+    "ht-he-dTdt",
+    "ht-gen-poly"
+   ],
+   "partial": []
+  },
+  {
+   "code": "HT-2.2.C",
+   "unit": 2,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "mae-laplace"
+   ],
+   "partial": []
+  },
+  {
+   "code": "HT-2.3.A",
+   "unit": 2,
+   "topic": 3,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "HT-2.3.B",
+   "unit": 2,
+   "topic": 3,
+   "status": "partial",
+   "full": [],
+   "partial": [
+    "mae-pot"
+   ]
+  },
+  {
+   "code": "HT-2.3.C",
+   "unit": 2,
+   "topic": 3,
+   "status": "partial",
+   "full": [],
+   "partial": [
+    "mae-wall-compare"
+   ]
+  },
+  {
+   "code": "HT-3.1.A",
+   "unit": 3,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "mae-wall-point"
+   ],
+   "partial": []
+  },
+  {
+   "code": "HT-3.1.B",
+   "unit": 3,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ht-wall",
+    "mae-series-parallel"
+   ],
+   "partial": []
+  },
+  {
+   "code": "HT-3.1.C",
+   "unit": 3,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ht-contact"
+   ],
+   "partial": []
+  },
+  {
+   "code": "HT-3.1.D",
+   "unit": 3,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "mae-wall-compare"
+   ],
+   "partial": [
+    "mae-concept"
+   ]
+  },
+  {
+   "code": "HT-3.2.A",
+   "unit": 3,
+   "topic": 2,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "HT-3.3.A",
+   "unit": 3,
+   "topic": 3,
+   "status": "ok",
+   "full": [
+    "ht-cyl"
+   ],
+   "partial": []
+  },
+  {
+   "code": "HT-3.3.B",
+   "unit": 3,
+   "topic": 3,
+   "status": "ok",
+   "full": [
+    "ht-sphere"
+   ],
+   "partial": []
+  },
+  {
+   "code": "HT-3.3.C",
+   "unit": 3,
+   "topic": 3,
+   "status": "ok",
+   "full": [
+    "ht-rcrit"
+   ],
+   "partial": []
+  },
+  {
+   "code": "HT-3.3.D",
+   "unit": 3,
+   "topic": 3,
+   "status": "partial",
+   "full": [],
+   "partial": [
+    "mae-concept"
+   ]
+  },
+  {
+   "code": "HT-4.1.A",
+   "unit": 4,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ht-gen-wall-conv"
+   ],
+   "partial": []
+  },
+  {
+   "code": "HT-4.1.B",
+   "unit": 4,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ht-gen-wall-fixed",
+    "ht-gen-wall-conv"
+   ],
+   "partial": []
+  },
+  {
+   "code": "HT-4.1.C",
+   "unit": 4,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ht-gen-wall-asym"
+   ],
+   "partial": []
+  },
+  {
+   "code": "HT-4.1.D",
+   "unit": 4,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ht-gen-composite"
+   ],
+   "partial": []
+  },
+  {
+   "code": "HT-4.2.A",
+   "unit": 4,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "ht-gen-rod",
+    "ht-gen-wire",
+    "ht-eb-wire"
+   ],
+   "partial": []
+  },
+  {
+   "code": "HT-4.2.B",
+   "unit": 4,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "ht-gen-sphere"
+   ],
+   "partial": []
+  },
+  {
+   "code": "HT-4.2.C",
+   "unit": 4,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "ht-gen-tube"
+   ],
+   "partial": []
+  },
+  {
+   "code": "HT-4.3.A",
+   "unit": 4,
+   "topic": 3,
+   "status": "ok",
+   "full": [
+    "ht-gen-qmax"
+   ],
+   "partial": []
+  },
+  {
+   "code": "HT-5.1.A",
+   "unit": 5,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ht-fin-m"
+   ],
+   "partial": []
+  },
+  {
+   "code": "HT-5.1.B",
+   "unit": 5,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ht-fin-infinite",
+    "ht-fin-adiabatic",
+    "ht-fin-tip"
+   ],
+   "partial": []
+  },
+  {
+   "code": "HT-5.1.C",
+   "unit": 5,
+   "topic": 1,
+   "status": "partial",
+   "full": [],
+   "partial": [
+    "mae-concept"
+   ]
+  },
+  {
+   "code": "HT-5.2.A",
+   "unit": 5,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "ht-fin-efficiency"
+   ],
+   "partial": [
+    "mae-concept"
+   ]
+  },
+  {
+   "code": "HT-5.3.A",
+   "unit": 5,
+   "topic": 3,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "HT-6.1.A",
+   "unit": 6,
+   "topic": 1,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "HT-6.2.A",
+   "unit": 6,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "ht-shape",
+    "mae-rod-slab"
+   ],
+   "partial": []
+  },
+  {
+   "code": "HT-6.2.B",
+   "unit": 6,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "mae-two-spheres"
+   ],
+   "partial": []
+  },
+  {
+   "code": "HT-6.3.A",
+   "unit": 6,
+   "topic": 3,
+   "status": "ok",
+   "full": [
+    "ht-fd",
+    "mae-fd"
+   ],
+   "partial": []
+  },
+  {
+   "code": "HT-6.3.B",
+   "unit": 6,
+   "topic": 3,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "HT-7.1.A",
+   "unit": 7,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ht-bi"
+   ],
+   "partial": []
+  },
+  {
+   "code": "HT-7.1.B",
+   "unit": 7,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ht-lumped-time",
+    "ht-lumped-temp"
+   ],
+   "partial": []
+  },
+  {
+   "code": "HT-7.1.C",
+   "unit": 7,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ht-lumped-energy"
+   ],
+   "partial": []
+  },
+  {
+   "code": "HT-7.1.D",
+   "unit": 7,
+   "topic": 1,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "HT-7.2.A",
+   "unit": 7,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "ht-ot-wall-center",
+    "ht-ot-cyl-center",
+    "ht-ot-sphere-center"
+   ],
+   "partial": []
+  },
+  {
+   "code": "HT-7.2.B",
+   "unit": 7,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "ht-ot-wall-surface",
+    "ht-ot-wall-time"
+   ],
+   "partial": []
+  },
+  {
+   "code": "HT-7.2.C",
+   "unit": 7,
+   "topic": 2,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "HT-7.3.A",
+   "unit": 7,
+   "topic": 3,
+   "status": "ok",
+   "full": [
+    "ht-erf-temp",
+    "ht-erf-depth",
+    "ht-erf-time"
+   ],
+   "partial": []
+  },
+  {
+   "code": "HT-7.3.B",
+   "unit": 7,
+   "topic": 3,
+   "status": "ok",
+   "full": [
+    "ht-erf-flux",
+    "ht-erf-contact"
+   ],
+   "partial": []
+  },
+  {
+   "code": "HT-7.4.A",
+   "unit": 7,
+   "topic": 4,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "HT-7.5.A",
+   "unit": 7,
+   "topic": 5,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "HT-8.1.A",
+   "unit": 8,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ht3-bl-groups",
+    "ht3-bl-transition"
+   ],
+   "partial": []
+  },
+  {
+   "code": "HT-8.1.B",
+   "unit": 8,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ht3-bl-average"
+   ],
+   "partial": []
+  },
+  {
+   "code": "HT-8.1.C",
+   "unit": 8,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ht3-bl-thickness"
+   ],
+   "partial": []
+  },
+  {
+   "code": "HT-8.1.D",
+   "unit": 8,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ht3-bl-colburn"
+   ],
+   "partial": []
+  },
+  {
+   "code": "HT-8.2.A",
+   "unit": 8,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "ht-plate-lam"
+   ],
+   "partial": []
+  },
+  {
+   "code": "HT-8.2.B",
+   "unit": 8,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "ht-plate-mixed"
+   ],
+   "partial": []
+  },
+  {
+   "code": "HT-8.3.A",
+   "unit": 8,
+   "topic": 3,
+   "status": "ok",
+   "full": [
+    "ht-cyl-cb",
+    "ht-sphere-whitaker"
+   ],
+   "partial": []
+  },
+  {
+   "code": "HT-8.4.A",
+   "unit": 8,
+   "topic": 4,
+   "status": "ok",
+   "full": [
+    "ht3-tb-vmax",
+    "ht3-tb-zukauskas",
+    "ht3-tb-outlet"
+   ],
+   "partial": []
+  },
+  {
+   "code": "HT-9.1.A",
+   "unit": 9,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ht-int-re"
+   ],
+   "partial": []
+  },
+  {
+   "code": "HT-9.2.A",
+   "unit": 9,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "ht-tm-flux"
+   ],
+   "partial": []
+  },
+  {
+   "code": "HT-9.2.B",
+   "unit": 9,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "ht-tm-ts"
+   ],
+   "partial": []
+  },
+  {
+   "code": "HT-9.3.A",
+   "unit": 9,
+   "topic": 3,
+   "status": "ok",
+   "full": [
+    "ht-lam-fd"
+   ],
+   "partial": []
+  },
+  {
+   "code": "HT-9.3.B",
+   "unit": 9,
+   "topic": 3,
+   "status": "ok",
+   "full": [
+    "ht-dittus"
+   ],
+   "partial": []
+  },
+  {
+   "code": "HT-9.4.A",
+   "unit": 9,
+   "topic": 4,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "HT-10.1.A",
+   "unit": 10,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ht-ra"
+   ],
+   "partial": []
+  },
+  {
+   "code": "HT-10.1.B",
+   "unit": 10,
+   "topic": 1,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "HT-10.2.A",
+   "unit": 10,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "ht-chu-vertical"
+   ],
+   "partial": []
+  },
+  {
+   "code": "HT-10.2.B",
+   "unit": 10,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "ht-free-horiz",
+    "ht-free-cyl"
+   ],
+   "partial": []
+  },
+  {
+   "code": "HT-10.3.A",
+   "unit": 10,
+   "topic": 3,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "HT-11.1.A",
+   "unit": 11,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ht3-wien",
+    "ht3-stefan"
+   ],
+   "partial": []
+  },
+  {
+   "code": "HT-11.1.B",
+   "unit": 11,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ht3-band"
+   ],
+   "partial": []
+  },
+  {
+   "code": "HT-11.1.C",
+   "unit": 11,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ht3-spectral"
+   ],
+   "partial": []
+  },
+  {
+   "code": "HT-11.1.D",
+   "unit": 11,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ht3-rad-balance"
+   ],
+   "partial": []
+  },
+  {
+   "code": "HT-11.2.A",
+   "unit": 11,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "ht-vf-reciprocity",
+    "ht-vf-duct",
+    "ht-vf-cavity"
+   ],
+   "partial": []
+  },
+  {
+   "code": "HT-11.2.B",
+   "unit": 11,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "ht-vf-concentric"
+   ],
+   "partial": []
+  },
+  {
+   "code": "HT-11.3.A",
+   "unit": 11,
+   "topic": 3,
+   "status": "ok",
+   "full": [
+    "ht-black-disks"
+   ],
+   "partial": []
+  },
+  {
+   "code": "HT-11.3.B",
+   "unit": 11,
+   "topic": 3,
+   "status": "ok",
+   "full": [
+    "ht-two-surface"
+   ],
+   "partial": []
+  },
+  {
+   "code": "HT-11.3.C",
+   "unit": 11,
+   "topic": 3,
+   "status": "ok",
+   "full": [
+    "ht-shield"
+   ],
+   "partial": []
+  },
+  {
+   "code": "HT-11.3.D",
+   "unit": 11,
+   "topic": 3,
+   "status": "ok",
+   "full": [
+    "ht-reradiating"
+   ],
+   "partial": []
+  },
+  {
+   "code": "HT-11.4.A",
+   "unit": 11,
+   "topic": 4,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "HT-12.1.A",
+   "unit": 12,
+   "topic": 1,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "HT-12.2.A",
+   "unit": 12,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "ht-lmtd-counter",
+    "ht-lmtd-parallel"
+   ],
+   "partial": []
+  },
+  {
+   "code": "HT-12.2.B",
+   "unit": 12,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "ht-shell-tube"
+   ],
+   "partial": []
+  },
+  {
+   "code": "HT-12.3.A",
+   "unit": 12,
+   "topic": 3,
+   "status": "ok",
+   "full": [
+    "ht-ntu-eff"
+   ],
+   "partial": []
+  },
+  {
+   "code": "HT-12.3.B",
+   "unit": 12,
+   "topic": 3,
+   "status": "ok",
+   "full": [
+    "ht-ntu-outlet"
+   ],
+   "partial": []
+  },
+  {
+   "code": "HT-12.4.A",
+   "unit": 12,
+   "topic": 4,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "HT-12.4.B",
+   "unit": 12,
+   "topic": 4,
+   "status": "gap",
+   "full": [],
+   "partial": []
+  },
+  {
+   "code": "HT-13.1.A",
+   "unit": 13,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ht3-boil-regime"
+   ],
+   "partial": []
+  },
+  {
+   "code": "HT-13.1.B",
+   "unit": 13,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ht3-rohsenow",
+    "ht3-chf"
+   ],
+   "partial": []
+  },
+  {
+   "code": "HT-13.2.A",
+   "unit": 13,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "ht3-cond-plate",
+    "ht3-cond-tube"
+   ],
+   "partial": []
+  },
+  {
+   "code": "HT-14.1.A",
+   "unit": 14,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ht3-fick",
+    "ht3-membrane"
+   ],
+   "partial": []
+  },
+  {
+   "code": "HT-14.1.B",
+   "unit": 14,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ht3-stefan-flow"
+   ],
+   "partial": []
+  },
+  {
+   "code": "HT-14.1.C",
+   "unit": 14,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ht3-reaction"
+   ],
+   "partial": []
+  },
+  {
+   "code": "HT-14.2.A",
+   "unit": 14,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "ht3-mc-analogy",
+    "ht3-mc-sherwood"
+   ],
+   "partial": []
+  },
+  {
+   "code": "HT-14.2.B",
+   "unit": 14,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "ht3-mc-evap"
+   ],
+   "partial": []
+  }
+ ],
+ "orphanTpl": []
+}
