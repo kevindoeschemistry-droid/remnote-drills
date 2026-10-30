@@ -35,6 +35,7 @@
 #
 # Fields
 #   units[].scope     core (what CBE 200 covers) or extension (rest of the subject)
+#                     Kevin (Oct 29): Laplace incl. Heaviside, Sturm–Liouville (on the midterm) and PDEs are all in CBE 200
 #   units[].ideas     Big Ideas the unit develops
 #   units[].weight_est rough share of a 10-week ODE course — an estimate, not a published spec
 #   topics[].book     crosswalk: kreyszig-10e sections
@@ -448,7 +449,7 @@ units:
   - id: pde
     n: 10
     title: Partial differential equations
-    scope: extension
+    scope: core
     ideas: [EIG, TRANS, MODEL]
     topics:
       - n: 1

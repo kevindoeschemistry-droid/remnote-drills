@@ -2,7 +2,7 @@
 
 Generated from `drills/frameworks/engineering-math.yaml` by `scripts/framework.mjs`. ● drilled · ◐ partly · ○ no drills yet.
 
-**118 learning objectives** in 12 units (105 core): 85 drilled, 4 partly, 29 with no drills. Core: 81 / 105 drilled.
+**118 learning objectives** in 12 units (114 core): 85 drilled, 4 partly, 29 with no drills. Core: 85 / 114 drilled.
 
 ## Big ideas
 
@@ -34,7 +34,7 @@ Generated from `drills/frameworks/engineering-math.yaml` by `scripts/framework.m
 | 7 · Laplace transforms | core | 15% | 14 | 9 | 0 | 5 |
 | 8 · Linear algebra for ODEs | core | as needed | 7 | 6 | 0 | 1 |
 | 9 · Fourier series and Sturm–Liouville boundary-value problems | core | 10–15% | 11 | 8 | 0 | 3 |
-| 10 · Partial differential equations | extension | — | 9 | 4 | 1 | 4 |
+| 10 · Partial differential equations | core | — | 9 | 4 | 1 | 4 |
 | 11 · Fourier integrals and transforms | extension | — | 2 | 0 | 0 | 2 |
 | 12 · Vector calculus for transport | extension | — | 2 | 0 | 1 | 1 |
 
@@ -644,7 +644,7 @@ Book: kreyszig-10e §11.5, §11.6
   - Needs: EM-9.3.A
   - P3
 
-## Unit 10 · Partial differential equations (extension)
+## Unit 10 · Partial differential equations
 
 Big ideas: EIG, TRANS, MODEL
 
