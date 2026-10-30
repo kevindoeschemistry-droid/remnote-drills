@@ -249,7 +249,190 @@ def check_special(p):
     return False
 
 
+# ── Kreyszig §6.2–6.7, §12.1, §12.4, §12.6 ─────────────────────────────────
+#   laplace.step-ivp / laplace.delta   L{y_ref} == (L{forcing} + (as + b)y0 + a y1)/(as^2 + bs + c), with the
+#                                      forcing rebuilt from the problem as sympy Heaviside / DiracDelta and
+#                                      transformed by sympy; plus the answer's own data (ODE, ICs, switch
+#                                      times, y' jumps) must match the problem
+#   laplace.systems                    (sI - A)Y = y(0) + g/s solved by sympy; L{y_i ref} == Y_i
+#   laplace.transfer                   dsolve the ODE (zero ICs) for the input r = t e^{-t}; L{y}/L{r} == G;
+#                                      poles by sympy roots; stability from roots with multiplicity
+#   laplace.t-multiply                 forward: sympy L{t f}; inverse: L{t f_ref} == -F'(s) and F -> 0
+#   pde.classify                       discriminant from the PDE coefficients; verify: residual with the answer
+#   pde.dalembert / pde.laplace-rect   u substituted into the PDE, every boundary / initial condition;
+#                                      rectangle coefficients from the Euler integral, n = 1..6
+y_, z_ = sp.symbols("y z")
+_LOC2 = dict(_LOC, y=y_, K=sp.Symbol("K"), log=sp.log, atan=sp.atan)
+NEW_SKILLS = {"laplace.step-ivp", "laplace.delta", "laplace.systems", "laplace.transfer", "laplace.t-multiply",
+              "pde.classify", "pde.dalembert", "pde.laplace-rect"}
+
+
+def P2(src):
+    return parse_expr(str(src).replace("^", "**"), local_dict=_LOC2)
+
+
+def check_switched(p):
+    a, meta = p["answer"], p["meta"]
+    A = meta.get("a", 1)
+    if (a["a"], a["b"], a["c"]) != (A, meta["b"], meta["c"]) or a["ic"][:2] != [0, meta["y0"]]:
+        return False
+    if abs(a["ic"][2] - (meta["y1"] if p["template"] != "delta-response" else 1 / A)) > 1e-12:
+        return False
+    forcing, steps = 0, 0
+    for f in meta["forcing"]:
+        at = P(f["at"])
+        if f["type"] == "delta":
+            forcing += f["K"] * sp.DiracDelta(t - at)
+        else:
+            forcing += f["K"] * sp.Heaviside(t - at)
+            steps += f["K"] * sp.Heaviside(t - at)
+    # the answer's checker data must describe this problem: forcing away from the switches, switch times, kicks
+    sw = a.get("switches", [])
+    if p["template"] != "delta-response":
+        want = sorted((float(sp.N(P(f["at"]))), f["K"] / A if f["type"] == "delta" else 0) for f in meta["forcing"])
+        got = sorted((w["at"], w["kick"]) for w in sw)
+        if len(want) != len(got) or any(abs(u[0] - v[0]) > 1e-12 or abs(u[1] - v[1]) > 1e-12 for u, v in zip(want, got)):
+            return False
+        rhs = P(a["rhs"]) if a.get("rhs") else 0
+        if not num_equal(sp.sympify(rhs) + 1 + t, sp.sympify(steps) + 1 + t, t, t_points(meta), 1e-12):
+            return False
+    if p["template"] == "delta-response":
+        y0, y1 = 0, 0  # starts from rest; the delta at t = 0 is in the transform
+    else:
+        y0, y1 = meta["y0"], meta["y1"]
+    F = laplace(forcing)
+    Y = (F + A * (s * y0 + y1) + meta["b"] * y0) / (A * s**2 + meta["b"] * s + meta["c"])
+    # every pole has Re <= 0, so small s converges and keeps the delay factors e^{-as} visible
+    S_LOW = [sp.Rational(k, 10) for k in (6, 9, 13, 18, 24, 31)]
+    return num_equal(laplace(P(a["ref"])), Y, s, S_LOW, 1e-12)
+
+
+def check_systems(p):
+    a, meta = p["answer"], p["meta"]
+    A = sp.Matrix(meta["A"])
+    g = sp.Matrix(meta["g"])
+    y0 = sp.Matrix(meta["y0"])
+    S = a["system"]
+    if S["A"] != meta["A"] or S["ic"] != [0, *meta["y0"]] or [float(v) for v in S.get("g", ["0", "0"])] != [float(v) for v in meta["g"]]:
+        return False
+    Y = (s * sp.eye(2) - A).LUsolve(y0 + g / s)
+    return all(num_equal(laplace(P(f["ref"])), Y[i], s, S_PTS) for i, f in enumerate(a["fields"]))
+
+
+def poly(cs, v=s):
+    return sum(sp.Integer(c) * v**i for i, c in enumerate(cs))
+
+
+def check_transfer(p):
+    a, meta, tmpl = p["answer"], p["meta"], p["template"]
+    den = poly(meta["den"])
+    if tmpl == "transfer-g":
+        yf = sp.Function("yf")
+        r = t * sp.exp(-t)
+        lhs = sum(c * yf(t).diff(t, i) if i else c * yf(t) for i, c in enumerate(meta["den"]))
+        rhs = sum(c * sp.diff(r, t, i) for i, c in enumerate(meta["num"]))
+        order = len(meta["den"]) - 1
+        ics = {yf(0): 0}
+        if order == 2:
+            ics[yf(t).diff(t).subs(t, 0)] = 0
+        sol = sp.dsolve(sp.Eq(lhs, rhs), yf(t), ics=ics).rhs
+        G = laplace(sol) / laplace(r)
+        return num_equal(G, P(a["ref"]), s, S_PTS)
+    if tmpl == "transfer-poles":
+        num = poly(meta["num"])
+        roots = sp.roots(sp.Poly(den, s))
+        poles = sorted(rt for rt in roots if num.subs(s, rt) != 0)
+        return poles == sorted(sp.Integer(v) for v in a["ref"])
+    # stability from the roots (with multiplicity) of the denominator
+    roots = sp.roots(sp.Poly(den, s))
+    res = [(sp.re(rt), mult) for rt, mult in roots.items()]
+    if sum(m_ for _, m_ in roots.items()) != sp.degree(den, s):
+        return False
+    typ = 2 if any(re_ > 0 or (re_ == 0 and mu > 1) for re_, mu in res) else 1 if any(re_ == 0 for re_, _ in res) else 0
+    return typ == meta["type"] and a["correct"] == a["options"][typ]
+
+
+def check_tmul(p):
+    a, meta = p["answer"], p["meta"]
+    if p["template"] == "tmul-forward":
+        return num_equal(laplace(P2(meta["f"])), P2(a["ref"]), s, S_PTS)
+    F = P2(meta["F"])
+    lhs = laplace(sp.simplify(t * P2(a["ref"])))
+    if not num_equal(lhs, -sp.diff(F, s), s, S_PTS):
+        return False
+    return abs(complex(sp.N(F.subs(s, 10**8)))) < 1e-6  # F vanishes at infinity, fixing the constant
+
+
+def check_classify(p):
+    a, meta = p["answer"], p["meta"]
+    if p["template"] == "pde-classify":
+        pt = {sp.Symbol(k): sp.nsimplify(v) for k, v in meta["pt"].items()}
+        Pt = lambda e: P2(e).subs({x: pt.get(x, x), y_: pt.get(sp.Symbol("y"), y_)})
+        A, Bxy, C = Pt(meta["A"]), Pt(meta["Bxy"]), Pt(meta["C"])
+        disc = Bxy**2 - 4 * A * C  # = -4(AC - B^2)
+        typ = 2 if disc > 0 else 1 if disc == 0 else 0
+        return typ == meta["type"] and a["correct"] == a["options"][typ]
+    K = sp.Symbol("K")
+    val = sp.nsimplify(P(a["ref"]))
+    u = P2(meta["u"]).subs(K, val)
+    if meta.get("positive") and not val > 0:
+        return False
+    if meta["op"] == "laplace":
+        res = sp.diff(u, x, 2) + sp.diff(u, y_, 2)
+    else:
+        c2 = P2(meta["c2"]).subs(K, val)
+        res = (sp.diff(u, t) if meta["op"] == "heat" else sp.diff(u, t, 2)) - c2 * sp.diff(u, x, 2)
+    return sp.simplify(res) == 0 and sp.simplify(u) != 0
+
+
+def check_dalembert(p):
+    meta, u = p["meta"], P(p["answer"]["ref"])
+    if sp.simplify(sp.diff(u, t, 2) - meta["c2"] * sp.diff(u, x, 2)) != 0:
+        return False
+    return sp.simplify(u.subs(t, 0) - P(meta["f"])) == 0 and sp.simplify(sp.diff(u, t).subs(t, 0) - P(meta["g"])) == 0
+
+
+def check_rect(p):
+    meta, a = p["meta"], p["answer"]
+    A, B = P(meta["a"]), P(meta["b"])
+    if p["template"] == "laplace-rect-coef":
+        N = sp.Symbol("N", integer=True, positive=True)
+        An = 2 / (A * sp.sinh(N * sp.pi * B / A)) * sp.integrate(P(meta["f"]) * sp.sin(N * sp.pi * x / A), (x, 0, A))
+        for k in range(1, 7):
+            got = P(a["ref"]).subs(n, k)
+            want = An.subs(N, k)
+            if abs(complex(sp.N(got - want, 30))) > 1e-20 * max(1, abs(complex(sp.N(want, 30)))):
+                return False
+        return True
+    u = P2(a["ref"])
+    if sp.simplify(sp.diff(u, x, 2) + sp.diff(u, y_, 2)) != 0:
+        return False
+    data = P2(meta["edgeData"])
+    edges = {"x0": u.subs(x, 0), "xa": u.subs(x, A), "y0": u.subs(y_, 0), "yb": u.subs(y_, B)}
+    data_edge = {"top": "yb", "right": "xa", "bottom": "y0"}[meta["edge"]]
+    for k_, e in edges.items():
+        target = data if k_ == data_edge else 0
+        if sp.simplify(sp.expand_trig(e - target)) != 0:
+            return False
+    return True
+
+
 def check(p, H):
+    if p["skill"] in NEW_SKILLS:
+        sk = p["skill"]
+        if sk in ("laplace.step-ivp", "laplace.delta"):
+            return check_switched(p)
+        if sk == "laplace.systems":
+            return check_systems(p)
+        if sk == "laplace.transfer":
+            return check_transfer(p)
+        if sk == "laplace.t-multiply":
+            return check_tmul(p)
+        if sk == "pde.classify":
+            return check_classify(p)
+        if sk == "pde.dalembert":
+            return check_dalembert(p)
+        return check_rect(p)
     if p["skill"] not in SKILLS:
         return None
     sk, tmpl = p["skill"], p["template"]

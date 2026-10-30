@@ -32,11 +32,12 @@ const RESERVED = new Set(["x", "y", "e", "pi"]);
 export { FUNCS, RESERVED };
 
 // ── input normalisation ─────────────────────────────────────────────────────
-/** Unit-step spellings -> heaviside(...). u and H only when the argument starts with t
+/** Unit-step spellings -> heaviside(...): u(t-2), H(t-2), u_2(t), u_{2π}(t), u_\pi(t), Heaviside(t-2).
+ *  u and H only when the argument starts with t
  *  (and may follow a t: "3tu(t-2)"). */
 function unitStep(s: string): string {
   return s
-    .replace(/(?<![A-Za-su-z])[uH]\s*_\s*\{?\s*([0-9.]+|pi|π)\s*\}?\s*\(\s*t\s*\)/g, "heaviside(t-$1)")
+    .replace(/(?<![A-Za-su-z])[uH]\s*_\s*\{?\s*([0-9.]*\s*(?:\\?pi|π)|[0-9.]+)\s*\}?\s*\(\s*t\s*\)/g, (_m, a) => `heaviside(t-(${a}))`)
     .replace(/(?<![A-Za-z])(?:Heaviside|heaviside|step)\s*\(/g, "heaviside(")
     .replace(/(?<![A-Za-su-z])[uH]\s*\((?=\s*t\b)/g, "heaviside(");
 }
@@ -55,7 +56,8 @@ export function normalize(raw: string): string {
     .replace(/\\left|\\right/g, "")
     .replace(/\\(ln|sin|cos|tan|sec|exp|sqrt|arctan|pi)/g, "$1")
     .replace(/\\cdot/g, "*")
-    .replace(/\\frac\{([^{}]*)\}\{([^{}]*)\}/g, "($1)/($2)")
+    // wrapped: mathjs reads "(1)/(4)(x)" as 1/(4x), so \frac{1}{4}(x) must be ((1)/(4))(x)
+    .replace(/\\frac\{([^{}]*)\}\{([^{}]*)\}/g, "(($1)/($2))")
     .replace(/[{}]/g, (c) => (c === "{" ? "(" : ")"))
     .replace(/\[/g, "(")
     .replace(/\]/g, ")");

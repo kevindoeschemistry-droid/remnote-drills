@@ -130,8 +130,14 @@ function checkOde2(a: Ode2Answer, raw: string): CheckResult {
     const y0 = g(t), yp = g(t + h), ym = g(t - h);
     return { y: y0, d1: (yp - ym) / (2 * h), d2: (yp - 2 * y0 + ym) / (h * h) };
   };
+  // switched forcing: sample inside every piece, never on a switch (the forcing jumps there)
+  const sw = [...(a.switches ?? [])].sort((p, q) => p.at - q.at);
+  const ends = [0, ...sw.map((w) => w.at), (sw.length ? sw[sw.length - 1].at : 0) + 2.5];
+  const tsRes = sw.length
+    ? ends.slice(0, -1).flatMap((lo, i) => [0.06, 0.19, 0.31, 0.44, 0.56, 0.69, 0.81, 0.94].map((fr) => lo + fr * (ends[i + 1] - lo)))
+    : [0.3, 0.7, 1.1, 1.6, 2.2];
   const residualOk = (c: Scope) => {
-    for (const t of [0.3, 0.7, 1.1, 1.6, 2.2]) {
+    for (const t of tsRes) {
       const { y, d1, d2 } = at(t, c);
       if (![y, d1, d2].every(Number.isFinite)) return false;
       const ft = f(t);
@@ -146,9 +152,44 @@ function checkOde2(a: Ode2Answer, raw: string): CheckResult {
     if (consts.length) return { status: "has-constant", message: `Use the initial conditions to find ${consts.join(", ")}.` };
     if (!residualOk({})) return wrong(notIt);
     const [t0, y0, v0] = a.ic;
-    const { y, d1 } = at(t0, {});
-    if (!close(y, y0, 1e-6) || !close(d1, v0, 1e-5))
+    // initial values from the right (a switch-on at t0 would make a central difference straddle it)
+    const g = (tt: number) => mine.f({ [a.v]: tt });
+    const d = 1e-5;
+    const yR = g(t0), dR = (-3 * g(t0) + 4 * g(t0 + d) - g(t0 + 2 * d)) / (2 * d);
+    if (!close(yR, y0, 1e-6) || !close(dR, v0, 1e-4))
       return wrong(`Not quite — check y(${t0}) = ${y0} and y'(${t0}) = ${v0}.`);
+    // the answer's own unit steps must switch where the forcing does — or be invisible there
+    // (y, y', y'' all continuous), e.g. u(t - 3) where the forcing switches at π is wrong
+    if (sw.length) {
+      const extra = stepTimes(parts.length === 2 ? parts[1] : parts[0], a.v).filter((c) => c > 0 && !sw.some((w) => Math.abs(w.at - c) < 1e-6));
+      for (const c of extra) {
+        const e = 1e-3;
+        const L = [1, 2, 3].map((k) => g(c - k * e)), R = [1, 2, 3].map((k) => g(c + k * e));
+        if (![...L, ...R].every(Number.isFinite)) return wrong(notIt);
+        // one-sided quadratic extrapolations to t = c of y, y', y'' (the right side's slope flips sign)
+        const side = (u: number[]) => [3 * u[0] - 3 * u[1] + u[2], (5 * u[0] - 8 * u[1] + 3 * u[2]) / (2 * e), (u[0] - 2 * u[1] + u[2]) / (e * e)];
+        const [yl, dl, d2l] = side(L), [yr, dr, d2r] = side(R).map((x, i) => (i === 1 ? -x : x));
+        const sc = Math.max(1, ...[...L, ...R].map(Math.abs), Math.abs(dl), Math.abs(d2l));
+        if (Math.abs(yr - yl) > 1e-4 * sc || Math.abs(dr - dl) > 1e-2 * sc || Math.abs(d2r - d2l) > 0.2 * sc)
+          return wrong(`Not quite — your answer switches at t = ${+c.toFixed(4)}, but the forcing doesn't switch there.`);
+      }
+    }
+    // at each switch: y continuous, y' jumps by the kick (one-sided second-order differences)
+    for (const w of sw) {
+      const yl = g(w.at - d), yr = g(w.at + d);
+      const dl = (3 * g(w.at - d) - 4 * g(w.at - 2 * d) + g(w.at - 3 * d)) / (2 * d);
+      const dr = (-3 * g(w.at + d) + 4 * g(w.at + 2 * d) - g(w.at + 3 * d)) / (2 * d);
+      if (![yl, yr, dl, dr].every(Number.isFinite)) return wrong(notIt);
+      const scale = Math.max(1, Math.abs(yl), Math.abs(dl), Math.abs(dr));
+      if (Math.abs(yr - yl) > 1e-4 * scale)
+        return wrong(`Not quite — y must be continuous at t = ${+w.at.toFixed(4)} (a bounded force can't make it jump).`);
+      if (Math.abs(dr - dl - w.kick) > 1e-3 * scale)
+        return wrong(
+          w.kick
+            ? `Not quite — the impulse at t = ${+w.at.toFixed(4)} should make y' jump by ${+w.kick.toFixed(4)}.`
+            : `Not quite — y' must be continuous at t = ${+w.at.toFixed(4)} (check the switched terms).`
+        );
+    }
     return OK;
   }
   if (a.particular) {
@@ -174,6 +215,25 @@ function checkOde2(a: Ode2Answer, raw: string): CheckResult {
   if (!independent)
     return wrong("Your constants multiply the same solution — you need two independent ones (for a double root λ: e^{λx} and x·e^{λx}).");
   return OK;
+}
+
+/** times where the unit steps in an answer switch on: roots of each heaviside(...) argument (linear in v) */
+function stepTimes(body: string, v: string): number[] {
+  const out: number[] = [];
+  try {
+    math.parse(normalize(body)).traverse((nd: any) => {
+      if (!(nd.isFunctionNode && nd.fn?.name === "heaviside" && nd.args.length === 1)) return;
+      const arg = nd.args[0].compile();
+      const at = (t: number) => real(arg.evaluate({ [v]: t }));
+      const f0 = at(0), f1 = at(1);
+      if (!Number.isFinite(f0) || !Number.isFinite(f1) || f1 === f0) return;
+      const c = -f0 / (f1 - f0);
+      if (Math.abs(at(c)) < 1e-9 * Math.max(1, Math.abs(c))) out.push(c);
+    });
+  } catch {
+    /* unreadable answers are reported elsewhere */
+  }
+  return out;
 }
 
 // ── variable-coefficient / higher-order linear ODE  Σ coef_i(v) y^(n-i) = f ───
@@ -294,6 +354,7 @@ function checkSystem(a: TupleAns, inputs: string[]): CheckResult {
     comps.push(c);
   }
   const consts = [...new Set(comps.flatMap((c) => c.symbols))].filter((s) => s !== S.v);
+  const forcing = (S.g ?? []).map((e) => compile(e, false));
   const h = 1e-4;
   const residualOk = (c: Scope) => {
     for (const t of [0.15, 0.4, 0.7, 1.0, 1.35]) {
@@ -302,14 +363,15 @@ function checkSystem(a: TupleAns, inputs: string[]): CheckResult {
       if (![...y, ...d].every(Number.isFinite)) return false;
       for (let i = 0; i < k; i++) {
         const terms = S.A[i].map((aij, j) => aij * y[j]);
-        const res = d[i] - terms.reduce((s, x) => s + x, 0);
+        const gi = forcing[i] ? forcing[i]!.f({ [S.v]: t }) : 0;
+        const res = d[i] - terms.reduce((s, x) => s + x, 0) - gi;
         const scale = Math.max(Math.abs(d[i]), ...terms.map(Math.abs), ...y.map(Math.abs), 1e-3);
         if (Math.abs(res) > 2e-5 * scale) return false;
       }
     }
     return true;
   };
-  const notIt = "Not quite — that doesn't satisfy y' = Ay.";
+  const notIt = S.g ? "Not quite — that doesn't satisfy y' = Ay + g." : "Not quite — that doesn't satisfy y' = Ay.";
   if (S.ic) {
     if (consts.length) return { status: "has-constant", message: `Use the initial conditions to find ${consts.join(", ")}.` };
     if (!residualOk({})) return wrong(notIt);

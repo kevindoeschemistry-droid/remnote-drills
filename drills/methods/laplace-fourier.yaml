@@ -52,3 +52,44 @@ series.special-functions:
   - 'Euler–Cauchy $x^2y'''' + axy'' + by = 0$ looks similar but has no $x^2y$ term.'
   - 'Divide out a common factor before matching (e.g. $-1$, or multiply $xy'''' + y'' + \dots$ by $x$).'
   - 'Non-integer $\nu$: $J_\nu$, $J_{-\nu}$ independent. Integer $n$: $J_{-n} = (-1)^nJ_n$, so use $Y_n$.'
+
+laplace.transfer:
+  - 'Zero initial values: every $d/dt$ becomes a factor $s$. $ay'''' + by'' + cy = r$ gives $G(s) = Y/R = 1/(as^2 + bs + c)$.'
+  - 'Poles = roots of the denominator (after cancelling common factors with the numerator).'
+  - 'Stable: all poles with $\operatorname{Re} < 0$. Simple poles on the imaginary axis: marginal. Any $\operatorname{Re} > 0$, or a repeated imaginary pole: unstable.'
+
+laplace.step-ivp:
+  - 'Write the forcing with steps: on at $a$, off at $b$ is $K[u(t - a) - u(t - b)]$; $\mathcal{L}\{u(t - a)\} = e^{-as}/s$.'
+  - 'Keep each $e^{-as}$ as a label: invert $1/(s\,p(s))$ once (the step response $h$), then each term becomes $K\,h(t - a)u(t - a)$.'
+  - 'Check: before the first switch only the initial-condition part acts; $y$ and $y''$ are continuous at every switch.'
+  - 'Type steps as u(t-2), H(t-2), u_2(t) or heaviside(t-2); $\pi$ shifts as u(t-pi).'
+
+laplace.delta:
+  - '$\mathcal{L}\{\delta(t - a)\} = e^{-as}$. With zero initial state, $\delta(t)$ gives $Y = G(s)$: the impulse response is $g = \mathcal{L}^{-1}\{G\}$.'
+  - 'Response to $K\delta(t - a)$: $K\,g(t - a)u(t - a)$.'
+  - 'The impulse makes $y''$ jump by $K/a$ ($a$ the coefficient of $y''''$); $y$ itself stays continuous.'
+
+laplace.t-multiply:
+  - '$\mathcal{L}\{tf(t)\} = -F''(s)$: differentiate the transform and flip the sign.'
+  - 'Inverting $\ln$ or $\arctan$: differentiate $F$ to get a rational function, invert that to get $tf(t)$, then divide by $t$.'
+  - '$\mathcal{L}\{t\sin\omega t\} = \frac{2\omega s}{(s^2 + \omega^2)^2}$, $\mathcal{L}\{t\cos\omega t\} = \frac{s^2 - \omega^2}{(s^2 + \omega^2)^2}$.'
+
+laplace.systems:
+  - 'Transform each equation: $sY_j - y_j(0)$ replaces $y_j''$; constants $k$ become $k/s$.'
+  - 'Solve the $2\times2$ algebraic system (Cramer or elimination); its determinant is the characteristic polynomial of $A$.'
+  - 'Partial fractions on each $Y_j$, then invert. Check both initial values.'
+
+pde.classify:
+  - '$Au_{xx} + 2Bu_{xy} + Cu_{yy} = F$: $AC - B^2 > 0$ elliptic, $= 0$ parabolic, $< 0$ hyperbolic. Halve the $u_{xy}$ coefficient to get $B$.'
+  - 'Heat is parabolic, wave hyperbolic, Laplace elliptic. Variable coefficients: the type can change from region to region.'
+  - 'Verifying a solution: compute the needed partials and substitute; match coefficients of the same function.'
+
+pde.dalembert:
+  - '$u = \tfrac12[f(x + ct) + f(x - ct)] + \frac{1}{2c}\int_{x - ct}^{x + ct} g(s)\,ds$.'
+  - 'Displacement splits into two half-height waves moving left and right; the velocity enters through its antiderivative.'
+  - 'Check $u(x, 0) = f$ and $u_t(x, 0) = g$.'
+
+pde.laplace-rect:
+  - 'One non-zero side at a time. The two zero sides perpendicular to it give $\sin\frac{n\pi x}{a}$; the opposite zero side picks $\sinh$ that vanishes there.'
+  - 'Data side $y = b$: $u = \sum A_n^*\sin\frac{n\pi x}{a}\sinh\frac{n\pi y}{a}$, $A_n^* = \frac{2}{a\sinh(n\pi b/a)}\int_0^a f\sin\frac{n\pi x}{a}\,dx$.'
+  - 'If the data are already a sine sum, read the coefficients off and divide by $\sinh$ at the data side.'

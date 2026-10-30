@@ -2,7 +2,7 @@
 
 Generated from `drills/frameworks/engineering-math.yaml` by `scripts/framework.mjs`. ● drilled · ◐ partly · ○ no drills yet.
 
-**118 learning objectives** in 12 units (114 core): 85 drilled, 4 partly, 29 with no drills. Core: 85 / 114 drilled.
+**118 learning objectives** in 12 units (114 core): 93 drilled, 4 partly, 21 with no drills. Core: 93 / 114 drilled.
 
 ## Big ideas
 
@@ -31,10 +31,10 @@ Generated from `drills/frameworks/engineering-math.yaml` by `scripts/framework.m
 | 4 · Higher-order linear ODEs | core | 5% | 4 | 3 | 1 | 0 |
 | 5 · Systems of ODEs, phase plane and stability | core | 15–20% | 13 | 8 | 1 | 4 |
 | 6 · Series solutions and special functions | core | 15% | 11 | 9 | 0 | 2 |
-| 7 · Laplace transforms | core | 15% | 14 | 9 | 0 | 5 |
+| 7 · Laplace transforms | core | 15% | 14 | 14 | 0 | 0 |
 | 8 · Linear algebra for ODEs | core | as needed | 7 | 6 | 0 | 1 |
 | 9 · Fourier series and Sturm–Liouville boundary-value problems | core | 10–15% | 11 | 8 | 0 | 3 |
-| 10 · Partial differential equations | core | — | 9 | 4 | 1 | 4 |
+| 10 · Partial differential equations | core | — | 9 | 7 | 1 | 1 |
 | 11 · Fourier integrals and transforms | extension | — | 2 | 0 | 0 | 2 |
 | 12 · Vector calculus for transport | extension | — | 2 | 0 | 1 | 1 |
 
@@ -480,9 +480,9 @@ Book: kreyszig-10e §6.2
   - EK: L{y′} = sY − y(0); L{y″} = s²Y − sy(0) − y′(0); initial conditions enter automatically.
   - Needs: EM-7.2.A
   - P3 · P4 · drills: livp-real, livp-complex, livp-double, livp-exp, livp-const
-- ○ **EM-7.3.B** Identify the transfer function of a linear system and relate its poles to stability and damping.
+- ● **EM-7.3.B** Identify the transfer function of a linear system and relate its poles to stability and damping.
   - EK: Q(s) = Y/R with zero ICs = 1/(as² + bs + c); poles in the left half-plane ⇔ decay.
-  - P6
+  - P6 · drills: transfer-g, transfer-poles, transfer-stable
 
 ### 7.4 Unit step and t-shifting
 
@@ -494,18 +494,18 @@ Book: kreyszig-10e §6.3
 - ● **EM-7.4.B** Invert a transform containing e^(−as).
   - EK: e^(−as)F(s) ↦ f(t − a)u(t − a).
   - P3 · drills: shift-t-inverse
-- ○ **EM-7.4.C** Solve an IVP with switched or piecewise forcing.
+- ● **EM-7.4.C** Solve an IVP with switched or piecewise forcing.
   - EK: Transform the step-written forcing; the solution is piecewise with continuous y and y′.
   - Needs: EM-7.3.A, EM-7.4.A
-  - P1 · P3
+  - P1 · P3 · drills: step-ivp-on, step-ivp-pulse
 
 ### 7.5 Impulses and the Dirac delta
 
 Book: kreyszig-10e §6.4
 
-- ○ **EM-7.5.A** Model a sudden impulse with δ(t − a) and solve the resulting IVP, including the impulse response.
+- ● **EM-7.5.A** Model a sudden impulse with δ(t − a) and solve the resulting IVP, including the impulse response.
   - EK: L{δ(t − a)} = e^(−as); impulse response = L⁻¹{transfer function}.
-  - P1 · P3
+  - P1 · P3 · drills: delta-ivp, delta-response
 
 ### 7.6 Convolution and integral equations
 
@@ -526,13 +526,13 @@ Book: kreyszig-10e §6.5
 
 Book: kreyszig-10e §6.6, §6.7
 
-- ○ **EM-7.7.A** Use L{tf(t)} = −F′(s) to transform or invert functions and solve ODEs with linear coefficients.
+- ● **EM-7.7.A** Use L{tf(t)} = −F′(s) to transform or invert functions and solve ODEs with linear coefficients.
   - EK: Differentiation in s ↔ multiplication by −t; integration in s ↔ division by t.
-  - P3
-- ○ **EM-7.7.B** Solve a linear system of ODEs by Laplace transform.
+  - P3 · drills: tmul-forward, tmul-inverse
+- ● **EM-7.7.B** Solve a linear system of ODEs by Laplace transform.
   - EK: Transform each equation, solve the algebraic system (Cramer), invert each component.
   - Needs: EM-7.3.A
-  - P3
+  - P3 · drills: lsys-ivp, lsys-forced
 
 ## Unit 8 · Linear algebra for ODEs
 
@@ -652,9 +652,9 @@ Big ideas: EIG, TRANS, MODEL
 
 Book: kreyszig-10e §12.1
 
-- ○ **EM-10.1.A** Classify a second-order linear PDE as elliptic, parabolic or hyperbolic and verify a solution.
+- ● **EM-10.1.A** Classify a second-order linear PDE as elliptic, parabolic or hyperbolic and verify a solution.
   - EK: Au_xx + 2Bu_xy + Cu_yy: AC − B² > 0 elliptic, = 0 parabolic, < 0 hyperbolic.
-  - P2
+  - P2 · drills: pde-classify, pde-verify
 
 ### 10.2 Heat equation by separation of variables
 
@@ -681,17 +681,17 @@ Book: kreyszig-10e §12.2, §12.3, §12.4
   - EK: u = Σ(B_n cos λ_n t + B_n* sin λ_n t) sin(nπx/L), λ_n = cnπ/L.
   - Needs: EM-9.1.C
   - P3 · P4 · drills: pde-wave
-- ○ **EM-10.3.B** Write d'Alembert's solution for an infinite string from initial displacement and velocity.
+- ● **EM-10.3.B** Write d'Alembert's solution for an infinite string from initial displacement and velocity.
   - EK: u = ½[f(x + ct) + f(x − ct)] + (1/2c)∫ g.
-  - P3
+  - P3 · drills: dalembert-displacement, dalembert-velocity
 
 ### 10.4 Laplace's equation and other geometries
 
 Book: kreyszig-10e §12.6, §12.10, §12.11
 
-- ○ **EM-10.4.A** Solve the steady 2-D Dirichlet problem on a rectangle by separation.
+- ● **EM-10.4.A** Solve the steady 2-D Dirichlet problem on a rectangle by separation.
   - EK: One direction gives sines, the other sinh; one non-zero side at a time, then superpose.
-  - P3
+  - P3 · drills: laplace-rect-modes, laplace-rect-coef
 - ◐ **EM-10.4.B** Separate a PDE in polar, cylindrical or spherical coordinates and identify the Bessel or Legendre equation that appears.
   - EK: Radial part in cylinders ⇒ Bessel; polar angle in spheres ⇒ Legendre in cos θ.
   - Needs: EM-6.4.A

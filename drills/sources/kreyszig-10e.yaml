@@ -73,6 +73,12 @@ chapters:
     title: "Laplace Transforms"
     wiki: textbooks/kreyszig-advanced-engineering-mathematics/ch06
     skills: [laplace.table, laplace.inverse, laplace.shifting, laplace.ivp, laplace.convolution]
+    sections:
+      - { ref: "6.2", title: "Transforms of Derivatives and Integrals. ODEs", skills: [laplace.transfer] }
+      - { ref: "6.3", title: "Unit Step Function (Heaviside Function). Second Shifting Theorem (t-Shifting)", skills: [laplace.step-ivp] }
+      - { ref: "6.4", title: "Short Impulses. Dirac's Delta Function. Partial Fractions", skills: [laplace.delta] }
+      - { ref: "6.6", title: "Differentiation and Integration of Transforms. ODEs with Variable Coefficients", skills: [laplace.t-multiply] }
+      - { ref: "6.7", title: "Systems of ODEs", skills: [laplace.systems] }
   - n: 11
     title: "Fourier Analysis"
     wiki: textbooks/kreyszig-advanced-engineering-mathematics/ch11
@@ -85,3 +91,7 @@ chapters:
     title: "Partial Differential Equations (PDEs)"
     wiki: textbooks/kreyszig-advanced-engineering-mathematics/ch12
     skills: [pde.separation]
+    sections:
+      - { ref: "12.1", title: "Basic Concepts of PDEs", skills: [pde.classify] }
+      - { ref: "12.4", title: "D'Alembert's Solution of the Wave Equation. Characteristics", skills: [pde.dalembert] }
+      - { ref: "12.6", title: "Heat Equation: Solution by Fourier Series. Steady Two-Dimensional Heat Problems. Dirichlet Problem", skills: [pde.laplace-rect] }

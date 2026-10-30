@@ -14,6 +14,7 @@ import { HEAT2_TEMPLATES } from "./gen-heat2";
 import { LINALG_TEMPLATES } from "./gen-linalg";
 import { ODE2_SYS_TEMPLATES } from "./gen-ode2-sys";
 import { LAPLACE_FOURIER_TEMPLATES } from "./gen-laplace-fourier";
+import { LAPLACE2_TEMPLATES } from "./gen-laplace2";
 import { HEAT3_TEMPLATES } from "./gen-heat3";
 import { THERMO_TEMPLATES } from "./gen-thermo";
 import { STAT_TEMPLATES } from "./gen-stat";
@@ -33,6 +34,7 @@ export const TEMPLATES: Record<string, (r: Rng) => Draft> = {
   ...LINALG_TEMPLATES,
   ...ODE2_SYS_TEMPLATES,
   ...LAPLACE_FOURIER_TEMPLATES,
+  ...LAPLACE2_TEMPLATES,
   ...HEAT3_TEMPLATES,
   ...THERMO_TEMPLATES,
   ...STAT_TEMPLATES,

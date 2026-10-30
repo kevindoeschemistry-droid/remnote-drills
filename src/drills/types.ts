@@ -20,7 +20,11 @@ export type Answer =
   | { kind: "ode2"; a: number; b: number; c: number; v: string; rhs?: string; particular?: boolean; ic?: [number, number, number, ...number[]]; ref: string;
       /** variable coefficients and/or higher order: coef[i] multiplies y^(n-i), highest derivative first
        *  (mathjs in v; n = coef.length - 1). When present a, b, c are ignored and ic = [t0, y, y', …, y^(n-1)]. */
-      coef?: string[] }
+      coef?: string[];
+      /** switched / impulsive forcing (unit steps, deltas): the times where the forcing jumps, with the
+       *  jump in y' there (0 for a step, K/a for K·δ(t − at)). The residual is then checked on each
+       *  piece, y must be continuous at every switch and y' must jump by `kick`. */
+      switches?: { at: number; kick: number }[] }
   /** an expression in `vars` (default x); optionally only up to a constant factor */
   | { kind: "expression"; ref: string; vars?: string[]; upToConstant?: boolean; label?: string; tol?: number;
       /** tol is a fraction of the reference value (engineering numbers: 0.01 = within 1%) */
@@ -45,7 +49,9 @@ export type Answer =
       proportional?: boolean;
       /** fields are the components of a solution of y' = A y in variable v: with ic = [t0, y1(t0), …]
        *  the IVP solution, otherwise the general solution (n independent constants) */
-      system?: { A: number[][]; v: string; ic?: number[] };
+      system?: { A: number[][]; v: string; ic?: number[];
+        /** forcing: y' = A y + g(v), one mathjs expression per component */
+        g?: string[] };
       /** sample scopes to check at, instead of the default grid (e.g. integer n for Fourier coefficients) */
       points?: Record<string, number>[];
     };

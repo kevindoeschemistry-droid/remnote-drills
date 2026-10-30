@@ -350,19 +350,19 @@ units:
         book: { kreyszig-10e: ["6.2"] }
         los:
           - { id: A, do: "Solve a constant-coefficient IVP by transforming, solving the subsidiary equation and inverting.", ek: ["L{y′} = sY − y(0); L{y″} = s²Y − sy(0) − y′(0); initial conditions enter automatically."], p: [P3, P4], drills: [livp-real, livp-complex, livp-double, livp-exp, livp-const], needs: [EM-7.2.A] }
-          - { id: B, do: "Identify the transfer function of a linear system and relate its poles to stability and damping.", ek: ["Q(s) = Y/R with zero ICs = 1/(as² + bs + c); poles in the left half-plane ⇔ decay."], p: [P6], drills: [] }
+          - { id: B, do: "Identify the transfer function of a linear system and relate its poles to stability and damping.", ek: ["Q(s) = Y/R with zero ICs = 1/(as² + bs + c); poles in the left half-plane ⇔ decay."], p: [P6], drills: [transfer-g, transfer-poles, transfer-stable] }
       - n: 4
         title: Unit step and t-shifting
         book: { kreyszig-10e: ["6.3"] }
         los:
           - { id: A, do: "Write a piecewise function with unit step functions and transform it.", ek: ["f = f₁ + (f₂ − f₁)u(t − a) + …; L{f(t − a)u(t − a)} = e^(−as)F(s)."], p: [P1, P3], drills: [shift-t-forward, shift-piecewise] }
           - { id: B, do: "Invert a transform containing e^(−as).", ek: ["e^(−as)F(s) ↦ f(t − a)u(t − a)."], p: [P3], drills: [shift-t-inverse] }
-          - { id: C, do: "Solve an IVP with switched or piecewise forcing.", ek: ["Transform the step-written forcing; the solution is piecewise with continuous y and y′."], p: [P1, P3], drills: [], needs: [EM-7.3.A, EM-7.4.A] }
+          - { id: C, do: "Solve an IVP with switched or piecewise forcing.", ek: ["Transform the step-written forcing; the solution is piecewise with continuous y and y′."], p: [P1, P3], drills: [step-ivp-on, step-ivp-pulse], needs: [EM-7.3.A, EM-7.4.A] }
       - n: 5
         title: Impulses and the Dirac delta
         book: { kreyszig-10e: ["6.4"] }
         los:
-          - { id: A, do: "Model a sudden impulse with δ(t − a) and solve the resulting IVP, including the impulse response.", ek: ["L{δ(t − a)} = e^(−as); impulse response = L⁻¹{transfer function}."], p: [P1, P3], drills: [] }
+          - { id: A, do: "Model a sudden impulse with δ(t − a) and solve the resulting IVP, including the impulse response.", ek: ["L{δ(t − a)} = e^(−as); impulse response = L⁻¹{transfer function}."], p: [P1, P3], drills: [delta-ivp, delta-response] }
       - n: 6
         title: Convolution and integral equations
         book: { kreyszig-10e: ["6.5"] }
@@ -374,8 +374,8 @@ units:
         title: Transform derivatives and systems
         book: { kreyszig-10e: ["6.6", "6.7"] }
         los:
-          - { id: A, do: "Use L{tf(t)} = −F′(s) to transform or invert functions and solve ODEs with linear coefficients.", ek: ["Differentiation in s ↔ multiplication by −t; integration in s ↔ division by t."], p: [P3], drills: [] }
-          - { id: B, do: "Solve a linear system of ODEs by Laplace transform.", ek: ["Transform each equation, solve the algebraic system (Cramer), invert each component."], p: [P3], drills: [], needs: [EM-7.3.A] }
+          - { id: A, do: "Use L{tf(t)} = −F′(s) to transform or invert functions and solve ODEs with linear coefficients.", ek: ["Differentiation in s ↔ multiplication by −t; integration in s ↔ division by t."], p: [P3], drills: [tmul-forward, tmul-inverse] }
+          - { id: B, do: "Solve a linear system of ODEs by Laplace transform.", ek: ["Transform each equation, solve the algebraic system (Cramer), invert each component."], p: [P3], drills: [lsys-ivp, lsys-forced], needs: [EM-7.3.A] }
 
   # ── 8 ────────────────────────────────────────────────────────────────────
   - id: linear-algebra
@@ -456,7 +456,7 @@ units:
         title: Basic concepts and classification
         book: { kreyszig-10e: ["12.1"] }
         los:
-          - { id: A, do: "Classify a second-order linear PDE as elliptic, parabolic or hyperbolic and verify a solution.", ek: ["Au_xx + 2Bu_xy + Cu_yy: AC − B² > 0 elliptic, = 0 parabolic, < 0 hyperbolic."], p: [P2], drills: [] }
+          - { id: A, do: "Classify a second-order linear PDE as elliptic, parabolic or hyperbolic and verify a solution.", ek: ["Au_xx + 2Bu_xy + Cu_yy: AC − B² > 0 elliptic, = 0 parabolic, < 0 hyperbolic."], p: [P2], drills: [pde-classify, pde-verify] }
       - n: 2
         title: Heat equation by separation of variables
         book: { kreyszig-10e: ["12.5", "12.6"] }
@@ -469,12 +469,12 @@ units:
         book: { kreyszig-10e: ["12.2", "12.3", "12.4"] }
         los:
           - { id: A, do: "Solve the vibrating string by separation of variables and Fourier series.", ek: ["u = Σ(B_n cos λ_n t + B_n* sin λ_n t) sin(nπx/L), λ_n = cnπ/L."], p: [P3, P4], drills: [pde-wave], needs: [EM-9.1.C] }
-          - { id: B, do: "Write d'Alembert's solution for an infinite string from initial displacement and velocity.", ek: ["u = ½[f(x + ct) + f(x − ct)] + (1/2c)∫ g."], p: [P3], drills: [] }
+          - { id: B, do: "Write d'Alembert's solution for an infinite string from initial displacement and velocity.", ek: ["u = ½[f(x + ct) + f(x − ct)] + (1/2c)∫ g."], p: [P3], drills: [dalembert-displacement, dalembert-velocity] }
       - n: 4
         title: Laplace's equation and other geometries
         book: { kreyszig-10e: ["12.6", "12.10", "12.11"] }
         los:
-          - { id: A, do: "Solve the steady 2-D Dirichlet problem on a rectangle by separation.", ek: ["One direction gives sines, the other sinh; one non-zero side at a time, then superpose."], p: [P3], drills: [] }
+          - { id: A, do: "Solve the steady 2-D Dirichlet problem on a rectangle by separation.", ek: ["One direction gives sines, the other sinh; one non-zero side at a time, then superpose."], p: [P3], drills: [laplace-rect-modes, laplace-rect-coef] }
           - { id: B, do: "Separate a PDE in polar, cylindrical or spherical coordinates and identify the Bessel or Legendre equation that appears.", ek: ["Radial part in cylinders ⇒ Bessel; polar angle in spheres ⇒ Legendre in cos θ."], p: [P2], drills: ["~spec-identify"], needs: [EM-6.4.A] }
       - n: 5
         title: Transform methods for PDEs

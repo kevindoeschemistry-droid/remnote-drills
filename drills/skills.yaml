@@ -221,6 +221,11 @@ skills:
   - { id: laplace.shifting, domain: laplace, title: "s- and t-shifting, Heaviside", aliases: [krey-ch06-shifting] }
   - { id: laplace.ivp, domain: laplace, title: "Solving IVPs by Laplace", aliases: [krey-ch06-ivp], prereqs: [laplace.table, laplace.inverse] }
   - { id: laplace.convolution, domain: laplace, title: "Convolution", aliases: [krey-ch06-convolution] }
+  - { id: laplace.transfer, domain: laplace, title: "Transfer function, poles & stability", prereqs: [laplace.ivp] }
+  - { id: laplace.step-ivp, domain: laplace, title: "IVPs with switched (unit-step) forcing", prereqs: [laplace.ivp, laplace.shifting] }
+  - { id: laplace.delta, domain: laplace, title: "Impulses: δ(t − a) and the impulse response", prereqs: [laplace.ivp, laplace.shifting] }
+  - { id: laplace.t-multiply, domain: laplace, title: "Differentiation of transforms: L{tf} = −F′(s)", prereqs: [laplace.table] }
+  - { id: laplace.systems, domain: laplace, title: "Systems of ODEs by Laplace", prereqs: [laplace.inverse] }
 
   # ── boundary-value problems ─────────────────────────────────────────────
   - id: bvp.sl-eigenvalues
@@ -269,6 +274,9 @@ skills:
 
   - { id: bvp.fourier-series, domain: bvp, title: "Fourier series coefficients" }
   - { id: pde.separation, domain: pde, title: "Separation of variables (heat & wave equations)", prereqs: [bvp.sl-eigenfunctions, bvp.fourier-series] }
+  - { id: pde.classify, domain: pde, title: "Classify a PDE; check a solution", kind: classify }
+  - { id: pde.dalembert, domain: pde, title: "d'Alembert: the infinite string" }
+  - { id: pde.laplace-rect, domain: pde, title: "Laplace's equation on a rectangle", prereqs: [pde.separation] }
 
   # ── heat transfer ───────────────────────────────────────────────────────
   - { id: ht.rate-equations, domain: ht, title: "Rate equations: conduction, convection, radiation", status: live, levels: { 1: [ht-cond, ht-conv, ht-rad] } }

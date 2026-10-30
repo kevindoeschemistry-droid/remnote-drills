@@ -1740,7 +1740,11 @@
        "p": [
         "P6"
        ],
-       "drills": []
+       "drills": [
+        "transfer-g",
+        "transfer-poles",
+        "transfer-stable"
+       ]
       }
      ]
     },
@@ -1791,7 +1795,10 @@
         "P1",
         "P3"
        ],
-       "drills": [],
+       "drills": [
+        "step-ivp-on",
+        "step-ivp-pulse"
+       ],
        "needs": [
         "EM-7.3.A",
         "EM-7.4.A"
@@ -1818,7 +1825,10 @@
         "P1",
         "P3"
        ],
-       "drills": []
+       "drills": [
+        "delta-ivp",
+        "delta-response"
+       ]
       }
      ]
     },
@@ -1895,7 +1905,10 @@
        "p": [
         "P3"
        ],
-       "drills": []
+       "drills": [
+        "tmul-forward",
+        "tmul-inverse"
+       ]
       },
       {
        "id": "B",
@@ -1906,7 +1919,10 @@
        "p": [
         "P3"
        ],
-       "drills": [],
+       "drills": [
+        "lsys-ivp",
+        "lsys-forced"
+       ],
        "needs": [
         "EM-7.3.A"
        ]
@@ -2327,7 +2343,10 @@
        "p": [
         "P2"
        ],
-       "drills": []
+       "drills": [
+        "pde-classify",
+        "pde-verify"
+       ]
       }
      ]
     },
@@ -2433,7 +2452,10 @@
        "p": [
         "P3"
        ],
-       "drills": []
+       "drills": [
+        "dalembert-displacement",
+        "dalembert-velocity"
+       ]
       }
      ]
     },
@@ -2457,7 +2479,10 @@
        "p": [
         "P3"
        ],
-       "drills": []
+       "drills": [
+        "laplace-rect-modes",
+        "laplace-rect-coef"
+       ]
       },
       {
        "id": "B",
@@ -3453,8 +3478,12 @@
    "code": "EM-7.3.B",
    "unit": 7,
    "topic": 3,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "transfer-g",
+    "transfer-poles",
+    "transfer-stable"
+   ],
    "partial": []
   },
   {
@@ -3482,16 +3511,22 @@
    "code": "EM-7.4.C",
    "unit": 7,
    "topic": 4,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "step-ivp-on",
+    "step-ivp-pulse"
+   ],
    "partial": []
   },
   {
    "code": "EM-7.5.A",
    "unit": 7,
    "topic": 5,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "delta-ivp",
+    "delta-response"
+   ],
    "partial": []
   },
   {
@@ -3529,16 +3564,22 @@
    "code": "EM-7.7.A",
    "unit": 7,
    "topic": 7,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "tmul-forward",
+    "tmul-inverse"
+   ],
    "partial": []
   },
   {
    "code": "EM-7.7.B",
    "unit": 7,
    "topic": 7,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "lsys-ivp",
+    "lsys-forced"
+   ],
    "partial": []
   },
   {
@@ -3722,8 +3763,11 @@
    "code": "EM-10.1.A",
    "unit": 10,
    "topic": 1,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "pde-classify",
+    "pde-verify"
+   ],
    "partial": []
   },
   {
@@ -3771,16 +3815,22 @@
    "code": "EM-10.3.B",
    "unit": 10,
    "topic": 3,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "dalembert-displacement",
+    "dalembert-velocity"
+   ],
    "partial": []
   },
   {
    "code": "EM-10.4.A",
    "unit": 10,
    "topic": 4,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "laplace-rect-modes",
+    "laplace-rect-coef"
+   ],
    "partial": []
   },
   {

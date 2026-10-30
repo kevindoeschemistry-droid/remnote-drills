@@ -5,6 +5,14 @@ laplace.inverse: { short: "Inverse transforms", levels: { 1: [ilt-distinct, ilt-
 laplace.shifting: { short: "Shifting & unit step", levels: { 1: [shift-s-forward, shift-s-inverse, shift-t-forward, shift-t-inverse, shift-piecewise] } }
 laplace.ivp: { short: "IVPs by Laplace", levels: { 1: [livp-real, livp-complex, livp-double, livp-exp, livp-const] } }
 laplace.convolution: { short: "Convolution", levels: { 1: [conv-compute, conv-inverse, conv-transform, conv-volterra] } }
+laplace.transfer: { short: "Transfer function", levels: { 1: [transfer-g, transfer-poles, transfer-stable] } }
+laplace.step-ivp: { short: "Unit-step IVPs", levels: { 1: [step-ivp-on, step-ivp-pulse] } }
+laplace.delta: { short: "Delta & impulse response", levels: { 1: [delta-ivp, delta-response] } }
+laplace.t-multiply: { short: "L{tf} = −F′", levels: { 1: [tmul-forward, tmul-inverse] } }
+laplace.systems: { short: "Systems by Laplace", levels: { 1: [lsys-ivp, lsys-forced] } }
 bvp.fourier-series: { short: "Fourier coefficients", levels: { 1: [fs-step, fs-sawtooth, fs-parabola, fs-abs, fs-period-2l, fs-half-range] } }
 pde.separation: { short: "Separation of variables", levels: { 1: [pde-heat, pde-neumann, pde-steady, pde-wave, pde-rates] } }
+pde.classify: { short: "Classify a PDE", levels: { 1: [pde-classify, pde-verify] } }
+pde.dalembert: { short: "d'Alembert", levels: { 1: [dalembert-displacement, dalembert-velocity] } }
+pde.laplace-rect: { short: "Laplace on a rectangle", levels: { 1: [laplace-rect-modes, laplace-rect-coef] } }
 series.special-functions: { short: "Legendre & Bessel", kind: classify, levels: { 1: [spec-identify, spec-legendre-n, spec-bessel-order, spec-bessel-scaled, spec-bessel-independent] } }
