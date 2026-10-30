@@ -1,0 +1,473 @@
+# Dental Admission Test — curriculum framework (draft 1, for Kevin's markup)
+#
+# Built like an AP Course and Exam Description: Big Ideas run through the test,
+# Units → Topics → Learning Objectives (one testable action each, verb first), with the
+# Essential Knowledge an LO rests on and the Practices it exercises. Prep books, courses and
+# question banks are crosswalks onto this map, never the backbone.
+#
+# Standard it's built from (all opened 2026-10-29):
+#   guide   ADA, "Dental Admission Test (DAT) 2026 Candidate Guide", footer "Updated: 08/04/2026"
+#           https://www.ada.org/-/media/project/ada-organization/ada/ada-org/files/education/dat_candidate_guide.pdf?rev=bc56a4f5f01f4d7f867d398bf35369a8&hash=AA883FDCDAEDDBC8E2A5139B7DD93770
+#           Test content outline, item counts and schedule: Survey of the Natural Sciences
+#           100 items / 90 min (Biology 40, General Chemistry 30, Organic Chemistry 30) ·
+#           Perceptual Ability 90 items / 60 min · [30-min optional break] · Reading
+#           Comprehension 50 items / 60 min · Quantitative Reasoning 40 items / 45 min.
+#           Total appointment 5 h 15 min incl. optional 15-min tutorial and 15-min survey.
+#   ochem   ADA, "DAT: NEW Organic Chemistry Examination Specifications", updated 08/13/2025
+#           https://www.ada.org/-/media/project/ada-organization/ada/ada-org/files/education/new_organic_chemistry_examinationspecifications.pdf?rev=64d2a074fff54123b00a1c3d43989953&hash=78EFA49C8BE588704C15F0741F911621
+#           Unit 3 follows this (new) outline: Mechanisms · Chemical Synthesis · Acid-Base ·
+#           Chemical & Physical Properties · Structural Evaluation.
+#   updates ADA, "Recent and Forthcoming Updates to Examinations and Tests", updated 10/22/2026
+#           (DAT section 9/23/2026): Organic Chemistry spec marked "Implemented" April 2026;
+#           Biology spec updated Jan 2022; 200–600 score scale from 1 Mar 2025.
+#           https://www.ada.org/-/media/project/ada-organization/ada/ada-org/files/education/updates_licensureexaminationsandadmissiontests.pdf?rev=50321e9192d44054bd0c30043fe12bef&hash=6B7A3D9BA8F29AFBBCE9A760CF8E47EE
+#   pat     ADA, "Perceptual Ability Test Section" instructions, © 2025 (rules for each part)
+#           https://www.ada.org/-/media/project/ada-organization/ada/ada-org/files/education/perceptual_ability_test_section_instructions.pdf?rev=c2ae3118f7004973907c6bdbc1588a4b&hash=ABA2425E80AA7F13ACE14B5B42A71FBE
+#   page    https://www.ada.org/education/testing/exams/dental-admission-test-dat (links, section list)
+#
+# Fields
+#   units[].scope       core (everything here is on the test)
+#   units[].ideas       Big Ideas the unit develops
+#   units[].weight_est  official item count and time from the guide
+#   topics[].outline    the official subtopic heading's listed content, as the guide gives it
+#                       (Reading Comprehension has no official subtopics: its topics are ours)
+#   los[].do            the objective; los[].ek essential knowledge; los[].p practices
+#   los[].needs         prerequisite LOs inside this framework
+#   los[].drills        templates that drill it — none exist yet for the DAT
+id: dat
+title: Dental Admission Test
+code: DAT
+draft: 1
+domains: []
+
+big_ideas:
+  - id: STRUCT
+    title: Structure determines function and properties
+    text: From a protein fold to a molecule's polarity to an organ's tissue layers, what a thing does follows from how it is built. Most science items are this inference run forward or backward.
+  - id: ENERGY
+    title: Energy and equilibrium decide what happens
+    text: Whether a reaction, a transport step or a phase change goes, and how far, is set by free energy and equilibrium; how fast is a separate question set by the barrier.
+  - id: INFO
+    title: Information is stored, copied, expressed and selected
+    text: DNA carries heritable information through replication, expression and regulation; mutation and recombination vary it, and selection on populations shapes it over time.
+  - id: SYS
+    title: Living systems regulate themselves
+    text: Organ systems and ecosystems hold steady states through feedback loops and flows of matter and energy; perturb one part and predict the compensation.
+  - id: SPACE
+    title: 3-D shape can be read from 2-D projections
+    text: Silhouettes, orthographic views, folds and stacks all encode a solid; perceptual items, stereochemistry and conformations reward the same mental rotation.
+  - id: DATA
+    title: Answers come from the evidence given
+    text: Passages, tables, graphs and lab data contain what an item needs; read them precisely, compute only what is asked, and reject choices the evidence doesn't support.
+
+practices:
+  - id: P1
+    title: Recall cold
+    text: Produce a fact, name, structure, trend or reagent instantly from memory — the Survey averages 54 s per item and leaves no time to derive basics.
+  - id: P2
+    title: Apply to a new case
+    text: Use a principle on an unfamiliar organism, molecule, reaction or scenario, predicting what changes when a variable changes.
+  - id: P3
+    title: Compute without a calculator
+    text: Do Survey arithmetic by hand — scientific notation, logs to one decimal, ratios, estimation to pick between spread-out choices.
+  - id: P4
+    title: Compute with the on-screen calculator
+    text: In Quantitative Reasoning, set up first, then use the basic on-screen calculator only where it saves time; keep units and order of operations straight.
+  - id: P5
+    title: Read a representation
+    text: Interpret structures, curved arrows, spectra, pedigrees, graphs, tables and diagrams accurately, including what is drawn as hidden or implied.
+  - id: P6
+    title: Eliminate distractors
+    text: Strike choices that are true-but-irrelevant, reversed, too extreme or off by a predictable error; bet on the survivor when unsure.
+  - id: P7
+    title: Visualize in three dimensions
+    text: Rotate, project, fold and unfold objects mentally and check the result against the rules of the item type.
+  - id: P8
+    title: Manage time
+    text: Pace to the section budget (Survey 54 s, PAT 40 s, RC 72 s, QR 67 s per item), mark and skip, and never leave an item blank.
+
+units:
+  # ── 1 ────────────────────────────────────────────────────────────────────
+  - id: bio
+    n: 1
+    title: Biology
+    scope: core
+    ideas: [STRUCT, ENERGY, INFO, SYS]
+    weight_est: "Biology: 40 of 100 Survey of the Natural Sciences items (Survey 90 min total)"
+    topics:
+      - n: 1
+        title: Cell and Molecular Biology
+        outline: "Metabolism (photosynthesis, enzymology) · cellular processes (membrane transport, signal transduction) · thermodynamics · mitosis/meiosis · cell structure and function · experimental cell biology · biomolecules · integrated relationships"
+        los:
+          - { id: A, do: "Classify a biomolecule as carbohydrate, lipid, protein or nucleic acid from its monomer and linking bond.", ek: ["Glycosidic, ester, peptide and phosphodiester bonds; all formed by dehydration, broken by hydrolysis."], p: [P1, P5], drills: [] }
+          - { id: B, do: "Predict how an inhibitor type changes Km and Vmax of an enzyme.", ek: ["Competitive: Km up, Vmax same; noncompetitive: Vmax down, Km same; uncompetitive: both down."], p: [P2, P5], drills: [] }
+          - { id: C, do: "Locate each stage of cellular respiration and state its inputs, outputs and ATP yield.", ek: ["Glycolysis (cytosol, 2 ATP net) → pyruvate oxidation + Krebs (matrix) → ETC (inner membrane, O2 final acceptor); ~30–32 ATP per glucose."], p: [P1], drills: [] }
+          - { id: D, do: "Distinguish the light reactions from the Calvin cycle by location, inputs and products.", ek: ["Thylakoid: H2O split, O2 released, ATP + NADPH made; stroma: rubisco fixes CO2 using ATP and NADPH."], p: [P1, P2], drills: [] }
+          - { id: E, do: "Predict the direction and energy requirement of a membrane transport process.", ek: ["Passive goes down the gradient; active uses ATP or a coupled gradient; water moves toward higher solute concentration."], p: [P2], drills: [] }
+          - { id: F, do: "Trace a signal from ligand to response for a GPCR, receptor tyrosine kinase or intracellular receptor.", ek: ["Hydrophilic ligands bind surface receptors and use second messengers (cAMP, Ca2+, IP3/DAG); steroids cross the membrane and act on genes."], p: [P2, P5], drills: [] }
+          - { id: G, do: "Decide whether a cellular reaction is spontaneous and how coupling or an enzyme changes it.", ek: ["ΔG < 0 is spontaneous; ATP hydrolysis drives endergonic steps by coupling; enzymes lower Ea, never ΔG."], p: [P2], drills: [] }
+          - { id: H, do: "Order the cell-cycle phases and mitotic stages and name the checkpoint controls.", ek: ["G1 → S → G2 → M (prophase, metaphase, anaphase, telophase); cyclin–CDK complexes and p53 gate the transitions."], p: [P1], drills: [] }
+          - { id: I, do: "Compare mitosis and meiosis by ploidy, crossing over and products.", ek: ["Meiosis I separates homologs (2n → n) with crossing over in prophase I; meiosis II separates sister chromatids."], p: [P1, P2], needs: [DAT-1.1.H], drills: [] }
+          - { id: J, do: "Match an organelle to its function and tell prokaryotic from eukaryotic cells.", ek: ["RER makes secreted/membrane proteins; Golgi modifies and sorts; lysosome digests; peroxisome breaks H2O2 and fatty acids; mitochondria and chloroplasts carry their own DNA."], p: [P1], drills: [] }
+          - { id: K, do: "Identify cytoskeletal elements and cell junctions by structure and role.", ek: ["Microtubules (tubulin: spindle, cilia), microfilaments (actin: contraction, cleavage), intermediate filaments (keratin: strength); tight, gap and desmosome junctions."], p: [P1], drills: [] }
+          - { id: L, do: "Choose the experimental technique that answers a cell-biology question and interpret its result.", ek: ["Differential centrifugation separates by size/density; SDS-PAGE by mass; fluorescent tags localize; radiolabel pulse-chase follows a pathway."], p: [P2, P5], drills: [] }
+      - n: 2
+        title: Diversity of Life
+        outline: "Viruses · Archaebacteria · Eubacteria · Fungi · Protista · Plantae · Animalia · integrated relationships"
+        los:
+          - { id: A, do: "Describe virus structure and distinguish lytic, lysogenic and retroviral life cycles.", ek: ["Capsid around DNA or RNA, no metabolism; lysogenic phage integrates as a prophage; retroviruses use reverse transcriptase."], p: [P1], drills: [] }
+          - { id: B, do: "Distinguish Archaea from Bacteria and Eukarya by membrane, wall and genetic machinery.", ek: ["Archaea: ether-linked lipids, no peptidoglycan, histones and eukaryote-like RNA polymerase."], p: [P1], drills: [] }
+          - { id: C, do: "Classify a bacterium by shape, Gram stain and metabolism, and name its modes of gene transfer.", ek: ["Gram+ thick peptidoglycan, Gram− thin wall plus outer LPS membrane; binary fission; transformation, transduction, conjugation."], p: [P1, P2], drills: [] }
+          - { id: D, do: "Identify the defining features and life cycle of fungi.", ek: ["Chitin walls, absorptive heterotrophs, hyphae/mycelium; haploid-dominant life cycle."], p: [P1], drills: [] }
+          - { id: E, do: "Place a described protist in its group and explain why Protista is not a natural clade.", ek: ["Eukaryotes that are not plants, animals or fungi (algae, amoebae, ciliates, Plasmodium); paraphyletic."], p: [P1, P2], drills: [] }
+          - { id: F, do: "Order plant groups by key innovation and identify the dominant generation in each.", ek: ["Mosses (gametophyte-dominant, no vasculature) → ferns (vascular, sporophyte-dominant) → gymnosperms (seeds, pollen) → angiosperms (flowers, fruit, double fertilization)."], p: [P1], drills: [] }
+          - { id: G, do: "Classify an animal by symmetry, germ layers, body cavity and protostome/deuterostome development.", ek: ["Deuterostomes (echinoderms, chordates): blastopore becomes the anus, radial cleavage; protostomes: mouth, spiral cleavage."], p: [P1, P2], drills: [] }
+          - { id: H, do: "Identify the four chordate features and the traits that separate vertebrate classes.", ek: ["Notochord, dorsal hollow nerve cord, pharyngeal slits, post-anal tail; amniotic egg separates reptiles, birds and mammals from amphibians."], p: [P1], drills: [] }
+      - n: 3
+        title: Structure and Function of Systems
+        outline: "Integumentary · skeletal · muscular · circulatory · immunological/lymphatic · digestive · respiratory · urinary · nervous/sensory · endocrine · reproductive · integrated relationships"
+        los:
+          - { id: A, do: "Describe the layers of the skin and their roles in protection and thermoregulation.", ek: ["Avascular epidermis (keratinocytes, melanocytes); dermis holds vessels, glands and receptors; sweat and vasodilation dump heat."], p: [P1], drills: [] }
+          - { id: B, do: "Predict how bone remodeling and blood Ca2+ respond to PTH, calcitonin and vitamin D.", ek: ["Osteoblasts build, osteoclasts resorb; PTH and calcitriol raise blood Ca2+, calcitonin lowers it."], p: [P2], drills: [] }
+          - { id: C, do: "Explain each step of the sliding-filament cycle and its dependence on Ca2+ and ATP.", ek: ["Ca2+ binds troponin, tropomyosin uncovers actin sites, myosin power stroke; ATP binding releases the head."], p: [P1, P2], drills: [] }
+          - { id: D, do: "Trace blood through the heart and vessels and identify which vessels carry oxygenated blood.", ek: ["RA → RV → pulmonary artery → lungs → pulmonary veins → LA → LV → aorta; arteries leave the heart regardless of O2 content."], p: [P1], drills: [] }
+          - { id: E, do: "Predict the direction a condition shifts the oxygen–hemoglobin dissociation curve.", ek: ["Right shift (lower affinity): ↑CO2, ↑H+, ↑temperature, ↑2,3-BPG; fetal Hb and CO shift left."], p: [P2, P5], drills: [] }
+          - { id: F, do: "Distinguish innate from adaptive immunity and match B, CD4+ and CD8+ cells to their actions.", ek: ["B cells make antibodies (humoral); CD8+ kill cells presenting on MHC I; CD4+ helpers recognize MHC II on APCs."], p: [P1, P2], drills: [] }
+          - { id: G, do: "Match a digestive enzyme to its source, substrate and site of action.", ek: ["Salivary amylase (mouth), pepsin (stomach), pancreatic trypsin, lipase and amylase (duodenum); bile emulsifies; absorption is in the small intestine."], p: [P1], drills: [] }
+          - { id: H, do: "Explain ventilation mechanics and how O2 and CO2 are exchanged and carried.", ek: ["Diaphragm contracts → thoracic volume up, pressure down → air in; exchange by diffusion in alveoli; most CO2 travels as HCO3−."], p: [P1, P2], drills: [] }
+          - { id: I, do: "Assign filtration, reabsorption and concentration to nephron segments and predict the effect of ADH and aldosterone.", ek: ["Glomerulus filters; PCT reabsorbs most solute; loop of Henle builds the gradient; ADH inserts aquaporins in the collecting duct; aldosterone retains Na+."], p: [P2], drills: [] }
+          - { id: J, do: "Explain the ion movements behind the resting potential, action potential and synaptic transmission.", ek: ["Na+ in depolarizes, K+ out repolarizes; Na+/K+-ATPase pumps 3 Na+ out, 2 K+ in; myelin enables saltatory conduction; Ca2+ triggers vesicle release."], p: [P1, P2], drills: [] }
+          - { id: K, do: "Identify the receptor and structure responsible for a sensory function.", ek: ["Rods: dim light; cones: color; cochlear hair cells: hearing; semicircular canals and vestibule: balance."], p: [P1], drills: [] }
+          - { id: L, do: "Match a hormone to its gland and target action and predict a negative-feedback response.", ek: ["Peptide hormones use surface receptors, steroids act in the nucleus; hypothalamus → anterior pituitary → gland axes are damped by negative feedback."], p: [P1, P2], drills: [] }
+          - { id: M, do: "Sequence the menstrual cycle's hormone changes and compare spermatogenesis with oogenesis.", ek: ["Estrogen peak → LH surge → ovulation; corpus luteum makes progesterone; one oocyte plus polar bodies vs four sperm per meiosis."], p: [P1, P5], drills: [] }
+      - n: 4
+        title: Genetics
+        outline: "Molecular · human · classical · chromosomal · genetic technology · developmental mechanisms · genomics · gene expression · epigenetics · integrated relationships"
+        los:
+          - { id: A, do: "Assign each DNA replication enzyme its role and explain leading vs lagging strand synthesis.", ek: ["Helicase unwinds, primase lays RNA primer, DNA pol III extends 5′→3′, pol I replaces primers, ligase seals Okazaki fragments."], p: [P1], drills: [] }
+          - { id: B, do: "Transcribe and translate a sequence and name the eukaryotic RNA-processing steps.", ek: ["mRNA is antiparallel to the template, read 5′→3′ from AUG; 5′ cap, poly-A tail and splicing happen in the nucleus."], p: [P2, P5], drills: [] }
+          - { id: C, do: "Predict the protein-level effect of a silent, missense, nonsense or frameshift mutation.", ek: ["Insertions or deletions not in multiples of 3 shift the reading frame; nonsense creates an early stop codon."], p: [P2], needs: [DAT-1.4.B], drills: [] }
+          - { id: D, do: "Solve monohybrid, dihybrid and test crosses for genotype and phenotype ratios.", ek: ["Heterozygote cross 3:1; dihybrid 9:3:3:1; test cross with a heterozygote 1:1; multiply probabilities for independent genes."], p: [P3], drills: [] }
+          - { id: E, do: "Recognize incomplete dominance, codominance, epistasis and linkage from offspring ratios, and convert recombination frequency to map distance.", ek: ["1% recombinant offspring = 1 map unit; linked genes give excess parental types; 9:3:4 signals recessive epistasis."], p: [P2, P3], needs: [DAT-1.4.D], drills: [] }
+          - { id: F, do: "Determine the inheritance pattern of a trait from a pedigree.", ek: ["Autosomal recessive skips generations; X-linked recessive mostly affects males with no father-to-son transmission; dominant appears every generation."], p: [P5], drills: [] }
+          - { id: G, do: "Explain how nondisjunction causes aneuploidy and predict gametes from a meiosis I vs II error.", ek: ["An error in meiosis I gives all abnormal gametes; in meiosis II, half are normal; trisomy 21, XXY and XO are common results."], p: [P2], needs: [DAT-1.1.I], drills: [] }
+          - { id: H, do: "Predict lac and trp operon expression under given nutrient conditions.", ek: ["Lac is inducible: lactose inactivates the repressor, low glucose raises cAMP–CAP; trp is repressible: tryptophan activates the repressor."], p: [P2], drills: [] }
+          - { id: I, do: "Explain how chromatin modification and DNA methylation regulate eukaryotic genes heritably.", ek: ["Histone acetylation opens chromatin (on); DNA methylation of promoters silences; changes persist without altering sequence."], p: [P1, P2], drills: [] }
+          - { id: J, do: "Choose and interpret a genetic technology: PCR, restriction digest, gel electrophoresis, cloning, CRISPR or sequencing.", ek: ["PCR cycles denature–anneal–extend, doubling copies (2^n); smaller fragments run farther on a gel; Cas9 cuts where its guide RNA matches."], p: [P2, P5], drills: [] }
+          - { id: K, do: "Relate genome size to gene number and interpret genomic comparisons between species.", ek: ["Most eukaryotic DNA is noncoding; genome size does not track complexity; shared sequence measures relatedness."], p: [P2], drills: [] }
+          - { id: L, do: "Trace early development from fertilization through gastrulation and match germ layers to the tissues they form.", ek: ["Ectoderm: nervous system, epidermis; mesoderm: muscle, bone, blood, kidney; endoderm: gut and lung lining; Hox genes set the body axis."], p: [P1], drills: [] }
+      - n: 5
+        title: Evolution and Ecology
+        outline: "Natural selection · population genetics/speciation · animal behavior · population, community and ecosystem ecology · integrated relationships"
+        los:
+          - { id: A, do: "Identify the type of selection from a change in a trait distribution.", ek: ["Directional shifts the mean; stabilizing narrows it; disruptive favors both extremes; selection acts on phenotype."], p: [P2, P5], drills: [] }
+          - { id: B, do: "Calculate allele and genotype frequencies with Hardy–Weinberg and state its assumptions.", ek: ["p + q = 1; p² + 2pq + q² = 1; no selection, mutation, migration or drift, random mating, large population."], p: [P3], needs: [DAT-1.4.D], drills: [] }
+          - { id: C, do: "Classify a reproductive barrier and a speciation mode from a scenario.", ek: ["Prezygotic (habitat, temporal, behavioral, mechanical, gametic) vs postzygotic (hybrid inviability, sterility); allopatric needs a geographic barrier."], p: [P2], drills: [] }
+          - { id: D, do: "Distinguish homologous, analogous and vestigial structures and read relatedness from a phylogenetic tree.", ek: ["Homology reflects common ancestry; analogy reflects convergence; the most recent shared node marks the closest relatives."], p: [P5], drills: [] }
+          - { id: E, do: "Classify an animal behavior as fixed action pattern, imprinting, habituation, classical or operant conditioning, or altruism.", ek: ["Innate behaviors need no learning; kin selection explains altruism toward relatives sharing genes."], p: [P1, P2], drills: [] }
+          - { id: F, do: "Predict population growth under exponential and logistic models and contrast r- and K-strategists.", ek: ["dN/dt = rN(K − N)/K; growth is fastest at N = K/2; r-selected: many offspring, little care."], p: [P2, P5], drills: [] }
+          - { id: G, do: "Classify species interactions by their effect on each partner and order the stages of succession.", ek: ["Mutualism +/+, commensalism +/0, parasitism and predation +/−, competition −/−; primary succession starts on bare substrate."], p: [P1], drills: [] }
+          - { id: H, do: "Calculate energy transfer across trophic levels and trace carbon and nitrogen through an ecosystem.", ek: ["About 10% of energy passes to each higher level; N2 fixation → nitrification → assimilation → denitrification."], p: [P1, P3], drills: [] }
+
+  # ── 2 ────────────────────────────────────────────────────────────────────
+  - id: gchem
+    n: 2
+    title: General Chemistry
+    scope: core
+    ideas: [STRUCT, ENERGY, DATA]
+    weight_est: "General Chemistry: 30 of 100 Survey of the Natural Sciences items (periodic table provided)"
+    topics:
+      - n: 1
+        title: Stoichiometry and General Concepts
+        outline: "Percent composition · empirical formulae · balancing equations · moles and molecular formulas · molar mass · density · calculations from balanced equations"
+        los:
+          - { id: A, do: "Calculate percent composition by mass from a formula.", ek: ["Mass % = (n × atomic mass of element) / molar mass × 100."], p: [P3], drills: [] }
+          - { id: B, do: "Determine an empirical formula from mass data, then the molecular formula from molar mass.", ek: ["Convert to moles, divide by the smallest, clear fractions; molecular = empirical × (M / M_empirical)."], p: [P3], drills: [] }
+          - { id: C, do: "Balance a chemical equation by inspection.", ek: ["Atoms of each element and total charge are conserved; balance pure elements last."], p: [P1], drills: [] }
+          - { id: D, do: "Convert among mass, moles, particles and volume using molar mass, Avogadro's number and density.", ek: ["n = m / M; N = n × 6.02 × 10²³; ρ = m / V."], p: [P3], drills: [] }
+          - { id: E, do: "Find the limiting reagent, theoretical yield and percent yield from a balanced equation.", ek: ["Compare moles available ÷ coefficient; the smallest ratio limits; % yield = actual / theoretical × 100."], p: [P3], needs: [DAT-2.1.C, DAT-2.1.D], drills: [] }
+      - n: 2
+        title: Gases
+        outline: "Kinetic molecular theory of gases · Dalton's, Boyle's and Charles's laws · ideal gas law"
+        los:
+          - { id: A, do: "Solve for an unknown P, V, n or T with the ideal gas law.", ek: ["PV = nRT with T in kelvin; R = 0.0821 L·atm/(mol·K); 1 mol at STP ≈ 22.4 L."], p: [P3], drills: [] }
+          - { id: B, do: "Predict a new state with Boyle's, Charles's or the combined gas law.", ek: ["P1V1/T1 = P2V2/T2; hold the constant variables fixed and cancel them."], p: [P3], needs: [DAT-2.2.A], drills: [] }
+          - { id: C, do: "Calculate partial pressures from mole fractions using Dalton's law.", ek: ["P_total = ΣP_i; P_i = X_i P_total."], p: [P3], drills: [] }
+          - { id: D, do: "Apply kinetic molecular theory to compare molecular speeds and effusion rates and predict deviations from ideality.", ek: ["Average KE ∝ T; rate₁/rate₂ = √(M₂/M₁); real gases deviate at high P and low T."], p: [P2, P3], drills: [] }
+      - n: 3
+        title: Liquids and Solids
+        outline: "Intermolecular forces · phase changes · vapor pressure · structure · polarity · properties"
+        los:
+          - { id: A, do: "Rank substances by intermolecular force strength and predict boiling point, viscosity and surface tension.", ek: ["London < dipole–dipole < H-bonding (N, O, F–H) < ion–dipole; London grows with size and surface area."], p: [P2], drills: [] }
+          - { id: B, do: "Read a phase diagram or heating curve and calculate the heat for each segment.", ek: ["Sloped segments: q = mcΔT; flat segments: q = nΔH_phase; the triple point and critical point bound the liquid."], p: [P3, P5], drills: [] }
+          - { id: C, do: "Predict how temperature and IMF strength change vapor pressure and normal boiling point.", ek: ["Vapor pressure rises with T and falls with stronger IMFs; boiling occurs when vapor pressure equals external pressure."], p: [P2], drills: [] }
+          - { id: D, do: "Classify a solid as ionic, molecular, covalent network or metallic and predict its properties.", ek: ["Network solids (diamond, SiO2) have the highest melting points; metals conduct as solids; ionic solids conduct only when molten or dissolved."], p: [P1, P2], drills: [] }
+      - n: 4
+        title: Solutions
+        outline: "Polarity · properties (colligative, noncolligative) · forces · concentration calculations"
+        los:
+          - { id: A, do: "Convert among molarity, molality, mole fraction, mass percent and ppm, and solve dilutions.", ek: ["M = mol/L solution; m = mol/kg solvent; M1V1 = M2V2."], p: [P3], drills: [] }
+          - { id: B, do: "Calculate boiling-point elevation, freezing-point depression and osmotic pressure.", ek: ["ΔT = iKm; π = iMRT; i is the number of particles per formula unit (NaCl ≈ 2)."], p: [P3], needs: [DAT-2.4.A], drills: [] }
+          - { id: C, do: "Predict solubility from polarity and how temperature and pressure change it.", ek: ["Like dissolves like; gas solubility falls with T and rises with partial pressure (Henry's law); most solids dissolve better hot."], p: [P2], drills: [] }
+          - { id: D, do: "Calculate vapor-pressure lowering with Raoult's law.", ek: ["P_solution = X_solvent × P°_solvent."], p: [P3], drills: [] }
+      - n: 5
+        title: Acids and Bases
+        outline: "pH · strength · Brønsted–Lowry reactions · calculations"
+        los:
+          - { id: A, do: "Identify Brønsted–Lowry acids, bases and conjugate pairs in a reaction.", ek: ["Acid donates H+, base accepts; a stronger acid has a weaker conjugate base."], p: [P1], drills: [] }
+          - { id: B, do: "Calculate pH, pOH, [H+] and [OH−] for strong acids and bases without a calculator.", ek: ["pH = −log[H+]; pH + pOH = 14 at 25 °C; for [H+] = a × 10⁻ⁿ, pH is between n − 1 and n."], p: [P3], drills: [] }
+          - { id: C, do: "Estimate the pH of a weak acid or base from Ka or Kb.", ek: ["[H+] ≈ √(Ka C) when ionization is small; Ka × Kb = Kw."], p: [P3], needs: [DAT-2.5.B], drills: [] }
+          - { id: D, do: "Calculate buffer pH with Henderson–Hasselbalch and choose a buffer for a target pH.", ek: ["pH = pKa + log([A−]/[HA]); a buffer works best within pKa ± 1."], p: [P3, P2], drills: [] }
+          - { id: E, do: "Read a titration curve to find the equivalence point, half-equivalence point and pKa.", ek: ["At half-equivalence pH = pKa; weak acid + strong base equivalence pH > 7; n_acid = n_base at equivalence."], p: [P5], needs: [DAT-2.5.D], drills: [] }
+      - n: 6
+        title: Chemical Equilibria
+        outline: "Molecular · acid/base · precipitation · calculations · Le Chatelier's principle"
+        los:
+          - { id: A, do: "Write an equilibrium expression and use Q vs K to predict the direction of shift.", ek: ["Products over reactants raised to coefficients; omit pure solids and liquids; Q < K shifts right."], p: [P1, P2], drills: [] }
+          - { id: B, do: "Predict the effect of a concentration, pressure or temperature change with Le Chatelier's principle.", ek: ["Only temperature changes K; added pressure favors fewer gas moles; heat acts as a product in exothermic reactions."], p: [P2], drills: [] }
+          - { id: C, do: "Calculate molar solubility from Ksp, including the common-ion effect.", ek: ["For AB2: Ksp = 4s³; a common ion lowers solubility; precipitation occurs when Q > Ksp."], p: [P3], drills: [] }
+          - { id: D, do: "Solve for equilibrium concentrations with an ICE table and the small-x approximation.", ek: ["Initial – change – equilibrium; drop x when K is tiny relative to the starting concentration."], p: [P3], needs: [DAT-2.6.A], drills: [] }
+      - n: 7
+        title: Thermodynamics and Thermochemistry
+        outline: "Laws of thermodynamics · Hess's law · spontaneity · enthalpies and entropies · heat transfer"
+        los:
+          - { id: A, do: "Calculate ΔH_rxn from Hess's law, enthalpies of formation or bond energies.", ek: ["ΔH = ΣΔH_f(products) − ΣΔH_f(reactants); with bond energies, broken − formed; reverse a step, flip the sign."], p: [P3], drills: [] }
+          - { id: B, do: "Predict the sign of ΔS for a process.", ek: ["Entropy rises with more gas moles, solid → liquid → gas, dissolving, and higher T."], p: [P2], drills: [] }
+          - { id: C, do: "Determine spontaneity and the crossover temperature from ΔH and ΔS.", ek: ["ΔG = ΔH − TΔS; − ΔH, + ΔS always spontaneous; T_cross = ΔH/ΔS."], p: [P2, P3], needs: [DAT-2.7.B], drills: [] }
+          - { id: D, do: "Relate ΔG° to K and to E°cell.", ek: ["ΔG° = −RT ln K = −nFE°; K > 1 ⇔ ΔG° < 0 ⇔ E° > 0."], p: [P2], drills: [] }
+          - { id: E, do: "Calculate heat exchanged in calorimetry and final temperatures of mixtures.", ek: ["q = mcΔT; heat lost by the hot body = heat gained by the cold one; c_water = 4.18 J/(g·°C)."], p: [P3], drills: [] }
+          - { id: F, do: "Apply the first and third laws to a system: sign conventions for q and w, and absolute entropy.", ek: ["ΔU = q + w (work on the system positive); S = 0 for a perfect crystal at 0 K; state functions are path-independent."], p: [P1], drills: [] }
+      - n: 8
+        title: Chemical Kinetics
+        outline: "Rate laws · activation energy · half-life"
+        los:
+          - { id: A, do: "Determine reaction orders and the rate constant from initial-rate data.", ek: ["Doubling [A] doubles rate → 1st order, quadruples → 2nd, no change → 0th; units of k depend on overall order."], p: [P3, P5], drills: [] }
+          - { id: B, do: "Calculate the remaining amount or time from a first-order half-life.", ek: ["t½ = 0.693/k, independent of concentration; after n half-lives (½)ⁿ remains."], p: [P3], drills: [] }
+          - { id: C, do: "Read Ea, ΔH and the effect of a catalyst from a reaction energy diagram, and predict how T changes the rate.", ek: ["k = A e^(−Ea/RT); catalysts lower Ea for both directions without changing ΔH or K."], p: [P5, P2], drills: [] }
+          - { id: D, do: "Derive a rate law from a mechanism's rate-determining step and identify intermediates and catalysts.", ek: ["The slow step sets the rate law; intermediates are made then consumed, catalysts are consumed then regenerated."], p: [P2], drills: [] }
+      - n: 9
+        title: Oxidation–Reduction Reactions
+        outline: "Balancing equations · determination of oxidation numbers · electrochemical calculations · electrochemical concepts and terminology"
+        los:
+          - { id: A, do: "Assign oxidation numbers and identify the oxidizing and reducing agents.", ek: ["F always −1, O usually −2, H +1 with nonmetals; the species oxidized is the reducing agent."], p: [P1], drills: [] }
+          - { id: B, do: "Balance a redox equation in acidic or basic solution by half-reactions.", ek: ["Balance atoms, O with H2O, H with H+, charge with e−; in base add OH− to both sides to cancel H+."], p: [P1], needs: [DAT-2.9.A], drills: [] }
+          - { id: C, do: "Calculate E°cell from reduction potentials and identify anode, cathode and electron flow in galvanic and electrolytic cells.", ek: ["E°cell = E°cathode − E°anode; oxidation at the anode; electrons flow anode → cathode; galvanic E° > 0, electrolytic needs input."], p: [P2, P3], drills: [] }
+          - { id: D, do: "Calculate the mass plated or the current/time needed in electrolysis.", ek: ["n_e = It/F with F = 96 485 C/mol; moles metal = n_e / (electrons per ion)."], p: [P3], drills: [] }
+      - n: 10
+        title: Atomic and Molecular Structure
+        outline: "Electron configuration · orbital types · Lewis–dot diagrams · atomic theory · quantum theory · molecular geometry · bond types · subatomic particles"
+        los:
+          - { id: A, do: "Write the electron configuration of an atom or ion, including Cr/Cu exceptions and transition-metal cations.", ek: ["Aufbau, Pauli, Hund; transition metals lose 4s before 3d; half- and fully filled d subshells are favored."], p: [P1], drills: [] }
+          - { id: B, do: "Assign or validate a set of quantum numbers for an electron.", ek: ["n ≥ 1; ℓ = 0 … n − 1; m_ℓ = −ℓ … +ℓ; m_s = ±½."], p: [P1], drills: [] }
+          - { id: C, do: "Draw a Lewis structure and use formal charge to choose the best one.", ek: ["FC = valence − nonbonding e− − ½ bonding e−; the best structure minimizes formal charges and puts negatives on electronegative atoms."], p: [P1, P5], drills: [] }
+          - { id: D, do: "Predict molecular geometry, bond angle and polarity with VSEPR.", ek: ["Electron domains set the shape (4 → tetrahedral 109.5°, lone pairs compress angles); symmetric shapes cancel bond dipoles."], p: [P2, P7], needs: [DAT-2.10.C], drills: [] }
+          - { id: E, do: "Identify hybridization and count σ and π bonds; classify a bond as ionic, polar or nonpolar covalent.", ek: ["Domains 2/3/4 → sp/sp²/sp³; single = 1σ, double = 1σ + 1π, triple = 1σ + 2π; ΔEN > ~1.7 is ionic."], p: [P1], drills: [] }
+          - { id: F, do: "Count protons, neutrons and electrons in an isotope or ion and compute average atomic mass.", ek: ["Z = protons, A = protons + neutrons; average mass = Σ(fraction × isotope mass)."], p: [P3], drills: [] }
+          - { id: G, do: "Relate photon energy, frequency and wavelength to electron transitions and the experiments behind atomic theory.", ek: ["E = hν = hc/λ; emission when e− falls to a lower level; Thomson (electron), Rutherford (nucleus), Bohr (quantized levels)."], p: [P1, P3], drills: [] }
+      - n: 11
+        title: Periodic Properties
+        outline: "Representative elements · transition elements · periodic trends · descriptive chemistry"
+        los:
+          - { id: A, do: "Rank elements by atomic radius, ionization energy, electronegativity and electron affinity.", ek: ["Across a period Z_eff rises: radius falls, IE and EN rise; down a group radius rises, IE falls; cations smaller, anions larger."], p: [P1, P2], drills: [] }
+          - { id: B, do: "Predict the typical ions, reactivity and compounds of alkali metals, alkaline-earth metals, halogens and noble gases.", ek: ["Group 1 forms +1 and reacts with water to give H2 and hydroxide; halogens form −1, reactivity falls down the group; noble gases are inert."], p: [P1], drills: [] }
+          - { id: C, do: "Explain characteristic properties of transition elements: multiple oxidation states, colored ions and paramagnetism.", ek: ["Partially filled d orbitals give variable charges, d–d color and unpaired electrons."], p: [P1], drills: [] }
+      - n: 12
+        title: Nuclear Reactions
+        outline: "Balancing equations · binding energy · decay processes · particles · terminology"
+        los:
+          - { id: A, do: "Balance a nuclear equation and identify the decay mode from the change in A and Z.", ek: ["α: A − 4, Z − 2; β−: Z + 1; β+ and electron capture: Z − 1; γ: no change; A and Z both conserved."], p: [P1], drills: [] }
+          - { id: B, do: "Calculate the remaining fraction or the elapsed time for radioactive decay.", ek: ["N = N₀(½)^(t/t½); decay is first order."], p: [P3], drills: [] }
+          - { id: C, do: "Calculate binding energy from mass defect and compare nuclear stability.", ek: ["E = Δm c²; 1 u ≈ 931.5 MeV; binding energy per nucleon peaks near Fe-56."], p: [P3], drills: [] }
+      - n: 13
+        title: Laboratory
+        outline: "Basic techniques · equipment · error analysis · safety · data analysis"
+        los:
+          - { id: A, do: "Choose the glassware or equipment for a measurement and report the result to the right significant figures.", ek: ["Volumetric pipets and flasks are precise; beakers are not; read the meniscus at eye level, one estimated digit."], p: [P1], drills: [] }
+          - { id: B, do: "Distinguish accuracy from precision, classify an error as random or systematic, and compute percent error.", ek: ["% error = |measured − true| / true × 100; systematic error shifts every reading the same way."], p: [P2, P3], drills: [] }
+          - { id: C, do: "Identify the correct safety procedure for a lab hazard.", ek: ["Add acid to water; work with volatiles in the fume hood; flush skin or eye exposure for 15 minutes."], p: [P1], drills: [] }
+          - { id: D, do: "Extract a quantity from a plotted data set, such as a slope, intercept or best-fit value.", ek: ["Linearize first (ln[A] vs t for 1st order; 1/T vs ln k for Ea); the slope carries the physical constant."], p: [P5], drills: [] }
+
+  # ── 3 ────────────────────────────────────────────────────────────────────
+  - id: ochem
+    n: 3
+    title: Organic Chemistry
+    scope: core
+    ideas: [STRUCT, ENERGY, SPACE]
+    weight_est: "Organic Chemistry: 30 of 100 Survey of the Natural Sciences items (new specifications, implemented April 2026)"
+    topics:
+      - n: 1
+        title: Mechanisms
+        outline: "Curved arrows (single mechanism: resonance, free radical, proton transfer, addition, elimination, substitution, rearrangements, other e.g. Diels–Alder; combined mechanisms) · reaction coordinate diagrams · general"
+        los:
+          - { id: A, do: "Predict the product of a step from its curved arrows, telling two-electron arrows from fishhooks.", ek: ["Double-headed arrows move electron pairs and fishhooks move single electrons, always from the electron source to the electron sink."], p: [P5], drills: [] }
+          - { id: B, do: "Draw the curved arrows that convert given reactants into given products.", ek: ["Start arrows at lone pairs or bonds, end at an atom or bond; count formal charges before and after."], p: [P5], needs: [DAT-3.1.A], drills: [] }
+          - { id: C, do: "Draw resonance structures and pick the major contributor.", ek: ["Move only π and lone-pair electrons; the best contributor has full octets, fewest charges, and negative charge on the most electronegative atom."], p: [P5, P2], drills: [] }
+          - { id: D, do: "Predict the steps and selectivity of a free-radical halogenation.", ek: ["Initiation, propagation, termination; Br₂ is highly selective for the 3° hydrogen, Cl₂ much less so; radical stability 3° > 2° > 1°."], p: [P2], drills: [] }
+          - { id: E, do: "Predict the product of an electrophilic addition, including Markovnikov regiochemistry and carbocation rearrangements.", ek: ["H adds to the carbon with more H; a carbocation shifts H or CH₃ to become more substituted or resonance-stabilized."], p: [P2], drills: [] }
+          - { id: F, do: "Decide whether SN1, SN2, E1 or E2 operates from substrate, nucleophile/base, solvent and temperature.", ek: ["SN2: 1°, strong nucleophile, polar aprotic, inversion; SN1/E1: 3°, weak nucleophile, polar protic; E2: strong bulky base, anti-periplanar H; heat favors elimination."], p: [P2, P6], drills: [] }
+          - { id: G, do: "Predict the product of a Diels–Alder reaction, including stereochemistry.", ek: ["s-cis diene + dienophile → cyclohexene in one concerted step; dienophile substituents keep their cis/trans relationship; endo is favored."], p: [P2, P7], drills: [] }
+          - { id: H, do: "Read a reaction coordinate diagram: count steps, locate intermediates and transition states, and find the rate-determining step.", ek: ["Peaks are transition states, valleys are intermediates; the highest barrier is rate-determining; Hammond: a TS resembles the species nearer in energy."], p: [P5], drills: [] }
+      - n: 2
+        title: Chemical Synthesis
+        outline: "One-step (SN1/SN2, E1/E2, alkenes/alkynes, alcohols, ethers incl. epoxides, radical, aromatics, carboxylic acids/derivatives, ketones and aldehydes, alpha-carbonyl compounds, other) · two-step · multi-step · reactivity across multiple functional groups · general"
+        los:
+          - { id: A, do: "Predict the substitution or elimination product, including stereochemistry and Zaitsev vs Hofmann regiochemistry.", ek: ["SN2 inverts, SN1 racemizes; small bases give the more substituted alkene, bulky bases (t-BuO⁻) the less substituted one."], p: [P2], needs: [DAT-3.1.F], drills: [] }
+          - { id: B, do: "Predict the product of an alkene or alkyne reaction: HX, hydration, hydroboration–oxidation, halogenation, hydrogenation, ozonolysis.", ek: ["Hydroboration is anti-Markovnikov and syn; X₂ adds anti; Lindlar gives cis alkene, Na/NH₃ trans; ozonolysis cleaves C=C to carbonyls."], p: [P1, P2], drills: [] }
+          - { id: C, do: "Predict the product of an alcohol reaction: oxidation, conversion to a halide or sulfonate, dehydration.", ek: ["PCC stops 1° alcohols at the aldehyde, chromic acid goes to the acid; 3° alcohols resist oxidation; SOCl₂/PBr₃ give halides with inversion."], p: [P1, P2], drills: [] }
+          - { id: D, do: "Predict the regiochemistry and stereochemistry of ether cleavage and epoxide opening under acid and base.", ek: ["Base or strong nucleophile attacks the less hindered epoxide carbon; acid directs attack to the more substituted carbon; opening is anti."], p: [P2], drills: [] }
+          - { id: E, do: "Predict the product of an electrophilic aromatic substitution from substituent directing effects.", ek: ["Activators (−OH, −NH₂, −R) and halogens direct ortho/para; deactivators (−NO₂, −C=O, −CN, −SO₃H) direct meta; halogens deactivate."], p: [P1, P2], drills: [] }
+          - { id: F, do: "Rank carboxylic acid derivatives by reactivity and predict nucleophilic acyl substitution products.", ek: ["Acid chloride > anhydride > ester ≈ acid > amide; a derivative converts only to less reactive ones."], p: [P1, P2], drills: [] }
+          - { id: G, do: "Predict the product of nucleophilic addition to an aldehyde or ketone: hydride, Grignard, acetal, imine/enamine, Wittig.", ek: ["Aldehydes are more reactive than ketones; Grignard adds carbon then protonates to an alcohol; 1° amines give imines, 2° give enamines."], p: [P1, P2], drills: [] }
+          - { id: H, do: "Predict the product of an alpha-carbonyl reaction: enolate alkylation, aldol, Claisen, haloform.", ek: ["LDA at low T forms the kinetic (less substituted) enolate; aldol makes a β-hydroxy carbonyl that dehydrates to an enone with heat."], p: [P2], drills: [] }
+          - { id: I, do: "Plan a two-step or multi-step synthesis by working backward from the target.", ek: ["Disconnect the bond formed last; track carbon count and functional-group changes; reject routes with wrong regio- or stereochemistry."], p: [P2, P6], needs: [DAT-3.2.B, DAT-3.2.C, DAT-3.2.G], drills: [] }
+          - { id: J, do: "Predict which functional group reacts when a molecule carries several.", ek: ["NaBH₄ reduces aldehydes and ketones only; LiAlH₄ also reduces esters, acids and amides; protect an alcohol or carbonyl to spare it."], p: [P2, P6], drills: [] }
+      - n: 3
+        title: Acid–Base Chemistry
+        outline: "Ranking acidity/basicity across functional groups · structure analysis within functional groups (charge, size, electronegativity, resonance, inductive effect, hybridization, sterics) · prediction of products and equilibria · general"
+        los:
+          - { id: A, do: "Rank compounds from different functional groups by acidity using pKa landmarks.", ek: ["≈ pKa: HCl −7, RCOOH 5, phenol 10, H₂O 15.7, ROH 16–18, terminal alkyne 25, NH₃ 38, alkane 50."], p: [P1], drills: [] }
+          - { id: B, do: "Rank acids within a functional group by charge, atom size, electronegativity, resonance, induction, hybridization and sterics.", ek: ["A more stable conjugate base means a stronger acid: larger atom > more electronegative > resonance > induction (falls off with distance) > more s character."], p: [P2], drills: [] }
+          - { id: C, do: "Predict the products and direction of an acid–base equilibrium.", ek: ["The equilibrium favors the side with the weaker acid (higher pKa); K ≈ 10^(pKa product acid − pKa reactant acid)."], p: [P2], needs: [DAT-3.3.A], drills: [] }
+          - { id: D, do: "Rank nitrogen and oxygen bases by basicity, including resonance and steric effects on amines.", ek: ["Alkylamines > NH₃ > aniline > amide; lone pairs in resonance or in sp orbitals are less basic."], p: [P2], drills: [] }
+      - n: 4
+        title: Chemical and Physical Properties of Molecules
+        outline: "Structure (polarity, intermolecular forces, solubility, melting/boiling point) · laboratory theory and techniques (chromatography, extractions, recrystallization, distillation) · spectroscopy (¹H NMR, ¹³C NMR, infrared, multi-spectra) · general"
+        los:
+          - { id: A, do: "Rank organic compounds by boiling point, melting point and water solubility.", ek: ["H-bonding and molar mass raise bp; branching lowers bp but symmetry raises mp; small alcohols and acids are water-soluble."], p: [P2], drills: [] }
+          - { id: B, do: "Choose and interpret a separation technique: TLC/column chromatography, acid–base extraction, recrystallization, distillation.", ek: ["On silica, polar compounds have lower Rf; acids move to aqueous NaHCO₃/NaOH as salts, amines to aqueous HCl; distill when bp differ by > 25 °C, otherwise fractional."], p: [P2, P5], drills: [] }
+          - { id: C, do: "Identify functional groups from characteristic IR absorptions.", ek: ["Broad O–H 3200–3550; acid O–H 2500–3300; C=O ~1700 (strong, sharp); N–H 3300–3500; C≡N/C≡C ~2100–2250."], p: [P1, P5], drills: [] }
+          - { id: D, do: "Interpret a ¹H NMR spectrum from chemical shift, integration and splitting.", ek: ["Shifts: alkyl 0.9–2, next to C=O 2–2.5, next to O 3.3–4, vinyl 4.5–6.5, aromatic 6.5–8, aldehyde 9–10, acid 10–12; n + 1 rule."], p: [P5], drills: [] }
+          - { id: E, do: "Count ¹³C NMR signals from molecular symmetry and assign shift regions.", ek: ["One signal per unique carbon environment; C=O 160–220, aromatic/alkene 100–150, C–O 50–90, alkyl 0–50."], p: [P5, P7], drills: [] }
+          - { id: F, do: "Deduce a structure from a molecular formula and combined IR, ¹H and ¹³C NMR data.", ek: ["Degrees of unsaturation = (2C + 2 + N − H − X)/2; one ring or π bond each; a benzene ring counts 4."], p: [P5, P6], needs: [DAT-3.4.C, DAT-3.4.D, DAT-3.4.E], drills: [] }
+      - n: 5
+        title: Structural Evaluation
+        outline: "Nomenclature (functional groups, IUPAC rules) · stereochemistry (conformations, isomer relationships, chirality) · structure and bonding (aromaticity, hybridization, resonance, atomic/molecular orbitals, bond angles/lengths, relative stability/reactivity) · general"
+        los:
+          - { id: A, do: "Name a compound by IUPAC rules, or draw it from its name.", ek: ["Highest-priority group sets the suffix and lowest locant; longest chain containing it; substituents alphabetical; E/Z and R/S as prefixes."], p: [P1], needs: [DAT-3.5.B], drills: [] }
+          - { id: B, do: "Identify every functional group in a structure.", ek: ["Know alcohol, ether, aldehyde, ketone, acid, ester, amide, amine, nitrile, acid chloride, anhydride, epoxide, phenol, thiol, imine, enamine."], p: [P1, P5], drills: [] }
+          - { id: C, do: "Assign R/S configuration to a stereocenter and identify chiral molecules.", ek: ["Rank by atomic number (CIP), lowest priority to the back, trace 1→2→3; if the lowest points forward, reverse the answer."], p: [P5, P7], drills: [] }
+          - { id: D, do: "Classify a pair of structures as identical, enantiomers, diastereomers, meso or constitutional isomers.", ek: ["Enantiomers invert every stereocenter, diastereomers some; meso has stereocenters and an internal mirror plane; max 2ⁿ stereoisomers."], p: [P5, P7], needs: [DAT-3.5.C], drills: [] }
+          - { id: E, do: "Pick the most stable Newman or chair conformation.", ek: ["Anti < gauche < eclipsed in energy; bulky chair substituents go equatorial; a ring flip swaps axial and equatorial."], p: [P7], drills: [] }
+          - { id: F, do: "Classify a ring as aromatic, antiaromatic or nonaromatic.", ek: ["Cyclic, planar, fully conjugated with 4n + 2 π electrons is aromatic; 4n is antiaromatic; count lone pairs only if they sit in the p system."], p: [P2], drills: [] }
+          - { id: G, do: "Compare bond lengths, bond angles and hybridization across a structure.", ek: ["More s character means shorter, stronger C–H bonds: sp 180°, sp² 120°, sp³ 109.5°; triple < double < single in length."], p: [P1], drills: [] }
+          - { id: H, do: "Rank carbocations, radicals, carbanions and alkenes by stability.", ek: ["Carbocations and radicals: allylic/benzylic ≈ 3° > 2° > 1° > methyl (hyperconjugation, resonance); carbanions the reverse; more substituted and trans alkenes are more stable."], p: [P2], drills: [] }
+
+  # ── 4 ────────────────────────────────────────────────────────────────────
+  - id: pat
+    n: 4
+    title: Perceptual Ability
+    scope: core
+    ideas: [SPACE]
+    weight_est: "Perceptual Ability: 90 items in 60 min, six parts (the guide gives no per-part counts)"
+    topics:
+      - n: 1
+        title: Apertures
+        outline: "Determine whether a 3-D object can pass through an opening (keyhole)"
+        los:
+          - { id: A, do: "Identify the one aperture a 3-D object can pass through straight on, from any starting face.", ek: ["The object may be rotated before entry but not turned once in; the opening is its exact outer silhouette at the same scale; hidden parts are regular and symmetric indentations repeat."], p: [P7], drills: [] }
+          - { id: B, do: "Eliminate aperture choices by proportion and by a single distinctive feature before matching the full outline.", ek: ["Many wrong openings have the right shape but wrong size or ratio; check the longest dimension and one asymmetric notch first."], p: [P6, P8], drills: [] }
+      - n: 2
+        title: View Recognition
+        outline: "Visualize the object from different angles (top, front, end views)"
+        los:
+          - { id: A, do: "Select the missing top, front or end view given the other two orthographic views.", ek: ["Top view upper left, front lower left, end lower right; top and front share width, front and end share height; hidden edges are dotted."], p: [P7, P5], drills: [] }
+          - { id: B, do: "Eliminate view choices by checking solid vs dotted lines and edge alignment with the given views.", ek: ["Every edge in one view must project to a line or point in the others; a feature visible in one view may be hidden (dotted) in another."], p: [P6], drills: [] }
+      - n: 3
+        title: Angle Discrimination
+        outline: "Rank angles from smallest to largest"
+        los:
+          - { id: A, do: "Rank four interior angles from smallest to largest.", ek: ["Compare the openness at equal distance from each vertex; mentally rotate so one arm is horizontal; decide the most extreme angles first."], p: [P7, P8], drills: [] }
+      - n: 4
+        title: Paper Folding
+        outline: "Mentally unfold a folded and hole-punched sheet of paper"
+        los:
+          - { id: A, do: "Determine the hole pattern on a square sheet after it is unfolded.", ek: ["Unfold in reverse order, reflecting each hole across each fold line; the paper is never turned over; holes per punch = layers at that spot."], p: [P7], drills: [] }
+          - { id: B, do: "Eliminate unfold choices by counting the expected holes and checking which quadrants must be symmetric.", ek: ["Total holes = punches × layers; a fold line is always a mirror axis of the final pattern."], p: [P6, P8], needs: [DAT-4.4.A], drills: [] }
+      - n: 5
+        title: Cube Counting
+        outline: "Determine how much of each cube in a stack is exposed"
+        los:
+          - { id: A, do: "Count the cubes in a figure that have a given number of painted faces.", ek: ["Cubes are cemented and equal; every exposed face is painted except the resting bottom; hidden cubes exist only where needed for support; never zero."], p: [P7], drills: [] }
+          - { id: B, do: "Tally every cube in a figure by painted-face count in one systematic pass, then answer all the questions on that figure from the tally.", ek: ["Go column by column, front to back, and record 1–5 for each cube; the tally total must equal the cube count."], p: [P8], needs: [DAT-4.5.A], drills: [] }
+      - n: 6
+        title: 3-D Form Development
+        outline: "Spatial relations: identify the 3-D shape a flat pattern forms when folded"
+        los:
+          - { id: A, do: "Identify which 3-D figure a flat pattern forms when folded.", ek: ["Faces adjacent in the pattern stay adjacent; opposite faces of a cube are never adjacent in the net; marked or shaded faces fix orientation."], p: [P7], drills: [] }
+          - { id: B, do: "Eliminate folded-figure choices by checking one distinctive face pair or a face count.", ek: ["Count faces and edges first; then test which face a marked edge must meet; one impossible adjacency rejects a choice."], p: [P6, P8], needs: [DAT-4.6.A], drills: [] }
+
+  # ── 5 ────────────────────────────────────────────────────────────────────
+  - id: rc
+    n: 5
+    title: Reading Comprehension
+    scope: core
+    ideas: [DATA]
+    weight_est: "Reading Comprehension: 50 items in 60 min, three scientific passages (no prior subject knowledge required)"
+    topics:
+      - n: 1
+        title: Locating and comprehending information
+        outline: "Not an official subtopic — the guide says only: read, comprehend and analyze basic scientific information"
+        los:
+          - { id: A, do: "Locate the passage sentence that answers a detail question and match it to the choice that restates it.", ek: ["Detail answers paraphrase the text; choices that copy its wording but change a qualifier, number or relationship are traps."], p: [P5, P6], drills: [] }
+          - { id: B, do: "Identify the main idea of a passage or paragraph.", ek: ["The main idea covers the whole passage; choices that are true of one paragraph only are too narrow, ones that go beyond it too broad."], p: [P5, P6], drills: [] }
+          - { id: C, do: "Infer the meaning of a technical term or phrase from its context in the passage.", ek: ["Passages define their terms nearby — by apposition, example or contrast; use the passage's meaning, not outside knowledge."], p: [P5], drills: [] }
+          - { id: D, do: "Judge whether a statement is supported, contradicted or not addressed by the passage.", ek: ["Except/not and true-statement items require checking every choice against the text; 'not addressed' is not 'false'."], p: [P5, P6], drills: [] }
+      - n: 2
+        title: Analyzing and inferring
+        outline: "Not an official subtopic — the guide says only: read, comprehend and analyze basic scientific information"
+        los:
+          - { id: A, do: "Draw an inference that follows necessarily from stated facts in the passage.", ek: ["A correct inference needs no outside facts and no extra assumption; reject extreme words (always, never, proves)."], p: [P2, P6], drills: [] }
+          - { id: B, do: "Identify the author's purpose, tone or attitude toward a claim.", ek: ["Scientific passages are mostly neutral-informative; tone choices like hostile or ecstatic are rarely right."], p: [P5, P6], drills: [] }
+          - { id: C, do: "Trace a cause–effect sequence, comparison or chronology described in the passage.", ek: ["Map the passage's structure (who, what, when, why) as you read so sequence questions take seconds."], p: [P5], drills: [] }
+      - n: 3
+        title: Passage strategy and timing
+        outline: "Not an official subtopic — the guide sets only the format: 3 passages, 50 items, 60 min"
+        los:
+          - { id: A, do: "Complete one passage and its questions in about 20 minutes with every item answered.", ek: ["60 min / 3 passages ≈ 20 min each, ≈ 72 s per item; mark slow items and return; a blank scores the same as a wrong answer."], p: [P8], drills: [] }
+
+  # ── 6 ────────────────────────────────────────────────────────────────────
+  - id: qr
+    n: 6
+    title: Quantitative Reasoning
+    scope: core
+    ideas: [DATA]
+    weight_est: "Quantitative Reasoning: 40 items in 45 min (on-screen calculator provided)"
+    topics:
+      - n: 1
+        title: Algebra
+        outline: "Equations and expressions · inequalities · exponential notation · absolute value · ratios and proportions · graphical analysis"
+        los:
+          - { id: A, do: "Solve linear, quadratic and systems of equations and simplify algebraic expressions.", ek: ["Factor or use x = (−b ± √(b² − 4ac))/2a; eliminate or substitute for systems; check that the answer fits the original."], p: [P4], drills: [] }
+          - { id: B, do: "Solve a linear or compound inequality and express its solution set.", ek: ["Multiplying or dividing by a negative flips the inequality sign."], p: [P4], drills: [] }
+          - { id: C, do: "Simplify and evaluate expressions with exponents, roots and scientific notation.", ek: ["a^m a^n = a^(m+n); (a^m)^n = a^(mn); a^(−n) = 1/a^n; a^(1/n) = ⁿ√a."], p: [P3, P4], drills: [] }
+          - { id: D, do: "Solve equations and inequalities with absolute value.", ek: ["|x| = a gives x = ±a; |x| < a gives −a < x < a; |x| > a gives x < −a or x > a."], p: [P4], drills: [] }
+          - { id: E, do: "Set up and solve a ratio or proportion, including direct and inverse variation.", ek: ["a/b = c/d ⇒ ad = bc; direct y = kx, inverse y = k/x; part-to-part vs part-to-whole ratios differ."], p: [P3, P4], drills: [] }
+          - { id: F, do: "Read and interpret graphs of lines and functions: slope, intercepts, intersections, transformations.", ek: ["Slope = Δy/Δx; y = mx + b; parallel lines share slope, perpendicular slopes multiply to −1."], p: [P5], drills: [] }
+      - n: 2
+        title: Data Analysis, Interpretation and Sufficiency
+        outline: "Data analysis, interpretation and sufficiency"
+        los:
+          - { id: A, do: "Extract and combine values from a table, bar chart or line graph to answer a question.", ek: ["Read the axes, units and scale before any value; percent change = (new − old)/old × 100."], p: [P5, P4], drills: [] }
+          - { id: B, do: "Decide whether the given statements are sufficient to answer a question, alone or together.", ek: ["Test each statement alone, then together; sufficiency means one determined value, not the value itself; don't compute what you only need to know exists."], p: [P2, P6], drills: [] }
+      - n: 3
+        title: Quantitative Comparison
+        outline: "Quantitative comparison"
+        los:
+          - { id: A, do: "Compare two quantities and decide which is greater, whether they are equal, or whether the relationship can't be determined.", ek: ["Try special cases (0, 1, negatives, fractions); if different cases give different orders, it can't be determined."], p: [P2, P6], drills: [] }
+          - { id: B, do: "Simplify both sides identically to compare them without computing exact values.", ek: ["Add, subtract or multiply by a positive on both sides; multiplying by an unknown sign is not allowed."], p: [P3], needs: [DAT-6.3.A], drills: [] }
+      - n: 4
+        title: Probability and Statistics
+        outline: "Probability and statistics"
+        los:
+          - { id: A, do: "Calculate the probability of compound events: and/or, independent, dependent and complementary.", ek: ["P(A and B) = P(A)P(B|A); P(A or B) = P(A) + P(B) − P(A and B); P(at least one) = 1 − P(none)."], p: [P4], drills: [] }
+          - { id: B, do: "Count arrangements with permutations and combinations.", ek: ["nPr = n!/(n − r)! when order matters; nCr = n!/[r!(n − r)!] when it does not."], p: [P4], drills: [] }
+          - { id: C, do: "Calculate and compare mean, median, mode, range and standard deviation, including the effect of changing a data point.", ek: ["Mean = sum/n, so a new mean gives the missing value by sum; an outlier moves the mean, not the median; adding a constant leaves SD unchanged."], p: [P3, P4], drills: [] }
+          - { id: D, do: "Find a weighted average or the combined mean of two groups.", ek: ["Combined mean = (n₁x̄₁ + n₂x̄₂)/(n₁ + n₂); it lies closer to the larger group's mean."], p: [P4], drills: [] }
+      - n: 5
+        title: Applied Mathematics (Word) Problems
+        outline: "Applied mathematics (word) problems"
+        los:
+          - { id: A, do: "Solve rate, distance and work problems.", ek: ["d = rt; combined work: 1/t = 1/t₁ + 1/t₂; average speed = total distance / total time, not the mean of speeds."], p: [P2, P4], drills: [] }
+          - { id: B, do: "Solve percent, discount, markup and interest problems.", ek: ["Successive percent changes multiply (×1.2 then ×0.8 = ×0.96); simple I = Prt; compound A = P(1 + r)^t."], p: [P4], drills: [] }
+          - { id: C, do: "Solve mixture and concentration problems.", ek: ["Amount of solute is conserved: c₁V₁ + c₂V₂ = c_f(V₁ + V₂)."], p: [P2, P4], drills: [] }
+          - { id: D, do: "Convert units and solve age, consecutive-integer and number-relationship problems by translating words into equations.", ek: ["Chain conversion factors so units cancel; define one variable, write every other quantity in terms of it."], p: [P2, P4], drills: [] }
