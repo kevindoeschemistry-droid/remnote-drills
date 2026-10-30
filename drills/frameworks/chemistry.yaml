@@ -1,0 +1,866 @@
+# Chemistry (AP) — curriculum framework (draft 1, for Kevin's markup)
+#
+# Built like an AP Course and Exam Description, because it is one: Big Ideas run through the
+# subject, Units → Topics → Learning Objectives (one testable action each, verb first), with the
+# Essential Knowledge an LO rests on and the Practices it exercises. Textbooks, courses and
+# exams are crosswalks onto this map, never the backbone. All objective text is paraphrased;
+# none is College Board wording.
+#
+# Standards it's built from (opened 2026-10-30):
+#   ced     College Board, AP Chemistry Course and Exam Description, effective Fall 2024
+#           https://apcentral.collegeboard.org/media/pdf/ap-chemistry-course-and-exam-description-effective-fall-2024.pdf
+#           https://apcentral.collegeboard.org/media/pdf/ap-chemistry-course-and-exam-description.pdf
+#           Read (text extraction truncated): unit titles and exam weights, the six science
+#           practices, topic titles 1.1–9.11, LOs for Units 1–2. This edition moved
+#           "pH and Solubility" to 8.11 and "Free Energy of Dissolution" to 9.6 (were 7.13, 7.14)
+#           and its extracted text prints topic-style LO codes ("1.1.A"); std: below uses the
+#           big-idea codes (SPQ/SAP/TRA/ENE) as asked.
+#   corr    Pearson, AP correlation for Brown et al., Chemistry: The Central Science AP 15e
+#           (09/04/2024) — the full list of big-idea LO codes per unit (SPQ-1.A … ENE-6.D)
+#           https://pearson.com/content/dam/global-store/en-us/schools/ap-correlations/9780137606801-AP-20-ChemistryTheCentralScienceAPEdition-15thEdition-09-04-2024.pdf
+#           Code → topic assignment inside a unit follows CED topic order (one code per topic,
+#           ENE-3.C/D both on 6.9, SPQ-3.C on both 3.9 and 3.10) — check against the CED if a
+#           code looks off.
+#   dat     drills/frameworks/dat.yaml, Unit 2 (ADA DAT General Chemistry outline, 2026 guide):
+#           the topics[].dat crosswalk and the extension topics come from it.
+#   ccss    Unit 0 std codes are CCSS-Math (openly licensed) for the measurement skills, plus
+#           the CED code each foundation skill feeds; not opened this session, cited from the
+#           standard's code scheme.
+#
+# Unit order is the CED's (Units 1–9), preceded by Unit 0 (foundations: measurement, sig figs,
+# dimensional analysis, naming, the mole) because the path starts from scratch. Topic n matches
+# the CED topic number (CH-7.4.* ↔ CED 7.4); topics numbered past the CED's last topic in a unit
+# are extensions for the DAT or graduate thermodynamics, placed after their prerequisites.
+#
+# Fields
+#   units[].scope       core (every unit is AP content; Unit 0 is foundation, also core)
+#   units[].ideas       Big Ideas the unit develops
+#   units[].weight_est  CED exam weighting
+#   topics[].ced        CED topic number ("ext" = beyond the CED)
+#   topics[].dat        crosswalk: DAT General Chemistry outline headings the topic serves
+#   topics[].scope      extension = not in the CED (DAT or graduate-thermo content)
+#   los[].std           CED learning-objective code(s), CCSS code(s) in Unit 0, or the DAT
+#                       outline heading for extension LOs
+#   los[].do            the objective; los[].ek essential knowledge; los[].p practices
+#   los[].needs         prerequisite LOs in this framework (always earlier in the file)
+#   los[].drills        templates that drill it; "~name" = only partly. No drills = a gap.
+id: chemistry
+title: "Chemistry (AP)"
+code: CH
+draft: 1
+track: science
+requires: [math-hs]
+level: 3
+domains: []
+
+big_ideas:
+  - id: SPQ
+    title: Scale, proportion and quantity
+    text: Chemists count particles they can't see by weighing them. The mole links the particle scale to grams, litres and pascals, and every quantitative question is a chain of proportions between those scales.
+  - id: SAP
+    title: Structure and properties
+    text: How electrons are arranged in atoms, bonds and molecules — and the forces between particles that result — explains the properties we measure, from boiling points to acid strength.
+  - id: TRA
+    title: Transformations
+    text: Reactions rearrange atoms by breaking and forming bonds. They can be classified, balanced and counted; they proceed at rates set by mechanism; and reversible ones settle at an equilibrium that responds predictably to disturbance.
+  - id: ENE
+    title: Energy
+    text: Energy is conserved and flows as heat and work. Bond energies set enthalpy changes, entropy and enthalpy together set free energy, and free energy decides favorability, the equilibrium constant and the voltage a cell can deliver.
+
+practices:
+  - id: P1
+    title: Models and representations
+    text: Describe and use models and representations — particle diagrams, Lewis structures, energy profiles — to explain chemical phenomena.
+  - id: P2
+    title: Question and method
+    text: Pose testable questions, design and critique procedures, and identify what an experiment can and cannot show.
+  - id: P3
+    title: Representing data and phenomena
+    text: Build graphs, diagrams and equations that represent data or a process (balanced and net ionic equations, titration curves, calibration lines).
+  - id: P4
+    title: Model analysis
+    text: "Analyze and interpret models and data: read a spectrum, a graph or a diagram, and say what it implies and where it breaks down."
+  - id: P5
+    title: Mathematical routines
+    text: Solve problems with mathematical relations — dimensional analysis, stoichiometry, ICE tables, logs — with units and significant figures kept straight.
+  - id: P6
+    title: Argumentation
+    text: Make a claim, back it with evidence and chemical reasoning, and predict what changes when a condition changes.
+
+units:
+  # ── 0 ────────────────────────────────────────────────────────────────────
+  - id: foundations
+    n: 0
+    title: Chemistry foundations
+    scope: core
+    ideas: [SPQ]
+    weight_est: "foundation (not weighted on the exam)"
+    topics:
+      - n: 1
+        title: Matter and its classification
+        ced: "pre-1.4, 4.4"
+        dat: [Stoichiometry and General Concepts]
+        los:
+          - { id: A, std: [SPQ-2.B], do: "Classify a sample as an element, compound, homogeneous mixture or heterogeneous mixture from a description or particle diagram.", ek: ["A pure substance has fixed composition; a mixture's composition can vary and it can be separated by physical means."], p: [P1], drills: [] }
+          - { id: B, std: [TRA-1.D], do: "Sort properties and changes into physical and chemical.", ek: ["A chemical change makes new substances (bonds broken and formed); a physical change alters state or form only."], p: [P6], drills: [] }
+      - n: 2
+        title: Measurement, significant figures and error
+        ced: pre
+        dat: [Stoichiometry and General Concepts, Laboratory]
+        los:
+          - { id: A, std: [8.EE.A.3, 8.EE.A.4, N-Q.A.1], do: "Write quantities in scientific notation and convert between SI prefixes (p, n, μ, m, c, k, M, G).", ek: ["Each prefix is a power of ten; moving the decimal changes the exponent by the same count."], p: [P5], drills: [] }
+          - { id: B, std: [N-Q.A.3], do: "Count significant figures in a measurement and round a calculated result correctly for × ÷ and for + −.", ek: ["× ÷: keep the fewest significant figures; + −: keep the fewest decimal places; exact counts and defined constants don't limit."], p: [P5], drills: [] }
+          - { id: C, std: [N-Q.A.3], do: "Distinguish accuracy from precision and calculate percent error.", ek: ["Accuracy = closeness to the true value; precision = agreement among repeats; % error = |measured − true|/true × 100."], p: [P2, P4], drills: [] }
+          - { id: D, std: [N-Q.A.1, A-CED.A.4], do: "Calculate density, mass or volume from the other two, including volume by water displacement.", ek: ["ρ = m/V; 1 mL = 1 cm³; water ≈ 1.00 g/mL near room temperature."], p: [P5], drills: [] }
+          - { id: E, std: [N-Q.A.1], do: "Convert temperatures among °C, K and °F.", ek: ["K = °C + 273.15; °F = 1.8·°C + 32; gas laws and thermodynamics need kelvin."], p: [P5], drills: [] }
+      - n: 3
+        title: Dimensional analysis
+        ced: pre
+        dat: [Stoichiometry and General Concepts]
+        los:
+          - { id: A, std: [N-Q.A.1, 6.RP.A.3.D], do: "Convert a quantity through a chain of conversion factors, including squared and cubed units.", ek: ["Multiply by factors equal to one, arranged so unwanted units cancel; cube the factor for volume (1 m³ = 10⁶ cm³)."], p: [P5], drills: [], needs: [CH-0.2.A] }
+      - n: 4
+        title: Atoms, ions, the periodic table and naming
+        ced: "pre-1.5, 1.8"
+        dat: [Atomic and Molecular Structure, Periodic Properties]
+        los:
+          - { id: A, std: [SAP-1.A], do: "Count protons, neutrons and electrons from a nuclide symbol for an atom or ion.", ek: ["Z = protons; A = protons + neutrons; electrons = Z − charge."], p: [P1], drills: [] }
+          - { id: C, std: [SAP-2.B], do: "Use periodic-table position (group, metal or nonmetal) to name, and write formulas for, binary ionic, polyatomic ionic, binary molecular compounds and common acids.", ek: ["Metals left of the staircase form cations, nonmetals anions. Ionic: cation then anion, charges balance, Roman numeral for variable-charge metals; molecular: Greek prefixes; -ate → -ic acid, -ite → -ous acid."], p: [P1], drills: [] }
+      - n: 5
+        title: The mole as a counting unit
+        ced: "pre-1.1"
+        dat: [Stoichiometry and General Concepts]
+        los:
+          - { id: A, std: [SPQ-1.A], do: "Explain the mole as a count of particles and compute a compound's molar mass from its formula.", ek: ["1 mol = 6.022 × 10²³ particles; molar mass in g/mol = sum of atomic masses × subscripts."], p: [P5], drills: [], needs: [CH-0.4.C] }
+
+  # ── 1 ────────────────────────────────────────────────────────────────────
+  - id: atoms
+    n: 1
+    title: Atomic structure and properties
+    scope: core
+    ideas: [SPQ, SAP]
+    weight_est: "7–9%"
+    topics:
+      - n: 1
+        title: Moles and molar mass
+        ced: "1.1"
+        dat: [Stoichiometry and General Concepts]
+        los:
+          - { id: A, std: [SPQ-1.A], do: "Convert among mass, moles and number of particles of a compound or of one element inside it.", ek: ["n = m/M; N = n·N_A; route every conversion through moles; subscripts are mole ratios (1 mol Fe₂O₃ holds 2 mol Fe)."], p: [P5], drills: [], needs: [CH-0.5.A, CH-0.3.A] }
+      - n: 2
+        title: Mass spectra of elements
+        ced: "1.2"
+        dat: [Atomic and Molecular Structure]
+        los:
+          - { id: A, std: [SPQ-1.B], do: "Calculate an element's average atomic mass from its isotopes' masses and abundances.", ek: ["Average mass = Σ (fractional abundance × isotope mass)."], p: [P5], drills: [], needs: [CH-0.4.A] }
+          - { id: B, std: [SPQ-1.B], do: "Read isotopes and relative abundances off a mass spectrum, or find two isotopes' abundances from the average mass.", ek: ["Peak position = isotope mass; peak height ∝ abundance; with two isotopes, x·m₁ + (1 − x)·m₂ = average."], p: [P4, P5], drills: [], needs: [CH-1.2.A] }
+      - n: 3
+        title: Elemental composition of pure substances
+        ced: "1.3"
+        dat: [Stoichiometry and General Concepts]
+        los:
+          - { id: A, std: [SPQ-2.A], do: "Calculate the mass percent of each element in a compound from its formula.", ek: ["% X = (subscript × M_X)/M_compound × 100."], p: [P5], drills: [], needs: [CH-0.5.A] }
+          - { id: B, std: [SPQ-2.A], do: "Determine an empirical formula from mass-percent or mass data.", ek: ["Assume 100 g, convert each to moles, divide by the smallest, clear fractions to whole numbers."], p: [P5], drills: [], needs: [CH-1.1.A, CH-1.3.A] }
+          - { id: C, std: [SPQ-2.A], do: "Find a molecular formula from the empirical formula and the molar mass.", ek: ["Molecular formula = (empirical formula)ₙ with n = M/M_empirical."], p: [P5], drills: [], needs: [CH-1.3.B] }
+          - { id: D, std: [SPQ-2.A], do: "Find an empirical formula from combustion-analysis masses of CO₂ and H₂O.", ek: ["All C ends in CO₂ and all H in H₂O; O is found by difference from the sample mass."], p: [P5], drills: [], needs: [CH-1.3.B] }
+      - n: 4
+        title: Composition of mixtures
+        ced: "1.4"
+        dat: [Stoichiometry and General Concepts]
+        los:
+          - { id: A, std: [SPQ-2.B], do: "Calculate the mass percent of a component in an impure sample or mixture from elemental analysis.", ek: ["Mass of analyte element → mass of the compound containing it → percent of the sample."], p: [P5], drills: [], needs: [CH-1.3.A] }
+      - n: 5
+        title: Atomic structure and electron configuration
+        ced: "1.5"
+        dat: [Atomic and Molecular Structure]
+        los:
+          - { id: A, std: [SAP-1.A], do: "Write full and noble-gas ground-state electron configurations for atoms and ions.", ek: ["Fill by Aufbau order (1s 2s 2p 3s 3p 4s 3d 4p …), two electrons per orbital; cations of transition metals lose ns before (n−1)d."], p: [P1], drills: [], needs: [CH-0.4.A] }
+          - { id: B, std: [SAP-1.A], do: "Draw an orbital (box) diagram, count unpaired electrons, and predict paramagnetism or diamagnetism.", ek: ["Hund: fill degenerate orbitals singly with parallel spins first; any unpaired electron ⇒ paramagnetic."], p: [P1], drills: [], needs: [CH-1.5.A] }
+          - { id: C, std: [SAP-1.A], do: "Compare the attraction of an electron to the nucleus using Coulomb's law with nuclear charge, shielding and distance.", ek: ["F ∝ q₁q₂/r²; Z_eff ≈ Z − core electrons; outer, well-shielded electrons are held least tightly."], p: [P6], drills: [], needs: [CH-1.5.A] }
+      - n: 6
+        title: Photoelectron spectroscopy
+        ced: "1.6"
+        dat: [Atomic and Molecular Structure]
+        los:
+          - { id: A, std: [SAP-1.B], do: "Assign each peak of a photoelectron spectrum to a subshell, read its electron count, and identify the element.", ek: ["Position = binding energy (core electrons far left/high); relative peak height = number of electrons in that subshell."], p: [P4], drills: [], needs: [CH-1.5.A] }
+      - n: 7
+        title: Periodic trends
+        ced: "1.7"
+        dat: [Periodic Properties]
+        los:
+          - { id: A, std: [SAP-2.A], do: "Rank atoms by radius, first ionization energy, electron affinity and electronegativity, and justify with Z_eff and shell number.", ek: ["Across a period Z_eff rises (smaller, higher IE, higher EN); down a group n rises (larger, lower IE, lower EN); IE dips at groups 13 and 16 (p electron, first p pairing)."], p: [P6], drills: [], needs: [CH-1.5.C] }
+          - { id: C, std: [SAP-2.A], do: "Identify an element's group from a jump in successive ionization energies.", ek: ["The big jump comes after the valence electrons are gone, when a core electron is removed."], p: [P4], drills: [], needs: [CH-1.7.A] }
+          - { id: D, std: [SAP-2.A], do: "Compare ion sizes with their parent atoms and rank an isoelectronic series.", ek: ["Cations shrink, anions grow; in an isoelectronic series, more protons ⇒ smaller."], p: [P6], drills: [], needs: [CH-1.7.A] }
+      - n: 8
+        title: Valence electrons and ionic compounds
+        ced: "1.8"
+        dat: [Periodic Properties]
+        los:
+          - { id: A, std: [SAP-2.B], do: "Predict an element's common ion charge and the formula of the ionic compound two elements form.", ek: ["Main-group atoms gain or lose electrons to reach a noble-gas configuration; total charge sums to zero."], p: [P1], drills: [], needs: [CH-1.5.A, CH-0.4.C] }
+          - { id: B, std: [SAP-2.B], do: "Predict the formula or reactivity of an unfamiliar compound from an analogous compound of a same-group element.", ek: ["Same group ⇒ same valence configuration ⇒ analogous formulas (Na₂O → K₂O); reactivity trends follow IE and EN."], p: [P6], drills: [], needs: [CH-1.8.A, CH-1.7.A] }
+      - n: 9
+        title: Quantum numbers and orbitals
+        ced: ext
+        scope: extension
+        dat: [Atomic and Molecular Structure]
+        los:
+          - { id: A, std: ["DAT-GC Atomic and Molecular Structure (quantum theory)"], do: "Assign quantum numbers n, l, m_l, m_s, decide whether a set is allowed, and count the orbitals and electrons in a subshell or shell.", ek: ["l = 0…n−1; m_l = −l…+l; m_s = ±½; no two electrons share all four (Pauli); subshell holds 2(2l + 1) e⁻, shell 2n²."], p: [P1], drills: [], needs: [CH-1.5.A] }
+      - n: 10
+        title: Nuclear reactions
+        ced: ext
+        scope: extension
+        dat: [Nuclear Reactions]
+        los:
+          - { id: A, std: ["DAT-GC Nuclear Reactions"], do: "Balance a nuclear equation for alpha, beta-minus, positron, electron-capture and gamma processes.", ek: ["Mass numbers and atomic numbers each sum equally on both sides; α = ⁴₂He, β⁻ = ⁰₋₁e, β⁺ = ⁰₊₁e."], p: [P3], drills: [], needs: [CH-0.4.A] }
+          - { id: C, std: ["DAT-GC Nuclear Reactions"], do: "Calculate the amount remaining, or the elapsed time, after a whole number of half-lives.", ek: ["Remaining = initial × (½)^(t/t½)."], p: [P5], drills: [], needs: [CH-1.10.A] }
+          - { id: D, std: ["DAT-GC Nuclear Reactions"], do: "Calculate a nucleus's mass defect and binding energy per nucleon.", ek: ["Δm = (mass of separate nucleons) − (nucleus mass); E = Δm c², 1 u ↔ 931.5 MeV."], p: [P5], drills: [], needs: [CH-1.10.A] }
+
+  # ── 2 ────────────────────────────────────────────────────────────────────
+  - id: bonding
+    n: 2
+    title: Molecular and ionic compound structure and properties
+    scope: core
+    ideas: [SAP]
+    weight_est: "7–9%"
+    topics:
+      - n: 1
+        title: Types of chemical bonds
+        ced: "2.1"
+        dat: [Atomic and Molecular Structure]
+        los:
+          - { id: A, std: [SAP-3.A], do: "Classify a bond as nonpolar covalent, polar covalent, ionic or metallic from the elements and their electronegativity difference, and mark partial charges.", ek: ["Metal + nonmetal ⇒ ionic; nonmetals ⇒ covalent; ΔEN ≈ 0 nonpolar, larger ΔEN more polar; metals ⇒ metallic."], p: [P1], drills: [], needs: [CH-1.7.A] }
+      - n: 2
+        title: Intramolecular force and potential energy
+        ced: "2.2"
+        los:
+          - { id: A, std: [SAP-3.B], do: "Read bond length and bond energy from a potential-energy vs internuclear-distance curve, and compare curves for different bonds.", ek: ["The well's minimum gives bond length (x) and bond energy (depth); higher bond order and smaller atoms ⇒ deeper, shorter well."], p: [P4], drills: [] }
+          - { id: B, std: [SAP-3.B], do: "Rank ionic compounds by lattice energy using Coulomb's law.", ek: ["Lattice energy ∝ q₁q₂/(r₁ + r₂): charge dominates, then ion size."], p: [P6], drills: [], needs: [CH-1.5.C, CH-1.7.D] }
+      - n: 3
+        title: Structure of ionic solids
+        ced: "2.3"
+        dat: [Liquids and Solids]
+        los:
+          - { id: A, std: [SAP-3.C], do: "Represent an ionic solid as a lattice and use it to explain high melting point, brittleness and conductivity only when molten or dissolved.", ek: ["Alternating ions maximise attraction; shifting a layer brings like charges together and it shatters; ions must be mobile to conduct."], p: [P1, P6], drills: [], needs: [CH-2.2.B] }
+      - n: 4
+        title: Structure of metals and alloys
+        ced: "2.4"
+        dat: [Liquids and Solids]
+        los:
+          - { id: A, std: [SAP-3.D], do: "Explain metallic conductivity, malleability and luster with the electron-sea model, and classify an alloy as interstitial or substitutional from atomic radii.", ek: ["Delocalised valence electrons move freely; similar radii ⇒ substitutional (brass), much smaller atom ⇒ interstitial (steel), which is stiffer."], p: [P1], drills: [], needs: [CH-2.1.A] }
+      - n: 5
+        title: Lewis diagrams
+        ced: "2.5"
+        dat: [Atomic and Molecular Structure]
+        los:
+          - { id: A, std: [SAP-4.A], do: "Draw the Lewis structure of a molecule or polyatomic ion that obeys the octet rule.", ek: ["Count valence electrons (adjust for charge), connect atoms, complete outer octets, move lone pairs into multiple bonds if the centre is short."], p: [P1], drills: [], needs: [CH-1.8.A] }
+          - { id: B, std: [SAP-4.A], do: "Draw Lewis structures for octet exceptions: incomplete octets, expanded octets and odd-electron species.", ek: ["B and Be can be electron-deficient; period-3+ central atoms can exceed eight; an odd electron count leaves a radical."], p: [P1], drills: [], needs: [CH-2.5.A] }
+      - n: 6
+        title: Resonance and formal charge
+        ced: "2.6"
+        dat: [Atomic and Molecular Structure]
+        los:
+          - { id: A, std: [SAP-4.B], do: "Calculate formal charges and use them to pick the best of several Lewis structures.", ek: ["FC = valence e⁻ − lone-pair e⁻ − ½ bonding e⁻; prefer FCs near zero, with negatives on more electronegative atoms."], p: [P1, P6], drills: [], needs: [CH-2.5.A] }
+          - { id: B, std: [SAP-4.B], do: "Draw all resonance structures of a species and calculate the average bond order.", ek: ["Resonance forms differ only in electron placement; the real structure is the average, e.g. bond order 4/3 in NO₃⁻; higher bond order ⇒ shorter, stronger bond."], p: [P1], drills: [], needs: [CH-2.5.A] }
+      - n: 7
+        title: VSEPR and bond hybridization
+        ced: "2.7"
+        dat: [Atomic and Molecular Structure]
+        los:
+          - { id: A, std: [SAP-4.C], do: "Predict electron-domain geometry, molecular shape and approximate bond angles with VSEPR.", ek: ["2–6 domains ⇒ linear, trigonal planar, tetrahedral, trigonal bipyramidal, octahedral; lone pairs squeeze angles (109.5° → 107° → 104.5°)."], p: [P1], drills: [], needs: [CH-2.5.B] }
+          - { id: B, std: [SAP-4.C], do: "Decide whether a molecule is polar from its shape and bond dipoles.", ek: ["Polar bonds in a symmetric shape cancel (CO₂, CCl₄); lone pairs or unlike atoms usually break the symmetry."], p: [P6], drills: [], needs: [CH-2.7.A, CH-2.1.A] }
+          - { id: C, std: [SAP-4.C], do: "Assign the hybridization of a central atom and count σ and π bonds.", ek: ["2, 3, 4, 5, 6 domains ⇒ sp, sp², sp³, sp³d, sp³d²; a single bond is σ, a double σ + π, a triple σ + 2π."], p: [P1], drills: [], needs: [CH-2.7.A] }
+      - n: 8
+        title: Molecular orbital theory for diatomics
+        ced: ext
+        scope: extension
+        dat: [Atomic and Molecular Structure]
+        los:
+          - { id: A, std: ["DAT-GC Atomic and Molecular Structure (quantum theory)"], do: "Fill a molecular-orbital diagram for a period-2 diatomic or ion and find its bond order and magnetism.", ek: ["Bond order = ½(bonding − antibonding e⁻); O₂ has two unpaired π* electrons (paramagnetic); σ2p/π2p order flips after N₂."], p: [P1, P5], drills: [], needs: [CH-2.6.B, CH-1.5.B] }
+
+  # ── 3 ────────────────────────────────────────────────────────────────────
+  - id: imf
+    n: 3
+    title: Intermolecular forces and properties
+    scope: core
+    ideas: [SAP, SPQ]
+    weight_est: "18–22%"
+    topics:
+      - n: 1
+        title: Intermolecular and interparticle forces
+        ced: "3.1"
+        dat: [Liquids and Solids, Solutions]
+        los:
+          - { id: A, std: [SAP-5.A], do: "Identify every intermolecular force present between particles: London dispersion, dipole–dipole, hydrogen bonding, ion–dipole.", ek: ["All molecules have dispersion; polar ⇒ dipole–dipole; H on N, O or F next to a lone pair on N, O or F ⇒ hydrogen bond."], p: [P1], drills: [], needs: [CH-2.7.B] }
+          - { id: B, std: [SAP-5.A], do: "Rank substances by boiling point, vapor pressure, viscosity or surface tension from their intermolecular forces.", ek: ["Stronger IMF ⇒ higher bp, lower vapor pressure; dispersion grows with electron count and contact area and can outweigh dipoles."], p: [P6], drills: [], needs: [CH-3.1.A] }
+      - n: 2
+        title: Properties of solids
+        ced: "3.2"
+        dat: [Liquids and Solids]
+        los:
+          - { id: A, std: [SAP-5.B], do: "Classify a solid as ionic, molecular, covalent-network or metallic and predict its melting point, hardness and conductivity.", ek: ["Network (diamond, SiO₂) highest mp and non-conducting; molecular low mp; metallic conducts as a solid; ionic conducts only molten or dissolved."], p: [P6], drills: [], needs: [CH-3.1.A, CH-2.3.A, CH-2.4.A] }
+      - n: 3
+        title: Solids, liquids and gases
+        ced: "3.3"
+        dat: [Liquids and Solids]
+        los:
+          - { id: B, std: [SAP-6.A], do: "Explain vapor pressure and boiling as an IMF-versus-kinetic-energy balance, and why boiling point changes with external pressure.", ek: ["Boiling occurs when vapor pressure = external pressure; normal bp is at 1 atm."], p: [P6], drills: [], needs: [CH-3.1.B] }
+          - { id: C, std: [SAP-6.A], do: "Read a phase diagram: identify phases, the triple point, the critical point and normal melting and boiling points, and trace a path.", ek: ["Lines are coexistence curves; water's solid–liquid line slopes left because ice is less dense than liquid water."], p: [P4], drills: [], needs: [CH-3.3.B] }
+      - n: 4
+        title: Ideal gas law
+        ced: "3.4"
+        dat: [Gases]
+        los:
+          - { id: A, std: [SAP-7.A], do: "Solve PV = nRT for any variable with consistent units and the matching value of R.", ek: ["R = 0.08206 L·atm/(mol·K) = 8.314 J/(mol·K); T in kelvin; 1 atm = 760 torr = 101.325 kPa."], p: [P5], drills: [], needs: [CH-0.2.E] }
+          - { id: B, std: [SAP-7.A], do: "Predict a new P, V, T or n when conditions change, using the combined gas law and Boyle's, Charles's, Gay-Lussac's and Avogadro's laws.", ek: ["P₁V₁/(n₁T₁) = P₂V₂/(n₂T₂); cancel whatever is held constant."], p: [P5], drills: [], needs: [CH-3.4.A] }
+          - { id: C, std: [SAP-7.A], do: "Calculate a gas's density or molar mass from P, V, T and mass.", ek: ["M = ρRT/P; at STP one mole occupies 22.4 L."], p: [P5], drills: [], needs: [CH-3.4.A, CH-1.1.A] }
+          - { id: D, std: [SAP-7.A], do: "Calculate partial pressures and mole fractions with Dalton's law, including a gas collected over water.", ek: ["P_total = Σ P_i; P_i = χ_i P_total; subtract water's vapor pressure from the collected gas pressure."], p: [P5], drills: [], needs: [CH-3.4.A] }
+      - n: 5
+        title: Kinetic molecular theory
+        ced: "3.5"
+        dat: [Gases]
+        los:
+          - { id: A, std: [SAP-7.B], do: "State the postulates of kinetic molecular theory and interpret Maxwell–Boltzmann speed distributions at different temperatures and molar masses.", ek: ["Average KE ∝ T only; higher T or lower M spreads the curve to higher speeds."], p: [P4], drills: [], needs: [CH-3.4.A] }
+          - { id: B, std: [SAP-7.B], do: "Compare rms speeds and rates of effusion of two gases with Graham's law.", ek: ["u_rms = √(3RT/M); rate₁/rate₂ = √(M₂/M₁)."], p: [P5], drills: [], needs: [CH-3.5.A] }
+      - n: 6
+        title: Deviation from the ideal gas law
+        ced: "3.6"
+        dat: [Gases]
+        los:
+          - { id: A, std: [SAP-7.C], do: "Predict when and in which direction a real gas deviates from ideal behavior, and explain the van der Waals a and b terms.", ek: ["High P: particle volume matters (b, V larger than ideal); low T: attractions matter (a, P lower than ideal); polar or large gases deviate most."], p: [P6], drills: [], needs: [CH-3.5.A, CH-3.1.A] }
+      - n: 7
+        title: Solutions and mixtures
+        ced: "3.7"
+        dat: [Solutions]
+        los:
+          - { id: A, std: [SPQ-3.A], do: "Calculate molarity, moles of solute or solution volume from the other two.", ek: ["M = mol solute / L solution."], p: [P5], drills: [], needs: [CH-1.1.A] }
+          - { id: B, std: [SPQ-3.A], do: "Calculate the result of a dilution and describe how to prepare a solution of given concentration.", ek: ["Moles of solute are unchanged by adding solvent: M₁V₁ = M₂V₂; dissolve, then fill to the mark in a volumetric flask."], p: [P2, P5], drills: [], needs: [CH-3.7.A] }
+          - { id: C, std: [SPQ-3.A], do: "Calculate each ion's concentration in a solution of a strong electrolyte.", ek: ["0.10 M CaCl₂ ⇒ 0.10 M Ca²⁺ and 0.20 M Cl⁻."], p: [P5], drills: [], needs: [CH-3.7.A, CH-0.4.C] }
+          - { id: D, std: [SPQ-3.A], do: "Convert among molarity, molality, mass percent, mole fraction and ppm.", ek: ["m = mol solute / kg solvent; converting molarity ↔ molality needs the solution's density."], p: [P5], drills: [], needs: [CH-3.7.A, CH-0.2.D] }
+      - n: 8
+        title: Representations of solutions
+        ced: "3.8"
+        dat: [Solutions]
+        los:
+          - { id: A, std: [SPQ-3.B], do: "Draw a particle diagram of a solution with correct solute ratios and solvent orientation around ions.", ek: ["Water's O (δ⁻) faces cations; its H (δ⁺) faces anions; ion counts follow the formula."], p: [P1], drills: [], needs: [CH-3.7.C, CH-3.1.A] }
+      - n: 9
+        title: Separation of solutions and mixtures
+        ced: "3.9"
+        dat: [Solutions, Laboratory]
+        los:
+          - { id: A, std: [SPQ-3.C], do: "Explain a chromatography or distillation separation, and compute R_f, from differences in intermolecular forces.", ek: ["A component that interacts more with the stationary phase travels less (lower R_f); distillation separates by volatility."], p: [P4, P6], drills: [], needs: [CH-3.1.B] }
+      - n: 10
+        title: Solubility
+        ced: "3.10"
+        dat: [Solutions]
+        los:
+          - { id: A, std: [SPQ-3.C], do: "Predict relative solubility in polar and nonpolar solvents from solute–solvent interactions.", ek: ["'Like dissolves like': dissolving is favored when solute–solvent attractions rival solute–solute and solvent–solvent ones."], p: [P6], drills: [], needs: [CH-3.1.A] }
+          - { id: B, std: [SPQ-3.C, "DAT-GC Solutions"], do: "Predict how temperature and pressure change solubility, and use Henry's law for a dissolved gas.", ek: ["Gas solubility falls as T rises and rises with its partial pressure: C = k_H P; most solids dissolve better when hot."], p: [P5, P6], drills: [], needs: [CH-3.10.A, CH-3.4.D] }
+      - n: 11
+        title: Spectroscopy and the electromagnetic spectrum
+        ced: "3.11"
+        los:
+          - { id: A, std: [SAP-8.A], do: "Match a region of the electromagnetic spectrum to the molecular or electronic transition it causes.", ek: ["Microwave → rotation; infrared → vibration; UV–visible → electronic transitions."], p: [P4], drills: [], needs: [CH-2.2.A] }
+      - n: 12
+        title: Properties of photons
+        ced: "3.12"
+        dat: [Atomic and Molecular Structure]
+        los:
+          - { id: A, std: [SAP-8.B], do: "Calculate a photon's energy, frequency or wavelength, per photon or per mole.", ek: ["E = hν = hc/λ; c = λν; h = 6.626 × 10⁻³⁴ J·s; multiply by N_A for per-mole energy."], p: [P5], drills: [], needs: [CH-0.2.A] }
+          - { id: B, std: [SAP-8.B, "DAT-GC Atomic and Molecular Structure (quantum theory)"], do: "Calculate the energy and wavelength of a hydrogen-atom transition, and relate emission lines to energy levels.", ek: ["E_n = −2.18 × 10⁻¹⁸ J / n²; ΔE = photon energy; emission drops to lower n."], p: [P5], drills: [], needs: [CH-3.12.A] }
+      - n: 13
+        title: Beer–Lambert law
+        ced: "3.13"
+        dat: [Laboratory]
+        los:
+          - { id: A, std: [SAP-8.C], do: "Calculate a concentration from absorbance, directly or from a calibration curve.", ek: ["A = εbc; at fixed λ and path, A ∝ c, so the calibration line's slope is εb."], p: [P3, P5], drills: [], needs: [CH-3.7.A] }
+      - n: 14
+        title: Colligative properties
+        ced: ext
+        scope: extension
+        dat: [Solutions]
+        los:
+          - { id: A, std: ["DAT-GC Solutions (colligative)"], do: "Calculate the vapor pressure of a solution with Raoult's law.", ek: ["P_solution = χ_solvent P°_solvent for a nonvolatile solute."], p: [P5], drills: ["~th-so-raoult"], needs: [CH-3.7.D, CH-3.3.B] }
+          - { id: B, std: ["DAT-GC Solutions (colligative)"], do: "Calculate a boiling-point elevation or freezing-point depression with the van 't Hoff factor, and rank solutions by it.", ek: ["ΔT = i·K·m; i counts particles per formula unit (NaCl ≈ 2, glucose 1)."], p: [P5], drills: [], needs: [CH-3.7.D, CH-3.7.C] }
+          - { id: C, std: ["DAT-GC Solutions (colligative)"], do: "Calculate osmotic pressure, or a solute's molar mass from colligative data.", ek: ["Π = iMRT; measured ΔT or Π → moles of solute → M = mass/moles."], p: [P5], drills: [], needs: [CH-3.14.B, CH-3.4.A] }
+
+  # ── 4 ────────────────────────────────────────────────────────────────────
+  - id: reactions
+    n: 4
+    title: Chemical reactions
+    scope: core
+    ideas: [TRA, SPQ]
+    weight_est: "7–9%"
+    topics:
+      - n: 1
+        title: Introduction for reactions
+        ced: "4.1"
+        dat: [Stoichiometry and General Concepts]
+        los:
+          - { id: A, std: [TRA-1.A], do: "Identify evidence of a chemical reaction and balance a chemical equation by inspection.", ek: ["Gas, precipitate, color or temperature change can signal reaction; balance atoms with coefficients, never by changing subscripts."], p: [P3], drills: [], needs: [CH-0.1.B, CH-0.4.C] }
+      - n: 2
+        title: Net ionic equations
+        ced: "4.2"
+        dat: [Solutions, Chemical Equilibria]
+        los:
+          - { id: A, std: [TRA-1.B], do: "Predict whether a precipitate forms on mixing two ionic solutions, using solubility rules.", ek: ["Always soluble: Group 1, NH₄⁺, NO₃⁻ (AP's minimum); DAT adds halides (except Ag⁺, Pb²⁺, Hg₂²⁺), sulfates (except Ba, Sr, Pb, Ca), mostly insoluble carbonates, phosphates, hydroxides."], p: [P6], drills: [], needs: [CH-4.1.A] }
+          - { id: B, std: [TRA-1.B], do: "Write the molecular, complete ionic and net ionic equations for a reaction in solution.", ek: ["Split only strong electrolytes in solution; cancel spectator ions; keep solids, liquids, gases and weak electrolytes whole."], p: [P3], drills: [], needs: [CH-4.2.A, CH-3.7.C] }
+      - n: 3
+        title: Representations of reactions
+        ced: "4.3"
+        los:
+          - { id: A, std: [TRA-1.C], do: "Translate between a particle diagram of a reaction and its balanced equation, including which reactant is left over.", ek: ["Count particles before and after; the coefficient ratio is the ratio of particles that react."], p: [P1, P3], drills: [], needs: [CH-4.1.A] }
+      - n: 4
+        title: Physical and chemical changes
+        ced: "4.4"
+        los:
+          - { id: A, std: [TRA-1.D], do: "Classify a process (dissolving, melting, ionization, combustion) as physical or chemical from whether bonds or interparticle forces change.", ek: ["Breaking only IMFs is physical; breaking and forming intramolecular bonds is chemical; dissolving an ionic salt is a borderline case."], p: [P6], drills: [], needs: [CH-0.1.B, CH-3.1.A] }
+      - n: 5
+        title: Stoichiometry
+        ced: "4.5"
+        dat: [Stoichiometry and General Concepts]
+        los:
+          - { id: A, std: [SPQ-4.A], do: "Calculate the mass of a product or reactant from the mass of another, through the mole ratio.", ek: ["grams A → mol A → (coefficient ratio) → mol B → grams B."], p: [P5], drills: [], needs: [CH-4.1.A, CH-1.1.A] }
+          - { id: B, std: [SPQ-4.A], do: "Identify the limiting reactant, the theoretical yield and the amount of excess reactant left.", ek: ["The limiting reactant is the one that makes less product; leftover = initial − consumed."], p: [P5], drills: [], needs: [CH-4.5.A] }
+          - { id: C, std: [SPQ-4.A], do: "Calculate percent yield from actual and theoretical yield.", ek: ["% yield = actual/theoretical × 100; it can't exceed 100% for a dry, pure product."], p: [P5], drills: [], needs: [CH-4.5.B] }
+          - { id: D, std: [SPQ-4.A], do: "Solve solution stoichiometry: volumes and molarities in, mass or concentration out.", ek: ["mol = M·V for each solution; mix volumes add for the final concentration."], p: [P5], drills: [], needs: [CH-4.5.A, CH-3.7.A] }
+          - { id: E, std: [SPQ-4.A], do: "Solve gas stoichiometry with the ideal gas law or molar volume.", ek: ["Convert gas P, V, T to moles with n = PV/RT, then use the mole ratio; equal volumes of gases at the same T, P ⇒ equal moles."], p: [P5], drills: [], needs: [CH-4.5.A, CH-3.4.A] }
+      - n: 6
+        title: Introduction to titration
+        ced: "4.6"
+        dat: [Acids and Bases, Laboratory]
+        los:
+          - { id: A, std: [SPQ-4.B], do: "Calculate an unknown concentration or sample purity from titration data at the equivalence point.", ek: ["At equivalence, moles titrant × (ratio) = moles analyte; endpoint is where the indicator changes."], p: [P5], drills: [], needs: [CH-4.5.D] }
+      - n: 7
+        title: Types of chemical reactions
+        ced: "4.7"
+        dat: [Stoichiometry and General Concepts]
+        los:
+          - { id: A, std: [TRA-2.A], do: "Classify a reaction as precipitation, acid–base or redox (including synthesis, decomposition, combustion, single and double replacement).", ek: ["Electron transfer ⇒ redox; proton transfer ⇒ acid–base; insoluble product from ions ⇒ precipitation."], p: [P6], drills: [], needs: [CH-4.2.B] }
+          - { id: B, std: [TRA-2.A], do: "Predict the products of combustion, synthesis, decomposition and double-replacement reactions.", ek: ["Hydrocarbon + O₂ → CO₂ + H₂O; double replacement swaps partners; metal carbonates decompose to oxide + CO₂."], p: [P3], drills: [], needs: [CH-4.7.A] }
+      - n: 8
+        title: Introduction to acid–base reactions
+        ced: "4.8"
+        dat: [Acids and Bases]
+        los:
+          - { id: A, std: [TRA-2.B], do: "Identify Brønsted–Lowry acids, bases and conjugate pairs, and write the proton-transfer equation.", ek: ["Acid donates H⁺, base accepts it; conjugates differ by exactly one H⁺; water is amphoteric."], p: [P3], drills: [], needs: [CH-4.7.A] }
+      - n: 9
+        title: Oxidation–reduction (redox) reactions
+        ced: "4.9"
+        dat: [Oxidation–Reduction Reactions]
+        los:
+          - { id: A, std: [TRA-2.C], do: "Assign oxidation numbers to every atom in a species.", ek: ["Elements 0; monatomic ions = charge; O usually −2, H +1 (−1 in hydrides), F −1; sum = overall charge."], p: [P1], drills: [], needs: [CH-0.4.C] }
+          - { id: B, std: [TRA-2.C], do: "Identify the species oxidized and reduced and the oxidizing and reducing agents.", ek: ["Oxidation = loss of e⁻ (number rises); the oxidizing agent is the species reduced."], p: [P6], drills: [], needs: [CH-4.9.A] }
+          - { id: C, std: [TRA-2.C], do: "Balance a redox equation by half-reactions in acidic or basic solution.", ek: ["Balance atoms, O with H₂O, H with H⁺, charge with e⁻; equalize electrons; in base add OH⁻ to neutralize H⁺."], p: [P3], drills: [], needs: [CH-4.9.B] }
+          - { id: D, std: [TRA-2.C, "DAT-GC Oxidation–Reduction Reactions"], do: "Predict whether a single-replacement reaction occurs from an activity series.", ek: ["A metal displaces ions of any metal below it; metals above H displace H₂ from acids."], p: [P6], drills: [], needs: [CH-4.9.B] }
+
+  # ── 5 ────────────────────────────────────────────────────────────────────
+  - id: kinetics
+    n: 5
+    title: Kinetics
+    scope: core
+    ideas: [TRA, ENE]
+    weight_est: "7–9%"
+    topics:
+      - n: 1
+        title: Reaction rates
+        ced: "5.1"
+        dat: [Chemical Kinetics]
+        los:
+          - { id: A, std: [TRA-3.A], do: "Express a reaction's rate from the rate of change of any reactant or product, using the coefficients.", ek: ["rate = −(1/a)d[A]/dt = (1/c)d[C]/dt for aA → cC."], p: [P5], drills: [], needs: [CH-4.1.A] }
+      - n: 2
+        title: Introduction to rate law
+        ced: "5.2"
+        dat: [Chemical Kinetics]
+        los:
+          - { id: A, std: [TRA-3.B], do: "Determine reaction orders and the rate constant, with its units, from initial-rates data.", ek: ["Compare two runs where only one concentration changes: rate ratio = (conc ratio)^order; k has units M^(1−n)·s⁻¹ for overall order n."], p: [P4, P5], drills: [], needs: [CH-5.1.A] }
+          - { id: C, std: [TRA-3.B], do: "Predict the change in rate when one or more concentrations change.", ek: ["Second order in A: doubling [A] quadruples the rate; zero order: no change."], p: [P5], drills: [], needs: [CH-5.2.A] }
+      - n: 3
+        title: Concentration changes over time
+        ced: "5.3"
+        dat: [Chemical Kinetics]
+        los:
+          - { id: A, std: [TRA-3.C], do: "Use the zero-, first- or second-order integrated rate law to find a concentration at time t, or the time to reach one.", ek: ["[A] = [A]₀ − kt; ln[A] = ln[A]₀ − kt; 1/[A] = 1/[A]₀ + kt."], p: [P5], drills: [], needs: [CH-5.2.A] }
+          - { id: B, std: [TRA-3.C], do: "Identify reaction order from which plot ([A], ln[A] or 1/[A] vs t) is linear, and read k from its slope.", ek: ["Linear [A] ⇒ zero; linear ln[A] ⇒ first (slope −k); linear 1/[A] ⇒ second (slope +k)."], p: [P3, P4], drills: [], needs: [CH-5.3.A] }
+          - { id: C, std: [TRA-3.C], do: "Calculate a half-life, and use the constancy of first-order half-life to solve decay problems.", ek: ["First order t½ = 0.693/k, independent of [A]₀; radioactive decay is first order."], p: [P5], drills: [], needs: [CH-5.3.A, CH-1.10.C] }
+      - n: 4
+        title: Elementary reactions
+        ced: "5.4"
+        los:
+          - { id: A, std: [TRA-4.A], do: "Write the rate law of an elementary step directly from its molecularity.", ek: ["Only for elementary steps do the exponents equal the coefficients: A + B → products ⇒ rate = k[A][B]."], p: [P3], drills: [], needs: [CH-5.2.A] }
+      - n: 5
+        title: Collision model
+        ced: "5.5"
+        dat: [Chemical Kinetics]
+        los:
+          - { id: A, std: [TRA-4.B], do: "Explain rate in terms of collision frequency, orientation and the fraction of collisions with energy above E_a.", ek: ["Raising T shifts the Maxwell–Boltzmann tail past E_a, so a small T rise greatly increases the effective collisions."], p: [P6], drills: [], needs: [CH-3.5.A, CH-5.1.A] }
+      - n: 6
+        title: Reaction energy profile
+        ced: "5.6"
+        dat: [Chemical Kinetics]
+        los:
+          - { id: A, std: [TRA-4.C], do: "Label a reaction energy profile with the transition state, forward and reverse E_a, and ΔH.", ek: ["E_a,rev = E_a,fwd − ΔH; the transition state is the maximum, not an isolable species."], p: [P1, P4], drills: [], needs: [CH-5.5.A] }
+          - { id: B, std: [TRA-4.C, "DAT-GC Chemical Kinetics (activation energy)"], do: "Find the activation energy from rate constants at two temperatures (Arrhenius).", ek: ["ln(k₂/k₁) = −(E_a/R)(1/T₂ − 1/T₁)."], p: [P5], drills: [sm-rate-ea], needs: [CH-5.6.A] }
+          - { id: C, std: [TRA-4.C, "DAT-GC Chemical Kinetics (activation energy)"], do: "Predict a rate constant at a new temperature, or the factor a rate rises by, from E_a.", ek: ["k₂ = k₁ exp[−(E_a/R)(1/T₂ − 1/T₁)]; bigger E_a ⇒ more temperature-sensitive."], p: [P5], drills: [sm-rate-k2, sm-rate-factor], needs: [CH-5.6.B] }
+      - n: 7
+        title: Introduction to reaction mechanisms
+        ced: "5.7"
+        los:
+          - { id: A, std: [TRA-5.A], do: "Check that a proposed mechanism sums to the overall equation, and identify intermediates and catalysts in it.", ek: ["Intermediates are made then used up; catalysts are used up then remade."], p: [P4], drills: [], needs: [CH-5.4.A] }
+      - n: 8
+        title: Reaction mechanism and rate law
+        ced: "5.8"
+        los:
+          - { id: A, std: [TRA-5.B], do: "Derive the rate law predicted by a mechanism whose first step is slow, and test it against an observed rate law.", ek: ["The slow (rate-determining) step's rate law is the overall rate law when it contains no intermediates."], p: [P4, P6], drills: [], needs: [CH-5.7.A] }
+      - n: 9
+        title: Pre-equilibrium approximation
+        ced: "5.9"
+        los:
+          - { id: A, std: [TRA-5.C], do: "Derive a rate law when a fast reversible step precedes the slow step, eliminating the intermediate.", ek: ["Fast equilibrium: k₁[A][B] = k₋₁[I] ⇒ [I] = (k₁/k₋₁)[A][B]; substitute into the slow step's rate law."], p: [P5], drills: [], needs: [CH-5.8.A] }
+      - n: 10
+        title: Multistep reaction energy profile
+        ced: "5.10"
+        los:
+          - { id: A, std: [TRA-5.D], do: "Read a multistep energy profile: count steps, locate intermediates, and pick the rate-determining step.", ek: ["Each hump is a transition state, each valley between them an intermediate; the highest barrier controls the rate."], p: [P4], drills: [], needs: [CH-5.6.A, CH-5.7.A] }
+      - n: 11
+        title: Catalysis
+        ced: "5.11"
+        dat: [Chemical Kinetics]
+        los:
+          - { id: A, std: [ENE-1.A], do: "Explain how a catalyst (homogeneous, heterogeneous or enzyme) speeds a reaction, and what it leaves unchanged.", ek: ["It provides a new mechanism with lower E_a; ΔH, ΔG and K are unchanged, and forward and reverse rates rise together."], p: [P6], drills: [], needs: [CH-5.10.A] }
+
+  # ── 6 ────────────────────────────────────────────────────────────────────
+  - id: thermochem
+    n: 6
+    title: Thermochemistry
+    scope: core
+    ideas: [ENE]
+    weight_est: "7–9%"
+    topics:
+      - n: 1
+        title: Endothermic and exothermic processes
+        ced: "6.1"
+        dat: [Thermodynamics and Thermochemistry]
+        los:
+          - { id: A, std: [ENE-2.A], do: "Classify a process as endothermic or exothermic from the temperature change of its surroundings, and give q its sign.", ek: ["Surroundings warm ⇒ the system released heat ⇒ exothermic, q < 0, ΔH < 0."], p: [P6], drills: [], needs: [CH-0.1.B] }
+      - n: 2
+        title: Energy diagrams
+        ced: "6.2"
+        los:
+          - { id: A, std: [ENE-2.B], do: "Draw and read an energy diagram that shows reactants and products relative to each other and ΔH.", ek: ["Products below reactants ⇒ exothermic; the vertical gap is ΔH."], p: [P1], drills: [], needs: [CH-6.1.A] }
+      - n: 3
+        title: Heat transfer and thermal equilibrium
+        ced: "6.3"
+        dat: [Thermodynamics and Thermochemistry]
+        los:
+          - { id: A, std: [ENE-2.C], do: "Explain heat flow between objects at the particle level until thermal equilibrium.", ek: ["Collisions pass kinetic energy from hotter to colder particles until average KE (T) is equal."], p: [P6], drills: [], needs: [CH-6.1.A, CH-3.5.A] }
+      - n: 4
+        title: Heat capacity and calorimetry
+        ced: "6.4"
+        dat: [Thermodynamics and Thermochemistry, Laboratory]
+        los:
+          - { id: A, std: [ENE-2.D], do: "Calculate heat, mass, specific heat or temperature change with q = mcΔT.", ek: ["Water's c = 4.18 J/(g·°C); ΔT in °C equals ΔT in K."], p: [P5], drills: [] }
+          - { id: B, std: [ENE-2.D], do: "Find the final temperature when two bodies at different temperatures reach equilibrium.", ek: ["Isolated system: q_lost + q_gained = 0, so m₁c₁(T_f − T₁) + m₂c₂(T_f − T₂) = 0."], p: [P5], drills: [], needs: [CH-6.4.A, CH-6.3.A] }
+          - { id: C, std: [ENE-2.D], do: "Calculate ΔH per mole of reaction from coffee-cup calorimetry data.", ek: ["q_rxn = −q_solution; ΔH = q_rxn / mol of limiting reactant."], p: [P5], drills: [], needs: [CH-6.4.A, CH-4.5.B] }
+      - n: 5
+        title: Energy of phase changes
+        ced: "6.5"
+        dat: [Liquids and Solids, Thermodynamics and Thermochemistry]
+        los:
+          - { id: A, std: [ENE-2.E], do: "Calculate the heat for a phase change at constant temperature.", ek: ["q = n·ΔH_fus or n·ΔH_vap; temperature stays constant while the phase changes; ΔH_vap ≫ ΔH_fus."], p: [P5], drills: [], needs: [CH-6.4.A, CH-3.1.B] }
+          - { id: B, std: [ENE-2.E], do: "Calculate the total heat along a heating curve that crosses one or more phase changes.", ek: ["Sum the sloped segments (mcΔT, each phase's own c) and the flat segments (nΔH)."], p: [P5], drills: [], needs: [CH-6.5.A] }
+      - n: 6
+        title: Introduction to enthalpy of reaction
+        ced: "6.6"
+        dat: [Thermodynamics and Thermochemistry]
+        los:
+          - { id: A, std: [ENE-2.F], do: "Scale a reaction's ΔH to a given amount of reactant or product, and change its sign for the reverse reaction.", ek: ["ΔH is per mole of reaction as written: heat = ΔH × (mol / coefficient)."], p: [P5], drills: [], needs: [CH-6.2.A, CH-4.5.A] }
+      - n: 7
+        title: Bond enthalpies
+        ced: "6.7"
+        dat: [Thermodynamics and Thermochemistry]
+        los:
+          - { id: A, std: [ENE-3.A], do: "Estimate ΔH of reaction from average bond enthalpies.", ek: ["ΔH ≈ Σ(bonds broken) − Σ(bonds formed); breaking costs energy, forming releases it."], p: [P5], drills: [], needs: [CH-6.6.A, CH-2.5.A] }
+      - n: 8
+        title: Enthalpy of formation
+        ced: "6.8"
+        dat: [Thermodynamics and Thermochemistry]
+        los:
+          - { id: A, std: [ENE-3.B], do: "Write the formation reaction of a compound from its elements in their standard states.", ek: ["One mole of product from elements in standard states (O₂(g), C(graphite), Br₂(l)); ΔH_f° of an element in its standard state is 0."], p: [P3], drills: [], needs: [CH-6.6.A] }
+          - { id: B, std: [ENE-3.B], do: "Calculate ΔH°_rxn from standard enthalpies of formation.", ek: ["ΔH°_rxn = Σ n ΔH_f°(products) − Σ n ΔH_f°(reactants)."], p: [P5], drills: [], needs: [CH-6.8.A] }
+      - n: 9
+        title: Hess's law
+        ced: "6.9"
+        dat: [Thermodynamics and Thermochemistry]
+        los:
+          - { id: A, std: [ENE-3.C, ENE-3.D], do: "Combine given reactions (reversing and scaling them) to find ΔH of a target reaction.", ek: ["Enthalpy is a state function: reverse ⇒ −ΔH, multiply by n ⇒ nΔH, add reactions ⇒ add ΔH."], p: [P5], drills: [], needs: [CH-6.6.A] }
+      - n: 10
+        title: The first law, work and internal energy
+        ced: ext
+        scope: extension
+        dat: [Thermodynamics and Thermochemistry]
+        los:
+          - { id: A, std: ["DAT-GC Thermodynamics and Thermochemistry (laws of thermodynamics)"], do: "Calculate ΔU from heat and work with correct sign conventions, including pressure–volume work.", ek: ["ΔU = q + w; w = −P_ext ΔV (work done on the system is positive); 1 L·atm = 101.3 J."], p: [P5], drills: [], needs: [CH-6.4.A, CH-3.4.A] }
+          - { id: B, std: ["DAT-GC Thermodynamics and Thermochemistry (laws of thermodynamics)"], do: "Convert between ΔH and ΔU for a reaction that changes the moles of gas.", ek: ["ΔH = ΔU + Δn_gas RT; equal only when Δn_gas = 0."], p: [P5], drills: [], needs: [CH-6.10.A] }
+      - n: 11
+        title: Vapor pressure and temperature
+        ced: ext
+        scope: extension
+        dat: [Liquids and Solids]
+        los:
+          - { id: A, std: ["DAT-GC Liquids and Solids (vapor pressure)"], do: "Estimate a vapor pressure at a new temperature, or ΔH_vap from two points, with the Clausius–Clapeyron equation.", ek: ["ln(P₂/P₁) = −(ΔH_vap/R)(1/T₂ − 1/T₁)."], p: [P5], drills: [th-pe-cc-pressure, th-pe-cc-enthalpy], needs: [CH-6.5.A, CH-3.3.B] }
+
+  # ── 7 ────────────────────────────────────────────────────────────────────
+  - id: equilibrium
+    n: 7
+    title: Equilibrium
+    scope: core
+    ideas: [TRA, SPQ]
+    weight_est: "7–9%"
+    topics:
+      - n: 1
+        title: Introduction to equilibrium
+        ced: "7.1"
+        dat: [Chemical Equilibria]
+        los:
+          - { id: A, std: [TRA-6.A], do: "Explain dynamic equilibrium and identify when it is reached on a concentration-vs-time graph.", ek: ["At equilibrium forward rate = reverse rate; concentrations stop changing but need not be equal."], p: [P4], drills: [], needs: [CH-5.1.A] }
+      - n: 2
+        title: Direction of reversible reactions
+        ced: "7.2"
+        dat: [Chemical Equilibria]
+        los:
+          - { id: A, std: [TRA-6.B], do: "Predict the direction of net change from the relative forward and reverse rates.", ek: ["Forward rate > reverse rate ⇒ net reaction to the right, until the rates equalize."], p: [P6], drills: [], needs: [CH-7.1.A] }
+      - n: 3
+        title: Reaction quotient and equilibrium constant
+        ced: "7.3"
+        dat: [Chemical Equilibria]
+        los:
+          - { id: A, std: [TRA-7.A], do: "Write the K_c and K_p expressions for a reaction, including heterogeneous ones.", ek: ["Products over reactants, each raised to its coefficient; pure solids and liquids are left out."], p: [P3], drills: [], needs: [CH-7.1.A] }
+          - { id: B, std: [TRA-7.A], do: "Calculate Q from given concentrations or pressures and compare it with K to predict the direction of shift.", ek: ["Q < K ⇒ forward; Q > K ⇒ reverse; Q = K ⇒ at equilibrium."], p: [P5, P6], drills: [], needs: [CH-7.3.A, CH-7.2.A] }
+      - n: 4
+        title: Calculating the equilibrium constant
+        ced: "7.4"
+        dat: [Chemical Equilibria]
+        los:
+          - { id: A, std: [TRA-7.B], do: "Calculate K from equilibrium concentrations or partial pressures.", ek: ["Substitute equilibrium (not initial) values into the K expression."], p: [P5], drills: [], needs: [CH-7.3.A] }
+          - { id: B, std: [TRA-7.B], do: "Use an ICE table with initial amounts and one equilibrium amount to find K.", ek: ["Changes follow the coefficients: −ax, −bx, +cx; one known equilibrium value fixes x."], p: [P5], drills: [], needs: [CH-7.4.A] }
+          - { id: C, std: [TRA-7.B], do: "Convert between K_c and K_p.", ek: ["K_p = K_c(RT)^Δn with R = 0.08206 and Δn = moles gas products − reactants."], p: [P5], drills: [], needs: [CH-7.4.A, CH-3.4.A] }
+      - n: 5
+        title: Magnitude of the equilibrium constant
+        ced: "7.5"
+        dat: [Chemical Equilibria]
+        los:
+          - { id: A, std: [TRA-7.C], do: "Judge from the size of K whether reactants or products are favored at equilibrium.", ek: ["K ≫ 1 ⇒ products favored; K ≪ 1 ⇒ reactants favored."], p: [P6], drills: [], needs: [CH-7.4.A] }
+      - n: 6
+        title: Properties of the equilibrium constant
+        ced: "7.6"
+        dat: [Chemical Equilibria]
+        los:
+          - { id: A, std: [TRA-7.D], do: "Find K for a reversed, scaled or summed reaction.", ek: ["Reverse ⇒ 1/K; multiply by n ⇒ Kⁿ; add reactions ⇒ multiply their K's."], p: [P5], drills: [], needs: [CH-7.3.A] }
+      - n: 7
+        title: Calculating equilibrium concentrations
+        ced: "7.7"
+        dat: [Chemical Equilibria]
+        los:
+          - { id: A, std: [TRA-7.E], do: "Find equilibrium concentrations from K and initial amounts with an ICE table and the small-x approximation, and check the approximation.", ek: ["If K is small, x ≪ initial: drop x where it is subtracted; valid if x is under 5% of the initial value."], p: [P5], drills: [], needs: [CH-7.4.B] }
+          - { id: B, std: [TRA-7.E], do: "Solve for equilibrium concentrations with the quadratic formula when the small-x approximation fails.", ek: ["Rearrange to ax² + bx + c = 0 and keep the physically meaningful root (no negative concentrations)."], p: [P5], drills: [], needs: [CH-7.7.A] }
+      - n: 8
+        title: Representations of equilibrium
+        ced: "7.8"
+        los:
+          - { id: A, std: [TRA-7.F], do: "Draw or interpret a particle diagram of an equilibrium mixture consistent with a given K.", ek: ["Particle counts stand in for concentrations; plug them into the K expression to check."], p: [P1], drills: [], needs: [CH-7.4.A] }
+      - n: 9
+        title: Introduction to Le Châtelier's principle
+        ced: "7.9"
+        dat: [Chemical Equilibria]
+        los:
+          - { id: A, std: [TRA-8.A], do: "Predict the shift caused by adding or removing a species, changing volume or pressure, changing temperature, adding an inert gas, or adding a catalyst.", ek: ["The system shifts to counteract the stress; smaller volume favors fewer gas moles; heat acts as a reactant (endothermic) or product (exothermic); inert gas at constant V and catalysts cause no shift."], p: [P6], drills: [], needs: [CH-7.3.B, CH-6.1.A] }
+      - n: 10
+        title: Reaction quotient and Le Châtelier's principle
+        ced: "7.10"
+        dat: [Chemical Equilibria]
+        los:
+          - { id: A, std: [TRA-8.B], do: "Explain a Le Châtelier shift by how the stress changes Q relative to K, and identify temperature as the only stress that changes K.", ek: ["Concentration and pressure changes move Q away from an unchanged K; temperature changes K itself."], p: [P6], drills: [], needs: [CH-7.9.A] }
+      - n: 11
+        title: Introduction to solubility equilibria
+        ced: "7.11"
+        dat: [Chemical Equilibria]
+        los:
+          - { id: A, std: [SPQ-5.A], do: "Write a K_sp expression and calculate K_sp from molar solubility.", ek: ["MₐXᵦ(s) ⇌ aM + bX: K_sp = (as)ᵃ(bs)ᵇ; for AB₂, K_sp = 4s³."], p: [P5], drills: [], needs: [CH-7.3.A] }
+          - { id: B, std: [SPQ-5.A], do: "Calculate molar solubility in g/L or mol/L from K_sp, and compare solubilities of salts with different ion ratios.", ek: ["Compare K_sp directly only for salts with the same ion ratio; otherwise compare s."], p: [P5], drills: [], needs: [CH-7.11.A] }
+          - { id: C, std: [SPQ-5.A], do: "Predict whether a precipitate forms on mixing solutions by comparing Q_sp with K_sp.", ek: ["Use concentrations after mixing (diluted); Q_sp > K_sp ⇒ precipitate forms."], p: [P5, P6], drills: [], needs: [CH-7.11.A, CH-3.7.B] }
+      - n: 12
+        title: Common-ion effect
+        ced: "7.12"
+        dat: [Chemical Equilibria]
+        los:
+          - { id: A, std: [SPQ-5.B], do: "Calculate the solubility of a salt in a solution that already contains one of its ions.", ek: ["Put the common ion's concentration into the ICE table; solubility falls (Le Châtelier)."], p: [P5], drills: [], needs: [CH-7.11.B, CH-7.9.A] }
+
+  # ── 8 ────────────────────────────────────────────────────────────────────
+  - id: acidbase
+    n: 8
+    title: Acids and bases
+    scope: core
+    ideas: [SAP, TRA, SPQ]
+    weight_est: "11–15%"
+    topics:
+      - n: 1
+        title: Introduction to acids and bases
+        ced: "8.1"
+        dat: [Acids and Bases]
+        los:
+          - { id: A, std: [SAP-9.A], do: "Convert among pH, pOH, [H₃O⁺] and [OH⁻] at 25 °C.", ek: ["pH = −log[H₃O⁺]; K_w = [H₃O⁺][OH⁻] = 1.0 × 10⁻¹⁴; pH + pOH = 14."], p: [P5], drills: [], needs: [CH-4.8.A, CH-7.3.A] }
+      - n: 2
+        title: pH and pOH of strong acids and bases
+        ced: "8.2"
+        dat: [Acids and Bases]
+        los:
+          - { id: A, std: [SAP-9.B], do: "Identify the strong acids and bases, and calculate the pH of their solutions.", ek: ["Strong acids: HCl, HBr, HI, HNO₃, H₂SO₄ (first H), HClO₄; strong bases: Group 1 and heavy Group 2 hydroxides; they ionize completely."], p: [P5], drills: [], needs: [CH-8.1.A, CH-3.7.C] }
+      - n: 3
+        title: Weak acid and base equilibria
+        ced: "8.3"
+        dat: [Acids and Bases]
+        los:
+          - { id: A, std: [SAP-9.C], do: "Calculate the pH and percent ionization of a weak acid from K_a and its concentration.", ek: ["[H₃O⁺] ≈ √(K_a·C) when ionization < 5%; % ionization = [H₃O⁺]/C × 100, and it rises on dilution."], p: [P5], drills: [], needs: [CH-8.1.A, CH-7.7.A] }
+          - { id: B, std: [SAP-9.C], do: "Calculate the pH of a weak base solution from K_b.", ek: ["[OH⁻] ≈ √(K_b·C); then pOH → pH."], p: [P5], drills: [], needs: [CH-8.3.A] }
+          - { id: C, std: [SAP-9.C], do: "Find K_a or K_b from a measured pH and the initial concentration.", ek: ["[H₃O⁺] = 10^(−pH) is x in the ICE table; K_a = x²/(C − x)."], p: [P5], drills: [], needs: [CH-8.3.A] }
+          - { id: D, std: [SAP-9.C], do: "Convert between K_a of an acid and K_b of its conjugate base.", ek: ["K_a·K_b = K_w; pK_a + pK_b = 14 at 25 °C; stronger acid ⇒ weaker conjugate base."], p: [P5], drills: [], needs: [CH-8.3.B] }
+      - n: 4
+        title: Acid–base reactions and buffers
+        ced: "8.4"
+        dat: [Acids and Bases]
+        los:
+          - { id: A, std: [SAP-9.D], do: "Calculate the pH after mixing a strong acid with a strong base.", ek: ["Neutralize mole for mole; the excess, divided by total volume, sets the pH."], p: [P5], drills: [], needs: [CH-8.2.A, CH-4.5.D] }
+          - { id: B, std: [SAP-9.D], do: "Identify what remains after mixing a weak acid or base with a strong one, and classify the result as a buffer, a salt solution or excess strong reagent.", ek: ["React to completion first; weak acid + its conjugate base both present ⇒ buffer."], p: [P6], drills: [], needs: [CH-8.4.A, CH-8.3.A] }
+          - { id: C, std: [SAP-9.D], do: "Predict whether a salt solution is acidic, basic or neutral and calculate its pH.", ek: ["Conjugate bases of weak acids raise pH; conjugates of weak bases (NH₄⁺) lower it; ions of strong acids and bases are neutral."], p: [P5, P6], drills: [], needs: [CH-8.3.D] }
+      - n: 5
+        title: Acid–base titrations
+        ced: "8.5"
+        dat: [Acids and Bases]
+        los:
+          - { id: A, std: [SAP-9.E], do: "Calculate the pH at the start, before, at and past the equivalence point of a weak acid–strong base (or weak base–strong acid) titration.", ek: ["Start: weak acid; before: buffer; half-equivalence: pH = pK_a; equivalence: conjugate base only; after: excess strong base."], p: [P5], drills: [], needs: [CH-8.4.C, CH-4.6.A] }
+          - { id: B, std: [SAP-9.E], do: "Read a titration curve to find the equivalence volume, pK_a and the analyte's strength, and choose a suitable indicator.", ek: ["Weak acid–strong base equivalence pH > 7; pick an indicator whose pK_a (color change) brackets the equivalence pH."], p: [P4], drills: [], needs: [CH-8.5.A] }
+          - { id: C, std: [SAP-9.E], do: "Interpret the titration curve of a polyprotic acid.", ek: ["One equivalence point per acidic proton (if K_a's differ enough); pK_a1 and pK_a2 at the half-equivalence points."], p: [P4], drills: [], needs: [CH-8.5.B] }
+      - n: 6
+        title: Molecular structure of acids and bases
+        ced: "8.6"
+        dat: [Acids and Bases]
+        los:
+          - { id: A, std: [SAP-9.F], do: "Rank acid strength from molecular structure: H–X bond strength and polarity, oxyacid O count, electronegativity of the central atom, and conjugate-base resonance.", ek: ["Down a group, weaker H–X bonds ⇒ stronger acid (HI > HF); more O's and higher EN stabilize the conjugate base ⇒ stronger oxyacid."], p: [P6], drills: [], needs: [CH-8.3.D, CH-2.6.B, CH-1.7.A] }
+          - { id: B, std: [SAP-9.F, "DAT-GC Acids and Bases (strength)"], do: "Identify Lewis acids and bases, including metal ions and electron-deficient molecules.", ek: ["Lewis acid accepts an electron pair (BF₃, Al³⁺); Lewis base donates one (NH₃, OH⁻)."], p: [P1], drills: [], needs: [CH-2.5.B, CH-4.8.A] }
+      - n: 7
+        title: pH and pKa
+        ced: "8.7"
+        dat: [Acids and Bases]
+        los:
+          - { id: A, std: [SAP-10.A], do: "Predict the predominant protonation form of an acid at a given pH from its pK_a.", ek: ["pH < pK_a ⇒ protonated form dominates; pH > pK_a ⇒ deprotonated; pH = pK_a ⇒ 1:1."], p: [P6], drills: [], needs: [CH-8.3.D] }
+      - n: 8
+        title: Properties of buffers
+        ced: "8.8"
+        dat: [Acids and Bases]
+        los:
+          - { id: A, std: [SAP-10.B], do: "Explain how a buffer resists pH change, writing the net ionic reaction with an added strong acid or base.", ek: ["Added H₃O⁺ is consumed by A⁻; added OH⁻ is consumed by HA; the ratio [A⁻]/[HA] barely changes."], p: [P3, P6], drills: [], needs: [CH-8.4.B] }
+      - n: 9
+        title: Henderson–Hasselbalch equation
+        ced: "8.9"
+        dat: [Acids and Bases]
+        los:
+          - { id: A, std: [SAP-10.C], do: "Calculate a buffer's pH with the Henderson–Hasselbalch equation.", ek: ["pH = pK_a + log([A⁻]/[HA]); mole ratio works as well as concentration ratio."], p: [P5], drills: [], needs: [CH-8.8.A, CH-8.7.A] }
+          - { id: B, std: [SAP-10.C], do: "Calculate a buffer's new pH after adding a strong acid or base.", ek: ["Do the stoichiometry in moles first (HA ↔ A⁻), then apply Henderson–Hasselbalch."], p: [P5], drills: [], needs: [CH-8.9.A, CH-8.4.A] }
+          - { id: C, std: [SAP-10.C], do: "Design a buffer: choose a conjugate pair and the base-to-acid ratio for a target pH.", ek: ["Pick pK_a within ±1 of the target pH; ratio = 10^(pH − pK_a)."], p: [P2, P5], drills: [], needs: [CH-8.9.A] }
+      - n: 10
+        title: Buffer capacity
+        ced: "8.10"
+        dat: [Acids and Bases]
+        los:
+          - { id: A, std: [SAP-10.D], do: "Compare buffer capacities from component amounts and ratio.", ek: ["More moles of HA and A⁻ ⇒ more capacity; capacity against acid depends on A⁻, against base on HA; best at a 1:1 ratio."], p: [P6], drills: [], needs: [CH-8.9.B] }
+      - n: 11
+        title: pH and solubility
+        ced: "8.11"
+        dat: [Chemical Equilibria]
+        los:
+          - { id: A, std: [SPQ-5.C], do: "Predict how pH changes the solubility of a salt whose anion is a weak base (or whose cation forms a hydroxide).", ek: ["Acid removes basic anions (F⁻, CO₃²⁻, OH⁻) and pulls the dissolution forward; salts of strong-acid anions (Cl⁻) are unaffected."], p: [P6], drills: [], needs: [CH-7.12.A, CH-8.7.A] }
+
+  # ── 9 ────────────────────────────────────────────────────────────────────
+  - id: thermo-electro
+    n: 9
+    title: Thermodynamics and electrochemistry
+    scope: core
+    ideas: [ENE, TRA]
+    weight_est: "7–9%"
+    topics:
+      - n: 1
+        title: Introduction to entropy
+        ced: "9.1"
+        dat: [Thermodynamics and Thermochemistry]
+        los:
+          - { id: A, std: [ENE-4.A], do: "Predict the sign of ΔS for a process from changes in phase, moles of gas, mixing, dissolution and temperature.", ek: ["Energy and matter more dispersed ⇒ ΔS > 0: s → l → g, more gas moles, mixing, heating."], p: [P6], drills: [], needs: [CH-3.1.B] }
+      - n: 2
+        title: Absolute entropy and entropy change
+        ced: "9.2"
+        dat: [Thermodynamics and Thermochemistry]
+        los:
+          - { id: A, std: [ENE-4.B], do: "Calculate ΔS°_rxn from standard molar entropies.", ek: ["ΔS° = Σ n S°(products) − Σ n S°(reactants); S° of an element is not zero (third law: S = 0 only for a perfect crystal at 0 K)."], p: [P5], drills: [], needs: [CH-9.1.A, CH-6.8.B] }
+      - n: 3
+        title: Gibbs free energy and thermodynamic favorability
+        ced: "9.3"
+        dat: [Thermodynamics and Thermochemistry]
+        los:
+          - { id: A, std: [ENE-4.C], do: "Calculate ΔG° from ΔH° and ΔS°, or from standard free energies of formation.", ek: ["ΔG° = ΔH° − TΔS° (convert ΔS° to kJ); ΔG° = Σ n ΔG_f°(products) − Σ n ΔG_f°(reactants)."], p: [P5], drills: [], needs: [CH-9.2.A, CH-6.8.B] }
+          - { id: B, std: [ENE-4.C], do: "Decide from the signs of ΔH and ΔS at which temperatures a process is favorable, and find the crossover temperature.", ek: ["−ΔH, +ΔS always; +ΔH, −ΔS never; mixed signs switch at T = ΔH/ΔS."], p: [P5, P6], drills: [], needs: [CH-9.3.A] }
+      - n: 4
+        title: Thermodynamic and kinetic control
+        ced: "9.4"
+        los:
+          - { id: A, std: [ENE-4.D], do: "Explain why a thermodynamically favorable process can be too slow to observe.", ek: ["ΔG < 0 says it can go; a large E_a can keep it from going at a measurable rate (diamond → graphite)."], p: [P6], drills: [], needs: [CH-9.3.B, CH-5.6.A] }
+      - n: 5
+        title: Free energy and equilibrium
+        ced: "9.5"
+        dat: [Thermodynamics and Thermochemistry, Chemical Equilibria]
+        los:
+          - { id: A, std: [ENE-5.A], do: "Calculate K from ΔG°.", ek: ["K = exp(−ΔG°/RT); ΔG° < 0 ⇔ K > 1."], p: [P5], drills: [th-ce-k], needs: [CH-9.3.A, CH-7.5.A] }
+          - { id: B, std: [ENE-5.A], do: "Calculate ΔG° from K.", ek: ["ΔG° = −RT ln K, with R = 8.314 J/(mol·K)."], p: [P5], drills: [th-ce-dg], needs: [CH-9.5.A] }
+          - { id: C, std: [ENE-5.A], do: "Calculate ΔG under nonstandard conditions and predict the direction of reaction.", ek: ["ΔG = ΔG° + RT ln Q = RT ln(Q/K); ΔG < 0 ⇒ forward."], p: [P5, P6], drills: [th-ce-direction], needs: [CH-9.5.B, CH-7.3.B] }
+      - n: 6
+        title: Free energy of dissolution
+        ced: "9.6"
+        dat: [Solutions, Thermodynamics and Thermochemistry]
+        los:
+          - { id: A, std: [SPQ-5.D], do: "Explain whether a salt dissolves from the enthalpy (lattice vs hydration) and entropy changes of dissolution.", ek: ["ΔH_soln = lattice breaking (+) + hydration (−); ordering of water around small, highly charged ions can make ΔS_soln negative."], p: [P6], drills: [], needs: [CH-9.3.B, CH-2.2.B, CH-7.11.A] }
+      - n: 7
+        title: Coupled reactions
+        ced: "9.7"
+        los:
+          - { id: A, std: [ENE-5.B], do: "Calculate ΔG° for coupled reactions and explain how a favorable reaction drives an unfavorable one.", ek: ["Add the reactions and their ΔG°'s; a shared intermediate links them (ATP hydrolysis in biology); light or current can also supply the free energy."], p: [P5, P6], drills: [], needs: [CH-9.3.A, CH-6.9.A] }
+      - n: 8
+        title: Galvanic (voltaic) and electrolytic cells
+        ced: "9.8"
+        dat: [Oxidation–Reduction Reactions]
+        los:
+          - { id: A, std: [ENE-6.A], do: "Label a galvanic cell's anode and cathode, electron and ion flow, salt bridge, and write its cell notation.", ek: ["Oxidation at the anode, reduction at the cathode; electrons flow anode → cathode through the wire; anode ‖ cathode in notation."], p: [P1], drills: [], needs: [CH-4.9.C] }
+          - { id: B, std: [ENE-6.A], do: "Distinguish galvanic from electrolytic cells by the sign of ΔG and the electrode charges.", ek: ["Galvanic: spontaneous, anode (−); electrolytic: driven by an external source, anode (+); oxidation is always at the anode."], p: [P6], drills: [], needs: [CH-9.8.A, CH-9.3.A] }
+      - n: 9
+        title: Cell potential and free energy
+        ced: "9.9"
+        dat: [Oxidation–Reduction Reactions]
+        los:
+          - { id: A, std: [ENE-6.B], do: "Calculate E°_cell from standard reduction potentials and predict whether a redox reaction is spontaneous.", ek: ["E°_cell = E°_cathode − E°_anode; don't multiply E° by coefficients; E° > 0 ⇒ spontaneous."], p: [P5], drills: [], needs: [CH-9.8.A] }
+          - { id: B, std: [ENE-6.B], do: "Convert among E°_cell, ΔG° and K.", ek: ["ΔG° = −nFE°; F = 96 485 C/mol e⁻; E° = (RT/nF) ln K."], p: [P5], drills: [], needs: [CH-9.9.A, CH-9.5.B] }
+      - n: 10
+        title: Cell potential under nonstandard conditions
+        ced: "9.10"
+        dat: [Oxidation–Reduction Reactions]
+        los:
+          - { id: A, std: [ENE-6.C], do: "Predict qualitatively whether changing concentrations raises or lowers the cell potential, and why a battery dies.", ek: ["Q < 1 ⇒ E > E°; as the cell runs Q → K and E → 0."], p: [P6], drills: [], needs: [CH-9.9.B, CH-7.3.B] }
+          - { id: B, std: [ENE-6.C, "DAT-GC Oxidation–Reduction Reactions (electrochemical calculations)"], do: "Calculate a cell potential with the Nernst equation, including a concentration cell.", ek: ["E = E° − (RT/nF) ln Q = E° − (0.0592/n) log Q at 25 °C; a concentration cell has E° = 0."], p: [P5], drills: [], needs: [CH-9.10.A] }
+      - n: 11
+        title: Electrolysis and Faraday's law
+        ced: "9.11"
+        dat: [Oxidation–Reduction Reactions]
+        los:
+          - { id: A, std: [ENE-6.D], do: "Calculate the mass deposited, current or time in electrolysis with Faraday's law.", ek: ["charge = I·t; mol e⁻ = charge/F; half-reaction gives mol e⁻ per mol product."], p: [P5], drills: [], needs: [CH-9.8.B, CH-1.1.A] }
+      - n: 12
+        title: Temperature dependence of K
+        ced: ext
+        scope: extension
+        los:
+          - { id: A, std: ["graduate thermodynamics bridge (van 't Hoff)"], do: "Find ΔH° from K at two temperatures, or K at a new temperature, with the van 't Hoff equation.", ek: ["ln(K₂/K₁) = −(ΔH°/R)(1/T₂ − 1/T₁): endothermic ⇒ K rises with T."], p: [P5], drills: [th-ce-vant-hoff], needs: [CH-9.5.A, CH-7.10.A] }
