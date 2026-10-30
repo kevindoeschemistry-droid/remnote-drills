@@ -1,0 +1,416 @@
+# Speaking and Articulation — curriculum framework (draft 1, for Kevin's markup)
+#
+# Built like an AP Course and Exam Description: Big Ideas run through the subject,
+# Units → Topics → Learning Objectives (one observable, practicable action each, verb first),
+# with the Essential Knowledge an LO rests on and the Practices it exercises. Rubrics, club
+# curricula, apps and the research are crosswalks onto this map, never the backbone.
+# Aimed at a teacher, grad student and AI-safety professional who wants to speak more
+# articulately in class, in meetings, in interviews and on the spot — what apps like
+# RiseGuide sell as "articulation training".
+#
+# Standards and sources it's built from (opened while drafting):
+#   nca-cs        NCA Competent Speaker Speech Evaluation Form (2nd ed.), full criteria via
+#                 UNE "public speaking" PDF; eight competencies scored 1–3 (unsatisfactory /
+#                 satisfactory / excellent): 1 topic · 2 thesis/purpose · 3 supporting
+#                 material · 4 organisation · 5 language · 6 vocal variety (rate, pitch,
+#                 intensity) · 7 pronunciation, grammar, articulation · 8 physical behaviours.
+#                 Competency list cross-checked in Francis Marion Univ. SPEECH1 report.
+#   tm-paths      Toastmasters Pathways 8077 "Paths and Core Competencies": 5 levels (Mastering
+#                 Fundamentals · Learning Your Style · Increasing Knowledge · Building Skills ·
+#                 Demonstrating Expertise); competencies Public Speaking, Interpersonal
+#                 Communication, Strategic Leadership, Management, Confidence; projects named
+#                 below (Vocal Variety and Body Language, Evaluation and Feedback, Active
+#                 Listening, Persuasive Speaking, Connect with Storytelling, Impromptu humour)
+#   tm-eval       Toastmasters 8053 Generic Evaluation Resource (1–5 Developing → Exemplary:
+#                 Clarity, Vocal Variety, Eye Contact, Gestures, Audience Awareness, Comfort
+#                 Level, Interest, Well Supported; Commend / Recommend / Challenge) and 8100E3
+#                 Evaluator Speech resource (tactful, constructive, timed)
+#   rosine-2021   Rosine, *Vocal Techniques for the Instrumentalist* 2e (New Prairie Press,
+#                 CC BY-NC): breath (4-in/2-hold/4-out, extend to 8 and 16 on [s]), resonators
+#                 (pharynx, oral, nasal for m/n/ŋ), consonants by manner (plosive, fricative,
+#                 nasal, lateral, affricate) and voiced/unvoiced pairs
+#   byu-voice     BYU Theatre Ed "Anatomy, Breathing, and Articulators": intercostal and
+#                 diaphragm exercises, articulators, tongue-twister diction work
+#   lumen-voice   LibreTexts Public Speaking (Lumen) 8.3 "Articulation, Pitch and Rate" and
+#                 PGCC COM 1010 8.3 "Vocal Preparation for Delivery" (same text as Pima Open
+#                 10.3): NCVS ~150 wpm, aim 125–150 wpm in public speaking, volume "a few steps
+#                 above conversational" for ~25 people, fluency hiccups vs fillers, '30 ums in
+#                 3 minutes', pitch drops for endings, speakers overestimate their own variety
+#   vs-rate       VirtualSpeech "Average speaking rate and words per minute": conversation
+#                 120–150, presentations 100–150, audiobooks 150–160; 32 809 practice talks,
+#                 median 111 wpm, top-scored talks median 138 wpm, <80 wpm scored worst
+#   clark-2002    Clark & Fox Tree, "Using uh and um in spontaneous speaking", Cognition 84
+#                 (2002): uh signals a minor delay, um a major one (pause after um 4.12 s vs
+#                 1.00 s after uh in Q–A data); filler users rated less sure than silent
+#                 pausers (Brennan & Williams 1995)
+#   laske-2024    Laske et al., J Appl Behav Anal 57(3) 2024: 0/2/5/12 disfluencies per
+#                 minute; 12/min hurt ratings most, ≤5/min "may be acceptable"
+#   qbs-hr        QBS "Is your presentation filled with ums?": awareness training (identify,
+#                 record, count) then a competing response (silent pause / breath); cites
+#                 Mancuso & Miltenberger 2016 JABA 49 (paper itself not opened)
+#   minto-scqa    ThinkInsights "SCQA logic": Minto pyramid, answer up front, every argument
+#                 supports the top or is cut, close by restating the answer + call to action
+#   prep          Lumen "Business Communication for Managers" 11.3 Impromptu Speech: PREP,
+#                 past–present–future, 'never apologise', one specific example, pause for effect
+#   star-uw       UW Career & Internship Center "STAR method": Situation ~20%, Task ~10%,
+#                 Action ~60% (what *you* did), Result ~10% with numbers
+#   monroe        GVSU Speech Lab "Monroe's Motivated Sequence": Attention · Need ·
+#                 Satisfaction · Visualisation · Action
+#   mcneil-fyfe   McNeil & Fyfe 2012, Learning and Instruction 22: concreteness fading
+#                 (concrete → intermediate → abstract) beat concrete-only or abstract-only on
+#                 transfer at 1 and 3 weeks
+#   rosenshine    Rosenshine 2012 "Principles of Instruction" (10-principle summary sheet):
+#                 small steps, many questions checking *all* students, worked examples, high
+#                 success rate before moving on
+#   riseguide     TechRound on RiseGuide Speech Analyzer: 60-second recordings scored 0–100 on
+#                 Pace (rate and its variation), Confidence (tone, intonation, volume,
+#                 monotony), Pauses (placement; um/uh/like) and Structure (opening, body,
+#                 conclusion, logical flow); each rated Improve/Good with 2–3 tips; learn →
+#                 record → analyse → adjust → repeat
+#
+# Fields
+#   units[].scope     core (everyday articulate speech: class, meetings, interviews, on the
+#                     spot) or extension (long-form and mediated speaking)
+#   units[].ideas     Big Ideas the unit develops
+#   topics[].book     crosswalk keyed by source id above (competency number, project, section)
+#   los[].do          the objective; los[].ek essential knowledge; los[].p practices
+#   los[].needs       prerequisite LOs in this framework
+#   los[].drills      templates that drill it. None yet. LO wording flags the ones built to
+#                     become reps with a measurable check: "In a timed rep…" (record and score
+#                     against a threshold — wpm, fillers/min, pause length, first-sentence
+#                     answer), "Pick the stronger…" (paired-choice MCQ), "Classify…" or
+#                     "Diagnose…" (described-delivery MCQ), "Rewrite…" (transform a given text).
+id: speaking
+title: Speaking and Articulation
+code: SP
+draft: 1
+domains: []
+
+big_ideas:
+  - id: EAR
+    title: Speech is written for the ear
+    text: A listener can't re-read. Working memory holds a few items, so spoken structure has to be announced, chunked and repeated in a way that would be redundant on the page; clarity is judged at the listener's end, not the speaker's.
+  - id: BREATH
+    title: Voice is shaped breath
+    text: Every audible quality — volume, steadiness, resonance, crisp consonants — starts with controlled exhalation and is finished by the articulators. Most 'weak voice' problems are breath and mouth problems, not talent problems.
+  - id: SILENCE
+    title: Silence is a tool, fillers are a leak
+    text: A deliberate pause marks structure, buys thinking time and adds weight; a filler spends the same time and signals uncertainty. The skill is converting the urge to fill into a silent pause.
+  - id: FIRST
+    title: Lead with the point
+    text: Listeners decide in the first sentence what you're saying and whether to follow. Answer first, then support; every supporting point either holds up the top line or gets cut.
+  - id: CONCRETE
+    title: Concrete before abstract
+    text: Understanding moves from an example the listener can picture toward the general rule; analogies, numbers and stories are the bridge, and checking the listener's model closes the loop.
+  - id: PRESENCE
+    title: Delivery carries the message
+    text: Pitch, pace, volume, eye contact and stillness tell the listener how much to trust the words. Variety holds attention; consistency between voice, body and content builds credibility.
+  - id: LOOP
+    title: Record, measure, adjust
+    text: Speakers misjudge their own pace, variety and fillers. Recordings, transcripts and counts (wpm, fillers/min, seconds to the point) turn feel into numbers, and short timed reps with one target each are how the numbers move.
+
+practices:
+  - id: P1
+    title: Observe and measure
+    text: Count and time what was actually said — wpm, fillers per minute, pause lengths, seconds to the main point — from a recording or transcript, before judging it.
+  - id: P2
+    title: Diagnose
+    text: From a described or recorded delivery, name the root problem (breath, rate, structure, audience fit) rather than the symptom, and choose the fix.
+  - id: P3
+    title: Structure the message
+    text: Choose the frame (answer first, PREP, SCQA, STAR, Monroe) that fits the question, build it in seconds, and signpost it for the ear.
+  - id: P4
+    title: Deliver with the voice and body
+    text: Execute breath, rate, pause, pitch, volume, articulation and physical behaviour on purpose, to a target.
+  - id: P5
+    title: Adapt to the listener
+    text: Read the audience and occasion — novice or expert, class or committee, friendly or sceptical — and change vocabulary, depth, examples and length to fit.
+  - id: P6
+    title: Review and give feedback
+    text: Evaluate a speech (your own or someone else's) against a rubric, commend, recommend and challenge, and set the next rep's single target.
+
+units:
+  # ── 1 ────────────────────────────────────────────────────────────────────
+  - id: voice
+    n: 1
+    title: Breath, voice and diction
+    scope: core
+    ideas: [BREATH, EAR]
+    weight_est: "10–12%"
+    topics:
+      - n: 1
+        title: Breath support
+        book: { rosine-2021: ["posture", "inhalation", "exhalation", "breath exercises"], byu-voice: ["intercostals", "diaphragm"] }
+        los:
+          - { id: A, do: "Breathe low and silently between phrases — ribs and abdomen expand, shoulders stay down — while reading a passage aloud, with no audible gasps.", ek: ["Expansion belongs in the lower ribs, abdomen and back; a 'big breath' raises the shoulders and tightens the throat.", "Outflow is regulated by slow, even abdominal contraction — 'less is more', don't fill to capacity."], p: [P4], drills: [] }
+          - { id: B, do: "In a timed rep, sustain a steady exhale on [s] for a target count (build 4 → 8 → 16) and then speak a full sentence on one breath without trailing off.", ek: ["Rosine's 4-in / 2-hold / 4-out pattern, extended to 8 and 16 on [s] or [v], trains even outflow.", "Sentences that fade at the end usually ran out of air, not volume — mark breath points with a slash."], p: [P4, P1], drills: [] }
+      - n: 2
+        title: Projection and resonance
+        book: { rosine-2021: ["resonance", "soft palate"], lumen-voice: ["volume"], nca-cs: ["6"] }
+        los:
+          - { id: A, do: "Set volume to the room: in a timed rep, deliver the same 30-second passage at conversational, small-room (~25 people) and large-room levels without pitch rising or the throat tightening.", ek: ["Small classroom or office: a few steps above conversational volume; larger rooms need projection or a microphone; beginners usually err too quiet.", "Projection comes from breath pressure and open resonance (pharynx first, then mouth; nose only for m n ŋ), not from pushing the larynx — strain shows up as rising pitch and hoarseness."], p: [P4, P5], needs: [SP-1.1.A], drills: [] }
+      - n: 3
+        title: Articulation of consonants
+        book: { rosine-2021: ["consonants: manner", "voiced/unvoiced pairs"], byu-voice: ["articulators", "tongue twisters"], lumen-voice: ["articulation"], nca-cs: ["7"] }
+        los:
+          - { id: A, do: "Classify a consonant by manner (plosive, fricative, nasal, lateral, affricate) and voicing, and name the articulators that make it.", ek: ["Plosives p b t d k g stop then release; fricatives f v s z ʃ ʒ θ ð partly block; nasals m n ŋ route through the nose; l is lateral; tʃ dʒ are affricates.", "Voiced/unvoiced pairs: b/p, d/t, g/k, z/s, v/f, ʒ/ʃ, dʒ/tʃ."], p: [P1], drills: [] }
+          - { id: B, do: "In a timed rep, read a dense technical sentence at 150 wpm with every final consonant and unstressed syllable audible on playback.", ek: ["Dropped and merged sounds — 'gonna', 'dinnt', 'hunnerd', 'probly' — are the common faults; low volume makes them worse.", "Slowing slightly and using lips, tongue tip and teeth fully restores them; mumbling = small jaw and lip movement, slurring = rate outrunning the articulators."], p: [P4, P1], needs: [SP-1.3.A], drills: [] }
+      - n: 4
+        title: Pronunciation and word choice for the ear
+        book: { lumen-voice: ["pronunciation"], nca-cs: ["5", "7"] }
+        los:
+          - { id: A, do: "Rewrite a written sentence for the ear: shorter clauses, the subject and verb early, acronyms spelled out on first use.", ek: ["Listeners can't re-read; long noun stacks and late verbs overload working memory.", "NCA competency 5: language clear, vivid, free of unexplained jargon for this audience.", "Check unfamiliar names and terms against dictionary audio or someone who knows; pick one accepted pronunciation, rehearse it aloud, use it consistently (NCA 7)."], p: [P3, P5], drills: [] }
+
+  # ── 2 ────────────────────────────────────────────────────────────────────
+  - id: pace
+    n: 2
+    title: Pace, pauses and filler words
+    scope: core
+    ideas: [SILENCE, EAR, LOOP]
+    weight_est: "12–14%"
+    topics:
+      - n: 1
+        title: Speaking rate
+        book: { lumen-voice: ["rate"], vs-rate: ["by context", "practice data"], riseguide: ["Pace"], nca-cs: ["6"] }
+        los:
+          - { id: A, do: "Compute wpm from a transcript and its duration, and classify the result as slow, presentation-range, conversational or fast.", ek: ["wpm = words ÷ minutes; conversation ≈ 150 (NCVS), comfortable presentation ≈ 125–150, audiobooks 150–160.", "Below ~100 reads as hesitant or unprepared; sustained >180 overwhelms after a minute or two."], p: [P1], drills: [] }
+          - { id: B, do: "In a timed 60-second rep, hold 140–160 wpm on an answer and 125–150 wpm on an explanation, checked from the transcript.", ek: ["Top-scored practice talks in VirtualSpeech's data had a median of 138 wpm.", "Fast is the more common fault; nerves push rate up."], p: [P4, P1], needs: [SP-2.1.A], drills: [] }
+          - { id: C, do: "Vary rate on purpose within one answer — slow for the key claim or a hard step, faster for context — and point to where on playback.", ek: ["Rate is a signal: slowing marks importance or difficulty, speeding adds momentum; one steady rate for minutes reads as monotone.", "RiseGuide scores both rate and how much it varies."], p: [P4], needs: [SP-2.1.B], drills: [] }
+      - n: 2
+        title: Pauses
+        book: { lumen-voice: ["pauses", "fluency hiccups"], clark-2002: ["delay signalling"], prep: ["pause for effect"], riseguide: ["Pauses"] }
+        los:
+          - { id: A, do: "Place deliberate 1–2 second pauses after the main point, between sections and before a key number, and mark them with '/' or '//' on a script before delivering it.", ek: ["Intended pauses add emphasis and signal transitions; the speaker feels them as longer than the listener does.", "Mark breath and pause points on the outline; a pause after a question gives the room time to think."], p: [P4, P3], drills: [] }
+          - { id: B, do: "Classify a described pause as a deliberate pause, a fluency hiccup, or a filled pause, and say whether it helped or hurt.", ek: ["Fluency hiccups come from losing your place or thread; a brief silent hiccup often goes unnoticed or reads as deliberate.", "A filled pause (um, uh) spends the same time and announces the trouble."], p: [P2], drills: [] }
+          - { id: C, do: "Start every on-the-spot answer with a silent 1–2 second pause instead of a filler or a restatement of the question.", ek: ["Silent pausers are rated surer than filler users (Brennan & Williams 1995, in Clark & Fox Tree 2002).", "The opening pause is where the structure gets chosen."], p: [P4], needs: [SP-2.2.A], drills: [] }
+      - n: 3
+        title: Filler words
+        book: { clark-2002: ["uh vs um"], laske-2024: ["0/2/5/12 per minute"], qbs-hr: ["awareness training", "competing response"], lumen-voice: ["vocal fillers"], riseguide: ["Pauses"] }
+        los:
+          - { id: A, do: "Count fillers per minute in a recording or transcript, separating filler sounds (um, uh, er) from filler words (like, you know, so, basically, right?).", ek: ["Fillers/min = count ÷ minutes; a student logged ~30 'um's in 3 minutes (10/min).", "Filler sounds hurt perceived effectiveness more than filler words (Laske et al. 2024)."], p: [P1], drills: [] }
+          - { id: B, do: "In a timed 60-second rep on a random prompt, deliver with ≤ 3 filler sounds (target ≤ 1), measured from the transcript.", ek: ["12 fillers/min clearly lowered listener ratings; ≤5/min was not significantly harmful — 'acceptable' is the floor, not the goal.", "Um announces a long delay, uh a short one: frequent ums mean the thinking is happening mid-sentence."], p: [P4, P1], needs: [SP-2.3.A, SP-2.2.C], drills: [] }
+          - { id: C, do: "Apply awareness training and a competing response: name your top two fillers, catch them on playback, then replace each with a closed-mouth silent pause or breath in the next rep.", ek: ["Awareness training (identify, record, count) alone has reduced filled pauses in JABA studies; habit reversal adds a competing response — a silent pause where the filler would go.", "Fillers cluster at sentence starts and transitions; 'so' and 'and' chaining sentences is the same leak."], p: [P6, P4], needs: [SP-2.3.A], drills: [] }
+
+  # ── 3 ────────────────────────────────────────────────────────────────────
+  - id: presence
+    n: 3
+    title: Vocal variety and presence
+    scope: core
+    ideas: [PRESENCE, BREATH]
+    weight_est: "10–12%"
+    topics:
+      - n: 1
+        title: Pitch and intonation
+        book: { lumen-voice: ["pitch"], nca-cs: ["6"], tm-eval: ["Vocal Variety"], tm-paths: ["Introduction to Vocal Variety and Body Language", "Understanding Vocal Variety"], riseguide: ["Confidence"] }
+        los:
+          - { id: A, do: "End declarative sentences with a falling pitch, and in a recorded rep make every claim sentence of a 60-second answer fall rather than rise.", ek: ["Rising terminals on statements (upspeak) sound like questions and invite doubt; a slight drop marks completion, serious points and the ending.", "A lower pitch at the close cues the room that you're done."], p: [P4], drills: [] }
+          - { id: B, do: "Diagnose a described voice as monotone, sing-song, upspeaking or pressed, and choose the correction.", ek: ["Speakers believe they vary pitch more than listeners hear — recording is the check.", "Range exercise: slide from your highest to lowest comfortable note and back; use more of that range for key words."], p: [P2], drills: [] }
+      - n: 2
+        title: Emphasis and volume dynamics
+        book: { nca-cs: ["6"], tm-eval: ["Vocal Variety"] }
+        los:
+          - { id: A, do: "Mark the one key word per sentence in a script and, on playback, stress it with pitch, volume or a pause before it — and change the meaning by moving the stress.", ek: ["'I didn't say she took it' has seven meanings by stressed word; emphasis tells the listener where the information is.", "Stressing everything stresses nothing."], p: [P4, P3], drills: [] }
+          - { id: B, do: "Pick the stronger of two recorded or described deliveries of the same line on vocal variety, and name what made the difference.", ek: ["NCA 'excellent' vocal variety: exceptionally varied yet conversational, controlled pace, clearly heard, pitch that enhances the message.", "Variety serves meaning — random variation is as distracting as none."], p: [P6, P2], drills: [] }
+      - n: 3
+        title: Physical presence
+        book: { nca-cs: ["8"], tm-eval: ["Eye Contact", "Gestures", "Comfort Level"], tm-paths: ["Effective Body Language"] }
+        los:
+          - { id: A, do: "Hold eye contact for one complete thought per listener (about 3–5 seconds) and move across the room; on video, look at the lens for whole sentences.", ek: ["Eye contact gauges reaction and engages; darting or reading notes breaks it.", "On a call the lens is the listener's eyes."], p: [P4, P5], drills: [] }
+          - { id: B, do: "Stand or sit grounded — feet planted, hands still at rest, gestures only on purpose — and on video count distracting movements (sway, fidget, touch face) per minute.", ek: ["NCA: posture, gesture, movement, facial expression and eye contact consistently reinforce the message; Toastmasters rates distracting or absent gestures 'Emerging'.", "Stillness reads as confidence; a gesture that matches a word (size, sequence, contrast) reinforces it."], p: [P4, P1], drills: [] }
+      - n: 4
+        title: Confidence under nerves
+        book: { tm-paths: ["Confidence (core competency)"], tm-eval: ["Comfort Level"], prep: ["never apologise"], riseguide: ["Confidence", "Charisma Mastery"] }
+        los:
+          - { id: A, do: "Use a pre-speaking routine — two slow exhale-longer breaths, a planned first sentence, shoulders down — before class, a meeting turn or an interview answer.", ek: ["Nerves speed rate, raise pitch and shorten breath; a long exhale and a known first line counter all three.", "Comfort Level is its own Toastmasters criterion: the audience reads ease from voice and body."], p: [P4], needs: [SP-1.1.A], drills: [] }
+          - { id: B, do: "Cut hedges and apologies from an answer — 'sorry, this might be wrong, but', 'I just think', 'kind of' — and in a rep state the claim plainly with its real confidence level once.", ek: ["Never apologise for an impromptu answer; hedging every clause signals less certainty than you have.", "Calibrated confidence: say 'I'm fairly sure' once, where it applies, not on every sentence."], p: [P4, P3], drills: [] }
+
+  # ── 4 ────────────────────────────────────────────────────────────────────
+  - id: structure
+    n: 4
+    title: Structure — answer first, signposting, endings
+    scope: core
+    ideas: [FIRST, EAR]
+    weight_est: "12–14%"
+    topics:
+      - n: 1
+        title: Answer first and the pyramid
+        book: { minto-scqa: ["pyramid principle"], nca-cs: ["2"], riseguide: ["Structure"] }
+        los:
+          - { id: A, do: "In a timed rep, give the answer or recommendation in the first sentence (within ~10 seconds) of a 60-second response to a random question.", ek: ["Pyramid: the top line first, then the reasons that support it; any point that doesn't support the top gets cut.", "NCA 'excellent' thesis: every listener can state it within the opening few sentences."], p: [P3, P4], drills: [] }
+          - { id: B, do: "Pick the stronger of two openings to the same question — answer-first or context-first — and say what the weaker one makes the listener wait for.", ek: ["Context-first ('So, background…') makes the listener hold details with no frame to hang them on.", "Busy listeners (committees, managers, interviewers) decide in the first sentence whether to keep listening."], p: [P6, P3], drills: [] }
+          - { id: C, do: "Group support into two or three parallel reasons and announce the count ('two reasons: cost and risk').", ek: ["Reasons at one level should be the same kind of thing and not overlap; three is the most a listener reliably holds without notes."], p: [P3], needs: [SP-4.1.A], drills: [] }
+      - n: 2
+        title: Frames — PREP and SCQA
+        book: { prep: ["PREP", "past–present–future"], minto-scqa: ["SCQA"] }
+        los:
+          - { id: A, do: "In a timed 60-second rep, deliver a PREP answer: Point, Reason, Example, Point restated — each element identifiable in the transcript.", ek: ["PREP = state the point, give a reason, support with one specific example, restate the point.", "One concrete example beats three vague ones."], p: [P3, P4], drills: [] }
+          - { id: B, do: "Frame a meeting update or proposal as SCQA — Situation, Complication, Question, Answer — in four sentences.", ek: ["Situation = agreed current state; Complication = what changed or went wrong; Question = the one problem to solve; Answer = the recommendation the rest supports.", "Close by restating the answer and the ask."], p: [P3, P5], drills: [] }
+          - { id: C, do: "Choose the right frame for a described prompt — PREP (opinion), SCQA (proposal), STAR (behavioural), past–present–future (trend), problem–solution — and justify it.", ek: ["The frame follows the question type; forcing STAR on an opinion question or PREP on a story wastes the structure."], p: [P3, P2], needs: [SP-4.2.A, SP-4.2.B], drills: [] }
+      - n: 3
+        title: Signposting and transitions
+        book: { nca-cs: ["4"], tm-eval: ["Clarity"] }
+        los:
+          - { id: A, do: "Preview, signpost and summarise for the ear: announce the parts, mark each move ('first… the second reason… so'), and recap before closing; in a 2-minute rep, a listener can list your parts afterwards.", ek: ["Spoken structure must be audible — headings don't exist out loud.", "Tell them what you'll say, say it, tell them what you said: redundant on paper, necessary by ear."], p: [P3, P4], drills: [] }
+          - { id: B, do: "Diagnose a described rambling answer — buried point, tangent, no transitions, circling back — and name the restructure.", ek: ["Rambling is usually a missing top line: the speaker is searching for the point while talking.", "The fix is choosing the point in the opening pause, not talking faster."], p: [P2], drills: [] }
+      - n: 4
+        title: Openings and endings
+        book: { nca-cs: ["4"], minto-scqa: ["close with call to action"], prep: ["strong conclusion"], riseguide: ["Structure"] }
+        los:
+          - { id: A, do: "End on purpose: restate the point or give the ask in one sentence, drop pitch, then stop — no trailing 'so, yeah, that's it'.", ek: ["NCA 'excellent' conclusion reflects the content and leaves a strong message or call to action.", "The last sentence is the one remembered; trailing off spends it."], p: [P3, P4], drills: [] }
+
+  # ── 5 ────────────────────────────────────────────────────────────────────
+  - id: impromptu
+    n: 5
+    title: Impromptu speaking — table topics, Q&A, interviews
+    scope: core
+    ideas: [FIRST, SILENCE]
+    weight_est: "12–14%"
+    topics:
+      - n: 1
+        title: Table topics and on-the-spot answers
+        book: { prep: ["impromptu speech"], tm-paths: ["The Power of Humor in an Impromptu Speech"], riseguide: ["60-second recordings"] }
+        los:
+          - { id: A, do: "In a timed rep, take a random prompt, pause ≤ 3 seconds, and deliver a 60-second structured answer that lands within ±5 seconds of time.", ek: ["Impromptu = 1–3 minutes' notice or none; the pause is for choosing the point and the frame.", "Hitting time is a skill: plan point, one example, close — then stop."], p: [P3, P4], needs: [SP-4.2.A, SP-2.2.C], drills: [] }
+          - { id: B, do: "When you don't know the answer, say what you do know, what you'd need to find out, and when — in under 20 seconds, without fillers or apology.", ek: ["Bluffing costs more credibility than a clear 'I don't know, here's how I'd find out'.", "A partial answer stated plainly is still an answer."], p: [P4, P5], drills: [] }
+      - n: 2
+        title: Handling questions
+        book: { nca-cs: ["2", "5"], tm-eval: ["Audience Awareness"] }
+        los:
+          - { id: A, do: "Answer an audience question with pause → one-sentence answer → one support → check ('does that get at it?'), in under 45 seconds in a rep.", ek: ["Q&A answers should be shorter than the talk's sections; the questioner wanted one thing.", "Repeat or rephrase the question only when the room didn't hear it — not as a stall.", "To return to your message, answer first, then bridge ('…and the bigger point is'); bridging without answering reads as evasion."], p: [P3, P5], needs: [SP-4.1.A], drills: [] }
+          - { id: B, do: "Classify a described question as clarifying, challenging, off-topic or a comment-not-a-question, and choose the response move for each.", ek: ["Challenge: acknowledge the point, give your reason, don't concede what you don't believe; off-topic: brief answer, offer to follow up; comment: thank and bridge."], p: [P2, P5], drills: [] }
+      - n: 3
+        title: Interview answers
+        book: { star-uw: ["Situation", "Task", "Action", "Result"] }
+        los:
+          - { id: A, do: "In a timed 90–120-second rep, answer a 'tell me about a time' question in STAR with roughly 20 / 10 / 60 / 10 time split and a quantified result.", ek: ["Situation ~20%, Task ~10%, Action ~60% (what *you* did, even on a team), Result ~10% with numbers.", "Most weak STAR answers over-spend on Situation."], p: [P3, P4], drills: [] }
+          - { id: B, do: "Diagnose a described STAR answer — too much context, 'we' instead of 'I', missing result, no lesson — and fix it.", ek: ["Use 'I' for your actions; state the outcome with a number and, if asked, what you'd do differently."], p: [P2, P6], needs: [SP-5.3.A], drills: [] }
+          - { id: C, do: "Deliver a 30-second answer to 'tell me about yourself' or 'what do you work on' that leads with the role and one through-line, then two proof points, tailored to the listener.", ek: ["Present → past → why-this: start with what you do now and the thread connecting teacher, chemist and AI-safety work, not a chronological biography."], p: [P3, P5], needs: [SP-4.1.A], drills: [] }
+
+  # ── 6 ────────────────────────────────────────────────────────────────────
+  - id: explain
+    n: 6
+    title: Explaining technical ideas
+    scope: core
+    ideas: [CONCRETE, EAR, FIRST]
+    weight_est: "12–14%"
+    topics:
+      - n: 1
+        title: Pitching to the listener
+        book: { nca-cs: ["1", "5"], tm-eval: ["Audience Awareness"] }
+        los:
+          - { id: A, do: "Before explaining, state in one sentence what the listener already knows and what they need to be able to do afterwards, and cut anything that doesn't serve it.", ek: ["NCA 'excellent' topic: suited to purpose, time limit and audience, from real audience analysis.", "The expert's blind spot: once you know a thing it is hard to imagine not knowing it — name the prerequisite explicitly."], p: [P5], drills: [] }
+          - { id: B, do: "In a timed rep, explain a concept from your field in three sentences to a novice — what it is, a concrete example, why it matters — with no undefined jargon.", ek: ["Three sentences force the top line; every technical term is either defined in plain words or removed.", "Test: could the listener repeat the gist in their own words?"], p: [P5, P3], needs: [SP-6.1.A], drills: [] }
+          - { id: C, do: "Re-pitch the same explanation at three levels — novice, adjacent expert, specialist — changing vocabulary, depth and examples while the top line stays the same.", ek: ["Depth and jargon change with the audience; the claim doesn't.", "Explaining a CBRN eval to a policy lawyer vs an ML engineer is the same idea with different handholds."], p: [P5], needs: [SP-6.1.B], drills: [] }
+      - n: 2
+        title: Concrete before abstract
+        book: { mcneil-fyfe: ["concreteness fading"], rosenshine: ["models and worked examples"] }
+        los:
+          - { id: A, do: "Order an explanation concrete → bridge → abstract: a specific case first, then the general rule or symbol.", ek: ["Concreteness fading (McNeil & Fyfe 2012): concrete, then intermediate, then abstract beat either alone on transfer at 1 and 3 weeks (70% vs 38% at ceiling).", "Lead with the example the listener can picture; name the rule once they've seen it work."], p: [P3, P5], drills: [] }
+          - { id: B, do: "Build an analogy for a technical idea, then state explicitly where the analogy breaks.", ek: ["A good analogy maps the structure (what causes what), not surface features.", "Saying where it breaks prevents the listener from over-extending it."], p: [P3, P5], drills: [] }
+          - { id: C, do: "Pick the stronger of two explanations of the same idea — abstract-first vs example-first, or jargon-dense vs plain — and say why.", ek: ["Example-first wins for novices; experts tolerate abstract-first but still benefit from a worked case."], p: [P6, P2], needs: [SP-6.2.A], drills: [] }
+      - n: 3
+        title: Small steps and checking understanding
+        book: { rosenshine: ["small steps", "ask many questions", "check for understanding", "high success rate"] }
+        los:
+          - { id: A, do: "Break a multi-step explanation into steps of one idea each, and pause after each step for the listener to try or restate it before moving on.", ek: ["Rosenshine: present new material in small steps with practice after each; aim for a high success rate before moving on."], p: [P3, P5], drills: [] }
+          - { id: B, do: "Check understanding with a question that requires the listener to use the idea (predict, apply, explain back) instead of 'any questions?' or 'make sense?'.", ek: ["Effective teachers ask many questions and check every student's response, not just volunteers'.", "'Make sense?' gets a nod; 'what would happen if we doubled it?' gets evidence."], p: [P5, P4], drills: [] }
+          - { id: C, do: "Diagnose a described misunderstanding from a listener's answer and re-explain with a different example, not the same words louder.", ek: ["A wrong answer reveals the listener's model; repair the model, don't repeat the script."], p: [P2, P5], needs: [SP-6.3.B], drills: [] }
+      - n: 4
+        title: Numbers, precision and visuals out loud
+        book: { nca-cs: ["3"], tm-eval: ["Well Supported"] }
+        los:
+          - { id: A, do: "State a number for the ear: round it, give one comparison ('about a third — one in three'), and say the unit.", ek: ["Listeners can't hold 3.847 × 10⁻⁴; give the order of magnitude and what it means.", "One well-chosen number beats a list of five."], p: [P5, P3], drills: [] }
+          - { id: B, do: "Talk a listener through a figure or board diagram: say what the axes are, where to look, and the one takeaway, before the details.", ek: ["Supporting material should be clearly tied to the thesis and add clarity; a slide the speaker doesn't narrate is noise."], p: [P3, P4], drills: [] }
+
+  # ── 7 ────────────────────────────────────────────────────────────────────
+  - id: persuade
+    n: 7
+    title: Persuasion and storytelling
+    scope: core
+    ideas: [FIRST, CONCRETE, PRESENCE]
+    weight_est: "8–10%"
+    topics:
+      - n: 1
+        title: Persuasive structure
+        book: { monroe: ["Attention", "Need", "Satisfaction", "Visualisation", "Action"], tm-paths: ["Persuasive Speaking", "Persuasive Influence"], nca-cs: ["3"], tm-eval: ["Well Supported"] }
+        los:
+          - { id: A, do: "Outline a 2-minute pitch in Monroe's Motivated Sequence — attention, need, satisfaction, visualisation, action — one or two sentences each.", ek: ["Need = the problem, who it hurts and how much; Satisfaction = a concrete step-by-step plan; Visualisation = life once solved (and answering objections); Action = one easy, immediate ask."], p: [P3], drills: [] }
+          - { id: B, do: "Make a recommendation that names the strongest objection and answers it before the listener raises it.", ek: ["Pre-empting the obvious objection builds credibility with a sceptical audience; ignoring it invites it in Q&A.", "Back the answer with one piece of evidence and its source in a sentence — NCA: support tied to the thesis enhances credibility."], p: [P3, P5], needs: [SP-4.1.A], drills: [] }
+          - { id: C, do: "End a persuasive turn with one specific, easy ask (who does what, by when), and pick the stronger of two given asks.", ek: ["'Let's think about it' is not an ask; 'can we pilot it on two evals by Friday?' is."], p: [P3, P6], drills: [] }
+      - n: 2
+        title: Storytelling
+        book: { tm-paths: ["Connect with Storytelling"] }
+        los:
+          - { id: A, do: "In a timed 90-second rep, tell a story with a person, a goal, an obstacle, a turn and a point, and say the point in the last sentence.", ek: ["A story needs someone wanting something and something in the way; the point is what changed.", "Specific details (a time, a place, a line of dialogue) make it vivid; background beyond that is cut."], p: [P3, P4], drills: [] }
+          - { id: B, do: "Choose a short story or case to open a lesson or argument and connect it explicitly to the claim it illustrates.", ek: ["A story that isn't tied back is an anecdote; the bridge sentence ('that's why…') makes it evidence."], p: [P3, P5], needs: [SP-7.2.A], drills: [] }
+
+  # ── 8 ────────────────────────────────────────────────────────────────────
+  - id: listen
+    n: 8
+    title: Listening and conversation
+    scope: core
+    ideas: [EAR, FIRST]
+    weight_est: "6–8%"
+    topics:
+      - n: 1
+        title: Active listening
+        book: { tm-paths: ["Active Listening"], tm-eval: ["Audience Awareness"] }
+        los:
+          - { id: A, do: "Paraphrase what someone said in one sentence and confirm it ('so your concern is X — right?') before responding.", ek: ["Paraphrase checks you heard the point, not just the words; it also slows a heated exchange.", "Answer the question they asked, not the one you prepared for."], p: [P5, P4], drills: [] }
+          - { id: B, do: "Ask a follow-up question that builds on the speaker's last point rather than changing the subject, and classify given questions as open, closed or leading.", ek: ["Open questions ('what led you to…') invite elaboration; closed ones confirm facts; leading ones push an answer."], p: [P5, P2], drills: [] }
+      - n: 2
+        title: Speaking in meetings
+        book: { tm-paths: ["Interpersonal Communication", "Strategic Leadership"] }
+        los:
+          - { id: A, do: "Make a meeting contribution in ≤ 30 seconds: connect to what was just said, give your point first, one reason, and the decision or next step you want.", ek: ["Short, point-first turns get heard; long preambles get interrupted.", "Linking ('building on Maria's point…') shows you listened and frames your turn."], p: [P3, P5], needs: [SP-4.1.A], drills: [] }
+          - { id: C, do: "Disagree in a meeting with acknowledge → position → reason → proposal, without hedging the position away.", ek: ["Separate the idea from the person; state your view at its real confidence level and propose what would resolve it."], p: [P3, P4], needs: [SP-3.4.B], drills: [] }
+
+  # ── 9 ────────────────────────────────────────────────────────────────────
+  - id: review
+    n: 9
+    title: Feedback and self-review
+    scope: core
+    ideas: [LOOP]
+    weight_est: "8–10%"
+    topics:
+      - n: 1
+        title: Recording and transcripts
+        book: { lumen-voice: ["record yourself", "filler log"], riseguide: ["learn → record → analyse → adjust → repeat"], qbs-hr: ["awareness training"] }
+        los:
+          - { id: A, do: "Record a 60-second rep, get a transcript, and log four numbers: wpm, fillers/min, seconds to the main point, and longest silent pause.", ek: ["These four map onto the app scores: Pace, Pauses/fillers, Structure; Confidence needs listening for pitch and volume.", "Speakers misjudge their own pace, variety and fillers until they hear and count them."], p: [P1, P6], needs: [SP-2.1.A, SP-2.3.A], drills: [] }
+          - { id: B, do: "Score a recording against the NCA eight competencies (1–3 each, 8–24 total) and name the lowest one as the next target.", ek: ["NCA competencies: topic, thesis, support, organisation, language, vocal variety, pronunciation/grammar/articulation, physical behaviours."], p: [P6], drills: [] }
+          - { id: C, do: "Set one measurable target per practice block (e.g. ≤ 2 fillers in 60 s, answer in first sentence), run 3–5 reps, and stop when it holds on 3 in a row.", ek: ["One target per rep: trying to fix pace, fillers and structure at once fixes none.", "Track the number across sessions; the trend, not one take, is the evidence."], p: [P6, P1], needs: [SP-9.1.A], drills: [] }
+      - n: 2
+        title: Giving and receiving feedback
+        book: { tm-eval: ["Commend / Recommend / Challenge", "8100E3 evaluator speech"], tm-paths: ["Evaluation and Feedback"] }
+        los:
+          - { id: A, do: "Give a 2–3 minute spoken evaluation of someone's speech: one specific commend, one specific recommend with the moment it happened, one challenge.", ek: ["Toastmasters: what they excelled at, what they may want to work on, a stretch goal; feedback must be tactful, constructive and timed.", "Specific beats general: 'your pause before the 70% landed' not 'good pausing'.", "Receiving it: thank, ask one clarifying question, turn it into the next rep's target."], p: [P6], drills: [] }
+          - { id: B, do: "Rate a described delivery on a Toastmasters criterion (Clarity, Vocal Variety, Eye Contact, Gestures, Audience Awareness, Comfort, Interest, Well Supported) on the 1–5 scale and justify the rating.", ek: ["5 Exemplary · 4 Excels · 3 Accomplished · 2 Emerging · 1 Developing; e.g. gestures 'distracting or limited' = 2."], p: [P6, P2], drills: [] }
+
+  # ── extensions (long-form and mediated speaking) ────────────────────────
+  - id: longform
+    n: 10
+    title: Lecturing and long-form talks
+    scope: extension
+    ideas: [EAR, CONCRETE, PRESENCE]
+    topics:
+      - n: 1
+        title: Lectures and talks
+        book: { nca-cs: ["1", "4"], rosenshine: ["review", "small steps"], tm-paths: ["Presentation Mastery"] }
+        los:
+          - { id: A, do: "Plan a 50-minute lecture as 10–15-minute segments, each with its own point, example and check for understanding, opened by a short review.", ek: ["Begin with a review of prior learning; attention and working memory reset between segments; each segment gets an answer-first top line."], p: [P3, P5], needs: [SP-6.3.A], drills: [] }
+          - { id: B, do: "Deliver from a keyword outline instead of a script, and on playback show eye contact and conversational rate held throughout.", ek: ["Reading drops eye contact, flattens pitch and speeds rate; a keyword outline keeps you talking to people.", "Mark 'SLOW DOWN', breath slashes and stressed words on the outline."], p: [P4], needs: [SP-2.1.B, SP-3.3.A], drills: [] }
+          - { id: C, do: "Fit a talk to its time slot: estimate length from word count at your measured wpm, cut to 90% of the slot, and finish within ±30 s in rehearsal.", ek: ["Minutes ≈ words ÷ wpm; at 130 wpm a 10-minute slot holds ~1 300 words — plan ~1 150 to leave room for pauses and questions."], p: [P1, P3], needs: [SP-2.1.A], drills: [] }
+
+  - id: mediated
+    n: 11
+    title: Remote, recorded and microphone speaking
+    scope: extension
+    ideas: [PRESENCE, BREATH]
+    topics:
+      - n: 1
+        title: Calls, recordings and microphones
+        book: { tm-eval: ["Eye Contact", "Audience Awareness"], lumen-voice: ["microphone"] }
+        los:
+          - { id: A, do: "Set up for a video call or recording — lens at eye level, light in front, mic 15–30 cm away — and keep energy one notch above in-person to compensate for compression.", ek: ["Video flattens vocal variety and facial expression; slightly more energy and pitch range reads as normal on screen.", "With a mic, keep a constant distance; don't project into it."], p: [P4, P5], drills: [] }
+          - { id: B, do: "Handle a remote Q&A or interview turn with the lag in mind: finish with a clear falling ending and a handoff ('happy to go deeper on any of that') so no one talks over you.", ek: ["Latency of a few hundred ms causes collisions; clear endings and explicit handoffs replace the visual turn-taking cues lost on calls."], p: [P4, P5], needs: [SP-3.1.A], drills: [] }
