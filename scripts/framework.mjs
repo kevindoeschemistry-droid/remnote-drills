@@ -1,7 +1,9 @@
 // drills/frameworks/<id>.yaml  ->  docs/frameworks/<id>.md  (the readable map + coverage per LO)
-// Checks: unique ids, practices / big ideas exist, every drill names a real template, and
-// which of a course's skills the framework never mentions.
-//   node scripts/framework.mjs [heat-transfer]
+// Checks: unique ids, practices / big ideas exist, every drill names a real template, every
+// `needs` prerequisite names a real LO in any framework, and which templates of the
+// framework's `domains` no LO uses yet.
+//   node scripts/framework.mjs            all frameworks
+//   node scripts/framework.mjs <id>       one
 import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
@@ -9,9 +11,18 @@ import yaml from "js-yaml";
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(here, "..");
-const id = process.argv[2] ?? "heat-transfer";
-const fw = yaml.load(fs.readFileSync(path.join(root, "drills/frameworks", `${id}.yaml`), "utf8"));
+const fwDir = path.join(root, "drills/frameworks");
+const all = Object.fromEntries(
+  fs.readdirSync(fwDir).filter((f) => f.endsWith(".yaml")).map((f) => [f.replace(/\.yaml$/, ""), yaml.load(fs.readFileSync(path.join(fwDir, f), "utf8"))])
+);
+// every LO code in every framework, for cross-framework prerequisites
+const allCodes = new Set();
+for (const f of Object.values(all)) for (const u of f.units ?? []) for (const t of u.topics ?? []) for (const lo of t.los ?? []) allCodes.add(`${f.code}-${u.n}.${t.n}.${lo.id}`);
 const graph = JSON.parse(fs.readFileSync(path.join(root, "src/drills/skills.generated.json"), "utf8"));
+let failed = false;
+for (const id of process.argv[2] ? [process.argv[2]] : Object.keys(all)) {
+const fw = all[id];
+if (!fw) { console.error(`no framework ${id}`); process.exit(1); }
 
 // template -> skill, for every live template
 const tplSkill = {};
@@ -30,6 +41,7 @@ for (const u of fw.units) {
       if (seen.has(code)) errors.push(`duplicate ${code}`);
       seen.add(code);
       for (const p of lo.p ?? []) if (!practices.has(p)) errors.push(`${code}: unknown practice ${p}`);
+      for (const n of lo.needs ?? []) if (!allCodes.has(n)) errors.push(`${code}: needs unknown LO ${n}`);
       const full = [], partial = [];
       for (const d of lo.drills ?? []) {
         const name = d.replace(/^~/, "");
@@ -43,13 +55,14 @@ for (const u of fw.units) {
 }
 if (errors.length) {
   console.error(`${id} framework is invalid:\n  ` + errors.join("\n  "));
-  process.exit(1);
+  failed = true;
+  continue;
 }
 
 // templates of the subject's skills that no LO uses (drills without a home in the map)
 const used = new Set(rows.flatMap((r) => [...r.full, ...r.partial]));
-const domain = fw.code.toLowerCase();
-const orphanTpl = Object.entries(tplSkill).filter(([t, s]) => s.startsWith(`${domain}.`) && !used.has(t)).map(([t]) => t);
+const domains = fw.domains ?? [fw.code.toLowerCase()];
+const orphanTpl = Object.entries(tplSkill).filter(([t, s]) => domains.some((d) => s.startsWith(`${d}.`)) && !used.has(t)).map(([t]) => t);
 
 // ── markdown ──────────────────────────────────────────────────────────────
 const count = (rs, st) => rs.filter((r) => r.status === st).length;
@@ -75,6 +88,7 @@ for (const u of fw.units) {
     for (const r of rows.filter((x) => x.topic === t)) {
       md += `- ${mark[r.status]} **${r.code}** ${r.lo.do}\n`;
       for (const e of r.lo.ek ?? []) md += `  - EK: ${e}\n`;
+      if (r.lo.needs?.length) md += `  - Needs: ${r.lo.needs.join(", ")}\n`;
       md += `  - ${r.lo.p.join(" · ")}${r.full.length || r.partial.length ? ` · drills: ${[...r.full, ...r.partial.map((x) => `~${x}`)].join(", ")}` : ""}\n`;
     }
   }
@@ -89,3 +103,5 @@ fs.writeFileSync(
   JSON.stringify({ ...fw, rows: rows.map((r) => ({ code: r.code, unit: r.unit.n, topic: r.topic.n, status: r.status, full: r.full, partial: r.partial })), orphanTpl }, null, 1)
 );
 console.log(`${fw.title}: ${rows.length} LOs (${core.length} core) — ${count(rows, "ok")} drilled, ${count(rows, "partial")} partly, ${count(rows, "gap")} gaps; ${orphanTpl.length} unplaced templates -> docs/frameworks/${id}.md`);
+}
+if (failed) process.exit(1);
