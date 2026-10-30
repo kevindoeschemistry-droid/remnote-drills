@@ -1,0 +1,613 @@
+# Mathematics K–8 (Common Core) — curriculum framework (draft 1, for Kevin's markup)
+#
+# The literal start of the path: the first objective is counting to 100 (K.CC.A.1), and
+# "add within 10" (1 + 1) follows a few objectives later (K.OA.A.2). Built like an AP Course
+# and Exam Description: Big Ideas run through the subject, Units → Topics → Learning
+# Objectives (one testable action each, verb first), with the Essential Knowledge an LO
+# rests on and the Practices it exercises.
+#
+# Standards it's built from (sources actually opened):
+#   ccss    Common Core State Standards for Mathematics (2010), K–8 content standards and the
+#           eight Standards for Mathematical Practice. CCSS text is openly licensed and is
+#           quoted or lightly trimmed in `do`. corestandards.org / thecorestandards.org and
+#           the CCSSO PDF were blocked by this session's network policy; codes and
+#           wording were checked against NC DPI's 2017 K–8 crosswalk, which reprints the
+#           2010 CCSS column:
+#           https://www.dpi.nc.gov/documents/cte/curriculum/languagearts/scos/current/2017-crosswalk-k-8-mathematics/open
+#   cmap    Student Achievement Partners, Coherence Map (achievethecore.org/coherence-map),
+#           landing page: https://achievethecore.org/page/1118/coherence-map
+#           The interactive map loads its links dynamically and its data export (Learning
+#           Commons "Math Coherence Map" dataset, `buildsTowards` = prerequisite arrows)
+#           was blocked here, so the arrows could not be copied machine-to-machine:
+#           https://docs.learningcommons.org/knowledge-graph/datasets/math-coherence-map.md
+#   zimba   J. Zimba, "A Graph of the Content Standards" (the K–8 graph the Coherence Map is
+#           built on): an arrow X → Y means a student who can't meet X probably can't meet
+#           Y; only nearest-neighbour arrows are drawn.
+#           https://achievethecore.org/content/upload/ccssmgraph.pdf
+#
+# Unit order = CCSS grade order (K, 1, … 8); topic order = the domain order the standards
+# print within each grade (CC, OA, NBT, NF, MD, G in K–5; RP, NS, EE, F, G, SP in 6–8);
+# LO order = standard number order.
+#
+# `needs` follows the Coherence Map / Zimba graph in spirit — nearest-neighbour
+# prerequisites, mostly the previous grade's version of the same progression — but was
+# entered by hand from those sources and the CCSS progressions, not exported from the map:
+# verify against the live map before treating an edge as official. Where the map's arrow
+# runs from a later domain to an earlier one inside the same grade (2.G.A.2 → 2.OA.C.4,
+# 4.G.A.1 → 4.MD.C.5, 5.G.A.2 → 5.OA.B.3, 8.G.A.4–5 → 8.EE.B.6), the edge is dropped or
+# reversed so every need points backward along the path.
+#
+# Fields
+#   units[].grade     CCSS grade
+#   units[].scope     all core: every standard is grade-level content
+#   units[].ideas     Big Ideas the unit develops
+#   topics[].ccss     the CCSS domain (grade.domain)
+#   los[].std         CCSS code(s) the LO covers; lettered sub-standards are split where each
+#                     is a separate skill (3.NF.A.3c vs 3.NF.A.3d) and merged where tiny
+#   los[].do          the objective; los[].ek essential knowledge; los[].p practices
+#   los[].needs       prerequisite LOs in this framework (earlier on the path)
+#   los[].drills      no live template drills K–8 arithmetic yet — every LO is a gap
+id: math-k8
+title: "Mathematics K–8 (Common Core)"
+code: MK
+draft: 1
+track: math
+requires: []
+level: 0
+domains: []
+
+big_ideas:
+  - id: COUNT
+    title: Counting tells how many
+    text: The last number said names the size of the set; numbers compare by matching or by place in the counting sequence, and addition and subtraction start as counting on and back.
+  - id: PV
+    title: Base ten bundles by tens
+    text: Every place is ten of the place to its right — ones, tens, hundreds, and to the right of the point tenths, hundredths, thousandths. Place value is what makes the algorithms work.
+  - id: OPS
+    title: Operations have meanings and properties
+    text: Each operation models situations (join, separate, compare, equal groups, arrays, scaling); the commutative, associative and distributive properties turn hard computations into easy ones and later become the rules of algebra.
+  - id: LINE
+    title: One number line holds every number
+    text: Whole numbers, fractions, decimals, negatives and irrationals are all points on one line; equivalence means the same point, order means left and right, and absolute value is distance from 0.
+  - id: MULT
+    title: Multiplicative reasoning grows into proportion and function
+    text: Comparing by "times as many" leads to fractions as scaling, ratios and unit rates, proportional relationships y = kx, slope, and linear functions y = mx + b.
+  - id: MEAS
+    title: Measuring is iterating a unit
+    text: Length, area, volume, angle, time and mass are counts of a chosen unit with no gaps or overlaps; area and volume are additive, and their formulas are multiplication of counted rows and layers.
+  - id: SHAPE
+    title: Shapes are defined by attributes and moved by transformations
+    text: Figures are classified by defining attributes in nested categories; rigid motions define congruence, dilations add similarity, and the Pythagorean Theorem links length and area.
+  - id: DATA
+    title: Data vary, and variation can be summarized
+    text: Data come from questions that anticipate variability; distributions have center, spread and shape; samples support inference about populations; probability measures chance from 0 to 1.
+
+practices:
+  - id: MP1
+    title: Make sense of problems and persevere in solving them
+    text: Explain what the problem is asking, look for an entry point, plan a solution path, monitor progress and check whether the answer makes sense.
+  - id: MP2
+    title: Reason abstractly and quantitatively
+    text: Decontextualize a situation into symbols and manipulate them; contextualize — say what the numbers and symbols mean in the situation.
+  - id: MP3
+    title: Construct viable arguments and critique the reasoning of others
+    text: Justify conclusions from stated assumptions, definitions and earlier results; use counterexamples; decide whether another's argument makes sense.
+  - id: MP4
+    title: Model with mathematics
+    text: Apply mathematics to everyday problems — equations, diagrams, tables, graphs, functions — and interpret the result in context.
+  - id: MP5
+    title: Use appropriate tools strategically
+    text: Choose among concrete models, rulers, protractors, number lines, graphs and technology, knowing what each is good for and its limits.
+  - id: MP6
+    title: Attend to precision
+    text: Use definitions, symbols (including =) and units precisely; label axes; calculate accurately and state answers with appropriate precision.
+  - id: MP7
+    title: Look for and make use of structure
+    text: See patterns and structure — 7 × 8 = 7 × 5 + 7 × 3, x² + 9x + 14 as a product, a sum as one object — and use them.
+  - id: MP8
+    title: Look for and express regularity in repeated reasoning
+    text: Notice when calculations repeat, look for general methods and shortcuts, and check intermediate results while keeping the whole process in view.
+
+units:
+  # ── 1 ── Grade K ───────────────────────────────────────────────────────────
+  - id: k
+    n: 1
+    grade: "K"
+    title: "Kindergarten — counting, adding and subtracting within 10, shapes"
+    scope: core
+    ideas: [COUNT, OPS, MEAS, SHAPE]
+    topics:
+      - n: 1
+        title: "Counting and Cardinality"
+        ccss: K.CC
+        los:
+          - { id: A, std: [K.CC.A.1], do: "Count to 100 by ones and by tens.", ek: ["The counting sequence follows a repeating pattern of ones inside a pattern of tens."], p: [MP7], drills: [] }
+          - { id: B, std: [K.CC.A.2], do: "Count forward beginning from a given number within the known sequence (instead of having to begin at 1).", ek: ["Any number in the sequence can be a starting point; the next number is always one more."], p: [MP7], needs: [MK-1.1.A], drills: [] }
+          - { id: C, std: [K.CC.A.3], do: "Write numbers from 0 to 20 and represent a number of objects with a written numeral 0–20 (0 = no objects).", ek: ["A numeral is a symbol for how many; 0 names an empty set."], p: [MP6], needs: [MK-1.1.A], drills: [] }
+          - { id: D, std: [K.CC.B.4a, K.CC.B.4b, K.CC.B.4c], do: "Count objects by saying the number names in standard order, pairing each object with one and only one number name.", ek: ["One-to-one correspondence; the last number said is how many (cardinality), whatever the order counted; each successive number is one larger."], p: [MP2, MP6], needs: [MK-1.1.A], drills: [] }
+          - { id: E, std: [K.CC.B.5], do: "Count to answer \"how many?\" for up to 20 objects in a line, array or circle (10 scattered), and count out that many objects given a number 1–20.", ek: ["Arrangement does not change how many; scattered sets need a way to track what was counted."], p: [MP6], needs: [MK-1.1.D], drills: [] }
+          - { id: F, std: [K.CC.C.6], do: "Identify whether the number of objects in one group is greater than, less than, or equal to the number in another group (up to 10).", ek: ["Compare by matching one-to-one or by counting; leftover objects mean more."], p: [MP2, MP3], needs: [MK-1.1.E], drills: [] }
+          - { id: G, std: [K.CC.C.7], do: "Compare two numbers between 1 and 10 presented as written numerals.", ek: ["A number later in the counting sequence is greater."], p: [MP2], needs: [MK-1.1.F, MK-1.1.C], drills: [] }
+      - n: 2
+        title: "Operations and Algebraic Thinking"
+        ccss: K.OA
+        los:
+          - { id: A, std: [K.OA.A.1], do: "Represent addition and subtraction with objects, fingers, drawings, sounds, acting out situations, expressions or equations.", ek: ["Addition is putting together or adding to; subtraction is taking apart or taking from."], p: [MP4], needs: [MK-1.1.E], drills: [] }
+          - { id: B, std: [K.OA.A.2], do: "Solve addition and subtraction word problems, and add and subtract within 10 (e.g. 1 + 1), using objects or drawings.", ek: ["Act out the story: join the groups and count all, or remove and count what is left."], p: [MP1, MP4], needs: [MK-1.2.A], drills: [] }
+          - { id: C, std: [K.OA.A.3], do: "Decompose numbers less than or equal to 10 into pairs in more than one way (5 = 2 + 3 = 4 + 1).", ek: ["A number is made of parts; the same whole splits many ways."], p: [MP7], needs: [MK-1.2.A], drills: [] }
+          - { id: D, std: [K.OA.A.4], do: "For any number 1 to 9, find the number that makes 10 when added to it.", ek: ["Partners of ten: 1+9, 2+8, 3+7, 4+6, 5+5."], p: [MP7], needs: [MK-1.2.C], drills: [] }
+          - { id: E, std: [K.OA.A.5], do: "Fluently add and subtract within 5.", ek: ["Facts within 5 are known, not counted out."], p: [MP6], needs: [MK-1.2.B, MK-1.2.C], drills: [] }
+      - n: 3
+        title: "Number and Operations in Base Ten"
+        ccss: K.NBT
+        los:
+          - { id: A, std: [K.NBT.A.1], do: "Compose and decompose numbers from 11 to 19 into ten ones and some further ones (18 = 10 + 8).", ek: ["Teen numbers are ten ones and some more ones."], p: [MP7], needs: [MK-1.2.D, MK-1.1.E], drills: [] }
+      - n: 4
+        title: "Measurement and Data"
+        ccss: K.MD
+        los:
+          - { id: A, std: [K.MD.A.1], do: "Describe measurable attributes of objects, such as length or weight, and several attributes of one object.", ek: ["An object has several attributes that can be measured."], p: [MP6], drills: [] }
+          - { id: B, std: [K.MD.A.2], do: "Directly compare two objects with a measurable attribute in common and say which has more or less of it.", ek: ["Line objects up from a common start to compare length."], p: [MP6], needs: [MK-1.4.A], drills: [] }
+          - { id: C, std: [K.MD.B.3], do: "Classify objects into given categories, count the objects in each category, and sort the categories by count (counts ≤ 10).", ek: ["Sorting then counting turns a pile into data."], p: [MP4], needs: [MK-1.1.E], drills: [] }
+      - n: 5
+        title: "Geometry"
+        ccss: K.G
+        los:
+          - { id: A, std: [K.G.A.1], do: "Describe objects in the environment using names of shapes and their relative positions (above, below, beside, in front of, behind, next to).", ek: ["Position words describe where an object is relative to another."], p: [MP6], drills: [] }
+          - { id: B, std: [K.G.A.2], do: "Name shapes correctly regardless of their orientation or overall size.", ek: ["A shape keeps its name when it is turned or resized."], p: [MP7], drills: [] }
+          - { id: C, std: [K.G.A.3], do: "Identify shapes as two-dimensional (flat) or three-dimensional (solid).", ek: ["Flat shapes have length and width; solids also have depth."], p: [MP6], needs: [MK-1.5.B], drills: [] }
+          - { id: D, std: [K.G.B.4], do: "Analyze and compare two- and three-dimensional shapes by their parts and attributes (number of sides, vertices, equal sides).", ek: ["Shapes are defined by their parts, not by how they look at first glance."], p: [MP3, MP7], needs: [MK-1.5.B, MK-1.5.C], drills: [] }
+          - { id: E, std: [K.G.B.5], do: "Model shapes by building them from components (sticks, clay) and drawing them.", ek: ["Building a shape requires knowing its parts."], p: [MP4], needs: [MK-1.5.D], drills: [] }
+          - { id: F, std: [K.G.B.6], do: "Compose simple shapes to form larger shapes (two triangles make a rectangle).", ek: ["Shapes combine into new shapes."], p: [MP7], needs: [MK-1.5.D], drills: [] }
+  # ── 2 ── Grade 1 ───────────────────────────────────────────────────────────
+  - id: g1
+    n: 2
+    grade: "1"
+    title: "Grade 1 — addition and subtraction within 20, tens and ones, length units"
+    scope: core
+    ideas: [OPS, PV, MEAS, SHAPE]
+    topics:
+      - n: 1
+        title: "Operations and Algebraic Thinking"
+        ccss: 1.OA
+        los:
+          - { id: A, std: [1.OA.A.1], do: "Use addition and subtraction within 20 to solve word problems (adding to, taking from, putting together, taking apart, comparing) with unknowns in all positions.", ek: ["The same situation can hide the result, the change or the start; an equation with a symbol for the unknown records it."], p: [MP1, MP4], needs: [MK-1.2.B], drills: [] }
+          - { id: B, std: [1.OA.A.2], do: "Solve word problems that call for adding three whole numbers whose sum is ≤ 20.", ek: ["Add three numbers by adding two, then the third."], p: [MP1], needs: [MK-2.1.A], drills: [] }
+          - { id: C, std: [1.OA.B.3], do: "Apply the commutative and associative properties of addition as strategies (8+3 = 3+8; 2+6+4 = 2+10).", ek: ["Order and grouping don't change a sum."], p: [MP7, MP8], needs: [MK-1.2.C], drills: [] }
+          - { id: D, std: [1.OA.B.4], do: "Understand subtraction as an unknown-addend problem (10 − 8 as 8 + ? = 10).", ek: ["Subtraction finds a missing part."], p: [MP7], needs: [MK-1.2.A], drills: [] }
+          - { id: E, std: [1.OA.C.5], do: "Relate counting to addition and subtraction (counting on 2 to add 2).", ek: ["Adding n means counting on n; subtracting means counting back."], p: [MP7], needs: [MK-1.1.B], drills: [] }
+          - { id: F, std: [1.OA.C.6], do: "Add and subtract within 20, fluently within 10, using strategies such as making ten, decomposing to ten, and known sums (8+6 = 8+2+4).", ek: ["Making ten turns a hard fact into an easy one."], p: [MP7, MP8], needs: [MK-1.2.D, MK-1.2.E, MK-2.1.C, MK-2.1.D, MK-2.1.E], drills: [] }
+          - { id: G, std: [1.OA.D.7], do: "Understand the meaning of the equal sign and decide whether equations like 6 = 6, 7 = 8 − 1, 5 + 2 = 2 + 5 are true or false.", ek: ["= means \"the same amount as\", not \"the answer comes next\"."], p: [MP6], needs: [MK-1.2.C], drills: [] }
+          - { id: H, std: [1.OA.D.8], do: "Determine the unknown whole number in an addition or subtraction equation relating three whole numbers (8 + ? = 11).", ek: ["Any of the three numbers can be the unknown."], p: [MP2], needs: [MK-2.1.G, MK-2.1.D], drills: [] }
+      - n: 2
+        title: "Number and Operations in Base Ten"
+        ccss: 1.NBT
+        los:
+          - { id: A, std: [1.NBT.A.1], do: "Count to 120 starting at any number less than 120; read and write numerals in this range.", ek: ["The tens-and-ones pattern continues past 100."], p: [MP7], needs: [MK-1.1.B, MK-1.1.C], drills: [] }
+          - { id: B, std: [1.NBT.B.2a, 1.NBT.B.2b, 1.NBT.B.2c], do: "Understand that the two digits of a two-digit number represent amounts of tens and ones (10 is a bundle of ten ones; 11–19 are a ten and some ones; 10, 20 … 90 are tens and 0 ones).", ek: ["Place determines value: the left digit counts tens."], p: [MP7], needs: [MK-1.3.A], drills: [] }
+          - { id: C, std: [1.NBT.B.3], do: "Compare two two-digit numbers based on the meanings of the tens and ones digits, recording with >, =, <.", ek: ["Compare tens first; ones only break a tie."], p: [MP2, MP6], needs: [MK-2.2.B, MK-1.1.G], drills: [] }
+          - { id: D, std: [1.NBT.C.4], do: "Add within 100 (two-digit + one-digit, two-digit + a multiple of 10) using models and place-value strategies, composing a ten when needed.", ek: ["Add tens to tens and ones to ones; ten ones make a new ten."], p: [MP3, MP7], needs: [MK-2.2.B, MK-2.1.F], drills: [] }
+          - { id: E, std: [1.NBT.C.5], do: "Given a two-digit number, mentally find 10 more or 10 less without counting.", ek: ["Adding or taking 10 changes only the tens digit."], p: [MP7], needs: [MK-2.2.B], drills: [] }
+          - { id: F, std: [1.NBT.C.6], do: "Subtract multiples of 10 in the range 10–90 from multiples of 10 in the same range.", ek: ["70 − 30 is 7 tens − 3 tens = 4 tens."], p: [MP7], needs: [MK-2.2.E, MK-2.1.D], drills: [] }
+      - n: 3
+        title: "Measurement and Data"
+        ccss: 1.MD
+        los:
+          - { id: A, std: [1.MD.A.1], do: "Order three objects by length, and compare the lengths of two objects indirectly by using a third object.", ek: ["If A is longer than C and C is longer than B, then A is longer than B (transitivity)."], p: [MP3], needs: [MK-1.4.B], drills: [] }
+          - { id: B, std: [1.MD.A.2], do: "Express the length of an object as a whole number of length units by laying copies of a shorter unit end to end with no gaps or overlaps.", ek: ["Length = number of same-size units that span it."], p: [MP5, MP6], needs: [MK-2.3.A, MK-1.1.E], drills: [] }
+          - { id: C, std: [1.MD.B.3], do: "Tell and write time in hours and half-hours using analog and digital clocks.", ek: ["The hour hand points between numbers at the half hour."], p: [MP6], needs: [MK-2.2.A], drills: [] }
+          - { id: D, std: [1.MD.C.4], do: "Organize, represent and interpret data with up to three categories; ask and answer how many in each and how many more or less.", ek: ["Comparing category counts is a compare-type subtraction problem."], p: [MP4], needs: [MK-1.4.C, MK-2.1.A], drills: [] }
+      - n: 4
+        title: "Geometry"
+        ccss: 1.G
+        los:
+          - { id: A, std: [1.G.A.1], do: "Distinguish defining attributes (triangles are closed and three-sided) from non-defining ones (color, orientation, size); build and draw shapes with given attributes.", ek: ["A shape's name depends only on its defining attributes."], p: [MP3, MP6], needs: [MK-1.5.D], drills: [] }
+          - { id: B, std: [1.G.A.2], do: "Compose two- or three-dimensional shapes into a composite shape, and compose new shapes from it.", ek: ["Composite shapes can be treated as units."], p: [MP7], needs: [MK-1.5.F], drills: [] }
+          - { id: C, std: [1.G.A.3], do: "Partition circles and rectangles into two and four equal shares, using halves, fourths and quarters; more equal shares make smaller shares.", ek: ["Equal shares of one whole are the same size."], p: [MP6], needs: [MK-2.4.A], drills: [] }
+  # ── 3 ── Grade 2 ───────────────────────────────────────────────────────────
+  - id: g2
+    n: 3
+    grade: "2"
+    title: "Grade 2 — base ten to 1000, fluency within 100, standard length units"
+    scope: core
+    ideas: [PV, OPS, MEAS, DATA]
+    topics:
+      - n: 1
+        title: "Operations and Algebraic Thinking"
+        ccss: 2.OA
+        los:
+          - { id: A, std: [2.OA.A.1], do: "Use addition and subtraction within 100 to solve one- and two-step word problems with unknowns in all positions.", ek: ["Two-step problems chain two situations; an equation with a symbol records each step."], p: [MP1, MP4], needs: [MK-2.1.A, MK-2.2.D], drills: [] }
+          - { id: B, std: [2.OA.B.2], do: "Fluently add and subtract within 20 using mental strategies; know from memory all sums of two one-digit numbers.", ek: ["Single-digit sums are recalled, not computed."], p: [MP6], needs: [MK-2.1.F], drills: [] }
+          - { id: C, std: [2.OA.C.3], do: "Determine whether a group of up to 20 objects has an odd or even number of members (pairing, counting by 2s); write an even number as a sum of two equal addends.", ek: ["Even numbers split into two equal groups or pairs with none left."], p: [MP7], needs: [MK-2.1.F], drills: [] }
+          - { id: D, std: [2.OA.C.4], do: "Use addition to find the total in a rectangular array with up to 5 rows and 5 columns; write an equation as a sum of equal addends.", ek: ["An array is equal rows; total = repeated addition of a row."], p: [MP7], needs: [MK-3.1.C], drills: [] }
+      - n: 2
+        title: "Number and Operations in Base Ten"
+        ccss: 2.NBT
+        los:
+          - { id: A, std: [2.NBT.A.1a, 2.NBT.A.1b], do: "Understand that the three digits of a three-digit number represent hundreds, tens and ones; 100 is a bundle of ten tens.", ek: ["Each place is ten of the place to its right."], p: [MP7], needs: [MK-2.2.B], drills: [] }
+          - { id: B, std: [2.NBT.A.2], do: "Count within 1000; skip-count by 5s, 10s and 100s.", ek: ["Skip-counting by 10s or 100s changes one digit at a time."], p: [MP7], needs: [MK-2.2.A, MK-3.2.A], drills: [] }
+          - { id: C, std: [2.NBT.A.3], do: "Read and write numbers to 1000 using base-ten numerals, number names and expanded form.", ek: ["Expanded form shows each digit's value: 352 = 300 + 50 + 2."], p: [MP6], needs: [MK-3.2.A], drills: [] }
+          - { id: D, std: [2.NBT.A.4], do: "Compare two three-digit numbers based on the meanings of the digits, using >, =, <.", ek: ["Compare from the largest place down."], p: [MP2, MP6], needs: [MK-3.2.A, MK-2.2.C], drills: [] }
+          - { id: E, std: [2.NBT.B.5], do: "Fluently add and subtract within 100 using strategies based on place value, properties of operations, and the relationship between addition and subtraction.", ek: ["Decompose by place, then combine like units."], p: [MP7, MP8], needs: [MK-2.2.D, MK-2.2.F, MK-3.1.B], drills: [] }
+          - { id: F, std: [2.NBT.B.6], do: "Add up to four two-digit numbers using strategies based on place value and properties of operations.", ek: ["Group tens with tens, ones with ones, in any order."], p: [MP7], needs: [MK-3.2.E], drills: [] }
+          - { id: G, std: [2.NBT.B.7], do: "Add and subtract within 1000 using models, drawings and place-value strategies, composing or decomposing tens and hundreds as needed.", ek: ["Ten tens make a hundred; a hundred can be broken into ten tens."], p: [MP3, MP7], needs: [MK-3.2.E, MK-3.2.A], drills: [] }
+          - { id: H, std: [2.NBT.B.8], do: "Mentally add or subtract 10 or 100 to or from a number 100–900.", ek: ["Adding 10 or 100 changes only that digit (unless it regroups)."], p: [MP7], needs: [MK-2.2.E, MK-3.2.A], drills: [] }
+          - { id: I, std: [2.NBT.B.9], do: "Explain why addition and subtraction strategies work, using place value and the properties of operations.", ek: ["A strategy is valid because of place value and the properties, not because it gives the right answer once."], p: [MP3], needs: [MK-3.2.G], drills: [] }
+      - n: 3
+        title: "Measurement and Data"
+        ccss: 2.MD
+        los:
+          - { id: A, std: [2.MD.A.1], do: "Measure the length of an object by selecting and using an appropriate tool (ruler, yardstick, meter stick, measuring tape).", ek: ["A ruler is a row of iterated units with 0 at the start."], p: [MP5], needs: [MK-2.3.B], drills: [] }
+          - { id: B, std: [2.MD.A.2], do: "Measure an object twice using units of different lengths and describe how the measurements relate to the unit size.", ek: ["Bigger unit → fewer units; the count and unit size vary inversely."], p: [MP6, MP7], needs: [MK-3.3.A], drills: [] }
+          - { id: C, std: [2.MD.A.3], do: "Estimate lengths using units of inches, feet, centimeters and meters.", ek: ["Benchmarks (a finger ≈ 1 cm, a door ≈ 2 m) make estimates."], p: [MP5], needs: [MK-3.3.A], drills: [] }
+          - { id: D, std: [2.MD.A.4], do: "Measure to determine how much longer one object is than another, in a standard length unit.", ek: ["Difference in length = longer measure − shorter measure."], p: [MP6], needs: [MK-3.3.A], drills: [] }
+          - { id: E, std: [2.MD.B.5], do: "Use addition and subtraction within 100 to solve word problems involving lengths in the same units.", ek: ["Lengths add and subtract like numbers when the units match."], p: [MP4], needs: [MK-3.3.D, MK-3.1.A], drills: [] }
+          - { id: F, std: [2.MD.B.6], do: "Represent whole numbers as lengths from 0 on a number line with equally spaced points, and represent sums and differences within 100 on it.", ek: ["A number on the line is a distance from 0."], p: [MP4, MP5], needs: [MK-3.3.A, MK-3.2.E], drills: [] }
+          - { id: G, std: [2.MD.C.7], do: "Tell and write time from analog and digital clocks to the nearest five minutes, using a.m. and p.m.", ek: ["Each numeral on the clock marks 5 minutes."], p: [MP6], needs: [MK-2.3.C, MK-3.2.B], drills: [] }
+          - { id: H, std: [2.MD.C.8], do: "Solve word problems involving dollar bills, quarters, dimes, nickels and pennies, using $ and ¢ symbols.", ek: ["Coin values: 25¢, 10¢, 5¢, 1¢; count from the largest."], p: [MP4], needs: [MK-3.1.A, MK-3.2.B], drills: [] }
+          - { id: I, std: [2.MD.D.9], do: "Generate length data by measuring several objects to the nearest whole unit and show it on a line plot.", ek: ["A line plot puts one mark per measurement above a number line."], p: [MP4], needs: [MK-3.3.A, MK-3.3.F], drills: [] }
+          - { id: J, std: [2.MD.D.10], do: "Draw a picture graph and a bar graph (single-unit scale) for up to four categories, and solve put-together, take-apart and compare problems from it.", ek: ["Bar height or picture count = category count."], p: [MP4], needs: [MK-2.3.D], drills: [] }
+      - n: 4
+        title: "Geometry"
+        ccss: 2.G
+        los:
+          - { id: A, std: [2.G.A.1], do: "Recognize and draw shapes with specified attributes (number of angles or faces); identify triangles, quadrilaterals, pentagons, hexagons and cubes.", ek: ["Polygons are named by their number of sides/angles."], p: [MP6], needs: [MK-2.4.A], drills: [] }
+          - { id: B, std: [2.G.A.2], do: "Partition a rectangle into rows and columns of same-size squares and count to find the total number of them.", ek: ["Rows × columns of squares foreshadows area and multiplication."], p: [MP7], needs: [MK-3.1.D, MK-2.4.B], drills: [] }
+          - { id: C, std: [2.G.A.3], do: "Partition circles and rectangles into two, three or four equal shares, described as halves, thirds, fourths; recognize equal shares need not have the same shape.", ek: ["Equal shares have equal size, not necessarily equal shape."], p: [MP3, MP6], needs: [MK-2.4.C], drills: [] }
+  # ── 4 ── Grade 3 ───────────────────────────────────────────────────────────
+  - id: g3
+    n: 4
+    grade: "3"
+    title: "Grade 3 — multiplication and division within 100, unit fractions, area"
+    scope: core
+    ideas: [OPS, MULT, LINE, MEAS]
+    topics:
+      - n: 1
+        title: "Operations and Algebraic Thinking"
+        ccss: 3.OA
+        los:
+          - { id: A, std: [3.OA.A.1], do: "Interpret products of whole numbers (5 × 7 as the total in 5 groups of 7 objects).", ek: ["a × b = a groups of b."], p: [MP2, MP4], needs: [MK-3.1.D, MK-3.4.B], drills: [] }
+          - { id: B, std: [3.OA.A.2], do: "Interpret whole-number quotients (56 ÷ 8 as the number in each share, or the number of shares).", ek: ["Division asks either \"how many in each group?\" or \"how many groups?\"."], p: [MP2], needs: [MK-4.1.A], drills: [] }
+          - { id: C, std: [3.OA.A.3], do: "Use multiplication and division within 100 to solve word problems with equal groups, arrays and measurement quantities.", ek: ["Identify which of group size, number of groups, or total is unknown."], p: [MP1, MP4], needs: [MK-4.1.A, MK-4.1.B], drills: [] }
+          - { id: D, std: [3.OA.A.4], do: "Determine the unknown whole number in a multiplication or division equation relating three whole numbers (8 × ? = 48).", ek: ["Any of the three numbers in a × b = c can be the unknown."], p: [MP2], needs: [MK-4.1.C, MK-2.1.H], drills: [] }
+          - { id: E, std: [3.OA.B.5], do: "Apply the commutative, associative and distributive properties as strategies to multiply and divide.", ek: ["8 × 7 = 8 × 5 + 8 × 2; order and grouping don't change a product."], p: [MP7, MP8], needs: [MK-4.1.A, MK-2.1.C], drills: [] }
+          - { id: F, std: [3.OA.B.6], do: "Understand division as an unknown-factor problem (32 ÷ 8 is the number that makes 32 when multiplied by 8).", ek: ["Every division fact is a multiplication fact with a missing factor."], p: [MP7], needs: [MK-4.1.B, MK-2.1.D], drills: [] }
+          - { id: G, std: [3.OA.C.7], do: "Fluently multiply and divide within 100; know from memory all products of two one-digit numbers.", ek: ["Single-digit products are recalled, not computed."], p: [MP6], needs: [MK-4.1.E, MK-4.1.F], drills: [] }
+          - { id: H, std: [3.OA.D.8], do: "Solve two-step word problems using the four operations, representing them with equations with a letter for the unknown, and check answers by mental computation and estimation.", ek: ["Write each step as an equation; estimate to catch wrong-operation errors."], p: [MP1, MP4], needs: [MK-4.1.C, MK-3.1.A], drills: [] }
+          - { id: I, std: [3.OA.D.9], do: "Identify arithmetic patterns (including in the addition and multiplication tables) and explain them using properties of operations.", ek: ["4 × any number is even because 4 × n = 2 × (2 × n)."], p: [MP7, MP8], needs: [MK-4.1.G], drills: [] }
+      - n: 2
+        title: "Number and Operations in Base Ten"
+        ccss: 3.NBT
+        los:
+          - { id: A, std: [3.NBT.A.1], do: "Use place value understanding to round whole numbers to the nearest 10 or 100.", ek: ["Round to the nearer multiple; halfway rounds up."], p: [MP6], needs: [MK-3.2.D, MK-3.3.F], drills: [] }
+          - { id: B, std: [3.NBT.A.2], do: "Fluently add and subtract within 1000 using strategies and algorithms based on place value, properties, and the add–subtract relationship.", ek: ["Regroup across places: ten ones = one ten, ten tens = one hundred."], p: [MP7], needs: [MK-3.2.G, MK-3.2.I], drills: [] }
+          - { id: C, std: [3.NBT.A.3], do: "Multiply one-digit whole numbers by multiples of 10 in the range 10–90 (9 × 80, 5 × 60).", ek: ["9 × 80 = 9 × 8 tens = 72 tens."], p: [MP7], needs: [MK-4.1.G, MK-3.2.A], drills: [] }
+      - n: 3
+        title: "Number and Operations—Fractions"
+        ccss: 3.NF
+        los:
+          - { id: A, std: [3.NF.A.1], do: "Understand a fraction 1/b as one part when a whole is partitioned into b equal parts, and a/b as a parts of size 1/b.", ek: ["The denominator names the size of the part; the numerator counts parts."], p: [MP2, MP4], needs: [MK-3.4.C], drills: [] }
+          - { id: B, std: [3.NF.A.2a], do: "Represent 1/b on a number line by partitioning 0 to 1 into b equal parts; each part has size 1/b and its endpoint locates 1/b.", ek: ["Fractions are numbers: points on the same line as whole numbers."], p: [MP4, MP5], needs: [MK-4.3.A, MK-3.3.F], drills: [] }
+          - { id: C, std: [3.NF.A.2b], do: "Represent a/b on a number line by marking off a lengths of 1/b from 0.", ek: ["a/b is a jumps of size 1/b from 0."], p: [MP4], needs: [MK-4.3.B], drills: [] }
+          - { id: D, std: [3.NF.A.3a, 3.NF.A.3b], do: "Explain equivalence of fractions as being the same size or the same point on a number line; recognize and generate simple equivalent fractions (1/2 = 2/4, 4/6 = 2/3) with a visual model.", ek: ["Equivalent fractions name the same point with different-size parts."], p: [MP3, MP7], needs: [MK-4.3.C], drills: [] }
+          - { id: E, std: [3.NF.A.3c], do: "Express whole numbers as fractions and recognize fractions equivalent to whole numbers (3 = 3/1; 4/4 = 1).", ek: ["b/b = 1, and n/1 = n."], p: [MP7], needs: [MK-4.3.D], drills: [] }
+          - { id: F, std: [3.NF.A.3d], do: "Compare two fractions with the same numerator or the same denominator by reasoning about their size, recording with >, =, <; comparisons are valid only for the same whole.", ek: ["Same denominator: more parts is more. Same numerator: smaller parts (bigger denominator) is less."], p: [MP2, MP3], needs: [MK-4.3.D], drills: [] }
+      - n: 4
+        title: "Measurement and Data"
+        ccss: 3.MD
+        los:
+          - { id: A, std: [3.MD.A.1], do: "Tell and write time to the nearest minute; measure time intervals in minutes and solve elapsed-time word problems (e.g. on a number line).", ek: ["Elapsed time is a difference; jump to the next hour on a number line."], p: [MP4, MP6], needs: [MK-3.3.G, MK-3.3.F], drills: [] }
+          - { id: B, std: [3.MD.A.2], do: "Measure and estimate liquid volumes and masses in g, kg and L; solve one-step word problems with them using the four operations.", ek: ["Volume and mass add like lengths when units match."], p: [MP4, MP5], needs: [MK-4.1.C, MK-3.3.A], drills: [] }
+          - { id: C, std: [3.MD.B.3], do: "Draw a scaled picture graph and scaled bar graph for several categories, and solve one- and two-step \"how many more/less\" problems from them.", ek: ["In a scaled graph each symbol or grid step stands for several units."], p: [MP4], needs: [MK-3.3.J, MK-4.1.C], drills: [] }
+          - { id: D, std: [3.MD.B.4], do: "Measure lengths with rulers marked in halves and fourths of an inch and show the data on a line plot in whole numbers, halves or quarters.", ek: ["Ruler marks between whole numbers are fractions on a number line."], p: [MP5], needs: [MK-3.3.I, MK-4.3.C], drills: [] }
+          - { id: E, std: [3.MD.C.5a, 3.MD.C.5b], do: "Recognize area as an attribute of plane figures: a unit square has one square unit of area, and a figure covered by n unit squares without gaps or overlaps has area n.", ek: ["Area counts unit squares that cover a region."], p: [MP6], needs: [MK-3.4.B], drills: [] }
+          - { id: F, std: [3.MD.C.6], do: "Measure areas by counting unit squares (square cm, square m, square in, square ft, and improvised units).", ek: ["Area = number of unit squares, labeled with the square unit."], p: [MP5, MP6], needs: [MK-4.4.E], drills: [] }
+          - { id: G, std: [3.MD.C.7a, 3.MD.C.7b], do: "Find the area of a rectangle with whole-number sides by tiling it and show it equals the product of the side lengths; multiply side lengths to solve area problems.", ek: ["Area of a rectangle = rows × columns = length × width."], p: [MP7], needs: [MK-4.4.F, MK-4.1.A], drills: [] }
+          - { id: H, std: [3.MD.C.7c], do: "Use tiling to show that a rectangle with sides a and b + c has area a × b + a × c (area models for the distributive property).", ek: ["Split a rectangle and the areas add: a(b + c) = ab + ac."], p: [MP4, MP7], needs: [MK-4.4.G, MK-4.1.E], drills: [] }
+          - { id: I, std: [3.MD.C.7d], do: "Find areas of rectilinear figures by decomposing them into non-overlapping rectangles and adding the areas.", ek: ["Area is additive."], p: [MP1, MP7], needs: [MK-4.4.G], drills: [] }
+          - { id: J, std: [3.MD.D.8], do: "Solve perimeter problems: find the perimeter from side lengths, find an unknown side, and show rectangles with the same perimeter and different areas or the same area and different perimeters.", ek: ["Perimeter is a length around; area is the space inside — they vary independently."], p: [MP1, MP3], needs: [MK-4.4.G, MK-3.3.E], drills: [] }
+      - n: 5
+        title: "Geometry"
+        ccss: 3.G
+        los:
+          - { id: A, std: [3.G.A.1], do: "Understand that shapes in different categories may share attributes that define a larger category; recognize rhombuses, rectangles and squares as quadrilaterals and draw quadrilaterals that are none of these.", ek: ["Categories nest: every square is a rectangle and a rhombus, and all are quadrilaterals."], p: [MP3, MP7], needs: [MK-3.4.A], drills: [] }
+          - { id: B, std: [3.G.A.2], do: "Partition shapes into parts with equal areas and express the area of each part as a unit fraction of the whole.", ek: ["Equal-area parts of a whole are each 1/b of it."], p: [MP2], needs: [MK-4.3.A, MK-4.4.E], drills: [] }
+  # ── 5 ── Grade 4 ───────────────────────────────────────────────────────────
+  - id: g4
+    n: 5
+    grade: "4"
+    title: "Grade 4 — multi-digit arithmetic, fraction equivalence and operations, angles"
+    scope: core
+    ideas: [PV, LINE, MULT, MEAS, SHAPE]
+    topics:
+      - n: 1
+        title: "Operations and Algebraic Thinking"
+        ccss: 4.OA
+        los:
+          - { id: A, std: [4.OA.A.1], do: "Interpret a multiplication equation as a comparison (35 = 5 × 7 as 35 is 5 times as many as 7) and write comparisons as equations.", ek: ["\"Times as many\" is multiplicative comparison, not additive."], p: [MP2], needs: [MK-4.1.A], drills: [] }
+          - { id: B, std: [4.OA.A.2], do: "Multiply or divide to solve word problems involving multiplicative comparison, distinguishing it from additive comparison.", ek: ["\"3 times as many\" multiplies; \"3 more than\" adds."], p: [MP1, MP4], needs: [MK-5.1.A, MK-4.1.C], drills: [] }
+          - { id: C, std: [4.OA.A.3], do: "Solve multistep word problems with whole numbers and the four operations, including problems where remainders must be interpreted; check with estimation.", ek: ["A remainder may be dropped, rounded up, or reported, depending on the context."], p: [MP1, MP2], needs: [MK-4.1.H], drills: [] }
+          - { id: D, std: [4.OA.B.4], do: "Find all factor pairs of a whole number 1–100, recognize it as a multiple of each factor, and determine whether it is prime or composite.", ek: ["A prime has exactly two factors, 1 and itself."], p: [MP7], needs: [MK-4.1.G], drills: [] }
+          - { id: E, std: [4.OA.C.5], do: "Generate a number or shape pattern that follows a given rule and identify features of the pattern not explicit in the rule.", ek: ["Rule \"add 3\" from 1 gives alternating odd and even numbers."], p: [MP7, MP8], needs: [MK-4.1.I], drills: [] }
+      - n: 2
+        title: "Number and Operations in Base Ten"
+        ccss: 4.NBT
+        los:
+          - { id: A, std: [4.NBT.A.1], do: "Recognize that in a multi-digit whole number a digit in one place represents ten times what it represents in the place to its right (700 ÷ 70 = 10).", ek: ["Each place is worth 10 × the place to its right."], p: [MP7], needs: [MK-4.2.C, MK-3.2.A], drills: [] }
+          - { id: B, std: [4.NBT.A.2], do: "Read and write multi-digit whole numbers using base-ten numerals, number names and expanded form; compare two multi-digit numbers with >, =, <.", ek: ["Compare digit by digit from the largest place."], p: [MP6], needs: [MK-5.2.A, MK-3.2.C, MK-3.2.D], drills: [] }
+          - { id: C, std: [4.NBT.A.3], do: "Use place value understanding to round multi-digit whole numbers to any place.", ek: ["Look one place to the right of the rounding place."], p: [MP6], needs: [MK-4.2.A, MK-5.2.B], drills: [] }
+          - { id: D, std: [4.NBT.B.4], do: "Fluently add and subtract multi-digit whole numbers using the standard algorithm.", ek: ["The standard algorithm is place-value regrouping written compactly."], p: [MP6], needs: [MK-4.2.B, MK-5.2.A], drills: [] }
+          - { id: E, std: [4.NBT.B.5], do: "Multiply a whole number of up to four digits by a one-digit number, and two two-digit numbers, using place-value strategies and properties; illustrate with equations, arrays and area models.", ek: ["Partial products: 23 × 45 = 20×40 + 20×5 + 3×40 + 3×5."], p: [MP4, MP7], needs: [MK-4.2.C, MK-4.1.E, MK-4.4.H, MK-5.2.A], drills: [] }
+          - { id: F, std: [4.NBT.B.6], do: "Find whole-number quotients and remainders with up to four-digit dividends and one-digit divisors using place-value strategies and the multiplication–division relationship.", ek: ["Divide place by place, or subtract chunks of the divisor; check by multiplying back."], p: [MP4, MP7], needs: [MK-5.2.E, MK-4.1.F], drills: [] }
+      - n: 3
+        title: "Number and Operations—Fractions"
+        ccss: 4.NF
+        los:
+          - { id: A, std: [4.NF.A.1], do: "Explain why a/b = (n × a)/(n × b) using visual fraction models, and use this to recognize and generate equivalent fractions.", ek: ["Multiplying numerator and denominator by n splits each part into n smaller parts — same amount."], p: [MP3, MP7], needs: [MK-4.3.D, MK-4.1.G], drills: [] }
+          - { id: B, std: [4.NF.A.2], do: "Compare two fractions with different numerators and different denominators by creating common denominators or numerators or comparing to a benchmark like 1/2.", ek: ["Rename to a common unit, then compare counts."], p: [MP2, MP3], needs: [MK-5.3.A, MK-4.3.F], drills: [] }
+          - { id: C, std: [4.NF.B.3a], do: "Understand addition and subtraction of fractions as joining and separating parts referring to the same whole.", ek: ["Adding fractions with the same denominator adds numbers of same-size parts."], p: [MP2], needs: [MK-4.3.A], drills: [] }
+          - { id: D, std: [4.NF.B.3b], do: "Decompose a fraction into a sum of fractions with the same denominator in more than one way (3/8 = 1/8 + 2/8; 2 1/8 = 1 + 1 + 1/8 = 8/8 + 8/8 + 1/8).", ek: ["A fraction is a sum of unit fractions."], p: [MP7], needs: [MK-5.3.C], drills: [] }
+          - { id: E, std: [4.NF.B.3c], do: "Add and subtract mixed numbers with like denominators by replacing each with an equivalent fraction or using properties of operations.", ek: ["Mixed number a b/c = a + b/c; regroup a whole as c/c when needed."], p: [MP7], needs: [MK-5.3.D, MK-4.3.E], drills: [] }
+          - { id: F, std: [4.NF.B.3d], do: "Solve word problems involving addition and subtraction of fractions referring to the same whole and having like denominators.", ek: ["Only parts of the same whole can be combined."], p: [MP1, MP4], needs: [MK-5.3.E], drills: [] }
+          - { id: G, std: [4.NF.B.4a, 4.NF.B.4b], do: "Understand a/b as a multiple of 1/b and multiply a fraction by a whole number: n × (a/b) = (n × a)/b.", ek: ["3 × 2/5 = 6 × 1/5 = 6/5."], p: [MP7, MP8], needs: [MK-5.3.D, MK-4.1.A], drills: [] }
+          - { id: H, std: [4.NF.B.4c], do: "Solve word problems involving multiplication of a fraction by a whole number.", ek: ["\"5 people each eat 3/8 lb\" is 5 × 3/8."], p: [MP4], needs: [MK-5.3.G], drills: [] }
+          - { id: I, std: [4.NF.C.5], do: "Express a fraction with denominator 10 as an equivalent fraction with denominator 100, and add two fractions with denominators 10 and 100 (3/10 + 4/100 = 34/100).", ek: ["1/10 = 10/100."], p: [MP7], needs: [MK-5.3.A, MK-5.3.C], drills: [] }
+          - { id: J, std: [4.NF.C.6], do: "Use decimal notation for fractions with denominators 10 or 100 (0.62 = 62/100) and locate them on a number line.", ek: ["Decimal places continue base ten to the right: tenths, hundredths."], p: [MP6, MP7], needs: [MK-5.3.I, MK-5.2.A], drills: [] }
+          - { id: K, std: [4.NF.C.7], do: "Compare two decimals to hundredths by reasoning about their size, recording with >, =, <; comparisons are valid only for the same whole.", ek: ["0.5 > 0.45 because 50 hundredths > 45 hundredths."], p: [MP2, MP3], needs: [MK-5.3.J, MK-5.3.B], drills: [] }
+      - n: 4
+        title: "Measurement and Data"
+        ccss: 4.MD
+        los:
+          - { id: A, std: [4.MD.A.1], do: "Know relative sizes of units in one system (km, m, cm; kg, g; lb, oz; l, ml; hr, min, sec) and express a larger-unit measurement in a smaller unit, recording equivalents in a two-column table.", ek: ["1 m = 100 cm, 1 kg = 1000 g, 1 lb = 16 oz, 1 hr = 60 min: convert to smaller units by multiplying."], p: [MP6, MP7], needs: [MK-5.1.A, MK-4.4.B], drills: [] }
+          - { id: B, std: [4.MD.A.2], do: "Use the four operations to solve word problems involving distances, time intervals, liquid volumes, masses and money, including simple fractions or decimals; represent quantities on number line diagrams.", ek: ["Convert to one unit first, then operate."], p: [MP1, MP4], needs: [MK-5.4.A, MK-5.3.F, MK-4.4.A], drills: [] }
+          - { id: C, std: [4.MD.A.3], do: "Apply the area and perimeter formulas for rectangles in real-world and mathematical problems, including finding an unknown side.", ek: ["A = l × w; P = 2l + 2w."], p: [MP4], needs: [MK-4.4.G, MK-4.4.J, MK-5.2.E], drills: [] }
+          - { id: D, std: [4.MD.B.4], do: "Make a line plot of measurements in fractions of a unit (1/2, 1/4, 1/8) and solve addition and subtraction of fractions using it.", ek: ["Line-plot marks are data on a fraction number line."], p: [MP4], needs: [MK-4.4.D, MK-5.3.F], drills: [] }
+          - { id: E, std: [4.MD.C.5a, 4.MD.C.5b], do: "Recognize an angle as two rays sharing an endpoint and measure it against a circle: a one-degree angle turns through 1/360 of a circle; n one-degree angles make n degrees.", ek: ["An angle measures turn, as a fraction of a full circle (360°)."], p: [MP6], needs: [MK-4.3.A], drills: [] }
+          - { id: F, std: [4.MD.C.6], do: "Measure angles in whole-number degrees with a protractor and sketch angles of a specified measure.", ek: ["Line one ray up with 0 on the protractor and read the scale that starts there."], p: [MP5, MP6], needs: [MK-5.4.E], drills: [] }
+          - { id: G, std: [4.MD.C.7], do: "Recognize angle measure as additive and solve addition and subtraction problems to find unknown angles on a diagram.", ek: ["Adjacent non-overlapping angles add to the whole angle."], p: [MP2, MP4], needs: [MK-5.4.F], drills: [] }
+      - n: 5
+        title: "Geometry"
+        ccss: 4.G
+        los:
+          - { id: A, std: [4.G.A.1], do: "Draw points, lines, segments, rays, angles (right, acute, obtuse), and perpendicular and parallel lines, and identify them in figures.", ek: ["Right = 90°, acute < 90°, obtuse between 90° and 180°."], p: [MP5, MP6], needs: [MK-5.4.E], drills: [] }
+          - { id: B, std: [4.G.A.2], do: "Classify two-dimensional figures by parallel or perpendicular lines and by angles of a specified size; recognize right triangles.", ek: ["A right triangle has one 90° angle."], p: [MP3, MP7], needs: [MK-5.5.A, MK-4.5.A], drills: [] }
+          - { id: C, std: [4.G.A.3], do: "Recognize a line of symmetry for a two-dimensional figure, identify line-symmetric figures and draw lines of symmetry.", ek: ["A figure folded along a line of symmetry matches itself."], p: [MP7], needs: [MK-5.5.A], drills: [] }
+  # ── 6 ── Grade 5 ───────────────────────────────────────────────────────────
+  - id: g5
+    n: 6
+    grade: "5"
+    title: "Grade 5 — fraction addition and multiplication, decimals to thousandths, volume"
+    scope: core
+    ideas: [LINE, PV, MULT, MEAS, SHAPE]
+    topics:
+      - n: 1
+        title: "Operations and Algebraic Thinking"
+        ccss: 5.OA
+        los:
+          - { id: A, std: [5.OA.A.1], do: "Use parentheses, brackets or braces in numerical expressions and evaluate expressions with these symbols.", ek: ["Innermost grouping first, then the order of operations."], p: [MP6], needs: [MK-5.1.C], drills: [] }
+          - { id: B, std: [5.OA.A.2], do: "Write simple expressions that record calculations with numbers and interpret them without evaluating (3 × (18932 + 921) is three times as large as 18932 + 921).", ek: ["An expression's structure shows a relationship without computing it."], p: [MP2, MP7], needs: [MK-6.1.A, MK-5.1.A], drills: [] }
+          - { id: C, std: [5.OA.B.3], do: "Generate two numerical patterns from two given rules, form ordered pairs from corresponding terms, graph them, and identify relationships between corresponding terms.", ek: ["Rules \"add 3\" and \"add 6\" from 0 give terms where the second is always twice the first."], p: [MP7, MP8], needs: [MK-5.1.E], drills: [] }
+      - n: 2
+        title: "Number and Operations in Base Ten"
+        ccss: 5.NBT
+        los:
+          - { id: A, std: [5.NBT.A.1], do: "Recognize that in a multi-digit number a digit represents 10 times as much as in the place to its right and 1/10 of what it represents in the place to its left.", ek: ["Moving one place left multiplies by 10; one place right divides by 10."], p: [MP7], needs: [MK-5.2.A, MK-5.3.J], drills: [] }
+          - { id: B, std: [5.NBT.A.2], do: "Explain patterns in the number of zeros of a product when multiplying by a power of 10 and in decimal-point placement when multiplying or dividing by a power of 10; use whole-number exponents for powers of 10.", ek: ["× 10ⁿ shifts every digit n places left."], p: [MP7, MP8], needs: [MK-6.2.A], drills: [] }
+          - { id: C, std: [5.NBT.A.3a], do: "Read and write decimals to thousandths using base-ten numerals, number names and expanded form (347.392 = 3×100 + 4×10 + 7×1 + 3×(1/10) + 9×(1/100) + 2×(1/1000)).", ek: ["Thousandths are the third place right of the decimal point."], p: [MP6], needs: [MK-6.2.A, MK-5.3.J], drills: [] }
+          - { id: D, std: [5.NBT.A.3b], do: "Compare two decimals to thousandths based on the meanings of the digits, using >, =, <.", ek: ["Compare place by place from the left; trailing zeros don't change value."], p: [MP2, MP6], needs: [MK-6.2.C, MK-5.3.K], drills: [] }
+          - { id: E, std: [5.NBT.A.4], do: "Use place value understanding to round decimals to any place.", ek: ["Rounding decimals follows the same rule as whole numbers."], p: [MP6], needs: [MK-6.2.C, MK-5.2.C], drills: [] }
+          - { id: F, std: [5.NBT.B.5], do: "Fluently multiply multi-digit whole numbers using the standard algorithm.", ek: ["The algorithm records partial products by place."], p: [MP6], needs: [MK-5.2.E], drills: [] }
+          - { id: G, std: [5.NBT.B.6], do: "Find whole-number quotients of whole numbers with up to four-digit dividends and two-digit divisors using place-value strategies and the multiplication–division relationship.", ek: ["Estimate each quotient digit by rounding the divisor; check by multiplying back."], p: [MP4, MP7], needs: [MK-5.2.F], drills: [] }
+          - { id: H, std: [5.NBT.B.7], do: "Add, subtract, multiply and divide decimals to hundredths using models, place-value strategies and properties of operations, and explain the reasoning.", ek: ["Line up like places to add; for products, tenths × tenths = hundredths."], p: [MP3, MP7], needs: [MK-6.2.B, MK-6.2.C, MK-5.2.D, MK-5.2.E], drills: [] }
+      - n: 3
+        title: "Number and Operations—Fractions"
+        ccss: 5.NF
+        los:
+          - { id: A, std: [5.NF.A.1], do: "Add and subtract fractions with unlike denominators (including mixed numbers) by replacing them with equivalent fractions that have like denominators.", ek: ["a/b + c/d = (ad + bc)/bd."], p: [MP7], needs: [MK-5.3.A, MK-5.3.E], drills: [] }
+          - { id: B, std: [5.NF.A.2], do: "Solve word problems involving addition and subtraction of fractions referring to the same whole, including unlike denominators, and use benchmark fractions to check reasonableness.", ek: ["2/5 + 1/2 = 3/7 is wrong: 3/7 < 1/2."], p: [MP1, MP4], needs: [MK-6.3.A, MK-5.3.F], drills: [] }
+          - { id: C, std: [5.NF.B.3], do: "Interpret a fraction as division of the numerator by the denominator (a/b = a ÷ b) and solve word problems where whole-number division gives a fraction or mixed number.", ek: ["Sharing 3 pizzas among 4 people gives each 3/4 of a pizza."], p: [MP2, MP4], needs: [MK-5.3.G, MK-5.2.F], drills: [] }
+          - { id: D, std: [5.NF.B.4a], do: "Interpret (a/b) × q as a parts of a partition of q into b equal parts, and multiply a fraction by a fraction: (a/b) × (c/d) = ac/bd.", ek: ["2/3 × 4 = 8/3; (2/3) × (4/5) = 8/15."], p: [MP2, MP7], needs: [MK-5.3.G, MK-6.3.C], drills: [] }
+          - { id: E, std: [5.NF.B.4b], do: "Find the area of a rectangle with fractional side lengths by tiling with unit squares of the appropriate unit-fraction side, and show it equals the product of the side lengths.", ek: ["Area = length × width holds for fractional sides."], p: [MP4, MP7], needs: [MK-6.3.D, MK-5.4.C], drills: [] }
+          - { id: F, std: [5.NF.B.5a, 5.NF.B.5b], do: "Interpret multiplication as scaling: compare the size of a product to one factor from the other factor, without multiplying.", ek: ["× (factor > 1) enlarges; × (factor < 1) shrinks; a/b = (n×a)/(n×b) is × n/n = × 1."], p: [MP2, MP7], needs: [MK-6.3.D, MK-5.1.A], drills: [] }
+          - { id: G, std: [5.NF.B.6], do: "Solve real-world problems involving multiplication of fractions and mixed numbers using visual fraction models or equations.", ek: ["\"Of\" a quantity usually means multiply."], p: [MP1, MP4], needs: [MK-6.3.D, MK-6.3.F], drills: [] }
+          - { id: H, std: [5.NF.B.7a, 5.NF.B.7b], do: "Divide a unit fraction by a non-zero whole number and a whole number by a unit fraction (1/3 ÷ 4 = 1/12; 4 ÷ 1/5 = 20), using the multiplication–division relationship.", ek: ["4 ÷ 1/5 asks how many fifths are in 4."], p: [MP2, MP7], needs: [MK-6.3.C, MK-6.3.D], drills: [] }
+          - { id: I, std: [5.NF.B.7c], do: "Solve real-world problems involving division of unit fractions by whole numbers and of whole numbers by unit fractions.", ek: ["Sharing 1/2 lb among 3 people: 1/2 ÷ 3 = 1/6 lb each."], p: [MP1, MP4], needs: [MK-6.3.H], drills: [] }
+      - n: 4
+        title: "Measurement and Data"
+        ccss: 5.MD
+        los:
+          - { id: A, std: [5.MD.A.1], do: "Convert among different-sized standard measurement units within one system (5 cm to 0.05 m) and use the conversions in multi-step real-world problems.", ek: ["Converting within the metric system is multiplying or dividing by a power of 10."], p: [MP6, MP7], needs: [MK-5.4.A, MK-6.2.B, MK-6.2.H], drills: [] }
+          - { id: B, std: [5.MD.B.2], do: "Make a line plot of measurements in fractions of a unit (1/2, 1/4, 1/8) and use operations on fractions to solve problems from it (redistribute amounts equally).", ek: ["An equal redistribution of total amount is the mean."], p: [MP4], needs: [MK-5.4.D, MK-6.3.B], drills: [] }
+          - { id: C, std: [5.MD.C.3a, 5.MD.C.3b], do: "Recognize volume as an attribute of solid figures: a unit cube has one cubic unit of volume, and a solid packed by n unit cubes without gaps or overlaps has volume n.", ek: ["Volume counts unit cubes that fill a solid."], p: [MP6], needs: [MK-4.4.E], drills: [] }
+          - { id: D, std: [5.MD.C.4], do: "Measure volumes by counting unit cubes (cubic cm, cubic in, cubic ft, improvised units).", ek: ["Volume = number of unit cubes, labeled with the cubic unit."], p: [MP5, MP6], needs: [MK-6.4.C], drills: [] }
+          - { id: E, std: [5.MD.C.5a, 5.MD.C.5b], do: "Find the volume of a right rectangular prism with whole-number edges by packing it with unit cubes, show it equals the product of the edge lengths, and apply V = l × w × h and V = b × h.", ek: ["V = (area of base) × height = layers × cubes per layer."], p: [MP4, MP7], needs: [MK-6.4.D, MK-4.4.G, MK-4.1.E], drills: [] }
+          - { id: F, std: [5.MD.C.5c], do: "Recognize volume as additive and find volumes of solids made of two non-overlapping right rectangular prisms.", ek: ["Volume is additive."], p: [MP1, MP7], needs: [MK-6.4.E, MK-4.4.I], drills: [] }
+      - n: 5
+        title: "Geometry"
+        ccss: 5.G
+        los:
+          - { id: A, std: [5.G.A.1], do: "Use a pair of perpendicular number lines (axes) meeting at the origin to define a coordinate system, and locate a point with an ordered pair (x-coordinate, y-coordinate).", ek: ["(x, y): move x along the horizontal axis, then y up."], p: [MP6], needs: [MK-5.5.A, MK-3.3.F], drills: [] }
+          - { id: B, std: [5.G.A.2], do: "Represent real-world and mathematical problems by graphing points in the first quadrant and interpret coordinate values in context.", ek: ["Each coordinate is a quantity; a point pairs two quantities."], p: [MP4], needs: [MK-6.5.A, MK-6.1.C], drills: [] }
+          - { id: C, std: [5.G.B.3], do: "Understand that attributes of a category of two-dimensional figures belong to all its subcategories (all rectangles have four right angles, and squares are rectangles).", ek: ["A subcategory inherits every defining attribute of its category."], p: [MP3, MP7], needs: [MK-5.5.B, MK-4.5.A], drills: [] }
+          - { id: D, std: [5.G.B.4], do: "Classify two-dimensional figures in a hierarchy based on properties.", ek: ["Quadrilateral ⊃ parallelogram ⊃ rectangle/rhombus ⊃ square."], p: [MP7], needs: [MK-6.5.C], drills: [] }
+  # ── 7 ── Grade 6 ───────────────────────────────────────────────────────────
+  - id: g6
+    n: 7
+    grade: "6"
+    title: "Grade 6 — ratios and rates, negative numbers, expressions and one-step equations, distributions"
+    scope: core
+    ideas: [MULT, LINE, OPS, DATA]
+    topics:
+      - n: 1
+        title: "Ratios and Proportional Relationships"
+        ccss: 6.RP
+        los:
+          - { id: A, std: [6.RP.A.1], do: "Use ratio language to describe a ratio relationship between two quantities (\"for every 2 wings there was 1 beak\").", ek: ["A ratio a:b compares two quantities multiplicatively."], p: [MP2, MP6], needs: [MK-5.1.A, MK-6.3.F], drills: [] }
+          - { id: B, std: [6.RP.A.2], do: "Describe the unit rate a/b associated with a ratio a:b (b ≠ 0) using rate language (\"$5 for 4 burgers is $1.25 per burger\").", ek: ["Unit rate = amount of the first quantity per 1 of the second."], p: [MP2, MP6], needs: [MK-7.1.A, MK-6.3.C], drills: [] }
+          - { id: C, std: [6.RP.A.3a], do: "Make tables of equivalent ratios with whole-number measurements, find missing values, plot the pairs on the coordinate plane, and use tables to compare ratios.", ek: ["Equivalent ratios scale both quantities by the same factor."], p: [MP4, MP7], needs: [MK-7.1.A, MK-6.5.B, MK-6.1.C], drills: [] }
+          - { id: D, std: [6.RP.A.3b], do: "Solve unit rate problems, including unit pricing and constant speed.", ek: ["At 7 lawns in 4 hours, 35 lawns take 35 ÷ (7/4) = 20 hours."], p: [MP1, MP4], needs: [MK-7.1.B], drills: [] }
+          - { id: E, std: [6.RP.A.3c], do: "Find a percent of a quantity as a rate per 100 (30% of a quantity is 30/100 times it) and find the whole given a part and the percent.", ek: ["p% = p/100; whole = part ÷ (p/100)."], p: [MP2, MP4], needs: [MK-7.1.D, MK-5.3.I], drills: [] }
+          - { id: F, std: [6.RP.A.3d], do: "Use ratio reasoning to convert measurement units, multiplying or dividing quantities appropriately.", ek: ["Multiply by a conversion ratio equal to 1 (12 in / 1 ft)."], p: [MP6], needs: [MK-7.1.D, MK-6.4.A], drills: [] }
+      - n: 2
+        title: "The Number System"
+        ccss: 6.NS
+        los:
+          - { id: A, std: [6.NS.A.1], do: "Interpret and compute quotients of fractions and solve word problems involving division of fractions by fractions ((2/3) ÷ (3/4) = 8/9).", ek: ["a/b ÷ c/d = a/b × d/c, because (8/9) × (3/4) = 2/3."], p: [MP2, MP4], needs: [MK-6.3.H, MK-6.3.D], drills: [] }
+          - { id: B, std: [6.NS.B.2], do: "Fluently divide multi-digit numbers using the standard algorithm.", ek: ["Long division records place-value chunks."], p: [MP6], needs: [MK-6.2.G], drills: [] }
+          - { id: C, std: [6.NS.B.3], do: "Fluently add, subtract, multiply and divide multi-digit decimals using the standard algorithm for each operation.", ek: ["Scale the divisor to a whole number by a power of 10 and scale the dividend the same."], p: [MP6], needs: [MK-6.2.H, MK-7.2.B], drills: [] }
+          - { id: D, std: [6.NS.B.4], do: "Find the greatest common factor of two whole numbers ≤ 100 and the least common multiple of two whole numbers ≤ 12; use the distributive property to factor out a common factor (36 + 8 = 4(9 + 2)).", ek: ["GCF divides both; LCM is the smallest number both divide."], p: [MP7], needs: [MK-5.1.D, MK-4.1.E], drills: [] }
+          - { id: E, std: [6.NS.C.5], do: "Use positive and negative numbers to represent quantities with opposite directions or values (temperature, elevation, credits/debits), explaining the meaning of 0 in context.", ek: ["Sign shows direction from a reference point 0."], p: [MP2, MP4], needs: [MK-3.3.F], drills: [] }
+          - { id: F, std: [6.NS.C.6a], do: "Recognize a rational number as a point on the number line; opposite signs indicate locations on opposite sides of 0, and −(−3) = 3.", ek: ["The opposite of a number is its reflection across 0."], p: [MP6, MP7], needs: [MK-7.2.E, MK-4.3.C], drills: [] }
+          - { id: G, std: [6.NS.C.6b, 6.NS.C.6c], do: "Interpret signs of ordered pairs as quadrants and reflections across the axes; find and position integers and other rationals on number lines and the coordinate plane.", ek: ["(a, b) → (a, −b) reflects across the x-axis; (−a, b) across the y-axis."], p: [MP5, MP7], needs: [MK-7.2.F, MK-6.5.A], drills: [] }
+          - { id: H, std: [6.NS.C.7a, 6.NS.C.7b], do: "Interpret statements of inequality as relative position on a number line, and write and explain statements of order for rational numbers in context (−3 °C > −7 °C).", ek: ["Further right on the number line is greater, even for negatives."], p: [MP2, MP3], needs: [MK-7.2.F], drills: [] }
+          - { id: I, std: [6.NS.C.7c, 6.NS.C.7d], do: "Understand the absolute value of a rational number as its distance from 0, and distinguish comparisons of absolute value from statements about order (balance < −30 means debt > $30).", ek: ["|x| ≥ 0 is distance, not direction."], p: [MP2, MP6], needs: [MK-7.2.H], drills: [] }
+          - { id: J, std: [6.NS.C.8], do: "Solve problems by graphing points in all four quadrants, including distances between points that share a first or second coordinate, using absolute value.", ek: ["Distance between (a, y) and (b, y) is |a − b|."], p: [MP4, MP5], needs: [MK-7.2.G, MK-7.2.I], drills: [] }
+      - n: 3
+        title: "Expressions and Equations"
+        ccss: 6.EE
+        los:
+          - { id: A, std: [6.EE.A.1], do: "Write and evaluate numerical expressions involving whole-number exponents.", ek: ["bⁿ = b multiplied by itself n times; exponents before × and ÷."], p: [MP6], needs: [MK-6.2.B, MK-6.1.A], drills: [] }
+          - { id: B, std: [6.EE.A.2a, 6.EE.A.2b], do: "Write expressions in which letters stand for numbers (\"subtract y from 5\" as 5 − y) and identify their parts using sum, term, product, factor, quotient, coefficient.", ek: ["2(8 + 7) is a product of two factors; 8 + 7 is a sum."], p: [MP6, MP7], needs: [MK-6.1.B], drills: [] }
+          - { id: C, std: [6.EE.A.2c], do: "Evaluate expressions at specific values of their variables, including formulas (V = s³, A = 6s²), using the order of operations.", ek: ["Substitute, then follow the order of operations."], p: [MP6], needs: [MK-7.3.B, MK-7.3.A], drills: [] }
+          - { id: D, std: [6.EE.A.3], do: "Apply the properties of operations to generate equivalent expressions (3(2 + x) = 6 + 3x; 24x + 18y = 6(4x + 3y); y + y + y = 3y).", ek: ["The distributive property expands and factors."], p: [MP7], needs: [MK-7.3.B, MK-7.2.D], drills: [] }
+          - { id: E, std: [6.EE.A.4], do: "Identify when two expressions are equivalent — they name the same number for every value substituted.", ek: ["Equivalent expressions agree for all values, not just one."], p: [MP3, MP7], needs: [MK-7.3.D, MK-7.3.C], drills: [] }
+          - { id: F, std: [6.EE.B.5], do: "Understand solving an equation or inequality as finding which values from a set make it true, and use substitution to check.", ek: ["A solution is a value that makes the statement true."], p: [MP6], needs: [MK-7.3.C], drills: [] }
+          - { id: G, std: [6.EE.B.6], do: "Use variables to represent numbers and write expressions when solving a real-world or mathematical problem.", ek: ["A variable stands for an unknown or for any number in a set."], p: [MP2, MP4], needs: [MK-7.3.B], drills: [] }
+          - { id: H, std: [6.EE.B.7], do: "Write and solve equations of the form x + p = q and px = q for nonnegative rational x, p, q in real-world and mathematical problems.", ek: ["Undo the operation on x by its inverse on both sides."], p: [MP1, MP4], needs: [MK-7.3.F, MK-7.3.G, MK-4.1.D, MK-7.2.A], drills: [] }
+          - { id: I, std: [6.EE.B.8], do: "Write an inequality x > c or x < c for a constraint, recognize that it has infinitely many solutions, and show them on a number line.", ek: ["An open circle excludes c; a closed circle includes it."], p: [MP4, MP6], needs: [MK-7.3.F, MK-7.2.H], drills: [] }
+          - { id: J, std: [6.EE.C.9], do: "Use variables for two quantities that change together; write an equation expressing the dependent variable in terms of the independent one, and relate it to graphs and tables (d = 65t).", ek: ["The independent variable is chosen; the dependent one follows from it."], p: [MP4, MP7], needs: [MK-7.1.C, MK-7.3.G], drills: [] }
+      - n: 4
+        title: "Geometry"
+        ccss: 6.G
+        los:
+          - { id: A, std: [6.G.A.1], do: "Find the area of right triangles, other triangles, special quadrilaterals and polygons by composing into rectangles or decomposing into triangles and other shapes.", ek: ["A triangle is half of a parallelogram: A = ½bh."], p: [MP1, MP7], needs: [MK-5.4.C, MK-6.3.E], drills: [] }
+          - { id: B, std: [6.G.A.2], do: "Find the volume of a right rectangular prism with fractional edge lengths by packing it with unit cubes of unit-fraction edge, and show it matches V = lwh and V = bh.", ek: ["Packing with 1/n-unit cubes: n³ of them make one unit cube."], p: [MP4, MP7], needs: [MK-6.4.E, MK-6.3.E], drills: [] }
+          - { id: C, std: [6.G.A.3], do: "Draw polygons in the coordinate plane given vertex coordinates, and use coordinates to find side lengths that share a first or second coordinate.", ek: ["Horizontal and vertical side lengths are differences of coordinates."], p: [MP4, MP5], needs: [MK-7.2.J], drills: [] }
+          - { id: D, std: [6.G.A.4], do: "Represent three-dimensional figures using nets made of rectangles and triangles and use the nets to find surface area.", ek: ["Surface area = sum of the areas of the net's faces."], p: [MP4, MP5], needs: [MK-7.4.A], drills: [] }
+      - n: 5
+        title: "Statistics and Probability"
+        ccss: 6.SP
+        los:
+          - { id: A, std: [6.SP.A.1], do: "Recognize a statistical question as one that anticipates variability in the data (\"How old are the students in my school?\").", ek: ["Statistical questions expect many different answers."], p: [MP3, MP6], needs: [MK-4.4.C], drills: [] }
+          - { id: B, std: [6.SP.A.2], do: "Understand that a distribution of data collected to answer a statistical question can be described by its center, spread and overall shape.", ek: ["Center, spread and shape summarize a distribution."], p: [MP7], needs: [MK-7.5.A, MK-6.4.B], drills: [] }
+          - { id: C, std: [6.SP.A.3], do: "Recognize that a measure of center summarizes all values with one number, while a measure of variation describes how the values vary with one number.", ek: ["Center = typical value; variation = how far values spread from it."], p: [MP6], needs: [MK-7.5.B], drills: [] }
+          - { id: D, std: [6.SP.B.4], do: "Display numerical data in plots on a number line: dot plots, histograms and box plots.", ek: ["A box plot shows min, Q1, median, Q3, max."], p: [MP4, MP5], needs: [MK-7.5.B, MK-6.4.B], drills: [] }
+          - { id: E, std: [6.SP.B.5a, 6.SP.B.5b], do: "Summarize a numerical data set by reporting the number of observations and describing the attribute under investigation, how it was measured and its units.", ek: ["Every data summary starts with n, the variable, and its units."], p: [MP6], needs: [MK-7.5.D], drills: [] }
+          - { id: F, std: [6.SP.B.5c, 6.SP.B.5d], do: "Give quantitative measures of center (median, mean) and variability (interquartile range, mean absolute deviation), describe the pattern and striking deviations, and relate the choice of measures to the shape of the data.", ek: ["Skewed data or outliers → median and IQR; symmetric → mean and MAD."], p: [MP3, MP6], needs: [MK-7.5.E, MK-7.5.C, MK-7.2.C, MK-7.2.I], drills: [] }
+  # ── 8 ── Grade 7 ───────────────────────────────────────────────────────────
+  - id: g7
+    n: 8
+    grade: "7"
+    title: "Grade 7 — proportional relationships, rational-number arithmetic, linear equations, sampling and probability"
+    scope: core
+    ideas: [MULT, LINE, OPS, SHAPE, DATA]
+    topics:
+      - n: 1
+        title: "Ratios and Proportional Relationships"
+        ccss: 7.RP
+        los:
+          - { id: A, std: [7.RP.A.1], do: "Compute unit rates associated with ratios of fractions, including ratios of lengths, areas and other quantities in like or different units (1/2 mile per 1/4 hour = 2 miles per hour).", ek: ["Unit rate = (a/b) ÷ (c/d), a complex fraction."], p: [MP2, MP6], needs: [MK-7.1.B, MK-7.2.A], drills: [] }
+          - { id: B, std: [7.RP.A.2a], do: "Decide whether two quantities are in a proportional relationship by testing for equivalent ratios in a table or a straight-line graph through the origin.", ek: ["Proportional ⇔ y/x is constant ⇔ a line through (0, 0)."], p: [MP3, MP7], needs: [MK-7.1.C, MK-8.1.A], drills: [] }
+          - { id: C, std: [7.RP.A.2b], do: "Identify the constant of proportionality (unit rate) in tables, graphs, equations, diagrams and verbal descriptions.", ek: ["k = y/x for any pair."], p: [MP2, MP7], needs: [MK-8.1.B], drills: [] }
+          - { id: D, std: [7.RP.A.2c, 7.RP.A.2d], do: "Represent proportional relationships by equations (t = pn) and explain what a point (x, y) on the graph means, especially (0, 0) and (1, r) where r is the unit rate.", ek: ["y = kx; the point (1, k) shows the unit rate."], p: [MP2, MP4], needs: [MK-8.1.C, MK-7.3.J], drills: [] }
+          - { id: E, std: [7.RP.A.3], do: "Use proportional relationships to solve multistep ratio and percent problems: simple interest, tax, markups and markdowns, gratuities, commissions, fees, percent increase and decrease, percent error.", ek: ["Percent change = (new − old)/old; a 20% increase multiplies by 1.20."], p: [MP1, MP4], needs: [MK-7.1.E, MK-8.1.D], drills: [] }
+      - n: 2
+        title: "The Number System"
+        ccss: 7.NS
+        los:
+          - { id: A, std: [7.NS.A.1a, 7.NS.A.1b], do: "Add rational numbers on a number line: opposite quantities combine to 0, and p + q is |q| from p in the positive or negative direction depending on the sign of q.", ek: ["p + (−p) = 0 (additive inverses)."], p: [MP4, MP7], needs: [MK-7.2.F, MK-7.2.I], drills: [] }
+          - { id: B, std: [7.NS.A.1c, 7.NS.A.1d], do: "Understand subtraction of rationals as adding the additive inverse (p − q = p + (−q)), show that the distance between two rationals is the absolute value of their difference, and apply properties to add and subtract.", ek: ["p − q = p + (−q); distance = |p − q|."], p: [MP7, MP8], needs: [MK-8.2.A], drills: [] }
+          - { id: C, std: [7.NS.A.2a, 7.NS.A.2b], do: "Multiply and divide rational numbers by extending the properties of operations, giving (−1)(−1) = 1 and −(p/q) = (−p)/q = p/(−q).", ek: ["Sign rules follow from the distributive property, not from convention."], p: [MP3, MP7], needs: [MK-8.2.B, MK-7.2.A], drills: [] }
+          - { id: D, std: [7.NS.A.2c, 7.NS.A.2d], do: "Apply properties of operations to multiply and divide rationals, and convert a rational number to a decimal by long division, knowing the decimal terminates or repeats.", ek: ["p/q terminates iff q (in lowest terms) has only prime factors 2 and 5; otherwise it repeats."], p: [MP6, MP7], needs: [MK-8.2.C, MK-7.2.B, MK-6.3.C], drills: [] }
+          - { id: E, std: [7.NS.A.3], do: "Solve real-world and mathematical problems involving the four operations with rational numbers.", ek: ["Track signs through each operation; estimate to check."], p: [MP1, MP4], needs: [MK-8.2.D], drills: [] }
+      - n: 3
+        title: "Expressions and Equations"
+        ccss: 7.EE
+        los:
+          - { id: A, std: [7.EE.A.1], do: "Apply properties of operations to add, subtract, factor and expand linear expressions with rational coefficients.", ek: ["Combine like terms; distribute signs with the coefficient."], p: [MP7], needs: [MK-7.3.D, MK-8.2.C], drills: [] }
+          - { id: B, std: [7.EE.A.2], do: "Rewrite an expression in different forms to show how the quantities in it are related (a + 0.05a = 1.05a: \"increase by 5%\" means \"multiply by 1.05\").", ek: ["Equivalent forms reveal different meanings."], p: [MP2, MP7], needs: [MK-8.3.A, MK-8.1.E], drills: [] }
+          - { id: C, std: [7.EE.B.3], do: "Solve multi-step real-life problems with positive and negative rational numbers in any form, converting between forms, and assess reasonableness with mental computation and estimation.", ek: ["Fraction, decimal and percent are interchangeable forms of one number."], p: [MP1, MP2], needs: [MK-8.2.E, MK-8.1.E], drills: [] }
+          - { id: D, std: [7.EE.B.4a], do: "Solve word problems leading to equations px + q = r and p(x + q) = r fluently, and compare the algebraic solution to an arithmetic one.", ek: ["Undo operations in reverse order: subtract q, then divide by p."], p: [MP1, MP4], needs: [MK-7.3.H, MK-8.3.A], drills: [] }
+          - { id: E, std: [7.EE.B.4b], do: "Solve word problems leading to inequalities px + q > r or px + q < r, graph the solution set and interpret it in context.", ek: ["Multiplying or dividing by a negative reverses the inequality."], p: [MP2, MP4], needs: [MK-8.3.D, MK-7.3.I], drills: [] }
+      - n: 4
+        title: "Geometry"
+        ccss: 7.G
+        los:
+          - { id: A, std: [7.G.A.1], do: "Solve problems involving scale drawings, including computing actual lengths and areas from a scale drawing and reproducing it at a different scale.", ek: ["Lengths scale by k; areas scale by k²."], p: [MP4, MP7], needs: [MK-8.1.C, MK-7.4.A], drills: [] }
+          - { id: B, std: [7.G.A.2], do: "Draw geometric shapes with given conditions (freehand, ruler and protractor, technology), especially triangles from three measures of angles or sides, noting when the conditions give a unique triangle, more than one, or none.", ek: ["Any two sides must sum to more than the third; angles must sum to 180°."], p: [MP5, MP3], needs: [MK-5.4.F, MK-5.5.B], drills: [] }
+          - { id: C, std: [7.G.A.3], do: "Describe the two-dimensional figures that result from slicing three-dimensional figures, as in plane sections of right rectangular prisms and pyramids.", ek: ["A plane slice parallel to the base copies the base's shape."], p: [MP7], needs: [MK-7.4.D], drills: [] }
+          - { id: D, std: [7.G.B.4], do: "Know the formulas for the area and circumference of a circle, use them to solve problems, and give an informal derivation of the relationship between them.", ek: ["C = 2πr; A = πr² (unroll the circle into a near-parallelogram of base πr and height r)."], p: [MP3, MP7], needs: [MK-7.4.A, MK-8.1.C], drills: [] }
+          - { id: E, std: [7.G.B.5], do: "Use facts about supplementary, complementary, vertical and adjacent angles in multi-step problems to write and solve simple equations for an unknown angle.", ek: ["Supplementary sum to 180°, complementary to 90°; vertical angles are equal."], p: [MP2, MP4], needs: [MK-5.4.G, MK-8.3.D], drills: [] }
+          - { id: F, std: [7.G.B.6], do: "Solve real-world problems involving area, volume and surface area of two- and three-dimensional objects composed of triangles, quadrilaterals, polygons, cubes and right prisms.", ek: ["Decompose the object; area and volume are additive."], p: [MP1, MP4], needs: [MK-7.4.A, MK-7.4.B, MK-7.4.D], drills: [] }
+      - n: 5
+        title: "Statistics and Probability"
+        ccss: 7.SP
+        los:
+          - { id: A, std: [7.SP.A.1], do: "Understand that statistics gain information about a population by examining a sample, that generalizations are valid only if the sample is representative, and that random sampling tends to produce representative samples.", ek: ["Random samples support inference; convenience samples are biased."], p: [MP3, MP6], needs: [MK-7.5.A], drills: [] }
+          - { id: B, std: [7.SP.A.2], do: "Use data from a random sample to draw inferences about a population with an unknown characteristic, and generate multiple samples to gauge the variation in estimates.", ek: ["Estimates vary from sample to sample; that spread is the margin of error."], p: [MP3, MP5], needs: [MK-8.5.A, MK-7.5.F], drills: [] }
+          - { id: C, std: [7.SP.B.3], do: "Informally assess the visual overlap of two numerical distributions with similar variabilities, measuring the difference between centers as a multiple of a measure of variability.", ek: ["Difference in means ÷ MAD says how separated two groups are."], p: [MP2, MP3], needs: [MK-7.5.F, MK-7.5.D], drills: [] }
+          - { id: D, std: [7.SP.B.4], do: "Use measures of center and variability for numerical data from random samples to draw informal comparative inferences about two populations.", ek: ["Compare centers relative to spread, not centers alone."], p: [MP3], needs: [MK-8.5.C, MK-8.5.B], drills: [] }
+          - { id: E, std: [7.SP.C.5], do: "Understand the probability of a chance event as a number between 0 and 1 expressing its likelihood: near 0 unlikely, 1/2 neither, near 1 likely.", ek: ["0 ≤ P ≤ 1."], p: [MP6], needs: [MK-7.1.A, MK-4.3.C], drills: [] }
+          - { id: F, std: [7.SP.C.6], do: "Approximate a probability by collecting data on a chance process and observing its long-run relative frequency, and predict the approximate relative frequency given the probability.", ek: ["Relative frequency approaches the probability over many trials."], p: [MP4, MP5], needs: [MK-8.5.E, MK-7.1.E], drills: [] }
+          - { id: G, std: [7.SP.C.7a, 7.SP.C.7b], do: "Develop a probability model (uniform, or from observed frequencies), use it to find probabilities, and compare them to observed frequencies, explaining discrepancies.", ek: ["Uniform model: P(event) = favorable outcomes / total outcomes."], p: [MP4, MP3], needs: [MK-8.5.F], drills: [] }
+          - { id: H, std: [7.SP.C.8a, 7.SP.C.8b], do: "Find probabilities of compound events as the fraction of outcomes in the sample space, representing the sample space with organized lists, tables and tree diagrams.", ek: ["For independent stages, total outcomes = product of the counts at each stage."], p: [MP4, MP7], needs: [MK-8.5.G, MK-6.3.D], drills: [] }
+          - { id: I, std: [7.SP.C.8c], do: "Design and use a simulation to generate frequencies for compound events.", ek: ["A simulation replaces each real trial with a random device of the same probabilities."], p: [MP4, MP5], needs: [MK-8.5.H, MK-8.5.F], drills: [] }
+  # ── 9 ── Grade 8 ───────────────────────────────────────────────────────────
+  - id: g8
+    n: 9
+    grade: "8"
+    title: "Grade 8 — irrationals and exponents, linear equations and systems, functions, transformations, Pythagoras"
+    scope: core
+    ideas: [LINE, OPS, MULT, SHAPE, DATA]
+    topics:
+      - n: 1
+        title: "The Number System"
+        ccss: 8.NS
+        los:
+          - { id: A, std: [8.NS.A.1], do: "Know that numbers that are not rational are irrational; every number has a decimal expansion; rational numbers' expansions eventually repeat; convert a repeating decimal into a rational number.", ek: ["x = 0.333… → 10x − x = 3 → x = 1/3."], p: [MP7, MP8], needs: [MK-8.2.D], drills: [] }
+          - { id: B, std: [8.NS.A.2], do: "Use rational approximations of irrational numbers to compare their size, locate them on a number line and estimate expressions (π²; √2 between 1.4 and 1.5).", ek: ["Squeeze an irrational between rationals by truncating its expansion."], p: [MP5, MP6], needs: [MK-9.1.A, MK-7.2.H], drills: [] }
+      - n: 2
+        title: "Expressions and Equations"
+        ccss: 8.EE
+        los:
+          - { id: A, std: [8.EE.A.1], do: "Know and apply the properties of integer exponents to generate equivalent numerical expressions (3² × 3⁻⁵ = 3⁻³ = 1/27).", ek: ["aᵐaⁿ = aᵐ⁺ⁿ; a⁻ⁿ = 1/aⁿ; a⁰ = 1."], p: [MP7, MP8], needs: [MK-7.3.A, MK-8.2.C], drills: [] }
+          - { id: B, std: [8.EE.A.2], do: "Use square root and cube root symbols for solutions of x² = p and x³ = p (p a positive rational); evaluate roots of small perfect squares and cubes; know √2 is irrational.", ek: ["x² = p has two solutions ±√p; x³ = p has one, ∛p."], p: [MP6], needs: [MK-9.2.A, MK-9.1.A], drills: [] }
+          - { id: C, std: [8.EE.A.3], do: "Use numbers of the form (single digit) × 10ⁿ to estimate very large or very small quantities and to say how many times as much one is as another.", ek: ["3 × 10⁸ vs 7 × 10⁹: the second is about 20 times larger."], p: [MP2, MP6], needs: [MK-9.2.A, MK-6.2.B], drills: [] }
+          - { id: D, std: [8.EE.A.4], do: "Perform operations with numbers in scientific notation, choose units of appropriate size, and interpret scientific notation generated by technology.", ek: ["(a × 10ᵐ)(b × 10ⁿ) = ab × 10ᵐ⁺ⁿ, then renormalize so 1 ≤ |ab| < 10."], p: [MP5, MP6], needs: [MK-9.2.C], drills: [] }
+          - { id: E, std: [8.EE.B.5], do: "Graph proportional relationships, interpreting the unit rate as the slope, and compare two proportional relationships represented in different ways.", ek: ["In y = kx, slope = unit rate = k."], p: [MP2, MP4], needs: [MK-8.1.D], drills: [] }
+          - { id: F, std: [8.EE.B.6], do: "Use similar triangles to explain why the slope m is the same between any two distinct points on a non-vertical line, and derive y = mx and y = mx + b.", ek: ["Slope triangles on one line are similar, so rise/run is constant."], p: [MP3, MP7], needs: [MK-9.2.E, MK-8.4.A], drills: [] }
+          - { id: G, std: [8.EE.C.7a], do: "Give examples of linear equations in one variable with one solution, infinitely many solutions, or no solutions, by transforming them to x = a, a = a, or a = b.", ek: ["a = a (identity) → all x; a = b with a ≠ b → none."], p: [MP7], needs: [MK-8.3.D], drills: [] }
+          - { id: H, std: [8.EE.C.7b], do: "Solve linear equations with rational coefficients, including ones that need the distributive property and collecting like terms.", ek: ["Do the same operation to both sides until x is alone."], p: [MP6, MP7], needs: [MK-9.2.G, MK-8.3.A], drills: [] }
+          - { id: I, std: [8.EE.C.8a], do: "Understand that solutions of a system of two linear equations in two variables correspond to the intersection points of their graphs.", ek: ["A solution satisfies both equations, so it lies on both lines."], p: [MP2, MP4], needs: [MK-9.2.F, MK-9.2.H], drills: [] }
+          - { id: J, std: [8.EE.C.8b], do: "Solve systems of two linear equations algebraically, estimate solutions by graphing, and solve simple cases by inspection (3x + 2y = 5 and 3x + 2y = 6 have no solution).", ek: ["Substitute or eliminate to get one equation in one variable; parallel lines → no solution."], p: [MP6, MP7], needs: [MK-9.2.I], drills: [] }
+          - { id: K, std: [8.EE.C.8c], do: "Solve real-world and mathematical problems leading to two linear equations in two variables.", ek: ["Two unknowns need two independent equations."], p: [MP1, MP4], needs: [MK-9.2.J], drills: [] }
+      - n: 3
+        title: "Functions"
+        ccss: 8.F
+        los:
+          - { id: A, std: [8.F.A.1], do: "Understand that a function is a rule assigning to each input exactly one output, and that its graph is the set of ordered pairs (input, corresponding output).", ek: ["One input → exactly one output."], p: [MP6], needs: [MK-7.3.J], drills: [] }
+          - { id: B, std: [8.F.A.2], do: "Compare properties of two functions each represented differently (algebraically, graphically, in a table, or verbally).", ek: ["Rate of change and initial value can be read off any representation."], p: [MP2, MP7], needs: [MK-9.3.A, MK-9.2.E], drills: [] }
+          - { id: C, std: [8.F.A.3], do: "Interpret y = mx + b as defining a linear function whose graph is a straight line, and give examples of functions that are not linear (A = s²).", ek: ["Linear ⇔ constant rate of change."], p: [MP7], needs: [MK-9.3.A, MK-9.2.F], drills: [] }
+          - { id: D, std: [8.F.B.4], do: "Construct a function to model a linear relationship, determine its rate of change and initial value from a description or two (x, y) values, and interpret them in context.", ek: ["m = (y₂ − y₁)/(x₂ − x₁); b = y − mx."], p: [MP4], needs: [MK-9.3.C], drills: [] }
+          - { id: E, std: [8.F.B.5], do: "Describe a functional relationship qualitatively from a graph (increasing, decreasing, linear, nonlinear) and sketch a graph from a verbal description.", ek: ["The shape of a graph tells a story about how the output changes."], p: [MP2, MP4], needs: [MK-9.3.A], drills: [] }
+      - n: 4
+        title: "Geometry"
+        ccss: 8.G
+        los:
+          - { id: A, std: [8.G.A.1a, 8.G.A.1b, 8.G.A.1c], do: "Verify experimentally the properties of rotations, reflections and translations: they take lines to lines, segments to equal segments, angles to equal angles, parallel lines to parallel lines.", ek: ["Rigid motions preserve distance and angle."], p: [MP5, MP7], needs: [MK-5.5.A, MK-8.4.B], drills: [] }
+          - { id: B, std: [8.G.A.2], do: "Understand that a figure is congruent to another if a sequence of rotations, reflections and translations maps one onto the other, and describe such a sequence.", ek: ["Congruent = related by a rigid motion."], p: [MP3, MP6], needs: [MK-9.4.A], drills: [] }
+          - { id: C, std: [8.G.A.3], do: "Describe the effect of dilations, translations, rotations and reflections on two-dimensional figures using coordinates.", ek: ["Dilation by k from the origin: (x, y) → (kx, ky); reflection in the x-axis: (x, y) → (x, −y)."], p: [MP7], needs: [MK-9.4.A, MK-7.2.G, MK-8.4.A], drills: [] }
+          - { id: D, std: [8.G.A.4], do: "Understand that a figure is similar to another if a sequence of rotations, reflections, translations and dilations maps one onto the other, and describe such a sequence.", ek: ["Similar = rigid motion plus dilation; angles kept, lengths scaled by k."], p: [MP3, MP6], needs: [MK-9.4.B, MK-9.4.C], drills: [] }
+          - { id: E, std: [8.G.A.5], do: "Use informal arguments to establish the triangle angle sum and exterior angle facts, the angles formed when parallel lines are cut by a transversal, and the angle-angle criterion for similar triangles.", ek: ["Angle sum = 180°; alternate interior angles are equal; AA ⇒ similar."], p: [MP3], needs: [MK-9.4.A, MK-8.4.E, MK-9.4.D], drills: [] }
+          - { id: F, std: [8.G.B.6], do: "Explain a proof of the Pythagorean Theorem and its converse.", ek: ["a² + b² = c² ⇔ the triangle is right (rearrangement of four copies of the triangle)."], p: [MP3], needs: [MK-9.2.B, MK-7.4.A, MK-9.4.D], drills: [] }
+          - { id: G, std: [8.G.B.7], do: "Apply the Pythagorean Theorem to find unknown side lengths in right triangles in two and three dimensions.", ek: ["Box diagonal: d² = l² + w² + h²."], p: [MP1, MP4], needs: [MK-9.4.F], drills: [] }
+          - { id: H, std: [8.G.B.8], do: "Apply the Pythagorean Theorem to find the distance between two points in a coordinate system.", ek: ["d = √((x₂ − x₁)² + (y₂ − y₁)²)."], p: [MP4, MP7], needs: [MK-9.4.G, MK-7.2.J], drills: [] }
+          - { id: I, std: [8.G.C.9], do: "Know the formulas for the volumes of cones, cylinders and spheres and use them to solve problems.", ek: ["V_cyl = πr²h; V_cone = ⅓πr²h; V_sphere = (4/3)πr³."], p: [MP4], needs: [MK-8.4.D, MK-8.4.F, MK-9.2.B], drills: [] }
+      - n: 5
+        title: "Statistics and Probability"
+        ccss: 8.SP
+        los:
+          - { id: A, std: [8.SP.A.1], do: "Construct and interpret scatter plots for bivariate measurement data and describe patterns: clustering, outliers, positive or negative association, linear or nonlinear association.", ek: ["Association describes how one variable tends to change with the other."], p: [MP4, MP5], needs: [MK-7.5.D, MK-7.2.J], drills: [] }
+          - { id: B, std: [8.SP.A.2], do: "Know that straight lines model linear association between two quantitative variables; informally fit a line to a scatter plot and judge the fit by closeness of the points.", ek: ["A good line has points scattered evenly above and below it."], p: [MP4, MP5], needs: [MK-9.5.A, MK-9.3.C], drills: [] }
+          - { id: C, std: [8.SP.A.3], do: "Use the equation of a linear model to solve problems with bivariate measurement data, interpreting the slope and intercept.", ek: ["Slope = predicted change in y per unit x; intercept = predicted y at x = 0."], p: [MP2, MP4], needs: [MK-9.5.B, MK-9.3.D], drills: [] }
+          - { id: D, std: [8.SP.A.4], do: "Understand patterns of association in bivariate categorical data from frequencies and relative frequencies in a two-way table, and use relative frequencies by row or column to describe possible association.", ek: ["Association shows when row (or column) relative frequencies differ."], p: [MP2, MP4], needs: [MK-7.1.E], drills: [] }
