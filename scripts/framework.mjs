@@ -130,13 +130,32 @@ if (!process.argv[2] && !failed) {
   const cyclic = ids.filter((id) => !order.includes(id));
   const pos = new Map();
   const seq = [];
-  for (const id of order) for (const u of all[id].units) for (const t of u.topics) for (const lo of t.los) {
-    const code = `${all[id].code}-${u.n}.${t.n}.${lo.id}`;
-    pos.set(code, seq.length);
-    seq.push({ code, fw: id, unit: u.n, scope: u.scope, needs: lo.needs ?? [] });
+  let pulled = 0;
+  for (const id of order) {
+    // file order, except that an objective's prerequisites inside the same framework are pulled
+    // in just ahead of it (stable topological sort, earliest file position first)
+    const mine = [];
+    for (const u of all[id].units) for (const t of u.topics) for (const lo of t.los)
+      mine.push({ code: `${all[id].code}-${u.n}.${t.n}.${lo.id}`, fw: id, unit: u.n, scope: u.scope, needs: lo.needs ?? [] });
+    const idx = new Map(mine.map((x, i) => [x.code, i]));
+    const local = (x) => x.needs.filter((n) => idx.has(n));
+    const left = new Map(mine.map((x) => [x.code, local(x).length]));
+    const users = new Map(mine.map((x) => [x.code, []]));
+    for (const x of mine) for (const n of local(x)) users.get(n).push(x);
+    const ready = mine.filter((x) => left.get(x.code) === 0);
+    const out = [];
+    while (ready.length) {
+      ready.sort((a, b) => idx.get(a.code) - idx.get(b.code));
+      const x = ready.shift();
+      out.push(x);
+      for (const y of users.get(x.code)) if (left.set(y.code, left.get(y.code) - 1).get(y.code) === 0) ready.push(y);
+    }
+    for (const x of mine) if (!out.includes(x)) out.push(x); // a cycle: keep file order for the rest
+    out.forEach((x, i) => { if (i < idx.get(x.code)) pulled++; });
+    for (const x of out) { pos.set(x.code, seq.length); seq.push(x); }
   }
   const forward = seq.filter((x) => x.needs.some((n) => pos.has(n) && pos.get(n) > pos.get(x.code))).map((x) => `${x.code} needs ${x.needs.filter((n) => pos.get(n) > pos.get(x.code)).join(", ")}, which comes later`);
-  let md = `# The path — start to finish\n\nEvery framework in \`requires\` order; inside each, units in order and objectives in order. ${seq.length} objectives in ${order.length} frameworks.\n\n`;
+  let md = `# The path — start to finish\n\nEvery framework in \`requires\` order; inside each, units and objectives in order, except that ${pulled} objectives move up to sit just after the prerequisites they need. ${seq.length} objectives in ${order.length} frameworks.\n\n`;
   md += `| # | Framework | Track | Requires | LOs | Path position |\n|---|---|---|---|---|---|\n`;
   order.forEach((id, i) => {
     const mine = seq.filter((x) => x.fw === id);
@@ -147,6 +166,6 @@ if (!process.argv[2] && !failed) {
   if (forward.length) md += `\n## Order problems (a prerequisite comes after the objective)\n\n${forward.map((m) => `- ${m}`).join("\n")}\n`;
   fs.writeFileSync(path.join(root, "docs/frameworks/PATH.md"), md);
   fs.writeFileSync(path.join(root, "docs/frameworks/path.json"), JSON.stringify({ frameworks: order, objectives: seq.map((x) => x.code) }));
-  console.log(`path: ${seq.length} objectives in ${order.length} frameworks; ${missing.length} missing requires, ${cyclic.length} in cycles, ${forward.length} order problems -> docs/frameworks/PATH.md`);
+  console.log(`path: ${seq.length} objectives in ${order.length} frameworks; ${pulled} moved ahead to sit after their prerequisites; ${missing.length} missing requires, ${cyclic.length} in cycles, ${forward.length} order problems -> docs/frameworks/PATH.md`);
 }
 if (failed) process.exit(1);

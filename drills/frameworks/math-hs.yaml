@@ -1,0 +1,693 @@
+# High School Mathematics (Common Core) — curriculum framework (draft 1, for Kevin's markup)
+#
+# Built like an AP Course and Exam Description: Big Ideas run through the subject,
+# Units → Topics → Learning Objectives (one testable action each, verb first), with the
+# Essential Knowledge an LO rests on and the Practices it exercises. Textbooks, courses and
+# exams are crosswalks onto this map, never the backbone.
+#
+# Standards it's built from (sources actually opened):
+#   ccss-a  CCSS Mathematics Appendix A: Designing High School Mathematics Courses Based on
+#           the Common Core State Standards — Traditional Pathway (Algebra I → Geometry →
+#           Algebra II), critical areas with their clusters and standards; its summary table's
+#           "fourth courses" column lists the (+) standards (N-VM, N-CN.3–6, A-REI.8–9,
+#           F-IF.7d, F-BF.1c/4b–d/5, F-TF.3/4/6/7/9, G-GMD.2, G-GPE.3, S-MD.1–5).
+#           https://www.oregon.gov/ode/educator-resources/standards/mathematics/Documents/math-appendix-a-model-course-pathways.pdf
+#           (the corestandards.org / learning.ccsso.org copies were blocked from this session)
+#   ccss    Common Core State Standards for Mathematics (2010), high school: Number & Quantity,
+#           Algebra, Functions and Geometry through G-CO read from a district-hosted copy of the
+#           official text; G-SRT … G-MG and Statistics & Probability written from the standard
+#           wording (not re-read this session — check codes there first).
+#           https://www.montgomeryschoolsmd.org/uploadedFiles/curriculum/math/homepage/CommonCoreStandards-SecondaryMath.pdf
+#           https://thecorestandards.org/Math/Content/  (conceptual-category index)
+#
+# Unit order: Appendix A traditional pathway — Algebra I critical areas 1–5, Geometry 1–6,
+# Algebra II 1–4 — then a Precalculus course (units 16–21) built from the (+) standards so the
+# path runs straight into AP Calculus: functions (composition, inverses, logs, rational
+# graphs) → trig → complex plane → vectors and matrices → conics → expected value.
+# Where Appendix A lists a standard in two courses (A-CED, F-IF.4–9, F-BF.1b/3), it appears
+# once per course with the new function family named in the LO; otherwise one LO per standard
+# (sub-parts a, b, c split when they are separate skills). CCSS wording is quoted where it
+# reads as a drillable objective (CCSS is openly licensed). Modeling (★) is woven through the
+# other categories, as in the standards, rather than a unit of its own.
+#
+# Fields
+#   units[].course    Algebra I / Geometry / Algebra II / Precalculus
+#   units[].scope     core (pathway + what AP Calculus needs) or extension
+#   units[].ideas     Big Ideas the unit develops
+#   los[].std         CCSS code(s); (+) standards are flagged in the LO's topic title
+#   los[].do          the objective; los[].ek essential knowledge; los[].p practices (MP1–MP8)
+#   los[].needs       prerequisite LOs in this framework
+#   los[].drills      templates that drill it; "~name" = only partly (one variant, or a
+#                     neighbouring skill). No drills = a gap you can't be drilled on yet.
+id: math-hs
+title: "High School Mathematics (Common Core)"
+code: MH
+draft: 1
+track: math
+requires: [math-k8]
+level: 1
+domains: []
+
+big_ideas:
+  - id: EQUIV
+    title: Equivalent forms reveal structure
+    text: An expression or equation can be rewritten without changing what it says; factored, vertex, exponential-rate and polar forms each expose a different property, and solving is a chain of steps that keep the solution set the same.
+  - id: FUNC
+    title: Functions relate quantities
+    text: A function gives each input one output; formulas, tables, graphs and words are representations of one object, and each family (linear, exponential, quadratic, polynomial, rational, logarithmic, periodic) is recognised by how it changes.
+  - id: NUM
+    title: Number systems extend
+    text: Integers → rationals → reals → complex numbers, then vectors and matrices; each extension keeps the properties of operations it can and is built so that old rules (exponents, factoring) still hold.
+  - id: XFORM
+    title: Geometry through transformations and coordinates
+    text: Congruence is defined by rigid motions and similarity by dilations; trigonometry is similarity of right triangles, and coordinates turn geometric claims into algebra.
+  - id: MODEL
+    title: Modeling is a cycle
+    text: Formulate a model from a situation, compute with it, interpret the result in context, and validate it against the situation; choose the function family from how the quantity changes.
+  - id: DATA
+    title: Data vary, and chance can be quantified
+    text: Distributions are described by shape, center and spread; probability measures chance; randomisation in sampling and experiments is what licenses conclusions about populations and causes.
+
+practices:
+  - id: MP1
+    title: Make sense of problems and persevere in solving them
+    text: Explain what the problem asks, plan a route, try simpler cases, and check whether the answer makes sense.
+  - id: MP2
+    title: Reason abstractly and quantitatively
+    text: Decontextualise a situation into symbols and recontextualise the result; keep track of what each quantity and unit means.
+  - id: MP3
+    title: Construct viable arguments and critique the reasoning of others
+    text: Build a proof or justification from definitions and earlier results; find the flaw in an argument.
+  - id: MP4
+    title: Model with mathematics
+    text: Turn a real situation into an equation, function, figure or statistical model, and judge whether its answer fits.
+  - id: MP5
+    title: Use appropriate tools strategically
+    text: Choose among paper, graphing technology, spreadsheets, construction tools and simulation, and know each one's limits.
+  - id: MP6
+    title: Attend to precision
+    text: State definitions exactly, label units and axes, and report answers to the precision the data allow.
+  - id: MP7
+    title: Look for and make use of structure
+    text: See a complicated expression or figure as built from simpler parts, e.g. a quadratic in x², or an auxiliary line.
+  - id: MP8
+    title: Look for and express regularity in repeated reasoning
+    text: Notice when a calculation repeats and generalise it into a rule or formula (slope, series sums, recursion).
+
+units:
+  # ══ ALGEBRA I ═════════════════════════════════════════════════════════════
+  # ── 1 ────────────────────────────────────────────────────────────────────
+  - id: alg1-quantities
+    n: 1
+    course: Algebra I
+    title: Relationships between quantities and reasoning with equations
+    scope: core
+    ideas: [EQUIV, MODEL]
+    topics:
+      - n: 1
+        title: Reason quantitatively and use units to solve problems
+        los:
+          - { id: A, std: N-Q.A.1, do: "Use units to choose and check the solution path of a multi-step problem, converting units and choosing scales for graphs.", ek: ["Units multiply and divide like factors; a result in the wrong units is wrong."], p: [MP2, MP6], drills: [] }
+          - { id: B, std: N-Q.A.2, do: "Define the quantities and variables needed to describe a situation.", ek: ["A quantity is a number with a unit attached to a specific attribute of a specific object."], p: [MP2, MP4], drills: [], needs: [MH-1.1.A] }
+          - { id: C, std: N-Q.A.3, do: "Report a computed quantity to a level of accuracy that matches the limitations of the measurements it came from.", ek: ["A result is no more precise than the least precise measurement that went into it."], p: [MP6], drills: [], needs: [MH-1.1.A] }
+      - n: 2
+        title: Interpret the structure of expressions
+        los:
+          - { id: A, std: A-SSE.A.1a, do: "Identify the terms, factors and coefficients of an expression and say what each means in context.", ek: ["Terms are added, factors are multiplied; a coefficient scales its variable."], p: [MP2, MP7], drills: [] }
+          - { id: B, std: A-SSE.A.1b, do: "Interpret a complicated expression by viewing one or more of its parts as a single entity, e.g. P(1 + r)^n as the product of P and a factor not depending on P.", ek: ["Treating a sub-expression as one object shows the role it plays in the whole."], p: [MP7], drills: [], needs: [MH-1.2.A] }
+      - n: 3
+        title: Solve equations and inequalities in one variable as a process of reasoning
+        los:
+          - { id: A, std: A-REI.A.1, do: "Explain each step in solving a simple equation as following from the equality asserted in the previous step, and justify the method.", ek: ["Applying the same invertible operation to both sides keeps the solution set unchanged."], p: [MP3, MP7], drills: [] }
+          - { id: B, std: A-REI.B.3, do: "Solve a linear equation in one variable, including equations with coefficients represented by letters.", ek: ["Collect the variable terms on one side and constants on the other, then divide by the (nonzero) coefficient."], p: [MP6, MP7], drills: [], needs: [MH-1.3.A] }
+          - { id: C, std: A-REI.B.3, do: "Solve a linear inequality in one variable and write the solution set.", ek: ["Multiplying or dividing both sides by a negative number reverses the inequality."], p: [MP6], drills: [], needs: [MH-1.3.B] }
+      - n: 4
+        title: Create equations that describe numbers or relationships
+        los:
+          - { id: A, std: A-CED.A.1, do: "Write and solve a one-variable linear equation or inequality that represents a word problem.", ek: ["Name the unknown, translate each sentence into a relation, solve, then check the answer in the words."], p: [MP4, MP2], drills: [], needs: [MH-1.1.B, MH-1.3.C] }
+          - { id: B, std: A-CED.A.2, do: "Write an equation in two variables that relates two quantities and graph it on coordinate axes with labels and scales.", ek: ["Each variable is one quantity with a unit; the axes carry those units."], p: [MP4, MP6], drills: [], needs: [MH-1.4.A] }
+          - { id: C, std: A-CED.A.3, do: "Represent constraints by equations or inequalities, or by systems of them, and decide whether a solution is viable in context.", ek: ["A mathematical solution can be non-viable: negative counts, fractional people, or values outside the constraints."], p: [MP4], drills: [], needs: [MH-1.4.A] }
+          - { id: D, std: A-CED.A.4, do: "Rearrange a formula to highlight a quantity of interest, e.g. Ohm's law V = IR for R.", ek: ["Solving a formula for one letter uses the same inverse operations as solving an equation."], p: [MP7], drills: [], needs: [MH-1.3.B] }
+
+  # ── 2 ────────────────────────────────────────────────────────────────────
+  - id: alg1-linear-exponential
+    n: 2
+    course: Algebra I
+    title: Linear and exponential relationships
+    scope: core
+    ideas: [FUNC, MODEL, EQUIV]
+    topics:
+      - n: 1
+        title: Understand the concept of a function and use function notation
+        los:
+          - { id: A, std: F-IF.A.1, do: "Decide whether a relation given by a table, graph, mapping or rule is a function, and state its domain and range.", ek: ["A function assigns to each input exactly one output; its graph is the set of points (x, f(x))."], p: [MP6], drills: [] }
+          - { id: B, std: F-IF.A.2, do: "Evaluate a function written in function notation for given inputs and interpret f(a) in context.", ek: ["f(a) is the output when the input is a; f(a + 1) is not f(a) + 1."], p: [MP2, MP6], drills: [], needs: [MH-2.1.A] }
+          - { id: C, std: F-IF.A.3, do: "Recognise a sequence as a function whose domain is a subset of the integers, and generate terms from a recursive definition.", ek: ["A recursive rule gives each term from the one before, e.g. f(0) = f(1) = 1, f(n + 1) = f(n) + f(n − 1)."], p: [MP8], drills: [], needs: [MH-2.1.B] }
+      - n: 2
+        title: Interpret functions that arise in applications in terms of a context
+        los:
+          - { id: A, std: F-IF.B.4, do: "Interpret key features of a graph or table in context (intercepts, intervals of increase and decrease, where positive or negative, maxima and minima), and sketch a graph from a verbal description.", ek: ["Each graphical feature is a statement about the quantities: an intercept is a starting value, a high point is a largest value."], p: [MP2, MP4], drills: [], needs: [MH-2.1.B] }
+          - { id: B, std: F-IF.B.5, do: "Relate the domain of a function to its graph and to the quantity it describes.", ek: ["Context restricts the domain, e.g. whole numbers for a count of items, t ≥ 0 for time."], p: [MP2], drills: [], needs: [MH-2.2.A] }
+          - { id: C, std: F-IF.B.6, do: "Calculate and interpret the average rate of change of a function over an interval from a formula, a table or a graph.", ek: ["Average rate of change = (f(b) − f(a))/(b − a), the slope of the secant line, in output units per input unit."], p: [MP2, MP6], drills: [], needs: [MH-2.2.A] }
+      - n: 3
+        title: Graphs of equations and linear functions
+        los:
+          - { id: A, std: A-REI.D.10, do: "Explain that the graph of an equation in two variables is the set of all its solutions plotted in the coordinate plane.", ek: ["A point lies on the graph exactly when its coordinates satisfy the equation."], p: [MP3], drills: [], needs: [MH-1.4.B] }
+          - { id: B, std: F-IF.C.7a, do: "Graph a linear function from its equation, showing the intercepts and the slope.", ek: ["y = mx + b: slope m = rise/run, y-intercept b, x-intercept −b/m."], p: [MP5, MP6], drills: [], needs: [MH-2.3.A, MH-2.2.C] }
+      - n: 4
+        title: Distinguish linear from exponential change
+        los:
+          - { id: A, std: F-LE.A.1a, do: "Prove that linear functions grow by equal differences over equal intervals and exponential functions grow by equal factors over equal intervals.", ek: ["f(x + Δ) − f(x) = mΔ for linear; f(x + Δ)/f(x) = b^Δ for exponential."], p: [MP3, MP8], drills: [], needs: [MH-2.2.C] }
+          - { id: B, std: F-LE.A.1b, do: "Recognise a situation in which one quantity changes at a constant rate per unit interval relative to another.", ek: ["Constant amount added per step ⇒ linear."], p: [MP4], drills: [], needs: [MH-2.4.A] }
+          - { id: C, std: F-LE.A.1c, do: "Recognise a situation in which a quantity grows or decays by a constant percent rate per unit interval.", ek: ["Constant percent change r per step ⇒ multiply by (1 + r) each step ⇒ exponential."], p: [MP4], drills: [], needs: [MH-2.4.A] }
+      - n: 5
+        title: Build linear and exponential functions and sequences
+        los:
+          - { id: A, std: F-LE.A.2, do: "Construct a linear or exponential function, including arithmetic and geometric sequences, from a graph, a description of a relationship, or two input–output pairs.", ek: ["Linear: m = Δy/Δx, then b; exponential through (x₁, y₁), (x₂, y₂): b = (y₂/y₁)^(1/(x₂ − x₁)), then a."], p: [MP4, MP7], drills: [], needs: [MH-2.4.B, MH-2.4.C, MH-2.3.B] }
+          - { id: B, std: F-BF.A.2, do: "Write an arithmetic or geometric sequence both recursively and with an explicit formula, and translate between the two forms.", ek: ["a_n = a₁ + (n − 1)d ⇔ a_n = a_(n−1) + d; a_n = a₁r^(n−1) ⇔ a_n = r·a_(n−1)."], p: [MP8], drills: [], needs: [MH-2.1.C, MH-2.5.A] }
+          - { id: C, std: F-BF.A.1a, do: "Determine an explicit expression, a recursive process, or steps for calculation from a context.", ek: ["Describe what happens to the quantity at each step; that description is the recursion, and repeating it gives the explicit formula."], p: [MP4, MP8], drills: [], needs: [MH-2.5.B] }
+          - { id: D, std: F-LE.B.5, do: "Interpret the parameters of a linear or exponential function in terms of a context.", ek: ["y = mx + b: m is the rate, b the initial value; y = a·b^x: a is the initial value, b − 1 the percent change per unit."], p: [MP2, MP4], drills: [], needs: [MH-2.5.A] }
+      - n: 6
+        title: Rational exponents and exponential graphs
+        los:
+          - { id: A, std: N-RN.A.1, do: "Explain how the meaning of rational exponents follows from extending the properties of integer exponents, e.g. why 5^(1/3) is the cube root of 5.", ek: ["(5^(1/3))³ = 5^((1/3)·3) = 5, so 5^(1/3) must be a cube root of 5."], p: [MP3, MP7], drills: [] }
+          - { id: B, std: N-RN.A.2, do: "Rewrite expressions involving radicals and rational exponents using the properties of exponents.", ek: ["x^(m/n) = (ⁿ√x)^m; a^p·a^q = a^(p+q); (a^p)^q = a^(pq); a^(−p) = 1/a^p."], p: [MP7], drills: [], needs: [MH-2.6.A] }
+          - { id: C, std: F-IF.C.7e, do: "Graph an exponential function y = a·b^x, showing the intercept and end behaviour.", ek: ["Passes through (0, a); grows if b > 1, decays if 0 < b < 1; horizontal asymptote y = 0."], p: [MP5, MP6], drills: [], needs: [MH-2.5.A] }
+          - { id: D, std: F-LE.A.3, do: "Show with graphs and tables that a quantity increasing exponentially eventually exceeds one increasing linearly.", ek: ["Equal factors eventually beat equal differences, however small the base above 1."], p: [MP5, MP8], drills: [], needs: [MH-2.6.C] }
+          - { id: E, std: F-IF.C.9, do: "Compare properties of two functions each represented in a different way (algebraically, graphically, numerically in a table, or by a verbal description).", ek: ["Read the same feature (rate, intercept, maximum) from each representation before comparing."], p: [MP2, MP7], drills: [], needs: [MH-2.6.C] }
+      - n: 7
+        title: Solve systems of equations and represent inequalities graphically
+        los:
+          - { id: A, std: A-REI.C.6, do: "Solve a system of two linear equations approximately by graphing.", ek: ["The solution is the intersection point; parallel lines give no solution, coincident lines infinitely many."], p: [MP5], drills: [], needs: [MH-2.3.B] }
+          - { id: B, std: A-REI.C.6, do: "Solve a system of two linear equations exactly by substitution or elimination.", ek: ["Eliminate one variable to get a one-variable equation, solve, then back-substitute."], p: [MP6, MP7], drills: [], needs: [MH-2.7.A, MH-1.3.B] }
+          - { id: C, std: A-REI.C.5, do: "Prove that replacing one equation of a system by the sum of that equation and a multiple of the other gives a system with the same solutions.", ek: ["Any (x, y) satisfying both original equations satisfies the combination, and the step can be undone."], p: [MP3], drills: [], needs: [MH-2.7.B] }
+          - { id: D, std: A-REI.D.11, do: "Explain why the x-coordinates of the intersections of y = f(x) and y = g(x) solve f(x) = g(x), and approximate them with graphs or tables (linear and exponential f, g).", ek: ["At an intersection both outputs are equal for the same input."], p: [MP3, MP5], drills: [], needs: [MH-2.7.A, MH-2.6.C] }
+          - { id: E, std: A-REI.D.12, do: "Graph the solutions of a linear inequality in two variables as a half-plane, and of a system of linear inequalities as the intersection of half-planes.", ek: ["Dashed boundary for < or >, solid for ≤ or ≥; test a point to choose the side."], p: [MP5, MP6], drills: [], needs: [MH-2.7.A, MH-1.3.C] }
+
+  # ── 3 ────────────────────────────────────────────────────────────────────
+  - id: alg1-descriptive-statistics
+    n: 3
+    course: Algebra I
+    title: Descriptive statistics
+    scope: core
+    ideas: [DATA, MODEL]
+    topics:
+      - n: 1
+        title: Summarize, represent and interpret data on a single count or measurement variable
+        los:
+          - { id: A, std: S-ID.A.1, do: "Represent data with plots on the real number line: dot plots, histograms and box plots.", ek: ["A box plot shows the five-number summary: minimum, Q1, median, Q3, maximum."], p: [MP5, MP6], drills: [] }
+          - { id: B, std: S-ID.A.2, do: "Compare the center (median, mean) and spread (interquartile range, standard deviation) of two or more data sets, using statistics suited to their shape.", ek: ["Skewed data or outliers → median and IQR; roughly symmetric → mean and standard deviation."], p: [MP2, MP3], drills: [], needs: [MH-3.1.A] }
+          - { id: C, std: S-ID.A.3, do: "Interpret differences in shape, center and spread in context, accounting for possible effects of extreme data points (outliers).", ek: ["An outlier lies more than 1.5·IQR beyond a quartile; it moves the mean and SD much more than the median and IQR."], p: [MP2, MP3], drills: [], needs: [MH-3.1.B] }
+      - n: 2
+        title: Summarize, represent and interpret data on two categorical and quantitative variables
+        los:
+          - { id: A, std: S-ID.B.5, do: "Summarise categorical data for two categories in two-way frequency tables and interpret joint, marginal and conditional relative frequencies.", ek: ["Joint = cell / grand total; marginal = row or column total / grand total; conditional = cell / its row or column total."], p: [MP2, MP6], drills: [] }
+          - { id: B, std: S-ID.B.6a, do: "Fit a function (linear, quadratic or exponential) to data on two quantitative variables in a scatter plot and use it to solve problems in the context of the data.", ek: ["Pick the family from the shape of the scatter and the context, then use technology to fit its parameters."], p: [MP4, MP5], drills: [], needs: [MH-2.5.A] }
+          - { id: C, std: S-ID.B.6b, do: "Informally assess the fit of a function by plotting and analysing residuals.", ek: ["Residual = observed − predicted; a good fit leaves residuals scattered about 0 with no pattern."], p: [MP4, MP5], drills: [], needs: [MH-3.2.B] }
+          - { id: D, std: S-ID.B.6c, do: "Fit a linear function to a scatter plot that suggests a linear association.", ek: ["The least-squares line passes through (x̄, ȳ) and minimises the sum of squared residuals."], p: [MP4, MP5], drills: [], needs: [MH-3.2.B] }
+      - n: 3
+        title: Interpret linear models
+        los:
+          - { id: A, std: S-ID.C.7, do: "Interpret the slope (rate of change) and intercept (constant term) of a linear model in the context of the data.", ek: ["Slope = predicted change in y per one-unit increase in x; the intercept may be meaningless outside the data range."], p: [MP2, MP4], drills: [], needs: [MH-3.2.D, MH-2.5.D] }
+          - { id: B, std: S-ID.C.8, do: "Compute (using technology) and interpret the correlation coefficient of a linear fit.", ek: ["−1 ≤ r ≤ 1; the sign gives direction, |r| near 1 a strong linear association."], p: [MP5, MP6], drills: [], needs: [MH-3.3.A] }
+          - { id: C, std: S-ID.C.9, do: "Distinguish between correlation and causation.", ek: ["Only a randomised experiment supports a causal claim; an association can come from a lurking variable."], p: [MP3], drills: [], needs: [MH-3.3.B] }
+
+  # ── 4 ────────────────────────────────────────────────────────────────────
+  - id: alg1-expressions-equations
+    n: 4
+    course: Algebra I
+    title: Expressions and equations
+    scope: core
+    ideas: [EQUIV, NUM]
+    topics:
+      - n: 1
+        title: Perform arithmetic on polynomials and use structure
+        los:
+          - { id: A, std: A-APR.A.1, do: "Add, subtract and multiply polynomials, and explain why the result is again a polynomial.", ek: ["Polynomials are closed under +, − and ×, like the integers; multiply by distributing every term over every term."], p: [MP6, MP7], drills: [], needs: [MH-1.2.A] }
+          - { id: B, std: A-SSE.A.2, do: "Use the structure of an expression to rewrite it, e.g. x⁴ − y⁴ as (x²)² − (y²)² = (x² − y²)(x² + y²).", ek: ["Recognise a² − b², a² ± 2ab + b² and common factors, where a and b may themselves be expressions."], p: [MP7], drills: [], needs: [MH-4.1.A, MH-1.2.B] }
+      - n: 2
+        title: Write expressions in equivalent forms to solve problems
+        los:
+          - { id: A, std: A-SSE.B.3a, do: "Factor a quadratic expression to reveal the zeros of the function it defines.", ek: ["ax² + bx + c = a(x − r)(x − s) ⇒ zeros at x = r and x = s."], p: [MP7], drills: [], needs: [MH-4.1.B] }
+          - { id: B, std: A-SSE.B.3b, do: "Complete the square in a quadratic expression to reveal the maximum or minimum value of the function it defines.", ek: ["ax² + bx + c = a(x − h)² + k with h = −b/2a; the extreme value is k, reached at x = h."], p: [MP7], drills: [], needs: [MH-4.1.A] }
+          - { id: C, std: A-SSE.B.3c, do: "Use the properties of exponents to transform an exponential expression, e.g. 1.15^t ≈ 1.012^(12t), to reveal an equivalent monthly rate.", ek: ["b^t = (b^(1/k))^(kt): the same growth expressed per 1/k of the unit."], p: [MP7], drills: [], needs: [MH-2.6.B] }
+      - n: 3
+        title: Solve quadratic equations in one variable
+        los:
+          - { id: A, std: A-REI.B.4b, do: "Solve a quadratic equation by inspection, by taking square roots, or by factoring.", ek: ["Zero-product property: ab = 0 ⇒ a = 0 or b = 0; x² = k ⇒ x = ±√k."], p: [MP7], drills: [], needs: [MH-4.2.A] }
+          - { id: B, std: A-REI.B.4a, do: "Complete the square to transform a quadratic equation into the form (x − p)² = q, and derive the quadratic formula from that form.", ek: ["x = (−b ± √(b² − 4ac)) / 2a."], p: [MP3, MP7], drills: [], needs: [MH-4.2.B, MH-4.3.A] }
+          - { id: C, std: A-REI.B.4b, do: "Solve a quadratic equation with the quadratic formula, choosing the method that fits its form, and use the discriminant to recognise when it has no real solutions.", ek: ["b² − 4ac > 0: two real roots; = 0: one repeated root; < 0: no real roots (complex a ± bi)."], p: [MP6, MP7], drills: [], needs: [MH-4.3.B] }
+          - { id: D, std: A-CED.A.1, do: "Write and solve a quadratic equation that models a word problem, rejecting solutions that do not fit the context.", ek: ["A negative time or length from the formula is a mathematical root, not an answer."], p: [MP4], drills: [], needs: [MH-4.3.C, MH-1.4.A] }
+      - n: 4
+        title: Solve linear–quadratic systems
+        los:
+          - { id: A, std: A-REI.C.7, do: "Solve a system of one linear and one quadratic equation in two variables algebraically and graphically, e.g. find where y = −3x meets x² + y² = 3.", ek: ["Substitute the linear equation into the quadratic; 0, 1 or 2 real solutions match 0, 1 or 2 intersection points."], p: [MP5, MP7], drills: [], needs: [MH-4.3.C, MH-2.7.B] }
+
+  # ── 5 ────────────────────────────────────────────────────────────────────
+  - id: alg1-quadratic-functions
+    n: 5
+    course: Algebra I
+    title: Quadratic functions and modeling
+    scope: core
+    ideas: [FUNC, EQUIV, NUM, MODEL]
+    topics:
+      - n: 1
+        title: Use properties of rational and irrational numbers
+        los:
+          - { id: A, std: N-RN.B.3, do: "Explain why the sum or product of two rational numbers is rational, the sum of a rational and an irrational number is irrational, and the product of a nonzero rational and an irrational number is irrational.", ek: ["If r + x were rational for rational r, then x = (r + x) − r would be rational too."], p: [MP3], drills: [], needs: [MH-4.3.C] }
+      - n: 2
+        title: Analyze quadratic and related functions using different representations
+        los:
+          - { id: A, std: F-IF.C.8a, do: "Rewrite a quadratic function by factoring and completing the square to show its zeros, extreme value and symmetry, and interpret them in context.", ek: ["Factored form shows zeros; vertex form a(x − h)² + k shows the extreme value k and axis x = h."], p: [MP7, MP2], drills: [], needs: [MH-4.2.A, MH-4.2.B] }
+          - { id: B, std: F-IF.C.7a, do: "Graph a quadratic function, showing intercepts, the vertex (maximum or minimum) and the axis of symmetry.", ek: ["Vertex at x = −b/2a; opens up if a > 0, down if a < 0; y-intercept c."], p: [MP5, MP6], drills: [], needs: [MH-5.2.A, MH-2.3.B] }
+          - { id: C, std: F-IF.B.4, do: "Interpret the key features of a quadratic model in context, e.g. the maximum height and landing time of a projectile.", ek: ["The vertex gives the extreme value and when it happens; the zeros give when the quantity is zero."], p: [MP2, MP4], drills: [], needs: [MH-5.2.B, MH-2.2.A] }
+          - { id: D, std: F-IF.C.7b, do: "Graph square-root, cube-root and piecewise-defined functions, including step functions and absolute-value functions.", ek: ["|x| = x for x ≥ 0 and −x for x < 0; √x needs x ≥ 0; each piece applies only on its own interval."], p: [MP5, MP6], drills: [], needs: [MH-2.3.B, MH-2.6.B] }
+          - { id: E, std: F-IF.C.8b, do: "Use the properties of exponents to classify an exponential function as growth or decay and find its percent rate, e.g. y = (0.97)^t, y = (1.01)^(12t), y = (1.2)^(t/10).", ek: ["y = a·b^t: percent change per unit = (b − 1)·100%; rewrite so the exponent is in the unit asked for."], p: [MP7, MP2], drills: [], needs: [MH-4.2.C, MH-2.5.D] }
+          - { id: F, std: F-IF.C.9, do: "Compare a quadratic with a function represented differently, e.g. decide which of an algebraic quadratic and a graphed one has the larger maximum.", ek: ["Put both in a form that shows the feature being compared."], p: [MP2, MP7], drills: [], needs: [MH-5.2.B, MH-2.6.E] }
+      - n: 3
+        title: Build new functions from existing functions
+        los:
+          - { id: A, std: F-BF.A.1b, do: "Combine standard function types using arithmetic operations, e.g. a decaying exponential plus a constant for a cooling body.", ek: ["Sum, difference, product and quotient of functions act pointwise: (f + g)(x) = f(x) + g(x)."], p: [MP4], drills: [], needs: [MH-2.5.C, MH-5.2.E] }
+          - { id: B, std: F-BF.B.3, do: "Identify the effect on the graph of replacing f(x) by f(x) + k, k·f(x), f(kx) and f(x + k), and find k from a graph.", ek: ["Outside changes act on y as written; inside changes act on x in reverse: f(x + k) shifts left k, f(kx) compresses horizontally by 1/k."], p: [MP5, MP7, MP8], drills: [], needs: [MH-5.2.B, MH-5.2.D] }
+          - { id: C, std: F-BF.B.3, do: "Recognise even and odd functions from their graphs and from their algebraic expressions.", ek: ["Even: f(−x) = f(x), symmetric about the y-axis; odd: f(−x) = −f(x), symmetric about the origin."], p: [MP7], drills: [], needs: [MH-5.3.B] }
+          - { id: D, std: F-BF.B.4a, do: "Solve f(x) = c for a simple invertible function f and write an expression for the inverse, e.g. f(x) = 2x³ or f(x) = (x + 1)/(x − 1).", ek: ["Swap the roles of x and y and solve for y."], p: [MP7], drills: [], needs: [MH-1.4.D, MH-2.6.B] }
+          - { id: E, std: F-LE.A.3, do: "Show with tables and graphs that an increasing exponential function eventually exceeds any quadratic or polynomial function.", ek: ["Exponential growth multiplies by a fixed factor; polynomial growth's ratio f(x + 1)/f(x) tends to 1."], p: [MP5, MP8], drills: [], needs: [MH-2.6.D, MH-5.2.B] }
+
+  # ══ GEOMETRY ═════════════════════════════════════════════════════════════
+  # ── 6 ────────────────────────────────────────────────────────────────────
+  - id: geo-congruence
+    n: 6
+    course: Geometry
+    title: Congruence, proof and constructions
+    scope: core
+    ideas: [XFORM]
+    topics:
+      - n: 1
+        title: Experiment with transformations in the plane
+        los:
+          - { id: A, std: G-CO.A.1, do: "State precise definitions of angle, circle, perpendicular line, parallel line and line segment, based on the undefined notions of point, line, distance along a line and distance around a circular arc.", ek: ["A circle is the set of points in a plane at a fixed distance from a center; a definition must name exactly the objects intended."], p: [MP6], drills: [] }
+          - { id: B, std: G-CO.A.2, do: "Represent transformations as functions that take points in the plane to other points, and compare those that preserve distance and angle (rigid motions) with those that do not (e.g. a horizontal stretch).", ek: ["A transformation is a function on points; rigid motions preserve every distance and angle."], p: [MP5, MP6], drills: [], needs: [MH-6.1.A, MH-2.1.A] }
+          - { id: C, std: G-CO.A.3, do: "Describe the rotations and reflections that carry a rectangle, parallelogram, trapezoid or regular polygon onto itself.", ek: ["A regular n-gon has n rotational symmetries (multiples of 360°/n) and n lines of reflection."], p: [MP7], drills: [], needs: [MH-6.1.B] }
+          - { id: D, std: G-CO.A.4, do: "Define rotations, reflections and translations in terms of angles, circles, perpendicular lines, parallel lines and line segments.", ek: ["A reflection in line ℓ sends P to P′ so that ℓ is the perpendicular bisector of PP′."], p: [MP6], drills: [], needs: [MH-6.1.B] }
+          - { id: E, std: G-CO.A.5, do: "Draw the image of a figure under a given rotation, reflection or translation, and specify a sequence of transformations that carries one figure onto another.", ek: ["In coordinates: reflect in the y-axis (x, y) → (−x, y); rotate 90° about the origin (x, y) → (−y, x); translate (x, y) → (x + a, y + b)."], p: [MP5, MP6], drills: [], needs: [MH-6.1.D] }
+      - n: 2
+        title: Understand congruence in terms of rigid motions
+        los:
+          - { id: A, std: G-CO.B.6, do: "Predict the effect of a rigid motion on a figure, and decide whether two figures are congruent by whether a rigid motion carries one onto the other.", ek: ["Two figures are congruent exactly when a sequence of rigid motions maps one onto the other."], p: [MP3, MP6], drills: [], needs: [MH-6.1.E] }
+          - { id: B, std: G-CO.B.7, do: "Show, using the rigid-motion definition, that two triangles are congruent if and only if corresponding sides and corresponding angles are congruent.", ek: ["Rigid motions preserve side lengths and angle measures, so they carry corresponding parts to equal parts."], p: [MP3], drills: [], needs: [MH-6.2.A] }
+          - { id: C, std: G-CO.B.8, do: "Explain how the ASA, SAS and SSS criteria for triangle congruence follow from the definition of congruence in terms of rigid motions.", ek: ["SSA and AAA are not congruence criteria."], p: [MP3], drills: [], needs: [MH-6.2.B] }
+      - n: 3
+        title: Prove geometric theorems
+        los:
+          - { id: A, std: G-CO.C.9, do: "Prove theorems about lines and angles: vertical angles are congruent; a transversal of parallel lines makes congruent alternate interior and corresponding angles; points on a perpendicular bisector are equidistant from the segment's endpoints.", ek: ["Each step cites a definition, postulate or earlier theorem."], p: [MP3], drills: [], needs: [MH-6.1.A, MH-6.2.C] }
+          - { id: B, std: G-CO.C.10, do: "Prove theorems about triangles: interior angles sum to 180°, base angles of an isosceles triangle are congruent, the midsegment is parallel to the third side and half its length, the medians meet at a point.", ek: ["Draw the line through a vertex parallel to the opposite side to prove the angle sum."], p: [MP3], drills: [], needs: [MH-6.3.A] }
+          - { id: C, std: G-CO.C.11, do: "Prove theorems about parallelograms: opposite sides and opposite angles are congruent, the diagonals bisect each other, and a rectangle is a parallelogram with congruent diagonals.", ek: ["A diagonal splits a parallelogram into two congruent triangles (ASA)."], p: [MP3], drills: [], needs: [MH-6.3.B] }
+      - n: 4
+        title: Make geometric constructions
+        los:
+          - { id: A, std: G-CO.D.12, do: "Construct with compass and straightedge a copy of a segment and of an angle, an angle bisector, a perpendicular bisector, a perpendicular to a line, and a parallel to a line through a point not on it.", ek: ["Each construction is justified by a congruence (usually SSS) made by the equal arcs."], p: [MP5, MP3], drills: [], needs: [MH-6.2.C] }
+          - { id: B, std: G-CO.D.13, do: "Construct an equilateral triangle, a square and a regular hexagon inscribed in a circle.", ek: ["The radius steps around a circle exactly six times, giving the hexagon."], p: [MP5], drills: [], needs: [MH-6.4.A] }
+
+  # ── 7 ────────────────────────────────────────────────────────────────────
+  - id: geo-similarity-trig
+    n: 7
+    course: Geometry
+    title: Similarity, proof and trigonometry
+    scope: core
+    ideas: [XFORM, MODEL]
+    topics:
+      - n: 1
+        title: Understand similarity in terms of similarity transformations
+        los:
+          - { id: A, std: G-SRT.A.1a, do: "Verify experimentally that a dilation takes a line not through the center to a parallel line, and leaves a line through the center unchanged.", ek: ["A dilation with center O and factor k sends P to P′ on ray OP with OP′ = k·OP."], p: [MP5, MP8], drills: [], needs: [MH-6.1.E] }
+          - { id: B, std: G-SRT.A.1b, do: "Verify experimentally that a dilation multiplies the length of every segment by the scale factor.", ek: ["In coordinates, dilation about the origin: (x, y) → (kx, ky), so every length scales by |k|."], p: [MP5, MP8], drills: [], needs: [MH-7.1.A] }
+          - { id: C, std: G-SRT.A.2, do: "Decide whether two figures are similar using similarity transformations, and explain triangle similarity as equal corresponding angles and proportional corresponding sides.", ek: ["Similar = related by a dilation followed by rigid motions."], p: [MP3], drills: [], needs: [MH-7.1.B, MH-6.2.B] }
+          - { id: D, std: G-SRT.A.3, do: "Establish the AA criterion for triangle similarity from the properties of similarity transformations.", ek: ["Two pairs of equal angles force the third pair equal, so a dilation plus a rigid motion matches the triangles."], p: [MP3], drills: [], needs: [MH-7.1.C] }
+      - n: 2
+        title: Prove theorems involving similarity
+        los:
+          - { id: A, std: G-SRT.B.4, do: "Prove that a line parallel to one side of a triangle divides the other two proportionally, and prove the Pythagorean theorem using triangle similarity.", ek: ["The altitude to the hypotenuse makes two triangles similar to the whole, so a² = c·x and b² = c·(c − x), which add to c²."], p: [MP3], drills: [], needs: [MH-7.1.D] }
+          - { id: B, std: G-SRT.B.5, do: "Use congruence and similarity criteria for triangles to solve problems and prove relationships in figures.", ek: ["Find a pair of congruent or similar triangles that contains the unknown, then use corresponding parts."], p: [MP3, MP7], drills: [], needs: [MH-7.2.A, MH-6.3.B] }
+      - n: 3
+        title: Define trigonometric ratios and solve problems involving right triangles
+        los:
+          - { id: A, std: G-SRT.C.6, do: "Explain that by similarity the side ratios of a right triangle depend only on its acute angle, which defines sine, cosine and tangent.", ek: ["sin θ = opposite/hypotenuse, cos θ = adjacent/hypotenuse, tan θ = opposite/adjacent."], p: [MP3, MP7], drills: [], needs: [MH-7.1.D] }
+          - { id: B, std: G-SRT.C.7, do: "Explain and use the relationship between the sine and cosine of complementary angles.", ek: ["sin θ = cos(90° − θ): the side opposite one acute angle is adjacent to the other."], p: [MP7], drills: [], needs: [MH-7.3.A] }
+          - { id: C, std: G-SRT.C.8, do: "Use trigonometric ratios and the Pythagorean theorem to solve right triangles in applied problems.", ek: ["For a side, pick the ratio that links the known side to the unknown; for an angle, use the inverse ratio."], p: [MP4, MP5], drills: [], needs: [MH-7.3.A, MH-7.2.A, MH-1.1.A] }
+      - n: 4
+        title: Apply geometric concepts in modeling situations
+        los:
+          - { id: A, std: G-MG.A.1, do: "Use geometric shapes, their measures and their properties to describe objects, e.g. a tree trunk or a human torso as a cylinder.", ek: ["A model keeps the features that matter for the question and drops the rest."], p: [MP4], drills: [], needs: [MH-7.3.C] }
+          - { id: B, std: G-MG.A.2, do: "Apply concepts of density based on area and volume, e.g. persons per square mile or BTUs per cubic foot.", ek: ["Density = amount / area or amount / volume; carry the units through."], p: [MP4, MP6], drills: [], needs: [MH-7.4.A, MH-1.1.A] }
+          - { id: C, std: G-MG.A.3, do: "Apply geometric methods to design problems, e.g. design an object to satisfy physical constraints or minimise cost.", ek: ["Write the constraint and the quantity to optimise in terms of the shape's dimensions."], p: [MP4, MP1], drills: [], needs: [MH-7.4.A] }
+      - n: 5
+        title: Apply trigonometry to general triangles (+)
+        los:
+          - { id: A, std: G-SRT.D.9, do: "Derive the formula A = ½ab sin C for the area of a triangle by drawing an auxiliary line from a vertex perpendicular to the opposite side.", ek: ["The altitude to side a is b sin C."], p: [MP3, MP7], drills: [], needs: [MH-7.3.C] }
+          - { id: B, std: G-SRT.D.10, do: "Prove the Laws of Sines and Cosines.", ek: ["a/sin A = b/sin B = c/sin C; c² = a² + b² − 2ab cos C."], p: [MP3], drills: [], needs: [MH-7.5.A] }
+          - { id: C, std: G-SRT.D.11, do: "Use the Laws of Sines and Cosines to find unknown measurements in right and non-right triangles, including the ambiguous SSA case.", ek: ["Two sides and the included angle, or three sides → Law of Cosines; an angle and its opposite side known → Law of Sines (check for a second triangle)."], p: [MP4, MP6], drills: [], needs: [MH-7.5.B] }
+
+  # ── 8 ────────────────────────────────────────────────────────────────────
+  - id: geo-three-dimensions
+    n: 8
+    course: Geometry
+    title: Extending to three dimensions
+    scope: core
+    ideas: [XFORM, MODEL]
+    topics:
+      - n: 1
+        title: Explain volume formulas and use them to solve problems
+        los:
+          - { id: A, std: G-GMD.A.1, do: "Give an informal argument for the circumference and area of a circle and the volume of a cylinder, pyramid and cone (dissection, Cavalieri's principle, limits).", ek: ["Cut a circle into thin sectors and rearrange into a near-parallelogram of base πr and height r: A = πr²."], p: [MP3, MP8], drills: [], needs: [MH-6.4.B, MH-7.1.B] }
+          - { id: B, std: G-GMD.A.3, do: "Use the volume formulas for cylinders, pyramids, cones and spheres to solve problems.", ek: ["V = Bh (prism, cylinder); V = ⅓Bh (pyramid, cone); V = (4/3)πr³ (sphere)."], p: [MP4, MP6], drills: [], needs: [MH-8.1.A, MH-1.4.D] }
+      - n: 2
+        title: Visualize relations between two- and three-dimensional objects
+        los:
+          - { id: A, std: G-GMD.B.4, do: "Identify the shapes of two-dimensional cross-sections of three-dimensional objects, and the three-dimensional objects generated by rotating two-dimensional objects.", ek: ["A rectangle rotated about one side sweeps a cylinder; a right triangle about a leg, a cone."], p: [MP7], drills: [], needs: [MH-8.1.A] }
+          - { id: B, std: G-MG.A.1, do: "Model a real object as a combination of solids and estimate its volume.", ek: ["Volumes of non-overlapping pieces add."], p: [MP4], drills: [], needs: [MH-8.1.B, MH-7.4.A] }
+
+  # ── 9 ────────────────────────────────────────────────────────────────────
+  - id: geo-coordinates
+    n: 9
+    course: Geometry
+    title: Connecting algebra and geometry through coordinates
+    scope: core
+    ideas: [XFORM, EQUIV]
+    topics:
+      - n: 1
+        title: Use coordinates to prove simple geometric theorems algebraically
+        los:
+          - { id: A, std: G-GPE.B.4, do: "Use coordinates to prove simple geometric theorems algebraically, e.g. that a given quadrilateral is a rectangle.", ek: ["Equal slopes ⇒ parallel; equal distances ⇒ congruent segments; midpoint ((x₁ + x₂)/2, (y₁ + y₂)/2)."], p: [MP3], drills: [], needs: [MH-2.3.B, MH-6.3.C] }
+          - { id: B, std: G-GPE.B.5, do: "Prove the slope criteria for parallel and perpendicular lines and use them to write the equation of a line parallel or perpendicular to a given line through a given point.", ek: ["Parallel: m₁ = m₂; perpendicular: m₁m₂ = −1."], p: [MP3, MP7], drills: [], needs: [MH-9.1.A, MH-7.1.A] }
+          - { id: C, std: G-GPE.B.6, do: "Find the point on a directed line segment between two given points that partitions it in a given ratio.", ek: ["The point a fraction t of the way from P to Q is P + t(Q − P)."], p: [MP7], drills: [], needs: [MH-9.1.A] }
+          - { id: D, std: G-GPE.B.7, do: "Use coordinates and the distance formula to compute perimeters of polygons and areas of triangles and rectangles.", ek: ["d = √((x₂ − x₁)² + (y₂ − y₁)²): the Pythagorean theorem on coordinates."], p: [MP6], drills: [], needs: [MH-9.1.A, MH-7.2.A] }
+      - n: 2
+        title: Translate between geometric description and equation for a parabola
+        los:
+          - { id: A, std: G-GPE.A.2, do: "Derive the equation of a parabola given a focus and directrix.", ek: ["Equidistant from focus (0, p) and directrix y = −p ⇒ x² = 4py."], p: [MP3, MP7], drills: [], needs: [MH-9.1.D, MH-5.2.B] }
+
+  # ── 10 ───────────────────────────────────────────────────────────────────
+  - id: geo-circles
+    n: 10
+    course: Geometry
+    title: Circles with and without coordinates
+    scope: core
+    ideas: [XFORM, EQUIV]
+    topics:
+      - n: 1
+        title: Understand and apply theorems about circles
+        los:
+          - { id: A, std: G-C.A.1, do: "Prove that all circles are similar.", ek: ["Translate one center onto the other, then dilate by the ratio of radii."], p: [MP3], drills: [], needs: [MH-7.1.C] }
+          - { id: B, std: G-C.A.2, do: "Identify and describe relationships among inscribed angles, radii and chords, including central, inscribed and circumscribed angles.", ek: ["An inscribed angle is half the central angle on the same arc; an angle inscribed in a semicircle is right; a tangent is perpendicular to the radius at the point of tangency."], p: [MP3, MP7], drills: [], needs: [MH-10.1.A, MH-6.3.B] }
+          - { id: C, std: G-C.A.3, do: "Construct the inscribed and circumscribed circles of a triangle, and prove that opposite angles of a quadrilateral inscribed in a circle are supplementary.", ek: ["Incenter: angle bisectors meet; circumcenter: perpendicular bisectors meet."], p: [MP5, MP3], drills: [], needs: [MH-10.1.B, MH-6.4.A] }
+          - { id: D, std: G-C.A.4, do: "(+) Construct a tangent line from a point outside a given circle to the circle.", ek: ["The tangent point lies on the circle whose diameter joins the outside point to the center (right angle in a semicircle)."], p: [MP5], drills: [], needs: [MH-10.1.B, MH-6.4.A] }
+      - n: 2
+        title: Find arc lengths and areas of sectors of circles
+        los:
+          - { id: A, std: G-C.B.5, do: "Derive using similarity that the arc length intercepted by an angle is proportional to the radius, define radian measure as the constant of proportionality, and derive the formula for the area of a sector.", ek: ["s = rθ and A = ½r²θ with θ in radians."], p: [MP3, MP7], drills: [], needs: [MH-10.1.A, MH-8.1.A] }
+      - n: 3
+        title: Circles in the coordinate plane
+        los:
+          - { id: A, std: G-GPE.A.1, do: "Derive the equation of a circle of given center and radius using the Pythagorean theorem, and complete the square to find the center and radius of a circle given by an equation.", ek: ["(x − h)² + (y − k)² = r²."], p: [MP7], drills: [], needs: [MH-9.1.D, MH-4.2.B] }
+          - { id: B, std: G-GPE.B.4, do: "Prove or disprove that a given point lies on a circle centered at a given point through another given point.", ek: ["The point is on the circle exactly when its distance from the center equals the radius."], p: [MP3], drills: [], needs: [MH-10.3.A, MH-9.1.A] }
+
+  # ── 11 ───────────────────────────────────────────────────────────────────
+  - id: geo-probability
+    n: 11
+    course: Geometry
+    title: Applications of probability
+    scope: core
+    ideas: [DATA]
+    topics:
+      - n: 1
+        title: Understand independence and conditional probability and use them to interpret data
+        los:
+          - { id: A, std: S-CP.A.1, do: "Describe events as subsets of a sample space using characteristics of the outcomes, or as unions, intersections or complements of other events.", ek: ["'Or' is union, 'and' is intersection, 'not' is complement; P(not A) = 1 − P(A)."], p: [MP6], drills: [] }
+          - { id: B, std: S-CP.A.2, do: "Decide whether two events are independent using the fact that A and B are independent exactly when P(A and B) = P(A)·P(B).", ek: ["Independent ⇔ P(A ∩ B) = P(A)P(B)."], p: [MP3, MP6], drills: ["~sm-atleast"], needs: [MH-11.1.A] }
+          - { id: C, std: S-CP.A.3, do: "Interpret the conditional probability of A given B as P(A and B)/P(B), and independence as P(A|B) = P(A).", ek: ["Conditioning on B shrinks the sample space to B."], p: [MP2], drills: [], needs: [MH-11.1.B] }
+          - { id: D, std: S-CP.A.4, do: "Construct and interpret a two-way frequency table, using it to decide whether events are independent and to approximate conditional probabilities.", ek: ["Independent if the conditional relative frequencies are (about) the same in every row."], p: [MP2, MP4], drills: [], needs: [MH-11.1.C, MH-3.2.A] }
+          - { id: E, std: S-CP.A.5, do: "Recognise and explain conditional probability and independence in everyday language and situations.", ek: ["P(lung cancer | smoker) and P(smoker | lung cancer) are different numbers."], p: [MP3], drills: [], needs: [MH-11.1.D] }
+      - n: 2
+        title: Use the rules of probability to compute probabilities of compound events
+        los:
+          - { id: A, std: S-CP.B.6, do: "Find the conditional probability of A given B as the fraction of B's outcomes that also belong to A, and interpret it in terms of the model.", ek: ["P(A|B) = |A ∩ B| / |B| in a uniform model."], p: [MP2], drills: [], needs: [MH-11.1.C] }
+          - { id: B, std: S-CP.B.7, do: "Apply the Addition Rule, P(A or B) = P(A) + P(B) − P(A and B), and interpret the answer in terms of the model.", ek: ["Subtract the overlap so it is not counted twice."], p: [MP6], drills: [], needs: [MH-11.1.A] }
+          - { id: C, std: S-CP.B.8, do: "(+) Apply the general Multiplication Rule in a uniform probability model, P(A and B) = P(A)P(B|A) = P(B)P(A|B).", ek: ["The rule is the definition of P(B|A) rearranged."], p: [MP6], drills: [], needs: [MH-11.2.A] }
+          - { id: D, std: S-CP.B.9, do: "(+) Use permutations and combinations to compute probabilities of compound events and solve problems.", ek: ["nPr = n!/(n − r)! when order matters; nCr = n!/(r!(n − r)!) when it does not."], p: [MP7, MP8], drills: [sm-perm, sm-comb, sm-anagram], needs: [MH-11.2.C] }
+      - n: 3
+        title: Use probability to evaluate outcomes of decisions (+)
+        los:
+          - { id: A, std: S-MD.B.6, do: "(+) Use probabilities to make fair decisions, e.g. drawing by lots or using a random number generator.", ek: ["A procedure is fair when every option has equal probability."], p: [MP4], drills: [], needs: [MH-11.1.A] }
+          - { id: B, std: S-MD.B.7, do: "(+) Analyse decisions and strategies using probability concepts, e.g. product testing, medical testing, pulling a hockey goalie at the end of a game.", ek: ["A positive result on a test for a rare condition is often a false positive: P(condition | positive) ≪ P(positive | condition)."], p: [MP4, MP3], drills: [], needs: [MH-11.2.C] }
+
+  # ══ ALGEBRA II ═══════════════════════════════════════════════════════════
+  # ── 12 ───────────────────────────────────────────────────────────────────
+  - id: alg2-polynomial-rational-radical
+    n: 12
+    course: Algebra II
+    title: Polynomial, rational and radical relationships
+    scope: core
+    ideas: [NUM, EQUIV, FUNC]
+    topics:
+      - n: 1
+        title: Perform arithmetic with complex numbers and use them in quadratic equations
+        los:
+          - { id: A, std: N-CN.A.1, do: "Know there is a complex number i with i² = −1, and write every complex number in the form a + bi with a and b real.", ek: ["√(−k) = i√k for k > 0; a is the real part, b the imaginary part."], p: [MP6], drills: [] }
+          - { id: B, std: N-CN.A.2, do: "Add, subtract and multiply complex numbers using i² = −1 and the commutative, associative and distributive properties.", ek: ["(a + bi)(c + di) = (ac − bd) + (ad + bc)i."], p: [MP7], drills: [], needs: [MH-12.1.A, MH-4.1.A] }
+          - { id: C, std: N-CN.C.7, do: "Solve a quadratic equation with real coefficients that has complex solutions.", ek: ["Negative discriminant ⇒ x = −b/2a ± i√(4ac − b²)/2a, a conjugate pair."], p: [MP6], drills: [euler-quad-roots], needs: [MH-12.1.B, MH-4.3.C] }
+          - { id: D, std: N-CN.C.8, do: "(+) Extend polynomial identities to the complex numbers, e.g. rewrite x² + 4 as (x + 2i)(x − 2i).", ek: ["a² + b² = (a + bi)(a − bi)."], p: [MP7], drills: [], needs: [MH-12.1.C] }
+      - n: 2
+        title: Use polynomial identities and structure
+        los:
+          - { id: A, std: A-SSE.A.2, do: "Use the structure of a polynomial to factor it, e.g. x³ − 8 as a difference of cubes, or x⁴ − 5x² + 4 as a quadratic in x².", ek: ["a³ ± b³ = (a ± b)(a² ∓ ab + b²); substitute u = x² to expose a quadratic."], p: [MP7], drills: [], needs: [MH-4.1.B] }
+          - { id: B, std: A-APR.C.4, do: "Prove polynomial identities and use them to describe numerical relationships, e.g. (x² + y²)² = (x² − y²)² + (2xy)² generates Pythagorean triples.", ek: ["Expand both sides to the same standard form."], p: [MP3, MP7], drills: [], needs: [MH-12.2.A] }
+          - { id: C, std: A-APR.C.5, do: "(+) Expand (x + y)^n with the Binomial Theorem, the coefficients given by Pascal's triangle.", ek: ["(x + y)^n = Σ C(n, k) x^(n−k) y^k, k = 0 … n."], p: [MP8], drills: [], needs: [MH-12.2.B, MH-11.2.D] }
+      - n: 3
+        title: Understand the relationship between zeros and factors of polynomials
+        los:
+          - { id: A, std: A-APR.B.2, do: "Apply the Remainder Theorem: the remainder on division of p(x) by x − a is p(a), so p(a) = 0 exactly when x − a is a factor.", ek: ["p(x) = (x − a)q(x) + p(a)."], p: [MP7], drills: [], needs: [MH-12.2.A] }
+          - { id: B, std: A-APR.B.3, do: "Identify the zeros of a polynomial from a suitable factorization and use them to sketch a rough graph.", ek: ["An odd-multiplicity zero crosses the axis, an even one touches; the leading term sets end behaviour."], p: [MP7, MP5], drills: [], needs: [MH-12.3.A] }
+          - { id: C, std: F-IF.C.7c, do: "Graph a polynomial function, identifying zeros when suitable factorizations are available and showing end behaviour.", ek: ["Degree n has at most n real zeros and at most n − 1 turning points."], p: [MP5, MP6], drills: [], needs: [MH-12.3.B, MH-5.2.B] }
+          - { id: D, std: N-CN.C.9, do: "(+) Know the Fundamental Theorem of Algebra and show that it is true for quadratic polynomials.", ek: ["A degree-n polynomial has exactly n complex zeros counted with multiplicity."], p: [MP3], drills: [], needs: [MH-12.1.D, MH-12.3.B] }
+      - n: 4
+        title: Finite geometric series
+        los:
+          - { id: A, std: A-SSE.B.4, do: "Derive the formula for the sum of a finite geometric series (common ratio not 1) and use it to solve problems, e.g. mortgage payments.", ek: ["S_n = a(1 − r^n)/(1 − r): subtract r·S_n from S_n and almost every term cancels."], p: [MP8, MP4], drills: [], needs: [MH-2.5.B] }
+      - n: 5
+        title: Rewrite rational expressions and solve rational and radical equations
+        los:
+          - { id: A, std: A-APR.D.6, do: "Rewrite a rational expression a(x)/b(x) as q(x) + r(x)/b(x) by inspection or long division.", ek: ["Divide polynomials like integers; stop when deg r < deg b."], p: [MP7], drills: [], needs: [MH-12.3.A] }
+          - { id: B, std: A-APR.D.7, do: "(+) Add, subtract, multiply and divide rational expressions, and explain why they form a system closed under these operations (division by a nonzero expression).", ek: ["Common denominator to add; multiply by the reciprocal to divide."], p: [MP7], drills: [], needs: [MH-12.5.A] }
+          - { id: C, std: A-REI.A.2, do: "Solve a simple rational or radical equation in one variable, and give examples of extraneous solutions.", ek: ["Multiplying by an expression that can be zero, or squaring both sides, can add roots; check each in the original equation."], p: [MP3, MP6], drills: [], needs: [MH-12.5.B, MH-2.6.B] }
+          - { id: D, std: A-REI.D.11, do: "Find approximate solutions of f(x) = g(x) where f and g are polynomial, rational, absolute-value, exponential or logarithmic, with technology, tables or successive approximations.", ek: ["Graph y = f(x) − g(x) and locate its zeros; a sign change brackets a root."], p: [MP5], drills: [], needs: [MH-2.7.D, MH-12.3.C] }
+
+  # ── 13 ───────────────────────────────────────────────────────────────────
+  - id: alg2-trig-functions
+    n: 13
+    course: Algebra II
+    title: Trigonometric functions
+    scope: core
+    ideas: [FUNC, XFORM, MODEL]
+    topics:
+      - n: 1
+        title: Extend the domain of trigonometric functions using the unit circle
+        los:
+          - { id: A, std: F-TF.A.1, do: "Understand radian measure of an angle as the length of the arc on the unit circle it subtends, and convert between degrees and radians.", ek: ["π radians = 180°; θ = s/r."], p: [MP6], drills: [], needs: [MH-10.2.A] }
+          - { id: B, std: F-TF.A.2, do: "Explain how the unit circle extends sine and cosine to all real numbers, read as radian measures of angles traversed counterclockwise.", ek: ["The point at angle t on the unit circle is (cos t, sin t)."], p: [MP3, MP7], drills: [], needs: [MH-13.1.A, MH-7.3.A] }
+      - n: 2
+        title: Model periodic phenomena with trigonometric functions
+        los:
+          - { id: A, std: F-TF.B.5, do: "Choose a trigonometric function y = A sin(B(x − h)) + k to model a periodic phenomenon with given amplitude, frequency and midline.", ek: ["Amplitude |A|; period 2π/|B|; midline y = k; horizontal shift h."], p: [MP4], drills: [], needs: [MH-13.1.B, MH-5.3.B] }
+      - n: 3
+        title: Prove and apply trigonometric identities
+        los:
+          - { id: A, std: F-TF.C.8, do: "Prove the Pythagorean identity sin²θ + cos²θ = 1 and use it to find sin θ, cos θ or tan θ from one of them and the quadrant.", ek: ["(cos θ, sin θ) is on x² + y² = 1; the quadrant picks the sign of the square root."], p: [MP3, MP7], drills: [], needs: [MH-13.1.B, MH-7.2.A] }
+
+  # ── 14 ───────────────────────────────────────────────────────────────────
+  - id: alg2-modeling-functions
+    n: 14
+    course: Algebra II
+    title: Modeling with functions
+    scope: core
+    ideas: [FUNC, MODEL]
+    topics:
+      - n: 1
+        title: Logarithms in exponential models
+        los:
+          - { id: A, std: F-LE.A.4, do: "Express the solution of ab^(ct) = d as a logarithm (base 2, 10 or e) and evaluate it with technology.", ek: ["log_b x = y ⇔ b^y = x; t = log_b(d/a)/c."], p: [MP7, MP5], drills: [], needs: [MH-4.2.C, MH-5.3.D] }
+          - { id: B, std: F-IF.C.7e, do: "Graph a logarithmic function, showing the intercept, the vertical asymptote and end behaviour, as the reflection of an exponential across y = x.", ek: ["y = log_b x passes through (1, 0), has asymptote x = 0, and grows without bound but ever more slowly."], p: [MP5, MP6], drills: [], needs: [MH-14.1.A, MH-2.6.C] }
+      - n: 2
+        title: Build and interpret models from several families
+        los:
+          - { id: A, std: A-CED.A.2, do: "Create equations in two or more variables, including exponential and rational relationships, that model a situation.", ek: ["Inverse variation y = k/x; growth y = a·b^t; pick the family from how the quantity changes."], p: [MP4], drills: [], needs: [MH-12.5.B, MH-14.1.A] }
+          - { id: B, std: F-BF.A.1b, do: "Build a model by combining function families arithmetically, e.g. a damped oscillation y = A·e^(−kt)·cos(ωt).", ek: ["Multiplying by a decaying envelope shrinks the amplitude over time."], p: [MP4], drills: [], needs: [MH-13.2.A, MH-5.3.A] }
+          - { id: C, std: F-IF.B.4, do: "Interpret the key features of polynomial, exponential, logarithmic and periodic models in context (intercepts, extrema, end behaviour, periodicity).", ek: ["The same feature means different things per family: a period is a cycle length, an asymptote a limiting value."], p: [MP2, MP4], drills: [], needs: [MH-12.3.C, MH-13.2.A, MH-14.1.B] }
+          - { id: D, std: F-IF.C.9, do: "Compare properties of two functions from different families, each given in a different representation.", ek: ["Read the compared feature from each representation in the same units."], p: [MP2, MP7], drills: [], needs: [MH-14.2.C] }
+
+  # ── 15 ───────────────────────────────────────────────────────────────────
+  - id: alg2-inference
+    n: 15
+    course: Algebra II
+    title: Inferences and conclusions from data
+    scope: core
+    ideas: [DATA, MODEL]
+    topics:
+      - n: 1
+        title: Normal distributions
+        los:
+          - { id: A, std: S-ID.A.4, do: "Use the mean and standard deviation of a data set to fit it to a normal distribution and estimate population percentages, recognising when that is not appropriate.", ek: ["68–95–99.7 rule; z = (x − μ)/σ; skewed or multimodal data are not normal."], p: [MP4, MP5], drills: [], needs: [MH-3.1.C] }
+      - n: 2
+        title: Understand and evaluate random processes underlying statistical experiments
+        los:
+          - { id: A, std: S-IC.A.1, do: "Explain statistics as a process for making inferences about population parameters from a random sample of that population.", ek: ["A statistic describes the sample, a parameter the population; random sampling makes the sample representative."], p: [MP3], drills: [], needs: [MH-15.1.A] }
+          - { id: B, std: S-IC.A.2, do: "Decide whether a specified model is consistent with results from a data-generating process, e.g. by simulation.", ek: ["If the observed result is rare among many simulated runs of the model, doubt the model."], p: [MP4, MP5], drills: [], needs: [MH-15.2.A, MH-11.1.A] }
+      - n: 3
+        title: Make inferences and justify conclusions from surveys, experiments and observational studies
+        los:
+          - { id: A, std: S-IC.B.3, do: "Recognise the purposes of and differences among sample surveys, experiments and observational studies, and explain how randomisation relates to each.", ek: ["Random sampling supports generalising to a population; random assignment supports cause-and-effect."], p: [MP3], drills: [], needs: [MH-15.2.A, MH-3.3.C] }
+          - { id: B, std: S-IC.B.4, do: "Use data from a sample survey to estimate a population mean or proportion, and develop a margin of error through simulation models for random sampling.", ek: ["Margin of error ≈ 2 standard deviations of the simulated sampling distribution."], p: [MP4, MP5], drills: [], needs: [MH-15.3.A, MH-15.1.A] }
+          - { id: C, std: S-IC.B.5, do: "Use data from a randomised experiment to compare two treatments, and use simulation to decide whether differences between parameters are significant.", ek: ["Re-randomise the group labels many times; if the observed difference is rare, it is significant."], p: [MP4, MP5], drills: [], needs: [MH-15.3.B] }
+          - { id: D, std: S-IC.B.6, do: "Evaluate reports based on data.", ek: ["Check how the data were collected, whether the design supports the claim, and whether the stated variability is accounted for."], p: [MP3], drills: [], needs: [MH-15.3.C] }
+
+  # ══ PRECALCULUS ((+) standards) ════════════════════════════════════════════
+  # ── 16 ───────────────────────────────────────────────────────────────────
+  - id: precalc-functions
+    n: 16
+    course: Precalculus
+    title: Composition, inverses, logarithms and rational functions
+    scope: core
+    ideas: [FUNC, EQUIV]
+    topics:
+      - n: 1
+        title: Compose functions and find inverses (+)
+        los:
+          - { id: A, std: F-BF.A.1c, do: "(+) Compose functions, e.g. T(h(t)) for the temperature at the location of a weather balloon at time t.", ek: ["(f∘g)(x) = f(g(x)); its domain is the x in g's domain with g(x) in f's domain."], p: [MP4, MP7], drills: [], needs: [MH-5.3.A] }
+          - { id: B, std: F-BF.B.4b, do: "(+) Verify by composition that one function is the inverse of another.", ek: ["f and g are inverses when f(g(x)) = x and g(f(x)) = x on their domains."], p: [MP3], drills: [], needs: [MH-16.1.A, MH-5.3.D] }
+          - { id: C, std: F-BF.B.4c, do: "(+) Read values of an inverse function from a graph or a table, given that the function has an inverse.", ek: ["(a, b) on f ⇔ (b, a) on f⁻¹; the graph of f⁻¹ is f reflected in y = x."], p: [MP2], drills: [], needs: [MH-16.1.B] }
+          - { id: D, std: F-BF.B.4d, do: "(+) Produce an invertible function from a non-invertible function by restricting the domain.", ek: ["Restrict to an interval where f is one-to-one (passes the horizontal line test), e.g. x² on x ≥ 0."], p: [MP7], drills: [], needs: [MH-16.1.C, MH-5.3.C] }
+      - n: 2
+        title: Logarithms as inverses of exponentials (+)
+        los:
+          - { id: A, std: F-BF.B.5, do: "(+) Use the inverse relationship between exponents and logarithms to derive and apply the product, quotient, power and change-of-base rules.", ek: ["log(xy) = log x + log y; log(x/y) = log x − log y; log(x^p) = p log x; log_b x = ln x / ln b."], p: [MP3, MP7], drills: [], needs: [MH-16.1.B, MH-14.1.A] }
+          - { id: B, std: F-BF.B.5, do: "(+) Solve exponential and logarithmic equations, rejecting solutions outside the logarithm's domain.", ek: ["Condense to one log, then exponentiate; log_b of a non-positive number is undefined."], p: [MP6, MP7], drills: [], needs: [MH-16.2.A] }
+      - n: 3
+        title: Rational functions (+)
+        los:
+          - { id: A, std: F-IF.C.7d, do: "(+) Graph a rational function, identifying zeros, vertical asymptotes, holes and end behaviour.", ek: ["Zeros from the reduced numerator; vertical asymptotes where the reduced denominator is 0; horizontal or slant asymptote from the degrees."], p: [MP5, MP7], drills: [], needs: [MH-12.5.A, MH-12.3.B] }
+
+  # ── 17 ───────────────────────────────────────────────────────────────────
+  - id: precalc-trig
+    n: 17
+    course: Precalculus
+    title: Trigonometric functions, inverses and identities
+    scope: core
+    ideas: [FUNC, XFORM]
+    topics:
+      - n: 1
+        title: Exact values, symmetry and graphs (+)
+        los:
+          - { id: A, std: F-TF.A.3, do: "(+) Use 30-60-90 and 45-45-90 triangles to find exact sine, cosine and tangent of π/6, π/4, π/3, and the unit circle to extend them to π − x, π + x and 2π − x.", ek: ["sin(π/6) = 1/2, sin(π/4) = √2/2, sin(π/3) = √3/2; the reference angle and quadrant give the rest."], p: [MP7], drills: [], needs: [MH-13.1.B, MH-7.3.A] }
+          - { id: B, std: F-TF.A.4, do: "(+) Use the unit circle to explain the symmetry (odd and even) and periodicity of the trigonometric functions.", ek: ["cos(−x) = cos x (even), sin(−x) = −sin x (odd); period 2π for sin and cos, π for tan."], p: [MP3, MP7], drills: [], needs: [MH-17.1.A, MH-5.3.C] }
+          - { id: C, std: F-IF.C.7e, do: "Graph sine, cosine and tangent functions, showing period, midline, amplitude and (for tangent) asymptotes.", ek: ["tan x = sin x / cos x has vertical asymptotes where cos x = 0."], p: [MP5, MP6], drills: [], needs: [MH-17.1.B, MH-13.2.A] }
+      - n: 2
+        title: Inverse trigonometric functions (+)
+        los:
+          - { id: A, std: F-TF.B.6, do: "(+) Restrict a trigonometric function to a domain on which it is always increasing or always decreasing so that its inverse can be constructed.", ek: ["arcsin on [−π/2, π/2], arccos on [0, π], arctan on (−π/2, π/2)."], p: [MP7], drills: [], needs: [MH-17.1.C, MH-16.1.D] }
+          - { id: B, std: F-TF.B.7, do: "(+) Use inverse functions to solve trigonometric equations that arise in modeling contexts, evaluate the solutions with technology, and interpret them.", ek: ["sin x = c has two solutions per period: arcsin c and π − arcsin c, plus multiples of 2π."], p: [MP4, MP5], drills: [], needs: [MH-17.2.A, MH-13.2.A] }
+      - n: 3
+        title: Addition formulas (+)
+        los:
+          - { id: A, std: F-TF.C.9, do: "(+) Prove the addition and subtraction formulas for sine, cosine and tangent.", ek: ["cos(α − β) = cos α cos β + sin α sin β, from the distance between two points on the unit circle."], p: [MP3], drills: [], needs: [MH-13.3.A, MH-9.1.D] }
+          - { id: B, std: F-TF.C.9, do: "(+) Use the addition formulas, and the double-angle formulas they give, to find exact values and simplify expressions.", ek: ["sin 2θ = 2 sin θ cos θ; cos 2θ = cos²θ − sin²θ; e.g. sin 75° = sin(45° + 30°)."], p: [MP7], drills: [], needs: [MH-17.3.A, MH-17.1.A] }
+
+  # ── 18 ───────────────────────────────────────────────────────────────────
+  - id: precalc-complex-plane
+    n: 18
+    course: Precalculus
+    title: Complex numbers in the plane
+    scope: core
+    ideas: [NUM, XFORM]
+    topics:
+      - n: 1
+        title: Represent complex numbers and their operations on the complex plane (+)
+        los:
+          - { id: A, std: N-CN.A.3, do: "(+) Find the conjugate of a complex number, and use conjugates to find moduli and quotients.", ek: ["z·z̄ = |z|² = a² + b²; to divide, multiply top and bottom by the conjugate of the denominator."], p: [MP7], drills: [], needs: [MH-12.1.B] }
+          - { id: B, std: N-CN.B.4, do: "(+) Represent complex numbers on the complex plane in rectangular and polar form, and convert between the two forms.", ek: ["a + bi = r(cos θ + i sin θ), r = √(a² + b²), tan θ = b/a with the quadrant checked."], p: [MP6, MP7], drills: [euler-polar, euler-rect], needs: [MH-18.1.A, MH-17.1.A] }
+          - { id: C, std: N-CN.B.5, do: "(+) Represent addition, subtraction, multiplication and conjugation geometrically on the complex plane, e.g. (−1 + √3 i)³ = 8 because it has modulus 2 and argument 120°.", ek: ["Multiplying complex numbers multiplies moduli and adds arguments; conjugation reflects in the real axis."], p: [MP7], drills: ["~euler-demoivre"], needs: [MH-18.1.B, MH-17.3.A] }
+          - { id: D, std: N-CN.B.6, do: "(+) Calculate the distance between numbers in the complex plane as the modulus of the difference, and the midpoint of a segment as the average of its endpoints.", ek: ["|z − w| is the distance formula in disguise."], p: [MP7], drills: [], needs: [MH-18.1.B, MH-9.1.D] }
+
+  # ── 19 ───────────────────────────────────────────────────────────────────
+  - id: precalc-vectors-matrices
+    n: 19
+    course: Precalculus
+    title: Vectors and matrices
+    scope: core
+    ideas: [NUM, XFORM]
+    topics:
+      - n: 1
+        title: Represent and model with vector quantities (+)
+        los:
+          - { id: A, std: N-VM.A.1, do: "(+) Recognise vector quantities as having both magnitude and direction, represent them by directed line segments, and use notation such as v, |v| and ‖v‖.", ek: ["Velocity, force and displacement are vectors; speed and mass are scalars."], p: [MP6], drills: [] }
+          - { id: B, std: N-VM.A.2, do: "(+) Find the components of a vector by subtracting the coordinates of its initial point from those of its terminal point.", ek: ["From P(x₁, y₁) to Q(x₂, y₂): ⟨x₂ − x₁, y₂ − y₁⟩, magnitude by the distance formula."], p: [MP6], drills: [], needs: [MH-19.1.A, MH-9.1.D] }
+      - n: 2
+        title: Perform operations on vectors (+)
+        los:
+          - { id: A, std: N-VM.B.4a, do: "(+) Add vectors end-to-end, component-wise and by the parallelogram rule.", ek: ["The magnitude of a sum is usually not the sum of the magnitudes."], p: [MP5, MP7], drills: [], needs: [MH-19.1.B] }
+          - { id: B, std: N-VM.B.4b, do: "(+) Given two vectors in magnitude-and-direction form, find the magnitude and direction of their sum.", ek: ["Convert each to components (|v|cos θ, |v|sin θ), add, convert back with √ and arctan."], p: [MP6], drills: [], needs: [MH-19.2.A, MH-7.5.B] }
+          - { id: C, std: N-VM.B.4c, do: "(+) Subtract vectors, defining v − w as v + (−w), and represent the difference graphically by connecting the tips.", ek: ["−w has the same length as w and the opposite direction."], p: [MP7], drills: [], needs: [MH-19.2.A] }
+          - { id: D, std: N-VM.B.5a, do: "(+) Multiply a vector by a scalar graphically and component-wise.", ek: ["c⟨vx, vy⟩ = ⟨cvx, cvy⟩."], p: [MP7], drills: [], needs: [MH-19.2.A] }
+          - { id: E, std: N-VM.B.5b, do: "(+) Compute the magnitude of a scalar multiple cv as |c|·‖v‖ and give its direction.", ek: ["cv points along v if c > 0 and against it if c < 0."], p: [MP6], drills: [], needs: [MH-19.2.D] }
+      - n: 3
+        title: Solve problems with vectors (+)
+        los:
+          - { id: A, std: N-VM.A.3, do: "(+) Solve problems involving velocity and other quantities that can be represented by vectors, e.g. a plane's ground velocity in a crosswind.", ek: ["Resultant = vector sum of the contributions; resolve into components to add."], p: [MP4], drills: [], needs: [MH-19.2.B] }
+      - n: 4
+        title: Perform operations on matrices and use matrices in applications (+)
+        los:
+          - { id: A, std: N-VM.C.6, do: "(+) Use matrices to represent and manipulate data, e.g. payoffs or incidence relationships in a network.", ek: ["Entry (i, j) records the relationship of row item i to column item j."], p: [MP4], drills: [] }
+          - { id: B, std: N-VM.C.7, do: "(+) Multiply a matrix by a scalar to produce a new matrix, e.g. when all of the payoffs in a game are doubled.", ek: ["cA multiplies every entry by c."], p: [MP6], drills: [], needs: [MH-19.4.A] }
+          - { id: C, std: N-VM.C.8, do: "(+) Add, subtract and multiply matrices of appropriate dimensions.", ek: ["(m×n)(n×p) = m×p; entry (i, j) = row i of the first · column j of the second."], p: [MP6], drills: [], needs: [MH-19.4.B] }
+          - { id: D, std: N-VM.C.9, do: "(+) Show that multiplication of square matrices is not commutative but is associative and distributive.", ek: ["AB ≠ BA in general; one 2×2 counterexample proves it."], p: [MP3], drills: [], needs: [MH-19.4.C] }
+          - { id: E, std: N-VM.C.10, do: "(+) Explain the roles of the zero and identity matrices, and that a square matrix has a multiplicative inverse exactly when its determinant is nonzero.", ek: ["det [[a, b], [c, d]] = ad − bc; AI = IA = A; A + 0 = A."], p: [MP3, MP7], drills: ["~la-det"], needs: [MH-19.4.D] }
+          - { id: F, std: N-VM.C.11, do: "(+) Multiply a vector (as a one-column matrix) by a matrix of suitable dimensions to produce another vector.", ek: ["Av is a combination of A's columns weighted by v's entries."], p: [MP7], drills: [], needs: [MH-19.4.C, MH-19.2.D] }
+          - { id: G, std: N-VM.C.12, do: "(+) Work with 2×2 matrices as transformations of the plane, and interpret the absolute value of the determinant as an area scale factor.", ek: ["The columns of A are the images of (1, 0) and (0, 1); area scales by |det A|."], p: [MP7, MP2], drills: [], needs: [MH-19.4.F, MH-19.4.E, MH-6.1.E] }
+      - n: 5
+        title: Solve systems of linear equations with matrices (+)
+        los:
+          - { id: A, std: A-REI.C.8, do: "(+) Represent a system of linear equations as a single matrix equation Ax = b in a vector variable.", ek: ["Rows of A hold the coefficients, x the unknowns, b the constants."], p: [MP7], drills: ["~la-system"], needs: [MH-19.4.F, MH-2.7.B] }
+          - { id: B, std: A-REI.C.9, do: "(+) Find the inverse of a matrix if it exists and use it to solve a system of linear equations (technology for 3×3 or larger).", ek: ["For 2×2, A⁻¹ = (1/det A)[[d, −b], [−c, a]]; then x = A⁻¹b."], p: [MP5, MP6], drills: [la-inverse], needs: [MH-19.5.A, MH-19.4.E] }
+
+  # ── 20 ───────────────────────────────────────────────────────────────────
+  - id: precalc-conics-solids
+    n: 20
+    course: Precalculus
+    title: Conic sections and Cavalieri's principle
+    scope: core
+    ideas: [XFORM, EQUIV]
+    topics:
+      - n: 1
+        title: Ellipses, hyperbolas and the volume of a sphere (+)
+        los:
+          - { id: A, std: G-GPE.A.3, do: "(+) Derive the equations of ellipses and hyperbolas given the foci, using the fact that the sum or difference of distances from the foci is constant.", ek: ["Ellipse x²/a² + y²/b² = 1 with c² = a² − b²; hyperbola x²/a² − y²/b² = 1 with c² = a² + b²."], p: [MP3, MP7], drills: [], needs: [MH-9.2.A, MH-10.3.A] }
+          - { id: B, std: G-GMD.A.2, do: "(+) Give an informal argument using Cavalieri's principle for the formulas for the volume of a sphere and other solid figures.", ek: ["Solids with equal cross-sectional areas at every height have equal volumes."], p: [MP3], drills: [], needs: [MH-8.1.A] }
+
+  # ── 21 ───────────────────────────────────────────────────────────────────
+  - id: precalc-expected-value
+    n: 21
+    course: Precalculus
+    title: Expected value and decisions
+    scope: extension
+    ideas: [DATA, MODEL]
+    topics:
+      - n: 1
+        title: Calculate expected values and use them to solve problems (+)
+        los:
+          - { id: A, std: S-MD.A.1, do: "(+) Define a random variable for a quantity of interest by assigning a numerical value to each event in a sample space, and graph its probability distribution.", ek: ["A probability distribution lists each value with its probability; the probabilities sum to 1."], p: [MP4, MP6], drills: [], needs: [MH-11.1.A] }
+          - { id: B, std: S-MD.A.2, do: "(+) Calculate the expected value of a random variable and interpret it as the mean of the probability distribution.", ek: ["E[X] = Σ x·P(X = x)."], p: [MP6], drills: [], needs: [MH-21.1.A] }
+          - { id: C, std: S-MD.A.3, do: "(+) Develop a theoretical probability distribution and find the expected value, e.g. the number of correct answers from guessing on a multiple-choice test.", ek: ["Binomial: P(X = k) = C(n, k)p^k(1 − p)^(n−k), E[X] = np."], p: [MP4, MP7], drills: ["~sm-binom"], needs: [MH-21.1.B, MH-11.2.D] }
+          - { id: D, std: S-MD.A.4, do: "(+) Develop an empirical probability distribution from observed frequencies and find the expected value.", ek: ["Use relative frequencies as the probabilities."], p: [MP4], drills: [], needs: [MH-21.1.B] }
+      - n: 2
+        title: Use probability to evaluate outcomes of decisions (+)
+        los:
+          - { id: A, std: S-MD.B.5a, do: "(+) Find the expected payoff for a game of chance, e.g. a state lottery ticket or a fast-food prize game.", ek: ["Expected payoff = Σ payoff × probability − cost."], p: [MP4], drills: [], needs: [MH-21.1.B] }
+          - { id: B, std: S-MD.B.5b, do: "(+) Evaluate and compare strategies on the basis of expected values, e.g. a high-deductible versus a low-deductible insurance policy.", ek: ["Choose the option with the better expected value, then weigh the spread of outcomes."], p: [MP4, MP3], drills: [], needs: [MH-21.2.A] }
