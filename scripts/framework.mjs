@@ -2,8 +2,13 @@
 // Checks: unique ids, practices / big ideas exist, every drill names a real template, every
 // `needs` prerequisite names a real LO in any framework, and which templates of the
 // framework's `domains` no LO uses yet.
-//   node scripts/framework.mjs            all frameworks
+//   node scripts/framework.mjs            all frameworks, plus the start-to-finish path
 //   node scripts/framework.mjs <id>       one
+//
+// The path (docs/frameworks/PATH.md, path.json): frameworks in `requires` order (a framework
+// comes after every framework it requires), units by n, LOs in file order. Like Khan, it starts
+// at the first foundation objective and every later objective's prerequisites come before it;
+// a `needs` that points forward along the path is reported as an order error.
 import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
@@ -86,7 +91,7 @@ for (const u of fw.units) {
     const book = Object.entries(t.book ?? {}).map(([b, s]) => `${b} §${s.join(", §")}`).join("; ");
     md += `\n### ${u.n}.${t.n} ${t.title}\n\n${book ? `Book: ${book}` : ""}${t.fe?.length ? ` · FE: ${t.fe.join(", ")}` : ""}\n\n`;
     for (const r of rows.filter((x) => x.topic === t)) {
-      md += `- ${mark[r.status]} **${r.code}** ${r.lo.do}\n`;
+      md += `- ${mark[r.status]} **${r.code}**${r.lo.std ? ` (${[].concat(r.lo.std).join(", ")})` : ""} ${r.lo.do}\n`;
       for (const e of r.lo.ek ?? []) md += `  - EK: ${e}\n`;
       if (r.lo.needs?.length) md += `  - Needs: ${r.lo.needs.join(", ")}\n`;
       md += `  - ${r.lo.p.join(" · ")}${r.full.length || r.partial.length ? ` · drills: ${[...r.full, ...r.partial.map((x) => `~${x}`)].join(", ")}` : ""}\n`;
@@ -103,5 +108,45 @@ fs.writeFileSync(
   JSON.stringify({ ...fw, rows: rows.map((r) => ({ code: r.code, unit: r.unit.n, topic: r.topic.n, status: r.status, full: r.full, partial: r.partial })), orphanTpl }, null, 1)
 );
 console.log(`${fw.title}: ${rows.length} LOs (${core.length} core) — ${count(rows, "ok")} drilled, ${count(rows, "partial")} partly, ${count(rows, "gap")} gaps; ${orphanTpl.length} unplaced templates -> docs/frameworks/${id}.md`);
+}
+
+// ── the start-to-finish path ─────────────────────────────────────────────────
+if (!process.argv[2] && !failed) {
+  const ids = Object.keys(all);
+  const missing = [];
+  for (const id of ids) for (const r of all[id].requires ?? []) if (!all[r]) missing.push(`${id} requires ${r}, which isn't written yet`);
+  // Kahn's algorithm; ties broken by track order, then the order frameworks were listed in TRACKS
+  const TRACKS = ["math", "science", "computing", "engineering", "health", "safety", "communication", "athletics"];
+  const rank = (id) => [TRACKS.indexOf(all[id].track ?? "zz") === -1 ? 99 : TRACKS.indexOf(all[id].track), all[id].level ?? 0, id];
+  const cmp = (a, b) => { const x = rank(a), y = rank(b); return x[0] - y[0] || x[1] - y[1] || String(x[2]).localeCompare(String(y[2])); };
+  const indeg = Object.fromEntries(ids.map((id) => [id, (all[id].requires ?? []).filter((r) => all[r]).length]));
+  const order = [];
+  let ready = ids.filter((id) => indeg[id] === 0).sort(cmp);
+  while (ready.length) {
+    const id = ready.shift();
+    order.push(id);
+    for (const j of ids) if ((all[j].requires ?? []).includes(id) && --indeg[j] === 0) ready = [...ready, j].sort(cmp);
+  }
+  const cyclic = ids.filter((id) => !order.includes(id));
+  const pos = new Map();
+  const seq = [];
+  for (const id of order) for (const u of all[id].units) for (const t of u.topics) for (const lo of t.los) {
+    const code = `${all[id].code}-${u.n}.${t.n}.${lo.id}`;
+    pos.set(code, seq.length);
+    seq.push({ code, fw: id, unit: u.n, scope: u.scope, needs: lo.needs ?? [] });
+  }
+  const forward = seq.filter((x) => x.needs.some((n) => pos.has(n) && pos.get(n) > pos.get(x.code))).map((x) => `${x.code} needs ${x.needs.filter((n) => pos.get(n) > pos.get(x.code)).join(", ")}, which comes later`);
+  let md = `# The path — start to finish\n\nEvery framework in \`requires\` order; inside each, units in order and objectives in order. ${seq.length} objectives in ${order.length} frameworks.\n\n`;
+  md += `| # | Framework | Track | Requires | LOs | Path position |\n|---|---|---|---|---|---|\n`;
+  order.forEach((id, i) => {
+    const mine = seq.filter((x) => x.fw === id);
+    md += `| ${i + 1} | ${all[id].title} | ${all[id].track ?? "—"} | ${(all[id].requires ?? []).join(", ") || "—"} | ${mine.length} | ${pos.get(mine[0].code) + 1}–${pos.get(mine[mine.length - 1].code) + 1} |\n`;
+  });
+  if (missing.length) md += `\n## Not written yet\n\n${missing.map((m) => `- ${m}`).join("\n")}\n`;
+  if (cyclic.length) md += `\n## Cycle in requires\n\n${cyclic.join(", ")}\n`;
+  if (forward.length) md += `\n## Order problems (a prerequisite comes after the objective)\n\n${forward.map((m) => `- ${m}`).join("\n")}\n`;
+  fs.writeFileSync(path.join(root, "docs/frameworks/PATH.md"), md);
+  fs.writeFileSync(path.join(root, "docs/frameworks/path.json"), JSON.stringify({ frameworks: order, objectives: seq.map((x) => x.code) }));
+  console.log(`path: ${seq.length} objectives in ${order.length} frameworks; ${missing.length} missing requires, ${cyclic.length} in cycles, ${forward.length} order problems -> docs/frameworks/PATH.md`);
 }
 if (failed) process.exit(1);
