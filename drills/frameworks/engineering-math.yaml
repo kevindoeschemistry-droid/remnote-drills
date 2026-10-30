@@ -1,0 +1,508 @@
+# Applied Engineering Mathematics — curriculum framework (draft 1, for Kevin's markup)
+#
+# Built like an AP Course and Exam Description: Big Ideas run through the subject,
+# Units → Topics → Learning Objectives (one testable action each, verb first), with the
+# Essential Knowledge an LO rests on and the Practices it exercises. Textbooks, courses and
+# exams are crosswalks onto this map, never the backbone.
+#
+# Standards it's built from:
+#   cbe200  UCI CBE 200 Applied Engineering Mathematics I (4 units), catalogue: "analytical
+#           techniques applied to engineering problems in transport phenomena, process
+#           dynamics and control, and thermodynamics." No public syllabus found; taught by
+#           Elizabeth Read as an ODEs course from Kreyszig 10e.
+#           https://catalogue.uci.edu/allcourses/cbe/
+#   kreyszig Kreyszig, Advanced Engineering Mathematics 10e (Wiley, 2011), Parts A–C
+#           (Ch 1–12) table of contents; section → skill map in drills/sources/kreyszig-10e.yaml
+#           https://www.oreilly.com/library/view/advanced-engineering-mathematics/9780470458365/
+#           https://www.wileyindia.com/wileyproductpdf/download/pdf/id/256/
+#   mit1803 MIT 18.03 Differential Equations, "Ten Essential Skills" (Spring 2010): model as
+#           1st-order ODE + direction fields + Euler · integrating factors · complex
+#           exponentials · 2nd-order constant-coefficient IVPs, gain and phase · Fourier
+#           series periodic solutions · delta, impulse response, convolution · Laplace,
+#           transfer function, poles · eigenvalues, matrix exponential, systems · phase
+#           portrait from trace and determinant · nonlinear critical points
+#           https://ocw.mit.edu/courses/mathematics/18-03-differential-equations-spring-2010/syllabus/MIT18_03S10_skills.pdf
+#   cbe605  SDSMT CBE 605 Applied Engineering Mathematics (ChemE graduate, Greenberg text):
+#           outcomes "explain what mathematical models are… simplify DEs so they can be
+#           solved using eigenfunction expansions… physically relevant simplifications…
+#           vectors and tensors"; topics: linear spaces/operators, eigenvalue problem, ODEs,
+#           phase plane, perturbation, PDEs by separation and transforms, Green's functions
+#           https://webpages.sdsmt.edu/~twalker/pdfs/syllabi/2020f_cbe605_syllabus.pdf
+#
+# Unit order follows how the subject is taught (first-order → second-order → higher order
+# → systems → series → Laplace → linear algebra as needed → Fourier/BVP/S–L → PDEs), not
+# Kreyszig's chapter numbers. Unit 1 is the calculus toolkit the ODE methods lean on.
+#
+# Fields
+#   units[].scope     core (what CBE 200 covers) or extension (rest of the subject)
+#   units[].ideas     Big Ideas the unit develops
+#   units[].weight_est rough share of a 10-week ODE course — an estimate, not a published spec
+#   topics[].book     crosswalk: kreyszig-10e sections
+#   los[].do          the objective; los[].ek essential knowledge; los[].p practices
+#   los[].needs       prerequisite LOs in this framework
+#   los[].drills      templates that drill it; "~name" = only partly (one variant, or a
+#                     neighbouring skill). No drills = a gap you can't be drilled on yet.
+id: engineering-math
+title: Applied Engineering Mathematics
+code: EM
+draft: 1
+domains: [calc, la, ode1, ode2, odesys, series, laplace, bvp, pde]
+
+big_ideas:
+  - id: MODEL
+    title: Equations come from balances
+    text: A rate of change equals inflow minus outflow plus generation; the ODE or PDE, its initial and boundary conditions, and its parameters all come from the physical system, and its answer must make physical sense.
+  - id: FORM
+    title: The form of the equation picks the method
+    text: Order, linearity, coefficients (constant, Euler–Cauchy, analytic, singular) and forcing decide which technique works. Classify before you compute.
+  - id: LIN
+    title: Linear problems superpose
+    text: Solutions of a linear homogeneous equation form a vector space; general solution = homogeneous basis + one particular solution, and independence (Wronskian, determinant) says when a basis is complete.
+  - id: EIG
+    title: Eigenvalues decouple linear problems
+    text: Characteristic roots, matrix eigenvalues and Sturm–Liouville eigenvalues are one idea — find the modes, and each evolves on its own; their signs and imaginary parts set growth, decay, oscillation and stability.
+  - id: TRANS
+    title: Change the representation to simplify
+    text: Substitutions, power series, Laplace transforms and eigenfunction (Fourier) expansions turn a hard problem into algebra or a recurrence, solved there and transformed back.
+
+practices:
+  - id: P1
+    title: Model the system
+    text: Translate a physical description into a differential equation with initial or boundary conditions; name the variables, parameters and units.
+  - id: P2
+    title: Classify the equation
+    text: State order, linearity, homogeneity, coefficient type, singular points or boundary type, and choose the method that fits.
+  - id: P3
+    title: Execute the method
+    text: Carry out the integration, algebra, recurrence, transform or eigen-decomposition without dropping terms or constants.
+  - id: P4
+    title: Impose conditions
+    text: Apply initial or boundary conditions to fix constants, eigenvalues or coefficients; keep the general solution until the end.
+  - id: P5
+    title: Check the answer
+    text: Substitute back, test limiting cases and t → ∞ behaviour, confirm independence and that the solution satisfies every condition.
+  - id: P6
+    title: Interpret qualitatively
+    text: Read stability, time constants, resonance and long-time behaviour off the roots or eigenvalues; sketch solutions and phase portraits; predict how a parameter change moves them.
+
+units:
+  # ── 1 ────────────────────────────────────────────────────────────────────
+  - id: toolkit
+    n: 1
+    title: The calculus and complex-number toolkit
+    scope: core
+    ideas: [FORM, TRANS]
+    weight_est: "review"
+    topics:
+      - n: 1
+        title: Integration techniques
+        book: { kreyszig-10e: ["1.3", "1.5", "6.4"] }
+        los:
+          - { id: A, do: "Evaluate an integral by u-substitution, choosing u so its derivative appears in the integrand.", ek: ["∫f(g(x))g′(x)dx = ∫f(u)du; a missing constant factor is fine, a missing x is not."], p: [P3], drills: [usub-poly, usub-exp, usub-trig, usub-log, usub-ratio, usub-linear] }
+          - { id: B, do: "Evaluate an integral by parts, including tabular and cyclic (e^ax·trig) cases.", ek: ["∫u dv = uv − ∫v du; LIATE picks u; cyclic integrals return to themselves and are solved algebraically."], p: [P3], drills: [parts-x-exp, parts-x-trig, parts-x-log, parts-tabular, parts-exp-trig, parts-inverse] }
+          - { id: C, do: "Decompose a rational function into partial fractions (distinct, repeated, irreducible quadratic, improper) and integrate it.", ek: ["Divide first if improper; repeated factor (x−a)^k needs k terms; irreducible quadratic gets (Ax+B)."], p: [P3], drills: [pf-distinct, pf-repeated, pf-three, pf-irreducible, pf-improper, pf-coeffs] }
+      - n: 2
+        title: Complex numbers and Euler's formula
+        book: { kreyszig-10e: ["2.2", "13.1", "13.2", "13.5"] }
+        los:
+          - { id: A, do: "Convert complex numbers between rectangular, polar and exponential form.", ek: ["e^(iθ) = cos θ + i sin θ; z = re^(iθ), r = |z|, θ = arg z."], p: [P3], drills: [euler-rect, euler-polar, euler-re-im] }
+          - { id: B, do: "Compute powers and roots of a complex number with De Moivre's formula.", ek: ["(re^(iθ))^n = r^n e^(inθ); n distinct n-th roots spaced 2π/n apart."], p: [P3], drills: [euler-demoivre] }
+          - { id: C, do: "Find the complex roots α ± βi of a real quadratic.", ek: ["Complex roots of real polynomials come in conjugate pairs; α = −b/2a, β = √(4ac − b²)/2a."], p: [P3], drills: [euler-quad-roots] }
+      - n: 3
+        title: Summation notation
+        book: { kreyszig-10e: ["5.1"] }
+        los:
+          - { id: A, do: "Shift a summation index so two power series start at the same index and carry the same power of x.", ek: ["Replace m by m ± k and adjust the limits; the sum is unchanged."], p: [P3], drills: [sigma-shift-down, sigma-shift-up, sigma-prefactor, sigma-derivative, sigma-combine] }
+      - n: 4
+        title: Partial derivatives and exact differentials
+        book: { kreyszig-10e: ["1.4", "9.6"] }
+        los:
+          - { id: A, do: "Compute first and mixed partial derivatives of a function of two variables.", ek: ["Hold the other variable constant; for smooth functions u_xy = u_yx."], p: [P3], drills: [mv-partial, mv-mixed] }
+          - { id: B, do: "Find dy/dx for a curve defined implicitly by F(x, y) = c.", ek: ["dy/dx = −F_x / F_y."], p: [P3], drills: [mv-implicit] }
+          - { id: C, do: "Test whether M dx + N dy is an exact differential.", ek: ["Exact on a simply connected domain ⇔ ∂M/∂y = ∂N/∂x."], p: [P2], drills: [mv-exact-test] }
+
+  # ── 2 ────────────────────────────────────────────────────────────────────
+  - id: first-order
+    n: 2
+    title: First-order ODEs
+    scope: core
+    ideas: [MODEL, FORM, TRANS]
+    weight_est: "15–20%"
+    topics:
+      - n: 1
+        title: Basic concepts, direction fields and Euler's method
+        book: { kreyszig-10e: ["1.1", "1.2"] }
+        los:
+          - { id: A, do: "Classify an ODE by order and linearity, and verify that a given function solves it.", ek: ["Order = highest derivative; linear ⇔ y and its derivatives appear to first power with coefficients in x only."], p: [P2, P5], drills: [] }
+          - { id: B, do: "Sketch a direction field and solution curves from isoclines of y′ = f(x, y).", ek: ["Isocline f(x, y) = k has slope k everywhere; solution curves are tangent to the field."], p: [P6], drills: [] }
+          - { id: C, do: "Approximate an IVP solution with a few steps of Euler's method and estimate the error trend.", ek: ["y_(n+1) = y_n + h f(x_n, y_n); global error is O(h)."], p: [P3, P5], drills: [] }
+      - n: 2
+        title: Separable equations and reducing substitutions
+        book: { kreyszig-10e: ["1.3"] }
+        los:
+          - { id: A, do: "Solve a separable ODE explicitly where possible, including the IVP constant.", ek: ["g(y)dy = f(x)dx, integrate both sides; check for lost equilibrium solutions when dividing by g."], p: [P3, P4], drills: [sep-exp-growth, sep-over-y, sep-y-squared, sep-exp-split, sep-over-y2], needs: [EM-1.1.A, EM-1.1.C] }
+          - { id: B, do: "Reduce an ODE to separable form with u = y/x or u = ax + by + c, and solve it.", ek: ["y′ = f(y/x): y = ux ⇒ u + xu′ = f(u); y′ = f(ax + by + c): u′ = a + bf(u)."], p: [P2, P3], drills: [sub-ratio, sub-square, sub-exp, sub-linear-square, sub-arctan], needs: [EM-2.2.A] }
+      - n: 3
+        title: Exact equations and integrating factors
+        book: { kreyszig-10e: ["1.4"] }
+        los:
+          - { id: A, do: "Solve an exact ODE by finding the potential u(x, y) = c, and fit an IVP.", ek: ["u_x = M, u_y = N; integrate one, differentiate, match the other."], p: [P3, P4], drills: [exact-poly, exact-trans, exact-exy, exact-ivp], needs: [EM-1.4.C] }
+          - { id: B, do: "Decide whether an integrating factor depending only on x or only on y exists.", ek: ["R = (M_y − N_x)/N a function of x alone ⇒ F(x) = exp∫R dx; R* = (N_x − M_y)/M of y alone ⇒ F(y)."], p: [P2], drills: [if-test] }
+          - { id: C, do: "Find the integrating factor and solve the resulting exact equation.", ek: ["Multiply by F, re-check exactness, then solve as exact."], p: [P3], drills: [if-factor-x, if-factor-y, if-solve], needs: [EM-2.3.A, EM-2.3.B] }
+      - n: 4
+        title: Linear and Bernoulli equations
+        book: { kreyszig-10e: ["1.5"] }
+        los:
+          - { id: A, do: "Solve a linear first-order ODE with an integrating factor, including IVPs and forcing that matches e^(−∫p).", ek: ["y′ + py = r ⇒ y = e^(−h)[∫e^h r dx + c], h = ∫p dx."], p: [P3, P4], drills: [lin-exp, lin-const, lin-power, lin-gauss, lin-trig, lin-resonant], needs: [EM-1.1.A] }
+          - { id: B, do: "Solve a linear ODE whose integrating-factor integral needs integration by parts.", ek: ["∫e^h r dx often pairs a polynomial or trig with an exponential."], p: [P3], drills: [ibp-poly, ibp-over-x-trig, ibp-over-x-exp, ibp-x-exp, ibp-trig-exp, ibp-power-exp], needs: [EM-2.4.A, EM-1.1.B] }
+          - { id: C, do: "Reduce a Bernoulli equation to a linear one with u = y^(1−a) and solve it.", ek: ["y′ + py = g y^a ⇒ u′ + (1−a)p u = (1−a)g."], p: [P2, P3], drills: [bern-const, bern-power, bern-exp], needs: [EM-2.4.A] }
+      - n: 5
+        title: Choosing a first-order method
+        book: { kreyszig-10e: ["1.3", "1.4", "1.5"] }
+        los:
+          - { id: A, do: "Identify which first-order method (separable, substitution, linear, Bernoulli, exact) solves a given ODE.", ek: ["Check in order: separable? linear in y? y^a term? exact? homogeneous in y/x?"], p: [P2], drills: [recog-separable, recog-substitution, recog-linear, recog-bernoulli, recog-exact] }
+      - n: 6
+        title: Modeling with first-order ODEs
+        book: { kreyszig-10e: ["1.3", "1.5"] }
+        los:
+          - { id: A, do: "Set up and solve a mixing-tank balance for concentration or mass of solute.", ek: ["dm/dt = (rate in) − (rate out), rate out = (m/V)·Q_out."], p: [P1, P3], drills: [model-mixing] }
+          - { id: B, do: "Model Newton's cooling and first-order decay, and extract a time constant, half-life or time to reach a value.", ek: ["dT/dt = −k(T − T_a); y = y_0 e^(−kt), t_1/2 = ln 2/k."], p: [P1, P6], drills: [model-cooling, model-decay] }
+          - { id: C, do: "Solve the logistic equation and find its equilibria and carrying capacity.", ek: ["y′ = ky(1 − y/K) is separable and Bernoulli; y → K for y_0 > 0."], p: [P1, P6], drills: [model-logistic] }
+          - { id: D, do: "Find and classify the equilibria of an autonomous ODE y′ = f(y) from a phase line.", ek: ["f(y*) = 0; stable if f′(y*) < 0."], p: [P6], drills: [] }
+      - n: 7
+        title: Existence and uniqueness
+        book: { kreyszig-10e: ["1.7"] }
+        los:
+          - { id: A, do: "Decide whether an IVP has a unique solution near the initial point from the continuity of f and ∂f/∂y.", ek: ["f and f_y continuous on a rectangle around (x_0, y_0) ⇒ unique solution on some |x − x_0| < α."], p: [P2], drills: [] }
+
+  # ── 3 ────────────────────────────────────────────────────────────────────
+  - id: second-order
+    n: 3
+    title: Second-order linear ODEs
+    scope: core
+    ideas: [LIN, EIG, FORM, MODEL]
+    weight_est: "20–25%"
+    topics:
+      - n: 1
+        title: Homogeneous theory, reduction of order and the Wronskian
+        book: { kreyszig-10e: ["2.1", "2.6"] }
+        los:
+          - { id: A, do: "Use superposition to build a general solution from a basis and fit it to an IVP.", ek: ["For a linear homogeneous ODE, any combination c_1y_1 + c_2y_2 of solutions is a solution; two independent ones form a basis."], p: [P4], drills: [] }
+          - { id: B, do: "Find a second solution from a known one by reduction of order.", ek: ["y_2 = u y_1, u′ = U = e^(−∫p dx)/y_1² (standard form y″ + py′ + qy = 0)."], p: [P3], drills: [red-euler, red-trig, red-exp, red-gauss, red-const] }
+          - { id: C, do: "Compute the Wronskian of two or three functions and use it to decide linear independence.", ek: ["W = det of the functions and their derivatives; W ≠ 0 somewhere ⇒ independent; for ODE solutions W ≡ 0 or never 0 (Abel)."], p: [P3, P5], drills: [wr-exps, wr-repeated, wr-trig, wr-damped, wr-powers, wr-log, wr-dependent] }
+      - n: 2
+        title: Constant coefficients
+        book: { kreyszig-10e: ["2.2", "2.3"] }
+        los:
+          - { id: A, do: "Write the general solution of ay″ + by′ + cy = 0 for each of the three root cases of the characteristic equation.", ek: ["Distinct real: e^(λ₁x), e^(λ₂x); double: e^(λx), xe^(λx); complex α ± iβ: e^(αx)cos βx, e^(αx)sin βx."], p: [P2, P3], drills: [char-distinct, char-repeated, char-complex], needs: [EM-1.2.C] }
+          - { id: B, do: "Solve a constant-coefficient IVP.", ek: ["Two conditions y(x_0), y′(x_0) fix c_1, c_2."], p: [P4], drills: [char-ivp], needs: [EM-3.2.A] }
+      - n: 3
+        title: Euler–Cauchy equations
+        book: { kreyszig-10e: ["2.5"] }
+        los:
+          - { id: A, do: "Find the roots of the auxiliary equation of an Euler–Cauchy ODE.", ek: ["x²y″ + axy′ + by = 0 with y = x^m ⇒ m² + (a − 1)m + b = 0."], p: [P2], drills: [ec-roots] }
+          - { id: B, do: "Write the general solution of an Euler–Cauchy ODE for each root case and fit an IVP.", ek: ["Distinct: x^(m₁), x^(m₂); double: x^m, x^m ln x; complex: x^μ cos(ν ln x), x^μ sin(ν ln x)."], p: [P3, P4], drills: [ec-distinct, ec-double, ec-complex, ec-ivp], needs: [EM-3.3.A] }
+      - n: 4
+        title: Free oscillations
+        book: { kreyszig-10e: ["2.4"] }
+        los:
+          - { id: A, do: "Find the natural frequency, period, amplitude and phase of an undamped mass–spring system.", ek: ["my″ + ky = 0 ⇒ ω₀ = √(k/m); A cos ω₀t + B sin ω₀t = C cos(ω₀t − δ), C = √(A² + B²)."], p: [P1, P6], drills: [spring-frequency, spring-amplitude-phase] }
+          - { id: B, do: "Solve an undamped oscillator IVP.", ek: ["y(0) and y′(0) give A and B/ω₀."], p: [P4], drills: [spring-undamped-ivp] }
+          - { id: C, do: "Classify a damped oscillator as over-, critically or underdamped from c² − 4mk.", ek: ["c² > 4mk overdamped, = critical, < under; underdamped frequency ω* = √(4mk − c²)/2m."], p: [P2, P6], drills: [spring-classify] }
+          - { id: D, do: "Solve a damped oscillator IVP in each damping regime.", ek: ["Same three root cases as 3.2.A, with α = −c/2m < 0 so every solution decays."], p: [P3, P4], drills: [spring-over-ivp, spring-critical-ivp, spring-under-ivp], needs: [EM-3.2.B] }
+      - n: 5
+        title: Nonhomogeneous equations
+        book: { kreyszig-10e: ["2.7", "2.10"] }
+        los:
+          - { id: A, do: "Find a particular solution by undetermined coefficients, including the modification rule.", ek: ["Guess the form of r(x) (poly, e^(γx), cos/sin); multiply by x (or x²) when the guess solves the homogeneous ODE."], p: [P2, P3], drills: [uc-poly, uc-exp, uc-trig, uc-resonance], needs: [EM-3.2.A] }
+          - { id: B, do: "Assemble y = y_h + y_p and fit an IVP for a nonhomogeneous ODE.", ek: ["Apply initial conditions to the full solution, never to y_h alone."], p: [P4], drills: [uc-general, vop-general] }
+          - { id: C, do: "Find a particular solution by variation of parameters when r(x) is not of undetermined-coefficient form or coefficients vary.", ek: ["y_p = −y₁∫y₂r/W dx + y₂∫y₁r/W dx, ODE in standard form."], p: [P3], drills: [vop-double, vop-trig, vop-euler], needs: [EM-3.1.C] }
+      - n: 6
+        title: Forced oscillations, resonance and circuits
+        book: { kreyszig-10e: ["2.8", "2.9"] }
+        los:
+          - { id: A, do: "Find the steady-state response of a damped oscillator to sinusoidal forcing and its amplitude.", ek: ["y_p = a cos ωt + b sin ωt; amplitude C*(ω) = F₀/√((k − mω²)² + c²ω²); the transient dies out."], p: [P3, P6], drills: [forced-steady, forced-amplitude] }
+          - { id: B, do: "Recognise undamped resonance and beats and write the resulting solution.", ek: ["ω = ω₀, c = 0 ⇒ t sin ω₀t growth; ω near ω₀ ⇒ beats with envelope frequency |ω − ω₀|/2."], p: [P6], drills: [forced-resonance, forced-beats] }
+          - { id: C, do: "Find the practical-resonance frequency of a damped forced oscillator.", ek: ["ω_max² = k/m − c²/2m², exists only if c² < 2mk."], p: [P6], drills: [forced-practical] }
+          - { id: D, do: "Model an RLC circuit as a second-order ODE and map it onto the mass–spring analogy.", ek: ["LI″ + RI′ + I/C = E′(t): L ↔ m, R ↔ c, 1/C ↔ k."], p: [P1], drills: [] }
+
+  # ── 4 ────────────────────────────────────────────────────────────────────
+  - id: higher-order
+    n: 4
+    title: Higher-order linear ODEs
+    scope: core
+    ideas: [LIN, EIG]
+    weight_est: "5%"
+    topics:
+      - n: 1
+        title: Homogeneous theory and constant coefficients
+        book: { kreyszig-10e: ["3.1", "3.2"] }
+        los:
+          - { id: A, do: "Test n functions for linear independence with the n×n Wronskian.", ek: ["Rows are f, f′, …, f^(n−1); expand by cofactors."], p: [P3], drills: [wr-three], needs: [EM-3.1.C, EM-8.3.A] }
+          - { id: B, do: "Find the roots of an n-th order characteristic polynomial.", ek: ["Rational root test, then synthetic division to a quadratic."], p: [P3], drills: [hi-roots] }
+          - { id: C, do: "Write the general solution of an n-th order constant-coefficient ODE with distinct, repeated and complex roots, and fit an IVP.", ek: ["A root of multiplicity k gives e^(λx), xe^(λx), …, x^(k−1)e^(λx)."], p: [P3, P4], drills: [hi-distinct, hi-repeated, hi-complex, hi-ivp], needs: [EM-4.1.B] }
+      - n: 2
+        title: Nonhomogeneous higher-order equations
+        book: { kreyszig-10e: ["3.3"] }
+        los:
+          - { id: A, do: "Find a particular solution of an n-th order ODE by undetermined coefficients or variation of parameters.", ek: ["Same modification rule; variation of parameters uses Cramer's rule with W_k/W."], p: [P3], drills: ["~uc-general"], needs: [EM-3.5.A, EM-4.1.C] }
+
+  # ── 5 ────────────────────────────────────────────────────────────────────
+  - id: systems
+    n: 5
+    title: Systems of ODEs, phase plane and stability
+    scope: core
+    ideas: [EIG, LIN, MODEL]
+    weight_est: "15–20%"
+    topics:
+      - n: 1
+        title: Systems as models
+        book: { kreyszig-10e: ["4.1", "4.2"] }
+        los:
+          - { id: A, do: "Convert an n-th order ODE into a first-order system.", ek: ["y₁ = y, y₂ = y′, …; the companion matrix's eigenvalues are the characteristic roots."], p: [P1], drills: ["~phase-ode2"] }
+          - { id: B, do: "Write the rate matrix for series first-order kinetics A → B → C.", ek: ["d[A]/dt = −k₁[A], d[B]/dt = k₁[A] − k₂[B]; C follows from mass conservation."], p: [P1], drills: [kin-matrix] }
+      - n: 2
+        title: Constant-coefficient systems by eigenvalues
+        book: { kreyszig-10e: ["4.3"] }
+        los:
+          - { id: A, do: "Find the eigenvalues and eigenvectors that give the basis solutions of y′ = Ay.", ek: ["y = x e^(λt) with (A − λI)x = 0."], p: [P3], drills: [sys-eigen], needs: [EM-8.4.A, EM-8.4.B] }
+          - { id: B, do: "Write the general solution of a 2×2 system with real distinct eigenvalues and fit an IVP.", ek: ["y = c₁x⁽¹⁾e^(λ₁t) + c₂x⁽²⁾e^(λ₂t)."], p: [P3, P4], drills: [sys-general, sys-ivp], needs: [EM-5.2.A] }
+          - { id: C, do: "Write real solutions of a 2×2 system with complex eigenvalues and fit an IVP.", ek: ["Take real and imaginary parts of x e^((α+iβ)t)."], p: [P3, P4], drills: [sys-complex, sys-complex-ivp], needs: [EM-5.2.A, EM-1.2.A] }
+          - { id: D, do: "Solve a 2×2 system with a repeated eigenvalue using a generalised eigenvector.", ek: ["Second solution x t e^(λt) + u e^(λt), (A − λI)u = x."], p: [P3], drills: [sys-repeated] }
+          - { id: E, do: "Solve series kinetics A → B → C and find the time of maximum intermediate.", ek: ["Eigenvalues −k₁, −k₂; [B] = k₁A₀(e^(−k₁t) − e^(−k₂t))/(k₂ − k₁); t_max = ln(k₁/k₂)/(k₁ − k₂), = 1/k when k₁ = k₂."], p: [P3, P6], drills: [kin-eigen, kin-B, kin-C, kin-tmax], needs: [EM-5.1.B] }
+      - n: 3
+        title: Critical points and stability
+        book: { kreyszig-10e: ["4.3", "4.4"] }
+        los:
+          - { id: A, do: "Classify the critical point of a linear 2×2 system (node, saddle, centre, spiral) from its eigenvalues or from trace and determinant.", ek: ["p = tr A, q = det A, Δ = p² − 4q: q < 0 saddle; q > 0, Δ ≥ 0 node; Δ < 0 spiral (p ≠ 0) or centre (p = 0)."], p: [P2, P6], drills: [phase-matrix, phase-equations, phase-ode2] }
+          - { id: B, do: "Decide whether a critical point is stable, asymptotically stable or unstable.", ek: ["Asymptotically stable ⇔ p < 0, q > 0; centre is stable, not asymptotically."], p: [P6], drills: [phase-stability] }
+          - { id: C, do: "Sketch a phase portrait with eigenvector directions and trajectory orientation.", ek: ["Trajectories leave along the fast-growing eigenvector and approach along the slow-decaying one."], p: [P6], drills: [] }
+      - n: 4
+        title: Nonlinear systems
+        book: { kreyszig-10e: ["4.5"] }
+        los:
+          - { id: A, do: "Find the critical points of a nonlinear autonomous system and linearise at each with the Jacobian.", ek: ["Set f = g = 0; J = [[f_x, f_y], [g_x, g_y]] at the point."], p: [P3], drills: [] }
+          - { id: B, do: "Classify each critical point of a nonlinear system from its linearisation, noting when linearisation is inconclusive.", ek: ["Hyperbolic points keep their type; a linear centre may be a spiral in the nonlinear system."], p: [P6], drills: [], needs: [EM-5.3.A, EM-5.4.A] }
+      - n: 5
+        title: Nonhomogeneous linear systems
+        book: { kreyszig-10e: ["4.6"] }
+        los:
+          - { id: A, do: "Find a particular solution of y′ = Ay + g by undetermined coefficients, diagonalisation or variation of parameters.", ek: ["Fundamental matrix Y: y_p = Y∫Y⁻¹g dt."], p: [P3], drills: [] }
+
+  # ── 6 ────────────────────────────────────────────────────────────────────
+  - id: series
+    n: 6
+    title: Series solutions and special functions
+    scope: core
+    ideas: [TRANS, FORM]
+    weight_est: "15%"
+    topics:
+      - n: 1
+        title: Ordinary and singular points
+        book: { kreyszig-10e: ["5.1", "5.3"] }
+        los:
+          - { id: A, do: "Classify a point as ordinary, regular singular or irregular singular.", ek: ["Standard form y″ + py′ + qy = 0: ordinary if p, q analytic; regular singular if (x − x₀)p and (x − x₀)²q are analytic."], p: [P2], drills: [series-classify-point] }
+          - { id: B, do: "Give the guaranteed radius of convergence of a power-series solution about an ordinary point.", ek: ["At least the distance to the nearest singular point in the complex plane."], p: [P2], drills: [series-radius], needs: [EM-6.1.A] }
+      - n: 2
+        title: Power series method
+        book: { kreyszig-10e: ["5.1"] }
+        los:
+          - { id: A, do: "Derive the recurrence relation for the coefficients of a power-series solution.", ek: ["Substitute Σa_m x^m, shift indices to a common power, set each coefficient to zero."], p: [P3], drills: [series-recurrence, series-recurrence-airy], needs: [EM-1.3.A] }
+          - { id: B, do: "Generate the first terms of the series solution from the recurrence and initial values.", ek: ["a₀ = y(0), a₁ = y′(0); even and odd coefficients often split into two basis series."], p: [P3, P4], drills: [series-terms, series-terms-airy], needs: [EM-6.2.A] }
+      - n: 3
+        title: Frobenius method
+        book: { kreyszig-10e: ["5.3"] }
+        los:
+          - { id: A, do: "Find the indicial equation and its roots at a regular singular point.", ek: ["r(r − 1) + b₀r + c₀ = 0, b₀ = lim xp, c₀ = lim x²q."], p: [P3], drills: [frobenius-indicial], needs: [EM-6.1.A] }
+          - { id: B, do: "Decide which Frobenius case applies and what form the second solution takes.", ek: ["Roots not differing by an integer: two x^r series; double root: second has ln x; differ by an integer: second may have ln x."], p: [P2], drills: [frobenius-case], needs: [EM-6.3.A] }
+          - { id: C, do: "Construct the first Frobenius series solution from the larger indicial root.", ek: ["y = x^r Σa_m x^m; same index-shifting as the power series method."], p: [P3], drills: [], needs: [EM-6.3.A, EM-6.2.A] }
+      - n: 4
+        title: Legendre and Bessel functions
+        book: { kreyszig-10e: ["5.2", "5.4", "5.5"] }
+        los:
+          - { id: A, do: "Recognise Legendre's, Bessel's and Euler–Cauchy equations in a given ODE and read off the order or degree.", ek: ["(1 − x²)y″ − 2xy′ + n(n+1)y = 0; x²y″ + xy′ + (x² − ν²)y = 0."], p: [P2], drills: [spec-identify, spec-legendre-n, spec-bessel-order] }
+          - { id: B, do: "Solve a scaled Bessel equation x²y″ + xy′ + (λ²x² − ν²)y = 0 with J_ν(λx), Y_ν(λx).", ek: ["Substitute z = λx."], p: [P2, P3], drills: [spec-bessel-scaled] }
+          - { id: C, do: "Write the general solution of Bessel's equation, choosing J₋ν or Y_ν as the second solution.", ek: ["J_ν, J₋ν independent unless ν is an integer, where J₋ₙ = (−1)ⁿJₙ; then use Y_ν."], p: [P2, P5], drills: [spec-bessel-independent] }
+          - { id: D, do: "Use Legendre polynomials' explicit form, Rodrigues' formula or orthogonality to evaluate P_n or an integral.", ek: ["P_n(x) = (1/2ⁿn!) dⁿ/dxⁿ (x² − 1)ⁿ; ∫P_mP_n = 0 on [−1, 1] for m ≠ n."], p: [P3], drills: [] }
+
+  # ── 7 ────────────────────────────────────────────────────────────────────
+  - id: laplace
+    n: 7
+    title: Laplace transforms
+    scope: core
+    ideas: [TRANS, LIN, MODEL]
+    weight_est: "15%"
+    topics:
+      - n: 1
+        title: The transform, linearity and s-shifting
+        book: { kreyszig-10e: ["6.1"] }
+        los:
+          - { id: A, do: "Find the Laplace transform of a combination of elementary functions from the table, using identities where needed.", ek: ["L{tⁿ} = n!/s^(n+1); L{e^(at)} = 1/(s − a); L{cos ωt} = s/(s² + ω²); sin² = (1 − cos 2t)/2."], p: [P3], drills: [lt-linear, lt-trig, lt-power, lt-hyperbolic, lt-identity] }
+          - { id: B, do: "Apply the first shifting theorem forwards and in reverse.", ek: ["L{e^(at)f(t)} = F(s − a); complete the square to expose s − a."], p: [P3], drills: [shift-s-forward, shift-s-inverse] }
+      - n: 2
+        title: Inverse transforms by partial fractions
+        book: { kreyszig-10e: ["6.1", "6.4"] }
+        los:
+          - { id: A, do: "Invert a rational F(s) by partial fractions with distinct, repeated or complex poles.", ek: ["Repeated pole ⇒ tⁿe^(at)/n!; complex pole pair ⇒ e^(at)(cos, sin)."], p: [P3], drills: [ilt-distinct, ilt-repeated, ilt-complex, ilt-three, ilt-quadratic], needs: [EM-1.1.C] }
+      - n: 3
+        title: Solving IVPs by Laplace transform
+        book: { kreyszig-10e: ["6.2"] }
+        los:
+          - { id: A, do: "Solve a constant-coefficient IVP by transforming, solving the subsidiary equation and inverting.", ek: ["L{y′} = sY − y(0); L{y″} = s²Y − sy(0) − y′(0); initial conditions enter automatically."], p: [P3, P4], drills: [livp-real, livp-complex, livp-double, livp-exp, livp-const], needs: [EM-7.2.A] }
+          - { id: B, do: "Identify the transfer function of a linear system and relate its poles to stability and damping.", ek: ["Q(s) = Y/R with zero ICs = 1/(as² + bs + c); poles in the left half-plane ⇔ decay."], p: [P6], drills: [] }
+      - n: 4
+        title: Unit step and t-shifting
+        book: { kreyszig-10e: ["6.3"] }
+        los:
+          - { id: A, do: "Write a piecewise function with unit step functions and transform it.", ek: ["f = f₁ + (f₂ − f₁)u(t − a) + …; L{f(t − a)u(t − a)} = e^(−as)F(s)."], p: [P1, P3], drills: [shift-t-forward, shift-piecewise] }
+          - { id: B, do: "Invert a transform containing e^(−as).", ek: ["e^(−as)F(s) ↦ f(t − a)u(t − a)."], p: [P3], drills: [shift-t-inverse] }
+          - { id: C, do: "Solve an IVP with switched or piecewise forcing.", ek: ["Transform the step-written forcing; the solution is piecewise with continuous y and y′."], p: [P1, P3], drills: [], needs: [EM-7.3.A, EM-7.4.A] }
+      - n: 5
+        title: Impulses and the Dirac delta
+        book: { kreyszig-10e: ["6.4"] }
+        los:
+          - { id: A, do: "Model a sudden impulse with δ(t − a) and solve the resulting IVP, including the impulse response.", ek: ["L{δ(t − a)} = e^(−as); impulse response = L⁻¹{transfer function}."], p: [P1, P3], drills: [] }
+      - n: 6
+        title: Convolution and integral equations
+        book: { kreyszig-10e: ["6.5"] }
+        los:
+          - { id: A, do: "Compute a convolution integral directly.", ek: ["(f * g)(t) = ∫₀ᵗ f(τ)g(t − τ)dτ."], p: [P3], drills: [conv-compute] }
+          - { id: B, do: "Invert a product of transforms or transform an integral using the convolution theorem.", ek: ["L{f * g} = FG; L{∫₀ᵗ f dτ} = F/s."], p: [P3], drills: [conv-inverse, conv-transform] }
+          - { id: C, do: "Solve a Volterra integral equation of convolution type.", ek: ["Transform, solve for Y algebraically, invert."], p: [P3], drills: [conv-volterra], needs: [EM-7.6.B] }
+      - n: 7
+        title: Transform derivatives and systems
+        book: { kreyszig-10e: ["6.6", "6.7"] }
+        los:
+          - { id: A, do: "Use L{tf(t)} = −F′(s) to transform or invert functions and solve ODEs with linear coefficients.", ek: ["Differentiation in s ↔ multiplication by −t; integration in s ↔ division by t."], p: [P3], drills: [] }
+          - { id: B, do: "Solve a linear system of ODEs by Laplace transform.", ek: ["Transform each equation, solve the algebraic system (Cramer), invert each component."], p: [P3], drills: [], needs: [EM-7.3.A] }
+
+  # ── 8 ────────────────────────────────────────────────────────────────────
+  - id: linear-algebra
+    n: 8
+    title: Linear algebra for ODEs
+    scope: core
+    ideas: [LIN, EIG]
+    weight_est: "as needed"
+    topics:
+      - n: 1
+        title: Linear systems and Gauss elimination
+        book: { kreyszig-10e: ["7.3", "7.5"] }
+        los:
+          - { id: A, do: "Solve a linear system by row reduction and state whether it has none, one or infinitely many solutions.", ek: ["Echelon form; rank A vs rank [A|b] decides existence; free variables give a family."], p: [P3], drills: [la-system] }
+      - n: 2
+        title: Linear independence and rank
+        book: { kreyszig-10e: ["7.4"] }
+        los:
+          - { id: A, do: "Decide whether a set of vectors is linearly independent.", ek: ["Independent ⇔ only the trivial combination is zero ⇔ rank = number of vectors; for n vectors in ℝⁿ, det ≠ 0."], p: [P2], drills: [la-independence] }
+      - n: 3
+        title: Determinants and inverses
+        book: { kreyszig-10e: ["7.6", "7.7", "7.8"] }
+        los:
+          - { id: A, do: "Evaluate a 3×3 determinant by cofactor expansion.", ek: ["Expand along the row or column with most zeros; sign pattern (−1)^(i+j)."], p: [P3], drills: [la-det] }
+          - { id: B, do: "Find the inverse of a 2×2 matrix, or show it does not exist.", ek: ["A⁻¹ = (1/det A)[[d, −b], [−c, a]]; singular ⇔ det A = 0."], p: [P3], drills: [la-inverse] }
+      - n: 4
+        title: The matrix eigenvalue problem
+        book: { kreyszig-10e: ["8.1", "8.2"] }
+        los:
+          - { id: A, do: "Find the eigenvalues of a 2×2 matrix from its characteristic polynomial.", ek: ["λ² − (tr A)λ + det A = 0."], p: [P3], drills: [la-eigenvalues] }
+          - { id: B, do: "Find an eigenvector for each eigenvalue of a 2×2 matrix.", ek: ["Solve (A − λI)x = 0; one row suffices in 2×2."], p: [P3], drills: [la-eigenvector], needs: [EM-8.4.A] }
+      - n: 5
+        title: Symmetric matrices and diagonalisation
+        book: { kreyszig-10e: ["8.3", "8.4"] }
+        los:
+          - { id: A, do: "Diagonalise a matrix with a full set of eigenvectors and use it to decouple a linear system.", ek: ["D = X⁻¹AX; symmetric A has real eigenvalues and orthogonal eigenvectors."], p: [P3], drills: [], needs: [EM-8.4.B, EM-8.3.B] }
+
+  # ── 9 ────────────────────────────────────────────────────────────────────
+  - id: bvp
+    n: 9
+    title: Fourier series and Sturm–Liouville boundary-value problems
+    scope: core
+    ideas: [EIG, TRANS, LIN]
+    weight_est: "10–15%"
+    topics:
+      - n: 1
+        title: Fourier series
+        book: { kreyszig-10e: ["11.1", "11.2"] }
+        los:
+          - { id: A, do: "Compute the Fourier coefficients of a 2π-periodic function given on one period.", ek: ["a₀ = (1/2π)∫f, a_n = (1/π)∫f cos nx, b_n = (1/π)∫f sin nx over (−π, π)."], p: [P3], drills: [fs-step, fs-sawtooth, fs-parabola, fs-abs], needs: [EM-1.1.B] }
+          - { id: B, do: "Compute the Fourier series of a function of period 2L, using even/odd symmetry to skip coefficients.", ek: ["Replace nx by nπx/L and 1/π by 1/L; even ⇒ cosine series, odd ⇒ sine series."], p: [P2, P3], drills: [fs-period-2l] }
+          - { id: C, do: "Write the half-range sine or cosine expansion of a function on (0, L).", ek: ["Odd extension ⇒ sine series; even extension ⇒ cosine series; b_n = (2/L)∫₀ᴸ f sin(nπx/L)."], p: [P3], drills: [fs-half-range] }
+          - { id: D, do: "Find the periodic steady-state response of an oscillator to a periodic non-sinusoidal force by Fourier series.", ek: ["Solve term by term; the term with nω nearest ω₀ dominates."], p: [P3, P6], drills: [], needs: [EM-9.1.A, EM-3.6.A] }
+      - n: 2
+        title: Sturm–Liouville problems
+        book: { kreyszig-10e: ["11.5"] }
+        los:
+          - { id: A, do: "Rewrite a second-order eigenvalue ODE in Sturm–Liouville form and identify p, q and r.", ek: ["(py′)′ + (q + λr)y = 0; multiply by the integrating factor e^(∫a₁/a₂)/a₂ when needed."], p: [P2], drills: [sl-form] }
+          - { id: B, do: "Classify a Sturm–Liouville problem as regular, periodic or singular.", ek: ["Regular: p > 0, r > 0 on [a, b] with separated BCs; periodic: y(a) = y(b), y′(a) = y′(b); singular: p vanishes at an end."], p: [P2], drills: [sl-classify], needs: [EM-9.2.A] }
+          - { id: C, do: "Find the eigenvalues of y″ + λy = 0 under Dirichlet, Neumann or mixed boundary conditions.", ek: ["Check λ < 0, = 0, > 0 separately; Dirichlet on [0, L]: λ = (nπ/L)², n ≥ 1."], p: [P3, P4], drills: [sl-eigenvalues] }
+          - { id: D, do: "Find the eigenfunction belonging to each eigenvalue.", ek: ["Determined up to a constant multiple; sin(nπx/L), cos(nπx/L) or sin((2n−1)πx/2L)."], p: [P4], drills: [sl-eigenfunctions], needs: [EM-9.2.C] }
+          - { id: E, do: "Find the eigenvalues and eigenfunctions of a shifted problem y″ + (λ + c)y = 0 and count its negative eigenvalues.", ek: ["Set μ = λ + c, solve as 9.2.C, then λ = μ − c."], p: [P3, P4], drills: [sl-shift-eigenvalues, sl-shift-eigenfunctions, sl-shift-negative], needs: [EM-9.2.C] }
+      - n: 3
+        title: Orthogonality and eigenfunction expansions
+        book: { kreyszig-10e: ["11.5", "11.6"] }
+        los:
+          - { id: A, do: "Verify orthogonality of eigenfunctions with respect to the weight r(x).", ek: ["∫ₐᵇ r y_m y_n dx = 0 for m ≠ n in a regular or periodic S–L problem."], p: [P5], drills: [] }
+          - { id: B, do: "Expand a function in a generalised Fourier series of S–L eigenfunctions (e.g. Legendre or Fourier–Bessel).", ek: ["a_n = ∫ r f y_n dx / ∫ r y_n² dx."], p: [P3], drills: [], needs: [EM-9.3.A] }
+
+  # ── extensions (beyond CBE 200) ──────────────────────────────────────────
+  - id: pde
+    n: 10
+    title: Partial differential equations
+    scope: extension
+    ideas: [EIG, TRANS, MODEL]
+    topics:
+      - n: 1
+        title: Basic concepts and classification
+        book: { kreyszig-10e: ["12.1"] }
+        los:
+          - { id: A, do: "Classify a second-order linear PDE as elliptic, parabolic or hyperbolic and verify a solution.", ek: ["Au_xx + 2Bu_xy + Cu_yy: AC − B² > 0 elliptic, = 0 parabolic, < 0 hyperbolic."], p: [P2], drills: [] }
+      - n: 2
+        title: Heat equation by separation of variables
+        book: { kreyszig-10e: ["12.5", "12.6"] }
+        los:
+          - { id: A, do: "Separate u = F(x)G(t) in the heat equation and find each mode's decay rate.", ek: ["F″ + kF = 0 (an S–L problem), G′ + c²kG = 0 ⇒ G = e^(−c²λ_n t)."], p: [P2, P3], drills: [pde-rates], needs: [EM-9.2.C] }
+          - { id: B, do: "Solve the heat equation on a finite rod with Dirichlet or insulated ends by Fourier series.", ek: ["Dirichlet ⇒ sine series; insulated ⇒ cosine series with a constant term (the mean)."], p: [P3, P4], drills: [pde-heat, pde-neumann], needs: [EM-10.2.A, EM-9.1.C] }
+          - { id: C, do: "Solve the heat equation with non-homogeneous Dirichlet ends by subtracting the steady state.", ek: ["u = u_s(x) + v; u_s linear; v satisfies zero BCs with v(x, 0) = f − u_s."], p: [P2, P3], drills: [pde-steady], needs: [EM-10.2.B] }
+      - n: 3
+        title: Wave equation
+        book: { kreyszig-10e: ["12.2", "12.3", "12.4"] }
+        los:
+          - { id: A, do: "Solve the vibrating string by separation of variables and Fourier series.", ek: ["u = Σ(B_n cos λ_n t + B_n* sin λ_n t) sin(nπx/L), λ_n = cnπ/L."], p: [P3, P4], drills: [pde-wave], needs: [EM-9.1.C] }
+          - { id: B, do: "Write d'Alembert's solution for an infinite string from initial displacement and velocity.", ek: ["u = ½[f(x + ct) + f(x − ct)] + (1/2c)∫ g."], p: [P3], drills: [] }
+      - n: 4
+        title: Laplace's equation and other geometries
+        book: { kreyszig-10e: ["12.6", "12.10", "12.11"] }
+        los:
+          - { id: A, do: "Solve the steady 2-D Dirichlet problem on a rectangle by separation.", ek: ["One direction gives sines, the other sinh; one non-zero side at a time, then superpose."], p: [P3], drills: [] }
+          - { id: B, do: "Separate a PDE in polar, cylindrical or spherical coordinates and identify the Bessel or Legendre equation that appears.", ek: ["Radial part in cylinders ⇒ Bessel; polar angle in spheres ⇒ Legendre in cos θ."], p: [P2], drills: ["~spec-identify"], needs: [EM-6.4.A] }
+      - n: 5
+        title: Transform methods for PDEs
+        book: { kreyszig-10e: ["12.7", "12.12"] }
+        los:
+          - { id: A, do: "Solve a PDE on a semi-infinite or infinite domain by Laplace or Fourier transform.", ek: ["Transform out t (Laplace) or x (Fourier) to get an ODE in the other variable."], p: [P3], drills: [] }
+
+  - id: fourier-transforms
+    n: 11
+    title: Fourier integrals and transforms
+    scope: extension
+    ideas: [TRANS]
+    topics:
+      - n: 1
+        title: Fourier integral and transforms
+        book: { kreyszig-10e: ["11.7", "11.8", "11.9"] }
+        los:
+          - { id: A, do: "Represent a non-periodic function by its Fourier integral, or its cosine or sine transform.", ek: ["Limit L → ∞ of the Fourier series; even ⇒ cosine transform, odd ⇒ sine."], p: [P3], drills: [] }
+          - { id: B, do: "Compute a Fourier transform and use its derivative property to turn an ODE into algebra.", ek: ["F{f′} = iwF{f}; F{e^(−ax²)} is Gaussian."], p: [P3], drills: [] }
+
+  - id: vector-calculus
+    n: 12
+    title: Vector calculus for transport
+    scope: extension
+    ideas: [MODEL]
+    topics:
+      - n: 1
+        title: Grad, div, curl and the integral theorems
+        book: { kreyszig-10e: ["9.7", "9.8", "9.9", "10.7", "10.9"] }
+        los:
+          - { id: A, do: "Compute the gradient, divergence, curl and Laplacian of a field in Cartesian coordinates.", ek: ["∇f, ∇·v, ∇×v, ∇²f = ∇·∇f."], p: [P3], drills: ["~mv-partial"] }
+          - { id: B, do: "Derive a differential conservation equation from an integral balance with the divergence theorem.", ek: ["∭∇·F dV = ∯F·n dA ⇒ ∂c/∂t + ∇·N = R."], p: [P1], drills: [] }
