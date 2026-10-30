@@ -1,4 +1,4 @@
-# Drills — Kuta-style practice for RemNote
+# KevinDoesChemistry Library — Kuta-style practice for RemNote
 
 Each drill card generates a fresh problem on every review, checks the typed answer by its
 defining property (never by string matching), and shows worked steps, a method box, and the
