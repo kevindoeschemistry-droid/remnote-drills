@@ -1,0 +1,427 @@
+# Swimming — curriculum framework (draft 1, for Kevin's markup)
+#
+# Built like an AP Course and Exam Description: Big Ideas run through the subject,
+# Units → Topics → Learning Objectives (one testable or observable action each, verb first),
+# with the Essential Knowledge an LO rests on and the Practices it exercises. Rulebooks, coach
+# curricula and the science literature are crosswalks onto this map, never the backbone.
+# Aimed at "swimming IQ" for an experienced butterfly specialist: why technique works, what
+# the rules allow, how races and training are built — not more yardage or muscle memory.
+#
+# Standards and sources it's built from (opened while drafting):
+#   world-aquatics-rules  World Aquatics Swimming Reference Card (01-03-2023): infractions by
+#           rule — SW 4 start · SW 5 free · SW 6 back · SW 7 breast · SW 8 fly · SW 9 IM ·
+#           SW 10 race and relays. Full SW text read via Swimming SA Rules (Oct 2018, which
+#           reproduces the FINA SW rules) and FINA "Interpretations of Swimming Rules"
+#           (13-09-2017: "separated" hands on fly/breast touches, IM free leg on the back)
+#   usa-swimming          USA Swimming Article 101 stroke rules (101.2 breast · 101.3 fly ·
+#           101.4 back · 101.5 free · 101.7 relays), club-posted excerpt
+#   usms                  USMS Rule Book Part 1, Art. 101 — incl. the Masters exception
+#           101.3.3 (breaststroke kick allowed in butterfly) and 101.1.1 in-water starts
+#   asca                  ASCA coach certification ladder (swimmingcoach.org/certification):
+#           L1 Coach's Toolkit · L2 Stroke School · L3 Season Planning + Daily Workout
+#           Planning and Design · L4–L5 advanced/elite catalog
+#   maglischo-1997        Maglischo, "Swim training theory" (Kinesiology 1997): energy
+#           systems; endurance (basic, threshold, overload) and sprint (lactate tolerance,
+#           lactate production, power) categories with set sizes, rest, weekly balance.
+#           (His book *Swimming Fastest*, 2003, is the long form; not opened.)
+#   toussaint-1994        Toussaint & Hollander, "Energetics of competitive swimming",
+#           Sports Med 18(6) 1994: drag, propelling efficiency, energy cost
+#   toussaint-2006        Toussaint et al. 2006 (via coachsci.sdsu.edu): slowing in a
+#           100 m sprint tracks stroke rate, not stroke length
+#   naemi-2010            Naemi, Easson & Sanders, "Hydrodynamic glide efficiency in
+#           swimming", J Sci Med Sport 13(4) 2010: skin, form and wave drag; depth; added mass
+#   sanders-lift          Sanders, "Lift or drag?" (sportsci.org): Counsilman's 1971 lift/
+#           Bernoulli sculling model and the drag-dominant evidence (Cappaert, Rushall)
+#   css                   Wakayoshi et al. 1992/1993 and Ginn 1993 critical-speed method, via
+#           topendsports.com CSS page (protocol, % CSS zones)
+#   bosquet-2007          Bosquet et al., "Effects of tapering on performance: a
+#           meta-analysis", MSSE 2007 (PubMed 17762369)
+#   usms-fly              USMS article "Master the Butterfly": 2-kick timing, breath timing,
+#           entry, body line, named faults and corrections
+#
+# Fields
+#   units[].scope     core (understanding your own swimming) or extension (coaching others)
+#   units[].ideas     Big Ideas the unit develops
+#   topics[].book     crosswalk keyed by source id above (rule numbers, ASCA level, section)
+#   los[].do          the objective; los[].ek essential knowledge; los[].p practices
+#   los[].needs       prerequisite LOs in this framework
+#   los[].drills      templates that drill it. None yet. LO wording flags the ones built to
+#                     become auto-checked reps: "Compute…" (numeric), "Call legal or illegal…"
+#                     (rule MCQ), "Diagnose… and choose the correction" (fault MCQ).
+id: swimming
+title: Swimming
+code: SW
+draft: 1
+domains: []
+
+big_ideas:
+  - id: DRAG
+    title: Speed is propulsion against resistance
+    text: Water drag grows with v² and the power to beat it with v³, so a small cut in drag buys more speed than a large gain in fitness. Every technique choice is judged by what it does to net force.
+  - id: PUSH
+    title: You move forward by pushing water back
+    text: Propulsion is Newton's third law — hands, forearms, feet and the body wave accelerate water backward. The evidence says it is mostly drag-type force on a well-angled hand and forearm, not Bernoulli lift from sculling.
+  - id: RHYTHM
+    title: Velocity = stroke rate × distance per stroke
+    text: Every swim is a trade between how often you cycle and how far each cycle carries you; fatigue, pacing and technique all show up as moves in that SR × DPS plane, and timing between arms, legs and breath decides where you can sit in it.
+  - id: RULES
+    title: The rules define the strokes
+    text: A stroke is whatever SW 4–10 allow. Legality bounds technique (two-hand touches, 15 m, one pull-down), and knowing exactly where the line sits lets you use everything up to it.
+  - id: ENERGY
+    title: Energy systems set what pace lasts how long
+    text: Phosphagen, glycolytic and aerobic supply overlap with different rates and capacities; each race distance has its own mix, and training adapts the system it stresses.
+  - id: LOOP
+    title: Measure, plan, adjust
+    text: Splits, stroke counts, CSS tests and video turn feel into numbers; a race plan, a season plan and a set are hypotheses that the numbers confirm or overturn.
+
+practices:
+  - id: P1
+    title: Observe and describe
+    text: Say exactly what the body is doing — phase, timing, angle, count — from video, a split sheet or feel, before judging it.
+  - id: P2
+    title: Explain the mechanism
+    text: Connect a technique or training choice to the physics (drag, impulse, momentum) or physiology (energy system, adaptation) that makes it work.
+  - id: P3
+    title: Apply the rule
+    text: Make the official's call on a described action, name the SW (or USA/USMS) rule, and know where the Masters rules differ.
+  - id: P4
+    title: Compute
+    text: Velocity, pace, splits, SR, DPS, CSS, intervals and set totals, with units and course (SCY / SCM / LCM) kept straight.
+  - id: P5
+    title: Diagnose and correct
+    text: From a symptom, find the root fault, choose the drill or cue that fixes it, and say what evidence would show it worked.
+  - id: P6
+    title: Plan and decide
+    text: Build a race plan, a set, a week or a season to a goal, and predict what changes when one parameter changes.
+
+units:
+  # ── 1 ────────────────────────────────────────────────────────────────────
+  - id: hydro
+    n: 1
+    title: Hydrodynamics and propulsion
+    scope: core
+    ideas: [DRAG, PUSH]
+    weight_est: "10–12%"
+    topics:
+      - n: 1
+        title: Types of drag and how they scale
+        book: { naemi-2010: ["drag components"], toussaint-1994: ["drag factor"] }
+        los:
+          - { id: A, do: "Classify a described resistance (rough suit, wide kick, bow wave at the surface) as skin-friction, form (pressure) or wave drag.", ek: ["Skin friction depends on surface; form drag on frontal area, shape and alignment; wave drag on speed and depth below the surface."], p: [P1, P2], drills: [] }
+          - { id: B, do: "Compute how drag and the power to overcome it change when velocity changes by a given factor.", ek: ["D = ½ρC_dAv²; P = Dv ∝ v³ — 5% faster costs ≈ 16% more power."], p: [P4], drills: [] }
+          - { id: C, do: "Explain why gliding and kicking underwater can be faster than swimming at the surface.", ek: ["Wave drag is large at the surface and falls off steeply with depth (most of it gone by roughly 0.5 m)."], p: [P2], drills: [] }
+      - n: 2
+        title: Streamline and glide
+        book: { naemi-2010: ["glide efficiency", "added mass"] }
+        los:
+          - { id: A, do: "Describe a tight streamline and explain each element's effect on drag (stacked hands, arms squeezing ears, head neutral, pointed toes).", ek: ["Each element reduces frontal area or flow separation; a raised head adds form drag."], p: [P1, P2], drills: [] }
+          - { id: B, do: "Explain why a glide decelerates and when to start kicking off the wall.", ek: ["Glide velocity decays as drag acts on body plus added mass; start kicking when glide speed drops toward kicking speed, not after."], p: [P2, P6], drills: [] }
+      - n: 3
+        title: How propulsion is made
+        book: { sanders-lift: ["Counsilman 1971", "Cappaert & Rushall 1994"], toussaint-1994: ["propelling efficiency"] }
+        los:
+          - { id: A, do: "Explain propulsion as momentum given to water (Newton III) and say why a high-elbow catch helps.", ek: ["Thrust = rate of backward momentum given to water; a vertical forearm adds paddle area facing backward early in the pull."], p: [P2], drills: [] }
+          - { id: B, do: "Contrast Counsilman's lift (Bernoulli sculling) model with the drag-dominant view and state what the evidence supports.", ek: ["3-D studies of elite swimmers (Cappaert, Rushall, Sanders) found drag > lift through most of the pull in all strokes but breaststroke; hand paths are straighter than once taught, curvature mostly from body roll."], p: [P2], drills: [] }
+          - { id: C, do: "Explain propelling efficiency and why it can matter more than aerobic power.", ek: ["Part of the work goes into moving water, not the body; Toussaint & Hollander modelled efficiency gains as worth more than a 10% rise in aerobic or anaerobic power."], p: [P2], drills: [] }
+          - { id: D, do: "Explain how the dolphin kick produces thrust from a whole-body wave.", ek: ["A wave travelling head-to-toe with growing amplitude whips the feet; thrust comes mostly on the downkick, with the upkick also propulsive when the feet press water backward."], p: [P2], drills: [] }
+
+  # ── 2 ────────────────────────────────────────────────────────────────────
+  - id: long-axis
+    n: 2
+    title: Freestyle and backstroke technique principles
+    scope: core
+    ideas: [PUSH, DRAG, RHYTHM]
+    weight_est: "6–8%"
+    topics:
+      - n: 1
+        title: Freestyle
+        book: { asca: ["L2 Stroke School"], world-aquatics-rules: ["SW 5"] }
+        los:
+          - { id: A, do: "Describe the phases of the freestyle arm stroke (entry, catch, pull, push, recovery) and the purpose of each.", ek: ["Propulsive force is concentrated from catch to push; entry and recovery set up the next pull and the body line."], p: [P1], drills: [] }
+          - { id: B, do: "Distinguish catch-up, front-quadrant and opposition timing and match each to distance.", ek: ["More overlap ⇒ longer DPS, lower SR (distance); less overlap ⇒ continuous propulsion, higher SR (sprint)."], p: [P1, P6], drills: [] }
+          - { id: C, do: "Diagnose a freestyle fault from a description (crossover entry, dropped elbow, scissor kick on breath, lifted head) and choose the correction.", ek: ["Each fault either adds drag or wastes impulse; fix the root cause, usually upstream in head or entry."], p: [P5], drills: [] }
+      - n: 2
+        title: Backstroke
+        book: { asca: ["L2 Stroke School"], world-aquatics-rules: ["SW 6"] }
+        los:
+          - { id: A, do: "Describe the backstroke catch (little-finger entry, bent-arm pull) and why rotation lets the arm catch deep enough.", ek: ["Rotation of ~45° each side keeps the pull under the body instead of sweeping wide at the surface."], p: [P1, P2], drills: [] }
+          - { id: B, do: "Diagnose a backstroke fault (sitting hips, overreaching past the head, flat body) and choose the correction.", ek: ["Head still and level, hips at the surface; entry in line with the shoulder."], p: [P5], drills: [] }
+
+  # ── 3 ────────────────────────────────────────────────────────────────────
+  - id: butterfly
+    n: 3
+    title: Butterfly in depth
+    scope: core
+    ideas: [PUSH, RHYTHM, DRAG, RULES]
+    weight_est: "14–16%"
+    topics:
+      - n: 1
+        title: Body wave and the axis at the hips
+        book: { usms-fly: ["body line"], asca: ["L2 Stroke School"] }
+        los:
+          - { id: A, do: "Describe the butterfly body wave and say where the axis sits and what moves forward vs up and down.", ek: ["The wave pivots near the hips; hips stay at or near the surface; the chest presses to lift the hips; the head leads the wave."], p: [P1], drills: [] }
+          - { id: B, do: "Explain why over-undulation slows the stroke.", ek: ["Large vertical excursion adds form and wave drag, deepens the catch and lowers tempo; energy goes up and down instead of forward."], p: [P2], drills: [] }
+      - n: 2
+        title: Arms, kick and their timing
+        book: { usms-fly: ["kick timing", "hand entry"], world-aquatics-rules: ["SW 8.2", "SW 8.3"] }
+        los:
+          - { id: A, do: "State when each of the two kicks per cycle happens and what each does.", ek: ["Kick 1 at hand entry lifts the hips and balances; kick 2 as the hands push and exit is the more propulsive and lifts the shoulders for recovery."], p: [P1, P2], drills: [] }
+          - { id: B, do: "Describe the fly pull path from entry to exit and where the high-elbow catch is set.", ek: ["Hands enter in front of the shoulders, set a high-elbow catch just outside them, pull under the body and push past the hips."], p: [P1], drills: [] }
+          - { id: C, do: "Diagnose kick-kick-pull timing from a description and choose the correction.", ek: ["Both kicks before the catch force an arched back and a downward push; cue one kick, then let the small second kick come as the hands exit — 'kick the hands in, kick the hands out'."], p: [P5], drills: [] }
+      - n: 3
+        title: Breathing and recovery
+        book: { usms-fly: ["breathing"] }
+        los:
+          - { id: A, do: "Describe when the breath starts and ends relative to the pull and recovery.", ek: ["Head lift begins with the pull, the inhale comes as the mouth clears at the push, and the face returns before the hands enter; chin stays near the waterline."], p: [P1], drills: [] }
+          - { id: B, do: "Diagnose late breathing or a high head lift from a description and choose the correction.", ek: ["A breath that starts at the end of the pull locks neck and shoulders and drops the hips; time the head with the catch and breathe forward, low."], p: [P5], drills: [] }
+          - { id: C, do: "Choose a breathing pattern (every stroke, 1-up-1-down, 2-down) for a race distance and justify it from drag and oxygen cost.", ek: ["Each breath adds drag and disrupts the wave; fewer breaths for 50s, regular breathing to keep the 200 aerobic."], p: [P6], drills: [] }
+      - n: 4
+        title: Fly faults and fatigue
+        book: { usms-fly: ["common faults"] }
+        los:
+          - { id: A, do: "Diagnose a fly fault from a description (crashing entry, dropped elbow, bent-knee kick, arms dragging through recovery) and choose the correction.", ek: ["Crashing entry ⇒ place hands and let chest submerge; dropped elbow ⇒ pitch palms and forearms back with fingertips down; bent knees ⇒ think hips at the surface, not 'kick harder'."], p: [P5], drills: [] }
+          - { id: B, do: "Predict how fly technique degrades over the last 50 of a 200 and which cue protects speed best.", ek: ["Recovery drops, hips sink, kick 2 disappears, SR falls; holding hip height and kick 2 protects DPS."], p: [P2, P6], needs: [SW-7.2.B], drills: [] }
+      - n: 5
+        title: Butterfly rules
+        book: { world-aquatics-rules: ["SW 8.1", "SW 8.2", "SW 8.3", "SW 8.4", "SW 8.5"], usa-swimming: ["101.3"], usms: ["101.3.3"] }
+        los:
+          - { id: A, do: "Call legal or illegal: a described fly stroke with alternating kick, a breaststroke kick, or arms recovered under water.", ek: ["SW 8.2: both arms forward together over the water, back together under; SW 8.3: leg movements simultaneous, no breaststroke kick (FINA, USA Swimming)."], p: [P3], drills: [] }
+          - { id: B, do: "Call legal or illegal for a Masters butterfly using breaststroke kick, and state how USMS differs from World Aquatics.", ek: ["USMS 101.3.3: breaststroke kick may be used exclusively or interchangeably with dolphin kick, one per arm pull except before turn and finish; illegal under SW 8.3."], p: [P3], drills: [] }
+          - { id: C, do: "Call legal or illegal: a described fly turn or finish touch (one hand, stacked hands, hands under water, staggered touch).", ek: ["SW 8.4: both hands, separated and simultaneous, at, above or below the surface; 'separated' means not stacked — no visible gap needed."], p: [P3], drills: [] }
+          - { id: D, do: "Call legal or illegal: body position during fly underwaters (on the side, on the back before the first pull).", ek: ["SW 8.1: from the first arm stroke after start or turn the body stays on the breast; underwater kicking on the side is allowed."], p: [P3], drills: [] }
+
+  # ── 4 ────────────────────────────────────────────────────────────────────
+  - id: breast-im
+    n: 4
+    title: Breaststroke and individual medley
+    scope: core
+    ideas: [PUSH, RHYTHM, RULES]
+    weight_est: "6–8%"
+    topics:
+      - n: 1
+        title: Breaststroke technique
+        book: { asca: ["L2 Stroke School"], sanders-lift: ["breaststroke exception"] }
+        los:
+          - { id: A, do: "Describe breaststroke timing (pull, breathe, kick, glide) and explain why it is the most drag-sensitive stroke.", ek: ["The recovery of arms and legs happens under water against the flow; the stroke's speed swings most within a cycle, so a streamlined glide carries the cycle."], p: [P1, P2], drills: [] }
+          - { id: B, do: "Diagnose a breaststroke fault (knees drawn under the hips, late kick, wide pull past the shoulders) and choose the correction.", ek: ["Heels to seat with knees narrow cuts frontal area; kick as the hands shoot forward."], p: [P5], drills: [] }
+      - n: 2
+        title: Breaststroke and medley rules
+        book: { world-aquatics-rules: ["SW 7.1", "SW 7.2", "SW 7.4", "SW 7.5", "SW 7.6", "SW 9.1", "SW 9.3", "SW 9.4"], usa-swimming: ["101.2"] }
+        los:
+          - { id: A, do: "Call legal or illegal: a described breaststroke pull-out (number of dolphin kicks, when the head surfaces).", ek: ["SW 7.1: one butterfly kick allowed before the first breaststroke kick; head must break the surface before the hands turn inward at the widest part of the second stroke."], p: [P3], drills: [] }
+          - { id: B, do: "Call legal or illegal: a described breaststroke cycle, kick or touch.", ek: ["SW 7.2: one arm stroke then one leg kick; SW 7.4–7.5 simultaneous legs, no downward fly kick; SW 7.6 two hands, separated, simultaneous."], p: [P3], drills: [] }
+          - { id: C, do: "Call legal or illegal: a described IM or medley-relay transition (order, stroke on the free leg, touch at each change).", ek: ["SW 9.1 IM: fly, back, breast, free; SW 9.3 medley relay: back, breast, fly, free; SW 9.4 each section finishes by its own stroke's rule; the free leg of IM can't be swum on the back."], p: [P3], drills: [] }
+      - n: 3
+        title: Racing the IM
+        book: { asca: ["L2 Stroke School"] }
+        los:
+          - { id: A, do: "Compute the split share of each stroke in a 200 or 400 IM and identify the weak leg against a reference swimmer.", ek: ["Share_i = t_i / Σt; compare leg differentials, not totals."], p: [P4, P6], drills: [] }
+
+  # ── 5 ────────────────────────────────────────────────────────────────────
+  - id: walls
+    n: 5
+    title: Starts, turns and underwaters
+    scope: core
+    ideas: [DRAG, RULES, PUSH]
+    weight_est: "10–12%"
+    topics:
+      - n: 1
+        title: Starts
+        book: { world-aquatics-rules: ["SW 4.1", "SW 4.2", "SW 4.4"], usms: ["101.1.1"], asca: ["L2 Stroke School"] }
+        los:
+          - { id: A, do: "Break a start into reaction, block, flight and entry phases and say what each contributes to 15 m time.", ek: ["Reaction ≈ 0.6–0.7 s for elite; the race is won in the push impulse and a clean, single-hole entry that keeps speed."], p: [P1, P2], drills: [] }
+          - { id: B, do: "Explain how entry angle and depth trade wave drag against lost speed and time to surface.", ek: ["Too flat ⇒ wave drag and splash; too deep ⇒ longer path back up; the target is a depth below most wave drag with a short, steady breakout."], p: [P2, P6], needs: [SW-1.1.C], drills: [] }
+          - { id: C, do: "Call legal or illegal: a described start (moving before the signal, false start after the signal, Masters in-water start).", ek: ["SW 4.4: starting before the signal is a DQ, judged when the signal has sounded; USMS 101.1.1 allows in-water starts facing any direction."], p: [P3], drills: [] }
+      - n: 2
+        title: Turns
+        book: { world-aquatics-rules: ["SW 5.2", "SW 6.4", "SW 7.6", "SW 8.4"], asca: ["L2 Stroke School"] }
+        los:
+          - { id: A, do: "Describe an open (two-hand) turn for fly and breast and explain how to shorten wall time.", ek: ["Touch, drop one elbow, tuck knees tight, throw the head and arm over; a small rotation radius turns faster (angular momentum)."], p: [P1, P2], drills: [] }
+          - { id: B, do: "Compute wall time (in-time + out-time) from 5 m in and 5 m out splits and compare two turns.", ek: ["Turn time = time from 5 m before the wall to 5 m after; compare at equal distances."], p: [P4], drills: [] }
+          - { id: C, do: "Call legal or illegal: a described backstroke flip turn (shoulders past vertical, extra kicks or glides on the front, pushing off on the stomach).", ek: ["SW 6.4: after leaving the back, a continuous single or double arm pull starts the turn; touch the wall; be back on the back when leaving the wall."], p: [P3], drills: [] }
+      - n: 3
+        title: Underwaters and the 15 m rule
+        book: { world-aquatics-rules: ["SW 5.3", "SW 6.3", "SW 8.5"], usa-swimming: ["101.3.2", "101.4.2"] }
+        los:
+          - { id: A, do: "Call legal or illegal: a described fly, back or free breakout relative to the 15 m mark.", ek: ["SW 5.3, 6.3, 8.5: completely submerged ≤ 15 m after start and each turn; the head must break the surface by 15 m; one arm pull under water is permitted in fly (SW 8.5)."], p: [P3], drills: [] }
+          - { id: B, do: "Compute whether an underwater segment is faster than swimming the same distance, from underwater and surface velocities.", ek: ["Δt = d/v_swim − d/v_UW; stay under while v_UW > v_swim and the kick is sustainable."], p: [P4, P6], needs: [SW-7.1.A], drills: [] }
+          - { id: C, do: "Choose the number of underwater dolphin kicks for each wall of a 100 and 200 fly and justify it.", ek: ["Underwaters cost oxygen; holding the same count on every wall needs a count you can repeat when tired."], p: [P6], drills: [] }
+          - { id: D, do: "Explain the breakout: why the first stroke should begin just before surfacing.", ek: ["Rising at kicking speed and stroking as the head breaks keeps velocity; surfacing then pausing loses the underwater speed."], p: [P2], drills: [] }
+
+  # ── 6 ────────────────────────────────────────────────────────────────────
+  - id: rules
+    n: 6
+    title: Rules, officiating and disqualifications
+    scope: core
+    ideas: [RULES]
+    weight_est: "6–8%"
+    topics:
+      - n: 1
+        title: Race rules and relays
+        book: { world-aquatics-rules: ["SW 10.2", "SW 10.4", "SW 10.7", "SW 10.9", "SW 10.11", "SW 10.12", "SW 10.13", "SW 10.18"], usa-swimming: ["101.7"], usms: ["101.7"] }
+        los:
+          - { id: A, do: "Call legal or illegal: a described race incident (pulling on the lane rope, changing lanes, standing on the bottom in free, pace device).", ek: ["SW 10.4 same lane; SW 10.7 no pulling on the lane rope; SW 10.9 no aids or tape; SW 10.18 no pace-making device."], p: [P3], drills: [] }
+          - { id: B, do: "Call legal or illegal: a described relay exchange from touch time and the next swimmer's feet-off time.", ek: ["SW 10.11 / USA 101.7.3F: feet must stay on the platform until the incoming swimmer touches; exchange = feet-off − touch, negative = early. Electronic platforms are confirmed by human judges."], p: [P3, P4], drills: [] }
+          - { id: C, do: "Compute a relay leg's split and its reaction-time gain over a flat start from a result sheet.", ek: ["Leg split = cumulative time at its touch − previous touch; relay legs run fast because the exchange (~0.2–0.3 s) replaces a reaction to the gun."], p: [P4], drills: [] }
+      - n: 2
+        title: How officiating works
+        book: { world-aquatics-rules: ["SW 2"], usms: ["101"] }
+        los:
+          - { id: A, do: "Explain who can disqualify, what they must see, and why the benefit of the doubt goes to the swimmer.", ek: ["Stroke and turn judges report what they observe in their jurisdiction; the referee decides; an infraction must be seen, not inferred."], p: [P3], drills: [] }
+
+  # ── 7 ────────────────────────────────────────────────────────────────────
+  - id: race
+    n: 7
+    title: Race analysis and pacing
+    scope: core
+    ideas: [RHYTHM, LOOP, ENERGY]
+    weight_est: "12–14%"
+    topics:
+      - n: 1
+        title: Velocity, pace and course conversion
+        book: { toussaint-2006: ["velocity per lap"] }
+        los:
+          - { id: A, do: "Compute average velocity (m/s) and pace per 100 from a distance and time.", ek: ["v = d/t; pace/100 = 100·t/d; 1 yd = 0.9144 m."], p: [P4], drills: [] }
+          - { id: B, do: "Compute splits and split differentials from cumulative times and classify a swim as even, positive or negative split.", ek: ["Split = cumulative_i − cumulative_(i−1); negative split ⇒ second half faster than the first."], p: [P4], drills: [] }
+          - { id: C, do: "Compute clean-swimming velocity for a 25 or 50 by removing the 15 m off the wall and the 5 m in.", ek: ["Clean velocity = mid-pool distance / mid-pool time; it isolates swimming from walls."], p: [P4], needs: [SW-7.1.A], drills: [] }
+      - n: 2
+        title: Stroke rate, distance per stroke and stroke index
+        book: { toussaint-2006: ["SR vs SL in fatigue"] }
+        los:
+          - { id: A, do: "Compute stroke rate (cycles/min), distance per cycle and velocity from any two of them, or from a cycle count and lap time.", ek: ["v = SR·DPS with SR in cycles/s; SR (cyc/min) = 60 / cycle time; DPS = distance swum / cycles."], p: [P4], drills: [] }
+          - { id: B, do: "Explain from data whether a swimmer slowed in a race by losing stroke rate or distance per stroke.", ek: ["Toussaint 2006: in a 100 m sprint, velocity fell 12% while SR fell 11% — slowing tracked SR, not SL."], p: [P1, P2], needs: [SW-7.2.A], drills: [] }
+          - { id: C, do: "Compute stroke index (v × DPS) and compare the efficiency of two swims at different speeds.", ek: ["SI = v·DPS (m²/s); higher SI at the same speed means more distance per cycle."], p: [P4], drills: [] }
+          - { id: D, do: "Predict the new velocity when SR or DPS changes by a given percentage, and the trade-off needed to hold pace.", ek: ["(1 + Δv) = (1 + ΔSR)(1 + ΔDPS); +5% SR with −5% DPS ≈ −0.25% speed."], p: [P4, P6], drills: [] }
+      - n: 3
+        title: Pacing strategy
+        book: { maglischo-1997: ["energy metabolism"] }
+        los:
+          - { id: A, do: "Choose a pacing profile for a 100 and 200 fly and justify it from energy supply and drag.", ek: ["Going out too fast spends glycolytic capacity early and drives acidosis; since power ∝ v³, uneven pace costs more energy than even pace for the same average speed."], p: [P2, P6], drills: [] }
+          - { id: B, do: "Build target splits for a goal time with a chosen front-half/back-half differential.", ek: ["Split targets sum to the goal; first 50 includes the dive (~1.5–2.5 s faster than later 50s)."], p: [P4, P6], needs: [SW-7.1.B], drills: [] }
+          - { id: C, do: "Diagnose a pacing error from a split sheet (dying third 50, flat middle, too-easy start) and prescribe the change.", ek: ["Compare each split to the plan; the largest drop-off shows where effort or technique broke."], p: [P5], drills: [] }
+
+  # ── 8 ────────────────────────────────────────────────────────────────────
+  - id: energy
+    n: 8
+    title: Energy systems and training physiology
+    scope: core
+    ideas: [ENERGY]
+    weight_est: "8–10%"
+    topics:
+      - n: 1
+        title: The three energy systems
+        book: { maglischo-1997: ["energy metabolism summarized"], toussaint-1994: ["aerobic and anaerobic supply"] }
+        los:
+          - { id: A, do: "Match each energy system to its fuel, rate, capacity and time course.", ek: ["ATP-CP: fastest, ~10–15 s; anaerobic glycolysis: fast, makes lactate and H⁺, limits after ~30–90 s; aerobic: slowest rate, largest capacity, carbohydrate then fat."], p: [P2], drills: [] }
+          - { id: B, do: "Estimate the aerobic/anaerobic mix of a race from its duration.", ek: ["Contributions cross near ~75 s of all-out effort; a 50 is mostly anaerobic, a 200 mostly aerobic, a 100 fly near even."], p: [P2, P6], needs: [SW-8.1.A], drills: [] }
+      - n: 2
+        title: Thresholds and adaptation
+        book: { maglischo-1997: ["endurance training"], css: ["Wakayoshi 1993 MLSS"] }
+        los:
+          - { id: A, do: "Define lactate threshold and maximal lactate steady state and explain why they anchor training paces.", ek: ["The highest pace where lactate production and removal balance; above it, lactate climbs and time to exhaustion shortens sharply."], p: [P2], drills: [] }
+          - { id: B, do: "Match a training stimulus to the adaptation it produces (capillarity, mitochondria, buffering, power).", ek: ["Basic and threshold work build aerobic capacity; lactate tolerance builds buffering; short maximal sprints build power and rate of glycolysis."], p: [P2], drills: [] }
+
+  # ── 9 ────────────────────────────────────────────────────────────────────
+  - id: training
+    n: 9
+    title: Training science — CSS, intervals, periodization and taper
+    scope: core
+    ideas: [ENERGY, LOOP]
+    weight_est: "10–12%"
+    topics:
+      - n: 1
+        title: Critical swim speed
+        book: { css: ["Wakayoshi 1992", "Ginn 1993", "% CSS zones"] }
+        los:
+          - { id: A, do: "Compute CSS (m/s and pace per 100) from 400 and 200 time-trial times.", ek: ["CSS = (400 − 200)/(T₄₀₀ − T₂₀₀) m/s; pace/100 = (T₄₀₀ − T₂₀₀)/2 s. Variant: 350/(T₄₀₀ − T₅₀)."], p: [P4], drills: [] }
+          - { id: B, do: "Compute target paces per 100 for a training zone given CSS and a %CSS.", ek: ["Pace/100 = 100 / (f·CSS); zones roughly 70% recovery, 80–87% endurance, ~95% threshold, 100–110% VO₂max."], p: [P4], needs: [SW-9.1.A], drills: [] }
+          - { id: C, do: "Explain what CSS approximates and its limits, including for butterfly.", ek: ["CSS approximates MLSS within a few %; it overestimates for poorly paced trials and is stroke-specific — test fly separately."], p: [P2], drills: [] }
+      - n: 2
+        title: Interval training
+        book: { maglischo-1997: ["basic", "threshold", "overload", "lactate tolerance", "lactate production", "power"] }
+        los:
+          - { id: A, do: "Compute rest per repeat, work:rest ratio and total set time from a set's distance, send-off and swim times.", ek: ["Rest = send-off − swim time; set time = repeats × send-off; W:R = swim/rest."], p: [P4], drills: [] }
+          - { id: B, do: "Classify a described set (e.g. 10×100 @ threshold on :15 rest; 6×50 max on 3:00) into its training category.", ek: ["Maglischo: basic (≥1000, 4–5 s/100 slower than threshold, :05–:30 rest); threshold (2000–3000, :10–:30); lactate tolerance (75–200 repeats, 3–7 min rest, 600–1000 total); lactate production (25–50, 1–3 min); power (5–25, 100–300 total)."], p: [P3, P6], drills: [] }
+          - { id: C, do: "Explain why rest interval, not distance, mostly sets which system a repeat trains.", ek: ["Short rest keeps the aerobic system loaded; long rest restores phosphagens and lets each repeat go glycolytic or maximal."], p: [P2], drills: [] }
+      - n: 3
+        title: Periodization and load
+        book: { asca: ["L3 Season Planning Framework"], maglischo-1997: ["balancing training"] }
+        los:
+          - { id: A, do: "Lay out a season into macro-, meso- and microcycles around a target meet.", ek: ["General prep → specific prep → competition → taper; volume peaks before intensity peaks."], p: [P6], drills: [] }
+          - { id: B, do: "Compute a week's volume by training category and compare it with a recommended balance.", ek: ["Maglischo: warm-up/swim-down 15–20%, threshold + overload 20–25%, basic 40–50%, sprint 5–10%."], p: [P4, P6], drills: [] }
+      - n: 4
+        title: Taper
+        book: { bosquet-2007: ["meta-analysis of 27 studies"] }
+        los:
+          - { id: A, do: "Design a taper by the evidence: duration, volume cut, intensity and frequency.", ek: ["Bosquet 2007: ~2 weeks, cut volume 41–60% exponentially, keep intensity and session frequency."], p: [P6], drills: [] }
+          - { id: B, do: "Compute daily yardage for an exponential taper from starting volume and target reduction.", ek: ["V(t) = V₀·e^(−t/τ); choose τ so V(end) = (1 − cut)·V₀."], p: [P4], needs: [SW-9.4.A], drills: [] }
+
+  # ── 10 ───────────────────────────────────────────────────────────────────
+  - id: self-analysis
+    n: 10
+    title: Self-analysis and video critique
+    scope: core
+    ideas: [LOOP, RHYTHM]
+    weight_est: "6–8%"
+    topics:
+      - n: 1
+        title: Getting numbers from video
+        book: { asca: ["L2 Stroke School"] }
+        los:
+          - { id: A, do: "Compute cycle time and stroke rate from a frame count and frame rate.", ek: ["Cycle time = frames / fps; SR (cyc/min) = 60·fps / frames."], p: [P4], needs: [SW-7.2.A], drills: [] }
+          - { id: B, do: "Compute the time and distance resolution of a camera at a given swim speed and judge whether it can resolve a phase.", ek: ["Δt = 1/fps; Δx = v/fps — at 2 m/s, 30 fps ≈ 6.7 cm per frame, 120 fps ≈ 1.7 cm."], p: [P4, P5], drills: [] }
+          - { id: C, do: "Choose camera angles (side underwater, front, overhead) to see a given fault, and say what parallax hides.", ek: ["Side view shows timing and depth; front view shows symmetry and hand path; off-axis views distort angles."], p: [P1, P6], drills: [] }
+      - n: 2
+        title: Critiquing your own stroke
+        book: { usms-fly: ["faults and corrections"] }
+        los:
+          - { id: A, do: "Mark the key events (entry, catch, push, exit, kick 1, kick 2, breath) on a fly clip and measure their timing.", ek: ["Express events as % of cycle time so clips at different speeds compare."], p: [P1, P4], needs: [SW-3.2.A], drills: [] }
+          - { id: B, do: "Diagnose a fault from a described clip, rank it by cost, and choose one correction to work on first.", ek: ["Fix the fault that costs the most net force first, usually body position or timing before hand path."], p: [P5], drills: [] }
+          - { id: C, do: "Design a before/after test (stroke count, SR, 25 time at fixed effort) that shows whether a correction worked.", ek: ["Hold effort or SR constant and measure the other; one change at a time; repeat trials to beat noise."], p: [P5, P6], drills: [] }
+
+  # ── 11 ───────────────────────────────────────────────────────────────────
+  - id: practice
+    n: 11
+    title: Practice design
+    scope: core
+    ideas: [LOOP, ENERGY]
+    weight_est: "6–8%"
+    topics:
+      - n: 1
+        title: Building a session
+        book: { asca: ["L3 Daily Workout Planning and Design"], maglischo-1997: ["balancing training"] }
+        los:
+          - { id: A, do: "Write a session with warm-up, pre-set, main set and cool-down, each with a stated purpose.", ek: ["Warm-up raises muscle temperature and rehearses technique; the main set carries the day's training category; cool-down clears metabolites."], p: [P6], drills: [] }
+          - { id: B, do: "Compute a written workout's total yardage and duration from its sets and send-offs.", ek: ["Total = Σ repeats × distance; duration = Σ repeats × send-off + set rests."], p: [P4], needs: [SW-9.2.A], drills: [] }
+          - { id: C, do: "Choose send-offs for a set from a CSS or best-time pace and the intended rest.", ek: ["Send-off = target swim time + rest, rounded to a clock-friendly :05."], p: [P4, P6], needs: [SW-9.1.B], drills: [] }
+      - n: 2
+        title: Technique work inside training
+        book: { asca: ["L2 Stroke School"] }
+        los:
+          - { id: A, do: "Choose a drill that isolates a given fault (one-arm fly, 3-3-3, kick on side, head-lead body dolphin) and say what it trains and what it can't.", ek: ["A drill isolates one element; transfer needs a bridge back to full stroke at race tempo."], p: [P5, P6], drills: [] }
+          - { id: B, do: "Design a set that trains a stroke-count or SR target (e.g. hold count while descending time).", ek: ["Fix one of SR or DPS and progress the other; v = SR·DPS tells you which has to give."], p: [P6], needs: [SW-7.2.D], drills: [] }
+      - n: 3
+        title: Fitting training to a Masters / club life
+        book: { usms: ["Masters"], asca: ["L3 Season Planning Framework"] }
+        los:
+          - { id: A, do: "Adapt a week of 3+ mile days to class and work load so that the hard sessions stay hard and the easy ones stay easy.", ek: ["Polarised weeks (most volume easy, a few true hard sessions) beat uniform moderate effort for both performance and recovery."], p: [P6], drills: [] }
+
+  # ── extension: coaching others ──────────────────────────────────────────
+  - id: coaching
+    n: 12
+    title: Coaching others
+    scope: extension
+    ideas: [LOOP, RULES, PUSH]
+    topics:
+      - n: 1
+        title: Teaching progressions
+        book: { asca: ["L1 Coach's Toolkit", "L2 Stroke School"] }
+        los:
+          - { id: A, do: "Sequence a butterfly teaching progression from body dolphin to full stroke and say what each step must show before moving on.", ek: ["Body wave → kick on front with arms forward → single-arm with timing → full stroke short distances; advance on a visible criterion, not a count of days."], p: [P6], drills: [] }
+          - { id: B, do: "Give feedback on a stroke with one cue, framed as an external focus.", ek: ["External cues ('push the water to your feet') usually transfer better than internal ones ('bend your elbow 90°')."], p: [P5], drills: [] }
+      - n: 2
+        title: Planning for a group
+        book: { asca: ["L3 Season Planning Framework", "L3 Daily Workout Planning and Design", "L4–L5 advanced catalog"] }
+        los:
+          - { id: A, do: "Write a set that runs across lanes with different speeds using a common clock and adjusted distances or send-offs.", ek: ["Equal time, different distance keeps the group together; pace each lane off its own CSS."], p: [P6], needs: [SW-11.1.C], drills: [] }
+          - { id: B, do: "Plan a club season that serves sprinters, distance and IM swimmers in the same group.", ek: ["Shared aerobic base, then split sets by event group; key meets set the taper calendar."], p: [P6], drills: [] }
