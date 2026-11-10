@@ -64,6 +64,7 @@ Live now (37 skills):
 | Linear algebra (Lay 5e) | row reduction · independence · 2×2 inverse · 3×3 determinant · eigenvalues · eigenvectors |
 | Heat transfer (Incropera Ch 1–4) | rate equations · energy balances · heat equation (q̇, flux, ∂T/∂t from T(x)) · plane & composite walls, contact resistance · cylinders, spheres, critical radius · generation (wall, rod) · pin fins (m, infinite, adiabatic tip, efficiency, tip temperature) · shape factors · finite-difference nodes |
 | BVP | S–L eigenvalues · eigenfunctions · shifted spectrum y″ + (λ + c)y = 0 (eigenvalues, eigenfunctions, how many are negative) · self-adjoint form (p, q, r) · regular/periodic/singular |
+| K–12 math (Common Core; OpenStax Prealgebra, Algebra & Trig, Intro Stats) | K–8: counting · place value · add/subtract · multiply/divide · fractions · decimals · measurement & data · ratios & percents · integers · expressions & equations · exponents · linear equations & functions · geometry · data & chance. HS: linear · functions · exponentials & logs · sequences · polynomials · quadratics · rational · complex · vectors & matrices · congruence · similarity · triangle trig · volume · coordinate geometry · circles · unit circle · identities · sinusoids · descriptive stats · bivariate data · probability · expected value. Placed on the LOs of `math-k8.yaml` and `math-hs.yaml`, so every unit has a test-out |
 
 ## Answer kinds (how answers are checked)
 
