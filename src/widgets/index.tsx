@@ -1,10 +1,12 @@
-import { BuiltInPowerupCodes, declareIndexPlugin, ReactRNPlugin, RNPlugin, WidgetLocation } from "@remnote/plugin-sdk";
+import {
+  AppEvents, BuiltInPowerupCodes, declareIndexPlugin, ReactRNPlugin, RNPlugin, WidgetLocation } from "@remnote/plugin-sdk";
 type RemObject = NonNullable<Awaited<ReturnType<RNPlugin["rem"]["findOne"]>>>;
 import "../style.css";
 import { DRILL_POWERUP, DRILL_SLOT, LEGACY_ROOT, SOURCES_SLOT } from "../drills/deck";
 import { SOURCES, sourceLabel } from "../drills/skills";
 import { latestHighlight, pdfOf } from "../drills/anchors";
 import { syncCourses } from "../drills/course";
+import { refreshStaticCards, reseedAfterReview, SEED_SLOT } from "../drills/static-card";
 import { ensureLibrary, libraryIsBuilt, libraryIsCurrent } from "../drills/library-path";
 
 console.log("[Drills] bundle loaded");
@@ -21,6 +23,8 @@ async function registerDrills(plugin: ReactRNPlugin) {
     options: {
       slots: [
         { code: DRILL_SLOT, name: "Skill", onlyProgrammaticModifying: true, hidden: true },
+        // the seed of the problem written on the card, so desktop checks exactly that problem
+        { code: SEED_SLOT, name: "Seed", onlyProgrammaticModifying: true, hidden: true },
         // visible on the card: where this skill is taught ("Kreyszig 10e §1.3; …")
         { code: SOURCES_SLOT, name: "Sources", onlyProgrammaticModifying: true },
       ],
@@ -119,7 +123,12 @@ async function onActivate(plugin: ReactRNPlugin) {
     // the Library follows the curriculum maps once you've built it (Path tab → Build the Library)
     if ((await libraryIsBuilt(plugin)) && !(await libraryIsCurrent(plugin)))
       await ensureLibrary(plugin).catch((e) => console.error("[Drills] library sync failed", e));
+    // every drill card carries a written-out problem (phone-ready); reviewed ones get a new one
+    await refreshStaticCards(plugin).catch((e) => console.error("[Drills] card refresh failed", e));
   }, 4000);
+  plugin.event.addListener(AppEvents.QueueCompleteCard, undefined, async (data: any) => {
+    await reseedAfterReview(plugin, data?.cardId).catch((e) => console.error("[Drills] reseed failed", e));
+  });
 }
 
 async function onDeactivate(_plugin: ReactRNPlugin) {}

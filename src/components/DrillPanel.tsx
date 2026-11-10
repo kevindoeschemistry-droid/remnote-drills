@@ -63,18 +63,25 @@ export function DrillPanel({
   mode,
   onNext,
   onResult,
+  seed: startSeed,
+  hidePrompt,
 }: {
   skill: string;
   mode: "card" | "session";
   onNext?: () => void;
   /** called once per problem when it's settled: right first time, or not */
   onResult?: (correct: boolean) => void;
+  /** start on this problem (the one written on the card) */
+  seed?: number;
+  /** the card already shows the problem text */
+  hidePrompt?: boolean;
 }) {
   const plugin = usePlugin();
   const target = resolveTarget(skill)!;
   const meta = { ...resolveSkill(target.skillId)!, id: target.key, title: target.title };
   const placeSkill = target.skillId;
-  const [seed, setSeed] = useState(newSeed);
+  const [seed, setSeed] = useState(() => startSeed ?? newSeed());
+  const showPrompt = !hidePrompt || seed !== startSeed;
   const problem: Problem = useMemo(() => generateFor(target, seed), [target.key, seed]);
   const parts = problem.parts;
   const [guided, setGuided] = useState(true);
@@ -343,10 +350,14 @@ export function DrillPanel({
         </div>
       )}
 
-      <div className="odd-prompt">
-        <MathText text={problem.prompt} />
-      </div>
-      {problem.figure && <div className="odd-figure" dangerouslySetInnerHTML={{ __html: problem.figure }} />}
+      {showPrompt ? (
+        <div className="odd-prompt">
+          <MathText text={problem.prompt} />
+        </div>
+      ) : (
+        <div className="odd-hint">Answer the problem on this card:</div>
+      )}
+      {problem.figure && showPrompt && <div className="odd-figure" dangerouslySetInnerHTML={{ __html: problem.figure }} />}
 
       {parts && (stepping || done) && (
         <ol className="odd-parts">

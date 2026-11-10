@@ -72,7 +72,7 @@ export async function libraryIsCurrent(plugin: RNPlugin) {
  * framework. Safe to stop and re-run: ids are saved after every framework.
  */
 export async function ensureLibrary(plugin: RNPlugin, onProgress?: (done: number, total: number, label: string) => void) {
-  const ensure = async (map: Record<string, string>, key: string, parent: Rem, text: RichTextInterface, pos: number, doc = false) => {
+  const ensure = async (map: Record<string, string>, key: string, parent: Rem, text: RichTextInterface, pos: number, doc = false, keepText = false) => {
     let rem = map[key] ? await plugin.rem.findOne(map[key]) : undefined;
     if (!rem) {
       rem = await plugin.rem.createRem();
@@ -82,7 +82,7 @@ export async function ensureLibrary(plugin: RNPlugin, onProgress?: (done: number
       await plugin.rem.moveRems([rem], parent, pos);
       map[key] = rem._id;
     } else {
-      if (plain(rem.text) !== plain(text)) await rem.setText(text);
+      if (!keepText && plain(rem.text) !== plain(text)) await rem.setText(text);
       if (rem.parent !== parent._id) await plugin.rem.moveRems([rem], parent, pos);
     }
     return rem;
@@ -132,7 +132,8 @@ export async function ensureLibrary(plugin: RNPlugin, onProgress?: (done: number
           const lo = t.los[li];
           const loRem = await ensure(map, `lo:${lo.code}`, topicRem, [loTitle(lo)], li);
           if (lo.drills.length) {
-            const card = await ensure(map, `card:${lo.code}`, loRem, [`Drill · ${lo.code}`], 1);
+            // a card's text is its current written-out problem (static-card.ts), so it's never reset here
+            const card = await ensure(map, `card:${lo.code}`, loRem, [`Drill · ${lo.code}`], 1, false, true);
             if (!(await card.hasPowerup(DRILL_POWERUP))) {
               await card.setBackText([BACK]);
               await card.addPowerup(DRILL_POWERUP);
