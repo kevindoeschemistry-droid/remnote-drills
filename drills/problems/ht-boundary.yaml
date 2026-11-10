@@ -1,0 +1,310 @@
+# Incropera §1.3, §2.4, §3.2: boundary conditions, unsteady balances, alternative conduction analysis.
+# Format and verify keys: see ht-generation.yaml. Every printed number is a given, so the verifier
+# (tests/verify/data.py) works from exactly what the student sees.
+
+# ── heater flux on one face, convection on the other ──────────────────────
+- template: ht-bc-flux-conv
+  skill: ht.heat-equation
+  given:
+    L: { pick: [0.01, 0.02, 0.05, 0.1] }
+    k: { pick: [0.5, 1.4, 15, 50] }
+    q0: { pick: [500, 1000, 2000, 5000, 10000] }
+    h: { pick: [10, 25, 50, 100, 500] }
+    Tinf: { pick: [20, 25] }
+  let:
+    G0: -q0/k
+    TL: Tinf + q0/h
+    T0: TL + q0*L/k
+  require: [T0 < 800, T0 - TL > 0.5]
+  prompt: >-
+    A thin electric heater film on the face $x = 0$ of a plane wall ($L = {{L*1000}}\,\mathrm{mm}$,
+    $k = {{k}}\,\mathrm{W/m\cdot K}$) supplies $q''_0 = {{q0}}\,\mathrm{W/m^2}$; the heater's back is perfectly
+    insulated, so all of it enters the wall. The face $x = L$ is exposed to fluid at $T_\infty = {{Tinf}}^\circ\mathrm{C}$
+    with $h = {{h}}\,\mathrm{W/m^2\cdot K}$. Steady, 1-D, constant $k$, no generation.
+  parts:
+    - ask: "Boundary condition at $x = 0$: the temperature gradient $dT/dx|_{x=0}$"
+      label: G0
+      tex: "dT/dx|_0"
+      value: G0
+      unit: "K/m"
+      explain: >-
+        Fixed-flux boundary: $-k\,dT/dx|_0 = q''_0$, so $dT/dx|_0 = -q''_0/k = -{{q0}}/{{k}} = {{G0|3}}\,\mathrm{K/m}$
+        (negative: heat flows toward $+x$)
+    - ask: "Temperature of the convective face, $T(L)$"
+      label: TL
+      tex: "T(L)"
+      value: TL
+      unit: "°C"
+      explain: >-
+        No generation, steady: the same $q''_0$ crosses every plane and leaves by convection,
+        $-k\,dT/dx|_L = h[T(L) - T_\infty]$ with $-k\,dT/dx|_L = q''_0$. So $T(L) = {{Tinf}} + {{q0}}/{{h}} = {{TL|3}}^\circ\mathrm{C}$
+    - ask: "Temperature of the heated face, $T(0)$"
+      label: T0
+      tex: "T(0)"
+      value: T0
+      unit: "°C"
+      explain: >-
+        $T'' = 0$ makes $T(x)$ linear with slope $-q''_0/k$: $T(0) = T(L) + q''_0 L/k = {{TL|4}} + {{q0}}\times{{L}}/{{k}} = {{T0|3}}^\circ\mathrm{C}$
+  verify:
+    var: x
+    ode: "k*diff(T(x), x, 2)"
+    bcs: ["-k*dT(0) = q0", "-k*dT(L) = h*(T(L) - Tinf)"]
+    expect: { G0: "dT(0)", TL: "T(L)", T0: "T(0)" }
+
+# ── furnace wall: measured outer surface, convection + radiation ──────────
+- template: ht-bc-radiation
+  skill: ht.heat-equation
+  given:
+    L: { pick: [0.15, 0.2, 0.25, 0.3] }
+    k: { pick: [0.7, 1.0, 1.2, 1.7] }
+    T1: { pick: [250, 300, 400, 500] }
+    T2: { pick: [60, 70, 80, 100] }
+    eps: { pick: [0.7, 0.8, 0.9] }
+    Tinf: { pick: [20, 25, 30] }
+    Tsur: { pick: [15, 20, 25] }
+  let:
+    qc: k*(T1 - T2)/L
+    qr: eps*5.67e-8*((T2 + 273.15)^4 - (Tsur + 273.15)^4)
+    hh: (qc - qr)/(T2 - Tinf)
+  require: [hh > 3, hh < 100]
+  prompt: >-
+    The inner surface of a furnace wall ($L = {{L*1000}}\,\mathrm{mm}$, $k = {{k}}\,\mathrm{W/m\cdot K}$) is at
+    $T_1 = {{T1}}^\circ\mathrm{C}$ and its outer surface is measured at $T_2 = {{T2}}^\circ\mathrm{C}$. The outer surface
+    ($\varepsilon = {{eps}}$) loses heat by convection to air at $T_\infty = {{Tinf}}^\circ\mathrm{C}$ and by radiation to large
+    surroundings at $T_{sur} = {{Tsur}}^\circ\mathrm{C}$. Steady, 1-D. Use $\sigma = 5.67\times10^{-8}\,\mathrm{W/m^2\cdot K^4}$.
+  parts:
+    - ask: "Conduction flux reaching the outer surface, $q''_{cond}$"
+      label: qc
+      tex: "q''_{cond}"
+      value: qc
+      unit: "W/m²"
+      explain: "Linear profile between two fixed temperatures: $q'' = k(T_1 - T_2)/L = {{k}}({{T1}} - {{T2}})/{{L}} = {{qc|3}}\\,\\mathrm{W/m^2}$"
+    - ask: "Net radiation flux from the outer surface, $q''_{rad}$"
+      label: qr
+      tex: "q''_{rad}"
+      value: qr
+      unit: "W/m²"
+      explain: >-
+        In kelvin: $q''_{rad} = \varepsilon\sigma(T_2^4 - T_{sur}^4) = {{eps}}(5.67\times10^{-8})({{T2 + 273.15}}^4 - {{Tsur + 273.15}}^4) = {{qr|3}}\,\mathrm{W/m^2}$
+    - ask: "Convection coefficient on the outer surface, $h$"
+      label: hh
+      tex: h
+      value: hh
+      unit: "W/m²·K"
+      explain: >-
+        Surface balance (no volume, nothing stored): $q''_{cond} = h(T_2 - T_\infty) + q''_{rad}$, so
+        $h = \frac{ {{qc|4}} - {{qr|4}} }{ {{T2}} - {{Tinf}} } = {{hh|3}}\,\mathrm{W/m^2\cdot K}$
+  verify:
+    var: x
+    ode: "k*diff(T(x), x, 2)"
+    bcs: ["T(0) = T1", "T(L) = T2"]
+    expect: { qc: "-k*dT(L)" }
+    residuals:
+      - "qr - eps*5.67e-8*((T(L) + 273.15)**4 - (Tsur + 273.15)**4)"
+      - "-k*dT(L) - hh*(T(L) - Tinf) - qr"
+
+# ── perfect-contact interface: flux continuity carries a gradient across ──
+- template: ht-bc-interface
+  skill: ht.heat-equation
+  given:
+    kA: { pick: [15, 25, 50] }
+    GA: { pick: [-100, -200, -400, -800] }
+    kB: { pick: [0.5, 1, 2, 5] }
+    LB: { pick: [0.005, 0.01, 0.02] }
+    Ti: { pick: [150, 200, 300] }
+    Tinf: { pick: [20, 25] }
+  let:
+    qf: -kA*GA
+    GB: kA*GA/kB
+    Tout: Ti + GB*LB
+    hh: qf/(Tout - Tinf)
+  require: [Tout - Tinf > 10, hh > 5, hh < 5000]
+  prompt: >-
+    Slab A ($k_A = {{kA}}\,\mathrm{W/m\cdot K}$) is in perfect contact with slab B ($k_B = {{kB}}\,\mathrm{W/m\cdot K}$,
+    $L_B = {{LB*1000}}\,\mathrm{mm}$). At steady state the gradient measured in A at the interface is
+    $dT/dx = {{GA}}\,\mathrm{K/m}$ ($x$ points from A into B) and the interface is at $T_i = {{Ti}}^\circ\mathrm{C}$.
+    The outer face of B is cooled by fluid at $T_\infty = {{Tinf}}^\circ\mathrm{C}$. 1-D, no generation.
+  parts:
+    - ask: "Heat flux crossing the interface, $q''$"
+      label: qf
+      tex: "q''"
+      value: qf
+      unit: "W/m²"
+      explain: "Fourier in A: $q'' = -k_A\\,dT/dx|_A = -{{kA}}\\times({{GA}}) = {{qf|3}}\\,\\mathrm{W/m^2}$"
+    - ask: "Temperature gradient in B at the interface, $dT/dx|_B$"
+      label: GB
+      tex: "dT/dx|_B"
+      value: GB
+      unit: "K/m"
+      explain: >-
+        Interface conditions: $T$ continuous and flux continuous, $k_A\,dT/dx|_A = k_B\,dT/dx|_B$, so
+        $dT/dx|_B = \frac{k_A}{k_B}\,dT/dx|_A = \frac{ {{kA}} }{ {{kB}} }({{GA}}) = {{GB|3}}\,\mathrm{K/m}$ (steeper in the poorer conductor)
+    - ask: "Temperature of B's outer face, $T_o$"
+      label: Tout
+      tex: T_o
+      value: Tout
+      unit: "°C"
+      explain: "Linear in B: $T_o = T_i + (dT/dx|_B)L_B = {{Ti}} + ({{GB|4}})({{LB}}) = {{Tout|3}}^\\circ\\mathrm{C}$"
+    - ask: "Convection coefficient on B's outer face, $h$"
+      label: hh
+      tex: h
+      value: hh
+      unit: "W/m²·K"
+      explain: "Convective boundary: $q'' = h(T_o - T_\\infty)$, so $h = {{qf|4}}/({{Tout|4}} - {{Tinf}}) = {{hh|3}}\\,\\mathrm{W/m^2\\cdot K}$"
+  verify:
+    var: x
+    ode: "kB*diff(T(x), x, 2)"
+    bcs: ["T(0) = Ti", "kB*dT(0) = kA*GA"]
+    expect: { GB: "dT(0)", Tout: "T(LB)" }
+    residuals: ["qf + kA*GA", "-kB*dT(LB) - hh*(Tout - Tinf)"]
+
+# ── conical rod, insulated sides (Example 3.1) ────────────────────────────
+- template: ht-var-cone
+  skill: ht.resistance-plane
+  given:
+    a: { pick: [0.25, 0.5, 0.75] }
+    x1: { pick: [0.05, 0.075, 0.1] }
+    x2: { pick: [0.2, 0.25, 0.3] }
+    k: { pick: [3.46, 15, 50] }
+    T1: { pick: [100, 150, 200] }
+    T2: { pick: [20, 30, 50] }
+  let:
+    qq: pi*a^2*k*(T1 - T2)/(4*(1/x1 - 1/x2))
+    q1: 4*qq/(pi*(a*x1)^2)
+    Tm: T1 + 4*qq/(pi*a^2*k)*(2/(x1 + x2) - 1/x1)
+  prompt: >-
+    A solid truncated cone (diameter $D = ax$, $a = {{a}}$) of material with $k = {{k}}\,\mathrm{W/m\cdot K}$ runs from
+    $x_1 = {{x1*1000}}\,\mathrm{mm}$ to $x_2 = {{x2*1000}}\,\mathrm{mm}$. Its lateral surface is insulated, the small end is
+    at $T_1 = {{T1}}^\circ\mathrm{C}$ and the large end at $T_2 = {{T2}}^\circ\mathrm{C}$. Steady state, 1-D in $x$.
+  parts:
+    - ask: "Heat rate along the cone, $q_x$"
+      label: qq
+      tex: q_x
+      value: qq
+      unit: W
+      explain: >-
+        Steady, no generation, insulated sides: $q_x$ is the same at every $x$ (the flux is not, the area grows). Separate
+        Fourier's law: $q_x\int_{x_1}^{x_2}\frac{dx}{\pi a^2x^2/4} = -k\int_{T_1}^{T_2}dT$, so
+        $q_x = \frac{\pi a^2 k(T_1 - T_2)}{4(1/x_1 - 1/x_2)} = {{qq|3}}\,\mathrm{W}$
+    - ask: "Heat flux at the small end, $q''(x_1)$"
+      label: q1
+      tex: "q''(x_1)"
+      value: q1
+      unit: "W/m²"
+      explain: "$q'' = q_x/A(x_1) = {{qq|4}}/[\\pi({{a}}\\times{{x1}})^2/4] = {{q1|3}}\\,\\mathrm{W/m^2}$, the largest anywhere on the cone"
+    - ask: "Temperature halfway along, at $x = (x_1 + x_2)/2$"
+      label: Tm
+      tex: T_m
+      value: Tm
+      unit: "°C"
+      explain: >-
+        Integrate from $x_1$ to $x$: $T(x) = T_1 - \frac{4q_x}{\pi a^2 k}\left(\frac{1}{x_1} - \frac{1}{x}\right)$. At $x = {{(x1 + x2)/2}}\,\mathrm{m}$:
+        $T = {{Tm|3}}^\circ\mathrm{C}$ (below the linear average: most of the drop is near the narrow end)
+  verify:
+    var: x
+    ode: "diff(k*pi*a**2*x**2/4*diff(T(x), x), x)"
+    bcs: ["T(x1) = T1", "T(x2) = T2"]
+    expect: { qq: "-k*pi*(a*x1)**2/4*dT(x1)", q1: "-k*dT(x1)", Tm: "T((x1 + x2)/2)" }
+
+# ── k = k0(1 + βT) through a plane wall ───────────────────────────────────
+- template: ht-var-kT
+  skill: ht.resistance-plane
+  given:
+    k0: { pick: [1.0, 1.5, 2.0] }
+    beta: { pick: [-0.0005, 0.0005, 0.001, 0.002] }
+    L: { pick: [0.1, 0.2, 0.3] }
+    T1: { pick: [400, 600, 800] }
+    T2: { pick: [50, 100, 150] }
+  let:
+    km: k0*(1 + beta*(T1 + T2)/2)
+    qf: k0/L*((T1 - T2) + beta/2*(T1^2 - T2^2))
+    Pm: ((T1 + beta*T1^2/2) + (T2 + beta*T2^2/2))/2
+    Tm: (-1 + sqrt(1 + 2*beta*Pm))/beta
+  prompt: >-
+    A plane wall $L = {{L*1000}}\,\mathrm{mm}$ thick has $k = k_0(1 + \beta T)$ with $k_0 = {{k0}}\,\mathrm{W/m\cdot K}$,
+    $\beta = {{beta}}\,\mathrm{K^{-1}}$ and $T$ in $^\circ\mathrm{C}$. Its faces are held at $T_1 = {{T1}}^\circ\mathrm{C}$
+    and $T_2 = {{T2}}^\circ\mathrm{C}$. Steady, 1-D, no generation.
+  parts:
+    - ask: "Mean conductivity over the range, $\\bar k = \\frac{1}{T_1 - T_2}\\int_{T_2}^{T_1}k\\,dT$"
+      label: km
+      tex: "\\bar k"
+      value: km
+      unit: "W/m·K"
+      explain: "For linear $k(T)$ the mean is $k$ at the average temperature: $\\bar k = k_0[1 + \\beta(T_1 + T_2)/2] = {{km|4}}\\,\\mathrm{W/m\\cdot K}$"
+    - ask: "Heat flux through the wall, $q''$"
+      label: qf
+      tex: "q''"
+      value: qf
+      unit: "W/m²"
+      explain: >-
+        $q''$ is constant in $x$, so separate Fourier's law: $q''L = \int_{T_2}^{T_1}k_0(1 + \beta T)\,dT$, i.e.
+        $q'' = \bar k\,(T_1 - T_2)/L = {{km|4}}({{T1}} - {{T2}})/{{L}} = {{qf|3}}\,\mathrm{W/m^2}$
+    - ask: "Midplane temperature, $T(L/2)$"
+      label: Tm
+      tex: "T(L/2)"
+      value: Tm
+      unit: "°C"
+      explain: >-
+        Integrate only to the midplane: $\int_{T(L/2)}^{T_1}k\,dT = q''L/2$, a quadratic
+        $\tfrac{\beta}{2}T^2 + T = \tfrac{1}{2}\left[(T_1 + \tfrac{\beta}{2}T_1^2) + (T_2 + \tfrac{\beta}{2}T_2^2)\right]$, so
+        $T(L/2) = {{Tm|4}}^\circ\mathrm{C}$ (not the arithmetic mean ${{(T1 + T2)/2}}$: the profile curves when $k$ varies)
+  verify:
+    var: x
+    residuals:
+      - "km*(T1 - T2) - integrate(k0*(1 + beta*x), (x, T2, T1))"
+      - "qf*L - integrate(k0*(1 + beta*x), (x, T2, T1))"
+      - "qf*L/2 - integrate(k0*(1 + beta*x), (x, Tm, T1))"
+
+# ── instantaneous dT/dt of a current-carrying wire ────────────────────────
+- template: ht-eb-dTdt
+  skill: ht.energy-balance
+  given:
+    D: { pick: [0.001, 0.002, 0.003, 0.005] }
+    I: { pick: [5, 10, 20, 30] }
+    Rp: { pick: [0.05, 0.1, 0.2, 0.5] }
+    h: { pick: [10, 25, 50, 100] }
+    eps: { pick: [0.3, 0.6, 0.8] }
+    Tinf: { pick: [20, 25] }
+    Tw: { pick: [40, 60, 100, 150] }
+    rho: 8000
+    c: 500
+  let:
+    Eg: I^2*Rp
+    qout: pi*D*(h*(Tw - Tinf) + eps*5.67e-8*((Tw + 273.15)^4 - (Tinf + 273.15)^4))
+    dTdt: (Eg - qout)/(rho*c*pi*D^2/4)
+  require: [abs(Eg - qout) > 0.05*Eg, abs(dTdt) > 0.005, abs(dTdt) < 500]
+  prompt: >-
+    A long wire of diameter $D = {{D*1000}}\,\mathrm{mm}$ ($\rho = {{rho}}\,\mathrm{kg/m^3}$, $c = {{c}}\,\mathrm{J/kg\cdot K}$,
+    $\varepsilon = {{eps}}$, electrical resistance $R'_e = {{Rp}}\,\Omega/\mathrm{m}$) carries $I = {{I}}\,\mathrm{A}$. At one instant
+    it is at $T = {{Tw}}^\circ\mathrm{C}$, in air at $T_\infty = {{Tinf}}^\circ\mathrm{C}$ ($h = {{h}}\,\mathrm{W/m^2\cdot K}$)
+    inside large surroundings also at ${{Tinf}}^\circ\mathrm{C}$. Treat the wire as spatially isothermal.
+    Use $\sigma = 5.67\times10^{-8}\,\mathrm{W/m^2\cdot K^4}$.
+  parts:
+    - ask: "Generation per metre, $\\dot E'_g$"
+      label: Eg
+      tex: "\\dot E'_g"
+      value: Eg
+      unit: "W/m"
+      explain: "Joule heating: $\\dot E'_g = I^2R'_e = {{I}}^2\\times{{Rp}} = {{Eg|3}}\\,\\mathrm{W/m}$"
+    - ask: "Heat lost per metre by convection and radiation together, $q'_{out}$"
+      label: qout
+      tex: "q'_{out}"
+      value: qout
+      unit: "W/m"
+      explain: >-
+        $q'_{out} = \pi D[h(T - T_\infty) + \varepsilon\sigma(T^4 - T_{sur}^4)]$ with kelvin in the radiation term:
+        $= {{qout|3}}\,\mathrm{W/m}$
+    - ask: "Rate of temperature change at this instant, $dT/dt$"
+      label: dTdt
+      tex: "dT/dt"
+      value: dTdt
+      unit: "K/s"
+      explain: >-
+        Per metre: $\rho c\,\frac{\pi D^2}{4}\frac{dT}{dt} = \dot E'_g - q'_{out}$, so
+        $\frac{dT}{dt} = \frac{ {{Eg|4}} - {{qout|4}} }{ {{rho}}\times{{c}}\times\pi({{D}})^2/4} = {{dTdt|3}}\,\mathrm{K/s}$
+        ({{dTdt > 0 ? "heating: generation still beats the losses" : "cooling: the losses beat generation"}})
+  verify:
+    residuals:
+      - "Eg - I**2*Rp"
+      - "qout - pi*D*h*(Tw - Tinf) - pi*D*eps*5.67e-8*((Tw + 273.15)**4 - (Tinf + 273.15)**4)"
+      - "rho*c*pi*D**2/4*dTdt - (Eg - qout)"

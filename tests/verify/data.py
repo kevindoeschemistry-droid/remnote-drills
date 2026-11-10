@@ -19,7 +19,8 @@ _GEN = Path(__file__).resolve().parents[2] / "src/drills/skills.generated.json"
 TEMPLATES = {t["template"]: t for t in json.loads(_GEN.read_text()).get("problems", [])}
 
 BASE = {"diff": sp.diff, "pi": sp.pi, "log": sp.log, "exp": sp.exp, "sqrt": sp.sqrt, "Abs": sp.Abs,
-        "solve": sp.solve, "sin": sp.sin, "cos": sp.cos, "tanh": sp.tanh, "cosh": sp.cosh, "sinh": sp.sinh}
+        "solve": sp.solve, "sin": sp.sin, "cos": sp.cos, "tan": sp.tan, "tanh": sp.tanh, "cosh": sp.cosh, "sinh": sp.sinh,
+        "integrate": sp.integrate}
 
 
 def ev(expr, ns):

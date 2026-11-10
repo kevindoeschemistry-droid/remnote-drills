@@ -2,7 +2,7 @@
 
 Generated from `drills/frameworks/heat-transfer.yaml` by `scripts/framework.mjs`. ● drilled · ◐ partly · ○ no drills yet.
 
-**98 learning objectives** in 14 units (90 core): 73 drilled, 6 partly, 19 with no drills. Core: 65 / 90 drilled.
+**98 learning objectives** in 14 units (90 core): 86 drilled, 6 partly, 6 with no drills. Core: 78 / 90 drilled.
 
 ## Big ideas
 
@@ -25,18 +25,18 @@ Generated from `drills/frameworks/heat-transfer.yaml` by `scripts/framework.mjs`
 
 | Unit | Scope | Est. weight | LOs | ● | ◐ | ○ |
 |---|---|---|---|---|---|---|
-| 1 · Modes and energy balances | core | 4–6% | 7 | 4 | 2 | 1 |
-| 2 · The heat equation and boundary conditions | core | 6–8% | 8 | 3 | 2 | 3 |
-| 3 · Steady 1-D conduction and resistance networks | core | 8–10% | 9 | 7 | 1 | 1 |
+| 1 · Modes and energy balances | core | 4–6% | 7 | 5 | 2 | 0 |
+| 2 · The heat equation and boundary conditions | core | 6–8% | 8 | 5 | 1 | 2 |
+| 3 · Steady 1-D conduction and resistance networks | core | 8–10% | 9 | 8 | 1 | 0 |
 | 4 · Conduction with thermal energy generation | core | 8–10% | 8 | 8 | 0 | 0 |
-| 5 · Extended surfaces | core | 6–8% | 5 | 3 | 1 | 1 |
+| 5 · Extended surfaces | core | 6–8% | 5 | 4 | 1 | 0 |
 | 6 · Two-dimensional steady conduction | core | 6–8% | 5 | 3 | 0 | 2 |
-| 7 · Transient conduction | core | 10–12% | 11 | 7 | 0 | 4 |
+| 7 · Transient conduction | core | 10–12% | 11 | 9 | 0 | 2 |
 | 8 · Convection fundamentals and external flow | core | 10–12% | 8 | 8 | 0 | 0 |
-| 9 · Internal forced convection | core | 8–10% | 6 | 5 | 0 | 1 |
-| 10 · Free convection | core | 6–8% | 5 | 3 | 0 | 2 |
-| 11 · Thermal radiation | core | 12–14% | 11 | 10 | 0 | 1 |
-| 12 · Heat exchangers and system-level thermal analysis | core | 10–12% | 7 | 4 | 0 | 3 |
+| 9 · Internal forced convection | core | 8–10% | 6 | 6 | 0 | 0 |
+| 10 · Free convection | core | 6–8% | 5 | 5 | 0 | 0 |
+| 11 · Thermal radiation | core | 12–14% | 11 | 11 | 0 | 0 |
+| 12 · Heat exchangers and system-level thermal analysis | core | 10–12% | 7 | 6 | 1 | 0 |
 | 13 · Boiling and condensation | extension | — | 3 | 3 | 0 | 0 |
 | 14 · Mass transfer | extension | — | 5 | 5 | 0 | 0 |
 
@@ -71,9 +71,9 @@ Book: incropera-8e §1.3 · FE: me-A, che-A
 - ● **HT-1.2.B** Apply a surface energy balance linking conduction, convection and radiation at a boundary.
   - EK: A surface has no volume: what conducts in, convects and radiates out.
   - P1 · drills: ht-eb-surface
-- ○ **HT-1.2.C** Find the instantaneous rate of temperature change of a body from an unsteady energy balance.
+- ● **HT-1.2.C** Find the instantaneous rate of temperature change of a body from an unsteady energy balance.
   - EK: dT/dt = (Σq_in − Σq_out + Ė_g)/(ρcV) at that instant.
-  - P1 · P4
+  - P1 · P4 · drills: ht-eb-dTdt
 
 ## Unit 2 · The heat equation and boundary conditions
 
@@ -108,12 +108,12 @@ Book: incropera-8e §2.3 · FE: me-A
 
 Book: incropera-8e §2.4 · FE: me-A
 
-- ○ **HT-2.3.A** Translate a physical boundary into its mathematical condition: fixed temperature, fixed flux, insulated or symmetry plane, convection, radiation, perfect-contact interface.
+- ● **HT-2.3.A** Translate a physical boundary into its mathematical condition: fixed temperature, fixed flux, insulated or symmetry plane, convection, radiation, perfect-contact interface.
   - EK: −k dT/dx|_s = q''_s; insulated or symmetric ⇒ dT/dx = 0; convection: −k dT/dx|_s = h(T_s − T∞); interface: T and k dT/dx continuous.
-  - P2
-- ◐ **HT-2.3.B** Write the complete formulation (equation + two BCs, or + IC) of a 1-D problem from a word description.
+  - P2 · drills: ht-bc-flux-conv, ht-bc-radiation, ht-bc-interface
+- ● **HT-2.3.B** Write the complete formulation (equation + two BCs, or + IC) of a 1-D problem from a word description.
   - EK: A second-order ODE needs two independent conditions; a transient one also needs T(x, 0).
-  - P1 · P2 · drills: ~mae-pot
+  - P1 · P2 · drills: ht-bc-flux-conv, ht-bc-interface, ~mae-pot
 - ◐ **HT-2.3.C** Sketch T(x) and read boundary conditions and k ratios from slopes.
   - EK: Insulated ⇒ zero slope; in series, slope ∝ 1/k; with generation the profile curves (concave down for q̇ > 0).
   - P6 · drills: ~mae-wall-compare
@@ -143,9 +143,9 @@ Book: incropera-8e §3.1 · FE: me-A, che-A, che-D
 
 Book: incropera-8e §3.2 · FE: me-A
 
-- ○ **HT-3.2.A** Find q and T(x) when the cross-section A(x) or k(T) varies, by integrating Fourier's law with q constant.
+- ● **HT-3.2.A** Find q and T(x) when the cross-section A(x) or k(T) varies, by integrating Fourier's law with q constant.
   - EK: Steady, no q̇ ⇒ q_x constant; q ∫dx/A(x) = −∫k(T)dT.
-  - P2
+  - P2 · drills: ht-var-cone, ht-var-kT
 
 ### 3.3 Radial systems and critical insulation
 
@@ -237,9 +237,9 @@ Book: incropera-8e §3.6.4 · FE: me-A
 
 Book: incropera-8e §3.6.5 · FE: me-A
 
-- ○ **HT-5.3.A** Calculate overall surface efficiency and heat rate of a fin array and its resistance.
+- ● **HT-5.3.A** Calculate overall surface efficiency and heat rate of a fin array and its resistance.
   - EK: η_o = 1 − (NA_f/A_t)(1 − η_f); q_t = η_o h A_t θ_b; R_t,o = 1/(η_o h A_t).
-  - P4
+  - P4 · drills: ht-fin-array
 
 ## Unit 6 · Two-dimensional steady conduction
 
@@ -292,9 +292,9 @@ Book: incropera-8e §5.1, §5.2, §5.3 · FE: me-D
 - ● **HT-7.1.C** Find the energy transferred over an interval.
   - EK: Q = ρVcθ_i[1 − exp(−t/τ)].
   - P4 · drills: ht-lumped-energy
-- ○ **HT-7.1.D** Set up and solve a general lumped balance with radiation, surface flux or generation.
+- ● **HT-7.1.D** Set up and solve a general lumped balance with radiation, surface flux or generation.
   - EK: ρVc dT/dt = q''_sA − hA(T − T∞) − εσA(T⁴ − T_sur⁴) + Ė_g; solve or integrate numerically.
-  - P1 · P2
+  - P1 · P2 · drills: ht-lumped-gen, ht-lumped-flux
 
 ### 7.2 Spatial effects — one-term solutions
 
@@ -306,9 +306,9 @@ Book: incropera-8e §5.4, §5.5, §5.6 · FE: me-D
 - ● **HT-7.2.B** Find the temperature at another position, or the time to reach a temperature.
   - EK: θ* = θ₀* cos(ζ₁x*) (wall), θ₀* J₀(ζ₁r*) (cylinder), θ₀* sin(ζ₁r*)/(ζ₁r*) (sphere).
   - P4 · drills: ht-ot-wall-surface, ht-ot-wall-time
-- ○ **HT-7.2.C** Find the fraction of the maximum energy transferred, Q/Q₀.
+- ● **HT-7.2.C** Find the fraction of the maximum energy transferred, Q/Q₀.
   - EK: Wall: Q/Q₀ = 1 − (sin ζ₁/ζ₁)θ₀*; cylinder and sphere have their own forms.
-  - P4
+  - P4 · drills: ht-ot-wall-energy
 
 ### 7.3 The semi-infinite solid
 
@@ -423,9 +423,9 @@ Book: incropera-8e §8.4, §8.5 · FE: me-B, che-B, che-D
 
 Book: incropera-8e §8.6 · FE: che-B
 
-- ○ **HT-9.4.A** Use the hydraulic diameter and annulus results for noncircular passages.
+- ● **HT-9.4.A** Use the hydraulic diameter and annulus results for noncircular passages.
   - EK: D_h = 4A_c/P; laminar Nu depends on shape; annulus uses D_o − D_i.
-  - P3
+  - P3 · drills: ht-int-noncircular
 
 ## Unit 10 · Free convection
 
@@ -438,9 +438,9 @@ Book: incropera-8e §9.1, §9.2, §9.3, §9.4, §9.5 · FE: me-B, che-B
 - ● **HT-10.1.A** Compute Gr and Ra and identify laminar or turbulent free convection.
   - EK: Ra_L = gβΔT L³/(να); β = 1/T_f for an ideal gas; transition near Ra ≈ 10⁹ on a vertical plate.
   - P3 · P4 · drills: ht-ra
-- ○ **HT-10.1.B** Decide whether free, forced or mixed convection governs.
+- ● **HT-10.1.B** Decide whether free, forced or mixed convection governs.
   - EK: Gr/Re² ≪ 1 forced, ≫ 1 free, ~1 mixed.
-  - P3
+  - P3 · drills: ht-mixed-conv
 
 ### 10.2 Correlations for external free convection
 
@@ -457,9 +457,9 @@ Book: incropera-8e §9.6 · FE: me-B, che-B
 
 Book: incropera-8e §9.8, §9.9
 
-- ○ **HT-10.3.A** Calculate heat transfer across a vertical or horizontal enclosure (e.g. double-pane window).
+- ● **HT-10.3.A** Calculate heat transfer across a vertical or horizontal enclosure (e.g. double-pane window).
   - EK: Ra_L across the gap; Nu = 1 means pure conduction below the critical Ra.
-  - P3 · P4
+  - P3 · P4 · drills: ht-enclosure-vertical
 
 ## Unit 11 · Thermal radiation
 
@@ -514,9 +514,9 @@ Book: incropera-8e §13.2, §13.3 · FE: me-C, che-C
 
 Book: incropera-8e §13.4 · FE: me-C
 
-- ○ **HT-11.4.A** Combine radiation exchange with conduction and convection at a surface or in an enclosure.
+- ● **HT-11.4.A** Combine radiation exchange with conduction and convection at a surface or in an enclosure.
   - EK: Radiation and convection from one surface act in parallel; h_r lets radiation join the resistance network.
-  - P1 · P3
+  - P1 · P3 · drills: ht-hr-surface, ht-sys-pipe, ht-sys-package
 
 ## Unit 12 · Heat exchangers and system-level thermal analysis
 
@@ -526,9 +526,9 @@ Big ideas: SYS, ENG, RATE
 
 Book: incropera-8e §11.1, §11.2 · FE: me-E, che-D, che-E
 
-- ○ **HT-12.1.A** Calculate U for a tube wall including both films, fouling and finned surfaces.
+- ● **HT-12.1.A** Calculate U for a tube wall including both films, fouling and finned surfaces.
   - EK: 1/UA = 1/(η_o hA)_c + R''_f,c/(η_oA)_c + R_w + R''_f,h/(η_oA)_h + 1/(η_o hA)_h.
-  - P1 · P4
+  - P1 · P4 · drills: ht-U-tube
 
 ### 12.2 The log-mean temperature difference method
 
@@ -556,12 +556,12 @@ Book: incropera-8e §11.4, §11.5 · FE: me-E, che-E
 
 Book: incropera-8e §1.3, §3.1, §13.4 · FE: me-A, me-B, me-C
 
-- ○ **HT-12.4.A** Model a device (electronics package, building wall, pipe run) as a network of conduction, convection and radiation resistances and find its operating temperature.
+- ● **HT-12.4.A** Model a device (electronics package, building wall, pipe run) as a network of conduction, convection and radiation resistances and find its operating temperature.
   - EK: One energy balance per node; parallel paths from a surface (convection ∥ radiation); iterate when h_r depends on T.
-  - P1 · P2 · P4
-- ○ **HT-12.4.B** Identify the controlling resistance and choose the design change that best meets a temperature limit.
+  - P1 · P2 · P4 · drills: ht-sys-package, ht-sys-pipe
+- ◐ **HT-12.4.B** Identify the controlling resistance and choose the design change that best meets a temperature limit.
   - EK: Reduce the largest R first; compare options by their effect on R_tot.
-  - P6
+  - P6 · drills: ~ht-sys-package, ~ht-sys-pipe
 
 ## Unit 13 · Boiling and condensation (extension)
 

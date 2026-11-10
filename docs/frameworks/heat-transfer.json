@@ -204,7 +204,9 @@
         "P1",
         "P4"
        ],
-       "drills": []
+       "drills": [
+        "ht-eb-dTdt"
+       ]
       }
      ]
     }
@@ -336,7 +338,11 @@
        "p": [
         "P2"
        ],
-       "drills": []
+       "drills": [
+        "ht-bc-flux-conv",
+        "ht-bc-radiation",
+        "ht-bc-interface"
+       ]
       },
       {
        "id": "B",
@@ -349,6 +355,8 @@
         "P2"
        ],
        "drills": [
+        "ht-bc-flux-conv",
+        "ht-bc-interface",
         "~mae-pot"
        ]
       },
@@ -474,7 +482,10 @@
        "p": [
         "P2"
        ],
-       "drills": []
+       "drills": [
+        "ht-var-cone",
+        "ht-var-kT"
+       ]
       }
      ]
     },
@@ -835,7 +846,9 @@
        "p": [
         "P4"
        ],
-       "drills": []
+       "drills": [
+        "ht-fin-array"
+       ]
       }
      ]
     }
@@ -1035,7 +1048,10 @@
         "P1",
         "P2"
        ],
-       "drills": []
+       "drills": [
+        "ht-lumped-gen",
+        "ht-lumped-flux"
+       ]
       }
      ]
     },
@@ -1092,7 +1108,9 @@
        "p": [
         "P4"
        ],
-       "drills": []
+       "drills": [
+        "ht-ot-wall-energy"
+       ]
       }
      ]
     },
@@ -1535,7 +1553,9 @@
        "p": [
         "P3"
        ],
-       "drills": []
+       "drills": [
+        "ht-int-noncircular"
+       ]
       }
      ]
     }
@@ -1591,7 +1611,9 @@
        "p": [
         "P3"
        ],
-       "drills": []
+       "drills": [
+        "ht-mixed-conv"
+       ]
       }
      ]
     },
@@ -1660,7 +1682,9 @@
         "P3",
         "P4"
        ],
-       "drills": []
+       "drills": [
+        "ht-enclosure-vertical"
+       ]
       }
      ]
     }
@@ -1888,7 +1912,11 @@
         "P1",
         "P3"
        ],
-       "drills": []
+       "drills": [
+        "ht-hr-surface",
+        "ht-sys-pipe",
+        "ht-sys-package"
+       ]
       }
      ]
     }
@@ -1931,7 +1959,9 @@
         "P1",
         "P4"
        ],
-       "drills": []
+       "drills": [
+        "ht-U-tube"
+       ]
       }
      ]
     },
@@ -2049,7 +2079,10 @@
         "P2",
         "P4"
        ],
-       "drills": []
+       "drills": [
+        "ht-sys-package",
+        "ht-sys-pipe"
+       ]
       },
       {
        "id": "B",
@@ -2060,7 +2093,10 @@
        "p": [
         "P6"
        ],
-       "drills": []
+       "drills": [
+        "~ht-sys-package",
+        "~ht-sys-pipe"
+       ]
       }
      ]
     }
@@ -2333,8 +2369,10 @@
    "code": "HT-1.2.C",
    "unit": 1,
    "topic": 2,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ht-eb-dTdt"
+   ],
    "partial": []
   },
   {
@@ -2389,16 +2427,23 @@
    "code": "HT-2.3.A",
    "unit": 2,
    "topic": 3,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ht-bc-flux-conv",
+    "ht-bc-radiation",
+    "ht-bc-interface"
+   ],
    "partial": []
   },
   {
    "code": "HT-2.3.B",
    "unit": 2,
    "topic": 3,
-   "status": "partial",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ht-bc-flux-conv",
+    "ht-bc-interface"
+   ],
    "partial": [
     "mae-pot"
    ]
@@ -2460,8 +2505,11 @@
    "code": "HT-3.2.A",
    "unit": 3,
    "topic": 2,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ht-var-cone",
+    "ht-var-kT"
+   ],
    "partial": []
   },
   {
@@ -2635,8 +2683,10 @@
    "code": "HT-5.3.A",
    "unit": 5,
    "topic": 3,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ht-fin-array"
+   ],
    "partial": []
   },
   {
@@ -2722,8 +2772,11 @@
    "code": "HT-7.1.D",
    "unit": 7,
    "topic": 1,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ht-lumped-gen",
+    "ht-lumped-flux"
+   ],
    "partial": []
   },
   {
@@ -2753,8 +2806,10 @@
    "code": "HT-7.2.C",
    "unit": 7,
    "topic": 2,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ht-ot-wall-energy"
+   ],
    "partial": []
   },
   {
@@ -2934,8 +2989,10 @@
    "code": "HT-9.4.A",
    "unit": 9,
    "topic": 4,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ht-int-noncircular"
+   ],
    "partial": []
   },
   {
@@ -2952,8 +3009,10 @@
    "code": "HT-10.1.B",
    "unit": 10,
    "topic": 1,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ht-mixed-conv"
+   ],
    "partial": []
   },
   {
@@ -2981,8 +3040,10 @@
    "code": "HT-10.3.A",
    "unit": 10,
    "topic": 3,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ht-enclosure-vertical"
+   ],
    "partial": []
   },
   {
@@ -3092,16 +3153,22 @@
    "code": "HT-11.4.A",
    "unit": 11,
    "topic": 4,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ht-hr-surface",
+    "ht-sys-pipe",
+    "ht-sys-package"
+   ],
    "partial": []
   },
   {
    "code": "HT-12.1.A",
    "unit": 12,
    "topic": 1,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ht-U-tube"
+   ],
    "partial": []
   },
   {
@@ -3149,17 +3216,23 @@
    "code": "HT-12.4.A",
    "unit": 12,
    "topic": 4,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ht-sys-package",
+    "ht-sys-pipe"
+   ],
    "partial": []
   },
   {
    "code": "HT-12.4.B",
    "unit": 12,
    "topic": 4,
-   "status": "gap",
+   "status": "partial",
    "full": [],
-   "partial": []
+   "partial": [
+    "ht-sys-package",
+    "ht-sys-pipe"
+   ]
   },
   {
    "code": "HT-13.1.A",

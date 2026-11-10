@@ -1,0 +1,307 @@
+# Incropera §3.6.5, §11.2, §13.4, systems: fin arrays, overall U, multimode surfaces, device networks.
+# Format and verify keys: see ht-generation.yaml.
+# Surfaces losing heat by convection and radiation at an unknown temperature: Newton from the
+# no-radiation answer. f(T) = (losses) − (supply) is increasing and convex in T, and that start lies
+# right of the root, so the iterates fall monotonically onto it.
+
+# ── pin-fin array: η_f, η_o, q_t, R_t,o ───────────────────────────────────
+- template: ht-fin-array
+  skill: ht.fins
+  given:
+    W: { pick: [0.05, 0.075, 0.1] }
+    N: { pick: [25, 49, 100, 144] }
+    D: { pick: [0.002, 0.003, 0.005] }
+    L: { pick: [0.015, 0.02, 0.03, 0.04] }
+    k: { pick: [180, 240, 400] }
+    h: { pick: [50, 100, 200] }
+    Tb: { pick: [60, 80, 100] }
+    Tinf: { pick: [20, 25] }
+  let:
+    m: sqrt(4*h/(k*D))
+    Lc: L + D/4
+    etaf: tanh(m*Lc)/(m*Lc)
+    Af: pi*D*Lc
+    At: N*Af + W^2 - N*pi*D^2/4
+    etao: 1 - N*Af/At*(1 - etaf)
+    qt: etao*h*At*(Tb - Tinf)
+    Rto: 1/(etao*h*At)
+  require: [N*pi*D^2/4 < 0.3*W^2, etaf > 0.3, etaf < 0.98]
+  prompt: >-
+    A ${{W*1000}}\times{{W*1000}}\,\mathrm{mm}$ base at $T_b = {{Tb}}^\circ\mathrm{C}$ carries $N = {{N}}$ pin fins
+    ($D = {{D*1000}}\,\mathrm{mm}$, $L = {{L*1000}}\,\mathrm{mm}$, $k = {{k}}\,\mathrm{W/m\cdot K}$). Fins and exposed base are
+    cooled by air at $T_\infty = {{Tinf}}^\circ\mathrm{C}$ with $h = {{h}}\,\mathrm{W/m^2\cdot K}$. Account for tip convection
+    with the corrected length $L_c = L + D/4$.
+  parts:
+    - ask: "Single-fin efficiency, $\\eta_f$"
+      label: etaf
+      tex: "\\eta_f"
+      value: etaf
+      explain: >-
+        $m = \sqrt{4h/kD} = {{m|4}}\,\mathrm{m^{-1}}$, $L_c = {{Lc}}\,\mathrm{m}$, $mL_c = {{m*Lc|3}}$:
+        $\eta_f = \frac{\tanh mL_c}{mL_c} = {{etaf|3}}$
+    - ask: "Overall surface efficiency, $\\eta_o$"
+      label: etao
+      tex: "\\eta_o"
+      value: etao
+      explain: >-
+        $A_f = \pi DL_c = {{Af|3}}\,\mathrm{m^2}$, $A_t = NA_f + A_b = {{N}}A_f + (W^2 - N\pi D^2/4) = {{At|4}}\,\mathrm{m^2}$.
+        $\eta_o = 1 - \frac{NA_f}{A_t}(1 - \eta_f) = {{etao|3}}$
+    - ask: "Total heat rate from the array, $q_t$"
+      label: qt
+      tex: q_t
+      value: qt
+      unit: W
+      explain: "$q_t = \\eta_o hA_t\\theta_b = {{etao|4}}\\times{{h}}\\times{{At|4}}\\times({{Tb}} - {{Tinf}}) = {{qt|3}}\\,\\mathrm{W}$"
+    - ask: "Overall surface resistance, $R_{t,o}$"
+      label: Rto
+      tex: "R_{t,o}"
+      value: Rto
+      unit: K/W
+      explain: "$R_{t,o} = \\frac{1}{\\eta_o hA_t} = \\frac{\\theta_b}{q_t} = {{Rto|3}}\\,\\mathrm{K/W}$"
+  verify:
+    var: x
+    ode: "diff(T(x), x, 2) - 4*h/(k*D)*(T(x) - Tinf)"
+    bcs: ["T(0) = Tb", "dT(L + D/4) = 0"]
+    expect: { etaf: "-k*pi*D**2/4*dT(0)/(h*pi*D*(L + D/4)*(Tb - Tinf))" }
+    residuals:
+      # the array's heat = N fins + the bare base between them
+      - "qt + N*k*pi*D**2/4*dT(0) - h*(W**2 - N*pi*D**2/4)*(Tb - Tinf)"
+      - "etao*h*(N*pi*D*(L + D/4) + W**2 - N*pi*D**2/4)*(Tb - Tinf) - qt"
+      - "Rto*qt - (Tb - Tinf)"
+
+# ── overall U of a fouled tube ────────────────────────────────────────────
+- template: ht-U-tube
+  skill: ht.heat-exchangers
+  given:
+    Di: { pick: [0.02, 0.025, 0.03] }
+    t: { pick: [0.002, 0.003] }
+    kw: { pick: [15, 45, 385] }
+    hi: { pick: [500, 1000, 3000, 5000] }
+    ho: { pick: [200, 500, 1000, 2000] }
+    Rfi: { pick: [0.0001, 0.0002, 0.0005] }
+    Rfo: { pick: [0.0001, 0.0002, 0.0009] }
+    Ti: { pick: [80, 120, 150] }
+    To: { pick: [20, 25, 30] }
+  let:
+    ri: Di/2
+    ro: Di/2 + t
+    Rp: 1/(hi*2*pi*ri) + Rfi/(2*pi*ri) + log(ro/ri)/(2*pi*kw) + Rfo/(2*pi*ro) + 1/(ho*2*pi*ro)
+    Uo: 1/(Rp*2*pi*ro)
+    qp: (Ti - To)/Rp
+  prompt: >-
+    Hot fluid at $T_i = {{Ti}}^\circ\mathrm{C}$ flows inside a tube ($D_i = {{Di*1000}}\,\mathrm{mm}$, wall
+    $t = {{t*1000}}\,\mathrm{mm}$, $k_w = {{kw}}\,\mathrm{W/m\cdot K}$) with $h_i = {{hi}}\,\mathrm{W/m^2\cdot K}$; cold fluid at
+    $T_o = {{To}}^\circ\mathrm{C}$ outside has $h_o = {{ho}}\,\mathrm{W/m^2\cdot K}$. Fouling factors:
+    $R''_{f,i} = {{Rfi}}$ and $R''_{f,o} = {{Rfo}}\,\mathrm{m^2\cdot K/W}$. Per metre of tube.
+  parts:
+    - ask: "Total thermal resistance per metre, $R'_{tot}$"
+      label: Rp
+      tex: "R'_{tot}"
+      value: Rp
+      unit: "m·K/W"
+      explain: >-
+        Five in series, each on its own area: $R' = \frac{1}{h_i\pi D_i} + \frac{R''_{f,i}}{\pi D_i} + \frac{\ln(D_o/D_i)}{2\pi k_w}
+        + \frac{R''_{f,o}}{\pi D_o} + \frac{1}{h_o\pi D_o}$ with $D_o = {{Di + 2*t}}\,\mathrm{m}$: $R' = {{Rp|3}}\,\mathrm{m\cdot K/W}$
+    - ask: "Overall coefficient based on the outer area, $U_o$"
+      label: Uo
+      tex: U_o
+      value: Uo
+      unit: "W/m²·K"
+      explain: "$U_oA'_o = 1/R'$ with $A'_o = \\pi D_o$: $U_o = \\frac{1}{\\pi D_oR'} = {{Uo|3}}\\,\\mathrm{W/m^2\\cdot K}$ (a $U_i$ would be larger by $D_o/D_i$)"
+    - ask: "Heat rate per metre, $q'$"
+      label: qp
+      tex: "q'"
+      value: qp
+      unit: "W/m"
+      explain: "$q' = (T_i - T_o)/R' = ({{Ti}} - {{To}})/{{Rp|4}} = {{qp|3}}\\,\\mathrm{W/m}$"
+  verify:
+    var: r
+    ode: "kw/r*diff(r*diff(T(r), r), r)"
+    bcs:
+      - "-kw*dT(Di/2) = (Ti - T(Di/2))/(1/hi + Rfi)"
+      - "-kw*dT(Di/2 + t) = (T(Di/2 + t) - To)/(1/ho + Rfo)"
+    expect: { qp: "-kw*dT(Di/2)*pi*Di" }
+    residuals: ["Rp*qp - (Ti - To)", "Uo*pi*(Di + 2*t)*(Ti - To) - qp"]
+
+# ── convection and radiation in parallel: h_r ─────────────────────────────
+- template: ht-hr-surface
+  skill: ht.enclosures
+  given:
+    D: { pick: [0.05, 0.1, 0.15] }
+    Ts: { pick: [80, 100, 150, 200, 250] }
+    eps: { pick: [0.5, 0.8, 0.9] }
+    h: { pick: [5, 10, 15] }
+    Tinf: { pick: [20, 25] }
+    Tsur: { pick: [10, 15, 20] }
+  let:
+    hr: eps*5.67e-8*((Ts + 273.15) + (Tsur + 273.15))*((Ts + 273.15)^2 + (Tsur + 273.15)^2)
+    qp: pi*D*(h*(Ts - Tinf) + hr*(Ts - Tsur))
+    fr: 100*pi*D*hr*(Ts - Tsur)/qp
+  prompt: >-
+    An uninsulated horizontal pipe ($D = {{D*1000}}\,\mathrm{mm}$, $\varepsilon = {{eps}}$) has its surface at
+    $T_s = {{Ts}}^\circ\mathrm{C}$. It sits in still air at $T_\infty = {{Tinf}}^\circ\mathrm{C}$ ($h = {{h}}\,\mathrm{W/m^2\cdot K}$)
+    inside a large room whose walls are at $T_{sur} = {{Tsur}}^\circ\mathrm{C}$. Use $\sigma = 5.67\times10^{-8}\,\mathrm{W/m^2\cdot K^4}$.
+  parts:
+    - ask: "Radiation coefficient, $h_r$"
+      label: hr
+      tex: h_r
+      value: hr
+      unit: "W/m²·K"
+      explain: >-
+        Factor $T_s^4 - T_{sur}^4$: $h_r = \varepsilon\sigma(T_s + T_{sur})(T_s^2 + T_{sur}^2)$ in kelvin
+        $= {{eps}}(5.67\times10^{-8})({{Ts + 273.15}} + {{Tsur + 273.15}})({{Ts + 273.15}}^2 + {{Tsur + 273.15}}^2) = {{hr|3}}\,\mathrm{W/m^2\cdot K}$
+    - ask: "Heat loss per metre, $q'$"
+      label: qp
+      tex: "q'"
+      value: qp
+      unit: "W/m"
+      explain: >-
+        Convection and radiation leave the same surface in parallel (each to its own temperature):
+        $q' = \pi D[h(T_s - T_\infty) + h_r(T_s - T_{sur})] = {{qp|3}}\,\mathrm{W/m}$
+    - ask: "Share of the loss carried by radiation"
+      label: fr
+      tex: "q'_{rad}/q'"
+      value: fr
+      unit: "%"
+      explain: "$\\frac{h_r(T_s - T_{sur})}{h(T_s - T_\\infty) + h_r(T_s - T_{sur})} = {{fr|3}}\\%$: in still air radiation is rarely negligible"
+  verify:
+    residuals:
+      - "hr*(Ts - Tsur) - eps*5.67e-8*((Ts + 273.15)**4 - (Tsur + 273.15)**4)"
+      - "qp - pi*D*h*(Ts - Tinf) - pi*D*eps*5.67e-8*((Ts + 273.15)**4 - (Tsur + 273.15)**4)"
+      - "fr*qp - 100*pi*D*eps*5.67e-8*((Ts + 273.15)**4 - (Tsur + 273.15)**4)"
+
+# ── electronics package to its operating temperature ──────────────────────
+- template: ht-sys-package
+  skill: ht.resistance-plane
+  given:
+    s: { pick: [0.02, 0.03, 0.05] }
+    P: { pick: [2, 5, 10, 20] }
+    Rtc: { pick: [0.5e-4, 1.0e-4, 2.0e-4, 5.0e-4] }
+    Ls: { pick: [0.002, 0.005] }
+    ks: { pick: [1, 20, 150] }
+    h: { pick: [25, 50, 100] }
+    eps: { pick: [0.8, 0.9] }
+    Tinf: { pick: [20, 25, 30] }
+  let:
+    qs: P/s^2
+    TK: Tinf + 273.15
+    a0: TK + qs/h
+    a1: a0 - (h*(a0 - TK) + eps*5.67e-8*(a0^4 - TK^4) - qs)/(h + 4*eps*5.67e-8*a0^3)
+    a2: a1 - (h*(a1 - TK) + eps*5.67e-8*(a1^4 - TK^4) - qs)/(h + 4*eps*5.67e-8*a1^3)
+    a3: a2 - (h*(a2 - TK) + eps*5.67e-8*(a2^4 - TK^4) - qs)/(h + 4*eps*5.67e-8*a2^3)
+    a4: a3 - (h*(a3 - TK) + eps*5.67e-8*(a3^4 - TK^4) - qs)/(h + 4*eps*5.67e-8*a3^3)
+    a5: a4 - (h*(a4 - TK) + eps*5.67e-8*(a4^4 - TK^4) - qs)/(h + 4*eps*5.67e-8*a4^3)
+    a6: a5 - (h*(a5 - TK) + eps*5.67e-8*(a5^4 - TK^4) - qs)/(h + 4*eps*5.67e-8*a5^3)
+    a7: a6 - (h*(a6 - TK) + eps*5.67e-8*(a6^4 - TK^4) - qs)/(h + 4*eps*5.67e-8*a6^3)
+    a8: a7 - (h*(a7 - TK) + eps*5.67e-8*(a7^4 - TK^4) - qs)/(h + 4*eps*5.67e-8*a7^3)
+    Ts: a8 - 273.15
+    hr: eps*5.67e-8*(a8 + TK)*(a8^2 + TK^2)
+    Tc: Ts + qs*(Rtc + Ls/ks)
+    fc: 100*qs*Rtc/(Tc - Tinf)
+  require: [Ts - Tinf > 5, Tc < 250]
+  prompt: >-
+    A ${{s*1000}}\times{{s*1000}}\,\mathrm{mm}$ chip dissipates $P = {{P}}\,\mathrm{W}$. It is bonded (contact resistance
+    $R''_{t,c} = {{Rtc}}\,\mathrm{m^2\cdot K/W}$) to a substrate $L = {{Ls*1000}}\,\mathrm{mm}$ thick ($k = {{ks}}\,\mathrm{W/m\cdot K}$)
+    whose exposed face ($\varepsilon = {{eps}}$) loses heat by convection ($h = {{h}}\,\mathrm{W/m^2\cdot K}$) to air and by radiation
+    to large surroundings, both at ${{Tinf}}^\circ\mathrm{C}$. All of $P$ crosses the substrate; 1-D, steady.
+    Use $\sigma = 5.67\times10^{-8}\,\mathrm{W/m^2\cdot K^4}$.
+  parts:
+    - ask: "Temperature of the exposed substrate face, $T_s$ (iterate)"
+      label: Ts
+      tex: T_s
+      value: Ts
+      unit: "°C"
+      explain: >-
+        Surface balance, $q'' = P/A = {{qs|4}}\,\mathrm{W/m^2}$: $q'' = h(T_s - T_\infty) + \varepsilon\sigma(T_s^4 - T_{sur}^4)$.
+        Guess without radiation ($T_s = {{a0 - 273.15|4}}^\circ\mathrm{C}$), then iterate with $h_r$ (or Newton):
+        $T_s = {{Ts|4}}^\circ\mathrm{C}$, where $h_r = {{hr|3}}\,\mathrm{W/m^2\cdot K}$ next to $h = {{h}}$
+    - ask: "Chip temperature, $T_c$"
+      label: Tc
+      tex: T_c
+      value: Tc
+      unit: "°C"
+      explain: >-
+        Back through the series path: $T_c = T_s + q''\left(R''_{t,c} + L/k\right) = {{Ts|4}} + {{qs|4}}({{Rtc}} + {{Ls}}/{{ks}}) = {{Tc|4}}^\circ\mathrm{C}$
+    - ask: "Share of the chip-to-air rise $T_c - T_\\infty$ that sits across the contact"
+      label: fc
+      tex: "\\Delta T_{tc}/\\Delta T"
+      value: fc
+      unit: "%"
+      explain: >-
+        $\Delta T_i/\Delta T_{tot} = R_i/R_{tot}$: $q''R''_{t,c}/(T_c - T_\infty) = {{fc|3}}\%$. The surface films
+        ($1/(h + h_r) = {{1/(h + hr)|3}}\,\mathrm{m^2\cdot K/W}$) are the resistance to attack first
+  verify:
+    var: x
+    ode: "ks*diff(T(x), x, 2)"
+    bcs: ["T(Ls) = Ts", "-ks*dT(0) = (Tc - T(0))/Rtc"]
+    residuals:
+      - "P/s**2 - h*(Ts - Tinf) - eps*5.67e-8*((Ts + 273.15)**4 - (Tinf + 273.15)**4)"
+      - "-ks*dT(Ls) - P/s**2"
+      - "fc*(Tc - Tinf) - 100*(Tc - T(0))"
+
+# ── insulated steam pipe: convection + radiation outside ──────────────────
+- template: ht-sys-pipe
+  skill: ht.resistance-radial
+  given:
+    ri: { pick: [0.025, 0.05, 0.075] }
+    tins: { pick: [0.025, 0.05] }
+    kins: { pick: [0.04, 0.055, 0.08] }
+    Ti: { pick: [150, 200, 250] }
+    h: { pick: [5, 10, 20] }
+    eps: { pick: [0.1, 0.8] }
+    Tinf: { pick: [20, 25] }
+  let:
+    ro: ri + tins
+    Rin: log(ro/ri)/(2*pi*kins)
+    TK: Tinf + 273.15
+    b0: (Ti + 273.15 + Rin*2*pi*ro*h*TK)/(1 + Rin*2*pi*ro*h)
+    b1: b0 - (2*pi*ro*(h*(b0 - TK) + eps*5.67e-8*(b0^4 - TK^4)) - (Ti + 273.15 - b0)/Rin)/(2*pi*ro*(h + 4*eps*5.67e-8*b0^3) + 1/Rin)
+    b2: b1 - (2*pi*ro*(h*(b1 - TK) + eps*5.67e-8*(b1^4 - TK^4)) - (Ti + 273.15 - b1)/Rin)/(2*pi*ro*(h + 4*eps*5.67e-8*b1^3) + 1/Rin)
+    b3: b2 - (2*pi*ro*(h*(b2 - TK) + eps*5.67e-8*(b2^4 - TK^4)) - (Ti + 273.15 - b2)/Rin)/(2*pi*ro*(h + 4*eps*5.67e-8*b2^3) + 1/Rin)
+    b4: b3 - (2*pi*ro*(h*(b3 - TK) + eps*5.67e-8*(b3^4 - TK^4)) - (Ti + 273.15 - b3)/Rin)/(2*pi*ro*(h + 4*eps*5.67e-8*b3^3) + 1/Rin)
+    b5: b4 - (2*pi*ro*(h*(b4 - TK) + eps*5.67e-8*(b4^4 - TK^4)) - (Ti + 273.15 - b4)/Rin)/(2*pi*ro*(h + 4*eps*5.67e-8*b4^3) + 1/Rin)
+    b6: b5 - (2*pi*ro*(h*(b5 - TK) + eps*5.67e-8*(b5^4 - TK^4)) - (Ti + 273.15 - b5)/Rin)/(2*pi*ro*(h + 4*eps*5.67e-8*b5^3) + 1/Rin)
+    b7: b6 - (2*pi*ro*(h*(b6 - TK) + eps*5.67e-8*(b6^4 - TK^4)) - (Ti + 273.15 - b6)/Rin)/(2*pi*ro*(h + 4*eps*5.67e-8*b6^3) + 1/Rin)
+    b8: b7 - (2*pi*ro*(h*(b7 - TK) + eps*5.67e-8*(b7^4 - TK^4)) - (Ti + 273.15 - b7)/Rin)/(2*pi*ro*(h + 4*eps*5.67e-8*b7^3) + 1/Rin)
+    Ts: b8 - 273.15
+    hr: eps*5.67e-8*(b8 + TK)*(b8^2 + TK^2)
+    qp: (Ti - Ts)/Rin
+    fi: 100*(Ti - Ts)/(Ti - Tinf)
+  require: [Ts - Tinf > 1]
+  prompt: >-
+    A steam line has outer radius $r_i = {{ri*1000}}\,\mathrm{mm}$ and is held at $T_i = {{Ti}}^\circ\mathrm{C}$ (neglect the steam
+    film and the steel). It is covered with ${{tins*1000}}\,\mathrm{mm}$ of insulation ($k = {{kins}}\,\mathrm{W/m\cdot K}$) whose
+    jacket ($\varepsilon = {{eps}}$) loses heat by convection ($h = {{h}}\,\mathrm{W/m^2\cdot K}$) to air and by radiation to large
+    surroundings, both at ${{Tinf}}^\circ\mathrm{C}$. Steady state, per metre. Use $\sigma = 5.67\times10^{-8}\,\mathrm{W/m^2\cdot K^4}$.
+  parts:
+    - ask: "Jacket (outer surface) temperature, $T_s$ (iterate)"
+      label: Ts
+      tex: T_s
+      value: Ts
+      unit: "°C"
+      explain: >-
+        Node balance at the jacket, $r_o = {{ro}}\,\mathrm{m}$: $\frac{T_i - T_s}{R'_{ins}} = 2\pi r_o[h(T_s - T_\infty) + \varepsilon\sigma(T_s^4 - T_\infty^4)]$
+        with $R'_{ins} = \frac{\ln(r_o/r_i)}{2\pi k} = {{Rin|3}}\,\mathrm{m\cdot K/W}$. Start without radiation
+        ($T_s = {{b0 - 273.15|4}}^\circ\mathrm{C}$) and iterate: $T_s = {{Ts|4}}^\circ\mathrm{C}$ ($h_r = {{hr|3}}\,\mathrm{W/m^2\cdot K}$)
+    - ask: "Heat loss per metre, $q'$"
+      label: qp
+      tex: "q'"
+      value: qp
+      unit: "W/m"
+      explain: "Through the insulation: $q' = (T_i - T_s)/R'_{ins} = ({{Ti}} - {{Ts|4}})/{{Rin|4}} = {{qp|3}}\\,\\mathrm{W/m}$"
+    - ask: "Share of the total drop $T_i - T_\\infty$ across the insulation"
+      label: fi
+      tex: "\\Delta T_{ins}/\\Delta T"
+      value: fi
+      unit: "%"
+      explain: >-
+        $(T_i - T_s)/(T_i - T_\infty) = {{fi|3}}\%$ = $R'_{ins}/R'_{tot}$: the insulation is the controlling resistance, so the
+        jacket's $\varepsilon$ and $h$ barely move $q'$; more thickness or a lower $k$ does
+  verify:
+    var: r
+    ode: "kins/r*diff(r*diff(T(r), r), r)"
+    bcs: ["T(ri) = Ti", "T(ri + tins) = Ts"]
+    expect: { qp: "-kins*dT(ri)*2*pi*ri" }
+    residuals:
+      - "-kins*dT(ri + tins) - h*(Ts - Tinf) - eps*5.67e-8*((Ts + 273.15)**4 - (Tinf + 273.15)**4)"
+      - "fi*(Ti - Tinf) - 100*(Ti - Ts)"

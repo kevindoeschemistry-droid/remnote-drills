@@ -1,0 +1,180 @@
+# Incropera §5.3, §5.5–5.6: general lumped balances and the one-term plane-wall energy.
+# Format and verify keys: see ht-generation.yaml.
+
+# ── lumped sphere with an internal heater (generation) ────────────────────
+- template: ht-lumped-gen
+  skill: ht.lumped
+  given:
+    D: { pick: [0.01, 0.02, 0.03, 0.05] }
+    P: { pick: [0.5, 1, 2, 5, 10] }
+    h: { pick: [10, 25, 50, 100] }
+    Tinf: { pick: [15, 20, 25] }
+    Ti: 25
+    tf: { pick: [60, 120, 300, 600, 1200] }
+    rho: 2700
+    c: 900
+    k: 237
+  let:
+    As: pi*D^2
+    V: pi*D^3/6
+    Tss: Tinf + P/(h*As)
+    tau: rho*V*c/(h*As)
+    Tt: Tss + (Ti - Tss)*exp(-tf/tau)
+  require: [Tss - Tinf > 5, Tss < 300, tf/tau > 0.2, tf/tau < 3, abs(Tss - Ti) > 5]
+  prompt: >-
+    An aluminium sphere ($D = {{D*1000}}\,\mathrm{mm}$, $\rho = {{rho}}\,\mathrm{kg/m^3}$, $c = {{c}}\,\mathrm{J/kg\cdot K}$,
+    $k = {{k}}\,\mathrm{W/m\cdot K}$) holds a heater that dissipates $P = {{P}}\,\mathrm{W}$ from $t = 0$. It starts at
+    $T_i = {{Ti}}^\circ\mathrm{C}$ in air at $T_\infty = {{Tinf}}^\circ\mathrm{C}$ with $h = {{h}}\,\mathrm{W/m^2\cdot K}$.
+    The Biot number is tiny, so treat it as lumped; neglect radiation.
+  parts:
+    - ask: "Steady-state temperature it approaches, $T_{ss}$"
+      label: Tss
+      tex: "T_{ss}"
+      value: Tss
+      unit: "°C"
+      explain: >-
+        Set $dT/dt = 0$ in $\rho Vc\,\frac{dT}{dt} = P - hA_s(T - T_\infty)$: $T_{ss} = T_\infty + \frac{P}{hA_s}$ with
+        $A_s = \pi D^2 = {{As|4}}\,\mathrm{m^2}$: $T_{ss} = {{Tss|3}}^\circ\mathrm{C}$
+    - ask: "Time constant, $\\tau$"
+      label: tau
+      tex: "\\tau"
+      value: tau
+      unit: s
+      explain: >-
+        Write $\theta = T - T_{ss}$: $\rho Vc\,\dot\theta = -hA_s\theta$, so $\theta = \theta_i e^{-t/\tau}$ with
+        $\tau = \frac{\rho Vc}{hA_s} = \frac{\rho Dc}{6h} = {{tau|3}}\,\mathrm{s}$. Generation moves the target, not the clock
+    - ask: "Temperature at $t = {{tf}}\\,\\mathrm{s}$"
+      label: Tt
+      tex: "T(t)"
+      value: Tt
+      unit: "°C"
+      explain: "$T = T_{ss} + (T_i - T_{ss})e^{-t/\\tau} = {{Tss|4}} + ({{Ti}} - {{Tss|4}})e^{-{{tf}}/{{tau|4}}} = {{Tt|3}}^\\circ\\mathrm{C}$"
+  verify:
+    var: t
+    ode: "rho*pi*D**3/6*c*diff(T(t), t) - P + h*pi*D**2*(T(t) - Tinf)"
+    bcs: ["T(0) = Ti"]
+    expect: { Tt: "T(tf)" }
+    residuals: ["P - h*pi*D**2*(Tss - Tinf)", "tau*dT(0) - (Tss - Ti)"]
+
+# ── thin plate under a surface flux, convection on both faces ─────────────
+- template: ht-lumped-flux
+  skill: ht.lumped
+  given:
+    w: { pick: [0.002, 0.003, 0.005] }
+    qs: { pick: [300, 500, 800, 1000] }
+    h: { pick: [8, 10, 15, 25] }
+    Tinf: { pick: [20, 25] }
+    Ti: { pick: [15, 20] }
+    tf: { pick: [60, 120, 300, 600] }
+    rho: 2700
+    c: 900
+  let:
+    Tss: Tinf + qs/(2*h)
+    tau: rho*w*c/(2*h)
+    Tt: Tss + (Ti - Tss)*exp(-tf/tau)
+  require: [tf/tau > 0.2, tf/tau < 3]
+  prompt: >-
+    A thin aluminium plate ($w = {{w*1000}}\,\mathrm{mm}$ thick, $\rho = {{rho}}\,\mathrm{kg/m^3}$, $c = {{c}}\,\mathrm{J/kg\cdot K}$),
+    initially at $T_i = {{Ti}}^\circ\mathrm{C}$, is suddenly exposed to sunlight: its top absorbs $q''_s = {{qs}}\,\mathrm{W/m^2}$.
+    Both faces convect to air at $T_\infty = {{Tinf}}^\circ\mathrm{C}$ with $h = {{h}}\,\mathrm{W/m^2\cdot K}$. Treat the
+    plate as lumped; neglect emission.
+  parts:
+    - ask: "Steady-state plate temperature, $T_{ss}$"
+      label: Tss
+      tex: "T_{ss}"
+      value: Tss
+      unit: "°C"
+      explain: >-
+        Per unit area: $\rho wc\,\frac{dT}{dt} = q''_s - 2h(T - T_\infty)$ (absorbed on one face, convection from two).
+        Steady: $T_{ss} = T_\infty + \frac{q''_s}{2h} = {{Tinf}} + \frac{ {{qs}} }{2\times{{h}}} = {{Tss|3}}^\circ\mathrm{C}$
+    - ask: "Time constant, $\\tau$"
+      label: tau
+      tex: "\\tau"
+      value: tau
+      unit: s
+      explain: "$\\tau = \\frac{\\rho wc}{2h} = \\frac{ {{rho}}\\times{{w}}\\times{{c}} }{2\\times{{h}}} = {{tau|3}}\\,\\mathrm{s}$ (two convecting faces halve it)"
+    - ask: "Plate temperature at $t = {{tf}}\\,\\mathrm{s}$"
+      label: Tt
+      tex: "T(t)"
+      value: Tt
+      unit: "°C"
+      explain: "$T = T_{ss} + (T_i - T_{ss})e^{-t/\\tau} = {{Tss|4}} + ({{Ti}} - {{Tss|4}})e^{-{{tf}}/{{tau|4}}} = {{Tt|3}}^\\circ\\mathrm{C}$"
+  verify:
+    var: t
+    ode: "rho*w*c*diff(T(t), t) - qs + 2*h*(T(t) - Tinf)"
+    bcs: ["T(0) = Ti"]
+    expect: { Tt: "T(tf)" }
+    residuals: ["qs - 2*h*(Tss - Tinf)", "tau*dT(0) - (Tss - Ti)"]
+
+# ── plane wall, one-term: centre temperature and Q/Q0 ─────────────────────
+# ζ₁ from ζ tan ζ = Bi by Newton from √Bi (z tan z − Bi is convex and increasing on (0, π/2),
+# and √Bi lies right of the root, so the iterates fall monotonically onto it).
+- template: ht-ot-wall-energy
+  skill: ht.transient-one-term
+  given:
+    L: { pick: [0.01, 0.02, 0.025, 0.05] }
+    k: { pick: [15, 25, 50] }
+    h: { pick: [100, 250, 500, 1000, 2000] }
+    alpha: { pick: [4.0e-6, 1.2e-5, 1.5e-5] }
+    Ti: { pick: [300, 400, 600] }
+    Tinf: { pick: [20, 25, 50] }
+    t: { pick: [30, 60, 120, 300, 600, 1200] }
+  let:
+    Bi: h*L/k
+    Fo: alpha*t/L^2
+    za: sqrt(Bi)
+    zb: za - (za*tan(za) - Bi)/(tan(za) + za/cos(za)^2)
+    zc: zb - (zb*tan(zb) - Bi)/(tan(zb) + zb/cos(zb)^2)
+    zd: zc - (zc*tan(zc) - Bi)/(tan(zc) + zc/cos(zc)^2)
+    ze: zd - (zd*tan(zd) - Bi)/(tan(zd) + zd/cos(zd)^2)
+    zf: ze - (ze*tan(ze) - Bi)/(tan(ze) + ze/cos(ze)^2)
+    zg: zf - (zf*tan(zf) - Bi)/(tan(zf) + zf/cos(zf)^2)
+    zh: zg - (zg*tan(zg) - Bi)/(tan(zg) + zg/cos(zg)^2)
+    zi: zh - (zh*tan(zh) - Bi)/(tan(zh) + zh/cos(zh)^2)
+    z1: zi - (zi*tan(zi) - Bi)/(tan(zi) + zi/cos(zi)^2)
+    C1: 4*sin(z1)/(2*z1 + sin(2*z1))
+    th0: C1*exp(-z1^2*Fo)
+    T0: Tinf + th0*(Ti - Tinf)
+    QQ0: 1 - sin(z1)/z1*th0
+    Q: QQ0*(k/alpha)*2*L*(Ti - Tinf)
+  require: [Bi >= 0.1, Bi <= 1.5, Fo > 0.2, Fo < 2.5, th0 > 0.05]
+  prompt: >-
+    A large steel plate $2L = {{2*L*1000}}\,\mathrm{mm}$ thick ($k = {{k}}\,\mathrm{W/m\cdot K}$,
+    $\alpha = {{alpha}}\,\mathrm{m^2/s}$) at $T_i = {{Ti}}^\circ\mathrm{C}$ is suddenly cooled on both faces by fluid at
+    $T_\infty = {{Tinf}}^\circ\mathrm{C}$ with $h = {{h}}\,\mathrm{W/m^2\cdot K}$. Consider $t = {{t}}\,\mathrm{s}$; use the
+    one-term solution (Table 5.1 for $\zeta_1$, $C_1$).
+  parts:
+    - ask: "Biot number, $Bi$"
+      label: Bi
+      tex: Bi
+      value: Bi
+      explain: "Wall: the length is the half-thickness, $Bi = hL/k = {{h}}\\times{{L}}/{{k}} = {{Bi|3}}$ ($> 0.1$: not lumped)"
+    - ask: "First eigenvalue, $\\zeta_1$ (rad)"
+      label: z1
+      tex: "\\zeta_1"
+      value: z1
+      explain: "Root of $\\zeta_1\\tan\\zeta_1 = Bi$ in $(0, \\pi/2)$; Table 5.1 at $Bi = {{Bi|3}}$: $\\zeta_1 = {{z1|4}}\\,\\mathrm{rad}$, $C_1 = \\frac{4\\sin\\zeta_1}{2\\zeta_1 + \\sin 2\\zeta_1} = {{C1|4}}$"
+    - ask: "Midplane temperature at that time, $T_0$"
+      label: T0
+      tex: T_0
+      value: T0
+      unit: "°C"
+      explain: >-
+        $Fo = \alpha t/L^2 = {{Fo|3}}$ ($> 0.2$, one term is enough). $\theta^*_0 = C_1e^{-\zeta_1^2Fo} = {{th0|4}}$, so
+        $T_0 = T_\infty + \theta^*_0(T_i - T_\infty) = {{T0|3}}^\circ\mathrm{C}$
+    - ask: "Fraction of the maximum possible energy already removed, $Q/Q_0$"
+      label: QQ0
+      tex: "Q/Q_0"
+      value: QQ0
+      explain: >-
+        $Q/Q_0 = 1 - \frac{\sin\zeta_1}{\zeta_1}\theta^*_0 = 1 - \frac{\sin {{z1|4}} }{ {{z1|4}} }({{th0|4}}) = {{QQ0|3}}$.
+        With $Q_0 = \rho c(2L)(T_i - T_\infty)$ and $\rho c = k/\alpha$: $Q = {{Q|3}}\,\mathrm{J/m^2}$ so far
+  verify:
+    var: x
+    residuals:
+      - "Bi - h*L/k"
+      - "z1*sin(z1) - Bi*cos(z1)"
+      # C1 as the projection of the uniform initial state on cos(ζ₁x*), x* = x/L
+      - "(T0 - Tinf)/(Ti - Tinf) - integrate(cos(z1*x), (x, 0, 1))/integrate(cos(z1*x)**2, (x, 0, 1))*exp(-z1**2*alpha*t/L**2)"
+      # Q/Q0 = 1 − mean θ*, the mean taken over the one-term profile θ*₀cos(ζ₁x*)
+      - "QQ0 - 1 + (T0 - Tinf)/(Ti - Tinf)*integrate(cos(z1*x), (x, 0, 1))"
