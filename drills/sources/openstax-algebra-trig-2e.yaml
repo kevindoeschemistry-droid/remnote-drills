@@ -1,0 +1,128 @@
+# OpenStax, Algebra and Trigonometry 2e (Abramson et al., 2021). Free; CC BY 4.0.
+# Section numbers and titles checked against the Open Textbook Library table of contents
+# (open.umn.edu/opentextbooks/textbooks/239).
+id: openstax-algebra-trig-2e
+title: "OpenStax — Algebra and Trigonometry"
+short: "Algebra & Trig"
+edition: 2
+year: 2021
+field: mathematics
+chapters:
+  - n: 1
+    title: "Prerequisites"
+    sections:
+      - { ref: "1.1", title: "Real Numbers: Algebra Essentials" }
+      - { ref: "1.2", title: "Exponents and Scientific Notation" }
+      - { ref: "1.3", title: "Radicals and Rational Exponents", skills: [alg.exponential] }
+      - { ref: "1.4", title: "Polynomials", skills: [alg.polynomials] }
+      - { ref: "1.5", title: "Factoring Polynomials", skills: [alg.polynomials, alg.quadratics] }
+      - { ref: "1.6", title: "Rational Expressions", skills: [alg.rational] }
+  - n: 2
+    title: "Equations and Inequalities"
+    sections:
+      - { ref: "2.1", title: "The Rectangular Coordinate Systems and Graphs", skills: [geo.coordinates] }
+      - { ref: "2.2", title: "Linear Equations in One Variable", skills: [alg.linear] }
+      - { ref: "2.3", title: "Models and Applications", skills: [alg.linear] }
+      - { ref: "2.4", title: "Complex Numbers", skills: [alg.complex] }
+      - { ref: "2.5", title: "Quadratic Equations", skills: [alg.quadratics] }
+      - { ref: "2.6", title: "Other Types of Equations", skills: [alg.rational] }
+      - { ref: "2.7", title: "Linear Inequalities and Absolute Value Inequalities", skills: [alg.linear] }
+  - n: 3
+    title: "Functions"
+    sections:
+      - { ref: "3.1", title: "Functions and Function Notation", skills: [alg.functions] }
+      - { ref: "3.2", title: "Domain and Range" }
+      - { ref: "3.3", title: "Rates of Change and Behavior of Graphs", skills: [alg.functions] }
+      - { ref: "3.4", title: "Composition of Functions", skills: [alg.functions] }
+      - { ref: "3.5", title: "Transformation of Functions", skills: [alg.functions] }
+      - { ref: "3.6", title: "Absolute Value Functions" }
+      - { ref: "3.7", title: "Inverse Functions", skills: [alg.functions] }
+  - n: 4
+    title: "Linear Functions"
+    sections:
+      - { ref: "4.1", title: "Linear Functions", skills: [alg.linear, geo.coordinates] }
+      - { ref: "4.2", title: "Modeling with Linear Functions" }
+      - { ref: "4.3", title: "Fitting Linear Models to Data", skills: [stats.bivariate] }
+  - n: 5
+    title: "Polynomial and Rational Functions"
+    sections:
+      - { ref: "5.1", title: "Quadratic Functions", skills: [alg.quadratics] }
+      - { ref: "5.2", title: "Power Functions and Polynomial Functions" }
+      - { ref: "5.3", title: "Graphs of Polynomial Functions" }
+      - { ref: "5.4", title: "Dividing Polynomials", skills: [alg.polynomials] }
+      - { ref: "5.5", title: "Zeros of Polynomial Functions", skills: [alg.polynomials] }
+      - { ref: "5.6", title: "Rational Functions", skills: [alg.rational] }
+      - { ref: "5.7", title: "Inverses and Radical Functions" }
+      - { ref: "5.8", title: "Modeling Using Variation" }
+  - n: 6
+    title: "Exponential and Logarithmic Functions"
+    sections:
+      - { ref: "6.1", title: "Exponential Functions", skills: [alg.exponential] }
+      - { ref: "6.2", title: "Graphs of Exponential Functions", skills: [alg.exponential] }
+      - { ref: "6.3", title: "Logarithmic Functions", skills: [alg.exponential] }
+      - { ref: "6.4", title: "Graphs of Logarithmic Functions", skills: [alg.exponential] }
+      - { ref: "6.5", title: "Logarithmic Properties", skills: [alg.exponential] }
+      - { ref: "6.6", title: "Exponential and Logarithmic Equations", skills: [alg.exponential] }
+      - { ref: "6.7", title: "Exponential and Logarithmic Models", skills: [alg.exponential] }
+      - { ref: "6.8", title: "Fitting Exponential Models to Data" }
+  - n: 7
+    title: "The Unit Circle: Sine and Cosine Functions"
+    sections:
+      - { ref: "7.1", title: "Angles", skills: [trig.unit-circle, geo.circles] }
+      - { ref: "7.2", title: "Right Triangle Trigonometry", skills: [geo.right-triangles] }
+      - { ref: "7.3", title: "Unit Circle", skills: [trig.unit-circle] }
+      - { ref: "7.4", title: "The Other Trigonometric Functions", skills: [trig.unit-circle] }
+  - n: 8
+    title: "Periodic Functions"
+    sections:
+      - { ref: "8.1", title: "Graphs of the Sine and Cosine Functions", skills: [trig.graphs] }
+      - { ref: "8.2", title: "Graphs of the Other Trigonometric Functions" }
+      - { ref: "8.3", title: "Inverse Trigonometric Functions", skills: [trig.graphs] }
+  - n: 9
+    title: "Trigonometric Identities and Equations"
+    sections:
+      - { ref: "9.1", title: "Verifying Trigonometric Identities and Using Trigonometric Identities to Simplify Trigonometric Expressions", skills: [trig.identities] }
+      - { ref: "9.2", title: "Sum and Difference Identities", skills: [trig.identities] }
+      - { ref: "9.3", title: "Double-Angle, Half-Angle, and Reduction Formulas", skills: [trig.identities] }
+      - { ref: "9.4", title: "Sum-to-Product and Product-to-Sum Formulas" }
+      - { ref: "9.5", title: "Solving Trigonometric Equations", skills: [trig.graphs] }
+  - n: 10
+    title: "Further Applications of Trigonometry"
+    sections:
+      - { ref: "10.1", title: "Non-right Triangles: Law of Sines", skills: [geo.right-triangles] }
+      - { ref: "10.2", title: "Non-right Triangles: Law of Cosines", skills: [geo.right-triangles] }
+      - { ref: "10.3", title: "Polar Coordinates" }
+      - { ref: "10.4", title: "Polar Coordinates: Graphs" }
+      - { ref: "10.5", title: "Polar Form of Complex Numbers", skills: [alg.complex] }
+      - { ref: "10.6", title: "Parametric Equations" }
+      - { ref: "10.7", title: "Parametric Equations: Graphs" }
+      - { ref: "10.8", title: "Vectors", skills: [alg.vectors-matrices] }
+  - n: 11
+    title: "Systems of Equations and Inequalities"
+    sections:
+      - { ref: "11.1", title: "Systems of Linear Equations: Two Variables", skills: [alg.linear] }
+      - { ref: "11.2", title: "Systems of Linear Equations: Three Variables" }
+      - { ref: "11.3", title: "Systems of Nonlinear Equations and Inequalities: Two Variables", skills: [alg.quadratics] }
+      - { ref: "11.4", title: "Partial Fractions" }
+      - { ref: "11.5", title: "Matrices and Matrix Operations", skills: [alg.vectors-matrices] }
+      - { ref: "11.6", title: "Solving Systems with Gaussian Elimination" }
+      - { ref: "11.7", title: "Solving Systems with Inverses", skills: [alg.vectors-matrices] }
+      - { ref: "11.8", title: "Solving Systems with Cramer's Rule" }
+  - n: 12
+    title: "Analytic Geometry"
+    sections:
+      - { ref: "12.1", title: "The Ellipse", skills: [geo.coordinates] }
+      - { ref: "12.2", title: "The Hyperbola", skills: [geo.coordinates] }
+      - { ref: "12.3", title: "The Parabola", skills: [geo.coordinates] }
+      - { ref: "12.4", title: "Rotation of Axes" }
+      - { ref: "12.5", title: "Conic Sections in Polar Coordinates" }
+  - n: 13
+    title: "Sequences, Probability, and Counting Theory"
+    sections:
+      - { ref: "13.1", title: "Sequences and Their Notations", skills: [alg.sequences] }
+      - { ref: "13.2", title: "Arithmetic Sequences", skills: [alg.sequences] }
+      - { ref: "13.3", title: "Geometric Sequences", skills: [alg.sequences] }
+      - { ref: "13.4", title: "Series and Their Notations", skills: [alg.sequences] }
+      - { ref: "13.5", title: "Counting Principles", skills: [stats.probability] }
+      - { ref: "13.6", title: "Binomial Theorem", skills: [alg.polynomials] }
+      - { ref: "13.7", title: "Probability", skills: [stats.probability] }

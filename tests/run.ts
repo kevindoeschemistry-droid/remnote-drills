@@ -14,6 +14,7 @@ import { generate, generateTemplate, TEMPLATES } from "../src/drills/registry";
 import { check } from "../src/drills/check";
 import type { Answer, Problem } from "../src/drills/types";
 import { LAPLACE_FOURIER_CASES } from "./cases/laplace-fourier";
+import { SCHOOL_MATH_CASES } from "./cases/school-math";
 
 let failures = 0;
 const fail = (msg: string) => {
@@ -112,7 +113,9 @@ expectPlace("ht.transient-one-term", "Incropera 8e §5.5–5.6");
 expectPlace("stat.partition-function", "Dill & Bromberg 2e Ch 10");
 expectPlace("stat.partition-function", "Shell Ch 16");
 if (primaryPlace("stat.partition-function", "shell-2015")?.source.id !== "shell-2015") fail("preferred source not honoured");
-if (SOURCES.length !== 5) fail(`expected 5 sources, got ${SOURCES.length}`);
+if (SOURCES.length !== 8) fail(`expected 8 sources, got ${SOURCES.length}`);
+expectPlace("k8.fractions", "Prealgebra 2e Ch 4");
+expectPlace("trig.identities", "Algebra & Trig 2e §9.2");
 
 // ── 1–3. every template, many seeds ────────────────────────────────────────
 const dump: Problem[] = [];
@@ -333,7 +336,7 @@ const cases: [string, Problem, (string | string[])[], (string | string[])[]][] =
     ["2", "5"],
   ],
 ];
-for (const [name, p, good, bad] of [...cases, ...LAPLACE_FOURIER_CASES]) {
+for (const [name, p, good, bad] of [...cases, ...LAPLACE_FOURIER_CASES, ...SCHOOL_MATH_CASES]) {
   for (const g of good) {
     const r = check(p, g);
     if (r.status !== "correct") fail(`${name}: should accept ${JSON.stringify(g)} (${r.status}: ${r.message})`);

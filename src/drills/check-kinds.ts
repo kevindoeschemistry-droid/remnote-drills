@@ -109,7 +109,8 @@ function plainNumber(s: string): string {
     .replace(/(\d)\s*[xX×·]\s*10\s*\^/g, "$1*10^")
     .replace(/\s*(°\s*C|°C|K|W|kW|W\/m|W\/m\^?2|W\/m²|W\/m\^?3|W\/m³|W\/m·K|m\^?-1|1\/m|mm|cm|m|%|K\/s|°C\/s|m²·K\/W|m\^2K\/W)\s*$/u, "")
     // any other trailing unit after a number: "0.02 m/s", "12 kg/h", "9.7 µm", "3e-5 kmol/s·m²"
-    .replace(/^(.*?\d\.?)\s*(?![eE][-+]?\d)[A-Za-zµμ°%][A-Za-zµμ°%·\/\^²³⁻\-\d\s()]*$/u, "$1");
+    // — but not math: "25pi", "2sqrt(5)", "3ln(2)" keep their constant / function
+    .replace(/^(.*?\d\.?)\s*(?![eE][-+]?\d)(?!(?:pi|sqrt|cbrt|exp|ln|log|sin|cos|tan|asin|acos|atan|arcsin|arccos|arctan)(?![A-Za-z]))[A-Za-zµμ°%][A-Za-zµμ°%·\/\^²³⁻\-\d\s()]*$/u, "$1");
 }
 
 // ── second-order constant-coefficient ODE  a y'' + b y' + c y = f ────────────

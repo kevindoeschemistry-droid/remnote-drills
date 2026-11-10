@@ -25,6 +25,11 @@ domains:
   - { id: ht,      title: "Heat transfer" }
   - { id: thermo,  title: "Classical thermodynamics" }
   - { id: stat,    title: "Statistical mechanics" }
+  - { id: k8,      title: "K–8 mathematics" }
+  - { id: alg,     title: "Algebra & functions" }
+  - { id: geo,     title: "Geometry" }
+  - { id: trig,    title: "Trigonometry" }
+  - { id: stats,   title: "Statistics & probability" }
 
 skills:
   # ── prerequisites ────────────────────────────────────────────────────────
@@ -330,3 +335,128 @@ skills:
   - { id: stat.ensembles, domain: stat, title: "Other ensembles (grand canonical, isobaric)", prereqs: [stat.partition-function] }
   - { id: stat.binding, domain: stat, title: "Binding & cooperativity (Langmuir, Hill)", prereqs: [stat.partition-function] }
   - { id: stat.rates, domain: stat, title: "Rates & transition-state theory" }
+
+  # ── K–8 mathematics (Common Core K–8; generators in src/drills/gen-k8.ts) ─────────
+  # Size-specific templates (add within 10 vs within 1000) are separate names so each
+  # learning objective in drills/frameworks/math-k8.yaml draws only its own grade's problems.
+  - id: k8.counting
+    domain: k8
+    title: "Counting & comparing whole numbers"
+    short: "Counting & comparing"
+    status: live
+    levels: { 1: [k8-count-on, k8-count-120, k8-count-tens, k8-skip-count, k8-cmp-10, k8-cmp-2d, k8-cmp-3d, k8-cmp-multi] }
+  - id: k8.place-value
+    domain: k8
+    title: "Place value, expanded form & rounding (whole numbers and decimals)"
+    short: "Place value & rounding"
+    status: live
+    prereqs: [k8.counting]
+    levels: { 1: [k8-teen, k8-tens-ones, k8-ten-more, k8-hundred-more, k8-expanded, k8-expanded-big, k8-expanded-dec, k8-digit-value, k8-digit-value-dec, k8-ten-times, k8-ten-times-dec, k8-round-10-100, k8-round-any, k8-round-dec, k8-pow10, k8-cmp-dec2, k8-cmp-dec3] }
+  - id: k8.add-sub
+    domain: k8
+    title: "Addition & subtraction (facts to multi-digit, word problems)"
+    short: "Add & subtract"
+    status: live
+    prereqs: [k8.counting]
+    levels: { 1: [k8-add5, k8-add10, k8-add20, k8-add100, k8-add1000, k8-add-multi, k8-add2d1d, k8-sub-tens, k8-add3, k8-add4x2d, k8-make-ten, k8-decompose10, k8-missing-addend, k8-true-false, k8-even-odd, k8-word-add10, k8-word-add20, k8-word-add100] }
+  - id: k8.mult-div
+    domain: k8
+    title: "Multiplication & division (facts to long division, factors, patterns)"
+    short: "Multiply & divide"
+    status: live
+    prereqs: [k8.add-sub, k8.place-value]
+    levels: { 1: [k8-array, k8-mult-facts, k8-missing-factor, k8-mult-tens, k8-word-mult, k8-word-2step, k8-mult-compare, k8-remainder-word, k8-factors, k8-pattern, k8-two-patterns, k8-mult-multi, k8-mult-std, k8-div-rem, k8-div-2d, k8-long-div, k8-order-ops, k8-times-as-large, k8-gcf-lcm] }
+  - id: k8.fractions
+    domain: k8
+    title: "Fractions: equivalence, comparison and the four operations"
+    short: "Fractions"
+    status: live
+    prereqs: [k8.mult-div]
+    levels: { 1: [k8-frac-line, k8-unit-share, k8-frac-equiv, k8-frac-whole, k8-cmp-frac-same, k8-cmp-frac, k8-frac-add-like, k8-frac-mixed-like, k8-frac-decompose, k8-frac-times-whole, k8-frac-times-word, k8-frac-hundredths, k8-frac-to-dec, k8-frac-add, k8-frac-add-word, k8-frac-as-div, k8-frac-mult, k8-frac-mult-mixed, k8-frac-area, k8-frac-scaling, k8-frac-unit-div, k8-frac-unit-div-word, k8-frac-div] }
+  - id: k8.decimals
+    domain: k8
+    title: "Decimal arithmetic; terminating and repeating decimals"
+    short: "Decimals"
+    status: live
+    prereqs: [k8.fractions, k8.place-value]
+    levels: { 1: [k8-dec-ops, k8-dec-std, k8-dec-convert, k8-repeating] }
+  - id: k8.measurement
+    domain: k8
+    title: "Measurement & data: time, money, units, area, perimeter, angles, volume, graphs"
+    short: "Measurement & data"
+    status: live
+    prereqs: [k8.mult-div]
+    levels: { 1: [k8-shape-attr, k8-time-half, k8-time-five, k8-elapsed, k8-money, k8-convert-down, k8-convert, k8-rect-area, k8-area-distributive, k8-rectilinear, k8-perimeter, k8-angle-turn, k8-angle-add, k8-angle-type, k8-symmetry-lines, k8-shape-hierarchy, k8-volume-prism, k8-volume-frac, k8-volume-composite, k8-data-graph, k8-data-scaled, k8-line-plot, k8-line-plot-share] }
+  - id: k8.ratios
+    domain: k8
+    title: "Ratios, rates, proportional relationships & percents"
+    short: "Ratios & percents"
+    status: live
+    prereqs: [k8.fractions, k8.decimals]
+    levels: { 1: [k8-ratio-table, k8-unit-rate, k8-percent, k8-unit-rate-frac, k8-prop-test, k8-prop-k, k8-percent-change, k8-scale-drawing] }
+  - id: k8.integers
+    domain: k8
+    title: "Integers & rational numbers: order, absolute value, the coordinate plane, operations"
+    short: "Integers & rationals"
+    status: live
+    prereqs: [k8.fractions]
+    levels: { 1: [k8-cmp-rational, k8-opposite, k8-abs, k8-quadrant, k8-plot-q1, k8-coord-dist, k8-int-add-sub, k8-int-mul-div, k8-rational-ops] }
+  - id: k8.expressions
+    domain: k8
+    title: "Expressions, one- and two-step equations & inequalities"
+    short: "Expressions & equations"
+    status: live
+    prereqs: [k8.integers]
+    levels: { 1: [k8-exponents, k8-evaluate, k8-equiv-form, k8-equiv-form-rational, k8-equiv-check, k8-coefficient, k8-percent-expr, k8-one-step, k8-solution-check, k8-ineq-phrase, k8-two-step, k8-two-step-ineq, k8-dependent] }
+  - id: k8.exponents
+    domain: k8
+    title: "Integer exponents, roots & scientific notation"
+    short: "Exponents & roots"
+    status: live
+    prereqs: [k8.expressions]
+    levels: { 1: [k8-int-exponents, k8-roots, k8-sqrt-between, k8-sci-notation] }
+  - id: k8.linear
+    domain: k8
+    title: "Linear equations, systems & functions (grade 8)"
+    short: "Linear equations & functions"
+    status: live
+    prereqs: [k8.expressions, k8.ratios]
+    levels: { 1: [k8-linear-eq, k8-eq-count, k8-system, k8-system-word, k8-slope, k8-rate-initial, k8-is-function, k8-linear-or-not, k8-compare-fns] }
+  - id: k8.geometry
+    domain: k8
+    title: "Geometry: area, surface area, circles, angles, transformations, Pythagoras, volume"
+    short: "Geometry (6–8)"
+    status: live
+    prereqs: [k8.measurement, k8.expressions]
+    levels: { 1: [k8-area-poly, k8-surface-area, k8-circle, k8-angle-pairs, k8-prism-word, k8-triangle-angles, k8-transform, k8-pythag, k8-pythag-converse, k8-distance, k8-volume-round] }
+  - id: k8.data
+    domain: k8
+    title: "Statistics & probability (6–8): centre and spread, chance, sampling, two-way tables"
+    short: "Data & chance (6–8)"
+    status: live
+    prereqs: [k8.fractions]
+    levels: { 1: [k8-center-spread, k8-prob-simple, k8-prob-likely, k8-prob-predict, k8-prob-compound, k8-sample-infer, k8-line-predict, k8-two-way] }
+
+  # ── high school mathematics (Common Core HS; generators in src/drills/gen-hs.ts) ───
+  - { id: alg.linear, domain: alg, title: "Linear equations, inequalities & formulas", short: "Linear equations", status: live, prereqs: [k8.linear], levels: { 1: [alg-linear-eq, alg-literal, alg-linear-ineq, alg-word-linear, alg-half-plane] } }
+  - { id: alg.functions, domain: alg, title: "Functions: evaluate, rate of change, transform, invert, compose", short: "Functions", status: live, prereqs: [alg.linear], levels: { 1: [alg-func-eval, alg-avg-rate, alg-intercepts, alg-transform, alg-even-odd, alg-inverse, alg-piecewise, alg-compose] } }
+  - { id: alg.exponential, domain: alg, title: "Exponential & logarithmic functions", short: "Exponentials & logs", status: live, prereqs: [alg.functions, k8.exponents], levels: { 1: [alg-lin-exp, alg-exp-2pts, alg-exp-params, alg-rational-exp, alg-exp-solve, alg-exp-graph, alg-log-graph, alg-cooling, alg-log-rules, alg-log-eq] } }
+  - { id: alg.sequences, domain: alg, title: "Arithmetic & geometric sequences and series", short: "Sequences & series", status: live, prereqs: [alg.functions], levels: { 1: [alg-seq-recursive, alg-seq-explicit, alg-geom-series] } }
+  - { id: alg.polynomials, domain: alg, title: "Polynomials: arithmetic, structure, binomial theorem, remainder theorem, zeros, division", short: "Polynomials", status: live, prereqs: [alg.quadratics], levels: { 1: [alg-poly-arith, alg-structure, alg-binomial, alg-remainder, alg-poly-zeros, alg-poly-div] } }
+  - { id: alg.quadratics, domain: alg, title: "Quadratics: factoring, completing the square, the formula, vertex, models", short: "Quadratics", status: live, prereqs: [alg.linear], levels: { 1: [alg-factor-zeros, alg-complete-square, alg-quad-formula, alg-quad-word, alg-lin-quad, alg-vertex] } }
+  - { id: alg.rational, domain: alg, title: "Rational expressions, rational & radical equations, rational functions", short: "Rational functions", status: live, prereqs: [alg.polynomials], levels: { 1: [alg-rational-add, alg-rational-eq, alg-rational-graph] } }
+  - { id: alg.complex, domain: alg, title: "Complex numbers: arithmetic, conjugates, complex roots, the complex plane", short: "Complex numbers", status: live, prereqs: [alg.quadratics], levels: { 1: [alg-complex-arith, alg-complex-roots, alg-complex-conj, alg-complex-dist] } }
+  - { id: alg.vectors-matrices, domain: alg, title: "Vectors & matrices", short: "Vectors & matrices", status: live, prereqs: [alg.linear, trig.unit-circle], levels: { 1: [alg-vector, alg-vector-polar, alg-matrix-ops, alg-matrix-det] } }
+  - { id: geo.congruence, domain: geo, title: "Transformations, congruence & angle theorems", short: "Congruence", status: live, prereqs: [k8.geometry], levels: { 1: [geo-transform, geo-symmetry, geo-congruence, geo-angles-lines, geo-triangle-thm, geo-parallelogram] } }
+  - { id: geo.similarity, domain: geo, title: "Dilations & similar triangles", short: "Similarity", status: live, prereqs: [geo.congruence], levels: { 1: [geo-dilation, geo-similar, geo-side-splitter] } }
+  - { id: geo.right-triangles, domain: geo, title: "Right-triangle trigonometry, area ½ab sin C, laws of sines & cosines", short: "Triangle trigonometry", status: live, prereqs: [geo.similarity], levels: { 1: [geo-right-trig, geo-trig-ratio, geo-area-sin, geo-law-sines, geo-law-cosines] } }
+  - { id: geo.measurement, domain: geo, title: "Volume, cross-sections & density", short: "Volume & density", status: live, prereqs: [k8.geometry], levels: { 1: [geo-volume, geo-cross-section, geo-density] } }
+  - { id: geo.coordinates, domain: geo, title: "Coordinate geometry: lines, partitions, polygons, parabolas & conics", short: "Coordinate geometry", status: live, prereqs: [alg.linear, k8.geometry], levels: { 1: [geo-parallel-perp, geo-partition, geo-coord-perimeter, geo-coord-proof, geo-parabola, geo-conic] } }
+  - { id: geo.circles, domain: geo, title: "Circles: inscribed angles, arcs & sectors, equations", short: "Circles", status: live, prereqs: [geo.congruence], levels: { 1: [geo-inscribed, geo-cyclic-quad, geo-arc-sector, geo-circle-eq, geo-on-circle] } }
+  - { id: trig.unit-circle, domain: trig, title: "Radians, the unit circle & exact values", short: "Unit circle", status: live, prereqs: [geo.right-triangles], levels: { 1: [trig-deg-rad, trig-exact, trig-symmetry] } }
+  - { id: trig.identities, domain: trig, title: "Pythagorean, sum/difference & double-angle identities", short: "Trig identities", status: live, prereqs: [trig.unit-circle], levels: { 1: [trig-pyth, trig-addition] } }
+  - { id: trig.graphs, domain: trig, title: "Sinusoids & trigonometric equations", short: "Sinusoids & equations", status: live, prereqs: [trig.unit-circle], levels: { 1: [trig-sinusoid, trig-solve] } }
+  - { id: stats.descriptive, domain: stats, title: "Centre, spread, outliers, the normal distribution & margin of error", short: "Descriptive statistics", status: live, prereqs: [k8.data], levels: { 1: [stats-center, stats-outlier, stats-normal, stats-margin] } }
+  - { id: stats.bivariate, domain: stats, title: "Two-way tables, least-squares lines, residuals & correlation", short: "Bivariate data", status: live, prereqs: [stats.descriptive, alg.linear], levels: { 1: [stats-two-way, stats-regression, stats-residual, stats-correlation] } }
+  - { id: stats.probability, domain: stats, title: "Probability rules: addition, conditional, independence, counting, Bayes", short: "Probability rules", status: live, prereqs: [k8.data], levels: { 1: [stats-addition, stats-conditional, stats-independence, stats-mult-rule, stats-counting, stats-bayes] } }
+  - { id: stats.expected-value, domain: stats, title: "Expected value & decisions", short: "Expected value", status: live, prereqs: [stats.probability], levels: { 1: [stats-expected, stats-insurance] } }
