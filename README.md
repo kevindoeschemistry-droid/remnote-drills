@@ -147,3 +147,16 @@ npm run build   # dist/ + PluginZip.zip
 `npm run skills` compiles `drills/` (skill graph, textbooks, courses) into
 `src/drills/skills.generated.json`; it runs automatically before dev/build/test
 and fails on any dangling reference.
+
+## Worksheets
+
+`npm run worksheets -- heat-transfer` writes one printable worksheet per unit to `docs/worksheets/heat-transfer/`:
+a problem for every drilled learning objective, then a step-by-step answer key on its own pages. The problems come from
+the same generators as the RemNote cards, so a worksheet is a fixed set of seeds.
+
+- `--seed 2` gives a different version of every problem; the same seed always gives the same worksheet.
+- `--per 3` gives three problems per objective.
+- Any framework id in `drills/frameworks/` works in place of `heat-transfer`.
+- Objectives with no full drill are listed in the worksheet footer and on the index page.
+
+Open a unit in a browser and print it (or save as PDF).

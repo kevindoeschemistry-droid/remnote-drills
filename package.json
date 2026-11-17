@@ -15,6 +15,7 @@
     "check-types": "npm run skills && tsc --noEmit",
     "test": "tsx tests/run.ts && tsx --require ./tests/sim-preload.cjs tests/library-sim.ts && tsx --require ./tests/sim-preload.cjs tests/static-sim.ts && python3 tests/verify_sympy.py",
     "skills": "node scripts/build-skills.mjs && node scripts/framework.mjs",
+    "worksheets": "npm run skills && tsx scripts/worksheets.ts",
     "predev": "npm run skills",
     "prebuild": "npm run skills",
     "pretest": "npm run skills"
