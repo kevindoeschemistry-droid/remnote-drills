@@ -174,13 +174,15 @@ const mark = (m: string) => `<span style="color:#999999;font-size:8pt;">⟦${m}�
 const BLANK = `<p style="${F}margin:0;">&nbsp;</p>`;
 const letter = (k: number) => String.fromCharCode(97 + k);
 
-interface Line { id: string; src: string; indent: number; note?: boolean; edited?: boolean; segments?: Segment[] }
+interface Line { id: string; src: string; indent: number; note?: boolean; edited?: boolean; segments?: Segment[]; figure?: string }
+/** a generator's SVG diagram: rendered to a PNG by gdoc_math.py, like the formulas */
+const figureHtml = (svg: string) => `<img src="SVG:${Buffer.from(svg, "utf8").toString("base64")}" alt="figure">`;
 interface Region { marker: string; code: string; template: string; seed: number; lines: Line[] }
 const regions: Region[] = [];
 const structure: string[] = []; // plain text of headings and header lines: a region never runs past one of these
 
 /** apply pulled-back wording and notes to a region's generated lines */
-function withEdits(marker: string, generated: { src: string; indent: number }[]): Line[] {
+function withEdits(marker: string, generated: { src: string; indent: number; figure?: string }[]): Line[] {
   const o = overrides[marker] ?? {};
   const out: Line[] = [];
   const notesAfter = (id: string, indent: number) =>
@@ -188,7 +190,7 @@ function withEdits(marker: string, generated: { src: string; indent: number }[])
   generated.forEach((g, k) => {
     const id = `g${k}`;
     const src = o.lines?.[id] ?? g.src;
-    out.push({ id, src, indent: g.indent, edited: o.lines?.[id] !== undefined });
+    out.push({ id, src, indent: g.indent, edited: o.lines?.[id] !== undefined, figure: g.figure });
     notesAfter(id, Math.max(g.indent, 36));
   });
   return out;
@@ -198,7 +200,7 @@ function regionHtml(n: number, r: Region): string {
   const [first, ...rest] = r.lines;
   return (
     `<p style="${F}margin:8pt 0 2pt 18pt;">${n}.  ${mark(r.marker)}${first.src ? ` ${lineHtml(first.src)}` : ""}</p>` +
-    rest.map((l) => `<p style="${F}margin:2pt 0 2pt ${l.indent}pt;">${lineHtml(l.src)}</p>`).join("")
+    rest.map((l) => `<p style="${F}margin:2pt 0 2pt ${l.indent}pt;">${l.figure ? figureHtml(l.figure) : lineHtml(l.src)}</p>`).join("")
   );
 }
 
@@ -219,7 +221,8 @@ for (const topic of unit.topics) {
     const p = generateTemplate("worksheet", name, seed);
     const marker = `${code}·s${SEED}`;
     // worksheet side: the prompt, then one line per part or choice
-    const qLines = [{ src: p.prompt, indent: 18 }];
+    const qLines: { src: string; indent: number; figure?: string }[] = [{ src: p.prompt, indent: 18 }];
+    if (p.figure) qLines.push({ src: "", indent: 36, figure: p.figure });
     if (p.parts?.length) p.parts.forEach((q, k) => qLines.push({ src: `${letter(k)}. ${q.ask}  ____________${unitOf(q)}`, indent: 36 }));
     else if (p.answer.kind === "choice") p.answer.options.forEach((o, k) => qLines.push({ src: `${letter(k)}. ${o}`, indent: 36 }));
     // key side: an empty first line (the marker stands alone), then the worked steps
@@ -288,7 +291,12 @@ ${key.join("\n")}
 
 // the manifest gdoc-pull.ts compares the Doc against (segments are computed last so their math isn't counted twice)
 const shown = images;
-for (const r of regions) for (const l of r.lines) { l.segments = segments(l.src); if (l.edited || l.note) edits++; }
+for (const r of regions)
+  for (const l of r.lines) {
+    l.segments = l.figure ? [{ kind: "math", src: "", plain: "[image]" }] : segments(l.src);
+    if (l.figure) l.figure = "(svg)"; // keep the manifest small
+    if (l.edited || l.note) edits++;
+  }
 images = shown;
 
 const outDir = path.join(root, "tests/out/gdoc");
