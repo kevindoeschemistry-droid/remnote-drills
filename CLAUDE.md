@@ -7,3 +7,4 @@ Kuta-style drill plugin for RemNote ("Wiki Sync", plugin id `wiki-sync` — neve
 - Every generator change: `npm test` (JS checker + negative controls + KaTeX over every template × 30 seeds, then an independent sympy verifier). Numeric engineering answers need a first-principles case in `tests/verify_sympy.py` (`heat_expected`), not a copy of the generator's formula.
 - `npm run build` → `dist/` + `PluginZip.zip`. Local dev: RemNote → Plugins → Build → Develop from localhost (port 3005). Published as an unlisted plugin via Build → Upload plugin.
 - Bump `version` in both `package.json` and `public/manifest.json`.
+- `wiki:` links in `drills/sources/*.yaml` are checked against `drills/wiki-pages.json` on every `npm run skills`; a dead link fails the build. After the wiki's textbook pages change, refresh the snapshot with `node scripts/check-wiki.mjs --wiki <wiki repo>`.

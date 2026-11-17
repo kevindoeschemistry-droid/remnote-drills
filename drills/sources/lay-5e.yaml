@@ -6,12 +6,15 @@ short: "Lay"
 edition: 5
 year: 2016
 field: linear-algebra
+wiki: textbooks/lay-linear-algebra-applications
 chapters:
   - n: 1
     title: "Linear Equations in Linear Algebra"
+    wiki: textbooks/lay-linear-algebra-applications/ch01
     sections:
       - { ref: "1.1", title: "Systems of Linear Equations" }
-      - { ref: "1.2", title: "Row Reduction and Echelon Forms", skills: [la.row-reduction] }
+      - { ref: "1.2", title: "Row Reduction and Echelon Forms", skills: [la.row-reduction],
+          wiki: textbooks/lay-linear-algebra-applications/ch01-row-reduction }
       - { ref: "1.3", title: "Vector Equations" }
       - { ref: "1.4", title: "The Matrix Equation Ax = b" }
       - { ref: "1.5", title: "Solution Sets of Linear Systems" }
@@ -20,19 +23,25 @@ chapters:
       - { ref: "1.9", title: "The Matrix of a Linear Transformation" }
   - n: 2
     title: "Matrix Algebra"
+    wiki: textbooks/lay-linear-algebra-applications/ch02
     sections:
       - { ref: "2.1", title: "Matrix Operations" }
-      - { ref: "2.2", title: "The Inverse of a Matrix", skills: [la.inverse] }
+      - { ref: "2.2", title: "The Inverse of a Matrix", skills: [la.inverse],
+          wiki: textbooks/lay-linear-algebra-applications/ch02-matrix-inverse }
       - { ref: "2.3", title: "Characterizations of Invertible Matrices" }
   - n: 3
     title: "Determinants"
+    wiki: textbooks/lay-linear-algebra-applications/ch03
     sections:
-      - { ref: "3.1", title: "Introduction to Determinants", skills: [la.determinant] }
+      - { ref: "3.1", title: "Introduction to Determinants", skills: [la.determinant],
+          wiki: textbooks/lay-linear-algebra-applications/ch03-determinant }
       - { ref: "3.2", title: "Properties of Determinants" }
       - { ref: "3.3", title: "Cramer's Rule, Volume, and Linear Transformations" }
   - n: 5
     title: "Eigenvalues and Eigenvectors"
+    wiki: textbooks/lay-linear-algebra-applications/ch05
     sections:
       - { ref: "5.1", title: "Eigenvectors and Eigenvalues", skills: [la.eigenvectors] }
-      - { ref: "5.2", title: "The Characteristic Equation", skills: [la.eigenvalues] }
+      - { ref: "5.2", title: "The Characteristic Equation", skills: [la.eigenvalues],
+          wiki: textbooks/lay-linear-algebra-applications/ch05-eigenvalue }
       - { ref: "5.3", title: "Diagonalization" }
