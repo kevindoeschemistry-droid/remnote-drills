@@ -8,3 +8,4 @@ Kuta-style drill plugin for RemNote ("Wiki Sync", plugin id `wiki-sync` — neve
 - `npm run build` → `dist/` + `PluginZip.zip`. Local dev: RemNote → Plugins → Build → Develop from localhost (port 3005). Published as an unlisted plugin via Build → Upload plugin.
 - Bump `version` in both `package.json` and `public/manifest.json`.
 - CI (`.github/workflows/build.yml`) runs the version check, type check, `npm test` and the build on every push and PR, and keeps `PluginZip.zip` as an artifact. Release: bump the version, merge, then `git tag v<version> && git push origin v<version>`; the tag build attaches `PluginZip.zip` to a GitHub Release for Build → Upload plugin.
+- `wiki:` links in `drills/sources/*.yaml` are checked against `drills/wiki-pages.json` on every `npm run skills`; a dead link fails the build. After the wiki's textbook pages change, refresh the snapshot with `node scripts/check-wiki.mjs --wiki <wiki repo>`.

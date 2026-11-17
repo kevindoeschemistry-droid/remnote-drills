@@ -201,3 +201,14 @@ Each line under a marker is compared with what was written:
 - **Removed line**: reported and not saved.
 
 Edits are stored in `drills/worksheets/<slug>.yaml`. Headings, the header lines and the callout box are not tracked.
+
+## Wiki links
+
+Sources point at wiki pages with `wiki:` (book, chapter or section). `node scripts/check-wiki.mjs` checks every one
+against `drills/wiki-pages.json`, a snapshot of the wiki's textbook folders, and fails on a dead link. It runs as part
+of `npm run skills`, so `npm test` and the build catch a broken link too.
+
+- After adding, renaming or removing wiki pages: `node scripts/check-wiki.mjs --wiki <path to the wiki repo>` refreshes the snapshot.
+- `docs/coverage/wiki-links.md` lists, per source, the sections that teach a skill but have no wiki page, and the wiki
+  drill pages no section points at.
+
