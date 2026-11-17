@@ -148,6 +148,60 @@ npm run build   # dist/ + PluginZip.zip
 `src/drills/skills.generated.json`; it runs automatically before dev/build/test
 and fails on any dangling reference.
 
+## Release
+
+Every push and pull request runs `.github/workflows/build.yml`: version check, type check, `npm test`, `npm run build`.
+The run keeps `PluginZip.zip` as an artifact, so no build has to happen on your own machine.
+
+1. Bump the version in `package.json` (both places) and `public/manifest.json`. `node scripts/check-version.mjs` confirms they agree.
+2. Merge to `main`.
+3. `git tag v0.28.0 && git push origin v0.28.0`. The tag build publishes a GitHub Release with `PluginZip.zip` attached.
+4. Download the zip and upload it in RemNote → Plugins → Build → Upload plugin. RemNote has no upload API, so this step stays manual.
+
+## Worksheets
+
+`npm run worksheets -- heat-transfer` writes one printable worksheet per unit to `docs/worksheets/heat-transfer/`:
+a problem for every drilled learning objective, then a step-by-step answer key on its own pages. The problems come from
+the same generators as the RemNote cards, so a worksheet is a fixed set of seeds.
+
+- `--seed 2` gives a different version of every problem; the same seed always gives the same worksheet.
+- `--per 3` gives three problems per objective.
+- Any framework id in `drills/frameworks/` works in place of `heat-transfer`.
+- Objectives with no full drill are listed in the worksheet footer and on the index page.
+
+Open a unit in a browser and print it (or save as PDF).
+
+### Google Docs
+
+`scripts/gdoc.ts` writes a unit as HTML that Google Drive converts into an editable Doc, in the layout of the
+hand-made worksheets (name and date line, italic unit line, boxed method callout, Roman-numeral sections).
+
+```bash
+npx tsx scripts/gdoc.ts heat-transfer 1                       # tests/out/gdoc/heat-transfer-unit-01.html + .regions.json
+python3 scripts/gdoc_math.py tests/out/gdoc/heat-transfer-unit-01.html \
+  docs/worksheets/heat-transfer/gdoc/img <public base URL of that folder>
+```
+
+- Symbols, subscripts, superscripts and units become real Doc text. Fractions and other 2-D math become images whose
+  alt text is the LaTeX; Google fetches them by URL at conversion, so the image folder has to be pushed first.
+- Every problem and every answer-key entry starts with a grey marker such as `⟦HT-1.1.B·s1⟧`. Leave the markers in place.
+- `docs/worksheets/<framework>/gdoc/docs.json` records which Doc belongs to which unit.
+
+**Pulling edits back.** Read the Doc back as text, save it to a file, then:
+
+```bash
+npx tsx scripts/gdoc-pull.ts tests/out/gdoc/heat-transfer-unit-01.regions.json doc.txt --write
+```
+
+Each line under a marker is compared with what was written:
+
+- **Reworded line**: saved with every `$math$` piece kept as the repo has it.
+- **Added line**: saved as a note after the line above it, and put back there on the next `gdoc.ts` run.
+- **Changed number or symbol**: reported and not saved. Change that in the generator.
+- **Removed line**: reported and not saved.
+
+Edits are stored in `drills/worksheets/<slug>.yaml`. Headings, the header lines and the callout box are not tracked.
+
 ## Wiki links
 
 Sources point at wiki pages with `wiki:` (book, chapter or section). `node scripts/check-wiki.mjs` checks every one

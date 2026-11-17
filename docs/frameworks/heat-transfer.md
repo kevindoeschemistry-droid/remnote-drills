@@ -2,7 +2,7 @@
 
 Generated from `drills/frameworks/heat-transfer.yaml` by `scripts/framework.mjs`. ● drilled · ◐ partly · ○ no drills yet.
 
-**98 learning objectives** in 14 units (90 core): 86 drilled, 6 partly, 6 with no drills. Core: 78 / 90 drilled.
+**98 learning objectives** in 14 units (90 core): 88 drilled, 6 partly, 4 with no drills. Core: 80 / 90 drilled.
 
 ## Big ideas
 
@@ -30,8 +30,8 @@ Generated from `drills/frameworks/heat-transfer.yaml` by `scripts/framework.mjs`
 | 3 · Steady 1-D conduction and resistance networks | core | 8–10% | 9 | 8 | 1 | 0 |
 | 4 · Conduction with thermal energy generation | core | 8–10% | 8 | 8 | 0 | 0 |
 | 5 · Extended surfaces | core | 6–8% | 5 | 4 | 1 | 0 |
-| 6 · Two-dimensional steady conduction | core | 6–8% | 5 | 3 | 0 | 2 |
-| 7 · Transient conduction | core | 10–12% | 11 | 9 | 0 | 2 |
+| 6 · Two-dimensional steady conduction | core | 6–8% | 5 | 4 | 0 | 1 |
+| 7 · Transient conduction | core | 10–12% | 11 | 10 | 0 | 1 |
 | 8 · Convection fundamentals and external flow | core | 10–12% | 8 | 8 | 0 | 0 |
 | 9 · Internal forced convection | core | 8–10% | 6 | 6 | 0 | 0 |
 | 10 · Free convection | core | 6–8% | 5 | 5 | 0 | 0 |
@@ -271,9 +271,9 @@ Book: incropera-8e §4.4, §4.5
 - ● **HT-6.3.A** Write the finite-difference equation of an interior, surface or corner node by an energy balance on its cell, including Δx ≠ Δy, convection and radiation.
   - EK: Each face: conductance × (T_neighbour − T_m); boundary faces get h·ℓ or h_r·ℓ terms; half cells on edges.
   - P1 · P2 · drills: ht-fd, mae-fd
-- ○ **HT-6.3.B** Solve a small node system directly or by Gauss–Seidel iteration and check the energy balance.
+- ● **HT-6.3.B** Solve a small node system directly or by Gauss–Seidel iteration and check the energy balance.
   - EK: Iterate T_i = (Σa_jT_j + b)/a_i until changes are below tolerance.
-  - P4 · P5
+  - P4 · P5 · drills: ht-fd-solve
 
 ## Unit 7 · Transient conduction
 
@@ -333,9 +333,9 @@ Book: incropera-8e §5.8
 
 Book: incropera-8e §5.10
 
-- ○ **HT-7.5.A** Write the explicit finite-difference equation for a transient node and check its stability limit.
+- ● **HT-7.5.A** Write the explicit finite-difference equation for a transient node and check its stability limit.
   - EK: T_m^{p+1} = Fo(T_{m+1}^p + T_{m−1}^p) + (1 − 2Fo)T_m^p; stable if Fo ≤ 1/2 (interior, 1-D).
-  - P2 · P5
+  - P2 · P5 · drills: ht-fd-explicit
 
 ## Unit 8 · Convection fundamentals and external flow
 

@@ -1,0 +1,117 @@
+# Incropera §4.5 and §5.10: solving node systems, and the explicit transient method.
+# Format and verify keys: see ht-generation.yaml. Both templates are verified by residuals:
+# the energy balance on each cell, written from the givens, must vanish for the claimed values.
+
+# ── two interior nodes, four fixed edges: Gauss–Seidel then the converged answer ──
+- template: ht-fd-solve
+  skill: ht.finite-difference
+  given:
+    TL: { pick: [100, 150, 200, 300] }
+    TR: { pick: [0, 20, 50] }
+    Tt: { pick: [50, 100, 200, 400] }
+    Tb: { pick: [0, 25, 50, 100] }
+    Tg: { pick: [50, 75, 100, 150] }
+  let:
+    S: Tt + Tb
+    T1a: (TL + S + Tg)/4
+    T2a: (TR + S + T1a)/4
+    T1: (4*(TL + S) + TR + S)/15
+    T2: (4*(TR + S) + TL + S)/15
+  require: [abs(T1 - T2) > 5, abs(T2a - T2) > 1]
+  prompt: >-
+    A long bar has a $3\Delta x \times 2\Delta x$ cross-section (square grid, steady, constant $k$, no generation), so it
+    has two interior nodes side by side: node 1 on the left, node 2 on the right. The edges are held at
+    $T_{left} = {{TL}}^\circ\mathrm{C}$, $T_{right} = {{TR}}^\circ\mathrm{C}$, $T_{top} = {{Tt}}^\circ\mathrm{C}$ and
+    $T_{bottom} = {{Tb}}^\circ\mathrm{C}$. Start Gauss–Seidel from the guess $T_2^{(0)} = {{Tg}}^\circ\mathrm{C}$.
+  parts:
+    - ask: "First Gauss–Seidel value of node 1, $T_1^{(1)}$"
+      label: T1a
+      tex: "T_1^{(1)}"
+      value: T1a
+      unit: "°C"
+      explain: >-
+        Energy balance on node 1 with $\Delta x = \Delta y$: the four neighbours average. Its neighbours are the left, top
+        and bottom edges and node 2: $T_1 = \tfrac14(T_{left} + T_{top} + T_{bottom} + T_2) = \tfrac14({{TL}} + {{Tt}} + {{Tb}} + {{Tg}}) = {{T1a|4}}^\circ\mathrm{C}$
+    - ask: "First Gauss–Seidel value of node 2, $T_2^{(1)}$"
+      label: T2a
+      tex: "T_2^{(1)}"
+      value: T2a
+      unit: "°C"
+      explain: >-
+        Gauss–Seidel uses the newest value straight away, so node 2 sees $T_1^{(1)}$, not a guess:
+        $T_2 = \tfrac14(T_{right} + T_{top} + T_{bottom} + T_1^{(1)}) = \tfrac14({{TR}} + {{Tt}} + {{Tb}} + {{T1a|4}}) = {{T2a|4}}^\circ\mathrm{C}$
+    - ask: "Converged temperature of node 1, $T_1$"
+      label: T1
+      tex: "T_1"
+      value: T1
+      unit: "°C"
+      explain: >-
+        Two equations, two unknowns: $4T_1 - T_2 = {{TL + S}}$ and $4T_2 - T_1 = {{TR + S}}$. Multiply the first by 4 and add:
+        $15T_1 = 4({{TL + S}}) + {{TR + S}}$, so $T_1 = {{T1|4}}^\circ\mathrm{C}$
+    - ask: "Converged temperature of node 2, $T_2$"
+      label: T2
+      tex: "T_2"
+      value: T2
+      unit: "°C"
+      explain: >-
+        Back-substitute: $T_2 = \tfrac14({{TR + S}} + T_1) = {{T2|4}}^\circ\mathrm{C}$. Check: each node equals the mean of its
+        four neighbours, so the net conduction into each cell is zero
+  verify:
+    residuals:
+      - "(TL - T1a) + (Tt - T1a) + (Tb - T1a) + (Tg - T1a)"
+      - "(TR - T2a) + (Tt - T2a) + (Tb - T2a) + (T1a - T2a)"
+      - "(TL - T1) + (Tt - T1) + (Tb - T1) + (T2 - T1)"
+      - "(TR - T2) + (Tt - T2) + (Tb - T2) + (T1 - T2)"
+
+# ── explicit method, interior node of a 1-D wall: Fo, the update, the stability limit ──
+- template: ht-fd-explicit
+  skill: ht.finite-difference
+  given:
+    k: { pick: [15, 40, 60] }
+    rho: 8000
+    c: 500
+    dx: { pick: [0.01, 0.02, 0.025, 0.04] }
+    dt: { pick: [5, 10, 20, 30, 60] }
+    Tl: { pick: [100, 150, 200, 300] }
+    Tm: { pick: [40, 60, 80] }
+    Tr: { pick: [20, 30, 50, 120] }
+  let:
+    alpha: k/(rho*c)
+    Fo: alpha*dt/dx^2
+    Tnew: Fo*(Tl + Tr) + (1 - 2*Fo)*Tm
+    dtmax: dx^2/(2*alpha)
+  require: [Fo <= 0.5, Fo >= 0.05, abs(Tnew - Tm) > 0.5]
+  prompt: >-
+    A plane wall ($k = {{k}}\,\mathrm{W/m\cdot K}$, $\rho = {{rho}}\,\mathrm{kg/m^3}$, $c = {{c}}\,\mathrm{J/kg\cdot K}$) is
+    marched in time with the explicit method on a grid $\Delta x = {{dx*1000}}\,\mathrm{mm}$, $\Delta t = {{dt}}\,\mathrm{s}$.
+    At the current step an interior node is at $T_m^p = {{Tm}}^\circ\mathrm{C}$ and its neighbours are at
+    $T_{m-1}^p = {{Tl}}^\circ\mathrm{C}$ and $T_{m+1}^p = {{Tr}}^\circ\mathrm{C}$. 1-D, no generation.
+  parts:
+    - ask: "Grid Fourier number, $Fo$"
+      label: Fo
+      tex: "Fo"
+      value: Fo
+      explain: >-
+        $\alpha = \frac{k}{\rho c} = {{alpha|3}}\,\mathrm{m^2/s}$, so $Fo = \frac{\alpha\,\Delta t}{\Delta x^2} = \frac{ {{alpha|3}}\times{{dt}} }{ {{dx}}^2} = {{Fo|4}}$
+    - ask: "Node temperature one step later, $T_m^{p+1}$"
+      label: Tnew
+      tex: "T_m^{p+1}"
+      value: Tnew
+      unit: "°C"
+      explain: >-
+        Storage in the cell equals conduction in from both sides, all at the old time:
+        $\rho c\,\Delta x\,\frac{T_m^{p+1} - T_m^p}{\Delta t} = \frac{k}{\Delta x}(T_{m-1}^p + T_{m+1}^p - 2T_m^p)$, so
+        $T_m^{p+1} = Fo\,(T_{m-1}^p + T_{m+1}^p) + (1 - 2Fo)\,T_m^p = {{Fo|4}}({{Tl}} + {{Tr}}) + (1 - 2\times{{Fo|4}})({{Tm}}) = {{Tnew|4}}^\circ\mathrm{C}$
+    - ask: "Largest stable time step on this grid, $\\Delta t_{max}$"
+      label: dtmax
+      tex: "\\Delta t_{max}"
+      value: dtmax
+      unit: s
+      explain: >-
+        The coefficient of $T_m^p$ must not go negative: $1 - 2Fo \ge 0$, so $Fo \le \tfrac12$ and
+        $\Delta t_{max} = \frac{\Delta x^2}{2\alpha} = {{dtmax|4}}\,\mathrm{s}$. Halving $\Delta x$ cuts the allowed step by four
+  verify:
+    residuals:
+      - "Fo*rho*c*dx**2 - k*dt"
+      - "rho*c*dx*(Tnew - Tm)/dt - k*(Tl - Tm)/dx - k*(Tr - Tm)/dx"
+      - "1 - 2*k*dtmax/(rho*c*dx**2)"

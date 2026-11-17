@@ -250,7 +250,7 @@ units:
         fe: []
         los:
           - { id: A, do: "Write the finite-difference equation of an interior, surface or corner node by an energy balance on its cell, including Δx ≠ Δy, convection and radiation.", ek: ["Each face: conductance × (T_neighbour − T_m); boundary faces get h·ℓ or h_r·ℓ terms; half cells on edges."], p: [P1, P2], drills: [ht-fd, mae-fd] }
-          - { id: B, do: "Solve a small node system directly or by Gauss–Seidel iteration and check the energy balance.", ek: ["Iterate T_i = (Σa_jT_j + b)/a_i until changes are below tolerance."], p: [P4, P5], drills: [] }
+          - { id: B, do: "Solve a small node system directly or by Gauss–Seidel iteration and check the energy balance.", ek: ["Iterate T_i = (Σa_jT_j + b)/a_i until changes are below tolerance."], p: [P4, P5], drills: [ht-fd-solve] }
 
   # ── 7 ────────────────────────────────────────────────────────────────────
   - id: transient
@@ -295,7 +295,7 @@ units:
         book: { incropera-8e: ["5.10"] }
         fe: []
         los:
-          - { id: A, do: "Write the explicit finite-difference equation for a transient node and check its stability limit.", ek: ["T_m^{p+1} = Fo(T_{m+1}^p + T_{m−1}^p) + (1 − 2Fo)T_m^p; stable if Fo ≤ 1/2 (interior, 1-D)."], p: [P2, P5], drills: [] }
+          - { id: A, do: "Write the explicit finite-difference equation for a transient node and check its stability limit.", ek: ["T_m^{p+1} = Fo(T_{m+1}^p + T_{m−1}^p) + (1 − 2Fo)T_m^p; stable if Fo ≤ 1/2 (interior, 1-D)."], p: [P2, P5], drills: [ht-fd-explicit] }
 
   # ── 8 ────────────────────────────────────────────────────────────────────
   - id: external
