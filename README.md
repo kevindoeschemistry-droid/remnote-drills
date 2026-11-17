@@ -148,6 +148,16 @@ npm run build   # dist/ + PluginZip.zip
 `src/drills/skills.generated.json`; it runs automatically before dev/build/test
 and fails on any dangling reference.
 
+## Release
+
+Every push and pull request runs `.github/workflows/build.yml`: version check, type check, `npm test`, `npm run build`.
+The run keeps `PluginZip.zip` as an artifact, so no build has to happen on your own machine.
+
+1. Bump the version in `package.json` (both places) and `public/manifest.json`. `node scripts/check-version.mjs` confirms they agree.
+2. Merge to `main`.
+3. `git tag v0.28.0 && git push origin v0.28.0`. The tag build publishes a GitHub Release with `PluginZip.zip` attached.
+4. Download the zip and upload it in RemNote → Plugins → Build → Upload plugin. RemNote has no upload API, so this step stays manual.
+
 ## Worksheets
 
 `npm run worksheets -- heat-transfer` writes one printable worksheet per unit to `docs/worksheets/heat-transfer/`:
