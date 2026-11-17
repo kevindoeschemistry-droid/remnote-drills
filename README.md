@@ -157,3 +157,16 @@ The run keeps `PluginZip.zip` as an artifact, so no build has to happen on your 
 2. Merge to `main`.
 3. `git tag v0.28.0 && git push origin v0.28.0`. The tag build publishes a GitHub Release with `PluginZip.zip` attached.
 4. Download the zip and upload it in RemNote → Plugins → Build → Upload plugin. RemNote has no upload API, so this step stays manual.
+
+## Worksheets
+
+`npm run worksheets -- heat-transfer` writes one printable worksheet per unit to `docs/worksheets/heat-transfer/`:
+a problem for every drilled learning objective, then a step-by-step answer key on its own pages. The problems come from
+the same generators as the RemNote cards, so a worksheet is a fixed set of seeds.
+
+- `--seed 2` gives a different version of every problem; the same seed always gives the same worksheet.
+- `--per 3` gives three problems per objective.
+- Any framework id in `drills/frameworks/` works in place of `heat-transfer`.
+- Objectives with no full drill are listed in the worksheet footer and on the index page.
+
+Open a unit in a browser and print it (or save as PDF).
