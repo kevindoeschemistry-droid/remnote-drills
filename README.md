@@ -211,4 +211,5 @@ of `npm run skills`, so `npm test` and the build catch a broken link too.
 - After adding, renaming or removing wiki pages: `node scripts/check-wiki.mjs --wiki <path to the wiki repo>` refreshes the snapshot.
 - `docs/coverage/wiki-links.md` lists, per source, the sections that teach a skill but have no wiki page, and the wiki
   drill pages no section points at.
-
+- `node scripts/wiki-backlinks.mjs --wiki <path to the wiki repo>` writes the other direction: a `remnote: [skill ids]` frontmatter
+  line on every wiki page a source points at. `--check` reports pages that are out of date without writing.
