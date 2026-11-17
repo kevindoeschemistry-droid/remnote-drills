@@ -174,7 +174,7 @@ python3 scripts/gdoc_math.py tests/out/gdoc/heat-transfer-unit-01.html \
 
 - Symbols, subscripts, superscripts and units become real Doc text. Fractions and other 2-D math become images whose
   alt text is the LaTeX; Google fetches them by URL at conversion, so the image folder has to be pushed first.
-- Every problem starts with a grey marker such as `⟦HT-1.1.B·s1⟧`. Leave the markers in place.
+- Every problem and every answer-key entry starts with a grey marker such as `⟦HT-1.1.B·s1⟧`. Leave the markers in place.
 - `docs/worksheets/<framework>/gdoc/docs.json` records which Doc belongs to which unit.
 
 **Pulling edits back.** Read the Doc back as text, save it to a file, then:
@@ -183,7 +183,11 @@ python3 scripts/gdoc_math.py tests/out/gdoc/heat-transfer-unit-01.html \
 npx tsx scripts/gdoc-pull.ts tests/out/gdoc/heat-transfer-unit-01.regions.json doc.txt --write
 ```
 
-A wording edit is saved to `drills/worksheets/<slug>.yaml` with every `$math$` piece kept as the repo has it, and the next
-`gdoc.ts` run uses it. An edit to a number or symbol is reported and not saved: change that in the generator.
-Text outside the markers is not tracked.
+Each line under a marker is compared with what was written:
 
+- **Reworded line**: saved with every `$math$` piece kept as the repo has it.
+- **Added line**: saved as a note after the line above it, and put back there on the next `gdoc.ts` run.
+- **Changed number or symbol**: reported and not saved. Change that in the generator.
+- **Removed line**: reported and not saved.
+
+Edits are stored in `drills/worksheets/<slug>.yaml`. Headings, the header lines and the callout box are not tracked.
