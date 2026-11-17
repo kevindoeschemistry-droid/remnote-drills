@@ -157,7 +157,17 @@ const F = `font-family:Calibri,Arial,sans-serif;font-size:11pt;`;
 const mark = (m: string) => `<span style="color:#999999;font-size:8pt;">⟦${m}⟧</span>`;
 const BLANK = `<p style="${F}margin:0;">&nbsp;</p>`;
 
-interface Region { marker: string; code: string; template: string; seed: number; prompt: string }
+/** what a piece of inline HTML reads as once Google hands the Doc back as text */
+const plain = (h: string) =>
+  h.replace(/<img[^>]*>/g, "[image]").replace(/<[^>]+>/g, "").replace(/&nbsp;/g, " ").replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&amp;/g, "&").replace(/\s+/g, " ").trim();
+interface Segment { kind: "text" | "math"; src: string; plain: string }
+/** the prompt cut into text and $math$ pieces, each with its plain reading, so gdoc-pull.ts can tell which piece an edit touched */
+const segments = (text: string): Segment[] =>
+  String(text)
+    .split(/(\$[^$]+\$)/g)
+    .filter((c) => c !== "")
+    .map((c) => (c.startsWith("$") && c.endsWith("$") && c.length > 2 ? { kind: "math" as const, src: c, plain: plain(math(c.slice(1, -1))) } : { kind: "text" as const, src: c, plain: c.replace(/\s+/g, " ") }));
+interface Region { marker: string; code: string; template: string; seed: number; prompt: string; overridden: boolean; segments: Segment[] }
 const regions: Region[] = [];
 const sheet: string[] = [];
 const key: string[] = [];
@@ -175,7 +185,9 @@ for (const topic of unit.topics) {
     const p = generateTemplate("worksheet", name, seed);
     const marker = `${code}·s${SEED}`;
     const prompt = overrides[marker] ?? p.prompt;
-    regions.push({ marker, code, template: name, seed, prompt });
+    const before = images;
+    regions.push({ marker, code, template: name, seed, prompt, overridden: marker in overrides, segments: segments(prompt) });
+    images = before; // segments() renders the math a second time; don't count it twice
     items.push({ code, marker, p, prompt });
   }
   if (!items.length) continue;
@@ -241,5 +253,5 @@ ${key.join("\n")}
 const outDir = path.join(root, "tests/out/gdoc");
 fs.mkdirSync(outDir, { recursive: true });
 fs.writeFileSync(path.join(outDir, `${slug}.html`), html);
-fs.writeFileSync(path.join(outDir, `${slug}.regions.json`), JSON.stringify({ framework: id, unit: unitN, seed: SEED, regions }, null, 1) + "\n");
+fs.writeFileSync(path.join(outDir, `${slug}.regions.json`), JSON.stringify({ framework: id, unit: unitN, seed: SEED, overridesFile: path.relative(root, overridesFile), regions }, null, 1) + "\n");
 console.log(`tests/out/gdoc/${slug}.html: ${n} problems, ${images} formulas need images, ${Object.keys(overrides).length} overrides applied`);
