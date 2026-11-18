@@ -18,6 +18,8 @@
 import type { RNPlugin, RichTextInterface } from "@remnote/plugin-sdk";
 import lib from "./path.generated.json";
 import { BACK, DRILL_POWERUP, DRILL_SLOT, plain } from "./deck";
+import { ALL_SKILLS } from "./skills";
+import { LO_DRILLS } from "./target";
 
 type Rem = NonNullable<Awaited<ReturnType<RNPlugin["rem"]["findOne"]>>>;
 
@@ -31,6 +33,105 @@ export const LIBRARY_ROOT = "KevinDoesChemistry Library";
 const ROOT_KEY = "library.root";
 const mapKey = (fw: string) => `library.map.${fw}`;
 const SIG_KEY = "library.signature";
+
+// ── which frameworks get drill cards ──────────────────────────────────────────
+// The outline is always built for every framework. Drill cards are flashcards in your queue,
+// so they are only created for the frameworks you choose. Unset means "all" (how it worked
+// before there was a choice); the Path tab always saves an explicit choice before building.
+const CARD_FWS_KEY = "library.cardFrameworks";
+const PAUSED_KEY = "library.pausedCourseCards";
+const COURSE_CARD_MAP_KEY = "odeDrill.cardMap"; // deck.ts: "skill:i" -> remId
+const progressKey = (id: string) => `odeDrill.progress.${id}`;
+
+/** frameworks with at least one drilled objective, and how many cards each would add */
+export const DRILLED_FRAMEWORKS: { id: string; title: string; cards: number }[] = (lib as any).frameworks
+  .map((fw: PathFramework) => ({ id: fw.id, title: fw.title, cards: fw.units.reduce((n, u) => n + u.topics.reduce((m, t) => m + t.los.filter((l) => l.drills.length).length, 0), 0) }))
+  .filter((f: { cards: number }) => f.cards > 0);
+/** school maths is in the outline but off for cards until you turn it on */
+export const DEFAULT_CARD_FRAMEWORKS: string[] = DRILLED_FRAMEWORKS.filter((f) => f.id !== "math-k8" && f.id !== "math-hs").map((f) => f.id);
+
+export const getCardFrameworks = (plugin: RNPlugin) => plugin.storage.getSynced<string[] | undefined>(CARD_FWS_KEY);
+export const setCardFrameworks = (plugin: RNPlugin, ids: string[]) => plugin.storage.setSynced(CARD_FWS_KEY, ids);
+
+/**
+ * A new Library card for an objective whose skill you already cleared in a course starts cleared.
+ * Only fills an untouched objective; never overwrites a streak earned on the Library card itself.
+ */
+async function carryOverProgress(plugin: RNPlugin, code: string): Promise<boolean> {
+  const skill = LO_DRILLS[code]?.s;
+  if (!skill) return false;
+  const mine = await plugin.storage.getSynced<{ attempts?: number; cleared?: boolean }>(progressKey(`lo:${code}`));
+  if (mine?.attempts || mine?.cleared) return false;
+  const theirs = await plugin.storage.getSynced<{ cleared?: boolean }>(progressKey(skill));
+  if (!theirs?.cleared) return false;
+  await plugin.storage.setSynced(progressKey(`lo:${code}`), { ...theirs, carriedFrom: skill });
+  return true;
+}
+
+/**
+ * Course cards that the Library now duplicates: a course skill counts as covered when every
+ * template it draws from belongs to an objective that has a Library card.
+ */
+export async function coveredCourseCards(plugin: RNPlugin): Promise<{ skills: string[]; remIds: string[] }> {
+  const templates = new Set<string>();
+  for (const fw of LIBRARY.frameworks) {
+    const map = (await plugin.storage.getSynced<Record<string, string>>(mapKey(fw.id))) ?? {};
+    for (const k of Object.keys(map)) if (k.startsWith("card:")) for (const t of LO_DRILLS[k.slice(5)]?.d ?? []) templates.add(t);
+  }
+  const covered = new Set(
+    ALL_SKILLS.filter((s) => {
+      const all = Object.values((s as any).levels ?? {}).flat() as string[];
+      return all.length > 0 && all.every((t) => templates.has(t));
+    }).map((s) => s.id),
+  );
+  const cardMap = (await plugin.storage.getSynced<Record<string, string>>(COURSE_CARD_MAP_KEY)) ?? {};
+  const skills = new Set<string>();
+  const remIds: string[] = [];
+  for (const [k, id] of Object.entries(cardMap)) {
+    const skill = k.slice(0, k.lastIndexOf(":"));
+    if (covered.has(skill)) {
+      skills.add(skill);
+      remIds.push(id);
+    }
+  }
+  return { skills: [...skills], remIds };
+}
+
+/** how many course cards this plugin has paused */
+export const pausedCourseCards = async (plugin: RNPlugin) => ((await plugin.storage.getSynced<string[]>(PAUSED_KEY)) ?? []).length;
+
+/**
+ * Pause the course cards the Library duplicates, so each drill is due once. Nothing is deleted:
+ * the cards keep their text and review history, and resumeCourseCards turns them back on.
+ */
+export async function pauseCoveredCourseCards(plugin: RNPlugin): Promise<number> {
+  const { remIds } = await coveredCourseCards(plugin);
+  const paused = new Set((await plugin.storage.getSynced<string[]>(PAUSED_KEY)) ?? []);
+  let n = 0;
+  for (const id of remIds) {
+    if (paused.has(id)) continue;
+    const rem = await plugin.rem.findOne(id);
+    if (!rem) continue;
+    await rem.setEnablePractice(false);
+    paused.add(id);
+    n++;
+  }
+  await plugin.storage.setSynced(PAUSED_KEY, [...paused]);
+  return n;
+}
+
+export async function resumeCourseCards(plugin: RNPlugin): Promise<number> {
+  const paused = (await plugin.storage.getSynced<string[]>(PAUSED_KEY)) ?? [];
+  let n = 0;
+  for (const id of paused) {
+    const rem = await plugin.rem.findOne(id);
+    if (!rem) continue;
+    await rem.setEnablePractice(true);
+    n++;
+  }
+  await plugin.storage.setSynced(PAUSED_KEY, []);
+  return n;
+}
 
 /** every objective in path order */
 export const PATH_LOS: (PathLo & { fw: PathFramework; unit: PathUnit; topic: PathTopic })[] = LIBRARY.frameworks
@@ -88,6 +189,9 @@ export async function ensureLibrary(plugin: RNPlugin, onProgress?: (done: number
     return rem;
   };
 
+  const chosen = await getCardFrameworks(plugin);
+  const cardsOn = (fw: string) => chosen === undefined || chosen.includes(fw);
+
   // root
   const rootMap: Record<string, string> = {};
   const rootId = await plugin.storage.getSynced<string>(ROOT_KEY);
@@ -131,9 +235,12 @@ export async function ensureLibrary(plugin: RNPlugin, onProgress?: (done: number
         for (let li = 0; li < t.los.length; li++) {
           const lo = t.los[li];
           const loRem = await ensure(map, `lo:${lo.code}`, topicRem, [loTitle(lo)], li);
-          if (lo.drills.length) {
+          // cards only for the frameworks you chose; a card that already exists is kept either way
+          if (lo.drills.length && (cardsOn(fw.id) || map[`card:${lo.code}`])) {
+            const isNew = !map[`card:${lo.code}`];
             // a card's text is its current written-out problem (static-card.ts), so it's never reset here
             const card = await ensure(map, `card:${lo.code}`, loRem, [`Drill · ${lo.code}`], 1, false, true);
+            if (isNew) await carryOverProgress(plugin, lo.code);
             if (!(await card.hasPowerup(DRILL_POWERUP))) {
               await card.setBackText([BACK]);
               await card.addPowerup(DRILL_POWERUP);

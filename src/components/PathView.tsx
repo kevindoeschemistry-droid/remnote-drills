@@ -7,7 +7,8 @@ import { usePlugin } from "@remnote/plugin-sdk";
 import { DrillPanel } from "./DrillPanel";
 import { getProgress } from "../drills/progress";
 import {
-  ensureLibrary, libraryIsBuilt, libraryIsCurrent, libraryRemId, LIBRARY, LO_BY_CODE, PATH_LOS, PathUnit, trackOrder,
+  coveredCourseCards, DEFAULT_CARD_FRAMEWORKS, DRILLED_FRAMEWORKS, ensureLibrary, getCardFrameworks, libraryIsBuilt, libraryIsCurrent, libraryRemId, LIBRARY,
+  LO_BY_CODE, PATH_LOS, PathUnit, pauseCoveredCourseCards, pausedCourseCards, resumeCourseCards, setCardFrameworks, trackOrder,
 } from "../drills/library-path";
 
 const MASTERY_KEY = "path.mastery"; // code -> "tested" (passed a unit test) | "known" (marked by you)
@@ -26,6 +27,10 @@ export function PathView() {
   const [built, setBuilt] = useState<boolean | null>(null);
   const [current, setCurrent] = useState(true);
   const [building, setBuilding] = useState<string | null>(null);
+  const [cardFws, setCardFws] = useState<string[]>(DEFAULT_CARD_FRAMEWORKS);
+  const [savedFws, setSavedFws] = useState<string[] | undefined>(undefined);
+  const [dupes, setDupes] = useState(0);
+  const [paused, setPaused] = useState(0);
   const [test, setTest] = useState<{ unit: PathUnit; los: Lo[]; i: number; right: number } | null>(null);
   const [n, setN] = useState(0);
   const [placing, setPlacing] = useState<string | null>(null);
@@ -35,8 +40,16 @@ export function PathView() {
     const done = new Set<string>();
     for (const lo of PATH_LOS) if (lo.drills.length && (await getProgress(plugin, `lo:${lo.code}`)).cleared) done.add(lo.code);
     setCleared(done);
-    setBuilt(await libraryIsBuilt(plugin));
+    const isBuilt = await libraryIsBuilt(plugin);
+    setBuilt(isBuilt);
     setCurrent(await libraryIsCurrent(plugin));
+    const saved = await getCardFrameworks(plugin);
+    setSavedFws(saved);
+    // built before there was a choice: every framework has its cards
+    setCardFws(saved ?? (isBuilt ? DRILLED_FRAMEWORKS.map((f) => f.id) : DEFAULT_CARD_FRAMEWORKS));
+    const nPaused = await pausedCourseCards(plugin);
+    setPaused(nPaused);
+    setDupes(isBuilt ? Math.max(0, (await coveredCourseCards(plugin)).remIds.length - nPaused) : 0);
   }, [plugin]);
 
   useEffect(() => {
@@ -60,8 +73,32 @@ export function PathView() {
     await plugin.storage.setSynced(MASTERY_KEY, m);
   };
 
+  const cardCount = DRILLED_FRAMEWORKS.filter((f) => cardFws.includes(f.id)).reduce((n, f) => n + f.cards, 0);
+  const choiceChanged = savedFws !== undefined && [...savedFws].sort().join() !== [...cardFws].sort().join();
+  const toggleFw = (id: string) => setCardFws((now) => (now.includes(id) ? now.filter((x) => x !== id) : [...now, id]));
+  const pauseDupes = async () => {
+    const n = await pauseCoveredCourseCards(plugin);
+    await plugin.app.toast(`Paused ${n} course card${n === 1 ? "" : "s"} that the Library also has. Their history is kept.`);
+    await load();
+  };
+  const resumeDupes = async () => {
+    const n = await resumeCourseCards(plugin);
+    await plugin.app.toast(`Resumed ${n} course card${n === 1 ? "" : "s"}.`);
+    await load();
+  };
+  const fwPicker = (
+    <div className="path-fws">
+      {DRILLED_FRAMEWORKS.map((f) => (
+        <label key={f.id}>
+          <input type="checkbox" checked={cardFws.includes(f.id)} disabled={!!building} onChange={() => toggleFw(f.id)} /> {f.title} <span className="muted">· {f.cards} cards</span>
+        </label>
+      ))}
+    </div>
+  );
+
   const build = async () => {
     setBuilding("Starting…");
+    await setCardFrameworks(plugin, cardFws);
     try {
       await ensureLibrary(plugin, (d, t, label) => setBuilding(`${label} · ${d.toLocaleString()} of ${t.toLocaleString()}`));
       await plugin.app.toast("The Library is in RemNote.");
@@ -147,15 +184,37 @@ export function PathView() {
         <div className="path-card">
           <b>Put the whole curriculum in RemNote</b>
           <p>
-            Builds <i>KevinDoesChemistry Library</i>: {LIBRARY.frameworks.length} frameworks and {PATH_LOS.length.toLocaleString()} objectives in path order, with a drill card under every objective that has drills. It takes a while; you can keep working, and if it stops, running it again picks up where it left off.
+            Builds <i>KevinDoesChemistry Library</i>: {LIBRARY.frameworks.length} frameworks and {PATH_LOS.length.toLocaleString()} objectives in path order. Every framework gets its outline;
+            drill cards are added only for the ones ticked here, because each card joins your flashcard queue. It takes a while; you can keep working, and it picks up where it left off if it stops.
           </p>
-          <button className="odd-btn primary" disabled={!!building} onClick={build}>{building ?? "Build the Library"}</button>
+          {fwPicker}
+          <button className="odd-btn primary" disabled={!!building} onClick={build}>{building ?? `Build the Library · ${cardCount} drill cards`}</button>
         </div>
       )}
       {built && !current && (
         <div className="path-card subtle">
           The curriculum changed since the Library was built.{" "}
           <button className="odd-btn" disabled={!!building} onClick={build}>{building ?? "Update the Library"}</button>
+        </div>
+      )}
+      {built && (
+        <details className="path-card subtle path-cards-choice">
+          <summary>Drill cards: {cardFws.length} of {DRILLED_FRAMEWORKS.length} frameworks</summary>
+          {fwPicker}
+          <p className="muted">Ticking a framework adds its cards on the next update. Unticking one stops new cards; cards already made stay.</p>
+          <button className="odd-btn" disabled={!!building || !(choiceChanged || savedFws === undefined)} onClick={build}>{building ?? "Update the Library"}</button>
+        </details>
+      )}
+      {built && dupes > 0 && (
+        <div className="path-card subtle">
+          {dupes} course card{dupes === 1 ? "" : "s"} drill skills the Library now covers, so those drills come up twice.{" "}
+          <button className="odd-btn" onClick={pauseDupes}>Pause the course cards</button>
+        </div>
+      )}
+      {built && paused > 0 && (
+        <div className="path-card subtle">
+          {paused} course card{paused === 1 ? " is" : "s are"} paused in favour of the Library.{" "}
+          <button className="odd-btn" onClick={resumeDupes}>Resume them</button>
         </div>
       )}
 

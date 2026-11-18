@@ -135,6 +135,17 @@ Three commands: **Drills: Open** (the sidebar: Path, Practice in course order wi
 shown, Exam mix for the course's next exam, Courses to build one and the setup tools),
 **Drills: Anchor this section** and **Drills: Link PDF to a textbook** (both need a PDF open).
 
+### The Library
+
+**Path → Build the Library** puts every framework in RemNote in path order (track → framework → unit → topic → objective).
+Every framework gets its outline. Drill cards are flashcards in your queue, so they are made only for the frameworks ticked
+before building; school maths (K–8 and high school) starts unticked. Change the ticks later under **Drill cards** and press
+**Update the Library**: ticking adds cards, unticking stops new ones and keeps the cards already made.
+
+- A new Library card for an objective whose skill you already cleared in a course starts cleared.
+- If a course card drills a skill the Library now covers in full, the Path tab offers to pause the course cards so each
+  drill is due once. Pausing deletes nothing and **Resume them** turns them back on.
+
 ## Develop
 
 ```bash
