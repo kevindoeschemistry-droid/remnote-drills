@@ -2,7 +2,7 @@
 
 Generated from `drills/frameworks/heat-transfer.yaml` by `scripts/framework.mjs`. ● drilled · ◐ partly · ○ no drills yet.
 
-**98 learning objectives** in 14 units (90 core): 88 drilled, 6 partly, 4 with no drills. Core: 80 / 90 drilled.
+**98 learning objectives** in 14 units (90 core): 92 drilled, 6 partly, 0 with no drills. Core: 84 / 90 drilled.
 
 ## Big ideas
 
@@ -26,12 +26,12 @@ Generated from `drills/frameworks/heat-transfer.yaml` by `scripts/framework.mjs`
 | Unit | Scope | Est. weight | LOs | ● | ◐ | ○ |
 |---|---|---|---|---|---|---|
 | 1 · Modes and energy balances | core | 4–6% | 7 | 5 | 2 | 0 |
-| 2 · The heat equation and boundary conditions | core | 6–8% | 8 | 5 | 1 | 2 |
+| 2 · The heat equation and boundary conditions | core | 6–8% | 8 | 7 | 1 | 0 |
 | 3 · Steady 1-D conduction and resistance networks | core | 8–10% | 9 | 8 | 1 | 0 |
 | 4 · Conduction with thermal energy generation | core | 8–10% | 8 | 8 | 0 | 0 |
 | 5 · Extended surfaces | core | 6–8% | 5 | 4 | 1 | 0 |
-| 6 · Two-dimensional steady conduction | core | 6–8% | 5 | 4 | 0 | 1 |
-| 7 · Transient conduction | core | 10–12% | 11 | 10 | 0 | 1 |
+| 6 · Two-dimensional steady conduction | core | 6–8% | 5 | 5 | 0 | 0 |
+| 7 · Transient conduction | core | 10–12% | 11 | 11 | 0 | 0 |
 | 8 · Convection fundamentals and external flow | core | 10–12% | 8 | 8 | 0 | 0 |
 | 9 · Internal forced convection | core | 8–10% | 6 | 6 | 0 | 0 |
 | 10 · Free convection | core | 6–8% | 5 | 5 | 0 | 0 |
@@ -86,17 +86,17 @@ Book: incropera-8e §2.1, §2.2 · FE: me-A, che-A
 - ● **HT-2.1.A** Calculate heat flux (magnitude and direction) from a given temperature field.
   - EK: q'' = −k∇T; flux points from hot to cold, normal to isotherms.
   - P4 · drills: ht-he-flux
-- ○ **HT-2.1.B** Use k, ρc_p and α = k/ρc_p to compare how materials conduct, store and diffuse heat.
+- ● **HT-2.1.B** Use k, ρc_p and α = k/ρc_p to compare how materials conduct, store and diffuse heat.
   - EK: High k moves heat; high ρc_p stores it; α sets how fast a disturbance spreads.
-  - P6
+  - P6 · drills: ht-diffusivity
 
 ### 2.2 The heat diffusion equation
 
 Book: incropera-8e §2.3 · FE: me-A
 
-- ○ **HT-2.2.A** Write the heat equation in Cartesian, cylindrical or spherical coordinates and simplify it for a stated case (steady, 1-D, no generation, constant k).
+- ● **HT-2.2.A** Write the heat equation in Cartesian, cylindrical or spherical coordinates and simplify it for a stated case (steady, 1-D, no generation, constant k).
   - EK: (1/r)d/dr(r dT/dr) and (1/r²)d/dr(r² dT/dr) are the radial Laplacians; each assumption strikes a term.
-  - P2
+  - P2 · drills: ht-heq-cylinder, ht-heq-sphere
 - ● **HT-2.2.B** From a given T field, find the generation rate, the surface fluxes or the local rate of change ∂T/∂t.
   - EK: k∇²T + q̇ = ρc ∂T/∂t; read each term off the derivatives of T.
   - P2 · P4 · drills: ht-he-gen, ht-he-dTdt, ht-gen-poly
@@ -249,9 +249,9 @@ Big ideas: FIELD, SYS
 
 Book: incropera-8e §4.2
 
-- ○ **HT-6.1.A** Set up the separable solution for a rectangle with one non-homogeneous edge and evaluate its leading terms.
+- ● **HT-6.1.A** Set up the separable solution for a rectangle with one non-homogeneous edge and evaluate its leading terms.
   - EK: θ = Σ C_n sin(nπx/L) sinh(nπy/L)/sinh(nπW/L); homogeneous BCs set the eigenfunctions.
-  - P2
+  - P2 · drills: ht-sep-rect
 
 ### 6.2 Conduction shape factors
 
@@ -325,9 +325,9 @@ Book: incropera-8e §5.7 · FE: me-D
 
 Book: incropera-8e §5.8
 
-- ○ **HT-7.4.A** Build a 2-D or 3-D transient solution as a product of 1-D solutions.
+- ● **HT-7.4.A** Build a 2-D or 3-D transient solution as a product of 1-D solutions.
   - EK: Short cylinder = infinite cylinder × plane wall, each in dimensionless θ*.
-  - P2 · P3
+  - P2 · P3 · drills: ht-product-short-cyl
 
 ### 7.5 Finite-difference transient methods
 

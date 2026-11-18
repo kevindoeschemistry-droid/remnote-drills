@@ -1,0 +1,265 @@
+# Incropera §2.2–2.3, §4.2, §5.8: thermal properties, the simplified heat equation,
+# the separable 2-D solution, and product solutions.
+# Format and verify keys: see ht-generation.yaml.
+
+# ── k, ρc and α: conduct, store, diffuse (HT-2.1.B) ───────────────────────
+- template: ht-diffusivity
+  skill: ht.heat-equation
+  given:
+    kA: { pick: [15, 60, 237, 401] }
+    rhoA: { pick: [2700, 7800, 8900] }
+    cA: { pick: [385, 480, 900] }
+    kB: { pick: [0.2, 0.6, 1.4, 2.8] }
+    rhoB: { pick: [1000, 1200, 2300, 2600] }
+    cB: { pick: [800, 1500, 4180] }
+    d: { pick: [0.005, 0.01, 0.02, 0.05] }
+  let:
+    alphaA: kA/(rhoA*cA)
+    alphaB: kB/(rhoB*cB)
+    tA: d^2/alphaA
+    ratio: alphaA/alphaB
+    stores: "rhoA*cA > rhoB*cB ? 0 : 1"
+  require: [ratio > 3, abs(rhoA*cA - rhoB*cB)/(rhoB*cB) > 0.1]
+  prompt: >-
+    Material A has $k = {{kA}}\,\mathrm{W/m\cdot K}$, $\rho = {{rhoA}}\,\mathrm{kg/m^3}$ and $c_p = {{cA}}\,\mathrm{J/kg\cdot K}$.
+    Material B has $k = {{kB}}\,\mathrm{W/m\cdot K}$, $\rho = {{rhoB}}\,\mathrm{kg/m^3}$ and $c_p = {{cB}}\,\mathrm{J/kg\cdot K}$.
+    The surface temperature of a thick slab of each is suddenly changed.
+  parts:
+    - ask: "Thermal diffusivity of A, $\\alpha_A$"
+      label: alphaA
+      tex: "\\alpha_A"
+      value: alphaA
+      unit: "m²/s"
+      explain: "$\\alpha = \\frac{k}{\\rho c_p}$: what it conducts over what it stores. $\\alpha_A = \\frac{ {{kA}} }{ {{rhoA}}\\times{{cA}} } = {{alphaA|3}}\\,\\mathrm{m^2/s}$"
+    - ask: "Thermal diffusivity of B, $\\alpha_B$"
+      label: alphaB
+      tex: "\\alpha_B"
+      value: alphaB
+      unit: "m²/s"
+      explain: "$\\alpha_B = \\frac{ {{kB}} }{ {{rhoB}}\\times{{cB}} } = {{alphaB|3}}\\,\\mathrm{m^2/s}$"
+    - ask: "Which material stores more energy per cubic metre for each kelvin of temperature rise?"
+      label: stores
+      choice: ["Material A", "Material B"]
+      correct: stores
+      explain: "Storage is $\\rho c_p$, not $k$: A has ${{rhoA*cA|3}}$ and B has ${{rhoB*cB|3}}\\,\\mathrm{J/m^3\\cdot K}$"
+    - ask: "Time scale for the change to reach a depth $\\delta = {{d*1000}}\\,\\mathrm{mm}$ in A, $t_A \\approx \\delta^2/\\alpha_A$"
+      label: tA
+      tex: "t_A"
+      value: tA
+      unit: s
+      explain: "A disturbance spreads a distance $\\delta \\sim \\sqrt{\\alpha t}$, so $t \\sim \\delta^2/\\alpha = \\frac{ {{d}}^2}{ {{alphaA|3}} } = {{tA|3}}\\,\\mathrm{s}$"
+    - ask: "How many times longer the same depth takes in B, $t_B/t_A$"
+      label: ratio
+      tex: "t_B/t_A"
+      value: ratio
+      explain: "Same $\\delta$, so the times go as $1/\\alpha$: $t_B/t_A = \\alpha_A/\\alpha_B = {{ratio|3}}$. B is the slower one because its $\\alpha$ is smaller, whatever its $k$"
+  verify:
+    residuals:
+      - "alphaA*rhoA*cA - kA"
+      - "alphaB*rhoB*cB - kB"
+      - "tA*kA - d**2*rhoA*cA"
+      - "ratio*alphaB - alphaA"
+
+# ── the heat equation simplified to steady radial conduction: cylinder (HT-2.2.A) ──
+- template: ht-heq-cylinder
+  skill: ht.heat-equation
+  given:
+    r1: { pick: [0.01, 0.02, 0.025, 0.05] }
+    w: { pick: [0.01, 0.02, 0.03, 0.05] }
+    f: { pick: [0.25, 0.5, 0.75] }
+    T1: { pick: [120, 200, 300, 400] }
+    T2: { pick: [20, 40, 60] }
+  let:
+    r2: r1 + w
+    rm: r1 + f*w
+    Tm: T1 + (T2 - T1)*log(rm/r1)/log(r2/r1)
+    Tlin: T1 + (T2 - T1)*f
+  require: [abs(Tm - Tlin) > 2]
+  prompt: >-
+    A long pipe wall runs from $r_1 = {{r1*1000}}\,\mathrm{mm}$ at $T_1 = {{T1}}^\circ\mathrm{C}$ to
+    $r_2 = {{r2*1000}}\,\mathrm{mm}$ at $T_2 = {{T2}}^\circ\mathrm{C}$. Steady state, conduction in the radial direction only,
+    constant $k$, no generation.
+  parts:
+    - ask: "Which form does the heat equation reduce to?"
+      label: form
+      choice:
+        - "(1/r) d/dr( r dT/dr ) = 0"
+        - "d²T/dr² = 0"
+        - "(1/r²) d/dr( r² dT/dr ) = 0"
+        - "(1/r) d/dr( r dT/dr ) = (1/α) ∂T/∂t"
+      correct: 0
+      explain: >-
+        Steady strikes $\partial T/\partial t$, no generation strikes $\dot q/k$, radial-only strikes the $\phi$ and $z$ terms.
+        What is left is the cylindrical radial term: the area grows with $r$, so $r\,dT/dr$ is constant, not $dT/dr$
+    - ask: "Temperature at $r = {{rm*1000}}\\,\\mathrm{mm}$"
+      label: Tm
+      tex: "T(r)"
+      value: Tm
+      unit: "°C"
+      explain: >-
+        Integrate twice: $T = C_1\ln r + C_2$. With both surface temperatures,
+        $T(r) = T_1 + (T_2 - T_1)\frac{\ln(r/r_1)}{\ln(r_2/r_1)} = {{T1}} + ({{T2}} - {{T1}})\frac{\ln({{rm*1000}}/{{r1*1000}})}{\ln({{r2*1000}}/{{r1*1000}})} = {{Tm|4}}^\circ\mathrm{C}$.
+        A straight line would give ${{Tlin|4}}^\circ\mathrm{C}$; the profile is logarithmic
+  verify:
+    var: r
+    ode: "diff(r*diff(T(r), r), r)"
+    bcs: ["T(r1) = T1", "T(r1 + w) = T2"]
+    expect: { Tm: "T(r1 + f*w)" }
+
+# ── the heat equation simplified to steady radial conduction: sphere (HT-2.2.A) ──
+- template: ht-heq-sphere
+  skill: ht.heat-equation
+  given:
+    r1: { pick: [0.05, 0.1, 0.15, 0.25] }
+    w: { pick: [0.02, 0.05, 0.1] }
+    f: { pick: [0.25, 0.5, 0.75] }
+    T1: { pick: [-196, -80, 150, 300] }
+    T2: { pick: [10, 20, 30] }
+  let:
+    r2: r1 + w
+    rm: r1 + f*w
+    Tm: T1 + (T2 - T1)*(1/r1 - 1/rm)/(1/r1 - 1/r2)
+    Tlin: T1 + (T2 - T1)*f
+  require: [abs(Tm - Tlin) > 2]
+  prompt: >-
+    A spherical shell of insulation runs from $r_1 = {{r1*1000}}\,\mathrm{mm}$ at $T_1 = {{T1}}^\circ\mathrm{C}$ to
+    $r_2 = {{r2*1000}}\,\mathrm{mm}$ at $T_2 = {{T2}}^\circ\mathrm{C}$. Steady state, radial conduction only, constant $k$,
+    no generation.
+  parts:
+    - ask: "Which form does the heat equation reduce to?"
+      label: form
+      choice:
+        - "(1/r²) d/dr( r² dT/dr ) = 0"
+        - "(1/r) d/dr( r dT/dr ) = 0"
+        - "d²T/dr² = 0"
+        - "(1/r²) d/dr( r² dT/dr ) + q̇/k = 0"
+      correct: 0
+      explain: >-
+        Steady, no generation and radial-only leave the spherical radial term. The area grows as $r^2$, so
+        $r^2\,dT/dr$ is constant
+    - ask: "Temperature at $r = {{rm*1000}}\\,\\mathrm{mm}$"
+      label: Tm
+      tex: "T(r)"
+      value: Tm
+      unit: "°C"
+      explain: >-
+        Integrate twice: $T = -C_1/r + C_2$. With both surface temperatures,
+        $T(r) = T_1 + (T_2 - T_1)\frac{1/r_1 - 1/r}{1/r_1 - 1/r_2} = {{Tm|4}}^\circ\mathrm{C}$.
+        A straight line would give ${{Tlin|4}}^\circ\mathrm{C}$
+  verify:
+    var: r
+    ode: "diff(r**2*diff(T(r), r), r)"
+    bcs: ["T(r1) = T1", "T(r1 + w) = T2"]
+    expect: { Tm: "T(r1 + f*w)" }
+
+# ── rectangle, one hot edge: leading terms of the separable solution (HT-6.1.A) ──
+- template: ht-sep-rect
+  skill: ht.heat-equation
+  given:
+    L: { pick: [1, 2] }
+    W: { pick: [0.5, 1, 2] }
+    T1: { pick: [0, 20, 50] }
+    T2: { pick: [100, 150, 200] }
+  let:
+    c1: 4/pi
+    term1: c1*sin(pi/2)*sinh(pi*W/(2*L))/sinh(pi*W/L)
+    term3: (4/(3*pi))*sin(3*pi/2)*sinh(3*pi*W/(2*L))/sinh(3*pi*W/L)
+    Tc: T1 + (T2 - T1)*(term1 + term3)
+  require: [abs(term3) > 0.0005]
+  prompt: >-
+    A long bar has a rectangular cross-section $L = {{L}}\,\mathrm{m}$ wide ($x$) and $W = {{W}}\,\mathrm{m}$ tall ($y$).
+    Three sides are held at $T_1 = {{T1}}^\circ\mathrm{C}$ and the top, $y = W$, at $T_2 = {{T2}}^\circ\mathrm{C}$.
+    Steady state, constant $k$. With $\theta = \frac{T - T_1}{T_2 - T_1}$ the solution is
+    $\theta = \sum_n C_n \sin\frac{n\pi x}{L}\,\frac{\sinh(n\pi y/L)}{\sinh(n\pi W/L)}$.
+    Work at the centre, $x = L/2$, $y = W/2$.
+  parts:
+    - ask: "First coefficient, $C_1$"
+      label: c1
+      tex: "C_1"
+      value: c1
+      explain: >-
+        At $y = W$ the series must equal 1, so $C_n$ are the sine-series coefficients of 1:
+        $C_n = \frac{2}{L}\int_0^L \sin\frac{n\pi x}{L}\,dx = \frac{2}{\pi}\frac{1 - (-1)^n}{n}$. Even $n$ vanish; $C_1 = \frac{4}{\pi} = {{c1|4}}$
+    - ask: "The $n = 1$ term of $\\theta$ at the centre"
+      label: term1
+      tex: "\\theta_1"
+      value: term1
+      explain: "$\\theta_1 = \\frac{4}{\\pi}\\sin\\frac{\\pi}{2}\\,\\frac{\\sinh(\\pi W/2L)}{\\sinh(\\pi W/L)} = {{term1|4}}$"
+    - ask: "The $n = 3$ term of $\\theta$ at the centre"
+      label: term3
+      tex: "\\theta_3"
+      value: term3
+      explain: "$C_3 = \\frac{4}{3\\pi}$ and $\\sin\\frac{3\\pi}{2} = -1$: $\\theta_3 = -\\frac{4}{3\\pi}\\frac{\\sinh(3\\pi W/2L)}{\\sinh(3\\pi W/L)} = {{term3|3}}$. The terms alternate and shrink fast"
+    - ask: "Centre temperature from these two terms"
+      label: Tc
+      tex: "T"
+      value: Tc
+      unit: "°C"
+      explain: "$T = T_1 + (T_2 - T_1)(\\theta_1 + \\theta_3) = {{T1}} + ({{T2}} - {{T1}})({{term1|4}} - {{-term3|3}}) = {{Tc|4}}^\\circ\\mathrm{C}$"
+  verify:
+    residuals:
+      - "c1 - 2/L*integrate(sin(pi*x/L), (x, 0, L))"
+      - "term1 - 2/L*integrate(sin(pi*x/L), (x, 0, L))*sin(pi/2)*sinh(pi*W/(2*L))/sinh(pi*W/L)"
+      - "term3 - 2/L*integrate(sin(3*pi*x/L), (x, 0, L))*sin(3*pi/2)*sinh(3*pi*W/(2*L))/sinh(3*pi*W/L)"
+      - "(Tc - T1) - (T2 - T1)*(term1 + term3)"
+
+# ── short cylinder = plane wall × infinite cylinder (HT-7.4.A) ─────────────
+- template: ht-product-short-cyl
+  skill: ht.transient-one-term
+  given:
+    k: { pick: [15, 20, 50] }
+    h: { pick: [500, 1000] }
+    alpha: { pick: [4.0e-6, 1.0e-5, 1.5e-5] }
+    t: { pick: [20, 30, 60, 120, 300] }
+    Ti: { pick: [300, 400, 600] }
+    Tinf: { pick: [20, 25, 40] }
+    zw: 0.8603
+    Cw: 1.1191
+    zc: 1.2558
+    Cc: 1.2071
+  let:
+    L: k/h
+    Fo: alpha*t/L^2
+    thw: Cw*exp(-zw^2*Fo)
+    thc: Cc*exp(-zc^2*Fo)
+    th: thw*thc
+    Tc: Tinf + (Ti - Tinf)*th
+  require: [Fo >= 0.2, Fo <= 1.5]
+  prompt: >-
+    A short cylinder has radius $r_o = {{L*1000}}\,\mathrm{mm}$ and height $2L = {{2*L*1000}}\,\mathrm{mm}$
+    ($k = {{k}}\,\mathrm{W/m\cdot K}$, $\alpha = {{alpha}}\,\mathrm{m^2/s}$). It starts at $T_i = {{Ti}}^\circ\mathrm{C}$ and is
+    plunged into fluid at $T_\infty = {{Tinf}}^\circ\mathrm{C}$ with $h = {{h}}\,\mathrm{W/m^2\cdot K}$ on every surface.
+    Both Biot numbers are 1, for which Table 5.1 gives $\zeta_1 = {{zw}}$, $C_1 = {{Cw}}$ (plane wall) and
+    $\zeta_1 = {{zc}}$, $C_1 = {{Cc}}$ (infinite cylinder). Find the centre temperature after ${{t}}\,\mathrm{s}$.
+  parts:
+    - ask: "Fourier number, $Fo$ (the same for both, since $L = r_o$)"
+      label: Fo
+      tex: "Fo"
+      value: Fo
+      explain: "$Fo = \\frac{\\alpha t}{L^2} = \\frac{ {{alpha}}\\times{{t}} }{ {{L}}^2} = {{Fo|4}}$, above 0.2, so one term is enough"
+    - ask: "Plane-wall midplane value, $\\theta^*_{wall}$"
+      label: thw
+      tex: "\\theta^*_{wall}"
+      value: thw
+      explain: "$\\theta^*_o = C_1 e^{-\\zeta_1^2 Fo} = {{Cw}}\\,e^{-{{zw}}^2\\times{{Fo|4}}} = {{thw|4}}$"
+    - ask: "Infinite-cylinder axis value, $\\theta^*_{cyl}$"
+      label: thc
+      tex: "\\theta^*_{cyl}"
+      value: thc
+      explain: "$\\theta^*_o = {{Cc}}\\,e^{-{{zc}}^2\\times{{Fo|4}}} = {{thc|4}}$"
+    - ask: "Centre temperature of the short cylinder"
+      label: Tc
+      tex: "T"
+      value: Tc
+      unit: "°C"
+      explain: >-
+        The short cylinder is the intersection of an infinite cylinder and a plane wall, so the dimensionless
+        solutions multiply: $\theta^* = \theta^*_{wall}\times\theta^*_{cyl} = {{th|4}}$, and
+        $T = T_\infty + (T_i - T_\infty)\theta^* = {{Tinf}} + ({{Ti}} - {{Tinf}})({{th|4}}) = {{Tc|4}}^\circ\mathrm{C}$.
+        It cools faster than either 1-D body alone
+  verify:
+    residuals:
+      - "Fo*(k/h)**2 - alpha*t"
+      - "log(thw/Cw) + zw**2*alpha*t/(k/h)**2"
+      - "log(thc/Cc) + zc**2*alpha*t/(k/h)**2"
+      - "(Tc - Tinf) - (Ti - Tinf)*thw*thc"

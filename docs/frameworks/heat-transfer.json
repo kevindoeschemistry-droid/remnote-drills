@@ -259,7 +259,9 @@
        "p": [
         "P6"
        ],
-       "drills": []
+       "drills": [
+        "ht-diffusivity"
+       ]
       }
      ]
     },
@@ -284,7 +286,10 @@
        "p": [
         "P2"
        ],
-       "drills": []
+       "drills": [
+        "ht-heq-cylinder",
+        "ht-heq-sphere"
+       ]
       },
       {
        "id": "B",
@@ -884,7 +889,9 @@
        "p": [
         "P2"
        ],
-       "drills": []
+       "drills": [
+        "ht-sep-rect"
+       ]
       }
      ]
     },
@@ -1181,7 +1188,9 @@
         "P2",
         "P3"
        ],
-       "drills": []
+       "drills": [
+        "ht-product-short-cyl"
+       ]
       }
      ]
     },
@@ -2393,16 +2402,21 @@
    "code": "HT-2.1.B",
    "unit": 2,
    "topic": 1,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ht-diffusivity"
+   ],
    "partial": []
   },
   {
    "code": "HT-2.2.A",
    "unit": 2,
    "topic": 2,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ht-heq-cylinder",
+    "ht-heq-sphere"
+   ],
    "partial": []
   },
   {
@@ -2697,8 +2711,10 @@
    "code": "HT-6.1.A",
    "unit": 6,
    "topic": 1,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ht-sep-rect"
+   ],
    "partial": []
   },
   {
@@ -2845,8 +2861,10 @@
    "code": "HT-7.4.A",
    "unit": 7,
    "topic": 4,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ht-product-short-cyl"
+   ],
    "partial": []
   },
   {
