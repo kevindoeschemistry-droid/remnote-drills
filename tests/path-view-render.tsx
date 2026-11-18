@@ -37,13 +37,19 @@ const errors: string[] = [];
 const origError = console.error;
 console.error = (...a: any[]) => { errors.push(a.map(String).join(" ").slice(0, 300)); };
 
-async function mount(label: string, seed: Record<string, any>, expect: string[]) {
+const { WarmMix } = require("../src/components/WarmMix");
+const { PATH_LOS } = require("../src/drills/library-path");
+let View: any = PathView;
+let local: Record<string, any> = {};
+known.storage.getLocal = async (k: string) => local[k];
+
+async function mount(label: string, seed: Record<string, any>, expect: string[], absent: string[] = []) {
   for (const k of Object.keys(store)) delete store[k];
   Object.assign(store, seed);
   errors.length = 0;
   const root = document.getElementById("root")!;
   try {
-    await act(async () => { ReactDOM.render(React.createElement(PathView), root); });
+    await act(async () => { ReactDOM.render(React.createElement(View), root); });
     await act(async () => { await new Promise((r) => setTimeout(r, 400)); });
   } catch (e: any) {
     fail(`${label}: threw ${String(e?.stack ?? e).slice(0, 600)}`);
@@ -51,6 +57,7 @@ async function mount(label: string, seed: Record<string, any>, expect: string[])
   const html = root.innerHTML;
   if (html.length < 200) fail(`${label}: rendered almost nothing (${html.length} characters)`);
   for (const want of expect) if (!html.includes(want)) fail(`${label}: missing "${want}"`);
+  for (const not of absent) if (html.includes(not)) fail(`${label}: should not show "${not}"`);
   if (errors.length) fail(`${label}: console errors: ${errors.slice(0, 3).join(" | ")}`);
   console.log(`${label}: ${html.length} characters`);
   ReactDOM.unmountComponentAtNode(root);
@@ -60,6 +67,21 @@ async function mount(label: string, seed: Record<string, any>, expect: string[])
   await mount("never built", {}, ["Build the Library", "Heat Transfer", "cards"]);
   await mount("built before the choice existed", { "library.root": "r1", "library.signature": "old" }, ["Update the Library", "Drill cards:"]);
   await mount("built with a saved choice", { "library.root": "r1", "library.cardFrameworks": ["heat-transfer"] }, ["Drill cards: 1 of"]);
+  // objectives without drills are hidden until asked for: no empty tracks, no "no drills" dead end
+  const firstUndrilledMath = PATH_LOS.find((l: any) => l.fw.track === "math" && !l.drills.length);
+  const known0: Record<string, string> = {};
+  for (const l of PATH_LOS) { if (l === firstUndrilledMath) break; known0[l.code] = "known"; }
+  await mount("undrilled hidden", { "library.root": "r1", "path.mastery": known0 }, ["objectives without drills", "warm"], ["No drills for this objective yet", "Athletics", "mastered"]);
+  local = { "path.showUndrilled": true };
+  await mount("whole map shown", { "library.root": "r1", "path.mastery": known0 }, ["Hide objectives without drills", "No drills for this objective yet", "Athletics"]);
+  local = {};
+
+  View = WarmMix;
+  await mount("warm mix, nothing warm", {}, ["Nothing is warm yet"]);
+  const lo = PATH_LOS.find((l: any) => l.drills.length);
+  await mount("warm mix, one cleared and one known", {
+    [`odeDrill.progress.lo:${lo.code}`]: { consecutive: 5, cleared: true, attempts: 12, correct: 11, lastPracticed: Date.now() - 3 * 86400000 },
+  }, ["Warm-up mix", "1 warm", "Warm ✓ · 11 reps · last 3 days ago"]);
   console.error = origError;
   process.exit(process.exitCode ?? 0);
 })();

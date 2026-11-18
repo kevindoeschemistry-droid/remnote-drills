@@ -147,6 +147,12 @@ const range = (fw: PathFramework) => {
   return [Math.min(...ps), Math.max(...ps)];
 };
 const loTitle = (lo: PathLo) => `#${lo.pos} · ${lo.code} · ${lo.do}`;
+// units and frameworks you can't practice yet say so in their title, so an empty one reads as
+// "not written yet" rather than "broken"
+const NO_DRILLS = " · no drills yet";
+const unitDrilled = (u: PathUnit) => u.topics.some((t) => t.los.some((l) => l.drills.length));
+const unitTitle = (u: PathUnit) => `Unit ${u.n} · ${u.title}${u.scope && u.scope !== "core" ? ` (${u.scope})` : ""}${unitDrilled(u) ? "" : NO_DRILLS}`;
+const fwTitle = (fw: PathFramework) => `${LIBRARY.frameworks.indexOf(fw) + 1} · ${fw.title}${fw.units.some(unitDrilled) ? "" : NO_DRILLS}`;
 
 export async function libraryRemId(plugin: RNPlugin, code: string): Promise<string | undefined> {
   const lo = LO_BY_CODE.get(code);
@@ -156,7 +162,7 @@ export async function libraryRemId(plugin: RNPlugin, code: string): Promise<stri
 }
 
 export function librarySignature(): string {
-  const text = JSON.stringify(LIBRARY.frameworks.map((f) => [f.id, f.title, f.units.map((u) => [u.title, u.topics.map((t) => [t.title, t.los.map((l) => [l.code, l.pos, l.do, l.ek, l.std, l.needs, l.drills])])])]));
+  const text = JSON.stringify(LIBRARY.frameworks.map((f) => [f.id, fwTitle(f), f.units.map(unitTitle), f.units.map((u) => [u.title, u.topics.map((t) => [t.title, t.los.map((l) => [l.code, l.pos, l.do, l.ek, l.std, l.needs, l.drills])])])]));
   let h = 2166136261;
   for (let i = 0; i < text.length; i++) h = Math.imul(h ^ text.charCodeAt(i), 16777619);
   return (h >>> 0).toString(36);
@@ -218,8 +224,7 @@ export async function ensureLibrary(plugin: RNPlugin, onProgress?: (done: number
   for (const fw of LIBRARY.frameworks) {
     const map = (await plugin.storage.getSynced<Record<string, string>>(mapKey(fw.id))) ?? {};
     const k = (fwIndexInTrack[fw.track] = (fwIndexInTrack[fw.track] ?? -1) + 1);
-    const fwNum = LIBRARY.frameworks.indexOf(fw) + 1;
-    const fwRem = await ensure(map, "fw", trackRems[fw.track], [`${fwNum} · ${fw.title}`], k, true);
+    const fwRem = await ensure(map, "fw", trackRems[fw.track], [fwTitle(fw)], k, true);
     frameworkRem[fw.id] = fwRem._id;
     const [a, b] = range(fw);
     const reqs: RichTextInterface = fw.requires.length
@@ -229,7 +234,7 @@ export async function ensureLibrary(plugin: RNPlugin, onProgress?: (done: number
 
     for (let ui = 0; ui < fw.units.length; ui++) {
       const u = fw.units[ui];
-      const unitRem = await ensure(map, `u:${u.n}`, fwRem, [`Unit ${u.n} · ${u.title}${u.scope && u.scope !== "core" ? ` (${u.scope})` : ""}`], ui + 1, true);
+      const unitRem = await ensure(map, `u:${u.n}`, fwRem, [unitTitle(u)], ui + 1, true);
       for (let ti = 0; ti < u.topics.length; ti++) {
         const t = u.topics[ti];
         const topicRem = await ensure(map, `t:${u.n}.${t.n}`, unitRem, [`${u.n}.${t.n} ${t.title}`], ti);
