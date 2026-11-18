@@ -1,0 +1,554 @@
+# Physical chemistry, quantum / spectroscopy / kinetic theory / kinetics (Engel & Reid 3e Ch 12–36).
+# Format: see src/drills/gen-data.ts. Constants are givens so the prompt, the answer and the check agree.
+# Residuals for very small quantities are written as (ratio − 1) so the tolerance is relative.
+
+# ── photon energy (PC-10.1.A, PC-16.1.A) ───────────────────────────────────
+- template: pc-photon
+  skill: quantum.origins
+  given:
+    lam: { pick: [200, 254, 350, 450, 532, 633, 780, 1064] }
+    h: 6.626e-34
+    c: 2.998e+8
+    NA: 6.022e+23
+  prompt: >-
+    Light has wavelength $\lambda = {{lam}}\,\mathrm{nm}$. Use $h = 6.626\times10^{-34}\,\mathrm{J\,s}$ and $c = 2.998\times10^{8}\,\mathrm{m/s}$.
+  parts:
+    - ask: 'Energy of one photon, $E$'
+      label: Eph
+      tex: 'E'
+      value: h*c/(lam*1e-9)
+      unit: J
+      explain: '$E = \frac{hc}{\lambda} = \frac{(6.626\times10^{-34})(2.998\times10^{8})}{ {{lam*1e-9}} } = {{h*c/(lam*1e-9)}}\,\mathrm{J}$, with $\lambda$ in metres'
+    - ask: 'Energy of a mole of these photons'
+      label: Emol
+      tex: 'E_m'
+      value: Eph*NA/1000
+      unit: kJ/mol
+      explain: 'Times $N_A$: ${{h*c/(lam*1e-9)*NA/1000}}\,\mathrm{kJ/mol}$. A C–C bond is about 350 kJ/mol, which is why UV breaks bonds and red light does not'
+  verify:
+    residuals: ["Eph*lam*1e-9/(h*c) - 1", "Emol*1000/(Eph*NA) - 1"]
+
+# ── photoelectric effect (PC-10.1.B) ───────────────────────────────────────
+- template: pc-photoelectric
+  skill: quantum.origins
+  given:
+    Phi: { pick: [2.14, 2.28, 2.9, 4.3, 4.7] }
+    lam: { pick: [200, 250, 300, 350, 400, 500] }
+    h: 6.626e-34
+    c: 2.998e+8
+    eV: 1.602e-19
+  let:
+    Ev: h*c/(lam*1e-9)/eV
+  require: [Ev - Phi > 0.05]
+  prompt: >-
+    Light of wavelength $\lambda = {{lam}}\,\mathrm{nm}$ strikes a metal with work function $\Phi = {{Phi}}\,\mathrm{eV}$.
+    Use $1\,\mathrm{eV} = 1.602\times10^{-19}\,\mathrm{J}$.
+  parts:
+    - ask: 'Photon energy in eV'
+      label: Eph
+      tex: 'h\nu'
+      value: Ev
+      unit: eV
+      explain: '$h\nu = \frac{hc}{\lambda} = {{h*c/(lam*1e-9)}}\,\mathrm{J} = {{Ev}}\,\mathrm{eV}$. Shortcut: $1240/\lambda(\mathrm{nm})$'
+    - ask: 'Maximum kinetic energy of the photoelectrons'
+      label: KE
+      tex: 'KE_\mathrm{max}'
+      value: Eph - Phi
+      unit: eV
+      explain: '$KE = h\nu - \Phi = {{Ev}} - {{Phi}} = {{Ev - Phi}}\,\mathrm{eV}$'
+    - ask: 'Threshold frequency of the metal, $\nu_0$'
+      label: nu0
+      tex: '\nu_0'
+      value: Phi*eV/h
+      unit: Hz
+      explain: '$\nu_0 = \frac{\Phi}{h} = \frac{({{Phi}})(1.602\times10^{-19})}{6.626\times10^{-34}} = {{Phi*eV/h}}\,\mathrm{Hz}$. Below it, no electrons at any intensity'
+  verify:
+    residuals: ["Eph*eV*lam*1e-9/(h*c) - 1", "KE - Eph + Phi", "nu0*h/(Phi*eV) - 1"]
+
+# ── de Broglie wavelength (PC-10.1.C) ──────────────────────────────────────
+- template: pc-de-broglie
+  skill: quantum.origins
+  given:
+    v: { pick: [1.0e+5, 5.0e+5, 1.0e+6, 2.0e+6, 5.0e+6, 1.0e+7] }
+    h: 6.626e-34
+    me: 9.109e-31
+  prompt: >-
+    An electron ($m_e = 9.109\times10^{-31}\,\mathrm{kg}$) moves at $v = {{v}}\,\mathrm{m/s}$.
+  parts:
+    - ask: 'Momentum, $p$'
+      label: p
+      tex: 'p'
+      value: me*v
+      unit: kg·m/s
+      explain: '$p = m_e v = (9.109\times10^{-31})({{v}}) = {{me*v}}\,\mathrm{kg\,m/s}$'
+    - ask: 'de Broglie wavelength in picometres'
+      label: lam
+      tex: '\lambda'
+      value: h/p*1e12
+      unit: pm
+      explain: '$\lambda = \frac{h}{p} = \frac{6.626\times10^{-34}}{ {{me*v}} } = {{h/(me*v)}}\,\mathrm{m} = {{h/(me*v)*1e12}}\,\mathrm{pm}$. Bond lengths are 100–200 pm, so electrons at these speeds diffract from crystals'
+  verify:
+    residuals: ["p/(me*v) - 1", "lam*1e-12*p/h - 1"]
+
+# ── hydrogen transitions (PC-10.1.D) ───────────────────────────────────────
+- template: pc-bohr
+  skill: quantum.origins
+  given:
+    n1: { int: [1, 3] }
+    n2: { int: [2, 6] }
+    Ry: 13.606
+    h: 6.626e-34
+    c: 2.998e+8
+    eV: 1.602e-19
+  require: [n2 > n1]
+  prompt: >-
+    A hydrogen atom drops from $n = {{n2}}$ to $n = {{n1}}$. Use $E_n = -13.606\,\mathrm{eV}/n^2$.
+  parts:
+    - ask: 'Energy of the emitted photon'
+      label: dE
+      tex: '\Delta E'
+      value: Ry*(1/n1^2 - 1/n2^2)
+      unit: eV
+      explain: '$\Delta E = 13.606\left(\frac{1}{ {{n1}}^2} - \frac{1}{ {{n2}}^2}\right) = {{Ry*(1/n1^2 - 1/n2^2)}}\,\mathrm{eV}$'
+    - ask: 'Wavelength of the photon'
+      label: lam
+      tex: '\lambda'
+      value: h*c/(dE*eV)*1e9
+      unit: nm
+      explain: '$\lambda = \frac{hc}{\Delta E} = {{h*c/(Ry*(1/n1^2 - 1/n2^2)*eV)*1e9}}\,\mathrm{nm}$. Lyman ($n_1 = 1$) is UV, Balmer ($n_1 = 2$) visible, Paschen ($n_1 = 3$) infrared'
+  verify:
+    residuals: ["dE*n1**2*n2**2 - Ry*(n2**2 - n1**2)", "lam*1e-9*dE*eV/(h*c) - 1"]
+
+# ── uncertainty principle (PC-11.3.B) ──────────────────────────────────────
+- template: pc-uncertainty
+  skill: quantum.origins
+  given:
+    dx: { pick: [10, 50, 100, 200, 500, 1000] }
+    hbar: 1.0546e-34
+    me: 9.109e-31
+  prompt: >-
+    An electron is confined to a region $\Delta x = {{dx}}\,\mathrm{pm}$ wide. Use $\hbar = 1.0546\times10^{-34}\,\mathrm{J\,s}$.
+  parts:
+    - ask: 'Minimum uncertainty in momentum, $\Delta p$'
+      label: dp
+      tex: '\Delta p'
+      value: hbar/(2*dx*1e-12)
+      unit: kg·m/s
+      explain: '$\Delta p \ge \frac{\hbar}{2\Delta x} = \frac{1.0546\times10^{-34}}{2({{dx*1e-12}})} = {{hbar/(2*dx*1e-12)}}\,\mathrm{kg\,m/s}$'
+    - ask: 'The corresponding uncertainty in speed, $\Delta v$'
+      label: dv
+      tex: '\Delta v'
+      value: dp/me
+      unit: m/s
+      explain: '$\Delta v = \frac{\Delta p}{m_e} = {{hbar/(2*dx*1e-12)/me}}\,\mathrm{m/s}$. Squeeze the box and the electron must move faster: this is why atoms do not collapse'
+  verify:
+    residuals: ["2*dp*dx*1e-12/hbar - 1", "dv*me/dp - 1"]
+
+# ── particle in a box (PC-12.1.A) ──────────────────────────────────────────
+- template: pc-pib-energy
+  skill: quantum.model-systems
+  given:
+    L: { pick: [0.5, 0.8, 1.0, 1.2, 1.5, 2.0] }
+    n: { int: [1, 3] }
+    h: 6.626e-34
+    c: 2.998e+8
+    me: 9.109e-31
+    eV: 1.602e-19
+  prompt: >-
+    An electron is in a one-dimensional box of length $L = {{L}}\,\mathrm{nm}$.
+  parts:
+    - ask: 'Ground-state energy, $E_1$'
+      label: E1
+      tex: 'E_1'
+      value: h^2/(8*me*(L*1e-9)^2)/eV
+      unit: eV
+      explain: '$E_1 = \frac{h^2}{8m_eL^2} = \frac{(6.626\times10^{-34})^2}{8(9.109\times10^{-31})({{L*1e-9}})^2} = {{h^2/(8*me*(L*1e-9)^2)}}\,\mathrm{J} = {{h^2/(8*me*(L*1e-9)^2)/eV}}\,\mathrm{eV}$'
+    - ask: 'Energy of the $n = {{n}} \rightarrow {{n + 1}}$ transition'
+      label: dE
+      tex: '\Delta E'
+      value: (2*n + 1)*E1
+      unit: eV
+      explain: '$E_n = n^2E_1$, so $\Delta E = \left[({{n + 1}})^2 - {{n}}^2\right]E_1 = {{2*n + 1}}\,E_1 = {{(2*n + 1)*h^2/(8*me*(L*1e-9)^2)/eV}}\,\mathrm{eV}$'
+    - ask: 'Wavelength absorbed in that transition'
+      label: lam
+      tex: '\lambda'
+      value: h*c/(dE*eV)*1e9
+      unit: nm
+      explain: '$\lambda = \frac{hc}{\Delta E} = {{h*c/((2*n + 1)*h^2/(8*me*(L*1e-9)^2))*1e9}}\,\mathrm{nm}$. A longer box absorbs at longer wavelength, which is why longer conjugated dyes are more deeply coloured'
+  verify:
+    residuals: ["E1*eV*8*me*(L*1e-9)**2/h**2 - 1", "dE/E1 - ((n + 1)**2 - n**2)", "lam*1e-9*dE*eV/(h*c) - 1"]
+
+# ── harmonic oscillator (PC-12.3.A) ────────────────────────────────────────
+- template: pc-harmonic
+  skill: quantum.model-systems
+  given:
+    k: { pick: [320, 412, 516, 966, 1902, 2295] }
+    mu: { pick: [0.957, 0.980, 0.995, 6.856, 7.003] }
+    amu: 1.6605e-27
+    h: 6.626e-34
+    c: 2.998e+8
+    NA: 6.022e+23
+  prompt: >-
+    A diatomic molecule has force constant $k = {{k}}\,\mathrm{N/m}$ and reduced mass $\mu = {{mu}}\,\mathrm{u}$
+    ($1\,\mathrm{u} = 1.6605\times10^{-27}\,\mathrm{kg}$). Treat it as a harmonic oscillator.
+  parts:
+    - ask: 'Vibrational frequency, $\nu$'
+      label: nu
+      tex: '\nu'
+      value: sqrt(k/(mu*amu))/(2*pi)
+      unit: Hz
+      explain: '$\nu = \frac{1}{2\pi}\sqrt{\frac{k}{\mu}} = \frac{1}{2\pi}\sqrt{\frac{ {{k}} }{ {{mu*amu}} }} = {{sqrt(k/(mu*amu))/(2*pi)}}\,\mathrm{Hz}$, with $\mu$ in kg'
+    - ask: 'The same as a wavenumber, $\tilde\nu$'
+      label: wn
+      tex: '\tilde\nu'
+      value: nu/(c*100)
+      unit: cm⁻¹
+      explain: '$\tilde\nu = \frac{\nu}{c}$ with $c$ in cm/s: ${{sqrt(k/(mu*amu))/(2*pi)/(c*100)}}\,\mathrm{cm^{-1}}$'
+    - ask: 'Zero-point energy per mole'
+      label: zpe
+      tex: 'E_0'
+      value: 0.5*h*nu*NA/1000
+      unit: kJ/mol
+      explain: '$E_0 = \tfrac12 h\nu$ per molecule, times $N_A$: ${{0.5*h*sqrt(k/(mu*amu))/(2*pi)*NA/1000}}\,\mathrm{kJ/mol}$. It never goes away, even at $0\,\mathrm{K}$'
+  verify:
+    residuals: ["(2*pi*nu)**2*mu*amu/k - 1", "wn*c*100/nu - 1", "zpe*1000*2/(h*nu*NA) - 1"]
+
+# ── rigid rotor (PC-12.3.C) ────────────────────────────────────────────────
+- template: pc-rigid-rotor
+  skill: quantum.model-systems
+  given:
+    mu: { pick: [0.957, 0.980, 0.995, 6.856] }
+    r: { pick: [91.7, 109.8, 112.8, 127.5, 141.4] }
+    amu: 1.6605e-27
+    h: 6.626e-34
+    c: 2.998e+8
+  prompt: >-
+    A diatomic molecule has reduced mass $\mu = {{mu}}\,\mathrm{u}$ and bond length $r = {{r}}\,\mathrm{pm}$. Treat it as a rigid rotor.
+  parts:
+    - ask: 'Moment of inertia, $I$'
+      label: Im
+      tex: 'I'
+      value: mu*amu*(r*1e-12)^2
+      unit: kg·m²
+      explain: '$I = \mu r^2 = ({{mu*amu}})({{r*1e-12}})^2 = {{mu*amu*(r*1e-12)^2}}\,\mathrm{kg\,m^2}$'
+    - ask: 'Rotational constant, $\tilde B$'
+      label: B
+      tex: '\tilde B'
+      value: h/(8*pi^2*c*100*Im)
+      unit: cm⁻¹
+      explain: '$\tilde B = \frac{h}{8\pi^2 c I}$ with $c$ in cm/s: ${{h/(8*pi^2*c*100*mu*amu*(r*1e-12)^2)}}\,\mathrm{cm^{-1}}$'
+    - ask: 'Spacing between adjacent lines in the pure rotational spectrum'
+      label: sp
+      tex: '2\tilde B'
+      value: 2*B
+      unit: cm⁻¹
+      explain: 'Lines sit at $2\tilde B(J + 1)$, so they are $2\tilde B = {{2*h/(8*pi^2*c*100*mu*amu*(r*1e-12)^2)}}\,\mathrm{cm^{-1}}$ apart. Measure the spacing and you have the bond length'
+  verify:
+    residuals: ["Im/(mu*amu*(r*1e-12)**2) - 1", "B*100*8*pi**2*c*Im/h - 1", "sp/(2*B) - 1"]
+
+# ── Beer–Lambert law (PC-16.1.B) ───────────────────────────────────────────
+- template: pc-beer-lambert
+  skill: quantum.spectroscopy
+  given:
+    eps: { pick: [1200, 5500, 6220, 15000, 40000] }
+    cuM: { pick: [5, 10, 20, 50, 100] }
+    l: { pick: [0.1, 0.5, 1, 2] }
+  let:
+    Av: eps*cuM*1e-6*l
+  require: [Av > 0.02, Av < 2.5]
+  prompt: >-
+    A solution of concentration ${{cuM}}\,\mathrm{\mu mol/L}$ has molar absorption coefficient
+    $\varepsilon = {{eps}}\,\mathrm{L/mol\cdot cm}$ and is measured in a ${{l}}\,\mathrm{cm}$ cell.
+  parts:
+    - ask: 'Absorbance, $A$'
+      label: A
+      tex: 'A'
+      value: Av
+      explain: '$A = \varepsilon c l = ({{eps}})({{cuM*1e-6}})({{l}}) = {{Av}}$, with $c$ in mol/L'
+    - ask: 'Percent of the light transmitted'
+      label: Tp
+      tex: '\%T'
+      value: 100*10^(-A)
+      unit: '%'
+      explain: '$T = 10^{-A} = {{10^(-Av)}}$, so ${{100*10^(-Av)}}\%$ gets through. $A = 1$ is 10%, $A = 2$ is 1%'
+  verify:
+    residuals: ["A - eps*cuM*1e-6*l", "log(Tp/100)/log(10) + A"]
+
+# ── Larmor frequency (PC-18.1.A) ───────────────────────────────────────────
+- template: pc-larmor
+  skill: quantum.spectroscopy
+  given:
+    B0: { pick: [1.41, 7.05, 9.40, 11.74, 14.1, 18.8] }
+    gyro: 2.6752e+8
+  prompt: >-
+    A proton ($\gamma = 2.6752\times10^{8}\,\mathrm{rad\,s^{-1}\,T^{-1}}$) sits in a magnetic field $B_0 = {{B0}}\,\mathrm{T}$.
+  parts:
+    - ask: 'Larmor (resonance) frequency, $\nu_0$'
+      label: nu
+      tex: '\nu_0'
+      value: gyro*B0/(2*pi)/1e6
+      unit: MHz
+      explain: '$\nu_0 = \frac{\gamma B_0}{2\pi} = \frac{(2.6752\times10^{8})({{B0}})}{2\pi} = {{gyro*B0/(2*pi)/1e6}}\,\mathrm{MHz}$. That number is how the spectrometer is named'
+  verify:
+    residuals: ["nu*1e6*2*pi/(gyro*B0) - 1"]
+
+# ── chemical shift (PC-18.1.B) ─────────────────────────────────────────────
+- template: pc-chemical-shift
+  skill: quantum.spectroscopy
+  given:
+    sf: { pick: [300, 400, 500, 600] }
+    sf2: { pick: [60, 200, 800] }
+    d: { pick: [0.9, 1.2, 2.1, 3.7, 5.3, 7.26, 9.8] }
+  prompt: >-
+    On a ${{sf}}\,\mathrm{MHz}$ spectrometer a proton signal appears at $\delta = {{d}}\,\mathrm{ppm}$.
+  parts:
+    - ask: 'Its offset from the reference in hertz'
+      label: dnu
+      tex: '\Delta\nu'
+      value: d*sf
+      unit: Hz
+      explain: '$\delta = \frac{\Delta\nu}{\nu_\mathrm{ref}}\times10^6$, so $\Delta\nu = \delta\times\nu_\mathrm{ref}(\mathrm{MHz}) = ({{d}})({{sf}}) = {{d*sf}}\,\mathrm{Hz}$'
+    - ask: 'The offset of the same signal on a ${{sf2}}\,\mathrm{MHz}$ instrument'
+      label: dnu2
+      tex: '\Delta\nu'
+      value: d*sf2
+      unit: Hz
+      explain: 'The shift in ppm is the same on every instrument; the hertz scale with the field: $({{d}})({{sf2}}) = {{d*sf2}}\,\mathrm{Hz}$'
+  verify:
+    residuals: ["dnu/(sf*1e6)*1e6 - d", "dnu2/sf2 - dnu/sf"]
+
+# ── molecular speeds (PC-21.1.B) ───────────────────────────────────────────
+- template: pc-speeds
+  skill: kinetics.gas-kinetic
+  given:
+    Mg: { pick: [2.016, 4.003, 28.01, 32.00, 39.95, 44.01, 131.3] }
+    T: { pick: [200, 298, 500, 1000] }
+    R: 8.314
+  prompt: >-
+    A gas of molar mass $M = {{Mg}}\,\mathrm{g/mol}$ is at $T = {{T}}\,\mathrm{K}$.
+  parts:
+    - ask: 'Most probable speed, $v_\mathrm{mp}$'
+      label: vmp
+      tex: 'v_\mathrm{mp}'
+      value: sqrt(2*R*T/(Mg/1000))
+      unit: m/s
+      explain: '$v_\mathrm{mp} = \sqrt{\frac{2RT}{M}} = \sqrt{\frac{2(8.314)({{T}})}{ {{Mg/1000}} }} = {{sqrt(2*R*T/(Mg/1000))}}\,\mathrm{m/s}$, with $M$ in kg/mol'
+    - ask: 'Mean speed, $\bar v$'
+      label: vav
+      tex: '\bar v'
+      value: sqrt(8*R*T/(pi*Mg/1000))
+      unit: m/s
+      explain: '$\bar v = \sqrt{\frac{8RT}{\pi M}} = {{sqrt(8*R*T/(pi*Mg/1000))}}\,\mathrm{m/s}$'
+    - ask: 'Root-mean-square speed, $v_\mathrm{rms}$'
+      label: vrms
+      tex: 'v_\mathrm{rms}'
+      value: sqrt(3*R*T/(Mg/1000))
+      unit: m/s
+      explain: '$v_\mathrm{rms} = \sqrt{\frac{3RT}{M}} = {{sqrt(3*R*T/(Mg/1000))}}\,\mathrm{m/s}$. Always $v_\mathrm{mp} < \bar v < v_\mathrm{rms}$, in the ratio $1 : 1.128 : 1.225$'
+  verify:
+    residuals: ["vmp**2*Mg/1000/(2*R*T) - 1", "vav**2*pi*Mg/1000/(8*R*T) - 1", "vrms**2*Mg/1000/(3*R*T) - 1"]
+
+# ── Graham's law (PC-21.1.C) ───────────────────────────────────────────────
+- template: pc-effusion
+  skill: kinetics.gas-kinetic
+  given:
+    M1: { pick: [2.016, 4.003, 20.18, 28.01] }
+    M2: { pick: [32.00, 39.95, 44.01, 83.80, 131.3, 146.06] }
+  prompt: >-
+    Gas 1 ($M_1 = {{M1}}\,\mathrm{g/mol}$) and gas 2 ($M_2 = {{M2}}\,\mathrm{g/mol}$) effuse through the same pinhole at the same temperature and pressure.
+  parts:
+    - ask: 'Ratio of effusion rates, $r_1/r_2$'
+      label: ratio
+      tex: 'r_1/r_2'
+      value: sqrt(M2/M1)
+      explain: '$\frac{r_1}{r_2} = \sqrt{\frac{M_2}{M_1}} = \sqrt{\frac{ {{M2}} }{ {{M1}} }} = {{sqrt(M2/M1)}}$. The lighter gas is faster, by the square root of the mass ratio'
+  verify:
+    residuals: ["ratio**2*M1 - M2"]
+
+# ── mean free path (PC-21.1.E) ─────────────────────────────────────────────
+- template: pc-mean-free-path
+  skill: kinetics.gas-kinetic
+  given:
+    d: { pick: [260, 290, 340, 370, 400] }
+    T: { pick: [273, 298, 400] }
+    P: { pick: [1.0e+5, 1.0e+4, 1000, 1, 1.0e-3] }
+    kB: 1.381e-23
+  prompt: >-
+    A gas of molecules with collision diameter $d = {{d}}\,\mathrm{pm}$ is at $T = {{T}}\,\mathrm{K}$ and $P = {{P}}\,\mathrm{Pa}$.
+    Use $k_B = 1.381\times10^{-23}\,\mathrm{J/K}$.
+  parts:
+    - ask: 'Collision cross-section, $\sigma$'
+      label: sig
+      tex: '\sigma'
+      value: pi*(d*1e-12)^2
+      unit: m²
+      explain: '$\sigma = \pi d^2 = \pi({{d*1e-12}})^2 = {{pi*(d*1e-12)^2}}\,\mathrm{m^2}$'
+    - ask: 'Mean free path, $\lambda$'
+      label: lam
+      tex: '\lambda'
+      value: kB*T/(sqrt(2)*sig*P)
+      unit: m
+      explain: '$\lambda = \frac{k_BT}{\sqrt2\,\sigma P} = \frac{(1.381\times10^{-23})({{T}})}{\sqrt2({{pi*(d*1e-12)^2}})({{P}})} = {{kB*T/(sqrt(2)*pi*(d*1e-12)^2*P)}}\,\mathrm{m}$. About 70 nm in air at 1 bar; metres under high vacuum'
+  verify:
+    residuals: ["sig/(pi*(d*1e-12)**2) - 1", "lam*sqrt(2)*sig*P/(kB*T) - 1"]
+
+# ── diffusion distance (PC-21.2.B) ─────────────────────────────────────────
+- template: pc-diffusion-distance
+  skill: kinetics.gas-kinetic
+  given:
+    D: { pick: [1.0e-11, 1.0e-10, 5.0e-10, 1.0e-9, 2.0e-5] }
+    t: { pick: [1, 60, 3600, 86400] }
+  prompt: >-
+    A species has diffusion coefficient $D = {{D}}\,\mathrm{m^2/s}$. Consider diffusion along one dimension for $t = {{t}}\,\mathrm{s}$.
+  parts:
+    - ask: 'Root-mean-square displacement, $x_\mathrm{rms}$, in micrometres'
+      label: x
+      tex: 'x_\mathrm{rms}'
+      value: sqrt(2*D*t)*1e6
+      unit: µm
+      explain: '$x_\mathrm{rms} = \sqrt{2Dt} = \sqrt{2({{D}})({{t}})} = {{sqrt(2*D*t)}}\,\mathrm{m} = {{sqrt(2*D*t)*1e6}}\,\mathrm{\mu m}$. Distance grows as $\sqrt t$: four times the time, only twice as far'
+  verify:
+    residuals: ["(x*1e-6)**2/(2*D*t) - 1"]
+
+# ── method of initial rates (PC-22.1.A) ────────────────────────────────────
+- template: pc-initial-rates
+  skill: kinetics.rate-laws
+  given:
+    m: { int: [0, 2] }
+    n: { int: [0, 2] }
+    A1: { pick: [0.1, 0.2] }
+    B1: { pick: [0.1, 0.2] }
+    r1: { pick: [1.5e-4, 4.0e-4, 2.4e-3, 6.0e-3] }
+  require: [m + n >= 1]
+  prompt: >-
+    Initial rates for $\mathrm{A} + \mathrm{B} \rightarrow$ products:
+    run 1, $[\mathrm{A}] = {{A1}}$, $[\mathrm{B}] = {{B1}}\,\mathrm{M}$, rate $= {{r1}}\,\mathrm{M/s}$;
+    run 2, $[\mathrm{A}] = {{2*A1}}$, $[\mathrm{B}] = {{B1}}\,\mathrm{M}$, rate $= {{r1*2^m}}\,\mathrm{M/s}$;
+    run 3, $[\mathrm{A}] = {{A1}}$, $[\mathrm{B}] = {{3*B1}}\,\mathrm{M}$, rate $= {{r1*3^n}}\,\mathrm{M/s}$.
+  parts:
+    - ask: 'Order in A'
+      label: oA
+      choice: ["0", "1", "2"]
+      correct: m
+      explain: 'Runs 1 and 2 double [A] at fixed [B]; the rate goes up by ${{2^m}} = 2^{ {{m}} }$'
+    - ask: 'Order in B'
+      label: oB
+      choice: ["0", "1", "2"]
+      correct: n
+      explain: 'Runs 1 and 3 triple [B] at fixed [A]; the rate goes up by ${{3^n}} = 3^{ {{n}} }$'
+    - ask: 'Rate constant, $k$ (in units of M and s)'
+      label: k
+      tex: 'k'
+      value: r1/(A1^m*B1^n)
+      explain: '$k = \frac{\text{rate}}{[\mathrm{A}]^{ {{m}} }[\mathrm{B}]^{ {{n}} }} = \frac{ {{r1}} }{({{A1}})^{ {{m}} }({{B1}})^{ {{n}} }} = {{r1/(A1^m*B1^n)}}$ from run 1'
+  verify:
+    residuals: ["k*A1**m*B1**n/r1 - 1"]
+
+# ── first-order integrated rate law (PC-22.1.B) ────────────────────────────
+- template: pc-first-order
+  skill: kinetics.rate-laws
+  given:
+    k: { pick: [0.0025, 0.01, 0.035, 0.12, 0.5] }
+    A0: { pick: [0.1, 0.25, 0.5, 1.0] }
+    t: { pick: [5, 10, 20, 60, 120, 300] }
+  require: [k*t > 0.2, k*t < 4]
+  prompt: >-
+    A first-order reaction has $k = {{k}}\,\mathrm{s^{-1}}$ and starts at $[\mathrm{A}]_0 = {{A0}}\,\mathrm{M}$.
+  parts:
+    - ask: 'Half-life, $t_{1/2}$'
+      label: th
+      tex: 't_{1/2}'
+      value: log(2)/k
+      unit: s
+      explain: '$t_{1/2} = \frac{\ln 2}{k} = \frac{0.6931}{ {{k}} } = {{log(2)/k}}\,\mathrm{s}$, whatever the starting concentration'
+    - ask: 'Concentration after $t = {{t}}\,\mathrm{s}$'
+      label: At
+      tex: '[\mathrm{A}]'
+      value: A0*exp(-k*t)
+      unit: M
+      explain: '$[\mathrm{A}] = [\mathrm{A}]_0e^{-kt} = ({{A0}})e^{-({{k}})({{t}})} = {{A0*exp(-k*t)}}\,\mathrm{M}$'
+  verify:
+    residuals: ["exp(-k*th) - 1/2", "log(A0/At) - k*t"]
+
+# ── second-order integrated rate law (PC-22.1.B) ───────────────────────────
+- template: pc-second-order
+  skill: kinetics.rate-laws
+  given:
+    k: { pick: [0.05, 0.2, 0.8, 1.5] }
+    A0: { pick: [0.05, 0.1, 0.2, 0.5] }
+    t: { pick: [10, 30, 60, 120, 600] }
+  prompt: >-
+    A reaction that is second order in A has $k = {{k}}\,\mathrm{M^{-1}s^{-1}}$ and starts at $[\mathrm{A}]_0 = {{A0}}\,\mathrm{M}$.
+  parts:
+    - ask: 'First half-life, $t_{1/2}$'
+      label: th
+      tex: 't_{1/2}'
+      value: 1/(k*A0)
+      unit: s
+      explain: '$t_{1/2} = \frac{1}{k[\mathrm{A}]_0} = \frac{1}{({{k}})({{A0}})} = {{1/(k*A0)}}\,\mathrm{s}$. Unlike first order, each half-life is twice the one before'
+    - ask: 'Concentration after $t = {{t}}\,\mathrm{s}$'
+      label: At
+      tex: '[\mathrm{A}]'
+      value: 1/(1/A0 + k*t)
+      unit: M
+      explain: '$\frac{1}{[\mathrm{A}]} = \frac{1}{[\mathrm{A}]_0} + kt = {{1/A0}} + ({{k}})({{t}}) = {{1/A0 + k*t}}\,\mathrm{M^{-1}}$, so $[\mathrm{A}] = {{1/(1/A0 + k*t)}}\,\mathrm{M}$'
+  verify:
+    residuals: ["th*k*A0 - 1", "1/At - 1/A0 - k*t"]
+
+# ── parallel first-order reactions (PC-22.3.B) ─────────────────────────────
+- template: pc-parallel
+  skill: kinetics.rate-laws
+  given:
+    k1: { pick: [0.02, 0.05, 0.1, 0.3] }
+    k2: { pick: [0.01, 0.04, 0.15, 0.2] }
+    A0: { pick: [0.5, 1.0] }
+    t: { pick: [5, 10, 20, 40] }
+  require: [(k1 + k2)*t < 5]
+  prompt: >-
+    A reacts by two parallel first-order paths, $\mathrm{A} \rightarrow \mathrm{B}$ with $k_1 = {{k1}}\,\mathrm{s^{-1}}$ and
+    $\mathrm{A} \rightarrow \mathrm{C}$ with $k_2 = {{k2}}\,\mathrm{s^{-1}}$. $[\mathrm{A}]_0 = {{A0}}\,\mathrm{M}$, no B or C at the start.
+  parts:
+    - ask: '$[\mathrm{A}]$ after $t = {{t}}\,\mathrm{s}$'
+      label: At
+      tex: '[\mathrm{A}]'
+      value: A0*exp(-(k1 + k2)*t)
+      unit: M
+      explain: 'A disappears by both paths at once: $[\mathrm{A}] = [\mathrm{A}]_0e^{-(k_1 + k_2)t} = ({{A0}})e^{-({{k1 + k2}})({{t}})} = {{A0*exp(-(k1 + k2)*t)}}\,\mathrm{M}$'
+    - ask: 'Fraction of the reacted A that becomes B'
+      label: yB
+      tex: '\Phi_\mathrm{B}'
+      value: k1/(k1 + k2)
+      explain: '$\frac{k_1}{k_1 + k_2} = \frac{ {{k1}} }{ {{k1 + k2}} } = {{k1/(k1 + k2)}}$, the same at every time'
+    - ask: '$[\mathrm{B}]$ at that time'
+      label: Bt
+      tex: '[\mathrm{B}]'
+      value: yB*(A0 - At)
+      unit: M
+      explain: '$[\mathrm{B}] = \Phi_\mathrm{B}\,([\mathrm{A}]_0 - [\mathrm{A}]) = ({{k1/(k1 + k2)}})({{A0 - A0*exp(-(k1 + k2)*t)}}) = {{k1/(k1 + k2)*(A0 - A0*exp(-(k1 + k2)*t))}}\,\mathrm{M}$'
+  verify:
+    residuals: ["log(A0/At) - (k1 + k2)*t", "yB*(k1 + k2) - k1", "Bt - yB*(A0 - At)"]
+
+# ── Michaelis–Menten (PC-22.3.G) ───────────────────────────────────────────
+- template: pc-michaelis
+  skill: kinetics.rate-laws
+  given:
+    Vmax: { pick: [50, 120, 200, 450] }
+    Km: { pick: [5, 20, 50, 150] }
+    S: { pick: [2, 10, 25, 100, 400] }
+  prompt: >-
+    An enzyme has $V_\mathrm{max} = {{Vmax}}\,\mathrm{\mu M/s}$ and $K_M = {{Km}}\,\mathrm{\mu M}$.
+  parts:
+    - ask: 'Rate at $[\mathrm{S}] = {{S}}\,\mathrm{\mu M}$'
+      label: v
+      tex: 'v'
+      value: Vmax*S/(Km + S)
+      unit: µM/s
+      explain: '$v = \frac{V_\mathrm{max}[\mathrm{S}]}{K_M + [\mathrm{S}]} = \frac{({{Vmax}})({{S}})}{ {{Km}} + {{S}} } = {{Vmax*S/(Km + S)}}\,\mathrm{\mu M/s}$'
+    - ask: 'Substrate concentration needed to reach 90% of $V_\mathrm{max}$'
+      label: S90
+      tex: '[\mathrm{S}]_{90}'
+      value: 9*Km
+      unit: µM
+      explain: 'Set $\frac{[\mathrm{S}]}{K_M + [\mathrm{S}]} = 0.9$: $[\mathrm{S}] = 9K_M = {{9*Km}}\,\mathrm{\mu M}$. Half of $V_\mathrm{max}$ takes only $K_M$; the last stretch is expensive'
+  verify:
+    residuals: ["v*(Km + S) - Vmax*S", "10*S90 - 9*(Km + S90)"]
