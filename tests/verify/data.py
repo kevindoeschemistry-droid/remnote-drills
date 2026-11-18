@@ -24,7 +24,7 @@ BASE = {"diff": sp.diff, "pi": sp.pi, "log": sp.log, "exp": sp.exp, "sqrt": sp.s
         "solve": sp.solve, "sin": sp.sin, "cos": sp.cos, "tan": sp.tan, "tanh": sp.tanh, "cosh": sp.cosh, "sinh": sp.sinh,
         "integrate": sp.integrate, "limit": sp.limit, "oo": sp.oo, "atan": sp.atan, "asin": sp.asin, "acos": sp.acos,
         "sec": sp.sec, "csc": sp.csc, "cot": sp.cot, "Rational": sp.Rational, "Symbol": sp.Symbol, "Eq": sp.Eq,
-        "Min": sp.Min, "Max": sp.Max, "series": sp.series, "summation": sp.summation, "Matrix": sp.Matrix, "factorial": sp.factorial}
+        "Min": sp.Min, "Max": sp.Max, "Sum": sp.Sum, "sum": sum, "nn": sp.Symbol("n", integer=True, positive=True), "series": sp.series, "summation": sp.summation, "Matrix": sp.Matrix, "factorial": sp.factorial}
 
 
 def parse(ref, var):
@@ -87,6 +87,34 @@ def check(p, H):
                if part["answer"]["kind"] == "expression"}
     ns = {**BASE, **{k: num(x) for k, x in meta["given"].items()}, v.get("var", "x"): var}
     ns_parts = {**ns, **claimed}
+
+    # ode parts (antiderivatives, first-order solutions): differentiate the claimed y and compare with
+    # the right-hand side; an initial condition must hold and leaves no constant
+    yS, CS = sp.Symbol("y"), sp.Symbol("C")
+    for part in p["parts"]:
+        a = part["answer"]
+        if a["kind"] != "ode":
+            continue
+        from sympy.parsing.sympy_parser import parse_expr
+        loc = {var.name: var, "y": yS, "C": CS, "log": sp.log, "exp": sp.exp, "sqrt": sp.sqrt, "sin": sp.sin, "cos": sp.cos,
+               "tan": sp.tan, "atan": sp.atan, "asin": sp.asin, "sec": sp.sec, "abs": sp.Abs, "pi": sp.pi, "e": sp.E}
+        f = parse_expr(a["rhs"].replace("^", "**"), local_dict=loc)
+        g = parse_expr(a["ref"].split("=", 1)[1].replace("^", "**"), local_dict=loc)
+        res = sp.diff(g, var) - f.subs(yS, g)
+        rnd = random.Random(7)
+        for _ in range(6):
+            pt = {var: sp.Rational(rnd.randint(23, 193), 100), CS: sp.Rational(rnd.randint(11, 97), 50)}
+            if abs(complex(sp.N(res.subs(pt), 30))) > 1e-9 * max(1.0, abs(complex(sp.N(f.subs(yS, g).subs(pt), 30)))):
+                print(f"  {name}: claimed solution does not satisfy y' = {a['rhs']}")
+                return False
+        if a.get("ic"):
+            x0, y0 = [sp.nsimplify(q, rational=True) for q in a["ic"]]
+            if g.has(CS) or abs(complex(sp.N(g.subs(var, x0) - y0, 30))) > 1e-9:
+                print(f"  {name}: claimed solution misses the initial condition")
+                return False
+        elif not g.has(CS):
+            print(f"  {name}: a general solution needs its constant")
+            return False
 
     if v.get("ode"):
         Tf = sp.Function("T")

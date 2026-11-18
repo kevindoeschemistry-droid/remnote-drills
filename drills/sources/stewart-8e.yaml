@@ -45,3 +45,59 @@ chapters:
       - { ref: "4.3", title: "How Derivatives Affect the Shape of a Graph", skills: [calc.extrema] }
       - { ref: "4.4", title: "Indeterminate Forms and l'Hospital's Rule", skills: [calc.rates] }
       - { ref: "4.7", title: "Optimization Problems", skills: [calc.extrema] }
+  - n: 5
+    title: "Integrals"
+    wiki: textbooks/stewart-calculus/ch05
+    sections:
+      - { ref: "5.1", title: "Areas and Distances", skills: [calc.riemann-ftc] }
+      - { ref: "5.2", title: "The Definite Integral", skills: [calc.riemann-ftc] }
+      - { ref: "5.3", title: "The Fundamental Theorem of Calculus", skills: [calc.riemann-ftc],
+          wiki: textbooks/stewart-calculus/ch05-ftc }
+      - { ref: "5.4", title: "Indefinite Integrals and the Net Change Theorem", skills: [calc.antiderivatives] }
+  - n: 6
+    title: "Applications of Integration"
+    wiki: textbooks/stewart-calculus/ch06
+    sections:
+      - { ref: "6.1", title: "Areas Between Curves", skills: [calc.integration-apps],
+          wiki: textbooks/stewart-calculus/ch06-area-between }
+      - { ref: "6.2", title: "Volumes", skills: [calc.integration-apps] }
+      - { ref: "6.4", title: "Work", skills: [calc.integration-apps] }
+      - { ref: "6.5", title: "Average Value of a Function", skills: [calc.integration-apps] }
+  - n: 7
+    title: "Techniques of Integration"
+    wiki: textbooks/stewart-calculus/ch07
+    sections:
+      - { ref: "7.8", title: "Improper Integrals", skills: [calc.antiderivatives] }
+  - n: 8
+    title: "Further Applications of Integration"
+    wiki: textbooks/stewart-calculus/ch08
+    sections:
+      - { ref: "8.1", title: "Arc Length", skills: [calc.integration-apps],
+          wiki: textbooks/stewart-calculus/ch08-arc-length }
+  - n: 9
+    title: "Differential Equations"
+    wiki: textbooks/stewart-calculus/ch09
+    sections:
+      - { ref: "9.2", title: "Direction Fields and Euler's Method", skills: [calc.diffeq] }
+      - { ref: "9.3", title: "Separable Equations", skills: [calc.diffeq],
+          wiki: textbooks/stewart-calculus/ch09-separable-odes }
+      - { ref: "9.4", title: "Models for Population Growth", skills: [calc.diffeq] }
+  - n: 10
+    title: "Parametric Equations and Polar Coordinates"
+    wiki: textbooks/stewart-calculus/ch10
+    sections:
+      - { ref: "10.2", title: "Calculus with Parametric Curves", skills: [calc.parametric-polar],
+          wiki: textbooks/stewart-calculus/ch10-parametric-deriv }
+      - { ref: "10.3", title: "Polar Coordinates", skills: [calc.parametric-polar] }
+      - { ref: "10.4", title: "Areas and Lengths in Polar Coordinates", skills: [calc.parametric-polar] }
+  - n: 11
+    title: "Infinite Sequences and Series"
+    wiki: textbooks/stewart-calculus/ch11
+    sections:
+      - { ref: "11.2", title: "Series", skills: [calc.series] }
+      - { ref: "11.5", title: "Alternating Series", skills: [calc.series] }
+      - { ref: "11.6", title: "Absolute Convergence and the Ratio and Root Tests", skills: [calc.series],
+          wiki: textbooks/stewart-calculus/ch11-ratio-test }
+      - { ref: "11.8", title: "Power Series", skills: [calc.taylor] }
+      - { ref: "11.10", title: "Taylor and Maclaurin Series", skills: [calc.taylor] }
+      - { ref: "11.11", title: "Applications of Taylor Polynomials", skills: [calc.taylor] }

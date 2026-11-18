@@ -134,11 +134,11 @@ if (fs.existsSync(problemsDir))
       if (!Array.isArray(t.parts) || !t.parts.length) errors.push(`${where}: needs at least one part`);
       for (const p of t.parts ?? []) {
         if (!p.ask || !p.label) errors.push(`${where}: every part needs ask and label`);
-        if (p.value === undefined && !p.choice && !p.expr) errors.push(`${where} › ${p.label}: needs value (a number), expr (an expression) or choice`);
+        if (p.value === undefined && !p.choice && !p.expr && !(p.ode && p.sol)) errors.push(`${where} › ${p.label}: needs value (a number), expr (an expression), ode + sol, or choice`);
       }
       // an answer nobody checked independently doesn't ship
       const v = t.verify ?? {};
-      if (!v.ode && !v.residuals && !v.expect && !v.choices) errors.push(`${where}: needs a verify block (ode, expect, residuals or choices)`);
+      if (!v.ode && !v.residuals && !v.expect && !v.choices && !(t.parts ?? []).every((q) => q.ode && q.sol)) errors.push(`${where}: needs a verify block (ode, expect, residuals or choices)`);
       for (const p of t.parts ?? [])
         if ((p.value !== undefined || p.expr) && !(v.expect ?? {})[p.label] && !new RegExp(`\\b${p.label}\\b`).test(JSON.stringify([v.ode, v.bcs, v.residuals])))
           errors.push(`${where} › ${p.label}: verify must check this part (verify.expect.${p.label}, or use it in ode / bcs / residuals)`);

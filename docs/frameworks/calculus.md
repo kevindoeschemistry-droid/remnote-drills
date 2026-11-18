@@ -2,7 +2,7 @@
 
 Generated from `drills/frameworks/calculus.yaml` by `scripts/framework.mjs`. ● drilled · ◐ partly · ○ no drills yet.
 
-**173 learning objectives** in 14 units (100 core): 53 drilled, 8 partly, 112 with no drills. Core: 45 / 100 drilled.
+**173 learning objectives** in 14 units (100 core): 95 drilled, 11 partly, 67 with no drills. Core: 69 / 100 drilled.
 
 ## Big ideas
 
@@ -26,11 +26,11 @@ Generated from `drills/frameworks/calculus.yaml` by `scripts/framework.mjs`. ●
 | 3 · Differentiation: composite, implicit and inverse functions | core | — | 7 | 7 | 0 | 0 |
 | 4 · Contextual applications of differentiation | core | — | 9 | 7 | 0 | 2 |
 | 5 · Analytical applications of differentiation | core | — | 13 | 7 | 2 | 4 |
-| 6 · Integration and accumulation of change | core | — | 17 | 5 | 0 | 12 |
-| 7 · Differential equations | core | — | 9 | 0 | 0 | 9 |
-| 8 · Applications of integration | core | — | 14 | 0 | 0 | 14 |
-| 9 · Parametric equations, polar coordinates and vector-valued functions (BC only) | bc | — | 10 | 0 | 0 | 10 |
-| 10 · Infinite sequences and series (BC only) | bc | — | 20 | 4 | 1 | 15 |
+| 6 · Integration and accumulation of change | core | — | 17 | 12 | 1 | 4 |
+| 7 · Differential equations | core | — | 9 | 6 | 0 | 3 |
+| 8 · Applications of integration | core | — | 14 | 11 | 0 | 3 |
+| 9 · Parametric equations, polar coordinates and vector-valued functions (BC only) | bc | — | 10 | 8 | 1 | 1 |
+| 10 · Infinite sequences and series (BC only) | bc | — | 20 | 14 | 2 | 4 |
 | 11 · Vectors and the geometry of space | extension | — | 8 | 0 | 0 | 8 |
 | 12 · Partial derivatives | extension | — | 12 | 3 | 1 | 8 |
 | 13 · Multiple integrals | extension | — | 9 | 0 | 0 | 9 |
@@ -563,14 +563,14 @@ Big ideas: CHA, LIM, FUN
 
 
 
-- ○ **CA-6.2.A** (LIM-5.A) Approximate a definite integral with left, right, midpoint or trapezoidal sums from a formula or a table with unequal subintervals.
+- ● **CA-6.2.A** (LIM-5.A) Approximate a definite integral with left, right, midpoint or trapezoidal sums from a formula or a table with unequal subintervals.
   - EK: Sum of (height × width); trapezoid = average of left and right heights × width.
   - Needs: CA-6.1.A
-  - P1
-- ○ **CA-6.2.B** (LIM-5.A) Decide whether a Riemann or trapezoidal sum over- or under-estimates from monotonicity or concavity.
+  - P1 · drills: ca-riemann-sums, ca-trapezoid-table
+- ◐ **CA-6.2.B** (LIM-5.A) Decide whether a Riemann or trapezoidal sum over- or under-estimates from monotonicity or concavity.
   - EK: Increasing f: left sum under, right sum over. Concave up: trapezoid over, midpoint under.
   - Needs: CA-6.2.A, CA-5.6.A
-  - P3
+  - P3 · drills: ~ca-riemann-sums
 
 ### 6.3 Riemann sums, summation notation and the definite integral
 
@@ -585,10 +585,10 @@ Big ideas: CHA, LIM, FUN
 
 
 
-- ○ **CA-6.4.A** (FUN-5.A) Differentiate an accumulation function, including variable upper and lower limits.
+- ● **CA-6.4.A** (FUN-5.A) Differentiate an accumulation function, including variable upper and lower limits.
   - EK: d/dx ∫_a^x f(t)dt = f(x); with limit g(x): f(g(x))g′(x); a variable lower limit flips the sign.
   - Needs: CA-6.3.A, CA-3.1.A
-  - P1
+  - P1 · drills: ca-ftc-derivative
 
 ### 6.5 Behaviour of accumulation functions
 
@@ -603,28 +603,28 @@ Big ideas: CHA, LIM, FUN
 
 
 
-- ○ **CA-6.6.A** (FUN-6.A) Evaluate definite integrals from geometry (areas of triangles, rectangles, circles) and the properties of integrals.
+- ● **CA-6.6.A** (FUN-6.A) Evaluate definite integrals from geometry (areas of triangles, rectangles, circles) and the properties of integrals.
   - EK: ∫_a^b = ∫_a^c + ∫_c^b; ∫_b^a = −∫_a^b; ∫(kf + g) = k∫f + ∫g; ∫_a^a = 0.
   - Needs: CA-6.1.A
-  - P1 · P2
+  - P1 · P2 · drills: ca-integral-properties
 
 ### 6.7 The Fundamental Theorem and definite integrals
 
 
 
-- ○ **CA-6.7.A** (FUN-6.B) Evaluate a definite integral with an antiderivative, or find a function value from f(a) plus an integral of f′.
+- ● **CA-6.7.A** (FUN-6.B) Evaluate a definite integral with an antiderivative, or find a function value from f(a) plus an integral of f′.
   - EK: ∫_a^b f(x)dx = F(b) − F(a); f(b) = f(a) + ∫_a^b f′(x)dx.
   - Needs: CA-6.4.A, CA-6.6.A
-  - P1
+  - P1 · drills: ca-definite-poly, ca-net-change-ftc
 
 ### 6.8 Basic antiderivatives
 
 
 
-- ○ **CA-6.8.A** (FUN-6.C) Find indefinite integrals of power, exponential, trig, 1/x and inverse-trig-form integrands, rewriting the integrand first when needed.
+- ● **CA-6.8.A** (FUN-6.C) Find indefinite integrals of power, exponential, trig, 1/x and inverse-trig-form integrands, rewriting the integrand first when needed.
   - EK: ∫x^n dx = x^(n+1)/(n+1) + C (n ≠ −1); ∫dx/x = ln|x| + C; ∫dx/(1 + x²) = arctan x + C; always + C.
   - Needs: CA-3.4.A, CA-6.7.A
-  - P1
+  - P1 · drills: ca-antiderivative-poly, ca-antiderivative-elementary, ca-antiderivative-root
 
 ### 6.9 Integration by substitution
 
@@ -633,16 +633,16 @@ Big ideas: CHA, LIM, FUN
 - ● **CA-6.9.A** (FUN-6.D) Evaluate indefinite and definite integrals by u-substitution, changing the limits to u-values for a definite integral.
   - EK: ∫f(g(x))g′(x)dx = ∫f(u)du; a missing constant factor is fine, a missing x is not; ∫_a^b → ∫_(g(a))^(g(b)).
   - Needs: CA-6.8.A, CA-3.1.A
-  - P1 · drills: usub-poly, usub-exp, usub-trig, usub-log, usub-ratio, usub-linear
+  - P1 · drills: usub-poly, usub-exp, usub-trig, usub-log, usub-ratio, usub-linear, ca-usub-definite
 
 ### 6.10 Long division and completing the square
 
 
 
-- ○ **CA-6.10.A** (FUN-6.D) Integrate a rational function after long division (improper fraction) or completing the square (to an arctan form).
+- ● **CA-6.10.A** (FUN-6.D) Integrate a rational function after long division (improper fraction) or completing the square (to an arctan form).
   - EK: deg num ≥ deg den ⇒ divide first; x² + bx + c = (x + b/2)² + k², ∫du/(u² + k²) = (1/k) arctan(u/k) + C.
   - Needs: CA-6.9.A
-  - P1
+  - P1 · drills: ca-arctan-integral, ca-long-division-integral
 
 ### 6.11 Integration by parts (BC only)
 
@@ -674,10 +674,10 @@ Big ideas: CHA, LIM, FUN
 
 
 
-- ○ **CA-6.13.A** (LIM-6.A) Evaluate an improper integral — infinite interval or unbounded integrand — as a limit, or show it diverges.
+- ● **CA-6.13.A** (LIM-6.A) Evaluate an improper integral — infinite interval or unbounded integrand — as a limit, or show it diverges.
   - EK: ∫_a^∞ f dx = lim_(b→∞) ∫_a^b f dx; split at an infinite discontinuity and take one-sided limits; ∫_1^∞ dx/x^p converges ⇔ p > 1, ∫_0^1 dx/x^p ⇔ p < 1.
   - Needs: CA-6.7.A, CA-1.15.A, CA-1.14.A
-  - P1 · P3
+  - P1 · P3 · drills: ca-improper-power, ca-improper-exp, ca-improper-ptest
 
 ### 6.14 Selecting techniques of antidifferentiation
 
@@ -705,10 +705,10 @@ Big ideas: CHA, FUN
 
 
 
-- ○ **CA-7.2.A** (FUN-7.B) Verify that a function solves a differential equation by substituting it and its derivatives.
+- ● **CA-7.2.A** (FUN-7.B) Verify that a function solves a differential equation by substituting it and its derivatives.
   - EK: A solution makes the equation an identity for all t in an interval, not just at one point.
   - Needs: CA-3.6.A, CA-7.1.A
-  - P3
+  - P3 · drills: ca-verify-solution
 
 ### 7.3 Sketching slope fields
 
@@ -732,46 +732,46 @@ Big ideas: CHA, FUN
 
 
 
-- ○ **CA-7.5.A** (FUN-7.C) Approximate a solution value with a few steps of Euler's method, and say whether it over- or under-estimates.
+- ● **CA-7.5.A** (FUN-7.C) Approximate a solution value with a few steps of Euler's method, and say whether it over- or under-estimates.
   - EK: y_(n+1) = y_n + h·f(x_n, y_n); concave-up solutions are underestimated (tangent-line steps lie below).
   - Needs: CA-7.4.A, CA-4.6.B
-  - P1 · P3
+  - P1 · P3 · drills: ca-euler-method
 
 ### 7.6 Separation of variables — general solutions
 
 
 
-- ○ **CA-7.6.A** (FUN-7.D) Find the general solution of a separable differential equation.
+- ● **CA-7.6.A** (FUN-7.D) Find the general solution of a separable differential equation.
   - EK: dy/dx = g(x)h(y) ⇒ ∫dy/h(y) = ∫g(x)dx + C; one constant is enough.
   - Needs: CA-6.9.A, CA-7.2.A
-  - P1
+  - P1 · drills: ca-separable-general
 
 ### 7.7 Separation of variables — particular solutions
 
 
 
-- ○ **CA-7.7.A** (FUN-7.E) Find the particular solution of a separable IVP, solve for y, and state its domain.
+- ● **CA-7.7.A** (FUN-7.E) Find the particular solution of a separable IVP, solve for y, and state its domain.
   - EK: Use the initial condition to find C before solving for y; the domain is the interval containing x₀ where the solution is defined.
   - Needs: CA-7.6.A
-  - P1 · P3
+  - P1 · P3 · drills: ca-separable-ivp
 
 ### 7.8 Exponential models
 
 
 
-- ○ **CA-7.8.A** (FUN-7.F, FUN-7.G) Solve dy/dt = ky, apply it to growth, decay and Newton cooling, and find a doubling time, half-life or time to reach a value.
+- ● **CA-7.8.A** (FUN-7.F, FUN-7.G) Solve dy/dt = ky, apply it to growth, decay and Newton cooling, and find a doubling time, half-life or time to reach a value.
   - EK: y = y₀e^(kt); dT/dt = −k(T − T_a) ⇒ T = T_a + (T₀ − T_a)e^(−kt); t_double = ln 2/k, t_half = ln 2/|k|.
   - Needs: CA-7.7.A
-  - P1 · P3
+  - P1 · P3 · drills: ca-exponential-growth, ca-half-life, ca-newton-cooling
 
 ### 7.9 Logistic models (BC only)
 
 
 
-- ○ **CA-7.9.A** (FUN-7.H) Find the carrying capacity, the long-run limit and the population at which growth is fastest from a logistic differential equation.
+- ● **CA-7.9.A** (FUN-7.H) Find the carrying capacity, the long-run limit and the population at which growth is fastest from a logistic differential equation.
   - EK: dy/dt = ky(1 − y/L): y → L for y₀ > 0; growth is fastest at y = L/2, where the solution inflects.
   - Needs: CA-7.8.A, CA-5.6.A
-  - P2 · P3
+  - P2 · P3 · drills: ca-logistic
 
 ## Unit 8 · Applications of integration
 
@@ -781,46 +781,46 @@ Big ideas: CHA, LIM
 
 
 
-- ○ **CA-8.1.A** (CHA-4.B) Find the average value of a function on an interval.
+- ● **CA-8.1.A** (CHA-4.B) Find the average value of a function on an interval.
   - EK: f_avg = (1/(b − a))∫_a^b f(x)dx — the height of the rectangle with the same area.
   - Needs: CA-6.7.A
-  - P1
+  - P1 · drills: ca-average-value
 
 ### 8.2 Position, velocity and acceleration with integrals
 
 
 
-- ○ **CA-8.2.A** (CHA-4.C) Find displacement, total distance and position at a time from a velocity function.
+- ● **CA-8.2.A** (CHA-4.C) Find displacement, total distance and position at a time from a velocity function.
   - EK: Displacement = ∫v dt; distance = ∫|v| dt (split at sign changes); x(t) = x(0) + ∫_0^t v.
   - Needs: CA-6.7.A, CA-4.2.A
-  - P1 · P3
+  - P1 · P3 · drills: ca-distance
 
 ### 8.3 Accumulation in applied contexts
 
 
 
-- ○ **CA-8.3.A** (CHA-4.D, CHA-4.E) Find an amount at a time from an initial amount plus the integral of a net rate (in − out), and interpret the integral in context with units.
+- ● **CA-8.3.A** (CHA-4.D, CHA-4.E) Find an amount at a time from an initial amount plus the integral of a net rate (in − out), and interpret the integral in context with units.
   - EK: A(t) = A(0) + ∫_0^t (in − out) dt; ∫_a^b r(t)dt is net change, in rate units × time units.
   - Needs: CA-6.7.A
-  - P1 · P4
+  - P1 · P4 · drills: ca-net-change-tank
 
 ### 8.4 Area between curves (functions of x)
 
 
 
-- ○ **CA-8.4.A** (CHA-5.A) Find the area between two curves y = f(x), y = g(x), finding the limits from their intersections.
+- ● **CA-8.4.A** (CHA-5.A) Find the area between two curves y = f(x), y = g(x), finding the limits from their intersections.
   - EK: A = ∫(top − bottom)dx.
   - Needs: CA-6.7.A
-  - P1
+  - P1 · drills: ca-area-between
 
 ### 8.5 Area between curves (functions of y)
 
 
 
-- ○ **CA-8.5.A** (CHA-5.A) Find the area between curves x = f(y), x = g(y) by integrating in y.
+- ● **CA-8.5.A** (CHA-5.A) Find the area between curves x = f(y), x = g(y) by integrating in y.
   - EK: A = ∫(right − left)dy; choose y when slicing in x would need two integrals.
   - Needs: CA-8.4.A
-  - P1 · P2
+  - P1 · P2 · drills: ca-area-between-y
 
 ### 8.6 Curves that intersect more than twice
 
@@ -835,28 +835,28 @@ Big ideas: CHA, LIM
 
 
 
-- ○ **CA-8.7.A** (CHA-5.B) Find the volume of a solid with square or rectangular cross sections perpendicular to an axis.
+- ● **CA-8.7.A** (CHA-5.B) Find the volume of a solid with square or rectangular cross sections perpendicular to an axis.
   - EK: V = ∫A(x)dx; side s = top − bottom ⇒ A = s² (or s·(given height)).
   - Needs: CA-8.4.A
-  - P1 · P2
+  - P1 · P2 · drills: ca-volume-squares
 
 ### 8.8 Cross sections — triangles and semicircles
 
 
 
-- ○ **CA-8.8.A** (CHA-5.B) Find the volume of a solid with triangular or semicircular cross sections.
+- ● **CA-8.8.A** (CHA-5.B) Find the volume of a solid with triangular or semicircular cross sections.
   - EK: Equilateral: (√3/4)s²; isosceles right on a leg: s²/2; semicircle on diameter s: (π/8)s².
   - Needs: CA-8.7.A
-  - P1
+  - P1 · drills: ca-volume-semicircles
 
 ### 8.9 Disc method about the x- or y-axis
 
 
 
-- ○ **CA-8.9.A** (CHA-5.C) Find the volume of a solid of revolution about a coordinate axis by discs.
+- ● **CA-8.9.A** (CHA-5.C) Find the volume of a solid of revolution about a coordinate axis by discs.
   - EK: V = π∫R(x)²dx, R = distance from axis to curve.
   - Needs: CA-8.7.A
-  - P1
+  - P1 · drills: ca-volume-disc
 
 ### 8.10 Disc method about other axes
 
@@ -871,10 +871,10 @@ Big ideas: CHA, LIM
 
 
 
-- ○ **CA-8.11.A** (CHA-5.C) Find the volume of a solid of revolution with a hole by washers about a coordinate axis.
+- ● **CA-8.11.A** (CHA-5.C) Find the volume of a solid of revolution with a hole by washers about a coordinate axis.
   - EK: V = π∫(R² − r²)dx: outer radius squared minus inner radius squared, not (R − r)².
   - Needs: CA-8.9.A
-  - P1
+  - P1 · drills: ca-volume-washer
 
 ### 8.12 Washer method about other axes
 
@@ -889,19 +889,19 @@ Big ideas: CHA, LIM
 
 
 
-- ○ **CA-8.13.A** (CHA-6.A) Set up and evaluate the arc length of a smooth curve y = f(x).
+- ● **CA-8.13.A** (CHA-6.A) Set up and evaluate the arc length of a smooth curve y = f(x).
   - EK: L = ∫_a^b √(1 + f′(x)²)dx.
   - Needs: CA-6.7.A
-  - P1
+  - P1 · drills: ca-arc-length
 
 ### 8.14 Physical applications (beyond the CED)
 
 
 
-- ○ **CA-8.14.A** (CHA-4.E) Compute work done by a variable force or in pumping a fluid by slicing and integrating.
+- ● **CA-8.14.A** (CHA-4.E) Compute work done by a variable force or in pumping a fluid by slicing and integrating.
   - EK: W = ∫F(x)dx; pumping: W = ∫ρg·A(y)·(lift distance)dy.
   - Needs: CA-8.3.A
-  - P1 · P4
+  - P1 · P4 · drills: ca-work-spring
 
 ## Unit 9 · Parametric equations, polar coordinates and vector-valued functions (BC only)
 
@@ -911,76 +911,76 @@ Big ideas: CHA, FUN
 
 
 
-- ○ **CA-9.1.A** (CHA-3.G) Find dy/dx and tangent lines for a parametric curve, including horizontal and vertical tangents.
+- ● **CA-9.1.A** (CHA-3.G) Find dy/dx and tangent lines for a parametric curve, including horizontal and vertical tangents.
   - EK: dy/dx = (dy/dt)/(dx/dt); horizontal where dy/dt = 0, vertical where dx/dt = 0.
   - Needs: CA-3.5.A, CA-2.2.B
-  - P1
+  - P1 · drills: ca-parametric-slope
 
 ### 9.2 Second derivatives of parametric equations
 
 
 
-- ○ **CA-9.2.A** (CHA-3.G) Find d²y/dx² for a parametric curve and use it for concavity.
+- ● **CA-9.2.A** (CHA-3.G) Find d²y/dx² for a parametric curve and use it for concavity.
   - EK: d²y/dx² = (d/dt(dy/dx))/(dx/dt) — divide by dx/dt again, not by d²x/dt².
   - Needs: CA-9.1.A
-  - P1
+  - P1 · drills: ca-parametric-slope
 
 ### 9.3 Arc length of parametric curves
 
 
 
-- ○ **CA-9.3.A** (CHA-6.B) Find the arc length of a parametric curve.
+- ● **CA-9.3.A** (CHA-6.B) Find the arc length of a parametric curve.
   - EK: L = ∫√((dx/dt)² + (dy/dt)²)dt.
   - Needs: CA-9.1.A, CA-8.13.A
-  - P1
+  - P1 · drills: ca-parametric-arc
 
 ### 9.4 Derivatives of vector-valued functions
 
 
 
-- ○ **CA-9.4.A** (CHA-3.H) Differentiate a vector-valued function to get velocity and acceleration vectors.
+- ● **CA-9.4.A** (CHA-3.H) Differentiate a vector-valued function to get velocity and acceleration vectors.
   - EK: r(t) = ⟨x(t), y(t)⟩ ⇒ v = ⟨x′, y′⟩, a = ⟨x″, y″⟩, componentwise.
   - Needs: CA-9.1.A
-  - P1 · P4
+  - P1 · P4 · drills: ca-vector-velocity
 
 ### 9.5 Integrating vector-valued functions
 
 
 
-- ○ **CA-9.5.A** (FUN-8.A) Integrate a velocity or acceleration vector with an initial condition to recover position.
+- ● **CA-9.5.A** (FUN-8.A) Integrate a velocity or acceleration vector with an initial condition to recover position.
   - EK: Integrate each component; one constant vector fixed by r(t₀).
   - Needs: CA-9.4.A, CA-6.7.A
-  - P1
+  - P1 · drills: ca-vector-position
 
 ### 9.6 Motion with parametric and vector functions
 
 
 
-- ○ **CA-9.6.A** (FUN-8.B) Find speed, displacement and total distance for planar motion given by vectors.
+- ◐ **CA-9.6.A** (FUN-8.B) Find speed, displacement and total distance for planar motion given by vectors.
   - EK: Speed = |v| = √(x′² + y′²); distance = ∫|v|dt; displacement = ∫v dt (a vector).
   - Needs: CA-9.5.A, CA-9.3.A
-  - P1 · P3
+  - P1 · P3 · drills: ~ca-vector-velocity
 
 ### 9.7 Polar coordinates and their derivatives
 
 
 
-- ○ **CA-9.7.A** (FUN-3.G) Convert points and curves between polar and rectangular form.
+- ● **CA-9.7.A** (FUN-3.G) Convert points and curves between polar and rectangular form.
   - EK: x = r cos θ, y = r sin θ, r² = x² + y², tan θ = y/x (watch the quadrant).
-  - P2
-- ○ **CA-9.7.B** (FUN-3.G) Find dy/dx for a polar curve and interpret dr/dθ.
+  - P2 · drills: ca-polar-convert
+- ● **CA-9.7.B** (FUN-3.G) Find dy/dx for a polar curve and interpret dr/dθ.
   - EK: Treat θ as the parameter: x = r(θ)cos θ, y = r(θ)sin θ; dr/dθ > 0 ⇒ moving away from the pole.
   - Needs: CA-9.7.A, CA-9.1.A
-  - P1 · P2
+  - P1 · P2 · drills: ca-polar-slope
 
 ### 9.8 Area of a polar region
 
 
 
-- ○ **CA-9.8.A** (CHA-5.D) Find the area enclosed by a single polar curve, finding the θ-limits from where r = 0 or the curve closes.
+- ● **CA-9.8.A** (CHA-5.D) Find the area enclosed by a single polar curve, finding the θ-limits from where r = 0 or the curve closes.
   - EK: A = ½∫_α^β r(θ)²dθ.
   - Needs: CA-9.7.A, CA-6.7.A
-  - P1
+  - P1 · drills: ca-polar-area, ca-polar-rose
 
 ### 9.9 Area between two polar curves
 
@@ -999,28 +999,28 @@ Big ideas: LIM, FUN
 
 
 
-- ○ **CA-10.1.A** (LIM-7.A) Define a series' sum as the limit of its partial sums and decide convergence from a partial-sum formula.
+- ● **CA-10.1.A** (LIM-7.A) Define a series' sum as the limit of its partial sums and decide convergence from a partial-sum formula.
   - EK: S_n = a₁ + … + a_n; Σa_n converges to S ⇔ S_n → S. Telescoping series collapse S_n.
   - Needs: CA-1.15.A
-  - P3 · P4
+  - P3 · P4 · drills: ca-partial-sums
 
 ### 10.2 Geometric series
 
 
 
-- ○ **CA-10.2.A** (LIM-7.A) Decide whether a geometric series converges and find its sum.
+- ● **CA-10.2.A** (LIM-7.A) Decide whether a geometric series converges and find its sum.
   - EK: Σ_(n=0)^∞ ar^n = a/(1 − r) if |r| < 1; diverges if |r| ≥ 1.
   - Needs: CA-10.1.A
-  - P1
+  - P1 · drills: ca-geometric-series
 
 ### 10.3 The nth-term test
 
 
 
-- ○ **CA-10.3.A** (LIM-7.A) Show a series diverges with the nth-term test, and explain why the test can't prove convergence.
+- ● **CA-10.3.A** (LIM-7.A) Show a series diverges with the nth-term test, and explain why the test can't prove convergence.
   - EK: a_n ↛ 0 ⇒ diverges; a_n → 0 says nothing (harmonic series).
   - Needs: CA-10.1.A, CA-4.7.A
-  - P3
+  - P3 · drills: ca-nth-term-test
 
 ### 10.4 The integral test
 
@@ -1035,10 +1035,10 @@ Big ideas: LIM, FUN
 
 
 
-- ○ **CA-10.5.A** (LIM-7.A) Decide convergence of a p-series and recognise the harmonic series.
+- ● **CA-10.5.A** (LIM-7.A) Decide convergence of a p-series and recognise the harmonic series.
   - EK: Σ1/n^p converges ⇔ p > 1; Σ1/n diverges.
   - Needs: CA-10.4.A
-  - P3
+  - P3 · drills: ca-p-series
 
 ### 10.6 Comparison tests
 
@@ -1053,64 +1053,64 @@ Big ideas: LIM, FUN
 
 
 
-- ○ **CA-10.7.A** (LIM-7.A) Show an alternating series converges by checking that |a_n| decreases to 0.
+- ◐ **CA-10.7.A** (LIM-7.A) Show an alternating series converges by checking that |a_n| decreases to 0.
   - EK: Σ(−1)^n b_n with b_n decreasing and b_n → 0 converges.
   - Needs: CA-10.3.A
-  - P3
+  - P3 · drills: ~ca-absolute-conditional
 
 ### 10.8 The ratio test
 
 
 
-- ○ **CA-10.8.A** (LIM-7.A) Apply the ratio test, especially to series with factorials or exponentials.
+- ● **CA-10.8.A** (LIM-7.A) Apply the ratio test, especially to series with factorials or exponentials.
   - EK: L = lim|a_(n+1)/a_n|: L < 1 converges absolutely, L > 1 diverges, L = 1 inconclusive.
   - Needs: CA-10.2.A
-  - P1 · P3
+  - P1 · P3 · drills: ca-ratio-test
 
 ### 10.9 Absolute and conditional convergence
 
 
 
-- ○ **CA-10.9.A** (LIM-7.A) Classify a series as absolutely convergent, conditionally convergent or divergent.
+- ● **CA-10.9.A** (LIM-7.A) Classify a series as absolutely convergent, conditionally convergent or divergent.
   - EK: Σ|a_n| converges ⇒ absolute; Σa_n converges but Σ|a_n| doesn't ⇒ conditional (e.g. alternating harmonic).
   - Needs: CA-10.7.A, CA-10.6.A
-  - P3
+  - P3 · drills: ca-absolute-conditional
 
 ### 10.10 Alternating series error bound
 
 
 
-- ○ **CA-10.10.A** (LIM-7.B) Bound the error of a partial sum of an alternating series.
+- ● **CA-10.10.A** (LIM-7.B) Bound the error of a partial sum of an alternating series.
   - EK: |S − S_n| ≤ b_(n+1), the first omitted term; the sign of the error is that of the first omitted term.
   - Needs: CA-10.7.A
-  - P1 · P3
+  - P1 · P3 · drills: ca-alternating-error
 
 ### 10.11 Taylor polynomials
 
 
 
-- ○ **CA-10.11.A** (LIM-8.A, LIM-8.B) Build the nth-degree Taylor polynomial about x = a and use it to approximate a function value (or read derivatives off its coefficients).
+- ● **CA-10.11.A** (LIM-8.A, LIM-8.B) Build the nth-degree Taylor polynomial about x = a and use it to approximate a function value (or read derivatives off its coefficients).
   - EK: P_n(x) = Σ_(k=0)^n f^(k)(a)(x − a)^k/k!; coefficient of (x − a)^k is f^(k)(a)/k!; P₁ is the tangent line.
   - Needs: CA-3.6.A, CA-4.6.A
-  - P1 · P2
+  - P1 · P2 · drills: ca-taylor-exp, ca-taylor-ln, ca-taylor-coefficients
 
 ### 10.12 The Lagrange error bound
 
 
 
-- ○ **CA-10.12.A** (LIM-8.C) Bound the error of a Taylor approximation with the Lagrange error bound.
+- ● **CA-10.12.A** (LIM-8.C) Bound the error of a Taylor approximation with the Lagrange error bound.
   - EK: |f(x) − P_n(x)| ≤ max|f^(n+1)|·|x − a|^(n+1)/(n + 1)!, max taken between a and x.
   - Needs: CA-10.11.A
-  - P1 · P3
+  - P1 · P3 · drills: ca-lagrange-bound
 
 ### 10.13 Radius and interval of convergence
 
 
 
-- ○ **CA-10.13.A** (LIM-8.D) Find the radius and interval of convergence of a power series, testing each endpoint separately.
+- ● **CA-10.13.A** (LIM-8.D) Find the radius and interval of convergence of a power series, testing each endpoint separately.
   - EK: Ratio test gives |x − a| < R; at x = a ± R the series is an ordinary series — use p-series, alternating or comparison tests.
   - Needs: CA-10.8.A, CA-10.9.A
-  - P1 · P3
+  - P1 · P3 · drills: ca-radius-convergence
 
 ### 10.14 Taylor and Maclaurin series
 

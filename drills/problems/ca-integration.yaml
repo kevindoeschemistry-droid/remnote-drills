@@ -1,0 +1,256 @@
+# AP Calculus Unit 6: integration and accumulation.
+# `ode` + `sol` parts are antiderivatives: the learner types y = … + C and it is checked by differentiating.
+# verify.expect recomputes numeric answers with sympy's integrate.
+
+# ── Riemann sums (CA-6.2.A) ────────────────────────────────────────────────
+- template: ca-riemann-sums
+  skill: calc.riemann-ftc
+  given: { a: { int: [0, 2] }, hh: { pick: [0.5, 1, 2] }, c: { int: [0, 5] } }
+  let:
+    L: hh*((a)^2 + (a + hh)^2 + (a + 2*hh)^2 + (a + 3*hh)^2 + 4*c)
+    R: hh*((a + hh)^2 + (a + 2*hh)^2 + (a + 3*hh)^2 + (a + 4*hh)^2 + 4*c)
+  require: [L != 0]
+  prompt: 'Approximate $\displaystyle\int_{ {{a}} }^{ {{a + 4*hh}} }\left({{=x^2 + c}}\right)dx$ with $n = 4$ equal subintervals.'
+  parts:
+    - ask: 'Left Riemann sum, $L_4$'
+      label: Ls
+      tex: 'L_4'
+      value: L
+      tol: 0.002
+      explain: '$\Delta x = {{hh}}$. Left endpoints ${{a}}, {{a + hh}}, {{a + 2*hh}}, {{a + 3*hh}}$: $L_4 = {{hh}}\left[f({{a}}) + f({{a + hh}}) + f({{a + 2*hh}}) + f({{a + 3*hh}})\right] = {{L}}$'
+    - ask: 'Right Riemann sum, $R_4$'
+      label: Rs
+      tex: 'R_4'
+      value: R
+      tol: 0.002
+      explain: 'Right endpoints shift everything one step: $R_4 = {{R}}$. $f$ is increasing here, so $L_4$ is too small and $R_4$ too large'
+    - ask: 'Trapezoidal sum, $T_4$'
+      label: Ts
+      tex: 'T_4'
+      value: (L + R)/2
+      tol: 0.002
+      explain: 'The trapezoid rule is the average of the two: $\frac{L_4 + R_4}{2} = {{(L + R)/2}}$'
+  verify:
+    expect:
+      Ls: "hh*sum([(x**2 + c).subs(x, a + i*hh) for i in [0, 1, 2, 3]], 0)"
+      Rs: "hh*sum([(x**2 + c).subs(x, a + i*hh) for i in [1, 2, 3, 4]], 0)"
+      Ts: "hh*sum([((x**2 + c).subs(x, a + i*hh) + (x**2 + c).subs(x, a + (i + 1)*hh))/2 for i in [0, 1, 2, 3]], 0)"
+
+- template: ca-trapezoid-table
+  skill: calc.riemann-ftc
+  given: { w1: { pick: [1, 2, 3] }, w2: { pick: [1, 2, 4] }, w3: { pick: [2, 3, 5] }, f0: { int: [2, 9] }, f1: { int: [3, 12] }, f2: { int: [1, 10] }, f3: { int: [2, 12] } }
+  prompt: 'A table gives $f(0) = {{f0}}$, $f({{w1}}) = {{f1}}$, $f({{w1 + w2}}) = {{f2}}$, $f({{w1 + w2 + w3}}) = {{f3}}$. Estimate $\displaystyle\int_0^{ {{w1 + w2 + w3}} }f(x)\,dx$ with three trapezoids.'
+  parts:
+    - ask: 'Trapezoidal estimate'
+      label: T
+      tex: 'T'
+      value: w1*(f0 + f1)/2 + w2*(f1 + f2)/2 + w3*(f2 + f3)/2
+      tol: 0.002
+      explain: 'The widths differ, so do each trapezoid on its own: ${{w1}}\cdot\frac{ {{f0}} + {{f1}} }{2} + {{w2}}\cdot\frac{ {{f1}} + {{f2}} }{2} + {{w3}}\cdot\frac{ {{f2}} + {{f3}} }{2}$'
+  verify: { residuals: ["2*T - (w1*(f0 + f1) + w2*(f1 + f2) + w3*(f2 + f3))"] }
+
+# ── derivative of an accumulation function (CA-6.4.A) ──────────────────────
+- template: ca-ftc-derivative
+  skill: calc.riemann-ftc
+  given: { a: { int: [1, 4] }, m: { int: [2, 3] }, k: { int: [1, 9] }, c: { int: [0, 3] } }
+  prompt: 'Let $g(x) = \displaystyle\int_{ {{c}} }^{ {{=a*x^m}} }\left(t^2 + {{k}}\right)dt$. Find $g''(x)$.'
+  parts:
+    - ask: '$g''(x)$'
+      label: gp
+      tex: 'g''(x)'
+      expr: ((a*x^m)^2 + k)*a*m*x^(m - 1)
+      explain: 'FTC with the chain rule: put the upper limit into the integrand, then multiply by the derivative of the upper limit, ${{=a*m*x^(m - 1)}}$. The constant lower limit contributes nothing'
+  verify: { expect: { gp: "diff(integrate(Symbol('t')**2 + k, (Symbol('t'), c, a*x**m)), x)" } }
+
+# ── properties of definite integrals (CA-6.6.A) ────────────────────────────
+- template: ca-integral-properties
+  skill: calc.riemann-ftc
+  given: { A: { int: [-6, 9] }, B: { int: [-6, 9] }, G: { int: [-5, 8] }, k: { int: [2, 5] }, m: { int: [1, 4] } }
+  require: [A + B != 0, k*A - m*G != 0, A != 0]
+  prompt: 'You know $\displaystyle\int_1^4 f = {{A}}$, $\displaystyle\int_4^7 f = {{B}}$ and $\displaystyle\int_1^4 g = {{G}}$.'
+  parts:
+    - ask: '$\displaystyle\int_1^7 f(x)\,dx$'
+      label: I1
+      tex: '\int_1^7 f'
+      value: A + B
+      tol: 0.001
+      explain: 'Adjacent intervals add: ${{A}} + ({{B}})$'
+    - ask: '$\displaystyle\int_1^4\left[{{k}}f(x) - {{m}}g(x)\right]dx$'
+      label: I2
+      tex: '\int_1^4 ({{k}}f - {{m}}g)'
+      value: k*A - m*G
+      tol: 0.001
+      explain: 'Linearity: ${{k}}({{A}}) - {{m}}({{G}})$'
+    - ask: '$\displaystyle\int_4^1 f(x)\,dx$'
+      label: I3
+      tex: '\int_4^1 f'
+      value: -A
+      tol: 0.001
+      explain: 'Swapping the limits flips the sign'
+  verify: { residuals: ["I1 - A - B", "I2 - k*A + m*G", "I3 + A"] }
+
+# ── FTC evaluation (CA-6.7.A) ──────────────────────────────────────────────
+- template: ca-definite-poly
+  skill: calc.riemann-ftc
+  given: { a: { pick: [-6, -3, 3, 6, 9] }, b: { pick: [-4, -2, 0, 2, 4, 6] }, c: { int: [-5, 5] }, p: { int: [-2, 1] }, w: { int: [1, 3] } }
+  let:
+    q: p + w
+    I: a/3*(q^3 - p^3) + b/2*(q^2 - p^2) + c*(q - p)
+  require: [I != 0]
+  prompt: 'Evaluate $\displaystyle\int_{ {{p}} }^{ {{q}} }\left({{=a*x^2 + b*x + c}}\right)dx$.'
+  parts:
+    - ask: 'The integral'
+      label: I0
+      tex: 'I'
+      value: I
+      tol: 0.002
+      explain: 'An antiderivative is $F(x) = {{=a/3*x^3 + b/2*x^2 + c*x}}$. Then $F({{q}}) - F({{p}}) = {{I}}$'
+  verify: { expect: { I0: "integrate(a*x**2 + b*x + c, (x, p, p + w))" } }
+
+- template: ca-net-change-ftc
+  skill: calc.riemann-ftc
+  given: { a: { pick: [-4, -2, 2, 4, 6] }, b: { int: [-5, 5] }, p: { int: [0, 2] }, w: { int: [1, 3] }, y0: { int: [-6, 9] } }
+  let:
+    q: p + w
+    val: y0 + a/2*(q^2 - p^2) + b*(q - p)
+  require: [val != 0]
+  prompt: 'A function has $f''(x) = {{=a*x + b}}$ and $f({{p}}) = {{y0}}$. Find $f({{q}})$.'
+  parts:
+    - ask: '$f({{q}})$'
+      label: fq
+      tex: 'f({{q}})'
+      value: val
+      tol: 0.002
+      explain: '$f({{q}}) = f({{p}}) + \int_{ {{p}} }^{ {{q}} }f''(x)\,dx = {{y0}} + ({{a/2*(q^2 - p^2) + b*(q - p)}}) = {{val}}$. Start value plus accumulated change'
+  verify: { expect: { fq: "y0 + integrate(a*x + b, (x, p, p + w))" } }
+
+# ── basic antiderivatives (CA-6.8.A) ───────────────────────────────────────
+- template: ca-antiderivative-poly
+  skill: calc.antiderivatives
+  given: { a: { pick: [-8, -4, 4, 8, 12] }, b: { pick: [-6, -2, 0, 2, 4, 6] }, c: { int: [-7, 7] } }
+  prompt: 'Find $\displaystyle\int\left({{=a*x^3 + b*x + c}}\right)dx$. Type your answer as $y = \ldots + C$.'
+  parts:
+    - ask: 'The antiderivative'
+      label: F
+      tex: '\int f\,dx'
+      ode: a*x^3 + b*x + c
+      sol: a/4*x^4 + b/2*x^2 + c*x + C
+      explain: 'Raise each power by one and divide by the new power; do not forget $+\,C$'
+  verify: { expect: {} }
+
+- template: ca-antiderivative-elementary
+  skill: calc.antiderivatives
+  given: { a: { int: [-5, 5] }, b: { int: [-5, 5] }, c: { int: [1, 6] } }
+  require: [a != 0 or b != 0]
+  prompt: 'Find $\displaystyle\int\left({{=a*cos(x) + b*exp(x) + c/x}}\right)dx$ for $x > 0$. Type your answer as $y = \ldots + C$.'
+  parts:
+    - ask: 'The antiderivative'
+      label: F
+      tex: '\int f\,dx'
+      ode: a*cos(x) + b*exp(x) + c/x
+      sol: a*sin(x) + b*exp(x) + c*log(x) + C
+      explain: '$\int\cos x = \sin x$, $\int e^x = e^x$, $\int\frac1x = \ln|x|$. Type ln as log(x)'
+  verify: { expect: {} }
+
+- template: ca-antiderivative-root
+  skill: calc.antiderivatives
+  given: { a: { pick: [3, 6, 9, 12] }, b: { pick: [2, 4, 6, 8] } }
+  prompt: 'Find $\displaystyle\int\left({{a}}\sqrt{x} + \frac{ {{b}} }{\sqrt{x}}\right)dx$. Type your answer as $y = \ldots + C$.'
+  parts:
+    - ask: 'The antiderivative'
+      label: F
+      tex: '\int f\,dx'
+      ode: a*sqrt(x) + b/sqrt(x)
+      sol: 2*a/3*x^(3/2) + 2*b*sqrt(x) + C
+      explain: 'Rewrite as ${{a}}x^{1/2} + {{b}}x^{-1/2}$, then the power rule for integrals: ${{=2*a/3*x^(3/2)}} + {{=2*b*x^(1/2)}} + C$'
+  verify: { expect: {} }
+
+- template: ca-usub-definite
+  skill: calc.antiderivatives
+  given: { k: { pick: [2, 4, 6, 8] }, b: { int: [1, 2] } }
+  prompt: 'Evaluate $\displaystyle\int_0^{ {{b}} }{{k}}x\,e^{x^2}\,dx$.'
+  parts:
+    - ask: 'New limits: when $x = {{b}}$, $u = x^2$ equals'
+      label: ub
+      tex: 'u'
+      value: b^2
+      tol: 0.001
+      explain: 'With $u = x^2$, $du = 2x\,dx$; the limits $x = 0, {{b}}$ become $u = 0, {{b^2}}$'
+    - ask: 'The integral'
+      label: I0
+      tex: 'I'
+      value: k/2*(exp(b^2) - 1)
+      explain: '$\int_0^{ {{b^2}} }{{k/2}}e^{u}\,du = {{k/2}}\left(e^{ {{b^2}} } - 1\right) = {{k/2*(exp(b^2) - 1)}}$. Changing the limits means never going back to $x$'
+  verify: { expect: { ub: "(x**2).subs(x, b)", I0: "integrate(k*x*exp(x**2), (x, 0, b))" } }
+
+# ── rational integrands (CA-6.10.A) ────────────────────────────────────────
+- template: ca-arctan-integral
+  skill: calc.antiderivatives
+  given: { a: { pick: [2, 3, 4, 6, 12] }, b: { pick: [2, 3, 4] } }
+  prompt: 'Find $\displaystyle\int\frac{ {{a}} }{x^2 + {{b^2}} }\,dx$. Type your answer as $y = \ldots + C$.'
+  parts:
+    - ask: 'The antiderivative'
+      label: F
+      tex: '\int f\,dx'
+      ode: a/(x^2 + b^2)
+      sol: a/b*atan(x/b) + C
+      explain: '$\int\frac{dx}{x^2 + b^2} = \frac1b\arctan\frac xb$ with $b = {{b}}$. Type arctan as atan(x/{{b}})'
+  verify: { expect: {} }
+
+- template: ca-long-division-integral
+  skill: calc.antiderivatives
+  given: { a: { int: [-4, 6] }, b: { int: [-6, 8] }, c: { int: [1, 5] } }
+  let: { R: b - c*(a - c) }
+  require: [R != 0]
+  prompt: 'Find $\displaystyle\int\frac{ {{=x^2 + a*x + b}} }{ {{=x + c}} }\,dx$ for $x > 0$. Type your answer as $y = \ldots + C$.'
+  parts:
+    - ask: 'Remainder when the top is divided by ${{=x + c}}$'
+      label: rem
+      tex: 'R'
+      value: R
+      tol: 0.001
+      explain: 'Divide: $\frac{ {{=x^2 + a*x + b}} }{ {{=x + c}} } = {{=x + (a - c)}} + \frac{ {{R}} }{ {{=x + c}} }$. The remainder is the top evaluated at $x = -{{c}}$'
+    - ask: 'The antiderivative'
+      label: F
+      tex: '\int f\,dx'
+      ode: (x^2 + a*x + b)/(x + c)
+      sol: x^2/2 + (a - c)*x + R*log(x + c) + C
+      explain: 'Integrate the quotient and the remainder term separately: the remainder gives a logarithm'
+  verify: { expect: { rem: "(x**2 + a*x + b).subs(x, -c)" } }
+
+# ── improper integrals (CA-6.13.A) ─────────────────────────────────────────
+- template: ca-improper-power
+  skill: calc.antiderivatives
+  given: { a: { int: [1, 9] }, p: { pick: [1.5, 2, 3, 4] } }
+  prompt: 'Evaluate $\displaystyle\int_1^{\infty}\frac{ {{a}} }{x^{ {{p}} } }\,dx$.'
+  parts:
+    - ask: 'The integral'
+      label: I0
+      tex: 'I'
+      value: a/(p - 1)
+      explain: '$\lim_{b\to\infty}\left[\frac{ {{a}}x^{ {{1 - p}} } }{ {{1 - p}} }\right]_1^b$. The power is negative, so the top limit goes to 0, leaving $\frac{ {{a}} }{ {{p - 1}} }$'
+  verify: { expect: { I0: "integrate(a*x**(-p), (x, 1, oo))" } }
+
+- template: ca-improper-exp
+  skill: calc.antiderivatives
+  given: { a: { int: [1, 9] }, k: { pick: [0.5, 1, 2, 4, 5] } }
+  prompt: 'Evaluate $\displaystyle\int_0^{\infty}{{a}}e^{-{{k}}x}\,dx$.'
+  parts:
+    - ask: 'The integral'
+      label: I0
+      tex: 'I'
+      value: a/k
+      explain: '$\lim_{b\to\infty}\left[-\frac{ {{a}} }{ {{k}} }e^{-{{k}}x}\right]_0^b = 0 + \frac{ {{a}} }{ {{k}} }$'
+  verify: { expect: { I0: "integrate(a*exp(-k*x), (x, 0, oo))" } }
+
+- template: ca-improper-ptest
+  skill: calc.antiderivatives
+  given: { p: { pick: [0.5, 0.9, 1, 1.1, 2, 3] } }
+  prompt: 'Does $\displaystyle\int_1^{\infty}\frac{1}{x^{ {{p}} } }\,dx$ converge?'
+  parts:
+    - ask: 'The integral…'
+      label: cv
+      choice: ["Converges", "Diverges"]
+      correct: "p > 1 ? 0 : 1"
+      explain: '$\int_1^\infty x^{-p}\,dx$ converges exactly when $p > 1$. At $p = 1$ the antiderivative is $\ln x$, which grows without bound'
+  verify: { choices: { cv: "0 if integrate(x**(-p), (x, 1, oo)) != oo else 1" } }

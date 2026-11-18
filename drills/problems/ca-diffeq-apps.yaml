@@ -1,0 +1,348 @@
+# AP Calculus Units 7–8: differential equations and applications of integration.
+
+# ── check a solution (CA-7.2.A) ────────────────────────────────────────────
+- template: ca-verify-solution
+  skill: calc.diffeq
+  given: { a: { pick: [-5, -4, -3, -2, 2, 3, 4, 5] } }
+  prompt: 'For which value of $k$ does $y = e^{kx}$ solve $y'' + ({{a}})y = 0$?'
+  parts:
+    - ask: '$k$'
+      label: k
+      tex: 'k'
+      value: -a
+      tol: 0.001
+      explain: 'Substitute: $y'' = ke^{kx}$, so $ke^{kx} + ({{a}})e^{kx} = (k + ({{a}}))e^{kx} = 0$, which needs $k = {{-a}}$'
+  verify: { expect: { k: "solve((diff(exp(Symbol('K')*x), x) + a*exp(Symbol('K')*x))/exp(Symbol('K')*x), Symbol('K'))[0]" } }
+
+# ── Euler's method (CA-7.5.A) ──────────────────────────────────────────────
+- template: ca-euler-method
+  skill: calc.diffeq
+  given: { a: { int: [1, 3] }, b: { pick: [-2, -1, 1, 2] }, y0: { int: [1, 4] }, hh: { pick: [0.1, 0.2, 0.5] } }
+  let:
+    y1v: y0 + hh*(b*y0)
+    y2v: y1v + hh*(a*hh + b*y1v)
+  require: [y1v != 0, y2v != 0]
+  prompt: 'Let $\dfrac{dy}{dx} = {{=a*x + b*y}}$ with $y(0) = {{y0}}$. Use Euler''s method with step $h = {{hh}}$.'
+  parts:
+    - ask: '$y_1 \approx y({{hh}})$'
+      label: y1
+      tex: 'y_1'
+      value: y1v
+      tol: 0.002
+      explain: 'Slope at $(0, {{y0}})$ is ${{b*y0}}$, so $y_1 = {{y0}} + {{hh}}({{b*y0}}) = {{y1v|6}}$'
+    - ask: '$y_2 \approx y({{2*hh}})$'
+      label: y2
+      tex: 'y_2'
+      value: y2v
+      tol: 0.002
+      explain: 'Slope at $({{hh}}, {{y1v|6}})$ is ${{a*hh + b*y1v|6}}$, so $y_2 = {{y1v|6}} + {{hh}}({{a*hh + b*y1v|6}}) = {{y2v|6}}$. Each step uses the slope at the point you just reached'
+  verify: { residuals: ["y1 - y0 - hh*(a*0 + b*y0)", "y2 - y1 - hh*(a*hh + b*y1)"] }
+
+# ── separable equations (CA-7.6.A, CA-7.7.A) ───────────────────────────────
+- template: ca-separable-general
+  skill: calc.diffeq
+  given: { a: { pick: [-6, -4, -2, 2, 4, 6] }, n: { int: [1, 2] } }
+  prompt: 'Find the general solution of $\dfrac{dy}{dx} = {{=a*x^n}}\,y$. Type $y = \ldots$ with the constant $C$.'
+  parts:
+    - ask: 'General solution'
+      label: Y
+      tex: 'y'
+      ode: a*x^n*y
+      sol: C*exp(a/(n + 1)*x^(n + 1))
+      explain: 'Separate: $\frac{dy}{y} = {{=a*x^n}}\,dx$. Integrate: $\ln|y| = {{=a/(n + 1)*x^(n + 1)}} + c$. Exponentiate and call $e^c$ (with its sign) $C$'
+  verify: { expect: {} }
+
+- template: ca-separable-ivp
+  skill: calc.diffeq
+  given: { a: { int: [1, 6] }, y0: { int: [1, 5] } }
+  prompt: 'Solve $\dfrac{dy}{dx} = \dfrac{ {{=a*x}} }{y}$ with $y(0) = {{y0}}$. Type $y = \ldots$'
+  parts:
+    - ask: 'The particular solution'
+      label: Y
+      tex: 'y'
+      ode: a*x/y
+      sol: sqrt(a*x^2 + y0^2)
+      ic: [0, y0]
+      explain: 'Separate: $y\,dy = {{=a*x}}\,dx$, so $\frac{y^2}{2} = {{=a/2*x^2}} + c$. From $y(0) = {{y0}}$, $c = {{y0^2/2}}$. Take the positive root because $y(0) > 0$'
+  verify: { expect: {} }
+
+# ── exponential models (CA-7.8.A) ──────────────────────────────────────────
+- template: ca-exponential-growth
+  skill: calc.diffeq
+  given: { P0: { pick: [50, 100, 200, 500, 1000] }, k: { pick: [0.02, 0.05, 0.1, 0.2, 0.35] }, m: { pick: [3, 5, 10] } }
+  prompt: 'A population satisfies $\dfrac{dP}{dt} = {{k}}P$ with $P(0) = {{P0}}$ ($t$ in years).'
+  parts:
+    - ask: 'Doubling time'
+      label: td
+      tex: 't_2'
+      value: log(2)/k
+      unit: yr
+      explain: '$P = {{P0}}e^{ {{k}}t}$. Doubling: $e^{ {{k}}t} = 2$, so $t = \frac{\ln 2}{ {{k}} } = {{log(2)/k}}$'
+    - ask: 'Time for the population to reach ${{m*P0}}$'
+      label: tm
+      tex: 't'
+      value: log(m)/k
+      unit: yr
+      explain: '$e^{ {{k}}t} = {{m}}$, so $t = \frac{\ln {{m}} }{ {{k}} } = {{log(m)/k}}$. The starting size cancels'
+  verify: { residuals: ["exp(k*td) - 2", "exp(k*tm) - m"] }
+
+- template: ca-half-life
+  skill: calc.diffeq
+  given: { T: { pick: [5, 8, 12, 30, 5730] }, A0: { pick: [10, 40, 80, 200] }, f: { pick: [0.5, 1.5, 2, 3] } }
+  prompt: 'A substance decays with half-life ${{T}}$ years. A sample starts at ${{A0}}\,\mathrm{g}$.'
+  parts:
+    - ask: 'Decay constant $k$ in $A = A_0e^{-kt}$'
+      label: k
+      tex: 'k'
+      value: log(2)/T
+      explain: '$\frac12 = e^{-k({{T}})}$, so $k = \frac{\ln 2}{ {{T}} } = {{log(2)/T}}$ per year'
+    - ask: 'Amount left after ${{f*T}}$ years'
+      label: A
+      tex: 'A'
+      value: A0*0.5^f
+      unit: g
+      explain: 'That is ${{f}}$ half-lives: ${{A0}}\left(\tfrac12\right)^{ {{f}} } = {{A0*0.5^f}}\,\mathrm{g}$'
+  verify: { residuals: ["exp(-k*T) - 1/2", "A/A0 - exp(-k*f*T)"] }
+
+- template: ca-newton-cooling
+  skill: calc.diffeq
+  given: { Ta: { pick: [20, 22, 25] }, T0: { pick: [80, 90, 95] }, T1: { pick: [55, 60, 65, 70] }, t1: { pick: [5, 10] } }
+  let:
+    k: log((T0 - Ta)/(T1 - Ta))/t1
+  prompt: 'Coffee at ${{T0}}^\circ\mathrm{C}$ sits in a ${{Ta}}^\circ\mathrm{C}$ room and is at ${{T1}}^\circ\mathrm{C}$ after ${{t1}}$ minutes. Use Newton''s law of cooling.'
+  parts:
+    - ask: 'Cooling constant $k$ (per minute)'
+      label: kk
+      tex: 'k'
+      value: k
+      explain: '$T - {{Ta}} = ({{T0 - Ta}})e^{-kt}$. At $t = {{t1}}$: ${{T1 - Ta}} = {{T0 - Ta}}e^{-{{t1}}k}$, so $k = \frac{1}{ {{t1}} }\ln\frac{ {{T0 - Ta}} }{ {{T1 - Ta}} } = {{k}}$'
+    - ask: 'Temperature after ${{2*t1}}$ minutes'
+      label: T2
+      tex: 'T({{2*t1}})'
+      value: Ta + (T1 - Ta)^2/(T0 - Ta)
+      unit: "°C"
+      explain: 'Another ${{t1}}$ minutes multiplies the excess over room temperature by the same factor $\frac{ {{T1 - Ta}} }{ {{T0 - Ta}} }$ again: ${{Ta}} + {{T1 - Ta}}\cdot\frac{ {{T1 - Ta}} }{ {{T0 - Ta}} }$'
+  verify: { residuals: ["(T0 - Ta)*exp(-kk*t1) - (T1 - Ta)", "(T2 - Ta) - (T0 - Ta)*exp(-kk*2*t1)"] }
+
+# ── logistic growth (CA-7.9.A) ─────────────────────────────────────────────
+- template: ca-logistic
+  skill: calc.diffeq
+  given: { r: { pick: [0.2, 0.4, 0.5, 0.8] }, K: { pick: [200, 500, 1000, 4000] } }
+  prompt: 'A population satisfies $\dfrac{dP}{dt} = {{r}}P\left(1 - \dfrac{P}{ {{K}} }\right)$ with $0 < P(0) < {{K}}$.'
+  parts:
+    - ask: '$\displaystyle\lim_{t\to\infty}P(t)$'
+      label: cap
+      tex: 'P_\infty'
+      value: K
+      tol: 0.001
+      explain: 'The carrying capacity: growth stops where $1 - \frac{P}{ {{K}} } = 0$'
+    - ask: 'Population at which it is growing fastest'
+      label: half
+      tex: 'P'
+      value: K/2
+      tol: 0.001
+      explain: 'The right-hand side is a downward parabola in $P$ with zeros at $0$ and ${{K}}$; its maximum is halfway, at ${{K/2}}$'
+    - ask: 'That maximum growth rate'
+      label: rate
+      tex: '\frac{dP}{dt}'
+      value: r*K/4
+      explain: '${{r}}\cdot{{K/2}}\cdot\frac12 = {{r*K/4}}$'
+  verify:
+    expect:
+      cap: "Max(*solve(r*x*(1 - x/K), x))"
+      half: "solve(diff(r*x*(1 - x/K), x), x)[0]"
+      rate: "(r*x*(1 - x/K)).subs(x, solve(diff(r*x*(1 - x/K), x), x)[0])"
+
+# ── average value (CA-8.1.A) ───────────────────────────────────────────────
+- template: ca-average-value
+  skill: calc.integration-apps
+  given: { a: { pick: [3, 6, 9, 12] }, b: { int: [-5, 6] }, q: { int: [1, 4] } }
+  require: [a*q^2/3 + b != 0]
+  prompt: 'Find the average value of $f(x) = {{=a*x^2 + b}}$ on $[0, {{q}}]$.'
+  parts:
+    - ask: 'Average value'
+      label: av
+      tex: 'f_\mathrm{avg}'
+      value: a*q^2/3 + b
+      tol: 0.002
+      explain: '$\frac{1}{ {{q}} - 0}\int_0^{ {{q}} }({{=a*x^2 + b}})\,dx = \frac{1}{ {{q}} }\left[{{=a/3*x^3 + b*x}}\right]_0^{ {{q}} } = {{a*q^2/3 + b}}$'
+  verify: { expect: { av: "integrate(a*x**2 + b, (x, 0, q))/q" } }
+
+# ── displacement and distance (CA-8.2.A) ───────────────────────────────────
+- template: ca-distance
+  skill: calc.integration-apps
+  given: { c: { int: [1, 4] }, w: { int: [1, 4] } }
+  let: { T: c + w }
+  require: [w != c]
+  prompt: 'A particle has velocity $v(t) = {{=t - c}}$ m/s for $0 \le t \le {{T}}$.'
+  parts:
+    - ask: 'Displacement over the interval'
+      label: disp
+      tex: '\Delta s'
+      value: T^2/2 - c*T
+      unit: m
+      tol: 0.002
+      explain: '$\int_0^{ {{T}} }(t - {{c}})\,dt = \frac{ {{T}}^2}{2} - {{c}}({{T}}) = {{T^2/2 - c*T}}$'
+    - ask: 'Total distance travelled'
+      label: dist
+      tex: 'd'
+      value: c^2/2 + w^2/2
+      unit: m
+      tol: 0.002
+      explain: 'The particle turns around at $t = {{c}}$. Going back: $\frac{ {{c}}^2}{2}$. Going forward: $\frac{ {{w}}^2}{2}$. Distance adds them; displacement subtracts'
+  verify:
+    var: t
+    expect: { disp: "integrate(t - c, (t, 0, c + w))", dist: "integrate(c - t, (t, 0, c)) + integrate(t - c, (t, c, c + w))" }
+
+# ── net change from rates (CA-8.3.A) ───────────────────────────────────────
+- template: ca-net-change-tank
+  skill: calc.integration-apps
+  given: { A0: { pick: [50, 100, 200] }, rin: { pick: [8, 10, 12, 20] }, k: { pick: [1, 2, 3] }, T: { int: [2, 6] } }
+  require: [A0 + rin*T - k*T^2/2 > 0]
+  prompt: 'A tank holds ${{A0}}$ L. Water flows in at ${{rin}}$ L/min and leaks out at ${{k}}t$ L/min, $t$ minutes after the start.'
+  parts:
+    - ask: 'Volume in the tank at $t = {{T}}$'
+      label: V
+      tex: 'V({{T}})'
+      value: A0 + rin*T - k*T^2/2
+      unit: L
+      tol: 0.002
+      explain: 'Start plus the integral of the net rate: ${{A0}} + \int_0^{ {{T}} }({{rin}} - {{k}}t)\,dt = {{A0}} + {{rin*T}} - {{k*T^2/2}}$'
+  verify: { var: t, expect: { V: "A0 + integrate(rin - k*t, (t, 0, T))" } }
+
+# ── area between curves (CA-8.4.A, CA-8.5.A) ───────────────────────────────
+- template: ca-area-between
+  skill: calc.integration-apps
+  given: { p: { pick: [-3, -2, -1, 1] }, w: { int: [1, 4] } }
+  let: { q: p + w }
+  require: [q != 0]
+  prompt: 'Find the area enclosed by $y = x^2$ and $y = {{=(p + q)*x - p*q}}$.'
+  parts:
+    - ask: 'Left intersection, $x = \,?$'
+      label: x1
+      tex: 'x_1'
+      value: p
+      tol: 0.001
+      explain: '$x^2 = {{=(p + q)*x - p*q}}$ rearranges to $(x - ({{p}}))(x - ({{q}})) = 0$'
+    - ask: 'Right intersection'
+      label: x2
+      tex: 'x_2'
+      value: q
+      tol: 0.001
+      explain: 'The other root'
+    - ask: 'The enclosed area'
+      label: A
+      tex: 'A'
+      value: w^3/6
+      tol: 0.002
+      explain: 'Between the roots the line is on top: $\int_{ {{p}} }^{ {{q}} }\left[({{=(p + q)*x - p*q}}) - x^2\right]dx = \frac{({{q}} - ({{p}}))^3}{6} = {{w^3/6}}$'
+  verify:
+    expect:
+      x1: "Min(*solve(x**2 - ((2*p + w)*x - p*(p + w)), x))"
+      x2: "Max(*solve(x**2 - ((2*p + w)*x - p*(p + w)), x))"
+      A: "integrate((2*p + w)*x - p*(p + w) - x**2, (x, p, p + w))"
+
+- template: ca-area-between-y
+  skill: calc.integration-apps
+  given: { c: { int: [1, 4] } }
+  prompt: 'Find the area enclosed by $x = y^2$ and $x = {{c^2}}$ by integrating in $y$.'
+  parts:
+    - ask: 'Upper limit of $y$'
+      label: yt
+      tex: 'y'
+      value: c
+      tol: 0.001
+      explain: 'The curves meet where $y^2 = {{c^2}}$: $y = \pm{{c}}$'
+    - ask: 'The enclosed area'
+      label: A
+      tex: 'A'
+      value: 4*c^3/3
+      tol: 0.002
+      explain: 'Right minus left: $\int_{-{{c}} }^{ {{c}} }\left({{c^2}} - y^2\right)dy = 2\left[{{c^2}}y - \frac{y^3}{3}\right]_0^{ {{c}} } = {{4*c^3/3}}$'
+  verify: { expect: { yt: "Max(*solve(x**2 - c**2, x))", A: "integrate(c**2 - x**2, (x, -c, c))" } }
+
+# ── volumes by cross-section (CA-8.7.A, CA-8.8.A) ──────────────────────────
+- template: ca-volume-squares
+  skill: calc.integration-apps
+  given: { k: { int: [1, 3] }, b: { int: [1, 4] } }
+  prompt: 'The base of a solid is the region under $y = {{=k*x}}$ from $x = 0$ to $x = {{b}}$. Cross-sections perpendicular to the $x$-axis are squares with one side on the base.'
+  parts:
+    - ask: 'Volume'
+      label: V
+      tex: 'V'
+      value: k^2*b^3/3
+      tol: 0.002
+      explain: 'Each slice is a square of side ${{=k*x}}$, area ${{=k^2*x^2}}$: $V = \int_0^{ {{b}} }{{=k^2*x^2}}\,dx = {{k^2*b^3/3}}$'
+  verify: { expect: { V: "integrate((k*x)**2, (x, 0, b))" } }
+
+- template: ca-volume-semicircles
+  skill: calc.integration-apps
+  given: { k: { pick: [2, 4, 6] }, b: { int: [1, 4] } }
+  prompt: 'The base of a solid is the region under $y = {{=k*x}}$ from $x = 0$ to $x = {{b}}$. Cross-sections perpendicular to the $x$-axis are semicircles whose diameters lie on the base.'
+  parts:
+    - ask: 'Volume'
+      label: V
+      tex: 'V'
+      value: pi*k^2*b^3/24
+      explain: 'Diameter ${{=k*x}}$, radius ${{=k/2*x}}$, area $\frac{\pi}{2}r^2 = \frac{\pi}{8}({{=k*x}})^2$. $V = \frac{\pi}{8}\int_0^{ {{b}} }{{=k^2*x^2}}\,dx = {{pi*k^2*b^3/24}}$'
+  verify: { expect: { V: "integrate(pi/2*(k*x/2)**2, (x, 0, b))" } }
+
+# ── solids of revolution (CA-8.9.A, CA-8.11.A) ─────────────────────────────
+- template: ca-volume-disc
+  skill: calc.integration-apps
+  given: { a: { int: [1, 3] }, m: { int: [1, 2] }, b: { int: [1, 3] } }
+  prompt: 'The region under $y = {{=a*x^m}}$ from $x = 0$ to $x = {{b}}$ is revolved about the $x$-axis.'
+  parts:
+    - ask: 'Volume'
+      label: V
+      tex: 'V'
+      value: pi*a^2*b^(2*m + 1)/(2*m + 1)
+      explain: 'Discs of radius ${{=a*x^m}}$: $V = \pi\int_0^{ {{b}} }({{=a*x^m}})^2\,dx = \pi\cdot\frac{ {{a^2}}\cdot{{b}}^{ {{2*m + 1}} } }{ {{2*m + 1}} } = {{pi*a^2*b^(2*m + 1)/(2*m + 1)}}$'
+  verify: { expect: { V: "pi*integrate((a*x**m)**2, (x, 0, b))" } }
+
+- template: ca-volume-washer
+  skill: calc.integration-apps
+  given: { a: { int: [1, 4] } }
+  prompt: 'The region between $y = {{=a*x}}$ and $y = {{=a*x^2}}$ ($0 \le x \le 1$) is revolved about the $x$-axis.'
+  parts:
+    - ask: 'Volume'
+      label: V
+      tex: 'V'
+      value: 2*pi*a^2/15
+      explain: 'Washers: outer radius ${{=a*x}}$, inner radius ${{=a*x^2}}$. $V = \pi\int_0^1\left({{=a^2*x^2}} - {{=a^2*x^4}}\right)dx = \pi\cdot{{a^2}}\left(\frac13 - \frac15\right) = {{2*pi*a^2/15}}$'
+  verify: { expect: { V: "pi*integrate((a*x)**2 - (a*x**2)**2, (x, 0, 1))" } }
+
+# ── arc length (CA-8.13.A) ─────────────────────────────────────────────────
+- template: ca-arc-length
+  skill: calc.integration-apps
+  given: { b: { pick: [3, 8, 15] } }
+  prompt: 'Find the length of $y = \tfrac23x^{3/2}$ from $x = 0$ to $x = {{b}}$.'
+  parts:
+    - ask: 'Arc length'
+      label: L
+      tex: 'L'
+      value: 2/3*((1 + b)^1.5 - 1)
+      tol: 0.002
+      explain: '$y'' = \sqrt x$, so $L = \int_0^{ {{b}} }\sqrt{1 + x}\,dx = \tfrac23\left[(1 + x)^{3/2}\right]_0^{ {{b}} } = {{2/3*((1 + b)^1.5 - 1)|6}}$'
+  verify: { expect: { L: "integrate(sqrt(1 + diff(Rational(2, 3)*x**Rational(3, 2), x)**2), (x, 0, b))" } }
+
+# ── work (CA-8.14.A) ───────────────────────────────────────────────────────
+- template: ca-work-spring
+  skill: calc.integration-apps
+  given: { F1: { pick: [10, 20, 40, 60] }, d1: { pick: [0.1, 0.2, 0.25, 0.5] }, d2: { pick: [0.3, 0.4, 0.6, 1] } }
+  require: [d2 > d1]
+  prompt: 'A force of ${{F1}}\,\mathrm{N}$ stretches a spring ${{d1}}\,\mathrm{m}$ past its natural length.'
+  parts:
+    - ask: 'Spring constant $k$'
+      label: k
+      tex: 'k'
+      value: F1/d1
+      unit: N/m
+      explain: 'Hooke: $F = kx$, so $k = \frac{ {{F1}} }{ {{d1}} } = {{F1/d1}}$'
+    - ask: 'Work to stretch it from natural length to ${{d2}}\,\mathrm{m}$'
+      label: W
+      tex: 'W'
+      value: F1/d1*d2^2/2
+      unit: J
+      explain: 'The force changes with $x$, so integrate: $W = \int_0^{ {{d2}} }{{F1/d1}}x\,dx = \tfrac12({{F1/d1}})({{d2}})^2 = {{F1/d1*d2^2/2}}$'
+  verify: { expect: { k: "F1/d1" , W: "integrate(F1/d1*x, (x, 0, d2))" } }
