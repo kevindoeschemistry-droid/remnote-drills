@@ -1,0 +1,378 @@
+# Calculus Units 11–12: vectors and the geometry of space; partial derivatives.
+# In verify, x is the template variable and Y, Z are the symbols y and z.
+
+# ── vectors in 3-D (CA-11.1.A) ─────────────────────────────────────────────
+- template: cm-distance-3d
+  skill: calc.vectors-3d
+  given: { p1: { int: [-4, 4] }, p2: { int: [-4, 4] }, p3: { int: [-4, 4] }, d1: { pick: [-6, -3, -2, 2, 3, 6] }, d2: { pick: [-6, -3, -2, 2, 3, 6] }, d3: { pick: [-6, -3, -2, 1, 2, 6] } }
+  prompt: 'Let $P = ({{p1}}, {{p2}}, {{p3}})$ and $Q = ({{p1 + d1}}, {{p2 + d2}}, {{p3 + d3}})$.'
+  parts:
+    - ask: '$x$-component of $\overrightarrow{PQ}$'
+      label: v1
+      tex: 'v_x'
+      value: d1
+      tol: 0.001
+      explain: 'Head minus tail: $\overrightarrow{PQ} = \langle {{d1}}, {{d2}}, {{d3}}\rangle$'
+    - ask: 'Distance $|PQ|$'
+      label: dist
+      tex: '|PQ|'
+      value: sqrt(d1^2 + d2^2 + d3^2)
+      explain: '$\sqrt{({{d1}})^2 + ({{d2}})^2 + ({{d3}})^2} = \sqrt{ {{d1^2 + d2^2 + d3^2}} }$'
+    - ask: '$x$-component of the unit vector from $P$ toward $Q$'
+      label: u1
+      tex: 'u_x'
+      value: d1/sqrt(d1^2 + d2^2 + d3^2)
+      explain: 'Divide the vector by its length'
+  verify: { residuals: ["v1 - d1", "dist**2 - (d1**2 + d2**2 + d3**2)", "u1*dist - v1"] }
+
+# ── dot product (CA-11.2.A) ────────────────────────────────────────────────
+- template: cm-dot-product
+  skill: calc.vectors-3d
+  given: { a1: { int: [-4, 5] }, a2: { int: [-4, 5] }, a3: { int: [-4, 5] }, b1: { int: [-4, 5] }, b2: { int: [-4, 5] }, b3: { int: [1, 5] } }
+  let:
+    dt: a1*b1 + a2*b2 + a3*b3
+    na: sqrt(a1^2 + a2^2 + a3^2)
+    nb: sqrt(b1^2 + b2^2 + b3^2)
+  require: [dt != 0, na > 0, abs(dt) < 0.999*na*nb]
+  prompt: 'Let $\mathbf u = \langle {{a1}}, {{a2}}, {{a3}}\rangle$ and $\mathbf v = \langle {{b1}}, {{b2}}, {{b3}}\rangle$.'
+  parts:
+    - ask: '$\mathbf u\cdot\mathbf v$'
+      label: dot
+      tex: '\mathbf u\cdot\mathbf v'
+      value: dt
+      tol: 0.001
+      explain: 'Multiply matching components and add: $({{a1}})({{b1}}) + ({{a2}})({{b2}}) + ({{a3}})({{b3}}) = {{dt}}$'
+    - ask: 'Angle between them, in degrees'
+      label: ang
+      tex: '\theta'
+      value: acos(dt/(na*nb))*180/pi
+      explain: '$\cos\theta = \frac{\mathbf u\cdot\mathbf v}{|\mathbf u||\mathbf v|} = \frac{ {{dt}} }{ {{na}}\cdot{{nb}} }$, so $\theta = {{acos(dt/(na*nb))*180/pi}}^\circ$'
+    - ask: 'Scalar projection of $\mathbf u$ onto $\mathbf v$'
+      label: comp
+      tex: '\mathrm{comp}_{\mathbf v}\mathbf u'
+      value: dt/nb
+      explain: '$\frac{\mathbf u\cdot\mathbf v}{|\mathbf v|} = \frac{ {{dt}} }{ {{nb}} }$: how much of $\mathbf u$ points along $\mathbf v$'
+  verify:
+    residuals:
+      - "dot - (a1*b1 + a2*b2 + a3*b3)"
+      - "cos(ang*pi/180)*sqrt(a1**2 + a2**2 + a3**2)*sqrt(b1**2 + b2**2 + b3**2) - dot"
+      - "comp*sqrt(b1**2 + b2**2 + b3**2) - dot"
+
+# ── cross product (CA-11.3.A) ──────────────────────────────────────────────
+- template: cm-cross-product
+  skill: calc.vectors-3d
+  given: { a1: { int: [-3, 4] }, a2: { int: [-3, 4] }, a3: { int: [-3, 4] }, b1: { int: [-3, 4] }, b2: { int: [-3, 4] }, b3: { int: [-3, 4] } }
+  let:
+    c1: a2*b3 - a3*b2
+    c2: a3*b1 - a1*b3
+    c3: a1*b2 - a2*b1
+  require: [c1 != 0, c2 != 0, c3 != 0]
+  prompt: 'Let $\mathbf u = \langle {{a1}}, {{a2}}, {{a3}}\rangle$ and $\mathbf v = \langle {{b1}}, {{b2}}, {{b3}}\rangle$. Compute $\mathbf u\times\mathbf v$.'
+  parts:
+    - ask: '$x$-component'
+      label: X
+      tex: '(\mathbf u\times\mathbf v)_x'
+      value: c1
+      tol: 0.001
+      explain: 'Cover the first column: $u_yv_z - u_zv_y = ({{a2}})({{b3}}) - ({{a3}})({{b2}}) = {{c1}}$'
+    - ask: '$y$-component'
+      label: Yc
+      tex: '(\mathbf u\times\mathbf v)_y'
+      value: c2
+      tol: 0.001
+      explain: '$u_zv_x - u_xv_z = ({{a3}})({{b1}}) - ({{a1}})({{b3}}) = {{c2}}$. This is the one whose sign people drop'
+    - ask: '$z$-component'
+      label: Zc
+      tex: '(\mathbf u\times\mathbf v)_z'
+      value: c3
+      tol: 0.001
+      explain: '$u_xv_y - u_yv_x = ({{a1}})({{b2}}) - ({{a2}})({{b1}}) = {{c3}}$'
+    - ask: 'Area of the parallelogram spanned by $\mathbf u$ and $\mathbf v$'
+      label: area
+      tex: 'A'
+      value: sqrt(c1^2 + c2^2 + c3^2)
+      explain: 'The length of the cross product: $\sqrt{ {{c1^2 + c2^2 + c3^2}} }$'
+  verify:
+    expect:
+      X: "Matrix([a1, a2, a3]).cross(Matrix([b1, b2, b3]))[0]"
+      Yc: "Matrix([a1, a2, a3]).cross(Matrix([b1, b2, b3]))[1]"
+      Zc: "Matrix([a1, a2, a3]).cross(Matrix([b1, b2, b3]))[2]"
+      area: "Matrix([a1, a2, a3]).cross(Matrix([b1, b2, b3])).norm()"
+
+# ── lines and planes (CA-11.4.A, CA-11.4.B) ────────────────────────────────
+- template: cm-line-plane-hit
+  skill: calc.vectors-3d
+  given: { p1: { int: [-4, 4] }, p2: { int: [-4, 4] }, p3: { pick: [-6, -4, -2, 2, 4, 6] }, d1: { int: [-3, 3] }, d2: { int: [-3, 3] }, d3: { pick: [-2, -1, 1, 2] } }
+  let:
+    t0: -p3/d3
+  require: [p1 + t0*d1 != 0, p2 + t0*d2 != 0]
+  prompt: 'A line passes through $({{p1}}, {{p2}}, {{p3}})$ with direction $\langle {{d1}}, {{d2}}, {{d3}}\rangle$. Find where it crosses the $xy$-plane.'
+  parts:
+    - ask: 'Parameter value $t$ at the crossing'
+      label: tc
+      tex: 't'
+      value: t0
+      tol: 0.001
+      explain: '$\mathbf r(t) = \langle {{p1}} + ({{d1}})t,\ {{p2}} + ({{d2}})t,\ {{p3}} + ({{d3}})t\rangle$. Set $z = 0$: $t = {{t0}}$'
+    - ask: '$x$ at the crossing'
+      label: X
+      tex: 'x'
+      value: p1 + t0*d1
+      tol: 0.001
+      explain: '${{p1}} + ({{d1}})({{t0}})$'
+    - ask: '$y$ at the crossing'
+      label: Yc
+      tex: 'y'
+      value: p2 + t0*d2
+      tol: 0.001
+      explain: '${{p2}} + ({{d2}})({{t0}})$'
+  verify: { residuals: ["p3 + d3*tc", "X - p1 - d1*tc", "Yc - p2 - d2*tc"] }
+
+- template: cm-plane
+  skill: calc.vectors-3d
+  given: { n1: { pick: [1, 2, 2, 3, 6] }, n2: { pick: [-2, 2, 4, 6] }, n3: { pick: [-1, 1, 2, 3] }, p1: { int: [-3, 3] }, p2: { int: [-3, 3] }, p3: { int: [-3, 3] }, q1: { int: [-4, 5] }, q2: { int: [-4, 5] }, q3: { int: [-4, 5] } }
+  let:
+    dd: n1*p1 + n2*p2 + n3*p3
+    num: abs(n1*q1 + n2*q2 + n3*q3 - dd)
+  require: [dd != 0, num != 0]
+  prompt: 'A plane passes through $({{p1}}, {{p2}}, {{p3}})$ with normal $\mathbf n = \langle {{n1}}, {{n2}}, {{n3}}\rangle$.'
+  parts:
+    - ask: 'Write it as ${{n1}}x + ({{n2}})y + ({{n3}})z = d$. Find $d$'
+      label: d
+      tex: 'd'
+      value: dd
+      tol: 0.001
+      explain: '$d = \mathbf n\cdot P = ({{n1}})({{p1}}) + ({{n2}})({{p2}}) + ({{n3}})({{p3}}) = {{dd}}$'
+    - ask: 'Distance from $({{q1}}, {{q2}}, {{q3}})$ to the plane'
+      label: dist
+      tex: 'D'
+      value: num/sqrt(n1^2 + n2^2 + n3^2)
+      explain: '$\frac{|\mathbf n\cdot Q - d|}{|\mathbf n|} = \frac{ {{num}} }{\sqrt{ {{n1^2 + n2^2 + n3^2}} } }$'
+  verify:
+    residuals: ["d - (n1*p1 + n2*p2 + n3*p3)", "dist**2*(n1**2 + n2**2 + n3**2) - (n1*q1 + n2*q2 + n3*q3 - d)**2"]
+
+# ── vector functions (CA-11.6.A, CA-11.6.B) ────────────────────────────────
+- template: cm-vector-function
+  skill: calc.vectors-3d
+  given: { a: { int: [1, 4] }, b: { int: [1, 3] }, c: { int: [1, 2] }, t0: { int: [1, 2] } }
+  prompt: 'Let $\mathbf r(t) = \langle {{=a*t}},\ {{=b*t^2}},\ {{=c*t^3}}\rangle$. Consider $t = {{t0}}$.'
+  parts:
+    - ask: '$y$-component of $\mathbf r''({{t0}})$'
+      label: vy
+      tex: 'r''_y'
+      value: 2*b*t0
+      tol: 0.001
+      explain: '$\mathbf r''(t) = \langle {{a}},\ {{=2*b*t}},\ {{=3*c*t^2}}\rangle$'
+    - ask: 'Speed $|\mathbf r''({{t0}})|$'
+      label: sp
+      tex: '|\mathbf r''|'
+      value: sqrt(a^2 + (2*b*t0)^2 + (3*c*t0^2)^2)
+      explain: '$\sqrt{ {{a^2}} + {{(2*b*t0)^2}} + {{(3*c*t0^2)^2}} }$'
+    - ask: '$x$-component of the unit tangent $\mathbf T({{t0}})$'
+      label: Tx
+      tex: 'T_x'
+      value: a/sqrt(a^2 + (2*b*t0)^2 + (3*c*t0^2)^2)
+      explain: '$\mathbf T = \frac{\mathbf r''}{|\mathbf r''|}$'
+  verify:
+    var: t
+    expect:
+      vy: "diff(b*t**2, t).subs(t, t0)"
+      sp: "sqrt(diff(a*t, t)**2 + diff(b*t**2, t)**2 + diff(c*t**3, t)**2).subs(t, t0)"
+      Tx: "(diff(a*t, t)/sqrt(diff(a*t, t)**2 + diff(b*t**2, t)**2 + diff(c*t**3, t)**2)).subs(t, t0)"
+
+- template: cm-helix
+  skill: calc.vectors-3d
+  given: { k: { int: [1, 3] } }
+  prompt: 'Consider the helix $\mathbf r(t) = \langle {{3*k}}\cos t,\ {{3*k}}\sin t,\ {{4*k}}t\rangle$.'
+  parts:
+    - ask: 'Speed'
+      label: sp
+      tex: '|\mathbf r''|'
+      value: 5*k
+      tol: 0.001
+      explain: '$\sqrt{ {{(3*k)^2}}\sin^2t + {{(3*k)^2}}\cos^2t + {{(4*k)^2}} } = \sqrt{ {{(3*k)^2 + (4*k)^2}} } = {{5*k}}$, constant'
+    - ask: 'Length of one full turn, $0 \le t \le 2\pi$'
+      label: L
+      tex: 'L'
+      value: 10*pi*k
+      explain: 'Constant speed times time: ${{5*k}}\cdot 2\pi$'
+    - ask: 'Curvature $\kappa$'
+      label: kap
+      tex: '\kappa'
+      value: 3*k/(25*k^2)
+      explain: '$\kappa = \frac{|\mathbf r''\times\mathbf r''''|}{|\mathbf r''|^3} = \frac{a}{a^2 + b^2}$ for a helix with radius $a = {{3*k}}$ and pitch coefficient $b = {{4*k}}$'
+  verify:
+    var: t
+    expect:
+      sp: "sqrt(sum([diff(c, t)**2 for c in [3*k*cos(t), 3*k*sin(t), 4*k*t]], 0)).subs(t, 1)"
+      L: "integrate(5*k, (t, 0, 2*pi))"
+      kap: "(Matrix([diff(c, t) for c in [3*k*cos(t), 3*k*sin(t), 4*k*t]]).cross(Matrix([diff(c, t, 2) for c in [3*k*cos(t), 3*k*sin(t), 4*k*t]])).norm()/(5*k)**3).subs(t, 1)"
+
+# ── tangent planes and linear approximation (CA-12.3.A) ────────────────────
+- template: cm-tangent-plane
+  skill: calc.partials-apps
+  given: { a: { int: [1, 4] }, b: { pick: [-3, -2, -1, 1, 2, 3] }, x0: { int: [1, 3] }, y0: { pick: [-2, -1, 1, 2] }, dx: { pick: [-0.1, 0.1, 0.2] }, dy: { pick: [-0.2, -0.1, 0.1] } }
+  let:
+    z0: a*x0^2 + b*y0^2
+    fx: 2*a*x0
+    fy: 2*b*y0
+  require: [z0 != 0, z0 + fx*dx + fy*dy != 0]
+  prompt: 'Let $f(x, y) = {{=a*x^2 + b*y^2}}$ and consider the point $({{x0}}, {{y0}})$.'
+  parts:
+    - ask: 'Tangent plane there, $z = \,?$'
+      label: tp
+      tex: 'z'
+      expr: z0 + fx*(x - x0) + fy*(y - y0)
+      vars: [x, y]
+      explain: '$f_x = {{=2*a*x}}$, $f_y = {{=2*b*y}}$. At the point: $f = {{z0}}$, $f_x = {{fx}}$, $f_y = {{fy}}$. $z = f + f_x(x - x_0) + f_y(y - y_0)$'
+    - ask: 'Linear estimate of $f({{x0 + dx}}, {{y0 + dy}})$'
+      label: est
+      tex: 'L'
+      value: z0 + fx*dx + fy*dy
+      tol: 0.0005
+      explain: '${{z0}} + ({{fx}})({{dx}}) + ({{fy}})({{dy}}) = {{z0 + fx*dx + fy*dy|6}}$'
+  verify:
+    expect:
+      tp: "(a*x0**2 + b*y0**2) + diff(a*x**2 + b*Y**2, x).subs({x: x0, Y: y0})*(x - x0) + diff(a*x**2 + b*Y**2, Y).subs({x: x0, Y: y0})*(Y - y0)"
+      est: "(a*x0**2 + b*y0**2) + diff(a*x**2 + b*Y**2, x).subs({x: x0, Y: y0})*dx + diff(a*x**2 + b*Y**2, Y).subs({x: x0, Y: y0})*dy"
+
+# ── multivariable chain rule (CA-12.4.A) ───────────────────────────────────
+- template: cm-chain-rule
+  skill: calc.partials-apps
+  given: { a: { int: [1, 4] }, b: { int: [-4, 4] }, t0: { int: [1, 3] } }
+  let:
+    X: a*t0
+    Yv: t0^2 + b
+  require: [2*X*Yv*a + X^2*2*t0 != 0]
+  prompt: 'Let $z = x^2y$ with $x = {{=a*t}}$ and $y = {{=t^2 + b}}$. Find $\dfrac{dz}{dt}$ at $t = {{t0}}$.'
+  parts:
+    - ask: '$\dfrac{dz}{dt}$ at $t = {{t0}}$'
+      label: dz
+      tex: '\frac{dz}{dt}'
+      value: 2*X*Yv*a + X^2*2*t0
+      tol: 0.001
+      explain: '$\frac{dz}{dt} = z_x\frac{dx}{dt} + z_y\frac{dy}{dt} = (2xy)({{a}}) + (x^2)(2t)$. At $t = {{t0}}$: $x = {{X}}$, $y = {{Yv}}$, giving ${{2*X*Yv*a}} + {{X^2*2*t0}}$'
+  verify: { var: t, expect: { dz: "diff((a*t)**2*(t**2 + b), t).subs(t, t0)" } }
+
+# ── gradient and directional derivative (CA-12.5.A, CA-12.5.B) ─────────────
+- template: cm-gradient
+  skill: calc.partials-apps
+  given: { a: { int: [1, 4] }, b: { int: [-3, 3] }, c: { int: [-3, 3] }, x0: { int: [1, 3] }, y0: { pick: [-2, -1, 1, 2] } }
+  let:
+    gx: 2*a*x0 + b*y0
+    gy: b*x0 + 2*c*y0
+  require: [gx != 0, gy != 0, 3*gx + 4*gy != 0]
+  prompt: 'Let $f(x, y) = {{=a*x^2 + b*x*y + c*y^2}}$ and consider the point $({{x0}}, {{y0}})$.'
+  parts:
+    - ask: '$f_x$ at the point'
+      label: Gx
+      tex: 'f_x'
+      value: gx
+      tol: 0.001
+      explain: '$f_x = {{=2*a*x + b*y}}$'
+    - ask: '$f_y$ at the point'
+      label: Gy
+      tex: 'f_y'
+      value: gy
+      tol: 0.001
+      explain: '$f_y = {{=b*x + 2*c*y}}$'
+    - ask: 'Directional derivative in the direction of $\langle 3, 4\rangle$'
+      label: Du
+      tex: 'D_{\mathbf u}f'
+      value: (3*gx + 4*gy)/5
+      explain: 'Make it a unit vector first: $\mathbf u = \langle\frac35, \frac45\rangle$. Then $\nabla f\cdot\mathbf u = \frac{3({{gx}}) + 4({{gy}})}{5}$'
+    - ask: 'Largest possible directional derivative at the point'
+      label: mx
+      tex: '|\nabla f|'
+      value: sqrt(gx^2 + gy^2)
+      explain: 'The steepest rate is the length of the gradient, $\sqrt{ {{gx^2}} + {{gy^2}} }$, in the direction of the gradient itself'
+  verify:
+    expect:
+      Gx: "diff(a*x**2 + b*x*Y + c*Y**2, x).subs({x: x0, Y: y0})"
+      Gy: "diff(a*x**2 + b*x*Y + c*Y**2, Y).subs({x: x0, Y: y0})"
+    residuals: ["5*Du - 3*Gx - 4*Gy", "mx**2 - Gx**2 - Gy**2"]
+
+# ── critical points and the second derivatives test (CA-12.6.A) ────────────
+- template: cm-critical-point
+  skill: calc.partials-apps
+  given: { a: { pick: [-3, -2, -1, 1, 2, 3] }, b: { pick: [-3, -2, -1, 1, 2, 3] }, x0: { pick: [-3, -2, -1, 1, 2, 3] }, y0: { pick: [-3, -2, -1, 1, 2, 3] } }
+  prompt: 'Let $f(x, y) = {{=a*x^2 + b*y^2 - 2*a*x0*x - 2*b*y0*y}}$.'
+  parts:
+    - ask: '$x$-coordinate of the critical point'
+      label: cx
+      tex: 'x'
+      value: x0
+      tol: 0.001
+      explain: '$f_x = {{=2*a*x - 2*a*x0}} = 0$'
+    - ask: '$y$-coordinate of the critical point'
+      label: cy
+      tex: 'y'
+      value: y0
+      tol: 0.001
+      explain: '$f_y = {{=2*b*y - 2*b*y0}} = 0$'
+    - ask: '$D = f_{xx}f_{yy} - f_{xy}^2$'
+      label: D
+      tex: 'D'
+      value: 4*a*b
+      tol: 0.001
+      explain: '$f_{xx} = {{2*a}}$, $f_{yy} = {{2*b}}$, $f_{xy} = 0$'
+    - ask: 'The critical point is a…'
+      label: kind
+      choice: ["Local minimum", "Local maximum", "Saddle point"]
+      correct: "a*b < 0 ? 2 : (a > 0 ? 0 : 1)"
+      explain: '$D < 0$: saddle. $D > 0$ with $f_{xx} > 0$: minimum. $D > 0$ with $f_{xx} < 0$: maximum'
+  verify:
+    expect:
+      cx: "solve([diff(a*x**2 + b*Y**2 - 2*a*x0*x - 2*b*y0*Y, x), diff(a*x**2 + b*Y**2 - 2*a*x0*x - 2*b*y0*Y, Y)], [x, Y])[x]"
+      cy: "solve([diff(a*x**2 + b*Y**2 - 2*a*x0*x - 2*b*y0*Y, x), diff(a*x**2 + b*Y**2 - 2*a*x0*x - 2*b*y0*Y, Y)], [x, Y])[Y]"
+      D: "diff(a*x**2 + b*Y**2, x, 2)*diff(a*x**2 + b*Y**2, Y, 2) - diff(a*x**2 + b*Y**2, x, Y)**2"
+    choices: { kind: "2 if a*b < 0 else (0 if a > 0 else 1)" }
+
+# ── Lagrange multipliers (CA-12.7.A) ───────────────────────────────────────
+- template: cm-lagrange-product
+  skill: calc.partials-apps
+  given: { a: { pick: [1, 2, 4] }, c: { pick: [8, 12, 16, 20, 40] } }
+  prompt: 'Maximise $f(x, y) = xy$ subject to $x + {{a}}y = {{c}}$ with $x, y > 0$.'
+  parts:
+    - ask: '$x$ at the maximum'
+      label: xs
+      tex: 'x'
+      value: c/2
+      tol: 0.001
+      explain: '$\nabla f = \lambda\nabla g$: $y = \lambda$, $x = {{a}}\lambda$, so $x = {{a}}y$. In the constraint: $2x = {{c}}$'
+    - ask: '$y$ at the maximum'
+      label: ys
+      tex: 'y'
+      value: c/(2*a)
+      tol: 0.001
+      explain: '$y = \frac{x}{ {{a}} } = {{c/(2*a)}}$'
+    - ask: 'Maximum value of $f$'
+      label: fm
+      tex: 'f_\mathrm{max}'
+      value: c^2/(4*a)
+      tol: 0.001
+      explain: '$({{c/2}})({{c/(2*a)}}) = {{c^2/(4*a)}}$'
+  verify:
+    expect:
+      xs: "solve(diff(x*(c - x)/a, x), x)[0]"
+      ys: "(c - solve(diff(x*(c - x)/a, x), x)[0])/a"
+      fm: "(x*(c - x)/a).subs(x, solve(diff(x*(c - x)/a, x), x)[0])"
+
+- template: cm-lagrange-circle
+  skill: calc.partials-apps
+  given: { k: { int: [1, 3] }, r: { pick: [1, 2, 5, 10] } }
+  prompt: 'Find the maximum of $f(x, y) = {{3*k}}x + {{4*k}}y$ on the circle $x^2 + y^2 = {{r^2}}$.'
+  parts:
+    - ask: 'Maximum value'
+      label: fm
+      tex: 'f_\mathrm{max}'
+      value: 5*k*r
+      tol: 0.001
+      explain: '$\nabla f = \langle {{3*k}}, {{4*k}}\rangle$ must be parallel to $\langle x, y\rangle$, so the point is ${{r}}$ times the unit vector $\langle\frac35, \frac45\rangle$. There $f = |\nabla f|\cdot r = {{5*k}}\cdot{{r}}$'
+    - ask: '$x$ at the maximum'
+      label: xs
+      tex: 'x'
+      value: 3*r/5
+      tol: 0.001
+      explain: '${{r}}\cdot\frac35$'
+  verify: { residuals: ["fm - 3*k*xs - 4*k*sqrt(r**2 - xs**2)", "3*sqrt(r**2 - xs**2) - 4*xs"] }

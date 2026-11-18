@@ -24,7 +24,7 @@ BASE = {"diff": sp.diff, "pi": sp.pi, "log": sp.log, "exp": sp.exp, "sqrt": sp.s
         "solve": sp.solve, "sin": sp.sin, "cos": sp.cos, "tan": sp.tan, "tanh": sp.tanh, "cosh": sp.cosh, "sinh": sp.sinh,
         "integrate": sp.integrate, "limit": sp.limit, "oo": sp.oo, "atan": sp.atan, "asin": sp.asin, "acos": sp.acos,
         "sec": sp.sec, "csc": sp.csc, "cot": sp.cot, "Rational": sp.Rational, "Symbol": sp.Symbol, "Eq": sp.Eq,
-        "Min": sp.Min, "Max": sp.Max, "Sum": sp.Sum, "sum": sum, "nn": sp.Symbol("n", integer=True, positive=True), "series": sp.series, "summation": sp.summation, "Matrix": sp.Matrix, "factorial": sp.factorial}
+        "Min": sp.Min, "Max": sp.Max, "Sum": sp.Sum, "sum": sum, "Y": sp.Symbol("y"), "Z": sp.Symbol("z"), "acos": sp.acos, "nn": sp.Symbol("n", integer=True, positive=True), "series": sp.series, "summation": sp.summation, "Matrix": sp.Matrix, "factorial": sp.factorial}
 
 
 def parse(ref, var):
