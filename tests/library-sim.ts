@@ -28,7 +28,7 @@ const plugin: any = {
       parent.children.splice(Math.min(pos, parent.children.length), 0, r._id);
     },
   },
-  storage: { getSynced: async (k: string) => store[k], setSynced: async (k: string, v: any) => void (store[k] = JSON.parse(JSON.stringify(v))) },
+  storage: { getSynced: async (k: string) => store[k] ?? null, setSynced: async (k: string, v: any) => void (store[k] = JSON.parse(JSON.stringify(v))) },
 };
 const txt = (r: any) => r.text.map((x: any) => (typeof x === "string" ? x : `[[${rems.get(x._id)?.text?.[0]?.slice(0, 12)}]]`)).join("");
 const fail = (m: string) => { console.log("FAIL:", m); process.exitCode = 1; };

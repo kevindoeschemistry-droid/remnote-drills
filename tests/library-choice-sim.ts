@@ -32,7 +32,7 @@ const plugin: any = {
       parent.children.splice(Math.min(pos, parent.children.length), 0, r._id);
     },
   },
-  storage: { getSynced: async (k: string) => store[k], setSynced: async (k: string, v: any) => void (store[k] = JSON.parse(JSON.stringify(v))) },
+  storage: { getSynced: async (k: string) => store[k] ?? null, setSynced: async (k: string, v: any) => void (store[k] = JSON.parse(JSON.stringify(v))) },
 };
 const fail = (m: string) => { console.log("FAIL:", m); process.exitCode = 1; };
 const cardsIn = (fw: string) => Object.keys(store[`library.map.${fw}`] ?? {}).filter((k) => k.startsWith("card:")).length;
