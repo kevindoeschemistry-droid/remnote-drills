@@ -1,4 +1,4 @@
-// An endless, interleaved stream of problems from one exam's skills: anything not yet cleared
+// An endless, interleaved stream of problems from one exam's skills: anything not yet warm
 // comes up 3× as often, never the same skill twice in a row. Chips pin one topic.
 import React, { useCallback, useEffect, useState } from "react";
 import { usePlugin } from "@remnote/plugin-sdk";
@@ -50,7 +50,7 @@ export function ExamMix({ title, skills: all }: { title: string; skills: string[
         <b>{title}</b>
         <span className="odd-hint">
           {" "}
-          · {cleared} / {skills.length} skills cleared · problem {n + 1}
+          · {cleared} / {skills.length} skills warm · problem {n + 1}
         </span>
       </div>
       <div className="mm-chips">

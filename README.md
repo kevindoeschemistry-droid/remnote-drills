@@ -135,6 +135,21 @@ Three commands: **Drills: Open** (the sidebar: Path, Practice in course order wi
 shown, Exam mix for the course's next exam, Courses to build one and the setup tools),
 **Drills: Anchor this section** and **Drills: Link PDF to a textbook** (both need a PDF open).
 
+### Warm-up mix
+
+**Practice → Warm-up mix** serves random problems from everything that is already easy: any skill or objective you once
+got five in a row on, plus objectives marked known or tested out of on the Path tab. It never ends and nothing in it can
+be finished. Something you haven't done for a week comes up three times as often as something done today, and a miss
+never takes an item out. Chips narrow the mix to one subject.
+
+A skill that reached five in a row is shown as **Warm ✓** with its rep count and when you last did it. In storage the
+field is still `cleared`, and course skills still get the RemNote tag `Cleared ✓`, because Study Companions counts that
+tag for badges.
+
+The Path tab only shows objectives that have a drill, and only the tracks that have any. **Show the N objectives without
+drills** at the bottom brings back the whole map. In the Library itself, a unit or framework with nothing to practice
+has "· no drills yet" in its title.
+
 ### The Library
 
 **Path → Build the Library** puts every framework in RemNote in path order (track → framework → unit → topic → objective).

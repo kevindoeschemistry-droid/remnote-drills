@@ -9,6 +9,7 @@ import { check, previewTex } from "../drills/check";
 import { recurrencePreview } from "../drills/check-kinds";
 import { getProgress, recordAttempt, resetProgress, SkillProgress, EMPTY } from "../drills/progress";
 import type { Answer, CheckResult, Problem } from "../drills/types";
+import { ago } from "../drills/warm";
 
 /** Problems with checked steps walk through them until the skill has this many in a row;
  *  after that only the final answer is asked, and a miss drops back into the steps. */
@@ -335,8 +336,14 @@ export function DrillPanel({
           ))}
         </span>
         <span className="odd-count">
-          {progress.cleared ? "Cleared ✓ · " : ""}
-          {Math.min(progress.consecutive, clearAt)} / {clearAt}
+          {progress.cleared ? (
+            <span title="Five in a row at some point. It stays warm; keep doing it as often as you like.">
+              Warm ✓ · {progress.correct} rep{progress.correct === 1 ? "" : "s"}
+              {progress.lastPracticed ? ` · last ${ago(progress.lastPracticed)}` : ""}
+            </span>
+          ) : (
+            <>{Math.min(progress.consecutive, clearAt)} / {clearAt}</>
+          )}
         </span>
       </div>
 

@@ -1,5 +1,5 @@
 // Per-skill streaks, stored in RemNote synced storage so they follow you across devices.
-// Same rule as the wiki's drill zones: N correct in a row clears the skill;
+// Same rule as the wiki's drill zones: N correct in a row makes the skill warm (stored as `cleared`);
 // a wrong answer or "show solution" resets the streak.
 // Keys use the canonical skill id; a streak saved under an old alias is read once and migrated.
 import type { RNPlugin } from "@remnote/plugin-sdk";
@@ -59,7 +59,7 @@ export async function recordAttempt(
   if (p.cleared && !wasCleared) {
     try {
       if (!lo) await markCleared(plugin, skill.id);
-      await plugin.app.toast(`🎯 ${skill.title.slice(0, 80)}: ${lo ? "mastered" : "cleared"}!`);
+      await plugin.app.toast(`🎯 ${skill.title.slice(0, 80)}: warm. It's in your warm-up mix now.`);
     } catch {
       /* tagging is a nicety; the streak is saved either way */
     }

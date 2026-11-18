@@ -7,6 +7,7 @@ import { renderWidget, usePlugin } from "@remnote/plugin-sdk";
 import { DrillPanel } from "../components/DrillPanel";
 import { ExamMix } from "../components/ExamMix";
 import { PathView } from "../components/PathView";
+import { WarmMix } from "../components/WarmMix";
 import { COURSES, isLive, liveByDomain, resolveSkill } from "../drills/skills";
 import { getProgress, SkillProgress } from "../drills/progress";
 import { builtCourses, coursesWithUnits, ensureCourse, nextMilestone } from "../drills/course";
@@ -17,6 +18,8 @@ import "../drills.css";
 const LAST_KEY = "odeDrill.lastSkill";
 const COURSE_KEY = "drills.hubCourse";
 const TAB_KEY = "drills.hubTab";
+const PRACTICE_KEY = "drills.practiceMode";
+type PracticeMode = "skill" | "warm";
 type Tab = "path" | "practice" | "exam" | "courses";
 
 const lessonLabel = (ref: string, title: string) => (/^\d/.test(ref) ? `§${ref} ${title}` : title);
@@ -38,6 +41,7 @@ function Hub() {
   const [progress, setProgress] = useState<Record<string, SkillProgress>>({});
   const [built, setBuilt] = useState<string[]>([]);
   const [busy, setBusy] = useState<string | null>(null);
+  const [practice, setPractice] = useState<PracticeMode>("skill");
   const course = COURSES.find((c) => c.id === courseId);
 
   useEffect(() => {
@@ -47,6 +51,7 @@ function Hub() {
       const c = (await local<string>(plugin, COURSE_KEY)) ?? b[0] ?? "all";
       setCourseId(c);
       setTab((await local<Tab>(plugin, TAB_KEY)) ?? "path");
+      setPractice((await local<PracticeMode>(plugin, PRACTICE_KEY)) === "warm" ? "warm" : "skill");
       const last = await local<string>(plugin, LAST_KEY);
       setSkill(isLive(last) ? resolveSkill(last)!.id : liveByDomain()[0].skills[0].id);
     })();
@@ -117,6 +122,23 @@ function Hub() {
       {tab === "path" && <PathView />}
 
       {tab === "practice" && (
+        <div className="hub-tabs practice-modes">
+          {(["skill", "warm"] as PracticeMode[]).map((m) => (
+            <button
+              key={m}
+              className={"hub-tab" + (practice === m ? " on" : "")}
+              onClick={async () => {
+                setPractice(m);
+                try { await plugin.storage.setLocal(PRACTICE_KEY, m); } catch {}
+              }}
+            >
+              {m === "skill" ? "One skill" : "Warm-up mix"}
+            </button>
+          ))}
+        </div>
+      )}
+      {tab === "practice" && practice === "warm" && <WarmMix />}
+      {tab === "practice" && practice === "skill" && (
         <>
           <select
             className="odd-select"

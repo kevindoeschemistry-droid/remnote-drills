@@ -6,22 +6,30 @@ import React, { useCallback, useEffect, useMemo, useState } from "react";
 import { usePlugin } from "@remnote/plugin-sdk";
 import { DrillPanel } from "./DrillPanel";
 import { getProgress } from "../drills/progress";
+import { MASTERY_KEY } from "../drills/warm"; // code -> "tested" (passed a unit test) | "known" (marked by you)
 import {
   coveredCourseCards, DEFAULT_CARD_FRAMEWORKS, DRILLED_FRAMEWORKS, ensureLibrary, getCardFrameworks, libraryIsBuilt, libraryIsCurrent, libraryRemId, LIBRARY,
   LO_BY_CODE, PATH_LOS, PathUnit, pauseCoveredCourseCards, pausedCourseCards, resumeCourseCards, setCardFrameworks, trackOrder,
 } from "../drills/library-path";
 
-const MASTERY_KEY = "path.mastery"; // code -> "tested" (passed a unit test) | "known" (marked by you)
+const SHOW_ALL_KEY = "path.showUndrilled";
 const TRACK_KEY = "path.track";
 const PASS = 0.8;
 const TEST_SIZE = 8;
 
 type Lo = (typeof PATH_LOS)[number];
+const DRILLED_TRACKS = new Set(PATH_LOS.filter((lo) => lo.drills.length).map((lo) => lo.fw.track));
+const UNDRILLED = PATH_LOS.filter((lo) => !lo.drills.length).length;
 
 export function PathView() {
   const plugin = usePlugin();
-  const tracks = useMemo(trackOrder, []);
-  const [track, setTrack] = useState<string>(tracks[0]);
+  const allTracks = useMemo(trackOrder, []);
+  // objectives with no drill are hidden unless you ask for the whole map
+  const [showAll, setShowAll] = useState(false);
+  const shown = (lo: Lo) => showAll || lo.drills.length > 0;
+  const tracks = allTracks.filter((t) => showAll || DRILLED_TRACKS.has(t));
+  const [savedTrack, setTrack] = useState<string>(allTracks[0]);
+  const track = tracks.includes(savedTrack) ? savedTrack : tracks[0];
   const [marks, setMarks] = useState<Record<string, string>>({});
   const [cleared, setCleared] = useState<Set<string>>(new Set());
   const [built, setBuilt] = useState<boolean | null>(null);
@@ -56,14 +64,15 @@ export function PathView() {
     (async () => {
       try {
         const t = await plugin.storage.getLocal<string>(TRACK_KEY);
-        if (t && tracks.includes(t)) setTrack(t);
+        if (t && allTracks.includes(t)) setTrack(t);
+        setShowAll(!!(await plugin.storage.getLocal<boolean>(SHOW_ALL_KEY)));
       } catch {}
       await load();
     })();
   }, []);
 
   const mastered = (code: string) => !!marks[code] || cleared.has(code);
-  const mine = PATH_LOS.filter((lo) => lo.fw.track === track);
+  const mine = PATH_LOS.filter((lo) => lo.fw.track === track && shown(lo));
   const next = mine.find((lo) => !mastered(lo.code));
 
   const saveMarks = async (codes: string[], how: string) => {
@@ -129,14 +138,14 @@ export function PathView() {
     const unitLos = PATH_LOS.filter((lo) => lo.unit === test.unit);
     if (finished) {
       const pass = test.right / test.los.length >= PASS;
-      const undrilled = unitLos.filter((lo) => !lo.drills.length && !mastered(lo.code));
+      const undrilled = showAll ? unitLos.filter((lo) => !lo.drills.length && !mastered(lo.code)) : [];
       return (
         <div className="path">
           <div className="path-card">
             <b>{pass ? "Passed" : "Not yet"}: Unit {test.unit.n} · {test.unit.title}</b>
             <p>
               {test.right} of {test.los.length} right first time{pass ? "" : ` — you need ${Math.ceil(PASS * test.los.length)}`}.
-              {pass ? " Every drilled objective in this unit is now mastered." : " Practice the next-up objectives, then try again."}
+              {pass ? " Every drilled objective in this unit is now warm and in your warm-up mix." : " Practice the next-up objectives, then try again."}
             </p>
             {pass && undrilled.length > 0 && (
               <button className="odd-btn" onClick={() => saveMarks(undrilled.map((l) => l.code), "known")}>
@@ -266,19 +275,29 @@ export function PathView() {
           )}
         </div>
       ) : (
-        <div className="path-card">Everything on the {LIBRARY.tracks[track]} track is mastered.</div>
+        <div className="path-card">Everything{showAll ? "" : " with a drill"} on the {LIBRARY.tracks[track]} track is warm. The warm-up mix on the Practice tab keeps it that way.</div>
       )}
 
       <div className="path-progress">
         {fwsHere.map((f) => {
-          const los = PATH_LOS.filter((l) => l.fw === f);
+          const every = PATH_LOS.filter((l) => l.fw === f);
+          const los = every.filter(shown);
           const m = los.filter((l) => mastered(l.code)).length;
-          const d = los.filter((l) => l.drills.length).length;
+          const d = every.filter((l) => l.drills.length).length;
+          if (!los.length)
+            return (
+              <div key={f.id} className="path-fw path-fw-empty">
+                <div className="path-fw-row">
+                  <span>{LIBRARY.frameworks.indexOf(f) + 1} · {f.title}</span>
+                  <span className="odd-hint">no drills yet</span>
+                </div>
+              </div>
+            );
           return (
             <div key={f.id} className="path-fw">
               <div className="path-fw-row">
                 <span>{LIBRARY.frameworks.indexOf(f) + 1} · {f.title}</span>
-                <span className="odd-hint">{m} / {los.length} mastered · {d} drilled</span>
+                <span className="odd-hint">{showAll ? `${m} / ${los.length} warm · ${d} with drills` : `${m} / ${d} warm`}</span>
               </div>
               {placing === f.id ? (
                 <div className="path-row odd-hint">
@@ -294,6 +313,15 @@ export function PathView() {
           );
         })}
       </div>
+      <button
+        className="odd-linkbtn path-showall"
+        onClick={async () => {
+          setShowAll(!showAll);
+          try { await plugin.storage.setLocal(SHOW_ALL_KEY, !showAll); } catch {}
+        }}
+      >
+        {showAll ? "Hide objectives without drills" : `Show the ${UNDRILLED.toLocaleString()} objectives without drills`}
+      </button>
     </div>
   );
 }
