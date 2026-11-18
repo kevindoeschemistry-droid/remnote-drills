@@ -10,6 +10,9 @@
 //                                { ask, label, choice: [opt, opt…], correct: "expr → 0-based index" }
 //                                { ask, label, tex, expr: "c*x^(n-1)", vars: [x] }   a symbolic answer: the template's
 //                                numbers are folded in and the answer is checked as an expression (sym.ts)
+//                                { ask, label, tex, ode: "a*x^n*y", sol: "C*exp(…)", ic: [x0, y0] }   y' = ode(x, y):
+//                                an antiderivative (sol ends "+ C") or a solution of a first-order equation, checked
+//                                by differentiating what the learner types
 //   {{=expr}}                    prints an expression the same way, e.g. $f(x) = {{=a*x^n + b}}$
 //   verify:   the independent check (tests/verify/data.py): never reused here
 import graph from "./skills.generated.json";
@@ -27,6 +30,9 @@ interface DataPart {
   tex?: string;
   value?: string | number;
   expr?: string;
+  ode?: string;
+  sol?: string;
+  ic?: (string | number)[];
   vars?: string[];
   unit?: string;
   tol?: number;
@@ -100,6 +106,12 @@ export function buildData(t: DataTemplate, r: Rng): Draft {
       values[p.label] = idx;
       return { ask, answer: { kind: "choice", options, correct } as Answer, answerTex: `\\text{${correct.replace(/[{}$\\]/g, "")}}`, explain };
     }
+    if (p.ode && p.sol) {
+      const rhs = symbolic(p.ode, scope), sol = symbolic(p.sol, scope);
+      const ic = p.ic ? ([num(p.ic[0], scope, "ic"), num(p.ic[1], scope, "ic")] as [number, number]) : undefined;
+      const answer: Answer = { kind: "ode", rhs: rhs.ref, ref: `y = ${sol.ref}`, ...(ic ? { ic } : {}) };
+      return { ask, answer, answerTex: `${tex} = ${sol.tex}`, explain };
+    }
     if (p.expr) {
       const s = symbolic(p.expr, scope);
       const answer: Answer = { kind: "expression", ref: s.ref, vars: p.vars ?? ["x"], label: p.label, tol: 1e-9 };
@@ -110,7 +122,7 @@ export function buildData(t: DataTemplate, r: Rng): Draft {
     values[p.label] = v;
     scope[p.label] = v;
     const answer: Answer = { kind: "expression", ref: `${v}`, vars: [], tol: p.tol ?? 0.01, rel: true, label: p.label, unit: p.unit };
-    return { ask, answer, answerTex: `${tex} = ${fmt(v)}${p.unit ? u(p.unit) : ""}`, explain };
+    return { ask, answer, answerTex: `${tex} = ${fmt(v, (p.tol ?? 0.01) < 0.01 ? 6 : 3)}${p.unit ? u(p.unit) : ""}`, explain };
   });
   const last = parts[parts.length - 1];
   return {

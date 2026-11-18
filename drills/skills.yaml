@@ -489,4 +489,11 @@ skills:
   - { id: calc.implicit-inverse, domain: calc, title: "Implicit, inverse and higher derivatives", prereqs: [calc.chain-rule] }
   - { id: calc.rates, domain: calc, title: "Motion, related rates, linearization, L'Hospital", prereqs: [calc.chain-rule] }
   - { id: calc.extrema, domain: calc, title: "Extrema, concavity and optimization", prereqs: [calc.derivative-rules] }
+  - { id: calc.riemann-ftc, domain: calc, title: "Riemann sums and the fundamental theorem", prereqs: [calc.derivative-rules] }
+  - { id: calc.antiderivatives, domain: calc, title: "Antiderivatives and improper integrals", prereqs: [calc.riemann-ftc] }
+  - { id: calc.diffeq, domain: calc, title: "Differential equations: Euler, separable, growth", prereqs: [calc.antiderivatives] }
+  - { id: calc.integration-apps, domain: calc, title: "Average value, area, volume, arc length, work", prereqs: [calc.antiderivatives] }
+  - { id: calc.parametric-polar, domain: calc, title: "Parametric, vector and polar calculus", prereqs: [calc.chain-rule] }
+  - { id: calc.series, domain: calc, title: "Series: convergence tests", prereqs: [calc.limits] }
+  - { id: calc.taylor, domain: calc, title: "Taylor polynomials and power series", prereqs: [calc.series] }
 

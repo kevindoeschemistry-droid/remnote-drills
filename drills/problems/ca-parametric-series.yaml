@@ -1,0 +1,343 @@
+# AP Calculus BC Units 9–10: parametric, vector and polar calculus; sequences and series.
+
+# ── parametric derivatives (CA-9.1.A, CA-9.2.A) ────────────────────────────
+- template: ca-parametric-slope
+  skill: calc.parametric-polar
+  given: { a: { int: [-5, 5] }, b: { int: [-6, 6] }, t0: { pick: [-2, -1, 1, 2, 3] } }
+  require: [3*t0^2 + b != 0, 3*t0^2 - b != 0]
+  prompt: 'A curve is given by $x = {{=t^2 + a}}$, $y = {{=t^3 + b*t}}$. Consider the point where $t = {{t0}}$.'
+  parts:
+    - ask: '$\dfrac{dy}{dx}$ at $t = {{t0}}$'
+      label: m
+      tex: '\frac{dy}{dx}'
+      value: (3*t0^2 + b)/(2*t0)
+      explain: '$\frac{dy}{dx} = \frac{dy/dt}{dx/dt} = \frac{ {{=3*t^2 + b}} }{2t}$; at $t = {{t0}}$: $\frac{ {{3*t0^2 + b}} }{ {{2*t0}} }$'
+    - ask: '$\dfrac{d^2y}{dx^2}$ at $t = {{t0}}$'
+      label: m2
+      tex: '\frac{d^2y}{dx^2}'
+      value: (3*t0^2 - b)/(4*t0^3)
+      explain: 'Differentiate $\frac{dy}{dx}$ with respect to $t$, then divide by $\frac{dx}{dt}$ again: $\frac{d}{dt}\left[\frac{ {{=3*t^2 + b}} }{2t}\right]\Big/ 2t = \frac{ {{=3*t^2 - b}} }{4t^3}$'
+  verify:
+    var: t
+    expect:
+      m: "(diff(t**3 + b*t, t)/diff(t**2 + a, t)).subs(t, t0)"
+      m2: "(diff(diff(t**3 + b*t, t)/diff(t**2 + a, t), t)/diff(t**2 + a, t)).subs(t, t0)"
+
+- template: ca-parametric-arc
+  skill: calc.parametric-polar
+  given: { T: { int: [1, 3] } }
+  prompt: 'Find the length of the curve $x = 3t^2$, $y = 2t^3$ for $0 \le t \le {{T}}$.'
+  parts:
+    - ask: 'Arc length'
+      label: L
+      tex: 'L'
+      value: 2*((1 + T^2)^1.5 - 1)
+      tol: 0.002
+      explain: 'Speed: $\sqrt{(6t)^2 + (6t^2)^2} = 6t\sqrt{1 + t^2}$. $L = \int_0^{ {{T}} }6t\sqrt{1 + t^2}\,dt = 2\left[(1 + t^2)^{3/2}\right]_0^{ {{T}} } = {{2*((1 + T^2)^1.5 - 1)|6}}$'
+  verify: { var: t, expect: { L: "integrate(6*t*sqrt(1 + t**2), (t, 0, T))" } }
+
+# ── vector-valued motion (CA-9.4.A, CA-9.5.A, CA-9.6.A) ────────────────────
+- template: ca-vector-velocity
+  skill: calc.parametric-polar
+  given: { a: { int: [1, 4] }, b: { int: [1, 3] }, c: { int: [-6, 6] }, t0: { int: [1, 3] } }
+  require: [3*b*t0^2 + c != 0]
+  prompt: 'A particle has position $\mathbf r(t) = \left\langle {{=a*t^2}},\ {{=b*t^3 + c*t}}\right\rangle$. Consider $t = {{t0}}$.'
+  parts:
+    - ask: '$x$-component of velocity'
+      label: vx
+      tex: 'v_x'
+      value: 2*a*t0
+      tol: 0.001
+      explain: '$\mathbf v = \mathbf r'' = \langle {{=2*a*t}},\ {{=3*b*t^2 + c}}\rangle$'
+    - ask: '$y$-component of velocity'
+      label: vy
+      tex: 'v_y'
+      value: 3*b*t0^2 + c
+      tol: 0.001
+      explain: '${{3*b}}({{t0}})^2 + ({{c}})$'
+    - ask: 'Speed'
+      label: sp
+      tex: '|\mathbf v|'
+      value: sqrt((2*a*t0)^2 + (3*b*t0^2 + c)^2)
+      explain: '$\sqrt{v_x^2 + v_y^2} = \sqrt{ {{(2*a*t0)^2}} + {{(3*b*t0^2 + c)^2}} }$'
+  verify:
+    var: t
+    expect:
+      vx: "diff(a*t**2, t).subs(t, t0)"
+      vy: "diff(b*t**3 + c*t, t).subs(t, t0)"
+      sp: "sqrt(diff(a*t**2, t)**2 + diff(b*t**3 + c*t, t)**2).subs(t, t0)"
+
+- template: ca-vector-position
+  skill: calc.parametric-polar
+  given: { a: { int: [-4, 4] }, b: { pick: [-6, -2, 2, 6, 12] }, v0: { int: [-3, 3] }, x0: { int: [-5, 5] }, T: { int: [1, 3] } }
+  require: [a != 0, x0 + v0*T + a*T^2/2 != 0]
+  prompt: 'A particle has acceleration $\mathbf a(t) = \langle {{a}},\ {{=b*t}}\rangle$, with $\mathbf v(0) = \langle {{v0}}, 0\rangle$ and $\mathbf r(0) = \langle {{x0}}, 0\rangle$.'
+  parts:
+    - ask: '$x$-coordinate at $t = {{T}}$'
+      label: xT
+      tex: 'x({{T}})'
+      value: x0 + v0*T + a*T^2/2
+      tol: 0.002
+      explain: 'Integrate twice with the initial values: $v_x = {{v0}} + {{a}}t$, $x = {{x0}} + {{v0}}t + \frac{ {{a}} }{2}t^2$'
+    - ask: '$y$-coordinate at $t = {{T}}$'
+      label: yT
+      tex: 'y({{T}})'
+      value: b*T^3/6
+      tol: 0.002
+      explain: '$v_y = \frac{ {{b}} }{2}t^2$, $y = \frac{ {{b}} }{6}t^3$'
+  verify:
+    var: t
+    expect:
+      xT: "(x0 + integrate(v0 + integrate(a, (Symbol('s'), 0, Symbol('u'))), (Symbol('u'), 0, T)))"
+      yT: "integrate(integrate(b*Symbol('s'), (Symbol('s'), 0, Symbol('u'))), (Symbol('u'), 0, T))"
+
+# ── polar coordinates (CA-9.7.A, CA-9.7.B, CA-9.8.A) ───────────────────────
+- template: ca-polar-convert
+  skill: calc.parametric-polar
+  given: { r0: { pick: [2, 4, 6, 10] }, th: { pick: [30, 45, 60, 120, 135, 150, 210, 225, 240, 300, 315, 330] } }
+  prompt: 'Convert the polar point $(r, \theta) = ({{r0}}, {{th}}^\circ)$ to rectangular coordinates.'
+  parts:
+    - ask: '$x$'
+      label: X
+      tex: 'x'
+      value: r0*cos(th*pi/180)
+      explain: '$x = r\cos\theta = {{r0}}\cos {{th}}^\circ = {{r0*cos(th*pi/180)}}$'
+    - ask: '$y$'
+      label: Y
+      tex: 'y'
+      value: r0*sin(th*pi/180)
+      explain: '$y = r\sin\theta = {{r0}}\sin {{th}}^\circ = {{r0*sin(th*pi/180)}}$'
+  verify: { residuals: ["X**2 + Y**2 - r0**2", "X*sin(th*pi/180) - Y*cos(th*pi/180)"] }
+
+- template: ca-polar-slope
+  skill: calc.parametric-polar
+  given: { a: { int: [2, 5] }, b: { pick: [-3, -2, -1, 1, 2, 3] } }
+  prompt: 'Find the slope of the polar curve $r = {{a}} + ({{b}})\cos\theta$ at $\theta = \dfrac{\pi}{2}$.'
+  parts:
+    - ask: '$\dfrac{dy}{dx}$ at $\theta = \pi/2$'
+      label: m
+      tex: '\frac{dy}{dx}'
+      value: b/a
+      explain: 'Treat it as parametric: $x = r\cos\theta$, $y = r\sin\theta$. At $\theta = \frac\pi2$: $r = {{a}}$, $\frac{dr}{d\theta} = -({{b}})\sin\theta = {{-b}}$. $\frac{dy}{d\theta} = r''\sin\theta + r\cos\theta = {{-b}}$, $\frac{dx}{d\theta} = r''\cos\theta - r\sin\theta = -{{a}}$. Ratio: $\frac{ {{b}} }{ {{a}} }$'
+  verify:
+    var: t
+    expect: { m: "(diff((a + b*cos(t))*sin(t), t)/diff((a + b*cos(t))*cos(t), t)).subs(t, pi/2)" }
+
+- template: ca-polar-area
+  skill: calc.parametric-polar
+  given: { a: { int: [1, 5] } }
+  prompt: 'Find the area enclosed by the cardioid $r = {{a}}(1 + \cos\theta)$.'
+  parts:
+    - ask: 'Area'
+      label: A
+      tex: 'A'
+      value: 3*pi*a^2/2
+      explain: '$A = \frac12\int_0^{2\pi}r^2\,d\theta = \frac{ {{a^2}} }{2}\int_0^{2\pi}\left(1 + 2\cos\theta + \cos^2\theta\right)d\theta = \frac{ {{a^2}} }{2}(2\pi + 0 + \pi) = {{3*pi*a^2/2}}$'
+  verify: { var: t, expect: { A: "integrate((a*(1 + cos(t)))**2/2, (t, 0, 2*pi))" } }
+
+- template: ca-polar-rose
+  skill: calc.parametric-polar
+  given: { a: { int: [1, 5] }, n: { pick: [2, 3, 4] } }
+  prompt: 'Find the area of one petal of the rose $r = {{a}}\sin({{n}}\theta)$.'
+  parts:
+    - ask: 'Upper limit of $\theta$ for the first petal'
+      label: th
+      tex: '\theta'
+      value: pi/n
+      explain: 'The petal starts at $\theta = 0$ and closes when $r$ returns to 0: ${{n}}\theta = \pi$'
+    - ask: 'Area of the petal'
+      label: A
+      tex: 'A'
+      value: pi*a^2/(4*n)
+      explain: '$A = \frac12\int_0^{\pi/{{n}} }{{a^2}}\sin^2({{n}}\theta)\,d\theta = \frac{ {{a^2}} }{2}\cdot\frac{\pi}{2\cdot{{n}} } = {{pi*a^2/(4*n)}}$'
+  verify: { var: t, expect: { th: "pi/n", A: "integrate((a*sin(n*t))**2/2, (t, 0, pi/n))" } }
+
+# ── partial sums and geometric series (CA-10.1.A, CA-10.2.A) ───────────────
+- template: ca-partial-sums
+  skill: calc.series
+  given: { a: { int: [1, 9] }, b: { int: [1, 6] } }
+  prompt: 'The partial sums of a series are $s_n = \dfrac{ {{=a*n}} }{ {{=n + b}} }$.'
+  parts:
+    - ask: 'Sum of the series'
+      label: S
+      tex: 'S'
+      value: a
+      tol: 0.001
+      explain: 'The sum of a series is the limit of its partial sums: $\lim_{n\to\infty}\frac{ {{a}}n}{n + {{b}} } = {{a}}$'
+    - ask: 'The third term, $a_3 = s_3 - s_2$'
+      label: a3
+      tex: 'a_3'
+      value: 3*a/(3 + b) - 2*a/(2 + b)
+      explain: 'Each term is the difference of consecutive partial sums: $\frac{ {{3*a}} }{ {{3 + b}} } - \frac{ {{2*a}} }{ {{2 + b}} }$'
+  verify: { expect: { S: "limit(a*x/(x + b), x, oo)", a3: "(a*x/(x + b)).subs(x, 3) - (a*x/(x + b)).subs(x, 2)" } }
+
+- template: ca-geometric-series
+  skill: calc.series
+  given: { a: { int: [1, 9] }, rn: { pick: [-3, -2, -1, 1, 2, 3] }, rd: { pick: [4, 5, 7] } }
+  prompt: 'Find the sum of $\displaystyle\sum_{n=0}^{\infty}{{a}}\left(\frac{ {{rn}} }{ {{rd}} }\right)^{n}$.'
+  parts:
+    - ask: 'Sum'
+      label: S
+      tex: 'S'
+      value: a/(1 - rn/rd)
+      explain: 'Geometric with first term ${{a}}$ and ratio $r = \frac{ {{rn}} }{ {{rd}} }$, $|r| < 1$: $S = \frac{a}{1 - r} = \frac{ {{a}} }{1 - ({{rn}}/{{rd}})} = {{a/(1 - rn/rd)}}$'
+  verify: { expect: { S: "summation(a*Rational(rn, rd)**nn, (nn, 0, oo))" } }
+
+# ── convergence tests (CA-10.3.A, 10.5.A, 10.8.A, 10.9.A) ──────────────────
+- template: ca-nth-term-test
+  skill: calc.series
+  given: { a: { int: [1, 7] }, b: { int: [1, 9] }, c: { int: [1, 7] }, k: { pick: [1, 2] } }
+  prompt: 'Apply the $n$th-term test to $\displaystyle\sum_{n=1}^{\infty}\frac{ {{=a*n^k + b}} }{ {{=c*n^2 + 1}} }$.'
+  parts:
+    - ask: 'The test says the series…'
+      label: v
+      choice: ["Diverges", "Nothing: the test is inconclusive"]
+      correct: "k == 2 ? 0 : 1"
+      explain: 'Take the limit of the terms. If it is not 0 the series diverges. If it is 0 the test tells you nothing either way; the harmonic series has terms going to 0 and still diverges'
+  verify: { choices: { v: "0 if limit((a*x**k + b)/(c*x**2 + 1), x, oo) != 0 else 1" } }
+
+- template: ca-p-series
+  skill: calc.series
+  given: { p: { pick: [0.5, 0.9, 1, 1.1, 1.5, 2, 3] } }
+  prompt: 'Does $\displaystyle\sum_{n=1}^{\infty}\frac{1}{n^{ {{p}} } }$ converge?'
+  parts:
+    - ask: 'The series…'
+      label: v
+      choice: ["Converges", "Diverges"]
+      correct: "p > 1 ? 0 : 1"
+      explain: 'A $p$-series converges exactly when $p > 1$. $p = 1$ is the harmonic series, which diverges'
+  verify: { choices: { v: "0 if Sum(nn**(-p), (nn, 1, oo)).is_convergent() else 1" } }
+
+- template: ca-ratio-test
+  skill: calc.series
+  given: { k: { int: [1, 3] }, b: { pick: [0.5, 2, 3, 4] } }
+  prompt: 'Apply the ratio test to $\displaystyle\sum_{n=1}^{\infty}\frac{n^{ {{k}} } }{ {{b}}^{n} }$.'
+  parts:
+    - ask: '$L = \displaystyle\lim_{n\to\infty}\left|\frac{a_{n+1}}{a_n}\right|$'
+      label: L
+      tex: 'L'
+      value: 1/b
+      explain: '$\frac{(n + 1)^{ {{k}} } }{n^{ {{k}} } }\cdot\frac{ {{b}}^{n} }{ {{b}}^{n+1} } \to 1\cdot\frac{1}{ {{b}} } = {{1/b}}$. Powers of $n$ wash out; the exponential decides'
+    - ask: 'So the series…'
+      label: v
+      choice: ["Converges", "Diverges"]
+      correct: "b > 1 ? 0 : 1"
+      explain: '$L < 1$ converges, $L > 1$ diverges'
+  verify:
+    expect: { L: "limit(((x + 1)**k/b**(x + 1))/(x**k/b**x), x, oo)" }
+    choices: { v: "0 if limit(((x + 1)**k/b**(x + 1))/(x**k/b**x), x, oo) < 1 else 1" }
+
+- template: ca-absolute-conditional
+  skill: calc.series
+  given: { p: { pick: [0.5, 1, 1.5, 2, 3] } }
+  prompt: 'Classify $\displaystyle\sum_{n=1}^{\infty}\frac{(-1)^{n}}{n^{ {{p}} } }$.'
+  parts:
+    - ask: 'The series is…'
+      label: v
+      choice: ["Absolutely convergent", "Conditionally convergent"]
+      correct: "p > 1 ? 0 : 1"
+      explain: 'It converges for every $p > 0$ by the alternating series test. It converges absolutely only if $\sum\frac{1}{n^p}$ converges, which needs $p > 1$'
+  verify: { choices: { v: "0 if Sum(nn**(-p), (nn, 1, oo)).is_convergent() else 1" } }
+
+- template: ca-alternating-error
+  skill: calc.series
+  given: { p: { int: [1, 3] }, N: { pick: [4, 9, 10, 19, 99] } }
+  prompt: 'The sum of $\displaystyle\sum_{n=1}^{\infty}\frac{(-1)^{n+1}}{n^{ {{p}} } }$ is approximated by its first ${{N}}$ terms.'
+  parts:
+    - ask: 'Alternating-series bound on the error'
+      label: err
+      tex: '|R_{ {{N}} }|\le'
+      value: 1/(N + 1)^p
+      explain: 'The error is no bigger than the first term left out: $\frac{1}{({{N}} + 1)^{ {{p}} } } = {{1/(N + 1)^p}}$'
+  verify: { residuals: ["err*(N + 1)**p - 1"] }
+
+# ── Taylor polynomials and power series (CA-10.11.A, 10.12.A, 10.13.A) ─────
+- template: ca-taylor-exp
+  skill: calc.taylor
+  given: { a: { pick: [-3, -2, 2, 3, 4] } }
+  prompt: 'Find the third-degree Maclaurin polynomial of $f(x) = e^{ {{=a*x}} }$.'
+  parts:
+    - ask: '$T_3(x)$'
+      label: T
+      tex: 'T_3(x)'
+      expr: 1 + a*x + a^2/2*x^2 + a^3/6*x^3
+      explain: 'Every derivative at 0 is a power of ${{a}}$: $f^{(n)}(0) = ({{a}})^n$. Coefficients are $\frac{f^{(n)}(0)}{n!}$'
+  verify: { expect: { T: "series(exp(a*x), x, 0, 4).removeO()" } }
+
+- template: ca-taylor-ln
+  skill: calc.taylor
+  given: { c: { pick: [1, 2, 4] } }
+  prompt: 'Find the second-degree Taylor polynomial of $f(x) = \ln x$ about $x = {{c}}$.'
+  parts:
+    - ask: '$T_2(x)$'
+      label: T
+      tex: 'T_2(x)'
+      expr: log(c) + (x - c)/c - (x - c)^2/(2*c^2)
+      explain: '$f({{c}}) = \ln {{c}}$, $f''({{c}}) = \frac{1}{ {{c}} }$, $f''''({{c}}) = -\frac{1}{ {{c^2}} }$. $T_2 = f(c) + f''(c)(x - c) + \frac{f''''(c)}{2}(x - c)^2$'
+  verify: { expect: { T: "log(c) + diff(log(x), x).subs(x, c)*(x - c) + diff(log(x), x, 2).subs(x, c)/2*(x - c)**2" } }
+
+- template: ca-taylor-coefficients
+  skill: calc.taylor
+  given: { c2: { int: [-5, 5] }, c3: { int: [-4, 4] }, a: { int: [0, 3] } }
+  require: [c2 != 0, c3 != 0]
+  prompt: 'The Taylor series of $f$ about $x = {{a}}$ contains the terms ${{c2}}(x - {{a}})^2$ and ${{c3}}(x - {{a}})^3$.'
+  parts:
+    - ask: '$f''''({{a}})$'
+      label: d2
+      tex: 'f''''({{a}})'
+      value: 2*c2
+      tol: 0.001
+      explain: 'The coefficient of $(x - a)^2$ is $\frac{f''''(a)}{2!}$, so $f''''({{a}}) = 2\cdot({{c2}})$'
+    - ask: '$f''''''({{a}})$'
+      label: d3
+      tex: 'f''''''({{a}})'
+      value: 6*c3
+      tol: 0.001
+      explain: 'The coefficient of $(x - a)^3$ is $\frac{f''''''(a)}{3!}$, so $f''''''({{a}}) = 6\cdot({{c3}})$'
+  verify: { residuals: ["d2 - factorial(2)*c2", "d3 - factorial(3)*c3"] }
+
+- template: ca-lagrange-bound
+  skill: calc.taylor
+  given: { M: { pick: [1, 2, 5, 10] }, n: { int: [2, 4] }, d: { pick: [0.1, 0.2, 0.5] } }
+  prompt: 'A degree-${{n}}$ Taylor polynomial about $x = 0$ is used at $x = {{d}}$. You know $\left|f^{({{n + 1}})}(x)\right| \le {{M}}$ between $0$ and ${{d}}$.'
+  parts:
+    - ask: 'Lagrange error bound'
+      label: bd
+      tex: '|R_{ {{n}} }|\le'
+      value: M*d^(n + 1)/factorial(n + 1)
+      explain: '$\frac{M|x - a|^{n+1}}{(n + 1)!} = \frac{ {{M}}({{d}})^{ {{n + 1}} } }{ {{n + 1}}!} = {{M*d^(n + 1)/factorial(n + 1)}}$'
+  verify: { residuals: ["bd*factorial(n + 1)/(M*d**(n + 1)) - 1"] }
+
+- template: ca-radius-convergence
+  skill: calc.taylor
+  given: { c: { int: [-4, 4] }, b: { int: [2, 5] }, m: { pick: [0, 1, 2] } }
+  require: [c - b != 0, c + b != 0]
+  prompt: 'Consider the power series $\displaystyle\sum_{n=1}^{\infty}\frac{(x - ({{c}}))^{n}}{n^{ {{m}} }\,{{b}}^{n}}$.'
+  parts:
+    - ask: 'Radius of convergence'
+      label: R
+      tex: 'R'
+      value: b
+      tol: 0.001
+      explain: 'Ratio test: $\left|\frac{a_{n+1}}{a_n}\right| \to \frac{|x - ({{c}})|}{ {{b}} } < 1$, so $R = {{b}}$'
+    - ask: 'Left endpoint of the interval'
+      label: lo
+      tex: 'x'
+      value: c - b
+      tol: 0.001
+      explain: 'Centre minus radius: ${{c}} - {{b}}$'
+    - ask: 'At the left endpoint the series…'
+      label: le
+      choice: ["Converges", "Diverges"]
+      correct: "m >= 1 ? 0 : 1"
+      explain: 'There it becomes $\sum\frac{(-1)^n}{n^{ {{m}} } }$: alternating, convergent as long as the terms shrink to 0, which needs a power of $n$ downstairs'
+    - ask: 'At the right endpoint the series…'
+      label: re
+      choice: ["Converges", "Diverges"]
+      correct: "m >= 2 ? 0 : 1"
+      explain: 'There it becomes $\sum\frac{1}{n^{ {{m}} } }$, a $p$-series: convergent only for $p > 1$'
+  verify:
+    expect: { R: "1/limit((x**m*b**x)/((x + 1)**m*b**(x + 1)), x, oo)", lo: "c - 1/limit((x**m*b**x)/((x + 1)**m*b**(x + 1)), x, oo)" }
+    choices:
+      le: "0 if Sum((-1)**nn/nn**m, (nn, 1, oo)).is_convergent() else 1"
+      re: "0 if Sum(1/nn**m, (nn, 1, oo)).is_convergent() else 1"
