@@ -13,6 +13,13 @@
   "thermo",
   "stat"
  ],
+ "basis": {
+  "primary": "dill-bromberg-shell",
+  "also": [
+   "fe-chemical"
+  ],
+  "note": "UCI CBE 240 publishes no syllabus. Classical units are anchored to fe-chemical; the statistical-mechanics units stand on the books."
+ },
  "big_ideas": [
   {
    "id": "EQ",
@@ -83,6 +90,9 @@
    "n": 1,
    "title": "Probability and counting states",
    "scope": "core",
+   "std": [
+    "fe-chemical:2.A"
+   ],
    "ideas": [
     "MICRO"
    ],
@@ -215,6 +225,9 @@
    "n": 2,
    "title": "Entropy, equilibrium and the fundamental equation",
    "scope": "core",
+   "std": [
+    "fe-chemical:7.C"
+   ],
    "ideas": [
     "EQ",
     "MICRO",
@@ -441,6 +454,10 @@
    "n": 3,
    "title": "The first law and reversibility",
    "scope": "core",
+   "std": [
+    "fe-chemical:7.C",
+    "fe-chemical:7.D"
+   ],
    "ideas": [
     "EQ",
     "FUND"
@@ -739,6 +756,9 @@
    "n": 5,
    "title": "Maxwell relations and measurable properties",
    "scope": "core",
+   "std": [
+    "fe-chemical:7.A"
+   ],
    "ideas": [
     "MEAS",
     "FUND"
@@ -1009,6 +1029,9 @@
    "n": 7,
    "title": "Gases and equations of state",
    "scope": "core",
+   "std": [
+    "fe-chemical:7.A"
+   ],
    "ideas": [
     "FUND",
     "MU",
@@ -1113,6 +1136,10 @@
    "n": 8,
    "title": "Phase equilibrium of pure substances",
    "scope": "core",
+   "std": [
+    "fe-chemical:7.B",
+    "fe-chemical:7.F"
+   ],
    "ideas": [
     "MU",
     "STAB",
@@ -1246,6 +1273,10 @@
    "n": 9,
    "title": "Solutions and mixtures",
    "scope": "core",
+   "std": [
+    "fe-chemical:7.F",
+    "fe-chemical:7.H"
+   ],
    "ideas": [
     "MU",
     "EQ",
@@ -1510,6 +1541,10 @@
    "n": 10,
    "title": "Chemical reaction equilibria",
    "scope": "core",
+   "std": [
+    "fe-chemical:7.G",
+    "fe-chemical:7.H"
+   ],
    "ideas": [
     "MU",
     "EQ",
@@ -2438,6 +2473,9 @@
    "n": 16,
    "title": "Reaction rates and transition states",
    "scope": "extension",
+   "std": [
+    "fe-chemical:12.B"
+   ],
    "ideas": [
     "MICRO",
     "EQ"

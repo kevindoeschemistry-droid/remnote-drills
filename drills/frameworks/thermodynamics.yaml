@@ -40,6 +40,11 @@ track: engineering
 requires: [engineering-math, chemistry, physics]
 domains: [thermo, stat]
 
+basis:
+  primary: dill-bromberg-shell
+  also: [fe-chemical]
+  note: "UCI CBE 240 publishes no syllabus. Classical units are anchored to fe-chemical; the statistical-mechanics units stand on the books."
+
 big_ideas:
   - id: EQ
     title: Equilibrium is an extremum under constraints
@@ -86,6 +91,7 @@ units:
     n: 1
     title: Probability and counting states
     scope: core
+    std: ["fe-chemical:2.A"]
     ideas: [MICRO]
     weight_est: "3–5%"
     topics:
@@ -110,6 +116,7 @@ units:
     n: 2
     title: Entropy, equilibrium and the fundamental equation
     scope: core
+    std: ["fe-chemical:7.C"]
     ideas: [EQ, MICRO, FUND]
     weight_est: "8–10%"
     topics:
@@ -143,6 +150,7 @@ units:
     n: 3
     title: The first law and reversibility
     scope: core
+    std: ["fe-chemical:7.C", "fe-chemical:7.D"]
     ideas: [EQ, FUND]
     weight_est: "5–7%"
     topics:
@@ -199,6 +207,7 @@ units:
     n: 5
     title: Maxwell relations and measurable properties
     scope: core
+    std: ["fe-chemical:7.A"]
     ideas: [MEAS, FUND]
     weight_est: "7–9%"
     topics:
@@ -250,6 +259,7 @@ units:
     n: 7
     title: Gases and equations of state
     scope: core
+    std: ["fe-chemical:7.A"]
     ideas: [FUND, MU, MEAS]
     weight_est: "7–9%"
     topics:
@@ -272,6 +282,7 @@ units:
     n: 8
     title: Phase equilibrium of pure substances
     scope: core
+    std: ["fe-chemical:7.B", "fe-chemical:7.F"]
     ideas: [MU, STAB, EQ]
     weight_est: "6–8%"
     topics:
@@ -299,6 +310,7 @@ units:
     n: 9
     title: Solutions and mixtures
     scope: core
+    std: ["fe-chemical:7.F", "fe-chemical:7.H"]
     ideas: [MU, EQ, STAB]
     weight_est: "12–14%"
     topics:
@@ -344,6 +356,7 @@ units:
     n: 10
     title: Chemical reaction equilibria
     scope: core
+    std: ["fe-chemical:7.G", "fe-chemical:7.H"]
     ideas: [MU, EQ, MICRO]
     weight_est: "8–10%"
     topics:
@@ -511,6 +524,7 @@ units:
     n: 16
     title: Reaction rates and transition states
     scope: extension
+    std: ["fe-chemical:12.B"]
     ideas: [MICRO, EQ]
     topics:
       - n: 1

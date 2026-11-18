@@ -14,6 +14,16 @@
   "quantum",
   "kinetics"
  ],
+ "basis": {
+  "primary": "engel-reid-3e",
+  "also": [
+   "fe-chemical"
+  ],
+  "wanted": [
+   "acs-accm-pchem"
+  ],
+  "note": "Textbook-shaped until the ACS content map is read. Thermodynamics and kinetics units are anchored to fe-chemical; quantum and spectroscopy have no outside anchor yet."
+ },
  "big_ideas": [
   {
    "id": "ENERGY",
@@ -79,6 +89,10 @@
    "n": 1,
    "title": "Gases, work, heat and the first law",
    "scope": "core",
+   "std": [
+    "fe-chemical:7.C",
+    "fe-chemical:7.D"
+   ],
    "ideas": [
     "ENERGY"
    ],
@@ -218,6 +232,9 @@
    "n": 2,
    "title": "Thermochemistry",
    "scope": "core",
+   "std": [
+    "fe-chemical:7.H"
+   ],
    "ideas": [
     "ENERGY"
    ],
@@ -281,6 +298,10 @@
    "n": 3,
    "title": "Entropy and the second and third laws",
    "scope": "core",
+   "std": [
+    "fe-chemical:7.C",
+    "fe-chemical:7.E"
+   ],
    "ideas": [
     "SPONT"
    ],
@@ -381,6 +402,9 @@
    "n": 4,
    "title": "Gibbs energy and chemical equilibrium",
    "scope": "core",
+   "std": [
+    "fe-chemical:7.G"
+   ],
    "ideas": [
     "SPONT"
    ],
@@ -468,6 +492,9 @@
    "n": 5,
    "title": "Real gases",
    "scope": "core",
+   "std": [
+    "fe-chemical:7.A"
+   ],
    "ideas": [
     "ENERGY"
    ],
@@ -543,6 +570,10 @@
    "n": 6,
    "title": "Phase equilibria of pure substances",
    "scope": "core",
+   "std": [
+    "fe-chemical:7.B",
+    "fe-chemical:7.F"
+   ],
    "ideas": [
     "SPONT"
    ],
@@ -608,6 +639,9 @@
    "n": 7,
    "title": "Ideal and real solutions",
    "scope": "core",
+   "std": [
+    "fe-chemical:7.F"
+   ],
    "ideas": [
     "SPONT"
    ],
@@ -821,6 +855,9 @@
    "n": 9,
    "title": "Electrochemical cells",
    "scope": "core",
+   "std": [
+    "fe-chemical:5.A"
+   ],
    "ideas": [
     "SPONT"
    ],
@@ -2273,6 +2310,9 @@
    "n": 21,
    "title": "Kinetic theory of gases and transport",
    "scope": "core",
+   "std": [
+    "fe-chemical:10.A"
+   ],
    "ideas": [
     "RATE"
    ],
@@ -2426,6 +2466,12 @@
    "n": 22,
    "title": "Chemical kinetics",
    "scope": "core",
+   "std": [
+    "fe-chemical:12.A",
+    "fe-chemical:12.B",
+    "fe-chemical:12.D",
+    "fe-chemical:12.F"
+   ],
    "ideas": [
     "RATE"
    ],

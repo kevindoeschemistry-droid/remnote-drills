@@ -115,6 +115,15 @@ and add a first-principles case to `tests/verify/`.
 
 Then `npm test`. Courses you've built in RemNote pick up new skills on their own.
 
+## Standards
+
+The frameworks are a house standard: our own objective codes, written to fit together along one path. Outside standards
+(Common Core, AP course descriptions, the FE exam specifications, CS2023 and so on) are what it is checked against.
+`drills/standards.yaml` lists them with their kind and how fully each was read; every framework declares a `basis`; and
+units, topics or objectives cite outside items with `std`. `docs/coverage/standards.md` (rebuilt by `npm run skills`)
+shows the basis of every framework, how many objectives are anchored outside, and which items of an outlined standard
+nothing answers to yet. `docs/standards.md` has the rules for adding a standard or moving a framework onto one.
+
 ## The path and the Library
 
 `drills/frameworks/*.yaml` are curriculum maps (AP/IB style: units → topics → learning objectives,

@@ -1,0 +1,72 @@
+# Outside standards the frameworks stand on.
+#
+# The house standard is our own: every objective has a code (HT-2.2.A) that never changes, and the
+# frameworks are written to fit together along one path. Outside standards are what that house
+# standard is checked against. A framework declares its `basis` (which of these it leans on and
+# how firmly), and units, topics or objectives cite outside items with `std: ["fe-chemical:7.F"]`.
+#
+#   kind   standard     a curriculum or content standard (what to learn, in what structure)
+#          exam-spec    a published exam blueprint (what is tested, with weights)
+#          course       a course syllabus
+#          rubric       a scoring instrument
+#          rulebook     competition rules (what is legal and how it is scored, not what to learn)
+#          textbook     a book's table of contents
+#   read   full         the standard's own text was read
+#          part         only some of it could be read
+#          crosswalk    read through someone else's correlation table
+#          none         named but not opened
+#   items  the standard's own outline, when it has been read closely enough to cite item by item.
+#          Titles are shortened; the standard's wording is not reproduced.
+#
+# scripts/standards.mjs checks every citation against this file and writes docs/coverage/standards.md.
+
+- id: fe-chemical
+  name: NCEES FE Chemical CBT Exam Specifications (effective July 2020)
+  publisher: NCEES
+  kind: exam-spec
+  read: full
+  url: https://ncees.org/wp-content/uploads/2022/09/FE-Che-CBT-specs.pdf
+  items:
+    - { code: "1", title: "Mathematics", weight: "6–9", parts: { A: "Analytic geometry, logarithms, trigonometry", B: "Calculus", C: "Differential equations", D: "Numerical methods", E: "Algebra, matrices, systems of equations", F: "Accuracy, precision, significant figures" } }
+    - { code: "2", title: "Probability and Statistics", weight: "4–6", parts: { A: "Probability distributions", B: "Expected value in decisions", C: "Hypothesis testing and experimental design", D: "Central tendency and dispersion", E: "Regression and curve fitting", F: "Statistical control limits" } }
+    - { code: "3", title: "Engineering Sciences", weight: "4–6", parts: { A: "Basic dynamics", B: "Work, energy, power", C: "Electricity and circuit laws" } }
+    - { code: "4", title: "Materials Science", weight: "4–6", parts: { A: "Chemical, mechanical and physical properties", B: "Material types and compatibility", C: "Corrosion mechanisms and control", D: "Polymers, ceramics, composites" } }
+    - { code: "5", title: "Chemistry and Biology", weight: "7–11", parts: { A: "Inorganic chemistry (acids and bases, redox, pH, electrochemistry)", B: "Organic chemistry", C: "Analytical chemistry", D: "Biochemistry, microbiology, molecular biology", E: "Bioprocessing" } }
+    - { code: "6", title: "Fluid Mechanics/Dynamics", weight: "8–12", parts: { A: "Fluid properties", B: "Dimensionless numbers", C: "Mechanical energy balance", D: "Bernoulli equation", E: "Laminar and turbulent flow", F: "Flow measurement", G: "Pumps, turbines, compressors, vacuum systems", H: "Compressible flow and non-Newtonian fluids" } }
+    - { code: "7", title: "Thermodynamics", weight: "8–12", parts: { A: "Properties of pure components and mixtures", B: "Property data and phase diagrams", C: "First and second laws", D: "Processes (isothermal, adiabatic, isentropic, phase change)", E: "Cycles and efficiencies", F: "Phase equilibrium (fugacity, activity, Raoult's law)", G: "Chemical equilibrium", H: "Heats of reaction and mixing" } }
+    - { code: "8", title: "Material/Energy Balances", weight: "10–15", parts: { A: "Steady-state mass balance", B: "Unsteady-state mass balance", C: "Steady-state energy balance", D: "Unsteady-state energy balance", E: "Recycle and bypass", F: "Reactive systems (combustion)" } }
+    - { code: "9", title: "Heat Transfer", weight: "8–12", parts: { A: "Conductive", B: "Convective (natural and forced)", C: "Radiation", D: "Heat-transfer coefficients (overall, local, fouling)", E: "Equipment design (double pipe, shell and tube, LMTD, NTU)" } }
+    - { code: "10", title: "Mass Transfer and Separation", weight: "8–12", parts: { A: "Molecular diffusion", B: "Convective mass transfer", C: "Separation systems", D: "Equilibrium stage methods", E: "Continuous contact methods", F: "Humidification, drying, evaporation" } }
+    - { code: "11", title: "Solids Handling", weight: "3–5", parts: { A: "Particle properties", B: "Processing (crushing, grinding, crystallization)", C: "Transport and storage" } }
+    - { code: "12", title: "Chemical Reaction Engineering", weight: "7–11", parts: { A: "Reaction rates and order", B: "Rate constants (Arrhenius)", C: "Conversion, yield, selectivity", D: "Reaction types (series, parallel, homogeneous, heterogeneous, biological)", E: "Reactor types (batch, CSTR, PFR, semibatch)", F: "Catalysis" } }
+    - { code: "13", title: "Economics", weight: "4–6", parts: { A: "Time value of money", B: "Economic analyses", C: "Uncertainty", D: "Project selection" } }
+    - { code: "14", title: "Process Design", weight: "7–11", parts: { A: "PFDs and P&IDs", B: "Equipment selection, sizing, scale-up", C: "Cost estimation", D: "Design and optimization", E: "Design standards" } }
+    - { code: "15", title: "Process Control", weight: "4–6", parts: { A: "Dynamics (first and second order, time constants, stability)", B: "Control strategies", C: "Loop design and hardware" } }
+    - { code: "16", title: "Safety, Health, and Environment", weight: "5–8", parts: { A: "Hazardous material properties", B: "Industrial hygiene", C: "Process safety and risk", D: "Over- and underpressure protection", E: "Waste minimization, treatment, regulation", F: "Reactivity hazards" } }
+    - { code: "17", title: "Ethics and Professional Practice", weight: "3–5", parts: { A: "Codes of ethics", B: "Agreements and contract law", C: "Public health, safety, and welfare", D: "Intellectual property" } }
+
+- { id: fe-mechanical, name: "NCEES FE Mechanical CBT Exam Specifications (July 2020)", publisher: NCEES, kind: exam-spec, read: part }
+- { id: ccss-math, name: "Common Core State Standards for Mathematics (2010)", publisher: "NGA Center / CCSSO", kind: standard, read: crosswalk }
+- { id: ccss-appendix-a, name: "CCSS Mathematics Appendix A: high school course pathways", publisher: "NGA Center / CCSSO", kind: standard, read: full }
+- { id: ap-calculus, name: "AP Calculus AB and BC Course and Exam Description", publisher: College Board, kind: standard, read: full }
+- { id: ap-chemistry, name: "AP Chemistry Course and Exam Description (Fall 2024)", publisher: College Board, kind: standard, read: part }
+- { id: ap-physics, name: "AP Physics 1, 2 and C Course and Exam Descriptions", publisher: College Board, kind: standard, read: part }
+- { id: ap-biology, name: "AP Biology Course and Exam Description (2019)", publisher: College Board, kind: standard, read: crosswalk }
+- { id: ap-csa, name: "AP Computer Science A Course and Exam Description (Fall 2025)", publisher: College Board, kind: standard, read: full }
+- { id: cs2023, name: "Computer Science Curricula 2023, Body of Knowledge", publisher: "ACM / IEEE-CS / AAAI", kind: standard, read: full }
+- { id: msis2016, name: "MSIS 2016 Global Competency Model", publisher: "ACM / AIS", kind: standard, read: full }
+- { id: ada-dat, name: "Dental Admission Test 2026 Candidate Guide", publisher: ADA, kind: exam-spec, read: full }
+- { id: usab-pdc, name: "USA Basketball Player Development Curriculum", publisher: USA Basketball, kind: standard, read: part }
+- { id: bluedot, name: "BlueDot Impact course syllabi (Technical AI Safety, Governance, AGI Strategy)", publisher: BlueDot Impact, kind: course, read: full }
+- { id: nca-competent-speaker, name: "Competent Speaker Speech Evaluation Form, 2nd ed.", publisher: National Communication Association, kind: rubric, read: full }
+- { id: toastmasters-pathways, name: "Toastmasters Pathways core competencies", publisher: Toastmasters International, kind: standard, read: part }
+- { id: world-aquatics-rules, name: "World Aquatics swimming rules (with USA Swimming and USMS stroke rules)", publisher: World Aquatics, kind: rulebook, read: full }
+- { id: iwuf-taolu-2024, name: "IWUF Wushu Taolu Competition Rules and Judging Methods (2024)", publisher: IWUF, kind: rulebook, read: crosswalk }
+- { id: kreyszig-10e, name: "Kreyszig, Advanced Engineering Mathematics, 10th ed.", publisher: Wiley, kind: textbook, read: full }
+- { id: dill-bromberg-shell, name: "Dill & Bromberg, Molecular Driving Forces 2e; Shell, Thermodynamics and Statistical Mechanics", publisher: "Garland / Cambridge", kind: textbook, read: full }
+- { id: engel-reid-3e, name: "Engel & Reid, Physical Chemistry, 3rd ed. (through the wiki's drill pages)", publisher: Pearson, kind: textbook, read: part }
+- { id: livecoms, name: "LiveCoMS best-practice papers for molecular simulation", publisher: Living Journal of Computational Molecular Science, kind: course, read: part }
+# named as the standard a framework should move to, not opened yet
+- { id: acs-accm-pchem, name: "ACS Exams Institute Anchoring Concepts Content Map IV: Physical Chemistry (J. Chem. Educ. 2018, 95, 238)", publisher: ACS Exams Institute, kind: standard, read: none }
+- { id: duanwei, name: "Chinese Wushu Duanwei grading system", publisher: Chinese Wushu Association, kind: standard, read: none }
+- { id: asca-certification, name: "ASCA coach certification curriculum", publisher: American Swimming Coaches Association, kind: standard, read: none }
