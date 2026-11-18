@@ -111,13 +111,13 @@ units:
         fe: [me-A, che-A]
         los:
           - { id: A, do: "Calculate heat flux (magnitude and direction) from a given temperature field.", ek: ["q'' = −k∇T; flux points from hot to cold, normal to isotherms."], p: [P4], drills: [ht-he-flux] }
-          - { id: B, do: "Use k, ρc_p and α = k/ρc_p to compare how materials conduct, store and diffuse heat.", ek: ["High k moves heat; high ρc_p stores it; α sets how fast a disturbance spreads."], p: [P6], drills: [] }
+          - { id: B, do: "Use k, ρc_p and α = k/ρc_p to compare how materials conduct, store and diffuse heat.", ek: ["High k moves heat; high ρc_p stores it; α sets how fast a disturbance spreads."], p: [P6], drills: [ht-diffusivity] }
       - n: 2
         title: The heat diffusion equation
         book: { incropera-8e: ["2.3"] }
         fe: [me-A]
         los:
-          - { id: A, do: "Write the heat equation in Cartesian, cylindrical or spherical coordinates and simplify it for a stated case (steady, 1-D, no generation, constant k).", ek: ["(1/r)d/dr(r dT/dr) and (1/r²)d/dr(r² dT/dr) are the radial Laplacians; each assumption strikes a term."], p: [P2], drills: [] }
+          - { id: A, do: "Write the heat equation in Cartesian, cylindrical or spherical coordinates and simplify it for a stated case (steady, 1-D, no generation, constant k).", ek: ["(1/r)d/dr(r dT/dr) and (1/r²)d/dr(r² dT/dr) are the radial Laplacians; each assumption strikes a term."], p: [P2], drills: [ht-heq-cylinder, ht-heq-sphere] }
           - { id: B, do: "From a given T field, find the generation rate, the surface fluxes or the local rate of change ∂T/∂t.", ek: ["k∇²T + q̇ = ρc ∂T/∂t; read each term off the derivatives of T."], p: [P2, P4], drills: [ht-he-gen, ht-he-dTdt, ht-gen-poly] }
           - { id: C, do: "Decide whether a temperature field can be a steady, generation-free solution.", ek: ["Steady, no q̇, constant k ⇒ ∇²T = 0 (Laplace)."], p: [P5], drills: [mae-laplace] }
       - n: 3
@@ -236,7 +236,7 @@ units:
         book: { incropera-8e: ["4.2"] }
         fe: []
         los:
-          - { id: A, do: "Set up the separable solution for a rectangle with one non-homogeneous edge and evaluate its leading terms.", ek: ["θ = Σ C_n sin(nπx/L) sinh(nπy/L)/sinh(nπW/L); homogeneous BCs set the eigenfunctions."], p: [P2], drills: [] }
+          - { id: A, do: "Set up the separable solution for a rectangle with one non-homogeneous edge and evaluate its leading terms.", ek: ["θ = Σ C_n sin(nπx/L) sinh(nπy/L)/sinh(nπW/L); homogeneous BCs set the eigenfunctions."], p: [P2], drills: [ht-sep-rect] }
       - n: 2
         title: Conduction shape factors
         book: { incropera-8e: ["4.3"] }
@@ -289,7 +289,7 @@ units:
         book: { incropera-8e: ["5.8"] }
         fe: []
         los:
-          - { id: A, do: "Build a 2-D or 3-D transient solution as a product of 1-D solutions.", ek: ["Short cylinder = infinite cylinder × plane wall, each in dimensionless θ*."], p: [P2, P3], drills: [] }
+          - { id: A, do: "Build a 2-D or 3-D transient solution as a product of 1-D solutions.", ek: ["Short cylinder = infinite cylinder × plane wall, each in dimensionless θ*."], p: [P2, P3], drills: [ht-product-short-cyl] }
       - n: 5
         title: Finite-difference transient methods
         book: { incropera-8e: ["5.10"] }
