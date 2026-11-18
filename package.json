@@ -1,19 +1,19 @@
 {
   "name": "wiki-sync",
-  "version": "0.28.0",
+  "version": "0.28.1",
   "private": true,
   "pluginManifest": {
     "id": "wiki-sync",
     "name": "KevinDoesChemistry Library",
     "description": "Drill cards with a fresh, auto-checked problem every review.",
-    "version": "0.28.0",
+    "version": "0.28.1",
     "reqs": []
   },
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack serve --config webpack.config.js",
     "build": "cross-env NODE_ENV=production webpack --config webpack.config.js && cd dist && bestzip ../PluginZip.zip ./*",
     "check-types": "npm run skills && tsc --noEmit",
-    "test": "tsx tests/run.ts && tsx --require ./tests/sim-preload.cjs tests/library-sim.ts && tsx --require ./tests/sim-preload.cjs tests/library-choice-sim.ts && tsx --require ./tests/sim-preload.cjs tests/static-sim.ts && python3 tests/verify_sympy.py",
+    "test": "tsx tests/run.ts && tsx --require ./tests/sim-preload.cjs tests/library-sim.ts && tsx --require ./tests/sim-preload.cjs tests/library-choice-sim.ts && tsx tests/path-view-render.tsx && tsx --require ./tests/sim-preload.cjs tests/static-sim.ts && python3 tests/verify_sympy.py",
     "skills": "node scripts/build-skills.mjs && node scripts/framework.mjs && node scripts/check-wiki.mjs",
     "wiki": "node scripts/check-wiki.mjs",
     "worksheets": "npm run skills && tsx scripts/worksheets.ts",
@@ -43,6 +43,7 @@
     "esbuild-loader": "^2.19.0",
     "html-webpack-plugin": "^5.5.0",
     "js-yaml": "^4.3.2",
+    "jsdom": "^24.1.3",
     "mini-css-extract-plugin": "^2.6.1",
     "shx": "^0.3.4",
     "ts-node": "^10.9.1",

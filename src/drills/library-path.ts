@@ -50,7 +50,8 @@ export const DRILLED_FRAMEWORKS: { id: string; title: string; cards: number }[] 
 /** school maths is in the outline but off for cards until you turn it on */
 export const DEFAULT_CARD_FRAMEWORKS: string[] = DRILLED_FRAMEWORKS.filter((f) => f.id !== "math-k8" && f.id !== "math-hs").map((f) => f.id);
 
-export const getCardFrameworks = (plugin: RNPlugin) => plugin.storage.getSynced<string[] | undefined>(CARD_FWS_KEY);
+/** undefined when no choice has ever been saved (RemNote answers null for a key never set) */
+export const getCardFrameworks = async (plugin: RNPlugin): Promise<string[] | undefined> => (await plugin.storage.getSynced<string[] | null>(CARD_FWS_KEY)) ?? undefined;
 export const setCardFrameworks = (plugin: RNPlugin, ids: string[]) => plugin.storage.setSynced(CARD_FWS_KEY, ids);
 
 /**
