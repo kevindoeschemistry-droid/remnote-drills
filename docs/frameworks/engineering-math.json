@@ -18,6 +18,13 @@
   "bvp",
   "pde"
  ],
+ "basis": {
+  "primary": "kreyszig-10e",
+  "also": [
+   "fe-chemical"
+  ],
+  "note": "UCI CBE 200 publishes no syllabus. The undergraduate part is anchored to fe-chemical; series, Sturm–Liouville, PDEs and transforms are past any exam spec and stand on the book."
+ },
  "big_ideas": [
   {
    "id": "MODEL",
@@ -92,6 +99,9 @@
     {
      "n": 1,
      "title": "Integration techniques",
+     "std": [
+      "fe-chemical:1.B"
+     ],
      "book": {
       "kreyszig-10e": [
        "1.3",
@@ -242,6 +252,9 @@
     {
      "n": 4,
      "title": "Partial derivatives and exact differentials",
+     "std": [
+      "fe-chemical:1.B"
+     ],
      "book": {
       "kreyszig-10e": [
        "1.4",
@@ -298,6 +311,10 @@
    "n": 2,
    "title": "First-order ODEs",
    "scope": "core",
+   "std": [
+    "fe-chemical:1.C",
+    "fe-chemical:1.D"
+   ],
    "ideas": [
     "MODEL",
     "FORM",
@@ -668,6 +685,10 @@
    "n": 3,
    "title": "Second-order linear ODEs",
    "scope": "core",
+   "std": [
+    "fe-chemical:1.C",
+    "fe-chemical:15.A"
+   ],
    "ideas": [
     "LIN",
     "EIG",
@@ -1035,6 +1056,9 @@
    "n": 4,
    "title": "Higher-order linear ODEs",
    "scope": "core",
+   "std": [
+    "fe-chemical:1.C"
+   ],
    "ideas": [
     "LIN",
     "EIG"
@@ -1138,6 +1162,10 @@
    "n": 5,
    "title": "Systems of ODEs, phase plane and stability",
    "scope": "core",
+   "std": [
+    "fe-chemical:1.C",
+    "fe-chemical:15.A"
+   ],
    "ideas": [
     "EIG",
     "LIN",
@@ -1624,6 +1652,10 @@
    "n": 7,
    "title": "Laplace transforms",
    "scope": "core",
+   "std": [
+    "fe-chemical:1.C",
+    "fe-chemical:15.A"
+   ],
    "ideas": [
     "TRANS",
     "LIN",
@@ -1940,6 +1972,9 @@
    "n": 8,
    "title": "Linear algebra for ODEs",
    "scope": "core",
+   "std": [
+    "fe-chemical:1.E"
+   ],
    "ideas": [
     "LIN",
     "EIG"

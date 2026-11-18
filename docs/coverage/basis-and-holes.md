@@ -2,6 +2,10 @@
 
 Snapshot of 2026-11-18 (plugin 0.30.0). Regenerate the counts with `npm run skills`.
 
+> The basis table below is a hand-written snapshot. The maintained version, with the kind of each
+> basis (a rulebook and a textbook are not curriculum standards) and item-by-item coverage, is
+> `docs/coverage/standards.md`, rebuilt on every build.
+
 ## Basis and drill coverage
 
 "Opened" means the standard's own text was read while drafting. "Crosswalk" means it was read
