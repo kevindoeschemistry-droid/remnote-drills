@@ -115,6 +115,14 @@ and add a first-principles case to `tests/verify/`.
 
 Then `npm test`. Courses you've built in RemNote pick up new skills on their own.
 
+### Symbolic answers in problems-as-data
+
+A part of a `drills/problems/*.yaml` template can be an expression instead of a number: `expr: "n*a*(a*x + b)^(n - 1)"`
+(with `vars: [x, h]` if it has more than `x`). The template's numbers are folded in (`src/drills/sym.ts`), the learner's
+answer is checked as an expression, and `{{=expr}}` prints any expression the same way in a prompt or explanation.
+`verify.expect` then recomputes it in sympy from the givens (`diff(...)`, `limit(...)`, `solve(...)`), and
+`verify.choices` does the same for multiple-choice parts. The calculus templates (`ca-*.yaml`) are written this way.
+
 ## Standards
 
 The frameworks are a house standard: our own objective codes, written to fit together along one path. Outside standards

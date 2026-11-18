@@ -1,0 +1,343 @@
+# AP Calculus Units 4–5: using derivatives. Motion, related rates, linearization, L'Hospital,
+# extrema, concavity and optimization. verify.expect recomputes each answer with sympy.
+
+# ── motion on a line (CA-4.2.A) ────────────────────────────────────────────
+- template: ca-motion
+  skill: calc.rates
+  given: { a: { int: [1, 6] }, b: { int: [-9, 12] }, t0: { int: [1, 5] } }
+  let:
+    v: 3*t0^2 - 2*a*t0 + b
+    acc: 6*t0 - 2*a
+  require: [v != 0, acc != 0]
+  prompt: 'A particle moves along a line with position $s(t) = {{=t^3 - a*t^2 + b*t}}$ (metres, seconds). Consider $t = {{t0}}$.'
+  parts:
+    - ask: 'Velocity at $t = {{t0}}$'
+      label: vel
+      tex: 'v({{t0}})'
+      value: v
+      unit: m/s
+      tol: 0.001
+      explain: '$v = s'' = {{=3*t^2 - 2*a*t + b}}$, so $v({{t0}}) = {{v}}$'
+    - ask: 'Acceleration at $t = {{t0}}$'
+      label: ac
+      tex: 'a({{t0}})'
+      value: acc
+      tol: 0.001
+      explain: '$a = v'' = {{=6*t - 2*a}}$, so $a({{t0}}) = {{acc}}$'
+    - ask: 'At that instant the particle is…'
+      label: su
+      choice: ["Speeding up", "Slowing down"]
+      correct: "v*acc > 0 ? 0 : 1"
+      explain: 'Speeding up when velocity and acceleration have the same sign, slowing down when they are opposite. Here $v = {{v}}$ and $a = {{acc}}$'
+  verify:
+    var: t
+    expect: { vel: "diff(t**3 - a*t**2 + b*t, t).subs(t, t0)", ac: "diff(t**3 - a*t**2 + b*t, t, 2).subs(t, t0)" }
+    choices: { su: "0 if diff(t**3 - a*t**2 + b*t, t).subs(t, t0)*diff(t**3 - a*t**2 + b*t, t, 2).subs(t, t0) > 0 else 1" }
+
+# ── related rates (CA-4.4.A, CA-4.5.A) ─────────────────────────────────────
+- template: ca-related-circle
+  skill: calc.rates
+  given: { r0: { int: [2, 12] }, k: { pick: [0.5, 1, 2, 3] } }
+  prompt: 'The radius of a circular ripple grows at ${{k}}\,\mathrm{cm/s}$. How fast is its area growing when $r = {{r0}}\,\mathrm{cm}$?'
+  parts:
+    - ask: '$\dfrac{dA}{dt}$ in cm²/s'
+      label: dA
+      tex: '\frac{dA}{dt}'
+      value: 2*pi*r0*k
+      explain: '$A = \pi r^2$, so $\frac{dA}{dt} = 2\pi r\frac{dr}{dt} = 2\pi({{r0}})({{k}}) = {{2*pi*r0*k}}$. Differentiate first, substitute the instant last'
+  verify: { expect: { dA: "diff(pi*Symbol('r')**2, Symbol('r')).subs(Symbol('r'), r0)*k" } }
+
+- template: ca-related-sphere
+  skill: calc.rates
+  given: { r0: { int: [2, 10] }, dV: { pick: [10, 20, 50, 100, 200] } }
+  prompt: 'A spherical balloon is inflated at ${{dV}}\,\mathrm{cm^3/s}$. How fast is the radius growing when $r = {{r0}}\,\mathrm{cm}$?'
+  parts:
+    - ask: '$\dfrac{dr}{dt}$ in cm/s'
+      label: dr
+      tex: '\frac{dr}{dt}'
+      value: dV/(4*pi*r0^2)
+      explain: '$V = \frac43\pi r^3$, so $\frac{dV}{dt} = 4\pi r^2\frac{dr}{dt}$ and $\frac{dr}{dt} = \frac{ {{dV}} }{4\pi({{r0}})^2} = {{dV/(4*pi*r0^2)}}$. The bigger the balloon, the slower the radius grows'
+  verify: { expect: { dr: "dV/diff(Rational(4, 3)*pi*Symbol('r')**3, Symbol('r')).subs(Symbol('r'), r0)" } }
+
+- template: ca-related-ladder
+  skill: calc.rates
+  given: { k: { int: [1, 3] }, dx: { pick: [0.5, 1, 2] } }
+  prompt: 'A ${{5*k}}\,\mathrm{m}$ ladder leans on a wall. Its foot slides away from the wall at ${{dx}}\,\mathrm{m/s}$. How fast is the top moving when the foot is ${{3*k}}\,\mathrm{m}$ from the wall?'
+  parts:
+    - ask: 'Height of the top at that instant'
+      label: y0
+      tex: 'y'
+      value: 4*k
+      unit: m
+      tol: 0.001
+      explain: '$y = \sqrt{ {{5*k}}^2 - {{3*k}}^2} = {{4*k}}$'
+    - ask: '$\dfrac{dy}{dt}$, with its sign, in m/s'
+      label: dy
+      tex: '\frac{dy}{dt}'
+      value: -3*k*dx/(4*k)
+      explain: '$x^2 + y^2 = {{(5*k)^2}}$ gives $2x\frac{dx}{dt} + 2y\frac{dy}{dt} = 0$, so $\frac{dy}{dt} = -\frac{x}{y}\frac{dx}{dt} = -\frac{ {{3*k}} }{ {{4*k}} }({{dx}}) = {{-3*dx/4}}$. Negative: the top is coming down'
+  verify:
+    expect: { y0: "sqrt((5*k)**2 - (3*k)**2)", dy: "diff(sqrt((5*k)**2 - x**2), x).subs(x, 3*k)*dx" }
+
+# ── linearization (CA-4.6.A, CA-4.6.B) ─────────────────────────────────────
+- template: ca-linearization
+  skill: calc.rates
+  given: { a: { int: [2, 10] }, d: { pick: [-2, -1, -0.5, 0.5, 1, 2] } }
+  prompt: 'Use the tangent line to $f(x) = \sqrt{x}$ at $x = {{a^2}}$ to estimate $\sqrt{ {{a^2 + d}} }$.'
+  parts:
+    - ask: 'The estimate'
+      label: L
+      tex: 'L({{a^2 + d}})'
+      value: a + d/(2*a)
+      tol: 0.0005
+      explain: '$L(x) = f(a) + f''(a)(x - a)$ with $f''(x) = \frac{1}{2\sqrt x}$: ${{a}} + \frac{1}{ {{2*a}} }({{d}}) = {{a + d/(2*a)|6}}$. The true value is ${{sqrt(a^2 + d)|6}}$'
+  verify: { expect: { L: "sqrt(a**2) + diff(sqrt(x), x).subs(x, a**2)*d" } }
+
+- template: ca-linearization-error
+  skill: calc.rates
+  given: { fa: { int: [-5, 9] }, f1: { pick: [-3, -2, -0.5, 0.5, 2, 4] }, f2: { pick: [-6, -2, 3, 8] }, a: { int: [1, 5] }, dx: { pick: [-0.2, -0.1, 0.1, 0.2] } }
+  require: [fa + f1*dx != 0]
+  prompt: 'At $x = {{a}}$: $f = {{fa}}$, $f'' = {{f1}}$, and $f'''' = {{f2}}$ on an interval around it.'
+  parts:
+    - ask: 'Tangent-line estimate of $f({{a + dx}})$'
+      label: L
+      tex: 'L({{a + dx}})'
+      value: fa + f1*dx
+      tol: 0.0005
+      explain: '$L = f({{a}}) + f''({{a}})\,\Delta x = {{fa}} + ({{f1}})({{dx}}) = {{fa + f1*dx}}$'
+    - ask: 'The estimate is an…'
+      label: ou
+      choice: ["Overestimate", "Underestimate"]
+      correct: "f2 < 0 ? 0 : 1"
+      explain: 'Concave down ($f'''' < 0$) means the curve lies below its tangent lines, so the tangent overestimates. Concave up, the reverse. The direction of $\Delta x$ does not matter'
+  verify:
+    residuals: ["L - fa - f1*dx"]
+    choices: { ou: "0 if f2 < 0 else 1" }
+
+# ── L'Hospital's rule (CA-4.7.A, CA-4.7.B) ─────────────────────────────────
+- template: ca-lhospital-exp
+  skill: calc.rates
+  given: { a: { int: [-6, 6] }, b: { int: [1, 6] } }
+  require: [a != 0, a != b]
+  prompt: 'Evaluate $\displaystyle\lim_{x\to 0}\frac{e^{ {{=a*x}} } - 1}{ {{=b*x}} }$.'
+  parts:
+    - ask: 'The limit'
+      label: L
+      tex: 'L'
+      value: a/b
+      explain: 'The form is $\frac00$, so differentiate top and bottom: $\frac{ {{a}}e^{ {{=a*x}} } }{ {{b}} } \to \frac{ {{a}} }{ {{b}} }$'
+  verify: { expect: { L: "limit((exp(a*x) - 1)/(b*x), x, 0)" } }
+
+- template: ca-lhospital-twice
+  skill: calc.rates
+  given: { a: { int: [1, 6] }, b: { int: [1, 6] } }
+  prompt: 'Evaluate $\displaystyle\lim_{x\to 0}\frac{1 - \cos {{=a*x}} }{ {{=b*x^2}} }$.'
+  parts:
+    - ask: 'The limit'
+      label: L
+      tex: 'L'
+      value: a^2/(2*b)
+      explain: '$\frac00$ twice: first $\frac{ {{a}}\sin {{=a*x}} }{ {{2*b}}x}$, still $\frac00$, then $\frac{ {{a^2}}\cos {{=a*x}} }{ {{2*b}} } \to \frac{ {{a^2}} }{ {{2*b}} }$'
+  verify: { expect: { L: "limit((1 - cos(a*x))/(b*x**2), x, 0)" } }
+
+- template: ca-lhospital-power
+  skill: calc.rates
+  given: { a: { int: [-3, 3] }, b: { int: [1, 3] } }
+  require: [a != 0]
+  prompt: 'Evaluate $\displaystyle\lim_{x\to\infty}\left(1 + \frac{ {{a}} }{x}\right)^{ {{=b*x}} }$.'
+  parts:
+    - ask: 'The limit (a decimal, or type e^(…))'
+      label: L
+      tex: 'L'
+      value: exp(a*b)
+      explain: 'The form is $1^\infty$. Take logs: ${{=b*x}}\ln\left(1 + \frac{ {{a}} }{x}\right) = \frac{\ln(1 + {{a}}/x)}{1/({{b}}x)}$, a $\frac00$ form whose limit is ${{a*b}}$. So the answer is $e^{ {{a*b}} } = {{exp(a*b)}}$'
+  verify: { expect: { L: "limit((1 + a/x)**(b*x), x, oo)" } }
+
+# ── mean value theorem (CA-5.1.A) ──────────────────────────────────────────
+- template: ca-mvt
+  skill: calc.extrema
+  given: { p: { int: [0, 2] }, w: { int: [1, 4] }, b: { int: [-5, 5] } }
+  let: { q: p + w }
+  require: [p^2 + p*q + q^2 + b != 0]
+  prompt: 'Let $f(x) = {{=x^3 + b*x}}$ on $[{{p}}, {{q}}]$.'
+  parts:
+    - ask: 'Average rate of change on the interval'
+      label: m
+      tex: 'm'
+      value: p^2 + p*q + q^2 + b
+      tol: 0.001
+      explain: '$\frac{f({{q}}) - f({{p}})}{ {{q}} - {{p}} } = \frac{ {{q^3 + b*q}} - ({{p^3 + b*p}})}{ {{w}} } = {{p^2 + p*q + q^2 + b}}$'
+    - ask: 'The $c$ in $({{p}}, {{q}})$ that the MVT guarantees, with $f''(c)$ equal to that'
+      label: c
+      tex: 'c'
+      value: sqrt((p^2 + p*q + q^2)/3)
+      explain: '$f''(c) = 3c^2 + ({{b}}) = {{p^2 + p*q + q^2 + b}}$ gives $c^2 = {{(p^2 + p*q + q^2)/3}}$; take the positive root, which lies in the interval: $c = {{sqrt((p^2 + p*q + q^2)/3)}}$'
+  verify:
+    expect:
+      m: "(((p + w)**3 + b*(p + w)) - (p**3 + b*p))/w"
+      c: "[r for r in solve(Eq(diff(x**3 + b*x, x), (((p + w)**3 + b*(p + w)) - (p**3 + b*p))/w), x) if p < r < p + w][0]"
+
+# ── critical points and the first-derivative test (CA-5.2.A, CA-5.3.A, CA-5.4.A) ──
+- template: ca-critical-points
+  skill: calc.extrema
+  given: { r: { pick: [-4, -3, -2, -1, 1, 2] }, w: { int: [1, 4] }, lead: { pick: [1, -1] }, d: { int: [-5, 5] } }
+  let: { s: r + w }
+  require: [s != 0]
+  prompt: 'Let $f(x) = {{=lead*2*x^3 - lead*3*(r + s)*x^2 + lead*6*r*s*x + d}}$.'
+  parts:
+    - ask: 'Smaller critical point'
+      label: c1
+      tex: 'x_1'
+      value: r
+      tol: 0.001
+      explain: '$f''(x) = {{=lead*6*x^2 - lead*6*(r + s)*x + lead*6*r*s}} = {{lead*6}}(x - ({{r}}))(x - ({{s}}))$'
+    - ask: 'Larger critical point'
+      label: c2
+      tex: 'x_2'
+      value: s
+      tol: 0.001
+      explain: 'The other root of $f''$'
+    - ask: 'At the smaller critical point $f$ has a…'
+      label: kind
+      choice: ["Relative maximum", "Relative minimum"]
+      correct: "lead > 0 ? 0 : 1"
+      explain: 'Check the sign of $f''$ on each side. Between the roots $f''$ has the sign of ${{-lead*6}}$, outside them the opposite. $f$ is {{lead > 0 ? "decreasing" : "increasing"}} on $({{r}}, {{s}})$'
+  verify:
+    expect:
+      c1: "Min(*solve(diff(lead*(2*x**3 - 3*(2*r + w)*x**2 + 6*r*(r + w)*x) + d, x), x))"
+      c2: "Max(*solve(diff(lead*(2*x**3 - 3*(2*r + w)*x**2 + 6*r*(r + w)*x) + d, x), x))"
+    choices: { kind: "0 if diff(lead*(2*x**3 - 3*(2*r + w)*x**2 + 6*r*(r + w)*x), x, 2).subs(x, r) < 0 else 1" }
+
+# ── absolute extrema on a closed interval (CA-5.5.A) ───────────────────────
+- template: ca-abs-extrema
+  skill: calc.extrema
+  given: { c: { int: [-3, 4] }, d: { int: [-6, 9] }, p: { int: [-4, 2] }, w: { int: [2, 5] } }
+  let:
+    q: p + w
+    fp: p^2 - 2*c*p + d
+    fq: q^2 - 2*c*q + d
+    fc: d - c^2
+    lo: "(c > p and c < q) ? fc : min(fp, fq)"
+    hi: max(fp, fq)
+  require: [lo != 0, hi != 0, fp != fq]
+  prompt: 'Find the absolute extrema of $f(x) = {{=x^2 - 2*c*x + d}}$ on $[{{p}}, {{q}}]$.'
+  parts:
+    - ask: 'Absolute minimum value'
+      label: mn
+      tex: 'f_\mathrm{min}'
+      value: lo
+      tol: 0.001
+      explain: 'Candidates are the endpoints and any critical point inside. $f'' = {{=2*x - 2*c}}$ is zero at $x = {{c}}$. $f({{p}}) = {{fp}}$, $f({{q}}) = {{fq}}$, $f({{c}}) = {{fc}}$ (only counts if ${{c}}$ is inside the interval)'
+    - ask: 'Absolute maximum value'
+      label: mx
+      tex: 'f_\mathrm{max}'
+      value: hi
+      tol: 0.001
+      explain: 'The parabola opens up, so the maximum is at an endpoint: the larger of ${{fp}}$ and ${{fq}}$'
+  verify:
+    expect:
+      mn: "Min(*[(x**2 - 2*c*x + d).subs(x, u) for u in [p, p + w] + [r for r in solve(diff(x**2 - 2*c*x + d, x), x) if p < r < p + w]])"
+      mx: "Max(*[(x**2 - 2*c*x + d).subs(x, u) for u in [p, p + w] + [r for r in solve(diff(x**2 - 2*c*x + d, x), x) if p < r < p + w]])"
+
+# ── concavity and inflection (CA-5.6.A) ────────────────────────────────────
+- template: ca-inflection
+  skill: calc.extrema
+  given: { r: { pick: [-4, -3, -2, -1, 1, 2, 3, 4] }, b: { int: [-9, 9] }, lead: { pick: [1, -1] } }
+  prompt: 'Let $f(x) = {{=lead*x^3 - lead*3*r*x^2 + b*x}}$.'
+  parts:
+    - ask: '$x$-coordinate of the inflection point'
+      label: xi
+      tex: 'x'
+      value: r
+      tol: 0.001
+      explain: '$f''''(x) = {{=lead*6*x - lead*6*r}}$, which is zero and changes sign at $x = {{r}}$'
+    - ask: 'For $x > {{r}}$ the graph is…'
+      label: cc
+      choice: ["Concave up", "Concave down"]
+      correct: "lead > 0 ? 0 : 1"
+      explain: 'Read the sign of $f''''$ to the right of ${{r}}$'
+  verify:
+    expect: { xi: "solve(diff(lead*(x**3 - 3*r*x**2) + b*x, x, 2), x)[0]" }
+    choices: { cc: "0 if diff(lead*(x**3 - 3*r*x**2) + b*x, x, 2).subs(x, r + 1) > 0 else 1" }
+
+# ── second-derivative test (CA-5.7.A) ──────────────────────────────────────
+- template: ca-second-derivative-test
+  skill: calc.extrema
+  given: { a: { pick: [-3, -2, -1, 1, 2, 3] }, c: { int: [-3, 3] }, d: { int: [-5, 5] } }
+  prompt: 'Let $f(x) = {{=a*x^2 - 2*a*c*x + d}}$. Its only critical point is $x = {{c}}$.'
+  parts:
+    - ask: '$f''''({{c}})$'
+      label: f2
+      tex: 'f''''({{c}})'
+      value: 2*a
+      tol: 0.001
+      explain: '$f'' = {{=2*a*x - 2*a*c}}$, so $f'''' = {{2*a}}$ everywhere'
+    - ask: 'By the second-derivative test, $x = {{c}}$ is a…'
+      label: kind
+      choice: ["Relative maximum", "Relative minimum"]
+      correct: "a < 0 ? 0 : 1"
+      explain: '$f''''(c) < 0$: concave down, a maximum. $f''''(c) > 0$: concave up, a minimum. If $f''''(c) = 0$ the test says nothing'
+  verify:
+    expect: { f2: "diff(a*x**2 - 2*a*c*x + d, x, 2).subs(x, c)" }
+    choices: { kind: "0 if diff(a*x**2 - 2*a*c*x + d, x, 2).subs(x, c) < 0 else 1" }
+
+# ── optimization (CA-5.10.A, CA-5.11.A) ────────────────────────────────────
+- template: ca-optimization-fence
+  skill: calc.extrema
+  given: { P: { pick: [40, 60, 80, 100, 120, 200] } }
+  prompt: 'A rectangular pen is built against a straight river, so it needs fence on only three sides. There are ${{P}}\,\mathrm{m}$ of fence. Let $x$ be the length of each side perpendicular to the river.'
+  parts:
+    - ask: 'Area as a function of $x$'
+      label: A
+      tex: 'A(x)'
+      expr: x*(P - 2*x)
+      explain: 'Two sides of length $x$ leave ${{P}} - 2x$ for the side along the river'
+    - ask: 'The $x$ that maximizes the area'
+      label: xs
+      tex: 'x'
+      value: P/4
+      unit: m
+      tol: 0.001
+      explain: '$A'' = {{P}} - 4x = 0$ at $x = {{P/4}}$, and $A'''' = -4 < 0$, so it is the maximum on $0 < x < {{P/2}}$'
+    - ask: 'The maximum area'
+      label: Am
+      tex: 'A_\mathrm{max}'
+      value: P^2/8
+      unit: m²
+      tol: 0.001
+      explain: '$A({{P/4}}) = ({{P/4}})({{P/2}}) = {{P^2/8}}$. The river side is twice the others'
+  verify:
+    expect:
+      A: "x*(P - 2*x)"
+      xs: "solve(diff(x*(P - 2*x), x), x)[0]"
+      Am: "(x*(P - 2*x)).subs(x, solve(diff(x*(P - 2*x), x), x)[0])"
+
+- template: ca-optimization-box
+  skill: calc.extrema
+  given: { s: { pick: [6, 12, 18, 24, 30] } }
+  prompt: 'Equal squares of side $x$ are cut from the corners of a ${{s}}\,\mathrm{cm}$ square sheet, and the sides are folded up to make an open box.'
+  parts:
+    - ask: 'Volume as a function of $x$'
+      label: V
+      tex: 'V(x)'
+      expr: x*(s - 2*x)^2
+      explain: 'Height $x$, square base of side ${{s}} - 2x$'
+    - ask: 'The $x$ that maximizes the volume'
+      label: xs
+      tex: 'x'
+      value: s/6
+      unit: cm
+      tol: 0.001
+      explain: '$V'' = ({{s}} - 2x)({{s}} - 6x)$ is zero at $x = {{s/6}}$ and at $x = {{s/2}}$; the second gives zero volume'
+    - ask: 'The maximum volume'
+      label: Vm
+      tex: 'V_\mathrm{max}'
+      value: 2*s^3/27
+      unit: cm³
+      tol: 0.001
+      explain: '$V({{s/6}}) = ({{s/6}})({{2*s/3}})^2 = {{2*s^3/27}}$'
+  verify:
+    expect:
+      V: "x*(s - 2*x)**2"
+      xs: "Min(*solve(diff(x*(s - 2*x)**2, x), x))"
+      Vm: "(x*(s - 2*x)**2).subs(x, Min(*solve(diff(x*(s - 2*x)**2, x), x)))"

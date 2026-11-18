@@ -479,3 +479,14 @@ skills:
   - { id: quantum.spectroscopy, domain: quantum, title: "Spectroscopy numbers: Beer–Lambert and NMR", prereqs: [quantum.origins] }
   - { id: kinetics.gas-kinetic, domain: kinetics, title: "Molecular speeds, collisions and diffusion" }
   - { id: kinetics.rate-laws, domain: kinetics, title: "Rate laws, integrated rates and mechanisms" }
+
+  # ── single-variable calculus (AP Calculus AB/BC) — templates: drills/problems/ca-*.yaml ─────────
+  - { id: calc.limits, domain: calc, title: "Limits: substitution, factoring, trig, infinity" }
+  - { id: calc.continuity, domain: calc, title: "One-sided limits, continuity and asymptotes", prereqs: [calc.limits] }
+  - { id: calc.derivative-basics, domain: calc, title: "The derivative: rates, definition, tangent lines", prereqs: [calc.limits] }
+  - { id: calc.derivative-rules, domain: calc, title: "Derivative rules: power, product, quotient, trig", prereqs: [calc.derivative-basics] }
+  - { id: calc.chain-rule, domain: calc, title: "Chain rule", prereqs: [calc.derivative-rules] }
+  - { id: calc.implicit-inverse, domain: calc, title: "Implicit, inverse and higher derivatives", prereqs: [calc.chain-rule] }
+  - { id: calc.rates, domain: calc, title: "Motion, related rates, linearization, L'Hospital", prereqs: [calc.chain-rule] }
+  - { id: calc.extrema, domain: calc, title: "Extrema, concavity and optimization", prereqs: [calc.derivative-rules] }
+

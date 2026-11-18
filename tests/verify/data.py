@@ -6,6 +6,8 @@ the generator's formula. For every part, the value the generator claims must mat
   ode        the governing equation in T(var); dsolve gives the general solution
   bcs        "lhs = rhs" with T(v), dT(v) = T'(v), lim0(e) = limit var -> 0+; fixes the constants
   expect     label -> expression in the solved T, dT and the givens; must equal the part's value
+  choices    label -> expression giving the 0-based index of the right option
+  (a part may be symbolic: its reference is an expression in var, compared at sample points)
   residuals  balances that must vanish (part labels stand for the claimed values); a residual
              with the variable left in must vanish at every point
 """
@@ -20,7 +22,32 @@ TEMPLATES = {t["template"]: t for t in json.loads(_GEN.read_text()).get("problem
 
 BASE = {"diff": sp.diff, "pi": sp.pi, "log": sp.log, "exp": sp.exp, "sqrt": sp.sqrt, "Abs": sp.Abs,
         "solve": sp.solve, "sin": sp.sin, "cos": sp.cos, "tan": sp.tan, "tanh": sp.tanh, "cosh": sp.cosh, "sinh": sp.sinh,
-        "integrate": sp.integrate}
+        "integrate": sp.integrate, "limit": sp.limit, "oo": sp.oo, "atan": sp.atan, "asin": sp.asin, "acos": sp.acos,
+        "sec": sp.sec, "csc": sp.csc, "cot": sp.cot, "Rational": sp.Rational, "Symbol": sp.Symbol, "Eq": sp.Eq,
+        "Min": sp.Min, "Max": sp.Max, "series": sp.series, "summation": sp.summation, "Matrix": sp.Matrix, "factorial": sp.factorial}
+
+
+def parse(ref, var):
+    """a symbolic part's reference (mathjs syntax) as a sympy expression in the template's variable"""
+    from sympy.parsing.sympy_parser import parse_expr
+    loc = {var.name: var, "log": sp.log, "exp": sp.exp, "sqrt": sp.sqrt, "sin": sp.sin, "cos": sp.cos, "tan": sp.tan,
+           "atan": sp.atan, "asin": sp.asin, "acos": sp.acos, "sec": sp.sec, "csc": sp.csc, "cot": sp.cot,
+           "abs": sp.Abs, "pi": sp.pi, "e": sp.E}
+    return parse_expr(str(ref).replace("^", "**"), local_dict=loc)
+
+
+def same(want, got, var) -> bool:
+    want, got = sp.sympify(want), sp.sympify(got)
+    free = sorted((want - got).free_symbols | want.free_symbols, key=lambda q: q.name)
+    if free:
+        rnd = random.Random(5)
+        for _ in range(6):
+            pt = {q: sp.Rational(rnd.randint(23, 193), 100) for q in free}
+            d = complex(sp.N((want - got).subs(pt), 30))
+            if abs(d) > 1e-9 * max(1.0, abs(complex(sp.N(want.subs(pt), 30)))):
+                return False
+        return True
+    return abs(float(want) - float(got)) <= 1e-6 * max(1.0, abs(float(want)))
 
 
 def ev(expr, ns):
@@ -51,7 +78,12 @@ def check(p, H):
     # radial coordinates are positive (log r, limits at 0+); a Cartesian x may be negative
     var = sp.Symbol(v.get("var", "x"), positive=True) if v.get("var") == "r" else sp.Symbol(v.get("var", "x"), real=True)
     labels = [q["label"] for q in t["parts"]]
-    claimed = {lab: num(float(part["answer"]["ref"])) for lab, part in zip(labels, p["parts"])
+    def _claim(ref):
+        try:
+            return num(float(ref))
+        except (TypeError, ValueError):
+            return parse(ref, var)
+    claimed = {lab: _claim(part["answer"]["ref"]) for lab, part in zip(labels, p["parts"])
                if part["answer"]["kind"] == "expression"}
     ns = {**BASE, **{k: num(x) for k, x in meta["given"].items()}, v.get("var", "x"): var}
     ns_parts = {**ns, **claimed}
@@ -78,10 +110,16 @@ def check(p, H):
         ns_parts = {**ns_parts, **fns(Tsol)}
 
     for lab, expr in (v.get("expect") or {}).items():
-        want = float(ev(expr, ns_parts))
-        got = float(claimed[lab])
-        if abs(want - got) > 1e-6 * max(1.0, abs(want)):
-            print(f"  {name}: {lab} claimed {got}, verifier gets {want}")
+        want = ev(expr, ns_parts)
+        if not same(want, claimed[lab], var):
+            print(f"  {name}: {lab} claimed {claimed[lab]}, verifier gets {want}")
+            return False
+    # choice parts: the index the generator marked correct must be the one the verifier computes
+    for lab, expr in (v.get("choices") or {}).items():
+        want = int(ev(expr, ns_parts))
+        got = int(meta["values"][lab])
+        if want != got:
+            print(f"  {name}: choice {lab} marked {got}, verifier gets {want}")
             return False
     for res in v.get("residuals") or []:
         if not vanishes(ev(res, ns_parts), var):

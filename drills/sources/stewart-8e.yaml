@@ -1,0 +1,47 @@
+# Stewart, Calculus: Early Transcendentals, 8th ed. (Cengage, 2016)
+# Section numbers are the Early Transcendentals numbering (Ch 2 Limits and Derivatives, Ch 3
+# Differentiation Rules, Ch 4 Applications of Differentiation). Only the chapters with drills are
+# broken into sections so far.
+id: stewart-8e
+title: "Stewart — Calculus: Early Transcendentals"
+short: "Stewart"
+edition: 8
+year: 2016
+field: calculus
+wiki: textbooks/stewart-calculus
+chapters:
+  - n: 2
+    title: "Limits and Derivatives"
+    wiki: textbooks/stewart-calculus/ch02
+    sections:
+      - { ref: "2.2", title: "The Limit of a Function", skills: [calc.continuity] }
+      - { ref: "2.3", title: "Calculating Limits Using the Limit Laws", skills: [calc.limits],
+          wiki: textbooks/stewart-calculus/ch01-limit-def }
+      - { ref: "2.5", title: "Continuity", skills: [calc.continuity] }
+      - { ref: "2.6", title: "Limits at Infinity; Horizontal Asymptotes", skills: [calc.limits] }
+      - { ref: "2.7", title: "Derivatives and Rates of Change", skills: [calc.derivative-basics],
+          wiki: textbooks/stewart-calculus/ch02-derivative-def }
+      - { ref: "2.8", title: "The Derivative as a Function", skills: [calc.derivative-basics] }
+  - n: 3
+    title: "Differentiation Rules"
+    wiki: textbooks/stewart-calculus/ch03
+    sections:
+      - { ref: "3.1", title: "Derivatives of Polynomials and Exponential Functions", skills: [calc.derivative-rules] }
+      - { ref: "3.2", title: "The Product and Quotient Rules", skills: [calc.derivative-rules] }
+      - { ref: "3.3", title: "Derivatives of Trigonometric Functions", skills: [calc.derivative-rules] }
+      - { ref: "3.4", title: "The Chain Rule", skills: [calc.chain-rule],
+          wiki: textbooks/stewart-calculus/ch03-chain-rule }
+      - { ref: "3.5", title: "Implicit Differentiation", skills: [calc.implicit-inverse] }
+      - { ref: "3.6", title: "Derivatives of Logarithmic Functions", skills: [calc.chain-rule] }
+      - { ref: "3.9", title: "Related Rates", skills: [calc.rates],
+          wiki: textbooks/stewart-calculus/ch04-related-rates }
+      - { ref: "3.10", title: "Linear Approximations and Differentials", skills: [calc.rates] }
+  - n: 4
+    title: "Applications of Differentiation"
+    wiki: textbooks/stewart-calculus/ch04
+    sections:
+      - { ref: "4.1", title: "Maximum and Minimum Values", skills: [calc.extrema] }
+      - { ref: "4.2", title: "The Mean Value Theorem", skills: [calc.extrema] }
+      - { ref: "4.3", title: "How Derivatives Affect the Shape of a Graph", skills: [calc.extrema] }
+      - { ref: "4.4", title: "Indeterminate Forms and l'Hospital's Rule", skills: [calc.rates] }
+      - { ref: "4.7", title: "Optimization Problems", skills: [calc.extrema] }
