@@ -117,7 +117,9 @@
        "p": [
         "P3"
        ],
-       "drills": [],
+       "drills": [
+        "ca-lim-onesided"
+       ],
        "needs": [
         "CA-1.2.A"
        ]
@@ -190,7 +192,10 @@
        "p": [
         "P1"
        ],
-       "drills": []
+       "drills": [
+        "ca-lim-substitute",
+        "ca-lim-quotient"
+       ]
       }
      ]
     },
@@ -211,7 +216,10 @@
        "p": [
         "P1"
        ],
-       "drills": [],
+       "drills": [
+        "ca-lim-factor",
+        "ca-lim-conjugate"
+       ],
        "needs": [
         "CA-1.5.A"
        ]
@@ -228,7 +236,9 @@
        "p": [
         "P1"
        ],
-       "drills": [],
+       "drills": [
+        "ca-lim-trig"
+       ],
        "needs": [
         "CA-1.5.A"
        ]
@@ -253,7 +263,9 @@
        "p": [
         "P1"
        ],
-       "drills": [],
+       "drills": [
+        "~ca-lim-factor"
+       ],
        "needs": [
         "CA-1.6.A",
         "CA-1.6.B"
@@ -278,7 +290,9 @@
        "p": [
         "P3"
        ],
-       "drills": [],
+       "drills": [
+        "ca-lim-squeeze"
+       ],
        "needs": [
         "CA-1.5.A"
        ]
@@ -353,7 +367,9 @@
        "p": [
         "P3"
        ],
-       "drills": [],
+       "drills": [
+        "~ca-continuity-k"
+       ],
        "needs": [
         "CA-1.10.A"
        ]
@@ -401,7 +417,9 @@
        "p": [
         "P1"
        ],
-       "drills": [],
+       "drills": [
+        "ca-continuity-k"
+       ],
        "needs": [
         "CA-1.11.A",
         "CA-1.6.A"
@@ -427,7 +445,9 @@
         "P1",
         "P2"
        ],
-       "drills": [],
+       "drills": [
+        "ca-vert-asymptote"
+       ],
        "needs": [
         "CA-1.10.A"
        ]
@@ -452,7 +472,10 @@
         "P1",
         "P2"
        ],
-       "drills": []
+       "drills": [
+        "ca-lim-infinity",
+        "ca-lim-infinity-radical"
+       ]
       }
      ]
     },
@@ -473,7 +496,9 @@
        "p": [
         "P3"
        ],
-       "drills": [],
+       "drills": [
+        "ca-ivt"
+       ],
        "needs": [
         "CA-1.12.A"
        ]
@@ -510,7 +535,9 @@
        "p": [
         "P1"
        ],
-       "drills": []
+       "drills": [
+        "ca-avg-rate"
+       ]
       },
       {
        "id": "B",
@@ -524,7 +551,9 @@
        "p": [
         "P2"
        ],
-       "drills": [],
+       "drills": [
+        "~ca-def-derivative"
+       ],
        "needs": [
         "CA-2.1.A",
         "CA-1.1.A"
@@ -550,7 +579,9 @@
         "P1",
         "P2"
        ],
-       "drills": [],
+       "drills": [
+        "ca-def-derivative"
+       ],
        "needs": [
         "CA-2.1.B",
         "CA-1.6.A"
@@ -568,7 +599,9 @@
        "p": [
         "P4"
        ],
-       "drills": [],
+       "drills": [
+        "ca-tangent-line"
+       ],
        "needs": [
         "CA-2.2.A"
        ]
@@ -593,7 +626,9 @@
         "P1",
         "P2"
        ],
-       "drills": [],
+       "drills": [
+        "ca-estimate-derivative"
+       ],
        "needs": [
         "CA-2.1.A"
        ]
@@ -642,7 +677,11 @@
        "p": [
         "P1"
        ],
-       "drills": [],
+       "drills": [
+        "ca-power-rule",
+        "ca-power-reciprocal",
+        "ca-power-root"
+       ],
        "needs": [
         "CA-2.2.A"
        ]
@@ -666,7 +705,9 @@
        "p": [
         "P1"
        ],
-       "drills": [],
+       "drills": [
+        "ca-poly-derivative"
+       ],
        "needs": [
         "CA-2.5.A"
        ]
@@ -690,7 +731,9 @@
        "p": [
         "P1"
        ],
-       "drills": [],
+       "drills": [
+        "ca-elementary-derivative"
+       ],
        "needs": [
         "CA-2.6.A"
        ]
@@ -732,7 +775,11 @@
        "p": [
         "P1"
        ],
-       "drills": [],
+       "drills": [
+        "ca-product-rule",
+        "ca-product-exp",
+        "ca-product-values"
+       ],
        "needs": [
         "CA-2.7.A"
        ]
@@ -756,7 +803,10 @@
        "p": [
         "P1"
        ],
-       "drills": [],
+       "drills": [
+        "ca-quotient-rule",
+        "ca-quotient-values"
+       ],
        "needs": [
         "CA-2.8.A"
        ]
@@ -780,7 +830,9 @@
        "p": [
         "P1"
        ],
-       "drills": [],
+       "drills": [
+        "ca-trig-derivative"
+       ],
        "needs": [
         "CA-2.9.A"
        ]
@@ -816,7 +868,14 @@
         "P1",
         "P2"
        ],
-       "drills": [],
+       "drills": [
+        "ca-chain-power",
+        "ca-chain-trig",
+        "ca-chain-exp",
+        "ca-chain-ln",
+        "ca-chain-values",
+        "ca-exp-base"
+       ],
        "needs": [
         "CA-2.10.A"
        ]
@@ -841,6 +900,7 @@
         "P1"
        ],
        "drills": [
+        "ca-implicit-slope",
         "~mv-implicit"
        ],
        "needs": [
@@ -868,7 +928,9 @@
         "P1",
         "P2"
        ],
-       "drills": [],
+       "drills": [
+        "ca-inverse-derivative"
+       ],
        "needs": [
         "CA-3.1.A"
        ]
@@ -892,7 +954,10 @@
        "p": [
         "P1"
        ],
-       "drills": [],
+       "drills": [
+        "ca-arctan-derivative",
+        "ca-arcsin-derivative"
+       ],
        "needs": [
         "CA-3.3.A"
        ]
@@ -920,7 +985,9 @@
        "p": [
         "P1"
        ],
-       "drills": [],
+       "drills": [
+        "ca-rules-combined"
+       ],
        "needs": [
         "CA-3.1.A",
         "CA-3.2.A",
@@ -939,7 +1006,9 @@
        "p": [
         "P1"
        ],
-       "drills": [],
+       "drills": [
+        "ca-log-diff"
+       ],
        "needs": [
         "CA-3.2.A"
        ]
@@ -964,7 +1033,10 @@
         "P1",
         "P4"
        ],
-       "drills": [],
+       "drills": [
+        "ca-second-derivative",
+        "ca-second-derivative-trig"
+       ],
        "needs": [
         "CA-3.5.A"
        ]
@@ -1026,7 +1098,9 @@
         "P1",
         "P3"
        ],
-       "drills": [],
+       "drills": [
+        "ca-motion"
+       ],
        "needs": [
         "CA-3.6.A"
        ]
@@ -1075,7 +1149,9 @@
        "p": [
         "P1"
        ],
-       "drills": [],
+       "drills": [
+        "ca-related-sphere"
+       ],
        "needs": [
         "CA-3.2.A"
        ]
@@ -1100,7 +1176,10 @@
         "P1",
         "P4"
        ],
-       "drills": [],
+       "drills": [
+        "ca-related-circle",
+        "ca-related-ladder"
+       ],
        "needs": [
         "CA-4.4.A"
        ]
@@ -1124,7 +1203,9 @@
        "p": [
         "P1"
        ],
-       "drills": [],
+       "drills": [
+        "ca-linearization"
+       ],
        "needs": [
         "CA-2.2.B"
        ]
@@ -1141,7 +1222,9 @@
        "p": [
         "P3"
        ],
-       "drills": [],
+       "drills": [
+        "ca-linearization-error"
+       ],
        "needs": [
         "CA-4.6.A",
         "CA-3.6.A"
@@ -1166,7 +1249,10 @@
        "p": [
         "P3"
        ],
-       "drills": [],
+       "drills": [
+        "ca-lhospital-exp",
+        "ca-lhospital-twice"
+       ],
        "needs": [
         "CA-3.5.A",
         "CA-1.7.A"
@@ -1184,7 +1270,9 @@
        "p": [
         "P1"
        ],
-       "drills": [],
+       "drills": [
+        "ca-lhospital-power"
+       ],
        "needs": [
         "CA-4.7.A"
        ]
@@ -1219,7 +1307,9 @@
        "p": [
         "P3"
        ],
-       "drills": [],
+       "drills": [
+        "ca-mvt"
+       ],
        "needs": [
         "CA-2.4.A",
         "CA-2.1.A"
@@ -1245,7 +1335,9 @@
         "P1",
         "P3"
        ],
-       "drills": [],
+       "drills": [
+        "ca-critical-points"
+       ],
        "needs": [
         "CA-1.12.A",
         "CA-3.5.A"
@@ -1271,7 +1363,9 @@
         "P1",
         "P3"
        ],
-       "drills": [],
+       "drills": [
+        "~ca-critical-points"
+       ],
        "needs": [
         "CA-5.2.A"
        ]
@@ -1295,7 +1389,9 @@
        "p": [
         "P3"
        ],
-       "drills": [],
+       "drills": [
+        "ca-critical-points"
+       ],
        "needs": [
         "CA-5.3.A"
        ]
@@ -1320,7 +1416,9 @@
         "P1",
         "P3"
        ],
-       "drills": [],
+       "drills": [
+        "ca-abs-extrema"
+       ],
        "needs": [
         "CA-5.2.A"
        ]
@@ -1345,7 +1443,9 @@
         "P1",
         "P3"
        ],
-       "drills": [],
+       "drills": [
+        "ca-inflection"
+       ],
        "needs": [
         "CA-3.6.A",
         "CA-5.3.A"
@@ -1370,7 +1470,9 @@
        "p": [
         "P3"
        ],
-       "drills": [],
+       "drills": [
+        "ca-second-derivative-test"
+       ],
        "needs": [
         "CA-5.6.A",
         "CA-5.4.A"
@@ -1447,7 +1549,9 @@
         "P1",
         "P2"
        ],
-       "drills": [],
+       "drills": [
+        "~ca-optimization-fence"
+       ],
        "needs": [
         "CA-5.5.A"
        ]
@@ -1472,7 +1576,10 @@
         "P3",
         "P4"
        ],
-       "drills": [],
+       "drills": [
+        "ca-optimization-fence",
+        "ca-optimization-box"
+       ],
        "needs": [
         "CA-5.10.A"
        ]
@@ -4524,8 +4631,10 @@
    "code": "CA-1.2.B",
    "unit": 1,
    "topic": 2,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ca-lim-onesided"
+   ],
    "partial": []
   },
   {
@@ -4548,40 +4657,52 @@
    "code": "CA-1.5.A",
    "unit": 1,
    "topic": 5,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ca-lim-substitute",
+    "ca-lim-quotient"
+   ],
    "partial": []
   },
   {
    "code": "CA-1.6.A",
    "unit": 1,
    "topic": 6,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ca-lim-factor",
+    "ca-lim-conjugate"
+   ],
    "partial": []
   },
   {
    "code": "CA-1.6.B",
    "unit": 1,
    "topic": 6,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ca-lim-trig"
+   ],
    "partial": []
   },
   {
    "code": "CA-1.7.A",
    "unit": 1,
    "topic": 7,
-   "status": "gap",
+   "status": "partial",
    "full": [],
-   "partial": []
+   "partial": [
+    "ca-lim-factor"
+   ]
   },
   {
    "code": "CA-1.8.A",
    "unit": 1,
    "topic": 8,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ca-lim-squeeze"
+   ],
    "partial": []
   },
   {
@@ -4604,9 +4725,11 @@
    "code": "CA-1.11.A",
    "unit": 1,
    "topic": 11,
-   "status": "gap",
+   "status": "partial",
    "full": [],
-   "partial": []
+   "partial": [
+    "ca-continuity-k"
+   ]
   },
   {
    "code": "CA-1.12.A",
@@ -4620,72 +4743,91 @@
    "code": "CA-1.13.A",
    "unit": 1,
    "topic": 13,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ca-continuity-k"
+   ],
    "partial": []
   },
   {
    "code": "CA-1.14.A",
    "unit": 1,
    "topic": 14,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ca-vert-asymptote"
+   ],
    "partial": []
   },
   {
    "code": "CA-1.15.A",
    "unit": 1,
    "topic": 15,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ca-lim-infinity",
+    "ca-lim-infinity-radical"
+   ],
    "partial": []
   },
   {
    "code": "CA-1.16.A",
    "unit": 1,
    "topic": 16,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ca-ivt"
+   ],
    "partial": []
   },
   {
    "code": "CA-2.1.A",
    "unit": 2,
    "topic": 1,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ca-avg-rate"
+   ],
    "partial": []
   },
   {
    "code": "CA-2.1.B",
    "unit": 2,
    "topic": 1,
-   "status": "gap",
+   "status": "partial",
    "full": [],
-   "partial": []
+   "partial": [
+    "ca-def-derivative"
+   ]
   },
   {
    "code": "CA-2.2.A",
    "unit": 2,
    "topic": 2,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ca-def-derivative"
+   ],
    "partial": []
   },
   {
    "code": "CA-2.2.B",
    "unit": 2,
    "topic": 2,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ca-tangent-line"
+   ],
    "partial": []
   },
   {
    "code": "CA-2.3.A",
    "unit": 2,
    "topic": 3,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ca-estimate-derivative"
+   ],
    "partial": []
   },
   {
@@ -4700,24 +4842,32 @@
    "code": "CA-2.5.A",
    "unit": 2,
    "topic": 5,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ca-power-rule",
+    "ca-power-reciprocal",
+    "ca-power-root"
+   ],
    "partial": []
   },
   {
    "code": "CA-2.6.A",
    "unit": 2,
    "topic": 6,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ca-poly-derivative"
+   ],
    "partial": []
   },
   {
    "code": "CA-2.7.A",
    "unit": 2,
    "topic": 7,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ca-elementary-derivative"
+   ],
    "partial": []
   },
   {
@@ -4732,40 +4882,58 @@
    "code": "CA-2.8.A",
    "unit": 2,
    "topic": 8,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ca-product-rule",
+    "ca-product-exp",
+    "ca-product-values"
+   ],
    "partial": []
   },
   {
    "code": "CA-2.9.A",
    "unit": 2,
    "topic": 9,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ca-quotient-rule",
+    "ca-quotient-values"
+   ],
    "partial": []
   },
   {
    "code": "CA-2.10.A",
    "unit": 2,
    "topic": 10,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ca-trig-derivative"
+   ],
    "partial": []
   },
   {
    "code": "CA-3.1.A",
    "unit": 3,
    "topic": 1,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ca-chain-power",
+    "ca-chain-trig",
+    "ca-chain-exp",
+    "ca-chain-ln",
+    "ca-chain-values",
+    "ca-exp-base"
+   ],
    "partial": []
   },
   {
    "code": "CA-3.2.A",
    "unit": 3,
    "topic": 2,
-   "status": "partial",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ca-implicit-slope"
+   ],
    "partial": [
     "mv-implicit"
    ]
@@ -4774,40 +4942,52 @@
    "code": "CA-3.3.A",
    "unit": 3,
    "topic": 3,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ca-inverse-derivative"
+   ],
    "partial": []
   },
   {
    "code": "CA-3.4.A",
    "unit": 3,
    "topic": 4,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ca-arctan-derivative",
+    "ca-arcsin-derivative"
+   ],
    "partial": []
   },
   {
    "code": "CA-3.5.A",
    "unit": 3,
    "topic": 5,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ca-rules-combined"
+   ],
    "partial": []
   },
   {
    "code": "CA-3.5.B",
    "unit": 3,
    "topic": 5,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ca-log-diff"
+   ],
    "partial": []
   },
   {
    "code": "CA-3.6.A",
    "unit": 3,
    "topic": 6,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ca-second-derivative",
+    "ca-second-derivative-trig"
+   ],
    "partial": []
   },
   {
@@ -4822,8 +5002,10 @@
    "code": "CA-4.2.A",
    "unit": 4,
    "topic": 2,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ca-motion"
+   ],
    "partial": []
   },
   {
@@ -4838,104 +5020,132 @@
    "code": "CA-4.4.A",
    "unit": 4,
    "topic": 4,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ca-related-sphere"
+   ],
    "partial": []
   },
   {
    "code": "CA-4.5.A",
    "unit": 4,
    "topic": 5,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ca-related-circle",
+    "ca-related-ladder"
+   ],
    "partial": []
   },
   {
    "code": "CA-4.6.A",
    "unit": 4,
    "topic": 6,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ca-linearization"
+   ],
    "partial": []
   },
   {
    "code": "CA-4.6.B",
    "unit": 4,
    "topic": 6,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ca-linearization-error"
+   ],
    "partial": []
   },
   {
    "code": "CA-4.7.A",
    "unit": 4,
    "topic": 7,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ca-lhospital-exp",
+    "ca-lhospital-twice"
+   ],
    "partial": []
   },
   {
    "code": "CA-4.7.B",
    "unit": 4,
    "topic": 7,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ca-lhospital-power"
+   ],
    "partial": []
   },
   {
    "code": "CA-5.1.A",
    "unit": 5,
    "topic": 1,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ca-mvt"
+   ],
    "partial": []
   },
   {
    "code": "CA-5.2.A",
    "unit": 5,
    "topic": 2,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ca-critical-points"
+   ],
    "partial": []
   },
   {
    "code": "CA-5.3.A",
    "unit": 5,
    "topic": 3,
-   "status": "gap",
+   "status": "partial",
    "full": [],
-   "partial": []
+   "partial": [
+    "ca-critical-points"
+   ]
   },
   {
    "code": "CA-5.4.A",
    "unit": 5,
    "topic": 4,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ca-critical-points"
+   ],
    "partial": []
   },
   {
    "code": "CA-5.5.A",
    "unit": 5,
    "topic": 5,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ca-abs-extrema"
+   ],
    "partial": []
   },
   {
    "code": "CA-5.6.A",
    "unit": 5,
    "topic": 6,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ca-inflection"
+   ],
    "partial": []
   },
   {
    "code": "CA-5.7.A",
    "unit": 5,
    "topic": 7,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ca-second-derivative-test"
+   ],
    "partial": []
   },
   {
@@ -4958,16 +5168,21 @@
    "code": "CA-5.10.A",
    "unit": 5,
    "topic": 10,
-   "status": "gap",
+   "status": "partial",
    "full": [],
-   "partial": []
+   "partial": [
+    "ca-optimization-fence"
+   ]
   },
   {
    "code": "CA-5.11.A",
    "unit": 5,
    "topic": 11,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ca-optimization-fence",
+    "ca-optimization-box"
+   ],
    "partial": []
   },
   {

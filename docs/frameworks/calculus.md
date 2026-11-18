@@ -2,7 +2,7 @@
 
 Generated from `drills/frameworks/calculus.yaml` by `scripts/framework.mjs`. ● drilled · ◐ partly · ○ no drills yet.
 
-**173 learning objectives** in 14 units (100 core): 13 drilled, 4 partly, 156 with no drills. Core: 5 / 100 drilled.
+**173 learning objectives** in 14 units (100 core): 53 drilled, 8 partly, 112 with no drills. Core: 45 / 100 drilled.
 
 ## Big ideas
 
@@ -21,11 +21,11 @@ Generated from `drills/frameworks/calculus.yaml` by `scripts/framework.mjs`. ●
 
 | Unit | Scope | Est. weight | LOs | ● | ◐ | ○ |
 |---|---|---|---|---|---|---|
-| 1 · Limits and continuity | core | — | 18 | 0 | 0 | 18 |
-| 2 · Differentiation: definition and fundamental properties | core | — | 13 | 0 | 0 | 13 |
-| 3 · Differentiation: composite, implicit and inverse functions | core | — | 7 | 0 | 1 | 6 |
-| 4 · Contextual applications of differentiation | core | — | 9 | 0 | 0 | 9 |
-| 5 · Analytical applications of differentiation | core | — | 13 | 0 | 0 | 13 |
+| 1 · Limits and continuity | core | — | 18 | 9 | 2 | 7 |
+| 2 · Differentiation: definition and fundamental properties | core | — | 13 | 10 | 1 | 2 |
+| 3 · Differentiation: composite, implicit and inverse functions | core | — | 7 | 7 | 0 | 0 |
+| 4 · Contextual applications of differentiation | core | — | 9 | 7 | 0 | 2 |
+| 5 · Analytical applications of differentiation | core | — | 13 | 7 | 2 | 4 |
 | 6 · Integration and accumulation of change | core | — | 17 | 5 | 0 | 12 |
 | 7 · Differential equations | core | — | 9 | 0 | 0 | 9 |
 | 8 · Applications of integration | core | — | 14 | 0 | 0 | 14 |
@@ -55,10 +55,10 @@ Big ideas: CHA, LIM, FUN
 - ○ **CA-1.2.A** (LIM-1.A) Read and write limit statements in symbols and words, including one-sided limits.
   - EK: lim_(x→c) f(x) = L means f(x) can be made as close to L as wanted by taking x close enough to c (x ≠ c); f(c) itself is irrelevant.
   - P4
-- ○ **CA-1.2.B** (LIM-1.B) Decide whether a limit exists by comparing the two one-sided limits.
+- ● **CA-1.2.B** (LIM-1.B) Decide whether a limit exists by comparing the two one-sided limits.
   - EK: lim_(x→c) f(x) exists ⇔ both one-sided limits exist and are equal; unbounded or oscillating behaviour means no limit.
   - Needs: CA-1.2.A
-  - P3
+  - P3 · drills: ca-lim-onesided
 
 ### 1.3 Estimating limits from graphs
 
@@ -82,40 +82,40 @@ Big ideas: CHA, LIM, FUN
 
 
 
-- ○ **CA-1.5.A** (LIM-1.D) Find limits of sums, products, quotients and compositions from the limits of their parts, and by direct substitution at points of an elementary function's domain.
+- ● **CA-1.5.A** (LIM-1.D) Find limits of sums, products, quotients and compositions from the limits of their parts, and by direct substitution at points of an elementary function's domain.
   - EK: lim(f ± g), lim(fg), lim(f/g) (denominator limit ≠ 0) are the sums, products, quotients of the limits; elementary functions are continuous on their domains, so substitution works there.
-  - P1
+  - P1 · drills: ca-lim-substitute, ca-lim-quotient
 
 ### 1.6 Algebraic manipulation of limits
 
 
 
-- ○ **CA-1.6.A** (LIM-1.E) Evaluate a 0/0 limit by factoring and cancelling, or by multiplying by a conjugate to clear a radical.
+- ● **CA-1.6.A** (LIM-1.E) Evaluate a 0/0 limit by factoring and cancelling, or by multiplying by a conjugate to clear a radical.
   - EK: f and the simplified form agree for x ≠ c, so their limits at c are the same; (√a − √b)(√a + √b) = a − b.
   - Needs: CA-1.5.A
-  - P1
-- ○ **CA-1.6.B** (LIM-1.E) Evaluate trig limits by rewriting them in terms of sin x / x → 1 and (1 − cos x)/x → 0.
+  - P1 · drills: ca-lim-factor, ca-lim-conjugate
+- ● **CA-1.6.B** (LIM-1.E) Evaluate trig limits by rewriting them in terms of sin x / x → 1 and (1 − cos x)/x → 0.
   - EK: lim_(x→0) sin(kx)/(kx) = 1; multiply and divide by k to set it up.
   - Needs: CA-1.5.A
-  - P1
+  - P1 · drills: ca-lim-trig
 
 ### 1.7 Selecting procedures for limits
 
 
 
-- ○ **CA-1.7.A** (LIM-1.D, LIM-1.E) Choose a limit procedure from the form the expression takes at c: substitute, factor, rationalize, use a trig identity, or recognise a nonzero/0 infinite limit.
+- ◐ **CA-1.7.A** (LIM-1.D, LIM-1.E) Choose a limit procedure from the form the expression takes at c: substitute, factor, rationalize, use a trig identity, or recognise a nonzero/0 infinite limit.
   - EK: Substitute first: a number means done; 0/0 means manipulate; nonzero/0 means an infinite limit or none.
   - Needs: CA-1.6.A, CA-1.6.B
-  - P1
+  - P1 · drills: ~ca-lim-factor
 
 ### 1.8 The squeeze theorem
 
 
 
-- ○ **CA-1.8.A** (LIM-1.E) Find a limit with the squeeze theorem after bounding the function between two functions with a common limit.
+- ● **CA-1.8.A** (LIM-1.E) Find a limit with the squeeze theorem after bounding the function between two functions with a common limit.
   - EK: g ≤ f ≤ h near c and lim g = lim h = L ⇒ lim f = L; −1 ≤ sin(anything) ≤ 1 is the usual bound.
   - Needs: CA-1.5.A
-  - P3
+  - P3 · drills: ca-lim-squeeze
 
 ### 1.9 Connecting representations of limits
 
@@ -139,10 +139,10 @@ Big ideas: CHA, LIM, FUN
 
 
 
-- ○ **CA-1.11.A** (LIM-2.A) Prove or disprove continuity at a point by checking the three conditions.
+- ◐ **CA-1.11.A** (LIM-2.A) Prove or disprove continuity at a point by checking the three conditions.
   - EK: f continuous at c ⇔ f(c) is defined, lim_(x→c) f(x) exists, and they are equal.
   - Needs: CA-1.10.A
-  - P3
+  - P3 · drills: ~ca-continuity-k
 
 ### 1.12 Continuity over an interval
 
@@ -157,36 +157,36 @@ Big ideas: CHA, LIM, FUN
 
 
 
-- ○ **CA-1.13.A** (LIM-2.C) Remove a discontinuity: redefine f at a removable point, or solve for constants that make a piecewise function continuous at its break.
+- ● **CA-1.13.A** (LIM-2.C) Remove a discontinuity: redefine f at a removable point, or solve for constants that make a piecewise function continuous at its break.
   - EK: Set f(c) = lim_(x→c) f(x); for a piecewise function, match the left and right limits at the break and f(c).
   - Needs: CA-1.11.A, CA-1.6.A
-  - P1
+  - P1 · drills: ca-continuity-k
 
 ### 1.14 Infinite limits and vertical asymptotes
 
 
 
-- ○ **CA-1.14.A** (LIM-2.D) Find vertical asymptotes and the sign of the infinite one-sided limits at each.
+- ● **CA-1.14.A** (LIM-2.D) Find vertical asymptotes and the sign of the infinite one-sided limits at each.
   - EK: Nonzero/0 at x = c ⇒ x = c is a vertical asymptote; the sign of numerator and denominator on each side gives +∞ or −∞.
   - Needs: CA-1.10.A
-  - P1 · P2
+  - P1 · P2 · drills: ca-vert-asymptote
 
 ### 1.15 Limits at infinity and horizontal asymptotes
 
 
 
-- ○ **CA-1.15.A** (LIM-2.D) Find limits at ±∞ and horizontal asymptotes of rational and radical expressions, and of expressions mixing exponentials, powers and logs.
+- ● **CA-1.15.A** (LIM-2.D) Find limits at ±∞ and horizontal asymptotes of rational and radical expressions, and of expressions mixing exponentials, powers and logs.
   - EK: Divide by the highest power in the denominator: deg num < deg den → 0, equal → ratio of leading coefficients, greater → unbounded; √(x²) = |x|; as x → ∞, ln x ≪ x^p ≪ e^x.
-  - P1 · P2
+  - P1 · P2 · drills: ca-lim-infinity, ca-lim-infinity-radical
 
 ### 1.16 The Intermediate Value Theorem
 
 
 
-- ○ **CA-1.16.A** (FUN-1.A) Use the IVT to justify that a function takes a given value (or has a root) on an interval, after confirming continuity.
+- ● **CA-1.16.A** (FUN-1.A) Use the IVT to justify that a function takes a given value (or has a root) on an interval, after confirming continuity.
   - EK: f continuous on [a, b] and N between f(a) and f(b) ⇒ f(c) = N for some c in (a, b).
   - Needs: CA-1.12.A
-  - P3
+  - P3 · drills: ca-ivt
 
 ## Unit 2 · Differentiation: definition and fundamental properties
 
@@ -196,35 +196,35 @@ Big ideas: CHA, LIM, FUN
 
 
 
-- ○ **CA-2.1.A** (CHA-2.A) Calculate an average rate of change as the slope of a secant line.
+- ● **CA-2.1.A** (CHA-2.A) Calculate an average rate of change as the slope of a secant line.
   - EK: (f(b) − f(a))/(b − a), in units of output per unit input.
-  - P1
-- ○ **CA-2.1.B** (CHA-2.B) Express an instantaneous rate of change as the limit of a difference quotient.
+  - P1 · drills: ca-avg-rate
+- ◐ **CA-2.1.B** (CHA-2.B) Express an instantaneous rate of change as the limit of a difference quotient.
   - EK: lim_(h→0) (f(a + h) − f(a))/h — the secant slope as the interval shrinks to a point.
   - Needs: CA-2.1.A, CA-1.1.A
-  - P2
+  - P2 · drills: ~ca-def-derivative
 
 ### 2.2 The derivative and its notation
 
 
 
-- ○ **CA-2.2.A** (CHA-2.B) Compute a derivative from the limit definition (h-form or x → a form), and recognise a given difference-quotient limit as a derivative.
+- ● **CA-2.2.A** (CHA-2.B) Compute a derivative from the limit definition (h-form or x → a form), and recognise a given difference-quotient limit as a derivative.
   - EK: f′(x) = lim_(h→0)(f(x+h) − f(x))/h; f′(a) = lim_(x→a)(f(x) − f(a))/(x − a); lim_(h→0)(sin(π/3 + h) − sin(π/3))/h is just cos(π/3).
   - Needs: CA-2.1.B, CA-1.6.A
-  - P1 · P2
-- ○ **CA-2.2.B** (CHA-2.C) Write the equation of the tangent line at a point, using f′, dy/dx or d/dx notation correctly.
+  - P1 · P2 · drills: ca-def-derivative
+- ● **CA-2.2.B** (CHA-2.C) Write the equation of the tangent line at a point, using f′, dy/dx or d/dx notation correctly.
   - EK: y − f(a) = f′(a)(x − a).
   - Needs: CA-2.2.A
-  - P4
+  - P4 · drills: ca-tangent-line
 
 ### 2.3 Estimating derivatives at a point
 
 
 
-- ○ **CA-2.3.A** (CHA-2.D) Estimate a derivative at a point from a table or graph with a difference quotient.
+- ● **CA-2.3.A** (CHA-2.D) Estimate a derivative at a point from a table or graph with a difference quotient.
   - EK: Use the closest bracketing data: (f(b) − f(a))/(b − a) estimates f′ between a and b; a symmetric quotient is usually best.
   - Needs: CA-2.1.A
-  - P1 · P2
+  - P1 · P2 · drills: ca-estimate-derivative
 
 ### 2.4 Differentiability and continuity
 
@@ -239,28 +239,28 @@ Big ideas: CHA, LIM, FUN
 
 
 
-- ○ **CA-2.5.A** (FUN-3.A) Differentiate x^n for any real n, rewriting roots and reciprocals as powers first.
+- ● **CA-2.5.A** (FUN-3.A) Differentiate x^n for any real n, rewriting roots and reciprocals as powers first.
   - EK: d/dx x^n = n x^(n−1); √x = x^(1/2), 1/x³ = x^(−3).
   - Needs: CA-2.2.A
-  - P1
+  - P1 · drills: ca-power-rule, ca-power-reciprocal, ca-power-root
 
 ### 2.6 Constant, sum, difference and constant-multiple rules
 
 
 
-- ○ **CA-2.6.A** (FUN-3.A) Differentiate polynomials and sums of power terms term by term.
+- ● **CA-2.6.A** (FUN-3.A) Differentiate polynomials and sums of power terms term by term.
   - EK: Derivative is linear: (af + bg)′ = af′ + bg′; constants differentiate to 0.
   - Needs: CA-2.5.A
-  - P1
+  - P1 · drills: ca-poly-derivative
 
 ### 2.7 Derivatives of sin x, cos x, e^x and ln x
 
 
 
-- ○ **CA-2.7.A** (FUN-3.A) Differentiate sin x, cos x, e^x and ln x and combinations of them with the sum and constant-multiple rules.
+- ● **CA-2.7.A** (FUN-3.A) Differentiate sin x, cos x, e^x and ln x and combinations of them with the sum and constant-multiple rules.
   - EK: (sin x)′ = cos x, (cos x)′ = −sin x, (e^x)′ = e^x, (ln x)′ = 1/x.
   - Needs: CA-2.6.A
-  - P1
+  - P1 · drills: ca-elementary-derivative
 - ○ **CA-2.7.B** (LIM-3.A) Derive the derivative of sin x or e^x from the limit definition.
   - EK: sin(x+h) = sin x cos h + cos x sin h, then use sin h/h → 1 and (cos h − 1)/h → 0.
   - Needs: CA-2.2.A, CA-1.6.B
@@ -270,28 +270,28 @@ Big ideas: CHA, LIM, FUN
 
 
 
-- ○ **CA-2.8.A** (FUN-3.B) Differentiate a product, from a formula or from given values of f, g, f′, g′.
+- ● **CA-2.8.A** (FUN-3.B) Differentiate a product, from a formula or from given values of f, g, f′, g′.
   - EK: (fg)′ = f′g + fg′.
   - Needs: CA-2.7.A
-  - P1
+  - P1 · drills: ca-product-rule, ca-product-exp, ca-product-values
 
 ### 2.9 The quotient rule
 
 
 
-- ○ **CA-2.9.A** (FUN-3.B) Differentiate a quotient, from a formula or from given values.
+- ● **CA-2.9.A** (FUN-3.B) Differentiate a quotient, from a formula or from given values.
   - EK: (f/g)′ = (f′g − fg′)/g².
   - Needs: CA-2.8.A
-  - P1
+  - P1 · drills: ca-quotient-rule, ca-quotient-values
 
 ### 2.10 Derivatives of tan, cot, sec and csc
 
 
 
-- ○ **CA-2.10.A** (FUN-3.B) Derive and use the derivatives of tan x, cot x, sec x and csc x.
+- ● **CA-2.10.A** (FUN-3.B) Derive and use the derivatives of tan x, cot x, sec x and csc x.
   - EK: Write each as a quotient of sin and cos: (tan x)′ = sec²x, (sec x)′ = sec x tan x, (cot x)′ = −csc²x, (csc x)′ = −csc x cot x.
   - Needs: CA-2.9.A
-  - P1
+  - P1 · drills: ca-trig-derivative
 
 ## Unit 3 · Differentiation: composite, implicit and inverse functions
 
@@ -301,59 +301,59 @@ Big ideas: FUN
 
 
 
-- ○ **CA-3.1.A** (FUN-3.C) Differentiate a composite function with the chain rule — nested compositions, b^x and log_b x, and from tables or graphs of f, g and their derivatives.
+- ● **CA-3.1.A** (FUN-3.C) Differentiate a composite function with the chain rule — nested compositions, b^x and log_b x, and from tables or graphs of f, g and their derivatives.
   - EK: (f(g(x)))′ = f′(g(x)) g′(x); (b^x)′ = b^x ln b, (log_b x)′ = 1/(x ln b); from a table read g(a) first, then f′ at that value.
   - Needs: CA-2.10.A
-  - P1 · P2
+  - P1 · P2 · drills: ca-chain-power, ca-chain-trig, ca-chain-exp, ca-chain-ln, ca-chain-values, ca-exp-base
 
 ### 3.2 Implicit differentiation
 
 
 
-- ◐ **CA-3.2.A** (FUN-3.D) Find dy/dx for an implicitly defined relation and the slope or tangent line at a point on it.
+- ● **CA-3.2.A** (FUN-3.D) Find dy/dx for an implicitly defined relation and the slope or tangent line at a point on it.
   - EK: Every y-term gets a factor dy/dx by the chain rule; collect the dy/dx terms and solve; substitute both x and y of the point.
   - Needs: CA-3.1.A, CA-2.2.B
-  - P1 · drills: ~mv-implicit
+  - P1 · drills: ca-implicit-slope, ~mv-implicit
 
 ### 3.3 Derivatives of inverse functions
 
 
 
-- ○ **CA-3.3.A** (FUN-3.E) Find the derivative of an inverse function at a point from f, a table or a graph.
+- ● **CA-3.3.A** (FUN-3.E) Find the derivative of an inverse function at a point from f, a table or a graph.
   - EK: If f(a) = b then (f⁻¹)′(b) = 1/f′(a) — reciprocal slope at the reflected point.
   - Needs: CA-3.1.A
-  - P1 · P2
+  - P1 · P2 · drills: ca-inverse-derivative
 
 ### 3.4 Derivatives of inverse trig functions
 
 
 
-- ○ **CA-3.4.A** (FUN-3.E) Differentiate arcsin, arccos and arctan (and compositions with them).
+- ● **CA-3.4.A** (FUN-3.E) Differentiate arcsin, arccos and arctan (and compositions with them).
   - EK: (arcsin x)′ = 1/√(1 − x²), (arccos x)′ = −1/√(1 − x²), (arctan x)′ = 1/(1 + x²).
   - Needs: CA-3.3.A
-  - P1
+  - P1 · drills: ca-arctan-derivative, ca-arcsin-derivative
 
 ### 3.5 Selecting procedures for derivatives
 
 
 
-- ○ **CA-3.5.A** (FUN-3.A, FUN-3.B, FUN-3.C, FUN-3.D, FUN-3.E) Choose and combine the differentiation rules a given expression needs, simplifying first when it helps.
+- ● **CA-3.5.A** (FUN-3.A, FUN-3.B, FUN-3.C, FUN-3.D, FUN-3.E) Choose and combine the differentiation rules a given expression needs, simplifying first when it helps.
   - EK: Read the outermost operation: sum → term by term, product → product rule, quotient → quotient rule (or rewrite), composition → chain rule.
   - Needs: CA-3.1.A, CA-3.2.A, CA-3.4.A
-  - P1
-- ○ **CA-3.5.B** (FUN-3.C) Differentiate a variable power such as x^x or a messy product by logarithmic differentiation.
+  - P1 · drills: ca-rules-combined
+- ● **CA-3.5.B** (FUN-3.C) Differentiate a variable power such as x^x or a messy product by logarithmic differentiation.
   - EK: Take ln of both sides, differentiate implicitly: y′ = y·(ln y)′. Beyond the CED, but used everywhere downstream.
   - Needs: CA-3.2.A
-  - P1
+  - P1 · drills: ca-log-diff
 
 ### 3.6 Higher-order derivatives
 
 
 
-- ○ **CA-3.6.A** (FUN-3.F) Compute second and higher derivatives, including d²y/dx² of an implicit relation.
+- ● **CA-3.6.A** (FUN-3.F) Compute second and higher derivatives, including d²y/dx² of an implicit relation.
   - EK: f″ = (f′)′, d²y/dx²; implicitly, differentiate dy/dx again and replace each dy/dx with its expression.
   - Needs: CA-3.5.A
-  - P1 · P4
+  - P1 · P4 · drills: ca-second-derivative, ca-second-derivative-trig
 
 ## Unit 4 · Contextual applications of differentiation
 
@@ -372,10 +372,10 @@ Big ideas: CHA, LIM
 
 
 
-- ○ **CA-4.2.A** (CHA-3.B) Find velocity, acceleration and speed from position, and decide when the particle moves left/right or speeds up/slows down.
+- ● **CA-4.2.A** (CHA-3.B) Find velocity, acceleration and speed from position, and decide when the particle moves left/right or speeds up/slows down.
   - EK: v = x′, a = v′ = x″; speed = |v|; speeding up ⇔ v and a have the same sign.
   - Needs: CA-3.6.A
-  - P1 · P3
+  - P1 · P3 · drills: ca-motion
 
 ### 4.3 Rates of change in other contexts
 
@@ -390,45 +390,45 @@ Big ideas: CHA, LIM
 
 
 
-- ○ **CA-4.4.A** (CHA-3.D) Differentiate an equation linking several quantities with respect to time to relate their rates.
+- ● **CA-4.4.A** (CHA-3.D) Differentiate an equation linking several quantities with respect to time to relate their rates.
   - EK: Implicit differentiation in t: every changing quantity gets its own d/dt.
   - Needs: CA-3.2.A
-  - P1
+  - P1 · drills: ca-related-sphere
 
 ### 4.5 Solving related rates problems
 
 
 
-- ○ **CA-4.5.A** (CHA-3.E) Solve a related-rates problem: draw, relate the quantities with geometry, differentiate, then substitute the instant's values.
+- ● **CA-4.5.A** (CHA-3.E) Solve a related-rates problem: draw, relate the quantities with geometry, differentiate, then substitute the instant's values.
   - EK: Substitute values only after differentiating; similar triangles or Pythagoras usually give the relation.
   - Needs: CA-4.4.A
-  - P1 · P4
+  - P1 · P4 · drills: ca-related-circle, ca-related-ladder
 
 ### 4.6 Local linearity and linearization
 
 
 
-- ○ **CA-4.6.A** (CHA-3.F) Approximate a function value with the tangent-line approximation.
+- ● **CA-4.6.A** (CHA-3.F) Approximate a function value with the tangent-line approximation.
   - EK: f(x) ≈ f(a) + f′(a)(x − a) for x near a.
   - Needs: CA-2.2.B
-  - P1
-- ○ **CA-4.6.B** (CHA-3.F) Decide whether a tangent-line approximation over- or under-estimates, from concavity.
+  - P1 · drills: ca-linearization
+- ● **CA-4.6.B** (CHA-3.F) Decide whether a tangent-line approximation over- or under-estimates, from concavity.
   - EK: Concave up ⇒ tangent lies below ⇒ underestimate; concave down ⇒ overestimate.
   - Needs: CA-4.6.A, CA-3.6.A
-  - P3
+  - P3 · drills: ca-linearization-error
 
 ### 4.7 L'Hospital's rule
 
 
 
-- ○ **CA-4.7.A** (LIM-4.A) Evaluate a 0/0 or ∞/∞ limit with L'Hospital's rule after confirming the form.
+- ● **CA-4.7.A** (LIM-4.A) Evaluate a 0/0 or ∞/∞ limit with L'Hospital's rule after confirming the form.
   - EK: Indeterminate f/g ⇒ lim f/g = lim f′/g′ if the latter exists; check the form again before reapplying.
   - Needs: CA-3.5.A, CA-1.7.A
-  - P3
-- ○ **CA-4.7.B** (LIM-4.A) Rewrite 0·∞, ∞ − ∞, 1^∞, 0⁰ and ∞⁰ forms as a quotient (or take a log) and apply L'Hospital's rule.
+  - P3 · drills: ca-lhospital-exp, ca-lhospital-twice
+- ● **CA-4.7.B** (LIM-4.A) Rewrite 0·∞, ∞ − ∞, 1^∞, 0⁰ and ∞⁰ forms as a quotient (or take a log) and apply L'Hospital's rule.
   - EK: 0·∞: f/(1/g); powers: L = e^(lim g ln f). Beyond the CED, standard in college calculus.
   - Needs: CA-4.7.A
-  - P1
+  - P1 · drills: ca-lhospital-power
 
 ## Unit 5 · Analytical applications of differentiation
 
@@ -438,64 +438,64 @@ Big ideas: FUN
 
 
 
-- ○ **CA-5.1.A** (FUN-1.B) Verify the MVT hypotheses and find or justify a point where the instantaneous rate equals the average rate.
+- ● **CA-5.1.A** (FUN-1.B) Verify the MVT hypotheses and find or justify a point where the instantaneous rate equals the average rate.
   - EK: f continuous on [a, b], differentiable on (a, b) ⇒ f′(c) = (f(b) − f(a))/(b − a) for some c in (a, b).
   - Needs: CA-2.4.A, CA-2.1.A
-  - P3
+  - P3 · drills: ca-mvt
 
 ### 5.2 Extreme Value Theorem and critical points
 
 
 
-- ○ **CA-5.2.A** (FUN-1.C) Decide whether the EVT guarantees absolute extrema on an interval, and find the critical points of a function.
+- ● **CA-5.2.A** (FUN-1.C) Decide whether the EVT guarantees absolute extrema on an interval, and find the critical points of a function.
   - EK: Continuous on a closed, bounded interval ⇒ absolute max and min exist; critical point: c in the domain with f′(c) = 0 or undefined — local extrema occur only there.
   - Needs: CA-1.12.A, CA-3.5.A
-  - P1 · P3
+  - P1 · P3 · drills: ca-critical-points
 
 ### 5.3 Increasing and decreasing intervals
 
 
 
-- ○ **CA-5.3.A** (FUN-4.A) Find the intervals where a function increases or decreases with a sign chart of f′.
+- ◐ **CA-5.3.A** (FUN-4.A) Find the intervals where a function increases or decreases with a sign chart of f′.
   - EK: f′ > 0 on an interval ⇒ f increasing there; f′ < 0 ⇒ decreasing.
   - Needs: CA-5.2.A
-  - P1 · P3
+  - P1 · P3 · drills: ~ca-critical-points
 
 ### 5.4 The first derivative test
 
 
 
-- ○ **CA-5.4.A** (FUN-4.A) Classify each critical point as a relative max, min or neither by the sign change of f′.
+- ● **CA-5.4.A** (FUN-4.A) Classify each critical point as a relative max, min or neither by the sign change of f′.
   - EK: f′ changes + to − ⇒ relative max; − to + ⇒ relative min; no change ⇒ neither.
   - Needs: CA-5.3.A
-  - P3
+  - P3 · drills: ca-critical-points
 
 ### 5.5 The candidates test
 
 
 
-- ○ **CA-5.5.A** (FUN-4.A) Find absolute extrema on a closed interval by comparing f at critical points and endpoints.
+- ● **CA-5.5.A** (FUN-4.A) Find absolute extrema on a closed interval by comparing f at critical points and endpoints.
   - EK: Largest value among the candidates is the absolute max, smallest the absolute min.
   - Needs: CA-5.2.A
-  - P1 · P3
+  - P1 · P3 · drills: ca-abs-extrema
 
 ### 5.6 Concavity and points of inflection
 
 
 
-- ○ **CA-5.6.A** (FUN-4.A) Find intervals of concavity and points of inflection from the sign of f″.
+- ● **CA-5.6.A** (FUN-4.A) Find intervals of concavity and points of inflection from the sign of f″.
   - EK: f″ > 0 ⇒ concave up (f′ increasing); inflection where f″ changes sign, not merely where f″ = 0.
   - Needs: CA-3.6.A, CA-5.3.A
-  - P1 · P3
+  - P1 · P3 · drills: ca-inflection
 
 ### 5.7 The second derivative test
 
 
 
-- ○ **CA-5.7.A** (FUN-4.A) Classify a critical point with f′(c) = 0 using the sign of f″(c), and say when the test fails.
+- ● **CA-5.7.A** (FUN-4.A) Classify a critical point with f′(c) = 0 using the sign of f″(c), and say when the test fails.
   - EK: f″(c) > 0 ⇒ min, < 0 ⇒ max, = 0 ⇒ inconclusive (go back to the first derivative test).
   - Needs: CA-5.6.A, CA-5.4.A
-  - P3
+  - P3 · drills: ca-second-derivative-test
 
 ### 5.8 Sketching graphs of functions and their derivatives
 
@@ -519,19 +519,19 @@ Big ideas: FUN
 
 
 
-- ○ **CA-5.10.A** (FUN-4.B) Translate an optimization situation into a function of one variable with its feasible domain.
+- ◐ **CA-5.10.A** (FUN-4.B) Translate an optimization situation into a function of one variable with its feasible domain.
   - EK: Write the quantity to optimize, use the constraint to eliminate a variable, state the domain from physical limits.
   - Needs: CA-5.5.A
-  - P1 · P2
+  - P1 · P2 · drills: ~ca-optimization-fence
 
 ### 5.11 Solving optimization problems
 
 
 
-- ○ **CA-5.11.A** (FUN-4.C) Solve an optimization problem and justify that the answer is the absolute extremum.
+- ● **CA-5.11.A** (FUN-4.C) Solve an optimization problem and justify that the answer is the absolute extremum.
   - EK: Candidates test on a closed domain; on an open domain, a single critical point that is a relative extremum is absolute.
   - Needs: CA-5.10.A
-  - P3 · P4
+  - P3 · P4 · drills: ca-optimization-fence, ca-optimization-box
 
 ### 5.12 Behaviour of implicit relations
 

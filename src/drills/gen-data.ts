@@ -8,6 +8,9 @@
 //                                {{expr|3}} with 3, strings as they are
 //   parts:    checked steps      { ask, label, tex, value: Ts, unit: "°C" }   the last is the final answer
 //                                { ask, label, choice: [opt, opt…], correct: "expr → 0-based index" }
+//                                { ask, label, tex, expr: "c*x^(n-1)", vars: [x] }   a symbolic answer: the template's
+//                                numbers are folded in and the answer is checked as an expression (sym.ts)
+//   {{=expr}}                    prints an expression the same way, e.g. $f(x) = {{=a*x^n + b}}$
 //   verify:   the independent check (tests/verify/data.py): never reused here
 import graph from "./skills.generated.json";
 import { math } from "./check";
@@ -15,6 +18,7 @@ import { fmt, u } from "./gen-heat";
 import { require_ } from "./reject";
 import type { Rng } from "./rng";
 import type { Answer, Draft, Part } from "./types";
+import { symbolic } from "./sym";
 
 type Given = number | string | { pick?: (number | string)[]; int?: [number, number] };
 interface DataPart {
@@ -22,6 +26,8 @@ interface DataPart {
   label: string;
   tex?: string;
   value?: string | number;
+  expr?: string;
+  vars?: string[];
   unit?: string;
   tol?: number;
   explain?: string;
@@ -56,6 +62,7 @@ function num(expr: string | number, scope: Scope, what: string): number {
 /** "{{expr}}" / "{{expr|3}}" -> value; numbers printed for TeX (so put them inside $…$) */
 export function fill(text: string, scope: Scope): string {
   return text.replace(/\{\{([^}|]+)(?:\|(\d))?\}\}/g, (_, expr: string, sig?: string) => {
+    if (expr.trim().startsWith("=")) return symbolic(expr.trim().slice(1), scope).tex;
     const v = evalIn(expr.trim(), scope);
     if (typeof v === "string") return v;
     if (typeof v === "boolean") return v ? "true" : "false";
@@ -83,6 +90,7 @@ export function buildData(t: DataTemplate, r: Rng): Draft {
   const values: Record<string, number> = {};
   const parts: Part[] = t.parts.map((p) => {
     const ask = fill(p.ask, scope);
+    const tex = p.tex ? fill(p.tex, scope) : p.label;
     const explain = p.explain ? fill(p.explain, scope) : undefined;
     if (p.choice) {
       const options = p.choice.map((o) => fill(o, scope));
@@ -92,12 +100,17 @@ export function buildData(t: DataTemplate, r: Rng): Draft {
       values[p.label] = idx;
       return { ask, answer: { kind: "choice", options, correct } as Answer, answerTex: `\\text{${correct.replace(/[{}$\\]/g, "")}}`, explain };
     }
+    if (p.expr) {
+      const s = symbolic(p.expr, scope);
+      const answer: Answer = { kind: "expression", ref: s.ref, vars: p.vars ?? ["x"], label: p.label, tol: 1e-9 };
+      return { ask, answer, answerTex: `${tex} = ${s.tex}`, explain };
+    }
     const v = num(p.value!, scope, `${t.template} › ${p.label}`);
     require_(v !== 0);
     values[p.label] = v;
     scope[p.label] = v;
     const answer: Answer = { kind: "expression", ref: `${v}`, vars: [], tol: p.tol ?? 0.01, rel: true, label: p.label, unit: p.unit };
-    return { ask, answer, answerTex: `${p.tex ?? p.label} = ${fmt(v)}${p.unit ? u(p.unit) : ""}`, explain };
+    return { ask, answer, answerTex: `${tex} = ${fmt(v)}${p.unit ? u(p.unit) : ""}`, explain };
   });
   const last = parts[parts.length - 1];
   return {

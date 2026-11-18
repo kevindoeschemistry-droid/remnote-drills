@@ -94,7 +94,7 @@ units:
         ced: "1.2"
         los:
           - { id: A, std: [LIM-1.A], do: "Read and write limit statements in symbols and words, including one-sided limits.", ek: ["lim_(x→c) f(x) = L means f(x) can be made as close to L as wanted by taking x close enough to c (x ≠ c); f(c) itself is irrelevant."], p: [P4], drills: [] }
-          - { id: B, std: [LIM-1.B], do: "Decide whether a limit exists by comparing the two one-sided limits.", ek: ["lim_(x→c) f(x) exists ⇔ both one-sided limits exist and are equal; unbounded or oscillating behaviour means no limit."], p: [P3], drills: [], needs: [CA-1.2.A] }
+          - { id: B, std: [LIM-1.B], do: "Decide whether a limit exists by comparing the two one-sided limits.", ek: ["lim_(x→c) f(x) exists ⇔ both one-sided limits exist and are equal; unbounded or oscillating behaviour means no limit."], p: [P3], drills: [ca-lim-onesided], needs: [CA-1.2.A] }
       - n: 3
         title: Estimating limits from graphs
         ced: "1.3"
@@ -109,23 +109,23 @@ units:
         title: Limit laws
         ced: "1.5"
         los:
-          - { id: A, std: [LIM-1.D], do: "Find limits of sums, products, quotients and compositions from the limits of their parts, and by direct substitution at points of an elementary function's domain.", ek: ["lim(f ± g), lim(fg), lim(f/g) (denominator limit ≠ 0) are the sums, products, quotients of the limits; elementary functions are continuous on their domains, so substitution works there."], p: [P1], drills: [] }
+          - { id: A, std: [LIM-1.D], do: "Find limits of sums, products, quotients and compositions from the limits of their parts, and by direct substitution at points of an elementary function's domain.", ek: ["lim(f ± g), lim(fg), lim(f/g) (denominator limit ≠ 0) are the sums, products, quotients of the limits; elementary functions are continuous on their domains, so substitution works there."], p: [P1], drills: [ca-lim-substitute, ca-lim-quotient] }
       - n: 6
         title: Algebraic manipulation of limits
         ced: "1.6"
         los:
-          - { id: A, std: [LIM-1.E], do: "Evaluate a 0/0 limit by factoring and cancelling, or by multiplying by a conjugate to clear a radical.", ek: ["f and the simplified form agree for x ≠ c, so their limits at c are the same; (√a − √b)(√a + √b) = a − b."], p: [P1], drills: [], needs: [CA-1.5.A] }
-          - { id: B, std: [LIM-1.E], do: "Evaluate trig limits by rewriting them in terms of sin x / x → 1 and (1 − cos x)/x → 0.", ek: ["lim_(x→0) sin(kx)/(kx) = 1; multiply and divide by k to set it up."], p: [P1], drills: [], needs: [CA-1.5.A] }
+          - { id: A, std: [LIM-1.E], do: "Evaluate a 0/0 limit by factoring and cancelling, or by multiplying by a conjugate to clear a radical.", ek: ["f and the simplified form agree for x ≠ c, so their limits at c are the same; (√a − √b)(√a + √b) = a − b."], p: [P1], drills: [ca-lim-factor, ca-lim-conjugate], needs: [CA-1.5.A] }
+          - { id: B, std: [LIM-1.E], do: "Evaluate trig limits by rewriting them in terms of sin x / x → 1 and (1 − cos x)/x → 0.", ek: ["lim_(x→0) sin(kx)/(kx) = 1; multiply and divide by k to set it up."], p: [P1], drills: [ca-lim-trig], needs: [CA-1.5.A] }
       - n: 7
         title: Selecting procedures for limits
         ced: "1.7"
         los:
-          - { id: A, std: [LIM-1.D, LIM-1.E], do: "Choose a limit procedure from the form the expression takes at c: substitute, factor, rationalize, use a trig identity, or recognise a nonzero/0 infinite limit.", ek: ["Substitute first: a number means done; 0/0 means manipulate; nonzero/0 means an infinite limit or none."], p: [P1], drills: [], needs: [CA-1.6.A, CA-1.6.B] }
+          - { id: A, std: [LIM-1.D, LIM-1.E], do: "Choose a limit procedure from the form the expression takes at c: substitute, factor, rationalize, use a trig identity, or recognise a nonzero/0 infinite limit.", ek: ["Substitute first: a number means done; 0/0 means manipulate; nonzero/0 means an infinite limit or none."], p: [P1], drills: ["~ca-lim-factor"], needs: [CA-1.6.A, CA-1.6.B] }
       - n: 8
         title: The squeeze theorem
         ced: "1.8"
         los:
-          - { id: A, std: [LIM-1.E], do: "Find a limit with the squeeze theorem after bounding the function between two functions with a common limit.", ek: ["g ≤ f ≤ h near c and lim g = lim h = L ⇒ lim f = L; −1 ≤ sin(anything) ≤ 1 is the usual bound."], p: [P3], drills: [], needs: [CA-1.5.A] }
+          - { id: A, std: [LIM-1.E], do: "Find a limit with the squeeze theorem after bounding the function between two functions with a common limit.", ek: ["g ≤ f ≤ h near c and lim g = lim h = L ⇒ lim f = L; −1 ≤ sin(anything) ≤ 1 is the usual bound."], p: [P3], drills: [ca-lim-squeeze], needs: [CA-1.5.A] }
       - n: 9
         title: Connecting representations of limits
         ced: "1.9"
@@ -140,7 +140,7 @@ units:
         title: Continuity at a point
         ced: "1.11"
         los:
-          - { id: A, std: [LIM-2.A], do: "Prove or disprove continuity at a point by checking the three conditions.", ek: ["f continuous at c ⇔ f(c) is defined, lim_(x→c) f(x) exists, and they are equal."], p: [P3], drills: [], needs: [CA-1.10.A] }
+          - { id: A, std: [LIM-2.A], do: "Prove or disprove continuity at a point by checking the three conditions.", ek: ["f continuous at c ⇔ f(c) is defined, lim_(x→c) f(x) exists, and they are equal."], p: [P3], drills: ["~ca-continuity-k"], needs: [CA-1.10.A] }
       - n: 12
         title: Continuity over an interval
         ced: "1.12"
@@ -150,22 +150,22 @@ units:
         title: Removing discontinuities
         ced: "1.13"
         los:
-          - { id: A, std: [LIM-2.C], do: "Remove a discontinuity: redefine f at a removable point, or solve for constants that make a piecewise function continuous at its break.", ek: ["Set f(c) = lim_(x→c) f(x); for a piecewise function, match the left and right limits at the break and f(c)."], p: [P1], drills: [], needs: [CA-1.11.A, CA-1.6.A] }
+          - { id: A, std: [LIM-2.C], do: "Remove a discontinuity: redefine f at a removable point, or solve for constants that make a piecewise function continuous at its break.", ek: ["Set f(c) = lim_(x→c) f(x); for a piecewise function, match the left and right limits at the break and f(c)."], p: [P1], drills: [ca-continuity-k], needs: [CA-1.11.A, CA-1.6.A] }
       - n: 14
         title: Infinite limits and vertical asymptotes
         ced: "1.14"
         los:
-          - { id: A, std: [LIM-2.D], do: "Find vertical asymptotes and the sign of the infinite one-sided limits at each.", ek: ["Nonzero/0 at x = c ⇒ x = c is a vertical asymptote; the sign of numerator and denominator on each side gives +∞ or −∞."], p: [P1, P2], drills: [], needs: [CA-1.10.A] }
+          - { id: A, std: [LIM-2.D], do: "Find vertical asymptotes and the sign of the infinite one-sided limits at each.", ek: ["Nonzero/0 at x = c ⇒ x = c is a vertical asymptote; the sign of numerator and denominator on each side gives +∞ or −∞."], p: [P1, P2], drills: [ca-vert-asymptote], needs: [CA-1.10.A] }
       - n: 15
         title: Limits at infinity and horizontal asymptotes
         ced: "1.15"
         los:
-          - { id: A, std: [LIM-2.D], do: "Find limits at ±∞ and horizontal asymptotes of rational and radical expressions, and of expressions mixing exponentials, powers and logs.", ek: ["Divide by the highest power in the denominator: deg num < deg den → 0, equal → ratio of leading coefficients, greater → unbounded; √(x²) = |x|; as x → ∞, ln x ≪ x^p ≪ e^x."], p: [P1, P2], drills: [] }
+          - { id: A, std: [LIM-2.D], do: "Find limits at ±∞ and horizontal asymptotes of rational and radical expressions, and of expressions mixing exponentials, powers and logs.", ek: ["Divide by the highest power in the denominator: deg num < deg den → 0, equal → ratio of leading coefficients, greater → unbounded; √(x²) = |x|; as x → ∞, ln x ≪ x^p ≪ e^x."], p: [P1, P2], drills: [ca-lim-infinity, ca-lim-infinity-radical] }
       - n: 16
         title: The Intermediate Value Theorem
         ced: "1.16"
         los:
-          - { id: A, std: [FUN-1.A], do: "Use the IVT to justify that a function takes a given value (or has a root) on an interval, after confirming continuity.", ek: ["f continuous on [a, b] and N between f(a) and f(b) ⇒ f(c) = N for some c in (a, b)."], p: [P3], drills: [], needs: [CA-1.12.A] }
+          - { id: A, std: [FUN-1.A], do: "Use the IVT to justify that a function takes a given value (or has a root) on an interval, after confirming continuity.", ek: ["f continuous on [a, b] and N between f(a) and f(b) ⇒ f(c) = N for some c in (a, b)."], p: [P3], drills: [ca-ivt], needs: [CA-1.12.A] }
 
   # ── 2 ────────────────────────────────────────────────────────────────────
   - id: derivative
@@ -178,19 +178,19 @@ units:
         title: Average and instantaneous rates of change
         ced: "2.1"
         los:
-          - { id: A, std: [CHA-2.A], do: "Calculate an average rate of change as the slope of a secant line.", ek: ["(f(b) − f(a))/(b − a), in units of output per unit input."], p: [P1], drills: [] }
-          - { id: B, std: [CHA-2.B], do: "Express an instantaneous rate of change as the limit of a difference quotient.", ek: ["lim_(h→0) (f(a + h) − f(a))/h — the secant slope as the interval shrinks to a point."], p: [P2], drills: [], needs: [CA-2.1.A, CA-1.1.A] }
+          - { id: A, std: [CHA-2.A], do: "Calculate an average rate of change as the slope of a secant line.", ek: ["(f(b) − f(a))/(b − a), in units of output per unit input."], p: [P1], drills: [ca-avg-rate] }
+          - { id: B, std: [CHA-2.B], do: "Express an instantaneous rate of change as the limit of a difference quotient.", ek: ["lim_(h→0) (f(a + h) − f(a))/h — the secant slope as the interval shrinks to a point."], p: [P2], drills: ["~ca-def-derivative"], needs: [CA-2.1.A, CA-1.1.A] }
       - n: 2
         title: The derivative and its notation
         ced: "2.2"
         los:
-          - { id: A, std: [CHA-2.B], do: "Compute a derivative from the limit definition (h-form or x → a form), and recognise a given difference-quotient limit as a derivative.", ek: ["f′(x) = lim_(h→0)(f(x+h) − f(x))/h; f′(a) = lim_(x→a)(f(x) − f(a))/(x − a); lim_(h→0)(sin(π/3 + h) − sin(π/3))/h is just cos(π/3)."], p: [P1, P2], drills: [], needs: [CA-2.1.B, CA-1.6.A] }
-          - { id: B, std: [CHA-2.C], do: "Write the equation of the tangent line at a point, using f′, dy/dx or d/dx notation correctly.", ek: ["y − f(a) = f′(a)(x − a)."], p: [P4], drills: [], needs: [CA-2.2.A] }
+          - { id: A, std: [CHA-2.B], do: "Compute a derivative from the limit definition (h-form or x → a form), and recognise a given difference-quotient limit as a derivative.", ek: ["f′(x) = lim_(h→0)(f(x+h) − f(x))/h; f′(a) = lim_(x→a)(f(x) − f(a))/(x − a); lim_(h→0)(sin(π/3 + h) − sin(π/3))/h is just cos(π/3)."], p: [P1, P2], drills: [ca-def-derivative], needs: [CA-2.1.B, CA-1.6.A] }
+          - { id: B, std: [CHA-2.C], do: "Write the equation of the tangent line at a point, using f′, dy/dx or d/dx notation correctly.", ek: ["y − f(a) = f′(a)(x − a)."], p: [P4], drills: [ca-tangent-line], needs: [CA-2.2.A] }
       - n: 3
         title: Estimating derivatives at a point
         ced: "2.3"
         los:
-          - { id: A, std: [CHA-2.D], do: "Estimate a derivative at a point from a table or graph with a difference quotient.", ek: ["Use the closest bracketing data: (f(b) − f(a))/(b − a) estimates f′ between a and b; a symmetric quotient is usually best."], p: [P1, P2], drills: [], needs: [CA-2.1.A] }
+          - { id: A, std: [CHA-2.D], do: "Estimate a derivative at a point from a table or graph with a difference quotient.", ek: ["Use the closest bracketing data: (f(b) − f(a))/(b − a) estimates f′ between a and b; a symmetric quotient is usually best."], p: [P1, P2], drills: [ca-estimate-derivative], needs: [CA-2.1.A] }
       - n: 4
         title: Differentiability and continuity
         ced: "2.4"
@@ -200,33 +200,33 @@ units:
         title: The power rule
         ced: "2.5"
         los:
-          - { id: A, std: [FUN-3.A], do: "Differentiate x^n for any real n, rewriting roots and reciprocals as powers first.", ek: ["d/dx x^n = n x^(n−1); √x = x^(1/2), 1/x³ = x^(−3)."], p: [P1], drills: [], needs: [CA-2.2.A] }
+          - { id: A, std: [FUN-3.A], do: "Differentiate x^n for any real n, rewriting roots and reciprocals as powers first.", ek: ["d/dx x^n = n x^(n−1); √x = x^(1/2), 1/x³ = x^(−3)."], p: [P1], drills: [ca-power-rule, ca-power-reciprocal, ca-power-root], needs: [CA-2.2.A] }
       - n: 6
         title: Constant, sum, difference and constant-multiple rules
         ced: "2.6"
         los:
-          - { id: A, std: [FUN-3.A], do: "Differentiate polynomials and sums of power terms term by term.", ek: ["Derivative is linear: (af + bg)′ = af′ + bg′; constants differentiate to 0."], p: [P1], drills: [], needs: [CA-2.5.A] }
+          - { id: A, std: [FUN-3.A], do: "Differentiate polynomials and sums of power terms term by term.", ek: ["Derivative is linear: (af + bg)′ = af′ + bg′; constants differentiate to 0."], p: [P1], drills: [ca-poly-derivative], needs: [CA-2.5.A] }
       - n: 7
         title: Derivatives of sin x, cos x, e^x and ln x
         ced: "2.7"
         los:
-          - { id: A, std: [FUN-3.A], do: "Differentiate sin x, cos x, e^x and ln x and combinations of them with the sum and constant-multiple rules.", ek: ["(sin x)′ = cos x, (cos x)′ = −sin x, (e^x)′ = e^x, (ln x)′ = 1/x."], p: [P1], drills: [], needs: [CA-2.6.A] }
+          - { id: A, std: [FUN-3.A], do: "Differentiate sin x, cos x, e^x and ln x and combinations of them with the sum and constant-multiple rules.", ek: ["(sin x)′ = cos x, (cos x)′ = −sin x, (e^x)′ = e^x, (ln x)′ = 1/x."], p: [P1], drills: [ca-elementary-derivative], needs: [CA-2.6.A] }
           - { id: B, std: [LIM-3.A], do: "Derive the derivative of sin x or e^x from the limit definition.", ek: ["sin(x+h) = sin x cos h + cos x sin h, then use sin h/h → 1 and (cos h − 1)/h → 0."], p: [P3], drills: [], needs: [CA-2.2.A, CA-1.6.B] }
       - n: 8
         title: The product rule
         ced: "2.8"
         los:
-          - { id: A, std: [FUN-3.B], do: "Differentiate a product, from a formula or from given values of f, g, f′, g′.", ek: ["(fg)′ = f′g + fg′."], p: [P1], drills: [], needs: [CA-2.7.A] }
+          - { id: A, std: [FUN-3.B], do: "Differentiate a product, from a formula or from given values of f, g, f′, g′.", ek: ["(fg)′ = f′g + fg′."], p: [P1], drills: [ca-product-rule, ca-product-exp, ca-product-values], needs: [CA-2.7.A] }
       - n: 9
         title: The quotient rule
         ced: "2.9"
         los:
-          - { id: A, std: [FUN-3.B], do: "Differentiate a quotient, from a formula or from given values.", ek: ["(f/g)′ = (f′g − fg′)/g²."], p: [P1], drills: [], needs: [CA-2.8.A] }
+          - { id: A, std: [FUN-3.B], do: "Differentiate a quotient, from a formula or from given values.", ek: ["(f/g)′ = (f′g − fg′)/g²."], p: [P1], drills: [ca-quotient-rule, ca-quotient-values], needs: [CA-2.8.A] }
       - n: 10
         title: Derivatives of tan, cot, sec and csc
         ced: "2.10"
         los:
-          - { id: A, std: [FUN-3.B], do: "Derive and use the derivatives of tan x, cot x, sec x and csc x.", ek: ["Write each as a quotient of sin and cos: (tan x)′ = sec²x, (sec x)′ = sec x tan x, (cot x)′ = −csc²x, (csc x)′ = −csc x cot x."], p: [P1], drills: [], needs: [CA-2.9.A] }
+          - { id: A, std: [FUN-3.B], do: "Derive and use the derivatives of tan x, cot x, sec x and csc x.", ek: ["Write each as a quotient of sin and cos: (tan x)′ = sec²x, (sec x)′ = sec x tan x, (cot x)′ = −csc²x, (csc x)′ = −csc x cot x."], p: [P1], drills: [ca-trig-derivative], needs: [CA-2.9.A] }
 
   # ── 3 ────────────────────────────────────────────────────────────────────
   - id: composite
@@ -239,33 +239,33 @@ units:
         title: The chain rule
         ced: "3.1"
         los:
-          - { id: A, std: [FUN-3.C], do: "Differentiate a composite function with the chain rule — nested compositions, b^x and log_b x, and from tables or graphs of f, g and their derivatives.", ek: ["(f(g(x)))′ = f′(g(x)) g′(x); (b^x)′ = b^x ln b, (log_b x)′ = 1/(x ln b); from a table read g(a) first, then f′ at that value."], p: [P1, P2], drills: [], needs: [CA-2.10.A] }
+          - { id: A, std: [FUN-3.C], do: "Differentiate a composite function with the chain rule — nested compositions, b^x and log_b x, and from tables or graphs of f, g and their derivatives.", ek: ["(f(g(x)))′ = f′(g(x)) g′(x); (b^x)′ = b^x ln b, (log_b x)′ = 1/(x ln b); from a table read g(a) first, then f′ at that value."], p: [P1, P2], drills: [ca-chain-power, ca-chain-trig, ca-chain-exp, ca-chain-ln, ca-chain-values, ca-exp-base], needs: [CA-2.10.A] }
       - n: 2
         title: Implicit differentiation
         ced: "3.2"
         los:
-          - { id: A, std: [FUN-3.D], do: "Find dy/dx for an implicitly defined relation and the slope or tangent line at a point on it.", ek: ["Every y-term gets a factor dy/dx by the chain rule; collect the dy/dx terms and solve; substitute both x and y of the point."], p: [P1], drills: ["~mv-implicit"], needs: [CA-3.1.A, CA-2.2.B] }
+          - { id: A, std: [FUN-3.D], do: "Find dy/dx for an implicitly defined relation and the slope or tangent line at a point on it.", ek: ["Every y-term gets a factor dy/dx by the chain rule; collect the dy/dx terms and solve; substitute both x and y of the point."], p: [P1], drills: [ca-implicit-slope, "~mv-implicit"], needs: [CA-3.1.A, CA-2.2.B] }
       - n: 3
         title: Derivatives of inverse functions
         ced: "3.3"
         los:
-          - { id: A, std: [FUN-3.E], do: "Find the derivative of an inverse function at a point from f, a table or a graph.", ek: ["If f(a) = b then (f⁻¹)′(b) = 1/f′(a) — reciprocal slope at the reflected point."], p: [P1, P2], drills: [], needs: [CA-3.1.A] }
+          - { id: A, std: [FUN-3.E], do: "Find the derivative of an inverse function at a point from f, a table or a graph.", ek: ["If f(a) = b then (f⁻¹)′(b) = 1/f′(a) — reciprocal slope at the reflected point."], p: [P1, P2], drills: [ca-inverse-derivative], needs: [CA-3.1.A] }
       - n: 4
         title: Derivatives of inverse trig functions
         ced: "3.4"
         los:
-          - { id: A, std: [FUN-3.E], do: "Differentiate arcsin, arccos and arctan (and compositions with them).", ek: ["(arcsin x)′ = 1/√(1 − x²), (arccos x)′ = −1/√(1 − x²), (arctan x)′ = 1/(1 + x²)."], p: [P1], drills: [], needs: [CA-3.3.A] }
+          - { id: A, std: [FUN-3.E], do: "Differentiate arcsin, arccos and arctan (and compositions with them).", ek: ["(arcsin x)′ = 1/√(1 − x²), (arccos x)′ = −1/√(1 − x²), (arctan x)′ = 1/(1 + x²)."], p: [P1], drills: [ca-arctan-derivative, ca-arcsin-derivative], needs: [CA-3.3.A] }
       - n: 5
         title: Selecting procedures for derivatives
         ced: "3.5"
         los:
-          - { id: A, std: [FUN-3.A, FUN-3.B, FUN-3.C, FUN-3.D, FUN-3.E], do: "Choose and combine the differentiation rules a given expression needs, simplifying first when it helps.", ek: ["Read the outermost operation: sum → term by term, product → product rule, quotient → quotient rule (or rewrite), composition → chain rule."], p: [P1], drills: [], needs: [CA-3.1.A, CA-3.2.A, CA-3.4.A] }
-          - { id: B, std: [FUN-3.C], do: "Differentiate a variable power such as x^x or a messy product by logarithmic differentiation.", ek: ["Take ln of both sides, differentiate implicitly: y′ = y·(ln y)′. Beyond the CED, but used everywhere downstream."], p: [P1], drills: [], needs: [CA-3.2.A] }
+          - { id: A, std: [FUN-3.A, FUN-3.B, FUN-3.C, FUN-3.D, FUN-3.E], do: "Choose and combine the differentiation rules a given expression needs, simplifying first when it helps.", ek: ["Read the outermost operation: sum → term by term, product → product rule, quotient → quotient rule (or rewrite), composition → chain rule."], p: [P1], drills: [ca-rules-combined], needs: [CA-3.1.A, CA-3.2.A, CA-3.4.A] }
+          - { id: B, std: [FUN-3.C], do: "Differentiate a variable power such as x^x or a messy product by logarithmic differentiation.", ek: ["Take ln of both sides, differentiate implicitly: y′ = y·(ln y)′. Beyond the CED, but used everywhere downstream."], p: [P1], drills: [ca-log-diff], needs: [CA-3.2.A] }
       - n: 6
         title: Higher-order derivatives
         ced: "3.6"
         los:
-          - { id: A, std: [FUN-3.F], do: "Compute second and higher derivatives, including d²y/dx² of an implicit relation.", ek: ["f″ = (f′)′, d²y/dx²; implicitly, differentiate dy/dx again and replace each dy/dx with its expression."], p: [P1, P4], drills: [], needs: [CA-3.5.A] }
+          - { id: A, std: [FUN-3.F], do: "Compute second and higher derivatives, including d²y/dx² of an implicit relation.", ek: ["f″ = (f′)′, d²y/dx²; implicitly, differentiate dy/dx again and replace each dy/dx with its expression."], p: [P1, P4], drills: [ca-second-derivative, ca-second-derivative-trig], needs: [CA-3.5.A] }
 
   # ── 4 ────────────────────────────────────────────────────────────────────
   - id: contextual
@@ -283,7 +283,7 @@ units:
         title: Straight-line motion
         ced: "4.2"
         los:
-          - { id: A, std: [CHA-3.B], do: "Find velocity, acceleration and speed from position, and decide when the particle moves left/right or speeds up/slows down.", ek: ["v = x′, a = v′ = x″; speed = |v|; speeding up ⇔ v and a have the same sign."], p: [P1, P3], drills: [], needs: [CA-3.6.A] }
+          - { id: A, std: [CHA-3.B], do: "Find velocity, acceleration and speed from position, and decide when the particle moves left/right or speeds up/slows down.", ek: ["v = x′, a = v′ = x″; speed = |v|; speeding up ⇔ v and a have the same sign."], p: [P1, P3], drills: [ca-motion], needs: [CA-3.6.A] }
       - n: 3
         title: Rates of change in other contexts
         ced: "4.3"
@@ -293,24 +293,24 @@ units:
         title: Introduction to related rates
         ced: "4.4"
         los:
-          - { id: A, std: [CHA-3.D], do: "Differentiate an equation linking several quantities with respect to time to relate their rates.", ek: ["Implicit differentiation in t: every changing quantity gets its own d/dt."], p: [P1], drills: [], needs: [CA-3.2.A] }
+          - { id: A, std: [CHA-3.D], do: "Differentiate an equation linking several quantities with respect to time to relate their rates.", ek: ["Implicit differentiation in t: every changing quantity gets its own d/dt."], p: [P1], drills: [ca-related-sphere], needs: [CA-3.2.A] }
       - n: 5
         title: Solving related rates problems
         ced: "4.5"
         los:
-          - { id: A, std: [CHA-3.E], do: "Solve a related-rates problem: draw, relate the quantities with geometry, differentiate, then substitute the instant's values.", ek: ["Substitute values only after differentiating; similar triangles or Pythagoras usually give the relation."], p: [P1, P4], drills: [], needs: [CA-4.4.A] }
+          - { id: A, std: [CHA-3.E], do: "Solve a related-rates problem: draw, relate the quantities with geometry, differentiate, then substitute the instant's values.", ek: ["Substitute values only after differentiating; similar triangles or Pythagoras usually give the relation."], p: [P1, P4], drills: [ca-related-circle, ca-related-ladder], needs: [CA-4.4.A] }
       - n: 6
         title: Local linearity and linearization
         ced: "4.6"
         los:
-          - { id: A, std: [CHA-3.F], do: "Approximate a function value with the tangent-line approximation.", ek: ["f(x) ≈ f(a) + f′(a)(x − a) for x near a."], p: [P1], drills: [], needs: [CA-2.2.B] }
-          - { id: B, std: [CHA-3.F], do: "Decide whether a tangent-line approximation over- or under-estimates, from concavity.", ek: ["Concave up ⇒ tangent lies below ⇒ underestimate; concave down ⇒ overestimate."], p: [P3], drills: [], needs: [CA-4.6.A, CA-3.6.A] }
+          - { id: A, std: [CHA-3.F], do: "Approximate a function value with the tangent-line approximation.", ek: ["f(x) ≈ f(a) + f′(a)(x − a) for x near a."], p: [P1], drills: [ca-linearization], needs: [CA-2.2.B] }
+          - { id: B, std: [CHA-3.F], do: "Decide whether a tangent-line approximation over- or under-estimates, from concavity.", ek: ["Concave up ⇒ tangent lies below ⇒ underestimate; concave down ⇒ overestimate."], p: [P3], drills: [ca-linearization-error], needs: [CA-4.6.A, CA-3.6.A] }
       - n: 7
         title: L'Hospital's rule
         ced: "4.7"
         los:
-          - { id: A, std: [LIM-4.A], do: "Evaluate a 0/0 or ∞/∞ limit with L'Hospital's rule after confirming the form.", ek: ["Indeterminate f/g ⇒ lim f/g = lim f′/g′ if the latter exists; check the form again before reapplying."], p: [P3], drills: [], needs: [CA-3.5.A, CA-1.7.A] }
-          - { id: B, std: [LIM-4.A], do: "Rewrite 0·∞, ∞ − ∞, 1^∞, 0⁰ and ∞⁰ forms as a quotient (or take a log) and apply L'Hospital's rule.", ek: ["0·∞: f/(1/g); powers: L = e^(lim g ln f). Beyond the CED, standard in college calculus."], p: [P1], drills: [], needs: [CA-4.7.A] }
+          - { id: A, std: [LIM-4.A], do: "Evaluate a 0/0 or ∞/∞ limit with L'Hospital's rule after confirming the form.", ek: ["Indeterminate f/g ⇒ lim f/g = lim f′/g′ if the latter exists; check the form again before reapplying."], p: [P3], drills: [ca-lhospital-exp, ca-lhospital-twice], needs: [CA-3.5.A, CA-1.7.A] }
+          - { id: B, std: [LIM-4.A], do: "Rewrite 0·∞, ∞ − ∞, 1^∞, 0⁰ and ∞⁰ forms as a quotient (or take a log) and apply L'Hospital's rule.", ek: ["0·∞: f/(1/g); powers: L = e^(lim g ln f). Beyond the CED, standard in college calculus."], p: [P1], drills: [ca-lhospital-power], needs: [CA-4.7.A] }
 
   # ── 5 ────────────────────────────────────────────────────────────────────
   - id: analytical
@@ -323,37 +323,37 @@ units:
         title: The Mean Value Theorem
         ced: "5.1"
         los:
-          - { id: A, std: [FUN-1.B], do: "Verify the MVT hypotheses and find or justify a point where the instantaneous rate equals the average rate.", ek: ["f continuous on [a, b], differentiable on (a, b) ⇒ f′(c) = (f(b) − f(a))/(b − a) for some c in (a, b)."], p: [P3], drills: [], needs: [CA-2.4.A, CA-2.1.A] }
+          - { id: A, std: [FUN-1.B], do: "Verify the MVT hypotheses and find or justify a point where the instantaneous rate equals the average rate.", ek: ["f continuous on [a, b], differentiable on (a, b) ⇒ f′(c) = (f(b) − f(a))/(b − a) for some c in (a, b)."], p: [P3], drills: [ca-mvt], needs: [CA-2.4.A, CA-2.1.A] }
       - n: 2
         title: Extreme Value Theorem and critical points
         ced: "5.2"
         los:
-          - { id: A, std: [FUN-1.C], do: "Decide whether the EVT guarantees absolute extrema on an interval, and find the critical points of a function.", ek: ["Continuous on a closed, bounded interval ⇒ absolute max and min exist; critical point: c in the domain with f′(c) = 0 or undefined — local extrema occur only there."], p: [P1, P3], drills: [], needs: [CA-1.12.A, CA-3.5.A] }
+          - { id: A, std: [FUN-1.C], do: "Decide whether the EVT guarantees absolute extrema on an interval, and find the critical points of a function.", ek: ["Continuous on a closed, bounded interval ⇒ absolute max and min exist; critical point: c in the domain with f′(c) = 0 or undefined — local extrema occur only there."], p: [P1, P3], drills: [ca-critical-points], needs: [CA-1.12.A, CA-3.5.A] }
       - n: 3
         title: Increasing and decreasing intervals
         ced: "5.3"
         los:
-          - { id: A, std: [FUN-4.A], do: "Find the intervals where a function increases or decreases with a sign chart of f′.", ek: ["f′ > 0 on an interval ⇒ f increasing there; f′ < 0 ⇒ decreasing."], p: [P1, P3], drills: [], needs: [CA-5.2.A] }
+          - { id: A, std: [FUN-4.A], do: "Find the intervals where a function increases or decreases with a sign chart of f′.", ek: ["f′ > 0 on an interval ⇒ f increasing there; f′ < 0 ⇒ decreasing."], p: [P1, P3], drills: ["~ca-critical-points"], needs: [CA-5.2.A] }
       - n: 4
         title: The first derivative test
         ced: "5.4"
         los:
-          - { id: A, std: [FUN-4.A], do: "Classify each critical point as a relative max, min or neither by the sign change of f′.", ek: ["f′ changes + to − ⇒ relative max; − to + ⇒ relative min; no change ⇒ neither."], p: [P3], drills: [], needs: [CA-5.3.A] }
+          - { id: A, std: [FUN-4.A], do: "Classify each critical point as a relative max, min or neither by the sign change of f′.", ek: ["f′ changes + to − ⇒ relative max; − to + ⇒ relative min; no change ⇒ neither."], p: [P3], drills: [ca-critical-points], needs: [CA-5.3.A] }
       - n: 5
         title: The candidates test
         ced: "5.5"
         los:
-          - { id: A, std: [FUN-4.A], do: "Find absolute extrema on a closed interval by comparing f at critical points and endpoints.", ek: ["Largest value among the candidates is the absolute max, smallest the absolute min."], p: [P1, P3], drills: [], needs: [CA-5.2.A] }
+          - { id: A, std: [FUN-4.A], do: "Find absolute extrema on a closed interval by comparing f at critical points and endpoints.", ek: ["Largest value among the candidates is the absolute max, smallest the absolute min."], p: [P1, P3], drills: [ca-abs-extrema], needs: [CA-5.2.A] }
       - n: 6
         title: Concavity and points of inflection
         ced: "5.6"
         los:
-          - { id: A, std: [FUN-4.A], do: "Find intervals of concavity and points of inflection from the sign of f″.", ek: ["f″ > 0 ⇒ concave up (f′ increasing); inflection where f″ changes sign, not merely where f″ = 0."], p: [P1, P3], drills: [], needs: [CA-3.6.A, CA-5.3.A] }
+          - { id: A, std: [FUN-4.A], do: "Find intervals of concavity and points of inflection from the sign of f″.", ek: ["f″ > 0 ⇒ concave up (f′ increasing); inflection where f″ changes sign, not merely where f″ = 0."], p: [P1, P3], drills: [ca-inflection], needs: [CA-3.6.A, CA-5.3.A] }
       - n: 7
         title: The second derivative test
         ced: "5.7"
         los:
-          - { id: A, std: [FUN-4.A], do: "Classify a critical point with f′(c) = 0 using the sign of f″(c), and say when the test fails.", ek: ["f″(c) > 0 ⇒ min, < 0 ⇒ max, = 0 ⇒ inconclusive (go back to the first derivative test)."], p: [P3], drills: [], needs: [CA-5.6.A, CA-5.4.A] }
+          - { id: A, std: [FUN-4.A], do: "Classify a critical point with f′(c) = 0 using the sign of f″(c), and say when the test fails.", ek: ["f″(c) > 0 ⇒ min, < 0 ⇒ max, = 0 ⇒ inconclusive (go back to the first derivative test)."], p: [P3], drills: [ca-second-derivative-test], needs: [CA-5.6.A, CA-5.4.A] }
       - n: 8
         title: Sketching graphs of functions and their derivatives
         ced: "5.8"
@@ -368,12 +368,12 @@ units:
         title: Setting up optimization problems
         ced: "5.10"
         los:
-          - { id: A, std: [FUN-4.B], do: "Translate an optimization situation into a function of one variable with its feasible domain.", ek: ["Write the quantity to optimize, use the constraint to eliminate a variable, state the domain from physical limits."], p: [P1, P2], drills: [], needs: [CA-5.5.A] }
+          - { id: A, std: [FUN-4.B], do: "Translate an optimization situation into a function of one variable with its feasible domain.", ek: ["Write the quantity to optimize, use the constraint to eliminate a variable, state the domain from physical limits."], p: [P1, P2], drills: ["~ca-optimization-fence"], needs: [CA-5.5.A] }
       - n: 11
         title: Solving optimization problems
         ced: "5.11"
         los:
-          - { id: A, std: [FUN-4.C], do: "Solve an optimization problem and justify that the answer is the absolute extremum.", ek: ["Candidates test on a closed domain; on an open domain, a single critical point that is a relative extremum is absolute."], p: [P3, P4], drills: [], needs: [CA-5.10.A] }
+          - { id: A, std: [FUN-4.C], do: "Solve an optimization problem and justify that the answer is the absolute extremum.", ek: ["Candidates test on a closed domain; on an open domain, a single critical point that is a relative extremum is absolute."], p: [P3, P4], drills: [ca-optimization-fence, ca-optimization-box], needs: [CA-5.10.A] }
       - n: 12
         title: Behaviour of implicit relations
         ced: "5.12"
