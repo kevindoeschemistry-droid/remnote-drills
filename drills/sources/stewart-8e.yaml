@@ -101,3 +101,56 @@ chapters:
       - { ref: "11.8", title: "Power Series", skills: [calc.taylor] }
       - { ref: "11.10", title: "Taylor and Maclaurin Series", skills: [calc.taylor] }
       - { ref: "11.11", title: "Applications of Taylor Polynomials", skills: [calc.taylor] }
+  - n: 12
+    title: "Vectors and the Geometry of Space"
+    wiki: textbooks/stewart-calculus/ch12
+    sections:
+      - { ref: "12.2", title: "Vectors", skills: [calc.vectors-3d] }
+      - { ref: "12.3", title: "The Dot Product", skills: [calc.vectors-3d],
+          wiki: textbooks/stewart-calculus/ch12-dot-product }
+      - { ref: "12.4", title: "The Cross Product", skills: [calc.vectors-3d] }
+      - { ref: "12.5", title: "Equations of Lines and Planes", skills: [calc.vectors-3d] }
+  - n: 13
+    title: "Vector Functions"
+    wiki: textbooks/stewart-calculus/ch13
+    sections:
+      - { ref: "13.2", title: "Derivatives and Integrals of Vector Functions", skills: [calc.vectors-3d] }
+      - { ref: "13.3", title: "Arc Length and Curvature", skills: [calc.vectors-3d],
+          wiki: textbooks/stewart-calculus/ch13-curvature }
+  - n: 14
+    title: "Partial Derivatives"
+    wiki: textbooks/stewart-calculus/ch14
+    sections:
+      - { ref: "14.3", title: "Partial Derivatives", skills: [calc.multivariable],
+          wiki: textbooks/stewart-calculus/ch14-partial-deriv }
+      - { ref: "14.4", title: "Tangent Planes and Linear Approximations", skills: [calc.partials-apps] }
+      - { ref: "14.5", title: "The Chain Rule", skills: [calc.partials-apps] }
+      - { ref: "14.6", title: "Directional Derivatives and the Gradient Vector", skills: [calc.partials-apps] }
+      - { ref: "14.7", title: "Maximum and Minimum Values", skills: [calc.partials-apps] }
+      - { ref: "14.8", title: "Lagrange Multipliers", skills: [calc.partials-apps] }
+  - n: 15
+    title: "Multiple Integrals"
+    wiki: textbooks/stewart-calculus/ch15
+    sections:
+      - { ref: "15.1", title: "Double Integrals over Rectangles", skills: [calc.multiple-integrals],
+          wiki: textbooks/stewart-calculus/ch15-double-integral }
+      - { ref: "15.2", title: "Double Integrals over General Regions", skills: [calc.multiple-integrals] }
+      - { ref: "15.3", title: "Double Integrals in Polar Coordinates", skills: [calc.multiple-integrals] }
+      - { ref: "15.4", title: "Applications of Double Integrals", skills: [calc.multiple-integrals] }
+      - { ref: "15.6", title: "Triple Integrals", skills: [calc.multiple-integrals] }
+      - { ref: "15.7", title: "Triple Integrals in Cylindrical Coordinates", skills: [calc.multiple-integrals] }
+      - { ref: "15.8", title: "Triple Integrals in Spherical Coordinates", skills: [calc.multiple-integrals] }
+      - { ref: "15.9", title: "Change of Variables in Multiple Integrals", skills: [calc.multiple-integrals] }
+  - n: 16
+    title: "Vector Calculus"
+    wiki: textbooks/stewart-calculus/ch16
+    sections:
+      - { ref: "16.2", title: "Line Integrals", skills: [calc.vector-calculus] }
+      - { ref: "16.3", title: "The Fundamental Theorem for Line Integrals", skills: [calc.vector-calculus] }
+      - { ref: "16.4", title: "Green's Theorem", skills: [calc.vector-calculus] }
+      - { ref: "16.5", title: "Curl and Divergence", skills: [calc.vector-calculus] }
+      - { ref: "16.6", title: "Parametric Surfaces and Their Areas", skills: [calc.vector-calculus] }
+      - { ref: "16.7", title: "Surface Integrals", skills: [calc.vector-calculus] }
+      - { ref: "16.8", title: "Stokes' Theorem", skills: [calc.vector-calculus] }
+      - { ref: "16.9", title: "The Divergence Theorem", skills: [calc.vector-calculus],
+          wiki: textbooks/stewart-calculus/ch16-divergence-theorem }

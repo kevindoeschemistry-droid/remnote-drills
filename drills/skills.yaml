@@ -496,4 +496,8 @@ skills:
   - { id: calc.parametric-polar, domain: calc, title: "Parametric, vector and polar calculus", prereqs: [calc.chain-rule] }
   - { id: calc.series, domain: calc, title: "Series: convergence tests", prereqs: [calc.limits] }
   - { id: calc.taylor, domain: calc, title: "Taylor polynomials and power series", prereqs: [calc.series] }
+  - { id: calc.vectors-3d, domain: calc, title: "Vectors, lines, planes and space curves", prereqs: [calc.parametric-polar] }
+  - { id: calc.partials-apps, domain: calc, title: "Tangent planes, gradients, extrema, Lagrange multipliers", prereqs: [calc.multivariable, calc.vectors-3d] }
+  - { id: calc.multiple-integrals, domain: calc, title: "Double and triple integrals", prereqs: [calc.antiderivatives] }
+  - { id: calc.vector-calculus, domain: calc, title: "Line and surface integrals; Green, Stokes, divergence", prereqs: [calc.multiple-integrals, calc.partials-apps] }
 

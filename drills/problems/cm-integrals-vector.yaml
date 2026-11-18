@@ -1,0 +1,398 @@
+# Calculus Units 13–14: multiple integrals and vector calculus.
+# In verify, x is the template variable and Y, Z are the symbols y and z.
+
+# ── double integrals (CA-13.1.A, 13.2.A, 13.2.B, 13.3.A, 13.4.A) ───────────
+- template: cm-double-rect
+  skill: calc.multiple-integrals
+  given: { k: { pick: [2, 3, 6, 12] }, a: { int: [1, 3] }, b: { int: [1, 3] } }
+  prompt: 'Evaluate $\displaystyle\int_0^{ {{a}} }\!\!\int_0^{ {{b}} }{{k}}xy^2\,dy\,dx$.'
+  parts:
+    - ask: 'Inner integral, as a function of $x$'
+      label: inner
+      tex: '\int_0^{ {{b}} }{{k}}xy^2\,dy'
+      expr: k*b^3/3*x
+      explain: 'Hold $x$ fixed: ${{k}}x\left[\frac{y^3}{3}\right]_0^{ {{b}} } = {{=k*b^3/3*x}}$'
+    - ask: 'The double integral'
+      label: I0
+      tex: 'I'
+      value: k*a^2*b^3/6
+      tol: 0.002
+      explain: '$\int_0^{ {{a}} }{{=k*b^3/3*x}}\,dx = {{k*a^2*b^3/6}}$'
+  verify:
+    expect:
+      inner: "integrate(k*x*Y**2, (Y, 0, b))"
+      I0: "integrate(integrate(k*x*Y**2, (Y, 0, b)), (x, 0, a))"
+
+- template: cm-double-region
+  skill: calc.multiple-integrals
+  given: { k: { pick: [12, 24, 48] } }
+  prompt: 'Evaluate $\displaystyle\iint_D {{k}}xy\,dA$, where $D$ is the region between $y = x^2$ and $y = x$.'
+  parts:
+    - ask: 'Upper limit of $x$'
+      label: xr
+      tex: 'x'
+      value: 1
+      tol: 0.001
+      explain: 'The curves meet where $x^2 = x$: $x = 0$ and $x = 1$. Between them $x^2 \le y \le x$'
+    - ask: 'The double integral'
+      label: I0
+      tex: 'I'
+      value: k/24
+      tol: 0.002
+      explain: '$\int_0^1\!\int_{x^2}^{x}{{k}}xy\,dy\,dx = \int_0^1{{k/2}}x\left(x^2 - x^4\right)dx = {{k/2}}\left(\frac14 - \frac16\right) = {{k/24}}$'
+  verify:
+    expect:
+      xr: "Max(*solve(x**2 - x, x))"
+      I0: "integrate(integrate(k*x*Y, (Y, x**2, x)), (x, 0, 1))"
+
+- template: cm-reverse-order
+  skill: calc.multiple-integrals
+  given: { a: { int: [1, 2] }, k: { pick: [2, 4, 6] } }
+  prompt: 'Evaluate $\displaystyle\int_0^{ {{a}} }\!\!\int_y^{ {{a}} }{{k}}e^{x^2}\,dx\,dy$ by reversing the order of integration.'
+  parts:
+    - ask: 'After reversing, the inner integral in $y$ runs from 0 up to… (in terms of $x$)'
+      label: top
+      tex: 'y'
+      expr: x
+      explain: 'The region is $0 \le y \le x \le {{a}}$, a triangle under the line $y = x$. Sliced vertically, $y$ runs from 0 to $x$'
+    - ask: 'The integral'
+      label: I0
+      tex: 'I'
+      value: k/2*(exp(a^2) - 1)
+      explain: '$\int_0^{ {{a}} }\!\int_0^{x}{{k}}e^{x^2}\,dy\,dx = \int_0^{ {{a}} }{{k}}xe^{x^2}\,dx = {{k/2}}\left(e^{ {{a^2}} } - 1\right)$. The extra $x$ is what makes it integrable'
+  verify:
+    expect:
+      top: "x"
+      I0: "integrate(integrate(k*exp(x**2), (Y, 0, x)), (x, 0, a))"
+
+- template: cm-double-polar
+  skill: calc.multiple-integrals
+  given: { a: { int: [0, 2] }, w: { int: [1, 2] } }
+  let: { b: a + w }
+  prompt: 'Evaluate $\displaystyle\iint_D\left(x^2 + y^2\right)dA$ over the region ${{a}} \le \sqrt{x^2 + y^2} \le {{b}}$.'
+  parts:
+    - ask: 'The integral'
+      label: I0
+      tex: 'I'
+      value: pi*(b^4 - a^4)/2
+      explain: 'In polar coordinates $x^2 + y^2 = r^2$ and $dA = r\,dr\,d\theta$: $\int_0^{2\pi}\!\int_{ {{a}} }^{ {{b}} }r^3\,dr\,d\theta = 2\pi\cdot\frac{ {{b}}^4 - {{a}}^4}{4} = {{pi*(b^4 - a^4)/2}}$. Do not forget the extra $r$'
+  verify: { expect: { I0: "integrate(integrate(x**3, (x, a, a + w)), (Y, 0, 2*pi))" } }
+
+- template: cm-gaussian-polar
+  skill: calc.multiple-integrals
+  given: { R: { int: [1, 3] } }
+  prompt: 'Evaluate $\displaystyle\iint_D e^{-(x^2 + y^2)}\,dA$ over the disc $x^2 + y^2 \le {{R^2}}$.'
+  parts:
+    - ask: 'The integral'
+      label: I0
+      tex: 'I'
+      value: pi*(1 - exp(-R^2))
+      explain: '$\int_0^{2\pi}\!\int_0^{ {{R}} }e^{-r^2}r\,dr\,d\theta = 2\pi\cdot\frac12\left(1 - e^{-{{R^2}} }\right)$. As $R \to \infty$ this tends to $\pi$, which is how $\int_{-\infty}^{\infty}e^{-x^2}dx = \sqrt\pi$ is found'
+  verify: { expect: { I0: "integrate(integrate(exp(-x**2)*x, (x, 0, R)), (Y, 0, 2*pi))" } }
+
+- template: cm-center-of-mass
+  skill: calc.multiple-integrals
+  given: { k: { pick: [2, 4, 6] }, a: { pick: [3, 6] }, b: { int: [1, 4] } }
+  prompt: 'A lamina fills $0 \le x \le {{a}}$, $0 \le y \le {{b}}$ with density $\rho(x, y) = {{k}}x$.'
+  parts:
+    - ask: 'Mass'
+      label: m
+      tex: 'm'
+      value: k*a^2*b/2
+      tol: 0.002
+      explain: '$\int_0^{ {{a}} }\!\int_0^{ {{b}} }{{k}}x\,dy\,dx = {{k}}\cdot{{b}}\cdot\frac{ {{a}}^2}{2} = {{k*a^2*b/2}}$'
+    - ask: '$\bar x$'
+      label: xb
+      tex: '\bar x'
+      value: 2*a/3
+      tol: 0.002
+      explain: '$\bar x = \frac1m\iint x\rho\,dA = \frac{ {{k*a^3*b/3}} }{ {{k*a^2*b/2}} } = {{2*a/3}}$. Pulled toward the heavy side, past the middle'
+    - ask: '$\bar y$'
+      label: yb
+      tex: '\bar y'
+      value: b/2
+      tol: 0.002
+      explain: 'The density does not depend on $y$, so by symmetry $\bar y$ is halfway: ${{b/2}}$'
+  verify:
+    expect:
+      m: "integrate(integrate(k*x, (Y, 0, b)), (x, 0, a))"
+      xb: "integrate(integrate(x*k*x, (Y, 0, b)), (x, 0, a))/integrate(integrate(k*x, (Y, 0, b)), (x, 0, a))"
+      yb: "integrate(integrate(Y*k*x, (Y, 0, b)), (x, 0, a))/integrate(integrate(k*x, (Y, 0, b)), (x, 0, a))"
+
+# ── triple integrals (CA-13.5.A, 13.6.A, 13.7.A, 13.8.A) ───────────────────
+- template: cm-tetrahedron
+  skill: calc.multiple-integrals
+  given: { a: { int: [1, 6] }, b: { int: [1, 6] }, c: { int: [1, 6] } }
+  prompt: 'Find the volume of the tetrahedron cut from the first octant by the plane $\dfrac{x}{ {{a}} } + \dfrac{y}{ {{b}} } + \dfrac{z}{ {{c}} } = 1$.'
+  parts:
+    - ask: 'Volume'
+      label: V
+      tex: 'V'
+      value: a*b*c/6
+      tol: 0.002
+      explain: '$\int_0^{ {{a}} }\!\int_0^{ {{b}}(1 - x/{{a}})}\!\int_0^{ {{c}}(1 - x/{{a}} - y/{{b}})}dz\,dy\,dx = \frac{ {{a}}\cdot{{b}}\cdot{{c}} }{6}$: one third of base area times height'
+  verify: { expect: { V: "integrate(integrate(integrate(1, (Z, 0, c*(1 - x/a - Y/b))), (Y, 0, b*(1 - x/a))), (x, 0, a))" } }
+
+- template: cm-cylindrical
+  skill: calc.multiple-integrals
+  given: { a: { int: [1, 4] } }
+  prompt: 'Find the volume of the solid under the paraboloid $z = {{a^2}} - x^2 - y^2$ and above the $xy$-plane.'
+  parts:
+    - ask: 'Radius of the base circle'
+      label: R
+      tex: 'r'
+      value: a
+      tol: 0.001
+      explain: 'Set $z = 0$: $x^2 + y^2 = {{a^2}}$'
+    - ask: 'Volume'
+      label: V
+      tex: 'V'
+      value: pi*a^4/2
+      explain: 'Cylindrical coordinates: $\int_0^{2\pi}\!\int_0^{ {{a}} }\left({{a^2}} - r^2\right)r\,dr\,d\theta = 2\pi\left(\frac{ {{a}}^4}{2} - \frac{ {{a}}^4}{4}\right) = {{pi*a^4/2}}$'
+  verify:
+    expect:
+      R: "Max(*solve(a**2 - x**2, x))"
+      V: "integrate(integrate((a**2 - x**2)*x, (x, 0, a)), (Y, 0, 2*pi))"
+
+- template: cm-spherical
+  skill: calc.multiple-integrals
+  given: { k: { int: [1, 5] }, R: { int: [1, 3] } }
+  prompt: 'A ball of radius ${{R}}$ has density ${{k}}\rho$, where $\rho$ is the distance from the centre. Find its mass.'
+  parts:
+    - ask: 'Mass'
+      label: m
+      tex: 'm'
+      value: pi*k*R^4
+      explain: 'Spherical coordinates, $dV = \rho^2\sin\phi\,d\rho\,d\phi\,d\theta$: $\int_0^{2\pi}\!\int_0^{\pi}\!\int_0^{ {{R}} }{{k}}\rho\cdot\rho^2\sin\phi\,d\rho\,d\phi\,d\theta = {{k}}\cdot\frac{ {{R}}^4}{4}\cdot 2\cdot 2\pi = {{pi*k*R^4}}$'
+  verify: { expect: { m: "integrate(integrate(integrate(k*x*x**2*sin(Y), (x, 0, R)), (Y, 0, pi)), (Z, 0, 2*pi))" } }
+
+- template: cm-jacobian
+  skill: calc.multiple-integrals
+  given: { a: { int: [1, 5] }, b: { int: [-4, 4] }, c: { int: [-4, 4] }, d: { int: [1, 5] } }
+  require: [a*d - b*c != 0]
+  prompt: 'Consider the change of variables $x = {{a}}u + ({{b}})v$, $y = ({{c}})u + {{d}}v$.'
+  parts:
+    - ask: 'Jacobian $\dfrac{\partial(x, y)}{\partial(u, v)}$'
+      label: J
+      tex: 'J'
+      value: a*d - b*c
+      tol: 0.001
+      explain: '$\begin{vmatrix}x_u & x_v\\ y_u & y_v\end{vmatrix} = ({{a}})({{d}}) - ({{b}})({{c}}) = {{a*d - b*c}}$'
+    - ask: 'Area in the $xy$-plane of the image of the unit square $0 \le u, v \le 1$'
+      label: A
+      tex: 'A'
+      value: abs(a*d - b*c)
+      tol: 0.001
+      explain: 'Areas scale by $|J|$: $1\cdot|{{a*d - b*c}}|$'
+  verify:
+    expect: { J: "Matrix([[a, b], [c, d]]).det()", A: "Abs(Matrix([[a, b], [c, d]]).det())" }
+
+# ── line integrals (CA-14.2.A, 14.2.B, 14.3.B) ─────────────────────────────
+- template: cm-line-integral-scalar
+  skill: calc.vector-calculus
+  given: { k: { int: [1, 3] }, c: { int: [1, 5] } }
+  prompt: 'Evaluate $\displaystyle\int_C\left(x + y + {{c}}\right)ds$ along the straight segment from $(0, 0)$ to $({{3*k}}, {{4*k}})$.'
+  parts:
+    - ask: 'Length of the segment'
+      label: L
+      tex: 'L'
+      value: 5*k
+      tol: 0.001
+      explain: '$\sqrt{ {{(3*k)^2}} + {{(4*k)^2}} }$'
+    - ask: 'The line integral'
+      label: I0
+      tex: 'I'
+      value: 5*k*(7*k/2 + c)
+      tol: 0.002
+      explain: 'Parametrise: $\mathbf r(t) = \langle {{3*k}}t, {{4*k}}t\rangle$, $0 \le t \le 1$, $ds = {{5*k}}\,dt$. $\int_0^1\left({{7*k}}t + {{c}}\right){{5*k}}\,dt = {{5*k}}\left({{7*k/2}} + {{c}}\right)$'
+  verify:
+    var: t
+    expect: { L: "sqrt((3*k)**2 + (4*k)**2)", I0: "integrate((3*k*t + 4*k*t + c)*sqrt((3*k)**2 + (4*k)**2), (t, 0, 1))" }
+
+- template: cm-work-line
+  skill: calc.vector-calculus
+  given: { a: { int: [-4, 5] }, b: { int: [1, 5] }, T: { int: [1, 3] } }
+  require: [a + 2*b != 0]
+  prompt: 'Find the work done by $\mathbf F = \langle {{=a*y}},\ {{=b*x}}\rangle$ along $\mathbf r(t) = \langle t, t^2\rangle$, $0 \le t \le {{T}}$.'
+  parts:
+    - ask: 'Work'
+      label: W
+      tex: 'W'
+      value: (a + 2*b)*T^3/3
+      tol: 0.002
+      explain: '$\mathbf F(\mathbf r(t)) = \langle {{=a*t^2}}, {{=b*t}}\rangle$ and $\mathbf r'' = \langle 1, 2t\rangle$. $\int_0^{ {{T}} }\left({{=a*t^2}} + {{=2*b*t^2}}\right)dt = {{(a + 2*b)*T^3/3}}$'
+  verify: { var: t, expect: { W: "integrate(a*t**2*1 + b*t*2*t, (t, 0, T))" } }
+
+- template: cm-potential
+  skill: calc.vector-calculus
+  given: { a: { int: [1, 4] }, b: { int: [-3, 3] }, c: { int: [-5, 5] }, p: { int: [1, 3] }, q: { int: [1, 3] } }
+  require: [a*p^2*q + c*p + b*q^2 != 0]
+  prompt: 'The field $\mathbf F = \left\langle {{=2*a*x*y + c}},\ {{=a*x^2 + 2*b*y}}\right\rangle$ is conservative.'
+  parts:
+    - ask: 'A potential function $f(x, y)$ with $f(0, 0) = 0$'
+      label: f
+      tex: 'f(x, y)'
+      expr: a*x^2*y + c*x + b*y^2
+      vars: [x, y]
+      explain: 'Integrate the first component in $x$: ${{=a*x^2*y + c*x}} + g(y)$. Its $y$-derivative must equal the second component, which forces $g''(y) = {{=2*b*y}}$'
+    - ask: '$\displaystyle\int_C\mathbf F\cdot d\mathbf r$ along any path from $(0, 0)$ to $({{p}}, {{q}})$'
+      label: I0
+      tex: 'I'
+      value: a*p^2*q + c*p + b*q^2
+      tol: 0.001
+      explain: 'For a conservative field only the endpoints matter: $f({{p}}, {{q}}) - f(0, 0) = {{a*p^2*q + c*p + b*q^2}}$'
+  verify:
+    expect:
+      f: "integrate((2*a*x*Y + c).subs(Y, 0), (x, 0, x)) + integrate(a*x**2 + 2*b*Y, (Y, 0, Y))"
+    residuals: ["I0 - (a*p**2*q + c*p + b*q**2)"]
+
+# ── Green's theorem (CA-14.4.A) ────────────────────────────────────────────
+- template: cm-green
+  skill: calc.vector-calculus
+  given: { a: { int: [1, 5] }, b: { int: [1, 5] }, R: { int: [1, 4] } }
+  prompt: 'Evaluate $\displaystyle\oint_C\left(-{{a}}y\,dx + {{b}}x\,dy\right)$ counterclockwise around the circle $x^2 + y^2 = {{R^2}}$.'
+  parts:
+    - ask: '$\dfrac{\partial Q}{\partial x} - \dfrac{\partial P}{\partial y}$'
+      label: g
+      tex: 'Q_x - P_y'
+      value: a + b
+      tol: 0.001
+      explain: '$P = -{{a}}y$, $Q = {{b}}x$: ${{b}} - (-{{a}})$'
+    - ask: 'The line integral'
+      label: I0
+      tex: 'I'
+      value: (a + b)*pi*R^2
+      explain: 'Green: $\oint_C = \iint_D(Q_x - P_y)\,dA = {{a + b}}\cdot\text{area} = {{a + b}}\cdot\pi({{R}})^2$'
+  verify:
+    var: t
+    expect:
+      g: "diff(b*Symbol('x'), Symbol('x')) - diff(-a*Y, Y)"
+      I0: "integrate(-a*R*sin(t)*diff(R*cos(t), t) + b*R*cos(t)*diff(R*sin(t), t), (t, 0, 2*pi))"
+
+# ── divergence, curl, Laplacian (CA-14.5.A) ────────────────────────────────
+- template: cm-div-curl
+  skill: calc.vector-calculus
+  given: { a: { int: [1, 4] }, b: { int: [-4, 4] }, c: { int: [-4, 4] } }
+  require: [b != 0, c != 0]
+  prompt: 'Let $\mathbf F = \left\langle {{=a*x^2}},\ {{=b*x*y}},\ {{=c*y*z}}\right\rangle$.'
+  parts:
+    - ask: '$\nabla\cdot\mathbf F$'
+      label: dv
+      tex: '\nabla\cdot\mathbf F'
+      expr: (2*a + b)*x + c*y
+      vars: [x, y, z]
+      explain: '$\partial_x({{=a*x^2}}) + \partial_y({{=b*x*y}}) + \partial_z({{=c*y*z}})$'
+    - ask: '$x$-component of $\nabla\times\mathbf F$'
+      label: cx
+      tex: '(\nabla\times\mathbf F)_x'
+      expr: c*z
+      vars: [x, y, z]
+      explain: '$\partial_yF_z - \partial_zF_y = {{=c*z}} - 0$'
+    - ask: '$z$-component of $\nabla\times\mathbf F$'
+      label: cz
+      tex: '(\nabla\times\mathbf F)_z'
+      expr: b*y
+      vars: [x, y, z]
+      explain: '$\partial_xF_y - \partial_yF_x = {{=b*y}} - 0$'
+  verify:
+    expect:
+      dv: "diff(a*x**2, x) + diff(b*x*Y, Y) + diff(c*Y*Z, Z)"
+      cx: "diff(c*Y*Z, Y) - diff(b*x*Y, Z)"
+      cz: "diff(b*x*Y, x) - diff(a*x**2, Y)"
+
+- template: cm-laplacian
+  skill: calc.vector-calculus
+  given: { a: { int: [-4, 4] }, b: { int: [-4, 4] }, c: { int: [-4, 4] } }
+  require: [a + b + c != 0]
+  prompt: 'Find the Laplacian of $f(x, y, z) = {{=a*x^2 + b*y^2 + c*z^2 + x*y}}$.'
+  parts:
+    - ask: '$\nabla^2 f$'
+      label: lap
+      tex: '\nabla^2 f'
+      value: 2*(a + b + c)
+      tol: 0.001
+      explain: '$f_{xx} + f_{yy} + f_{zz} = {{2*a}} + ({{2*b}}) + ({{2*c}})$. The $xy$ term contributes nothing: each pure second derivative of it is zero'
+  verify: { expect: { lap: "diff(a*x**2 + b*Y**2 + c*Z**2 + x*Y, x, 2) + diff(a*x**2 + b*Y**2 + c*Z**2 + x*Y, Y, 2) + diff(a*x**2 + b*Y**2 + c*Z**2 + x*Y, Z, 2)" } }
+
+# ── surfaces (CA-14.6.A, 14.7.A, 14.7.B) ───────────────────────────────────
+- template: cm-surface-area
+  skill: calc.vector-calculus
+  given: { a: { pick: [1, 2, 4] }, b: { pick: [2, 4, 8] }, p: { int: [1, 4] }, q: { int: [1, 4] } }
+  prompt: 'Find the area of the part of the plane $z = {{a}}x + {{b}}y$ that lies above the rectangle $0 \le x \le {{p}}$, $0 \le y \le {{q}}$.'
+  parts:
+    - ask: 'Area'
+      label: A
+      tex: 'A'
+      value: sqrt(1 + a^2 + b^2)*p*q
+      explain: '$dS = \sqrt{1 + z_x^2 + z_y^2}\,dA = \sqrt{1 + {{a^2}} + {{b^2}} }\,dA$, a constant, times the rectangle''s area ${{p*q}}$'
+  verify: { expect: { A: "integrate(integrate(sqrt(1 + diff(a*x + b*Y, x)**2 + diff(a*x + b*Y, Y)**2), (Y, 0, q)), (x, 0, p))" } }
+
+- template: cm-surface-integral
+  skill: calc.vector-calculus
+  given: { R: { int: [1, 4] } }
+  prompt: 'Evaluate $\displaystyle\iint_S z\,dS$ over the upper hemisphere $x^2 + y^2 + z^2 = {{R^2}}$, $z \ge 0$.'
+  parts:
+    - ask: 'The surface integral'
+      label: I0
+      tex: 'I'
+      value: pi*R^3
+      explain: 'On the sphere $z = {{R}}\cos\phi$ and $dS = {{R^2}}\sin\phi\,d\phi\,d\theta$: $\int_0^{2\pi}\!\int_0^{\pi/2}{{R^3}}\cos\phi\sin\phi\,d\phi\,d\theta = 2\pi\cdot{{R^3}}\cdot\frac12 = {{pi*R^3}}$'
+  verify: { expect: { I0: "integrate(integrate(R*cos(x)*R**2*sin(x), (x, 0, pi/2)), (Y, 0, 2*pi))" } }
+
+- template: cm-flux-disc
+  skill: calc.vector-calculus
+  given: { k: { int: [1, 4] }, m: { int: [-3, 5] }, h: { int: [1, 4] }, R: { int: [1, 3] } }
+  require: [k*h + m != 0]
+  prompt: 'Find the upward flux of $\mathbf F = \langle x,\ y,\ {{=k*z + m}}\rangle$ through the disc $x^2 + y^2 \le {{R^2}}$ in the plane $z = {{h}}$.'
+  parts:
+    - ask: 'Flux'
+      label: Fl
+      tex: '\Phi'
+      value: (k*h + m)*pi*R^2
+      explain: 'The upward normal is $\mathbf k$, so only the third component counts, and on the disc it is the constant ${{k*h + m}}$. Flux $= {{k*h + m}}\cdot\pi({{R}})^2$'
+  verify: { expect: { Fl: "integrate(integrate((k*h + m)*x, (x, 0, R)), (Y, 0, 2*pi))" } }
+
+# ── Stokes and divergence theorems (CA-14.8.A, 14.9.A) ─────────────────────
+- template: cm-stokes
+  skill: calc.vector-calculus
+  given: { a: { int: [1, 5] }, b: { int: [1, 5] }, R: { int: [1, 4] }, c: { int: [1, 5] } }
+  prompt: 'Find the circulation of $\mathbf F = \langle -{{a}}y,\ {{b}}x,\ z^2\rangle$ counterclockwise (seen from above) around the circle $x^2 + y^2 = {{R^2}}$, $z = {{c}}$.'
+  parts:
+    - ask: '$z$-component of $\nabla\times\mathbf F$'
+      label: cz
+      tex: '(\nabla\times\mathbf F)_z'
+      value: a + b
+      tol: 0.001
+      explain: '$\partial_x({{b}}x) - \partial_y(-{{a}}y) = {{a + b}}$'
+    - ask: 'The circulation'
+      label: I0
+      tex: '\oint\mathbf F\cdot d\mathbf r'
+      value: (a + b)*pi*R^2
+      explain: 'Stokes: the circulation equals the flux of the curl through the flat disc the circle bounds, whose normal is $\mathbf k$: ${{a + b}}\cdot\pi({{R}})^2$. The $z^2$ component does nothing because $dz = 0$ on the curve'
+  verify:
+    var: t
+    expect:
+      cz: "diff(b*Symbol('x'), Symbol('x')) - diff(-a*Y, Y)"
+      I0: "integrate(-a*R*sin(t)*diff(R*cos(t), t) + b*R*cos(t)*diff(R*sin(t), t) + c**2*diff(c + 0*t, t), (t, 0, 2*pi))"
+
+- template: cm-divergence-theorem
+  skill: calc.vector-calculus
+  given: { a: { int: [-3, 5] }, b: { int: [-3, 5] }, c: { int: [-3, 5] }, R: { int: [1, 3] } }
+  require: [a + b + c != 0]
+  prompt: 'Find the outward flux of $\mathbf F = \langle {{=a*x}},\ {{=b*y}},\ {{=c*z}}\rangle$ through the sphere $x^2 + y^2 + z^2 = {{R^2}}$.'
+  parts:
+    - ask: '$\nabla\cdot\mathbf F$'
+      label: dv
+      tex: '\nabla\cdot\mathbf F'
+      value: a + b + c
+      tol: 0.001
+      explain: '${{a}} + ({{b}}) + ({{c}})$'
+    - ask: 'Outward flux'
+      label: Fl
+      tex: '\Phi'
+      value: (a + b + c)*4/3*pi*R^3
+      explain: 'Divergence theorem: flux $= \iiint\nabla\cdot\mathbf F\,dV = {{a + b + c}}\cdot\frac43\pi({{R}})^3$. No surface parametrisation needed'
+  verify:
+    expect:
+      dv: "diff(a*x, x) + diff(b*Y, Y) + diff(c*Z, Z)"
+      Fl: "integrate(integrate(integrate((a + b + c)*x**2*sin(Y), (x, 0, R)), (Y, 0, pi)), (Z, 0, 2*pi))"
