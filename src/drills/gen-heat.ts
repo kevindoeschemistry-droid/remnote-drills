@@ -43,6 +43,14 @@ const U: Record<string, string> = {
   mm: "\\mathrm{mm}",
   "%": "\\%",
   "m²·K/W": "\\mathrm{m^2\\cdot K/W}",
+  "µm": "\\mathrm{\\mu m}",
+  "µM": "\\mathrm{\\mu M}",
+  "µM/s": "\\mathrm{\\mu M/s}",
+  "cm⁻¹": "\\mathrm{cm^{-1}}",
+  "m²": "\\mathrm{m^2}",
+  "kg·m²": "\\mathrm{kg\\,m^2}",
+  "kg·m/s": "\\mathrm{kg\\,m/s}",
+  "J/mol·K": "\\mathrm{J/mol\\cdot K}",
 };
 export const u = (unit: string) => `\\,${U[unit] ?? `\\mathrm{${unit}}`}`;
 /** value with unit, in math */

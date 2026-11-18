@@ -1,0 +1,537 @@
+# Physical chemistry, thermodynamics half (Engel & Reid 3e Ch 1–11, 32).
+# Format: see src/drills/gen-data.ts and ht-generation.yaml. One template = one formula page on the wiki.
+# verify.residuals restate the physical law in terms of the claimed answers and the givens only.
+
+# ── PV = nRT (PC-1.1.A) ────────────────────────────────────────────────────
+- template: pc-ideal-gas
+  skill: pchem.first-law
+  given:
+    n: { pick: [0.5, 1, 1.5, 2, 2.5, 4] }
+    T: { pick: [273, 298, 310, 350, 400, 500] }
+    VL: { pick: [5, 10, 12, 20, 25, 50] }
+    R: 8.314
+  prompt: >-
+    $n = {{n}}\,\mathrm{mol}$ of an ideal gas occupies $V = {{VL}}\,\mathrm{L}$ at $T = {{T}}\,\mathrm{K}$.
+  parts:
+    - ask: 'Pressure in pascals, $P$'
+      label: Ppa
+      tex: 'P'
+      value: n*R*T/(VL/1000)
+      unit: Pa
+      explain: '$P = \frac{nRT}{V}$ with $V$ in m³ ($1\,\mathrm{L} = 10^{-3}\,\mathrm{m^3}$): $\frac{ {{n}}\times 8.314\times {{T}} }{ {{VL/1000}} } = {{n*R*T/(VL/1000)}}\,\mathrm{Pa}$'
+    - ask: 'The same pressure in bar'
+      label: Pbar
+      tex: 'P'
+      value: Ppa/1e5
+      unit: bar
+      explain: '$1\,\mathrm{bar} = 10^5\,\mathrm{Pa}$, so $P = {{Ppa/1e5}}\,\mathrm{bar}$'
+  verify:
+    residuals: ["Ppa*VL/1000 - n*R*T", "Pbar*1e5 - Ppa"]
+
+# ── w = −P_ext ΔV (PC-1.2.A) ───────────────────────────────────────────────
+- template: pc-work-irrev
+  skill: pchem.first-law
+  given:
+    Pext: { pick: [0.5, 1, 1.5, 2, 3] }
+    V1: { pick: [2, 5, 10, 15, 20] }
+    V2: { pick: [2, 5, 10, 15, 20, 30] }
+  require: [V1 != V2]
+  prompt: >-
+    A gas goes from $V_1 = {{V1}}\,\mathrm{L}$ to $V_2 = {{V2}}\,\mathrm{L}$ against a constant external pressure
+    $P_\mathrm{ext} = {{Pext}}\,\mathrm{bar}$.
+  parts:
+    - ask: 'Is work done on the gas or by the gas?'
+      label: who
+      choice: ["On the gas (w > 0)", "By the gas (w < 0)"]
+      correct: "V2 > V1 ? 1 : 0"
+      explain: 'Expansion pushes the surroundings back, so the gas does work and $w < 0$. Compression is the reverse'
+    - ask: 'Work, $w$, with its sign'
+      label: w
+      tex: 'w'
+      value: -Pext*1e5*(V2 - V1)/1000
+      unit: J
+      explain: '$w = -P_\mathrm{ext}\Delta V = -({{Pext*1e5}}\,\mathrm{Pa})({{(V2 - V1)/1000}}\,\mathrm{m^3}) = {{-Pext*1e5*(V2 - V1)/1000}}\,\mathrm{J}$. Bar times litre is 100 J'
+  verify:
+    residuals: ["w + Pext*1e5*(V2 - V1)/1000"]
+
+# ── ΔH = ΔU + Δn_gas RT (PC-1.3.A, PC-2.1.A) ───────────────────────────────
+- template: pc-dh-du
+  skill: pchem.first-law
+  given:
+    dn: { pick: [-3, -2, -1, 1, 2, 3] }
+    dU: { pick: [-2220, -890, -565, -285, 131, 178] }
+    T: { pick: [298, 350, 400] }
+    R: 8.314
+  prompt: >-
+    A reaction run at constant volume has $\Delta U = {{dU}}\,\mathrm{kJ/mol}$ at $T = {{T}}\,\mathrm{K}$.
+    The balanced equation changes the moles of gas by $\Delta n_\mathrm{gas} = {{dn}}$.
+  parts:
+    - ask: 'The correction term $\Delta n_\mathrm{gas}RT$'
+      label: corr
+      tex: '\Delta n_\mathrm{gas}RT'
+      value: dn*R*T/1000
+      unit: kJ/mol
+      explain: '$({{dn}})(8.314)({{T}}) = {{dn*R*T}}\,\mathrm{J/mol} = {{dn*R*T/1000}}\,\mathrm{kJ/mol}$. Only gases count'
+    - ask: 'Reaction enthalpy, $\Delta H$'
+      label: dH
+      tex: '\Delta H'
+      value: dU + corr
+      unit: kJ/mol
+      explain: '$\Delta H = \Delta U + \Delta n_\mathrm{gas}RT = {{dU}} + ({{dn*R*T/1000}}) = {{dU + dn*R*T/1000}}\,\mathrm{kJ/mol}$. Keep both terms in kJ'
+  verify:
+    residuals: ["corr*1000 - dn*R*T", "dH - dU - corr"]
+
+# ── Hess's law from formation enthalpies (PC-2.1.B) ────────────────────────
+- template: pc-hess
+  skill: pchem.thermochemistry
+  given:
+    a: { int: [1, 3] }
+    b: { int: [1, 3] }
+    c: { int: [1, 4] }
+    HA: { pick: [-74.8, -110.5, -46.1, 52.3, 226.7] }
+    HB: { pick: [-241.8, -92.3, -20.6, 90.3] }
+    HC: { pick: [-393.5, -285.8, -296.8, -1206.9, 33.2] }
+  let:
+    dH: c*HC - a*HA - b*HB
+  require: [abs(dH) > 5]
+  prompt: >-
+    For the reaction ${{a}}\,\mathrm{A} + {{b}}\,\mathrm{B} \rightarrow {{c}}\,\mathrm{C}$, the standard enthalpies of formation are
+    $\Delta H_f^\circ(\mathrm{A}) = {{HA}}$, $\Delta H_f^\circ(\mathrm{B}) = {{HB}}$ and $\Delta H_f^\circ(\mathrm{C}) = {{HC}}\,\mathrm{kJ/mol}$.
+  parts:
+    - ask: 'Standard reaction enthalpy, $\Delta H^\circ_\mathrm{rxn}$'
+      label: dHr
+      tex: '\Delta H^\circ_\mathrm{rxn}'
+      value: dH
+      unit: kJ/mol
+      explain: 'Products minus reactants, each times its coefficient: ${{c}}({{HC}}) - [{{a}}({{HA}}) + {{b}}({{HB}})] = {{dH}}\,\mathrm{kJ/mol}$'
+    - ask: 'Is the reaction exothermic or endothermic?'
+      label: sign
+      choice: ["Exothermic", "Endothermic"]
+      correct: "dH < 0 ? 0 : 1"
+      explain: 'Negative $\Delta H$ releases heat'
+  verify:
+    residuals: ["dHr + a*HA + b*HB - c*HC"]
+
+# ── Kirchhoff's law, constant ΔC_P (PC-2.1.C) ──────────────────────────────
+- template: pc-kirchhoff
+  skill: pchem.thermochemistry
+  given:
+    dH1: { pick: [-285.8, -197.8, -92.2, 41.2, 178.3] }
+    dCp: { pick: [-45.2, -31.7, -9.9, 12.5, 33.6] }
+    T2: { pick: [350, 400, 500, 600, 800] }
+  prompt: >-
+    A reaction has $\Delta H^\circ = {{dH1}}\,\mathrm{kJ/mol}$ at $298\,\mathrm{K}$ and $\Delta C_P = {{dCp}}\,\mathrm{J/mol\cdot K}$,
+    constant over the range. Find $\Delta H^\circ$ at $T_2 = {{T2}}\,\mathrm{K}$.
+  parts:
+    - ask: 'The correction $\Delta C_P\,(T_2 - T_1)$'
+      label: corr
+      tex: '\Delta C_P\,\Delta T'
+      value: dCp*(T2 - 298)/1000
+      unit: kJ/mol
+      explain: '$({{dCp}})({{T2}} - 298) = {{dCp*(T2 - 298)}}\,\mathrm{J/mol} = {{dCp*(T2 - 298)/1000}}\,\mathrm{kJ/mol}$'
+    - ask: 'Reaction enthalpy at $T_2$'
+      label: dH2
+      tex: '\Delta H^\circ(T_2)'
+      value: dH1 + corr
+      unit: kJ/mol
+      explain: '$\Delta H(T_2) = \Delta H(T_1) + \Delta C_P\,\Delta T = {{dH1}} + ({{dCp*(T2 - 298)/1000}}) = {{dH1 + dCp*(T2 - 298)/1000}}\,\mathrm{kJ/mol}$'
+  verify:
+    residuals: ["corr*1000 - dCp*(T2 - 298)", "dH2 - dH1 - corr"]
+
+# ── Carnot engine (PC-3.1.A) ───────────────────────────────────────────────
+- template: pc-carnot
+  skill: pchem.entropy
+  given:
+    TH: { pick: [500, 600, 800, 1000, 1200] }
+    TC: { pick: [280, 300, 320, 350, 400] }
+    qH: { pick: [1000, 2500, 5000, 8000] }
+  prompt: >-
+    A Carnot engine runs between $T_H = {{TH}}\,\mathrm{K}$ and $T_C = {{TC}}\,\mathrm{K}$ and takes in
+    $q_H = {{qH}}\,\mathrm{J}$ per cycle.
+  parts:
+    - ask: 'Efficiency, $\eta$ (a fraction)'
+      label: eta
+      tex: '\eta'
+      value: 1 - TC/TH
+      explain: '$\eta = 1 - \frac{T_C}{T_H} = 1 - \frac{ {{TC}} }{ {{TH}} } = {{1 - TC/TH}}$, in kelvin'
+    - ask: 'Work delivered per cycle, $|w|$'
+      label: w
+      tex: '|w|'
+      value: eta*qH
+      unit: J
+      explain: '$|w| = \eta\,q_H = {{(1 - TC/TH)*qH}}\,\mathrm{J}$'
+    - ask: 'Heat rejected to the cold reservoir, $|q_C|$'
+      label: qC
+      tex: '|q_C|'
+      value: qH - w
+      unit: J
+      explain: 'Energy balance over a cycle: $|q_C| = q_H - |w| = {{qH - (1 - TC/TH)*qH}}\,\mathrm{J}$. Check: $q_H/T_H = |q_C|/T_C$, no net entropy made'
+  verify:
+    residuals: ["eta*TH - (TH - TC)", "w - eta*qH", "qC/TC - qH/TH"]
+
+# ── ΔS, isothermal expansion (PC-3.2.A) ────────────────────────────────────
+- template: pc-ds-expansion
+  skill: pchem.entropy
+  given:
+    n: { pick: [0.5, 1, 2, 3] }
+    V1: { pick: [1, 2, 5, 10] }
+    k: { pick: [2, 3, 4, 5, 10] }
+    R: 8.314
+  prompt: >-
+    $n = {{n}}\,\mathrm{mol}$ of an ideal gas expands isothermally from ${{V1}}\,\mathrm{L}$ to ${{V1*k}}\,\mathrm{L}$.
+  parts:
+    - ask: 'Entropy change of the gas, $\Delta S$'
+      label: dS
+      tex: '\Delta S'
+      value: n*R*log(k)
+      unit: J/K
+      explain: '$\Delta S = nR\ln\frac{V_2}{V_1} = ({{n}})(8.314)\ln {{k}} = {{n*R*log(k)}}\,\mathrm{J/K}$. Same answer whether the expansion is reversible or free: $S$ is a state function'
+  verify:
+    residuals: ["exp(dS/(n*R)) - k"]
+
+# ── ΔS, constant-pressure heating (PC-3.2.B) ───────────────────────────────
+- template: pc-ds-heating
+  skill: pchem.entropy
+  given:
+    n: { pick: [1, 2, 3] }
+    Cp: { pick: [20.8, 29.1, 33.6, 75.3] }
+    T1: { pick: [273, 298, 300] }
+    T2: { pick: [350, 373, 400, 500, 600] }
+  prompt: >-
+    $n = {{n}}\,\mathrm{mol}$ of a substance with $C_P = {{Cp}}\,\mathrm{J/mol\cdot K}$ (constant) is heated at constant pressure
+    from ${{T1}}\,\mathrm{K}$ to ${{T2}}\,\mathrm{K}$.
+  parts:
+    - ask: 'Entropy change, $\Delta S$'
+      label: dS
+      tex: '\Delta S'
+      value: n*Cp*log(T2/T1)
+      unit: J/K
+      explain: '$\Delta S = \int\frac{nC_P\,dT}{T} = nC_P\ln\frac{T_2}{T_1} = ({{n}})({{Cp}})\ln\frac{ {{T2}} }{ {{T1}} } = {{n*Cp*log(T2/T1)}}\,\mathrm{J/K}$'
+  verify:
+    residuals: ["exp(dS/(n*Cp)) - T2/T1"]
+
+# ── ΔS of a phase transition (PC-3.2.C) ────────────────────────────────────
+- template: pc-ds-phase
+  skill: pchem.entropy
+  given:
+    n: { pick: [0.5, 1, 2] }
+    dH: { pick: [6.01, 9.95, 23.4, 29.1, 30.8, 38.6, 40.7] }
+    Ttr: { pick: [239.8, 273.15, 278.7, 334.9, 351.4, 353.2, 373.15] }
+  prompt: >-
+    $n = {{n}}\,\mathrm{mol}$ of a substance goes through a phase transition at $T_\mathrm{tr} = {{Ttr}}\,\mathrm{K}$
+    with $\Delta H_\mathrm{tr} = {{dH}}\,\mathrm{kJ/mol}$.
+  parts:
+    - ask: 'Entropy change of the substance, $\Delta S$'
+      label: dS
+      tex: '\Delta S'
+      value: n*dH*1000/Ttr
+      unit: J/K
+      explain: 'At the transition temperature the heat flows reversibly, so $\Delta S = \frac{n\Delta H_\mathrm{tr}}{T_\mathrm{tr}} = \frac{({{n}})({{dH*1000}})}{ {{Ttr}} } = {{n*dH*1000/Ttr}}\,\mathrm{J/K}$. Convert kJ to J first'
+  verify:
+    residuals: ["dS*Ttr - n*dH*1000"]
+
+# ── residual entropy (PC-20.2.E) ───────────────────────────────────────────
+- template: pc-residual-entropy
+  skill: pchem.entropy
+  given:
+    W: { int: [2, 6] }
+    R: 8.314
+  prompt: >-
+    In a crystal at $T \to 0$ each molecule is frozen into one of ${{W}}$ equally likely orientations.
+  parts:
+    - ask: 'Molar residual entropy, $S_0$'
+      label: S0
+      tex: 'S_0'
+      value: R*log(W)
+      unit: J/mol·K
+      explain: '$S_0 = k_B\ln W_0^{N_A} = R\ln W_0 = 8.314\ln {{W}} = {{R*log(W)}}\,\mathrm{J/mol\cdot K}$. CO, with two orientations, gives $R\ln 2 = 5.76$'
+  verify:
+    residuals: ["exp(S0/R) - W"]
+
+# ── ΔG = ΔH − TΔS (PC-4.1.A) ───────────────────────────────────────────────
+- template: pc-dg
+  skill: pchem.gibbs
+  given:
+    dH: { pick: [-176, -92.2, -57.2, 44.0, 131.3, 178.3] }
+    dS: { pick: [-284.8, -198.7, -175.8, 118.9, 133.7, 160.5] }
+    T: { pick: [298, 400, 600, 1000] }
+  let:
+    dGv: dH - T*dS/1000
+  require: [dH*dS > 0, abs(dGv) > 2]
+  prompt: >-
+    A reaction has $\Delta H = {{dH}}\,\mathrm{kJ/mol}$ and $\Delta S = {{dS}}\,\mathrm{J/mol\cdot K}$, both taken as constant.
+    Consider it at $T = {{T}}\,\mathrm{K}$.
+  parts:
+    - ask: '$\Delta G$ at this temperature'
+      label: dG
+      tex: '\Delta G'
+      value: dGv
+      unit: kJ/mol
+      explain: '$\Delta G = \Delta H - T\Delta S = {{dH}} - ({{T}})({{dS/1000}}) = {{dGv}}\,\mathrm{kJ/mol}$. Put $\Delta S$ in kJ first'
+    - ask: 'Is the reaction spontaneous at this temperature?'
+      label: spont
+      choice: ["Spontaneous", "Not spontaneous"]
+      correct: "dGv < 0 ? 0 : 1"
+      explain: 'At constant $T$ and $P$, spontaneous means $\Delta G < 0$'
+    - ask: 'Temperature at which $\Delta G$ changes sign'
+      label: Tx
+      tex: 'T'
+      value: dH*1000/dS
+      unit: K
+      explain: '$\Delta G = 0$ when $T = \frac{\Delta H}{\Delta S} = \frac{ {{dH*1000}} }{ {{dS}} } = {{dH*1000/dS}}\,\mathrm{K}$'
+  verify:
+    residuals: ["dG - dH + T*dS/1000", "Tx*dS - dH*1000"]
+
+# ── G of an ideal gas with pressure (PC-4.1.B) ─────────────────────────────
+- template: pc-g-pressure
+  skill: pchem.gibbs
+  given:
+    n: { pick: [0.5, 1, 2, 3] }
+    T: { pick: [298, 350, 400] }
+    P1: { pick: [1, 2, 5] }
+    P2: { pick: [0.1, 0.5, 10, 20, 50] }
+    R: 8.314
+  prompt: >-
+    $n = {{n}}\,\mathrm{mol}$ of an ideal gas is taken isothermally at $T = {{T}}\,\mathrm{K}$ from ${{P1}}\,\mathrm{bar}$ to ${{P2}}\,\mathrm{bar}$.
+  parts:
+    - ask: 'Change in Gibbs energy, $\Delta G$'
+      label: dG
+      tex: '\Delta G'
+      value: n*R*T*log(P2/P1)/1000
+      unit: kJ
+      explain: '$\Delta G = nRT\ln\frac{P_2}{P_1} = ({{n}})(8.314)({{T}})\ln\frac{ {{P2}} }{ {{P1}} } = {{n*R*T*log(P2/P1)}}\,\mathrm{J}$. Compressing a gas raises $G$'
+  verify:
+    residuals: ["exp(dG*1000/(n*R*T)) - P2/P1"]
+
+# ── compression factor (PC-5.1.A) ──────────────────────────────────────────
+- template: pc-compression-z
+  skill: pchem.real-gases
+  given:
+    P: { pick: [50, 100, 200, 300] }
+    Vm: { pick: [0.08, 0.1, 0.12, 0.2, 0.25, 0.4] }
+    T: { pick: [250, 300, 350, 400] }
+    R: 8.314
+  let:
+    Zv: P*1e5*(Vm/1000)/(R*T)
+  require: [Zv > 0.3, Zv < 2.5, abs(Zv - 1) > 0.03]
+  prompt: >-
+    At $T = {{T}}\,\mathrm{K}$ and $P = {{P}}\,\mathrm{bar}$ a gas has a measured molar volume $V_m = {{Vm}}\,\mathrm{L/mol}$.
+  parts:
+    - ask: 'Compression factor, $Z$'
+      label: Z
+      tex: 'Z'
+      value: Zv
+      explain: '$Z = \frac{PV_m}{RT} = \frac{({{P*1e5}})({{Vm/1000}})}{(8.314)({{T}})} = {{Zv}}$, in Pa and m³/mol'
+    - ask: 'Which interaction dominates at this state?'
+      label: which
+      choice: ["Attractions (Z < 1)", "Repulsions (Z > 1)"]
+      correct: "Zv < 1 ? 0 : 1"
+      explain: 'Attractions pull the molar volume below the ideal value; repulsions push it above'
+  verify:
+    residuals: ["Z*R*T - P*1e5*Vm/1000"]
+
+# ── van der Waals pressure (PC-5.1.B) ──────────────────────────────────────
+- template: pc-vdw
+  skill: pchem.real-gases
+  given:
+    a: { pick: [1.37, 2.30, 3.66, 4.25, 5.57] }
+    b: { pick: [0.0373, 0.0387, 0.0429, 0.0431, 0.0651] }
+    Vm: { pick: [0.2, 0.25, 0.5, 1] }
+    T: { pick: [300, 350, 400, 500] }
+    Rg: 0.08314
+  prompt: >-
+    A gas has van der Waals constants $a = {{a}}\,\mathrm{bar\,L^2/mol^2}$ and $b = {{b}}\,\mathrm{L/mol}$.
+    Its molar volume is $V_m = {{Vm}}\,\mathrm{L/mol}$ at $T = {{T}}\,\mathrm{K}$. Use $R = 0.08314\,\mathrm{L\,bar/mol\cdot K}$.
+  parts:
+    - ask: 'Ideal-gas pressure at this state'
+      label: Pid
+      tex: 'P_\mathrm{ideal}'
+      value: Rg*T/Vm
+      unit: bar
+      explain: '$P = \frac{RT}{V_m} = \frac{(0.08314)({{T}})}{ {{Vm}} } = {{Rg*T/Vm}}\,\mathrm{bar}$'
+    - ask: 'van der Waals pressure'
+      label: Pv
+      tex: 'P_\mathrm{vdW}'
+      value: Rg*T/(Vm - b) - a/Vm^2
+      unit: bar
+      explain: '$P = \frac{RT}{V_m - b} - \frac{a}{V_m^2} = \frac{(0.08314)({{T}})}{ {{Vm}} - {{b}} } - \frac{ {{a}} }{ {{Vm}}^2 } = {{Rg*T/(Vm - b) - a/Vm^2}}\,\mathrm{bar}$. $b$ raises the pressure, $a$ lowers it'
+  verify:
+    residuals: ["Pid*Vm - Rg*T", "(Pv + a/Vm**2)*(Vm - b) - Rg*T"]
+
+# ── Gibbs phase rule (PC-6.1.A) ────────────────────────────────────────────
+- template: pc-phase-rule
+  skill: pchem.phases
+  given:
+    C: { int: [1, 3] }
+    P: { int: [1, 3] }
+  require: [P <= C + 1]
+  prompt: >-
+    A system at equilibrium has ${{C}}$ component(s) and ${{P}}$ phase(s). No reactions, no other constraints.
+  parts:
+    - ask: 'Degrees of freedom, $F$'
+      label: F
+      tex: 'F'
+      value: C - P + 2
+      tol: 0.001
+      explain: '$F = C - P + 2 = {{C}} - {{P}} + 2 = {{C - P + 2}}$: the number of intensive variables you can change without losing a phase'
+  verify:
+    residuals: ["F + P - C - 2"]
+
+# ── Laplace pressure (PC-6.1.C) ────────────────────────────────────────────
+- template: pc-laplace-pressure
+  skill: pchem.phases
+  given:
+    gam: { pick: [0.0223, 0.0289, 0.0728, 0.485] }
+    rum: { pick: [0.1, 0.5, 1, 5, 10, 50] }
+  prompt: >-
+    A spherical droplet of a liquid with surface tension $\gamma = {{gam}}\,\mathrm{N/m}$ has radius $r = {{rum}}\,\mathrm{\mu m}$.
+  parts:
+    - ask: 'Excess pressure inside the droplet, $\Delta P$'
+      label: dP
+      tex: '\Delta P'
+      value: 2*gam/(rum*1e-6)
+      unit: Pa
+      explain: '$\Delta P = \frac{2\gamma}{r} = \frac{2({{gam}})}{ {{rum*1e-6}} } = {{2*gam/(rum*1e-6)}}\,\mathrm{Pa}$. Halve the radius and the pressure doubles'
+  verify:
+    residuals: ["dP*rum*1e-6/(2*gam) - 1"]
+
+# ── freezing-point depression (PC-7.2.A) ───────────────────────────────────
+- template: pc-colligative
+  skill: pchem.colligative
+  given:
+    Kf: { pick: [1.86, 3.9, 5.12, 20.0] }
+    ms: { pick: [5, 10, 18, 25, 45] }
+    M: { pick: [60.06, 92.09, 180.16, 342.3] }
+    kg: { pick: [0.1, 0.25, 0.5, 1] }
+  prompt: >-
+    ${{ms}}\,\mathrm{g}$ of a nonvolatile, non-dissociating solute ($M = {{M}}\,\mathrm{g/mol}$) is dissolved in
+    ${{kg}}\,\mathrm{kg}$ of a solvent with $K_f = {{Kf}}\,\mathrm{K\,kg/mol}$.
+  parts:
+    - ask: 'Molality of the solution, $m$'
+      label: molal
+      tex: 'm'
+      value: ms/M/kg
+      unit: mol/kg
+      explain: '$m = \frac{\text{mol solute}}{\text{kg solvent}} = \frac{ {{ms}}/{{M}} }{ {{kg}} } = {{ms/M/kg}}\,\mathrm{mol/kg}$'
+    - ask: 'Freezing-point depression, $\Delta T_f$'
+      label: dT
+      tex: '\Delta T_f'
+      value: Kf*molal
+      unit: K
+      explain: '$\Delta T_f = K_f\,m = ({{Kf}})({{ms/M/kg}}) = {{Kf*ms/M/kg}}\,\mathrm{K}$ below the pure solvent'
+  verify:
+    residuals: ["molal*M*kg - ms", "dT - Kf*molal"]
+
+# ── osmotic pressure (PC-7.2.B) ────────────────────────────────────────────
+- template: pc-osmotic
+  skill: pchem.colligative
+  given:
+    cmM: { pick: [1, 5, 10, 50, 100, 300] }
+    T: { pick: [293, 298, 310] }
+    R: 8.314
+  prompt: >-
+    A solution contains ${{cmM}}\,\mathrm{mmol/L}$ of a non-dissociating solute at $T = {{T}}\,\mathrm{K}$.
+  parts:
+    - ask: 'Osmotic pressure, $\Pi$'
+      label: Pi
+      tex: '\Pi'
+      value: cmM*R*T/1e5
+      unit: bar
+      explain: '$\Pi = cRT$ with $c$ in mol/m³ ($1\,\mathrm{mmol/L} = 1\,\mathrm{mol/m^3}$): $({{cmM}})(8.314)({{T}}) = {{cmM*R*T}}\,\mathrm{Pa} = {{cmM*R*T/1e5}}\,\mathrm{bar}$'
+  verify:
+    residuals: ["Pi*1e5 - cmM*R*T"]
+
+# ── ionic strength (PC-8.1.A) ──────────────────────────────────────────────
+- template: pc-ionic-strength
+  skill: pchem.electrolytes
+  given:
+    zp: { pick: [1, 2, 3] }
+    zm: { pick: [1, 2] }
+    m: { pick: [0.001, 0.005, 0.01, 0.05, 0.1] }
+  require: [zp != zm or zp == 1]
+  prompt: >-
+    A fully dissociated salt gives ${{zm}}$ cation(s) of charge $+{{zp}}$ and ${{zp}}$ anion(s) of charge $-{{zm}}$ per formula unit.
+    Its molality is $m = {{m}}\,\mathrm{mol/kg}$.
+  parts:
+    - ask: 'Ionic strength, $I$'
+      label: Is
+      tex: 'I'
+      value: 0.5*(zm*m*zp^2 + zp*m*zm^2)
+      unit: mol/kg
+      explain: '$I = \tfrac12\sum m_i z_i^2 = \tfrac12\left[({{zm*m}})({{zp}})^2 + ({{zp*m}})({{zm}})^2\right] = {{0.5*(zm*m*zp^2 + zp*m*zm^2)}}\,\mathrm{mol/kg}$. Each ion''s molality is its count times $m$'
+  verify:
+    residuals: ["2*Is - m*(zm*zp**2 + zp*zm**2)"]
+
+# ── Debye–Hückel limiting law (PC-8.1.C) ───────────────────────────────────
+- template: pc-debye-huckel
+  skill: pchem.electrolytes
+  given:
+    zp: { pick: [1, 2, 3] }
+    zm: { pick: [1, 2] }
+    Is: { pick: [0.001, 0.002, 0.005, 0.01] }
+  prompt: >-
+    An electrolyte with ion charges $+{{zp}}$ and $-{{zm}}$ is in water at $298\,\mathrm{K}$ at ionic strength
+    $I = {{Is}}\,\mathrm{mol/kg}$. Use $A = 0.509$.
+  parts:
+    - ask: '$\log_{10}\gamma_\pm$'
+      label: lg
+      tex: '\log_{10}\gamma_\pm'
+      value: -0.509*zp*zm*sqrt(Is)
+      explain: '$\log_{10}\gamma_\pm = -A|z_+z_-|\sqrt{I} = -(0.509)({{zp*zm}})\sqrt{ {{Is}} } = {{-0.509*zp*zm*sqrt(Is)}}$'
+    - ask: 'Mean activity coefficient, $\gamma_\pm$'
+      label: g
+      tex: '\gamma_\pm'
+      value: 10^lg
+      explain: '$\gamma_\pm = 10^{ {{-0.509*zp*zm*sqrt(Is)}} } = {{10^(-0.509*zp*zm*sqrt(Is))}}$. Always below 1 in this limit, and lower for higher charges'
+  verify:
+    residuals: ["lg + 0.509*zp*zm*sqrt(Is)", "log(g)/log(10) - lg"]
+
+# ── cell potential and ΔG° (PC-9.1.A, PC-9.1.B) ────────────────────────────
+- template: pc-cell-potential
+  skill: pchem.electrochemistry
+  given:
+    Ec: { pick: [0.34, 0.77, 0.80, 1.23, 1.36] }
+    Ea: { pick: [-2.37, -0.76, -0.44, -0.26, -0.13] }
+    n: { pick: [1, 2, 3] }
+    F: 96485
+  prompt: >-
+    A galvanic cell has a cathode half-reaction with $E^\circ = {{Ec}}\,\mathrm{V}$ and an anode half-reaction with
+    $E^\circ = {{Ea}}\,\mathrm{V}$ (both written as reductions). The cell reaction transfers $n = {{n}}$ electrons.
+  parts:
+    - ask: 'Standard cell potential, $E^\circ_\mathrm{cell}$'
+      label: Ecell
+      tex: 'E^\circ_\mathrm{cell}'
+      value: Ec - Ea
+      unit: V
+      explain: '$E^\circ_\mathrm{cell} = E^\circ_\mathrm{cathode} - E^\circ_\mathrm{anode} = {{Ec}} - ({{Ea}}) = {{Ec - Ea}}\,\mathrm{V}$. Never multiply a potential by a stoichiometric coefficient'
+    - ask: 'Standard reaction Gibbs energy, $\Delta G^\circ$'
+      label: dG
+      tex: '\Delta G^\circ'
+      value: -n*F*Ecell/1000
+      unit: kJ/mol
+      explain: '$\Delta G^\circ = -nFE^\circ = -({{n}})(96\,485)({{Ec - Ea}}) = {{-n*F*(Ec - Ea)}}\,\mathrm{J/mol}$. Positive $E^\circ$, negative $\Delta G^\circ$: spontaneous'
+  verify:
+    residuals: ["Ecell + Ea - Ec", "dG*1000 + n*F*Ecell"]
+
+# ── Nernst equation (PC-9.1.C) ─────────────────────────────────────────────
+- template: pc-nernst
+  skill: pchem.electrochemistry
+  given:
+    E0: { pick: [0.32, 0.46, 0.78, 1.10, 1.56] }
+    n: { pick: [1, 2] }
+    Q: { pick: [0.001, 0.01, 0.1, 10, 100, 1000] }
+    R: 8.314
+    T: 298.15
+    F: 96485
+  prompt: >-
+    A cell has $E^\circ = {{E0}}\,\mathrm{V}$ and transfers $n = {{n}}$ electrons. At $298.15\,\mathrm{K}$ the reaction quotient is $Q = {{Q}}$.
+  parts:
+    - ask: 'Cell potential, $E$'
+      label: Ecell
+      tex: 'E'
+      value: E0 - R*T/(n*F)*log(Q)
+      unit: V
+      tol: 0.005
+      explain: '$E = E^\circ - \frac{RT}{nF}\ln Q = {{E0}} - \frac{0.02569}{ {{n}} }\ln({{Q}}) = {{E0 - R*T/(n*F)*log(Q)}}\,\mathrm{V}$. $Q < 1$ (reactant-rich) pushes $E$ above $E^\circ$'
+  verify:
+    residuals: ["log(Q) - (E0 - Ecell)*n*F/(R*T)"]

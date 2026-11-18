@@ -30,6 +30,9 @@ domains:
   - { id: geo,     title: "Geometry" }
   - { id: trig,    title: "Trigonometry" }
   - { id: stats,   title: "Statistics & probability" }
+  - { id: pchem,   title: "Physical chemistry: thermodynamics" }
+  - { id: quantum, title: "Quantum chemistry & spectroscopy" }
+  - { id: kinetics, title: "Kinetic theory & chemical kinetics" }
 
 skills:
   # ── prerequisites ────────────────────────────────────────────────────────
@@ -460,3 +463,19 @@ skills:
   - { id: stats.bivariate, domain: stats, title: "Two-way tables, least-squares lines, residuals & correlation", short: "Bivariate data", status: live, prereqs: [stats.descriptive, alg.linear], levels: { 1: [stats-two-way, stats-regression, stats-residual, stats-correlation] } }
   - { id: stats.probability, domain: stats, title: "Probability rules: addition, conditional, independence, counting, Bayes", short: "Probability rules", status: live, prereqs: [k8.data], levels: { 1: [stats-addition, stats-conditional, stats-independence, stats-mult-rule, stats-counting, stats-bayes] } }
   - { id: stats.expected-value, domain: stats, title: "Expected value & decisions", short: "Expected value", status: live, prereqs: [stats.probability], levels: { 1: [stats-expected, stats-insurance] } }
+
+  # ── physical chemistry (Engel & Reid) — templates: drills/problems/pc-*.yaml ───────────
+  - { id: pchem.first-law, domain: pchem, title: "Ideal gas, expansion work, ΔH vs ΔU" }
+  - { id: pchem.thermochemistry, domain: pchem, title: "Thermochemistry: Hess and Kirchhoff", prereqs: [pchem.first-law] }
+  - { id: pchem.entropy, domain: pchem, title: "Entropy changes and the Carnot engine", prereqs: [pchem.first-law] }
+  - { id: pchem.gibbs, domain: pchem, title: "Gibbs energy and spontaneity", prereqs: [pchem.entropy] }
+  - { id: pchem.real-gases, domain: pchem, title: "Real gases: Z and van der Waals", prereqs: [pchem.first-law] }
+  - { id: pchem.phases, domain: pchem, title: "Phase rule and curved surfaces", prereqs: [pchem.gibbs] }
+  - { id: pchem.colligative, domain: pchem, title: "Colligative properties", prereqs: [pchem.gibbs] }
+  - { id: pchem.electrolytes, domain: pchem, title: "Electrolytes: ionic strength and Debye–Hückel", prereqs: [pchem.colligative] }
+  - { id: pchem.electrochemistry, domain: pchem, title: "Cell potentials and the Nernst equation", prereqs: [pchem.gibbs] }
+  - { id: quantum.origins, domain: quantum, title: "Photons, matter waves and the hydrogen spectrum" }
+  - { id: quantum.model-systems, domain: quantum, title: "Box, harmonic oscillator and rigid rotor", prereqs: [quantum.origins] }
+  - { id: quantum.spectroscopy, domain: quantum, title: "Spectroscopy numbers: Beer–Lambert and NMR", prereqs: [quantum.origins] }
+  - { id: kinetics.gas-kinetic, domain: kinetics, title: "Molecular speeds, collisions and diffusion" }
+  - { id: kinetics.rate-laws, domain: kinetics, title: "Rate laws, integrated rates and mechanisms" }

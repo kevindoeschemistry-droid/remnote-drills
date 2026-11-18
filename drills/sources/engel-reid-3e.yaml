@@ -1,0 +1,434 @@
+# Engel & Reid, Physical Chemistry, 3rd ed. (Pearson, 2013)
+# Chapter titles and section numbers are taken from the wiki's pages for this book; a ref such as
+# "18:rotation-2d" marks a wiki drill page whose section number has not been checked against the book.
+id: engel-reid-3e
+title: "Engel & Reid — Physical Chemistry"
+short: "E&R"
+edition: 3
+year: 2013
+field: physical-chemistry
+wiki: textbooks/engel-reid-physical-chemistry
+chapters:
+  - n: 1
+    title: "Fundamental Concepts of Thermodynamics"
+    sections:
+      - { ref: "1.4", title: "Ideal Gas Law", skills: [pchem.first-law],
+          wiki: textbooks/engel-reid-physical-chemistry/ch01-03-idealgas }
+  - n: 2
+    title: "Heat, Work, Internal Energy, Enthalpy, and the First Law of Thermodynamics"
+    sections:
+      - { ref: "2.5", title: "Constant-Volume Heating",
+          wiki: textbooks/engel-reid-physical-chemistry/ch01-03-cv }
+      - { ref: "2.8", title: "Irreversible Expansion Work", skills: [pchem.first-law],
+          wiki: textbooks/engel-reid-physical-chemistry/ch01-03-irrev }
+      - { ref: "2.8", title: "Reversible Isothermal Work",
+          wiki: textbooks/engel-reid-physical-chemistry/ch01-03-rev }
+      - { ref: "2.9", title: "ΔH vs ΔU", skills: [pchem.first-law],
+          wiki: textbooks/engel-reid-physical-chemistry/ch01-03-dhdu }
+      - { ref: "2.11", title: "Reversible Adiabatic Expansion",
+          wiki: textbooks/engel-reid-physical-chemistry/ch01-03-adiabatic }
+  - n: 3
+    title: "The Importance of State Functions: Internal Energy and Enthalpy"
+    sections:
+      - { ref: "3.4", title: "Isobaric Heating and C_P",
+          wiki: textbooks/engel-reid-physical-chemistry/ch01-03-cp }
+  - n: 4
+    title: "Thermochemistry"
+    wiki: textbooks/engel-reid-physical-chemistry/ch04
+    sections:
+      - { ref: "4.2", title: "ΔH vs ΔU for Reactions",
+          wiki: textbooks/engel-reid-physical-chemistry/ch01-03-dngas }
+      - { ref: "4.3", title: "Hess's Law", skills: [pchem.thermochemistry],
+          wiki: textbooks/engel-reid-physical-chemistry/ch01-03-hess }
+      - { ref: "4.4", title: "Kirchhoff's Law", skills: [pchem.thermochemistry],
+          wiki: textbooks/engel-reid-physical-chemistry/ch01-03-kirchhoff }
+  - n: 5
+    title: "Entropy, Second Law, and Gibbs Free Energy"
+    wiki: textbooks/engel-reid-physical-chemistry/ch05
+    sections:
+      - { ref: "5.2", title: "Carnot Efficiency", skills: [pchem.entropy],
+          wiki: textbooks/engel-reid-physical-chemistry/ch05-carnot }
+      - { ref: "5.4", title: "Entropy: Isothermal Expansion", skills: [pchem.entropy],
+          wiki: textbooks/engel-reid-physical-chemistry/ch05-ds-expansion }
+      - { ref: "5.4", title: "Entropy: Constant-Pressure Heating", skills: [pchem.entropy],
+          wiki: textbooks/engel-reid-physical-chemistry/ch05-ds-heating }
+      - { ref: "5.4", title: "Entropy: Phase Transitions", skills: [pchem.entropy],
+          wiki: textbooks/engel-reid-physical-chemistry/ch05-ds-phase }
+      - { ref: "5.10", title: "Entropy of Reaction from Standard Entropies",
+          wiki: textbooks/engel-reid-physical-chemistry/ch05-ds-rxn }
+  - n: 6
+    title: "Chemical Equilibrium"
+    wiki: textbooks/engel-reid-physical-chemistry/ch06
+    sections:
+      - { ref: "6.1", title: "Gibbs Free Energy", skills: [pchem.gibbs],
+          wiki: textbooks/engel-reid-physical-chemistry/ch05-dg }
+      - { ref: "6.3", title: "Gibbs Energy: Pressure Dependence", skills: [pchem.gibbs],
+          wiki: textbooks/engel-reid-physical-chemistry/ch05-gvsp }
+      - { ref: "6.7", title: "Equilibrium Constant from ΔG°",
+          wiki: textbooks/engel-reid-physical-chemistry/ch05-keq }
+      - { ref: "6.10", title: "van't Hoff Equation",
+          wiki: textbooks/engel-reid-physical-chemistry/ch05-vanthoff }
+  - n: 7
+    title: "The Properties of Real Gases"
+    wiki: textbooks/engel-reid-physical-chemistry/ch07
+    sections:
+      - { ref: "7.2", title: "van der Waals Equation of State", skills: [pchem.real-gases],
+          wiki: textbooks/engel-reid-physical-chemistry/ch07-vdw }
+      - { ref: "7.3", title: "Compression Factor Z", skills: [pchem.real-gases],
+          wiki: textbooks/engel-reid-physical-chemistry/ch07-compression }
+      - { ref: "7.4", title: "Law of Corresponding States",
+          wiki: textbooks/engel-reid-physical-chemistry/ch07-corresponding-states }
+      - { ref: "7.5", title: "Fugacity",
+          wiki: textbooks/engel-reid-physical-chemistry/ch07-fugacity }
+  - n: 8
+    title: "Phase Diagrams and the Relative Stability of Solids, Liquids, and Gases"
+    wiki: textbooks/engel-reid-physical-chemistry/ch08
+    sections:
+      - { ref: "8.3", title: "Gibbs Phase Rule", skills: [pchem.phases],
+          wiki: textbooks/engel-reid-physical-chemistry/ch08-phase-rule }
+      - { ref: "8.6", title: "Clausius-Clapeyron Equation",
+          wiki: textbooks/engel-reid-physical-chemistry/ch08-clausius-clapeyron }
+      - { ref: "8.8", title: "Surface Tension", skills: [pchem.phases],
+          wiki: textbooks/engel-reid-physical-chemistry/ch08-surface-tension }
+  - n: 9
+    title: "Ideal and Real Solutions"
+    wiki: textbooks/engel-reid-physical-chemistry/ch09
+    sections:
+      - { ref: "9.3", title: "Raoult's Law",
+          wiki: textbooks/engel-reid-physical-chemistry/ch09-raoult }
+      - { ref: "9.4", title: "Lever Rule / Fractional Distillation",
+          wiki: textbooks/engel-reid-physical-chemistry/ch09-distillation }
+      - { ref: "9.5", title: "Gibbs-Duhem Equation",
+          wiki: textbooks/engel-reid-physical-chemistry/ch09-gibbs-duhem }
+      - { ref: "9.7", title: "Boiling Point Elevation and Freezing Point Depression", skills: [pchem.colligative],
+          wiki: textbooks/engel-reid-physical-chemistry/ch09-colligative }
+      - { ref: "9.8", title: "Osmotic Pressure", skills: [pchem.colligative],
+          wiki: textbooks/engel-reid-physical-chemistry/ch09-osmotic }
+      - { ref: "9.11", title: "Activity and Activity Coefficients",
+          wiki: textbooks/engel-reid-physical-chemistry/ch09-activity }
+      - { ref: "9.12", title: "Henry's Law",
+          wiki: textbooks/engel-reid-physical-chemistry/ch09-henry }
+  - n: 10
+    title: "Electrolyte Solutions"
+    wiki: textbooks/engel-reid-physical-chemistry/ch10
+    sections:
+      - { ref: "10.1", title: "Ionic Strength and Solvation", skills: [pchem.electrolytes],
+          wiki: textbooks/engel-reid-physical-chemistry/ch10-ion-enthalpy }
+      - { ref: "10.3", title: "Mean Activity Coefficient",
+          wiki: textbooks/engel-reid-physical-chemistry/ch10-activity-electrolyte }
+      - { ref: "10.4", title: "Debye-Hückel Limiting Law", skills: [pchem.electrolytes],
+          wiki: textbooks/engel-reid-physical-chemistry/ch10-debye-huckel }
+      - { ref: "10.5", title: "Equilibrium in Electrolyte Solutions",
+          wiki: textbooks/engel-reid-physical-chemistry/ch10-equilibrium }
+  - n: 11
+    title: "Electrochemical Cells, Batteries, and Fuel Cells"
+    wiki: textbooks/engel-reid-physical-chemistry/ch11
+    sections:
+      - { ref: "11.4", title: "Nernst Equation", skills: [pchem.electrochemistry],
+          wiki: textbooks/engel-reid-physical-chemistry/ch11-nernst }
+      - { ref: "11.5", title: "Combining Electrode Potentials", skills: [pchem.electrochemistry],
+          wiki: textbooks/engel-reid-physical-chemistry/ch11-cell-potential }
+      - { ref: "11.6", title: "ΔG° and Cell Potential",
+          wiki: textbooks/engel-reid-physical-chemistry/ch11-gibbs-cell }
+      - { ref: "11.7", title: "EMF and Equilibrium Constant",
+          wiki: textbooks/engel-reid-physical-chemistry/ch11-emf-keq }
+  - n: 12
+    title: "From Classical to Quantum Mechanics"
+    wiki: textbooks/engel-reid-physical-chemistry/ch12
+    sections:
+      - { ref: "12.3", title: "Planck's Quantization", skills: [quantum.origins],
+          wiki: textbooks/engel-reid-physical-chemistry/ch12-planck }
+      - { ref: "12.4", title: "Einstein Photoelectric Effect", skills: [quantum.origins],
+          wiki: textbooks/engel-reid-physical-chemistry/ch12-photoelectric }
+      - { ref: "12.5", title: "de Broglie Wavelength", skills: [quantum.origins],
+          wiki: textbooks/engel-reid-physical-chemistry/ch12-de-broglie }
+      - { ref: "12.7", title: "Bohr Model of the Hydrogen Atom", skills: [quantum.origins],
+          wiki: textbooks/engel-reid-physical-chemistry/ch12-bohr }
+  - n: 13
+    title: "The Schrödinger Equation"
+    wiki: textbooks/engel-reid-physical-chemistry/ch13
+    sections:
+      - { ref: "13.5", title: "Eigenvalue Equation",
+          wiki: textbooks/engel-reid-physical-chemistry/ch13-operators }
+      - { ref: "13.6", title: "Orthogonality and Normalization",
+          wiki: textbooks/engel-reid-physical-chemistry/ch13-orthogonality }
+      - { ref: "13.7", title: "Completeness and Eigenfunction Expansions",
+          wiki: textbooks/engel-reid-physical-chemistry/ch13-completeness }
+  - n: 14
+    title: "The Quantum Mechanical Postulates"
+    wiki: textbooks/engel-reid-physical-chemistry/ch14
+    sections:
+      - { ref: "14.1", title: "Born Interpretation and Normalization",
+          wiki: textbooks/engel-reid-physical-chemistry/ch14-born }
+      - { ref: "14.4", title: "Expectation Values",
+          wiki: textbooks/engel-reid-physical-chemistry/ch14-expectation }
+      - { ref: "14.5", title: "Time Evolution of Quantum States",
+          wiki: textbooks/engel-reid-physical-chemistry/ch14-time-evolution }
+  - n: 15
+    title: "Using Quantum Mechanics on Simple Systems"
+    wiki: textbooks/engel-reid-physical-chemistry/ch15
+    sections:
+      - { ref: "15.2", title: "Particle-in-Box Energy Levels", skills: [quantum.model-systems],
+          wiki: textbooks/engel-reid-physical-chemistry/ch15-pib-energy }
+      - { ref: "15.2", title: "PIB Wavefunction",
+          wiki: textbooks/engel-reid-physical-chemistry/ch15-pib-wavefunction }
+      - { ref: "15.3", title: "Three-Dimensional Particle in a Box",
+          wiki: textbooks/engel-reid-physical-chemistry/ch15-3d-box }
+  - n: 16
+    title: "The Particle in the Box and the Real World"
+    wiki: textbooks/engel-reid-physical-chemistry/ch16
+    sections:
+      - { ref: "16.1", title: "Finite Depth Potential Well",
+          wiki: textbooks/engel-reid-physical-chemistry/ch16-finite-box }
+      - { ref: "16.3", title: "Pi Electrons in Conjugated Molecules",
+          wiki: textbooks/engel-reid-physical-chemistry/ch16-pi-electrons }
+      - { ref: "16.5", title: "Tunneling Transmission Coefficient",
+          wiki: textbooks/engel-reid-physical-chemistry/ch16-potential-barrier }
+      - { ref: "16.6", title: "Quantum Tunneling",
+          wiki: textbooks/engel-reid-physical-chemistry/ch16-tunneling }
+  - n: 17
+    title: "Commuting and Non-Commuting Operators and Entanglement"
+    wiki: textbooks/engel-reid-physical-chemistry/ch17
+    sections:
+      - { ref: "17.1", title: "Position-Momentum Commutator",
+          wiki: textbooks/engel-reid-physical-chemistry/ch17-commutator }
+      - { ref: "17.3", title: "Heisenberg Uncertainty Principle", skills: [quantum.origins],
+          wiki: textbooks/engel-reid-physical-chemistry/ch17-uncertainty }
+  - n: 18
+    title: "Quantum Model for Vibration and Rotation of Molecules"
+    wiki: textbooks/engel-reid-physical-chemistry/ch18
+    sections:
+      - { ref: "18.3", title: "QM Harmonic Oscillator", skills: [quantum.model-systems],
+          wiki: textbooks/engel-reid-physical-chemistry/ch18-harmonic }
+      - { ref: "18.5", title: "3D Rigid Rotor", skills: [quantum.model-systems],
+          wiki: textbooks/engel-reid-physical-chemistry/ch18-rigid-rotor }
+      - { ref: "18.6", title: "Angular Momentum",
+          wiki: textbooks/engel-reid-physical-chemistry/ch18-angular-momentum }
+      - { ref: "18:rotation-2d", title: "2D Rotation Energy",
+          wiki: textbooks/engel-reid-physical-chemistry/ch18-rotation-2d }
+      - { ref: "18:spherical-harmonics", title: "Spherical Harmonics",
+          wiki: textbooks/engel-reid-physical-chemistry/ch18-spherical-harmonics }
+  - n: 19
+    title: "Vibrational and Rotational Spectroscopy of Diatomic Molecules"
+    wiki: textbooks/engel-reid-physical-chemistry/ch19
+    sections:
+      - { ref: "19.3", title: "Vibrational Frequency from Force Constant",
+          wiki: textbooks/engel-reid-physical-chemistry/ch19-ir-freq }
+      - { ref: "19.4", title: "Vibrational and Rotational Selection Rules",
+          wiki: textbooks/engel-reid-physical-chemistry/ch19-selection-rules }
+      - { ref: "19.6", title: "Rotational Spectroscopy",
+          wiki: textbooks/engel-reid-physical-chemistry/ch19-rotational-spectra }
+      - { ref: "19:einstein", title: "Einstein A and B Coefficients",
+          wiki: textbooks/engel-reid-physical-chemistry/ch19-einstein }
+  - n: 20
+    title: "The Hydrogen Atom"
+    wiki: textbooks/engel-reid-physical-chemistry/ch20
+    sections:
+      - { ref: "20.3", title: "Hydrogen Atom Energy Levels",
+          wiki: textbooks/engel-reid-physical-chemistry/ch20-energy-levels }
+      - { ref: "20.4", title: "Hydrogen Atom Quantum Numbers",
+          wiki: textbooks/engel-reid-physical-chemistry/ch20-orbitals }
+      - { ref: "20:radial-prob", title: "Radial Probability Distribution",
+          wiki: textbooks/engel-reid-physical-chemistry/ch20-radial-prob }
+  - n: 21
+    title: "Many-Electron Atoms"
+    wiki: textbooks/engel-reid-physical-chemistry/ch21
+    sections:
+      - { ref: "21.4", title: "Variational Principle",
+          wiki: textbooks/engel-reid-physical-chemistry/ch21-variational }
+      - { ref: "21.6", title: "Effective Nuclear Charge and Slater's Rules",
+          wiki: textbooks/engel-reid-physical-chemistry/ch21-zeff }
+      - { ref: "21:hf-scf", title: "Hartree-Fock SCF Energy",
+          wiki: textbooks/engel-reid-physical-chemistry/ch21-hf-scf }
+  - n: 22
+    title: "Quantum States for Many-Electron Atoms and Atomic Spectroscopy"
+    wiki: textbooks/engel-reid-physical-chemistry/ch22
+    sections:
+      - { ref: "22.1", title: "Atomic Term Symbols",
+          wiki: textbooks/engel-reid-physical-chemistry/ch22-term-symbols }
+      - { ref: "22.3", title: "Spin-Orbit Coupling",
+          wiki: textbooks/engel-reid-physical-chemistry/ch22-spin-orbit }
+      - { ref: "22:config-energy", title: "Hund's Rules and Term Symbols",
+          wiki: textbooks/engel-reid-physical-chemistry/ch22-config-energy }
+  - n: 23
+    title: "The Chemical Bond in Diatomic Molecules"
+    wiki: textbooks/engel-reid-physical-chemistry/ch23
+    sections:
+      - { ref: "23.3", title: "H₂⁺ Bonding and Antibonding Energies",
+          wiki: textbooks/engel-reid-physical-chemistry/ch23-h2-energy }
+      - { ref: "23.7", title: "Bond Order and Molecular Properties",
+          wiki: textbooks/engel-reid-physical-chemistry/ch23-bond-order }
+      - { ref: "23:h2-plus", title: "H₂⁺ LCAO-MO Energies",
+          wiki: textbooks/engel-reid-physical-chemistry/ch23-h2-plus }
+      - { ref: "23:homonuclear", title: "Homonuclear Diatomic MO Filling",
+          wiki: textbooks/engel-reid-physical-chemistry/ch23-homonuclear }
+  - n: 24
+    title: "Molecular Structure and Energy Levels for Polyatomic Molecules"
+    wiki: textbooks/engel-reid-physical-chemistry/ch24
+    sections:
+      - { ref: "24.2", title: "Hybridization and Geometry",
+          wiki: textbooks/engel-reid-physical-chemistry/ch24-hybridization }
+      - { ref: "24.5", title: "Qualitative MO Theory: Walsh Diagrams and HOMO/LUMO",
+          wiki: textbooks/engel-reid-physical-chemistry/ch24-mo-theory }
+      - { ref: "24:huckel", title: "Hückel MO Theory",
+          wiki: textbooks/engel-reid-physical-chemistry/ch24-huckel }
+  - n: 25
+    title: "Electronic Spectroscopy"
+    wiki: textbooks/engel-reid-physical-chemistry/ch25
+    sections:
+      - { ref: "25.1", title: "Electronic Transition Energy",
+          wiki: textbooks/engel-reid-physical-chemistry/ch25-energy }
+      - { ref: "25.5", title: "Beer-Lambert Law", skills: [quantum.spectroscopy],
+          wiki: textbooks/engel-reid-physical-chemistry/ch25-beer-lambert }
+      - { ref: "25.7", title: "Fluorescence and Stokes Shift",
+          wiki: textbooks/engel-reid-physical-chemistry/ch25-fluorescence }
+      - { ref: "25:franck-condon", title: "Franck-Condon Principle",
+          wiki: textbooks/engel-reid-physical-chemistry/ch25-franck-condon }
+  - n: 26
+    title: "Computational Chemistry"
+    wiki: textbooks/engel-reid-physical-chemistry/ch26
+    sections:
+      - { ref: "26:hf", title: "Hartree-Fock SCF Energy",
+          wiki: textbooks/engel-reid-physical-chemistry/ch26-hf }
+      - { ref: "26:pes", title: "Potential Energy Surfaces",
+          wiki: textbooks/engel-reid-physical-chemistry/ch26-pes }
+      - { ref: "26:post-hf", title: "Post-HF Methods and DFT",
+          wiki: textbooks/engel-reid-physical-chemistry/ch26-post-hf }
+  - n: 27
+    title: "Molecular Symmetry"
+    wiki: textbooks/engel-reid-physical-chemistry/ch27
+    sections:
+      - { ref: "27:symmetry", title: "Molecular Symmetry and Point Groups",
+          wiki: textbooks/engel-reid-physical-chemistry/ch27-symmetry }
+      - { ref: "27:point-groups", title: "Identifying Point Groups",
+          wiki: textbooks/engel-reid-physical-chemistry/ch27-point-groups }
+      - { ref: "27:character-tables", title: "Using Character Tables",
+          wiki: textbooks/engel-reid-physical-chemistry/ch27-character-tables }
+      - { ref: "27:normal-modes", title: "Symmetry of Normal Modes",
+          wiki: textbooks/engel-reid-physical-chemistry/ch27-normal-modes }
+      - { ref: "27:selection-rules", title: "IR vs Raman Selection Rules",
+          wiki: textbooks/engel-reid-physical-chemistry/ch27-selection-rules }
+  - n: 28
+    title: "Nuclear Magnetic Resonance Spectroscopy"
+    wiki: textbooks/engel-reid-physical-chemistry/ch28
+    sections:
+      - { ref: "28:larmor", title: "Larmor Frequency", skills: [quantum.spectroscopy],
+          wiki: textbooks/engel-reid-physical-chemistry/ch28-larmor }
+      - { ref: "28:chemical-shift", title: "Chemical Shift", skills: [quantum.spectroscopy],
+          wiki: textbooks/engel-reid-physical-chemistry/ch28-chemical-shift }
+      - { ref: "28:shielding", title: "Chemical Shift and Shielding",
+          wiki: textbooks/engel-reid-physical-chemistry/ch28-shielding }
+      - { ref: "28:spin-spin", title: "Spin-Spin Splitting (n+1 Rule)",
+          wiki: textbooks/engel-reid-physical-chemistry/ch28-spin-spin }
+      - { ref: "28:coupling", title: "Spin-Spin Coupling (n+1 Rule)",
+          wiki: textbooks/engel-reid-physical-chemistry/ch28-coupling }
+  - n: 29
+    title: "Probability"
+    wiki: textbooks/engel-reid-physical-chemistry/ch29
+    sections:
+      - { ref: "29.2", title: "Counting Microstates",
+          wiki: textbooks/engel-reid-physical-chemistry/ch29-counting }
+      - { ref: "29:stirling", title: "Stirling's Approximation",
+          wiki: textbooks/engel-reid-physical-chemistry/ch29-stirling }
+      - { ref: "29:distributions", title: "Distribution Functions",
+          wiki: textbooks/engel-reid-physical-chemistry/ch29-distributions }
+  - n: 30
+    title: "The Boltzmann Distribution"
+    wiki: textbooks/engel-reid-physical-chemistry/ch30
+    sections:
+      - { ref: "30.2", title: "Partition Function and Boltzmann Populations",
+          wiki: textbooks/engel-reid-physical-chemistry/ch30-partition }
+      - { ref: "30:microstates", title: "Microstates and Boltzmann Entropy",
+          wiki: textbooks/engel-reid-physical-chemistry/ch30-microstates }
+      - { ref: "30:beta", title: "The Physical Meaning of β",
+          wiki: textbooks/engel-reid-physical-chemistry/ch30-beta }
+  - n: 31
+    title: "Ensemble and Molecular Partition Functions"
+    wiki: textbooks/engel-reid-physical-chemistry/ch31
+    sections:
+      - { ref: "31.4", title: "Translational Partition Function",
+          wiki: textbooks/engel-reid-physical-chemistry/ch31-trans-partition }
+      - { ref: "31.5", title: "Rotational Partition Function",
+          wiki: textbooks/engel-reid-physical-chemistry/ch31-rot-partition }
+      - { ref: "31.7", title: "Vibrational Partition Function",
+          wiki: textbooks/engel-reid-physical-chemistry/ch31-vib-partition }
+      - { ref: "31.8", title: "Equipartition Theorem",
+          wiki: textbooks/engel-reid-physical-chemistry/ch31-equipartition }
+      - { ref: "31:rot-poly", title: "Rotational Partition Function (Polyatomics)",
+          wiki: textbooks/engel-reid-physical-chemistry/ch31-rot-poly }
+      - { ref: "31:electronic", title: "Electronic Partition Function",
+          wiki: textbooks/engel-reid-physical-chemistry/ch31-electronic }
+  - n: 32
+    title: "Statistical Thermodynamics"
+    wiki: textbooks/engel-reid-physical-chemistry/ch32
+    sections:
+      - { ref: "32.3", title: "Heat Capacity from the Partition Function",
+          wiki: textbooks/engel-reid-physical-chemistry/ch32-heat-capacity }
+      - { ref: "32.4", title: "Entropy from the Partition Function",
+          wiki: textbooks/engel-reid-physical-chemistry/ch32-entropy-stat }
+      - { ref: "32.6", title: "Helmholtz Free Energy",
+          wiki: textbooks/engel-reid-physical-chemistry/ch32-helmholtz }
+      - { ref: "32:energy", title: "Internal Energy from the Partition Function",
+          wiki: textbooks/engel-reid-physical-chemistry/ch32-energy }
+      - { ref: "32:residual-entropy", title: "Residual Entropy", skills: [pchem.entropy],
+          wiki: textbooks/engel-reid-physical-chemistry/ch32-residual-entropy }
+  - n: 33
+    title: "Kinetic Theory of Gases"
+    wiki: textbooks/engel-reid-physical-chemistry/ch33
+    sections:
+      - { ref: "33:maxwell", title: "Maxwell Speed Distribution",
+          wiki: textbooks/engel-reid-physical-chemistry/ch33-maxwell }
+      - { ref: "33:speeds", title: "Characteristic Molecular Speeds", skills: [kinetics.gas-kinetic],
+          wiki: textbooks/engel-reid-physical-chemistry/ch33-speeds }
+      - { ref: "33:effusion", title: "Graham's Law of Effusion", skills: [kinetics.gas-kinetic],
+          wiki: textbooks/engel-reid-physical-chemistry/ch33-effusion }
+      - { ref: "33:collisions", title: "Collision Frequency",
+          wiki: textbooks/engel-reid-physical-chemistry/ch33-collisions }
+      - { ref: "33:mean-free-path", title: "Mean Free Path", skills: [kinetics.gas-kinetic],
+          wiki: textbooks/engel-reid-physical-chemistry/ch33-mean-free-path }
+  - n: 34
+    title: "Transport Phenomena"
+    wiki: textbooks/engel-reid-physical-chemistry/ch34
+    sections:
+      - { ref: "34:ficks-first", title: "Fick's First Law",
+          wiki: textbooks/engel-reid-physical-chemistry/ch34-ficks-first }
+      - { ref: "34:ficks-second", title: "Fick's Second Law", skills: [kinetics.gas-kinetic],
+          wiki: textbooks/engel-reid-physical-chemistry/ch34-ficks-second }
+      - { ref: "34:thermal-conduction", title: "Thermal Conductivity (Fourier's Law)",
+          wiki: textbooks/engel-reid-physical-chemistry/ch34-thermal-conduction }
+      - { ref: "34:viscosity", title: "Viscosity of Gases",
+          wiki: textbooks/engel-reid-physical-chemistry/ch34-viscosity }
+      - { ref: "34:steady-state", title: "Steady-State Approximation",
+          wiki: textbooks/engel-reid-physical-chemistry/ch34-steady-state }
+  - n: 35
+    title: "Elementary Chemical Kinetics"
+    wiki: textbooks/engel-reid-physical-chemistry/ch35
+    sections:
+      - { ref: "35:rate-laws", title: "Rate Laws", skills: [kinetics.rate-laws],
+          wiki: textbooks/engel-reid-physical-chemistry/ch35-rate-laws }
+      - { ref: "35:integrated", title: "Integrated Rate Laws", skills: [kinetics.rate-laws],
+          wiki: textbooks/engel-reid-physical-chemistry/ch35-integrated }
+      - { ref: "35:arrhenius", title: "Arrhenius Equation",
+          wiki: textbooks/engel-reid-physical-chemistry/ch35-arrhenius }
+      - { ref: "35:collision-theory", title: "Collision Theory Rate Constant",
+          wiki: textbooks/engel-reid-physical-chemistry/ch35-collision-theory }
+      - { ref: "35:eyring", title: "Eyring Equation (Transition State Theory)",
+          wiki: textbooks/engel-reid-physical-chemistry/ch35-eyring }
+      - { ref: "35:reversible", title: "Reversible Reactions — Approach to Equilibrium",
+          wiki: textbooks/engel-reid-physical-chemistry/ch35-reversible }
+      - { ref: "35:parallel", title: "Parallel Reactions", skills: [kinetics.rate-laws],
+          wiki: textbooks/engel-reid-physical-chemistry/ch35-parallel }
+      - { ref: "35:sequential", title: "Sequential First-Order Reactions",
+          wiki: textbooks/engel-reid-physical-chemistry/ch35-sequential }
+  - n: 36
+    title: "Complex Reaction Mechanisms"
+    wiki: textbooks/engel-reid-physical-chemistry/ch36
+    sections:
+      - { ref: "36:preequil", title: "Preequilibrium Approximation",
+          wiki: textbooks/engel-reid-physical-chemistry/ch36-preequil }
+      - { ref: "36:lindemann", title: "Lindemann Mechanism",
+          wiki: textbooks/engel-reid-physical-chemistry/ch36-lindemann }
+      - { ref: "36:michaelis", title: "Michaelis-Menten Enzyme Kinetics", skills: [kinetics.rate-laws],
+          wiki: textbooks/engel-reid-physical-chemistry/ch36-michaelis }
+      - { ref: "36:radical-chain", title: "Radical Chain Reactions",
+          wiki: textbooks/engel-reid-physical-chemistry/ch36-radical-chain }
