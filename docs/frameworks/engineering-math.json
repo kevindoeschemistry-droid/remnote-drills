@@ -343,7 +343,8 @@
         "P5"
        ],
        "drills": [
-        "~em-classify-ode"
+        "~em-classify-ode",
+        "em-verify-solution"
        ]
       },
       {
@@ -1595,7 +1596,9 @@
        "p": [
         "P3"
        ],
-       "drills": [],
+       "drills": [
+        "em-frobenius-first-solution"
+       ],
        "needs": [
         "EM-6.3.A",
         "EM-6.2.A"
@@ -2246,7 +2249,9 @@
         "P3",
         "P6"
        ],
-       "drills": [],
+       "drills": [
+        "em-fourier-forced-response"
+       ],
        "needs": [
         "EM-9.1.A",
         "EM-3.6.A"
@@ -2594,7 +2599,9 @@
        "p": [
         "P3"
        ],
-       "drills": []
+       "drills": [
+        "em-semi-infinite-heat"
+       ]
       }
      ]
     }
@@ -2629,7 +2636,9 @@
        "p": [
         "P3"
        ],
-       "drills": []
+       "drills": [
+        "em-fourier-cosine-sine"
+       ]
       },
       {
        "id": "B",
@@ -2640,7 +2649,10 @@
        "p": [
         "P3"
        ],
-       "drills": []
+       "drills": [
+        "em-fourier-transform-value",
+        "em-fourier-derivative-rule"
+       ]
       }
      ]
     }
@@ -2829,8 +2841,10 @@
    "code": "EM-2.1.A",
    "unit": 2,
    "topic": 1,
-   "status": "partial",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "em-verify-solution"
+   ],
    "partial": [
     "em-classify-ode"
    ]
@@ -3482,8 +3496,10 @@
    "code": "EM-6.3.C",
    "unit": 6,
    "topic": 3,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "em-frobenius-first-solution"
+   ],
    "partial": []
   },
   {
@@ -3796,8 +3812,10 @@
    "code": "EM-9.1.D",
    "unit": 9,
    "topic": 1,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "em-fourier-forced-response"
+   ],
    "partial": []
   },
   {
@@ -3962,24 +3980,31 @@
    "code": "EM-10.5.A",
    "unit": 10,
    "topic": 5,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "em-semi-infinite-heat"
+   ],
    "partial": []
   },
   {
    "code": "EM-11.1.A",
    "unit": 11,
    "topic": 1,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "em-fourier-cosine-sine"
+   ],
    "partial": []
   },
   {
    "code": "EM-11.1.B",
    "unit": 11,
    "topic": 1,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "em-fourier-transform-value",
+    "em-fourier-derivative-rule"
+   ],
    "partial": []
   },
   {
@@ -4045,17 +4070,22 @@
   "mm-asymptote",
   "ca-limit-graph",
   "ca-limit-table",
+  "ca-shrinking-average-rate",
+  "ca-limit-statement",
+  "ca-limit-three-ways",
   "ca-limit-procedure",
   "ca-lim-onesided",
   "ca-continuity-k",
   "ca-vert-asymptote",
   "ca-ivt",
   "ca-discontinuity-graph",
+  "ca-make-continuous",
   "ca-continuity-conditions",
   "ca-avg-rate",
   "ca-def-derivative",
   "ca-tangent-line",
   "ca-estimate-derivative",
+  "ca-difference-quotient-limit",
   "ca-differentiability",
   "ca-power-rule",
   "ca-power-reciprocal",
@@ -4070,6 +4100,7 @@
   "ca-trig-derivative",
   "mm-derivative-at-a-point",
   "mm-tangent-slope",
+  "ca-derive-sin-exp",
   "ca-chain-power",
   "ca-chain-trig",
   "ca-chain-exp",
@@ -4084,6 +4115,7 @@
   "ca-arcsin-derivative",
   "ca-second-derivative",
   "ca-second-derivative-trig",
+  "ca-implicit-second-derivative",
   "ca-implicit-horizontal",
   "ca-motion",
   "ca-related-circle",
@@ -4094,6 +4126,7 @@
   "ca-lhospital-exp",
   "ca-lhospital-twice",
   "ca-lhospital-power",
+  "ca-rate-of-rate",
   "ca-rate-units",
   "ca-mvt",
   "ca-critical-points",
@@ -4106,6 +4139,8 @@
   "mm-quadratic-maximum",
   "ca-read-derivative-graph",
   "ca-sketch-derivative",
+  "ca-decreasing-interval",
+  "ca-optimization-setup",
   "ca-riemann-sums",
   "ca-trapezoid-table",
   "ca-ftc-derivative",
@@ -4157,6 +4192,7 @@
   "ca-polar-slope",
   "ca-polar-area",
   "ca-polar-rose",
+  "ca-planar-distance",
   "ca-polar-between",
   "ca-partial-sums",
   "ca-geometric-series",
@@ -4165,6 +4201,7 @@
   "ca-ratio-test",
   "ca-absolute-conditional",
   "ca-alternating-error",
+  "ca-alternating-series-test",
   "ca-integral-test",
   "ca-comparison-test",
   "ca-taylor-exp",
@@ -4188,6 +4225,8 @@
   "cm-critical-point",
   "cm-lagrange-product",
   "cm-lagrange-circle",
+  "ca-domain-level-curve",
+  "ca-level-curve-shape",
   "ca-two-path-limit",
   "ca-extrema-region",
   "cm-double-rect",

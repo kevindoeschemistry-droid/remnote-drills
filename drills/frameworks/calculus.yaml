@@ -88,12 +88,12 @@ units:
         title: Can change occur at an instant?
         ced: "1.1"
         los:
-          - { id: A, std: [CHA-1.A], do: "Explain why an instantaneous rate of change has to be defined as a limit of average rates over shrinking intervals.", ek: ["Average rate = Δy/Δx over an interval; at a single instant Δx = 0, so the rate is what Δy/Δx approaches as Δx → 0."], p: [P2], drills: [] }
+          - { id: A, std: [CHA-1.A], do: "Explain why an instantaneous rate of change has to be defined as a limit of average rates over shrinking intervals.", ek: ["Average rate = Δy/Δx over an interval; at a single instant Δx = 0, so the rate is what Δy/Δx approaches as Δx → 0."], p: [P2], drills: [ca-shrinking-average-rate] }
       - n: 2
         title: Limits and limit notation
         ced: "1.2"
         los:
-          - { id: A, std: [LIM-1.A], do: "Read and write limit statements in symbols and words, including one-sided limits.", ek: ["lim_(x→c) f(x) = L means f(x) can be made as close to L as wanted by taking x close enough to c (x ≠ c); f(c) itself is irrelevant."], p: [P4], drills: ["~ca-limit-graph"] }
+          - { id: A, std: [LIM-1.A], do: "Read and write limit statements in symbols and words, including one-sided limits.", ek: ["lim_(x→c) f(x) = L means f(x) can be made as close to L as wanted by taking x close enough to c (x ≠ c); f(c) itself is irrelevant."], p: [P4], drills: ["~ca-limit-graph", ca-limit-statement] }
           - { id: B, std: [LIM-1.B], do: "Decide whether a limit exists by comparing the two one-sided limits.", ek: ["lim_(x→c) f(x) exists ⇔ both one-sided limits exist and are equal; unbounded or oscillating behaviour means no limit."], p: [P3], drills: [ca-lim-onesided], needs: [CA-1.2.A] }
       - n: 3
         title: Estimating limits from graphs
@@ -130,7 +130,7 @@ units:
         title: Connecting representations of limits
         ced: "1.9"
         los:
-          - { id: A, std: [LIM-1.C, LIM-1.D], do: "Find the same limit from a graph, a table and a formula, and resolve disagreements between them.", ek: ["Graphs and tables estimate; algebra decides. All three should agree once the scale and sample are right."], p: [P2], drills: ["~ca-limit-table", "~ca-limit-graph"], needs: [CA-1.3.A, CA-1.4.A, CA-1.7.A] }
+          - { id: A, std: [LIM-1.C, LIM-1.D], do: "Find the same limit from a graph, a table and a formula, and resolve disagreements between them.", ek: ["Graphs and tables estimate; algebra decides. All three should agree once the scale and sample are right."], p: [P2], drills: ["~ca-limit-table", "~ca-limit-graph", ca-limit-three-ways], needs: [CA-1.3.A, CA-1.4.A, CA-1.7.A] }
       - n: 10
         title: Types of discontinuities
         ced: "1.10"
@@ -145,7 +145,7 @@ units:
         title: Continuity over an interval
         ced: "1.12"
         los:
-          - { id: A, std: [LIM-2.B], do: "State the intervals on which a function (including a piecewise one) is continuous.", ek: ["Polynomials, rational, power, exponential, log and trig functions are continuous on their domains; check a piecewise function at its break points."], p: [P3], drills: [], needs: [CA-1.11.A] }
+          - { id: A, std: [LIM-2.B], do: "State the intervals on which a function (including a piecewise one) is continuous.", ek: ["Polynomials, rational, power, exponential, log and trig functions are continuous on their domains; check a piecewise function at its break points."], p: [P3], drills: [ca-make-continuous], needs: [CA-1.11.A] }
       - n: 13
         title: Removing discontinuities
         ced: "1.13"
@@ -179,7 +179,7 @@ units:
         ced: "2.1"
         los:
           - { id: A, std: [CHA-2.A], do: "Calculate an average rate of change as the slope of a secant line.", ek: ["(f(b) − f(a))/(b − a), in units of output per unit input."], p: [P1], drills: [ca-avg-rate] }
-          - { id: B, std: [CHA-2.B], do: "Express an instantaneous rate of change as the limit of a difference quotient.", ek: ["lim_(h→0) (f(a + h) − f(a))/h — the secant slope as the interval shrinks to a point."], p: [P2], drills: ["~ca-def-derivative"], needs: [CA-2.1.A, CA-1.1.A] }
+          - { id: B, std: [CHA-2.B], do: "Express an instantaneous rate of change as the limit of a difference quotient.", ek: ["lim_(h→0) (f(a + h) − f(a))/h — the secant slope as the interval shrinks to a point."], p: [P2], drills: ["~ca-def-derivative", ca-difference-quotient-limit], needs: [CA-2.1.A, CA-1.1.A] }
       - n: 2
         title: The derivative and its notation
         ced: "2.2"
@@ -211,7 +211,7 @@ units:
         ced: "2.7"
         los:
           - { id: A, std: [FUN-3.A], do: "Differentiate sin x, cos x, e^x and ln x and combinations of them with the sum and constant-multiple rules.", ek: ["(sin x)′ = cos x, (cos x)′ = −sin x, (e^x)′ = e^x, (ln x)′ = 1/x."], p: [P1], drills: [ca-elementary-derivative], needs: [CA-2.6.A] }
-          - { id: B, std: [LIM-3.A], do: "Derive the derivative of sin x or e^x from the limit definition.", ek: ["sin(x+h) = sin x cos h + cos x sin h, then use sin h/h → 1 and (cos h − 1)/h → 0."], p: [P3], drills: [], needs: [CA-2.2.A, CA-1.6.B] }
+          - { id: B, std: [LIM-3.A], do: "Derive the derivative of sin x or e^x from the limit definition.", ek: ["sin(x+h) = sin x cos h + cos x sin h, then use sin h/h → 1 and (cos h − 1)/h → 0."], p: [P3], drills: [ca-derive-sin-exp], needs: [CA-2.2.A, CA-1.6.B] }
       - n: 8
         title: The product rule
         ced: "2.8"
@@ -288,7 +288,7 @@ units:
         title: Rates of change in other contexts
         ced: "4.3"
         los:
-          - { id: A, std: [CHA-3.C], do: "Interpret first and second derivatives of applied quantities (cost, population, temperature, volume) in context.", ek: ["f′ is the rate; f″ says whether that rate is itself rising or falling."], p: [P3, P4], drills: ["~ca-rate-units"], needs: [CA-4.1.A] }
+          - { id: A, std: [CHA-3.C], do: "Interpret first and second derivatives of applied quantities (cost, population, temperature, volume) in context.", ek: ["f′ is the rate; f″ says whether that rate is itself rising or falling."], p: [P3, P4], drills: ["~ca-rate-units", ca-rate-of-rate], needs: [CA-4.1.A] }
       - n: 4
         title: Introduction to related rates
         ced: "4.4"
@@ -333,7 +333,7 @@ units:
         title: Increasing and decreasing intervals
         ced: "5.3"
         los:
-          - { id: A, std: [FUN-4.A], do: "Find the intervals where a function increases or decreases with a sign chart of f′.", ek: ["f′ > 0 on an interval ⇒ f increasing there; f′ < 0 ⇒ decreasing."], p: [P1, P3], drills: ["~ca-critical-points"], needs: [CA-5.2.A] }
+          - { id: A, std: [FUN-4.A], do: "Find the intervals where a function increases or decreases with a sign chart of f′.", ek: ["f′ > 0 on an interval ⇒ f increasing there; f′ < 0 ⇒ decreasing."], p: [P1, P3], drills: ["~ca-critical-points", ca-decreasing-interval], needs: [CA-5.2.A] }
       - n: 4
         title: The first derivative test
         ced: "5.4"
@@ -368,7 +368,7 @@ units:
         title: Setting up optimization problems
         ced: "5.10"
         los:
-          - { id: A, std: [FUN-4.B], do: "Translate an optimization situation into a function of one variable with its feasible domain.", ek: ["Write the quantity to optimize, use the constraint to eliminate a variable, state the domain from physical limits."], p: [P1, P2], drills: ["~ca-optimization-fence"], needs: [CA-5.5.A] }
+          - { id: A, std: [FUN-4.B], do: "Translate an optimization situation into a function of one variable with its feasible domain.", ek: ["Write the quantity to optimize, use the constraint to eliminate a variable, state the domain from physical limits."], p: [P1, P2], drills: ["~ca-optimization-fence", ca-optimization-setup], needs: [CA-5.5.A] }
       - n: 11
         title: Solving optimization problems
         ced: "5.11"
@@ -379,7 +379,7 @@ units:
         ced: "5.12"
         los:
           - { id: A, std: [FUN-4.D], do: "Find the points where an implicit curve has a horizontal or vertical tangent.", ek: ["dy/dx = N/D: horizontal where N = 0 (D ≠ 0), vertical where D = 0 (N ≠ 0); the point must lie on the curve."], p: [P1], drills: [ca-implicit-horizontal], needs: [CA-3.2.A] }
-          - { id: B, std: [FUN-4.E], do: "Use implicit dy/dx and d²y/dx² to classify extrema and concavity of an implicit curve at a point.", ek: ["At a point with dy/dx = 0, the sign of d²y/dx² gives max/min, as in the second derivative test."], p: [P3], drills: [], needs: [CA-5.12.A, CA-3.6.A, CA-5.7.A] }
+          - { id: B, std: [FUN-4.E], do: "Use implicit dy/dx and d²y/dx² to classify extrema and concavity of an implicit curve at a point.", ek: ["At a point with dy/dx = 0, the sign of d²y/dx² gives max/min, as in the second derivative test."], p: [P3], drills: [ca-implicit-second-derivative], needs: [CA-5.12.A, CA-3.6.A, CA-5.7.A] }
 
   # ── 6 ────────────────────────────────────────────────────────────────────
   - id: integration
@@ -634,7 +634,7 @@ units:
         title: Motion with parametric and vector functions
         ced: "9.6"
         los:
-          - { id: A, std: [FUN-8.B], do: "Find speed, displacement and total distance for planar motion given by vectors.", ek: ["Speed = |v| = √(x′² + y′²); distance = ∫|v|dt; displacement = ∫v dt (a vector)."], p: [P1, P3], drills: ["~ca-vector-velocity"], needs: [CA-9.5.A, CA-9.3.A] }
+          - { id: A, std: [FUN-8.B], do: "Find speed, displacement and total distance for planar motion given by vectors.", ek: ["Speed = |v| = √(x′² + y′²); distance = ∫|v|dt; displacement = ∫v dt (a vector)."], p: [P1, P3], drills: ["~ca-vector-velocity", ca-planar-distance], needs: [CA-9.5.A, CA-9.3.A] }
       - n: 7
         title: Polar coordinates and their derivatives
         ced: "9.7"
@@ -693,7 +693,7 @@ units:
         title: The alternating series test
         ced: "10.7"
         los:
-          - { id: A, std: [LIM-7.A], do: "Show an alternating series converges by checking that |a_n| decreases to 0.", ek: ["Σ(−1)^n b_n with b_n decreasing and b_n → 0 converges."], p: [P3], drills: ["~ca-absolute-conditional"], needs: [CA-10.3.A] }
+          - { id: A, std: [LIM-7.A], do: "Show an alternating series converges by checking that |a_n| decreases to 0.", ek: ["Σ(−1)^n b_n with b_n decreasing and b_n → 0 converges."], p: [P3], drills: ["~ca-absolute-conditional", ca-alternating-series-test], needs: [CA-10.3.A] }
       - n: 8
         title: The ratio test
         ced: "10.8"
@@ -794,7 +794,7 @@ units:
         title: Functions of several variables, limits and continuity
         book: { stewart-8e: ["14.1", "14.2"] }
         los:
-          - { id: A, std: [ST-14.1], do: "Find the domain of a function of two or three variables and sketch its level curves or describe its level surfaces.", ek: ["Level curve f(x, y) = k; close spacing means steep."], p: [P2], drills: [], needs: [CA-11.5.A] }
+          - { id: A, std: [ST-14.1], do: "Find the domain of a function of two or three variables and sketch its level curves or describe its level surfaces.", ek: ["Level curve f(x, y) = k; close spacing means steep."], p: [P2], drills: [ca-domain-level-curve, ca-level-curve-shape], needs: [CA-11.5.A] }
           - { id: B, std: [ST-14.2], do: "Show a two-variable limit does not exist by approaching along two paths that give different values.", ek: ["Limit must be the same along every path to (a, b); try lines y = mx and curves like y = x²."], p: [P3], drills: [ca-two-path-limit], needs: [CA-12.1.A, CA-1.2.B] }
       - n: 2
         title: Partial derivatives

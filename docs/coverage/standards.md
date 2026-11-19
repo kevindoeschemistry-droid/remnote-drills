@@ -78,8 +78,8 @@ https://ncees.org/wp-content/uploads/2022/09/FE-Che-CBT-specs.pdf
 | **1** | **Mathematics** (6–9 questions) | | | |
 | 1.A | Analytic geometry, logarithms, trigonometry | — | — | **nothing yet** |
 | 1.B | Calculus | 6 | 6 | engineering-math (6) |
-| 1.C | Differential equations | 66 | 65 | engineering-math (66) |
-| 1.D | Numerical methods | 17 | 16 | engineering-math (17) |
+| 1.C | Differential equations | 66 | 66 | engineering-math (66) |
+| 1.D | Numerical methods | 17 | 17 | engineering-math (17) |
 | 1.E | Algebra, matrices, systems of equations | 7 | 7 | engineering-math (7) |
 | 1.F | Accuracy, precision, significant figures | — | — | **nothing yet** |
 | **2** | **Probability and Statistics** (4–6 questions) | | | |
