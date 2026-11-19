@@ -32,7 +32,7 @@ for (const s of Object.values(standards)) {
   }
 }
 
-const KINDS = ["standard", "exam-spec", "course", "rubric", "rulebook", "textbook"];
+const KINDS = ["standard", "exam-spec", "course", "rubric", "rulebook", "textbook", "reference"];
 const READS = ["full", "part", "crosswalk", "none"];
 for (const s of Object.values(standards)) {
   if (!KINDS.includes(s.kind)) errors.push(`standards.yaml › ${s.id}: kind must be one of ${KINDS.join(", ")}`);

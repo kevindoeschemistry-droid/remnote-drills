@@ -177,3 +177,185 @@ https://ncees.org/wp-content/uploads/2022/09/FE-Che-CBT-specs.pdf
 | 17.D | Intellectual property | — | — | **nothing yet** |
 
 **Areas with nothing answering to them:** 3 Engineering Sciences; 4 Materials Science; 6 Fluid Mechanics/Dynamics; 8 Material/Energy Balances; 11 Solids Handling; 13 Economics; 14 Process Design; 16 Safety, Health, and Environment; 17 Ethics and Professional Practice.
+
+## UIL Number Sense Problem Sequencing Charts (High School; A+ Junior High and Elementary, rev. 2016-17) with the Number Sense Handbook rules
+
+https://www.uiltexas.org/academics/stem/number-sense
+
+0 of 158 items have at least one objective answering to them.
+
+| Item | Topic | Objectives | With a drill | Where |
+|---|---|---|---|---|
+| **H1** | **High school, problems 1–20** (undefined questions) | | | |
+| H1.1 | Four operations on integers, mixed numbers, fractions, decimals | — | — | **nothing yet** |
+| H1.2 | Order of operations | — | — | **nothing yet** |
+| H1.3 | Distributive property | — | — | **nothing yet** |
+| H1.4 | Comparing fractions and decimals | — | — | **nothing yet** |
+| H1.5 | Multiplication short-cuts | — | — | **nothing yet** |
+| H1.6 | Squaring numbers | — | — | **nothing yet** |
+| H1.7 | Conversions (percent/fraction, English/metric, Roman numerals, measurement units) | — | — | **nothing yet** |
+| H1.8 | GCD and LCM | — | — | **nothing yet** |
+| H1.9 | Percent problems | — | — | **nothing yet** |
+| H1.10 | Mean, median, mode | — | — | **nothing yet** |
+| H1.11 | Sums of integers | — | — | **nothing yet** |
+| H1.12 | Remainder problems | — | — | **nothing yet** |
+| H1.13 | Consumer problems | — | — | **nothing yet** |
+| H1.14 | Number theory (primes, divisors, sums of divisors) | — | — | **nothing yet** |
+| **H2** | **High school, problems 21–40** (undefined questions) | | | |
+| H2.1 | Powers of numbers | — | — | **nothing yet** |
+| H2.2 | Substitution | — | — | **nothing yet** |
+| H2.3 | Word problems | — | — | **nothing yet** |
+| H2.4 | Inverses | — | — | **nothing yet** |
+| H2.5 | Absolute value | — | — | **nothing yet** |
+| H2.6 | Ratio and proportion | — | — | **nothing yet** |
+| H2.7 | Square and cube roots | — | — | **nothing yet** |
+| H2.8 | Sets | — | — | **nothing yet** |
+| H2.9 | Base conversions | — | — | **nothing yet** |
+| H2.10 | Simple equations | — | — | **nothing yet** |
+| H2.11 | Systems of equations | — | — | **nothing yet** |
+| H2.12 | Repeating decimals to fractions | — | — | **nothing yet** |
+| H2.13 | More remainder problems | — | — | **nothing yet** |
+| H2.14 | Perimeter and area of polygons and circles | — | — | **nothing yet** |
+| H2.15 | Sequences | — | — | **nothing yet** |
+| H2.16 | Quadratic and cubic equations | — | — | **nothing yet** |
+| **H3** | **High school, problems 41–60** (undefined questions) | | | |
+| H3.1 | Laws of exponents | — | — | **nothing yet** |
+| H3.2 | Right triangles | — | — | **nothing yet** |
+| H3.3 | Coordinate geometry | — | — | **nothing yet** |
+| H3.4 | Regular polygons | — | — | **nothing yet** |
+| H3.5 | Inequalities | — | — | **nothing yet** |
+| H3.6 | Applications of geometry theorems | — | — | **nothing yet** |
+| H3.7 | Direct and inverse variation | — | — | **nothing yet** |
+| H3.8 | Sequences and series, finite and infinite | — | — | **nothing yet** |
+| H3.9 | Complex numbers | — | — | **nothing yet** |
+| H3.10 | Logarithms and logarithmic equations | — | — | **nothing yet** |
+| H3.11 | Factorials, permutations, combinations | — | — | **nothing yet** |
+| H3.12 | Probability and odds | — | — | **nothing yet** |
+| H3.13 | Conics | — | — | **nothing yet** |
+| H3.14 | Binomial theorem | — | — | **nothing yet** |
+| H3.15 | Operations in other bases | — | — | **nothing yet** |
+| H3.16 | Roots of equations | — | — | **nothing yet** |
+| H3.17 | Polygonal numbers | — | — | **nothing yet** |
+| **H4** | **High school, problems 61–70** (undefined questions) | | | |
+| H4.1 | Volume and surface area | — | — | **nothing yet** |
+| H4.2 | Greatest integer | — | — | **nothing yet** |
+| H4.3 | Remainder theorem | — | — | **nothing yet** |
+| H4.4 | Trigonometry | — | — | **nothing yet** |
+| H4.5 | Determinants | — | — | **nothing yet** |
+| H4.6 | Matrices | — | — | **nothing yet** |
+| H4.7 | Vectors | — | — | **nothing yet** |
+| H4.8 | Composite functions | — | — | **nothing yet** |
+| H4.9 | Bases with decimals or fractions | — | — | **nothing yet** |
+| H4.10 | Polar and rectangular coordinates | — | — | **nothing yet** |
+| **H5** | **High school, problems 71–80** (undefined questions) | | | |
+| H5.1 | Function domains and ranges | — | — | **nothing yet** |
+| H5.2 | Modular arithmetic | — | — | **nothing yet** |
+| H5.3 | Limits | — | — | **nothing yet** |
+| H5.4 | Derivatives | — | — | **nothing yet** |
+| H5.5 | Slopes of tangent lines | — | — | **nothing yet** |
+| H5.6 | Horizontal and vertical asymptotes | — | — | **nothing yet** |
+| H5.7 | Critical values | — | — | **nothing yet** |
+| H5.8 | Maximum and minimum problems | — | — | **nothing yet** |
+| H5.9 | Definite integration | — | — | **nothing yet** |
+| H5.10 | Inverse functions | — | — | **nothing yet** |
+| **J1** | **Junior high, problems 1–20** (undefined questions) | | | |
+| J1.1 | Four operations on whole numbers, fractions, decimals | — | — | **nothing yet** |
+| J1.2 | Order of operations | — | — | **nothing yet** |
+| J1.3 | Distributive property | — | — | **nothing yet** |
+| J1.4 | Comparing fractions and decimals | — | — | **nothing yet** |
+| J1.5 | Multiplication short-cuts | — | — | **nothing yet** |
+| J1.6 | Squaring numbers | — | — | **nothing yet** |
+| J1.7 | Roman numerals | — | — | **nothing yet** |
+| J1.8 | Mean, median, mode | — | — | **nothing yet** |
+| J1.9 | Sums of a finite series of whole numbers | — | — | **nothing yet** |
+| **J2** | **Junior high, problems 21–40** (undefined questions) | | | |
+| J2.1 | Four operations on mixed numbers and integers | — | — | **nothing yet** |
+| J2.2 | More multiplication short-cuts | — | — | **nothing yet** |
+| J2.3 | Percent problems | — | — | **nothing yet** |
+| J2.4 | Conversions (English/metric, length, area, capacity, time) | — | — | **nothing yet** |
+| J2.5 | Consumer problems | — | — | **nothing yet** |
+| J2.6 | Substitution | — | — | **nothing yet** |
+| J2.7 | Simple equations | — | — | **nothing yet** |
+| J2.8 | Square and cube roots | — | — | **nothing yet** |
+| J2.9 | GCD and LCM | — | — | **nothing yet** |
+| J2.10 | Number theory (primes and divisors) | — | — | **nothing yet** |
+| J2.11 | Perimeter and area of square, rectangle, circle | — | — | **nothing yet** |
+| J2.12 | Ratio and proportion | — | — | **nothing yet** |
+| J2.13 | Inverses | — | — | **nothing yet** |
+| J2.14 | Multiplying by 101 and 111 | — | — | **nothing yet** |
+| **J3** | **Junior high, problems 41–60** (undefined questions) | | | |
+| J3.1 | Sets | — | — | **nothing yet** |
+| J3.2 | Word problems | — | — | **nothing yet** |
+| J3.3 | Pythagorean theorem | — | — | **nothing yet** |
+| J3.4 | Sequences | — | — | **nothing yet** |
+| J3.5 | Volume and surface area of a rectangular solid | — | — | **nothing yet** |
+| J3.6 | Base systems: conversions and basic operations | — | — | **nothing yet** |
+| J3.7 | Area of parallelogram, rhombus, trapezoid, circle | — | — | **nothing yet** |
+| J3.8 | Inequalities | — | — | **nothing yet** |
+| J3.9 | Basic geometry facts | — | — | **nothing yet** |
+| J3.10 | Remainder problems | — | — | **nothing yet** |
+| **J4** | **Junior high, problems 61–80** (undefined questions) | | | |
+| J4.1 | Repeating decimals | — | — | **nothing yet** |
+| J4.2 | More number theory | — | — | **nothing yet** |
+| J4.3 | Powers of numbers | — | — | **nothing yet** |
+| J4.4 | Volume of cylinder, cone, sphere | — | — | **nothing yet** |
+| J4.5 | Sequences and series | — | — | **nothing yet** |
+| J4.6 | Factorial | — | — | **nothing yet** |
+| J4.7 | Coordinate geometry | — | — | **nothing yet** |
+| J4.8 | Probability and odds | — | — | **nothing yet** |
+| J4.9 | Advanced percent problems | — | — | **nothing yet** |
+| J4.10 | More remainder problems | — | — | **nothing yet** |
+| J4.11 | More multiplication short-cuts | — | — | **nothing yet** |
+| **E1** | **Elementary, problems 1–20** (undefined questions) | | | |
+| E1.1 | Four operations on whole numbers | — | — | **nothing yet** |
+| E1.2 | Place value | — | — | **nothing yet** |
+| E1.3 | Rounding whole numbers | — | — | **nothing yet** |
+| E1.4 | Multiplication short-cuts | — | — | **nothing yet** |
+| E1.5 | Remainder problems | — | — | **nothing yet** |
+| E1.6 | Even and odd numbers | — | — | **nothing yet** |
+| E1.7 | Expanded notation | — | — | **nothing yet** |
+| E1.8 | Sums with regrouping | — | — | **nothing yet** |
+| E1.9 | Differences with regrouping | — | — | **nothing yet** |
+| E1.10 | Roman numerals | — | — | **nothing yet** |
+| **E2** | **Elementary, problems 21–40** (undefined questions) | | | |
+| E2.1 | Adding and subtracting fractions with common denominators | — | — | **nothing yet** |
+| E2.2 | Four operations on decimals | — | — | **nothing yet** |
+| E2.3 | Comparing decimals and fractions | — | — | **nothing yet** |
+| E2.4 | Conversions among fraction, decimal, percent | — | — | **nothing yet** |
+| E2.5 | Order of operations | — | — | **nothing yet** |
+| E2.6 | More multiplication short-cuts | — | — | **nothing yet** |
+| E2.7 | Ratio and proportion | — | — | **nothing yet** |
+| E2.8 | Consumer problems | — | — | **nothing yet** |
+| E2.9 | Prime numbers | — | — | **nothing yet** |
+| E2.10 | GCD and LCM | — | — | **nothing yet** |
+| E2.11 | Conversions of length, measurement, time | — | — | **nothing yet** |
+| **E3** | **Elementary, problems 41–60** (undefined questions) | | | |
+| E3.1 | Four operations on fractions and mixed numbers | — | — | **nothing yet** |
+| E3.2 | Substitution | — | — | **nothing yet** |
+| E3.3 | Perimeter and area of square, rectangle, triangle | — | — | **nothing yet** |
+| E3.4 | Radius and diameter of a circle | — | — | **nothing yet** |
+| E3.5 | Powers and roots | — | — | **nothing yet** |
+| E3.6 | Simple equations | — | — | **nothing yet** |
+| E3.7 | Sequences | — | — | **nothing yet** |
+| E3.8 | Sets | — | — | **nothing yet** |
+| E3.9 | Word problems | — | — | **nothing yet** |
+| E3.10 | Volume of cube and rectangular box | — | — | **nothing yet** |
+| E3.11 | Right triangles | — | — | **nothing yet** |
+| E3.12 | More multiplication short-cuts | — | — | **nothing yet** |
+| E3.13 | Base conversions | — | — | **nothing yet** |
+| **E4** | **Elementary, problems 61–80** (undefined questions) | | | |
+| E4.1 | Four operations on integers | — | — | **nothing yet** |
+| E4.2 | Inverses | — | — | **nothing yet** |
+| E4.3 | Basic geometry facts | — | — | **nothing yet** |
+| E4.4 | More area problems | — | — | **nothing yet** |
+| E4.5 | Squaring two-digit numbers | — | — | **nothing yet** |
+| E4.6 | More multiplication short-cuts | — | — | **nothing yet** |
+| E4.7 | More powers and roots | — | — | **nothing yet** |
+| E4.8 | More consumer problems | — | — | **nothing yet** |
+| E4.9 | Inequalities | — | — | **nothing yet** |
+| E4.10 | Probability | — | — | **nothing yet** |
+| E4.11 | Area of parallelogram, rhombus, trapezoid | — | — | **nothing yet** |
+| E4.12 | Number-line coordinate geometry | — | — | **nothing yet** |
+| E4.13 | More percent problems | — | — | **nothing yet** |
+
+**Areas with nothing answering to them:** H1 High school, problems 1–20; H2 High school, problems 21–40; H3 High school, problems 41–60; H4 High school, problems 61–70; H5 High school, problems 71–80; J1 Junior high, problems 1–20; J2 Junior high, problems 21–40; J3 Junior high, problems 41–60; J4 Junior high, problems 61–80; E1 Elementary, problems 1–20; E2 Elementary, problems 21–40; E3 Elementary, problems 41–60; E4 Elementary, problems 61–80.
