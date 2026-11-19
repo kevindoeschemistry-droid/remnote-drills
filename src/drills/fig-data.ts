@@ -14,7 +14,7 @@
 //   type: bars        labels: [...] · values: [...]
 //   type: table       head: [...] · rows: [[...], …]   or   xs: [...] + f: "expression in x" (a table of values)
 //   type: molecule    atoms: [[x, y, label], …] (no label = a carbon vertex; "OH", "NH2", "H2N", "O", "S" …)
-//                     bonds: [[i, j, order], …] (0-based atom indices; order 1, 2 or 3). A skeletal structure.
+//                     bonds: [[i, j, order], …] (0-based atom indices; order 1, 2 or 3; 0 = a dashed coordinate bond). A skeletal structure.
 // Every number may be an expression in the template's givens and lets. A function (`f`, `field`, a
 // `vfield` component) may also be the name of a text field of the drawn case. Strokes use currentColor.
 import { math } from "./check";
@@ -223,6 +223,8 @@ function molecule(f: any, scope: Scope): string {
     const line = (o: number, trim: number) => `<line x1="${(x1 - uy * o + ux * trim).toFixed(1)}" y1="${(y1 + ux * o + uy * trim).toFixed(1)}" x2="${(x2 - uy * o - ux * trim).toFixed(1)}" y2="${(y2 + ux * o - uy * trim).toFixed(1)}" stroke-width="1.6"/>`;
     // a ring double bond keeps its main line on the ring and puts the second, shorter one inside (side = ±1)
     if (order === 2 && side) s += line(0, 0) + line(4.6 * side, 5);
+    // order 0: a coordinate (dative) bond to a metal, drawn dashed
+    else if (order === 0) s += line(0, 0).replace("/>", ' stroke-dasharray="3 3"/>');
     else for (const o of order === 2 ? [-2.3, 2.3] : order === 3 ? [-3.8, 0, 3.8] : [0]) s += line(o, 0);
   }
   for (const [x, y, lab] of atoms) {
@@ -235,7 +237,7 @@ function molecule(f: any, scope: Scope): string {
       return `<tspan dy="${dy}" font-size="${want ? 9 : 13}">${tok === "-" ? "−" : tok}</tspan>`;
     }).join("");
     const hFirst = /^H\d?[A-Z]/.test(lab);
-    s += lab.replace(/[+-]$/, "").length === 1 ? text(X(x), Y(y) + 4.5, sub, "middle", 'font-size="13"')
+    s += /^[A-Z][a-z]?[+-]?$/.test(lab) ? text(X(x), Y(y) + 4.5, sub, "middle", 'font-size="13"')
       : hFirst ? text(X(x) + 5, Y(y) + 4.5, sub, "end", 'font-size="13"')
       : text(X(x) - 5, Y(y) + 4.5, sub, "start", 'font-size="13"');
   }

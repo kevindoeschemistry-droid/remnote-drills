@@ -2,7 +2,7 @@
 
 Generated from `drills/frameworks/structures.yaml` by `scripts/framework.mjs`. ● drilled · ◐ partly · ○ no drills yet.
 
-**7 learning objectives** in 2 units (7 core): 7 drilled, 0 partly, 0 with no drills. Core: 7 / 7 drilled.
+**9 learning objectives** in 2 units (9 core): 9 drilled, 0 partly, 0 with no drills. Core: 9 / 9 drilled.
 
 ## Big ideas
 
@@ -18,26 +18,34 @@ Generated from `drills/frameworks/structures.yaml` by `scripts/framework.mjs`. �
 
 | Unit | Scope | Est. weight | LOs | ● | ◐ | ○ |
 |---|---|---|---|---|---|---|
-| 1 · Organic parents and common compounds | core | — | 2 | 2 | 0 | 0 |
-| 2 · Biomolecules | core | — | 5 | 5 | 0 | 0 |
+| 1 · Organic parents and common compounds | core | — | 3 | 3 | 0 | 0 |
+| 2 · Biomolecules | core | — | 6 | 6 | 0 | 0 |
 
 ## Unit 1 · Organic parents and common compounds
 
 Big ideas: COLD, FAMILY
 
-### 1.1 Benzene derivatives and heterocycles
+### 1.1 Functional groups
 
 
 
-- ● **ST-1.1.A** (18, 19) Draw and name the common benzene derivatives and the parent aromatic heterocycles.
+- ● **ST-1.1.A** Draw and name the common functional groups, with R for the rest of the molecule.
+  - EK: Start here: every larger structure is these groups on a carbon skeleton.
+  - P1 · P2 · drills: st-draw-an-alcohol, st-name-an-alcohol, st-draw-a-thiol, st-name-a-thiol, st-draw-an-ether, st-name-an-ether, st-draw-a-primary-amine, st-name-a-primary-amine, st-draw-an-aldehyde, st-name-an-aldehyde, st-draw-a-ketone, st-name-a-ketone, st-draw-a-carboxylic-acid, st-name-a-carboxylic-acid, st-draw-an-ester, st-name-an-ester, st-draw-a-primary-amide, st-name-a-primary-amide, st-draw-an-acyl-chloride, st-name-an-acyl-chloride, st-draw-an-acid-anhydride, st-name-an-acid-anhydride, st-draw-a-thioester, st-name-a-thioester, st-draw-a-nitrile, st-name-a-nitrile, st-draw-a-phosphate-ester, st-name-a-phosphate-ester
+
+### 1.2 Benzene derivatives and heterocycles
+
+
+
+- ● **ST-1.2.A** (18, 19) Draw and name the common benzene derivatives and the parent aromatic heterocycles.
   - EK: Each benzene derivative is benzene with one group; pyridine-like N keeps its lone pair out of the ring, pyrrole-like N-H puts it in.
   - P1 · P2 · drills: st-draw-benzene, st-name-benzene, st-draw-toluene, st-name-toluene, st-draw-phenol, st-name-phenol, st-draw-aniline, st-name-aniline, st-draw-anisole, st-name-anisole, st-draw-styrene, st-name-styrene, st-draw-benzaldehyde, st-name-benzaldehyde, st-draw-benzoic-acid, st-name-benzoic-acid, st-draw-acetophenone, st-name-acetophenone, st-draw-naphthalene, st-name-naphthalene, st-draw-pyridine, st-name-pyridine, st-draw-pyrrole, st-name-pyrrole, st-draw-furan, st-name-furan, st-draw-thiophene, st-name-thiophene, st-draw-imidazole, st-name-imidazole, st-draw-indole, st-name-indole, st-draw-pyrimidine, st-name-pyrimidine, st-draw-purine, st-name-purine
 
-### 1.2 Solvents and small molecules by common name
+### 1.3 Solvents and small molecules by common name
 
 
 
-- ● **ST-1.2.A** Draw and name the everyday solvents and reagents known by common name or abbreviation.
+- ● **ST-1.3.A** Draw and name the everyday solvents and reagents known by common name or abbreviation.
   - EK: THF, DMSO, DMF and DCM are names you will be handed without a structure.
   - P1 · P2 · drills: st-draw-acetone, st-name-acetone, st-draw-acetic-acid, st-name-acetic-acid, st-draw-ethyl-acetate, st-name-ethyl-acetate, st-draw-diethyl-ether, st-name-diethyl-ether, st-draw-tetrahydrofuran, st-name-tetrahydrofuran, st-draw-dimethyl-sulfoxide, st-name-dimethyl-sulfoxide, st-draw-dimethylformamide, st-name-dimethylformamide, st-draw-acetonitrile, st-name-acetonitrile, st-draw-acetic-anhydride, st-name-acetic-anhydride, st-draw-urea, st-name-urea, st-draw-chloroform, st-name-chloroform, st-draw-dichloromethane, st-name-dichloromethane
 
@@ -84,3 +92,11 @@ Big ideas: COLD, FAMILY
 - ● **ST-2.5.A** (23, 25) Draw the common fatty acids, cholesterol, and the working parts of the vitamin-derived coenzymes.
   - EK: Palmitic 16:0, stearic 18:0, oleic 18:1 cis-9. A coenzyme's chemistry lives in one small part of it.
   - P1 · P2 · drills: st-draw-palmitic-acid, st-name-palmitic-acid, st-draw-stearic-acid, st-name-stearic-acid, st-draw-oleic-acid, st-name-oleic-acid, st-draw-cholesterol, st-name-cholesterol, st-draw-nicotinamide, st-name-nicotinamide, st-draw-pyridoxal-phosphate, st-name-pyridoxal-phosphate, st-draw-biotin, st-name-biotin, st-draw-lipoic-acid, st-name-lipoic-acid
+
+### 2.6 The large coenzymes and heme, whole
+
+
+
+- ● **ST-2.6.A** (23) Draw NAD+ and NADH, FAD, coenzyme A and acetyl-CoA, thiamine pyrophosphate, protoporphyrin IX and heme b in full.
+  - EK: Build each from parts already known: a working end (nicotinamide, isoalloxazine, thiol, thiazolium), a diphosphate bridge, and adenosine. Heme is four pyrroles, four bridges, eight substituents and an iron.
+  - P1 · P2 · drills: st-draw-nad, st-name-nad, st-draw-nadh, st-name-nadh, st-draw-fad, st-name-fad, st-draw-coenzyme-a, st-name-coenzyme-a, st-draw-acetyl-coa, st-name-acetyl-coa, st-draw-thiamine-pyrophosphate, st-name-thiamine-pyrophosphate, st-draw-protoporphyrin-ix, st-name-protoporphyrin-ix, st-draw-heme-b, st-name-heme-b

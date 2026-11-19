@@ -6,6 +6,428 @@
 # Flat skeletal structures, neutral and fully protonated; sugars are Fischer projections.
 # Each formula is recomputed from the atoms and bonds by tests/verify/molecules.py.
 
+# ── functional groups: the first things to trace (R = the rest of the molecule) ──
+- template: st-draw-an-alcohol
+  skill: orgo.functional-groups
+  pace: quick
+  prompt: 'Draw an alcohol from memory, as a skeletal structure.'
+  parts:
+    - ask: 'Draw it on paper, then compare'
+      label: a
+      draw: true
+      solution:
+        type: molecule
+        formula: HOR
+        atoms: [[-0.5, 0.0, "R"], [0.5, -0.0, "OH"]]
+        bonds: [[0, 1]]
+      explain: 'R-OH. Formula $\mathrm{HOR}$'
+- template: st-name-an-alcohol
+  skill: orgo.functional-groups
+  pace: recall
+  prompt: 'Which compound is this?'
+  figure:
+    type: molecule
+    formula: HOR
+    atoms: [[-0.5, 0.0, "R"], [0.5, -0.0, "OH"]]
+    bonds: [[0, 1]]
+  parts:
+    - ask: 'Name it'
+      label: a
+      choice: ["a nitrile", "a primary amine", "a thiol", "an alcohol"]
+      correct: "3"
+      explain: 'An alcohol. R-OH'
+  verify: { authored: true }
+- template: st-draw-a-thiol
+  skill: orgo.functional-groups
+  pace: quick
+  prompt: 'Draw a thiol from memory, as a skeletal structure.'
+  parts:
+    - ask: 'Draw it on paper, then compare'
+      label: a
+      draw: true
+      solution:
+        type: molecule
+        formula: HRS
+        atoms: [[-0.5, 0.0, "R"], [0.5, -0.0, "SH"]]
+        bonds: [[0, 1]]
+      explain: 'R-SH: an alcohol with sulfur. Formula $\mathrm{HRS}$'
+- template: st-name-a-thiol
+  skill: orgo.functional-groups
+  pace: recall
+  prompt: 'Which compound is this?'
+  figure:
+    type: molecule
+    formula: HRS
+    atoms: [[-0.5, 0.0, "R"], [0.5, -0.0, "SH"]]
+    bonds: [[0, 1]]
+  parts:
+    - ask: 'Name it'
+      label: a
+      choice: ["a nitrile", "a primary amine", "a thiol", "an alcohol"]
+      correct: "2"
+      explain: 'A thiol. R-SH: an alcohol with sulfur'
+  verify: { authored: true }
+- template: st-draw-an-ether
+  skill: orgo.functional-groups
+  pace: quick
+  prompt: 'Draw an ether from memory, as a skeletal structure.'
+  parts:
+    - ask: 'Draw it on paper, then compare'
+      label: a
+      draw: true
+      solution:
+        type: molecule
+        formula: OR2
+        atoms: [[-0.87, -0.17, "R"], [0.0, 0.33, "O"], [0.87, -0.17, "R"]]
+        bonds: [[0, 1], [1, 2]]
+      explain: 'An oxygen between two carbons. Formula $\mathrm{OR_{2}}$'
+- template: st-name-an-ether
+  skill: orgo.functional-groups
+  pace: recall
+  prompt: 'Which compound is this?'
+  figure:
+    type: molecule
+    formula: OR2
+    atoms: [[-0.87, -0.17, "R"], [0.0, 0.33, "O"], [0.87, -0.17, "R"]]
+    bonds: [[0, 1], [1, 2]]
+  parts:
+    - ask: 'Name it'
+      label: a
+      choice: ["a carboxylic acid", "a nitrile", "an aldehyde", "an ether"]
+      correct: "3"
+      explain: 'An ether. An oxygen between two carbons'
+  verify: { authored: true }
+- template: st-draw-a-primary-amine
+  skill: orgo.functional-groups
+  pace: quick
+  prompt: 'Draw a primary amine from memory, as a skeletal structure.'
+  parts:
+    - ask: 'Draw it on paper, then compare'
+      label: a
+      draw: true
+      solution:
+        type: molecule
+        formula: H2NR
+        atoms: [[-0.5, 0.0, "R"], [0.5, -0.0, "NH2"]]
+        bonds: [[0, 1]]
+      explain: 'R-NH2. Formula $\mathrm{H_{2}NR}$'
+- template: st-name-a-primary-amine
+  skill: orgo.functional-groups
+  pace: recall
+  prompt: 'Which compound is this?'
+  figure:
+    type: molecule
+    formula: H2NR
+    atoms: [[-0.5, 0.0, "R"], [0.5, -0.0, "NH2"]]
+    bonds: [[0, 1]]
+  parts:
+    - ask: 'Name it'
+      label: a
+      choice: ["a nitrile", "a primary amine", "a thiol", "an alcohol"]
+      correct: "1"
+      explain: 'A primary amine. R-NH2'
+  verify: { authored: true }
+- template: st-draw-an-aldehyde
+  skill: orgo.functional-groups
+  pace: quick
+  prompt: 'Draw an aldehyde from memory, as a skeletal structure.'
+  parts:
+    - ask: 'Draw it on paper, then compare'
+      label: a
+      draw: true
+      solution:
+        type: molecule
+        formula: CHOR
+        atoms: [[-0.87, -0.17, "R"], [0.0, 0.33], [0.87, -0.17, "O"]]
+        bonds: [[0, 1], [1, 2, 2]]
+      explain: 'A C=O at the end of a chain: one R and one H on the carbonyl carbon. Formula $\mathrm{CHOR}$'
+- template: st-name-an-aldehyde
+  skill: orgo.functional-groups
+  pace: recall
+  prompt: 'Which compound is this?'
+  figure:
+    type: molecule
+    formula: CHOR
+    atoms: [[-0.87, -0.17, "R"], [0.0, 0.33], [0.87, -0.17, "O"]]
+    bonds: [[0, 1], [1, 2, 2]]
+  parts:
+    - ask: 'Name it'
+      label: a
+      choice: ["a carboxylic acid", "a nitrile", "an aldehyde", "an ether"]
+      correct: "2"
+      explain: 'An aldehyde. A C=O at the end of a chain: one R and one H on the carbonyl carbon'
+  verify: { authored: true }
+- template: st-draw-a-ketone
+  skill: orgo.functional-groups
+  pace: quick
+  prompt: 'Draw a ketone from memory, as a skeletal structure.'
+  parts:
+    - ask: 'Draw it on paper, then compare'
+      label: a
+      draw: true
+      solution:
+        type: molecule
+        formula: COR2
+        atoms: [[-0.87, -0.5, "R"], [0.0, 0.0], [0.87, -0.5, "R"], [0.0, 1.0, "O"]]
+        bonds: [[0, 1], [1, 2], [1, 3, 2]]
+      explain: 'A C=O inside a chain: two R groups on the carbonyl carbon. Formula $\mathrm{COR_{2}}$'
+- template: st-name-a-ketone
+  skill: orgo.functional-groups
+  pace: recall
+  prompt: 'Which compound is this?'
+  figure:
+    type: molecule
+    formula: COR2
+    atoms: [[-0.87, -0.5, "R"], [0.0, 0.0], [0.87, -0.5, "R"], [0.0, 1.0, "O"]]
+    bonds: [[0, 1], [1, 2], [1, 3, 2]]
+  parts:
+    - ask: 'Name it'
+      label: a
+      choice: ["a carboxylic acid", "a ketone", "a primary amide", "an acyl chloride"]
+      correct: "1"
+      explain: 'A ketone. A C=O inside a chain: two R groups on the carbonyl carbon'
+  verify: { authored: true }
+- template: st-draw-a-carboxylic-acid
+  skill: orgo.functional-groups
+  pace: quick
+  prompt: 'Draw a carboxylic acid from memory, as a skeletal structure.'
+  parts:
+    - ask: 'Draw it on paper, then compare'
+      label: a
+      draw: true
+      solution:
+        type: molecule
+        formula: CHO2R
+        atoms: [[-0.87, -0.5, "R"], [0.0, 0.0], [0.0, 1.0, "O"], [0.87, -0.5, "OH"]]
+        bonds: [[0, 1], [1, 2, 2], [1, 3]]
+      explain: 'A carbonyl carbon that also carries an OH. Formula $\mathrm{CHO_{2}R}$'
+- template: st-name-a-carboxylic-acid
+  skill: orgo.functional-groups
+  pace: recall
+  prompt: 'Which compound is this?'
+  figure:
+    type: molecule
+    formula: CHO2R
+    atoms: [[-0.87, -0.5, "R"], [0.0, 0.0], [0.0, 1.0, "O"], [0.87, -0.5, "OH"]]
+    bonds: [[0, 1], [1, 2, 2], [1, 3]]
+  parts:
+    - ask: 'Name it'
+      label: a
+      choice: ["a carboxylic acid", "a ketone", "a primary amide", "an acyl chloride"]
+      correct: "0"
+      explain: 'A carboxylic acid. A carbonyl carbon that also carries an OH'
+  verify: { authored: true }
+- template: st-draw-an-ester
+  skill: orgo.functional-groups
+  pace: quick
+  prompt: 'Draw an ester from memory, as a skeletal structure.'
+  parts:
+    - ask: 'Draw it on paper, then compare'
+      label: a
+      draw: true
+      solution:
+        type: molecule
+        formula: CO2R2
+        atoms: [[-1.21, -0.5, "R"], [-0.35, 0.0], [-0.35, 1.0, "O"], [0.52, -0.5, "O"], [1.39, -0.0, "R"]]
+        bonds: [[0, 1], [1, 2, 2], [1, 3], [3, 4]]
+      explain: 'A carboxylic acid with its H replaced by carbon. Formula $\mathrm{CO_{2}R_{2}}$'
+- template: st-name-an-ester
+  skill: orgo.functional-groups
+  pace: recall
+  prompt: 'Which compound is this?'
+  figure:
+    type: molecule
+    formula: CO2R2
+    atoms: [[-1.21, -0.5, "R"], [-0.35, 0.0], [-0.35, 1.0, "O"], [0.52, -0.5, "O"], [1.39, -0.0, "R"]]
+    bonds: [[0, 1], [1, 2, 2], [1, 3], [3, 4]]
+  parts:
+    - ask: 'Name it'
+      label: a
+      choice: ["a carboxylic acid", "a ketone", "a thioester", "an ester"]
+      correct: "3"
+      explain: 'An ester. A carboxylic acid with its H replaced by carbon'
+  verify: { authored: true }
+- template: st-draw-a-primary-amide
+  skill: orgo.functional-groups
+  pace: quick
+  prompt: 'Draw a primary amide from memory, as a skeletal structure.'
+  parts:
+    - ask: 'Draw it on paper, then compare'
+      label: a
+      draw: true
+      solution:
+        type: molecule
+        formula: CH2NOR
+        atoms: [[-0.87, -0.5, "R"], [0.0, 0.0], [0.87, -0.5, "NH2"], [0.0, 1.0, "O"]]
+        bonds: [[0, 1], [1, 2], [1, 3, 2]]
+      explain: 'A carbonyl carbon carrying an NH2. Formula $\mathrm{CH_{2}NOR}$'
+- template: st-name-a-primary-amide
+  skill: orgo.functional-groups
+  pace: recall
+  prompt: 'Which compound is this?'
+  figure:
+    type: molecule
+    formula: CH2NOR
+    atoms: [[-0.87, -0.5, "R"], [0.0, 0.0], [0.87, -0.5, "NH2"], [0.0, 1.0, "O"]]
+    bonds: [[0, 1], [1, 2], [1, 3, 2]]
+  parts:
+    - ask: 'Name it'
+      label: a
+      choice: ["a carboxylic acid", "a ketone", "a primary amide", "an acyl chloride"]
+      correct: "2"
+      explain: 'A primary amide. A carbonyl carbon carrying an NH2'
+  verify: { authored: true }
+- template: st-draw-an-acyl-chloride
+  skill: orgo.functional-groups
+  pace: quick
+  prompt: 'Draw an acyl chloride from memory, as a skeletal structure.'
+  parts:
+    - ask: 'Draw it on paper, then compare'
+      label: a
+      draw: true
+      solution:
+        type: molecule
+        formula: CClOR
+        atoms: [[-0.87, -0.5, "R"], [0.0, 0.0], [0.0, 1.0, "Cl"], [0.87, -0.5, "O"]]
+        bonds: [[0, 1], [1, 2], [1, 3, 2]]
+      explain: 'A carbonyl carbon carrying a Cl. Formula $\mathrm{CClOR}$'
+- template: st-name-an-acyl-chloride
+  skill: orgo.functional-groups
+  pace: recall
+  prompt: 'Which compound is this?'
+  figure:
+    type: molecule
+    formula: CClOR
+    atoms: [[-0.87, -0.5, "R"], [0.0, 0.0], [0.0, 1.0, "Cl"], [0.87, -0.5, "O"]]
+    bonds: [[0, 1], [1, 2], [1, 3, 2]]
+  parts:
+    - ask: 'Name it'
+      label: a
+      choice: ["a carboxylic acid", "a ketone", "a primary amide", "an acyl chloride"]
+      correct: "3"
+      explain: 'An acyl chloride. A carbonyl carbon carrying a Cl'
+  verify: { authored: true }
+- template: st-draw-an-acid-anhydride
+  skill: orgo.functional-groups
+  pace: quick
+  prompt: 'Draw an acid anhydride from memory, as a skeletal structure.'
+  parts:
+    - ask: 'Draw it on paper, then compare'
+      label: a
+      draw: true
+      solution:
+        type: molecule
+        formula: C2O3R2
+        atoms: [[-1.73, 0.57, "R"], [-0.87, 0.07], [-0.87, -0.93, "O"], [0.0, 0.57, "O"], [0.87, 0.07], [1.73, 0.57, "R"], [0.87, -0.93, "O"]]
+        bonds: [[0, 1], [1, 2, 2], [1, 3], [3, 4], [4, 5], [4, 6, 2]]
+      explain: 'Two acyl groups sharing one oxygen. Formula $\mathrm{C_{2}O_{3}R_{2}}$'
+- template: st-name-an-acid-anhydride
+  skill: orgo.functional-groups
+  pace: recall
+  prompt: 'Which compound is this?'
+  figure:
+    type: molecule
+    formula: C2O3R2
+    atoms: [[-1.73, 0.57, "R"], [-0.87, 0.07], [-0.87, -0.93, "O"], [0.0, 0.57, "O"], [0.87, 0.07], [1.73, 0.57, "R"], [0.87, -0.93, "O"]]
+    bonds: [[0, 1], [1, 2, 2], [1, 3], [3, 4], [4, 5], [4, 6, 2]]
+  parts:
+    - ask: 'Name it'
+      label: a
+      choice: ["a phosphate ester", "a thioester", "an acid anhydride", "an ester"]
+      correct: "2"
+      explain: 'An acid anhydride. Two acyl groups sharing one oxygen'
+  verify: { authored: true }
+- template: st-draw-a-thioester
+  skill: orgo.functional-groups
+  pace: quick
+  prompt: 'Draw a thioester from memory, as a skeletal structure.'
+  parts:
+    - ask: 'Draw it on paper, then compare'
+      label: a
+      draw: true
+      solution:
+        type: molecule
+        formula: COR2S
+        atoms: [[-1.21, 0.5, "R"], [-0.35, 0.0], [-0.35, -1.0, "O"], [0.52, 0.5, "S"], [1.39, -0.0, "R"]]
+        bonds: [[0, 1], [1, 2, 2], [1, 3], [3, 4]]
+      explain: 'An ester with sulfur in place of the single-bonded oxygen (acetyl-CoA is one). Formula $\mathrm{COR_{2}S}$'
+- template: st-name-a-thioester
+  skill: orgo.functional-groups
+  pace: recall
+  prompt: 'Which compound is this?'
+  figure:
+    type: molecule
+    formula: COR2S
+    atoms: [[-1.21, 0.5, "R"], [-0.35, 0.0], [-0.35, -1.0, "O"], [0.52, 0.5, "S"], [1.39, -0.0, "R"]]
+    bonds: [[0, 1], [1, 2, 2], [1, 3], [3, 4]]
+  parts:
+    - ask: 'Name it'
+      label: a
+      choice: ["a carboxylic acid", "a ketone", "a thioester", "an ester"]
+      correct: "2"
+      explain: 'A thioester. An ester with sulfur in place of the single-bonded oxygen (acetyl-CoA is one)'
+  verify: { authored: true }
+- template: st-draw-a-nitrile
+  skill: orgo.functional-groups
+  pace: quick
+  prompt: 'Draw a nitrile from memory, as a skeletal structure.'
+  parts:
+    - ask: 'Draw it on paper, then compare'
+      label: a
+      draw: true
+      solution:
+        type: molecule
+        formula: CNR
+        atoms: [[-1.0, 0.0, "R"], [0.0, 0.0], [1.0, -0.0, "N"]]
+        bonds: [[0, 1], [1, 2, 3]]
+      explain: 'A carbon triple-bonded to nitrogen. Formula $\mathrm{CNR}$'
+- template: st-name-a-nitrile
+  skill: orgo.functional-groups
+  pace: recall
+  prompt: 'Which compound is this?'
+  figure:
+    type: molecule
+    formula: CNR
+    atoms: [[-1.0, 0.0, "R"], [0.0, 0.0], [1.0, -0.0, "N"]]
+    bonds: [[0, 1], [1, 2, 3]]
+  parts:
+    - ask: 'Name it'
+      label: a
+      choice: ["a carboxylic acid", "a nitrile", "an aldehyde", "an ether"]
+      correct: "1"
+      explain: 'A nitrile. A carbon triple-bonded to nitrogen'
+  verify: { authored: true }
+- template: st-draw-a-phosphate-ester
+  skill: orgo.functional-groups
+  pace: quick
+  prompt: 'Draw a phosphate ester from memory, as a skeletal structure.'
+  parts:
+    - ask: 'Draw it on paper, then compare'
+      label: a
+      draw: true
+      solution:
+        type: molecule
+        formula: H2O4PR
+        atoms: [[-1.44, 0.0, "R"], [-0.58, 0.5, "O"], [0.29, 0.0, "P"], [0.79, 0.87, "O"], [-0.21, -0.87, "HO"], [1.15, -0.5, "OH"]]
+        bonds: [[0, 1], [1, 2], [2, 3, 2], [2, 4], [2, 5]]
+      explain: 'R-O-P with one P=O and two P-OH (drawn fully protonated). Formula $\mathrm{H_{2}O_{4}PR}$'
+- template: st-name-a-phosphate-ester
+  skill: orgo.functional-groups
+  pace: recall
+  prompt: 'Which compound is this?'
+  figure:
+    type: molecule
+    formula: H2O4PR
+    atoms: [[-1.44, 0.0, "R"], [-0.58, 0.5, "O"], [0.29, 0.0, "P"], [0.79, 0.87, "O"], [-0.21, -0.87, "HO"], [1.15, -0.5, "OH"]]
+    bonds: [[0, 1], [1, 2], [2, 3, 2], [2, 4], [2, 5]]
+  parts:
+    - ask: 'Name it'
+      label: a
+      choice: ["a phosphate ester", "a thioester", "an acid anhydride", "an ester"]
+      correct: "0"
+      explain: 'A phosphate ester. R-O-P with one P=O and two P-OH (drawn fully protonated)'
+  verify: { authored: true }
+
 # ── benzene derivatives and heterocycles (Bruice ch. 18-19) ──
 - template: st-draw-benzene
   skill: orgo.aromatics
@@ -1724,6 +2146,248 @@
       choice: ["biotin", "lipoic acid", "nicotinamide", "pyridoxal phosphate (PLP)"]
       correct: "1"
       explain: 'Lipoic acid. A five-membered ring containing an S-S bond, with a five-carbon acid chain'
+  verify: { authored: true }
+
+# ── the large coenzymes and heme, whole (Bruice ch. 23) ──
+- template: st-draw-nad
+  skill: biochem.coenzymes
+  pace: quick
+  prompt: 'Draw NAD+ from memory, as a skeletal structure.'
+  parts:
+    - ask: 'Draw it on paper, then compare'
+      label: a
+      draw: true
+      solution:
+        type: molecule
+        formula: C21H28N7O14P2+
+        atoms: [[-7.2, -1.58, "H2N"], [-6.6, -2.39], [-7.0, -3.3, "O"], [-5.61, -2.27], [-5.01, -3.07], [-4.02, -2.95], [-3.62, -2.03], [-4.22, -1.23, "N+"], [-5.21, -1.35], [-3.83, -0.31], [-2.85, -0.09, "O"], [-2.76, 0.9], [-1.9, 1.42], [-1.91, 2.42, "O"], [-1.05, 2.93, "P"], [-0.54, 2.07, "OH"], [-1.57, 3.79, "O"], [-0.2, 3.44, "O"], [0.68, 2.95, "P"], [1.17, 3.82, "OH"], [0.19, 2.08, "O"], [1.55, 2.46, "O"], [1.56, 1.46], [2.44, 0.97], [2.55, -0.02, "O"], [3.53, -0.22], [4.02, 0.66], [5.02, 0.77, "OH"], [3.34, 1.39], [3.54, 2.37, "OH"], [3.95, -1.12, "N"], [3.46, -2.0], [4.14, -2.73, "N"], [5.05, -2.31], [5.97, -2.71], [6.09, -3.7, "NH2"], [6.77, -2.11, "N"], [6.65, -1.11], [5.74, -0.72, "N"], [4.93, -1.32], [-3.68, 1.3], [-3.9, 2.27, "OH"], [-4.34, 0.55], [-5.33, 0.64, "HO"]]
+        bonds: [[0, 1], [1, 2, 2], [1, 3], [3, 4], [4, 5, 2, -1], [5, 6], [6, 7, 2, -1], [7, 8], [7, 9], [9, 10], [10, 11], [11, 12], [12, 13], [13, 14], [14, 15], [14, 16, 2], [14, 17], [17, 18], [18, 19], [18, 20, 2], [18, 21], [21, 22], [22, 23], [23, 24], [24, 25], [25, 26], [26, 27], [26, 28], [28, 29], [25, 30], [30, 31], [31, 32, 2, -1], [32, 33], [33, 34, 2, -1], [34, 35], [34, 36], [36, 37, 2, -1], [37, 38], [38, 39, 2, -1], [11, 40], [40, 41], [40, 42], [42, 43], [8, 3, 2, -1], [42, 9], [28, 23], [39, 30], [39, 33]]
+      explain: 'Nicotinamide on a ribose, a diphosphate bridge, then adenosine. The pyridinium ring N carries the plus charge; C-4, opposite it, accepts the hydride. Formula $\mathrm{C_{21}H_{28}N_{7}O_{14}P_{2}+}$'
+- template: st-name-nad
+  skill: biochem.coenzymes
+  pace: recall
+  prompt: 'Which compound is this?'
+  figure:
+    type: molecule
+    formula: C21H28N7O14P2+
+    atoms: [[-7.2, -1.58, "H2N"], [-6.6, -2.39], [-7.0, -3.3, "O"], [-5.61, -2.27], [-5.01, -3.07], [-4.02, -2.95], [-3.62, -2.03], [-4.22, -1.23, "N+"], [-5.21, -1.35], [-3.83, -0.31], [-2.85, -0.09, "O"], [-2.76, 0.9], [-1.9, 1.42], [-1.91, 2.42, "O"], [-1.05, 2.93, "P"], [-0.54, 2.07, "OH"], [-1.57, 3.79, "O"], [-0.2, 3.44, "O"], [0.68, 2.95, "P"], [1.17, 3.82, "OH"], [0.19, 2.08, "O"], [1.55, 2.46, "O"], [1.56, 1.46], [2.44, 0.97], [2.55, -0.02, "O"], [3.53, -0.22], [4.02, 0.66], [5.02, 0.77, "OH"], [3.34, 1.39], [3.54, 2.37, "OH"], [3.95, -1.12, "N"], [3.46, -2.0], [4.14, -2.73, "N"], [5.05, -2.31], [5.97, -2.71], [6.09, -3.7, "NH2"], [6.77, -2.11, "N"], [6.65, -1.11], [5.74, -0.72, "N"], [4.93, -1.32], [-3.68, 1.3], [-3.9, 2.27, "OH"], [-4.34, 0.55], [-5.33, 0.64, "HO"]]
+    bonds: [[0, 1], [1, 2, 2], [1, 3], [3, 4], [4, 5, 2, -1], [5, 6], [6, 7, 2, -1], [7, 8], [7, 9], [9, 10], [10, 11], [11, 12], [12, 13], [13, 14], [14, 15], [14, 16, 2], [14, 17], [17, 18], [18, 19], [18, 20, 2], [18, 21], [21, 22], [22, 23], [23, 24], [24, 25], [25, 26], [26, 27], [26, 28], [28, 29], [25, 30], [30, 31], [31, 32, 2, -1], [32, 33], [33, 34, 2, -1], [34, 35], [34, 36], [36, 37, 2, -1], [37, 38], [38, 39, 2, -1], [11, 40], [40, 41], [40, 42], [42, 43], [8, 3, 2, -1], [42, 9], [28, 23], [39, 30], [39, 33]]
+  parts:
+    - ask: 'Name it'
+      label: a
+      choice: ["NAD+", "NADH", "heme b", "protoporphyrin IX"]
+      correct: "0"
+      explain: 'NAD+. Nicotinamide on a ribose, a diphosphate bridge, then adenosine. The pyridinium ring N carries the plus charge; C-4, opposite it, accepts the hydride'
+  verify: { authored: true }
+- template: st-draw-nadh
+  skill: biochem.coenzymes
+  pace: quick
+  prompt: 'Draw NADH from memory, as a skeletal structure.'
+  parts:
+    - ask: 'Draw it on paper, then compare'
+      label: a
+      draw: true
+      solution:
+        type: molecule
+        formula: C21H29N7O14P2
+        atoms: [[-3.97, -4.65, "H2N"], [-3.59, -3.72], [-2.6, -3.58, "O"], [-4.21, -2.94], [-3.83, -2.01], [-4.45, -1.22, "N"], [-5.44, -1.36], [-5.81, -2.29], [-5.2, -3.08], [-4.07, -0.29], [-3.1, -0.05, "O"], [-3.03, 0.95], [-2.19, 1.48], [-2.22, 2.48, "O"], [-1.37, 3.01, "P"], [-0.84, 2.16, "OH"], [-1.9, 3.85, "O"], [-0.53, 3.54, "O"], [0.36, 3.07, "P"], [0.83, 3.95, "OH"], [-0.11, 2.18, "O"], [1.24, 2.6, "O"], [1.28, 1.6], [2.16, 1.13], [2.3, 0.14, "O"], [3.28, -0.03], [3.75, 0.85], [4.74, 0.99, "OH"], [3.06, 1.57], [3.23, 2.55, "OH"], [3.72, -0.93, "N"], [3.25, -1.82], [3.95, -2.54, "N"], [4.85, -2.1], [5.77, -2.47], [5.91, -3.46, "NH2"], [6.56, -1.86, "N"], [6.42, -0.87], [5.49, -0.49, "N"], [4.71, -1.11], [-3.96, 1.32], [-4.2, 2.29, "OH"], [-4.6, 0.55], [-5.6, 0.62, "HO"]]
+        bonds: [[0, 1], [1, 2, 2], [1, 3], [3, 4, 2, -1], [4, 5], [5, 6], [6, 7, 2, -1], [7, 8], [5, 9], [9, 10], [10, 11], [11, 12], [12, 13], [13, 14], [14, 15], [14, 16, 2], [14, 17], [17, 18], [18, 19], [18, 20, 2], [18, 21], [21, 22], [22, 23], [23, 24], [24, 25], [25, 26], [26, 27], [26, 28], [28, 29], [25, 30], [30, 31], [31, 32, 2, -1], [32, 33], [33, 34, 2, -1], [34, 35], [34, 36], [36, 37, 2, -1], [37, 38], [38, 39, 2, -1], [11, 40], [40, 41], [40, 42], [42, 43], [8, 3], [42, 9], [28, 23], [39, 30], [39, 33]]
+      explain: 'NAD+ after taking a hydride at C-4: the ring is a 1,4-dihydropyridine with a CH2 at C-4, no charge, and no longer aromatic. Formula $\mathrm{C_{21}H_{29}N_{7}O_{14}P_{2}}$'
+- template: st-name-nadh
+  skill: biochem.coenzymes
+  pace: recall
+  prompt: 'Which compound is this?'
+  figure:
+    type: molecule
+    formula: C21H29N7O14P2
+    atoms: [[-3.97, -4.65, "H2N"], [-3.59, -3.72], [-2.6, -3.58, "O"], [-4.21, -2.94], [-3.83, -2.01], [-4.45, -1.22, "N"], [-5.44, -1.36], [-5.81, -2.29], [-5.2, -3.08], [-4.07, -0.29], [-3.1, -0.05, "O"], [-3.03, 0.95], [-2.19, 1.48], [-2.22, 2.48, "O"], [-1.37, 3.01, "P"], [-0.84, 2.16, "OH"], [-1.9, 3.85, "O"], [-0.53, 3.54, "O"], [0.36, 3.07, "P"], [0.83, 3.95, "OH"], [-0.11, 2.18, "O"], [1.24, 2.6, "O"], [1.28, 1.6], [2.16, 1.13], [2.3, 0.14, "O"], [3.28, -0.03], [3.75, 0.85], [4.74, 0.99, "OH"], [3.06, 1.57], [3.23, 2.55, "OH"], [3.72, -0.93, "N"], [3.25, -1.82], [3.95, -2.54, "N"], [4.85, -2.1], [5.77, -2.47], [5.91, -3.46, "NH2"], [6.56, -1.86, "N"], [6.42, -0.87], [5.49, -0.49, "N"], [4.71, -1.11], [-3.96, 1.32], [-4.2, 2.29, "OH"], [-4.6, 0.55], [-5.6, 0.62, "HO"]]
+    bonds: [[0, 1], [1, 2, 2], [1, 3], [3, 4, 2, -1], [4, 5], [5, 6], [6, 7, 2, -1], [7, 8], [5, 9], [9, 10], [10, 11], [11, 12], [12, 13], [13, 14], [14, 15], [14, 16, 2], [14, 17], [17, 18], [18, 19], [18, 20, 2], [18, 21], [21, 22], [22, 23], [23, 24], [24, 25], [25, 26], [26, 27], [26, 28], [28, 29], [25, 30], [30, 31], [31, 32, 2, -1], [32, 33], [33, 34, 2, -1], [34, 35], [34, 36], [36, 37, 2, -1], [37, 38], [38, 39, 2, -1], [11, 40], [40, 41], [40, 42], [42, 43], [8, 3], [42, 9], [28, 23], [39, 30], [39, 33]]
+  parts:
+    - ask: 'Name it'
+      label: a
+      choice: ["NAD+", "NADH", "heme b", "protoporphyrin IX"]
+      correct: "1"
+      explain: 'NADH. NAD+ after taking a hydride at C-4: the ring is a 1,4-dihydropyridine with a CH2 at C-4, no charge, and no longer aromatic'
+  verify: { authored: true }
+- template: st-draw-fad
+  skill: biochem.coenzymes
+  pace: quick
+  prompt: 'Draw FAD from memory, as a skeletal structure.'
+  parts:
+    - ask: 'Draw it on paper, then compare'
+      label: a
+      draw: true
+      solution:
+        type: molecule
+        formula: C27H33N9O15P2
+        atoms: [[5.07, -4.63], [4.83, -3.66], [5.56, -2.97], [5.32, -2.0], [6.04, -1.31, "N"], [5.81, -0.34], [6.53, 0.35], [7.49, 0.07, "O"], [6.29, 1.33, "NH"], [5.33, 1.61], [5.1, 2.58, "O"], [4.61, 0.91, "N"], [4.85, -0.06], [4.12, -0.75, "N"], [3.16, -0.47], [2.93, 0.5], [3.65, 1.2, "OH"], [1.97, 0.78], [1.24, 0.09, "HO"], [1.73, 1.76], [2.45, 2.45, "OH"], [0.77, 2.04], [0.53, 3.01, "O"], [-0.43, 3.29, "P"], [-0.15, 4.25, "OH"], [-0.71, 2.33, "O"], [-1.39, 3.57, "O"], [-2.11, 2.88, "P"], [-1.42, 2.16, "OH"], [-2.8, 3.6, "O"], [-2.83, 2.19, "O"], [-2.6, 1.22], [-3.32, 0.52], [-4.3, 0.7, "O"], [-4.78, -0.18], [-4.08, -0.9], [-4.26, -1.88, "OH"], [-3.18, -0.47], [-2.3, -0.94, "OH"], [-5.77, -0.31, "N"], [-6.46, 0.41], [-7.36, -0.02, "N"], [-7.22, -1.01], [-7.87, -1.78], [-8.86, -1.6, "H2N"], [-7.53, -2.72, "N"], [-6.55, -2.9], [-5.9, -2.13, "N"], [-6.24, -1.19], [4.36, -1.72], [3.64, -2.41], [3.87, -3.38], [3.15, -4.07]]
+        bonds: [[0, 1], [1, 2, 2, -1], [2, 3], [3, 4], [4, 5, 2, -1], [5, 6], [6, 7, 2], [6, 8], [8, 9], [9, 10, 2], [9, 11], [11, 12, 2, -1], [12, 13], [13, 14], [14, 15], [15, 16], [15, 17], [17, 18], [17, 19], [19, 20], [19, 21], [21, 22], [22, 23], [23, 24], [23, 25, 2], [23, 26], [26, 27], [27, 28], [27, 29, 2], [27, 30], [30, 31], [31, 32], [32, 33], [33, 34], [34, 35], [35, 36], [35, 37], [37, 38], [34, 39], [39, 40], [40, 41, 2, -1], [41, 42], [42, 43, 2, -1], [43, 44], [43, 45], [45, 46, 2, -1], [46, 47], [47, 48, 2, -1], [13, 49], [49, 50], [50, 51, 2, -1], [51, 52], [51, 1], [49, 3, 2, 1], [12, 5], [37, 32], [48, 39], [48, 42]]
+      explain: 'A three-ring isoalloxazine (dimethylbenzene, pyrazine, a uracil-like ring) on a ribitol chain, a diphosphate bridge, then adenosine. Formula $\mathrm{C_{27}H_{33}N_{9}O_{15}P_{2}}$'
+- template: st-name-fad
+  skill: biochem.coenzymes
+  pace: recall
+  prompt: 'Which compound is this?'
+  figure:
+    type: molecule
+    formula: C27H33N9O15P2
+    atoms: [[5.07, -4.63], [4.83, -3.66], [5.56, -2.97], [5.32, -2.0], [6.04, -1.31, "N"], [5.81, -0.34], [6.53, 0.35], [7.49, 0.07, "O"], [6.29, 1.33, "NH"], [5.33, 1.61], [5.1, 2.58, "O"], [4.61, 0.91, "N"], [4.85, -0.06], [4.12, -0.75, "N"], [3.16, -0.47], [2.93, 0.5], [3.65, 1.2, "OH"], [1.97, 0.78], [1.24, 0.09, "HO"], [1.73, 1.76], [2.45, 2.45, "OH"], [0.77, 2.04], [0.53, 3.01, "O"], [-0.43, 3.29, "P"], [-0.15, 4.25, "OH"], [-0.71, 2.33, "O"], [-1.39, 3.57, "O"], [-2.11, 2.88, "P"], [-1.42, 2.16, "OH"], [-2.8, 3.6, "O"], [-2.83, 2.19, "O"], [-2.6, 1.22], [-3.32, 0.52], [-4.3, 0.7, "O"], [-4.78, -0.18], [-4.08, -0.9], [-4.26, -1.88, "OH"], [-3.18, -0.47], [-2.3, -0.94, "OH"], [-5.77, -0.31, "N"], [-6.46, 0.41], [-7.36, -0.02, "N"], [-7.22, -1.01], [-7.87, -1.78], [-8.86, -1.6, "H2N"], [-7.53, -2.72, "N"], [-6.55, -2.9], [-5.9, -2.13, "N"], [-6.24, -1.19], [4.36, -1.72], [3.64, -2.41], [3.87, -3.38], [3.15, -4.07]]
+    bonds: [[0, 1], [1, 2, 2, -1], [2, 3], [3, 4], [4, 5, 2, -1], [5, 6], [6, 7, 2], [6, 8], [8, 9], [9, 10, 2], [9, 11], [11, 12, 2, -1], [12, 13], [13, 14], [14, 15], [15, 16], [15, 17], [17, 18], [17, 19], [19, 20], [19, 21], [21, 22], [22, 23], [23, 24], [23, 25, 2], [23, 26], [26, 27], [27, 28], [27, 29, 2], [27, 30], [30, 31], [31, 32], [32, 33], [33, 34], [34, 35], [35, 36], [35, 37], [37, 38], [34, 39], [39, 40], [40, 41, 2, -1], [41, 42], [42, 43, 2, -1], [43, 44], [43, 45], [45, 46, 2, -1], [46, 47], [47, 48, 2, -1], [13, 49], [49, 50], [50, 51, 2, -1], [51, 52], [51, 1], [49, 3, 2, 1], [12, 5], [37, 32], [48, 39], [48, 42]]
+  parts:
+    - ask: 'Name it'
+      label: a
+      choice: ["FAD", "NAD+", "acetyl-CoA", "coenzyme A"]
+      correct: "0"
+      explain: 'FAD. A three-ring isoalloxazine (dimethylbenzene, pyrazine, a uracil-like ring) on a ribitol chain, a diphosphate bridge, then adenosine'
+  verify: { authored: true }
+- template: st-draw-coenzyme-a
+  skill: biochem.coenzymes
+  pace: quick
+  prompt: 'Draw coenzyme A from memory, as a skeletal structure.'
+  parts:
+    - ask: 'Draw it on paper, then compare'
+      label: a
+      draw: true
+      solution:
+        type: molecule
+        formula: C21H36N7O16P3S
+        atoms: [[-3.24, 0.66], [-2.64, -0.14], [-2.05, -0.95], [-1.84, 0.45], [-1.95, 1.44, "O"], [-1.15, 2.04, "P"], [-0.55, 1.23, "OH"], [-1.74, 2.84, "O"], [-0.34, 2.63, "O"], [0.58, 2.23, "P"], [0.98, 3.15, "OH"], [0.18, 1.31, "O"], [1.49, 1.83, "O"], [1.6, 0.84], [2.52, 0.43], [2.73, -0.54, "O"], [3.73, -0.64], [4.13, 0.28], [5.11, 0.49, "OH"], [3.38, 0.94], [3.48, 1.94, "O"], [4.39, 2.35, "P"], [4.8, 1.44, "OH"], [5.3, 2.76, "OH"], [3.98, 3.26, "O"], [4.23, -1.5, "N"], [3.83, -2.42], [4.58, -3.08, "N"], [5.44, -2.58], [6.4, -2.88], [6.61, -3.86, "NH2"], [7.14, -2.21, "N"], [6.92, -1.23], [5.97, -0.93, "N"], [5.23, -1.6], [-3.45, -0.74], [-3.34, -1.73, "OH"], [-4.37, -0.33], [-4.48, 0.66, "O"], [-5.17, -0.93, "NH"], [-6.09, -0.53], [-6.89, -1.12], [-7.81, -0.72], [-7.92, 0.27, "O"], [-8.61, -1.31, "NH"], [-9.53, -0.91], [-10.34, -1.5], [-11.25, -1.1, "HS"]]
+        bonds: [[0, 1], [1, 2], [1, 3], [3, 4], [4, 5], [5, 6], [5, 7, 2], [5, 8], [8, 9], [9, 10], [9, 11, 2], [9, 12], [12, 13], [13, 14], [14, 15], [15, 16], [16, 17], [17, 18], [17, 19], [19, 20], [20, 21], [21, 22], [21, 23], [21, 24, 2], [16, 25], [25, 26], [26, 27, 2, -1], [27, 28], [28, 29, 2, -1], [29, 30], [29, 31], [31, 32, 2, -1], [32, 33], [33, 34, 2, -1], [1, 35], [35, 36], [35, 37], [37, 38, 2], [37, 39], [39, 40], [40, 41], [41, 42], [42, 43, 2], [42, 44], [44, 45], [45, 46], [46, 47], [19, 14], [34, 25], [34, 28]]
+      explain: 'From the working end: a thiol on two carbons, an amide, beta-alanine, an amide, pantoic acid (OH, then a carbon with two methyls), a diphosphate, and adenosine with an extra phosphate on its 3'' OH. Formula $\mathrm{C_{21}H_{36}N_{7}O_{16}P_{3}S}$'
+- template: st-name-coenzyme-a
+  skill: biochem.coenzymes
+  pace: recall
+  prompt: 'Which compound is this?'
+  figure:
+    type: molecule
+    formula: C21H36N7O16P3S
+    atoms: [[-3.24, 0.66], [-2.64, -0.14], [-2.05, -0.95], [-1.84, 0.45], [-1.95, 1.44, "O"], [-1.15, 2.04, "P"], [-0.55, 1.23, "OH"], [-1.74, 2.84, "O"], [-0.34, 2.63, "O"], [0.58, 2.23, "P"], [0.98, 3.15, "OH"], [0.18, 1.31, "O"], [1.49, 1.83, "O"], [1.6, 0.84], [2.52, 0.43], [2.73, -0.54, "O"], [3.73, -0.64], [4.13, 0.28], [5.11, 0.49, "OH"], [3.38, 0.94], [3.48, 1.94, "O"], [4.39, 2.35, "P"], [4.8, 1.44, "OH"], [5.3, 2.76, "OH"], [3.98, 3.26, "O"], [4.23, -1.5, "N"], [3.83, -2.42], [4.58, -3.08, "N"], [5.44, -2.58], [6.4, -2.88], [6.61, -3.86, "NH2"], [7.14, -2.21, "N"], [6.92, -1.23], [5.97, -0.93, "N"], [5.23, -1.6], [-3.45, -0.74], [-3.34, -1.73, "OH"], [-4.37, -0.33], [-4.48, 0.66, "O"], [-5.17, -0.93, "NH"], [-6.09, -0.53], [-6.89, -1.12], [-7.81, -0.72], [-7.92, 0.27, "O"], [-8.61, -1.31, "NH"], [-9.53, -0.91], [-10.34, -1.5], [-11.25, -1.1, "HS"]]
+    bonds: [[0, 1], [1, 2], [1, 3], [3, 4], [4, 5], [5, 6], [5, 7, 2], [5, 8], [8, 9], [9, 10], [9, 11, 2], [9, 12], [12, 13], [13, 14], [14, 15], [15, 16], [16, 17], [17, 18], [17, 19], [19, 20], [20, 21], [21, 22], [21, 23], [21, 24, 2], [16, 25], [25, 26], [26, 27, 2, -1], [27, 28], [28, 29, 2, -1], [29, 30], [29, 31], [31, 32, 2, -1], [32, 33], [33, 34, 2, -1], [1, 35], [35, 36], [35, 37], [37, 38, 2], [37, 39], [39, 40], [40, 41], [41, 42], [42, 43, 2], [42, 44], [44, 45], [45, 46], [46, 47], [19, 14], [34, 25], [34, 28]]
+  parts:
+    - ask: 'Name it'
+      label: a
+      choice: ["NAD+", "NADH", "acetyl-CoA", "coenzyme A"]
+      correct: "3"
+      explain: 'Coenzyme A. From the working end: a thiol on two carbons, an amide, beta-alanine, an amide, pantoic acid (OH, then a carbon with two methyls), a diphosphate, and adenosine with an extra phosphate on its 3'' OH'
+  verify: { authored: true }
+- template: st-draw-acetyl-coa
+  skill: biochem.coenzymes
+  pace: quick
+  prompt: 'Draw acetyl-CoA from memory, as a skeletal structure.'
+  parts:
+    - ask: 'Draw it on paper, then compare'
+      label: a
+      draw: true
+      solution:
+        type: molecule
+        formula: C23H38N7O17P3S
+        atoms: [[-12.29, -0.66], [-11.39, -1.1], [-11.32, -2.1, "O"], [-10.56, -0.54, "S"], [-9.66, -0.98], [-8.83, -0.42], [-7.93, -0.86, "NH"], [-7.1, -0.3], [-7.17, 0.69, "O"], [-6.2, -0.74], [-5.38, -0.18], [-4.48, -0.62, "NH"], [-3.65, -0.07], [-3.72, 0.93, "O"], [-2.75, -0.51], [-2.68, -1.5, "OH"], [-1.92, 0.05], [-2.48, 0.88], [-1.36, -0.78], [-1.09, 0.61], [-1.16, 1.61, "O"], [-0.33, 2.17, "P"], [0.23, 1.34, "OH"], [-0.89, 3.0, "O"], [0.5, 2.72, "O"], [1.4, 2.28, "P"], [1.84, 3.18, "OH"], [0.96, 1.39, "O"], [2.3, 1.84, "O"], [2.37, 0.85], [3.26, 0.41], [3.44, -0.58, "O"], [4.43, -0.72], [4.87, 0.18], [5.85, 0.35, "OH"], [4.15, 0.87], [4.29, 1.86, "O"], [5.22, 2.24, "P"], [5.59, 1.31, "OH"], [6.14, 2.61, "OH"], [4.84, 3.17, "O"], [4.9, -1.6, "N"], [4.46, -2.5], [5.17, -3.2, "N"], [6.06, -2.73], [7.0, -3.07], [7.17, -4.06, "NH2"], [7.76, -2.43, "N"], [7.59, -1.45], [6.65, -1.1, "N"], [5.89, -1.74]]
+        bonds: [[0, 1], [1, 2, 2], [1, 3], [3, 4], [4, 5], [5, 6], [6, 7], [7, 8, 2], [7, 9], [9, 10], [10, 11], [11, 12], [12, 13, 2], [12, 14], [14, 15], [14, 16], [16, 17], [16, 18], [16, 19], [19, 20], [20, 21], [21, 22], [21, 23, 2], [21, 24], [24, 25], [25, 26], [25, 27, 2], [25, 28], [28, 29], [29, 30], [30, 31], [31, 32], [32, 33], [33, 34], [33, 35], [35, 36], [36, 37], [37, 38], [37, 39], [37, 40, 2], [32, 41], [41, 42], [42, 43, 2, -1], [43, 44], [44, 45, 2, -1], [45, 46], [45, 47], [47, 48, 2, -1], [48, 49], [49, 50, 2, -1], [35, 30], [50, 41], [50, 44]]
+      explain: 'Coenzyme A with an acetyl group on the sulfur: a thioester. Formula $\mathrm{C_{23}H_{38}N_{7}O_{17}P_{3}S}$'
+- template: st-name-acetyl-coa
+  skill: biochem.coenzymes
+  pace: recall
+  prompt: 'Which compound is this?'
+  figure:
+    type: molecule
+    formula: C23H38N7O17P3S
+    atoms: [[-12.29, -0.66], [-11.39, -1.1], [-11.32, -2.1, "O"], [-10.56, -0.54, "S"], [-9.66, -0.98], [-8.83, -0.42], [-7.93, -0.86, "NH"], [-7.1, -0.3], [-7.17, 0.69, "O"], [-6.2, -0.74], [-5.38, -0.18], [-4.48, -0.62, "NH"], [-3.65, -0.07], [-3.72, 0.93, "O"], [-2.75, -0.51], [-2.68, -1.5, "OH"], [-1.92, 0.05], [-2.48, 0.88], [-1.36, -0.78], [-1.09, 0.61], [-1.16, 1.61, "O"], [-0.33, 2.17, "P"], [0.23, 1.34, "OH"], [-0.89, 3.0, "O"], [0.5, 2.72, "O"], [1.4, 2.28, "P"], [1.84, 3.18, "OH"], [0.96, 1.39, "O"], [2.3, 1.84, "O"], [2.37, 0.85], [3.26, 0.41], [3.44, -0.58, "O"], [4.43, -0.72], [4.87, 0.18], [5.85, 0.35, "OH"], [4.15, 0.87], [4.29, 1.86, "O"], [5.22, 2.24, "P"], [5.59, 1.31, "OH"], [6.14, 2.61, "OH"], [4.84, 3.17, "O"], [4.9, -1.6, "N"], [4.46, -2.5], [5.17, -3.2, "N"], [6.06, -2.73], [7.0, -3.07], [7.17, -4.06, "NH2"], [7.76, -2.43, "N"], [7.59, -1.45], [6.65, -1.1, "N"], [5.89, -1.74]]
+    bonds: [[0, 1], [1, 2, 2], [1, 3], [3, 4], [4, 5], [5, 6], [6, 7], [7, 8, 2], [7, 9], [9, 10], [10, 11], [11, 12], [12, 13, 2], [12, 14], [14, 15], [14, 16], [16, 17], [16, 18], [16, 19], [19, 20], [20, 21], [21, 22], [21, 23, 2], [21, 24], [24, 25], [25, 26], [25, 27, 2], [25, 28], [28, 29], [29, 30], [30, 31], [31, 32], [32, 33], [33, 34], [33, 35], [35, 36], [36, 37], [37, 38], [37, 39], [37, 40, 2], [32, 41], [41, 42], [42, 43, 2, -1], [43, 44], [44, 45, 2, -1], [45, 46], [45, 47], [47, 48, 2, -1], [48, 49], [49, 50, 2, -1], [35, 30], [50, 41], [50, 44]]
+  parts:
+    - ask: 'Name it'
+      label: a
+      choice: ["FAD", "NAD+", "acetyl-CoA", "coenzyme A"]
+      correct: "2"
+      explain: 'Acetyl-CoA. Coenzyme A with an acetyl group on the sulfur: a thioester'
+  verify: { authored: true }
+- template: st-draw-thiamine-pyrophosphate
+  skill: biochem.coenzymes
+  pace: quick
+  prompt: 'Draw thiamine pyrophosphate (TPP) from memory, as a skeletal structure.'
+  parts:
+    - ask: 'Draw it on paper, then compare'
+      label: a
+      draw: true
+      solution:
+        type: molecule
+        formula: C12H19N4O7P2S+
+        atoms: [[-5.1, -2.08], [-4.43, -1.34], [-3.45, -1.55, "N"], [-2.78, -0.81], [-3.08, 0.14], [-2.41, 0.88], [-1.44, 0.67, "N+"], [-1.03, -0.24], [-0.04, -0.14, "S"], [0.17, 0.83], [1.09, 1.24], [1.9, 0.65], [2.81, 1.05, "O"], [3.62, 0.46, "P"], [4.21, 1.26, "OH"], [3.03, -0.35, "O"], [4.42, -0.13, "O"], [4.32, -1.13, "P"], [3.32, -1.02, "HO"], [4.21, -2.12, "OH"], [5.31, -1.24, "O"], [-0.69, 1.34], [-0.79, 2.33], [-4.06, 0.36], [-4.37, 1.31, "H2N"], [-4.73, -0.38, "N"]]
+        bonds: [[0, 1], [1, 2], [2, 3, 2, -1], [3, 4], [4, 5], [5, 6], [6, 7, 2, -1], [7, 8], [8, 9], [9, 10], [10, 11], [11, 12], [12, 13], [13, 14], [13, 15, 2], [13, 16], [16, 17], [17, 18], [17, 19], [17, 20, 2], [9, 21, 2, -1], [21, 22], [4, 23, 2, -1], [23, 24], [23, 25], [25, 1, 2, -1], [21, 6]]
+      explain: 'An aminopyrimidine joined by a CH2 to the N of a thiazolium ring; the ring carries a methyl and a two-carbon chain ending in the diphosphate. The acidic C-H sits between N+ and S. Formula $\mathrm{C_{12}H_{19}N_{4}O_{7}P_{2}S+}$'
+- template: st-name-thiamine-pyrophosphate
+  skill: biochem.coenzymes
+  pace: recall
+  prompt: 'Which compound is this?'
+  figure:
+    type: molecule
+    formula: C12H19N4O7P2S+
+    atoms: [[-5.1, -2.08], [-4.43, -1.34], [-3.45, -1.55, "N"], [-2.78, -0.81], [-3.08, 0.14], [-2.41, 0.88], [-1.44, 0.67, "N+"], [-1.03, -0.24], [-0.04, -0.14, "S"], [0.17, 0.83], [1.09, 1.24], [1.9, 0.65], [2.81, 1.05, "O"], [3.62, 0.46, "P"], [4.21, 1.26, "OH"], [3.03, -0.35, "O"], [4.42, -0.13, "O"], [4.32, -1.13, "P"], [3.32, -1.02, "HO"], [4.21, -2.12, "OH"], [5.31, -1.24, "O"], [-0.69, 1.34], [-0.79, 2.33], [-4.06, 0.36], [-4.37, 1.31, "H2N"], [-4.73, -0.38, "N"]]
+    bonds: [[0, 1], [1, 2], [2, 3, 2, -1], [3, 4], [4, 5], [5, 6], [6, 7, 2, -1], [7, 8], [8, 9], [9, 10], [10, 11], [11, 12], [12, 13], [13, 14], [13, 15, 2], [13, 16], [16, 17], [17, 18], [17, 19], [17, 20, 2], [9, 21, 2, -1], [21, 22], [4, 23, 2, -1], [23, 24], [23, 25], [25, 1, 2, -1], [21, 6]]
+  parts:
+    - ask: 'Name it'
+      label: a
+      choice: ["NAD+", "heme b", "protoporphyrin IX", "thiamine pyrophosphate (TPP)"]
+      correct: "3"
+      explain: 'Thiamine pyrophosphate (TPP). An aminopyrimidine joined by a CH2 to the N of a thiazolium ring; the ring carries a methyl and a two-carbon chain ending in the diphosphate. The acidic C-H sits between N+ and S'
+  verify: { authored: true }
+- template: st-draw-protoporphyrin-ix
+  skill: biochem.coenzymes
+  pace: quick
+  prompt: 'Draw protoporphyrin IX from memory, as a skeletal structure.'
+  parts:
+    - ask: 'Draw it on paper, then compare'
+      label: a
+      draw: true
+      solution:
+        type: molecule
+        formula: C34H34N4O4
+        atoms: [[-2.92, -1.49], [-3.05, -0.5], [-3.05, 0.5], [-3.97, 0.12], [-4.97, 0.25], [-2.1, 0.8], [-1.7, 1.7], [-0.8, 2.1], [0.0, 1.45, "N"], [0.8, 2.1], [1.7, 1.7], [2.1, 0.8], [1.45, 0.0, "NH"], [2.1, -0.8], [1.7, -1.7], [0.8, -2.1], [0.0, -1.45, "N"], [-0.8, -2.1], [-1.7, -1.7], [-2.1, -0.8], [-1.45, -0.0, "NH"], [-0.5, -3.05], [-0.12, -3.97], [0.5, -3.05], [1.49, -2.92], [2.42, -3.3], [3.41, -3.17], [3.79, -2.24, "OH"], [4.02, -3.96, "O"], [3.05, -0.5], [3.97, -0.12], [4.97, -0.25], [5.89, 0.13], [6.02, 1.12, "OH"], [6.68, -0.48, "O"], [3.05, 0.5], [2.92, 1.49], [0.5, 3.05], [0.12, 3.97], [0.25, 4.97], [-0.5, 3.05], [-1.49, 2.92]]
+        bonds: [[0, 1], [1, 2], [2, 3], [3, 4, 2], [2, 5, 2], [5, 6], [6, 7, 2], [7, 8], [8, 9, 2], [9, 10], [10, 11, 2], [11, 12], [12, 13], [13, 14, 2], [14, 15], [15, 16, 2], [16, 17], [17, 18, 2], [18, 19], [19, 20], [17, 21], [21, 22], [21, 23, 2], [23, 24], [24, 25], [25, 26], [26, 27], [26, 28, 2], [13, 29], [29, 30], [30, 31], [31, 32], [32, 33], [32, 34, 2], [29, 35, 2], [35, 36], [9, 37], [37, 38], [38, 39, 2], [37, 40, 2], [40, 41], [19, 1, 2], [20, 5], [40, 7], [35, 11], [23, 15]]
+      explain: 'Four pyrrole rings joined by four CH bridges. Round the edge: methyl, vinyl; methyl, vinyl; methyl, propionate; propionate, methyl. Formula $\mathrm{C_{34}H_{34}N_{4}O_{4}}$'
+- template: st-name-protoporphyrin-ix
+  skill: biochem.coenzymes
+  pace: recall
+  prompt: 'Which compound is this?'
+  figure:
+    type: molecule
+    formula: C34H34N4O4
+    atoms: [[-2.92, -1.49], [-3.05, -0.5], [-3.05, 0.5], [-3.97, 0.12], [-4.97, 0.25], [-2.1, 0.8], [-1.7, 1.7], [-0.8, 2.1], [0.0, 1.45, "N"], [0.8, 2.1], [1.7, 1.7], [2.1, 0.8], [1.45, 0.0, "NH"], [2.1, -0.8], [1.7, -1.7], [0.8, -2.1], [0.0, -1.45, "N"], [-0.8, -2.1], [-1.7, -1.7], [-2.1, -0.8], [-1.45, -0.0, "NH"], [-0.5, -3.05], [-0.12, -3.97], [0.5, -3.05], [1.49, -2.92], [2.42, -3.3], [3.41, -3.17], [3.79, -2.24, "OH"], [4.02, -3.96, "O"], [3.05, -0.5], [3.97, -0.12], [4.97, -0.25], [5.89, 0.13], [6.02, 1.12, "OH"], [6.68, -0.48, "O"], [3.05, 0.5], [2.92, 1.49], [0.5, 3.05], [0.12, 3.97], [0.25, 4.97], [-0.5, 3.05], [-1.49, 2.92]]
+    bonds: [[0, 1], [1, 2], [2, 3], [3, 4, 2], [2, 5, 2], [5, 6], [6, 7, 2], [7, 8], [8, 9, 2], [9, 10], [10, 11, 2], [11, 12], [12, 13], [13, 14, 2], [14, 15], [15, 16, 2], [16, 17], [17, 18, 2], [18, 19], [19, 20], [17, 21], [21, 22], [21, 23, 2], [23, 24], [24, 25], [25, 26], [26, 27], [26, 28, 2], [13, 29], [29, 30], [30, 31], [31, 32], [32, 33], [32, 34, 2], [29, 35, 2], [35, 36], [9, 37], [37, 38], [38, 39, 2], [37, 40, 2], [40, 41], [19, 1, 2], [20, 5], [40, 7], [35, 11], [23, 15]]
+  parts:
+    - ask: 'Name it'
+      label: a
+      choice: ["NAD+", "NADH", "heme b", "protoporphyrin IX"]
+      correct: "3"
+      explain: 'Protoporphyrin IX. Four pyrrole rings joined by four CH bridges. Round the edge: methyl, vinyl; methyl, vinyl; methyl, propionate; propionate, methyl'
+  verify: { authored: true }
+- template: st-draw-heme-b
+  skill: biochem.coenzymes
+  pace: quick
+  prompt: 'Draw heme b from memory, as a skeletal structure.'
+  parts:
+    - ask: 'Draw it on paper, then compare'
+      label: a
+      draw: true
+      solution:
+        type: molecule
+        formula: C34H32FeN4O4
+        atoms: [[-2.92, -1.49], [-3.05, -0.5], [-3.05, 0.5], [-3.97, 0.12], [-4.97, 0.25], [-2.1, 0.8], [-1.7, 1.7], [-0.8, 2.1], [0.0, 1.45, "N"], [0.8, 2.1], [1.7, 1.7], [2.1, 0.8], [1.45, 0.0, "N"], [2.1, -0.8], [1.7, -1.7], [0.8, -2.1], [0.0, -1.45, "N"], [-0.8, -2.1], [-1.7, -1.7], [-2.1, -0.8], [-1.45, -0.0, "N"], [-0.5, -3.05], [-0.12, -3.97], [0.5, -3.05], [1.49, -2.92], [2.42, -3.3], [3.41, -3.17], [3.79, -2.24, "OH"], [4.02, -3.96, "O"], [3.05, -0.5], [3.97, -0.12], [4.97, -0.25], [5.89, 0.13], [6.02, 1.12, "OH"], [6.68, -0.48, "O"], [3.05, 0.5], [2.92, 1.49], [0.5, 3.05], [0.12, 3.97], [0.25, 4.97], [-0.5, 3.05], [-1.49, 2.92], [0.0, 0.0, "Fe"]]
+        bonds: [[0, 1], [1, 2], [2, 3], [3, 4, 2], [2, 5, 2], [5, 6], [6, 7, 2], [7, 8], [8, 9, 2], [9, 10], [10, 11, 2], [11, 12], [12, 13], [13, 14, 2], [14, 15], [15, 16, 2], [16, 17], [17, 18, 2], [18, 19], [19, 20], [17, 21], [21, 22], [21, 23, 2], [23, 24], [24, 25], [25, 26], [26, 27], [26, 28, 2], [13, 29], [29, 30], [30, 31], [31, 32], [32, 33], [32, 34, 2], [29, 35, 2], [35, 36], [9, 37], [37, 38], [38, 39, 2], [37, 40, 2], [40, 41], [19, 1, 2], [20, 5], [40, 7], [35, 11], [23, 15], [8, 42, 0], [12, 42, 1], [16, 42, 0], [20, 42, 1]]
+      explain: 'Protoporphyrin IX with Fe(II) in the middle, bonded to all four nitrogens (two of them drawn dashed, as coordinate bonds). In myoglobin the fifth position is the proximal histidine and O2 binds at the sixth. Formula $\mathrm{C_{34}H_{32}FeN_{4}O_{4}}$'
+- template: st-name-heme-b
+  skill: biochem.coenzymes
+  pace: recall
+  prompt: 'Which compound is this?'
+  figure:
+    type: molecule
+    formula: C34H32FeN4O4
+    atoms: [[-2.92, -1.49], [-3.05, -0.5], [-3.05, 0.5], [-3.97, 0.12], [-4.97, 0.25], [-2.1, 0.8], [-1.7, 1.7], [-0.8, 2.1], [0.0, 1.45, "N"], [0.8, 2.1], [1.7, 1.7], [2.1, 0.8], [1.45, 0.0, "N"], [2.1, -0.8], [1.7, -1.7], [0.8, -2.1], [0.0, -1.45, "N"], [-0.8, -2.1], [-1.7, -1.7], [-2.1, -0.8], [-1.45, -0.0, "N"], [-0.5, -3.05], [-0.12, -3.97], [0.5, -3.05], [1.49, -2.92], [2.42, -3.3], [3.41, -3.17], [3.79, -2.24, "OH"], [4.02, -3.96, "O"], [3.05, -0.5], [3.97, -0.12], [4.97, -0.25], [5.89, 0.13], [6.02, 1.12, "OH"], [6.68, -0.48, "O"], [3.05, 0.5], [2.92, 1.49], [0.5, 3.05], [0.12, 3.97], [0.25, 4.97], [-0.5, 3.05], [-1.49, 2.92], [0.0, 0.0, "Fe"]]
+    bonds: [[0, 1], [1, 2], [2, 3], [3, 4, 2], [2, 5, 2], [5, 6], [6, 7, 2], [7, 8], [8, 9, 2], [9, 10], [10, 11, 2], [11, 12], [12, 13], [13, 14, 2], [14, 15], [15, 16, 2], [16, 17], [17, 18, 2], [18, 19], [19, 20], [17, 21], [21, 22], [21, 23, 2], [23, 24], [24, 25], [25, 26], [26, 27], [26, 28, 2], [13, 29], [29, 30], [30, 31], [31, 32], [32, 33], [32, 34, 2], [29, 35, 2], [35, 36], [9, 37], [37, 38], [38, 39, 2], [37, 40, 2], [40, 41], [19, 1, 2], [20, 5], [40, 7], [35, 11], [23, 15], [8, 42, 0], [12, 42, 1], [16, 42, 0], [20, 42, 1]]
+  parts:
+    - ask: 'Name it'
+      label: a
+      choice: ["NAD+", "NADH", "heme b", "protoporphyrin IX"]
+      correct: "2"
+      explain: 'Heme b. Protoporphyrin IX with Fe(II) in the middle, bonded to all four nitrogens (two of them drawn dashed, as coordinate bonds). In myoglobin the fifth position is the proximal histidine and O2 binds at the sixth'
   verify: { authored: true }
 
 # ── sugars as Fischer projections (Bruice ch. 20) ──

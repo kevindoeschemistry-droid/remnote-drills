@@ -19,6 +19,22 @@ from pathlib import Path
 
 # group id -> (skill, heading); rows: name, SMILES, formula, what to remember
 GROUPS = {
+    "group": ("orgo.functional-groups", "functional groups: the first things to trace (R = the rest of the molecule)", [
+        ("an alcohol", "*O", "HOR", "R-OH"),
+        ("a thiol", "*S", "HRS", "R-SH: an alcohol with sulfur"),
+        ("an ether", "*O*", "OR2", "An oxygen between two carbons"),
+        ("a primary amine", "*N", "H2NR", "R-NH2"),
+        ("an aldehyde", "*C=O", "CHOR", "A C=O at the end of a chain: one R and one H on the carbonyl carbon"),
+        ("a ketone", "*C(*)=O", "COR2", "A C=O inside a chain: two R groups on the carbonyl carbon"),
+        ("a carboxylic acid", "*C(=O)O", "CHO2R", "A carbonyl carbon that also carries an OH"),
+        ("an ester", "*C(=O)O*", "CO2R2", "A carboxylic acid with its H replaced by carbon"),
+        ("a primary amide", "*C(N)=O", "CH2NOR", "A carbonyl carbon carrying an NH2"),
+        ("an acyl chloride", "*C(Cl)=O", "CClOR", "A carbonyl carbon carrying a Cl"),
+        ("an acid anhydride", "*C(=O)OC(*)=O", "C2O3R2", "Two acyl groups sharing one oxygen"),
+        ("a thioester", "*C(=O)S*", "COR2S", "An ester with sulfur in place of the single-bonded oxygen (acetyl-CoA is one)"),
+        ("a nitrile", "*C#N", "CNR", "A carbon triple-bonded to nitrogen"),
+        ("a phosphate ester", "*OP(=O)(O)O", "H2O4PR", "R-O-P with one P=O and two P-OH (drawn fully protonated)"),
+    ]),
     "aromatic": ("orgo.aromatics", "benzene derivatives and heterocycles (Bruice ch. 18-19)", [
         ("benzene", "c1ccccc1", "C6H6", "A six-membered ring with three alternating double bonds"),
         ("toluene", "Cc1ccccc1", "C7H8", "Benzene with a methyl"),
@@ -86,7 +102,19 @@ GROUPS = {
         ("biotin", "OC(=O)CCCCC1SCC2NC(=O)NC12", "C10H16N2O3S", "A cyclic urea fused to a sulfur-containing five-membered ring, with a five-carbon acid chain"),
         ("lipoic acid", "OC(=O)CCCCC1CCSS1", "C8H14O2S2", "A five-membered ring containing an S-S bond, with a five-carbon acid chain"),
     ]),
+    "coenzyme": ("biochem.coenzymes", "the large coenzymes and heme, whole (Bruice ch. 23)", [
+        ("NAD+", "NC(=O)c1ccc[n+](c1)C1OC(COP(O)(=O)OP(O)(=O)OCC2OC(C(O)C2O)n2cnc3c(N)ncnc23)C(O)C1O", "C21H28N7O14P2+", "Nicotinamide on a ribose, a diphosphate bridge, then adenosine. The pyridinium ring N carries the plus charge; C-4, opposite it, accepts the hydride"),
+        ("NADH", "NC(=O)C1=CN(C=CC1)C1OC(COP(O)(=O)OP(O)(=O)OCC2OC(C(O)C2O)n2cnc3c(N)ncnc23)C(O)C1O", "C21H29N7O14P2", "NAD+ after taking a hydride at C-4: the ring is a 1,4-dihydropyridine with a CH2 at C-4, no charge, and no longer aromatic"),
+        ("FAD", "Cc1cc2nc3c(=O)[nH]c(=O)nc-3n(CC(O)C(O)C(O)COP(O)(=O)OP(O)(=O)OCC3OC(C(O)C3O)n3cnc4c(N)ncnc34)c2cc1C", "C27H33N9O15P2", "A three-ring isoalloxazine (dimethylbenzene, pyrazine, a uracil-like ring) on a ribitol chain, a diphosphate bridge, then adenosine"),
+        ("coenzyme A", "CC(C)(COP(O)(=O)OP(O)(=O)OCC1OC(C(O)C1OP(O)(O)=O)n1cnc2c(N)ncnc12)C(O)C(=O)NCCC(=O)NCCS", "C21H36N7O16P3S", "From the working end: a thiol on two carbons, an amide, beta-alanine, an amide, pantoic acid (OH, then a carbon with two methyls), a diphosphate, and adenosine with an extra phosphate on its 3' OH"),
+        ("acetyl-CoA", "CC(=O)SCCNC(=O)CCNC(=O)C(O)C(C)(C)COP(O)(=O)OP(O)(=O)OCC1OC(C(O)C1OP(O)(O)=O)n1cnc2c(N)ncnc12", "C23H38N7O17P3S", "Coenzyme A with an acetyl group on the sulfur: a thioester"),
+        ("thiamine pyrophosphate (TPP)", "Cc1ncc(C[n+]2csc(CCOP(O)(=O)OP(O)(O)=O)c2C)c(N)n1", "C12H19N4O7P2S+", "An aminopyrimidine joined by a CH2 to the N of a thiazolium ring; the ring carries a methyl and a two-carbon chain ending in the diphosphate. The acidic C-H sits between N+ and S"),
+        ("protoporphyrin IX", "Cc1c(C=C)c2cc3nc(cc4[nH]c(cc5nc(cc1[nH]2)c(C)c5CCC(O)=O)c(CCC(O)=O)c4C)c(C=C)c3C", "C34H34N4O4", "Four pyrrole rings joined by four CH bridges. Round the edge: methyl, vinyl; methyl, vinyl; methyl, propionate; propionate, methyl"),
+    ]),
 }
+
+# heme b is protoporphyrin IX with its two N-H hydrogens replaced by iron(II) held by all four nitrogens
+HEME = ("heme b", "C34H32FeN4O4", "Protoporphyrin IX with Fe(II) in the middle, bonded to all four nitrogens (two of them drawn dashed, as coordinate bonds). In myoglobin the fifth position is the proximal histidine and O2 binds at the sixth")
 
 # Fischer projections: name, formula, aldose or ketose, OH side at each stereocentre from the top
 SUGARS = [
@@ -133,6 +161,49 @@ def fischer(kind, sides):
     return atoms, bonds
 
 
+def porphyrin(atoms, bonds):
+    """Lay a porphyrin out square (RDKit pinches the macrocycle): four pyrroles on the compass points,
+    the four CH bridges on the diagonals, substituents zigzagging outward. Works on the graph alone."""
+    import math
+    nb = {k: [] for k in range(len(atoms))}
+    for b in bonds:
+        nb[b[0]].append(b[1])
+        nb[b[1]].append(b[0])
+    is_n = lambda k: len(atoms[k]) > 2 and "N" in atoms[k][2]  # noqa: E731
+    pos, ring_of = {}, {}
+    n0 = next(k for k in nb if is_n(k))
+    n, a_in = n0, nb[n0][0]
+    for step in range(4):
+        phi = math.radians(90 - 90 * step)
+        u, v = (math.cos(phi), math.sin(phi)), (math.cos(phi - math.pi / 2), math.sin(phi - math.pi / 2))
+        at = lambda r, t: (r * u[0] + t * v[0], r * u[1] + t * v[1])  # noqa: E731
+        a_out = next(k for k in nb[n] if k != a_in)
+        beta = lambda a: next(k for k in nb[a] if not is_n(k) and len(nb[k]) == 3)  # noqa: E731
+        meso = next(k for k in nb[a_out] if not is_n(k) and len(nb[k]) == 2)
+        pos[n], pos[a_in], pos[a_out] = at(1.45, 0), at(2.1, -0.8), at(2.1, 0.8)
+        pos[beta(a_in)], pos[beta(a_out)] = at(3.05, -0.5), at(3.05, 0.5)
+        m = math.radians(45 - 90 * step)
+        pos[meso] = (2.4 * math.cos(m), 2.4 * math.sin(m))
+        for k in (beta(a_in), beta(a_out)):
+            ring_of[k] = at(2.4, 0)
+        a_in = next(k for k in nb[meso] if k != a_out)
+        n = next(k for k in nb[a_in] if is_n(k))
+
+    def grow(k, theta, depth):
+        kids = [c for c in nb[k] if c not in pos]
+        turns = [math.radians(30) * (1 if depth % 2 else -1)] if len(kids) == 1 else [math.radians(60), -math.radians(60)]
+        for c, turn in zip(kids, turns):
+            pos[c] = (pos[k][0] + math.cos(theta + turn), pos[k][1] + math.sin(theta + turn))
+        for c, turn in zip(kids, turns):
+            grow(c, theta + turn, depth + 1)
+
+    for k, c in ring_of.items():
+        grow(k, math.atan2(pos[k][1] - c[1], pos[k][0] - c[0]) + math.radians(30), 1)
+    new = [[round(pos[k][0], 2), round(pos[k][1], 2)] + at_[2:] for k, at_ in enumerate(atoms)]
+    # ring double bonds are drawn as plain double lines here: the inside-the-ring hint came from the old layout
+    return new, [b[:3] if len(b) > 3 else b for b in bonds]
+
+
 HEAD = """# Structures to know cold: draw each from its name, and name each from its drawing.
 # GENERATED by scripts/mol.py --library from scripts/mol_library.py: edit there, not here.
 #
@@ -156,17 +227,32 @@ def q(text):
     return text.replace("'", "''")
 
 
-def write(block, emit):
+def write(block, emit, layout):
     out, count = [HEAD], 0
     groups = {g: (skill, head, [(n, f, hook, ("smiles", s)) for n, s, f, hook in rows]) for g, (skill, head, rows) in GROUPS.items()}
     groups["sugar"] = ("biochem.sugars", "sugars as Fischer projections (Bruice ch. 20)",
                        [(n, f, hook, ("fischer", (kind, sides))) for n, f, kind, sides, hook in SUGARS])
+    groups["coenzyme"][2].append((HEME[0], HEME[1], HEME[2], ("heme", next(r[3][1] for r in groups["coenzyme"][2] if r[0] == "protoporphyrin IX"))))
     for g, (skill, head, rows) in groups.items():
         out.append(f"\n# ── {head} ──\n")
         for name, formula, hook, (how, spec) in rows:
             def fig(indent):
-                if how == "smiles":
+                if how == "smiles" and name != "protoporphyrin IX":
                     return block(spec, indent=indent, expect=formula)
+                if how == "smiles" and name == "protoporphyrin IX":
+                    _, atoms, bonds = layout(spec)
+                    atoms, bonds = porphyrin(atoms, bonds)
+                    atoms = [[at[0], at[1], "NH"] if len(at) > 2 and "N" in at[2] and "H" in at[2] else at for at in atoms]
+                    return emit(formula, atoms, bonds, indent)
+                if how == "heme":
+                    _, atoms, bonds = layout(spec)
+                    atoms, bonds = porphyrin(atoms, bonds)
+                    ns = [k for k, at in enumerate(atoms) if len(at) > 2 and "N" in at[2]]
+                    fe = len(atoms)
+                    atoms = atoms + [[round(sum(atoms[k][0] for k in ns) / 4, 2), round(sum(atoms[k][1] for k in ns) / 4, 2), "Fe"]]
+                    bonds = bonds + [[k, fe, 1 if "H" in atoms[k][2] else 0] for k in ns]
+                    atoms = [[at[0], at[1], "N"] if k in ns else at for k, at in enumerate(atoms)]
+                    return emit(formula, atoms, bonds, indent)
                 atoms, bonds = fischer(*spec)
                 return emit(formula, atoms, bonds, indent)
             what = "the Fischer projection of " + name if how == "fischer" else name + " from memory, as a skeletal structure"

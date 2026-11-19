@@ -16,12 +16,12 @@ from pathlib import Path
 
 _GEN = Path(__file__).resolve().parents[2] / "src/drills/skills.generated.json"
 # allowed total bond orders (hydrogens included) for a neutral atom
-VALENCE = {"H": {1}, "C": {4}, "N": {3}, "O": {2}, "S": {2, 4, 6}, "P": {3, 5}, "F": {1}, "Cl": {1}, "Br": {1}, "I": {1}}
+VALENCE = {"H": {1}, "C": {4}, "N": {3}, "O": {2}, "S": {2, 4, 6}, "P": {3, 5}, "F": {1}, "Cl": {1}, "Br": {1}, "I": {1}, "Fe": None, "R": {1}}  # a metal centre takes whatever is drawn to it
 
 
 def read_label(lab):
     """'H2N' / 'NH2' / 'OH' / 'O' / 'N+' / 'O-' -> (element, hydrogens, charge)"""
-    m = re.fullmatch(r"(?:H(\d*))?(Cl|Br|[HCNOSPFI])(?:H(\d*))?([+-]?)", lab)
+    m = re.fullmatch(r"(?:H(\d*))?(Cl|Br|Fe|[HCNOSPFIR])(?:H(\d*))?([+-]?)", lab)
     if not m:
         raise ValueError(f"label {lab!r}")
     h = sum(int(g or 1) for g in (m.group(1), m.group(3)) if g is not None)
@@ -45,7 +45,7 @@ def formula(fig):
     for k, a in enumerate(fig["atoms"]):
         el, h, q = read_label(a[2]) if len(a) > 2 and a[2] else ("C", 4 - bonded[k], 0)
         # a cation of N, O, S or P holds one more bond, an anion one fewer
-        if h < 0 or bonded[k] + h - q not in VALENCE[el]:
+        if h < 0 or (VALENCE[el] is not None and bonded[k] + h - q not in VALENCE[el]):
             raise ValueError(f"atom {k} ({el}) has {bonded[k]} bonds, {h} H and charge {q}")
         counts[el] += 1
         counts["H"] += h
