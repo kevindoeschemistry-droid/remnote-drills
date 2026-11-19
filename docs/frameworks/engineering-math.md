@@ -2,7 +2,7 @@
 
 Generated from `drills/frameworks/engineering-math.yaml` by `scripts/framework.mjs`. ● drilled · ◐ partly · ○ no drills yet.
 
-**118 learning objectives** in 12 units (114 core): 118 drilled, 0 partly, 0 with no drills. Core: 114 / 114 drilled.
+**122 learning objectives** in 12 units (118 core): 122 drilled, 0 partly, 0 with no drills. Core: 118 / 118 drilled.
 
 ## Big ideas
 
@@ -32,7 +32,7 @@ Generated from `drills/frameworks/engineering-math.yaml` by `scripts/framework.m
 | 5 · Systems of ODEs, phase plane and stability | core | 15–20% | 13 | 13 | 0 | 0 |
 | 6 · Series solutions and special functions | core | 15% | 11 | 11 | 0 | 0 |
 | 7 · Laplace transforms | core | 15% | 14 | 14 | 0 | 0 |
-| 8 · Linear algebra for ODEs | core | as needed | 7 | 7 | 0 | 0 |
+| 8 · Linear algebra for ODEs | core | as needed | 11 | 11 | 0 | 0 |
 | 9 · Fourier series and Sturm–Liouville boundary-value problems | core | 10–15% | 11 | 11 | 0 | 0 |
 | 10 · Partial differential equations | core | — | 9 | 9 | 0 | 0 |
 | 11 · Fourier integrals and transforms | extension | — | 2 | 2 | 0 | 0 |
@@ -585,6 +585,23 @@ Book: kreyszig-10e §8.3, §8.4
   - EK: D = X⁻¹AX; symmetric A has real eigenvalues and orthogonal eigenvectors.
   - Needs: EM-8.4.B, EM-8.3.B
   - P3 · drills: em-diagonalise
+
+### 8.6 Rank, orthogonality and least squares
+
+
+
+- ● **EM-8.6.A** Find the rank of a matrix and the dimension of its null space.
+  - EK: Rank + nullity = number of columns.
+  - P3 · drills: la-rank-nullity, la-rank-3x3
+- ● **EM-8.6.B** Project one vector onto another, test orthogonality, and take one Gram–Schmidt step.
+  - EK: proj_u y = (y·u / u·u) u; subtracting it leaves the part orthogonal to u.
+  - P3 · drills: la-projection-scalar, la-gram-schmidt-step, la-orthogonal-check
+- ● **EM-8.6.C** Set up and solve a least-squares problem with the normal equations, and say what the solution means geometrically.
+  - EK: AᵀA x̂ = Aᵀb; Ax̂ is the projection of b onto Col A.
+  - P3 · P6 · drills: la-least-squares-slope, la-least-squares-facts
+- ● **EM-8.6.D** Use eigenvalues to find powers and traces, know when a matrix is diagonalisable, and read a singular value.
+  - EK: A^k has eigenvalues λ^k; symmetric matrices are always diagonalisable; σ = √(eigenvalue of AᵀA).
+  - P3 · P6 · drills: la-trace-of-power, la-diagonalizable-facts, la-singular-value
 
 ## Unit 9 · Fourier series and Sturm–Liouville boundary-value problems
 

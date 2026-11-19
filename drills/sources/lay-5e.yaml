@@ -37,6 +37,10 @@ chapters:
           wiki: textbooks/lay-linear-algebra-applications/ch03-determinant }
       - { ref: "3.2", title: "Properties of Determinants" }
       - { ref: "3.3", title: "Cramer's Rule, Volume, and Linear Transformations" }
+  # chapters 4, 6 and 7: titles from memory, not checked against the published contents
+  - n: 4
+    title: "Vector Spaces"
+    skills: [la.rank]
   - n: 5
     title: "Eigenvalues and Eigenvectors"
     wiki: textbooks/lay-linear-algebra-applications/ch05
@@ -44,4 +48,10 @@ chapters:
       - { ref: "5.1", title: "Eigenvectors and Eigenvalues", skills: [la.eigenvectors] }
       - { ref: "5.2", title: "The Characteristic Equation", skills: [la.eigenvalues],
           wiki: textbooks/lay-linear-algebra-applications/ch05-eigenvalue }
-      - { ref: "5.3", title: "Diagonalization" }
+      - { ref: "5.3", title: "Diagonalization", skills: [la.diagonalization] }
+  - n: 6
+    title: "Orthogonality and Least Squares"
+    skills: [la.orthogonality, la.least-squares]
+  - n: 7
+    title: "Symmetric Matrices and Quadratic Forms"
+    skills: [la.diagonalization]

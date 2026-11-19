@@ -104,6 +104,10 @@ skills:
   - { id: la.determinant, domain: la, title: "3×3 determinants (cofactor expansion)", short: "Determinants", status: live, levels: { 1: [la-det] } }
   - { id: la.eigenvalues, domain: la, title: "2×2 eigenvalues", short: "Eigenvalues", status: live, aliases: [calc.eigen-2x2, calc-eigen-2x2], prereqs: [la.determinant], levels: { 1: [la-eigenvalues] } }
   - { id: la.eigenvectors, domain: la, title: "2×2 eigenvectors", short: "Eigenvectors", status: live, prereqs: [la.eigenvalues, la.row-reduction], levels: { 1: [la-eigenvector] } }
+  - { id: la.rank, domain: la, title: "Rank and the null space", short: "Rank and nullity" }
+  - { id: la.orthogonality, domain: la, title: "Orthogonality, projection and Gram–Schmidt", short: "Orthogonality" }
+  - { id: la.least-squares, domain: la, title: "Least squares and the normal equations", short: "Least squares" }
+  - { id: la.diagonalization, domain: la, title: "Diagonalisation, symmetric matrices and singular values", short: "Diagonalisation" }
 
   # ── second-order & higher linear ODEs ───────────────────────────────────
   - id: ode2.characteristic
