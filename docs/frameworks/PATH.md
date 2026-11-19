@@ -1,6 +1,6 @@
 # The path — start to finish
 
-Every framework in `requires` order; inside each, units and objectives in order, except that 132 objectives move up to sit just after the prerequisites they need. 2831 objectives in 23 frameworks.
+Every framework in `requires` order; inside each, units and objectives in order, except that 132 objectives move up to sit just after the prerequisites they need. 2833 objectives in 23 frameworks.
 
 | # | Framework | Track | Requires | LOs | Path position |
 |---|---|---|---|---|---|
@@ -14,16 +14,16 @@ Every framework in `requires` order; inside each, units and objectives in order,
 | 8 | Physical Chemistry | science | chemistry, calculus, physics | 141 | 1212–1352 |
 | 9 | Anchor Quantities | science | chemistry | 14 | 1353–1366 |
 | 10 | Biology (AP) | science | chemistry | 179 | 1367–1545 |
-| 11 | Structures from Memory | science | chemistry | 9 | 1546–1554 |
-| 12 | Programming Foundations | computing | math-hs | 140 | 1555–1694 |
-| 13 | Computer Science | computing | programming | 140 | 1695–1834 |
-| 14 | Information Systems | computing | computer-science | 53 | 1835–1887 |
-| 15 | Heat Transfer | engineering | engineering-math, physics | 98 | 1888–1985 |
-| 16 | Thermodynamics and Statistical Mechanics | engineering | engineering-math, chemistry, physics | 124 | 1986–2109 |
-| 17 | Molecular Simulation | engineering | thermodynamics, programming | 102 | 2110–2211 |
-| 18 | Dental Admission Test | health | biology, chemistry | 183 | 2212–2394 |
-| 19 | AI Safety | safety | programming, calculus | 104 | 2395–2498 |
-| 20 | Speaking and Articulation | communication | — | 69 | 2499–2567 |
-| 21 | Basketball | athletics | — | 88 | 2568–2655 |
-| 22 | Swimming | athletics | — | 88 | 2656–2743 |
-| 23 | Wushu | athletics | — | 88 | 2744–2831 |
+| 11 | Structures from Memory | science | chemistry | 11 | 1546–1556 |
+| 12 | Programming Foundations | computing | math-hs | 140 | 1557–1696 |
+| 13 | Computer Science | computing | programming | 140 | 1697–1836 |
+| 14 | Information Systems | computing | computer-science | 53 | 1837–1889 |
+| 15 | Heat Transfer | engineering | engineering-math, physics | 98 | 1890–1987 |
+| 16 | Thermodynamics and Statistical Mechanics | engineering | engineering-math, chemistry, physics | 124 | 1988–2111 |
+| 17 | Molecular Simulation | engineering | thermodynamics, programming | 102 | 2112–2213 |
+| 18 | Dental Admission Test | health | biology, chemistry | 183 | 2214–2396 |
+| 19 | AI Safety | safety | programming, calculus | 104 | 2397–2500 |
+| 20 | Speaking and Articulation | communication | — | 69 | 2501–2569 |
+| 21 | Basketball | athletics | — | 88 | 2570–2657 |
+| 22 | Swimming | athletics | — | 88 | 2658–2745 |
+| 23 | Wushu | athletics | — | 88 | 2746–2833 |
