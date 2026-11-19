@@ -1,0 +1,392 @@
+# K–8: the open and partly drilled objectives that a one-question item can honestly cover.
+# What stays open after this file is physical (use a protractor, build a shape, draw with a ruler).
+
+- template: k8-compare-groups
+  skill: k8.counting
+  pace: recall
+  given: { a: { int: [1, 10] }, b: { int: [1, 10] } }
+  cases:
+    - { p: 'apples', q: 'pears' }
+    - { p: 'red blocks', q: 'blue blocks' }
+    - { p: 'cats', q: 'dogs' }
+  prompt: 'There are ${{a}}$ {{p}} and ${{b}}$ {{q}}. The number of {{p}} is…'
+  parts:
+    - ask: 'Compared with the {{q}}'
+      label: v
+      choice: ["Greater", "Less", "Equal"]
+      correct: "a > b ? 0 : (a < b ? 1 : 2)"
+      explain: 'Match them up one to one, or count each group: the number you say later when counting is the greater one'
+  verify: { choices: { v: "0 if a > b else (1 if a < b else 2)" } }
+
+- template: k8-order-lengths
+  skill: k8.measurement
+  pace: recall
+  cases:
+    - { say: 'A pencil is 7 cubes long, a crayon 4 cubes and a marker 9 cubes. Which is the shortest?', ans: 1 }
+    - { say: 'A pencil is 7 cubes long, a crayon 4 cubes and a marker 9 cubes. Which is the longest?', ans: 2 }
+    - { say: 'The pencil is longer than the crayon, and the crayon is longer than the marker. Which is the longest?', ans: 0 }
+    - { say: 'The pencil is shorter than the crayon, and the marker is shorter than the pencil. Which is the longest?', ans: 1 }
+    - { say: 'The pencil and the marker are too far apart to hold side by side. The pencil is shorter than a piece of string, and the marker is longer than the same string. Which is longer?', ans: 2 }
+  prompt: '{{say}}'
+  parts:
+    - ask: 'Which one?'
+      label: v
+      choice: ["The pencil", "The crayon", "The marker"]
+      correct: ans
+      explain: 'Put the three in a row from shortest to longest. Two things that cannot be held together can still be compared through a third: shorter than the string, which is shorter than the other'
+  verify: { authored: true }
+
+- template: k8-name-the-shape
+  skill: k8.geometry
+  pace: recall
+  cases:
+    - { say: 'A closed shape with 3 straight sides, drawn with a point at the bottom', ans: 0 }
+    - { say: 'A closed shape with 4 equal sides and 4 square corners, turned so that it stands on a corner', ans: 1 }
+    - { say: 'A very long, thin closed shape with 4 square corners and opposite sides equal', ans: 2 }
+    - { say: 'A closed shape with 6 straight sides', ans: 3 }
+    - { say: 'A tiny round shape with no corners, every point the same distance from the middle', ans: 4 }
+    - { say: 'A large closed shape with 3 straight sides, one of them much longer than the others', ans: 0 }
+  prompt: '{{say}} is a…'
+  parts:
+    - ask: 'Shape'
+      label: v
+      choice: ["Triangle", "Square", "Rectangle", "Hexagon", "Circle"]
+      correct: ans
+      explain: 'A shape is named by its sides and corners. Turning it, stretching it or changing its size does not change the name'
+  verify: { authored: true }
+
+- template: k8-compose-shapes
+  skill: k8.geometry
+  pace: recall
+  cases:
+    - { say: 'Two identical right triangles joined along their longest sides', ans: 0 }
+    - { say: 'Two identical squares joined along a full side', ans: 0 }
+    - { say: 'Six identical equilateral triangles meeting at one point', ans: 1 }
+    - { say: 'Two identical equilateral triangles joined along a full side', ans: 2 }
+    - { say: 'A square with an equilateral triangle on top, sharing one full side', ans: 3 }
+    - { say: 'Two identical cubes stacked face to face', ans: 4 }
+  prompt: '{{say}} make a…'
+  parts:
+    - ask: 'New shape'
+      label: v
+      choice: ["Rectangle", "Hexagon", "Rhombus", "Pentagon", "Rectangular prism"]
+      correct: ans
+      explain: 'Count the sides (or faces) that are left on the outside after joining. Sides that line up straight count as one'
+  verify: { authored: true }
+
+- template: k8-make-ten-in-sum
+  skill: k8.add-sub
+  pace: recall
+  given: { a: { int: [1, 9] }, b: { int: [2, 9] } }
+  prompt: 'In your head: ${{a}} + {{b}} + {{10 - a}}$'
+  parts:
+    - { ask: 'Sum', label: v, tex: 'x', value: 10 + b, tol: 0.0001, explain: 'Numbers can be added in any order and grouping, so pair the two that make ten first: $({{a}} + {{10 - a}}) + {{b}}$' }
+  verify: { expect: { v: "a + b + (10 - a)" } }
+
+- template: k8-count-on-to-add
+  skill: k8.add-sub
+  pace: recall
+  given: { a: { int: [5, 17] }, b: { pick: [1, 2, 3] } }
+  prompt: 'To find ${{a}} + {{b}}$, start at ${{a}}$ and count on ${{b}}$ more. What number do you land on?'
+  parts:
+    - { ask: 'Number', label: v, tex: 'x', value: a + b, tol: 0.0001, explain: 'Adding $n$ is the same as counting on $n$ numbers; subtracting is counting back' }
+  verify: { expect: { v: "[q for q in range(a, a + b + 1)][-1]" } }
+
+- template: k8-equal-shares
+  skill: k8.fractions
+  pace: recall
+  cases:
+    - { say: 'A circle is cut into 2 equal shares. One share is called a…', ans: 0 }
+    - { say: 'A rectangle is cut into 4 equal shares. One share is called a…', ans: 1 }
+    - { say: 'A pie is cut into 3 equal shares. One share is called a…', ans: 2 }
+    - { say: 'Two identical pies: one is cut into halves, the other into fourths. Which share is bigger?', ans: 0 }
+    - { say: 'Two identical cakes: one is cut into thirds, the other into fourths. Which share is smaller?', ans: 1 }
+  prompt: '{{say}}'
+  parts:
+    - ask: 'Answer'
+      label: v
+      choice: ["Half", "Fourth (quarter)", "Third"]
+      correct: ans
+      explain: 'Shares are named by how many equal ones make the whole. Cutting the same whole into more shares makes each share smaller'
+  verify: { authored: true }
+
+- template: k8-add-by-place-value
+  skill: k8.add-sub
+  pace: recall
+  given: { a: { int: [21, 68] }, b: { int: [12, 29] } }
+  require: ["mod(a, 10) + mod(b, 10) >= 10"]
+  prompt: 'To add ${{a}} + {{b}}$, add the tens (${{floor(a/10)*10}} + {{floor(b/10)*10}}$) and the ones (${{mod(a, 10)}} + {{mod(b, 10)}}$) separately. What do the ones add to?'
+  parts:
+    - ask: 'Ones total'
+      label: o
+      tex: 'x'
+      value: mod(a, 10) + mod(b, 10)
+      tol: 0.0001
+      explain: 'The ones make ${{mod(a, 10) + mod(b, 10)}}$, which is one more ten and ${{mod(mod(a, 10) + mod(b, 10), 10)}}$ ones'
+    - ask: '${{a}} + {{b}}$'
+      label: s
+      tex: 'x'
+      value: a + b
+      tol: 0.0001
+      explain: 'Tens ${{floor(a/10)*10 + floor(b/10)*10}}$ plus ones ${{mod(a, 10) + mod(b, 10)}}$. The method works because each number is its tens plus its ones, and the parts can be added in any order'
+  verify: { expect: { o: "a % 10 + b % 10", s: "a + b" } }
+
+- template: k8-two-units
+  skill: k8.measurement
+  pace: recall
+  given: { n: { int: [2, 9] } }
+  cases:
+    - { big: 'feet', small: 'inches', f: 12 }
+    - { big: 'yards', small: 'feet', f: 3 }
+    - { big: 'metres', small: 'centimetres', f: 100 }
+  prompt: 'A table is ${{n}}$ {{big}} long. Measured in {{small}}, the number will be…'
+  parts:
+    - ask: 'Bigger or smaller?'
+      label: v
+      choice: ["Bigger: a smaller unit fits more times", "Smaller: a smaller unit fits fewer times"]
+      correct: 0
+      explain: 'The length has not changed, so a shorter unit must be laid down more times'
+    - ask: 'Length in {{small}}'
+      label: L
+      tex: 'L'
+      value: n*f
+      tol: 0.0001
+      explain: 'Each of the ${{n}}$ {{big}} is ${{f}}$ {{small}}'
+  verify: { expect: { L: "sum([f for q in range(n)])" }, choices: { v: "0 if n*f > n else 1" } }
+
+- template: k8-sensible-length
+  skill: k8.measurement
+  pace: recall
+  cases:
+    - { thing: 'a new pencil', ans: 0 }
+    - { thing: 'a classroom door, top to bottom', ans: 1 }
+    - { thing: 'a paper clip', ans: 2 }
+    - { thing: 'a school bus', ans: 3 }
+    - { thing: 'the width of your hand', ans: 4 }
+    - { thing: 'a baseball bat', ans: 5 }
+  prompt: 'About how long is {{thing}}?'
+  parts:
+    - ask: 'Best estimate'
+      label: v
+      choice: ["7 inches", "2 metres", "3 centimetres", "12 metres", "10 centimetres", "1 metre"]
+      correct: ans
+      explain: 'Handy benchmarks: a finger is about 1 cm wide, a hand about 10 cm, a big step about 1 m; an inch is a thumb joint and a foot is a ruler'
+  verify: { authored: true }
+
+- template: k8-how-much-longer
+  skill: k8.measurement
+  pace: recall
+  given: { a: { int: [12, 60] }, d: { int: [3, 25] } }
+  cases:
+    - { u: 'centimetres', k: 0 }
+    - { u: 'inches', k: 0 }
+    - { u: 'centimetres', k: 1 }
+  prompt: '{{k == 0 ? "A ribbon is" : "A red ribbon is"}} ${{a + d}}$ {{u}} long {{k == 0 ? "and a string is" : "and a blue ribbon is"}} ${{a}}$ {{u}} long. {{k == 0 ? "How much longer is the ribbon?" : "Laid end to end, how long are they together?"}}'
+  parts:
+    - { ask: 'Length in {{u}}', label: v, tex: 'x', value: "k == 0 ? d : 2*a + d", tol: 0.0001, explain: '"How much longer" is a difference; "together" is a sum. Both must be in the same unit first' }
+  verify: { expect: { v: "(a + d) - a if k == 0 else (a + d) + a" } }
+
+- template: k8-multiply-by-breaking
+  skill: k8.mult-div
+  pace: recall
+  given: { a: { int: [6, 9] }, b: { int: [6, 9] } }
+  prompt: 'You know ${{a}} \times 5 = {{5*a}}$. Use it to find ${{a}} \times {{b}}$.'
+  parts:
+    - { ask: 'Product', label: v, tex: 'x', value: a*b, tol: 0.0001, explain: 'Break ${{b}}$ into $5 + {{b - 5}}$: ${{a}} \times {{b}} = {{a}} \times 5 + {{a}} \times {{b - 5}} = {{5*a}} + {{a*(b - 5)}}$. That is the distributive property' }
+  verify: { expect: { v: "a*5 + a*(b - 5)" } }
+
+- template: k8-arithmetic-patterns
+  skill: k8.mult-div
+  pace: recall
+  cases:
+    - { say: 'An even number times any whole number is…', ans: 0 }
+    - { say: 'An odd number times an odd number is…', ans: 1 }
+    - { say: 'The sum of two odd numbers is…', ans: 0 }
+    - { say: 'The sum of an even number and an odd number is…', ans: 1 }
+    - { say: 'A number times 4 is…', ans: 0 }
+    - { say: 'A multiple of 5 that is also a multiple of 2 ends in which digit: an even one or an odd one?', ans: 0 }
+  prompt: '{{say}}'
+  parts:
+    - ask: 'Always…'
+      label: v
+      choice: ["Even", "Odd"]
+      correct: ans
+      explain: 'An even number is two equal groups. Multiplying keeps the two groups; adding two odd numbers pairs up their leftover ones. Patterns in the tables come from properties like these'
+  verify: { authored: true }
+
+- template: k8-mass-volume-problem
+  skill: k8.measurement
+  pace: recall
+  given: { n: { int: [3, 9] }, m: { pick: [150, 200, 250, 500] } }
+  cases:
+    - { thing: 'apples', each: 'has a mass of', u: 'grams', tot: 'What is their total mass, in grams?' }
+    - { thing: 'cups', each: 'holds', u: 'millilitres', tot: 'How much do they hold together, in millilitres?' }
+  prompt: 'Each of ${{n}}$ {{thing}} {{each}} ${{m}}$ {{u}}. {{tot}}'
+  parts:
+    - { ask: 'Total', label: v, tex: 'x', value: n*m, tol: 0.0001, explain: 'Equal groups: ${{n}} \times {{m}}$. For scale, a paper clip is about 1 gram, a litre of water is 1 kilogram, and a teaspoon is 5 millilitres' }
+  verify: { expect: { v: "sum([m for q in range(n)])" } }
+
+- template: k8-fraction-word-problem
+  skill: k8.fractions
+  pace: recall
+  given: { d: { pick: [5, 6, 8, 10, 12] }, a: { int: [1, 5] }, b: { int: [1, 5] } }
+  cases:
+    - { k: 0, say: 'of a pizza and then', q: 'more. How much of the pizza did she eat in all?' }
+    - { k: 1, say: 'of a litre of juice and drank', q: 'of a litre. How much is left?' }
+  require: ["a + b < d", "a > b"]
+  prompt: 'Maya {{k == 0 ? "ate" : "had"}} $\tfrac{ {{k == 0 ? a : a + b}} }{ {{d}} }$ {{say}} $\tfrac{ {{b}} }{ {{d}} }$ {{q}} (Give a fraction.)'
+  parts:
+    - { ask: 'Amount', label: v, tex: 'x', value: "k == 0 ? (a + b)/d : a/d", tol: 0.00001, explain: 'The pieces are the same size (same denominator), so add or subtract the numerators and keep the denominator' }
+  verify: { expect: { v: "Rational(a, d) + Rational(b, d) if k == 0 else Rational(a + b, d) - Rational(b, d)" } }
+
+- template: k8-elapsed-time
+  skill: k8.measurement
+  pace: quick
+  given: { h1: { int: [1, 9] }, m1: { pick: [10, 15, 25, 40, 45, 50] }, dur: { pick: [35, 50, 75, 95, 110, 135] } }
+  prompt: 'A film starts at ${{h1}}{:}{{m1}}$ and lasts ${{dur}}$ minutes. How many minutes past the hour does it end?'
+  parts:
+    - ask: 'Minutes past the hour'
+      label: mm
+      tex: 'm'
+      value: mod(m1 + dur, 60)
+      tol: 0.0001
+      explain: '${{dur}}$ minutes is ${{floor(dur/60)}}$ h ${{mod(dur, 60)}}$ min. Add the minutes, ${{m1}} + {{mod(dur, 60)}}$, and carry 60 into the hours'
+  require: ["mod(m1 + dur, 60) != 0"]
+  verify: { expect: { mm: "(m1 + dur) % 60" } }
+
+- template: k8-classify-angle
+  skill: k8.geometry
+  pace: recall
+  given: { deg: { pick: [15, 30, 45, 60, 75, 89, 90, 91, 100, 120, 135, 150, 179, 180] } }
+  prompt: 'An angle measures ${{deg}}^\circ$. It is…'
+  parts:
+    - ask: 'Kind of angle'
+      label: v
+      choice: ["Acute", "Right", "Obtuse", "Straight"]
+      correct: "deg < 90 ? 0 : (deg == 90 ? 1 : (deg < 180 ? 2 : 3))"
+      explain: 'Acute is less than 90°, right is exactly 90°, obtuse is between 90° and 180°, and a straight angle is 180°'
+  verify: { choices: { v: "0 if deg < 90 else (1 if deg == 90 else (2 if deg < 180 else 3))" } }
+
+- template: k8-volume-by-layers
+  skill: geo.measurement
+  pace: recall
+  given: { l: { int: [2, 6] }, w: { int: [2, 5] }, h: { int: [2, 5] } }
+  prompt: 'A box is packed with unit cubes: each layer has ${{l}}$ rows of ${{w}}$ cubes, and there are ${{h}}$ layers. What is its volume in cubic units?'
+  parts:
+    - { ask: 'Volume', label: v, tex: 'V', value: l*w*h, tol: 0.0001, explain: 'A solid packed with $n$ unit cubes, no gaps and no overlaps, has volume $n$. One layer is ${{l*w}}$ cubes; ${{h}}$ layers make ${{l*w*h}}$' }
+  verify: { expect: { v: "sum([l*w for q in range(h)])" } }
+
+- template: k8-signed-context
+  skill: k8.integers
+  pace: recall
+  given: { a: { int: [5, 40] }, b: { int: [6, 60] } }
+  cases:
+    - { k: 0 }
+    - { k: 1 }
+    - { k: 2 }
+  require: ["a != b"]
+  prompt: 'Start: ${{a}}$ {{k == 1 ? "degrees below zero" : (k == 0 ? "metres below sea level" : "dollars overdrawn")}}. Change: {{k == 1 ? "falls" : (k == 0 ? "rises" : "deposit of")}} ${{b}}$.'
+  parts:
+    - { ask: '{{k == 1 ? "New temperature (degrees)" : (k == 0 ? "New elevation (metres; negative is below sea level)" : "New balance (dollars; negative is overdrawn)")}}', label: v, tex: 'x', value: "k == 1 ? -a - b : -a + b", tol: 0.0001, explain: 'Below zero, below sea level and owing money are all negative. Zero means the freezing mark, sea level, or a balance of nothing. Start at $-{{a}}$ and move' }
+  verify: { expect: { v: "-a - b if k == 1 else -a + b" } }
+
+- template: k8-histogram-read
+  skill: k8.data
+  pace: quick
+  given: { f1: { int: [1, 6] }, f2: { int: [2, 9] }, f3: { int: [2, 9] }, f4: { int: [1, 5] } }
+  prompt: 'The histogram shows the scores of a class on a quiz, grouped in tens.'
+  figure: { type: bars, labels: ["60–69", "70–79", "80–89", "90–99"], values: [f1, f2, f3, f4] }
+  parts:
+    - ask: 'How many students took the quiz?'
+      label: n
+      tex: 'n'
+      value: f1 + f2 + f3 + f4
+      tol: 0.0001
+      explain: 'Add the heights of the bars: each bar counts the scores in its interval'
+    - ask: 'How many scored 80 or above?'
+      label: hi
+      tex: 'x'
+      value: f3 + f4
+      tol: 0.0001
+      explain: 'The last two bars. A histogram shows the shape of a distribution (where it peaks, how it spreads) but not the individual values'
+  verify: { expect: { n: "sum([f1, f2, f3, f4])", hi: "sum([f3, f4])" } }
+
+- template: k8-triangle-possible
+  skill: k8.geometry
+  pace: recall
+  given: { a: { int: [2, 9] }, b: { int: [2, 9] }, c: { int: [3, 17] } }
+  prompt: 'Can sides of length ${{a}}$, ${{b}}$ and ${{c}}$ form a triangle?'
+  parts:
+    - ask: 'Triangle?'
+      label: v
+      choice: ["Yes, and only one shape", "No"]
+      correct: "(a + b > c and a + c > b and b + c > a) ? 0 : 1"
+      explain: 'The two shorter sides together must be longer than the longest side, or they cannot meet. When three lengths do work, they fix the triangle completely'
+  verify: { choices: { v: "0 if sorted([a, b, c])[0] + sorted([a, b, c])[1] > sorted([a, b, c])[2] else 1" } }
+
+- template: k8-third-angle
+  skill: k8.geometry
+  pace: recall
+  given: { a: { int: [25, 95] }, b: { int: [20, 70] } }
+  require: ["a + b < 170"]
+  prompt: 'Two angles of a triangle measure ${{a}}^\circ$ and ${{b}}^\circ$. What is the third?'
+  parts:
+    - { ask: 'Third angle (degrees)', label: v, tex: 'x', value: 180 - a - b, tol: 0.0001, explain: 'The angles of a triangle add to 180°. Two angles fix the third, but not the size of the triangle: many similar triangles share them' }
+  verify: { expect: { v: "solve(Eq(a + b + x, 180), x)[0]" } }
+
+- template: k8-compare-two-samples
+  skill: k8.data
+  pace: quick
+  given: { m1: { int: [60, 70] }, gap: { pick: [4, 6, 8, 12] }, mad: { pick: [2, 4] } }
+  prompt: 'Two teams'' heights have means ${{m1}}$ in and ${{m1 + gap}}$ in. Both have a mean absolute deviation of about ${{mad}}$ in.'
+  parts:
+    - ask: 'The difference between the means is how many times the variability?'
+      label: v
+      tex: 'x'
+      value: gap/mad
+      tol: 0.0001
+      explain: '$({{m1 + gap}} - {{m1}}) \div {{mad}}$. A gap of two or more deviations means the two distributions barely overlap, so the difference is noticeable; a gap under one deviation is mostly overlap'
+  verify: { expect: { v: "Rational((m1 + gap) - m1, mad)" } }
+
+- template: k8-simulation-estimate
+  skill: stats.probability
+  pace: quick
+  given: { trials: { pick: [20, 40, 50] }, hits: { int: [3, 15] } }
+  cases:
+    - { say: 'To model two free throws by a 50% shooter, a student flips two coins (heads = made) and repeats this', what: 'both made' }
+    - { say: 'To model whether it rains on both days of a weekend when each day has a 50% chance, a student flips two coins and repeats this', what: 'rain on both days' }
+  prompt: '{{say}} ${{trials}}$ times. In ${{hits}}$ of the trials both coins were heads. Estimate the probability of {{what}} (a fraction or decimal).'
+  parts:
+    - { ask: 'Estimate', label: v, tex: 'P', value: hits/trials, tol: 0.0001, explain: 'Relative frequency: ${{hits}} \div {{trials}}$. The theoretical value is $\tfrac12 \times \tfrac12 = 0.25$; a simulation should land near it and gets closer with more trials' }
+  verify: { expect: { v: "Rational(hits, trials)" } }
+
+- template: k8-graph-story
+  skill: k8.linear
+  pace: quick
+  given: { t1: { pick: [2, 3] }, t2: { pick: [2, 3] }, t3: { pick: [2, 3] }, h: { pick: [4, 6] } }
+  prompt: 'The graph shows a hiker''s distance from camp (km) against time (hours).'
+  figure:
+    type: plot
+    x: [0, 10]
+    y: [0, 8]
+    tick: 1
+    xlabel: t
+    ylabel: d
+    segments:
+      - { from: [0, 0], to: [t1, h] }
+      - { from: [t1, h], to: ["t1 + t2", h] }
+      - { from: ["t1 + t2", h], to: ["t1 + t2 + t3", 0] }
+  parts:
+    - ask: 'For how many hours was the hiker resting?'
+      label: r
+      tex: 't'
+      value: t2
+      tol: 0.0001
+      explain: 'Resting is the flat piece: time passes and the distance does not change'
+    - ask: 'At what time did the hiker start heading back?'
+      label: b
+      tex: 't'
+      value: t1 + t2
+      tol: 0.0001
+      explain: 'Where the graph turns from flat to falling. A rising piece is an increasing function, a falling piece a decreasing one; each straight piece is linear, but the whole graph is not'
+  verify: { expect: { r: "(t1 + t2) - t1", b: "t1 + t2" } }

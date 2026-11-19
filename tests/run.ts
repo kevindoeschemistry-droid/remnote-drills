@@ -10,7 +10,7 @@
 import * as fs from "fs";
 import * as katex from "katex";
 import { LIVE_SKILLS, ALL_SKILLS, resolveSkill, placesFor, placeText, primaryPlace, SOURCES } from "../src/drills/skills";
-import { generate, generateTemplate, TEMPLATES } from "../src/drills/registry";
+import { generate, generateTemplate, TEMPLATES, TEMPLATE_MAPS } from "../src/drills/registry";
 import { check } from "../src/drills/check";
 import type { Answer, Problem } from "../src/drills/types";
 import { LAPLACE_FOURIER_CASES } from "./cases/laplace-fourier";
@@ -21,6 +21,17 @@ const fail = (msg: string) => {
   failures++;
   if (failures < 60) console.log("FAIL:", msg);
 };
+
+// a template name may be defined once only: a second definition would silently replace the first
+{
+  const owner: Record<string, number> = {};
+  TEMPLATE_MAPS.forEach((m, i) => {
+    for (const k of Object.keys(m)) {
+      if (owner[k] !== undefined) fail(`template "${k}" is defined twice (maps ${owner[k]} and ${i}): rename one`);
+      owner[k] = i;
+    }
+  });
+}
 const SEEDS = Number(process.env.SEEDS ?? 30);
 
 // ── reference / perturbed inputs per answer kind ───────────────────────────

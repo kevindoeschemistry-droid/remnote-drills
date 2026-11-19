@@ -25,28 +25,31 @@ import { DATA_TEMPLATES } from "./gen-data";
 import { K8_TEMPLATES } from "./gen-k8";
 import { HS_TEMPLATES } from "./gen-hs";
 
-export const TEMPLATES: Record<string, (r: Rng) => Draft> = {
-  ...FIRST_ORDER_TEMPLATES,
-  ...SERIES_TEMPLATES,
-  ...STURM_TEMPLATES,
-  ...SPRING_TEMPLATES,
-  ...LINEAR2_TEMPLATES,
-  ...KINETICS_TEMPLATES,
-  ...HEAT_TEMPLATES,
-  ...HEAT2_TEMPLATES,
-  ...LINALG_TEMPLATES,
-  ...ODE2_SYS_TEMPLATES,
-  ...LAPLACE_FOURIER_TEMPLATES,
-  ...LAPLACE2_TEMPLATES,
-  ...HEAT3_TEMPLATES,
-  ...THERMO_TEMPLATES,
-  ...STAT_TEMPLATES,
-  ...CALC_ODE1_TEMPLATES,
-  ...MAE120_TEMPLATES,
-  ...DATA_TEMPLATES,
-  ...K8_TEMPLATES,
-  ...HS_TEMPLATES,
-};
+/** every template map, in the order they are merged: a name must appear in only one (tests/run.ts checks) */
+export const TEMPLATE_MAPS: Record<string, (r: Rng) => Draft>[] = [
+  FIRST_ORDER_TEMPLATES,
+  SERIES_TEMPLATES,
+  STURM_TEMPLATES,
+  SPRING_TEMPLATES,
+  LINEAR2_TEMPLATES,
+  KINETICS_TEMPLATES,
+  HEAT_TEMPLATES,
+  HEAT2_TEMPLATES,
+  LINALG_TEMPLATES,
+  ODE2_SYS_TEMPLATES,
+  LAPLACE_FOURIER_TEMPLATES,
+  LAPLACE2_TEMPLATES,
+  HEAT3_TEMPLATES,
+  THERMO_TEMPLATES,
+  STAT_TEMPLATES,
+  CALC_ODE1_TEMPLATES,
+  MAE120_TEMPLATES,
+  DATA_TEMPLATES,
+  K8_TEMPLATES,
+  HS_TEMPLATES,
+];
+
+export const TEMPLATES: Record<string, (r: Rng) => Draft> = Object.assign({}, ...TEMPLATE_MAPS);
 
 /** Generate one problem for a skill. Same (skill, seed, level) -> same problem. */
 export function generate(skillName: string, seed: number, level = 1): Problem {

@@ -2,7 +2,7 @@
 
 Generated from `drills/frameworks/calculus.yaml` by `scripts/framework.mjs`. ● drilled · ◐ partly · ○ no drills yet.
 
-**173 learning objectives** in 14 units (100 core): 160 drilled, 8 partly, 5 with no drills. Core: 90 / 100 drilled.
+**173 learning objectives** in 14 units (100 core): 173 drilled, 0 partly, 0 with no drills. Core: 100 / 100 drilled.
 
 ## Big ideas
 
@@ -21,18 +21,18 @@ Generated from `drills/frameworks/calculus.yaml` by `scripts/framework.mjs`. ●
 
 | Unit | Scope | Est. weight | LOs | ● | ◐ | ○ |
 |---|---|---|---|---|---|---|
-| 1 · Limits and continuity | core | — | 18 | 14 | 2 | 2 |
-| 2 · Differentiation: definition and fundamental properties | core | — | 13 | 11 | 1 | 1 |
+| 1 · Limits and continuity | core | — | 18 | 18 | 0 | 0 |
+| 2 · Differentiation: definition and fundamental properties | core | — | 13 | 13 | 0 | 0 |
 | 3 · Differentiation: composite, implicit and inverse functions | core | — | 7 | 7 | 0 | 0 |
-| 4 · Contextual applications of differentiation | core | — | 9 | 8 | 1 | 0 |
-| 5 · Analytical applications of differentiation | core | — | 13 | 10 | 2 | 1 |
+| 4 · Contextual applications of differentiation | core | — | 9 | 9 | 0 | 0 |
+| 5 · Analytical applications of differentiation | core | — | 13 | 13 | 0 | 0 |
 | 6 · Integration and accumulation of change | core | — | 17 | 17 | 0 | 0 |
 | 7 · Differential equations | core | — | 9 | 9 | 0 | 0 |
 | 8 · Applications of integration | core | — | 14 | 14 | 0 | 0 |
-| 9 · Parametric equations, polar coordinates and vector-valued functions (BC only) | bc | — | 10 | 9 | 1 | 0 |
-| 10 · Infinite sequences and series (BC only) | bc | — | 20 | 19 | 1 | 0 |
+| 9 · Parametric equations, polar coordinates and vector-valued functions (BC only) | bc | — | 10 | 10 | 0 | 0 |
+| 10 · Infinite sequences and series (BC only) | bc | — | 20 | 20 | 0 | 0 |
 | 11 · Vectors and the geometry of space | extension | — | 8 | 8 | 0 | 0 |
-| 12 · Partial derivatives | extension | — | 12 | 11 | 0 | 1 |
+| 12 · Partial derivatives | extension | — | 12 | 12 | 0 | 0 |
 | 13 · Multiple integrals | extension | — | 9 | 9 | 0 | 0 |
 | 14 · Vector calculus | extension | — | 14 | 14 | 0 | 0 |
 
@@ -44,17 +44,17 @@ Big ideas: CHA, LIM, FUN
 
 
 
-- ○ **CA-1.1.A** (CHA-1.A) Explain why an instantaneous rate of change has to be defined as a limit of average rates over shrinking intervals.
+- ● **CA-1.1.A** (CHA-1.A) Explain why an instantaneous rate of change has to be defined as a limit of average rates over shrinking intervals.
   - EK: Average rate = Δy/Δx over an interval; at a single instant Δx = 0, so the rate is what Δy/Δx approaches as Δx → 0.
-  - P2
+  - P2 · drills: ca-shrinking-average-rate
 
 ### 1.2 Limits and limit notation
 
 
 
-- ◐ **CA-1.2.A** (LIM-1.A) Read and write limit statements in symbols and words, including one-sided limits.
+- ● **CA-1.2.A** (LIM-1.A) Read and write limit statements in symbols and words, including one-sided limits.
   - EK: lim_(x→c) f(x) = L means f(x) can be made as close to L as wanted by taking x close enough to c (x ≠ c); f(c) itself is irrelevant.
-  - P4 · drills: ~ca-limit-graph
+  - P4 · drills: ca-limit-statement, ~ca-limit-graph
 - ● **CA-1.2.B** (LIM-1.B) Decide whether a limit exists by comparing the two one-sided limits.
   - EK: lim_(x→c) f(x) exists ⇔ both one-sided limits exist and are equal; unbounded or oscillating behaviour means no limit.
   - Needs: CA-1.2.A
@@ -121,10 +121,10 @@ Big ideas: CHA, LIM, FUN
 
 
 
-- ◐ **CA-1.9.A** (LIM-1.C, LIM-1.D) Find the same limit from a graph, a table and a formula, and resolve disagreements between them.
+- ● **CA-1.9.A** (LIM-1.C, LIM-1.D) Find the same limit from a graph, a table and a formula, and resolve disagreements between them.
   - EK: Graphs and tables estimate; algebra decides. All three should agree once the scale and sample are right.
   - Needs: CA-1.3.A, CA-1.4.A, CA-1.7.A
-  - P2 · drills: ~ca-limit-table, ~ca-limit-graph
+  - P2 · drills: ca-limit-three-ways, ~ca-limit-table, ~ca-limit-graph
 
 ### 1.10 Types of discontinuities
 
@@ -148,10 +148,10 @@ Big ideas: CHA, LIM, FUN
 
 
 
-- ○ **CA-1.12.A** (LIM-2.B) State the intervals on which a function (including a piecewise one) is continuous.
+- ● **CA-1.12.A** (LIM-2.B) State the intervals on which a function (including a piecewise one) is continuous.
   - EK: Polynomials, rational, power, exponential, log and trig functions are continuous on their domains; check a piecewise function at its break points.
   - Needs: CA-1.11.A
-  - P3
+  - P3 · drills: ca-make-continuous
 
 ### 1.13 Removing discontinuities
 
@@ -199,10 +199,10 @@ Big ideas: CHA, LIM, FUN
 - ● **CA-2.1.A** (CHA-2.A) Calculate an average rate of change as the slope of a secant line.
   - EK: (f(b) − f(a))/(b − a), in units of output per unit input.
   - P1 · drills: ca-avg-rate
-- ◐ **CA-2.1.B** (CHA-2.B) Express an instantaneous rate of change as the limit of a difference quotient.
+- ● **CA-2.1.B** (CHA-2.B) Express an instantaneous rate of change as the limit of a difference quotient.
   - EK: lim_(h→0) (f(a + h) − f(a))/h — the secant slope as the interval shrinks to a point.
   - Needs: CA-2.1.A, CA-1.1.A
-  - P2 · drills: ~ca-def-derivative
+  - P2 · drills: ca-difference-quotient-limit, ~ca-def-derivative
 
 ### 2.2 The derivative and its notation
 
@@ -261,10 +261,10 @@ Big ideas: CHA, LIM, FUN
   - EK: (sin x)′ = cos x, (cos x)′ = −sin x, (e^x)′ = e^x, (ln x)′ = 1/x.
   - Needs: CA-2.6.A
   - P1 · drills: ca-elementary-derivative
-- ○ **CA-2.7.B** (LIM-3.A) Derive the derivative of sin x or e^x from the limit definition.
+- ● **CA-2.7.B** (LIM-3.A) Derive the derivative of sin x or e^x from the limit definition.
   - EK: sin(x+h) = sin x cos h + cos x sin h, then use sin h/h → 1 and (cos h − 1)/h → 0.
   - Needs: CA-2.2.A, CA-1.6.B
-  - P3
+  - P3 · drills: ca-derive-sin-exp
 
 ### 2.8 The product rule
 
@@ -381,10 +381,10 @@ Big ideas: CHA, LIM
 
 
 
-- ◐ **CA-4.3.A** (CHA-3.C) Interpret first and second derivatives of applied quantities (cost, population, temperature, volume) in context.
+- ● **CA-4.3.A** (CHA-3.C) Interpret first and second derivatives of applied quantities (cost, population, temperature, volume) in context.
   - EK: f′ is the rate; f″ says whether that rate is itself rising or falling.
   - Needs: CA-4.1.A
-  - P3 · P4 · drills: ~ca-rate-units
+  - P3 · P4 · drills: ca-rate-of-rate, ~ca-rate-units
 
 ### 4.4 Introduction to related rates
 
@@ -456,10 +456,10 @@ Big ideas: FUN
 
 
 
-- ◐ **CA-5.3.A** (FUN-4.A) Find the intervals where a function increases or decreases with a sign chart of f′.
+- ● **CA-5.3.A** (FUN-4.A) Find the intervals where a function increases or decreases with a sign chart of f′.
   - EK: f′ > 0 on an interval ⇒ f increasing there; f′ < 0 ⇒ decreasing.
   - Needs: CA-5.2.A
-  - P1 · P3 · drills: ~ca-critical-points
+  - P1 · P3 · drills: ca-decreasing-interval, ~ca-critical-points
 
 ### 5.4 The first derivative test
 
@@ -519,10 +519,10 @@ Big ideas: FUN
 
 
 
-- ◐ **CA-5.10.A** (FUN-4.B) Translate an optimization situation into a function of one variable with its feasible domain.
+- ● **CA-5.10.A** (FUN-4.B) Translate an optimization situation into a function of one variable with its feasible domain.
   - EK: Write the quantity to optimize, use the constraint to eliminate a variable, state the domain from physical limits.
   - Needs: CA-5.5.A
-  - P1 · P2 · drills: ~ca-optimization-fence
+  - P1 · P2 · drills: ca-optimization-setup, ~ca-optimization-fence
 
 ### 5.11 Solving optimization problems
 
@@ -541,10 +541,10 @@ Big ideas: FUN
   - EK: dy/dx = N/D: horizontal where N = 0 (D ≠ 0), vertical where D = 0 (N ≠ 0); the point must lie on the curve.
   - Needs: CA-3.2.A
   - P1 · drills: ca-implicit-horizontal
-- ○ **CA-5.12.B** (FUN-4.E) Use implicit dy/dx and d²y/dx² to classify extrema and concavity of an implicit curve at a point.
+- ● **CA-5.12.B** (FUN-4.E) Use implicit dy/dx and d²y/dx² to classify extrema and concavity of an implicit curve at a point.
   - EK: At a point with dy/dx = 0, the sign of d²y/dx² gives max/min, as in the second derivative test.
   - Needs: CA-5.12.A, CA-3.6.A, CA-5.7.A
-  - P3
+  - P3 · drills: ca-implicit-second-derivative
 
 ## Unit 6 · Integration and accumulation of change
 
@@ -956,10 +956,10 @@ Big ideas: CHA, FUN
 
 
 
-- ◐ **CA-9.6.A** (FUN-8.B) Find speed, displacement and total distance for planar motion given by vectors.
+- ● **CA-9.6.A** (FUN-8.B) Find speed, displacement and total distance for planar motion given by vectors.
   - EK: Speed = |v| = √(x′² + y′²); distance = ∫|v|dt; displacement = ∫v dt (a vector).
   - Needs: CA-9.5.A, CA-9.3.A
-  - P1 · P3 · drills: ~ca-vector-velocity
+  - P1 · P3 · drills: ca-planar-distance, ~ca-vector-velocity
 
 ### 9.7 Polar coordinates and their derivatives
 
@@ -1053,10 +1053,10 @@ Big ideas: LIM, FUN
 
 
 
-- ◐ **CA-10.7.A** (LIM-7.A) Show an alternating series converges by checking that |a_n| decreases to 0.
+- ● **CA-10.7.A** (LIM-7.A) Show an alternating series converges by checking that |a_n| decreases to 0.
   - EK: Σ(−1)^n b_n with b_n decreasing and b_n → 0 converges.
   - Needs: CA-10.3.A
-  - P3 · drills: ~ca-absolute-conditional
+  - P3 · drills: ca-alternating-series-test, ~ca-absolute-conditional
 
 ### 10.8 The ratio test
 
@@ -1228,10 +1228,10 @@ Big ideas: CHA, LIM, FUN
 
 Book: stewart-8e §14.1, §14.2
 
-- ○ **CA-12.1.A** (ST-14.1) Find the domain of a function of two or three variables and sketch its level curves or describe its level surfaces.
+- ● **CA-12.1.A** (ST-14.1) Find the domain of a function of two or three variables and sketch its level curves or describe its level surfaces.
   - EK: Level curve f(x, y) = k; close spacing means steep.
   - Needs: CA-11.5.A
-  - P2
+  - P2 · drills: ca-domain-level-curve, ca-level-curve-shape
 - ● **CA-12.1.B** (ST-14.2) Show a two-variable limit does not exist by approaching along two paths that give different values.
   - EK: Limit must be the same along every path to (a, b); try lines y = mx and curves like y = x².
   - Needs: CA-12.1.A, CA-1.2.B

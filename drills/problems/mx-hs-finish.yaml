@@ -1,0 +1,562 @@
+# High school: the open and partly drilled objectives a one-question item can honestly cover.
+# Proofs and compass constructions stay open; a few items here recognise a construction or use a
+# result whose proof is the objective, and those are mapped as partial.
+
+- template: hs-rate-unit-conversion
+  skill: alg.linear
+  pace: quick
+  given: { v: { pick: [18, 36, 54, 72, 90, 108] } }
+  cases:
+    - { fr: 'km/h', to: 'm/s', nu: 5, de: 18, why: '1 km is 1000 m and 1 h is 3600 s, so multiply by 1000/3600 = 5/18' }
+    - { fr: 'mi/h', to: 'ft/s', nu: 22, de: 15, why: '1 mi is 5280 ft and 1 h is 3600 s, so multiply by 5280/3600 = 22/15' }
+  prompt: 'Convert ${{v}}$ {{fr}} to {{to}}.'
+  parts:
+    - { ask: 'Speed in {{to}}', label: s, tex: 'v', value: v*nu/de, tol: 0.001, explain: '{{why}}. Write the units as fractions and cancel them: they tell you whether to multiply or divide' }
+  verify: { expect: { s: "v*Rational(1000, 3600) if nu == 5 else v*Rational(5280, 3600)" } }
+
+- template: hs-define-quantities
+  skill: alg.linear
+  pace: recall
+  cases:
+    - { say: 'Let t = time', ans: 1 }
+    - { say: 'Let t = the number of hours since the car left', ans: 0 }
+    - { say: 'Let C = the total cost in dollars of renting the hall for h hours', ans: 0 }
+    - { say: 'Let x = apples', ans: 1 }
+    - { say: 'Let x = the number of apples bought', ans: 0 }
+    - { say: 'Let d = how far', ans: 1 }
+  prompt: 'A student starts a modelling problem with: "{{say}}". Is that an adequate definition?'
+  parts:
+    - ask: 'Adequate?'
+      label: v
+      choice: ["Yes: it says what is counted or measured, and in which unit", "No: it names a thing, not a number with a unit and a starting point"]
+      correct: ans
+      explain: 'A variable stands for a number. A definition has to say which quantity, measured from where, and in what unit, or the equation built on it cannot be checked'
+  verify: { authored: true }
+
+- template: hs-report-precision
+  skill: alg.linear
+  pace: quick
+  cases:
+    - { calc: '3.2 \text{ cm} \times 4.15 \text{ cm}', raw: '13.28', v0: 13, why: 'The less precise factor has 2 significant figures, so the product keeps 2' }
+    - { calc: '12.0 \text{ m} \times 2.5 \text{ m}', raw: '30.0', v0: 30, why: 'The less precise factor has 2 significant figures, so the product keeps 2' }
+    - { calc: '105.2 \text{ g} - 3.44 \text{ g}', raw: '101.76', v0: 101.8, why: 'For sums and differences the last reliable decimal place decides: 105.2 is known to tenths' }
+    - { calc: '6.0 \text{ km} \div 0.25 \text{ h}', raw: '24.0', v0: 24, why: 'Both measurements have 2 significant figures' }
+    - { calc: '7.26 \text{ s} + 3.1 \text{ s}', raw: '10.36', v0: 10.4, why: 'For sums the last reliable decimal place decides: 3.1 is known to tenths' }
+    - { calc: '48.2 \text{ m} \div 3.0 \text{ s}', raw: '16.0666\ldots', v0: 16, why: 'The divisor has 2 significant figures, so the quotient keeps 2' }
+  prompt: 'A calculator gives ${{calc}} = {{raw}}$. What should be reported?'
+  parts:
+    - ask: 'Reported value'
+      label: v
+      tex: 'x'
+      value: v0
+      tol: 0.0004
+      explain: '{{why}}. A computed quantity cannot be more precise than the measurements it came from'
+  verify: { residuals: ["v - v0"] }
+
+- template: hs-expression-parts
+  skill: alg.exponential
+  pace: recall
+  given: { P: { pick: [500, 800, 1200, 2500] }, r: { pick: [2, 3, 4, 5, 8] }, n: { int: [3, 12] } }
+  cases:
+    - { k: 0, q: 'By what factor does the amount grow each year?' }
+    - { k: 1, q: 'What was the starting amount?' }
+    - { k: 2, q: 'For how many years has it grown?' }
+  prompt: 'An account holds ${{P}}(1 + {{r/100}})^{ {{n}} }$ dollars. {{q}}'
+  parts:
+    - { ask: 'Value', label: v, tex: 'x', value: "k == 0 ? 1 + r/100 : (k == 1 ? P : n)", tol: 0.0001, explain: 'Read the expression as a product of two parts: the starting amount ${{P}}$, and a growth factor $(1 + {{r/100}})^{ {{n}} }$ that does not depend on it. Inside the factor, $1 + {{r/100}}$ is one year of growth and the exponent counts the years' }
+  verify: { expect: { v: "[1 + Rational(r, 100), P, n][k]" } }
+
+- template: hs-justify-step
+  skill: alg.linear
+  pace: recall
+  cases:
+    - { a: '3x + 5 = 20', b: '3x = 15', ans: 0 }
+    - { a: '3x = 15', b: 'x = 5', ans: 1 }
+    - { a: '2(x + 4) = 18', b: '2x + 8 = 18', ans: 2 }
+    - { a: 'x - 7 = 2', b: 'x = 9', ans: 3 }
+    - { a: '2x + 3x = 20', b: '5x = 20', ans: 4 }
+    - { a: '\tfrac{x}{4} = 6', b: 'x = 24', ans: 5 }
+  prompt: 'Which property justifies going from ${{a}}$ to ${{b}}$?'
+  parts:
+    - ask: 'Justification'
+      label: v
+      choice: ["Subtracting the same number from both sides", "Dividing both sides by the same nonzero number", "The distributive property", "Adding the same number to both sides", "Combining like terms", "Multiplying both sides by the same number"]
+      correct: ans
+      explain: 'Each line of a solution says that if the previous equation is true, so is this one. Doing the same thing to both sides keeps an equality true; rewriting one side (distributing, combining) does not change its value'
+  verify: { authored: true }
+
+- template: hs-linear-model-context
+  skill: alg.linear
+  pace: quick
+  given: { F: { pick: [20, 35, 45, 60] }, R: { pick: [15, 25, 40, 55] }, k: { int: [2, 6] } }
+  prompt: 'A plumber charges a ${{F}}$ dollar call-out fee plus ${{R}}$ dollars per hour. Let $y$ be the cost in dollars of a job lasting $x$ hours.'
+  parts:
+    - ask: 'Slope of the graph of $y$ against $x$'
+      label: m
+      tex: 'm'
+      value: R
+      tol: 0.0001
+      explain: 'The equation is $y = {{R}}x + {{F}}$. The slope is the hourly rate (dollars per hour) and the $y$-intercept is the fee'
+    - ask: 'Cost of a ${{k}}$-hour job'
+      label: c
+      tex: 'y'
+      value: F + R*k
+      tol: 0.0001
+      explain: '$y = {{R}}({{k}}) + {{F}}$. On the graph, label the axes "hours" and "dollars" and choose scales that fit these sizes'
+  verify: { expect: { m: "diff(R*x + F, x)", c: "(R*x + F).subs(x, k)" } }
+
+- template: hs-viable-solution
+  skill: alg.linear
+  pace: recall
+  given: { s: { pick: [6, 8, 12, 15] }, n: { int: [20, 95] } }
+  require: ["mod(n, s) != 0"]
+  prompt: 'Each van seats ${{s}}$ people and ${{n}}$ people need a ride, so $ {{s}}v \ge {{n}}$. How many vans are needed?'
+  parts:
+    - { ask: 'Vans', label: v, tex: 'v', value: ceil(n/s), tol: 0.0001, explain: 'Solving gives $v \ge {{n/s}}$, but a number of vans must be a whole number, so round up. A solution of the algebra is only viable if it makes sense in the situation' }
+  verify: { expect: { v: "ceiling(Rational(n, s))" } }
+
+- template: hs-point-on-graph
+  skill: alg.linear
+  pace: recall
+  given: { m: { int: [-4, 5] }, b: { int: [-6, 6] }, p: { int: [-4, 5] }, off: { pick: [0, 0, 1, -2, 3] } }
+  require: ["m != 0", "p != 0"]
+  prompt: 'Is the point $({{p}}, {{m*p + b + off}})$ on the graph of $y = {{=m*x + b}}$?'
+  parts:
+    - ask: 'On the graph?'
+      label: v
+      choice: ["Yes", "No"]
+      correct: "off == 0 ? 0 : 1"
+      explain: 'The graph of an equation is exactly the set of points whose coordinates make it true. Substitute: ${{m}}({{p}}) + ({{b}}) = {{m*p + b}}$'
+  verify: { choices: { v: "0 if (m*x + b).subs(x, p) == m*p + b + off else 1" } }
+
+- template: hs-explicit-from-context
+  skill: alg.sequences
+  pace: quick
+  given: { A: { pick: [50, 80, 120, 200] }, d: { pick: [15, 20, 25, 40] }, n: { int: [3, 8] } }
+  cases:
+    - { k: 0 }
+    - { k: 1 }
+  prompt: 'A club starts with ${{A}}$ members and {{k == 0 ? "gains" : "doubles"}} {{k == 0 ? d : ""}} {{k == 0 ? "members" : ""}} each week. How many members are there after ${{n}}$ weeks?'
+  parts:
+    - { ask: 'Members', label: v, tex: 'a_{ {{n}} }', value: "k == 0 ? A + d*n : A*2^n", tol: 0.0001, explain: 'Adding the same amount each step is linear: $a_n = {{A}} + {{d}}n$ (recursively, $a_n = a_{n-1} + {{d}}$). Multiplying by the same factor each step is exponential: $a_n = {{A}} \cdot 2^n$ (recursively, $a_n = 2a_{n-1}$)' }
+  verify: { expect: { v: "A + sum([d for q in range(n)]) if k == 0 else A*2**n" } }
+
+- template: hs-compare-rates
+  skill: alg.functions
+  pace: quick
+  given: { m1: { int: [1, 6] }, b1: { int: [-5, 5] }, m2: { int: [1, 6] }, b2: { int: [1, 9] } }
+  require: ["m1 != m2"]
+  prompt: '$f(x) = {{=m1*x + b1}}$. The linear function $g$ is given by the table. Which has the greater rate of change?'
+  figure: { type: table, head: ["x", "g(x)"], xs: [0, 1, 2, 3], f: "m2*x + b2" }
+  parts:
+    - ask: 'Greater rate of change'
+      label: v
+      choice: ["f", "g"]
+      correct: "m1 > m2 ? 0 : 1"
+      explain: 'For $f$ the rate is the coefficient of $x$, ${{m1}}$. For $g$ it is the change in $g$ per unit of $x$ in the table, ${{m2}}$. Put both into the same form before comparing'
+  verify: { choices: { v: "0 if diff(m1*x + b1, x) > ((m2*3 + b2) - (m2*0 + b2))/3 else 1" } }
+
+- template: hs-compare-maxima
+  skill: alg.quadratics
+  pace: quick
+  given: { h: { int: [-3, 3] }, k1: { int: [2, 9] }, p: { int: [1, 4] }, k2: { int: [2, 9] } }
+  require: ["k1 != k2"]
+  prompt: '$f(x) = -(x {{h >= 0 ? "-" : "+"}} {{abs(h)}})^2 + {{k1}}$. The quadratic $g$ is given by the table. Which function has the larger maximum?'
+  figure: { type: table, head: ["x", "g(x)"], xs: [p - 2, p - 1, p, p + 1, p + 2], f: "-(x - p)^2 + k2" }
+  parts:
+    - ask: 'Larger maximum'
+      label: v
+      choice: ["f", "g"]
+      correct: "k1 > k2 ? 0 : 1"
+      explain: 'In vertex form the maximum of $f$ is ${{k1}}$. In the table, $g$ rises to ${{k2}}$ at $x = {{p}}$ and falls symmetrically on both sides, so that is its maximum'
+  verify: { choices: { v: "0 if (-(x - h)**2 + k1).subs(x, h) > Max(*[-(q - p)**2 + k2 for q in [p - 2, p - 1, p, p + 1, p + 2]]) else 1" } }
+
+- template: hs-root-graph
+  skill: alg.functions
+  pace: quick
+  given: { h0: { int: [-4, 2] }, k0: { int: [-3, 3] }, a0: { pick: [1, 2, -1] } }
+  require: ["h0 != 0", "k0 != 0"]
+  prompt: 'The graph shows $f(x) = a\sqrt{x - h} + k$.'
+  figure:
+    type: plot
+    x: [-6, 8]
+    y: [-7, 7]
+    tick: 1
+    curves:
+      - { f: "a0*sqrt(x - h0) + k0", from: h0, to: 8 }
+    points:
+      - { at: [h0, k0] }
+  parts:
+    - { ask: '$h$', label: h, tex: 'h', value: h0, tol: 0.0001, explain: 'The graph starts where the radicand is zero: at $x = {{h0}}$' }
+    - { ask: '$k$', label: k, tex: 'k', value: k0, tol: 0.0001, explain: 'The height of the starting point. One unit to the right of it the graph has moved by $a$' }
+  verify: { expect: { h: "solve(x - h0, x)[0]", k: "(a0*sqrt(x - h0) + k0).subs(x, h0)" } }
+
+- template: hs-exponential-overtakes
+  skill: alg.exponential
+  pace: quick
+  cases:
+    - { b: 2, k: 2, v0: 5 }
+    - { b: 2, k: 3, v0: 10 }
+    - { b: 2, k: 4, v0: 17 }
+    - { b: 3, k: 3, v0: 4 }
+    - { b: 3, k: 4, v0: 8 }
+  prompt: 'From which whole number $n$ onward is ${{b}}^n$ always greater than $n^{ {{k}} }$?'
+  parts:
+    - ask: '$n$'
+      label: v
+      tex: 'n'
+      value: v0
+      tol: 0.0001
+      explain: 'Tabulate both. The power may lead for a while (at $n = {{v0 - 1}}$: ${{b^(v0 - 1)}}$ against ${{(v0 - 1)^k}}$), but each step multiplies the exponential by ${{b}}$ while the power grows by a factor that shrinks toward 1, so the exponential passes it and never falls back'
+  verify: { expect: { v: "Max(*[q for q in range(1, 80) if b**q <= q**k]) + 1" } }
+
+- template: hs-geometry-definitions
+  skill: geo.congruence
+  pace: recall
+  cases:
+    - { say: 'The set of all points in a plane at a given distance from a given point', ans: 0 }
+    - { say: 'Two points on a line together with all the points of the line between them', ans: 1 }
+    - { say: 'Two rays that share an endpoint', ans: 2 }
+    - { say: 'Two lines in a plane that never meet', ans: 3 }
+    - { say: 'Two lines that meet to form four equal angles', ans: 4 }
+  prompt: '"{{say}}" defines…'
+  parts:
+    - ask: 'Term'
+      label: v
+      choice: ["A circle", "A line segment", "An angle", "Parallel lines", "Perpendicular lines"]
+      correct: ans
+      explain: 'Each definition is built only from the undefined notions: point, line, distance along a line, and distance around a circular arc'
+  verify: { authored: true }
+
+- template: hs-rigid-motion-definitions
+  skill: geo.congruence
+  pace: recall
+  cases:
+    - { say: 'A fixed line is the perpendicular bisector of the segment from each point to its image', ans: 0 }
+    - { say: 'The segments from each point to its image are all parallel and all the same length, in the same direction', ans: 1 }
+    - { say: 'Each point and its image are the same distance from a fixed point O, and the angle from point to O to image is the same for every point', ans: 2 }
+    - { say: 'Each image lies on the ray from a fixed point O through its point, at k times the distance', ans: 3 }
+  prompt: '"{{say}}." This defines a…'
+  parts:
+    - ask: 'Transformation'
+      label: v
+      choice: ["Reflection", "Translation", "Rotation", "Dilation"]
+      correct: ans
+      explain: 'A reflection is defined by a perpendicular bisector, a translation by parallel equal segments, a rotation by a circle and an angle. A dilation is not a rigid motion: it scales distances'
+  verify: { authored: true }
+
+- template: hs-recognise-construction
+  skill: geo.congruence
+  pace: recall
+  cases:
+    - { say: 'Draw arcs of the same radius from both ends of a segment, above and below it, and join the two points where the arcs cross', ans: 0 }
+    - { say: 'Draw an arc from the vertex cutting both sides of an angle; from those two points draw equal arcs that cross; join the vertex to the crossing', ans: 1 }
+    - { say: 'With the compass set to the radius, step around the circle marking six points, and join them in order', ans: 2 }
+    - { say: 'With the compass set to the radius, step around the circle marking six points, and join every second one', ans: 3 }
+    - { say: 'Draw a diameter, construct its perpendicular bisector to get a second diameter, and join the four ends', ans: 4 }
+  prompt: 'Compass and straightedge: "{{say}}." This constructs…'
+  parts:
+    - ask: 'Result'
+      label: v
+      choice: ["The perpendicular bisector of the segment", "The bisector of the angle", "A regular hexagon inscribed in the circle", "An equilateral triangle inscribed in the circle", "A square inscribed in the circle"]
+      correct: ans
+      explain: 'Every compass construction rests on one fact: all points on an arc are the same distance from its centre. Equal arcs from two points meet at points equidistant from both'
+  verify: { authored: true }
+
+- template: hs-model-with-solids
+  skill: geo.measurement
+  pace: quick
+  given: { r: { pick: [0.2, 0.3, 0.5] }, h: { pick: [2, 4, 6, 10] } }
+  cases:
+    - { thing: 'a tree trunk', k: 0 }
+    - { thing: 'a traffic cone', k: 1 }
+    - { thing: 'a grain silo', k: 0 }
+    - { thing: 'a pile of sand', k: 1 }
+  prompt: 'Model {{thing}} as a simple solid with radius ${{r}}$ m and height ${{h}}$ m.'
+  parts:
+    - ask: 'Which solid?'
+      label: s
+      choice: ["Cylinder", "Cone", "Sphere"]
+      correct: k
+      explain: 'Pick the simple shape that captures the object: straight sides and a constant cross-section make a cylinder, sides that taper to a point make a cone'
+    - ask: 'Estimated volume, in m³ (within 3%)'
+      label: V
+      tex: 'V'
+      value: "k == 0 ? pi*r^2*h : pi*r^2*h/3"
+      tol: 0.03
+      explain: 'Cylinder $\pi r^2h$; a cone is one third of the cylinder around it. Use $\pi \approx 3$ for a first estimate, then refine'
+  verify: { expect: { V: "pi*r**2*h if k == 0 else pi*r**2*h/3" }, choices: { s: "k" } }
+
+- template: hs-design-least-material
+  skill: geo.measurement
+  pace: quick
+  cases:
+    - { V: 64, s1: 4, s2: 8 }
+    - { V: 64, s1: 2, s2: 4 }
+    - { V: 216, s1: 6, s2: 3 }
+    - { V: 216, s1: 12, s2: 6 }
+    - { V: 1000, s1: 5, s2: 10 }
+    - { V: 1000, s1: 10, s2: 20 }
+  prompt: 'A closed box with a square base must hold ${{V}}$ cm³. Design A has base side ${{s1}}$ cm; design B has base side ${{s2}}$ cm. Which uses less material?'
+  parts:
+    - ask: 'Less surface area'
+      label: v
+      choice: ["Design A", "Design B"]
+      correct: "2*s1^2 + 4*V/s1 < 2*s2^2 + 4*V/s2 ? 0 : 1"
+      explain: 'The height is $V/s^2$, so the surface area is $2s^2 + 4s \cdot \dfrac{V}{s^2} = 2s^2 + \dfrac{4V}{s}$: A is ${{2*s1^2 + 4*V/s1}}$ cm² and B is ${{2*s2^2 + 4*V/s2}}$ cm². The cube always wins'
+  verify: { choices: { v: "0 if 2*s1**2 + 4*s1*Rational(V, s1**2) < 2*s2**2 + 4*s2*Rational(V, s2**2) else 1" } }
+
+- template: hs-cavalieri-ratios
+  skill: geo.measurement
+  pace: recall
+  cases:
+    - { a: 'a cone', b: 'the cylinder with the same base and height', py: 'integrate(pi*Z**2, (Z, 0, 1))/pi', fr: 0.3333333333333333 }
+    - { a: 'a pyramid', b: 'the prism with the same base and height', py: 'integrate(Z**2, (Z, 0, 1))', fr: 0.3333333333333333 }
+    - { a: 'a hemisphere of radius r', b: 'the cylinder of radius r and height r around it', py: 'integrate(pi*(1 - Z**2), (Z, 0, 1))/pi', fr: 0.6666666666666666 }
+    - { a: 'a sphere', b: 'the cylinder that just contains it', py: 'integrate(pi*(1 - Z**2), (Z, -1, 1))/(2*pi)', fr: 0.6666666666666666 }
+  prompt: 'The volume of {{a}} is what fraction of the volume of {{b}}?'
+  parts:
+    - ask: 'Fraction'
+      label: v
+      tex: 'x'
+      value: fr
+      tol: 0.001
+      explain: 'Cavalieri: solids with equal cross-sectional areas at every height have equal volumes. Slicing a cone or pyramid gives areas that grow as the square of the distance from the tip, which sums to one third. A hemisphere''s slices match those of a cylinder with a cone removed, leaving two thirds'
+  verify: { expect: { v: "calc(py)" } }
+
+- template: hs-circles-similar
+  skill: geo.circles
+  pace: recall
+  given: { r1: { pick: [2, 3, 4, 5] }, kk: { pick: [2, 3, 4] } }
+  cases:
+    - { k: 0, q: 'By what scale factor is the larger one a dilation of the smaller?' }
+    - { k: 1, q: 'How many times the area of the smaller one is the area of the larger?' }
+  prompt: 'Two circles have radii ${{r1}}$ and ${{r1*kk}}$. {{q}}'
+  parts:
+    - { ask: 'Factor', label: v, tex: 'x', value: "k == 0 ? kk : kk^2", tol: 0.0001, explain: 'Translate one centre onto the other, then dilate by the ratio of the radii: any circle maps onto any other, so all circles are similar. Lengths scale by $k$ and areas by $k^2$' }
+  verify: { expect: { v: "Rational(r1*kk, r1) if k == 0 else (pi*(r1*kk)**2)/(pi*r1**2)" } }
+
+- template: hs-events-as-sets
+  skill: stats.probability
+  pace: quick
+  given: { N: { pick: [10, 12, 20] }, a: { pick: [2, 3] }, c: { int: [3, 8] } }
+  cases:
+    - { k: 0, op: 'A and B', sym: 'A \cap B' }
+    - { k: 1, op: 'A or B', sym: 'A \cup B' }
+    - { k: 2, op: 'not A', sym: 'A^c' }
+  prompt: 'A whole number from 1 to ${{N}}$ is chosen. $A$ is "a multiple of ${{a}}$" and $B$ is "greater than ${{c}}$". How many outcomes are in "{{op}}"?'
+  parts:
+    - ask: 'Number of outcomes in ${{sym}}$'
+      label: v
+      tex: 'n'
+      value: "k == 0 ? floor(N/a) - floor(c/a) : (k == 1 ? floor(c/a) + (N - c) : N - floor(N/a))"
+      tol: 0.0001
+      explain: 'List them. "And" is the overlap (intersection), "or" is everything in either (union, counting the overlap once), "not" is the rest of the sample space (complement)'
+  require: ["floor(N/a) - floor(c/a) != 0"]
+  verify: { expect: { v: "len([q for q in range(1, N + 1) if (q % a == 0 and q > c)]) if k == 0 else (len([q for q in range(1, N + 1) if (q % a == 0 or q > c)]) if k == 1 else len([q for q in range(1, N + 1) if q % a != 0]))" } }
+
+- template: hs-independence-in-words
+  skill: stats.probability
+  pace: recall
+  given: { p: { pick: [20, 30, 40, 60] }, d: { pick: [0, 0, 15, -10, 25] } }
+  cases:
+    - { A: 'play a sport', B: 'are in the band' }
+    - { A: 'own a pet', B: 'walk to school' }
+    - { A: 'wear glasses', B: 'are left-handed' }
+  prompt: 'At a school, ${{p}}\%$ of all students {{A}}. Among the students who {{B}}, ${{p + d}}\%$ {{A}}. Are the two events independent?'
+  parts:
+    - ask: 'Independent?'
+      label: v
+      choice: ["Yes: knowing one does not change the chance of the other", "No: knowing one changes the chance of the other"]
+      correct: "d == 0 ? 0 : 1"
+      explain: 'Independence means $P(A \mid B) = P(A)$. Compare the percentage in the whole school with the percentage inside the group'
+  verify: { choices: { v: "0 if Rational(p + d, 100) == Rational(p, 100) else 1" } }
+
+- template: hs-fair-decision
+  skill: stats.probability
+  pace: quick
+  cases:
+    - { say: 'Roll two dice. Ana wins if the sum is even, Ben if it is odd', ans: 0, why: '18 of the 36 outcomes have an even sum' }
+    - { say: 'Roll two dice. Ana wins if the product is even, Ben if it is odd', ans: 1, why: 'The product is odd only when both dice are odd: 9 of 36. Ana wins 27 times in 36' }
+    - { say: 'Roll one die. Ana wins on 1 or 2, Ben on 3, 4, 5 or 6', ans: 1, why: 'Ana has 2 chances in 6, Ben 4 in 6' }
+    - { say: 'Three names go in a hat and one is drawn without looking', ans: 0, why: 'Each name has 1 chance in 3' }
+    - { say: 'Flip two coins. Ana wins if they match, Ben if they differ', ans: 0, why: 'HH and TT against HT and TH: 2 of 4 each' }
+    - { say: 'Flip two coins. Ana wins on two heads, Ben otherwise', ans: 1, why: 'Two heads is 1 outcome in 4' }
+  prompt: '{{say}}. Is this a fair way to decide?'
+  parts:
+    - ask: 'Fair?'
+      label: v
+      choice: ["Fair", "Not fair"]
+      correct: ans
+      explain: '{{why}}. A method is fair when every person has the same probability of being chosen'
+  verify: { authored: true }
+
+- template: hs-complex-factor
+  skill: alg.complex
+  pace: recall
+  given: { c: { int: [2, 12] } }
+  prompt: 'Over the complex numbers, $x^2 + {{c^2}} = (x + ci)(x - ci)$ for which positive $c$?'
+  parts:
+    - { ask: '$c$', label: v, tex: 'c', value: c, tol: 0.0001, explain: 'A sum of squares is a difference of squares in disguise: $x^2 + c^2 = x^2 - (ci)^2$, because $i^2 = -1$' }
+  verify: { expect: { v: "Max(*[im(q) for q in solve(x**2 + c**2, x)])" } }
+
+- template: hs-triple-from-identity
+  skill: alg.polynomials
+  pace: quick
+  given: { p: { int: [2, 7] }, q: { int: [1, 5] } }
+  require: ["p > q"]
+  prompt: 'The identity $(x^2 + y^2)^2 = (x^2 - y^2)^2 + (2xy)^2$ generates Pythagorean triples. With $x = {{p}}$ and $y = {{q}}$ the legs are ${{p^2 - q^2}}$ and ${{2*p*q}}$. What is the hypotenuse?'
+  parts:
+    - { ask: 'Hypotenuse', label: v, tex: 'c', value: p^2 + q^2, tol: 0.0001, explain: '$x^2 + y^2$. The identity is proved by expanding both sides: each is $x^4 + 2x^2y^2 + y^4$' }
+  verify: { expect: { v: "sqrt((p**2 - q**2)**2 + (2*p*q)**2)" } }
+
+- template: hs-end-behaviour
+  skill: alg.polynomials
+  pace: recall
+  given: { a: { pick: [-3, -2, -1, 1, 2, 4] }, n: { pick: [2, 3, 4, 5, 6] }, c: { int: [1, 9] } }
+  prompt: 'What is the end behaviour of $f(x) = {{a == 1 ? "" : (a == -1 ? "-" : a)}}x^{ {{n}} } + {{c}}x - 1$?'
+  parts:
+    - ask: 'As $x \to -\infty$ and $x \to +\infty$'
+      label: v
+      choice: ["Up on both ends", "Down on both ends", "Down on the left, up on the right", "Up on the left, down on the right"]
+      correct: "mod(n, 2) == 0 ? (a > 0 ? 0 : 1) : (a > 0 ? 2 : 3)"
+      explain: 'Only the leading term matters far from the origin. Even degree: both ends go the same way, up if the leading coefficient is positive. Odd degree: the ends go opposite ways'
+  verify: { choices: { v: "[[1, 3], [2, 0]][0 if limit(a*x**n + c*x - 1, x, oo) == -oo else 1][0 if limit(a*x**n + c*x - 1, x, -oo) == -oo else 1]" } }
+
+- template: hs-sign-change-table
+  skill: alg.polynomials
+  pace: quick
+  given: { n0: { int: [1, 3] }, off: { int: [1, 6] } }
+  prompt: 'To solve $x^3 = {{n0^3 + off}}$, a student tabulates $h(x) = x^3 - {{n0^3 + off}}$. The solution lies between which whole number and the next?'
+  figure: { type: table, head: ["x", "h(x)"], xs: [0, 1, 2, 3, 4], f: "x^3 - (n0^3 + off)" }
+  parts:
+    - { ask: 'The smaller of the two', label: v, tex: 'n', value: n0, tol: 0.0001, explain: 'Solving $f(x) = g(x)$ is finding where $f - g$ is zero. The table changes sign between ${{n0}}$ and ${{n0 + 1}}$, so the curves cross there; narrowing the step gives as many decimals as wanted' }
+  verify: { expect: { v: "floor(solve(x**3 - (n0**3 + off), x)[0])" } }
+
+- template: hs-doubling-model
+  skill: alg.exponential
+  pace: quick
+  given: { P0: { pick: [50, 200, 500] }, d: { pick: [2, 3, 4, 6] }, k: { int: [2, 6] } }
+  prompt: 'A culture of ${{P0}}$ bacteria doubles every ${{d}}$ hours, so $N(t) = {{P0}} \cdot 2^{t/{{d}}}$. How many are there after ${{d*k}}$ hours?'
+  parts:
+    - { ask: 'Bacteria', label: v, tex: 'N', value: P0*2^k, tol: 0.0001, explain: '${{d*k}}$ hours is ${{k}}$ doubling times: ${{P0}} \cdot 2^{ {{k}} }$. The exponent counts doublings, so divide the time by the doubling time' }
+  verify: { expect: { v: "(P0*2**(x/d)).subs(x, d*k)" } }
+
+- template: hs-periodic-model
+  skill: trig.unit-circle
+  pace: quick
+  given: { A: { int: [2, 9] }, D: { int: [10, 30] }, c: { pick: [3, 4, 6, 12] } }
+  prompt: 'The depth of water at a dock is $d(t) = {{A}}\sin\!\left(\dfrac{\pi t}{ {{c}} }\right) + {{D}}$ feet, $t$ in hours.'
+  parts:
+    - { ask: 'Period, in hours', label: T, tex: 'T', value: 2*c, tol: 0.0001, explain: 'A full cycle needs the angle to grow by $2\pi$: $\pi T/{{c}} = 2\pi$. This is the time from one high tide to the next' }
+    - { ask: 'Greatest depth, in feet', label: mx, tex: 'd_{\max}', value: D + A, tol: 0.0001, explain: 'The midline is ${{D}}$ and the amplitude is ${{A}}$, so the depth swings between ${{D - A}}$ and ${{D + A}}$' }
+  verify: { expect: { T: "2*pi/(pi/c)", mx: "(A*sin(pi*x/c) + D).subs(x, Rational(c, 2))" } }
+
+- template: hs-model-consistent
+  skill: stats.probability
+  pace: quick
+  given: { s: { pick: [3, 12, 31, 80, 210, 480] } }
+  cases:
+    - { say: 'A coin lands heads 16 times in 20 flips. A simulation of a fair coin gave 16 or more heads in', what: 'the coin being fair' }
+    - { say: 'In an experiment the treatment group improved 4 points more than the control group. Re-shuffling the group labels at random gave a difference of 4 or more in', what: 'the treatment having no effect' }
+  prompt: '{{say}} ${{s}}$ of 1000 runs. Is the result consistent with {{what}}?'
+  parts:
+    - ask: 'Consistent?'
+      label: v
+      choice: ["Yes: results like this happen often by chance alone", "No: results this extreme are rare by chance alone (under 5 percent)"]
+      correct: "s < 50 ? 1 : 0"
+      explain: 'The simulation shows what chance alone produces. If the observed result turns up in fewer than about 5% of runs, chance is a poor explanation and the model (a fair coin, no effect) is doubted'
+  verify: { choices: { v: "1 if Rational(s, 1000) < Rational(5, 100) else 0" } }
+
+- template: hs-evaluate-report
+  skill: stats.descriptive
+  pace: recall
+  cases:
+    - { say: 'A website poll finds that 90% of people who chose to respond support a new stadium', ans: 0 }
+    - { say: 'A company reports that 8 of its 10 testers lost weight on its diet, with no group for comparison', ans: 1 }
+    - { say: 'A study finds that children who eat breakfast get better grades, and concludes that breakfast raises grades', ans: 2 }
+    - { say: 'A survey handed out at a gym finds that most people exercise three times a week', ans: 0 }
+    - { say: 'An ad says a pill works because users felt better afterwards; no one took a placebo', ans: 1 }
+    - { say: 'Towns with more firefighters have more fire damage, so a report concludes that firefighters cause damage', ans: 2 }
+  prompt: '{{say}}. What is the main flaw?'
+  parts:
+    - ask: 'Flaw'
+      label: v
+      choice: ["The sample is not random, so it does not represent the population", "There is no comparison (control) group", "An association is treated as cause and effect"]
+      correct: ans
+      explain: 'Three questions to put to any report: who was asked and how were they chosen, compared with what, and could something else explain the pattern?'
+  verify: { authored: true }
+
+- template: hs-inverse-from-table
+  skill: alg.functions
+  pace: recall
+  given: { idx: { int: [1, 5] } }
+  cases:
+    - { ys: [7, 3, 9, 4, 12] }
+    - { ys: [2, 8, 5, 11, 6] }
+    - { ys: [10, 4, 1, 7, 3] }
+  prompt: 'The table gives a one-to-one function $f$. Find $f^{-1}({{ys[idx]}})$.'
+  figure: { type: table, head: ["x", "f(x)"], rows: [["1", "{{ys[1]}}"], ["2", "{{ys[2]}}"], ["3", "{{ys[3]}}"], ["4", "{{ys[4]}}"], ["5", "{{ys[5]}}"]] }
+  parts:
+    - { ask: '$f^{-1}({{ys[idx]}})$', label: v, tex: 'x', value: idx, tol: 0.0001, explain: 'The inverse asks "which input gave this output?" Find ${{ys[idx]}}$ in the $f(x)$ column and read the $x$ beside it. On a graph, read from the vertical axis across to the curve and down' }
+  verify: { expect: { v: "[q + 1 for q in range(5) if ys[q] == ys[idx - 1]][0]" } }
+
+- template: hs-complex-polar-product
+  skill: alg.complex
+  pace: quick
+  given: { r1: { int: [2, 5] }, r2: { int: [2, 5] }, a1: { pick: [20, 30, 45, 60] }, a2: { pick: [15, 30, 45, 90] } }
+  prompt: '$z$ has modulus ${{r1}}$ and argument ${{a1}}^\circ$; $w$ has modulus ${{r2}}$ and argument ${{a2}}^\circ$.'
+  parts:
+    - { ask: 'Modulus of $zw$', label: m, tex: '|zw|', value: r1*r2, tol: 0.0001, explain: 'Multiplying complex numbers multiplies their moduli' }
+    - { ask: 'Argument of $zw$, in degrees', label: a, tex: '\arg(zw)', value: a1 + a2, tol: 0.0001, explain: 'and adds their arguments: multiplication is a stretch followed by a rotation. That is why $(-1 + \sqrt3\,i)^3 = 8$: modulus $2^3$, argument $3 \times 120^\circ = 360^\circ$' }
+  verify: { expect: { m: "Abs(r1*exp(I*a1*pi/180)*r2*exp(I*a2*pi/180))", a: "arg(exp(I*a1*pi/180)*exp(I*a2*pi/180))*180/pi" } }
+
+- template: hs-vector-magnitude-direction
+  skill: alg.vectors-matrices
+  pace: quick
+  given: { k: { int: [2, 9] } }
+  cases:
+    - { dx: 1, dy: 1 }
+    - { dx: -1, dy: 1 }
+    - { dx: 0, dy: 1 }
+    - { dx: -1, dy: 0 }
+    - { dx: -1, dy: -1 }
+    - { dx: 1, dy: -1 }
+    - { dx: 0, dy: -1 }
+  prompt: 'The vector $\mathbf{v} = \langle {{k*dx}}, {{k*dy}} \rangle$ is drawn as an arrow from the origin.'
+  parts:
+    - ask: 'Its direction, as an angle in degrees measured counterclockwise from the positive $x$-axis (0 to 360)'
+      label: ang
+      tex: '\theta'
+      value: mod(atan2(dy, dx)*180/pi + 360, 360)
+      tol: 0.001
+      explain: 'Sketch the arrow, find the reference angle from the components, and place it in the right quadrant'
+    - ask: 'Its magnitude $|\mathbf{v}|$'
+      label: mag
+      tex: '|\mathbf{v}|'
+      value: k*sqrt(dx^2 + dy^2)
+      tol: 0.001
+      explain: 'The length of the arrow, $\sqrt{v_x^2 + v_y^2}$. A vector is the pair of these: how much, and which way'
+  verify: { expect: { ang: "(atan2(k*dy, k*dx)*180/pi) % 360", mag: "sqrt((k*dx)**2 + (k*dy)**2)" } }
+
+- template: hs-matrix-as-data
+  skill: alg.vectors-matrices
+  pace: quick
+  given: { a: { int: [5, 30] }, b: { int: [5, 30] }, c: { int: [5, 30] }, d: { int: [5, 30] }, e2: { int: [5, 30] }, f: { int: [5, 30] } }
+  prompt: 'The table records one day''s sales at two stores. Read it as a $2 \times 3$ matrix $S$.'
+  figure: { type: table, head: ["", "Pens", "Pads", "Clips"], rows: [["Store 1", "{{a}}", "{{b}}", "{{c}}"], ["Store 2", "{{d}}", "{{e2}}", "{{f}}"]] }
+  parts:
+    - { ask: 'The entry $s_{23}$', label: s, tex: 's_{23}', value: f, tol: 0.0001, explain: 'Row first, then column: row 2 is Store 2 and column 3 is clips' }
+    - { ask: 'Pads sold by both stores together', label: t, tex: 'x', value: b + e2, tol: 0.0001, explain: 'A column total. If every day looked like this, a week''s sales would be the matrix $7S$: scaling a data matrix scales every entry' }
+  verify: { expect: { s: "Matrix([[a, b, c], [d, e2, f]])[1, 2]", t: "sum(Matrix([[a, b, c], [d, e2, f]])[:, 1])" } }
+
+- template: hs-system-as-matrix-equation
+  skill: alg.vectors-matrices
+  pace: recall
+  given: { a: { int: [1, 9] }, b: { int: [-9, 9] }, c: { int: [-9, 9] }, d: { int: [1, 9] }, p: { int: [-20, 20] }, q: { int: [-20, 20] } }
+  require: ["b != 0", "c != 0", "p != 0", "q != 0"]
+  prompt: 'Write the system ${{=a*x + b*y}} = {{p}}$, ${{=c*x + d*y}} = {{q}}$ as $A\mathbf{x} = \mathbf{b}$ with $\mathbf{x} = \begin{pmatrix} x \\ y \end{pmatrix}$.'
+  parts:
+    - { ask: 'The entry of $A$ in row 2, column 1', label: e, tex: 'a_{21}', value: c, tol: 0.0001, explain: 'Each row of $A$ holds the coefficients of one equation, in the order of the unknowns: $A = \begin{pmatrix} {{a}} & {{b}} \\ {{c}} & {{d}} \end{pmatrix}$' }
+    - { ask: 'The second entry of $\mathbf{b}$', label: g, tex: 'b_2', value: q, tol: 0.0001, explain: 'The right-hand sides, in the same order as the rows' }
+  verify: { expect: { e: "diff(c*x + d*Y, x)", g: "q" } }

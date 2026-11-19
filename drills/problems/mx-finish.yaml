@@ -1,0 +1,443 @@
+# The last open objectives in calculus and engineering mathematics (through PDEs). Where an
+# objective says "explain" or "derive", the item asks for the step the explanation turns on.
+
+# ── CA-1.1.A: a rate at an instant is a limit of average rates ─────────────
+- template: ca-shrinking-average-rate
+  skill: calc.limits
+  pace: quick
+  given: { a: { int: [1, 6] }, c: { int: [1, 5] } }
+  prompt: 'For $f(x) = {{=c*x^2}}$, average rates of change are taken over $[{{a}}, {{a}} + h]$ for smaller and smaller $h$.'
+  parts:
+    - ask: 'Average rate over $[{{a}}, {{a + 0.1}}]$'
+      label: r
+      tex: 'r_{0.1}'
+      value: c*(2*a + 0.1)
+      tol: 0.0005
+      explain: '$\dfrac{f({{a + 0.1}}) - f({{a}})}{0.1}$. Algebraically the quotient is ${{c}}(2 \cdot {{a}} + h)$'
+    - ask: 'The value these averages approach as $h \to 0$'
+      label: L
+      tex: 'L'
+      value: 2*a*c
+      tol: 0.0005
+      explain: 'At a single instant $\Delta x = 0$ and $\Delta y/\Delta x$ is $0/0$, so a rate there cannot be computed directly. It is defined as what the average rates approach: ${{c}}(2 \cdot {{a}} + h) \to {{2*a*c}}$'
+  verify:
+    expect: { r: "((c*x**2).subs(x, a + Rational(1, 10)) - (c*x**2).subs(x, a))*10", L: "limit(((c*(a + Z)**2) - c*a**2)/Z, Z, 0)" }
+
+# ── CA-1.2.A: reading and writing limit statements ─────────────────────────
+- template: ca-limit-statement
+  skill: calc.limits
+  pace: recall
+  cases:
+    - { say: 'As x approaches 2 from the left, f(x) approaches 5', ans: 0 }
+    - { say: 'As x approaches 2 from the right, f(x) approaches 5', ans: 1 }
+    - { say: 'The value of f at 2 is 5', ans: 2 }
+    - { say: 'f(x) can be made as close to 5 as we like by taking x close enough to 2 on either side, without letting x equal 2', ans: 3 }
+    - { say: 'As x approaches 5, f(x) approaches 2', ans: 4 }
+  prompt: '"{{say}}." In symbols:'
+  parts:
+    - ask: 'Statement'
+      label: v
+      choice: ["limit of f(x) as x → 2⁻ equals 5", "limit of f(x) as x → 2⁺ equals 5", "f(2) = 5", "limit of f(x) as x → 2 equals 5", "limit of f(x) as x → 5 equals 2"]
+      correct: ans
+      explain: 'The number under "lim" is where x is heading; the number after the equals sign is where f(x) is heading. A minus superscript means from the left, a plus from the right. None of them says anything about f at the point itself'
+  verify: { authored: true }
+
+# ── CA-1.9.A: graph, table and algebra ─────────────────────────────────────
+- template: ca-limit-three-ways
+  skill: calc.limits
+  pace: quick
+  cases:
+    - { say: 'A table of $f(x) = \sin(\pi/x)$ at $x = 0.1,\ 0.01,\ 0.001$ shows $0,\ 0,\ 0$. At $x = 2/5,\ 2/9,\ 2/13$ the same function equals 1.', ans: 1, why: 'The table sampled only the zeros. The function keeps returning to both 0 and 1 arbitrarily close to x = 0, so it approaches no single value' }
+    - { say: 'A table of $f(x) = \dfrac{x^2 - 9}{x - 3}$ near $x = 3$ shows $5.9,\ 5.99,\ 6.01,\ 6.1$, and factoring gives $x + 3$ for $x \ne 3$.', ans: 0, why: 'Table and algebra agree: the limit is 6' }
+    - { say: 'On a window $-10 \le y \le 10$, the graph of $f(x) = \dfrac{1}{(x - 2)^2}$ runs off the top near $x = 2$. A table at $x = 2.1,\ 2.01,\ 2.001$ shows $100,\ 10^4,\ 10^6$.', ans: 2, why: 'The values grow without bound from both sides: there is no finite limit' }
+    - { say: 'A graph of $f(x) = \dfrac{\sin x}{x}$ drawn with the calculator in degree mode levels off near $0.0175$ at $x = 0$. In radians, $\sin x/x \to 1$.', ans: 0, why: 'Both are right for their own function: in degree mode the calculator is graphing sin(πx/180)/x, whose limit is π/180 ≈ 0.0175. Each graph has a limit; check the mode before trusting it' }
+  prompt: '{{say}} As $x$ approaches that point, the limit…'
+  parts:
+    - ask: 'Conclusion'
+      label: v
+      choice: ["Exists and is finite", "Does not exist: the function oscillates", "Does not exist: the function is unbounded"]
+      correct: ans
+      explain: '{{why}}. Graphs and tables estimate, and both depend on the window and the sample; algebra decides'
+  verify: { authored: true }
+
+# ── CA-1.12.A: where a function is continuous ──────────────────────────────
+- template: ca-make-continuous
+  skill: calc.continuity
+  pace: quick
+  given: { c: { pick: [-3, -2, -1, 1, 2, 3] }, p: { int: [-6, 6] }, k0: { int: [-5, 5] } }
+  require: ["k0 != 0", "p != 0", "k0*c + p - c^2 != 0"]
+  prompt: 'For which $k$ is $f(x) = \begin{cases} kx {{p > 0 ? "+" : "-"}} {{abs(p)}} & x < {{c}} \\ x^2 {{k0*c + p - c^2 > 0 ? "+" : "-"}} {{abs(k0*c + p - c^2)}} & x \ge {{c}} \end{cases}$ continuous on all real numbers?'
+  parts:
+    - ask: '$k$'
+      label: k
+      tex: 'k'
+      value: k0
+      tol: 0.0001
+      explain: 'Each piece is a polynomial, so the only place continuity can fail is the break point. Match the two pieces at $x = {{c}}$: ${{c}}k {{p > 0 ? "+" : "-"}} {{abs(p)}} = {{c^2}} {{k0*c + p - c^2 > 0 ? "+" : "-"}} {{abs(k0*c + p - c^2)}}$'
+  verify: { expect: { k: "solve(Eq(limit(Z*x + p, x, c, '-'), (x**2 + (k0*c + p - c**2)).subs(x, c)), Z)[0]" } }
+
+# ── CA-2.1.B: a limit that is a derivative in disguise ─────────────────────
+- template: ca-difference-quotient-limit
+  skill: calc.derivative-basics
+  pace: quick
+  given: { a: { int: [1, 4] }, n: { pick: [2, 3, 4] } }
+  prompt: 'In your head: $\displaystyle\lim_{h\to 0}\frac{({{a}} + h)^{ {{n}} } - {{a^n}}}{h}$'
+  parts:
+    - ask: 'Limit'
+      label: L
+      tex: 'L'
+      value: n*a^(n - 1)
+      tol: 0.0001
+      explain: 'This is the limit of a difference quotient, $\dfrac{f(a + h) - f(a)}{h}$ with $f(x) = x^{ {{n}} }$ and $a = {{a}}$: the instantaneous rate $f''({{a}}) = {{n}} \cdot {{a}}^{ {{n - 1}} }$. Recognising the pattern saves expanding the power'
+  verify: { expect: { L: "limit(((a + Z)**n - a**n)/Z, Z, 0)" } }
+
+# ── CA-2.7.B: deriving the derivative of sin x and e^x ─────────────────────
+- template: ca-derive-sin-exp
+  skill: calc.derivative-rules
+  pace: recall
+  cases:
+    - { ctx: '\sin(x + h) - \sin x = \sin x\,(\cos h - 1) + \cos x\,\sin h', term: '\cos x\cdot\dfrac{\sin h}{h}', py: 'cos(x)*sin(z)/z', ans: 0 }
+    - { ctx: '\sin(x + h) - \sin x = \sin x\,(\cos h - 1) + \cos x\,\sin h', term: '\sin x\cdot\dfrac{\cos h - 1}{h}', py: 'sin(x)*(cos(z) - 1)/z', ans: 1 }
+    - { ctx: 'e^{x + h} - e^x = e^x\,(e^h - 1)', term: 'e^x\cdot\dfrac{e^h - 1}{h}', py: 'exp(x)*(exp(z) - 1)/z', ans: 2 }
+    - { ctx: '\cos(x + h) - \cos x = \cos x\,(\cos h - 1) - \sin x\,\sin h', term: '-\sin x\cdot\dfrac{\sin h}{h}', py: '-sin(x)*sin(z)/z', ans: 3 }
+  prompt: 'From the limit definition, using ${{ctx}}$: as $h \to 0$, the term ${{term}}$ tends to…'
+  parts:
+    - ask: 'Limit of the term'
+      label: v
+      choice: ["cos x", "0", "e to the x", "−sin x"]
+      correct: ans
+      explain: 'Two limits do all the work: $\dfrac{\sin h}{h} \to 1$ and $\dfrac{\cos h - 1}{h} \to 0$ (and $\dfrac{e^h - 1}{h} \to 1$ for the exponential). Split the difference quotient with the angle-addition formula, then apply them term by term'
+  verify: { choices: { v: "[cos(x), 0, exp(x), -sin(x)].index(limit(S(py), Z, 0))" } }
+
+# ── CA-4.3.A: first and second derivatives in context ──────────────────────
+- template: ca-rate-of-rate
+  skill: calc.rates
+  pace: recall
+  cases:
+    - { q: 'the population of a town', s1: 1, s2: 1 }
+    - { q: 'the population of a town', s1: 1, s2: -1 }
+    - { q: 'the temperature of a cooling cup', s1: -1, s2: 1 }
+    - { q: 'the cost of producing one more item', s1: 1, s2: -1 }
+    - { q: 'the volume of water in a tank', s1: -1, s2: -1 }
+    - { q: 'the height of a ball', s1: 1, s2: -1 }
+  prompt: '$Q(t)$ is {{q}}. At some time, $Q''(t) {{s1 > 0 ? ">" : "<"}} 0$ and $Q''''(t) {{s2 > 0 ? ">" : "<"}} 0$. Then $Q$ is…'
+  parts:
+    - ask: 'Behaviour'
+      label: v
+      choice: ["Increasing, at a slowing rate", "Increasing, at a growing rate", "Decreasing, and falling faster", "Decreasing, but levelling off"]
+      correct: "s1 > 0 ? (s2 > 0 ? 1 : 0) : (s2 < 0 ? 2 : 3)"
+      explain: 'The first derivative gives the direction. The second derivative is the rate of change of that rate: with the same sign as $Q''$ the change is speeding up, with the opposite sign it is slowing'
+  verify: { choices: { v: "[[2, 3], [0, 1]][(s1 + 1)//2][(s2 + 1)//2]" } }
+
+# ── CA-5.3.A: intervals of increase and decrease ───────────────────────────
+- template: ca-decreasing-interval
+  skill: calc.extrema
+  pace: quick
+  given: { a: { int: [-5, 3] }, w: { int: [2, 6] } }
+  let:
+    b: a + w
+  require: ["a != 0", "a + w != 0"]
+  prompt: "A function has $f'(x) = {{=3*(x - a)*(x - b)}}$. On which interval $(p, q)$ is $f$ decreasing?"
+  parts:
+    - ask: '$p$'
+      label: p
+      tex: 'p'
+      value: a
+      tol: 0.0001
+      explain: "The derivative is zero at ${{a}}$ and ${{a + w}}$. Test one point in each of the three intervals: an upward parabola is negative only between its roots"
+    - ask: '$q$'
+      label: q
+      tex: 'q'
+      value: a + w
+      tol: 0.0001
+      explain: "So $f$ rises, falls on $({{a}}, {{a + w}})$, then rises again: a local maximum at ${{a}}$ and a local minimum at ${{a + w}}$"
+  verify:
+    expect: { p: "Min(*solve(3*(x - a)*(x - a - w), x))", q: "Max(*solve(3*(x - a)*(x - a - w), x))" }
+    residuals: ["1 if (3*(x - a)*(x - a - w)).subs(x, (p + q)/2) >= 0 else 0"]
+
+# ── CA-5.10.A: setting up an optimization ──────────────────────────────────
+- template: ca-optimization-setup
+  skill: calc.extrema
+  pace: quick
+  given: { s: { pick: [12, 18, 24, 30] }, t: { pick: [1, 2, 3] } }
+  prompt: 'An open box is made from a ${{s}} \times {{s}}$ sheet by cutting a square of side $x$ from each corner and folding up the sides. Its volume is $V(x)$.'
+  parts:
+    - ask: 'Largest $x$ that makes sense (the upper end of the domain)'
+      label: xm
+      tex: 'x_{\max}'
+      value: s/2
+      tol: 0.0001
+      explain: 'The base has side ${{s}} - 2x$, which must stay positive: $0 < x < {{s/2}}$. State the domain from the physical limits before differentiating, because the best $x$ must lie inside it'
+    - ask: '$V({{t}})$'
+      label: V
+      tex: 'V({{t}})'
+      value: t*(s - 2*t)^2
+      tol: 0.0001
+      explain: 'Height times base area: $V(x) = x({{s}} - 2x)^2$, one variable only'
+  verify: { expect: { xm: "Max(*solve(x*(s - 2*x)**2, x))", V: "(x*(s - 2*x)**2).subs(x, t)" } }
+
+# ── CA-5.12.B: extrema of an implicit curve ────────────────────────────────
+- template: ca-implicit-second-derivative
+  skill: calc.implicit-inverse
+  pace: quick
+  given: { m: { pick: [2, 3, 4] }, r: { pick: [1, 2] }, sg: { pick: [1, -1] } }
+  prompt: "On the curve ${{=x^2 + m*y^2}} = {{m*r^2}}$, the point $(0, {{sg*r}})$ has $dy/dx = 0$."
+  parts:
+    - ask: '$d^2y/dx^2$ there (a fraction is fine)'
+      label: d2
+      tex: "y''"
+      value: -1/(m*sg*r)
+      tol: 0.0001
+      explain: "Differentiate once: $2x + {{2*m}}y\\,y' = 0$. Differentiate again: $2 + {{2*m}}(y')^2 + {{2*m}}y\\,y'' = 0$. With $y' = 0$ this leaves $y'' = -\\dfrac{1}{ {{m}}y}$"
+    - ask: 'So the point is a…'
+      label: v
+      choice: ["Local maximum of y", "Local minimum of y"]
+      correct: "sg > 0 ? 0 : 1"
+      explain: "The second derivative test works for an implicit curve exactly as for a function: $y'' < 0$ with $y' = 0$ is a maximum"
+  verify:
+    expect: { d2: "idiff(x**2 + m*Y**2 - m*r**2, Y, x, 2).subs(x, 0).subs(Y, sg*r)" }
+    choices: { v: "0 if idiff(x**2 + m*Y**2 - m*r**2, Y, x, 2).subs(x, 0).subs(Y, sg*r) < 0 else 1" }
+
+# ── CA-9.6.A: speed, displacement and distance in the plane ────────────────
+- template: ca-planar-distance
+  skill: calc.parametric-polar
+  given: { k: { pick: [1, 2] }, c: { pick: [1, 2] }, T: { pick: [3, 5, 6] } }
+  require: ["T != 2*c"]
+  prompt: 'A particle has velocity $\mathbf{v}(t) = \langle {{3*k}}(t - {{c}}),\ {{4*k}}(t - {{c}}) \rangle$ for $0 \le t \le {{T}}$.'
+  parts:
+    - ask: 'Speed at $t = 0$'
+      label: s0
+      tex: '|\mathbf{v}(0)|'
+      value: 5*k*c
+      tol: 0.0001
+      explain: 'Speed is the length of the velocity vector: $\sqrt{({{3*k}})^2 + ({{4*k}})^2}\,|t - {{c}}| = {{5*k}}|t - {{c}}|$'
+    - ask: 'Total distance travelled'
+      label: D
+      tex: 'D'
+      value: 5*k*(c^2 + (T - c)^2)/2
+      tol: 0.0001
+      explain: 'Integrate the speed: $\int_0^{ {{T}} } {{5*k}}|t - {{c}}|\,dt$, split at $t = {{c}}$ where the particle turns round'
+    - ask: 'Magnitude of the displacement'
+      label: S
+      tex: '|\Delta\mathbf{r}|'
+      value: abs(5*k*((T - c)^2 - c^2)/2)
+      tol: 0.0001
+      explain: 'Integrate the velocity itself, component by component, and take the length of the result. The backward leg cancels part of the forward leg, so this is smaller than the distance'
+  verify:
+    expect:
+      s0: "sqrt((3*k*(0 - c))**2 + (4*k*(0 - c))**2)"
+      D: "integrate(5*k*(c - x), (x, 0, c)) + integrate(5*k*(x - c), (x, c, T))"
+      S: "sqrt(integrate(3*k*(x - c), (x, 0, T))**2 + integrate(4*k*(x - c), (x, 0, T))**2)"
+
+# ── CA-10.7.A: the alternating series test ─────────────────────────────────
+- template: ca-alternating-series-test
+  skill: calc.series
+  pace: recall
+  cases:
+    - { b: '\dfrac{1}{n}', py: '1/x', ans: 0 }
+    - { b: '\dfrac{1}{\sqrt{n}}', py: '1/sqrt(x)', ans: 0 }
+    - { b: '\dfrac{n}{n + 1}', py: 'x/(x + 1)', ans: 1 }
+    - { b: '\dfrac{n + 1}{2n}', py: '(x + 1)/(2*x)', ans: 1 }
+    - { b: '\dfrac{1}{\ln(n + 1)}', py: '1/log(x + 1)', ans: 0 }
+    - { b: '\dfrac{n^2}{n^2 + 1}', py: 'x**2/(x**2 + 1)', ans: 1 }
+    - { b: '\dfrac{n}{n^2 + 1}', py: 'x/(x**2 + 1)', ans: 0 }
+  prompt: 'Does $\displaystyle\sum_{n=1}^{\infty}(-1)^n\,{{b}}$ converge?'
+  parts:
+    - ask: 'Conclusion'
+      label: v
+      choice: ["Converges: the terms decrease in size to 0", "Diverges: the terms do not tend to 0"]
+      correct: ans
+      explain: 'Alternating series test: if $b_n$ decreases and $b_n \to 0$, the series converges, however slowly $b_n$ shrinks. If $b_n$ does not tend to 0, no series can converge (the divergence test)'
+  verify: { choices: { v: "0 if limit(S(py), x, oo) == 0 and all([S(py).subs(x, q + 1) < S(py).subs(x, q) for q in range(1, 30)]) else 1" } }
+
+# ── CA-12.1.A: domains and level curves ────────────────────────────────────
+- template: ca-domain-level-curve
+  skill: calc.partials-apps
+  pace: quick
+  cases:
+    - { R: 5, k: 3 }
+    - { R: 5, k: 4 }
+    - { R: 13, k: 5 }
+    - { R: 13, k: 12 }
+    - { R: 10, k: 6 }
+    - { R: 10, k: 8 }
+  prompt: 'Let $f(x, y) = \sqrt{ {{R^2}} - x^2 - y^2}$.'
+  parts:
+    - ask: 'The domain is a disc of what radius?'
+      label: rd
+      tex: 'R'
+      value: R
+      tol: 0.0001
+      explain: 'The radicand must not be negative: $x^2 + y^2 \le {{R^2}}$'
+    - ask: 'The level curve $f = {{k}}$ is a circle of what radius?'
+      label: rl
+      tex: 'r'
+      value: sqrt(R^2 - k^2)
+      tol: 0.0001
+      explain: 'Set $\sqrt{ {{R^2}} - x^2 - y^2} = {{k}}$ and square: $x^2 + y^2 = {{R^2 - k^2}}$. Level curves drawn for equally spaced $k$ crowd together where the surface is steep, here near the rim'
+  verify: { expect: { rd: "Max(*solve(R**2 - x**2, x))", rl: "Max(*solve(Eq(sqrt(R**2 - x**2), k), x))" } }
+
+- template: ca-level-curve-shape
+  skill: calc.partials-apps
+  pace: recall
+  cases:
+    - { f: 'x^2 + y^2', ans: 0 }
+    - { f: 'x^2 - y^2', ans: 1 }
+    - { f: '2x + 3y', ans: 2 }
+    - { f: 'y - x^2', ans: 3 }
+    - { f: '4x^2 + y^2', ans: 4 }
+    - { f: 'xy', ans: 1 }
+  prompt: 'The level curves $f(x, y) = k$ of $f(x, y) = {{f}}$ are…'
+  parts:
+    - ask: 'Shape'
+      label: v
+      choice: ["Circles", "Hyperbolas", "Parallel lines", "Parabolas", "Ellipses"]
+      correct: ans
+      explain: 'Set the formula equal to a constant and recognise the curve. For three variables the same step gives level surfaces'
+  verify: { authored: true }
+
+# ── EM-2.1.A: does this function solve the ODE? ────────────────────────────
+- template: em-verify-solution
+  skill: ode1.recognize
+  pace: quick
+  cases:
+    - { ode: "y'' - 3y' + 2y = 0", sol: 'e^{2x}', po: 'y2 - 3*y1 + 2*y0', ps: 'exp(2*x)', ans: 0 }
+    - { ode: "y'' - 3y' + 2y = 0", sol: 'e^{3x}', po: 'y2 - 3*y1 + 2*y0', ps: 'exp(3*x)', ans: 1 }
+    - { ode: "y'' + 4y = 0", sol: '\sin 2x', po: 'y2 + 4*y0', ps: 'sin(2*x)', ans: 0 }
+    - { ode: "y'' + 4y = 0", sol: '\sin 4x', po: 'y2 + 4*y0', ps: 'sin(4*x)', ans: 1 }
+    - { ode: "x\\,y' - 2y = 0", sol: 'x^2', po: 'x*y1 - 2*y0', ps: 'x**2', ans: 0 }
+    - { ode: "x\\,y' - 2y = 0", sol: 'x^3', po: 'x*y1 - 2*y0', ps: 'x**3', ans: 1 }
+    - { ode: "y' = y^2", sol: '-\dfrac{1}{x}', po: 'y1 - y0**2', ps: '-1/x', ans: 0 }
+    - { ode: "y' + 2xy = 0", sol: 'e^{-x^2}', po: 'y1 + 2*x*y0', ps: 'exp(-x**2)', ans: 0 }
+    - { ode: "y' + 2xy = 0", sol: 'e^{-2x}', po: 'y1 + 2*x*y0', ps: 'exp(-2*x)', ans: 1 }
+  prompt: 'Is $y = {{sol}}$ a solution of ${{ode}}$?'
+  parts:
+    - ask: 'Solution?'
+      label: v
+      choice: ["Yes", "No"]
+      correct: ans
+      explain: 'Differentiate the candidate as many times as the order of the equation, substitute, and see whether the two sides agree for every $x$'
+  verify: { choices: { v: "0 if simplify(S(po).subs(Symbol('y2'), diff(S(ps), x, 2)).subs(Symbol('y1'), diff(S(ps), x)).subs(Symbol('y0'), S(ps))) == 0 else 1" } }
+
+# ── EM-6.3.C: the first Frobenius solution ─────────────────────────────────
+- template: em-frobenius-first-solution
+  skill: series.indicial
+  given: { k: { pick: [1, 2, 3, 6] } }
+  prompt: "Solve $2x\\,y'' + y' + {{k}}y = 0$ near $x = 0$ by the Frobenius method, $y = x^r(1 + a_1x + a_2x^2 + \\dots)$, using the larger indicial root."
+  parts:
+    - ask: 'The larger indicial root $r$'
+      label: r
+      tex: 'r'
+      value: 0.5
+      tol: 0.0001
+      explain: 'The lowest power gives $2r(r - 1) + r = r(2r - 1) = 0$, so $r = \tfrac12$ or $0$'
+    - ask: '$a_1$ (a fraction is fine)'
+      label: a1
+      tex: 'a_1'
+      value: -k/3
+      tol: 0.0001
+      explain: 'The coefficient of $x^{m + r - 1}$ gives $a_m\,(m + r)(2m + 2r - 1) = -{{k}}\,a_{m-1}$. With $r = \tfrac12$ this is $a_m\,m(2m + 1) = -{{k}}\,a_{m-1}$, the same index-shifting as the power-series method'
+    - ask: '$a_2$ (a fraction is fine)'
+      label: a2
+      tex: 'a_2'
+      value: k^2/30
+      tol: 0.0001
+      explain: '$a_2 = \dfrac{-{{k}}\,a_1}{2 \cdot 5}$'
+  verify:
+    residuals:
+      - "r*(2*r - 1)"
+      - "r - Rational(1, 2)"
+      - "expand(powsimp(expand((2*x*diff(x**Rational(1, 2)*(1 + a1*x + a2*x**2), x, 2) + diff(x**Rational(1, 2)*(1 + a1*x + a2*x**2), x) + k*x**Rational(1, 2)*(1 + a1*x + a2*x**2))*x**Rational(1, 2)))).coeff(x, 1)"
+      - "expand(powsimp(expand((2*x*diff(x**Rational(1, 2)*(1 + a1*x + a2*x**2), x, 2) + diff(x**Rational(1, 2)*(1 + a1*x + a2*x**2), x) + k*x**Rational(1, 2)*(1 + a1*x + a2*x**2))*x**Rational(1, 2)))).coeff(x, 2)"
+
+# ── EM-9.1.D: forced oscillation by Fourier series ─────────────────────────
+- template: em-fourier-forced-response
+  skill: bvp.fourier-series
+  given: { w2: { pick: [8, 10, 24, 27, 48, 50] }, n: { pick: [1, 3, 5, 7] } }
+  prompt: "An undamped oscillator obeys $y'' + {{w2}}\\,y = r(t)$, where $r$ is the square wave $r(t) = \\dfrac{4}{\\pi}\\left(\\sin t + \\tfrac13\\sin 3t + \\tfrac15\\sin 5t + \\tfrac17\\sin 7t + \\dots\\right)$. The steady-state response is $y = \\sum C_n\\sin nt$."
+  parts:
+    - ask: '$C_{ {{n}} }$'
+      label: C
+      tex: 'C_{ {{n}} }'
+      value: 4/(n*pi*(w2 - n^2))
+      tol: 0.005
+      explain: 'Solve term by term. Putting $C_n\sin nt$ into the left side gives $({{w2}} - n^2)C_n\sin nt$, which must equal $\dfrac{4}{n\pi}\sin nt$'
+    - ask: 'Which harmonic has the largest amplitude in the response?'
+      label: v
+      choice: ["n = 1", "n = 3", "n = 5", "n = 7"]
+      correct: "w2 < 12 ? 1 : (w2 < 30 ? 2 : 3)"
+      explain: 'The denominator ${{w2}} - n^2$ is smallest for the $n$ nearest the natural frequency $\omega_0 = \sqrt{ {{w2}} } \approx {{sqrt(w2)}}$. That harmonic is near resonance and dominates, even though the force contains less of it than of $n = 1$'
+  verify:
+    residuals: ["(w2 - n**2)*C - 4/(n*pi)"]
+    choices: { v: "[Abs(4/(q*pi*(w2 - q**2))) for q in [1, 3, 5, 7]].index(Max(*[Abs(4/(q*pi*(w2 - q**2))) for q in [1, 3, 5, 7]]))" }
+
+# ── EM-10.5.A: a PDE on a semi-infinite domain by Laplace transform ────────
+- template: em-semi-infinite-heat
+  skill: pde.separation
+  given: { U0: { pick: [50, 100, 200] }, al: { pick: [1, 4] }, tt: { pick: [1, 4] }, eta: { pick: [0.25, 0.5, 1] } }
+  prompt: 'A semi-infinite bar $x > 0$ starts at 0 and has its end held at ${{U0}}$ from $t = 0$: $u_t = {{al}}\,u_{xx}$, $u(0, t) = {{U0}}$, $u(x, 0) = 0$, $u$ bounded.'
+  parts:
+    - ask: 'Taking the Laplace transform in $t$, $U(x, s)$ satisfies…'
+      label: v
+      choice: ["α U″ − s U = 0, with U(0, s) = U₀/s", "α U″ + s U = 0, with U(0, s) = U₀", "s U″ − α U = 0, with U(0, s) = U₀/s"]
+      correct: 0
+      explain: 'The transform of $u_t$ is $sU - u(x, 0) = sU$, and $x$ is just a parameter, so the PDE becomes an ODE in $x$. The constant boundary value transforms to $U_0/s$. Keeping the bounded solution gives $U = \dfrac{U_0}{s}e^{-x\sqrt{s/\alpha}}$'
+    - ask: '$u$ at $x = {{2*eta*sqrt(al*tt)}}$, $t = {{tt}}$'
+      label: u
+      tex: 'u'
+      value: U0*(1 - erf(eta))
+      tol: 0.005
+      explain: 'Inverting gives $u = U_0\,\operatorname{erfc}\!\left(\dfrac{x}{2\sqrt{\alpha t}}\right)$. Here $\dfrac{x}{2\sqrt{\alpha t}} = {{eta}}$ and $\operatorname{erfc}({{eta}}) = {{1 - erf(eta)}}$. The solution depends on $x$ and $t$ only through that one combination'
+  verify:
+    expect: { u: "U0*erfc(2*eta*sqrt(al*tt)/(2*sqrt(al*tt)))" }
+    choices: { v: "0 if simplify(diff(U0*erfc(x/(2*sqrt(al*Y))), Y) - al*diff(U0*erfc(x/(2*sqrt(al*Y))), x, 2)) == 0 else 1" }
+
+# ── EM-11.1.A: Fourier cosine and sine transforms ──────────────────────────
+- template: em-fourier-cosine-sine
+  skill: bvp.fourier-series
+  pace: quick
+  given: { a: { pick: [1, 2, 3] }, w: { pick: [1, 2, 3, 4] } }
+  cases:
+    - { k: 0, nm: 'cosine', fn: '\cos', sub: 'c' }
+    - { k: 1, nm: 'sine', fn: '\sin', sub: 's' }
+  prompt: 'Using $\hat f_{ {{sub}} }(w) = \sqrt{\tfrac{2}{\pi}}\displaystyle\int_0^\infty f(x)\,{{fn}}(wx)\,dx$, find the Fourier {{nm}} transform of $f(x) = e^{-{{a}}x}$ at $w = {{w}}$.'
+  parts:
+    - ask: 'Value'
+      label: F
+      tex: '\hat f_{ {{sub}} }({{w}})'
+      value: "sqrt(2/pi)*(k == 0 ? a : w)/(a^2 + w^2)"
+      tol: 0.005
+      explain: '$\int_0^\infty e^{-ax}\cos wx\,dx = \dfrac{a}{a^2 + w^2}$ and $\int_0^\infty e^{-ax}\sin wx\,dx = \dfrac{w}{a^2 + w^2}$. A function given only for $x > 0$ can be extended as even (cosine transform) or odd (sine transform), the $L \to \infty$ limit of the half-range series'
+  verify: { expect: { F: "sqrt(2/pi)*integrate(exp(-a*x)*(cos(w*x) if k == 0 else sin(w*x)), (x, 0, oo))" } }
+
+# ── EM-11.1.B: the Fourier transform and its derivative rule ───────────────
+- template: em-fourier-transform-value
+  skill: bvp.fourier-series
+  pace: quick
+  given: { a: { pick: [1, 2, 3] }, w: { pick: [1, 2, 3] } }
+  prompt: 'Using $\hat f(w) = \dfrac{1}{\sqrt{2\pi}}\displaystyle\int_{-\infty}^{\infty} f(x)\,e^{-iwx}\,dx$, find the Fourier transform of $f(x) = e^{-{{a}}|x|}$ at $w = {{w}}$.'
+  parts:
+    - ask: 'Value'
+      label: F
+      tex: '\hat f({{w}})'
+      value: 2*a/(sqrt(2*pi)*(a^2 + w^2))
+      tol: 0.005
+      explain: '$f$ is even, so the sine part drops out: $\hat f(w) = \dfrac{2}{\sqrt{2\pi}}\displaystyle\int_0^\infty e^{-ax}\cos wx\,dx = \sqrt{\tfrac{2}{\pi}}\,\dfrac{a}{a^2 + w^2}$'
+  verify: { expect: { F: "2/sqrt(2*pi)*integrate(exp(-a*x)*cos(w*x), (x, 0, oo))" } }
+
+- template: em-fourier-derivative-rule
+  skill: bvp.fourier-series
+  pace: recall
+  cases:
+    - { q: "the transform of $f'(x)$", ans: 0 }
+    - { q: "the transform of $f''(x)$", ans: 1 }
+    - { q: "the transformed form of $y'' - a^2y = g(x)$, solved for $\\hat y$", ans: 2 }
+    - { q: "the transformed form of $u_t = c^2u_{xx}$ (transforming in $x$)", ans: 3 }
+  prompt: 'With $\hat f(w)$ the Fourier transform of $f$ (and $f \to 0$ at $\pm\infty$), {{q}} is…'
+  parts:
+    - ask: 'Result'
+      label: v
+      choice: ["i w times f-hat", "−w² times f-hat", "y-hat = −g-hat / (w² + a²)", "d(u-hat)/dt = −c² w² u-hat"]
+      correct: ans
+      explain: 'One integration by parts gives $\mathcal F\{f''\} = iw\,\hat f$; twice gives $-w^2\hat f$. So differentiation in $x$ becomes multiplication by $iw$: an ODE turns into algebra, and a PDE turns into an ODE in the other variable'
+  verify: { authored: true }

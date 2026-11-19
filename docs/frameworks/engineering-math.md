@@ -2,7 +2,7 @@
 
 Generated from `drills/frameworks/engineering-math.yaml` by `scripts/framework.mjs`. ● drilled · ◐ partly · ○ no drills yet.
 
-**118 learning objectives** in 12 units (114 core): 112 drilled, 1 partly, 5 with no drills. Core: 110 / 114 drilled.
+**118 learning objectives** in 12 units (114 core): 118 drilled, 0 partly, 0 with no drills. Core: 114 / 114 drilled.
 
 ## Big ideas
 
@@ -26,16 +26,16 @@ Generated from `drills/frameworks/engineering-math.yaml` by `scripts/framework.m
 | Unit | Scope | Est. weight | LOs | ● | ◐ | ○ |
 |---|---|---|---|---|---|---|
 | 1 · The calculus and complex-number toolkit | core | review | 10 | 10 | 0 | 0 |
-| 2 · First-order ODEs | core | 15–20% | 17 | 16 | 1 | 0 |
+| 2 · First-order ODEs | core | 15–20% | 17 | 17 | 0 | 0 |
 | 3 · Second-order linear ODEs | core | 20–25% | 18 | 18 | 0 | 0 |
 | 4 · Higher-order linear ODEs | core | 5% | 4 | 4 | 0 | 0 |
 | 5 · Systems of ODEs, phase plane and stability | core | 15–20% | 13 | 13 | 0 | 0 |
-| 6 · Series solutions and special functions | core | 15% | 11 | 10 | 0 | 1 |
+| 6 · Series solutions and special functions | core | 15% | 11 | 11 | 0 | 0 |
 | 7 · Laplace transforms | core | 15% | 14 | 14 | 0 | 0 |
 | 8 · Linear algebra for ODEs | core | as needed | 7 | 7 | 0 | 0 |
-| 9 · Fourier series and Sturm–Liouville boundary-value problems | core | 10–15% | 11 | 10 | 0 | 1 |
-| 10 · Partial differential equations | core | — | 9 | 8 | 0 | 1 |
-| 11 · Fourier integrals and transforms | extension | — | 2 | 0 | 0 | 2 |
+| 9 · Fourier series and Sturm–Liouville boundary-value problems | core | 10–15% | 11 | 11 | 0 | 0 |
+| 10 · Partial differential equations | core | — | 9 | 9 | 0 | 0 |
+| 11 · Fourier integrals and transforms | extension | — | 2 | 2 | 0 | 0 |
 | 12 · Vector calculus for transport | extension | — | 2 | 2 | 0 | 0 |
 
 ## Unit 1 · The calculus and complex-number toolkit
@@ -100,9 +100,9 @@ Big ideas: MODEL, FORM, TRANS
 
 Book: kreyszig-10e §1.1, §1.2
 
-- ◐ **EM-2.1.A** Classify an ODE by order and linearity, and verify that a given function solves it.
+- ● **EM-2.1.A** Classify an ODE by order and linearity, and verify that a given function solves it.
   - EK: Order = highest derivative; linear ⇔ y and its derivatives appear to first power with coefficients in x only.
-  - P2 · P5 · drills: ~em-classify-ode
+  - P2 · P5 · drills: em-verify-solution, ~em-classify-ode
 - ● **EM-2.1.B** Sketch a direction field and solution curves from isoclines of y′ = f(x, y).
   - EK: Isocline f(x, y) = k has slope k everywhere; solution curves are tangent to the field.
   - P6 · drills: em-isoclines, ca-slope-field-match
@@ -426,10 +426,10 @@ Book: kreyszig-10e §5.3
   - EK: Roots not differing by an integer: two x^r series; double root: second has ln x; differ by an integer: second may have ln x.
   - Needs: EM-6.3.A
   - P2 · drills: frobenius-case
-- ○ **EM-6.3.C** Construct the first Frobenius series solution from the larger indicial root.
+- ● **EM-6.3.C** Construct the first Frobenius series solution from the larger indicial root.
   - EK: y = x^r Σa_m x^m; same index-shifting as the power series method.
   - Needs: EM-6.3.A, EM-6.2.A
-  - P3
+  - P3 · drills: em-frobenius-first-solution
 
 ### 6.4 Legendre and Bessel functions
 
@@ -604,10 +604,10 @@ Book: kreyszig-10e §11.1, §11.2
 - ● **EM-9.1.C** Write the half-range sine or cosine expansion of a function on (0, L).
   - EK: Odd extension ⇒ sine series; even extension ⇒ cosine series; b_n = (2/L)∫₀ᴸ f sin(nπx/L).
   - P3 · drills: fs-half-range
-- ○ **EM-9.1.D** Find the periodic steady-state response of an oscillator to a periodic non-sinusoidal force by Fourier series.
+- ● **EM-9.1.D** Find the periodic steady-state response of an oscillator to a periodic non-sinusoidal force by Fourier series.
   - EK: Solve term by term; the term with nω nearest ω₀ dominates.
   - Needs: EM-9.1.A, EM-3.6.A
-  - P3 · P6
+  - P3 · P6 · drills: em-fourier-forced-response
 
 ### 9.2 Sturm–Liouville problems
 
@@ -701,9 +701,9 @@ Book: kreyszig-10e §12.6, §12.10, §12.11
 
 Book: kreyszig-10e §12.7, §12.12
 
-- ○ **EM-10.5.A** Solve a PDE on a semi-infinite or infinite domain by Laplace or Fourier transform.
+- ● **EM-10.5.A** Solve a PDE on a semi-infinite or infinite domain by Laplace or Fourier transform.
   - EK: Transform out t (Laplace) or x (Fourier) to get an ODE in the other variable.
-  - P3
+  - P3 · drills: em-semi-infinite-heat
 
 ## Unit 11 · Fourier integrals and transforms (extension)
 
@@ -713,12 +713,12 @@ Big ideas: TRANS
 
 Book: kreyszig-10e §11.7, §11.8, §11.9
 
-- ○ **EM-11.1.A** Represent a non-periodic function by its Fourier integral, or its cosine or sine transform.
+- ● **EM-11.1.A** Represent a non-periodic function by its Fourier integral, or its cosine or sine transform.
   - EK: Limit L → ∞ of the Fourier series; even ⇒ cosine transform, odd ⇒ sine.
-  - P3
-- ○ **EM-11.1.B** Compute a Fourier transform and use its derivative property to turn an ODE into algebra.
+  - P3 · drills: em-fourier-cosine-sine
+- ● **EM-11.1.B** Compute a Fourier transform and use its derivative property to turn an ODE into algebra.
   - EK: F{f′} = iwF{f}; F{e^(−ax²)} is Gaussian.
-  - P3
+  - P3 · drills: em-fourier-transform-value, em-fourier-derivative-rule
 
 ## Unit 12 · Vector calculus for transport (extension)
 
@@ -774,17 +774,22 @@ Book: kreyszig-10e §9.7, §9.8, §9.9, §10.7, §10.9
 - mm-asymptote (calc.limits)
 - ca-limit-graph (calc.limits)
 - ca-limit-table (calc.limits)
+- ca-shrinking-average-rate (calc.limits)
+- ca-limit-statement (calc.limits)
+- ca-limit-three-ways (calc.limits)
 - ca-limit-procedure (calc.limits)
 - ca-lim-onesided (calc.continuity)
 - ca-continuity-k (calc.continuity)
 - ca-vert-asymptote (calc.continuity)
 - ca-ivt (calc.continuity)
 - ca-discontinuity-graph (calc.continuity)
+- ca-make-continuous (calc.continuity)
 - ca-continuity-conditions (calc.continuity)
 - ca-avg-rate (calc.derivative-basics)
 - ca-def-derivative (calc.derivative-basics)
 - ca-tangent-line (calc.derivative-basics)
 - ca-estimate-derivative (calc.derivative-basics)
+- ca-difference-quotient-limit (calc.derivative-basics)
 - ca-differentiability (calc.derivative-basics)
 - ca-power-rule (calc.derivative-rules)
 - ca-power-reciprocal (calc.derivative-rules)
@@ -799,6 +804,7 @@ Book: kreyszig-10e §9.7, §9.8, §9.9, §10.7, §10.9
 - ca-trig-derivative (calc.derivative-rules)
 - mm-derivative-at-a-point (calc.derivative-rules)
 - mm-tangent-slope (calc.derivative-rules)
+- ca-derive-sin-exp (calc.derivative-rules)
 - ca-chain-power (calc.chain-rule)
 - ca-chain-trig (calc.chain-rule)
 - ca-chain-exp (calc.chain-rule)
@@ -813,6 +819,7 @@ Book: kreyszig-10e §9.7, §9.8, §9.9, §10.7, §10.9
 - ca-arcsin-derivative (calc.implicit-inverse)
 - ca-second-derivative (calc.implicit-inverse)
 - ca-second-derivative-trig (calc.implicit-inverse)
+- ca-implicit-second-derivative (calc.implicit-inverse)
 - ca-implicit-horizontal (calc.implicit-inverse)
 - ca-motion (calc.rates)
 - ca-related-circle (calc.rates)
@@ -823,6 +830,7 @@ Book: kreyszig-10e §9.7, §9.8, §9.9, §10.7, §10.9
 - ca-lhospital-exp (calc.rates)
 - ca-lhospital-twice (calc.rates)
 - ca-lhospital-power (calc.rates)
+- ca-rate-of-rate (calc.rates)
 - ca-rate-units (calc.rates)
 - ca-mvt (calc.extrema)
 - ca-critical-points (calc.extrema)
@@ -835,6 +843,8 @@ Book: kreyszig-10e §9.7, §9.8, §9.9, §10.7, §10.9
 - mm-quadratic-maximum (calc.extrema)
 - ca-read-derivative-graph (calc.extrema)
 - ca-sketch-derivative (calc.extrema)
+- ca-decreasing-interval (calc.extrema)
+- ca-optimization-setup (calc.extrema)
 - ca-riemann-sums (calc.riemann-ftc)
 - ca-trapezoid-table (calc.riemann-ftc)
 - ca-ftc-derivative (calc.riemann-ftc)
@@ -886,6 +896,7 @@ Book: kreyszig-10e §9.7, §9.8, §9.9, §10.7, §10.9
 - ca-polar-slope (calc.parametric-polar)
 - ca-polar-area (calc.parametric-polar)
 - ca-polar-rose (calc.parametric-polar)
+- ca-planar-distance (calc.parametric-polar)
 - ca-polar-between (calc.parametric-polar)
 - ca-partial-sums (calc.series)
 - ca-geometric-series (calc.series)
@@ -894,6 +905,7 @@ Book: kreyszig-10e §9.7, §9.8, §9.9, §10.7, §10.9
 - ca-ratio-test (calc.series)
 - ca-absolute-conditional (calc.series)
 - ca-alternating-error (calc.series)
+- ca-alternating-series-test (calc.series)
 - ca-integral-test (calc.series)
 - ca-comparison-test (calc.series)
 - ca-taylor-exp (calc.taylor)
@@ -917,6 +929,8 @@ Book: kreyszig-10e §9.7, §9.8, §9.9, §10.7, §10.9
 - cm-critical-point (calc.partials-apps)
 - cm-lagrange-product (calc.partials-apps)
 - cm-lagrange-circle (calc.partials-apps)
+- ca-domain-level-curve (calc.partials-apps)
+- ca-level-curve-shape (calc.partials-apps)
 - ca-two-path-limit (calc.partials-apps)
 - ca-extrema-region (calc.partials-apps)
 - cm-double-rect (calc.multiple-integrals)
