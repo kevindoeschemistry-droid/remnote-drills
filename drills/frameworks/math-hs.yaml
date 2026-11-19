@@ -110,26 +110,26 @@ units:
       - n: 1
         title: Reason quantitatively and use units to solve problems
         los:
-          - { id: A, std: N-Q.A.1, do: "Use units to choose and check the solution path of a multi-step problem, converting units and choosing scales for graphs.", ek: ["Units multiply and divide like factors; a result in the wrong units is wrong."], p: [MP2, MP6], drills: ["~k8-convert"] }
-          - { id: B, std: N-Q.A.2, do: "Define the quantities and variables needed to describe a situation.", ek: ["A quantity is a number with a unit attached to a specific attribute of a specific object."], p: [MP2, MP4], drills: [], needs: [MH-1.1.A] }
-          - { id: C, std: N-Q.A.3, do: "Report a computed quantity to a level of accuracy that matches the limitations of the measurements it came from.", ek: ["A result is no more precise than the least precise measurement that went into it."], p: [MP6], drills: [], needs: [MH-1.1.A] }
+          - { id: A, std: N-Q.A.1, do: "Use units to choose and check the solution path of a multi-step problem, converting units and choosing scales for graphs.", ek: ["Units multiply and divide like factors; a result in the wrong units is wrong."], p: [MP2, MP6], drills: ["~k8-convert", hs-rate-unit-conversion] }
+          - { id: B, std: N-Q.A.2, do: "Define the quantities and variables needed to describe a situation.", ek: ["A quantity is a number with a unit attached to a specific attribute of a specific object."], p: [MP2, MP4], drills: [hs-define-quantities], needs: [MH-1.1.A] }
+          - { id: C, std: N-Q.A.3, do: "Report a computed quantity to a level of accuracy that matches the limitations of the measurements it came from.", ek: ["A result is no more precise than the least precise measurement that went into it."], p: [MP6], drills: [hs-report-precision], needs: [MH-1.1.A] }
       - n: 2
         title: Interpret the structure of expressions
         los:
           - { id: A, std: A-SSE.A.1a, do: "Identify the terms, factors and coefficients of an expression and say what each means in context.", ek: ["Terms are added, factors are multiplied; a coefficient scales its variable."], p: [MP2, MP7], drills: [k8-coefficient] }
-          - { id: B, std: A-SSE.A.1b, do: "Interpret a complicated expression by viewing one or more of its parts as a single entity, e.g. P(1 + r)^n as the product of P and a factor not depending on P.", ek: ["Treating a sub-expression as one object shows the role it plays in the whole."], p: [MP7], drills: ["~alg-exp-params"], needs: [MH-1.2.A] }
+          - { id: B, std: A-SSE.A.1b, do: "Interpret a complicated expression by viewing one or more of its parts as a single entity, e.g. P(1 + r)^n as the product of P and a factor not depending on P.", ek: ["Treating a sub-expression as one object shows the role it plays in the whole."], p: [MP7], drills: ["~alg-exp-params", hs-expression-parts], needs: [MH-1.2.A] }
       - n: 3
         title: Solve equations and inequalities in one variable as a process of reasoning
         los:
-          - { id: A, std: A-REI.A.1, do: "Explain each step in solving a simple equation as following from the equality asserted in the previous step, and justify the method.", ek: ["Applying the same invertible operation to both sides keeps the solution set unchanged."], p: [MP3, MP7], drills: ["~alg-linear-eq"] }
+          - { id: A, std: A-REI.A.1, do: "Explain each step in solving a simple equation as following from the equality asserted in the previous step, and justify the method.", ek: ["Applying the same invertible operation to both sides keeps the solution set unchanged."], p: [MP3, MP7], drills: ["~alg-linear-eq", hs-justify-step] }
           - { id: B, std: A-REI.B.3, do: "Solve a linear equation in one variable, including equations with coefficients represented by letters.", ek: ["Collect the variable terms on one side and constants on the other, then divide by the (nonzero) coefficient."], p: [MP6, MP7], drills: [alg-linear-eq, alg-literal], needs: [MH-1.3.A] }
           - { id: C, std: A-REI.B.3, do: "Solve a linear inequality in one variable and write the solution set.", ek: ["Multiplying or dividing both sides by a negative number reverses the inequality."], p: [MP6], drills: [alg-linear-ineq], needs: [MH-1.3.B] }
       - n: 4
         title: Create equations that describe numbers or relationships
         los:
           - { id: A, std: A-CED.A.1, do: "Write and solve a one-variable linear equation or inequality that represents a word problem.", ek: ["Name the unknown, translate each sentence into a relation, solve, then check the answer in the words."], p: [MP4, MP2], drills: [alg-word-linear], needs: [MH-1.1.B, MH-1.3.C] }
-          - { id: B, std: A-CED.A.2, do: "Write an equation in two variables that relates two quantities and graph it on coordinate axes with labels and scales.", ek: ["Each variable is one quantity with a unit; the axes carry those units."], p: [MP4, MP6], drills: ["~k8-rate-initial"], needs: [MH-1.4.A] }
-          - { id: C, std: A-CED.A.3, do: "Represent constraints by equations or inequalities, or by systems of them, and decide whether a solution is viable in context.", ek: ["A mathematical solution can be non-viable: negative counts, fractional people, or values outside the constraints."], p: [MP4], drills: ["~alg-half-plane"], needs: [MH-1.4.A] }
+          - { id: B, std: A-CED.A.2, do: "Write an equation in two variables that relates two quantities and graph it on coordinate axes with labels and scales.", ek: ["Each variable is one quantity with a unit; the axes carry those units."], p: [MP4, MP6], drills: ["~k8-rate-initial", hs-linear-model-context], needs: [MH-1.4.A] }
+          - { id: C, std: A-CED.A.3, do: "Represent constraints by equations or inequalities, or by systems of them, and decide whether a solution is viable in context.", ek: ["A mathematical solution can be non-viable: negative counts, fractional people, or values outside the constraints."], p: [MP4], drills: ["~alg-half-plane", hs-viable-solution], needs: [MH-1.4.A] }
           - { id: D, std: A-CED.A.4, do: "Rearrange a formula to highlight a quantity of interest, e.g. Ohm's law V = IR for R.", ek: ["Solving a formula for one letter uses the same inverse operations as solving an equation."], p: [MP7], drills: [alg-literal], needs: [MH-1.3.B] }
 
   # ── 2 ────────────────────────────────────────────────────────────────────
@@ -155,7 +155,7 @@ units:
       - n: 3
         title: Graphs of equations and linear functions
         los:
-          - { id: A, std: A-REI.D.10, do: "Explain that the graph of an equation in two variables is the set of all its solutions plotted in the coordinate plane.", ek: ["A point lies on the graph exactly when its coordinates satisfy the equation."], p: [MP3], drills: [], needs: [MH-1.4.B] }
+          - { id: A, std: A-REI.D.10, do: "Explain that the graph of an equation in two variables is the set of all its solutions plotted in the coordinate plane.", ek: ["A point lies on the graph exactly when its coordinates satisfy the equation."], p: [MP3], drills: [hs-point-on-graph], needs: [MH-1.4.B] }
           - { id: B, std: F-IF.C.7a, do: "Graph a linear function from its equation, showing the intercepts and the slope.", ek: ["y = mx + b: slope m = rise/run, y-intercept b, x-intercept −b/m."], p: [MP5, MP6], drills: [alg-intercepts, k8-slope], needs: [MH-2.3.A, MH-2.2.C] }
       - n: 4
         title: Distinguish linear from exponential change
@@ -168,7 +168,7 @@ units:
         los:
           - { id: A, std: F-LE.A.2, do: "Construct a linear or exponential function, including arithmetic and geometric sequences, from a graph, a description of a relationship, or two input–output pairs.", ek: ["Linear: m = Δy/Δx, then b; exponential through (x₁, y₁), (x₂, y₂): b = (y₂/y₁)^(1/(x₂ − x₁)), then a."], p: [MP4, MP7], drills: [k8-rate-initial, alg-exp-2pts], needs: [MH-2.4.B, MH-2.4.C, MH-2.3.B] }
           - { id: B, std: F-BF.A.2, do: "Write an arithmetic or geometric sequence both recursively and with an explicit formula, and translate between the two forms.", ek: ["a_n = a₁ + (n − 1)d ⇔ a_n = a_(n−1) + d; a_n = a₁r^(n−1) ⇔ a_n = r·a_(n−1)."], p: [MP8], drills: [alg-seq-explicit], needs: [MH-2.1.C, MH-2.5.A] }
-          - { id: C, std: F-BF.A.1a, do: "Determine an explicit expression, a recursive process, or steps for calculation from a context.", ek: ["Describe what happens to the quantity at each step; that description is the recursion, and repeating it gives the explicit formula."], p: [MP4, MP8], drills: ["~alg-seq-recursive"], needs: [MH-2.5.B] }
+          - { id: C, std: F-BF.A.1a, do: "Determine an explicit expression, a recursive process, or steps for calculation from a context.", ek: ["Describe what happens to the quantity at each step; that description is the recursion, and repeating it gives the explicit formula."], p: [MP4, MP8], drills: ["~alg-seq-recursive", hs-explicit-from-context], needs: [MH-2.5.B] }
           - { id: D, std: F-LE.B.5, do: "Interpret the parameters of a linear or exponential function in terms of a context.", ek: ["y = mx + b: m is the rate, b the initial value; y = a·b^x: a is the initial value, b − 1 the percent change per unit."], p: [MP2, MP4], drills: [alg-exp-params], needs: [MH-2.5.A] }
       - n: 6
         title: Rational exponents and exponential graphs
@@ -177,7 +177,7 @@ units:
           - { id: B, std: N-RN.A.2, do: "Rewrite expressions involving radicals and rational exponents using the properties of exponents.", ek: ["x^(m/n) = (ⁿ√x)^m; a^p·a^q = a^(p+q); (a^p)^q = a^(pq); a^(−p) = 1/a^p."], p: [MP7], drills: [alg-rational-exp], needs: [MH-2.6.A] }
           - { id: C, std: F-IF.C.7e, do: "Graph an exponential function y = a·b^x, showing the intercept and end behaviour.", ek: ["Passes through (0, a); grows if b > 1, decays if 0 < b < 1; horizontal asymptote y = 0."], p: [MP5, MP6], drills: [alg-exp-graph], needs: [MH-2.5.A] }
           - { id: D, std: F-LE.A.3, do: "Show with graphs and tables that a quantity increasing exponentially eventually exceeds one increasing linearly.", ek: ["Equal factors eventually beat equal differences, however small the base above 1."], p: [MP5, MP8], drills: [hs-exp-beats-linear], needs: [MH-2.6.C] }
-          - { id: E, std: F-IF.C.9, do: "Compare properties of two functions each represented in a different way (algebraically, graphically, numerically in a table, or by a verbal description).", ek: ["Read the same feature (rate, intercept, maximum) from each representation before comparing."], p: [MP2, MP7], drills: ["~k8-compare-fns"], needs: [MH-2.6.C] }
+          - { id: E, std: F-IF.C.9, do: "Compare properties of two functions each represented in a different way (algebraically, graphically, numerically in a table, or by a verbal description).", ek: ["Read the same feature (rate, intercept, maximum) from each representation before comparing."], p: [MP2, MP7], drills: ["~k8-compare-fns", hs-compare-rates], needs: [MH-2.6.C] }
       - n: 7
         title: Solve systems of equations and represent inequalities graphically
         los:
@@ -264,9 +264,9 @@ units:
           - { id: A, std: F-IF.C.8a, do: "Rewrite a quadratic function by factoring and completing the square to show its zeros, extreme value and symmetry, and interpret them in context.", ek: ["Factored form shows zeros; vertex form a(x − h)² + k shows the extreme value k and axis x = h."], p: [MP7, MP2], drills: [alg-complete-square, alg-factor-zeros], needs: [MH-4.2.A, MH-4.2.B] }
           - { id: B, std: F-IF.C.7a, do: "Graph a quadratic function, showing intercepts, the vertex (maximum or minimum) and the axis of symmetry.", ek: ["Vertex at x = −b/2a; opens up if a > 0, down if a < 0; y-intercept c."], p: [MP5, MP6], drills: [alg-vertex], needs: [MH-5.2.A, MH-2.3.B] }
           - { id: C, std: F-IF.B.4, do: "Interpret the key features of a quadratic model in context, e.g. the maximum height and landing time of a projectile.", ek: ["The vertex gives the extreme value and when it happens; the zeros give when the quantity is zero."], p: [MP2, MP4], drills: [alg-quad-word], needs: [MH-5.2.B, MH-2.2.A] }
-          - { id: D, std: F-IF.C.7b, do: "Graph square-root, cube-root and piecewise-defined functions, including step functions and absolute-value functions.", ek: ["|x| = x for x ≥ 0 and −x for x < 0; √x needs x ≥ 0; each piece applies only on its own interval."], p: [MP5, MP6], drills: ["~alg-piecewise", "~hs-abs-graph"], needs: [MH-2.3.B, MH-2.6.B] }
+          - { id: D, std: F-IF.C.7b, do: "Graph square-root, cube-root and piecewise-defined functions, including step functions and absolute-value functions.", ek: ["|x| = x for x ≥ 0 and −x for x < 0; √x needs x ≥ 0; each piece applies only on its own interval."], p: [MP5, MP6], drills: ["~alg-piecewise", hs-root-graph, hs-abs-graph], needs: [MH-2.3.B, MH-2.6.B] }
           - { id: E, std: F-IF.C.8b, do: "Use the properties of exponents to classify an exponential function as growth or decay and find its percent rate, e.g. y = (0.97)^t, y = (1.01)^(12t), y = (1.2)^(t/10).", ek: ["y = a·b^t: percent change per unit = (b − 1)·100%; rewrite so the exponent is in the unit asked for."], p: [MP7, MP2], drills: [alg-exp-params], needs: [MH-4.2.C, MH-2.5.D] }
-          - { id: F, std: F-IF.C.9, do: "Compare a quadratic with a function represented differently, e.g. decide which of an algebraic quadratic and a graphed one has the larger maximum.", ek: ["Put both in a form that shows the feature being compared."], p: [MP2, MP7], drills: [], needs: [MH-5.2.B, MH-2.6.E] }
+          - { id: F, std: F-IF.C.9, do: "Compare a quadratic with a function represented differently, e.g. decide which of an algebraic quadratic and a graphed one has the larger maximum.", ek: ["Put both in a form that shows the feature being compared."], p: [MP2, MP7], drills: [hs-compare-maxima], needs: [MH-5.2.B, MH-2.6.E] }
       - n: 3
         title: Build new functions from existing functions
         los:
@@ -274,7 +274,7 @@ units:
           - { id: B, std: F-BF.B.3, do: "Identify the effect on the graph of replacing f(x) by f(x) + k, k·f(x), f(kx) and f(x + k), and find k from a graph.", ek: ["Outside changes act on y as written; inside changes act on x in reverse: f(x + k) shifts left k, f(kx) compresses horizontally by 1/k."], p: [MP5, MP7, MP8], drills: [alg-transform], needs: [MH-5.2.B, MH-5.2.D] }
           - { id: C, std: F-BF.B.3, do: "Recognise even and odd functions from their graphs and from their algebraic expressions.", ek: ["Even: f(−x) = f(x), symmetric about the y-axis; odd: f(−x) = −f(x), symmetric about the origin."], p: [MP7], drills: [alg-even-odd], needs: [MH-5.3.B] }
           - { id: D, std: F-BF.B.4a, do: "Solve f(x) = c for a simple invertible function f and write an expression for the inverse, e.g. f(x) = 2x³ or f(x) = (x + 1)/(x − 1).", ek: ["Swap the roles of x and y and solve for y."], p: [MP7], drills: [alg-inverse], needs: [MH-1.4.D, MH-2.6.B] }
-          - { id: E, std: F-LE.A.3, do: "Show with tables and graphs that an increasing exponential function eventually exceeds any quadratic or polynomial function.", ek: ["Exponential growth multiplies by a fixed factor; polynomial growth's ratio f(x + 1)/f(x) tends to 1."], p: [MP5, MP8], drills: ["~hs-exp-beats-linear"], needs: [MH-2.6.D, MH-5.2.B] }
+          - { id: E, std: F-LE.A.3, do: "Show with tables and graphs that an increasing exponential function eventually exceeds any quadratic or polynomial function.", ek: ["Exponential growth multiplies by a fixed factor; polynomial growth's ratio f(x + 1)/f(x) tends to 1."], p: [MP5, MP8], drills: ["~hs-exp-beats-linear", hs-exponential-overtakes], needs: [MH-2.6.D, MH-5.2.B] }
 
   # ══ GEOMETRY ═════════════════════════════════════════════════════════════
   # ── 6 ────────────────────────────────────────────────────────────────────
@@ -288,10 +288,10 @@ units:
       - n: 1
         title: Experiment with transformations in the plane
         los:
-          - { id: A, std: G-CO.A.1, do: "State precise definitions of angle, circle, perpendicular line, parallel line and line segment, based on the undefined notions of point, line, distance along a line and distance around a circular arc.", ek: ["A circle is the set of points in a plane at a fixed distance from a center; a definition must name exactly the objects intended."], p: [MP6], drills: [] }
+          - { id: A, std: G-CO.A.1, do: "State precise definitions of angle, circle, perpendicular line, parallel line and line segment, based on the undefined notions of point, line, distance along a line and distance around a circular arc.", ek: ["A circle is the set of points in a plane at a fixed distance from a center; a definition must name exactly the objects intended."], p: [MP6], drills: [hs-geometry-definitions] }
           - { id: B, std: G-CO.A.2, do: "Represent transformations as functions that take points in the plane to other points, and compare those that preserve distance and angle (rigid motions) with those that do not (e.g. a horizontal stretch).", ek: ["A transformation is a function on points; rigid motions preserve every distance and angle."], p: [MP5, MP6], drills: ["~geo-transform", hs-transformation-graph], needs: [MH-6.1.A, MH-2.1.A] }
           - { id: C, std: G-CO.A.3, do: "Describe the rotations and reflections that carry a rectangle, parallelogram, trapezoid or regular polygon onto itself.", ek: ["A regular n-gon has n rotational symmetries (multiples of 360°/n) and n lines of reflection."], p: [MP7], drills: [geo-symmetry], needs: [MH-6.1.B] }
-          - { id: D, std: G-CO.A.4, do: "Define rotations, reflections and translations in terms of angles, circles, perpendicular lines, parallel lines and line segments.", ek: ["A reflection in line ℓ sends P to P′ so that ℓ is the perpendicular bisector of PP′."], p: [MP6], drills: [], needs: [MH-6.1.B] }
+          - { id: D, std: G-CO.A.4, do: "Define rotations, reflections and translations in terms of angles, circles, perpendicular lines, parallel lines and line segments.", ek: ["A reflection in line ℓ sends P to P′ so that ℓ is the perpendicular bisector of PP′."], p: [MP6], drills: [hs-rigid-motion-definitions], needs: [MH-6.1.B] }
           - { id: E, std: G-CO.A.5, do: "Draw the image of a figure under a given rotation, reflection or translation, and specify a sequence of transformations that carries one figure onto another.", ek: ["In coordinates: reflect in the y-axis (x, y) → (−x, y); rotate 90° about the origin (x, y) → (−y, x); translate (x, y) → (x + a, y + b)."], p: [MP5, MP6], drills: [geo-transform], needs: [MH-6.1.D] }
       - n: 2
         title: Understand congruence in terms of rigid motions
@@ -308,8 +308,8 @@ units:
       - n: 4
         title: Make geometric constructions
         los:
-          - { id: A, std: G-CO.D.12, do: "Construct with compass and straightedge a copy of a segment and of an angle, an angle bisector, a perpendicular bisector, a perpendicular to a line, and a parallel to a line through a point not on it.", ek: ["Each construction is justified by a congruence (usually SSS) made by the equal arcs."], p: [MP5, MP3], drills: [], needs: [MH-6.2.C] }
-          - { id: B, std: G-CO.D.13, do: "Construct an equilateral triangle, a square and a regular hexagon inscribed in a circle.", ek: ["The radius steps around a circle exactly six times, giving the hexagon."], p: [MP5], drills: [], needs: [MH-6.4.A] }
+          - { id: A, std: G-CO.D.12, do: "Construct with compass and straightedge a copy of a segment and of an angle, an angle bisector, a perpendicular bisector, a perpendicular to a line, and a parallel to a line through a point not on it.", ek: ["Each construction is justified by a congruence (usually SSS) made by the equal arcs."], p: [MP5, MP3], drills: ["~hs-recognise-construction"], needs: [MH-6.2.C] }
+          - { id: B, std: G-CO.D.13, do: "Construct an equilateral triangle, a square and a regular hexagon inscribed in a circle.", ek: ["The radius steps around a circle exactly six times, giving the hexagon."], p: [MP5], drills: ["~hs-recognise-construction"], needs: [MH-6.4.A] }
 
   # ── 7 ────────────────────────────────────────────────────────────────────
   - id: geo-similarity-trig
@@ -340,9 +340,9 @@ units:
       - n: 4
         title: Apply geometric concepts in modeling situations
         los:
-          - { id: A, std: G-MG.A.1, do: "Use geometric shapes, their measures and their properties to describe objects, e.g. a tree trunk or a human torso as a cylinder.", ek: ["A model keeps the features that matter for the question and drops the rest."], p: [MP4], drills: ["~geo-volume"], needs: [MH-7.3.C] }
+          - { id: A, std: G-MG.A.1, do: "Use geometric shapes, their measures and their properties to describe objects, e.g. a tree trunk or a human torso as a cylinder.", ek: ["A model keeps the features that matter for the question and drops the rest."], p: [MP4], drills: ["~geo-volume", hs-model-with-solids], needs: [MH-7.3.C] }
           - { id: B, std: G-MG.A.2, do: "Apply concepts of density based on area and volume, e.g. persons per square mile or BTUs per cubic foot.", ek: ["Density = amount / area or amount / volume; carry the units through."], p: [MP4, MP6], drills: [geo-density], needs: [MH-7.4.A, MH-1.1.A] }
-          - { id: C, std: G-MG.A.3, do: "Apply geometric methods to design problems, e.g. design an object to satisfy physical constraints or minimise cost.", ek: ["Write the constraint and the quantity to optimise in terms of the shape's dimensions."], p: [MP4, MP1], drills: [], needs: [MH-7.4.A] }
+          - { id: C, std: G-MG.A.3, do: "Apply geometric methods to design problems, e.g. design an object to satisfy physical constraints or minimise cost.", ek: ["Write the constraint and the quantity to optimise in terms of the shape's dimensions."], p: [MP4, MP1], drills: [hs-design-least-material], needs: [MH-7.4.A] }
       - n: 5
         title: Apply trigonometry to general triangles (+)
         los:
@@ -361,13 +361,13 @@ units:
       - n: 1
         title: Explain volume formulas and use them to solve problems
         los:
-          - { id: A, std: G-GMD.A.1, do: "Give an informal argument for the circumference and area of a circle and the volume of a cylinder, pyramid and cone (dissection, Cavalieri's principle, limits).", ek: ["Cut a circle into thin sectors and rearrange into a near-parallelogram of base πr and height r: A = πr²."], p: [MP3, MP8], drills: [], needs: [MH-6.4.B, MH-7.1.B] }
+          - { id: A, std: G-GMD.A.1, do: "Give an informal argument for the circumference and area of a circle and the volume of a cylinder, pyramid and cone (dissection, Cavalieri's principle, limits).", ek: ["Cut a circle into thin sectors and rearrange into a near-parallelogram of base πr and height r: A = πr²."], p: [MP3, MP8], drills: ["~hs-cavalieri-ratios"], needs: [MH-6.4.B, MH-7.1.B] }
           - { id: B, std: G-GMD.A.3, do: "Use the volume formulas for cylinders, pyramids, cones and spheres to solve problems.", ek: ["V = Bh (prism, cylinder); V = ⅓Bh (pyramid, cone); V = (4/3)πr³ (sphere)."], p: [MP4, MP6], drills: [geo-volume], needs: [MH-8.1.A, MH-1.4.D] }
       - n: 2
         title: Visualize relations between two- and three-dimensional objects
         los:
           - { id: A, std: G-GMD.B.4, do: "Identify the shapes of two-dimensional cross-sections of three-dimensional objects, and the three-dimensional objects generated by rotating two-dimensional objects.", ek: ["A rectangle rotated about one side sweeps a cylinder; a right triangle about a leg, a cone."], p: [MP7], drills: [geo-cross-section], needs: [MH-8.1.A] }
-          - { id: B, std: G-MG.A.1, do: "Model a real object as a combination of solids and estimate its volume.", ek: ["Volumes of non-overlapping pieces add."], p: [MP4], drills: ["~geo-volume"], needs: [MH-8.1.B, MH-7.4.A] }
+          - { id: B, std: G-MG.A.1, do: "Model a real object as a combination of solids and estimate its volume.", ek: ["Volumes of non-overlapping pieces add."], p: [MP4], drills: ["~geo-volume", hs-model-with-solids], needs: [MH-8.1.B, MH-7.4.A] }
 
   # ── 9 ────────────────────────────────────────────────────────────────────
   - id: geo-coordinates
@@ -400,7 +400,7 @@ units:
       - n: 1
         title: Understand and apply theorems about circles
         los:
-          - { id: A, std: G-C.A.1, do: "Prove that all circles are similar.", ek: ["Translate one center onto the other, then dilate by the ratio of radii."], p: [MP3], drills: [], needs: [MH-7.1.C] }
+          - { id: A, std: G-C.A.1, do: "Prove that all circles are similar.", ek: ["Translate one center onto the other, then dilate by the ratio of radii."], p: [MP3], drills: ["~hs-circles-similar"], needs: [MH-7.1.C] }
           - { id: B, std: G-C.A.2, do: "Identify and describe relationships among inscribed angles, radii and chords, including central, inscribed and circumscribed angles.", ek: ["An inscribed angle is half the central angle on the same arc; an angle inscribed in a semicircle is right; a tangent is perpendicular to the radius at the point of tangency."], p: [MP3, MP7], drills: [geo-inscribed], needs: [MH-10.1.A, MH-6.3.B] }
           - { id: C, std: G-C.A.3, do: "Construct the inscribed and circumscribed circles of a triangle, and prove that opposite angles of a quadrilateral inscribed in a circle are supplementary.", ek: ["Incenter: angle bisectors meet; circumcenter: perpendicular bisectors meet."], p: [MP5, MP3], drills: [geo-cyclic-quad], needs: [MH-10.1.B, MH-6.4.A] }
           - { id: D, std: G-C.A.4, do: "(+) Construct a tangent line from a point outside a given circle to the circle.", ek: ["The tangent point lies on the circle whose diameter joins the outside point to the center (right angle in a semicircle)."], p: [MP5], drills: [], needs: [MH-10.1.B, MH-6.4.A] }
@@ -425,11 +425,11 @@ units:
       - n: 1
         title: Understand independence and conditional probability and use them to interpret data
         los:
-          - { id: A, std: S-CP.A.1, do: "Describe events as subsets of a sample space using characteristics of the outcomes, or as unions, intersections or complements of other events.", ek: ["'Or' is union, 'and' is intersection, 'not' is complement; P(not A) = 1 − P(A)."], p: [MP6], drills: ["~stats-addition"] }
+          - { id: A, std: S-CP.A.1, do: "Describe events as subsets of a sample space using characteristics of the outcomes, or as unions, intersections or complements of other events.", ek: ["'Or' is union, 'and' is intersection, 'not' is complement; P(not A) = 1 − P(A)."], p: [MP6], drills: ["~stats-addition", hs-events-as-sets] }
           - { id: B, std: S-CP.A.2, do: "Decide whether two events are independent using the fact that A and B are independent exactly when P(A and B) = P(A)·P(B).", ek: ["Independent ⇔ P(A ∩ B) = P(A)P(B)."], p: [MP3, MP6], drills: ["~sm-atleast", stats-independence], needs: [MH-11.1.A] }
           - { id: C, std: S-CP.A.3, do: "Interpret the conditional probability of A given B as P(A and B)/P(B), and independence as P(A|B) = P(A).", ek: ["Conditioning on B shrinks the sample space to B."], p: [MP2], drills: [stats-independence, stats-conditional], needs: [MH-11.1.B] }
           - { id: D, std: S-CP.A.4, do: "Construct and interpret a two-way frequency table, using it to decide whether events are independent and to approximate conditional probabilities.", ek: ["Independent if the conditional relative frequencies are (about) the same in every row."], p: [MP2, MP4], drills: [stats-two-way], needs: [MH-11.1.C, MH-3.2.A] }
-          - { id: E, std: S-CP.A.5, do: "Recognise and explain conditional probability and independence in everyday language and situations.", ek: ["P(lung cancer | smoker) and P(smoker | lung cancer) are different numbers."], p: [MP3], drills: [], needs: [MH-11.1.D] }
+          - { id: E, std: S-CP.A.5, do: "Recognise and explain conditional probability and independence in everyday language and situations.", ek: ["P(lung cancer | smoker) and P(smoker | lung cancer) are different numbers."], p: [MP3], drills: [hs-independence-in-words], needs: [MH-11.1.D] }
       - n: 2
         title: Use the rules of probability to compute probabilities of compound events
         los:
@@ -440,7 +440,7 @@ units:
       - n: 3
         title: Use probability to evaluate outcomes of decisions (+)
         los:
-          - { id: A, std: S-MD.B.6, do: "(+) Use probabilities to make fair decisions, e.g. drawing by lots or using a random number generator.", ek: ["A procedure is fair when every option has equal probability."], p: [MP4], drills: [], needs: [MH-11.1.A] }
+          - { id: A, std: S-MD.B.6, do: "(+) Use probabilities to make fair decisions, e.g. drawing by lots or using a random number generator.", ek: ["A procedure is fair when every option has equal probability."], p: [MP4], drills: [hs-fair-decision], needs: [MH-11.1.A] }
           - { id: B, std: S-MD.B.7, do: "(+) Analyse decisions and strategies using probability concepts, e.g. product testing, medical testing, pulling a hockey goalie at the end of a game.", ek: ["A positive result on a test for a rare condition is often a false positive: P(condition | positive) ≪ P(positive | condition)."], p: [MP4, MP3], drills: [stats-bayes], needs: [MH-11.2.C] }
 
   # ══ ALGEBRA II ═══════════════════════════════════════════════════════════
@@ -458,19 +458,19 @@ units:
           - { id: A, std: N-CN.A.1, do: "Know there is a complex number i with i² = −1, and write every complex number in the form a + bi with a and b real.", ek: ["√(−k) = i√k for k > 0; a is the real part, b the imaginary part."], p: [MP6], drills: [alg-complex-arith] }
           - { id: B, std: N-CN.A.2, do: "Add, subtract and multiply complex numbers using i² = −1 and the commutative, associative and distributive properties.", ek: ["(a + bi)(c + di) = (ac − bd) + (ad + bc)i."], p: [MP7], drills: [alg-complex-arith], needs: [MH-12.1.A, MH-4.1.A] }
           - { id: C, std: N-CN.C.7, do: "Solve a quadratic equation with real coefficients that has complex solutions.", ek: ["Negative discriminant ⇒ x = −b/2a ± i√(4ac − b²)/2a, a conjugate pair."], p: [MP6], drills: [euler-quad-roots, alg-complex-roots], needs: [MH-12.1.B, MH-4.3.C] }
-          - { id: D, std: N-CN.C.8, do: "(+) Extend polynomial identities to the complex numbers, e.g. rewrite x² + 4 as (x + 2i)(x − 2i).", ek: ["a² + b² = (a + bi)(a − bi)."], p: [MP7], drills: ["~alg-complex-roots"], needs: [MH-12.1.C] }
+          - { id: D, std: N-CN.C.8, do: "(+) Extend polynomial identities to the complex numbers, e.g. rewrite x² + 4 as (x + 2i)(x − 2i).", ek: ["a² + b² = (a + bi)(a − bi)."], p: [MP7], drills: ["~alg-complex-roots", hs-complex-factor], needs: [MH-12.1.C] }
       - n: 2
         title: Use polynomial identities and structure
         los:
           - { id: A, std: A-SSE.A.2, do: "Use the structure of a polynomial to factor it, e.g. x³ − 8 as a difference of cubes, or x⁴ − 5x² + 4 as a quadratic in x².", ek: ["a³ ± b³ = (a ± b)(a² ∓ ab + b²); substitute u = x² to expose a quadratic."], p: [MP7], drills: [alg-structure], needs: [MH-4.1.B] }
-          - { id: B, std: A-APR.C.4, do: "Prove polynomial identities and use them to describe numerical relationships, e.g. (x² + y²)² = (x² − y²)² + (2xy)² generates Pythagorean triples.", ek: ["Expand both sides to the same standard form."], p: [MP3, MP7], drills: [], needs: [MH-12.2.A] }
+          - { id: B, std: A-APR.C.4, do: "Prove polynomial identities and use them to describe numerical relationships, e.g. (x² + y²)² = (x² − y²)² + (2xy)² generates Pythagorean triples.", ek: ["Expand both sides to the same standard form."], p: [MP3, MP7], drills: ["~hs-triple-from-identity"], needs: [MH-12.2.A] }
           - { id: C, std: A-APR.C.5, do: "(+) Expand (x + y)^n with the Binomial Theorem, the coefficients given by Pascal's triangle.", ek: ["(x + y)^n = Σ C(n, k) x^(n−k) y^k, k = 0 … n."], p: [MP8], drills: [alg-binomial], needs: [MH-12.2.B, MH-11.2.D] }
       - n: 3
         title: Understand the relationship between zeros and factors of polynomials
         los:
           - { id: A, std: A-APR.B.2, do: "Apply the Remainder Theorem: the remainder on division of p(x) by x − a is p(a), so p(a) = 0 exactly when x − a is a factor.", ek: ["p(x) = (x − a)q(x) + p(a)."], p: [MP7], drills: [alg-remainder], needs: [MH-12.2.A] }
           - { id: B, std: A-APR.B.3, do: "Identify the zeros of a polynomial from a suitable factorization and use them to sketch a rough graph.", ek: ["An odd-multiplicity zero crosses the axis, an even one touches; the leading term sets end behaviour."], p: [MP7, MP5], drills: [alg-poly-zeros], needs: [MH-12.3.A] }
-          - { id: C, std: F-IF.C.7c, do: "Graph a polynomial function, identifying zeros when suitable factorizations are available and showing end behaviour.", ek: ["Degree n has at most n real zeros and at most n − 1 turning points."], p: [MP5, MP6], drills: ["~alg-poly-zeros", "~hs-parabola-features"], needs: [MH-12.3.B, MH-5.2.B] }
+          - { id: C, std: F-IF.C.7c, do: "Graph a polynomial function, identifying zeros when suitable factorizations are available and showing end behaviour.", ek: ["Degree n has at most n real zeros and at most n − 1 turning points."], p: [MP5, MP6], drills: ["~alg-poly-zeros", "~hs-parabola-features", hs-end-behaviour], needs: [MH-12.3.B, MH-5.2.B] }
           - { id: D, std: N-CN.C.9, do: "(+) Know the Fundamental Theorem of Algebra and show that it is true for quadratic polynomials.", ek: ["A degree-n polynomial has exactly n complex zeros counted with multiplicity."], p: [MP3], drills: [hs-fta], needs: [MH-12.1.D, MH-12.3.B] }
       - n: 4
         title: Finite geometric series
@@ -482,7 +482,7 @@ units:
           - { id: A, std: A-APR.D.6, do: "Rewrite a rational expression a(x)/b(x) as q(x) + r(x)/b(x) by inspection or long division.", ek: ["Divide polynomials like integers; stop when deg r < deg b."], p: [MP7], drills: [alg-poly-div], needs: [MH-12.3.A] }
           - { id: B, std: A-APR.D.7, do: "(+) Add, subtract, multiply and divide rational expressions, and explain why they form a system closed under these operations (division by a nonzero expression).", ek: ["Common denominator to add; multiply by the reciprocal to divide."], p: [MP7], drills: [alg-rational-add], needs: [MH-12.5.A] }
           - { id: C, std: A-REI.A.2, do: "Solve a simple rational or radical equation in one variable, and give examples of extraneous solutions.", ek: ["Multiplying by an expression that can be zero, or squaring both sides, can add roots; check each in the original equation."], p: [MP3, MP6], drills: [alg-rational-eq], needs: [MH-12.5.B, MH-2.6.B] }
-          - { id: D, std: A-REI.D.11, do: "Find approximate solutions of f(x) = g(x) where f and g are polynomial, rational, absolute-value, exponential or logarithmic, with technology, tables or successive approximations.", ek: ["Graph y = f(x) − g(x) and locate its zeros; a sign change brackets a root."], p: [MP5], drills: ["~hs-system-graph"], needs: [MH-2.7.D, MH-12.3.C] }
+          - { id: D, std: A-REI.D.11, do: "Find approximate solutions of f(x) = g(x) where f and g are polynomial, rational, absolute-value, exponential or logarithmic, with technology, tables or successive approximations.", ek: ["Graph y = f(x) − g(x) and locate its zeros; a sign change brackets a root."], p: [MP5], drills: ["~hs-system-graph", hs-sign-change-table], needs: [MH-2.7.D, MH-12.3.C] }
 
   # ── 13 ───────────────────────────────────────────────────────────────────
   - id: alg2-trig-functions
@@ -522,10 +522,10 @@ units:
       - n: 2
         title: Build and interpret models from several families
         los:
-          - { id: A, std: A-CED.A.2, do: "Create equations in two or more variables, including exponential and rational relationships, that model a situation.", ek: ["Inverse variation y = k/x; growth y = a·b^t; pick the family from how the quantity changes."], p: [MP4], drills: ["~alg-cooling"], needs: [MH-12.5.B, MH-14.1.A] }
+          - { id: A, std: A-CED.A.2, do: "Create equations in two or more variables, including exponential and rational relationships, that model a situation.", ek: ["Inverse variation y = k/x; growth y = a·b^t; pick the family from how the quantity changes."], p: [MP4], drills: ["~alg-cooling", hs-doubling-model], needs: [MH-12.5.B, MH-14.1.A] }
           - { id: B, std: F-BF.A.1b, do: "Build a model by combining function families arithmetically, e.g. a damped oscillation y = A·e^(−kt)·cos(ωt).", ek: ["Multiplying by a decaying envelope shrinks the amplitude over time."], p: [MP4], drills: [alg-cooling], needs: [MH-13.2.A, MH-5.3.A] }
-          - { id: C, std: F-IF.B.4, do: "Interpret the key features of polynomial, exponential, logarithmic and periodic models in context (intercepts, extrema, end behaviour, periodicity).", ek: ["The same feature means different things per family: a period is a cycle length, an asymptote a limiting value."], p: [MP2, MP4], drills: ["~alg-exp-graph", "~alg-log-graph"], needs: [MH-12.3.C, MH-13.2.A, MH-14.1.B] }
-          - { id: D, std: F-IF.C.9, do: "Compare properties of two functions from different families, each given in a different representation.", ek: ["Read the compared feature from each representation in the same units."], p: [MP2, MP7], drills: [], needs: [MH-14.2.C] }
+          - { id: C, std: F-IF.B.4, do: "Interpret the key features of polynomial, exponential, logarithmic and periodic models in context (intercepts, extrema, end behaviour, periodicity).", ek: ["The same feature means different things per family: a period is a cycle length, an asymptote a limiting value."], p: [MP2, MP4], drills: ["~alg-exp-graph", "~alg-log-graph", hs-periodic-model], needs: [MH-12.3.C, MH-13.2.A, MH-14.1.B] }
+          - { id: D, std: F-IF.C.9, do: "Compare properties of two functions from different families, each given in a different representation.", ek: ["Read the compared feature from each representation in the same units."], p: [MP2, MP7], drills: [hs-compare-maxima, hs-compare-rates], needs: [MH-14.2.C] }
 
   # ── 15 ───────────────────────────────────────────────────────────────────
   - id: alg2-inference
@@ -543,14 +543,14 @@ units:
         title: Understand and evaluate random processes underlying statistical experiments
         los:
           - { id: A, std: S-IC.A.1, do: "Explain statistics as a process for making inferences about population parameters from a random sample of that population.", ek: ["A statistic describes the sample, a parameter the population; random sampling makes the sample representative."], p: [MP3], drills: ["~k8-sampling"], needs: [MH-15.1.A] }
-          - { id: B, std: S-IC.A.2, do: "Decide whether a specified model is consistent with results from a data-generating process, e.g. by simulation.", ek: ["If the observed result is rare among many simulated runs of the model, doubt the model."], p: [MP4, MP5], drills: [], needs: [MH-15.2.A, MH-11.1.A] }
+          - { id: B, std: S-IC.A.2, do: "Decide whether a specified model is consistent with results from a data-generating process, e.g. by simulation.", ek: ["If the observed result is rare among many simulated runs of the model, doubt the model."], p: [MP4, MP5], drills: [hs-model-consistent], needs: [MH-15.2.A, MH-11.1.A] }
       - n: 3
         title: Make inferences and justify conclusions from surveys, experiments and observational studies
         los:
           - { id: A, std: S-IC.B.3, do: "Recognise the purposes of and differences among sample surveys, experiments and observational studies, and explain how randomisation relates to each.", ek: ["Random sampling supports generalising to a population; random assignment supports cause-and-effect."], p: [MP3], drills: [hs-study-type], needs: [MH-15.2.A, MH-3.3.C] }
           - { id: B, std: S-IC.B.4, do: "Use data from a sample survey to estimate a population mean or proportion, and develop a margin of error through simulation models for random sampling.", ek: ["Margin of error ≈ 2 standard deviations of the simulated sampling distribution."], p: [MP4, MP5], drills: [stats-margin], needs: [MH-15.3.A, MH-15.1.A] }
-          - { id: C, std: S-IC.B.5, do: "Use data from a randomised experiment to compare two treatments, and use simulation to decide whether differences between parameters are significant.", ek: ["Re-randomise the group labels many times; if the observed difference is rare, it is significant."], p: [MP4, MP5], drills: [], needs: [MH-15.3.B] }
-          - { id: D, std: S-IC.B.6, do: "Evaluate reports based on data.", ek: ["Check how the data were collected, whether the design supports the claim, and whether the stated variability is accounted for."], p: [MP3], drills: [], needs: [MH-15.3.C] }
+          - { id: C, std: S-IC.B.5, do: "Use data from a randomised experiment to compare two treatments, and use simulation to decide whether differences between parameters are significant.", ek: ["Re-randomise the group labels many times; if the observed difference is rare, it is significant."], p: [MP4, MP5], drills: [hs-model-consistent], needs: [MH-15.3.B] }
+          - { id: D, std: S-IC.B.6, do: "Evaluate reports based on data.", ek: ["Check how the data were collected, whether the design supports the claim, and whether the stated variability is accounted for."], p: [MP3], drills: [hs-evaluate-report], needs: [MH-15.3.C] }
 
   # ══ PRECALCULUS ((+) standards) ════════════════════════════════════════════
   # ── 16 ───────────────────────────────────────────────────────────────────
@@ -566,7 +566,7 @@ units:
         los:
           - { id: A, std: F-BF.A.1c, do: "(+) Compose functions, e.g. T(h(t)) for the temperature at the location of a weather balloon at time t.", ek: ["(f∘g)(x) = f(g(x)); its domain is the x in g's domain with g(x) in f's domain."], p: [MP4, MP7], drills: [alg-compose], needs: [MH-5.3.A] }
           - { id: B, std: F-BF.B.4b, do: "(+) Verify by composition that one function is the inverse of another.", ek: ["f and g are inverses when f(g(x)) = x and g(f(x)) = x on their domains."], p: [MP3], drills: [alg-inverse], needs: [MH-16.1.A, MH-5.3.D] }
-          - { id: C, std: F-BF.B.4c, do: "(+) Read values of an inverse function from a graph or a table, given that the function has an inverse.", ek: ["(a, b) on f ⇔ (b, a) on f⁻¹; the graph of f⁻¹ is f reflected in y = x."], p: [MP2], drills: ["~alg-inverse"], needs: [MH-16.1.B] }
+          - { id: C, std: F-BF.B.4c, do: "(+) Read values of an inverse function from a graph or a table, given that the function has an inverse.", ek: ["(a, b) on f ⇔ (b, a) on f⁻¹; the graph of f⁻¹ is f reflected in y = x."], p: [MP2], drills: ["~alg-inverse", hs-inverse-from-table], needs: [MH-16.1.B] }
           - { id: D, std: F-BF.B.4d, do: "(+) Produce an invertible function from a non-invertible function by restricting the domain.", ek: ["Restrict to an interval where f is one-to-one (passes the horizontal line test), e.g. x² on x ≥ 0."], p: [MP7], drills: [hs-inverse-restrict], needs: [MH-16.1.C, MH-5.3.C] }
       - n: 2
         title: Logarithms as inverses of exponentials (+)
@@ -616,7 +616,7 @@ units:
         los:
           - { id: A, std: N-CN.A.3, do: "(+) Find the conjugate of a complex number, and use conjugates to find moduli and quotients.", ek: ["z·z̄ = |z|² = a² + b²; to divide, multiply top and bottom by the conjugate of the denominator."], p: [MP7], drills: [alg-complex-conj], needs: [MH-12.1.B] }
           - { id: B, std: N-CN.B.4, do: "(+) Represent complex numbers on the complex plane in rectangular and polar form, and convert between the two forms.", ek: ["a + bi = r(cos θ + i sin θ), r = √(a² + b²), tan θ = b/a with the quadrant checked."], p: [MP6, MP7], drills: [euler-polar, euler-rect], needs: [MH-18.1.A, MH-17.1.A] }
-          - { id: C, std: N-CN.B.5, do: "(+) Represent addition, subtraction, multiplication and conjugation geometrically on the complex plane, e.g. (−1 + √3 i)³ = 8 because it has modulus 2 and argument 120°.", ek: ["Multiplying complex numbers multiplies moduli and adds arguments; conjugation reflects in the real axis."], p: [MP7], drills: ["~euler-demoivre"], needs: [MH-18.1.B, MH-17.3.A] }
+          - { id: C, std: N-CN.B.5, do: "(+) Represent addition, subtraction, multiplication and conjugation geometrically on the complex plane, e.g. (−1 + √3 i)³ = 8 because it has modulus 2 and argument 120°.", ek: ["Multiplying complex numbers multiplies moduli and adds arguments; conjugation reflects in the real axis."], p: [MP7], drills: ["~euler-demoivre", hs-complex-polar-product], needs: [MH-18.1.B, MH-17.3.A] }
           - { id: D, std: N-CN.B.6, do: "(+) Calculate the distance between numbers in the complex plane as the modulus of the difference, and the midpoint of a segment as the average of its endpoints.", ek: ["|z − w| is the distance formula in disguise."], p: [MP7], drills: [alg-complex-dist], needs: [MH-18.1.B, MH-9.1.D] }
 
   # ── 19 ───────────────────────────────────────────────────────────────────
@@ -630,7 +630,7 @@ units:
       - n: 1
         title: Represent and model with vector quantities (+)
         los:
-          - { id: A, std: N-VM.A.1, do: "(+) Recognise vector quantities as having both magnitude and direction, represent them by directed line segments, and use notation such as v, |v| and ‖v‖.", ek: ["Velocity, force and displacement are vectors; speed and mass are scalars."], p: [MP6], drills: ["~alg-vector", "~hs-vector-components"] }
+          - { id: A, std: N-VM.A.1, do: "(+) Recognise vector quantities as having both magnitude and direction, represent them by directed line segments, and use notation such as v, |v| and ‖v‖.", ek: ["Velocity, force and displacement are vectors; speed and mass are scalars."], p: [MP6], drills: ["~alg-vector", "~hs-vector-components", hs-vector-magnitude-direction] }
           - { id: B, std: N-VM.A.2, do: "(+) Find the components of a vector by subtracting the coordinates of its initial point from those of its terminal point.", ek: ["From P(x₁, y₁) to Q(x₂, y₂): ⟨x₂ − x₁, y₂ − y₁⟩, magnitude by the distance formula."], p: [MP6], drills: ["~alg-vector", hs-vector-components], needs: [MH-19.1.A, MH-9.1.D] }
       - n: 2
         title: Perform operations on vectors (+)
@@ -647,7 +647,7 @@ units:
       - n: 4
         title: Perform operations on matrices and use matrices in applications (+)
         los:
-          - { id: A, std: N-VM.C.6, do: "(+) Use matrices to represent and manipulate data, e.g. payoffs or incidence relationships in a network.", ek: ["Entry (i, j) records the relationship of row item i to column item j."], p: [MP4], drills: ["~hs-matrix-ops"] }
+          - { id: A, std: N-VM.C.6, do: "(+) Use matrices to represent and manipulate data, e.g. payoffs or incidence relationships in a network.", ek: ["Entry (i, j) records the relationship of row item i to column item j."], p: [MP4], drills: ["~hs-matrix-ops", hs-matrix-as-data] }
           - { id: B, std: N-VM.C.7, do: "(+) Multiply a matrix by a scalar to produce a new matrix, e.g. when all of the payoffs in a game are doubled.", ek: ["cA multiplies every entry by c."], p: [MP6], drills: ["~alg-matrix-ops", hs-matrix-ops], needs: [MH-19.4.A] }
           - { id: C, std: N-VM.C.8, do: "(+) Add, subtract and multiply matrices of appropriate dimensions.", ek: ["(m×n)(n×p) = m×p; entry (i, j) = row i of the first · column j of the second."], p: [MP6], drills: [alg-matrix-ops], needs: [MH-19.4.B] }
           - { id: D, std: N-VM.C.9, do: "(+) Show that multiplication of square matrices is not commutative but is associative and distributive.", ek: ["AB ≠ BA in general; one 2×2 counterexample proves it."], p: [MP3], drills: [hs-matrix-noncommute], needs: [MH-19.4.C] }
@@ -657,7 +657,7 @@ units:
       - n: 5
         title: Solve systems of linear equations with matrices (+)
         los:
-          - { id: A, std: A-REI.C.8, do: "(+) Represent a system of linear equations as a single matrix equation Ax = b in a vector variable.", ek: ["Rows of A hold the coefficients, x the unknowns, b the constants."], p: [MP7], drills: ["~la-system"], needs: [MH-19.4.F, MH-2.7.B] }
+          - { id: A, std: A-REI.C.8, do: "(+) Represent a system of linear equations as a single matrix equation Ax = b in a vector variable.", ek: ["Rows of A hold the coefficients, x the unknowns, b the constants."], p: [MP7], drills: ["~la-system", hs-system-as-matrix-equation], needs: [MH-19.4.F, MH-2.7.B] }
           - { id: B, std: A-REI.C.9, do: "(+) Find the inverse of a matrix if it exists and use it to solve a system of linear equations (technology for 3×3 or larger).", ek: ["For 2×2, A⁻¹ = (1/det A)[[d, −b], [−c, a]]; then x = A⁻¹b."], p: [MP5, MP6], drills: [la-inverse], needs: [MH-19.5.A, MH-19.4.E] }
 
   # ── 20 ───────────────────────────────────────────────────────────────────
@@ -672,7 +672,7 @@ units:
         title: Ellipses, hyperbolas and the volume of a sphere (+)
         los:
           - { id: A, std: G-GPE.A.3, do: "(+) Derive the equations of ellipses and hyperbolas given the foci, using the fact that the sum or difference of distances from the foci is constant.", ek: ["Ellipse x²/a² + y²/b² = 1 with c² = a² − b²; hyperbola x²/a² − y²/b² = 1 with c² = a² + b²."], p: [MP3, MP7], drills: [geo-conic], needs: [MH-9.2.A, MH-10.3.A] }
-          - { id: B, std: G-GMD.A.2, do: "(+) Give an informal argument using Cavalieri's principle for the formulas for the volume of a sphere and other solid figures.", ek: ["Solids with equal cross-sectional areas at every height have equal volumes."], p: [MP3], drills: ["~geo-volume"], needs: [MH-8.1.A] }
+          - { id: B, std: G-GMD.A.2, do: "(+) Give an informal argument using Cavalieri's principle for the formulas for the volume of a sphere and other solid figures.", ek: ["Solids with equal cross-sectional areas at every height have equal volumes."], p: [MP3], drills: ["~geo-volume", "~hs-cavalieri-ratios"], needs: [MH-8.1.A] }
 
   # ── 21 ───────────────────────────────────────────────────────────────────
   - id: precalc-expected-value
