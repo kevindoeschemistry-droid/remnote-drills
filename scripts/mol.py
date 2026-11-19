@@ -41,6 +41,9 @@ def layout(smiles: str, amino=False):
     atoms = []
     for a in m.GetAtoms():
         i, el, h = a.GetIdx(), a.GetSymbol(), a.GetTotalNumHs()
+        if el == "*":  # a dummy atom in the SMILES is "the rest of the molecule"
+            atoms.append([round(pts[i][0], 2), round(pts[i][1], 2), "R"])
+            continue
         if el == "C":
             atoms.append([round(pts[i][0], 2), round(pts[i][1], 2)])
             continue
@@ -75,6 +78,8 @@ def emit(formula, atoms, bonds, indent="        "):
 def block(smiles, amino=False, indent="        ", expect=None):
     formula, atoms, bonds = layout(smiles, amino)
     # the formula written by hand in the table must agree with the one the SMILES gives
+    if "*" in smiles:  # RDKit has no formula for an R group: the hand-written one stands, and molecules.py checks it
+        formula = expect
     if expect is not None and expect != formula:
         raise SystemExit(f"{smiles}: table says {expect}, the SMILES is {formula}")
     return emit(formula, atoms, bonds, indent)
@@ -88,6 +93,6 @@ if __name__ == "__main__":
     elif sys.argv[1:] == ["--library"]:
         sys.path.insert(0, str(Path(__file__).parent))
         from mol_library import write
-        write(block, emit)
+        write(block, emit, layout)
     else:
         print(block(sys.argv[1], amino="--amino" in sys.argv, indent=""))
