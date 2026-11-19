@@ -789,6 +789,7 @@ Book: kreyszig-10e §9.7, §9.8, §9.9, §10.7, §10.9
 - ca-def-derivative (calc.derivative-basics)
 - ca-tangent-line (calc.derivative-basics)
 - ca-estimate-derivative (calc.derivative-basics)
+- dr-derivative-sketch (calc.derivative-basics)
 - ca-difference-quotient-limit (calc.derivative-basics)
 - ca-differentiability (calc.derivative-basics)
 - ca-power-rule (calc.derivative-rules)

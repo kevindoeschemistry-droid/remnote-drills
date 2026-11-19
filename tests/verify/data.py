@@ -88,7 +88,7 @@ def check(p, H):
     if name is None:
         return None
     t = TEMPLATES[name]
-    v = t["verify"]
+    v = t.get("verify") or {}
     # radial coordinates are positive (log r, limits at 0+); a Cartesian x may be negative
     var = sp.Symbol(v.get("var", "x"), positive=True) if v.get("var") == "r" else sp.Symbol(v.get("var", "x"), real=True)
     labels = [q["label"] for q in t["parts"]]

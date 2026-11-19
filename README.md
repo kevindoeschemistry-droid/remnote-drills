@@ -80,6 +80,7 @@ Never by string matching — the answer is evaluated and the defining property t
 | `indexed` | λₙ for 5 values of n (start index may be off by one) |
 | `eigenfunctions` | −y″/y constant and matching an eigenvalue, both BCs hold, any constant multiple |
 | `choice` | option match |
+| `self` | self-graded: the learner compares a drawing with the solution figure |
 | `tuple` | per field; `proportional` allows one common factor (S–L p, q, r); `angle` compares mod 2π |
 
 ## Adding a skill
@@ -134,6 +135,13 @@ Three more things a `drills/problems/*.yaml` template can carry (see `mx-gaps.ya
   points, segments, slope fields, vector fields, scatter), `numberline` (points, dot plots, box plots, rulers), `grid`
   (unit squares, dots to count), `bars`, `table`. Numeric answers are checked with a relative tolerance, so a value
   part can never be 0: choose givens that keep read-off answers away from it.
+- `draw: true` on a part makes it self-graded ("Draw this"): nothing is typed. The panel shows "I've drawn it: show
+  the answer", then the part's `solution:` figure with "Mine matches" / "Not yet". Use it where the skill is producing
+  a picture from memory: a graph (`dr-draw.yaml`), a construction, a structure (`bc-amino-acids.yaml`). The solution is
+  drawn from the numbers the prompt prints. Say in the prompt which features must be marked, because that is what
+  "matches" means. A template whose parts are all drawn needs no `verify` block; a `type: molecule` figure must state
+  its `formula`, which `tests/verify/molecules.py` rebuilds from the atoms and bonds. Lay structures out with
+  `python3 scripts/mol.py "<SMILES>"` (a dev tool; needs RDKit).
 - `verify: { authored: true }` for a key that is a matter of definition and cannot be recomputed. It is a statement
   that a person wrote the key and nothing checks it, so use it only when `verify.choices` cannot do the job, and say so
   when reporting coverage. Choice options are plain text (no TeX, no `^`).

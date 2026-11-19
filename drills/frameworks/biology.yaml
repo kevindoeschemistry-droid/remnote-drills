@@ -50,6 +50,7 @@ domains: []
 
 basis:
   primary: ap-biology
+  also: [iupac-aa-1983]
   note: "Read through a publisher's correlation table."
 
 big_ideas:
@@ -117,6 +118,7 @@ units:
           - { id: B, std: [SYI-1.B], do: "Classify an amino acid side chain as nonpolar, polar or charged and predict where it sits in a folded soluble protein.", ek: ["Nonpolar R groups bury in the core; polar and charged ones face water."], p: [P1, P2], drills: [], needs: [BI-1.4.A, BI-1.1.A] }
           - { id: C, std: [SYI-1.B], do: "Distinguish saturated fats, unsaturated fats, phospholipids and steroids by structure and physical property.", ek: ["cis double bonds kink tails so fats stay liquid; phospholipids are amphipathic; steroids are four fused rings."], p: [P1, P2], drills: [] }
           - { id: D, std: [SYI-1.B], do: "Tell structural from storage polysaccharides by linkage and branching.", ek: ["Cellulose β(1→4) straight chains H-bond into fibres; starch and glycogen α(1→4) with α(1→6) branches are compact and easy to hydrolyse."], p: [P1], drills: [] }
+          - { id: E, std: ["iupac-aa-1983:3AA-1"], do: "Draw the structure of each of the 20 coded amino acids from its name, and name each from its structure.", ek: ["Every one is H2N–CH(R)–COOH; only R changes (proline's R closes back onto the N)."], p: [P1, P2], drills: [aa-draw-gly, aa-name-gly, aa-draw-ala, aa-name-ala, aa-draw-val, aa-name-val, aa-draw-leu, aa-name-leu, aa-draw-ile, aa-name-ile, aa-draw-ser, aa-name-ser, aa-draw-thr, aa-name-thr, aa-draw-cys, aa-name-cys, aa-draw-met, aa-name-met, aa-draw-asp, aa-name-asp, aa-draw-glu, aa-name-glu, aa-draw-asn, aa-name-asn, aa-draw-gln, aa-name-gln, aa-draw-lys, aa-name-lys, aa-draw-arg, aa-name-arg, aa-draw-his, aa-name-his, aa-draw-phe, aa-name-phe, aa-draw-tyr, aa-name-tyr, aa-draw-trp, aa-name-trp, aa-draw-pro, aa-name-pro], needs: [BI-1.4.A] }
       - n: 5
         title: Structure and function of biological macromolecules
         los:

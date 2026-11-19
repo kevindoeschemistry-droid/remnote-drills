@@ -4,13 +4,17 @@
 //   type: plot        x, y: [min, max] · curves: [{ f, from, to, dash }] · points: [{ at, open, label }]
 //                     vlines: [x…] · hlines: [y…] · segments / arrows: [{ from, to }] · shade: { f, from, to }
 //                     field: "x - y" (slope field of dy/dx) · vfield: ["-y", "x"] · labels: [{ at, text }]
-//                     scatter: { x: [...], y: [...] } · tick: grid spacing (default: about eight lines)
+//                     scatter: { x: [...], y: [...] } · tick (or xtick, ytick): grid spacing (default: about eight lines)
+//                     xunit: pi (label x in multiples of π)
+//                     circles: [{ at, r, dash }] · arcs: [{ at, r, from, to }] (degrees) · bare: true (a geometry sketch: no grid or axes, one scale both ways)
 //   type: numberline  range: [a, b] · step · labelEvery (label only multiples of it) · points: [{ at, open, label }]
 //                     dots: [values] (a dot plot)
 //                     box: { min, q1, med, q3, max } · interval: { from, to, openFrom, openTo }
 //   type: grid        cols, rows · shaded (first n cells) · dots: true (objects to count, not squares) · count (first n dots)
 //   type: bars        labels: [...] · values: [...]
 //   type: table       head: [...] · rows: [[...], …]   or   xs: [...] + f: "expression in x" (a table of values)
+//   type: molecule    atoms: [[x, y, label], …] (no label = a carbon vertex; "OH", "NH2", "H2N", "O", "S" …)
+//                     bonds: [[i, j, order], …] (0-based atom indices; order 1, 2 or 3). A skeletal structure.
 // Every number may be an expression in the template's givens and lets. A function (`f`, `field`, a
 // `vfield` component) may also be the name of a text field of the drawn case. Strokes use currentColor.
 import { math } from "./check";
@@ -34,6 +38,14 @@ const svg = (w: number, h: number, body: string) =>
 const text = (x: number, y: number, s: string, anchor = "middle", extra = "") => `<text x="${x.toFixed(1)}" y="${y.toFixed(1)}" text-anchor="${anchor}" fill="currentColor" stroke="none" ${extra}>${s}</text>`;
 const tickStep = (span: number) => { const raw = span / 8, p = 10 ** Math.floor(Math.log10(raw)); return [1, 2, 5, 10].map((k) => k * p).find((s) => s >= raw)!; };
 const nice = (v: number) => String(Number(v.toPrecision(6)));
+/** an x value as a multiple of π: π/2, π, 3π/2 … (xunit: pi) */
+function piLabel(v: number): string {
+  for (const d of [1, 2, 3, 4, 6, 8, 12]) {
+    const k = (v / Math.PI) * d;
+    if (Math.abs(k - Math.round(k)) < 1e-6) { const m = Math.round(k), a = Math.abs(m); return `${m < 0 ? "−" : ""}${a === 1 ? "" : a}π${d === 1 ? "" : `/${d}`}`; }
+  }
+  return nice(v);
+}
 function arrowHead(x1: number, y1: number, x2: number, y2: number, color: string, h = 6) {
   const a = Math.atan2(y2 - y1, x2 - x1);
   return `<line x1="${x1.toFixed(1)}" y1="${y1.toFixed(1)}" x2="${x2.toFixed(1)}" y2="${y2.toFixed(1)}" stroke="${color}" stroke-width="1.4"/><polygon points="${x2.toFixed(1)},${y2.toFixed(1)} ${(x2 - h * Math.cos(a - 0.4)).toFixed(1)},${(y2 - h * Math.sin(a - 0.4)).toFixed(1)} ${(x2 - h * Math.cos(a + 0.4)).toFixed(1)},${(y2 - h * Math.sin(a + 0.4)).toFixed(1)}" fill="${color}" stroke="none"/>`;
@@ -41,20 +53,23 @@ function arrowHead(x1: number, y1: number, x2: number, y2: number, color: string
 
 function plot(f: any, scope: Scope): string {
   const [x0, x1] = arr(f.x ?? [-5, 5], scope), [y0, y1] = arr(f.y ?? [-5, 5], scope);
-  const H = 260, L = 30, R = 12, T = 12, B = 24;
+  const bare = !!f.bare;
+  // a bare sketch keeps one scale on both axes, so circles are round and angles are true
+  const L = bare ? 12 : 30, R = 12, T = 12, B = bare ? 12 : 24, H = bare ? T + B + ((W - L - R) * (y1 - y0)) / (x1 - x0) : 260;
   const X = (x: number) => L + ((x - x0) / (x1 - x0)) * (W - L - R), Y = (y: number) => H - B - ((y - y0) / (y1 - y0)) * (H - T - B);
   let s = "";
-  const sx = f.tick ? n(f.tick, scope) : tickStep(x1 - x0), sy = f.tick ? n(f.tick, scope) : tickStep(y1 - y0);
-  for (let x = Math.ceil(x0 / sx) * sx; x <= x1 + 1e-9; x += sx) {
+  const sx = n(f.xtick ?? f.tick ?? tickStep(x1 - x0), scope), sy = n(f.ytick ?? f.tick ?? tickStep(y1 - y0), scope);
+  const xname = f.xunit === "pi" ? piLabel : nice;
+  for (let x = Math.ceil(x0 / sx) * sx; !bare && x <= x1 + 1e-9; x += sx) {
     s += `<line x1="${X(x).toFixed(1)}" y1="${Y(y0)}" x2="${X(x).toFixed(1)}" y2="${Y(y1)}" opacity="0.13"/>`;
-    if (Math.abs(x) > 1e-9) s += text(X(x), Math.min(H - B + 13, Math.max(T + 10, Y(0) + 13)), nice(x), "middle", 'opacity="0.75"');
+    if (Math.abs(x) > 1e-9) s += text(X(x), Math.min(H - B + 13, Math.max(T + 10, Y(0) + 13)), xname(x), "middle", 'opacity="0.75"');
   }
-  for (let y = Math.ceil(y0 / sy) * sy; y <= y1 + 1e-9; y += sy) {
+  for (let y = Math.ceil(y0 / sy) * sy; !bare && y <= y1 + 1e-9; y += sy) {
     s += `<line x1="${X(x0)}" y1="${Y(y).toFixed(1)}" x2="${X(x1)}" y2="${Y(y).toFixed(1)}" opacity="0.13"/>`;
     if (Math.abs(y) > 1e-9) s += text(Math.max(L - 4, Math.min(W - R - 4, X(0) - 4)), Y(y) + 4, nice(y), "end", 'opacity="0.75"');
   }
-  if (y0 <= 0 && y1 >= 0) s += `<line x1="${X(x0)}" y1="${Y(0)}" x2="${X(x1)}" y2="${Y(0)}" stroke-width="1.2"/>` + text(X(x1) - 2, Y(0) - 5, f.xlabel ?? "x", "end");
-  if (x0 <= 0 && x1 >= 0) s += `<line x1="${X(0)}" y1="${Y(y0)}" x2="${X(0)}" y2="${Y(y1)}" stroke-width="1.2"/>` + text(X(0) + 5, Y(y1) + 9, f.ylabel ?? "y", "start");
+  if (!bare && y0 <= 0 && y1 >= 0) s += `<line x1="${X(x0)}" y1="${Y(0)}" x2="${X(x1)}" y2="${Y(0)}" stroke-width="1.2"/>` + text(X(x1) - 2, Y(0) - 5, f.xlabel ?? "x", "end");
+  if (!bare && x0 <= 0 && x1 >= 0) s += `<line x1="${X(0)}" y1="${Y(y0)}" x2="${X(0)}" y2="${Y(y1)}" stroke-width="1.2"/>` + text(X(0) + 5, Y(y1) + 9, f.ylabel ?? "y", "start");
   const clip = `<clipPath id="c"><rect x="${L}" y="${T}" width="${W - L - R}" height="${H - T - B}"/></clipPath>`;
   let inner = "";
   if (f.shade) {
@@ -100,6 +115,16 @@ function plot(f: any, scope: Scope): string {
   for (const v of f.vlines ?? []) inner += `<line x1="${X(n(v, scope)).toFixed(1)}" y1="${Y(y0)}" x2="${X(n(v, scope)).toFixed(1)}" y2="${Y(y1)}" stroke-dasharray="4 4" opacity="0.7"/>`;
   for (const v of f.hlines ?? []) inner += `<line x1="${X(x0)}" y1="${Y(n(v, scope)).toFixed(1)}" x2="${X(x1)}" y2="${Y(n(v, scope)).toFixed(1)}" stroke-dasharray="4 4" opacity="0.7"/>`;
   for (const g of f.segments ?? []) { const p = arr(g.from, scope), q = arr(g.to, scope); inner += `<line x1="${X(p[0]).toFixed(1)}" y1="${Y(p[1]).toFixed(1)}" x2="${X(q[0]).toFixed(1)}" y2="${Y(q[1]).toFixed(1)}" stroke="${ACCENT}" stroke-width="2" ${g.dash ? 'stroke-dasharray="5 4"' : ""}/>`; }
+  for (const c of f.circles ?? []) {
+    const [cx, cy] = arr(c.at, scope), r = n(c.r, scope);
+    inner += `<ellipse cx="${X(cx).toFixed(1)}" cy="${Y(cy).toFixed(1)}" rx="${Math.abs(X(r) - X(0)).toFixed(1)}" ry="${Math.abs(Y(r) - Y(0)).toFixed(1)}" stroke="${ACCENT}" stroke-width="1.4" ${c.dash ? 'stroke-dasharray="4 4"' : ""}/>`;
+  }
+  for (const c of f.arcs ?? []) {
+    const [cx, cy] = arr(c.at, scope), r = n(c.r, scope), a0 = n(c.from, scope), a1 = n(c.to, scope);
+    let d = "";
+    for (let k = 0; k <= 40; k++) { const t = ((a0 + ((a1 - a0) * k) / 40) * Math.PI) / 180; d += `${k ? "L" : "M"}${X(cx + r * Math.cos(t)).toFixed(1)},${Y(cy + r * Math.sin(t)).toFixed(1)}`; }
+    inner += `<path d="${d}" stroke="${ACCENT}" stroke-width="1.4" ${c.dash ? 'stroke-dasharray="4 4"' : ""}/>`;
+  }
   for (const g of f.arrows ?? []) { const p = arr(g.from, scope), q = arr(g.to, scope); inner += arrowHead(X(p[0]), Y(p[1]), X(q[0]), Y(q[1]), g.color === "hot" ? HOT : ACCENT, 7); }
   let top = "";
   for (const p of f.points ?? []) {
@@ -177,6 +202,39 @@ function table(f: any, scope: Scope): string {
   return svg(w, H, s);
 }
 
+/** a skeletal structure: unlabelled vertices are carbons, hydrogens on carbon are implied.
+ *  A label that starts with H ("H2N", "HO") is right-aligned so its heavy atom sits on the vertex. */
+function molecule(f: any, scope: Scope): string {
+  const atoms: [number, number, string][] = (f.atoms as any[]).map((a) => [n(a[0], scope), n(a[1], scope), String(a[2] ?? "")]);
+  const xs = atoms.map((a) => a[0]), ys = atoms.map((a) => a[1]);
+  const S = 38, MX = 40, MY = 24, minX = Math.min(...xs), maxY = Math.max(...ys);
+  const w = (Math.max(...xs) - minX) * S + 2 * MX, h = (maxY - Math.min(...ys)) * S + 2 * MY;
+  const X = (x: number) => MX + (x - minX) * S, Y = (y: number) => MY + (maxY - y) * S;
+  let s = "";
+  for (const b of f.bonds as number[][]) {
+    const [i, j, order = 1, side = 0] = b, A = atoms[i], B = atoms[j];
+    let x1 = X(A[0]), y1 = Y(A[1]), x2 = X(B[0]), y2 = Y(B[1]);
+    const len = Math.hypot(x2 - x1, y2 - y1), ux = (x2 - x1) / len, uy = (y2 - y1) / len;
+    // stop short of a label so the line does not run through the letters
+    // … and further when it leaves on the side the label's hydrogens are written on
+    const gap = (lab: string, dx: number) => (lab ? 9 + Math.max(0, (/^H\d?[A-Z]/.test(lab) ? -1 : 1) * dx) * 7 * (lab.length - 1) : 0);
+    const ga = gap(A[2], ux), gb = gap(B[2], -ux);
+    x1 += ux * ga; y1 += uy * ga; x2 -= ux * gb; y2 -= uy * gb;
+    const line = (o: number, trim: number) => `<line x1="${(x1 - uy * o + ux * trim).toFixed(1)}" y1="${(y1 + ux * o + uy * trim).toFixed(1)}" x2="${(x2 - uy * o - ux * trim).toFixed(1)}" y2="${(y2 + ux * o - uy * trim).toFixed(1)}" stroke-width="1.6"/>`;
+    // a ring double bond keeps its main line on the ring and puts the second, shorter one inside (side = ±1)
+    if (order === 2 && side) s += line(0, 0) + line(4.6 * side, 5);
+    else for (const o of order === 2 ? [-2.3, 2.3] : order === 3 ? [-3.8, 0, 3.8] : [0]) s += line(o, 0);
+  }
+  for (const [x, y, lab] of atoms) {
+    if (!lab) continue;
+    const hFirst = /^H\d?[A-Z]/.test(lab), sub = lab.replace(/^(\D*)(\d+)(.*)$/, (_m, pre, d, post) => `${pre}<tspan dy="3" font-size="9">${d}</tspan>${post ? `<tspan dy="-3">${post}</tspan>` : ""}`);
+    s += lab.length === 1 ? text(X(x), Y(y) + 4.5, sub, "middle", 'font-size="13"')
+      : hFirst ? text(X(x) + 5, Y(y) + 4.5, sub, "end", 'font-size="13"')
+      : text(X(x) - 5, Y(y) + 4.5, sub, "start", 'font-size="13"');
+  }
+  return svg(Math.max(w, 120), Math.max(h, 70), s);
+}
+
 export function renderFigure(f: any, scope: Scope): string {
   switch (f?.type) {
     case "plot": return plot(f, scope);
@@ -184,6 +242,7 @@ export function renderFigure(f: any, scope: Scope): string {
     case "grid": return grid(f, scope);
     case "bars": return bars(f, scope);
     case "table": return table(f, scope);
+    case "molecule": return molecule(f, scope);
     default: throw new Error(`unknown figure type ${f?.type}`);
   }
 }

@@ -46,6 +46,7 @@ function reference(p: Problem): string | string[] {
     case "indexed": return `${a.label} = ${a.ref}`;
     case "eigenfunctions": return `y_n = ${(p.meta as any).y}`;
     case "choice": return a.correct;
+    case "self": return "ok";
     case "tuple": return a.fields.map((f) => f.ref);
   }
 }
@@ -76,6 +77,7 @@ function negatives(p: Problem): (string | string[])[] {
       return [y.includes("sin") ? y.replace("sin", "cos") : y.replace("cos", "sin"), `${y.replace("x)", "x/2)")}`];
     }
     case "choice": return a.options.filter((o) => o !== a.correct);
+    case "self": return ["no"];
     case "tuple":
       return a.proportional
         ? [a.fields.map((f, i) => (i === 0 ? `(${f.ref})*(1 + x)` : f.ref)), a.fields.map((f, i) => (i === 1 ? `${f.ref} + 1` : f.ref))]
@@ -125,7 +127,7 @@ expectPlace("ht.transient-one-term", "Incropera 8e §5.5–5.6");
 expectPlace("stat.partition-function", "Dill & Bromberg 2e Ch 10");
 expectPlace("stat.partition-function", "Shell Ch 16");
 if (primaryPlace("stat.partition-function", "shell-2015")?.source.id !== "shell-2015") fail("preferred source not honoured");
-if (SOURCES.length !== 10) fail(`expected 10 sources, got ${SOURCES.length}`);
+if (SOURCES.length !== 11) fail(`expected 11 sources, got ${SOURCES.length}`);
 expectPlace("k8.fractions", "Prealgebra 2e Ch 4");
 expectPlace("trig.identities", "Algebra & Trig 2e §9.2");
 

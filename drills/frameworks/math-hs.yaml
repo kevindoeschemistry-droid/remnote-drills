@@ -156,7 +156,7 @@ units:
         title: Graphs of equations and linear functions
         los:
           - { id: A, std: A-REI.D.10, do: "Explain that the graph of an equation in two variables is the set of all its solutions plotted in the coordinate plane.", ek: ["A point lies on the graph exactly when its coordinates satisfy the equation."], p: [MP3], drills: [hs-point-on-graph], needs: [MH-1.4.B] }
-          - { id: B, std: F-IF.C.7a, do: "Graph a linear function from its equation, showing the intercepts and the slope.", ek: ["y = mx + b: slope m = rise/run, y-intercept b, x-intercept −b/m."], p: [MP5, MP6], drills: [alg-intercepts, k8-slope], needs: [MH-2.3.A, MH-2.2.C] }
+          - { id: B, std: F-IF.C.7a, do: "Graph a linear function from its equation, showing the intercepts and the slope.", ek: ["y = mx + b: slope m = rise/run, y-intercept b, x-intercept −b/m."], p: [MP5, MP6], drills: [alg-intercepts, k8-slope, dr-line], needs: [MH-2.3.A, MH-2.2.C] }
       - n: 4
         title: Distinguish linear from exponential change
         los:
@@ -175,7 +175,7 @@ units:
         los:
           - { id: A, std: N-RN.A.1, do: "Explain how the meaning of rational exponents follows from extending the properties of integer exponents, e.g. why 5^(1/3) is the cube root of 5.", ek: ["(5^(1/3))³ = 5^((1/3)·3) = 5, so 5^(1/3) must be a cube root of 5."], p: [MP3, MP7], drills: [alg-rational-exp] }
           - { id: B, std: N-RN.A.2, do: "Rewrite expressions involving radicals and rational exponents using the properties of exponents.", ek: ["x^(m/n) = (ⁿ√x)^m; a^p·a^q = a^(p+q); (a^p)^q = a^(pq); a^(−p) = 1/a^p."], p: [MP7], drills: [alg-rational-exp], needs: [MH-2.6.A] }
-          - { id: C, std: F-IF.C.7e, do: "Graph an exponential function y = a·b^x, showing the intercept and end behaviour.", ek: ["Passes through (0, a); grows if b > 1, decays if 0 < b < 1; horizontal asymptote y = 0."], p: [MP5, MP6], drills: [alg-exp-graph], needs: [MH-2.5.A] }
+          - { id: C, std: F-IF.C.7e, do: "Graph an exponential function y = a·b^x, showing the intercept and end behaviour.", ek: ["Passes through (0, a); grows if b > 1, decays if 0 < b < 1; horizontal asymptote y = 0."], p: [MP5, MP6], drills: [alg-exp-graph, dr-exponential], needs: [MH-2.5.A] }
           - { id: D, std: F-LE.A.3, do: "Show with graphs and tables that a quantity increasing exponentially eventually exceeds one increasing linearly.", ek: ["Equal factors eventually beat equal differences, however small the base above 1."], p: [MP5, MP8], drills: [hs-exp-beats-linear], needs: [MH-2.6.C] }
           - { id: E, std: F-IF.C.9, do: "Compare properties of two functions each represented in a different way (algebraically, graphically, numerically in a table, or by a verbal description).", ek: ["Read the same feature (rate, intercept, maximum) from each representation before comparing."], p: [MP2, MP7], drills: ["~k8-compare-fns", hs-compare-rates], needs: [MH-2.6.C] }
       - n: 7
@@ -262,9 +262,9 @@ units:
         title: Analyze quadratic and related functions using different representations
         los:
           - { id: A, std: F-IF.C.8a, do: "Rewrite a quadratic function by factoring and completing the square to show its zeros, extreme value and symmetry, and interpret them in context.", ek: ["Factored form shows zeros; vertex form a(x − h)² + k shows the extreme value k and axis x = h."], p: [MP7, MP2], drills: [alg-complete-square, alg-factor-zeros], needs: [MH-4.2.A, MH-4.2.B] }
-          - { id: B, std: F-IF.C.7a, do: "Graph a quadratic function, showing intercepts, the vertex (maximum or minimum) and the axis of symmetry.", ek: ["Vertex at x = −b/2a; opens up if a > 0, down if a < 0; y-intercept c."], p: [MP5, MP6], drills: [alg-vertex], needs: [MH-5.2.A, MH-2.3.B] }
+          - { id: B, std: F-IF.C.7a, do: "Graph a quadratic function, showing intercepts, the vertex (maximum or minimum) and the axis of symmetry.", ek: ["Vertex at x = −b/2a; opens up if a > 0, down if a < 0; y-intercept c."], p: [MP5, MP6], drills: [alg-vertex, dr-parabola], needs: [MH-5.2.A, MH-2.3.B] }
           - { id: C, std: F-IF.B.4, do: "Interpret the key features of a quadratic model in context, e.g. the maximum height and landing time of a projectile.", ek: ["The vertex gives the extreme value and when it happens; the zeros give when the quantity is zero."], p: [MP2, MP4], drills: [alg-quad-word], needs: [MH-5.2.B, MH-2.2.A] }
-          - { id: D, std: F-IF.C.7b, do: "Graph square-root, cube-root and piecewise-defined functions, including step functions and absolute-value functions.", ek: ["|x| = x for x ≥ 0 and −x for x < 0; √x needs x ≥ 0; each piece applies only on its own interval."], p: [MP5, MP6], drills: ["~alg-piecewise", hs-root-graph, hs-abs-graph], needs: [MH-2.3.B, MH-2.6.B] }
+          - { id: D, std: F-IF.C.7b, do: "Graph square-root, cube-root and piecewise-defined functions, including step functions and absolute-value functions.", ek: ["|x| = x for x ≥ 0 and −x for x < 0; √x needs x ≥ 0; each piece applies only on its own interval."], p: [MP5, MP6], drills: ["~alg-piecewise", hs-root-graph, hs-abs-graph, dr-abs, dr-sqrt], needs: [MH-2.3.B, MH-2.6.B] }
           - { id: E, std: F-IF.C.8b, do: "Use the properties of exponents to classify an exponential function as growth or decay and find its percent rate, e.g. y = (0.97)^t, y = (1.01)^(12t), y = (1.2)^(t/10).", ek: ["y = a·b^t: percent change per unit = (b − 1)·100%; rewrite so the exponent is in the unit asked for."], p: [MP7, MP2], drills: [alg-exp-params], needs: [MH-4.2.C, MH-2.5.D] }
           - { id: F, std: F-IF.C.9, do: "Compare a quadratic with a function represented differently, e.g. decide which of an algebraic quadratic and a graphed one has the larger maximum.", ek: ["Put both in a form that shows the feature being compared."], p: [MP2, MP7], drills: [hs-compare-maxima], needs: [MH-5.2.B, MH-2.6.E] }
       - n: 3
@@ -308,8 +308,8 @@ units:
       - n: 4
         title: Make geometric constructions
         los:
-          - { id: A, std: G-CO.D.12, do: "Construct with compass and straightedge a copy of a segment and of an angle, an angle bisector, a perpendicular bisector, a perpendicular to a line, and a parallel to a line through a point not on it.", ek: ["Each construction is justified by a congruence (usually SSS) made by the equal arcs."], p: [MP5, MP3], drills: ["~hs-recognise-construction"], needs: [MH-6.2.C] }
-          - { id: B, std: G-CO.D.13, do: "Construct an equilateral triangle, a square and a regular hexagon inscribed in a circle.", ek: ["The radius steps around a circle exactly six times, giving the hexagon."], p: [MP5], drills: ["~hs-recognise-construction"], needs: [MH-6.4.A] }
+          - { id: A, std: G-CO.D.12, do: "Construct with compass and straightedge a copy of a segment and of an angle, an angle bisector, a perpendicular bisector, a perpendicular to a line, and a parallel to a line through a point not on it.", ek: ["Each construction is justified by a congruence (usually SSS) made by the equal arcs."], p: [MP5, MP3], drills: ["~hs-recognise-construction", "~dr-perp-bisector", "~dr-angle-bisector"], needs: [MH-6.2.C] }
+          - { id: B, std: G-CO.D.13, do: "Construct an equilateral triangle, a square and a regular hexagon inscribed in a circle.", ek: ["The radius steps around a circle exactly six times, giving the hexagon."], p: [MP5], drills: ["~hs-recognise-construction", "~dr-hexagon-in-circle"], needs: [MH-6.4.A] }
 
   # ── 7 ────────────────────────────────────────────────────────────────────
   - id: geo-similarity-trig
@@ -470,7 +470,7 @@ units:
         los:
           - { id: A, std: A-APR.B.2, do: "Apply the Remainder Theorem: the remainder on division of p(x) by x − a is p(a), so p(a) = 0 exactly when x − a is a factor.", ek: ["p(x) = (x − a)q(x) + p(a)."], p: [MP7], drills: [alg-remainder], needs: [MH-12.2.A] }
           - { id: B, std: A-APR.B.3, do: "Identify the zeros of a polynomial from a suitable factorization and use them to sketch a rough graph.", ek: ["An odd-multiplicity zero crosses the axis, an even one touches; the leading term sets end behaviour."], p: [MP7, MP5], drills: [alg-poly-zeros], needs: [MH-12.3.A] }
-          - { id: C, std: F-IF.C.7c, do: "Graph a polynomial function, identifying zeros when suitable factorizations are available and showing end behaviour.", ek: ["Degree n has at most n real zeros and at most n − 1 turning points."], p: [MP5, MP6], drills: ["~alg-poly-zeros", "~hs-parabola-features", hs-end-behaviour], needs: [MH-12.3.B, MH-5.2.B] }
+          - { id: C, std: F-IF.C.7c, do: "Graph a polynomial function, identifying zeros when suitable factorizations are available and showing end behaviour.", ek: ["Degree n has at most n real zeros and at most n − 1 turning points."], p: [MP5, MP6], drills: ["~alg-poly-zeros", "~hs-parabola-features", hs-end-behaviour, dr-cubic], needs: [MH-12.3.B, MH-5.2.B] }
           - { id: D, std: N-CN.C.9, do: "(+) Know the Fundamental Theorem of Algebra and show that it is true for quadratic polynomials.", ek: ["A degree-n polynomial has exactly n complex zeros counted with multiplicity."], p: [MP3], drills: [hs-fta], needs: [MH-12.1.D, MH-12.3.B] }
       - n: 4
         title: Finite geometric series
@@ -518,7 +518,7 @@ units:
         title: Logarithms in exponential models
         los:
           - { id: A, std: F-LE.A.4, do: "Express the solution of ab^(ct) = d as a logarithm (base 2, 10 or e) and evaluate it with technology.", ek: ["log_b x = y ⇔ b^y = x; t = log_b(d/a)/c."], p: [MP7, MP5], drills: [alg-exp-solve], needs: [MH-4.2.C, MH-5.3.D] }
-          - { id: B, std: F-IF.C.7e, do: "Graph a logarithmic function, showing the intercept, the vertical asymptote and end behaviour, as the reflection of an exponential across y = x.", ek: ["y = log_b x passes through (1, 0), has asymptote x = 0, and grows without bound but ever more slowly."], p: [MP5, MP6], drills: [alg-log-graph], needs: [MH-14.1.A, MH-2.6.C] }
+          - { id: B, std: F-IF.C.7e, do: "Graph a logarithmic function, showing the intercept, the vertical asymptote and end behaviour, as the reflection of an exponential across y = x.", ek: ["y = log_b x passes through (1, 0), has asymptote x = 0, and grows without bound but ever more slowly."], p: [MP5, MP6], drills: [alg-log-graph, dr-log], needs: [MH-14.1.A, MH-2.6.C] }
       - n: 2
         title: Build and interpret models from several families
         los:
@@ -576,7 +576,7 @@ units:
       - n: 3
         title: Rational functions (+)
         los:
-          - { id: A, std: F-IF.C.7d, do: "(+) Graph a rational function, identifying zeros, vertical asymptotes, holes and end behaviour.", ek: ["Zeros from the reduced numerator; vertical asymptotes where the reduced denominator is 0; horizontal or slant asymptote from the degrees."], p: [MP5, MP7], drills: [alg-rational-graph], needs: [MH-12.5.A, MH-12.3.B] }
+          - { id: A, std: F-IF.C.7d, do: "(+) Graph a rational function, identifying zeros, vertical asymptotes, holes and end behaviour.", ek: ["Zeros from the reduced numerator; vertical asymptotes where the reduced denominator is 0; horizontal or slant asymptote from the degrees."], p: [MP5, MP7], drills: [alg-rational-graph, "~dr-reciprocal"], needs: [MH-12.5.A, MH-12.3.B] }
 
   # ── 17 ───────────────────────────────────────────────────────────────────
   - id: precalc-trig
@@ -589,9 +589,9 @@ units:
       - n: 1
         title: Exact values, symmetry and graphs (+)
         los:
-          - { id: A, std: F-TF.A.3, do: "(+) Use 30-60-90 and 45-45-90 triangles to find exact sine, cosine and tangent of π/6, π/4, π/3, and the unit circle to extend them to π − x, π + x and 2π − x.", ek: ["sin(π/6) = 1/2, sin(π/4) = √2/2, sin(π/3) = √3/2; the reference angle and quadrant give the rest."], p: [MP7], drills: [trig-exact], needs: [MH-13.1.B, MH-7.3.A] }
+          - { id: A, std: F-TF.A.3, do: "(+) Use 30-60-90 and 45-45-90 triangles to find exact sine, cosine and tangent of π/6, π/4, π/3, and the unit circle to extend them to π − x, π + x and 2π − x.", ek: ["sin(π/6) = 1/2, sin(π/4) = √2/2, sin(π/3) = √3/2; the reference angle and quadrant give the rest."], p: [MP7], drills: [trig-exact, dr-unit-circle], needs: [MH-13.1.B, MH-7.3.A] }
           - { id: B, std: F-TF.A.4, do: "(+) Use the unit circle to explain the symmetry (odd and even) and periodicity of the trigonometric functions.", ek: ["cos(−x) = cos x (even), sin(−x) = −sin x (odd); period 2π for sin and cos, π for tan."], p: [MP3, MP7], drills: [trig-symmetry], needs: [MH-17.1.A, MH-5.3.C] }
-          - { id: C, std: F-IF.C.7e, do: "Graph sine, cosine and tangent functions, showing period, midline, amplitude and (for tangent) asymptotes.", ek: ["tan x = sin x / cos x has vertical asymptotes where cos x = 0."], p: [MP5, MP6], drills: [trig-sinusoid], needs: [MH-17.1.B, MH-13.2.A] }
+          - { id: C, std: F-IF.C.7e, do: "Graph sine, cosine and tangent functions, showing period, midline, amplitude and (for tangent) asymptotes.", ek: ["tan x = sin x / cos x has vertical asymptotes where cos x = 0."], p: [MP5, MP6], drills: [trig-sinusoid, dr-sinusoid, dr-tangent], needs: [MH-17.1.B, MH-13.2.A] }
       - n: 2
         title: Inverse trigonometric functions (+)
         los:

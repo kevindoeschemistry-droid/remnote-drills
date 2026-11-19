@@ -2,7 +2,7 @@
 
 Generated from `drills/frameworks/biology.yaml` by `scripts/framework.mjs`. ● drilled · ◐ partly · ○ no drills yet.
 
-**178 learning objectives** in 10 units (154 core): 0 drilled, 0 partly, 178 with no drills. Core: 0 / 154 drilled.
+**179 learning objectives** in 10 units (155 core): 1 drilled, 0 partly, 178 with no drills. Core: 1 / 155 drilled.
 
 ## Big ideas
 
@@ -24,7 +24,7 @@ Generated from `drills/frameworks/biology.yaml` by `scripts/framework.mjs`. ● 
 
 | Unit | Scope | Est. weight | LOs | ● | ◐ | ○ |
 |---|---|---|---|---|---|---|
-| 1 · Chemistry of Life | core | 8–11% | 15 | 0 | 0 | 15 |
+| 1 · Chemistry of Life | core | 8–11% | 16 | 1 | 0 | 15 |
 | 2 · Cell Structure and Function | core | 10–13% | 25 | 0 | 0 | 25 |
 | 3 · Cellular Energetics | core | 12–16% | 18 | 0 | 0 | 18 |
 | 4 · Cell Communication and Cell Cycle | core | 10–15% | 15 | 0 | 0 | 15 |
@@ -93,6 +93,10 @@ Big ideas: SYI, ENE, IST
 - ○ **BI-1.4.D** (SYI-1.B) Tell structural from storage polysaccharides by linkage and branching.
   - EK: Cellulose β(1→4) straight chains H-bond into fibres; starch and glycogen α(1→4) with α(1→6) branches are compact and easy to hydrolyse.
   - P1
+- ● **BI-1.4.E** (iupac-aa-1983:3AA-1) Draw the structure of each of the 20 coded amino acids from its name, and name each from its structure.
+  - EK: Every one is H2N–CH(R)–COOH; only R changes (proline's R closes back onto the N).
+  - Needs: BI-1.4.A
+  - P1 · P2 · drills: aa-draw-gly, aa-name-gly, aa-draw-ala, aa-name-ala, aa-draw-val, aa-name-val, aa-draw-leu, aa-name-leu, aa-draw-ile, aa-name-ile, aa-draw-ser, aa-name-ser, aa-draw-thr, aa-name-thr, aa-draw-cys, aa-name-cys, aa-draw-met, aa-name-met, aa-draw-asp, aa-name-asp, aa-draw-glu, aa-name-glu, aa-draw-asn, aa-name-asn, aa-draw-gln, aa-name-gln, aa-draw-lys, aa-name-lys, aa-draw-arg, aa-name-arg, aa-draw-his, aa-name-his, aa-draw-phe, aa-name-phe, aa-draw-tyr, aa-name-tyr, aa-draw-trp, aa-name-trp, aa-draw-pro, aa-name-pro
 
 ### 1.5 Structure and function of biological macromolecules
 

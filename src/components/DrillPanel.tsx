@@ -97,6 +97,8 @@ export function DrillPanel({
   const nFields = a.kind === "tuple" ? a.fields.length : 1;
   const [inputs, setInputs] = useState<string[]>([""]);
   const [chosen, setChosen] = useState<string | null>(null);
+  // a "draw it" answer: has the solution been uncovered yet?
+  const [shown, setShown] = useState(false);
   const [phase, setPhase] = useState<Phase>("answering");
   const [result, setResult] = useState<CheckResult | null>(null);
   const [progress, setProgress] = useState<SkillProgress>(EMPTY);
@@ -145,6 +147,7 @@ export function DrillPanel({
   useEffect(() => {
     setInputs(Array(nFields).fill(""));
     setChosen(null);
+    setShown(false);
     setPhase("answering");
     setResult(null);
     setMissedOnce(false);
@@ -157,6 +160,7 @@ export function DrillPanel({
   useEffect(() => {
     setInputs(Array(nFields).fill(""));
     setChosen(null);
+    setShown(false);
   }, [partIdx, guided, nFields]);
 
   const done = phase === "correct" || phase === "revealed";
@@ -214,7 +218,7 @@ export function DrillPanel({
           return settleStep(partMissed ? "miss" : "ok", missedOnce);
         }
         await miss("wrong");
-        if (a.kind === "choice") return settleStep("miss", true);
+        if (a.kind === "choice" || a.kind === "self") return settleStep("miss", true);
         setPartMissed(true);
         setPhase("wrong");
         return;
@@ -237,7 +241,7 @@ export function DrillPanel({
           setProgress(await recordAttempt(plugin, meta.id, "correct", clearAt));
         }
       } else {
-        setPhase(a.kind === "choice" ? "revealed" : "wrong");
+        setPhase(a.kind === "choice" || a.kind === "self" ? "revealed" : "wrong");
         if (!missedOnce) {
           setMissedOnce(true);
           setProgress(await recordAttempt(plugin, meta.id, "wrong", clearAt));
@@ -406,7 +410,12 @@ export function DrillPanel({
                   <MathText text={pt.ask} />
                   {settled && (
                     <span className="odd-part-answer">
-                      <Tex tex={pt.answerTex} />
+                      {pt.answer.kind === "self" ? (
+                        // a drawing stays on screen after you grade it, so a miss can be studied
+                        pt.answer.figure && <span className="odd-figure" dangerouslySetInnerHTML={{ __html: pt.answer.figure }} />
+                      ) : (
+                        <Tex tex={pt.answerTex} />
+                      )}
                       {pt.explain && (
                         <span className="odd-part-explain">
                           <MathText text={pt.explain} />
@@ -429,7 +438,29 @@ export function DrillPanel({
         </div>
       )}
 
-      {parts && done ? null : a.kind === "choice" ? (
+      {parts && done ? null : a.kind === "self" ? (
+        <div className="odd-self">
+          {!shown && !done ? (
+            <button className="odd-btn primary" onClick={() => setShown(true)}>
+              I've drawn it: show the answer
+            </button>
+          ) : (
+            <>
+              {a.figure && <div className="odd-figure" dangerouslySetInnerHTML={{ __html: a.figure }} />}
+              {!done && (
+                <div className="odd-row">
+                  <button className="odd-btn primary" onClick={() => submit("ok")}>
+                    Mine matches
+                  </button>
+                  <button className="odd-btn" onClick={() => submit("no")}>
+                    Not yet
+                  </button>
+                </div>
+              )}
+            </>
+          )}
+        </div>
+      ) : a.kind === "choice" ? (
         <div className="odd-choices">
           {a.options.map((opt) => {
             const cls =
