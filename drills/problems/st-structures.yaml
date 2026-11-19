@@ -2148,6 +2148,640 @@
       explain: 'Lipoic acid. A five-membered ring containing an S-S bond, with a five-carbon acid chain'
   verify: { authored: true }
 
+# ── reagents and protecting-group sources known by abbreviation (Bruice ch. 21 and throughout) ──
+- template: st-draw-m-chloroperoxybenzoic-acid
+  skill: orgo.reagents
+  pace: quick
+  prompt: 'Draw m-chloroperoxybenzoic acid (mCPBA) from memory, as a skeletal structure.'
+  parts:
+    - ask: 'Draw it on paper, then compare'
+      label: a
+      draw: true
+      solution:
+        type: molecule
+        formula: C7H5ClO3
+        atoms: [[2.8, 0.13, "OH"], [1.84, 0.43, "O"], [1.11, -0.26], [1.34, -1.23, "O"], [0.15, 0.04], [-0.07, 1.01], [-1.03, 1.3], [-1.76, 0.62], [-1.53, -0.35], [-2.27, -1.04, "Cl"], [-0.58, -0.65]]
+        bonds: [[0, 1], [1, 2], [2, 3, 2], [2, 4], [4, 5, 2, -1], [5, 6], [6, 7, 2, -1], [7, 8], [8, 9], [8, 10, 2, -1], [10, 4]]
+      explain: 'Benzoic acid with an extra O in the acid (a peroxy acid, C(=O)-O-OH) and a Cl meta to it. Formula $\mathrm{C_{7}H_{5}ClO_{3}}$'
+- template: st-name-m-chloroperoxybenzoic-acid
+  skill: orgo.reagents
+  pace: recall
+  prompt: 'Which compound is this?'
+  figure:
+    type: molecule
+    formula: C7H5ClO3
+    atoms: [[2.8, 0.13, "OH"], [1.84, 0.43, "O"], [1.11, -0.26], [1.34, -1.23, "O"], [0.15, 0.04], [-0.07, 1.01], [-1.03, 1.3], [-1.76, 0.62], [-1.53, -0.35], [-2.27, -1.04, "Cl"], [-0.58, -0.65]]
+    bonds: [[0, 1], [1, 2], [2, 3, 2], [2, 4], [4, 5, 2, -1], [5, 6], [6, 7, 2, -1], [7, 8], [8, 9], [8, 10, 2, -1], [10, 4]]
+  parts:
+    - ask: 'Name it'
+      label: a
+      choice: ["4-dimethylaminopyridine (DMAP)", "N-bromosuccinimide (NBS)", "m-chloroperoxybenzoic acid (mCPBA)", "tosyl chloride (TsCl)"]
+      correct: "2"
+      explain: 'M-chloroperoxybenzoic acid (mCPBA). Benzoic acid with an extra O in the acid (a peroxy acid, C(=O)-O-OH) and a Cl meta to it'
+  verify: { authored: true }
+- template: st-draw-tosyl-chloride
+  skill: orgo.reagents
+  pace: quick
+  prompt: 'Draw tosyl chloride (TsCl) from memory, as a skeletal structure.'
+  parts:
+    - ask: 'Draw it on paper, then compare'
+      label: a
+      draw: true
+      solution:
+        type: molecule
+        formula: C7H7ClO2S
+        atoms: [[2.64, 0.0], [1.64, -0.0], [1.14, 0.87], [0.14, 0.87], [-0.36, 0.0], [0.14, -0.87], [1.14, -0.87], [-1.36, 0.0, "S"], [-1.36, -1.0, "Cl"], [-2.36, -0.0, "O"], [-1.36, 1.0, "O"]]
+        bonds: [[0, 1], [1, 2], [2, 3, 2, -1], [3, 4], [4, 5, 2, -1], [5, 6], [4, 7], [7, 8], [7, 9, 2], [7, 10, 2], [6, 1, 2, -1]]
+      explain: 'Toluene with an SO2Cl para to the methyl. Formula $\mathrm{C_{7}H_{7}ClO_{2}S}$'
+- template: st-name-tosyl-chloride
+  skill: orgo.reagents
+  pace: recall
+  prompt: 'Which compound is this?'
+  figure:
+    type: molecule
+    formula: C7H7ClO2S
+    atoms: [[2.64, 0.0], [1.64, -0.0], [1.14, 0.87], [0.14, 0.87], [-0.36, 0.0], [0.14, -0.87], [1.14, -0.87], [-1.36, 0.0, "S"], [-1.36, -1.0, "Cl"], [-2.36, -0.0, "O"], [-1.36, 1.0, "O"]]
+    bonds: [[0, 1], [1, 2], [2, 3, 2, -1], [3, 4], [4, 5, 2, -1], [5, 6], [4, 7], [7, 8], [7, 9, 2], [7, 10, 2], [6, 1, 2, -1]]
+  parts:
+    - ask: 'Name it'
+      label: a
+      choice: ["4-dimethylaminopyridine (DMAP)", "N-bromosuccinimide (NBS)", "m-chloroperoxybenzoic acid (mCPBA)", "tosyl chloride (TsCl)"]
+      correct: "3"
+      explain: 'Tosyl chloride (TsCl). Toluene with an SO2Cl para to the methyl'
+  verify: { authored: true }
+- template: st-draw-mesyl-chloride
+  skill: orgo.reagents
+  pace: quick
+  prompt: 'Draw mesyl chloride (MsCl) from memory, as a skeletal structure.'
+  parts:
+    - ask: 'Draw it on paper, then compare'
+      label: a
+      draw: true
+      solution:
+        type: molecule
+        formula: CH3ClO2S
+        atoms: [[-0.87, -0.5], [0.0, -0.0, "S"], [-0.5, 0.87, "Cl"], [0.87, 0.5, "O"], [0.5, -0.87, "O"]]
+        bonds: [[0, 1], [1, 2], [1, 3, 2], [1, 4, 2]]
+      explain: 'A methyl on an SO2Cl. Formula $\mathrm{CH_{3}ClO_{2}S}$'
+- template: st-name-mesyl-chloride
+  skill: orgo.reagents
+  pace: recall
+  prompt: 'Which compound is this?'
+  figure:
+    type: molecule
+    formula: CH3ClO2S
+    atoms: [[-0.87, -0.5], [0.0, -0.0, "S"], [-0.5, 0.87, "Cl"], [0.87, 0.5, "O"], [0.5, -0.87, "O"]]
+    bonds: [[0, 1], [1, 2], [1, 3, 2], [1, 4, 2]]
+  parts:
+    - ask: 'Name it'
+      label: a
+      choice: ["acetyl chloride", "mesyl chloride (MsCl)", "oxalyl chloride", "thionyl chloride"]
+      correct: "1"
+      explain: 'Mesyl chloride (MsCl). A methyl on an SO2Cl'
+  verify: { authored: true }
+- template: st-draw-n-bromosuccinimide
+  skill: orgo.reagents
+  pace: quick
+  prompt: 'Draw N-bromosuccinimide (NBS) from memory, as a skeletal structure.'
+  parts:
+    - ask: 'Draw it on paper, then compare'
+      label: a
+      draw: true
+      solution:
+        type: molecule
+        formula: C4H4BrNO2
+        atoms: [[0.0, -1.48, "Br"], [0.0, -0.48, "N"], [0.81, 0.11], [1.76, -0.2, "O"], [0.5, 1.06], [-0.5, 1.06], [-0.81, 0.11], [-1.76, -0.2, "O"]]
+        bonds: [[0, 1], [1, 2], [2, 3, 2], [2, 4], [4, 5], [5, 6], [6, 7, 2], [6, 1]]
+      explain: 'A five-membered cyclic imide (two C=O flanking the N) with Br on the nitrogen. Formula $\mathrm{C_{4}H_{4}BrNO_{2}}$'
+- template: st-name-n-bromosuccinimide
+  skill: orgo.reagents
+  pace: recall
+  prompt: 'Which compound is this?'
+  figure:
+    type: molecule
+    formula: C4H4BrNO2
+    atoms: [[0.0, -1.48, "Br"], [0.0, -0.48, "N"], [0.81, 0.11], [1.76, -0.2, "O"], [0.5, 1.06], [-0.5, 1.06], [-0.81, 0.11], [-1.76, -0.2, "O"]]
+    bonds: [[0, 1], [1, 2], [2, 3, 2], [2, 4], [4, 5], [5, 6], [6, 7, 2], [6, 1]]
+  parts:
+    - ask: 'Name it'
+      label: a
+      choice: ["4-dimethylaminopyridine (DMAP)", "N-bromosuccinimide (NBS)", "benzyl bromide", "tert-butyldimethylsilyl chloride (TBSCl)"]
+      correct: "1"
+      explain: 'N-bromosuccinimide (NBS). A five-membered cyclic imide (two C=O flanking the N) with Br on the nitrogen'
+  verify: { authored: true }
+- template: st-draw-dicyclohexylcarbodiimide
+  skill: orgo.reagents
+  pace: quick
+  prompt: 'Draw dicyclohexylcarbodiimide (DCC) from memory, as a skeletal structure.'
+  parts:
+    - ask: 'Draw it on paper, then compare'
+      label: a
+      draw: true
+      solution:
+        type: molecule
+        formula: C13H22N2
+        atoms: [[-2.5, 1.21], [-3.0, 0.35], [-2.5, -0.52], [-1.5, -0.52], [-1.0, 0.35], [-1.5, 1.21], [-1.0, -1.39, "N"], [0.0, -1.39], [1.0, -1.39, "N"], [1.5, -0.52], [2.5, -0.52], [3.0, 0.35], [2.5, 1.21], [1.5, 1.21], [1.0, 0.35]]
+        bonds: [[0, 1], [1, 2], [2, 3], [3, 4], [4, 5], [3, 6], [6, 7, 2], [7, 8, 2], [8, 9], [9, 10], [10, 11], [11, 12], [12, 13], [13, 14], [5, 0], [14, 9]]
+      explain: 'N=C=N with a cyclohexyl on each nitrogen. Formula $\mathrm{C_{13}H_{22}N_{2}}$'
+- template: st-name-dicyclohexylcarbodiimide
+  skill: orgo.reagents
+  pace: recall
+  prompt: 'Which compound is this?'
+  figure:
+    type: molecule
+    formula: C13H22N2
+    atoms: [[-2.5, 1.21], [-3.0, 0.35], [-2.5, -0.52], [-1.5, -0.52], [-1.0, 0.35], [-1.5, 1.21], [-1.0, -1.39, "N"], [0.0, -1.39], [1.0, -1.39, "N"], [1.5, -0.52], [2.5, -0.52], [3.0, 0.35], [2.5, 1.21], [1.5, 1.21], [1.0, 0.35]]
+    bonds: [[0, 1], [1, 2], [2, 3], [3, 4], [4, 5], [3, 6], [6, 7, 2], [7, 8, 2], [8, 9], [9, 10], [10, 11], [11, 12], [12, 13], [13, 14], [5, 0], [14, 9]]
+  parts:
+    - ask: 'Name it'
+      label: a
+      choice: ["Fmoc chloride", "di-tert-butyl dicarbonate (Boc anhydride)", "dicyclohexylcarbodiimide (DCC)", "m-chloroperoxybenzoic acid (mCPBA)"]
+      correct: "2"
+      explain: 'Dicyclohexylcarbodiimide (DCC). N=C=N with a cyclohexyl on each nitrogen'
+  verify: { authored: true }
+- template: st-draw-4-dimethylaminopyridine
+  skill: orgo.reagents
+  pace: quick
+  prompt: 'Draw 4-dimethylaminopyridine (DMAP) from memory, as a skeletal structure.'
+  parts:
+    - ask: 'Draw it on paper, then compare'
+      label: a
+      draw: true
+      solution:
+        type: molecule
+        formula: C7H10N2
+        atoms: [[1.72, -0.87], [1.22, 0.0, "N"], [1.72, 0.87], [0.22, -0.0], [-0.28, 0.87], [-1.28, 0.87], [-1.78, 0.0, "N"], [-1.28, -0.87], [-0.28, -0.87]]
+        bonds: [[0, 1], [1, 2], [1, 3], [3, 4], [4, 5, 2, -1], [5, 6], [6, 7, 2, -1], [7, 8], [8, 3, 2, -1]]
+      explain: 'Pyridine with an N(CH3)2 at C-4, opposite the ring nitrogen. Formula $\mathrm{C_{7}H_{10}N_{2}}$'
+- template: st-name-4-dimethylaminopyridine
+  skill: orgo.reagents
+  pace: recall
+  prompt: 'Which compound is this?'
+  figure:
+    type: molecule
+    formula: C7H10N2
+    atoms: [[1.72, -0.87], [1.22, 0.0, "N"], [1.72, 0.87], [0.22, -0.0], [-0.28, 0.87], [-1.28, 0.87], [-1.78, 0.0, "N"], [-1.28, -0.87], [-0.28, -0.87]]
+    bonds: [[0, 1], [1, 2], [1, 3], [3, 4], [4, 5, 2, -1], [5, 6], [6, 7, 2, -1], [7, 8], [8, 3, 2, -1]]
+  parts:
+    - ask: 'Name it'
+      label: a
+      choice: ["4-dimethylaminopyridine (DMAP)", "N-bromosuccinimide (NBS)", "benzyl bromide", "tert-butyldimethylsilyl chloride (TBSCl)"]
+      correct: "0"
+      explain: '4-dimethylaminopyridine (DMAP). Pyridine with an N(CH3)2 at C-4, opposite the ring nitrogen'
+  verify: { authored: true }
+- template: st-draw-triethylamine
+  skill: orgo.reagents
+  pace: quick
+  prompt: 'Draw triethylamine from memory, as a skeletal structure.'
+  parts:
+    - ask: 'Draw it on paper, then compare'
+      label: a
+      draw: true
+      solution:
+        type: molecule
+        formula: C6H15N
+        atoms: [[1.86, 0.2], [1.12, -0.48], [0.17, -0.18, "N"], [-0.57, -0.86], [-1.52, -0.56], [-0.05, 0.79], [-1.01, 1.09]]
+        bonds: [[0, 1], [1, 2], [2, 3], [3, 4], [2, 5], [5, 6]]
+      explain: 'Three ethyls on one nitrogen. Formula $\mathrm{C_{6}H_{15}N}$'
+- template: st-name-triethylamine
+  skill: orgo.reagents
+  pace: recall
+  prompt: 'Which compound is this?'
+  figure:
+    type: molecule
+    formula: C6H15N
+    atoms: [[1.86, 0.2], [1.12, -0.48], [0.17, -0.18, "N"], [-0.57, -0.86], [-1.52, -0.56], [-0.05, 0.79], [-1.01, 1.09]]
+    bonds: [[0, 1], [1, 2], [2, 3], [3, 4], [2, 5], [5, 6]]
+  parts:
+    - ask: 'Name it'
+      label: a
+      choice: ["N-bromosuccinimide (NBS)", "benzyl bromide", "triethylamine", "trifluoroacetic acid (TFA)"]
+      correct: "2"
+      explain: 'Triethylamine. Three ethyls on one nitrogen'
+  verify: { authored: true }
+- template: st-draw-di-tert-butyl-dicarbonate
+  skill: orgo.reagents
+  pace: quick
+  prompt: 'Draw di-tert-butyl dicarbonate (Boc anhydride) from memory, as a skeletal structure.'
+  parts:
+    - ask: 'Draw it on paper, then compare'
+      label: a
+      draw: true
+      solution:
+        type: molecule
+        formula: C10H18O5
+        atoms: [[-3.21, -0.09], [-2.26, -0.41], [-1.32, -0.72], [-2.58, -1.36], [-1.95, 0.54, "O"], [-0.97, 0.74], [-0.65, 1.69, "O"], [-0.31, -0.0, "O"], [0.67, 0.2], [0.99, 1.15, "O"], [1.34, -0.55, "O"], [2.32, -0.35], [2.52, -1.33], [2.12, 0.63], [3.3, -0.15]]
+        bonds: [[0, 1], [1, 2], [1, 3], [1, 4], [4, 5], [5, 6, 2], [5, 7], [7, 8], [8, 9, 2], [8, 10], [10, 11], [11, 12], [11, 13], [11, 14]]
+      explain: 'Two tert-butyl carbonate halves sharing the middle oxygen. Formula $\mathrm{C_{10}H_{18}O_{5}}$'
+- template: st-name-di-tert-butyl-dicarbonate
+  skill: orgo.reagents
+  pace: recall
+  prompt: 'Which compound is this?'
+  figure:
+    type: molecule
+    formula: C10H18O5
+    atoms: [[-3.21, -0.09], [-2.26, -0.41], [-1.32, -0.72], [-2.58, -1.36], [-1.95, 0.54, "O"], [-0.97, 0.74], [-0.65, 1.69, "O"], [-0.31, -0.0, "O"], [0.67, 0.2], [0.99, 1.15, "O"], [1.34, -0.55, "O"], [2.32, -0.35], [2.52, -1.33], [2.12, 0.63], [3.3, -0.15]]
+    bonds: [[0, 1], [1, 2], [1, 3], [1, 4], [4, 5], [5, 6, 2], [5, 7], [7, 8], [8, 9, 2], [8, 10], [10, 11], [11, 12], [11, 13], [11, 14]]
+  parts:
+    - ask: 'Name it'
+      label: a
+      choice: ["Fmoc chloride", "di-tert-butyl dicarbonate (Boc anhydride)", "dicyclohexylcarbodiimide (DCC)", "m-chloroperoxybenzoic acid (mCPBA)"]
+      correct: "1"
+      explain: 'Di-tert-butyl dicarbonate (Boc anhydride). Two tert-butyl carbonate halves sharing the middle oxygen'
+  verify: { authored: true }
+- template: st-draw-fmoc-chloride
+  skill: orgo.reagents
+  pace: quick
+  prompt: 'Draw Fmoc chloride from memory, as a skeletal structure.'
+  parts:
+    - ask: 'Draw it on paper, then compare'
+      label: a
+      draw: true
+      solution:
+        type: molecule
+        formula: C15H11ClO2
+        atoms: [[2.91, 1.51, "Cl"], [2.81, 0.51], [3.62, -0.07, "O"], [1.9, 0.11, "O"], [1.09, 0.69], [0.17, 0.29], [-0.69, 0.79], [-0.9, 1.77], [-1.85, 2.08], [-2.59, 1.41], [-2.39, 0.43], [-1.44, 0.12], [-1.03, -0.79], [-1.44, -1.71], [-0.85, -2.52], [0.15, -2.41], [0.55, -1.5], [-0.03, -0.69]]
+        bonds: [[0, 1], [1, 2, 2], [1, 3], [3, 4], [4, 5], [5, 6], [6, 7, 2, -1], [7, 8], [8, 9, 2, -1], [9, 10], [10, 11, 2, -1], [11, 12], [12, 13, 2, -1], [13, 14], [14, 15, 2, -1], [15, 16], [16, 17, 2, -1], [17, 5], [11, 6], [17, 12]]
+      explain: 'Fluorene (two benzene rings bridged into a five-membered ring) with a CH2-O-C(=O)-Cl on the bridge carbon. Formula $\mathrm{C_{15}H_{11}ClO_{2}}$'
+- template: st-name-fmoc-chloride
+  skill: orgo.reagents
+  pace: recall
+  prompt: 'Which compound is this?'
+  figure:
+    type: molecule
+    formula: C15H11ClO2
+    atoms: [[2.91, 1.51, "Cl"], [2.81, 0.51], [3.62, -0.07, "O"], [1.9, 0.11, "O"], [1.09, 0.69], [0.17, 0.29], [-0.69, 0.79], [-0.9, 1.77], [-1.85, 2.08], [-2.59, 1.41], [-2.39, 0.43], [-1.44, 0.12], [-1.03, -0.79], [-1.44, -1.71], [-0.85, -2.52], [0.15, -2.41], [0.55, -1.5], [-0.03, -0.69]]
+    bonds: [[0, 1], [1, 2, 2], [1, 3], [3, 4], [4, 5], [5, 6], [6, 7, 2, -1], [7, 8], [8, 9, 2, -1], [9, 10], [10, 11, 2, -1], [11, 12], [12, 13, 2, -1], [13, 14], [14, 15, 2, -1], [15, 16], [16, 17, 2, -1], [17, 5], [11, 6], [17, 12]]
+  parts:
+    - ask: 'Name it'
+      label: a
+      choice: ["Fmoc chloride", "di-tert-butyl dicarbonate (Boc anhydride)", "dicyclohexylcarbodiimide (DCC)", "triphenylphosphine"]
+      correct: "0"
+      explain: 'Fmoc chloride. Fluorene (two benzene rings bridged into a five-membered ring) with a CH2-O-C(=O)-Cl on the bridge carbon'
+  verify: { authored: true }
+- template: st-draw-tert-butyldimethylsilyl-chloride
+  skill: orgo.reagents
+  pace: quick
+  prompt: 'Draw tert-butyldimethylsilyl chloride (TBSCl) from memory, as a skeletal structure.'
+  parts:
+    - ask: 'Draw it on paper, then compare'
+      label: a
+      draw: true
+      solution:
+        type: molecule
+        formula: C6H15ClSi
+        atoms: [[-0.5, 1.0], [-0.5, 0.0], [-0.5, -1.0], [-1.5, 0.0], [0.5, 0.0, "Si"], [0.5, 1.0], [0.5, -1.0], [1.5, 0.0, "Cl"]]
+        bonds: [[0, 1], [1, 2], [1, 3], [1, 4], [4, 5], [4, 6], [4, 7]]
+      explain: 'A silicon carrying a tert-butyl, two methyls and a Cl. Formula $\mathrm{C_{6}H_{15}ClSi}$'
+- template: st-name-tert-butyldimethylsilyl-chloride
+  skill: orgo.reagents
+  pace: recall
+  prompt: 'Which compound is this?'
+  figure:
+    type: molecule
+    formula: C6H15ClSi
+    atoms: [[-0.5, 1.0], [-0.5, 0.0], [-0.5, -1.0], [-1.5, 0.0], [0.5, 0.0, "Si"], [0.5, 1.0], [0.5, -1.0], [1.5, 0.0, "Cl"]]
+    bonds: [[0, 1], [1, 2], [1, 3], [1, 4], [4, 5], [4, 6], [4, 7]]
+  parts:
+    - ask: 'Name it'
+      label: a
+      choice: ["4-dimethylaminopyridine (DMAP)", "N-bromosuccinimide (NBS)", "benzyl bromide", "tert-butyldimethylsilyl chloride (TBSCl)"]
+      correct: "3"
+      explain: 'Tert-butyldimethylsilyl chloride (TBSCl). A silicon carrying a tert-butyl, two methyls and a Cl'
+  verify: { authored: true }
+- template: st-draw-triphenylphosphine
+  skill: orgo.reagents
+  pace: quick
+  prompt: 'Draw triphenylphosphine from memory, as a skeletal structure.'
+  parts:
+    - ask: 'Draw it on paper, then compare'
+      label: a
+      draw: true
+      solution:
+        type: molecule
+        formula: C18H15P
+        atoms: [[1.5, -2.6], [2.0, -1.73], [1.5, -0.87], [0.5, -0.87], [-0.0, -1.73], [0.5, -2.6], [0.0, 0.0, "P"], [-1.0, -0.0], [-1.5, 0.87], [-2.5, 0.87], [-3.0, 0.0], [-2.5, -0.87], [-1.5, -0.87], [0.5, 0.87], [1.5, 0.87], [2.0, 1.73], [1.5, 2.6], [0.5, 2.6], [-0.0, 1.73]]
+        bonds: [[0, 1, 2, -1], [1, 2], [2, 3, 2, -1], [3, 4], [4, 5, 2, -1], [3, 6], [6, 7], [7, 8, 2, -1], [8, 9], [9, 10, 2, -1], [10, 11], [11, 12, 2, -1], [6, 13], [13, 14, 2, -1], [14, 15], [15, 16, 2, -1], [16, 17], [17, 18, 2, -1], [5, 0], [12, 7], [18, 13]]
+      explain: 'Three phenyls on one phosphorus. Formula $\mathrm{C_{18}H_{15}P}$'
+- template: st-name-triphenylphosphine
+  skill: orgo.reagents
+  pace: recall
+  prompt: 'Which compound is this?'
+  figure:
+    type: molecule
+    formula: C18H15P
+    atoms: [[1.5, -2.6], [2.0, -1.73], [1.5, -0.87], [0.5, -0.87], [-0.0, -1.73], [0.5, -2.6], [0.0, 0.0, "P"], [-1.0, -0.0], [-1.5, 0.87], [-2.5, 0.87], [-3.0, 0.0], [-2.5, -0.87], [-1.5, -0.87], [0.5, 0.87], [1.5, 0.87], [2.0, 1.73], [1.5, 2.6], [0.5, 2.6], [-0.0, 1.73]]
+    bonds: [[0, 1, 2, -1], [1, 2], [2, 3, 2, -1], [3, 4], [4, 5, 2, -1], [3, 6], [6, 7], [7, 8, 2, -1], [8, 9], [9, 10, 2, -1], [10, 11], [11, 12, 2, -1], [6, 13], [13, 14, 2, -1], [14, 15], [15, 16, 2, -1], [16, 17], [17, 18, 2, -1], [5, 0], [12, 7], [18, 13]]
+  parts:
+    - ask: 'Name it'
+      label: a
+      choice: ["Fmoc chloride", "di-tert-butyl dicarbonate (Boc anhydride)", "dicyclohexylcarbodiimide (DCC)", "triphenylphosphine"]
+      correct: "3"
+      explain: 'Triphenylphosphine. Three phenyls on one phosphorus'
+  verify: { authored: true }
+- template: st-draw-thionyl-chloride
+  skill: orgo.reagents
+  pace: quick
+  prompt: 'Draw thionyl chloride from memory, as a skeletal structure.'
+  parts:
+    - ask: 'Draw it on paper, then compare'
+      label: a
+      draw: true
+      solution:
+        type: molecule
+        formula: Cl2OS
+        atoms: [[0.87, -0.5, "Cl"], [0.0, 0.0, "S"], [0.0, 1.0, "Cl"], [-0.87, -0.5, "O"]]
+        bonds: [[0, 1], [1, 2], [1, 3, 2]]
+      explain: 'An S=O carrying two chlorines. Formula $\mathrm{Cl_{2}OS}$'
+- template: st-name-thionyl-chloride
+  skill: orgo.reagents
+  pace: recall
+  prompt: 'Which compound is this?'
+  figure:
+    type: molecule
+    formula: Cl2OS
+    atoms: [[0.87, -0.5, "Cl"], [0.0, 0.0, "S"], [0.0, 1.0, "Cl"], [-0.87, -0.5, "O"]]
+    bonds: [[0, 1], [1, 2], [1, 3, 2]]
+  parts:
+    - ask: 'Name it'
+      label: a
+      choice: ["acetyl chloride", "mesyl chloride (MsCl)", "oxalyl chloride", "thionyl chloride"]
+      correct: "3"
+      explain: 'Thionyl chloride. An S=O carrying two chlorines'
+  verify: { authored: true }
+- template: st-draw-oxalyl-chloride
+  skill: orgo.reagents
+  pace: quick
+  prompt: 'Draw oxalyl chloride from memory, as a skeletal structure.'
+  parts:
+    - ask: 'Draw it on paper, then compare'
+      label: a
+      draw: true
+      solution:
+        type: molecule
+        formula: C2Cl2O2
+        atoms: [[-1.0, -0.87, "Cl"], [-0.5, -0.0], [-1.0, 0.87, "O"], [0.5, -0.0], [1.0, 0.87, "Cl"], [1.0, -0.87, "O"]]
+        bonds: [[0, 1], [1, 2, 2], [1, 3], [3, 4], [3, 5, 2]]
+      explain: 'Two acyl chlorides joined carbon to carbon. Formula $\mathrm{C_{2}Cl_{2}O_{2}}$'
+- template: st-name-oxalyl-chloride
+  skill: orgo.reagents
+  pace: recall
+  prompt: 'Which compound is this?'
+  figure:
+    type: molecule
+    formula: C2Cl2O2
+    atoms: [[-1.0, -0.87, "Cl"], [-0.5, -0.0], [-1.0, 0.87, "O"], [0.5, -0.0], [1.0, 0.87, "Cl"], [1.0, -0.87, "O"]]
+    bonds: [[0, 1], [1, 2, 2], [1, 3], [3, 4], [3, 5, 2]]
+  parts:
+    - ask: 'Name it'
+      label: a
+      choice: ["mesyl chloride (MsCl)", "oxalyl chloride", "triethylamine", "trifluoroacetic acid (TFA)"]
+      correct: "1"
+      explain: 'Oxalyl chloride. Two acyl chlorides joined carbon to carbon'
+  verify: { authored: true }
+- template: st-draw-acetyl-chloride
+  skill: orgo.reagents
+  pace: quick
+  prompt: 'Draw acetyl chloride from memory, as a skeletal structure.'
+  parts:
+    - ask: 'Draw it on paper, then compare'
+      label: a
+      draw: true
+      solution:
+        type: molecule
+        formula: C2H3ClO
+        atoms: [[-0.87, -0.5], [0.0, 0.0], [0.0, 1.0, "Cl"], [0.87, -0.5, "O"]]
+        bonds: [[0, 1], [1, 2], [1, 3, 2]]
+      explain: 'The acyl chloride of acetic acid. Formula $\mathrm{C_{2}H_{3}ClO}$'
+- template: st-name-acetyl-chloride
+  skill: orgo.reagents
+  pace: recall
+  prompt: 'Which compound is this?'
+  figure:
+    type: molecule
+    formula: C2H3ClO
+    atoms: [[-0.87, -0.5], [0.0, 0.0], [0.0, 1.0, "Cl"], [0.87, -0.5, "O"]]
+    bonds: [[0, 1], [1, 2], [1, 3, 2]]
+  parts:
+    - ask: 'Name it'
+      label: a
+      choice: ["acetyl chloride", "mesyl chloride (MsCl)", "oxalyl chloride", "thionyl chloride"]
+      correct: "0"
+      explain: 'Acetyl chloride. The acyl chloride of acetic acid'
+  verify: { authored: true }
+- template: st-draw-trifluoroacetic-acid
+  skill: orgo.reagents
+  pace: quick
+  prompt: 'Draw trifluoroacetic acid (TFA) from memory, as a skeletal structure.'
+  parts:
+    - ask: 'Draw it on paper, then compare'
+      label: a
+      draw: true
+      solution:
+        type: molecule
+        formula: C2HF3O2
+        atoms: [[-1.07, 0.87, "HO"], [-0.57, -0.0], [-1.07, -0.87, "O"], [0.43, -0.0], [1.43, 0.0, "F"], [0.43, -1.0, "F"], [0.43, 1.0, "F"]]
+        bonds: [[0, 1], [1, 2, 2], [1, 3], [3, 4], [3, 5], [3, 6]]
+      explain: 'Acetic acid with the methyl hydrogens replaced by fluorines. Formula $\mathrm{C_{2}HF_{3}O_{2}}$'
+- template: st-name-trifluoroacetic-acid
+  skill: orgo.reagents
+  pace: recall
+  prompt: 'Which compound is this?'
+  figure:
+    type: molecule
+    formula: C2HF3O2
+    atoms: [[-1.07, 0.87, "HO"], [-0.57, -0.0], [-1.07, -0.87, "O"], [0.43, -0.0], [1.43, 0.0, "F"], [0.43, -1.0, "F"], [0.43, 1.0, "F"]]
+    bonds: [[0, 1], [1, 2, 2], [1, 3], [3, 4], [3, 5], [3, 6]]
+  parts:
+    - ask: 'Name it'
+      label: a
+      choice: ["N-bromosuccinimide (NBS)", "benzyl bromide", "triethylamine", "trifluoroacetic acid (TFA)"]
+      correct: "3"
+      explain: 'Trifluoroacetic acid (TFA). Acetic acid with the methyl hydrogens replaced by fluorines'
+  verify: { authored: true }
+- template: st-draw-benzyl-bromide
+  skill: orgo.reagents
+  pace: quick
+  prompt: 'Draw benzyl bromide from memory, as a skeletal structure.'
+  parts:
+    - ask: 'Draw it on paper, then compare'
+      label: a
+      draw: true
+      solution:
+        type: molecule
+        formula: C7H7Br
+        atoms: [[-2.06, 0.31, "Br"], [-1.38, -0.42], [-0.4, -0.2], [0.28, -0.94], [1.25, -0.72], [1.55, 0.24], [0.87, 0.97], [-0.11, 0.75]]
+        bonds: [[0, 1], [1, 2], [2, 3, 2, -1], [3, 4], [4, 5, 2, -1], [5, 6], [6, 7, 2, -1], [7, 2]]
+      explain: 'A CH2Br on benzene. Formula $\mathrm{C_{7}H_{7}Br}$'
+- template: st-name-benzyl-bromide
+  skill: orgo.reagents
+  pace: recall
+  prompt: 'Which compound is this?'
+  figure:
+    type: molecule
+    formula: C7H7Br
+    atoms: [[-2.06, 0.31, "Br"], [-1.38, -0.42], [-0.4, -0.2], [0.28, -0.94], [1.25, -0.72], [1.55, 0.24], [0.87, 0.97], [-0.11, 0.75]]
+    bonds: [[0, 1], [1, 2], [2, 3, 2, -1], [3, 4], [4, 5, 2, -1], [5, 6], [6, 7, 2, -1], [7, 2]]
+  parts:
+    - ask: 'Name it'
+      label: a
+      choice: ["4-dimethylaminopyridine (DMAP)", "N-bromosuccinimide (NBS)", "benzyl bromide", "tert-butyldimethylsilyl chloride (TBSCl)"]
+      correct: "2"
+      explain: 'Benzyl bromide. A CH2Br on benzene'
+  verify: { authored: true }
+
+# ── the peptide bond and small peptides (Bruice ch. 21) ──
+- template: st-draw-a-peptide-bond
+  skill: biochem.peptides
+  pace: quick
+  prompt: 'Draw a peptide bond from memory, as a skeletal structure.'
+  parts:
+    - ask: 'Draw it on paper, then compare'
+      label: a
+      draw: true
+      solution:
+        type: molecule
+        formula: CHNOR2
+        atoms: [[-1.21, -0.5, "R"], [-0.35, 0.0], [-0.35, 1.0, "O"], [0.52, -0.5, "NH"], [1.39, -0.0, "R"]]
+        bonds: [[0, 1], [1, 2, 2], [1, 3], [3, 4]]
+      explain: 'An amide joining two residues: C=O, then N-H. It is planar, and the next residue hangs off the nitrogen. Formula $\mathrm{CHNOR_{2}}$'
+- template: st-name-a-peptide-bond
+  skill: biochem.peptides
+  pace: recall
+  prompt: 'Which compound is this?'
+  figure:
+    type: molecule
+    formula: CHNOR2
+    atoms: [[-1.21, -0.5, "R"], [-0.35, 0.0], [-0.35, 1.0, "O"], [0.52, -0.5, "NH"], [1.39, -0.0, "R"]]
+    bonds: [[0, 1], [1, 2, 2], [1, 3], [3, 4]]
+  parts:
+    - ask: 'Name it'
+      label: a
+      choice: ["a peptide bond", "alanylglycine (Ala-Gly)", "cystine", "glycylalanine (Gly-Ala)"]
+      correct: "0"
+      explain: 'A peptide bond. An amide joining two residues: C=O, then N-H. It is planar, and the next residue hangs off the nitrogen'
+  verify: { authored: true }
+- template: st-draw-glycylalanine
+  skill: biochem.peptides
+  pace: quick
+  prompt: 'Draw glycylalanine (Gly-Ala) from memory, as a skeletal structure.'
+  parts:
+    - ask: 'Draw it on paper, then compare'
+      label: a
+      draw: true
+      solution:
+        type: molecule
+        formula: C5H10N2O3
+        atoms: [[2.53, -0.19, "NH2"], [1.79, 0.48], [0.84, 0.18], [0.62, -0.8, "O"], [0.1, 0.85, "NH"], [-0.86, 0.55], [-1.6, 1.22], [-1.07, -0.43], [-0.33, -1.11, "OH"], [-2.02, -0.74, "O"]]
+        bonds: [[0, 1], [1, 2], [2, 3, 2], [2, 4], [4, 5], [5, 6], [5, 7], [7, 8], [7, 9, 2]]
+      explain: 'Written N-terminus first: glycine keeps the free amine, alanine the free acid. Formula $\mathrm{C_{5}H_{10}N_{2}O_{3}}$'
+- template: st-name-glycylalanine
+  skill: biochem.peptides
+  pace: recall
+  prompt: 'Which compound is this?'
+  figure:
+    type: molecule
+    formula: C5H10N2O3
+    atoms: [[2.53, -0.19, "NH2"], [1.79, 0.48], [0.84, 0.18], [0.62, -0.8, "O"], [0.1, 0.85, "NH"], [-0.86, 0.55], [-1.6, 1.22], [-1.07, -0.43], [-0.33, -1.11, "OH"], [-2.02, -0.74, "O"]]
+    bonds: [[0, 1], [1, 2], [2, 3, 2], [2, 4], [4, 5], [5, 6], [5, 7], [7, 8], [7, 9, 2]]
+  parts:
+    - ask: 'Name it'
+      label: a
+      choice: ["a peptide bond", "alanylglycine (Ala-Gly)", "cystine", "glycylalanine (Gly-Ala)"]
+      correct: "3"
+      explain: 'Glycylalanine (Gly-Ala). Written N-terminus first: glycine keeps the free amine, alanine the free acid'
+  verify: { authored: true }
+- template: st-draw-alanylglycine
+  skill: biochem.peptides
+  pace: quick
+  prompt: 'Draw alanylglycine (Ala-Gly) from memory, as a skeletal structure.'
+  parts:
+    - ask: 'Draw it on paper, then compare'
+      label: a
+      draw: true
+      solution:
+        type: molecule
+        formula: C5H10N2O3
+        atoms: [[-2.53, -0.22], [-1.64, 0.23], [-1.58, 1.23, "NH2"], [-0.8, -0.31], [-0.85, -1.31, "O"], [0.09, 0.15, "NH"], [0.93, -0.4], [1.82, 0.06], [2.66, -0.49, "OH"], [1.88, 1.05, "O"]]
+        bonds: [[0, 1], [1, 2], [1, 3], [3, 4, 2], [3, 5], [5, 6], [6, 7], [7, 8], [7, 9, 2]]
+      explain: 'The reverse order: alanine keeps the free amine, glycine the free acid. Formula $\mathrm{C_{5}H_{10}N_{2}O_{3}}$'
+- template: st-name-alanylglycine
+  skill: biochem.peptides
+  pace: recall
+  prompt: 'Which compound is this?'
+  figure:
+    type: molecule
+    formula: C5H10N2O3
+    atoms: [[-2.53, -0.22], [-1.64, 0.23], [-1.58, 1.23, "NH2"], [-0.8, -0.31], [-0.85, -1.31, "O"], [0.09, 0.15, "NH"], [0.93, -0.4], [1.82, 0.06], [2.66, -0.49, "OH"], [1.88, 1.05, "O"]]
+    bonds: [[0, 1], [1, 2], [1, 3], [3, 4, 2], [3, 5], [5, 6], [6, 7], [7, 8], [7, 9, 2]]
+  parts:
+    - ask: 'Name it'
+      label: a
+      choice: ["a peptide bond", "alanylglycine (Ala-Gly)", "cystine", "glycylalanine (Gly-Ala)"]
+      correct: "1"
+      explain: 'Alanylglycine (Ala-Gly). The reverse order: alanine keeps the free amine, glycine the free acid'
+  verify: { authored: true }
+- template: st-draw-glutathione
+  skill: biochem.peptides
+  pace: quick
+  prompt: 'Draw glutathione from memory, as a skeletal structure.'
+  parts:
+    - ask: 'Draw it on paper, then compare'
+      label: a
+      draw: true
+      solution:
+        type: molecule
+        formula: C10H17N3O6S
+        atoms: [[3.5, -1.35, "NH2"], [3.48, -0.35], [2.6, 0.12], [1.74, -0.4], [0.86, 0.07], [0.84, 1.07, "O"], [0.01, -0.45, "NH"], [-0.87, 0.03], [-0.9, 1.02], [-1.78, 1.5, "HS"], [-1.72, -0.5], [-1.69, -1.5, "O"], [-2.6, -0.02, "NH"], [-3.45, -0.55], [-4.33, -0.07], [-5.18, -0.6, "HO"], [-4.36, 0.93, "O"], [4.33, 0.17], [5.21, -0.3, "OH"], [4.3, 1.17, "O"]]
+        bonds: [[0, 1], [1, 2], [2, 3], [3, 4], [4, 5, 2], [4, 6], [6, 7], [7, 8], [8, 9], [7, 10], [10, 11, 2], [10, 12], [12, 13], [13, 14], [14, 15], [14, 16, 2], [1, 17], [17, 18], [17, 19, 2]]
+      explain: 'Glu-Cys-Gly, but glutamate is joined through its side-chain carboxyl, leaving its alpha-amine and alpha-acid free. Formula $\mathrm{C_{10}H_{17}N_{3}O_{6}S}$'
+- template: st-name-glutathione
+  skill: biochem.peptides
+  pace: recall
+  prompt: 'Which compound is this?'
+  figure:
+    type: molecule
+    formula: C10H17N3O6S
+    atoms: [[3.5, -1.35, "NH2"], [3.48, -0.35], [2.6, 0.12], [1.74, -0.4], [0.86, 0.07], [0.84, 1.07, "O"], [0.01, -0.45, "NH"], [-0.87, 0.03], [-0.9, 1.02], [-1.78, 1.5, "HS"], [-1.72, -0.5], [-1.69, -1.5, "O"], [-2.6, -0.02, "NH"], [-3.45, -0.55], [-4.33, -0.07], [-5.18, -0.6, "HO"], [-4.36, 0.93, "O"], [4.33, 0.17], [5.21, -0.3, "OH"], [4.3, 1.17, "O"]]
+    bonds: [[0, 1], [1, 2], [2, 3], [3, 4], [4, 5, 2], [4, 6], [6, 7], [7, 8], [8, 9], [7, 10], [10, 11, 2], [10, 12], [12, 13], [13, 14], [14, 15], [14, 16, 2], [1, 17], [17, 18], [17, 19, 2]]
+  parts:
+    - ask: 'Name it'
+      label: a
+      choice: ["alanylglycine (Ala-Gly)", "cystine", "glutathione", "glycylalanine (Gly-Ala)"]
+      correct: "2"
+      explain: 'Glutathione. Glu-Cys-Gly, but glutamate is joined through its side-chain carboxyl, leaving its alpha-amine and alpha-acid free'
+  verify: { authored: true }
+- template: st-draw-cystine
+  skill: biochem.peptides
+  pace: quick
+  prompt: 'Draw cystine from memory, as a skeletal structure.'
+  parts:
+    - ask: 'Draw it on paper, then compare'
+      label: a
+      draw: true
+      solution:
+        type: molecule
+        formula: C6H12N2O4S2
+        atoms: [[-2.15, -1.28, "NH2"], [-2.16, -0.28], [-1.3, 0.23], [-0.43, -0.26, "S"], [0.43, 0.26, "S"], [1.3, -0.23], [2.16, 0.28], [2.15, 1.28, "NH2"], [3.03, -0.21], [3.89, 0.3, "OH"], [3.05, -1.21, "O"], [-3.03, 0.21], [-3.89, -0.3, "HO"], [-3.05, 1.21, "O"]]
+        bonds: [[0, 1], [1, 2], [2, 3], [3, 4], [4, 5], [5, 6], [6, 7], [6, 8], [8, 9], [8, 10, 2], [1, 11], [11, 12], [11, 13, 2]]
+      explain: 'Two cysteines joined by a disulfide bond through their side chains. Formula $\mathrm{C_{6}H_{12}N_{2}O_{4}S_{2}}$'
+- template: st-name-cystine
+  skill: biochem.peptides
+  pace: recall
+  prompt: 'Which compound is this?'
+  figure:
+    type: molecule
+    formula: C6H12N2O4S2
+    atoms: [[-2.15, -1.28, "NH2"], [-2.16, -0.28], [-1.3, 0.23], [-0.43, -0.26, "S"], [0.43, 0.26, "S"], [1.3, -0.23], [2.16, 0.28], [2.15, 1.28, "NH2"], [3.03, -0.21], [3.89, 0.3, "OH"], [3.05, -1.21, "O"], [-3.03, 0.21], [-3.89, -0.3, "HO"], [-3.05, 1.21, "O"]]
+    bonds: [[0, 1], [1, 2], [2, 3], [3, 4], [4, 5], [5, 6], [6, 7], [6, 8], [8, 9], [8, 10, 2], [1, 11], [11, 12], [11, 13, 2]]
+  parts:
+    - ask: 'Name it'
+      label: a
+      choice: ["alanylglycine (Ala-Gly)", "cystine", "glutathione", "glycylalanine (Gly-Ala)"]
+      correct: "1"
+      explain: 'Cystine. Two cysteines joined by a disulfide bond through their side chains'
+  verify: { authored: true }
+
 # ── the large coenzymes and heme, whole (Bruice ch. 23) ──
 - template: st-draw-nad
   skill: biochem.coenzymes
@@ -2390,7 +3024,7 @@
       explain: 'Heme b. Protoporphyrin IX with Fe(II) in the middle, bonded to all four nitrogens (two of them drawn dashed, as coordinate bonds). In myoglobin the fifth position is the proximal histidine and O2 binds at the sixth'
   verify: { authored: true }
 
-# ── sugars as Fischer projections (Bruice ch. 20) ──
+# ── sugars as Fischer and Haworth projections (Bruice ch. 20) ──
 - template: st-draw-d-glyceraldehyde
   skill: biochem.sugars
   pace: quick
@@ -2417,7 +3051,7 @@
   parts:
     - ask: 'Name it'
       label: a
-      choice: ["2-deoxy-D-ribose", "D-fructose", "D-glyceraldehyde", "D-ribose"]
+      choice: ["2-deoxy-D-ribose", "2-deoxy-β-D-ribofuranose", "D-glyceraldehyde", "D-ribose"]
       correct: "2"
       explain: 'D-glyceraldehyde. The reference for D and L: OH on the right at the one stereocentre'
   verify: { authored: true }
@@ -2447,8 +3081,8 @@
   parts:
     - ask: 'Name it'
       label: a
-      choice: ["2-deoxy-D-ribose", "D-fructose", "D-galactose", "D-ribose"]
-      correct: "3"
+      choice: ["2-deoxy-D-ribose", "2-deoxy-β-D-ribofuranose", "D-ribose", "β-D-ribofuranose"]
+      correct: "2"
       explain: 'D-ribose. All three OH groups on the right'
   verify: { authored: true }
 - template: st-draw-2-deoxy-d-ribose
@@ -2477,7 +3111,7 @@
   parts:
     - ask: 'Name it'
       label: a
-      choice: ["2-deoxy-D-ribose", "D-fructose", "D-galactose", "D-ribose"]
+      choice: ["2-deoxy-D-ribose", "2-deoxy-β-D-ribofuranose", "D-ribose", "β-D-ribofuranose"]
       correct: "0"
       explain: '2-deoxy-D-ribose. Ribose with no OH at C-2 (two H there)'
   verify: { authored: true }
@@ -2600,4 +3234,154 @@
       choice: ["D-fructose", "D-galactose", "D-glucose", "D-mannose"]
       correct: "0"
       explain: 'D-fructose. A ketone at C-2 with CH2OH above it; below, the same C-3 to C-5 pattern as glucose: left, right, right'
+  verify: { authored: true }
+- template: st-draw-alpha-d-glucopyranose
+  skill: biochem.sugars
+  pace: quick
+  prompt: 'Draw the Haworth projection of α-D-glucopyranose.'
+  parts:
+    - ask: 'Draw it on paper, then compare'
+      label: a
+      draw: true
+      solution:
+        type: molecule
+        formula: C6H12O6
+        atoms: [[1.6, 0], [0.8, -0.9], [-0.8, -0.9], [-1.6, 0], [-0.8, 0.9], [0.8, 0.9, "O"], [1.6, -0.8, "OH"], [0.8, -1.7, "OH"], [-0.8, -0.1, "OH"], [-1.6, -0.8, "OH"], [-0.8, 1.8], [-1.67, 2.3, "HO"]]
+        bonds: [[0, 1], [1, 2], [2, 3], [3, 4], [4, 5], [5, 0], [0, 6], [1, 7], [2, 8], [3, 9], [4, 10], [10, 11]]
+      explain: 'A Fischer OH on the right points down in a Haworth ring: down, up, down at C-2, C-3, C-4. Alpha: the C-1 OH is down, opposite the CH2OH. Formula $\mathrm{C_{6}H_{12}O_{6}}$'
+- template: st-name-alpha-d-glucopyranose
+  skill: biochem.sugars
+  pace: recall
+  prompt: 'Which compound is this?'
+  figure:
+    type: molecule
+    formula: C6H12O6
+    atoms: [[1.6, 0], [0.8, -0.9], [-0.8, -0.9], [-1.6, 0], [-0.8, 0.9], [0.8, 0.9, "O"], [1.6, -0.8, "OH"], [0.8, -1.7, "OH"], [-0.8, -0.1, "OH"], [-1.6, -0.8, "OH"], [-0.8, 1.8], [-1.67, 2.3, "HO"]]
+    bonds: [[0, 1], [1, 2], [2, 3], [3, 4], [4, 5], [5, 0], [0, 6], [1, 7], [2, 8], [3, 9], [4, 10], [10, 11]]
+  parts:
+    - ask: 'Name it'
+      label: a
+      choice: ["D-fructose", "D-galactose", "D-glucose", "α-D-glucopyranose"]
+      correct: "3"
+      explain: 'Α-D-glucopyranose. A Fischer OH on the right points down in a Haworth ring: down, up, down at C-2, C-3, C-4. Alpha: the C-1 OH is down, opposite the CH2OH'
+  verify: { authored: true }
+- template: st-draw-beta-d-glucopyranose
+  skill: biochem.sugars
+  pace: quick
+  prompt: 'Draw the Haworth projection of β-D-glucopyranose.'
+  parts:
+    - ask: 'Draw it on paper, then compare'
+      label: a
+      draw: true
+      solution:
+        type: molecule
+        formula: C6H12O6
+        atoms: [[1.6, 0], [0.8, -0.9], [-0.8, -0.9], [-1.6, 0], [-0.8, 0.9], [0.8, 0.9, "O"], [1.6, 0.8, "OH"], [0.8, -1.7, "OH"], [-0.8, -0.1, "OH"], [-1.6, -0.8, "OH"], [-0.8, 1.8], [-1.67, 2.3, "HO"]]
+        bonds: [[0, 1], [1, 2], [2, 3], [3, 4], [4, 5], [5, 0], [0, 6], [1, 7], [2, 8], [3, 9], [4, 10], [10, 11]]
+      explain: 'The same ring with the C-1 OH up, on the same side as the CH2OH. Every substituent alternates, which is why it is the most stable aldohexose. Formula $\mathrm{C_{6}H_{12}O_{6}}$'
+- template: st-name-beta-d-glucopyranose
+  skill: biochem.sugars
+  pace: recall
+  prompt: 'Which compound is this?'
+  figure:
+    type: molecule
+    formula: C6H12O6
+    atoms: [[1.6, 0], [0.8, -0.9], [-0.8, -0.9], [-1.6, 0], [-0.8, 0.9], [0.8, 0.9, "O"], [1.6, 0.8, "OH"], [0.8, -1.7, "OH"], [-0.8, -0.1, "OH"], [-1.6, -0.8, "OH"], [-0.8, 1.8], [-1.67, 2.3, "HO"]]
+    bonds: [[0, 1], [1, 2], [2, 3], [3, 4], [4, 5], [5, 0], [0, 6], [1, 7], [2, 8], [3, 9], [4, 10], [10, 11]]
+  parts:
+    - ask: 'Name it'
+      label: a
+      choice: ["D-fructose", "D-galactose", "D-glucose", "β-D-glucopyranose"]
+      correct: "3"
+      explain: 'Β-D-glucopyranose. The same ring with the C-1 OH up, on the same side as the CH2OH. Every substituent alternates, which is why it is the most stable aldohexose'
+  verify: { authored: true }
+- template: st-draw-beta-d-galactopyranose
+  skill: biochem.sugars
+  pace: quick
+  prompt: 'Draw the Haworth projection of β-D-galactopyranose.'
+  parts:
+    - ask: 'Draw it on paper, then compare'
+      label: a
+      draw: true
+      solution:
+        type: molecule
+        formula: C6H12O6
+        atoms: [[1.6, 0], [0.8, -0.9], [-0.8, -0.9], [-1.6, 0], [-0.8, 0.9], [0.8, 0.9, "O"], [1.6, 0.8, "OH"], [0.8, -1.7, "OH"], [-0.8, -0.1, "OH"], [-1.6, 0.8, "OH"], [-0.8, 1.8], [-1.67, 2.3, "HO"]]
+        bonds: [[0, 1], [1, 2], [2, 3], [3, 4], [4, 5], [5, 0], [0, 6], [1, 7], [2, 8], [3, 9], [4, 10], [10, 11]]
+      explain: 'Beta-glucose with the C-4 OH flipped up. Formula $\mathrm{C_{6}H_{12}O_{6}}$'
+- template: st-name-beta-d-galactopyranose
+  skill: biochem.sugars
+  pace: recall
+  prompt: 'Which compound is this?'
+  figure:
+    type: molecule
+    formula: C6H12O6
+    atoms: [[1.6, 0], [0.8, -0.9], [-0.8, -0.9], [-1.6, 0], [-0.8, 0.9], [0.8, 0.9, "O"], [1.6, 0.8, "OH"], [0.8, -1.7, "OH"], [-0.8, -0.1, "OH"], [-1.6, 0.8, "OH"], [-0.8, 1.8], [-1.67, 2.3, "HO"]]
+    bonds: [[0, 1], [1, 2], [2, 3], [3, 4], [4, 5], [5, 0], [0, 6], [1, 7], [2, 8], [3, 9], [4, 10], [10, 11]]
+  parts:
+    - ask: 'Name it'
+      label: a
+      choice: ["D-fructose", "D-galactose", "D-glucose", "β-D-galactopyranose"]
+      correct: "3"
+      explain: 'Β-D-galactopyranose. Beta-glucose with the C-4 OH flipped up'
+  verify: { authored: true }
+- template: st-draw-beta-d-ribofuranose
+  skill: biochem.sugars
+  pace: quick
+  prompt: 'Draw the Haworth projection of β-D-ribofuranose.'
+  parts:
+    - ask: 'Draw it on paper, then compare'
+      label: a
+      draw: true
+      solution:
+        type: molecule
+        formula: C5H10O5
+        atoms: [[1.3, 0], [0.7, -0.9], [-0.7, -0.9], [-1.3, 0], [0, 0.75, "O"], [1.3, 0.8, "OH"], [0.7, -1.7, "OH"], [-0.7, -1.7, "OH"], [-1.3, 0.9], [-2.17, 1.4, "HO"]]
+        bonds: [[0, 1], [1, 2], [2, 3], [3, 4], [4, 0], [0, 5], [1, 6], [2, 7], [3, 8], [8, 9]]
+      explain: 'A five-membered ring: C-1 OH up (beta), C-2 and C-3 OH both down, CH2OH up on C-4. The sugar of RNA. Formula $\mathrm{C_{5}H_{10}O_{5}}$'
+- template: st-name-beta-d-ribofuranose
+  skill: biochem.sugars
+  pace: recall
+  prompt: 'Which compound is this?'
+  figure:
+    type: molecule
+    formula: C5H10O5
+    atoms: [[1.3, 0], [0.7, -0.9], [-0.7, -0.9], [-1.3, 0], [0, 0.75, "O"], [1.3, 0.8, "OH"], [0.7, -1.7, "OH"], [-0.7, -1.7, "OH"], [-1.3, 0.9], [-2.17, 1.4, "HO"]]
+    bonds: [[0, 1], [1, 2], [2, 3], [3, 4], [4, 0], [0, 5], [1, 6], [2, 7], [3, 8], [8, 9]]
+  parts:
+    - ask: 'Name it'
+      label: a
+      choice: ["2-deoxy-D-ribose", "2-deoxy-β-D-ribofuranose", "D-ribose", "β-D-ribofuranose"]
+      correct: "3"
+      explain: 'Β-D-ribofuranose. A five-membered ring: C-1 OH up (beta), C-2 and C-3 OH both down, CH2OH up on C-4. The sugar of RNA'
+  verify: { authored: true }
+- template: st-draw-2-deoxy-beta-d-ribofuranose
+  skill: biochem.sugars
+  pace: quick
+  prompt: 'Draw the Haworth projection of 2-deoxy-β-D-ribofuranose.'
+  parts:
+    - ask: 'Draw it on paper, then compare'
+      label: a
+      draw: true
+      solution:
+        type: molecule
+        formula: C5H10O4
+        atoms: [[1.3, 0], [0.7, -0.9], [-0.7, -0.9], [-1.3, 0], [0, 0.75, "O"], [1.3, 0.8, "OH"], [-0.7, -1.7, "OH"], [-1.3, 0.9], [-2.17, 1.4, "HO"]]
+        bonds: [[0, 1], [1, 2], [2, 3], [3, 4], [4, 0], [0, 5], [2, 6], [3, 7], [7, 8]]
+      explain: 'Ribofuranose with no OH on C-2. The sugar of DNA. Formula $\mathrm{C_{5}H_{10}O_{4}}$'
+- template: st-name-2-deoxy-beta-d-ribofuranose
+  skill: biochem.sugars
+  pace: recall
+  prompt: 'Which compound is this?'
+  figure:
+    type: molecule
+    formula: C5H10O4
+    atoms: [[1.3, 0], [0.7, -0.9], [-0.7, -0.9], [-1.3, 0], [0, 0.75, "O"], [1.3, 0.8, "OH"], [-0.7, -1.7, "OH"], [-1.3, 0.9], [-2.17, 1.4, "HO"]]
+    bonds: [[0, 1], [1, 2], [2, 3], [3, 4], [4, 0], [0, 5], [2, 6], [3, 7], [7, 8]]
+  parts:
+    - ask: 'Name it'
+      label: a
+      choice: ["2-deoxy-D-ribose", "2-deoxy-β-D-ribofuranose", "D-ribose", "β-D-ribofuranose"]
+      correct: "1"
+      explain: '2-deoxy-β-D-ribofuranose. Ribofuranose with no OH on C-2. The sugar of DNA'
   verify: { authored: true }

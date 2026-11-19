@@ -202,6 +202,60 @@
        ]
       }
      ]
+    },
+    {
+     "n": 4,
+     "title": "Reagents by abbreviation",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "21"
+       ],
+       "do": "Draw the common reagents and protecting-group sources that are handed to you as abbreviations.",
+       "ek": [
+        "mCPBA, TsCl, MsCl, NBS, DCC, DMAP, Boc2O, Fmoc-Cl, TBSCl: know what is on the page when the letters appear. Ionic and metal reagents (LDA, NaBH4, Grignards) are not drawn here."
+       ],
+       "p": [
+        "P1",
+        "P2"
+       ],
+       "drills": [
+        "st-draw-m-chloroperoxybenzoic-acid",
+        "st-name-m-chloroperoxybenzoic-acid",
+        "st-draw-tosyl-chloride",
+        "st-name-tosyl-chloride",
+        "st-draw-mesyl-chloride",
+        "st-name-mesyl-chloride",
+        "st-draw-n-bromosuccinimide",
+        "st-name-n-bromosuccinimide",
+        "st-draw-dicyclohexylcarbodiimide",
+        "st-name-dicyclohexylcarbodiimide",
+        "st-draw-4-dimethylaminopyridine",
+        "st-name-4-dimethylaminopyridine",
+        "st-draw-triethylamine",
+        "st-name-triethylamine",
+        "st-draw-di-tert-butyl-dicarbonate",
+        "st-name-di-tert-butyl-dicarbonate",
+        "st-draw-fmoc-chloride",
+        "st-name-fmoc-chloride",
+        "st-draw-tert-butyldimethylsilyl-chloride",
+        "st-name-tert-butyldimethylsilyl-chloride",
+        "st-draw-triphenylphosphine",
+        "st-name-triphenylphosphine",
+        "st-draw-thionyl-chloride",
+        "st-name-thionyl-chloride",
+        "st-draw-oxalyl-chloride",
+        "st-name-oxalyl-chloride",
+        "st-draw-acetyl-chloride",
+        "st-name-acetyl-chloride",
+        "st-draw-trifluoroacetic-acid",
+        "st-name-trifluoroacetic-acid",
+        "st-draw-benzyl-bromide",
+        "st-name-benzyl-bromide"
+       ]
+      }
+     ]
     }
    ]
   },
@@ -287,9 +341,9 @@
        "std": [
         "20"
        ],
-       "do": "Draw the Fischer projections of the common D-aldoses and of D-fructose, and tell epimers apart.",
+       "do": "Draw the Fischer projections of the common D-aldoses and of D-fructose, tell epimers apart, and draw the Haworth rings of glucose, galactose, ribose and deoxyribose.",
        "ek": [
-        "D means the OH on the lowest stereocentre points right. Glucose is right-left-right-right; galactose and mannose each differ from it at one carbon."
+        "D means the OH on the lowest stereocentre points right. Glucose is right-left-right-right. Closing the ring: right in Fischer is down in Haworth; alpha puts the C-1 OH opposite the CH2OH."
        ],
        "p": [
         "P1",
@@ -309,7 +363,17 @@
         "st-draw-d-mannose",
         "st-name-d-mannose",
         "st-draw-d-fructose",
-        "st-name-d-fructose"
+        "st-name-d-fructose",
+        "st-draw-alpha-d-glucopyranose",
+        "st-name-alpha-d-glucopyranose",
+        "st-draw-beta-d-glucopyranose",
+        "st-name-beta-d-glucopyranose",
+        "st-draw-beta-d-galactopyranose",
+        "st-name-beta-d-galactopyranose",
+        "st-draw-beta-d-ribofuranose",
+        "st-name-beta-d-ribofuranose",
+        "st-draw-2-deoxy-beta-d-ribofuranose",
+        "st-name-2-deoxy-beta-d-ribofuranose"
        ]
       }
      ]
@@ -437,6 +501,38 @@
     },
     {
      "n": 6,
+     "title": "Peptides",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "21"
+       ],
+       "do": "Draw the peptide bond, a dipeptide in either order, glutathione and cystine.",
+       "ek": [
+        "Write and draw from the N-terminus. Glutathione's first link goes through the glutamate side chain."
+       ],
+       "p": [
+        "P1",
+        "P2"
+       ],
+       "drills": [
+        "st-draw-a-peptide-bond",
+        "st-name-a-peptide-bond",
+        "st-draw-glycylalanine",
+        "st-name-glycylalanine",
+        "st-draw-alanylglycine",
+        "st-name-alanylglycine",
+        "st-draw-glutathione",
+        "st-name-glutathione",
+        "st-draw-cystine",
+        "st-name-cystine"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 7,
      "title": "The large coenzymes and heme, whole",
      "los": [
       {
@@ -593,6 +689,47 @@
    "partial": []
   },
   {
+   "code": "ST-1.4.A",
+   "unit": 1,
+   "topic": 4,
+   "status": "ok",
+   "full": [
+    "st-draw-m-chloroperoxybenzoic-acid",
+    "st-name-m-chloroperoxybenzoic-acid",
+    "st-draw-tosyl-chloride",
+    "st-name-tosyl-chloride",
+    "st-draw-mesyl-chloride",
+    "st-name-mesyl-chloride",
+    "st-draw-n-bromosuccinimide",
+    "st-name-n-bromosuccinimide",
+    "st-draw-dicyclohexylcarbodiimide",
+    "st-name-dicyclohexylcarbodiimide",
+    "st-draw-4-dimethylaminopyridine",
+    "st-name-4-dimethylaminopyridine",
+    "st-draw-triethylamine",
+    "st-name-triethylamine",
+    "st-draw-di-tert-butyl-dicarbonate",
+    "st-name-di-tert-butyl-dicarbonate",
+    "st-draw-fmoc-chloride",
+    "st-name-fmoc-chloride",
+    "st-draw-tert-butyldimethylsilyl-chloride",
+    "st-name-tert-butyldimethylsilyl-chloride",
+    "st-draw-triphenylphosphine",
+    "st-name-triphenylphosphine",
+    "st-draw-thionyl-chloride",
+    "st-name-thionyl-chloride",
+    "st-draw-oxalyl-chloride",
+    "st-name-oxalyl-chloride",
+    "st-draw-acetyl-chloride",
+    "st-name-acetyl-chloride",
+    "st-draw-trifluoroacetic-acid",
+    "st-name-trifluoroacetic-acid",
+    "st-draw-benzyl-bromide",
+    "st-name-benzyl-bromide"
+   ],
+   "partial": []
+  },
+  {
    "code": "ST-2.1.A",
    "unit": 2,
    "topic": 1,
@@ -660,7 +797,17 @@
     "st-draw-d-mannose",
     "st-name-d-mannose",
     "st-draw-d-fructose",
-    "st-name-d-fructose"
+    "st-name-d-fructose",
+    "st-draw-alpha-d-glucopyranose",
+    "st-name-alpha-d-glucopyranose",
+    "st-draw-beta-d-glucopyranose",
+    "st-name-beta-d-glucopyranose",
+    "st-draw-beta-d-galactopyranose",
+    "st-name-beta-d-galactopyranose",
+    "st-draw-beta-d-ribofuranose",
+    "st-name-beta-d-ribofuranose",
+    "st-draw-2-deoxy-beta-d-ribofuranose",
+    "st-name-2-deoxy-beta-d-ribofuranose"
    ],
    "partial": []
   },
@@ -749,6 +896,25 @@
    "code": "ST-2.6.A",
    "unit": 2,
    "topic": 6,
+   "status": "ok",
+   "full": [
+    "st-draw-a-peptide-bond",
+    "st-name-a-peptide-bond",
+    "st-draw-glycylalanine",
+    "st-name-glycylalanine",
+    "st-draw-alanylglycine",
+    "st-name-alanylglycine",
+    "st-draw-glutathione",
+    "st-name-glutathione",
+    "st-draw-cystine",
+    "st-name-cystine"
+   ],
+   "partial": []
+  },
+  {
+   "code": "ST-2.7.A",
+   "unit": 2,
+   "topic": 7,
    "status": "ok",
    "full": [
     "st-draw-nad",

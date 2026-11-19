@@ -2,7 +2,7 @@
 
 Generated from `drills/frameworks/structures.yaml` by `scripts/framework.mjs`. ● drilled · ◐ partly · ○ no drills yet.
 
-**9 learning objectives** in 2 units (9 core): 9 drilled, 0 partly, 0 with no drills. Core: 9 / 9 drilled.
+**11 learning objectives** in 2 units (11 core): 11 drilled, 0 partly, 0 with no drills. Core: 11 / 11 drilled.
 
 ## Big ideas
 
@@ -18,8 +18,8 @@ Generated from `drills/frameworks/structures.yaml` by `scripts/framework.mjs`. �
 
 | Unit | Scope | Est. weight | LOs | ● | ◐ | ○ |
 |---|---|---|---|---|---|---|
-| 1 · Organic parents and common compounds | core | — | 3 | 3 | 0 | 0 |
-| 2 · Biomolecules | core | — | 6 | 6 | 0 | 0 |
+| 1 · Organic parents and common compounds | core | — | 4 | 4 | 0 | 0 |
+| 2 · Biomolecules | core | — | 7 | 7 | 0 | 0 |
 
 ## Unit 1 · Organic parents and common compounds
 
@@ -49,6 +49,14 @@ Big ideas: COLD, FAMILY
   - EK: THF, DMSO, DMF and DCM are names you will be handed without a structure.
   - P1 · P2 · drills: st-draw-acetone, st-name-acetone, st-draw-acetic-acid, st-name-acetic-acid, st-draw-ethyl-acetate, st-name-ethyl-acetate, st-draw-diethyl-ether, st-name-diethyl-ether, st-draw-tetrahydrofuran, st-name-tetrahydrofuran, st-draw-dimethyl-sulfoxide, st-name-dimethyl-sulfoxide, st-draw-dimethylformamide, st-name-dimethylformamide, st-draw-acetonitrile, st-name-acetonitrile, st-draw-acetic-anhydride, st-name-acetic-anhydride, st-draw-urea, st-name-urea, st-draw-chloroform, st-name-chloroform, st-draw-dichloromethane, st-name-dichloromethane
 
+### 1.4 Reagents by abbreviation
+
+
+
+- ● **ST-1.4.A** (21) Draw the common reagents and protecting-group sources that are handed to you as abbreviations.
+  - EK: mCPBA, TsCl, MsCl, NBS, DCC, DMAP, Boc2O, Fmoc-Cl, TBSCl: know what is on the page when the letters appear. Ionic and metal reagents (LDA, NaBH4, Grignards) are not drawn here.
+  - P1 · P2 · drills: st-draw-m-chloroperoxybenzoic-acid, st-name-m-chloroperoxybenzoic-acid, st-draw-tosyl-chloride, st-name-tosyl-chloride, st-draw-mesyl-chloride, st-name-mesyl-chloride, st-draw-n-bromosuccinimide, st-name-n-bromosuccinimide, st-draw-dicyclohexylcarbodiimide, st-name-dicyclohexylcarbodiimide, st-draw-4-dimethylaminopyridine, st-name-4-dimethylaminopyridine, st-draw-triethylamine, st-name-triethylamine, st-draw-di-tert-butyl-dicarbonate, st-name-di-tert-butyl-dicarbonate, st-draw-fmoc-chloride, st-name-fmoc-chloride, st-draw-tert-butyldimethylsilyl-chloride, st-name-tert-butyldimethylsilyl-chloride, st-draw-triphenylphosphine, st-name-triphenylphosphine, st-draw-thionyl-chloride, st-name-thionyl-chloride, st-draw-oxalyl-chloride, st-name-oxalyl-chloride, st-draw-acetyl-chloride, st-name-acetyl-chloride, st-draw-trifluoroacetic-acid, st-name-trifluoroacetic-acid, st-draw-benzyl-bromide, st-name-benzyl-bromide
+
 ## Unit 2 · Biomolecules
 
 Big ideas: COLD, FAMILY
@@ -65,9 +73,9 @@ Big ideas: COLD, FAMILY
 
 
 
-- ● **ST-2.2.A** (20) Draw the Fischer projections of the common D-aldoses and of D-fructose, and tell epimers apart.
-  - EK: D means the OH on the lowest stereocentre points right. Glucose is right-left-right-right; galactose and mannose each differ from it at one carbon.
-  - P1 · P2 · drills: st-draw-d-glyceraldehyde, st-name-d-glyceraldehyde, st-draw-d-ribose, st-name-d-ribose, st-draw-2-deoxy-d-ribose, st-name-2-deoxy-d-ribose, st-draw-d-glucose, st-name-d-glucose, st-draw-d-galactose, st-name-d-galactose, st-draw-d-mannose, st-name-d-mannose, st-draw-d-fructose, st-name-d-fructose
+- ● **ST-2.2.A** (20) Draw the Fischer projections of the common D-aldoses and of D-fructose, tell epimers apart, and draw the Haworth rings of glucose, galactose, ribose and deoxyribose.
+  - EK: D means the OH on the lowest stereocentre points right. Glucose is right-left-right-right. Closing the ring: right in Fischer is down in Haworth; alpha puts the C-1 OH opposite the CH2OH.
+  - P1 · P2 · drills: st-draw-d-glyceraldehyde, st-name-d-glyceraldehyde, st-draw-d-ribose, st-name-d-ribose, st-draw-2-deoxy-d-ribose, st-name-2-deoxy-d-ribose, st-draw-d-glucose, st-name-d-glucose, st-draw-d-galactose, st-name-d-galactose, st-draw-d-mannose, st-name-d-mannose, st-draw-d-fructose, st-name-d-fructose, st-draw-alpha-d-glucopyranose, st-name-alpha-d-glucopyranose, st-draw-beta-d-glucopyranose, st-name-beta-d-glucopyranose, st-draw-beta-d-galactopyranose, st-name-beta-d-galactopyranose, st-draw-beta-d-ribofuranose, st-name-beta-d-ribofuranose, st-draw-2-deoxy-beta-d-ribofuranose, st-name-2-deoxy-beta-d-ribofuranose
 
 ### 2.3 Bases, nucleosides and ATP
 
@@ -93,10 +101,18 @@ Big ideas: COLD, FAMILY
   - EK: Palmitic 16:0, stearic 18:0, oleic 18:1 cis-9. A coenzyme's chemistry lives in one small part of it.
   - P1 · P2 · drills: st-draw-palmitic-acid, st-name-palmitic-acid, st-draw-stearic-acid, st-name-stearic-acid, st-draw-oleic-acid, st-name-oleic-acid, st-draw-cholesterol, st-name-cholesterol, st-draw-nicotinamide, st-name-nicotinamide, st-draw-pyridoxal-phosphate, st-name-pyridoxal-phosphate, st-draw-biotin, st-name-biotin, st-draw-lipoic-acid, st-name-lipoic-acid
 
-### 2.6 The large coenzymes and heme, whole
+### 2.6 Peptides
 
 
 
-- ● **ST-2.6.A** (23) Draw NAD+ and NADH, FAD, coenzyme A and acetyl-CoA, thiamine pyrophosphate, protoporphyrin IX and heme b in full.
+- ● **ST-2.6.A** (21) Draw the peptide bond, a dipeptide in either order, glutathione and cystine.
+  - EK: Write and draw from the N-terminus. Glutathione's first link goes through the glutamate side chain.
+  - P1 · P2 · drills: st-draw-a-peptide-bond, st-name-a-peptide-bond, st-draw-glycylalanine, st-name-glycylalanine, st-draw-alanylglycine, st-name-alanylglycine, st-draw-glutathione, st-name-glutathione, st-draw-cystine, st-name-cystine
+
+### 2.7 The large coenzymes and heme, whole
+
+
+
+- ● **ST-2.7.A** (23) Draw NAD+ and NADH, FAD, coenzyme A and acetyl-CoA, thiamine pyrophosphate, protoporphyrin IX and heme b in full.
   - EK: Build each from parts already known: a working end (nicotinamide, isoalloxazine, thiol, thiazolium), a diphosphate bridge, and adenosine. Heme is four pyrroles, four bridges, eight substituents and an iron.
   - P1 · P2 · drills: st-draw-nad, st-name-nad, st-draw-nadh, st-name-nadh, st-draw-fad, st-name-fad, st-draw-coenzyme-a, st-name-coenzyme-a, st-draw-acetyl-coa, st-name-acetyl-coa, st-draw-thiamine-pyrophosphate, st-name-thiamine-pyrophosphate, st-draw-protoporphyrin-ix, st-name-protoporphyrin-ix, st-draw-heme-b, st-name-heme-b

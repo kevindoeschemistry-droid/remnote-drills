@@ -102,6 +102,31 @@ GROUPS = {
         ("biotin", "OC(=O)CCCCC1SCC2NC(=O)NC12", "C10H16N2O3S", "A cyclic urea fused to a sulfur-containing five-membered ring, with a five-carbon acid chain"),
         ("lipoic acid", "OC(=O)CCCCC1CCSS1", "C8H14O2S2", "A five-membered ring containing an S-S bond, with a five-carbon acid chain"),
     ]),
+    "reagent": ("orgo.reagents", "reagents and protecting-group sources known by abbreviation (Bruice ch. 21 and throughout)", [
+        ("m-chloroperoxybenzoic acid (mCPBA)", "OOC(=O)c1cccc(Cl)c1", "C7H5ClO3", "Benzoic acid with an extra O in the acid (a peroxy acid, C(=O)-O-OH) and a Cl meta to it"),
+        ("tosyl chloride (TsCl)", "Cc1ccc(cc1)S(Cl)(=O)=O", "C7H7ClO2S", "Toluene with an SO2Cl para to the methyl"),
+        ("mesyl chloride (MsCl)", "CS(Cl)(=O)=O", "CH3ClO2S", "A methyl on an SO2Cl"),
+        ("N-bromosuccinimide (NBS)", "BrN1C(=O)CCC1=O", "C4H4BrNO2", "A five-membered cyclic imide (two C=O flanking the N) with Br on the nitrogen"),
+        ("dicyclohexylcarbodiimide (DCC)", "C1CCC(CC1)N=C=NC1CCCCC1", "C13H22N2", "N=C=N with a cyclohexyl on each nitrogen"),
+        ("4-dimethylaminopyridine (DMAP)", "CN(C)c1ccncc1", "C7H10N2", "Pyridine with an N(CH3)2 at C-4, opposite the ring nitrogen"),
+        ("triethylamine", "CCN(CC)CC", "C6H15N", "Three ethyls on one nitrogen"),
+        ("di-tert-butyl dicarbonate (Boc anhydride)", "CC(C)(C)OC(=O)OC(=O)OC(C)(C)C", "C10H18O5", "Two tert-butyl carbonate halves sharing the middle oxygen"),
+        ("Fmoc chloride", "ClC(=O)OCC1c2ccccc2-c2ccccc12", "C15H11ClO2", "Fluorene (two benzene rings bridged into a five-membered ring) with a CH2-O-C(=O)-Cl on the bridge carbon"),
+        ("tert-butyldimethylsilyl chloride (TBSCl)", "CC(C)(C)[Si](C)(C)Cl", "C6H15ClSi", "A silicon carrying a tert-butyl, two methyls and a Cl"),
+        ("triphenylphosphine", "c1ccc(cc1)P(c1ccccc1)c1ccccc1", "C18H15P", "Three phenyls on one phosphorus"),
+        ("thionyl chloride", "ClS(Cl)=O", "Cl2OS", "An S=O carrying two chlorines"),
+        ("oxalyl chloride", "ClC(=O)C(Cl)=O", "C2Cl2O2", "Two acyl chlorides joined carbon to carbon"),
+        ("acetyl chloride", "CC(Cl)=O", "C2H3ClO", "The acyl chloride of acetic acid"),
+        ("trifluoroacetic acid (TFA)", "OC(=O)C(F)(F)F", "C2HF3O2", "Acetic acid with the methyl hydrogens replaced by fluorines"),
+        ("benzyl bromide", "BrCc1ccccc1", "C7H7Br", "A CH2Br on benzene"),
+    ]),
+    "peptide": ("biochem.peptides", "the peptide bond and small peptides (Bruice ch. 21)", [
+        ("a peptide bond", "*C(=O)N*", "CHNOR2", "An amide joining two residues: C=O, then N-H. It is planar, and the next residue hangs off the nitrogen"),
+        ("glycylalanine (Gly-Ala)", "NCC(=O)NC(C)C(O)=O", "C5H10N2O3", "Written N-terminus first: glycine keeps the free amine, alanine the free acid"),
+        ("alanylglycine (Ala-Gly)", "CC(N)C(=O)NCC(O)=O", "C5H10N2O3", "The reverse order: alanine keeps the free amine, glycine the free acid"),
+        ("glutathione", "NC(CCC(=O)NC(CS)C(=O)NCC(O)=O)C(O)=O", "C10H17N3O6S", "Glu-Cys-Gly, but glutamate is joined through its side-chain carboxyl, leaving its alpha-amine and alpha-acid free"),
+        ("cystine", "NC(CSSCC(N)C(O)=O)C(O)=O", "C6H12N2O4S2", "Two cysteines joined by a disulfide bond through their side chains"),
+    ]),
     "coenzyme": ("biochem.coenzymes", "the large coenzymes and heme, whole (Bruice ch. 23)", [
         ("NAD+", "NC(=O)c1ccc[n+](c1)C1OC(COP(O)(=O)OP(O)(=O)OCC2OC(C(O)C2O)n2cnc3c(N)ncnc23)C(O)C1O", "C21H28N7O14P2+", "Nicotinamide on a ribose, a diphosphate bridge, then adenosine. The pyridinium ring N carries the plus charge; C-4, opposite it, accepts the hydride"),
         ("NADH", "NC(=O)C1=CN(C=CC1)C1OC(COP(O)(=O)OP(O)(=O)OCC2OC(C(O)C2O)n2cnc3c(N)ncnc23)C(O)C1O", "C21H29N7O14P2", "NAD+ after taking a hydride at C-4: the ring is a 1,4-dihydropyridine with a CH2 at C-4, no charge, and no longer aromatic"),
@@ -125,6 +150,12 @@ SUGARS = [
     ("D-galactose", "C6H12O6", "aldose", "RLLR", "The C-4 epimer of glucose: right, left, left, right"),
     ("D-mannose", "C6H12O6", "aldose", "LLRR", "The C-2 epimer of glucose: left, left, right, right"),
     ("D-fructose", "C6H12O6", "ketose", "LRR", "A ketone at C-2 with CH2OH above it; below, the same C-3 to C-5 pattern as glucose: left, right, right"),
+    # Haworth projections: U or D = the OH points up or down at each ring carbon from C-1; H = no OH there
+    ("α-D-glucopyranose", "C6H12O6", "pyranose", "DDUD", "A Fischer OH on the right points down in a Haworth ring: down, up, down at C-2, C-3, C-4. Alpha: the C-1 OH is down, opposite the CH2OH"),
+    ("β-D-glucopyranose", "C6H12O6", "pyranose", "UDUD", "The same ring with the C-1 OH up, on the same side as the CH2OH. Every substituent alternates, which is why it is the most stable aldohexose"),
+    ("β-D-galactopyranose", "C6H12O6", "pyranose", "UDUU", "Beta-glucose with the C-4 OH flipped up"),
+    ("β-D-ribofuranose", "C5H10O5", "furanose", "UDD", "A five-membered ring: C-1 OH up (beta), C-2 and C-3 OH both down, CH2OH up on C-4. The sugar of RNA"),
+    ("2-deoxy-β-D-ribofuranose", "C5H10O4", "furanose", "UHD", "Ribofuranose with no OH on C-2. The sugar of DNA"),
 ]
 
 
@@ -204,6 +235,30 @@ def porphyrin(atoms, bonds):
     return new, [b[:3] if len(b) > 3 else b for b in bonds]
 
 
+def haworth(kind, sides):
+    """atoms and bonds for a Haworth projection: the ring seen edge-on, each OH straight up or down.
+    Hydrogens on the ring carbons are left implied, as most textbooks draw it."""
+    ring = [(1.6, 0), (0.8, -0.9), (-0.8, -0.9), (-1.6, 0), (-0.8, 0.9)] if kind == "pyranose" else [(1.3, 0), (0.7, -0.9), (-0.7, -0.9), (-1.3, 0)]
+    ox = (0.8, 0.9) if kind == "pyranose" else (0, 0.75)
+    atoms, bonds = [[x, y] for x, y in ring] + [[ox[0], ox[1], "O"]], []
+    o = len(ring)
+    for k in range(len(ring) - 1):
+        bonds.append([k, k + 1])
+    bonds += [[len(ring) - 1, o], [o, 0]]
+    for k, side in enumerate(sides):
+        if side != "H":
+            x, y = ring[k]
+            atoms.append([x, round(y + (0.8 if side == "U" else -0.8), 2), "OH"])
+            bonds.append([k, len(atoms) - 1])
+    # the last ring carbon carries CH2OH up (a D sugar)
+    x, y = ring[-1]
+    atoms.append([x, round(y + 0.9, 2)])
+    bonds.append([len(ring) - 1, len(atoms) - 1])
+    atoms.append([round(x - 0.87, 2), round(y + 1.4, 2), "HO"])
+    bonds.append([len(atoms) - 2, len(atoms) - 1])
+    return atoms, bonds
+
+
 HEAD = """# Structures to know cold: draw each from its name, and name each from its drawing.
 # GENERATED by scripts/mol.py --library from scripts/mol_library.py: edit there, not here.
 #
@@ -215,7 +270,7 @@ HEAD = """# Structures to know cold: draw each from its name, and name each from
 
 
 def slug(name):
-    name = name.split(" (")[0].replace("α", "alpha").replace("N,N-", "")
+    name = name.split(" (")[0].replace("α", "alpha").replace("β", "beta").replace("N,N-", "")
     return re.sub(r"[^a-z0-9]+", "-", name.lower()).strip("-")
 
 
@@ -230,7 +285,7 @@ def q(text):
 def write(block, emit, layout):
     out, count = [HEAD], 0
     groups = {g: (skill, head, [(n, f, hook, ("smiles", s)) for n, s, f, hook in rows]) for g, (skill, head, rows) in GROUPS.items()}
-    groups["sugar"] = ("biochem.sugars", "sugars as Fischer projections (Bruice ch. 20)",
+    groups["sugar"] = ("biochem.sugars", "sugars as Fischer and Haworth projections (Bruice ch. 20)",
                        [(n, f, hook, ("fischer", (kind, sides))) for n, f, kind, sides, hook in SUGARS])
     groups["coenzyme"][2].append((HEME[0], HEME[1], HEME[2], ("heme", next(r[3][1] for r in groups["coenzyme"][2] if r[0] == "protoporphyrin IX"))))
     for g, (skill, head, rows) in groups.items():
@@ -253,9 +308,9 @@ def write(block, emit, layout):
                     bonds = bonds + [[k, fe, 1 if "H" in atoms[k][2] else 0] for k in ns]
                     atoms = [[at[0], at[1], "N"] if k in ns else at for k, at in enumerate(atoms)]
                     return emit(formula, atoms, bonds, indent)
-                atoms, bonds = fischer(*spec)
+                atoms, bonds = haworth(*spec) if spec[0] in ("pyranose", "furanose") else fischer(*spec)
                 return emit(formula, atoms, bonds, indent)
-            what = "the Fischer projection of " + name if how == "fischer" else name + " from memory, as a skeletal structure"
+            what = "the Haworth projection of " + name if how == "fischer" and spec[0] in ("pyranose", "furanose") else "the Fischer projection of " + name if how == "fischer" else name + " from memory, as a skeletal structure"
             # look-alikes: the three others in the group closest in size
             others = sorted((r for r in rows if r[0] != name), key=lambda r: (abs(heavy(r[1]) - heavy(formula)), r[0]))[:3]
             opts = sorted([name] + [r[0] for r in others])
