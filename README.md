@@ -138,6 +138,13 @@ Three more things a `drills/problems/*.yaml` template can carry (see `mx-gaps.ya
   that a person wrote the key and nothing checks it, so use it only when `verify.choices` cannot do the job, and say so
   when reporting coverage. Choice options are plain text (no TeX, no `^`).
 
+### Pace
+
+A template can say how long it should take: `pace: recall` (about 10 seconds, from the UIL Number Sense pace of 80
+problems in 10 minutes), `quick` (under a minute) or `workout`. Without it the build guesses: one question is quick,
+several parts or a coded generator is a workout. An objective is as slow as its slowest drill, and the warm-up mix's
+"Under a minute" chip leaves the workouts out. The guesses are placeholders until answer times are recorded.
+
 ## Standards
 
 The frameworks are a house standard: our own objective codes, written to fit together along one path. Outside standards

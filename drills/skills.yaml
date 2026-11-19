@@ -285,6 +285,7 @@ skills:
   - { id: pde.classify, domain: pde, title: "Classify a PDE; check a solution", kind: classify }
   - { id: pde.dalembert, domain: pde, title: "d'Alembert: the infinite string" }
   - { id: pde.laplace-rect, domain: pde, title: "Laplace's equation on a rectangle", prereqs: [pde.separation] }
+  - { id: pde.midterm-review, domain: pde, title: "PDE exam review: the decision points (separation, Fourier and Bessel series, finite differences)", short: "PDE exam review", prereqs: [pde.separation] }
 
   # ── heat transfer ───────────────────────────────────────────────────────
   - { id: ht.rate-equations, domain: ht, title: "Rate equations: conduction, convection, radiation", status: live, levels: { 1: [ht-cond, ht-conv, ht-rad] } }

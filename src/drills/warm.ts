@@ -15,6 +15,8 @@ export interface WarmItem {
   group: string; // framework or subject, for the chips
   reps: number;
   last?: number;
+  /** recall ≈ 10 s, quick < 1 min, workout longer; a course skill mixes templates, so it counts as a workout */
+  pace: "recall" | "quick" | "workout";
 }
 
 export async function warmPool(plugin: RNPlugin): Promise<WarmItem[]> {
@@ -27,7 +29,7 @@ export async function warmPool(plugin: RNPlugin): Promise<WarmItem[]> {
     if (!t) continue;
     const p = await getProgress(plugin, t.key);
     if (!p.cleared && !marks[lo.code]) continue;
-    out.push({ target: t.key, group: lo.fw.title, reps: p.correct, last: p.lastPracticed });
+    out.push({ target: t.key, group: lo.fw.title, reps: p.correct, last: p.lastPracticed, pace: lo.pace ?? "workout" });
     viaObjective.add(t.skillId);
   }
   // course skills, unless an objective above already draws on the same skill
@@ -35,10 +37,13 @@ export async function warmPool(plugin: RNPlugin): Promise<WarmItem[]> {
     if (viaObjective.has(s.id)) continue;
     const p = await getProgress(plugin, s.id);
     if (!p.cleared) continue;
-    out.push({ target: s.id, group: DOMAINS.find((d) => d.id === s.domain)?.title ?? s.domain, reps: p.correct, last: p.lastPracticed });
+    out.push({ target: s.id, group: DOMAINS.find((d) => d.id === s.domain)?.title ?? s.domain, reps: p.correct, last: p.lastPracticed, pace: "workout" });
   }
   return out;
 }
+
+/** the part of the pool that fits a short sitting: everything but the workouts */
+export const quickOnly = (pool: WarmItem[]) => pool.filter((x) => x.pace !== "workout");
 
 const DAY = 86400000;
 /** the longer since you last did it, the likelier it comes up (1× today … 3× a week or more ago) */

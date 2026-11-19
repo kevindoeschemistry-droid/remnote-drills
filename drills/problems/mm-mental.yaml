@@ -1,0 +1,771 @@
+# Mental calculation, on the UIL Number Sense sequencing chart (drills/standards.yaml › uil-number-sense).
+# One question per item, meant to be done in the head: `pace: recall` is about 10 seconds, `pace: quick`
+# under a minute. The chart names "multiplication short-cuts" and "squaring numbers" without listing
+# techniques; the particular short-cuts here are a house choice. Estimates follow the UIL rule: any
+# answer within 5 percent is right.
+
+# ── H1.1 the four operations ───────────────────────────────────────────────
+- template: mm-add-left-to-right
+  skill: k8.add-sub
+  pace: recall
+  given: { a: { int: [124, 879] }, b: { int: [115, 896] } }
+  prompt: 'In your head: ${{a}} + {{b}}$'
+  parts:
+    - ask: 'Sum'
+      label: s
+      tex: '{{a}} + {{b}}'
+      value: a + b
+      tol: 0.0001
+      explain: 'Work left to right: hundreds first, ${{floor(a/100)*100}} + {{floor(b/100)*100}} = {{floor(a/100)*100 + floor(b/100)*100}}$, then add the tens and ones, ${{mod(a, 100)}} + {{mod(b, 100)}} = {{mod(a, 100) + mod(b, 100)}}$. You say the big part of the answer first and never carry backwards'
+  verify: { expect: { s: "a + b" } }
+
+- template: mm-subtract-from-1000
+  skill: k8.add-sub
+  pace: recall
+  given: { a: { int: [112, 889] }, top: { pick: [1000, 2000, 5000] } }
+  require: ["mod(a, 10) != 0"]
+  prompt: 'In your head: ${{top}} - {{a}}$'
+  parts:
+    - ask: 'Difference'
+      label: d
+      tex: '{{top}} - {{a}}'
+      value: top - a
+      tol: 0.0001
+      explain: 'Take every digit of ${{a}}$ from 9 and the last one from 10: ${{1000 - a}}$. That is $1000 - {{a}}$; then add back whatever is above 1000'
+  verify: { expect: { d: "top - a" } }
+
+- template: mm-fraction-of
+  skill: k8.fractions
+  pace: recall
+  given: { q: { pick: [3, 4, 5, 6, 8] }, p: { int: [2, 7] }, k: { int: [3, 12] } }
+  require: ["p < q", "gcd(p, q) == 1"]
+  prompt: 'In your head: $\tfrac{ {{p}} }{ {{q}} }$ of ${{q*k}}$'
+  parts:
+    - ask: 'Value'
+      label: v
+      tex: 'x'
+      value: p*k
+      tol: 0.0001
+      explain: 'Divide first, then multiply: ${{q*k}} \div {{q}} = {{k}}$, and ${{k}} \times {{p}}$'
+  verify: { expect: { v: "Rational(p, q)*q*k" } }
+
+# ── H1.2 order of operations ───────────────────────────────────────────────
+- template: mm-order-of-operations
+  skill: k8.expressions
+  pace: recall
+  given: { a: { int: [3, 20] }, b: { int: [2, 9] }, c: { int: [2, 9] }, d: { int: [2, 15] } }
+  require: ["a + b*c - d != 0"]
+  prompt: 'In your head: ${{a}} + {{b}} \times {{c}} - {{d}}$'
+  parts:
+    - ask: 'Value'
+      label: v
+      tex: 'x'
+      value: a + b*c - d
+      tol: 0.0001
+      explain: 'The product comes first, ${{b}} \times {{c}} = {{b*c}}$, then left to right'
+  verify: { expect: { v: "a + b*c - d" } }
+
+# ── H1.3 distributive property ─────────────────────────────────────────────
+- template: mm-distributive
+  skill: k8.mult-div
+  pace: recall
+  given: { a: { int: [12, 49] }, b: { int: [11, 89] }, tot: { pick: [50, 100] } }
+  require: ["b < tot - 5"]
+  prompt: 'In your head: ${{a}} \times {{b}} + {{a}} \times {{tot - b}}$'
+  parts:
+    - ask: 'Value'
+      label: v
+      tex: 'x'
+      value: a*tot
+      tol: 0.0001
+      explain: 'Factor out the ${{a}}$: ${{a}}({{b}} + {{tot - b}}) = {{a}} \times {{tot}}$. Look for a common factor before multiplying anything'
+  verify: { expect: { v: "a*b + a*(tot - b)" } }
+
+# ── H1.4 comparing fractions ───────────────────────────────────────────────
+- template: mm-compare-fractions
+  skill: k8.fractions
+  pace: recall
+  given: { q1: { pick: [3, 5, 7, 9] }, q2: { pick: [4, 8, 11] }, p1: { int: [1, 8] }, p2: { int: [1, 10] } }
+  require: ["p1 < q1", "p2 < q2", "p1*q2 != p2*q1", "abs(p1*q2 - p2*q1) <= 12"]
+  prompt: 'Which is larger, $\tfrac{ {{p1}} }{ {{q1}} }$ or $\tfrac{ {{p2}} }{ {{q2}} }$?'
+  parts:
+    - ask: 'Larger'
+      label: v
+      choice: ["{{p1}}/{{q1}}", "{{p2}}/{{q2}}"]
+      correct: "p1*q2 > p2*q1 ? 0 : 1"
+      explain: 'Cross-multiply: ${{p1}} \times {{q2}} = {{p1*q2}}$ goes with the first fraction and ${{p2}} \times {{q1}} = {{p2*q1}}$ with the second. The bigger product marks the bigger fraction'
+  verify: { choices: { v: "0 if Rational(p1, q1) > Rational(p2, q2) else 1" } }
+
+# ── H1.5 multiplication short-cuts (house list) ────────────────────────────
+- template: mm-times-11
+  skill: k8.mult-div
+  pace: recall
+  given: { n: { int: [12, 99] } }
+  require: ["mod(n, 10) != 0"]
+  prompt: 'In your head: ${{n}} \times 11$'
+  parts:
+    - ask: 'Product'
+      label: v
+      tex: '{{n}} \times 11'
+      value: 11*n
+      tol: 0.0001
+      explain: 'Keep the outside digits and put their sum in the middle: ${{floor(n/10)}}\,|\,{{floor(n/10) + mod(n, 10)}}\,|\,{{mod(n, 10)}}$, carrying if the middle is 10 or more. It is $10n + n$ written in one pass'
+  verify: { expect: { v: "10*n + n" } }
+
+- template: mm-times-25
+  skill: k8.mult-div
+  pace: recall
+  given: { n: { int: [12, 96] } }
+  prompt: 'In your head: ${{n}} \times 25$'
+  parts:
+    - ask: 'Product'
+      label: v
+      tex: '{{n}} \times 25'
+      value: 25*n
+      tol: 0.0001
+      explain: '$25 = 100 \div 4$, so divide by 4 and multiply by 100: ${{n}} \div 4 = {{n/4}}$'
+  verify: { expect: { v: "n*Rational(100, 4)" } }
+
+- template: mm-times-5
+  skill: k8.mult-div
+  pace: recall
+  given: { n: { int: [14, 198] } }
+  prompt: 'In your head: ${{n}} \times 5$'
+  parts:
+    - ask: 'Product'
+      label: v
+      tex: '{{n}} \times 5'
+      value: 5*n
+      tol: 0.0001
+      explain: 'Halve it and multiply by 10: ${{n}} \div 2 = {{n/2}}$'
+  verify: { expect: { v: "n*Rational(10, 2)" } }
+
+- template: mm-near-100
+  skill: k8.mult-div
+  pace: recall
+  given: { a: { int: [1, 11] }, b: { int: [1, 9] } }
+  prompt: 'In your head: ${{100 - a}} \times {{100 - b}}$'
+  parts:
+    - ask: 'Product'
+      label: v
+      tex: 'x'
+      value: (100 - a)*(100 - b)
+      tol: 0.0001
+      explain: 'They are ${{a}}$ and ${{b}}$ short of 100. Take either shortfall from the other number, ${{100 - a}} - {{b}} = {{100 - a - b}}$, for the hundreds; the product of the shortfalls, ${{a*b}}$, fills the last two places (write 6 as 06). Algebra: $(100 - a)(100 - b) = 100(100 - a - b) + ab$'
+  verify: { expect: { v: "(100 - a)*(100 - b)" } }
+
+- template: mm-times-99-101
+  skill: k8.mult-div
+  pace: recall
+  given: { n: { int: [13, 89] }, sg: { pick: [1, -1] } }
+  prompt: 'In your head: ${{n}} \times {{100 + sg}}$'
+  parts:
+    - ask: 'Product'
+      label: v
+      tex: 'x'
+      value: n*(100 + sg)
+      tol: 0.0001
+      explain: 'Multiply by 100 and {{sg > 0 ? "add" : "subtract"}} one more ${{n}}$: ${{100*n}} {{sg > 0 ? "+" : "-"}} {{n}}$'
+  verify: { expect: { v: "100*n + sg*n" } }
+
+- template: mm-same-tens
+  skill: k8.mult-div
+  pace: recall
+  given: { t: { int: [1, 9] }, u: { int: [1, 9] } }
+  require: ["u != 5"]
+  prompt: 'In your head: ${{10*t + u}} \times {{10*t + 10 - u}}$'
+  parts:
+    - ask: 'Product'
+      label: v
+      tex: 'x'
+      value: (10*t + u)*(10*t + 10 - u)
+      tol: 0.0001
+      explain: 'Same tens digit, ones digits adding to 10: multiply the tens digit by the next integer, ${{t}} \times {{t + 1}} = {{t*(t + 1)}}$, then write the product of the ones digits as two places, ${{u}} \times {{10 - u}} = {{u*(10 - u)}}$'
+  verify: { expect: { v: "100*t*(t + 1) + u*(10 - u)" } }
+
+- template: mm-difference-of-squares
+  skill: k8.mult-div
+  pace: recall
+  given: { m: { pick: [20, 30, 40, 50, 60, 70] }, d: { int: [1, 5] } }
+  prompt: 'In your head: ${{m - d}} \times {{m + d}}$'
+  parts:
+    - ask: 'Product'
+      label: v
+      tex: 'x'
+      value: m^2 - d^2
+      tol: 0.0001
+      explain: 'They sit ${{d}}$ either side of ${{m}}$, so the product is ${{m}}^2 - {{d}}^2 = {{m^2}} - {{d^2}}$'
+  verify: { expect: { v: "(m - d)*(m + d)" } }
+
+- template: mm-double-and-halve
+  skill: k8.mult-div
+  pace: recall
+  given: { a: { pick: [14, 16, 18, 24, 28, 32, 36] }, b: { pick: [15, 25, 35, 45, 55] } }
+  prompt: 'In your head: ${{a}} \times {{b}}$'
+  parts:
+    - ask: 'Product'
+      label: v
+      tex: 'x'
+      value: a*b
+      tol: 0.0001
+      explain: 'Halve the even one and double the one ending in 5: ${{a/2}} \times {{2*b}}$. A factor of 10 appears and the rest is a one-digit job'
+  verify: { expect: { v: "Rational(a, 2)*(2*b)" } }
+
+# ── H1.6 squaring ──────────────────────────────────────────────────────────
+- template: mm-square-ending-5
+  skill: k8.exponents
+  pace: recall
+  given: { t: { int: [1, 11] } }
+  prompt: 'In your head: ${{10*t + 5}}^2$'
+  parts:
+    - ask: 'Square'
+      label: v
+      tex: '{{10*t + 5}}^2'
+      value: (10*t + 5)^2
+      tol: 0.0001
+      explain: 'Multiply the front part by one more than itself, ${{t}} \times {{t + 1}} = {{t*(t + 1)}}$, and attach 25. It is $(10t + 5)^2 = 100t(t + 1) + 25$'
+  verify: { expect: { v: "(10*t + 5)**2" } }
+
+- template: mm-square-near-50
+  skill: k8.exponents
+  pace: recall
+  given: { d: { int: [1, 9] }, sg: { pick: [1, -1] } }
+  prompt: 'In your head: ${{50 + sg*d}}^2$'
+  parts:
+    - ask: 'Square'
+      label: v
+      tex: '{{50 + sg*d}}^2'
+      value: (50 + sg*d)^2
+      tol: 0.0001
+      explain: 'Start from 25 and {{sg > 0 ? "add" : "subtract"}} the distance from 50 to get the hundreds, $25 {{sg > 0 ? "+" : "-"}} {{d}} = {{25 + sg*d}}$; then attach the distance squared as two places, ${{d^2}}$. It is $(50 \pm d)^2 = 2500 \pm 100d + d^2$'
+  verify: { expect: { v: "(50 + sg*d)**2" } }
+
+- template: mm-square-near-100
+  skill: k8.exponents
+  pace: recall
+  given: { d: { int: [1, 12] }, sg: { pick: [1, -1] } }
+  prompt: 'In your head: ${{100 + sg*d}}^2$'
+  parts:
+    - ask: 'Square'
+      label: v
+      tex: '{{100 + sg*d}}^2'
+      value: (100 + sg*d)^2
+      tol: 0.0001
+      explain: 'Move twice the distance from 100, ${{100 + 2*sg*d}}$, for the front; attach the distance squared, ${{d^2}}$, as two places (carry if it is 100 or more)'
+  verify: { expect: { v: "(100 + sg*d)**2" } }
+
+- template: mm-square-two-digit
+  skill: k8.exponents
+  pace: quick
+  given: { n: { int: [12, 39] } }
+  require: ["mod(n, 10) != 0", "mod(n, 10) != 5"]
+  prompt: 'In your head: ${{n}}^2$'
+  parts:
+    - ask: 'Square'
+      label: v
+      tex: '{{n}}^2'
+      value: n^2
+      tol: 0.0001
+      explain: 'Slide to the nearest ten and compensate: ${{n}}^2 = ({{n}} - {{mod(n, 10) <= 5 ? mod(n, 10) : mod(n, 10) - 10}})({{n}} + {{mod(n, 10) <= 5 ? mod(n, 10) : mod(n, 10) - 10}}) + {{(mod(n, 10) <= 5 ? mod(n, 10) : mod(n, 10) - 10)^2}}$. One of the two factors is a multiple of 10'
+  verify: { expect: { v: "n**2" } }
+
+# ── H1.7 conversions ───────────────────────────────────────────────────────
+- template: mm-fraction-to-percent
+  skill: k8.ratios
+  pace: recall
+  cases:
+    - { p: 1, q: 8 }
+    - { p: 3, q: 8 }
+    - { p: 5, q: 8 }
+    - { p: 7, q: 8 }
+    - { p: 1, q: 6 }
+    - { p: 5, q: 6 }
+    - { p: 1, q: 3 }
+    - { p: 2, q: 3 }
+    - { p: 1, q: 7 }
+    - { p: 1, q: 9 }
+    - { p: 1, q: 11 }
+    - { p: 1, q: 12 }
+    - { p: 1, q: 16 }
+    - { p: 3, q: 16 }
+    - { p: 1, q: 40 }
+  prompt: 'From memory: $\tfrac{ {{p}} }{ {{q}} }$ as a percent.'
+  parts:
+    - ask: 'Percent (one decimal place is enough)'
+      label: v
+      tex: 'x'
+      value: 100*p/q
+      tol: 0.006
+      explain: 'These are worth knowing cold. The eighths step by 12.5, the sixths are 16⅔ and 83⅓, a seventh is about 14.3, a ninth 11.1, an eleventh 9.09, a twelfth 8⅓, a sixteenth 6.25'
+  verify: { expect: { v: "100*Rational(p, q)" } }
+
+- template: mm-percent-as-fraction
+  skill: k8.ratios
+  pace: recall
+  cases:
+    - { pc: '12.5', p: 1, q: 8 }
+    - { pc: '37.5', p: 3, q: 8 }
+    - { pc: '62.5', p: 5, q: 8 }
+    - { pc: '87.5', p: 7, q: 8 }
+    - { pc: '16\tfrac23', p: 1, q: 6 }
+    - { pc: '83\tfrac13', p: 5, q: 6 }
+    - { pc: '33\tfrac13', p: 1, q: 3 }
+    - { pc: '66\tfrac23', p: 2, q: 3 }
+    - { pc: '75', p: 3, q: 4 }
+    - { pc: '6.25', p: 1, q: 16 }
+  given: { k: { int: [2, 12] } }
+  prompt: 'In your head: ${{pc}}\%$ of ${{q*k}}$'
+  parts:
+    - ask: 'Value'
+      label: v
+      tex: 'x'
+      value: p*k
+      tol: 0.0001
+      explain: 'Read the percent as a fraction, $\tfrac{ {{p}} }{ {{q}} }$, then divide by ${{q}}$ and multiply by ${{p}}$'
+  verify: { expect: { v: "Rational(p, q)*q*k" } }
+
+- template: mm-unit-conversion
+  skill: k8.measurement
+  pace: recall
+  cases:
+    - { from: 'yards', to: 'inches', f: 36 }
+    - { from: 'feet', to: 'inches', f: 12 }
+    - { from: 'yards', to: 'feet', f: 3 }
+    - { from: 'miles', to: 'feet', f: 5280 }
+    - { from: 'gallons', to: 'quarts', f: 4 }
+    - { from: 'gallons', to: 'pints', f: 8 }
+    - { from: 'quarts', to: 'cups', f: 4 }
+    - { from: 'pounds', to: 'ounces', f: 16 }
+    - { from: 'hours', to: 'minutes', f: 60 }
+    - { from: 'days', to: 'hours', f: 24 }
+    - { from: 'square feet', to: 'square inches', f: 144 }
+    - { from: 'square yards', to: 'square feet', f: 9 }
+    - { from: 'cubic feet', to: 'cubic inches', f: 1728 }
+    - { from: 'kilometres', to: 'metres', f: 1000 }
+    - { from: 'litres', to: 'millilitres', f: 1000 }
+  given: { n: { int: [2, 9] } }
+  prompt: '${{n}}$ {{from}} is how many {{to}}?'
+  parts:
+    - ask: 'In {{to}}'
+      label: v
+      tex: 'x'
+      value: n*f
+      tol: 0.0001
+      explain: 'One of the first unit is ${{f}}$ of the second. For square and cubic units the length factor is squared or cubed'
+  # the factors are authored facts; the check only confirms the multiplication
+  verify: { expect: { v: "sum([f for q in range(n)])" } }
+
+- template: mm-roman-numerals
+  skill: k8.place-value
+  pace: recall
+  cases:
+    - { r: 'XLIV', v0: 44 }
+    - { r: 'XCIX', v0: 99 }
+    - { r: 'CDXL', v0: 440 }
+    - { r: 'MCMXC', v0: 1990 }
+    - { r: 'DCCLXVI', v0: 766 }
+    - { r: 'MMXXVI', v0: 2026 }
+    - { r: 'CXLIX', v0: 149 }
+    - { r: 'CMXLIV', v0: 944 }
+    - { r: 'LXXXVIII', v0: 88 }
+    - { r: 'MDCLXVI', v0: 1666 }
+  prompt: 'Write $\text{ {{r}} }$ as an ordinary number.'
+  parts:
+    - ask: 'Number'
+      label: v
+      tex: 'n'
+      value: v0
+      tol: 0.0001
+      explain: 'I 1, V 5, X 10, L 50, C 100, D 500, M 1000. A smaller symbol in front of a larger one is subtracted (IV, IX, XL, XC, CD, CM); otherwise add left to right'
+  verify: { expect: { v: "sum([(w[q] if q == len(w) - 1 or w[q] >= w[q + 1] else -w[q]) for w in [[{'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}[c] for c in r]] for q in range(len(w))])" } }
+
+# ── H1.8 GCD and LCM ───────────────────────────────────────────────────────
+- template: mm-gcd
+  skill: k8.mult-div
+  pace: recall
+  given: { g: { int: [2, 12] }, a0: { pick: [2, 3, 5, 7] }, b0: { pick: [3, 4, 5, 9] } }
+  require: ["gcd(a0, b0) == 1"]
+  prompt: 'Greatest common divisor of ${{g*a0}}$ and ${{g*b0}}$?'
+  parts:
+    - ask: 'GCD'
+      label: v
+      tex: '\gcd'
+      value: g
+      tol: 0.0001
+      explain: 'The GCD also divides the difference, ${{abs(g*a0 - g*b0)}}$, which is a smaller number to test. Here ${{g*a0}} = {{g}} \times {{a0}}$ and ${{g*b0}} = {{g}} \times {{b0}}$'
+  verify: { expect: { v: "gcd(g*a0, g*b0)" } }
+
+- template: mm-lcm
+  skill: k8.mult-div
+  pace: recall
+  given: { g: { int: [2, 8] }, a0: { pick: [2, 3, 5] }, b0: { pick: [3, 4, 7] } }
+  require: ["gcd(a0, b0) == 1"]
+  prompt: 'Least common multiple of ${{g*a0}}$ and ${{g*b0}}$?'
+  parts:
+    - ask: 'LCM'
+      label: v
+      tex: '\operatorname{lcm}'
+      value: g*a0*b0
+      tol: 0.0001
+      explain: 'Product over GCD: the GCD is ${{g}}$, so divide one number by it and multiply by the other, ${{a0}} \times {{g*b0}}$'
+  verify: { expect: { v: "lcm(g*a0, g*b0)" } }
+
+# ── H1.9 percent ───────────────────────────────────────────────────────────
+- template: mm-percent-swap
+  skill: k8.ratios
+  pace: recall
+  given: { k: { int: [1, 12] }, b: { pick: [25, 50, 75, 20] } }
+  prompt: 'In your head: ${{4*k}}\%$ of ${{b}}$'
+  parts:
+    - ask: 'Value'
+      label: v
+      tex: 'x'
+      value: 4*k*b/100
+      tol: 0.0001
+      explain: '$a\%$ of $b$ equals $b\%$ of $a$, so take ${{b}}\%$ of ${{4*k}}$ instead'
+  verify: { expect: { v: "Rational(4*k, 100)*b" } }
+
+- template: mm-percent-change
+  skill: k8.ratios
+  pace: recall
+  given: { n: { pick: [40, 60, 80, 120, 160, 200, 240] }, p: { pick: [5, 10, 15, 20, 25, 50] }, sg: { pick: [1, -1] } }
+  prompt: '${{n}}$ {{sg > 0 ? "increased" : "decreased"}} by ${{p}}\%$ is?'
+  parts:
+    - ask: 'Result'
+      label: v
+      tex: 'x'
+      value: n*(1 + sg*p/100)
+      tol: 0.0001
+      explain: 'Find 10% first (${{n/10}}$) and build ${{p}}\%$ from it: ${{n*p/100}}$. Then {{sg > 0 ? "add" : "subtract"}}'
+  verify: { expect: { v: "n + sg*n*Rational(p, 100)" } }
+
+# ── H1.10 mean, median, mode ───────────────────────────────────────────────
+- template: mm-mean-focus
+  skill: k8.data
+  pace: recall
+  given: { m: { int: [20, 70] }, d1: { int: [2, 9] }, d2: { int: [1, 8] } }
+  require: ["d1 != d2"]
+  prompt: 'Mean of ${{m - d1}}$, ${{m + d2}}$ and ${{m + d1 - d2}}$?'
+  parts:
+    - ask: 'Mean'
+      label: v
+      tex: '\bar x'
+      value: m
+      tol: 0.0001
+      explain: 'Guess a focus number near the middle, say ${{m}}$, and add the differences from it: ${{-d1}}$, ${{d2}}$ and ${{d1 - d2}}$ sum to 0, so the guess is the mean. If they summed to $s$, the mean would be the guess plus $s/3$'
+  verify: { expect: { v: "Rational((m - d1) + (m + d2) + (m + d1 - d2), 3)" } }
+
+- template: mm-median
+  skill: k8.data
+  pace: recall
+  cases:
+    - { data: [7, 3, 9, 4, 12] }
+    - { data: [15, 8, 22, 11, 9] }
+    - { data: [6, 6, 2, 10, 4] }
+    - { data: [31, 18, 25, 40, 22] }
+    - { data: [5, 14, 3, 8, 8] }
+    - { data: [17, 21, 13, 30, 19] }
+  prompt: 'Median of ${{data[1]}},\ {{data[2]}},\ {{data[3]}},\ {{data[4]}},\ {{data[5]}}$?'
+  parts:
+    - ask: 'Median'
+      label: v
+      tex: '\text{median}'
+      value: median(data)
+      tol: 0.0001
+      explain: 'Strike the smallest and largest together, twice; the one left is the median. No need to sort the whole list'
+  verify: { expect: { v: "sorted(data)[2]" } }
+
+# ── H1.11 sums of integers ─────────────────────────────────────────────────
+- template: mm-sum-to-n
+  skill: alg.sequences
+  pace: recall
+  given: { n: { int: [10, 60] } }
+  prompt: 'In your head: $1 + 2 + 3 + \dots + {{n}}$'
+  parts:
+    - ask: 'Sum'
+      label: v
+      tex: 'S'
+      value: n*(n + 1)/2
+      tol: 0.0001
+      explain: '$\tfrac{n(n + 1)}{2}$: halve whichever of ${{n}}$ and ${{n + 1}}$ is even, then multiply'
+  verify: { expect: { v: "sum([q for q in range(1, n + 1)])" } }
+
+- template: mm-sum-of-odds
+  skill: alg.sequences
+  pace: recall
+  given: { n: { int: [6, 30] } }
+  prompt: 'In your head: $1 + 3 + 5 + \dots + {{2*n - 1}}$'
+  parts:
+    - ask: 'Sum'
+      label: v
+      tex: 'S'
+      value: n^2
+      tol: 0.0001
+      explain: 'The first $n$ odd numbers add to $n^2$. The number of terms is $({{2*n - 1}} + 1) \div 2 = {{n}}$'
+  verify: { expect: { v: "sum([q for q in range(1, 2*n, 2)])" } }
+
+- template: mm-sum-arithmetic
+  skill: alg.sequences
+  pace: quick
+  given: { a: { int: [2, 15] }, d: { int: [2, 7] }, k: { pick: [5, 7, 9, 10, 11] } }
+  prompt: 'In your head: ${{a}} + {{a + d}} + {{a + 2*d}} + \dots + {{a + (k - 1)*d}}$'
+  parts:
+    - ask: 'Sum'
+      label: v
+      tex: 'S'
+      value: k*(2*a + (k - 1)*d)/2
+      tol: 0.0001
+      explain: 'Number of terms times the average of the first and last: there are $({{a + (k - 1)*d}} - {{a}}) \div {{d}} + 1 = {{k}}$ terms, averaging ${{(2*a + (k - 1)*d)/2}}$'
+  verify: { expect: { v: "sum([a + q*d for q in range(k)])" } }
+
+# ── H1.12 remainders ───────────────────────────────────────────────────────
+- template: mm-remainder-digits
+  skill: k8.mult-div
+  pace: recall
+  given: { n: { int: [1234, 9876] }, dv: { pick: [3, 4, 9] } }
+  require: ["mod(n, dv) != 0"]
+  prompt: 'Remainder when ${{n}}$ is divided by ${{dv}}$?'
+  parts:
+    - ask: 'Remainder'
+      label: v
+      tex: 'r'
+      value: mod(n, dv)
+      tol: 0.0001
+      explain: 'For 3 and 9, use the digit sum in place of the number (cast out nines as you go). For 4, only the last two digits matter. For 8, the last three'
+  verify: { expect: { v: "n % dv" } }
+
+- template: mm-remainder-11
+  skill: k8.mult-div
+  pace: quick
+  given: { n: { int: [1234, 98765] } }
+  require: ["mod(n, 11) != 0"]
+  prompt: 'Remainder when ${{n|9}}$ is divided by 11?'
+  parts:
+    - ask: 'Remainder'
+      label: v
+      tex: 'r'
+      value: mod(n, 11)
+      tol: 0.0001
+      explain: 'Alternate signs on the digits starting with + at the ones place, add them up, and add 11 if the total is negative'
+  verify: { expect: { v: "n % 11" } }
+
+# ── H1.13 consumer problems ────────────────────────────────────────────────
+- template: mm-sale-price
+  skill: k8.ratios
+  pace: recall
+  given: { pr: { pick: [20, 40, 60, 80, 120, 150, 240] }, off: { pick: [10, 15, 20, 25, 30, 40] } }
+  prompt: 'An item priced at ${{pr}}$ dollars is ${{off}}\%$ off. What do you pay?'
+  parts:
+    - ask: 'Price (dollars)'
+      label: v
+      tex: 'P'
+      value: pr*(100 - off)/100
+      tol: 0.0001
+      explain: 'Go straight to what is left: you pay ${{100 - off}}\%$. Ten percent is ${{pr/10}}$'
+  verify: { expect: { v: "pr - pr*Rational(off, 100)" } }
+
+# ── H1.14 number theory ────────────────────────────────────────────────────
+- template: mm-count-divisors
+  skill: k8.mult-div
+  pace: quick
+  given: { e2: { int: [1, 4] }, e3: { int: [0, 2] }, e5: { int: [0, 1] } }
+  require: ["e3 + e5 > 0"]
+  prompt: 'How many positive divisors does ${{2^e2 * 3^e3 * 5^e5}}$ have?'
+  parts:
+    - ask: 'Number of divisors'
+      label: v
+      tex: 'd(n)'
+      value: (e2 + 1)*(e3 + 1)*(e5 + 1)
+      tol: 0.0001
+      explain: 'Factor it, $2^{ {{e2}} } \cdot 3^{ {{e3}} } \cdot 5^{ {{e5}} }$, add one to each exponent and multiply: a divisor chooses how many of each prime to take'
+  verify: { expect: { v: "len(divisors(2**e2 * 3**e3 * 5**e5))" } }
+
+- template: mm-sum-divisors
+  skill: k8.mult-div
+  pace: quick
+  given: { e2: { int: [1, 3] }, pp: { pick: [3, 5, 7] } }
+  prompt: 'Sum of the positive divisors of ${{2^e2 * pp}}$?'
+  parts:
+    - ask: 'Sum of divisors'
+      label: v
+      tex: '\sigma(n)'
+      value: (2^(e2 + 1) - 1)*(pp + 1)
+      tol: 0.0001
+      explain: 'Factor it as $2^{ {{e2}} } \cdot {{pp}}$ and multiply the divisor sums of the prime powers: $(1 + 2 + \dots + 2^{ {{e2}} })(1 + {{pp}}) = {{2^(e2 + 1) - 1}} \times {{pp + 1}}$'
+  verify: { expect: { v: "sum(divisors(2**e2 * pp))" } }
+
+# ── starred problems: estimates within 5 percent ───────────────────────────
+- template: mm-estimate-product
+  skill: k8.mult-div
+  pace: recall
+  given: { a: { int: [211, 989] }, b: { int: [21, 98] } }
+  prompt: 'Estimate to within 5%: ${{a}} \times {{b}}$'
+  parts:
+    - ask: 'Estimate'
+      label: v
+      tex: 'x'
+      value: a*b
+      tol: 0.05
+      explain: 'Round one factor up and the other down so the errors cancel, keep two significant figures, and count the zeros. Five percent is generous: rounding each factor by under 2% is safe'
+  verify: { expect: { v: "a*b" } }
+
+- template: mm-estimate-quotient
+  skill: k8.mult-div
+  pace: recall
+  given: { a: { int: [12345, 98765] }, b: { int: [23, 97] } }
+  prompt: 'Estimate to within 5%: ${{a|9}} \div {{b}}$'
+  parts:
+    - ask: 'Estimate'
+      label: v
+      tex: 'x'
+      value: a/b
+      tol: 0.05
+      explain: 'Round both in the same direction so the errors cancel in the ratio, then divide the leading digits and place the decimal point by counting digits'
+  verify: { expect: { v: "Rational(a, b)" } }
+
+- template: mm-estimate-root
+  skill: k8.exponents
+  pace: quick
+  given: { r: { int: [12, 90] }, off: { int: [3, 40] }, sg: { pick: [1, -1] } }
+  require: ["off < r"]
+  prompt: 'Estimate to within 1%: $\sqrt{ {{r^2 + sg*off}} }$'
+  parts:
+    - ask: 'Estimate'
+      label: v
+      tex: 'x'
+      value: sqrt(r^2 + sg*off)
+      tol: 0.01
+      explain: 'The nearest perfect square is ${{r}}^2 = {{r^2}}$, which is ${{off}}$ {{sg > 0 ? "below" : "above"}}. Nudge the root by the gap over twice the root: ${{r}} {{sg > 0 ? "+" : "-"}} \tfrac{ {{off}} }{ {{2*r}} }$. This is the tangent-line approximation $\sqrt{a^2 + h} \approx a + \tfrac{h}{2a}$'
+  verify: { expect: { v: "sqrt(r**2 + sg*off)" } }
+
+# ── H2 and H3: a first pass ────────────────────────────────────────────────
+- template: mm-powers-of-2
+  skill: k8.exponents
+  pace: recall
+  given: { n: { int: [5, 12] } }
+  prompt: 'From memory: $2^{ {{n}} }$'
+  parts:
+    - ask: 'Value'
+      label: v
+      tex: '2^{ {{n}} }'
+      value: 2^n
+      tol: 0.0001
+      explain: 'Anchor on $2^{10} = 1024$ and double or halve from there: 32, 64, 128, 256, 512, 1024, 2048, 4096'
+  verify: { expect: { v: "2**n" } }
+
+- template: mm-cubes
+  skill: k8.exponents
+  pace: recall
+  given: { n: { int: [3, 12] } }
+  prompt: 'From memory: ${{n}}^3$'
+  parts:
+    - ask: 'Cube'
+      label: v
+      tex: '{{n}}^3'
+      value: n^3
+      tol: 0.0001
+      explain: 'The cubes to 12: 1, 8, 27, 64, 125, 216, 343, 512, 729, 1000, 1331, 1728'
+  verify: { expect: { v: "n**3" } }
+
+- template: mm-perfect-square-root
+  skill: k8.exponents
+  pace: recall
+  given: { n: { int: [13, 35] } }
+  prompt: 'In your head: $\sqrt{ {{n^2}} }$'
+  parts:
+    - ask: 'Root'
+      label: v
+      tex: '\sqrt{ {{n^2}} }'
+      value: n
+      tol: 0.0001
+      explain: 'Bracket it between squares of tens to get the tens digit, then let the last digit of ${{n^2}}$ pick the ones digit (a square ending in {{mod(n^2, 10)}} has a root ending in {{mod(n, 10)}} or {{mod(10 - mod(n, 10), 10)}})'
+  verify: { expect: { v: "sqrt(n**2)" } }
+
+- template: mm-base-to-ten
+  skill: k8.place-value
+  pace: quick
+  given: { bs: { pick: [2, 3, 4, 5, 6, 8] }, d1: { int: [1, 7] }, d2: { int: [0, 7] }, d3: { int: [0, 7] } }
+  require: ["d1 < bs", "d2 < bs", "d3 < bs"]
+  prompt: 'Convert ${{d1}}{{d2}}{{d3}}_{ {{bs}} }$ to base 10.'
+  parts:
+    - ask: 'Base 10'
+      label: v
+      tex: 'n'
+      value: d1*bs^2 + d2*bs + d3
+      tol: 0.0001
+      explain: 'Multiply and add as you read left to right: $({{d1}} \times {{bs}} + {{d2}}) \times {{bs}} + {{d3}}$. No powers needed'
+  verify: { expect: { v: "(d1*bs + d2)*bs + d3" } }
+
+- template: mm-repeating-decimal
+  skill: k8.decimals
+  pace: recall
+  given: { ab: { int: [12, 98] } }
+  require: ["mod(ab, 11) != 0"]
+  prompt: 'Write $0.\overline{ {{ab}} }$ as a fraction (any equivalent form).'
+  parts:
+    - ask: 'Fraction'
+      label: v
+      tex: 'x'
+      value: ab/99
+      tol: 0.00001
+      explain: 'A block of two repeating digits sits over 99: $\tfrac{ {{ab}} }{99}$, then reduce if you can. One repeating digit sits over 9, three over 999'
+  verify: { expect: { v: "Rational(ab, 99)" } }
+
+- template: mm-exponent-laws
+  skill: k8.exponents
+  pace: recall
+  given: { a: { int: [2, 5] }, b: { int: [3, 9] }, bs: { pick: [4, 8] } }
+  require: ["(bs == 4 ? 2*a : 3*a) - b != 0", "abs((bs == 4 ? 2*a : 3*a) - b) <= 6"]
+  prompt: 'In your head: ${{bs}}^{ {{a}} } \div 2^{ {{b}} }$'
+  parts:
+    - ask: 'Value (a fraction is fine)'
+      label: v
+      tex: 'x'
+      value: bs^a/2^b
+      tol: 0.0001
+      explain: 'Rewrite ${{bs}}$ as a power of 2 and subtract exponents: $2^{ {{bs == 4 ? 2*a : 3*a}} - {{b}} }$'
+  verify: { expect: { v: "Rational(bs**a, 2**b)" } }
+
+- template: mm-log-exact
+  skill: alg.exponential
+  pace: recall
+  given: { bs: { pick: [2, 3, 5] }, k: { int: [2, 6] } }
+  require: ["bs^k <= 1024"]
+  prompt: 'In your head: $\log_{ {{bs}} } {{bs^k}}$'
+  parts:
+    - ask: 'Value'
+      label: v
+      tex: 'x'
+      value: k
+      tol: 0.0001
+      explain: 'Ask "${{bs}}$ to what power is ${{bs^k}}$?"'
+  verify: { expect: { v: "log(bs**k, bs)" } }
+
+- template: mm-combinations
+  skill: stats.probability
+  pace: recall
+  given: { n: { int: [5, 12] }, r: { pick: [2, 3] } }
+  prompt: 'In your head: $\dbinom{ {{n}} }{ {{r}} }$'
+  parts:
+    - ask: 'Value'
+      label: v
+      tex: 'C'
+      value: combinations(n, r)
+      tol: 0.0001
+      explain: 'Multiply {{r}} descending numbers from ${{n}}$ and divide by ${{r}}!$, cancelling before you multiply'
+  verify: { expect: { v: "binomial(n, r)" } }
+
+- template: mm-geometric-sum
+  skill: alg.sequences
+  pace: recall
+  given: { a: { int: [2, 12] }, q: { pick: [2, 3, 4, 5] }, p: { pick: [1, 2, 3] } }
+  require: ["p < q", "gcd(p, q) == 1"]
+  prompt: 'In your head: ${{a}} + {{a}}\left(\tfrac{ {{p}} }{ {{q}} }\right) + {{a}}\left(\tfrac{ {{p}} }{ {{q}} }\right)^2 + \dots$'
+  parts:
+    - ask: 'Sum (a fraction is fine)'
+      label: v
+      tex: 'S'
+      value: a*q/(q - p)
+      tol: 0.0001
+      explain: 'First term over one minus the ratio: $\tfrac{ {{a}} }{1 - {{p}}/{{q}}} = {{a}} \times \tfrac{ {{q}} }{ {{q - p}} }$'
+  verify: { expect: { v: "summation(a*Rational(p, q)**nn, (nn, 0, oo))" } }

@@ -169,6 +169,13 @@ if (!process.argv[2] && !failed) {
 
   // for the plugin: the whole library (Library builder, Path tab) and a small LO → drills map (cards)
   const TRACK_TITLES = { math: "Math", science: "Science", computing: "Computing", engineering: "Engineering", health: "Health", safety: "AI Safety", communication: "Communication", athletics: "Athletics" };
+  // how long a template takes: stated (`pace:` on a problems-as-data template) or, when it isn't, a
+  // guess from its shape: one question is quick, several parts or a coded generator is a workout.
+  // An objective is as slow as its slowest drill.
+  const PACES = ["recall", "quick", "workout"];
+  const tplPace = {};
+  for (const t of graph.problems ?? []) tplPace[t.template] = t.pace ?? ((t.parts ?? []).length === 1 ? "quick" : "workout");
+  const loPace = (drills) => (drills.length ? PACES[Math.max(...drills.map((d) => PACES.indexOf(tplPace[d] ?? "workout")))] : undefined);
   const tplSkill = {};
   for (const s of graph.skills) for (const ts of Object.values(s.levels ?? {})) for (const t of ts) tplSkill[t] = s.id;
   const lib = {
@@ -183,7 +190,7 @@ if (!process.argv[2] && !failed) {
             n: t.n, title: t.title,
             los: t.los.map((lo) => {
               const code = `${f.code}-${u.n}.${t.n}.${lo.id}`;
-              return { code, pos: pos.get(code) + 1, do: lo.do, ek: (lo.ek ?? []).join(" "), std: [].concat(lo.std ?? []).join(", "), needs: lo.needs ?? [], drills: (lo.drills ?? []).filter((d) => !d.startsWith("~")) };
+              return { code, pos: pos.get(code) + 1, do: lo.do, ek: (lo.ek ?? []).join(" "), std: [].concat(lo.std ?? []).join(", "), needs: lo.needs ?? [], drills: (lo.drills ?? []).filter((d) => !d.startsWith("~")), pace: loPace((lo.drills ?? []).filter((d) => !d.startsWith("~"))) };
             }),
           })),
         })),

@@ -1,0 +1,299 @@
+# PDE exam review (CBE 200, Kreyszig Ch 11–12 plus finite differences). An exam problem is a long
+# derivation, but it turns on a handful of decisions: which variable oscillates, which
+# eigenfunctions the boundary conditions pick, what a coefficient integral gives, what the scheme's
+# stencil and stability limit are. Each item drills one of those, one question at a time.
+
+# ── which eigenfunctions do the boundary conditions pick? ──────────────────
+- template: mt-bc-eigenfunctions
+  skill: pde.midterm-review
+  pace: recall
+  cases:
+    - { bc: 'X(0) = 0,\ X(L) = 0', ans: 0, why: 'Zero at x = 0 kills the cosine; zero at x = L forces sin(λL) = 0' }
+    - { bc: "X'(0) = 0,\\ X'(L) = 0", ans: 1, why: 'Zero slope at x = 0 kills the sine; zero slope at x = L forces sin(λL) = 0. n = 0 is allowed and gives the constant mode' }
+    - { bc: "X(0) = 0,\\ X'(L) = 0", ans: 2, why: 'Zero at x = 0 keeps the sine; zero slope at x = L forces cos(λL) = 0, the odd multiples of π/2' }
+    - { bc: "X'(0) = 0,\\ X(L) = 0", ans: 3, why: 'Zero slope at x = 0 keeps the cosine; zero at x = L forces cos(λL) = 0, the odd multiples of π/2' }
+  prompt: "For $X'' + \\lambda^2 X = 0$ on $0 < x < L$ with ${{bc}}$, the eigenfunctions are…"
+  parts:
+    - ask: 'Eigenfunctions'
+      label: v
+      choice: ["sin(nπx/L), n = 1, 2, 3, …", "cos(nπx/L), n = 0, 1, 2, …", "sin((2n − 1)πx/(2L)), n = 1, 2, 3, …", "cos((2n − 1)πx/(2L)), n = 1, 2, 3, …"]
+      correct: ans
+      explain: '{{why}}'
+  verify: { authored: true }
+
+- template: mt-which-variable-oscillates
+  skill: pde.midterm-review
+  pace: recall
+  cases:
+    - { say: 'u = 0 on x = 0 and x = a, u = 0 on y = 0, and u = f(x) on y = b', ans: 0 }
+    - { say: 'u = 0 on y = 0 and y = b, u = 0 on x = 0, and u = g(y) on x = a', ans: 1 }
+    - { say: 'insulated on x = 0 and x = a, u = 0 on y = 0, and u = f(x) on y = b', ans: 0 }
+    - { say: 'u = 0 on y = 0 and y = b, u = g(y) on x = 0, and u bounded as x → ∞', ans: 1 }
+  prompt: "Laplace's equation $u_{xx} + u_{yy} = 0$ on a rectangle, with {{say}}. After writing $u = X(x)Y(y)$, which factor gets the oscillating solutions (sines and cosines)?"
+  parts:
+    - ask: 'Oscillating factor'
+      label: v
+      choice: ["X(x): sines or cosines in x, hyperbolic or exponential in y", "Y(y): sines or cosines in y, hyperbolic or exponential in x"]
+      correct: ans
+      explain: 'The direction with homogeneous conditions on both of its sides gets the eigenfunctions, because only an oscillating solution can satisfy two homogeneous conditions. The other direction carries the one nonhomogeneous condition and gets sinh, cosh or a decaying exponential. This fixes the sign of the separation constant'
+  verify: { authored: true }
+
+- template: mt-other-direction
+  skill: pde.midterm-review
+  pace: recall
+  cases:
+    - { say: 'u(x, 0) = 0, with the data on y = b', ans: 0, why: 'sinh vanishes at y = 0, so that condition is met mode by mode' }
+    - { say: 'u_y(x, 0) = 0 (insulated bottom), with the data on y = b', ans: 1, why: 'cosh has zero slope at y = 0' }
+    - { say: 'the data on y = 0, with u bounded as y → ∞', ans: 2, why: 'The growing exponential is thrown out' }
+  prompt: "Laplace's equation with eigenfunctions $\\sin(n\\pi x/a)$ in $x$. The $y$-conditions are: {{say}}. The $y$-factor of mode $n$ is…"
+  parts:
+    - ask: 'Y(y)'
+      label: v
+      choice: ["sinh(nπy/a)", "cosh(nπy/a)", "exp(−nπy/a)"]
+      correct: ans
+      explain: '{{why}}. Y solves Y″ = (nπ/a)²Y, whose solutions are sinh and cosh (or the two exponentials); pick the combination that satisfies the homogeneous condition'
+  verify: { authored: true }
+
+# ── heat equation: modes and how fast they die ─────────────────────────────
+- template: mt-heat-time-constant
+  skill: pde.midterm-review
+  pace: quick
+  given: { L: { pick: [1, 2, 3, 0.5] }, al: { pick: [1, 2, 0.5, 0.1] }, n: { pick: [1, 2, 3] } }
+  prompt: 'A rod $0 < x < {{L}}$ has both ends held at 0 and obeys $u_t = {{al}}\,u_{xx}$. Mode ${{n}}$ is $e^{-t/\tau}\sin({{n}}\pi x/{{L}})$.'
+  parts:
+    - ask: 'Time constant $\tau$ of this mode'
+      label: tau
+      tex: '\tau'
+      value: L^2/(al*n^2*pi^2)
+      tol: 0.01
+      explain: 'Substitute the mode into the PDE: $-1/\tau = -\alpha(n\pi/L)^2$, so $\tau = L^2/(\alpha n^2\pi^2)$. Mode $n$ dies $n^2$ times faster than mode 1, which is why the first term soon dominates'
+  verify: { expect: { tau: "solve(Eq(diff(exp(-Y/Z)*sin(n*pi*x/L), Y), al*diff(exp(-Y/Z)*sin(n*pi*x/L), x, 2)), Z)[0]" } }
+
+- template: mt-sine-coefficient-constant
+  skill: pde.midterm-review
+  pace: quick
+  given: { T0: { pick: [1, 10, 50, 100] }, L: { pick: [1, 2, 3] }, n: { pick: [1, 3, 5] } }
+  prompt: 'Expand $f(x) = {{T0}}$ on $0 < x < {{L}}$ in the sine series $\sum b_n\sin(n\pi x/{{L}})$.'
+  parts:
+    - ask: '$b_{ {{n}} }$'
+      label: b
+      tex: 'b_{ {{n}} }'
+      value: 4*T0/(n*pi)
+      tol: 0.01
+      explain: '$b_n = \tfrac{2}{L}\int_0^L f\sin(n\pi x/L)\,dx = \tfrac{2T_0}{n\pi}(1 - \cos n\pi)$: zero for even $n$ and $\tfrac{4T_0}{n\pi}$ for odd $n$. The length $L$ cancels'
+  verify: { expect: { b: "2/L*integrate(T0*sin(n*pi*x/L), (x, 0, L))" } }
+
+- template: mt-sine-coefficient-linear
+  skill: pde.midterm-review
+  pace: quick
+  given: { L: { pick: [1, 2, 3] }, n: { int: [1, 4] } }
+  prompt: 'Expand $f(x) = x$ on $0 < x < {{L}}$ in the sine series $\sum b_n\sin(n\pi x/{{L}})$.'
+  parts:
+    - ask: '$b_{ {{n}} }$'
+      label: b
+      tex: 'b_{ {{n}} }'
+      value: 2*L*(-1)^(n + 1)/(n*pi)
+      tol: 0.01
+      explain: 'Integrate by parts: $b_n = \tfrac{2}{L}\int_0^L x\sin(n\pi x/L)\,dx = \tfrac{2L}{n\pi}(-1)^{n+1}$. The signs alternate and the size falls like $1/n$'
+  verify: { expect: { b: "2/L*integrate(x*sin(n*pi*x/L), (x, 0, L))" } }
+
+- template: mt-read-coefficients
+  skill: pde.midterm-review
+  pace: quick
+  given: { A0: { int: [2, 9] }, B0: { int: [-6, -1] }, L: { pick: [1, 2] }, al: { pick: [1, 2, 0.5] } }
+  prompt: 'Solve $u_t = {{al}}\,u_{xx}$ on $0 < x < {{L}}$, $u = 0$ at both ends, with $u(x, 0) = {{A0}}\sin(\pi x/{{L}}) {{B0}}\sin(3\pi x/{{L}})$.'
+  parts:
+    - ask: 'Coefficient $b_3$ of $\sin(3\pi x/{{L}})$ in the solution'
+      label: b3
+      tex: 'b_3'
+      value: B0
+      tol: 0.001
+      explain: 'The initial condition is already a sine series, so read the coefficients off. No integral is needed: orthogonality would just return them'
+    - ask: 'Decay rate $k_3$ in that term''s factor $e^{-k_3 t}$'
+      label: k3
+      tex: 'k_3'
+      value: al*9*pi^2/L^2
+      tol: 0.01
+      explain: '$k_n = \alpha(n\pi/L)^2$ with $n = 3$. The solution is ${{A0}}e^{-k_1t}\sin(\pi x/L) {{B0}}e^{-k_3t}\sin(3\pi x/L)$'
+  verify:
+    expect:
+      b3: "2/L*integrate((A0*sin(pi*x/L) + B0*sin(3*pi*x/L))*sin(3*pi*x/L), (x, 0, L))"
+      k3: "solve(Eq(diff(exp(-Z*Y)*sin(3*pi*x/L), Y), al*diff(exp(-Z*Y)*sin(3*pi*x/L), x, 2)), Z)[0]"
+
+- template: mt-insulated-steady-state
+  skill: pde.midterm-review
+  pace: quick
+  given: { T1: { pick: [10, 20, 30] }, dT: { pick: [20, 40, 60, 80] }, L: { pick: [1, 2, 4] } }
+  prompt: 'A rod $0 < x < {{L}}$ is insulated at both ends and along its length. Initially $T(x, 0) = {{T1}} + {{dT/L}}\,x$.'
+  parts:
+    - ask: 'Temperature as $t \to \infty$'
+      label: Ts
+      tex: 'T_\infty'
+      value: T1 + dT/2
+      tol: 0.001
+      explain: 'No heat can leave, so the rod settles to the average of its initial temperature: $\tfrac1L\int_0^L T(x,0)\,dx$. In the cosine series this is the $n = 0$ term, the only one that does not decay'
+  verify: { expect: { Ts: "integrate(T1 + Rational(dT, 1)/L*x, (x, 0, L))/L" } }
+
+# ── the vibrating string ───────────────────────────────────────────────────
+- template: mt-string-frequency
+  skill: pde.midterm-review
+  pace: quick
+  given: { L: { pick: [0.5, 1, 2] }, cc: { pick: [100, 200, 340, 400] }, n: { pick: [1, 2, 3] } }
+  prompt: 'A string of length ${{L}}$ m fixed at both ends obeys $u_{tt} = c^2u_{xx}$ with $c = {{cc}}$ m/s.'
+  parts:
+    - ask: 'Frequency of mode ${{n}}$, in Hz'
+      label: f
+      tex: 'f_{ {{n}} }'
+      value: n*cc/(2*L)
+      tol: 0.01
+      explain: 'Mode $n$ is $\sin(n\pi x/L)\cos(\omega_n t)$ with $\omega_n = n\pi c/L$, so $f_n = \omega_n/2\pi = nc/(2L)$'
+  verify: { expect: { f: "Max(*solve(Eq(diff(sin(n*pi*x/L)*cos(Z*Y), Y, 2), cc**2*diff(sin(n*pi*x/L)*cos(Z*Y), x, 2)), Z))/(2*pi)" } }
+
+- template: mt-string-time-factor
+  skill: pde.midterm-review
+  pace: recall
+  cases:
+    - { say: 'pulled into a shape f(x) and released from rest', ans: 0, why: 'Zero initial velocity kills every sine-in-time term, since the derivative of sin(ωt) at t = 0 is not zero' }
+    - { say: 'struck while flat, so that u(x, 0) = 0 and the initial velocity is g(x)', ans: 1, why: 'Zero initial displacement kills every cosine-in-time term' }
+  prompt: 'A string fixed at both ends is {{say}}. Each mode''s time factor is…'
+  parts:
+    - ask: 'Time factor'
+      label: v
+      choice: ["cos(ωₙt) only", "sin(ωₙt) only", "a decaying exponential"]
+      correct: ans
+      explain: '{{why}}. The wave equation is second order in time, so each mode has both cos and sin and needs two initial conditions; the heat equation is first order and gets one decaying exponential'
+  verify: { authored: true }
+
+# ── cylinders and Bessel functions ─────────────────────────────────────────
+- template: mt-bessel-condition
+  skill: pde.midterm-review
+  pace: recall
+  cases:
+    - { say: 'the wall r = a is held at zero temperature', ans: 0, why: 'R(a) = 0 directly' }
+    - { say: 'the wall r = a is insulated', ans: 1, why: "R′(a) = 0 and J₀′ = −J₁. λ = 0 also works here and gives the constant mode" }
+  prompt: 'In a cylinder the radial factor is $R(r) = J_0(\lambda r)$, and {{say}}. The eigenvalues come from…'
+  parts:
+    - ask: 'Condition'
+      label: v
+      choice: ["J₀(λa) = 0", "J₁(λa) = 0", "Y₀(λa) = 0"]
+      correct: ans
+      explain: '{{why}}. Y₀ was already discarded because it blows up on the axis'
+  verify: { authored: true }
+
+- template: mt-bessel-decay-length
+  skill: pde.midterm-review
+  pace: quick
+  given: { a0: { pick: [0.5, 1, 2, 5, 10] } }
+  prompt: 'A semi-infinite cylinder of radius ${{a0}}$ cm has its wall at 0 and a hot base at $z = 0$. Far from the base, $T \approx A_1J_0(\alpha_1 r/a)\,e^{-z/\ell}$ with $\alpha_1 = 2.405$.'
+  parts:
+    - ask: 'Decay length $\ell$, in cm'
+      label: ell
+      tex: '\ell'
+      value: a0/2.404825557695773
+      tol: 0.01
+      explain: 'Separation gives $Z'''' = \lambda^2Z$ with $\lambda_n = \alpha_n/a$, so each mode falls as $e^{-\alpha_n z/a}$. The first zero of $J_0$ is 2.405, so $\ell = a/2.405$: under half a radius'
+  verify: { expect: { ell: "a0/jzero(0, 1)" } }
+
+- template: mt-bessel-weight
+  skill: pde.midterm-review
+  pace: recall
+  cases:
+    - { fam: 'J_0(\alpha_n r/a)', dom: '0 < r < a', ans: 1 }
+    - { fam: '\sin(n\pi x/L)', dom: '0 < x < L', ans: 0 }
+    - { fam: '\cos(n\pi x/L)', dom: '0 < x < L', ans: 0 }
+  prompt: 'The functions ${{fam}}$ are orthogonal on ${{dom}}$ with which weight inside the integral?'
+  parts:
+    - ask: 'Weight'
+      label: v
+      choice: ["1", "r", "r²"]
+      correct: ans
+      explain: 'The weight is read from the Sturm–Liouville form $(pX'')'' + (q + \lambda w)X = 0$. Bessel''s equation is $(rR'')'' + \lambda^2 rR = 0$, so $w = r$: every Fourier–Bessel coefficient integral carries an extra $r$. For $X'''' + \lambda^2X = 0$ the weight is 1'
+  verify: { authored: true }
+
+# ── finite differences ─────────────────────────────────────────────────────
+- template: mt-central-second-difference
+  skill: pde.midterm-review
+  pace: quick
+  given: { h0: { pick: [0.1, 0.2, 0.5, 1] }, fm: { int: [1, 9] }, f0: { int: [1, 9] }, fp: { int: [1, 9] } }
+  require: ["fp - 2*f0 + fm != 0"]
+  prompt: 'With $h = {{h0}}$: $f(x - h) = {{fm}}$, $f(x) = {{f0}}$, $f(x + h) = {{fp}}$. Estimate $f''''(x)$ with the central difference.'
+  parts:
+    - ask: "$f''(x) \\approx$"
+      label: d2
+      tex: "f''"
+      value: (fp - 2*f0 + fm)/h0^2
+      tol: 0.001
+      explain: '$\dfrac{f(x+h) - 2f(x) + f(x-h)}{h^2}$. Adding the two Taylor series cancels the odd terms, leaving an error of order $h^2$'
+  verify: { expect: { d2: "diff(interpolate([(-h0, fm), (0, f0), (h0, fp)], x), x, 2)" } }
+
+- template: mt-truncation-order
+  skill: pde.midterm-review
+  pace: recall
+  cases:
+    - { fd: '\frac{f(x+h) - f(x)}{h}', of: "f'(x)", ans: 0, why: 'One Taylor series; the first neglected term is (h/2)f″' }
+    - { fd: '\frac{f(x) - f(x-h)}{h}', of: "f'(x)", ans: 0, why: 'One Taylor series; the first neglected term is (h/2)f″' }
+    - { fd: '\frac{f(x+h) - f(x-h)}{2h}', of: "f'(x)", ans: 1, why: 'Subtracting the two series cancels the f″ term; the error starts at (h²/6)f‴' }
+    - { fd: '\frac{f(x+h) - 2f(x) + f(x-h)}{h^2}', of: "f''(x)", ans: 1, why: 'Adding the two series cancels the odd terms; the error starts at (h²/12)f⁗' }
+  prompt: 'The approximation $\displaystyle {{fd}}$ for ${{of}}$ has truncation error of order…'
+  parts:
+    - ask: 'Order'
+      label: v
+      choice: ["h", "h²", "h⁴"]
+      correct: ans
+      explain: '{{why}}. To find an order on the exam: Taylor-expand every sampled value about x, collect, and read the lowest power of h that survives'
+  verify: { authored: true }
+
+- template: mt-explicit-step
+  skill: pde.midterm-review
+  pace: quick
+  given: { r0: { pick: [0.25, 0.4, 0.5] }, um: { int: [0, 9] }, ui: { int: [1, 9] }, up: { int: [0, 9] } }
+  require: ["r0*um + (1 - 2*r0)*ui + r0*up != 0"]
+  prompt: 'Explicit scheme for $u_t = u_{xx}$ with $r = k/h^2 = {{r0}}$. At time level $j$: $u_{i-1} = {{um}}$, $u_i = {{ui}}$, $u_{i+1} = {{up}}$.'
+  parts:
+    - ask: '$u_i$ at time level $j + 1$'
+      label: un
+      tex: 'u_{i,j+1}'
+      value: r0*um + (1 - 2*r0)*ui + r0*up
+      tol: 0.001
+      explain: '$u_{i,j+1} = r\,u_{i-1,j} + (1 - 2r)\,u_{i,j} + r\,u_{i+1,j}$: forward difference in time, central difference in space, everything on the right already known'
+  verify: { expect: { un: "ui + r0*(up - 2*ui + um)" } }
+
+- template: mt-explicit-stability
+  skill: pde.midterm-review
+  pace: quick
+  given: { h0: { pick: [0.05, 0.1, 0.2, 0.25] }, al: { pick: [1, 2, 0.5] } }
+  prompt: 'The explicit scheme is used for $u_t = {{al}}\,u_{xx}$ with $h = {{h0}}$.'
+  parts:
+    - ask: 'Largest stable time step $k$'
+      label: k
+      tex: 'k_{\max}'
+      value: h0^2/(2*al)
+      tol: 0.001
+      explain: 'Stability needs $r = \alpha k/h^2 \le \tfrac12$. Halving $h$ forces four times as many time steps. Crank–Nicolson has no such limit'
+  verify: { expect: { k: "solve(Eq(1 - 4*al*Z/h0**2, -1), Z)[0]" } }
+
+- template: mt-amplification
+  skill: pde.midterm-review
+  pace: quick
+  given: { r0: { pick: [0.3, 0.45, 0.55, 0.75, 1] } }
+  cases:
+    - { sch: 'explicit', cn: 0 }
+    - { sch: 'Crank–Nicolson', cn: 1 }
+  let:
+    G: "cn == 1 ? (1 - 2*r0)/(1 + 2*r0) : 1 - 4*r0"
+  prompt: 'For $u_t = u_{xx}$ with $r = k/h^2 = {{r0}}$, the {{sch}} scheme multiplies the most oscillatory grid mode (the sawtooth, $\sin^2(n\pi h/2) = 1$) by a factor $G$ each step.'
+  parts:
+    - ask: '$G$'
+      label: g
+      tex: 'G'
+      value: G
+      tol: 0.005
+      explain: 'Explicit: $G = 1 - 4r\sin^2(n\pi h/2)$. Crank–Nicolson: $G = \dfrac{1 - 2r\sin^2(n\pi h/2)}{1 + 2r\sin^2(n\pi h/2)}$'
+    - ask: 'Does this mode stay bounded?'
+      label: s
+      choice: ["Yes: |G| ≤ 1", "No: |G| > 1, so it grows every step"]
+      correct: "abs(G) <= 1 ? 0 : 1"
+      explain: 'A mode is stable when $|G| \le 1$. The explicit scheme needs $r \le \tfrac12$; for Crank–Nicolson the numerator is always smaller in size than the denominator, so it is stable for every $r$'
+  verify:
+    expect: { g: "(1 - 2*r0)/(1 + 2*r0) if cn == 1 else 1 - 4*r0" }
+    choices: { s: "0 if Abs((1 - 2*r0)/(1 + 2*r0) if cn == 1 else 1 - 4*r0) <= 1 else 1" }
