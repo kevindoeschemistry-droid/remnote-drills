@@ -198,7 +198,7 @@ units:
       - n: 1
         title: Summarize, represent and interpret data on a single count or measurement variable
         los:
-          - { id: A, std: S-ID.A.1, do: "Represent data with plots on the real number line: dot plots, histograms and box plots.", ek: ["A box plot shows the five-number summary: minimum, Q1, median, Q3, maximum."], p: [MP5, MP6], drills: ["~k8-dot-plot", "~k8-box-plot"] }
+          - { id: A, std: S-ID.A.1, do: "Represent data with plots on the real number line: dot plots, histograms and box plots.", ek: ["A box plot shows the five-number summary: minimum, Q1, median, Q3, maximum."], p: [MP5, MP6], drills: ["~k8-dot-plot", "~k8-box-plot", k8-histogram-read] }
           - { id: B, std: S-ID.A.2, do: "Compare the center (median, mean) and spread (interquartile range, standard deviation) of two or more data sets, using statistics suited to their shape.", ek: ["Skewed data or outliers → median and IQR; roughly symmetric → mean and standard deviation."], p: [MP2, MP3], drills: [stats-center], needs: [MH-3.1.A] }
           - { id: C, std: S-ID.A.3, do: "Interpret differences in shape, center and spread in context, accounting for possible effects of extreme data points (outliers).", ek: ["An outlier lies more than 1.5·IQR beyond a quartile; it moves the mean and SD much more than the median and IQR."], p: [MP2, MP3], drills: [stats-outlier], needs: [MH-3.1.B] }
       - n: 2

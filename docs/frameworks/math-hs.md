@@ -2,7 +2,7 @@
 
 Generated from `drills/frameworks/math-hs.yaml` by `scripts/framework.mjs`. ● drilled · ◐ partly · ○ no drills yet.
 
-**200 learning objectives** in 21 units (194 core): 149 drilled, 30 partly, 21 with no drills. Core: 144 / 194 drilled.
+**200 learning objectives** in 21 units (194 core): 150 drilled, 29 partly, 21 with no drills. Core: 145 / 194 drilled.
 
 ## Big ideas
 
@@ -30,7 +30,7 @@ Generated from `drills/frameworks/math-hs.yaml` by `scripts/framework.mjs`. ● 
 |---|---|---|---|---|---|---|
 | 1 · Relationships between quantities and reasoning with equations | core | — | 12 | 5 | 5 | 2 |
 | 2 · Linear and exponential relationships | core | — | 25 | 21 | 2 | 2 |
-| 3 · Descriptive statistics | core | — | 10 | 9 | 1 | 0 |
+| 3 · Descriptive statistics | core | — | 10 | 10 | 0 | 0 |
 | 4 · Expressions and equations | core | — | 10 | 10 | 0 | 0 |
 | 5 · Quadratic functions and modeling | core | — | 12 | 9 | 2 | 1 |
 | 6 · Congruence, proof and constructions | core | — | 13 | 8 | 1 | 4 |
@@ -264,9 +264,9 @@ Big ideas: DATA, MODEL
 
 
 
-- ◐ **MH-3.1.A** (S-ID.A.1) Represent data with plots on the real number line: dot plots, histograms and box plots.
+- ● **MH-3.1.A** (S-ID.A.1) Represent data with plots on the real number line: dot plots, histograms and box plots.
   - EK: A box plot shows the five-number summary: minimum, Q1, median, Q3, maximum.
-  - MP5 · MP6 · drills: ~k8-dot-plot, ~k8-box-plot
+  - MP5 · MP6 · drills: k8-histogram-read, ~k8-dot-plot, ~k8-box-plot
 - ● **MH-3.1.B** (S-ID.A.2) Compare the center (median, mean) and spread (interquartile range, standard deviation) of two or more data sets, using statistics suited to their shape.
   - EK: Skewed data or outliers → median and IQR; roughly symmetric → mean and standard deviation.
   - Needs: MH-3.1.A
@@ -1295,6 +1295,7 @@ Big ideas: DATA, MODEL
 - mm-volume-in-pi (geo.measurement)
 - mm-sphere-in-pi (geo.measurement)
 - k8-cross-section (geo.measurement)
+- k8-volume-by-layers (geo.measurement)
 - mm-slope (geo.coordinates)
 - mm-circle-angles (geo.circles)
 - mm-circle-radius (geo.circles)
@@ -1304,3 +1305,4 @@ Big ideas: DATA, MODEL
 - mm-subsets (stats.probability)
 - mm-two-dice (stats.probability)
 - mm-combinations (stats.probability)
+- k8-simulation-estimate (stats.probability)

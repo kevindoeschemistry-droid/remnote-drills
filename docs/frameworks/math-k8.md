@@ -2,7 +2,7 @@
 
 Generated from `drills/frameworks/math-k8.yaml` by `scripts/framework.mjs`. ● drilled · ◐ partly · ○ no drills yet.
 
-**258 learning objectives** in 9 units (258 core): 214 drilled, 27 partly, 17 with no drills. Core: 214 / 258 drilled.
+**258 learning objectives** in 9 units (258 core): 240 drilled, 14 partly, 4 with no drills. Core: 240 / 258 drilled.
 
 ## Big ideas
 
@@ -30,15 +30,15 @@ Generated from `drills/frameworks/math-k8.yaml` by `scripts/framework.mjs`. ● 
 
 | Unit | Scope | Est. weight | LOs | ● | ◐ | ○ |
 |---|---|---|---|---|---|---|
-| 1 · Kindergarten — counting, adding and subtracting within 10, shapes | core | — | 22 | 13 | 3 | 6 |
-| 2 · Grade 1 — addition and subtraction within 20, tens and ones, length units | core | — | 21 | 15 | 4 | 2 |
-| 3 · Grade 2 — base ten to 1000, fluency within 100, standard length units | core | — | 26 | 18 | 5 | 3 |
-| 4 · Grade 3 — multiplication and division within 100, unit fractions, area | core | — | 30 | 27 | 3 | 0 |
-| 5 · Grade 4 — multi-digit arithmetic, fraction equivalence and operations, angles | core | — | 32 | 28 | 2 | 2 |
-| 6 · Grade 5 — fraction addition and multiplication, decimals to thousandths, volume | core | — | 30 | 28 | 2 | 0 |
-| 7 · Grade 6 — ratios and rates, negative numbers, expressions and one-step equations, distributions | core | — | 36 | 33 | 3 | 0 |
-| 8 · Grade 7 — proportional relationships, rational-number arithmetic, linear equations, sampling and probability | core | — | 30 | 26 | 0 | 4 |
-| 9 · Grade 8 — irrationals and exponents, linear equations and systems, functions, transformations, Pythagoras | core | — | 31 | 26 | 5 | 0 |
+| 1 · Kindergarten — counting, adding and subtracting within 10, shapes | core | — | 22 | 16 | 3 | 3 |
+| 2 · Grade 1 — addition and subtraction within 20, tens and ones, length units | core | — | 21 | 20 | 1 | 0 |
+| 3 · Grade 2 — base ten to 1000, fluency within 100, standard length units | core | — | 26 | 23 | 3 | 0 |
+| 4 · Grade 3 — multiplication and division within 100, unit fractions, area | core | — | 30 | 30 | 0 | 0 |
+| 5 · Grade 4 — multi-digit arithmetic, fraction equivalence and operations, angles | core | — | 32 | 30 | 1 | 1 |
+| 6 · Grade 5 — fraction addition and multiplication, decimals to thousandths, volume | core | — | 30 | 30 | 0 | 0 |
+| 7 · Grade 6 — ratios and rates, negative numbers, expressions and one-step equations, distributions | core | — | 36 | 36 | 0 | 0 |
+| 8 · Grade 7 — proportional relationships, rational-number arithmetic, linear equations, sampling and probability | core | — | 30 | 28 | 2 | 0 |
+| 9 · Grade 8 — irrationals and exponents, linear equations and systems, functions, transformations, Pythagoras | core | — | 31 | 27 | 4 | 0 |
 
 ## Unit 1 · Kindergarten — counting, adding and subtracting within 10, shapes
 
@@ -67,10 +67,10 @@ Big ideas: COUNT, OPS, MEAS, SHAPE
   - EK: Arrangement does not change how many; scattered sets need a way to track what was counted.
   - Needs: MK-1.1.D
   - MP6 · drills: k8-count-dots
-- ◐ **MK-1.1.F** (K.CC.C.6) Identify whether the number of objects in one group is greater than, less than, or equal to the number in another group (up to 10).
+- ● **MK-1.1.F** (K.CC.C.6) Identify whether the number of objects in one group is greater than, less than, or equal to the number in another group (up to 10).
   - EK: Compare by matching one-to-one or by counting; leftover objects mean more.
   - Needs: MK-1.1.E
-  - MP2 · MP3 · drills: ~k8-cmp-10
+  - MP2 · MP3 · drills: k8-compare-groups, ~k8-cmp-10
 - ● **MK-1.1.G** (K.CC.C.7) Compare two numbers between 1 and 10 presented as written numerals.
   - EK: A number later in the counting sequence is greater.
   - Needs: MK-1.1.F, MK-1.1.C
@@ -117,10 +117,10 @@ Big ideas: COUNT, OPS, MEAS, SHAPE
 - ○ **MK-1.4.A** (K.MD.A.1) Describe measurable attributes of objects, such as length or weight, and several attributes of one object.
   - EK: An object has several attributes that can be measured.
   - MP6
-- ○ **MK-1.4.B** (K.MD.A.2) Directly compare two objects with a measurable attribute in common and say which has more or less of it.
+- ◐ **MK-1.4.B** (K.MD.A.2) Directly compare two objects with a measurable attribute in common and say which has more or less of it.
   - EK: Line objects up from a common start to compare length.
   - Needs: MK-1.4.A
-  - MP6
+  - MP6 · drills: ~k8-order-lengths
 - ● **MK-1.4.C** (K.MD.B.3) Classify objects into given categories, count the objects in each category, and sort the categories by count (counts ≤ 10).
   - EK: Sorting then counting turns a pile into data.
   - Needs: MK-1.1.E
@@ -133,9 +133,9 @@ Big ideas: COUNT, OPS, MEAS, SHAPE
 - ○ **MK-1.5.A** (K.G.A.1) Describe objects in the environment using names of shapes and their relative positions (above, below, beside, in front of, behind, next to).
   - EK: Position words describe where an object is relative to another.
   - MP6
-- ○ **MK-1.5.B** (K.G.A.2) Name shapes correctly regardless of their orientation or overall size.
+- ● **MK-1.5.B** (K.G.A.2) Name shapes correctly regardless of their orientation or overall size.
   - EK: A shape keeps its name when it is turned or resized.
-  - MP7
+  - MP7 · drills: k8-name-the-shape
 - ● **MK-1.5.C** (K.G.A.3) Identify shapes as two-dimensional (flat) or three-dimensional (solid).
   - EK: Flat shapes have length and width; solids also have depth.
   - Needs: MK-1.5.B
@@ -148,10 +148,10 @@ Big ideas: COUNT, OPS, MEAS, SHAPE
   - EK: Building a shape requires knowing its parts.
   - Needs: MK-1.5.D
   - MP4
-- ○ **MK-1.5.F** (K.G.B.6) Compose simple shapes to form larger shapes (two triangles make a rectangle).
+- ● **MK-1.5.F** (K.G.B.6) Compose simple shapes to form larger shapes (two triangles make a rectangle).
   - EK: Shapes combine into new shapes.
   - Needs: MK-1.5.D
-  - MP7
+  - MP7 · drills: k8-compose-shapes
 
 ## Unit 2 · Grade 1 — addition and subtraction within 20, tens and ones, length units
 
@@ -169,18 +169,18 @@ Big ideas: OPS, PV, MEAS, SHAPE
   - EK: Add three numbers by adding two, then the third.
   - Needs: MK-2.1.A
   - MP1 · drills: k8-add3
-- ◐ **MK-2.1.C** (1.OA.B.3) Apply the commutative and associative properties of addition as strategies (8+3 = 3+8; 2+6+4 = 2+10).
+- ● **MK-2.1.C** (1.OA.B.3) Apply the commutative and associative properties of addition as strategies (8+3 = 3+8; 2+6+4 = 2+10).
   - EK: Order and grouping don't change a sum.
   - Needs: MK-1.2.C
-  - MP7 · MP8 · drills: ~k8-add3
+  - MP7 · MP8 · drills: k8-make-ten-in-sum, ~k8-add3
 - ● **MK-2.1.D** (1.OA.B.4) Understand subtraction as an unknown-addend problem (10 − 8 as 8 + ? = 10).
   - EK: Subtraction finds a missing part.
   - Needs: MK-1.2.A
   - MP7 · drills: k8-missing-addend
-- ◐ **MK-2.1.E** (1.OA.C.5) Relate counting to addition and subtraction (counting on 2 to add 2).
+- ● **MK-2.1.E** (1.OA.C.5) Relate counting to addition and subtraction (counting on 2 to add 2).
   - EK: Adding n means counting on n; subtracting means counting back.
   - Needs: MK-1.1.B
-  - MP7 · drills: ~k8-count-on
+  - MP7 · drills: k8-count-on-to-add, ~k8-count-on
 - ● **MK-2.1.F** (1.OA.C.6) Add and subtract within 20, fluently within 10, using strategies such as making ten, decomposing to ten, and known sums (8+6 = 8+2+4).
   - EK: Making ten turns a hard fact into an easy one.
   - Needs: MK-1.2.D, MK-1.2.E, MK-2.1.C, MK-2.1.D, MK-2.1.E
@@ -227,10 +227,10 @@ Big ideas: OPS, PV, MEAS, SHAPE
 
 
 
-- ○ **MK-2.3.A** (1.MD.A.1) Order three objects by length, and compare the lengths of two objects indirectly by using a third object.
+- ● **MK-2.3.A** (1.MD.A.1) Order three objects by length, and compare the lengths of two objects indirectly by using a third object.
   - EK: If A is longer than C and C is longer than B, then A is longer than B (transitivity).
   - Needs: MK-1.4.B
-  - MP3
+  - MP3 · drills: k8-order-lengths
 - ◐ **MK-2.3.B** (1.MD.A.2) Express the length of an object as a whole number of length units by laying copies of a shorter unit end to end with no gaps or overlaps.
   - EK: Length = number of same-size units that span it.
   - Needs: MK-2.3.A, MK-1.1.E
@@ -252,14 +252,14 @@ Big ideas: OPS, PV, MEAS, SHAPE
   - EK: A shape's name depends only on its defining attributes.
   - Needs: MK-1.5.D
   - MP3 · MP6 · drills: k8-defining-attribute, ~k8-shape-attr
-- ○ **MK-2.4.B** (1.G.A.2) Compose two- or three-dimensional shapes into a composite shape, and compose new shapes from it.
+- ● **MK-2.4.B** (1.G.A.2) Compose two- or three-dimensional shapes into a composite shape, and compose new shapes from it.
   - EK: Composite shapes can be treated as units.
   - Needs: MK-1.5.F
-  - MP7
-- ◐ **MK-2.4.C** (1.G.A.3) Partition circles and rectangles into two and four equal shares, using halves, fourths and quarters; more equal shares make smaller shares.
+  - MP7 · drills: k8-compose-shapes
+- ● **MK-2.4.C** (1.G.A.3) Partition circles and rectangles into two and four equal shares, using halves, fourths and quarters; more equal shares make smaller shares.
   - EK: Equal shares of one whole are the same size.
   - Needs: MK-2.4.A
-  - MP6 · drills: ~k8-unit-share
+  - MP6 · drills: k8-equal-shares, ~k8-unit-share
 
 ## Unit 3 · Grade 2 — base ten to 1000, fluency within 100, standard length units
 
@@ -322,10 +322,10 @@ Big ideas: PV, OPS, MEAS, DATA
   - EK: Adding 10 or 100 changes only that digit (unless it regroups).
   - Needs: MK-2.2.E, MK-3.2.A
   - MP7 · drills: k8-hundred-more
-- ○ **MK-3.2.I** (2.NBT.B.9) Explain why addition and subtraction strategies work, using place value and the properties of operations.
+- ● **MK-3.2.I** (2.NBT.B.9) Explain why addition and subtraction strategies work, using place value and the properties of operations.
   - EK: A strategy is valid because of place value and the properties, not because it gives the right answer once.
   - Needs: MK-3.2.G
-  - MP3
+  - MP3 · drills: k8-add-by-place-value
 
 ### 3.3 Measurement and Data
 
@@ -335,22 +335,22 @@ Big ideas: PV, OPS, MEAS, DATA
   - EK: A ruler is a row of iterated units with 0 at the start.
   - Needs: MK-2.3.B
   - MP5 · drills: ~k8-ruler-length
-- ○ **MK-3.3.B** (2.MD.A.2) Measure an object twice using units of different lengths and describe how the measurements relate to the unit size.
+- ● **MK-3.3.B** (2.MD.A.2) Measure an object twice using units of different lengths and describe how the measurements relate to the unit size.
   - EK: Bigger unit → fewer units; the count and unit size vary inversely.
   - Needs: MK-3.3.A
-  - MP6 · MP7
-- ○ **MK-3.3.C** (2.MD.A.3) Estimate lengths using units of inches, feet, centimeters and meters.
+  - MP6 · MP7 · drills: k8-two-units
+- ● **MK-3.3.C** (2.MD.A.3) Estimate lengths using units of inches, feet, centimeters and meters.
   - EK: Benchmarks (a finger ≈ 1 cm, a door ≈ 2 m) make estimates.
   - Needs: MK-3.3.A
-  - MP5
-- ◐ **MK-3.3.D** (2.MD.A.4) Measure to determine how much longer one object is than another, in a standard length unit.
+  - MP5 · drills: k8-sensible-length
+- ● **MK-3.3.D** (2.MD.A.4) Measure to determine how much longer one object is than another, in a standard length unit.
   - EK: Difference in length = longer measure − shorter measure.
   - Needs: MK-3.3.A
-  - MP6 · drills: ~k8-word-add100
-- ◐ **MK-3.3.E** (2.MD.B.5) Use addition and subtraction within 100 to solve word problems involving lengths in the same units.
+  - MP6 · drills: k8-how-much-longer, ~k8-word-add100
+- ● **MK-3.3.E** (2.MD.B.5) Use addition and subtraction within 100 to solve word problems involving lengths in the same units.
   - EK: Lengths add and subtract like numbers when the units match.
   - Needs: MK-3.3.D, MK-3.1.A
-  - MP4 · drills: ~k8-word-add100
+  - MP4 · drills: k8-how-much-longer, ~k8-word-add100
 - ◐ **MK-3.3.F** (2.MD.B.6) Represent whole numbers as lengths from 0 on a number line with equally spaced points, and represent sums and differences within 100 on it.
   - EK: A number on the line is a distance from 0.
   - Needs: MK-3.3.A, MK-3.2.E
@@ -413,10 +413,10 @@ Big ideas: OPS, MULT, LINE, MEAS
   - EK: Any of the three numbers in a × b = c can be the unknown.
   - Needs: MK-4.1.C, MK-2.1.H
   - MP2 · drills: k8-missing-factor
-- ◐ **MK-4.1.E** (3.OA.B.5) Apply the commutative, associative and distributive properties as strategies to multiply and divide.
+- ● **MK-4.1.E** (3.OA.B.5) Apply the commutative, associative and distributive properties as strategies to multiply and divide.
   - EK: 8 × 7 = 8 × 5 + 8 × 2; order and grouping don't change a product.
   - Needs: MK-4.1.A, MK-2.1.C
-  - MP7 · MP8 · drills: ~k8-mult-facts
+  - MP7 · MP8 · drills: k8-multiply-by-breaking, ~k8-mult-facts
 - ● **MK-4.1.F** (3.OA.B.6) Understand division as an unknown-factor problem (32 ÷ 8 is the number that makes 32 when multiplied by 8).
   - EK: Every division fact is a multiplication fact with a missing factor.
   - Needs: MK-4.1.B, MK-2.1.D
@@ -429,10 +429,10 @@ Big ideas: OPS, MULT, LINE, MEAS
   - EK: Write each step as an equation; estimate to catch wrong-operation errors.
   - Needs: MK-4.1.C, MK-3.1.A
   - MP1 · MP4 · drills: k8-word-2step
-- ◐ **MK-4.1.I** (3.OA.D.9) Identify arithmetic patterns (including in the addition and multiplication tables) and explain them using properties of operations.
+- ● **MK-4.1.I** (3.OA.D.9) Identify arithmetic patterns (including in the addition and multiplication tables) and explain them using properties of operations.
   - EK: 4 × any number is even because 4 × n = 2 × (2 × n).
   - Needs: MK-4.1.G
-  - MP7 · MP8 · drills: ~k8-pattern
+  - MP7 · MP8 · drills: k8-arithmetic-patterns, ~k8-pattern
 
 ### 4.2 Number and Operations in Base Ten
 
@@ -488,10 +488,10 @@ Big ideas: OPS, MULT, LINE, MEAS
   - EK: Elapsed time is a difference; jump to the next hour on a number line.
   - Needs: MK-3.3.G, MK-3.3.F
   - MP4 · MP6 · drills: k8-elapsed
-- ◐ **MK-4.4.B** (3.MD.A.2) Measure and estimate liquid volumes and masses in g, kg and L; solve one-step word problems with them using the four operations.
+- ● **MK-4.4.B** (3.MD.A.2) Measure and estimate liquid volumes and masses in g, kg and L; solve one-step word problems with them using the four operations.
   - EK: Volume and mass add like lengths when units match.
   - Needs: MK-4.1.C, MK-3.3.A
-  - MP4 · MP5 · drills: ~k8-word-mult
+  - MP4 · MP5 · drills: k8-mass-volume-problem, ~k8-word-mult
 - ● **MK-4.4.C** (3.MD.B.3) Draw a scaled picture graph and scaled bar graph for several categories, and solve one- and two-step "how many more/less" problems from them.
   - EK: In a scaled graph each symbol or grid step stands for several units.
   - Needs: MK-3.3.J, MK-4.1.C
@@ -620,10 +620,10 @@ Big ideas: PV, LINE, MULT, MEAS, SHAPE
   - EK: Mixed number a b/c = a + b/c; regroup a whole as c/c when needed.
   - Needs: MK-5.3.D, MK-4.3.E
   - MP7 · drills: k8-frac-mixed-like
-- ◐ **MK-5.3.F** (4.NF.B.3d) Solve word problems involving addition and subtraction of fractions referring to the same whole and having like denominators.
+- ● **MK-5.3.F** (4.NF.B.3d) Solve word problems involving addition and subtraction of fractions referring to the same whole and having like denominators.
   - EK: Only parts of the same whole can be combined.
   - Needs: MK-5.3.E
-  - MP1 · MP4 · drills: ~k8-frac-add-like
+  - MP1 · MP4 · drills: k8-fraction-word-problem, ~k8-frac-add-like
 - ● **MK-5.3.G** (4.NF.B.4a, 4.NF.B.4b) Understand a/b as a multiple of 1/b and multiply a fraction by a whole number: n × (a/b) = (n × a)/b.
   - EK: 3 × 2/5 = 6 × 1/5 = 6/5.
   - Needs: MK-5.3.D, MK-4.1.A
@@ -653,10 +653,10 @@ Big ideas: PV, LINE, MULT, MEAS, SHAPE
   - EK: 1 m = 100 cm, 1 kg = 1000 g, 1 lb = 16 oz, 1 hr = 60 min: convert to smaller units by multiplying.
   - Needs: MK-5.1.A, MK-4.4.B
   - MP6 · MP7 · drills: k8-convert-down
-- ◐ **MK-5.4.B** (4.MD.A.2) Use the four operations to solve word problems involving distances, time intervals, liquid volumes, masses and money, including simple fractions or decimals; represent quantities on number line diagrams.
+- ● **MK-5.4.B** (4.MD.A.2) Use the four operations to solve word problems involving distances, time intervals, liquid volumes, masses and money, including simple fractions or decimals; represent quantities on number line diagrams.
   - EK: Convert to one unit first, then operate.
   - Needs: MK-5.4.A, MK-5.3.F, MK-4.4.A
-  - MP1 · MP4 · drills: ~k8-elapsed, ~k8-money
+  - MP1 · MP4 · drills: k8-elapsed-time, ~k8-elapsed, ~k8-money
 - ● **MK-5.4.C** (4.MD.A.3) Apply the area and perimeter formulas for rectangles in real-world and mathematical problems, including finding an unknown side.
   - EK: A = l × w; P = 2l + 2w.
   - Needs: MK-4.4.G, MK-4.4.J, MK-5.2.E
@@ -682,10 +682,10 @@ Big ideas: PV, LINE, MULT, MEAS, SHAPE
 
 
 
-- ○ **MK-5.5.A** (4.G.A.1) Draw points, lines, segments, rays, angles (right, acute, obtuse), and perpendicular and parallel lines, and identify them in figures.
+- ◐ **MK-5.5.A** (4.G.A.1) Draw points, lines, segments, rays, angles (right, acute, obtuse), and perpendicular and parallel lines, and identify them in figures.
   - EK: Right = 90°, acute < 90°, obtuse between 90° and 180°.
   - Needs: MK-5.4.E
-  - MP5 · MP6
+  - MP5 · MP6 · drills: ~k8-classify-angle
 - ● **MK-5.5.B** (4.G.A.2) Classify two-dimensional figures by parallel or perpendicular lines and by angles of a specified size; recognize right triangles.
   - EK: A right triangle has one 90° angle.
   - Needs: MK-5.5.A, MK-4.5.A
@@ -806,14 +806,14 @@ Big ideas: LINE, PV, MULT, MEAS, SHAPE
   - EK: An equal redistribution of total amount is the mean.
   - Needs: MK-5.4.D, MK-6.3.B
   - MP4 · drills: k8-line-plot-share
-- ◐ **MK-6.4.C** (5.MD.C.3a, 5.MD.C.3b) Recognize volume as an attribute of solid figures: a unit cube has one cubic unit of volume, and a solid packed by n unit cubes without gaps or overlaps has volume n.
+- ● **MK-6.4.C** (5.MD.C.3a, 5.MD.C.3b) Recognize volume as an attribute of solid figures: a unit cube has one cubic unit of volume, and a solid packed by n unit cubes without gaps or overlaps has volume n.
   - EK: Volume counts unit cubes that fill a solid.
   - Needs: MK-4.4.E
-  - MP6 · drills: ~k8-volume-prism
-- ◐ **MK-6.4.D** (5.MD.C.4) Measure volumes by counting unit cubes (cubic cm, cubic in, cubic ft, improvised units).
+  - MP6 · drills: k8-volume-by-layers, ~k8-volume-prism
+- ● **MK-6.4.D** (5.MD.C.4) Measure volumes by counting unit cubes (cubic cm, cubic in, cubic ft, improvised units).
   - EK: Volume = number of unit cubes, labeled with the cubic unit.
   - Needs: MK-6.4.C
-  - MP5 · MP6 · drills: ~k8-volume-prism
+  - MP5 · MP6 · drills: k8-volume-by-layers, ~k8-volume-prism
 - ● **MK-6.4.E** (5.MD.C.5a, 5.MD.C.5b) Find the volume of a right rectangular prism with whole-number edges by packing it with unit cubes, show it equals the product of the edge lengths, and apply V = l × w × h and V = b × h.
   - EK: V = (area of base) × height = layers × cubes per layer.
   - Needs: MK-6.4.D, MK-4.4.G, MK-4.1.E
@@ -897,10 +897,10 @@ Big ideas: MULT, LINE, OPS, DATA
   - EK: GCF divides both; LCM is the smallest number both divide.
   - Needs: MK-5.1.D, MK-4.1.E
   - MP7 · drills: k8-gcf-lcm
-- ◐ **MK-7.2.E** (6.NS.C.5) Use positive and negative numbers to represent quantities with opposite directions or values (temperature, elevation, credits/debits), explaining the meaning of 0 in context.
+- ● **MK-7.2.E** (6.NS.C.5) Use positive and negative numbers to represent quantities with opposite directions or values (temperature, elevation, credits/debits), explaining the meaning of 0 in context.
   - EK: Sign shows direction from a reference point 0.
   - Needs: MK-3.3.F
-  - MP2 · MP4 · drills: ~k8-opposite
+  - MP2 · MP4 · drills: k8-signed-context, ~k8-opposite
 - ● **MK-7.2.F** (6.NS.C.6a) Recognize a rational number as a point on the number line; opposite signs indicate locations on opposite sides of 0, and −(−3) = 3.
   - EK: The opposite of a number is its reflection across 0.
   - Needs: MK-7.2.E, MK-4.3.C
@@ -996,18 +996,18 @@ Big ideas: MULT, LINE, OPS, DATA
   - EK: Statistical questions expect many different answers.
   - Needs: MK-4.4.C
   - MP3 · MP6 · drills: k8-statistical-question
-- ◐ **MK-7.5.B** (6.SP.A.2) Understand that a distribution of data collected to answer a statistical question can be described by its center, spread and overall shape.
+- ● **MK-7.5.B** (6.SP.A.2) Understand that a distribution of data collected to answer a statistical question can be described by its center, spread and overall shape.
   - EK: Center, spread and shape summarize a distribution.
   - Needs: MK-7.5.A, MK-6.4.B
-  - MP7 · drills: ~k8-dot-plot
+  - MP7 · drills: k8-histogram-read, ~k8-dot-plot
 - ● **MK-7.5.C** (6.SP.A.3) Recognize that a measure of center summarizes all values with one number, while a measure of variation describes how the values vary with one number.
   - EK: Center = typical value; variation = how far values spread from it.
   - Needs: MK-7.5.B
   - MP6 · drills: k8-center-or-spread
-- ◐ **MK-7.5.D** (6.SP.B.4) Display numerical data in plots on a number line: dot plots, histograms and box plots.
+- ● **MK-7.5.D** (6.SP.B.4) Display numerical data in plots on a number line: dot plots, histograms and box plots.
   - EK: A box plot shows min, Q1, median, Q3, max.
   - Needs: MK-7.5.B, MK-6.4.B
-  - MP4 · MP5 · drills: ~k8-dot-plot, ~k8-box-plot
+  - MP4 · MP5 · drills: k8-histogram-read, ~k8-dot-plot, ~k8-box-plot
 - ● **MK-7.5.E** (6.SP.B.5a, 6.SP.B.5b) Summarize a numerical data set by reporting the number of observations and describing the attribute under investigation, how it was measured and its units.
   - EK: Every data summary starts with n, the variable, and its units.
   - Needs: MK-7.5.D
@@ -1104,10 +1104,10 @@ Big ideas: MULT, LINE, OPS, SHAPE, DATA
   - EK: Lengths scale by k; areas scale by k².
   - Needs: MK-8.1.C, MK-7.4.A
   - MP4 · MP7 · drills: k8-scale-drawing
-- ○ **MK-8.4.B** (7.G.A.2) Draw geometric shapes with given conditions (freehand, ruler and protractor, technology), especially triangles from three measures of angles or sides, noting when the conditions give a unique triangle, more than one, or none.
+- ◐ **MK-8.4.B** (7.G.A.2) Draw geometric shapes with given conditions (freehand, ruler and protractor, technology), especially triangles from three measures of angles or sides, noting when the conditions give a unique triangle, more than one, or none.
   - EK: Any two sides must sum to more than the third; angles must sum to 180°.
   - Needs: MK-5.4.F, MK-5.5.B
-  - MP5 · MP3
+  - MP5 · MP3 · drills: ~k8-triangle-possible, ~k8-third-angle
 - ● **MK-8.4.C** (7.G.A.3) Describe the two-dimensional figures that result from slicing three-dimensional figures, as in plane sections of right rectangular prisms and pyramids.
   - EK: A plane slice parallel to the base copies the base's shape.
   - Needs: MK-7.4.D
@@ -1137,14 +1137,14 @@ Big ideas: MULT, LINE, OPS, SHAPE, DATA
   - EK: Estimates vary from sample to sample; that spread is the margin of error.
   - Needs: MK-8.5.A, MK-7.5.F
   - MP3 · MP5 · drills: k8-sample-infer
-- ○ **MK-8.5.C** (7.SP.B.3) Informally assess the visual overlap of two numerical distributions with similar variabilities, measuring the difference between centers as a multiple of a measure of variability.
+- ● **MK-8.5.C** (7.SP.B.3) Informally assess the visual overlap of two numerical distributions with similar variabilities, measuring the difference between centers as a multiple of a measure of variability.
   - EK: Difference in means ÷ MAD says how separated two groups are.
   - Needs: MK-7.5.F, MK-7.5.D
-  - MP2 · MP3
-- ○ **MK-8.5.D** (7.SP.B.4) Use measures of center and variability for numerical data from random samples to draw informal comparative inferences about two populations.
+  - MP2 · MP3 · drills: k8-compare-two-samples
+- ◐ **MK-8.5.D** (7.SP.B.4) Use measures of center and variability for numerical data from random samples to draw informal comparative inferences about two populations.
   - EK: Compare centers relative to spread, not centers alone.
   - Needs: MK-8.5.C, MK-8.5.B
-  - MP3
+  - MP3 · drills: ~k8-compare-two-samples
 - ● **MK-8.5.E** (7.SP.C.5) Understand the probability of a chance event as a number between 0 and 1 expressing its likelihood: near 0 unlikely, 1/2 neither, near 1 likely.
   - EK: 0 ≤ P ≤ 1.
   - Needs: MK-7.1.A, MK-4.3.C
@@ -1161,10 +1161,10 @@ Big ideas: MULT, LINE, OPS, SHAPE, DATA
   - EK: For independent stages, total outcomes = product of the counts at each stage.
   - Needs: MK-8.5.G, MK-6.3.D
   - MP4 · MP7 · drills: k8-prob-compound
-- ○ **MK-8.5.I** (7.SP.C.8c) Design and use a simulation to generate frequencies for compound events.
+- ● **MK-8.5.I** (7.SP.C.8c) Design and use a simulation to generate frequencies for compound events.
   - EK: A simulation replaces each real trial with a random device of the same probabilities.
   - Needs: MK-8.5.H, MK-8.5.F
-  - MP4 · MP5
+  - MP4 · MP5 · drills: k8-simulation-estimate
 
 ## Unit 9 · Grade 8 — irrationals and exponents, linear equations and systems, functions, transformations, Pythagoras
 
@@ -1252,10 +1252,10 @@ Big ideas: LINE, OPS, MULT, SHAPE, DATA
   - EK: m = (y₂ − y₁)/(x₂ − x₁); b = y − mx.
   - Needs: MK-9.3.C
   - MP4 · drills: k8-rate-initial
-- ◐ **MK-9.3.E** (8.F.B.5) Describe a functional relationship qualitatively from a graph (increasing, decreasing, linear, nonlinear) and sketch a graph from a verbal description.
+- ● **MK-9.3.E** (8.F.B.5) Describe a functional relationship qualitatively from a graph (increasing, decreasing, linear, nonlinear) and sketch a graph from a verbal description.
   - EK: The shape of a graph tells a story about how the output changes.
   - Needs: MK-9.3.A
-  - MP2 · MP4 · drills: ~hs-parabola-features
+  - MP2 · MP4 · drills: k8-graph-story, ~hs-parabola-features
 
 ### 9.4 Geometry
 

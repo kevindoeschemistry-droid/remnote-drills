@@ -855,7 +855,8 @@
        ],
        "drills": [
         "~k8-dot-plot",
-        "~k8-box-plot"
+        "~k8-box-plot",
+        "k8-histogram-read"
        ]
       },
       {
@@ -4690,8 +4691,10 @@
    "code": "MH-3.1.A",
    "unit": 3,
    "topic": 1,
-   "status": "partial",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "k8-histogram-read"
+   ],
    "partial": [
     "k8-dot-plot",
     "k8-box-plot"
@@ -6351,6 +6354,7 @@
   "mm-volume-in-pi",
   "mm-sphere-in-pi",
   "k8-cross-section",
+  "k8-volume-by-layers",
   "mm-slope",
   "mm-circle-angles",
   "mm-circle-radius",
@@ -6359,6 +6363,7 @@
   "k8-scatter-association",
   "mm-subsets",
   "mm-two-dice",
-  "mm-combinations"
+  "mm-combinations",
+  "k8-simulation-estimate"
  ]
 }
