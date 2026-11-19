@@ -1,0 +1,549 @@
+# Mental calculation, part 2: the UIL chart's problems 21–80 (algebra through calculus).
+# Same rules as mm-mental.yaml: one question, done in the head, recall or quick.
+
+# ── H2: algebra and number ─────────────────────────────────────────────────
+- template: mm-substitution
+  skill: k8.expressions
+  pace: recall
+  given: { a: { int: [2, 5] }, b: { int: [2, 6] }, p: { int: [2, 6] }, q: { int: [-5, 5] } }
+  require: ["q != 0", "a*p^2 - b*q != 0"]
+  prompt: 'In your head: ${{a}}x^2 - {{b}}y$ at $x = {{p}}$, $y = {{q}}$'
+  parts:
+    - { ask: 'Value', label: v, tex: 'x', value: a*p^2 - b*q, tol: 0.0001, explain: 'Square first: ${{a}}({{p^2}}) - {{b}}({{q}})$. Subtracting a negative adds' }
+  verify: { expect: { v: "(a*x**2 - b*Y).subs(x, p).subs(Y, q)" } }
+
+- template: mm-sum-and-difference
+  skill: alg.linear
+  pace: recall
+  given: { big: { int: [12, 60] }, small: { int: [3, 30] } }
+  require: ["big > small + 1"]
+  prompt: 'Two numbers have sum ${{big + small}}$ and difference ${{big - small}}$. What is the larger one?'
+  parts:
+    - { ask: 'Larger number', label: v, tex: 'x', value: big, tol: 0.0001, explain: 'Half the sum plus half the difference: $({{big + small}} + {{big - small}}) \div 2$' }
+  verify: { expect: { v: "solve([Eq(x + Y, big + small), Eq(x - Y, big - small)], [x, Y])[x]" } }
+
+- template: mm-reciprocal-mixed
+  skill: k8.fractions
+  pace: recall
+  given: { w: { int: [1, 6] }, n: { int: [1, 6] }, d: { pick: [3, 4, 5, 7, 8] } }
+  require: ["n < d", "gcd(n, d) == 1"]
+  prompt: 'Multiplicative inverse of ${{w}}\tfrac{ {{n}} }{ {{d}} }$ (a fraction)?'
+  parts:
+    - { ask: 'Inverse', label: v, tex: 'x', value: d/(w*d + n), tol: 0.00001, explain: 'Make it improper, $\tfrac{ {{w*d + n}} }{ {{d}} }$, and flip it' }
+  verify: { expect: { v: "1/(w + Rational(n, d))" } }
+
+- template: mm-absolute-value
+  skill: k8.integers
+  pace: recall
+  given: { a: { int: [2, 12] }, b: { int: [13, 30] }, c: { int: [-9, -2] } }
+  require: ["b - a + c != 0"]
+  prompt: 'In your head: $|{{a}} - {{b}}| - |{{c}}|$'
+  parts:
+    - { ask: 'Value', label: v, tex: 'x', value: abs(a - b) - abs(c), tol: 0.0001, explain: 'Each bar gives a distance: ${{b - a}} - {{-c}}$' }
+  verify: { expect: { v: "Abs(a - b) - Abs(c)" } }
+
+- template: mm-proportion
+  skill: k8.ratios
+  pace: recall
+  given: { a1: { int: [2, 9] }, b1: { pick: [3, 4, 5, 7, 8] }, m: { int: [3, 12] } }
+  require: ["gcd(a1, b1) == 1"]
+  prompt: 'Solve $\dfrac{ {{a1}} }{ {{b1}} } = \dfrac{x}{ {{b1*m}} }$'
+  parts:
+    - { ask: '$x$', label: v, tex: 'x', value: a1*m, tol: 0.0001, explain: 'The denominator was multiplied by ${{m}}$, so the numerator is too' }
+  verify: { expect: { v: "solve(Eq(Rational(a1, b1), x/(b1*m)), x)[0]" } }
+
+- template: mm-subsets
+  skill: stats.probability
+  pace: recall
+  given: { n: { int: [3, 10] } }
+  cases:
+    - { kind: 'subsets', off: 0 }
+    - { kind: 'proper subsets', off: 1 }
+    - { kind: 'non-empty subsets', off: 1 }
+  prompt: 'How many {{kind}} does a set with ${{n}}$ elements have?'
+  parts:
+    - { ask: 'Count', label: v, tex: 'N', value: 2^n - off, tol: 0.0001, explain: 'Each element is in or out: $2^{ {{n}} }$ subsets in all. "Proper" leaves out the set itself; "non-empty" leaves out the empty set' }
+  verify: { expect: { v: "sum([binomial(n, q) for q in range(n + 1)]) - off" } }
+
+- template: mm-linear-equation
+  skill: alg.linear
+  pace: recall
+  given: { a: { int: [2, 9] }, x0: { int: [-9, 12] }, b: { int: [-15, 15] } }
+  require: ["x0 != 0", "b != 0"]
+  prompt: 'Solve ${{=a*x + b}} = {{a*x0 + b}}$'
+  parts:
+    - { ask: '$x$', label: v, tex: 'x', value: x0, tol: 0.0001, explain: 'Undo the constant, then divide: $({{a*x0 + b}} - ({{b}})) \div {{a}}$' }
+  verify: { expect: { v: "solve(Eq(a*x + b, a*x0 + b), x)[0]" } }
+
+- template: mm-system-sum
+  skill: alg.linear
+  pace: recall
+  given: { a: { int: [2, 7] }, b: { int: [2, 9] }, x0: { int: [1, 9] }, y0: { int: [1, 9] } }
+  require: ["a != b"]
+  prompt: 'If ${{a}}x + {{b}}y = {{a*x0 + b*y0}}$ and ${{b}}x + {{a}}y = {{b*x0 + a*y0}}$, find $x + y$.'
+  parts:
+    - { ask: '$x + y$', label: v, tex: 'x + y', value: x0 + y0, tol: 0.0001, explain: 'Add the equations: ${{a + b}}x + {{a + b}}y = {{(a + b)*(x0 + y0)}}$, then divide by ${{a + b}}$. You never need $x$ and $y$ separately' }
+  verify: { expect: { v: "sum(solve([Eq(a*x + b*Y, a*x0 + b*y0), Eq(b*x + a*Y, b*x0 + a*y0)], [x, Y]).values())" } }
+
+- template: mm-remainder-product
+  skill: k8.mult-div
+  pace: quick
+  given: { a: { int: [13, 98] }, b: { int: [12, 97] }, m: { pick: [5, 7, 9, 11] } }
+  require: ["mod(a*b, m) != 0"]
+  prompt: 'Remainder when ${{a}} \times {{b}}$ is divided by ${{m}}$?'
+  parts:
+    - { ask: 'Remainder', label: v, tex: 'r', value: "mod(a*b, m)", tol: 0.0001, explain: 'Reduce first: ${{a}}$ leaves ${{mod(a, m)}}$ and ${{b}}$ leaves ${{mod(b, m)}}$, so the product leaves the same remainder as ${{mod(a, m)}} \times {{mod(b, m)}} = {{mod(a, m)*mod(b, m)}}$' }
+  verify: { expect: { v: "(a*b) % m" } }
+
+- template: mm-area
+  skill: geo.measurement
+  pace: recall
+  given: { b1: { int: [4, 14] }, h: { pick: [4, 6, 8, 10, 12] } }
+  cases:
+    - { nm: 'triangle', l1: 'base', l2: 'height' }
+    - { nm: 'rhombus', l1: 'diagonals', l2: '' }
+    - { nm: 'kite', l1: 'diagonals', l2: '' }
+  prompt: 'Area of a {{nm}} with {{l1}} ${{b1}}$ and {{l2}} ${{h}}$?'
+  parts:
+    - { ask: 'Area', label: v, tex: 'A', value: b1*h/2, tol: 0.0001, explain: 'Triangle $\tfrac12bh$; rhombus or kite $\tfrac12d_1d_2$. Halve the even number first' }
+  verify: { expect: { v: "Rational(b1*h, 2)" } }
+
+- template: mm-area-trapezoid
+  skill: geo.measurement
+  pace: recall
+  given: { b1: { int: [4, 14] }, b2: { int: [3, 12] }, h: { pick: [4, 6, 8, 10, 12] } }
+  prompt: 'Area of a trapezoid with bases ${{b1}}$ and ${{b2}}$ and height ${{h}}$?'
+  parts:
+    - { ask: 'Area', label: v, tex: 'A', value: (b1 + b2)*h/2, tol: 0.0001, explain: 'The average of the bases times the height: halve the height, ${{h/2}}$, and multiply by ${{b1 + b2}}$' }
+  verify: { expect: { v: "integrate(b1 + (b2 - b1)*x/h, (x, 0, h))" } }
+
+- template: mm-nth-term
+  skill: alg.sequences
+  pace: recall
+  given: { a: { int: [2, 15] }, d: { int: [2, 9] }, n: { pick: [10, 11, 20, 21, 31, 51] } }
+  prompt: 'Term number ${{n}}$ of the sequence ${{a}},\ {{a + d}},\ {{a + 2*d}},\ \dots$'
+  parts:
+    - { ask: 'Term', label: v, tex: 'a_{ {{n}} }', value: a + (n - 1)*d, tol: 0.0001, explain: 'First term plus ${{n - 1}}$ steps of ${{d}}$: ${{a}} + {{(n - 1)*d}}$. The count of steps is one less than the term number' }
+  verify: { expect: { v: "[a + q*d for q in range(n)][-1]" } }
+
+- template: mm-vieta
+  skill: alg.quadratics
+  pace: recall
+  given: { a: { pick: [1, 2, 3] }, r1: { int: [-6, 6] }, r2: { int: [1, 7] } }
+  cases:
+    - { what: 'sum', k: 0 }
+    - { what: 'product', k: 1 }
+  require: ["r1 != 0", "r1 + r2 != 0"]
+  prompt: 'The {{what}} of the roots of ${{=a*x^2 - a*(r1 + r2)*x + a*r1*r2}} = 0$?'
+  parts:
+    - { ask: 'The {{what}}', label: v, tex: 'x', value: "k == 0 ? r1 + r2 : r1*r2", tol: 0.0001, explain: 'For $ax^2 + bx + c$: the sum is $-b/a$ and the product is $c/a$. No need to solve' }
+  verify: { expect: { v: "sum(solve(a*x**2 - a*(r1 + r2)*x + a*r1*r2, x)) if k == 0 else r1*r2" } }
+
+# ── H3: advanced algebra and geometry ──────────────────────────────────────
+- template: mm-pythagorean-triple
+  skill: geo.right-triangles
+  pace: recall
+  cases:
+    - { p: 3, q: 4, r: 5 }
+    - { p: 5, q: 12, r: 13 }
+    - { p: 8, q: 15, r: 17 }
+    - { p: 7, q: 24, r: 25 }
+    - { p: 20, q: 21, r: 29 }
+    - { p: 9, q: 40, r: 41 }
+  given: { k: { int: [1, 4] }, miss: { pick: [0, 1] } }
+  prompt: 'A right triangle has {{miss == 0 ? "legs" : "one leg"}} ${{k*p}}$ and {{miss == 0 ? "" : "hypotenuse"}} ${{miss == 0 ? k*q : k*r}}$. Find the {{miss == 0 ? "hypotenuse" : "other leg"}}.'
+  parts:
+    - { ask: 'Length', label: v, tex: 'x', value: "miss == 0 ? k*r : k*q", tol: 0.0001, explain: 'It is the ${{p}}$-${{q}}$-${{r}}$ triple scaled by ${{k}}$. The triples worth knowing: 3-4-5, 5-12-13, 8-15-17, 7-24-25, 20-21-29, 9-40-41' }
+  verify: { expect: { v: "sqrt((k*p)**2 + (k*q)**2) if miss == 0 else sqrt((k*r)**2 - (k*p)**2)" } }
+
+- template: mm-slope
+  skill: geo.coordinates
+  pace: recall
+  given: { x1: { int: [-5, 4] }, y1: { int: [-6, 6] }, dx: { pick: [2, 3, 4, 5, 6] }, dy: { int: [-9, 9] } }
+  require: ["dy != 0"]
+  prompt: 'Slope of the line through $({{x1}}, {{y1}})$ and $({{x1 + dx}}, {{y1 + dy}})$ (a fraction is fine)?'
+  parts:
+    - { ask: 'Slope', label: v, tex: 'm', value: dy/dx, tol: 0.00001, explain: 'Rise over run: $\dfrac{ {{y1 + dy}} - ({{y1}})}{ {{x1 + dx}} - ({{x1}})}$' }
+  verify: { expect: { v: "Rational((y1 + dy) - y1, (x1 + dx) - x1)" } }
+
+- template: mm-regular-polygon
+  skill: geo.congruence
+  pace: recall
+  given: { n: { pick: [5, 6, 8, 9, 10, 12, 15, 18, 20] } }
+  cases:
+    - { k: 0, what: 'Each exterior angle, in degrees,' }
+    - { k: 1, what: 'Each interior angle, in degrees,' }
+    - { k: 2, what: 'The number of diagonals' }
+    - { k: 3, what: 'The sum of the interior angles, in degrees,' }
+  prompt: '{{what}} of a regular ${{n}}$-gon?'
+  parts:
+    - { ask: 'Value', label: v, tex: 'x', value: "k == 0 ? 360/n : (k == 1 ? 180 - 360/n : (k == 2 ? n*(n - 3)/2 : 180*(n - 2)))", tol: 0.0001, explain: 'Exterior angles total 360°, so each is $360/n$ and each interior angle is its supplement. The interior sum is $180(n - 2)$. Each vertex sends diagonals to $n - 3$ others, counted twice: $n(n - 3)/2$' }
+  verify: { expect: { v: "[Rational(360, n), 180 - Rational(360, n), binomial(n, 2) - n, 180*(n - 2)][k]" } }
+
+- template: mm-inequality-count
+  skill: alg.linear
+  pace: quick
+  given: { a: { int: [2, 7] }, m: { int: [3, 15] }, r: { int: [1, 6] }, b: { int: [1, 12] } }
+  require: ["r < a"]
+  prompt: 'How many positive integers $x$ satisfy ${{a}}x + {{b}} < {{a*m + r + b}}$?'
+  parts:
+    - { ask: 'How many', label: v, tex: 'N', value: m, tol: 0.0001, explain: 'Solve it: $x < {{a*m + r}}/{{a}}$, which lies between ${{m}}$ and ${{m + 1}}$. So $x = 1, 2, \dots, {{m}}$' }
+  verify: { expect: { v: "len([q for q in range(1, 200) if a*q + b < a*m + r + b])" } }
+
+- template: mm-circle-angles
+  skill: geo.circles
+  pace: recall
+  given: { arc: { pick: [40, 50, 70, 80, 100, 110, 130, 140, 160] } }
+  cases:
+    - { k: 0, pre: 'An inscribed angle intercepts an arc of', post: 'How many degrees is the angle?' }
+    - { k: 1, pre: 'An inscribed angle measures', post: 'How many degrees is its intercepted arc?' }
+    - { k: 2, pre: 'A central angle intercepts an arc of', post: 'How many degrees is the angle?' }
+  prompt: '{{pre}} ${{k == 1 ? arc/2 : arc}}^\circ$. {{post}}'
+  parts:
+    - { ask: 'Degrees', label: v, tex: 'x', value: "k == 0 ? arc/2 : arc", tol: 0.0001, explain: 'A central angle equals its arc; an inscribed angle is half its arc' }
+  verify: { expect: { v: "Rational(arc, 2) if k == 0 else arc" } }
+
+- template: mm-variation
+  skill: alg.functions
+  pace: recall
+  given: { k0: { int: [2, 9] }, x1: { pick: [2, 3, 4, 6] }, x2: { pick: [8, 9, 12, 18, 24, 36] } }
+  cases:
+    - { inv: 0, how: 'directly' }
+    - { inv: 1, how: 'inversely' }
+  prompt: '$y$ varies {{how}} as $x$, and $y = {{inv == 0 ? k0*x1 : 72*k0/x1}}$ when $x = {{x1}}$. Find $y$ when $x = {{x2}}$.'
+  parts:
+    - { ask: '$y$', label: v, tex: 'y', value: "inv == 0 ? k0*x2 : 72*k0/x2", tol: 0.0001, explain: 'Direct: $y/x$ stays the same. Inverse: $xy$ stays the same. Find that constant first' }
+  verify: { expect: { v: "Rational(k0*x1, x1)*x2 if inv == 0 else Rational(72*k0, x1)*x1/x2" } }
+
+- template: mm-complex-product
+  skill: alg.complex
+  pace: recall
+  given: { a: { int: [1, 6] }, b: { int: [1, 6] }, c: { int: [1, 6] }, d: { int: [-6, 6] } }
+  cases:
+    - { k: 0, what: 'real part' }
+    - { k: 1, what: 'imaginary part (the coefficient of i)' }
+  require: ["d != 0", "a*c - b*d != 0", "a*d + b*c != 0"]
+  prompt: 'The {{what}} of $({{a}} + {{b}}i)({{c}} {{d > 0 ? "+" : "-"}} {{abs(d)}}i)$?'
+  parts:
+    - { ask: 'Value', label: v, tex: 'x', value: "k == 0 ? a*c - b*d : a*d + b*c", tol: 0.0001, explain: 'FOIL with $i^2 = -1$: real part $ac - bd$, imaginary part $ad + bc$' }
+  verify: { expect: { v: "re((a + b*I)*(c + d*I)) if k == 0 else im((a + b*I)*(c + d*I))" } }
+
+- template: mm-two-dice
+  skill: stats.probability
+  pace: recall
+  given: { s: { int: [2, 12] } }
+  prompt: 'Two fair dice are rolled. Probability that the sum is ${{s}}$ (a fraction)?'
+  parts:
+    - { ask: 'Probability', label: v, tex: 'P', value: (6 - abs(s - 7))/36, tol: 0.00001, explain: 'The number of ways climbs 1, 2, 3, 4, 5, 6 for sums 2 to 7 and falls back to 1 at 12: here ${{6 - abs(s - 7)}}$ of 36' }
+  verify: { expect: { v: "Rational(len([1 for p in range(1, 7) for q in range(1, 7) if p + q == s]), 36)" } }
+
+- template: mm-circle-radius
+  skill: geo.circles
+  pace: quick
+  given: { h: { int: [-5, 5] }, k: { int: [-5, 5] }, r: { int: [2, 9] } }
+  require: ["h != 0", "k != 0", "h^2 + k^2 != r^2"]
+  let:
+    F: h^2 + k^2 - r^2
+  prompt: 'Radius of the circle $x^2 + y^2 {{h > 0 ? "-" : "+"}} {{2*abs(h)}}x {{k > 0 ? "-" : "+"}} {{2*abs(k)}}y {{F > 0 ? "+" : "-"}} {{abs(F)}} = 0$?'
+  parts:
+    - { ask: 'Radius', label: v, tex: 'r', value: r, tol: 0.0001, explain: 'Complete both squares: the centre is $({{h}}, {{k}})$, and $r^2 = h^2 + k^2 - F = {{h^2}} + {{k^2}} - ({{F}})$' }
+  verify: { expect: { v: "sqrt(h**2 + k**2 - (h**2 + k**2 - r**2))" } }
+
+- template: mm-binomial-coefficient
+  skill: alg.polynomials
+  pace: quick
+  given: { n: { int: [3, 6] }, a: { pick: [1, 2, 3] }, j: { pick: [1, 2] } }
+  prompt: 'Coefficient of $x^{ {{n - j}} }$ in $(x + {{a}})^{ {{n}} }$?'
+  parts:
+    - { ask: 'Coefficient', label: v, tex: 'c', value: "combinations(n, j)*a^j", tol: 0.0001, explain: '$\dbinom{ {{n}} }{ {{j}} }({{a}})^{ {{j}} }$: choose which ${{j}}$ of the ${{n}}$ factors supply the ${{a}}$' }
+  verify: { expect: { v: "((x + a)**n).expand().coeff(x, n - j)" } }
+
+- template: mm-base-addition
+  skill: k8.place-value
+  pace: quick
+  given: { bs: { pick: [4, 5, 6, 7, 8] }, n1: { int: [10, 60] }, n2: { int: [10, 60] } }
+  require: ["n1 + n2 < bs^3", "n1 >= bs", "n2 >= bs", "n1 + n2 >= bs^2"]
+  let:
+    w1: "floor(n1/bs)*10 + mod(n1, bs)"
+    w2: "floor(n2/bs)*10 + mod(n2, bs)"
+  prompt: 'Add in base ${{bs}}$: ${{floor(n1/bs^2)*100 + floor(mod(n1, bs^2)/bs)*10 + mod(n1, bs)}}_{ {{bs}} } + {{floor(n2/bs^2)*100 + floor(mod(n2, bs^2)/bs)*10 + mod(n2, bs)}}_{ {{bs}} }$. Give the answer in base ${{bs}}$.'
+  parts:
+    - { ask: 'Sum (base {{bs}} digits)', label: v, tex: 'x', value: "floor((n1 + n2)/bs^2)*100 + floor(mod(n1 + n2, bs^2)/bs)*10 + mod(n1 + n2, bs)", tol: 0.0001, explain: 'Add column by column and carry whenever a column reaches ${{bs}}$, not 10' }
+  verify: { expect: { v: "((n1 + n2)//bs**2)*100 + (((n1 + n2) % bs**2)//bs)*10 + (n1 + n2) % bs" } }
+
+- template: mm-sum-of-squares-of-roots
+  skill: alg.quadratics
+  pace: quick
+  given: { r1: { int: [-6, 6] }, r2: { int: [1, 7] } }
+  require: ["r1 != 0", "r1 + r2 != 0"]
+  prompt: 'If $r$ and $s$ are the roots of ${{=x^2 - (r1 + r2)*x + r1*r2}} = 0$, find $r^2 + s^2$.'
+  parts:
+    - { ask: '$r^2 + s^2$', label: v, tex: 'r^2 + s^2', value: r1^2 + r2^2, tol: 0.0001, explain: '$(r + s)^2 - 2rs = ({{r1 + r2}})^2 - 2({{r1*r2}})$, straight from the coefficients' }
+  verify: { expect: { v: "sum([q**2 for q in solve(x**2 - (r1 + r2)*x + r1*r2, x)]) if r1 != r2 else 2*r1**2" } }
+
+- template: mm-polygonal-number
+  skill: alg.sequences
+  pace: recall
+  given: { n: { int: [4, 15] } }
+  cases:
+    - { k: 3, nm: 'triangular' }
+    - { k: 5, nm: 'pentagonal' }
+    - { k: 6, nm: 'hexagonal' }
+  prompt: 'The ${{n}}$th {{nm}} number?'
+  parts:
+    - { ask: 'Value', label: v, tex: 'P', value: "n*((k - 2)*n - (k - 4))/2", tol: 0.0001, explain: 'Triangular $\tfrac{n(n + 1)}{2}$, pentagonal $\tfrac{n(3n - 1)}{2}$, hexagonal $n(2n - 1)$. All are $\tfrac{n((k - 2)n - (k - 4))}{2}$ for a $k$-gon' }
+  verify: { expect: { v: "sum([1 + (k - 2)*q for q in range(n)])" } }
+
+# ── H4: precalculus ────────────────────────────────────────────────────────
+- template: mm-volume-in-pi
+  skill: geo.measurement
+  pace: recall
+  given: { r: { pick: [3, 6] }, h: { pick: [3, 6, 9, 12] } }
+  cases:
+    - { k: 0, nm: 'cylinder' }
+    - { k: 1, nm: 'cone' }
+  prompt: 'A {{nm}} has radius ${{r}}$ and height ${{h}}$. Its volume is $k\pi$. Find $k$.'
+  parts:
+    - { ask: '$k$', label: v, tex: 'k', value: "k == 0 ? r^2*h : r^2*h/3", tol: 0.0001, explain: 'Cylinder $\pi r^2h$; a cone is one third of that. Divide by 3 before multiplying' }
+  verify: { expect: { v: "[r**2*h, Rational(r**2*h, 3)][k]" } }
+
+- template: mm-sphere-in-pi
+  skill: geo.measurement
+  pace: recall
+  given: { r: { pick: [3, 6, 9] } }
+  cases:
+    - { k: 0, what: 'volume' }
+    - { k: 1, what: 'surface area' }
+  prompt: 'A sphere has radius ${{r}}$. Its {{what}} is $k\pi$. Find $k$.'
+  parts:
+    - { ask: '$k$', label: v, tex: 'k', value: "k == 0 ? 4*r^3/3 : 4*r^2", tol: 0.0001, explain: 'Volume $\tfrac43\pi r^3$, surface area $4\pi r^2$. For the volume divide $r$ by 3 first' }
+  verify: { expect: { v: "[Rational(4*r**3, 3), 4*r**2][k]" } }
+
+- template: mm-floor
+  skill: k8.integers
+  pace: recall
+  given: { a: { int: [1, 9] }, fa: { int: [1, 9] }, c: { int: [1, 9] }, fc: { int: [1, 9] } }
+  require: ["c - a - 1 != 0"]
+  prompt: 'In your head: $\lfloor -{{a}}.{{fa}} \rfloor + \lfloor {{c}}.{{fc}} \rfloor$'
+  parts:
+    - { ask: 'Value', label: v, tex: 'x', value: c - a - 1, tol: 0.0001, explain: 'The floor is the greatest integer not above the number, so it moves left on the number line: $\lfloor -{{a}}.{{fa}} \rfloor = {{-a - 1}}$, not ${{-a}}$' }
+  verify: { expect: { v: "floor(-(a + Rational(fa, 10))) + floor(c + Rational(fc, 10))" } }
+
+- template: mm-remainder-theorem
+  skill: alg.polynomials
+  pace: quick
+  given: { a: { int: [-4, 4] }, b: { int: [-5, 5] }, c: { int: [-9, 9] }, k: { pick: [-2, -1, 1, 2, 3] } }
+  require: ["a != 0", "b != 0", "c != 0", "k^3 + a*k^2 + b*k + c != 0"]
+  prompt: 'Remainder when ${{=x^3 + a*x^2 + b*x + c}}$ is divided by $x {{k > 0 ? "-" : "+"}} {{abs(k)}}$?'
+  parts:
+    - { ask: 'Remainder', label: v, tex: 'R', value: k^3 + a*k^2 + b*k + c, tol: 0.0001, explain: 'The remainder on division by $x - k$ is $p(k)$: evaluate at $x = {{k}}$, nesting as $((x + a)x + b)x + c$' }
+  verify: { expect: { v: "(x**3 + a*x**2 + b*x + c).subs(x, k)" } }
+
+- template: mm-trig-exact
+  skill: trig.unit-circle
+  pace: recall
+  cases:
+    - { fn: 0, nm: '\sin', dg: 30 }
+    - { fn: 0, nm: '\sin', dg: 60 }
+    - { fn: 0, nm: '\sin', dg: 150 }
+    - { fn: 0, nm: '\sin', dg: 210 }
+    - { fn: 0, nm: '\sin', dg: 225 }
+    - { fn: 0, nm: '\sin', dg: 270 }
+    - { fn: 1, nm: '\cos', dg: 60 }
+    - { fn: 1, nm: '\cos', dg: 120 }
+    - { fn: 1, nm: '\cos', dg: 135 }
+    - { fn: 1, nm: '\cos', dg: 180 }
+    - { fn: 1, nm: '\cos', dg: 300 }
+    - { fn: 1, nm: '\cos', dg: 330 }
+    - { fn: 2, nm: '\tan', dg: 45 }
+    - { fn: 2, nm: '\tan', dg: 60 }
+    - { fn: 2, nm: '\tan', dg: 135 }
+    - { fn: 2, nm: '\tan', dg: 210 }
+  prompt: 'Exact value of ${{nm}} {{dg}}^\circ$ (type sqrt(3)/2 and the like, or a decimal)?'
+  parts:
+    - { ask: 'Value', label: v, tex: 'x', value: "fn == 0 ? sin(dg*pi/180) : (fn == 1 ? cos(dg*pi/180) : tan(dg*pi/180))", tol: 0.002, explain: 'Find the reference angle, take its value from the 30-60-90 or 45-45-90 triangle, then fix the sign by quadrant: all positive in I, sine in II, tangent in III, cosine in IV' }
+  verify: { expect: { v: "[sin(dg*pi/180), cos(dg*pi/180), tan(dg*pi/180)][fn]" } }
+
+- template: mm-determinant
+  skill: alg.vectors-matrices
+  pace: recall
+  given: { a: { int: [-6, 9] }, b: { int: [-6, 9] }, c: { int: [-6, 9] }, d: { int: [-6, 9] } }
+  require: ["a*d - b*c != 0", "a != 0", "b != 0", "c != 0", "d != 0"]
+  prompt: 'In your head: $\begin{vmatrix} {{a}} & {{b}} \\ {{c}} & {{d}} \end{vmatrix}$'
+  parts:
+    - { ask: 'Determinant', label: v, tex: '\det', value: a*d - b*c, tol: 0.0001, explain: 'Main diagonal minus the other: $({{a}})({{d}}) - ({{b}})({{c}})$' }
+  verify: { expect: { v: "Matrix([[a, b], [c, d]]).det()" } }
+
+- template: mm-matrix-entry
+  skill: alg.vectors-matrices
+  pace: quick
+  given: { a: { int: [-4, 6] }, b: { int: [-4, 6] }, c: { int: [-4, 6] }, d: { int: [-4, 6] }, p: { int: [-4, 6] }, q: { int: [-4, 6] }, r: { int: [-4, 6] }, s: { int: [-4, 6] } }
+  require: ["c*p + d*r != 0"]
+  prompt: 'The bottom-left entry of $\begin{pmatrix} {{a}} & {{b}} \\ {{c}} & {{d}} \end{pmatrix}\begin{pmatrix} {{p}} & {{q}} \\ {{r}} & {{s}} \end{pmatrix}$?'
+  parts:
+    - { ask: 'Entry', label: v, tex: 'x', value: c*p + d*r, tol: 0.0001, explain: 'Row 2 of the first times column 1 of the second: $({{c}})({{p}}) + ({{d}})({{r}})$. You only need that one row and column' }
+  verify: { expect: { v: "(Matrix([[a, b], [c, d]])*Matrix([[p, q], [r, s]]))[1, 0]" } }
+
+- template: mm-dot-product
+  skill: alg.vectors-matrices
+  pace: recall
+  given: { a: { int: [-6, 6] }, b: { int: [-6, 6] }, c: { int: [-6, 6] }, p: { int: [-6, 6] }, q: { int: [-6, 6] }, r: { int: [-6, 6] } }
+  require: ["a*p + b*q + c*r != 0"]
+  prompt: 'In your head: $\langle {{a}}, {{b}}, {{c}} \rangle \cdot \langle {{p}}, {{q}}, {{r}} \rangle$'
+  parts:
+    - { ask: 'Dot product', label: v, tex: 'x', value: a*p + b*q + c*r, tol: 0.0001, explain: 'Multiply matching components and add' }
+  verify: { expect: { v: "Matrix([a, b, c]).dot(Matrix([p, q, r]))" } }
+
+- template: mm-composite
+  skill: alg.functions
+  pace: recall
+  given: { a: { int: [2, 5] }, b: { int: [-6, 6] }, c: { int: [-5, 5] }, k: { int: [-4, 4] } }
+  require: ["b != 0", "c != 0", "k != 0", "a*(k^2 + c) + b != 0"]
+  prompt: 'If $f(x) = {{=a*x + b}}$ and $g(x) = {{=x^2 + c}}$, find $f(g({{k}}))$.'
+  parts:
+    - { ask: '$f(g({{k}}))$', label: v, tex: 'x', value: a*(k^2 + c) + b, tol: 0.0001, explain: 'Inside first: $g({{k}}) = {{k^2 + c}}$. Then feed that to $f$' }
+  verify: { expect: { v: "(a*x + b).subs(x, (x**2 + c).subs(x, k))" } }
+
+- template: mm-base-fraction
+  skill: k8.place-value
+  pace: quick
+  given: { bs: { pick: [2, 4, 5, 8] }, d1: { int: [0, 7] }, d2: { int: [1, 7] } }
+  require: ["d1 < bs", "d2 < bs"]
+  prompt: 'Write $0.{{d1}}{{d2}}_{ {{bs}} }$ as a base-10 fraction.'
+  parts:
+    - { ask: 'Fraction', label: v, tex: 'x', value: (d1*bs + d2)/bs^2, tol: 0.00001, explain: 'The places after the point are worth $\tfrac{1}{ {{bs}} }$ and $\tfrac{1}{ {{bs^2}} }$: read the two digits as a base-${{bs}}$ whole number, ${{d1*bs + d2}}$, over ${{bs^2}}$' }
+  verify: { expect: { v: "Rational(d1, bs) + Rational(d2, bs**2)" } }
+
+- template: mm-polar-to-rectangular
+  skill: trig.unit-circle
+  pace: recall
+  given: { r: { pick: [2, 4, 6, 8, 10] } }
+  cases:
+    - { dg: 60, k: 0 }
+    - { dg: 120, k: 0 }
+    - { dg: 180, k: 0 }
+    - { dg: 240, k: 0 }
+    - { dg: 300, k: 0 }
+    - { dg: 30, k: 1 }
+    - { dg: 90, k: 1 }
+    - { dg: 150, k: 1 }
+    - { dg: 210, k: 1 }
+    - { dg: 330, k: 1 }
+  prompt: 'The point with polar coordinates $({{r}}, {{dg}}^\circ)$ has what {{k == 0 ? "x" : "y"}}-coordinate?'
+  parts:
+    - { ask: '{{k == 0 ? "x" : "y"}}', label: v, tex: '{{k == 0 ? "x" : "y"}}', value: "k == 0 ? r*cos(dg*pi/180) : r*sin(dg*pi/180)", tol: 0.001, explain: '$x = r\cos\theta$ and $y = r\sin\theta$. These angles were chosen so the cosine or sine is $\pm\tfrac12$ or $\pm1$' }
+  verify: { expect: { v: "r*cos(dg*pi/180) if k == 0 else r*sin(dg*pi/180)" } }
+
+# ── H5: calculus ───────────────────────────────────────────────────────────
+- template: mm-domain-excluded
+  skill: alg.functions
+  pace: recall
+  given: { h: { int: [-9, 9] }, a: { int: [1, 9] }, c: { pick: [1, 2, 3] } }
+  require: ["h != 0", "a + h != 0"]
+  prompt: 'Which value of $x$ is not in the domain of $f(x) = \dfrac{ {{=x + a}} }{ {{=c*x - c*h}} }$?'
+  parts:
+    - { ask: '$x$', label: v, tex: 'x', value: h, tol: 0.0001, explain: 'A rational function leaves out the zeros of its denominator' }
+  verify: { expect: { v: "solve(c*x - c*h, x)[0]" } }
+
+- template: mm-range-minimum
+  skill: alg.quadratics
+  pace: quick
+  given: { h: { int: [-6, 6] }, c: { int: [-9, 9] } }
+  require: ["h != 0", "c != 0", "c - h^2 != 0"]
+  prompt: 'What is the least value in the range of $f(x) = {{=x^2 - 2*h*x + c}}$?'
+  parts:
+    - { ask: 'Least value', label: v, tex: 'f_{\min}', value: c - h^2, tol: 0.0001, explain: 'An upward parabola bottoms out at its vertex, $x = -b/(2a) = {{h}}$: $f({{h}}) = {{h^2}} - {{2*h^2}} + ({{c}})$' }
+  verify: { expect: { v: "(x**2 - 2*h*x + c).subs(x, solve(diff(x**2 - 2*h*x + c, x), x)[0])" } }
+
+- template: mm-modular-power
+  skill: k8.exponents
+  pace: quick
+  given: { a: { pick: [2, 3, 7] }, n: { int: [6, 18] }, m: { pick: [5, 7, 10, 11, 13] } }
+  require: ["gcd(a, m) == 1"]
+  prompt: 'Remainder when ${{a}}^{ {{n}} }$ is divided by ${{m}}$?'
+  parts:
+    - { ask: 'Remainder', label: v, tex: 'r', value: "mod(a^n, m)", tol: 0.0001, explain: 'The remainders of the powers repeat in a cycle. List them (${{mod(a, m)}}, {{mod(a^2, m)}}, {{mod(a^3, m)}}, {{mod(a^4, m)}}, \dots$) until 1 appears, then reduce the exponent by the cycle length' }
+  verify: { expect: { v: "(a**n) % m" } }
+
+- template: mm-limit-at-infinity
+  skill: calc.limits
+  pace: recall
+  given: { a: { int: [-9, 9] }, b: { pick: [2, 3, 4, 5, 7] }, c: { int: [1, 9] }, d: { int: [1, 9] } }
+  require: ["a != 0", "gcd(abs(a), b) == 1"]
+  prompt: 'In your head: $\displaystyle\lim_{x\to\infty}\frac{ {{=a*x^2 + c*x}} }{ {{=b*x^2 - d}} }$'
+  parts:
+    - { ask: 'Limit', label: v, tex: 'L', value: a/b, tol: 0.00001, explain: 'Equal degrees top and bottom: the limit is the ratio of the leading coefficients' }
+  verify: { expect: { v: "limit((a*x**2 + c*x)/(b*x**2 - d), x, oo)" } }
+
+- template: mm-derivative-at-a-point
+  skill: calc.derivative-rules
+  pace: recall
+  given: { a: { int: [1, 4] }, b: { int: [-5, 5] }, k: { pick: [-2, -1, 1, 2, 3] } }
+  require: ["b != 0", "3*a*k^2 + 2*b*k != 0"]
+  prompt: "If $f(x) = {{=a*x^3 + b*x^2}}$, find $f'({{k}})$."
+  parts:
+    - { ask: "$f'({{k}})$", label: v, tex: "f'({{k}})", value: 3*a*k^2 + 2*b*k, tol: 0.0001, explain: "Power rule, then substitute: $f'(x) = {{=3*a*x^2 + 2*b*x}}$" }
+  verify: { expect: { v: "diff(a*x**3 + b*x**2, x).subs(x, k)" } }
+
+- template: mm-tangent-slope
+  skill: calc.derivative-rules
+  pace: recall
+  given: { c: { int: [1, 9] }, k: { pick: [-3, -2, -1, 1, 2, 3] } }
+  require: ["3*k^2 - c != 0"]
+  prompt: 'Slope of the tangent to $y = {{=x^3 - c*x}}$ at $x = {{k}}$?'
+  parts:
+    - { ask: 'Slope', label: v, tex: 'm', value: 3*k^2 - c, tol: 0.0001, explain: "The slope of the tangent is the derivative there: $y' = {{=3*x^2 - c}}$" }
+  verify: { expect: { v: "diff(x**3 - c*x, x).subs(x, k)" } }
+
+- template: mm-asymptote
+  skill: calc.limits
+  pace: recall
+  given: { a: { int: [1, 9] }, b: { int: [1, 9] }, c: { pick: [2, 3, 4, 5] }, d: { int: [1, 9] } }
+  cases:
+    - { k: 0, what: 'horizontal asymptote y = ?' }
+    - { k: 1, what: 'vertical asymptote x = ?' }
+  require: ["a*d + b*c != 0"]
+  prompt: 'For $y = \dfrac{ {{=a*x + b}} }{ {{=c*x - d}} }$: {{what}} (a fraction is fine)'
+  parts:
+    - { ask: 'Value', label: v, tex: 'x', value: "k == 0 ? a/c : d/c", tol: 0.00001, explain: 'Horizontal: the ratio of leading coefficients. Vertical: where the denominator is zero (and the numerator is not)' }
+  verify: { expect: { v: "limit((a*x + b)/(c*x - d), x, oo) if k == 0 else solve(c*x - d, x)[0]" } }
+
+- template: mm-critical-value
+  skill: calc.extrema
+  pace: recall
+  given: { a: { int: [1, 5] }, h: { int: [-7, 7] }, c: { int: [-9, 9] } }
+  require: ["h != 0", "c != 0"]
+  prompt: 'Critical value of $f(x) = {{=a*x^2 - 2*a*h*x + c}}$?'
+  parts:
+    - { ask: '$x$', label: v, tex: 'x', value: h, tol: 0.0001, explain: "Set $f'(x) = {{=2*a*x - 2*a*h}} = 0$. For any quadratic it is $x = -b/(2a)$" }
+  verify: { expect: { v: "solve(diff(a*x**2 - 2*a*h*x + c, x), x)[0]" } }
+
+- template: mm-quadratic-maximum
+  skill: calc.extrema
+  pace: quick
+  given: { h: { int: [-6, 6] }, c: { int: [-9, 9] } }
+  require: ["h != 0", "c + h^2 != 0"]
+  prompt: 'Maximum value of $f(x) = {{=-x^2 + 2*h*x + c}}$?'
+  parts:
+    - { ask: 'Maximum', label: v, tex: 'f_{\max}', value: c + h^2, tol: 0.0001, explain: 'The vertex is at $x = {{h}}$, and $f({{h}}) = -{{h^2}} + {{2*h^2}} + ({{c}})$' }
+  verify: { expect: { v: "(-x**2 + 2*h*x + c).subs(x, solve(diff(-x**2 + 2*h*x + c, x), x)[0])" } }
+
+- template: mm-definite-integral
+  skill: calc.riemann-ftc
+  pace: quick
+  given: { a: { pick: [3, 6, 9] }, b: { int: [-5, 5] }, k: { pick: [1, 2, 3] } }
+  require: ["b != 0", "a*k^3/3 + b*k != 0"]
+  prompt: 'In your head: $\displaystyle\int_0^{ {{k}} } \left({{=a*x^2 + b}}\right)dx$'
+  parts:
+    - { ask: 'Value', label: v, tex: 'I', value: a*k^3/3 + b*k, tol: 0.0001, explain: 'Antiderivative ${{=a/3*x^3 + b*x}}$, evaluated at ${{k}}$ (the lower limit contributes 0)' }
+  verify: { expect: { v: "integrate(a*x**2 + b, (x, 0, k))" } }
+
+- template: mm-inverse-function-value
+  skill: alg.functions
+  pace: recall
+  given: { a: { int: [2, 7] }, b: { int: [-9, 9] }, x0: { int: [-8, 9] } }
+  require: ["b != 0", "x0 != 0"]
+  prompt: 'If $f(x) = {{=a*x + b}}$, find $f^{-1}({{a*x0 + b}})$.'
+  parts:
+    - { ask: '$f^{-1}({{a*x0 + b}})$', label: v, tex: 'x', value: x0, tol: 0.0001, explain: 'Do not find the inverse formula: just solve ${{=a*x + b}} = {{a*x0 + b}}$' }
+  verify: { expect: { v: "solve(Eq(a*x + b, a*x0 + b), x)[0]" } }
