@@ -504,7 +504,7 @@ Big ideas: FUN
 - ● **CA-5.8.A** (FUN-4.A) Sketch the graph of f′ from the graph of f, and a possible f from the graph of f′.
   - EK: Zeros of f′ at horizontal tangents of f; f′ positive where f rises; extrema of f′ at inflection points of f.
   - Needs: CA-5.6.A
-  - P2 · P4 · drills: ca-sketch-derivative, ca-read-derivative-graph
+  - P2 · P4 · drills: ca-sketch-derivative, ca-read-derivative-graph, dr-derivative-sketch
 
 ### 5.9 Connecting f, f′ and f″
 

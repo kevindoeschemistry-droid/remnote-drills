@@ -11,7 +11,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 | AI Safety | BlueDot Impact course syllabi (Technical AI Safety, Governance, AGI Strategy) | course | read in full | — | — | 104 | 0 | 104 |
 | Anchor Quantities | CODATA Recommended Values of the Fundamental Physical Constants: 2022 (NIST SP 961) | reference | read in part | snapshot-key-numbers, francl-take-a-number, cfr-21-101-9 | acs-accm-pchem | 14 | 3 | 11 |
 | Basketball | USA Basketball Player Development Curriculum | standard | read in part | — | — | 88 | 0 | 88 |
-| Biology (AP) | AP Biology Course and Exam Description (2019) | standard | read through a crosswalk | — | — | 178 | 178 | 0 |
+| Biology (AP) | AP Biology Course and Exam Description (2019) | standard | read through a crosswalk | iupac-aa-1983 | — | 179 | 179 | 0 |
 | Calculus | AP Calculus AB and BC Course and Exam Description | standard | read in full | — | — | 173 | 173 | 0 |
 | Chemistry (AP) | AP Chemistry Course and Exam Description (Fall 2024) | standard | read in part | — | — | 179 | 179 | 0 |
 | Computer Science | Computer Science Curricula 2023, Body of Knowledge | standard | read in full | — | — | 140 | 0 | 140 |
@@ -383,3 +383,15 @@ https://doi.org/10.1016/j.cell.2010.06.019
 | **errors** | **Mutation and error rates** (undefined questions) | | | |
 
 **Areas with nothing answering to them:** sizes Cell sizes; lengths Length scales inside cells; rates Rates and time scales; concentrations Concentrations; energetics Energetics; diffusion Diffusion and catalysis; genomes Genomes; errors Mutation and error rates.
+
+## IUPAC-IUB JCBN, Nomenclature and Symbolism for Amino Acids and Peptides (Recommendations 1983)
+
+https://iupac.qmul.ac.uk/AminoAcid/AA1n2.html
+
+0 of 0 items have at least one objective answering to them.
+
+| Item | Topic | Objectives | With a drill | Where |
+|---|---|---|---|---|
+| **3AA-1** | **Names, symbols and formulas of the common amino acids (Table 1)** (undefined questions) | | | |
+
+**Areas with nothing answering to them:** 3AA-1 Names, symbols and formulas of the common amino acids (Table 1).

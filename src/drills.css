@@ -191,6 +191,9 @@ a.odd-source:hover { text-decoration: underline; }
 .odd-choice.picked { border-color: #5b7cfa; box-shadow: 0 0 0 2px rgba(91, 124, 250, 0.25); }
 .odd-figure { margin: 6px 0 8px; color: var(--odd-fg, currentColor); }
 .odd-figure svg { display: block; height: auto; }
+span.odd-figure { display: block; }
+.odd-self { margin: 8px 0; }
+.odd-self .odd-row { margin-top: 6px; gap: 8px; }
 .mx-todo { margin: 4px 0 10px; padding: 10px 12px; border-radius: 8px; background: rgba(91, 124, 250, 0.08); border: 1px solid rgba(91, 124, 250, 0.35); }
 .mx-todo ol { margin: 6px 0 4px 18px; padding: 0; }
 .mx-todo li { margin: 2px 0; }

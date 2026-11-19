@@ -43,6 +43,9 @@ interface DataPart {
   explain?: string;
   choice?: string[];
   correct?: string | number;
+  /** self-graded: `draw: true` asks for a sketch or structure on paper; `solution` is the figure to compare with */
+  draw?: boolean;
+  solution?: Record<string, unknown>;
 }
 export interface DataTemplate {
   template: string;
@@ -105,6 +108,10 @@ export function buildData(t: DataTemplate, r: Rng): Draft {
     const ask = fill(p.ask, scope);
     const tex = p.tex ? fill(p.tex, scope) : p.label;
     const explain = p.explain ? fill(p.explain, scope) : undefined;
+    if (p.draw) {
+      const answer: Answer = { kind: "self", figure: p.solution ? renderFigure(p.solution as any, scope) : undefined, note: explain };
+      return { ask, answer, answerTex: "\\text{compare with the drawing}", explain };
+    }
     if (p.choice) {
       const options = p.choice.map((o) => fill(o, scope));
       const idx = num(p.correct ?? 0, scope, `${t.template} › ${p.label}`);

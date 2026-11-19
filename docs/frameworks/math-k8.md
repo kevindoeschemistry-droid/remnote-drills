@@ -2,7 +2,7 @@
 
 Generated from `drills/frameworks/math-k8.yaml` by `scripts/framework.mjs`. ● drilled · ◐ partly · ○ no drills yet.
 
-**258 learning objectives** in 9 units (258 core): 240 drilled, 14 partly, 4 with no drills. Core: 240 / 258 drilled.
+**258 learning objectives** in 9 units (258 core): 242 drilled, 13 partly, 3 with no drills. Core: 242 / 258 drilled.
 
 ## Big ideas
 
@@ -34,10 +34,10 @@ Generated from `drills/frameworks/math-k8.yaml` by `scripts/framework.mjs`. ● 
 | 2 · Grade 1 — addition and subtraction within 20, tens and ones, length units | core | — | 21 | 20 | 1 | 0 |
 | 3 · Grade 2 — base ten to 1000, fluency within 100, standard length units | core | — | 26 | 23 | 3 | 0 |
 | 4 · Grade 3 — multiplication and division within 100, unit fractions, area | core | — | 30 | 30 | 0 | 0 |
-| 5 · Grade 4 — multi-digit arithmetic, fraction equivalence and operations, angles | core | — | 32 | 30 | 1 | 1 |
+| 5 · Grade 4 — multi-digit arithmetic, fraction equivalence and operations, angles | core | — | 32 | 31 | 1 | 0 |
 | 6 · Grade 5 — fraction addition and multiplication, decimals to thousandths, volume | core | — | 30 | 30 | 0 | 0 |
 | 7 · Grade 6 — ratios and rates, negative numbers, expressions and one-step equations, distributions | core | — | 36 | 36 | 0 | 0 |
-| 8 · Grade 7 — proportional relationships, rational-number arithmetic, linear equations, sampling and probability | core | — | 30 | 28 | 2 | 0 |
+| 8 · Grade 7 — proportional relationships, rational-number arithmetic, linear equations, sampling and probability | core | — | 30 | 29 | 1 | 0 |
 | 9 · Grade 8 — irrationals and exponents, linear equations and systems, functions, transformations, Pythagoras | core | — | 31 | 27 | 4 | 0 |
 
 ## Unit 1 · Kindergarten — counting, adding and subtracting within 10, shapes
@@ -462,7 +462,7 @@ Big ideas: OPS, MULT, LINE, MEAS
 - ● **MK-4.3.B** (3.NF.A.2a) Represent 1/b on a number line by partitioning 0 to 1 into b equal parts; each part has size 1/b and its endpoint locates 1/b.
   - EK: Fractions are numbers: points on the same line as whole numbers.
   - Needs: MK-4.3.A, MK-3.3.F
-  - MP4 · MP5 · drills: k8-fraction-line, ~k8-frac-line
+  - MP4 · MP5 · drills: k8-fraction-line, dr-fraction-line, ~k8-frac-line
 - ● **MK-4.3.C** (3.NF.A.2b) Represent a/b on a number line by marking off a lengths of 1/b from 0.
   - EK: a/b is a jumps of size 1/b from 0.
   - Needs: MK-4.3.B
@@ -669,10 +669,10 @@ Big ideas: PV, LINE, MULT, MEAS, SHAPE
   - EK: An angle measures turn, as a fraction of a full circle (360°).
   - Needs: MK-4.3.A
   - MP6 · drills: k8-angle-turn
-- ○ **MK-5.4.F** (4.MD.C.6) Measure angles in whole-number degrees with a protractor and sketch angles of a specified measure.
+- ● **MK-5.4.F** (4.MD.C.6) Measure angles in whole-number degrees with a protractor and sketch angles of a specified measure.
   - EK: Line one ray up with 0 on the protractor and read the scale that starts there.
   - Needs: MK-5.4.E
-  - MP5 · MP6
+  - MP5 · MP6 · drills: dr-angle
 - ● **MK-5.4.G** (4.MD.C.7) Recognize angle measure as additive and solve addition and subtraction problems to find unknown angles on a diagram.
   - EK: Adjacent non-overlapping angles add to the whole angle.
   - Needs: MK-5.4.F
@@ -685,7 +685,7 @@ Big ideas: PV, LINE, MULT, MEAS, SHAPE
 - ◐ **MK-5.5.A** (4.G.A.1) Draw points, lines, segments, rays, angles (right, acute, obtuse), and perpendicular and parallel lines, and identify them in figures.
   - EK: Right = 90°, acute < 90°, obtuse between 90° and 180°.
   - Needs: MK-5.4.E
-  - MP5 · MP6 · drills: ~k8-classify-angle
+  - MP5 · MP6 · drills: ~k8-classify-angle, ~dr-line-pair
 - ● **MK-5.5.B** (4.G.A.2) Classify two-dimensional figures by parallel or perpendicular lines and by angles of a specified size; recognize right triangles.
   - EK: A right triangle has one 90° angle.
   - Needs: MK-5.5.A, MK-4.5.A
@@ -1104,10 +1104,10 @@ Big ideas: MULT, LINE, OPS, SHAPE, DATA
   - EK: Lengths scale by k; areas scale by k².
   - Needs: MK-8.1.C, MK-7.4.A
   - MP4 · MP7 · drills: k8-scale-drawing
-- ◐ **MK-8.4.B** (7.G.A.2) Draw geometric shapes with given conditions (freehand, ruler and protractor, technology), especially triangles from three measures of angles or sides, noting when the conditions give a unique triangle, more than one, or none.
+- ● **MK-8.4.B** (7.G.A.2) Draw geometric shapes with given conditions (freehand, ruler and protractor, technology), especially triangles from three measures of angles or sides, noting when the conditions give a unique triangle, more than one, or none.
   - EK: Any two sides must sum to more than the third; angles must sum to 180°.
   - Needs: MK-5.4.F, MK-5.5.B
-  - MP5 · MP3 · drills: ~k8-triangle-possible, ~k8-third-angle
+  - MP5 · MP3 · drills: dr-triangle-sss, ~k8-triangle-possible, ~k8-third-angle
 - ● **MK-8.4.C** (7.G.A.3) Describe the two-dimensional figures that result from slicing three-dimensional figures, as in plane sections of right rectangular prisms and pyramids.
   - EK: A plane slice parallel to the base copies the base's shape.
   - Needs: MK-7.4.D

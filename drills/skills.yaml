@@ -33,6 +33,7 @@ domains:
   - { id: pchem,   title: "Physical chemistry: thermodynamics" }
   - { id: quantum, title: "Quantum chemistry & spectroscopy" }
   - { id: kinetics, title: "Kinetic theory & chemical kinetics" }
+  - { id: biochem, title: "Biochemistry" }
 
 skills:
   # ── prerequisites ────────────────────────────────────────────────────────
@@ -507,3 +508,5 @@ skills:
   - { id: calc.multiple-integrals, domain: calc, title: "Double and triple integrals", prereqs: [calc.antiderivatives] }
   - { id: calc.vector-calculus, domain: calc, title: "Line and surface integrals; Green, Stokes, divergence", prereqs: [calc.multiple-integrals, calc.partials-apps] }
 
+  # ── biochemistry ─────────────────────────────────────────────────────────
+  - { id: biochem.amino-acids, domain: biochem, title: "The 20 amino acids: structures from memory", short: "Amino acid structures" }

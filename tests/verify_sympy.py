@@ -447,7 +447,10 @@ def main():
             if bad < 25:
                 print("FAIL", p["skill"], p["template"], json.dumps(p["answer"])[:200])
     print(f"sympy: {len(probs) - bad}/{len(probs)} reference answers verified")
-    sys.exit(1 if bad else 0)
+    # drawn structures: each formula is rebuilt from its atoms and bonds (tests/verify/molecules.py)
+    mol_ok, mol_bad = next(m for m in _AREAS if m.__name__ == "verify_molecules").run()
+    print(f"molecules: {mol_ok} structures match their stated formulas, {mol_bad} do not")
+    sys.exit(1 if bad or mol_bad else 0)
 
 
 if __name__ == "__main__":

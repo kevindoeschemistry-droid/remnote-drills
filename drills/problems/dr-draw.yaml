@@ -1,0 +1,573 @@
+# Draw-this items: produce a graph or a figure on paper from memory, then compare.
+#
+# A part with `draw: true` is self-graded. The panel shows "I've drawn it: show the answer", then
+# the `solution:` figure with "Mine matches" / "Not yet". Nothing is typed, so nothing is checked by
+# the machine: the solution is drawn by src/drills/fig-data.ts from the same numbers the prompt
+# prints, so the question and the picture cannot disagree. Keep every item to one drawing that takes
+# under a minute, and say in the prompt which features must be marked: those are what "matches" means.
+
+# ── function graphs ─────────────────────────────────────────────────────────
+# sinusoid (MH F-IF.C.7e, F-TF.B.5)
+- template: dr-sinusoid
+  skill: trig.graphs
+  pace: quick
+  given: { A: { pick: [1, 2, 3] }, D: { pick: [-2, -1, 1, 2, 3] } }
+  cases:
+    - { B: 1, kind: 0, tex: '\sin x', ptex: '2\pi' }
+    - { B: 2, kind: 0, tex: '\sin 2x', ptex: '\pi' }
+    - { B: 0.5, kind: 0, tex: '\sin \tfrac{x}{2}', ptex: '4\pi' }
+    - { B: 1, kind: 1, tex: '\cos x', ptex: '2\pi' }
+    - { B: 2, kind: 1, tex: '\cos 2x', ptex: '\pi' }
+    - { B: 0.5, kind: 1, tex: '\cos \tfrac{x}{2}', ptex: '4\pi' }
+  let: { P: 2*pi/B }
+  prompt: 'Sketch one full period of $y = {{A == 1 ? "" : A}}{{tex}} {{D > 0 ? "+" : "-"}} {{abs(D)}}$ starting at $x = 0$. Mark the midline, the highest and lowest points, and where the period ends.'
+  parts:
+    - ask: 'Draw it on paper, then compare'
+      label: a
+      draw: true
+      solution:
+        type: plot
+        x: [-P/10, P*1.1]
+        y: [D - A - 1, D + A + 1]
+        xtick: P/4
+        ytick: 1
+        xunit: pi
+        curves:
+          - { f: "A*sin(B*x + kind*pi/2) + D", from: 0, to: P }
+        hlines: [D]
+        points:
+          - { at: [0, "A*sin(kind*pi/2) + D"] }
+          - { at: [P/4, "A*sin(pi/2 + kind*pi/2) + D"] }
+          - { at: [P/2, "A*sin(pi + kind*pi/2) + D"] }
+          - { at: [3*P/4, "A*sin(3*pi/2 + kind*pi/2) + D"] }
+          - { at: [P, "A*sin(kind*pi/2) + D"] }
+      explain: 'Midline $y = {{D}}$, amplitude ${{A}}$ (so it runs from ${{D - A}}$ to ${{D + A}}$), period ${{ptex}}$. Split the period into quarters: a sine goes midline, top, midline, bottom, midline; a cosine goes top, midline, bottom, midline, top'
+
+# tangent (MH F-IF.C.7e)
+- template: dr-tangent
+  skill: trig.graphs
+  pace: quick
+  cases:
+    - { B: 1, ptex: '\pi', atex: '\pm\tfrac{\pi}{2}' }
+    - { B: 2, ptex: '\tfrac{\pi}{2}', atex: '\pm\tfrac{\pi}{4}' }
+    - { B: 0.5, ptex: '2\pi', atex: '\pm\pi' }
+  let: { P: pi/B }
+  prompt: 'Sketch $y = {{=tan(B*x)}}$ for the one period centred on the origin. Mark the two asymptotes and the points where $y = \pm 1$.'
+  parts:
+    - ask: 'Draw it on paper, then compare'
+      label: a
+      draw: true
+      solution:
+        type: plot
+        x: [-P*0.7, P*0.7]
+        y: [-4, 4]
+        xtick: P/4
+        ytick: 1
+        xunit: pi
+        curves:
+          - { f: "tan(B*x)", from: -P/2 + 0.02*P, to: P/2 - 0.02*P }
+        vlines: [-P/2, P/2]
+        points:
+          - { at: [0, 0] }
+          - { at: [P/4, 1] }
+          - { at: [-P/4, -1] }
+      explain: 'Period ${{ptex}}$, asymptotes at $x = {{atex}}$ (where the cosine underneath is zero), through the origin, and $y = \pm 1$ a quarter period either side'
+
+# parabola in vertex form (MH F-IF.C.7a)
+- template: dr-parabola
+  skill: alg.quadratics
+  pace: quick
+  given: { a: { pick: [1, -1, 2, -2] }, h: { int: [-3, 3] }, k: { int: [-3, 3] } }
+  require: ["h != 0", "k != 0", "abs(a)*h^2 <= 8"]
+  prompt: 'Sketch $y = {{=a*(x - h)^2 + k}}$. Mark the vertex, the axis of symmetry and the $y$-intercept.'
+  parts:
+    - ask: 'Draw it on paper, then compare'
+      label: a
+      draw: true
+      solution:
+        type: plot
+        x: [h - 5, h + 5]
+        y: ["a > 0 ? k - 2 : k - 9", "a > 0 ? k + 9 : k + 2"]
+        tick: 1
+        curves:
+          - { f: "a*(x - h)^2 + k" }
+        vlines: [h]
+        points:
+          - { at: [h, k], label: "({{h}}, {{k}})" }
+          - { at: [h + 1, a + k] }
+          - { at: [h - 1, a + k] }
+          - { at: [0, a*h^2 + k], label: "(0, {{a*h^2 + k}})" }
+      explain: 'Vertex $({{h}}, {{k}})$, axis $x = {{h}}$, opens {{a > 0 ? "up" : "down"}}. One step either side of the vertex the height changes by ${{a}}$. The $y$-intercept is $y(0) = {{a*h^2 + k}}$'
+
+# line from slope and intercept (MH F-IF.C.7a, MK 8.F)
+- template: dr-line
+  skill: alg.linear
+  pace: quick
+  cases:
+    - { mn: 2, md: 1 }
+    - { mn: -1, md: 1 }
+    - { mn: 1, md: 2 }
+    - { mn: -1, md: 2 }
+    - { mn: 2, md: 3 }
+    - { mn: -3, md: 2 }
+    - { mn: 3, md: 1 }
+    - { mn: -2, md: 3 }
+  given: { b: { pick: [-3, -2, -1, 1, 2, 3] } }
+  prompt: 'Sketch $y = {{=mn/md*x + b}}$. Mark the $y$-intercept and one more point found from the slope.'
+  parts:
+    - ask: 'Draw it on paper, then compare'
+      label: a
+      draw: true
+      solution:
+        type: plot
+        x: [-6, 6]
+        y: [-6, 6]
+        tick: 1
+        curves:
+          - { f: "mn/md*x + b" }
+        segments:
+          - { from: [0, b], to: [md, b], dash: true }
+          - { from: [md, b], to: [md, b + mn], dash: true }
+        points:
+          - { at: [0, b], label: "(0, {{b}})" }
+          - { at: [md, b + mn] }
+      explain: 'Start at the intercept $(0, {{b}})$. Slope ${{=mn/md}}$: run ${{md}}$ to the right and rise ${{mn}}$ to reach $({{md}}, {{b + mn}})$, then rule the line through both'
+
+# absolute value (MH F-IF.C.7b)
+- template: dr-abs
+  skill: alg.functions
+  pace: quick
+  given: { a: { pick: [1, -1, 2] }, h: { int: [-3, 3] }, k: { int: [-3, 3] } }
+  require: ["h != 0", "k != 0"]
+  prompt: 'Sketch $y = {{=a*abs(x - h) + k}}$. Mark the corner and show the slope of each arm.'
+  parts:
+    - ask: 'Draw it on paper, then compare'
+      label: a
+      draw: true
+      solution:
+        type: plot
+        x: [h - 5, h + 5]
+        y: ["a > 0 ? k - 2 : k - 8", "a > 0 ? k + 8 : k + 2"]
+        tick: 1
+        curves:
+          - { f: "a*abs(x - h) + k" }
+        points:
+          - { at: [h, k], label: "({{h}}, {{k}})" }
+          - { at: [h + 1, a + k] }
+          - { at: [h - 1, a + k] }
+      explain: 'A V with its corner at $({{h}}, {{k}})$, opening {{a > 0 ? "up" : "down"}}. The right arm has slope ${{a}}$ and the left arm slope ${{-a}}$'
+
+# square root (MH F-IF.C.7b)
+- template: dr-sqrt
+  skill: alg.functions
+  pace: quick
+  given: { h: { int: [-4, 2] }, k: { int: [-3, 3] } }
+  require: ["h != 0", "k != 0"]
+  prompt: 'Sketch $y = {{=sqrt(x - h) + k}}$. Mark where it starts and two more exact points.'
+  parts:
+    - ask: 'Draw it on paper, then compare'
+      label: a
+      draw: true
+      solution:
+        type: plot
+        x: [h - 2, h + 10]
+        y: [k - 3, k + 5]
+        tick: 1
+        curves:
+          - { f: "sqrt(x - h) + k", from: h, to: h + 10 }
+        points:
+          - { at: [h, k], label: "({{h}}, {{k}})" }
+          - { at: [h + 1, k + 1] }
+          - { at: [h + 4, k + 2] }
+          - { at: [h + 9, k + 3] }
+      explain: 'It starts where the radicand is zero, at $({{h}}, {{k}})$, and exists only to the right. Go $1$, $4$, $9$ to the right for rises of $1$, $2$, $3$: steep at first, then flattening'
+
+# exponential (MH F-IF.C.7e)
+- template: dr-exponential
+  skill: alg.exponential
+  pace: quick
+  cases:
+    - { a: 1, b: 2 }
+    - { a: 2, b: 2 }
+    - { a: 1, b: 3 }
+    - { a: 3, b: 2 }
+    - { a: 1, b: 0.5 }
+    - { a: 4, b: 0.5 }
+    - { a: -1, b: 2 }
+  prompt: 'Sketch $y = {{=a*b^x}}$. Mark the $y$-intercept, one more exact point and the asymptote.'
+  parts:
+    - ask: 'Draw it on paper, then compare'
+      label: a
+      draw: true
+      solution:
+        type: plot
+        x: [-4, 4]
+        y: ["a > 0 ? -1 : -9", "a > 0 ? 9 : 1"]
+        tick: 1
+        curves:
+          - { f: "a*b^x" }
+        points:
+          - { at: [0, a], label: "(0, {{a}})" }
+          - { at: [1, a*b], label: "(1, {{a*b}})" }
+          - { at: [-1, a/b] }
+      explain: 'Through $(0, {{a}})$ and $(1, {{a*b}})$: each step right multiplies the height by ${{b}}$. The $x$-axis is the asymptote, approached on the {{b > 1 ? "left" : "right"}}, and the curve never crosses it'
+
+# logarithm (MH F-IF.C.7e)
+- template: dr-log
+  skill: alg.exponential
+  pace: quick
+  cases:
+    - { b: 2, h: 0 }
+    - { b: 2, h: 1 }
+    - { b: 2, h: -2 }
+    - { b: 3, h: 0 }
+    - { b: 3, h: 2 }
+    - { b: 2, h: 3 }
+  prompt: 'Sketch $y = \log_{ {{b}} }({{=x - h}})$. Mark the asymptote, the $x$-intercept and one more exact point.'
+  parts:
+    - ask: 'Draw it on paper, then compare'
+      label: a
+      draw: true
+      solution:
+        type: plot
+        x: [h - 2, h + 10]
+        y: [-4, 4]
+        tick: 1
+        curves:
+          - { f: "log(x - h, b)", from: h + 0.01, to: h + 10 }
+        vlines: [h]
+        points:
+          - { at: [h + 1, 0], label: "({{h + 1}}, 0)" }
+          - { at: [h + b, 1], label: "({{h + b}}, 1)" }
+          - { at: [h + 1/b, -1] }
+      explain: 'Vertical asymptote where the argument is zero, $x = {{h}}$. The argument is $1$ at $x = {{h + 1}}$ (height $0$) and ${{b}}$ at $x = {{h + b}}$ (height $1$). It is the exponential reflected in $y = x$: always rising, ever more slowly'
+
+# reciprocal (MH F-IF.C.7d)
+- template: dr-reciprocal
+  skill: alg.rational
+  pace: quick
+  given: { a: { pick: [1, 2, 3] }, h: { int: [-3, 3] }, k: { int: [-3, 3] } }
+  require: ["h != 0", "k != 0"]
+  prompt: 'Sketch $y = {{=a/(x - h) + k}}$. Mark both asymptotes and one point on each branch.'
+  parts:
+    - ask: 'Draw it on paper, then compare'
+      label: a
+      draw: true
+      solution:
+        type: plot
+        x: [h - 6, h + 6]
+        y: [k - 6, k + 6]
+        tick: 1
+        curves:
+          - { f: "a/(x - h) + k", from: h - 6, to: h - 0.05 }
+          - { f: "a/(x - h) + k", from: h + 0.05, to: h + 6 }
+        vlines: [h]
+        hlines: [k]
+        points:
+          - { at: [h + 1, k + a] }
+          - { at: [h - 1, k - a] }
+      explain: 'Asymptotes $x = {{h}}$ and $y = {{k}}$. One step right of the vertical asymptote the curve sits ${{a}}$ from the horizontal one, at $({{h + 1}}, {{k + a}})$; one step left it is at $({{h - 1}}, {{k - a}})$. The branches lie in opposite corners'
+
+# factored cubic (MH F-IF.C.7c)
+- template: dr-cubic
+  skill: alg.polynomials
+  pace: quick
+  cases:
+    - { r1: -2, r2: 1, r3: 3, s: 1 }
+    - { r1: -3, r2: -1, r3: 2, s: 1 }
+    - { r1: -1, r2: 1, r3: 4, s: 1 }
+    - { r1: -2, r2: 1, r3: 3, s: -1 }
+    - { r1: -3, r2: 1, r3: 2, s: -1 }
+    - { r1: -4, r2: -1, r3: 1, s: 1 }
+  prompt: 'Sketch $y = {{=s*(x - r1)*(x - r2)*(x - r3)}}$. Mark the three zeros and the $y$-intercept, and get the end behaviour right. The turning points need only be on the correct side of the axis.'
+  parts:
+    - ask: 'Draw it on paper, then compare'
+      label: a
+      draw: true
+      solution:
+        type: plot
+        x: [-5, 5]
+        y: [-16, 16]
+        xtick: 1
+        ytick: 4
+        curves:
+          - { f: "s*(x - r1)*(x - r2)*(x - r3)" }
+        points:
+          - { at: [r1, 0] }
+          - { at: [r2, 0] }
+          - { at: [r3, 0] }
+          - { at: [0, -s*r1*r2*r3], label: "(0, {{-s*r1*r2*r3}})" }
+      explain: 'Zeros at ${{r1}}$, ${{r2}}$ and ${{r3}}$, each crossed once. The leading term is ${{s > 0 ? "x^3" : "-x^3"}}$, so the graph {{s > 0 ? "falls to the left and rises to the right" : "rises to the left and falls to the right"}}. At $x = 0$ the height is ${{-s*r1*r2*r3}}$'
+
+# derivative from a graph (CA 2.x: sketch f′ from f)
+- template: dr-derivative-sketch
+  skill: calc.derivative-basics
+  pace: quick
+  cases:
+    - { f: "x^3/3 - x", df: "x^2 - 1", z1: -1, z2: 1, ztex: 'x = -1 \text{ and } x = 1' }
+    - { f: "-x^3/3 + x", df: "-x^2 + 1", z1: -1, z2: 1, ztex: 'x = -1 \text{ and } x = 1' }
+    - { f: "x^3/6 - 2*x", df: "x^2/2 - 2", z1: -2, z2: 2, ztex: 'x = -2 \text{ and } x = 2' }
+    - { f: "x^2/2 - 1", df: "x", z1: 0, z2: 0, ztex: 'x = 0' }
+    - { f: "-x^2/2 + x + 1", df: "-x + 1", z1: 1, z2: 1, ztex: 'x = 1' }
+    - { f: "x^2/4 + x - 1", df: "x/2 + 1", z1: -2, z2: -2, ztex: 'x = -2' }
+  prompt: 'The graph of $f$ is shown. Sketch $f''$ on the same axes: get its zeros and its sign right.'
+  figure:
+    type: plot
+    x: [-4, 4]
+    y: [-4, 4]
+    tick: 1
+    curves:
+      - { f: f }
+  parts:
+    - ask: 'Draw it on paper, then compare'
+      label: a
+      draw: true
+      solution:
+        type: plot
+        x: [-4, 4]
+        y: [-4, 4]
+        tick: 1
+        curves:
+          - { f: f, dash: true }
+          - { f: df, color: hot }
+        points:
+          - { at: [z1, 0] }
+          - { at: [z2, 0] }
+      explain: '$f''$ is zero where $f$ has a horizontal tangent (${{ztex}}$), positive where $f$ rises and negative where it falls. The steeper $f$ is, the further $f''$ is from the axis (dashed: $f$; solid: $f''$)'
+
+# ── the unit circle ─────────────────────────────────────────────────────────
+- template: dr-unit-circle
+  skill: trig.unit-circle
+  pace: quick
+  cases:
+    - { deg: 30, rad: '\tfrac{\pi}{6}', cx: '\tfrac{\sqrt3}{2}', cy: '\tfrac12' }
+    - { deg: 45, rad: '\tfrac{\pi}{4}', cx: '\tfrac{\sqrt2}{2}', cy: '\tfrac{\sqrt2}{2}' }
+    - { deg: 60, rad: '\tfrac{\pi}{3}', cx: '\tfrac12', cy: '\tfrac{\sqrt3}{2}' }
+    - { deg: 120, rad: '\tfrac{2\pi}{3}', cx: '-\tfrac12', cy: '\tfrac{\sqrt3}{2}' }
+    - { deg: 135, rad: '\tfrac{3\pi}{4}', cx: '-\tfrac{\sqrt2}{2}', cy: '\tfrac{\sqrt2}{2}' }
+    - { deg: 150, rad: '\tfrac{5\pi}{6}', cx: '-\tfrac{\sqrt3}{2}', cy: '\tfrac12' }
+    - { deg: 210, rad: '\tfrac{7\pi}{6}', cx: '-\tfrac{\sqrt3}{2}', cy: '-\tfrac12' }
+    - { deg: 225, rad: '\tfrac{5\pi}{4}', cx: '-\tfrac{\sqrt2}{2}', cy: '-\tfrac{\sqrt2}{2}' }
+    - { deg: 240, rad: '\tfrac{4\pi}{3}', cx: '-\tfrac12', cy: '-\tfrac{\sqrt3}{2}' }
+    - { deg: 300, rad: '\tfrac{5\pi}{3}', cx: '\tfrac12', cy: '-\tfrac{\sqrt3}{2}' }
+    - { deg: 315, rad: '\tfrac{7\pi}{4}', cx: '\tfrac{\sqrt2}{2}', cy: '-\tfrac{\sqrt2}{2}' }
+    - { deg: 330, rad: '\tfrac{11\pi}{6}', cx: '\tfrac{\sqrt3}{2}', cy: '-\tfrac12' }
+  let: { t: deg*pi/180 }
+  prompt: 'Draw the unit circle and the angle $\theta = {{rad}}$ in standard position. Mark the point where it meets the circle and write its coordinates.'
+  parts:
+    - ask: 'Draw it on paper, then compare'
+      label: a
+      draw: true
+      solution:
+        type: plot
+        x: [-2.13, 2.13]
+        y: [-1.5, 1.5]
+        tick: 1
+        circles:
+          - { at: [0, 0], r: 1 }
+        arcs:
+          - { at: [0, 0], r: 0.3, from: 0, to: deg }
+        segments:
+          - { from: [0, 0], to: [cos(t), sin(t)] }
+          - { from: [cos(t), sin(t)], to: [cos(t), 0], dash: true }
+        points:
+          - { at: [cos(t), sin(t)] }
+      explain: '${{rad}}$ is ${{deg}}^\circ$. The point is $(\cos\theta, \sin\theta) = \left({{cx}}, {{cy}}\right)$: the reference triangle (dashed) gives the sizes and the quadrant gives the signs'
+
+# ── geometry sketches (no axes) ─────────────────────────────────────────────
+# an angle of a given size (MK 4.MD.C.6)
+- template: dr-angle
+  skill: k8.measurement
+  pace: quick
+  given: { deg: { pick: [20, 30, 45, 60, 75, 100, 120, 135, 150, 160] } }
+  prompt: 'Draw an angle of ${{deg}}^\circ$ freehand, then check it against the picture (or a protractor).'
+  parts:
+    - ask: 'Draw it on paper, then compare'
+      label: a
+      draw: true
+      solution:
+        type: plot
+        bare: true
+        x: [-3.6, 3.6]
+        y: [-0.5, 3.5]
+        segments:
+          - { from: [0, 0], to: [3.2, 0] }
+          - { from: [0, 0], to: ["3.2*cos(deg*pi/180)", "3.2*sin(deg*pi/180)"] }
+        arcs:
+          - { at: [0, 0], r: 0.7, from: 0, to: deg }
+        labels:
+          - { at: ["1.15*cos(deg*pi/360)", "1.15*sin(deg*pi/360)"], text: "{{deg}}°" }
+      explain: 'Anchor on the right angle: $90^\circ$ is a square corner, $45^\circ$ is half of it, $30^\circ$ a third. ${{deg}}^\circ$ is {{deg < 90 ? "acute, narrower than a square corner" : "obtuse, wider than a square corner"}}'
+
+# a triangle from three sides (MK 7.G.A.2)
+- template: dr-triangle-sss
+  skill: k8.geometry
+  pace: quick
+  cases:
+    - { a: 3, b: 4, c: 5, kind: 'a right triangle (9 + 16 = 25)' }
+    - { a: 4, b: 5, c: 6, kind: 'acute and scalene' }
+    - { a: 2, b: 3, c: 4, kind: 'obtuse and scalene (4 + 9 < 16)' }
+    - { a: 5, b: 5, c: 6, kind: 'isosceles' }
+    - { a: 4, b: 4, c: 4, kind: 'equilateral, every angle 60°' }
+    - { a: 3, b: 5, c: 6, kind: 'obtuse and scalene (9 + 25 < 36)' }
+  let: { px: (b^2 + c^2 - a^2)/(2*c), py: sqrt(b^2 - ((b^2 + c^2 - a^2)/(2*c))^2) }
+  prompt: 'Sketch a triangle with sides ${{a}}$, ${{b}}$ and ${{c}}$ units, roughly to scale, with the longest side as the base. What kind of triangle is it?'
+  parts:
+    - ask: 'Draw it on paper, then compare'
+      label: a
+      draw: true
+      solution:
+        type: plot
+        bare: true
+        x: [-1, 7]
+        y: [-0.8, 5.2]
+        segments:
+          - { from: [0, 0], to: [c, 0] }
+          - { from: [0, 0], to: [px, py] }
+          - { from: [c, 0], to: [px, py] }
+        labels:
+          - { at: [c/2, -0.45], text: "{{c}}" }
+          - { at: [px/2 - 0.35, py/2 + 0.2], text: "{{b}}" }
+          - { at: [(px + c)/2 + 0.35, py/2 + 0.2], text: "{{a}}" }
+      explain: 'It is {{kind}}. To draw it exactly: rule the base ${{c}}$, swing an arc of radius ${{b}}$ from one end and ${{a}}$ from the other, and join both ends to where the arcs cross. Three sides fix one triangle whenever the two shorter ones together beat the longest'
+
+# pairs of lines (MK 4.G.A.1)
+- template: dr-line-pair
+  skill: k8.measurement
+  pace: recall
+  cases:
+    - { what: 'two parallel lines', x3: 0.5, y3: 2.4, x4: 5.5, y4: 3.4, why: 'Parallel lines keep the same distance apart and never meet' }
+    - { what: 'two perpendicular lines', x3: 3.5, y3: 3.9, x4: 2.5, y4: -1.1, why: 'Perpendicular lines meet at a right angle (a square corner)' }
+    - { what: 'two lines that intersect but are not perpendicular', x3: 0.5, y3: 3.2, x4: 5.5, y4: 0.2, why: 'They cross at one point, at an angle that is not a square corner' }
+  prompt: 'Draw {{what}}.'
+  parts:
+    - ask: 'Draw it on paper, then compare'
+      label: a
+      draw: true
+      solution:
+        type: plot
+        bare: true
+        x: [0, 6]
+        y: [-1.5, 4.3]
+        segments:
+          - { from: [0.5, 0.9], to: [5.5, 1.9] }
+          - { from: [x3, y3], to: [x4, y4] }
+      explain: '{{why}}'
+
+# ── compass-and-straightedge constructions (MH G-CO.D.12, G-CO.D.13) ───────
+- template: dr-perp-bisector
+  skill: geo.congruence
+  pace: quick
+  prompt: 'Construct the perpendicular bisector of a segment $AB$ with compass and straightedge. Leave the arcs showing.'
+  parts:
+    - ask: 'Construct it on paper, then compare'
+      label: a
+      draw: true
+      solution:
+        type: plot
+        bare: true
+        x: [-1.5, 5.5]
+        y: [-2.6, 2.6]
+        segments:
+          - { from: [0, 0], to: [4, 0] }
+          - { from: [2, -2.5], to: [2, 2.5], dash: true }
+        arcs:
+          - { at: [0, 0], r: 2.8, from: -60, to: 60 }
+          - { at: [4, 0], r: 2.8, from: 120, to: 240 }
+        points:
+          - { at: [0, 0], label: "A" }
+          - { at: [4, 0], label: "B" }
+          - { at: [2, 1.96] }
+          - { at: [2, -1.96] }
+      explain: 'Open the compass to more than half of $AB$. With that one radius draw an arc from $A$ and an arc from $B$, crossing above and below the segment. The line through the two crossings is the bisector: each crossing is the same distance from $A$ as from $B$'
+
+- template: dr-angle-bisector
+  skill: geo.congruence
+  pace: quick
+  prompt: 'Construct the bisector of an angle with compass and straightedge. Leave the arcs showing.'
+  parts:
+    - ask: 'Construct it on paper, then compare'
+      label: a
+      draw: true
+      solution:
+        type: plot
+        bare: true
+        x: [-0.5, 5.5]
+        y: [-0.5, 3.8]
+        segments:
+          - { from: [0, 0], to: [5, 0] }
+          - { from: [0, 0], to: [3.54, 3.54] }
+          - { from: [0, 0], to: [4.62, 1.91], dash: true }
+        arcs:
+          - { at: [0, 0], r: 2, from: -8, to: 53 }
+          - { at: [2, 0], r: 1.7, from: 20, to: 80 }
+          - { at: [1.414, 1.414], r: 1.7, from: -35, to: 25 }
+        points:
+          - { at: [0, 0], label: "V" }
+          - { at: [2, 0] }
+          - { at: [1.414, 1.414] }
+          - { at: [3.1, 1.29] }
+      explain: 'From the vertex $V$ draw one arc cutting both arms. From each cut, with one radius, draw arcs that cross inside the angle. The ray from $V$ through that crossing is the bisector: the two triangles it makes have three equal sides (SSS)'
+
+- template: dr-hexagon-in-circle
+  skill: geo.circles
+  pace: quick
+  prompt: 'Construct a regular hexagon inscribed in a circle with compass and straightedge.'
+  parts:
+    - ask: 'Construct it on paper, then compare'
+      label: a
+      draw: true
+      solution:
+        type: plot
+        bare: true
+        x: [-3.4, 3.4]
+        y: [-2.4, 2.4]
+        circles:
+          - { at: [0, 0], r: 2 }
+        segments:
+          - { from: [2, 0], to: [1, 1.732] }
+          - { from: [1, 1.732], to: [-1, 1.732] }
+          - { from: [-1, 1.732], to: [-2, 0] }
+          - { from: [-2, 0], to: [-1, -1.732] }
+          - { from: [-1, -1.732], to: [1, -1.732] }
+          - { from: [1, -1.732], to: [2, 0] }
+          - { from: [0, 0], to: [2, 0], dash: true }
+        arcs:
+          - { at: [2, 0], r: 2, from: 100, to: 140 }
+          - { at: [1, 1.732], r: 2, from: 160, to: 200 }
+        points:
+          - { at: [0, 0] }
+          - { at: [2, 0] }
+          - { at: [1, 1.732] }
+          - { at: [-1, 1.732] }
+          - { at: [-2, 0] }
+          - { at: [-1, -1.732] }
+          - { at: [1, -1.732] }
+      explain: 'Keep the compass at the radius of the circle. From any point on the circle step that radius around it: it fits exactly six times. Join the six marks. Joining every other mark gives the inscribed equilateral triangle'
+
+# ── fractions on a number line and as area (MK 3.NF.A.2, 3.G.A.2) ──────────
+- template: dr-fraction-line
+  skill: k8.fractions
+  pace: recall
+  cases:
+    - { p: 3, q: 4 }
+    - { p: 2, q: 3 }
+    - { p: 5, q: 4 }
+    - { p: 1, q: 3 }
+    - { p: 5, q: 6 }
+    - { p: 7, q: 4 }
+    - { p: 3, q: 2 }
+    - { p: 3, q: 8 }
+  prompt: 'Draw a number line from $0$ to $2$ and mark $\tfrac{ {{p}} }{ {{q}} }$ on it.'
+  parts:
+    - ask: 'Draw it on paper, then compare'
+      label: a
+      draw: true
+      solution:
+        type: numberline
+        range: [0, 2]
+        step: 1/q
+        labelEvery: 1
+        points:
+          - { at: p/q, label: "{{p}}/{{q}}" }
+      explain: 'Cut each whole into ${{q}}$ equal parts, then count ${{p}}$ of them from $0$. It lands {{p < q ? "before" : "past"}} $1$ because ${{p}}$ is {{p < q ? "less" : "more"}} than ${{q}}$'

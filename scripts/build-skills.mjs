@@ -135,11 +135,15 @@ if (fs.existsSync(problemsDir))
       if (!Array.isArray(t.parts) || !t.parts.length) errors.push(`${where}: needs at least one part`);
       for (const p of t.parts ?? []) {
         if (!p.ask || !p.label) errors.push(`${where}: every part needs ask and label`);
-        if (p.value === undefined && !p.choice && !p.expr && !(p.ode && p.sol)) errors.push(`${where} › ${p.label}: needs value (a number), expr (an expression), ode + sol, or choice`);
+        if (p.draw && !p.solution) errors.push(`${where} › ${p.label}: a draw part needs a solution figure to compare with`);
+        if (!p.draw && p.value === undefined && !p.choice && !p.expr && !(p.ode && p.sol)) errors.push(`${where} › ${p.label}: needs value (a number), expr (an expression), ode + sol, choice, or draw`);
       }
+      // a drawn structure states its formula, which tests/verify/molecules.py recomputes from the atoms and bonds
+      for (const fig of [t.figure, ...(t.parts ?? []).map((q) => q.solution)])
+        if (fig?.type === "molecule" && (!fig.formula || !Array.isArray(fig.atoms) || !Array.isArray(fig.bonds))) errors.push(`${where}: a molecule figure needs formula, atoms and bonds`);
       // an answer nobody checked independently doesn't ship
       const v = t.verify ?? {};
-      if (!v.ode && !v.residuals && !v.expect && !v.choices && !v.authored && !(t.parts ?? []).every((q) => q.ode && q.sol)) errors.push(`${where}: needs a verify block (ode, expect, residuals or choices)`);
+      if (!v.ode && !v.residuals && !v.expect && !v.choices && !v.authored && !(t.parts ?? []).every((q) => (q.ode && q.sol) || q.draw)) errors.push(`${where}: needs a verify block (ode, expect, residuals or choices)`);
       for (const p of t.parts ?? [])
         if ((p.value !== undefined || p.expr) && !(v.expect ?? {})[p.label] && !new RegExp(`\\b${p.label}\\b`).test(JSON.stringify([v.ode, v.bcs, v.residuals])))
           errors.push(`${where} › ${p.label}: verify must check this part (verify.expect.${p.label}, or use it in ode / bcs / residuals)`);

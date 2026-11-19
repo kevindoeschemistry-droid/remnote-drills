@@ -167,7 +167,7 @@ Big ideas: FUNC, MODEL, EQUIV
 - ● **MH-2.3.B** (F-IF.C.7a) Graph a linear function from its equation, showing the intercepts and the slope.
   - EK: y = mx + b: slope m = rise/run, y-intercept b, x-intercept −b/m.
   - Needs: MH-2.3.A, MH-2.2.C
-  - MP5 · MP6 · drills: alg-intercepts, k8-slope
+  - MP5 · MP6 · drills: alg-intercepts, k8-slope, dr-line
 
 ### 2.4 Distinguish linear from exponential change
 
@@ -221,7 +221,7 @@ Big ideas: FUNC, MODEL, EQUIV
 - ● **MH-2.6.C** (F-IF.C.7e) Graph an exponential function y = a·b^x, showing the intercept and end behaviour.
   - EK: Passes through (0, a); grows if b > 1, decays if 0 < b < 1; horizontal asymptote y = 0.
   - Needs: MH-2.5.A
-  - MP5 · MP6 · drills: alg-exp-graph
+  - MP5 · MP6 · drills: alg-exp-graph, dr-exponential
 - ● **MH-2.6.D** (F-LE.A.3) Show with graphs and tables that a quantity increasing exponentially eventually exceeds one increasing linearly.
   - EK: Equal factors eventually beat equal differences, however small the base above 1.
   - Needs: MH-2.6.C
@@ -401,7 +401,7 @@ Big ideas: FUNC, EQUIV, NUM, MODEL
 - ● **MH-5.2.B** (F-IF.C.7a) Graph a quadratic function, showing intercepts, the vertex (maximum or minimum) and the axis of symmetry.
   - EK: Vertex at x = −b/2a; opens up if a > 0, down if a < 0; y-intercept c.
   - Needs: MH-5.2.A, MH-2.3.B
-  - MP5 · MP6 · drills: alg-vertex
+  - MP5 · MP6 · drills: alg-vertex, dr-parabola
 - ● **MH-5.2.C** (F-IF.B.4) Interpret the key features of a quadratic model in context, e.g. the maximum height and landing time of a projectile.
   - EK: The vertex gives the extreme value and when it happens; the zeros give when the quantity is zero.
   - Needs: MH-5.2.B, MH-2.2.A
@@ -409,7 +409,7 @@ Big ideas: FUNC, EQUIV, NUM, MODEL
 - ● **MH-5.2.D** (F-IF.C.7b) Graph square-root, cube-root and piecewise-defined functions, including step functions and absolute-value functions.
   - EK: |x| = x for x ≥ 0 and −x for x < 0; √x needs x ≥ 0; each piece applies only on its own interval.
   - Needs: MH-2.3.B, MH-2.6.B
-  - MP5 · MP6 · drills: hs-root-graph, hs-abs-graph, ~alg-piecewise
+  - MP5 · MP6 · drills: hs-root-graph, hs-abs-graph, dr-abs, dr-sqrt, ~alg-piecewise
 - ● **MH-5.2.E** (F-IF.C.8b) Use the properties of exponents to classify an exponential function as growth or decay and find its percent rate, e.g. y = (0.97)^t, y = (1.01)^(12t), y = (1.2)^(t/10).
   - EK: y = a·b^t: percent change per unit = (b − 1)·100%; rewrite so the exponent is in the unit asked for.
   - Needs: MH-4.2.C, MH-2.5.D
@@ -513,11 +513,11 @@ Big ideas: XFORM
 - ◐ **MH-6.4.A** (G-CO.D.12) Construct with compass and straightedge a copy of a segment and of an angle, an angle bisector, a perpendicular bisector, a perpendicular to a line, and a parallel to a line through a point not on it.
   - EK: Each construction is justified by a congruence (usually SSS) made by the equal arcs.
   - Needs: MH-6.2.C
-  - MP5 · MP3 · drills: ~hs-recognise-construction
+  - MP5 · MP3 · drills: ~hs-recognise-construction, ~dr-perp-bisector, ~dr-angle-bisector
 - ◐ **MH-6.4.B** (G-CO.D.13) Construct an equilateral triangle, a square and a regular hexagon inscribed in a circle.
   - EK: The radius steps around a circle exactly six times, giving the hexagon.
   - Needs: MH-6.4.A
-  - MP5 · drills: ~hs-recognise-construction
+  - MP5 · drills: ~hs-recognise-construction, ~dr-hexagon-in-circle
 
 ## Unit 7 · Similarity, proof and trigonometry
 
@@ -837,7 +837,7 @@ Big ideas: NUM, EQUIV, FUNC
 - ● **MH-12.3.C** (F-IF.C.7c) Graph a polynomial function, identifying zeros when suitable factorizations are available and showing end behaviour.
   - EK: Degree n has at most n real zeros and at most n − 1 turning points.
   - Needs: MH-12.3.B, MH-5.2.B
-  - MP5 · MP6 · drills: hs-end-behaviour, ~alg-poly-zeros, ~hs-parabola-features
+  - MP5 · MP6 · drills: hs-end-behaviour, dr-cubic, ~alg-poly-zeros, ~hs-parabola-features
 - ● **MH-12.3.D** (N-CN.C.9) (+) Know the Fundamental Theorem of Algebra and show that it is true for quadratic polynomials.
   - EK: A degree-n polynomial has exactly n complex zeros counted with multiplicity.
   - Needs: MH-12.1.D, MH-12.3.B
@@ -923,7 +923,7 @@ Big ideas: FUNC, MODEL
 - ● **MH-14.1.B** (F-IF.C.7e) Graph a logarithmic function, showing the intercept, the vertical asymptote and end behaviour, as the reflection of an exponential across y = x.
   - EK: y = log_b x passes through (1, 0), has asymptote x = 0, and grows without bound but ever more slowly.
   - Needs: MH-14.1.A, MH-2.6.C
-  - MP5 · MP6 · drills: alg-log-graph
+  - MP5 · MP6 · drills: alg-log-graph, dr-log
 
 ### 14.2 Build and interpret models from several families
 
@@ -1038,7 +1038,7 @@ Big ideas: FUNC, EQUIV
 - ● **MH-16.3.A** (F-IF.C.7d) (+) Graph a rational function, identifying zeros, vertical asymptotes, holes and end behaviour.
   - EK: Zeros from the reduced numerator; vertical asymptotes where the reduced denominator is 0; horizontal or slant asymptote from the degrees.
   - Needs: MH-12.5.A, MH-12.3.B
-  - MP5 · MP7 · drills: alg-rational-graph
+  - MP5 · MP7 · drills: alg-rational-graph, ~dr-reciprocal
 
 ## Unit 17 · Trigonometric functions, inverses and identities
 
@@ -1051,7 +1051,7 @@ Big ideas: FUNC, XFORM
 - ● **MH-17.1.A** (F-TF.A.3) (+) Use 30-60-90 and 45-45-90 triangles to find exact sine, cosine and tangent of π/6, π/4, π/3, and the unit circle to extend them to π − x, π + x and 2π − x.
   - EK: sin(π/6) = 1/2, sin(π/4) = √2/2, sin(π/3) = √3/2; the reference angle and quadrant give the rest.
   - Needs: MH-13.1.B, MH-7.3.A
-  - MP7 · drills: trig-exact
+  - MP7 · drills: trig-exact, dr-unit-circle
 - ● **MH-17.1.B** (F-TF.A.4) (+) Use the unit circle to explain the symmetry (odd and even) and periodicity of the trigonometric functions.
   - EK: cos(−x) = cos x (even), sin(−x) = −sin x (odd); period 2π for sin and cos, π for tan.
   - Needs: MH-17.1.A, MH-5.3.C
@@ -1059,7 +1059,7 @@ Big ideas: FUNC, XFORM
 - ● **MH-17.1.C** (F-IF.C.7e) Graph sine, cosine and tangent functions, showing period, midline, amplitude and (for tangent) asymptotes.
   - EK: tan x = sin x / cos x has vertical asymptotes where cos x = 0.
   - Needs: MH-17.1.B, MH-13.2.A
-  - MP5 · MP6 · drills: trig-sinusoid
+  - MP5 · MP6 · drills: trig-sinusoid, dr-sinusoid, dr-tangent
 
 ### 17.2 Inverse trigonometric functions (+)
 

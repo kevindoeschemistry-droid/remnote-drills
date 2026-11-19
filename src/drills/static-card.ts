@@ -37,6 +37,8 @@ const LETTERS = "ABCDEFGH";
 
 function answerRich(a: Problem["answer"], answerTex: string): any[] {
   if (a.kind === "choice") return [`${a.correct}`];
+  // a drawing to compare with: the picture is the answer
+  if (a.kind === "self") return a.figure ? [{ i: "i", url: `data:image/svg+xml;base64,${toBase64(a.figure)}`, percent: 50 }] : ["Compare with the description: "];
   return [tex(answerTex)];
 }
 

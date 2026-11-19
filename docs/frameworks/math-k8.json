@@ -1904,7 +1904,8 @@
        ],
        "drills": [
         "~k8-frac-line",
-        "k8-fraction-line"
+        "k8-fraction-line",
+        "dr-fraction-line"
        ]
       },
       {
@@ -2866,7 +2867,9 @@
        "needs": [
         "MK-5.4.E"
        ],
-       "drills": []
+       "drills": [
+        "dr-angle"
+       ]
       },
       {
        "id": "G",
@@ -2912,7 +2915,8 @@
         "MK-5.4.E"
        ],
        "drills": [
-        "~k8-classify-angle"
+        "~k8-classify-angle",
+        "~dr-line-pair"
        ]
       },
       {
@@ -4828,7 +4832,8 @@
        ],
        "drills": [
         "~k8-triangle-possible",
-        "~k8-third-angle"
+        "~k8-third-angle",
+        "dr-triangle-sss"
        ]
       },
       {
@@ -6647,7 +6652,8 @@
    "topic": 3,
    "status": "ok",
    "full": [
-    "k8-fraction-line"
+    "k8-fraction-line",
+    "dr-fraction-line"
    ],
    "partial": [
     "k8-frac-line"
@@ -7103,8 +7109,10 @@
    "code": "MK-5.4.F",
    "unit": 5,
    "topic": 4,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "dr-angle"
+   ],
    "partial": []
   },
   {
@@ -7124,7 +7132,8 @@
    "status": "partial",
    "full": [],
    "partial": [
-    "k8-classify-angle"
+    "k8-classify-angle",
+    "dr-line-pair"
    ]
   },
   {
@@ -7987,8 +7996,10 @@
    "code": "MK-8.4.B",
    "unit": 8,
    "topic": 4,
-   "status": "partial",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "dr-triangle-sss"
+   ],
    "partial": [
     "k8-triangle-possible",
     "k8-third-angle"

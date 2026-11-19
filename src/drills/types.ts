@@ -41,6 +41,9 @@ export type Answer =
   | { kind: "eigenfunctions"; bcs: Bc[]; L: number; refLambda: string; start: number }
   /** pick one option */
   | { kind: "choice"; options: string[]; correct: string }
+  /** produce it on paper (a sketch, a structure), then compare with the solution and grade yourself.
+   *  Nothing is typed: the panel shows `figure` and `note` on request and asks whether yours matches. */
+  | { kind: "self"; figure?: string; note?: string }
   /** several labelled fields; `proportional` = all fields may share one constant factor */
   | {
       kind: "tuple";

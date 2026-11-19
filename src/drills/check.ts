@@ -332,6 +332,11 @@ function checkOde(a: OdeAnswer, raw: string): CheckResult {
 
 /** input is a string, or one string per field for tuple answers */
 export function check(p: Problem, input: string | string[]): CheckResult {
+  // self-graded: the learner compared their own drawing with the solution and says whether it matched
+  if (p.answer.kind === "self")
+    return (Array.isArray(input) ? input[0] : input) === "ok"
+      ? { status: "correct", message: "Matches." }
+      : { status: "wrong", message: "Look at what differs, then try it again from memory later." };
   if (p.answer.kind === "ode") return checkOde(p.answer, Array.isArray(input) ? input[0] : input);
   return checkOther(p.answer, input);
 }
