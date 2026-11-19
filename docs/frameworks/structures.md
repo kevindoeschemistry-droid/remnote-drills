@@ -2,7 +2,7 @@
 
 Generated from `drills/frameworks/structures.yaml` by `scripts/framework.mjs`. ● drilled · ◐ partly · ○ no drills yet.
 
-**11 learning objectives** in 2 units (11 core): 11 drilled, 0 partly, 0 with no drills. Core: 11 / 11 drilled.
+**12 learning objectives** in 3 units (12 core): 12 drilled, 0 partly, 0 with no drills. Core: 12 / 12 drilled.
 
 ## Big ideas
 
@@ -20,6 +20,7 @@ Generated from `drills/frameworks/structures.yaml` by `scripts/framework.mjs`. �
 |---|---|---|---|---|---|---|
 | 1 · Organic parents and common compounds | core | — | 4 | 4 | 0 | 0 |
 | 2 · Biomolecules | core | — | 7 | 7 | 0 | 0 |
+| 3 · Mechanisms | core | — | 1 | 1 | 0 | 0 |
 
 ## Unit 1 · Organic parents and common compounds
 
@@ -116,3 +117,15 @@ Big ideas: COLD, FAMILY
 - ● **ST-2.7.A** (23) Draw NAD+ and NADH, FAD, coenzyme A and acetyl-CoA, thiamine pyrophosphate, protoporphyrin IX and heme b in full.
   - EK: Build each from parts already known: a working end (nicotinamide, isoalloxazine, thiol, thiazolium), a diphosphate bridge, and adenosine. Heme is four pyrroles, four bridges, eight substituents and an iron.
   - P1 · P2 · drills: st-draw-nad, st-name-nad, st-draw-nadh, st-name-nadh, st-draw-fad, st-name-fad, st-draw-coenzyme-a, st-name-coenzyme-a, st-draw-acetyl-coa, st-name-acetyl-coa, st-draw-thiamine-pyrophosphate, st-name-thiamine-pyrophosphate, st-draw-protoporphyrin-ix, st-name-protoporphyrin-ix, st-draw-heme-b, st-name-heme-b
+
+## Unit 3 · Mechanisms
+
+Big ideas: COLD
+
+### 3.1 Chymotrypsin
+
+
+
+- ● **ST-3.1.A** (22) Draw the chymotrypsin mechanism: each step's curved arrows and the state they give, then the whole thing, and say what each residue of the triad does.
+  - EK: Two halves, three arrows each: attack with His57 as base, collapse with His57-H+ as acid; first with serine attacking the peptide, then with water attacking the acyl-enzyme.
+  - P1 · P2 · drills: st-mech-chymotrypsin-1, st-mech-chymotrypsin-2, st-mech-chymotrypsin-3, st-mech-chymotrypsin-4, st-mech-chymotrypsin-whole, st-mech-chymotrypsin-roles
