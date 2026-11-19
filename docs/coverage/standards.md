@@ -19,6 +19,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 | Applied Engineering Mathematics | Kreyszig, Advanced Engineering Mathematics, 10th ed. | textbook | read in full | fe-chemical | — | 122 | 83 | 39 |
 | Heat Transfer | NCEES FE Chemical CBT Exam Specifications (effective July 2020) | exam-spec | read in full | fe-mechanical | — | 98 | 53 | 45 |
 | Information Systems | MSIS 2016 Global Competency Model | standard | read in full | — | — | 53 | 0 | 53 |
+| Material and Energy Balances | NCEES FE Chemical CBT Exam Specifications (effective July 2020) | exam-spec | read in full | — | — | 16 | 14 | 2 |
 | High School Mathematics (Common Core) | CCSS Mathematics Appendix A: high school course pathways | standard | read in full | — | — | 200 | 200 | 0 |
 | Mathematics K–8 (Common Core) | Common Core State Standards for Mathematics (2010) | standard | read through a crosswalk | — | — | 258 | 258 | 0 |
 | Mental Math | UIL Number Sense Problem Sequencing Charts (High School; A+ Junior High and Elementary, rev. 2016-17) with the Number Sense Handbook rules | exam-spec | read in full | sta-mtc, mit-18-03-coverup, mit-integration-bee | — | 82 | 79 | 3 |
@@ -41,6 +42,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 - **Chemistry (AP)**: Objectives past Unit 2 are written from topic titles.
 - **Applied Engineering Mathematics**: UCI CBE 200 publishes no syllabus. The undergraduate part is anchored to fe-chemical; series, Sturm–Liouville, PDEs and transforms are past any exam spec and stand on the book.
 - **Heat Transfer**: Also crosswalked to the FE Mechanical spec and UCI MAE 120.
+- **Material and Energy Balances**: Topics from FE Chemical area 8, read in full. Objectives and their order are ours and follow the usual textbook sequence; unit 1 is assumed by the spec rather than listed.
 - **Mathematics K–8 (Common Core)**: Codes and wording checked against a state reprint; the CCSS site was blocked.
 - **Mental Math**: Topic list and order from the UIL high-school chart. The short-cut techniques and the estimation topic are a house list. Unit 6 goes past the chart: the cover-up items follow an MIT 18.03 course note and the one-a-minute integration pace follows the MIT Integration Bee qualifier; which results belong in unit 6 is a house list. Pace comes from the UIL rules (7.5 s a problem) and the English multiplication tables check (6 s a fact).
 - **Molecular Simulation**: No standard exists for this subject; triangulated from best-practice papers, textbooks and the Hayes group tutorial.
@@ -74,7 +76,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 
 https://ncees.org/wp-content/uploads/2022/09/FE-Che-CBT-specs.pdf
 
-25 of 88 items have at least one objective answering to them.
+31 of 88 items have at least one objective answering to them.
 
 | Item | Topic | Objectives | With a drill | Where |
 |---|---|---|---|---|
@@ -124,14 +126,14 @@ https://ncees.org/wp-content/uploads/2022/09/FE-Che-CBT-specs.pdf
 | 7.E | Cycles and efficiencies | 5 | 4 | physical-chemistry (5) |
 | 7.F | Phase equilibrium (fugacity, activity, Raoult's law) | 28 | 16 | physical-chemistry (10), thermodynamics (18) |
 | 7.G | Chemical equilibrium | 11 | 9 | physical-chemistry (4), thermodynamics (7) |
-| 7.H | Heats of reaction and mixing | 22 | 12 | physical-chemistry (3), thermodynamics (19) |
+| 7.H | Heats of reaction and mixing | 23 | 13 | material-balances (1), physical-chemistry (3), thermodynamics (19) |
 | **8** | **Material/Energy Balances** (10–15 questions) | | | |
-| 8.A | Steady-state mass balance | — | — | **nothing yet** |
-| 8.B | Unsteady-state mass balance | — | — | **nothing yet** |
-| 8.C | Steady-state energy balance | — | — | **nothing yet** |
-| 8.D | Unsteady-state energy balance | — | — | **nothing yet** |
-| 8.E | Recycle and bypass | — | — | **nothing yet** |
-| 8.F | Reactive systems (combustion) | — | — | **nothing yet** |
+| 8.A | Steady-state mass balance | 5 | 5 | material-balances (5) |
+| 8.B | Unsteady-state mass balance | 5 | 5 | material-balances (5) |
+| 8.C | Steady-state energy balance | 6 | 6 | material-balances (6) |
+| 8.D | Unsteady-state energy balance | 4 | 4 | material-balances (4) |
+| 8.E | Recycle and bypass | 2 | 2 | material-balances (2) |
+| 8.F | Reactive systems (combustion) | 10 | 10 | material-balances (10) |
 | **9** | **Heat Transfer** (8–12 questions) | | | |
 | 9.A | Conductive | 17 | 14 | heat-transfer (17) |
 | 9.B | Convective (natural and forced) | 24 | 22 | heat-transfer (24) |
@@ -184,7 +186,7 @@ https://ncees.org/wp-content/uploads/2022/09/FE-Che-CBT-specs.pdf
 | 17.C | Public health, safety, and welfare | — | — | **nothing yet** |
 | 17.D | Intellectual property | — | — | **nothing yet** |
 
-**Areas with nothing answering to them:** 3 Engineering Sciences; 4 Materials Science; 6 Fluid Mechanics/Dynamics; 8 Material/Energy Balances; 11 Solids Handling; 13 Economics; 14 Process Design; 16 Safety, Health, and Environment; 17 Ethics and Professional Practice.
+**Areas with nothing answering to them:** 3 Engineering Sciences; 4 Materials Science; 6 Fluid Mechanics/Dynamics; 11 Solids Handling; 13 Economics; 14 Process Design; 16 Safety, Health, and Environment; 17 Ethics and Professional Practice.
 
 ## UIL Number Sense Problem Sequencing Charts (High School; A+ Junior High and Elementary, rev. 2016-17) with the Number Sense Handbook rules
 

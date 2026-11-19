@@ -1,0 +1,129 @@
+# Material and Energy Balances — curriculum framework (draft 1, for Kevin's markup)
+#
+# The first course of chemical engineering: account for every stream. Everything later (reactors,
+# separations, transport) starts from a balance drawn here.
+#
+# Basis: NCEES FE Chemical CBT specification, area 8, Material/Energy Balances (10–15 questions),
+# read in full (drills/standards.yaml › fe-chemical). Its six items are the spine:
+#   8.A steady-state mass balance · 8.B unsteady-state mass balance · 8.C steady-state energy balance
+#   8.D unsteady-state energy balance · 8.E recycle and bypass · 8.F reactive systems (combustion)
+# The spec names topics, not objectives: the objectives and their order are ours, following the usual
+# textbook sequence (Felder, chapters 3–10). Unit 1 (process variables) is prerequisite skill the
+# spec assumes rather than lists.
+#
+# Not here yet: multiple-unit flowsheets solved end to end, humidity and psychrometrics, vapour–liquid
+# equilibrium in balances (bubble and dew points), steam-table problems, adiabatic flame temperature,
+# and balances with several simultaneous reactions.
+id: material-balances
+title: Material and Energy Balances
+code: MB
+draft: 1
+track: engineering
+requires: [chemistry]
+level: 4
+domains: [meb]
+
+basis:
+  primary: fe-chemical
+  note: "Topics from FE Chemical area 8, read in full. Objectives and their order are ours and follow the usual textbook sequence; unit 1 is assumed by the spec rather than listed."
+
+big_ideas:
+  - id: CONSERVE
+    title: In minus out plus generation equals accumulation
+    text: Every problem is this one sentence applied to a chosen boundary and a chosen quantity. Mass and energy are conserved; moles of a species are not when it reacts.
+  - id: BOUNDARY
+    title: The boundary is a choice
+    text: A box around the whole process hides the recycle; a box around the mixing point exposes it. Picking the boundary that cuts the fewest unknowns is most of the work.
+  - id: BASIS
+    title: Pick a basis and count unknowns before solving
+    text: Flows scale freely until one is fixed. Degrees of freedom say whether the problem can be solved before any algebra is done.
+
+practices:
+  - id: P1
+    title: Set up
+    text: Draw the boundary, choose a basis, name the unknowns and count the independent equations.
+  - id: P2
+    title: Solve
+    text: Write the balances and solve for the unknown, carrying units.
+  - id: P3
+    title: Judge
+    text: Say which balance or boundary to use and whether an answer is physically sensible.
+
+units:
+  - id: variables
+    n: 1
+    title: "Process variables"
+    scope: core
+    ideas: [BASIS]
+    topics:
+      - n: 1
+        title: "Composition and flow"
+        los:
+          - { id: A, do: "Convert between mass fractions and mole fractions, and find the average molar mass of a mixture.", ek: ["Take 100 g or 1 mol as a basis; the average molar mass is the mole-fraction-weighted mean."], p: [P2], drills: [mb-mass-to-mole-fraction, mb-average-molar-mass] }
+          - { id: B, do: "Convert a volumetric flow of a liquid or an ideal gas to a molar flow.", ek: ["Liquid: density then molar mass. Gas: n = PV/RT, with T in kelvin."], p: [P2], drills: [mb-liquid-molar-flow, mb-ideal-gas-molar-flow] }
+  - id: nonreactive
+    n: 2
+    title: "Steady-state balances without reaction"
+    scope: core
+    std: ["fe-chemical:8.A"]
+    ideas: [CONSERVE, BOUNDARY, BASIS]
+    topics:
+      - n: 1
+        title: "Single units"
+        los:
+          - { id: A, std: ["fe-chemical:8.A"], do: "Solve a mixer, a separator and an evaporator with a total balance and one component balance.", ek: ["Two independent balances for two components; a component that passes through unchanged is a tie."], p: [P1, P2], drills: [mb-mixer, mb-distillation-split, mb-evaporator, mb-dilution] }
+          - { id: B, std: ["fe-chemical:8.A"], do: "Count degrees of freedom and say whether a balance problem is specified.", ek: ["Unknowns minus independent equations: zero is solvable, positive is underspecified, negative overspecified."], p: [P1, P3], drills: [mb-degrees-of-freedom] }
+      - n: 2
+        title: "Recycle, bypass and purge"
+        los:
+          - { id: A, std: ["fe-chemical:8.E"], do: "Balance a mixing point to find a recycle flow, and explain what recycle, bypass and purge are for.", ek: ["The overall balance never contains the recycle stream; a purge stops an inert accumulating."], p: [P1, P2, P3], drills: [mb-recycle-mixing-point, mb-recycle-concepts] }
+  - id: reactive
+    n: 3
+    title: "Balances with reaction"
+    scope: core
+    std: ["fe-chemical:8.F"]
+    ideas: [CONSERVE]
+    topics:
+      - n: 1
+        title: "Stoichiometry in a flowing system"
+        los:
+          - { id: A, std: ["fe-chemical:8.F"], do: "Identify the limiting reactant and compute percent excess.", ek: ["Divide each feed by its coefficient; excess is measured against the stoichiometric requirement."], p: [P2], drills: [mb-limiting-reactant, mb-percent-excess] }
+          - { id: B, std: ["fe-chemical:8.F"], do: "Use conversion or the extent of reaction to find every outlet flow.", ek: ["n_i = n_i0 + ν_i ξ; one measured species fixes ξ."], p: [P2], drills: [mb-conversion-outlet, mb-extent-of-reaction] }
+          - { id: C, std: ["fe-chemical:8.F"], do: "Apply selectivity and yield to parallel reactions.", ek: ["Conversion says how much reacted; selectivity says where it went."], p: [P2], drills: [mb-yield-with-side-reaction] }
+          - { id: D, std: ["fe-chemical:8.E", "fe-chemical:8.F"], do: "Relate single-pass conversion, overall conversion and recycle flow for a reactor with recycle.", ek: ["With complete recycle of unreacted feed the reactor feed is the fresh feed divided by the single-pass conversion."], p: [P1, P2], drills: [mb-recycle-reactor] }
+      - n: 2
+        title: "Combustion"
+        los:
+          - { id: A, std: ["fe-chemical:8.F"], do: "Find the theoretical air for a fuel and the dry flue-gas composition at a given excess air.", ek: ["O2 needed per mole CxHyOz: x + y/4 − z/2. Dry basis leaves the water out; excess O2 and all the N2 pass through."], p: [P2], drills: [mb-theoretical-air, mb-flue-gas-oxygen] }
+  - id: energy
+    n: 4
+    title: "Energy balances"
+    scope: core
+    std: ["fe-chemical:8.C"]
+    ideas: [CONSERVE]
+    topics:
+      - n: 1
+        title: "Without reaction"
+        los:
+          - { id: A, std: ["fe-chemical:8.C"], do: "Compute a heat duty from sensible and latent heat, and the steam needed to supply it.", ek: ["Q = m cp ΔT for a temperature change, m ΔHvap for a phase change; add the steps along the path."], p: [P2], drills: [mb-sensible-heat, mb-heat-and-vaporize, mb-steam-requirement] }
+          - { id: B, std: ["fe-chemical:8.C"], do: "Find the outlet temperature of an adiabatic mixer.", ek: ["Enthalpy in equals enthalpy out; with one cp the outlet is the mass-weighted mean temperature."], p: [P2], drills: [mb-adiabatic-mixing] }
+      - n: 2
+        title: "With reaction"
+        los:
+          - { id: A, std: ["fe-chemical:8.C", "fe-chemical:7.H"], do: "Compute a standard heat of reaction from heats of formation.", ek: ["Σ ν ΔHf, products positive and reactants negative; elements are zero; the phase of water matters."], p: [P2], drills: [mb-heat-of-reaction] }
+  - id: unsteady
+    n: 5
+    title: "Unsteady balances"
+    scope: core
+    std: ["fe-chemical:8.B", "fe-chemical:8.D"]
+    ideas: [CONSERVE]
+    topics:
+      - n: 1
+        title: "Mass"
+        los:
+          - { id: A, std: ["fe-chemical:8.B"], do: "Find the time to fill or drain a tank at constant flows.", ek: ["dV/dt = in − out; with constant flows the level changes linearly."], p: [P2], drills: [mb-tank-fill-time] }
+          - { id: B, std: ["fe-chemical:8.B"], do: "Model the washout of a stirred tank and use its time constant.", ek: ["V dC/dt = −qC gives C = C0 e^(−t/τ), τ = V/q: 37% after one τ, 5% after three."], p: [P2, P3], drills: [mb-washout-time, mb-residence-time-decay] }
+      - n: 2
+        title: "Energy"
+        los:
+          - { id: A, std: ["fe-chemical:8.D"], do: "Find the time to heat a batch at a constant heating rate.", ek: ["m cp dT/dt = Q; with no losses the temperature rises linearly."], p: [P2], drills: [mb-tank-heating-time] }
