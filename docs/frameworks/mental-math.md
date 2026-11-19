@@ -2,7 +2,7 @@
 
 Generated from `drills/frameworks/mental-math.yaml` by `scripts/framework.mjs`. ● drilled · ◐ partly · ○ no drills yet.
 
-**75 learning objectives** in 5 units (75 core): 30 drilled, 0 partly, 45 with no drills. Core: 30 / 75 drilled.
+**75 learning objectives** in 5 units (75 core): 75 drilled, 0 partly, 0 with no drills. Core: 75 / 75 drilled.
 
 ## Big ideas
 
@@ -21,10 +21,10 @@ Generated from `drills/frameworks/mental-math.yaml` by `scripts/framework.mjs`. 
 | Unit | Scope | Est. weight | LOs | ● | ◐ | ○ |
 |---|---|---|---|---|---|---|
 | 1 · Arithmetic at speed (problems 1–20) | core | — | 22 | 22 | 0 | 0 |
-| 2 · Algebra and number (problems 21–40) | core | — | 16 | 4 | 0 | 12 |
-| 3 · Advanced algebra and geometry (problems 41–60) | core | — | 17 | 4 | 0 | 13 |
-| 4 · Precalculus (problems 61–70) | core | — | 10 | 0 | 0 | 10 |
-| 5 · Calculus (problems 71–80) | core | — | 10 | 0 | 0 | 10 |
+| 2 · Algebra and number (problems 21–40) | core | — | 16 | 16 | 0 | 0 |
+| 3 · Advanced algebra and geometry (problems 41–60) | core | — | 17 | 17 | 0 | 0 |
+| 4 · Precalculus (problems 61–70) | core | — | 10 | 10 | 0 | 0 |
+| 5 · Calculus (problems 71–80) | core | — | 10 | 10 | 0 | 0 |
 
 ## Unit 1 · Arithmetic at speed (problems 1–20)
 
@@ -187,41 +187,41 @@ Big ideas: SEE, KNOW
 
 
 
-- ○ **MM-2.2.A** (H2.2) Evaluate an expression at given values without writing it out.
+- ● **MM-2.2.A** (H2.2) Evaluate an expression at given values without writing it out.
   - EK: Substitute, then use the order of operations.
-  - P1
+  - P1 · P2 · drills: mm-substitution
 
 ### 2.3 Word problems
 
 
 
-- ○ **MM-2.3.A** (H2.3) Solve a one-step word problem (ages, rates, coins) mentally.
+- ● **MM-2.3.A** (H2.3) Solve a one-step word problem (ages, rates, coins) mentally.
   - EK: Name the unknown and undo one operation.
-  - P1
+  - P1 · P2 · drills: mm-sum-and-difference
 
 ### 2.4 Inverses
 
 
 
-- ○ **MM-2.4.A** (H2.4) Give the additive or multiplicative inverse of an integer, fraction or mixed number.
+- ● **MM-2.4.A** (H2.4) Give the additive or multiplicative inverse of an integer, fraction or mixed number.
   - EK: Additive inverses sum to 0; multiplicative inverses multiply to 1.
-  - P1
+  - P1 · P2 · drills: mm-reciprocal-mixed
 
 ### 2.5 Absolute value
 
 
 
-- ○ **MM-2.5.A** (H2.5) Evaluate an expression with absolute values.
+- ● **MM-2.5.A** (H2.5) Evaluate an expression with absolute values.
   - EK: |x| is the distance from 0.
-  - P1
+  - P1 · P2 · drills: mm-absolute-value
 
 ### 2.6 Ratio and proportion
 
 
 
-- ○ **MM-2.6.A** (H2.6) Solve a proportion by scaling or cross-multiplying.
+- ● **MM-2.6.A** (H2.6) Solve a proportion by scaling or cross-multiplying.
   - EK: a/b = c/d means ad = bc.
-  - P1
+  - P1 · P2 · drills: mm-proportion
 
 ### 2.7 Square roots and cube roots
 
@@ -235,9 +235,9 @@ Big ideas: SEE, KNOW
 
 
 
-- ○ **MM-2.8.A** (H2.8) Count subsets, and elements of unions and intersections.
+- ● **MM-2.8.A** (H2.8) Count subsets, and elements of unions and intersections.
   - EK: A set of n elements has 2ⁿ subsets; |A ∪ B| = |A| + |B| − |A ∩ B|.
-  - P1
+  - P1 · P2 · drills: mm-subsets
 
 ### 2.9 Base conversions
 
@@ -251,17 +251,17 @@ Big ideas: SEE, KNOW
 
 
 
-- ○ **MM-2.10.A** (H2.10) Solve a one- or two-step linear equation mentally.
+- ● **MM-2.10.A** (H2.10) Solve a one- or two-step linear equation mentally.
   - EK: Undo operations in reverse order.
-  - P1
+  - P1 · P2 · drills: mm-linear-equation
 
 ### 2.11 Systems of equations
 
 
 
-- ○ **MM-2.11.A** (H2.11) Find x + y or x − y from a 2 × 2 system by adding or subtracting the equations.
+- ● **MM-2.11.A** (H2.11) Find x + y or x − y from a 2 × 2 system by adding or subtracting the equations.
   - EK: Often the combination asked for falls out without solving for each variable.
-  - P1
+  - P1 · P2 · drills: mm-system-sum
 
 ### 2.12 Repeating decimals to fractions
 
@@ -275,33 +275,33 @@ Big ideas: SEE, KNOW
 
 
 
-- ○ **MM-2.13.A** (H2.13) Find the remainder of a sum or product from the remainders of its parts.
+- ● **MM-2.13.A** (H2.13) Find the remainder of a sum or product from the remainders of its parts.
   - EK: Remainders add and multiply (mod m).
-  - P1
+  - P1 · P2 · drills: mm-remainder-product
 
 ### 2.14 Perimeter and area of polygons and circles
 
 
 
-- ○ **MM-2.14.A** (H2.14) Find the perimeter or area of a rectangle, triangle, trapezoid or circle from its dimensions.
+- ● **MM-2.14.A** (H2.14) Find the perimeter or area of a rectangle, triangle, trapezoid or circle from its dimensions.
   - EK: A = bh, ½bh, ½(b₁ + b₂)h, πr².
-  - P1
+  - P1 · P2 · drills: mm-area, mm-area-trapezoid
 
 ### 2.15 Sequences
 
 
 
-- ○ **MM-2.15.A** (H2.15) Find the next or the n-th term of an arithmetic or geometric sequence.
+- ● **MM-2.15.A** (H2.15) Find the next or the n-th term of an arithmetic or geometric sequence.
   - EK: aₙ = a₁ + (n − 1)d; aₙ = a₁rⁿ⁻¹.
-  - P1
+  - P1 · P2 · drills: mm-nth-term
 
 ### 2.16 Quadratic and cubic equations
 
 
 
-- ○ **MM-2.16.A** (H2.16) Give the sum or product of the roots of a quadratic or cubic from its coefficients.
+- ● **MM-2.16.A** (H2.16) Give the sum or product of the roots of a quadratic or cubic from its coefficients.
   - EK: For ax² + bx + c: sum −b/a, product c/a.
-  - P1
+  - P1 · P2 · drills: mm-vieta
 
 ## Unit 3 · Advanced algebra and geometry (problems 41–60)
 
@@ -319,49 +319,49 @@ Big ideas: SEE, KNOW
 
 
 
-- ○ **MM-3.2.A** (H3.2) Complete a Pythagorean triple or a 30-60-90 or 45-45-90 triangle.
+- ● **MM-3.2.A** (H3.2) Complete a Pythagorean triple or a 30-60-90 or 45-45-90 triangle.
   - EK: 3-4-5, 5-12-13, 8-15-17, 7-24-25 and their multiples.
-  - P1
+  - P1 · P2 · drills: mm-pythagorean-triple
 
 ### 3.3 Coordinate geometry
 
 
 
-- ○ **MM-3.3.A** (H3.3) Find a slope, midpoint, distance or intercept from two points or an equation.
+- ● **MM-3.3.A** (H3.3) Find a slope, midpoint, distance or intercept from two points or an equation.
   - EK: m = Δy/Δx; midpoint averages the coordinates.
-  - P1
+  - P1 · P2 · drills: mm-slope
 
 ### 3.4 Regular polygons
 
 
 
-- ○ **MM-3.4.A** (H3.4) Find an interior or exterior angle, or the number of diagonals, of a regular polygon.
+- ● **MM-3.4.A** (H3.4) Find an interior or exterior angle, or the number of diagonals, of a regular polygon.
   - EK: Exterior angle 360°/n; diagonals n(n − 3)/2.
-  - P1
+  - P1 · P2 · drills: mm-regular-polygon
 
 ### 3.5 Inequalities
 
 
 
-- ○ **MM-3.5.A** (H3.5) Solve a linear inequality or count its integer solutions.
+- ● **MM-3.5.A** (H3.5) Solve a linear inequality or count its integer solutions.
   - EK: Multiplying by a negative reverses the inequality.
-  - P1
+  - P1 · P2 · drills: mm-inequality-count
 
 ### 3.6 Applications of geometry theorems
 
 
 
-- ○ **MM-3.6.A** (H3.6) Use an angle, chord, tangent or similarity fact to find a length or angle.
+- ● **MM-3.6.A** (H3.6) Use an angle, chord, tangent or similarity fact to find a length or angle.
   - EK: Inscribed angle = half the arc; similar figures scale areas by k².
-  - P1
+  - P1 · P2 · drills: mm-circle-angles
 
 ### 3.7 Direct and inverse variation
 
 
 
-- ○ **MM-3.7.A** (H3.7) Find a value from a direct or inverse variation.
+- ● **MM-3.7.A** (H3.7) Find a value from a direct or inverse variation.
   - EK: y = kx or y = k/x; find k first, or scale.
-  - P1
+  - P1 · P2 · drills: mm-variation
 
 ### 3.8 Sequences and series, finite and infinite
 
@@ -375,9 +375,9 @@ Big ideas: SEE, KNOW
 
 
 
-- ○ **MM-3.9.A** (H3.9) Multiply two complex numbers or find a modulus or a power of i.
+- ● **MM-3.9.A** (H3.9) Multiply two complex numbers or find a modulus or a power of i.
   - EK: i² = −1; |a + bi|² = a² + b².
-  - P1
+  - P1 · P2 · drills: mm-complex-product
 
 ### 3.10 Logarithms and logarithmic equations
 
@@ -399,49 +399,49 @@ Big ideas: SEE, KNOW
 
 
 
-- ○ **MM-3.12.A** (H3.12) Give the probability or odds of a simple event with dice, coins or cards.
+- ● **MM-3.12.A** (H3.12) Give the probability or odds of a simple event with dice, coins or cards.
   - EK: Odds in favour = successes : failures.
-  - P1
+  - P1 · P2 · drills: mm-two-dice
 
 ### 3.13 Conics
 
 
 
-- ○ **MM-3.13.A** (H3.13) Read a centre, vertex, focus or axis length from a conic in standard form.
+- ● **MM-3.13.A** (H3.13) Read a centre, vertex, focus or axis length from a conic in standard form.
   - EK: Circle (x − h)² + (y − k)² = r²; ellipse axes 2a and 2b.
-  - P1
+  - P1 · P2 · drills: mm-circle-radius
 
 ### 3.14 Binomial theorem
 
 
 
-- ○ **MM-3.14.A** (H3.14) Give a coefficient or the sum of coefficients of a binomial expansion.
+- ● **MM-3.14.A** (H3.14) Give a coefficient or the sum of coefficients of a binomial expansion.
   - EK: Coefficients are C(n, k); their sum is the expansion at x = y = 1.
-  - P1
+  - P1 · P2 · drills: mm-binomial-coefficient
 
 ### 3.15 Operations in other bases
 
 
 
-- ○ **MM-3.15.A** (H3.15) Add, subtract or multiply two short numerals in another base.
+- ● **MM-3.15.A** (H3.15) Add, subtract or multiply two short numerals in another base.
   - EK: Carry at the base instead of at ten.
-  - P1
+  - P1 · P2 · drills: mm-base-addition
 
 ### 3.16 Roots of equations
 
 
 
-- ○ **MM-3.16.A** (H3.16) Use Vieta's relations to find symmetric expressions in the roots.
+- ● **MM-3.16.A** (H3.16) Use Vieta's relations to find symmetric expressions in the roots.
   - EK: r₁² + r₂² = (r₁ + r₂)² − 2r₁r₂.
-  - P1
+  - P1 · P2 · drills: mm-sum-of-squares-of-roots
 
 ### 3.17 Polygonal numbers
 
 
 
-- ○ **MM-3.17.A** (H3.17) Find the n-th triangular, pentagonal or hexagonal number.
+- ● **MM-3.17.A** (H3.17) Find the n-th triangular, pentagonal or hexagonal number.
   - EK: Triangular n(n + 1)/2; pentagonal n(3n − 1)/2; hexagonal n(2n − 1).
-  - P1
+  - P1 · P2 · drills: mm-polygonal-number
 
 ## Unit 4 · Precalculus (problems 61–70)
 
@@ -451,81 +451,81 @@ Big ideas: SEE, KNOW
 
 
 
-- ○ **MM-4.1.A** (H4.1) Find the volume or surface area of a prism, cylinder, cone or sphere, in terms of π where needed.
+- ● **MM-4.1.A** (H4.1) Find the volume or surface area of a prism, cylinder, cone or sphere, in terms of π where needed.
   - EK: V = πr²h, ⅓πr²h, ⁴⁄₃πr³; sphere area 4πr².
-  - P1
+  - P1 · P2 · drills: mm-volume-in-pi, mm-sphere-in-pi
 
 ### 4.2 Greatest integer
 
 
 
-- ○ **MM-4.2.A** (H4.2) Evaluate a floor expression, including of negative numbers.
+- ● **MM-4.2.A** (H4.2) Evaluate a floor expression, including of negative numbers.
   - EK: ⌊x⌋ is the greatest integer not above x; ⌊−2.3⌋ = −3.
-  - P1
+  - P1 · P2 · drills: mm-floor
 
 ### 4.3 Remainder theorem
 
 
 
-- ○ **MM-4.3.A** (H4.3) Find the remainder of a polynomial on division by x − a.
+- ● **MM-4.3.A** (H4.3) Find the remainder of a polynomial on division by x − a.
   - EK: The remainder is p(a).
-  - P1
+  - P1 · P2 · drills: mm-remainder-theorem
 
 ### 4.4 Trigonometry
 
 
 
-- ○ **MM-4.4.A** (H4.4) Recall exact trig values at the special angles and use basic identities.
+- ● **MM-4.4.A** (H4.4) Recall exact trig values at the special angles and use basic identities.
   - EK: sin and cos of 0°, 30°, 45°, 60°, 90° and their reflections; sin² + cos² = 1.
-  - P1
+  - P1 · P2 · drills: mm-trig-exact
 
 ### 4.5 Determinants
 
 
 
-- ○ **MM-4.5.A** (H4.5) Evaluate a 2 × 2 or simple 3 × 3 determinant.
+- ● **MM-4.5.A** (H4.5) Evaluate a 2 × 2 or simple 3 × 3 determinant.
   - EK: ad − bc.
-  - P1
+  - P1 · P2 · drills: mm-determinant
 
 ### 4.6 Matrices
 
 
 
-- ○ **MM-4.6.A** (H4.6) Find an entry of a matrix sum, product or inverse.
+- ● **MM-4.6.A** (H4.6) Find an entry of a matrix sum, product or inverse.
   - EK: Row times column.
-  - P1
+  - P1 · P2 · drills: mm-matrix-entry
 
 ### 4.7 Vectors
 
 
 
-- ○ **MM-4.7.A** (H4.7) Find a dot product or a magnitude.
+- ● **MM-4.7.A** (H4.7) Find a dot product or a magnitude.
   - EK: u·v = u₁v₁ + u₂v₂.
-  - P1
+  - P1 · P2 · drills: mm-dot-product
 
 ### 4.8 Composite functions
 
 
 
-- ○ **MM-4.8.A** (H4.8) Evaluate f(g(a)) for simple f and g.
+- ● **MM-4.8.A** (H4.8) Evaluate f(g(a)) for simple f and g.
   - EK: Work from the inside out.
-  - P1
+  - P1 · P2 · drills: mm-composite
 
 ### 4.9 Bases with decimals or fractions
 
 
 
-- ○ **MM-4.9.A** (H4.9) Convert a fraction to or from a numeral with digits after the point in another base.
+- ● **MM-4.9.A** (H4.9) Convert a fraction to or from a numeral with digits after the point in another base.
   - EK: Places after the point are negative powers of the base.
-  - P1
+  - P1 · P2 · drills: mm-base-fraction
 
 ### 4.10 Polar and rectangular coordinates
 
 
 
-- ○ **MM-4.10.A** (H4.10) Convert a point between polar and rectangular form at a special angle.
+- ● **MM-4.10.A** (H4.10) Convert a point between polar and rectangular form at a special angle.
   - EK: x = r cos θ, y = r sin θ.
-  - P1
+  - P1 · P2 · drills: mm-polar-to-rectangular
 
 ## Unit 5 · Calculus (problems 71–80)
 
@@ -535,78 +535,78 @@ Big ideas: SEE
 
 
 
-- ○ **MM-5.1.A** (H5.1) State the excluded value or the range of a simple rational, radical or quadratic function.
+- ● **MM-5.1.A** (H5.1) State the excluded value or the range of a simple rational, radical or quadratic function.
   - EK: Denominator ≠ 0; radicand ≥ 0; a quadratic's range starts or ends at its vertex.
-  - P1
+  - P1 · P2 · drills: mm-domain-excluded, mm-range-minimum
 
 ### 5.2 Modular arithmetic
 
 
 
-- ○ **MM-5.2.A** (H5.2) Evaluate a sum, product or power modulo m.
+- ● **MM-5.2.A** (H5.2) Evaluate a sum, product or power modulo m.
   - EK: Reduce before multiplying; powers cycle.
-  - P1
+  - P1 · P2 · drills: mm-modular-power
 
 ### 5.3 Limits
 
 
 
-- ○ **MM-5.3.A** (H5.3) Evaluate a limit of a rational function at a point or at infinity by inspection.
+- ● **MM-5.3.A** (H5.3) Evaluate a limit of a rational function at a point or at infinity by inspection.
   - EK: At infinity compare leading terms; at a 0/0 point cancel the common factor.
-  - P1
+  - P1 · P2 · drills: mm-limit-at-infinity
 
 ### 5.4 Derivatives
 
 
 
-- ○ **MM-5.4.A** (H5.4) Evaluate the derivative of a polynomial or basic function at a point.
+- ● **MM-5.4.A** (H5.4) Evaluate the derivative of a polynomial or basic function at a point.
   - EK: Power rule term by term.
-  - P1
+  - P1 · P2 · drills: mm-derivative-at-a-point
 
 ### 5.5 Slopes of tangent lines
 
 
 
-- ○ **MM-5.5.A** (H5.5) Give the slope of the tangent to a curve at a point.
+- ● **MM-5.5.A** (H5.5) Give the slope of the tangent to a curve at a point.
   - EK: It is f′ at that x.
-  - P1
+  - P1 · P2 · drills: mm-tangent-slope
 
 ### 5.6 Horizontal and vertical asymptotes
 
 
 
-- ○ **MM-5.6.A** (H5.6) Read the asymptotes of a rational function from its formula.
+- ● **MM-5.6.A** (H5.6) Read the asymptotes of a rational function from its formula.
   - EK: Vertical where the reduced denominator is 0; horizontal from the leading terms.
-  - P1
+  - P1 · P2 · drills: mm-asymptote
 
 ### 5.7 Critical values
 
 
 
-- ○ **MM-5.7.A** (H5.7) Find where a polynomial's derivative is zero.
+- ● **MM-5.7.A** (H5.7) Find where a polynomial's derivative is zero.
   - EK: Set f′ = 0 and factor.
-  - P1
+  - P1 · P2 · drills: mm-critical-value
 
 ### 5.8 Maximum and minimum problems
 
 
 
-- ○ **MM-5.8.A** (H5.8) Find the maximum or minimum value of a quadratic or a simple cubic on an interval.
+- ● **MM-5.8.A** (H5.8) Find the maximum or minimum value of a quadratic or a simple cubic on an interval.
   - EK: A quadratic's extreme is at x = −b/(2a).
-  - P1
+  - P1 · P2 · drills: mm-quadratic-maximum
 
 ### 5.9 Definite integration
 
 
 
-- ○ **MM-5.9.A** (H5.9) Evaluate a definite integral of a polynomial with easy limits.
+- ● **MM-5.9.A** (H5.9) Evaluate a definite integral of a polynomial with easy limits.
   - EK: Antidifferentiate term by term; use symmetry for odd and even integrands.
-  - P1
+  - P1 · P2 · drills: mm-definite-integral
 
 ### 5.10 Inverse functions
 
 
 
-- ○ **MM-5.10.A** (H5.10) Evaluate f⁻¹(a) for a linear or simple rational f without finding the inverse formula.
+- ● **MM-5.10.A** (H5.10) Evaluate f⁻¹(a) for a linear or simple rational f without finding the inverse formula.
   - EK: Solve f(x) = a.
-  - P1
+  - P1 · P2 · drills: mm-inverse-function-value

@@ -4,7 +4,7 @@
 //   objective isn't listed twice; the picker never repeats and favours what you haven't done lately.
 import { ago, pickWarm, quickOnly, warmPool, warmWeight, MASTERY_KEY, WarmItem } from "../src/drills/warm";
 import { PATH_LOS } from "../src/drills/library-path";
-import { PATH_LOS } from "../src/drills/library-path";
+import { TIMES_KEY, median, measuredPace, paceOf, recordTime, withTime } from "../src/drills/times";
 import { LIVE_SKILLS } from "../src/drills/skills";
 import { resolveTarget } from "../src/drills/target";
 import { generateFor } from "../src/drills/registry";
@@ -62,6 +62,24 @@ const DAY = 86400000;
   if (PATH_LOS.some((l) => l.drills.length && !l.pace)) fail("a drilled objective has no pace");
   if (PATH_LOS.some((l) => l.fw.id === "mental-math" && l.pace === "workout")) fail("mental math must stay under a minute");
   if (pool.some((x) => !x.pace)) fail("a warm item has no pace");
+  // answer times: a median needs three samples, walks-away are ignored, and measured pace overrides declared
+  if (median([9, 3, 30]) !== 9 || median([4, 8]) !== 6 || median([]) !== undefined) fail("median is wrong");
+  let ts = withTime({}, "t", 8);
+  ts = withTime(ts, "t", 12);
+  if (measuredPace(ts, "t") !== undefined) fail("two samples must not decide a pace");
+  ts = withTime(ts, "t", 700); // walked away
+  if ((ts.t ?? []).length !== 2) fail("a ten-minute answer is not a measurement");
+  ts = withTime(ts, "t", 10);
+  if (measuredPace(ts, "t") !== "recall") fail("a 10 s median is recall");
+  for (let k = 0; k < 20; k++) ts = withTime(ts, "t", 45);
+  if (ts.t.length !== 9 || measuredPace(ts, "t") !== "quick") fail("only the last nine times count; a 45 s median is quick");
+  if (paceOf(ts, ["t", "u"], "workout") !== "workout") fail("an objective with an untimed drill keeps its declared pace");
+  ts = withTime(withTime(withTime(ts, "u", 90), "u", 95), "u", 100);
+  if (paceOf(ts, ["t", "u"], "recall") !== "workout") fail("an objective is as slow as its slowest measured drill");
+  for (const d of a.drills) for (const sec of [5, 6, 7]) await recordTime(plugin, d, sec);
+  if ((store[TIMES_KEY]?.[a.drills[0]] ?? []).length !== 3) fail("recordTime must persist");
+  if ((await warmPool(plugin)).find((x) => x.target === `lo:${a.code}`)?.pace !== "recall") fail("measured times must reach the warm pool");
+  delete store[TIMES_KEY];
   if (quickOnly(pool).some((x) => x.pace === "workout") || quickOnly(pool).length !== pool.filter((x) => x.pace !== "workout").length) fail("quickOnly must drop the workouts and nothing else");
   if (warmWeight({ target: "x", group: "g", reps: 0 }) !== 3) fail("never-practiced weight");
 

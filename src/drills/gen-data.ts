@@ -39,7 +39,7 @@ interface DataPart {
   ic?: (string | number)[];
   vars?: string[];
   unit?: string;
-  tol?: number;
+  tol?: number | string;
   explain?: string;
   choice?: string[];
   correct?: string | number;
@@ -128,8 +128,10 @@ export function buildData(t: DataTemplate, r: Rng): Draft {
     require_(v !== 0);
     values[p.label] = v;
     scope[p.label] = v;
-    const answer: Answer = { kind: "expression", ref: `${v}`, vars: [], tol: p.tol ?? 0.01, rel: true, label: p.label, unit: p.unit };
-    return { ask, answer, answerTex: `${tex} = ${fmt(v, (p.tol ?? 0.01) < 0.01 ? 6 : 3)}${p.unit ? u(p.unit) : ""}`, explain };
+    // the tolerance may be an expression, so a drawn case can carry its own band (an anchor known as a range)
+    const tol = p.tol === undefined ? 0.01 : num(p.tol, scope, `${t.template} › ${p.label} tol`);
+    const answer: Answer = { kind: "expression", ref: `${v}`, vars: [], tol, rel: true, label: p.label, unit: p.unit };
+    return { ask, answer, answerTex: `${tex} = ${fmt(v, tol < 0.01 ? 6 : 3)}${p.unit ? u(p.unit) : ""}`, explain };
   });
   const last = parts[parts.length - 1];
   return {

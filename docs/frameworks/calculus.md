@@ -1491,3 +1491,13 @@ Book: stewart-8e §16.9
   - EK: d/dt∭c dV = −∯N·n dS + ∭R dV for every volume ⇒ ∂c/∂t + ∇·N = R.
   - Needs: CA-14.9.A, CA-14.5.B
   - P2 · P3 · drills: ca-conservation-law
+
+## Drills not yet placed on the map
+
+- mm-limit-at-infinity (calc.limits)
+- mm-asymptote (calc.limits)
+- mm-derivative-at-a-point (calc.derivative-rules)
+- mm-tangent-slope (calc.derivative-rules)
+- mm-critical-value (calc.extrema)
+- mm-quadratic-maximum (calc.extrema)
+- mm-definite-integral (calc.riemann-ftc)

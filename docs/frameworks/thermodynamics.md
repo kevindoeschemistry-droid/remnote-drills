@@ -740,3 +740,10 @@ Book: shell-2015 §22.1, §22.2, §22.3, §22.4, §22.5
 - ○ **TD-17.3.A** Apply the Metropolis acceptance rule and compute an ensemble average from a sampled trajectory.
   - EK: acc = min(1, e^(−βΔE)); ⟨A⟩ = time average over equilibrated, decorrelated samples.
   - P2 · P4
+
+## Drills not yet placed on the map
+
+- aq-thermal-energy (stat.boltzmann)
+- aq-boltzmann-ratio (stat.boltzmann)
+- aq-molecules-per-cell (stat.binding)
+- aq-cell-numbers (stat.rates)

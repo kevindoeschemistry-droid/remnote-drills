@@ -26,6 +26,19 @@ BASE = {"diff": sp.diff, "pi": sp.pi, "log": sp.log, "exp": sp.exp, "sqrt": sp.s
         "sec": sp.sec, "csc": sp.csc, "cot": sp.cot, "Rational": sp.Rational, "Symbol": sp.Symbol, "Eq": sp.Eq,
         "Min": sp.Min, "Max": sp.Max, "Sum": sp.Sum, "sum": sum, "range": range, "all": all, "any": any, "sorted": sorted, "len": len, "legendre": sp.legendre, "I": sp.I, "re": sp.re, "im": sp.im, "Y": sp.Symbol("y"), "Z": sp.Symbol("z"), "acos": sp.acos, "nn": sp.Symbol("n", integer=True, positive=True), "series": sp.series, "summation": sp.summation, "Matrix": sp.Matrix, "factorial": sp.factorial, "gcd": sp.gcd, "lcm": sp.lcm, "divisors": sp.divisors, "binomial": sp.binomial, "floor": sp.floor, "interpolate": sp.interpolate, "jzero": lambda order, k: sp.Float(__import__("mpmath").besseljzero(order, k), 12)}
 
+# CODATA 2022 (exact SI values where the SI fixes them) and standard atomic weights, transcribed here
+# independently of the templates: an anchor item's own numbers are checked against these.
+CONST = {"c_kB": sp.Rational("1.380649e-23"), "c_NA": sp.Rational("6.02214076e23"), "c_h": sp.Rational("6.62607015e-34"),
+         "c_c": sp.Integer(299792458), "c_e": sp.Rational("1.602176634e-19"), "c_Eh": sp.Rational("4.3597447222060e-18"),
+         "c_cal": sp.Rational("4.184"), "c_atm": sp.Integer(101325),
+         "c_M": {"H": sp.Rational("1.008"), "C": sp.Rational("12.011"), "N": sp.Rational("14.007"), "O": sp.Rational("15.999"),
+                 "Na": sp.Rational("22.990"), "P": sp.Rational("30.974"), "S": sp.Rational("32.06"), "Cl": sp.Rational("35.45"),
+                 "K": sp.Rational("39.098"), "Ca": sp.Rational("40.078"), "Fe": sp.Rational("55.845")}}
+CONST["c_R"] = CONST["c_kB"] * CONST["c_NA"]
+BASE.update(CONST)
+# calc("c_R*298.15/1000"): evaluate a case's own formula string against the constants above
+BASE["calc"] = lambda q: sp.sympify(eval(q, {"__builtins__": {}}, BASE))  # noqa: S307 — our own repo's YAML
+
 
 def parse(ref, var):
     """a symbolic part's reference (mathjs syntax) as a sympy expression in the template's variable"""

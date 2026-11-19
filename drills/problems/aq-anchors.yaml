@@ -1,0 +1,294 @@
+# Anchor quantities: magnitudes worth knowing without looking them up, and one-step uses of them.
+# No published standard lists these for chemistry (docs/standards.md). The selection is a house list,
+# leaning on the SnapShot "Key Numbers in Biology" sheet for the biology items and on Francl's essay
+# for a few chemistry ones. Every value that can be computed is checked against CODATA 2022 constants
+# and standard atomic weights held separately in tests/verify/data.py. A recall answer is accepted
+# within the band `tl` (a few percent, or the published range when the source gives one).
+
+# ── household measures (21 CFR 101.9) ──────────────────────────────────────
+- template: aq-household-measure
+  skill: k8.measurement
+  pace: recall
+  cases:
+    - { q: 'How many millilitres in a teaspoon?', v0: 5 }
+    - { q: 'How many millilitres in a tablespoon?', v0: 15 }
+    - { q: 'How many millilitres in a cup?', v0: 240 }
+    - { q: 'How many millilitres in a fluid ounce?', v0: 30 }
+    - { q: 'How many grams in an ounce (weight)?', v0: 28 }
+    - { q: 'How many teaspoons in a tablespoon?', v0: 3 }
+  prompt: 'From memory: {{q}}'
+  parts:
+    - ask: 'Value'
+      label: v
+      tex: 'x'
+      value: v0
+      tol: 0.04
+      explain: 'The round values US food labels use: teaspoon 5 mL, tablespoon 15 mL, cup 240 mL, fluid ounce 30 mL, ounce 28 g. Water is 1 g per mL, so a teaspoon of water is about 5 g'
+  verify: { residuals: ["v - v0"] }
+
+- template: aq-spoon-of-water
+  skill: k8.measurement
+  pace: quick
+  given: { n: { pick: [1, 2, 3, 4] } }
+  cases:
+    - { sp: 'teaspoons', ml: 5 }
+    - { sp: 'tablespoons', ml: 15 }
+  prompt: 'About how many moles of water are in ${{n}}$ {{sp}}?'
+  parts:
+    - ask: 'Moles (within 10%)'
+      label: v
+      tex: 'n'
+      value: n*ml/18.015
+      tol: 0.1
+      explain: 'A spoon is ${{ml}}$ mL, water is 1 g/mL and 18 g/mol: ${{n*ml}}$ g $\div$ 18 g/mol. A tablespoon of water is a little under a mole'
+  verify: { expect: { v: "n*ml/(2*c_M['H'] + c_M['O'])" } }
+
+# ── thermal energy ─────────────────────────────────────────────────────────
+- template: aq-thermal-energy
+  skill: stat.boltzmann
+  pace: recall
+  cases:
+    - { q: '$RT$ at 25 °C, in kJ/mol', v0: 2.48, py: 'c_R*298.15/1000' }
+    - { q: '$RT$ at 25 °C, in kcal/mol', v0: 0.593, py: 'c_R*298.15/1000/c_cal' }
+    - { q: '$k_BT$ at 25 °C, in meV', v0: 25.7, py: 'c_kB*298.15/c_e*1000' }
+    - { q: '$k_BT$ at 25 °C, as a wavenumber in cm⁻¹', v0: 207, py: 'c_kB*298.15/(c_h*c_c*100)' }
+    - { q: '$k_BT$ at 25 °C, in pN·nm', v0: 4.12, py: 'c_kB*298.15*1e21' }
+    - { q: '$R$, in J/(mol·K)', v0: 8.314, py: 'c_R' }
+  prompt: 'From memory: {{q}}'
+  parts:
+    - ask: 'Value (within 4%)'
+      label: v
+      tex: 'x'
+      value: v0
+      tol: 0.04
+      explain: 'One number in five costumes: at room temperature $RT \approx 2.5$ kJ/mol $\approx 0.6$ kcal/mol, and per molecule $k_BT \approx 25.7$ meV $\approx 207$ cm⁻¹ $\approx 4.1$ pN·nm. An energy is "big" or "small" by comparison with this'
+  verify: { residuals: ["floor(Abs(v/calc(py) - 1)/0.012)"] }
+
+- template: aq-factor-of-ten
+  skill: pchem.gibbs
+  pace: recall
+  cases:
+    - { un: 'kJ/mol', v0: 5.71, py: 'c_R*298.15*log(10)/1000' }
+    - { un: 'kcal/mol', v0: 1.36, py: 'c_R*298.15*log(10)/1000/c_cal' }
+  prompt: 'From memory: at 25 °C, how much does $\Delta G^\circ$ change for each factor of 10 in the equilibrium constant, in {{un}}?'
+  parts:
+    - ask: 'Value (within 6%)'
+      label: v
+      tex: 'x'
+      value: v0
+      tol: 0.06
+      explain: '$RT\ln 10 \approx 5.7$ kJ/mol $\approx 1.36$ kcal/mol. The same number sets the pH scale ($59$ mV per unit, after dividing by $F$) and the cost of each order of magnitude in a binding constant'
+  verify: { residuals: ["floor(Abs(v/calc(py) - 1)/0.012)"] }
+
+- template: aq-free-energy-to-K
+  skill: pchem.gibbs
+  pace: quick
+  given: { dG: { pick: [-34.2, -22.8, -17.1, -11.4, -5.7, 5.7, 11.4, 17.1] } }
+  prompt: 'A reaction has $\Delta G^\circ = {{dG}}$ kJ/mol at 25 °C. About what is $\log_{10}K$?'
+  parts:
+    - ask: '$\log_{10}K$ (within 5%)'
+      label: v
+      tex: '\log_{10}K'
+      value: -dG*1000/(1.380649e-23*6.02214076e23*298.15*log(10))
+      tol: 0.05
+      explain: 'Divide by $-5.7$ kJ/mol, the cost of one factor of 10: $K \approx 10^{ {{-dG/5.7}} }$'
+  verify: { expect: { v: "-dG*1000/(c_R*298.15*log(10))" } }
+
+- template: aq-boltzmann-ratio
+  skill: stat.boltzmann
+  pace: recall
+  given: { n: { pick: [1, 2, 3, 5] } }
+  prompt: 'Two states differ in energy by ${{n}}\,k_BT$. What is the population of the upper one relative to the lower?'
+  parts:
+    - ask: 'Ratio (within 10%)'
+      label: v
+      tex: 'N_2/N_1'
+      value: exp(-n)
+      tol: 0.1
+      explain: '$e^{-n}$: about 0.37 at $1\,k_BT$, 0.14 at 2, 0.05 at 3 and under 1% at 5. A gap of a few $k_BT$ is enough to empty a state'
+  verify: { expect: { v: "exp(-n)" } }
+
+# ── energy units ───────────────────────────────────────────────────────────
+- template: aq-energy-conversion
+  skill: quantum.origins
+  pace: recall
+  cases:
+    - { q: '1 eV per molecule, in kJ/mol', v0: 96.5, py: 'c_e*c_NA/1000' }
+    - { q: '1 eV per molecule, in kcal/mol', v0: 23.06, py: 'c_e*c_NA/1000/c_cal' }
+    - { q: '1 eV, as a wavenumber in cm⁻¹', v0: 8066, py: 'c_e/(c_h*c_c*100)' }
+    - { q: '1 kcal, in kJ', v0: 4.184, py: 'c_cal' }
+    - { q: '1 hartree, in eV', v0: 27.21, py: 'c_Eh/c_e' }
+    - { q: '1 hartree, in kcal/mol', v0: 627.5, py: 'c_Eh*c_NA/1000/c_cal' }
+    - { q: '$hc$, in eV·nm', v0: 1240, py: 'c_h*c_c/c_e*1e9' }
+  prompt: 'From memory: {{q}}'
+  parts:
+    - ask: 'Value (within 3%)'
+      label: v
+      tex: 'x'
+      value: v0
+      tol: 0.03
+      explain: '1 eV $\approx$ 96.5 kJ/mol $\approx$ 23 kcal/mol $\approx$ 8066 cm⁻¹; 1 hartree $\approx$ 27.2 eV $\approx$ 627.5 kcal/mol; $hc \approx 1240$ eV·nm. Bond energies are a few eV, so a few hundred kJ/mol'
+  verify: { residuals: ["floor(Abs(v/calc(py) - 1)/0.012)"] }
+
+- template: aq-photon-energy
+  skill: quantum.origins
+  pace: quick
+  given: { lam: { pick: [200, 254, 310, 400, 532, 620, 700, 1064, 1550] } }
+  prompt: 'About what is the energy of a ${{lam}}$ nm photon, in eV?'
+  parts:
+    - ask: 'Energy in eV (within 4%)'
+      label: v
+      tex: 'E'
+      value: 6.62607015e-34*299792458/(lam*1e-9)/1.602176634e-19
+      tol: 0.04
+      explain: '$E = hc/\lambda \approx 1240/\lambda$ with $\lambda$ in nm. Visible light, 400 to 700 nm, is about 3.1 down to 1.8 eV'
+  verify: { expect: { v: "c_h*c_c/(lam*Rational(1, 10**9))/c_e" } }
+
+- template: aq-wavenumber-wavelength
+  skill: quantum.spectroscopy
+  pace: quick
+  given: { nu: { pick: [500, 1000, 1700, 2000, 2250, 3000, 3400] } }
+  prompt: 'An infrared band at ${{nu}}$ cm⁻¹ is at what wavelength, in micrometres?'
+  parts:
+    - ask: 'Wavelength in µm (within 3%)'
+      label: v
+      tex: '\lambda'
+      value: 10000/nu
+      tol: 0.03
+      explain: '$\lambda(\mu\text{m}) = 10^4/\tilde\nu(\text{cm}^{-1})$: 1000 cm⁻¹ is 10 µm, and the C–H stretch near 3000 cm⁻¹ is about 3.3 µm'
+  verify: { expect: { v: "1/(nu*100)*10**6" } }
+
+# ── amounts and concentrations ─────────────────────────────────────────────
+- template: aq-amounts
+  skill: pchem.real-gases
+  pace: recall
+  cases:
+    - { q: 'The concentration of pure water, in mol/L', v0: 55.5, py: "1000/(2*c_M['H'] + c_M['O'])" }
+    - { q: 'The molar volume of an ideal gas at 25 °C and 1 atm, in litres', v0: 24.5, py: 'c_R*298.15/c_atm*1000' }
+    - { q: 'The molar volume of an ideal gas at 0 °C and 1 atm, in litres', v0: 22.4, py: 'c_R*273.15/c_atm*1000' }
+    - { q: 'How many molecules per cubic nanometre is a 1 M solution?', v0: 0.6, py: 'c_NA*1000/10**27' }
+    - { q: 'The Faraday constant, in C/mol', v0: 96485, py: 'c_e*c_NA' }
+    - { q: 'The Avogadro constant, per mole (type it like 6.0e23)', v0: 6.022e23, py: 'c_NA' }
+  prompt: 'From memory: {{q}}'
+  parts:
+    - ask: 'Value (within 3%)'
+      label: v
+      tex: 'x'
+      value: v0
+      tol: 0.03
+      explain: 'Water is 55.5 M (1000 g/L over 18 g/mol), which is why it is left out of equilibrium constants. A mole of gas is 22.4 L at 0 °C and 24.5 L at room temperature. 1 M is 0.6 molecules per nm³, so solutes at 1 M sit about 1.2 nm apart'
+  verify: { residuals: ["floor(Abs(v/calc(py) - 1)/0.012)"] }
+
+- template: aq-atomic-mass
+  skill: pchem.thermochemistry
+  pace: recall
+  cases:
+    - { el: 'H', nm: 'hydrogen', m0: 1.008 }
+    - { el: 'C', nm: 'carbon', m0: 12.011 }
+    - { el: 'N', nm: 'nitrogen', m0: 14.007 }
+    - { el: 'O', nm: 'oxygen', m0: 15.999 }
+    - { el: 'Na', nm: 'sodium', m0: 22.99 }
+    - { el: 'P', nm: 'phosphorus', m0: 30.974 }
+    - { el: 'S', nm: 'sulfur', m0: 32.06 }
+    - { el: 'Cl', nm: 'chlorine', m0: 35.45 }
+    - { el: 'K', nm: 'potassium', m0: 39.098 }
+    - { el: 'Ca', nm: 'calcium', m0: 40.078 }
+    - { el: 'Fe', nm: 'iron', m0: 55.845 }
+  prompt: 'From memory: the atomic mass of {{nm}}, in g/mol'
+  parts:
+    - ask: 'Atomic mass (within 1.5%)'
+      label: v
+      tex: 'M'
+      value: m0
+      tol: 0.015
+      explain: 'H 1, C 12, N 14, O 16, Na 23, P 31, S 32, Cl 35.5, K 39, Ca 40, Fe 56. With these, most molar masses are head arithmetic'
+  verify: { expect: { v: "c_M[el]" } }
+
+- template: aq-molar-mass
+  skill: pchem.thermochemistry
+  pace: quick
+  cases:
+    - { f: '\mathrm{H_2O}', nC: 0, nH: 2, nN: 0, nO: 1, nX: 0, X: 'Na', mX: 22.99 }
+    - { f: '\mathrm{CO_2}', nC: 1, nH: 0, nN: 0, nO: 2, nX: 0, X: 'Na', mX: 22.99 }
+    - { f: '\mathrm{NH_3}', nC: 0, nH: 3, nN: 1, nO: 0, nX: 0, X: 'Na', mX: 22.99 }
+    - { f: '\mathrm{CH_3CH_2OH}', nC: 2, nH: 6, nN: 0, nO: 1, nX: 0, X: 'Na', mX: 22.99 }
+    - { f: '\mathrm{C_6H_{12}O_6}', nC: 6, nH: 12, nN: 0, nO: 6, nX: 0, X: 'Na', mX: 22.99 }
+    - { f: '\mathrm{NaCl}', nC: 0, nH: 0, nN: 0, nO: 0, nX: 1, X: 'NaCl', mX: 58.44 }
+    - { f: '\mathrm{CH_3COOH}', nC: 2, nH: 4, nN: 0, nO: 2, nX: 0, X: 'Na', mX: 22.99 }
+    - { f: '\mathrm{C_6H_6}', nC: 6, nH: 6, nN: 0, nO: 0, nX: 0, X: 'Na', mX: 22.99 }
+    - { f: '\mathrm{H_2SO_4}', nC: 0, nH: 2, nN: 0, nO: 4, nX: 1, X: 'S', mX: 32.06 }
+    - { f: '\mathrm{NaOH}', nC: 0, nH: 1, nN: 0, nO: 1, nX: 1, X: 'Na', mX: 22.99 }
+    - { f: '\mathrm{CaCO_3}', nC: 1, nH: 0, nN: 0, nO: 3, nX: 1, X: 'Ca', mX: 40.078 }
+  prompt: 'In your head: the molar mass of ${{f}}$, in g/mol'
+  parts:
+    - ask: 'Molar mass (within 1.5%)'
+      label: v
+      tex: 'M'
+      value: 12.011*nC + 1.008*nH + 14.007*nN + 15.999*nO + mX*nX
+      tol: 0.015
+      explain: 'Add the anchors: C 12, H 1, N 14, O 16, Na 23, S 32, Cl 35.5, Ca 40. Rounding each to the nearest unit (half unit for Cl) lands well inside the band'
+  verify: { expect: { v: "c_M['C']*nC + c_M['H']*nH + c_M['N']*nN + c_M['O']*nO + nX*(c_M['Na'] + c_M['Cl'] if X == 'NaCl' else c_M[X])" } }
+
+# ── sizes ──────────────────────────────────────────────────────────────────
+- template: aq-lengths
+  skill: quantum.model-systems
+  pace: recall
+  cases:
+    - { q: 'A C–C single bond, in pm', v0: 154, tl: 0.03 }
+    - { q: 'A C=C double bond, in pm', v0: 134, tl: 0.03 }
+    - { q: 'A C–H bond, in pm', v0: 109, tl: 0.04 }
+    - { q: 'An O–H bond in water, in pm', v0: 96, tl: 0.05 }
+    - { q: 'The Bohr radius, in pm', v0: 52.9, tl: 0.03 }
+    - { q: 'The diameter of a water molecule, in nm', v0: 0.3, tl: 0.2 }
+    - { q: 'The rise per base pair in DNA, in nm', v0: 0.34, tl: 0.06 }
+    - { q: 'The diameter of the DNA double helix, in nm', v0: 2, tl: 0.15 }
+    - { q: 'The diameter of an average protein, in nm', v0: 4.5, tl: 0.334 }
+    - { q: 'The thickness of a cell membrane, in nm', v0: 7, tl: 0.43 }
+    - { q: 'The length of an E. coli cell, in µm', v0: 3, tl: 0.34 }
+  prompt: 'From memory: {{q}}'
+  parts:
+    - ask: 'Value'
+      label: v
+      tex: 'x'
+      value: v0
+      tol: tl
+      explain: 'Bonds are 100 to 150 pm, a water molecule about 0.3 nm, a protein 3 to 6 nm, a membrane 4 to 10 nm, a bacterium a few µm: each step up is roughly a factor of ten. Where the source gives a range, anything inside it is accepted'
+  verify: { residuals: ["v - v0"] }
+
+# ── rates, energies and counts in cells (SnapShot: Key Numbers in Biology) ──
+- template: aq-cell-numbers
+  skill: stat.rates
+  pace: recall
+  cases:
+    - { q: 'How many amino acids per second a ribosome adds', v0: 15, tl: 0.34 }
+    - { q: 'The division time of E. coli in rich medium, in minutes', v0: 30, tl: 0.34 }
+    - { q: 'The free energy of ATP hydrolysis in a cell, in kJ/mol (size only)', v0: 50, tl: 0.2 }
+    - { q: 'The free energy of ATP hydrolysis in a cell, in units of $k_BT$', v0: 20, tl: 0.25 }
+    - { q: 'The size of the human genome, in billions of base pairs', v0: 3, tl: 0.15 }
+    - { q: 'The size of the E. coli genome, in millions of base pairs', v0: 4, tl: 0.2 }
+    - { q: 'A typical membrane potential, in mV (size only)', v0: 135, tl: 0.49 }
+    - { q: 'The fraction of a cell''s mass that is water, in percent', v0: 70, tl: 0.1 }
+    - { q: 'The power of ten of a diffusion-limited association rate constant in M⁻¹s⁻¹ (type the exponent)', v0: 8.5, tl: 0.06 }
+  prompt: 'From memory: {{q}}'
+  parts:
+    - ask: 'Value'
+      label: v
+      tex: 'x'
+      value: v0
+      tol: tl
+      explain: 'Rule-of-thumb values from the Key Numbers in Biology sheet: ribosome 10–20 aa/s, E. coli 20–40 min, ATP 40–60 kJ/mol or about 20 $k_BT$, human genome 3×10⁹ bp, E. coli 4×10⁶ bp, membrane potential 70–200 mV, water 70% by mass, diffusion limit 10⁸–10⁹ M⁻¹s⁻¹. Anything inside the published range is accepted'
+  verify: { residuals: ["v - v0"] }
+
+- template: aq-molecules-per-cell
+  skill: stat.binding
+  pace: quick
+  given: { cn: { pick: [1, 10, 100, 1000] }, vol: { pick: [1, 2] } }
+  prompt: 'About how many molecules is a ${{cn}}$ nM concentration in a bacterium of volume ${{vol}}$ µm³?'
+  parts:
+    - ask: 'Molecules (within a factor of about 1.7)'
+      label: v
+      tex: 'N'
+      value: cn*1e-9*vol*1e-15*6.02214076e23
+      tol: 0.7
+      explain: '1 µm³ is 1 fL, and 1 nM in 1 fL is $10^{-9} \times 10^{-15} \times 6\times10^{23} \approx 0.6$ molecules. So "1 nM is about one molecule per E. coli" is the rule, and a count is the concentration in nM times the volume in fL'
+  verify: { expect: { v: "cn*Rational(1, 10**9)*vol*Rational(1, 10**15)*c_NA" } }

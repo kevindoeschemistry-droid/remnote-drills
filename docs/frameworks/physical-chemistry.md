@@ -763,3 +763,15 @@ Book: engel-reid-3e §35:reversible, §35:parallel, §35:sequential, §34:steady
 - ○ **PC-22.3.H** Calculate a steady-state radical concentration and a kinetic chain length.
   - EK: [R·]_ss = √(R_i/k_t); chain length = propagation rate / initiation rate.
   - P2 · P5
+
+## Drills not yet placed on the map
+
+- aq-atomic-mass (pchem.thermochemistry)
+- aq-molar-mass (pchem.thermochemistry)
+- aq-factor-of-ten (pchem.gibbs)
+- aq-free-energy-to-K (pchem.gibbs)
+- aq-amounts (pchem.real-gases)
+- aq-energy-conversion (quantum.origins)
+- aq-photon-energy (quantum.origins)
+- aq-lengths (quantum.model-systems)
+- aq-wavenumber-wavelength (quantum.spectroscopy)
