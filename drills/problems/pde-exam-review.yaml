@@ -5,7 +5,7 @@
 
 # ── which eigenfunctions do the boundary conditions pick? ──────────────────
 - template: mt-bc-eigenfunctions
-  skill: pde.midterm-review
+  skill: pde.review-1
   pace: recall
   cases:
     - { bc: 'X(0) = 0,\ X(L) = 0', ans: 0, why: 'Zero at x = 0 kills the cosine; zero at x = L forces sin(λL) = 0' }
@@ -22,7 +22,7 @@
   verify: { authored: true }
 
 - template: mt-which-variable-oscillates
-  skill: pde.midterm-review
+  skill: pde.review-2
   pace: recall
   cases:
     - { say: 'u = 0 on x = 0 and x = a, u = 0 on y = 0, and u = f(x) on y = b', ans: 0 }
@@ -39,7 +39,7 @@
   verify: { authored: true }
 
 - template: mt-other-direction
-  skill: pde.midterm-review
+  skill: pde.review-2
   pace: recall
   cases:
     - { say: 'u(x, 0) = 0, with the data on y = b', ans: 0, why: 'sinh vanishes at y = 0, so that condition is met mode by mode' }
@@ -56,7 +56,7 @@
 
 # ── heat equation: modes and how fast they die ─────────────────────────────
 - template: mt-heat-time-constant
-  skill: pde.midterm-review
+  skill: pde.review-3
   pace: quick
   given: { L: { pick: [1, 2, 3, 0.5] }, al: { pick: [1, 2, 0.5, 0.1] }, n: { pick: [1, 2, 3] } }
   prompt: 'A rod $0 < x < {{L}}$ has both ends held at 0 and obeys $u_t = {{al}}\,u_{xx}$. Mode ${{n}}$ is $e^{-t/\tau}\sin({{n}}\pi x/{{L}})$.'
@@ -70,7 +70,7 @@
   verify: { expect: { tau: "solve(Eq(diff(exp(-Y/Z)*sin(n*pi*x/L), Y), al*diff(exp(-Y/Z)*sin(n*pi*x/L), x, 2)), Z)[0]" } }
 
 - template: mt-sine-coefficient-constant
-  skill: pde.midterm-review
+  skill: pde.review-3
   pace: quick
   given: { T0: { pick: [1, 10, 50, 100] }, L: { pick: [1, 2, 3] }, n: { pick: [1, 3, 5] } }
   prompt: 'Expand $f(x) = {{T0}}$ on $0 < x < {{L}}$ in the sine series $\sum b_n\sin(n\pi x/{{L}})$.'
@@ -84,7 +84,7 @@
   verify: { expect: { b: "2/L*integrate(T0*sin(n*pi*x/L), (x, 0, L))" } }
 
 - template: mt-sine-coefficient-linear
-  skill: pde.midterm-review
+  skill: pde.review-3
   pace: quick
   given: { L: { pick: [1, 2, 3] }, n: { int: [1, 4] } }
   prompt: 'Expand $f(x) = x$ on $0 < x < {{L}}$ in the sine series $\sum b_n\sin(n\pi x/{{L}})$.'
@@ -98,7 +98,7 @@
   verify: { expect: { b: "2/L*integrate(x*sin(n*pi*x/L), (x, 0, L))" } }
 
 - template: mt-read-coefficients
-  skill: pde.midterm-review
+  skill: pde.review-2
   pace: quick
   given: { A0: { int: [2, 9] }, B0: { int: [-6, -1] }, L: { pick: [1, 2] }, al: { pick: [1, 2, 0.5] } }
   prompt: 'Solve $u_t = {{al}}\,u_{xx}$ on $0 < x < {{L}}$, $u = 0$ at both ends, with $u(x, 0) = {{A0}}\sin(\pi x/{{L}}) {{B0}}\sin(3\pi x/{{L}})$.'
@@ -121,7 +121,7 @@
       k3: "solve(Eq(diff(exp(-Z*Y)*sin(3*pi*x/L), Y), al*diff(exp(-Z*Y)*sin(3*pi*x/L), x, 2)), Z)[0]"
 
 - template: mt-insulated-steady-state
-  skill: pde.midterm-review
+  skill: pde.review-2
   pace: quick
   given: { T1: { pick: [10, 20, 30] }, dT: { pick: [20, 40, 60, 80] }, L: { pick: [1, 2, 4] } }
   prompt: 'A rod $0 < x < {{L}}$ is insulated at both ends and along its length. Initially $T(x, 0) = {{T1}} + {{dT/L}}\,x$.'
@@ -136,7 +136,7 @@
 
 # ── the vibrating string ───────────────────────────────────────────────────
 - template: mt-string-frequency
-  skill: pde.midterm-review
+  skill: pde.review-3
   pace: quick
   given: { L: { pick: [0.5, 1, 2] }, cc: { pick: [100, 200, 340, 400] }, n: { pick: [1, 2, 3] } }
   prompt: 'A string of length ${{L}}$ m fixed at both ends obeys $u_{tt} = c^2u_{xx}$ with $c = {{cc}}$ m/s.'
@@ -150,7 +150,7 @@
   verify: { expect: { f: "Max(*solve(Eq(diff(sin(n*pi*x/L)*cos(Z*Y), Y, 2), cc**2*diff(sin(n*pi*x/L)*cos(Z*Y), x, 2)), Z))/(2*pi)" } }
 
 - template: mt-string-time-factor
-  skill: pde.midterm-review
+  skill: pde.review-2
   pace: recall
   cases:
     - { say: 'pulled into a shape f(x) and released from rest', ans: 0, why: 'Zero initial velocity kills every sine-in-time term, since the derivative of sin(ωt) at t = 0 is not zero' }
@@ -166,7 +166,7 @@
 
 # ── cylinders and Bessel functions ─────────────────────────────────────────
 - template: mt-bessel-condition
-  skill: pde.midterm-review
+  skill: pde.review-4
   pace: recall
   cases:
     - { say: 'the wall r = a is held at zero temperature', ans: 0, why: 'R(a) = 0 directly' }
@@ -181,7 +181,7 @@
   verify: { authored: true }
 
 - template: mt-bessel-decay-length
-  skill: pde.midterm-review
+  skill: pde.review-4
   pace: quick
   given: { a0: { pick: [0.5, 1, 2, 5, 10] } }
   prompt: 'A semi-infinite cylinder of radius ${{a0}}$ cm has its wall at 0 and a hot base at $z = 0$. Far from the base, $T \approx A_1J_0(\alpha_1 r/a)\,e^{-z/\ell}$ with $\alpha_1 = 2.405$.'
@@ -195,7 +195,7 @@
   verify: { expect: { ell: "a0/jzero(0, 1)" } }
 
 - template: mt-bessel-weight
-  skill: pde.midterm-review
+  skill: pde.review-4
   pace: recall
   cases:
     - { fam: 'J_0(\alpha_n r/a)', dom: '0 < r < a', ans: 1 }
@@ -212,7 +212,7 @@
 
 # ── finite differences ─────────────────────────────────────────────────────
 - template: mt-central-second-difference
-  skill: pde.midterm-review
+  skill: pde.review-5
   pace: quick
   given: { h0: { pick: [0.1, 0.2, 0.5, 1] }, fm: { int: [1, 9] }, f0: { int: [1, 9] }, fp: { int: [1, 9] } }
   require: ["fp - 2*f0 + fm != 0"]
@@ -227,7 +227,7 @@
   verify: { expect: { d2: "diff(interpolate([(-h0, fm), (0, f0), (h0, fp)], x), x, 2)" } }
 
 - template: mt-truncation-order
-  skill: pde.midterm-review
+  skill: pde.review-5
   pace: recall
   cases:
     - { fd: '\frac{f(x+h) - f(x)}{h}', of: "f'(x)", ans: 0, why: 'One Taylor series; the first neglected term is (h/2)f″' }
@@ -244,7 +244,7 @@
   verify: { authored: true }
 
 - template: mt-explicit-step
-  skill: pde.midterm-review
+  skill: pde.review-5
   pace: quick
   given: { r0: { pick: [0.25, 0.4, 0.5] }, um: { int: [0, 9] }, ui: { int: [1, 9] }, up: { int: [0, 9] } }
   require: ["r0*um + (1 - 2*r0)*ui + r0*up != 0"]
@@ -259,7 +259,7 @@
   verify: { expect: { un: "ui + r0*(up - 2*ui + um)" } }
 
 - template: mt-explicit-stability
-  skill: pde.midterm-review
+  skill: pde.review-5
   pace: quick
   given: { h0: { pick: [0.05, 0.1, 0.2, 0.25] }, al: { pick: [1, 2, 0.5] } }
   prompt: 'The explicit scheme is used for $u_t = {{al}}\,u_{xx}$ with $h = {{h0}}$.'
@@ -273,7 +273,7 @@
   verify: { expect: { k: "solve(Eq(1 - 4*al*Z/h0**2, -1), Z)[0]" } }
 
 - template: mt-amplification
-  skill: pde.midterm-review
+  skill: pde.review-5
   pace: quick
   given: { r0: { pick: [0.3, 0.45, 0.55, 0.75, 1] } }
   cases:
@@ -297,3 +297,122 @@
   verify:
     expect: { g: "(1 - 2*r0)/(1 + 2*r0) if cn == 1 else 1 - 4*r0" }
     choices: { s: "0 if Abs((1 - 2*r0)/(1 + 2*r0) if cn == 1 else 1 - 4*r0) <= 1 else 1" }
+
+# ── stage 1: the building blocks, from zero ────────────────────────────────
+- template: mt-separate
+  skill: pde.review-1
+  pace: recall
+  cases:
+    - { pde: 'u_t = \alpha\,u_{xx}', nm: 'heat equation', ans: 0, why: 'One time derivative, so T′ appears' }
+    - { pde: 'u_{tt} = c^2u_{xx}', nm: 'wave equation', ans: 1, why: 'Two time derivatives, so T″ appears' }
+    - { pde: 'u_{xx} + u_{yy} = 0', nm: 'Laplace equation (with Y in place of T)', ans: 2, why: 'X″Y + XY″ = 0; divide by XY and move one term across' }
+  prompt: 'Put $u = X(x)\,T(t)$ into the {{nm}} ${{pde}}$ and divide so that each side depends on one variable only. You get…'
+  parts:
+    - ask: 'Separated form'
+      label: v
+      choice: ["T′/(αT) = X″/X", "T″/(c²T) = X″/X", "X″/X = −Y″/Y"]
+      correct: ans
+      explain: '{{why}}. A function of $t$ alone equal to a function of $x$ alone for all $x$ and $t$ can only be a constant. That constant is the separation constant, and one PDE has become two ODEs'
+  verify: { authored: true }
+
+- template: mt-ode-solution
+  skill: pde.review-1
+  pace: recall
+  cases:
+    - { ode: "X'' + \\lambda^2X = 0", ans: 0, why: 'Two derivatives return minus the function: sines and cosines' }
+    - { ode: "Y'' - \\lambda^2Y = 0", ans: 1, why: 'Two derivatives return plus the function: exponentials, or equivalently cosh and sinh' }
+    - { ode: "X'' = 0", ans: 2, why: 'Integrate twice: a straight line' }
+    - { ode: "T' + kT = 0", ans: 3, why: 'One derivative returns −k times the function: a decaying exponential' }
+    - { ode: "T'' + \\omega^2T = 0", ans: 0, why: 'Same equation as the first, in t: cos ωt and sin ωt' }
+  prompt: 'The general solution of ${{ode}}$ is…'
+  parts:
+    - ask: 'Solution'
+      label: v
+      choice: ["A cos(λ·) + B sin(λ·), oscillating", "A cosh(λy) + B sinh(λy), growing", "A + Bx, a straight line", "C exp(−kt), decaying"]
+      correct: ans
+      explain: '{{why}}. Every separation-of-variables problem is built from these four'
+  verify: { authored: true }
+
+- template: mt-sign-of-constant
+  skill: pde.review-1
+  pace: recall
+  cases:
+    - { bc: 'X(0) = 0 and X(L) = 0', ans: 0, why: 'k > 0 gives exponentials and k = 0 a straight line; neither can be zero at two points without being zero everywhere' }
+    - { bc: "X'(0) = 0 and X'(L) = 0", ans: 1, why: 'k > 0 fails as before, but k = 0 now allows X = constant, which has zero slope at both ends. That constant mode is the steady state' }
+  prompt: "For $X'' = kX$ with {{bc}}, which values of $k$ give a solution other than $X = 0$?"
+  parts:
+    - ask: 'Allowed $k$'
+      label: v
+      choice: ["k < 0 only (write k = −λ²)", "k < 0, and also k = 0", "k > 0"]
+      correct: ans
+      explain: '{{why}}. This three-way test (zero, positive, negative) is where the $-\lambda^2$ comes from'
+  verify: { authored: true }
+
+- template: mt-bc-kills
+  skill: pde.review-1
+  pace: recall
+  cases:
+    - { f: 'X = A\cos\lambda x + B\sin\lambda x', bc: 'X(0) = 0', ans: 0, why: 'At x = 0, cos is 1 and sin is 0, so X(0) = A' }
+    - { f: 'X = A\cos\lambda x + B\sin\lambda x', bc: "X'(0) = 0", ans: 1, why: "X′ = −Aλ sin λx + Bλ cos λx, so X′(0) = Bλ" }
+    - { f: 'Y = A\cosh\lambda y + B\sinh\lambda y', bc: 'Y(0) = 0', ans: 0, why: 'cosh 0 = 1 and sinh 0 = 0, so Y(0) = A' }
+    - { f: 'Y = A\cosh\lambda y + B\sinh\lambda y', bc: "Y'(0) = 0", ans: 1, why: "Y′ = Aλ sinh λy + Bλ cosh λy, so Y′(0) = Bλ" }
+  prompt: 'With ${{f}}$, the condition ${{bc}}$ forces…'
+  parts:
+    - ask: 'Which constant is zero?'
+      label: v
+      choice: ["A = 0", "B = 0"]
+      correct: ans
+      explain: '{{why}}. A "value" condition at 0 keeps the sine (or sinh); a "slope" condition at 0 keeps the cosine (or cosh)'
+  verify: { authored: true }
+
+- template: mt-eigenvalue
+  skill: pde.review-1
+  pace: quick
+  given: { L: { pick: [1, 2, 4] }, n: { pick: [1, 2, 3] } }
+  cases:
+    - { tr: 0, fn: '\sin', rule: '\lambda L = n\pi' }
+    - { tr: 1, fn: '\cos', rule: '\lambda L = (2n - 1)\tfrac{\pi}{2}' }
+  prompt: 'The second boundary condition leaves ${{fn}}(\lambda \cdot {{L}}) = 0$. Counting the positive solutions in order, what is $\lambda_{ {{n}} }$?'
+  parts:
+    - ask: '$\lambda_{ {{n}} }$ (a decimal, or a multiple of pi)'
+      label: lam
+      tex: '\lambda_{ {{n}} }'
+      value: "tr == 0 ? n*pi/L : (2*n - 1)*pi/(2*L)"
+      tol: 0.005
+      explain: 'Sine is zero at multiples of $\pi$ and cosine at odd multiples of $\pi/2$, so ${{rule}}$. These special $\lambda$ are the eigenvalues: only they satisfy both boundary conditions'
+  verify:
+    expect: { lam: "n*pi/L if tr == 0 else (2*n - 1)*pi/(2*L)" }
+    residuals: ["sin(lam*L) if tr == 0 else cos(lam*L)"]
+
+# ── stage 2 additions: the shape of the answer ─────────────────────────────
+- template: mt-solution-form
+  skill: pde.review-2
+  pace: recall
+  cases:
+    - { say: 'the heat equation on a rod with both ends held at 0', ans: 0 }
+    - { say: 'the heat equation on a rod with both ends insulated', ans: 1 }
+    - { say: 'the wave equation on a string fixed at both ends', ans: 2 }
+  prompt: 'The series solution of {{say}} has the form…'
+  parts:
+    - ask: 'Form'
+      label: v
+      choice: ["Σ bₙ sin(nπx/L) exp(−α(nπ/L)²t)", "a₀ + Σ aₙ cos(nπx/L) exp(−α(nπ/L)²t)", "Σ sin(nπx/L) [aₙ cos(nπct/L) + bₙ sin(nπct/L)]"]
+      correct: ans
+      explain: 'Space factor from the boundary conditions (sines for fixed ends, cosines plus a constant for insulated ends); time factor from the equation (a decaying exponential for heat, cos and sin for waves). Then add up every mode, because the equation is linear'
+  verify: { authored: true }
+
+- template: mt-coefficient-formula
+  skill: pde.review-2
+  pace: recall
+  cases:
+    - { say: 'b_n in f(x) = \sum b_n\sin(n\pi x/L)', ans: 0 }
+    - { say: 'a_0 in f(x) = a_0 + \sum a_n\cos(n\pi x/L)', ans: 1 }
+    - { say: 'a_n\ (n \ge 1) in f(x) = a_0 + \sum a_n\cos(n\pi x/L)', ans: 2 }
+  prompt: 'On $0 < x < L$, the coefficient ${{say}}$ is…'
+  parts:
+    - ask: 'Formula'
+      label: v
+      choice: ["(2/L) × the integral of f(x) sin(nπx/L) from 0 to L", "(1/L) × the integral of f(x) from 0 to L", "(2/L) × the integral of f(x) cos(nπx/L) from 0 to L"]
+      correct: ans
+      explain: 'Multiply both sides by one eigenfunction and integrate from 0 to L: orthogonality kills every term but one. The 2/L is one over the integral of sin² or cos² (which is L/2); the constant mode integrates to L, so a₀ is the plain average'
+  verify: { authored: true }

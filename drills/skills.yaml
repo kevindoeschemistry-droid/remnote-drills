@@ -285,7 +285,12 @@ skills:
   - { id: pde.classify, domain: pde, title: "Classify a PDE; check a solution", kind: classify }
   - { id: pde.dalembert, domain: pde, title: "d'Alembert: the infinite string" }
   - { id: pde.laplace-rect, domain: pde, title: "Laplace's equation on a rectangle", prereqs: [pde.separation] }
-  - { id: pde.midterm-review, domain: pde, title: "PDE exam review: the decision points (separation, Fourier and Bessel series, finite differences)", short: "PDE exam review", prereqs: [pde.separation] }
+  # PDE exam review, as a ramp: each stage is one kind of decision, easiest first
+  - { id: pde.review-1, domain: pde, title: "PDE review 1 · Building blocks: the two ODEs and what a boundary condition kills", short: "PDE review 1" }
+  - { id: pde.review-2, domain: pde, title: "PDE review 2 · Assembling the solution: which functions go where", short: "PDE review 2", prereqs: [pde.review-1] }
+  - { id: pde.review-3, domain: pde, title: "PDE review 3 · Numbers: coefficients, decay rates, frequencies", short: "PDE review 3", prereqs: [pde.review-2] }
+  - { id: pde.review-4, domain: pde, title: "PDE review 4 · Cylinders and Bessel functions", short: "PDE review 4", prereqs: [pde.review-2] }
+  - { id: pde.review-5, domain: pde, title: "PDE review 5 · Finite differences: stencils, order, stability", short: "PDE review 5" }
 
   # ── heat transfer ───────────────────────────────────────────────────────
   - { id: ht.rate-equations, domain: ht, title: "Rate equations: conduction, convection, radiation", status: live, levels: { 1: [ht-cond, ht-conv, ht-rad] } }
