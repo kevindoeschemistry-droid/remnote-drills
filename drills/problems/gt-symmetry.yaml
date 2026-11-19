@@ -1,0 +1,220 @@
+# Molecular symmetry and point groups (Physical Chemistry unit on symmetry; Engel & Reid ch. 27).
+#
+# Point-group assignments and mode symmetries are textbook facts: those keys are authored
+# (`authored: true`, nothing recomputes them). Counts are checked a second way: each case names its
+# group by family and n, and the verifier rebuilds the count from the family's general formula.
+# Reductions are built backward from chosen multiplicities and solved forward with the reduction
+# formula. Options are plain text.
+
+# ── assign the point group ──────────────────────────────────────────────────
+- template: gt-point-group-common
+  skill: quantum.symmetry
+  pace: recall
+  cases:
+    - { m: 'water, H2O (bent)', ans: 0, why: 'One C2 axis and two mirror planes containing it' }
+    - { m: 'ammonia, NH3 (trigonal pyramidal)', ans: 1, why: 'One C3 axis and three mirror planes containing it; no horizontal plane' }
+    - { m: 'methane, CH4 (tetrahedral)', ans: 2, why: 'Four C3 axes: the tetrahedral group' }
+    - { m: 'boron trifluoride, BF3 (trigonal planar)', ans: 3, why: 'A C3 axis, three C2 axes perpendicular to it, and the molecular plane as a horizontal mirror' }
+    - { m: 'carbon dioxide, CO2 (linear, symmetric)', ans: 4, why: 'Linear with a centre of inversion' }
+    - { m: 'hydrogen chloride, HCl (linear)', ans: 5, why: 'Linear with no centre of inversion' }
+    - { m: 'dichloromethane, CH2Cl2', ans: 0, why: 'One C2 axis bisecting both the H-C-H and Cl-C-Cl angles, and two mirror planes' }
+    - { m: 'chloroform, CHCl3', ans: 1, why: 'The C-H bond is a C3 axis, with three mirror planes through it' }
+    - { m: 'sulfur trioxide, SO3 (trigonal planar)', ans: 3, why: 'The same shape as BF3' }
+    - { m: 'hydrogen cyanide, HCN (linear)', ans: 5, why: 'Linear, and the two ends differ' }
+    - { m: 'dinitrogen, N2', ans: 4, why: 'A homonuclear diatomic has a centre of inversion' }
+    - { m: 'phosphorus pentachloride, PCl5 (trigonal bipyramidal)', ans: 3, why: 'A C3 axis through the axial atoms, three C2 axes and a horizontal mirror in the equatorial plane' }
+    - { m: 'carbon tetrachloride, CCl4', ans: 2, why: 'A regular tetrahedron' }
+    - { m: 'formaldehyde, H2CO (planar)', ans: 0, why: 'The C=O bond is the C2 axis; the molecular plane and the plane perpendicular to it are the mirrors' }
+  prompt: 'Point group of {{m}}?'
+  parts:
+    - ask: 'Point group'
+      label: a
+      choice: ["C2v", "C3v", "Td", "D3h", "D∞h", "C∞v"]
+      correct: ans
+      explain: '{{why}}'
+  verify: { authored: true }
+
+- template: gt-point-group-more
+  skill: quantum.symmetry
+  pace: recall
+  cases:
+    - { m: 'benzene, C6H6', ans: 0, why: 'A C6 axis, six C2 axes perpendicular to it, and the molecular plane as a horizontal mirror' }
+    - { m: 'xenon tetrafluoride, XeF4 (square planar)', ans: 1, why: 'A C4 axis, four perpendicular C2 axes and a horizontal mirror' }
+    - { m: 'sulfur hexafluoride, SF6 (octahedral)', ans: 2, why: 'A regular octahedron' }
+    - { m: 'ethylene, C2H4 (planar)', ans: 3, why: 'Three mutually perpendicular C2 axes and three mirror planes' }
+    - { m: 'trans-1,2-dichloroethylene', ans: 4, why: 'One C2 axis perpendicular to the molecular plane, which is the horizontal mirror; no vertical planes' }
+    - { m: 'hypochlorous acid, HOCl (bent)', ans: 5, why: 'Planar with no rotation axis: the only element besides E is the molecular plane' }
+    - { m: 'ethane, C2H6, staggered', ans: 6, why: 'A C3 axis, three perpendicular C2 axes, and three dihedral mirror planes; no horizontal plane' }
+    - { m: 'naphthalene', ans: 3, why: 'Planar with three perpendicular C2 axes, like ethylene' }
+    - { m: 'cyclohexane, chair form', ans: 6, why: 'A C3 axis, three perpendicular C2 axes and three dihedral planes, like staggered ethane' }
+    - { m: 'tetrachloroplatinate(II), PtCl4 2− (square planar)', ans: 1, why: 'The same shape as XeF4' }
+  prompt: 'Point group of {{m}}?'
+  parts:
+    - ask: 'Point group'
+      label: a
+      choice: ["D6h", "D4h", "Oh", "D2h", "C2h", "Cs", "D3d"]
+      correct: ans
+      explain: '{{why}}'
+  verify: { authored: true }
+
+# ── count the elements ──────────────────────────────────────────────────────
+# fam: 1 = Cnv, 2 = Cnh, 3 = Dnh, 4 = Dnd, 5 = Td, 6 = Oh, 7 = Cs
+- template: gt-group-order
+  skill: quantum.symmetry
+  pace: recall
+  cases:
+    - { g: 'C_{2v}', fam: 1, n: 2, h: 4 }
+    - { g: 'C_{3v}', fam: 1, n: 3, h: 6 }
+    - { g: 'C_{4v}', fam: 1, n: 4, h: 8 }
+    - { g: 'C_{2h}', fam: 2, n: 2, h: 4 }
+    - { g: 'D_{2h}', fam: 3, n: 2, h: 8 }
+    - { g: 'D_{3h}', fam: 3, n: 3, h: 12 }
+    - { g: 'D_{4h}', fam: 3, n: 4, h: 16 }
+    - { g: 'D_{6h}', fam: 3, n: 6, h: 24 }
+    - { g: 'D_{3d}', fam: 4, n: 3, h: 12 }
+    - { g: 'T_d', fam: 5, n: 0, h: 24 }
+    - { g: 'O_h', fam: 6, n: 0, h: 48 }
+    - { g: 'C_s', fam: 7, n: 0, h: 2 }
+  prompt: 'How many symmetry operations are in ${{g}}$ (the order $h$ of the group)?'
+  parts:
+    - { ask: 'Order $h$', label: v, tex: 'h', value: h, tol: 0.0001, explain: '$C_{nv}$ and $C_{nh}$ have $2n$ operations, $D_{nh}$ and $D_{nd}$ have $4n$; $T_d$ has 24, $O_h$ 48, $C_s$ 2. $h$ is what you divide by when reducing a representation' }
+  verify: { expect: { v: "{1: 2*n, 2: 2*n, 3: 4*n, 4: 4*n, 5: 24, 6: 48, 7: 2}[fam]" } }
+
+- template: gt-mirror-planes
+  skill: quantum.symmetry
+  pace: recall
+  cases:
+    - { g: 'C_{2v}', fam: 1, n: 2, k: 2 }
+    - { g: 'C_{3v}', fam: 1, n: 3, k: 3 }
+    - { g: 'C_{2h}', fam: 2, n: 2, k: 1 }
+    - { g: 'D_{2h}', fam: 3, n: 2, k: 3 }
+    - { g: 'D_{3h}', fam: 3, n: 3, k: 4 }
+    - { g: 'D_{4h}', fam: 3, n: 4, k: 5 }
+    - { g: 'D_{6h}', fam: 3, n: 6, k: 7 }
+    - { g: 'D_{3d}', fam: 4, n: 3, k: 3 }
+    - { g: 'T_d', fam: 5, n: 0, k: 6 }
+    - { g: 'O_h', fam: 6, n: 0, k: 9 }
+    - { g: 'C_s', fam: 7, n: 0, k: 1 }
+  prompt: 'How many mirror planes does a molecule in ${{g}}$ have?'
+  parts:
+    - { ask: 'Mirror planes', label: v, tex: '\sigma', value: k, tol: 0.0001, explain: '$C_{nv}$: $n$ vertical planes. $C_{nh}$: the one horizontal plane. $D_{nh}$: $n$ vertical plus one horizontal. $D_{nd}$: $n$ dihedral. $T_d$ has 6 and $O_h$ has 9' }
+  verify: { expect: { v: "{1: n, 2: 1, 3: n + 1, 4: n, 5: 6, 6: 9, 7: 1}[fam]" } }
+
+# ── multiply operations, reduce representations ─────────────────────────────
+# C2v is Z2 × Z2: code the operations E = 0, σv(xz) = 1, σv′(yz) = 2, C2 = 3 and multiply bitwise
+- template: gt-operation-product
+  skill: quantum.symmetry
+  pace: recall
+  cases:
+    - { a: 3, b: 1, ta: 'C_2', tb: '\sigma_v(xz)' }
+    - { a: 3, b: 2, ta: 'C_2', tb: "\\sigma_v'(yz)" }
+    - { a: 1, b: 2, ta: '\sigma_v(xz)', tb: "\\sigma_v'(yz)" }
+    - { a: 3, b: 3, ta: 'C_2', tb: 'C_2' }
+    - { a: 1, b: 1, ta: '\sigma_v(xz)', tb: '\sigma_v(xz)' }
+    - { a: 2, b: 3, ta: "\\sigma_v'(yz)", tb: 'C_2' }
+  prompt: 'In $C_{2v}$ (water, $C_2$ along $z$): which single operation equals ${{ta}}$ followed by ${{tb}}$?'
+  parts:
+    - ask: 'The product'
+      label: a
+      choice: ["E", "σv(xz)", "σv′(yz)", "C2"]
+      correct: "mod(mod(a, 2) + mod(b, 2), 2) + 2*mod(floor(a/2) + floor(b/2), 2)"
+      explain: 'Track a point $(x, y, z)$: $C_2$ flips the signs of $x$ and $y$, $\sigma_v(xz)$ flips $y$, $\sigma_v''(yz)$ flips $x$. Apply both and see which single operation gives the same signs. Every operation here is its own inverse'
+  verify: { choices: { a: "((a % 2 + b % 2) % 2) + 2*((a // 2 + b // 2) % 2)" } }
+
+- template: gt-reduce-c2v
+  skill: quantum.symmetry
+  pace: quick
+  given: { n1: { int: [1, 3] }, n2: { int: [1, 3] }, n3: { int: [1, 3] }, n4: { int: [1, 3] } }
+  cases:
+    - { k: 0, irr: 'A_1', c2: 1, c3: 1, c4: 1 }
+    - { k: 1, irr: 'A_2', c2: 1, c3: -1, c4: -1 }
+    - { k: 2, irr: 'B_1', c2: -1, c3: 1, c4: -1 }
+    - { k: 3, irr: 'B_2', c2: -1, c3: -1, c4: 1 }
+  let: { g1: n1 + n2 + n3 + n4, g2: n1 + n2 - n3 - n4, g3: n1 - n2 + n3 - n4, g4: n1 - n2 - n3 + n4 }
+  prompt: 'In $C_{2v}$ a reducible representation has characters $\chi(E) = {{g1}}$, $\chi(C_2) = {{g2}}$, $\chi(\sigma_v) = {{g3}}$, $\chi(\sigma_v'') = {{g4}}$. How many times does ${{irr}}$ appear? (${{irr}}$ has characters $1, {{c2}}, {{c3}}, {{c4}}$.)'
+  parts:
+    - ask: 'Number of ${{irr}}$'
+      label: v
+      tex: 'n'
+      value: (g1 + c2*g2 + c3*g3 + c4*g4)/4
+      tol: 0.0001
+      explain: '$n = \tfrac{1}{h}\sum \chi(R)\,\chi_i(R)$ with $h = 4$: $\tfrac14\left[({{g1}})(1) + ({{g2}})({{c2}}) + ({{g3}})({{c3}}) + ({{g4}})({{c4}})\right]$'
+  verify: { expect: { v: "[n1, n2, n3, n4][k]" } }
+
+- template: gt-reduce-c3v
+  skill: quantum.symmetry
+  pace: quick
+  given: { n1: { int: [1, 3] }, n2: { int: [1, 3] }, n3: { int: [1, 3] } }
+  cases:
+    - { k: 0, irr: 'A_1', c2: 1, c3: 1, d: 1 }
+    - { k: 1, irr: 'A_2', c2: 1, c3: -1, d: 1 }
+    - { k: 2, irr: 'E', c2: -1, c3: 0, d: 2 }
+  let: { g1: n1 + n2 + 2*n3, g2: n1 + n2 - n3, g3: n1 - n2 }
+  require: ["n1 != n2"]
+  prompt: 'In $C_{3v}$ (classes $E$, $2C_3$, $3\sigma_v$) a reducible representation has characters ${{g1}}$, ${{g2}}$, ${{g3}}$. How many times does ${{irr}}$ appear? (${{irr}}$ has characters ${{d}}, {{c2}}, {{c3}}$.)'
+  parts:
+    - ask: 'Number of ${{irr}}$'
+      label: v
+      tex: 'n'
+      value: (g1*d + 2*g2*c2 + 3*g3*c3)/6
+      tol: 0.0001
+      explain: 'Weight each class by its size, with $h = 6$: $\tfrac16\left[1({{g1}})({{d}}) + 2({{g2}})({{c2}}) + 3({{g3}})({{c3}})\right]$'
+  verify: { expect: { v: "[n1, n2, n3][k]" } }
+
+# ── vibrations ──────────────────────────────────────────────────────────────
+- template: gt-normal-modes
+  skill: quantum.symmetry
+  pace: recall
+  cases:
+    - { m: 'water, H2O', N: 3, lin: 0 }
+    - { m: 'carbon dioxide, CO2', N: 3, lin: 1 }
+    - { m: 'ammonia, NH3', N: 4, lin: 0 }
+    - { m: 'methane, CH4', N: 5, lin: 0 }
+    - { m: 'acetylene, C2H2', N: 4, lin: 1 }
+    - { m: 'benzene, C6H6', N: 12, lin: 0 }
+    - { m: 'hydrogen cyanide, HCN', N: 3, lin: 1 }
+    - { m: 'ethylene, C2H4', N: 6, lin: 0 }
+    - { m: 'hydrogen chloride, HCl', N: 2, lin: 1 }
+  prompt: 'How many vibrational normal modes does {{m}} have?'
+  parts:
+    - { ask: 'Normal modes', label: v, tex: 'n_{vib}', value: 3*N - 6 + lin, tol: 0.0001, explain: '$3N$ coordinates, less 3 translations and 3 rotations: $3N - 6$. A linear molecule has only 2 rotations, so $3N - 5$. Here $N = {{N}}$' }
+  verify: { expect: { v: "3*N - 5 if lin == 1 else 3*N - 6" } }
+
+- template: gt-modes-symmetry
+  skill: quantum.symmetry
+  pace: recall
+  cases:
+    - { m: 'water ($C_{2v}$, 3 modes)', ans: 0, why: 'Symmetric stretch and bend are both A1; the antisymmetric stretch is B2 (with the molecule in the yz plane)' }
+    - { m: 'ammonia ($C_{3v}$, 6 modes)', ans: 1, why: 'Two totally symmetric modes and two doubly degenerate pairs: 2 + 2(2) = 6' }
+    - { m: 'methane ($T_d$, 9 modes)', ans: 2, why: 'One A1, one doubly degenerate E and two triply degenerate T2: 1 + 2 + 2(3) = 9' }
+    - { m: 'carbon dioxide ($D_{\infty h}$, 4 modes)', ans: 3, why: 'Symmetric stretch, antisymmetric stretch, and a doubly degenerate bend: 1 + 1 + 2 = 4' }
+  prompt: 'Symmetries of the vibrational modes of {{m}}?'
+  parts:
+    - ask: 'Modes'
+      label: a
+      choice: ["2A1 + B2", "2A1 + 2E", "A1 + E + 2T2", "σg+ + σu+ + πu"]
+      correct: ans
+      explain: '{{why}}. Check the count: the degeneracies must add up to the number of modes'
+  verify: { authored: true }
+
+- template: gt-ir-raman
+  skill: quantum.symmetry
+  pace: recall
+  cases:
+    - { m: 'the symmetric stretch of CO2', ans: 1, why: 'The dipole stays zero but the polarizability changes. CO2 has a centre of inversion, so no mode is both' }
+    - { m: 'the antisymmetric stretch of CO2', ans: 0, why: 'The dipole changes; with a centre of inversion an IR-active mode is Raman-inactive' }
+    - { m: 'the bend of CO2', ans: 0, why: 'Bending creates a dipole perpendicular to the axis; mutual exclusion makes it Raman-inactive' }
+    - { m: 'the symmetric stretch of H2O', ans: 2, why: 'A1 in C2v transforms like z and like x², y², z², and there is no centre of inversion' }
+    - { m: 'the stretch of N2', ans: 1, why: 'A homonuclear diatomic has no dipole at any bond length, but its polarizability changes' }
+    - { m: 'the stretch of HCl', ans: 2, why: 'The dipole and the polarizability both change with bond length' }
+    - { m: 'the ring-breathing mode of benzene (A1g)', ans: 1, why: 'Totally symmetric modes are always Raman-active; g modes in a centrosymmetric molecule are never IR-active' }
+    - { m: 'the symmetric stretch of CH4 (A1)', ans: 1, why: 'In Td only T2 modes transform like x, y, z, so A1 is IR-inactive; it is Raman-active' }
+    - { m: 'a T2 stretch of CH4', ans: 2, why: 'T2 in Td transforms like (x, y, z) and like (xy, xz, yz)' }
+  prompt: 'Is {{m}} IR-active, Raman-active, or both?'
+  parts:
+    - ask: 'Activity'
+      label: a
+      choice: ["IR only", "Raman only", "Both", "Neither"]
+      correct: ans
+      explain: '{{why}}. IR needs a mode that transforms like x, y or z (a changing dipole); Raman needs one that transforms like a product such as x² or xy (a changing polarizability)'
+  verify: { authored: true }

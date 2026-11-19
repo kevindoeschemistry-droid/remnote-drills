@@ -438,11 +438,11 @@ units:
         title: "Point groups and their uses"
         book: { engel-reid-3e: ["27:symmetry", "27:point-groups", "27:character-tables", "27:normal-modes", "27:selection-rules"] }
         los:
-          - { id: A, do: "Identify the symmetry elements of a molecule.", ek: ["E, C_n, σ, i, S_n; every molecule has at least E."], p: [P2, P5], drills: [] }
-          - { id: B, do: "Assign a molecule to its point group.", ek: ["Work down the flow chart: linear? high symmetry? principal axis? perpendicular C₂? mirror planes?"], p: [P2, P5], drills: [] }
-          - { id: C, do: "Reduce a representation with a character table.", ek: ["n_i = (1/h) Σ χ(R) χ_i(R) over all operations."], p: [P2, P5], drills: [] }
-          - { id: D, do: "Count the normal modes of a molecule and find their symmetries.", ek: ["3N − 6 for nonlinear, 3N − 5 for linear molecules."], p: [P2, P5], drills: [] }
-          - { id: E, do: "Decide from symmetry whether a mode is IR active, Raman active or both.", ek: ["IR active if it transforms like x, y or z; Raman active like a quadratic; mutually exclusive with an inversion centre."], p: [P2, P5], drills: [] }
+          - { id: A, do: "Identify the symmetry elements of a molecule.", ek: ["E, C_n, σ, i, S_n; every molecule has at least E."], p: [P2, P5], drills: [gt-group-order, gt-mirror-planes] }
+          - { id: B, do: "Assign a molecule to its point group.", ek: ["Work down the flow chart: linear? high symmetry? principal axis? perpendicular C₂? mirror planes?"], p: [P2, P5], drills: [gt-point-group-common, gt-point-group-more] }
+          - { id: C, do: "Reduce a representation with a character table.", ek: ["n_i = (1/h) Σ χ(R) χ_i(R) over all operations."], p: [P2, P5], drills: [gt-operation-product, gt-reduce-c2v, gt-reduce-c3v] }
+          - { id: D, do: "Count the normal modes of a molecule and find their symmetries.", ek: ["3N − 6 for nonlinear, 3N − 5 for linear molecules."], p: [P2, P5], drills: [gt-normal-modes, gt-modes-symmetry] }
+          - { id: E, do: "Decide from symmetry whether a mode is IR active, Raman active or both.", ek: ["IR active if it transforms like x, y or z; Raman active like a quadratic; mutually exclusive with an inversion centre."], p: [P2, P5], drills: [gt-ir-raman] }
 
   # ── 18 ────────────────────────────────────────────────────────────────────
   - id: nmr
