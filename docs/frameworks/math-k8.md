@@ -1349,6 +1349,8 @@ Big ideas: LINE, OPS, MULT, SHAPE, DATA
 - mm-fraction-of (k8.fractions)
 - mm-compare-fractions (k8.fractions)
 - mm-repeating-decimal (k8.decimals)
+- aq-household-measure (k8.measurement)
+- aq-spoon-of-water (k8.measurement)
 - mm-unit-conversion (k8.measurement)
 - mm-proportion (k8.ratios)
 - mm-fraction-to-percent (k8.ratios)

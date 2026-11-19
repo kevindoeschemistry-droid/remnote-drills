@@ -63,6 +63,10 @@ Looked for in November 2026, for mental calculation, estimation and anchor quant
   not the content.
 - **Pace**: `uil-number-sense` (7.5 s a problem) and the English multiplication tables check (`sta-mtc`, 6 s a fact) are
   the published paces for recall.
-- **Anchor quantities**: no published list of the magnitudes a chemist should know by heart was found. `codata-2022` and
-  `cfr-21-101-9` make each value checkable, but which values belong is a house decision and must be labelled as one.
+- **Anchor quantities**: no published standard lists the magnitudes a chemist should know by heart. Two things were
+  found on a second search: the SnapShot "Key Numbers in Biology" sheet (`snapshot-key-numbers`, read in full), a curated
+  list for cell biology, and Francl's essay "Take a number" (`francl-take-a-number`, seen second-hand), which argues for
+  anchor values in chemistry and names a few. `codata-2022` and `cfr-21-101-9` make each value checkable. The
+  `anchor-quantities` framework uses the SnapShot for its biology units; its chemistry units are a house list and are
+  labelled as one. The ACS anchoring-concepts content maps have still not been opened.
 

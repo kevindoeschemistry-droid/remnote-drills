@@ -9,6 +9,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 | Framework | Primary basis | Kind | How firmly | Also | Wanted | Objectives | Anchored | House only |
 |---|---|---|---|---|---|---|---|---|
 | AI Safety | BlueDot Impact course syllabi (Technical AI Safety, Governance, AGI Strategy) | course | read in full | — | — | 104 | 0 | 104 |
+| Anchor Quantities | CODATA Recommended Values of the Fundamental Physical Constants: 2022 (NIST SP 961) | reference | read in part | snapshot-key-numbers, francl-take-a-number, cfr-21-101-9 | acs-accm-pchem | 14 | 3 | 11 |
 | Basketball | USA Basketball Player Development Curriculum | standard | read in part | — | — | 88 | 0 | 88 |
 | Biology (AP) | AP Biology Course and Exam Description (2019) | standard | read through a crosswalk | — | — | 178 | 178 | 0 |
 | Calculus | AP Calculus AB and BC Course and Exam Description | standard | read in full | — | — | 173 | 173 | 0 |
@@ -33,6 +34,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 ### Notes
 
 - **AI Safety**: No accredited standard exists; course syllabi and lab frameworks are the closest thing.
+- **Anchor Quantities**: Values from CODATA 2022, standard atomic weights and 21 CFR 101.9. Which values to carry is a house list for units 1–4 and the SnapShot Key Numbers in Biology sheet for units 5–6. No chemistry standard for this was found; the ACS content maps have not been opened to check.
 - **Basketball**: Introductory level read in full, higher levels in overview only.
 - **Biology (AP)**: Read through a publisher's correlation table.
 - **Chemistry (AP)**: Objectives past Unit 2 are written from topic titles.
@@ -51,6 +53,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 ## Frameworks not yet on a fully read standard
 
 - **AI Safety**: course, read in full
+- **Anchor Quantities**: reference, read in part; should move to ACS Exams Institute Anchoring Concepts Content Map IV: Physical Chemistry (J. Chem. Educ. 2018, 95, 238)
 - **Basketball**: standard, read in part
 - **Biology (AP)**: standard, read through a crosswalk
 - **Chemistry (AP)**: standard, read in part
@@ -361,3 +364,22 @@ https://www.uiltexas.org/academics/stem/number-sense
 | E4.13 | More percent problems | — | — | **nothing yet** |
 
 **Areas with nothing answering to them:** H1 High school, problems 1–20; H2 High school, problems 21–40; H3 High school, problems 41–60; H4 High school, problems 61–70; H5 High school, problems 71–80; J1 Junior high, problems 1–20; J2 Junior high, problems 21–40; J3 Junior high, problems 41–60; J4 Junior high, problems 61–80; E1 Elementary, problems 1–20; E2 Elementary, problems 21–40; E3 Elementary, problems 41–60; E4 Elementary, problems 61–80.
+
+## Moran, Phillips & Milo, SnapShot: Key Numbers in Biology (Cell 141, 2010)
+
+https://doi.org/10.1016/j.cell.2010.06.019
+
+0 of 0 items have at least one objective answering to them.
+
+| Item | Topic | Objectives | With a drill | Where |
+|---|---|---|---|---|
+| **sizes** | **Cell sizes** (undefined questions) | | | |
+| **lengths** | **Length scales inside cells** (undefined questions) | | | |
+| **rates** | **Rates and time scales** (undefined questions) | | | |
+| **concentrations** | **Concentrations** (undefined questions) | | | |
+| **energetics** | **Energetics** (undefined questions) | | | |
+| **diffusion** | **Diffusion and catalysis** (undefined questions) | | | |
+| **genomes** | **Genomes** (undefined questions) | | | |
+| **errors** | **Mutation and error rates** (undefined questions) | | | |
+
+**Areas with nothing answering to them:** sizes Cell sizes; lengths Length scales inside cells; rates Rates and time scales; concentrations Concentrations; energetics Energetics; diffusion Diffusion and catalysis; genomes Genomes; errors Mutation and error rates.
