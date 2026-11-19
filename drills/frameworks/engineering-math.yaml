@@ -427,6 +427,13 @@ units:
         book: { kreyszig-10e: ["8.3", "8.4"] }
         los:
           - { id: A, do: "Diagonalise a matrix with a full set of eigenvectors and use it to decouple a linear system.", ek: ["D = X⁻¹AX; symmetric A has real eigenvalues and orthogonal eigenvectors."], p: [P3], drills: [em-diagonalise], needs: [EM-8.4.B, EM-8.3.B] }
+      - n: 6
+        title: Rank, orthogonality and least squares
+        los:
+          - { id: A, do: "Find the rank of a matrix and the dimension of its null space.", ek: ["Rank + nullity = number of columns."], p: [P3], drills: [la-rank-nullity, la-rank-3x3] }
+          - { id: B, do: "Project one vector onto another, test orthogonality, and take one Gram–Schmidt step.", ek: ["proj_u y = (y·u / u·u) u; subtracting it leaves the part orthogonal to u."], p: [P3], drills: [la-projection-scalar, la-gram-schmidt-step, la-orthogonal-check] }
+          - { id: C, do: "Set up and solve a least-squares problem with the normal equations, and say what the solution means geometrically.", ek: ["AᵀA x̂ = Aᵀb; Ax̂ is the projection of b onto Col A."], p: [P3, P6], drills: [la-least-squares-slope, la-least-squares-facts] }
+          - { id: D, do: "Use eigenvalues to find powers and traces, know when a matrix is diagonalisable, and read a singular value.", ek: ["A^k has eigenvalues λ^k; symmetric matrices are always diagonalisable; σ = √(eigenvalue of AᵀA)."], p: [P3, P6], drills: [la-trace-of-power, la-diagonalizable-facts, la-singular-value] }
 
   # ── 9 ────────────────────────────────────────────────────────────────────
   - id: bvp

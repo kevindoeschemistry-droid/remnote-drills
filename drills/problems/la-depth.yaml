@@ -1,0 +1,134 @@
+# Linear algebra past 2×2 computation: rank, orthogonality, least squares, diagonalisation.
+# Follows Lay, Linear Algebra and Its Applications (5th ed.), chapters 4, 6 and 7. One question each;
+# every key is recomputed by sympy from the printed matrix or vectors.
+
+# ── rank and null space (Lay 4.5–4.6) ───────────────────────────────────────
+- template: la-rank-nullity
+  skill: la.rank
+  pace: recall
+  given: { m: { int: [3, 6] }, n: { int: [4, 8] }, r: { int: [1, 3] } }
+  require: ["n > r", "m >= r"]
+  prompt: 'A is a ${{m}} \times {{n}}$ matrix of rank ${{r}}$. What is the dimension of its null space?'
+  parts:
+    - { ask: '$\dim \operatorname{Nul} A$', label: v, tex: '\dim\operatorname{Nul}A', value: n - r, tol: 0.0001, explain: 'Rank plus nullity is the number of columns: ${{n}} - {{r}}$. The number of rows does not enter' }
+  verify: { expect: { v: "solve(Eq(r + x, n), x)[0]" } }
+
+- template: la-rank-3x3
+  skill: la.rank
+  pace: quick
+  given: { a: { int: [1, 4] }, b: { int: [-3, 3] }, c: { int: [1, 3] }, d: { int: [-2, 4] }, s: { pick: [1, 2, -1] }, t: { pick: [1, -1, 2] }, e: { pick: [0, 0, 1] } }
+  require: ["b != 0", "d != 0", "a*d - b*c != 0"]
+  prompt: 'What is the rank of $\begin{pmatrix} {{a}} & {{b}} & 1 \\ {{c}} & {{d}} & 0 \\ {{s*a + t*c}} & {{s*b + t*d}} & {{s + e}} \end{pmatrix}$?'
+  parts:
+    - { ask: 'Rank', label: v, tex: '\operatorname{rank}', value: "e == 0 ? 2 : 3", tol: 0.0001, explain: 'The first two rows are independent (neither is a multiple of the other). Test the third: is it ${{s}}$ times row 1 plus ${{t}}$ times row 2? Check the last entry' }
+  verify: { expect: { v: "Matrix([[a, b, 1], [c, d, 0], [s*a + t*c, s*b + t*d, s + e]]).rank()" } }
+
+# ── orthogonality and projection (Lay 6.1–6.4) ──────────────────────────────
+- template: la-projection-scalar
+  skill: la.orthogonality
+  pace: quick
+  given: { a: { int: [1, 4] }, b: { int: [-3, 4] }, k: { pick: [-3, -2, 2, 3, 4] }, t: { pick: [-2, -1, 1, 2] } }
+  require: ["b != 0"]
+  prompt: 'The projection of $y = \begin{pmatrix} {{k*a - t*b}} \\ {{k*b + t*a}} \end{pmatrix}$ onto $u = \begin{pmatrix} {{a}} \\ {{b}} \end{pmatrix}$ is $c\,u$. Find $c$.'
+  parts:
+    - { ask: '$c$', label: v, tex: 'c', value: k, tol: 0.0001, explain: '$c = \dfrac{y\cdot u}{u\cdot u} = \dfrac{ {{(k*a - t*b)*a + (k*b + t*a)*b}} }{ {{a^2 + b^2}} }$' }
+  verify: { expect: { v: "Matrix([k*a - t*b, k*b + t*a]).dot(Matrix([a, b]))/Matrix([a, b]).dot(Matrix([a, b]))" } }
+
+- template: la-gram-schmidt-step
+  skill: la.orthogonality
+  pace: quick
+  given: { a: { int: [1, 3] }, b: { int: [1, 3] }, k: { pick: [1, 2, 3] }, t: { pick: [-2, -1, 1, 2] } }
+  prompt: 'Gram–Schmidt with $v_1 = \begin{pmatrix} {{a}} \\ {{b}} \end{pmatrix}$ and $x_2 = \begin{pmatrix} {{k*a - t*b}} \\ {{k*b + t*a}} \end{pmatrix}$: $v_2 = x_2 - \dfrac{x_2\cdot v_1}{v_1\cdot v_1}v_1$. What is the first entry of $v_2$?'
+  parts:
+    - { ask: 'First entry of $v_2$', label: v, tex: '(v_2)_1', value: -t*b, tol: 0.0001, explain: 'The coefficient is $\dfrac{x_2\cdot v_1}{v_1\cdot v_1} = {{k}}$, so $v_2 = x_2 - {{k}}v_1 = \begin{pmatrix} {{-t*b}} \\ {{t*a}} \end{pmatrix}$. Check: it is orthogonal to $v_1$' }
+  verify: { expect: { v: "(Matrix([k*a - t*b, k*b + t*a]) - Matrix([k*a - t*b, k*b + t*a]).dot(Matrix([a, b]))/Matrix([a, b]).dot(Matrix([a, b]))*Matrix([a, b]))[0]" } }
+
+- template: la-orthogonal-check
+  skill: la.orthogonality
+  pace: recall
+  given: { a: { int: [1, 5] }, b: { int: [1, 5] }, c: { int: [-4, 4] }, e: { pick: [0, 0, 1, -1] } }
+  require: ["c != 0"]
+  prompt: 'Are $u = \begin{pmatrix} {{a}} \\ {{b}} \\ {{c}} \end{pmatrix}$ and $v = \begin{pmatrix} {{c}} \\ {{c + e}} \\ {{-(a + b)}} \end{pmatrix}$ orthogonal?'
+  parts:
+    - ask: 'Orthogonal?'
+      label: a
+      choice: ["Yes", "No"]
+      correct: "a*c + b*(c + e) - c*(a + b) == 0 ? 0 : 1"
+      explain: '$u\cdot v = {{a*c + b*(c + e) - c*(a + b)}}$. Orthogonal means the dot product is exactly zero'
+  verify: { choices: { a: "0 if Matrix([a, b, c]).dot(Matrix([c, c + e, -(a + b)])) == 0 else 1" } }
+
+# ── least squares (Lay 6.5) ─────────────────────────────────────────────────
+- template: la-least-squares-slope
+  skill: la.least-squares
+  pace: quick
+  given: { k: { pick: [-2, -1, 2, 3] }, t: { pick: [-2, -1, 1, 2] } }
+  prompt: 'Fit $y = \beta x$ (a line through the origin) by least squares to the points $(1, {{k + t}})$, $(2, {{2*k + t}})$, $(3, {{3*k - t}})$. Find $\beta$.'
+  parts:
+    - { ask: '$\beta$', label: v, tex: '\beta', value: k, tol: 0.0001, explain: 'One unknown, so the normal equation is a single line: $\beta = \dfrac{\sum x_i y_i}{\sum x_i^2} = \dfrac{ {{(k + t) + 2*(2*k + t) + 3*(3*k - t)}} }{14}$' }
+  verify: { expect: { v: "((Matrix([1, 2, 3]).T*Matrix([1, 2, 3])).inv()*Matrix([1, 2, 3]).T*Matrix([k + t, 2*k + t, 3*k - t]))[0]" } }
+
+- template: la-least-squares-facts
+  skill: la.least-squares
+  pace: recall
+  cases:
+    - { q: 'Which equation does the least-squares solution of Ax = b satisfy?', ans: 0 }
+    - { q: 'In least squares, the residual b − Ax̂ is orthogonal to which space?', ans: 1 }
+    - { q: 'When is the least-squares solution unique?', ans: 2 }
+    - { q: 'What is Ax̂ geometrically?', ans: 3 }
+  prompt: '{{q}}'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["AᵀA x = Aᵀb (the normal equations)", "The column space of A", "When the columns of A are linearly independent", "The orthogonal projection of b onto the column space of A"]
+      correct: ans
+      explain: 'Least squares projects b onto Col A. The leftover b − Ax̂ is perpendicular to every column, which is exactly Aᵀ(b − Ax̂) = 0; AᵀA is invertible when the columns are independent'
+  verify: { authored: true }
+
+# ── diagonalisation, symmetric matrices, singular values (Lay 5.3, 7.1, 7.4) ─
+- template: la-trace-of-power
+  skill: la.diagonalization
+  pace: quick
+  given: { l1: { int: [-3, 3] }, l2: { int: [-3, 3] }, a: { int: [-2, 4] } }
+  require: ["l1 > l2", "l1^3 + l2^3 != 0", "a != l1", "a != l2", "a*(l1 + l2 - a) - l1*l2 != 0"]
+  let: { d: l1 + l2 - a, c: a*(l1 + l2 - a) - l1*l2 }
+  prompt: '$A = \begin{pmatrix} {{a}} & 1 \\ {{c}} & {{d}} \end{pmatrix}$. Without multiplying matrices, find the trace of $A^3$.'
+  parts:
+    - { ask: '$\operatorname{tr}(A^3)$', label: v, tex: '\operatorname{tr}A^3', value: l1^3 + l2^3, tol: 0.0001, explain: 'The eigenvalues are ${{l1}}$ and ${{l2}}$ (sum ${{a + d}}$, product ${{a*d - c}}$). $A^3$ has eigenvalues $\lambda^3$, and the trace is their sum: ${{l1^3}} + {{l2^3}}$' }
+  verify: { expect: { v: "(Matrix([[a, 1], [a*(l1 + l2 - a) - l1*l2, l1 + l2 - a]])**3).trace()" } }
+
+- template: la-diagonalizable-facts
+  skill: la.diagonalization
+  pace: recall
+  cases:
+    - { q: 'A real symmetric matrix has real eigenvalues.', ans: 0 }
+    - { q: 'A real symmetric matrix is diagonalizable.', ans: 0 }
+    - { q: 'Eigenvectors of a symmetric matrix belonging to different eigenvalues are orthogonal.', ans: 0 }
+    - { q: 'An n × n matrix with n distinct eigenvalues is diagonalizable.', ans: 0 }
+    - { q: 'A matrix with a repeated eigenvalue is diagonalizable.', ans: 1 }
+    - { q: 'An invertible matrix is diagonalizable.', ans: 1 }
+    - { q: 'A matrix with determinant 0 is invertible.', ans: 2 }
+    - { q: 'A singular value of a matrix is negative.', ans: 2 }
+    - { q: 'A matrix with 0 as an eigenvalue is invertible.', ans: 2 }
+  prompt: 'Always, sometimes or never? {{q}}'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["Always", "Sometimes", "Never"]
+      correct: ans
+      explain: 'Symmetric matrices are the safe case: real eigenvalues, orthogonal eigenvectors, always diagonalizable. In general a matrix is diagonalizable exactly when it has n independent eigenvectors; distinct eigenvalues guarantee that, repeated ones may or may not. Invertibility is a separate question: it fails exactly when 0 is an eigenvalue. Singular values are square roots of eigenvalues of AᵀA, so never negative'
+  verify: { authored: true }
+
+- template: la-singular-value
+  skill: la.diagonalization
+  pace: quick
+  cases:
+    - { p: 3, q: 4 }
+    - { p: 5, q: 12 }
+    - { p: 6, q: 8 }
+    - { p: 8, q: 15 }
+    - { p: 4, q: 3 }
+    - { p: 12, q: 5 }
+  prompt: 'What is the largest singular value of $\begin{pmatrix} {{p}} & 0 \\ {{q}} & 0 \end{pmatrix}$?'
+  parts:
+    - { ask: '$\sigma_1$', label: v, tex: '\sigma_1', value: sqrt(p^2 + q^2), tol: 0.0001, explain: '$A^{\mathsf T}A = \begin{pmatrix} {{p^2 + q^2}} & 0 \\ 0 & 0 \end{pmatrix}$, so the singular values are $\sqrt{ {{p^2 + q^2}} }$ and $0$: the length of the one nonzero column' }
+  verify: { expect: { v: "sqrt(Max(*(Matrix([[p, 0], [q, 0]]).T*Matrix([[p, 0], [q, 0]])).eigenvals().keys()))" } }

@@ -16,7 +16,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 | Chemistry (AP) | AP Chemistry Course and Exam Description (Fall 2024) | standard | read in part | — | — | 179 | 179 | 0 |
 | Computer Science | Computer Science Curricula 2023, Body of Knowledge | standard | read in full | — | — | 140 | 0 | 140 |
 | Dental Admission Test | Dental Admission Test 2026 Candidate Guide | exam-spec | read in full | — | — | 183 | 0 | 183 |
-| Applied Engineering Mathematics | Kreyszig, Advanced Engineering Mathematics, 10th ed. | textbook | read in full | fe-chemical | — | 118 | 79 | 39 |
+| Applied Engineering Mathematics | Kreyszig, Advanced Engineering Mathematics, 10th ed. | textbook | read in full | fe-chemical | — | 122 | 83 | 39 |
 | Heat Transfer | NCEES FE Chemical CBT Exam Specifications (effective July 2020) | exam-spec | read in full | fe-mechanical | — | 98 | 53 | 45 |
 | Information Systems | MSIS 2016 Global Competency Model | standard | read in full | — | — | 53 | 0 | 53 |
 | High School Mathematics (Common Core) | CCSS Mathematics Appendix A: high school course pathways | standard | read in full | — | — | 200 | 200 | 0 |
@@ -83,7 +83,7 @@ https://ncees.org/wp-content/uploads/2022/09/FE-Che-CBT-specs.pdf
 | 1.B | Calculus | 6 | 6 | engineering-math (6) |
 | 1.C | Differential equations | 66 | 66 | engineering-math (66) |
 | 1.D | Numerical methods | 17 | 17 | engineering-math (17) |
-| 1.E | Algebra, matrices, systems of equations | 7 | 7 | engineering-math (7) |
+| 1.E | Algebra, matrices, systems of equations | 11 | 11 | engineering-math (11) |
 | 1.F | Accuracy, precision, significant figures | — | — | **nothing yet** |
 | **2** | **Probability and Statistics** (4–6 questions) | | | |
 | 2.A | Probability distributions | 7 | 5 | thermodynamics (7) |

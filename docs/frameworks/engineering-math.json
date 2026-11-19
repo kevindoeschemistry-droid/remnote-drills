@@ -2168,6 +2168,72 @@
        ]
       }
      ]
+    },
+    {
+     "n": 6,
+     "title": "Rank, orthogonality and least squares",
+     "los": [
+      {
+       "id": "A",
+       "do": "Find the rank of a matrix and the dimension of its null space.",
+       "ek": [
+        "Rank + nullity = number of columns."
+       ],
+       "p": [
+        "P3"
+       ],
+       "drills": [
+        "la-rank-nullity",
+        "la-rank-3x3"
+       ]
+      },
+      {
+       "id": "B",
+       "do": "Project one vector onto another, test orthogonality, and take one Gram–Schmidt step.",
+       "ek": [
+        "proj_u y = (y·u / u·u) u; subtracting it leaves the part orthogonal to u."
+       ],
+       "p": [
+        "P3"
+       ],
+       "drills": [
+        "la-projection-scalar",
+        "la-gram-schmidt-step",
+        "la-orthogonal-check"
+       ]
+      },
+      {
+       "id": "C",
+       "do": "Set up and solve a least-squares problem with the normal equations, and say what the solution means geometrically.",
+       "ek": [
+        "AᵀA x̂ = Aᵀb; Ax̂ is the projection of b onto Col A."
+       ],
+       "p": [
+        "P3",
+        "P6"
+       ],
+       "drills": [
+        "la-least-squares-slope",
+        "la-least-squares-facts"
+       ]
+      },
+      {
+       "id": "D",
+       "do": "Use eigenvalues to find powers and traces, know when a matrix is diagonalisable, and read a singular value.",
+       "ek": [
+        "A^k has eigenvalues λ^k; symmetric matrices are always diagonalisable; σ = √(eigenvalue of AᵀA)."
+       ],
+       "p": [
+        "P3",
+        "P6"
+       ],
+       "drills": [
+        "la-trace-of-power",
+        "la-diagonalizable-facts",
+        "la-singular-value"
+       ]
+      }
+     ]
     }
    ]
   },
@@ -3772,6 +3838,52 @@
    "status": "ok",
    "full": [
     "em-diagonalise"
+   ],
+   "partial": []
+  },
+  {
+   "code": "EM-8.6.A",
+   "unit": 8,
+   "topic": 6,
+   "status": "ok",
+   "full": [
+    "la-rank-nullity",
+    "la-rank-3x3"
+   ],
+   "partial": []
+  },
+  {
+   "code": "EM-8.6.B",
+   "unit": 8,
+   "topic": 6,
+   "status": "ok",
+   "full": [
+    "la-projection-scalar",
+    "la-gram-schmidt-step",
+    "la-orthogonal-check"
+   ],
+   "partial": []
+  },
+  {
+   "code": "EM-8.6.C",
+   "unit": 8,
+   "topic": 6,
+   "status": "ok",
+   "full": [
+    "la-least-squares-slope",
+    "la-least-squares-facts"
+   ],
+   "partial": []
+  },
+  {
+   "code": "EM-8.6.D",
+   "unit": 8,
+   "topic": 6,
+   "status": "ok",
+   "full": [
+    "la-trace-of-power",
+    "la-diagonalizable-facts",
+    "la-singular-value"
    ],
    "partial": []
   },
