@@ -142,6 +142,9 @@ Three more things a `drills/problems/*.yaml` template can carry (see `mx-gaps.ya
   "matches" means. A template whose parts are all drawn needs no `verify` block; a `type: molecule` figure must state
   its `formula`, which `tests/verify/molecules.py` rebuilds from the atoms and bonds. Lay structures out with
   `python3 scripts/mol.py "<SMILES>"` (a dev tool; needs RDKit).
+  A molecule figure also takes `arrows: [[from, to, bend]]` (curved electron-pushing arrows; an end is an atom index
+  or a bond `[i, j]`) and `notes: [[x, y, text]]`; `type: scheme` stacks `panels`. Mechanisms are written as states in
+  `scripts/mol_mech.py`, and every state must balance to the same formula and charge.
 - `verify: { authored: true }` for a key that is a matter of definition and cannot be recomputed. It is a statement
   that a person wrote the key and nothing checks it, so use it only when `verify.choices` cannot do the job, and say so
   when reporting coverage. Choice options are plain text (no TeX, no `^`).

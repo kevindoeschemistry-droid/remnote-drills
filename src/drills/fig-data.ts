@@ -14,7 +14,11 @@
 //   type: bars        labels: [...] · values: [...]
 //   type: table       head: [...] · rows: [[...], …]   or   xs: [...] + f: "expression in x" (a table of values)
 //   type: molecule    atoms: [[x, y, label], …] (no label = a carbon vertex; "OH", "NH2", "H2N", "O", "S" …)
-//                     bonds: [[i, j, order], …] (0-based atom indices; order 1, 2 or 3; 0 = a dashed coordinate bond). A skeletal structure.
+//                     bonds: [[i, j, order], …] (0-based atom indices; order 1, 2 or 3; 0 = a dashed coordinate or hydrogen bond). A skeletal structure.
+//                     arrows: [[from, to, bend], …] curved electron-pushing arrows; an end is an atom index or a pair [i, j]
+//                     (the middle of that bond, or of the bond about to form); bend sets the curve's side and depth
+//                     notes: [[x, y, text], …] plain captions (residue names)
+//   type: scheme      panels: [figure, …] stacked top to bottom with an arrow between; a panel may carry `caption`
 // Every number may be an expression in the template's givens and lets. A function (`f`, `field`, a
 // `vfield` component) may also be the name of a text field of the drawn case. Strokes use currentColor.
 import { math } from "./check";
@@ -206,7 +210,8 @@ function table(f: any, scope: Scope): string {
  *  A label that starts with H ("H2N", "HO") is right-aligned so its heavy atom sits on the vertex. */
 function molecule(f: any, scope: Scope): string {
   const atoms: [number, number, string][] = (f.atoms as any[]).map((a) => [n(a[0], scope), n(a[1], scope), String(a[2] ?? "")]);
-  const xs = atoms.map((a) => a[0]), ys = atoms.map((a) => a[1]);
+  const notes: [number, number, string][] = ((f.notes ?? []) as any[]).map((q) => [n(q[0], scope), n(q[1], scope), String(q[2])]);
+  const xs = [...atoms, ...notes].map((a) => a[0]), ys = [...atoms, ...notes].map((a) => a[1]);
   const S = 38, MX = 40, MY = 24, minX = Math.min(...xs), maxY = Math.max(...ys);
   const w = (Math.max(...xs) - minX) * S + 2 * MX, h = (maxY - Math.min(...ys)) * S + 2 * MY;
   const X = (x: number) => MX + (x - minX) * S, Y = (y: number) => MY + (maxY - y) * S;
@@ -241,7 +246,39 @@ function molecule(f: any, scope: Scope): string {
       : hFirst ? text(X(x) + 5, Y(y) + 4.5, sub, "end", 'font-size="13"')
       : text(X(x) - 5, Y(y) + 4.5, sub, "start", 'font-size="13"');
   }
+  for (const [x, y, t] of notes) s += text(X(x), Y(y) + 4, t, "middle", 'font-size="11" opacity="0.7"');
+  // curved arrows: a pair of electrons moves from the tail to the head
+  for (const a of (f.arrows ?? []) as any[]) {
+    const end = (e: any): [number, number] => (Array.isArray(e) ? [(X(atoms[e[0]][0]) + X(atoms[e[1]][0])) / 2, (Y(atoms[e[0]][1]) + Y(atoms[e[1]][1])) / 2] : [X(atoms[e][0]), Y(atoms[e][1])]);
+    let [x1, y1] = end(a[0]), [x2, y2] = end(a[1]);
+    const bend = Number(a[2] ?? 0.35), len = Math.hypot(x2 - x1, y2 - y1) || 1;
+    const cx = (x1 + x2) / 2 - ((y2 - y1) / len) * bend * len, cy = (y1 + y2) / 2 + ((x2 - x1) / len) * bend * len;
+    // start and stop a little short of the atoms, along the curve's end tangents
+    const t1 = Math.hypot(cx - x1, cy - y1) || 1, t2 = Math.hypot(x2 - cx, y2 - cy) || 1;
+    const g1 = Array.isArray(a[0]) ? 2 : 9, g2 = Array.isArray(a[1]) ? 3 : 10;
+    x1 += ((cx - x1) / t1) * g1; y1 += ((cy - y1) / t1) * g1; x2 -= ((x2 - cx) / t2) * g2; y2 -= ((y2 - cy) / t2) * g2;
+    const ang = Math.atan2(y2 - cy, x2 - cx), hd = 6;
+    s += `<path d="M${x1.toFixed(1)},${y1.toFixed(1)} Q${cx.toFixed(1)},${cy.toFixed(1)} ${x2.toFixed(1)},${y2.toFixed(1)}" stroke="${HOT}" stroke-width="1.5"/>`;
+    s += `<polygon points="${x2.toFixed(1)},${y2.toFixed(1)} ${(x2 - hd * Math.cos(ang - 0.45)).toFixed(1)},${(y2 - hd * Math.sin(ang - 0.45)).toFixed(1)} ${(x2 - hd * Math.cos(ang + 0.45)).toFixed(1)},${(y2 - hd * Math.sin(ang + 0.45)).toFixed(1)}" fill="${HOT}" stroke="none"/>`;
+  }
   return svg(Math.max(w, 120), Math.max(h, 70), s);
+}
+
+/** figures stacked top to bottom, an arrow between each pair: the states of a mechanism */
+function scheme(f: any, scope: Scope): string {
+  const parts = (f.panels as any[]).map((p) => {
+    const inner = renderFigure(p, scope), m = /viewBox="0 0 ([\d.]+) ([\d.]+)"/.exec(inner)!;
+    return { inner, w: Number(m[1]), h: Number(m[2]), caption: p.caption ? str(p.caption, scope) : "" };
+  });
+  const Wd = Math.max(...parts.map((p) => p.w)), GAP = 30;
+  let y = 0, body = "";
+  parts.forEach((p, i) => {
+    if (p.caption) { body += text(Wd / 2, y + 13, p.caption, "middle", 'font-size="12"'); y += 18; }
+    body += p.inner.replace(/^<svg [^>]*>/, `<svg xmlns="http://www.w3.org/2000/svg" x="${((Wd - p.w) / 2).toFixed(1)}" y="${y}" width="${p.w}" height="${p.h}" viewBox="0 0 ${p.w} ${p.h}" font-family="system-ui, sans-serif" font-size="11" fill="none" stroke="currentColor">`);
+    y += p.h;
+    if (i < parts.length - 1) { body += arrowHead(Wd / 2, y + 4, Wd / 2, y + GAP - 6, "currentColor", 6); y += GAP; }
+  });
+  return svg(Wd, y, body);
 }
 
 export function renderFigure(f: any, scope: Scope): string {
@@ -252,6 +289,7 @@ export function renderFigure(f: any, scope: Scope): string {
     case "bars": return bars(f, scope);
     case "table": return table(f, scope);
     case "molecule": return molecule(f, scope);
+    case "scheme": return scheme(f, scope);
     default: throw new Error(`unknown figure type ${f?.type}`);
   }
 }

@@ -139,7 +139,7 @@ if (fs.existsSync(problemsDir))
         if (!p.draw && p.value === undefined && !p.choice && !p.expr && !(p.ode && p.sol)) errors.push(`${where} › ${p.label}: needs value (a number), expr (an expression), ode + sol, choice, or draw`);
       }
       // a drawn structure states its formula, which tests/verify/molecules.py recomputes from the atoms and bonds
-      for (const fig of [t.figure, ...(t.parts ?? []).map((q) => q.solution)])
+      for (const fig of [t.figure, ...(t.parts ?? []).map((q) => q.solution)].flatMap((q) => (q?.type === "scheme" ? q.panels ?? [] : [q])))
         if (fig?.type === "molecule" && (!fig.formula || !Array.isArray(fig.atoms) || !Array.isArray(fig.bonds))) errors.push(`${where}: a molecule figure needs formula, atoms and bonds`);
       // an answer nobody checked independently doesn't ship
       const v = t.verify ?? {};

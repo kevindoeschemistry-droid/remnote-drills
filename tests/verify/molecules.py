@@ -61,7 +61,11 @@ def check(p, H):
 def run():
     ok = bad = 0
     for t in json.loads(_GEN.read_text()).get("problems", []):
-        for fig in [t.get("figure")] + [p.get("solution") for p in t.get("parts", [])]:
+        figs = [t.get("figure")] + [p.get("solution") for p in t.get("parts", [])]
+        # a scheme's panels are checked one by one: every state of a mechanism states the same formula,
+        # so an atom or a charge lost between steps shows up here
+        figs = [q for fig in figs if fig for q in (fig.get("panels", []) if fig.get("type") == "scheme" else [fig])]
+        for fig in figs:
             if not fig or fig.get("type") != "molecule":
                 continue
             try:

@@ -27,7 +27,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 | Physics (AP) | AP Physics 1, 2 and C Course and Exam Descriptions | standard | read in part | — | — | 201 | 201 | 0 |
 | Programming Foundations | AP Computer Science A Course and Exam Description (Fall 2025) | standard | read in full | — | — | 140 | 140 | 0 |
 | Speaking and Articulation | Competent Speaker Speech Evaluation Form, 2nd ed. | rubric | read in full | toastmasters-pathways | — | 69 | 0 | 69 |
-| Structures from Memory | Bruice, Organic Chemistry, 8th edition (table of contents) | textbook | read in part | iupac-aa-1983 | aamc-mcat-outline | 11 | 9 | 2 |
+| Structures from Memory | Bruice, Organic Chemistry, 8th edition (table of contents) | textbook | read in part | iupac-aa-1983 | aamc-mcat-outline | 12 | 10 | 2 |
 | Swimming | World Aquatics swimming rules (with USA Swimming and USMS stroke rules) | rulebook | read in full | — | asca-certification | 88 | 0 | 88 |
 | Thermodynamics and Statistical Mechanics | Dill & Bromberg, Molecular Driving Forces 2e; Shell, Thermodynamics and Statistical Mechanics | textbook | read in full | fe-chemical | — | 124 | 68 | 56 |
 | Wushu | IWUF Wushu Taolu Competition Rules and Judging Methods (2024) | rulebook | read through a crosswalk | — | duanwei | 88 | 0 | 88 |
@@ -437,9 +437,10 @@ https://www.pearson.com/en-us/subject-catalog/p/organic-chemistry/P200000006995/
 | **19** | **Amines and heterocyclic compounds** (undefined questions) | | | |
 | **20** | **Carbohydrates** (undefined questions) | | | |
 | **21** | **Amino acids, peptides and proteins** (undefined questions) | | | |
+| **22** | **Catalysis in organic and enzymatic reactions** (undefined questions) | | | |
 | **23** | **Coenzymes** (undefined questions) | | | |
 | **24** | **Metabolic pathways** (undefined questions) | | | |
 | **25** | **Lipids** (undefined questions) | | | |
 | **26** | **Nucleic acids** (undefined questions) | | | |
 
-**Areas with nothing answering to them:** 18 Benzene and substituted benzenes; 19 Amines and heterocyclic compounds; 20 Carbohydrates; 21 Amino acids, peptides and proteins; 23 Coenzymes; 24 Metabolic pathways; 25 Lipids; 26 Nucleic acids.
+**Areas with nothing answering to them:** 18 Benzene and substituted benzenes; 19 Amines and heterocyclic compounds; 20 Carbohydrates; 21 Amino acids, peptides and proteins; 22 Catalysis in organic and enzymatic reactions; 23 Coenzymes; 24 Metabolic pathways; 25 Lipids; 26 Nucleic acids.

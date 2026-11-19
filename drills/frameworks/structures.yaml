@@ -15,8 +15,8 @@
 # are automatic before attempting NADH.
 #
 # Not here yet: stereo wedges (structures are flat; sugars carry theirs as Fischer and Haworth
-# projections), chair forms, heme in its protein pocket, ionic and metal reagents, and mechanisms
-# (which need curved arrows).
+# projections), chair forms, heme in its protein pocket, ionic and metal reagents, and every mechanism
+# but chymotrypsin.
 id: structures
 title: Structures from Memory
 code: ST
@@ -105,3 +105,14 @@ units:
         title: "The large coenzymes and heme, whole"
         los:
           - { id: A, std: ["23"], do: "Draw NAD+ and NADH, FAD, coenzyme A and acetyl-CoA, thiamine pyrophosphate, protoporphyrin IX and heme b in full.", ek: ["Build each from parts already known: a working end (nicotinamide, isoalloxazine, thiol, thiazolium), a diphosphate bridge, and adenosine. Heme is four pyrroles, four bridges, eight substituents and an iron."], p: [P1, P2], drills: [st-draw-nad, st-name-nad, st-draw-nadh, st-name-nadh, st-draw-fad, st-name-fad, st-draw-coenzyme-a, st-name-coenzyme-a, st-draw-acetyl-coa, st-name-acetyl-coa, st-draw-thiamine-pyrophosphate, st-name-thiamine-pyrophosphate, st-draw-protoporphyrin-ix, st-name-protoporphyrin-ix, st-draw-heme-b, st-name-heme-b] }
+  - id: mechanisms
+    n: 3
+    title: "Mechanisms"
+    scope: core
+    ideas: [COLD]
+    topics:
+      - n: 1
+        title: "Chymotrypsin"
+        los:
+          - { id: A, std: ["22"], do: "Draw the chymotrypsin mechanism: each step's curved arrows and the state they give, then the whole thing, and say what each residue of the triad does.", ek: ["Two halves, three arrows each: attack with His57 as base, collapse with His57-H+ as acid; first with serine attacking the peptide, then with water attacking the acyl-enzyme."], p: [P1, P2], drills: [st-mech-chymotrypsin-1, st-mech-chymotrypsin-2, st-mech-chymotrypsin-3, st-mech-chymotrypsin-4, st-mech-chymotrypsin-whole, st-mech-chymotrypsin-roles] }
+
