@@ -1,0 +1,342 @@
+# Material and energy balances (framework material-balances; NCEES FE Chemical area 8).
+#
+# One question each. Each key is solved a second time by the verifier from the balance equations
+# themselves (sympy `solve` on the conservation statements), not from the closed form the item uses.
+# Property values (molar masses, heat capacities, heats of formation) are printed in the prompt, so
+# nothing has to be looked up; the heats of formation are standard-table values typed by hand.
+
+# ── process variables ───────────────────────────────────────────────────────
+- template: mb-mass-to-mole-fraction
+  skill: meb.variables
+  pace: quick
+  given: { w: { pick: [0.2, 0.3, 0.4, 0.5, 0.6, 0.7] } }
+  cases:
+    - { A: 'ethanol', B: 'water', Ma: 46, Mb: 18 }
+    - { A: 'methanol', B: 'water', Ma: 32, Mb: 18 }
+    - { A: 'benzene', B: 'toluene', Ma: 78, Mb: 92 }
+    - { A: 'acetone', B: 'water', Ma: 58, Mb: 18 }
+    - { A: 'nitrogen', B: 'oxygen', Ma: 28, Mb: 32 }
+  prompt: 'A mixture is ${{w*100}}\%$ {{A}} by mass in {{B}} ($M = {{Ma}}$ and ${{Mb}}$ g/mol). What is the mole fraction of {{A}}?'
+  parts:
+    - { ask: 'Mole fraction of {{A}}', label: v, tex: 'x_A', value: (w/Ma)/(w/Ma + (1 - w)/Mb), tol: 0.01, explain: 'Take 100 g as the basis: ${{w*100}}$ g is ${{w*100/Ma}}$ mol of {{A}}, and ${{(1 - w)*100}}$ g is ${{(1 - w)*100/Mb}}$ mol of {{B}}. Divide the first by the total' }
+  verify: { expect: { v: "solve(Eq(x*Ma/(x*Ma + (1 - x)*Mb), w), x)[0]" } }
+
+- template: mb-average-molar-mass
+  skill: meb.variables
+  pace: quick
+  given: { y: { pick: [0.1, 0.2, 0.25, 0.3, 0.4, 0.5] } }
+  cases:
+    - { A: 'CO2', B: 'N2', Ma: 44, Mb: 28 }
+    - { A: 'O2', B: 'N2', Ma: 32, Mb: 28 }
+    - { A: 'H2', B: 'CH4', Ma: 2, Mb: 16 }
+    - { A: 'CH4', B: 'C2H6', Ma: 16, Mb: 30 }
+  prompt: 'A gas is ${{y*100}}$ mol% {{A}} ($M = {{Ma}}$) and the rest {{B}} ($M = {{Mb}}$). What is its average molar mass in g/mol?'
+  parts:
+    - { ask: 'Average molar mass (g/mol)', label: v, tex: '\bar M', value: y*Ma + (1 - y)*Mb, tol: 0.005, explain: 'One mole of mixture weighs ${{y}}({{Ma}}) + {{1 - y}}({{Mb}})$ g: a mole-fraction-weighted mean' }
+  verify: { expect: { v: "solve(Eq((x - Mb)/(Ma - Mb), y), x)[0]" } }
+
+- template: mb-liquid-molar-flow
+  skill: meb.variables
+  pace: quick
+  given: { V: { pick: [2, 5, 10, 20, 50] } }
+  cases:
+    - { A: 'methanol', sg: 0.79, M: 32 }
+    - { A: 'ethanol', sg: 0.79, M: 46 }
+    - { A: 'benzene', sg: 0.88, M: 78 }
+    - { A: 'water', sg: 1.0, M: 18 }
+    - { A: 'acetone', sg: 0.79, M: 58 }
+  prompt: '{{A}} (specific gravity ${{sg}}$, $M = {{M}}$ g/mol) flows at ${{V}}$ L/min. What is the molar flow in mol/min?'
+  parts:
+    - { ask: 'Molar flow (mol/min)', label: v, tex: '\dot n', value: V*sg*1000/M, tol: 0.01, explain: 'Volume to mass with the density (${{sg}}$ kg/L), mass to moles with $M$: ${{V}} \times {{sg*1000}}$ g/L $\div {{M}}$ g/mol' }
+  verify: { expect: { v: "solve(Eq(x*M/(sg*1000), V), x)[0]" } }
+
+- template: mb-ideal-gas-molar-flow
+  skill: meb.variables
+  pace: quick
+  given: { V: { pick: [10, 50, 100, 200, 500] }, T: { pick: [25, 50, 100, 150, 200] }, P: { pick: [101.3, 150, 200, 300, 500] } }
+  prompt: 'A gas stream flows at ${{V}}$ m³/h, ${{T}}$ °C and ${{P}}$ kPa. Treating it as ideal ($R = 8.314$ kPa·m³/(kmol·K)), what is the molar flow in kmol/h?'
+  parts:
+    - { ask: 'Molar flow (kmol/h)', label: v, tex: '\dot n', value: P*V/(8.31446261815324*(T + 273.15)), tol: 0.01, explain: '$\dot n = \dfrac{P\dot V}{RT}$ with $T = {{T + 273.15}}$ K. Kelvin, always' }
+  verify: { expect: { v: "solve(Eq(P*V, x*c_R*(T + Rational(27315, 100))), x)[0]" } }
+
+# ── steady-state balances without reaction ─────────────────────────────────
+- template: mb-mixer
+  skill: meb.nonreactive
+  pace: quick
+  given: { F1: { pick: [50, 100, 150, 200] }, F2: { pick: [50, 100, 250, 300] }, x1: { pick: [0.1, 0.2, 0.3] }, x2: { pick: [0.5, 0.6, 0.8] } }
+  prompt: 'Two streams are mixed: ${{F1}}$ kg/h at ${{x1*100}}\%$ salt and ${{F2}}$ kg/h at ${{x2*100}}\%$ salt (by mass). What is the mass fraction of salt in the product?'
+  parts:
+    - { ask: 'Mass fraction of salt', label: v, tex: 'x_P', value: (F1*x1 + F2*x2)/(F1 + F2), tol: 0.01, explain: 'Total balance: $P = {{F1 + F2}}$ kg/h. Salt balance: ${{F1*x1}} + {{F2*x2}} = P\,x_P$' }
+  verify: { expect: { v: "solve([Eq(F1 + F2, Symbol('P')), Eq(F1*x1 + F2*x2, Symbol('P')*x)], [Symbol('P'), x], dict=True)[0][x]" } }
+
+- template: mb-distillation-split
+  skill: meb.nonreactive
+  pace: quick
+  given: { F: { pick: [100, 200, 500, 1000] }, z: { pick: [0.3, 0.4, 0.5] }, xD: { pick: [0.9, 0.95] }, xB: { pick: [0.05, 0.1] } }
+  prompt: 'A column separates ${{F}}$ kmol/h of feed that is ${{z*100}}$ mol% benzene into a distillate at ${{xD*100}}$ mol% and a bottoms at ${{xB*100}}$ mol%. What is the distillate flow in kmol/h?'
+  parts:
+    - { ask: 'Distillate flow (kmol/h)', label: v, tex: 'D', value: F*(z - xB)/(xD - xB), tol: 0.01, explain: 'Two balances, two unknowns: $F = D + B$ and $Fz = Dx_D + Bx_B$. Eliminate $B$: $D = F\dfrac{z - x_B}{x_D - x_B}$ (the lever rule)' }
+  verify: { expect: { v: "solve([Eq(F, x + Symbol('B')), Eq(F*z, x*xD + Symbol('B')*xB)], [x, Symbol('B')], dict=True)[0][x]" } }
+
+- template: mb-evaporator
+  skill: meb.nonreactive
+  pace: quick
+  given: { F: { pick: [100, 500, 1000, 2000] }, w1: { pick: [0.05, 0.1, 0.15, 0.2] }, w2: { pick: [0.4, 0.5, 0.6] } }
+  prompt: 'An evaporator concentrates ${{F}}$ kg/h of juice from ${{w1*100}}\%$ to ${{w2*100}}\%$ solids. How much water is evaporated, in kg/h?'
+  parts:
+    - { ask: 'Water evaporated (kg/h)', label: v, tex: 'W', value: F*(1 - w1/w2), tol: 0.01, explain: 'The solids are the tie component: all ${{F*w1}}$ kg/h leave in the concentrate, so the concentrate is ${{F*w1/w2}}$ kg/h. The rest of the feed left as vapour' }
+  verify: { expect: { v: "solve([Eq(F, x + Symbol('P')), Eq(F*w1, Symbol('P')*w2)], [x, Symbol('P')], dict=True)[0][x]" } }
+
+- template: mb-dilution
+  skill: meb.nonreactive
+  pace: quick
+  given: { M: { pick: [10, 50, 100, 200] }, w1: { pick: [0.3, 0.4, 0.5, 0.98] }, w2: { pick: [0.05, 0.1, 0.2] } }
+  prompt: 'How many kg of water must be added to ${{M}}$ kg of a ${{w1*100}}\%$ acid solution to dilute it to ${{w2*100}}\%$?'
+  parts:
+    - { ask: 'Water added (kg)', label: v, tex: 'W', value: M*(w1/w2 - 1), tol: 0.01, explain: 'The acid does not change: ${{M*w1}}$ kg. At ${{w2*100}}\%$ that needs a total of ${{M*w1/w2}}$ kg, so add the difference' }
+  verify: { expect: { v: "solve(Eq(M*w1, (M + x)*w2), x)[0]" } }
+
+- template: mb-degrees-of-freedom
+  skill: meb.nonreactive
+  pace: recall
+  given: { u: { int: [2, 7] }, e: { int: [1, 7] } }
+  prompt: 'A flowsheet has ${{u}}$ unknown stream variables. You can write ${{e}}$ independent equations (balances plus given specifications). Can it be solved?'
+  parts:
+    - ask: 'Degrees of freedom'
+      label: a
+      choice: ["Exactly specified: solve it", "Underspecified: more information is needed", "Overspecified: the data are redundant or inconsistent"]
+      correct: "u == e ? 0 : (u > e ? 1 : 2)"
+      explain: 'Degrees of freedom $=$ unknowns $-$ independent equations $= {{u - e}}$. Zero means solvable; positive means something is missing; negative means too many conditions'
+  verify: { choices: { a: "0 if u == e else (1 if u > e else 2)" } }
+
+- template: mb-recycle-mixing-point
+  skill: meb.recycle
+  pace: quick
+  given: { F: { pick: [100, 200, 500] }, x0: { pick: [0.1, 0.2] }, xr: { pick: [0.6, 0.7, 0.8] }, xm: { pick: [0.3, 0.4, 0.5] } }
+  prompt: 'A fresh feed of ${{F}}$ kg/h at ${{x0*100}}\%$ solute is mixed with a recycle stream at ${{xr*100}}\%$ so that the combined feed to the unit is ${{xm*100}}\%$. What recycle flow is needed, in kg/h?'
+  parts:
+    - { ask: 'Recycle flow (kg/h)', label: v, tex: 'R', value: F*(xm - x0)/(xr - xm), tol: 0.01, explain: 'Balance the mixing point alone: $F x_0 + R x_r = (F + R)x_m$, so $R = F\dfrac{x_m - x_0}{x_r - x_m}$' }
+  verify: { expect: { v: "solve(Eq(F*x0 + x*xr, (F + x)*xm), x)[0]" } }
+
+- template: mb-recycle-concepts
+  skill: meb.recycle
+  pace: recall
+  cases:
+    - { q: 'Why is a purge stream taken from a recycle loop?', ans: 0 }
+    - { q: 'What does recycling unreacted feed around a reactor raise?', ans: 1 }
+    - { q: 'Which balance tells you the product flow of a recycle process without knowing the recycle flow?', ans: 2 }
+    - { q: 'A stream that skips a unit and rejoins its outlet is a', ans: 3 }
+  prompt: '{{q}}'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["To stop an inert or by-product from accumulating", "The overall conversion, above the single-pass conversion", "The overall balance, drawn around the whole process", "Bypass"]
+      correct: ans
+      explain: 'Recycle sends unconverted material back, so overall conversion exceeds single-pass. Anything that enters and cannot leave builds up, so a purge bleeds it off. A box around the whole process cuts no recycle stream, so the overall balance never contains it'
+  verify: { authored: true }
+
+# ── balances with reaction ──────────────────────────────────────────────────
+- template: mb-limiting-reactant
+  skill: meb.reactive
+  pace: quick
+  cases:
+    - { rxn: '\mathrm{N_2 + 3H_2 \to 2NH_3}', A: 'N2', B: 'H2', a: 1, b: 3 }
+    - { rxn: '\mathrm{2SO_2 + O_2 \to 2SO_3}', A: 'SO2', B: 'O2', a: 2, b: 1 }
+    - { rxn: '\mathrm{CH_4 + 2O_2 \to CO_2 + 2H_2O}', A: 'CH4', B: 'O2', a: 1, b: 2 }
+    - { rxn: '\mathrm{2H_2 + O_2 \to 2H_2O}', A: 'H2', B: 'O2', a: 2, b: 1 }
+    - { rxn: '\mathrm{C_3H_8 + 5O_2 \to 3CO_2 + 4H_2O}', A: 'C3H8', B: 'O2', a: 1, b: 5 }
+  given: { nA: { pick: [10, 20, 40, 50, 100] }, nB: { pick: [30, 50, 80, 120, 200] } }
+  require: ["nA*b != nB*a"]
+  prompt: 'For ${{rxn}}$, the feed holds ${{nA}}$ mol {{A}} and ${{nB}}$ mol {{B}}. Which is the limiting reactant?'
+  parts:
+    - ask: 'Limiting reactant'
+      label: a
+      choice: ["The first reactant", "The second reactant"]
+      correct: "nA/a < nB/b ? 0 : 1"
+      explain: 'Divide each feed by its coefficient: ${{nA}}/{{a}} = {{nA/a}}$ and ${{nB}}/{{b}} = {{nB/b}}$. The smaller number runs out first'
+  verify: { choices: { a: "0 if nA*b < nB*a else 1" } }
+
+- template: mb-percent-excess
+  skill: meb.reactive
+  pace: quick
+  cases:
+    - { rxn: '\mathrm{N_2 + 3H_2 \to 2NH_3}', A: 'N2', B: 'H2', a: 1, b: 3 }
+    - { rxn: '\mathrm{2SO_2 + O_2 \to 2SO_3}', A: 'SO2', B: 'O2', a: 2, b: 1 }
+    - { rxn: '\mathrm{CH_4 + 2O_2 \to CO_2 + 2H_2O}', A: 'CH4', B: 'O2', a: 1, b: 2 }
+    - { rxn: '\mathrm{C_2H_4 + 3O_2 \to 2CO_2 + 2H_2O}', A: 'C2H4', B: 'O2', a: 1, b: 3 }
+  given: { nA: { pick: [10, 20, 50, 100] }, ex: { pick: [10, 20, 25, 50, 100] } }
+  let: { nB: nA*b/a*(1 + ex/100) }
+  prompt: 'For ${{rxn}}$, the feed holds ${{nA}}$ mol {{A}} and ${{nB}}$ mol {{B}}. What is the percent excess of {{B}}?'
+  parts:
+    - { ask: 'Percent excess of {{B}}', label: v, tex: '\%\,\text{excess}', value: ex, tol: 0.01, explain: 'Stoichiometric {{B}} for ${{nA}}$ mol {{A}} is ${{nA*b/a}}$ mol. Excess is $\dfrac{\text{fed} - \text{stoichiometric}}{\text{stoichiometric}} = \dfrac{ {{nB}} - {{nA*b/a}} }{ {{nA*b/a}} }$' }
+  verify: { expect: { v: "solve(Eq(nA*b/a*(1 + ex/100), nA*b/a*(1 + x/100)), x)[0]" } }
+
+- template: mb-conversion-outlet
+  skill: meb.reactive
+  pace: quick
+  given: { nA: { pick: [50, 100, 200] }, r: { pick: [3, 4, 5] }, X: { pick: [0.1, 0.15, 0.2, 0.25, 0.3] } }
+  prompt: 'Ammonia synthesis, $\mathrm{N_2 + 3H_2 \to 2NH_3}$: the reactor is fed ${{nA}}$ mol/h N2 and ${{nA*r}}$ mol/h H2, and ${{X*100}}\%$ of the N2 reacts. How much H2 leaves, in mol/h?'
+  parts:
+    - { ask: 'H2 leaving (mol/h)', label: v, tex: '\dot n_{H_2}', value: nA*r - 3*nA*X, tol: 0.01, explain: 'N2 reacted: ${{nA*X}}$ mol/h, which is the extent of reaction. Each mole takes 3 mol H2 with it: ${{nA*r}} - 3({{nA*X}})$' }
+  verify: { expect: { v: "nA*r - 3*solve(Eq(nA - x, nA*(1 - X)), x)[0]" } }
+
+- template: mb-extent-of-reaction
+  skill: meb.reactive
+  pace: quick
+  given: { s0: { pick: [100, 200, 400] }, o0: { pick: [80, 150, 250] }, X: { pick: [0.5, 0.6, 0.8, 0.9] } }
+  require: ["o0 > s0*X/2"]
+  prompt: 'For $\mathrm{2SO_2 + O_2 \to 2SO_3}$, a reactor is fed ${{s0}}$ mol/h SO2 and ${{o0}}$ mol/h O2, and ${{s0*(1 - X)}}$ mol/h SO2 leaves. How much O2 leaves, in mol/h?'
+  parts:
+    - { ask: 'O2 leaving (mol/h)', label: v, tex: '\dot n_{O_2}', value: o0 - s0*X/2, tol: 0.01, explain: 'From SO2: ${{s0}} - 2\xi = {{s0*(1 - X)}}$, so $\xi = {{s0*X/2}}$ mol/h. Every species then follows from $n_i = n_{i0} + \nu_i\xi$: O2 has $\nu = -1$' }
+  verify: { expect: { v: "o0 - solve(Eq(s0 - 2*x, s0*(1 - X)), x)[0]" } }
+
+- template: mb-yield-with-side-reaction
+  skill: meb.reactive
+  pace: quick
+  given: { nA: { pick: [100, 200, 500] }, X: { pick: [0.5, 0.6, 0.8] }, S: { pick: [3, 4, 9] } }
+  prompt: 'A reacts by two parallel paths, $\mathrm{A \to D}$ (desired) and $\mathrm{A \to U}$. With ${{nA}}$ mol/h of A fed, conversion ${{X*100}}\%$ and selectivity ${{S}}$ mol D per mol U, how much D is made, in mol/h?'
+  parts:
+    - { ask: 'D produced (mol/h)', label: v, tex: '\dot n_D', value: nA*X*S/(1 + S), tol: 0.01, explain: 'A consumed: ${{nA*X}}$ mol/h, split ${{S}}$ to 1 between D and U, so D gets the fraction $\dfrac{ {{S}} }{ {{S + 1}} }$' }
+  verify: { expect: { v: "solve([Eq(x + Symbol('U'), nA*X), Eq(x, S*Symbol('U'))], [x, Symbol('U')], dict=True)[0][x]" } }
+
+- template: mb-recycle-reactor
+  skill: meb.recycle
+  pace: quick
+  given: { F: { pick: [100, 200, 500] }, Xs: { pick: [0.2, 0.25, 0.4, 0.5] } }
+  prompt: 'Pure A is fed fresh at ${{F}}$ mol/h to a reactor with ${{Xs*100}}\%$ single-pass conversion. All unreacted A is separated and recycled, so every mole of fresh A eventually reacts. What is the recycle flow, in mol/h?'
+  parts:
+    - { ask: 'Recycle flow (mol/h)', label: v, tex: 'R', value: F*(1 - Xs)/Xs, tol: 0.01, explain: 'At steady state the reactor must convert ${{F}}$ mol/h, which is ${{Xs*100}}\%$ of what enters it: the reactor feed is ${{F/Xs}}$ mol/h. The recycle is the reactor feed less the fresh feed' }
+  verify: { expect: { v: "solve([Eq(Symbol('G'), F + x), Eq(x, Symbol('G')*(1 - Xs))], [x, Symbol('G')], dict=True)[0][x]" } }
+
+# ── combustion ──────────────────────────────────────────────────────────────
+- template: mb-theoretical-air
+  skill: meb.combustion
+  pace: quick
+  cases:
+    - { fuel: 'methane, CH4', c: 1, h: 4, o: 0 }
+    - { fuel: 'ethane, C2H6', c: 2, h: 6, o: 0 }
+    - { fuel: 'propane, C3H8', c: 3, h: 8, o: 0 }
+    - { fuel: 'butane, C4H10', c: 4, h: 10, o: 0 }
+    - { fuel: 'ethanol, C2H5OH', c: 2, h: 6, o: 1 }
+    - { fuel: 'methanol, CH3OH', c: 1, h: 4, o: 1 }
+    - { fuel: 'hydrogen, H2', c: 0, h: 2, o: 0 }
+    - { fuel: 'octane, C8H18', c: 8, h: 18, o: 0 }
+  prompt: 'How many moles of air (21 mol% O2) are needed for complete combustion of 1 mol of {{fuel}}, with no excess?'
+  parts:
+    - { ask: 'Theoretical air (mol per mol fuel)', label: v, tex: 'n_{air}', value: (c + h/4 - o/2)/0.21, tol: 0.01, explain: 'Each C needs one O2 (to CO2), each 4 H need one O2 (to 2 H2O), and oxygen already in the fuel counts toward it: ${{c + h/4 - o/2}}$ mol O2. Divide by $0.21$' }
+  verify: { expect: { v: "solve([Eq(c, Symbol('k')), Eq(h, 2*Symbol('w')), Eq(o + 2*Rational(21, 100)*x, 2*Symbol('k') + Symbol('w'))], [x, Symbol('k'), Symbol('w')], dict=True)[0][x]" } }
+
+- template: mb-flue-gas-oxygen
+  skill: meb.combustion
+  pace: quick
+  cases:
+    - { fuel: 'methane, CH4', c: 1, h: 4 }
+    - { fuel: 'propane, C3H8', c: 3, h: 8 }
+    - { fuel: 'ethane, C2H6', c: 2, h: 6 }
+  given: { ex: { pick: [10, 20, 25, 50] } }
+  let: { th: c + h/4, O2: (c + h/4)*ex/100, N2: (c + h/4)*(1 + ex/100)*79/21 }
+  prompt: 'Fuel: {{fuel}}. It burns completely with ${{ex}}\%$ excess air (21% O2, 79% N2). What is the mole percent of O2 in the flue gas on a dry basis?'
+  parts:
+    - { ask: 'O2 in dry flue gas (mol%)', label: v, tex: '\%\,O_2', value: 100*O2/(c + O2 + N2), tol: 0.01, explain: 'Per mole of fuel: theoretical O2 is ${{th}}$ mol. Leaving dry: ${{c}}$ CO2, ${{O2}}$ O2 (the excess), ${{N2}}$ N2 (all that came in). Water is left out of a dry analysis' }
+  verify: { expect: { v: "100*(c + Rational(h, 4))*Rational(ex, 100)/(c + (c + Rational(h, 4))*Rational(ex, 100) + (c + Rational(h, 4))*(1 + Rational(ex, 100))*Rational(79, 21))" } }
+
+# ── energy balances ─────────────────────────────────────────────────────────
+- template: mb-sensible-heat
+  skill: meb.energy
+  pace: quick
+  given: { m: { pick: [0.5, 1, 2, 5] }, T1: { pick: [15, 20, 25] }, T2: { pick: [60, 70, 80, 90] } }
+  prompt: 'Water ($c_p = 4.18$ kJ/(kg·K)) flows at ${{m}}$ kg/s and is heated from ${{T1}}$ °C to ${{T2}}$ °C. What heat duty is needed, in kW?'
+  parts:
+    - { ask: 'Heat duty (kW)', label: v, tex: '\dot Q', value: m*4.18*(T2 - T1), tol: 0.01, explain: 'Steady open system, no work, no phase change: $\dot Q = \dot m\,c_p\,\Delta T = {{m}} \times 4.18 \times {{T2 - T1}}$. kJ/s is kW' }
+  verify: { expect: { v: "solve(Eq(x/(m*Rational(418, 100)), T2 - T1), x)[0]" } }
+
+- template: mb-heat-and-vaporize
+  skill: meb.energy
+  pace: quick
+  given: { m: { pick: [1, 2, 10, 100] }, T1: { pick: [20, 25, 40, 60] } }
+  prompt: 'How much heat turns ${{m}}$ kg of water at ${{T1}}$ °C into steam at 100 °C and 1 atm? Use $c_p = 4.18$ kJ/(kg·K) and $\Delta H_{vap} = 2257$ kJ/kg. Answer in kJ.'
+  parts:
+    - { ask: 'Heat (kJ)', label: v, tex: 'Q', value: m*(4.18*(100 - T1) + 2257), tol: 0.01, explain: 'Two steps: warm the liquid to the boiling point, ${{4.18*(100 - T1)}}$ kJ/kg, then vaporize it, $2257$ kJ/kg. The latent heat dominates' }
+  verify: { expect: { v: "m*Rational(418, 100)*(100 - T1) + m*2257" } }
+
+- template: mb-adiabatic-mixing
+  skill: meb.energy
+  pace: quick
+  given: { m1: { pick: [1, 2, 3, 5] }, m2: { pick: [1, 2, 4] }, T1: { pick: [10, 15, 20] }, T2: { pick: [60, 80, 90] } }
+  prompt: '${{m1}}$ kg/s of water at ${{T1}}$ °C mixes adiabatically with ${{m2}}$ kg/s of water at ${{T2}}$ °C. What is the outlet temperature, in °C?'
+  parts:
+    - { ask: 'Outlet temperature (°C)', label: v, tex: 'T', value: (m1*T1 + m2*T2)/(m1 + m2), tol: 0.005, explain: 'No heat or work, same $c_p$: enthalpy in equals enthalpy out, so the outlet is the mass-weighted mean, $\dfrac{ {{m1}}({{T1}}) + {{m2}}({{T2}}) }{ {{m1 + m2}} }$' }
+  verify: { expect: { v: "solve(Eq(m1*(x - T1) + m2*(x - T2), 0), x)[0]" } }
+
+- template: mb-steam-requirement
+  skill: meb.energy
+  pace: quick
+  given: { m: { pick: [1000, 2000, 5000] }, T1: { pick: [20, 25, 30] }, T2: { pick: [70, 80, 90] } }
+  prompt: 'Saturated steam condenses ($\Delta H_{vap} = 2200$ kJ/kg at the steam pressure) to heat ${{m}}$ kg/h of water ($c_p = 4.18$) from ${{T1}}$ °C to ${{T2}}$ °C. How much steam is needed, in kg/h?'
+  parts:
+    - { ask: 'Steam (kg/h)', label: v, tex: '\dot m_s', value: m*4.18*(T2 - T1)/2200, tol: 0.01, explain: 'Heat given up by the condensing steam equals heat gained by the water: $\dot m_s(2200) = {{m}}(4.18)({{T2 - T1}})$' }
+  verify: { expect: { v: "solve(Eq(x*2200, m*Rational(418, 100)*(T2 - T1)), x)[0]" } }
+
+- template: mb-heat-of-reaction
+  skill: meb.energy
+  pace: quick
+  cases:
+    - { rxn: '\mathrm{CH_4(g) + 2O_2(g) \to CO_2(g) + 2H_2O(l)}', data: 'CH4(g) −74.8, CO2(g) −393.5, H2O(l) −285.8', n1: -1, h1: -74.8, n2: 1, h2: -393.5, n3: 2, h3: -285.8 }
+    - { rxn: '\mathrm{CH_4(g) + 2O_2(g) \to CO_2(g) + 2H_2O(g)}', data: 'CH4(g) −74.8, CO2(g) −393.5, H2O(g) −241.8', n1: -1, h1: -74.8, n2: 1, h2: -393.5, n3: 2, h3: -241.8 }
+    - { rxn: '\mathrm{CO(g) + \tfrac12 O_2(g) \to CO_2(g)}', data: 'CO(g) −110.5, CO2(g) −393.5', n1: -1, h1: -110.5, n2: 1, h2: -393.5, n3: 0, h3: 0 }
+    - { rxn: '\mathrm{N_2(g) + 3H_2(g) \to 2NH_3(g)}', data: 'NH3(g) −46.1', n1: 2, h1: -46.1, n2: 0, h2: 0, n3: 0, h3: 0 }
+    - { rxn: '\mathrm{2SO_2(g) + O_2(g) \to 2SO_3(g)}', data: 'SO2(g) −296.8, SO3(g) −395.7', n1: -2, h1: -296.8, n2: 2, h2: -395.7, n3: 0, h3: 0 }
+    - { rxn: '\mathrm{CO(g) + H_2O(g) \to CO_2(g) + H_2(g)}', data: 'CO(g) −110.5, H2O(g) −241.8, CO2(g) −393.5', n1: -1, h1: -110.5, n2: -1, h2: -241.8, n3: 1, h3: -393.5 }
+  prompt: 'Find the standard heat of reaction, in kJ, for ${{rxn}}$. Heats of formation in kJ/mol: {{data}}; elements are zero.'
+  parts:
+    - { ask: '$\Delta H^\circ_{rxn}$ (kJ)', label: v, tex: '\Delta H^\circ_{rxn}', value: n1*h1 + n2*h2 + n3*h3, tol: 0.005, explain: 'Products minus reactants, each weighted by its coefficient: $\sum \nu_i\,\Delta H^\circ_{f,i}$ with $\nu$ negative for reactants. Elements in their standard states contribute nothing' }
+  verify: { expect: { v: "sum(a*b for a, b in [(n1, h1), (n2, h2), (n3, h3)])" } }
+
+# ── unsteady balances ───────────────────────────────────────────────────────
+- template: mb-tank-fill-time
+  skill: meb.unsteady
+  pace: quick
+  given: { V: { pick: [500, 1000, 2000] }, V0: { pick: [100, 200] }, qi: { pick: [20, 30, 50] }, qo: { pick: [5, 10, 15] } }
+  prompt: 'A ${{V}}$ L tank holds ${{V0}}$ L. Liquid enters at ${{qi}}$ L/min and leaves at ${{qo}}$ L/min. How long until it is full, in minutes?'
+  parts:
+    - { ask: 'Time to fill (min)', label: v, tex: 't', value: (V - V0)/(qi - qo), tol: 0.01, explain: 'Accumulation $=$ in $-$ out: $\dfrac{dV}{dt} = {{qi}} - {{qo}} = {{qi - qo}}$ L/min, constant, so divide the ${{V - V0}}$ L still to fill by it' }
+  verify:
+    var: t
+    ode: "diff(T(t), t) - (qi - qo)"
+    bcs: ["T(0) = V0"]
+    expect: { v: "solve(Eq(T(t), V), t)[0]" }
+
+- template: mb-washout-time
+  skill: meb.unsteady
+  pace: quick
+  given: { V: { pick: [100, 500, 1000] }, q: { pick: [10, 20, 50] }, k: { pick: [2, 10, 100] } }
+  prompt: 'A well-mixed ${{V}}$ L tank of brine is flushed with pure water at ${{q}}$ L/min (same flow out, constant volume). How long until the salt concentration falls to $1/{{k}}$ of its starting value, in minutes?'
+  parts:
+    - { ask: 'Time (min)', label: v, tex: 't', value: V/q*log(k), tol: 0.01, explain: 'Salt balance on a stirred tank: $V\dfrac{dC}{dt} = -qC$, so $C = C_0e^{-t/\tau}$ with $\tau = V/q = {{V/q}}$ min. Set $e^{-t/\tau} = 1/{{k}}$: $t = \tau\ln {{k}}$' }
+  verify:
+    var: t
+    ode: "V*diff(T(t), t) + q*T(t)"
+    bcs: ["T(0) = 1"]
+    expect: { v: "solve(Eq(T(t), Rational(1, k)), t)[0]" }
+
+- template: mb-residence-time-decay
+  skill: meb.unsteady
+  pace: recall
+  given: { n: { pick: [1, 2, 3, 4, 5] } }
+  prompt: 'A stirred tank is flushed at constant volume. After ${{n}}$ residence time{{n > 1 ? "s" : ""}} ($t = {{n}}\tau$), what percent of the original solute is still in the tank?'
+  parts:
+    - { ask: 'Percent remaining', label: v, tex: '\%', value: 100*exp(-n), tol: 0.03, explain: 'First-order washout: $e^{-t/\tau}$. Worth knowing cold: 37% after one $\tau$, 14% after two, 5% after three, under 1% after five' }
+  verify: { expect: { v: "100*exp(-n)" } }
+
+- template: mb-tank-heating-time
+  skill: meb.unsteady
+  pace: quick
+  given: { m: { pick: [100, 200, 500, 1000] }, Q: { pick: [5, 10, 20, 50] }, T1: { pick: [15, 20, 25] }, T2: { pick: [60, 70, 80] } }
+  prompt: 'A well-insulated tank holds ${{m}}$ kg of water ($c_p = 4.18$ kJ/(kg·K)) at ${{T1}}$ °C. A ${{Q}}$ kW heater is switched on. How long until it reaches ${{T2}}$ °C, in minutes?'
+  parts:
+    - { ask: 'Time (min)', label: v, tex: 't', value: m*4.18*(T2 - T1)/Q/60, tol: 0.01, explain: 'Closed system, no losses: $m c_p\dfrac{dT}{dt} = \dot Q$, a constant rate. Energy needed is ${{m*4.18*(T2 - T1)}}$ kJ; at ${{Q}}$ kJ/s that takes ${{m*4.18*(T2 - T1)/Q}}$ s' }
+  verify:
+    var: t
+    ode: "m*Rational(418, 100)*diff(T(t), t) - Q"
+    bcs: ["T(0) = T1"]
+    expect: { v: "solve(Eq(T(t), T2), t)[0]/60" }

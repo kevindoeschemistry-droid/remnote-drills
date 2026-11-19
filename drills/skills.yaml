@@ -35,6 +35,7 @@ domains:
   - { id: kinetics, title: "Kinetic theory & chemical kinetics" }
   - { id: biochem, title: "Biochemistry" }
   - { id: orgo, title: "Organic chemistry" }
+  - { id: meb, title: "Material and energy balances" }
 
 skills:
   # ── prerequisites ────────────────────────────────────────────────────────
@@ -529,3 +530,12 @@ skills:
   - { id: orgo.reagents, domain: orgo, title: "Reagents and protecting-group sources by abbreviation", short: "Reagents" }
   - { id: orgo.aromatics, domain: orgo, title: "Benzene derivatives and heterocycles: structures from memory", short: "Aromatic structures" }
   - { id: orgo.common-compounds, domain: orgo, title: "Solvents and small molecules by common name", short: "Common compounds" }
+
+  # ── material and energy balances ─────────────────────────────────────────
+  - { id: meb.variables, domain: meb, title: "Process variables: composition, molar mass, flow", short: "Process variables" }
+  - { id: meb.nonreactive, domain: meb, title: "Steady-state balances without reaction", short: "Nonreactive balances", prereqs: [meb.variables] }
+  - { id: meb.recycle, domain: meb, title: "Recycle, bypass and purge", short: "Recycle and purge", prereqs: [meb.nonreactive] }
+  - { id: meb.reactive, domain: meb, title: "Balances with reaction: limiting reactant, conversion, extent, yield", short: "Reactive balances", prereqs: [meb.nonreactive] }
+  - { id: meb.combustion, domain: meb, title: "Combustion: theoretical and excess air, flue gas", short: "Combustion", prereqs: [meb.reactive] }
+  - { id: meb.energy, domain: meb, title: "Energy balances: sensible and latent heat, mixing, heat of reaction", short: "Energy balances", prereqs: [meb.nonreactive] }
+  - { id: meb.unsteady, domain: meb, title: "Unsteady balances: filling, washout, heating", short: "Unsteady balances", prereqs: [meb.nonreactive, meb.energy] }
