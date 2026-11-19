@@ -27,6 +27,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 | Physics (AP) | AP Physics 1, 2 and C Course and Exam Descriptions | standard | read in part | — | — | 201 | 201 | 0 |
 | Programming Foundations | AP Computer Science A Course and Exam Description (Fall 2025) | standard | read in full | — | — | 140 | 140 | 0 |
 | Speaking and Articulation | Competent Speaker Speech Evaluation Form, 2nd ed. | rubric | read in full | toastmasters-pathways | — | 69 | 0 | 69 |
+| Structures from Memory | Bruice, Organic Chemistry, 8th edition (table of contents) | textbook | read in part | iupac-aa-1983 | aamc-mcat-outline | 7 | 6 | 1 |
 | Swimming | World Aquatics swimming rules (with USA Swimming and USMS stroke rules) | rulebook | read in full | — | asca-certification | 88 | 0 | 88 |
 | Thermodynamics and Statistical Mechanics | Dill & Bromberg, Molecular Driving Forces 2e; Shell, Thermodynamics and Statistical Mechanics | textbook | read in full | fe-chemical | — | 124 | 68 | 56 |
 | Wushu | IWUF Wushu Taolu Competition Rules and Judging Methods (2024) | rulebook | read through a crosswalk | — | duanwei | 88 | 0 | 88 |
@@ -46,6 +47,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 - **Physical Chemistry**: Textbook-shaped until the ACS content map is read. Thermodynamics and kinetics units are anchored to fe-chemical; quantum and spectroscopy have no outside anchor yet.
 - **Physics (AP)**: Objective codes read for a few units only.
 - **Speaking and Articulation**: A scoring rubric plus Toastmasters' competency list; unit order is ours.
+- **Structures from Memory**: Units follow the chapter list of Bruice's Organic Chemistry (a textbook, not a standard). The amino acids follow IUPAC-IUB 1983 Table 1. Which compounds to carry in each unit is a house list; the MCAT content outline names the same families and has not been opened.
 - **Swimming**: Rules and research papers; they say what is legal and why technique works, not what to learn in what order. Unit order is ours.
 - **Thermodynamics and Statistical Mechanics**: UCI CBE 240 publishes no syllabus. Classical units are anchored to fe-chemical; the statistical-mechanics units stand on the books.
 - **Wushu**: Competition rules and biomechanics papers; unit order is ours.
@@ -63,6 +65,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 - **Physical Chemistry**: textbook, read in part; should move to ACS Exams Institute Anchoring Concepts Content Map IV: Physical Chemistry (J. Chem. Educ. 2018, 95, 238)
 - **Physics (AP)**: standard, read in part
 - **Speaking and Articulation**: rubric, read in full
+- **Structures from Memory**: textbook, read in part; should move to AAMC, What's on the MCAT Exam? content outline (categories 1A, 1D, 5D)
 - **Swimming**: rulebook, read in full; should move to ASCA coach certification curriculum
 - **Thermodynamics and Statistical Mechanics**: textbook, read in full
 - **Wushu**: rulebook, read through a crosswalk; should move to Chinese Wushu Duanwei grading system
@@ -421,3 +424,22 @@ https://math.mit.edu/~yyao1/integrationbee.html
 | **pace** | **Qualifier: 20 integrals in 20 minutes** (undefined questions) | | | |
 
 **Areas with nothing answering to them:** pace Qualifier: 20 integrals in 20 minutes.
+
+## Bruice, Organic Chemistry, 8th edition (table of contents)
+
+https://www.pearson.com/en-us/subject-catalog/p/organic-chemistry/P200000006995/9780134066585
+
+0 of 0 items have at least one objective answering to them.
+
+| Item | Topic | Objectives | With a drill | Where |
+|---|---|---|---|---|
+| **18** | **Benzene and substituted benzenes** (undefined questions) | | | |
+| **19** | **Amines and heterocyclic compounds** (undefined questions) | | | |
+| **20** | **Carbohydrates** (undefined questions) | | | |
+| **21** | **Amino acids, peptides and proteins** (undefined questions) | | | |
+| **23** | **Coenzymes** (undefined questions) | | | |
+| **24** | **Metabolic pathways** (undefined questions) | | | |
+| **25** | **Lipids** (undefined questions) | | | |
+| **26** | **Nucleic acids** (undefined questions) | | | |
+
+**Areas with nothing answering to them:** 18 Benzene and substituted benzenes; 19 Amines and heterocyclic compounds; 20 Carbohydrates; 21 Amino acids, peptides and proteins; 23 Coenzymes; 24 Metabolic pathways; 25 Lipids; 26 Nucleic acids.

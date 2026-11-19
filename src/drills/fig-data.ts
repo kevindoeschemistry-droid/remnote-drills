@@ -227,8 +227,15 @@ function molecule(f: any, scope: Scope): string {
   }
   for (const [x, y, lab] of atoms) {
     if (!lab) continue;
-    const hFirst = /^H\d?[A-Z]/.test(lab), sub = lab.replace(/^(\D*)(\d+)(.*)$/, (_m, pre, d, post) => `${pre}<tspan dy="3" font-size="9">${d}</tspan>${post ? `<tspan dy="-3">${post}</tspan>` : ""}`);
-    s += lab.length === 1 ? text(X(x), Y(y) + 4.5, sub, "middle", 'font-size="13"')
+    // letters on the baseline, digits dropped, a trailing charge raised
+    let level = 0;
+    const sub = (lab.match(/[A-Za-z]+|\d+|[+-]/g) ?? []).map((tok) => {
+      const want = /\d/.test(tok) ? 3 : /[+-]/.test(tok) ? -5 : 0, dy = want - level;
+      level = want;
+      return `<tspan dy="${dy}" font-size="${want ? 9 : 13}">${tok === "-" ? "−" : tok}</tspan>`;
+    }).join("");
+    const hFirst = /^H\d?[A-Z]/.test(lab);
+    s += lab.replace(/[+-]$/, "").length === 1 ? text(X(x), Y(y) + 4.5, sub, "middle", 'font-size="13"')
       : hFirst ? text(X(x) + 5, Y(y) + 4.5, sub, "end", 'font-size="13"')
       : text(X(x) - 5, Y(y) + 4.5, sub, "start", 'font-size="13"');
   }

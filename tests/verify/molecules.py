@@ -15,20 +15,21 @@ from collections import Counter
 from pathlib import Path
 
 _GEN = Path(__file__).resolve().parents[2] / "src/drills/skills.generated.json"
-VALENCE = {"C": 4, "N": 3, "O": 2, "S": 2, "P": 5, "F": 1, "Cl": 1, "Br": 1, "I": 1}
+# allowed total bond orders (hydrogens included) for a neutral atom
+VALENCE = {"H": {1}, "C": {4}, "N": {3}, "O": {2}, "S": {2, 4, 6}, "P": {3, 5}, "F": {1}, "Cl": {1}, "Br": {1}, "I": {1}}
 
 
 def read_label(lab):
-    """'H2N' / 'NH2' / 'OH' / 'O' -> (element, hydrogens)"""
-    m = re.fullmatch(r"(?:H(\d*))?(Cl|Br|[CNOSPFI])(?:H(\d*))?", lab)
+    """'H2N' / 'NH2' / 'OH' / 'O' / 'N+' / 'O-' -> (element, hydrogens, charge)"""
+    m = re.fullmatch(r"(?:H(\d*))?(Cl|Br|[HCNOSPFI])(?:H(\d*))?([+-]?)", lab)
     if not m:
         raise ValueError(f"label {lab!r}")
     h = sum(int(g or 1) for g in (m.group(1), m.group(3)) if g is not None)
-    return m.group(2), h
+    return m.group(2), h, {"+": 1, "-": -1, "": 0}[m.group(4)]
 
 
 def hill(counts):
-    order = ["C", "H"] + sorted(k for k in counts if k not in ("C", "H"))
+    order = (["C", "H"] if counts.get("C") else []) + sorted(k for k in counts if not (counts.get("C") and k in ("C", "H")))
     return "".join(f"{k}{counts[k] if counts[k] > 1 else ''}" for k in order if counts.get(k))
 
 
@@ -40,14 +41,16 @@ def formula(fig):
             raise ValueError(f"bond {b}")
         bonded[i] += order
         bonded[j] += order
-    counts = Counter()
+    counts, charge = Counter(), 0
     for k, a in enumerate(fig["atoms"]):
-        el, h = read_label(a[2]) if len(a) > 2 and a[2] else ("C", VALENCE["C"] - bonded[k])
-        if h < 0 or bonded[k] + h != VALENCE[el]:
-            raise ValueError(f"atom {k} ({el}) has {bonded[k]} bonds and {h} H")
+        el, h, q = read_label(a[2]) if len(a) > 2 and a[2] else ("C", 4 - bonded[k], 0)
+        # a cation of N, O, S or P holds one more bond, an anion one fewer
+        if h < 0 or bonded[k] + h - q not in VALENCE[el]:
+            raise ValueError(f"atom {k} ({el}) has {bonded[k]} bonds, {h} H and charge {q}")
         counts[el] += 1
         counts["H"] += h
-    return hill(counts)
+        charge += q
+    return hill(counts) + ("+" if charge == 1 else "-" if charge == -1 else "" if charge == 0 else f"{charge:+d}")
 
 
 def check(p, H):
