@@ -133,7 +133,7 @@
   cases:
     - { what: 'sum', k: 0 }
     - { what: 'product', k: 1 }
-  require: ["r1 != 0", "r1 + r2 != 0"]
+  require: ["r1 != 0", "r1 + r2 != 0", "r1 != r2"]
   prompt: 'The {{what}} of the roots of ${{=a*x^2 - a*(r1 + r2)*x + a*r1*r2}} = 0$?'
   parts:
     - { ask: 'The {{what}}', label: v, tex: 'x', value: "k == 0 ? r1 + r2 : r1*r2", tol: 0.0001, explain: 'For $ax^2 + bx + c$: the sum is $-b/a$ and the product is $c/a$. No need to solve' }
@@ -459,7 +459,8 @@
   skill: k8.exponents
   pace: quick
   given: { a: { pick: [2, 3, 7] }, n: { int: [6, 18] }, m: { pick: [5, 7, 10, 11, 13] } }
-  require: ["gcd(a, m) == 1"]
+  # a^n must stay an exact integer in floating point, or the remainder is garbage
+  require: ["gcd(a, m) == 1", "a^n < 1e12"]
   prompt: 'Remainder when ${{a}}^{ {{n}} }$ is divided by ${{m}}$?'
   parts:
     - { ask: 'Remainder', label: v, tex: 'r', value: "mod(a^n, m)", tol: 0.0001, explain: 'The remainders of the powers repeat in a cycle. List them (${{mod(a, m)}}, {{mod(a^2, m)}}, {{mod(a^3, m)}}, {{mod(a^4, m)}}, \dots$) until 1 appears, then reduce the exponent by the cycle length' }

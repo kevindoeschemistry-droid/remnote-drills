@@ -11,6 +11,7 @@ import { getProgress, recordAttempt, resetProgress, SkillProgress, EMPTY } from 
 import type { Answer, CheckResult, Problem } from "../drills/types";
 import { ago } from "../drills/warm";
 import { play } from "../drills/sound";
+import { recordTime } from "../drills/times";
 
 /** Problems with checked steps walk through them until the skill has this many in a row;
  *  after that only the final answer is asked, and a miss drops back into the steps. */
@@ -100,6 +101,14 @@ export function DrillPanel({
   const [result, setResult] = useState<CheckResult | null>(null);
   const [progress, setProgress] = useState<SkillProgress>(EMPTY);
   const soundOn = useRef(true);
+  // when this problem was put in front of you; a first-try right answer is timed from here
+  const shownAt = useRef(Date.now());
+  useEffect(() => {
+    shownAt.current = Date.now();
+  }, [target.key, seed]);
+  const timeIt = useCallback(() => {
+    if (problem.template) void recordTime(plugin, problem.template, (Date.now() - shownAt.current) / 1000);
+  }, [plugin, problem.template]);
   // the sound for a right answer, played straight from the click: the flourish when this answer completes the streak
   const cheer = useCallback(
     (countsForStreak: boolean, at: number) => {
@@ -185,10 +194,11 @@ export function DrillPanel({
       else {
         setPhase("correct");
         if (mark === "ok") cheer(true, clearAt);
+        timeIt();
         setProgress(await recordAttempt(plugin, meta.id, "correct", clearAt));
       }
     },
-    [partIdx, parts, plugin, meta.id, clearAt, cheer]
+    [partIdx, parts, plugin, meta.id, clearAt, cheer, timeIt]
   );
 
   const submit = useCallback(
@@ -222,7 +232,10 @@ export function DrillPanel({
         setPhase("correct");
         // a miss earlier on this problem already broke the streak
         cheer(!missedOnce, clearAt);
-        if (!missedOnce) setProgress(await recordAttempt(plugin, meta.id, "correct", clearAt));
+        if (!missedOnce) {
+          timeIt();
+          setProgress(await recordAttempt(plugin, meta.id, "correct", clearAt));
+        }
       } else {
         setPhase(a.kind === "choice" ? "revealed" : "wrong");
         if (!missedOnce) {
@@ -231,7 +244,7 @@ export function DrillPanel({
         }
       }
     },
-    [done, problem, a, stepping, partIdx, parts, partMissed, settleStep, miss, missedOnce, plugin, meta.id, clearAt, cheer]
+    [done, problem, a, stepping, partIdx, parts, partMissed, settleStep, miss, missedOnce, plugin, meta.id, clearAt, cheer, timeIt]
   );
 
   const doCheck = useCallback(() => submit(a.kind === "tuple" ? inputs : inputs[0]), [submit, inputs, a.kind]);

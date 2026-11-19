@@ -89,7 +89,7 @@
     - ask: '$\log_{10}K$ (within 5%)'
       label: v
       tex: '\log_{10}K'
-      value: -dG/5.708
+      value: -dG*1000/(1.380649e-23*6.02214076e23*298.15*log(10))
       tol: 0.05
       explain: 'Divide by $-5.7$ kJ/mol, the cost of one factor of 10: $K \approx 10^{ {{-dG/5.7}} }$'
   verify: { expect: { v: "-dG*1000/(c_R*298.15*log(10))" } }
@@ -139,7 +139,7 @@
     - ask: 'Energy in eV (within 4%)'
       label: v
       tex: 'E'
-      value: 1239.84/lam
+      value: 6.62607015e-34*299792458/(lam*1e-9)/1.602176634e-19
       tol: 0.04
       explain: '$E = hc/\lambda \approx 1240/\lambda$ with $\lambda$ in nm. Visible light, 400 to 700 nm, is about 3.1 down to 1.8 eV'
   verify: { expect: { v: "c_h*c_c/(lam*Rational(1, 10**9))/c_e" } }
@@ -288,7 +288,7 @@
     - ask: 'Molecules (within a factor of about 1.7)'
       label: v
       tex: 'N'
-      value: 0.6022*cn*vol
+      value: cn*1e-9*vol*1e-15*6.02214076e23
       tol: 0.7
       explain: '1 µm³ is 1 fL, and 1 nM in 1 fL is $10^{-9} \times 10^{-15} \times 6\times10^{23} \approx 0.6$ molecules. So "1 nM is about one molecule per E. coli" is the rule, and a count is the concentration in nM times the volume in fL'
   verify: { expect: { v: "cn*Rational(1, 10**9)*vol*Rational(1, 10**15)*c_NA" } }

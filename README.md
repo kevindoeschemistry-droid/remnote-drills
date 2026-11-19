@@ -143,7 +143,11 @@ Three more things a `drills/problems/*.yaml` template can carry (see `mx-gaps.ya
 A template can say how long it should take: `pace: recall` (about 10 seconds, from the UIL Number Sense pace of 80
 problems in 10 minutes), `quick` (under a minute) or `workout`. Without it the build guesses: one question is quick,
 several parts or a coded generator is a workout. An objective is as slow as its slowest drill, and the warm-up mix's
-"Under a minute" chip leaves the workouts out. The guesses are placeholders until answer times are recorded.
+"Under a minute" chip leaves the workouts out.
+
+The guesses give way to measurement: every first-try right answer is timed (`src/drills/times.ts`, synced storage key
+`drill.times`, the last nine times per template). Once a template has three, its median decides: 15 s or less is recall,
+60 s or less is quick, longer is a workout. An answer that took over ten minutes is ignored.
 
 ## Standards
 

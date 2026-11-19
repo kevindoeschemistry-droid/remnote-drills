@@ -7,6 +7,7 @@ import { DOMAINS, LIVE_SKILLS } from "./skills";
 import { PATH_LOS } from "./library-path";
 import { getProgress } from "./progress";
 import { resolveTarget } from "./target";
+import { loadTimes, paceOf } from "./times";
 
 export const MASTERY_KEY = "path.mastery"; // code -> "tested" | "known" (PathView)
 
@@ -21,6 +22,7 @@ export interface WarmItem {
 
 export async function warmPool(plugin: RNPlugin): Promise<WarmItem[]> {
   const marks = (await plugin.storage.getSynced<Record<string, string>>(MASTERY_KEY)) ?? {};
+  const times = await loadTimes(plugin); // your own answer times override the declared pace
   const out: WarmItem[] = [];
   const viaObjective = new Set<string>();
   for (const lo of PATH_LOS) {
@@ -29,7 +31,7 @@ export async function warmPool(plugin: RNPlugin): Promise<WarmItem[]> {
     if (!t) continue;
     const p = await getProgress(plugin, t.key);
     if (!p.cleared && !marks[lo.code]) continue;
-    out.push({ target: t.key, group: lo.fw.title, reps: p.correct, last: p.lastPracticed, pace: lo.pace ?? "workout" });
+    out.push({ target: t.key, group: lo.fw.title, reps: p.correct, last: p.lastPracticed, pace: paceOf(times, lo.drills, lo.pace) });
     viaObjective.add(t.skillId);
   }
   // course skills, unless an objective above already draws on the same skill
