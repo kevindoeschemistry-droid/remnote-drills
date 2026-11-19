@@ -2,7 +2,7 @@
 
 Generated from `drills/frameworks/physical-chemistry.yaml` by `scripts/framework.mjs`. ● drilled · ◐ partly · ○ no drills yet.
 
-**141 learning objectives** in 22 units (141 core): 61 drilled, 14 partly, 66 with no drills. Core: 61 / 141 drilled.
+**141 learning objectives** in 22 units (141 core): 66 drilled, 14 partly, 61 with no drills. Core: 66 / 141 drilled.
 
 ## Big ideas
 
@@ -41,7 +41,7 @@ Generated from `drills/frameworks/physical-chemistry.yaml` by `scripts/framework
 | 14 · The hydrogen atom and many-electron atoms | core | — | 9 | 0 | 1 | 8 |
 | 15 · Chemical bonding and computational chemistry | core | — | 10 | 0 | 0 | 10 |
 | 16 · Electronic spectroscopy | core | — | 4 | 1 | 1 | 2 |
-| 17 · Molecular symmetry | core | — | 5 | 0 | 0 | 5 |
+| 17 · Molecular symmetry | core | — | 5 | 5 | 0 | 0 |
 | 18 · Nuclear magnetic resonance | core | — | 5 | 2 | 0 | 3 |
 | 19 · Probability and the Boltzmann distribution | core | — | 6 | 3 | 2 | 1 |
 | 20 · Partition functions and statistical thermodynamics | core | — | 11 | 6 | 3 | 2 |
@@ -546,21 +546,21 @@ Big ideas: SPEC
 
 Book: engel-reid-3e §27:symmetry, §27:point-groups, §27:character-tables, §27:normal-modes, §27:selection-rules
 
-- ○ **PC-17.1.A** Identify the symmetry elements of a molecule.
+- ● **PC-17.1.A** Identify the symmetry elements of a molecule.
   - EK: E, C_n, σ, i, S_n; every molecule has at least E.
-  - P2 · P5
-- ○ **PC-17.1.B** Assign a molecule to its point group.
+  - P2 · P5 · drills: gt-group-order, gt-mirror-planes
+- ● **PC-17.1.B** Assign a molecule to its point group.
   - EK: Work down the flow chart: linear? high symmetry? principal axis? perpendicular C₂? mirror planes?
-  - P2 · P5
-- ○ **PC-17.1.C** Reduce a representation with a character table.
+  - P2 · P5 · drills: gt-point-group-common, gt-point-group-more
+- ● **PC-17.1.C** Reduce a representation with a character table.
   - EK: n_i = (1/h) Σ χ(R) χ_i(R) over all operations.
-  - P2 · P5
-- ○ **PC-17.1.D** Count the normal modes of a molecule and find their symmetries.
+  - P2 · P5 · drills: gt-operation-product, gt-reduce-c2v, gt-reduce-c3v
+- ● **PC-17.1.D** Count the normal modes of a molecule and find their symmetries.
   - EK: 3N − 6 for nonlinear, 3N − 5 for linear molecules.
-  - P2 · P5
-- ○ **PC-17.1.E** Decide from symmetry whether a mode is IR active, Raman active or both.
+  - P2 · P5 · drills: gt-normal-modes, gt-modes-symmetry
+- ● **PC-17.1.E** Decide from symmetry whether a mode is IR active, Raman active or both.
   - EK: IR active if it transforms like x, y or z; Raman active like a quadratic; mutually exclusive with an inversion centre.
-  - P2 · P5
+  - P2 · P5 · drills: gt-ir-raman
 
 ## Unit 18 · Nuclear magnetic resonance
 
