@@ -25,7 +25,7 @@ An outside standard does three jobs, in this order of strength.
 
 Kinds are not equal. A curriculum standard or exam specification says what to learn. A rulebook says
 what is legal, a rubric how performance is scored, a textbook how one author ordered the material.
-A framework resting on the last three has its unit order chosen by us, and the report says so.
+A framework resting on the last three has its unit order chosen by us, and the report says so. A reference (CODATA, a regulation's definition of a teaspoon) is the source of truth for a number; it can back a card's value but never says the card belongs in the deck.
 
 ## Rules
 
@@ -50,3 +50,19 @@ A framework resting on the last three has its unit order chosen by us, and the r
 ## Where things stand
 
 See `docs/coverage/standards.md`, rebuilt on every `npm run skills`.
+
+## Quick recall: the basis found, and what it does not cover
+
+Looked for in November 2026, for mental calculation, estimation and anchor quantities.
+
+- **Mental calculation**: the UIL Number Sense sequencing charts (`uil-number-sense`, read in full). An exam specification
+  with an itemised topic list at three levels and a published pace: 80 problems in 10 minutes, every tenth an estimate
+  accepted within 5 percent. This is the basis to build a mental-math framework on.
+- **Estimation**: Common Core already asks for it (`ccss-math`, held only through a crosswalk), and the Science Olympiad
+  Fermi rules (`so-fermi`) give a scoring convention: the answer is a power of ten. A rulebook, so it shapes the checker,
+  not the content.
+- **Pace**: `uil-number-sense` (7.5 s a problem) and the English multiplication tables check (`sta-mtc`, 6 s a fact) are
+  the published paces for recall.
+- **Anchor quantities**: no published list of the magnitudes a chemist should know by heart was found. `codata-2022` and
+  `cfr-21-101-9` make each value checkable, but which values belong is a house decision and must be labelled as one.
+

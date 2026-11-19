@@ -131,6 +131,7 @@ if (fs.existsSync(problemsDir))
       const sk = g.skills.find((s) => s.id === t.skill);
       if (!sk) { errors.push(`${where}: unknown skill ${t.skill}`); continue; }
       if (!t.prompt) errors.push(`${where}: needs a prompt`);
+      if (t.pace !== undefined && !["recall", "quick", "workout"].includes(t.pace)) errors.push(`${where}: pace must be recall (about 10 s), quick (under a minute) or workout`);
       if (!Array.isArray(t.parts) || !t.parts.length) errors.push(`${where}: needs at least one part`);
       for (const p of t.parts ?? []) {
         if (!p.ask || !p.label) errors.push(`${where}: every part needs ask and label`);

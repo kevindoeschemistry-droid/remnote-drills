@@ -23,7 +23,9 @@ import { LO_DRILLS } from "./target";
 
 type Rem = NonNullable<Awaited<ReturnType<RNPlugin["rem"]["findOne"]>>>;
 
-export interface PathLo { code: string; pos: number; do: string; ek: string; std: string; needs: string[]; drills: string[] }
+export type Pace = "recall" | "quick" | "workout";
+/** `pace`: how long the objective's slowest drill takes (recall ≈ 10 s, quick < 1 min, workout longer) */
+export interface PathLo { code: string; pos: number; do: string; ek: string; std: string; needs: string[]; drills: string[]; pace?: Pace }
 export interface PathTopic { n: number; title: string; los: PathLo[] }
 export interface PathUnit { n: number; title: string; scope: string; topics: PathTopic[] }
 export interface PathFramework { id: string; title: string; code: string; track: string; requires: string[]; units: PathUnit[] }

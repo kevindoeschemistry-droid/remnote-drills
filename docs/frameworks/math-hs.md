@@ -1264,5 +1264,11 @@ Big ideas: DATA, MODEL
 
 ## Drills not yet placed on the map
 
+- mm-log-exact (alg.exponential)
+- mm-sum-to-n (alg.sequences)
+- mm-sum-of-odds (alg.sequences)
+- mm-sum-arithmetic (alg.sequences)
+- mm-geometric-sum (alg.sequences)
 - k8-cross-section (geo.measurement)
 - k8-scatter-association (stats.bivariate)
+- mm-combinations (stats.probability)

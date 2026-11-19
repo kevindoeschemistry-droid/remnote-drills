@@ -3,11 +3,14 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { usePlugin } from "@remnote/plugin-sdk";
 import { DrillPanel } from "./DrillPanel";
-import { pickWarm, warmPool, WarmItem } from "../drills/warm";
+import { pickWarm, quickOnly, warmPool, WarmItem } from "../drills/warm";
 
 export function WarmMix() {
   const plugin = usePlugin();
-  const [pool, setPool] = useState<WarmItem[] | null>(null);
+  const [all, setAll] = useState<WarmItem[] | null>(null);
+  // "Under a minute" keeps multi-part and long problems out of the mix; it is remembered
+  const [quick, setQuick] = useState(false);
+  const pool = all && quick ? quickOnly(all) : all;
   const [now, setNow] = useState<WarmItem | null>(null);
   const [group, setGroup] = useState<string | null>(null);
   const [n, setN] = useState(0);
@@ -16,8 +19,10 @@ export function WarmMix() {
   useEffect(() => {
     (async () => {
       const p = await warmPool(plugin);
-      setPool(p);
-      setNow(pickWarm(p, null, null) ?? null);
+      const q = ((await plugin.storage.getSynced<boolean>("warm.quick")) ?? false) && quickOnly(p).length > 0;
+      setAll(p);
+      setQuick(q);
+      setNow(pickWarm(q ? quickOnly(p) : p, null, null) ?? null);
     })();
   }, []);
 
@@ -42,6 +47,7 @@ export function WarmMix() {
       </div>
     );
   const groups = [...new Set(pool.map((x) => x.group))];
+  const nQuick = quickOnly(all ?? []).length;
   return (
     <>
       <div className="mm-head">
@@ -51,6 +57,25 @@ export function WarmMix() {
           · {pool.length} warm · {done} done this session
         </span>
       </div>
+      {nQuick > 0 && (
+        <div className="mm-chips">
+          <button
+            className={"mm-chip" + (quick ? " on" : "")}
+            title={quick ? "Back to everything that's warm" : "Only one-question items you can answer in under a minute"}
+            onClick={() => {
+              const to = !quick;
+              const from = to ? quickOnly(all ?? []) : all ?? [];
+              setQuick(to);
+              setGroup(null);
+              void plugin.storage.setSynced("warm.quick", to);
+              setNow(pickWarm(from, now?.target ?? null, null) ?? null);
+              setN((k) => k + 1);
+            }}
+          >
+            Under a minute · {nQuick}
+          </button>
+        </div>
+      )}
       {groups.length > 1 && (
         <div className="mm-chips">
           {groups.map((g) => (

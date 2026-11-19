@@ -2,7 +2,8 @@
 //   nothing warm → empty pool; a cleared skill, a cleared objective and a marked-known objective
 //   all join; an objective without a drill never does; a skill already reached through an
 //   objective isn't listed twice; the picker never repeats and favours what you haven't done lately.
-import { ago, pickWarm, warmPool, warmWeight, MASTERY_KEY, WarmItem } from "../src/drills/warm";
+import { ago, pickWarm, quickOnly, warmPool, warmWeight, MASTERY_KEY, WarmItem } from "../src/drills/warm";
+import { PATH_LOS } from "../src/drills/library-path";
 import { PATH_LOS } from "../src/drills/library-path";
 import { LIVE_SKILLS } from "../src/drills/skills";
 import { resolveTarget } from "../src/drills/target";
@@ -57,6 +58,11 @@ const DAY = 86400000;
   if (pickWarm(one, one[0].target, null)?.target !== one[0].target) fail("a pool of one must still give that one");
   if (pickWarm(pool, null, pool[0].group)!.group !== pool[0].group) fail("a group filter must stay in the group");
   if (pickWarm([], null, null) !== undefined) fail("an empty pool gives nothing");
+  // pace: every drilled objective has one, the mental-math framework has no workouts, and the quick filter drops workouts only
+  if (PATH_LOS.some((l) => l.drills.length && !l.pace)) fail("a drilled objective has no pace");
+  if (PATH_LOS.some((l) => l.fw.id === "mental-math" && l.pace === "workout")) fail("mental math must stay under a minute");
+  if (pool.some((x) => !x.pace)) fail("a warm item has no pace");
+  if (quickOnly(pool).some((x) => x.pace === "workout") || quickOnly(pool).length !== pool.filter((x) => x.pace !== "workout").length) fail("quickOnly must drop the workouts and nothing else");
   if (warmWeight({ target: "x", group: "g", reps: 0 }) !== 3) fail("never-practiced weight");
 
   const now = Date.UTC(2026, 10, 18);

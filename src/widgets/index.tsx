@@ -37,6 +37,12 @@ async function registerDrills(plugin: ReactRNPlugin) {
     description: "How many drill cards to create for each skill (each review gets a new problem).",
     defaultValue: 3,
   });
+  await plugin.settings.registerBooleanSetting({
+    id: "drill-sound",
+    title: "Drills: play a sound when you get one right",
+    description: "A short ding for a correct answer and a four-note flourish when a skill goes warm. Made in the browser; nothing is downloaded.",
+    defaultValue: true,
+  });
   await plugin.settings.registerNumberSetting({
     id: "drill-clear-at",
     title: "Drills: correct in a row to clear a skill",

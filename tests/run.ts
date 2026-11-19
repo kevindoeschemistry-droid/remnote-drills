@@ -50,7 +50,8 @@ function negatives(p: Problem): (string | string[])[] {
       return out;
     }
     case "expression":
-      if (a.rel) return [`(${a.ref})*1.03`, `(${a.ref})*10`, `-(${a.ref})`];
+      // just outside the tolerance: 3% off for an ordinary answer, 1.5× the band for an estimate (UIL allows 5%)
+      if (a.rel) return [`(${a.ref})*${Math.max(1.03, 1 + 1.5 * (a.tol ?? 0.01))}`, `(${a.ref})*10`, `-(${a.ref})`];
       return [(a.vars ?? ["x"]).length ? `${a.ref} + x/7` : `${a.ref} + 0.01`];
     case "recurrence":
       return [
