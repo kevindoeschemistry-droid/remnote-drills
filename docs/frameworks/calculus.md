@@ -2,7 +2,7 @@
 
 Generated from `drills/frameworks/calculus.yaml` by `scripts/framework.mjs`. ● drilled · ◐ partly · ○ no drills yet.
 
-**173 learning objectives** in 14 units (100 core): 127 drilled, 9 partly, 37 with no drills. Core: 69 / 100 drilled.
+**173 learning objectives** in 14 units (100 core): 160 drilled, 8 partly, 5 with no drills. Core: 90 / 100 drilled.
 
 ## Big ideas
 
@@ -21,20 +21,20 @@ Generated from `drills/frameworks/calculus.yaml` by `scripts/framework.mjs`. ●
 
 | Unit | Scope | Est. weight | LOs | ● | ◐ | ○ |
 |---|---|---|---|---|---|---|
-| 1 · Limits and continuity | core | — | 18 | 9 | 2 | 7 |
-| 2 · Differentiation: definition and fundamental properties | core | — | 13 | 10 | 1 | 2 |
+| 1 · Limits and continuity | core | — | 18 | 14 | 2 | 2 |
+| 2 · Differentiation: definition and fundamental properties | core | — | 13 | 11 | 1 | 1 |
 | 3 · Differentiation: composite, implicit and inverse functions | core | — | 7 | 7 | 0 | 0 |
-| 4 · Contextual applications of differentiation | core | — | 9 | 7 | 0 | 2 |
-| 5 · Analytical applications of differentiation | core | — | 13 | 7 | 2 | 4 |
-| 6 · Integration and accumulation of change | core | — | 17 | 12 | 1 | 4 |
-| 7 · Differential equations | core | — | 9 | 6 | 0 | 3 |
-| 8 · Applications of integration | core | — | 14 | 11 | 0 | 3 |
-| 9 · Parametric equations, polar coordinates and vector-valued functions (BC only) | bc | — | 10 | 8 | 1 | 1 |
-| 10 · Infinite sequences and series (BC only) | bc | — | 20 | 14 | 2 | 4 |
-| 11 · Vectors and the geometry of space | extension | — | 8 | 7 | 0 | 1 |
-| 12 · Partial derivatives | extension | — | 12 | 9 | 0 | 3 |
+| 4 · Contextual applications of differentiation | core | — | 9 | 8 | 1 | 0 |
+| 5 · Analytical applications of differentiation | core | — | 13 | 10 | 2 | 1 |
+| 6 · Integration and accumulation of change | core | — | 17 | 17 | 0 | 0 |
+| 7 · Differential equations | core | — | 9 | 9 | 0 | 0 |
+| 8 · Applications of integration | core | — | 14 | 14 | 0 | 0 |
+| 9 · Parametric equations, polar coordinates and vector-valued functions (BC only) | bc | — | 10 | 9 | 1 | 0 |
+| 10 · Infinite sequences and series (BC only) | bc | — | 20 | 19 | 1 | 0 |
+| 11 · Vectors and the geometry of space | extension | — | 8 | 8 | 0 | 0 |
+| 12 · Partial derivatives | extension | — | 12 | 11 | 0 | 1 |
 | 13 · Multiple integrals | extension | — | 9 | 9 | 0 | 0 |
-| 14 · Vector calculus | extension | — | 14 | 11 | 0 | 3 |
+| 14 · Vector calculus | extension | — | 14 | 14 | 0 | 0 |
 
 ## Unit 1 · Limits and continuity
 
@@ -52,9 +52,9 @@ Big ideas: CHA, LIM, FUN
 
 
 
-- ○ **CA-1.2.A** (LIM-1.A) Read and write limit statements in symbols and words, including one-sided limits.
+- ◐ **CA-1.2.A** (LIM-1.A) Read and write limit statements in symbols and words, including one-sided limits.
   - EK: lim_(x→c) f(x) = L means f(x) can be made as close to L as wanted by taking x close enough to c (x ≠ c); f(c) itself is irrelevant.
-  - P4
+  - P4 · drills: ~ca-limit-graph
 - ● **CA-1.2.B** (LIM-1.B) Decide whether a limit exists by comparing the two one-sided limits.
   - EK: lim_(x→c) f(x) exists ⇔ both one-sided limits exist and are equal; unbounded or oscillating behaviour means no limit.
   - Needs: CA-1.2.A
@@ -64,19 +64,19 @@ Big ideas: CHA, LIM, FUN
 
 
 
-- ○ **CA-1.3.A** (LIM-1.C) Estimate one-sided and two-sided limits from a graph, including at holes and jumps.
+- ● **CA-1.3.A** (LIM-1.C) Estimate one-sided and two-sided limits from a graph, including at holes and jumps.
   - EK: Follow the curve toward x = c from each side; an open circle or a filled dot elsewhere does not change the limit.
   - Needs: CA-1.2.B
-  - P2
+  - P2 · drills: ca-limit-graph
 
 ### 1.4 Estimating limits from tables
 
 
 
-- ○ **CA-1.4.A** (LIM-1.C) Estimate a limit from a table of values that approach c from both sides, and say when the table is not enough.
+- ● **CA-1.4.A** (LIM-1.C) Estimate a limit from a table of values that approach c from both sides, and say when the table is not enough.
   - EK: Look for a common trend from left and right; a table can mislead if the sampled x-values miss oscillation.
   - Needs: CA-1.2.B
-  - P2 · P1
+  - P2 · P1 · drills: ca-limit-table
 
 ### 1.5 Limit laws
 
@@ -103,10 +103,10 @@ Big ideas: CHA, LIM, FUN
 
 
 
-- ◐ **CA-1.7.A** (LIM-1.D, LIM-1.E) Choose a limit procedure from the form the expression takes at c: substitute, factor, rationalize, use a trig identity, or recognise a nonzero/0 infinite limit.
+- ● **CA-1.7.A** (LIM-1.D, LIM-1.E) Choose a limit procedure from the form the expression takes at c: substitute, factor, rationalize, use a trig identity, or recognise a nonzero/0 infinite limit.
   - EK: Substitute first: a number means done; 0/0 means manipulate; nonzero/0 means an infinite limit or none.
   - Needs: CA-1.6.A, CA-1.6.B
-  - P1 · drills: ~ca-lim-factor
+  - P1 · drills: ca-limit-procedure, ~ca-lim-factor
 
 ### 1.8 The squeeze theorem
 
@@ -121,28 +121,28 @@ Big ideas: CHA, LIM, FUN
 
 
 
-- ○ **CA-1.9.A** (LIM-1.C, LIM-1.D) Find the same limit from a graph, a table and a formula, and resolve disagreements between them.
+- ◐ **CA-1.9.A** (LIM-1.C, LIM-1.D) Find the same limit from a graph, a table and a formula, and resolve disagreements between them.
   - EK: Graphs and tables estimate; algebra decides. All three should agree once the scale and sample are right.
   - Needs: CA-1.3.A, CA-1.4.A, CA-1.7.A
-  - P2
+  - P2 · drills: ~ca-limit-table, ~ca-limit-graph
 
 ### 1.10 Types of discontinuities
 
 
 
-- ○ **CA-1.10.A** (LIM-2.A) Classify a discontinuity as removable, jump or infinite from a graph or formula.
+- ● **CA-1.10.A** (LIM-2.A) Classify a discontinuity as removable, jump or infinite from a graph or formula.
   - EK: Removable: limit exists but ≠ f(c) or f(c) undefined; jump: one-sided limits differ; infinite: a one-sided limit is ±∞.
   - Needs: CA-1.2.B
-  - P2
+  - P2 · drills: ca-discontinuity-graph
 
 ### 1.11 Continuity at a point
 
 
 
-- ◐ **CA-1.11.A** (LIM-2.A) Prove or disprove continuity at a point by checking the three conditions.
+- ● **CA-1.11.A** (LIM-2.A) Prove or disprove continuity at a point by checking the three conditions.
   - EK: f continuous at c ⇔ f(c) is defined, lim_(x→c) f(x) exists, and they are equal.
   - Needs: CA-1.10.A
-  - P3 · drills: ~ca-continuity-k
+  - P3 · drills: ca-continuity-conditions, ~ca-continuity-k
 
 ### 1.12 Continuity over an interval
 
@@ -230,10 +230,10 @@ Big ideas: CHA, LIM, FUN
 
 
 
-- ○ **CA-2.4.A** (FUN-2.A) Identify where a function fails to be differentiable (discontinuity, corner, cusp, vertical tangent), including at the break of a piecewise function.
+- ● **CA-2.4.A** (FUN-2.A) Identify where a function fails to be differentiable (discontinuity, corner, cusp, vertical tangent), including at the break of a piecewise function.
   - EK: Differentiable ⇒ continuous, not conversely; a piecewise function is differentiable at its break only if it is continuous there and the one-sided derivatives match.
   - Needs: CA-2.2.A, CA-1.13.A
-  - P3
+  - P3 · drills: ca-differentiability
 
 ### 2.5 The power rule
 
@@ -363,10 +363,10 @@ Big ideas: CHA, LIM
 
 
 
-- ○ **CA-4.1.A** (CHA-3.A) Interpret f′(a) in context, with units, as the rate of change of the quantity at that input.
+- ● **CA-4.1.A** (CHA-3.A) Interpret f′(a) in context, with units, as the rate of change of the quantity at that input.
   - EK: Units of f′ = output units per input unit; sign says increasing or decreasing at that instant.
   - Needs: CA-2.2.A
-  - P3 · P4
+  - P3 · P4 · drills: ca-rate-units
 
 ### 4.2 Straight-line motion
 
@@ -381,10 +381,10 @@ Big ideas: CHA, LIM
 
 
 
-- ○ **CA-4.3.A** (CHA-3.C) Interpret first and second derivatives of applied quantities (cost, population, temperature, volume) in context.
+- ◐ **CA-4.3.A** (CHA-3.C) Interpret first and second derivatives of applied quantities (cost, population, temperature, volume) in context.
   - EK: f′ is the rate; f″ says whether that rate is itself rising or falling.
   - Needs: CA-4.1.A
-  - P3 · P4
+  - P3 · P4 · drills: ~ca-rate-units
 
 ### 4.4 Introduction to related rates
 
@@ -501,19 +501,19 @@ Big ideas: FUN
 
 
 
-- ○ **CA-5.8.A** (FUN-4.A) Sketch the graph of f′ from the graph of f, and a possible f from the graph of f′.
+- ● **CA-5.8.A** (FUN-4.A) Sketch the graph of f′ from the graph of f, and a possible f from the graph of f′.
   - EK: Zeros of f′ at horizontal tangents of f; f′ positive where f rises; extrema of f′ at inflection points of f.
   - Needs: CA-5.6.A
-  - P2 · P4
+  - P2 · P4 · drills: ca-sketch-derivative, ca-read-derivative-graph
 
 ### 5.9 Connecting f, f′ and f″
 
 
 
-- ○ **CA-5.9.A** (FUN-4.A) Read the extrema, monotonicity, concavity and inflection points of f from a graph or table of f′ (or f″), and justify each claim.
+- ● **CA-5.9.A** (FUN-4.A) Read the extrema, monotonicity, concavity and inflection points of f from a graph or table of f′ (or f″), and justify each claim.
   - EK: Justify from the derivative given, not from the shape of its graph: 'f′ changes from + to − at x = 2'.
   - Needs: CA-5.8.A, CA-5.7.A
-  - P2 · P3
+  - P2 · P3 · drills: ca-read-derivative-graph
 
 ### 5.10 Setting up optimization problems
 
@@ -537,10 +537,10 @@ Big ideas: FUN
 
 
 
-- ○ **CA-5.12.A** (FUN-4.D) Find the points where an implicit curve has a horizontal or vertical tangent.
+- ● **CA-5.12.A** (FUN-4.D) Find the points where an implicit curve has a horizontal or vertical tangent.
   - EK: dy/dx = N/D: horizontal where N = 0 (D ≠ 0), vertical where D = 0 (N ≠ 0); the point must lie on the curve.
   - Needs: CA-3.2.A
-  - P1
+  - P1 · drills: ca-implicit-horizontal
 - ○ **CA-5.12.B** (FUN-4.E) Use implicit dy/dx and d²y/dx² to classify extrema and concavity of an implicit curve at a point.
   - EK: At a point with dy/dx = 0, the sign of d²y/dx² gives max/min, as in the second derivative test.
   - Needs: CA-5.12.A, CA-3.6.A, CA-5.7.A
@@ -554,10 +554,10 @@ Big ideas: CHA, LIM, FUN
 
 
 
-- ○ **CA-6.1.A** (CHA-4.A) Interpret the area between a rate graph and the axis as accumulated change, with units and sign.
+- ● **CA-6.1.A** (CHA-4.A) Interpret the area between a rate graph and the axis as accumulated change, with units and sign.
   - EK: rate × time = amount; area below the axis counts as negative change.
   - Needs: CA-4.1.A
-  - P2 · P4
+  - P2 · P4 · drills: ca-accumulation-graph
 
 ### 6.2 Riemann sums
 
@@ -567,19 +567,19 @@ Big ideas: CHA, LIM, FUN
   - EK: Sum of (height × width); trapezoid = average of left and right heights × width.
   - Needs: CA-6.1.A
   - P1 · drills: ca-riemann-sums, ca-trapezoid-table
-- ◐ **CA-6.2.B** (LIM-5.A) Decide whether a Riemann or trapezoidal sum over- or under-estimates from monotonicity or concavity.
+- ● **CA-6.2.B** (LIM-5.A) Decide whether a Riemann or trapezoidal sum over- or under-estimates from monotonicity or concavity.
   - EK: Increasing f: left sum under, right sum over. Concave up: trapezoid over, midpoint under.
   - Needs: CA-6.2.A, CA-5.6.A
-  - P3 · drills: ~ca-riemann-sums
+  - P3 · drills: ca-riemann-over-under, ~ca-riemann-sums
 
 ### 6.3 Riemann sums, summation notation and the definite integral
 
 
 
-- ○ **CA-6.3.A** (LIM-5.B, LIM-5.C) Write a Riemann sum in sigma notation and convert between a limit of Riemann sums and a definite integral.
+- ● **CA-6.3.A** (LIM-5.B, LIM-5.C) Write a Riemann sum in sigma notation and convert between a limit of Riemann sums and a definite integral.
   - EK: Δx = (b − a)/n, x_k = a + kΔx; ∫_a^b f(x)dx = lim_(n→∞) Σ f(x_k)Δx — read b − a from Δx and a from x_k.
   - Needs: CA-6.2.A
-  - P2 · P4
+  - P2 · P4 · drills: ca-riemann-limit
 
 ### 6.4 The Fundamental Theorem and accumulation functions
 
@@ -594,10 +594,10 @@ Big ideas: CHA, LIM, FUN
 
 
 
-- ○ **CA-6.5.A** (FUN-5.A) Find where g(x) = ∫_a^x f(t)dt increases, has extrema and changes concavity, from the graph of f.
+- ● **CA-6.5.A** (FUN-5.A) Find where g(x) = ∫_a^x f(t)dt increases, has extrema and changes concavity, from the graph of f.
   - EK: g′ = f and g″ = f′: g rises where f > 0, peaks where f changes + to −, inflects at extrema of f.
   - Needs: CA-6.4.A, CA-5.9.A
-  - P2 · P3
+  - P2 · P3 · drills: ca-read-derivative-graph
 
 ### 6.6 Properties of definite integrals
 
@@ -683,10 +683,10 @@ Big ideas: CHA, LIM, FUN
 
 
 
-- ○ **CA-6.14.A** (FUN-6.C, FUN-6.D, FUN-6.E, FUN-6.F) Choose the antidifferentiation technique an integrand calls for: basic rule, substitution, division, completing the square, parts or partial fractions.
+- ● **CA-6.14.A** (FUN-6.C, FUN-6.D, FUN-6.E, FUN-6.F) Choose the antidifferentiation technique an integrand calls for: basic rule, substitution, division, completing the square, parts or partial fractions.
   - EK: Look for an inner function and its derivative first; then products of unlike types (parts); then rational functions (division, then partial fractions).
   - Needs: CA-6.10.A, CA-6.11.A, CA-6.12.A
-  - P1
+  - P1 · drills: ca-choose-technique
 
 ## Unit 7 · Differential equations
 
@@ -696,10 +696,10 @@ Big ideas: CHA, FUN
 
 
 
-- ○ **CA-7.1.A** (FUN-7.A) Write a differential equation from a verbal description of a rate (proportional to, inversely proportional to, …).
+- ● **CA-7.1.A** (FUN-7.A) Write a differential equation from a verbal description of a rate (proportional to, inversely proportional to, …).
   - EK: 'Rate of change of y is proportional to y' ⇒ dy/dt = ky; identify the dependent and independent variables first.
   - Needs: CA-4.3.A
-  - P2
+  - P2 · drills: ca-write-de
 
 ### 7.2 Verifying solutions
 
@@ -714,19 +714,19 @@ Big ideas: CHA, FUN
 
 
 
-- ○ **CA-7.3.A** (FUN-7.C) Sketch a slope field for dy/dx = f(x, y) at given points.
+- ● **CA-7.3.A** (FUN-7.C) Sketch a slope field for dy/dx = f(x, y) at given points.
   - EK: At each grid point draw a short segment with slope f(x, y); slopes depend on x only, y only, or both.
   - Needs: CA-7.2.A
-  - P2 · P4
+  - P2 · P4 · drills: ca-slope-field-points
 
 ### 7.4 Reasoning with slope fields
 
 
 
-- ○ **CA-7.4.A** (FUN-7.C) Match a slope field to its differential equation and sketch the solution through a given point.
+- ● **CA-7.4.A** (FUN-7.C) Match a slope field to its differential equation and sketch the solution through a given point.
   - EK: Check where slopes are 0, where they are constant along vertical or horizontal lines, and their sign in each quadrant; solution curves follow the segments.
   - Needs: CA-7.3.A
-  - P2
+  - P2 · drills: ca-slope-field-match
 
 ### 7.5 Euler's method (BC only)
 
@@ -826,10 +826,10 @@ Big ideas: CHA, LIM
 
 
 
-- ○ **CA-8.6.A** (CHA-5.A) Find the area enclosed by curves that cross several times by splitting the interval at each intersection.
+- ● **CA-8.6.A** (CHA-5.A) Find the area enclosed by curves that cross several times by splitting the interval at each intersection.
   - EK: A = ∫|f − g|dx: the top curve changes at each crossing.
   - Needs: CA-8.4.A
-  - P1
+  - P1 · drills: ca-area-crossings
 
 ### 8.7 Cross sections — squares and rectangles
 
@@ -862,10 +862,10 @@ Big ideas: CHA, LIM
 
 
 
-- ○ **CA-8.10.A** (CHA-5.C) Find a disc-method volume about a horizontal or vertical line other than an axis.
+- ● **CA-8.10.A** (CHA-5.C) Find a disc-method volume about a horizontal or vertical line other than an axis.
   - EK: Revolving about y = k: R = |f(x) − k|.
   - Needs: CA-8.9.A
-  - P1
+  - P1 · drills: ca-volume-disc-line
 
 ### 8.11 Washer method about the x- or y-axis
 
@@ -880,10 +880,10 @@ Big ideas: CHA, LIM
 
 
 
-- ○ **CA-8.12.A** (CHA-5.C) Find a washer-method volume about a line other than an axis.
+- ● **CA-8.12.A** (CHA-5.C) Find a washer-method volume about a line other than an axis.
   - EK: Both radii are distances from the axis of revolution: R = |far curve − k|, r = |near curve − k|.
   - Needs: CA-8.10.A, CA-8.11.A
-  - P1
+  - P1 · drills: ca-volume-washer-line
 
 ### 8.13 Arc length and distance travelled (BC only)
 
@@ -986,10 +986,10 @@ Big ideas: CHA, FUN
 
 
 
-- ○ **CA-9.9.A** (CHA-5.D) Find the area inside one polar curve and outside another.
+- ● **CA-9.9.A** (CHA-5.D) Find the area inside one polar curve and outside another.
   - EK: A = ½∫(r_outer² − r_inner²)dθ between intersection angles.
   - Needs: CA-9.8.A
-  - P1
+  - P1 · drills: ca-polar-between
 
 ## Unit 10 · Infinite sequences and series (BC only)
 
@@ -1026,10 +1026,10 @@ Big ideas: LIM, FUN
 
 
 
-- ○ **CA-10.4.A** (LIM-7.A) Apply the integral test after checking positivity, continuity and decrease.
+- ● **CA-10.4.A** (LIM-7.A) Apply the integral test after checking positivity, continuity and decrease.
   - EK: f positive, continuous, decreasing, a_n = f(n) ⇒ Σa_n and ∫_1^∞ f dx converge or diverge together.
   - Needs: CA-10.3.A, CA-6.13.A
-  - P3
+  - P3 · drills: ca-integral-test
 
 ### 10.5 Harmonic series and p-series
 
@@ -1044,10 +1044,10 @@ Big ideas: LIM, FUN
 
 
 
-- ○ **CA-10.6.A** (LIM-7.A) Decide convergence with the direct or limit comparison test against a geometric or p-series.
+- ● **CA-10.6.A** (LIM-7.A) Decide convergence with the direct or limit comparison test against a geometric or p-series.
   - EK: 0 ≤ a_n ≤ b_n: Σb_n conv ⇒ Σa_n conv; lim a_n/b_n = c, 0 < c < ∞ ⇒ same behaviour.
   - Needs: CA-10.5.A, CA-10.2.A
-  - P3
+  - P3 · drills: ca-comparison-test
 
 ### 10.7 The alternating series test
 
@@ -1116,23 +1116,23 @@ Big ideas: LIM, FUN
 
 
 
-- ○ **CA-10.14.A** (LIM-8.E) Write the Taylor or Maclaurin series of a function in sigma notation with its general term.
+- ● **CA-10.14.A** (LIM-8.E) Write the Taylor or Maclaurin series of a function in sigma notation with its general term.
   - EK: Σ f^(n)(a)(x − a)^n/n!; e^x = Σx^n/n!, sin x = Σ(−1)^n x^(2n+1)/(2n+1)!, cos x = Σ(−1)^n x^(2n)/(2n)!, 1/(1 − x) = Σx^n.
   - Needs: CA-10.11.A, CA-10.13.A
-  - P1 · P4
-- ○ **CA-10.14.B** (LIM-8.F) Interpret a Taylor series: use it to evaluate a limit, a derivative value or a sum.
+  - P1 · P4 · drills: ca-series-general-term
+- ● **CA-10.14.B** (LIM-8.F) Interpret a Taylor series: use it to evaluate a limit, a derivative value or a sum.
   - EK: Inside its interval of convergence the series equals the function; e.g. Σ1/n! = e.
   - Needs: CA-10.14.A
-  - P2 · P3
+  - P2 · P3 · drills: ca-series-use
 
 ### 10.15 Representing functions as power series
 
 
 
-- ◐ **CA-10.15.A** (LIM-8.G) Build a power series for a new function by substitution, multiplication, or term-by-term differentiation or integration of a known series.
+- ● **CA-10.15.A** (LIM-8.G) Build a power series for a new function by substitution, multiplication, or term-by-term differentiation or integration of a known series.
   - EK: 1/(1 + x²) = Σ(−1)^n x^(2n); integrate ⇒ arctan x = Σ(−1)^n x^(2n+1)/(2n+1). Differentiating or integrating keeps the radius.
   - Needs: CA-10.14.A
-  - P1 · drills: ~sigma-derivative
+  - P1 · drills: ca-series-build, ~sigma-derivative
 - ● **CA-10.15.B** (LIM-8.G) Shift a summation index so two power series start at the same index and carry the same power of x, then combine them.
   - EK: Replace n by n ± k and adjust the limits; the sum is unchanged. Needed for power-series solutions of ODEs (beyond the CED).
   - Needs: CA-10.15.A
@@ -1202,10 +1202,10 @@ Book: stewart-8e §12.5
 
 Book: stewart-8e §12.6
 
-- ○ **CA-11.5.A** (ST-12.6) Identify and sketch a quadric surface from its equation using traces.
+- ● **CA-11.5.A** (ST-12.6) Identify and sketch a quadric surface from its equation using traces.
   - EK: Set x, y or z constant and read the conic: ellipsoid, paraboloid, hyperboloid of one or two sheets, cone, cylinder.
   - Needs: CA-11.1.A
-  - P2 · P4
+  - P2 · P4 · drills: ca-quadric
 
 ### 11.6 Vector functions and space curves
 
@@ -1232,10 +1232,10 @@ Book: stewart-8e §14.1, §14.2
   - EK: Level curve f(x, y) = k; close spacing means steep.
   - Needs: CA-11.5.A
   - P2
-- ○ **CA-12.1.B** (ST-14.2) Show a two-variable limit does not exist by approaching along two paths that give different values.
+- ● **CA-12.1.B** (ST-14.2) Show a two-variable limit does not exist by approaching along two paths that give different values.
   - EK: Limit must be the same along every path to (a, b); try lines y = mx and curves like y = x².
   - Needs: CA-12.1.A, CA-1.2.B
-  - P3
+  - P3 · drills: ca-two-path-limit
 
 ### 12.2 Partial derivatives
 
@@ -1293,10 +1293,10 @@ Book: stewart-8e §14.7
   - EK: ∇f = 0; D = f_xx f_yy − f_xy²: D > 0, f_xx > 0 min; D > 0, f_xx < 0 max; D < 0 saddle; D = 0 inconclusive.
   - Needs: CA-12.2.B, CA-5.7.A
   - P1 · P3 · drills: cm-critical-point
-- ○ **CA-12.6.B** (ST-14.7) Find absolute extrema of f on a closed bounded region by checking interior critical points and the boundary.
+- ● **CA-12.6.B** (ST-14.7) Find absolute extrema of f on a closed bounded region by checking interior critical points and the boundary.
   - EK: Parametrise each boundary piece and reduce to one-variable problems; compare all candidates (EVT in 2-D).
   - Needs: CA-12.6.A, CA-5.5.A
-  - P1 · P3
+  - P1 · P3 · drills: ca-extrema-region
 
 ### 12.7 Lagrange multipliers
 
@@ -1395,10 +1395,10 @@ Big ideas: CHA, FUN
 
 Book: stewart-8e §16.1
 
-- ○ **CA-14.1.A** (ST-16.1) Sketch or read a 2-D vector field and recognise a gradient field.
+- ● **CA-14.1.A** (ST-16.1) Sketch or read a 2-D vector field and recognise a gradient field.
   - EK: F(x, y) = ⟨P, Q⟩ assigns an arrow to each point; F = ∇f is a gradient (conservative) field with potential f.
   - Needs: CA-12.5.A
-  - P2
+  - P2 · drills: ca-vector-field-match
 
 ### 14.2 Line integrals
 
@@ -1443,10 +1443,10 @@ Book: stewart-8e §16.5
   - EK: div F = ∇·F; curl F = ∇ × F; ∇²f = ∇·∇f; curl ∇f = 0 and div curl F = 0.
   - Needs: CA-14.1.A, CA-11.3.A, CA-12.2.B
   - P1 · drills: cm-div-curl, cm-laplacian
-- ○ **CA-14.5.B** (ST-16.5) Interpret divergence as net outflow per volume and curl as local rotation, and use curl F = 0 to test a 3-D field for being conservative.
+- ● **CA-14.5.B** (ST-16.5) Interpret divergence as net outflow per volume and curl as local rotation, and use curl F = 0 to test a 3-D field for being conservative.
   - EK: div > 0 is a source; curl F = 0 on a simply connected domain ⇒ F = ∇f.
   - Needs: CA-14.5.A, CA-14.3.A
-  - P2 · P3
+  - P2 · P3 · drills: ca-curl-conservative
 
 ### 14.6 Parametric surfaces and surface area
 
@@ -1487,7 +1487,7 @@ Book: stewart-8e §16.9
   - EK: ∯_S F·n dS = ∭_E ∇·F dV, n outward.
   - Needs: CA-14.7.B, CA-14.5.A, CA-13.7.A
   - P1 · P3 · drills: cm-divergence-theorem
-- ○ **CA-14.9.B** (ST-16.9) Turn an integral balance on an arbitrary control volume into a differential conservation law with the divergence theorem.
+- ● **CA-14.9.B** (ST-16.9) Turn an integral balance on an arbitrary control volume into a differential conservation law with the divergence theorem.
   - EK: d/dt∭c dV = −∯N·n dS + ∭R dV for every volume ⇒ ∂c/∂t + ∇·N = R.
   - Needs: CA-14.9.A, CA-14.5.B
-  - P2 · P3
+  - P2 · P3 · drills: ca-conservation-law

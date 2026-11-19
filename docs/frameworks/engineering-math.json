@@ -342,7 +342,9 @@
         "P2",
         "P5"
        ],
-       "drills": []
+       "drills": [
+        "~em-classify-ode"
+       ]
       },
       {
        "id": "B",
@@ -353,7 +355,10 @@
        "p": [
         "P6"
        ],
-       "drills": []
+       "drills": [
+        "em-isoclines",
+        "ca-slope-field-match"
+       ]
       },
       {
        "id": "C",
@@ -365,7 +370,9 @@
         "P3",
         "P5"
        ],
-       "drills": []
+       "drills": [
+        "ca-euler-method"
+       ]
       }
      ]
     },
@@ -652,7 +659,9 @@
        "p": [
         "P6"
        ],
-       "drills": []
+       "drills": [
+        "em-phase-line"
+       ]
       }
      ]
     },
@@ -674,7 +683,9 @@
        "p": [
         "P2"
        ],
-       "drills": []
+       "drills": [
+        "em-existence"
+       ]
       }
      ]
     }
@@ -716,7 +727,9 @@
        "p": [
         "P4"
        ],
-       "drills": []
+       "drills": [
+        "em-superposition-ivp"
+       ]
       },
       {
        "id": "B",
@@ -1045,7 +1058,9 @@
        "p": [
         "P1"
        ],
-       "drills": []
+       "drills": [
+        "em-rlc"
+       ]
       }
      ]
     }
@@ -1146,7 +1161,8 @@
         "P3"
        ],
        "drills": [
-        "~uc-general"
+        "~uc-general",
+        "em-undetermined-third"
        ],
        "needs": [
         "EM-3.5.A",
@@ -1193,7 +1209,8 @@
         "P1"
        ],
        "drills": [
-        "~phase-ode2"
+        "~phase-ode2",
+        "em-first-order-system"
        ]
       },
       {
@@ -1357,7 +1374,9 @@
        "p": [
         "P6"
        ],
-       "drills": []
+       "drills": [
+        "em-phase-portrait"
+       ]
       }
      ]
     },
@@ -1379,7 +1398,9 @@
        "p": [
         "P3"
        ],
-       "drills": []
+       "drills": [
+        "em-nonlinear-critical"
+       ]
       },
       {
        "id": "B",
@@ -1390,7 +1411,9 @@
        "p": [
         "P6"
        ],
-       "drills": [],
+       "drills": [
+        "em-nonlinear-critical"
+       ],
        "needs": [
         "EM-5.3.A",
         "EM-5.4.A"
@@ -1416,7 +1439,9 @@
        "p": [
         "P3"
        ],
-       "drills": []
+       "drills": [
+        "em-nonhomog-system"
+       ]
       }
      ]
     }
@@ -1641,7 +1666,9 @@
        "p": [
         "P3"
        ],
-       "drills": []
+       "drills": [
+        "em-legendre-eval"
+       ]
       }
      ]
     }
@@ -2129,7 +2156,9 @@
        "p": [
         "P3"
        ],
-       "drills": [],
+       "drills": [
+        "em-diagonalise"
+       ],
        "needs": [
         "EM-8.4.B",
         "EM-8.3.B"
@@ -2333,7 +2362,9 @@
        "p": [
         "P5"
        ],
-       "drills": []
+       "drills": [
+        "em-orthogonality"
+       ]
       },
       {
        "id": "B",
@@ -2344,7 +2375,9 @@
        "p": [
         "P3"
        ],
-       "drills": [],
+       "drills": [
+        "em-legendre-expansion"
+       ],
        "needs": [
         "EM-9.3.A"
        ]
@@ -2533,7 +2566,8 @@
         "P2"
        ],
        "drills": [
-        "~spec-identify"
+        "~spec-identify",
+        "em-separation-coordinates"
        ],
        "needs": [
         "EM-6.4.A"
@@ -2644,7 +2678,10 @@
         "P3"
        ],
        "drills": [
-        "~mv-partial"
+        "~mv-partial",
+        "cm-gradient",
+        "cm-div-curl",
+        "cm-laplacian"
        ]
       },
       {
@@ -2656,7 +2693,9 @@
        "p": [
         "P1"
        ],
-       "drills": []
+       "drills": [
+        "ca-conservation-law"
+       ]
       }
      ]
     }
@@ -2790,24 +2829,31 @@
    "code": "EM-2.1.A",
    "unit": 2,
    "topic": 1,
-   "status": "gap",
+   "status": "partial",
    "full": [],
-   "partial": []
+   "partial": [
+    "em-classify-ode"
+   ]
   },
   {
    "code": "EM-2.1.B",
    "unit": 2,
    "topic": 1,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "em-isoclines",
+    "ca-slope-field-match"
+   ],
    "partial": []
   },
   {
    "code": "EM-2.1.C",
    "unit": 2,
    "topic": 1,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ca-euler-method"
+   ],
    "partial": []
   },
   {
@@ -2964,24 +3010,30 @@
    "code": "EM-2.6.D",
    "unit": 2,
    "topic": 6,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "em-phase-line"
+   ],
    "partial": []
   },
   {
    "code": "EM-2.7.A",
    "unit": 2,
    "topic": 7,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "em-existence"
+   ],
    "partial": []
   },
   {
    "code": "EM-3.1.A",
    "unit": 3,
    "topic": 1,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "em-superposition-ivp"
+   ],
    "partial": []
   },
   {
@@ -3174,8 +3226,10 @@
    "code": "EM-3.6.D",
    "unit": 3,
    "topic": 6,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "em-rlc"
+   ],
    "partial": []
   },
   {
@@ -3215,8 +3269,10 @@
    "code": "EM-4.2.A",
    "unit": 4,
    "topic": 2,
-   "status": "partial",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "em-undetermined-third"
+   ],
    "partial": [
     "uc-general"
    ]
@@ -3225,8 +3281,10 @@
    "code": "EM-5.1.A",
    "unit": 5,
    "topic": 1,
-   "status": "partial",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "em-first-order-system"
+   ],
    "partial": [
     "phase-ode2"
    ]
@@ -3322,32 +3380,40 @@
    "code": "EM-5.3.C",
    "unit": 5,
    "topic": 3,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "em-phase-portrait"
+   ],
    "partial": []
   },
   {
    "code": "EM-5.4.A",
    "unit": 5,
    "topic": 4,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "em-nonlinear-critical"
+   ],
    "partial": []
   },
   {
    "code": "EM-5.4.B",
    "unit": 5,
    "topic": 4,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "em-nonlinear-critical"
+   ],
    "partial": []
   },
   {
    "code": "EM-5.5.A",
    "unit": 5,
    "topic": 5,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "em-nonhomog-system"
+   ],
    "partial": []
   },
   {
@@ -3456,8 +3522,10 @@
    "code": "EM-6.4.D",
    "unit": 6,
    "topic": 4,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "em-legendre-eval"
+   ],
    "partial": []
   },
   {
@@ -3685,8 +3753,10 @@
    "code": "EM-8.5.A",
    "unit": 8,
    "topic": 5,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "em-diagonalise"
+   ],
    "partial": []
   },
   {
@@ -3786,16 +3856,20 @@
    "code": "EM-9.3.A",
    "unit": 9,
    "topic": 3,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "em-orthogonality"
+   ],
    "partial": []
   },
   {
    "code": "EM-9.3.B",
    "unit": 9,
    "topic": 3,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "em-legendre-expansion"
+   ],
    "partial": []
   },
   {
@@ -3876,8 +3950,10 @@
    "code": "EM-10.4.B",
    "unit": 10,
    "topic": 4,
-   "status": "partial",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "em-separation-coordinates"
+   ],
    "partial": [
     "spec-identify"
    ]
@@ -3910,8 +3986,12 @@
    "code": "EM-12.1.A",
    "unit": 12,
    "topic": 1,
-   "status": "partial",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "cm-gradient",
+    "cm-div-curl",
+    "cm-laplacian"
+   ],
    "partial": [
     "mv-partial"
    ]
@@ -3920,8 +4000,10 @@
    "code": "EM-12.1.B",
    "unit": 12,
    "topic": 1,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ca-conservation-law"
+   ],
    "partial": []
   }
  ],
@@ -3934,14 +4016,20 @@
   "ca-lim-squeeze",
   "ca-lim-infinity",
   "ca-lim-infinity-radical",
+  "ca-limit-graph",
+  "ca-limit-table",
+  "ca-limit-procedure",
   "ca-lim-onesided",
   "ca-continuity-k",
   "ca-vert-asymptote",
   "ca-ivt",
+  "ca-discontinuity-graph",
+  "ca-continuity-conditions",
   "ca-avg-rate",
   "ca-def-derivative",
   "ca-tangent-line",
   "ca-estimate-derivative",
+  "ca-differentiability",
   "ca-power-rule",
   "ca-power-reciprocal",
   "ca-power-root",
@@ -3967,6 +4055,7 @@
   "ca-arcsin-derivative",
   "ca-second-derivative",
   "ca-second-derivative-trig",
+  "ca-implicit-horizontal",
   "ca-motion",
   "ca-related-circle",
   "ca-related-sphere",
@@ -3976,6 +4065,7 @@
   "ca-lhospital-exp",
   "ca-lhospital-twice",
   "ca-lhospital-power",
+  "ca-rate-units",
   "ca-mvt",
   "ca-critical-points",
   "ca-abs-extrema",
@@ -3983,12 +4073,17 @@
   "ca-second-derivative-test",
   "ca-optimization-fence",
   "ca-optimization-box",
+  "ca-read-derivative-graph",
+  "ca-sketch-derivative",
   "ca-riemann-sums",
   "ca-trapezoid-table",
   "ca-ftc-derivative",
   "ca-integral-properties",
   "ca-definite-poly",
   "ca-net-change-ftc",
+  "ca-accumulation-graph",
+  "ca-riemann-limit",
+  "ca-riemann-over-under",
   "ca-antiderivative-poly",
   "ca-antiderivative-elementary",
   "ca-antiderivative-root",
@@ -3998,14 +4093,16 @@
   "ca-improper-power",
   "ca-improper-exp",
   "ca-improper-ptest",
+  "ca-choose-technique",
   "ca-verify-solution",
-  "ca-euler-method",
   "ca-separable-general",
   "ca-separable-ivp",
   "ca-exponential-growth",
   "ca-half-life",
   "ca-newton-cooling",
   "ca-logistic",
+  "ca-slope-field-points",
+  "ca-write-de",
   "ca-average-value",
   "ca-distance",
   "ca-net-change-tank",
@@ -4017,6 +4114,9 @@
   "ca-volume-washer",
   "ca-arc-length",
   "ca-work-spring",
+  "ca-area-crossings",
+  "ca-volume-disc-line",
+  "ca-volume-washer-line",
   "ca-parametric-slope",
   "ca-parametric-arc",
   "ca-vector-velocity",
@@ -4025,6 +4125,7 @@
   "ca-polar-slope",
   "ca-polar-area",
   "ca-polar-rose",
+  "ca-polar-between",
   "ca-partial-sums",
   "ca-geometric-series",
   "ca-nth-term-test",
@@ -4032,11 +4133,16 @@
   "ca-ratio-test",
   "ca-absolute-conditional",
   "ca-alternating-error",
+  "ca-integral-test",
+  "ca-comparison-test",
   "ca-taylor-exp",
   "ca-taylor-ln",
   "ca-taylor-coefficients",
   "ca-lagrange-bound",
   "ca-radius-convergence",
+  "ca-series-use",
+  "ca-series-build",
+  "ca-series-general-term",
   "cm-distance-3d",
   "cm-dot-product",
   "cm-cross-product",
@@ -4044,12 +4150,14 @@
   "cm-plane",
   "cm-vector-function",
   "cm-helix",
+  "ca-quadric",
   "cm-tangent-plane",
   "cm-chain-rule",
-  "cm-gradient",
   "cm-critical-point",
   "cm-lagrange-product",
   "cm-lagrange-circle",
+  "ca-two-path-limit",
+  "ca-extrema-region",
   "cm-double-rect",
   "cm-double-region",
   "cm-reverse-order",
@@ -4064,12 +4172,12 @@
   "cm-work-line",
   "cm-potential",
   "cm-green",
-  "cm-div-curl",
-  "cm-laplacian",
   "cm-surface-area",
   "cm-surface-integral",
   "cm-flux-disc",
   "cm-stokes",
-  "cm-divergence-theorem"
+  "cm-divergence-theorem",
+  "ca-vector-field-match",
+  "ca-curl-conservative"
  ]
 }

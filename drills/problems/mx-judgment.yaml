@@ -1,0 +1,469 @@
+# Judgment items: choose the method, classify the object, name what a statement means.
+# Each draws one of its `cases`. Where the key can be computed it is (verify.choices); where it is
+# a matter of definition the key is authored and marked `authored: true`, which means a person
+# wrote it and nothing recomputes it. Options are plain text.
+
+# ── which limit procedure? (CA-1.7.A) ──────────────────────────────────────
+- template: ca-limit-procedure
+  skill: calc.limits
+  cases:
+    - { f: '\lim_{x\to 3}\frac{x^2 - 9}{x - 3}', ans: 1, why: 'Substituting gives 0/0 and the top factors as (x − 3)(x + 3)' }
+    - { f: '\lim_{x\to 2}\frac{x^2 + 1}{x + 3}', ans: 0, why: 'The denominator is not zero at x = 2, so just substitute' }
+    - { f: '\lim_{x\to 0}\frac{\sqrt{x + 4} - 2}{x}', ans: 2, why: 'A 0/0 form with a radical: multiply by the conjugate' }
+    - { f: '\lim_{x\to 0}\frac{\sin 5x}{3x}', ans: 3, why: 'A 0/0 form built from sin u over u' }
+    - { f: '\lim_{x\to 1}\frac{x^2 - 3x + 2}{x^2 - 1}', ans: 1, why: 'Substituting gives 0/0; both top and bottom have the factor (x − 1)' }
+    - { f: '\lim_{x\to 9}\frac{\sqrt{x} - 3}{x - 9}', ans: 2, why: 'A 0/0 form with a radical: multiply by the conjugate (or factor the bottom as a difference of squares in √x)' }
+    - { f: '\lim_{x\to 0}\frac{1 - \cos x}{x}', ans: 3, why: 'One of the two basic trig limits' }
+    - { f: '\lim_{x\to -1}\left(x^3 - 4x\right)', ans: 0, why: 'A polynomial is continuous: substitute' }
+  prompt: 'Which procedure does $\displaystyle {{f}}$ call for first?'
+  parts:
+    - ask: 'First move'
+      label: v
+      choice: ["Substitute directly", "Factor and cancel", "Multiply by the conjugate", "Use sin x / x or (1 − cos x) / x"]
+      correct: ans
+      explain: '{{why}}'
+  verify: { authored: true }
+
+# ── three conditions for continuity (CA-1.11.A, CA-1.10.A) ─────────────────
+- template: ca-continuity-conditions
+  skill: calc.continuity
+  given: { c: { int: [-2, 3] }, L: { int: [-4, 5] } }
+  cases:
+    - { dl: 0, dv: 0, defd: 1, ans: 0 }
+    - { dl: 2, dv: 0, defd: 1, ans: 1 }
+    - { dl: -3, dv: 0, defd: 1, ans: 1 }
+    - { dl: 0, dv: 2, defd: 1, ans: 2 }
+    - { dl: 0, dv: -1, defd: 1, ans: 2 }
+    - { dl: 0, dv: 0, defd: 0, ans: 3 }
+  let:
+    fc: 'defd == 1 ? concat("f(", string(c), ") = ", string(L + dv)) : concat("f(", string(c), ") is undefined")'
+  prompt: 'At $x = {{c}}$: $\displaystyle\lim_{x\to {{c}}^-}f(x) = {{L}}$, $\displaystyle\lim_{x\to {{c}}^+}f(x) = {{L + dl}}$, and ${{fc}}$.'
+  parts:
+    - ask: 'At $x = {{c}}$, $f$ is…'
+      label: v
+      choice: ["Continuous", "Discontinuous: the limit does not exist (jump)", "Discontinuous: the limit exists but differs from the value (removable)", "Discontinuous: the function is not defined there (removable)"]
+      correct: ans
+      explain: 'Three things must hold: $f(c)$ is defined, the two-sided limit exists, and they are equal. Check them in that order of failure'
+  verify: { choices: { v: "(0 if dv == 0 else 2) if (dl == 0 and defd == 1) else (1 if dl != 0 else 3)" } }
+
+# ── where differentiability fails (CA-2.4.A) ───────────────────────────────
+- template: ca-differentiability
+  skill: calc.derivative-basics
+  cases:
+    - { f: 'f(x) = |x - 2|', at: 2, ans: 0, why: 'The slopes from the left and right are −1 and +1' }
+    - { f: 'f(x) = \sqrt[3]{x}', at: 0, ans: 2, why: 'The slope grows without bound from both sides with the same sign' }
+    - { f: 'f(x) = x^{2/3}', at: 0, ans: 1, why: 'The slope goes to −∞ on one side and +∞ on the other' }
+    - { f: 'f(x) = \begin{cases}x^2 & x < 1\\ x + 3 & x \ge 1\end{cases}', at: 1, ans: 3, why: 'The pieces give 1 and 4 at x = 1, so f is not even continuous there' }
+    - { f: 'f(x) = |x^2 - 4|', at: 2, ans: 0, why: 'The graph of x² − 4 is folded up at its zero, leaving slopes −4 and +4' }
+    - { f: 'f(x) = \begin{cases}2x & x < 0\\ 5x & x \ge 0\end{cases}', at: 0, ans: 0, why: 'Continuous at 0, but the one-sided slopes are 2 and 5' }
+  prompt: 'Why is ${{f}}$ not differentiable at $x = {{at}}$?'
+  parts:
+    - ask: 'The graph has a…'
+      label: v
+      choice: ["Corner", "Cusp", "Vertical tangent", "Discontinuity"]
+      correct: ans
+      explain: '{{why}}'
+  verify: { authored: true }
+
+# ── what a derivative means in context (CA-4.1.A, CA-4.3.A) ────────────────
+- template: ca-rate-units
+  skill: calc.rates
+  cases:
+    - { ctx: 'C(q) is the cost in dollars of producing q items', d: "C'(q)", ans: 0 }
+    - { ctx: 'T(t) is the temperature in °C of a cooling cup, t minutes after pouring', d: "T'(t)", ans: 1 }
+    - { ctx: 'V(h) is the volume in litres of water in a tank when the depth is h centimetres', d: "V'(h)", ans: 2 }
+    - { ctx: 's(t) is position in metres at time t seconds', d: "s''(t)", ans: 3 }
+    - { ctx: 'P(t) is a population, t years after 2000', d: "P'(t)", ans: 4 }
+  prompt: '{{ctx}}. What are the units of ${{d}}$?'
+  parts:
+    - ask: 'Units'
+      label: v
+      choice: ["dollars per item", "°C per minute", "litres per centimetre", "metres per second squared", "people per year"]
+      correct: ans
+      explain: 'A derivative has the units of the output divided by the units of the input; a second derivative divides by the input units twice'
+  verify: { authored: true }
+
+# ── over- or under-estimate? (CA-6.2.B) ────────────────────────────────────
+- template: ca-riemann-over-under
+  skill: calc.riemann-ftc
+  cases:
+    - { fn: "increasing", rule: "left Riemann sum", ans: 1, why: 'Each rectangle uses the smallest value on its subinterval' }
+    - { fn: "increasing", rule: "right Riemann sum", ans: 0, why: 'Each rectangle uses the largest value on its subinterval' }
+    - { fn: "decreasing", rule: "left Riemann sum", ans: 0, why: 'Each rectangle uses the largest value on its subinterval' }
+    - { fn: "decreasing", rule: "right Riemann sum", ans: 1, why: 'Each rectangle uses the smallest value on its subinterval' }
+    - { fn: "concave up", rule: "trapezoidal sum", ans: 0, why: 'Chords of a concave-up graph lie above it' }
+    - { fn: "concave down", rule: "trapezoidal sum", ans: 1, why: 'Chords of a concave-down graph lie below it' }
+  prompt: 'A positive function is {{fn}} on $[a, b]$. Its integral is approximated with a {{rule}}.'
+  parts:
+    - ask: 'The approximation is an…'
+      label: v
+      choice: ["Overestimate", "Underestimate"]
+      correct: ans
+      explain: '{{why}}'
+  verify: { authored: true }
+
+# ── which integration technique? (CA-6.14.A) ───────────────────────────────
+- template: ca-choose-technique
+  skill: calc.antiderivatives
+  cases:
+    - { f: '\int x\,e^{x^2}\,dx', ans: 1, why: 'The derivative of the inside, 2x, is sitting there up to a constant' }
+    - { f: '\int x\,e^{x}\,dx', ans: 2, why: 'A product where differentiating x simplifies it and e^x is easy to integrate' }
+    - { f: '\int\frac{1}{x^2 - 4}\,dx', ans: 3, why: 'The denominator factors into distinct linear factors' }
+    - { f: '\int\frac{1}{x^2 + 4x + 13}\,dx', ans: 5, why: 'The quadratic has no real roots: complete the square to get an arctan form' }
+    - { f: '\int\frac{x^3 + 1}{x + 2}\,dx', ans: 4, why: 'The top has higher degree than the bottom' }
+    - { f: '\int\frac{2x + 3}{\sqrt{x}}\,dx', ans: 0, why: 'Split the fraction into two powers of x' }
+    - { f: '\int\ln x\,dx', ans: 2, why: 'Take u = ln x and dv = dx' }
+    - { f: '\int\frac{\cos x}{1 + \sin x}\,dx', ans: 1, why: 'The top is the derivative of the bottom' }
+    - { f: '\int\frac{5}{(x - 1)(x + 3)}\,dx', ans: 3, why: 'A proper rational function with distinct linear factors' }
+  prompt: 'Which technique does $\displaystyle {{f}}$ call for?'
+  parts:
+    - ask: 'Technique'
+      label: v
+      choice: ["Rewrite and use a basic rule", "u-substitution", "Integration by parts", "Partial fractions", "Long division first", "Complete the square"]
+      correct: ans
+      explain: '{{why}}'
+  verify: { authored: true }
+
+# ── a differential equation from words (CA-7.1.A) ──────────────────────────
+- template: ca-write-de
+  skill: calc.diffeq
+  cases:
+    - { say: 'The rate of change of y is proportional to y', ans: 0 }
+    - { say: 'The rate of change of y is proportional to the difference between y and 20', ans: 1 }
+    - { say: 'The rate of change of y is inversely proportional to y', ans: 2 }
+    - { say: 'The rate of change of y is proportional to the product of y and 100 − y', ans: 3 }
+    - { say: 'The rate of change of y is proportional to the square of t', ans: 4 }
+  prompt: '{{say}}. Which differential equation says this ($k$ is a constant)?'
+  parts:
+    - ask: 'Equation'
+      label: v
+      choice: ["dy/dt = k y", "dy/dt = k (y − 20)", "dy/dt = k / y", "dy/dt = k y (100 − y)", "dy/dt = k t²"]
+      correct: ans
+      explain: '"Rate of change of y" is dy/dt. "Proportional to Q" means equal to k times Q; "inversely proportional" means k divided by Q'
+  verify: { authored: true }
+
+# ── comparison tests (CA-10.6.A, CA-10.7.A) ────────────────────────────────
+- template: ca-comparison-test
+  skill: calc.series
+  cases:
+    - { f: '\sum\frac{1}{n^2 + 5}', py: '1/(x**2 + 5)', ans: 0, why: 'Smaller than 1/n², a convergent p-series' }
+    - { f: '\sum\frac{1}{\sqrt{n} + 1}', py: '1/(sqrt(x) + 1)', ans: 1, why: 'Behaves like 1/√n, a divergent p-series (limit comparison)' }
+    - { f: '\sum\frac{n}{n^3 + 2}', py: 'x/(x**3 + 2)', ans: 0, why: 'Behaves like 1/n²' }
+    - { f: '\sum\frac{2n + 1}{n^2 + 3}', py: '(2*x + 1)/(x**2 + 3)', ans: 1, why: 'Behaves like 2/n, a multiple of the harmonic series' }
+    - { f: '\sum\frac{3^n}{4^n + 1}', py: '3**x/(4**x + 1)', ans: 0, why: 'Smaller than (3/4)ⁿ, a convergent geometric series' }
+    - { f: '\sum\frac{1}{2n - 1}', py: '1/(2*x - 1)', ans: 1, why: 'Larger than 1/(2n), half the harmonic series' }
+  prompt: 'Does $\displaystyle {{f}}$ (from $n = 1$) converge?'
+  parts:
+    - ask: 'The series…'
+      label: v
+      choice: ["Converges", "Diverges"]
+      correct: ans
+      explain: '{{why}}'
+  verify: { choices: { v: "0 if Sum(S(py).subs(x, nn), (nn, 1, oo)).is_convergent() else 1" } }
+
+# ── general term of a Maclaurin series (CA-10.14.A) ────────────────────────
+- template: ca-series-general-term
+  skill: calc.taylor
+  cases:
+    - { f: 'e^{x}', ans: 0 }
+    - { f: '\sin x', ans: 1 }
+    - { f: '\cos x', ans: 2 }
+    - { f: '\dfrac{1}{1 - x}', ans: 3 }
+    - { f: '\ln(1 + x)', ans: 4 }
+  prompt: 'Which is the general term of the Maclaurin series of ${{f}}$?'
+  parts:
+    - ask: 'General term'
+      label: v
+      choice: ["xⁿ / n!, n from 0", "(−1)ⁿ x²ⁿ⁺¹ / (2n+1)!, n from 0", "(−1)ⁿ x²ⁿ / (2n)!, n from 0", "xⁿ, n from 0", "(−1)ⁿ⁺¹ xⁿ / n, n from 1"]
+      correct: ans
+      explain: 'Five series worth knowing by heart. Sine keeps the odd powers, cosine the even ones, both alternating; the log series has no factorials'
+  verify: { authored: true }
+
+# ── quadric surfaces (CA-11.5.A) ───────────────────────────────────────────
+- template: ca-quadric
+  skill: calc.vectors-3d
+  cases:
+    - { f: '\frac{x^2}{4} + \frac{y^2}{9} + z^2 = 1', ans: 0, why: 'All three squares positive, equal to 1: every trace is an ellipse' }
+    - { f: 'x^2 + y^2 - z^2 = 1', ans: 1, why: 'One minus sign: horizontal traces are circles for every z, vertical traces are hyperbolas' }
+    - { f: 'x^2 + y^2 - z^2 = -1', ans: 2, why: 'Two minus signs after rearranging: no points for |z| < 1' }
+    - { f: 'z^2 = x^2 + y^2', ans: 3, why: 'Homogeneous of degree 2: straight lines through the origin' }
+    - { f: 'z = x^2 + y^2', ans: 4, why: 'One variable to the first power, the squares with the same sign: a bowl' }
+    - { f: 'z = x^2 - y^2', ans: 5, why: 'One variable to the first power, the squares with opposite signs: a saddle' }
+  prompt: 'Identify the surface ${{f}}$.'
+  parts:
+    - ask: 'Surface'
+      label: v
+      choice: ["Ellipsoid", "Hyperboloid of one sheet", "Hyperboloid of two sheets", "Cone", "Elliptic paraboloid", "Hyperbolic paraboloid"]
+      correct: ans
+      explain: '{{why}}'
+  verify: { authored: true }
+
+# ── from an integral balance to a differential law (CA-14.9.B, EM-12.1.B) ──
+- template: ca-conservation-law
+  skill: calc.vector-calculus
+  cases:
+    - { q: 'mass density ρ carried by a velocity field v, with no sources', ans: 0 }
+    - { q: 'thermal energy in a solid with heat flux q = −k∇T and no generation', ans: 1 }
+    - { q: 'a species of concentration c with diffusive flux J = −D∇c and a volumetric source R', ans: 2 }
+    - { q: 'electric charge density ρ with current density J', ans: 3 }
+  prompt: 'The amount of a conserved quantity inside any fixed volume changes only by flux through its surface (plus sources). Apply the divergence theorem for {{q}}.'
+  parts:
+    - ask: 'Differential form'
+      label: v
+      choice: ["∂ρ/∂t + ∇·(ρv) = 0", "ρ c ∂T/∂t = ∇·(k∇T)", "∂c/∂t = ∇·(D∇c) + R", "∂ρ/∂t + ∇·J = 0"]
+      correct: ans
+      explain: 'Write d/dt ∫ (density) dV = −∮ flux·n dS + ∫ source dV. The divergence theorem turns the surface term into ∫ ∇·flux dV. Because the volume is arbitrary, the integrands must match'
+  verify: { authored: true }
+
+# ── classify an ODE (EM-2.1.A) ─────────────────────────────────────────────
+- template: em-classify-ode
+  skill: ode1.recognize
+  cases:
+    - { f: "y' + 3xy = \\sin x", ans: 0 }
+    - { f: "y' = y^2 + x", ans: 1 }
+    - { f: "y'' + 4y' + 3y = e^{x}", ans: 2 }
+    - { f: "y'' + y\\,y' = 0", ans: 3 }
+    - { f: "x\\,y' - 2y = x^3", ans: 0 }
+    - { f: "y'' + \\sin y = 0", ans: 3 }
+    - { f: "y' = \\cos(x)\\,y", ans: 0 }
+    - { f: "x^2y'' + xy' + (x^2 - 4)y = 0", ans: 2 }
+  prompt: 'Classify the ODE ${{f}}$.'
+  parts:
+    - ask: 'Order and linearity'
+      label: v
+      choice: ["First order, linear", "First order, nonlinear", "Second order, linear", "Second order, nonlinear"]
+      correct: ans
+      explain: 'The order is the highest derivative that appears. Linear means y and its derivatives appear only to the first power, not multiplied together and not inside another function; coefficients may depend on x'
+  verify: { authored: true }
+
+# ── existence and uniqueness (EM-2.7.A) ────────────────────────────────────
+- template: em-existence
+  skill: ode1.recognize
+  cases:
+    - { f: "y' = x^2 + y^2,\\quad y(0) = 1", ans: 0, why: 'f and ∂f/∂y = 2y are continuous everywhere' }
+    - { f: "y' = \\sqrt{y},\\quad y(0) = 0", ans: 1, why: '∂f/∂y = 1/(2√y) is unbounded at y = 0; in fact y = 0 and y = x²/4 both solve it' }
+    - { f: "y' = y^{1/3},\\quad y(0) = 0", ans: 1, why: '∂f/∂y blows up at y = 0, and several solutions leave the origin' }
+    - { f: "y' = \\frac{y}{x},\\quad y(1) = 2", ans: 0, why: 'Near (1, 2), f and ∂f/∂y = 1/x are continuous' }
+    - { f: "y' = \\frac{y}{x},\\quad y(0) = 0", ans: 1, why: 'f is not defined, let alone continuous, at x = 0' }
+    - { f: "y' = \\sin(xy),\\quad y(2) = -1", ans: 0, why: 'f and ∂f/∂y = x cos(xy) are continuous everywhere' }
+  prompt: 'Does the theorem guarantee a unique solution near the initial point for ${{f}}$?'
+  parts:
+    - ask: 'The existence and uniqueness theorem…'
+      label: v
+      choice: ["Guarantees a unique solution", "Does not apply"]
+      correct: ans
+      explain: '{{why}}'
+  verify: { authored: true }
+
+# ── which special equation appears? (EM-10.4.B) ────────────────────────────
+- template: em-separation-coordinates
+  skill: pde.separation
+  cases:
+    - { g: 'the radial part of a vibrating circular drumhead (polar coordinates)', ans: 0 }
+    - { g: 'the polar-angle part of Laplace''s equation in spherical coordinates', ans: 1 }
+    - { g: 'the radial part of steady heat conduction in a disc (Laplace''s equation in polar coordinates)', ans: 2 }
+    - { g: 'the x-part of the heat equation on a bar with fixed ends', ans: 3 }
+    - { g: 'the radial part of transient heat conduction in a long cylinder', ans: 0 }
+  prompt: 'Separating variables, which ODE governs {{g}}?'
+  parts:
+    - ask: 'Equation'
+      label: v
+      choice: ["Bessel's equation", "Legendre's equation", "An Euler–Cauchy equation", "X'' + λX = 0 (sines and cosines)"]
+      correct: ans
+      explain: 'Time-dependent problems in a circle or cylinder give Bessel. The polar angle on a sphere gives Legendre. Steady (Laplace) problems in polar coordinates give Euler–Cauchy in r, with powers of r as solutions'
+  verify: { authored: true }
+
+# ── study design (MH-15.3.A, MH-3.3.C) ─────────────────────────────────────
+- template: hs-study-type
+  skill: stats.descriptive
+  cases:
+    - { s: 'Researchers phone 1,200 randomly chosen adults and ask how many hours they sleep', ans: 0, cause: 1 }
+    - { s: 'Patients are randomly assigned to a new drug or a placebo and their blood pressure is compared', ans: 1, cause: 0 }
+    - { s: 'Records of 5,000 people are examined to see whether coffee drinkers have fewer heart attacks', ans: 2, cause: 1 }
+    - { s: 'A teacher flips a coin for each class to decide which gets the new textbook, then compares test scores', ans: 1, cause: 0 }
+    - { s: 'Every tenth customer leaving a store is asked to rate their visit', ans: 0, cause: 1 }
+    - { s: 'Scientists compare lung health in cities with high and low air pollution', ans: 2, cause: 1 }
+  prompt: '{{s}}.'
+  parts:
+    - ask: 'This is a…'
+      label: v
+      choice: ["Sample survey", "Randomised experiment", "Observational study"]
+      correct: ans
+      explain: 'An experiment imposes a treatment and assigns it at random. A survey asks a sample. An observational study records what already happened without assigning anything'
+    - ask: 'Can it support a cause-and-effect conclusion?'
+      label: c
+      choice: ["Yes", "No, only an association"]
+      correct: cause
+      explain: 'Only random assignment balances the other differences between groups. Without it, a lurking variable can explain the pattern'
+  verify: { authored: true }
+
+# ── rational and irrational (MH-5.1.A) ─────────────────────────────────────
+- template: hs-rational-irrational
+  skill: alg.rational
+  cases:
+    - { s: 'the sum of two rational numbers', ans: 0, why: 'a/b + c/d = (ad + bc)/(bd), a ratio of integers' }
+    - { s: 'the product of two rational numbers', ans: 0, why: '(a/b)(c/d) = ac/(bd)' }
+    - { s: 'the sum of a rational number and an irrational number', ans: 1, why: 'If the sum were rational, subtracting the rational one would make the irrational one rational' }
+    - { s: 'the product of a nonzero rational number and an irrational number', ans: 1, why: 'If the product were rational, dividing by the rational one would make the irrational one rational' }
+    - { s: 'the sum of two irrational numbers', ans: 2, why: '√2 + √2 is irrational but √2 + (−√2) = 0' }
+    - { s: 'the product of two irrational numbers', ans: 2, why: '√2·√3 is irrational but √2·√2 = 2' }
+  prompt: 'What kind of number is {{s}}?'
+  parts:
+    - ask: 'It is…'
+      label: v
+      choice: ["Always rational", "Always irrational", "Sometimes rational, sometimes irrational"]
+      correct: ans
+      explain: '{{why}}'
+  verify: { authored: true }
+
+# ── restricting a domain to get an inverse (MH-16.1.D, MH-17.2.A) ──────────
+- template: hs-inverse-restrict
+  skill: alg.functions
+  cases:
+    - { f: 'f(x) = x^2', ans: 0 }
+    - { f: 'f(x) = \sin x', ans: 1 }
+    - { f: 'f(x) = \cos x', ans: 2 }
+    - { f: 'f(x) = (x - 3)^2', ans: 3 }
+    - { f: 'f(x) = \tan x', ans: 4 }
+  prompt: 'On which domain is ${{f}}$ one-to-one, so that it has an inverse there?'
+  parts:
+    - ask: 'Domain'
+      label: v
+      choice: ["x ≥ 0", "−π/2 ≤ x ≤ π/2", "0 ≤ x ≤ π", "x ≥ 3", "−π/2 < x < π/2"]
+      correct: ans
+      explain: 'Pick an interval on which the function only rises or only falls and still takes all its values. These are the standard choices behind √x, arcsin, arccos and arctan'
+  verify: { authored: true }
+
+# ── fundamental theorem of algebra (MH-12.3.D) ─────────────────────────────
+- template: hs-fta
+  skill: alg.polynomials
+  given: { n: { int: [3, 8] }, r: { int: [0, 4] } }
+  require: ["n - r >= 2", "mod(n - r, 2) == 0"]
+  prompt: 'A polynomial with real coefficients has degree ${{n}}$ and exactly ${{r}}$ real roots, counted with multiplicity.'
+  parts:
+    - ask: 'Total number of complex roots, counted with multiplicity'
+      label: t
+      tex: 'N'
+      value: n
+      tol: 0.001
+      explain: 'The Fundamental Theorem of Algebra: a degree-$n$ polynomial has exactly $n$ complex roots with multiplicity'
+    - ask: 'Number of pairs of non-real conjugate roots'
+      label: pr
+      tex: 'p'
+      value: (n - r)/2
+      tol: 0.001
+      explain: 'The other ${{n - r}}$ roots are non-real, and for real coefficients they come in conjugate pairs: ${{(n - r)/2}}$'
+  verify: { residuals: ["t - n", "2*pr - (n - r)"] }
+
+# ── statistics vocabulary (MK-7.5.A, MK-7.5.C, MK-8.5.A, MH-15.2.A) ────────
+- template: k8-statistical-question
+  skill: k8.data
+  cases:
+    - { q: 'How tall are the students in my class?', ans: 0 }
+    - { q: 'How tall is my teacher?', ans: 1 }
+    - { q: 'How many pets do the families on my street have?', ans: 0 }
+    - { q: 'How many days are in March?', ans: 1 }
+    - { q: 'How long do the batteries in this brand of flashlight last?', ans: 0 }
+    - { q: 'What is the capital of France?', ans: 1 }
+  prompt: '"{{q}}"'
+  parts:
+    - ask: 'Is this a statistical question?'
+      label: v
+      choice: ["Yes", "No"]
+      correct: ans
+      explain: 'A statistical question expects answers that vary, so it takes data to answer. A question with one fixed answer is not statistical'
+  verify: { authored: true }
+
+- template: k8-center-or-spread
+  skill: k8.data
+  cases:
+    - { m: 'mean', ans: 0 }
+    - { m: 'median', ans: 0 }
+    - { m: 'range', ans: 1 }
+    - { m: 'interquartile range', ans: 1 }
+    - { m: 'mean absolute deviation', ans: 1 }
+    - { m: 'mode', ans: 0 }
+  prompt: 'What does the {{m}} of a data set describe?'
+  parts:
+    - ask: 'It is a measure of…'
+      label: v
+      choice: ["Centre: one number that summarises all the values", "Variation: how much the values differ from each other"]
+      correct: ans
+      explain: 'Mean, median and mode locate the middle. Range, IQR and mean absolute deviation say how spread out the data are'
+  verify: { authored: true }
+
+- template: k8-sampling
+  skill: k8.data
+  cases:
+    - { s: 'To learn what students at a school think of the cafeteria, 50 names are drawn at random from the full enrolment list', ans: 0 }
+    - { s: 'To learn what students at a school think of the cafeteria, the first 50 students in the lunch line are asked', ans: 1 }
+    - { s: 'To estimate the average height of adults in a city, the players at a basketball club are measured', ans: 1 }
+    - { s: 'To estimate how many residents support a new park, every 20th name in the voter roll is called', ans: 0 }
+    - { s: 'To learn how many hours teenagers sleep, a poll is posted on a late-night gaming forum', ans: 1 }
+  prompt: '{{s}}.'
+  parts:
+    - ask: 'Is the sample likely to be representative?'
+      label: v
+      choice: ["Yes: every member had a fair chance of being chosen", "No: the method favours some members over others"]
+      correct: ans
+      explain: 'Generalising from a sample to a population is only valid when the sample is chosen at random from that whole population'
+  verify: { authored: true }
+
+# ── shapes (MK-1.5.C, MK-2.4.A, MK-8.4.C) ──────────────────────────────────
+- template: k8-flat-or-solid
+  skill: k8.geometry
+  cases:
+    - { s: 'circle', ans: 0 }
+    - { s: 'cube', ans: 1 }
+    - { s: 'triangle', ans: 0 }
+    - { s: 'sphere', ans: 1 }
+    - { s: 'rectangle', ans: 0 }
+    - { s: 'cone', ans: 1 }
+    - { s: 'hexagon', ans: 0 }
+    - { s: 'cylinder', ans: 1 }
+  prompt: 'A {{s}} is…'
+  parts:
+    - ask: 'Flat or solid?'
+      label: v
+      choice: ["Flat (two-dimensional)", "Solid (three-dimensional)"]
+      correct: ans
+      explain: 'Flat shapes lie on a page. Solid shapes take up space'
+  verify: { authored: true }
+
+- template: k8-defining-attribute
+  skill: k8.geometry
+  cases:
+    - { a: 'It has three straight sides', ans: 0 }
+    - { a: 'It is red', ans: 1 }
+    - { a: 'It is closed', ans: 0 }
+    - { a: 'It is large', ans: 1 }
+    - { a: 'It points upward', ans: 1 }
+    - { a: 'It has three corners', ans: 0 }
+  prompt: 'Thinking about triangles: "{{a}}."'
+  parts:
+    - ask: 'Is this what makes a shape a triangle?'
+      label: v
+      choice: ["Yes, every triangle has this", "No, a triangle can be different"]
+      correct: ans
+      explain: 'A triangle is a closed shape with three straight sides and three corners. Colour, size and which way it points do not matter'
+  verify: { authored: true }
+
+- template: k8-cross-section
+  skill: geo.measurement
+  cases:
+    - { s: 'a right rectangular prism, cut parallel to its base', ans: 0 }
+    - { s: 'a right rectangular pyramid, cut parallel to its base', ans: 0 }
+    - { s: 'a right rectangular pyramid, cut through the apex perpendicular to the base', ans: 1 }
+    - { s: 'a cylinder, cut parallel to its base', ans: 2 }
+    - { s: 'a cylinder, cut perpendicular to its base through the axis', ans: 0 }
+    - { s: 'a cone, cut parallel to its base', ans: 2 }
+    - { s: 'a cone, cut through the apex perpendicular to the base', ans: 1 }
+    - { s: 'a sphere, cut by any plane', ans: 2 }
+  prompt: 'What shape is the cross-section of {{s}}?'
+  parts:
+    - ask: 'Cross-section'
+      label: v
+      choice: ["Rectangle", "Triangle", "Circle"]
+      correct: ans
+      explain: 'A cut parallel to the base copies the base''s shape (smaller, in a pyramid or cone). A cut through the apex of a pyramid or cone shows its triangular profile'
+  verify: { authored: true }

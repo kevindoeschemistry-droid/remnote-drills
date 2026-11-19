@@ -1,0 +1,625 @@
+# Remaining computational objectives on the math track (calculus and engineering mathematics).
+# Templates join existing skills, so they add variety to streaks that already exist.
+
+# ── phase line (EM-2.6.D) ──────────────────────────────────────────────────
+- template: em-phase-line
+  skill: ode1.modeling
+  given: { a: { pick: [-2, -1, 1, 2] }, p: { int: [-3, 2] }, w: { int: [1, 4] } }
+  let: { q: p + w }
+  require: [p != 0, q != 0]
+  prompt: 'Consider the autonomous equation $y'' = {{a}}\,(y - ({{p}}))(y - ({{q}}))$.'
+  parts:
+    - ask: 'Smaller equilibrium'
+      label: e1
+      tex: 'y_1'
+      value: p
+      tol: 0.001
+      explain: 'Equilibria are where $y'' = 0$: $y = {{p}}$ and $y = {{q}}$'
+    - ask: 'Larger equilibrium'
+      label: e2
+      tex: 'y_2'
+      value: q
+      tol: 0.001
+      explain: 'The other root'
+    - ask: 'Which one is stable?'
+      label: st
+      choice: ["The smaller one", "The larger one"]
+      correct: "a > 0 ? 0 : 1"
+      explain: 'Between the roots the product $(y - y_1)(y - y_2)$ is negative, so there $y''$ has the sign of ${{-a}}$. Solutions move toward the root that arrows on both sides point at'
+  verify:
+    var: y
+    expect: { e1: "Min(*solve(a*(y - p)*(y - p - w), y))", e2: "Max(*solve(a*(y - p)*(y - p - w), y))" }
+    choices: { st: "0 if diff(a*(y - p)*(y - p - w), y).subs(y, p) < 0 else 1" }
+
+# ── fit a basis to initial conditions (EM-3.1.A) ───────────────────────────
+- template: em-superposition-ivp
+  skill: ode2.characteristic
+  given: { r1: { pick: [-3, -2, -1, 1, 2] }, d: { int: [1, 3] }, c1: { pick: [-3, -2, -1, 1, 2, 3] }, c2: { pick: [-3, -2, -1, 1, 2, 3] } }
+  let:
+    r2: r1 + d
+    A: c1 + c2
+    B: c1*r1 + c2*r2
+  prompt: 'A second-order linear ODE has the basis $y_1 = e^{ {{=r1*x}} }$, $y_2 = e^{ {{=r2*x}} }$. Fit $y = c_1y_1 + c_2y_2$ to $y(0) = {{A}}$, $y''(0) = {{B}}$.'
+  parts:
+    - ask: '$c_1$'
+      label: k1
+      tex: 'c_1'
+      value: c1
+      tol: 0.001
+      explain: '$c_1 + c_2 = {{A}}$ and ${{r1}}c_1 + ({{r2}})c_2 = {{B}}$. Solve the pair'
+    - ask: '$c_2$'
+      label: k2
+      tex: 'c_2'
+      value: c2
+      tol: 0.001
+      explain: '$c_2 = {{A}} - c_1$'
+  verify: { residuals: ["k1 + k2 - (c1 + c2)", "k1*r1 + k2*(r1 + d) - (c1*r1 + c2*(r1 + d))"] }
+
+# ── RLC circuit as an oscillator (EM-3.6.D) ────────────────────────────────
+- template: em-rlc
+  skill: ode2.spring-damped
+  given: { L: { pick: [0.1, 0.5, 1, 2] }, Cf: { pick: [0.001, 0.01, 0.02, 0.1] }, R: { pick: [1, 5, 10, 20, 50, 100] } }
+  let:
+    Rc: 2*sqrt(L/Cf)
+  require: [abs(R - Rc) > 0.05*Rc]
+  prompt: 'A series RLC circuit has $L = {{L}}\,\mathrm{H}$, $R = {{R}}\,\Omega$, $C = {{Cf}}\,\mathrm{F}$. The charge obeys $Lq'''' + Rq'' + \dfrac{q}{C} = 0$.'
+  parts:
+    - ask: 'Undamped natural frequency $\omega_0$'
+      label: w0
+      tex: '\omega_0'
+      value: 1/sqrt(L*Cf)
+      unit: rad/s
+      explain: 'Compare with $my'''' + cy'' + ky = 0$: $L$ plays the mass, $R$ the damper, $1/C$ the spring. $\omega_0 = \sqrt{k/m} = \frac{1}{\sqrt{LC}}$'
+    - ask: 'Resistance that gives critical damping'
+      label: Rcr
+      tex: 'R_c'
+      value: Rc
+      unit: Ω
+      explain: 'Critical damping is $c^2 = 4mk$, here $R^2 = \frac{4L}{C}$, so $R_c = 2\sqrt{L/C} = {{Rc}}$'
+    - ask: 'This circuit is…'
+      label: kind
+      choice: ["Underdamped (it rings)", "Overdamped (no oscillation)"]
+      correct: "R < Rc ? 0 : 1"
+      explain: 'Below $R_c$ the characteristic roots are complex and the charge oscillates as it decays'
+  verify:
+    residuals: ["w0**2*L*Cf - 1", "Rcr**2*Cf - 4*L"]
+    choices: { kind: "0 if R**2 - 4*L/Cf < 0 else 1" }
+
+# ── higher-order undetermined coefficients (EM-4.2.A) ──────────────────────
+- template: em-undetermined-third
+  skill: ode2.undetermined
+  given: { a: { pick: [-4, -1, 1, 2, 4] }, k: { pick: [2, 3, 6, 12] }, m: { pick: [1, 2, 3] } }
+  require: [m^3 + a*m != 0]
+  prompt: 'Find a particular solution of $y'''''' + ({{a}})y'' = {{k}}e^{ {{=m*x}} }$.'
+  parts:
+    - ask: '$y_p$'
+      label: yp
+      tex: 'y_p'
+      expr: k/(m^3 + a*m)*exp(m*x)
+      explain: 'Try $y_p = Ae^{ {{=m*x}} }$: $({{m^3}} + ({{a*m}}))A = {{k}}$, so $A = {{k/(m^3 + a*m)}}$. It works because ${{m}}$ is not a characteristic root'
+  verify: { residuals: ["diff(yp, x, 3) + a*diff(yp, x) - k*exp(m*x)"] }
+
+# ── an n-th order ODE as a first-order system (EM-5.1.A) ───────────────────
+- template: em-first-order-system
+  skill: odesys.eigenvalue
+  given: { p: { int: [-6, 6] }, q: { int: [-8, 8] } }
+  require: [p != 0, q != 0]
+  prompt: 'Write $y'''' + ({{p}})y'' + ({{q}})y = 0$ as $\mathbf z'' = A\mathbf z$ with $z_1 = y$, $z_2 = y''$.'
+  parts:
+    - ask: 'Entry $A_{21}$'
+      label: a21
+      tex: 'A_{21}'
+      value: -q
+      tol: 0.001
+      explain: '$z_1'' = z_2$ and $z_2'' = y'''' = -({{q}})z_1 - ({{p}})z_2$, so $A = \begin{pmatrix}0 & 1\\ {{-q}} & {{-p}}\end{pmatrix}$'
+    - ask: 'Entry $A_{22}$'
+      label: a22
+      tex: 'A_{22}'
+      value: -p
+      tol: 0.001
+      explain: 'The coefficient of $y''$, with its sign flipped'
+    - ask: '$\det A$'
+      label: dt
+      tex: '\det A'
+      value: q
+      tol: 0.001
+      explain: '$0\cdot({{-p}}) - 1\cdot({{-q}}) = {{q}}$. The characteristic polynomial of $A$ is the ODE''s: $\lambda^2 + ({{p}})\lambda + ({{q}})$'
+  verify: { residuals: ["a21 + q", "a22 + p", "dt - (0*a22 - 1*a21)"] }
+
+# ── nonlinear system: critical points and linearisation (EM-5.4.A, EM-5.4.B) ──
+- template: em-nonlinear-critical
+  skill: odesys.phase
+  given: { a: { int: [1, 4] }, b: { pick: [1, 2] }, c: { int: [1, 4] }, d: { pick: [1, 2] } }
+  prompt: 'Consider $x'' = x({{a}} - {{b}}y)$, $y'' = y(-{{c}} + {{d}}x)$.'
+  parts:
+    - ask: '$x$-coordinate of the critical point away from the origin'
+      label: xs
+      tex: 'x^*'
+      value: c/d
+      tol: 0.001
+      explain: 'With $y \ne 0$ the second equation needs $x = \frac{ {{c}} }{ {{d}} }$'
+    - ask: '$y$-coordinate of that point'
+      label: ys
+      tex: 'y^*'
+      value: a/b
+      tol: 0.001
+      explain: 'With $x \ne 0$ the first equation needs $y = \frac{ {{a}} }{ {{b}} }$'
+    - ask: 'The origin is a…'
+      label: o
+      choice: ["Saddle point", "Stable node", "Centre"]
+      correct: 0
+      explain: 'The Jacobian at $(0, 0)$ is $\mathrm{diag}({{a}}, -{{c}})$: one positive and one negative eigenvalue'
+    - ask: 'The linearisation at $(x^*, y^*)$ has eigenvalues that are…'
+      label: e
+      choice: ["Purely imaginary, so the linearisation is inconclusive", "Real and negative, so it is stable", "Real with opposite signs, so it is a saddle"]
+      correct: 0
+      explain: 'There the Jacobian has zero trace and positive determinant ${{a*c}}$: $\lambda = \pm i\sqrt{ {{a*c}} }$. A linear centre can be anything in the nonlinear system; for this one the orbits do close'
+  verify:
+    expect:
+      xs: "solve(-c + d*x, x)[0]"
+      ys: "solve(a - b*Y, Y)[0]"
+    choices:
+      o: "0 if Matrix([x*(a - b*Y), Y*(-c + d*x)]).jacobian([x, Y]).subs({x: 0, Y: 0}).det() < 0 else 1"
+      e: "0 if all([re(v) == 0 for v in Matrix([x*(a - b*Y), Y*(-c + d*x)]).jacobian([x, Y]).subs({x: Rational(c, d), Y: Rational(a, b)}).eigenvals()]) else 1"
+
+# ── constant forcing of a linear system (EM-5.5.A) ─────────────────────────
+- template: em-nonhomog-system
+  skill: odesys.eigenvalue
+  given: { a: { pick: [-4, -3, -2, -1, 1, 2] }, b: { int: [-3, 3] }, d: { pick: [-4, -2, -1, 1, 2] }, g1: { int: [-6, 6] }, g2: { pick: [-8, -4, -2, 2, 4, 8] } }
+  let:
+    y2: -g2/d
+    y1: -(g1 + b*y2)/a
+  require: [y1 != 0]
+  prompt: 'Find the constant particular solution of $\mathbf y'' = \begin{pmatrix}{{a}} & {{b}}\\ 0 & {{d}}\end{pmatrix}\mathbf y + \begin{pmatrix}{{g1}}\\ {{g2}}\end{pmatrix}$.'
+  parts:
+    - ask: 'Second component of $\mathbf y_p$'
+      label: p2
+      tex: 'y_{p,2}'
+      value: y2
+      tol: 0.002
+      explain: 'A constant solution has $\mathbf y'' = 0$, so $A\mathbf y_p = -\mathbf g$. Bottom row: ${{d}}y_2 = {{-g2}}$'
+    - ask: 'First component of $\mathbf y_p$'
+      label: p1
+      tex: 'y_{p,1}'
+      value: y1
+      tol: 0.002
+      explain: 'Top row: ${{a}}y_1 + ({{b}})y_2 = {{-g1}}$, with $y_2 = {{y2}}$'
+  verify:
+    expect:
+      p1: "(-Matrix([[a, b], [0, d]]).inv()*Matrix([g1, g2]))[0]"
+      p2: "(-Matrix([[a, b], [0, d]]).inv()*Matrix([g1, g2]))[1]"
+
+# ── Legendre polynomials (EM-6.4.D, EM-9.3.B) ──────────────────────────────
+- template: em-legendre-eval
+  skill: series.special-functions
+  given: { n: { pick: [2, 3] }, x0: { pick: [-1, -0.5, 0.5, 1] } }
+  prompt: 'Let $P_{ {{n}} }$ be the Legendre polynomial of degree ${{n}}$.'
+  parts:
+    - ask: '$P_{ {{n}} }({{x0}})$'
+      label: v
+      tex: 'P_{ {{n}} }({{x0}})'
+      value: "n == 2 ? (3*x0^2 - 1)/2 : (5*x0^3 - 3*x0)/2"
+      tol: 0.002
+      explain: '$P_2 = \tfrac12(3x^2 - 1)$ and $P_3 = \tfrac12(5x^3 - 3x)$'
+    - ask: '$\displaystyle\int_{-1}^{1}P_{ {{n}} }(x)^2\,dx$'
+      label: nm
+      tex: '\|P_{ {{n}} }\|^2'
+      value: 2/(2*n + 1)
+      explain: '$\frac{2}{2n + 1} = \frac{2}{ {{2*n + 1}} }$. Different degrees are orthogonal on $[-1, 1]$; this is what each one''s own square integrates to'
+  verify:
+    expect: { v: "legendre(n, x).subs(x, x0)", nm: "integrate(legendre(n, x)**2, (x, -1, 1))" }
+
+- template: em-legendre-expansion
+  skill: series.special-functions
+  given: { a: { pick: [-6, -3, 3, 6, 9] }, b: { int: [-4, 4] } }
+  require: [a/3 + b != 0]
+  prompt: 'Expand $f(x) = {{=a*x^2 + b}}$ on $[-1, 1]$ as $c_0P_0 + c_2P_2$.'
+  parts:
+    - ask: '$c_0$'
+      label: c0
+      tex: 'c_0'
+      value: a/3 + b
+      tol: 0.002
+      explain: '$c_n = \frac{2n + 1}{2}\int_{-1}^{1}f\,P_n\,dx$. For $n = 0$ that is the average value of $f$: $\frac{ {{a}} }{3} + ({{b}})$'
+    - ask: '$c_2$'
+      label: c2
+      tex: 'c_2'
+      value: 2*a/3
+      tol: 0.002
+      explain: 'Since $x^2 = \tfrac13P_0 + \tfrac23P_2$, the $x^2$ term contributes $\tfrac23\cdot({{a}})$'
+  verify:
+    expect:
+      c0: "Rational(1, 2)*integrate((a*x**2 + b)*legendre(0, x), (x, -1, 1))"
+      c2: "Rational(5, 2)*integrate((a*x**2 + b)*legendre(2, x), (x, -1, 1))"
+
+# ── diagonalisation (EM-8.5.A) ─────────────────────────────────────────────
+- template: em-diagonalise
+  skill: la.eigenvalues
+  given: { m: { int: [-3, 4] }, h: { int: [1, 4] } }
+  require: [m - h != 0, m + h != 0]
+  prompt: 'Let $A = \begin{pmatrix}{{m}} & {{h}}\\ {{h}} & {{m}}\end{pmatrix}$, with eigenvectors $(1, 1)$ and $(1, -1)$.'
+  parts:
+    - ask: 'Eigenvalue belonging to $(1, 1)$'
+      label: l1
+      tex: '\lambda_1'
+      value: m + h
+      tol: 0.001
+      explain: '$A(1, 1)^T = ({{m + h}}, {{m + h}})^T$'
+    - ask: 'Eigenvalue belonging to $(1, -1)$'
+      label: l2
+      tex: '\lambda_2'
+      value: m - h
+      tol: 0.001
+      explain: '$A(1, -1)^T = ({{m - h}}, {{-(m - h)}})^T$'
+    - ask: 'Top-left entry of $A^3$'
+      label: a3
+      tex: '(A^3)_{11}'
+      value: ((m + h)^3 + (m - h)^3)/2
+      tol: 0.001
+      explain: '$A = PDP^{-1}$ gives $A^3 = PD^3P^{-1}$: cube the eigenvalues, then transform back. The $(1,1)$ entry is $\frac{\lambda_1^3 + \lambda_2^3}{2}$. In the eigenvector coordinates the system $\mathbf y'' = A\mathbf y$ is two separate equations'
+  verify:
+    expect:
+      l1: "(Matrix([[m, h], [h, m]])*Matrix([1, 1]))[0]"
+      l2: "(Matrix([[m, h], [h, m]])*Matrix([1, -1]))[0]"
+      a3: "(Matrix([[m, h], [h, m]])**3)[0, 0]"
+
+# ── orthogonality of eigenfunctions (EM-9.3.A) ─────────────────────────────
+- template: em-orthogonality
+  skill: bvp.sl-eigenfunctions
+  given: { L: { pick: [1, 2, 3, 4] }, m: { int: [1, 3] }, n: { int: [1, 4] } }
+  prompt: 'On $[0, {{L}}]$ consider the eigenfunctions $\phi_k(x) = \sin\dfrac{k\pi x}{ {{L}} }$.'
+  parts:
+    - ask: '$\displaystyle\int_0^{ {{L}} }\phi_{ {{n}} }(x)^2\,dx$'
+      label: nm
+      tex: '\|\phi_{ {{n}} }\|^2'
+      value: L/2
+      tol: 0.002
+      explain: '$\sin^2$ averages to $\tfrac12$ over whole half-periods: $\frac{ {{L}} }{2}$, whatever $n$ is'
+    - ask: '$\displaystyle\int_0^{ {{L}} }\phi_{ {{m}} }\phi_{ {{m + n}} }\,dx$ equals…'
+      label: z
+      choice: ["0", "L/2", "L"]
+      correct: 0
+      explain: 'Eigenfunctions with different eigenvalues are orthogonal (weight $r = 1$ here). That is what lets each Fourier coefficient be found on its own'
+  verify:
+    expect: { nm: "integrate(sin(n*pi*x/L)**2, (x, 0, L))" }
+    choices: { z: "0 if integrate(sin(m*pi*x/L)*sin((m + n)*pi*x/L), (x, 0, L)) == 0 else 1" }
+
+# ── implicit curve: horizontal tangents (CA-5.12.A) ────────────────────────
+- template: ca-implicit-horizontal
+  skill: calc.implicit-inverse
+  given: { c: { int: [1, 4] } }
+  prompt: 'Find the point with $x > 0$ on $x^2 + xy + y^2 = {{3*c^2}}$ where the tangent is horizontal.'
+  parts:
+    - ask: '$x$'
+      label: xh
+      tex: 'x'
+      value: c
+      tol: 0.001
+      explain: '$\frac{dy}{dx} = -\frac{2x + y}{x + 2y}$, zero when $y = -2x$. Substituting: $x^2 - 2x^2 + 4x^2 = 3x^2 = {{3*c^2}}$'
+    - ask: '$y$'
+      label: yh
+      tex: 'y'
+      value: -2*c
+      tol: 0.001
+      explain: '$y = -2x = {{-2*c}}$'
+  verify: { residuals: ["xh**2 + xh*yh + yh**2 - 3*c**2", "2*xh + yh"] }
+
+# ── limit of Riemann sums as an integral (CA-6.3.A) ────────────────────────
+- template: ca-riemann-limit
+  skill: calc.riemann-ftc
+  given: { p: { int: [1, 3] }, w: { int: [1, 3] } }
+  prompt: 'Evaluate $\displaystyle\lim_{n\to\infty}\sum_{k=1}^{n}\left({{p}} + \frac{ {{w}}k}{n}\right)^{2}\frac{ {{w}} }{n}$ by recognising it as a definite integral.'
+  parts:
+    - ask: 'Upper limit of the integral $\int_{ {{p}} }^{\,?}x^2\,dx$'
+      label: up
+      tex: 'b'
+      value: p + w
+      tol: 0.001
+      explain: '$\Delta x = \frac{ {{w}} }{n}$ and the sample points $x_k = {{p}} + k\Delta x$ run from ${{p}}$ to ${{p + w}}$'
+    - ask: 'The limit'
+      label: I0
+      tex: 'I'
+      value: ((p + w)^3 - p^3)/3
+      tol: 0.002
+      explain: '$\int_{ {{p}} }^{ {{p + w}} }x^2\,dx = \frac{ {{(p + w)^3}} - {{p^3}} }{3}$'
+  verify: { expect: { up: "p + w", I0: "integrate(x**2, (x, p, p + w))" } }
+
+# ── area with several crossings (CA-8.6.A) ─────────────────────────────────
+- template: ca-area-crossings
+  skill: calc.integration-apps
+  given: { a: { int: [1, 3] } }
+  prompt: 'Find the total area enclosed between $y = x^3$ and $y = {{a^2}}x$.'
+  parts:
+    - ask: 'Rightmost intersection, $x = \,?$'
+      label: xr
+      tex: 'x'
+      value: a
+      tol: 0.001
+      explain: '$x^3 = {{a^2}}x$ at $x = -{{a}}, 0, {{a}}$. The curves swap places at 0, so split there'
+    - ask: 'Total enclosed area'
+      label: A
+      tex: 'A'
+      value: a^4/2
+      tol: 0.002
+      explain: 'By symmetry twice the right-hand piece: $2\int_0^{ {{a}} }\left({{a^2}}x - x^3\right)dx = 2\cdot\frac{ {{a}}^4}{4}$. Integrating straight across from $-{{a}}$ to ${{a}}$ would give 0'
+  verify: { expect: { xr: "Max(*solve(x**3 - a**2*x, x))", A: "integrate(a**2*x - x**3, (x, 0, a)) + integrate(x**3 - a**2*x, (x, -a, 0))" } }
+
+# ── revolution about a line other than an axis (CA-8.10.A, CA-8.12.A) ──────
+- template: ca-volume-disc-line
+  skill: calc.integration-apps
+  given: { c: { int: [1, 3] } }
+  prompt: 'The region between $y = x^2$ and the line $y = {{c^2}}$ is revolved about the line $y = {{c^2}}$.'
+  parts:
+    - ask: 'Volume'
+      label: V
+      tex: 'V'
+      value: 16*pi*c^5/15
+      explain: 'Measure the radius from the axis of revolution: $r = {{c^2}} - x^2$ for $-{{c}} \le x \le {{c}}$. $V = \pi\int_{-{{c}} }^{ {{c}} }\left({{c^2}} - x^2\right)^2dx = \frac{16\pi\cdot{{c}}^5}{15}$'
+  verify: { expect: { V: "pi*integrate((c**2 - x**2)**2, (x, -c, c))" } }
+
+- template: ca-volume-washer-line
+  skill: calc.integration-apps
+  given: { k: { int: [1, 4] } }
+  prompt: 'The region between $y = x$ and $y = x^2$ is revolved about the line $y = -{{k}}$.'
+  parts:
+    - ask: 'Volume'
+      label: V
+      tex: 'V'
+      value: pi*(2/15 + k/3)
+      explain: 'Both radii are measured from $y = -{{k}}$: outer $x + {{k}}$, inner $x^2 + {{k}}$. $V = \pi\int_0^1\left[(x + {{k}})^2 - (x^2 + {{k}})^2\right]dx = \pi\left(\frac{2}{15} + \frac{ {{k}} }{3}\right)$'
+  verify: { expect: { V: "pi*integrate((x + k)**2 - (x**2 + k)**2, (x, 0, 1))" } }
+
+# ── area between polar curves (CA-9.9.A) ───────────────────────────────────
+- template: ca-polar-between
+  skill: calc.parametric-polar
+  given: { a: { int: [1, 4] } }
+  prompt: 'Find the area inside $r = {{3*a}}\sin\theta$ and outside $r = {{a}}(1 + \sin\theta)$.'
+  parts:
+    - ask: 'First intersection angle, in degrees'
+      label: th
+      tex: '\theta_1'
+      value: 30
+      tol: 0.001
+      explain: '$3\sin\theta = 1 + \sin\theta$ gives $\sin\theta = \tfrac12$: $\theta = 30^\circ$ and $150^\circ$'
+    - ask: 'Area'
+      label: A
+      tex: 'A'
+      value: pi*a^2
+      explain: '$\frac12\int_{\pi/6}^{5\pi/6}\left[({{3*a}}\sin\theta)^2 - {{a^2}}(1 + \sin\theta)^2\right]d\theta = \pi\cdot{{a^2}}$'
+  verify:
+    var: t
+    expect:
+      th: "Min(*[q for q in solve(3*sin(t) - 1 - sin(t), t) if q > 0])*180/pi"
+      A: "integrate(((3*a*sin(t))**2 - (a*(1 + sin(t)))**2)/2, (t, pi/6, 5*pi/6))"
+
+# ── integral test (CA-10.4.A) ──────────────────────────────────────────────
+- template: ca-integral-test
+  skill: calc.series
+  given: { k: { pick: [2, 4, 6, 10] } }
+  prompt: 'Apply the integral test to $\displaystyle\sum_{n=1}^{\infty}{{k}}n\,e^{-n^2}$.'
+  parts:
+    - ask: '$\displaystyle\int_1^{\infty}{{k}}x\,e^{-x^2}\,dx$'
+      label: I0
+      tex: 'I'
+      value: k/(2*exp(1))
+      explain: 'The terms are positive, continuous and decreasing for $x \ge 1$. With $u = x^2$: $\left[-\frac{ {{k}} }{2}e^{-x^2}\right]_1^{\infty} = \frac{ {{k}} }{2e}$'
+    - ask: 'So the series…'
+      label: v
+      choice: ["Converges", "Diverges"]
+      correct: 0
+      explain: 'The integral is finite, so the series converges. The integral''s value is not the series'' sum'
+  verify:
+    expect: { I0: "integrate(k*x*exp(-x**2), (x, 1, oo))" }
+    choices: { v: "0 if integrate(k*x*exp(-x**2), (x, 1, oo)) != oo else 1" }
+
+# ── using and building series (CA-10.14.B, CA-10.15.A) ─────────────────────
+- template: ca-series-use
+  skill: calc.taylor
+  given: { a: { pick: [1, 2, 3] } }
+  prompt: 'Use Maclaurin series.'
+  parts:
+    - ask: '$\displaystyle\lim_{x\to 0}\frac{\sin {{=a*x}} - {{=a*x}} }{x^3}$'
+      label: L
+      tex: 'L'
+      value: -a^3/6
+      explain: '$\sin u = u - \frac{u^3}{6} + \cdots$ with $u = {{=a*x}}$: the top is $-\frac{ {{a^3}}x^3}{6} + \cdots$'
+    - ask: '$\displaystyle\sum_{n=0}^{\infty}\frac{ {{a}}^{n} }{n!}$'
+      label: S
+      tex: 'S'
+      value: exp(a)
+      explain: 'That is the series for $e^x$ evaluated at $x = {{a}}$'
+  verify: { expect: { L: "limit((sin(a*x) - a*x)/x**3, x, 0)", S: "summation(a**nn/factorial(nn), (nn, 0, oo))" } }
+
+- template: ca-series-build
+  skill: calc.taylor
+  given: { a: { pick: [-3, -2, 2, 3] } }
+  prompt: 'Build each series from a known one.'
+  parts:
+    - ask: 'Coefficient of $x^3$ in the Maclaurin series of $\dfrac{1}{1 - ({{a}})x}$'
+      label: c3
+      tex: 'c_3'
+      value: a^3
+      tol: 0.001
+      explain: 'Substitute $u = {{a}}x$ into $\frac{1}{1 - u} = \sum u^n$: the $x^3$ term is $({{a}})^3x^3$'
+    - ask: 'Coefficient of $x^4$ in the Maclaurin series of $e^{ {{=a*x^2}} }$'
+      label: c4
+      tex: 'c_4'
+      value: a^2/2
+      tol: 0.001
+      explain: 'Substitute $u = {{=a*x^2}}$ into $e^u = 1 + u + \frac{u^2}{2} + \cdots$: $\frac{({{a}})^2x^4}{2}$'
+  verify:
+    expect: { c3: "series(1/(1 - a*x), x, 0, 5).removeO().coeff(x, 3)", c4: "series(exp(a*x**2), x, 0, 6).removeO().coeff(x, 4)" }
+
+# ── two-path test (CA-12.1.B) ──────────────────────────────────────────────
+- template: ca-two-path-limit
+  skill: calc.partials-apps
+  given: { a: { pick: [2, 4, 6, 8] }, m: { pick: [2, 3] } }
+  prompt: 'Consider $f(x, y) = \dfrac{ {{a}}xy}{x^2 + y^2}$ as $(x, y) \to (0, 0)$.'
+  parts:
+    - ask: 'Limit along the line $y = x$'
+      label: L1
+      tex: 'L_1'
+      value: a/2
+      tol: 0.002
+      explain: '$\frac{ {{a}}x^2}{2x^2} = {{a/2}}$'
+    - ask: 'Limit along the line $y = {{m}}x$'
+      label: L2
+      tex: 'L_2'
+      value: a*m/(1 + m^2)
+      tol: 0.002
+      explain: '$\frac{ {{a*m}}x^2}{(1 + {{m^2}})x^2} = {{a*m/(1 + m^2)}}$'
+    - ask: 'So the limit…'
+      label: v
+      choice: ["Does not exist", "Exists"]
+      correct: 0
+      explain: 'Two paths into the origin give two different values, so there is no single limit'
+  verify:
+    expect: { L1: "limit((a*x*Y/(x**2 + Y**2)).subs(Y, x), x, 0)", L2: "limit((a*x*Y/(x**2 + Y**2)).subs(Y, m*x), x, 0)" }
+    choices: { v: "0 if limit((a*x*Y/(x**2 + Y**2)).subs(Y, x), x, 0) != limit((a*x*Y/(x**2 + Y**2)).subs(Y, m*x), x, 0) else 1" }
+
+# ── extrema on a closed region (CA-12.6.B) ─────────────────────────────────
+- template: ca-extrema-region
+  skill: calc.partials-apps
+  given: { a: { int: [1, 2] }, w: { int: [1, 3] } }
+  let: { R: a + w }
+  prompt: 'Find the absolute extrema of $f(x, y) = x^2 + y^2 - {{2*a}}x$ on the disc $x^2 + y^2 \le {{R^2}}$.'
+  parts:
+    - ask: 'Absolute minimum'
+      label: mn
+      tex: 'f_\mathrm{min}'
+      value: -a^2
+      tol: 0.001
+      explain: 'Interior critical point: $f_x = 2x - {{2*a}} = 0$, $f_y = 2y = 0$, so $({{a}}, 0)$, which is inside the disc. $f = -{{a^2}}$'
+    - ask: 'Absolute maximum'
+      label: mx
+      tex: 'f_\mathrm{max}'
+      value: R^2 + 2*a*R
+      tol: 0.001
+      explain: 'On the boundary $x^2 + y^2 = {{R^2}}$, so $f = {{R^2}} - {{2*a}}x$, largest at $x = -{{R}}$: ${{R^2}} + {{2*a*R}}$'
+  verify:
+    expect:
+      mn: "(x**2 + Y**2 - 2*a*x).subs({x: a, Y: 0})"
+      mx: "Max((x**2 + Y**2 - 2*a*x).subs({x: -(a + w), Y: 0}), (x**2 + Y**2 - 2*a*x).subs({x: a + w, Y: 0}))"
+
+# ── curl test in 3-D (CA-14.5.B) ───────────────────────────────────────────
+- template: ca-curl-conservative
+  skill: calc.vector-calculus
+  given: { a: { int: [1, 4] }, j: { pick: [0, 0, 1, -2, 3] } }
+  prompt: 'Is $\mathbf F = \left\langle {{=a*y}},\ {{=(a + j)*x}},\ z\right\rangle$ conservative?'
+  parts:
+    - ask: '$\mathbf F$ is…'
+      label: v
+      choice: ["Conservative", "Not conservative"]
+      correct: "j == 0 ? 0 : 1"
+      explain: 'The $z$-component of the curl is $\partial_x({{=(a + j)*x}}) - \partial_y({{=a*y}}) = {{j}}$. On all of space a field is conservative exactly when its curl is zero'
+  verify: { choices: { v: "0 if diff((a + j)*x, x) - diff(a*Y, Y) == 0 else 1" } }
+
+# ── matrices and vectors (MH-19.4.B, 19.4.D, 19.4.F, 19.1.B, 19.2.E) ───────
+- template: hs-matrix-ops
+  skill: alg.vectors-matrices
+  given: { a: { int: [-3, 4] }, b: { int: [-3, 4] }, c: { int: [-3, 4] }, d: { int: [-3, 4] }, k: { pick: [-3, -2, 2, 3] }, v1: { int: [-3, 3] }, v2: { int: [-3, 3] } }
+  require: [a*v1 + b*v2 != 0, c*v1 + d*v2 != 0, c != 0]
+  prompt: 'Let $A = \begin{pmatrix}{{a}} & {{b}}\\ {{c}} & {{d}}\end{pmatrix}$ and $\mathbf v = \begin{pmatrix}{{v1}}\\ {{v2}}\end{pmatrix}$.'
+  parts:
+    - ask: 'Bottom-left entry of ${{k}}A$'
+      label: s
+      tex: '({{k}}A)_{21}'
+      value: k*c
+      tol: 0.001
+      explain: 'A scalar multiplies every entry: ${{k}}\cdot({{c}})$'
+    - ask: 'First component of $A\mathbf v$'
+      label: w1
+      tex: '(A\mathbf v)_1'
+      value: a*v1 + b*v2
+      tol: 0.001
+      explain: 'Row 1 dotted with $\mathbf v$: $({{a}})({{v1}}) + ({{b}})({{v2}})$'
+    - ask: 'Second component of $A\mathbf v$'
+      label: w2
+      tex: '(A\mathbf v)_2'
+      value: c*v1 + d*v2
+      tol: 0.001
+      explain: 'Row 2 dotted with $\mathbf v$: $({{c}})({{v1}}) + ({{d}})({{v2}})$'
+  verify:
+    expect:
+      s: "(k*Matrix([[a, b], [c, d]]))[1, 0]"
+      w1: "(Matrix([[a, b], [c, d]])*Matrix([v1, v2]))[0]"
+      w2: "(Matrix([[a, b], [c, d]])*Matrix([v1, v2]))[1]"
+
+- template: hs-matrix-noncommute
+  skill: alg.vectors-matrices
+  given: { a: { int: [1, 4] }, b: { int: [1, 4] }, c: { int: [1, 4] } }
+  prompt: 'Let $A = \begin{pmatrix}1 & {{a}}\\ 0 & 1\end{pmatrix}$ and $B = \begin{pmatrix}{{b}} & 0\\ {{c}} & 1\end{pmatrix}$.'
+  parts:
+    - ask: 'Top-left entry of $AB$'
+      label: ab
+      tex: '(AB)_{11}'
+      value: b + a*c
+      tol: 0.001
+      explain: 'Row 1 of $A$ times column 1 of $B$: $1\cdot{{b}} + {{a}}\cdot{{c}}$'
+    - ask: 'Top-left entry of $BA$'
+      label: ba
+      tex: '(BA)_{11}'
+      value: b
+      tol: 0.001
+      explain: 'Row 1 of $B$ times column 1 of $A$: ${{b}}\cdot 1 + 0\cdot 0$. Different from $AB$: matrix multiplication does not commute'
+  verify:
+    expect:
+      ab: "(Matrix([[1, a], [0, 1]])*Matrix([[b, 0], [c, 1]]))[0, 0]"
+      ba: "(Matrix([[b, 0], [c, 1]])*Matrix([[1, a], [0, 1]]))[0, 0]"
+
+- template: hs-vector-components
+  skill: alg.vectors-matrices
+  given: { p1: { int: [-4, 4] }, p2: { int: [-4, 4] }, k: { int: [1, 3] }, c: { pick: [-3, -2, 2, 3] }, sx: { pick: [-1, 1] }, sy: { pick: [-1, 1] } }
+  prompt: 'A vector $\mathbf v$ runs from $P = ({{p1}}, {{p2}})$ to $Q = ({{p1 + sx*3*k}}, {{p2 + sy*4*k}})$.'
+  parts:
+    - ask: '$x$-component of $\mathbf v$'
+      label: vx
+      tex: 'v_x'
+      value: sx*3*k
+      tol: 0.001
+      explain: 'Terminal minus initial: ${{p1 + sx*3*k}} - ({{p1}})$'
+    - ask: '$\|\mathbf v\|$'
+      label: mag
+      tex: '\|\mathbf v\|'
+      value: 5*k
+      tol: 0.001
+      explain: '$\sqrt{({{sx*3*k}})^2 + ({{sy*4*k}})^2} = {{5*k}}$'
+    - ask: '$\|{{c}}\mathbf v\|$'
+      label: sm
+      tex: '\|{{c}}\mathbf v\|'
+      value: abs(c)*5*k
+      tol: 0.001
+      explain: '$|{{c}}|\cdot\|\mathbf v\|$. A negative scalar reverses the direction but a length is never negative'
+  verify: { residuals: ["vx - sx*3*k", "mag**2 - (3*k)**2 - (4*k)**2", "sm - Abs(c)*mag"] }
+
+# ── exponential eventually beats linear (MH-2.6.D, MH-5.3.E) ───────────────
+- template: hs-exp-beats-linear
+  skill: alg.exponential
+  given: { k: { pick: [10, 50, 100, 500] } }
+  let:
+    n0: "k == 10 ? 6 : (k == 50 ? 9 : (k == 100 ? 10 : 13))"
+  prompt: 'Compare $f(n) = {{k}}n$ and $g(n) = 2^n$ for whole numbers $n \ge 1$.'
+  parts:
+    - ask: 'Smallest $n$ with $g(n) > f(n)$ that stays ahead from then on'
+      label: n
+      tex: 'n'
+      value: n0
+      tol: 0.001
+      explain: 'Make a table. At $n = {{n0 - 1}}$: $f = {{k*(n0 - 1)}}$, $g = {{2^(n0 - 1)}}$. At $n = {{n0}}$: $f = {{k*n0}}$, $g = {{2^n0}}$. After that $g$ doubles each step while $f$ only adds ${{k}}$'
+  verify: { expect: { n: "Max(*[q for q in range(2, 40) if 2**q <= k*q]) + 1" } }
+
+# ── variables for quantities (MK-7.3.G) ────────────────────────────────────
+- template: k8-write-expression
+  skill: k8.expressions
+  given: { k: { int: [2, 9] }, n: { int: [1, 12] } }
+  cases:
+    - { say: "more than", sign: 1 }
+    - { say: "less than", sign: -1 }
+  prompt: 'Write an expression for "{{n}} {{say}} {{k}} times a number $x$".'
+  parts:
+    - ask: 'The expression'
+      label: E
+      tex: ''
+      expr: k*x + sign*n
+      explain: '"{{k}} times a number" is ${{k}}x$. "{{n}} {{say}}" that changes it by ${{n}}$ afterwards, so the ${{k}}x$ comes first'
+  verify: { expect: { E: "k*x + sign*n" } }

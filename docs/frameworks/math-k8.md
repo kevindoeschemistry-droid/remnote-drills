@@ -2,7 +2,7 @@
 
 Generated from `drills/frameworks/math-k8.yaml` by `scripts/framework.mjs`. ● drilled · ◐ partly · ○ no drills yet.
 
-**258 learning objectives** in 9 units (258 core): 195 drilled, 25 partly, 38 with no drills. Core: 195 / 258 drilled.
+**258 learning objectives** in 9 units (258 core): 214 drilled, 27 partly, 17 with no drills. Core: 214 / 258 drilled.
 
 ## Big ideas
 
@@ -30,15 +30,15 @@ Generated from `drills/frameworks/math-k8.yaml` by `scripts/framework.mjs`. ● 
 
 | Unit | Scope | Est. weight | LOs | ● | ◐ | ○ |
 |---|---|---|---|---|---|---|
-| 1 · Kindergarten — counting, adding and subtracting within 10, shapes | core | — | 22 | 10 | 2 | 10 |
-| 2 · Grade 1 — addition and subtraction within 20, tens and ones, length units | core | — | 21 | 14 | 4 | 3 |
-| 3 · Grade 2 — base ten to 1000, fluency within 100, standard length units | core | — | 26 | 18 | 2 | 6 |
-| 4 · Grade 3 — multiplication and division within 100, unit fractions, area | core | — | 30 | 23 | 7 | 0 |
+| 1 · Kindergarten — counting, adding and subtracting within 10, shapes | core | — | 22 | 13 | 3 | 6 |
+| 2 · Grade 1 — addition and subtraction within 20, tens and ones, length units | core | — | 21 | 15 | 4 | 2 |
+| 3 · Grade 2 — base ten to 1000, fluency within 100, standard length units | core | — | 26 | 18 | 5 | 3 |
+| 4 · Grade 3 — multiplication and division within 100, unit fractions, area | core | — | 30 | 27 | 3 | 0 |
 | 5 · Grade 4 — multi-digit arithmetic, fraction equivalence and operations, angles | core | — | 32 | 28 | 2 | 2 |
-| 6 · Grade 5 — fraction addition and multiplication, decimals to thousandths, volume | core | — | 30 | 27 | 3 | 0 |
-| 7 · Grade 6 — ratios and rates, negative numbers, expressions and one-step equations, distributions | core | — | 36 | 29 | 1 | 6 |
-| 8 · Grade 7 — proportional relationships, rational-number arithmetic, linear equations, sampling and probability | core | — | 30 | 24 | 1 | 5 |
-| 9 · Grade 8 — irrationals and exponents, linear equations and systems, functions, transformations, Pythagoras | core | — | 31 | 22 | 3 | 6 |
+| 6 · Grade 5 — fraction addition and multiplication, decimals to thousandths, volume | core | — | 30 | 28 | 2 | 0 |
+| 7 · Grade 6 — ratios and rates, negative numbers, expressions and one-step equations, distributions | core | — | 36 | 33 | 3 | 0 |
+| 8 · Grade 7 — proportional relationships, rational-number arithmetic, linear equations, sampling and probability | core | — | 30 | 26 | 0 | 4 |
+| 9 · Grade 8 — irrationals and exponents, linear equations and systems, functions, transformations, Pythagoras | core | — | 31 | 26 | 5 | 0 |
 
 ## Unit 1 · Kindergarten — counting, adding and subtracting within 10, shapes
 
@@ -55,18 +55,18 @@ Big ideas: COUNT, OPS, MEAS, SHAPE
   - EK: Any number in the sequence can be a starting point; the next number is always one more.
   - Needs: MK-1.1.A
   - MP7 · drills: k8-count-on
-- ○ **MK-1.1.C** (K.CC.A.3) Write numbers from 0 to 20 and represent a number of objects with a written numeral 0–20 (0 = no objects).
+- ◐ **MK-1.1.C** (K.CC.A.3) Write numbers from 0 to 20 and represent a number of objects with a written numeral 0–20 (0 = no objects).
   - EK: A numeral is a symbol for how many; 0 names an empty set.
   - Needs: MK-1.1.A
-  - MP6
-- ○ **MK-1.1.D** (K.CC.B.4a, K.CC.B.4b, K.CC.B.4c) Count objects by saying the number names in standard order, pairing each object with one and only one number name.
+  - MP6 · drills: ~k8-count-dots
+- ● **MK-1.1.D** (K.CC.B.4a, K.CC.B.4b, K.CC.B.4c) Count objects by saying the number names in standard order, pairing each object with one and only one number name.
   - EK: One-to-one correspondence; the last number said is how many (cardinality), whatever the order counted; each successive number is one larger.
   - Needs: MK-1.1.A
-  - MP2 · MP6
-- ○ **MK-1.1.E** (K.CC.B.5) Count to answer "how many?" for up to 20 objects in a line, array or circle (10 scattered), and count out that many objects given a number 1–20.
+  - MP2 · MP6 · drills: k8-count-dots
+- ● **MK-1.1.E** (K.CC.B.5) Count to answer "how many?" for up to 20 objects in a line, array or circle (10 scattered), and count out that many objects given a number 1–20.
   - EK: Arrangement does not change how many; scattered sets need a way to track what was counted.
   - Needs: MK-1.1.D
-  - MP6
+  - MP6 · drills: k8-count-dots
 - ◐ **MK-1.1.F** (K.CC.C.6) Identify whether the number of objects in one group is greater than, less than, or equal to the number in another group (up to 10).
   - EK: Compare by matching one-to-one or by counting; leftover objects mean more.
   - Needs: MK-1.1.E
@@ -136,10 +136,10 @@ Big ideas: COUNT, OPS, MEAS, SHAPE
 - ○ **MK-1.5.B** (K.G.A.2) Name shapes correctly regardless of their orientation or overall size.
   - EK: A shape keeps its name when it is turned or resized.
   - MP7
-- ○ **MK-1.5.C** (K.G.A.3) Identify shapes as two-dimensional (flat) or three-dimensional (solid).
+- ● **MK-1.5.C** (K.G.A.3) Identify shapes as two-dimensional (flat) or three-dimensional (solid).
   - EK: Flat shapes have length and width; solids also have depth.
   - Needs: MK-1.5.B
-  - MP6
+  - MP6 · drills: k8-flat-or-solid
 - ● **MK-1.5.D** (K.G.B.4) Analyze and compare two- and three-dimensional shapes by their parts and attributes (number of sides, vertices, equal sides).
   - EK: Shapes are defined by their parts, not by how they look at first glance.
   - Needs: MK-1.5.B, MK-1.5.C
@@ -231,10 +231,10 @@ Big ideas: OPS, PV, MEAS, SHAPE
   - EK: If A is longer than C and C is longer than B, then A is longer than B (transitivity).
   - Needs: MK-1.4.B
   - MP3
-- ○ **MK-2.3.B** (1.MD.A.2) Express the length of an object as a whole number of length units by laying copies of a shorter unit end to end with no gaps or overlaps.
+- ◐ **MK-2.3.B** (1.MD.A.2) Express the length of an object as a whole number of length units by laying copies of a shorter unit end to end with no gaps or overlaps.
   - EK: Length = number of same-size units that span it.
   - Needs: MK-2.3.A, MK-1.1.E
-  - MP5 · MP6
+  - MP5 · MP6 · drills: ~k8-ruler-length
 - ● **MK-2.3.C** (1.MD.B.3) Tell and write time in hours and half-hours using analog and digital clocks.
   - EK: The hour hand points between numbers at the half hour.
   - Needs: MK-2.2.A
@@ -248,10 +248,10 @@ Big ideas: OPS, PV, MEAS, SHAPE
 
 
 
-- ◐ **MK-2.4.A** (1.G.A.1) Distinguish defining attributes (triangles are closed and three-sided) from non-defining ones (color, orientation, size); build and draw shapes with given attributes.
+- ● **MK-2.4.A** (1.G.A.1) Distinguish defining attributes (triangles are closed and three-sided) from non-defining ones (color, orientation, size); build and draw shapes with given attributes.
   - EK: A shape's name depends only on its defining attributes.
   - Needs: MK-1.5.D
-  - MP3 · MP6 · drills: ~k8-shape-attr
+  - MP3 · MP6 · drills: k8-defining-attribute, ~k8-shape-attr
 - ○ **MK-2.4.B** (1.G.A.2) Compose two- or three-dimensional shapes into a composite shape, and compose new shapes from it.
   - EK: Composite shapes can be treated as units.
   - Needs: MK-1.5.F
@@ -331,10 +331,10 @@ Big ideas: PV, OPS, MEAS, DATA
 
 
 
-- ○ **MK-3.3.A** (2.MD.A.1) Measure the length of an object by selecting and using an appropriate tool (ruler, yardstick, meter stick, measuring tape).
+- ◐ **MK-3.3.A** (2.MD.A.1) Measure the length of an object by selecting and using an appropriate tool (ruler, yardstick, meter stick, measuring tape).
   - EK: A ruler is a row of iterated units with 0 at the start.
   - Needs: MK-2.3.B
-  - MP5
+  - MP5 · drills: ~k8-ruler-length
 - ○ **MK-3.3.B** (2.MD.A.2) Measure an object twice using units of different lengths and describe how the measurements relate to the unit size.
   - EK: Bigger unit → fewer units; the count and unit size vary inversely.
   - Needs: MK-3.3.A
@@ -351,10 +351,10 @@ Big ideas: PV, OPS, MEAS, DATA
   - EK: Lengths add and subtract like numbers when the units match.
   - Needs: MK-3.3.D, MK-3.1.A
   - MP4 · drills: ~k8-word-add100
-- ○ **MK-3.3.F** (2.MD.B.6) Represent whole numbers as lengths from 0 on a number line with equally spaced points, and represent sums and differences within 100 on it.
+- ◐ **MK-3.3.F** (2.MD.B.6) Represent whole numbers as lengths from 0 on a number line with equally spaced points, and represent sums and differences within 100 on it.
   - EK: A number on the line is a distance from 0.
   - Needs: MK-3.3.A, MK-3.2.E
-  - MP4 · MP5
+  - MP4 · MP5 · drills: ~k8-ruler-length
 - ● **MK-3.3.G** (2.MD.C.7) Tell and write time from analog and digital clocks to the nearest five minutes, using a.m. and p.m.
   - EK: Each numeral on the clock marks 5 minutes.
   - Needs: MK-2.3.C, MK-3.2.B
@@ -363,10 +363,10 @@ Big ideas: PV, OPS, MEAS, DATA
   - EK: Coin values: 25¢, 10¢, 5¢, 1¢; count from the largest.
   - Needs: MK-3.1.A, MK-3.2.B
   - MP4 · drills: k8-money
-- ○ **MK-3.3.I** (2.MD.D.9) Generate length data by measuring several objects to the nearest whole unit and show it on a line plot.
+- ◐ **MK-3.3.I** (2.MD.D.9) Generate length data by measuring several objects to the nearest whole unit and show it on a line plot.
   - EK: A line plot puts one mark per measurement above a number line.
   - Needs: MK-3.3.A, MK-3.3.F
-  - MP4
+  - MP4 · drills: ~k8-dot-plot
 - ● **MK-3.3.J** (2.MD.D.10) Draw a picture graph and a bar graph (single-unit scale) for up to four categories, and solve put-together, take-apart and compare problems from it.
   - EK: Bar height or picture count = category count.
   - Needs: MK-2.3.D
@@ -459,10 +459,10 @@ Big ideas: OPS, MULT, LINE, MEAS
   - EK: The denominator names the size of the part; the numerator counts parts.
   - Needs: MK-3.4.C
   - MP2 · MP4 · drills: k8-unit-share
-- ◐ **MK-4.3.B** (3.NF.A.2a) Represent 1/b on a number line by partitioning 0 to 1 into b equal parts; each part has size 1/b and its endpoint locates 1/b.
+- ● **MK-4.3.B** (3.NF.A.2a) Represent 1/b on a number line by partitioning 0 to 1 into b equal parts; each part has size 1/b and its endpoint locates 1/b.
   - EK: Fractions are numbers: points on the same line as whole numbers.
   - Needs: MK-4.3.A, MK-3.3.F
-  - MP4 · MP5 · drills: ~k8-frac-line
+  - MP4 · MP5 · drills: k8-fraction-line, ~k8-frac-line
 - ● **MK-4.3.C** (3.NF.A.2b) Represent a/b on a number line by marking off a lengths of 1/b from 0.
   - EK: a/b is a jumps of size 1/b from 0.
   - Needs: MK-4.3.B
@@ -496,18 +496,18 @@ Big ideas: OPS, MULT, LINE, MEAS
   - EK: In a scaled graph each symbol or grid step stands for several units.
   - Needs: MK-3.3.J, MK-4.1.C
   - MP4 · drills: k8-data-scaled
-- ◐ **MK-4.4.D** (3.MD.B.4) Measure lengths with rulers marked in halves and fourths of an inch and show the data on a line plot in whole numbers, halves or quarters.
+- ● **MK-4.4.D** (3.MD.B.4) Measure lengths with rulers marked in halves and fourths of an inch and show the data on a line plot in whole numbers, halves or quarters.
   - EK: Ruler marks between whole numbers are fractions on a number line.
   - Needs: MK-3.3.I, MK-4.3.C
-  - MP5 · drills: ~k8-line-plot
-- ◐ **MK-4.4.E** (3.MD.C.5a, 3.MD.C.5b) Recognize area as an attribute of plane figures: a unit square has one square unit of area, and a figure covered by n unit squares without gaps or overlaps has area n.
+  - MP5 · drills: k8-ruler-quarters, ~k8-line-plot
+- ● **MK-4.4.E** (3.MD.C.5a, 3.MD.C.5b) Recognize area as an attribute of plane figures: a unit square has one square unit of area, and a figure covered by n unit squares without gaps or overlaps has area n.
   - EK: Area counts unit squares that cover a region.
   - Needs: MK-3.4.B
-  - MP6 · drills: ~k8-rect-area
-- ◐ **MK-4.4.F** (3.MD.C.6) Measure areas by counting unit squares (square cm, square m, square in, square ft, and improvised units).
+  - MP6 · drills: k8-area-squares, ~k8-rect-area
+- ● **MK-4.4.F** (3.MD.C.6) Measure areas by counting unit squares (square cm, square m, square in, square ft, and improvised units).
   - EK: Area = number of unit squares, labeled with the square unit.
   - Needs: MK-4.4.E
-  - MP5 · MP6 · drills: ~k8-array
+  - MP5 · MP6 · drills: k8-area-squares, ~k8-array
 - ● **MK-4.4.G** (3.MD.C.7a, 3.MD.C.7b) Find the area of a rectangle with whole-number sides by tiling it and show it equals the product of the side lengths; multiply side lengths to solve area problems.
   - EK: Area of a rectangle = rows × columns = length × width.
   - Needs: MK-4.4.F, MK-4.1.A
@@ -831,10 +831,10 @@ Big ideas: LINE, PV, MULT, MEAS, SHAPE
   - EK: (x, y): move x along the horizontal axis, then y up.
   - Needs: MK-5.5.A, MK-3.3.F
   - MP6 · drills: k8-plot-q1
-- ◐ **MK-6.5.B** (5.G.A.2) Represent real-world and mathematical problems by graphing points in the first quadrant and interpret coordinate values in context.
+- ● **MK-6.5.B** (5.G.A.2) Represent real-world and mathematical problems by graphing points in the first quadrant and interpret coordinate values in context.
   - EK: Each coordinate is a quantity; a point pairs two quantities.
   - Needs: MK-6.5.A, MK-6.1.C
-  - MP4 · drills: ~k8-plot-q1
+  - MP4 · drills: k8-read-point, ~k8-plot-q1
 - ● **MK-6.5.C** (5.G.B.3) Understand that attributes of a category of two-dimensional figures belong to all its subcategories (all rectangles have four right angles, and squares are rectangles).
   - EK: A subcategory inherits every defining attribute of its category.
   - Needs: MK-5.5.B, MK-4.5.A
@@ -950,10 +950,10 @@ Big ideas: MULT, LINE, OPS, DATA
   - EK: A solution is a value that makes the statement true.
   - Needs: MK-7.3.C
   - MP6 · drills: k8-solution-check
-- ○ **MK-7.3.G** (6.EE.B.6) Use variables to represent numbers and write expressions when solving a real-world or mathematical problem.
+- ● **MK-7.3.G** (6.EE.B.6) Use variables to represent numbers and write expressions when solving a real-world or mathematical problem.
   - EK: A variable stands for an unknown or for any number in a set.
   - Needs: MK-7.3.B
-  - MP2 · MP4
+  - MP2 · MP4 · drills: k8-write-expression
 - ● **MK-7.3.H** (6.EE.B.7) Write and solve equations of the form x + p = q and px = q for nonnegative rational x, p, q in real-world and mathematical problems.
   - EK: Undo the operation on x by its inverse on both sides.
   - Needs: MK-7.3.F, MK-7.3.G, MK-4.1.D, MK-7.2.A
@@ -992,26 +992,26 @@ Big ideas: MULT, LINE, OPS, DATA
 
 
 
-- ○ **MK-7.5.A** (6.SP.A.1) Recognize a statistical question as one that anticipates variability in the data ("How old are the students in my school?").
+- ● **MK-7.5.A** (6.SP.A.1) Recognize a statistical question as one that anticipates variability in the data ("How old are the students in my school?").
   - EK: Statistical questions expect many different answers.
   - Needs: MK-4.4.C
-  - MP3 · MP6
-- ○ **MK-7.5.B** (6.SP.A.2) Understand that a distribution of data collected to answer a statistical question can be described by its center, spread and overall shape.
+  - MP3 · MP6 · drills: k8-statistical-question
+- ◐ **MK-7.5.B** (6.SP.A.2) Understand that a distribution of data collected to answer a statistical question can be described by its center, spread and overall shape.
   - EK: Center, spread and shape summarize a distribution.
   - Needs: MK-7.5.A, MK-6.4.B
-  - MP7
-- ○ **MK-7.5.C** (6.SP.A.3) Recognize that a measure of center summarizes all values with one number, while a measure of variation describes how the values vary with one number.
+  - MP7 · drills: ~k8-dot-plot
+- ● **MK-7.5.C** (6.SP.A.3) Recognize that a measure of center summarizes all values with one number, while a measure of variation describes how the values vary with one number.
   - EK: Center = typical value; variation = how far values spread from it.
   - Needs: MK-7.5.B
-  - MP6
-- ○ **MK-7.5.D** (6.SP.B.4) Display numerical data in plots on a number line: dot plots, histograms and box plots.
+  - MP6 · drills: k8-center-or-spread
+- ◐ **MK-7.5.D** (6.SP.B.4) Display numerical data in plots on a number line: dot plots, histograms and box plots.
   - EK: A box plot shows min, Q1, median, Q3, max.
   - Needs: MK-7.5.B, MK-6.4.B
-  - MP4 · MP5
-- ○ **MK-7.5.E** (6.SP.B.5a, 6.SP.B.5b) Summarize a numerical data set by reporting the number of observations and describing the attribute under investigation, how it was measured and its units.
+  - MP4 · MP5 · drills: ~k8-dot-plot, ~k8-box-plot
+- ● **MK-7.5.E** (6.SP.B.5a, 6.SP.B.5b) Summarize a numerical data set by reporting the number of observations and describing the attribute under investigation, how it was measured and its units.
   - EK: Every data summary starts with n, the variable, and its units.
   - Needs: MK-7.5.D
-  - MP6
+  - MP6 · drills: k8-dot-plot, k8-box-plot
 - ● **MK-7.5.F** (6.SP.B.5c, 6.SP.B.5d) Give quantitative measures of center (median, mean) and variability (interquartile range, mean absolute deviation), describe the pattern and striking deviations, and relate the choice of measures to the shape of the data.
   - EK: Skewed data or outliers → median and IQR; symmetric → mean and MAD.
   - Needs: MK-7.5.E, MK-7.5.C, MK-7.2.C, MK-7.2.I
@@ -1108,10 +1108,10 @@ Big ideas: MULT, LINE, OPS, SHAPE, DATA
   - EK: Any two sides must sum to more than the third; angles must sum to 180°.
   - Needs: MK-5.4.F, MK-5.5.B
   - MP5 · MP3
-- ◐ **MK-8.4.C** (7.G.A.3) Describe the two-dimensional figures that result from slicing three-dimensional figures, as in plane sections of right rectangular prisms and pyramids.
+- ● **MK-8.4.C** (7.G.A.3) Describe the two-dimensional figures that result from slicing three-dimensional figures, as in plane sections of right rectangular prisms and pyramids.
   - EK: A plane slice parallel to the base copies the base's shape.
   - Needs: MK-7.4.D
-  - MP7 · drills: ~geo-cross-section
+  - MP7 · drills: k8-cross-section, ~geo-cross-section
 - ● **MK-8.4.D** (7.G.B.4) Know the formulas for the area and circumference of a circle, use them to solve problems, and give an informal derivation of the relationship between them.
   - EK: C = 2πr; A = πr² (unroll the circle into a near-parallelogram of base πr and height r).
   - Needs: MK-7.4.A, MK-8.1.C
@@ -1129,10 +1129,10 @@ Big ideas: MULT, LINE, OPS, SHAPE, DATA
 
 
 
-- ○ **MK-8.5.A** (7.SP.A.1) Understand that statistics gain information about a population by examining a sample, that generalizations are valid only if the sample is representative, and that random sampling tends to produce representative samples.
+- ● **MK-8.5.A** (7.SP.A.1) Understand that statistics gain information about a population by examining a sample, that generalizations are valid only if the sample is representative, and that random sampling tends to produce representative samples.
   - EK: Random samples support inference; convenience samples are biased.
   - Needs: MK-7.5.A
-  - MP3 · MP6
+  - MP3 · MP6 · drills: k8-sampling
 - ● **MK-8.5.B** (7.SP.A.2) Use data from a random sample to draw inferences about a population with an unknown characteristic, and generate multiple samples to gauge the variation in estimates.
   - EK: Estimates vary from sample to sample; that spread is the margin of error.
   - Needs: MK-8.5.A, MK-7.5.F
@@ -1203,14 +1203,14 @@ Big ideas: LINE, OPS, MULT, SHAPE, DATA
   - EK: (a × 10ᵐ)(b × 10ⁿ) = ab × 10ᵐ⁺ⁿ, then renormalize so 1 ≤ |ab| < 10.
   - Needs: MK-9.2.C
   - MP5 · MP6 · drills: k8-sci-notation
-- ◐ **MK-9.2.E** (8.EE.B.5) Graph proportional relationships, interpreting the unit rate as the slope, and compare two proportional relationships represented in different ways.
+- ● **MK-9.2.E** (8.EE.B.5) Graph proportional relationships, interpreting the unit rate as the slope, and compare two proportional relationships represented in different ways.
   - EK: In y = kx, slope = unit rate = k.
   - Needs: MK-8.1.D
-  - MP2 · MP4 · drills: ~k8-slope
+  - MP2 · MP4 · drills: k8-proportional-graph, ~k8-slope
 - ◐ **MK-9.2.F** (8.EE.B.6) Use similar triangles to explain why the slope m is the same between any two distinct points on a non-vertical line, and derive y = mx and y = mx + b.
   - EK: Slope triangles on one line are similar, so rise/run is constant.
   - Needs: MK-9.2.E, MK-8.4.A
-  - MP3 · MP7 · drills: ~k8-slope
+  - MP3 · MP7 · drills: ~k8-slope, ~k8-proportional-graph
 - ● **MK-9.2.G** (8.EE.C.7a) Give examples of linear equations in one variable with one solution, infinitely many solutions, or no solutions, by transforming them to x = a, a = a, or a = b.
   - EK: a = a (identity) → all x; a = b with a ≠ b → none.
   - Needs: MK-8.3.D
@@ -1252,31 +1252,31 @@ Big ideas: LINE, OPS, MULT, SHAPE, DATA
   - EK: m = (y₂ − y₁)/(x₂ − x₁); b = y − mx.
   - Needs: MK-9.3.C
   - MP4 · drills: k8-rate-initial
-- ○ **MK-9.3.E** (8.F.B.5) Describe a functional relationship qualitatively from a graph (increasing, decreasing, linear, nonlinear) and sketch a graph from a verbal description.
+- ◐ **MK-9.3.E** (8.F.B.5) Describe a functional relationship qualitatively from a graph (increasing, decreasing, linear, nonlinear) and sketch a graph from a verbal description.
   - EK: The shape of a graph tells a story about how the output changes.
   - Needs: MK-9.3.A
-  - MP2 · MP4
+  - MP2 · MP4 · drills: ~hs-parabola-features
 
 ### 9.4 Geometry
 
 
 
-- ○ **MK-9.4.A** (8.G.A.1a, 8.G.A.1b, 8.G.A.1c) Verify experimentally the properties of rotations, reflections and translations: they take lines to lines, segments to equal segments, angles to equal angles, parallel lines to parallel lines.
+- ◐ **MK-9.4.A** (8.G.A.1a, 8.G.A.1b, 8.G.A.1c) Verify experimentally the properties of rotations, reflections and translations: they take lines to lines, segments to equal segments, angles to equal angles, parallel lines to parallel lines.
   - EK: Rigid motions preserve distance and angle.
   - Needs: MK-5.5.A, MK-8.4.B
-  - MP5 · MP7
-- ○ **MK-9.4.B** (8.G.A.2) Understand that a figure is congruent to another if a sequence of rotations, reflections and translations maps one onto the other, and describe such a sequence.
+  - MP5 · MP7 · drills: ~hs-transformation-graph
+- ● **MK-9.4.B** (8.G.A.2) Understand that a figure is congruent to another if a sequence of rotations, reflections and translations maps one onto the other, and describe such a sequence.
   - EK: Congruent = related by a rigid motion.
   - Needs: MK-9.4.A
-  - MP3 · MP6
+  - MP3 · MP6 · drills: hs-transformation-graph
 - ● **MK-9.4.C** (8.G.A.3) Describe the effect of dilations, translations, rotations and reflections on two-dimensional figures using coordinates.
   - EK: Dilation by k from the origin: (x, y) → (kx, ky); reflection in the x-axis: (x, y) → (x, −y).
   - Needs: MK-9.4.A, MK-7.2.G, MK-8.4.A
   - MP7 · drills: k8-transform
-- ○ **MK-9.4.D** (8.G.A.4) Understand that a figure is similar to another if a sequence of rotations, reflections, translations and dilations maps one onto the other, and describe such a sequence.
+- ◐ **MK-9.4.D** (8.G.A.4) Understand that a figure is similar to another if a sequence of rotations, reflections, translations and dilations maps one onto the other, and describe such a sequence.
   - EK: Similar = rigid motion plus dilation; angles kept, lengths scaled by k.
   - Needs: MK-9.4.B, MK-9.4.C
-  - MP3 · MP6
+  - MP3 · MP6 · drills: ~hs-transformation-graph
 - ● **MK-9.4.E** (8.G.A.5) Use informal arguments to establish the triangle angle sum and exterior angle facts, the angles formed when parallel lines are cut by a transversal, and the angle-angle criterion for similar triangles.
   - EK: Angle sum = 180°; alternate interior angles are equal; AA ⇒ similar.
   - Needs: MK-9.4.A, MK-8.4.E, MK-9.4.D
@@ -1302,14 +1302,14 @@ Big ideas: LINE, OPS, MULT, SHAPE, DATA
 
 
 
-- ○ **MK-9.5.A** (8.SP.A.1) Construct and interpret scatter plots for bivariate measurement data and describe patterns: clustering, outliers, positive or negative association, linear or nonlinear association.
+- ● **MK-9.5.A** (8.SP.A.1) Construct and interpret scatter plots for bivariate measurement data and describe patterns: clustering, outliers, positive or negative association, linear or nonlinear association.
   - EK: Association describes how one variable tends to change with the other.
   - Needs: MK-7.5.D, MK-7.2.J
-  - MP4 · MP5
-- ○ **MK-9.5.B** (8.SP.A.2) Know that straight lines model linear association between two quantitative variables; informally fit a line to a scatter plot and judge the fit by closeness of the points.
+  - MP4 · MP5 · drills: k8-scatter-association
+- ● **MK-9.5.B** (8.SP.A.2) Know that straight lines model linear association between two quantitative variables; informally fit a line to a scatter plot and judge the fit by closeness of the points.
   - EK: A good line has points scattered evenly above and below it.
   - Needs: MK-9.5.A, MK-9.3.C
-  - MP4 · MP5
+  - MP4 · MP5 · drills: hs-trend-line
 - ● **MK-9.5.C** (8.SP.A.3) Use the equation of a linear model to solve problems with bivariate measurement data, interpreting the slope and intercept.
   - EK: Slope = predicted change in y per unit x; intercept = predicted y at x = 0.
   - Needs: MK-9.5.B, MK-9.3.D

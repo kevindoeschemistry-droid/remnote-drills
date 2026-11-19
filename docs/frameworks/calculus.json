@@ -103,7 +103,9 @@
        "p": [
         "P4"
        ],
-       "drills": []
+       "drills": [
+        "~ca-limit-graph"
+       ]
       },
       {
        "id": "B",
@@ -143,7 +145,9 @@
        "p": [
         "P2"
        ],
-       "drills": [],
+       "drills": [
+        "ca-limit-graph"
+       ],
        "needs": [
         "CA-1.2.B"
        ]
@@ -168,7 +172,9 @@
         "P2",
         "P1"
        ],
-       "drills": [],
+       "drills": [
+        "ca-limit-table"
+       ],
        "needs": [
         "CA-1.2.B"
        ]
@@ -264,7 +270,8 @@
         "P1"
        ],
        "drills": [
-        "~ca-lim-factor"
+        "~ca-lim-factor",
+        "ca-limit-procedure"
        ],
        "needs": [
         "CA-1.6.A",
@@ -317,7 +324,10 @@
        "p": [
         "P2"
        ],
-       "drills": [],
+       "drills": [
+        "~ca-limit-table",
+        "~ca-limit-graph"
+       ],
        "needs": [
         "CA-1.3.A",
         "CA-1.4.A",
@@ -343,7 +353,9 @@
        "p": [
         "P2"
        ],
-       "drills": [],
+       "drills": [
+        "ca-discontinuity-graph"
+       ],
        "needs": [
         "CA-1.2.B"
        ]
@@ -368,7 +380,8 @@
         "P3"
        ],
        "drills": [
-        "~ca-continuity-k"
+        "~ca-continuity-k",
+        "ca-continuity-conditions"
        ],
        "needs": [
         "CA-1.10.A"
@@ -652,7 +665,9 @@
        "p": [
         "P3"
        ],
-       "drills": [],
+       "drills": [
+        "ca-differentiability"
+       ],
        "needs": [
         "CA-2.2.A",
         "CA-1.13.A"
@@ -1073,7 +1088,9 @@
         "P3",
         "P4"
        ],
-       "drills": [],
+       "drills": [
+        "ca-rate-units"
+       ],
        "needs": [
         "CA-2.2.A"
        ]
@@ -1125,7 +1142,9 @@
         "P3",
         "P4"
        ],
-       "drills": [],
+       "drills": [
+        "~ca-rate-units"
+       ],
        "needs": [
         "CA-4.1.A"
        ]
@@ -1498,7 +1517,10 @@
         "P2",
         "P4"
        ],
-       "drills": [],
+       "drills": [
+        "ca-sketch-derivative",
+        "ca-read-derivative-graph"
+       ],
        "needs": [
         "CA-5.6.A"
        ]
@@ -1523,7 +1545,9 @@
         "P2",
         "P3"
        ],
-       "drills": [],
+       "drills": [
+        "ca-read-derivative-graph"
+       ],
        "needs": [
         "CA-5.8.A",
         "CA-5.7.A"
@@ -1603,7 +1627,9 @@
        "p": [
         "P1"
        ],
-       "drills": [],
+       "drills": [
+        "ca-implicit-horizontal"
+       ],
        "needs": [
         "CA-3.2.A"
        ]
@@ -1660,7 +1686,9 @@
         "P2",
         "P4"
        ],
-       "drills": [],
+       "drills": [
+        "ca-accumulation-graph"
+       ],
        "needs": [
         "CA-4.1.A"
        ]
@@ -1705,7 +1733,8 @@
         "P3"
        ],
        "drills": [
-        "~ca-riemann-sums"
+        "~ca-riemann-sums",
+        "ca-riemann-over-under"
        ],
        "needs": [
         "CA-6.2.A",
@@ -1733,7 +1762,9 @@
         "P2",
         "P4"
        ],
-       "drills": [],
+       "drills": [
+        "ca-riemann-limit"
+       ],
        "needs": [
         "CA-6.2.A"
        ]
@@ -1785,7 +1816,9 @@
         "P2",
         "P3"
        ],
-       "drills": [],
+       "drills": [
+        "ca-read-derivative-graph"
+       ],
        "needs": [
         "CA-6.4.A",
         "CA-5.9.A"
@@ -2090,7 +2123,9 @@
        "p": [
         "P1"
        ],
-       "drills": [],
+       "drills": [
+        "ca-choose-technique"
+       ],
        "needs": [
         "CA-6.10.A",
         "CA-6.11.A",
@@ -2128,7 +2163,9 @@
        "p": [
         "P2"
        ],
-       "drills": [],
+       "drills": [
+        "ca-write-de"
+       ],
        "needs": [
         "CA-4.3.A"
        ]
@@ -2180,7 +2217,9 @@
         "P2",
         "P4"
        ],
-       "drills": [],
+       "drills": [
+        "ca-slope-field-points"
+       ],
        "needs": [
         "CA-7.2.A"
        ]
@@ -2204,7 +2243,9 @@
        "p": [
         "P2"
        ],
-       "drills": [],
+       "drills": [
+        "ca-slope-field-match"
+       ],
        "needs": [
         "CA-7.3.A"
        ]
@@ -2517,7 +2558,9 @@
        "p": [
         "P1"
        ],
-       "drills": [],
+       "drills": [
+        "ca-area-crossings"
+       ],
        "needs": [
         "CA-8.4.A"
        ]
@@ -2620,7 +2663,9 @@
        "p": [
         "P1"
        ],
-       "drills": [],
+       "drills": [
+        "ca-volume-disc-line"
+       ],
        "needs": [
         "CA-8.9.A"
        ]
@@ -2670,7 +2715,9 @@
        "p": [
         "P1"
        ],
-       "drills": [],
+       "drills": [
+        "ca-volume-washer-line"
+       ],
        "needs": [
         "CA-8.10.A",
         "CA-8.11.A"
@@ -2994,7 +3041,9 @@
        "p": [
         "P1"
        ],
-       "drills": [],
+       "drills": [
+        "ca-polar-between"
+       ],
        "needs": [
         "CA-9.8.A"
        ]
@@ -3110,7 +3159,9 @@
        "p": [
         "P3"
        ],
-       "drills": [],
+       "drills": [
+        "ca-integral-test"
+       ],
        "needs": [
         "CA-10.3.A",
         "CA-6.13.A"
@@ -3161,7 +3212,9 @@
        "p": [
         "P3"
        ],
-       "drills": [],
+       "drills": [
+        "ca-comparison-test"
+       ],
        "needs": [
         "CA-10.5.A",
         "CA-10.2.A"
@@ -3380,7 +3433,9 @@
         "P1",
         "P4"
        ],
-       "drills": [],
+       "drills": [
+        "ca-series-general-term"
+       ],
        "needs": [
         "CA-10.11.A",
         "CA-10.13.A"
@@ -3399,7 +3454,9 @@
         "P2",
         "P3"
        ],
-       "drills": [],
+       "drills": [
+        "ca-series-use"
+       ],
        "needs": [
         "CA-10.14.A"
        ]
@@ -3424,7 +3481,8 @@
         "P1"
        ],
        "drills": [
-        "~sigma-derivative"
+        "~sigma-derivative",
+        "ca-series-build"
        ],
        "needs": [
         "CA-10.14.A"
@@ -3699,7 +3757,9 @@
         "P2",
         "P4"
        ],
-       "drills": [],
+       "drills": [
+        "ca-quadric"
+       ],
        "needs": [
         "CA-11.1.A"
        ]
@@ -3815,7 +3875,9 @@
        "p": [
         "P3"
        ],
-       "drills": [],
+       "drills": [
+        "ca-two-path-limit"
+       ],
        "needs": [
         "CA-12.1.A",
         "CA-1.2.B"
@@ -4053,7 +4115,9 @@
         "P1",
         "P3"
        ],
-       "drills": [],
+       "drills": [
+        "ca-extrema-region"
+       ],
        "needs": [
         "CA-12.6.A",
         "CA-5.5.A"
@@ -4413,7 +4477,9 @@
        "p": [
         "P2"
        ],
-       "drills": [],
+       "drills": [
+        "ca-vector-field-match"
+       ],
        "needs": [
         "CA-12.5.A"
        ]
@@ -4597,7 +4663,9 @@
         "P2",
         "P3"
        ],
-       "drills": [],
+       "drills": [
+        "ca-curl-conservative"
+       ],
        "needs": [
         "CA-14.5.A",
         "CA-14.3.A"
@@ -4765,7 +4833,9 @@
         "P2",
         "P3"
        ],
-       "drills": [],
+       "drills": [
+        "ca-conservation-law"
+       ],
        "needs": [
         "CA-14.9.A",
         "CA-14.5.B"
@@ -4789,9 +4859,11 @@
    "code": "CA-1.2.A",
    "unit": 1,
    "topic": 2,
-   "status": "gap",
+   "status": "partial",
    "full": [],
-   "partial": []
+   "partial": [
+    "ca-limit-graph"
+   ]
   },
   {
    "code": "CA-1.2.B",
@@ -4807,16 +4879,20 @@
    "code": "CA-1.3.A",
    "unit": 1,
    "topic": 3,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ca-limit-graph"
+   ],
    "partial": []
   },
   {
    "code": "CA-1.4.A",
    "unit": 1,
    "topic": 4,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ca-limit-table"
+   ],
    "partial": []
   },
   {
@@ -4855,8 +4931,10 @@
    "code": "CA-1.7.A",
    "unit": 1,
    "topic": 7,
-   "status": "partial",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ca-limit-procedure"
+   ],
    "partial": [
     "ca-lim-factor"
    ]
@@ -4875,24 +4953,31 @@
    "code": "CA-1.9.A",
    "unit": 1,
    "topic": 9,
-   "status": "gap",
+   "status": "partial",
    "full": [],
-   "partial": []
+   "partial": [
+    "ca-limit-table",
+    "ca-limit-graph"
+   ]
   },
   {
    "code": "CA-1.10.A",
    "unit": 1,
    "topic": 10,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ca-discontinuity-graph"
+   ],
    "partial": []
   },
   {
    "code": "CA-1.11.A",
    "unit": 1,
    "topic": 11,
-   "status": "partial",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ca-continuity-conditions"
+   ],
    "partial": [
     "ca-continuity-k"
    ]
@@ -5000,8 +5085,10 @@
    "code": "CA-2.4.A",
    "unit": 2,
    "topic": 4,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ca-differentiability"
+   ],
    "partial": []
   },
   {
@@ -5160,8 +5247,10 @@
    "code": "CA-4.1.A",
    "unit": 4,
    "topic": 1,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ca-rate-units"
+   ],
    "partial": []
   },
   {
@@ -5178,9 +5267,11 @@
    "code": "CA-4.3.A",
    "unit": 4,
    "topic": 3,
-   "status": "gap",
+   "status": "partial",
    "full": [],
-   "partial": []
+   "partial": [
+    "ca-rate-units"
+   ]
   },
   {
    "code": "CA-4.4.A",
@@ -5318,16 +5409,21 @@
    "code": "CA-5.8.A",
    "unit": 5,
    "topic": 8,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ca-sketch-derivative",
+    "ca-read-derivative-graph"
+   ],
    "partial": []
   },
   {
    "code": "CA-5.9.A",
    "unit": 5,
    "topic": 9,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ca-read-derivative-graph"
+   ],
    "partial": []
   },
   {
@@ -5355,8 +5451,10 @@
    "code": "CA-5.12.A",
    "unit": 5,
    "topic": 12,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ca-implicit-horizontal"
+   ],
    "partial": []
   },
   {
@@ -5371,8 +5469,10 @@
    "code": "CA-6.1.A",
    "unit": 6,
    "topic": 1,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ca-accumulation-graph"
+   ],
    "partial": []
   },
   {
@@ -5390,8 +5490,10 @@
    "code": "CA-6.2.B",
    "unit": 6,
    "topic": 2,
-   "status": "partial",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ca-riemann-over-under"
+   ],
    "partial": [
     "ca-riemann-sums"
    ]
@@ -5400,8 +5502,10 @@
    "code": "CA-6.3.A",
    "unit": 6,
    "topic": 3,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ca-riemann-limit"
+   ],
    "partial": []
   },
   {
@@ -5418,8 +5522,10 @@
    "code": "CA-6.5.A",
    "unit": 6,
    "topic": 5,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ca-read-derivative-graph"
+   ],
    "partial": []
   },
   {
@@ -5546,16 +5652,20 @@
    "code": "CA-6.14.A",
    "unit": 6,
    "topic": 14,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ca-choose-technique"
+   ],
    "partial": []
   },
   {
    "code": "CA-7.1.A",
    "unit": 7,
    "topic": 1,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ca-write-de"
+   ],
    "partial": []
   },
   {
@@ -5572,16 +5682,20 @@
    "code": "CA-7.3.A",
    "unit": 7,
    "topic": 3,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ca-slope-field-points"
+   ],
    "partial": []
   },
   {
    "code": "CA-7.4.A",
    "unit": 7,
    "topic": 4,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ca-slope-field-match"
+   ],
    "partial": []
   },
   {
@@ -5690,8 +5804,10 @@
    "code": "CA-8.6.A",
    "unit": 8,
    "topic": 6,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ca-area-crossings"
+   ],
    "partial": []
   },
   {
@@ -5728,8 +5844,10 @@
    "code": "CA-8.10.A",
    "unit": 8,
    "topic": 10,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ca-volume-disc-line"
+   ],
    "partial": []
   },
   {
@@ -5746,8 +5864,10 @@
    "code": "CA-8.12.A",
    "unit": 8,
    "topic": 12,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ca-volume-washer-line"
+   ],
    "partial": []
   },
   {
@@ -5865,8 +5985,10 @@
    "code": "CA-9.9.A",
    "unit": 9,
    "topic": 9,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ca-polar-between"
+   ],
    "partial": []
   },
   {
@@ -5903,8 +6025,10 @@
    "code": "CA-10.4.A",
    "unit": 10,
    "topic": 4,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ca-integral-test"
+   ],
    "partial": []
   },
   {
@@ -5921,8 +6045,10 @@
    "code": "CA-10.6.A",
    "unit": 10,
    "topic": 6,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ca-comparison-test"
+   ],
    "partial": []
   },
   {
@@ -6001,24 +6127,30 @@
    "code": "CA-10.14.A",
    "unit": 10,
    "topic": 14,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ca-series-general-term"
+   ],
    "partial": []
   },
   {
    "code": "CA-10.14.B",
    "unit": 10,
    "topic": 14,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ca-series-use"
+   ],
    "partial": []
   },
   {
    "code": "CA-10.15.A",
    "unit": 10,
    "topic": 15,
-   "status": "partial",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ca-series-build"
+   ],
    "partial": [
     "sigma-derivative"
    ]
@@ -6123,8 +6255,10 @@
    "code": "CA-11.5.A",
    "unit": 11,
    "topic": 5,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ca-quadric"
+   ],
    "partial": []
   },
   {
@@ -6159,8 +6293,10 @@
    "code": "CA-12.1.B",
    "unit": 12,
    "topic": 1,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ca-two-path-limit"
+   ],
    "partial": []
   },
   {
@@ -6249,8 +6385,10 @@
    "code": "CA-12.6.B",
    "unit": 12,
    "topic": 6,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ca-extrema-region"
+   ],
    "partial": []
   },
   {
@@ -6359,8 +6497,10 @@
    "code": "CA-14.1.A",
    "unit": 14,
    "topic": 1,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ca-vector-field-match"
+   ],
    "partial": []
   },
   {
@@ -6428,8 +6568,10 @@
    "code": "CA-14.5.B",
    "unit": 14,
    "topic": 5,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ca-curl-conservative"
+   ],
    "partial": []
   },
   {
@@ -6486,8 +6628,10 @@
    "code": "CA-14.9.B",
    "unit": 14,
    "topic": 9,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ca-conservation-law"
+   ],
    "partial": []
   }
  ],

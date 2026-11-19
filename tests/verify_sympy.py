@@ -270,7 +270,8 @@ def linalg_ok(a, meta) -> bool:
 # "not mine"; H is this module (P, zero, the sympy symbols…).
 import importlib.util
 _AREAS = []
-for _f in sorted((Path(__file__).parent / "verify").glob("*.py")):
+# data.py goes first: a problem written as data belongs to it whatever skill it joined
+for _f in sorted((Path(__file__).parent / "verify").glob("*.py"), key=lambda q: (q.stem != "data", q.stem)):
     _spec = importlib.util.spec_from_file_location(f"verify_{_f.stem}", _f)
     _mod = importlib.util.module_from_spec(_spec)
     _spec.loader.exec_module(_mod)

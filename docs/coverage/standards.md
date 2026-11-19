@@ -73,9 +73,9 @@ https://ncees.org/wp-content/uploads/2022/09/FE-Che-CBT-specs.pdf
 | **1** | **Mathematics** (6–9 questions) | | | |
 | 1.A | Analytic geometry, logarithms, trigonometry | — | — | **nothing yet** |
 | 1.B | Calculus | 6 | 6 | engineering-math (6) |
-| 1.C | Differential equations | 66 | 53 | engineering-math (66) |
-| 1.D | Numerical methods | 17 | 12 | engineering-math (17) |
-| 1.E | Algebra, matrices, systems of equations | 7 | 6 | engineering-math (7) |
+| 1.C | Differential equations | 66 | 65 | engineering-math (66) |
+| 1.D | Numerical methods | 17 | 16 | engineering-math (17) |
+| 1.E | Algebra, matrices, systems of equations | 7 | 7 | engineering-math (7) |
 | 1.F | Accuracy, precision, significant figures | — | — | **nothing yet** |
 | **2** | **Probability and Statistics** (4–6 questions) | | | |
 | 2.A | Probability distributions | 7 | 5 | thermodynamics (7) |
@@ -160,7 +160,7 @@ https://ncees.org/wp-content/uploads/2022/09/FE-Che-CBT-specs.pdf
 | 14.D | Design and optimization | — | — | **nothing yet** |
 | 14.E | Design standards | — | — | **nothing yet** |
 | **15** | **Process Control** (4–6 questions) | | | |
-| 15.A | Dynamics (first and second order, time constants, stability) | 45 | 38 | engineering-math (45) |
+| 15.A | Dynamics (first and second order, time constants, stability) | 45 | 45 | engineering-math (45) |
 | 15.B | Control strategies | — | — | **nothing yet** |
 | 15.C | Loop design and hardware | — | — | **nothing yet** |
 | **16** | **Safety, Health, and Environment** (5–8 questions) | | | |
