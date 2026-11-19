@@ -12,9 +12,11 @@
  "basis": {
   "primary": "uil-number-sense",
   "also": [
-   "sta-mtc"
+   "sta-mtc",
+   "mit-18-03-coverup",
+   "mit-integration-bee"
   ],
-  "note": "Topic list and order from the UIL high-school chart. The short-cut techniques and the estimation topic are a house list. Pace comes from the UIL rules (7.5 s a problem) and the English multiplication tables check (6 s a fact)."
+  "note": "Topic list and order from the UIL high-school chart. The short-cut techniques and the estimation topic are a house list. Unit 6 goes past the chart: the cover-up items follow an MIT 18.03 course note and the one-a-minute integration pace follows the MIT Integration Bee qualifier; which results belong in unit 6 is a house list. Pace comes from the UIL rules (7.5 s a problem) and the English multiplication tables check (6 s a fact)."
  },
  "big_ideas": [
   {
@@ -1828,6 +1830,164 @@
      ]
     }
    ]
+  },
+  {
+   "id": "inspection",
+   "n": 6,
+   "title": "By inspection (beyond the chart)",
+   "scope": "core",
+   "ideas": [
+    "SEE"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "Heaviside cover-up",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "mit-18-03-coverup:distinct"
+       ],
+       "do": "Read off one coefficient of a partial-fraction decomposition with distinct linear factors by covering up.",
+       "ek": [
+        "Cover the factor, substitute its root into what is left."
+       ],
+       "p": [
+        "P1",
+        "P2"
+       ],
+       "drills": [
+        "mm-coverup-two",
+        "mm-coverup-three"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "mit-18-03-coverup:repeated",
+        "mit-18-03-coverup:quadratic"
+       ],
+       "do": "Use cover-up where it still works: the top power of a repeated factor, and a linear factor beside an irreducible quadratic.",
+       "ek": [
+        "Cover-up gives the highest-power coefficient only; the rest need one more step."
+       ],
+       "p": [
+        "P1",
+        "P2"
+       ],
+       "drills": [
+        "mm-coverup-repeated",
+        "mm-coverup-quadratic"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "title": "Integrals by inspection",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "mit-integration-bee:pace"
+       ],
+       "do": "Integrate a basic function of a linear inside (cos kx, sin kx, e^kx, (kx + b)^n, 1/(kx + b)) by guessing the shape and fixing the constant.",
+       "ek": [
+        "Differentiate the guess in your head; divide by whatever constant it throws out."
+       ],
+       "p": [
+        "P1",
+        "P2"
+       ],
+       "drills": [
+        "mm-int-cos-kx",
+        "mm-int-sin-kx",
+        "mm-int-exp-kx",
+        "mm-int-linear-power",
+        "mm-int-reciprocal-linear"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "mit-integration-bee:pace"
+       ],
+       "do": "Spot an integrand of the form f(g(x))·g′(x) up to a constant and write its antiderivative.",
+       "ek": [
+        "f′/f integrates to ln f; u^n du to u^(n+1)/(n+1); x·e^(kx²) to an exponential."
+       ],
+       "p": [
+        "P1",
+        "P2"
+       ],
+       "drills": [
+        "mm-int-log-form",
+        "mm-int-x-exp-square",
+        "mm-int-sin-power-cos"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 3,
+     "title": "Derivatives in one line",
+     "los": [
+      {
+       "id": "A",
+       "do": "Write the derivative of a one-layer composite or a power-times-exponential product without intermediate steps.",
+       "ek": [
+        "Outside derivative with the inside untouched, times the inside derivative."
+       ],
+       "p": [
+        "P1",
+        "P2"
+       ],
+       "drills": [
+        "mm-diff-linear-power",
+        "mm-diff-sin-inner",
+        "mm-diff-log-inner",
+        "mm-diff-power-exp"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 4,
+     "title": "Matrices and ODEs on sight",
+     "los": [
+      {
+       "id": "A",
+       "do": "Find the eigenvalues of a 2 × 2 matrix from its trace and determinant.",
+       "ek": [
+        "Sum = trace, product = determinant."
+       ],
+       "p": [
+        "P1",
+        "P2"
+       ],
+       "drills": [
+        "mm-eigen-trace-det"
+       ]
+      },
+      {
+       "id": "B",
+       "do": "Classify y″ + by′ + cy = 0 by comparing b² with 4c, and choose the trial form for an exponential forcing term.",
+       "ek": [
+        "b² > 4c overdamped, = critical, < underdamped; multiply the trial by x once per time the exponent is a characteristic root."
+       ],
+       "p": [
+        "P1",
+        "P2"
+       ],
+       "drills": [
+        "mm-damping-class",
+        "mm-particular-form"
+       ]
+      }
+     ]
+    }
+   ]
   }
  ],
  "rows": [
@@ -2599,6 +2759,88 @@
    "status": "ok",
    "full": [
     "mm-inverse-function-value"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MM-6.1.A",
+   "unit": 6,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "mm-coverup-two",
+    "mm-coverup-three"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MM-6.1.B",
+   "unit": 6,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "mm-coverup-repeated",
+    "mm-coverup-quadratic"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MM-6.2.A",
+   "unit": 6,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "mm-int-cos-kx",
+    "mm-int-sin-kx",
+    "mm-int-exp-kx",
+    "mm-int-linear-power",
+    "mm-int-reciprocal-linear"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MM-6.2.B",
+   "unit": 6,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "mm-int-log-form",
+    "mm-int-x-exp-square",
+    "mm-int-sin-power-cos"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MM-6.3.A",
+   "unit": 6,
+   "topic": 3,
+   "status": "ok",
+   "full": [
+    "mm-diff-linear-power",
+    "mm-diff-sin-inner",
+    "mm-diff-log-inner",
+    "mm-diff-power-exp"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MM-6.4.A",
+   "unit": 6,
+   "topic": 4,
+   "status": "ok",
+   "full": [
+    "mm-eigen-trace-det"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MM-6.4.B",
+   "unit": 6,
+   "topic": 4,
+   "status": "ok",
+   "full": [
+    "mm-damping-class",
+    "mm-particular-form"
    ],
    "partial": []
   }

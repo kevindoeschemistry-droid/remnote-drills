@@ -21,7 +21,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 | Information Systems | MSIS 2016 Global Competency Model | standard | read in full | — | — | 53 | 0 | 53 |
 | High School Mathematics (Common Core) | CCSS Mathematics Appendix A: high school course pathways | standard | read in full | — | — | 200 | 200 | 0 |
 | Mathematics K–8 (Common Core) | Common Core State Standards for Mathematics (2010) | standard | read through a crosswalk | — | — | 258 | 258 | 0 |
-| Mental Math | UIL Number Sense Problem Sequencing Charts (High School; A+ Junior High and Elementary, rev. 2016-17) with the Number Sense Handbook rules | exam-spec | read in full | sta-mtc | — | 75 | 75 | 0 |
+| Mental Math | UIL Number Sense Problem Sequencing Charts (High School; A+ Junior High and Elementary, rev. 2016-17) with the Number Sense Handbook rules | exam-spec | read in full | sta-mtc, mit-18-03-coverup, mit-integration-bee | — | 82 | 79 | 3 |
 | Molecular Simulation | LiveCoMS best-practice papers for molecular simulation | course | read in part | — | — | 102 | 0 | 102 |
 | Physical Chemistry | Engel & Reid, Physical Chemistry, 3rd ed. (through the wiki's drill pages) | textbook | read in part | fe-chemical | acs-accm-pchem | 141 | 59 | 82 |
 | Physics (AP) | AP Physics 1, 2 and C Course and Exam Descriptions | standard | read in part | — | — | 201 | 201 | 0 |
@@ -41,7 +41,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 - **Applied Engineering Mathematics**: UCI CBE 200 publishes no syllabus. The undergraduate part is anchored to fe-chemical; series, Sturm–Liouville, PDEs and transforms are past any exam spec and stand on the book.
 - **Heat Transfer**: Also crosswalked to the FE Mechanical spec and UCI MAE 120.
 - **Mathematics K–8 (Common Core)**: Codes and wording checked against a state reprint; the CCSS site was blocked.
-- **Mental Math**: Topic list and order from the UIL high-school chart. The short-cut techniques and the estimation topic are a house list. Pace comes from the UIL rules (7.5 s a problem) and the English multiplication tables check (6 s a fact).
+- **Mental Math**: Topic list and order from the UIL high-school chart. The short-cut techniques and the estimation topic are a house list. Unit 6 goes past the chart: the cover-up items follow an MIT 18.03 course note and the one-a-minute integration pace follows the MIT Integration Bee qualifier; which results belong in unit 6 is a house list. Pace comes from the UIL rules (7.5 s a problem) and the English multiplication tables check (6 s a fact).
 - **Molecular Simulation**: No standard exists for this subject; triangulated from best-practice papers, textbooks and the Hayes group tutorial.
 - **Physical Chemistry**: Textbook-shaped until the ACS content map is read. Thermodynamics and kinetics units are anchored to fe-chemical; quantum and spectroscopy have no outside anchor yet.
 - **Physics (AP)**: Objective codes read for a few units only.
@@ -395,3 +395,29 @@ https://iupac.qmul.ac.uk/AminoAcid/AA1n2.html
 | **3AA-1** | **Names, symbols and formulas of the common amino acids (Table 1)** (undefined questions) | | | |
 
 **Areas with nothing answering to them:** 3AA-1 Names, symbols and formulas of the common amino acids (Table 1).
+
+## Mattuck, Heaviside's Cover-up Method (MIT 18.03 supplementary notes, section H)
+
+https://math.mit.edu/~jorloff/suppnotes/suppnotes03/h.pdf
+
+0 of 0 items have at least one objective answering to them.
+
+| Item | Topic | Objectives | With a drill | Where |
+|---|---|---|---|---|
+| **distinct** | **Distinct linear factors** (undefined questions) | | | |
+| **repeated** | **Repeated linear factor: highest power only** (undefined questions) | | | |
+| **quadratic** | **Linear factor beside a quadratic factor** (undefined questions) | | | |
+
+**Areas with nothing answering to them:** distinct Distinct linear factors; repeated Repeated linear factor: highest power only; quadratic Linear factor beside a quadratic factor.
+
+## MIT Integration Bee qualifying test (format as of 2026)
+
+https://math.mit.edu/~yyao1/integrationbee.html
+
+0 of 0 items have at least one objective answering to them.
+
+| Item | Topic | Objectives | With a drill | Where |
+|---|---|---|---|---|
+| **pace** | **Qualifier: 20 integrals in 20 minutes** (undefined questions) | | | |
+
+**Areas with nothing answering to them:** pace Qualifier: 20 integrals in 20 minutes.

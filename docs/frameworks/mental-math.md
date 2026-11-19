@@ -2,7 +2,7 @@
 
 Generated from `drills/frameworks/mental-math.yaml` by `scripts/framework.mjs`. ● drilled · ◐ partly · ○ no drills yet.
 
-**75 learning objectives** in 5 units (75 core): 75 drilled, 0 partly, 0 with no drills. Core: 75 / 75 drilled.
+**82 learning objectives** in 6 units (82 core): 82 drilled, 0 partly, 0 with no drills. Core: 82 / 82 drilled.
 
 ## Big ideas
 
@@ -25,6 +25,7 @@ Generated from `drills/frameworks/mental-math.yaml` by `scripts/framework.mjs`. 
 | 3 · Advanced algebra and geometry (problems 41–60) | core | — | 17 | 17 | 0 | 0 |
 | 4 · Precalculus (problems 61–70) | core | — | 10 | 10 | 0 | 0 |
 | 5 · Calculus (problems 71–80) | core | — | 10 | 10 | 0 | 0 |
+| 6 · By inspection (beyond the chart) | core | — | 7 | 7 | 0 | 0 |
 
 ## Unit 1 · Arithmetic at speed (problems 1–20)
 
@@ -610,3 +611,48 @@ Big ideas: SEE
 - ● **MM-5.10.A** (H5.10) Evaluate f⁻¹(a) for a linear or simple rational f without finding the inverse formula.
   - EK: Solve f(x) = a.
   - P1 · P2 · drills: mm-inverse-function-value
+
+## Unit 6 · By inspection (beyond the chart)
+
+Big ideas: SEE
+
+### 6.1 Heaviside cover-up
+
+
+
+- ● **MM-6.1.A** (mit-18-03-coverup:distinct) Read off one coefficient of a partial-fraction decomposition with distinct linear factors by covering up.
+  - EK: Cover the factor, substitute its root into what is left.
+  - P1 · P2 · drills: mm-coverup-two, mm-coverup-three
+- ● **MM-6.1.B** (mit-18-03-coverup:repeated, mit-18-03-coverup:quadratic) Use cover-up where it still works: the top power of a repeated factor, and a linear factor beside an irreducible quadratic.
+  - EK: Cover-up gives the highest-power coefficient only; the rest need one more step.
+  - P1 · P2 · drills: mm-coverup-repeated, mm-coverup-quadratic
+
+### 6.2 Integrals by inspection
+
+
+
+- ● **MM-6.2.A** (mit-integration-bee:pace) Integrate a basic function of a linear inside (cos kx, sin kx, e^kx, (kx + b)^n, 1/(kx + b)) by guessing the shape and fixing the constant.
+  - EK: Differentiate the guess in your head; divide by whatever constant it throws out.
+  - P1 · P2 · drills: mm-int-cos-kx, mm-int-sin-kx, mm-int-exp-kx, mm-int-linear-power, mm-int-reciprocal-linear
+- ● **MM-6.2.B** (mit-integration-bee:pace) Spot an integrand of the form f(g(x))·g′(x) up to a constant and write its antiderivative.
+  - EK: f′/f integrates to ln f; u^n du to u^(n+1)/(n+1); x·e^(kx²) to an exponential.
+  - P1 · P2 · drills: mm-int-log-form, mm-int-x-exp-square, mm-int-sin-power-cos
+
+### 6.3 Derivatives in one line
+
+
+
+- ● **MM-6.3.A** Write the derivative of a one-layer composite or a power-times-exponential product without intermediate steps.
+  - EK: Outside derivative with the inside untouched, times the inside derivative.
+  - P1 · P2 · drills: mm-diff-linear-power, mm-diff-sin-inner, mm-diff-log-inner, mm-diff-power-exp
+
+### 6.4 Matrices and ODEs on sight
+
+
+
+- ● **MM-6.4.A** Find the eigenvalues of a 2 × 2 matrix from its trace and determinant.
+  - EK: Sum = trace, product = determinant.
+  - P1 · P2 · drills: mm-eigen-trace-det
+- ● **MM-6.4.B** Classify y″ + by′ + cy = 0 by comparing b² with 4c, and choose the trial form for an exponential forcing term.
+  - EK: b² > 4c overdamped, = critical, < underdamped; multiply the trial by x once per time the exponent is a characteristic root.
+  - P1 · P2 · drills: mm-damping-class, mm-particular-form

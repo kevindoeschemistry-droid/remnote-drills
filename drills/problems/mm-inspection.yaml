@@ -1,0 +1,316 @@
+# By inspection: results you should be able to write down without working, beyond the UIL chart.
+#
+# Basis, stated plainly. Two published things anchor this file and neither is a curriculum:
+#   mit-18-03-coverup     Mattuck's 18.03 note H on Heaviside's cover-up method: the technique itself
+#                         (distinct linear factors, the top power of a repeated factor, a linear factor
+#                         beside an irreducible quadratic)
+#   mit-integration-bee   the qualifier's format, 20 integrals in 20 minutes: a published statement
+#                         that an integral a minute, with no working shown, is a real standard of fluency
+# Which integrals, derivatives, matrix and ODE facts belong here is a house list (drills/standards.yaml).
+#
+# Every item is one question. Antiderivatives are checked by differentiating what was typed, so any
+# correct form is accepted; the verifier differentiates the key the same way.
+
+# ── Heaviside cover-up ──────────────────────────────────────────────────────
+- template: mm-coverup-two
+  skill: calc.partial-fractions
+  pace: quick
+  given: { A0: { pick: [-5, -4, -3, -2, -1, 1, 2, 3, 4, 5] }, B0: { pick: [-4, -3, -2, -1, 1, 2, 3, 4] }, a: { int: [-4, 4] }, b: { int: [-4, 4] } }
+  require: ["a != b", "A0 + B0 != 0", "A0*b + B0*a != 0"]
+  prompt: 'Cover up, do not solve: $\dfrac{ {{=(A0 + B0)*x - (A0*b + B0*a)}} }{ {{=(x - a)*(x - b)}} } = \dfrac{A}{ {{=x - a}} } + \dfrac{B}{ {{=x - b}} }$'
+  parts:
+    - ask: '$A$'
+      label: v
+      tex: 'A'
+      value: A0
+      tol: 0.0001
+      explain: 'Cover the factor $({{=x - a}})$ and put $x = {{a}}$ into what is left: $\dfrac{ {{(A0 + B0)*a - (A0*b + B0*a)}} }{ {{a - b}} } = {{A0}}$'
+  verify: { expect: { v: "limit((x - a)*((A0 + B0)*x - (A0*b + B0*a))/((x - a)*(x - b)), x, a)" } }
+
+- template: mm-coverup-three
+  skill: calc.partial-fractions
+  pace: quick
+  given: { k: { pick: [-3, -2, -1, 1, 2, 3] } }
+  cases:
+    - { a: 1, b: 0, c: -1 }
+    - { a: 0, b: 1, c: -1 }
+    - { a: 2, b: 1, c: -1 }
+    - { a: -2, b: 1, c: 0 }
+    - { a: 3, b: 1, c: 2 }
+    - { a: -1, b: 2, c: 1 }
+    - { a: 0, b: 2, c: -2 }
+    - { a: 1, b: 3, c: -1 }
+    - { a: 2, b: 0, c: -2 }
+    - { a: -1, b: 0, c: 3 }
+  let: { N: k*(a - b)*(a - c) }
+  prompt: 'Cover up, do not solve. In the partial fractions of $\dfrac{ {{N}} }{ {{=(x - a)*(x - b)*(x - c)}} }$, what is the coefficient of $\dfrac{1}{ {{=x - a}} }$?'
+  parts:
+    - ask: 'Coefficient'
+      label: v
+      tex: 'A'
+      value: N/((a - b)*(a - c))
+      tol: 0.0001
+      explain: 'Cover $({{=x - a}})$ and put $x = {{a}}$ into the rest: $\dfrac{ {{N}} }{ ({{a - b}})({{a - c}}) } = {{N/((a - b)*(a - c))}}$'
+  verify: { expect: { v: "limit((x - a)*(k*(a - b)*(a - c))/((x - a)*(x - b)*(x - c)), x, a)" } }
+
+- template: mm-coverup-repeated
+  skill: calc.partial-fractions
+  pace: quick
+  given: { k: { pick: [-3, -2, -1, 1, 2, 3, 4] }, a: { int: [-3, 3] }, b: { int: [-3, 3] } }
+  require: ["a != b"]
+  let: { N: k*(a - b) }
+  prompt: 'Cover up, do not solve: $\dfrac{ {{N}} }{ {{=(x - a)^2*(x - b)}} } = \dfrac{A}{ {{=(x - a)^2}} } + \dfrac{B}{ {{=x - a}} } + \dfrac{C}{ {{=x - b}} }$'
+  parts:
+    - ask: '$A$ (the top power of the repeated factor)'
+      label: v
+      tex: 'A'
+      value: N/(a - b)
+      tol: 0.0001
+      explain: 'Cover-up still gives the coefficient of the highest power: cover $({{=x - a}})^2$ and put $x = {{a}}$, leaving $\dfrac{ {{N}} }{ {{a - b}} } = {{N/(a - b)}}$. It gives $C$ too, but not $B$'
+  verify: { expect: { v: "limit((x - a)**2*(k*(a - b))/((x - a)**2*(x - b)), x, a)" } }
+
+- template: mm-coverup-quadratic
+  skill: calc.partial-fractions
+  pace: quick
+  given: { k: { pick: [-2, -1, 1, 2, 3] }, a: { pick: [-3, -2, -1, 1, 2, 3] }, c: { pick: [1, 4, 9] } }
+  let: { N: k*(a^2 + c) }
+  prompt: 'Cover up, do not solve: $\dfrac{ {{N}} }{ {{=(x^2 + c)*(x - a)}} } = \dfrac{Ax + B}{ {{=x^2 + c}} } + \dfrac{C}{ {{=x - a}} }$'
+  parts:
+    - ask: '$C$'
+      label: v
+      tex: 'C'
+      value: N/(a^2 + c)
+      tol: 0.0001
+      explain: 'The linear factor still covers up: put $x = {{a}}$ into $\dfrac{ {{N}} }{x^2 + {{c}} }$ to get $\dfrac{ {{N}} }{ {{a^2 + c}} } = {{N/(a^2 + c)}}$. $A$ and $B$ need one more step'
+  verify: { expect: { v: "limit((x - a)*(k*(a**2 + c))/((x**2 + c)*(x - a)), x, a)" } }
+
+# ── integrals by inspection: guess the shape, fix the constant ──────────────
+- template: mm-int-cos-kx
+  skill: calc.antiderivatives
+  pace: quick
+  given: { a: { int: [1, 6] }, k: { int: [2, 6] } }
+  prompt: 'By inspection: $\displaystyle\int {{=a*cos(k*x)}}\,dx$. Type your answer as $y = \ldots + C$.'
+  parts:
+    - ask: 'The antiderivative'
+      label: F
+      tex: '\int f\,dx'
+      ode: a*cos(k*x)
+      sol: a/k*sin(k*x) + C
+      explain: 'Guess $\sin {{k}}x$. Differentiating it throws out a ${{k}}$, so divide by ${{k}}$: ${{=a/k*sin(k*x)}} + C$'
+  verify: { expect: {} }
+
+- template: mm-int-sin-kx
+  skill: calc.antiderivatives
+  pace: quick
+  given: { a: { int: [1, 6] }, k: { int: [2, 6] } }
+  prompt: 'By inspection: $\displaystyle\int {{=a*sin(k*x)}}\,dx$. Type your answer as $y = \ldots + C$.'
+  parts:
+    - ask: 'The antiderivative'
+      label: F
+      tex: '\int f\,dx'
+      ode: a*sin(k*x)
+      sol: -a/k*cos(k*x) + C
+      explain: 'Guess $\cos {{k}}x$. Its derivative is $-{{k}}\sin {{k}}x$, so divide by $-{{k}}$: ${{=-a/k*cos(k*x)}} + C$'
+  verify: { expect: {} }
+
+- template: mm-int-exp-kx
+  skill: calc.antiderivatives
+  pace: quick
+  given: { a: { int: [1, 8] }, k: { pick: [-4, -3, -2, -1, 2, 3, 4, 5] } }
+  prompt: 'By inspection: $\displaystyle\int {{=a*exp(k*x)}}\,dx$. Type your answer as $y = \ldots + C$ (exp(x) for $e^x$).'
+  parts:
+    - ask: 'The antiderivative'
+      label: F
+      tex: '\int f\,dx'
+      ode: a*exp(k*x)
+      sol: a/k*exp(k*x) + C
+      explain: 'An exponential is its own antiderivative up to the constant in the exponent: divide by ${{k}}$ to get ${{=a/k*exp(k*x)}} + C$'
+  verify: { expect: {} }
+
+- template: mm-int-linear-power
+  skill: calc.antiderivatives
+  pace: quick
+  given: { k: { int: [2, 3] }, b: { int: [-2, 2] }, n: { int: [2, 3] } }
+  require: ["b != 0"]
+  prompt: 'By inspection: $\displaystyle\int {{=(k*x + b)^n}}\,dx$. Type your answer as $y = \ldots + C$.'
+  parts:
+    - ask: 'The antiderivative'
+      label: F
+      tex: '\int f\,dx'
+      ode: (k*x + b)^n
+      sol: (k*x + b)^(n + 1)/(k*(n + 1)) + C
+      explain: 'Raise the power to ${{n + 1}}$, then divide by the new power and by the inside derivative ${{k}}$: $\dfrac{ ({{=k*x + b}})^{ {{n + 1}} } }{ {{k*(n + 1)}} } + C$. Do not expand'
+  verify: { expect: {} }
+
+- template: mm-int-reciprocal-linear
+  skill: calc.antiderivatives
+  pace: quick
+  given: { a: { int: [1, 6] }, k: { int: [2, 5] }, b: { int: [1, 6] } }
+  prompt: 'By inspection, for $x > 0$: $\displaystyle\int \frac{ {{a}} }{ {{=k*x + b}} }\,dx$. Type your answer as $y = \ldots + C$ (log(x) for $\ln x$).'
+  parts:
+    - ask: 'The antiderivative'
+      label: F
+      tex: '\int f\,dx'
+      ode: a/(k*x + b)
+      sol: a/k*log(k*x + b) + C
+      explain: 'Guess $\ln({{=k*x + b}})$. Its derivative has a ${{k}}$ on top, so divide by ${{k}}$: ${{=a/k}}\ln({{=k*x + b}}) + C$'
+  verify: { expect: {} }
+
+- template: mm-int-log-form
+  skill: calc.antiderivatives
+  pace: quick
+  given: { a: { int: [1, 8] }, c: { int: [1, 9] } }
+  prompt: 'By inspection: $\displaystyle\int \frac{ {{=a*x}} }{ {{=x^2 + c}} }\,dx$. Type your answer as $y = \ldots + C$ (log(x) for $\ln x$).'
+  parts:
+    - ask: 'The antiderivative'
+      label: F
+      tex: '\int f\,dx'
+      ode: a*x/(x^2 + c)
+      sol: a/2*log(x^2 + c) + C
+      explain: 'The top is a multiple of the derivative of the bottom, so the answer is a logarithm of the bottom. The bottom''s derivative is $2x$ and the top has ${{a}}x$: ${{=a/2}}\ln(x^2 + {{c}}) + C$'
+  verify: { expect: {} }
+
+- template: mm-int-x-exp-square
+  skill: calc.antiderivatives
+  pace: quick
+  given: { a: { pick: [1, 2, 3, 4, 6, 8] }, k: { pick: [-2, -1, 1, 2, 3] } }
+  prompt: 'By inspection: $\displaystyle\int {{=a*x}}\,e^{ {{=k*x^2}} }\,dx$. Type your answer as $y = \ldots + C$ (exp(x) for $e^x$).'
+  parts:
+    - ask: 'The antiderivative'
+      label: F
+      tex: '\int f\,dx'
+      ode: a*x*exp(k*x^2)
+      sol: a/(2*k)*exp(k*x^2) + C
+      explain: 'The $x$ outside is the inside derivative up to a constant. Guess $e^{ {{=k*x^2}} }$: its derivative is ${{=2*k*x}}\,e^{ {{=k*x^2}} }$, so multiply by $\dfrac{ {{a}} }{ {{2*k}} }$'
+  verify: { expect: {} }
+
+- template: mm-int-sin-power-cos
+  skill: calc.antiderivatives
+  pace: quick
+  given: { n: { int: [2, 6] } }
+  prompt: 'By inspection: $\displaystyle\int \sin^{ {{n}} }x\,\cos x\,dx$. Type your answer as $y = \ldots + C$ (sin(x)^{{n + 1}} for $\sin^{ {{n + 1}} }x$).'
+  parts:
+    - ask: 'The antiderivative'
+      label: F
+      tex: '\int f\,dx'
+      ode: sin(x)^n*cos(x)
+      sol: sin(x)^(n + 1)/(n + 1) + C
+      explain: '$\cos x$ is the derivative of $\sin x$, so this is $u^{ {{n}} }\,du$: $\dfrac{\sin^{ {{n + 1}} }x}{ {{n + 1}} } + C$'
+  verify: { expect: {} }
+
+# ── derivatives in one line ─────────────────────────────────────────────────
+- template: mm-diff-linear-power
+  skill: calc.chain-rule
+  pace: quick
+  given: { k: { int: [2, 6] }, b: { int: [-5, 5] }, n: { int: [3, 7] } }
+  require: ["b != 0"]
+  prompt: 'In one line: $\dfrac{d}{dx}\,{{=(k*x + b)^n}}$'
+  parts:
+    - ask: 'The derivative'
+      label: d
+      tex: 'f''(x)'
+      expr: n*k*(k*x + b)^(n - 1)
+      explain: 'Power down, times the inside derivative ${{k}}$: ${{n*k}}({{=k*x + b}})^{ {{n - 1}} }$'
+  verify: { expect: { d: "diff((k*x + b)**n, x)" } }
+
+- template: mm-diff-sin-inner
+  skill: calc.chain-rule
+  pace: quick
+  given: { a: { int: [1, 5] }, k: { int: [2, 5] }, n: { pick: [1, 2, 3] } }
+  prompt: 'In one line: $\dfrac{d}{dx}\,{{=a*sin(k*x^n)}}$'
+  parts:
+    - ask: 'The derivative'
+      label: d
+      tex: 'f''(x)'
+      expr: a*k*n*x^(n - 1)*cos(k*x^n)
+      explain: 'Outside becomes cosine with the inside untouched, times the inside derivative ${{=k*n*x^(n - 1)}}$'
+  verify: { expect: { d: "diff(a*sin(k*x**n), x)" } }
+
+- template: mm-diff-log-inner
+  skill: calc.chain-rule
+  pace: quick
+  given: { n: { pick: [2, 3, 4] }, c: { int: [1, 9] } }
+  prompt: 'In one line: $\dfrac{d}{dx}\,\ln\left({{=x^n + c}}\right)$'
+  parts:
+    - ask: 'The derivative'
+      label: d
+      tex: 'f''(x)'
+      expr: n*x^(n - 1)/(x^n + c)
+      explain: 'The derivative of $\ln u$ is $u''/u$: derivative of the inside over the inside, $\dfrac{ {{=n*x^(n - 1)}} }{ {{=x^n + c}} }$'
+  verify: { expect: { d: "diff(log(x**n + c), x)" } }
+
+- template: mm-diff-power-exp
+  skill: calc.chain-rule
+  pace: quick
+  given: { n: { int: [1, 4] }, k: { pick: [-3, -2, -1, 2, 3, 4] } }
+  prompt: 'In one line, factored: $\dfrac{d}{dx}\,{{=x^n}}\,e^{ {{=k*x}} }$ (type exp(x) for $e^x$)'
+  parts:
+    - ask: 'The derivative'
+      label: d
+      tex: 'f''(x)'
+      expr: (n*x^(n - 1) + k*x^n)*exp(k*x)
+      explain: 'Product rule with the exponential kept as a common factor: $\left({{=n*x^(n - 1) + k*x^n}}\right)e^{ {{=k*x}} }$. Any equivalent form is accepted'
+  verify: { expect: { d: "diff(x**n*exp(k*x), x)" } }
+
+# ── 2 × 2 matrices and second-order ODEs on sight ───────────────────────────
+- template: mm-eigen-trace-det
+  skill: la.eigenvalues
+  pace: quick
+  given: { l1: { int: [-4, 6] }, l2: { int: [-4, 6] }, a: { int: [-3, 5] } }
+  require: ["l1 > l2", "l1 != 0", "a*(l1 + l2 - a) - l1*l2 != 0", "a != l1", "a != l2"]
+  let: { d: l1 + l2 - a, c: a*(l1 + l2 - a) - l1*l2 }
+  prompt: 'From the trace and determinant alone: the larger eigenvalue of $\begin{pmatrix} {{a}} & 1 \\ {{c}} & {{d}} \end{pmatrix}$'
+  parts:
+    - ask: 'Larger eigenvalue'
+      label: v
+      tex: '\lambda_{\max}'
+      value: l1
+      tol: 0.0001
+      explain: 'The eigenvalues add to the trace ${{a + d}}$ and multiply to the determinant ${{a*d - c}}$: two numbers with that sum and product are ${{l1}}$ and ${{l2}}$'
+  verify: { expect: { v: "Max(*Matrix([[a, 1], [a*(l1 + l2 - a) - l1*l2, l1 + l2 - a]]).eigenvals().keys())" } }
+
+- template: mm-damping-class
+  skill: ode2.characteristic
+  pace: recall
+  cases:
+    - { b: 5, c: 6 }
+    - { b: 4, c: 4 }
+    - { b: 2, c: 5 }
+    - { b: 6, c: 9 }
+    - { b: 3, c: 2 }
+    - { b: 2, c: 2 }
+    - { b: 4, c: 5 }
+    - { b: 2, c: 1 }
+    - { b: 7, c: 10 }
+    - { b: 4, c: 13 }
+    - { b: 8, c: 16 }
+    - { b: 6, c: 5 }
+  prompt: 'At a glance: $y'''' + {{b}}y'' + {{c}}y = 0$. How does the solution behave?'
+  parts:
+    - ask: 'Behaviour'
+      label: v
+      choice: ["Overdamped: two real exponentials", "Critically damped: a repeated root", "Underdamped: a decaying oscillation"]
+      correct: "b^2 - 4*c > 0 ? 0 : (b^2 - 4*c == 0 ? 1 : 2)"
+      explain: 'Compare $b^2 = {{b^2}}$ with $4c = {{4*c}}$: bigger means two real roots, equal means a repeated root, smaller means complex roots'
+  verify: { choices: { v: "0 if b**2 - 4*c > 0 else (1 if b**2 - 4*c == 0 else 2)" } }
+
+- template: mm-particular-form
+  skill: ode2.undetermined
+  pace: quick
+  cases:
+    - { p: -3, q: 2, lhs: "y'' - 3y' + 2y" }
+    - { p: -4, q: 4, lhs: "y'' - 4y' + 4y" }
+    - { p: 1, q: -2, lhs: "y'' + y' - 2y" }
+    - { p: 0, q: -4, lhs: "y'' - 4y" }
+    - { p: 0, q: 4, lhs: "y'' + 4y" }
+    - { p: -5, q: 6, lhs: "y'' - 5y' + 6y" }
+    - { p: 2, q: 1, lhs: "y'' + 2y' + y" }
+    - { p: -1, q: -2, lhs: "y'' - y' - 2y" }
+  prompt: 'At a glance: which trial solution fits ${{lhs}} = e^{2x}$?'
+  parts:
+    - ask: 'Trial form of the particular solution'
+      label: v
+      choice: ["A·exp(2x)", "A·x·exp(2x)", "A·x²·exp(2x)"]
+      correct: "4 + 2*p + q != 0 ? 0 : (4 + p != 0 ? 1 : 2)"
+      explain: 'Put $r = 2$ into the characteristic polynomial $r^2 + ({{p}})r + ({{q}})$. Not a root: use the plain exponential. A simple root: multiply by $x$. A double root: multiply by $x^2$'
+  verify: { choices: { v: "0 if (x**2 + p*x + q).subs(x, 2) != 0 else (1 if diff(x**2 + p*x + q, x).subs(x, 2) != 0 else 2)" } }
