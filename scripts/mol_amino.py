@@ -34,6 +34,9 @@ AA = [
 ]
 
 # look-alikes offered together in the name-the-structure items
+# molecular formulas written from memory, independently of the SMILES above: the generator refuses to run if they disagree
+FORMULA = {'Gly': 'C2H5NO2', 'Ala': 'C3H7NO2', 'Val': 'C5H11NO2', 'Leu': 'C6H13NO2', 'Ile': 'C6H13NO2', 'Ser': 'C3H7NO3', 'Thr': 'C4H9NO3', 'Cys': 'C3H7NO2S', 'Met': 'C5H11NO2S', 'Asp': 'C4H7NO4', 'Glu': 'C5H9NO4', 'Asn': 'C4H8N2O3', 'Gln': 'C5H10N2O3', 'Lys': 'C6H14N2O2', 'Arg': 'C6H14N4O2', 'His': 'C6H9N3O2', 'Phe': 'C9H11NO2', 'Tyr': 'C9H11NO3', 'Trp': 'C11H12N2O2', 'Pro': 'C5H9NO2'}
+
 GROUPS = [["glycine", "alanine", "valine", "leucine", "isoleucine"], ["serine", "threonine", "cysteine", "methionine"],
           ["aspartic acid", "glutamic acid", "asparagine", "glutamine"], ["lysine", "arginine", "proline", "histidine"],
           ["phenylalanine", "tyrosine", "tryptophan", "histidine"]]
@@ -62,7 +65,7 @@ def write(block):
       label: a
       draw: true
       solution:
-{block(smi, amino=True)}      explain: '{hook}. Condensed: ${cond}$'
+{block(smi, amino=True, expect=FORMULA[three])}      explain: '{hook}. Condensed: ${cond}$'
 """)
         group = next(g for g in GROUPS if name in g)
         if name == "histidine":

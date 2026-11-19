@@ -34,6 +34,7 @@ domains:
   - { id: quantum, title: "Quantum chemistry & spectroscopy" }
   - { id: kinetics, title: "Kinetic theory & chemical kinetics" }
   - { id: biochem, title: "Biochemistry" }
+  - { id: orgo, title: "Organic chemistry" }
 
 skills:
   # ── prerequisites ────────────────────────────────────────────────────────
@@ -510,3 +511,11 @@ skills:
 
   # ── biochemistry ─────────────────────────────────────────────────────────
   - { id: biochem.amino-acids, domain: biochem, title: "The 20 amino acids: structures from memory", short: "Amino acid structures" }
+  - { id: biochem.nucleotides, domain: biochem, title: "Bases, nucleosides and ATP: structures from memory", short: "Nucleotide structures" }
+  - { id: biochem.sugars, domain: biochem, title: "Sugars as Fischer projections", short: "Sugar structures" }
+  - { id: biochem.metabolites, domain: biochem, title: "Glycolysis and citric acid cycle intermediates: structures from memory", short: "Metabolite structures" }
+  - { id: biochem.lipids-coenzymes, domain: biochem, title: "Fatty acids, cholesterol and coenzymes: structures from memory", short: "Lipid and coenzyme structures" }
+
+  # ── organic chemistry ────────────────────────────────────────────────────
+  - { id: orgo.aromatics, domain: orgo, title: "Benzene derivatives and heterocycles: structures from memory", short: "Aromatic structures" }
+  - { id: orgo.common-compounds, domain: orgo, title: "Solvents and small molecules by common name", short: "Common compounds" }

@@ -6,6 +6,7 @@ plain coordinates, and tests/verify/molecules.py re-derives each formula from th
 
   python3 scripts/mol.py "C[C@H](N)C(=O)O"            one structure, printed as a solution block
   python3 scripts/mol.py --amino-acids                 rewrites drills/problems/bc-amino-acids.yaml
+  python3 scripts/mol.py --library                     rewrites drills/problems/st-structures.yaml
 
 Layout for an amino acid: amine on the left, carboxyl on the right, side chain up.
 """
@@ -44,9 +45,10 @@ def layout(smiles: str, amino=False):
             atoms.append([round(pts[i][0], 2), round(pts[i][1], 2)])
             continue
         hs = "" if h == 0 else "H" if h == 1 else f"H{h}"
+        q = {1: "+", -1: "-", 0: ""}[a.GetFormalCharge()]
         # hydrogens go on the side away from the bonds
         dx = sum(pts[b.GetIdx()][0] for b in a.GetNeighbors()) / a.GetDegree() - pts[i][0]
-        atoms.append([round(pts[i][0], 2), round(pts[i][1], 2), (hs + el) if (hs and dx > 0.3) else (el + hs)])
+        atoms.append([round(pts[i][0], 2), round(pts[i][1], 2), ((hs + el) if (hs and dx > 0.3) else (el + hs)) + q])
     ring = m.GetRingInfo()
     bonds = []
     for b in m.GetBonds():
@@ -64,11 +66,18 @@ def layout(smiles: str, amino=False):
     return formula, atoms, bonds
 
 
-def block(smiles, amino=False, indent="        "):
-    formula, atoms, bonds = layout(smiles, amino)
+def emit(formula, atoms, bonds, indent="        "):
     fmt = lambda a: "[" + ", ".join(f'"{v}"' if isinstance(v, str) else str(v) for v in a) + "]"  # noqa: E731
     return (f"{indent}type: molecule\n{indent}formula: {formula}\n"
             f"{indent}atoms: [{', '.join(fmt(a) for a in atoms)}]\n{indent}bonds: [{', '.join(fmt(b) for b in bonds)}]\n")
+
+
+def block(smiles, amino=False, indent="        ", expect=None):
+    formula, atoms, bonds = layout(smiles, amino)
+    # the formula written by hand in the table must agree with the one the SMILES gives
+    if expect is not None and expect != formula:
+        raise SystemExit(f"{smiles}: table says {expect}, the SMILES is {formula}")
+    return emit(formula, atoms, bonds, indent)
 
 
 if __name__ == "__main__":
@@ -76,5 +85,9 @@ if __name__ == "__main__":
         sys.path.insert(0, str(Path(__file__).parent))
         from mol_amino import write
         write(block)
+    elif sys.argv[1:] == ["--library"]:
+        sys.path.insert(0, str(Path(__file__).parent))
+        from mol_library import write
+        write(block, emit)
     else:
         print(block(sys.argv[1], amino="--amino" in sys.argv, indent=""))
