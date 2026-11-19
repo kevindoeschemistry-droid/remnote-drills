@@ -13,6 +13,9 @@
 //                                { ask, label, tex, ode: "a*x^n*y", sol: "C*exp(…)", ic: [x0, y0] }   y' = ode(x, y):
 //                                an antiderivative (sol ends "+ C") or a solution of a first-order equation, checked
 //                                by differentiating what the learner types
+//   cases:    one is drawn       [{ f: "…", kind: 0 }, …]   its fields join the givens (text or numbers),
+//                                for items whose wording changes with the case
+//   figure:   a drawing          { type: plot | numberline | grid | bars | table, … }   see fig-data.ts
 //   {{=expr}}                    prints an expression the same way, e.g. $f(x) = {{=a*x^n + b}}$
 //   verify:   the independent check (tests/verify/data.py): never reused here
 import graph from "./skills.generated.json";
@@ -22,6 +25,7 @@ import { require_ } from "./reject";
 import type { Rng } from "./rng";
 import type { Answer, Draft, Part } from "./types";
 import { symbolic } from "./sym";
+import { renderFigure } from "./fig-data";
 
 type Given = number | string | { pick?: (number | string)[]; int?: [number, number] };
 interface DataPart {
@@ -45,6 +49,8 @@ export interface DataTemplate {
   skill: string;
   level?: number;
   given?: Record<string, Given>;
+  cases?: Record<string, number | string>[];
+  figure?: unknown;
   let?: Record<string, string | number>;
   require?: string[];
   prompt: string;
@@ -86,6 +92,7 @@ function draw(g: Given, r: Rng): number | string {
 export function buildData(t: DataTemplate, r: Rng): Draft {
   const given: Scope = {};
   for (const [k, g] of Object.entries(t.given ?? {})) given[k] = draw(g, r);
+  if (t.cases?.length) Object.assign(given, r.pick(t.cases as any));
   const scope: Scope = { ...given };
   for (const [k, e] of Object.entries(t.let ?? {})) {
     const v = evalIn(e, scope);
@@ -126,6 +133,7 @@ export function buildData(t: DataTemplate, r: Rng): Draft {
   });
   const last = parts[parts.length - 1];
   return {
+    ...(t.figure ? { figure: renderFigure(t.figure, scope) } : {}),
     prompt: fill(t.prompt, scope),
     answer: last.answer,
     answerTex: last.answerTex,

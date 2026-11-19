@@ -2,7 +2,7 @@
 
 Generated from `drills/frameworks/math-hs.yaml` by `scripts/framework.mjs`. ● drilled · ◐ partly · ○ no drills yet.
 
-**200 learning objectives** in 21 units (194 core): 130 drilled, 35 partly, 35 with no drills. Core: 126 / 194 drilled.
+**200 learning objectives** in 21 units (194 core): 149 drilled, 30 partly, 21 with no drills. Core: 144 / 194 drilled.
 
 ## Big ideas
 
@@ -29,26 +29,26 @@ Generated from `drills/frameworks/math-hs.yaml` by `scripts/framework.mjs`. ● 
 | Unit | Scope | Est. weight | LOs | ● | ◐ | ○ |
 |---|---|---|---|---|---|---|
 | 1 · Relationships between quantities and reasoning with equations | core | — | 12 | 5 | 5 | 2 |
-| 2 · Linear and exponential relationships | core | — | 25 | 16 | 4 | 5 |
-| 3 · Descriptive statistics | core | — | 10 | 7 | 1 | 2 |
+| 2 · Linear and exponential relationships | core | — | 25 | 21 | 2 | 2 |
+| 3 · Descriptive statistics | core | — | 10 | 9 | 1 | 0 |
 | 4 · Expressions and equations | core | — | 10 | 10 | 0 | 0 |
-| 5 · Quadratic functions and modeling | core | — | 12 | 8 | 1 | 3 |
-| 6 · Congruence, proof and constructions | core | — | 13 | 7 | 2 | 4 |
+| 5 · Quadratic functions and modeling | core | — | 12 | 9 | 2 | 1 |
+| 6 · Congruence, proof and constructions | core | — | 13 | 8 | 1 | 4 |
 | 7 · Similarity, proof and trigonometry | core | — | 15 | 10 | 3 | 2 |
 | 8 · Extending to three dimensions | core | — | 4 | 2 | 1 | 1 |
 | 9 · Connecting algebra and geometry through coordinates | core | — | 5 | 5 | 0 | 0 |
 | 10 · Circles with and without coordinates | core | — | 7 | 5 | 0 | 2 |
 | 11 · Applications of probability | core | — | 11 | 8 | 1 | 2 |
-| 12 · Polynomial, rational and radical relationships | core | — | 16 | 11 | 2 | 3 |
+| 12 · Polynomial, rational and radical relationships | core | — | 16 | 12 | 3 | 1 |
 | 13 · Trigonometric functions | core | — | 4 | 4 | 0 | 0 |
 | 14 · Modeling with functions | core | — | 6 | 3 | 2 | 1 |
-| 15 · Inferences and conclusions from data | core | — | 7 | 2 | 0 | 5 |
-| 16 · Composition, inverses, logarithms and rational functions | core | — | 7 | 5 | 1 | 1 |
-| 17 · Trigonometric functions, inverses and identities | core | — | 7 | 5 | 2 | 0 |
+| 15 · Inferences and conclusions from data | core | — | 7 | 3 | 1 | 3 |
+| 16 · Composition, inverses, logarithms and rational functions | core | — | 7 | 6 | 1 | 0 |
+| 17 · Trigonometric functions, inverses and identities | core | — | 7 | 6 | 1 | 0 |
 | 18 · Complex numbers in the plane | core | — | 4 | 3 | 1 | 0 |
-| 19 · Vectors and matrices | core | — | 17 | 9 | 6 | 2 |
+| 19 · Vectors and matrices | core | — | 17 | 14 | 3 | 0 |
 | 20 · Conic sections and Cavalieri's principle | core | — | 2 | 1 | 1 | 0 |
-| 21 · Expected value and decisions | extension | — | 6 | 4 | 2 | 0 |
+| 21 · Expected value and decisions | extension | — | 6 | 5 | 1 | 0 |
 
 ## Unit 1 · Relationships between quantities and reasoning with equations
 
@@ -143,14 +143,14 @@ Big ideas: FUNC, MODEL, EQUIV
 
 
 
-- ◐ **MH-2.2.A** (F-IF.B.4) Interpret key features of a graph or table in context (intercepts, intervals of increase and decrease, where positive or negative, maxima and minima), and sketch a graph from a verbal description.
+- ● **MH-2.2.A** (F-IF.B.4) Interpret key features of a graph or table in context (intercepts, intervals of increase and decrease, where positive or negative, maxima and minima), and sketch a graph from a verbal description.
   - EK: Each graphical feature is a statement about the quantities: an intercept is a starting value, a high point is a largest value.
   - Needs: MH-2.1.B
-  - MP2 · MP4 · drills: ~alg-intercepts
-- ○ **MH-2.2.B** (F-IF.B.5) Relate the domain of a function to its graph and to the quantity it describes.
+  - MP2 · MP4 · drills: hs-parabola-features, ~alg-intercepts
+- ● **MH-2.2.B** (F-IF.B.5) Relate the domain of a function to its graph and to the quantity it describes.
   - EK: Context restricts the domain, e.g. whole numbers for a count of items, t ≥ 0 for time.
   - Needs: MH-2.2.A
-  - MP2
+  - MP2 · drills: hs-domain-range-graph
 - ● **MH-2.2.C** (F-IF.B.6) Calculate and interpret the average rate of change of a function over an interval from a formula, a table or a graph.
   - EK: Average rate of change = (f(b) − f(a))/(b − a), the slope of the secant line, in output units per input unit.
   - Needs: MH-2.2.A
@@ -222,10 +222,10 @@ Big ideas: FUNC, MODEL, EQUIV
   - EK: Passes through (0, a); grows if b > 1, decays if 0 < b < 1; horizontal asymptote y = 0.
   - Needs: MH-2.5.A
   - MP5 · MP6 · drills: alg-exp-graph
-- ○ **MH-2.6.D** (F-LE.A.3) Show with graphs and tables that a quantity increasing exponentially eventually exceeds one increasing linearly.
+- ● **MH-2.6.D** (F-LE.A.3) Show with graphs and tables that a quantity increasing exponentially eventually exceeds one increasing linearly.
   - EK: Equal factors eventually beat equal differences, however small the base above 1.
   - Needs: MH-2.6.C
-  - MP5 · MP8
+  - MP5 · MP8 · drills: hs-exp-beats-linear
 - ◐ **MH-2.6.E** (F-IF.C.9) Compare properties of two functions each represented in a different way (algebraically, graphically, numerically in a table, or by a verbal description).
   - EK: Read the same feature (rate, intercept, maximum) from each representation before comparing.
   - Needs: MH-2.6.C
@@ -235,10 +235,10 @@ Big ideas: FUNC, MODEL, EQUIV
 
 
 
-- ◐ **MH-2.7.A** (A-REI.C.6) Solve a system of two linear equations approximately by graphing.
+- ● **MH-2.7.A** (A-REI.C.6) Solve a system of two linear equations approximately by graphing.
   - EK: The solution is the intersection point; parallel lines give no solution, coincident lines infinitely many.
   - Needs: MH-2.3.B
-  - MP5 · drills: ~k8-system
+  - MP5 · drills: hs-system-graph, ~k8-system
 - ● **MH-2.7.B** (A-REI.C.6) Solve a system of two linear equations exactly by substitution or elimination.
   - EK: Eliminate one variable to get a one-variable equation, solve, then back-substitute.
   - Needs: MH-2.7.A, MH-1.3.B
@@ -247,10 +247,10 @@ Big ideas: FUNC, MODEL, EQUIV
   - EK: Any (x, y) satisfying both original equations satisfies the combination, and the step can be undone.
   - Needs: MH-2.7.B
   - MP3
-- ○ **MH-2.7.D** (A-REI.D.11) Explain why the x-coordinates of the intersections of y = f(x) and y = g(x) solve f(x) = g(x), and approximate them with graphs or tables (linear and exponential f, g).
+- ● **MH-2.7.D** (A-REI.D.11) Explain why the x-coordinates of the intersections of y = f(x) and y = g(x) solve f(x) = g(x), and approximate them with graphs or tables (linear and exponential f, g).
   - EK: At an intersection both outputs are equal for the same input.
   - Needs: MH-2.7.A, MH-2.6.C
-  - MP3 · MP5
+  - MP3 · MP5 · drills: hs-system-graph
 - ● **MH-2.7.E** (A-REI.D.12) Graph the solutions of a linear inequality in two variables as a half-plane, and of a system of linear inequalities as the intersection of half-planes.
   - EK: Dashed boundary for < or >, solid for ≤ or ≥; test a point to choose the side.
   - Needs: MH-2.7.A, MH-1.3.C
@@ -264,9 +264,9 @@ Big ideas: DATA, MODEL
 
 
 
-- ○ **MH-3.1.A** (S-ID.A.1) Represent data with plots on the real number line: dot plots, histograms and box plots.
+- ◐ **MH-3.1.A** (S-ID.A.1) Represent data with plots on the real number line: dot plots, histograms and box plots.
   - EK: A box plot shows the five-number summary: minimum, Q1, median, Q3, maximum.
-  - MP5 · MP6
+  - MP5 · MP6 · drills: ~k8-dot-plot, ~k8-box-plot
 - ● **MH-3.1.B** (S-ID.A.2) Compare the center (median, mean) and spread (interquartile range, standard deviation) of two or more data sets, using statistics suited to their shape.
   - EK: Skewed data or outliers → median and IQR; roughly symmetric → mean and standard deviation.
   - Needs: MH-3.1.A
@@ -300,18 +300,18 @@ Big ideas: DATA, MODEL
 
 
 
-- ◐ **MH-3.3.A** (S-ID.C.7) Interpret the slope (rate of change) and intercept (constant term) of a linear model in the context of the data.
+- ● **MH-3.3.A** (S-ID.C.7) Interpret the slope (rate of change) and intercept (constant term) of a linear model in the context of the data.
   - EK: Slope = predicted change in y per one-unit increase in x; the intercept may be meaningless outside the data range.
   - Needs: MH-3.2.D, MH-2.5.D
-  - MP2 · MP4 · drills: ~k8-line-predict
+  - MP2 · MP4 · drills: hs-trend-line, ~k8-line-predict
 - ● **MH-3.3.B** (S-ID.C.8) Compute (using technology) and interpret the correlation coefficient of a linear fit.
   - EK: −1 ≤ r ≤ 1; the sign gives direction, |r| near 1 a strong linear association.
   - Needs: MH-3.3.A
   - MP5 · MP6 · drills: stats-correlation
-- ○ **MH-3.3.C** (S-ID.C.9) Distinguish between correlation and causation.
+- ● **MH-3.3.C** (S-ID.C.9) Distinguish between correlation and causation.
   - EK: Only a randomised experiment supports a causal claim; an association can come from a lurking variable.
   - Needs: MH-3.3.B
-  - MP3
+  - MP3 · drills: hs-study-type
 
 ## Unit 4 · Expressions and equations
 
@@ -385,10 +385,10 @@ Big ideas: FUNC, EQUIV, NUM, MODEL
 
 
 
-- ○ **MH-5.1.A** (N-RN.B.3) Explain why the sum or product of two rational numbers is rational, the sum of a rational and an irrational number is irrational, and the product of a nonzero rational and an irrational number is irrational.
+- ● **MH-5.1.A** (N-RN.B.3) Explain why the sum or product of two rational numbers is rational, the sum of a rational and an irrational number is irrational, and the product of a nonzero rational and an irrational number is irrational.
   - EK: If r + x were rational for rational r, then x = (r + x) − r would be rational too.
   - Needs: MH-4.3.C
-  - MP3
+  - MP3 · drills: hs-rational-irrational
 
 ### 5.2 Analyze quadratic and related functions using different representations
 
@@ -409,7 +409,7 @@ Big ideas: FUNC, EQUIV, NUM, MODEL
 - ◐ **MH-5.2.D** (F-IF.C.7b) Graph square-root, cube-root and piecewise-defined functions, including step functions and absolute-value functions.
   - EK: |x| = x for x ≥ 0 and −x for x < 0; √x needs x ≥ 0; each piece applies only on its own interval.
   - Needs: MH-2.3.B, MH-2.6.B
-  - MP5 · MP6 · drills: ~alg-piecewise
+  - MP5 · MP6 · drills: ~alg-piecewise, ~hs-abs-graph
 - ● **MH-5.2.E** (F-IF.C.8b) Use the properties of exponents to classify an exponential function as growth or decay and find its percent rate, e.g. y = (0.97)^t, y = (1.01)^(12t), y = (1.2)^(t/10).
   - EK: y = a·b^t: percent change per unit = (b − 1)·100%; rewrite so the exponent is in the unit asked for.
   - Needs: MH-4.2.C, MH-2.5.D
@@ -439,10 +439,10 @@ Big ideas: FUNC, EQUIV, NUM, MODEL
   - EK: Swap the roles of x and y and solve for y.
   - Needs: MH-1.4.D, MH-2.6.B
   - MP7 · drills: alg-inverse
-- ○ **MH-5.3.E** (F-LE.A.3) Show with tables and graphs that an increasing exponential function eventually exceeds any quadratic or polynomial function.
+- ◐ **MH-5.3.E** (F-LE.A.3) Show with tables and graphs that an increasing exponential function eventually exceeds any quadratic or polynomial function.
   - EK: Exponential growth multiplies by a fixed factor; polynomial growth's ratio f(x + 1)/f(x) tends to 1.
   - Needs: MH-2.6.D, MH-5.2.B
-  - MP5 · MP8
+  - MP5 · MP8 · drills: ~hs-exp-beats-linear
 
 ## Unit 6 · Congruence, proof and constructions
 
@@ -455,10 +455,10 @@ Big ideas: XFORM
 - ○ **MH-6.1.A** (G-CO.A.1) State precise definitions of angle, circle, perpendicular line, parallel line and line segment, based on the undefined notions of point, line, distance along a line and distance around a circular arc.
   - EK: A circle is the set of points in a plane at a fixed distance from a center; a definition must name exactly the objects intended.
   - MP6
-- ◐ **MH-6.1.B** (G-CO.A.2) Represent transformations as functions that take points in the plane to other points, and compare those that preserve distance and angle (rigid motions) with those that do not (e.g. a horizontal stretch).
+- ● **MH-6.1.B** (G-CO.A.2) Represent transformations as functions that take points in the plane to other points, and compare those that preserve distance and angle (rigid motions) with those that do not (e.g. a horizontal stretch).
   - EK: A transformation is a function on points; rigid motions preserve every distance and angle.
   - Needs: MH-6.1.A, MH-2.1.A
-  - MP5 · MP6 · drills: ~geo-transform
+  - MP5 · MP6 · drills: hs-transformation-graph, ~geo-transform
 - ● **MH-6.1.C** (G-CO.A.3) Describe the rotations and reflections that carry a rectangle, parallelogram, trapezoid or regular polygon onto itself.
   - EK: A regular n-gon has n rotational symmetries (multiples of 360°/n) and n lines of reflection.
   - Needs: MH-6.1.B
@@ -837,11 +837,11 @@ Big ideas: NUM, EQUIV, FUNC
 - ◐ **MH-12.3.C** (F-IF.C.7c) Graph a polynomial function, identifying zeros when suitable factorizations are available and showing end behaviour.
   - EK: Degree n has at most n real zeros and at most n − 1 turning points.
   - Needs: MH-12.3.B, MH-5.2.B
-  - MP5 · MP6 · drills: ~alg-poly-zeros
-- ○ **MH-12.3.D** (N-CN.C.9) (+) Know the Fundamental Theorem of Algebra and show that it is true for quadratic polynomials.
+  - MP5 · MP6 · drills: ~alg-poly-zeros, ~hs-parabola-features
+- ● **MH-12.3.D** (N-CN.C.9) (+) Know the Fundamental Theorem of Algebra and show that it is true for quadratic polynomials.
   - EK: A degree-n polynomial has exactly n complex zeros counted with multiplicity.
   - Needs: MH-12.1.D, MH-12.3.B
-  - MP3
+  - MP3 · drills: hs-fta
 
 ### 12.4 Finite geometric series
 
@@ -868,10 +868,10 @@ Big ideas: NUM, EQUIV, FUNC
   - EK: Multiplying by an expression that can be zero, or squaring both sides, can add roots; check each in the original equation.
   - Needs: MH-12.5.B, MH-2.6.B
   - MP3 · MP6 · drills: alg-rational-eq
-- ○ **MH-12.5.D** (A-REI.D.11) Find approximate solutions of f(x) = g(x) where f and g are polynomial, rational, absolute-value, exponential or logarithmic, with technology, tables or successive approximations.
+- ◐ **MH-12.5.D** (A-REI.D.11) Find approximate solutions of f(x) = g(x) where f and g are polynomial, rational, absolute-value, exponential or logarithmic, with technology, tables or successive approximations.
   - EK: Graph y = f(x) − g(x) and locate its zeros; a sign change brackets a root.
   - Needs: MH-2.7.D, MH-12.3.C
-  - MP5
+  - MP5 · drills: ~hs-system-graph
 
 ## Unit 13 · Trigonometric functions
 
@@ -963,10 +963,10 @@ Big ideas: DATA, MODEL
 
 
 
-- ○ **MH-15.2.A** (S-IC.A.1) Explain statistics as a process for making inferences about population parameters from a random sample of that population.
+- ◐ **MH-15.2.A** (S-IC.A.1) Explain statistics as a process for making inferences about population parameters from a random sample of that population.
   - EK: A statistic describes the sample, a parameter the population; random sampling makes the sample representative.
   - Needs: MH-15.1.A
-  - MP3
+  - MP3 · drills: ~k8-sampling
 - ○ **MH-15.2.B** (S-IC.A.2) Decide whether a specified model is consistent with results from a data-generating process, e.g. by simulation.
   - EK: If the observed result is rare among many simulated runs of the model, doubt the model.
   - Needs: MH-15.2.A, MH-11.1.A
@@ -976,10 +976,10 @@ Big ideas: DATA, MODEL
 
 
 
-- ○ **MH-15.3.A** (S-IC.B.3) Recognise the purposes of and differences among sample surveys, experiments and observational studies, and explain how randomisation relates to each.
+- ● **MH-15.3.A** (S-IC.B.3) Recognise the purposes of and differences among sample surveys, experiments and observational studies, and explain how randomisation relates to each.
   - EK: Random sampling supports generalising to a population; random assignment supports cause-and-effect.
   - Needs: MH-15.2.A, MH-3.3.C
-  - MP3
+  - MP3 · drills: hs-study-type
 - ● **MH-15.3.B** (S-IC.B.4) Use data from a sample survey to estimate a population mean or proportion, and develop a margin of error through simulation models for random sampling.
   - EK: Margin of error ≈ 2 standard deviations of the simulated sampling distribution.
   - Needs: MH-15.3.A, MH-15.1.A
@@ -1013,10 +1013,10 @@ Big ideas: FUNC, EQUIV
   - EK: (a, b) on f ⇔ (b, a) on f⁻¹; the graph of f⁻¹ is f reflected in y = x.
   - Needs: MH-16.1.B
   - MP2 · drills: ~alg-inverse
-- ○ **MH-16.1.D** (F-BF.B.4d) (+) Produce an invertible function from a non-invertible function by restricting the domain.
+- ● **MH-16.1.D** (F-BF.B.4d) (+) Produce an invertible function from a non-invertible function by restricting the domain.
   - EK: Restrict to an interval where f is one-to-one (passes the horizontal line test), e.g. x² on x ≥ 0.
   - Needs: MH-16.1.C, MH-5.3.C
-  - MP7
+  - MP7 · drills: hs-inverse-restrict
 
 ### 16.2 Logarithms as inverses of exponentials (+)
 
@@ -1065,10 +1065,10 @@ Big ideas: FUNC, XFORM
 
 
 
-- ◐ **MH-17.2.A** (F-TF.B.6) (+) Restrict a trigonometric function to a domain on which it is always increasing or always decreasing so that its inverse can be constructed.
+- ● **MH-17.2.A** (F-TF.B.6) (+) Restrict a trigonometric function to a domain on which it is always increasing or always decreasing so that its inverse can be constructed.
   - EK: arcsin on [−π/2, π/2], arccos on [0, π], arctan on (−π/2, π/2).
   - Needs: MH-17.1.C, MH-16.1.D
-  - MP7 · drills: ~trig-solve
+  - MP7 · drills: hs-inverse-restrict, ~trig-solve
 - ● **MH-17.2.B** (F-TF.B.7) (+) Use inverse functions to solve trigonometric equations that arise in modeling contexts, evaluate the solutions with technology, and interpret them.
   - EK: sin x = c has two solutions per period: arcsin c and π − arcsin c, plus multiples of 2π.
   - Needs: MH-17.2.A, MH-13.2.A
@@ -1122,11 +1122,11 @@ Big ideas: NUM, XFORM
 
 - ◐ **MH-19.1.A** (N-VM.A.1) (+) Recognise vector quantities as having both magnitude and direction, represent them by directed line segments, and use notation such as v, |v| and ‖v‖.
   - EK: Velocity, force and displacement are vectors; speed and mass are scalars.
-  - MP6 · drills: ~alg-vector
-- ◐ **MH-19.1.B** (N-VM.A.2) (+) Find the components of a vector by subtracting the coordinates of its initial point from those of its terminal point.
+  - MP6 · drills: ~alg-vector, ~hs-vector-components
+- ● **MH-19.1.B** (N-VM.A.2) (+) Find the components of a vector by subtracting the coordinates of its initial point from those of its terminal point.
   - EK: From P(x₁, y₁) to Q(x₂, y₂): ⟨x₂ − x₁, y₂ − y₁⟩, magnitude by the distance formula.
   - Needs: MH-19.1.A, MH-9.1.D
-  - MP6 · drills: ~alg-vector
+  - MP6 · drills: hs-vector-components, ~alg-vector
 
 ### 19.2 Perform operations on vectors (+)
 
@@ -1148,10 +1148,10 @@ Big ideas: NUM, XFORM
   - EK: c⟨vx, vy⟩ = ⟨cvx, cvy⟩.
   - Needs: MH-19.2.A
   - MP7 · drills: alg-vector
-- ◐ **MH-19.2.E** (N-VM.B.5b) (+) Compute the magnitude of a scalar multiple cv as |c|·‖v‖ and give its direction.
+- ● **MH-19.2.E** (N-VM.B.5b) (+) Compute the magnitude of a scalar multiple cv as |c|·‖v‖ and give its direction.
   - EK: cv points along v if c > 0 and against it if c < 0.
   - Needs: MH-19.2.D
-  - MP6 · drills: ~alg-vector
+  - MP6 · drills: hs-vector-components, ~alg-vector
 
 ### 19.3 Solve problems with vectors (+)
 
@@ -1166,29 +1166,29 @@ Big ideas: NUM, XFORM
 
 
 
-- ○ **MH-19.4.A** (N-VM.C.6) (+) Use matrices to represent and manipulate data, e.g. payoffs or incidence relationships in a network.
+- ◐ **MH-19.4.A** (N-VM.C.6) (+) Use matrices to represent and manipulate data, e.g. payoffs or incidence relationships in a network.
   - EK: Entry (i, j) records the relationship of row item i to column item j.
-  - MP4
-- ◐ **MH-19.4.B** (N-VM.C.7) (+) Multiply a matrix by a scalar to produce a new matrix, e.g. when all of the payoffs in a game are doubled.
+  - MP4 · drills: ~hs-matrix-ops
+- ● **MH-19.4.B** (N-VM.C.7) (+) Multiply a matrix by a scalar to produce a new matrix, e.g. when all of the payoffs in a game are doubled.
   - EK: cA multiplies every entry by c.
   - Needs: MH-19.4.A
-  - MP6 · drills: ~alg-matrix-ops
+  - MP6 · drills: hs-matrix-ops, ~alg-matrix-ops
 - ● **MH-19.4.C** (N-VM.C.8) (+) Add, subtract and multiply matrices of appropriate dimensions.
   - EK: (m×n)(n×p) = m×p; entry (i, j) = row i of the first · column j of the second.
   - Needs: MH-19.4.B
   - MP6 · drills: alg-matrix-ops
-- ○ **MH-19.4.D** (N-VM.C.9) (+) Show that multiplication of square matrices is not commutative but is associative and distributive.
+- ● **MH-19.4.D** (N-VM.C.9) (+) Show that multiplication of square matrices is not commutative but is associative and distributive.
   - EK: AB ≠ BA in general; one 2×2 counterexample proves it.
   - Needs: MH-19.4.C
-  - MP3
+  - MP3 · drills: hs-matrix-noncommute
 - ● **MH-19.4.E** (N-VM.C.10) (+) Explain the roles of the zero and identity matrices, and that a square matrix has a multiplicative inverse exactly when its determinant is nonzero.
   - EK: det [[a, b], [c, d]] = ad − bc; AI = IA = A; A + 0 = A.
   - Needs: MH-19.4.D
   - MP3 · MP7 · drills: alg-matrix-det, ~la-det
-- ◐ **MH-19.4.F** (N-VM.C.11) (+) Multiply a vector (as a one-column matrix) by a matrix of suitable dimensions to produce another vector.
+- ● **MH-19.4.F** (N-VM.C.11) (+) Multiply a vector (as a one-column matrix) by a matrix of suitable dimensions to produce another vector.
   - EK: Av is a combination of A's columns weighted by v's entries.
   - Needs: MH-19.4.C, MH-19.2.D
-  - MP7 · drills: ~alg-matrix-ops
+  - MP7 · drills: hs-matrix-ops, ~alg-matrix-ops
 - ● **MH-19.4.G** (N-VM.C.12) (+) Work with 2×2 matrices as transformations of the plane, and interpret the absolute value of the determinant as an area scale factor.
   - EK: The columns of A are the images of (1, 0) and (0, 1); area scales by |det A|.
   - Needs: MH-19.4.F, MH-19.4.E, MH-6.1.E
@@ -1235,7 +1235,7 @@ Big ideas: DATA, MODEL
 - ◐ **MH-21.1.A** (S-MD.A.1) (+) Define a random variable for a quantity of interest by assigning a numerical value to each event in a sample space, and graph its probability distribution.
   - EK: A probability distribution lists each value with its probability; the probabilities sum to 1.
   - Needs: MH-11.1.A
-  - MP4 · MP6 · drills: ~stats-expected
+  - MP4 · MP6 · drills: ~stats-expected, ~hs-empirical-distribution
 - ● **MH-21.1.B** (S-MD.A.2) (+) Calculate the expected value of a random variable and interpret it as the mean of the probability distribution.
   - EK: E[X] = Σ x·P(X = x).
   - Needs: MH-21.1.A
@@ -1244,10 +1244,10 @@ Big ideas: DATA, MODEL
   - EK: Binomial: P(X = k) = C(n, k)p^k(1 − p)^(n−k), E[X] = np.
   - Needs: MH-21.1.B, MH-11.2.D
   - MP4 · MP7 · drills: stats-expected, ~sm-binom
-- ◐ **MH-21.1.D** (S-MD.A.4) (+) Develop an empirical probability distribution from observed frequencies and find the expected value.
+- ● **MH-21.1.D** (S-MD.A.4) (+) Develop an empirical probability distribution from observed frequencies and find the expected value.
   - EK: Use relative frequencies as the probabilities.
   - Needs: MH-21.1.B
-  - MP4 · drills: ~stats-expected
+  - MP4 · drills: hs-empirical-distribution, ~stats-expected
 
 ### 21.2 Use probability to evaluate outcomes of decisions (+)
 
@@ -1261,3 +1261,8 @@ Big ideas: DATA, MODEL
   - EK: Choose the option with the better expected value, then weigh the spread of outcomes.
   - Needs: MH-21.2.A
   - MP4 · MP3 · drills: stats-insurance
+
+## Drills not yet placed on the map
+
+- k8-cross-section (geo.measurement)
+- k8-scatter-association (stats.bivariate)

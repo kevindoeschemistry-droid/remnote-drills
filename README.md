@@ -123,6 +123,21 @@ answer is checked as an expression, and `{{=expr}}` prints any expression the sa
 `verify.expect` then recomputes it in sympy from the givens (`diff(...)`, `limit(...)`, `solve(...)`), and
 `verify.choices` does the same for multiple-choice parts. The calculus templates (`ca-*.yaml`) are written this way.
 
+### Cases, figures and authored keys
+
+Three more things a `drills/problems/*.yaml` template can carry (see `mx-gaps.yaml`, `mx-judgment.yaml`, `mx-figures.yaml`):
+
+- `cases:` a list of objects; one is drawn per problem and its fields join the givens. A field can be text (a formula
+  to print, a sentence, a function to draw) or a list (a data set), which is how judgment items ("which technique?",
+  "what kind of study?") and read-the-data items are written.
+- `figure:` a picture drawn as SVG by `src/drills/fig-data.ts` from the same numbers the key uses: `plot` (curves,
+  points, segments, slope fields, vector fields, scatter), `numberline` (points, dot plots, box plots, rulers), `grid`
+  (unit squares, dots to count), `bars`, `table`. Numeric answers are checked with a relative tolerance, so a value
+  part can never be 0: choose givens that keep read-off answers away from it.
+- `verify: { authored: true }` for a key that is a matter of definition and cannot be recomputed. It is a statement
+  that a person wrote the key and nothing checks it, so use it only when `verify.choices` cannot do the job, and say so
+  when reporting coverage. Choice options are plain text (no TeX, no `^`).
+
 ## Standards
 
 The frameworks are a house standard: our own objective codes, written to fit together along one path. Outside standards

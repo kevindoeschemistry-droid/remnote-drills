@@ -134,6 +134,8 @@ for (const s of LIVE_SKILLS) {
         if (rb.status === "correct") fail(`${key} #${seed}: wrong answer accepted ${JSON.stringify(bad)}`);
       }
       for (const txt of [p.prompt, ...p.steps]) for (const c of texChunks(txt)) katexOk(key, c);
+      // a drawn figure is a complete SVG with every coordinate a number
+      if (p.figure !== undefined && (!p.figure.startsWith("<svg") || !p.figure.endsWith("</svg>") || /NaN|Infinity|undefined/.test(p.figure))) fail(`${key} #${seed}: broken figure`);
       katexOk(key, p.answerTex);
       // checked steps: each one accepts its own answer and rejects the perturbed ones
       if (p.parts) {

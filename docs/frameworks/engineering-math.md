@@ -2,7 +2,7 @@
 
 Generated from `drills/frameworks/engineering-math.yaml` by `scripts/framework.mjs`. ● drilled · ◐ partly · ○ no drills yet.
 
-**118 learning objectives** in 12 units (114 core): 93 drilled, 4 partly, 21 with no drills. Core: 93 / 114 drilled.
+**118 learning objectives** in 12 units (114 core): 112 drilled, 1 partly, 5 with no drills. Core: 110 / 114 drilled.
 
 ## Big ideas
 
@@ -26,17 +26,17 @@ Generated from `drills/frameworks/engineering-math.yaml` by `scripts/framework.m
 | Unit | Scope | Est. weight | LOs | ● | ◐ | ○ |
 |---|---|---|---|---|---|---|
 | 1 · The calculus and complex-number toolkit | core | review | 10 | 10 | 0 | 0 |
-| 2 · First-order ODEs | core | 15–20% | 17 | 12 | 0 | 5 |
-| 3 · Second-order linear ODEs | core | 20–25% | 18 | 16 | 0 | 2 |
-| 4 · Higher-order linear ODEs | core | 5% | 4 | 3 | 1 | 0 |
-| 5 · Systems of ODEs, phase plane and stability | core | 15–20% | 13 | 8 | 1 | 4 |
-| 6 · Series solutions and special functions | core | 15% | 11 | 9 | 0 | 2 |
+| 2 · First-order ODEs | core | 15–20% | 17 | 16 | 1 | 0 |
+| 3 · Second-order linear ODEs | core | 20–25% | 18 | 18 | 0 | 0 |
+| 4 · Higher-order linear ODEs | core | 5% | 4 | 4 | 0 | 0 |
+| 5 · Systems of ODEs, phase plane and stability | core | 15–20% | 13 | 13 | 0 | 0 |
+| 6 · Series solutions and special functions | core | 15% | 11 | 10 | 0 | 1 |
 | 7 · Laplace transforms | core | 15% | 14 | 14 | 0 | 0 |
-| 8 · Linear algebra for ODEs | core | as needed | 7 | 6 | 0 | 1 |
-| 9 · Fourier series and Sturm–Liouville boundary-value problems | core | 10–15% | 11 | 8 | 0 | 3 |
-| 10 · Partial differential equations | core | — | 9 | 7 | 1 | 1 |
+| 8 · Linear algebra for ODEs | core | as needed | 7 | 7 | 0 | 0 |
+| 9 · Fourier series and Sturm–Liouville boundary-value problems | core | 10–15% | 11 | 10 | 0 | 1 |
+| 10 · Partial differential equations | core | — | 9 | 8 | 0 | 1 |
 | 11 · Fourier integrals and transforms | extension | — | 2 | 0 | 0 | 2 |
-| 12 · Vector calculus for transport | extension | — | 2 | 0 | 1 | 1 |
+| 12 · Vector calculus for transport | extension | — | 2 | 2 | 0 | 0 |
 
 ## Unit 1 · The calculus and complex-number toolkit
 
@@ -100,15 +100,15 @@ Big ideas: MODEL, FORM, TRANS
 
 Book: kreyszig-10e §1.1, §1.2
 
-- ○ **EM-2.1.A** Classify an ODE by order and linearity, and verify that a given function solves it.
+- ◐ **EM-2.1.A** Classify an ODE by order and linearity, and verify that a given function solves it.
   - EK: Order = highest derivative; linear ⇔ y and its derivatives appear to first power with coefficients in x only.
-  - P2 · P5
-- ○ **EM-2.1.B** Sketch a direction field and solution curves from isoclines of y′ = f(x, y).
+  - P2 · P5 · drills: ~em-classify-ode
+- ● **EM-2.1.B** Sketch a direction field and solution curves from isoclines of y′ = f(x, y).
   - EK: Isocline f(x, y) = k has slope k everywhere; solution curves are tangent to the field.
-  - P6
-- ○ **EM-2.1.C** Approximate an IVP solution with a few steps of Euler's method and estimate the error trend.
+  - P6 · drills: em-isoclines, ca-slope-field-match
+- ● **EM-2.1.C** Approximate an IVP solution with a few steps of Euler's method and estimate the error trend.
   - EK: y_(n+1) = y_n + h f(x_n, y_n); global error is O(h).
-  - P3 · P5
+  - P3 · P5 · drills: ca-euler-method
 
 ### 2.2 Separable equations and reducing substitutions
 
@@ -177,17 +177,17 @@ Book: kreyszig-10e §1.3, §1.5
 - ● **EM-2.6.C** Solve the logistic equation and find its equilibria and carrying capacity.
   - EK: y′ = ky(1 − y/K) is separable and Bernoulli; y → K for y_0 > 0.
   - P1 · P6 · drills: model-logistic
-- ○ **EM-2.6.D** Find and classify the equilibria of an autonomous ODE y′ = f(y) from a phase line.
+- ● **EM-2.6.D** Find and classify the equilibria of an autonomous ODE y′ = f(y) from a phase line.
   - EK: f(y*) = 0; stable if f′(y*) < 0.
-  - P6
+  - P6 · drills: em-phase-line
 
 ### 2.7 Existence and uniqueness
 
 Book: kreyszig-10e §1.7
 
-- ○ **EM-2.7.A** Decide whether an IVP has a unique solution near the initial point from the continuity of f and ∂f/∂y.
+- ● **EM-2.7.A** Decide whether an IVP has a unique solution near the initial point from the continuity of f and ∂f/∂y.
   - EK: f and f_y continuous on a rectangle around (x_0, y_0) ⇒ unique solution on some |x − x_0| < α.
-  - P2
+  - P2 · drills: em-existence
 
 ## Unit 3 · Second-order linear ODEs
 
@@ -197,9 +197,9 @@ Big ideas: LIN, EIG, FORM, MODEL
 
 Book: kreyszig-10e §2.1, §2.6
 
-- ○ **EM-3.1.A** Use superposition to build a general solution from a basis and fit it to an IVP.
+- ● **EM-3.1.A** Use superposition to build a general solution from a basis and fit it to an IVP.
   - EK: For a linear homogeneous ODE, any combination c_1y_1 + c_2y_2 of solutions is a solution; two independent ones form a basis.
-  - P4
+  - P4 · drills: em-superposition-ivp
 - ● **EM-3.1.B** Find a second solution from a known one by reduction of order.
   - EK: y_2 = u y_1, u′ = U = e^(−∫p dx)/y_1² (standard form y″ + py′ + qy = 0).
   - P3 · drills: red-euler, red-trig, red-exp, red-gauss, red-const
@@ -279,9 +279,9 @@ Book: kreyszig-10e §2.8, §2.9
 - ● **EM-3.6.C** Find the practical-resonance frequency of a damped forced oscillator.
   - EK: ω_max² = k/m − c²/2m², exists only if c² < 2mk.
   - P6 · drills: forced-practical
-- ○ **EM-3.6.D** Model an RLC circuit as a second-order ODE and map it onto the mass–spring analogy.
+- ● **EM-3.6.D** Model an RLC circuit as a second-order ODE and map it onto the mass–spring analogy.
   - EK: LI″ + RI′ + I/C = E′(t): L ↔ m, R ↔ c, 1/C ↔ k.
-  - P1
+  - P1 · drills: em-rlc
 
 ## Unit 4 · Higher-order linear ODEs
 
@@ -307,10 +307,10 @@ Book: kreyszig-10e §3.1, §3.2
 
 Book: kreyszig-10e §3.3
 
-- ◐ **EM-4.2.A** Find a particular solution of an n-th order ODE by undetermined coefficients or variation of parameters.
+- ● **EM-4.2.A** Find a particular solution of an n-th order ODE by undetermined coefficients or variation of parameters.
   - EK: Same modification rule; variation of parameters uses Cramer's rule with W_k/W.
   - Needs: EM-3.5.A, EM-4.1.C
-  - P3 · drills: ~uc-general
+  - P3 · drills: em-undetermined-third, ~uc-general
 
 ## Unit 5 · Systems of ODEs, phase plane and stability
 
@@ -320,9 +320,9 @@ Big ideas: EIG, LIN, MODEL
 
 Book: kreyszig-10e §4.1, §4.2
 
-- ◐ **EM-5.1.A** Convert an n-th order ODE into a first-order system.
+- ● **EM-5.1.A** Convert an n-th order ODE into a first-order system.
   - EK: y₁ = y, y₂ = y′, …; the companion matrix's eigenvalues are the characteristic roots.
-  - P1 · drills: ~phase-ode2
+  - P1 · drills: em-first-order-system, ~phase-ode2
 - ● **EM-5.1.B** Write the rate matrix for series first-order kinetics A → B → C.
   - EK: d[A]/dt = −k₁[A], d[B]/dt = k₁[A] − k₂[B]; C follows from mass conservation.
   - P1 · drills: kin-matrix
@@ -361,29 +361,29 @@ Book: kreyszig-10e §4.3, §4.4
 - ● **EM-5.3.B** Decide whether a critical point is stable, asymptotically stable or unstable.
   - EK: Asymptotically stable ⇔ p < 0, q > 0; centre is stable, not asymptotically.
   - P6 · drills: phase-stability
-- ○ **EM-5.3.C** Sketch a phase portrait with eigenvector directions and trajectory orientation.
+- ● **EM-5.3.C** Sketch a phase portrait with eigenvector directions and trajectory orientation.
   - EK: Trajectories leave along the fast-growing eigenvector and approach along the slow-decaying one.
-  - P6
+  - P6 · drills: em-phase-portrait
 
 ### 5.4 Nonlinear systems
 
 Book: kreyszig-10e §4.5
 
-- ○ **EM-5.4.A** Find the critical points of a nonlinear autonomous system and linearise at each with the Jacobian.
+- ● **EM-5.4.A** Find the critical points of a nonlinear autonomous system and linearise at each with the Jacobian.
   - EK: Set f = g = 0; J = [[f_x, f_y], [g_x, g_y]] at the point.
-  - P3
-- ○ **EM-5.4.B** Classify each critical point of a nonlinear system from its linearisation, noting when linearisation is inconclusive.
+  - P3 · drills: em-nonlinear-critical
+- ● **EM-5.4.B** Classify each critical point of a nonlinear system from its linearisation, noting when linearisation is inconclusive.
   - EK: Hyperbolic points keep their type; a linear centre may be a spiral in the nonlinear system.
   - Needs: EM-5.3.A, EM-5.4.A
-  - P6
+  - P6 · drills: em-nonlinear-critical
 
 ### 5.5 Nonhomogeneous linear systems
 
 Book: kreyszig-10e §4.6
 
-- ○ **EM-5.5.A** Find a particular solution of y′ = Ay + g by undetermined coefficients, diagonalisation or variation of parameters.
+- ● **EM-5.5.A** Find a particular solution of y′ = Ay + g by undetermined coefficients, diagonalisation or variation of parameters.
   - EK: Fundamental matrix Y: y_p = Y∫Y⁻¹g dt.
-  - P3
+  - P3 · drills: em-nonhomog-system
 
 ## Unit 6 · Series solutions and special functions
 
@@ -444,9 +444,9 @@ Book: kreyszig-10e §5.2, §5.4, §5.5
 - ● **EM-6.4.C** Write the general solution of Bessel's equation, choosing J₋ν or Y_ν as the second solution.
   - EK: J_ν, J₋ν independent unless ν is an integer, where J₋ₙ = (−1)ⁿJₙ; then use Y_ν.
   - P2 · P5 · drills: spec-bessel-independent
-- ○ **EM-6.4.D** Use Legendre polynomials' explicit form, Rodrigues' formula or orthogonality to evaluate P_n or an integral.
+- ● **EM-6.4.D** Use Legendre polynomials' explicit form, Rodrigues' formula or orthogonality to evaluate P_n or an integral.
   - EK: P_n(x) = (1/2ⁿn!) dⁿ/dxⁿ (x² − 1)ⁿ; ∫P_mP_n = 0 on [−1, 1] for m ≠ n.
-  - P3
+  - P3 · drills: em-legendre-eval
 
 ## Unit 7 · Laplace transforms
 
@@ -581,10 +581,10 @@ Book: kreyszig-10e §8.1, §8.2
 
 Book: kreyszig-10e §8.3, §8.4
 
-- ○ **EM-8.5.A** Diagonalise a matrix with a full set of eigenvectors and use it to decouple a linear system.
+- ● **EM-8.5.A** Diagonalise a matrix with a full set of eigenvectors and use it to decouple a linear system.
   - EK: D = X⁻¹AX; symmetric A has real eigenvalues and orthogonal eigenvectors.
   - Needs: EM-8.4.B, EM-8.3.B
-  - P3
+  - P3 · drills: em-diagonalise
 
 ## Unit 9 · Fourier series and Sturm–Liouville boundary-value problems
 
@@ -636,13 +636,13 @@ Book: kreyszig-10e §11.5
 
 Book: kreyszig-10e §11.5, §11.6
 
-- ○ **EM-9.3.A** Verify orthogonality of eigenfunctions with respect to the weight r(x).
+- ● **EM-9.3.A** Verify orthogonality of eigenfunctions with respect to the weight r(x).
   - EK: ∫ₐᵇ r y_m y_n dx = 0 for m ≠ n in a regular or periodic S–L problem.
-  - P5
-- ○ **EM-9.3.B** Expand a function in a generalised Fourier series of S–L eigenfunctions (e.g. Legendre or Fourier–Bessel).
+  - P5 · drills: em-orthogonality
+- ● **EM-9.3.B** Expand a function in a generalised Fourier series of S–L eigenfunctions (e.g. Legendre or Fourier–Bessel).
   - EK: a_n = ∫ r f y_n dx / ∫ r y_n² dx.
   - Needs: EM-9.3.A
-  - P3
+  - P3 · drills: em-legendre-expansion
 
 ## Unit 10 · Partial differential equations
 
@@ -692,10 +692,10 @@ Book: kreyszig-10e §12.6, §12.10, §12.11
 - ● **EM-10.4.A** Solve the steady 2-D Dirichlet problem on a rectangle by separation.
   - EK: One direction gives sines, the other sinh; one non-zero side at a time, then superpose.
   - P3 · drills: laplace-rect-modes, laplace-rect-coef
-- ◐ **EM-10.4.B** Separate a PDE in polar, cylindrical or spherical coordinates and identify the Bessel or Legendre equation that appears.
+- ● **EM-10.4.B** Separate a PDE in polar, cylindrical or spherical coordinates and identify the Bessel or Legendre equation that appears.
   - EK: Radial part in cylinders ⇒ Bessel; polar angle in spheres ⇒ Legendre in cos θ.
   - Needs: EM-6.4.A
-  - P2 · drills: ~spec-identify
+  - P2 · drills: em-separation-coordinates, ~spec-identify
 
 ### 10.5 Transform methods for PDEs
 
@@ -728,12 +728,12 @@ Big ideas: MODEL
 
 Book: kreyszig-10e §9.7, §9.8, §9.9, §10.7, §10.9
 
-- ◐ **EM-12.1.A** Compute the gradient, divergence, curl and Laplacian of a field in Cartesian coordinates.
+- ● **EM-12.1.A** Compute the gradient, divergence, curl and Laplacian of a field in Cartesian coordinates.
   - EK: ∇f, ∇·v, ∇×v, ∇²f = ∇·∇f.
-  - P3 · drills: ~mv-partial
-- ○ **EM-12.1.B** Derive a differential conservation equation from an integral balance with the divergence theorem.
+  - P3 · drills: cm-gradient, cm-div-curl, cm-laplacian, ~mv-partial
+- ● **EM-12.1.B** Derive a differential conservation equation from an integral balance with the divergence theorem.
   - EK: ∭∇·F dV = ∯F·n dA ⇒ ∂c/∂t + ∇·N = R.
-  - P1
+  - P1 · drills: ca-conservation-law
 
 ## Drills not yet placed on the map
 
@@ -745,14 +745,20 @@ Book: kreyszig-10e §9.7, §9.8, §9.9, §10.7, §10.9
 - ca-lim-squeeze (calc.limits)
 - ca-lim-infinity (calc.limits)
 - ca-lim-infinity-radical (calc.limits)
+- ca-limit-graph (calc.limits)
+- ca-limit-table (calc.limits)
+- ca-limit-procedure (calc.limits)
 - ca-lim-onesided (calc.continuity)
 - ca-continuity-k (calc.continuity)
 - ca-vert-asymptote (calc.continuity)
 - ca-ivt (calc.continuity)
+- ca-discontinuity-graph (calc.continuity)
+- ca-continuity-conditions (calc.continuity)
 - ca-avg-rate (calc.derivative-basics)
 - ca-def-derivative (calc.derivative-basics)
 - ca-tangent-line (calc.derivative-basics)
 - ca-estimate-derivative (calc.derivative-basics)
+- ca-differentiability (calc.derivative-basics)
 - ca-power-rule (calc.derivative-rules)
 - ca-power-reciprocal (calc.derivative-rules)
 - ca-power-root (calc.derivative-rules)
@@ -778,6 +784,7 @@ Book: kreyszig-10e §9.7, §9.8, §9.9, §10.7, §10.9
 - ca-arcsin-derivative (calc.implicit-inverse)
 - ca-second-derivative (calc.implicit-inverse)
 - ca-second-derivative-trig (calc.implicit-inverse)
+- ca-implicit-horizontal (calc.implicit-inverse)
 - ca-motion (calc.rates)
 - ca-related-circle (calc.rates)
 - ca-related-sphere (calc.rates)
@@ -787,6 +794,7 @@ Book: kreyszig-10e §9.7, §9.8, §9.9, §10.7, §10.9
 - ca-lhospital-exp (calc.rates)
 - ca-lhospital-twice (calc.rates)
 - ca-lhospital-power (calc.rates)
+- ca-rate-units (calc.rates)
 - ca-mvt (calc.extrema)
 - ca-critical-points (calc.extrema)
 - ca-abs-extrema (calc.extrema)
@@ -794,12 +802,17 @@ Book: kreyszig-10e §9.7, §9.8, §9.9, §10.7, §10.9
 - ca-second-derivative-test (calc.extrema)
 - ca-optimization-fence (calc.extrema)
 - ca-optimization-box (calc.extrema)
+- ca-read-derivative-graph (calc.extrema)
+- ca-sketch-derivative (calc.extrema)
 - ca-riemann-sums (calc.riemann-ftc)
 - ca-trapezoid-table (calc.riemann-ftc)
 - ca-ftc-derivative (calc.riemann-ftc)
 - ca-integral-properties (calc.riemann-ftc)
 - ca-definite-poly (calc.riemann-ftc)
 - ca-net-change-ftc (calc.riemann-ftc)
+- ca-accumulation-graph (calc.riemann-ftc)
+- ca-riemann-limit (calc.riemann-ftc)
+- ca-riemann-over-under (calc.riemann-ftc)
 - ca-antiderivative-poly (calc.antiderivatives)
 - ca-antiderivative-elementary (calc.antiderivatives)
 - ca-antiderivative-root (calc.antiderivatives)
@@ -809,14 +822,16 @@ Book: kreyszig-10e §9.7, §9.8, §9.9, §10.7, §10.9
 - ca-improper-power (calc.antiderivatives)
 - ca-improper-exp (calc.antiderivatives)
 - ca-improper-ptest (calc.antiderivatives)
+- ca-choose-technique (calc.antiderivatives)
 - ca-verify-solution (calc.diffeq)
-- ca-euler-method (calc.diffeq)
 - ca-separable-general (calc.diffeq)
 - ca-separable-ivp (calc.diffeq)
 - ca-exponential-growth (calc.diffeq)
 - ca-half-life (calc.diffeq)
 - ca-newton-cooling (calc.diffeq)
 - ca-logistic (calc.diffeq)
+- ca-slope-field-points (calc.diffeq)
+- ca-write-de (calc.diffeq)
 - ca-average-value (calc.integration-apps)
 - ca-distance (calc.integration-apps)
 - ca-net-change-tank (calc.integration-apps)
@@ -828,6 +843,9 @@ Book: kreyszig-10e §9.7, §9.8, §9.9, §10.7, §10.9
 - ca-volume-washer (calc.integration-apps)
 - ca-arc-length (calc.integration-apps)
 - ca-work-spring (calc.integration-apps)
+- ca-area-crossings (calc.integration-apps)
+- ca-volume-disc-line (calc.integration-apps)
+- ca-volume-washer-line (calc.integration-apps)
 - ca-parametric-slope (calc.parametric-polar)
 - ca-parametric-arc (calc.parametric-polar)
 - ca-vector-velocity (calc.parametric-polar)
@@ -836,6 +854,7 @@ Book: kreyszig-10e §9.7, §9.8, §9.9, §10.7, §10.9
 - ca-polar-slope (calc.parametric-polar)
 - ca-polar-area (calc.parametric-polar)
 - ca-polar-rose (calc.parametric-polar)
+- ca-polar-between (calc.parametric-polar)
 - ca-partial-sums (calc.series)
 - ca-geometric-series (calc.series)
 - ca-nth-term-test (calc.series)
@@ -843,11 +862,16 @@ Book: kreyszig-10e §9.7, §9.8, §9.9, §10.7, §10.9
 - ca-ratio-test (calc.series)
 - ca-absolute-conditional (calc.series)
 - ca-alternating-error (calc.series)
+- ca-integral-test (calc.series)
+- ca-comparison-test (calc.series)
 - ca-taylor-exp (calc.taylor)
 - ca-taylor-ln (calc.taylor)
 - ca-taylor-coefficients (calc.taylor)
 - ca-lagrange-bound (calc.taylor)
 - ca-radius-convergence (calc.taylor)
+- ca-series-use (calc.taylor)
+- ca-series-build (calc.taylor)
+- ca-series-general-term (calc.taylor)
 - cm-distance-3d (calc.vectors-3d)
 - cm-dot-product (calc.vectors-3d)
 - cm-cross-product (calc.vectors-3d)
@@ -855,12 +879,14 @@ Book: kreyszig-10e §9.7, §9.8, §9.9, §10.7, §10.9
 - cm-plane (calc.vectors-3d)
 - cm-vector-function (calc.vectors-3d)
 - cm-helix (calc.vectors-3d)
+- ca-quadric (calc.vectors-3d)
 - cm-tangent-plane (calc.partials-apps)
 - cm-chain-rule (calc.partials-apps)
-- cm-gradient (calc.partials-apps)
 - cm-critical-point (calc.partials-apps)
 - cm-lagrange-product (calc.partials-apps)
 - cm-lagrange-circle (calc.partials-apps)
+- ca-two-path-limit (calc.partials-apps)
+- ca-extrema-region (calc.partials-apps)
 - cm-double-rect (calc.multiple-integrals)
 - cm-double-region (calc.multiple-integrals)
 - cm-reverse-order (calc.multiple-integrals)
@@ -875,10 +901,10 @@ Book: kreyszig-10e §9.7, §9.8, §9.9, §10.7, §10.9
 - cm-work-line (calc.vector-calculus)
 - cm-potential (calc.vector-calculus)
 - cm-green (calc.vector-calculus)
-- cm-div-curl (calc.vector-calculus)
-- cm-laplacian (calc.vector-calculus)
 - cm-surface-area (calc.vector-calculus)
 - cm-surface-integral (calc.vector-calculus)
 - cm-flux-disc (calc.vector-calculus)
 - cm-stokes (calc.vector-calculus)
 - cm-divergence-theorem (calc.vector-calculus)
+- ca-vector-field-match (calc.vector-calculus)
+- ca-curl-conservative (calc.vector-calculus)

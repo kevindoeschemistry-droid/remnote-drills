@@ -24,7 +24,7 @@ BASE = {"diff": sp.diff, "pi": sp.pi, "log": sp.log, "exp": sp.exp, "sqrt": sp.s
         "solve": sp.solve, "sin": sp.sin, "cos": sp.cos, "tan": sp.tan, "tanh": sp.tanh, "cosh": sp.cosh, "sinh": sp.sinh,
         "integrate": sp.integrate, "limit": sp.limit, "oo": sp.oo, "atan": sp.atan, "asin": sp.asin, "acos": sp.acos,
         "sec": sp.sec, "csc": sp.csc, "cot": sp.cot, "Rational": sp.Rational, "Symbol": sp.Symbol, "Eq": sp.Eq,
-        "Min": sp.Min, "Max": sp.Max, "Sum": sp.Sum, "sum": sum, "Y": sp.Symbol("y"), "Z": sp.Symbol("z"), "acos": sp.acos, "nn": sp.Symbol("n", integer=True, positive=True), "series": sp.series, "summation": sp.summation, "Matrix": sp.Matrix, "factorial": sp.factorial}
+        "Min": sp.Min, "Max": sp.Max, "Sum": sp.Sum, "sum": sum, "range": range, "all": all, "any": any, "sorted": sorted, "len": len, "legendre": sp.legendre, "I": sp.I, "re": sp.re, "im": sp.im, "Y": sp.Symbol("y"), "Z": sp.Symbol("z"), "acos": sp.acos, "nn": sp.Symbol("n", integer=True, positive=True), "series": sp.series, "summation": sp.summation, "Matrix": sp.Matrix, "factorial": sp.factorial}
 
 
 def parse(ref, var):
@@ -85,7 +85,7 @@ def check(p, H):
             return parse(ref, var)
     claimed = {lab: _claim(part["answer"]["ref"]) for lab, part in zip(labels, p["parts"])
                if part["answer"]["kind"] == "expression"}
-    ns = {**BASE, **{k: num(x) for k, x in meta["given"].items()}, v.get("var", "x"): var}
+    ns = {**BASE, "S": lambda q: parse(q, var), **{k: num(x) for k, x in meta["given"].items()}, v.get("var", "x"): var}
     ns_parts = {**ns, **claimed}
 
     # ode parts (antiderivatives, first-order solutions): differentiate the claimed y and compare with

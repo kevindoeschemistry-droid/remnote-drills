@@ -1,0 +1,823 @@
+# Figure items: the answer is read from a picture. Each `figure:` is drawn by src/drills/fig-data.ts
+# from the same numbers the key is computed from, so the picture and the key cannot disagree.
+# Numeric answers avoid 0 (the checker's relative tolerance has nothing to scale by there).
+
+# ── limits from a graph (CA-1.3.A, CA-1.2.A) ───────────────────────────────
+- template: ca-limit-graph
+  skill: calc.limits
+  given: { c: { int: [-2, 2] }, la: { int: [1, 4] }, m1: { pick: [0.5, 1, -0.5] }, m2: { pick: [1, -1, 0.5] } }
+  cases:
+    - { d: 0, dv: 2 }
+    - { d: 0, dv: -3 }
+    - { d: -3, dv: 0 }
+    - { d: 2, dv: 2 }
+    - { d: -2, dv: -2 }
+    - { d: 3, dv: 0 }
+  require: ["la + d != 0", "la + dv != 0"]
+  prompt: 'The graph of $f$ is shown. An open circle is a point that is not on the graph; the filled dot is $f({{c}})$.'
+  figure:
+    type: plot
+    x: [c - 4, c + 4]
+    y: [-4, 8]
+    tick: 1
+    curves:
+      - { f: "la + m1*(x - c)", from: c - 4, to: c }
+      - { f: "la + d + m2*(x - c)", from: c, to: c + 4 }
+    points:
+      - { at: [c, la], open: true }
+      - { at: [c, la + d], open: true }
+      - { at: [c, la + dv] }
+  parts:
+    - ask: '$\displaystyle\lim_{x\to {{c}}^-}f(x)$'
+      label: a
+      tex: 'L^-'
+      value: la
+      tol: 0.001
+      explain: 'Follow the curve toward $x = {{c}}$ from the left'
+    - ask: '$\displaystyle\lim_{x\to {{c}}^+}f(x)$'
+      label: b
+      tex: 'L^+'
+      value: la + d
+      tol: 0.001
+      explain: 'Follow the curve toward $x = {{c}}$ from the right'
+    - ask: '$f({{c}})$'
+      label: v
+      tex: 'f({{c}})'
+      value: la + dv
+      tol: 0.001
+      explain: 'The filled dot. It has no say in either limit'
+    - ask: 'The two-sided limit at $x = {{c}}$…'
+      label: t
+      choice: ["Exists", "Does not exist"]
+      correct: "d == 0 ? 0 : 1"
+      explain: 'It exists only when the left and right limits agree'
+  verify:
+    expect: { a: "limit(la + m1*(x - c), x, c, '-')", b: "limit(la + d + m2*(x - c), x, c, '+')", v: "la + dv" }
+    choices: { t: "0 if limit(la + m1*(x - c), x, c, '-') == limit(la + d + m2*(x - c), x, c, '+') else 1" }
+
+# ── limits from a table (CA-1.4.A, CA-1.8.A) ───────────────────────────────
+- template: ca-limit-table
+  skill: calc.limits
+  cases:
+    - { tx: '\frac{x^2 - 9}{x - 3}', fn: '(x^2 - 9)/(x - 3)', c: 3, L: 6 }
+    - { tx: '\frac{\sin 2x}{x}', fn: 'sin(2*x)/x', c: 0, L: 2 }
+    - { tx: '\frac{e^{x} - 1}{x}', fn: '(exp(x) - 1)/x', c: 0, L: 1 }
+    - { tx: '\frac{\sqrt{x + 4} - 2}{x}', fn: '(sqrt(x + 4) - 2)/x', c: 0, L: 0.25 }
+    - { tx: '\frac{x^3 - 8}{x - 2}', fn: '(x^3 - 8)/(x - 2)', c: 2, L: 12 }
+    - { tx: '\frac{1 - \cos x}{x^2}', fn: '(1 - cos(x))/x^2', c: 0, L: 0.5 }
+    - { tx: '\frac{\ln x}{x - 1}', fn: 'log(x)/(x - 1)', c: 1, L: 1 }
+  prompt: 'The table gives values of $f(x) = {{tx}}$ near $x = {{c}}$, where $f$ is undefined.'
+  figure: { type: table, head: ["x", "f(x)"], xs: [c - 0.1, c - 0.01, c - 0.001, c + 0.001, c + 0.01, c + 0.1], f: fn }
+  parts:
+    - ask: 'Estimate $\displaystyle\lim_{x\to {{c}}}f(x)$'
+      label: L
+      tex: 'L'
+      value: L
+      tol: 0.01
+      explain: 'From both sides the values close in on ${{L}}$. A table only suggests a limit: it samples a few inputs, and a function that oscillates between them could fool it, so confirm with algebra'
+  verify: { expect: { L: "limit(S(fn), x, c)" } }
+
+# ── kind of discontinuity from a graph (CA-1.10.A) ─────────────────────────
+- template: ca-discontinuity-graph
+  skill: calc.continuity
+  cases:
+    - { f1: 'x + 1', f2: 'x + 1', c: 1, oy: 2, qy: 99, vl: 99, ans: 0, why: 'The curve heads to the same height from both sides; only a single point is missing' }
+    - { f1: '0.5*x^2 - 1', f2: '0.5*x^2 - 1', c: 2, oy: 1, qy: 3, vl: 99, ans: 0, why: 'Both sides head to 1, but the function value sits at 3. Moving one point would repair it' }
+    - { f1: '-x - 2', f2: 'x + 1', c: 0, oy: -2, qy: 1, vl: 99, ans: 1, why: 'The left side heads to −2 and the right side to 1' }
+    - { f1: '0.5*x + 2', f2: '0.5*x - 1', c: 1, oy: 2.5, qy: -0.5, vl: 99, ans: 1, why: 'The one-sided limits are 2.5 and −0.5: finite but different' }
+    - { f1: '1/(x - 1)', f2: '1/(x - 1)', c: 1, oy: 99, qy: 99, vl: 1, ans: 2, why: 'The values grow without bound near the vertical asymptote' }
+    - { f1: '1/(x + 1)^2', f2: '1/(x + 1)^2', c: -1, oy: 99, qy: 99, vl: -1, ans: 2, why: 'The values grow without bound near the vertical asymptote' }
+  prompt: 'The graph of $f$ is shown. What kind of discontinuity does $f$ have at $x = {{c}}$?'
+  figure:
+    type: plot
+    x: [-5, 5]
+    y: [-5, 5]
+    tick: 1
+    curves:
+      - { f: f1, from: -5, to: c }
+      - { f: f2, from: c, to: 5 }
+    vlines: [vl]
+    points:
+      - { at: [c, oy], open: true }
+      - { at: [c, qy] }
+  parts:
+    - ask: 'Discontinuity'
+      label: v
+      choice: ["Removable", "Jump", "Infinite"]
+      correct: ans
+      explain: '{{why}}'
+  verify:
+    choices: { v: "2 if limit(S(f1), x, c, '-') in [oo, -oo] else (0 if limit(S(f1), x, c, '-') == limit(S(f2), x, c, '+') else 1)" }
+
+# ── f from the graph of f′; g = ∫f from the graph of f (CA-5.9.A, CA-6.5.A) ─
+- template: ca-read-derivative-graph
+  skill: calc.extrema
+  given: { a: { int: [1, 3] }, w: { pick: [2, 4] }, sg: { pick: [1, -1] } }
+  cases:
+    - { shown: "f'", of: 'f' }
+    - { shown: 'f', of: 'g(x) = \int_0^x f(t)\,dt' }
+  prompt: 'The graph of ${{shown}}$ is shown. Answer for ${{of}}$.'
+  figure:
+    type: plot
+    x: [a - 2, a + w + 2]
+    y: [-5, 5]
+    tick: 1
+    curves:
+      - { f: "sg*0.5*(x - a)*(x - a - w)" }
+  parts:
+    - ask: '$x$ of the local maximum'
+      label: mx
+      tex: 'x_{\max}'
+      value: "sg > 0 ? a : a + w"
+      tol: 0.001
+      explain: 'A local maximum is where the graphed function crosses the axis going from positive to negative'
+    - ask: '$x$ of the local minimum'
+      label: mn
+      tex: 'x_{\min}'
+      value: "sg > 0 ? a + w : a"
+      tol: 0.001
+      explain: 'A local minimum is where the graphed function crosses going from negative to positive'
+    - ask: '$x$ of the inflection point'
+      label: ip
+      tex: 'x_{\text{infl}}'
+      value: a + w/2
+      tol: 0.001
+      explain: 'Concavity changes where the graphed function turns around: at its vertex, $x = {{a + w/2}}$'
+  verify:
+    expect:
+      mx: "[q for q in solve(sg*(x - a)*(x - a - w), x) if diff(sg*(x - a)*(x - a - w), x).subs(x, q) < 0][0]"
+      mn: "[q for q in solve(sg*(x - a)*(x - a - w), x) if diff(sg*(x - a)*(x - a - w), x).subs(x, q) > 0][0]"
+      ip: "solve(diff(sg*(x - a)*(x - a - w), x), x)[0]"
+
+# ── f′ from the graph of f (CA-5.8.A) ──────────────────────────────────────
+- template: ca-sketch-derivative
+  skill: calc.extrema
+  given: { a: { int: [1, 2] }, w: { pick: [2, 3] }, sg: { pick: [1, -1] } }
+  prompt: 'The graph of $f$ is shown. Describe $f''$.'
+  figure:
+    type: plot
+    x: [a - 1.5, a + w + 1.5]
+    y: [-7, 7]
+    tick: 1
+    curves:
+      - { f: "sg*((x - a)^3/3 - w*(x - a)^2/2)" }
+  parts:
+    - ask: 'Smaller $x$ where $f''(x) = 0$'
+      label: lo
+      tex: 'x_1'
+      value: a
+      tol: 0.001
+      explain: 'The derivative is zero where the tangent is horizontal: at each peak and valley'
+    - ask: 'Larger $x$ where $f''(x) = 0$'
+      label: hi
+      tex: 'x_2'
+      value: a + w
+      tol: 0.001
+      explain: 'The second horizontal tangent'
+    - ask: 'Between them, $f''$ is…'
+      label: s
+      choice: ["Positive", "Negative"]
+      correct: "sg > 0 ? 1 : 0"
+      explain: 'Where $f$ rises its derivative is positive; where it falls, negative. So the graph of $f''$ crosses the axis at ${{a}}$ and ${{a + w}}$ and lies on that side between'
+  verify:
+    expect:
+      lo: "Min(*solve(diff(sg*((x - a)**3/3 - w*(x - a)**2/2), x), x))"
+      hi: "Max(*solve(diff(sg*((x - a)**3/3 - w*(x - a)**2/2), x), x))"
+    choices: { s: "0 if diff(sg*((x - a)**3/3 - w*(x - a)**2/2), x).subs(x, a + Rational(1, 2)) > 0 else 1" }
+
+# ── accumulated change from a rate graph (CA-6.1.A) ────────────────────────
+- template: ca-accumulation-graph
+  skill: calc.riemann-ftc
+  given: { a: { pick: [1, 2] }, b: { pick: [1, 2, 3] }, c2: { pick: [1, 2] }, h: { pick: [2, 4, 6] } }
+  cases:
+    - { sgn: 1 }
+    - { sgn: -1 }
+  prompt: 'The graph shows $r(t)$, the rate in litres per minute at which the volume of water in a tank is changing ($t$ in minutes).'
+  figure:
+    type: plot
+    x: [0, a + b + c2 + 1]
+    y: [-7, 7]
+    tick: 1
+    xlabel: t
+    ylabel: r
+    segments:
+      - { from: [0, 0], to: [a, "sgn*h"] }
+      - { from: [a, "sgn*h"], to: ["a + b", "sgn*h"] }
+      - { from: ["a + b", "sgn*h"], to: ["a + b + c2", 0] }
+  parts:
+    - ask: 'Net change in volume from $t = 0$ to $t = {{a + b + c2}}$, in litres (negative if the tank lost water)'
+      label: V
+      tex: '\Delta V'
+      value: sgn*h*(a/2 + b + c2/2)
+      tol: 0.001
+      explain: 'Accumulated change is the signed area between the rate graph and the $t$-axis: two triangles and a rectangle, $\tfrac12({{a}})({{h}}) + ({{b}})({{h}}) + \tfrac12({{c2}})({{h}}) = {{h*(a/2 + b + c2/2)}}$. The units are (L/min)(min) = L, and area below the axis counts as negative'
+  verify: { expect: { V: "sgn*(integrate(h*x/a, (x, 0, a)) + integrate(h, (x, a, a + b)) + integrate(h*(1 - x/c2), (x, 0, c2)))" } }
+
+# ── slope fields (CA-7.3.A, CA-7.4.A, EM-2.1.B) ────────────────────────────
+- template: ca-slope-field-match
+  skill: calc.diffeq
+  cases:
+    - { fld: 'x', ans: 0, why: 'Every segment in a column is parallel (the slope ignores y), and they are flat on the y-axis' }
+    - { fld: 'y', ans: 1, why: 'Every segment in a row is parallel (the slope ignores x), and they are flat on the x-axis' }
+    - { fld: 'x + y', ans: 2, why: 'The segments are flat along the line y = −x' }
+    - { fld: 'x - y', ans: 3, why: 'The segments are flat along the line y = x' }
+    - { fld: '-x/y', ans: 4, why: 'Each segment is perpendicular to the line from the origin, so the solutions are circles' }
+    - { fld: 'y*(2 - y)', ans: 5, why: 'Rows are parallel, and flat on both y = 0 and y = 2' }
+  prompt: 'Which differential equation has this slope field?'
+  figure: { type: plot, x: [-3, 3], y: [-3, 3], tick: 1, field: fld }
+  parts:
+    - ask: 'Equation'
+      label: v
+      choice: ["dy/dx = x", "dy/dx = y", "dy/dx = x + y", "dy/dx = x − y", "dy/dx = −x/y", "dy/dx = y(2 − y)"]
+      correct: ans
+      explain: '{{why}}. Look first for where the segments are horizontal, then for whether rows or columns are parallel'
+  verify:
+    choices: { v: "[x, Y, x + Y, x - Y, -x/Y, Y*(2 - Y)].index(S(fld))" }
+
+- template: ca-slope-field-points
+  skill: calc.diffeq
+  given: { p: { pick: [1, 2] }, q: { pick: [1, -1] }, x1: { int: [1, 3] }, y1: { int: [1, 3] } }
+  require: ["p*x1 + q*y1 != 0", "-p*x1 + q*y1 != 0"]
+  prompt: 'To sketch the slope field of $\dfrac{dy}{dx} = {{=p*x + q*y}}$, find the slope of the short segment drawn at each point.'
+  figure: { type: plot, x: [-4, 4], y: [-4, 4], tick: 1, field: "p*x + q*y", points: [{ at: [x1, y1] }, { at: [-x1, y1] }] }
+  parts:
+    - ask: 'Slope at $({{x1}}, {{y1}})$'
+      label: s1
+      tex: 'm_1'
+      value: p*x1 + q*y1
+      tol: 0.001
+      explain: 'Substitute the point into the right-hand side'
+    - ask: 'Slope at $({{-x1}}, {{y1}})$'
+      label: s2
+      tex: 'm_2'
+      value: -p*x1 + q*y1
+      tol: 0.001
+      explain: 'A slope field is nothing more than this, repeated on a grid'
+  verify: { expect: { s1: "(p*x + q*Y).subs(x, x1).subs(Y, y1)", s2: "(p*x + q*Y).subs(x, -x1).subs(Y, y1)" } }
+
+- template: em-isoclines
+  skill: ode1.recognize
+  given: { k: { pick: [-2, -1, 1, 2, 3] } }
+  prompt: 'The direction field of $y'' = x - y$ is shown. An isocline is a curve along which every segment has the same slope.'
+  figure: { type: plot, x: [-4, 4], y: [-4, 4], tick: 1, field: "x - y" }
+  parts:
+    - ask: '$y$-intercept of the isocline with slope ${{k}}$'
+      label: b
+      tex: 'b'
+      value: -k
+      tol: 0.001
+      explain: 'Set $x - y = {{k}}$: the isocline is the line $y = x - {{k}}$'
+    - ask: 'As $x \to \infty$, the solution curves approach the line…'
+      label: v
+      choice: ["y = x − 1", "y = x", "y = x + 1"]
+      correct: 0
+      explain: 'On $y = x - 1$ the field has slope $x - (x - 1) = 1$, the slope of the line itself, so that line is a solution and the others funnel onto it'
+  verify:
+    expect: { b: "solve(Eq(x - Y, k), Y)[0].subs(x, 0)" }
+    choices: { v: "[diff(x + q, x) - (x - (x + q)) for q in [-1, 0, 1]].index(0)" }
+
+# ── phase portraits of linear systems (EM-5.3.C) ───────────────────────────
+- template: em-phase-portrait
+  skill: odesys.phase
+  cases:
+    - { a11: 1, a12: 2, a21: 2, a22: 1, ans: 0 }
+    - { a11: 1, a12: 0, a21: 0, a22: -1, ans: 0 }
+    - { a11: -2, a12: 1, a21: 1, a22: -2, ans: 1 }
+    - { a11: 2, a12: 1, a21: 1, a22: 2, ans: 2 }
+    - { a11: 0, a12: 1, a21: -1, a22: 0, ans: 3 }
+    - { a11: 0, a12: -2, a21: 2, a22: 0, ans: 3 }
+    - { a11: -1, a12: 2, a21: -2, a22: -1, ans: 4 }
+    - { a11: 1, a12: -2, a21: 2, a22: 1, ans: 5 }
+  prompt: 'The arrows show the direction field of a linear system $\mathbf{y}'' = A\mathbf{y}$ in the phase plane. What is the critical point at the origin?'
+  figure: { type: plot, x: [-3, 3], y: [-3, 3], tick: 1, xlabel: "y₁", ylabel: "y₂", vfield: ["a11*x + a12*y", "a21*x + a22*y"] }
+  parts:
+    - ask: 'Type'
+      label: v
+      choice: ["Saddle", "Stable node", "Unstable node", "Center", "Stable spiral", "Unstable spiral"]
+      correct: ans
+      explain: 'Here $A = \begin{pmatrix}{{a11}} & {{a12}}\\ {{a21}} & {{a22}}\end{pmatrix}$, with trace ${{a11 + a22}}$ and determinant ${{a11*a22 - a12*a21}}$. Arrows that come in along one line and leave along another mean real eigenvalues of opposite sign (a saddle). Arrows that circle mean complex eigenvalues: closed loops if the real part is zero, spirals in or out otherwise. Straight-line trajectories lie along the eigenvectors'
+  verify:
+    choices: { v: "0 if Matrix([[a11, a12], [a21, a22]]).det() < 0 else ((1 if Matrix([[a11, a12], [a21, a22]]).trace() < 0 else 2) if all([im(q) == 0 for q in Matrix([[a11, a12], [a21, a22]]).eigenvals(multiple=True)]) else (3 if Matrix([[a11, a12], [a21, a22]]).trace() == 0 else (4 if Matrix([[a11, a12], [a21, a22]]).trace() < 0 else 5)))" }
+
+# ── vector fields (CA-14.1.A) ──────────────────────────────────────────────
+- template: ca-vector-field-match
+  skill: calc.vector-calculus
+  cases:
+    - { p: 'x', q: 'y', ans: 0, cons: 0 }
+    - { p: '-y', q: 'x', ans: 1, cons: 1 }
+    - { p: '1', q: '0', ans: 2, cons: 0 }
+    - { p: '-x', q: '-y', ans: 3, cons: 0 }
+    - { p: 'y', q: 'x', ans: 4, cons: 0 }
+    - { p: '0', q: 'x', ans: 5, cons: 1 }
+  prompt: 'Which vector field is drawn?'
+  figure: { type: plot, x: [-3, 3], y: [-3, 3], tick: 1, vfield: [p, q] }
+  parts:
+    - ask: 'Field'
+      label: v
+      choice: ["F = ⟨x, y⟩", "F = ⟨−y, x⟩", "F = ⟨1, 0⟩", "F = ⟨−x, −y⟩", "F = ⟨y, x⟩", "F = ⟨0, x⟩"]
+      correct: ans
+      explain: 'Test a few points. On the positive x-axis, which way does the arrow point, and does it grow as you move out?'
+    - ask: 'Is it a gradient (conservative) field?'
+      label: g
+      choice: ["Yes", "No"]
+      correct: cons
+      explain: 'For $\mathbf{F} = \langle P, Q\rangle$ on the whole plane, it is a gradient field exactly when $\partial Q/\partial x = \partial P/\partial y$. A field that swirls or shears around a loop cannot be one'
+  verify:
+    choices:
+      v: "[[x, Y], [-Y, x], [1, 0], [-x, -Y], [Y, x], [0, x]].index([S(p), S(q)])"
+      g: "0 if diff(S(q), x) - diff(S(p), Y) == 0 else 1"
+
+# ── dot plots and box plots (MK-7.5.B/D/E, MK-2 line plots, MH-3.1.A) ───────
+- template: k8-dot-plot
+  skill: k8.data
+  cases:
+    - { data: [2, 3, 3, 4, 4, 4, 5, 6, 6], what: 'the number of books each student read last month' }
+    - { data: [1, 1, 2, 2, 2, 3, 5, 5, 7], what: 'the number of pets in each household on a street' }
+    - { data: [3, 4, 4, 5, 6, 6, 6, 7, 8, 8, 9], what: 'the length of each leaf in a sample, to the nearest centimetre' }
+    - { data: [10, 11, 11, 12, 12, 12, 12, 13, 15], what: 'the age of each player on a team' }
+    - { data: [1, 2, 2, 2, 3, 4, 4, 5, 5, 7, 9], what: 'the number of goals a team scored in each game' }
+    - { data: [5, 6, 6, 7, 7, 7, 7, 8, 8, 9, 12], what: 'the length of each pencil in a box, to the nearest centimetre' }
+  prompt: 'The dot plot shows {{what}}.'
+  figure: { type: numberline, range: ["min(data) - 1", "max(data) + 1"], step: 1, dots: data }
+  parts:
+    - ask: 'Number of observations'
+      label: n
+      tex: 'n'
+      value: sum(data .^ 0)
+      tol: 0.001
+      explain: 'Count the dots: each one is an observation'
+    - ask: 'Most common value (the mode)'
+      label: mo
+      tex: '\text{mode}'
+      value: mode(data)[1]
+      tol: 0.001
+      explain: 'The tallest stack'
+    - ask: 'Median'
+      label: med
+      tex: '\text{median}'
+      value: median(data)
+      tol: 0.001
+      explain: 'With ${{sum(data .^ 0)}}$ dots, the median is the middle one, counting in from either end'
+    - ask: 'Range'
+      label: rg
+      tex: '\text{range}'
+      value: max(data) - min(data)
+      tol: 0.001
+      explain: 'Largest minus smallest: ${{max(data)}} - {{min(data)}}$. The median describes the centre of the distribution, the range its spread'
+  verify:
+    expect:
+      n: "len(data)"
+      mo: "[q for q in data if data.count(q) == sorted([data.count(z) for z in data])[-1]][0]"
+      med: "sorted(data)[len(data)//2]"
+      rg: "sorted(data)[-1] - sorted(data)[0]"
+
+- template: k8-box-plot
+  skill: k8.data
+  given: { mn: { int: [2, 8] }, d1: { int: [2, 4] }, d2: { int: [1, 3] }, d3: { int: [2, 4] }, d4: { int: [2, 5] } }
+  prompt: 'The box plot summarises a data set.'
+  figure:
+    type: numberline
+    range: [mn - 2, mn + d1 + d2 + d3 + d4 + 2]
+    step: 1
+    labelEvery: 2
+    box: { min: mn, q1: mn + d1, med: mn + d1 + d2, q3: mn + d1 + d2 + d3, max: mn + d1 + d2 + d3 + d4 }
+  parts:
+    - ask: 'Median'
+      label: med
+      tex: '\text{median}'
+      value: mn + d1 + d2
+      tol: 0.001
+      explain: 'The line inside the box'
+    - ask: 'Interquartile range'
+      label: iqr
+      tex: '\text{IQR}'
+      value: d2 + d3
+      tol: 0.001
+      explain: 'The width of the box, $Q_3 - Q_1 = {{mn + d1 + d2 + d3}} - {{mn + d1}}$. The middle half of the data lies inside it'
+    - ask: 'Range'
+      label: rg
+      tex: '\text{range}'
+      value: d1 + d2 + d3 + d4
+      tol: 0.001
+      explain: 'From the end of one whisker to the end of the other'
+  verify:
+    expect:
+      med: "sorted([mn, mn + d1, mn + d1 + d2, mn + d1 + d2 + d3, mn + d1 + d2 + d3 + d4])[2]"
+      iqr: "(mn + d1 + d2 + d3) - (mn + d1)"
+      rg: "(mn + d1 + d2 + d3 + d4) - mn"
+
+# ── scatter plots (MK-9.1.A, MK-9.1.B, MH-3.3.A) ───────────────────────────
+- template: k8-scatter-association
+  skill: stats.bivariate
+  cases:
+    - { ys: [2, 3, 3, 5, 5, 6, 8, 8, 9, 10], ans: 0 }
+    - { ys: [1, 3, 2, 4, 6, 5, 7, 9, 8, 10], ans: 0 }
+    - { ys: [10, 9, 9, 7, 6, 6, 4, 3, 3, 1], ans: 1 }
+    - { ys: [9, 10, 8, 8, 6, 5, 5, 3, 2, 2], ans: 1 }
+    - { ys: [5, 9, 2, 7, 3, 8, 1, 6, 9, 4], ans: 2 }
+    - { ys: [1, 4, 6.5, 8, 9, 9, 8, 6.5, 4, 1], ans: 3 }
+  prompt: 'Describe the association between $x$ and $y$ in the scatter plot.'
+  figure: { type: plot, x: [0, 11], y: [0, 11], tick: 1, scatter: { x: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10], y: ys } }
+  parts:
+    - ask: 'Association'
+      label: v
+      choice: ["Positive linear", "Negative linear", "None", "Nonlinear"]
+      correct: ans
+      explain: 'Positive: y tends to rise as x rises. Negative: y tends to fall. None: a shapeless cloud. Nonlinear: a clear pattern that is not a straight line'
+  verify: { authored: true }
+
+- template: hs-trend-line
+  skill: stats.bivariate
+  given: { b0: { int: [2, 4] }, m: { pick: [0.5, 1, 1.5, 2] }, xq: { int: [12, 15] } }
+  prompt: 'A tree''s height $y$ (feet) is recorded $x$ years after planting. The line is fitted to the data.'
+  figure:
+    type: plot
+    x: [0, 9]
+    y: [0, "b0 + 9*m + 1"]
+    tick: 1
+    scatter: { x: [1, 2, 3, 4, 5, 6, 7, 8], y: "b0 + m*[1, 2, 3, 4, 5, 6, 7, 8] + [0.6, -0.5, 0.4, -0.7, 0.5, -0.4, 0.6, -0.5]" }
+    curves:
+      - { f: "b0 + m*x", from: 0, to: 9 }
+    points:
+      - { at: [0, b0] }
+      - { at: [4, b0 + 4*m] }
+  parts:
+    - ask: 'Slope of the line (feet per year)'
+      label: s
+      tex: 'm'
+      value: m
+      tol: 0.001
+      explain: 'Between the two marked points the line rises ${{4*m}}$ over a run of 4. In context: the tree grows about ${{m}}$ feet each year'
+    - ask: '$y$-intercept (feet)'
+      label: b
+      tex: 'b'
+      value: b0
+      tol: 0.001
+      explain: 'The model''s height at planting, $x = 0$'
+    - ask: 'Predicted height after ${{xq}}$ years'
+      label: p
+      tex: 'y({{xq}})'
+      value: b0 + m*xq
+      tol: 0.001
+      explain: '$y = {{b0}} + {{m}}({{xq}})$. This is beyond the data (extrapolation), so trust it less'
+  verify:
+    expect: { s: "((b0 + 4*m) - b0)/(4 - 0)", b: "b0", p: "b0 + ((b0 + 4*m) - b0)/4*xq" }
+
+# ── counting and measuring from a picture (MK-K.1, MK-3.6, MK-1.4, MK-2.5) ──
+- template: k8-count-dots
+  skill: k8.counting
+  given: { n0: { int: [3, 20] } }
+  prompt: 'How many dots are there?'
+  figure: { type: grid, cols: 5, rows: "ceil(n0/5)", dots: true, count: n0 }
+  parts:
+    - ask: 'Number of dots'
+      label: n
+      tex: 'n'
+      value: n0
+      tol: 0.001
+      explain: 'Count each dot once. Full rows hold 5, so count by fives and then count on: the last number you say is how many there are'
+  verify: { expect: { n: "len([1 for q in range(n0)])" } }
+
+- template: k8-area-squares
+  skill: k8.measurement
+  given: { w: { int: [2, 9] }, h: { int: [2, 6] } }
+  prompt: 'Each small square is 1 square unit. What is the area of the shaded rectangle?'
+  figure: { type: grid, cols: w, rows: h, shaded: w*h }
+  parts:
+    - ask: 'Area (square units)'
+      label: A
+      tex: 'A'
+      value: w*h
+      tol: 0.001
+      explain: 'Area is the number of unit squares that cover the figure with no gaps or overlaps: ${{h}}$ rows of ${{w}}$'
+  verify: { expect: { A: "sum([w for q in range(h)])" } }
+
+- template: k8-ruler-length
+  skill: k8.measurement
+  given: { p: { int: [0, 4] }, len: { int: [2, 7] } }
+  cases:
+    - { un: 'inches' }
+    - { un: 'centimetres' }
+  prompt: 'The ruler is marked in {{un}}. The thick bar is an object lying along it.'
+  figure: { type: numberline, range: [0, 12], step: 1, interval: { from: p, to: p + len } }
+  parts:
+    - ask: 'Length of the object ({{un}})'
+      label: L
+      tex: 'L'
+      value: len
+      tol: 0.001
+      explain: 'It runs from ${{p}}$ to ${{p + len}}$. Length is the number of unit gaps between the ends, ${{p + len}} - {{p}}$, not the number the far end sits on'
+  verify: { expect: { L: "(p + len) - p" } }
+
+- template: k8-ruler-quarters
+  skill: k8.measurement
+  given: { p: { pick: [0, 1, 2] }, q4: { int: [5, 19] } }
+  prompt: 'The ruler is marked in inches, with a tick every quarter inch. The thick bar is an object lying along it.'
+  figure: { type: numberline, range: [0, 8], step: 0.25, labelEvery: 1, interval: { from: p, to: p + q4/4 } }
+  parts:
+    - ask: 'Length of the object (inches; a fraction or decimal)'
+      label: L
+      tex: 'L'
+      value: q4/4
+      tol: 0.001
+      explain: 'It runs from ${{p}}$ to ${{p + q4/4}}$: ${{q4}}$ quarter-inch gaps, which is ${{q4/4}}$ inches'
+  verify: { expect: { L: "Rational(q4, 4)" } }
+
+- template: k8-fraction-line
+  skill: k8.fractions
+  given: { b: { pick: [2, 3, 4, 6, 8] }, a: { int: [1, 7] } }
+  require: ["a < b"]
+  prompt: 'The number line from 0 to 1 is cut into equal parts, and a point is marked.'
+  figure: { type: numberline, range: [0, 1], step: "1/b", labelEvery: 1, points: [{ at: "a/b" }] }
+  parts:
+    - ask: 'Number of equal parts between 0 and 1'
+      label: n
+      tex: 'b'
+      value: b
+      tol: 0.001
+      explain: 'Count the gaps, not the tick marks'
+    - ask: 'The fraction at the point'
+      label: f
+      tex: 'x'
+      value: a/b
+      tol: 0.001
+      explain: 'Each part has size $\tfrac{1}{ {{b}} }$, and the point is ${{a}}$ parts from 0: $\tfrac{ {{a}} }{ {{b}} }$'
+  verify: { expect: { n: "b", f: "a*Rational(1, b)" } }
+
+# ── coordinate plane (MK-5.5.B, MK-8.2.E, MK-8.2.F) ────────────────────────
+- template: k8-read-point
+  skill: k8.geometry
+  given: { px: { int: [1, 9] }, py: { int: [1, 9] } }
+  require: ["px != py"]
+  prompt: 'A point is plotted in the first quadrant.'
+  figure: { type: plot, x: [0, 10], y: [0, 10], tick: 1, points: [{ at: [px, py] }] }
+  parts:
+    - ask: '$x$-coordinate'
+      label: a
+      tex: 'x'
+      value: px
+      tol: 0.001
+      explain: 'How far right of the origin: read it off the horizontal axis'
+    - ask: '$y$-coordinate'
+      label: b
+      tex: 'y'
+      value: py
+      tol: 0.001
+      explain: 'How far up. The point is $({{px}}, {{py}})$: across first, then up'
+  verify: { expect: { a: "px", b: "py" } }
+
+- template: k8-proportional-graph
+  skill: k8.ratios
+  given: { q: { pick: [1, 2, 4] }, p: { int: [1, 8] }, k: { int: [3, 6] } }
+  require: ["p != q"]
+  prompt: 'The graph shows a proportional relationship: $y$ kilometres travelled in $x$ hours.'
+  figure:
+    type: plot
+    x: [0, 8]
+    y: [0, 9]
+    tick: 1
+    curves:
+      - { f: "p/q*x", from: 0, to: 8 }
+    points:
+      - { at: [q, p] }
+  parts:
+    - ask: 'Unit rate (kilometres per hour)'
+      label: r
+      tex: 'r'
+      value: p/q
+      tol: 0.001
+      explain: 'The marked point is $({{q}}, {{p}})$, so the rate is ${{p}} \div {{q}}$. It is the slope of the line, and it is the same between any two points on it because the triangles they make are similar'
+    - ask: 'Kilometres travelled in ${{k*q}}$ hours'
+      label: e
+      tex: 'y'
+      value: p*k
+      tol: 0.001
+      explain: '$y = {{p/q}}x$'
+  verify: { expect: { r: "Rational(p, q)", e: "Rational(p, q)*k*q" } }
+
+# ── reading graphs of functions (MH-2.4.A/B, MH-2.6.A/D, MH-6.3.D, MH-12.3.C) ─
+- template: hs-system-graph
+  skill: alg.linear
+  given: { x0: { int: [-3, 3] }, y0: { int: [-3, 3] }, m1: { pick: [1, 2, -1] }, m2: { pick: [-2, 0.5, -0.5] } }
+  require: ["x0 != 0", "y0 != 0"]
+  prompt: 'Two lines, $y = f(x)$ and $y = g(x)$, are graphed. Solve the system by reading the graph.'
+  figure:
+    type: plot
+    x: [-6, 6]
+    y: [-6, 6]
+    tick: 1
+    curves:
+      - { f: "m1*(x - x0) + y0" }
+      - { f: "m2*(x - x0) + y0", color: hot }
+  parts:
+    - ask: '$x$'
+      label: a
+      tex: 'x'
+      value: x0
+      tol: 0.001
+      explain: 'The solution is the point on both lines. Its $x$-coordinate is also the solution of the single equation $f(x) = g(x)$'
+    - ask: '$y$'
+      label: b
+      tex: 'y'
+      value: y0
+      tol: 0.001
+      explain: 'Check by substituting $({{x0}}, {{y0}})$ into both equations'
+  verify:
+    expect:
+      a: "solve(Eq(m1*(x - x0) + y0, m2*(x - x0) + y0), x)[0]"
+      b: "(m1*(x - x0) + y0).subs(x, solve(Eq(m1*(x - x0) + y0, m2*(x - x0) + y0), x)[0])"
+
+- template: hs-parabola-features
+  skill: alg.quadratics
+  given: { h0: { int: [-3, 3] }, rt: { pick: [1, 2] }, sg: { pick: [1, -1] } }
+  require: ["h0 - rt != 0", "h0 + rt != 0"]
+  prompt: 'The graph of a quadratic function $f$ is shown.'
+  figure:
+    type: plot
+    x: [-6, 6]
+    y: [-6, 6]
+    tick: 1
+    curves:
+      - { f: "sg*((x - h0)^2 - rt^2)" }
+  parts:
+    - ask: 'Smaller zero'
+      label: z1
+      tex: 'x_1'
+      value: h0 - rt
+      tol: 0.001
+      explain: 'A zero is where the graph meets the $x$-axis'
+    - ask: 'Larger zero'
+      label: z2
+      tex: 'x_2'
+      value: h0 + rt
+      tol: 0.001
+      explain: 'The zeros sit the same distance either side of the axis of symmetry'
+    - ask: '{{sg > 0 ? "Minimum" : "Maximum"}} value of $f$'
+      label: ex
+      tex: 'f_{\text{ext}}'
+      value: -sg*rt^2
+      tol: 0.001
+      explain: 'The $y$-coordinate of the vertex'
+    - ask: 'To the right of the vertex, $f$ is…'
+      label: s
+      choice: ["Increasing", "Decreasing"]
+      correct: "sg > 0 ? 0 : 1"
+      explain: 'Read the graph left to right'
+  verify:
+    expect:
+      z1: "Min(*solve(sg*((x - h0)**2 - rt**2), x))"
+      z2: "Max(*solve(sg*((x - h0)**2 - rt**2), x))"
+      ex: "(sg*((x - h0)**2 - rt**2)).subs(x, solve(diff(sg*((x - h0)**2 - rt**2), x), x)[0])"
+    choices: { s: "0 if diff(sg*((x - h0)**2 - rt**2), x).subs(x, h0 + 1) > 0 else 1" }
+
+- template: hs-domain-range-graph
+  skill: alg.functions
+  given: { a: { int: [-5, -1] }, len: { int: [3, 6] }, m: { pick: [1, -1] }, c0: { int: [-1, 1] } }
+  require: ["a + len != 0", "m*a + c0 != 0", "m*(a + len) + c0 != 0"]
+  prompt: 'The whole graph of $f$ is shown; both endpoints are included.'
+  figure:
+    type: plot
+    x: [-7, 7]
+    y: [-7, 7]
+    tick: 1
+    segments:
+      - { from: [a, "m*a + c0"], to: ["a + len", "m*(a + len) + c0"] }
+    points:
+      - { at: [a, "m*a + c0"] }
+      - { at: ["a + len", "m*(a + len) + c0"] }
+  parts:
+    - ask: 'Smallest $x$ in the domain'
+      label: d1
+      tex: 'x_{\min}'
+      value: a
+      tol: 0.001
+      explain: 'The domain is the set of inputs the graph covers: its shadow on the $x$-axis'
+    - ask: 'Largest $x$ in the domain'
+      label: d2
+      tex: 'x_{\max}'
+      value: a + len
+      tol: 0.001
+      explain: 'The domain is ${{a}} \le x \le {{a + len}}$'
+    - ask: 'Smallest value in the range'
+      label: r1
+      tex: 'y_{\min}'
+      value: min(m*a + c0, m*(a + len) + c0)
+      tol: 0.001
+      explain: 'The range is the set of outputs: the graph''s shadow on the $y$-axis'
+    - ask: 'Largest value in the range'
+      label: r2
+      tex: 'y_{\max}'
+      value: max(m*a + c0, m*(a + len) + c0)
+      tol: 0.001
+      explain: 'In a context, the domain is limited to inputs that make sense for the quantity (no negative time, no half people)'
+  verify:
+    expect:
+      d1: "a"
+      d2: "a + len"
+      r1: "Min((m*x + c0).subs(x, a), (m*x + c0).subs(x, a + len))"
+      r2: "Max((m*x + c0).subs(x, a), (m*x + c0).subs(x, a + len))"
+
+- template: hs-abs-graph
+  skill: alg.functions
+  given: { h0: { int: [-3, 3] }, k0: { int: [-3, 2] }, a0: { pick: [1, 2, -1] } }
+  require: ["h0 != 0", "k0 != 0"]
+  prompt: 'The graph shows $f(x) = a\,|x - h| + k$.'
+  figure:
+    type: plot
+    x: [-7, 7]
+    y: [-7, 7]
+    tick: 1
+    curves:
+      - { f: "a0*abs(x - h0) + k0" }
+  parts:
+    - ask: '$h$'
+      label: h
+      tex: 'h'
+      value: h0
+      tol: 0.001
+      explain: 'The vertex is at $({{h0}}, {{k0}})$; $h$ is its $x$-coordinate (mind the sign inside the bars)'
+    - ask: '$k$'
+      label: k
+      tex: 'k'
+      value: k0
+      tol: 0.001
+      explain: 'The $y$-coordinate of the vertex'
+    - ask: '$a$'
+      label: a
+      tex: 'a'
+      value: a0
+      tol: 0.001
+      explain: 'The slope of the right-hand branch. Negative $a$ opens the V downward'
+  verify:
+    expect:
+      h: "h0"
+      k: "(a0*Abs(x - h0) + k0).subs(x, h0)"
+      a: "(a0*Abs(x - h0) + k0).subs(x, h0 + 1) - (a0*Abs(x - h0) + k0).subs(x, h0)"
+
+# ── transformations (MK-8.3.A/B/D, MH-7.1.B) ───────────────────────────────
+- template: hs-transformation-graph
+  skill: geo.congruence
+  cases:
+    - { m11: 1, m12: 0, m21: 0, m22: 1, tx: -6, ty: 2, ans: 0, cong: 0 }
+    - { m11: 1, m12: 0, m21: 0, m22: 1, tx: 1, ty: -6, ans: 0, cong: 0 }
+    - { m11: 1, m12: 0, m21: 0, m22: -1, tx: 0, ty: 0, ans: 1, cong: 0 }
+    - { m11: -1, m12: 0, m21: 0, m22: 1, tx: 0, ty: 0, ans: 2, cong: 0 }
+    - { m11: -1, m12: 0, m21: 0, m22: -1, tx: 0, ty: 0, ans: 3, cong: 0 }
+    - { m11: 0, m12: -1, m21: 1, m22: 0, tx: 0, ty: 0, ans: 4, cong: 0 }
+    - { m11: 1.5, m12: 0, m21: 0, m22: 1.5, tx: 0, ty: 0, ans: 5, cong: 1 }
+  prompt: 'Triangle $ABC$ (solid) is mapped to triangle $A''B''C''$ (dashed).'
+  figure:
+    type: plot
+    x: [-7, 7]
+    y: [-7, 7]
+    tick: 1
+    segments:
+      - { from: [1, 1], to: [4, 1] }
+      - { from: [4, 1], to: [2, 3] }
+      - { from: [2, 3], to: [1, 1] }
+      - { from: ["m11 + m12 + tx", "m21 + m22 + ty"], to: ["4*m11 + m12 + tx", "4*m21 + m22 + ty"], dash: true }
+      - { from: ["4*m11 + m12 + tx", "4*m21 + m22 + ty"], to: ["2*m11 + 3*m12 + tx", "2*m21 + 3*m22 + ty"], dash: true }
+      - { from: ["2*m11 + 3*m12 + tx", "2*m21 + 3*m22 + ty"], to: ["m11 + m12 + tx", "m21 + m22 + ty"], dash: true }
+    labels:
+      - { at: [0.6, 0.5], text: "A" }
+      - { at: [4.4, 0.5], text: "B" }
+      - { at: [2, 3.4], text: "C" }
+  parts:
+    - ask: 'The transformation is a…'
+      label: v
+      choice: ["Translation", "Reflection across the x-axis", "Reflection across the y-axis", "Rotation of 180° about the origin", "Rotation of 90° counterclockwise about the origin", "Dilation about the origin"]
+      correct: ans
+      explain: 'Follow one vertex: $A(1, 1) \to ({{m11 + m12 + tx}}, {{m21 + m22 + ty}})$. As a function on points this is $(x, y) \to ({{m11}}x + {{m12}}y + {{tx}},\ {{m21}}x + {{m22}}y + {{ty}})$'
+    - ask: 'Is the image congruent to the original?'
+      label: g
+      choice: ["Yes: a rigid motion keeps lengths and angles", "No: it is similar but not congruent"]
+      correct: cong
+      explain: 'Translations, reflections and rotations take segments to segments of the same length and angles to equal angles, so the image is congruent. A dilation keeps angles but scales every length, so the image is only similar'
+  verify:
+    choices:
+      v: "(0 if [tx, ty] != [0, 0] else [[1, 0, 0, -1], [-1, 0, 0, 1], [-1, 0, 0, -1], [0, -1, 1, 0]].index([m11, m12, m21, m22]) + 1) if Abs(m11*m22 - m12*m21) == 1 else 5"
+      g: "0 if (m11**2 + m21**2 == 1 and m12**2 + m22**2 == 1 and m11*m12 + m21*m22 == 0) else 1"
+
+# ── an empirical distribution (MH-18.1.A, MH-18.1.D) ───────────────────────
+- template: hs-empirical-distribution
+  skill: stats.expected-value
+  given: { f0: { int: [1, 6] }, f1: { int: [2, 8] }, f2: { int: [1, 6] }, f3: { int: [1, 4] } }
+  prompt: 'A game was played ${{f0 + f1 + f2 + f3}}$ times. Let $X$ be the number of points won in one play; the bar chart shows how many times each value of $X$ came up.'
+  figure: { type: bars, labels: ["0", "1", "2", "3"], values: [f0, f1, f2, f3] }
+  parts:
+    - ask: 'Estimate $P(X = 2)$ from the data'
+      label: p2
+      tex: 'P(X = 2)'
+      value: f2/(f0 + f1 + f2 + f3)
+      tol: 0.005
+      explain: 'Relative frequency: ${{f2}}$ of the ${{f0 + f1 + f2 + f3}}$ plays'
+    - ask: 'Estimate the expected value $E(X)$'
+      label: ex
+      tex: 'E(X)'
+      value: (f1 + 2*f2 + 3*f3)/(f0 + f1 + f2 + f3)
+      tol: 0.005
+      explain: 'Weight each value by its relative frequency: $\dfrac{0({{f0}}) + 1({{f1}}) + 2({{f2}}) + 3({{f3}})}{ {{f0 + f1 + f2 + f3}} }$. It is the mean number of points per play'
+  verify:
+    expect:
+      p2: "Rational(f2, f0 + f1 + f2 + f3)"
+      ex: "sum([q*w for q, w in [[0, f0], [1, f1], [2, f2], [3, f3]]])*Rational(1, f0 + f1 + f2 + f3)"

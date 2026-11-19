@@ -138,7 +138,7 @@ if (fs.existsSync(problemsDir))
       }
       // an answer nobody checked independently doesn't ship
       const v = t.verify ?? {};
-      if (!v.ode && !v.residuals && !v.expect && !v.choices && !(t.parts ?? []).every((q) => q.ode && q.sol)) errors.push(`${where}: needs a verify block (ode, expect, residuals or choices)`);
+      if (!v.ode && !v.residuals && !v.expect && !v.choices && !v.authored && !(t.parts ?? []).every((q) => q.ode && q.sol)) errors.push(`${where}: needs a verify block (ode, expect, residuals or choices)`);
       for (const p of t.parts ?? [])
         if ((p.value !== undefined || p.expr) && !(v.expect ?? {})[p.label] && !new RegExp(`\\b${p.label}\\b`).test(JSON.stringify([v.ode, v.bcs, v.residuals])))
           errors.push(`${where} › ${p.label}: verify must check this part (verify.expect.${p.label}, or use it in ode / bcs / residuals)`);
