@@ -1,0 +1,190 @@
+# PDE variations: the two things the CBE 200 midterm asked that the review set had not drilled.
+#   1. Boundary conditions that are not zero: subtract the steady state, then separate what is left.
+#   2. The Laplace transform applied to the heat equation: transform in t, solve the ODE in x, and
+#      recognise the boundary-value (Sturm–Liouville) problem that comes out.
+# Kreyszig 12.6 (nonzero ends), 12.12 (PDEs by Laplace transforms). See drills/matrices/pde-1d.yaml
+# for the grid these fill and docs/coverage/matrices.md for what is still open.
+
+# ── nonzero boundary conditions ─────────────────────────────────────────────
+- template: pde-shift-concepts
+  skill: pde.nonhomogeneous
+  pace: recall
+  cases:
+    - { q: 'A rod has $u(0,t) = T_1$ and $u(L,t) = T_2$, both nonzero. What is the first move?', ans: 0 }
+    - { q: 'After writing $u = u_{ss}(x) + v(x,t)$, what boundary conditions does $v$ satisfy?', ans: 1 }
+    - { q: 'What equation and conditions define the steady state $u_{ss}(x)$ of the heat equation with fixed end temperatures?', ans: 2 }
+    - { q: 'Why can $u = X(x)G(t)$ not be used directly when $u(0,t) = T_1 \ne 0$?', ans: 3 }
+    - { q: 'After the shift, what initial condition does $v$ get if $u(x,0) = f(x)$?', ans: 4 }
+  prompt: '{{q}}'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["Subtract the steady state: u = w(x) + v(x,t), with w the steady state", "Zero at both ends", "w″ = 0 with w(0) = T1 and w(L) = T2: a straight line", "X(0)G(t) = T1 for all t forces G to be constant, so nothing could change in time", "v(x,0) = f(x) − w(x), with w the steady state"]
+      correct: ans
+      explain: 'Separation needs homogeneous boundary conditions. The steady state carries the nonzero ends; what is left, $v$, has zero ends and is solved exactly as before, but with the initial condition $f - u_{ss}$. As $t \to \infty$, $v \to 0$ and $u \to u_{ss}$'
+  verify: { authored: true }
+
+- template: pde-steady-state-value
+  skill: pde.nonhomogeneous
+  pace: quick
+  given: { T1: { pick: [20, 40, 100] }, T2: { pick: [0, 10, 60, 80] }, L: { pick: [2, 4, 5, 10] }, a: { pick: [1, 2, 3] } }
+  require: ["a < L", "T1 != T2", "T1 + (T2 - T1)*a/L != 0"]
+  prompt: 'A rod $0 < x < {{L}}$ has its ends held at $u(0,t) = {{T1}}$ and $u({{L}},t) = {{T2}}$. What is the steady-state temperature at $x = {{a}}$?'
+  parts:
+    - { ask: '$u_{ss}({{a}})$', label: r, tex: 'u_{ss}', value: T1 + (T2 - T1)*a/L, tol: 0.001, explain: 'At steady state $u_t = 0$, so $u_{ss}'''' = 0$: a straight line through the two end values, $u_{ss}(x) = {{T1}} + \dfrac{ {{T2 - T1}} }{ {{L}} }x$' }
+  verify:
+    var: x
+    ode: "diff(T(x), x, 2)"
+    bcs: ["T(0) = T1", "T(L) = T2"]
+    expect: { r: "T(a)" }
+
+- template: pde-shifted-initial-condition
+  skill: pde.nonhomogeneous
+  pace: quick
+  given: { T0: { pick: [0, 20, 50] }, T1: { pick: [40, 100] }, T2: { pick: [0, 10, 60] }, L: { pick: [2, 4, 10] }, a: { pick: [1, 2, 3] } }
+  require: ["a < L", "T1 != T2", "T0 - (T1 + (T2 - T1)*a/L) != 0"]
+  prompt: 'A rod $0 < x < {{L}}$ starts at the uniform temperature ${{T0}}$; then its ends are held at ${{T1}}$ (at $x = 0$) and ${{T2}}$ (at $x = {{L}}$). With $u = u_{ss} + v$, what is $v$ at $x = {{a}}$, $t = 0$?'
+  parts:
+    - { ask: '$v({{a}}, 0)$', label: r, tex: 'v', value: T0 - (T1 + (T2 - T1)*a/L), tol: 0.001, explain: '$v(x,0) = u(x,0) - u_{ss}(x) = {{T0}} - \left({{T1}} + \dfrac{ {{T2 - T1}} }{ {{L}} }x\right)$. This, not ${{T0}}$, is what gets expanded in sines' }
+  verify:
+    var: x
+    ode: "diff(T(x), x, 2)"
+    bcs: ["T(0) = T1", "T(L) = T2"]
+    expect: { r: "T0 - T(a)" }
+
+- template: pde-shifted-sine-coefficient
+  skill: pde.nonhomogeneous
+  pace: workout
+  given: { T0: { pick: [0, 20] }, T1: { pick: [40, 100] }, T2: { pick: [0, 10, 60] }, n: { pick: [1, 2, 3] } }
+  require: ["(T0 - T1)*(1 - (-1)^n) + (T2 - T1)*(-1)^n != 0"]
+  prompt: 'A rod $0 < x < L$ starts at ${{T0}}$; its ends are then held at ${{T1}}$ ($x = 0$) and ${{T2}}$ ($x = L$). The solution is $u = u_{ss}(x) + \sum b_n \sin\dfrac{n\pi x}{L}\,e^{-\alpha(n\pi/L)^2 t}$. Find $b_{ {{n}} }$.'
+  parts:
+    - { ask: '$b_{ {{n}} }$', label: r, tex: 'b_n', value: 2/(n*pi)*((T0 - T1)*(1 - (-1)^n) + (T2 - T1)*(-1)^n), tol: 0.005, explain: 'Expand $v(x,0) = {{T0}} - u_{ss}(x) = ({{T0 - T1}}) - ({{T2 - T1}})\dfrac{x}{L}$ in sines: $b_n = \dfrac2L\displaystyle\int_0^L v(x,0)\sin\dfrac{n\pi x}{L}\,dx$. The constant part gives $\dfrac{2({{T0 - T1}})}{n\pi}(1 - \cos n\pi)$ and the ramp gives $\dfrac{2({{T2 - T1}})}{n\pi}\cos n\pi$' }
+  verify: { expect: { r: "2*integrate((T0 - T1 - (T2 - T1)*x)*sin(n*pi*x), (x, 0, 1))" } }
+
+- template: pde-flux-end-steady-state
+  skill: pde.nonhomogeneous
+  pace: quick
+  given: { q: { pick: [100, 200, 500] }, k: { pick: [10, 20, 50] }, L: { pick: [0.1, 0.2, 0.5] }, T2: { pick: [20, 50, 100] } }
+  prompt: 'A slab $0 < x < {{L}}$ m ($k = {{k}}$ W/(m·K)) receives a steady heat flux of ${{q}}$ W/m² at $x = 0$ while $x = {{L}}$ is held at ${{T2}}$ °C. What is the steady temperature at $x = 0$?'
+  parts:
+    - { ask: '$u_{ss}(0)$ (°C)', label: r, tex: 'u_{ss}(0)', value: T2 + q*L/k, tol: 0.001, explain: 'Steady state is still a straight line, but now one end fixes the slope: $-k\,u_{ss}''(0) = {{q}}$, so the slope is $-{{q/k}}$ K/m and the hot face sits ${{q*L/k}}$ K above the held face' }
+  verify:
+    var: x
+    ode: "diff(T(x), x, 2)"
+    bcs: ["-k*dT(0) = q", "T(L) = T2"]
+    expect: { r: "T(0)" }
+
+- template: pde-eigen-condition
+  skill: pde.nonhomogeneous
+  pace: recall
+  cases:
+    - { bc: '$X(0) = 0$, $X(L) = 0$', ans: 0 }
+    - { bc: "$X'(0) = 0$, $X'(L) = 0$", ans: 0 }
+    - { bc: "$X(0) = 0$, $X'(L) = 0$", ans: 1 }
+    - { bc: "$X'(0) = 0$, $X(L) = 0$", ans: 1 }
+    - { bc: "$X(0) = 0$, $X'(L) + hX(L) = 0$ (convection at $x = L$)", ans: 2 }
+    - { bc: "$X'(0) = 0$, $X'(L) + hX(L) = 0$ (insulated at 0, convection at $L$)", ans: 3 }
+  prompt: "For $X'' + \\omega^2 X = 0$ with {{bc}}, which condition fixes the eigenvalues $\\omega_n$?"
+  parts:
+    - ask: 'Eigenvalue condition'
+      label: a
+      choice: ["sin(ωL) = 0", "cos(ωL) = 0", "tan(ωL) = −ω/h", "ω·tan(ωL) = h"]
+      correct: ans
+      explain: 'Apply the condition at $x = 0$ first: it leaves a sine ($X(0) = 0$) or a cosine ($X''(0) = 0$). Put that into the condition at $x = L$. A convection (Robin) end mixes $X$ and $X''$, so the eigenvalues come from a transcendental equation and are not evenly spaced'
+  verify: { authored: true }
+
+- template: pde-laplace-nonzero-sides
+  skill: pde.nonhomogeneous
+  pace: recall
+  cases:
+    - { q: "Laplace's equation on a rectangle has nonzero values on two different sides. How do you solve it?", ans: 0 }
+    - { q: "In Laplace's equation on a rectangle with one nonzero side, which direction gets the sines (the eigenfunctions)?", ans: 1 }
+    - { q: "In Laplace's equation on a rectangle with one nonzero side, what carries the solution across to that side?", ans: 2 }
+  prompt: '{{q}}'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["Split it into two problems, each with one nonzero side, and add the solutions", "The direction whose two sides are both zero", "sinh (or cosh) in the other direction"]
+      correct: ans
+      explain: 'The equation is linear, so solutions add. Each sub-problem has homogeneous conditions on three sides: the pair of zero sides sets the eigenfunctions, and the hyperbolic function grows from the remaining zero side up to the nonzero one'
+  verify: { authored: true }
+
+# ── the Laplace transform on the heat equation ──────────────────────────────
+- template: pde-lt-steps
+  skill: pde.laplace-transform
+  pace: recall
+  cases:
+    - { q: 'Transforming in $t$, what does $u_t$ become?', ans: 0 }
+    - { q: 'Transforming in $t$, what does $u_{xx}$ become?', ans: 1 }
+    - { q: 'After transforming $u_t = \alpha u_{xx}$ in $t$, what kind of equation is left?', ans: 2 }
+    - { q: 'How does the boundary condition $u(0,t) = T_0$ transform?', ans: 3 }
+    - { q: 'On a semi-infinite domain, what does "bounded as $x \to \infty$" remove?', ans: 4 }
+  prompt: 'Heat equation by Laplace transform, $U(x,s) = \mathcal L\{u(x,t)\}$. {{q}}'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["sU − u(x,0)", "d²U/dx² (the x-derivative passes straight through)", "An ODE in x, with s as a parameter", "U(0,s) = T0/s", "The growing exponential exp(+x√(s/α))"]
+      correct: ans
+      explain: 'The transform removes $t$: $u_t \to sU - u(x,0)$, and $x$-derivatives are untouched. What is left is the ordinary differential equation $\alpha U'''' - sU = -u(x,0)$ in $x$, with transformed boundary conditions. Solve it, then invert'
+  verify: { authored: true }
+
+- template: pde-lt-decay-rate
+  skill: pde.laplace-transform
+  pace: quick
+  given: { s: { pick: [1, 4, 9, 16] }, al: { pick: [1, 4, 0.25] } }
+  prompt: 'A semi-infinite solid starts at zero temperature. The transformed heat equation is $\alpha U'''' - sU = 0$, with bounded solution $U = A\,e^{-qx}$. For $\alpha = {{al}}$ and $s = {{s}}$, what is $q$?'
+  parts:
+    - { ask: '$q$', label: r, tex: 'q', value: sqrt(s/al), tol: 0.001, explain: 'Try $e^{mx}$: $\alpha m^2 = s$, so $m = \pm\sqrt{s/\alpha}$. Boundedness as $x \to \infty$ keeps the minus sign: $q = \sqrt{s/\alpha}$' }
+  verify: { expect: { r: "Max(*solve(Eq(al*x**2 - s, 0), x))" } }
+
+- template: pde-lt-erfc-value
+  skill: pde.laplace-transform
+  pace: quick
+  cases:
+    - { xx: 1, al: 1, t: 1 }
+    - { xx: 1, al: 1, t: 0.25 }
+    - { xx: 2, al: 1, t: 1 }
+    - { xx: 1, al: 4, t: 1 }
+    - { xx: 0.5, al: 1, t: 1 }
+    - { xx: 3, al: 1, t: 1 }
+  prompt: 'A semi-infinite solid at zero has its surface suddenly held at $T_0$. Inverting $U = \dfrac{T_0}{s}e^{-x\sqrt{s/\alpha}}$ gives $u = T_0\,\operatorname{erfc}\!\left(\dfrac{x}{2\sqrt{\alpha t}}\right)$. What is $u/T_0$ at $x = {{xx}}$, $\alpha = {{al}}$, $t = {{t}}$?'
+  parts:
+    - { ask: '$u/T_0$', label: r, tex: 'u/T_0', value: 1 - erf(xx/(2*sqrt(al*t))), tol: 0.01, explain: 'The argument is $\dfrac{ {{xx}} }{2\sqrt{ {{al*t}} }} = {{xx/(2*sqrt(al*t))}}$. Worth carrying: $\operatorname{erfc}(0.5) \approx 0.48$, $\operatorname{erfc}(1) \approx 0.16$, $\operatorname{erfc}(1.5) \approx 0.034$' }
+  verify: { expect: { r: "erfc(xx/(2*sqrt(al*t)))" } }
+
+- template: pde-lt-finite-rod-amplitude
+  skill: pde.laplace-transform
+  pace: quick
+  given: { al: { pick: [1, 2, 4] }, s: { pick: [1, 2, 5, 10] } }
+  prompt: 'A rod $0 < x < \pi$ with zero ends starts at $u(x,0) = \sin x$. Transforming gives $\alpha U'''' - sU = -\sin x$ with $U(0) = U(\pi) = 0$, solved by $U = A(s)\sin x$. For $\alpha = {{al}}$, what is $A$ at $s = {{s}}$?'
+  parts:
+    - { ask: '$A$', label: r, tex: 'A', value: 1/(s + al), tol: 0.001, explain: 'Put $U = A\sin x$ in: $-\alpha A - sA = -1$, so $A = \dfrac{1}{s + \alpha}$. Inverting gives $u = e^{-\alpha t}\sin x$, the same answer separation of variables gives' }
+  verify: { expect: { r: "solve(Eq(al*diff(x*sin(Symbol('z')), Symbol('z'), 2) - s*x*sin(Symbol('z')), -sin(Symbol('z'))), x)[0]" } }
+
+- template: pde-lt-pole-is-eigenvalue
+  skill: pde.laplace-transform
+  pace: quick
+  given: { al: { pick: [1, 2, 3] }, n: { pick: [1, 2, 3] }, L: { pick: [1, 2] } }
+  prompt: 'A rod $0 < x < {{L}}\pi$ with zero ends: after transforming in $t$, the homogeneous problem $\alpha U'''' - sU = 0$, $U(0) = U({{L}}\pi) = 0$ has a nonzero solution only for special values of $s$. For $\alpha = {{al}}$, what is the value of $s$ belonging to the mode $\sin\dfrac{ {{n}}x}{ {{L}} }$?'
+  parts:
+    - { ask: '$s$', label: r, tex: 's_n', value: -al*(n/L)^2, tol: 0.001, explain: 'Put $U = \sin(nx/L)$ in: $-\alpha(n/L)^2 = s$. These special values are the Sturm–Liouville eigenvalues of the $x$-problem; they are the poles of $U(x,s)$, and each pole $s_n$ inverts to a term $e^{s_n t}$: the same decaying modes as separation of variables' }
+  verify: { expect: { r: "solve(Eq(al*diff(sin(n*Symbol('z')/L), Symbol('z'), 2).subs(Symbol('z'), pi*L/(2*n)) - x*sin(n*(pi*L/(2*n))/L), 0), x)[0]" } }
+
+- template: pde-method-choice
+  skill: pde.laplace-transform
+  pace: recall
+  cases:
+    - { q: 'A finite rod with both ends at zero and a given initial temperature', ans: 1 }
+    - { q: 'A finite rod with insulated ends and a given initial temperature', ans: 1 }
+    - { q: 'A finite rod whose ends are held at two different nonzero temperatures', ans: 2 }
+    - { q: 'A semi-infinite solid whose surface is suddenly raised to a new temperature', ans: 0 }
+    - { q: 'A semi-infinite solid whose surface temperature is a given function of time', ans: 0 }
+  prompt: 'Which approach fits best? {{q}}.'
+  parts:
+    - ask: 'Approach'
+      label: a
+      choice: ["Laplace transform in t", "Separation of variables directly", "Subtract the steady state, then separate"]
+      correct: ans
+      explain: 'Separation needs a finite interval with homogeneous conditions at both ends. Nonzero constant ends: shift first. No second end to quantise against, or a boundary value that changes in time: transform in $t$'
+  verify: { authored: true }

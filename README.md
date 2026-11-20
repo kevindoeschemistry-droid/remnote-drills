@@ -145,6 +145,9 @@ Three more things a `drills/problems/*.yaml` template can carry (see `mx-gaps.ya
   A molecule figure also takes `arrows: [[from, to, bend]]` (curved electron-pushing arrows; an end is an atom index
   or a bond `[i, j]`) and `notes: [[x, y, text]]`; `type: scheme` stacks `panels`. Mechanisms are written as states in
   `scripts/mol_mech.py`, and every state must balance to the same formula and charge.
+- `drills/matrices/<topic>.yaml` is a variation grid: `cells: [{ cell, drills: [...] } | { cell, gap: "why" }]`. Use it to list every
+  version of a problem (method × boundary type × geometry) and which templates practise each; `npm run skills` fails on an
+  empty cell or an unknown template and writes `docs/coverage/matrices.md`.
 - `verify: { authored: true }` for a key that is a matter of definition and cannot be recomputed. It is a statement
   that a person wrote the key and nothing checks it, so use it only when `verify.choices` cannot do the job, and say so
   when reporting coverage. Choice options are plain text (no TeX, no `^`).

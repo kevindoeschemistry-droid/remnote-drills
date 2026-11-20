@@ -1,0 +1,40 @@
+# The grid behind "have we practised every version of this problem?" for the 1-D heat equation and
+# its neighbours. Written after the CBE 200 PDE midterm (Nov 2026), which asked two cells this repo
+# had no item for: nonzero boundary values, and the Laplace transform applied to the heat equation.
+# The review set had been built from the homework problems, all of which had zero boundary values.
+#
+# Every cell needs either drills or a stated gap; the build fails on an empty cell or an unknown
+# template, and writes docs/coverage/matrices.md. Add a row when a course adds a method or a
+# condition, before writing the review set, so the holes are visible while there is time to fill them.
+id: pde-1d
+title: "1-D PDEs: every method against every condition"
+why: "A homework set shows one cell of each row. The exam can ask any cell."
+cells:
+  # separation of variables, by boundary condition
+  - { cell: "Separation · both ends zero (Dirichlet)", drills: [mt-bc-eigenfunctions, mt-eigenvalue, mt-sine-coefficient-constant, mt-solution-form] }
+  - { cell: "Separation · insulated ends (Neumann)", drills: [mt-insulated-steady-state, mt-bc-eigenfunctions] }
+  - { cell: "Separation · mixed ends (one fixed, one insulated)", drills: [pde-eigen-condition, mt-bc-eigenfunctions] }
+  - { cell: "Separation · nonzero fixed ends (shift by the steady state)", drills: [pde-shift-concepts, pde-steady-state-value, pde-shifted-initial-condition, pde-shifted-sine-coefficient] }
+  - { cell: "Separation · a flux (nonzero Neumann) end", drills: [pde-flux-end-steady-state] }
+  - { cell: "Separation · convection (Robin) end", drills: [pde-eigen-condition], note: "recognising the eigenvalue condition only" }
+  - { cell: "Separation · boundary value that changes in time", gap: "needs Duhamel or a time-dependent shift; not built" }
+  - { cell: "Separation · heat source in the equation", gap: "eigenfunction expansion of the source; not built" }
+  # by geometry
+  - { cell: "Laplace's equation on a rectangle · one nonzero side", drills: [mt-other-direction, mt-which-variable-oscillates] }
+  - { cell: "Laplace's equation on a rectangle · several nonzero sides", drills: [pde-laplace-nonzero-sides] }
+  - { cell: "Cylinder (Bessel) · fixed wall", drills: [mt-bessel-condition, mt-bessel-weight, mt-bessel-decay-length] }
+  - { cell: "Cylinder (Bessel) · insulated wall", drills: [mt-bessel-condition] }
+  - { cell: "Cylinder (Bessel) · nonzero wall temperature", gap: "the same steady-state shift in r; not built" }
+  - { cell: "Sphere", gap: "the substitution v = r·u; not built" }
+  - { cell: "Wave equation on a string", drills: [mt-string-frequency, mt-string-time-factor] }
+  # the Laplace transform
+  - { cell: "Laplace transform · the steps (what each term becomes)", drills: [pde-lt-steps] }
+  - { cell: "Laplace transform · semi-infinite solid, step at the surface", drills: [pde-lt-decay-rate, pde-lt-erfc-value] }
+  - { cell: "Laplace transform · finite rod, and the link to the eigenvalue problem", drills: [pde-lt-finite-rod-amplitude, pde-lt-pole-is-eigenvalue] }
+  - { cell: "Laplace transform · inverting a transform with infinitely many poles", gap: "residue sum giving the Fourier series; not built" }
+  - { cell: "Choosing the method", drills: [pde-method-choice] }
+  # numerics
+  - { cell: "Finite differences · stencil and order", drills: [mt-central-second-difference, mt-truncation-order] }
+  - { cell: "Finite differences · explicit step and stability", drills: [mt-explicit-step, mt-explicit-stability, mt-amplification] }
+  - { cell: "Finite differences · nonzero or flux boundary nodes", gap: "ghost node and boundary rows of the matrix; not built" }
+  - { cell: "Finite differences · implicit and Crank–Nicolson", gap: "not built" }
