@@ -2172,7 +2172,9 @@
         "2B",
         "2D"
        ],
-       "drills": [],
+       "drills": [
+        "em-coulomb-force"
+       ],
        "needs": [
         "PH-2.6.A"
        ]
@@ -2275,7 +2277,9 @@
        "p": [
         "2B"
        ],
-       "drills": [],
+       "drills": [
+        "em-field-point-charge"
+       ],
        "needs": [
         "PH-10.1.D"
        ]
@@ -2378,7 +2382,9 @@
        "p": [
         "2B"
        ],
-       "drills": [],
+       "drills": [
+        "em-potential-point-charge"
+       ],
        "needs": [
         "PH-10.4.A"
        ]
@@ -2396,7 +2402,9 @@
         "1A",
         "2B"
        ],
-       "drills": [],
+       "drills": [
+        "em-uniform-field-voltage"
+       ],
        "needs": [
         "PH-10.5.A",
         "PH-10.3.C"
@@ -2440,7 +2448,9 @@
         "2B",
         "2D"
        ],
-       "drills": [],
+       "drills": [
+        "em-capacitor-energy"
+       ],
        "needs": [
         "PH-10.6.A"
        ]
@@ -2569,7 +2579,9 @@
         "2B",
         "2C"
        ],
-       "drills": [],
+       "drills": [
+        "em-power-dissipated"
+       ],
        "needs": [
         "PH-11.3.B",
         "PH-3.5.A"
@@ -2593,7 +2605,9 @@
        "p": [
         "2B"
        ],
-       "drills": [],
+       "drills": [
+        "em-resistors-combined"
+       ],
        "needs": [
         "PH-11.3.B"
        ]
@@ -2610,7 +2624,9 @@
        "p": [
         "2B"
        ],
-       "drills": [],
+       "drills": [
+        "em-capacitors-combined"
+       ],
        "needs": [
         "PH-10.6.A"
        ]
@@ -2741,7 +2757,10 @@
         "1C",
         "2B"
        ],
-       "drills": [],
+       "drills": [
+        "em-rc-time-constant",
+        "em-rc-fraction"
+       ],
        "needs": [
         "PH-11.8.A"
        ]
@@ -2799,7 +2818,9 @@
         "2B",
         "3B"
        ],
-       "drills": [],
+       "drills": [
+        "em-magnetic-force"
+       ],
        "needs": [
         "PH-12.1.A",
         "PH-10.3.B"
@@ -2818,7 +2839,9 @@
         "2A",
         "2B"
        ],
-       "drills": [],
+       "drills": [
+        "em-cyclotron-radius"
+       ],
        "needs": [
         "PH-12.2.A",
         "PH-2.9.A"
@@ -2860,7 +2883,9 @@
         "2B",
         "2D"
        ],
-       "drills": [],
+       "drills": [
+        "em-field-of-wire"
+       ],
        "needs": [
         "PH-12.1.A",
         "PH-11.1.A"
@@ -2922,7 +2947,9 @@
         "2B",
         "2D"
        ],
-       "drills": [],
+       "drills": [
+        "em-faraday-emf"
+       ],
        "needs": [
         "PH-12.4.A"
        ]
@@ -2940,7 +2967,9 @@
         "1A",
         "3C"
        ],
-       "drills": [],
+       "drills": [
+        "em-lenz-direction"
+       ],
        "needs": [
         "PH-12.4.B"
        ]
@@ -3649,7 +3678,10 @@
        "p": [
         "2B"
        ],
-       "drills": [],
+       "drills": [
+        "ra-q-value",
+        "pp-rest-energy"
+       ],
        "needs": [
         "PH-3.4.A"
        ]
@@ -3672,7 +3704,10 @@
        "p": [
         "2A"
        ],
-       "drills": [],
+       "drills": [
+        "ra-decay-chain",
+        "ra-count-alphas"
+       ],
        "needs": [
         "PH-15.7.A",
         "PH-10.2.A"
@@ -3692,7 +3727,8 @@
         "2D"
        ],
        "drills": [
-        "~model-decay"
+        "~model-decay",
+        "ra-carbon-dating"
        ],
        "needs": [
         "PH-15.8.A"
@@ -5673,8 +5709,10 @@
    "code": "PH-10.1.A",
    "unit": 10,
    "topic": 1,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "em-coulomb-force"
+   ],
    "partial": []
   },
   {
@@ -5713,8 +5751,10 @@
    "code": "PH-10.3.A",
    "unit": 10,
    "topic": 3,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "em-field-point-charge"
+   ],
    "partial": []
   },
   {
@@ -5753,16 +5793,20 @@
    "code": "PH-10.5.A",
    "unit": 10,
    "topic": 5,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "em-potential-point-charge"
+   ],
    "partial": []
   },
   {
    "code": "PH-10.5.B",
    "unit": 10,
    "topic": 5,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "em-uniform-field-voltage"
+   ],
    "partial": []
   },
   {
@@ -5777,8 +5821,10 @@
    "code": "PH-10.6.B",
    "unit": 10,
    "topic": 6,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "em-capacitor-energy"
+   ],
    "partial": []
   },
   {
@@ -5817,24 +5863,30 @@
    "code": "PH-11.4.A",
    "unit": 11,
    "topic": 4,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "em-power-dissipated"
+   ],
    "partial": []
   },
   {
    "code": "PH-11.5.A",
    "unit": 11,
    "topic": 5,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "em-resistors-combined"
+   ],
    "partial": []
   },
   {
    "code": "PH-11.5.B",
    "unit": 11,
    "topic": 5,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "em-capacitors-combined"
+   ],
    "partial": []
   },
   {
@@ -5881,8 +5933,11 @@
    "code": "PH-11.8.B",
    "unit": 11,
    "topic": 8,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "em-rc-time-constant",
+    "em-rc-fraction"
+   ],
    "partial": []
   },
   {
@@ -5897,16 +5952,20 @@
    "code": "PH-12.2.A",
    "unit": 12,
    "topic": 2,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "em-magnetic-force"
+   ],
    "partial": []
   },
   {
    "code": "PH-12.2.B",
    "unit": 12,
    "topic": 2,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "em-cyclotron-radius"
+   ],
    "partial": []
   },
   {
@@ -5921,8 +5980,10 @@
    "code": "PH-12.3.A",
    "unit": 12,
    "topic": 3,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "em-field-of-wire"
+   ],
    "partial": []
   },
   {
@@ -5945,16 +6006,20 @@
    "code": "PH-12.4.B",
    "unit": 12,
    "topic": 4,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "em-faraday-emf"
+   ],
    "partial": []
   },
   {
    "code": "PH-12.4.C",
    "unit": 12,
    "topic": 4,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "em-lenz-direction"
+   ],
    "partial": []
   },
   {
@@ -6197,24 +6262,32 @@
    "code": "PH-15.7.A",
    "unit": 15,
    "topic": 7,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ra-q-value",
+    "pp-rest-energy"
+   ],
    "partial": []
   },
   {
    "code": "PH-15.8.A",
    "unit": 15,
    "topic": 8,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ra-decay-chain",
+    "ra-count-alphas"
+   ],
    "partial": []
   },
   {
    "code": "PH-15.8.B",
    "unit": 15,
    "topic": 8,
-   "status": "partial",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ra-carbon-dating"
+   ],
    "partial": [
     "model-decay"
    ]

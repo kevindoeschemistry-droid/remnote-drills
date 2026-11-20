@@ -12,7 +12,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 | Anchor Quantities | CODATA Recommended Values of the Fundamental Physical Constants: 2022 (NIST SP 961) | reference | read in part | snapshot-key-numbers, francl-take-a-number, cfr-21-101-9 | acs-accm-pchem | 14 | 3 | 11 |
 | Basketball | USA Basketball Player Development Curriculum | standard | read in part | — | — | 88 | 0 | 88 |
 | Biology (AP) | AP Biology Course and Exam Description (2019) | standard | read through a crosswalk | iupac-aa-1983 | — | 179 | 179 | 0 |
-| Calculus | AP Calculus AB and BC Course and Exam Description | standard | read in full | — | — | 173 | 173 | 0 |
+| Calculus | AP Calculus AB and BC Course and Exam Description | standard | read in full | — | — | 179 | 179 | 0 |
 | Chemistry (AP) | AP Chemistry Course and Exam Description (Fall 2024) | standard | read in part | — | — | 179 | 179 | 0 |
 | Computer Science | Computer Science Curricula 2023, Body of Knowledge | standard | read in full | — | — | 140 | 0 | 140 |
 | Dental Admission Test | Dental Admission Test 2026 Candidate Guide | exam-spec | read in full | — | — | 183 | 0 | 183 |
@@ -26,8 +26,9 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 | Mathematics K–8 (Common Core) | Common Core State Standards for Mathematics (2010) | standard | read through a crosswalk | — | — | 258 | 258 | 0 |
 | Mental Math | UIL Number Sense Problem Sequencing Charts (High School; A+ Junior High and Elementary, rev. 2016-17) with the Number Sense Handbook rules | exam-spec | read in full | sta-mtc, mit-18-03-coverup, mit-integration-bee | — | 82 | 79 | 3 |
 | Molecular Simulation | LiveCoMS best-practice papers for molecular simulation | course | read in part | — | — | 102 | 0 | 102 |
-| Nuclear Science and Reactor Theory | NRC Generic Fundamentals Examination, reactor theory topics (PWR catalog 192001-192008) | exam-spec | read in part | doe-hdbk-1019 | — | 15 | 15 | 0 |
+| Nuclear Science and Reactor Theory | NRC Generic Fundamentals Examination, reactor theory topics (PWR catalog 192001-192008) | exam-spec | read in part | doe-hdbk-1019 | — | 19 | 19 | 0 |
 | Organic Reactions: Predict the Product | Bruice, Organic Chemistry, 8th edition (table of contents) | textbook | read in part | — | aamc-mcat-outline | 25 | 3 | 22 |
+| Particle Physics | OpenStax University Physics, volumes 2 and 3 (chapter list) | textbook | not opened | — | — | 6 | 0 | 6 |
 | The Periodic Table from Memory | IUPAC Periodic Table of the Elements (release of 4 May 2022) | reference | read in part | — | — | 15 | 10 | 5 |
 | Physical Chemistry | Engel & Reid, Physical Chemistry, 3rd ed. (through the wiki's drill pages) | textbook | read in part | fe-chemical | acs-accm-pchem | 141 | 59 | 82 |
 | Physics (AP) | AP Physics 1, 2 and C Course and Exam Descriptions | standard | read in part | — | — | 201 | 201 | 0 |
@@ -57,6 +58,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 - **Molecular Simulation**: No standard exists for this subject; triangulated from best-practice papers, textbooks and the Hayes group tutorial.
 - **Nuclear Science and Reactor Theory**: Reactor-theory units follow the NRC Generic Fundamentals Examination topic list (read in part). Nuclear physics and shielding follow the DOE fundamentals handbook's first module (read in part). Health-physics standards for the radiation-protection unit have not been looked at.
 - **Organic Reactions: Predict the Product**: Families follow the reaction chapters of Bruice's Organic Chemistry (a textbook, not a standard; chapter titles 2-17 from memory). The reactions and substrates in each are a house list. Every product is mass-balanced against its reactant by the generator; regiochemistry and stereochemistry were checked by eye.
+- **Particle Physics**: No published standard was read. Topics follow an introductory modern-physics chapter (OpenStax University Physics vol. 3 ch. 11, chapter title from memory); the objective list is a house decision.
 - **The Periodic Table from Memory**: Content from the IUPAC table (release note read; element list cross-checked in the verifier). Which parts to know by heart is a house decision from Kevin's organometallics course.
 - **Physical Chemistry**: Textbook-shaped until the ACS content map is read. Thermodynamics and kinetics units are anchored to fe-chemical; quantum and spectroscopy have no outside anchor yet.
 - **Physics (AP)**: Objective codes read for a few units only.
@@ -81,6 +83,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 - **Molecular Simulation**: course, read in part
 - **Nuclear Science and Reactor Theory**: exam-spec, read in part
 - **Organic Reactions: Predict the Product**: textbook, read in part; should move to AAMC, What's on the MCAT Exam? content outline (categories 1A, 1D, 5D)
+- **Particle Physics**: textbook, not opened
 - **The Periodic Table from Memory**: reference, read in part
 - **Physical Chemistry**: textbook, read in part; should move to ACS Exams Institute Anchoring Concepts Content Map IV: Physical Chemistry (J. Chem. Educ. 2018, 95, 238)
 - **Physics (AP)**: standard, read in part

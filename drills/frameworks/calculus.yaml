@@ -200,7 +200,7 @@ units:
         title: The power rule
         ced: "2.5"
         los:
-          - { id: A, std: [FUN-3.A], do: "Differentiate x^n for any real n, rewriting roots and reciprocals as powers first.", ek: ["d/dx x^n = n x^(n−1); √x = x^(1/2), 1/x³ = x^(−3)."], p: [P1], drills: [ca-power-rule, ca-power-reciprocal, ca-power-root], needs: [CA-2.2.A] }
+          - { id: A, std: [FUN-3.A], do: "Differentiate x^n for any real n, rewriting roots and reciprocals as powers first.", ek: ["d/dx x^n = n x^(n−1); √x = x^(1/2), 1/x³ = x^(−3)."], p: [P1], drills: [ca-power-rule, ca-power-reciprocal, ca-power-root, hy-derivative-which, hy-derivative-value], needs: [CA-2.2.A] }
       - n: 6
         title: Constant, sum, difference and constant-multiple rules
         ced: "2.6"
@@ -937,3 +937,21 @@ units:
         los:
           - { id: A, std: [ST-16.9], do: "Use the divergence theorem to compute the outward flux through a closed surface as a volume integral, or the reverse.", ek: ["∯_S F·n dS = ∭_E ∇·F dV, n outward."], p: [P1, P3], drills: [cm-divergence-theorem], needs: [CA-14.7.B, CA-14.5.A, CA-13.7.A] }
           - { id: B, std: [ST-16.9], do: "Turn an integral balance on an arbitrary control volume into a differential conservation law with the divergence theorem.", ek: ["d/dt∭c dV = −∯N·n dS + ∭R dV for every volume ⇒ ∂c/∂t + ∇·N = R."], p: [P2, P3], drills: [ca-conservation-law], needs: [CA-14.9.A, CA-14.5.B] }
+  - id: hyperbolic
+    n: 15
+    title: "Hyperbolic functions"
+    scope: core
+    ideas: [CHA]
+    topics:
+      - n: 1
+        title: "Definitions and identities"
+        los:
+          - { id: A, std: [ST-3.11], do: "Recognise sinh, cosh and tanh from their exponential definitions and evaluate them at ln a.", ek: ["cosh x = ½(eˣ + e⁻ˣ), sinh x = ½(eˣ − e⁻ˣ); eˣ = cosh x + sinh x."], p: [P1], drills: [hy-which-definition, hy-value-at-log, hy-tanh-value] }
+          - { id: B, std: [ST-3.11], do: "Use cosh² − sinh² = 1 and the double-argument identities, and tell a true hyperbolic identity from a false one.", ek: ["Osborn's rule: flip the sign of any product of two sines."], p: [P1], drills: [hy-pythagorean, hy-identity-check, hy-double-argument] }
+          - { id: C, std: [ST-3.11], do: "Describe the graphs: parity, range and behaviour for small and large x.", ek: ["cosh ≥ 1 and even; sinh odd and unbounded; tanh odd and between −1 and 1."], p: [P1], drills: [hy-parity-and-range] }
+      - n: 2
+        title: "Calculus and uses"
+        los:
+          - { id: A, std: [ST-3.11], do: "Differentiate and integrate hyperbolic functions.", ek: ["sinh′ = cosh, cosh′ = sinh, tanh′ = sech²; no sign changes."], p: [P1], drills: [hy-derivative-which, hy-derivative-value, hy-integral] }
+          - { id: B, std: [ST-3.11], do: "Write an inverse hyperbolic function as a logarithm.", ek: ["sinh⁻¹ s = ln(s + √(s² + 1))."], p: [P1], drills: [hy-inverse-sinh] }
+          - { id: C, std: [ST-3.11], do: "Solve y″ = k²y with cosh and sinh, connect them to the circular functions, and say where each turns up.", ek: ["cos(ix) = cosh x; catenary, fins and slabs use cosh; saturating ratios use tanh."], p: [P1], drills: [hy-ode-solution, hy-circular-link, hy-where-used] }

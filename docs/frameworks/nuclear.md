@@ -2,7 +2,7 @@
 
 Generated from `drills/frameworks/nuclear.yaml` by `scripts/framework.mjs`. ● drilled · ◐ partly · ○ no drills yet.
 
-**15 learning objectives** in 6 units (15 core): 15 drilled, 0 partly, 0 with no drills. Core: 15 / 15 drilled.
+**19 learning objectives** in 7 units (19 core): 19 drilled, 0 partly, 0 with no drills. Core: 19 / 19 drilled.
 
 ## Big ideas
 
@@ -26,6 +26,7 @@ Generated from `drills/frameworks/nuclear.yaml` by `scripts/framework.mjs`. ● 
 | 4 · The neutron life cycle and reactivity | core | — | 3 | 3 | 0 | 0 |
 | 5 · Kinetics | core | — | 1 | 1 | 0 | 0 |
 | 6 · Reactivity effects, poisons and heat | core | — | 3 | 3 | 0 | 0 |
+| 7 · Radioactivity in practice | core | — | 4 | 4 | 0 | 0 |
 
 ## Unit 1 · Nuclei and radioactive decay
 
@@ -150,3 +151,24 @@ Big ideas: BALANCE
 - ● **NU-6.2.A** Relate thermal power to fuel consumed, and state the size of decay heat after shutdown.
   - EK: About 200 MeV per fission, so about 1 g of U-235 per megawatt-day; decay heat starts at 6–7% of full power.
   - P1 · P3 · drills: nu-fuel-consumption, nu-decay-heat
+
+## Unit 7 · Radioactivity in practice
+
+Big ideas: EXPONENTIAL
+
+### 7.1 Chains, activity and dating
+
+
+
+- ● **NU-7.1.A** (doe-hdbk-1019:1) Follow a nuclide through a sequence of alpha and beta decays and count the decays in a series.
+  - EK: Alpha: Z − 2, A − 4. Beta-minus: Z + 1. Only alphas change A.
+  - P1 · drills: ra-decay-chain, ra-count-alphas
+- ● **NU-7.1.B** (doe-hdbk-1019:1) Calculate an activity from a mass and a half-life, and convert between becquerels and curies.
+  - EK: A = λN; 1 Ci = 3.7 × 10¹⁰ Bq.
+  - P1 · P3 · drills: ra-activity-from-mass, ra-becquerel-curie
+- ● **NU-7.1.C** (doe-hdbk-1019:1) Date a sample from its remaining activity and find an effective half-life in the body.
+  - EK: t = T ln(1/f)/ln 2; removal rates add.
+  - P1 · drills: ra-carbon-dating, ra-effective-half-life
+- ● **NU-7.1.D** (doe-hdbk-1019:1) Calculate a Q-value from a mass difference and describe secular equilibrium.
+  - EK: 931.5 MeV per u; at equilibrium parent and daughter activities are equal.
+  - P1 · P2 · drills: ra-q-value, ra-secular-equilibrium

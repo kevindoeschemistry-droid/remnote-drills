@@ -144,7 +144,9 @@
        "p": [
         "P4"
        ],
-       "drills": []
+       "drills": [
+        "cc-kinetic-temperature"
+       ]
       }
      ]
     },
@@ -174,7 +176,9 @@
        "p": [
         "P4"
        ],
-       "drills": []
+       "drills": [
+        "cc-population-ratio"
+       ]
       },
       {
        "id": "B",
@@ -188,7 +192,9 @@
        "needs": [
         "MD-1.2.A"
        ],
-       "drills": []
+       "drills": [
+        "cc-free-energy-from-ratio"
+       ]
       },
       {
        "id": "C",
@@ -250,7 +256,11 @@
        "p": [
         "P4"
        ],
-       "drills": []
+       "drills": [
+        "cc-lj-energy",
+        "cc-lj-minimum",
+        "cc-coulomb-energy"
+       ]
       }
      ]
     },
@@ -434,7 +444,10 @@
         "P3",
         "P4"
        ],
-       "drills": []
+       "drills": [
+        "cc-vibration-period",
+        "cc-steps-needed"
+       ]
       },
       {
        "id": "B",
@@ -448,7 +461,9 @@
        "needs": [
         "MD-1.1.C"
        ],
-       "drills": []
+       "drills": [
+        "~cc-degrees-of-freedom"
+       ]
       },
       {
        "id": "C",
@@ -581,7 +596,9 @@
         "P4",
         "P5"
        ],
-       "drills": []
+       "drills": [
+        "cc-box-density"
+       ]
       }
      ]
     }
@@ -625,7 +642,9 @@
        "p": [
         "P4"
        ],
-       "drills": []
+       "drills": [
+        "cc-minimum-image"
+       ]
       },
       {
        "id": "B",
@@ -775,7 +794,9 @@
         "P2",
         "P4"
        ],
-       "drills": []
+       "drills": [
+        "cc-neutralising-ions"
+       ]
       },
       {
        "id": "D",
@@ -900,7 +921,9 @@
        "needs": [
         "MD-7.1.A"
        ],
-       "drills": []
+       "drills": [
+        "~cc-effective-samples"
+       ]
       }
      ]
     },
@@ -951,7 +974,9 @@
        "p": [
         "P4"
        ],
-       "drills": []
+       "drills": [
+        "cc-error-propagation"
+       ]
       },
       {
        "id": "D",
@@ -1341,7 +1366,9 @@
         "P4",
         "P5"
        ],
-       "drills": []
+       "drills": [
+        "cc-kd-to-free-energy"
+       ]
       },
       {
        "id": "B",
@@ -2170,24 +2197,30 @@
    "code": "MD-1.1.C",
    "unit": 1,
    "topic": 1,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "cc-kinetic-temperature"
+   ],
    "partial": []
   },
   {
    "code": "MD-1.2.A",
    "unit": 1,
    "topic": 2,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "cc-population-ratio"
+   ],
    "partial": []
   },
   {
    "code": "MD-1.2.B",
    "unit": 1,
    "topic": 2,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "cc-free-energy-from-ratio"
+   ],
    "partial": []
   },
   {
@@ -2210,8 +2243,12 @@
    "code": "MD-2.1.B",
    "unit": 2,
    "topic": 1,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "cc-lj-energy",
+    "cc-lj-minimum",
+    "cc-coulomb-energy"
+   ],
    "partial": []
   },
   {
@@ -2274,17 +2311,22 @@
    "code": "MD-3.2.A",
    "unit": 3,
    "topic": 2,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "cc-vibration-period",
+    "cc-steps-needed"
+   ],
    "partial": []
   },
   {
    "code": "MD-3.2.B",
    "unit": 3,
    "topic": 2,
-   "status": "gap",
+   "status": "partial",
    "full": [],
-   "partial": []
+   "partial": [
+    "cc-degrees-of-freedom"
+   ]
   },
   {
    "code": "MD-3.2.C",
@@ -2338,16 +2380,20 @@
    "code": "MD-4.2.C",
    "unit": 4,
    "topic": 2,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "cc-box-density"
+   ],
    "partial": []
   },
   {
    "code": "MD-5.1.A",
    "unit": 5,
    "topic": 1,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "cc-minimum-image"
+   ],
    "partial": []
   },
   {
@@ -2410,8 +2456,10 @@
    "code": "MD-6.1.C",
    "unit": 6,
    "topic": 1,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "cc-neutralising-ions"
+   ],
    "partial": []
   },
   {
@@ -2458,9 +2506,11 @@
    "code": "MD-7.1.B",
    "unit": 7,
    "topic": 1,
-   "status": "gap",
+   "status": "partial",
    "full": [],
-   "partial": []
+   "partial": [
+    "cc-effective-samples"
+   ]
   },
   {
    "code": "MD-7.2.A",
@@ -2482,8 +2532,10 @@
    "code": "MD-7.2.C",
    "unit": 7,
    "topic": 2,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "cc-error-propagation"
+   ],
    "partial": []
   },
   {
@@ -2642,8 +2694,10 @@
    "code": "MD-9.3.A",
    "unit": 9,
    "topic": 3,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "cc-kd-to-free-energy"
+   ],
    "partial": []
   },
   {

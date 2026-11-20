@@ -1,0 +1,195 @@
+# Hyperbolic functions: what sinh, cosh and tanh are, how they mirror the circular functions, and
+# where they turn up. Precalculus usually skips them and calculus, differential equations and heat
+# transfer assume them. One question each; values are recomputed by sympy.
+
+- template: hy-which-definition
+  skill: trig.hyperbolic
+  pace: recall
+  cases:
+    - { f: '\dfrac{e^x + e^{-x}}{2}', ans: 1 }
+    - { f: '\dfrac{e^x - e^{-x}}{2}', ans: 0 }
+    - { f: '\dfrac{e^x - e^{-x}}{e^x + e^{-x}}', ans: 2 }
+    - { f: '\dfrac{2}{e^x + e^{-x}}', ans: 3 }
+  prompt: 'Which hyperbolic function is ${{f}}$?'
+  parts:
+    - ask: 'Function'
+      label: a
+      choice: ["sinh x", "cosh x", "tanh x", "sech x"]
+      correct: ans
+      explain: '$\cosh x$ is the average of $e^x$ and $e^{-x}$ (the even part of $e^x$); $\sinh x$ is half their difference (the odd part). Everything else follows the trig pattern: $\tanh = \sinh/\cosh$, $\operatorname{sech} = 1/\cosh$. So $e^x = \cosh x + \sinh x$'
+  verify: { authored: true }
+
+- template: hy-value-at-log
+  skill: trig.hyperbolic
+  pace: quick
+  given: { a: { pick: [2, 3, 4, 5, 10] }, fn: { pick: [0, 1] } }
+  prompt: 'Evaluate $\{{fn == 0 ? "sinh" : "cosh"}}(\ln {{a}})$ exactly, as a decimal.'
+  parts:
+    - { ask: 'Value', label: r, tex: 'y', value: "fn == 0 ? (a - 1/a)/2 : (a + 1/a)/2", tol: 0.0005, explain: 'Put $e^x = {{a}}$ and $e^{-x} = \tfrac{1}{ {{a}} }$ into the definition: half their {{fn == 0 ? "difference" : "sum"}}. Arguments of the form $\ln a$ are how hyperbolic functions give clean numbers, the way $\pi/6$ does for sine' }
+  verify: { expect: { r: "[sinh, cosh][fn](log(a)).rewrite(exp).simplify()" } }
+
+- template: hy-pythagorean
+  skill: trig.hyperbolic
+  pace: quick
+  cases:
+    - { st: '\tfrac34', sn: 3, sd: 4 }
+    - { st: '\tfrac43', sn: 4, sd: 3 }
+    - { st: '\tfrac{5}{12}', sn: 5, sd: 12 }
+    - { st: '\tfrac{8}{15}', sn: 8, sd: 15 }
+    - { st: '\tfrac{12}{5}', sn: 12, sd: 5 }
+  prompt: 'If $\sinh x = {{st}}$, what is $\cosh x$?'
+  parts:
+    - { ask: '$\cosh x$', label: r, tex: '\cosh x', value: sqrt(1 + (sn/sd)^2), tol: 0.0005, explain: '$\cosh^2x - \sinh^2x = 1$: a minus where trig has a plus, because $(\cosh t, \sinh t)$ traces the hyperbola $x^2 - y^2 = 1$ instead of the circle. $\cosh x$ is never less than 1, so take the positive root' }
+  verify: { expect: { r: "Max(*solve(Eq(x**2 - Rational(sn, sd)**2, 1), x))" } }
+
+- template: hy-identity-check
+  skill: trig.hyperbolic
+  pace: recall
+  cases:
+    - { id: '\cosh^2x - \sinh^2x = 1', ans: 0 }
+    - { id: '\cosh^2x + \sinh^2x = 1', ans: 1 }
+    - { id: '\sinh 2x = 2\sinh x\cosh x', ans: 0 }
+    - { id: '\cosh 2x = \cosh^2x + \sinh^2x', ans: 0 }
+    - { id: '\cosh 2x = \cosh^2x - \sinh^2x', ans: 1 }
+    - { id: '1 - \tanh^2x = \operatorname{sech}^2x', ans: 0 }
+    - { id: '\cosh x + \sinh x = e^x', ans: 0 }
+    - { id: '\cosh(-x) = -\cosh x', ans: 1 }
+  prompt: 'True for every $x$, or false? ${{id}}$'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["True", "False"]
+      correct: ans
+      explain: 'Osborn''s rule: take a trig identity and flip the sign of every term that contains a product of two sines. $\cos^2 + \sin^2 = 1$ becomes $\cosh^2 - \sinh^2 = 1$; $\cos 2x = \cos^2 - \sin^2$ becomes $\cosh 2x = \cosh^2 + \sinh^2$; $\sin 2x$ is unchanged'
+  verify: { authored: true }
+
+- template: hy-derivative-which
+  skill: trig.hyperbolic
+  pace: recall
+  cases:
+    - { f: '\sinh x', ans: 0 }
+    - { f: '\cosh x', ans: 1 }
+    - { f: '\tanh x', ans: 2 }
+  prompt: 'What is the derivative of ${{f}}$?'
+  parts:
+    - ask: 'Derivative'
+      label: a
+      choice: ["cosh x", "sinh x (no minus sign)", "sech squared x"]
+      correct: ans
+      explain: 'Differentiate the exponentials: $\sinh'' = \cosh$ and $\cosh'' = \sinh$, with no minus sign anywhere. So $y = \cosh kx$ and $y = \sinh kx$ both satisfy $y'''' = +k^2y$, where sine and cosine satisfy $y'''' = -k^2y$'
+  verify: { authored: true }
+
+- template: hy-derivative-value
+  skill: trig.hyperbolic
+  pace: quick
+  given: { k: { pick: [1, 2, 3] }, a: { pick: [2, 3] } }
+  prompt: 'What is the slope of $y = \cosh {{k}}x$ at $x = \dfrac{\ln {{a}} }{ {{k}} }$?'
+  parts:
+    - { ask: 'Slope', label: r, tex: "y'", value: k*(a - 1/a)/2, tol: 0.0005, explain: '$\dfrac{d}{dx}\cosh kx = k\sinh kx$, and $\sinh(\ln {{a}}) = \tfrac12({{a}} - \tfrac{1}{ {{a}} })$. The slope of cosh at 0 is 0: it has a minimum of 1 there' }
+  verify: { expect: { r: "diff(cosh(k*x), x).subs(x, log(a)/k).rewrite(exp).simplify()" } }
+
+- template: hy-parity-and-range
+  skill: trig.hyperbolic
+  pace: recall
+  cases:
+    - { q: 'Which is an even function, with its lowest value 1 at x = 0?', ans: 1 }
+    - { q: 'Which is odd, passes through the origin and grows without bound both ways?', ans: 0 }
+    - { q: 'Which is odd and stays between −1 and 1?', ans: 2 }
+    - { q: 'Which has the shape of a hanging chain?', ans: 1 }
+    - { q: 'Which behaves like x near zero and like ½eˣ for large x?', ans: 0 }
+  prompt: '{{q}}'
+  parts:
+    - ask: 'Function'
+      label: a
+      choice: ["sinh x", "cosh x", "tanh x"]
+      correct: ans
+      explain: 'For large $x$ both $\sinh$ and $\cosh$ are about $\tfrac12e^x$, so $\tanh \to 1$. Near zero, $\sinh x \approx x$, $\cosh x \approx 1 + \tfrac12x^2$ and $\tanh x \approx x$'
+  verify: { authored: true }
+
+- template: hy-tanh-value
+  skill: trig.hyperbolic
+  pace: quick
+  given: { a: { pick: [2, 3, 7] } }
+  prompt: 'Evaluate $\tanh(\ln {{a}})$.'
+  parts:
+    - { ask: 'Value', label: r, tex: 'y', value: (a^2 - 1)/(a^2 + 1), tol: 0.0005, explain: '$\tanh x = \dfrac{e^x - e^{-x}}{e^x + e^{-x}} = \dfrac{e^{2x} - 1}{e^{2x} + 1}$, so $\tanh(\ln a) = \dfrac{a^2 - 1}{a^2 + 1}$. It is always between $-1$ and $1$, which is why it is used as a squashing function and as the velocity in relativity' }
+  verify: { expect: { r: "tanh(log(a)).rewrite(exp).simplify()" } }
+
+- template: hy-inverse-sinh
+  skill: trig.hyperbolic
+  pace: quick
+  cases:
+    - { st: '\tfrac34', sn: 3, sd: 4 }
+    - { st: '\tfrac43', sn: 4, sd: 3 }
+    - { st: '\tfrac{12}{5}', sn: 12, sd: 5 }
+    - { st: '\tfrac{15}{8}', sn: 15, sd: 8 }
+  prompt: 'Solve $\sinh x = {{st}}$. Give $e^x$.'
+  parts:
+    - { ask: '$e^x$', label: r, tex: 'e^x', value: sn/sd + sqrt(1 + (sn/sd)^2), tol: 0.0005, explain: '$e^x = \sinh x + \cosh x = s + \sqrt{s^2 + 1}$, so $x = \ln\!\left(s + \sqrt{s^2 + 1}\right)$: that is the formula for $\sinh^{-1}$. An inverse hyperbolic function is always a logarithm in disguise' }
+  verify: { expect: { r: "Max(*[s for s in solve(Eq((x - 1/x)/2, Rational(sn, sd)), x)])" } }
+
+- template: hy-double-argument
+  skill: trig.hyperbolic
+  pace: quick
+  cases:
+    - { sn: 3, sd: 4, cn: 5, cd: 4 }
+    - { sn: 4, sd: 3, cn: 5, cd: 3 }
+    - { sn: 5, sd: 12, cn: 13, cd: 12 }
+  prompt: 'If $\sinh x = \tfrac{ {{sn}} }{ {{sd}} }$ and $\cosh x = \tfrac{ {{cn}} }{ {{cd}} }$, what is $\sinh 2x$?'
+  parts:
+    - { ask: '$\sinh 2x$', label: r, tex: '\sinh 2x', value: 2*sn/sd*cn/cd, tol: 0.0005, explain: '$\sinh 2x = 2\sinh x\cosh x$, the same as for sine. And $\cosh 2x = \cosh^2x + \sinh^2x$, with a plus' }
+  verify: { expect: { r: "sinh(2*log(Rational(sn, sd) + Rational(cn, cd))).rewrite(exp).simplify()" } }
+
+- template: hy-integral
+  skill: trig.hyperbolic
+  pace: quick
+  given: { a: { pick: [2, 3, 4] } }
+  prompt: 'Evaluate $\displaystyle\int_0^{\ln {{a}} } \sinh x\,dx$.'
+  parts:
+    - { ask: 'Value', label: r, tex: 'I', value: (a + 1/a)/2 - 1, tol: 0.0005, explain: '$\displaystyle\int\sinh x\,dx = \cosh x$ (no sign change), so the answer is $\cosh(\ln {{a}}) - \cosh 0 = \tfrac12({{a}} + \tfrac{1}{ {{a}} }) - 1$' }
+  verify: { expect: { r: "integrate(sinh(x), (x, 0, log(a))).rewrite(exp).simplify()" } }
+
+- template: hy-ode-solution
+  skill: trig.hyperbolic
+  pace: quick
+  given: { k: { pick: [1, 2, 3] }, A: { pick: [2, 4, 8] } }
+  prompt: 'Solve $y'''' = {{k^2}}y$ with $y(0) = {{A}}$ and $y''(0) = 0$. What is $y$ at $x = \dfrac{\ln 2}{ {{k}} }$?'
+  parts:
+    - { ask: 'y', label: r, tex: 'y', value: A*1.25, tol: 0.0005, explain: '$y = {{A}}\cosh {{k}}x$: cosh is the solution that starts flat, sinh the one that starts at zero. $\cosh(\ln 2) = \tfrac12(2 + \tfrac12) = 1.25$. This pair is why fins and slabs in heat transfer are written with cosh and sinh instead of $e^{\pm mx}$' }
+  verify: { var: s, ode: "diff(T(s), s, 2) - k**2*T(s)", bcs: ["T(0) = A", "dT(0) = 0"], expect: { r: "T(log(2)/k)" } }
+
+- template: hy-circular-link
+  skill: trig.hyperbolic
+  pace: recall
+  cases:
+    - { q: 'What is cos(ix) in terms of a hyperbolic function?', ans: 0 }
+    - { q: 'What is sin(ix)?', ans: 1 }
+    - { q: 'Which curve does (cosh t, sinh t) trace?', ans: 2 }
+    - { q: 'Which curve does (cos t, sin t) trace?', ans: 3 }
+  prompt: '{{q}}'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["cosh x", "i sinh x", "The right branch of the hyperbola x squared minus y squared = 1", "The unit circle"]
+      correct: ans
+      explain: 'Euler: $\cos\theta = \tfrac12(e^{i\theta} + e^{-i\theta})$. Put $\theta = ix$ and the $i$ disappears from the exponents, leaving $\cosh x$. Hyperbolic functions are the circular ones rotated into the imaginary direction, which is where the sign changes in the identities come from'
+  verify: { authored: true }
+
+- template: hy-where-used
+  skill: trig.hyperbolic
+  pace: recall
+  cases:
+    - { q: 'the shape of a cable hanging under its own weight', ans: 0 }
+    - { q: 'the temperature along a cooling fin with an insulated tip', ans: 0 }
+    - { q: 'steady conduction with generation in a slab, written about its centre', ans: 0 }
+    - { q: 'the velocity of a rocket under constant proper acceleration, as a fraction of c', ans: 1 }
+    - { q: 'the magnetisation of a paramagnet against field (two-level system)', ans: 1 }
+    - { q: 'the partition function of a two-level system with energies ±ε', ans: 0 }
+  prompt: 'Which hyperbolic function describes {{q}}?'
+  parts:
+    - ask: 'Function'
+      label: a
+      choice: ["cosh", "tanh"]
+      correct: ans
+      explain: 'Cosh appears wherever a symmetric solution of $y'''' = k^2y$ is needed: the catenary $y = a\cosh(x/a)$, fins, slabs, and $q = 2\cosh(\beta\varepsilon)$. Tanh appears as a ratio that saturates at $\pm1$: average spin $\tanh(\beta\varepsilon)$, relativistic velocity $\tanh$ of rapidity'
+  verify: { authored: true }

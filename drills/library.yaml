@@ -17,6 +17,8 @@ subjects:
   - "Dental Admission Test"
   - "Nuclear Science"
   - "Inorganic Chemistry"
+  - "Physics"
+  - "Computational Chemistry"
 
 # drill topics (skills.yaml domains) -> subject: cards live in  Subject › Drills › topic › skill
 domains:
@@ -48,6 +50,9 @@ domains:
   dat: "Dental Admission Test"
   nuc: "Nuclear Science"
   ptable: "Inorganic Chemistry"
+  physics: "Physics"
+  md: "Computational Chemistry"
+  compchem: "Computational Chemistry"
 
 # course textbooks (drills/sources) -> subject
 books:
@@ -71,6 +76,8 @@ books:
   dat-guide: "Dental Admission Test"
   doe-hdbk-1019: "Nuclear Science"
   iupac-periodic-table: "Inorganic Chemistry"
+  openstax-university-physics: "Physics"
+  livecoms-md-basics: "Computational Chemistry"
 
 # other PDFs: every word in `match` must appear in the PDF's name
 extras:

@@ -2,7 +2,7 @@
 
 Generated from `drills/frameworks/physics.yaml` by `scripts/framework.mjs`. ● drilled · ◐ partly · ○ no drills yet.
 
-**201 learning objectives** in 28 units (201 core): 4 drilled, 9 partly, 188 with no drills. Core: 4 / 201 drilled.
+**201 learning objectives** in 28 units (201 core): 21 drilled, 8 partly, 172 with no drills. Core: 21 / 201 drilled.
 
 ## Big ideas
 
@@ -39,12 +39,12 @@ Generated from `drills/frameworks/physics.yaml` by `scripts/framework.mjs`. ● 
 | 7 · Oscillations | core | — | 5 | 0 | 1 | 4 |
 | 8 · Fluids | core | — | 7 | 0 | 0 | 7 |
 | 9 · Thermodynamics | core | — | 12 | 1 | 2 | 9 |
-| 10 · Electric force, field and potential | core | — | 15 | 0 | 0 | 15 |
-| 11 · Electric circuits | core | — | 12 | 0 | 0 | 12 |
-| 12 · Magnetism and electromagnetism | core | — | 10 | 0 | 0 | 10 |
+| 10 · Electric force, field and potential | core | — | 15 | 5 | 0 | 10 |
+| 11 · Electric circuits | core | — | 12 | 4 | 0 | 8 |
+| 12 · Magnetism and electromagnetism | core | — | 10 | 5 | 0 | 5 |
 | 13 · Geometric optics | core | — | 7 | 0 | 0 | 7 |
 | 14 · Waves, sound and physical optics | core | — | 13 | 0 | 0 | 13 |
-| 15 · Modern physics | core | — | 11 | 2 | 1 | 8 |
+| 15 · Modern physics | core | — | 11 | 5 | 0 | 6 |
 | 16 · Kinematics with calculus | core | — | 4 | 0 | 0 | 4 |
 | 17 · Dynamics with calculus | core | — | 4 | 0 | 1 | 3 |
 | 18 · Work and energy with calculus | core | — | 4 | 0 | 0 | 4 |
@@ -694,10 +694,10 @@ Big ideas: INT, CONS
 
 
 
-- ○ **PH-10.1.A** (P2 10.1.A) Calculate the electric force between two point charges with Coulomb's law.
+- ● **PH-10.1.A** (P2 10.1.A) Calculate the electric force between two point charges with Coulomb's law.
   - EK: F = k|q₁q₂|/r², k = 8.99 × 10⁹ N·m²/C²; like charges repel, unlike attract.
   - Needs: PH-2.6.A
-  - 2B · 2D
+  - 2B · 2D · drills: em-coulomb-force
 - ○ **PH-10.1.B** (P2 10.1.B) Find the equilibrium of a charged object acted on by both electric and gravitational forces.
   - EK: Electric force dwarfs gravity between particles; for a hanging charged ball, tan θ = F_e/(mg).
   - Needs: PH-10.1.A, PH-2.4.A
@@ -724,10 +724,10 @@ Big ideas: INT, CONS
 
 
 
-- ○ **PH-10.3.A** (P2 10.3.A) Calculate the electric field of one or more point charges.
+- ● **PH-10.3.A** (P2 10.3.A) Calculate the electric field of one or more point charges.
   - EK: E = kq/r², away from + and toward −; fields from several charges add as vectors.
   - Needs: PH-10.1.D
-  - 2B
+  - 2B · drills: em-field-point-charge
 - ○ **PH-10.3.B** (P2 10.3.A) Calculate the force on a charge in a field and its resulting motion in a uniform field.
   - EK: F = qE, a = qE/m; a charge entering a uniform field moves like a projectile.
   - Needs: PH-10.3.A, PH-1.5.B, PH-2.5.A
@@ -754,14 +754,14 @@ Big ideas: INT, CONS
 
 
 
-- ○ **PH-10.5.A** (P2 10.5) Calculate the electric potential at a point due to point charges.
+- ● **PH-10.5.A** (P2 10.5) Calculate the electric potential at a point due to point charges.
   - EK: V = kq/r, a scalar: add with signs, no components; U = qV.
   - Needs: PH-10.4.A
-  - 2B
-- ○ **PH-10.5.B** (P2 10.5) Relate potential difference to a uniform field, and sketch equipotentials.
+  - 2B · drills: em-potential-point-charge
+- ● **PH-10.5.B** (P2 10.5) Relate potential difference to a uniform field, and sketch equipotentials.
   - EK: |E| = ΔV/d, pointing toward lower V; equipotentials are perpendicular to field lines.
   - Needs: PH-10.5.A, PH-10.3.C
-  - 1A · 2B
+  - 1A · 2B · drills: em-uniform-field-voltage
 
 ### 10.6 Capacitors
 
@@ -771,10 +771,10 @@ Big ideas: INT, CONS
   - EK: C = κε₀A/d; Q = CΔV.
   - Needs: PH-10.5.B, PH-10.1.C
   - 2B · 2D
-- ○ **PH-10.6.B** (P2 10.6) Calculate the energy stored in a capacitor.
+- ● **PH-10.6.B** (P2 10.6) Calculate the energy stored in a capacitor.
   - EK: U_C = ½QΔV = ½C(ΔV)² = Q²/(2C).
   - Needs: PH-10.6.A
-  - 2B · 2D
+  - 2B · 2D · drills: em-capacitor-energy
 
 ### 10.7 Conservation of electric energy
 
@@ -815,23 +815,23 @@ Big ideas: CONS, CHG
 
 
 
-- ○ **PH-11.4.A** (P2 11.4) Calculate the power dissipated by a resistor and rank bulb brightness.
+- ● **PH-11.4.A** (P2 11.4) Calculate the power dissipated by a resistor and rank bulb brightness.
   - EK: P = IΔV = I²R = (ΔV)²/R; brightness follows power.
   - Needs: PH-11.3.B, PH-3.5.A
-  - 2B · 2C
+  - 2B · 2C · drills: em-power-dissipated
 
 ### 11.5 Compound DC circuits
 
 
 
-- ○ **PH-11.5.A** (P2 11.5) Calculate the equivalent resistance of series and parallel combinations.
+- ● **PH-11.5.A** (P2 11.5) Calculate the equivalent resistance of series and parallel combinations.
   - EK: Series R_eq = ΣR (same I); parallel 1/R_eq = Σ1/R (same ΔV); parallel R_eq is less than the smallest branch.
   - Needs: PH-11.3.B
-  - 2B
-- ○ **PH-11.5.B** (P2 11.5) Calculate the equivalent capacitance of series and parallel combinations.
+  - 2B · drills: em-resistors-combined
+- ● **PH-11.5.B** (P2 11.5) Calculate the equivalent capacitance of series and parallel combinations.
   - EK: Parallel C_eq = ΣC; series 1/C_eq = Σ1/C — the reverse of resistors.
   - Needs: PH-10.6.A
-  - 2B
+  - 2B · drills: em-capacitors-combined
 - ○ **PH-11.5.C** (P2 11.5) Find the terminal voltage of a battery with internal resistance.
   - EK: ΔV_terminal = ε − Ir; equals ε only when no current flows.
   - Needs: PH-11.5.A
@@ -867,10 +867,10 @@ Big ideas: CONS, CHG
   - EK: An uncharged capacitor acts as a wire at t = 0; a fully charged one carries no current (open branch).
   - Needs: PH-11.5.B, PH-11.6.A
   - 2B · 3B
-- ○ **PH-11.8.B** (P2 11.8) Calculate the time constant of an RC circuit and sketch charge and current versus time.
+- ● **PH-11.8.B** (P2 11.8) Calculate the time constant of an RC circuit and sketch charge and current versus time.
   - EK: τ = RC; charging Q rises toward CΔV and I decays toward 0, ~63% of the change per τ.
   - Needs: PH-11.8.A
-  - 1C · 2B
+  - 1C · 2B · drills: em-rc-time-constant, em-rc-fraction
 
 ## Unit 12 · Magnetism and electromagnetism
 
@@ -888,14 +888,14 @@ Big ideas: INT, CHG
 
 
 
-- ○ **PH-12.2.A** (P2 12.2) Calculate the magnetic force on a moving charge and find its direction with the right-hand rule.
+- ● **PH-12.2.A** (P2 12.2) Calculate the magnetic force on a moving charge and find its direction with the right-hand rule.
   - EK: F = |q|vB sin θ, perpendicular to both v and B (reverse for negative charge); it does no work.
   - Needs: PH-12.1.A, PH-10.3.B
-  - 2B · 3B
-- ○ **PH-12.2.B** (P2 12.2) Calculate the radius and period of a charged particle's circular path in a uniform magnetic field.
+  - 2B · 3B · drills: em-magnetic-force
+- ● **PH-12.2.B** (P2 12.2) Calculate the radius and period of a charged particle's circular path in a uniform magnetic field.
   - EK: qvB = mv²/r ⇒ r = mv/(qB); period 2πm/(qB) is independent of speed.
   - Needs: PH-12.2.A, PH-2.9.A
-  - 2A · 2B
+  - 2A · 2B · drills: em-cyclotron-radius
 - ○ **PH-12.2.C** (P2 12.2) Find the speed a velocity selector passes undeflected.
   - EK: Crossed fields balance when qE = qvB ⇒ v = E/B.
   - Needs: PH-12.2.A
@@ -905,10 +905,10 @@ Big ideas: INT, CHG
 
 
 
-- ○ **PH-12.3.A** (P2 12.3) Calculate the magnetic field near a long straight wire and give its direction.
+- ● **PH-12.3.A** (P2 12.3) Calculate the magnetic field near a long straight wire and give its direction.
   - EK: B = μ₀I/(2πr), circling the wire (right-hand grip rule); μ₀ = 4π × 10⁻⁷ T·m/A.
   - Needs: PH-12.1.A, PH-11.1.A
-  - 2B · 2D
+  - 2B · 2D · drills: em-field-of-wire
 - ○ **PH-12.3.B** (P2 12.3) Calculate the force on a current-carrying wire in a field, including between two parallel wires.
   - EK: F = ILB sin θ; parallel currents attract, antiparallel repel.
   - Needs: PH-12.3.A, PH-12.2.A
@@ -922,14 +922,14 @@ Big ideas: INT, CHG
   - EK: Φ_B = BA cos θ, θ between B and the loop's normal; unit weber (T·m²).
   - Needs: PH-12.1.A, PH-1.5.A
   - 2B
-- ○ **PH-12.4.B** (P2 12.4) Apply Faraday's law to find the average induced emf from a change in flux.
+- ● **PH-12.4.B** (P2 12.4) Apply Faraday's law to find the average induced emf from a change in flux.
   - EK: |ε| = N|ΔΦ_B/Δt|; flux can change through B, area or angle.
   - Needs: PH-12.4.A
-  - 2B · 2D
-- ○ **PH-12.4.C** (P2 12.4) Determine the direction of an induced current with Lenz's law.
+  - 2B · 2D · drills: em-faraday-emf
+- ● **PH-12.4.C** (P2 12.4) Determine the direction of an induced current with Lenz's law.
   - EK: The induced current makes a field that opposes the change in flux, not the flux itself.
   - Needs: PH-12.4.B
-  - 1A · 3C
+  - 1A · 3C · drills: em-lenz-direction
 - ○ **PH-12.4.D** (P2 12.4) Calculate the motional emf, current and magnetic force for a rod sliding on rails.
   - EK: ε = BLv; I = ε/R; the force ILB on the rod opposes its motion.
   - Needs: PH-12.4.C, PH-12.3.B, PH-11.3.B
@@ -1156,23 +1156,23 @@ Big ideas: QUANT, CONS
 
 
 
-- ○ **PH-15.7.A** (P2 15.7) Calculate the energy released in a nuclear reaction from the mass defect.
+- ● **PH-15.7.A** (P2 15.7) Calculate the energy released in a nuclear reaction from the mass defect.
   - EK: E = Δmc², 1 u ↔ 931.5 MeV; fission of heavy and fusion of light nuclei both move toward higher binding energy per nucleon.
   - Needs: PH-3.4.A
-  - 2B
+  - 2B · drills: ra-q-value, pp-rest-energy
 
 ### 15.8 Types of radioactive decay
 
 
 
-- ○ **PH-15.8.A** (P2 15.8) Write a balanced alpha, beta or gamma decay equation.
+- ● **PH-15.8.A** (P2 15.8) Write a balanced alpha, beta or gamma decay equation.
   - EK: Nucleon number A and charge Z are conserved; α removes ⁴₂He, β⁻ turns n → p + e⁻ + ν̄, γ changes neither.
   - Needs: PH-15.7.A, PH-10.2.A
-  - 2A
-- ◐ **PH-15.8.B** (P2 15.8) Calculate the amount remaining or the elapsed time from a half-life.
+  - 2A · drills: ra-decay-chain, ra-count-alphas
+- ● **PH-15.8.B** (P2 15.8) Calculate the amount remaining or the elapsed time from a half-life.
   - EK: N = N₀(½)^(t/T½); decay is random per nucleus but predictable in bulk.
   - Needs: PH-15.8.A
-  - 2B · 2D · drills: ~model-decay
+  - 2B · 2D · drills: ra-carbon-dating, ~model-decay
 
 ## Unit 16 · Kinematics with calculus
 

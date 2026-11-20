@@ -41,6 +41,9 @@ domains:
   - { id: dat, title: "Dental Admission Test" }
   - { id: nuc, title: "Nuclear science" }
   - { id: ptable, title: "The periodic table" }
+  - { id: physics, title: "Physics" }
+  - { id: md, title: "Molecular simulation" }
+  - { id: compchem, title: "Computational chemistry" }
 
 skills:
   # ── prerequisites ────────────────────────────────────────────────────────
@@ -477,6 +480,7 @@ skills:
   - { id: geo.coordinates, domain: geo, title: "Coordinate geometry: lines, partitions, polygons, parabolas & conics", short: "Coordinate geometry", status: live, prereqs: [alg.linear, k8.geometry], levels: { 1: [geo-parallel-perp, geo-partition, geo-coord-perimeter, geo-coord-proof, geo-parabola, geo-conic] } }
   - { id: geo.circles, domain: geo, title: "Circles: inscribed angles, arcs & sectors, equations", short: "Circles", status: live, prereqs: [geo.congruence], levels: { 1: [geo-inscribed, geo-cyclic-quad, geo-arc-sector, geo-circle-eq, geo-on-circle] } }
   - { id: trig.unit-circle, domain: trig, title: "Radians, the unit circle & exact values", short: "Unit circle", status: live, prereqs: [geo.right-triangles], levels: { 1: [trig-deg-rad, trig-exact, trig-symmetry] } }
+  - { id: trig.hyperbolic, domain: trig, title: "Hyperbolic functions: sinh, cosh, tanh, their identities, derivatives and uses", short: "Hyperbolic functions", prereqs: [trig.unit-circle] }
   - { id: trig.identities, domain: trig, title: "Pythagorean, sum/difference & double-angle identities", short: "Trig identities", status: live, prereqs: [trig.unit-circle], levels: { 1: [trig-pyth, trig-addition] } }
   - { id: trig.graphs, domain: trig, title: "Sinusoids & trigonometric equations", short: "Sinusoids & equations", status: live, prereqs: [trig.unit-circle], levels: { 1: [trig-sinusoid, trig-solve] } }
   - { id: stats.descriptive, domain: stats, title: "Centre, spread, outliers, the normal distribution & margin of error", short: "Descriptive statistics", status: live, prereqs: [k8.data], levels: { 1: [stats-center, stats-outlier, stats-normal, stats-margin] } }
@@ -598,3 +602,15 @@ skills:
   - { id: ptable.d-block, domain: ptable, title: "The d block: positions, groups, triads and d-electron counts", short: "The d block" }
   - { id: ptable.f-block, domain: ptable, title: "The f block: lanthanoids, actinoids and f-electron counts", short: "The f block" }
   - { id: ptable.configurations, domain: ptable, title: "Ground-state electron configurations of the d and f blocks, with the exceptions", short: "Electron configurations", prereqs: [ptable.d-block, ptable.f-block] }
+  # ── physics: electricity and magnetism, particles ───────────────────────────
+  - { id: physics.electrostatics, domain: physics, title: "Electric force, field, potential and capacitance", short: "Electrostatics" }
+  - { id: physics.circuits, domain: physics, title: "Circuits: resistors, capacitors, RC and LC", short: "Circuits", prereqs: [physics.electrostatics] }
+  - { id: physics.magnetism, domain: physics, title: "Magnetic force and field, induction, electromagnetic waves", short: "Magnetism and induction", prereqs: [physics.circuits] }
+  - { id: physics.particles, domain: physics, title: "Particle physics: quarks, leptons, conservation laws, relativity", short: "Particle physics", prereqs: [nuc.decay] }
+  # ── computational chemistry ─────────────────────────────────────────────────
+  - { id: md.statmech, domain: md, title: "Boltzmann weights, free energy and temperature in a simulation", short: "Stat mech for simulation" }
+  - { id: md.forcefields, domain: md, title: "Force-field terms: Lennard-Jones and Coulomb", short: "Force fields", prereqs: [md.statmech] }
+  - { id: md.integration, domain: md, title: "Time steps, constraints and degrees of freedom", short: "Integration", prereqs: [md.forcefields] }
+  - { id: md.boundaries, domain: md, title: "Periodic boxes, density and ions", short: "Periodic boundaries", prereqs: [md.forcefields] }
+  - { id: md.analysis, domain: md, title: "Uncertainty, correlation and binding free energies", short: "Analysis and uncertainty", prereqs: [md.statmech] }
+  - { id: compchem.methods, domain: compchem, title: "Electronic structure in practice: basis sets, cost, units, choosing a method", short: "Electronic-structure methods", prereqs: [quantum.bonding] }

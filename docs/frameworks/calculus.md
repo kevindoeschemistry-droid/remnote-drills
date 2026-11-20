@@ -2,7 +2,7 @@
 
 Generated from `drills/frameworks/calculus.yaml` by `scripts/framework.mjs`. ● drilled · ◐ partly · ○ no drills yet.
 
-**173 learning objectives** in 14 units (100 core): 173 drilled, 0 partly, 0 with no drills. Core: 100 / 100 drilled.
+**179 learning objectives** in 15 units (106 core): 179 drilled, 0 partly, 0 with no drills. Core: 106 / 106 drilled.
 
 ## Big ideas
 
@@ -35,6 +35,7 @@ Generated from `drills/frameworks/calculus.yaml` by `scripts/framework.mjs`. ●
 | 12 · Partial derivatives | extension | — | 12 | 12 | 0 | 0 |
 | 13 · Multiple integrals | extension | — | 9 | 9 | 0 | 0 |
 | 14 · Vector calculus | extension | — | 14 | 14 | 0 | 0 |
+| 15 · Hyperbolic functions | core | — | 6 | 6 | 0 | 0 |
 
 ## Unit 1 · Limits and continuity
 
@@ -242,7 +243,7 @@ Big ideas: CHA, LIM, FUN
 - ● **CA-2.5.A** (FUN-3.A) Differentiate x^n for any real n, rewriting roots and reciprocals as powers first.
   - EK: d/dx x^n = n x^(n−1); √x = x^(1/2), 1/x³ = x^(−3).
   - Needs: CA-2.2.A
-  - P1 · drills: ca-power-rule, ca-power-reciprocal, ca-power-root
+  - P1 · drills: ca-power-rule, ca-power-reciprocal, ca-power-root, hy-derivative-which, hy-derivative-value
 
 ### 2.6 Constant, sum, difference and constant-multiple rules
 
@@ -1491,6 +1492,38 @@ Book: stewart-8e §16.9
   - EK: d/dt∭c dV = −∯N·n dS + ∭R dV for every volume ⇒ ∂c/∂t + ∇·N = R.
   - Needs: CA-14.9.A, CA-14.5.B
   - P2 · P3 · drills: ca-conservation-law
+
+## Unit 15 · Hyperbolic functions
+
+Big ideas: CHA
+
+### 15.1 Definitions and identities
+
+
+
+- ● **CA-15.1.A** (ST-3.11) Recognise sinh, cosh and tanh from their exponential definitions and evaluate them at ln a.
+  - EK: cosh x = ½(eˣ + e⁻ˣ), sinh x = ½(eˣ − e⁻ˣ); eˣ = cosh x + sinh x.
+  - P1 · drills: hy-which-definition, hy-value-at-log, hy-tanh-value
+- ● **CA-15.1.B** (ST-3.11) Use cosh² − sinh² = 1 and the double-argument identities, and tell a true hyperbolic identity from a false one.
+  - EK: Osborn's rule: flip the sign of any product of two sines.
+  - P1 · drills: hy-pythagorean, hy-identity-check, hy-double-argument
+- ● **CA-15.1.C** (ST-3.11) Describe the graphs: parity, range and behaviour for small and large x.
+  - EK: cosh ≥ 1 and even; sinh odd and unbounded; tanh odd and between −1 and 1.
+  - P1 · drills: hy-parity-and-range
+
+### 15.2 Calculus and uses
+
+
+
+- ● **CA-15.2.A** (ST-3.11) Differentiate and integrate hyperbolic functions.
+  - EK: sinh′ = cosh, cosh′ = sinh, tanh′ = sech²; no sign changes.
+  - P1 · drills: hy-derivative-which, hy-derivative-value, hy-integral
+- ● **CA-15.2.B** (ST-3.11) Write an inverse hyperbolic function as a logarithm.
+  - EK: sinh⁻¹ s = ln(s + √(s² + 1)).
+  - P1 · drills: hy-inverse-sinh
+- ● **CA-15.2.C** (ST-3.11) Solve y″ = k²y with cosh and sinh, connect them to the circular functions, and say where each turns up.
+  - EK: cos(ix) = cosh x; catenary, fins and slabs use cosh; saturating ratios use tanh.
+  - P1 · drills: hy-ode-solution, hy-circular-link, hy-where-used
 
 ## Drills not yet placed on the map
 

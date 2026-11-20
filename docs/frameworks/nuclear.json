@@ -465,6 +465,96 @@
      ]
     }
    ]
+  },
+  {
+   "id": "radioactivity",
+   "n": 7,
+   "title": "Radioactivity in practice",
+   "scope": "core",
+   "std": [
+    "doe-hdbk-1019:1"
+   ],
+   "ideas": [
+    "EXPONENTIAL"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "Chains, activity and dating",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "doe-hdbk-1019:1"
+       ],
+       "do": "Follow a nuclide through a sequence of alpha and beta decays and count the decays in a series.",
+       "ek": [
+        "Alpha: Z − 2, A − 4. Beta-minus: Z + 1. Only alphas change A."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "ra-decay-chain",
+        "ra-count-alphas"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "doe-hdbk-1019:1"
+       ],
+       "do": "Calculate an activity from a mass and a half-life, and convert between becquerels and curies.",
+       "ek": [
+        "A = λN; 1 Ci = 3.7 × 10¹⁰ Bq."
+       ],
+       "p": [
+        "P1",
+        "P3"
+       ],
+       "drills": [
+        "ra-activity-from-mass",
+        "ra-becquerel-curie"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "doe-hdbk-1019:1"
+       ],
+       "do": "Date a sample from its remaining activity and find an effective half-life in the body.",
+       "ek": [
+        "t = T ln(1/f)/ln 2; removal rates add."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "ra-carbon-dating",
+        "ra-effective-half-life"
+       ]
+      },
+      {
+       "id": "D",
+       "std": [
+        "doe-hdbk-1019:1"
+       ],
+       "do": "Calculate a Q-value from a mass difference and describe secular equilibrium.",
+       "ek": [
+        "931.5 MeV per u; at equilibrium parent and daughter activities are equal."
+       ],
+       "p": [
+        "P1",
+        "P2"
+       ],
+       "drills": [
+        "ra-q-value",
+        "ra-secular-equilibrium"
+       ]
+      }
+     ]
+    }
+   ]
   }
  ],
  "rows": [
@@ -625,6 +715,50 @@
    "full": [
     "nu-fuel-consumption",
     "nu-decay-heat"
+   ],
+   "partial": []
+  },
+  {
+   "code": "NU-7.1.A",
+   "unit": 7,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ra-decay-chain",
+    "ra-count-alphas"
+   ],
+   "partial": []
+  },
+  {
+   "code": "NU-7.1.B",
+   "unit": 7,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ra-activity-from-mass",
+    "ra-becquerel-curie"
+   ],
+   "partial": []
+  },
+  {
+   "code": "NU-7.1.C",
+   "unit": 7,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ra-carbon-dating",
+    "ra-effective-half-life"
+   ],
+   "partial": []
+  },
+  {
+   "code": "NU-7.1.D",
+   "unit": 7,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ra-q-value",
+    "ra-secular-equilibrium"
    ],
    "partial": []
   }

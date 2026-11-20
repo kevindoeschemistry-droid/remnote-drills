@@ -2,7 +2,7 @@
 
 Generated from `drills/frameworks/molecular-simulation.yaml` by `scripts/framework.mjs`. ● drilled · ◐ partly · ○ no drills yet.
 
-**102 learning objectives** in 14 units (96 core): 0 drilled, 0 partly, 102 with no drills. Core: 0 / 96 drilled.
+**102 learning objectives** in 14 units (96 core): 10 drilled, 2 partly, 90 with no drills. Core: 10 / 96 drilled.
 
 ## Big ideas
 
@@ -27,15 +27,15 @@ Generated from `drills/frameworks/molecular-simulation.yaml` by `scripts/framewo
 
 | Unit | Scope | Est. weight | LOs | ● | ◐ | ○ |
 |---|---|---|---|---|---|---|
-| 1 · Statistical mechanics for simulation | core | — | 6 | 0 | 0 | 6 |
-| 2 · Force fields | core | — | 7 | 0 | 0 | 7 |
-| 3 · Integration and MD algorithms | core | — | 6 | 0 | 0 | 6 |
-| 4 · Thermostats and barostats | core | — | 5 | 0 | 0 | 5 |
-| 5 · Periodic boundaries and long-range electrostatics | core | — | 6 | 0 | 0 | 6 |
-| 6 · System preparation and equilibration | core | — | 7 | 0 | 0 | 7 |
-| 7 · Sampling, convergence and uncertainty | core | — | 7 | 0 | 0 | 7 |
+| 1 · Statistical mechanics for simulation | core | — | 6 | 3 | 0 | 3 |
+| 2 · Force fields | core | — | 7 | 1 | 0 | 6 |
+| 3 · Integration and MD algorithms | core | — | 6 | 1 | 1 | 4 |
+| 4 · Thermostats and barostats | core | — | 5 | 1 | 0 | 4 |
+| 5 · Periodic boundaries and long-range electrostatics | core | — | 6 | 1 | 0 | 5 |
+| 6 · System preparation and equilibration | core | — | 7 | 1 | 0 | 6 |
+| 7 · Sampling, convergence and uncertainty | core | — | 7 | 1 | 1 | 5 |
 | 8 · Free-energy theory and estimators | core | — | 11 | 0 | 0 | 11 |
-| 9 · Thermodynamic cycles, binding and stability | core | — | 8 | 0 | 0 | 8 |
+| 9 · Thermodynamic cycles, binding and stability | core | — | 8 | 1 | 0 | 7 |
 | 10 · λ dynamics and multisite λ dynamics | core | — | 9 | 0 | 0 | 9 |
 | 11 · Adaptive Landscape Flattening in practice | core | — | 9 | 0 | 0 | 9 |
 | 12 · Trajectory analysis | core | — | 6 | 0 | 0 | 6 |
@@ -56,21 +56,21 @@ Book: livecoms-md-basics §3.3; frenkel-smit §Ch 2; tuckerman §Ch 3, §Ch 4, �
 - ○ **MD-1.1.B** State the ergodic hypothesis and identify features of a system that break it on simulation timescales.
   - EK: Time average = ensemble average only if the trajectory visits all relevant states; barriers of many k_BT (slow rotamers, buried waters, unfolding) make runs quasi-nonergodic.
   - P5
-- ○ **MD-1.1.C** Calculate the instantaneous temperature from kinetic energy and the count of degrees of freedom — numeric rep.
+- ● **MD-1.1.C** Calculate the instantaneous temperature from kinetic energy and the count of degrees of freedom — numeric rep.
   - EK: ⟨K⟩ = (N_df/2) k_B T; N_df = 3N − N_constraints − 3 when centre-of-mass motion is removed.
-  - P4
+  - P4 · drills: cc-kinetic-temperature
 
 ### 1.2 Boltzmann weights and free energy
 
 Book: livecoms-md-basics §3.2, §3.3; frenkel-smit §Ch 2; tuckerman §Ch 4, §Ch 5
 
-- ○ **MD-1.2.A** Calculate the population ratio of two states from their energy difference at a given temperature — numeric rep.
+- ● **MD-1.2.A** Calculate the population ratio of two states from their energy difference at a given temperature — numeric rep.
   - EK: p_i/p_j = exp[−(E_i − E_j)/k_BT]; k_BT = 0.593 kcal/mol at 298.15 K, so 1.36 kcal/mol is a factor of 10.
-  - P4
-- ○ **MD-1.2.B** Convert between a population (or probability) ratio and a free-energy difference — numeric rep.
+  - P4 · drills: cc-population-ratio
+- ● **MD-1.2.B** Convert between a population (or probability) ratio and a free-energy difference — numeric rep.
   - EK: ΔG_A→B = −k_BT ln(P_B/P_A); a free energy counts every microstate of a state, so it includes entropy, not just the lowest energy.
   - Needs: MD-1.2.A
-  - P4
+  - P4 · drills: cc-free-energy-from-ratio
 - ○ **MD-1.2.C** Distinguish Helmholtz and Gibbs free energy and the potential of mean force along a coordinate, and state which one a given simulation yields.
   - EK: A = −k_BT ln Q (NVT), G = −k_BT ln Δ (NPT); W(ξ) = −k_BT ln P(ξ) + const. Absolute Q is intractable, but ratios of Q are ensemble averages.
   - P1
@@ -86,9 +86,9 @@ Book: livecoms-md-basics §3.5, §4.1; allen-tildesley §Ch 1; molssi-mmtools §
 - ○ **MD-2.1.A** Write the CHARMM potential energy function term by term and name each parameter and the pairs each term excludes.
   - EK: Bonds K_b(b − b₀)², angles K_θ(θ − θ₀)², Urey–Bradley, dihedrals K_φ[1 + cos(nφ − δ)], impropers, CMAP, LJ ε[(R_min/r)¹² − 2(R_min/r)⁶], Coulomb; 1-2 and 1-3 pairs excluded, 1-4 pairs use special LJ parameters.
   - P2
-- ○ **MD-2.1.B** Calculate a Lennard-Jones or Coulomb pair energy from CHARMM parameters using the combining rules — numeric rep.
+- ● **MD-2.1.B** Calculate a Lennard-Jones or Coulomb pair energy from CHARMM parameters using the combining rules — numeric rep.
   - EK: ε_ij = √(ε_i ε_j), R_min,ij = R_min,i/2 + R_min,j/2; Coulomb = 332.06 q_i q_j / r kcal/mol with r in Å and q in e.
-  - P4
+  - P4 · drills: cc-lj-energy, cc-lj-minimum, cc-coulomb-energy
 
 ### 2.2 Topology, parameter and structure files
 
@@ -139,13 +139,13 @@ Book: livecoms-md-basics §3.1, §4.3; frenkel-smit §Ch 4, §App H; allen-tilde
 
 Book: livecoms-md-basics §4.3; livecoms-afe §7.1.1; hayes2021-blade §2; allen-tildesley §Ch 3
 
-- ○ **MD-3.2.A** Calculate the period of the fastest vibration from its wavenumber and pick the largest stable timestep with and without hydrogen-bond constraints — numeric rep.
+- ● **MD-3.2.A** Calculate the period of the fastest vibration from its wavenumber and pick the largest stable timestep with and without hydrogen-bond constraints — numeric rep.
   - EK: T = 1/(c ν̃); X–H stretches at 3000–3600 cm⁻¹ have T ≈ 9–11 fs; with Δt ≲ T/10 that is ~1 fs unconstrained, ~2 fs with X–H constrained (rigid water roughly doubles Δt).
-  - P3 · P4
-- ○ **MD-3.2.B** Explain how SHAKE, RATTLE and SETTLE impose holonomic constraints and count the degrees of freedom they remove.
+  - P3 · P4 · drills: cc-vibration-period, cc-steps-needed
+- ◐ **MD-3.2.B** Explain how SHAKE, RATTLE and SETTLE impose holonomic constraints and count the degrees of freedom they remove.
   - EK: Lagrange multipliers iteratively restore bond lengths each step; SETTLE solves rigid 3-site water analytically; each constraint removes one degree of freedom (enters N_df).
   - Needs: MD-1.1.C
-  - P3
+  - P3 · drills: ~cc-degrees-of-freedom
 - ○ **MD-3.2.C** Decide when to use hydrogen mass repartitioning at 4 fs, or drop constraints and use 1 fs, including for bonds to alchemical atoms — choice rep.
   - EK: HMR moves mass from heavy atoms to their H, conserving total mass and thermodynamics but altering kinetics. Constraints on bonds that change length between alchemical states bias single-topology results; 1 fs without them is the general fix.
   - P3
@@ -178,9 +178,9 @@ Book: livecoms-md-basics §4.5; frenkel-smit §Ch 6, §Ch 7; hayes2021-blade §2
 - ○ **MD-4.2.B** Explain how a Monte Carlo barostat accepts a volume move and set its BLaDE parameters (prmc, iprs, pref, prdv).
   - EK: Accept with min{1, exp[−β(ΔU + PΔV) + N ln(V′/V)]}; BLaDE's N counts heavy atoms. iprs = steps between attempts (default 50), pref = pressure in atm (1), prdv = σ of ΔV in Å³ (100).
   - P3 · P6
-- ○ **MD-4.2.C** Calculate a system's density from its box dimensions and total mass and check it against the expected value — numeric rep.
+- ● **MD-4.2.C** Calculate a system's density from its box dimensions and total mass and check it against the expected value — numeric rep.
   - EK: ρ = M/(N_A V); 1 g/cm³ = 0.6022 amu/Å³. Pure TIP3P at 298 K should sit near 0.98–1.0 g/cm³.
-  - P4 · P5
+  - P4 · P5 · drills: cc-box-density
 
 ## Unit 5 · Periodic boundaries and long-range electrostatics
 
@@ -190,9 +190,9 @@ Big ideas: MODEL, DYN
 
 Book: livecoms-md-basics §4.2; orientation §Tutorial 1.2, §Tutorial 2; allen-tildesley §Ch 1; frenkel-smit §Ch 4
 
-- ○ **MD-5.1.A** Apply the minimum-image convention to find the distance between two atoms in a periodic box — numeric rep.
+- ● **MD-5.1.A** Apply the minimum-image convention to find the distance between two atoms in a periodic box — numeric rep.
   - EK: Δx ← Δx − L·round(Δx/L) per axis; valid only when the nonbonded cutoff is below L/2.
-  - P4
+  - P4 · drills: cc-minimum-image
 - ○ **MD-5.1.B** Size a solvent box from the solute's extent and edge distance and compare atom counts for cubic, truncated-octahedral and rhombic-dodecahedral cells — numeric rep.
   - EK: Cube side = d_max + 2 × edge (10 Å is standard; more for highly charged solutes like RNA). For the same image distance d: V_cube = d³, V_oct ≈ 0.770 d³ (23% fewer atoms), V_RD ≈ 0.707 d³ (29% fewer). Water ≈ 0.0334 molecules/Å³.
   - P2 · P4
@@ -229,9 +229,9 @@ Book: orientation §Tutorial 1.2; livecoms-md-basics §4.3.1; livecoms-afe §5.1
   - EK: Protonated ⇒ HSP; otherwise put H on the δ or ε N according to nearby donors/acceptors; HSE when exposed or unclear (marginally more stable in the unfolded state).
   - Needs: MD-6.1.A
   - P2
-- ○ **MD-6.1.C** Calculate the number of counterions and salt ion pairs needed to neutralize a box and reach a target concentration — numeric rep.
+- ● **MD-6.1.C** Calculate the number of counterions and salt ion pairs needed to neutralize a box and reach a target concentration — numeric rep.
   - EK: N_pairs ≈ c(M) × V(Å³) × 6.022 × 10⁻⁴; neutralize the net solute charge first. Mimic the experiment; otherwise ~150 mM (Na⁺ extracellular, K⁺ intracellular).
-  - P2 · P4
+  - P2 · P4 · drills: cc-neutralising-ions
 - ○ **MD-6.1.D** Build a solvated, ionized protein box in CHARMM-GUI Solution Builder at the experimental temperature, pH and salt, deciding which crystallographic components and termini to keep.
   - EK: Keep crystallographic waters for the folded protein (pockets refill slowly); drop BME/Cl⁻ additives unless relevant; set temperature to the experiment (often 298.15 K, not the 303.15 K default).
   - P2 · P6
@@ -261,10 +261,10 @@ Book: livecoms-uq §6.1, §7.3.1; frenkel-smit §App G; allen-tildesley §Ch 8; 
 - ○ **MD-7.1.A** Compute a normalized autocorrelation function and integrated correlation time from a short time series — numeric rep.
   - EK: C_j = ⟨δx_k δx_{k+j}⟩ / s²; τ_int = Σ_j C_j, summed until it converges but before it integrates noise.
   - P4
-- ○ **MD-7.1.B** Calculate the statistical inefficiency and effective number of independent samples, and from them the standard error of a mean — numeric rep.
+- ◐ **MD-7.1.B** Calculate the statistical inefficiency and effective number of independent samples, and from them the standard error of a mean — numeric rep.
   - EK: g = 1 + 2Σ_{j≥1} C_j (in frames); N_ind = N/g; s(x̄) = s(x)/√N_ind. Saving frames more often than τ adds disk, not information.
   - Needs: MD-7.1.A
-  - P4 · P5
+  - P4 · P5 · drills: ~cc-effective-samples
 
 ### 7.2 Error bars
 
@@ -276,9 +276,9 @@ Book: livecoms-uq §6.2, §7.2, §7.3.2, §7.4, §7.5, §7.6
 - ○ **MD-7.2.B** Compute a standard error and 95% confidence interval from n independent trials using the Student t factor — numeric rep.
   - EK: SE = s/√n with s over trial means; CI = x̄ ± t·SE, t(0.975, n − 1) = 2.78 for n = 5, 2.57 for n = 6. Starting structures must be independent for this to hold.
   - P4 · P5
-- ○ **MD-7.2.C** Propagate uncertainty through sums, differences and nonlinear functions, e.g. σ(ΔΔG) from two legs — numeric rep.
+- ● **MD-7.2.C** Propagate uncertainty through sums, differences and nonlinear functions, e.g. σ(ΔΔG) from two legs — numeric rep.
   - EK: Independent legs: σ²(a − b) = σ²_a + σ²_b; nonlinear F: σ²_F ≈ Σ(∂F/∂x_i)² σ²_i, valid when noise-to-signal is small.
-  - P4
+  - P4 · drills: cc-error-propagation
 - ○ **MD-7.2.D** Bootstrap a confidence interval for a derived quantity from correlated data, and report it with significant figures that match the uncertainty.
   - EK: Resample blocks or independent trials, not raw frames; 95% CI = 2.5th–97.5th percentile. Report the confidence level and only meaningful digits.
   - P5
@@ -387,9 +387,9 @@ Book: livecoms-afe §3.2, §6.1, §7.1.2
 
 Book: livecoms-afe §4.1, §4.3, §5.1, §5.4
 
-- ○ **MD-9.3.A** Convert between K_d and ΔG° and between fold-changes and ΔΔG, and judge a prediction against expected accuracy — numeric rep.
+- ● **MD-9.3.A** Convert between K_d and ΔG° and between fold-changes and ΔΔG, and judge a prediction against expected accuracy — numeric rep.
   - EK: ΔG° = RT ln(K_d/1 M); a 10× change in K_d is 1.36 kcal/mol at 298 K; ~1–2 kcal/mol RMS error is typical in favourable cases.
-  - P4 · P5
+  - P4 · P5 · drills: cc-kd-to-free-energy
 - ○ **MD-9.3.B** Match simulation conditions (pH, salt, temperature, construct, protonation) to the experiment being reproduced.
   - EK: The T4 lysozyme sites were measured at pH 3.0 (L99, M106, F153) and 5.4 (V149), so two folded-state setups are needed.
   - P1 · P2

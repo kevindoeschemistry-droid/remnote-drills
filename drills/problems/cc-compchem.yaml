@@ -1,0 +1,237 @@
+# Computational chemistry: the numbers a simulation or an electronic-structure calculation is set up
+# with and judged by. One question each; constants are given in the prompt and recomputed by sympy.
+
+# ── statistical mechanics for simulation ────────────────────────────────────
+- template: cc-population-ratio
+  skill: md.statmech
+  pace: quick
+  given: { dE: { pick: [0.5, 1, 1.4, 2, 3] }, T: { pick: [298, 310] } }
+  prompt: 'Two states differ in energy by ${{dE}}$ kcal/mol. What is the population of the upper state relative to the lower at ${{T}}$ K? ($R = 1.987 \times 10^{-3}$ kcal/(mol·K).)'
+  parts:
+    - { ask: 'Ratio', label: r, tex: 'p_2/p_1', value: exp(-dE/(1.987e-3*T)), tol: 0.01, explain: '$e^{-\Delta E/RT}$ with $RT \approx 0.593$ kcal/mol at 298 K. Carry this: 1.4 kcal/mol is a factor of ten, so 2.8 is a hundred and 4.1 a thousand' }
+  verify: { expect: { r: "exp(-nsimplify(dE)/(Rational(1987, 10**6)*T))" } }
+
+- template: cc-free-energy-from-ratio
+  skill: md.statmech
+  pace: quick
+  given: { K: { pick: [2, 10, 50, 100, 1000] } }
+  prompt: 'State B is ${{K}}$ times as populated as state A at 298 K. What is $\Delta G_{A \to B}$, in kcal/mol? ($RT = 0.593$ kcal/mol.)'
+  parts:
+    - { ask: '$\Delta G$ (kcal/mol)', label: r, tex: '\Delta G', value: -0.593*log(K), tol: 0.01, explain: '$\Delta G = -RT\ln\dfrac{P_B}{P_A}$: about $-1.36$ kcal/mol for each factor of ten. Chemical accuracy, 1 kcal/mol, is therefore a factor of about five in a population or a binding constant' }
+  verify: { expect: { r: "Rational(593, 1000)*log(Rational(1, K))" } }
+
+- template: cc-kinetic-temperature
+  skill: md.statmech
+  pace: quick
+  given: { N: { pick: [100, 1000, 3000] }, T: { pick: [298, 300, 310] }, nc: { pick: [0, 3] } }
+  prompt: 'A simulation of ${{N}}$ atoms has ${{nc}}$ degrees of freedom removed (constraints or centre-of-mass motion). What is its average kinetic energy at ${{T}}$ K, in kcal/mol? ($R = 1.987 \times 10^{-3}$ kcal/(mol·K).)'
+  parts:
+    - { ask: 'Kinetic energy (kcal/mol)', label: r, tex: 'K', value: (3*N - nc)/2*1.987e-3*T, tol: 0.005, explain: '$\langle K\rangle = \dfrac{N_{df}}{2}RT$ with $N_{df} = 3N - N_{constraints}$. The thermostat reads temperature from this relation backwards, so a wrong count of degrees of freedom gives a wrong temperature' }
+  verify: { expect: { r: "(3*N - nc)*Rational(1987, 10**6)*T/2" } }
+
+# ── force fields ────────────────────────────────────────────────────────────
+- template: cc-lj-minimum
+  skill: md.forcefields
+  pace: quick
+  given: { sg: { pick: [3.0, 3.4, 3.15, 4.0] } }
+  prompt: 'A Lennard-Jones pair has $\sigma = {{sg}}$ Å. At what separation is the energy lowest, in Å?'
+  parts:
+    - { ask: '$r_{min}$ (Å)', label: r, tex: 'r_{min}', value: 2^(1/6)*sg, tol: 0.002, explain: '$r_{min} = 2^{1/6}\sigma \approx 1.122\sigma$, where the energy is $-\varepsilon$. $\sigma$ is where the energy crosses zero. CHARMM files list $R_{min}/2$, AMBER and OPLS often $\sigma$: check which before copying a number' }
+  verify: { expect: { r: "Max(*[s for s in solve(Eq(2*nsimplify(sg)**6, x**6), x) if s.is_real])" } }
+
+- template: cc-lj-energy
+  skill: md.forcefields
+  pace: quick
+  given: { ep: { pick: [0.1, 0.15, 0.24] }, k: { pick: [1, 1.5, 2] } }
+  prompt: 'A Lennard-Jones pair has well depth $\varepsilon = {{ep}}$ kcal/mol. What is its energy at $r = {{k}}\sigma$, in kcal/mol?'
+  parts:
+    - { ask: 'Energy (kcal/mol)', label: r, tex: 'U', value: 4*ep*(k^(-12) - k^(-6)), tol: 0.01, explain: '$U = 4\varepsilon\left[(\sigma/r)^{12} - (\sigma/r)^6\right]$. At $2\sigma$ only about 6% of the well is left, which is why a cutoff near $2.5\sigma$ to $3\sigma$ loses little' }
+  require: [k != 1]
+  verify: { expect: { r: "4*nsimplify(ep)*(1/nsimplify(k)**12 - 1/nsimplify(k)**6)" } }
+
+- template: cc-coulomb-energy
+  skill: md.forcefields
+  pace: quick
+  given: { q1: { pick: [1, -1, 0.5] }, q2: { pick: [1, -1, -0.5] }, r: { pick: [2, 3, 5, 10] } }
+  prompt: 'What is the Coulomb energy of charges ${{q1}}e$ and ${{q2}}e$ at ${{r}}$ Å in vacuum, in kcal/mol? (Use $332\,q_1q_2/r$.)'
+  parts:
+    - { ask: 'Energy (kcal/mol)', label: r2, tex: 'U', value: 332*q1*q2/r, tol: 0.005, explain: '$U = 332\,\dfrac{q_1q_2}{r}$ kcal/mol with $r$ in Å. Two unit charges at 3 Å are worth 110 kcal/mol in vacuum: far more than a covalent bond is worth in water, where screening divides it by about 80' }
+  verify: { expect: { r2: "332*nsimplify(q1)*nsimplify(q2)/r" } }
+
+# ── integration ─────────────────────────────────────────────────────────────
+- template: cc-vibration-period
+  skill: md.integration
+  pace: quick
+  given: { nu: { pick: [3000, 3400, 1700, 1000] } }
+  prompt: 'What is the period of a vibration at ${{nu}}$ cm⁻¹, in fs? ($c = 2.998 \times 10^{10}$ cm/s.)'
+  parts:
+    - { ask: 'Period (fs)', label: r, tex: 'T', value: 1/(nu*2.998e10)*1e15, tol: 0.005, explain: '$T = \dfrac{1}{c\tilde\nu}$. A C–H stretch near 3000 cm⁻¹ takes about 11 fs, and a stable time step is roughly a tenth of the fastest period: hence 1 fs, or 2 fs once bonds to hydrogen are constrained' }
+  verify: { expect: { r: "10**15/(nu*Rational(2998, 1000)*10**10)" } }
+
+- template: cc-steps-needed
+  skill: md.integration
+  pace: recall
+  given: { t: { pick: [1, 10, 100, 1000] }, dt: { pick: [1, 2, 4] } }
+  prompt: 'How many steps does ${{t}}$ ns of dynamics take with a ${{dt}}$ fs time step? Answer in millions.'
+  parts:
+    - { ask: 'Steps (millions)', label: r, tex: 'N', value: t/dt, tol: 0.001, explain: 'A nanosecond is a million femtoseconds, so the count in millions is just ns divided by fs. A microsecond at 2 fs is half a billion force evaluations' }
+  verify: { expect: { r: "Rational(t, 10**9)/Rational(dt, 10**15)/10**6" } }
+
+- template: cc-degrees-of-freedom
+  skill: md.integration
+  pace: recall
+  given: { nw: { pick: [100, 1000, 5000] } }
+  prompt: 'A box holds ${{nw}}$ rigid three-site water molecules. How many degrees of freedom does it have, before removing centre-of-mass motion?'
+  parts:
+    - { ask: 'Degrees of freedom', label: r, tex: 'N_{df}', value: 6*nw, tol: 0.0001, explain: 'Each water has $3 \times 3 = 9$ coordinates and three constraints (two bonds and the H–H distance) hold it rigid, leaving 6: three translations and three rotations' }
+  verify: { expect: { r: "nw*(3*3 - 3)" } }
+
+# ── periodic boundaries ─────────────────────────────────────────────────────
+- template: cc-minimum-image
+  skill: md.boundaries
+  pace: quick
+  given: { L: { pick: [20, 30, 50] }, x1: { pick: [1, 3, 5] }, d: { pick: [4, 12, 16, 27] } }
+  prompt: 'In a periodic box of length ${{L}}$ Å, two atoms sit at $x = {{x1}}$ and $x = {{x1 + d}}$ Å. What is their minimum-image separation along $x$, in Å?'
+  parts:
+    - { ask: 'Separation (Å)', label: r, tex: '\Delta x', value: "d > L/2 ? L - d : d", tol: 0.001, explain: 'Take the raw difference and, if it is more than half the box, go the other way round: $\Delta x - L\,\mathrm{round}(\Delta x/L)$. No separation along one axis can exceed $L/2$, which is also why the cutoff must be no more than half the box' }
+  require: [d != L/2, d < L]
+  verify: { expect: { r: "Min(*[Abs(d + k*L) for k in (-1, 0, 1)])" } }
+
+- template: cc-box-density
+  skill: md.boundaries
+  pace: quick
+  given: { nw: { pick: [1000, 2000, 4000] }, L: { pick: [31.1, 39.2, 49.4] } }
+  prompt: 'A cubic box of side ${{L}}$ Å holds ${{nw}}$ water molecules (18.015 g/mol). What is the density, in g/cm³? ($N_A = 6.022 \times 10^{23}$.)'
+  parts:
+    - { ask: 'Density (g/cm³)', label: r, tex: '\rho', value: nw*18.015/6.02214076e23/(L*1e-8)^3, tol: 0.01, explain: 'Mass over volume, with 1 Å³ = $10^{-24}$ cm³. Shortcut: one water takes about 30 Å³ at 1 g/cm³, so 1000 waters need a box near 31 Å. A density a few percent off after NPT equilibration means something is wrong' }
+  verify: { expect: { r: "nw*Rational(18015, 1000)/c_NA/(nsimplify(L)*Rational(1, 10**8))**3" } }
+
+- template: cc-neutralising-ions
+  skill: md.boundaries
+  pace: quick
+  given: { V: { pick: [100, 250, 500] }, c: { pick: [0.1, 0.15] } }
+  prompt: 'How many ion pairs give ${{c}}$ mol/L salt in a box of volume ${{V}}$ nm³? ($N_A = 6.022 \times 10^{23}$; 1 nm³ = $10^{-24}$ L.)'
+  parts:
+    - { ask: 'Ion pairs', label: r, tex: 'N', value: c*6.02214076e23*V*1e-24, tol: 0.01, explain: '$N = cN_AV$, which works out to $0.6022\,cV$ with $V$ in nm³. Round to a whole number, and add counterions first to cancel the charge of the solute' }
+  verify: { expect: { r: "nsimplify(c)*c_NA*V/10**24" } }
+
+# ── analysis and uncertainty ────────────────────────────────────────────────
+- template: cc-effective-samples
+  skill: md.analysis
+  pace: quick
+  given: { n: { pick: [1000, 5000, 10000] }, g: { pick: [10, 25, 50] }, s: { pick: [0.5, 1, 2] } }
+  prompt: 'A time series of ${{n}}$ frames has standard deviation ${{s}}$ and statistical inefficiency $g = {{g}}$. What is the standard error of its mean?'
+  parts:
+    - { ask: 'Standard error', label: r, tex: 'SE', value: s/sqrt(n/g), tol: 0.01, explain: 'Correlated frames are worth fewer samples: $N_{eff} = N/g = {{n/g}}$, and $SE = \sigma/\sqrt{N_{eff}}$. Ignoring correlation makes every error bar too small by $\sqrt g$' }
+  verify: { expect: { r: "nsimplify(s)*sqrt(Rational(g, n))" } }
+
+- template: cc-error-propagation
+  skill: md.analysis
+  pace: quick
+  cases:
+    - { a: 0.3, b: 0.4 }
+    - { a: 0.5, b: 1.2 }
+    - { a: 0.6, b: 0.8 }
+    - { a: 0.2, b: 0.2 }
+  prompt: 'Two free energies have standard errors ${{a}}$ and ${{b}}$ kcal/mol. What is the standard error of their difference, $\Delta\Delta G$?'
+  parts:
+    - { ask: 'Standard error', label: r, tex: '\sigma', value: sqrt(a^2 + b^2), tol: 0.005, explain: 'Independent errors add in quadrature, for a difference as much as for a sum. A relative free energy is never more precise than its worse leg' }
+  verify: { expect: { r: "sqrt(nsimplify(a)**2 + nsimplify(b)**2)" } }
+
+- template: cc-kd-to-free-energy
+  skill: md.analysis
+  pace: quick
+  given: { p: { pick: [3, 6, 9, 12] } }
+  prompt: 'A ligand binds with $K_d = 10^{- {{p}} }$ mol/L at 298 K. What is its standard binding free energy, in kcal/mol? ($RT = 0.593$.)'
+  parts:
+    - { ask: '$\Delta G^\circ$ (kcal/mol)', label: r, tex: '\Delta G^\circ', value: -0.593*log(10)*p, tol: 0.01, explain: '$\Delta G^\circ = RT\ln K_d$ with the 1 mol/L standard state: $-1.36$ kcal/mol per power of ten. Millimolar is about $-4$, micromolar $-8$, nanomolar $-12$' }
+  verify: { expect: { r: "Rational(593, 1000)*log(Rational(1, 10**p))" } }
+
+# ── electronic structure ────────────────────────────────────────────────────
+- template: cc-basis-function-count
+  skill: compchem.methods
+  pace: quick
+  cases:
+    - { mol: 'water', basis: 'STO-3G', nH: 2, nHeavy: 1, bs: 0 }
+    - { mol: 'water', basis: '6-31G', nH: 2, nHeavy: 1, bs: 1 }
+    - { mol: 'water', basis: '6-31G(d)', nH: 2, nHeavy: 1, bs: 2 }
+    - { mol: 'methane', basis: 'STO-3G', nH: 4, nHeavy: 1, bs: 0 }
+    - { mol: 'methane', basis: '6-31G(d)', nH: 4, nHeavy: 1, bs: 2 }
+    - { mol: 'ethylene', basis: '6-31G', nH: 4, nHeavy: 2, bs: 1 }
+    - { mol: 'benzene', basis: '6-31G(d)', nH: 6, nHeavy: 6, bs: 2 }
+    - { mol: 'benzene', basis: 'STO-3G', nH: 6, nHeavy: 6, bs: 0 }
+  prompt: 'How many basis functions does {{mol}} have in the {{basis}} basis (six Cartesian d functions where there are any)?'
+  parts:
+    - { ask: 'Basis functions', label: r, tex: 'N', value: "bs == 0 ? nH + 5*nHeavy : (bs == 1 ? 2*nH + 9*nHeavy : 2*nH + 15*nHeavy)", tol: 0.0001, explain: 'Per atom. Minimal (STO-3G): H has 1, a second-row atom 5 (1s, 2s, three 2p). Split valence (6-31G): the valence shell is doubled, so H has 2 and C, N, O have 9. Adding (d) puts six d functions on each heavy atom: 15' }
+  verify: { expect: { r: "basis_count(nH, nHeavy, bs)" } }
+
+- template: cc-method-scaling
+  skill: compchem.methods
+  pace: quick
+  cases:
+    - { m: 'Hartree–Fock or a hybrid density functional', n: 4 }
+    - { m: 'MP2', n: 5 }
+    - { m: 'CCSD', n: 6 }
+    - { m: 'CCSD(T)', n: 7 }
+  given: { f: { pick: [2, 3] } }
+  prompt: 'The formal cost of {{m}} grows as $N^{ {{n}} }$ with system size. The molecule is made ${{f}}$ times as large. By what factor does the cost grow?'
+  parts:
+    - { ask: 'Factor', label: r, tex: 'k', value: f^n, tol: 0.001, explain: 'Hartree–Fock and hybrids $N^4$, MP2 $N^5$, CCSD $N^6$, CCSD(T) $N^7$. Doubling a CCSD(T) calculation costs 128 times as much, which is why the gold standard stops at a few dozen atoms' }
+  verify: { expect: { r: "(f*x)**n/x**n" } }
+
+- template: cc-energy-units
+  skill: compchem.methods
+  pace: quick
+  given: { mEh: { pick: [1, 1.6, 5, 10, 40] } }
+  prompt: 'Convert ${{mEh}}$ millihartree to kcal/mol. (1 hartree = 627.51 kcal/mol.)'
+  parts:
+    - { ask: 'kcal/mol', label: r, tex: 'E', value: mEh*0.62751, tol: 0.005, explain: '1 mE$_h$ is 0.6275 kcal/mol, so chemical accuracy (1 kcal/mol) is 1.6 mE$_h$. Also 1 hartree = 27.21 eV = 2625.5 kJ/mol. Total energies are thousands of hartree; chemistry lives in the fourth decimal place' }
+  verify: { expect: { r: "nsimplify(mEh)*c_Eh*c_NA/(c_cal*1000)/1000" } }
+
+- template: cc-zero-point-energy
+  skill: compchem.methods
+  pace: quick
+  given: { nu: { pick: [1000, 1700, 3000, 3700] } }
+  prompt: 'What zero-point energy does one vibration at ${{nu}}$ cm⁻¹ contribute, in kcal/mol? (1 kcal/mol = 349.755 cm⁻¹.)'
+  parts:
+    - { ask: 'ZPE (kcal/mol)', label: r, tex: 'E_0', value: nu/2/349.755, tol: 0.005, explain: 'Half a quantum: $\tfrac12hc\tilde\nu$. An O–H stretch alone carries over 5 kcal/mol, so zero-point corrections matter for any reaction that makes or breaks bonds to hydrogen' }
+  verify: { expect: { r: "c_h*c_c*100*nu/2*c_NA/(c_cal*1000)" } }
+
+- template: cc-method-choice
+  skill: compchem.methods
+  pace: recall
+  cases:
+    - { q: 'A stacked benzene dimer comes out unbound with B3LYP.', ans: 0 }
+    - { q: 'The electron affinity of chloride chemistry is badly wrong in 6-31G(d).', ans: 1 }
+    - { q: 'A single-reference method gives nonsense as a bond is stretched to breaking.', ans: 2 }
+    - { q: 'A weak complex looks more strongly bound in a small basis than a large one.', ans: 3 }
+    - { q: 'An optimised "transition state" has no imaginary frequency.', ans: 4 }
+  prompt: '{{q}} What is the first thing to fix?'
+  parts:
+    - ask: 'Fix'
+      label: a
+      choice: ["Add a dispersion correction (for example D3)", "Add diffuse functions to the basis", "Use a multireference method", "Correct for basis-set superposition error (counterpoise)", "It is a minimum, not a saddle point: search again and check the frequencies"]
+      correct: ans
+      explain: 'Match the symptom to the missing physics: no long-range correlation in standard functionals (dispersion), loosely held electrons in anions (diffuse functions), near-degenerate configurations when bonds break (multireference), borrowed basis functions in complexes (BSSE), and a stationary point of the wrong order'
+  verify: { authored: true }
+
+- template: cc-functional-rung
+  skill: compchem.methods
+  pace: recall
+  cases:
+    - { f: 'SVWN (LDA)', ans: 0 }
+    - { f: 'PBE', ans: 1 }
+    - { f: 'BLYP', ans: 1 }
+    - { f: 'TPSS', ans: 2 }
+    - { f: 'SCAN', ans: 2 }
+    - { f: 'B3LYP', ans: 3 }
+    - { f: 'PBE0', ans: 3 }
+    - { f: 'B2PLYP', ans: 4 }
+  prompt: 'On which rung of Jacob''s ladder is the density functional {{f}}?'
+  parts:
+    - ask: 'Rung'
+      label: a
+      choice: ["Local density approximation: the density only", "Generalised gradient approximation: adds the density gradient", "Meta-GGA: adds the kinetic-energy density", "Hybrid: mixes in exact exchange", "Double hybrid: adds a perturbative correlation term"]
+      correct: ans
+      explain: 'Each rung adds an ingredient and, usually, cost and accuracy: density, its gradient, the kinetic-energy density, exact exchange from the occupied orbitals, then correlation from the virtual orbitals'
+  verify: { authored: true }

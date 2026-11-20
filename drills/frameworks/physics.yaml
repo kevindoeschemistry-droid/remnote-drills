@@ -447,7 +447,7 @@ units:
       - n: 1
         title: Electric charge and electric force
         los:
-          - { id: A, std: ["P2 10.1.A"], do: "Calculate the electric force between two point charges with Coulomb's law.", ek: ["F = k|q₁q₂|/r², k = 8.99 × 10⁹ N·m²/C²; like charges repel, unlike attract."], p: [2B, 2D], drills: [], needs: [PH-2.6.A] }
+          - { id: A, std: ["P2 10.1.A"], do: "Calculate the electric force between two point charges with Coulomb's law.", ek: ["F = k|q₁q₂|/r², k = 8.99 × 10⁹ N·m²/C²; like charges repel, unlike attract."], p: [2B, 2D], drills: ["em-coulomb-force"], needs: [PH-2.6.A] }
           - { id: B, std: ["P2 10.1.B"], do: "Find the equilibrium of a charged object acted on by both electric and gravitational forces.", ek: ["Electric force dwarfs gravity between particles; for a hanging charged ball, tan θ = F_e/(mg)."], p: [1A, 2A, 2C], drills: [], needs: [PH-10.1.A, PH-2.4.A] }
           - { id: C, std: ["P2 10.1.C"], do: "Account for the permittivity of a medium in electric force calculations.", ek: ["k = 1/(4πε), ε = κε₀; a medium with κ > 1 weakens the force by a factor κ."], p: [2D], drills: [], needs: [PH-10.1.A] }
           - { id: D, std: ["P2 10.1.A"], do: "Find the net electric force on a charge from several others by vector superposition.", ek: ["Each pair force is computed independently; add the vectors by components."], p: [1A, 2B], drills: [], needs: [PH-10.1.A, PH-1.5.A] }
@@ -458,7 +458,7 @@ units:
       - n: 3
         title: Electric fields
         los:
-          - { id: A, std: ["P2 10.3.A"], do: "Calculate the electric field of one or more point charges.", ek: ["E = kq/r², away from + and toward −; fields from several charges add as vectors."], p: [2B], drills: [], needs: [PH-10.1.D] }
+          - { id: A, std: ["P2 10.3.A"], do: "Calculate the electric field of one or more point charges.", ek: ["E = kq/r², away from + and toward −; fields from several charges add as vectors."], p: [2B], drills: ["em-field-point-charge"], needs: [PH-10.1.D] }
           - { id: B, std: ["P2 10.3.A"], do: "Calculate the force on a charge in a field and its resulting motion in a uniform field.", ek: ["F = qE, a = qE/m; a charge entering a uniform field moves like a projectile."], p: [2A, 2B], drills: [], needs: [PH-10.3.A, PH-1.5.B, PH-2.5.A] }
           - { id: C, std: ["P2 10.3.B"], do: "Describe the field of charged conductors and the uniform field between oppositely charged parallel plates.", ek: ["In electrostatic equilibrium E = 0 inside a conductor and E is perpendicular to its surface; between large plates E is uniform."], p: [1A, 3B], drills: [], needs: [PH-10.3.A, PH-10.2.A] }
           - { id: D, std: ["P2 10.3"], do: "Sketch and interpret electric field lines.", ek: ["Lines start on +, end on −, never cross; their density shows field strength."], p: [1A], drills: [], needs: [PH-10.3.A] }
@@ -469,13 +469,13 @@ units:
       - n: 5
         title: Electric potential
         los:
-          - { id: A, std: ["P2 10.5"], do: "Calculate the electric potential at a point due to point charges.", ek: ["V = kq/r, a scalar: add with signs, no components; U = qV."], p: [2B], drills: [], needs: [PH-10.4.A] }
-          - { id: B, std: ["P2 10.5"], do: "Relate potential difference to a uniform field, and sketch equipotentials.", ek: ["|E| = ΔV/d, pointing toward lower V; equipotentials are perpendicular to field lines."], p: [1A, 2B], drills: [], needs: [PH-10.5.A, PH-10.3.C] }
+          - { id: A, std: ["P2 10.5"], do: "Calculate the electric potential at a point due to point charges.", ek: ["V = kq/r, a scalar: add with signs, no components; U = qV."], p: [2B], drills: ["em-potential-point-charge"], needs: [PH-10.4.A] }
+          - { id: B, std: ["P2 10.5"], do: "Relate potential difference to a uniform field, and sketch equipotentials.", ek: ["|E| = ΔV/d, pointing toward lower V; equipotentials are perpendicular to field lines."], p: [1A, 2B], drills: ["em-uniform-field-voltage"], needs: [PH-10.5.A, PH-10.3.C] }
       - n: 6
         title: Capacitors
         los:
           - { id: A, std: ["P2 10.6"], do: "Calculate the capacitance of a parallel-plate capacitor and the charge it stores.", ek: ["C = κε₀A/d; Q = CΔV."], p: [2B, 2D], drills: [], needs: [PH-10.5.B, PH-10.1.C] }
-          - { id: B, std: ["P2 10.6"], do: "Calculate the energy stored in a capacitor.", ek: ["U_C = ½QΔV = ½C(ΔV)² = Q²/(2C)."], p: [2B, 2D], drills: [], needs: [PH-10.6.A] }
+          - { id: B, std: ["P2 10.6"], do: "Calculate the energy stored in a capacitor.", ek: ["U_C = ½QΔV = ½C(ΔV)² = Q²/(2C)."], p: [2B, 2D], drills: ["em-capacitor-energy"], needs: [PH-10.6.A] }
       - n: 7
         title: Conservation of electric energy
         los:
@@ -502,12 +502,12 @@ units:
       - n: 4
         title: Electric power
         los:
-          - { id: A, std: ["P2 11.4"], do: "Calculate the power dissipated by a resistor and rank bulb brightness.", ek: ["P = IΔV = I²R = (ΔV)²/R; brightness follows power."], p: [2B, 2C], drills: [], needs: [PH-11.3.B, PH-3.5.A] }
+          - { id: A, std: ["P2 11.4"], do: "Calculate the power dissipated by a resistor and rank bulb brightness.", ek: ["P = IΔV = I²R = (ΔV)²/R; brightness follows power."], p: [2B, 2C], drills: ["em-power-dissipated"], needs: [PH-11.3.B, PH-3.5.A] }
       - n: 5
         title: Compound DC circuits
         los:
-          - { id: A, std: ["P2 11.5"], do: "Calculate the equivalent resistance of series and parallel combinations.", ek: ["Series R_eq = ΣR (same I); parallel 1/R_eq = Σ1/R (same ΔV); parallel R_eq is less than the smallest branch."], p: [2B], drills: [], needs: [PH-11.3.B] }
-          - { id: B, std: ["P2 11.5"], do: "Calculate the equivalent capacitance of series and parallel combinations.", ek: ["Parallel C_eq = ΣC; series 1/C_eq = Σ1/C — the reverse of resistors."], p: [2B], drills: [], needs: [PH-10.6.A] }
+          - { id: A, std: ["P2 11.5"], do: "Calculate the equivalent resistance of series and parallel combinations.", ek: ["Series R_eq = ΣR (same I); parallel 1/R_eq = Σ1/R (same ΔV); parallel R_eq is less than the smallest branch."], p: [2B], drills: ["em-resistors-combined"], needs: [PH-11.3.B] }
+          - { id: B, std: ["P2 11.5"], do: "Calculate the equivalent capacitance of series and parallel combinations.", ek: ["Parallel C_eq = ΣC; series 1/C_eq = Σ1/C — the reverse of resistors."], p: [2B], drills: ["em-capacitors-combined"], needs: [PH-10.6.A] }
           - { id: C, std: ["P2 11.5"], do: "Find the terminal voltage of a battery with internal resistance.", ek: ["ΔV_terminal = ε − Ir; equals ε only when no current flows."], p: [2A, 2B], drills: [], needs: [PH-11.5.A] }
       - n: 6
         title: Kirchhoff's loop rule
@@ -522,7 +522,7 @@ units:
         title: RC circuits
         los:
           - { id: A, std: ["P2 11.8"], do: "Find the currents in an RC circuit just after the switch closes and after a long time.", ek: ["An uncharged capacitor acts as a wire at t = 0; a fully charged one carries no current (open branch)."], p: [2B, 3B], drills: [], needs: [PH-11.5.B, PH-11.6.A] }
-          - { id: B, std: ["P2 11.8"], do: "Calculate the time constant of an RC circuit and sketch charge and current versus time.", ek: ["τ = RC; charging Q rises toward CΔV and I decays toward 0, ~63% of the change per τ."], p: [1C, 2B], drills: [], needs: [PH-11.8.A] }
+          - { id: B, std: ["P2 11.8"], do: "Calculate the time constant of an RC circuit and sketch charge and current versus time.", ek: ["τ = RC; charging Q rises toward CΔV and I decays toward 0, ~63% of the change per τ."], p: [1C, 2B], drills: ["em-rc-time-constant", "em-rc-fraction"], needs: [PH-11.8.A] }
 
   # ── 12 · P2 Unit 12 ──────────────────────────────────────────────────────
   - id: magnetism
@@ -540,20 +540,20 @@ units:
       - n: 2
         title: Magnetism and moving charges
         los:
-          - { id: A, std: ["P2 12.2"], do: "Calculate the magnetic force on a moving charge and find its direction with the right-hand rule.", ek: ["F = |q|vB sin θ, perpendicular to both v and B (reverse for negative charge); it does no work."], p: [2B, 3B], drills: [], needs: [PH-12.1.A, PH-10.3.B] }
-          - { id: B, std: ["P2 12.2"], do: "Calculate the radius and period of a charged particle's circular path in a uniform magnetic field.", ek: ["qvB = mv²/r ⇒ r = mv/(qB); period 2πm/(qB) is independent of speed."], p: [2A, 2B], drills: [], needs: [PH-12.2.A, PH-2.9.A] }
+          - { id: A, std: ["P2 12.2"], do: "Calculate the magnetic force on a moving charge and find its direction with the right-hand rule.", ek: ["F = |q|vB sin θ, perpendicular to both v and B (reverse for negative charge); it does no work."], p: [2B, 3B], drills: ["em-magnetic-force"], needs: [PH-12.1.A, PH-10.3.B] }
+          - { id: B, std: ["P2 12.2"], do: "Calculate the radius and period of a charged particle's circular path in a uniform magnetic field.", ek: ["qvB = mv²/r ⇒ r = mv/(qB); period 2πm/(qB) is independent of speed."], p: [2A, 2B], drills: ["em-cyclotron-radius"], needs: [PH-12.2.A, PH-2.9.A] }
           - { id: C, std: ["P2 12.2"], do: "Find the speed a velocity selector passes undeflected.", ek: ["Crossed fields balance when qE = qvB ⇒ v = E/B."], p: [2A], drills: [], needs: [PH-12.2.A] }
       - n: 3
         title: Magnetism and current-carrying wires
         los:
-          - { id: A, std: ["P2 12.3"], do: "Calculate the magnetic field near a long straight wire and give its direction.", ek: ["B = μ₀I/(2πr), circling the wire (right-hand grip rule); μ₀ = 4π × 10⁻⁷ T·m/A."], p: [2B, 2D], drills: [], needs: [PH-12.1.A, PH-11.1.A] }
+          - { id: A, std: ["P2 12.3"], do: "Calculate the magnetic field near a long straight wire and give its direction.", ek: ["B = μ₀I/(2πr), circling the wire (right-hand grip rule); μ₀ = 4π × 10⁻⁷ T·m/A."], p: [2B, 2D], drills: ["em-field-of-wire"], needs: [PH-12.1.A, PH-11.1.A] }
           - { id: B, std: ["P2 12.3"], do: "Calculate the force on a current-carrying wire in a field, including between two parallel wires.", ek: ["F = ILB sin θ; parallel currents attract, antiparallel repel."], p: [2A, 2B], drills: [], needs: [PH-12.3.A, PH-12.2.A] }
       - n: 4
         title: Electromagnetic induction and Faraday's law
         los:
           - { id: A, std: ["P2 12.4"], do: "Calculate the magnetic flux through a loop.", ek: ["Φ_B = BA cos θ, θ between B and the loop's normal; unit weber (T·m²)."], p: [2B], drills: [], needs: [PH-12.1.A, PH-1.5.A] }
-          - { id: B, std: ["P2 12.4"], do: "Apply Faraday's law to find the average induced emf from a change in flux.", ek: ["|ε| = N|ΔΦ_B/Δt|; flux can change through B, area or angle."], p: [2B, 2D], drills: [], needs: [PH-12.4.A] }
-          - { id: C, std: ["P2 12.4"], do: "Determine the direction of an induced current with Lenz's law.", ek: ["The induced current makes a field that opposes the change in flux, not the flux itself."], p: [1A, 3C], drills: [], needs: [PH-12.4.B] }
+          - { id: B, std: ["P2 12.4"], do: "Apply Faraday's law to find the average induced emf from a change in flux.", ek: ["|ε| = N|ΔΦ_B/Δt|; flux can change through B, area or angle."], p: [2B, 2D], drills: ["em-faraday-emf"], needs: [PH-12.4.A] }
+          - { id: C, std: ["P2 12.4"], do: "Determine the direction of an induced current with Lenz's law.", ek: ["The induced current makes a field that opposes the change in flux, not the flux itself."], p: [1A, 3C], drills: ["em-lenz-direction"], needs: [PH-12.4.B] }
           - { id: D, std: ["P2 12.4"], do: "Calculate the motional emf, current and magnetic force for a rod sliding on rails.", ek: ["ε = BLv; I = ε/R; the force ILB on the rod opposes its motion."], p: [2A, 2B], drills: [], needs: [PH-12.4.C, PH-12.3.B, PH-11.3.B] }
 
   # ── 13 · P2 Unit 13 ──────────────────────────────────────────────────────
@@ -673,12 +673,12 @@ units:
       - n: 7
         title: Fission, fusion and nuclear decay
         los:
-          - { id: A, std: ["P2 15.7"], do: "Calculate the energy released in a nuclear reaction from the mass defect.", ek: ["E = Δmc², 1 u ↔ 931.5 MeV; fission of heavy and fusion of light nuclei both move toward higher binding energy per nucleon."], p: [2B], drills: [], needs: [PH-3.4.A] }
+          - { id: A, std: ["P2 15.7"], do: "Calculate the energy released in a nuclear reaction from the mass defect.", ek: ["E = Δmc², 1 u ↔ 931.5 MeV; fission of heavy and fusion of light nuclei both move toward higher binding energy per nucleon."], p: [2B], drills: ["ra-q-value", "pp-rest-energy"], needs: [PH-3.4.A] }
       - n: 8
         title: Types of radioactive decay
         los:
-          - { id: A, std: ["P2 15.8"], do: "Write a balanced alpha, beta or gamma decay equation.", ek: ["Nucleon number A and charge Z are conserved; α removes ⁴₂He, β⁻ turns n → p + e⁻ + ν̄, γ changes neither."], p: [2A], drills: [], needs: [PH-15.7.A, PH-10.2.A] }
-          - { id: B, std: ["P2 15.8"], do: "Calculate the amount remaining or the elapsed time from a half-life.", ek: ["N = N₀(½)^(t/T½); decay is random per nucleus but predictable in bulk."], p: [2B, 2D], drills: ["~model-decay"], needs: [PH-15.8.A] }
+          - { id: A, std: ["P2 15.8"], do: "Write a balanced alpha, beta or gamma decay equation.", ek: ["Nucleon number A and charge Z are conserved; α removes ⁴₂He, β⁻ turns n → p + e⁻ + ν̄, γ changes neither."], p: [2A], drills: ["ra-decay-chain", "ra-count-alphas"], needs: [PH-15.7.A, PH-10.2.A] }
+          - { id: B, std: ["P2 15.8"], do: "Calculate the amount remaining or the elapsed time from a half-life.", ek: ["N = N₀(½)^(t/T½); decay is random per nucleus but predictable in bulk."], p: [2B, 2D], drills: ["~model-decay", "ra-carbon-dating"], needs: [PH-15.8.A] }
 
   # ── 16 · C: Mechanics Unit 1 ─────────────────────────────────────────────
   - id: c-kinematics
