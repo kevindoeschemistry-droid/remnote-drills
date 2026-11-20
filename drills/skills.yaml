@@ -36,6 +36,7 @@ domains:
   - { id: biochem, title: "Biochemistry" }
   - { id: orgo, title: "Organic chemistry" }
   - { id: meb, title: "Material and energy balances" }
+  - { id: fm, title: "Fluid mechanics" }
 
 skills:
   # ── prerequisites ────────────────────────────────────────────────────────
@@ -539,3 +540,11 @@ skills:
   - { id: meb.combustion, domain: meb, title: "Combustion: theoretical and excess air, flue gas", short: "Combustion", prereqs: [meb.reactive] }
   - { id: meb.energy, domain: meb, title: "Energy balances: sensible and latent heat, mixing, heat of reaction", short: "Energy balances", prereqs: [meb.nonreactive] }
   - { id: meb.unsteady, domain: meb, title: "Unsteady balances: filling, washout, heating", short: "Unsteady balances", prereqs: [meb.nonreactive, meb.energy] }
+
+  # ── fluid mechanics ──────────────────────────────────────────────────────
+  - { id: fm.statics, domain: fm, title: "Fluid properties and statics", short: "Properties and statics" }
+  - { id: fm.regimes, domain: fm, title: "Reynolds number, flow regime and laminar pipe flow", short: "Reynolds and regimes", prereqs: [fm.statics] }
+  - { id: fm.bernoulli, domain: fm, title: "Continuity and the Bernoulli equation", short: "Bernoulli", prereqs: [fm.statics] }
+  - { id: fm.energy, domain: fm, title: "Mechanical energy balance: friction, fittings and pumps", short: "Friction and pumps", prereqs: [fm.bernoulli, fm.regimes] }
+  - { id: fm.measurement, domain: fm, title: "Flow measurement", short: "Flow measurement", prereqs: [fm.bernoulli] }
+  - { id: fm.compressible, domain: fm, title: "Compressible flow and non-Newtonian fluids", short: "Compressible and non-Newtonian", prereqs: [fm.regimes] }

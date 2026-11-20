@@ -17,6 +17,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 | Computer Science | Computer Science Curricula 2023, Body of Knowledge | standard | read in full | — | — | 140 | 0 | 140 |
 | Dental Admission Test | Dental Admission Test 2026 Candidate Guide | exam-spec | read in full | — | — | 183 | 0 | 183 |
 | Applied Engineering Mathematics | Kreyszig, Advanced Engineering Mathematics, 10th ed. | textbook | read in full | fe-chemical | — | 122 | 83 | 39 |
+| Fluid Mechanics | NCEES FE Chemical CBT Exam Specifications (effective July 2020) | exam-spec | read in full | — | — | 15 | 15 | 0 |
 | Heat Transfer | NCEES FE Chemical CBT Exam Specifications (effective July 2020) | exam-spec | read in full | fe-mechanical | — | 98 | 53 | 45 |
 | Information Systems | MSIS 2016 Global Competency Model | standard | read in full | — | — | 53 | 0 | 53 |
 | Material and Energy Balances | NCEES FE Chemical CBT Exam Specifications (effective July 2020) | exam-spec | read in full | — | — | 16 | 14 | 2 |
@@ -41,6 +42,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 - **Biology (AP)**: Read through a publisher's correlation table.
 - **Chemistry (AP)**: Objectives past Unit 2 are written from topic titles.
 - **Applied Engineering Mathematics**: UCI CBE 200 publishes no syllabus. The undergraduate part is anchored to fe-chemical; series, Sturm–Liouville, PDEs and transforms are past any exam spec and stand on the book.
+- **Fluid Mechanics**: Topics from FE Chemical area 6, read in full. Objectives and their order are ours; statics is assumed by the spec rather than listed. The framework stops at what a one-question drill can carry: no Moody chart, pump curves or differential analysis yet.
 - **Heat Transfer**: Also crosswalked to the FE Mechanical spec and UCI MAE 120.
 - **Material and Energy Balances**: Topics from FE Chemical area 8, read in full. Objectives and their order are ours and follow the usual textbook sequence; unit 1 is assumed by the spec rather than listed.
 - **Mathematics K–8 (Common Core)**: Codes and wording checked against a state reprint; the CCSS site was blocked.
@@ -76,7 +78,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 
 https://ncees.org/wp-content/uploads/2022/09/FE-Che-CBT-specs.pdf
 
-31 of 88 items have at least one objective answering to them.
+39 of 88 items have at least one objective answering to them.
 
 | Item | Topic | Objectives | With a drill | Where |
 |---|---|---|---|---|
@@ -110,14 +112,14 @@ https://ncees.org/wp-content/uploads/2022/09/FE-Che-CBT-specs.pdf
 | 5.D | Biochemistry, microbiology, molecular biology | — | — | **nothing yet** |
 | 5.E | Bioprocessing | — | — | **nothing yet** |
 | **6** | **Fluid Mechanics/Dynamics** (8–12 questions) | | | |
-| 6.A | Fluid properties | — | — | **nothing yet** |
-| 6.B | Dimensionless numbers | — | — | **nothing yet** |
-| 6.C | Mechanical energy balance | — | — | **nothing yet** |
-| 6.D | Bernoulli equation | — | — | **nothing yet** |
-| 6.E | Laminar and turbulent flow | — | — | **nothing yet** |
-| 6.F | Flow measurement | — | — | **nothing yet** |
-| 6.G | Pumps, turbines, compressors, vacuum systems | — | — | **nothing yet** |
-| 6.H | Compressible flow and non-Newtonian fluids | — | — | **nothing yet** |
+| 6.A | Fluid properties | 5 | 5 | fluid-mechanics (5) |
+| 6.B | Dimensionless numbers | 4 | 4 | fluid-mechanics (4) |
+| 6.C | Mechanical energy balance | 5 | 5 | fluid-mechanics (5) |
+| 6.D | Bernoulli equation | 4 | 4 | fluid-mechanics (4) |
+| 6.E | Laminar and turbulent flow | 5 | 5 | fluid-mechanics (5) |
+| 6.F | Flow measurement | 4 | 4 | fluid-mechanics (4) |
+| 6.G | Pumps, turbines, compressors, vacuum systems | 5 | 5 | fluid-mechanics (5) |
+| 6.H | Compressible flow and non-Newtonian fluids | 4 | 4 | fluid-mechanics (4) |
 | **7** | **Thermodynamics** (8–12 questions) | | | |
 | 7.A | Properties of pure components and mixtures | 15 | 6 | physical-chemistry (4), thermodynamics (11) |
 | 7.B | Property data and phase diagrams | 9 | 7 | physical-chemistry (3), thermodynamics (6) |
@@ -186,7 +188,7 @@ https://ncees.org/wp-content/uploads/2022/09/FE-Che-CBT-specs.pdf
 | 17.C | Public health, safety, and welfare | — | — | **nothing yet** |
 | 17.D | Intellectual property | — | — | **nothing yet** |
 
-**Areas with nothing answering to them:** 3 Engineering Sciences; 4 Materials Science; 6 Fluid Mechanics/Dynamics; 11 Solids Handling; 13 Economics; 14 Process Design; 16 Safety, Health, and Environment; 17 Ethics and Professional Practice.
+**Areas with nothing answering to them:** 3 Engineering Sciences; 4 Materials Science; 11 Solids Handling; 13 Economics; 14 Process Design; 16 Safety, Health, and Environment; 17 Ethics and Professional Practice.
 
 ## UIL Number Sense Problem Sequencing Charts (High School; A+ Junior High and Elementary, rev. 2016-17) with the Number Sense Handbook rules
 

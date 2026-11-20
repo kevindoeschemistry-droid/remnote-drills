@@ -1,0 +1,310 @@
+# Fluid mechanics (framework fluid-mechanics; NCEES FE Chemical area 6).
+#
+# One question each, SI units, g = 9.81 m/s² stated wherever it is used. Each numeric key is solved a
+# second time by the verifier from the governing statement (hydrostatics, continuity, Bernoulli, the
+# mechanical energy balance) rather than from the item's closed form. Fluid properties are printed in
+# the prompt; they are round textbook values typed by hand.
+
+# ── properties and statics (6.A) ────────────────────────────────────────────
+- template: fm-kinematic-viscosity
+  skill: fm.statics
+  pace: quick
+  cases:
+    - { fl: 'water at 20 °C', mu: 0.001, rho: 998 }
+    - { fl: 'air at 20 °C', mu: 0.000018, rho: 1.2 }
+    - { fl: 'glycerin', mu: 1.4, rho: 1260 }
+    - { fl: 'an oil', mu: 0.1, rho: 880 }
+    - { fl: 'mercury', mu: 0.0015, rho: 13600 }
+  prompt: 'For {{fl}}, $\mu = {{mu}}$ Pa·s and $\rho = {{rho}}$ kg/m³. What is the kinematic viscosity in mm²/s (centistokes)?'
+  parts:
+    - { ask: 'Kinematic viscosity (mm²/s)', label: v, tex: '\nu', value: mu/rho*1000000, tol: 0.01, explain: '$\nu = \mu/\rho$ in m²/s, then $\times 10^6$ for mm²/s. Water is about 1, air about 15: air is the more "viscous" of the two per unit mass' }
+  verify: { expect: { v: "solve(Eq(x*rho/1000000, mu), x)[0]" } }
+
+- template: fm-hydrostatic-pressure
+  skill: fm.statics
+  pace: quick
+  given: { h: { pick: [2, 5, 10, 20, 30] } }
+  cases:
+    - { fl: 'water', sg: 1.0 }
+    - { fl: 'seawater', sg: 1.03 }
+    - { fl: 'oil', sg: 0.85 }
+    - { fl: 'mercury', sg: 13.6 }
+  prompt: 'What is the gauge pressure ${{h}}$ m below the free surface of {{fl}} (SG ${{sg}}$), in kPa? Use $g = 9.81$ m/s².'
+  parts:
+    - { ask: 'Gauge pressure (kPa)', label: v, tex: 'P', value: sg*1000*9.81*h/1000, tol: 0.01, explain: '$P = \rho g h = {{sg*1000}} \times 9.81 \times {{h}}$ Pa. Ten metres of water is about one atmosphere' }
+  verify: { expect: { v: "solve(Eq(x*1000, sg*1000*Rational(981, 100)*h), x)[0]" } }
+
+- template: fm-manometer
+  skill: fm.statics
+  pace: quick
+  given: { h: { pick: [5, 10, 15, 20, 30] } }
+  cases:
+    - { line: 'water', rf: 1000, man: 'mercury', rm: 13600 }
+    - { line: 'air (density negligible)', rf: 0, man: 'water', rm: 1000 }
+    - { line: 'oil (ρ = 850 kg/m³)', rf: 850, man: 'mercury', rm: 13600 }
+  prompt: 'A U-tube manometer filled with {{man}} ($\rho = {{rm}}$ kg/m³) connects two points in a line carrying {{line}}. The legs differ by ${{h}}$ cm. What is the pressure difference, in kPa? Use $g = 9.81$.'
+  parts:
+    - { ask: 'Pressure difference (kPa)', label: v, tex: '\Delta P', value: (rm - rf)*9.81*h/100/1000, tol: 0.01, explain: 'Walk round the U-tube: the process fluid fills the leg above the manometer fluid, so only the density difference counts: $\Delta P = (\rho_m - \rho_f)\,g\,h$ with $h = {{h/100}}$ m' }
+  verify: { expect: { v: "solve(Eq(x*1000 + rf*Rational(981, 100)*Rational(h, 100), rm*Rational(981, 100)*Rational(h, 100)), x)[0]" } }
+
+- template: fm-floating-fraction
+  skill: fm.statics
+  pace: quick
+  cases:
+    - { body: 'ice (SG 0.917)', sb: 0.917, fl: 'fresh water', sf: 1.0 }
+    - { body: 'ice (SG 0.917)', sb: 0.917, fl: 'seawater (SG 1.03)', sf: 1.03 }
+    - { body: 'a wooden block (SG 0.6)', sb: 0.6, fl: 'water', sf: 1.0 }
+    - { body: 'a steel ball (SG 7.8)', sb: 7.8, fl: 'mercury (SG 13.6)', sf: 13.6 }
+    - { body: 'a plastic float (SG 0.25)', sb: 0.25, fl: 'oil (SG 0.8)', sf: 0.8 }
+  prompt: '{{body}} floats in {{fl}}. What percent of its volume is submerged?'
+  parts:
+    - { ask: 'Percent submerged', label: v, tex: '\%', value: 100*sb/sf, tol: 0.01, explain: 'Floating means weight equals buoyancy: $\rho_b V = \rho_f V_{sub}$, so the submerged fraction is the ratio of specific gravities' }
+  verify: { expect: { v: "solve(Eq(sb*100, sf*x), x)[0]" } }
+
+# ── dimensionless numbers and flow regime (6.B, 6.E) ────────────────────────
+- template: fm-reynolds-number
+  skill: fm.regimes
+  pace: quick
+  given: { v: { pick: [0.5, 1, 2, 3] }, D: { pick: [0.025, 0.05, 0.1, 0.2] } }
+  cases:
+    - { fl: 'Water', rho: 1000, mu: 0.001 }
+    - { fl: 'Air', rho: 1.2, mu: 0.000018 }
+    - { fl: 'An oil', rho: 880, mu: 0.1 }
+  prompt: '{{fl}} ($\rho = {{rho}}$ kg/m³, $\mu = {{mu}}$ Pa·s) flows at ${{v}}$ m/s in a pipe of diameter ${{D}}$ m. What is the Reynolds number?'
+  parts:
+    - { ask: 'Reynolds number', label: r, tex: 'Re', value: rho*v*D/mu, tol: 0.01, explain: '$Re = \dfrac{\rho v D}{\mu}$: inertia over viscous force. Below about 2100 pipe flow is laminar; above about 4000 it is turbulent' }
+  verify: { expect: { r: "solve(Eq(x*mu, rho*v*D), x)[0]" } }
+
+- template: fm-flow-regime
+  skill: fm.regimes
+  pace: recall
+  given: { Re: { pick: [300, 800, 1500, 1900, 2800, 3300, 6000, 20000, 100000] } }
+  prompt: 'Pipe flow at $Re = {{Re|9}}$. Which regime?'
+  parts:
+    - ask: 'Regime'
+      label: a
+      choice: ["Laminar", "Transitional", "Turbulent"]
+      correct: "Re < 2100 ? 0 : (Re > 4000 ? 2 : 1)"
+      explain: 'For flow in a pipe: laminar below about 2100, turbulent above about 4000, and unreliable in between'
+  verify: { choices: { a: "0 if Re < 2100 else (2 if Re > 4000 else 1)" } }
+
+- template: fm-hydraulic-diameter
+  skill: fm.regimes
+  pace: quick
+  given: { a: { pick: [0.1, 0.2, 0.3, 0.4] }, b: { pick: [0.1, 0.15, 0.2, 0.6] } }
+  prompt: 'A rectangular duct is ${{a}}$ m by ${{b}}$ m and runs full. What is its hydraulic diameter, in m?'
+  parts:
+    - { ask: 'Hydraulic diameter (m)', label: v, tex: 'D_h', value: 2*a*b/(a + b), tol: 0.01, explain: '$D_h = \dfrac{4 \times \text{area}}{\text{wetted perimeter}} = \dfrac{4({{a}})({{b}})}{2({{a}} + {{b}})}$. For a round pipe this gives back $D$' }
+  verify: { expect: { v: "solve(Eq(x*(2*a + 2*b), 4*a*b), x)[0]" } }
+
+- template: fm-laminar-pressure-drop
+  skill: fm.regimes
+  pace: quick
+  given: { mu: { pick: [0.05, 0.1, 0.2, 1] }, L: { pick: [5, 10, 20, 50] }, v: { pick: [0.1, 0.2, 0.5] }, D: { pick: [0.02, 0.05, 0.1] } }
+  prompt: 'A viscous liquid ($\mu = {{mu}}$ Pa·s) flows in laminar flow at ${{v}}$ m/s (mean) through ${{L}}$ m of ${{D}}$ m pipe. What is the pressure drop, in kPa?'
+  parts:
+    - { ask: 'Pressure drop (kPa)', label: r, tex: '\Delta P', value: 32*mu*L*v/D^2/1000, tol: 0.01, explain: 'Hagen–Poiseuille: $\Delta P = \dfrac{32\,\mu L v}{D^2}$. The same thing as $f = 64/Re$ in the Darcy equation; density cancels' }
+  verify: { expect: { r: "(64/(1000*v*D/mu))*(L/D)*1000*v**2/2/1000" } }
+
+- template: fm-dimensionless-groups
+  skill: fm.regimes
+  pace: recall
+  cases:
+    - { q: 'inertial force to viscous force', ans: 0 }
+    - { q: 'inertial force to gravity force (open channels, waves)', ans: 1 }
+    - { q: 'inertial force to surface-tension force (drops, sprays)', ans: 2 }
+    - { q: 'flow speed to the speed of sound', ans: 3 }
+    - { q: 'pressure force to inertial force', ans: 4 }
+  prompt: 'Which dimensionless group is the ratio of {{q}}?'
+  parts:
+    - ask: 'Group'
+      label: a
+      choice: ["Reynolds", "Froude", "Weber", "Mach", "Euler"]
+      correct: ans
+      explain: 'Reynolds: inertia/viscous. Froude: inertia/gravity. Weber: inertia/surface tension. Mach: speed/sound speed. Euler: pressure/inertia'
+  verify: { authored: true }
+
+# ── continuity and Bernoulli (6.D) ──────────────────────────────────────────
+- template: fm-continuity
+  skill: fm.bernoulli
+  pace: quick
+  given: { v1: { pick: [0.5, 1, 2, 3] }, D1: { pick: [0.1, 0.2, 0.3] }, D2: { pick: [0.05, 0.1, 0.15] } }
+  require: ["D1 > D2"]
+  prompt: 'Water flows at ${{v1}}$ m/s in a ${{D1}}$ m pipe that narrows to ${{D2}}$ m. What is the velocity in the narrow section, in m/s?'
+  parts:
+    - { ask: 'Velocity (m/s)', label: v, tex: 'v_2', value: v1*(D1/D2)^2, tol: 0.01, explain: 'Incompressible, so $A_1v_1 = A_2v_2$ and area goes as $D^2$: $v_2 = v_1(D_1/D_2)^2$. Halve the diameter, quadruple the speed' }
+  verify: { expect: { v: "solve(Eq(v1*pi*D1**2/4, x*pi*D2**2/4), x)[0]" } }
+
+- template: fm-bernoulli-pressure
+  skill: fm.bernoulli
+  pace: quick
+  given: { v1: { pick: [1, 2, 3] }, k: { pick: [2, 3, 4] } }
+  prompt: 'Water ($\rho = 1000$ kg/m³) speeds up from ${{v1}}$ m/s to ${{v1*k}}$ m/s through a horizontal, frictionless contraction. By how much does the pressure fall, in kPa?'
+  parts:
+    - { ask: 'Pressure drop (kPa)', label: v, tex: 'P_1 - P_2', value: 1000*((v1*k)^2 - v1^2)/2/1000, tol: 0.01, explain: 'Bernoulli at one height: $P_1 + \tfrac12\rho v_1^2 = P_2 + \tfrac12\rho v_2^2$, so $P_1 - P_2 = \tfrac12\rho(v_2^2 - v_1^2)$' }
+  verify: { expect: { v: "solve(Eq(x*1000 + 1000*v1**2/2, 1000*(v1*k)**2/2), x)[0]" } }
+
+- template: fm-torricelli
+  skill: fm.bernoulli
+  pace: quick
+  given: { h: { pick: [0.5, 1, 2, 5, 10] } }
+  prompt: 'A large open tank drains through a small hole ${{h}}$ m below the surface. Ignoring friction, what is the exit velocity, in m/s? Use $g = 9.81$.'
+  parts:
+    - { ask: 'Exit velocity (m/s)', label: v, tex: 'v', value: sqrt(2*9.81*h), tol: 0.01, explain: 'Bernoulli from the surface (at rest, atmospheric) to the jet (atmospheric): $g h = \tfrac12 v^2$, so $v = \sqrt{2gh}$, the speed of free fall from that height' }
+  verify: { expect: { v: "Max(*solve(Eq(Rational(981, 100)*h, x**2/2), x))" } }
+
+- template: fm-pitot
+  skill: fm.measurement
+  pace: quick
+  given: { dP: { pick: [50, 100, 200, 500, 1000] } }
+  cases:
+    - { fl: 'air', rho: 1.2 }
+    - { fl: 'water', rho: 1000 }
+  prompt: 'A pitot tube in {{fl}} ($\rho = {{rho}}$ kg/m³) reads a stagnation-minus-static pressure of ${{dP}}$ Pa. What is the flow velocity, in m/s?'
+  parts:
+    - { ask: 'Velocity (m/s)', label: v, tex: 'v', value: sqrt(2*dP/rho), tol: 0.01, explain: 'The flow stops at the probe tip, turning all its kinetic energy into pressure: $\Delta P = \tfrac12\rho v^2$' }
+  verify: { expect: { v: "Max(*solve(Eq(dP, rho*x**2/2), x))" } }
+
+# ── the mechanical energy balance, friction and pumps (6.C, 6.G) ────────────
+- template: fm-friction-head-loss
+  skill: fm.energy
+  pace: quick
+  given: { f: { pick: [0.015, 0.02, 0.025, 0.03] }, L: { pick: [50, 100, 200, 500] }, D: { pick: [0.05, 0.1, 0.2] }, v: { pick: [1, 2, 3] } }
+  prompt: 'Water flows at ${{v}}$ m/s through ${{L}}$ m of ${{D}}$ m pipe with Darcy friction factor $f = {{f}}$. What is the friction head loss, in m? Use $g = 9.81$.'
+  parts:
+    - { ask: 'Head loss (m)', label: r, tex: 'h_f', value: f*L/D*v^2/(2*9.81), tol: 0.01, explain: 'Darcy–Weisbach: $h_f = f\dfrac{L}{D}\dfrac{v^2}{2g}$. $L/D$ counts the pipe in diameters; $v^2/2g$ is the velocity head' }
+  verify: { expect: { r: "solve(Eq(x*2*Rational(981, 100)*D, f*L*v**2), x)[0]" } }
+
+- template: fm-minor-loss
+  skill: fm.energy
+  pace: quick
+  given: { v: { pick: [1, 2, 3, 4] } }
+  cases:
+    - { fit: 'a fully open globe valve', K: 10 }
+    - { fit: 'a standard 90° elbow', K: 0.9 }
+    - { fit: 'a sudden exit into a tank', K: 1 }
+    - { fit: 'a sharp-edged entrance', K: 0.5 }
+    - { fit: 'a fully open gate valve', K: 0.2 }
+  prompt: 'Water passes through {{fit}} (loss coefficient $K = {{K}}$) at ${{v}}$ m/s. What head is lost, in m? Use $g = 9.81$.'
+  parts:
+    - { ask: 'Head loss (m)', label: r, tex: 'h_L', value: K*v^2/(2*9.81), tol: 0.01, explain: '$h_L = K\dfrac{v^2}{2g}$: $K$ velocity heads. A globe valve costs tens of times what a gate valve does' }
+  verify: { expect: { r: "solve(Eq(x*2*Rational(981, 100), K*v**2), x)[0]" } }
+
+- template: fm-pump-head
+  skill: fm.energy
+  pace: quick
+  given: { z1: { pick: [0, 2, 5] }, z2: { pick: [15, 20, 30, 40] }, hL: { pick: [2, 4, 6, 10] } }
+  prompt: 'A pump lifts water from an open tank with its surface at ${{z1}}$ m to an open tank with its surface at ${{z2}}$ m. Friction losses in the line total ${{hL}}$ m. What head must the pump supply, in m?'
+  parts:
+    - { ask: 'Pump head (m)', label: v, tex: 'h_p', value: z2 - z1 + hL, tol: 0.01, explain: 'Mechanical energy balance surface to surface: both are at atmospheric pressure and at rest, so the pump supplies the lift plus the losses: $h_p = (z_2 - z_1) + h_L$' }
+  verify: { expect: { v: "solve(Eq(z1 + x, z2 + hL), x)[0]" } }
+
+- template: fm-pump-power
+  skill: fm.energy
+  pace: quick
+  given: { Q: { pick: [5, 10, 20, 50] }, H: { pick: [10, 20, 30, 50] }, eta: { pick: [0.6, 0.7, 0.75, 0.8] } }
+  prompt: 'A pump delivers ${{Q}}$ L/s of water against a head of ${{H}}$ m at ${{eta*100}}\%$ efficiency. What shaft power does it need, in kW? Use $g = 9.81$.'
+  parts:
+    - { ask: 'Shaft power (kW)', label: v, tex: '\dot W', value: 1000*9.81*(Q/1000)*H/eta/1000, tol: 0.01, explain: 'Power to the fluid is $\rho g Q H = 1000 \times 9.81 \times {{Q/1000}} \times {{H}}$ W. The shaft must supply more: divide by the efficiency' }
+  verify: { expect: { v: "solve(Eq(x*1000*eta, 1000*Rational(981, 100)*Rational(Q, 1000)*H), x)[0]" } }
+
+- template: fm-pump-concepts
+  skill: fm.energy
+  pace: recall
+  cases:
+    - { q: 'What happens when the pressure at a pump inlet falls to the vapour pressure of the liquid?', ans: 0 }
+    - { q: 'To avoid cavitation, the available NPSH must be', ans: 1 }
+    - { q: 'Two identical pumps in series, at the same flow, give', ans: 2 }
+    - { q: 'Two identical pumps in parallel, at the same head, give', ans: 3 }
+  prompt: '{{q}}'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["Cavitation: vapour bubbles form and collapse", "Greater than the NPSH the pump requires", "Twice the head", "Twice the flow"]
+      correct: ans
+      explain: 'Net positive suction head is the margin of inlet pressure above the vapour pressure, in metres of liquid; the pump needs a minimum. Pumps in series add head, in parallel add flow'
+  verify: { authored: true }
+
+# ── flow measurement (6.F) ──────────────────────────────────────────────────
+- template: fm-venturi
+  skill: fm.measurement
+  pace: quick
+  given: { D2: { pick: [0.05, 0.1] }, dP: { pick: [5, 10, 20, 40] }, Cd: { pick: [0.95, 0.98] } }
+  prompt: 'A venturi meter in a water line ($\rho = 1000$ kg/m³) has a throat of ${{D2}}$ m, half the pipe diameter, and a discharge coefficient of ${{Cd}}$. It reads $\Delta P = {{dP}}$ kPa. What is the flow, in L/s?'
+  parts:
+    - { ask: 'Flow (L/s)', label: v, tex: 'Q', value: Cd*pi*D2^2/4*sqrt(2*dP*1000/(1000*(1 - 0.5^4)))*1000, tol: 0.01, explain: 'Continuity gives $v_1 = v_2\beta^2$ with $\beta = 0.5$; Bernoulli then gives $v_2 = \sqrt{\dfrac{2\Delta P}{\rho(1 - \beta^4)}}$. Multiply by the throat area and by $C_d$' }
+  verify: { expect: { v: "Cd*pi*D2**2/4*1000*Max(*[s[x] for s in solve([Eq(Symbol('u'), x*Rational(1, 4)), Eq(dP*1000/1000, (x**2 - Symbol('u')**2)/2)], [x, Symbol('u')], dict=True)])" } }
+
+- template: fm-meter-choice
+  skill: fm.measurement
+  pace: recall
+  cases:
+    - { q: 'Which meter measures a local velocity from the difference between stagnation and static pressure?', ans: 0 }
+    - { q: 'Which meter is a thin plate with a hole: cheap, but with a large permanent pressure loss?', ans: 1 }
+    - { q: 'Which meter has a smooth converging–diverging section and recovers most of the pressure?', ans: 2 }
+    - { q: 'Which meter is a float in a tapered vertical tube, read by its height?', ans: 3 }
+  prompt: '{{q}}'
+  parts:
+    - ask: 'Meter'
+      label: a
+      choice: ["Pitot tube", "Orifice plate", "Venturi meter", "Rotameter"]
+      correct: ans
+      explain: 'Pitot: point velocity. Orifice and venturi: flow from a pressure drop across a constriction, the venturi with far less permanent loss. Rotameter: a variable-area meter at constant pressure drop'
+  verify: { authored: true }
+
+# ── compressible flow and non-Newtonian fluids (6.H) ────────────────────────
+- template: fm-speed-of-sound
+  skill: fm.compressible
+  pace: quick
+  given: { T: { pick: [0, 20, 100, 300] } }
+  cases:
+    - { gas: 'air', gam: 1.4, M: 28.97 }
+    - { gas: 'helium', gam: 1.667, M: 4.003 }
+    - { gas: 'carbon dioxide', gam: 1.289, M: 44.01 }
+    - { gas: 'methane', gam: 1.31, M: 16.04 }
+  prompt: 'What is the speed of sound in {{gas}} ($\gamma = {{gam}}$, $M = {{M}}$ g/mol) at ${{T}}$ °C, in m/s? Use $R = 8.314$ J/(mol·K).'
+  parts:
+    - { ask: 'Speed of sound (m/s)', label: v, tex: 'a', value: sqrt(gam*8.31446261815324*(T + 273.15)/(M/1000)), tol: 0.01, explain: '$a = \sqrt{\gamma R T / M}$ with $T$ in kelvin and $M$ in kg/mol. Light gases carry sound fast: air about 343 m/s at 20 °C, helium about three times that' }
+  verify: { expect: { v: "Max(*solve(Eq(x**2*M/1000, gam*c_R*(T + Rational(27315, 100))), x))" } }
+
+- template: fm-mach-regime
+  skill: fm.compressible
+  pace: recall
+  given: { v: { pick: [30, 60, 90, 150, 250, 320, 400, 680] } }
+  prompt: 'Air flows at ${{v}}$ m/s where the speed of sound is 340 m/s. How should the flow be treated?'
+  parts:
+    - ask: 'Treatment'
+      label: a
+      choice: ["Ma < 0.3: incompressible is a good approximation", "0.3 < Ma < 1: subsonic, compressible", "Ma > 1: supersonic"]
+      correct: "v/340 < 0.3 ? 0 : (v/340 < 1 ? 1 : 2)"
+      explain: '$Ma = v/a = {{v/340}}$. Below about 0.3 the density changes by only a few percent, so Bernoulli still works'
+  verify: { choices: { a: "0 if v*10 < 3*340 else (1 if v < 340 else 2)" } }
+
+- template: fm-non-newtonian-type
+  skill: fm.compressible
+  pace: recall
+  cases:
+    - { q: 'Water or air', ans: 0 }
+    - { q: 'A power-law fluid with n = 1', ans: 0 }
+    - { q: 'Paint, ketchup or a polymer solution: thinner the faster it is sheared', ans: 1 }
+    - { q: 'A power-law fluid with n = 0.6', ans: 1 }
+    - { q: 'A thick cornstarch suspension: stiffer the faster it is sheared', ans: 2 }
+    - { q: 'A power-law fluid with n = 1.4', ans: 2 }
+    - { q: 'Toothpaste: it will not flow until a yield stress is exceeded, then flows', ans: 3 }
+  prompt: 'What kind of fluid? {{q}}.'
+  parts:
+    - ask: 'Type'
+      label: a
+      choice: ["Newtonian", "Shear-thinning (pseudoplastic)", "Shear-thickening (dilatant)", "Bingham plastic"]
+      correct: ans
+      explain: 'Power law: stress $= K(\text{shear rate})^n$. $n = 1$ is Newtonian, $n < 1$ shear-thinning, $n > 1$ shear-thickening. A Bingham plastic needs a yield stress before it moves at all'
+  verify: { authored: true }
+
+- template: fm-apparent-viscosity
+  skill: fm.compressible
+  pace: quick
+  given: { K: { pick: [0.5, 2, 5, 10] }, n: { pick: [0.5, 2] }, gd: { pick: [4, 25, 100] } }
+  prompt: 'A power-law fluid has $\tau = {{K}}\,\dot\gamma^{ {{n}} }$ (SI units). What is its apparent viscosity at a shear rate of ${{gd}}$ s⁻¹, in Pa·s?'
+  parts:
+    - { ask: 'Apparent viscosity (Pa·s)', label: v, tex: '\eta', value: K*gd^(n - 1), tol: 0.01, explain: 'Apparent viscosity is stress over shear rate: $\eta = K\dot\gamma^{\,n-1}$. With $n < 1$ it falls as the shear rate rises; with $n > 1$ it climbs' }
+  verify: { expect: { v: "solve(Eq(x*gd, K*gd**n), x)[0]" } }

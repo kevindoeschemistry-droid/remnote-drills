@@ -135,6 +135,8 @@ if (fs.existsSync(problemsDir))
       if (!Array.isArray(t.parts) || !t.parts.length) errors.push(`${where}: needs at least one part`);
       for (const p of t.parts ?? []) {
         if (!p.ask || !p.label) errors.push(`${where}: every part needs ask and label`);
+        // the verifier binds each typed answer to its label, so a label that is also a given would shadow the given
+        if (p.label && !p.draw && p.choice === undefined && t.verify && (Object.keys(t.given ?? {}).includes(p.label) || (t.cases ?? []).some((c) => p.label in c)) && new RegExp(`\\b${p.label}\\b`).test(Object.values(t.verify).flatMap((q) => (q && typeof q === "object" ? Object.values(q) : [q])).join(" "))) errors.push(`${where} › ${p.label}: the verify block uses a given or case field with the same name as this part's label, which the claimed answer would shadow`);
         if (p.draw && !p.solution) errors.push(`${where} › ${p.label}: a draw part needs a solution figure to compare with`);
         if (!p.draw && p.value === undefined && !p.choice && !p.expr && !(p.ode && p.sol)) errors.push(`${where} › ${p.label}: needs value (a number), expr (an expression), ode + sol, choice, or draw`);
       }

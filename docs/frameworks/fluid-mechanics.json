@@ -1,0 +1,612 @@
+{
+ "id": "fluid-mechanics",
+ "title": "Fluid Mechanics",
+ "code": "FM",
+ "draft": 1,
+ "track": "engineering",
+ "requires": [
+  "engineering-math",
+  "physics"
+ ],
+ "level": 4,
+ "domains": [
+  "fm"
+ ],
+ "basis": {
+  "primary": "fe-chemical",
+  "note": "Topics from FE Chemical area 6, read in full. Objectives and their order are ours; statics is assumed by the spec rather than listed. The framework stops at what a one-question drill can carry: no Moody chart, pump curves or differential analysis yet."
+ },
+ "big_ideas": [
+  {
+   "id": "HEAD",
+   "title": "Everything is a head",
+   "text": "Pressure, velocity, elevation, friction and pump work can all be written as metres of fluid. The mechanical energy balance is bookkeeping in that one currency."
+  },
+  {
+   "id": "REGIME",
+   "title": "Find the regime first",
+   "text": "A Reynolds number, or a Mach number, decides which equations apply. Compute it before anything else."
+  },
+  {
+   "id": "CONSERVE",
+   "title": "Mass in equals mass out",
+   "text": "Continuity fixes how velocity changes with area; Bernoulli then fixes how pressure changes with velocity."
+  }
+ ],
+ "practices": [
+  {
+   "id": "P1",
+   "title": "Compute",
+   "text": "Carry a calculation through in SI units to a number with the right order of magnitude."
+  },
+  {
+   "id": "P2",
+   "title": "Classify",
+   "text": "Decide the regime, the kind of fluid or the right instrument from what is given."
+  },
+  {
+   "id": "P3",
+   "title": "Set up",
+   "text": "Choose the two points and the terms that survive in an energy balance."
+  }
+ ],
+ "units": [
+  {
+   "id": "statics",
+   "n": 1,
+   "title": "Properties and statics",
+   "scope": "core",
+   "std": [
+    "fe-chemical:6.A"
+   ],
+   "ideas": [
+    "HEAD"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "Properties",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "fe-chemical:6.A"
+       ],
+       "do": "Relate dynamic and kinematic viscosity, density and specific gravity.",
+       "ek": [
+        "ν = μ/ρ. Water is about 1 mm²/s, air about 15."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "fm-kinematic-viscosity"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "title": "Statics",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "fe-chemical:6.A"
+       ],
+       "do": "Compute hydrostatic pressure and read a U-tube manometer.",
+       "ek": [
+        "P = ρgh; across a manometer only the density difference counts."
+       ],
+       "p": [
+        "P1",
+        "P3"
+       ],
+       "drills": [
+        "fm-hydrostatic-pressure",
+        "fm-manometer"
+       ]
+      },
+      {
+       "id": "B",
+       "do": "Apply Archimedes' principle to a floating body.",
+       "ek": [
+        "Submerged fraction = body density over fluid density."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "fm-floating-fraction"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "regimes",
+   "n": 2,
+   "title": "Dimensionless numbers and flow regime",
+   "scope": "core",
+   "std": [
+    "fe-chemical:6.B",
+    "fe-chemical:6.E"
+   ],
+   "ideas": [
+    "REGIME"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "Reynolds number",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "fe-chemical:6.B"
+       ],
+       "do": "Compute a Reynolds number and a hydraulic diameter, and say what each common dimensionless group compares.",
+       "ek": [
+        "Re = ρvD/μ; D_h = 4A/P; Re, Fr, We, Ma, Eu each compare two forces or speeds."
+       ],
+       "p": [
+        "P1",
+        "P2"
+       ],
+       "drills": [
+        "fm-reynolds-number",
+        "fm-hydraulic-diameter",
+        "fm-dimensionless-groups"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "fe-chemical:6.E"
+       ],
+       "do": "Classify pipe flow as laminar, transitional or turbulent.",
+       "ek": [
+        "Laminar below about 2100, turbulent above about 4000."
+       ],
+       "p": [
+        "P2"
+       ],
+       "drills": [
+        "fm-flow-regime"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "fe-chemical:6.E"
+       ],
+       "do": "Find the pressure drop of laminar pipe flow.",
+       "ek": [
+        "Hagen–Poiseuille: ΔP = 32μLv/D², the same as f = 64/Re."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "fm-laminar-pressure-drop"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "bernoulli",
+   "n": 3,
+   "title": "Continuity and Bernoulli",
+   "scope": "core",
+   "std": [
+    "fe-chemical:6.D"
+   ],
+   "ideas": [
+    "CONSERVE",
+    "HEAD"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "Frictionless flow",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "fe-chemical:6.D"
+       ],
+       "do": "Use continuity to find a velocity change and Bernoulli to find the pressure change that goes with it.",
+       "ek": [
+        "A1v1 = A2v2; P + ½ρv² + ρgz is constant along a streamline without friction."
+       ],
+       "p": [
+        "P1",
+        "P3"
+       ],
+       "drills": [
+        "fm-continuity",
+        "fm-bernoulli-pressure"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "fe-chemical:6.D"
+       ],
+       "do": "Find the efflux velocity from a tank.",
+       "ek": [
+        "Torricelli: v = √(2gh)."
+       ],
+       "p": [
+        "P1",
+        "P3"
+       ],
+       "drills": [
+        "fm-torricelli"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "energy",
+   "n": 4,
+   "title": "The mechanical energy balance",
+   "scope": "core",
+   "std": [
+    "fe-chemical:6.C",
+    "fe-chemical:6.G"
+   ],
+   "ideas": [
+    "HEAD"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "Friction",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "fe-chemical:6.C"
+       ],
+       "do": "Compute friction head loss in a pipe and in a fitting.",
+       "ek": [
+        "h_f = f(L/D)v²/2g; h_L = K v²/2g."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "fm-friction-head-loss",
+        "fm-minor-loss"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "title": "Pumps",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "fe-chemical:6.C",
+        "fe-chemical:6.G"
+       ],
+       "do": "Find the head a pump must supply and the power it draws.",
+       "ek": [
+        "Pump head = lift + losses (+ pressure and velocity changes); shaft power = ρgQH/η."
+       ],
+       "p": [
+        "P1",
+        "P3"
+       ],
+       "drills": [
+        "fm-pump-head",
+        "fm-pump-power"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "fe-chemical:6.G"
+       ],
+       "do": "Explain cavitation and NPSH, and what pumps in series and in parallel do.",
+       "ek": [
+        "Available NPSH must exceed required; series adds head, parallel adds flow."
+       ],
+       "p": [
+        "P2"
+       ],
+       "drills": [
+        "fm-pump-concepts"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "measurement",
+   "n": 5,
+   "title": "Flow measurement",
+   "scope": "core",
+   "std": [
+    "fe-chemical:6.F"
+   ],
+   "ideas": [
+    "CONSERVE"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "Meters",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "fe-chemical:6.F"
+       ],
+       "do": "Compute a velocity from a pitot reading and a flow from a venturi reading.",
+       "ek": [
+        "Pitot: ΔP = ½ρv². Venturi: continuity plus Bernoulli, times a discharge coefficient."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "fm-pitot",
+        "fm-venturi"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "fe-chemical:6.F"
+       ],
+       "do": "Choose between pitot, orifice, venturi and rotameter.",
+       "ek": [
+        "Orifice is cheap with high permanent loss; venturi recovers pressure; rotameter is variable-area."
+       ],
+       "p": [
+        "P2"
+       ],
+       "drills": [
+        "fm-meter-choice"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "compressible",
+   "n": 6,
+   "title": "Compressible flow and non-Newtonian fluids",
+   "scope": "core",
+   "std": [
+    "fe-chemical:6.H"
+   ],
+   "ideas": [
+    "REGIME"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "Compressible flow",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "fe-chemical:6.H"
+       ],
+       "do": "Compute the speed of sound in an ideal gas and use the Mach number to decide how to treat a flow.",
+       "ek": [
+        "a = √(γRT/M); below Ma ≈ 0.3 a gas flow can be treated as incompressible."
+       ],
+       "p": [
+        "P1",
+        "P2"
+       ],
+       "drills": [
+        "fm-speed-of-sound",
+        "fm-mach-regime"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "title": "Non-Newtonian fluids",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "fe-chemical:6.H"
+       ],
+       "do": "Classify a fluid as Newtonian, shear-thinning, shear-thickening or Bingham, and compute a power-law apparent viscosity.",
+       "ek": [
+        "τ = Kγ̇ⁿ; apparent viscosity Kγ̇ⁿ⁻¹; a Bingham plastic has a yield stress."
+       ],
+       "p": [
+        "P1",
+        "P2"
+       ],
+       "drills": [
+        "fm-non-newtonian-type",
+        "fm-apparent-viscosity"
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "rows": [
+  {
+   "code": "FM-1.1.A",
+   "unit": 1,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "fm-kinematic-viscosity"
+   ],
+   "partial": []
+  },
+  {
+   "code": "FM-1.2.A",
+   "unit": 1,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "fm-hydrostatic-pressure",
+    "fm-manometer"
+   ],
+   "partial": []
+  },
+  {
+   "code": "FM-1.2.B",
+   "unit": 1,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "fm-floating-fraction"
+   ],
+   "partial": []
+  },
+  {
+   "code": "FM-2.1.A",
+   "unit": 2,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "fm-reynolds-number",
+    "fm-hydraulic-diameter",
+    "fm-dimensionless-groups"
+   ],
+   "partial": []
+  },
+  {
+   "code": "FM-2.1.B",
+   "unit": 2,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "fm-flow-regime"
+   ],
+   "partial": []
+  },
+  {
+   "code": "FM-2.1.C",
+   "unit": 2,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "fm-laminar-pressure-drop"
+   ],
+   "partial": []
+  },
+  {
+   "code": "FM-3.1.A",
+   "unit": 3,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "fm-continuity",
+    "fm-bernoulli-pressure"
+   ],
+   "partial": []
+  },
+  {
+   "code": "FM-3.1.B",
+   "unit": 3,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "fm-torricelli"
+   ],
+   "partial": []
+  },
+  {
+   "code": "FM-4.1.A",
+   "unit": 4,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "fm-friction-head-loss",
+    "fm-minor-loss"
+   ],
+   "partial": []
+  },
+  {
+   "code": "FM-4.2.A",
+   "unit": 4,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "fm-pump-head",
+    "fm-pump-power"
+   ],
+   "partial": []
+  },
+  {
+   "code": "FM-4.2.B",
+   "unit": 4,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "fm-pump-concepts"
+   ],
+   "partial": []
+  },
+  {
+   "code": "FM-5.1.A",
+   "unit": 5,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "fm-pitot",
+    "fm-venturi"
+   ],
+   "partial": []
+  },
+  {
+   "code": "FM-5.1.B",
+   "unit": 5,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "fm-meter-choice"
+   ],
+   "partial": []
+  },
+  {
+   "code": "FM-6.1.A",
+   "unit": 6,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "fm-speed-of-sound",
+    "fm-mach-regime"
+   ],
+   "partial": []
+  },
+  {
+   "code": "FM-6.2.A",
+   "unit": 6,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "fm-non-newtonian-type",
+    "fm-apparent-viscosity"
+   ],
+   "partial": []
+  }
+ ],
+ "orphanTpl": []
+}
