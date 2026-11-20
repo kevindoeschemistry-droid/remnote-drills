@@ -28,6 +28,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 | Physical Chemistry | Engel & Reid, Physical Chemistry, 3rd ed. (through the wiki's drill pages) | textbook | read in part | fe-chemical | acs-accm-pchem | 141 | 59 | 82 |
 | Physics (AP) | AP Physics 1, 2 and C Course and Exam Descriptions | standard | read in part | — | — | 201 | 201 | 0 |
 | Programming Foundations | AP Computer Science A Course and Exam Description (Fall 2025) | standard | read in full | — | — | 140 | 140 | 0 |
+| Chemical Reaction Engineering | NCEES FE Chemical CBT Exam Specifications (effective July 2020) | exam-spec | read in full | — | — | 9 | 9 | 0 |
 | Speaking and Articulation | Competent Speaker Speech Evaluation Form, 2nd ed. | rubric | read in full | toastmasters-pathways | — | 69 | 0 | 69 |
 | Structures from Memory | Bruice, Organic Chemistry, 8th edition (table of contents) | textbook | read in part | iupac-aa-1983 | aamc-mcat-outline | 12 | 10 | 2 |
 | Swimming | World Aquatics swimming rules (with USA Swimming and USMS stroke rules) | rulebook | read in full | — | asca-certification | 88 | 0 | 88 |
@@ -50,6 +51,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 - **Molecular Simulation**: No standard exists for this subject; triangulated from best-practice papers, textbooks and the Hayes group tutorial.
 - **Physical Chemistry**: Textbook-shaped until the ACS content map is read. Thermodynamics and kinetics units are anchored to fe-chemical; quantum and spectroscopy have no outside anchor yet.
 - **Physics (AP)**: Objective codes read for a few units only.
+- **Chemical Reaction Engineering**: Topics from FE Chemical area 12, read in full. Objectives and their order are ours. Limited so far to isothermal, constant-density reactions; the gaps are listed in the file header.
 - **Speaking and Articulation**: A scoring rubric plus Toastmasters' competency list; unit order is ours.
 - **Structures from Memory**: Units follow the chapter list of Bruice's Organic Chemistry (a textbook, not a standard). The amino acids follow IUPAC-IUB 1983 Table 1. Which compounds to carry in each unit is a house list; the MCAT content outline names the same families and has not been opened.
 - **Swimming**: Rules and research papers; they say what is legal and why technique works, not what to learn in what order. Unit order is ours.
@@ -78,7 +80,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 
 https://ncees.org/wp-content/uploads/2022/09/FE-Che-CBT-specs.pdf
 
-39 of 88 items have at least one objective answering to them.
+41 of 88 items have at least one objective answering to them.
 
 | Item | Topic | Objectives | With a drill | Where |
 |---|---|---|---|---|
@@ -154,12 +156,12 @@ https://ncees.org/wp-content/uploads/2022/09/FE-Che-CBT-specs.pdf
 | 11.B | Processing (crushing, grinding, crystallization) | — | — | **nothing yet** |
 | 11.C | Transport and storage | — | — | **nothing yet** |
 | **12** | **Chemical Reaction Engineering** (7–11 questions) | | | |
-| 12.A | Reaction rates and order | 13 | 6 | physical-chemistry (13) |
-| 12.B | Rate constants (Arrhenius) | 19 | 11 | physical-chemistry (13), thermodynamics (6) |
-| 12.C | Conversion, yield, selectivity | — | — | **nothing yet** |
-| 12.D | Reaction types (series, parallel, homogeneous, heterogeneous, biological) | 13 | 6 | physical-chemistry (13) |
-| 12.E | Reactor types (batch, CSTR, PFR, semibatch) | — | — | **nothing yet** |
-| 12.F | Catalysis | 13 | 6 | physical-chemistry (13) |
+| 12.A | Reaction rates and order | 18 | 11 | physical-chemistry (13), reaction-engineering (5) |
+| 12.B | Rate constants (Arrhenius) | 23 | 15 | physical-chemistry (13), reaction-engineering (4), thermodynamics (6) |
+| 12.C | Conversion, yield, selectivity | 7 | 7 | reaction-engineering (7) |
+| 12.D | Reaction types (series, parallel, homogeneous, heterogeneous, biological) | 17 | 10 | physical-chemistry (13), reaction-engineering (4) |
+| 12.E | Reactor types (batch, CSTR, PFR, semibatch) | 6 | 6 | reaction-engineering (6) |
+| 12.F | Catalysis | 15 | 8 | physical-chemistry (13), reaction-engineering (2) |
 | **13** | **Economics** (4–6 questions) | | | |
 | 13.A | Time value of money | — | — | **nothing yet** |
 | 13.B | Economic analyses | — | — | **nothing yet** |

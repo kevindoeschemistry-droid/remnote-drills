@@ -1,0 +1,219 @@
+# Chemical reaction engineering (framework reaction-engineering; NCEES FE Chemical area 12).
+#
+# One question each. Reactor answers are checked from the mole balance itself: batch items by solving
+# the rate ODE, CSTR items by solving the algebraic balance, PFR items by integrating the design
+# equation. Liquid phase, constant density, isothermal throughout.
+
+# ── rate laws and order (12.A) ──────────────────────────────────────────────
+- template: cre-rate-from-law
+  skill: cre.rate-laws
+  pace: quick
+  given: { k: { pick: [0.1, 0.2, 0.5, 2] }, C: { pick: [0.5, 2, 3, 4] }, n: { pick: [1, 2] } }
+  prompt: 'A reaction follows $-r_A = k\,C_A^{ {{n}} }$ with $k = {{k}}$ (in mol, L, min units). What is the rate at $C_A = {{C}}$ mol/L, in mol/(L·min)?'
+  parts:
+    - { ask: 'Rate (mol/(L·min))', label: r, tex: '-r_A', value: k*C^n, tol: 0.01, explain: 'Substitute: ${{k}} \times {{C}}^{ {{n}} }$. The order is the exponent on the concentration, not the stoichiometric coefficient' }
+  verify: { expect: { r: "k*C**n" } }
+
+- template: cre-rate-constant-units
+  skill: cre.rate-laws
+  pace: recall
+  given: { n: { pick: [0, 1, 2] } }
+  prompt: 'What are the units of the rate constant for a reaction of order ${{n}}$ (concentration in mol/L, time in s)?'
+  parts:
+    - ask: 'Units of $k$'
+      label: a
+      choice: ["mol/(L·s)", "1/s", "L/(mol·s)"]
+      correct: n
+      explain: 'The rate is always mol/(L·s), so $k$ carries (mol/L) to the power $1 - n$ per second. The units of a quoted $k$ tell you the order'
+  verify: { choices: { a: "n" } }
+
+- template: cre-order-from-doubling
+  skill: cre.rate-laws
+  pace: recall
+  given: { fac: { pick: [2, 4, 8] } }
+  prompt: 'Doubling the concentration of A multiplies the rate by ${{fac}}$. What is the order in A?'
+  parts:
+    - { ask: 'Order', label: r, tex: 'n', value: log(fac)/log(2), tol: 0.001, explain: '$2^n = {{fac}}$. Doubling doubles a first-order rate, quadruples a second-order one, and leaves a zero-order rate alone' }
+  verify: { expect: { r: "solve(Eq(2**x, fac), x)[0]" } }
+
+- template: cre-half-life
+  skill: cre.rate-laws
+  pace: quick
+  given: { k: { pick: [0.01, 0.05, 0.1, 0.5, 2] } }
+  prompt: 'A first-order reaction has $k = {{k}}$ min⁻¹. What is its half-life, in minutes?'
+  parts:
+    - { ask: 'Half-life (min)', label: r, tex: 't_{1/2}', value: log(2)/k, tol: 0.01, explain: '$C = C_0e^{-kt}$, so $t_{1/2} = \dfrac{\ln 2}{k} = \dfrac{0.693}{ {{k}} }$. For first order it does not depend on the starting concentration' }
+  verify:
+    var: t
+    ode: "diff(T(t), t) + k*T(t)"
+    bcs: ["T(0) = 1"]
+    expect: { r: "solve(Eq(T(t), Rational(1, 2)), t)[0]" }
+
+# ── Arrhenius (12.B) ────────────────────────────────────────────────────────
+- template: cre-arrhenius-ratio
+  skill: cre.arrhenius
+  pace: quick
+  given: { Ea: { pick: [40, 50, 75, 100] }, T1: { pick: [25, 50] }, dT: { pick: [10, 20, 50] } }
+  prompt: 'A reaction has $E_a = {{Ea}}$ kJ/mol. By what factor does the rate constant increase when the temperature goes from ${{T1}}$ °C to ${{T1 + dT}}$ °C? Use $R = 8.314$ J/(mol·K).'
+  parts:
+    - { ask: '$k_2/k_1$', label: r, tex: 'k_2/k_1', value: exp(Ea*1000/8.31446261815324*(1/(T1 + 273.15) - 1/(T1 + dT + 273.15))), tol: 0.02, explain: '$\dfrac{k_2}{k_1} = \exp\!\left[\dfrac{E_a}{R}\left(\dfrac1{T_1} - \dfrac1{T_2}\right)\right]$ with kelvin and joules. Around room temperature and $E_a \approx 50$ kJ/mol, ten degrees roughly doubles the rate' }
+  verify: { expect: { r: "exp(Ea*1000/c_R*(1/(T1 + Rational(27315, 100)) - 1/(T1 + dT + Rational(27315, 100))))" } }
+
+- template: cre-activation-energy
+  skill: cre.arrhenius
+  pace: quick
+  given: { fac: { pick: [2, 3, 5, 10] }, T1: { pick: [25, 50, 100] }, dT: { pick: [10, 20, 25] } }
+  prompt: 'A rate constant increases by a factor of ${{fac}}$ between ${{T1}}$ °C and ${{T1 + dT}}$ °C. What is the activation energy, in kJ/mol? Use $R = 8.314$ J/(mol·K).'
+  parts:
+    - { ask: '$E_a$ (kJ/mol)', label: r, tex: 'E_a', value: 8.31446261815324*log(fac)/(1/(T1 + 273.15) - 1/(T1 + dT + 273.15))/1000, tol: 0.02, explain: 'Take logs of the Arrhenius ratio: $E_a = \dfrac{R\ln(k_2/k_1)}{1/T_1 - 1/T_2}$, temperatures in kelvin' }
+  verify: { expect: { r: "solve(Eq(log(fac), x*1000/c_R*(1/(T1 + Rational(27315, 100)) - 1/(T1 + dT + Rational(27315, 100)))), x)[0]" } }
+
+# ── batch reactors (12.C, 12.E) ─────────────────────────────────────────────
+- template: cre-batch-first-order-time
+  skill: cre.batch
+  pace: quick
+  given: { k: { pick: [0.05, 0.1, 0.2, 0.5] }, X: { pick: [0.5, 0.8, 0.9, 0.95, 0.99] } }
+  prompt: 'A first-order liquid reaction ($k = {{k}}$ min⁻¹) runs in a batch reactor. How long to reach ${{X*100}}\%$ conversion, in minutes?'
+  parts:
+    - { ask: 'Time (min)', label: r, tex: 't', value: -log(1 - X)/k, tol: 0.01, explain: '$\dfrac{dC_A}{dt} = -kC_A$ gives $1 - X = e^{-kt}$, so $t = \dfrac{1}{k}\ln\dfrac{1}{1 - X}$. Each extra "nine" of conversion costs another $\ln 10/k$' }
+  verify:
+    var: t
+    ode: "diff(T(t), t) + k*T(t)"
+    bcs: ["T(0) = 1"]
+    expect: { r: "solve(Eq(T(t), 1 - X), t)[0]" }
+
+- template: cre-batch-second-order-time
+  skill: cre.batch
+  pace: quick
+  given: { k: { pick: [0.1, 0.2, 0.5] }, C0: { pick: [1, 2, 4] }, X: { pick: [0.5, 0.75, 0.9] } }
+  prompt: 'A second-order liquid reaction, $-r_A = kC_A^2$ with $k = {{k}}$ L/(mol·min), starts at $C_{A0} = {{C0}}$ mol/L in a batch reactor. How long to reach ${{X*100}}\%$ conversion, in minutes?'
+  parts:
+    - { ask: 'Time (min)', label: r, tex: 't', value: X/(k*C0*(1 - X)), tol: 0.01, explain: '$\dfrac{dC_A}{dt} = -kC_A^2$ integrates to $\dfrac1{C_A} - \dfrac1{C_{A0}} = kt$, so $t = \dfrac{X}{kC_{A0}(1 - X)}$. Unlike first order, the starting concentration matters' }
+  verify: { expect: { r: "solve(Eq(1/(C0*(1 - X)) - 1/C0, k*x), x)[0]" } }
+
+# ── flow reactors (12.E) ────────────────────────────────────────────────────
+- template: cre-cstr-volume
+  skill: cre.cstr
+  pace: quick
+  given: { v0: { pick: [5, 10, 20, 50] }, k: { pick: [0.1, 0.2, 0.5] }, X: { pick: [0.5, 0.8, 0.9] } }
+  prompt: 'A first-order liquid reaction ($k = {{k}}$ min⁻¹) is run in a CSTR fed at ${{v0}}$ L/min. What volume gives ${{X*100}}\%$ conversion, in L?'
+  parts:
+    - { ask: 'Volume (L)', label: r, tex: 'V', value: v0*X/(k*(1 - X)), tol: 0.01, explain: 'CSTR balance: in $-$ out $=$ consumed, with the rate evaluated at the exit concentration: $v_0C_{A0}X = kC_{A0}(1 - X)V$. So $V = \dfrac{v_0X}{k(1 - X)}$' }
+  verify: { expect: { r: "solve(Eq(v0*1 - v0*(1 - X) - k*(1 - X)*x, 0), x)[0]" } }
+
+- template: cre-cstr-conversion
+  skill: cre.cstr
+  pace: quick
+  given: { k: { pick: [0.1, 0.2, 0.5, 1] }, tau: { pick: [1, 2, 5, 10, 20] } }
+  prompt: 'A first-order reaction ($k = {{k}}$ min⁻¹) runs in a CSTR with space time $\tau = {{tau}}$ min. What is the conversion?'
+  parts:
+    - { ask: 'Conversion', label: r, tex: 'X', value: k*tau/(1 + k*tau), tol: 0.01, explain: '$X = \dfrac{k\tau}{1 + k\tau}$, where $k\tau = {{k*tau}}$ is the Damköhler number. $Da = 1$ gives 50%, $Da = 9$ gives 90%' }
+  verify: { expect: { r: "solve(Eq(x, k*tau*(1 - x)), x)[0]" } }
+
+- template: cre-pfr-volume
+  skill: cre.pfr
+  pace: quick
+  given: { v0: { pick: [5, 10, 20, 50] }, k: { pick: [0.1, 0.2, 0.5] }, X: { pick: [0.5, 0.8, 0.9] } }
+  prompt: 'A first-order liquid reaction ($k = {{k}}$ min⁻¹) is run in a plug-flow reactor fed at ${{v0}}$ L/min. What volume gives ${{X*100}}\%$ conversion, in L?'
+  parts:
+    - { ask: 'Volume (L)', label: r, tex: 'V', value: v0/k*log(1/(1 - X)), tol: 0.01, explain: 'PFR design equation: $V = F_{A0}\displaystyle\int_0^X\dfrac{dX}{-r_A} = \dfrac{v_0}{k}\int_0^X\dfrac{dX}{1 - X} = \dfrac{v_0}{k}\ln\dfrac{1}{1 - X}$. Always smaller than the CSTR volume for the same job' }
+  verify: { expect: { r: "v0*integrate(1/(k*(1 - x)), (x, 0, X))" } }
+
+- template: cre-cstrs-in-series
+  skill: cre.cstr
+  pace: quick
+  given: { k: { pick: [0.1, 0.5, 1] }, tau: { pick: [1, 2, 4] } }
+  prompt: 'A first-order reaction ($k = {{k}}$ min⁻¹) runs in two equal CSTRs in series, each with $\tau = {{tau}}$ min. What is the overall conversion?'
+  parts:
+    - { ask: 'Overall conversion', label: r, tex: 'X', value: 1 - 1/(1 + k*tau)^2, tol: 0.01, explain: 'Each tank multiplies the concentration by $\dfrac{1}{1 + k\tau}$, so after two $\dfrac{C_A}{C_{A0}} = \dfrac{1}{(1 + k\tau)^2}$. Many small tanks in series approach a PFR' }
+  verify: { expect: { r: "1 - [s[Symbol('c2')] for s in solve([Eq(1 - Symbol('c1'), k*tau*Symbol('c1')), Eq(Symbol('c1') - Symbol('c2'), k*tau*Symbol('c2'))], [Symbol('c1'), Symbol('c2')], dict=True)][0]" } }
+
+- template: cre-reactor-comparison
+  skill: cre.pfr
+  pace: recall
+  cases:
+    - { q: 'For a positive-order reaction, which reactor needs the smaller volume for the same conversion?', ans: 0 }
+    - { q: 'In which reactor is the composition everywhere equal to the exit composition?', ans: 1 }
+    - { q: 'Which reactor behaves like a batch reactor with time replaced by space time?', ans: 0 }
+    - { q: 'For a zero-order reaction, which reactor needs the smaller volume for the same conversion?', ans: 2 }
+    - { q: 'An infinite number of tiny stirred tanks in series behaves like which reactor?', ans: 0 }
+  prompt: '{{q}}'
+  parts:
+    - ask: 'Reactor'
+      label: a
+      choice: ["Plug-flow reactor (PFR)", "Continuous stirred tank (CSTR)", "No difference"]
+      correct: ans
+      explain: 'A CSTR runs everywhere at the low exit concentration, so a positive-order reaction is slow throughout. A PFR starts at the feed concentration and works its way down. If the rate does not depend on concentration (zero order), the two are the same size'
+  verify: { authored: true }
+
+# ── multiple reactions (12.D) ───────────────────────────────────────────────
+- template: cre-series-optimum-time
+  skill: cre.multiple
+  pace: quick
+  cases:
+    - { k1: 2, k2: 1 }
+    - { k1: 1, k2: 0.5 }
+    - { k1: 0.5, k2: 0.1 }
+    - { k1: 1, k2: 2 }
+    - { k1: 0.2, k2: 0.1 }
+    - { k1: 3, k2: 1 }
+  prompt: 'For $A \to B \to C$ in a batch reactor, both steps first order with $k_1 = {{k1}}$ and $k_2 = {{k2}}$ min⁻¹, at what time is the concentration of the intermediate B highest, in minutes?'
+  parts:
+    - { ask: 'Time of maximum B (min)', label: r, tex: 't_{max}', value: log(k1/k2)/(k1 - k2), tol: 0.01, explain: '$C_B = \dfrac{k_1C_{A0}}{k_2 - k_1}\left(e^{-k_1t} - e^{-k_2t}\right)$. Setting its derivative to zero gives $t_{max} = \dfrac{\ln(k_1/k_2)}{k_1 - k_2}$. Stop the batch here if B is the product' }
+  verify: { expect: { r: "solve(Eq(diff(k1/(k2 - k1)*(exp(-k1*x) - exp(-k2*x)), x), 0), x)[0]" } }
+
+- template: cre-parallel-selectivity
+  skill: cre.multiple
+  pace: quick
+  given: { k1: { pick: [1, 2, 4] }, k2: { pick: [0.5, 1, 2] }, C: { pick: [0.5, 2, 4] } }
+  cases:
+    - { a1: 2, a2: 1 }
+    - { a1: 1, a2: 2 }
+  prompt: 'A reacts by two parallel paths: to the desired D at $r_D = {{k1}}\,C_A^{ {{a1}} }$ and to the undesired U at $r_U = {{k2}}\,C_A^{ {{a2}} }$. What is the instantaneous selectivity $r_D/r_U$ at $C_A = {{C}}$ mol/L?'
+  parts:
+    - { ask: '$r_D/r_U$', label: r, tex: 'S_{D/U}', value: k1/k2*C^(a1 - a2), tol: 0.01, explain: '$S = \dfrac{k_1}{k_2}C_A^{\,{{a1}} - {{a2}} }$. The sign of the exponent tells you whether to run at high or low $C_A$' }
+  verify: { expect: { r: "(k1*C**a1)/(k2*C**a2)" } }
+
+- template: cre-selectivity-strategy
+  skill: cre.multiple
+  pace: recall
+  cases:
+    - { a1: 2, a2: 1 }
+    - { a1: 1, a2: 2 }
+    - { a1: 2, a2: 0 }
+    - { a1: 0, a2: 1 }
+  prompt: 'In parallel reactions the desired path is order ${{a1}}$ in A and the undesired path is order ${{a2}}$. How should the reactor be run to favour the desired product?'
+  parts:
+    - ask: 'Strategy'
+      label: a
+      choice: ["Keep the concentration of A high: PFR or batch, concentrated feed", "Keep the concentration of A low: CSTR, diluted feed"]
+      correct: "a1 > a2 ? 0 : 1"
+      explain: 'Selectivity goes as $C_A^{\,a_D - a_U}$. If the desired reaction has the higher order, high concentration helps it more; if it has the lower order, starve both and the undesired one suffers more'
+  verify: { choices: { a: "0 if a1 > a2 else 1" } }
+
+# ── catalysis (12.F) ────────────────────────────────────────────────────────
+- template: cre-langmuir-coverage
+  skill: cre.catalysis
+  pace: quick
+  given: { K: { pick: [0.5, 1, 2, 4] }, P: { pick: [0.25, 0.5, 1, 2, 4] } }
+  prompt: 'A gas adsorbs on a catalyst following the Langmuir isotherm with $K = {{K}}$ atm⁻¹. What fraction of the sites is covered at $P = {{P}}$ atm?'
+  parts:
+    - { ask: 'Fractional coverage', label: r, tex: '\theta', value: K*P/(1 + K*P), tol: 0.01, explain: 'Adsorption rate $\propto P(1 - \theta)$ balances desorption $\propto \theta$: $\theta = \dfrac{KP}{1 + KP}$. Half coverage at $P = 1/K$; saturation at high pressure' }
+  verify: { expect: { r: "solve(Eq(K*P*(1 - x), x), x)[0]" } }
+
+- template: cre-catalysis-facts
+  skill: cre.catalysis
+  pace: recall
+  cases:
+    - { q: 'What does a catalyst change?', ans: 0 }
+    - { q: 'What does a catalyst leave unchanged?', ans: 1 }
+    - { q: 'In heterogeneous catalysis, what happens between diffusion to the surface and diffusion away?', ans: 2 }
+    - { q: 'A surface reaction follows Langmuir–Hinshelwood kinetics. At very high pressure of the reactant, the apparent order in it approaches', ans: 3 }
+  prompt: '{{q}}'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["The pathway: a lower activation energy, so a faster rate", "The equilibrium constant and the heat of reaction", "Adsorption, surface reaction, desorption", "Zero: the surface is saturated"]
+      correct: ans
+      explain: 'A catalyst speeds forward and reverse reactions alike, so equilibrium does not move. On a solid: reactants diffuse in, adsorb, react on the surface, and the products desorb and diffuse out. Once every site is occupied, more reactant cannot raise the rate'
+  verify: { authored: true }

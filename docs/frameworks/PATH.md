@@ -1,6 +1,6 @@
 # The path — start to finish
 
-Every framework in `requires` order; inside each, units and objectives in order, except that 132 objectives move up to sit just after the prerequisites they need. 2869 objectives in 25 frameworks.
+Every framework in `requires` order; inside each, units and objectives in order, except that 132 objectives move up to sit just after the prerequisites they need. 2878 objectives in 26 frameworks.
 
 | # | Framework | Track | Requires | LOs | Path position |
 |---|---|---|---|---|---|
@@ -23,9 +23,10 @@ Every framework in `requires` order; inside each, units and objectives in order,
 | 17 | Molecular Simulation | engineering | thermodynamics, programming | 102 | 2117–2218 |
 | 18 | Fluid Mechanics | engineering | engineering-math, physics | 15 | 2219–2233 |
 | 19 | Material and Energy Balances | engineering | chemistry | 16 | 2234–2249 |
-| 20 | Dental Admission Test | health | biology, chemistry | 183 | 2250–2432 |
-| 21 | AI Safety | safety | programming, calculus | 104 | 2433–2536 |
-| 22 | Speaking and Articulation | communication | — | 69 | 2537–2605 |
-| 23 | Basketball | athletics | — | 88 | 2606–2693 |
-| 24 | Swimming | athletics | — | 88 | 2694–2781 |
-| 25 | Wushu | athletics | — | 88 | 2782–2869 |
+| 20 | Chemical Reaction Engineering | engineering | material-balances | 9 | 2250–2258 |
+| 21 | Dental Admission Test | health | biology, chemistry | 183 | 2259–2441 |
+| 22 | AI Safety | safety | programming, calculus | 104 | 2442–2545 |
+| 23 | Speaking and Articulation | communication | — | 69 | 2546–2614 |
+| 24 | Basketball | athletics | — | 88 | 2615–2702 |
+| 25 | Swimming | athletics | — | 88 | 2703–2790 |
+| 26 | Wushu | athletics | — | 88 | 2791–2878 |

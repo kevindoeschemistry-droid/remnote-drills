@@ -37,6 +37,7 @@ domains:
   - { id: orgo, title: "Organic chemistry" }
   - { id: meb, title: "Material and energy balances" }
   - { id: fm, title: "Fluid mechanics" }
+  - { id: cre, title: "Chemical reaction engineering" }
 
 skills:
   # ── prerequisites ────────────────────────────────────────────────────────
@@ -550,3 +551,12 @@ skills:
   - { id: fm.energy, domain: fm, title: "Mechanical energy balance: friction, fittings and pumps", short: "Friction and pumps", prereqs: [fm.bernoulli, fm.regimes] }
   - { id: fm.measurement, domain: fm, title: "Flow measurement", short: "Flow measurement", prereqs: [fm.bernoulli] }
   - { id: fm.compressible, domain: fm, title: "Compressible flow and non-Newtonian fluids", short: "Compressible and non-Newtonian", prereqs: [fm.regimes] }
+
+  # ── chemical reaction engineering ────────────────────────────────────────
+  - { id: cre.rate-laws, domain: cre, title: "Rate laws, order and half-life", short: "Rate laws and order" }
+  - { id: cre.arrhenius, domain: cre, title: "The Arrhenius equation and activation energy", short: "Arrhenius", prereqs: [cre.rate-laws] }
+  - { id: cre.batch, domain: cre, title: "Batch reactor: time for a conversion", short: "Batch reactor", prereqs: [cre.rate-laws] }
+  - { id: cre.cstr, domain: cre, title: "CSTR: volume, conversion, tanks in series", short: "CSTR", prereqs: [cre.batch] }
+  - { id: cre.pfr, domain: cre, title: "Plug-flow reactor and reactor comparison", short: "PFR", prereqs: [cre.cstr] }
+  - { id: cre.multiple, domain: cre, title: "Series and parallel reactions: selectivity", short: "Multiple reactions", prereqs: [cre.batch] }
+  - { id: cre.catalysis, domain: cre, title: "Catalysis and the Langmuir isotherm", short: "Catalysis", prereqs: [cre.rate-laws] }
