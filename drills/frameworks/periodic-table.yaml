@@ -1,0 +1,86 @@
+# The Periodic Table from Memory — curriculum framework (draft 1, for Kevin's markup)
+#
+# Basis:
+#   iupac-periodic-table  the IUPAC table (release of 4 May 2022): names, symbols, numbers, groups.
+# The table fixes the content. How much of it to hold in memory is a house decision, taken from what
+# Kevin's organometallics course required: all of it, the d and f blocks cold.
+#
+# Not here yet: ground-state configurations and their exceptions (Cr, Cu, Nb to Ag, Pt, Au), common
+# oxidation states by element, ionic and covalent radii trends, electronegativities, the 18-electron
+# count of whole complexes, and group 3 below yttrium (unsettled at IUPAC).
+id: periodic-table
+title: The Periodic Table from Memory
+code: PT
+draft: 1
+track: science
+requires: [chemistry]
+level: 3
+domains: [ptable]
+
+basis:
+  primary: iupac-periodic-table
+  note: "Content from the IUPAC table (release note read; element list cross-checked in the verifier). Which parts to know by heart is a house decision from Kevin's organometallics course."
+
+big_ideas:
+  - id: POSITION
+    title: Position is the electron count
+    text: A transition metal's group number is its valence-electron count, and group minus oxidation state is its d count. Knowing where an element sits is the first step of every electron-counting argument.
+  - id: TRIADS
+    title: Columns, not just rows
+    text: Chemistry runs down the groups. The 4d and 5d members of a triad are close in size because the lanthanoids sit between them.
+
+practices:
+  - id: P1
+    title: Recall
+    text: Give a number, symbol, group or neighbour without working it out.
+  - id: P2
+    title: Reproduce
+    text: Write a whole row or column from memory, in order.
+  - id: P3
+    title: Count
+    text: Turn position and oxidation state into a d or f electron count.
+
+units:
+  - id: main-group
+    n: 1
+    title: "Main-group elements"
+    scope: core
+    std: ["iupac-periodic-table:sp"]
+    ideas: [POSITION]
+    topics:
+      - n: 1
+        title: "Symbols and numbers"
+        los:
+          - { id: A, do: "Give the atomic number of any main-group element.", ek: ["Noble gases at 2, 10, 18, 36, 54, 86, 118 anchor each row."], p: [P1], drills: ["pt-number-main"] }
+          - { id: B, do: "Write the heavy p-block row from memory.", ek: ["Tl Pb Bi Po At Rn, 81 to 86."], p: [P2], drills: ["pt-write-p-block-heavy"] }
+  - id: d-block
+    n: 2
+    title: "The d block"
+    scope: core
+    std: ["iupac-periodic-table:d"]
+    ideas: [POSITION, TRIADS]
+    topics:
+      - n: 1
+        title: "Positions"
+        los:
+          - { id: A, do: "Give the atomic number of any transition metal.", ek: ["3d 21-30, 4d 39-48, 5d 72-80, 6d 104-112."], p: [P1], drills: ["pt-number-d-block"] }
+          - { id: B, do: "Give the group of any transition metal.", ek: ["Group number = s + d valence electrons."], p: [P1], drills: ["pt-group-d-block"] }
+          - { id: C, do: "Name the element below a given transition metal, and write a triad.", ek: ["Add 18, then 32; the lanthanoids sit between the 4d and 5d rows."], p: [P1, P2], drills: ["pt-congener-below", "pt-write-triad"] }
+          - { id: D, do: "Write each d row from memory, in order.", ek: ["Sc Ti V Cr Mn Fe Co Ni Cu Zn; Y Zr Nb Mo Tc Ru Rh Pd Ag Cd; Hf Ta W Re Os Ir Pt Au Hg."], p: [P2], drills: ["pt-write-3d", "pt-write-4d", "pt-write-5d", "pt-write-6d"] }
+      - n: 2
+        title: "Electron counts"
+        los:
+          - { id: A, do: "Give the d-electron count of a metal in a stated oxidation state.", ek: ["d count = group − oxidation state."], p: [P3], drills: ["pt-d-electron-count"] }
+  - id: f-block
+    n: 3
+    title: "The f block"
+    scope: core
+    std: ["iupac-periodic-table:f"]
+    ideas: [POSITION]
+    topics:
+      - n: 1
+        title: "Lanthanoids and actinoids"
+        los:
+          - { id: A, do: "Give the atomic number of any lanthanoid or actinoid.", ek: ["La 57 to Lu 71; Ac 89 to Lr 103."], p: [P1], drills: ["pt-number-f-block"] }
+          - { id: B, do: "Write the lanthanoids and the actinoids from memory, in order.", ek: ["La Ce Pr Nd Pm Sm Eu Gd Tb Dy Ho Er Tm Yb Lu; Ac Th Pa U Np Pu Am Cm Bk Cf Es Fm Md No Lr."], p: [P2], drills: ["pt-write-lanthanoids", "pt-write-actinoids"] }
+          - { id: C, do: "Give the 4f count of a trivalent lanthanoid ion.", ek: ["Ln³⁺ is [Xe]4fⁿ with n = Z − 57."], p: [P3], drills: ["pt-f-electron-count"] }
