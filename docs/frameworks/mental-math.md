@@ -37,7 +37,8 @@ Big ideas: SEE, KNOW, EST
 
 - ● **MM-1.1.A** (H1.1) Add and subtract multi-digit numbers left to right, and subtract from a power of ten by complements.
   - EK: Say the large part of the answer first; 1000 − n is nines-and-a-ten on the digits.
-  - P1 · P2 · drills: mm-add-left-to-right, mm-subtract-from-1000
+  - EK: Slide both numbers so the one taken away is round (541 − 229 = 542 − 230); count up when the two are close.
+  - P1 · P2 · drills: mm-add-left-to-right, mm-subtract-from-1000, mm-sub-same-change, mm-sub-round-repay, mm-sub-count-up, mm-add-compensate
 - ● **MM-1.1.B** (H1.1) Take a fraction of a whole number by dividing first.
   - EK: p/q of n: divide by q, then multiply by p.
   - P1 · P2 · drills: mm-fraction-of

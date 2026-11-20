@@ -309,7 +309,7 @@ Big ideas: PV, OPS, MEAS, DATA
 - ● **MK-3.2.E** (2.NBT.B.5) Fluently add and subtract within 100 using strategies based on place value, properties of operations, and the relationship between addition and subtraction.
   - EK: Decompose by place, then combine like units.
   - Needs: MK-2.2.D, MK-2.2.F, MK-3.1.B
-  - MP7 · MP8 · drills: k8-add100
+  - MP7 · MP8 · drills: k8-add100, mm-sub-same-change-2digit
 - ● **MK-3.2.F** (2.NBT.B.6) Add up to four two-digit numbers using strategies based on place value and properties of operations.
   - EK: Group tens with tens, ones with ones, in any order.
   - Needs: MK-3.2.E
@@ -317,7 +317,7 @@ Big ideas: PV, OPS, MEAS, DATA
 - ● **MK-3.2.G** (2.NBT.B.7) Add and subtract within 1000 using models, drawings and place-value strategies, composing or decomposing tens and hundreds as needed.
   - EK: Ten tens make a hundred; a hundred can be broken into ten tens.
   - Needs: MK-3.2.E, MK-3.2.A
-  - MP3 · MP7 · drills: k8-add1000
+  - MP3 · MP7 · drills: k8-add1000, mm-sub-same-change, mm-sub-round-repay, mm-sub-count-up, mm-sub-count-up-change, mm-add-compensate
 - ● **MK-3.2.H** (2.NBT.B.8) Mentally add or subtract 10 or 100 to or from a number 100–900.
   - EK: Adding 10 or 100 changes only that digit (unless it regroups).
   - Needs: MK-2.2.E, MK-3.2.A
@@ -325,7 +325,7 @@ Big ideas: PV, OPS, MEAS, DATA
 - ● **MK-3.2.I** (2.NBT.B.9) Explain why addition and subtraction strategies work, using place value and the properties of operations.
   - EK: A strategy is valid because of place value and the properties, not because it gives the right answer once.
   - Needs: MK-3.2.G
-  - MP3 · drills: k8-add-by-place-value
+  - MP3 · drills: k8-add-by-place-value, mm-sub-equivalent
 
 ### 3.3 Measurement and Data
 

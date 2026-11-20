@@ -53,7 +53,7 @@ Related reports: [standards and how much of each was read](../coverage/standards
 |---|---|---:|---:|---:|---:|---:|---|
 | [Applied Engineering Mathematics](engineering-math.md) | EM | 122 | 122 | 0 | 0 | 2.1 | Kreyszig, Advanced Engineering Mathematics, 10th ed. (textbook, read: full) |
 | [Calculus](calculus.md) | CA | 173 | 173 | 0 | 0 | 1.4 | AP Calculus AB and BC Course and Exam Description (standard, read: full) |
-| [Mental Math](mental-math.md) | MM | 82 | 82 | 0 | 0 | 1.4 | UIL Number Sense Problem Sequencing Charts (High School; A+ Junior High and Elementary, rev. 2016-17) with the Number Sense Handbook rules (exam-spec, read: full) |
+| [Mental Math](mental-math.md) | MM | 82 | 82 | 0 | 0 | 1.5 | UIL Number Sense Problem Sequencing Charts (High School; A+ Junior High and Elementary, rev. 2016-17) with the Number Sense Handbook rules (exam-spec, read: full) |
 | [Mathematics K–8 (Common Core)](math-k8.md) | MK | 258 | 242 | 13 | 3 | 1.2 | Common Core State Standards for Mathematics (2010) (standard, read: crosswalk) |
 | [High School Mathematics (Common Core)](math-hs.md) | MH | 200 | 185 | 12 | 3 | 1.4 | CCSS Mathematics Appendix A: high school course pathways (standard, read: full) |
 
