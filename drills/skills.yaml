@@ -40,6 +40,7 @@ domains:
   - { id: cre, title: "Chemical reaction engineering" }
   - { id: dat, title: "Dental Admission Test" }
   - { id: nuc, title: "Nuclear science" }
+  - { id: ptable, title: "The periodic table" }
 
 skills:
   # ── prerequisites ────────────────────────────────────────────────────────
@@ -581,3 +582,8 @@ skills:
   - { id: nuc.criticality, domain: nuc, title: "The neutron life cycle, k-effective and reactivity", short: "Criticality", prereqs: [nuc.neutrons] }
   - { id: nuc.kinetics, domain: nuc, title: "Reactor kinetics: period and power", short: "Kinetics", prereqs: [nuc.criticality] }
   - { id: nuc.operation, domain: nuc, title: "Reactivity effects, xenon, fuel use and decay heat", short: "Reactor operation", prereqs: [nuc.criticality] }
+  # ── the periodic table from memory ──────────────────────────────────────────
+  - { id: ptable.numbers, domain: ptable, title: "Main-group elements: symbols and atomic numbers", short: "Main-group elements" }
+  - { id: ptable.d-block, domain: ptable, title: "The d block: positions, groups, triads and d-electron counts", short: "The d block" }
+  - { id: ptable.f-block, domain: ptable, title: "The f block: lanthanoids, actinoids and f-electron counts", short: "The f block" }
+  - { id: ptable.configurations, domain: ptable, title: "Ground-state electron configurations of the d and f blocks, with the exceptions", short: "Electron configurations", prereqs: [ptable.d-block, ptable.f-block] }

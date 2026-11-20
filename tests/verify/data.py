@@ -202,6 +202,90 @@ def keyhole_fit(heights, mask, any_direction=False):
     return sp.Integer(hits[0] if hits else 3)
 
 
+# exceptions to the filling order, as valence strings (the generator lists every atom's counts instead)
+_CONFIG_EXC = {"Cr": "d5 s1", "Cu": "d10 s1", "Nb": "d4 s1", "Mo": "d5 s1", "Ru": "d7 s1", "Rh": "d8 s1", "Pd": "d10 s0",
+               "Ag": "d10 s1", "Pt": "d9 s1", "Au": "d10 s1",
+               "La": "f0 d1 s2", "Ce": "f1 d1 s2", "Gd": "f7 d1 s2",
+               "Ac": "f0 d1 s2", "Th": "f0 d2 s2", "Pa": "f2 d1 s2", "U": "f3 d1 s2", "Np": "f4 d1 s2", "Cm": "f7 d1 s2"}
+
+
+def pt_madelung(sym):
+    """(f, d, s) valence counts if the shells simply filled in order: s, then f, then d"""
+    period, i = _pt_place(pt_Z(sym))
+    n = len(_PT[period])
+    after_s = i - 1  # electrons beyond ns2
+    if n == 18:
+        return (0, after_s, 2)
+    if n == 32:
+        return (min(after_s, 14), max(0, after_s - 14), 2)
+    raise ValueError("no d or f shell filling in this period")
+
+
+def pt_config(sym):
+    """(f, d, s) of the ground-state atom; a filled 4f shell under the 5d metals is part of the core, so it reads 0 there"""
+    f, d, s_ = pt_madelung(sym)
+    if str(sym) in _CONFIG_EXC:
+        got = {t[0]: int(t[1:]) for t in _CONFIG_EXC[str(sym)].split()}
+        f, d, s_ = got.get("f", f), got["d"], got["s"]
+    period, i = _pt_place(pt_Z(sym))
+    return (f, d, s_)
+
+
+# the periodic table by period, written separately from scripts/pt_cases.py's flat list
+_PERIODS = ["H He", "Li Be B C N O F Ne", "Na Mg Al Si P S Cl Ar",
+            "K Ca Sc Ti V Cr Mn Fe Co Ni Cu Zn Ga Ge As Se Br Kr",
+            "Rb Sr Y Zr Nb Mo Tc Ru Rh Pd Ag Cd In Sn Sb Te I Xe",
+            "Cs Ba La Ce Pr Nd Pm Sm Eu Gd Tb Dy Ho Er Tm Yb Lu Hf Ta W Re Os Ir Pt Au Hg Tl Pb Bi Po At Rn",
+            "Fr Ra Ac Th Pa U Np Pu Am Cm Bk Cf Es Fm Md No Lr Rf Db Sg Bh Hs Mt Ds Rg Cn Nh Fl Mc Lv Ts Og"]
+_PT = [row.split() for row in _PERIODS]
+assert [len(r) for r in _PT] == [2, 8, 8, 18, 18, 32, 32]
+
+
+def pt_Z(sym):
+    flat = [e for r in _PT for e in r]
+    return sp.Integer(flat.index(str(sym)) + 1)
+
+
+def _pt_place(z):
+    z = int(z)
+    for period, r in enumerate(_PT):
+        if z <= len(r):
+            return period, z - 1
+        z -= len(r)
+    raise ValueError("no such element")
+
+
+def pt_group(z):
+    """IUPAC group 1-18 from the position in the period; the fifteen-wide f rows have none"""
+    period, i = _pt_place(z)
+    n = len(_PT[period])
+    if n == 2:
+        return sp.Integer(1 if i == 0 else 18)
+    if n == 8:
+        return sp.Integer(i + 1 if i < 2 else i + 11)
+    if n == 18:
+        return sp.Integer(i + 1)
+    if i < 2:
+        return sp.Integer(i + 1)
+    if i < 17:
+        raise ValueError("f-block element: no group asked")
+    return sp.Integer(i - 13)
+
+
+def pt_below(z):
+    """the element in the same group one period down"""
+    period, i = _pt_place(z)
+    g = pt_group(z)
+    start = sum(len(r) for r in _PT[:period + 1])
+    for k in range(len(_PT[period + 1])):
+        try:
+            if pt_group(start + k + 1) == g:
+                return sp.Integer(start + k + 1)
+        except ValueError:
+            continue
+    raise ValueError("nothing below")
+
+
 def _unpack(code):
     d = str(int(code))[1:].rjust(9, "0")
     return tuple(tuple(int(d[r * 3 + c]) for c in range(3)) for r in range(3))
@@ -424,7 +508,7 @@ def rank_code(values):
     return sp.Integer(int("".join(str(j + 1) for j in order)))
 
 
-BASE.update({"cube_tally": cube_tally, "punch_count": punch_count, "net_opposite": net_opposite, "rank_code": rank_code, "box_degeneracy": box_degeneracy, "huckel_chain": huckel_chain, "view_identify": view_identify, "keyhole_fit": keyhole_fit, "sph_L2": sph_L2, "fc_strongest": fc_strongest, "hf_energy": hf_energy, "hund_ground": hund_ground, "hund_choice": hund_choice, "mo_fill": mo_fill, "commutes": commutes, "view_missing": view_missing, "keyhole_pick": keyhole_pick, "prism_identify": prism_identify, "prism_keyhole": prism_keyhole})
+BASE.update({"cube_tally": cube_tally, "punch_count": punch_count, "net_opposite": net_opposite, "rank_code": rank_code, "box_degeneracy": box_degeneracy, "huckel_chain": huckel_chain, "view_identify": view_identify, "keyhole_fit": keyhole_fit, "sph_L2": sph_L2, "fc_strongest": fc_strongest, "hf_energy": hf_energy, "hund_ground": hund_ground, "hund_choice": hund_choice, "mo_fill": mo_fill, "commutes": commutes, "view_missing": view_missing, "keyhole_pick": keyhole_pick, "prism_identify": prism_identify, "prism_keyhole": prism_keyhole, "pt_Z": pt_Z, "pt_group": pt_group, "pt_below": pt_below, "pt_config": pt_config, "pt_madelung": pt_madelung})
 
 
 def check(p, H):

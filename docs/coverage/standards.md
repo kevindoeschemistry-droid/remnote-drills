@@ -26,6 +26,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 | Mental Math | UIL Number Sense Problem Sequencing Charts (High School; A+ Junior High and Elementary, rev. 2016-17) with the Number Sense Handbook rules | exam-spec | read in full | sta-mtc, mit-18-03-coverup, mit-integration-bee | — | 82 | 79 | 3 |
 | Molecular Simulation | LiveCoMS best-practice papers for molecular simulation | course | read in part | — | — | 102 | 0 | 102 |
 | Nuclear Science and Reactor Theory | NRC Generic Fundamentals Examination, reactor theory topics (PWR catalog 192001-192008) | exam-spec | read in part | doe-hdbk-1019 | — | 15 | 15 | 0 |
+| The Periodic Table from Memory | IUPAC Periodic Table of the Elements (release of 4 May 2022) | reference | read in part | — | — | 15 | 10 | 5 |
 | Physical Chemistry | Engel & Reid, Physical Chemistry, 3rd ed. (through the wiki's drill pages) | textbook | read in part | fe-chemical | acs-accm-pchem | 141 | 59 | 82 |
 | Physics (AP) | AP Physics 1, 2 and C Course and Exam Descriptions | standard | read in part | — | — | 201 | 201 | 0 |
 | Programming Foundations | AP Computer Science A Course and Exam Description (Fall 2025) | standard | read in full | — | — | 140 | 140 | 0 |
@@ -51,6 +52,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 - **Mental Math**: Topic list and order from the UIL high-school chart. The short-cut techniques and the estimation topic are a house list. Unit 6 goes past the chart: the cover-up items follow an MIT 18.03 course note and the one-a-minute integration pace follows the MIT Integration Bee qualifier; which results belong in unit 6 is a house list. Pace comes from the UIL rules (7.5 s a problem) and the English multiplication tables check (6 s a fact).
 - **Molecular Simulation**: No standard exists for this subject; triangulated from best-practice papers, textbooks and the Hayes group tutorial.
 - **Nuclear Science and Reactor Theory**: Reactor-theory units follow the NRC Generic Fundamentals Examination topic list (read in part). Nuclear physics and shielding follow the DOE fundamentals handbook's first module (read in part). Health-physics standards for the radiation-protection unit have not been looked at.
+- **The Periodic Table from Memory**: Content from the IUPAC table (release note read; element list cross-checked in the verifier). Which parts to know by heart is a house decision from Kevin's organometallics course.
 - **Physical Chemistry**: Textbook-shaped until the ACS content map is read. Thermodynamics and kinetics units are anchored to fe-chemical; quantum and spectroscopy have no outside anchor yet.
 - **Physics (AP)**: Objective codes read for a few units only.
 - **Chemical Reaction Engineering**: Topics from FE Chemical area 12, read in full. Objectives and their order are ours. Limited so far to isothermal, constant-density reactions; the gaps are listed in the file header.
@@ -71,6 +73,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 - **Mathematics K–8 (Common Core)**: standard, read through a crosswalk
 - **Molecular Simulation**: course, read in part
 - **Nuclear Science and Reactor Theory**: exam-spec, read in part
+- **The Periodic Table from Memory**: reference, read in part
 - **Physical Chemistry**: textbook, read in part; should move to ACS Exams Institute Anchoring Concepts Content Map IV: Physical Chemistry (J. Chem. Educ. 2018, 95, 238)
 - **Physics (AP)**: standard, read in part
 - **Speaking and Articulation**: rubric, read in full
@@ -487,3 +490,17 @@ https://www.standards.doe.gov/standards-documents/1000/1019-bhdbk-1993-v1
 | **4** | **Reactor theory: reactor operations** (undefined questions) | | | |
 
 **Areas with nothing answering to them:** 1 Atomic and nuclear physics; 2 Reactor theory: neutron characteristics; 3 Reactor theory: nuclear parameters; 4 Reactor theory: reactor operations.
+
+## IUPAC Periodic Table of the Elements (release of 4 May 2022)
+
+https://iupac.org/what-we-do/periodic-table-of-elements/
+
+0 of 0 items have at least one objective answering to them.
+
+| Item | Topic | Objectives | With a drill | Where |
+|---|---|---|---|---|
+| **sp** | **s and p blocks** (undefined questions) | | | |
+| **d** | **d block, groups 3-12** (undefined questions) | | | |
+| **f** | **Lanthanoids and actinoids** (undefined questions) | | | |
+
+**Areas with nothing answering to them:** sp s and p blocks; d d block, groups 3-12; f Lanthanoids and actinoids.
