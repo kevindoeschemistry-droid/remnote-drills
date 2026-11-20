@@ -5,7 +5,10 @@
 # The table fixes the content. How much of it to hold in memory is a house decision, taken from what
 # Kevin's organometallics course required: all of it, the d and f blocks cold.
 #
-# Not here yet: ground-state configurations and their exceptions (Cr, Cu, Nb to Ag, Pt, Au), common
+# Electron configurations are not in the IUPAC table; unit 4 is a house list (values as tabulated by
+# NIST's Atomic Spectra Database, written from memory and not re-read in this session).
+#
+# Not here yet: lawrencium and the 6d row's configurations, common
 # oxidation states by element, ionic and covalent radii trends, electronegativities, the 18-electron
 # count of whole complexes, and group 3 below yttrium (unsettled at IUPAC).
 id: periodic-table
@@ -84,3 +87,20 @@ units:
           - { id: A, do: "Give the atomic number of any lanthanoid or actinoid.", ek: ["La 57 to Lu 71; Ac 89 to Lr 103."], p: [P1], drills: ["pt-number-f-block"] }
           - { id: B, do: "Write the lanthanoids and the actinoids from memory, in order.", ek: ["La Ce Pr Nd Pm Sm Eu Gd Tb Dy Ho Er Tm Yb Lu; Ac Th Pa U Np Pu Am Cm Bk Cf Es Fm Md No Lr."], p: [P2], drills: ["pt-write-lanthanoids", "pt-write-actinoids"] }
           - { id: C, do: "Give the 4f count of a trivalent lanthanoid ion.", ek: ["Ln³⁺ is [Xe]4fⁿ with n = Z − 57."], p: [P3], drills: ["pt-f-electron-count"] }
+  - id: configurations
+    n: 4
+    title: "Ground-state electron configurations"
+    scope: core
+    ideas: [POSITION]
+    topics:
+      - n: 1
+        title: "The d block"
+        los:
+          - { id: A, do: "Give the d and s electron counts of any 3d, 4d or 5d atom.", ek: ["Regular: ns² (n−1)dⁿ. Exceptions: Cr, Cu; Nb, Mo, Ru, Rh, Pd, Ag; Pt, Au."], p: [P1], drills: ["pt-config-d-count", "pt-config-s-count"] }
+          - { id: B, do: "Say whether an atom follows the filling order or is an exception.", ek: ["Ten exceptions in three rows; W is regular, Pd is 4d¹⁰ 5s⁰."], p: [P1], drills: ["pt-config-anomaly"] }
+          - { id: C, do: "Write the full configuration of a transition-metal atom with its noble-gas core.", ek: ["The 5d metals carry 4f¹⁴ in the core."], p: [P2], drills: ["pt-config-write-d"] }
+      - n: 2
+        title: "The f block"
+        los:
+          - { id: A, do: "Give the f-electron count of a lanthanoid or actinoid atom.", ek: ["Most are fⁿ s²; La, Ce, Gd, Lu and Ac to Np, Cm keep d electrons."], p: [P1], drills: ["pt-config-f-count"] }
+          - { id: B, do: "Write the full configuration of a lanthanoid or actinoid atom.", ek: ["Gd is 4f⁷ 5d¹ 6s²; Th is 6d² 7s² with no 5f electron."], p: [P2], drills: ["pt-config-write-f"] }

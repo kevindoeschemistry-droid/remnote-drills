@@ -586,3 +586,4 @@ skills:
   - { id: ptable.numbers, domain: ptable, title: "Main-group elements: symbols and atomic numbers", short: "Main-group elements" }
   - { id: ptable.d-block, domain: ptable, title: "The d block: positions, groups, triads and d-electron counts", short: "The d block" }
   - { id: ptable.f-block, domain: ptable, title: "The f block: lanthanoids, actinoids and f-electron counts", short: "The f block" }
+  - { id: ptable.configurations, domain: ptable, title: "Ground-state electron configurations of the d and f blocks, with the exceptions", short: "Electron configurations", prereqs: [ptable.d-block, ptable.f-block] }

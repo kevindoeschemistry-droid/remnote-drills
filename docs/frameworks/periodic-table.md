@@ -2,7 +2,7 @@
 
 Generated from `drills/frameworks/periodic-table.yaml` by `scripts/framework.mjs`. ● drilled · ◐ partly · ○ no drills yet.
 
-**10 learning objectives** in 3 units (10 core): 10 drilled, 0 partly, 0 with no drills. Core: 10 / 10 drilled.
+**15 learning objectives** in 4 units (15 core): 15 drilled, 0 partly, 0 with no drills. Core: 15 / 15 drilled.
 
 ## Big ideas
 
@@ -22,6 +22,7 @@ Generated from `drills/frameworks/periodic-table.yaml` by `scripts/framework.mjs
 | 1 · Main-group elements | core | — | 2 | 2 | 0 | 0 |
 | 2 · The d block | core | — | 5 | 5 | 0 | 0 |
 | 3 · The f block | core | — | 3 | 3 | 0 | 0 |
+| 4 · Ground-state electron configurations | core | — | 5 | 5 | 0 | 0 |
 
 ## Unit 1 · Main-group elements
 
@@ -84,3 +85,32 @@ Big ideas: POSITION
 - ● **PT-3.1.C** Give the 4f count of a trivalent lanthanoid ion.
   - EK: Ln³⁺ is [Xe]4fⁿ with n = Z − 57.
   - P3 · drills: pt-f-electron-count
+
+## Unit 4 · Ground-state electron configurations
+
+Big ideas: POSITION
+
+### 4.1 The d block
+
+
+
+- ● **PT-4.1.A** Give the d and s electron counts of any 3d, 4d or 5d atom.
+  - EK: Regular: ns² (n−1)dⁿ. Exceptions: Cr, Cu; Nb, Mo, Ru, Rh, Pd, Ag; Pt, Au.
+  - P1 · drills: pt-config-d-count, pt-config-s-count
+- ● **PT-4.1.B** Say whether an atom follows the filling order or is an exception.
+  - EK: Ten exceptions in three rows; W is regular, Pd is 4d¹⁰ 5s⁰.
+  - P1 · drills: pt-config-anomaly
+- ● **PT-4.1.C** Write the full configuration of a transition-metal atom with its noble-gas core.
+  - EK: The 5d metals carry 4f¹⁴ in the core.
+  - P2 · drills: pt-config-write-d
+
+### 4.2 The f block
+
+
+
+- ● **PT-4.2.A** Give the f-electron count of a lanthanoid or actinoid atom.
+  - EK: Most are fⁿ s²; La, Ce, Gd, Lu and Ac to Np, Cm keep d electrons.
+  - P1 · drills: pt-config-f-count
+- ● **PT-4.2.B** Write the full configuration of a lanthanoid or actinoid atom.
+  - EK: Gd is 4f⁷ 5d¹ 6s²; Th is 6d² 7s² with no 5f electron.
+  - P2 · drills: pt-config-write-f

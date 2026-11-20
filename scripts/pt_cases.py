@@ -158,6 +158,124 @@ out.append(f"""
       explain: 'Down a group add 18, then 32. All three symbols and all three numbers must match'
   verify: {{ authored: true }}
 """)
+# ── ground-state electron configurations ────────────────────────────────────
+# (d, s) for the d block and (f, d, s) for the f block, typed here atom by atom. The verifier builds
+# the same thing from the filling order plus its own list of exceptions.
+DCONF = """Sc 1 2, Ti 2 2, V 3 2, Cr 5 1, Mn 5 2, Fe 6 2, Co 7 2, Ni 8 2, Cu 10 1, Zn 10 2,
+Y 1 2, Zr 2 2, Nb 4 1, Mo 5 1, Tc 5 2, Ru 7 1, Rh 8 1, Pd 10 0, Ag 10 1, Cd 10 2,
+Hf 2 2, Ta 3 2, W 4 2, Re 5 2, Os 6 2, Ir 7 2, Pt 9 1, Au 10 1, Hg 10 2"""
+FCONF = """La 0 1 2, Ce 1 1 2, Pr 3 0 2, Nd 4 0 2, Pm 5 0 2, Sm 6 0 2, Eu 7 0 2, Gd 7 1 2, Tb 9 0 2, Dy 10 0 2, Ho 11 0 2, Er 12 0 2, Tm 13 0 2, Yb 14 0 2, Lu 14 1 2,
+Ac 0 1 2, Th 0 2 2, Pa 2 1 2, U 3 1 2, Np 4 1 2, Pu 6 0 2, Am 7 0 2, Cm 7 1 2, Bk 9 0 2, Cf 10 0 2, Es 11 0 2, Fm 12 0 2, Md 13 0 2, No 14 0 2"""
+SUP = str.maketrans("0123456789", "⁰¹²³⁴⁵⁶⁷⁸⁹")
+sup = lambda n: str(n).translate(SUP)
+dconf = [(a, int(b), int(c)) for a, b, c in (e.split() for e in DCONF.replace("\n", " ").split(", "))]
+fconf = [(a, int(b), int(c), int(d)) for a, b, c, d in (e.split() for e in FCONF.replace("\n", " ").split(", "))]
+
+
+def shell(z):  # (noble-gas core, n of the s shell)
+    return ("[Ar]", 4) if z <= 30 else ("[Kr]", 5) if z <= 48 else ("[Xe]", 6) if z <= 80 else ("[Rn]", 7)
+
+
+drows = []
+for sy, d, s_ in dconf:
+    z = Z[sy]; core, n = shell(z)
+    core += " 4f¹⁴" if z >= 72 else ""
+    drows.append(row({"nm": EL[z - 1][0], "sy": sy, "dn": d, "sn": s_, "reg": 0 if (d, s_) == (dgroup(z) - 2, 2) else 1,
+                      "core": core, "dt": f"{n - 1}d{sup(d)}", "st": f"{n}s{sup(s_)}" if s_ else f"{n}s⁰"}))
+frows = []
+for sy, f, d, s_ in fconf:
+    z = Z[sy]; core, n = shell(z)
+    frows.append(row({"nm": EL[z - 1][0], "sy": sy, "fn": f, "dn": d, "core": core, "ft": f"{n - 2}f{sup(f)}" if f else "—",
+                      "dt": f"{n - 1}d{sup(d)}" if d else "—", "st": f"{n}s{sup(s_)}"}))
+out.append(f"""
+# ── electron configurations ─────────────────────────────────────────────────
+- template: pt-config-d-count
+  skill: ptable.configurations
+  pace: recall
+  cases:
+{chr(10).join(drows)}
+  prompt: 'How many d electrons does a ground-state {{{{nm}}}} atom, {{{{sy}}}}, have in its valence shell?'
+  parts:
+    - {{ ask: 'd electrons', label: r, tex: 'n_d', value: dn, tol: 0.00001, explain: '{{{{sy}}}} is {{{{core}}}} {{{{dt}}}} {{{{st}}}}. The filling order predicts ns² (n−1)dⁿ; the exceptions are worth knowing by name: Cr and Cu in the 3d row; Nb, Mo, Ru, Rh, Pd and Ag in the 4d row; Pt and Au in the 5d row' }}
+  verify: {{ expect: {{ r: "pt_config(sy)[1]" }} }}
+
+- template: pt-config-s-count
+  skill: ptable.configurations
+  pace: recall
+  cases:
+{chr(10).join(drows)}
+  prompt: 'How many s electrons are in the outer shell of a ground-state {{{{nm}}}} atom, {{{{sy}}}}?'
+  parts:
+    - ask: 'Outer s electrons'
+      label: a
+      choice: ["s0", "s1", "s2"]
+      correct: sn
+      explain: '{{{{sy}}}} is {{{{core}}}} {{{{dt}}}} {{{{st}}}}. Most transition metals keep s². A half-filled or filled d shell pulls one s electron in (Cr, Mo, Cu, Ag, Au), most of the later 4d metals are s¹, and palladium alone is s⁰'
+  verify: {{ choices: {{ a: "pt_config(sy)[2]" }} }}
+
+- template: pt-config-anomaly
+  skill: ptable.configurations
+  pace: recall
+  cases:
+{chr(10).join(drows)}
+  prompt: 'Does the ground-state configuration of {{{{nm}}}}, {{{{sy}}}}, follow the simple filling order, ns² (n−1)dⁿ?'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["Yes: it is the regular configuration", "No: it is one of the exceptions"]
+      correct: reg
+      explain: '{{{{sy}}}} is {{{{core}}}} {{{{dt}}}} {{{{st}}}}. Ten exceptions in the first three rows: Cr, Cu; Nb, Mo, Ru, Rh, Pd, Ag; Pt, Au. Tungsten is regular even though chromium and molybdenum above it are not'
+  verify: {{ choices: {{ a: "0 if pt_config(sy) == pt_madelung(sy) else 1" }} }}
+
+- template: pt-config-write-d
+  skill: ptable.configurations
+  pace: recall
+  cases:
+{chr(10).join(drows)}
+  prompt: 'Write the ground-state electron configuration of {{{{nm}}}}, {{{{sy}}}}, with its noble-gas core.'
+  parts:
+    - ask: 'Write it on paper, then compare'
+      label: a
+      draw: true
+      solution:
+        type: table
+        head: ['core', 'd', 's']
+        rows: [['{{{{core}}}}', '{{{{dt}}}}', '{{{{st}}}}']]
+      explain: 'Core, d count and s count must all match. Check the exceptions first: Cr, Cu; Nb, Mo, Ru, Rh, Pd, Ag; Pt, Au'
+  verify: {{ authored: true }}
+
+- template: pt-config-f-count
+  skill: ptable.configurations
+  pace: recall
+  cases:
+{chr(10).join(frows)}
+  prompt: 'How many f electrons does a ground-state {{{{nm}}}} atom, {{{{sy}}}}, have?'
+  parts:
+    - ask: 'f electrons'
+      label: a
+      choice: ["f0", "f1", "f2", "f3", "f4", "f5", "f6", "f7", "f8", "f9", "f10", "f11", "f12", "f13", "f14"]
+      correct: fn
+      explain: '{{{{sy}}}} is {{{{core}}}} {{{{ft}}}} {{{{dt}}}} {{{{st}}}} (a dash means that shell is empty). Most lanthanoids are 4fⁿ 6s² with no d electron; La, Ce, Gd and Lu keep one 5d electron. The early actinoids hold on to 6d electrons longer: Th has no 5f electron at all'
+  verify: {{ choices: {{ a: "pt_config(sy)[0]" }} }}
+
+- template: pt-config-write-f
+  skill: ptable.configurations
+  pace: recall
+  cases:
+{chr(10).join(frows)}
+  prompt: 'Write the ground-state electron configuration of {{{{nm}}}}, {{{{sy}}}}, with its noble-gas core.'
+  parts:
+    - ask: 'Write it on paper, then compare'
+      label: a
+      draw: true
+      solution:
+        type: table
+        head: ['core', 'f', 'd', 's']
+        rows: [['{{{{core}}}}', '{{{{ft}}}}', '{{{{dt}}}}', '{{{{st}}}}']]
+      explain: 'Core and all three counts must match; a dash means that shell is empty. The ones with a d electron are La, Ce, Gd, Lu and Ac, Th, Pa, U, Np, Cm'
+  verify: {{ authored: true }}
+""")
+
 path = Path(__file__).resolve().parents[1] / "drills/problems/pt-periodic.yaml"
 path.write_text("".join(out), encoding="utf8")
 print("wrote", path)

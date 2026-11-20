@@ -247,6 +247,95 @@
      ]
     }
    ]
+  },
+  {
+   "id": "configurations",
+   "n": 4,
+   "title": "Ground-state electron configurations",
+   "scope": "core",
+   "ideas": [
+    "POSITION"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "The d block",
+     "los": [
+      {
+       "id": "A",
+       "do": "Give the d and s electron counts of any 3d, 4d or 5d atom.",
+       "ek": [
+        "Regular: ns² (n−1)dⁿ. Exceptions: Cr, Cu; Nb, Mo, Ru, Rh, Pd, Ag; Pt, Au."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "pt-config-d-count",
+        "pt-config-s-count"
+       ]
+      },
+      {
+       "id": "B",
+       "do": "Say whether an atom follows the filling order or is an exception.",
+       "ek": [
+        "Ten exceptions in three rows; W is regular, Pd is 4d¹⁰ 5s⁰."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "pt-config-anomaly"
+       ]
+      },
+      {
+       "id": "C",
+       "do": "Write the full configuration of a transition-metal atom with its noble-gas core.",
+       "ek": [
+        "The 5d metals carry 4f¹⁴ in the core."
+       ],
+       "p": [
+        "P2"
+       ],
+       "drills": [
+        "pt-config-write-d"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "title": "The f block",
+     "los": [
+      {
+       "id": "A",
+       "do": "Give the f-electron count of a lanthanoid or actinoid atom.",
+       "ek": [
+        "Most are fⁿ s²; La, Ce, Gd, Lu and Ac to Np, Cm keep d electrons."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "pt-config-f-count"
+       ]
+      },
+      {
+       "id": "B",
+       "do": "Write the full configuration of a lanthanoid or actinoid atom.",
+       "ek": [
+        "Gd is 4f⁷ 5d¹ 6s²; Th is 6d² 7s² with no 5f electron."
+       ],
+       "p": [
+        "P2"
+       ],
+       "drills": [
+        "pt-config-write-f"
+       ]
+      }
+     ]
+    }
+   ]
   }
  ],
  "rows": [
@@ -352,6 +441,57 @@
    "status": "ok",
    "full": [
     "pt-f-electron-count"
+   ],
+   "partial": []
+  },
+  {
+   "code": "PT-4.1.A",
+   "unit": 4,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "pt-config-d-count",
+    "pt-config-s-count"
+   ],
+   "partial": []
+  },
+  {
+   "code": "PT-4.1.B",
+   "unit": 4,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "pt-config-anomaly"
+   ],
+   "partial": []
+  },
+  {
+   "code": "PT-4.1.C",
+   "unit": 4,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "pt-config-write-d"
+   ],
+   "partial": []
+  },
+  {
+   "code": "PT-4.2.A",
+   "unit": 4,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "pt-config-f-count"
+   ],
+   "partial": []
+  },
+  {
+   "code": "PT-4.2.B",
+   "unit": 4,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "pt-config-write-f"
    ],
    "partial": []
   }

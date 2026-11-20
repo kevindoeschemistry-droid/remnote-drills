@@ -436,3 +436,258 @@
         rows: [['{{z1}}', '{{z2}}', '{{z3}}']]
       explain: 'Down a group add 18, then 32. All three symbols and all three numbers must match'
   verify: { authored: true }
+
+# ── electron configurations ─────────────────────────────────────────────────
+- template: pt-config-d-count
+  skill: ptable.configurations
+  pace: recall
+  cases:
+    - { nm: 'scandium', sy: 'Sc', dn: 1, sn: 2, reg: 0, core: '[Ar]', dt: '3d¹', st: '4s²' }
+    - { nm: 'titanium', sy: 'Ti', dn: 2, sn: 2, reg: 0, core: '[Ar]', dt: '3d²', st: '4s²' }
+    - { nm: 'vanadium', sy: 'V', dn: 3, sn: 2, reg: 0, core: '[Ar]', dt: '3d³', st: '4s²' }
+    - { nm: 'chromium', sy: 'Cr', dn: 5, sn: 1, reg: 1, core: '[Ar]', dt: '3d⁵', st: '4s¹' }
+    - { nm: 'manganese', sy: 'Mn', dn: 5, sn: 2, reg: 0, core: '[Ar]', dt: '3d⁵', st: '4s²' }
+    - { nm: 'iron', sy: 'Fe', dn: 6, sn: 2, reg: 0, core: '[Ar]', dt: '3d⁶', st: '4s²' }
+    - { nm: 'cobalt', sy: 'Co', dn: 7, sn: 2, reg: 0, core: '[Ar]', dt: '3d⁷', st: '4s²' }
+    - { nm: 'nickel', sy: 'Ni', dn: 8, sn: 2, reg: 0, core: '[Ar]', dt: '3d⁸', st: '4s²' }
+    - { nm: 'copper', sy: 'Cu', dn: 10, sn: 1, reg: 1, core: '[Ar]', dt: '3d¹⁰', st: '4s¹' }
+    - { nm: 'zinc', sy: 'Zn', dn: 10, sn: 2, reg: 0, core: '[Ar]', dt: '3d¹⁰', st: '4s²' }
+    - { nm: 'yttrium', sy: 'Y', dn: 1, sn: 2, reg: 0, core: '[Kr]', dt: '4d¹', st: '5s²' }
+    - { nm: 'zirconium', sy: 'Zr', dn: 2, sn: 2, reg: 0, core: '[Kr]', dt: '4d²', st: '5s²' }
+    - { nm: 'niobium', sy: 'Nb', dn: 4, sn: 1, reg: 1, core: '[Kr]', dt: '4d⁴', st: '5s¹' }
+    - { nm: 'molybdenum', sy: 'Mo', dn: 5, sn: 1, reg: 1, core: '[Kr]', dt: '4d⁵', st: '5s¹' }
+    - { nm: 'technetium', sy: 'Tc', dn: 5, sn: 2, reg: 0, core: '[Kr]', dt: '4d⁵', st: '5s²' }
+    - { nm: 'ruthenium', sy: 'Ru', dn: 7, sn: 1, reg: 1, core: '[Kr]', dt: '4d⁷', st: '5s¹' }
+    - { nm: 'rhodium', sy: 'Rh', dn: 8, sn: 1, reg: 1, core: '[Kr]', dt: '4d⁸', st: '5s¹' }
+    - { nm: 'palladium', sy: 'Pd', dn: 10, sn: 0, reg: 1, core: '[Kr]', dt: '4d¹⁰', st: '5s⁰' }
+    - { nm: 'silver', sy: 'Ag', dn: 10, sn: 1, reg: 1, core: '[Kr]', dt: '4d¹⁰', st: '5s¹' }
+    - { nm: 'cadmium', sy: 'Cd', dn: 10, sn: 2, reg: 0, core: '[Kr]', dt: '4d¹⁰', st: '5s²' }
+    - { nm: 'hafnium', sy: 'Hf', dn: 2, sn: 2, reg: 0, core: '[Xe] 4f¹⁴', dt: '5d²', st: '6s²' }
+    - { nm: 'tantalum', sy: 'Ta', dn: 3, sn: 2, reg: 0, core: '[Xe] 4f¹⁴', dt: '5d³', st: '6s²' }
+    - { nm: 'tungsten', sy: 'W', dn: 4, sn: 2, reg: 0, core: '[Xe] 4f¹⁴', dt: '5d⁴', st: '6s²' }
+    - { nm: 'rhenium', sy: 'Re', dn: 5, sn: 2, reg: 0, core: '[Xe] 4f¹⁴', dt: '5d⁵', st: '6s²' }
+    - { nm: 'osmium', sy: 'Os', dn: 6, sn: 2, reg: 0, core: '[Xe] 4f¹⁴', dt: '5d⁶', st: '6s²' }
+    - { nm: 'iridium', sy: 'Ir', dn: 7, sn: 2, reg: 0, core: '[Xe] 4f¹⁴', dt: '5d⁷', st: '6s²' }
+    - { nm: 'platinum', sy: 'Pt', dn: 9, sn: 1, reg: 1, core: '[Xe] 4f¹⁴', dt: '5d⁹', st: '6s¹' }
+    - { nm: 'gold', sy: 'Au', dn: 10, sn: 1, reg: 1, core: '[Xe] 4f¹⁴', dt: '5d¹⁰', st: '6s¹' }
+    - { nm: 'mercury', sy: 'Hg', dn: 10, sn: 2, reg: 0, core: '[Xe] 4f¹⁴', dt: '5d¹⁰', st: '6s²' }
+  prompt: 'How many d electrons does a ground-state {{nm}} atom, {{sy}}, have in its valence shell?'
+  parts:
+    - { ask: 'd electrons', label: r, tex: 'n_d', value: dn, tol: 0.00001, explain: '{{sy}} is {{core}} {{dt}} {{st}}. The filling order predicts ns² (n−1)dⁿ; the exceptions are worth knowing by name: Cr and Cu in the 3d row; Nb, Mo, Ru, Rh, Pd and Ag in the 4d row; Pt and Au in the 5d row' }
+  verify: { expect: { r: "pt_config(sy)[1]" } }
+
+- template: pt-config-s-count
+  skill: ptable.configurations
+  pace: recall
+  cases:
+    - { nm: 'scandium', sy: 'Sc', dn: 1, sn: 2, reg: 0, core: '[Ar]', dt: '3d¹', st: '4s²' }
+    - { nm: 'titanium', sy: 'Ti', dn: 2, sn: 2, reg: 0, core: '[Ar]', dt: '3d²', st: '4s²' }
+    - { nm: 'vanadium', sy: 'V', dn: 3, sn: 2, reg: 0, core: '[Ar]', dt: '3d³', st: '4s²' }
+    - { nm: 'chromium', sy: 'Cr', dn: 5, sn: 1, reg: 1, core: '[Ar]', dt: '3d⁵', st: '4s¹' }
+    - { nm: 'manganese', sy: 'Mn', dn: 5, sn: 2, reg: 0, core: '[Ar]', dt: '3d⁵', st: '4s²' }
+    - { nm: 'iron', sy: 'Fe', dn: 6, sn: 2, reg: 0, core: '[Ar]', dt: '3d⁶', st: '4s²' }
+    - { nm: 'cobalt', sy: 'Co', dn: 7, sn: 2, reg: 0, core: '[Ar]', dt: '3d⁷', st: '4s²' }
+    - { nm: 'nickel', sy: 'Ni', dn: 8, sn: 2, reg: 0, core: '[Ar]', dt: '3d⁸', st: '4s²' }
+    - { nm: 'copper', sy: 'Cu', dn: 10, sn: 1, reg: 1, core: '[Ar]', dt: '3d¹⁰', st: '4s¹' }
+    - { nm: 'zinc', sy: 'Zn', dn: 10, sn: 2, reg: 0, core: '[Ar]', dt: '3d¹⁰', st: '4s²' }
+    - { nm: 'yttrium', sy: 'Y', dn: 1, sn: 2, reg: 0, core: '[Kr]', dt: '4d¹', st: '5s²' }
+    - { nm: 'zirconium', sy: 'Zr', dn: 2, sn: 2, reg: 0, core: '[Kr]', dt: '4d²', st: '5s²' }
+    - { nm: 'niobium', sy: 'Nb', dn: 4, sn: 1, reg: 1, core: '[Kr]', dt: '4d⁴', st: '5s¹' }
+    - { nm: 'molybdenum', sy: 'Mo', dn: 5, sn: 1, reg: 1, core: '[Kr]', dt: '4d⁵', st: '5s¹' }
+    - { nm: 'technetium', sy: 'Tc', dn: 5, sn: 2, reg: 0, core: '[Kr]', dt: '4d⁵', st: '5s²' }
+    - { nm: 'ruthenium', sy: 'Ru', dn: 7, sn: 1, reg: 1, core: '[Kr]', dt: '4d⁷', st: '5s¹' }
+    - { nm: 'rhodium', sy: 'Rh', dn: 8, sn: 1, reg: 1, core: '[Kr]', dt: '4d⁸', st: '5s¹' }
+    - { nm: 'palladium', sy: 'Pd', dn: 10, sn: 0, reg: 1, core: '[Kr]', dt: '4d¹⁰', st: '5s⁰' }
+    - { nm: 'silver', sy: 'Ag', dn: 10, sn: 1, reg: 1, core: '[Kr]', dt: '4d¹⁰', st: '5s¹' }
+    - { nm: 'cadmium', sy: 'Cd', dn: 10, sn: 2, reg: 0, core: '[Kr]', dt: '4d¹⁰', st: '5s²' }
+    - { nm: 'hafnium', sy: 'Hf', dn: 2, sn: 2, reg: 0, core: '[Xe] 4f¹⁴', dt: '5d²', st: '6s²' }
+    - { nm: 'tantalum', sy: 'Ta', dn: 3, sn: 2, reg: 0, core: '[Xe] 4f¹⁴', dt: '5d³', st: '6s²' }
+    - { nm: 'tungsten', sy: 'W', dn: 4, sn: 2, reg: 0, core: '[Xe] 4f¹⁴', dt: '5d⁴', st: '6s²' }
+    - { nm: 'rhenium', sy: 'Re', dn: 5, sn: 2, reg: 0, core: '[Xe] 4f¹⁴', dt: '5d⁵', st: '6s²' }
+    - { nm: 'osmium', sy: 'Os', dn: 6, sn: 2, reg: 0, core: '[Xe] 4f¹⁴', dt: '5d⁶', st: '6s²' }
+    - { nm: 'iridium', sy: 'Ir', dn: 7, sn: 2, reg: 0, core: '[Xe] 4f¹⁴', dt: '5d⁷', st: '6s²' }
+    - { nm: 'platinum', sy: 'Pt', dn: 9, sn: 1, reg: 1, core: '[Xe] 4f¹⁴', dt: '5d⁹', st: '6s¹' }
+    - { nm: 'gold', sy: 'Au', dn: 10, sn: 1, reg: 1, core: '[Xe] 4f¹⁴', dt: '5d¹⁰', st: '6s¹' }
+    - { nm: 'mercury', sy: 'Hg', dn: 10, sn: 2, reg: 0, core: '[Xe] 4f¹⁴', dt: '5d¹⁰', st: '6s²' }
+  prompt: 'How many s electrons are in the outer shell of a ground-state {{nm}} atom, {{sy}}?'
+  parts:
+    - ask: 'Outer s electrons'
+      label: a
+      choice: ["s0", "s1", "s2"]
+      correct: sn
+      explain: '{{sy}} is {{core}} {{dt}} {{st}}. Most transition metals keep s². A half-filled or filled d shell pulls one s electron in (Cr, Mo, Cu, Ag, Au), most of the later 4d metals are s¹, and palladium alone is s⁰'
+  verify: { choices: { a: "pt_config(sy)[2]" } }
+
+- template: pt-config-anomaly
+  skill: ptable.configurations
+  pace: recall
+  cases:
+    - { nm: 'scandium', sy: 'Sc', dn: 1, sn: 2, reg: 0, core: '[Ar]', dt: '3d¹', st: '4s²' }
+    - { nm: 'titanium', sy: 'Ti', dn: 2, sn: 2, reg: 0, core: '[Ar]', dt: '3d²', st: '4s²' }
+    - { nm: 'vanadium', sy: 'V', dn: 3, sn: 2, reg: 0, core: '[Ar]', dt: '3d³', st: '4s²' }
+    - { nm: 'chromium', sy: 'Cr', dn: 5, sn: 1, reg: 1, core: '[Ar]', dt: '3d⁵', st: '4s¹' }
+    - { nm: 'manganese', sy: 'Mn', dn: 5, sn: 2, reg: 0, core: '[Ar]', dt: '3d⁵', st: '4s²' }
+    - { nm: 'iron', sy: 'Fe', dn: 6, sn: 2, reg: 0, core: '[Ar]', dt: '3d⁶', st: '4s²' }
+    - { nm: 'cobalt', sy: 'Co', dn: 7, sn: 2, reg: 0, core: '[Ar]', dt: '3d⁷', st: '4s²' }
+    - { nm: 'nickel', sy: 'Ni', dn: 8, sn: 2, reg: 0, core: '[Ar]', dt: '3d⁸', st: '4s²' }
+    - { nm: 'copper', sy: 'Cu', dn: 10, sn: 1, reg: 1, core: '[Ar]', dt: '3d¹⁰', st: '4s¹' }
+    - { nm: 'zinc', sy: 'Zn', dn: 10, sn: 2, reg: 0, core: '[Ar]', dt: '3d¹⁰', st: '4s²' }
+    - { nm: 'yttrium', sy: 'Y', dn: 1, sn: 2, reg: 0, core: '[Kr]', dt: '4d¹', st: '5s²' }
+    - { nm: 'zirconium', sy: 'Zr', dn: 2, sn: 2, reg: 0, core: '[Kr]', dt: '4d²', st: '5s²' }
+    - { nm: 'niobium', sy: 'Nb', dn: 4, sn: 1, reg: 1, core: '[Kr]', dt: '4d⁴', st: '5s¹' }
+    - { nm: 'molybdenum', sy: 'Mo', dn: 5, sn: 1, reg: 1, core: '[Kr]', dt: '4d⁵', st: '5s¹' }
+    - { nm: 'technetium', sy: 'Tc', dn: 5, sn: 2, reg: 0, core: '[Kr]', dt: '4d⁵', st: '5s²' }
+    - { nm: 'ruthenium', sy: 'Ru', dn: 7, sn: 1, reg: 1, core: '[Kr]', dt: '4d⁷', st: '5s¹' }
+    - { nm: 'rhodium', sy: 'Rh', dn: 8, sn: 1, reg: 1, core: '[Kr]', dt: '4d⁸', st: '5s¹' }
+    - { nm: 'palladium', sy: 'Pd', dn: 10, sn: 0, reg: 1, core: '[Kr]', dt: '4d¹⁰', st: '5s⁰' }
+    - { nm: 'silver', sy: 'Ag', dn: 10, sn: 1, reg: 1, core: '[Kr]', dt: '4d¹⁰', st: '5s¹' }
+    - { nm: 'cadmium', sy: 'Cd', dn: 10, sn: 2, reg: 0, core: '[Kr]', dt: '4d¹⁰', st: '5s²' }
+    - { nm: 'hafnium', sy: 'Hf', dn: 2, sn: 2, reg: 0, core: '[Xe] 4f¹⁴', dt: '5d²', st: '6s²' }
+    - { nm: 'tantalum', sy: 'Ta', dn: 3, sn: 2, reg: 0, core: '[Xe] 4f¹⁴', dt: '5d³', st: '6s²' }
+    - { nm: 'tungsten', sy: 'W', dn: 4, sn: 2, reg: 0, core: '[Xe] 4f¹⁴', dt: '5d⁴', st: '6s²' }
+    - { nm: 'rhenium', sy: 'Re', dn: 5, sn: 2, reg: 0, core: '[Xe] 4f¹⁴', dt: '5d⁵', st: '6s²' }
+    - { nm: 'osmium', sy: 'Os', dn: 6, sn: 2, reg: 0, core: '[Xe] 4f¹⁴', dt: '5d⁶', st: '6s²' }
+    - { nm: 'iridium', sy: 'Ir', dn: 7, sn: 2, reg: 0, core: '[Xe] 4f¹⁴', dt: '5d⁷', st: '6s²' }
+    - { nm: 'platinum', sy: 'Pt', dn: 9, sn: 1, reg: 1, core: '[Xe] 4f¹⁴', dt: '5d⁹', st: '6s¹' }
+    - { nm: 'gold', sy: 'Au', dn: 10, sn: 1, reg: 1, core: '[Xe] 4f¹⁴', dt: '5d¹⁰', st: '6s¹' }
+    - { nm: 'mercury', sy: 'Hg', dn: 10, sn: 2, reg: 0, core: '[Xe] 4f¹⁴', dt: '5d¹⁰', st: '6s²' }
+  prompt: 'Does the ground-state configuration of {{nm}}, {{sy}}, follow the simple filling order, ns² (n−1)dⁿ?'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["Yes: it is the regular configuration", "No: it is one of the exceptions"]
+      correct: reg
+      explain: '{{sy}} is {{core}} {{dt}} {{st}}. Ten exceptions in the first three rows: Cr, Cu; Nb, Mo, Ru, Rh, Pd, Ag; Pt, Au. Tungsten is regular even though chromium and molybdenum above it are not'
+  verify: { choices: { a: "0 if pt_config(sy) == pt_madelung(sy) else 1" } }
+
+- template: pt-config-write-d
+  skill: ptable.configurations
+  pace: recall
+  cases:
+    - { nm: 'scandium', sy: 'Sc', dn: 1, sn: 2, reg: 0, core: '[Ar]', dt: '3d¹', st: '4s²' }
+    - { nm: 'titanium', sy: 'Ti', dn: 2, sn: 2, reg: 0, core: '[Ar]', dt: '3d²', st: '4s²' }
+    - { nm: 'vanadium', sy: 'V', dn: 3, sn: 2, reg: 0, core: '[Ar]', dt: '3d³', st: '4s²' }
+    - { nm: 'chromium', sy: 'Cr', dn: 5, sn: 1, reg: 1, core: '[Ar]', dt: '3d⁵', st: '4s¹' }
+    - { nm: 'manganese', sy: 'Mn', dn: 5, sn: 2, reg: 0, core: '[Ar]', dt: '3d⁵', st: '4s²' }
+    - { nm: 'iron', sy: 'Fe', dn: 6, sn: 2, reg: 0, core: '[Ar]', dt: '3d⁶', st: '4s²' }
+    - { nm: 'cobalt', sy: 'Co', dn: 7, sn: 2, reg: 0, core: '[Ar]', dt: '3d⁷', st: '4s²' }
+    - { nm: 'nickel', sy: 'Ni', dn: 8, sn: 2, reg: 0, core: '[Ar]', dt: '3d⁸', st: '4s²' }
+    - { nm: 'copper', sy: 'Cu', dn: 10, sn: 1, reg: 1, core: '[Ar]', dt: '3d¹⁰', st: '4s¹' }
+    - { nm: 'zinc', sy: 'Zn', dn: 10, sn: 2, reg: 0, core: '[Ar]', dt: '3d¹⁰', st: '4s²' }
+    - { nm: 'yttrium', sy: 'Y', dn: 1, sn: 2, reg: 0, core: '[Kr]', dt: '4d¹', st: '5s²' }
+    - { nm: 'zirconium', sy: 'Zr', dn: 2, sn: 2, reg: 0, core: '[Kr]', dt: '4d²', st: '5s²' }
+    - { nm: 'niobium', sy: 'Nb', dn: 4, sn: 1, reg: 1, core: '[Kr]', dt: '4d⁴', st: '5s¹' }
+    - { nm: 'molybdenum', sy: 'Mo', dn: 5, sn: 1, reg: 1, core: '[Kr]', dt: '4d⁵', st: '5s¹' }
+    - { nm: 'technetium', sy: 'Tc', dn: 5, sn: 2, reg: 0, core: '[Kr]', dt: '4d⁵', st: '5s²' }
+    - { nm: 'ruthenium', sy: 'Ru', dn: 7, sn: 1, reg: 1, core: '[Kr]', dt: '4d⁷', st: '5s¹' }
+    - { nm: 'rhodium', sy: 'Rh', dn: 8, sn: 1, reg: 1, core: '[Kr]', dt: '4d⁸', st: '5s¹' }
+    - { nm: 'palladium', sy: 'Pd', dn: 10, sn: 0, reg: 1, core: '[Kr]', dt: '4d¹⁰', st: '5s⁰' }
+    - { nm: 'silver', sy: 'Ag', dn: 10, sn: 1, reg: 1, core: '[Kr]', dt: '4d¹⁰', st: '5s¹' }
+    - { nm: 'cadmium', sy: 'Cd', dn: 10, sn: 2, reg: 0, core: '[Kr]', dt: '4d¹⁰', st: '5s²' }
+    - { nm: 'hafnium', sy: 'Hf', dn: 2, sn: 2, reg: 0, core: '[Xe] 4f¹⁴', dt: '5d²', st: '6s²' }
+    - { nm: 'tantalum', sy: 'Ta', dn: 3, sn: 2, reg: 0, core: '[Xe] 4f¹⁴', dt: '5d³', st: '6s²' }
+    - { nm: 'tungsten', sy: 'W', dn: 4, sn: 2, reg: 0, core: '[Xe] 4f¹⁴', dt: '5d⁴', st: '6s²' }
+    - { nm: 'rhenium', sy: 'Re', dn: 5, sn: 2, reg: 0, core: '[Xe] 4f¹⁴', dt: '5d⁵', st: '6s²' }
+    - { nm: 'osmium', sy: 'Os', dn: 6, sn: 2, reg: 0, core: '[Xe] 4f¹⁴', dt: '5d⁶', st: '6s²' }
+    - { nm: 'iridium', sy: 'Ir', dn: 7, sn: 2, reg: 0, core: '[Xe] 4f¹⁴', dt: '5d⁷', st: '6s²' }
+    - { nm: 'platinum', sy: 'Pt', dn: 9, sn: 1, reg: 1, core: '[Xe] 4f¹⁴', dt: '5d⁹', st: '6s¹' }
+    - { nm: 'gold', sy: 'Au', dn: 10, sn: 1, reg: 1, core: '[Xe] 4f¹⁴', dt: '5d¹⁰', st: '6s¹' }
+    - { nm: 'mercury', sy: 'Hg', dn: 10, sn: 2, reg: 0, core: '[Xe] 4f¹⁴', dt: '5d¹⁰', st: '6s²' }
+  prompt: 'Write the ground-state electron configuration of {{nm}}, {{sy}}, with its noble-gas core.'
+  parts:
+    - ask: 'Write it on paper, then compare'
+      label: a
+      draw: true
+      solution:
+        type: table
+        head: ['core', 'd', 's']
+        rows: [['{{core}}', '{{dt}}', '{{st}}']]
+      explain: 'Core, d count and s count must all match. Check the exceptions first: Cr, Cu; Nb, Mo, Ru, Rh, Pd, Ag; Pt, Au'
+  verify: { authored: true }
+
+- template: pt-config-f-count
+  skill: ptable.configurations
+  pace: recall
+  cases:
+    - { nm: 'lanthanum', sy: 'La', fn: 0, dn: 1, core: '[Xe]', ft: '—', dt: '5d¹', st: '6s²' }
+    - { nm: 'cerium', sy: 'Ce', fn: 1, dn: 1, core: '[Xe]', ft: '4f¹', dt: '5d¹', st: '6s²' }
+    - { nm: 'praseodymium', sy: 'Pr', fn: 3, dn: 0, core: '[Xe]', ft: '4f³', dt: '—', st: '6s²' }
+    - { nm: 'neodymium', sy: 'Nd', fn: 4, dn: 0, core: '[Xe]', ft: '4f⁴', dt: '—', st: '6s²' }
+    - { nm: 'promethium', sy: 'Pm', fn: 5, dn: 0, core: '[Xe]', ft: '4f⁵', dt: '—', st: '6s²' }
+    - { nm: 'samarium', sy: 'Sm', fn: 6, dn: 0, core: '[Xe]', ft: '4f⁶', dt: '—', st: '6s²' }
+    - { nm: 'europium', sy: 'Eu', fn: 7, dn: 0, core: '[Xe]', ft: '4f⁷', dt: '—', st: '6s²' }
+    - { nm: 'gadolinium', sy: 'Gd', fn: 7, dn: 1, core: '[Xe]', ft: '4f⁷', dt: '5d¹', st: '6s²' }
+    - { nm: 'terbium', sy: 'Tb', fn: 9, dn: 0, core: '[Xe]', ft: '4f⁹', dt: '—', st: '6s²' }
+    - { nm: 'dysprosium', sy: 'Dy', fn: 10, dn: 0, core: '[Xe]', ft: '4f¹⁰', dt: '—', st: '6s²' }
+    - { nm: 'holmium', sy: 'Ho', fn: 11, dn: 0, core: '[Xe]', ft: '4f¹¹', dt: '—', st: '6s²' }
+    - { nm: 'erbium', sy: 'Er', fn: 12, dn: 0, core: '[Xe]', ft: '4f¹²', dt: '—', st: '6s²' }
+    - { nm: 'thulium', sy: 'Tm', fn: 13, dn: 0, core: '[Xe]', ft: '4f¹³', dt: '—', st: '6s²' }
+    - { nm: 'ytterbium', sy: 'Yb', fn: 14, dn: 0, core: '[Xe]', ft: '4f¹⁴', dt: '—', st: '6s²' }
+    - { nm: 'lutetium', sy: 'Lu', fn: 14, dn: 1, core: '[Xe]', ft: '4f¹⁴', dt: '5d¹', st: '6s²' }
+    - { nm: 'actinium', sy: 'Ac', fn: 0, dn: 1, core: '[Rn]', ft: '—', dt: '6d¹', st: '7s²' }
+    - { nm: 'thorium', sy: 'Th', fn: 0, dn: 2, core: '[Rn]', ft: '—', dt: '6d²', st: '7s²' }
+    - { nm: 'protactinium', sy: 'Pa', fn: 2, dn: 1, core: '[Rn]', ft: '5f²', dt: '6d¹', st: '7s²' }
+    - { nm: 'uranium', sy: 'U', fn: 3, dn: 1, core: '[Rn]', ft: '5f³', dt: '6d¹', st: '7s²' }
+    - { nm: 'neptunium', sy: 'Np', fn: 4, dn: 1, core: '[Rn]', ft: '5f⁴', dt: '6d¹', st: '7s²' }
+    - { nm: 'plutonium', sy: 'Pu', fn: 6, dn: 0, core: '[Rn]', ft: '5f⁶', dt: '—', st: '7s²' }
+    - { nm: 'americium', sy: 'Am', fn: 7, dn: 0, core: '[Rn]', ft: '5f⁷', dt: '—', st: '7s²' }
+    - { nm: 'curium', sy: 'Cm', fn: 7, dn: 1, core: '[Rn]', ft: '5f⁷', dt: '6d¹', st: '7s²' }
+    - { nm: 'berkelium', sy: 'Bk', fn: 9, dn: 0, core: '[Rn]', ft: '5f⁹', dt: '—', st: '7s²' }
+    - { nm: 'californium', sy: 'Cf', fn: 10, dn: 0, core: '[Rn]', ft: '5f¹⁰', dt: '—', st: '7s²' }
+    - { nm: 'einsteinium', sy: 'Es', fn: 11, dn: 0, core: '[Rn]', ft: '5f¹¹', dt: '—', st: '7s²' }
+    - { nm: 'fermium', sy: 'Fm', fn: 12, dn: 0, core: '[Rn]', ft: '5f¹²', dt: '—', st: '7s²' }
+    - { nm: 'mendelevium', sy: 'Md', fn: 13, dn: 0, core: '[Rn]', ft: '5f¹³', dt: '—', st: '7s²' }
+    - { nm: 'nobelium', sy: 'No', fn: 14, dn: 0, core: '[Rn]', ft: '5f¹⁴', dt: '—', st: '7s²' }
+  prompt: 'How many f electrons does a ground-state {{nm}} atom, {{sy}}, have?'
+  parts:
+    - ask: 'f electrons'
+      label: a
+      choice: ["f0", "f1", "f2", "f3", "f4", "f5", "f6", "f7", "f8", "f9", "f10", "f11", "f12", "f13", "f14"]
+      correct: fn
+      explain: '{{sy}} is {{core}} {{ft}} {{dt}} {{st}} (a dash means that shell is empty). Most lanthanoids are 4fⁿ 6s² with no d electron; La, Ce, Gd and Lu keep one 5d electron. The early actinoids hold on to 6d electrons longer: Th has no 5f electron at all'
+  verify: { choices: { a: "pt_config(sy)[0]" } }
+
+- template: pt-config-write-f
+  skill: ptable.configurations
+  pace: recall
+  cases:
+    - { nm: 'lanthanum', sy: 'La', fn: 0, dn: 1, core: '[Xe]', ft: '—', dt: '5d¹', st: '6s²' }
+    - { nm: 'cerium', sy: 'Ce', fn: 1, dn: 1, core: '[Xe]', ft: '4f¹', dt: '5d¹', st: '6s²' }
+    - { nm: 'praseodymium', sy: 'Pr', fn: 3, dn: 0, core: '[Xe]', ft: '4f³', dt: '—', st: '6s²' }
+    - { nm: 'neodymium', sy: 'Nd', fn: 4, dn: 0, core: '[Xe]', ft: '4f⁴', dt: '—', st: '6s²' }
+    - { nm: 'promethium', sy: 'Pm', fn: 5, dn: 0, core: '[Xe]', ft: '4f⁵', dt: '—', st: '6s²' }
+    - { nm: 'samarium', sy: 'Sm', fn: 6, dn: 0, core: '[Xe]', ft: '4f⁶', dt: '—', st: '6s²' }
+    - { nm: 'europium', sy: 'Eu', fn: 7, dn: 0, core: '[Xe]', ft: '4f⁷', dt: '—', st: '6s²' }
+    - { nm: 'gadolinium', sy: 'Gd', fn: 7, dn: 1, core: '[Xe]', ft: '4f⁷', dt: '5d¹', st: '6s²' }
+    - { nm: 'terbium', sy: 'Tb', fn: 9, dn: 0, core: '[Xe]', ft: '4f⁹', dt: '—', st: '6s²' }
+    - { nm: 'dysprosium', sy: 'Dy', fn: 10, dn: 0, core: '[Xe]', ft: '4f¹⁰', dt: '—', st: '6s²' }
+    - { nm: 'holmium', sy: 'Ho', fn: 11, dn: 0, core: '[Xe]', ft: '4f¹¹', dt: '—', st: '6s²' }
+    - { nm: 'erbium', sy: 'Er', fn: 12, dn: 0, core: '[Xe]', ft: '4f¹²', dt: '—', st: '6s²' }
+    - { nm: 'thulium', sy: 'Tm', fn: 13, dn: 0, core: '[Xe]', ft: '4f¹³', dt: '—', st: '6s²' }
+    - { nm: 'ytterbium', sy: 'Yb', fn: 14, dn: 0, core: '[Xe]', ft: '4f¹⁴', dt: '—', st: '6s²' }
+    - { nm: 'lutetium', sy: 'Lu', fn: 14, dn: 1, core: '[Xe]', ft: '4f¹⁴', dt: '5d¹', st: '6s²' }
+    - { nm: 'actinium', sy: 'Ac', fn: 0, dn: 1, core: '[Rn]', ft: '—', dt: '6d¹', st: '7s²' }
+    - { nm: 'thorium', sy: 'Th', fn: 0, dn: 2, core: '[Rn]', ft: '—', dt: '6d²', st: '7s²' }
+    - { nm: 'protactinium', sy: 'Pa', fn: 2, dn: 1, core: '[Rn]', ft: '5f²', dt: '6d¹', st: '7s²' }
+    - { nm: 'uranium', sy: 'U', fn: 3, dn: 1, core: '[Rn]', ft: '5f³', dt: '6d¹', st: '7s²' }
+    - { nm: 'neptunium', sy: 'Np', fn: 4, dn: 1, core: '[Rn]', ft: '5f⁴', dt: '6d¹', st: '7s²' }
+    - { nm: 'plutonium', sy: 'Pu', fn: 6, dn: 0, core: '[Rn]', ft: '5f⁶', dt: '—', st: '7s²' }
+    - { nm: 'americium', sy: 'Am', fn: 7, dn: 0, core: '[Rn]', ft: '5f⁷', dt: '—', st: '7s²' }
+    - { nm: 'curium', sy: 'Cm', fn: 7, dn: 1, core: '[Rn]', ft: '5f⁷', dt: '6d¹', st: '7s²' }
+    - { nm: 'berkelium', sy: 'Bk', fn: 9, dn: 0, core: '[Rn]', ft: '5f⁹', dt: '—', st: '7s²' }
+    - { nm: 'californium', sy: 'Cf', fn: 10, dn: 0, core: '[Rn]', ft: '5f¹⁰', dt: '—', st: '7s²' }
+    - { nm: 'einsteinium', sy: 'Es', fn: 11, dn: 0, core: '[Rn]', ft: '5f¹¹', dt: '—', st: '7s²' }
+    - { nm: 'fermium', sy: 'Fm', fn: 12, dn: 0, core: '[Rn]', ft: '5f¹²', dt: '—', st: '7s²' }
+    - { nm: 'mendelevium', sy: 'Md', fn: 13, dn: 0, core: '[Rn]', ft: '5f¹³', dt: '—', st: '7s²' }
+    - { nm: 'nobelium', sy: 'No', fn: 14, dn: 0, core: '[Rn]', ft: '5f¹⁴', dt: '—', st: '7s²' }
+  prompt: 'Write the ground-state electron configuration of {{nm}}, {{sy}}, with its noble-gas core.'
+  parts:
+    - ask: 'Write it on paper, then compare'
+      label: a
+      draw: true
+      solution:
+        type: table
+        head: ['core', 'f', 'd', 's']
+        rows: [['{{core}}', '{{ft}}', '{{dt}}', '{{st}}']]
+      explain: 'Core and all three counts must match; a dash means that shell is empty. The ones with a d electron are La, Ce, Gd, Lu and Ac, Th, Pa, U, Np, Cm'
+  verify: { authored: true }
