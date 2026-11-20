@@ -743,7 +743,10 @@ Book: shell-2015 §22.1, §22.2, §22.3, §22.4, §22.5
 
 ## Drills not yet placed on the map
 
+- sm-stirling (stat.multiplicity)
 - aq-thermal-energy (stat.boltzmann)
 - aq-boltzmann-ratio (stat.boltzmann)
+- sm-electronic-partition (stat.partition-function)
+- sm-rotational-partition-nonlinear (stat.ideal-gas)
 - aq-molecules-per-cell (stat.binding)
 - aq-cell-numbers (stat.rates)

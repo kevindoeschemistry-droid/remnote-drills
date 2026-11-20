@@ -111,7 +111,7 @@ https://ncees.org/wp-content/uploads/2022/09/FE-Che-CBT-specs.pdf
 | 4.C | Corrosion mechanisms and control | — | — | **nothing yet** |
 | 4.D | Polymers, ceramics, composites | — | — | **nothing yet** |
 | **5** | **Chemistry and Biology** (7–11 questions) | | | |
-| 5.A | Inorganic chemistry (acids and bases, redox, pH, electrochemistry) | 4 | 3 | physical-chemistry (4) |
+| 5.A | Inorganic chemistry (acids and bases, redox, pH, electrochemistry) | 4 | 4 | physical-chemistry (4) |
 | 5.B | Organic chemistry | — | — | **nothing yet** |
 | 5.C | Analytical chemistry | — | — | **nothing yet** |
 | 5.D | Biochemistry, microbiology, molecular biology | — | — | **nothing yet** |
@@ -126,12 +126,12 @@ https://ncees.org/wp-content/uploads/2022/09/FE-Che-CBT-specs.pdf
 | 6.G | Pumps, turbines, compressors, vacuum systems | 5 | 5 | fluid-mechanics (5) |
 | 6.H | Compressible flow and non-Newtonian fluids | 4 | 4 | fluid-mechanics (4) |
 | **7** | **Thermodynamics** (8–12 questions) | | | |
-| 7.A | Properties of pure components and mixtures | 15 | 6 | physical-chemistry (4), thermodynamics (11) |
+| 7.A | Properties of pure components and mixtures | 15 | 8 | physical-chemistry (4), thermodynamics (11) |
 | 7.B | Property data and phase diagrams | 9 | 7 | physical-chemistry (3), thermodynamics (6) |
-| 7.C | First and second laws | 31 | 24 | physical-chemistry (12), thermodynamics (19) |
+| 7.C | First and second laws | 31 | 25 | physical-chemistry (12), thermodynamics (19) |
 | 7.D | Processes (isothermal, adiabatic, isentropic, phase change) | 14 | 11 | physical-chemistry (7), thermodynamics (7) |
-| 7.E | Cycles and efficiencies | 5 | 4 | physical-chemistry (5) |
-| 7.F | Phase equilibrium (fugacity, activity, Raoult's law) | 28 | 16 | physical-chemistry (10), thermodynamics (18) |
+| 7.E | Cycles and efficiencies | 5 | 5 | physical-chemistry (5) |
+| 7.F | Phase equilibrium (fugacity, activity, Raoult's law) | 28 | 17 | physical-chemistry (10), thermodynamics (18) |
 | 7.G | Chemical equilibrium | 11 | 9 | physical-chemistry (4), thermodynamics (7) |
 | 7.H | Heats of reaction and mixing | 23 | 13 | material-balances (1), physical-chemistry (3), thermodynamics (19) |
 | **8** | **Material/Energy Balances** (10–15 questions) | | | |
@@ -148,7 +148,7 @@ https://ncees.org/wp-content/uploads/2022/09/FE-Che-CBT-specs.pdf
 | 9.D | Heat-transfer coefficients (overall, local, fouling) | 14 | 14 | heat-transfer (14) |
 | 9.E | Equipment design (double pipe, shell and tube, LMTD, NTU) | 6 | 6 | heat-transfer (6) |
 | **10** | **Mass Transfer and Separation** (8–12 questions) | | | |
-| 10.A | Molecular diffusion | 9 | 4 | physical-chemistry (9) |
+| 10.A | Molecular diffusion | 9 | 8 | physical-chemistry (9) |
 | 10.B | Convective mass transfer | — | — | **nothing yet** |
 | 10.C | Separation systems | — | — | **nothing yet** |
 | 10.D | Equilibrium stage methods | — | — | **nothing yet** |
@@ -159,12 +159,12 @@ https://ncees.org/wp-content/uploads/2022/09/FE-Che-CBT-specs.pdf
 | 11.B | Processing (crushing, grinding, crystallization) | — | — | **nothing yet** |
 | 11.C | Transport and storage | — | — | **nothing yet** |
 | **12** | **Chemical Reaction Engineering** (7–11 questions) | | | |
-| 12.A | Reaction rates and order | 18 | 11 | physical-chemistry (13), reaction-engineering (5) |
-| 12.B | Rate constants (Arrhenius) | 23 | 15 | physical-chemistry (13), reaction-engineering (4), thermodynamics (6) |
+| 12.A | Reaction rates and order | 18 | 17 | physical-chemistry (13), reaction-engineering (5) |
+| 12.B | Rate constants (Arrhenius) | 23 | 21 | physical-chemistry (13), reaction-engineering (4), thermodynamics (6) |
 | 12.C | Conversion, yield, selectivity | 7 | 7 | reaction-engineering (7) |
-| 12.D | Reaction types (series, parallel, homogeneous, heterogeneous, biological) | 17 | 10 | physical-chemistry (13), reaction-engineering (4) |
+| 12.D | Reaction types (series, parallel, homogeneous, heterogeneous, biological) | 17 | 16 | physical-chemistry (13), reaction-engineering (4) |
 | 12.E | Reactor types (batch, CSTR, PFR, semibatch) | 6 | 6 | reaction-engineering (6) |
-| 12.F | Catalysis | 15 | 8 | physical-chemistry (13), reaction-engineering (2) |
+| 12.F | Catalysis | 15 | 14 | physical-chemistry (13), reaction-engineering (2) |
 | **13** | **Economics** (4–6 questions) | | | |
 | 13.A | Time value of money | — | — | **nothing yet** |
 | 13.B | Economic analyses | — | — | **nothing yet** |

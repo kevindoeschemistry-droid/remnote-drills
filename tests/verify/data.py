@@ -15,6 +15,7 @@ import json
 import random
 from pathlib import Path
 
+import functools
 import sympy as sp
 
 _GEN = Path(__file__).resolve().parents[2] / "src/drills/skills.generated.json"
@@ -199,6 +200,84 @@ def keyhole_fit(heights, mask):
     return sp.Integer(hits[0] if hits else 3)
 
 
+@functools.lru_cache(maxsize=None)
+def sph_L2(l, m):
+    """eigenvalue of L^2 (in hbar^2) found by applying the angular operator to Y_l^m"""
+    th, ph = sp.symbols("theta phi", real=True)
+    Y = sp.Ynm(int(l), int(m), th, ph).expand(func=True)
+    L2 = -(sp.diff(sp.sin(th) * sp.diff(Y, th), th) / sp.sin(th) + sp.diff(Y, ph, 2) / sp.sin(th) ** 2)
+    return sp.nsimplify(sp.simplify(L2 / Y).subs({th: sp.Rational(7, 10), ph: sp.Rational(3, 10)}).evalf(), rational=True, tolerance=1e-9)
+
+
+def fc_strongest(S):
+    """v' with the largest Poisson Franck-Condon factor S^v e^-S / v!"""
+    S = sp.nsimplify(S)
+    vals = [sp.N(S ** v * sp.exp(-S) / sp.factorial(v)) for v in range(30)]
+    return sp.Integer(max(range(30), key=lambda v: vals[v]))
+
+
+def hf_energy(h, J, K):
+    """closed-shell Hartree-Fock energy summed over spin orbitals: sum h + 1/2 sum (J - K if same spin)"""
+    orbs = [(i, s) for i in range(len(h)) for s in (0, 1)]
+    E = sum(sp.nsimplify(h[i]) for i, _ in orbs)
+    for (i, s) in orbs:
+        for (j, t) in orbs:
+            if (i, s) == (j, t):
+                continue
+            E += sp.Rational(1, 2) * (sp.nsimplify(J[i][j]) - (sp.nsimplify(K[i][j]) if s == t else 0))
+    return E
+
+
+def hund_ground(l, ne):
+    """(2S + 1, L, J) of the ground level of l^ne: fill m_l from the top, spin up first"""
+    l, ne = int(l), int(ne)
+    slots = [(m, sp.Rational(1, 2)) for m in range(l, -l - 1, -1)] + [(m, -sp.Rational(1, 2)) for m in range(l, -l - 1, -1)]
+    used = slots[:ne]
+    L, S = abs(sum(m for m, _ in used)), sum(s for _, s in used)
+    J = L + S if ne > 2 * l + 1 else abs(L - S)
+    return int(2 * S + 1), int(L), J
+
+
+def hund_choice(l, ne, labels):
+    mult, L, _ = hund_ground(l, ne)
+    sup = {"1": "¹", "2": "²", "3": "³", "4": "⁴", "5": "⁵", "6": "⁶"}
+    return sp.Integer(list(labels).index(sup[str(mult)] + "SPDFGH"[L]))
+
+
+def mo_fill(ne):
+    """(bond order, unpaired electrons) of a second-row diatomic with ne electrons in all; the 2p sigma lies above the pi pair up to 14 electrons"""
+    ne = int(ne)
+    low = [("b", 1), ("a", 1), ("b", 1), ("a", 1)]
+    upper = [("b", 2), ("b", 1), ("a", 2), ("a", 1)] if ne <= 14 else [("b", 1), ("b", 2), ("a", 2), ("a", 1)]
+    nb = na = unpaired = 0
+    for kind, deg in low + upper:
+        take = min(ne, 2 * deg)
+        ne -= take
+        nb += take if kind == "b" else 0
+        na += take if kind == "a" else 0
+        unpaired += take if take <= deg else 2 * deg - take
+    return sp.Rational(nb - na, 2), unpaired
+
+
+@functools.lru_cache(maxsize=None)
+def commutes(pair):
+    """True when the two operators commute, tested on a polynomial (a harmonic well stands in for any central potential)"""
+    X, Y, Z = sp.symbols("X Y Z", real=True)
+    I = sp.I
+    px = lambda g: -I * sp.diff(g, X)  # noqa: E731
+    py = lambda g: -I * sp.diff(g, Y)  # noqa: E731
+    pz = lambda g: -I * sp.diff(g, Z)  # noqa: E731
+    Lx = lambda g: Y * pz(g) - Z * py(g)  # noqa: E731
+    Ly = lambda g: Z * px(g) - X * pz(g)  # noqa: E731
+    Lz = lambda g: X * py(g) - Y * px(g)  # noqa: E731
+    L2 = lambda g: Lx(Lx(g)) + Ly(Ly(g)) + Lz(Lz(g))  # noqa: E731
+    H = lambda g: -(sp.diff(g, X, 2) + sp.diff(g, Y, 2) + sp.diff(g, Z, 2)) / 2 + (X ** 2 + Y ** 2 + Z ** 2) * g / 2  # noqa: E731
+    ops = {"x": lambda g: X * g, "px": px, "py": py, "L2": L2, "Lz": Lz, "Lx": Lx, "Ly": Ly, "H": H}
+    a, b = (ops[k] for k in pair.split(","))
+    g = X ** 3 * Y + 2 * X * Y * Z ** 2 + Z ** 3 - X * Y ** 2 + 5 * X + Y * Z
+    return sp.expand(a(b(g)) - b(a(g))) == 0
+
+
 def box_degeneracy(E):
     """number of (nx, ny, nz), positive integers, with nx^2 + ny^2 + nz^2 = E"""
     E = int(E)
@@ -219,7 +298,7 @@ def rank_code(values):
     return sp.Integer(int("".join(str(j + 1) for j in order)))
 
 
-BASE.update({"cube_tally": cube_tally, "punch_count": punch_count, "net_opposite": net_opposite, "rank_code": rank_code, "box_degeneracy": box_degeneracy, "huckel_chain": huckel_chain, "view_identify": view_identify, "keyhole_fit": keyhole_fit})
+BASE.update({"cube_tally": cube_tally, "punch_count": punch_count, "net_opposite": net_opposite, "rank_code": rank_code, "box_degeneracy": box_degeneracy, "huckel_chain": huckel_chain, "view_identify": view_identify, "keyhole_fit": keyhole_fit, "sph_L2": sph_L2, "fc_strongest": fc_strongest, "hf_energy": hf_energy, "hund_ground": hund_ground, "hund_choice": hund_choice, "mo_fill": mo_fill, "commutes": commutes})
 
 
 def check(p, H):
