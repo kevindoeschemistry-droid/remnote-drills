@@ -381,24 +381,24 @@ units:
         title: Angle Discrimination
         outline: "Rank angles from smallest to largest"
         los:
-          - { id: A, do: "Rank four interior angles from smallest to largest.", ek: ["Compare the openness at equal distance from each vertex; mentally rotate so one arm is horizontal; decide the most extreme angles first."], p: [P7, P8], drills: [] }
+          - { id: A, do: "Rank four interior angles from smallest to largest.", ek: ["Compare the openness at equal distance from each vertex; mentally rotate so one arm is horizontal; decide the most extreme angles first."], p: [P7, P8], drills: [pat-angle-ranking] }
       - n: 4
         title: Paper Folding
         outline: "Mentally unfold a folded and hole-punched sheet of paper"
         los:
-          - { id: A, do: "Determine the hole pattern on a square sheet after it is unfolded.", ek: ["Unfold in reverse order, reflecting each hole across each fold line; the paper is never turned over; holes per punch = layers at that spot."], p: [P7], drills: [] }
-          - { id: B, do: "Eliminate unfold choices by counting the expected holes and checking which quadrants must be symmetric.", ek: ["Total holes = punches × layers; a fold line is always a mirror axis of the final pattern."], p: [P6, P8], needs: [DAT-4.4.A], drills: [] }
+          - { id: A, do: "Determine the hole pattern on a square sheet after it is unfolded.", ek: ["Unfold in reverse order, reflecting each hole across each fold line; the paper is never turned over; holes per punch = layers at that spot."], p: [P7], drills: ["~pat-hole-punching"] }
+          - { id: B, do: "Eliminate unfold choices by counting the expected holes and checking which quadrants must be symmetric.", ek: ["Total holes = punches × layers; a fold line is always a mirror axis of the final pattern."], p: [P6, P8], needs: [DAT-4.4.A], drills: [pat-hole-punching] }
       - n: 5
         title: Cube Counting
         outline: "Determine how much of each cube in a stack is exposed"
         los:
-          - { id: A, do: "Count the cubes in a figure that have a given number of painted faces.", ek: ["Cubes are cemented and equal; every exposed face is painted except the resting bottom; hidden cubes exist only where needed for support; never zero."], p: [P7], drills: [] }
+          - { id: A, do: "Count the cubes in a figure that have a given number of painted faces.", ek: ["Cubes are cemented and equal; every exposed face is painted except the resting bottom; hidden cubes exist only where needed for support; never zero."], p: [P7], drills: [pat-cube-counting] }
           - { id: B, do: "Tally every cube in a figure by painted-face count in one systematic pass, then answer all the questions on that figure from the tally.", ek: ["Go column by column, front to back, and record 1–5 for each cube; the tally total must equal the cube count."], p: [P8], needs: [DAT-4.5.A], drills: [] }
       - n: 6
         title: 3-D Form Development
         outline: "Spatial relations: identify the 3-D shape a flat pattern forms when folded"
         los:
-          - { id: A, do: "Identify which 3-D figure a flat pattern forms when folded.", ek: ["Faces adjacent in the pattern stay adjacent; opposite faces of a cube are never adjacent in the net; marked or shaded faces fix orientation."], p: [P7], drills: [] }
+          - { id: A, do: "Identify which 3-D figure a flat pattern forms when folded.", ek: ["Faces adjacent in the pattern stay adjacent; opposite faces of a cube are never adjacent in the net; marked or shaded faces fix orientation."], p: [P7], drills: ["~pat-cube-net-opposite"] }
           - { id: B, do: "Eliminate folded-figure choices by checking one distinctive face pair or a face count.", ek: ["Count faces and edges first; then test which face a marked edge must meet; one impossible adjacency rejects a choice."], p: [P6, P8], needs: [DAT-4.6.A], drills: [] }
 
   # ── 5 ────────────────────────────────────────────────────────────────────

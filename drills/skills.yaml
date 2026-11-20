@@ -38,6 +38,7 @@ domains:
   - { id: meb, title: "Material and energy balances" }
   - { id: fm, title: "Fluid mechanics" }
   - { id: cre, title: "Chemical reaction engineering" }
+  - { id: dat, title: "Dental Admission Test" }
 
 skills:
   # ── prerequisites ────────────────────────────────────────────────────────
@@ -560,3 +561,9 @@ skills:
   - { id: cre.pfr, domain: cre, title: "Plug-flow reactor and reactor comparison", short: "PFR", prereqs: [cre.cstr] }
   - { id: cre.multiple, domain: cre, title: "Series and parallel reactions: selectivity", short: "Multiple reactions", prereqs: [cre.batch] }
   - { id: cre.catalysis, domain: cre, title: "Catalysis and the Langmuir isotherm", short: "Catalysis", prereqs: [cre.rate-laws] }
+
+  # ── Dental Admission Test: perceptual ability ───────────────────────────
+  - { id: dat.pat-angles, domain: dat, title: "PAT: angle ranking", short: "Angle ranking" }
+  - { id: dat.pat-folding, domain: dat, title: "PAT: hole punching", short: "Hole punching" }
+  - { id: dat.pat-cubes, domain: dat, title: "PAT: cube counting", short: "Cube counting" }
+  - { id: dat.pat-nets, domain: dat, title: "PAT: pattern folding (cube nets)", short: "Cube nets" }

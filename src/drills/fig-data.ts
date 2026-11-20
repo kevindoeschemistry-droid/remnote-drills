@@ -18,6 +18,7 @@
 //                     arrows: [[from, to, bend], …] curved electron-pushing arrows; an end is an atom index or a pair [i, j]
 //                     (the middle of that bond, or of the bond about to form); bend sets the curve's side and depth
 //                     notes: [[x, y, text], …] plain captions (residue names)
+//   type: cubes       heights: [[…], …] stacks of unit cubes seen from the front right (row 0 at the back, column 0 at the left)
 //   type: scheme      panels: [figure, …] stacked top to bottom with an arrow between; a panel may carry `caption`
 // Every number may be an expression in the template's givens and lets. A function (`f`, `field`, a
 // `vfield` component) may also be the name of a text field of the drawn case. Strokes use currentColor.
@@ -264,6 +265,23 @@ function molecule(f: any, scope: Scope): string {
   return svg(Math.max(w, 120), Math.max(h, 70), s);
 }
 
+/** stacked unit cubes in isometric view: heights[r][c] cubes in each column, row 0 at the back, column 0 at the left */
+function cubes(f: any, scope: Scope): string {
+  const H: number[][] = (f.heights as any[][]).map((row) => row.map((v) => Math.round(n(v, scope))));
+  const R = H.length, C = H[0].length, top = Math.max(1, ...H.flat()), U = 26, cx = Math.cos(Math.PI / 6) * U, cy = Math.sin(Math.PI / 6) * U;
+  const ox = R * cx + 10, oy = top * U + 10, wd = (R + C) * cx + 20, ht = top * U + (R + C) * cy + 20;
+  // a grid corner (col c, row r, height z) on the page: columns run down-right, rows down-left, height up
+  const P = (c: number, r: number, z: number) => `${(ox + (c - r) * cx).toFixed(1)},${(oy + (c + r) * cy - z * U).toFixed(1)}`;
+  const face = (pts: string[], fill: string) => `<polygon points="${pts.join(" ")}" fill="${fill}" stroke="#333" stroke-width="1" stroke-linejoin="round"/>`;
+  let s = "";
+  for (let r = 0; r < R; r++) for (let c = 0; c < C; c++) for (let z = 0; z < H[r][c]; z++) {
+    s += face([P(c, r + 1, z), P(c + 1, r + 1, z), P(c + 1, r + 1, z + 1), P(c, r + 1, z + 1)], "#d9d9d9"); // front
+    s += face([P(c + 1, r, z), P(c + 1, r + 1, z), P(c + 1, r + 1, z + 1), P(c + 1, r, z + 1)], "#b8b8b8"); // right
+    s += face([P(c, r, z + 1), P(c + 1, r, z + 1), P(c + 1, r + 1, z + 1), P(c, r + 1, z + 1)], "#f5f5f5"); // top
+  }
+  return svg(wd, ht, s);
+}
+
 /** figures stacked top to bottom, an arrow between each pair: the states of a mechanism */
 function scheme(f: any, scope: Scope): string {
   const parts = (f.panels as any[]).map((p) => {
@@ -290,6 +308,7 @@ export function renderFigure(f: any, scope: Scope): string {
     case "table": return table(f, scope);
     case "molecule": return molecule(f, scope);
     case "scheme": return scheme(f, scope);
+    case "cubes": return cubes(f, scope);
     default: throw new Error(`unknown figure type ${f?.type}`);
   }
 }
