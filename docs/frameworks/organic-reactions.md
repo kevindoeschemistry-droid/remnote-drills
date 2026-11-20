@@ -2,7 +2,7 @@
 
 Generated from `drills/frameworks/organic-reactions.yaml` by `scripts/framework.mjs`. ● drilled · ◐ partly · ○ no drills yet.
 
-**21 learning objectives** in 7 units (21 core): 21 drilled, 0 partly, 0 with no drills. Core: 21 / 21 drilled.
+**25 learning objectives** in 8 units (25 core): 25 drilled, 0 partly, 0 with no drills. Core: 25 / 25 drilled.
 
 ## Big ideas
 
@@ -27,6 +27,7 @@ Generated from `drills/frameworks/organic-reactions.yaml` by `scripts/framework.
 | 5 · Carboxylic acids and their derivatives | core | — | 2 | 2 | 0 | 0 |
 | 6 · Benzene and substituted benzenes | core | — | 3 | 3 | 0 | 0 |
 | 7 · Making carbon–carbon bonds | core | — | 1 | 1 | 0 | 0 |
+| 8 · Mechanisms with curved arrows | core | — | 4 | 4 | 0 | 0 |
 
 ## Unit 1 · The rules that predict
 
@@ -163,3 +164,24 @@ Big ideas: RULES
 - ● **OR-7.1.A** Predict the product of an aldol condensation and of a Diels–Alder reaction.
   - EK: Aldol: new C=C between the α and β carbons. Diels–Alder: a cyclohexene, with the dienophile's geometry kept.
   - P1 · P2 · drills: rx-predict-cc-aldol-condensation, rx-reagent-cc-aldol-condensation, rx-predict-cc-diels-alder, rx-reagent-cc-diels-alder
+
+## Unit 8 · Mechanisms with curved arrows
+
+Big ideas: RULES
+
+### 8.1 The four patterns
+
+
+
+- ● **OR-8.1.A** Draw the SN2 mechanism: both arrows and the products.
+  - EK: Backside attack and loss of the leaving group in one step; inversion.
+  - P1 · drills: st-mech-sn2-1
+- ● **OR-8.1.B** Draw the E2 mechanism: three arrows and the products.
+  - EK: Base to H, C–H electrons to the π bond, leaving group out; anti-periplanar.
+  - P1 · drills: st-mech-e2-1
+- ● **OR-8.1.C** Draw the two steps of electrophilic addition of HX to an alkene, with the carbocation.
+  - EK: The π bond takes the proton to give the more stable cation; the halide then adds.
+  - P1 · drills: st-mech-hbr-addition-1, st-mech-hbr-addition-2
+- ● **OR-8.1.D** Draw the two steps of nucleophilic acyl substitution, with the tetrahedral intermediate.
+  - EK: Addition to C=O, then elimination of the leaving group.
+  - P1 · drills: st-mech-acyl-substitution-1, st-mech-acyl-substitution-2

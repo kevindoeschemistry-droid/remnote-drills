@@ -10,7 +10,7 @@
 #   aamc-mcat-outline  an exam outline that names these same families; named, not opened
 # Which reactions and which substrates stand for each family is a house list. Mark it up.
 #
-# Not here yet: mechanisms with curved arrows (only chymotrypsin is drawn), stereochemistry shown with
+# Not here yet: most mechanisms (unit 8 has the four that the rest are built from), stereochemistry shown with
 # wedges, rearrangements, epoxide openings, protecting-group strategy, multistep synthesis and
 # retrosynthesis, pericyclic selection rules, radical halogenation selectivity, amines and heterocycle
 # reactions, and spectroscopy (IR, NMR, MS) as a way of checking a product.
@@ -142,3 +142,16 @@ units:
         title: "Condensations and cycloadditions"
         los:
           - { id: A, do: "Predict the product of an aldol condensation and of a Diels–Alder reaction.", ek: ["Aldol: new C=C between the α and β carbons. Diels–Alder: a cyclohexene, with the dienophile's geometry kept."], p: [P1, P2], drills: ["rx-predict-cc-aldol-condensation", "rx-reagent-cc-aldol-condensation", "rx-predict-cc-diels-alder", "rx-reagent-cc-diels-alder"] }
+  - id: mechanisms
+    n: 8
+    title: "Mechanisms with curved arrows"
+    scope: core
+    ideas: [RULES]
+    topics:
+      - n: 1
+        title: "The four patterns"
+        los:
+          - { id: A, do: "Draw the SN2 mechanism: both arrows and the products.", ek: ["Backside attack and loss of the leaving group in one step; inversion."], p: [P1], drills: ["st-mech-sn2-1"] }
+          - { id: B, do: "Draw the E2 mechanism: three arrows and the products.", ek: ["Base to H, C–H electrons to the π bond, leaving group out; anti-periplanar."], p: [P1], drills: ["st-mech-e2-1"] }
+          - { id: C, do: "Draw the two steps of electrophilic addition of HX to an alkene, with the carbocation.", ek: ["The π bond takes the proton to give the more stable cation; the halide then adds."], p: [P1], drills: ["st-mech-hbr-addition-1", "st-mech-hbr-addition-2"] }
+          - { id: D, do: "Draw the two steps of nucleophilic acyl substitution, with the tetrahedral intermediate.", ek: ["Addition to C=O, then elimination of the leaving group."], p: [P1], drills: ["st-mech-acyl-substitution-1", "st-mech-acyl-substitution-2"] }

@@ -45,7 +45,9 @@ def formula(fig):
     for k, a in enumerate(fig["atoms"]):
         el, h, q = read_label(a[2]) if len(a) > 2 and a[2] else ("C", 4 - bonded[k], 0)
         # a cation of N, O, S or P holds one more bond, an anion one fewer
-        if h < 0 or (VALENCE[el] is not None and bonded[k] + h - q not in VALENCE[el]):
+        # a carbocation or carbanion has three bonds, whichever its sign
+        need = bonded[k] + h + abs(q) if el == "C" else bonded[k] + h - q
+        if h < 0 or (VALENCE[el] is not None and need not in VALENCE[el]):
             raise ValueError(f"atom {k} ({el}) has {bonded[k]} bonds, {h} H and charge {q}")
         counts[el] += 1
         counts["H"] += h
