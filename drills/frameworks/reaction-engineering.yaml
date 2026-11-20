@@ -1,0 +1,105 @@
+# Chemical Reaction Engineering — curriculum framework (draft 1, for Kevin's markup)
+#
+# Basis: NCEES FE Chemical CBT specification, area 12, Chemical Reaction Engineering (7–11 questions),
+# read in full (drills/standards.yaml › fe-chemical). Its six items are the spine:
+#   12.A reaction rates and order · 12.B rate constants (Arrhenius) · 12.C conversion, yield,
+#   selectivity · 12.D reaction types (series, parallel, …) · 12.E reactor types (batch, CSTR, PFR,
+#   semibatch) · 12.F catalysis
+# The spec names topics, not objectives: the objectives and their order are ours, following the usual
+# textbook sequence. Everything here is liquid phase, constant density and isothermal.
+#
+# Not here yet: gas-phase reactions with a change in moles (the ε term), reversible reactions and
+# equilibrium conversion, the energy balance (adiabatic and non-isothermal reactors), semibatch
+# reactors, Levenspiel plots, residence-time distributions, the Thiele modulus and effectiveness
+# factor, and biological (Michaelis–Menten, Monod) kinetics.
+id: reaction-engineering
+title: Chemical Reaction Engineering
+code: RE
+draft: 1
+track: engineering
+requires: [material-balances]
+level: 4
+domains: [cre]
+
+basis:
+  primary: fe-chemical
+  note: "Topics from FE Chemical area 12, read in full. Objectives and their order are ours. Limited so far to isothermal, constant-density reactions; the gaps are listed in the file header."
+
+big_ideas:
+  - id: BALANCE
+    title: A reactor is a mole balance with a rate law in it
+    text: In minus out plus generation equals accumulation. Batch, CSTR and PFR differ only in which terms survive and where the rate is evaluated.
+  - id: CONCENTRATION
+    title: The rate lives at the local concentration
+    text: A stirred tank reacts at its exit concentration; a tube reacts at every concentration on the way down. That one fact explains reactor size and selectivity.
+  - id: TIME
+    title: Compare the reaction time to the residence time
+    text: The Damköhler number, kτ for first order, says how much will react before the fluid leaves.
+
+practices:
+  - id: P1
+    title: Compute
+    text: Carry a design equation to a number.
+  - id: P2
+    title: Choose
+    text: Pick the reactor or the operating condition from the kinetics.
+
+units:
+  - id: kinetics
+    n: 1
+    title: "Rates"
+    scope: core
+    std: ["fe-chemical:12.A", "fe-chemical:12.B"]
+    ideas: [CONCENTRATION]
+    topics:
+      - n: 1
+        title: "Rate laws and order"
+        los:
+          - { id: A, std: ["fe-chemical:12.A"], do: "Evaluate a power-law rate, find the order from how the rate responds to concentration, and read the order from the units of k.", ek: ["Doubling C multiplies an nth-order rate by 2ⁿ; k carries (mol/L)^(1−n) per time."], p: [P1], drills: [cre-rate-from-law, cre-order-from-doubling, cre-rate-constant-units] }
+          - { id: B, std: ["fe-chemical:12.A"], do: "Compute a first-order half-life.", ek: ["t½ = ln 2 / k, independent of the starting concentration."], p: [P1], drills: [cre-half-life] }
+      - n: 2
+        title: "Temperature dependence"
+        los:
+          - { id: A, std: ["fe-chemical:12.B"], do: "Use the Arrhenius equation to find how k changes with temperature, and the activation energy from two rate constants.", ek: ["ln(k₂/k₁) = (Eₐ/R)(1/T₁ − 1/T₂), kelvin and joules."], p: [P1], drills: [cre-arrhenius-ratio, cre-activation-energy] }
+  - id: reactors
+    n: 2
+    title: "Ideal reactors"
+    scope: core
+    std: ["fe-chemical:12.C", "fe-chemical:12.E"]
+    ideas: [BALANCE, CONCENTRATION, TIME]
+    topics:
+      - n: 1
+        title: "Batch"
+        los:
+          - { id: A, std: ["fe-chemical:12.C", "fe-chemical:12.E"], do: "Find the batch time for a given conversion, first and second order.", ek: ["First order: t = (1/k) ln[1/(1 − X)]. Second order: t = X / [k C_A0 (1 − X)]."], p: [P1], drills: [cre-batch-first-order-time, cre-batch-second-order-time] }
+      - n: 2
+        title: "CSTR"
+        los:
+          - { id: A, std: ["fe-chemical:12.E"], do: "Size a CSTR for a conversion, find the conversion from the space time, and treat tanks in series.", ek: ["V = v₀X / [k(1 − X)]; X = kτ/(1 + kτ); n equal tanks give C/C₀ = 1/(1 + kτ)ⁿ."], p: [P1], drills: [cre-cstr-volume, cre-cstr-conversion, cre-cstrs-in-series] }
+      - n: 3
+        title: "PFR"
+        los:
+          - { id: A, std: ["fe-chemical:12.E"], do: "Size a plug-flow reactor and compare it with a CSTR.", ek: ["V = (v₀/k) ln[1/(1 − X)]; for positive order a PFR is always smaller."], p: [P1, P2], drills: [cre-pfr-volume, cre-reactor-comparison] }
+  - id: multiple
+    n: 3
+    title: "Multiple reactions"
+    scope: core
+    std: ["fe-chemical:12.C", "fe-chemical:12.D"]
+    ideas: [CONCENTRATION]
+    topics:
+      - n: 1
+        title: "Series and parallel"
+        los:
+          - { id: A, std: ["fe-chemical:12.D"], do: "Find when the intermediate of a series reaction peaks.", ek: ["t_max = ln(k₁/k₂)/(k₁ − k₂)."], p: [P1], drills: [cre-series-optimum-time] }
+          - { id: B, std: ["fe-chemical:12.C", "fe-chemical:12.D"], do: "Compute the instantaneous selectivity of parallel reactions and choose the reactor that favours the desired one.", ek: ["S goes as C_A^(a_D − a_U): high concentration if the desired path has the higher order, low if the lower."], p: [P1, P2], drills: [cre-parallel-selectivity, cre-selectivity-strategy] }
+  - id: catalysis
+    n: 4
+    title: "Catalysis"
+    scope: core
+    std: ["fe-chemical:12.F"]
+    ideas: [CONCENTRATION]
+    topics:
+      - n: 1
+        title: "Surfaces"
+        los:
+          - { id: A, std: ["fe-chemical:12.F"], do: "Compute Langmuir coverage and state what a catalyst does and does not change.", ek: ["θ = KP/(1 + KP); a catalyst lowers the activation energy and leaves equilibrium alone."], p: [P1, P2], drills: [cre-langmuir-coverage, cre-catalysis-facts] }
