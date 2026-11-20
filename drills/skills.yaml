@@ -39,6 +39,7 @@ domains:
   - { id: fm, title: "Fluid mechanics" }
   - { id: cre, title: "Chemical reaction engineering" }
   - { id: dat, title: "Dental Admission Test" }
+  - { id: nuc, title: "Nuclear science" }
 
 skills:
   # ── prerequisites ────────────────────────────────────────────────────────
@@ -567,3 +568,11 @@ skills:
   - { id: dat.pat-folding, domain: dat, title: "PAT: hole punching", short: "Hole punching" }
   - { id: dat.pat-cubes, domain: dat, title: "PAT: cube counting", short: "Cube counting" }
   - { id: dat.pat-nets, domain: dat, title: "PAT: pattern folding (cube nets)", short: "Cube nets" }
+
+  # ── nuclear science and reactor theory ───────────────────────────────────
+  - { id: nuc.decay, domain: nuc, title: "Nuclides, decay and binding energy", short: "Decay" }
+  - { id: nuc.radiation, domain: nuc, title: "Radiation dose and shielding", short: "Dose and shielding", prereqs: [nuc.decay] }
+  - { id: nuc.neutrons, domain: nuc, title: "Neutrons and cross sections", short: "Neutrons", prereqs: [nuc.decay] }
+  - { id: nuc.criticality, domain: nuc, title: "The neutron life cycle, k-effective and reactivity", short: "Criticality", prereqs: [nuc.neutrons] }
+  - { id: nuc.kinetics, domain: nuc, title: "Reactor kinetics: period and power", short: "Kinetics", prereqs: [nuc.criticality] }
+  - { id: nuc.operation, domain: nuc, title: "Reactivity effects, xenon, fuel use and decay heat", short: "Reactor operation", prereqs: [nuc.criticality] }

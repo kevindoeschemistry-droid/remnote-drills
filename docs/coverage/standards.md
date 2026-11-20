@@ -25,6 +25,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 | Mathematics K–8 (Common Core) | Common Core State Standards for Mathematics (2010) | standard | read through a crosswalk | — | — | 258 | 258 | 0 |
 | Mental Math | UIL Number Sense Problem Sequencing Charts (High School; A+ Junior High and Elementary, rev. 2016-17) with the Number Sense Handbook rules | exam-spec | read in full | sta-mtc, mit-18-03-coverup, mit-integration-bee | — | 82 | 79 | 3 |
 | Molecular Simulation | LiveCoMS best-practice papers for molecular simulation | course | read in part | — | — | 102 | 0 | 102 |
+| Nuclear Science and Reactor Theory | NRC Generic Fundamentals Examination, reactor theory topics (PWR catalog 192001-192008) | exam-spec | read in part | doe-hdbk-1019 | — | 15 | 15 | 0 |
 | Physical Chemistry | Engel & Reid, Physical Chemistry, 3rd ed. (through the wiki's drill pages) | textbook | read in part | fe-chemical | acs-accm-pchem | 141 | 59 | 82 |
 | Physics (AP) | AP Physics 1, 2 and C Course and Exam Descriptions | standard | read in part | — | — | 201 | 201 | 0 |
 | Programming Foundations | AP Computer Science A Course and Exam Description (Fall 2025) | standard | read in full | — | — | 140 | 140 | 0 |
@@ -49,6 +50,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 - **Mathematics K–8 (Common Core)**: Codes and wording checked against a state reprint; the CCSS site was blocked.
 - **Mental Math**: Topic list and order from the UIL high-school chart. The short-cut techniques and the estimation topic are a house list. Unit 6 goes past the chart: the cover-up items follow an MIT 18.03 course note and the one-a-minute integration pace follows the MIT Integration Bee qualifier; which results belong in unit 6 is a house list. Pace comes from the UIL rules (7.5 s a problem) and the English multiplication tables check (6 s a fact).
 - **Molecular Simulation**: No standard exists for this subject; triangulated from best-practice papers, textbooks and the Hayes group tutorial.
+- **Nuclear Science and Reactor Theory**: Reactor-theory units follow the NRC Generic Fundamentals Examination topic list (read in part). Nuclear physics and shielding follow the DOE fundamentals handbook's first module (read in part). Health-physics standards for the radiation-protection unit have not been looked at.
 - **Physical Chemistry**: Textbook-shaped until the ACS content map is read. Thermodynamics and kinetics units are anchored to fe-chemical; quantum and spectroscopy have no outside anchor yet.
 - **Physics (AP)**: Objective codes read for a few units only.
 - **Chemical Reaction Engineering**: Topics from FE Chemical area 12, read in full. Objectives and their order are ours. Limited so far to isothermal, constant-density reactions; the gaps are listed in the file header.
@@ -68,6 +70,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 - **Applied Engineering Mathematics**: textbook, read in full
 - **Mathematics K–8 (Common Core)**: standard, read through a crosswalk
 - **Molecular Simulation**: course, read in part
+- **Nuclear Science and Reactor Theory**: exam-spec, read in part
 - **Physical Chemistry**: textbook, read in part; should move to ACS Exams Institute Anchoring Concepts Content Map IV: Physical Chemistry (J. Chem. Educ. 2018, 95, 238)
 - **Physics (AP)**: standard, read in part
 - **Speaking and Articulation**: rubric, read in full
@@ -450,3 +453,37 @@ https://www.pearson.com/en-us/subject-catalog/p/organic-chemistry/P200000006995/
 | **26** | **Nucleic acids** (undefined questions) | | | |
 
 **Areas with nothing answering to them:** 18 Benzene and substituted benzenes; 19 Amines and heterocyclic compounds; 20 Carbohydrates; 21 Amino acids, peptides and proteins; 22 Catalysis in organic and enzymatic reactions; 23 Coenzymes; 24 Metabolic pathways; 25 Lipids; 26 Nucleic acids.
+
+## NRC Generic Fundamentals Examination, reactor theory topics (PWR catalog 192001-192008)
+
+https://www.nrc.gov/reactors/operator-licensing/history-rulemaking-activities/generic-fundamentals-examinations/pwr/reactor-theory-pwr.html
+
+0 of 0 items have at least one objective answering to them.
+
+| Item | Topic | Objectives | With a drill | Where |
+|---|---|---|---|---|
+| **192001** | **Neutrons** (undefined questions) | | | |
+| **192002** | **Neutron life cycle** (undefined questions) | | | |
+| **192003** | **Reactor kinetics and neutron sources** (undefined questions) | | | |
+| **192004** | **Reactivity coefficients** (undefined questions) | | | |
+| **192005** | **Control rods** (undefined questions) | | | |
+| **192006** | **Fission product poisons** (undefined questions) | | | |
+| **192007** | **Fuel depletion and burnable poisons** (undefined questions) | | | |
+| **192008** | **Reactor operational physics** (undefined questions) | | | |
+
+**Areas with nothing answering to them:** 192001 Neutrons; 192002 Neutron life cycle; 192003 Reactor kinetics and neutron sources; 192004 Reactivity coefficients; 192005 Control rods; 192006 Fission product poisons; 192007 Fuel depletion and burnable poisons; 192008 Reactor operational physics.
+
+## DOE Fundamentals Handbook, Nuclear Physics and Reactor Theory (DOE-HDBK-1019/1-93, /2-93)
+
+https://www.standards.doe.gov/standards-documents/1000/1019-bhdbk-1993-v1
+
+0 of 0 items have at least one objective answering to them.
+
+| Item | Topic | Objectives | With a drill | Where |
+|---|---|---|---|---|
+| **1** | **Atomic and nuclear physics** (undefined questions) | | | |
+| **2** | **Reactor theory: neutron characteristics** (undefined questions) | | | |
+| **3** | **Reactor theory: nuclear parameters** (undefined questions) | | | |
+| **4** | **Reactor theory: reactor operations** (undefined questions) | | | |
+
+**Areas with nothing answering to them:** 1 Atomic and nuclear physics; 2 Reactor theory: neutron characteristics; 3 Reactor theory: nuclear parameters; 4 Reactor theory: reactor operations.

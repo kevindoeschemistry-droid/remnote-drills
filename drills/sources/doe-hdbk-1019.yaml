@@ -1,0 +1,13 @@
+# DOE Fundamentals Handbook, Nuclear Physics and Reactor Theory (DOE-HDBK-1019/1-93 and /2-93, 1993).
+# Public; cancelled as a DOE standard in 2016 but still the usual open text. Module titles from the
+# handbook's own overview; mapped at module level only.
+id: doe-hdbk-1019
+title: "DOE Fundamentals Handbook — Nuclear Physics and Reactor Theory"
+short: "DOE handbook"
+edition: 1993
+field: nuclear engineering
+chapters:
+  - { n: 1, title: "Atomic and Nuclear Physics", skills: [nuc.decay, nuc.radiation] }
+  - { n: 2, title: "Reactor Theory (Neutron Characteristics)", skills: [nuc.neutrons] }
+  - { n: 3, title: "Reactor Theory (Nuclear Parameters)", skills: [nuc.criticality, nuc.operation] }
+  - { n: 4, title: "Reactor Theory (Reactor Operations)", skills: [nuc.kinetics, nuc.operation] }

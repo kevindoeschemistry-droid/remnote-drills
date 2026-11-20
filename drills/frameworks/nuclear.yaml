@@ -1,0 +1,146 @@
+# Nuclear Science and Reactor Theory — curriculum framework (draft 1, for Kevin's markup)
+#
+# Civil nuclear fundamentals at the level a reactor operator or a technical generalist is expected
+# to hold: what nuclei do, how radiation is measured and stopped, how a chain reaction is kept
+# steady, and what a reactor does over a day and over a fuel cycle.
+#
+# Basis:
+#   nrc-gfe        NRC Generic Fundamentals Examination, reactor theory topics 192001–192008. An exam
+#                  specification: the topic list was read, the knowledge statements only sampled.
+#   doe-hdbk-1019  DOE Fundamentals Handbook, Nuclear Physics and Reactor Theory, modules 1–4. A
+#                  training handbook (cancelled as a standard in 2016, still the open text).
+# The GFE gives the reactor-theory units their spine. Units 1–2 (nuclear physics, radiation and
+# shielding) follow the handbook's first module; radiation protection has its own professional
+# standards (health physics), which have not been looked at.
+#
+# Not here yet: the chart of the nuclides and decay chains, Q-values and fission-product yields,
+# neutron slowing-down and diffusion, control-rod worth curves, reactivity-coefficient calculations,
+# xenon transients worked numerically, thermal-hydraulic limits, the fuel cycle, fusion, and
+# detectors and dosimetry.
+id: nuclear
+title: Nuclear Science and Reactor Theory
+code: NU
+draft: 1
+track: science
+requires: [physics, chemistry]
+level: 4
+domains: [nuc]
+
+basis:
+  primary: nrc-gfe
+  also: [doe-hdbk-1019]
+  note: "Reactor-theory units follow the NRC Generic Fundamentals Examination topic list (read in part). Nuclear physics and shielding follow the DOE fundamentals handbook's first module (read in part). Health-physics standards for the radiation-protection unit have not been looked at."
+
+big_ideas:
+  - id: BALANCE
+    title: A reactor is a neutron balance
+    text: Each generation, neutrons are produced by fission and lost to absorption and leakage. Critical means the two are equal; everything an operator does shifts one side of that balance.
+  - id: EXPONENTIAL
+    title: Decay, attenuation and power all go exponentially
+    text: A constant fractional rate gives a half-life, a half-value layer or a reactor period. One piece of mathematics, three settings.
+  - id: DELAYED
+    title: A small delayed fraction makes control possible
+    text: Fewer than one neutron in a hundred is delayed, yet those set the timescale of every normal power change.
+
+practices:
+  - id: P1
+    title: Compute
+    text: Carry a decay, shielding, criticality or kinetics relation to a number.
+  - id: P2
+    title: Predict the direction
+    text: Say whether a change adds or removes reactivity, dose or heat, and why.
+  - id: P3
+    title: Recall an anchor
+    text: Know the handful of magnitudes the field runs on.
+
+units:
+  - id: nuclei
+    n: 1
+    title: "Nuclei and radioactive decay"
+    scope: core
+    std: ["doe-hdbk-1019:1"]
+    ideas: [EXPONENTIAL]
+    topics:
+      - n: 1
+        title: "Nuclides and decay modes"
+        los:
+          - { id: A, std: ["doe-hdbk-1019:1"], do: "Read nuclide notation and find the daughter of an alpha, beta-minus or positron decay.", ek: ["N = A − Z; charge and nucleon number are conserved in every decay."], p: [P1], drills: [nu-neutron-number, nu-decay-daughter] }
+          - { id: B, std: ["doe-hdbk-1019:1"], do: "Turn a mass defect into a binding energy per nucleon.", ek: ["1 u = 931.5 MeV; the curve peaks near iron at about 8.8 MeV per nucleon."], p: [P1, P3], drills: [nu-binding-energy] }
+      - n: 2
+        title: "The decay law"
+        los:
+          - { id: A, std: ["doe-hdbk-1019:1"], do: "Use a half-life to find the fraction remaining, the time to reach a given fraction, and the decay constant.", ek: ["N = N₀(½)^(t/T); λ = ln 2 / T; ten half-lives is a factor of about a thousand."], p: [P1], drills: [nu-fraction-remaining, nu-time-to-decay, nu-decay-constant] }
+  - id: radiation
+    n: 2
+    title: "Radiation, dose and shielding"
+    scope: core
+    std: ["doe-hdbk-1019:1"]
+    ideas: [EXPONENTIAL]
+    topics:
+      - n: 1
+        title: "Distance and shielding"
+        los:
+          - { id: A, std: ["doe-hdbk-1019:1"], do: "Apply the inverse-square law to a point source.", ek: ["Dose rate × r² is constant."], p: [P1], drills: [nu-inverse-square] }
+          - { id: B, std: ["doe-hdbk-1019:1"], do: "Compute gamma attenuation from a linear attenuation coefficient or a half-value layer, and choose a shield for each kind of radiation.", ek: ["I = I₀e^(−μx); HVL = ln 2 / μ; paper for alpha, plastic for beta, dense for gamma, hydrogen for neutrons."], p: [P1, P2], drills: [nu-half-value-layers, nu-attenuation-coefficient, nu-shielding-choice] }
+      - n: 2
+        title: "Dose"
+        los:
+          - { id: A, do: "Convert an absorbed dose to an equivalent dose.", ek: ["H (Sv) = w_R × D (Gy); w_R is 1 for photons and betas, 20 for alphas."], p: [P1], drills: [nu-equivalent-dose] }
+  - id: neutrons
+    n: 3
+    title: "Neutrons"
+    scope: core
+    std: ["nrc-gfe:192001", "doe-hdbk-1019:2"]
+    ideas: [BALANCE, DELAYED]
+    topics:
+      - n: 1
+        title: "Cross sections"
+        los:
+          - { id: A, std: ["doe-hdbk-1019:2"], do: "Compute a macroscopic cross section and a mean free path.", ek: ["Σ = Nσ; mean free path = 1/Σ."], p: [P1], drills: [nu-macroscopic-cross-section, nu-mean-free-path] }
+      - n: 2
+        title: "Prompt, delayed and thermal neutrons"
+        los:
+          - { id: A, std: ["nrc-gfe:192001"], do: "Explain where delayed neutrons come from and why they matter, what a moderator does, and the energy of a thermal neutron.", ek: ["β ≈ 0.0065 for U-235; kT = 0.025 eV at room temperature, 2200 m/s."], p: [P1, P3], drills: [nu-neutron-facts, nu-thermal-neutron-energy] }
+  - id: criticality
+    n: 4
+    title: "The neutron life cycle and reactivity"
+    scope: core
+    std: ["nrc-gfe:192002", "nrc-gfe:192003", "doe-hdbk-1019:3"]
+    ideas: [BALANCE, DELAYED]
+    topics:
+      - n: 1
+        title: "k-effective"
+        los:
+          - { id: A, std: ["nrc-gfe:192002"], do: "Compute k-effective from the six factors and classify the state of a core.", ek: ["k_eff = ε L_f p L_t f η; subcritical, critical, delayed supercritical, prompt critical."], p: [P1, P2], drills: [nu-six-factor, nu-criticality-state] }
+          - { id: B, std: ["nrc-gfe:192002"], do: "Convert k-effective to reactivity.", ek: ["ρ = (k − 1)/k; 1 pcm = 10⁻⁵; one dollar is ρ = β."], p: [P1], drills: [nu-reactivity-pcm] }
+      - n: 2
+        title: "Subcritical multiplication"
+        los:
+          - { id: A, std: ["nrc-gfe:192003"], do: "Find the multiplication of a source in a subcritical core.", ek: ["M = 1/(1 − k); 1/M falls to zero at criticality."], p: [P1], drills: [nu-subcritical-multiplication] }
+  - id: kinetics
+    n: 5
+    title: "Kinetics"
+    scope: core
+    std: ["nrc-gfe:192003", "doe-hdbk-1019:4"]
+    ideas: [EXPONENTIAL, DELAYED]
+    topics:
+      - n: 1
+        title: "Period"
+        los:
+          - { id: A, std: ["nrc-gfe:192003"], do: "Estimate the stable period for a small reactivity addition and the power change on a period.", ek: ["τ ≈ (β − ρ)/(λρ); P = P₀e^(t/τ); doubling time 0.693τ."], p: [P1], drills: [nu-reactor-period, nu-power-on-a-period] }
+  - id: operation
+    n: 6
+    title: "Reactivity effects, poisons and heat"
+    scope: core
+    std: ["nrc-gfe:192004", "nrc-gfe:192005", "nrc-gfe:192006", "nrc-gfe:192007"]
+    ideas: [BALANCE]
+    topics:
+      - n: 1
+        title: "What moves reactivity"
+        los:
+          - { id: A, std: ["nrc-gfe:192004", "nrc-gfe:192005", "nrc-gfe:192007"], do: "Predict the sign of the reactivity change from temperature, control rods, boron, burnup and burnable poisons.", ek: ["More absorption or less fuel is negative; removing an absorber is positive; fuel and moderator temperature feedback are negative by design."], p: [P2], drills: [nu-reactivity-effects] }
+          - { id: B, std: ["nrc-gfe:192006"], do: "Describe how xenon-135 and samarium-149 are produced and removed, and what xenon does after a shutdown.", ek: ["Xenon comes mostly from iodine-135, is removed by burnup and decay, and peaks about ten hours after shutdown."], p: [P2, P3], drills: [nu-xenon-facts] }
+      - n: 2
+        title: "Energy"
+        los:
+          - { id: A, do: "Relate thermal power to fuel consumed, and state the size of decay heat after shutdown.", ek: ["About 200 MeV per fission, so about 1 g of U-235 per megawatt-day; decay heat starts at 6–7% of full power."], p: [P1, P3], drills: [nu-fuel-consumption, nu-decay-heat] }
