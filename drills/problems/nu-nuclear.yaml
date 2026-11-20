@@ -1,0 +1,332 @@
+# Nuclear science and reactor theory (framework nuclear).
+# Basis: NRC Generic Fundamentals Examination, reactor theory topics 192001-192008, and the DOE
+# Fundamentals Handbook Nuclear Physics and Reactor Theory (DOE-HDBK-1019), modules 1-4.
+# Civil reactor physics and radiation protection at operator-fundamentals level. Half-lives,
+# half-value layers and delayed-neutron data are printed in the prompt or stated as round textbook
+# values typed by hand; decay and kinetics answers are checked by solving the rate equation.
+
+# ── nuclides and decay ──────────────────────────────────────────────────────
+- template: nu-neutron-number
+  skill: nuc.decay
+  pace: recall
+  cases:
+    - { nm: 'uranium-235', Zn: 92, A: 235 }
+    - { nm: 'uranium-238', Zn: 92, A: 238 }
+    - { nm: 'plutonium-239', Zn: 94, A: 239 }
+    - { nm: 'cobalt-60', Zn: 27, A: 60 }
+    - { nm: 'caesium-137', Zn: 55, A: 137 }
+    - { nm: 'iodine-131', Zn: 53, A: 131 }
+    - { nm: 'strontium-90', Zn: 38, A: 90 }
+    - { nm: 'carbon-14', Zn: 6, A: 14 }
+    - { nm: 'tritium (hydrogen-3)', Zn: 1, A: 3 }
+  prompt: 'How many neutrons are in a nucleus of {{nm}} ($Z = {{Zn}}$)?'
+  parts:
+    - { ask: 'Neutrons', label: r, tex: 'N', value: A - Zn, tol: 0.00001, explain: 'The number after the name is the mass number $A$, protons plus neutrons: $N = A - Z = {{A}} - {{Zn}}$' }
+  verify: { expect: { r: "solve(Eq(Zn + x, A), x)[0]" } }
+
+- template: nu-decay-daughter
+  skill: nuc.decay
+  pace: quick
+  cases:
+    - { nm: 'uranium-238', Zn: 92, A: 238, mode: 'alpha decay', q: 2, dA: 4 }
+    - { nm: 'radium-226', Zn: 88, A: 226, mode: 'alpha decay', q: 2, dA: 4 }
+    - { nm: 'plutonium-239', Zn: 94, A: 239, mode: 'alpha decay', q: 2, dA: 4 }
+    - { nm: 'caesium-137', Zn: 55, A: 137, mode: 'beta-minus decay', q: -1, dA: 0 }
+    - { nm: 'cobalt-60', Zn: 27, A: 60, mode: 'beta-minus decay', q: -1, dA: 0 }
+    - { nm: 'iodine-131', Zn: 53, A: 131, mode: 'beta-minus decay', q: -1, dA: 0 }
+    - { nm: 'fluorine-18', Zn: 9, A: 18, mode: 'positron (beta-plus) decay', q: 1, dA: 0 }
+    - { nm: 'sodium-22', Zn: 11, A: 22, mode: 'positron (beta-plus) decay', q: 1, dA: 0 }
+  prompt: '{{nm}} ($Z = {{Zn}}$) undergoes {{mode}}. What is the atomic number of the daughter?'
+  parts:
+    - { ask: 'Daughter $Z$', label: r, tex: 'Z', value: Zn - q, tol: 0.00001, explain: 'Charge is conserved. The emitted particle carries charge ${{q}}$ (alpha $+2$, beta-minus $-1$, positron $+1$), so the daughter has $Z = {{Zn}} - ({{q}})$. The mass number changes by ${{dA}}$: only an alpha takes nucleons away' }
+  verify: { expect: { r: "solve(Eq(Zn, x + q), x)[0]" } }
+
+- template: nu-binding-energy
+  skill: nuc.decay
+  pace: quick
+  cases:
+    - { nm: 'helium-4', dm: 0.030377, A: 4 }
+    - { nm: 'deuterium', dm: 0.002388, A: 2 }
+    - { nm: 'carbon-12', dm: 0.098940, A: 12 }
+    - { nm: 'iron-56', dm: 0.528463, A: 56 }
+    - { nm: 'uranium-235', dm: 1.915060, A: 235 }
+  prompt: 'The mass defect of {{nm}} is ${{dm|7}}$ u. What is its binding energy per nucleon, in MeV? Use 1 u = 931.5 MeV.'
+  parts:
+    - { ask: 'Binding energy per nucleon (MeV)', label: r, tex: 'BE/A', value: dm*931.5/A, tol: 0.01, explain: 'Binding energy is the mass defect as energy: ${{dm|7}} \times 931.5$ MeV, shared among ${{A}}$ nucleons. The curve peaks near iron at about 8.8 MeV; heavy nuclei sit near 7.6, which is why splitting them releases energy' }
+  verify: { expect: { r: "solve(Eq(x*A, dm*Rational(9315, 10)), x)[0]" } }
+
+- template: nu-fraction-remaining
+  skill: nuc.decay
+  pace: quick
+  cases:
+    - { nm: 'iodine-131', T: 8.02, u: 'days', t: 24.06 }
+    - { nm: 'iodine-131', T: 8.02, u: 'days', t: 30 }
+    - { nm: 'cobalt-60', T: 5.27, u: 'years', t: 10.54 }
+    - { nm: 'caesium-137', T: 30.1, u: 'years', t: 100 }
+    - { nm: 'technetium-99m', T: 6.01, u: 'hours', t: 24 }
+    - { nm: 'tritium', T: 12.3, u: 'years', t: 5 }
+    - { nm: 'strontium-90', T: 28.8, u: 'years', t: 60 }
+    - { nm: 'carbon-14', T: 5730, u: 'years', t: 2000 }
+  prompt: '{{nm}} has a half-life of ${{T}}$ {{u}}. What percent of a sample is left after ${{t}}$ {{u}}?'
+  parts:
+    - { ask: 'Percent remaining', label: r, tex: '\%', value: 100*0.5^(t/T), tol: 0.01, explain: '${{t}}/{{T}} = {{t/T}}$ half-lives, so the fraction left is $\left(\tfrac12\right)^{ {{t/T}} }$. Ten half-lives leaves about a thousandth' }
+  verify: { expect: { r: "100*exp(-log(2)*t/T)" } }
+
+- template: nu-time-to-decay
+  skill: nuc.decay
+  pace: quick
+  cases:
+    - { nm: 'iodine-131', T: 8.02, u: 'days' }
+    - { nm: 'cobalt-60', T: 5.27, u: 'years' }
+    - { nm: 'caesium-137', T: 30.1, u: 'years' }
+    - { nm: 'technetium-99m', T: 6.01, u: 'hours' }
+    - { nm: 'tritium', T: 12.3, u: 'years' }
+  given: { k: { pick: [4, 10, 100, 1000] } }
+  prompt: '{{nm}} has a half-life of ${{T}}$ {{u}}. How long until its activity has fallen to $1/{{k}}$ of the starting value, in {{u}}?'
+  parts:
+    - { ask: 'Time', label: r, tex: 't', value: T*log(k)/log(2), tol: 0.01, explain: 'Activity falls with the number of atoms: $\left(\tfrac12\right)^{t/T} = \dfrac{1}{ {{k}} }$, so $t = T\log_2 {{k}}$. A factor of 1000 takes about ten half-lives' }
+  verify: { expect: { r: "solve(Eq(exp(-log(2)*x/T), Rational(1, k)), x)[0]" } }
+
+- template: nu-decay-constant
+  skill: nuc.decay
+  pace: quick
+  given: { T: { pick: [2, 5.27, 8.02, 12.3, 30.1] } }
+  prompt: 'A nuclide has a half-life of ${{T}}$ years. What is its decay constant, in per year?'
+  parts:
+    - { ask: 'Decay constant (1/yr)', label: r, tex: '\lambda', value: log(2)/T, tol: 0.01, explain: '$\lambda = \dfrac{\ln 2}{T_{1/2}} = \dfrac{0.693}{ {{T}} }$. Activity is $\lambda N$: a short half-life means a hot source that does not last' }
+  verify: { expect: { r: "solve(Eq(exp(-x*T), Rational(1, 2)), x)[0]" } }
+
+# ── radiation and shielding ─────────────────────────────────────────────────
+- template: nu-inverse-square
+  skill: nuc.radiation
+  pace: quick
+  given: { D1: { pick: [100, 400, 800, 1000] }, r1: { pick: [1, 2] }, r2: { pick: [4, 5, 10, 20] } }
+  prompt: 'The dose rate ${{r1}}$ m from a point source is ${{D1}}$ mSv/h. What is it at ${{r2}}$ m, in mSv/h?'
+  parts:
+    - { ask: 'Dose rate (mSv/h)', label: r, tex: '\dot D_2', value: D1*(r1/r2)^2, tol: 0.01, explain: 'A point source spreads over a sphere, so intensity goes as $1/r^2$: $\dot D_2 = \dot D_1\left(\dfrac{r_1}{r_2}\right)^2$. Doubling the distance quarters the dose. Distance is the cheapest shield' }
+  verify: { expect: { r: "solve(Eq(D1*r1**2, x*r2**2), x)[0]" } }
+
+- template: nu-half-value-layers
+  skill: nuc.radiation
+  pace: quick
+  given: { hvl: { pick: [1.2, 2.2, 6.6] }, k: { pick: [4, 8, 10, 100, 1000] } }
+  prompt: 'A shield material has a half-value layer of ${{hvl}}$ cm for a gamma beam. What thickness cuts the beam to $1/{{k}}$ of its intensity, in cm? Ignore build-up.'
+  parts:
+    - { ask: 'Thickness (cm)', label: r, tex: 'x', value: hvl*log(k)/log(2), tol: 0.01, explain: 'Each half-value layer halves the beam, so you need $\log_2 {{k}}$ of them. A tenth-value layer is 3.32 half-value layers' }
+  verify: { expect: { r: "solve(Eq(exp(-log(2)/hvl*x), Rational(1, k)), x)[0]" } }
+
+- template: nu-attenuation-coefficient
+  skill: nuc.radiation
+  pace: quick
+  given: { mu: { pick: [0.06, 0.1, 0.5, 0.58, 1.2] }, x: { pick: [2, 5, 10, 20] } }
+  prompt: 'A narrow gamma beam passes through ${{x}}$ cm of a material with linear attenuation coefficient $\mu = {{mu}}$ cm⁻¹. What percent gets through unscattered?'
+  parts:
+    - { ask: 'Percent transmitted', label: r, tex: '\%', value: 100*exp(-mu*x), tol: 0.02, explain: '$I = I_0e^{-\mu x}$ with $\mu x = {{mu*x}}$. The half-value layer is $\ln 2/\mu = {{log(2)/mu}}$ cm' }
+  verify:
+    var: s
+    ode: "diff(T(s), s) + mu*T(s)"
+    bcs: ["T(0) = 100"]
+    expect: { r: "T(x)" }
+
+- template: nu-equivalent-dose
+  skill: nuc.radiation
+  pace: quick
+  cases:
+    - { rad: 'gamma rays', w: 1 }
+    - { rad: 'beta particles', w: 1 }
+    - { rad: 'alpha particles (taken into the body)', w: 20 }
+    - { rad: 'X-rays', w: 1 }
+  given: { D: { pick: [0.5, 2, 5, 10, 50] } }
+  prompt: 'Tissue absorbs ${{D}}$ mGy from {{rad}} (radiation weighting factor ${{w}}$). What is the equivalent dose, in mSv?'
+  parts:
+    - { ask: 'Equivalent dose (mSv)', label: r, tex: 'H', value: D*w, tol: 0.001, explain: 'The gray measures energy deposited; the sievert weights it by how damaging the radiation is: $H = w_R D$. Alphas deposit their energy in a few cell widths, hence 20. (Also: 1 Sv = 100 rem, 1 Gy = 100 rad)' }
+  verify: { expect: { r: "solve(Eq(x/w, D), x)[0]" } }
+
+- template: nu-shielding-choice
+  skill: nuc.radiation
+  pace: recall
+  cases:
+    - { q: 'Alpha particles', ans: 0 }
+    - { q: 'Beta particles', ans: 1 }
+    - { q: 'Gamma rays', ans: 2 }
+    - { q: 'Fast neutrons', ans: 3 }
+  prompt: 'What is the appropriate shield? {{q}}.'
+  parts:
+    - ask: 'Shield'
+      label: a
+      choice: ["A sheet of paper or the dead layer of skin", "A few millimetres of plastic or aluminium", "Thick dense material: lead, steel or concrete", "Hydrogen-rich material: water, polyethylene or concrete"]
+      correct: ans
+      explain: 'Alphas are heavy and doubly charged: they stop in a few centimetres of air, and matter only if taken into the body. Betas need a few millimetres of low-Z material (dense metal makes X-rays from them). Gammas are only attenuated, exponentially, best by high density. Neutrons lose energy fastest in collisions with nuclei their own mass, which means hydrogen'
+  verify: { authored: true }
+
+# ── neutrons and cross sections ─────────────────────────────────────────────
+- template: nu-macroscopic-cross-section
+  skill: nuc.neutrons
+  pace: quick
+  given: { N: { pick: [0.02, 0.033, 0.048, 0.08] }, sig: { pick: [0.5, 2, 10, 100, 680] } }
+  prompt: 'A material has ${{N}} \times 10^{24}$ atoms/cm³ and a microscopic cross section of ${{sig}}$ barns (1 b = $10^{-24}$ cm²). What is the macroscopic cross section, in cm⁻¹?'
+  parts:
+    - { ask: 'Macroscopic cross section (1/cm)', label: r, tex: '\Sigma', value: N*sig, tol: 0.01, explain: '$\Sigma = N\sigma$: the powers of ten cancel when $N$ is in $10^{24}$/cm³ and $\sigma$ in barns. It is the probability of an interaction per centimetre travelled; its reciprocal, ${{1/(N*sig)}}$ cm, is the mean free path' }
+  verify: { expect: { r: "solve(Eq(x/sig, N), x)[0]" } }
+
+- template: nu-mean-free-path
+  skill: nuc.neutrons
+  pace: recall
+  given: { Sg: { pick: [0.02, 0.1, 0.25, 0.5, 2, 4] } }
+  prompt: 'A neutron moves through a material with total macroscopic cross section $\Sigma = {{Sg}}$ cm⁻¹. What is its mean free path, in cm?'
+  parts:
+    - { ask: 'Mean free path (cm)', label: r, tex: '\lambda', value: 1/Sg, tol: 0.01, explain: 'The mean distance between interactions is $1/\Sigma$' }
+  verify: { expect: { r: "solve(Eq(x*Sg, 1), x)[0]" } }
+
+- template: nu-thermal-neutron-energy
+  skill: nuc.neutrons
+  pace: quick
+  given: { T: { pick: [20, 100, 300, 600] } }
+  prompt: 'What is the characteristic energy $kT$ of thermal neutrons in a moderator at ${{T}}$ °C, in eV? ($k = 8.617 \times 10^{-5}$ eV/K.)'
+  parts:
+    - { ask: '$kT$ (eV)', label: r, tex: 'kT', value: 1.380649e-23/1.602176634e-19*(T + 273.15), tol: 0.01, explain: '$kT = 8.617 \times 10^{-5} \times {{T + 273.15}}$ eV. At room temperature it is 0.025 eV, a neutron speed of 2200 m/s: the reference point for tabulated thermal cross sections' }
+  verify: { expect: { r: "c_kB/c_e*(T + Rational(27315, 100))" } }
+
+- template: nu-neutron-facts
+  skill: nuc.neutrons
+  pace: recall
+  cases:
+    - { q: 'Where do delayed neutrons come from?', ans: 0 }
+    - { q: 'About what fraction of the neutrons from uranium-235 fission are delayed?', ans: 1 }
+    - { q: 'Why does a reactor depend on delayed neutrons?', ans: 2 }
+    - { q: 'What makes a good moderator?', ans: 3 }
+  prompt: '{{q}}'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["From the decay of certain fission products (precursors), seconds after the fission", "About 0.65 percent", "They stretch the average neutron generation time from microseconds to about a tenth of a second, slow enough to control", "Light nuclei that scatter well and absorb little: hydrogen in water, deuterium, carbon"]
+      correct: ans
+      explain: 'Prompt neutrons appear within about $10^{-14}$ s of fission. A small fraction $\beta$ (0.0065 for U-235, about 0.0021 for Pu-239) come later from precursor decay, with an average delay of roughly 13 s. As long as the reactor is not critical on prompt neutrons alone, those few set the pace'
+  verify: { authored: true }
+
+# ── criticality and reactivity ──────────────────────────────────────────────
+- template: nu-six-factor
+  skill: nuc.criticality
+  pace: quick
+  given: { eps: { pick: [1.03, 1.04] }, Lf: { pick: [0.86, 0.97] }, p: { pick: [0.75, 0.8, 0.87] }, Lt: { pick: [0.86, 0.99] }, f: { pick: [0.7, 0.8, 0.9] }, eta: { pick: [1.8, 2.02] } }
+  prompt: 'A core has fast fission factor ${{eps}}$, fast non-leakage ${{Lf}}$, resonance escape ${{p}}$, thermal non-leakage ${{Lt}}$, thermal utilization ${{f}}$ and reproduction factor ${{eta}}$. What is $k_{eff}$?'
+  parts:
+    - { ask: '$k_{eff}$', label: r, tex: 'k_{eff}', value: eps*Lf*p*Lt*f*eta, tol: 0.005, explain: 'Follow one generation: $k_{eff} = \varepsilon\,L_f\,p\,L_t\,f\,\eta$, each factor the fraction of neutrons that survives one hazard (or, for $\varepsilon$ and $\eta$, the multiplication gained). Without the two leakage terms it is the four-factor $k_\infty$' }
+  verify: { expect: { r: "eta*f*Lt*p*Lf*eps" } }
+
+- template: nu-criticality-state
+  skill: nuc.criticality
+  pace: recall
+  given: { k: { pick: [0.92, 0.985, 0.999, 1, 1.002, 1.004, 1.01] } }
+  prompt: 'A reactor has $k_{eff} = {{k}}$ and a delayed neutron fraction of $0.0065$. What is its state?'
+  parts:
+    - ask: 'State'
+      label: a
+      choice: ["Subcritical", "Critical", "Supercritical, controlled by delayed neutrons", "Prompt critical"]
+      correct: "k < 1 ? 0 : (k == 1 ? 1 : ((k - 1)/k < 0.0065 ? 2 : 3))"
+      explain: 'Reactivity $\rho = \dfrac{k - 1}{k} = {{(k - 1)/k}}$. Negative: subcritical. Zero: critical. Positive but less than $\beta = 0.0065$: power rises on the slow delayed-neutron timescale. Equal to or above $\beta$: critical on prompt neutrons alone'
+  verify: { choices: { a: "0 if k < 1 else (1 if k == 1 else (2 if (k - 1)/k < Rational(65, 10000) else 3))" } }
+
+- template: nu-reactivity-pcm
+  skill: nuc.criticality
+  pace: quick
+  given: { k: { pick: [0.95, 0.98, 0.99, 1.001, 1.002, 1.005] } }
+  prompt: 'What is the reactivity of a core with $k_{eff} = {{k}}$, in pcm ($10^{-5}\,\Delta k/k$)?'
+  parts:
+    - { ask: 'Reactivity (pcm)', label: r, tex: '\rho', value: (k - 1)/k*100000, tol: 0.01, explain: '$\rho = \dfrac{k_{eff} - 1}{k_{eff}}$, then $\times 10^5$ for pcm. Negative means subcritical. One dollar of reactivity is $\rho = \beta$, about 650 pcm for U-235' }
+  verify: { expect: { r: "solve(Eq(k*(1 - x/100000), 1), x)[0]" } }
+
+- template: nu-subcritical-multiplication
+  skill: nuc.criticality
+  pace: quick
+  given: { k: { pick: [0.5, 0.8, 0.9, 0.95, 0.98, 0.99] } }
+  prompt: 'A subcritical core with $k_{eff} = {{k}}$ contains a steady neutron source. By what factor does the core multiply the source neutrons?'
+  parts:
+    - { ask: 'Multiplication factor $M$', label: r, tex: 'M', value: 1/(1 - k), tol: 0.01, explain: 'Each source neutron starts a chain: $1 + k + k^2 + \dots = \dfrac{1}{1 - k}$. As $k \to 1$ the count rate climbs without limit, which is how an approach to criticality is monitored: plot $1/M$ and watch it head for zero' }
+  verify: { expect: { r: "solve(Eq(x, 1 + k*x), x)[0]" } }
+
+# ── kinetics ────────────────────────────────────────────────────────────────
+- template: nu-reactor-period
+  skill: nuc.kinetics
+  pace: quick
+  given: { rho: { pick: [50, 100, 130, 200, 325] } }
+  prompt: 'A reactivity of ${{rho}}$ pcm is added to a critical reactor ($\beta = 650$ pcm, effective precursor decay constant $\lambda = 0.1$ s⁻¹). Estimate the stable period, in seconds.'
+  parts:
+    - { ask: 'Period (s)', label: r, tex: '\tau', value: (650 - rho)/(0.1*rho), tol: 0.01, explain: 'For reactivity well below $\beta$: $\tau \approx \dfrac{\beta - \rho}{\lambda\rho} = \dfrac{650 - {{rho}} }{0.1 \times {{rho}} }$. Power then grows as $e^{t/\tau}$. As $\rho$ approaches $\beta$ the period collapses toward the prompt timescale' }
+  verify: { expect: { r: "solve(Eq(x*Rational(1, 10)*rho, 650 - rho), x)[0]" } }
+
+- template: nu-power-on-a-period
+  skill: nuc.kinetics
+  pace: quick
+  given: { tau: { pick: [20, 30, 50, 80] }, t: { pick: [30, 60, 100, 120] } }
+  prompt: 'Reactor power is rising on a stable period of ${{tau}}$ s. By what factor does it increase in ${{t}}$ s?'
+  parts:
+    - { ask: '$P/P_0$', label: r, tex: 'P/P_0', value: exp(t/tau), tol: 0.01, explain: '$P = P_0e^{t/\tau}$. One period multiplies power by $e$; the doubling time is $0.693\tau = {{log(2)*tau}}$ s' }
+  verify:
+    var: s
+    ode: "tau*diff(T(s), s) - T(s)"
+    bcs: ["T(0) = 1"]
+    expect: { r: "T(t)" }
+
+# ── operation: coefficients, poisons, heat ──────────────────────────────────
+- template: nu-reactivity-effects
+  skill: nuc.operation
+  pace: recall
+  cases:
+    - { q: 'Fuel temperature rises (Doppler broadening of the U-238 resonances)', ans: 0 }
+    - { q: 'Moderator temperature rises in an under-moderated water reactor', ans: 0 }
+    - { q: 'Xenon-135 builds up', ans: 0 }
+    - { q: 'Fuel is depleted over the cycle', ans: 0 }
+    - { q: 'A control rod is withdrawn', ans: 1 }
+    - { q: 'The boron concentration in the coolant is diluted', ans: 1 }
+    - { q: 'A burnable poison burns out', ans: 1 }
+  prompt: 'What does this do to core reactivity? {{q}}.'
+  parts:
+    - ask: 'Effect'
+      label: a
+      choice: ["Adds negative reactivity", "Adds positive reactivity"]
+      correct: ans
+      explain: 'Anything that absorbs more neutrons outside fission, or removes fuel, is negative; removing an absorber is positive. The two temperature effects are what make a power reactor self-limiting: more power, hotter fuel and moderator, less reactivity'
+  verify: { authored: true }
+
+- template: nu-xenon-facts
+  skill: nuc.operation
+  pace: recall
+  cases:
+    - { q: 'Where does most xenon-135 in an operating core come from?', ans: 0 }
+    - { q: 'How is xenon-135 removed while the reactor is at power?', ans: 1 }
+    - { q: 'What happens to xenon-135 in the hours after a shutdown from high power?', ans: 2 }
+    - { q: 'How does samarium-149 differ from xenon-135?', ans: 3 }
+  prompt: '{{q}}'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["From the decay of iodine-135 (half-life about 6.6 h), itself a fission product", "By absorbing a neutron (burnup) and by its own decay (half-life about 9.1 h)", "It rises to a peak about 10 hours later, because iodine keeps feeding it while burnup has stopped, then decays away", "It is stable: it does not decay away, and is removed only by neutron absorption"]
+      correct: ans
+      explain: 'Xenon-135 has an enormous thermal absorption cross section, so a little of it matters. At power its production and removal balance; after a shutdown the balance breaks and it peaks before decaying, which can delay a restart'
+  verify: { authored: true }
+
+- template: nu-fuel-consumption
+  skill: nuc.operation
+  pace: quick
+  given: { P: { pick: [1, 100, 1000, 3000] } }
+  prompt: 'A reactor produces ${{P}}$ MW of heat. About how many grams of uranium-235 does it fission per day? Take 200 MeV per fission, 1 MeV = $1.602 \times 10^{-13}$ J, $N_A = 6.022 \times 10^{23}$.'
+  parts:
+    - { ask: 'U-235 fissioned (g/day)', label: r, tex: 'm', value: P*1000000*86400/(200*1.602176634e-13)/6.02214076e23*235, tol: 0.02, explain: 'Energy per day is ${{P}}$ MW $\times$ 86 400 s. Divide by the energy of one fission ($3.2 \times 10^{-11}$ J) for the number of fissions, then by $N_A$ and multiply by 235 g/mol. Worth carrying: about 1 g fissioned per megawatt-day' }
+  verify: { expect: { r: "solve(Eq(x/235*c_NA*200*c_e*1000000, P*1000000*86400), x)[0]" } }
+
+- template: nu-decay-heat
+  skill: nuc.operation
+  pace: recall
+  cases:
+    - { q: 'immediately after shutdown', ans: 0 }
+    - { q: 'about one hour after shutdown', ans: 1 }
+    - { q: 'about one day after shutdown', ans: 2 }
+  prompt: 'A reactor has run at full power for a long time. Roughly what fraction of full power is still produced as decay heat {{q}}?'
+  parts:
+    - ask: 'Decay heat'
+      label: a
+      choice: ["About 6 to 7 percent", "About 1.5 percent", "About 0.5 percent"]
+      correct: ans
+      explain: 'Fission stops in seconds but the fission products keep decaying. The heat starts at 6–7% of full power and falls quickly at first, then slowly. For a 3000 MW core that is still tens of megawatts hours later, which is why cooling must continue after shutdown'
+  verify: { authored: true }
