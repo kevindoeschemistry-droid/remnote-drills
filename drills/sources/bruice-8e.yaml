@@ -1,5 +1,5 @@
 # Bruice, Organic Chemistry, 8th edition (Pearson). Chapter titles 18-26 as listed on the publisher's
-# contents page; chapter 3's title is from memory and was not checked. Mapped at chapter level only.
+# contents page; the titles of chapters 2-17 are from memory and were not checked. Mapped at chapter level only.
 id: bruice-8e
 title: "Bruice — Organic Chemistry"
 short: "Bruice"
@@ -7,7 +7,16 @@ edition: 8
 field: organic chemistry
 chapters:
   - { n: 3, title: "An Introduction to Organic Compounds", skills: [orgo.common-compounds, orgo.functional-groups] }
-  - { n: 18, title: "Reactions of Benzene and Substituted Benzenes", skills: [orgo.aromatics] }
+  - { n: 2, title: "Acids and Bases: Central to Understanding Organic Chemistry", skills: [orgo.reasoning] }
+  - { n: 6, title: "The Reactions of Alkenes; The Stereochemistry of Addition Reactions", skills: [orgo.alkene-reactions] }
+  - { n: 7, title: "The Reactions of Alkynes; An Introduction to Multistep Synthesis", skills: [orgo.alkyne-reactions] }
+  - { n: 8, title: "Delocalized Electrons: Their Effect on Stability, pKa, and the Products of a Reaction; Aromaticity", skills: [orgo.enolate-reactions, orgo.reasoning] }
+  - { n: 9, title: "Substitution and Elimination Reactions of Alkyl Halides", skills: [orgo.substitution-elimination, orgo.reasoning] }
+  - { n: 10, title: "Reactions of Alcohols, Ethers, Epoxides, Amines, and Sulfur-Containing Compounds", skills: [orgo.substitution-elimination] }
+  - { n: 15, title: "Reactions of Carboxylic Acids and Carboxylic Acid Derivatives", skills: [orgo.acyl-reactions] }
+  - { n: 16, title: "Reactions of Aldehydes and Ketones; More Reactions of Carboxylic Acid Derivatives", skills: [orgo.carbonyl-reactions] }
+  - { n: 17, title: "Reactions at the α-Carbon", skills: [orgo.enolate-reactions] }
+  - { n: 18, title: "Reactions of Benzene and Substituted Benzenes", skills: [orgo.aromatics, orgo.aromatic-reactions] }
   - { n: 19, title: "More About Amines; Reactions of Heterocyclic Compounds", skills: [orgo.aromatics] }
   - { n: 20, title: "The Organic Chemistry of Carbohydrates", skills: [biochem.sugars] }
   - { n: 21, title: "Amino Acids, Peptides, and Proteins", skills: [biochem.amino-acids, biochem.peptides, orgo.reagents] }

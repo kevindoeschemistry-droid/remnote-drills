@@ -60,7 +60,7 @@ units:
       - n: 2
         title: "Temperature dependence"
         los:
-          - { id: A, std: ["fe-chemical:12.B"], do: "Use the Arrhenius equation to find how k changes with temperature, and the activation energy from two rate constants.", ek: ["ln(k₂/k₁) = (Eₐ/R)(1/T₁ − 1/T₂), kelvin and joules."], p: [P1], drills: [cre-arrhenius-ratio, cre-activation-energy] }
+          - { id: A, std: ["fe-chemical:12.B"], do: "Use the Arrhenius equation to find how k changes with temperature, and the activation energy from two rate constants.", ek: ["ln(k₂/k₁) = (Eₐ/R)(1/T₁ − 1/T₂), kelvin and joules."], p: [P1], drills: [cre-arrhenius-ratio, cre-activation-energy, sc-arrhenius-ten-degrees] }
   - id: reactors
     n: 2
     title: "Ideal reactors"
@@ -71,11 +71,11 @@ units:
       - n: 1
         title: "Batch"
         los:
-          - { id: A, std: ["fe-chemical:12.C", "fe-chemical:12.E"], do: "Find the batch time for a given conversion, first and second order.", ek: ["First order: t = (1/k) ln[1/(1 − X)]. Second order: t = X / [k C_A0 (1 − X)]."], p: [P1], drills: [cre-batch-first-order-time, cre-batch-second-order-time] }
+          - { id: A, std: ["fe-chemical:12.C", "fe-chemical:12.E"], do: "Find the batch time for a given conversion, first and second order.", ek: ["First order: t = (1/k) ln[1/(1 − X)]. Second order: t = X / [k C_A0 (1 − X)]."], p: [P1], drills: [cre-batch-first-order-time, cre-batch-second-order-time, sc-batch-time-rate-constant, sc-second-order-half-life] }
       - n: 2
         title: "CSTR"
         los:
-          - { id: A, std: ["fe-chemical:12.E"], do: "Size a CSTR for a conversion, find the conversion from the space time, and treat tanks in series.", ek: ["V = v₀X / [k(1 − X)]; X = kτ/(1 + kτ); n equal tanks give C/C₀ = 1/(1 + kτ)ⁿ."], p: [P1], drills: [cre-cstr-volume, cre-cstr-conversion, cre-cstrs-in-series] }
+          - { id: A, std: ["fe-chemical:12.E"], do: "Size a CSTR for a conversion, find the conversion from the space time, and treat tanks in series.", ek: ["V = v₀X / [k(1 − X)]; X = kτ/(1 + kτ); n equal tanks give C/C₀ = 1/(1 + kτ)ⁿ."], p: [P1], drills: [cre-cstr-volume, cre-cstr-conversion, cre-cstrs-in-series, sc-cstr-volume-conversion] }
       - n: 3
         title: "PFR"
         los:

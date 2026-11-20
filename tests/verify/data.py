@@ -202,6 +202,15 @@ def keyhole_fit(heights, mask, any_direction=False):
     return sp.Integer(hits[0] if hits else 3)
 
 
+def sn_e(sub, nuc):
+    """dominant pathway for an alkyl halide: 0 SN2, 1 E2, 2 SN1 with E1 (a lookup table, written apart from the template's rule)"""
+    table = {("methyl", "nucleophile"): 0, ("methyl", "small-base"): 0, ("methyl", "bulky-base"): 0,
+             ("primary", "nucleophile"): 0, ("primary", "small-base"): 0, ("primary", "bulky-base"): 1,
+             ("secondary", "nucleophile"): 0, ("secondary", "small-base"): 1, ("secondary", "bulky-base"): 1, ("secondary", "weak"): 2,
+             ("tertiary", "small-base"): 1, ("tertiary", "bulky-base"): 1, ("tertiary", "weak"): 2}
+    return sp.Integer(table[(str(sub), str(nuc))])
+
+
 # exceptions to the filling order, as valence strings (the generator lists every atom's counts instead)
 _CONFIG_EXC = {"Cr": "d5 s1", "Cu": "d10 s1", "Nb": "d4 s1", "Mo": "d5 s1", "Ru": "d7 s1", "Rh": "d8 s1", "Pd": "d10 s0",
                "Ag": "d10 s1", "Pt": "d9 s1", "Au": "d10 s1",
@@ -508,7 +517,7 @@ def rank_code(values):
     return sp.Integer(int("".join(str(j + 1) for j in order)))
 
 
-BASE.update({"cube_tally": cube_tally, "punch_count": punch_count, "net_opposite": net_opposite, "rank_code": rank_code, "box_degeneracy": box_degeneracy, "huckel_chain": huckel_chain, "view_identify": view_identify, "keyhole_fit": keyhole_fit, "sph_L2": sph_L2, "fc_strongest": fc_strongest, "hf_energy": hf_energy, "hund_ground": hund_ground, "hund_choice": hund_choice, "mo_fill": mo_fill, "commutes": commutes, "view_missing": view_missing, "keyhole_pick": keyhole_pick, "prism_identify": prism_identify, "prism_keyhole": prism_keyhole, "pt_Z": pt_Z, "pt_group": pt_group, "pt_below": pt_below, "pt_config": pt_config, "pt_madelung": pt_madelung})
+BASE.update({"cube_tally": cube_tally, "punch_count": punch_count, "net_opposite": net_opposite, "rank_code": rank_code, "box_degeneracy": box_degeneracy, "huckel_chain": huckel_chain, "view_identify": view_identify, "keyhole_fit": keyhole_fit, "sph_L2": sph_L2, "fc_strongest": fc_strongest, "hf_energy": hf_energy, "hund_ground": hund_ground, "hund_choice": hund_choice, "mo_fill": mo_fill, "commutes": commutes, "view_missing": view_missing, "keyhole_pick": keyhole_pick, "prism_identify": prism_identify, "prism_keyhole": prism_keyhole, "pt_Z": pt_Z, "pt_group": pt_group, "pt_below": pt_below, "pt_config": pt_config, "pt_madelung": pt_madelung, "sn_e": sn_e})
 
 
 def check(p, H):

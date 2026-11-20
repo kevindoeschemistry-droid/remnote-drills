@@ -1,0 +1,887 @@
+{
+ "id": "organic-reactions",
+ "title": "Organic Reactions: Predict the Product",
+ "code": "OR",
+ "draft": 1,
+ "track": "science",
+ "requires": [
+  "chemistry",
+  "structures"
+ ],
+ "level": 4,
+ "domains": [],
+ "basis": {
+  "primary": "bruice-8e",
+  "wanted": [
+   "aamc-mcat-outline"
+  ],
+  "note": "Families follow the reaction chapters of Bruice's Organic Chemistry (a textbook, not a standard; chapter titles 2-17 from memory). The reactions and substrates in each are a house list. Every product is mass-balanced against its reactant by the generator; regiochemistry and stereochemistry were checked by eye."
+ },
+ "big_ideas": [
+  {
+   "id": "RULES",
+   "title": "A few rules predict most products",
+   "text": "Electrons flow from the electron-rich site to the electron-poor one, toward the more stable intermediate, and equilibria run to the weaker acid. Most of a two-semester course is those three sentences applied."
+  },
+  {
+   "id": "REAGENT",
+   "title": "A reagent has a job",
+   "text": "Read a reagent as what it does (adds H and OH anti-Markovnikov, removes two hydrogens, swaps OH for a leaving group), not as a name to match to a product."
+  },
+  {
+   "id": "BALANCE",
+   "title": "Atoms are conserved",
+   "text": "Know what each reagent adds to or removes from the molecule. A product that does not balance is wrong before you look at where anything went."
+  }
+ ],
+ "practices": [
+  {
+   "id": "P1",
+   "title": "Predict",
+   "text": "Draw the major product on paper from the reactant and the reagents, in under a minute."
+  },
+  {
+   "id": "P2",
+   "title": "Read the reagent",
+   "text": "Say what a reagent does to a functional group, in a few seconds."
+  },
+  {
+   "id": "P3",
+   "title": "Apply a rule",
+   "text": "Use a counting or comparison rule to decide a direction, a site or a pathway."
+  }
+ ],
+ "units": [
+  {
+   "id": "rules",
+   "n": 1,
+   "title": "The rules that predict",
+   "scope": "core",
+   "ideas": [
+    "RULES"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "Counting",
+     "los": [
+      {
+       "id": "A",
+       "do": "Find the degrees of unsaturation from a molecular formula.",
+       "ek": [
+        "U = ½(2C + 2 + N − H − X); each is a ring or a π bond."
+       ],
+       "p": [
+        "P3"
+       ],
+       "drills": [
+        "or-degrees-of-unsaturation"
+       ]
+      },
+      {
+       "id": "B",
+       "do": "Give the maximum number of stereoisomers from the number of stereocentres.",
+       "ek": [
+        "2ⁿ, fewer when there is a meso form."
+       ],
+       "p": [
+        "P3"
+       ],
+       "drills": [
+        "or-stereoisomer-maximum"
+       ]
+      },
+      {
+       "id": "C",
+       "do": "Assign the oxidation state of a carbon and say whether a step is an oxidation or a reduction.",
+       "ek": [
+        "Bonds to H count −1, bonds to O, N or halogen +1, bonds to C zero."
+       ],
+       "p": [
+        "P3"
+       ],
+       "drills": [
+        "or-oxidation-level"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "title": "Direction and site",
+     "los": [
+      {
+       "id": "A",
+       "do": "Predict which side an acid–base equilibrium favours from two pKa values, and its equilibrium constant.",
+       "ek": [
+        "Toward the weaker acid; K = 10^(pKa of product acid − pKa of starting acid)."
+       ],
+       "p": [
+        "P3"
+       ],
+       "drills": [
+        "or-acid-base-direction",
+        "or-acid-base-log-k"
+       ]
+      },
+      {
+       "id": "B",
+       "do": "Decide whether a ring is aromatic, antiaromatic or neither.",
+       "ek": [
+        "Cyclic, planar, a p orbital on every atom, then 4n + 2 or 4n π electrons."
+       ],
+       "p": [
+        "P3"
+       ],
+       "drills": [
+        "or-aromaticity"
+       ]
+      },
+      {
+       "id": "C",
+       "do": "Choose between SN2, E2 and SN1/E1 from the substrate and the reagent.",
+       "ek": [
+        "Strong or weak reagent first, then how hindered the carbon is, then how bulky the base."
+       ],
+       "p": [
+        "P3"
+       ],
+       "drills": [
+        "or-substitution-or-elimination"
+       ]
+      },
+      {
+       "id": "D",
+       "do": "Say where a substituent directs the next electrophile on a benzene ring and whether it speeds or slows the ring.",
+       "ek": [
+        "Donors direct ortho/para and activate; acceptors direct meta and deactivate; halogens direct ortho/para but deactivate."
+       ],
+       "p": [
+        "P3"
+       ],
+       "drills": [
+        "or-directing-effect"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "alkenes-alkynes",
+   "n": 2,
+   "title": "Alkenes and alkynes",
+   "scope": "core",
+   "ideas": [
+    "RULES",
+    "REAGENT",
+    "BALANCE"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "Additions to alkenes",
+     "los": [
+      {
+       "id": "A",
+       "do": "Predict the product of adding HX or water to an alkene, with and without Markovnikov orientation.",
+       "ek": [
+        "The proton goes where it leaves the more stable carbocation; peroxides and boranes reverse the orientation."
+       ],
+       "p": [
+        "P1",
+        "P2"
+       ],
+       "drills": [
+        "rx-predict-alkene-hbr",
+        "rx-reagent-alkene-hbr",
+        "rx-predict-alkene-hbr-peroxide",
+        "rx-reagent-alkene-hbr-peroxide",
+        "rx-predict-alkene-hydration",
+        "rx-reagent-alkene-hydration",
+        "rx-predict-alkene-hydroboration",
+        "rx-reagent-alkene-hydroboration"
+       ]
+      },
+      {
+       "id": "B",
+       "do": "Predict the product of halogenation, halohydrin formation, hydrogenation, epoxidation, dihydroxylation and ozonolysis.",
+       "ek": [
+        "Know which additions are syn and which anti, and that ozonolysis cuts the C=C."
+       ],
+       "p": [
+        "P1",
+        "P2"
+       ],
+       "drills": [
+        "rx-predict-alkene-bromination",
+        "rx-reagent-alkene-bromination",
+        "rx-predict-alkene-bromohydrin",
+        "rx-reagent-alkene-bromohydrin",
+        "rx-predict-alkene-hydrogenation",
+        "rx-reagent-alkene-hydrogenation",
+        "rx-predict-alkene-epoxidation",
+        "rx-reagent-alkene-epoxidation",
+        "rx-predict-alkene-dihydroxylation",
+        "rx-reagent-alkene-dihydroxylation",
+        "rx-predict-alkene-ozonolysis",
+        "rx-reagent-alkene-ozonolysis"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "title": "Alkynes",
+     "los": [
+      {
+       "id": "A",
+       "do": "Predict the product of reducing, hydrating and alkylating an alkyne.",
+       "ek": [
+        "Lindlar gives cis, sodium in ammonia trans; hydration gives a ketone, hydroboration an aldehyde; an acetylide is a carbon nucleophile."
+       ],
+       "p": [
+        "P1",
+        "P2"
+       ],
+       "drills": [
+        "rx-predict-alkyne-lindlar",
+        "rx-reagent-alkyne-lindlar",
+        "rx-predict-alkyne-dissolving-metal",
+        "rx-reagent-alkyne-dissolving-metal",
+        "rx-predict-alkyne-hydration",
+        "rx-reagent-alkyne-hydration",
+        "rx-predict-alkyne-hydroboration",
+        "rx-reagent-alkyne-hydroboration",
+        "rx-predict-alkyne-alkylation",
+        "rx-reagent-alkyne-alkylation"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "alcohols-halides",
+   "n": 3,
+   "title": "Alcohols and alkyl halides",
+   "scope": "core",
+   "ideas": [
+    "REAGENT",
+    "BALANCE"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "Substitution, elimination and oxidation",
+     "los": [
+      {
+       "id": "A",
+       "do": "Predict the product of converting an alcohol to a halide, a tosylate or an ether, and of oxidising it.",
+       "ek": [
+        "PBr₃, SOCl₂ and TsCl make leaving groups; PCC stops at the aldehyde, chromic acid goes to the acid."
+       ],
+       "p": [
+        "P1",
+        "P2"
+       ],
+       "drills": [
+        "rx-predict-sub-pbr3",
+        "rx-reagent-sub-pbr3",
+        "rx-predict-sub-socl2",
+        "rx-reagent-sub-socl2",
+        "rx-predict-sub-tosylation",
+        "rx-reagent-sub-tosylation",
+        "rx-predict-sub-pcc",
+        "rx-reagent-sub-pcc",
+        "rx-predict-sub-jones",
+        "rx-reagent-sub-jones",
+        "rx-predict-sub-jones-secondary",
+        "rx-reagent-sub-jones-secondary",
+        "rx-predict-sub-williamson",
+        "rx-reagent-sub-williamson"
+       ]
+      },
+      {
+       "id": "B",
+       "do": "Predict the substitution or elimination product of an alkyl halide, including Zaitsev against Hofmann, and of a Grignard reagent with CO₂.",
+       "ek": [
+        "A small base gives the more substituted alkene, a bulky one the less substituted."
+       ],
+       "p": [
+        "P1",
+        "P2"
+       ],
+       "drills": [
+        "rx-predict-sub-cyanide",
+        "rx-reagent-sub-cyanide",
+        "rx-predict-sub-e2-zaitsev",
+        "rx-reagent-sub-e2-zaitsev",
+        "rx-predict-sub-e2-hofmann",
+        "rx-reagent-sub-e2-hofmann",
+        "rx-predict-sub-grignard-co2",
+        "rx-reagent-sub-grignard-co2"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "carbonyls",
+   "n": 4,
+   "title": "Aldehydes and ketones",
+   "scope": "core",
+   "ideas": [
+    "RULES",
+    "REAGENT"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "Additions to the carbonyl group and reactions next to it",
+     "los": [
+      {
+       "id": "A",
+       "do": "Predict the product of adding a hydride, a Grignard reagent or a Wittig ylide to a ketone.",
+       "ek": [
+        "Nucleophiles add to the carbonyl carbon; a Wittig puts C=C exactly where C=O was."
+       ],
+       "p": [
+        "P1",
+        "P2"
+       ],
+       "drills": [
+        "rx-predict-carbonyl-nabh4",
+        "rx-reagent-carbonyl-nabh4",
+        "rx-predict-carbonyl-grignard",
+        "rx-reagent-carbonyl-grignard",
+        "rx-predict-carbonyl-wittig",
+        "rx-reagent-carbonyl-wittig"
+       ]
+      },
+      {
+       "id": "B",
+       "do": "Predict the product of a ketone with a diol, an amine, and under reductive amination or Wolff–Kishner conditions.",
+       "ek": [
+        "Acetals protect; imines form with primary amines; C=O can be taken down to CH₂."
+       ],
+       "p": [
+        "P1",
+        "P2"
+       ],
+       "drills": [
+        "rx-predict-carbonyl-acetal",
+        "rx-reagent-carbonyl-acetal",
+        "rx-predict-carbonyl-imine",
+        "rx-reagent-carbonyl-imine",
+        "rx-predict-carbonyl-reductive-amination",
+        "rx-reagent-carbonyl-reductive-amination",
+        "rx-predict-carbonyl-wolff-kishner",
+        "rx-reagent-carbonyl-wolff-kishner"
+       ]
+      },
+      {
+       "id": "C",
+       "do": "Predict the product of alkylating a ketone through its enolate.",
+       "ek": [
+        "LDA makes the enolate completely; the α-carbon is the nucleophile."
+       ],
+       "p": [
+        "P1",
+        "P2"
+       ],
+       "drills": [
+        "rx-predict-carbonyl-lda-alkylation",
+        "rx-reagent-carbonyl-lda-alkylation"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "acyl",
+   "n": 5,
+   "title": "Carboxylic acids and their derivatives",
+   "scope": "core",
+   "ideas": [
+    "RULES",
+    "REAGENT"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "Acyl substitution and reduction",
+     "los": [
+      {
+       "id": "A",
+       "do": "Predict the product of interconverting acids, acyl chlorides, esters and amides.",
+       "ek": [
+        "Addition then elimination; a more reactive derivative can make a less reactive one, not the reverse."
+       ],
+       "p": [
+        "P1",
+        "P2"
+       ],
+       "drills": [
+        "rx-predict-acyl-acid-chloride",
+        "rx-reagent-acyl-acid-chloride",
+        "rx-predict-acyl-fischer",
+        "rx-reagent-acyl-fischer",
+        "rx-predict-acyl-amide",
+        "rx-reagent-acyl-amide",
+        "rx-predict-acyl-saponification",
+        "rx-reagent-acyl-saponification"
+       ]
+      },
+      {
+       "id": "B",
+       "do": "Predict the product of reducing an ester or an amide, of adding excess Grignard reagent to an ester, and of a Claisen condensation.",
+       "ek": [
+        "LiAlH₄ takes an ester to a primary alcohol and an amide to an amine; two equivalents of Grignard give a tertiary alcohol."
+       ],
+       "p": [
+        "P1",
+        "P2"
+       ],
+       "drills": [
+        "rx-predict-acyl-lah-ester",
+        "rx-reagent-acyl-lah-ester",
+        "rx-predict-acyl-grignard-ester",
+        "rx-reagent-acyl-grignard-ester",
+        "rx-predict-acyl-lah-amide",
+        "rx-reagent-acyl-lah-amide",
+        "rx-predict-acyl-claisen",
+        "rx-reagent-acyl-claisen"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "aromatics",
+   "n": 6,
+   "title": "Benzene and substituted benzenes",
+   "scope": "core",
+   "std": [
+    "bruice-8e:18"
+   ],
+   "ideas": [
+    "RULES",
+    "REAGENT"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "Electrophilic substitution and side-chain reactions",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "bruice-8e:18"
+       ],
+       "do": "Predict the product of brominating, nitrating and acylating benzene.",
+       "ek": [
+        "Substitution, not addition: the ring gets its aromaticity back."
+       ],
+       "p": [
+        "P1",
+        "P2"
+       ],
+       "drills": [
+        "rx-predict-aromatic-bromination",
+        "rx-reagent-aromatic-bromination",
+        "rx-predict-aromatic-nitration",
+        "rx-reagent-aromatic-nitration",
+        "rx-predict-aromatic-acylation",
+        "rx-reagent-aromatic-acylation"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "bruice-8e:18"
+       ],
+       "do": "Predict where a second substituent goes on a substituted benzene.",
+       "ek": [
+        "Donors: ortho and para. Acceptors: meta."
+       ],
+       "p": [
+        "P1",
+        "P2"
+       ],
+       "drills": [
+        "rx-predict-aromatic-nitration-toluene",
+        "rx-reagent-aromatic-nitration-toluene",
+        "rx-predict-aromatic-bromination-nitrobenzene",
+        "rx-reagent-aromatic-bromination-nitrobenzene"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "bruice-8e:18"
+       ],
+       "do": "Predict the product of reducing a nitro group and of oxidising or brominating a benzylic position.",
+       "ek": [
+        "Nitro to amino; any benzylic C–H side chain to CO₂H; NBS brominates the benzylic carbon."
+       ],
+       "p": [
+        "P1",
+        "P2"
+       ],
+       "drills": [
+        "rx-predict-aromatic-nitro-reduction",
+        "rx-reagent-aromatic-nitro-reduction",
+        "rx-predict-aromatic-side-chain-oxidation",
+        "rx-reagent-aromatic-side-chain-oxidation",
+        "rx-predict-aromatic-benzylic-bromination",
+        "rx-reagent-aromatic-benzylic-bromination"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "cc-bonds",
+   "n": 7,
+   "title": "Making carbon–carbon bonds",
+   "scope": "core",
+   "ideas": [
+    "RULES"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "Condensations and cycloadditions",
+     "los": [
+      {
+       "id": "A",
+       "do": "Predict the product of an aldol condensation and of a Diels–Alder reaction.",
+       "ek": [
+        "Aldol: new C=C between the α and β carbons. Diels–Alder: a cyclohexene, with the dienophile's geometry kept."
+       ],
+       "p": [
+        "P1",
+        "P2"
+       ],
+       "drills": [
+        "rx-predict-cc-aldol-condensation",
+        "rx-reagent-cc-aldol-condensation",
+        "rx-predict-cc-diels-alder",
+        "rx-reagent-cc-diels-alder"
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "rows": [
+  {
+   "code": "OR-1.1.A",
+   "unit": 1,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "or-degrees-of-unsaturation"
+   ],
+   "partial": []
+  },
+  {
+   "code": "OR-1.1.B",
+   "unit": 1,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "or-stereoisomer-maximum"
+   ],
+   "partial": []
+  },
+  {
+   "code": "OR-1.1.C",
+   "unit": 1,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "or-oxidation-level"
+   ],
+   "partial": []
+  },
+  {
+   "code": "OR-1.2.A",
+   "unit": 1,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "or-acid-base-direction",
+    "or-acid-base-log-k"
+   ],
+   "partial": []
+  },
+  {
+   "code": "OR-1.2.B",
+   "unit": 1,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "or-aromaticity"
+   ],
+   "partial": []
+  },
+  {
+   "code": "OR-1.2.C",
+   "unit": 1,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "or-substitution-or-elimination"
+   ],
+   "partial": []
+  },
+  {
+   "code": "OR-1.2.D",
+   "unit": 1,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "or-directing-effect"
+   ],
+   "partial": []
+  },
+  {
+   "code": "OR-2.1.A",
+   "unit": 2,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "rx-predict-alkene-hbr",
+    "rx-reagent-alkene-hbr",
+    "rx-predict-alkene-hbr-peroxide",
+    "rx-reagent-alkene-hbr-peroxide",
+    "rx-predict-alkene-hydration",
+    "rx-reagent-alkene-hydration",
+    "rx-predict-alkene-hydroboration",
+    "rx-reagent-alkene-hydroboration"
+   ],
+   "partial": []
+  },
+  {
+   "code": "OR-2.1.B",
+   "unit": 2,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "rx-predict-alkene-bromination",
+    "rx-reagent-alkene-bromination",
+    "rx-predict-alkene-bromohydrin",
+    "rx-reagent-alkene-bromohydrin",
+    "rx-predict-alkene-hydrogenation",
+    "rx-reagent-alkene-hydrogenation",
+    "rx-predict-alkene-epoxidation",
+    "rx-reagent-alkene-epoxidation",
+    "rx-predict-alkene-dihydroxylation",
+    "rx-reagent-alkene-dihydroxylation",
+    "rx-predict-alkene-ozonolysis",
+    "rx-reagent-alkene-ozonolysis"
+   ],
+   "partial": []
+  },
+  {
+   "code": "OR-2.2.A",
+   "unit": 2,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "rx-predict-alkyne-lindlar",
+    "rx-reagent-alkyne-lindlar",
+    "rx-predict-alkyne-dissolving-metal",
+    "rx-reagent-alkyne-dissolving-metal",
+    "rx-predict-alkyne-hydration",
+    "rx-reagent-alkyne-hydration",
+    "rx-predict-alkyne-hydroboration",
+    "rx-reagent-alkyne-hydroboration",
+    "rx-predict-alkyne-alkylation",
+    "rx-reagent-alkyne-alkylation"
+   ],
+   "partial": []
+  },
+  {
+   "code": "OR-3.1.A",
+   "unit": 3,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "rx-predict-sub-pbr3",
+    "rx-reagent-sub-pbr3",
+    "rx-predict-sub-socl2",
+    "rx-reagent-sub-socl2",
+    "rx-predict-sub-tosylation",
+    "rx-reagent-sub-tosylation",
+    "rx-predict-sub-pcc",
+    "rx-reagent-sub-pcc",
+    "rx-predict-sub-jones",
+    "rx-reagent-sub-jones",
+    "rx-predict-sub-jones-secondary",
+    "rx-reagent-sub-jones-secondary",
+    "rx-predict-sub-williamson",
+    "rx-reagent-sub-williamson"
+   ],
+   "partial": []
+  },
+  {
+   "code": "OR-3.1.B",
+   "unit": 3,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "rx-predict-sub-cyanide",
+    "rx-reagent-sub-cyanide",
+    "rx-predict-sub-e2-zaitsev",
+    "rx-reagent-sub-e2-zaitsev",
+    "rx-predict-sub-e2-hofmann",
+    "rx-reagent-sub-e2-hofmann",
+    "rx-predict-sub-grignard-co2",
+    "rx-reagent-sub-grignard-co2"
+   ],
+   "partial": []
+  },
+  {
+   "code": "OR-4.1.A",
+   "unit": 4,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "rx-predict-carbonyl-nabh4",
+    "rx-reagent-carbonyl-nabh4",
+    "rx-predict-carbonyl-grignard",
+    "rx-reagent-carbonyl-grignard",
+    "rx-predict-carbonyl-wittig",
+    "rx-reagent-carbonyl-wittig"
+   ],
+   "partial": []
+  },
+  {
+   "code": "OR-4.1.B",
+   "unit": 4,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "rx-predict-carbonyl-acetal",
+    "rx-reagent-carbonyl-acetal",
+    "rx-predict-carbonyl-imine",
+    "rx-reagent-carbonyl-imine",
+    "rx-predict-carbonyl-reductive-amination",
+    "rx-reagent-carbonyl-reductive-amination",
+    "rx-predict-carbonyl-wolff-kishner",
+    "rx-reagent-carbonyl-wolff-kishner"
+   ],
+   "partial": []
+  },
+  {
+   "code": "OR-4.1.C",
+   "unit": 4,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "rx-predict-carbonyl-lda-alkylation",
+    "rx-reagent-carbonyl-lda-alkylation"
+   ],
+   "partial": []
+  },
+  {
+   "code": "OR-5.1.A",
+   "unit": 5,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "rx-predict-acyl-acid-chloride",
+    "rx-reagent-acyl-acid-chloride",
+    "rx-predict-acyl-fischer",
+    "rx-reagent-acyl-fischer",
+    "rx-predict-acyl-amide",
+    "rx-reagent-acyl-amide",
+    "rx-predict-acyl-saponification",
+    "rx-reagent-acyl-saponification"
+   ],
+   "partial": []
+  },
+  {
+   "code": "OR-5.1.B",
+   "unit": 5,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "rx-predict-acyl-lah-ester",
+    "rx-reagent-acyl-lah-ester",
+    "rx-predict-acyl-grignard-ester",
+    "rx-reagent-acyl-grignard-ester",
+    "rx-predict-acyl-lah-amide",
+    "rx-reagent-acyl-lah-amide",
+    "rx-predict-acyl-claisen",
+    "rx-reagent-acyl-claisen"
+   ],
+   "partial": []
+  },
+  {
+   "code": "OR-6.1.A",
+   "unit": 6,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "rx-predict-aromatic-bromination",
+    "rx-reagent-aromatic-bromination",
+    "rx-predict-aromatic-nitration",
+    "rx-reagent-aromatic-nitration",
+    "rx-predict-aromatic-acylation",
+    "rx-reagent-aromatic-acylation"
+   ],
+   "partial": []
+  },
+  {
+   "code": "OR-6.1.B",
+   "unit": 6,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "rx-predict-aromatic-nitration-toluene",
+    "rx-reagent-aromatic-nitration-toluene",
+    "rx-predict-aromatic-bromination-nitrobenzene",
+    "rx-reagent-aromatic-bromination-nitrobenzene"
+   ],
+   "partial": []
+  },
+  {
+   "code": "OR-6.1.C",
+   "unit": 6,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "rx-predict-aromatic-nitro-reduction",
+    "rx-reagent-aromatic-nitro-reduction",
+    "rx-predict-aromatic-side-chain-oxidation",
+    "rx-reagent-aromatic-side-chain-oxidation",
+    "rx-predict-aromatic-benzylic-bromination",
+    "rx-reagent-aromatic-benzylic-bromination"
+   ],
+   "partial": []
+  },
+  {
+   "code": "OR-7.1.A",
+   "unit": 7,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "rx-predict-cc-aldol-condensation",
+    "rx-reagent-cc-aldol-condensation",
+    "rx-predict-cc-diels-alder",
+    "rx-reagent-cc-diels-alder"
+   ],
+   "partial": []
+  }
+ ],
+ "orphanTpl": []
+}
