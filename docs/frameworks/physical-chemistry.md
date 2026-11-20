@@ -766,12 +766,17 @@ Book: engel-reid-3e §35:reversible, §35:parallel, §35:sequential, §34:steady
 
 ## Drills not yet placed on the map
 
+- sc-isothermal-work-ratio (pchem.first-law)
 - aq-atomic-mass (pchem.thermochemistry)
 - aq-molar-mass (pchem.thermochemistry)
+- sc-carnot-efficiency (pchem.entropy)
 - aq-factor-of-ten (pchem.gibbs)
 - aq-free-energy-to-K (pchem.gibbs)
+- sc-equilibrium-constant-temperature (pchem.gibbs)
 - aq-amounts (pchem.real-gases)
+- sc-vapour-pressure-ten-degrees (pchem.phases)
 - aq-energy-conversion (quantum.origins)
 - aq-photon-energy (quantum.origins)
 - aq-lengths (quantum.model-systems)
 - aq-wavenumber-wavelength (quantum.spectroscopy)
+- sc-rms-speed (kinetics.gas-kinetic)

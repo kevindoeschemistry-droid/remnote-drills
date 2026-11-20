@@ -158,3 +158,66 @@
   parts:
     - { ask: 'Factor', label: r, tex: 'k', value: fp*T1/T2, tol: 0.005, explain: '$\rho = \dfrac{PM}{RT}$: density follows pressure and goes against absolute temperature. Always kelvin' }
   verify: { expect: { r: "(fp*x*Symbol('M')/(c_R*T2))/(x*Symbol('M')/(c_R*T1))" } }
+
+# ── thermodynamics and balances ─────────────────────────────────────────────
+- template: sc-vapour-pressure-ten-degrees
+  skill: pchem.phases
+  pace: quick
+  given: { dH: { pick: [30, 40.7, 45] }, T: { pick: [300, 350, 373] } }
+  prompt: 'A liquid has $\Delta H_{vap} = {{dH}}$ kJ/mol. By what factor does its vapour pressure rise from ${{T}}$ K to ${{T + 10}}$ K?'
+  parts:
+    - { ask: 'Factor', label: r, tex: 'P_2/P_1', value: exp(dH*1000/8.314462618*(1/T - 1/(T + 10))), tol: 0.01, explain: 'Clausius–Clapeyron: $\ln\dfrac{P_2}{P_1} = \dfrac{\Delta H_{vap}}{R}\left(\dfrac1{T_1} - \dfrac1{T_2}\right)$, the same form as Arrhenius with the heat of vaporisation in place of the activation energy. Near room temperature, ten degrees is very roughly a factor of 1.5' }
+  verify: { expect: { r: "exp(-nsimplify(dH)*1000/(c_R*(T + 10)))/exp(-nsimplify(dH)*1000/(c_R*T))" } }
+
+- template: sc-equilibrium-constant-temperature
+  skill: pchem.gibbs
+  pace: recall
+  cases:
+    - { q: 'an exothermic reaction is heated', ans: 1 }
+    - { q: 'an endothermic reaction is heated', ans: 0 }
+    - { q: 'an exothermic reaction is cooled', ans: 0 }
+    - { q: 'an endothermic reaction is cooled', ans: 1 }
+  prompt: 'What happens to the equilibrium constant when {{q}}?'
+  parts:
+    - ask: 'K'
+      label: a2
+      choice: ["It increases", "It decreases"]
+      correct: ans
+      explain: "van 't Hoff: $\\dfrac{d\\ln K}{dT} = \\dfrac{\\Delta H^\\circ}{RT^2}$. $K$ moves with temperature in the direction of the sign of $\\Delta H^\\circ$: heat is a reactant of an endothermic reaction. A catalyst or a pressure change does not move $K$ at all"
+  verify: { authored: true }
+
+- template: sc-carnot-efficiency
+  skill: pchem.entropy
+  pace: quick
+  given: { Th: { pick: [500, 600, 800, 1000] }, Tc: { pick: [300, 350, 400] } }
+  prompt: 'What is the highest possible efficiency of a heat engine working between ${{Th}}$ K and ${{Tc}}$ K?'
+  parts:
+    - { ask: 'Efficiency', label: r, tex: '\eta', value: 1 - Tc/Th, tol: 0.005, explain: '$\eta = 1 - \dfrac{T_c}{T_h}$, in kelvin. Raising the hot side helps less and less; no engine, however clever, beats this number' }
+  verify: { expect: { r: "solve(Eq((1 - x)/Tc, 1/Integer(Th)), x)[0]" } }
+
+- template: sc-rms-speed
+  skill: kinetics.gas-kinetic
+  pace: quick
+  given: { fT: { pick: [2, 4] }, fM: { pick: [1, 4, 16] } }
+  prompt: 'Compared with gas A, gas B is at ${{fT}}$ times the absolute temperature and its molecules are ${{fM}}$ times as heavy. What is the ratio of B''s rms speed to A''s?'
+  parts:
+    - { ask: 'Ratio', label: r, tex: 'k', value: sqrt(fT/fM), tol: 0.005, explain: '$v_{rms} = \sqrt{\dfrac{3RT}{M}} \propto \sqrt{T/M}$. Hydrogen at room temperature moves four times as fast as oxygen' }
+  verify: { expect: { r: "sqrt(3*c_R*fT*x/(fM*Symbol('M', positive=True)))/sqrt(3*c_R*x/Symbol('M', positive=True))" } }
+
+- template: sc-dilution
+  skill: meb.nonreactive
+  pace: recall
+  given: { C1: { pick: [1, 2, 6, 12] }, V1: { pick: [10, 25, 50] }, f: { pick: [2, 4, 5, 10] } }
+  prompt: '${{V1}}$ mL of a ${{C1}}$ mol/L solution is diluted to ${{V1*f}}$ mL. What is the new concentration, in mol/L?'
+  parts:
+    - { ask: 'Concentration (mol/L)', label: r, tex: 'C_2', value: C1/f, tol: 0.001, explain: 'The moles of solute do not change: $C_1V_1 = C_2V_2$. Diluting to ${{f}}$ times the volume divides the concentration by ${{f}}$. This is a material balance with no reaction and one stream' }
+  verify: { expect: { r: "solve(Eq(C1*V1, x*V1*f), x)[0]" } }
+
+- template: sc-isothermal-work-ratio
+  skill: pchem.first-law
+  pace: quick
+  given: { r1: { pick: [2, 3] }, r2: { pick: [4, 9, 8, 27] } }
+  prompt: 'An ideal gas expands reversibly at constant temperature. Expanding to ${{r2}}$ times the volume does how many times the work of expanding to ${{r1}}$ times the volume?'
+  parts:
+    - { ask: 'Ratio of work', label: r, tex: 'k', value: log(r2)/log(r1), tol: 0.005, explain: '$w = -nRT\ln\dfrac{V_2}{V_1}$: work goes as the logarithm of the volume ratio, so each doubling yields the same work as the one before' }
+  verify: { expect: { r: "integrate(1/x, (x, 1, r2))/integrate(1/x, (x, 1, r1))" } }

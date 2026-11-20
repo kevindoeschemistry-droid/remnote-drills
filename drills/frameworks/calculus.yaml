@@ -298,12 +298,12 @@ units:
         title: Solving related rates problems
         ced: "4.5"
         los:
-          - { id: A, std: [CHA-3.E], do: "Solve a related-rates problem: draw, relate the quantities with geometry, differentiate, then substitute the instant's values.", ek: ["Substitute values only after differentiating; similar triangles or Pythagoras usually give the relation."], p: [P1, P4], drills: [ca-related-circle, ca-related-ladder], needs: [CA-4.4.A] }
+          - { id: A, std: [CHA-3.E], do: "Solve a related-rates problem: draw, relate the quantities with geometry, differentiate, then substitute the instant's values.", ek: ["Substitute values only after differentiating; similar triangles or Pythagoras usually give the relation."], p: [P1, P4], drills: [ca-related-circle, ca-related-ladder, ca2-related-rate-scaling], needs: [CA-4.4.A] }
       - n: 6
         title: Local linearity and linearization
         ced: "4.6"
         los:
-          - { id: A, std: [CHA-3.F], do: "Approximate a function value with the tangent-line approximation.", ek: ["f(x) ≈ f(a) + f′(a)(x − a) for x near a."], p: [P1], drills: [ca-linearization], needs: [CA-2.2.B] }
+          - { id: A, std: [CHA-3.F], do: "Approximate a function value with the tangent-line approximation.", ek: ["f(x) ≈ f(a) + f′(a)(x − a) for x near a."], p: [P1], drills: [ca-linearization, ca2-linear-approx-root], needs: [CA-2.2.B] }
           - { id: B, std: [CHA-3.F], do: "Decide whether a tangent-line approximation over- or under-estimates, from concavity.", ek: ["Concave up ⇒ tangent lies below ⇒ underestimate; concave down ⇒ overestimate."], p: [P3], drills: [ca-linearization-error], needs: [CA-4.6.A, CA-3.6.A] }
       - n: 7
         title: L'Hospital's rule
@@ -348,7 +348,7 @@ units:
         title: Concavity and points of inflection
         ced: "5.6"
         los:
-          - { id: A, std: [FUN-4.A], do: "Find intervals of concavity and points of inflection from the sign of f″.", ek: ["f″ > 0 ⇒ concave up (f′ increasing); inflection where f″ changes sign, not merely where f″ = 0."], p: [P1, P3], drills: [ca-inflection], needs: [CA-3.6.A, CA-5.3.A] }
+          - { id: A, std: [FUN-4.A], do: "Find intervals of concavity and points of inflection from the sign of f″.", ek: ["f″ > 0 ⇒ concave up (f′ increasing); inflection where f″ changes sign, not merely where f″ = 0."], p: [P1, P3], drills: [ca-inflection, ca2-concavity-meaning], needs: [CA-3.6.A, CA-5.3.A] }
       - n: 7
         title: The second derivative test
         ced: "5.7"
@@ -397,7 +397,7 @@ units:
         title: Riemann sums
         ced: "6.2"
         los:
-          - { id: A, std: [LIM-5.A], do: "Approximate a definite integral with left, right, midpoint or trapezoidal sums from a formula or a table with unequal subintervals.", ek: ["Sum of (height × width); trapezoid = average of left and right heights × width."], p: [P1], drills: [ca-riemann-sums, ca-trapezoid-table], needs: [CA-6.1.A] }
+          - { id: A, std: [LIM-5.A], do: "Approximate a definite integral with left, right, midpoint or trapezoidal sums from a formula or a table with unequal subintervals.", ek: ["Sum of (height × width); trapezoid = average of left and right heights × width."], p: [P1], drills: [ca-riemann-sums, ca-trapezoid-table, ca2-integral-by-area, ca2-symmetry-integral], needs: [CA-6.1.A] }
           - { id: B, std: [LIM-5.A], do: "Decide whether a Riemann or trapezoidal sum over- or under-estimates from monotonicity or concavity.", ek: ["Increasing f: left sum under, right sum over. Concave up: trapezoid over, midpoint under."], p: [P3], drills: ["~ca-riemann-sums", ca-riemann-over-under], needs: [CA-6.2.A, CA-5.6.A] }
       - n: 3
         title: Riemann sums, summation notation and the definite integral
@@ -408,7 +408,7 @@ units:
         title: The Fundamental Theorem and accumulation functions
         ced: "6.4"
         los:
-          - { id: A, std: [FUN-5.A], do: "Differentiate an accumulation function, including variable upper and lower limits.", ek: ["d/dx ∫_a^x f(t)dt = f(x); with limit g(x): f(g(x))g′(x); a variable lower limit flips the sign."], p: [P1], drills: [ca-ftc-derivative], needs: [CA-6.3.A, CA-3.1.A] }
+          - { id: A, std: [FUN-5.A], do: "Differentiate an accumulation function, including variable upper and lower limits.", ek: ["d/dx ∫_a^x f(t)dt = f(x); with limit g(x): f(g(x))g′(x); a variable lower limit flips the sign."], p: [P1], drills: [ca-ftc-derivative, ca2-ftc-derivative], needs: [CA-6.3.A, CA-3.1.A] }
       - n: 5
         title: Behaviour of accumulation functions
         ced: "6.5"
@@ -433,7 +433,7 @@ units:
         title: Integration by substitution
         ced: "6.9"
         los:
-          - { id: A, std: [FUN-6.D], do: "Evaluate indefinite and definite integrals by u-substitution, changing the limits to u-values for a definite integral.", ek: ["∫f(g(x))g′(x)dx = ∫f(u)du; a missing constant factor is fine, a missing x is not; ∫_a^b → ∫_(g(a))^(g(b))."], p: [P1], drills: [usub-poly, usub-exp, usub-trig, usub-log, usub-ratio, usub-linear, ca-usub-definite], needs: [CA-6.8.A, CA-3.1.A] }
+          - { id: A, std: [FUN-6.D], do: "Evaluate indefinite and definite integrals by u-substitution, changing the limits to u-values for a definite integral.", ek: ["∫f(g(x))g′(x)dx = ∫f(u)du; a missing constant factor is fine, a missing x is not; ∫_a^b → ∫_(g(a))^(g(b))."], p: [P1], drills: [usub-poly, usub-exp, usub-trig, usub-log, usub-ratio, usub-linear, ca-usub-definite, ca2-u-sub-choice], needs: [CA-6.8.A, CA-3.1.A] }
       - n: 10
         title: Long division and completing the square
         ced: "6.10"
@@ -531,7 +531,7 @@ units:
         title: Average value of a function
         ced: "8.1"
         los:
-          - { id: A, std: [CHA-4.B], do: "Find the average value of a function on an interval.", ek: ["f_avg = (1/(b − a))∫_a^b f(x)dx — the height of the rectangle with the same area."], p: [P1], drills: [ca-average-value], needs: [CA-6.7.A] }
+          - { id: A, std: [CHA-4.B], do: "Find the average value of a function on an interval.", ek: ["f_avg = (1/(b − a))∫_a^b f(x)dx — the height of the rectangle with the same area."], p: [P1], drills: [ca-average-value, ca2-average-value], needs: [CA-6.7.A] }
       - n: 2
         title: Position, velocity and acceleration with integrals
         ced: "8.2"
@@ -668,7 +668,7 @@ units:
         title: Geometric series
         ced: "10.2"
         los:
-          - { id: A, std: [LIM-7.A], do: "Decide whether a geometric series converges and find its sum.", ek: ["Σ_(n=0)^∞ ar^n = a/(1 − r) if |r| < 1; diverges if |r| ≥ 1."], p: [P1], drills: [ca-geometric-series], needs: [CA-10.1.A] }
+          - { id: A, std: [LIM-7.A], do: "Decide whether a geometric series converges and find its sum.", ek: ["Σ_(n=0)^∞ ar^n = a/(1 − r) if |r| < 1; diverges if |r| ≥ 1."], p: [P1], drills: [ca-geometric-series, ca2-geometric-series-sum], needs: [CA-10.1.A] }
       - n: 3
         title: The nth-term test
         ced: "10.3"
@@ -713,7 +713,7 @@ units:
         title: Taylor polynomials
         ced: "10.11"
         los:
-          - { id: A, std: [LIM-8.A, LIM-8.B], do: "Build the nth-degree Taylor polynomial about x = a and use it to approximate a function value (or read derivatives off its coefficients).", ek: ["P_n(x) = Σ_(k=0)^n f^(k)(a)(x − a)^k/k!; coefficient of (x − a)^k is f^(k)(a)/k!; P₁ is the tangent line."], p: [P1, P2], drills: [ca-taylor-exp, ca-taylor-ln, ca-taylor-coefficients], needs: [CA-3.6.A, CA-4.6.A] }
+          - { id: A, std: [LIM-8.A, LIM-8.B], do: "Build the nth-degree Taylor polynomial about x = a and use it to approximate a function value (or read derivatives off its coefficients).", ek: ["P_n(x) = Σ_(k=0)^n f^(k)(a)(x − a)^k/k!; coefficient of (x − a)^k is f^(k)(a)/k!; P₁ is the tangent line."], p: [P1, P2], drills: [ca-taylor-exp, ca-taylor-ln, ca-taylor-coefficients, ca2-taylor-coefficient], needs: [CA-3.6.A, CA-4.6.A] }
       - n: 12
         title: The Lagrange error bound
         ced: "10.12"

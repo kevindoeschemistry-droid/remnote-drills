@@ -1,0 +1,102 @@
+# Statistics — curriculum framework (draft 1, for Kevin's markup)
+#
+# Basis:
+#   ap-statistics-2026  the revised AP Statistics framework (five units, 2026-27). Only its unit list
+#                       was read; the objectives below are a house list hung on those units.
+#
+# Not here yet: reading and comparing graphs of distributions, simulation, two-sample intervals and
+# tests carried through, conditions for inference, power calculations, residual plots and
+# transformations, and inference for a regression slope beyond its degrees of freedom.
+id: statistics
+title: Statistics
+code: SS
+draft: 1
+track: math
+requires: [math-hs]
+level: 2
+domains: [stats]
+
+basis:
+  primary: ap-statistics-2026
+  note: "Units follow the revised AP Statistics course (2026-27), of which only the unit list was read. The objectives under each unit are a house list."
+
+big_ideas:
+  - id: MAIN
+    title: Variation is the subject
+    text: Data vary, samples vary, and statistics is the craft of saying how much of what you see is signal. Every interval and test is a standard error and a multiplier.
+
+practices:
+  - id: P1
+    title: Compute and interpret
+    text: Carry a statistic to a number and say in a sentence what it does and does not mean.
+
+units:
+  - id: one-variable
+    n: 1
+    title: "Exploring one-variable data and collecting data"
+    scope: core
+    std: ["ap-statistics-2026:1"]
+    ideas: [MAIN]
+    topics:
+      - n: 1
+        title: "Describing distributions"
+        los:
+          - { id: A, std: ["ap-statistics-2026:1"], do: "Find and compare measures of centre and spread, and flag outliers.", ek: ["Mean and SD are pulled by extremes; median and IQR are not."], p: [P1], drills: ["stats-center", "stats-outlier", "mm-mean-focus", "mm-median"] }
+          - { id: B, std: ["ap-statistics-2026:1"], do: "Standardise a value and use the normal model.", ek: ["z = (x − μ)/σ; 68-95-99.7."], p: [P1], drills: ["sx-z-score", "sx-empirical-rule", "stats-normal"] }
+      - n: 2
+        title: "Collecting data"
+        los:
+          - { id: A, std: ["ap-statistics-2026:1"], do: "Identify the source of bias in a sampling method.", ek: ["Undercoverage, voluntary response, nonresponse, convenience, wording."], p: [P1], drills: ["sx-sampling-bias", "hs-study-type"] }
+          - { id: B, std: ["ap-statistics-2026:1"], do: "Explain the purpose of random assignment, control, blinding and blocking.", ek: ["Random sampling generalises; random assignment supports cause."], p: [P1], drills: ["sx-experiment-design", "hs-evaluate-report"] }
+  - id: probability
+    n: 2
+    title: "Probability, random variables and distributions"
+    scope: core
+    std: ["ap-statistics-2026:2"]
+    ideas: [MAIN]
+    topics:
+      - n: 1
+        title: "Probability rules"
+        los:
+          - { id: A, std: ["ap-statistics-2026:2"], do: "Apply the addition and multiplication rules, conditional probability and independence.", ek: ["P(A or B) = P(A) + P(B) − P(A and B); P(A and B) = P(A)P(B|A)."], p: [P1], drills: ["stats-addition", "stats-mult-rule", "stats-conditional", "stats-independence", "stats-bayes", "stats-two-way"] }
+      - n: 2
+        title: "Random variables"
+        los:
+          - { id: A, std: ["ap-statistics-2026:2"], do: "Find the mean of a discrete random variable and of a linear transformation, and the spread of a sum.", ek: ["Means add; variances of independent variables add."], p: [P1], drills: ["stats-expected", "stats-insurance", "sx-linear-transform", "sx-sum-of-independent"] }
+          - { id: B, std: ["ap-statistics-2026:2"], do: "Use the binomial and geometric distributions.", ek: ["Binomial: mean np, SD √(np(1−p)); geometric wait 1/p."], p: [P1], drills: ["sx-binomial-probability", "sx-binomial-spread", "sx-geometric-wait"] }
+          - { id: C, std: ["ap-statistics-2026:2"], do: "Find the standard deviation of a sample mean and of a sample proportion.", ek: ["σ/√n and √(p(1−p)/n)."], p: [P1], drills: ["sx-standard-error-mean", "sx-standard-error-proportion", "sx-margin-and-sample-size"] }
+  - id: proportions
+    n: 3
+    title: "Inference for categorical data: proportions"
+    scope: core
+    std: ["ap-statistics-2026:3"]
+    ideas: [MAIN]
+    topics:
+      - n: 1
+        title: "Intervals and tests for a proportion"
+        los:
+          - { id: A, std: ["ap-statistics-2026:3"], do: "Build and interpret a confidence interval for a proportion and choose a sample size.", ek: ["p̂ ± z*√(p̂(1−p̂)/n)."], p: [P1], drills: ["sx-proportion-margin", "sx-sample-size-needed", "sx-confidence-meaning", "stats-margin"] }
+          - { id: B, std: ["ap-statistics-2026:3"], do: "Carry out a z test for a proportion and state the conclusion.", ek: ["Use p₀ in the standard error; reject when p < α."], p: [P1], drills: ["sx-proportion-z-statistic", "sx-p-value-decision", "sx-error-types"] }
+          - { id: C, std: ["ap-statistics-2026:3"], do: "Compute expected counts and the chi-square statistic for a table.", ek: ["E = row × column / total; χ² = Σ(O − E)²/E."], p: [P1], drills: ["sx-chi-square-expected", "sx-chi-square-term", "sx-degrees-of-freedom"] }
+  - id: means
+    n: 4
+    title: "Inference for quantitative data: means"
+    scope: core
+    std: ["ap-statistics-2026:4"]
+    ideas: [MAIN]
+    topics:
+      - n: 1
+        title: "t procedures"
+        los:
+          - { id: A, std: ["ap-statistics-2026:4"], do: "Compute a t statistic and its degrees of freedom.", ek: ["t = (x̄ − μ₀)/(s/√n), df = n − 1."], p: [P1], drills: ["sx-t-statistic", "sx-degrees-of-freedom"] }
+  - id: regression
+    n: 5
+    title: "Regression analysis"
+    scope: core
+    std: ["ap-statistics-2026:5"]
+    ideas: [MAIN]
+    topics:
+      - n: 1
+        title: "Least-squares lines"
+        los:
+          - { id: A, std: ["ap-statistics-2026:5"], do: "Find and interpret a correlation, a regression line, a residual and r².", ek: ["b = r·s_y/s_x; r² is the share of variation explained."], p: [P1], drills: ["stats-correlation", "stats-regression", "stats-residual", "sx-r-squared", "sx-slope-from-correlation", "hs-trend-line"] }

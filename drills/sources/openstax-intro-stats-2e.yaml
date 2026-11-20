@@ -6,10 +6,13 @@ short: "Intro Stats"
 edition: 2
 field: statistics
 chapters:
-  - { n: 1, title: "Sampling and Data" }
+  - { n: 1, title: "Sampling and Data", skills: [stats.sampling] }
   - { n: 2, title: "Descriptive Statistics", skills: [stats.descriptive, k8.data] }
   - { n: 3, title: "Probability Topics", skills: [stats.probability, k8.data] }
-  - { n: 4, title: "Discrete Random Variables", skills: [stats.expected-value] }
-  - { n: 6, title: "The Normal Distribution", skills: [stats.descriptive] }
-  - { n: 8, title: "Confidence Intervals", skills: [stats.descriptive] }
+  - { n: 4, title: "Discrete Random Variables", skills: [stats.expected-value, stats.distributions] }
+  - { n: 6, title: "The Normal Distribution", skills: [stats.descriptive, stats.distributions] }
+  - { n: 7, title: "The Central Limit Theorem", skills: [stats.sampling] }
+  - { n: 8, title: "Confidence Intervals", skills: [stats.descriptive, stats.inference] }
+  - { n: 9, title: "Hypothesis Testing with One Sample", skills: [stats.inference] }
+  - { n: 11, title: "The Chi-Square Distribution", skills: [stats.inference] }
   - { n: 12, title: "Linear Regression and Correlation", skills: [stats.bivariate] }

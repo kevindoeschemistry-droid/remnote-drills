@@ -138,3 +138,7 @@ Big ideas: CONSERVE
 - ● **MB-5.2.A** (fe-chemical:8.D) Find the time to heat a batch at a constant heating rate.
   - EK: m cp dT/dt = Q; with no losses the temperature rises linearly.
   - P2 · drills: mb-tank-heating-time
+
+## Drills not yet placed on the map
+
+- sc-dilution (meb.nonreactive)

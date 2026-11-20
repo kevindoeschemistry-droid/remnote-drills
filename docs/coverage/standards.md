@@ -20,6 +20,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 | Fluid Mechanics | NCEES FE Chemical CBT Exam Specifications (effective July 2020) | exam-spec | read in full | — | — | 15 | 15 | 0 |
 | Heat Transfer | NCEES FE Chemical CBT Exam Specifications (effective July 2020) | exam-spec | read in full | fe-mechanical | — | 98 | 53 | 45 |
 | Information Systems | MSIS 2016 Global Competency Model | standard | read in full | — | — | 53 | 0 | 53 |
+| Linear Algebra | Lay, Lay & McDonald, Linear Algebra and Its Applications, 5th ed. (chapter list) | textbook | read in part | — | — | 10 | 10 | 0 |
 | Material and Energy Balances | NCEES FE Chemical CBT Exam Specifications (effective July 2020) | exam-spec | read in full | — | — | 16 | 14 | 2 |
 | High School Mathematics (Common Core) | CCSS Mathematics Appendix A: high school course pathways | standard | read in full | — | — | 200 | 200 | 0 |
 | Mathematics K–8 (Common Core) | Common Core State Standards for Mathematics (2010) | standard | read through a crosswalk | — | — | 258 | 258 | 0 |
@@ -33,6 +34,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 | Programming Foundations | AP Computer Science A Course and Exam Description (Fall 2025) | standard | read in full | — | — | 140 | 140 | 0 |
 | Chemical Reaction Engineering | NCEES FE Chemical CBT Exam Specifications (effective July 2020) | exam-spec | read in full | — | — | 9 | 9 | 0 |
 | Speaking and Articulation | Competent Speaker Speech Evaluation Form, 2nd ed. | rubric | read in full | toastmasters-pathways | — | 69 | 0 | 69 |
+| Statistics | AP Statistics revised course framework (2026-27) | standard | read in part | — | — | 13 | 13 | 0 |
 | Structures from Memory | Bruice, Organic Chemistry, 8th edition (table of contents) | textbook | read in part | iupac-aa-1983 | aamc-mcat-outline | 12 | 10 | 2 |
 | Swimming | World Aquatics swimming rules (with USA Swimming and USMS stroke rules) | rulebook | read in full | — | asca-certification | 88 | 0 | 88 |
 | Thermodynamics and Statistical Mechanics | Dill & Bromberg, Molecular Driving Forces 2e; Shell, Thermodynamics and Statistical Mechanics | textbook | read in full | fe-chemical | — | 124 | 68 | 56 |
@@ -48,6 +50,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 - **Applied Engineering Mathematics**: UCI CBE 200 publishes no syllabus. The undergraduate part is anchored to fe-chemical; series, Sturm–Liouville, PDEs and transforms are past any exam spec and stand on the book.
 - **Fluid Mechanics**: Topics from FE Chemical area 6, read in full. Objectives and their order are ours; statics is assumed by the spec rather than listed. The framework stops at what a one-question drill can carry: no Moody chart, pump curves or differential analysis yet.
 - **Heat Transfer**: Also crosswalked to the FE Mechanical spec and UCI MAE 120.
+- **Linear Algebra**: Units follow the chapters of Lay's Linear Algebra and Its Applications (a textbook, not a standard). A published curriculum standard has not been looked for yet.
 - **Material and Energy Balances**: Topics from FE Chemical area 8, read in full. Objectives and their order are ours and follow the usual textbook sequence; unit 1 is assumed by the spec rather than listed.
 - **Mathematics K–8 (Common Core)**: Codes and wording checked against a state reprint; the CCSS site was blocked.
 - **Mental Math**: Topic list and order from the UIL high-school chart. The short-cut techniques and the estimation topic are a house list. Unit 6 goes past the chart: the cover-up items follow an MIT 18.03 course note and the one-a-minute integration pace follows the MIT Integration Bee qualifier; which results belong in unit 6 is a house list. Pace comes from the UIL rules (7.5 s a problem) and the English multiplication tables check (6 s a fact).
@@ -59,6 +62,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 - **Physics (AP)**: Objective codes read for a few units only.
 - **Chemical Reaction Engineering**: Topics from FE Chemical area 12, read in full. Objectives and their order are ours. Limited so far to isothermal, constant-density reactions; the gaps are listed in the file header.
 - **Speaking and Articulation**: A scoring rubric plus Toastmasters' competency list; unit order is ours.
+- **Statistics**: Units follow the revised AP Statistics course (2026-27), of which only the unit list was read. The objectives under each unit are a house list.
 - **Structures from Memory**: Units follow the chapter list of Bruice's Organic Chemistry (a textbook, not a standard). The amino acids follow IUPAC-IUB 1983 Table 1. Which compounds to carry in each unit is a house list; the MCAT content outline names the same families and has not been opened.
 - **Swimming**: Rules and research papers; they say what is legal and why technique works, not what to learn in what order. Unit order is ours.
 - **Thermodynamics and Statistical Mechanics**: UCI CBE 240 publishes no syllabus. Classical units are anchored to fe-chemical; the statistical-mechanics units stand on the books.
@@ -72,6 +76,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 - **Biology (AP)**: standard, read through a crosswalk
 - **Chemistry (AP)**: standard, read in part
 - **Applied Engineering Mathematics**: textbook, read in full
+- **Linear Algebra**: textbook, read in part
 - **Mathematics K–8 (Common Core)**: standard, read through a crosswalk
 - **Molecular Simulation**: course, read in part
 - **Nuclear Science and Reactor Theory**: exam-spec, read in part
@@ -80,6 +85,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 - **Physical Chemistry**: textbook, read in part; should move to ACS Exams Institute Anchoring Concepts Content Map IV: Physical Chemistry (J. Chem. Educ. 2018, 95, 238)
 - **Physics (AP)**: standard, read in part
 - **Speaking and Articulation**: rubric, read in full
+- **Statistics**: standard, read in part
 - **Structures from Memory**: textbook, read in part; should move to AAMC, What's on the MCAT Exam? content outline (categories 1A, 1D, 5D)
 - **Swimming**: rulebook, read in full; should move to ASCA coach certification curriculum
 - **Thermodynamics and Statistical Mechanics**: textbook, read in full
@@ -507,3 +513,37 @@ https://iupac.org/what-we-do/periodic-table-of-elements/
 | **f** | **Lanthanoids and actinoids** (undefined questions) | | | |
 
 **Areas with nothing answering to them:** sp s and p blocks; d d block, groups 3-12; f Lanthanoids and actinoids.
+
+## AP Statistics revised course framework (2026-27)
+
+https://apcentral.collegeboard.org/courses/ap-statistics
+
+0 of 0 items have at least one objective answering to them.
+
+| Item | Topic | Objectives | With a drill | Where |
+|---|---|---|---|---|
+| **1** | **Exploring One-Variable Data and Collecting Data** (undefined questions) | | | |
+| **2** | **Probability, Random Variables, and Probability Distributions** (undefined questions) | | | |
+| **3** | **Inference for Categorical Data: Proportions** (undefined questions) | | | |
+| **4** | **Inference for Quantitative Data: Means** (undefined questions) | | | |
+| **5** | **Regression Analysis** (undefined questions) | | | |
+
+**Areas with nothing answering to them:** 1 Exploring One-Variable Data and Collecting Data; 2 Probability, Random Variables, and Probability Distributions; 3 Inference for Categorical Data: Proportions; 4 Inference for Quantitative Data: Means; 5 Regression Analysis.
+
+## Lay, Lay & McDonald, Linear Algebra and Its Applications, 5th ed. (chapter list)
+
+
+
+0 of 0 items have at least one objective answering to them.
+
+| Item | Topic | Objectives | With a drill | Where |
+|---|---|---|---|---|
+| **1** | **Linear Equations in Linear Algebra** (undefined questions) | | | |
+| **2** | **Matrix Algebra** (undefined questions) | | | |
+| **3** | **Determinants** (undefined questions) | | | |
+| **4** | **Vector Spaces** (undefined questions) | | | |
+| **5** | **Eigenvalues and Eigenvectors** (undefined questions) | | | |
+| **6** | **Orthogonality and Least Squares** (undefined questions) | | | |
+| **7** | **Symmetric Matrices and Quadratic Forms** (undefined questions) | | | |
+
+**Areas with nothing answering to them:** 1 Linear Equations in Linear Algebra; 2 Matrix Algebra; 3 Determinants; 4 Vector Spaces; 5 Eigenvalues and Eigenvectors; 6 Orthogonality and Least Squares; 7 Symmetric Matrices and Quadratic Forms.

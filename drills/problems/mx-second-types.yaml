@@ -1,0 +1,259 @@
+# Second question types for algebra through calculus: the same objective asked a different way
+# (by inspection, in reverse, as a comparison, as an estimate) so that one algorithm is not the only
+# thing practised. One question each.
+
+# ── algebra ─────────────────────────────────────────────────────────────────
+- template: alg2-axis-from-roots
+  skill: alg.quadratics
+  pace: recall
+  given: { p: { int: [-6, 4] }, d: { pick: [2, 4, 6, 8] } }
+  prompt: 'Without expanding: where is the axis of symmetry of $y = (x - ({{p}}))(x - ({{p + d}}))$?'
+  parts:
+    - { ask: 'Axis $x =$', label: r, tex: 'x', value: p + d/2, tol: 0.0001, explain: 'A parabola is symmetric about the point halfway between its roots: $\dfrac{ {{p}} + {{p + d}} }{2} = {{p + d/2}}$. The vertex sits on that line, so the factored form gives the vertex almost for free' }
+  require: [p + d/2 != 0]
+  verify: { expect: { r: "solve(diff(expand((x - p)*(x - (p + d))), x), x)[0]" } }
+
+- template: alg2-discriminant-count
+  skill: alg.quadratics
+  pace: recall
+  given: { a: { pick: [1, 2, 3] }, b: { int: [-6, 6] }, c: { int: [-4, 6] } }
+  prompt: 'Without solving: how many real solutions does ${{a}}x^2 + ({{b}})x + ({{c}}) = 0$ have?'
+  parts:
+    - ask: 'Real solutions'
+      label: a2
+      choice: ["None", "Exactly one", "Two"]
+      correct: "b^2 - 4*a*c < 0 ? 0 : (b^2 - 4*a*c == 0 ? 1 : 2)"
+      explain: 'The discriminant $b^2 - 4ac = {{b^2 - 4*a*c}}$ is what sits under the square root in the quadratic formula: negative gives none, zero one, positive two. If $a$ and $c$ have opposite signs it is always positive'
+  verify: { choices: { a2: "len([s for s in solve(a*x**2 + b*x + c, x) if s.is_real])" } }
+
+- template: alg2-perfect-square-constant
+  skill: alg.quadratics
+  pace: recall
+  given: { h: { int: [2, 12] } }
+  prompt: 'What number makes $x^2 + {{2*h}}x + \;?$ a perfect square?'
+  parts:
+    - { ask: 'Constant', label: r, tex: 'c', value: h^2, tol: 0.0001, explain: 'Half the middle coefficient, squared: $({{2*h}}/2)^2 = {{h^2}}$, giving $(x + {{h}})^2$. This one move is completing the square' }
+  verify: { expect: { r: "solve(Eq((2*h)**2 - 4*Symbol('c'), 0), Symbol('c'))[0]" } }
+
+- template: alg2-quadratic-from-roots
+  skill: alg.quadratics
+  pace: quick
+  given: { r1: { int: [-7, 7] }, r2: { int: [-7, 7] } }
+  require: [r1*r2 != 0, r1 + r2 != 0]
+  prompt: 'A quadratic $x^2 + bx + c$ has roots ${{r1}}$ and ${{r2}}$. What is $c$?'
+  parts:
+    - { ask: '$c$', label: r, tex: 'c', value: r1*r2, tol: 0.0001, explain: '$(x - r_1)(x - r_2) = x^2 - (r_1 + r_2)x + r_1r_2$: the constant is the product of the roots, ${{r1*r2}}$, and $b$ is minus their sum, ${{-(r1 + r2)}}$. Factoring is this run backwards' }
+  verify: { expect: { r: "expand((x - r1)*(x - r2)).coeff(x, 0)" } }
+
+- template: alg2-successive-percent
+  skill: alg.exponential
+  pace: quick
+  given: { p: { pick: [10, 20, 25, 50] } }
+  prompt: 'A price goes up ${{p}}\%$ and then down ${{p}}\%$. What is the net percent change? (Negative for a decrease.)'
+  parts:
+    - { ask: 'Net change (%)', label: r, tex: '\Delta', value: -p^2/100, tol: 0.001, explain: 'Percent changes multiply: $(1 + {{p/100}})(1 - {{p/100}}) = 1 - {{p/100}}^2 = {{1 - (p/100)^2}}$. Up then down never returns you to the start, because the second percent is taken of a bigger number' }
+  verify: { expect: { r: "((1 + Rational(p, 100))*(1 - Rational(p, 100)) - 1)*100" } }
+
+- template: alg2-doubling-time
+  skill: alg.exponential
+  pace: quick
+  given: { r: { pick: [2, 3, 4, 6, 8, 9, 12] } }
+  prompt: 'Estimate with the rule of 72: about how many years does money take to double at ${{r}}\%$ a year, compounded annually?'
+  parts:
+    - { ask: 'Years', label: r2, tex: 't', value: log(2)/log(1 + r/100), tol: 0.05, explain: '$72 / {{r}} = {{72/r}}$ years; the exact answer is $\dfrac{\ln 2}{\ln(1 + {{r/100}})}$. The rule works because $\ln 2 \approx 0.69$ and $\ln(1 + r) \approx r$ for small $r$' }
+  verify: { expect: { r2: "solve(Eq((1 + Rational(r, 100))**x, 2), x)[0]" } }
+
+- template: alg2-log-estimate
+  skill: alg.exponential
+  pace: recall
+  given: { m: { pick: [2, 3, 5] }, k: { int: [1, 6] } }
+  prompt: 'Using $\log 2 \approx 0.30$ and $\log 3 \approx 0.48$, estimate $\log_{10}({{m}} \times 10^{ {{k}} })$.'
+  parts:
+    - { ask: 'Estimate', label: r, tex: '\log', value: k + log(m)/log(10), tol: 0.02, explain: 'A log splits a product: $\log {{m}} + {{k}}$. $\log 5 = \log(10/2) = 1 - 0.30 = 0.70$. The whole-number part of a log is just the power of ten' }
+  verify: { expect: { r: "log(m*10**k, 10)" } }
+
+- template: alg2-inverse-undoes
+  skill: alg.functions
+  pace: recall
+  given: { a: { int: [2, 6] }, b: { int: [1, 9] }, y: { int: [2, 12] } }
+  prompt: 'For $f(x) = {{a}}x + {{b}}$, what is $f^{-1}({{a*y + b}})$?'
+  parts:
+    - { ask: '$f^{-1}$', label: r, tex: 'x', value: y, tol: 0.0001, explain: 'Do not find a formula: $f^{-1}(c)$ asks which input gives $c$. Solve ${{a}}x + {{b}} = {{a*y + b}}$: undo the last step first, subtract ${{b}}$, then divide by ${{a}}$' }
+  verify: { expect: { r: "solve(Eq(a*x + b, a*y + b), x)[0]" } }
+
+- template: alg2-end-behaviour
+  skill: alg.polynomials
+  pace: recall
+  given: { a: { pick: [-3, -1, 2, 5] }, n: { int: [2, 7] } }
+  prompt: 'As $x \to -\infty$, what does $f(x) = {{a}}x^{ {{n}} } + 4x - 9$ do?'
+  parts:
+    - ask: 'f(x) goes to'
+      label: a2
+      choice: ["Plus infinity", "Minus infinity"]
+      correct: "a*(-1)^n > 0 ? 0 : 1"
+      explain: 'Only the leading term matters far from the origin. An even power makes $x^n$ positive on both sides; an odd power keeps the sign of $x$. Then apply the sign of the leading coefficient'
+  verify: { choices: { a2: "0 if limit(a*x**n + 4*x - 9, x, -oo) == oo else 1" } }
+
+- template: alg2-average-rate
+  skill: alg.functions
+  pace: quick
+  given: { p: { int: [0, 5] }, d: { int: [1, 4] } }
+  prompt: 'What is the average rate of change of $f(x) = x^2$ from $x = {{p}}$ to $x = {{p + d}}$?'
+  parts:
+    - { ask: 'Average rate', label: r, tex: 'm', value: 2*p + d, tol: 0.0001, explain: '$\dfrac{b^2 - a^2}{b - a} = a + b$ for a squaring function: just add the endpoints, ${{p}} + {{p + d}}$. It equals the slope of the curve at the midpoint, which is why the secant of a parabola is parallel to the tangent halfway along' }
+  verify: { expect: { r: "((p + d)**2 - p**2)/Integer(d)" } }
+
+# ── geometry and trigonometry ───────────────────────────────────────────────
+- template: geo2-scale-factor
+  skill: geo.measurement
+  pace: recall
+  given: { k: { pick: [2, 3, 5, 10] }, dim: { pick: [2, 3] } }
+  prompt: 'Every length of a solid is multiplied by ${{k}}$. By what factor does its {{dim == 2 ? "surface area" : "volume"}} change?'
+  parts:
+    - { ask: 'Factor', label: r, tex: 'f', value: k^dim, tol: 0.0001, explain: 'Area is two lengths multiplied, volume three: $k^2$ and $k^3$. The shape does not matter, only that every length scales' }
+  verify: { expect: { r: "(k*x)**dim/x**dim" } }
+
+- template: trig2-quadrant-sign
+  skill: trig.unit-circle
+  pace: recall
+  given: { th: { pick: [100, 135, 200, 225, 300, 330, 150, 250] }, fn: { pick: [0, 1, 2] } }
+  prompt: 'Is $\{{fn == 0 ? "sin" : (fn == 1 ? "cos" : "tan")}} {{th}}^\circ$ positive or negative?'
+  parts:
+    - ask: 'Sign'
+      label: a2
+      choice: ["Positive", "Negative"]
+      correct: "(fn == 0 ? sin(th*pi/180) : (fn == 1 ? cos(th*pi/180) : tan(th*pi/180))) > 0 ? 0 : 1"
+      explain: 'Sine is the height on the unit circle (positive in quadrants I and II), cosine the horizontal position (positive in I and IV), and tangent their ratio (positive in I and III)'
+  verify: { choices: { a2: "0 if [sin, cos, tan][fn](pi*th/180) > 0 else 1" } }
+
+- template: trig2-reference-angle
+  skill: trig.unit-circle
+  pace: recall
+  given: { th: { pick: [120, 135, 150, 210, 225, 240, 300, 315, 330, 100, 260, 280] } }
+  prompt: 'What is the reference angle of ${{th}}^\circ$, in degrees?'
+  parts:
+    - { ask: 'Reference angle (°)', label: r, tex: '\theta_r', value: "th < 180 ? 180 - th : (th < 270 ? th - 180 : 360 - th)", tol: 0.0001, explain: 'The acute angle to the nearest part of the x-axis. Every trig value of ${{th}}^\circ$ is the value at its reference angle with a sign from the quadrant' }
+  verify: { expect: { r: "acos(Abs(cos(pi*th/180)))*180/pi" } }
+
+# ── calculus ────────────────────────────────────────────────────────────────
+- template: ca2-linear-approx-root
+  skill: calc.derivative-basics
+  pace: quick
+  given: { a: { pick: [3, 4, 5, 10] }, h: { pick: [1, 2, -1, -2] } }
+  prompt: 'Estimate $\sqrt{ {{a^2 + h}} }$ with a tangent line at ${{a^2}}$.'
+  parts:
+    - { ask: 'Estimate', label: r, tex: '\approx', value: a + h/(2*a), tol: 0.002, explain: '$\sqrt{a^2 + h} \approx a + \dfrac{h}{2a} = {{a}} + \dfrac{ {{h}} }{ {{2*a}} }$. The curve bends down, so the estimate is slightly too high' }
+  verify: { expect: { r: "a + diff(sqrt(x), x).subs(x, a**2)*h" } }
+
+- template: ca2-integral-by-area
+  skill: calc.riemann-ftc
+  pace: quick
+  given: { m: { int: [1, 4] }, b: { int: [1, 6] }, L: { int: [2, 6] } }
+  prompt: 'Use geometry, not antiderivatives: $\displaystyle\int_0^{ {{L}} } ({{m}}x + {{b}})\,dx$'
+  parts:
+    - { ask: 'Value', label: r, tex: 'I', value: L*(b + (m*L + b))/2, tol: 0.0001, explain: 'The region is a trapezoid of width ${{L}}$ with parallel sides ${{b}}$ and ${{m*L + b}}$: width times the average height. An integral of a linear function is always the width times the value at the midpoint' }
+  verify: { expect: { r: "integrate(m*x + b, (x, 0, L))" } }
+
+- template: ca2-symmetry-integral
+  skill: calc.riemann-ftc
+  pace: recall
+  cases:
+    - { f: 'x^3', odd: 1 }
+    - { f: '\sin x', odd: 1 }
+    - { f: 'x\cos x', odd: 1 }
+    - { f: 'x^2', odd: 0 }
+    - { f: '\cos x', odd: 0 }
+    - { f: 'x\sin x', odd: 0 }
+    - { f: 'x^5 - x', odd: 1 }
+    - { f: 'e^{-x^2}', odd: 0 }
+  given: { a: { pick: [1, 2, 3] } }
+  prompt: 'Without integrating: what can you say about $\displaystyle\int_{- {{a}} }^{ {{a}} } {{f}}\,dx$?'
+  parts:
+    - ask: 'Answer'
+      label: a2
+      choice: ["It is zero: the integrand is odd", "It is twice the integral from 0: the integrand is even"]
+      correct: "odd == 1 ? 0 : 1"
+      explain: 'Replace $x$ by $-x$. If the function changes sign it is odd and the two halves cancel; if it is unchanged it is even and the two halves match. Odd times even is odd; odd times odd is even'
+  verify: { authored: true }
+
+- template: ca2-average-value
+  skill: calc.integration-apps
+  pace: quick
+  given: { n: { pick: [1, 2, 3] }, b: { pick: [1, 2, 3, 6] } }
+  prompt: 'What is the average value of $f(x) = x^{ {{n}} }$ on $[0, {{b}}]$?'
+  parts:
+    - { ask: 'Average', label: r, tex: '\bar f', value: b^n/(n + 1), tol: 0.0001, explain: '$\dfrac1b\displaystyle\int_0^b x^n\,dx = \dfrac{b^n}{n + 1}$: the end value divided by $n + 1$. A line averages half its end value, a parabola a third' }
+  verify: { expect: { r: "integrate(x**n, (x, 0, b))/b" } }
+
+- template: ca2-ftc-derivative
+  skill: calc.riemann-ftc
+  pace: recall
+  given: { c: { int: [1, 4] }, k: { int: [1, 3] } }
+  prompt: 'If $F(x) = \displaystyle\int_1^x \sqrt{t^2 + {{k^2*c^2 - c^2 + 0}} }\,dt$, what is $F''({{c}})$?'
+  parts:
+    - { ask: "$F'$", label: r, tex: "F'", value: k*c, tol: 0.0001, explain: 'The derivative of an accumulation function is the integrand at the upper limit: $\sqrt{ {{c}}^2 + {{k^2*c^2 - c^2}} } = {{k*c}}$. Nothing is integrated' }
+  require: [k > 1]
+  verify: { expect: { r: "sqrt(x**2 + (k**2*c**2 - c**2)).subs(x, c)" } }
+
+- template: ca2-concavity-meaning
+  skill: calc.extrema
+  pace: recall
+  cases:
+    - { q: 'f is increasing and concave down', ans: 0 }
+    - { q: 'f is increasing and concave up', ans: 1 }
+    - { q: 'f is decreasing and concave up', ans: 2 }
+    - { q: 'f is decreasing and concave down', ans: 3 }
+  prompt: '{{q}}. What are the signs of the first and second derivatives?'
+  parts:
+    - ask: 'Signs'
+      label: a2
+      choice: ["First positive, second negative", "First positive, second positive", "First negative, second positive", "First negative, second negative"]
+      correct: ans
+      explain: 'The first derivative says which way the function is going; the second says how the slope itself is changing. Concave down means the slope is falling, even while the function is still rising'
+  verify: { authored: true }
+
+- template: ca2-taylor-coefficient
+  skill: calc.taylor
+  pace: quick
+  given: { k: { pick: [2, 3] }, n: { pick: [2, 3, 4] } }
+  prompt: 'What is the coefficient of $x^{ {{n}} }$ in the Maclaurin series of $e^{ {{k}}x}$?'
+  parts:
+    - { ask: 'Coefficient', label: r, tex: 'c', value: k^n/factorial(n), tol: 0.001, explain: 'Substitute ${{k}}x$ into $e^u = \sum u^n/n!$: the coefficient is $\dfrac{ {{k}}^{ {{n}} } }{ {{n}}! }$. Build new series from known ones before reaching for derivatives' }
+  verify: { expect: { r: "series(exp(k*x), x, 0, n + 1).removeO().coeff(x, n)" } }
+
+- template: ca2-geometric-series-sum
+  skill: calc.series
+  pace: recall
+  given: { a: { int: [1, 6] }, d: { pick: [2, 3, 4, 5] } }
+  prompt: 'Sum the series: ${{a}} + \dfrac{ {{a}} }{ {{d}} } + \dfrac{ {{a}} }{ {{d^2}} } + \dfrac{ {{a}} }{ {{d^3}} } + \dots$'
+  parts:
+    - { ask: 'Sum', label: r, tex: 'S', value: a*d/(d - 1), tol: 0.001, explain: 'First term over one minus the ratio: $\dfrac{ {{a}} }{1 - 1/{{d}} }$. With ratio $\tfrac12$ the sum is twice the first term; with $\tfrac13$, one and a half times' }
+  verify: { expect: { r: "summation(a/Integer(d)**x, (x, 0, oo))" } }
+
+- template: ca2-u-sub-choice
+  skill: calc.u-sub
+  pace: recall
+  cases:
+    - { f: '2x\cos(x^2)', ans: 0 }
+    - { f: '\dfrac{\ln x}{x}', ans: 1 }
+    - { f: '\sin^3 x\cos x', ans: 2 }
+    - { f: 'x e^{x^2}', ans: 0 }
+    - { f: '\dfrac{1}{x\ln x}', ans: 1 }
+    - { f: '\cos x\,e^{\sin x}', ans: 2 }
+  prompt: 'Which substitution turns $\displaystyle\int {{f}}\,dx$ into a basic integral?'
+  parts:
+    - ask: 'Substitution'
+      label: a2
+      choice: ["u = x squared", "u = ln x", "u = sin x"]
+      correct: ans
+      explain: 'Look for an inside function whose derivative is also sitting in the integrand as a factor. That factor is what becomes $du$'
+  verify: { authored: true }
+
+- template: ca2-related-rate-scaling
+  skill: calc.rates
+  pace: quick
+  given: { r: { pick: [2, 3, 5] }, v: { pick: [1, 2, 4] } }
+  prompt: 'A spherical balloon of radius ${{r}}$ cm has its radius growing at ${{v}}$ cm/s. How fast is its volume growing, in units of $\pi$ cm³/s?'
+  parts:
+    - { ask: '$dV/dt$ over $\pi$', label: r2, tex: 'k', value: 4*r^2*v, tol: 0.0001, explain: '$\dfrac{dV}{dt} = 4\pi r^2\dfrac{dr}{dt}$: the surface area times the speed of the surface. A thin shell of paint is the picture' }
+  verify: { expect: { r2: "diff(Rational(4, 3)*pi*x**3, x).subs(x, r)*v/pi" } }

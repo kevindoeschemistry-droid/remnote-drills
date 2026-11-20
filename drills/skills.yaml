@@ -483,6 +483,9 @@ skills:
   - { id: stats.bivariate, domain: stats, title: "Two-way tables, least-squares lines, residuals & correlation", short: "Bivariate data", status: live, prereqs: [stats.descriptive, alg.linear], levels: { 1: [stats-two-way, stats-regression, stats-residual, stats-correlation] } }
   - { id: stats.probability, domain: stats, title: "Probability rules: addition, conditional, independence, counting, Bayes", short: "Probability rules", status: live, prereqs: [k8.data], levels: { 1: [stats-addition, stats-conditional, stats-independence, stats-mult-rule, stats-counting, stats-bayes] } }
   - { id: stats.expected-value, domain: stats, title: "Expected value & decisions", short: "Expected value", status: live, prereqs: [stats.probability], levels: { 1: [stats-expected, stats-insurance] } }
+  - { id: stats.distributions, domain: stats, title: "Normal, binomial and geometric distributions; combining random variables", short: "Distributions", prereqs: [stats.expected-value] }
+  - { id: stats.sampling, domain: stats, title: "Sampling, experiments and sampling distributions", short: "Sampling distributions", prereqs: [stats.distributions] }
+  - { id: stats.inference, domain: stats, title: "Confidence intervals and significance tests", short: "Inference", prereqs: [stats.sampling] }
 
   # ── physical chemistry (Engel & Reid) — templates: drills/problems/pc-*.yaml ───────────
   - { id: pchem.first-law, domain: pchem, title: "Ideal gas, expansion work, ΔH vs ΔU" }
