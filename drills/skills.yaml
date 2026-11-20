@@ -294,6 +294,8 @@ skills:
   - { id: pde.dalembert, domain: pde, title: "d'Alembert: the infinite string" }
   - { id: pde.laplace-rect, domain: pde, title: "Laplace's equation on a rectangle", prereqs: [pde.separation] }
   # PDE exam review, as a ramp: each stage is one kind of decision, easiest first
+  - { id: pde.nonhomogeneous, domain: pde, title: "Boundary conditions that are not zero: shift by the steady state", short: "Nonzero boundary conditions", prereqs: [pde.separation] }
+  - { id: pde.laplace-transform, domain: pde, title: "The Laplace transform on the heat equation", short: "PDEs by Laplace transform", prereqs: [pde.separation, laplace.ivp] }
   - { id: pde.review-1, domain: pde, title: "PDE review 1 · Building blocks: the two ODEs and what a boundary condition kills", short: "PDE review 1" }
   - { id: pde.review-2, domain: pde, title: "PDE review 2 · Assembling the solution: which functions go where", short: "PDE review 2", prereqs: [pde.review-1] }
   - { id: pde.review-3, domain: pde, title: "PDE review 3 · Numbers: coefficients, decay rates, frequencies", short: "PDE review 3", prereqs: [pde.review-2] }
