@@ -197,7 +197,7 @@ Big ideas: FUNC, MODEL, EQUIV
 - ● **MH-2.5.B** (F-BF.A.2) Write an arithmetic or geometric sequence both recursively and with an explicit formula, and translate between the two forms.
   - EK: a_n = a₁ + (n − 1)d ⇔ a_n = a_(n−1) + d; a_n = a₁r^(n−1) ⇔ a_n = r·a_(n−1).
   - Needs: MH-2.1.C, MH-2.5.A
-  - MP8 · drills: alg-seq-explicit
+  - MP8 · drills: alg-seq-explicit, mm-nth-term, mm-sum-arithmetic
 - ● **MH-2.5.C** (F-BF.A.1a) Determine an explicit expression, a recursive process, or steps for calculation from a context.
   - EK: Describe what happens to the quantity at each step; that description is the recursion, and repeating it gives the explicit formula.
   - Needs: MH-2.5.B
@@ -217,7 +217,7 @@ Big ideas: FUNC, MODEL, EQUIV
 - ● **MH-2.6.B** (N-RN.A.2) Rewrite expressions involving radicals and rational exponents using the properties of exponents.
   - EK: x^(m/n) = (ⁿ√x)^m; a^p·a^q = a^(p+q); (a^p)^q = a^(pq); a^(−p) = 1/a^p.
   - Needs: MH-2.6.A
-  - MP7 · drills: alg-rational-exp
+  - MP7 · drills: alg-rational-exp, mm-exponent-laws
 - ● **MH-2.6.C** (F-IF.C.7e) Graph an exponential function y = a·b^x, showing the intercept and end behaviour.
   - EK: Passes through (0, a); grows if b > 1, decays if 0 < b < 1; horizontal asymptote y = 0.
   - Needs: MH-2.5.A
@@ -328,7 +328,7 @@ Big ideas: EQUIV, NUM
 - ● **MH-4.1.B** (A-SSE.A.2) Use the structure of an expression to rewrite it, e.g. x⁴ − y⁴ as (x²)² − (y²)² = (x² − y²)(x² + y²).
   - EK: Recognise a² − b², a² ± 2ab + b² and common factors, where a and b may themselves be expressions.
   - Needs: MH-4.1.A, MH-1.2.B
-  - MP7 · drills: alg-structure
+  - MP7 · drills: alg-structure, mm-difference-of-squares
 
 ### 4.2 Write expressions in equivalent forms to solve problems
 
@@ -397,7 +397,7 @@ Big ideas: FUNC, EQUIV, NUM, MODEL
 - ● **MH-5.2.A** (F-IF.C.8a) Rewrite a quadratic function by factoring and completing the square to show its zeros, extreme value and symmetry, and interpret them in context.
   - EK: Factored form shows zeros; vertex form a(x − h)² + k shows the extreme value k and axis x = h.
   - Needs: MH-4.2.A, MH-4.2.B
-  - MP7 · MP2 · drills: alg-complete-square, alg-factor-zeros
+  - MP7 · MP2 · drills: alg-complete-square, alg-factor-zeros, mm-quadratic-maximum
 - ● **MH-5.2.B** (F-IF.C.7a) Graph a quadratic function, showing intercepts, the vertex (maximum or minimum) and the axis of symmetry.
   - EK: Vertex at x = −b/2a; opens up if a > 0, down if a < 0; y-intercept c.
   - Needs: MH-5.2.A, MH-2.3.B
@@ -438,7 +438,7 @@ Big ideas: FUNC, EQUIV, NUM, MODEL
 - ● **MH-5.3.D** (F-BF.B.4a) Solve f(x) = c for a simple invertible function f and write an expression for the inverse, e.g. f(x) = 2x³ or f(x) = (x + 1)/(x − 1).
   - EK: Swap the roles of x and y and solve for y.
   - Needs: MH-1.4.D, MH-2.6.B
-  - MP7 · drills: alg-inverse
+  - MP7 · drills: alg-inverse, mm-inverse-function-value
 - ● **MH-5.3.E** (F-LE.A.3) Show with tables and graphs that an increasing exponential function eventually exceeds any quadratic or polynomial function.
   - EK: Exponential growth multiplies by a fixed factor; polynomial growth's ratio f(x + 1)/f(x) tends to 1.
   - Needs: MH-2.6.D, MH-5.2.B
@@ -572,7 +572,7 @@ Big ideas: XFORM, MODEL
 - ● **MH-7.3.C** (G-SRT.C.8) Use trigonometric ratios and the Pythagorean theorem to solve right triangles in applied problems.
   - EK: For a side, pick the ratio that links the known side to the unknown; for an angle, use the inverse ratio.
   - Needs: MH-7.3.A, MH-7.2.A, MH-1.1.A
-  - MP4 · MP5 · drills: geo-right-trig
+  - MP4 · MP5 · drills: geo-right-trig, mm-pythagorean-triple
 
 ### 7.4 Apply geometric concepts in modeling situations
 
@@ -653,7 +653,7 @@ Big ideas: XFORM, EQUIV
 - ● **MH-9.1.B** (G-GPE.B.5) Prove the slope criteria for parallel and perpendicular lines and use them to write the equation of a line parallel or perpendicular to a given line through a given point.
   - EK: Parallel: m₁ = m₂; perpendicular: m₁m₂ = −1.
   - Needs: MH-9.1.A, MH-7.1.A
-  - MP3 · MP7 · drills: geo-parallel-perp
+  - MP3 · MP7 · drills: geo-parallel-perp, mm-slope
 - ● **MH-9.1.C** (G-GPE.B.6) Find the point on a directed line segment between two given points that partitions it in a given ratio.
   - EK: The point a fraction t of the way from P to Q is P + t(Q − P).
   - Needs: MH-9.1.A
@@ -766,7 +766,7 @@ Big ideas: DATA
 - ● **MH-11.2.D** (S-CP.B.9) (+) Use permutations and combinations to compute probabilities of compound events and solve problems.
   - EK: nPr = n!/(n − r)! when order matters; nCr = n!/(r!(n − r)!) when it does not.
   - Needs: MH-11.2.C
-  - MP7 · MP8 · drills: sm-perm, sm-comb, sm-anagram, stats-counting
+  - MP7 · MP8 · drills: sm-perm, sm-comb, sm-anagram, stats-counting, mm-combinations
 
 ### 11.3 Use probability to evaluate outcomes of decisions (+)
 
@@ -795,7 +795,7 @@ Big ideas: NUM, EQUIV, FUNC
 - ● **MH-12.1.B** (N-CN.A.2) Add, subtract and multiply complex numbers using i² = −1 and the commutative, associative and distributive properties.
   - EK: (a + bi)(c + di) = (ac − bd) + (ad + bc)i.
   - Needs: MH-12.1.A, MH-4.1.A
-  - MP7 · drills: alg-complex-arith
+  - MP7 · drills: alg-complex-arith, mm-complex-product
 - ● **MH-12.1.C** (N-CN.C.7) Solve a quadratic equation with real coefficients that has complex solutions.
   - EK: Negative discriminant ⇒ x = −b/2a ± i√(4ac − b²)/2a, a conjugate pair.
   - Needs: MH-12.1.B, MH-4.3.C
@@ -829,11 +829,11 @@ Big ideas: NUM, EQUIV, FUNC
 - ● **MH-12.3.A** (A-APR.B.2) Apply the Remainder Theorem: the remainder on division of p(x) by x − a is p(a), so p(a) = 0 exactly when x − a is a factor.
   - EK: p(x) = (x − a)q(x) + p(a).
   - Needs: MH-12.2.A
-  - MP7 · drills: alg-remainder
+  - MP7 · drills: alg-remainder, mm-remainder-theorem
 - ● **MH-12.3.B** (A-APR.B.3) Identify the zeros of a polynomial from a suitable factorization and use them to sketch a rough graph.
   - EK: An odd-multiplicity zero crosses the axis, an even one touches; the leading term sets end behaviour.
   - Needs: MH-12.3.A
-  - MP7 · MP5 · drills: alg-poly-zeros
+  - MP7 · MP5 · drills: alg-poly-zeros, mm-vieta
 - ● **MH-12.3.C** (F-IF.C.7c) Graph a polynomial function, identifying zeros when suitable factorizations are available and showing end behaviour.
   - EK: Degree n has at most n real zeros and at most n − 1 turning points.
   - Needs: MH-12.3.B, MH-5.2.B
@@ -850,7 +850,7 @@ Big ideas: NUM, EQUIV, FUNC
 - ● **MH-12.4.A** (A-SSE.B.4) Derive the formula for the sum of a finite geometric series (common ratio not 1) and use it to solve problems, e.g. mortgage payments.
   - EK: S_n = a(1 − r^n)/(1 − r): subtract r·S_n from S_n and almost every term cancels.
   - Needs: MH-2.5.B
-  - MP8 · MP4 · drills: alg-geom-series
+  - MP8 · MP4 · drills: alg-geom-series, mm-geometric-sum
 
 ### 12.5 Rewrite rational expressions and solve rational and radical equations
 
@@ -919,7 +919,7 @@ Big ideas: FUNC, MODEL
 - ● **MH-14.1.A** (F-LE.A.4) Express the solution of ab^(ct) = d as a logarithm (base 2, 10 or e) and evaluate it with technology.
   - EK: log_b x = y ⇔ b^y = x; t = log_b(d/a)/c.
   - Needs: MH-4.2.C, MH-5.3.D
-  - MP7 · MP5 · drills: alg-exp-solve
+  - MP7 · MP5 · drills: alg-exp-solve, mm-log-exact
 - ● **MH-14.1.B** (F-IF.C.7e) Graph a logarithmic function, showing the intercept, the vertical asymptote and end behaviour, as the reflection of an exponential across y = x.
   - EK: y = log_b x passes through (1, 0), has asymptote x = 0, and grows without bound but ever more slowly.
   - Needs: MH-14.1.A, MH-2.6.C
@@ -1051,7 +1051,7 @@ Big ideas: FUNC, XFORM
 - ● **MH-17.1.A** (F-TF.A.3) (+) Use 30-60-90 and 45-45-90 triangles to find exact sine, cosine and tangent of π/6, π/4, π/3, and the unit circle to extend them to π − x, π + x and 2π − x.
   - EK: sin(π/6) = 1/2, sin(π/4) = √2/2, sin(π/3) = √3/2; the reference angle and quadrant give the rest.
   - Needs: MH-13.1.B, MH-7.3.A
-  - MP7 · drills: trig-exact, dr-unit-circle
+  - MP7 · drills: trig-exact, dr-unit-circle, mm-trig-exact
 - ● **MH-17.1.B** (F-TF.A.4) (+) Use the unit circle to explain the symmetry (odd and even) and periodicity of the trigonometric functions.
   - EK: cos(−x) = cos x (even), sin(−x) = −sin x (odd); period 2π for sin and cos, π for tan.
   - Needs: MH-17.1.A, MH-5.3.C
@@ -1192,7 +1192,7 @@ Big ideas: NUM, XFORM
 - ● **MH-19.4.G** (N-VM.C.12) (+) Work with 2×2 matrices as transformations of the plane, and interpret the absolute value of the determinant as an area scale factor.
   - EK: The columns of A are the images of (1, 0) and (0, 1); area scales by |det A|.
   - Needs: MH-19.4.F, MH-19.4.E, MH-6.1.E
-  - MP7 · MP2 · drills: alg-matrix-det
+  - MP7 · MP2 · drills: alg-matrix-det, mm-determinant
 
 ### 19.5 Solve systems of linear equations with matrices (+)
 
@@ -1271,38 +1271,25 @@ Big ideas: DATA, MODEL
 - mm-variation (alg.functions)
 - mm-composite (alg.functions)
 - mm-domain-excluded (alg.functions)
-- mm-inverse-function-value (alg.functions)
-- mm-log-exact (alg.exponential)
-- mm-nth-term (alg.sequences)
 - mm-polygonal-number (alg.sequences)
 - mm-sum-to-n (alg.sequences)
 - mm-sum-of-odds (alg.sequences)
-- mm-sum-arithmetic (alg.sequences)
-- mm-geometric-sum (alg.sequences)
 - mm-binomial-coefficient (alg.polynomials)
-- mm-remainder-theorem (alg.polynomials)
-- mm-vieta (alg.quadratics)
 - mm-sum-of-squares-of-roots (alg.quadratics)
 - mm-range-minimum (alg.quadratics)
-- mm-complex-product (alg.complex)
-- mm-determinant (alg.vectors-matrices)
 - mm-matrix-entry (alg.vectors-matrices)
 - mm-dot-product (alg.vectors-matrices)
 - mm-regular-polygon (geo.congruence)
-- mm-pythagorean-triple (geo.right-triangles)
 - mm-area (geo.measurement)
 - mm-area-trapezoid (geo.measurement)
 - mm-volume-in-pi (geo.measurement)
 - mm-sphere-in-pi (geo.measurement)
 - k8-cross-section (geo.measurement)
 - k8-volume-by-layers (geo.measurement)
-- mm-slope (geo.coordinates)
 - mm-circle-angles (geo.circles)
 - mm-circle-radius (geo.circles)
-- mm-trig-exact (trig.unit-circle)
 - mm-polar-to-rectangular (trig.unit-circle)
 - k8-scatter-association (stats.bivariate)
 - mm-subsets (stats.probability)
 - mm-two-dice (stats.probability)
-- mm-combinations (stats.probability)
 - k8-simulation-estimate (stats.probability)

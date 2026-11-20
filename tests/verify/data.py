@@ -37,7 +37,7 @@ CONST = {"c_kB": sp.Rational("1.380649e-23"), "c_NA": sp.Rational("6.02214076e23
                  "K": sp.Rational("39.098"), "Ca": sp.Rational("40.078"), "Fe": sp.Rational("55.845")}}
 CONST["c_R"] = CONST["c_kB"] * CONST["c_NA"]
 BASE.update(CONST)
-BASE.update({"expand": sp.expand, "powsimp": sp.powsimp, "simplify": sp.simplify, "idiff": sp.idiff, "erf": sp.erf, "erfc": sp.erfc, "atan2": sp.atan2, "arg": sp.arg, "ceiling": sp.ceiling})
+BASE.update({"nsimplify": sp.nsimplify, "expand": sp.expand, "powsimp": sp.powsimp, "simplify": sp.simplify, "idiff": sp.idiff, "erf": sp.erf, "erfc": sp.erfc, "atan2": sp.atan2, "arg": sp.arg, "ceiling": sp.ceiling})
 # calc("c_R*298.15/1000"): evaluate a case's own formula string against the constants above
 BASE["calc"] = lambda q: sp.sympify(eval(q, {"__builtins__": {}}, BASE))  # noqa: S307 — our own repo's YAML
 
