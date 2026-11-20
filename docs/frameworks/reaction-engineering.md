@@ -45,7 +45,7 @@ Big ideas: CONCENTRATION
 
 - ● **RE-1.2.A** (fe-chemical:12.B) Use the Arrhenius equation to find how k changes with temperature, and the activation energy from two rate constants.
   - EK: ln(k₂/k₁) = (Eₐ/R)(1/T₁ − 1/T₂), kelvin and joules.
-  - P1 · drills: cre-arrhenius-ratio, cre-activation-energy
+  - P1 · drills: cre-arrhenius-ratio, cre-activation-energy, sc-arrhenius-ten-degrees
 
 ## Unit 2 · Ideal reactors
 
@@ -57,7 +57,7 @@ Big ideas: BALANCE, CONCENTRATION, TIME
 
 - ● **RE-2.1.A** (fe-chemical:12.C, fe-chemical:12.E) Find the batch time for a given conversion, first and second order.
   - EK: First order: t = (1/k) ln[1/(1 − X)]. Second order: t = X / [k C_A0 (1 − X)].
-  - P1 · drills: cre-batch-first-order-time, cre-batch-second-order-time
+  - P1 · drills: cre-batch-first-order-time, cre-batch-second-order-time, sc-batch-time-rate-constant, sc-second-order-half-life
 
 ### 2.2 CSTR
 
@@ -65,7 +65,7 @@ Big ideas: BALANCE, CONCENTRATION, TIME
 
 - ● **RE-2.2.A** (fe-chemical:12.E) Size a CSTR for a conversion, find the conversion from the space time, and treat tanks in series.
   - EK: V = v₀X / [k(1 − X)]; X = kτ/(1 + kτ); n equal tanks give C/C₀ = 1/(1 + kτ)ⁿ.
-  - P1 · drills: cre-cstr-volume, cre-cstr-conversion, cre-cstrs-in-series
+  - P1 · drills: cre-cstr-volume, cre-cstr-conversion, cre-cstrs-in-series, sc-cstr-volume-conversion
 
 ### 2.3 PFR
 

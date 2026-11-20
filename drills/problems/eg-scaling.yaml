@@ -1,0 +1,160 @@
+# Engineering scaling: "if this doubles, what happens to that?" The exponent is the mental model.
+# One question each; every answer is recomputed by sympy as a ratio of the governing equation
+# evaluated before and after the change, not from the exponent.
+
+- template: sc-laminar-pressure-drop-diameter
+  skill: fm.regimes
+  pace: quick
+  given: { f: { pick: [2, 3, 0.5] } }
+  prompt: 'Laminar flow in a pipe at a fixed volumetric flow rate. The diameter is multiplied by ${{f}}$. By what factor does the pressure drop change?'
+  parts:
+    - { ask: 'Factor', label: r, tex: 'k', value: f^(-4), tol: 0.005, explain: 'Hagen–Poiseuille: $\Delta P = \dfrac{128\mu LQ}{\pi D^4}$, so $\Delta P \propto D^{-4}$. Halving a tube takes sixteen times the pressure, which is why a small narrowing matters so much in an artery or a clogged line' }
+  verify: { expect: { r: "(128*Symbol('m')*Symbol('L')*Symbol('Q')/(pi*(f*x)**4))/(128*Symbol('m')*Symbol('L')*Symbol('Q')/(pi*x**4))" } }
+
+- template: sc-turbulent-pressure-drop-flow
+  skill: fm.energy
+  pace: quick
+  given: { f: { pick: [2, 3, 1.5] } }
+  prompt: 'Fully turbulent pipe flow with a constant friction factor. The flow rate is multiplied by ${{f}}$. By what factor does the pressure drop change?'
+  parts:
+    - { ask: 'Factor', label: r, tex: 'k', value: f^2, tol: 0.005, explain: '$\Delta P = f_D\dfrac{L}{D}\dfrac{\rho v^2}{2}$: pressure drop goes as velocity squared. The pumping power, $Q\,\Delta P$, therefore goes as the cube: doubling the flow costs eight times the power' }
+  verify: { expect: { r: "(Symbol('c')*(f*x)**2)/(Symbol('c')*x**2)" } }
+
+- template: sc-pump-power-flow
+  skill: fm.energy
+  pace: quick
+  given: { f: { pick: [2, 1.5, 0.5] } }
+  prompt: 'A pump pushes liquid through a fixed turbulent system (constant friction factor, no static lift). The flow rate is multiplied by ${{f}}$. By what factor does the pumping power change?'
+  parts:
+    - { ask: 'Factor', label: r, tex: 'k', value: f^3, tol: 0.005, explain: 'Power is $Q\,\Delta P$ and $\Delta P \propto Q^2$, so power goes as $Q^3$. Running a pump at half flow needs one eighth of the power, the reason variable-speed drives pay for themselves' }
+  verify: { expect: { r: "((f*x)*Symbol('c')*(f*x)**2)/(x*Symbol('c')*x**2)" } }
+
+- template: sc-reynolds-diameter
+  skill: fm.regimes
+  pace: quick
+  given: { f: { pick: [2, 4, 0.5] } }
+  prompt: 'A fixed volumetric flow is sent through a pipe ${{f}}$ times the diameter. By what factor does the Reynolds number change?'
+  parts:
+    - { ask: 'Factor', label: r, tex: 'k', value: 1/f, tol: 0.005, explain: '$Re = \dfrac{\rho vD}{\mu}$ and $v = \dfrac{4Q}{\pi D^2}$, so $Re = \dfrac{4\rho Q}{\pi\mu D} \propto \dfrac1D$. A bigger pipe at the same flow is slower by $D^2$ and only bigger by $D$: less turbulent, not more' }
+  verify: { expect: { r: "(Symbol('p')*(4*Symbol('Q')/(pi*(f*x)**2))*(f*x)/Symbol('m'))/(Symbol('p')*(4*Symbol('Q')/(pi*x**2))*x/Symbol('m'))" } }
+
+- template: sc-stokes-settling
+  skill: fm.statics
+  pace: quick
+  given: { f: { pick: [2, 3, 0.1] } }
+  prompt: 'A small sphere settles slowly through a liquid (Stokes regime). Its diameter is multiplied by ${{f}}$. By what factor does its settling velocity change?'
+  parts:
+    - { ask: 'Factor', label: r, tex: 'k', value: f^2, tol: 0.005, explain: 'Weight minus buoyancy grows as $d^3$, Stokes drag as $d\,v$: $v = \dfrac{(\rho_p - \rho)gd^2}{18\mu} \propto d^2$. Particles a tenth the size take a hundred times as long to settle' }
+  verify: { expect: { r: "(Symbol('g')*(f*x)**2/(18*Symbol('m')))/(Symbol('g')*x**2/(18*Symbol('m')))" } }
+
+- template: sc-torricelli-head
+  skill: fm.bernoulli
+  pace: quick
+  given: { f: { pick: [4, 9, 0.25] } }
+  prompt: 'The liquid level above a tank outlet is multiplied by ${{f}}$. By what factor does the outflow velocity change?'
+  parts:
+    - { ask: 'Factor', label: r, tex: 'k', value: sqrt(f), tol: 0.005, explain: '$v = \sqrt{2gh}$: velocity goes as the square root of the head. Four times the depth only doubles the jet' }
+  verify: { expect: { r: "sqrt(2*Symbol('g', positive=True)*f*Symbol('h', positive=True))/sqrt(2*Symbol('g', positive=True)*Symbol('h', positive=True))" } }
+
+- template: sc-radiation-temperature
+  skill: ht.rate-equations
+  pace: quick
+  given: { T1: { pick: [300, 400, 500] }, f: { pick: [2, 3, 1.5] } }
+  prompt: 'A surface at ${{T1}}$ K is heated to ${{T1*f}}$ K. By what factor does the power it radiates change?'
+  parts:
+    - { ask: 'Factor', label: r, tex: 'k', value: f^4, tol: 0.005, explain: '$E = \varepsilon\sigma T^4$ with $T$ in kelvin: the ratio is $({{T1*f}}/{{T1}})^4$. Radiation is negligible near room temperature and dominant in a furnace for this reason' }
+  verify: { expect: { r: "(Symbol('e')*Symbol('s')*(T1*f)**4)/(Symbol('e')*Symbol('s')*T1**4)" } }
+
+- template: sc-conduction-thickness
+  skill: ht.rate-equations
+  pace: quick
+  given: { f: { pick: [2, 3, 0.5] }, g: { pick: [1, 2] } }
+  prompt: 'A wall is made ${{f}}$ times as thick and the temperature difference across it is multiplied by ${{g}}$. By what factor does the heat flux change?'
+  parts:
+    - { ask: 'Factor', label: r, tex: 'k', value: g/f, tol: 0.005, explain: 'Fourier: $q'''' = k\,\dfrac{\Delta T}{L}$, proportional to the driving force and inversely to the thickness. Think of $L/k$ as a resistance' }
+  verify: { expect: { r: "(Symbol('k')*g*Symbol('d')/(f*x))/(Symbol('k')*Symbol('d')/x)" } }
+
+- template: sc-lumped-time-size
+  skill: ht.lumped
+  pace: quick
+  given: { f: { pick: [2, 3, 0.5] } }
+  prompt: 'A small metal sphere cools in air with a fixed heat-transfer coefficient (lumped behaviour). Its diameter is multiplied by ${{f}}$. By what factor does its cooling time constant change?'
+  parts:
+    - { ask: 'Factor', label: r, tex: 'k', value: f, tol: 0.005, explain: '$\tau = \dfrac{\rho cV}{hA}$ and $V/A = D/6$ for a sphere, so $\tau \propto D$: heat stored grows as volume, heat lost as surface. Small things reach the surrounding temperature fast' }
+  verify: { expect: { r: "(Symbol('p')*Symbol('c')*(pi*(f*x)**3/6)/(Symbol('h')*pi*(f*x)**2))/(Symbol('p')*Symbol('c')*(pi*x**3/6)/(Symbol('h')*pi*x**2))" } }
+
+- template: sc-diffusion-time-length
+  skill: ht.transient-one-term
+  pace: quick
+  given: { f: { pick: [2, 3, 10, 0.1] } }
+  prompt: 'Heat (or a solute) takes a certain time to diffuse through a slab. The slab is made ${{f}}$ times as thick. By what factor does the time change?'
+  parts:
+    - { ask: 'Factor', label: r, tex: 'k', value: f^2, tol: 0.005, explain: 'The Fourier number $\alpha t/L^2$ must reach the same value, so $t \propto L^2$. Ten times as thick takes a hundred times as long: the reason small cells need no circulatory system and a thick roast needs hours' }
+  verify: { expect: { r: "solve(Eq(Symbol('a')*x/(f*Symbol('L'))**2, Symbol('a')*Symbol('t')/Symbol('L')**2), x)[0]/Symbol('t')" } }
+
+- template: sc-turbulent-h-velocity
+  skill: ht.internal-flow
+  pace: quick
+  given: { f: { pick: [2, 3, 0.5] } }
+  prompt: 'In turbulent pipe flow the Nusselt number goes as $Re^{0.8}$ (Dittus–Boelter). The velocity is multiplied by ${{f}}$. By what factor does the heat-transfer coefficient change?'
+  parts:
+    - { ask: 'Factor', label: r, tex: 'k', value: f^0.8, tol: 0.01, explain: '$h \propto v^{0.8}$: a little less than proportional. The pressure drop meanwhile goes as $v^2$, so pushing flow harder buys heat transfer at a steep pumping price' }
+  verify: { expect: { r: "(Rational(23, 1000)*(f*x)**Rational(4, 5))/(Rational(23, 1000)*x**Rational(4, 5))" } }
+
+- template: sc-arrhenius-ten-degrees
+  skill: cre.arrhenius
+  pace: quick
+  given: { Ea: { pick: [50, 75, 100] }, T: { pick: [300, 350, 400] } }
+  prompt: 'A reaction has $E_a = {{Ea}}$ kJ/mol. By what factor does its rate constant rise when the temperature goes from ${{T}}$ K to ${{T + 10}}$ K?'
+  parts:
+    - { ask: 'Factor', label: r, tex: 'k_2/k_1', value: exp(Ea*1000/8.314462618*(1/T - 1/(T + 10))), tol: 0.01, explain: '$\dfrac{k_2}{k_1} = \exp\!\left[\dfrac{E_a}{R}\left(\dfrac1{T_1} - \dfrac1{T_2}\right)\right]$. "Doubles every ten degrees" is only true near room temperature for $E_a$ around 50 kJ/mol; a higher barrier is more sensitive and a hotter reaction less' }
+  verify: { expect: { r: "exp(-Ea*1000/(c_R*(T + 10)))/exp(-Ea*1000/(c_R*T))" } }
+
+- template: sc-batch-time-rate-constant
+  skill: cre.batch
+  pace: quick
+  given: { f: { pick: [2, 4, 10] } }
+  prompt: 'A first-order batch reaction is run hotter so that its rate constant is ${{f}}$ times larger. By what factor does the time to reach 90% conversion change?'
+  parts:
+    - { ask: 'Factor', label: r, tex: 'k', value: 1/f, tol: 0.005, explain: '$t = \dfrac{1}{k}\ln\dfrac{1}{1 - X}$: for a fixed conversion, time is inversely proportional to $k$. For first order it does not depend on the starting concentration at all' }
+  verify: { expect: { r: "(log(10)/(f*x))/(log(10)/x)" } }
+
+- template: sc-second-order-half-life
+  skill: cre.batch
+  pace: quick
+  given: { f: { pick: [2, 5, 0.5] } }
+  prompt: 'A second-order reaction, rate $= kC^2$, is started at ${{f}}$ times the concentration. By what factor does its half-life change?'
+  parts:
+    - { ask: 'Factor', label: r, tex: 'k', value: 1/f, tol: 0.005, explain: '$t_{1/2} = \dfrac{1}{kC_0}$ for second order: more concentrated, faster. Compare first order, where the half-life does not move, and zero order, where it grows with $C_0$. How the half-life responds to dilution tells you the order' }
+  verify: { expect: { r: "(1/(Symbol('k')*f*x))/(1/(Symbol('k')*x))" } }
+
+- template: sc-cstr-volume-conversion
+  skill: cre.cstr
+  pace: quick
+  cases:
+    - { X1: 0.5, X2: 0.9 }
+    - { X1: 0.5, X2: 0.75 }
+    - { X1: 0.9, X2: 0.99 }
+    - { X1: 0.8, X2: 0.9 }
+  prompt: 'A first-order reaction runs in a CSTR at ${{X1*100}}\%$ conversion. By what factor must the volume grow to reach ${{X2*100}}\%$ at the same feed rate?'
+  parts:
+    - { ask: 'Factor', label: r, tex: 'V_2/V_1', value: (X2/(1 - X2))/(X1/(1 - X1)), tol: 0.01, explain: '$k\tau = \dfrac{X}{1 - X}$ for a first-order CSTR, so the volume goes as $\dfrac{X}{1 - X}$. The last few percent are expensive because the whole tank sits at the low exit concentration; a plug-flow reactor needs only $\ln\dfrac{1}{1 - X}$' }
+  verify: { expect: { r: "solve(Eq(x/(1 + x), nsimplify(X2)), x)[0]/solve(Eq(x/(1 + x), nsimplify(X1)), x)[0]" } }
+
+- template: sc-surface-to-volume
+  skill: ht.lumped
+  pace: recall
+  given: { f: { pick: [2, 10, 0.5, 0.1] } }
+  prompt: 'An object is scaled to ${{f}}$ times its size in every direction. By what factor does its surface area per unit volume change?'
+  parts:
+    - { ask: 'Factor', label: r, tex: 'k', value: 1/f, tol: 0.005, explain: 'Area goes as $L^2$, volume as $L^3$, so area per volume goes as $1/L$. Everything that happens at a surface (heat loss, dissolution, catalysis, drag on small particles) gets relatively stronger as things get smaller' }
+  verify: { expect: { r: "((6*(f*x)**2)/(f*x)**3)/((6*x**2)/x**3)" } }
+
+- template: sc-ideal-gas-density
+  skill: ht.rate-equations
+  pace: quick
+  given: { fp: { pick: [2, 5, 10] }, T1: { pick: [300, 400] }, T2: { pick: [600, 800] } }
+  prompt: 'A gas is compressed to ${{fp}}$ times the pressure and heated from ${{T1}}$ K to ${{T2}}$ K. By what factor does its density change?'
+  parts:
+    - { ask: 'Factor', label: r, tex: 'k', value: fp*T1/T2, tol: 0.005, explain: '$\rho = \dfrac{PM}{RT}$: density follows pressure and goes against absolute temperature. Always kelvin' }
+  verify: { expect: { r: "(fp*x*Symbol('M')/(c_R*T2))/(x*Symbol('M')/(c_R*T1))" } }

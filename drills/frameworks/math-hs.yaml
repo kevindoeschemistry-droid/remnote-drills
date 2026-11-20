@@ -167,14 +167,14 @@ units:
         title: Build linear and exponential functions and sequences
         los:
           - { id: A, std: F-LE.A.2, do: "Construct a linear or exponential function, including arithmetic and geometric sequences, from a graph, a description of a relationship, or two input–output pairs.", ek: ["Linear: m = Δy/Δx, then b; exponential through (x₁, y₁), (x₂, y₂): b = (y₂/y₁)^(1/(x₂ − x₁)), then a."], p: [MP4, MP7], drills: [k8-rate-initial, alg-exp-2pts], needs: [MH-2.4.B, MH-2.4.C, MH-2.3.B] }
-          - { id: B, std: F-BF.A.2, do: "Write an arithmetic or geometric sequence both recursively and with an explicit formula, and translate between the two forms.", ek: ["a_n = a₁ + (n − 1)d ⇔ a_n = a_(n−1) + d; a_n = a₁r^(n−1) ⇔ a_n = r·a_(n−1)."], p: [MP8], drills: [alg-seq-explicit], needs: [MH-2.1.C, MH-2.5.A] }
+          - { id: B, std: F-BF.A.2, do: "Write an arithmetic or geometric sequence both recursively and with an explicit formula, and translate between the two forms.", ek: ["a_n = a₁ + (n − 1)d ⇔ a_n = a_(n−1) + d; a_n = a₁r^(n−1) ⇔ a_n = r·a_(n−1)."], p: [MP8], drills: [alg-seq-explicit, mm-nth-term, mm-sum-arithmetic], needs: [MH-2.1.C, MH-2.5.A] }
           - { id: C, std: F-BF.A.1a, do: "Determine an explicit expression, a recursive process, or steps for calculation from a context.", ek: ["Describe what happens to the quantity at each step; that description is the recursion, and repeating it gives the explicit formula."], p: [MP4, MP8], drills: ["~alg-seq-recursive", hs-explicit-from-context], needs: [MH-2.5.B] }
           - { id: D, std: F-LE.B.5, do: "Interpret the parameters of a linear or exponential function in terms of a context.", ek: ["y = mx + b: m is the rate, b the initial value; y = a·b^x: a is the initial value, b − 1 the percent change per unit."], p: [MP2, MP4], drills: [alg-exp-params], needs: [MH-2.5.A] }
       - n: 6
         title: Rational exponents and exponential graphs
         los:
           - { id: A, std: N-RN.A.1, do: "Explain how the meaning of rational exponents follows from extending the properties of integer exponents, e.g. why 5^(1/3) is the cube root of 5.", ek: ["(5^(1/3))³ = 5^((1/3)·3) = 5, so 5^(1/3) must be a cube root of 5."], p: [MP3, MP7], drills: [alg-rational-exp] }
-          - { id: B, std: N-RN.A.2, do: "Rewrite expressions involving radicals and rational exponents using the properties of exponents.", ek: ["x^(m/n) = (ⁿ√x)^m; a^p·a^q = a^(p+q); (a^p)^q = a^(pq); a^(−p) = 1/a^p."], p: [MP7], drills: [alg-rational-exp], needs: [MH-2.6.A] }
+          - { id: B, std: N-RN.A.2, do: "Rewrite expressions involving radicals and rational exponents using the properties of exponents.", ek: ["x^(m/n) = (ⁿ√x)^m; a^p·a^q = a^(p+q); (a^p)^q = a^(pq); a^(−p) = 1/a^p."], p: [MP7], drills: [alg-rational-exp, mm-exponent-laws], needs: [MH-2.6.A] }
           - { id: C, std: F-IF.C.7e, do: "Graph an exponential function y = a·b^x, showing the intercept and end behaviour.", ek: ["Passes through (0, a); grows if b > 1, decays if 0 < b < 1; horizontal asymptote y = 0."], p: [MP5, MP6], drills: [alg-exp-graph, dr-exponential], needs: [MH-2.5.A] }
           - { id: D, std: F-LE.A.3, do: "Show with graphs and tables that a quantity increasing exponentially eventually exceeds one increasing linearly.", ek: ["Equal factors eventually beat equal differences, however small the base above 1."], p: [MP5, MP8], drills: [hs-exp-beats-linear], needs: [MH-2.6.C] }
           - { id: E, std: F-IF.C.9, do: "Compare properties of two functions each represented in a different way (algebraically, graphically, numerically in a table, or by a verbal description).", ek: ["Read the same feature (rate, intercept, maximum) from each representation before comparing."], p: [MP2, MP7], drills: ["~k8-compare-fns", hs-compare-rates], needs: [MH-2.6.C] }
@@ -227,7 +227,7 @@ units:
         title: Perform arithmetic on polynomials and use structure
         los:
           - { id: A, std: A-APR.A.1, do: "Add, subtract and multiply polynomials, and explain why the result is again a polynomial.", ek: ["Polynomials are closed under +, − and ×, like the integers; multiply by distributing every term over every term."], p: [MP6, MP7], drills: [alg-poly-arith], needs: [MH-1.2.A] }
-          - { id: B, std: A-SSE.A.2, do: "Use the structure of an expression to rewrite it, e.g. x⁴ − y⁴ as (x²)² − (y²)² = (x² − y²)(x² + y²).", ek: ["Recognise a² − b², a² ± 2ab + b² and common factors, where a and b may themselves be expressions."], p: [MP7], drills: [alg-structure], needs: [MH-4.1.A, MH-1.2.B] }
+          - { id: B, std: A-SSE.A.2, do: "Use the structure of an expression to rewrite it, e.g. x⁴ − y⁴ as (x²)² − (y²)² = (x² − y²)(x² + y²).", ek: ["Recognise a² − b², a² ± 2ab + b² and common factors, where a and b may themselves be expressions."], p: [MP7], drills: [alg-structure, mm-difference-of-squares], needs: [MH-4.1.A, MH-1.2.B] }
       - n: 2
         title: Write expressions in equivalent forms to solve problems
         los:
@@ -261,7 +261,7 @@ units:
       - n: 2
         title: Analyze quadratic and related functions using different representations
         los:
-          - { id: A, std: F-IF.C.8a, do: "Rewrite a quadratic function by factoring and completing the square to show its zeros, extreme value and symmetry, and interpret them in context.", ek: ["Factored form shows zeros; vertex form a(x − h)² + k shows the extreme value k and axis x = h."], p: [MP7, MP2], drills: [alg-complete-square, alg-factor-zeros], needs: [MH-4.2.A, MH-4.2.B] }
+          - { id: A, std: F-IF.C.8a, do: "Rewrite a quadratic function by factoring and completing the square to show its zeros, extreme value and symmetry, and interpret them in context.", ek: ["Factored form shows zeros; vertex form a(x − h)² + k shows the extreme value k and axis x = h."], p: [MP7, MP2], drills: [alg-complete-square, alg-factor-zeros, mm-quadratic-maximum], needs: [MH-4.2.A, MH-4.2.B] }
           - { id: B, std: F-IF.C.7a, do: "Graph a quadratic function, showing intercepts, the vertex (maximum or minimum) and the axis of symmetry.", ek: ["Vertex at x = −b/2a; opens up if a > 0, down if a < 0; y-intercept c."], p: [MP5, MP6], drills: [alg-vertex, dr-parabola], needs: [MH-5.2.A, MH-2.3.B] }
           - { id: C, std: F-IF.B.4, do: "Interpret the key features of a quadratic model in context, e.g. the maximum height and landing time of a projectile.", ek: ["The vertex gives the extreme value and when it happens; the zeros give when the quantity is zero."], p: [MP2, MP4], drills: [alg-quad-word], needs: [MH-5.2.B, MH-2.2.A] }
           - { id: D, std: F-IF.C.7b, do: "Graph square-root, cube-root and piecewise-defined functions, including step functions and absolute-value functions.", ek: ["|x| = x for x ≥ 0 and −x for x < 0; √x needs x ≥ 0; each piece applies only on its own interval."], p: [MP5, MP6], drills: ["~alg-piecewise", hs-root-graph, hs-abs-graph, dr-abs, dr-sqrt], needs: [MH-2.3.B, MH-2.6.B] }
@@ -273,7 +273,7 @@ units:
           - { id: A, std: F-BF.A.1b, do: "Combine standard function types using arithmetic operations, e.g. a decaying exponential plus a constant for a cooling body.", ek: ["Sum, difference, product and quotient of functions act pointwise: (f + g)(x) = f(x) + g(x)."], p: [MP4], drills: [alg-cooling], needs: [MH-2.5.C, MH-5.2.E] }
           - { id: B, std: F-BF.B.3, do: "Identify the effect on the graph of replacing f(x) by f(x) + k, k·f(x), f(kx) and f(x + k), and find k from a graph.", ek: ["Outside changes act on y as written; inside changes act on x in reverse: f(x + k) shifts left k, f(kx) compresses horizontally by 1/k."], p: [MP5, MP7, MP8], drills: [alg-transform], needs: [MH-5.2.B, MH-5.2.D] }
           - { id: C, std: F-BF.B.3, do: "Recognise even and odd functions from their graphs and from their algebraic expressions.", ek: ["Even: f(−x) = f(x), symmetric about the y-axis; odd: f(−x) = −f(x), symmetric about the origin."], p: [MP7], drills: [alg-even-odd], needs: [MH-5.3.B] }
-          - { id: D, std: F-BF.B.4a, do: "Solve f(x) = c for a simple invertible function f and write an expression for the inverse, e.g. f(x) = 2x³ or f(x) = (x + 1)/(x − 1).", ek: ["Swap the roles of x and y and solve for y."], p: [MP7], drills: [alg-inverse], needs: [MH-1.4.D, MH-2.6.B] }
+          - { id: D, std: F-BF.B.4a, do: "Solve f(x) = c for a simple invertible function f and write an expression for the inverse, e.g. f(x) = 2x³ or f(x) = (x + 1)/(x − 1).", ek: ["Swap the roles of x and y and solve for y."], p: [MP7], drills: [alg-inverse, mm-inverse-function-value], needs: [MH-1.4.D, MH-2.6.B] }
           - { id: E, std: F-LE.A.3, do: "Show with tables and graphs that an increasing exponential function eventually exceeds any quadratic or polynomial function.", ek: ["Exponential growth multiplies by a fixed factor; polynomial growth's ratio f(x + 1)/f(x) tends to 1."], p: [MP5, MP8], drills: ["~hs-exp-beats-linear", hs-exponential-overtakes], needs: [MH-2.6.D, MH-5.2.B] }
 
   # ══ GEOMETRY ═════════════════════════════════════════════════════════════
@@ -336,7 +336,7 @@ units:
         los:
           - { id: A, std: G-SRT.C.6, do: "Explain that by similarity the side ratios of a right triangle depend only on its acute angle, which defines sine, cosine and tangent.", ek: ["sin θ = opposite/hypotenuse, cos θ = adjacent/hypotenuse, tan θ = opposite/adjacent."], p: [MP3, MP7], drills: [geo-trig-ratio], needs: [MH-7.1.D] }
           - { id: B, std: G-SRT.C.7, do: "Explain and use the relationship between the sine and cosine of complementary angles.", ek: ["sin θ = cos(90° − θ): the side opposite one acute angle is adjacent to the other."], p: [MP7], drills: [geo-trig-ratio], needs: [MH-7.3.A] }
-          - { id: C, std: G-SRT.C.8, do: "Use trigonometric ratios and the Pythagorean theorem to solve right triangles in applied problems.", ek: ["For a side, pick the ratio that links the known side to the unknown; for an angle, use the inverse ratio."], p: [MP4, MP5], drills: [geo-right-trig], needs: [MH-7.3.A, MH-7.2.A, MH-1.1.A] }
+          - { id: C, std: G-SRT.C.8, do: "Use trigonometric ratios and the Pythagorean theorem to solve right triangles in applied problems.", ek: ["For a side, pick the ratio that links the known side to the unknown; for an angle, use the inverse ratio."], p: [MP4, MP5], drills: [geo-right-trig, mm-pythagorean-triple], needs: [MH-7.3.A, MH-7.2.A, MH-1.1.A] }
       - n: 4
         title: Apply geometric concepts in modeling situations
         los:
@@ -381,7 +381,7 @@ units:
         title: Use coordinates to prove simple geometric theorems algebraically
         los:
           - { id: A, std: G-GPE.B.4, do: "Use coordinates to prove simple geometric theorems algebraically, e.g. that a given quadrilateral is a rectangle.", ek: ["Equal slopes ⇒ parallel; equal distances ⇒ congruent segments; midpoint ((x₁ + x₂)/2, (y₁ + y₂)/2)."], p: [MP3], drills: [geo-coord-proof], needs: [MH-2.3.B, MH-6.3.C] }
-          - { id: B, std: G-GPE.B.5, do: "Prove the slope criteria for parallel and perpendicular lines and use them to write the equation of a line parallel or perpendicular to a given line through a given point.", ek: ["Parallel: m₁ = m₂; perpendicular: m₁m₂ = −1."], p: [MP3, MP7], drills: [geo-parallel-perp], needs: [MH-9.1.A, MH-7.1.A] }
+          - { id: B, std: G-GPE.B.5, do: "Prove the slope criteria for parallel and perpendicular lines and use them to write the equation of a line parallel or perpendicular to a given line through a given point.", ek: ["Parallel: m₁ = m₂; perpendicular: m₁m₂ = −1."], p: [MP3, MP7], drills: [geo-parallel-perp, mm-slope], needs: [MH-9.1.A, MH-7.1.A] }
           - { id: C, std: G-GPE.B.6, do: "Find the point on a directed line segment between two given points that partitions it in a given ratio.", ek: ["The point a fraction t of the way from P to Q is P + t(Q − P)."], p: [MP7], drills: [geo-partition], needs: [MH-9.1.A] }
           - { id: D, std: G-GPE.B.7, do: "Use coordinates and the distance formula to compute perimeters of polygons and areas of triangles and rectangles.", ek: ["d = √((x₂ − x₁)² + (y₂ − y₁)²): the Pythagorean theorem on coordinates."], p: [MP6], drills: [geo-coord-perimeter], needs: [MH-9.1.A, MH-7.2.A] }
       - n: 2
@@ -436,7 +436,7 @@ units:
           - { id: A, std: S-CP.B.6, do: "Find the conditional probability of A given B as the fraction of B's outcomes that also belong to A, and interpret it in terms of the model.", ek: ["P(A|B) = |A ∩ B| / |B| in a uniform model."], p: [MP2], drills: [stats-conditional], needs: [MH-11.1.C] }
           - { id: B, std: S-CP.B.7, do: "Apply the Addition Rule, P(A or B) = P(A) + P(B) − P(A and B), and interpret the answer in terms of the model.", ek: ["Subtract the overlap so it is not counted twice."], p: [MP6], drills: [stats-addition], needs: [MH-11.1.A] }
           - { id: C, std: S-CP.B.8, do: "(+) Apply the general Multiplication Rule in a uniform probability model, P(A and B) = P(A)P(B|A) = P(B)P(A|B).", ek: ["The rule is the definition of P(B|A) rearranged."], p: [MP6], drills: [stats-mult-rule], needs: [MH-11.2.A] }
-          - { id: D, std: S-CP.B.9, do: "(+) Use permutations and combinations to compute probabilities of compound events and solve problems.", ek: ["nPr = n!/(n − r)! when order matters; nCr = n!/(r!(n − r)!) when it does not."], p: [MP7, MP8], drills: [sm-perm, sm-comb, sm-anagram, stats-counting], needs: [MH-11.2.C] }
+          - { id: D, std: S-CP.B.9, do: "(+) Use permutations and combinations to compute probabilities of compound events and solve problems.", ek: ["nPr = n!/(n − r)! when order matters; nCr = n!/(r!(n − r)!) when it does not."], p: [MP7, MP8], drills: [sm-perm, sm-comb, sm-anagram, stats-counting, mm-combinations], needs: [MH-11.2.C] }
       - n: 3
         title: Use probability to evaluate outcomes of decisions (+)
         los:
@@ -456,7 +456,7 @@ units:
         title: Perform arithmetic with complex numbers and use them in quadratic equations
         los:
           - { id: A, std: N-CN.A.1, do: "Know there is a complex number i with i² = −1, and write every complex number in the form a + bi with a and b real.", ek: ["√(−k) = i√k for k > 0; a is the real part, b the imaginary part."], p: [MP6], drills: [alg-complex-arith] }
-          - { id: B, std: N-CN.A.2, do: "Add, subtract and multiply complex numbers using i² = −1 and the commutative, associative and distributive properties.", ek: ["(a + bi)(c + di) = (ac − bd) + (ad + bc)i."], p: [MP7], drills: [alg-complex-arith], needs: [MH-12.1.A, MH-4.1.A] }
+          - { id: B, std: N-CN.A.2, do: "Add, subtract and multiply complex numbers using i² = −1 and the commutative, associative and distributive properties.", ek: ["(a + bi)(c + di) = (ac − bd) + (ad + bc)i."], p: [MP7], drills: [alg-complex-arith, mm-complex-product], needs: [MH-12.1.A, MH-4.1.A] }
           - { id: C, std: N-CN.C.7, do: "Solve a quadratic equation with real coefficients that has complex solutions.", ek: ["Negative discriminant ⇒ x = −b/2a ± i√(4ac − b²)/2a, a conjugate pair."], p: [MP6], drills: [euler-quad-roots, alg-complex-roots], needs: [MH-12.1.B, MH-4.3.C] }
           - { id: D, std: N-CN.C.8, do: "(+) Extend polynomial identities to the complex numbers, e.g. rewrite x² + 4 as (x + 2i)(x − 2i).", ek: ["a² + b² = (a + bi)(a − bi)."], p: [MP7], drills: ["~alg-complex-roots", hs-complex-factor], needs: [MH-12.1.C] }
       - n: 2
@@ -468,14 +468,14 @@ units:
       - n: 3
         title: Understand the relationship between zeros and factors of polynomials
         los:
-          - { id: A, std: A-APR.B.2, do: "Apply the Remainder Theorem: the remainder on division of p(x) by x − a is p(a), so p(a) = 0 exactly when x − a is a factor.", ek: ["p(x) = (x − a)q(x) + p(a)."], p: [MP7], drills: [alg-remainder], needs: [MH-12.2.A] }
-          - { id: B, std: A-APR.B.3, do: "Identify the zeros of a polynomial from a suitable factorization and use them to sketch a rough graph.", ek: ["An odd-multiplicity zero crosses the axis, an even one touches; the leading term sets end behaviour."], p: [MP7, MP5], drills: [alg-poly-zeros], needs: [MH-12.3.A] }
+          - { id: A, std: A-APR.B.2, do: "Apply the Remainder Theorem: the remainder on division of p(x) by x − a is p(a), so p(a) = 0 exactly when x − a is a factor.", ek: ["p(x) = (x − a)q(x) + p(a)."], p: [MP7], drills: [alg-remainder, mm-remainder-theorem], needs: [MH-12.2.A] }
+          - { id: B, std: A-APR.B.3, do: "Identify the zeros of a polynomial from a suitable factorization and use them to sketch a rough graph.", ek: ["An odd-multiplicity zero crosses the axis, an even one touches; the leading term sets end behaviour."], p: [MP7, MP5], drills: [alg-poly-zeros, mm-vieta], needs: [MH-12.3.A] }
           - { id: C, std: F-IF.C.7c, do: "Graph a polynomial function, identifying zeros when suitable factorizations are available and showing end behaviour.", ek: ["Degree n has at most n real zeros and at most n − 1 turning points."], p: [MP5, MP6], drills: ["~alg-poly-zeros", "~hs-parabola-features", hs-end-behaviour, dr-cubic], needs: [MH-12.3.B, MH-5.2.B] }
           - { id: D, std: N-CN.C.9, do: "(+) Know the Fundamental Theorem of Algebra and show that it is true for quadratic polynomials.", ek: ["A degree-n polynomial has exactly n complex zeros counted with multiplicity."], p: [MP3], drills: [hs-fta], needs: [MH-12.1.D, MH-12.3.B] }
       - n: 4
         title: Finite geometric series
         los:
-          - { id: A, std: A-SSE.B.4, do: "Derive the formula for the sum of a finite geometric series (common ratio not 1) and use it to solve problems, e.g. mortgage payments.", ek: ["S_n = a(1 − r^n)/(1 − r): subtract r·S_n from S_n and almost every term cancels."], p: [MP8, MP4], drills: [alg-geom-series], needs: [MH-2.5.B] }
+          - { id: A, std: A-SSE.B.4, do: "Derive the formula for the sum of a finite geometric series (common ratio not 1) and use it to solve problems, e.g. mortgage payments.", ek: ["S_n = a(1 − r^n)/(1 − r): subtract r·S_n from S_n and almost every term cancels."], p: [MP8, MP4], drills: [alg-geom-series, mm-geometric-sum], needs: [MH-2.5.B] }
       - n: 5
         title: Rewrite rational expressions and solve rational and radical equations
         los:
@@ -517,7 +517,7 @@ units:
       - n: 1
         title: Logarithms in exponential models
         los:
-          - { id: A, std: F-LE.A.4, do: "Express the solution of ab^(ct) = d as a logarithm (base 2, 10 or e) and evaluate it with technology.", ek: ["log_b x = y ⇔ b^y = x; t = log_b(d/a)/c."], p: [MP7, MP5], drills: [alg-exp-solve], needs: [MH-4.2.C, MH-5.3.D] }
+          - { id: A, std: F-LE.A.4, do: "Express the solution of ab^(ct) = d as a logarithm (base 2, 10 or e) and evaluate it with technology.", ek: ["log_b x = y ⇔ b^y = x; t = log_b(d/a)/c."], p: [MP7, MP5], drills: [alg-exp-solve, mm-log-exact], needs: [MH-4.2.C, MH-5.3.D] }
           - { id: B, std: F-IF.C.7e, do: "Graph a logarithmic function, showing the intercept, the vertical asymptote and end behaviour, as the reflection of an exponential across y = x.", ek: ["y = log_b x passes through (1, 0), has asymptote x = 0, and grows without bound but ever more slowly."], p: [MP5, MP6], drills: [alg-log-graph, dr-log], needs: [MH-14.1.A, MH-2.6.C] }
       - n: 2
         title: Build and interpret models from several families
@@ -589,7 +589,7 @@ units:
       - n: 1
         title: Exact values, symmetry and graphs (+)
         los:
-          - { id: A, std: F-TF.A.3, do: "(+) Use 30-60-90 and 45-45-90 triangles to find exact sine, cosine and tangent of π/6, π/4, π/3, and the unit circle to extend them to π − x, π + x and 2π − x.", ek: ["sin(π/6) = 1/2, sin(π/4) = √2/2, sin(π/3) = √3/2; the reference angle and quadrant give the rest."], p: [MP7], drills: [trig-exact, dr-unit-circle], needs: [MH-13.1.B, MH-7.3.A] }
+          - { id: A, std: F-TF.A.3, do: "(+) Use 30-60-90 and 45-45-90 triangles to find exact sine, cosine and tangent of π/6, π/4, π/3, and the unit circle to extend them to π − x, π + x and 2π − x.", ek: ["sin(π/6) = 1/2, sin(π/4) = √2/2, sin(π/3) = √3/2; the reference angle and quadrant give the rest."], p: [MP7], drills: [trig-exact, dr-unit-circle, mm-trig-exact], needs: [MH-13.1.B, MH-7.3.A] }
           - { id: B, std: F-TF.A.4, do: "(+) Use the unit circle to explain the symmetry (odd and even) and periodicity of the trigonometric functions.", ek: ["cos(−x) = cos x (even), sin(−x) = −sin x (odd); period 2π for sin and cos, π for tan."], p: [MP3, MP7], drills: [trig-symmetry], needs: [MH-17.1.A, MH-5.3.C] }
           - { id: C, std: F-IF.C.7e, do: "Graph sine, cosine and tangent functions, showing period, midline, amplitude and (for tangent) asymptotes.", ek: ["tan x = sin x / cos x has vertical asymptotes where cos x = 0."], p: [MP5, MP6], drills: [trig-sinusoid, dr-sinusoid, dr-tangent], needs: [MH-17.1.B, MH-13.2.A] }
       - n: 2
@@ -653,7 +653,7 @@ units:
           - { id: D, std: N-VM.C.9, do: "(+) Show that multiplication of square matrices is not commutative but is associative and distributive.", ek: ["AB ≠ BA in general; one 2×2 counterexample proves it."], p: [MP3], drills: [hs-matrix-noncommute], needs: [MH-19.4.C] }
           - { id: E, std: N-VM.C.10, do: "(+) Explain the roles of the zero and identity matrices, and that a square matrix has a multiplicative inverse exactly when its determinant is nonzero.", ek: ["det [[a, b], [c, d]] = ad − bc; AI = IA = A; A + 0 = A."], p: [MP3, MP7], drills: ["~la-det", alg-matrix-det], needs: [MH-19.4.D] }
           - { id: F, std: N-VM.C.11, do: "(+) Multiply a vector (as a one-column matrix) by a matrix of suitable dimensions to produce another vector.", ek: ["Av is a combination of A's columns weighted by v's entries."], p: [MP7], drills: ["~alg-matrix-ops", hs-matrix-ops], needs: [MH-19.4.C, MH-19.2.D] }
-          - { id: G, std: N-VM.C.12, do: "(+) Work with 2×2 matrices as transformations of the plane, and interpret the absolute value of the determinant as an area scale factor.", ek: ["The columns of A are the images of (1, 0) and (0, 1); area scales by |det A|."], p: [MP7, MP2], drills: [alg-matrix-det], needs: [MH-19.4.F, MH-19.4.E, MH-6.1.E] }
+          - { id: G, std: N-VM.C.12, do: "(+) Work with 2×2 matrices as transformations of the plane, and interpret the absolute value of the determinant as an area scale factor.", ek: ["The columns of A are the images of (1, 0) and (0, 1); area scales by |det A|."], p: [MP7, MP2], drills: [alg-matrix-det, mm-determinant], needs: [MH-19.4.F, MH-19.4.E, MH-6.1.E] }
       - n: 5
         title: Solve systems of linear equations with matrices (+)
         los:

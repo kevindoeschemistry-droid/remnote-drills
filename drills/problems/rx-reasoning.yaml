@@ -1,0 +1,167 @@
+# Organic reasoning: the quick rules that let a product be predicted instead of remembered.
+# One question each. Counts and directions are recomputed by the verifier; the pKa values are the
+# rounded ones every organic text uses, given in the prompt.
+
+- template: or-degrees-of-unsaturation
+  skill: orgo.reasoning
+  pace: quick
+  cases:
+    - { f: 'C_6H_6', C: 6, H: 6, N: 0, X: 0 }
+    - { f: 'C_6H_{10}', C: 6, H: 10, N: 0, X: 0 }
+    - { f: 'C_4H_6O', C: 4, H: 6, N: 0, X: 0 }
+    - { f: 'C_5H_5N', C: 5, H: 5, N: 1, X: 0 }
+    - { f: 'C_7H_7Br', C: 7, H: 7, N: 0, X: 1 }
+    - { f: 'C_8H_8O', C: 8, H: 8, N: 0, X: 0 }
+    - { f: 'C_3H_7NO_2', C: 3, H: 7, N: 1, X: 0 }
+    - { f: 'C_{10}H_8', C: 10, H: 8, N: 0, X: 0 }
+    - { f: 'C_4H_4O_3', C: 4, H: 4, N: 0, X: 0 }
+    - { f: 'C_6H_5NO_2', C: 6, H: 5, N: 1, X: 0 }
+  prompt: 'How many degrees of unsaturation (rings plus π bonds) does $\mathrm{ {{f}} }$ have?'
+  parts:
+    - { ask: 'Degrees of unsaturation', label: r, tex: 'U', value: (2*C + 2 + N - H - X)/2, tol: 0.0001, explain: 'A saturated molecule has $2C + 2$ hydrogens. Each nitrogen allows one more, each halogen stands in for one, and oxygen changes nothing. Every pair of hydrogens missing is a ring or a π bond: $U = \tfrac12(2C + 2 + N - H - X)$. Four or more with six carbons should make you think of a benzene ring' }
+  verify: { expect: { r: "solve(Eq(H + X + 2*x, 2*C + 2 + N), x)[0]" } }
+
+- template: or-stereoisomer-maximum
+  skill: orgo.reasoning
+  pace: recall
+  cases:
+    - { mol: 'butan-2-ol', n: 1 }
+    - { mol: '2,3-dibromopentane', n: 2 }
+    - { mol: 'an aldopentose, open chain', n: 3 }
+    - { mol: 'an aldohexose, open chain', n: 4 }
+    - { mol: 'glucose in its ring form', n: 5 }
+    - { mol: 'cholesterol', n: 8 }
+  prompt: '{{mol}} has ${{n}}$ stereocentre{{n > 1 ? "s" : ""}}. What is the largest number of stereoisomers it can have?'
+  parts:
+    - { ask: 'Maximum stereoisomers', label: r, tex: 'N', value: 2^n, tol: 0.0001, explain: 'Each stereocentre is R or S, independently: $2^n$. It is a maximum, because a molecule with a plane of symmetry (a meso compound) is its own mirror image and counts once' }
+  verify: { expect: { r: "len([c for c in range(2**n)])" } }
+
+- template: or-acid-base-direction
+  skill: orgo.reasoning
+  pace: quick
+  cases:
+    - { acid: 'acetic acid (pKa 4.8)', base: 'ammonia', conj: 'NH₄⁺ (pKa 9.2)', pa: 4.8, pb: 9.2 }
+    - { acid: 'a terminal alkyne (pKa 25)', base: 'sodium amide, NaNH₂', conj: 'NH₃ (pKa 38)', pa: 25, pb: 38 }
+    - { acid: 'a terminal alkyne (pKa 25)', base: 'sodium hydroxide', conj: 'H₂O (pKa 15.7)', pa: 25, pb: 15.7 }
+    - { acid: 'phenol (pKa 10)', base: 'sodium bicarbonate', conj: 'H₂CO₃ (pKa 6.4)', pa: 10, pb: 6.4 }
+    - { acid: 'phenol (pKa 10)', base: 'sodium hydroxide', conj: 'H₂O (pKa 15.7)', pa: 10, pb: 15.7 }
+    - { acid: 'acetone (pKa 20)', base: 'LDA', conj: 'diisopropylamine (pKa 36)', pa: 20, pb: 36 }
+    - { acid: 'acetone (pKa 20)', base: 'sodium ethoxide', conj: 'ethanol (pKa 16)', pa: 20, pb: 16 }
+    - { acid: 'ethanol (pKa 16)', base: 'sodium hydride', conj: 'H₂ (pKa 35)', pa: 16, pb: 35 }
+    - { acid: 'benzoic acid (pKa 4.2)', base: 'sodium bicarbonate', conj: 'H₂CO₃ (pKa 6.4)', pa: 4.2, pb: 6.4 }
+    - { acid: 'diethyl malonate (pKa 13)', base: 'sodium ethoxide', conj: 'ethanol (pKa 16)', pa: 13, pb: 16 }
+  prompt: '{{acid}} is treated with {{base}}, whose conjugate acid is {{conj}}. Which side does the equilibrium favour?'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["Products: the acid is deprotonated", "Reactants: the base is too weak"]
+      correct: "pa < pb ? 0 : 1"
+      explain: 'Equilibrium runs toward the weaker acid, the one with the larger pKa. Compare the acid you start with (${{pa}}$) with the acid you would make (${{pb}}$): $K = 10^{ {{pb}} - {{pa}} } = 10^{ {{pb - pa}} }$'
+  verify: { choices: { a: "0 if 10**(pb - pa) > 1 else 1" } }
+
+- template: or-acid-base-log-k
+  skill: orgo.reasoning
+  pace: quick
+  given: { pa: { pick: [4.8, 10, 16, 20, 25] }, pb: { pick: [6.4, 9.2, 15.7, 36, 38] } }
+  prompt: 'An acid of pKa ${{pa}}$ reacts with a base whose conjugate acid has pKa ${{pb}}$. What is $\log_{10}K$ for the proton transfer?'
+  parts:
+    - { ask: '$\log_{10}K$', label: r, tex: '\log K', value: pb - pa, tol: 0.001, explain: '$K = \dfrac{K_a(\text{acid})}{K_a(\text{conjugate acid})}$, so $\log K = \mathrm{p}K_a(\text{product acid}) - \mathrm{p}K_a(\text{starting acid}) = {{pb}} - {{pa}}$. Positive means products; every unit is a factor of ten' }
+  verify: { expect: { r: "log(10**(-nsimplify(pa))/10**(-nsimplify(pb)), 10)" } }
+
+- template: or-aromaticity
+  skill: orgo.reasoning
+  pace: recall
+  cases:
+    - { mol: 'benzene', ne: 6, flat: 1 }
+    - { mol: 'cyclobutadiene', ne: 4, flat: 1 }
+    - { mol: 'the cyclopentadienyl anion', ne: 6, flat: 1 }
+    - { mol: 'the cyclopentadienyl cation', ne: 4, flat: 1 }
+    - { mol: 'the cycloheptatrienyl (tropylium) cation', ne: 6, flat: 1 }
+    - { mol: 'pyridine', ne: 6, flat: 1 }
+    - { mol: 'pyrrole', ne: 6, flat: 1 }
+    - { mol: 'furan', ne: 6, flat: 1 }
+    - { mol: 'naphthalene', ne: 10, flat: 1 }
+    - { mol: 'cyclooctatetraene, which is tub-shaped', ne: 8, flat: 0 }
+    - { mol: 'cyclohepta-1,3,5-triene, which has an sp³ carbon in the ring', ne: 6, flat: 0 }
+  prompt: 'Is {{mol}} aromatic? It has ${{ne}}$ π electrons in the ring.'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["Aromatic", "Antiaromatic", "Neither: the ring is not a flat, fully conjugated loop"]
+      correct: "flat == 0 ? 2 : (mod(ne - 2, 4) == 0 ? 0 : 1)"
+      explain: 'First ask whether the ring is cyclic, planar and has a p orbital on every atom. If it is, count: $4n + 2$ π electrons (2, 6, 10) is aromatic, $4n$ (4, 8) is antiaromatic. A lone pair counts only if it sits in a p orbital of the ring: pyrrole''s does, pyridine''s does not'
+  verify: { choices: { a: "2 if flat == 0 else (0 if (ne - 2) % 4 == 0 else 1)" } }
+
+- template: or-oxidation-level
+  skill: orgo.reasoning
+  pace: recall
+  cases:
+    - { c: 'the carbon of methane, CH₄', nh: 4, nx: 0 }
+    - { c: 'the carbon of methanol, CH₃OH', nh: 3, nx: 1 }
+    - { c: 'the carbon of formaldehyde, CH₂O', nh: 2, nx: 2 }
+    - { c: 'the carbon of formic acid, HCO₂H', nh: 1, nx: 3 }
+    - { c: 'the carbon of CO₂', nh: 0, nx: 4 }
+    - { c: 'the carbinol carbon of ethanol, CH₃CH₂OH', nh: 2, nx: 1 }
+    - { c: 'the carbonyl carbon of acetaldehyde, CH₃CHO', nh: 1, nx: 2 }
+    - { c: 'the carbonyl carbon of acetic acid, CH₃CO₂H', nh: 0, nx: 3 }
+    - { c: 'the carbonyl carbon of acetone', nh: 0, nx: 2 }
+    - { c: 'the CH₂Br carbon of bromoethane', nh: 2, nx: 1 }
+  prompt: 'What is the oxidation state of {{c}}?'
+  parts:
+    - ask: 'Oxidation state'
+      label: a
+      choice: ["-4", "-3", "-2", "-1", "0", "+1", "+2", "+3", "+4"]
+      correct: nx - nh + 4
+      explain: 'Count bonds: each bond to H is $-1$, each bond to O, N or a halogen is $+1$ (a double bond counts twice), and bonds to carbon are 0. Here ${{nx}} - {{nh}} = {{nx - nh}}$. Going up is oxidation, going down is reduction: that tells you at a glance whether a step needs an oxidant, a reductant or neither'
+  verify: { choices: { a: "sum([1]*nx + [-1]*nh) + 4" } }
+
+- template: or-substitution-or-elimination
+  skill: orgo.reasoning
+  pace: quick
+  cases:
+    - { q: 'bromomethane with NaCN in DMSO', sub: 'methyl', nuc: 'nucleophile', sc: 0, nc: 0 }
+    - { q: '1-bromobutane with NaI in acetone', sub: 'primary', nuc: 'nucleophile', sc: 1, nc: 0 }
+    - { q: '1-bromobutane with NaOCH₂CH₃ in ethanol', sub: 'primary', nuc: 'small-base', sc: 1, nc: 1 }
+    - { q: '1-bromobutane with KOC(CH₃)₃', sub: 'primary', nuc: 'bulky-base', sc: 1, nc: 2 }
+    - { q: '2-bromobutane with NaCN in DMSO', sub: 'secondary', nuc: 'nucleophile', sc: 2, nc: 0 }
+    - { q: '2-bromobutane with NaOCH₂CH₃ in ethanol', sub: 'secondary', nuc: 'small-base', sc: 2, nc: 1 }
+    - { q: '2-bromobutane with KOC(CH₃)₃', sub: 'secondary', nuc: 'bulky-base', sc: 2, nc: 2 }
+    - { q: '2-bromo-2-methylpropane with NaOCH₂CH₃ in ethanol', sub: 'tertiary', nuc: 'small-base', sc: 3, nc: 1 }
+    - { q: '2-bromo-2-methylpropane warmed in ethanol alone', sub: 'tertiary', nuc: 'weak', sc: 3, nc: 3 }
+    - { q: '2-bromo-2-methylpropane in water', sub: 'tertiary', nuc: 'weak', sc: 3, nc: 3 }
+    - { q: '2-bromobutane warmed in methanol alone', sub: 'secondary', nuc: 'weak', sc: 2, nc: 3 }
+  prompt: 'Which pathway dominates? {{q}}'
+  parts:
+    - ask: 'Pathway'
+      label: a
+      choice: ["SN2", "E2", "SN1 together with E1"]
+      correct: "nc == 3 ? 2 : (nc == 0 ? 0 : (sc == 0 ? 0 : (sc == 1 and nc == 1 ? 0 : 1)))"
+      explain: 'Ask two questions in order. Is the reagent a strong base or nucleophile? If not (water or an alcohol alone), only a carbocation route is open: SN1 with E1, and only on a secondary or tertiary carbon. If it is strong: a good nucleophile that is a weak base (I⁻, CN⁻, RS⁻, N₃⁻) does SN2 on methyl, primary and secondary carbons; a strong base does E2 on secondary and tertiary carbons, and on primary too when it is bulky. Tertiary carbons never do SN2'
+  verify: { choices: { a: "sn_e(sub, nuc)" } }
+
+- template: or-directing-effect
+  skill: orgo.reasoning
+  pace: recall
+  cases:
+    - { g: '–OCH₃', ans: 0 }
+    - { g: '–CH₃', ans: 0 }
+    - { g: '–NH₂', ans: 0 }
+    - { g: '–OH', ans: 0 }
+    - { g: '–NHCOCH₃', ans: 0 }
+    - { g: '–Cl', ans: 1 }
+    - { g: '–Br', ans: 1 }
+    - { g: '–NO₂', ans: 2 }
+    - { g: '–CO₂H', ans: 2 }
+    - { g: '–COCH₃', ans: 2 }
+    - { g: '–CN', ans: 2 }
+    - { g: '–SO₃H', ans: 2 }
+    - { g: '–CF₃', ans: 2 }
+    - { g: '–N(CH₃)₃⁺', ans: 2 }
+  prompt: 'A benzene ring carries {{g}}. Where does the next electrophile go, and is the ring faster or slower than benzene?'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["Ortho and para; faster (activating)", "Ortho and para; slower (deactivating)", "Meta; slower (deactivating)"]
+      correct: ans
+      explain: 'Look at the atom attached to the ring. A lone pair there, or an alkyl group, donates into the ring: ortho/para. A positive or partly positive atom (a carbonyl carbon, nitro nitrogen, CF₃) withdraws: meta, and slower. Halogens are the one mixed case: the lone pair directs ortho/para, but the electronegativity slows the ring'
+  verify: { authored: true }

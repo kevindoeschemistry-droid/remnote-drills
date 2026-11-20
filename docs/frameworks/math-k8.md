@@ -172,7 +172,7 @@ Big ideas: OPS, PV, MEAS, SHAPE
 - ● **MK-2.1.C** (1.OA.B.3) Apply the commutative and associative properties of addition as strategies (8+3 = 3+8; 2+6+4 = 2+10).
   - EK: Order and grouping don't change a sum.
   - Needs: MK-1.2.C
-  - MP7 · MP8 · drills: k8-make-ten-in-sum, ~k8-add3
+  - MP7 · MP8 · drills: k8-make-ten-in-sum, k8s-add-three-find-ten, ~k8-add3
 - ● **MK-2.1.D** (1.OA.B.4) Understand subtraction as an unknown-addend problem (10 − 8 as 8 + ? = 10).
   - EK: Subtraction finds a missing part.
   - Needs: MK-1.2.A
@@ -184,7 +184,7 @@ Big ideas: OPS, PV, MEAS, SHAPE
 - ● **MK-2.1.F** (1.OA.C.6) Add and subtract within 20, fluently within 10, using strategies such as making ten, decomposing to ten, and known sums (8+6 = 8+2+4).
   - EK: Making ten turns a hard fact into an easy one.
   - Needs: MK-1.2.D, MK-1.2.E, MK-2.1.C, MK-2.1.D, MK-2.1.E
-  - MP7 · MP8 · drills: k8-add20, k8-make-ten
+  - MP7 · MP8 · drills: k8-add20, k8-make-ten, k8s-make-ten, k8s-near-doubles
 - ● **MK-2.1.G** (1.OA.D.7) Understand the meaning of the equal sign and decide whether equations like 6 = 6, 7 = 8 − 1, 5 + 2 = 2 + 5 are true or false.
   - EK: = means "the same amount as", not "the answer comes next".
   - Needs: MK-1.2.C
@@ -416,11 +416,11 @@ Big ideas: OPS, MULT, LINE, MEAS
 - ● **MK-4.1.E** (3.OA.B.5) Apply the commutative, associative and distributive properties as strategies to multiply and divide.
   - EK: 8 × 7 = 8 × 5 + 8 × 2; order and grouping don't change a product.
   - Needs: MK-4.1.A, MK-2.1.C
-  - MP7 · MP8 · drills: k8-multiply-by-breaking, ~k8-mult-facts
+  - MP7 · MP8 · drills: k8-multiply-by-breaking, k8s-times-9, k8s-double-double, mm-distributive, ~k8-mult-facts
 - ● **MK-4.1.F** (3.OA.B.6) Understand division as an unknown-factor problem (32 ÷ 8 is the number that makes 32 when multiplied by 8).
   - EK: Every division fact is a multiplication fact with a missing factor.
   - Needs: MK-4.1.B, MK-2.1.D
-  - MP7 · drills: k8-missing-factor
+  - MP7 · drills: k8-missing-factor, k8s-unknown-factor
 - ● **MK-4.1.G** (3.OA.C.7) Fluently multiply and divide within 100; know from memory all products of two one-digit numbers.
   - EK: Single-digit products are recalled, not computed.
   - Needs: MK-4.1.E, MK-4.1.F
@@ -445,11 +445,11 @@ Big ideas: OPS, MULT, LINE, MEAS
 - ● **MK-4.2.B** (3.NBT.A.2) Fluently add and subtract within 1000 using strategies and algorithms based on place value, properties, and the add–subtract relationship.
   - EK: Regroup across places: ten ones = one ten, ten tens = one hundred.
   - Needs: MK-3.2.G, MK-3.2.I
-  - MP7 · drills: k8-add1000
+  - MP7 · drills: k8-add1000, mm-add-left-to-right, mm-sub-same-change, mm-sub-round-repay, mm-sub-count-up
 - ● **MK-4.2.C** (3.NBT.A.3) Multiply one-digit whole numbers by multiples of 10 in the range 10–90 (9 × 80, 5 × 60).
   - EK: 9 × 80 = 9 × 8 tens = 72 tens.
   - Needs: MK-4.1.G, MK-3.2.A
-  - MP7 · drills: k8-mult-tens
+  - MP7 · drills: k8-mult-tens, k8s-multiple-of-ten
 
 ### 4.3 Number and Operations—Fractions
 
@@ -586,15 +586,15 @@ Big ideas: PV, LINE, MULT, MEAS, SHAPE
 - ● **MK-5.2.D** (4.NBT.B.4) Fluently add and subtract multi-digit whole numbers using the standard algorithm.
   - EK: The standard algorithm is place-value regrouping written compactly.
   - Needs: MK-4.2.B, MK-5.2.A
-  - MP6 · drills: k8-add-multi
+  - MP6 · drills: k8-add-multi, mm-add-left-to-right, mm-subtract-from-1000, mm-sub-round-repay
 - ● **MK-5.2.E** (4.NBT.B.5) Multiply a whole number of up to four digits by a one-digit number, and two two-digit numbers, using place-value strategies and properties; illustrate with equations, arrays and area models.
   - EK: Partial products: 23 × 45 = 20×40 + 20×5 + 3×40 + 3×5.
   - Needs: MK-4.2.C, MK-4.1.E, MK-4.4.H, MK-5.2.A
-  - MP4 · MP7 · drills: k8-mult-multi
+  - MP4 · MP7 · drills: k8-mult-multi, k8s-partial-products, k8s-halve-and-double, mm-times-11, mm-times-25, mm-times-5, mm-double-and-halve, mm-times-99-101
 - ● **MK-5.2.F** (4.NBT.B.6) Find whole-number quotients and remainders with up to four-digit dividends and one-digit divisors using place-value strategies and the multiplication–division relationship.
   - EK: Divide place by place, or subtract chunks of the divisor; check by multiplying back.
   - Needs: MK-5.2.E, MK-4.1.F
-  - MP4 · MP7 · drills: k8-div-rem
+  - MP4 · MP7 · drills: k8-div-rem, k8s-partial-quotients
 
 ### 5.3 Number and Operations—Fractions
 
@@ -607,7 +607,7 @@ Big ideas: PV, LINE, MULT, MEAS, SHAPE
 - ● **MK-5.3.B** (4.NF.A.2) Compare two fractions with different numerators and different denominators by creating common denominators or numerators or comparing to a benchmark like 1/2.
   - EK: Rename to a common unit, then compare counts.
   - Needs: MK-5.3.A, MK-4.3.F
-  - MP2 · MP3 · drills: k8-cmp-frac
+  - MP2 · MP3 · drills: k8-cmp-frac, k8s-fraction-benchmark, mm-compare-fractions
 - ● **MK-5.3.C** (4.NF.B.3a) Understand addition and subtraction of fractions as joining and separating parts referring to the same whole.
   - EK: Adding fractions with the same denominator adds numbers of same-size parts.
   - Needs: MK-4.3.A
@@ -706,7 +706,7 @@ Big ideas: LINE, PV, MULT, MEAS, SHAPE
 - ● **MK-6.1.A** (5.OA.A.1) Use parentheses, brackets or braces in numerical expressions and evaluate expressions with these symbols.
   - EK: Innermost grouping first, then the order of operations.
   - Needs: MK-5.1.C
-  - MP6 · drills: k8-order-ops
+  - MP6 · drills: k8-order-ops, mm-order-of-operations
 - ● **MK-6.1.B** (5.OA.A.2) Write simple expressions that record calculations with numbers and interpret them without evaluating (3 × (18932 + 921) is three times as large as 18932 + 921).
   - EK: An expression's structure shows a relationship without computing it.
   - Needs: MK-6.1.A, MK-5.1.A
@@ -727,7 +727,7 @@ Big ideas: LINE, PV, MULT, MEAS, SHAPE
 - ● **MK-6.2.B** (5.NBT.A.2) Explain patterns in the number of zeros of a product when multiplying by a power of 10 and in decimal-point placement when multiplying or dividing by a power of 10; use whole-number exponents for powers of 10.
   - EK: × 10ⁿ shifts every digit n places left.
   - Needs: MK-6.2.A
-  - MP7 · MP8 · drills: k8-pow10
+  - MP7 · MP8 · drills: k8-pow10, k8s-power-of-ten-shift
 - ● **MK-6.2.C** (5.NBT.A.3a) Read and write decimals to thousandths using base-ten numerals, number names and expanded form (347.392 = 3×100 + 4×10 + 7×1 + 3×(1/10) + 9×(1/100) + 2×(1/1000)).
   - EK: Thousandths are the third place right of the decimal point.
   - Needs: MK-6.2.A, MK-5.3.J
@@ -747,11 +747,11 @@ Big ideas: LINE, PV, MULT, MEAS, SHAPE
 - ● **MK-6.2.G** (5.NBT.B.6) Find whole-number quotients of whole numbers with up to four-digit dividends and two-digit divisors using place-value strategies and the multiplication–division relationship.
   - EK: Estimate each quotient digit by rounding the divisor; check by multiplying back.
   - Needs: MK-5.2.F
-  - MP4 · MP7 · drills: k8-div-2d
+  - MP4 · MP7 · drills: k8-div-2d, k8s-divide-by-scaling
 - ● **MK-6.2.H** (5.NBT.B.7) Add, subtract, multiply and divide decimals to hundredths using models, place-value strategies and properties of operations, and explain the reasoning.
   - EK: Line up like places to add; for products, tenths × tenths = hundredths.
   - Needs: MK-6.2.B, MK-6.2.C, MK-5.2.D, MK-5.2.E
-  - MP3 · MP7 · drills: k8-dec-ops
+  - MP3 · MP7 · drills: k8-dec-ops, k8s-decimal-as-fraction, k8s-reasonable-estimate
 
 ### 6.3 Number and Operations—Fractions
 
@@ -772,7 +772,7 @@ Big ideas: LINE, PV, MULT, MEAS, SHAPE
 - ● **MK-6.3.D** (5.NF.B.4a) Interpret (a/b) × q as a parts of a partition of q into b equal parts, and multiply a fraction by a fraction: (a/b) × (c/d) = ac/bd.
   - EK: 2/3 × 4 = 8/3; (2/3) × (4/5) = 8/15.
   - Needs: MK-5.3.G, MK-6.3.C
-  - MP2 · MP7 · drills: k8-frac-mult
+  - MP2 · MP7 · drills: k8-frac-mult, mm-fraction-of
 - ● **MK-6.3.E** (5.NF.B.4b) Find the area of a rectangle with fractional side lengths by tiling with unit squares of the appropriate unit-fraction side, and show it equals the product of the side lengths.
   - EK: Area = length × width holds for fractional sides.
   - Needs: MK-6.3.D, MK-5.4.C
@@ -780,7 +780,7 @@ Big ideas: LINE, PV, MULT, MEAS, SHAPE
 - ● **MK-6.3.F** (5.NF.B.5a, 5.NF.B.5b) Interpret multiplication as scaling: compare the size of a product to one factor from the other factor, without multiplying.
   - EK: × (factor > 1) enlarges; × (factor < 1) shrinks; a/b = (n×a)/(n×b) is × n/n = × 1.
   - Needs: MK-6.3.D, MK-5.1.A
-  - MP2 · MP7 · drills: k8-frac-scaling
+  - MP2 · MP7 · drills: k8-frac-scaling, k8s-scaling
 - ● **MK-6.3.G** (5.NF.B.6) Solve real-world problems involving multiplication of fractions and mixed numbers using visual fraction models or equations.
   - EK: "Of" a quantity usually means multiply.
   - Needs: MK-6.3.D, MK-6.3.F
@@ -788,7 +788,7 @@ Big ideas: LINE, PV, MULT, MEAS, SHAPE
 - ● **MK-6.3.H** (5.NF.B.7a, 5.NF.B.7b) Divide a unit fraction by a non-zero whole number and a whole number by a unit fraction (1/3 ÷ 4 = 1/12; 4 ÷ 1/5 = 20), using the multiplication–division relationship.
   - EK: 4 ÷ 1/5 asks how many fifths are in 4.
   - Needs: MK-6.3.C, MK-6.3.D
-  - MP2 · MP7 · drills: k8-frac-unit-div
+  - MP2 · MP7 · drills: k8-frac-unit-div, k8s-divide-by-unit-fraction
 - ● **MK-6.3.I** (5.NF.B.7c) Solve real-world problems involving division of unit fractions by whole numbers and of whole numbers by unit fractions.
   - EK: Sharing 1/2 lb among 3 people: 1/2 ÷ 3 = 1/6 lb each.
   - Needs: MK-6.3.H
@@ -871,7 +871,7 @@ Big ideas: MULT, LINE, OPS, DATA
 - ● **MK-7.1.E** (6.RP.A.3c) Find a percent of a quantity as a rate per 100 (30% of a quantity is 30/100 times it) and find the whole given a part and the percent.
   - EK: p% = p/100; whole = part ÷ (p/100).
   - Needs: MK-7.1.D, MK-5.3.I
-  - MP2 · MP4 · drills: k8-percent
+  - MP2 · MP4 · drills: k8-percent, k8s-percent-build, mm-percent-swap, mm-fraction-to-percent, mm-percent-as-fraction
 - ● **MK-7.1.F** (6.RP.A.3d) Use ratio reasoning to convert measurement units, multiplying or dividing quantities appropriately.
   - EK: Multiply by a conversion ratio equal to 1 (12 in / 1 ft).
   - Needs: MK-7.1.D, MK-6.4.A
@@ -896,7 +896,7 @@ Big ideas: MULT, LINE, OPS, DATA
 - ● **MK-7.2.D** (6.NS.B.4) Find the greatest common factor of two whole numbers ≤ 100 and the least common multiple of two whole numbers ≤ 12; use the distributive property to factor out a common factor (36 + 8 = 4(9 + 2)).
   - EK: GCF divides both; LCM is the smallest number both divide.
   - Needs: MK-5.1.D, MK-4.1.E
-  - MP7 · drills: k8-gcf-lcm
+  - MP7 · drills: k8-gcf-lcm, mm-gcd, mm-lcm
 - ● **MK-7.2.E** (6.NS.C.5) Use positive and negative numbers to represent quantities with opposite directions or values (temperature, elevation, credits/debits), explaining the meaning of 0 in context.
   - EK: Sign shows direction from a reference point 0.
   - Needs: MK-3.3.F
@@ -1015,7 +1015,7 @@ Big ideas: MULT, LINE, OPS, DATA
 - ● **MK-7.5.F** (6.SP.B.5c, 6.SP.B.5d) Give quantitative measures of center (median, mean) and variability (interquartile range, mean absolute deviation), describe the pattern and striking deviations, and relate the choice of measures to the shape of the data.
   - EK: Skewed data or outliers → median and IQR; symmetric → mean and MAD.
   - Needs: MK-7.5.E, MK-7.5.C, MK-7.2.C, MK-7.2.I
-  - MP3 · MP6 · drills: k8-center-spread
+  - MP3 · MP6 · drills: k8-center-spread, mm-mean-focus, mm-median
 
 ## Unit 8 · Grade 7 — proportional relationships, rational-number arithmetic, linear equations, sampling and probability
 
@@ -1044,7 +1044,7 @@ Big ideas: MULT, LINE, OPS, SHAPE, DATA
 - ● **MK-8.1.E** (7.RP.A.3) Use proportional relationships to solve multistep ratio and percent problems: simple interest, tax, markups and markdowns, gratuities, commissions, fees, percent increase and decrease, percent error.
   - EK: Percent change = (new − old)/old; a 20% increase multiplies by 1.20.
   - Needs: MK-7.1.E, MK-8.1.D
-  - MP1 · MP4 · drills: k8-percent-change
+  - MP1 · MP4 · drills: k8-percent-change, mm-percent-change, mm-sale-price
 
 ### 8.2 The Number System
 
@@ -1057,7 +1057,7 @@ Big ideas: MULT, LINE, OPS, SHAPE, DATA
 - ● **MK-8.2.B** (7.NS.A.1c, 7.NS.A.1d) Understand subtraction of rationals as adding the additive inverse (p − q = p + (−q)), show that the distance between two rationals is the absolute value of their difference, and apply properties to add and subtract.
   - EK: p − q = p + (−q); distance = |p − q|.
   - Needs: MK-8.2.A
-  - MP7 · MP8 · drills: k8-int-add-sub, k8-abs
+  - MP7 · MP8 · drills: k8-int-add-sub, k8-abs, k8s-subtract-negative
 - ● **MK-8.2.C** (7.NS.A.2a, 7.NS.A.2b) Multiply and divide rational numbers by extending the properties of operations, giving (−1)(−1) = 1 and −(p/q) = (−p)/q = p/(−q).
   - EK: Sign rules follow from the distributive property, not from convention.
   - Needs: MK-8.2.B, MK-7.2.A
@@ -1086,7 +1086,7 @@ Big ideas: MULT, LINE, OPS, SHAPE, DATA
 - ● **MK-8.3.C** (7.EE.B.3) Solve multi-step real-life problems with positive and negative rational numbers in any form, converting between forms, and assess reasonableness with mental computation and estimation.
   - EK: Fraction, decimal and percent are interchangeable forms of one number.
   - Needs: MK-8.2.E, MK-8.1.E
-  - MP1 · MP2 · drills: k8-rational-ops
+  - MP1 · MP2 · drills: k8-rational-ops, k8s-reasonable-estimate, mm-estimate-product, mm-estimate-quotient
 - ● **MK-8.3.D** (7.EE.B.4a) Solve word problems leading to equations px + q = r and p(x + q) = r fluently, and compare the algebraic solution to an arithmetic one.
   - EK: Undo operations in reverse order: subtract q, then divide by p.
   - Needs: MK-7.3.H, MK-8.3.A
@@ -1181,7 +1181,7 @@ Big ideas: LINE, OPS, MULT, SHAPE, DATA
 - ● **MK-9.1.B** (8.NS.A.2) Use rational approximations of irrational numbers to compare their size, locate them on a number line and estimate expressions (π²; √2 between 1.4 and 1.5).
   - EK: Squeeze an irrational between rationals by truncating its expansion.
   - Needs: MK-9.1.A, MK-7.2.H
-  - MP5 · MP6 · drills: k8-sqrt-between
+  - MP5 · MP6 · drills: k8-sqrt-between, mm-estimate-root
 
 ### 9.2 Expressions and Equations
 
@@ -1190,11 +1190,11 @@ Big ideas: LINE, OPS, MULT, SHAPE, DATA
 - ● **MK-9.2.A** (8.EE.A.1) Know and apply the properties of integer exponents to generate equivalent numerical expressions (3² × 3⁻⁵ = 3⁻³ = 1/27).
   - EK: aᵐaⁿ = aᵐ⁺ⁿ; a⁻ⁿ = 1/aⁿ; a⁰ = 1.
   - Needs: MK-7.3.A, MK-8.2.C
-  - MP7 · MP8 · drills: k8-int-exponents
+  - MP7 · MP8 · drills: k8-int-exponents, mm-exponent-laws
 - ● **MK-9.2.B** (8.EE.A.2) Use square root and cube root symbols for solutions of x² = p and x³ = p (p a positive rational); evaluate roots of small perfect squares and cubes; know √2 is irrational.
   - EK: x² = p has two solutions ±√p; x³ = p has one, ∛p.
   - Needs: MK-9.2.A, MK-9.1.A
-  - MP6 · drills: k8-roots
+  - MP6 · drills: k8-roots, mm-perfect-square-root, mm-cubes
 - ● **MK-9.2.C** (8.EE.A.3) Use numbers of the form (single digit) × 10ⁿ to estimate very large or very small quantities and to say how many times as much one is as another.
   - EK: 3 × 10⁸ vs 7 × 10⁹: the second is about 20 times larger.
   - Needs: MK-9.2.A, MK-6.2.B
@@ -1325,52 +1325,26 @@ Big ideas: LINE, OPS, MULT, SHAPE, DATA
 - mm-base-fraction (k8.place-value)
 - mm-roman-numerals (k8.place-value)
 - mm-base-to-ten (k8.place-value)
-- mm-add-left-to-right (k8.add-sub)
-- mm-subtract-from-1000 (k8.add-sub)
 - mm-remainder-product (k8.mult-div)
-- mm-distributive (k8.mult-div)
-- mm-times-11 (k8.mult-div)
-- mm-times-25 (k8.mult-div)
-- mm-times-5 (k8.mult-div)
 - mm-near-100 (k8.mult-div)
-- mm-times-99-101 (k8.mult-div)
 - mm-same-tens (k8.mult-div)
 - mm-difference-of-squares (k8.mult-div)
-- mm-double-and-halve (k8.mult-div)
-- mm-gcd (k8.mult-div)
-- mm-lcm (k8.mult-div)
 - mm-remainder-digits (k8.mult-div)
 - mm-remainder-11 (k8.mult-div)
 - mm-count-divisors (k8.mult-div)
 - mm-sum-divisors (k8.mult-div)
-- mm-estimate-product (k8.mult-div)
-- mm-estimate-quotient (k8.mult-div)
 - mm-reciprocal-mixed (k8.fractions)
-- mm-fraction-of (k8.fractions)
-- mm-compare-fractions (k8.fractions)
 - mm-repeating-decimal (k8.decimals)
 - aq-household-measure (k8.measurement)
 - aq-spoon-of-water (k8.measurement)
 - mm-unit-conversion (k8.measurement)
 - mm-proportion (k8.ratios)
-- mm-fraction-to-percent (k8.ratios)
-- mm-percent-as-fraction (k8.ratios)
-- mm-percent-swap (k8.ratios)
-- mm-percent-change (k8.ratios)
-- mm-sale-price (k8.ratios)
 - mm-absolute-value (k8.integers)
 - mm-floor (k8.integers)
 - mm-substitution (k8.expressions)
-- mm-order-of-operations (k8.expressions)
 - mm-modular-power (k8.exponents)
 - mm-square-ending-5 (k8.exponents)
 - mm-square-near-50 (k8.exponents)
 - mm-square-near-100 (k8.exponents)
 - mm-square-two-digit (k8.exponents)
-- mm-estimate-root (k8.exponents)
 - mm-powers-of-2 (k8.exponents)
-- mm-cubes (k8.exponents)
-- mm-perfect-square-root (k8.exponents)
-- mm-exponent-laws (k8.exponents)
-- mm-mean-focus (k8.data)
-- mm-median (k8.data)

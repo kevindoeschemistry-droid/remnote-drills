@@ -1,0 +1,218 @@
+# Arithmetic strategies, grades 1-7: the mental methods Common Core names ("strategies based on place
+# value, properties of operations, and the relationship between ...") next to the standard algorithm.
+# Before this file 229 of 258 K-8 objectives had one question type, almost always the algorithm.
+# One question each; the prompt names the strategy so the habit is what gets practised.
+
+# ── grade 1: addition within 20 ─────────────────────────────────────────────
+- template: k8s-make-ten
+  skill: k8.add-sub
+  pace: recall
+  given: { a: { pick: [7, 8, 9] }, b: { int: [4, 9] } }
+  require: [a + b > 10]
+  prompt: 'Make a ten: ${{a}} + {{b}} = 10 + \;?$'
+  parts:
+    - { ask: 'Missing number', label: r, tex: 'n', value: a + b - 10, tol: 0.00001, explain: '${{a}}$ needs ${{10 - a}}$ to make ten. Take that from the ${{b}}$: ${{b}} = {{10 - a}} + {{a + b - 10}}$, so ${{a}} + {{b}} = 10 + {{a + b - 10}} = {{a + b}}$' }
+  verify: { expect: { r: "solve(Eq(10 + x, a + b), x)[0]" } }
+
+- template: k8s-near-doubles
+  skill: k8.add-sub
+  pace: recall
+  given: { a: { int: [5, 9] }, d: { pick: [1, 2] } }
+  prompt: 'Use a double: ${{a}} + {{a + d}}$'
+  parts:
+    - { ask: 'Sum', label: r, tex: 's', value: 2*a + d, tol: 0.00001, explain: 'Double ${{a}}$ is ${{2*a}}$, and ${{a + d}}$ is ${{d}}$ more than ${{a}}$, so the sum is ${{2*a}} + {{d}} = {{2*a + d}}$' }
+  verify: { expect: { r: "solve(Eq(x - a, a + d), x)[0]" } }
+
+- template: k8s-add-three-find-ten
+  skill: k8.add-sub
+  pace: recall
+  given: { a: { int: [1, 9] }, b: { int: [2, 9] } }
+  require: [a != b, a + b != 10]
+  prompt: 'Add in the easiest order: ${{a}} + {{b}} + {{10 - a}}$'
+  parts:
+    - { ask: 'Sum', label: r, tex: 's', value: 10 + b, tol: 0.00001, explain: 'Numbers can be added in any order. ${{a}}$ and ${{10 - a}}$ make ten, so do them first: $10 + {{b}} = {{10 + b}}$' }
+  verify: { expect: { r: "sum([a, b, 10 - a])" } }
+
+# ── grade 3: multiplication and division facts by reasoning ─────────────────
+- template: k8s-times-9
+  skill: k8.mult-div
+  pace: recall
+  given: { n: { int: [3, 19] } }
+  prompt: 'Multiply by 9 as ten times minus once: $9 \times {{n}}$'
+  parts:
+    - { ask: 'Product', label: r, tex: 'p', value: 9*n, tol: 0.00001, explain: '$9 \times {{n}} = 10 \times {{n}} - {{n}} = {{10*n}} - {{n}} = {{9*n}}$. The same move gives $\times 99$ and $\times 19$' }
+  verify: { expect: { r: "solve(Eq(x + n, 10*n), x)[0]" } }
+
+- template: k8s-double-double
+  skill: k8.mult-div
+  pace: recall
+  given: { n: { int: [6, 48] }, k: { pick: [4, 8] } }
+  prompt: 'Multiply by doubling: ${{k}} \times {{n}}$'
+  parts:
+    - { ask: 'Product', label: r, tex: 'p', value: k*n, tol: 0.00001, explain: 'Times 4 is double, double; times 8 is double three times. ${{n}} \to {{2*n}} \to {{4*n}}{{k == 8 ? " \\to " : ""}}{{k == 8 ? 8*n : ""}}$' }
+  verify: { expect: { r: "solve(Eq(x/k, n), x)[0]" } }
+
+- template: k8s-unknown-factor
+  skill: k8.mult-div
+  pace: recall
+  given: { a: { int: [3, 9] }, b: { int: [3, 12] } }
+  prompt: 'Think multiplication: ${{a*b}} \div {{a}}$ asks ${{a}} \times \;? = {{a*b}}$'
+  parts:
+    - { ask: 'Quotient', label: r, tex: 'q', value: b, tol: 0.00001, explain: 'Division is finding the missing factor: ${{a}} \times {{b}} = {{a*b}}$, so ${{a*b}} \div {{a}} = {{b}}$. One multiplication fact answers two division questions' }
+  verify: { expect: { r: "solve(Eq(a*x, a*b), x)[0]" } }
+
+- template: k8s-multiple-of-ten
+  skill: k8.mult-div
+  pace: recall
+  given: { a: { int: [2, 9] }, b: { int: [2, 9] }, z: { pick: [10, 100] } }
+  prompt: 'In your head: ${{a}} \times {{b*z}}$'
+  parts:
+    - { ask: 'Product', label: r, tex: 'p', value: a*b*z, tol: 0.00001, explain: '${{b*z}}$ is ${{b}}$ {{z == 10 ? "tens" : "hundreds"}}, so ${{a}} \times {{b}}$ {{z == 10 ? "tens" : "hundreds"}} is ${{a*b}}$ {{z == 10 ? "tens" : "hundreds"}}: ${{a*b*z}}$. Do the fact, then put the place value back' }
+  verify: { expect: { r: "a*(b*z)" } }
+
+# ── grade 4: multi-digit by parts ───────────────────────────────────────────
+- template: k8s-partial-products
+  skill: k8.mult-div
+  pace: quick
+  given: { a: { int: [3, 9] }, t: { int: [2, 9] }, o: { int: [2, 9] } }
+  prompt: 'Break ${{10*t + o}}$ into tens and ones: ${{a}} \times {{10*t + o}} = {{a*10*t}} + \;?$'
+  parts:
+    - { ask: 'Missing part', label: r, tex: 'n', value: a*o, tol: 0.00001, explain: '${{a}} \times {{10*t + o}} = {{a}} \times {{10*t}} + {{a}} \times {{o}} = {{a*10*t}} + {{a*o}} = {{a*(10*t + o)}}$. This is the distributive property, and it is what each row of the written algorithm is doing' }
+  verify: { expect: { r: "expand(a*(10*t + o)) - a*10*t" } }
+
+- template: k8s-partial-quotients
+  skill: k8.mult-div
+  pace: quick
+  given: { d: { int: [3, 8] }, q1: { pick: [10, 20, 30] }, q2: { int: [2, 9] } }
+  prompt: 'Split the number into friendly parts: ${{d*(q1 + q2)}} \div {{d}} = ({{d*q1}} + {{d*q2}}) \div {{d}}$'
+  parts:
+    - { ask: 'Quotient', label: r, tex: 'q', value: q1 + q2, tol: 0.00001, explain: '${{d*q1}} \div {{d}} = {{q1}}$ and ${{d*q2}} \div {{d}} = {{q2}}$, so the answer is ${{q1}} + {{q2}} = {{q1 + q2}}$. Pull out the biggest multiple of ten you recognise, then deal with what is left' }
+  verify: { expect: { r: "solve(Eq(d*x, d*q1 + d*q2), x)[0]" } }
+
+- template: k8s-halve-and-double
+  skill: k8.mult-div
+  pace: recall
+  cases:
+    - { f: 5, g: 2 }
+    - { f: 25, g: 4 }
+    - { f: 50, g: 2 }
+    - { f: 15, g: 2 }
+    - { f: 35, g: 2 }
+    - { f: 125, g: 8 }
+  given: { m: { int: [2, 12] } }
+  prompt: 'Move a factor across: ${{f}} \times {{g*m}}$'
+  parts:
+    - { ask: 'Product', label: r, tex: 'p', value: f*g*m, tol: 0.00001, explain: 'Take ${{g}}$ out of ${{g*m}}$ and give it to ${{f}}$: ${{f}} \times {{g*m}} = {{f*g}} \times {{m}} = {{f*g*m}}$. The product does not change when one factor is multiplied and the other divided by the same number' }
+  verify: { expect: { r: "solve(Eq(x/(g*m), f), x)[0]" } }
+
+- template: k8s-fraction-benchmark
+  skill: k8.fractions
+  pace: recall
+  given: { n: { int: [2, 11] }, d: { pick: [5, 7, 9, 11, 13, 15] } }
+  require: [n < d]
+  prompt: 'Without a common denominator: is $\dfrac{ {{n}} }{ {{d}} }$ more or less than $\dfrac12$?'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["More than one half", "Less than one half"]
+      correct: "2*n > d ? 0 : 1"
+      explain: 'Double the top and compare with the bottom: $2 \times {{n}} = {{2*n}}$ against ${{d}}$. Comparing two fractions is often easiest by placing each against a benchmark such as $\tfrac12$ or 1'
+  verify: { choices: { a: "0 if Rational(n, d) > Rational(1, 2) else 1" } }
+
+# ── grade 5: fractions and decimals as operators ────────────────────────────
+- template: k8s-scaling
+  skill: k8.fractions
+  pace: recall
+  given: { N: { pick: [24, 60, 75, 120, 350] }, n: { int: [2, 9] }, d: { int: [2, 9] } }
+  require: [n != d]
+  prompt: 'Without multiplying: is ${{N}} \times \dfrac{ {{n}} }{ {{d}} }$ bigger or smaller than ${{N}}$?'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["Bigger", "Smaller"]
+      correct: "n > d ? 0 : 1"
+      explain: 'Multiplying by a number greater than 1 stretches; by a number less than 1 it shrinks. $\dfrac{ {{n}} }{ {{d}} }$ is {{n > d ? "greater" : "less"}} than 1. "Multiplying makes bigger" is only true for factors above 1'
+  verify: { choices: { a: "0 if N*Rational(n, d) > N else 1" } }
+
+- template: k8s-decimal-as-fraction
+  skill: k8.decimals
+  pace: recall
+  cases:
+    - { dec: 0.5, den: 2, num: 1 }
+    - { dec: 0.25, den: 4, num: 1 }
+    - { dec: 0.75, den: 4, num: 3 }
+    - { dec: 0.2, den: 5, num: 1 }
+    - { dec: 0.125, den: 8, num: 1 }
+    - { dec: 1.5, den: 2, num: 3 }
+  given: { m: { int: [2, 15] } }
+  prompt: 'Treat the decimal as a fraction: ${{dec}} \times {{den*m}}$'
+  parts:
+    - { ask: 'Product', label: r, tex: 'p', value: num*m, tol: 0.00001, explain: '${{dec}} = \dfrac{ {{num}} }{ {{den}} }$, so divide ${{den*m}}$ by ${{den}}$ to get ${{m}}${{num > 1 ? ", then multiply by " : ""}}{{num > 1 ? num : ""}}: ${{num*m}}$. Faster than lining up decimal points' }
+  verify: { expect: { r: "Rational(num, den)*den*m" } }
+
+- template: k8s-divide-by-unit-fraction
+  skill: k8.fractions
+  pace: recall
+  given: { a: { int: [2, 12] }, d: { int: [2, 8] } }
+  prompt: 'How many $\dfrac{1}{ {{d}} }$s are in ${{a}}$? That is ${{a}} \div \dfrac{1}{ {{d}} }$.'
+  parts:
+    - { ask: 'Quotient', label: r, tex: 'q', value: a*d, tol: 0.00001, explain: 'Each whole holds ${{d}}$ pieces of size $\tfrac{1}{ {{d}} }$, so ${{a}}$ wholes hold ${{a}} \times {{d}} = {{a*d}}$. Dividing by a unit fraction is multiplying by its denominator' }
+  verify: { expect: { r: "solve(Eq(x*Rational(1, d), a), x)[0]" } }
+
+- template: k8s-power-of-ten-shift
+  skill: k8.decimals
+  pace: recall
+  given: { m: { pick: [3.2, 4.75, 0.68, 12.5, 0.09] }, k: { pick: [1, 2, 3] }, up: { pick: [0, 1] } }
+  prompt: 'In your head: ${{m}} {{up == 1 ? "\\times" : "\\div"}} {{10^k}}$'
+  parts:
+    - { ask: 'Result', label: r, tex: 'x', value: "up == 1 ? m*10^k : m/10^k", tol: 0.000001, explain: 'Every digit moves ${{k}}$ place{{k > 1 ? "s" : ""}} to the {{up == 1 ? "left (the number gets bigger)" : "right (the number gets smaller)"}}. It is the digits that move, not the point: each place is worth ten times the one to its right' }
+  verify: { expect: { r: "nsimplify(m)*10**k if up == 1 else nsimplify(m)/10**k" } }
+
+# ── grades 6-7: percent, signs and estimates ────────────────────────────────
+- template: k8s-percent-build
+  skill: k8.ratios
+  pace: recall
+  given: { p: { pick: [15, 20, 30, 35, 45, 60, 90] }, N: { pick: [40, 60, 80, 120, 240, 360] } }
+  prompt: 'Build it from 10%: ${{p}}\%$ of ${{N}}$'
+  parts:
+    - { ask: 'Amount', label: r, tex: 'x', value: p*N/100, tol: 0.00001, explain: '10% of ${{N}}$ is ${{N/10}}$ and 5% is half of that, ${{N/20}}$. Stack them: ${{p}}\% = {{floor(p/10)}} \times 10\%{{mod(p, 10) == 5 ? " + 5\\%" : ""}}$, which gives ${{p*N/100}}$' }
+  verify: { expect: { r: "solve(Eq(x/N, Rational(p, 100)), x)[0]" } }
+
+- template: k8s-subtract-negative
+  skill: k8.integers
+  pace: recall
+  given: { a: { int: [-12, 12] }, b: { int: [2, 15] } }
+  require: [a + b != 0]
+  prompt: 'In your head: ${{a}} - ({{-b}})$'
+  parts:
+    - { ask: 'Result', label: r, tex: 'x', value: a + b, tol: 0.00001, explain: 'Subtracting a number is adding its opposite, so ${{a}} - ({{-b}}) = {{a}} + {{b}} = {{a + b}}$. On a number line: how far, and which way, from ${{-b}}$ up to ${{a}}$?' }
+  verify: { expect: { r: "solve(Eq(x + (-b), a), x)[0]" } }
+
+- template: k8s-reasonable-estimate
+  skill: k8.decimals
+  pace: recall
+  given: { a: { pick: [19.8, 31.2, 48.7, 6.1, 72.4] }, b: { pick: [4.9, 0.52, 11.2, 0.098, 2.03] } }
+  let: { ex: a*b }
+  prompt: 'A calculator shows ${{a}} \times {{b}}$. Which answer is the right size?'
+  parts:
+    - ask: 'Answer'
+      label: a2
+      choice: ["Less than 1", "Between 1 and 10", "Between 10 and 100", "Between 100 and 1000"]
+      correct: "ex < 1 ? 0 : (ex < 10 ? 1 : (ex < 100 ? 2 : 3))"
+      explain: 'Round each factor to one figure and multiply in your head; the exact product is ${{a*b|3}}$. An estimate will not give the digits, but it catches a slipped decimal point every time'
+  verify: { choices: { a2: "0 if a*b < 1 else (1 if a*b < 10 else (2 if a*b < 100 else 3))" } }
+
+- template: k8s-divide-by-scaling
+  skill: k8.mult-div
+  pace: recall
+  cases:
+    - { d: 5, k: 2 }
+    - { d: 25, k: 4 }
+    - { d: 50, k: 2 }
+    - { d: 0.5, k: 2 }
+    - { d: 0.25, k: 4 }
+  given: { q: { int: [3, 24] } }
+  prompt: 'Scale both numbers by ${{k}}$ first: ${{d*q}} \div {{d}}$'
+  parts:
+    - { ask: 'Quotient', label: r, tex: 'q', value: q, tol: 0.00001, explain: 'A quotient does not change when both numbers are multiplied by the same thing: ${{d*q}} \div {{d}} = {{d*q*k}} \div {{d*k}} = {{q}}$. Same idea as sliding both numbers in a subtraction, one level up' }
+  verify: { expect: { r: "solve(Eq(x*nsimplify(d), nsimplify(d)*q), x)[0]" } }

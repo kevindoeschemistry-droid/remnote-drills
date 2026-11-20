@@ -157,7 +157,9 @@
        "drills": [
         "fm-reynolds-number",
         "fm-hydraulic-diameter",
-        "fm-dimensionless-groups"
+        "fm-dimensionless-groups",
+        "sc-reynolds-diameter",
+        "sc-stokes-settling"
        ]
       },
       {
@@ -189,7 +191,8 @@
         "P1"
        ],
        "drills": [
-        "fm-laminar-pressure-drop"
+        "fm-laminar-pressure-drop",
+        "sc-laminar-pressure-drop-diameter"
        ]
       }
      ]
@@ -245,7 +248,8 @@
         "P3"
        ],
        "drills": [
-        "fm-torricelli"
+        "fm-torricelli",
+        "sc-torricelli-head"
        ]
       }
      ]
@@ -283,7 +287,8 @@
        ],
        "drills": [
         "fm-friction-head-loss",
-        "fm-minor-loss"
+        "fm-minor-loss",
+        "sc-turbulent-pressure-drop-flow"
        ]
       }
      ]
@@ -308,7 +313,8 @@
        ],
        "drills": [
         "fm-pump-head",
-        "fm-pump-power"
+        "fm-pump-power",
+        "sc-pump-power-flow"
        ]
       },
       {
@@ -487,7 +493,9 @@
    "full": [
     "fm-reynolds-number",
     "fm-hydraulic-diameter",
-    "fm-dimensionless-groups"
+    "fm-dimensionless-groups",
+    "sc-reynolds-diameter",
+    "sc-stokes-settling"
    ],
    "partial": []
   },
@@ -507,7 +515,8 @@
    "topic": 1,
    "status": "ok",
    "full": [
-    "fm-laminar-pressure-drop"
+    "fm-laminar-pressure-drop",
+    "sc-laminar-pressure-drop-diameter"
    ],
    "partial": []
   },
@@ -528,7 +537,8 @@
    "topic": 1,
    "status": "ok",
    "full": [
-    "fm-torricelli"
+    "fm-torricelli",
+    "sc-torricelli-head"
    ],
    "partial": []
   },
@@ -539,7 +549,8 @@
    "status": "ok",
    "full": [
     "fm-friction-head-loss",
-    "fm-minor-loss"
+    "fm-minor-loss",
+    "sc-turbulent-pressure-drop-flow"
    ],
    "partial": []
   },
@@ -550,7 +561,8 @@
    "status": "ok",
    "full": [
     "fm-pump-head",
-    "fm-pump-power"
+    "fm-pump-power",
+    "sc-pump-power-flow"
    ],
    "partial": []
   },

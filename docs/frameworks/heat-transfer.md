@@ -614,3 +614,13 @@ Book: incropera-8e §6.7, §7.8
 - ● **HT-14.2.B** Solve a coupled heat and mass balance at an evaporating surface (wet bulb).
   - EK: h(T∞ − T_s) = h_m h_fg(ρ_A,s − ρ_A,∞).
   - P1 · P4 · drills: ht3-mc-evap
+
+## Drills not yet placed on the map
+
+- sc-radiation-temperature (ht.rate-equations)
+- sc-conduction-thickness (ht.rate-equations)
+- sc-ideal-gas-density (ht.rate-equations)
+- sc-lumped-time-size (ht.lumped)
+- sc-surface-to-volume (ht.lumped)
+- sc-diffusion-time-length (ht.transient-one-term)
+- sc-turbulent-h-velocity (ht.internal-flow)

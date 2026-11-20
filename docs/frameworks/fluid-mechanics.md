@@ -60,13 +60,13 @@ Big ideas: REGIME
 
 - ● **FM-2.1.A** (fe-chemical:6.B) Compute a Reynolds number and a hydraulic diameter, and say what each common dimensionless group compares.
   - EK: Re = ρvD/μ; D_h = 4A/P; Re, Fr, We, Ma, Eu each compare two forces or speeds.
-  - P1 · P2 · drills: fm-reynolds-number, fm-hydraulic-diameter, fm-dimensionless-groups
+  - P1 · P2 · drills: fm-reynolds-number, fm-hydraulic-diameter, fm-dimensionless-groups, sc-reynolds-diameter, sc-stokes-settling
 - ● **FM-2.1.B** (fe-chemical:6.E) Classify pipe flow as laminar, transitional or turbulent.
   - EK: Laminar below about 2100, turbulent above about 4000.
   - P2 · drills: fm-flow-regime
 - ● **FM-2.1.C** (fe-chemical:6.E) Find the pressure drop of laminar pipe flow.
   - EK: Hagen–Poiseuille: ΔP = 32μLv/D², the same as f = 64/Re.
-  - P1 · drills: fm-laminar-pressure-drop
+  - P1 · drills: fm-laminar-pressure-drop, sc-laminar-pressure-drop-diameter
 
 ## Unit 3 · Continuity and Bernoulli
 
@@ -81,7 +81,7 @@ Big ideas: CONSERVE, HEAD
   - P1 · P3 · drills: fm-continuity, fm-bernoulli-pressure
 - ● **FM-3.1.B** (fe-chemical:6.D) Find the efflux velocity from a tank.
   - EK: Torricelli: v = √(2gh).
-  - P1 · P3 · drills: fm-torricelli
+  - P1 · P3 · drills: fm-torricelli, sc-torricelli-head
 
 ## Unit 4 · The mechanical energy balance
 
@@ -93,7 +93,7 @@ Big ideas: HEAD
 
 - ● **FM-4.1.A** (fe-chemical:6.C) Compute friction head loss in a pipe and in a fitting.
   - EK: h_f = f(L/D)v²/2g; h_L = K v²/2g.
-  - P1 · drills: fm-friction-head-loss, fm-minor-loss
+  - P1 · drills: fm-friction-head-loss, fm-minor-loss, sc-turbulent-pressure-drop-flow
 
 ### 4.2 Pumps
 
@@ -101,7 +101,7 @@ Big ideas: HEAD
 
 - ● **FM-4.2.A** (fe-chemical:6.C, fe-chemical:6.G) Find the head a pump must supply and the power it draws.
   - EK: Pump head = lift + losses (+ pressure and velocity changes); shaft power = ρgQH/η.
-  - P1 · P3 · drills: fm-pump-head, fm-pump-power
+  - P1 · P3 · drills: fm-pump-head, fm-pump-power, sc-pump-power-flow
 - ● **FM-4.2.B** (fe-chemical:6.G) Explain cavitation and NPSH, and what pumps in series and in parallel do.
   - EK: Available NPSH must exceed required; series adds head, parallel adds flow.
   - P2 · drills: fm-pump-concepts

@@ -94,5 +94,9 @@ if __name__ == "__main__":
         sys.path.insert(0, str(Path(__file__).parent))
         from mol_library import write
         write(block, emit, layout)
+    elif sys.argv[1:] == ["--reactions"]:
+        sys.path.insert(0, str(Path(__file__).parent))
+        from mol_rxn import write
+        write(layout, emit)
     else:
         print(block(sys.argv[1], amino="--amino" in sys.argv, indent=""))
