@@ -2044,7 +2044,9 @@
        "p": [
         "P7"
        ],
-       "drills": []
+       "drills": [
+        "~pat-keyhole-direction"
+       ]
       },
       {
        "id": "B",
@@ -2056,7 +2058,9 @@
         "P6",
         "P8"
        ],
-       "drills": []
+       "drills": [
+        "~pat-keyhole-direction"
+       ]
       }
      ]
     },
@@ -2075,7 +2079,12 @@
         "P7",
         "P5"
        ],
-       "drills": []
+       "drills": [
+        "~pat-view-identify",
+        "~pat-view-draw-top",
+        "~pat-view-draw-front",
+        "~pat-view-draw-end"
+       ]
       },
       {
        "id": "B",
@@ -2086,7 +2095,9 @@
        "p": [
         "P6"
        ],
-       "drills": []
+       "drills": [
+        "pat-view-identify"
+       ]
       }
      ]
     },
@@ -3776,32 +3787,43 @@
    "code": "DAT-4.1.A",
    "unit": 4,
    "topic": 1,
-   "status": "gap",
+   "status": "partial",
    "full": [],
-   "partial": []
+   "partial": [
+    "pat-keyhole-direction"
+   ]
   },
   {
    "code": "DAT-4.1.B",
    "unit": 4,
    "topic": 1,
-   "status": "gap",
+   "status": "partial",
    "full": [],
-   "partial": []
+   "partial": [
+    "pat-keyhole-direction"
+   ]
   },
   {
    "code": "DAT-4.2.A",
    "unit": 4,
    "topic": 2,
-   "status": "gap",
+   "status": "partial",
    "full": [],
-   "partial": []
+   "partial": [
+    "pat-view-identify",
+    "pat-view-draw-top",
+    "pat-view-draw-front",
+    "pat-view-draw-end"
+   ]
   },
   {
    "code": "DAT-4.2.B",
    "unit": 4,
    "topic": 2,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "pat-view-identify"
+   ],
    "partial": []
   },
   {

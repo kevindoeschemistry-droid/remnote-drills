@@ -137,6 +137,68 @@ def net_opposite(cells, q):
     return sp.Integer(next(j for j, st in state.items() if st[0] == want))
 
 
+def _view_columns(heights, which):
+    """depth columns of an orthographic view of a cube stack (row 0 at the back, column 0 at the left), nearest first"""
+    hs = [[int(v) for v in row] for row in heights]
+    R, C, top = len(hs), len(hs[0]), max(1, max(max(r) for r in hs))
+    if which == 0:
+        return [[[hs[r][c] > top - 1 - d for d in range(top)] for c in range(C)] for r in range(R)]
+    if which == 1:
+        return [[[hs[R - 1 - d][c] > top - 1 - v for d in range(R)] for c in range(C)] for v in range(top)]
+    return [[[hs[R - 1 - u][C - 1 - d] > top - 1 - v for d in range(C)] for u in range(R)] for v in range(top)]
+
+
+def _view_lines(heights, which):
+    """(solid, dashed) unit segments of a view, shifted so the drawing starts at the origin"""
+    occ = _view_columns(heights, which)
+    Hh, W = len(occ), len(occ[0])
+    col = lambda v, u: occ[v][u] if 0 <= v < Hh and 0 <= u < W else [False] * len(occ[0][0])  # noqa: E731
+    first = lambda a: a.index(True) if True in a else -1  # noqa: E731
+    solid, dash = set(), set()
+    def put(a, b, seg):
+        if a == b:
+            return
+        (solid if first(a) != first(b) else dash).add(seg)
+    for v in range(Hh + 1):
+        for u in range(W):
+            put(col(v - 1, u), col(v, u), (u, v, u + 1, v))
+    for v in range(Hh):
+        for u in range(W + 1):
+            put(col(v, u - 1), col(v, u), (u, v, u, v + 1))
+    pts = [(x, y) for g in (solid, dash) for (x1, y1, x2, y2) in g for (x, y) in ((x1, y1), (x2, y2))]
+    mx, my = min(p[0] for p in pts), min(p[1] for p in pts)
+    sh = lambda g: frozenset((x1 - mx, y1 - my, x2 - mx, y2 - my) for (x1, y1, x2, y2) in g)  # noqa: E731
+    return sh(solid), sh(dash)
+
+
+def view_identify(heights, shown, which):
+    """which view of `heights` (0 top, 1 front, 2 end) equals view `which` of `shown`; 3 if none. Must be unique."""
+    target = _view_lines(shown, int(which))
+    hits = [k for k in range(3) if _view_lines(heights, k) == target]
+    if len(hits) > 1:
+        raise ValueError("view matches more than one direction")
+    return sp.Integer(hits[0] if hits else 3)
+
+
+def keyhole_fit(heights, mask):
+    """direction (0 top, 1 front, 2 end) whose silhouette equals the opening after any turn or flip; 3 if none"""
+    def trim(g):
+        g = [list(r) for r in g if any(r)]
+        keep = [j for j in range(len(g[0])) if any(r[j] for r in g)]
+        return tuple(tuple(1 if r[j] else 0 for j in keep) for r in g)
+    def turns(g):
+        res = set()
+        for _ in range(4):
+            g = tuple(zip(*g[::-1]))
+            res.add(trim(g)); res.add(trim([r[::-1] for r in g]))
+        return res
+    want = turns(trim([[int(v) for v in row] for row in mask]))
+    hits = [k for k in range(3) if trim([[any(c) for c in row] for row in _view_columns(heights, k)]) in want]
+    if len(hits) > 1:
+        raise ValueError("opening fits more than one direction")
+    return sp.Integer(hits[0] if hits else 3)
+
+
 def box_degeneracy(E):
     """number of (nx, ny, nz), positive integers, with nx^2 + ny^2 + nz^2 = E"""
     E = int(E)
@@ -157,7 +219,7 @@ def rank_code(values):
     return sp.Integer(int("".join(str(j + 1) for j in order)))
 
 
-BASE.update({"cube_tally": cube_tally, "punch_count": punch_count, "net_opposite": net_opposite, "rank_code": rank_code, "box_degeneracy": box_degeneracy, "huckel_chain": huckel_chain})
+BASE.update({"cube_tally": cube_tally, "punch_count": punch_count, "net_opposite": net_opposite, "rank_code": rank_code, "box_degeneracy": box_degeneracy, "huckel_chain": huckel_chain, "view_identify": view_identify, "keyhole_fit": keyhole_fit})
 
 
 def check(p, H):

@@ -20,6 +20,7 @@
 //                     notes: [[x, y, text], …] plain captions (residue names)
 //   type: cubes       heights: [[…], …] stacks of unit cubes seen from the front right (row 0 at the back, column 0 at the left)
 //   type: scheme      panels: [figure, …] stacked top to bottom with an arrow between; a panel may carry `caption`
+//   type: views       heights: as for cubes; show: [top, front, end]; outline: true for the silhouette only; mask: 0/1 grid drawn as an outline; labels: false
 // Every number may be an expression in the template's givens and lets. A function (`f`, `field`, a
 // `vfield` component) may also be the name of a text field of the drawn case. Strokes use currentColor.
 import { math } from "./check";
@@ -282,6 +283,65 @@ function cubes(f: any, scope: Scope): string {
   return svg(wd, ht, s);
 }
 
+/** one orthographic view of a cube stack as a grid of depth columns: occ[v][u] lists what the eye meets, nearest first */
+function viewColumns(H: number[][], which: string): boolean[][][] {
+  const R = H.length, C = H[0].length, top = Math.max(1, ...H.flat());
+  const at = (r: number, c: number, z: number) => H[r][c] > z;
+  if (which === "top") return H.map((row, r) => row.map((_, c) => Array.from({ length: top }, (_, d) => at(r, c, top - 1 - d))));
+  if (which === "front") return Array.from({ length: top }, (_, v) => Array.from({ length: C }, (_, c) => Array.from({ length: R }, (_, d) => at(R - 1 - d, c, top - 1 - v))));
+  if (which === "end") return Array.from({ length: top }, (_, v) => Array.from({ length: R }, (_, u) => Array.from({ length: C }, (_, d) => at(R - 1 - u, C - 1 - d, top - 1 - v))));
+  throw new Error(`unknown view ${which}`);
+}
+
+/** line segments of a view: an edge is drawn where neighbouring depth columns differ, solid when the nearest surfaces differ, dashed when only something behind does */
+function viewLines(occ: boolean[][][], U: number, x0: number, y0: number): string {
+  const Hh = occ.length, W = occ[0].length, none: boolean[] = [];
+  const col = (v: number, u: number) => (v < 0 || u < 0 || v >= Hh || u >= W ? none : occ[v][u]);
+  const kind = (a: boolean[], b: boolean[]) => {
+    const n = Math.max(a.length, b.length);
+    let differ = false;
+    for (let i = 0; i < n; i++) if (!!a[i] !== !!b[i]) differ = true;
+    if (!differ) return 0;
+    return a.indexOf(true) !== b.indexOf(true) ? 1 : 2;
+  };
+  let solid = "", dash = "";
+  const seg = (k: number, x1: number, y1: number, x2: number, y2: number) => {
+    const d = `M${(x0 + x1 * U).toFixed(1)},${(y0 + y1 * U).toFixed(1)} L${(x0 + x2 * U).toFixed(1)},${(y0 + y2 * U).toFixed(1)} `;
+    if (k === 1) solid += d; else if (k === 2) dash += d;
+  };
+  for (let v = 0; v <= Hh; v++) for (let u = 0; u < W; u++) seg(kind(col(v - 1, u), col(v, u)), u, v, u + 1, v);
+  for (let v = 0; v < Hh; v++) for (let u = 0; u <= W; u++) seg(kind(col(v, u - 1), col(v, u)), u, v, u, v + 1);
+  return (dash ? `<path d="${dash}" stroke="#333" stroke-width="1.2" stroke-dasharray="4 3"/>` : "") + (solid ? `<path d="${solid}" stroke="#333" stroke-width="1.8" stroke-linecap="round"/>` : "");
+}
+
+/** orthographic views of a cube stack, laid out as on the DAT: top above front, end to the right of front.
+ *  `show` picks the views, `outline` keeps only the silhouette, `mask` draws the outline of a 0/1 grid instead */
+function views(f: any, scope: Scope): string {
+  const U = 22, PAD = 12, GAP = 26, LBL = f.labels === false ? 0 : 16;
+  if (f.mask) {
+    const M: boolean[][][] = (f.mask as any[][]).map((row) => row.map((v) => [Math.round(n(v, scope)) > 0]));
+    return svg(M[0].length * U + 2 * PAD, M.length * U + 2 * PAD, viewLines(M, U, PAD, PAD));
+  }
+  const H: number[][] = (f.heights as any[][]).map((row) => row.map((v) => Math.round(n(v, scope))));
+  const show: string[] = f.view !== undefined ? [["top", "front", "end"][Math.round(n(f.view, scope))]] : f.show ?? ["top", "front", "end"];
+  const flat = (o: boolean[][][]) => (f.outline ? o.map((row) => row.map((c) => [c.some(Boolean)])) : o);
+  const R = H.length, C = H[0].length, top = Math.max(1, ...H.flat());
+  const size: Record<string, [number, number]> = { top: [C, R], front: [C, top], end: [R, top] };
+  const pos: Record<string, [number, number]> = { top: [0, 0], front: [0, 0], end: [0, 0] };
+  const hasTop = show.includes("top"), hasFront = show.includes("front");
+  const lowY = hasTop ? R * U + LBL + GAP : 0;
+  pos.front = [0, lowY];
+  pos.end = [hasFront || hasTop ? C * U + GAP : 0, lowY];
+  let s = "", wd = 0, ht = 0;
+  for (const w of show) {
+    const [x, y] = pos[w], [a, b] = size[w];
+    s += viewLines(flat(viewColumns(H, w)), U, PAD + x, PAD + y);
+    if (LBL) s += text(PAD + x + (a * U) / 2, PAD + y + b * U + 13, w.toUpperCase(), "middle", 'font-size="10"');
+    wd = Math.max(wd, x + a * U); ht = Math.max(ht, y + b * U + LBL);
+  }
+  return svg(wd + 2 * PAD, ht + 2 * PAD, s);
+}
+
 /** figures stacked top to bottom, an arrow between each pair: the states of a mechanism */
 function scheme(f: any, scope: Scope): string {
   const parts = (f.panels as any[]).map((p) => {
@@ -294,7 +354,7 @@ function scheme(f: any, scope: Scope): string {
     if (p.caption) { body += text(Wd / 2, y + 13, p.caption, "middle", 'font-size="12"'); y += 18; }
     body += p.inner.replace(/^<svg [^>]*>/, `<svg xmlns="http://www.w3.org/2000/svg" x="${((Wd - p.w) / 2).toFixed(1)}" y="${y}" width="${p.w}" height="${p.h}" viewBox="0 0 ${p.w} ${p.h}" font-family="system-ui, sans-serif" font-size="11" fill="none" stroke="currentColor">`);
     y += p.h;
-    if (i < parts.length - 1) { body += arrowHead(Wd / 2, y + 4, Wd / 2, y + GAP - 6, "currentColor", 6); y += GAP; }
+    if (i < parts.length - 1) { if (f.plain) y += 10; else { body += arrowHead(Wd / 2, y + 4, Wd / 2, y + GAP - 6, "currentColor", 6); y += GAP; } }
   });
   return svg(Wd, y, body);
 }
@@ -309,6 +369,7 @@ export function renderFigure(f: any, scope: Scope): string {
     case "molecule": return molecule(f, scope);
     case "scheme": return scheme(f, scope);
     case "cubes": return cubes(f, scope);
+    case "views": return views(f, scope);
     default: throw new Error(`unknown figure type ${f?.type}`);
   }
 }

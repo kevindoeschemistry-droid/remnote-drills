@@ -369,14 +369,14 @@ units:
         title: Apertures
         outline: "Determine whether a 3-D object can pass through an opening (keyhole)"
         los:
-          - { id: A, do: "Identify the one aperture a 3-D object can pass through straight on, from any starting face.", ek: ["The object may be rotated before entry but not turned once in; the opening is its exact outer silhouette at the same scale; hidden parts are regular and symmetric indentations repeat."], p: [P7], drills: [] }
-          - { id: B, do: "Eliminate aperture choices by proportion and by a single distinctive feature before matching the full outline.", ek: ["Many wrong openings have the right shape but wrong size or ratio; check the longest dimension and one asymmetric notch first."], p: [P6, P8], drills: [] }
+          - { id: A, do: "Identify the one aperture a 3-D object can pass through straight on, from any starting face.", ek: ["The object may be rotated before entry but not turned once in; the opening is its exact outer silhouette at the same scale; hidden parts are regular and symmetric indentations repeat."], p: [P7], drills: ["~pat-keyhole-direction"] }
+          - { id: B, do: "Eliminate aperture choices by proportion and by a single distinctive feature before matching the full outline.", ek: ["Many wrong openings have the right shape but wrong size or ratio; check the longest dimension and one asymmetric notch first."], p: [P6, P8], drills: ["~pat-keyhole-direction"] }
       - n: 2
         title: View Recognition
         outline: "Visualize the object from different angles (top, front, end views)"
         los:
-          - { id: A, do: "Select the missing top, front or end view given the other two orthographic views.", ek: ["Top view upper left, front lower left, end lower right; top and front share width, front and end share height; hidden edges are dotted."], p: [P7, P5], drills: [] }
-          - { id: B, do: "Eliminate view choices by checking solid vs dotted lines and edge alignment with the given views.", ek: ["Every edge in one view must project to a line or point in the others; a feature visible in one view may be hidden (dotted) in another."], p: [P6], drills: [] }
+          - { id: A, do: "Select the missing top, front or end view given the other two orthographic views.", ek: ["Top view upper left, front lower left, end lower right; top and front share width, front and end share height; hidden edges are dotted."], p: [P7, P5], drills: ["~pat-view-identify", "~pat-view-draw-top", "~pat-view-draw-front", "~pat-view-draw-end"] }
+          - { id: B, do: "Eliminate view choices by checking solid vs dotted lines and edge alignment with the given views.", ek: ["Every edge in one view must project to a line or point in the others; a feature visible in one view may be hidden (dotted) in another."], p: [P6], drills: ["pat-view-identify"] }
       - n: 3
         title: Angle Discrimination
         outline: "Rank angles from smallest to largest"

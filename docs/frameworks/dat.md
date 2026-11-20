@@ -2,7 +2,7 @@
 
 Generated from `drills/frameworks/dat.yaml` by `scripts/framework.mjs`. ● drilled · ◐ partly · ○ no drills yet.
 
-**183 learning objectives** in 6 units (183 core): 3 drilled, 2 partly, 178 with no drills. Core: 3 / 183 drilled.
+**183 learning objectives** in 6 units (183 core): 4 drilled, 5 partly, 174 with no drills. Core: 4 / 183 drilled.
 
 ## Big ideas
 
@@ -31,7 +31,7 @@ Generated from `drills/frameworks/dat.yaml` by `scripts/framework.mjs`. ● dril
 | 1 · Biology | core | Biology: 40 of 100 Survey of the Natural Sciences items (Survey 90 min total) | 53 | 0 | 0 | 53 |
 | 2 · General Chemistry | core | General Chemistry: 30 of 100 Survey of the Natural Sciences items (periodic table provided) | 57 | 0 | 0 | 57 |
 | 3 · Organic Chemistry | core | Organic Chemistry: 30 of 100 Survey of the Natural Sciences items (new specifications, implemented April 2026) | 36 | 0 | 0 | 36 |
-| 4 · Perceptual Ability | core | Perceptual Ability: 90 items in 60 min, six parts (the guide gives no per-part counts) | 11 | 3 | 2 | 6 |
+| 4 · Perceptual Ability | core | Perceptual Ability: 90 items in 60 min, six parts (the guide gives no per-part counts) | 11 | 4 | 5 | 2 |
 | 5 · Reading Comprehension | core | Reading Comprehension: 50 items in 60 min, three scientific passages (no prior subject knowledge required) | 8 | 0 | 0 | 8 |
 | 6 · Quantitative Reasoning | core | Quantitative Reasoning: 40 items in 45 min (on-screen calculator provided) | 18 | 0 | 0 | 18 |
 
@@ -629,23 +629,23 @@ Big ideas: SPACE
 
 
 
-- ○ **DAT-4.1.A** Identify the one aperture a 3-D object can pass through straight on, from any starting face.
+- ◐ **DAT-4.1.A** Identify the one aperture a 3-D object can pass through straight on, from any starting face.
   - EK: The object may be rotated before entry but not turned once in; the opening is its exact outer silhouette at the same scale; hidden parts are regular and symmetric indentations repeat.
-  - P7
-- ○ **DAT-4.1.B** Eliminate aperture choices by proportion and by a single distinctive feature before matching the full outline.
+  - P7 · drills: ~pat-keyhole-direction
+- ◐ **DAT-4.1.B** Eliminate aperture choices by proportion and by a single distinctive feature before matching the full outline.
   - EK: Many wrong openings have the right shape but wrong size or ratio; check the longest dimension and one asymmetric notch first.
-  - P6 · P8
+  - P6 · P8 · drills: ~pat-keyhole-direction
 
 ### 4.2 View Recognition
 
 
 
-- ○ **DAT-4.2.A** Select the missing top, front or end view given the other two orthographic views.
+- ◐ **DAT-4.2.A** Select the missing top, front or end view given the other two orthographic views.
   - EK: Top view upper left, front lower left, end lower right; top and front share width, front and end share height; hidden edges are dotted.
-  - P7 · P5
-- ○ **DAT-4.2.B** Eliminate view choices by checking solid vs dotted lines and edge alignment with the given views.
+  - P7 · P5 · drills: ~pat-view-identify, ~pat-view-draw-top, ~pat-view-draw-front, ~pat-view-draw-end
+- ● **DAT-4.2.B** Eliminate view choices by checking solid vs dotted lines and edge alignment with the given views.
   - EK: Every edge in one view must project to a line or point in the others; a feature visible in one view may be hidden (dotted) in another.
-  - P6
+  - P6 · drills: pat-view-identify
 
 ### 4.3 Angle Discrimination
 
