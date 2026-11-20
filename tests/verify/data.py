@@ -15,6 +15,7 @@ import json
 import random
 from pathlib import Path
 
+import functools
 import sympy as sp
 
 _GEN = Path(__file__).resolve().parents[2] / "src/drills/skills.generated.json"
@@ -180,7 +181,7 @@ def view_identify(heights, shown, which):
     return sp.Integer(hits[0] if hits else 3)
 
 
-def keyhole_fit(heights, mask):
+def keyhole_fit(heights, mask, any_direction=False):
     """direction (0 top, 1 front, 2 end) whose silhouette equals the opening after any turn or flip; 3 if none"""
     def trim(g):
         g = [list(r) for r in g if any(r)]
@@ -194,9 +195,213 @@ def keyhole_fit(heights, mask):
         return res
     want = turns(trim([[int(v) for v in row] for row in mask]))
     hits = [k for k in range(3) if trim([[any(c) for c in row] for row in _view_columns(heights, k)]) in want]
+    if any_direction:
+        return bool(hits)
     if len(hits) > 1:
         raise ValueError("opening fits more than one direction")
     return sp.Integer(hits[0] if hits else 3)
+
+
+def _unpack(code):
+    d = str(int(code))[1:].rjust(9, "0")
+    return tuple(tuple(int(d[r * 3 + c]) for c in range(3)) for r in range(3))
+
+
+@functools.lru_cache(maxsize=None)
+def _possible_views(hcode, miss):
+    """every drawing the missing view could be, over all 3 x 3 stacks that share the two given views"""
+    h, miss = _unpack(hcode), int(miss)
+    given = [k for k in range(3) if k != miss]
+    want = [_view_lines(h, k) for k in given]
+    top = max(max(r) for r in h)
+    res = set()
+    def walk(i, g):
+        if i == 9:
+            if max(max(r) for r in g) == top and all(_view_lines(g, k) == w for k, w in zip(given, want)):
+                res.add(_view_lines(g, miss))
+            return
+        r, c = divmod(i, 3)
+        for v in range(top + 1):
+            if 0 in given and (v == 0) != (h[r][c] == 0):
+                continue  # the top view fixes which squares are empty
+            if 1 in given and v > max(h[q][c] for q in range(3)):
+                continue  # taller than the front view allows in this column
+            if 2 in given and v > max(h[r]):
+                continue  # taller than the end view allows in this row
+            g[r][c] = v
+            walk(i + 1, g)
+        g[r][c] = 0
+    walk(0, [[0] * 3 for _ in range(3)])
+    return frozenset(res)
+
+
+def view_missing(hcode, options, miss):
+    """index of the one lettered drawing that can be the missing view (0 top, 1 front, 2 end)"""
+    ok = _possible_views(int(hcode), int(miss))
+    hits = [i for i, o in enumerate(options) if _view_lines(_unpack(o), int(miss)) in ok]
+    if len(hits) != 1:
+        raise ValueError(f"{len(hits)} of the lettered views are possible")
+    return sp.Integer(hits[0])
+
+
+def keyhole_pick(hcode, masks):
+    """index of the one lettered opening the stack fits through"""
+    hits = [i for i, m in enumerate(masks) if keyhole_fit(_unpack(hcode), _unpack(m), True)]
+    if len(hits) != 1:
+        raise ValueError(f"{len(hits)} of the lettered openings fit")
+    return sp.Integer(hits[0])
+
+
+def _profile(code):
+    return [(int(ch, 16) >> 2, int(ch, 16) & 3) for ch in "%x" % int(code)][1:]
+
+
+def _inside(P, x, z):
+    """is the point in the closed polygon? exact arithmetic, boundary counts"""
+    hit = False
+    for i in range(len(P)):
+        (x1, z1), (x2, z2) = P[i], P[(i + 1) % len(P)]
+        cross = (x2 - x1) * (z - z1) - (z2 - z1) * (x - x1)
+        if cross == 0 and min(x1, x2) <= x <= max(x1, x2) and min(z1, z2) <= z <= max(z1, z2):
+            return True
+        if (z1 > z) != (z2 > z) and x < x1 + sp.Rational((x2 - x1)) * (z - z1) / (z2 - z1):
+            hit = not hit
+    return hit
+
+
+def _poly_key(P):
+    mx, mz = min(p[0] for p in P), min(p[1] for p in P)
+    Q = [(x - mx, z - mz) for x, z in P]
+    return min(tuple(q[i:] + q[:i]) for q in (Q, Q[::-1]) for i in range(len(Q)))
+
+
+def _poly_turns(P):
+    out = set()
+    for sx in (1, -1):
+        for sz in (1, -1):
+            out.add(_poly_key([(sx * x, sz * z) for x, z in P]))
+            out.add(_poly_key([(sz * z, sx * x) for x, z in P]))
+    return out
+
+
+def _prism_view(code, D, which):
+    """a comparable description of one view of a prism; corners are found by scanning inward from outside the profile"""
+    P, D, which = _profile(code), int(D), int(which)
+    xs, zs = [p[0] for p in P], [p[1] for p in P]
+    W, Hh = max(xs) - min(xs), max(zs) - min(zs)
+    box = [(0, 0), (W, 0), (W, Hh), (0, Hh)]
+    steps = [sp.Rational(k, 6) for k in range(18, -1, -1)]  # edges between whole-number corners cross grid lines at sixths
+    if which == 1:
+        return ("rect", W, Hh, (), ()) if _poly_key(P) == _poly_key(box) else ("poly", _poly_key(P))
+    if which == 0:
+        lines = []
+        for x in sorted(set(xs)):
+            if min(xs) < x < max(xs):
+                first = next(z for z in steps if _inside(P, x, z))
+                lines.append((x - min(xs), 1 if (x, first) in P else 2))
+        return ("rect", W, D, tuple(lines), ())
+    lines = []
+    for z in set(zs):
+        if min(zs) < z < max(zs):
+            first = next(x for x in steps if _inside(P, x, z))
+            lines.append((max(zs) - z, 1 if (first, z) in P else 2))
+    return ("rect", D, Hh, (), tuple(sorted(lines)))
+
+
+def prism_identify(code, D, shown, Dshown, which):
+    target = _prism_view(shown, Dshown, which)
+    hits = [k for k in range(3) if _prism_view(code, D, k) == target]
+    if len(hits) > 1:
+        raise ValueError("view matches more than one direction")
+    return sp.Integer(hits[0] if hits else 3)
+
+
+def prism_keyhole(code, D, options):
+    P, D = _profile(code), int(D)
+    W, Hh = max(p[0] for p in P) - min(p[0] for p in P), max(p[1] for p in P) - min(p[1] for p in P)
+    fits = _poly_turns(P) | _poly_turns([(0, 0), (W, 0), (W, D), (0, D)]) | _poly_turns([(0, 0), (D, 0), (D, Hh), (0, Hh)])
+    hits = [i for i, o in enumerate(options) if _poly_key(_profile(o)) in fits]
+    if len(hits) != 1:
+        raise ValueError(f"{len(hits)} of the lettered openings fit")
+    return sp.Integer(hits[0])
+
+
+@functools.lru_cache(maxsize=None)
+def sph_L2(l, m):
+    """eigenvalue of L^2 (in hbar^2) found by applying the angular operator to Y_l^m"""
+    th, ph = sp.symbols("theta phi", real=True)
+    Y = sp.Ynm(int(l), int(m), th, ph).expand(func=True)
+    L2 = -(sp.diff(sp.sin(th) * sp.diff(Y, th), th) / sp.sin(th) + sp.diff(Y, ph, 2) / sp.sin(th) ** 2)
+    return sp.nsimplify(sp.simplify(L2 / Y).subs({th: sp.Rational(7, 10), ph: sp.Rational(3, 10)}).evalf(), rational=True, tolerance=1e-9)
+
+
+def fc_strongest(S):
+    """v' with the largest Poisson Franck-Condon factor S^v e^-S / v!"""
+    S = sp.nsimplify(S)
+    vals = [sp.N(S ** v * sp.exp(-S) / sp.factorial(v)) for v in range(30)]
+    return sp.Integer(max(range(30), key=lambda v: vals[v]))
+
+
+def hf_energy(h, J, K):
+    """closed-shell Hartree-Fock energy summed over spin orbitals: sum h + 1/2 sum (J - K if same spin)"""
+    orbs = [(i, s) for i in range(len(h)) for s in (0, 1)]
+    E = sum(sp.nsimplify(h[i]) for i, _ in orbs)
+    for (i, s) in orbs:
+        for (j, t) in orbs:
+            if (i, s) == (j, t):
+                continue
+            E += sp.Rational(1, 2) * (sp.nsimplify(J[i][j]) - (sp.nsimplify(K[i][j]) if s == t else 0))
+    return E
+
+
+def hund_ground(l, ne):
+    """(2S + 1, L, J) of the ground level of l^ne: fill m_l from the top, spin up first"""
+    l, ne = int(l), int(ne)
+    slots = [(m, sp.Rational(1, 2)) for m in range(l, -l - 1, -1)] + [(m, -sp.Rational(1, 2)) for m in range(l, -l - 1, -1)]
+    used = slots[:ne]
+    L, S = abs(sum(m for m, _ in used)), sum(s for _, s in used)
+    J = L + S if ne > 2 * l + 1 else abs(L - S)
+    return int(2 * S + 1), int(L), J
+
+
+def hund_choice(l, ne, labels):
+    mult, L, _ = hund_ground(l, ne)
+    sup = {"1": "¹", "2": "²", "3": "³", "4": "⁴", "5": "⁵", "6": "⁶"}
+    return sp.Integer(list(labels).index(sup[str(mult)] + "SPDFGH"[L]))
+
+
+def mo_fill(ne):
+    """(bond order, unpaired electrons) of a second-row diatomic with ne electrons in all; the 2p sigma lies above the pi pair up to 14 electrons"""
+    ne = int(ne)
+    low = [("b", 1), ("a", 1), ("b", 1), ("a", 1)]
+    upper = [("b", 2), ("b", 1), ("a", 2), ("a", 1)] if ne <= 14 else [("b", 1), ("b", 2), ("a", 2), ("a", 1)]
+    nb = na = unpaired = 0
+    for kind, deg in low + upper:
+        take = min(ne, 2 * deg)
+        ne -= take
+        nb += take if kind == "b" else 0
+        na += take if kind == "a" else 0
+        unpaired += take if take <= deg else 2 * deg - take
+    return sp.Rational(nb - na, 2), unpaired
+
+
+@functools.lru_cache(maxsize=None)
+def commutes(pair):
+    """True when the two operators commute, tested on a polynomial (a harmonic well stands in for any central potential)"""
+    X, Y, Z = sp.symbols("X Y Z", real=True)
+    I = sp.I
+    px = lambda g: -I * sp.diff(g, X)  # noqa: E731
+    py = lambda g: -I * sp.diff(g, Y)  # noqa: E731
+    pz = lambda g: -I * sp.diff(g, Z)  # noqa: E731
+    Lx = lambda g: Y * pz(g) - Z * py(g)  # noqa: E731
+    Ly = lambda g: Z * px(g) - X * pz(g)  # noqa: E731
+    Lz = lambda g: X * py(g) - Y * px(g)  # noqa: E731
+    L2 = lambda g: Lx(Lx(g)) + Ly(Ly(g)) + Lz(Lz(g))  # noqa: E731
+    H = lambda g: -(sp.diff(g, X, 2) + sp.diff(g, Y, 2) + sp.diff(g, Z, 2)) / 2 + (X ** 2 + Y ** 2 + Z ** 2) * g / 2  # noqa: E731
+    ops = {"x": lambda g: X * g, "px": px, "py": py, "L2": L2, "Lz": Lz, "Lx": Lx, "Ly": Ly, "H": H}
+    a, b = (ops[k] for k in pair.split(","))
+    g = X ** 3 * Y + 2 * X * Y * Z ** 2 + Z ** 3 - X * Y ** 2 + 5 * X + Y * Z
+    return sp.expand(a(b(g)) - b(a(g))) == 0
 
 
 def box_degeneracy(E):
@@ -219,7 +424,7 @@ def rank_code(values):
     return sp.Integer(int("".join(str(j + 1) for j in order)))
 
 
-BASE.update({"cube_tally": cube_tally, "punch_count": punch_count, "net_opposite": net_opposite, "rank_code": rank_code, "box_degeneracy": box_degeneracy, "huckel_chain": huckel_chain, "view_identify": view_identify, "keyhole_fit": keyhole_fit})
+BASE.update({"cube_tally": cube_tally, "punch_count": punch_count, "net_opposite": net_opposite, "rank_code": rank_code, "box_degeneracy": box_degeneracy, "huckel_chain": huckel_chain, "view_identify": view_identify, "keyhole_fit": keyhole_fit, "sph_L2": sph_L2, "fc_strongest": fc_strongest, "hf_energy": hf_energy, "hund_ground": hund_ground, "hund_choice": hund_choice, "mo_fill": mo_fill, "commutes": commutes, "view_missing": view_missing, "keyhole_pick": keyhole_pick, "prism_identify": prism_identify, "prism_keyhole": prism_keyhole})
 
 
 def check(p, H):

@@ -1,6 +1,6 @@
 # McQuarrie & Simon, Physical Chemistry: A Molecular Approach (University Science Books, 1997).
-# Quantum half only (chapters 1-15). Chapter titles are from memory, not checked against the book,
-# and the mapping is at chapter level; the statistical and thermodynamic chapters are not listed yet.
+# Chapter titles from the publisher's contents page (uscibooks.aip.org/?p=2671), read 2026-11-20.
+# Mapped at chapter level; section numbers are not listed.
 id: mcquarrie-simon-1e
 title: "McQuarrie & Simon — Physical Chemistry: A Molecular Approach"
 short: "M&S"
@@ -9,6 +9,7 @@ year: 1997
 field: physical-chemistry
 chapters:
   - { n: 1, title: "The Dawn of the Quantum Theory", skills: [quantum.origins] }
+  - { n: 2, title: "The Classical Wave Equation" }
   - { n: 3, title: "The Schrödinger Equation and a Particle in a Box", skills: [quantum.model-systems] }
   - { n: 4, title: "Some Postulates and General Principles of Quantum Mechanics", skills: [quantum.postulates] }
   - { n: 5, title: "The Harmonic Oscillator and the Rigid Rotator: Two Spectroscopic Models", skills: [quantum.model-systems] }
@@ -20,3 +21,21 @@ chapters:
   - { n: 11, title: "Computational Quantum Chemistry", skills: [quantum.bonding] }
   - { n: 12, title: "Group Theory: The Exploitation of Symmetry", skills: [quantum.symmetry] }
   - { n: 13, title: "Molecular Spectroscopy", skills: [quantum.spectroscopy] }
+  - { n: 14, title: "Nuclear Magnetic Resonance Spectroscopy", skills: [quantum.spectroscopy] }
+  - { n: 15, title: "Lasers, Laser Spectroscopy, and Photochemistry", skills: [quantum.spectroscopy] }
+  - { n: 16, title: "The Properties of Gases", skills: [pchem.real-gases] }
+  - { n: 17, title: "The Boltzmann Factor and Partition Functions", skills: [stat.boltzmann, stat.partition-function] }
+  - { n: 18, title: "Partition Functions and Ideal Gases", skills: [stat.ideal-gas] }
+  - { n: 19, title: "The First Law of Thermodynamics", skills: [pchem.first-law, pchem.thermochemistry] }
+  - { n: 20, title: "Entropy and the Second Law of Thermodynamics", skills: [pchem.entropy] }
+  - { n: 21, title: "Entropy and the Third Law of Thermodynamics", skills: [pchem.entropy] }
+  - { n: 22, title: "Helmholtz and Gibbs Energies", skills: [pchem.gibbs] }
+  - { n: 23, title: "Phase Equilibria", skills: [pchem.phases] }
+  - { n: 24, title: "Solutions I: Liquid-Liquid Solutions", skills: [pchem.colligative] }
+  - { n: 25, title: "Solutions II: Solid-Liquid Solutions", skills: [pchem.colligative, pchem.electrolytes] }
+  - { n: 26, title: "Chemical Equilibrium", skills: [pchem.gibbs] }
+  - { n: 27, title: "The Kinetic Theory of Gases", skills: [kinetics.gas-kinetic] }
+  - { n: 28, title: "Chemical Kinetics I: Rate Laws", skills: [kinetics.rate-laws] }
+  - { n: 29, title: "Chemical Kinetics II: Reaction Mechanisms", skills: [kinetics.rate-laws] }
+  - { n: 30, title: "Gas-Phase Reaction Dynamics" }
+  - { n: 31, title: "Solids and Surface Chemistry" }

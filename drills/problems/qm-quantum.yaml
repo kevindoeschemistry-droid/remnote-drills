@@ -74,11 +74,11 @@
   skill: quantum.postulates
   pace: recall
   cases:
-    - { q: 'position $x$ and momentum $p_x$', ans: 1 }
-    - { q: 'position $x$ and momentum $p_y$', ans: 0 }
-    - { q: '$L^2$ and $L_z$', ans: 0 }
-    - { q: '$L_x$ and $L_y$', ans: 1 }
-    - { q: 'the energy and $L^2$ of a hydrogen atom', ans: 0 }
+    - { q: 'position $x$ and momentum $p_x$', ans: 1, ops: 'x,px' }
+    - { q: 'position $x$ and momentum $p_y$', ans: 0, ops: 'x,py' }
+    - { q: '$L^2$ and $L_z$', ans: 0, ops: 'L2,Lz' }
+    - { q: '$L_x$ and $L_y$', ans: 1, ops: 'Lx,Ly' }
+    - { q: 'the energy and $L^2$ of a hydrogen atom', ans: 0, ops: 'H,L2' }
   prompt: 'Can these two observables be known exactly at the same time? {{q}}'
   parts:
     - ask: 'Answer'
@@ -86,7 +86,7 @@
       choice: ["Yes: their operators commute", "No: their operators do not commute"]
       correct: ans
       explain: 'Two observables share a complete set of eigenfunctions, and so can both be sharp, exactly when their operators commute. $[\hat x, \hat p_x] = i\hbar$ and $[\hat L_x, \hat L_y] = i\hbar\hat L_z$ do not vanish'
-  verify: { authored: true }
+  verify: { choices: { a: "0 if commutes(ops) else 1" } }
 
 # ── model systems ───────────────────────────────────────────────────────────
 - template: qm-pib-probability
@@ -152,10 +152,10 @@
   skill: quantum.model-systems
   pace: recall
   cases:
-    - { q: 'an electron or a proton, at the same energy below the same barrier', ans: 0 }
-    - { q: 'hydrogen or deuterium, in the same reaction', ans: 0 }
-    - { q: 'a barrier 0.5 nm wide or one 1 nm wide', ans: 0 }
-    - { q: 'a barrier 4 eV above the particle energy or one 1 eV above', ans: 1 }
+    - { q: 'an electron or a proton, at the same energy below the same barrier', ans: 0, m1: 1, m2: 1836, w1: 1, w2: 1, e1: 1, e2: 1 }
+    - { q: 'hydrogen or deuterium, in the same reaction', ans: 0, m1: 1, m2: 2, w1: 1, w2: 1, e1: 1, e2: 1 }
+    - { q: 'a barrier 0.5 nm wide or one 1 nm wide', ans: 0, m1: 1, m2: 1, w1: 0.5, w2: 1, e1: 1, e2: 1 }
+    - { q: 'a barrier 4 eV above the particle energy or one 1 eV above', ans: 1, m1: 1, m2: 1, w1: 1, w2: 1, e1: 4, e2: 1 }
   prompt: 'Which tunnels more readily: {{q}}?'
   parts:
     - ask: 'Answer'
@@ -163,7 +163,7 @@
       choice: ["The first", "The second"]
       correct: ans
       explain: '$T \approx \exp\!\left(-2a\sqrt{2m(V - E)}/\hbar\right)$: lighter, thinner and lower all help, and each sits inside the exponent. This is why tunnelling matters for electrons and hydrogen and almost never for heavier atoms'
-  verify: { authored: true }
+  verify: { choices: { a: "0 if exp(-2*w1*sqrt(m1*e1)) > exp(-2*w2*sqrt(m2*e2)) else 1" } }
 
 - template: qm-ring-transition
   skill: quantum.model-systems
@@ -300,15 +300,15 @@
   skill: quantum.atoms
   pace: quick
   cases:
-    - { el: 'boron (2p¹)', ans: 2 }
-    - { el: 'carbon (2p²)', ans: 0 }
-    - { el: 'nitrogen (2p³)', ans: 1 }
-    - { el: 'oxygen (2p⁴)', ans: 0 }
-    - { el: 'fluorine (2p⁵)', ans: 2 }
-    - { el: 'titanium (3d²)', ans: 3 }
-    - { el: 'vanadium (3d³)', ans: 4 }
-    - { el: 'iron (3d⁶)', ans: 5 }
-    - { el: 'nickel (3d⁸)', ans: 3 }
+    - { el: 'boron (2p¹)', lq: 1, ne: 1, ans: 2 }
+    - { el: 'carbon (2p²)', lq: 1, ne: 2, ans: 0 }
+    - { el: 'nitrogen (2p³)', lq: 1, ne: 3, ans: 1 }
+    - { el: 'oxygen (2p⁴)', lq: 1, ne: 4, ans: 0 }
+    - { el: 'fluorine (2p⁵)', lq: 1, ne: 5, ans: 2 }
+    - { el: 'titanium (3d²)', lq: 2, ne: 2, ans: 3 }
+    - { el: 'vanadium (3d³)', lq: 2, ne: 3, ans: 4 }
+    - { el: 'iron (3d⁶)', lq: 2, ne: 6, ans: 5 }
+    - { el: 'nickel (3d⁸)', lq: 2, ne: 8, ans: 3 }
   prompt: "Use Hund's rules to find the ground-state term of {{el}}."
   parts:
     - ask: 'Ground term'
@@ -316,23 +316,23 @@
       choice: ["³P", "⁴S", "²P", "³F", "⁴F", "⁵D"]
       correct: ans
       explain: 'Fill the orbitals from the highest $m_l$ down, one electron each with parallel spins before pairing. The total spin gives the multiplicity $2S + 1$ and the sum of the $m_l$ values gives $L$ (S, P, D, F for 0, 1, 2, 3). A shell with $n$ holes has the same terms as one with $n$ electrons, which is why carbon and oxygen match'
-  verify: { authored: true }
+  verify: { choices: { a: "hund_choice(lq, ne, ['³P', '⁴S', '²P', '³F', '⁴F', '⁵D'])" } }
 
 - template: qm-ground-level-j
   skill: quantum.atoms
   pace: quick
   cases:
-    - { el: 'boron', term: '²P', Lq: 1, Sq: 0.5, more: 0 }
-    - { el: 'oxygen', term: '³P', Lq: 1, Sq: 1, more: 1 }
-    - { el: 'fluorine', term: '²P', Lq: 1, Sq: 0.5, more: 1 }
-    - { el: 'titanium', term: '³F', Lq: 3, Sq: 1, more: 0 }
-    - { el: 'vanadium', term: '⁴F', Lq: 3, Sq: 1.5, more: 0 }
-    - { el: 'iron', term: '⁵D', Lq: 2, Sq: 2, more: 1 }
-    - { el: 'nickel', term: '³F', Lq: 3, Sq: 1, more: 1 }
+    - { el: 'boron', lq: 1, ne: 1, term: '²P', Lq: 1, Sq: 0.5, more: 0 }
+    - { el: 'oxygen', lq: 1, ne: 4, term: '³P', Lq: 1, Sq: 1, more: 1 }
+    - { el: 'fluorine', lq: 1, ne: 5, term: '²P', Lq: 1, Sq: 0.5, more: 1 }
+    - { el: 'titanium', lq: 2, ne: 2, term: '³F', Lq: 3, Sq: 1, more: 0 }
+    - { el: 'vanadium', lq: 2, ne: 3, term: '⁴F', Lq: 3, Sq: 1.5, more: 0 }
+    - { el: 'iron', lq: 2, ne: 6, term: '⁵D', Lq: 2, Sq: 2, more: 1 }
+    - { el: 'nickel', lq: 2, ne: 8, term: '³F', Lq: 3, Sq: 1, more: 1 }
   prompt: 'The ground term of {{el}} is {{term}}. Its subshell is {{more == 1 ? "more" : "less"}} than half full. What is $J$ for the ground level?'
   parts:
     - { ask: '$J$', label: r, tex: 'J', value: "more == 1 ? Lq + Sq : abs(Lq - Sq)", tol: 0.001, explain: "Hund's third rule: less than half full, the lowest level has $J = |L - S|$; more than half full, $J = L + S$. Here $L = {{Lq}}$ and $S = {{Sq}}$" }
-  verify: { expect: { r: "Lq + Sq if more == 1 else Abs(Lq - Sq)" } }
+  verify: { expect: { r: "hund_ground(lq, ne)[2]" } }
 
 - template: qm-lande-interval
   skill: quantum.atoms
@@ -358,31 +358,31 @@
   skill: quantum.bonding
   pace: quick
   cases:
-    - { sp: 'Li₂', nb: 4, na: 2 }
-    - { sp: 'B₂', nb: 6, na: 4 }
-    - { sp: 'C₂', nb: 8, na: 4 }
-    - { sp: 'N₂', nb: 10, na: 4 }
-    - { sp: 'N₂⁺', nb: 9, na: 4 }
-    - { sp: 'O₂', nb: 10, na: 6 }
-    - { sp: 'O₂⁺', nb: 10, na: 5 }
-    - { sp: 'O₂⁻', nb: 10, na: 7 }
-    - { sp: 'F₂', nb: 10, na: 8 }
+    - { sp: 'Li₂', ne: 6, nb: 4, na: 2 }
+    - { sp: 'B₂', ne: 10, nb: 6, na: 4 }
+    - { sp: 'C₂', ne: 12, nb: 8, na: 4 }
+    - { sp: 'N₂', ne: 14, nb: 10, na: 4 }
+    - { sp: 'N₂⁺', ne: 13, nb: 9, na: 4 }
+    - { sp: 'O₂', ne: 16, nb: 10, na: 6 }
+    - { sp: 'O₂⁺', ne: 15, nb: 10, na: 5 }
+    - { sp: 'O₂⁻', ne: 17, nb: 10, na: 7 }
+    - { sp: 'F₂', ne: 18, nb: 10, na: 8 }
   prompt: 'What is the bond order of {{sp}}? (It has ${{nb}}$ electrons in bonding and ${{na}}$ in antibonding molecular orbitals, counting the 1s pair.)'
   parts:
     - { ask: 'Bond order', label: r, tex: 'BO', value: (nb - na)/2, tol: 0.001, explain: 'Bond order $= \tfrac12(\text{bonding} - \text{antibonding})$. A higher bond order means a shorter, stronger bond: removing an antibonding electron (O₂ to O₂⁺) strengthens the bond, removing a bonding one (N₂ to N₂⁺) weakens it' }
-  verify: { expect: { r: "solve(Eq(2*x + na, nb), x)[0]" } }
+  verify: { expect: { r: "mo_fill(ne)[0]" } }
 
 - template: qm-paramagnetism
   skill: quantum.bonding
   pace: recall
   cases:
-    - { sp: 'O₂', unp: 2 }
-    - { sp: 'N₂', unp: 0 }
-    - { sp: 'B₂', unp: 2 }
-    - { sp: 'C₂', unp: 0 }
-    - { sp: 'F₂', unp: 0 }
-    - { sp: 'O₂⁺', unp: 1 }
-    - { sp: 'NO', unp: 1 }
+    - { sp: 'O₂', ne: 16, unp: 2 }
+    - { sp: 'N₂', ne: 14, unp: 0 }
+    - { sp: 'B₂', ne: 10, unp: 2 }
+    - { sp: 'C₂', ne: 12, unp: 0 }
+    - { sp: 'F₂', ne: 18, unp: 0 }
+    - { sp: 'O₂⁺', ne: 15, unp: 1 }
+    - { sp: 'NO', ne: 15, unp: 1 }
   prompt: 'Is {{sp}} paramagnetic or diamagnetic?'
   parts:
     - ask: 'Answer'
@@ -390,7 +390,7 @@
       choice: ["Paramagnetic", "Diamagnetic"]
       correct: "unp > 0 ? 0 : 1"
       explain: 'It has ${{unp}}$ unpaired electron{{unp == 1 ? "" : "s"}} in its molecular-orbital diagram. O₂ and B₂ each put two electrons, spins parallel, into a degenerate π pair: molecular-orbital theory predicts that; a Lewis structure does not'
-  verify: { choices: { a: "0 if unp > 0 else 1" } }
+  verify: { choices: { a: "0 if mo_fill(ne)[1] > 0 else 1" } }
 
 - template: qm-hybridisation
   skill: quantum.bonding

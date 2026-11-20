@@ -1,0 +1,373 @@
+# Physical chemistry: one item for each objective that had no drill (thermodynamics, electrolytes,
+# NMR, statistical thermodynamics, transport, mechanisms) and the last three quantum objectives.
+# One question each. Numbers are recomputed by sympy from the defining relation where there is one.
+
+# ── thermodynamics ──────────────────────────────────────────────────────────
+- template: pc-reaction-entropy
+  skill: pchem.entropy
+  pace: quick
+  cases:
+    - { rx: 'N₂(g) + 3 H₂(g) → 2 NH₃(g)', data: 'N₂ 191.6, H₂ 130.7, NH₃ 192.8', n1: -1, S1: 191.6, n2: -3, S2: 130.7, n3: 2, S3: 192.8 }
+    - { rx: '2 H₂(g) + O₂(g) → 2 H₂O(l)', data: 'H₂ 130.7, O₂ 205.2, H₂O(l) 70.0', n1: -2, S1: 130.7, n2: -1, S2: 205.2, n3: 2, S3: 70.0 }
+    - { rx: '2 SO₂(g) + O₂(g) → 2 SO₃(g)', data: 'SO₂ 248.2, O₂ 205.2, SO₃ 256.8', n1: -2, S1: 248.2, n2: -1, S2: 205.2, n3: 2, S3: 256.8 }
+    - { rx: 'N₂O₄(g) → 2 NO₂(g)', data: 'N₂O₄ 304.4, NO₂ 240.1', n1: -1, S1: 304.4, n2: 1, S2: 240.1, n3: 1, S3: 240.1 }
+    - { rx: 'CO(g) + 2 H₂(g) → CH₃OH(l)', data: 'CO 197.7, H₂ 130.7, CH₃OH(l) 126.8', n1: -1, S1: 197.7, n2: -2, S2: 130.7, n3: 1, S3: 126.8 }
+  prompt: 'Calculate the standard reaction entropy, in J/(mol·K), for {{rx}}. Standard molar entropies in J/(mol·K): {{data}}.'
+  parts:
+    - { ask: 'ΔS° (J/(mol·K))', label: r, tex: '\Delta S^\circ', value: n1*S1 + n2*S2 + n3*S3, tol: 0.005, explain: 'Products minus reactants, each times its coefficient. Check the sign against the gas count: fewer moles of gas on the right means a negative entropy change, more means positive' }
+  verify: { expect: { r: "sum(a*b for a, b in [(n1, S1), (n2, S2), (n3, S3)])" } }
+
+- template: pc-reduced-temperature
+  skill: pchem.real-gases
+  pace: quick
+  cases:
+    - { gas: 'nitrogen', Tc: 126.2, Pc: 33.9 }
+    - { gas: 'carbon dioxide', Tc: 304.1, Pc: 73.8 }
+    - { gas: 'methane', Tc: 190.6, Pc: 46.0 }
+    - { gas: 'water', Tc: 647.1, Pc: 220.6 }
+  given: { T: { pick: [200, 300, 400, 650] }, P: { pick: [10, 50, 100] } }
+  prompt: 'For {{gas}} ($T_c = {{Tc}}$ K, $P_c = {{Pc}}$ bar) at ${{T}}$ K and ${{P}}$ bar, what is the reduced temperature?'
+  parts:
+    - { ask: '$T_r$', label: r, tex: 'T_r', value: T/Tc, tol: 0.005, explain: '$T_r = T/T_c$; likewise $P_r = P/P_c = {{P/Pc}}$. Two gases at the same $T_r$ and $P_r$ have nearly the same compression factor: that is the law of corresponding states. Below $T_r = 1$ the gas can be liquefied by pressure alone' }
+  verify: { expect: { r: "solve(Eq(x*Tc, T), x)[0]" } }
+
+- template: pc-fugacity-potential
+  skill: pchem.real-gases
+  pace: quick
+  given: { P: { pick: [10, 50, 100, 200] }, phi: { pick: [0.72, 0.88, 0.95, 1.1] }, T: { pick: [298.15, 400, 500] } }
+  prompt: 'A gas at ${{P}}$ bar and ${{T}}$ K has fugacity coefficient $\phi = {{phi}}$. How far is its chemical potential above the standard value ($P^\circ = 1$ bar), in kJ/mol?'
+  parts:
+    - { ask: '$\mu - \mu^\circ$ (kJ/mol)', label: r, tex: '\mu - \mu^\circ', value: 8.314462618*T*log(phi*P)/1000, tol: 0.005, explain: 'The fugacity is $f = \phi P = {{phi*P}}$ bar, and $\mu = \mu^\circ + RT\ln(f/P^\circ)$. Fugacity is the pressure the gas would need to have, if it were ideal, to have this chemical potential; $\phi < 1$ means attractions dominate' }
+  verify: { expect: { r: "c_R*T*log(phi*P)/1000" } }
+
+- template: pc-lever-rule
+  skill: pchem.phases
+  pace: quick
+  given: { za: { pick: [0.1, 0.2, 0.3] }, zb: { pick: [0.6, 0.7, 0.9] }, z: { pick: [0.35, 0.4, 0.5, 0.55] } }
+  prompt: 'A mixture of overall composition $z = {{z}}$ sits in a two-phase region. The tie line ends at $x_\alpha = {{za}}$ and $x_\beta = {{zb}}$. What fraction of the material is in phase $\beta$?'
+  parts:
+    - { ask: 'Fraction in $\beta$', label: r, tex: 'f_\beta', value: (z - za)/(zb - za), tol: 0.005, explain: 'Lever rule: $n_\alpha(z - x_\alpha) = n_\beta(x_\beta - z)$, so $f_\beta = \dfrac{z - x_\alpha}{x_\beta - x_\alpha}$. The phase whose end of the tie line is nearer the overall composition is the larger one' }
+  verify: { expect: { r: "solve([Eq(Symbol('u') + x, 1), Eq(Symbol('u')*(z - za), x*(zb - z))], [x, Symbol('u')], dict=True)[0][x]" } }
+
+# ── electrolytes and cells ──────────────────────────────────────────────────
+- template: pc-mean-ionic-molality
+  skill: pchem.electrolytes
+  pace: quick
+  cases:
+    - { salt: 'NaCl', vp: 1, vm: 1 }
+    - { salt: 'CaCl₂', vp: 1, vm: 2 }
+    - { salt: 'Na₂SO₄', vp: 2, vm: 1 }
+    - { salt: 'LaCl₃', vp: 1, vm: 3 }
+    - { salt: 'Al₂(SO₄)₃', vp: 2, vm: 3 }
+  given: { m: { pick: [0.01, 0.05, 0.1, 0.2] } }
+  prompt: 'What is the mean ionic molality of ${{m}}$ mol/kg {{salt}}, in mol/kg?'
+  parts:
+    - { ask: '$m_\pm$ (mol/kg)', label: r, tex: 'm_\pm', value: m*(vp^vp*vm^vm)^(1/(vp + vm)), tol: 0.005, explain: 'The cation molality is ${{vp}}m$ and the anion molality ${{vm}}m$; $m_\pm$ is their geometric mean weighted by the stoichiometry, $(m_+^{\nu_+}m_-^{\nu_-})^{1/\nu}$ with $\nu = {{vp + vm}}$. Only a 1:1 salt has $m_\pm = m$' }
+  verify: { expect: { r: "((vp*m)**vp*(vm*m)**vm)**Rational(1, vp + vm)" } }
+
+- template: pc-solubility-activity
+  skill: pchem.electrolytes
+  pace: quick
+  cases:
+    - { salt: 'AgCl', K: 1.8e-10, Kt: '1.8 \times 10^{-10}' }
+    - { salt: 'AgBr', K: 5.0e-13, Kt: '5.0 \times 10^{-13}' }
+    - { salt: 'BaSO₄', K: 1.1e-10, Kt: '1.1 \times 10^{-10}' }
+  given: { g: { pick: [1, 0.9, 0.8, 0.7] } }
+  prompt: '{{salt}} has $K_{sp} = {{Kt}}$. What is its solubility, in µmol/kg, in a solution where the mean ionic activity coefficient is $\gamma_\pm = {{g}}$?'
+  parts:
+    - { ask: 'Solubility (µmol/kg)', label: r, tex: 's', value: sqrt(K)/g*1e6, tol: 0.01, explain: '$K_{sp} = (\gamma_\pm s)^2$ for a 1:1 salt, so $s = \sqrt{K_{sp}}/\gamma_\pm$. An inert salt lowers $\gamma_\pm$ and so raises the solubility: the salting-in effect' }
+  verify: { expect: { r: "Max(*solve(Eq((g*x/1000000)**2, K), x))" } }
+
+- template: pc-cell-equilibrium-constant
+  skill: pchem.electrochemistry
+  pace: quick
+  given: { n: { pick: [1, 2] }, E: { pick: [0.05, 0.15, 0.34, 0.46, 1.1] } }
+  prompt: 'A cell reaction transfers ${{n}}$ electron{{n > 1 ? "s" : ""}} and has $E^\circ = {{E}}$ V at 298.15 K. What is $\log_{10}K$?'
+  parts:
+    - { ask: '$\log_{10}K$', label: r, tex: '\log K', value: n*96485.33212*E/(8.314462618*298.15*log(10)), tol: 0.01, explain: '$\ln K = \dfrac{nFE^\circ}{RT}$. At 298 K this is $\log_{10}K = \dfrac{nE^\circ}{0.0592\ \text{V}}$: every 59 mV per electron is a factor of ten in $K$' }
+  verify: { expect: { r: "n*c_NA*c_e*E/(c_R*Rational(29815, 100)*log(10))" } }
+
+# ── nuclear magnetic resonance ──────────────────────────────────────────────
+- template: nmr-multiplicity
+  skill: quantum.spectroscopy
+  pace: recall
+  cases:
+    - { sig: 'the CH₃ of ethyl acetate''s ethyl group (next to a CH₂)', n: 2 }
+    - { sig: 'the OCH₂ of ethyl acetate (next to a CH₃)', n: 3 }
+    - { sig: 'the CH of an isopropyl group (next to two CH₃)', n: 6 }
+    - { sig: 'the CH₃ of an isopropyl group (next to one CH)', n: 1 }
+    - { sig: 'the CH₂ of 1,1,2-trichloroethane (next to one CH)', n: 1 }
+    - { sig: 'the CH of 1,1,2-trichloroethane (next to a CH₂)', n: 2 }
+  prompt: 'Into how many lines is this ¹H signal split? {{sig}}'
+  parts:
+    - { ask: 'Lines', label: r, tex: 'N', value: n + 1, tol: 0.0001, explain: '${{n}}$ equivalent neighbours of spin ½ give $2nI + 1 = n + 1$ lines, with intensities from Pascal''s triangle. Equivalent protons do not split each other' }
+  verify: { expect: { r: "2*n*Rational(1, 2) + 1" } }
+
+- template: nmr-downfield
+  skill: quantum.spectroscopy
+  pace: recall
+  cases:
+    - { q: 'CH₃F or CH₃I', ans: 0 }
+    - { q: 'CH₄ or CHCl₃', ans: 1 }
+    - { q: 'the aldehyde H of acetaldehyde or its CH₃', ans: 0 }
+    - { q: 'cyclohexane or benzene', ans: 1 }
+    - { q: 'the CH₃ of an ether, CH₃–O, or of an alkane, CH₃–C', ans: 0 }
+    - { q: 'Si(CH₃)₄ or CH₃Cl', ans: 1 }
+  prompt: 'Which protons appear further downfield (larger δ): {{q}}?'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["The first", "The second"]
+      correct: ans
+      explain: 'Electron density shields a nucleus from the applied field. An electronegative neighbour pulls density away, so the nucleus is deshielded and δ is larger. Aromatic and aldehyde protons sit further downfield still, because the circulating π electrons add to the field at the proton'
+  verify: { authored: true }
+
+- template: nmr-karplus
+  skill: quantum.spectroscopy
+  pace: quick
+  given: { phi: { pick: [0, 60, 90, 180] } }
+  prompt: 'Use the Karplus relation ${}^3J = 7.76\cos^2\phi - 1.10\cos\phi + 1.40$ Hz to estimate the vicinal coupling constant for a dihedral angle of ${{phi}}^\circ$.'
+  parts:
+    - { ask: '³J (Hz)', label: r, tex: 'J', value: 7.76*cos(phi*pi/180)^2 - 1.10*cos(phi*pi/180) + 1.40, tol: 0.01, explain: 'Largest when the two C–H bonds are eclipsed ($0^\circ$) or anti ($180^\circ$), smallest near $90^\circ$. That is why an axial–axial pair in a chair (about $180^\circ$) couples by 8 to 13 Hz and axial–equatorial or gauche pairs ($60^\circ$) by 2 to 5 Hz' }
+  verify: { expect: { r: "Rational(776, 100)*cos(pi*phi/180)**2 - Rational(11, 10)*cos(pi*phi/180) + Rational(14, 10)" } }
+
+# ── statistical thermodynamics ──────────────────────────────────────────────
+- template: sm-stirling
+  skill: stat.multiplicity
+  pace: quick
+  given: { N: { pick: [20, 50, 100, 1000] } }
+  prompt: 'Estimate $\ln({{N}}!)$ with Stirling''s approximation, $\ln N! \approx N\ln N - N$.'
+  parts:
+    - { ask: '$\ln N!$', label: r, tex: '\ln N!', value: N*log(N) - N, tol: 0.005, explain: 'The sum $\ln 1 + \ln 2 + \dots + \ln N$ is close to $\displaystyle\int_1^N \ln x\,dx = N\ln N - N + 1$. The error is a few units, which stops mattering once $N$ is large: for $N = 100$ the exact value is 363.7 and Stirling gives 360.5' }
+  verify: { expect: { r: "integrate(log(x), (x, 1, N)) - 1" } }
+
+- template: sm-rotational-partition-nonlinear
+  skill: stat.ideal-gas
+  pace: quick
+  cases:
+    - { mol: 'H₂O', sg: 2, tA: 40.1, tB: 20.9, tC: 13.4 }
+    - { mol: 'NH₃', sg: 3, tA: 13.6, tB: 13.6, tC: 8.92 }
+    - { mol: 'CH₄', sg: 12, tA: 7.54, tB: 7.54, tC: 7.54 }
+  given: { T: { pick: [300, 500, 1000] } }
+  prompt: 'Calculate the rotational partition function of {{mol}} at ${{T}}$ K. Rotational temperatures: ${{tA}}$, ${{tB}}$ and ${{tC}}$ K; symmetry number ${{sg}}$.'
+  parts:
+    - { ask: '$q_{rot}$', label: r, tex: 'q_{rot}', value: sqrt(pi)/sg*sqrt(T^3/(tA*tB*tC)), tol: 0.01, explain: '$q_{rot} = \dfrac{\sqrt\pi}{\sigma}\left(\dfrac{T^3}{\Theta_A\Theta_B\Theta_C}\right)^{1/2}$ for a nonlinear molecule: three rotational axes, so $T^{3/2}$ instead of the $T$ of a linear molecule. The symmetry number removes orientations that are indistinguishable' }
+  verify: { expect: { r: "sqrt(pi*T**3/(tA*tB*tC))/sg" } }
+
+- template: sm-electronic-partition
+  skill: stat.partition-function
+  pace: quick
+  cases:
+    - { sp: 'NO', g0: 2, g1: 2, eps: 121.1 }
+    - { sp: 'an oxygen atom', g0: 5, g1: 3, eps: 158.3 }
+    - { sp: 'a fluorine atom', g0: 4, g1: 2, eps: 404.1 }
+    - { sp: 'a chlorine atom', g0: 4, g1: 2, eps: 882.4 }
+  given: { T: { pick: [300, 500, 1000] } }
+  prompt: 'For {{sp}} the ground level has degeneracy ${{g0}}$ and the first excited level, ${{eps}}$ cm⁻¹ higher, has degeneracy ${{g1}}$. What is the electronic partition function at ${{T}}$ K? ($hc/k_B = 1.4388$ cm·K.)'
+  parts:
+    - { ask: '$q_{el}$', label: r, tex: 'q_{el}', value: g0 + g1*exp(-1.438777*eps/T), tol: 0.005, explain: '$q_{el} = g_0 + g_1e^{-\varepsilon/k_BT}$ with $\varepsilon/k_BT = 1.4388\,\tilde\nu/T$. Most molecules have their first excited electronic state far above $k_BT$ and $q_{el} = g_0$; these species are the exceptions because the gap is a spin–orbit splitting' }
+  verify: { expect: { r: "g0 + g1*exp(-c_h*c_c*100*eps/(c_kB*T))" } }
+
+# ── kinetic theory and transport ────────────────────────────────────────────
+- template: kt-maxwell-compare
+  skill: kinetics.gas-kinetic
+  pace: recall
+  cases:
+    - { q: 'N₂ at 300 K or N₂ at 600 K', M1: 28, T1: 300, M2: 28, T2: 600 }
+    - { q: 'He at 300 K or Ar at 300 K', M1: 4, T1: 300, M2: 40, T2: 300 }
+    - { q: 'H₂ at 300 K or O₂ at 1200 K', M1: 2, T1: 300, M2: 32, T2: 1200 }
+    - { q: 'CO₂ at 500 K or N₂ at 300 K', M1: 44, T1: 500, M2: 28, T2: 300 }
+    - { q: 'Xe at 900 K or Ne at 300 K', M1: 131, T1: 900, M2: 20, T2: 300 }
+  prompt: 'Which gas has the faster, broader Maxwell speed distribution: {{q}}?'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["The first", "The second"]
+      correct: "T1/M1 > T2/M2 ? 0 : 1"
+      explain: 'Every characteristic speed goes as $\sqrt{T/M}$, and the width of the distribution scales the same way. Compare $T/M$: ${{T1}}/{{M1}}$ against ${{T2}}/{{M2}}$'
+  verify: { choices: { a: "0 if sqrt(2*c_R*T1/M1) > sqrt(2*c_R*T2/M2) else 1" } }
+
+- template: kt-collision-frequency
+  skill: kinetics.gas-kinetic
+  pace: quick
+  given: { d: { pick: [300, 370, 400] }, v: { pick: [400, 475, 1250] } }
+  prompt: 'A molecule of diameter ${{d}}$ pm moves at a mean speed of ${{v}}$ m/s through a gas with $2.46 \times 10^{25}$ molecules per m³ (1 atm, 298 K). How many collisions does it make per second? Answer in units of $10^9$ s⁻¹.'
+  parts:
+    - { ask: '$z$ ($10^9$ s⁻¹)', label: r, tex: 'z', value: sqrt(2)*pi*(d*1e-12)^2*v*2.46e25/1e9, tol: 0.01, explain: '$z = \sqrt2\,\sigma\bar v\,(N/V)$ with collision cross-section $\sigma = \pi d^2$. The $\sqrt2$ is there because the targets move too: what matters is the mean relative speed. A few billion collisions a second is normal at 1 atm' }
+  verify: { expect: { r: "sqrt(2)*pi*(d*Rational(1, 10**12))**2*v*Rational(246, 100)*10**25/10**9" } }
+
+- template: tr-fick-flux
+  skill: kinetics.gas-kinetic
+  pace: quick
+  given: { D: { pick: [0.5, 1, 2] }, dC: { pick: [10, 50, 100] }, dx: { pick: [0.1, 1, 2] } }
+  prompt: 'A solute with $D = {{D}} \times 10^{-9}$ m²/s has a concentration that falls by ${{dC}}$ mol/m³ across ${{dx}}$ mm. What is the magnitude of the diffusive flux, in µmol/(m²·s)?'
+  parts:
+    - { ask: 'Flux (µmol/(m²·s))', label: r, tex: 'J', value: D*1e-9*dC/(dx*1e-3)*1e6, tol: 0.005, explain: 'Fick''s first law: $J = -D\,\dfrac{dC}{dx}$. The minus sign says the flux runs from high concentration to low. Same form as Fourier''s law for heat and Newton''s law for momentum' }
+  verify: { expect: { r: "solve(Eq(x*dx/1000/1000000, D*dC/10**9), x)[0]" } }
+
+- template: tr-shear-stress
+  skill: kinetics.gas-kinetic
+  pace: quick
+  given: { eta: { pick: [0.89, 1.0, 18, 1490] }, du: { pick: [0.1, 0.5, 2] }, gap: { pick: [0.5, 1, 2] } }
+  prompt: 'A fluid of viscosity ${{eta}}$ mPa·s fills a ${{gap}}$ mm gap between two plates. One plate moves at ${{du}}$ m/s relative to the other. What is the shear stress, in Pa?'
+  parts:
+    - { ask: 'Shear stress (Pa)', label: r, tex: '\tau', value: eta*du/gap, tol: 0.005, explain: '$\tau = \eta\,\dfrac{du}{dz}$: momentum diffuses down the velocity gradient. The mPa and the mm cancel, leaving $\eta\,\Delta u/\text{gap}$ in Pa. For a gas $\eta = \tfrac13\rho\bar v\lambda$, which rises with temperature, the opposite of a liquid' }
+  verify: { expect: { r: "solve(Eq(x*gap/1000, eta*du/1000), x)[0]" } }
+
+# ── kinetics and mechanisms ─────────────────────────────────────────────────
+- template: kn-steric-factor
+  skill: kinetics.rate-laws
+  pace: quick
+  cases:
+    - { rx: 'H₂ + C₂H₄ → C₂H₆', Ae: 1.24, At: 730, u: '10^{6}', v: '10^{9}', sc: 0.001 }
+    - { rx: '2 NOCl → 2 NO + Cl₂', Ae: 9.4, At: 59, u: '10^{9}', v: '10^{9}', sc: 1 }
+    - { rx: '2 ClO → Cl₂ + O₂', Ae: 6.3, At: 25, u: '10^{7}', v: '10^{9}', sc: 0.01 }
+    - { rx: 'K + Br₂ → KBr + Br', Ae: 10, At: 2.1, u: '10^{11}', v: '10^{11}', sc: 1 }
+  prompt: 'For {{rx}} the measured pre-exponential factor is ${{Ae}} \times {{u}}$ L/(mol·s) and collision theory predicts ${{At}} \times {{v}}$ L/(mol·s). What is the steric factor $p$?'
+  parts:
+    - { ask: '$p$', label: r, tex: 'p', value: Ae*sc/At, tol: 0.01, explain: '$k = pZ_{AB}e^{-E_a/RT}$, so $p = A_{exp}/A_{theory}$. A small $p$ means most collisions with enough energy still have the wrong orientation. $p > 1$, as for K + Br₂, means the reaction reaches further than the hard-sphere diameter: the electron jumps first (the harpoon mechanism)' }
+  verify: { expect: { r: "solve(Eq(x*At, Ae*sc), x)[0]" } }
+
+- template: kn-reversible-first-order
+  skill: kinetics.rate-laws
+  pace: quick
+  given: { k1: { pick: [0.2, 0.3, 0.6] }, km: { pick: [0.1, 0.2] }, t: { pick: [1, 2, 5] } }
+  prompt: 'A ⇌ B with $k_1 = {{k1}}$ s⁻¹ forward and $k_{-1} = {{km}}$ s⁻¹ back, starting from pure A at 1 mol/L. What is [A] after ${{t}}$ s, in mol/L?'
+  parts:
+    - { ask: '[A] (mol/L)', label: r, tex: '[A]', value: km/(k1 + km) + k1/(k1 + km)*exp(-(k1 + km)*t), tol: 0.005, explain: 'The equilibrium value is $[A]_{eq} = \dfrac{k_{-1}}{k_1 + k_{-1}} = {{km/(k1 + km)}}$, and the distance from it decays with the sum of the two rate constants: $[A] = [A]_{eq} + ([A]_0 - [A]_{eq})e^{-(k_1 + k_{-1})t}$. A reversible reaction relaxes faster than either step alone' }
+  verify: { var: s, ode: "diff(T(s), s) + k1*T(s) - km*(1 - T(s))", bcs: ["T(0) = 1"], expect: { r: "T(t)" } }
+
+- template: kn-intermediate-maximum
+  skill: kinetics.rate-laws
+  pace: quick
+  given: { k1: { pick: [2, 3, 4, 6] }, k2: { pick: [1, 5] } }
+  require: [k1 != k2]
+  prompt: 'In A → B → C with $k_1 = {{k1}}$ s⁻¹ and $k_2 = {{k2}}$ s⁻¹, at what time does the intermediate B reach its maximum, in s?'
+  parts:
+    - { ask: '$t_{max}$ (s)', label: r, tex: 't_{max}', value: log(k1/k2)/(k1 - k2), tol: 0.005, explain: '[B] $\propto e^{-k_1t} - e^{-k_2t}$. Set its derivative to zero: $k_1e^{-k_1t} = k_2e^{-k_2t}$, so $t_{max} = \dfrac{\ln(k_1/k_2)}{k_1 - k_2}$. The faster B is consumed relative to how fast it forms, the earlier and lower the peak' }
+  verify: { expect: { r: "log(Rational(k1, k2))/(k1 - k2)" } }
+
+- template: kn-steady-state-rate
+  skill: kinetics.rate-laws
+  pace: quick
+  given: { k1: { pick: [0.1, 0.5, 2] }, km: { pick: [1, 10, 50] }, k2: { pick: [5, 10, 100] }, A: { pick: [0.1, 0.5, 1] } }
+  prompt: 'A ⇌ I → P with $k_1 = {{k1}}$ s⁻¹, $k_{-1} = {{km}}$ s⁻¹ and $k_2 = {{k2}}$ s⁻¹. Use the steady-state approximation for I to find the rate of formation of P when [A] = ${{A}}$ mol/L, in mol/(L·s).'
+  parts:
+    - { ask: 'Rate (mol/(L·s))', label: r, tex: 'v', value: k1*k2*A/(km + k2), tol: 0.005, explain: 'Set $d[I]/dt = k_1[A] - (k_{-1} + k_2)[I] = 0$, so $[I] = \dfrac{k_1[A]}{k_{-1} + k_2}$ and the rate is $k_2[I]$. If $k_2 \gg k_{-1}$ this is just $k_1[A]$: the first step is rate-determining' }
+  verify: { expect: { r: "k2*solve(Eq(k1*A - km*x - k2*x, 0), x)[0]" } }
+
+- template: kn-pre-equilibrium
+  skill: kinetics.rate-laws
+  pace: quick
+  given: { K: { pick: [0.01, 0.1, 5] }, k2: { pick: [2, 10, 50] }, A: { pick: [0.1, 0.2, 0.5] }, B: { pick: [0.1, 0.4, 1] } }
+  prompt: 'A + B ⇌ I is fast with equilibrium constant $K = {{K}}$ L/mol, then I → P slowly with $k_2 = {{k2}}$ s⁻¹. What is the rate when [A] = ${{A}}$ and [B] = ${{B}}$ mol/L, in mol/(L·s)?'
+  parts:
+    - { ask: 'Rate (mol/(L·s))', label: r, tex: 'v', value: k2*K*A*B, tol: 0.005, explain: 'The fast step stays at equilibrium, $[I] = K[A][B]$, and the slow step sets the rate: $v = k_2K[A][B]$. The observed rate constant is the product $k_2K$, which is why its apparent activation energy can even be negative' }
+  verify: { expect: { r: "k2*solve(Eq(x/(A*B), K), x)[0]" } }
+
+- template: kn-lindemann
+  skill: kinetics.rate-laws
+  pace: quick
+  given: { ka: { pick: [1, 2, 5] }, kma: { pick: [10, 100] }, kb: { pick: [1, 10, 50] }, M: { pick: [0.01, 0.1, 1, 10] } }
+  prompt: 'In the Lindemann mechanism A + M ⇌ A* + M ($k_a = {{ka}}$, $k_{-a} = {{kma}}$ L/(mol·s)), A* → P ($k_b = {{kb}}$ s⁻¹). What is the effective first-order rate constant at [M] = ${{M}}$ mol/L, in s⁻¹?'
+  parts:
+    - { ask: '$k_{uni}$ (s⁻¹)', label: r, tex: 'k_{uni}', value: ka*kb*M/(kma*M + kb), tol: 0.005, explain: '$k_{uni} = \dfrac{k_ak_b[M]}{k_{-a}[M] + k_b}$. At high pressure deactivation wins and it levels off at $k_ak_b/k_{-a} = {{ka*kb/kma}}$ s⁻¹, true first order. At low pressure it falls to $k_a[M]$: activation by collision becomes the slow step and the reaction turns second order' }
+  verify: { expect: { r: "kb*solve(Eq(ka*M - kma*M*x - kb*x, 0), x)[0]" } }
+
+- template: kn-chain-length
+  skill: kinetics.rate-laws
+  pace: quick
+  given: { a: { pick: [1, 4, 9, 16] }, kp: { pick: [100, 300, 1000] }, M: { pick: [1, 2, 5] } }
+  prompt: 'A radical chain is initiated at ${{a}} \times 10^{-8}$ mol/(L·s), terminates by radical–radical combination with $k_t = 1 \times 10^{8}$ L/(mol·s), and propagates with $k_p = {{kp}}$ L/(mol·s) at monomer concentration ${{M}}$ mol/L. What is the kinetic chain length?'
+  parts:
+    - { ask: 'Chain length', label: r, tex: '\nu', value: kp*M/sqrt(a), tol: 0.005, explain: 'Steady state: initiation equals termination, so $[R\cdot] = \sqrt{R_i/k_t} = {{sqrt(a)}} \times 10^{-8}$ mol/L. The chain length is propagation over initiation, $\dfrac{k_p[R\cdot][M]}{R_i}$: how many monomers each radical adds before it dies. More initiator means more radicals but shorter chains' }
+  verify: { expect: { r: "kp*M*Max(*solve(Eq(a*Rational(1, 10**8) - 10**8*x**2, 0), x))/(a*Rational(1, 10**8))" } }
+
+# ── quantum: the last open objectives ───────────────────────────────────────
+- template: qm-expansion-coefficient
+  skill: quantum.postulates
+  pace: quick
+  given: { n: { pick: [1, 3, 5] } }
+  prompt: 'Expand $f(x) = 1$ on $0 \le x \le 1$ in the particle-in-a-box functions $\psi_n = \sqrt2\sin n\pi x$. What is the coefficient $c_{ {{n}} }$?'
+  parts:
+    - { ask: '$c_n$', label: r, tex: 'c_n', value: 2*sqrt(2)/(n*pi), tol: 0.005, explain: '$c_n = \displaystyle\int_0^1 \psi_n f\,dx = \sqrt2\,\dfrac{1 - \cos n\pi}{n\pi}$, which is $\dfrac{2\sqrt2}{n\pi}$ for odd $n$ and zero for even $n$: an even-$n$ function is antisymmetric about the middle of the box and $f$ is symmetric. The squares of the coefficients add to 1' }
+  verify: { expect: { r: "integrate(sqrt(2)*sin(n*pi*x), (x, 0, 1))" } }
+
+- template: qm-orthogonality
+  skill: quantum.postulates
+  pace: quick
+  cases:
+    - { ft: '\sin \pi x', gt: '\sin 2\pi x', f: 'sin(pi*x)', g: 'sin(2*pi*x)', a: 0, b: 1, ok: 0 }
+    - { ft: 'x', gt: 'x^2', f: 'x', g: 'x**2', a: -1, b: 1, ok: 0 }
+    - { ft: '1', gt: 'x^2', f: '1', g: 'x**2', a: -1, b: 1, ok: 1 }
+    - { ft: 'x', gt: 'x^3', f: 'x', g: 'x**3', a: -1, b: 1, ok: 1 }
+    - { ft: '1', gt: '3x^2 - 1', f: '1', g: '3*x**2 - 1', a: -1, b: 1, ok: 0 }
+    - { ft: '\sin \pi x', gt: '\cos \pi x', f: 'sin(pi*x)', g: 'cos(pi*x)', a: 0, b: 1, ok: 0 }
+    - { ft: '\sin \pi x', gt: '\sin 3\pi x', f: 'sin(pi*x)', g: 'sin(3*pi*x)', a: 0, b: 1, ok: 0 }
+    - { ft: 'x', gt: '\sin \pi x', f: 'x', g: 'sin(pi*x)', a: 0, b: 1, ok: 1 }
+  prompt: 'Are ${{ft}}$ and ${{gt}}$ orthogonal on ${{a}} \le x \le {{b}}$?'
+  parts:
+    - ask: 'Answer'
+      label: a2
+      choice: ["Yes: the integral of their product is zero", "No: the integral of their product is not zero"]
+      correct: ok
+      explain: 'Integrate the product over the interval. Symmetry does most of the work: an odd integrand over a symmetric interval vanishes, and so does a product that is antisymmetric about the middle of the interval. Two eigenfunctions of the same Hermitian operator with different eigenvalues are always orthogonal'
+  verify: { choices: { a2: "0 if integrate(S(f)*S(g), (x, a, b)) == 0 else 1" } }
+
+- template: qm-spherical-harmonic-eigenvalue
+  skill: quantum.model-systems
+  pace: recall
+  given: { l: { pick: [1, 2, 3] }, m: { pick: [0, 1] } }
+  prompt: 'The spherical harmonic $Y_{ {{l}} }^{ {{m}} }$ is an eigenfunction of $\hat L^2$. What is its eigenvalue, in units of $\hbar^2$?'
+  parts:
+    - { ask: 'Eigenvalue ($\hbar^2$)', label: r, tex: '\lambda', value: l*(l + 1), tol: 0.0001, explain: '$\hat L^2Y_l^m = l(l + 1)\hbar^2Y_l^m$ and $\hat L_zY_l^m = m\hbar Y_l^m$: here ${{l*(l + 1)}}\hbar^2$ and ${{m}}\hbar$. The first depends only on $l$, so all $2l + 1$ values of $m$ share it' }
+  verify: { expect: { r: "sph_L2(l, m)" } }
+
+- template: qm-franck-condon-strongest
+  skill: quantum.spectroscopy
+  pace: quick
+  given: { Sv: { pick: [1.5, 2.5, 3.6, 4.4, 5.2] } }
+  prompt: 'An excited state has the same vibrational frequency as the ground state but a displaced minimum, with Huang–Rhys factor $S = {{Sv}}$. The band from $v = 0$ to $v''$ has intensity proportional to $\dfrac{S^{v''}e^{-S}}{v''!}$. Which $v''$ gives the strongest band?'
+  parts:
+    - { ask: 'Strongest $v''$', label: r, tex: 'v''', value: floor(Sv), tol: 0.0001, explain: 'Each step up multiplies the intensity by $S/v''$, so the bands grow while $v'' < S$ and shrink after: the peak is at the whole number just below $S$. A vertical transition lands where the ground-state wavefunction overlaps the upper state best; a bigger change in bond length means a longer progression peaking further out' }
+  verify: { expect: { r: "fc_strongest(Sv)" } }
+
+- template: qm-walsh-ah2
+  skill: quantum.bonding
+  pace: recall
+  cases:
+    - { mol: 'BeH₂', ve: 4 }
+    - { mol: 'BH₂', ve: 5 }
+    - { mol: 'CH₂ (singlet)', ve: 6 }
+    - { mol: 'NH₂', ve: 7 }
+    - { mol: 'H₂O', ve: 8 }
+    - { mol: 'H₂S', ve: 8 }
+  prompt: 'Use Walsh''s rules to predict the shape of {{mol}}, which has ${{ve}}$ valence electrons.'
+  parts:
+    - ask: 'Shape'
+      label: a
+      choice: ["Linear", "Bent"]
+      correct: "ve <= 4 ? 0 : 1"
+      explain: 'In an AH₂ molecule the first two valence orbitals prefer the linear shape. The next one is a pure p orbital when linear and drops sharply in energy on bending, because it can mix with s. So four electrons or fewer give a linear molecule; as soon as that third orbital is occupied the molecule bends'
+  verify: { choices: { a: "0 if ve <= 4 else 1" } }
+
+- template: qm-hf-closed-shell-energy
+  skill: quantum.bonding
+  pace: quick
+  given: { h1: { pick: [-7.8, -4.7] }, h2: { pick: [-1.9, -1.2] }, J11: { pick: [2.3, 1.6] }, J22: { pick: [0.5, 0.4] }, J12: { pick: [0.5, 0.6] }, K12: { pick: [0.02, 0.05] } }
+  prompt: 'Four electrons fill two spatial orbitals. In hartree: $h_1 = {{h1}}$, $h_2 = {{h2}}$, $J_{11} = {{J11}}$, $J_{22} = {{J22}}$, $J_{12} = {{J12}}$, $K_{12} = {{K12}}$. What is the Hartree–Fock electronic energy?'
+  parts:
+    - { ask: 'Energy (hartree)', label: r, tex: 'E', value: 2*h1 + 2*h2 + J11 + J22 + 4*J12 - 2*K12, tol: 0.002, explain: '$E = 2\sum h_i + \sum_{ij}(2J_{ij} - K_{ij})$ over the occupied orbitals. Every pair of electrons repels through $J$; only pairs with the same spin get the exchange lowering $K$. Between the two orbitals there are four pairs, two of them with parallel spins: $4J_{12} - 2K_{12}$' }
+  verify: { expect: { r: "hf_energy([h1, h2], [[J11, J12], [J12, J22]], [[J11, K12], [K12, J22]])" } }
+
+- template: qm-free-electron-absorption
+  skill: quantum.model-systems
+  pace: quick
+  cases:
+    - { mol: 'butadiene', N: 4, L: 0.578 }
+    - { mol: 'hexatriene', N: 6, L: 0.867 }
+    - { mol: 'octatetraene', N: 8, L: 1.156 }
+  prompt: 'Treat the ${{N}}$ π electrons of {{mol}} as particles in a box of length ${{L}}$ nm. At what wavelength does the lowest transition absorb, in nm? ($h = 6.626 \times 10^{-34}$ J·s, $m_e = 9.109 \times 10^{-31}$ kg, $c = 2.998 \times 10^8$ m/s.)'
+  parts:
+    - { ask: 'Wavelength (nm)', label: r, tex: '\lambda', value: 8*9.1093837015e-31*299792458*(L*1e-9)^2/(6.62607015e-34*(N + 1))*1e9, tol: 0.01, explain: 'Two electrons per level fill $n = 1$ to $N/2 = {{N/2}}$. The transition is from $n = {{N/2}}$ to ${{N/2 + 1}}$: $\Delta E = (2n + 1)\dfrac{h^2}{8m_eL^2}$ with $2n + 1 = {{N + 1}}$, and $\lambda = hc/\Delta E$. Longer chains absorb at longer wavelength, which is why carotene is orange' }
+  verify: { expect: { r: "c_h*c_c/(((Rational(N, 2) + 1)**2 - Rational(N, 2)**2)*c_h**2/(8*c_me*(L*Rational(1, 10**9))**2))*10**9" } }

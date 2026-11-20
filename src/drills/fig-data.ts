@@ -21,6 +21,8 @@
 //   type: cubes       heights: [[…], …] stacks of unit cubes seen from the front right (row 0 at the back, column 0 at the left)
 //   type: scheme      panels: [figure, …] stacked top to bottom with an arrow between; a panel may carry `caption`
 //   type: views       heights: as for cubes; show: [top, front, end]; outline: true for the silhouette only; mask: 0/1 grid drawn as an outline; labels: false
+//                     grids may be packed as 1abcdefghi; options: [grid, …] + view draws lettered candidate views; masks: [grid, …] lettered outlines
+//   type: prism       profile: hex 1v1v2… (digit = 4x + z), depth; view 0 top, 1 front, 2 end, 3 isometric (default); options: [profile, …] lettered outlines
 // Every number may be an expression in the template's givens and lets. A function (`f`, `field`, a
 // `vfield` component) may also be the name of a text field of the drawn case. Strokes use currentColor.
 import { math } from "./check";
@@ -266,9 +268,16 @@ function molecule(f: any, scope: Scope): string {
   return svg(Math.max(w, 120), Math.max(h, 70), s);
 }
 
+/** a 3 x 3 grid given either as nested lists or packed as the ten-digit number 1abcdefghi (rows top to bottom) */
+function grid9(g: any, scope: Scope): number[][] {
+  if (Array.isArray(g)) return (g as any[][]).map((row) => row.map((v) => Math.round(n(v, scope))));
+  const d = String(Math.round(n(g, scope))).slice(1).padStart(9, "0");
+  return [0, 1, 2].map((r) => [0, 1, 2].map((c) => Number(d[r * 3 + c])));
+}
+
 /** stacked unit cubes in isometric view: heights[r][c] cubes in each column, row 0 at the back, column 0 at the left */
 function cubes(f: any, scope: Scope): string {
-  const H: number[][] = (f.heights as any[][]).map((row) => row.map((v) => Math.round(n(v, scope))));
+  const H = grid9(f.heights, scope);
   const R = H.length, C = H[0].length, top = Math.max(1, ...H.flat()), U = 26, cx = Math.cos(Math.PI / 6) * U, cy = Math.sin(Math.PI / 6) * U;
   const ox = R * cx + 10, oy = top * U + 10, wd = (R + C) * cx + 20, ht = top * U + (R + C) * cy + 20;
   // a grid corner (col c, row r, height z) on the page: columns run down-right, rows down-left, height up
@@ -318,11 +327,27 @@ function viewLines(occ: boolean[][][], U: number, x0: number, y0: number): strin
  *  `show` picks the views, `outline` keeps only the silhouette, `mask` draws the outline of a 0/1 grid instead */
 function views(f: any, scope: Scope): string {
   const U = 22, PAD = 12, GAP = 26, LBL = f.labels === false ? 0 : 16;
+  const lettered = (cells: boolean[][][][]) => {
+    // candidate drawings side by side, each with its letter underneath
+    let x = PAD, body = "", ht = 0;
+    cells.forEach((occ, i) => {
+      body += viewLines(occ, U, x, PAD);
+      body += text(x + (occ[0].length * U) / 2, PAD + occ.length * U + 15, "ABCDEF"[i], "middle", 'font-size="12" font-weight="600"');
+      x += occ[0].length * U + GAP; ht = Math.max(ht, occ.length * U);
+    });
+    return svg(x - GAP + PAD, ht + 2 * PAD + 18, body);
+  };
+  const asMask = (g: any) => grid9(g, scope).map((row) => row.map((v) => [v > 0]));
+  if (f.masks) return lettered((f.masks as any[]).map(asMask));
   if (f.mask) {
-    const M: boolean[][][] = (f.mask as any[][]).map((row) => row.map((v) => [Math.round(n(v, scope)) > 0]));
+    const M = asMask(f.mask);
     return svg(M[0].length * U + 2 * PAD, M.length * U + 2 * PAD, viewLines(M, U, PAD, PAD));
   }
-  const H: number[][] = (f.heights as any[][]).map((row) => row.map((v) => Math.round(n(v, scope))));
+  if (f.options) {
+    const w = ["top", "front", "end"][Math.round(n(f.view, scope))];
+    return lettered((f.options as any[]).map((g) => viewColumns(grid9(g, scope), w)));
+  }
+  const H = grid9(f.heights, scope);
   const show: string[] = f.view !== undefined ? [["top", "front", "end"][Math.round(n(f.view, scope))]] : f.show ?? ["top", "front", "end"];
   const flat = (o: boolean[][][]) => (f.outline ? o.map((row) => row.map((c) => [c.some(Boolean)])) : o);
   const R = H.length, C = H[0].length, top = Math.max(1, ...H.flat());
@@ -340,6 +365,76 @@ function views(f: any, scope: Scope): string {
     wd = Math.max(wd, x + a * U); ht = Math.max(ht, y + b * U + LBL);
   }
   return svg(wd + 2 * PAD, ht + 2 * PAD, s);
+}
+
+/** a prism profile packed as the hex number 1v1v2…, one digit per corner, digit = 4x + z with x, z in 0..3 */
+function profile(code: any, scope: Scope): [number, number][] {
+  const d = Math.round(n(code, scope)).toString(16).slice(1);
+  return [...d].map((ch) => { const v = parseInt(ch, 16); return [v >> 2, v & 3] as [number, number]; });
+}
+
+/** a prism: the profile (in the front plane, x right and z up) pushed straight back by `depth`.
+ *  view 3 (default) is the isometric picture, 0/1/2 the top, front and end views; `options` draws lettered outlines */
+function prism(f: any, scope: Scope): string {
+  const U = 26, PAD = 12, GAP = 26;
+  const outline = (P: [number, number][], x0: number, y0: number, zmax: number, xmin: number) =>
+    `<polygon points="${P.map(([x, z]) => `${(x0 + (x - xmin) * U).toFixed(1)},${(y0 + (zmax - z) * U).toFixed(1)}`).join(" ")}" stroke="#333" stroke-width="1.8" stroke-linejoin="round"/>`;
+  const box = (P: [number, number][]) => ({ x0: Math.min(...P.map((p) => p[0])), x1: Math.max(...P.map((p) => p[0])), z0: Math.min(...P.map((p) => p[1])), z1: Math.max(...P.map((p) => p[1])) });
+  if (f.options) {
+    let x = PAD, body = "", ht = 0;
+    (f.options as any[]).forEach((code, i) => {
+      const P = profile(code, scope), b = box(P);
+      body += outline(P, x, PAD, b.z1, b.x0);
+      body += text(x + ((b.x1 - b.x0) * U) / 2, PAD + 3 * U + 15, "ABCDEF"[i], "middle", 'font-size="12" font-weight="600"');
+      x += (b.x1 - b.x0) * U + GAP; ht = 3 * U;
+    });
+    return svg(x - GAP + PAD, ht + 2 * PAD + 18, body);
+  }
+  const P = profile(f.profile, scope), D = Math.round(n(f.depth, scope)), view = f.view === undefined ? 3 : Math.round(n(f.view, scope));
+  const b = box(P), N = P.length;
+  // the highest (axis 1) or rightmost (axis 0) point of the profile on a grid line
+  const reach = (axis: number, at: number) => {
+    let best = -Infinity;
+    for (let i = 0; i < N; i++) {
+      const p = P[i], q = P[(i + 1) % N], a = p[1 - axis], c = q[1 - axis];
+      if (a === at && c === at) best = Math.max(best, p[axis], q[axis]);
+      else if ((a - at) * (c - at) <= 0 && a !== c) best = Math.max(best, p[axis] + ((q[axis] - p[axis]) * (at - a)) / (c - a));
+    }
+    return best;
+  };
+  const style = (axis: number, at: number) => (P.some((p) => p[1 - axis] === at && Math.abs(p[axis] - reach(axis, at)) < 1e-9) ? 1 : 2);
+  const line = (k: number, x1: number, y1: number, x2: number, y2: number) =>
+    `<path d="M${x1.toFixed(1)},${y1.toFixed(1)} L${x2.toFixed(1)},${y2.toFixed(1)}" stroke="#333" ${k === 1 ? 'stroke-width="1.8"' : 'stroke-width="1.2" stroke-dasharray="4 3"'}/>`;
+  if (view === 1) return svg((b.x1 - b.x0) * U + 2 * PAD, (b.z1 - b.z0) * U + 2 * PAD, outline(P, PAD, PAD, b.z1, b.x0));
+  if (view === 0) {
+    const W = (b.x1 - b.x0) * U, Hh = D * U;
+    let s = `<rect x="${PAD}" y="${PAD}" width="${W}" height="${Hh}" stroke="#333" stroke-width="1.8"/>`;
+    for (const x of new Set(P.map((p) => p[0]))) if (x > b.x0 && x < b.x1) s += line(style(1, x), PAD + (x - b.x0) * U, PAD, PAD + (x - b.x0) * U, PAD + Hh);
+    return svg(W + 2 * PAD, Hh + 2 * PAD, s);
+  }
+  if (view === 2) {
+    const W = D * U, Hh = (b.z1 - b.z0) * U;
+    let s = `<rect x="${PAD}" y="${PAD}" width="${W}" height="${Hh}" stroke="#333" stroke-width="1.8"/>`;
+    for (const z of new Set(P.map((p) => p[1]))) if (z > b.z0 && z < b.z1) s += line(style(0, z), PAD, PAD + (b.z1 - z) * U, PAD + W, PAD + (b.z1 - z) * U);
+    return svg(W + 2 * PAD, Hh + 2 * PAD, s);
+  }
+  // isometric picture, drawn as the cube stacks are: x runs down-right, depth runs up-right, z up
+  const cx = Math.cos(Math.PI / 6) * U, cy = Math.sin(Math.PI / 6) * U;
+  const ox = D * cx + PAD, oy = b.z1 * U + PAD;
+  const Q = (x: number, r: number, z: number) => `${(ox + (x - r) * cx).toFixed(1)},${(oy + (x + r) * cy - z * U).toFixed(1)}`;
+  let area = 0;
+  for (let i = 0; i < N; i++) area += P[i][0] * P[(i + 1) % N][1] - P[(i + 1) % N][0] * P[i][1];
+  const sides: { key: number; svg: string }[] = [];
+  for (let i = 0; i < N; i++) {
+    const p = P[i], q = P[(i + 1) % N], sgn = area > 0 ? 1 : -1;
+    const nx = (q[1] - p[1]) * sgn, nz = -(q[0] - p[0]) * sgn; // outward normal of this side face
+    if (nx + nz <= 0) continue; // turned away from the eye
+    const fill = nx > 0 && nz > 0 ? "#cdcdcd" : nx > 0 ? "#b8b8b8" : "#f5f5f5";
+    sides.push({ key: p[0] + q[0] + p[1] + q[1], svg: `<polygon points="${[Q(p[0], D, p[1]), Q(q[0], D, q[1]), Q(q[0], 0, q[1]), Q(p[0], 0, p[1])].join(" ")}" fill="${fill}" stroke="#333" stroke-width="1" stroke-linejoin="round"/>` });
+  }
+  sides.sort((u, v) => u.key - v.key);
+  const front = `<polygon points="${P.map((p) => Q(p[0], D, p[1])).join(" ")}" fill="#d9d9d9" stroke="#333" stroke-width="1" stroke-linejoin="round"/>`;
+  return svg((D + b.x1) * cx + 2 * PAD, b.z1 * U + (D + b.x1) * cy + 2 * PAD, sides.map((q) => q.svg).join("") + front);
 }
 
 /** figures stacked top to bottom, an arrow between each pair: the states of a mechanism */
@@ -370,6 +465,7 @@ export function renderFigure(f: any, scope: Scope): string {
     case "scheme": return scheme(f, scope);
     case "cubes": return cubes(f, scope);
     case "views": return views(f, scope);
+    case "prism": return prism(f, scope);
     default: throw new Error(`unknown figure type ${f?.type}`);
   }
 }

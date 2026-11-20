@@ -2045,7 +2045,9 @@
         "P7"
        ],
        "drills": [
-        "~pat-keyhole-direction"
+        "pat-keyhole-pick",
+        "pat-prism-keyhole-pick",
+        "pat-keyhole-direction"
        ]
       },
       {
@@ -2059,7 +2061,8 @@
         "P8"
        ],
        "drills": [
-        "~pat-keyhole-direction"
+        "pat-prism-keyhole-pick",
+        "pat-keyhole-pick"
        ]
       }
      ]
@@ -2080,10 +2083,15 @@
         "P5"
        ],
        "drills": [
-        "~pat-view-identify",
-        "~pat-view-draw-top",
-        "~pat-view-draw-front",
-        "~pat-view-draw-end"
+        "pat-view-missing-top",
+        "pat-view-missing-front",
+        "pat-view-missing-end",
+        "pat-view-draw-top",
+        "pat-view-draw-front",
+        "pat-view-draw-end",
+        "pat-prism-draw-top",
+        "pat-prism-draw-front",
+        "pat-prism-draw-end"
        ]
       },
       {
@@ -2096,7 +2104,8 @@
         "P6"
        ],
        "drills": [
-        "pat-view-identify"
+        "pat-view-identify",
+        "pat-prism-view-identify"
        ]
       }
      ]
@@ -3787,34 +3796,42 @@
    "code": "DAT-4.1.A",
    "unit": 4,
    "topic": 1,
-   "status": "partial",
-   "full": [],
-   "partial": [
+   "status": "ok",
+   "full": [
+    "pat-keyhole-pick",
+    "pat-prism-keyhole-pick",
     "pat-keyhole-direction"
-   ]
+   ],
+   "partial": []
   },
   {
    "code": "DAT-4.1.B",
    "unit": 4,
    "topic": 1,
-   "status": "partial",
-   "full": [],
-   "partial": [
-    "pat-keyhole-direction"
-   ]
+   "status": "ok",
+   "full": [
+    "pat-prism-keyhole-pick",
+    "pat-keyhole-pick"
+   ],
+   "partial": []
   },
   {
    "code": "DAT-4.2.A",
    "unit": 4,
    "topic": 2,
-   "status": "partial",
-   "full": [],
-   "partial": [
-    "pat-view-identify",
+   "status": "ok",
+   "full": [
+    "pat-view-missing-top",
+    "pat-view-missing-front",
+    "pat-view-missing-end",
     "pat-view-draw-top",
     "pat-view-draw-front",
-    "pat-view-draw-end"
-   ]
+    "pat-view-draw-end",
+    "pat-prism-draw-top",
+    "pat-prism-draw-front",
+    "pat-prism-draw-end"
+   ],
+   "partial": []
   },
   {
    "code": "DAT-4.2.B",
@@ -3822,7 +3839,8 @@
    "topic": 2,
    "status": "ok",
    "full": [
-    "pat-view-identify"
+    "pat-view-identify",
+    "pat-prism-view-identify"
    ],
    "partial": []
   },
