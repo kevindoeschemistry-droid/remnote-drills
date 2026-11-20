@@ -2,7 +2,7 @@
 
 Generated from `drills/frameworks/physical-chemistry.yaml` by `scripts/framework.mjs`. ● drilled · ◐ partly · ○ no drills yet.
 
-**141 learning objectives** in 22 units (141 core): 66 drilled, 14 partly, 61 with no drills. Core: 66 / 141 drilled.
+**141 learning objectives** in 22 units (141 core): 95 drilled, 19 partly, 27 with no drills. Core: 95 / 141 drilled.
 
 ## Big ideas
 
@@ -35,12 +35,12 @@ Generated from `drills/frameworks/physical-chemistry.yaml` by `scripts/framework
 | 8 · Electrolyte solutions | core | — | 4 | 2 | 0 | 2 |
 | 9 · Electrochemical cells | core | — | 4 | 3 | 0 | 1 |
 | 10 · From classical to quantum mechanics | core | — | 4 | 4 | 0 | 0 |
-| 11 · The Schrödinger equation and the postulates | core | — | 8 | 1 | 0 | 7 |
-| 12 · Model systems: box, oscillator and rotor | core | — | 12 | 3 | 1 | 8 |
-| 13 · Vibrational and rotational spectroscopy | core | — | 4 | 0 | 2 | 2 |
-| 14 · The hydrogen atom and many-electron atoms | core | — | 9 | 0 | 1 | 8 |
-| 15 · Chemical bonding and computational chemistry | core | — | 10 | 0 | 0 | 10 |
-| 16 · Electronic spectroscopy | core | — | 4 | 1 | 1 | 2 |
+| 11 · The Schrödinger equation and the postulates | core | — | 8 | 6 | 1 | 1 |
+| 12 · Model systems: box, oscillator and rotor | core | — | 12 | 10 | 2 | 0 |
+| 13 · Vibrational and rotational spectroscopy | core | — | 4 | 2 | 2 | 0 |
+| 14 · The hydrogen atom and many-electron atoms | core | — | 9 | 7 | 2 | 0 |
+| 15 · Chemical bonding and computational chemistry | core | — | 10 | 7 | 2 | 1 |
+| 16 · Electronic spectroscopy | core | — | 4 | 2 | 1 | 1 |
 | 17 · Molecular symmetry | core | — | 5 | 5 | 0 | 0 |
 | 18 · Nuclear magnetic resonance | core | — | 5 | 2 | 0 | 3 |
 | 19 · Probability and the Boltzmann distribution | core | — | 6 | 3 | 2 | 1 |
@@ -311,12 +311,12 @@ Big ideas: QUANT
 
 Book: engel-reid-3e §13.5, §13.6, §13.7
 
-- ○ **PC-11.1.A** Test whether a function is an eigenfunction of an operator and find the eigenvalue.
+- ● **PC-11.1.A** Test whether a function is an eigenfunction of an operator and find the eigenvalue.
   - EK: Âψ = aψ; applying the operator must return the same function times a constant.
-  - P2 · P5
-- ○ **PC-11.1.B** Show that two wavefunctions are orthogonal and normalise a wavefunction.
+  - P2 · P5 · drills: qm-eigenvalue
+- ◐ **PC-11.1.B** Show that two wavefunctions are orthogonal and normalise a wavefunction.
   - EK: ∫ψ_m*ψ_n dτ = δ_mn; eigenfunctions of a Hermitian operator with different eigenvalues are orthogonal.
-  - P2 · P5
+  - P2 · P5 · drills: ~qm-normalization-constant
 - ○ **PC-11.1.C** Expand a function in a complete set of eigenfunctions and compute a coefficient.
   - EK: f = Σ c_n ψ_n with c_n = ∫ψ_n* f dτ.
   - P2 · P5
@@ -325,23 +325,23 @@ Book: engel-reid-3e §13.5, §13.6, §13.7
 
 Book: engel-reid-3e §14.1, §14.4, §14.5
 
-- ○ **PC-11.2.A** Calculate the probability of finding a particle in a region from its wavefunction.
+- ● **PC-11.2.A** Calculate the probability of finding a particle in a region from its wavefunction.
   - EK: P = ∫|ψ|² dτ over the region; the total over all space is 1.
-  - P2 · P5
-- ○ **PC-11.2.B** Calculate the expectation value of an observable.
+  - P2 · P5 · drills: qm-pib-probability, qm-superposition-probability
+- ● **PC-11.2.B** Calculate the expectation value of an observable.
   - EK: ⟨A⟩ = ∫ψ*Âψ dτ; equals the eigenvalue when ψ is an eigenfunction of Â.
-  - P2 · P5
-- ○ **PC-11.2.C** Write the time dependence of a superposition and say when a probability density changes with time.
+  - P2 · P5 · drills: qm-expectation-energy
+- ● **PC-11.2.C** Write the time dependence of a superposition and say when a probability density changes with time.
   - EK: Each term carries e^(−iE_n t/ħ); a single eigenstate is stationary, a superposition beats at (E_m − E_n)/h.
-  - P2 · P5
+  - P2 · P5 · drills: qm-time-dependence
 
 ### 11.3 Commutation and uncertainty
 
 Book: engel-reid-3e §17.1, §17.3
 
-- ○ **PC-11.3.A** Evaluate a commutator and decide whether two observables can be known together.
+- ● **PC-11.3.A** Evaluate a commutator and decide whether two observables can be known together.
   - EK: [x̂, p̂_x] = iħ; observables whose operators commute share eigenfunctions.
-  - P2 · P5
+  - P2 · P5 · drills: qm-commutator, qm-compatible-observables
 - ● **PC-11.3.B** Estimate the minimum uncertainty in momentum or position from the uncertainty principle.
   - EK: Δx Δp_x ≥ ħ/2.
   - P3 · drills: pc-uncertainty
@@ -357,12 +357,12 @@ Book: engel-reid-3e §15.2, §15.2, §15.3, §16.3
 - ● **PC-12.1.A** Calculate particle-in-a-box energy levels and the wavelength of a transition between them.
   - EK: E_n = n²h²/8mL²; spacing grows with n and shrinks as the box or the mass gets larger.
   - P3 · drills: pc-pib-energy
-- ○ **PC-12.1.B** Use the particle-in-a-box wavefunction to locate nodes and compute a probability.
+- ● **PC-12.1.B** Use the particle-in-a-box wavefunction to locate nodes and compute a probability.
   - EK: ψ_n = √(2/L) sin(nπx/L); n − 1 interior nodes.
-  - P2 · P5
-- ○ **PC-12.1.C** Calculate energies and degeneracies for a particle in a three-dimensional box.
+  - P2 · P5 · drills: qm-pib-node, qm-pib-probability
+- ● **PC-12.1.C** Calculate energies and degeneracies for a particle in a three-dimensional box.
   - EK: E = (h²/8m)(n_x²/a² + n_y²/b² + n_z²/c²); a cube makes permutations of the quantum numbers degenerate.
-  - P2 · P5
+  - P2 · P5 · drills: qm-3d-box-degeneracy
 - ◐ **PC-12.1.D** Estimate the absorption wavelength of a conjugated molecule with the free-electron model.
   - EK: Fill levels two electrons at a time; ΔE(HOMO→LUMO) = (2n + 1)h²/8m_eL².
   - P3 · drills: ~pc-pib-energy
@@ -371,15 +371,15 @@ Book: engel-reid-3e §15.2, §15.2, §15.3, §16.3
 
 Book: engel-reid-3e §16.1, §16.5, §16.6
 
-- ○ **PC-12.2.A** Calculate the decay constant of a wavefunction inside a classically forbidden region.
+- ● **PC-12.2.A** Calculate the decay constant of a wavefunction inside a classically forbidden region.
   - EK: ψ ∝ e^(−κx) with κ = √(2m(V₀ − E))/ħ.
-  - P2 · P5
-- ○ **PC-12.2.B** Estimate the transmission probability through a barrier.
+  - P2 · P5 · drills: qm-tunnelling-decay-constant
+- ● **PC-12.2.B** Estimate the transmission probability through a barrier.
   - EK: T ≈ e^(−2κL); exponentially sensitive to width, mass and barrier height.
-  - P2 · P5
-- ○ **PC-12.2.C** Compare tunnelling probabilities when the mass or the barrier width changes.
+  - P2 · P5 · drills: qm-tunnelling-probability
+- ● **PC-12.2.C** Compare tunnelling probabilities when the mass or the barrier width changes.
   - EK: Electrons tunnel far more readily than protons; an STM current falls about tenfold per ångström.
-  - P2 · P5
+  - P2 · P5 · drills: qm-tunnelling-compare
 
 ### 12.3 Vibration and rotation
 
@@ -388,18 +388,18 @@ Book: engel-reid-3e §18.3, §18:rotation-2d, §18.5, §18.6, §18:spherical-har
 - ● **PC-12.3.A** Calculate the vibrational frequency, level spacing and zero-point energy of a harmonic oscillator.
   - EK: E_v = (v + ½)hν with ν = (1/2π)√(k/μ); zero-point energy ½hν.
   - P3 · drills: pc-harmonic
-- ○ **PC-12.3.B** Calculate the energy levels of a particle on a ring.
+- ● **PC-12.3.B** Calculate the energy levels of a particle on a ring.
   - EK: E_m = m²ħ²/2I, m = 0, ±1, ±2, …; all levels except m = 0 are doubly degenerate.
-  - P2 · P5
+  - P2 · P5 · drills: qm-ring-transition
 - ● **PC-12.3.C** Calculate the moment of inertia, rotational levels and level spacings of a diatomic rigid rotor.
   - EK: E_J = J(J + 1)ħ²/2I with I = μr²; each level is (2J + 1)-fold degenerate.
   - P3 · drills: pc-rigid-rotor
-- ○ **PC-12.3.D** Calculate the magnitude and z-component of an angular momentum from its quantum numbers.
+- ● **PC-12.3.D** Calculate the magnitude and z-component of an angular momentum from its quantum numbers.
   - EK: |L| = √(J(J + 1)) ħ; L_z = m_J ħ.
-  - P2 · P5
-- ○ **PC-12.3.E** Identify the eigenvalues of L̂² and L̂_z for a spherical harmonic.
+  - P2 · P5 · drills: qm-angular-momentum-magnitude
+- ◐ **PC-12.3.E** Identify the eigenvalues of L̂² and L̂_z for a spherical harmonic.
   - EK: L̂²Y_l^m = l(l + 1)ħ²Y_l^m; L̂_zY_l^m = mħY_l^m.
-  - P2 · P5
+  - P2 · P5 · drills: ~qm-angular-momentum-magnitude
 
 ## Unit 13 · Vibrational and rotational spectroscopy
 
@@ -412,15 +412,15 @@ Book: engel-reid-3e §19.3, §19.4, §19.6, §19:einstein
 - ◐ **PC-13.1.A** Calculate a vibrational wavenumber from a force constant and reduced mass, and the reverse.
   - EK: ν̃ = (1/2πc)√(k/μ); heavier isotopes shift the band to lower wavenumber.
   - P3 · drills: ~pc-harmonic
-- ○ **PC-13.1.B** Apply selection rules to decide whether a vibration or rotation absorbs.
+- ● **PC-13.1.B** Apply selection rules to decide whether a vibration or rotation absorbs.
   - EK: Δv = ±1 with a changing dipole; ΔJ = ±1 with a permanent dipole.
-  - P2 · P5
+  - P2 · P5 · drills: qm-selection-rules
 - ◐ **PC-13.1.C** Calculate a bond length from the spacing of lines in a rotational spectrum.
   - EK: Lines at 2B̃(J + 1), spaced 2B̃, with B̃ = h/8π²cI.
   - P3 · drills: ~pc-rigid-rotor
-- ○ **PC-13.1.D** Relate the Einstein coefficients for absorption, stimulated emission and spontaneous emission.
+- ● **PC-13.1.D** Relate the Einstein coefficients for absorption, stimulated emission and spontaneous emission.
   - EK: B₁₂ = B₂₁; A₂₁/B₂₁ = 8πhν³/c³, so spontaneous emission dominates at high frequency.
-  - P2 · P5
+  - P2 · P5 · drills: qm-einstein-coefficients
 
 ## Unit 14 · The hydrogen atom and many-electron atoms
 
@@ -430,43 +430,43 @@ Big ideas: QUANT
 
 Book: engel-reid-3e §20.3, §20.4, §20:radial-prob
 
-- ◐ **PC-14.1.A** Calculate hydrogen-like energy levels and ionisation energies.
+- ● **PC-14.1.A** Calculate hydrogen-like energy levels and ionisation energies.
   - EK: E_n = −13.606 eV Z²/n².
-  - P3 · drills: ~pc-bohr
-- ○ **PC-14.1.B** List the allowed quantum numbers and count the orbitals in a shell.
+  - P3 · drills: qm-hydrogenlike-ionization
+- ● **PC-14.1.B** List the allowed quantum numbers and count the orbitals in a shell.
   - EK: l = 0 … n − 1, m_l = −l … l; n² orbitals and 2n² electrons per shell.
-  - P2 · P5
-- ○ **PC-14.1.C** Find the most probable radius from a radial distribution function.
+  - P2 · P5 · drills: qm-orbitals-in-shell
+- ● **PC-14.1.C** Find the most probable radius from a radial distribution function.
   - EK: P(r) = r²|R(r)|²; for 1s the maximum is at a₀.
-  - P2 · P5
+  - P2 · P5 · drills: qm-most-probable-radius
 
 ### 14.2 Many-electron atoms
 
 Book: engel-reid-3e §21.4, §21.6, §21:hf-scf
 
-- ○ **PC-14.2.A** Use the variational principle to judge and improve a trial wavefunction.
+- ● **PC-14.2.A** Use the variational principle to judge and improve a trial wavefunction.
   - EK: ⟨E⟩_trial ≥ E₀ for any trial function; lower is better.
-  - P2 · P5
-- ○ **PC-14.2.B** Estimate an effective nuclear charge with Slater's rules.
+  - P2 · P5 · drills: qm-variational-principle
+- ● **PC-14.2.B** Estimate an effective nuclear charge with Slater's rules.
   - EK: Z_eff = Z − σ; same-shell electrons shield about 0.35, the shell below 0.85, deeper shells 1.00.
-  - P2 · P5
-- ○ **PC-14.2.C** Describe how the Hartree–Fock energy is built from one-electron, Coulomb and exchange terms.
+  - P2 · P5 · drills: qm-slater-zeff
+- ◐ **PC-14.2.C** Describe how the Hartree–Fock energy is built from one-electron, Coulomb and exchange terms.
   - EK: E_HF = Σ h_i + Σ(2J_ij − K_ij); it is not the sum of orbital energies.
-  - P2 · P5
+  - P2 · P5 · drills: ~qm-hf-two-electron-energy
 
 ### 14.3 Atomic states and spectra
 
 Book: engel-reid-3e §22.1, §22:config-energy, §22.3
 
-- ○ **PC-14.3.A** Write the term symbols that arise from an electron configuration.
+- ◐ **PC-14.3.A** Write the term symbols that arise from an electron configuration.
   - EK: ²ˢ⁺¹L_J with J from |L − S| to L + S.
-  - P2 · P5
-- ○ **PC-14.3.B** Use Hund's rules to pick the ground-state term.
+  - P2 · P5 · drills: ~qm-ground-term
+- ● **PC-14.3.B** Use Hund's rules to pick the ground-state term.
   - EK: Highest S first, then highest L; J = |L − S| for a less-than-half-filled shell, L + S for more.
-  - P2 · P5
-- ○ **PC-14.3.C** Calculate the spin–orbit splitting between levels of a term.
+  - P2 · P5 · drills: qm-ground-term, qm-ground-level-j
+- ● **PC-14.3.C** Calculate the spin–orbit splitting between levels of a term.
   - EK: ΔE = ½A[J(J + 1) − L(L + 1) − S(S + 1)].
-  - P2 · P5
+  - P2 · P5 · drills: qm-lande-interval
 
 ## Unit 15 · Chemical bonding and computational chemistry
 
@@ -476,46 +476,46 @@ Big ideas: QUANT
 
 Book: engel-reid-3e §23:h2-plus, §23.3, §23:homonuclear, §23.7
 
-- ○ **PC-15.1.A** Calculate the bonding and antibonding energies of H₂⁺ from the LCAO integrals.
+- ● **PC-15.1.A** Calculate the bonding and antibonding energies of H₂⁺ from the LCAO integrals.
   - EK: E_± = (H_AA ± H_AB)/(1 ± S_AB).
-  - P2 · P5
-- ○ **PC-15.1.B** Explain why the antibonding orbital is raised more than the bonding orbital is lowered.
+  - P2 · P5 · drills: qm-lcao-bonding-energy
+- ◐ **PC-15.1.B** Explain why the antibonding orbital is raised more than the bonding orbital is lowered.
   - EK: ψ_± = (ψ_A ± ψ_B)/√(2(1 ± S)); the overlap S makes the splitting asymmetric.
-  - P2 · P5
-- ○ **PC-15.1.C** Fill a molecular-orbital diagram for a homonuclear diatomic and predict magnetism.
+  - P2 · P5 · drills: ~qm-lcao-bonding-energy
+- ● **PC-15.1.C** Fill a molecular-orbital diagram for a homonuclear diatomic and predict magnetism.
   - EK: Fill in energy order, two per orbital, Hund's rule in degenerate pairs; unpaired electrons mean paramagnetic.
-  - P2 · P5
-- ○ **PC-15.1.D** Calculate a bond order and use it to rank bond length and strength.
+  - P2 · P5 · drills: qm-paramagnetism
+- ● **PC-15.1.D** Calculate a bond order and use it to rank bond length and strength.
   - EK: Bond order = (n_bonding − n_antibonding)/2; higher order, shorter and stronger bond.
-  - P2 · P5
+  - P2 · P5 · drills: qm-bond-order
 
 ### 15.2 Polyatomic molecules
 
 Book: engel-reid-3e §24.2, §24.5, §24:huckel
 
-- ○ **PC-15.2.A** Assign hybridisation and predict geometry from the number of electron domains.
+- ● **PC-15.2.A** Assign hybridisation and predict geometry from the number of electron domains.
   - EK: sp linear 180°, sp² trigonal 120°, sp³ tetrahedral 109.5°.
-  - P2 · P5
+  - P2 · P5 · drills: qm-hybridisation
 - ○ **PC-15.2.B** Use qualitative MO theory to identify the HOMO and LUMO and predict a geometry.
   - EK: A Walsh diagram tracks orbital energy against angle; the HOMO decides the shape.
   - P2 · P5
-- ○ **PC-15.2.C** Calculate Hückel π-orbital energies and the π-electron energy of a conjugated chain.
+- ● **PC-15.2.C** Calculate Hückel π-orbital energies and the π-electron energy of a conjugated chain.
   - EK: E_k = α + 2β cos(kπ/(N + 1)), k = 1 … N; β is negative.
-  - P2 · P5
+  - P2 · P5 · drills: qm-huckel-chain
 
 ### 15.3 Computational chemistry
 
 Book: engel-reid-3e §26:hf, §26:pes, §26:post-hf
 
-- ○ **PC-15.3.A** Compute a Hartree–Fock energy from given one- and two-electron integrals.
+- ● **PC-15.3.A** Compute a Hartree–Fock energy from given one- and two-electron integrals.
   - EK: E_HF = Σ h_i + ½ Σ(J_ij − K_ij) over spin orbitals.
-  - P2 · P5
-- ○ **PC-15.3.B** Classify stationary points on a potential-energy surface.
+  - P2 · P5 · drills: qm-hf-two-electron-energy
+- ● **PC-15.3.B** Classify stationary points on a potential-energy surface.
   - EK: All first derivatives vanish; a minimum has no negative curvatures, a transition state exactly one.
-  - P2 · P5
-- ○ **PC-15.3.C** Calculate a correlation energy and rank methods by the correlation they recover.
+  - P2 · P5 · drills: qm-stationary-point
+- ◐ **PC-15.3.C** Calculate a correlation energy and rank methods by the correlation they recover.
   - EK: E_corr = E_exact − E_HF, always negative; HF < MP2 < CCSD(T) toward the exact answer.
-  - P2 · P5
+  - P2 · P5 · drills: ~qm-correlation-energy
 
 ## Unit 16 · Electronic spectroscopy
 
@@ -534,9 +534,9 @@ Book: engel-reid-3e §25.1, §25.5, §25:franck-condon, §25.7
 - ○ **PC-16.1.C** Use the Franck–Condon principle to predict which vibronic band is strongest.
   - EK: Transitions are vertical; intensity follows the overlap |⟨χ_v′|χ_v⟩|².
   - P2 · P5
-- ○ **PC-16.1.D** Calculate a Stokes shift and explain why emission is at longer wavelength than absorption.
+- ● **PC-16.1.D** Calculate a Stokes shift and explain why emission is at longer wavelength than absorption.
   - EK: Vibrational relaxation in the excited state comes first, so λ_em > λ_abs.
-  - P2 · P5
+  - P2 · P5 · drills: qm-stokes-shift
 
 ## Unit 17 · Molecular symmetry
 

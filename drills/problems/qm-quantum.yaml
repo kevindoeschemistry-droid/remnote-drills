@@ -1,0 +1,461 @@
+# Quantum chemistry: postulates, model systems, atoms, bonding, computational chemistry.
+# Fills the quantum half of the Physical Chemistry framework (Engel & Reid ch. 13-26; the same
+# ground as McQuarrie & Simon ch. 3-11). One question each. Integrals, eigenvalues and degeneracies
+# are recomputed by sympy; term symbols, electron counts and qualitative rules are authored.
+
+# ── postulates ──────────────────────────────────────────────────────────────
+- template: qm-eigenvalue
+  skill: quantum.postulates
+  pace: quick
+  given: { k: { pick: [2, 3, 4, 5] } }
+  cases:
+    - { f: 'sin(k*x)', tex: '\sin', sg: -1 }
+    - { f: 'cos(k*x)', tex: '\cos', sg: -1 }
+    - { f: 'exp(k*x)', tex: '\exp', sg: 1 }
+    - { f: 'exp(-k*x)', tex: '\exp -', sg: 1 }
+  prompt: 'The function $f(x) = {{tex}}({{k}}x)$ is an eigenfunction of $\dfrac{d^2}{dx^2}$. What is its eigenvalue?'
+  parts:
+    - { ask: 'Eigenvalue', label: r, tex: '\lambda', value: sg*k^2, tol: 0.0001, explain: 'Differentiate twice and compare with the original. An exponential $e^{\pm kx}$ returns $+k^2$ times itself; a sine or cosine returns $-k^2$ times itself. The eigenvalue is whatever constant multiplies the function you started with' }
+  verify: { expect: { r: "simplify(diff(S(f), x, 2)/S(f)).subs(Symbol('k'), k)" } }
+
+- template: qm-normalization-constant
+  skill: quantum.postulates
+  pace: quick
+  given: { L: { pick: [1, 2, 4, 8] }, n: { pick: [1, 2, 3] } }
+  prompt: 'Normalise $\psi(x) = N\sin\dfrac{ {{n}}\pi x}{ {{L}} }$ on $0 \le x \le {{L}}$. What is $N$ (taken positive)?'
+  parts:
+    - { ask: '$N$', label: r, tex: 'N', value: sqrt(2/L), tol: 0.001, explain: '$\displaystyle\int_0^L \sin^2\dfrac{n\pi x}{L}\,dx = \dfrac L2$ for any whole number $n$ (sine squared averages one half), so $N^2\dfrac L2 = 1$ and $N = \sqrt{2/L}$' }
+  verify: { expect: { r: "Max(*solve(Eq(x**2*integrate(sin(n*pi*Symbol('z')/L)**2, (Symbol('z'), 0, L)), 1), x))" } }
+
+- template: qm-superposition-probability
+  skill: quantum.postulates
+  pace: quick
+  given: { a: { pick: [1, 2, 3] }, b: { pick: [1, 2, 3, 4] } }
+  prompt: 'A particle is in the state $\psi = c\,({{a}}\,\psi_1 + {{b}}\,\psi_2)$, where $\psi_1$ and $\psi_2$ are normalised eigenfunctions with energies $E_1$ and $E_2$. What is the probability that an energy measurement gives $E_2$?'
+  parts:
+    - { ask: 'Probability of $E_2$', label: r, tex: 'P_2', value: b^2/(a^2 + b^2), tol: 0.001, explain: 'Probabilities are squared coefficients after normalising: $P_2 = \dfrac{ {{b}}^2}{ {{a}}^2 + {{b}}^2}$. The cross terms vanish because the eigenfunctions are orthogonal' }
+  verify: { expect: { r: "[s[x] for s in solve([Eq(Symbol('u') + x, 1), Eq(x*a**2, Symbol('u')*b**2)], [x, Symbol('u')], dict=True)][0]" } }
+
+- template: qm-expectation-energy
+  skill: quantum.postulates
+  pace: quick
+  given: { a: { pick: [1, 2, 3] }, b: { pick: [1, 2] }, m: { pick: [2, 3] } }
+  prompt: 'A particle in a box is in the state $c\,({{a}}\,\psi_1 + {{b}}\,\psi_{ {{m}} })$. What is the expectation value of its energy, in units of the ground-state energy $E_1$?'
+  parts:
+    - { ask: '$\langle E\rangle / E_1$', label: r, tex: '\langle E\rangle', value: (a^2 + b^2*m^2)/(a^2 + b^2), tol: 0.001, explain: 'Weight each energy by its probability: $E_n = n^2E_1$, so $\langle E\rangle = \dfrac{ {{a}}^2(1) + {{b}}^2({{m}}^2)}{ {{a}}^2 + {{b}}^2}\,E_1$. No single measurement returns this value; it is the average of many' }
+  verify: { expect: { r: "(a**2*1 + b**2*m**2)/(a**2 + b**2)" } }
+
+- template: qm-time-dependence
+  skill: quantum.postulates
+  pace: recall
+  cases:
+    - { q: 'A particle is in a single energy eigenstate. Does its probability density change with time?', ans: 0 }
+    - { q: 'A particle is in a superposition of two eigenstates with different energies. Does its probability density change with time?', ans: 1 }
+    - { q: 'What multiplies each eigenfunction as time passes?', ans: 2 }
+  prompt: '{{q}}'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["No: the phase factor cancels in |ψ|², which is why it is called a stationary state", "Yes: it oscillates at the frequency (E₂ − E₁)/h", "A phase factor exp(−iEt/ħ)"]
+      correct: ans
+      explain: 'Each eigenfunction carries $e^{-iE_nt/\hbar}$. In one state it disappears from $|\psi|^2$. In a superposition the two phases beat against each other, so the density sloshes at the Bohr frequency $(E_2 - E_1)/h$'
+  verify: { authored: true }
+
+- template: qm-commutator
+  skill: quantum.postulates
+  pace: quick
+  given: { n: { pick: [1, 2, 3, 4] } }
+  prompt: 'Evaluate the commutator $\left[\dfrac{d}{dx},\, x^{ {{n}} }\right]$ acting on a function $f$. The result is $c\,x^{ {{n - 1}} }f$. What is $c$?'
+  parts:
+    - { ask: '$c$', label: r, tex: 'c', value: n, tol: 0.0001, explain: '$\dfrac{d}{dx}(x^nf) - x^n\dfrac{df}{dx} = nx^{n-1}f$: the product rule leaves one term standing. With $n = 1$ this is $[d/dx, x] = 1$, the root of $[\hat x, \hat p] = i\hbar$' }
+  verify: { expect: { r: "simplify((diff(x**n*exp(2*x), x) - x**n*diff(exp(2*x), x))/(x**(n - 1)*exp(2*x)))" } }
+
+- template: qm-compatible-observables
+  skill: quantum.postulates
+  pace: recall
+  cases:
+    - { q: 'position $x$ and momentum $p_x$', ans: 1 }
+    - { q: 'position $x$ and momentum $p_y$', ans: 0 }
+    - { q: '$L^2$ and $L_z$', ans: 0 }
+    - { q: '$L_x$ and $L_y$', ans: 1 }
+    - { q: 'the energy and $L^2$ of a hydrogen atom', ans: 0 }
+  prompt: 'Can these two observables be known exactly at the same time? {{q}}'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["Yes: their operators commute", "No: their operators do not commute"]
+      correct: ans
+      explain: 'Two observables share a complete set of eigenfunctions, and so can both be sharp, exactly when their operators commute. $[\hat x, \hat p_x] = i\hbar$ and $[\hat L_x, \hat L_y] = i\hbar\hat L_z$ do not vanish'
+  verify: { authored: true }
+
+# ── model systems ───────────────────────────────────────────────────────────
+- template: qm-pib-probability
+  skill: quantum.model-systems
+  pace: quick
+  cases:
+    - { n: 1, fn: 1, fd: 4 }
+    - { n: 1, fn: 1, fd: 3 }
+    - { n: 2, fn: 1, fd: 4 }
+    - { n: 2, fn: 1, fd: 3 }
+    - { n: 3, fn: 1, fd: 4 }
+    - { n: 1, fn: 1, fd: 2 }
+    - { n: 2, fn: 1, fd: 8 }
+  prompt: 'A particle in a one-dimensional box of length $L$ is in the state $n = {{n}}$. What is the probability of finding it between $x = 0$ and $x = \tfrac{ {{fn}} }{ {{fd}} }L$?'
+  parts:
+    - { ask: 'Probability', label: r, tex: 'P', value: fn/fd - sin(2*pi*n*fn/fd)/(2*pi*n), tol: 0.005, explain: '$P = \dfrac2L\displaystyle\int_0^{fL}\sin^2\dfrac{n\pi x}{L}\,dx = f - \dfrac{\sin(2\pi nf)}{2\pi n}$ with $f = \tfrac{ {{fn}} }{ {{fd}} }$. The second term is the quantum correction to the classical answer $f$; it vanishes whenever the interval ends on a node or an antinode pair' }
+  verify: { expect: { r: "integrate(2*sin(n*pi*x)**2, (x, 0, Rational(fn, fd)))" } }
+
+- template: qm-pib-node
+  skill: quantum.model-systems
+  pace: recall
+  given: { n: { pick: [2, 3, 4, 5] }, L: { pick: [1, 2, 6, 10] } }
+  prompt: 'A particle in a box of length ${{L}}$ nm is in the state $n = {{n}}$. Where is the node nearest the left wall (not counting the wall itself), in nm?'
+  parts:
+    - { ask: 'Position (nm)', label: r, tex: 'x', value: L/n, tol: 0.001, explain: '$\sin\dfrac{n\pi x}{L} = 0$ at $x = \dfrac{kL}{n}$. State $n$ has $n - 1$ interior nodes, evenly spaced; more nodes means more curvature and more kinetic energy' }
+  verify: { expect: { r: "Min(*[s for s in solve(Eq(sin(n*pi*x/L), 0), x) if s > 0])" } }
+
+- template: qm-3d-box-degeneracy
+  skill: quantum.model-systems
+  pace: quick
+  cases:
+    - { E: 3 }
+    - { E: 6 }
+    - { E: 9 }
+    - { E: 11 }
+    - { E: 12 }
+    - { E: 14 }
+    - { E: 17 }
+  prompt: 'In a cubic box the energy is $E = (n_x^2 + n_y^2 + n_z^2)\,\dfrac{h^2}{8mL^2}$. How many states share the level with $n_x^2 + n_y^2 + n_z^2 = {{E}}$?'
+  parts:
+    - { ask: 'Degeneracy', label: r, tex: 'g', value: "E == 3 ? 1 : (E == 12 ? 1 : (E == 14 ? 6 : 3))", tol: 0.0001, explain: 'Find the sets of three positive whole numbers whose squares add to ${{E}}$, then count the distinct orderings: all equal gives 1, two equal gives 3, all different gives 6. Degeneracy comes from the symmetry of the cube' }
+  verify: { expect: { r: "box_degeneracy(E)" } }
+
+- template: qm-tunnelling-decay-constant
+  skill: quantum.model-systems
+  pace: quick
+  given: { dE: { pick: [0.5, 1, 2, 4] } }
+  prompt: 'An electron meets a barrier ${{dE}}$ eV higher than its energy. Inside the barrier $\psi \propto e^{-\kappa x}$ with $\kappa = \dfrac{\sqrt{2m(V - E)}}{\hbar}$. What is $\kappa$, in nm⁻¹? ($m_e = 9.109 \times 10^{-31}$ kg, $\hbar = 1.0546 \times 10^{-34}$ J·s, 1 eV = $1.602 \times 10^{-19}$ J.)'
+  parts:
+    - { ask: '$\kappa$ (nm⁻¹)', label: r, tex: '\kappa', value: sqrt(2*9.1093837015e-31*1.602176634e-19*dE)/1.054571817e-34*1e-9, tol: 0.01, explain: 'Worth carrying: for an electron, $\kappa \approx 5.1\sqrt{(V - E)/\text{eV}}$ nm⁻¹. A 1 eV barrier lets the wavefunction leak about 0.2 nm, the scale of an atom' }
+  verify: { expect: { r: "sqrt(2*c_me*c_e*dE)/(c_h/(2*pi))/1000000000" } }
+
+- template: qm-tunnelling-probability
+  skill: quantum.model-systems
+  pace: quick
+  given: { kap: { pick: [2, 5, 10] }, a: { pick: [0.1, 0.2, 0.5, 1] } }
+  prompt: 'A particle tunnels through a barrier of width ${{a}}$ nm in which its wavefunction decays with $\kappa = {{kap}}$ nm⁻¹. Estimate the transmission probability as $T \approx e^{-2\kappa a}$.'
+  parts:
+    - { ask: '$T$', label: r, tex: 'T', value: exp(-2*kap*a), tol: 0.02, explain: 'The amplitude falls by $e^{-\kappa a}$ across the barrier and the probability is its square: $e^{-2({{kap}})({{a}})}$. Because the width sits in the exponent, a slightly thinner barrier tunnels far more, which is how a scanning tunnelling microscope resolves atoms' }
+  verify: { expect: { r: "exp(-kap*a)**2" } }
+
+- template: qm-tunnelling-compare
+  skill: quantum.model-systems
+  pace: recall
+  cases:
+    - { q: 'an electron or a proton, at the same energy below the same barrier', ans: 0 }
+    - { q: 'hydrogen or deuterium, in the same reaction', ans: 0 }
+    - { q: 'a barrier 0.5 nm wide or one 1 nm wide', ans: 0 }
+    - { q: 'a barrier 4 eV above the particle energy or one 1 eV above', ans: 1 }
+  prompt: 'Which tunnels more readily: {{q}}?'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["The first", "The second"]
+      correct: ans
+      explain: '$T \approx \exp\!\left(-2a\sqrt{2m(V - E)}/\hbar\right)$: lighter, thinner and lower all help, and each sits inside the exponent. This is why tunnelling matters for electrons and hydrogen and almost never for heavier atoms'
+  verify: { authored: true }
+
+- template: qm-ring-transition
+  skill: quantum.model-systems
+  pace: quick
+  given: { m1: { pick: [0, 1, 2] }, d: { pick: [1, 2] } }
+  prompt: 'A particle on a ring has energies $E_m = \dfrac{m^2\hbar^2}{2I}$. What is the energy needed to go from $|m| = {{m1}}$ to $|m| = {{m1 + d}}$, in units of $\dfrac{\hbar^2}{2I}$?'
+  parts:
+    - { ask: 'Energy gap', label: r, tex: '\Delta E', value: (m1 + d)^2 - m1^2, tol: 0.0001, explain: '$\Delta E = \left[({{m1 + d}})^2 - ({{m1}})^2\right]\dfrac{\hbar^2}{2I}$. Every level except $m = 0$ is doubly degenerate (clockwise and anticlockwise), and there is no zero-point energy because $m = 0$ is allowed' }
+  verify: { expect: { r: "solve(Eq(x, (m1 + d)**2 - m1**2), x)[0]" } }
+
+- template: qm-angular-momentum-magnitude
+  skill: quantum.model-systems
+  pace: quick
+  given: { l: { pick: [1, 2, 3, 4] } }
+  prompt: 'What is the magnitude of the orbital angular momentum for $l = {{l}}$, in units of $\hbar$? And how many values of $m_l$ does it have? Answer the magnitude.'
+  parts:
+    - { ask: '$|L|/\hbar$', label: r, tex: '|L|', value: sqrt(l*(l + 1)), tol: 0.001, explain: '$|L| = \sqrt{l(l + 1)}\,\hbar$, the square root of the $\hat L^2$ eigenvalue $l(l + 1)\hbar^2$. The $z$-component is $m_l\hbar$ with $m_l = -l \dots l$, which is $2l + 1 = {{2*l + 1}}$ values; since $\sqrt{l(l+1)} > l$, the vector can never lie exactly along $z$' }
+  verify: { expect: { r: "Max(*solve(Eq(x**2, l*(l + 1)), x))" } }
+
+# ── spectroscopy ────────────────────────────────────────────────────────────
+- template: qm-selection-rules
+  skill: quantum.spectroscopy
+  pace: recall
+  cases:
+    - { q: 'the vibration of N₂ in the infrared', ans: 1 }
+    - { q: 'the vibration of HCl in the infrared', ans: 0 }
+    - { q: 'the pure rotational (microwave) spectrum of CO', ans: 0 }
+    - { q: 'the pure rotational (microwave) spectrum of H₂', ans: 1 }
+    - { q: 'a harmonic-oscillator transition from v = 0 to v = 2', ans: 1 }
+    - { q: 'a rigid-rotor absorption from J = 1 to J = 2', ans: 0 }
+  prompt: 'Is this allowed? {{q}}'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["Allowed", "Forbidden"]
+      correct: ans
+      explain: 'Rotation absorbs only if the molecule has a permanent dipole; vibration only if the dipole changes during it. Within those, the harmonic oscillator allows $\Delta v = \pm1$ and the rigid rotor $\Delta J = \pm1$. Overtones such as $0 \to 2$ appear weakly only because real bonds are anharmonic'
+  verify: { authored: true }
+
+- template: qm-einstein-coefficients
+  skill: quantum.spectroscopy
+  pace: recall
+  cases:
+    - { q: 'How do the Einstein coefficients for absorption and stimulated emission compare (non-degenerate levels)?', ans: 0 }
+    - { q: 'How does the ratio of spontaneous to stimulated emission, A/B, depend on frequency?', ans: 1 }
+    - { q: 'What does a laser need that thermal equilibrium never provides?', ans: 2 }
+  prompt: '{{q}}'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["They are equal: B₁₂ = B₂₁", "It rises as the cube of the frequency", "A population inversion: more molecules in the upper level than the lower"]
+      correct: ans
+      explain: 'Equal $B$ coefficients mean light is as likely to drive a molecule down as up, so net absorption only reflects the population difference. $A/B = 8\pi h\nu^3/c^3$: spontaneous emission dominates in the visible and ultraviolet and is negligible at radio frequencies'
+  verify: { authored: true }
+
+- template: qm-stokes-shift
+  skill: quantum.spectroscopy
+  pace: quick
+  given: { l1: { pick: [350, 400, 450, 488] }, d: { pick: [20, 40, 60, 100] } }
+  prompt: 'A dye absorbs at ${{l1}}$ nm and fluoresces at ${{l1 + d}}$ nm. What is the Stokes shift, in cm⁻¹?'
+  parts:
+    - { ask: 'Stokes shift (cm⁻¹)', label: r, tex: '\Delta\tilde\nu', value: 1e7/l1 - 1e7/(l1 + d), tol: 0.01, explain: 'Convert each wavelength to wavenumbers, $\tilde\nu = 10^7/\lambda(\text{nm})$, then subtract. Emission is always at lower energy: the excited molecule relaxes vibrationally before it emits, and lands in a vibrationally excited ground state' }
+  verify: { expect: { r: "solve(Eq(10000000/(10000000/l1 - x), l1 + d), x)[0]" } }
+
+# ── atoms ───────────────────────────────────────────────────────────────────
+- template: qm-hydrogenlike-ionization
+  skill: quantum.atoms
+  pace: quick
+  cases:
+    - { sp: 'H', Zn: 1 }
+    - { sp: 'He⁺', Zn: 2 }
+    - { sp: 'Li²⁺', Zn: 3 }
+  given: { n: { pick: [1, 2, 3] } }
+  prompt: 'How much energy removes the electron from the $n = {{n}}$ level of {{sp}}, in eV? (The hydrogen ground state lies at $-13.6$ eV.)'
+  parts:
+    - { ask: 'Energy (eV)', label: r, tex: 'E', value: 13.6*Zn^2/n^2, tol: 0.005, explain: '$E_n = -13.6\,\dfrac{Z^2}{n^2}$ eV, so ionising from level $n$ costs $13.6 \times \dfrac{ {{Zn}}^2}{ {{n}}^2}$ eV. The energy depends on $n$ alone, which is special to one-electron atoms' }
+  verify: { expect: { r: "solve(Eq(x*n**2, Rational(136, 10)*Zn**2), x)[0]" } }
+
+- template: qm-orbitals-in-shell
+  skill: quantum.atoms
+  pace: recall
+  given: { n: { pick: [1, 2, 3, 4, 5] } }
+  prompt: 'How many orbitals are there in the shell $n = {{n}}$?'
+  parts:
+    - { ask: 'Orbitals', label: r, tex: 'N', value: n^2, tol: 0.0001, explain: '$l$ runs from $0$ to $n - 1$ and each $l$ has $2l + 1$ orbitals: $1 + 3 + 5 + \dots = n^2$. With two spins that is $2n^2 = {{2*n^2}}$ electrons' }
+  verify: { expect: { r: "sum(2*q + 1 for q in range(n))" } }
+
+- template: qm-most-probable-radius
+  skill: quantum.atoms
+  pace: quick
+  cases:
+    - { orb: '1s', n: 1 }
+    - { orb: '2p', n: 2 }
+    - { orb: '3d', n: 3 }
+  given: { Zn: { pick: [1, 2, 3] } }
+  prompt: 'For the {{orb}} orbital of a one-electron atom with $Z = {{Zn}}$, the radial part goes as $r^{ {{n - 1}} }e^{-Zr/{{n}}a_0}$. At what radius is the electron most likely to be found, in units of $a_0$?'
+  parts:
+    - { ask: 'Radius ($a_0$)', label: r, tex: 'r_{mp}', value: n^2/Zn, tol: 0.001, explain: 'Maximise the radial distribution $r^2R^2 \propto r^{ {{2*n}} }e^{-2Zr/{{n}}a_0}$: set its derivative to zero to get $r = \dfrac{n^2a_0}{Z}$. For hydrogen 1s this is exactly the Bohr radius' }
+  verify: { expect: { r: "Max(*solve(diff(x**(2*n)*exp(-2*Zn*x/n), x), x))" } }
+
+- template: qm-slater-zeff
+  skill: quantum.atoms
+  pace: quick
+  cases:
+    - { el: 'carbon', orb: '2p', Zn: 6, same: 3, n1: 2, n2: 0 }
+    - { el: 'nitrogen', orb: '2p', Zn: 7, same: 4, n1: 2, n2: 0 }
+    - { el: 'oxygen', orb: '2p', Zn: 8, same: 5, n1: 2, n2: 0 }
+    - { el: 'fluorine', orb: '2p', Zn: 9, same: 6, n1: 2, n2: 0 }
+    - { el: 'sodium', orb: '3s', Zn: 11, same: 0, n1: 8, n2: 2 }
+    - { el: 'chlorine', orb: '3p', Zn: 17, same: 6, n1: 8, n2: 2 }
+    - { el: 'potassium', orb: '4s', Zn: 19, same: 0, n1: 8, n2: 10 }
+  prompt: "Use Slater's rules to estimate the effective nuclear charge felt by a {{orb}} electron in {{el}} ($Z = {{Zn}}$). It has ${{same}}$ other electrons in its own group, ${{n1}}$ in the shell below and ${{n2}}$ deeper."
+  parts:
+    - { ask: '$Z_{eff}$', label: r, tex: 'Z_{eff}', value: Zn - (0.35*same + 0.85*n1 + 1.0*n2), tol: 0.005, explain: 'For an $s$ or $p$ electron: each other electron in the same group shields 0.35, each in the next shell down 0.85, each deeper one 1.00. Shielding $= 0.35({{same}}) + 0.85({{n1}}) + 1.00({{n2}}) = {{0.35*same + 0.85*n1 + n2}}$' }
+  verify: { expect: { r: "Zn - sum(w*c for w, c in [(Rational(35, 100), same), (Rational(85, 100), n1), (1, n2)])" } }
+
+- template: qm-variational-principle
+  skill: quantum.atoms
+  pace: recall
+  cases:
+    - { q: 'A trial wavefunction gives an energy below the true ground-state energy. What does that tell you?', ans: 0 }
+    - { q: 'Two trial wavefunctions give −2.75 and −2.85 hartree for helium. Which is better?', ans: 1 }
+    - { q: 'How is a parameter in a trial wavefunction chosen?', ans: 2 }
+  prompt: '{{q}}'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["A mistake was made: a variational energy can never fall below the true ground-state energy", "The lower one, −2.85: closer to the true energy from above", "By minimising the energy with respect to it"]
+      correct: ans
+      explain: 'For any acceptable trial function, $\dfrac{\langle\phi|\hat H|\phi\rangle}{\langle\phi|\phi\rangle} \ge E_0$. So lower is better, and you improve a guess by pushing its energy down'
+  verify: { authored: true }
+
+- template: qm-ground-term
+  skill: quantum.atoms
+  pace: quick
+  cases:
+    - { el: 'boron (2p¹)', ans: 2 }
+    - { el: 'carbon (2p²)', ans: 0 }
+    - { el: 'nitrogen (2p³)', ans: 1 }
+    - { el: 'oxygen (2p⁴)', ans: 0 }
+    - { el: 'fluorine (2p⁵)', ans: 2 }
+    - { el: 'titanium (3d²)', ans: 3 }
+    - { el: 'vanadium (3d³)', ans: 4 }
+    - { el: 'iron (3d⁶)', ans: 5 }
+    - { el: 'nickel (3d⁸)', ans: 3 }
+  prompt: "Use Hund's rules to find the ground-state term of {{el}}."
+  parts:
+    - ask: 'Ground term'
+      label: a
+      choice: ["³P", "⁴S", "²P", "³F", "⁴F", "⁵D"]
+      correct: ans
+      explain: 'Fill the orbitals from the highest $m_l$ down, one electron each with parallel spins before pairing. The total spin gives the multiplicity $2S + 1$ and the sum of the $m_l$ values gives $L$ (S, P, D, F for 0, 1, 2, 3). A shell with $n$ holes has the same terms as one with $n$ electrons, which is why carbon and oxygen match'
+  verify: { authored: true }
+
+- template: qm-ground-level-j
+  skill: quantum.atoms
+  pace: quick
+  cases:
+    - { el: 'boron', term: '²P', Lq: 1, Sq: 0.5, more: 0 }
+    - { el: 'oxygen', term: '³P', Lq: 1, Sq: 1, more: 1 }
+    - { el: 'fluorine', term: '²P', Lq: 1, Sq: 0.5, more: 1 }
+    - { el: 'titanium', term: '³F', Lq: 3, Sq: 1, more: 0 }
+    - { el: 'vanadium', term: '⁴F', Lq: 3, Sq: 1.5, more: 0 }
+    - { el: 'iron', term: '⁵D', Lq: 2, Sq: 2, more: 1 }
+    - { el: 'nickel', term: '³F', Lq: 3, Sq: 1, more: 1 }
+  prompt: 'The ground term of {{el}} is {{term}}. Its subshell is {{more == 1 ? "more" : "less"}} than half full. What is $J$ for the ground level?'
+  parts:
+    - { ask: '$J$', label: r, tex: 'J', value: "more == 1 ? Lq + Sq : abs(Lq - Sq)", tol: 0.001, explain: "Hund's third rule: less than half full, the lowest level has $J = |L - S|$; more than half full, $J = L + S$. Here $L = {{Lq}}$ and $S = {{Sq}}$" }
+  verify: { expect: { r: "Lq + Sq if more == 1 else Abs(Lq - Sq)" } }
+
+- template: qm-lande-interval
+  skill: quantum.atoms
+  pace: quick
+  given: { A: { pick: [10, 40, 100, 150] }, J: { pick: [1, 2, 3, 4] } }
+  prompt: 'In a term split by spin–orbit coupling with constant $A = {{A}}$ cm⁻¹, how far apart are the levels $J = {{J}}$ and $J = {{J - 1}}$, in cm⁻¹?'
+  parts:
+    - { ask: 'Spacing (cm⁻¹)', label: r, tex: '\Delta E', value: A*J, tol: 0.001, explain: 'The spin–orbit energy is $\tfrac12A[J(J + 1) - L(L + 1) - S(S + 1)]$, so neighbouring levels differ by $A \times$ the larger $J$: the Landé interval rule' }
+  verify: { expect: { r: "A*(J*(J + 1) - (J - 1)*J)/2" } }
+
+# ── bonding and computational chemistry ─────────────────────────────────────
+- template: qm-lcao-bonding-energy
+  skill: quantum.bonding
+  pace: quick
+  given: { al: { pick: [-13.6, -10, -12] }, be: { pick: [-12, -10, -8] }, Sv: { pick: [0.2, 0.4, 0.6] } }
+  require: [be < al*Sv]
+  prompt: 'For H₂⁺ in the LCAO approximation with $H_{aa} = {{al}}$ eV, $H_{ab} = {{be}}$ eV and overlap $S = {{Sv}}$, what is the energy of the bonding orbital, in eV?'
+  parts:
+    - { ask: 'Bonding energy (eV)', label: r, tex: 'E_+', value: (al + be)/(1 + Sv), tol: 0.005, explain: '$E_\pm = \dfrac{H_{aa} \pm H_{ab}}{1 \pm S}$. The antibonding level, $\dfrac{ {{al}} - ({{be}}) }{1 - {{Sv}} } = {{(al - be)/(1 - Sv)}}$ eV, is pushed up further than the bonding level is pulled down, because it is divided by the smaller $1 - S$' }
+  verify: { expect: { r: "Min(*solve(Eq((al - x)**2 - (be - x*Sv)**2, 0), x))" } }
+
+- template: qm-bond-order
+  skill: quantum.bonding
+  pace: quick
+  cases:
+    - { sp: 'Li₂', nb: 4, na: 2 }
+    - { sp: 'B₂', nb: 6, na: 4 }
+    - { sp: 'C₂', nb: 8, na: 4 }
+    - { sp: 'N₂', nb: 10, na: 4 }
+    - { sp: 'N₂⁺', nb: 9, na: 4 }
+    - { sp: 'O₂', nb: 10, na: 6 }
+    - { sp: 'O₂⁺', nb: 10, na: 5 }
+    - { sp: 'O₂⁻', nb: 10, na: 7 }
+    - { sp: 'F₂', nb: 10, na: 8 }
+  prompt: 'What is the bond order of {{sp}}? (It has ${{nb}}$ electrons in bonding and ${{na}}$ in antibonding molecular orbitals, counting the 1s pair.)'
+  parts:
+    - { ask: 'Bond order', label: r, tex: 'BO', value: (nb - na)/2, tol: 0.001, explain: 'Bond order $= \tfrac12(\text{bonding} - \text{antibonding})$. A higher bond order means a shorter, stronger bond: removing an antibonding electron (O₂ to O₂⁺) strengthens the bond, removing a bonding one (N₂ to N₂⁺) weakens it' }
+  verify: { expect: { r: "solve(Eq(2*x + na, nb), x)[0]" } }
+
+- template: qm-paramagnetism
+  skill: quantum.bonding
+  pace: recall
+  cases:
+    - { sp: 'O₂', unp: 2 }
+    - { sp: 'N₂', unp: 0 }
+    - { sp: 'B₂', unp: 2 }
+    - { sp: 'C₂', unp: 0 }
+    - { sp: 'F₂', unp: 0 }
+    - { sp: 'O₂⁺', unp: 1 }
+    - { sp: 'NO', unp: 1 }
+  prompt: 'Is {{sp}} paramagnetic or diamagnetic?'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["Paramagnetic", "Diamagnetic"]
+      correct: "unp > 0 ? 0 : 1"
+      explain: 'It has ${{unp}}$ unpaired electron{{unp == 1 ? "" : "s"}} in its molecular-orbital diagram. O₂ and B₂ each put two electrons, spins parallel, into a degenerate π pair: molecular-orbital theory predicts that; a Lewis structure does not'
+  verify: { choices: { a: "0 if unp > 0 else 1" } }
+
+- template: qm-hybridisation
+  skill: quantum.bonding
+  pace: recall
+  cases:
+    - { sp: 'carbon in CO₂', dom: 2 }
+    - { sp: 'carbon in acetylene, C₂H₂', dom: 2 }
+    - { sp: 'boron in BF₃', dom: 3 }
+    - { sp: 'carbon in ethylene, C₂H₄', dom: 3 }
+    - { sp: 'carbon in CH₄', dom: 4 }
+    - { sp: 'nitrogen in NH₃', dom: 4 }
+    - { sp: 'oxygen in H₂O', dom: 4 }
+    - { sp: 'phosphorus in PCl₅', dom: 5 }
+    - { sp: 'sulfur in SF₆', dom: 6 }
+  prompt: 'What is the hybridisation of {{sp}}?'
+  parts:
+    - ask: 'Hybridisation'
+      label: a
+      choice: ["sp", "sp²", "sp³", "sp³d", "sp³d²"]
+      correct: dom - 2
+      explain: 'Count electron domains on the atom (bonded atoms plus lone pairs): ${{dom}}$. Two, three, four, five and six domains go with sp, sp², sp³, sp³d and sp³d², and with linear, trigonal planar, tetrahedral, trigonal bipyramidal and octahedral arrangements'
+  verify: { choices: { a: "dom - 2" } }
+
+- template: qm-huckel-chain
+  skill: quantum.bonding
+  pace: quick
+  cases:
+    - { mol: 'ethylene', N: 2, k: 1 }
+    - { mol: 'the allyl system', N: 3, k: 1 }
+    - { mol: 'butadiene', N: 4, k: 1 }
+    - { mol: 'butadiene', N: 4, k: 2 }
+    - { mol: 'hexatriene', N: 6, k: 3 }
+    - { mol: 'hexatriene', N: 6, k: 1 }
+  prompt: 'In Hückel theory the π orbitals of a linear chain of $N$ carbons have energies $\alpha + x\beta$. For {{mol}} ($N = {{N}}$), what is $x$ for orbital number ${{k}}$, counting from the lowest?'
+  parts:
+    - { ask: '$x$', label: r, tex: 'x', value: 2*cos(k*pi/(N + 1)), tol: 0.005, explain: '$x_k = 2\cos\dfrac{k\pi}{N + 1}$. Since $\beta$ is negative, the largest $x$ is the lowest orbital. Ethylene gives $\pm1$; butadiene $\pm1.618$ and $\pm0.618$' }
+  verify: { expect: { r: "huckel_chain(N, k)" } }
+
+- template: qm-stationary-point
+  skill: quantum.bonding
+  pace: recall
+  given: { nneg: { pick: [0, 0, 1, 1, 2] } }
+  prompt: 'A geometry optimisation stops where the gradient is zero and the Hessian has ${{nneg}}$ negative eigenvalue{{nneg == 1 ? "" : "s"}} (imaginary frequenc{{nneg == 1 ? "y" : "ies"}}). What kind of point is it?'
+  parts:
+    - ask: 'Kind of stationary point'
+      label: a
+      choice: ["A minimum: a stable structure", "A first-order saddle point: a transition state", "A higher-order saddle point: not chemically meaningful, keep searching"]
+      correct: "nneg == 0 ? 0 : (nneg == 1 ? 1 : 2)"
+      explain: 'Zero gradient only says the surface is flat there. All curvatures positive is a minimum; exactly one negative is a transition state, a maximum along the reaction coordinate and a minimum in every other direction. Always run a frequency calculation to check'
+  verify: { choices: { a: "0 if nneg == 0 else (1 if nneg == 1 else 2)" } }
+
+- template: qm-correlation-energy
+  skill: quantum.bonding
+  pace: quick
+  given: { Ehf: { pick: [-2.8617, -76.027, -40.198, -1.1336] }, dc: { pick: [0.0408, 0.0421, 0.24, 0.3] } }
+  prompt: 'A Hartree–Fock calculation at the basis-set limit gives ${{Ehf|8}}$ hartree and the exact non-relativistic energy is ${{Ehf - dc|8}}$ hartree. What is the correlation energy, in hartree?'
+  parts:
+    - { ask: 'Correlation energy (hartree)', label: r, tex: 'E_{corr}', value: -dc, tol: 0.01, explain: '$E_{corr} = E_{exact} - E_{HF}$, always negative: Hartree–Fock lets each electron see only the average of the others. It is small next to the total energy but comparable to a bond energy (1 hartree is 2625 kJ/mol), which is why post-Hartree–Fock and density-functional methods exist' }
+  verify: { expect: { r: "solve(Eq(Ehf + x, Ehf - dc), x)[0]" } }
+
+- template: qm-hf-two-electron-energy
+  skill: quantum.bonding
+  pace: quick
+  given: { h: { pick: [-1.25, -1.94, -1.2] }, J: { pick: [0.67, 1.03, 0.75] } }
+  prompt: 'Two electrons occupy one spatial orbital. The one-electron energy is $h = {{h}}$ hartree and the Coulomb integral is $J = {{J}}$ hartree. What is the Hartree–Fock electronic energy, in hartree?'
+  parts:
+    - { ask: 'Energy (hartree)', label: r, tex: 'E', value: 2*h + J, tol: 0.005, explain: '$E = 2h + J$: each electron contributes its kinetic and nuclear-attraction energy $h$, and the pair repels once. There is no exchange term here because the two electrons have opposite spins; counting $2\varepsilon$ instead would count the repulsion twice' }
+  verify: { expect: { r: "sum([h, h, J])" } }
