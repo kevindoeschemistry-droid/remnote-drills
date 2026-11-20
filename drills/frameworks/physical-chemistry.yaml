@@ -287,21 +287,21 @@ units:
         title: "Operators and eigenfunctions"
         book: { engel-reid-3e: ["13.5", "13.6", "13.7"] }
         los:
-          - { id: A, do: "Test whether a function is an eigenfunction of an operator and find the eigenvalue.", ek: ["Âψ = aψ; applying the operator must return the same function times a constant."], p: [P2, P5], drills: [] }
-          - { id: B, do: "Show that two wavefunctions are orthogonal and normalise a wavefunction.", ek: ["∫ψ_m*ψ_n dτ = δ_mn; eigenfunctions of a Hermitian operator with different eigenvalues are orthogonal."], p: [P2, P5], drills: [] }
+          - { id: A, do: "Test whether a function is an eigenfunction of an operator and find the eigenvalue.", ek: ["Âψ = aψ; applying the operator must return the same function times a constant."], p: [P2, P5], drills: ["qm-eigenvalue"] }
+          - { id: B, do: "Show that two wavefunctions are orthogonal and normalise a wavefunction.", ek: ["∫ψ_m*ψ_n dτ = δ_mn; eigenfunctions of a Hermitian operator with different eigenvalues are orthogonal."], p: [P2, P5], drills: ["~qm-normalization-constant"] }
           - { id: C, do: "Expand a function in a complete set of eigenfunctions and compute a coefficient.", ek: ["f = Σ c_n ψ_n with c_n = ∫ψ_n* f dτ."], p: [P2, P5], drills: [] }
       - n: 2
         title: "Measurement"
         book: { engel-reid-3e: ["14.1", "14.4", "14.5"] }
         los:
-          - { id: A, do: "Calculate the probability of finding a particle in a region from its wavefunction.", ek: ["P = ∫|ψ|² dτ over the region; the total over all space is 1."], p: [P2, P5], drills: [] }
-          - { id: B, do: "Calculate the expectation value of an observable.", ek: ["⟨A⟩ = ∫ψ*Âψ dτ; equals the eigenvalue when ψ is an eigenfunction of Â."], p: [P2, P5], drills: [] }
-          - { id: C, do: "Write the time dependence of a superposition and say when a probability density changes with time.", ek: ["Each term carries e^(−iE_n t/ħ); a single eigenstate is stationary, a superposition beats at (E_m − E_n)/h."], p: [P2, P5], drills: [] }
+          - { id: A, do: "Calculate the probability of finding a particle in a region from its wavefunction.", ek: ["P = ∫|ψ|² dτ over the region; the total over all space is 1."], p: [P2, P5], drills: ["qm-pib-probability", "qm-superposition-probability"] }
+          - { id: B, do: "Calculate the expectation value of an observable.", ek: ["⟨A⟩ = ∫ψ*Âψ dτ; equals the eigenvalue when ψ is an eigenfunction of Â."], p: [P2, P5], drills: ["qm-expectation-energy"] }
+          - { id: C, do: "Write the time dependence of a superposition and say when a probability density changes with time.", ek: ["Each term carries e^(−iE_n t/ħ); a single eigenstate is stationary, a superposition beats at (E_m − E_n)/h."], p: [P2, P5], drills: ["qm-time-dependence"] }
       - n: 3
         title: "Commutation and uncertainty"
         book: { engel-reid-3e: ["17.1", "17.3"] }
         los:
-          - { id: A, do: "Evaluate a commutator and decide whether two observables can be known together.", ek: ["[x̂, p̂_x] = iħ; observables whose operators commute share eigenfunctions."], p: [P2, P5], drills: [] }
+          - { id: A, do: "Evaluate a commutator and decide whether two observables can be known together.", ek: ["[x̂, p̂_x] = iħ; observables whose operators commute share eigenfunctions."], p: [P2, P5], drills: ["qm-commutator", "qm-compatible-observables"] }
           - { id: B, do: "Estimate the minimum uncertainty in momentum or position from the uncertainty principle.", ek: ["Δx Δp_x ≥ ħ/2."], p: [P3], drills: ["pc-uncertainty"] }
 
   # ── 12 ────────────────────────────────────────────────────────────────────
@@ -316,25 +316,25 @@ units:
         book: { engel-reid-3e: ["15.2", "15.2", "15.3", "16.3"] }
         los:
           - { id: A, do: "Calculate particle-in-a-box energy levels and the wavelength of a transition between them.", ek: ["E_n = n²h²/8mL²; spacing grows with n and shrinks as the box or the mass gets larger."], p: [P3], drills: ["pc-pib-energy"] }
-          - { id: B, do: "Use the particle-in-a-box wavefunction to locate nodes and compute a probability.", ek: ["ψ_n = √(2/L) sin(nπx/L); n − 1 interior nodes."], p: [P2, P5], drills: [] }
-          - { id: C, do: "Calculate energies and degeneracies for a particle in a three-dimensional box.", ek: ["E = (h²/8m)(n_x²/a² + n_y²/b² + n_z²/c²); a cube makes permutations of the quantum numbers degenerate."], p: [P2, P5], drills: [] }
+          - { id: B, do: "Use the particle-in-a-box wavefunction to locate nodes and compute a probability.", ek: ["ψ_n = √(2/L) sin(nπx/L); n − 1 interior nodes."], p: [P2, P5], drills: ["qm-pib-node", "qm-pib-probability"] }
+          - { id: C, do: "Calculate energies and degeneracies for a particle in a three-dimensional box.", ek: ["E = (h²/8m)(n_x²/a² + n_y²/b² + n_z²/c²); a cube makes permutations of the quantum numbers degenerate."], p: [P2, P5], drills: ["qm-3d-box-degeneracy"] }
           - { id: D, do: "Estimate the absorption wavelength of a conjugated molecule with the free-electron model.", ek: ["Fill levels two electrons at a time; ΔE(HOMO→LUMO) = (2n + 1)h²/8m_eL²."], p: [P3], drills: ["~pc-pib-energy"] }
       - n: 2
         title: "Finite wells and tunnelling"
         book: { engel-reid-3e: ["16.1", "16.5", "16.6"] }
         los:
-          - { id: A, do: "Calculate the decay constant of a wavefunction inside a classically forbidden region.", ek: ["ψ ∝ e^(−κx) with κ = √(2m(V₀ − E))/ħ."], p: [P2, P5], drills: [] }
-          - { id: B, do: "Estimate the transmission probability through a barrier.", ek: ["T ≈ e^(−2κL); exponentially sensitive to width, mass and barrier height."], p: [P2, P5], drills: [] }
-          - { id: C, do: "Compare tunnelling probabilities when the mass or the barrier width changes.", ek: ["Electrons tunnel far more readily than protons; an STM current falls about tenfold per ångström."], p: [P2, P5], drills: [] }
+          - { id: A, do: "Calculate the decay constant of a wavefunction inside a classically forbidden region.", ek: ["ψ ∝ e^(−κx) with κ = √(2m(V₀ − E))/ħ."], p: [P2, P5], drills: ["qm-tunnelling-decay-constant"] }
+          - { id: B, do: "Estimate the transmission probability through a barrier.", ek: ["T ≈ e^(−2κL); exponentially sensitive to width, mass and barrier height."], p: [P2, P5], drills: ["qm-tunnelling-probability"] }
+          - { id: C, do: "Compare tunnelling probabilities when the mass or the barrier width changes.", ek: ["Electrons tunnel far more readily than protons; an STM current falls about tenfold per ångström."], p: [P2, P5], drills: ["qm-tunnelling-compare"] }
       - n: 3
         title: "Vibration and rotation"
         book: { engel-reid-3e: ["18.3", "18:rotation-2d", "18.5", "18.6", "18:spherical-harmonics"] }
         los:
           - { id: A, do: "Calculate the vibrational frequency, level spacing and zero-point energy of a harmonic oscillator.", ek: ["E_v = (v + ½)hν with ν = (1/2π)√(k/μ); zero-point energy ½hν."], p: [P3], drills: ["pc-harmonic"] }
-          - { id: B, do: "Calculate the energy levels of a particle on a ring.", ek: ["E_m = m²ħ²/2I, m = 0, ±1, ±2, …; all levels except m = 0 are doubly degenerate."], p: [P2, P5], drills: [] }
+          - { id: B, do: "Calculate the energy levels of a particle on a ring.", ek: ["E_m = m²ħ²/2I, m = 0, ±1, ±2, …; all levels except m = 0 are doubly degenerate."], p: [P2, P5], drills: ["qm-ring-transition"] }
           - { id: C, do: "Calculate the moment of inertia, rotational levels and level spacings of a diatomic rigid rotor.", ek: ["E_J = J(J + 1)ħ²/2I with I = μr²; each level is (2J + 1)-fold degenerate."], p: [P3], drills: ["pc-rigid-rotor"] }
-          - { id: D, do: "Calculate the magnitude and z-component of an angular momentum from its quantum numbers.", ek: ["|L| = √(J(J + 1)) ħ; L_z = m_J ħ."], p: [P2, P5], drills: [] }
-          - { id: E, do: "Identify the eigenvalues of L̂² and L̂_z for a spherical harmonic.", ek: ["L̂²Y_l^m = l(l + 1)ħ²Y_l^m; L̂_zY_l^m = mħY_l^m."], p: [P2, P5], drills: [] }
+          - { id: D, do: "Calculate the magnitude and z-component of an angular momentum from its quantum numbers.", ek: ["|L| = √(J(J + 1)) ħ; L_z = m_J ħ."], p: [P2, P5], drills: ["qm-angular-momentum-magnitude"] }
+          - { id: E, do: "Identify the eigenvalues of L̂² and L̂_z for a spherical harmonic.", ek: ["L̂²Y_l^m = l(l + 1)ħ²Y_l^m; L̂_zY_l^m = mħY_l^m."], p: [P2, P5], drills: ["~qm-angular-momentum-magnitude"] }
 
   # ── 13 ────────────────────────────────────────────────────────────────────
   - id: rovib-spectroscopy
@@ -348,9 +348,9 @@ units:
         book: { engel-reid-3e: ["19.3", "19.4", "19.6", "19:einstein"] }
         los:
           - { id: A, do: "Calculate a vibrational wavenumber from a force constant and reduced mass, and the reverse.", ek: ["ν̃ = (1/2πc)√(k/μ); heavier isotopes shift the band to lower wavenumber."], p: [P3], drills: ["~pc-harmonic"] }
-          - { id: B, do: "Apply selection rules to decide whether a vibration or rotation absorbs.", ek: ["Δv = ±1 with a changing dipole; ΔJ = ±1 with a permanent dipole."], p: [P2, P5], drills: [] }
+          - { id: B, do: "Apply selection rules to decide whether a vibration or rotation absorbs.", ek: ["Δv = ±1 with a changing dipole; ΔJ = ±1 with a permanent dipole."], p: [P2, P5], drills: ["qm-selection-rules"] }
           - { id: C, do: "Calculate a bond length from the spacing of lines in a rotational spectrum.", ek: ["Lines at 2B̃(J + 1), spaced 2B̃, with B̃ = h/8π²cI."], p: [P3], drills: ["~pc-rigid-rotor"] }
-          - { id: D, do: "Relate the Einstein coefficients for absorption, stimulated emission and spontaneous emission.", ek: ["B₁₂ = B₂₁; A₂₁/B₂₁ = 8πhν³/c³, so spontaneous emission dominates at high frequency."], p: [P2, P5], drills: [] }
+          - { id: D, do: "Relate the Einstein coefficients for absorption, stimulated emission and spontaneous emission.", ek: ["B₁₂ = B₂₁; A₂₁/B₂₁ = 8πhν³/c³, so spontaneous emission dominates at high frequency."], p: [P2, P5], drills: ["qm-einstein-coefficients"] }
 
   # ── 14 ────────────────────────────────────────────────────────────────────
   - id: atoms
@@ -363,23 +363,23 @@ units:
         title: "The hydrogen atom"
         book: { engel-reid-3e: ["20.3", "20.4", "20:radial-prob"] }
         los:
-          - { id: A, do: "Calculate hydrogen-like energy levels and ionisation energies.", ek: ["E_n = −13.606 eV Z²/n²."], p: [P3], drills: ["~pc-bohr"] }
-          - { id: B, do: "List the allowed quantum numbers and count the orbitals in a shell.", ek: ["l = 0 … n − 1, m_l = −l … l; n² orbitals and 2n² electrons per shell."], p: [P2, P5], drills: [] }
-          - { id: C, do: "Find the most probable radius from a radial distribution function.", ek: ["P(r) = r²|R(r)|²; for 1s the maximum is at a₀."], p: [P2, P5], drills: [] }
+          - { id: A, do: "Calculate hydrogen-like energy levels and ionisation energies.", ek: ["E_n = −13.606 eV Z²/n²."], p: [P3], drills: ["qm-hydrogenlike-ionization"] }
+          - { id: B, do: "List the allowed quantum numbers and count the orbitals in a shell.", ek: ["l = 0 … n − 1, m_l = −l … l; n² orbitals and 2n² electrons per shell."], p: [P2, P5], drills: ["qm-orbitals-in-shell"] }
+          - { id: C, do: "Find the most probable radius from a radial distribution function.", ek: ["P(r) = r²|R(r)|²; for 1s the maximum is at a₀."], p: [P2, P5], drills: ["qm-most-probable-radius"] }
       - n: 2
         title: "Many-electron atoms"
         book: { engel-reid-3e: ["21.4", "21.6", "21:hf-scf"] }
         los:
-          - { id: A, do: "Use the variational principle to judge and improve a trial wavefunction.", ek: ["⟨E⟩_trial ≥ E₀ for any trial function; lower is better."], p: [P2, P5], drills: [] }
-          - { id: B, do: "Estimate an effective nuclear charge with Slater's rules.", ek: ["Z_eff = Z − σ; same-shell electrons shield about 0.35, the shell below 0.85, deeper shells 1.00."], p: [P2, P5], drills: [] }
-          - { id: C, do: "Describe how the Hartree–Fock energy is built from one-electron, Coulomb and exchange terms.", ek: ["E_HF = Σ h_i + Σ(2J_ij − K_ij); it is not the sum of orbital energies."], p: [P2, P5], drills: [] }
+          - { id: A, do: "Use the variational principle to judge and improve a trial wavefunction.", ek: ["⟨E⟩_trial ≥ E₀ for any trial function; lower is better."], p: [P2, P5], drills: ["qm-variational-principle"] }
+          - { id: B, do: "Estimate an effective nuclear charge with Slater's rules.", ek: ["Z_eff = Z − σ; same-shell electrons shield about 0.35, the shell below 0.85, deeper shells 1.00."], p: [P2, P5], drills: ["qm-slater-zeff"] }
+          - { id: C, do: "Describe how the Hartree–Fock energy is built from one-electron, Coulomb and exchange terms.", ek: ["E_HF = Σ h_i + Σ(2J_ij − K_ij); it is not the sum of orbital energies."], p: [P2, P5], drills: ["~qm-hf-two-electron-energy"] }
       - n: 3
         title: "Atomic states and spectra"
         book: { engel-reid-3e: ["22.1", "22:config-energy", "22.3"] }
         los:
-          - { id: A, do: "Write the term symbols that arise from an electron configuration.", ek: ["²ˢ⁺¹L_J with J from |L − S| to L + S."], p: [P2, P5], drills: [] }
-          - { id: B, do: "Use Hund's rules to pick the ground-state term.", ek: ["Highest S first, then highest L; J = |L − S| for a less-than-half-filled shell, L + S for more."], p: [P2, P5], drills: [] }
-          - { id: C, do: "Calculate the spin–orbit splitting between levels of a term.", ek: ["ΔE = ½A[J(J + 1) − L(L + 1) − S(S + 1)]."], p: [P2, P5], drills: [] }
+          - { id: A, do: "Write the term symbols that arise from an electron configuration.", ek: ["²ˢ⁺¹L_J with J from |L − S| to L + S."], p: [P2, P5], drills: ["~qm-ground-term"] }
+          - { id: B, do: "Use Hund's rules to pick the ground-state term.", ek: ["Highest S first, then highest L; J = |L − S| for a less-than-half-filled shell, L + S for more."], p: [P2, P5], drills: ["qm-ground-term", "qm-ground-level-j"] }
+          - { id: C, do: "Calculate the spin–orbit splitting between levels of a term.", ek: ["ΔE = ½A[J(J + 1) − L(L + 1) − S(S + 1)]."], p: [P2, P5], drills: ["qm-lande-interval"] }
 
   # ── 15 ────────────────────────────────────────────────────────────────────
   - id: bonding
@@ -392,24 +392,24 @@ units:
         title: "Diatomic molecules"
         book: { engel-reid-3e: ["23:h2-plus", "23.3", "23:homonuclear", "23.7"] }
         los:
-          - { id: A, do: "Calculate the bonding and antibonding energies of H₂⁺ from the LCAO integrals.", ek: ["E_± = (H_AA ± H_AB)/(1 ± S_AB)."], p: [P2, P5], drills: [] }
-          - { id: B, do: "Explain why the antibonding orbital is raised more than the bonding orbital is lowered.", ek: ["ψ_± = (ψ_A ± ψ_B)/√(2(1 ± S)); the overlap S makes the splitting asymmetric."], p: [P2, P5], drills: [] }
-          - { id: C, do: "Fill a molecular-orbital diagram for a homonuclear diatomic and predict magnetism.", ek: ["Fill in energy order, two per orbital, Hund's rule in degenerate pairs; unpaired electrons mean paramagnetic."], p: [P2, P5], drills: [] }
-          - { id: D, do: "Calculate a bond order and use it to rank bond length and strength.", ek: ["Bond order = (n_bonding − n_antibonding)/2; higher order, shorter and stronger bond."], p: [P2, P5], drills: [] }
+          - { id: A, do: "Calculate the bonding and antibonding energies of H₂⁺ from the LCAO integrals.", ek: ["E_± = (H_AA ± H_AB)/(1 ± S_AB)."], p: [P2, P5], drills: ["qm-lcao-bonding-energy"] }
+          - { id: B, do: "Explain why the antibonding orbital is raised more than the bonding orbital is lowered.", ek: ["ψ_± = (ψ_A ± ψ_B)/√(2(1 ± S)); the overlap S makes the splitting asymmetric."], p: [P2, P5], drills: ["~qm-lcao-bonding-energy"] }
+          - { id: C, do: "Fill a molecular-orbital diagram for a homonuclear diatomic and predict magnetism.", ek: ["Fill in energy order, two per orbital, Hund's rule in degenerate pairs; unpaired electrons mean paramagnetic."], p: [P2, P5], drills: ["qm-paramagnetism"] }
+          - { id: D, do: "Calculate a bond order and use it to rank bond length and strength.", ek: ["Bond order = (n_bonding − n_antibonding)/2; higher order, shorter and stronger bond."], p: [P2, P5], drills: ["qm-bond-order"] }
       - n: 2
         title: "Polyatomic molecules"
         book: { engel-reid-3e: ["24.2", "24.5", "24:huckel"] }
         los:
-          - { id: A, do: "Assign hybridisation and predict geometry from the number of electron domains.", ek: ["sp linear 180°, sp² trigonal 120°, sp³ tetrahedral 109.5°."], p: [P2, P5], drills: [] }
+          - { id: A, do: "Assign hybridisation and predict geometry from the number of electron domains.", ek: ["sp linear 180°, sp² trigonal 120°, sp³ tetrahedral 109.5°."], p: [P2, P5], drills: ["qm-hybridisation"] }
           - { id: B, do: "Use qualitative MO theory to identify the HOMO and LUMO and predict a geometry.", ek: ["A Walsh diagram tracks orbital energy against angle; the HOMO decides the shape."], p: [P2, P5], drills: [] }
-          - { id: C, do: "Calculate Hückel π-orbital energies and the π-electron energy of a conjugated chain.", ek: ["E_k = α + 2β cos(kπ/(N + 1)), k = 1 … N; β is negative."], p: [P2, P5], drills: [] }
+          - { id: C, do: "Calculate Hückel π-orbital energies and the π-electron energy of a conjugated chain.", ek: ["E_k = α + 2β cos(kπ/(N + 1)), k = 1 … N; β is negative."], p: [P2, P5], drills: ["qm-huckel-chain"] }
       - n: 3
         title: "Computational chemistry"
         book: { engel-reid-3e: ["26:hf", "26:pes", "26:post-hf"] }
         los:
-          - { id: A, do: "Compute a Hartree–Fock energy from given one- and two-electron integrals.", ek: ["E_HF = Σ h_i + ½ Σ(J_ij − K_ij) over spin orbitals."], p: [P2, P5], drills: [] }
-          - { id: B, do: "Classify stationary points on a potential-energy surface.", ek: ["All first derivatives vanish; a minimum has no negative curvatures, a transition state exactly one."], p: [P2, P5], drills: [] }
-          - { id: C, do: "Calculate a correlation energy and rank methods by the correlation they recover.", ek: ["E_corr = E_exact − E_HF, always negative; HF < MP2 < CCSD(T) toward the exact answer."], p: [P2, P5], drills: [] }
+          - { id: A, do: "Compute a Hartree–Fock energy from given one- and two-electron integrals.", ek: ["E_HF = Σ h_i + ½ Σ(J_ij − K_ij) over spin orbitals."], p: [P2, P5], drills: ["qm-hf-two-electron-energy"] }
+          - { id: B, do: "Classify stationary points on a potential-energy surface.", ek: ["All first derivatives vanish; a minimum has no negative curvatures, a transition state exactly one."], p: [P2, P5], drills: ["qm-stationary-point"] }
+          - { id: C, do: "Calculate a correlation energy and rank methods by the correlation they recover.", ek: ["E_corr = E_exact − E_HF, always negative; HF < MP2 < CCSD(T) toward the exact answer."], p: [P2, P5], drills: ["~qm-correlation-energy"] }
 
   # ── 16 ────────────────────────────────────────────────────────────────────
   - id: electronic-spectroscopy
@@ -425,7 +425,7 @@ units:
           - { id: A, do: "Convert between the energy, wavelength and wavenumber of an electronic transition.", ek: ["ΔE = hν = hc/λ = hcν̃."], p: [P3], drills: ["~pc-photon"] }
           - { id: B, do: "Calculate an absorbance, a concentration or a molar absorption coefficient.", ek: ["A = εcl = −log₁₀(I/I₀)."], p: [P3], drills: ["pc-beer-lambert"] }
           - { id: C, do: "Use the Franck–Condon principle to predict which vibronic band is strongest.", ek: ["Transitions are vertical; intensity follows the overlap |⟨χ_v′|χ_v⟩|²."], p: [P2, P5], drills: [] }
-          - { id: D, do: "Calculate a Stokes shift and explain why emission is at longer wavelength than absorption.", ek: ["Vibrational relaxation in the excited state comes first, so λ_em > λ_abs."], p: [P2, P5], drills: [] }
+          - { id: D, do: "Calculate a Stokes shift and explain why emission is at longer wavelength than absorption.", ek: ["Vibrational relaxation in the excited state comes first, so λ_em > λ_abs."], p: [P2, P5], drills: ["qm-stokes-shift"] }
 
   # ── 17 ────────────────────────────────────────────────────────────────────
   - id: symmetry

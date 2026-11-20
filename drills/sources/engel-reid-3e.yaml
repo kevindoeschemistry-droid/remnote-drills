@@ -148,21 +148,21 @@ chapters:
     title: "The Schrödinger Equation"
     wiki: textbooks/engel-reid-physical-chemistry/ch13
     sections:
-      - { ref: "13.5", title: "Eigenvalue Equation",
+      - { ref: "13.5", title: "Eigenvalue Equation", skills: [quantum.postulates],
           wiki: textbooks/engel-reid-physical-chemistry/ch13-operators }
-      - { ref: "13.6", title: "Orthogonality and Normalization",
+      - { ref: "13.6", title: "Orthogonality and Normalization", skills: [quantum.postulates],
           wiki: textbooks/engel-reid-physical-chemistry/ch13-orthogonality }
-      - { ref: "13.7", title: "Completeness and Eigenfunction Expansions",
+      - { ref: "13.7", title: "Completeness and Eigenfunction Expansions", skills: [quantum.postulates],
           wiki: textbooks/engel-reid-physical-chemistry/ch13-completeness }
   - n: 14
     title: "The Quantum Mechanical Postulates"
     wiki: textbooks/engel-reid-physical-chemistry/ch14
     sections:
-      - { ref: "14.1", title: "Born Interpretation and Normalization",
+      - { ref: "14.1", title: "Born Interpretation and Normalization", skills: [quantum.postulates],
           wiki: textbooks/engel-reid-physical-chemistry/ch14-born }
-      - { ref: "14.4", title: "Expectation Values",
+      - { ref: "14.4", title: "Expectation Values", skills: [quantum.postulates],
           wiki: textbooks/engel-reid-physical-chemistry/ch14-expectation }
-      - { ref: "14.5", title: "Time Evolution of Quantum States",
+      - { ref: "14.5", title: "Time Evolution of Quantum States", skills: [quantum.postulates],
           wiki: textbooks/engel-reid-physical-chemistry/ch14-time-evolution }
   - n: 15
     title: "Using Quantum Mechanics on Simple Systems"
@@ -170,27 +170,27 @@ chapters:
     sections:
       - { ref: "15.2", title: "Particle-in-Box Energy Levels", skills: [quantum.model-systems],
           wiki: textbooks/engel-reid-physical-chemistry/ch15-pib-energy }
-      - { ref: "15.2", title: "PIB Wavefunction",
+      - { ref: "15.2", title: "PIB Wavefunction", skills: [quantum.model-systems],
           wiki: textbooks/engel-reid-physical-chemistry/ch15-pib-wavefunction }
-      - { ref: "15.3", title: "Three-Dimensional Particle in a Box",
+      - { ref: "15.3", title: "Three-Dimensional Particle in a Box", skills: [quantum.model-systems],
           wiki: textbooks/engel-reid-physical-chemistry/ch15-3d-box }
   - n: 16
     title: "The Particle in the Box and the Real World"
     wiki: textbooks/engel-reid-physical-chemistry/ch16
     sections:
-      - { ref: "16.1", title: "Finite Depth Potential Well",
+      - { ref: "16.1", title: "Finite Depth Potential Well", skills: [quantum.model-systems],
           wiki: textbooks/engel-reid-physical-chemistry/ch16-finite-box }
-      - { ref: "16.3", title: "Pi Electrons in Conjugated Molecules",
+      - { ref: "16.3", title: "Pi Electrons in Conjugated Molecules", skills: [quantum.model-systems],
           wiki: textbooks/engel-reid-physical-chemistry/ch16-pi-electrons }
-      - { ref: "16.5", title: "Tunneling Transmission Coefficient",
+      - { ref: "16.5", title: "Tunneling Transmission Coefficient", skills: [quantum.model-systems],
           wiki: textbooks/engel-reid-physical-chemistry/ch16-potential-barrier }
-      - { ref: "16.6", title: "Quantum Tunneling",
+      - { ref: "16.6", title: "Quantum Tunneling", skills: [quantum.model-systems],
           wiki: textbooks/engel-reid-physical-chemistry/ch16-tunneling }
   - n: 17
     title: "Commuting and Non-Commuting Operators and Entanglement"
     wiki: textbooks/engel-reid-physical-chemistry/ch17
     sections:
-      - { ref: "17.1", title: "Position-Momentum Commutator",
+      - { ref: "17.1", title: "Position-Momentum Commutator", skills: [quantum.postulates],
           wiki: textbooks/engel-reid-physical-chemistry/ch17-commutator }
       - { ref: "17.3", title: "Heisenberg Uncertainty Principle", skills: [quantum.origins],
           wiki: textbooks/engel-reid-physical-chemistry/ch17-uncertainty }
@@ -202,97 +202,97 @@ chapters:
           wiki: textbooks/engel-reid-physical-chemistry/ch18-harmonic }
       - { ref: "18.5", title: "3D Rigid Rotor", skills: [quantum.model-systems],
           wiki: textbooks/engel-reid-physical-chemistry/ch18-rigid-rotor }
-      - { ref: "18.6", title: "Angular Momentum",
+      - { ref: "18.6", title: "Angular Momentum", skills: [quantum.model-systems],
           wiki: textbooks/engel-reid-physical-chemistry/ch18-angular-momentum }
-      - { ref: "18:rotation-2d", title: "2D Rotation Energy",
+      - { ref: "18:rotation-2d", title: "2D Rotation Energy", skills: [quantum.model-systems],
           wiki: textbooks/engel-reid-physical-chemistry/ch18-rotation-2d }
-      - { ref: "18:spherical-harmonics", title: "Spherical Harmonics",
+      - { ref: "18:spherical-harmonics", title: "Spherical Harmonics", skills: [quantum.model-systems],
           wiki: textbooks/engel-reid-physical-chemistry/ch18-spherical-harmonics }
   - n: 19
     title: "Vibrational and Rotational Spectroscopy of Diatomic Molecules"
     wiki: textbooks/engel-reid-physical-chemistry/ch19
     sections:
-      - { ref: "19.3", title: "Vibrational Frequency from Force Constant",
+      - { ref: "19.3", title: "Vibrational Frequency from Force Constant", skills: [quantum.spectroscopy],
           wiki: textbooks/engel-reid-physical-chemistry/ch19-ir-freq }
-      - { ref: "19.4", title: "Vibrational and Rotational Selection Rules",
+      - { ref: "19.4", title: "Vibrational and Rotational Selection Rules", skills: [quantum.spectroscopy],
           wiki: textbooks/engel-reid-physical-chemistry/ch19-selection-rules }
-      - { ref: "19.6", title: "Rotational Spectroscopy",
+      - { ref: "19.6", title: "Rotational Spectroscopy", skills: [quantum.spectroscopy],
           wiki: textbooks/engel-reid-physical-chemistry/ch19-rotational-spectra }
-      - { ref: "19:einstein", title: "Einstein A and B Coefficients",
+      - { ref: "19:einstein", title: "Einstein A and B Coefficients", skills: [quantum.spectroscopy],
           wiki: textbooks/engel-reid-physical-chemistry/ch19-einstein }
   - n: 20
     title: "The Hydrogen Atom"
     wiki: textbooks/engel-reid-physical-chemistry/ch20
     sections:
-      - { ref: "20.3", title: "Hydrogen Atom Energy Levels",
+      - { ref: "20.3", title: "Hydrogen Atom Energy Levels", skills: [quantum.atoms],
           wiki: textbooks/engel-reid-physical-chemistry/ch20-energy-levels }
-      - { ref: "20.4", title: "Hydrogen Atom Quantum Numbers",
+      - { ref: "20.4", title: "Hydrogen Atom Quantum Numbers", skills: [quantum.atoms],
           wiki: textbooks/engel-reid-physical-chemistry/ch20-orbitals }
-      - { ref: "20:radial-prob", title: "Radial Probability Distribution",
+      - { ref: "20:radial-prob", title: "Radial Probability Distribution", skills: [quantum.atoms],
           wiki: textbooks/engel-reid-physical-chemistry/ch20-radial-prob }
   - n: 21
     title: "Many-Electron Atoms"
     wiki: textbooks/engel-reid-physical-chemistry/ch21
     sections:
-      - { ref: "21.4", title: "Variational Principle",
+      - { ref: "21.4", title: "Variational Principle", skills: [quantum.atoms],
           wiki: textbooks/engel-reid-physical-chemistry/ch21-variational }
-      - { ref: "21.6", title: "Effective Nuclear Charge and Slater's Rules",
+      - { ref: "21.6", title: "Effective Nuclear Charge and Slater's Rules", skills: [quantum.atoms],
           wiki: textbooks/engel-reid-physical-chemistry/ch21-zeff }
-      - { ref: "21:hf-scf", title: "Hartree-Fock SCF Energy",
+      - { ref: "21:hf-scf", title: "Hartree-Fock SCF Energy", skills: [quantum.atoms],
           wiki: textbooks/engel-reid-physical-chemistry/ch21-hf-scf }
   - n: 22
     title: "Quantum States for Many-Electron Atoms and Atomic Spectroscopy"
     wiki: textbooks/engel-reid-physical-chemistry/ch22
     sections:
-      - { ref: "22.1", title: "Atomic Term Symbols",
+      - { ref: "22.1", title: "Atomic Term Symbols", skills: [quantum.atoms],
           wiki: textbooks/engel-reid-physical-chemistry/ch22-term-symbols }
-      - { ref: "22.3", title: "Spin-Orbit Coupling",
+      - { ref: "22.3", title: "Spin-Orbit Coupling", skills: [quantum.atoms],
           wiki: textbooks/engel-reid-physical-chemistry/ch22-spin-orbit }
-      - { ref: "22:config-energy", title: "Hund's Rules and Term Symbols",
+      - { ref: "22:config-energy", title: "Hund's Rules and Term Symbols", skills: [quantum.atoms],
           wiki: textbooks/engel-reid-physical-chemistry/ch22-config-energy }
   - n: 23
     title: "The Chemical Bond in Diatomic Molecules"
     wiki: textbooks/engel-reid-physical-chemistry/ch23
     sections:
-      - { ref: "23.3", title: "H₂⁺ Bonding and Antibonding Energies",
+      - { ref: "23.3", title: "H₂⁺ Bonding and Antibonding Energies", skills: [quantum.bonding],
           wiki: textbooks/engel-reid-physical-chemistry/ch23-h2-energy }
-      - { ref: "23.7", title: "Bond Order and Molecular Properties",
+      - { ref: "23.7", title: "Bond Order and Molecular Properties", skills: [quantum.bonding],
           wiki: textbooks/engel-reid-physical-chemistry/ch23-bond-order }
-      - { ref: "23:h2-plus", title: "H₂⁺ LCAO-MO Energies",
+      - { ref: "23:h2-plus", title: "H₂⁺ LCAO-MO Energies", skills: [quantum.bonding],
           wiki: textbooks/engel-reid-physical-chemistry/ch23-h2-plus }
-      - { ref: "23:homonuclear", title: "Homonuclear Diatomic MO Filling",
+      - { ref: "23:homonuclear", title: "Homonuclear Diatomic MO Filling", skills: [quantum.bonding],
           wiki: textbooks/engel-reid-physical-chemistry/ch23-homonuclear }
   - n: 24
     title: "Molecular Structure and Energy Levels for Polyatomic Molecules"
     wiki: textbooks/engel-reid-physical-chemistry/ch24
     sections:
-      - { ref: "24.2", title: "Hybridization and Geometry",
+      - { ref: "24.2", title: "Hybridization and Geometry", skills: [quantum.bonding],
           wiki: textbooks/engel-reid-physical-chemistry/ch24-hybridization }
-      - { ref: "24.5", title: "Qualitative MO Theory: Walsh Diagrams and HOMO/LUMO",
+      - { ref: "24.5", title: "Qualitative MO Theory: Walsh Diagrams and HOMO/LUMO", skills: [quantum.bonding],
           wiki: textbooks/engel-reid-physical-chemistry/ch24-mo-theory }
-      - { ref: "24:huckel", title: "Hückel MO Theory",
+      - { ref: "24:huckel", title: "Hückel MO Theory", skills: [quantum.bonding],
           wiki: textbooks/engel-reid-physical-chemistry/ch24-huckel }
   - n: 25
     title: "Electronic Spectroscopy"
     wiki: textbooks/engel-reid-physical-chemistry/ch25
     sections:
-      - { ref: "25.1", title: "Electronic Transition Energy",
+      - { ref: "25.1", title: "Electronic Transition Energy", skills: [quantum.spectroscopy],
           wiki: textbooks/engel-reid-physical-chemistry/ch25-energy }
       - { ref: "25.5", title: "Beer-Lambert Law", skills: [quantum.spectroscopy],
           wiki: textbooks/engel-reid-physical-chemistry/ch25-beer-lambert }
-      - { ref: "25.7", title: "Fluorescence and Stokes Shift",
+      - { ref: "25.7", title: "Fluorescence and Stokes Shift", skills: [quantum.spectroscopy],
           wiki: textbooks/engel-reid-physical-chemistry/ch25-fluorescence }
-      - { ref: "25:franck-condon", title: "Franck-Condon Principle",
+      - { ref: "25:franck-condon", title: "Franck-Condon Principle", skills: [quantum.spectroscopy],
           wiki: textbooks/engel-reid-physical-chemistry/ch25-franck-condon }
   - n: 26
     title: "Computational Chemistry"
     wiki: textbooks/engel-reid-physical-chemistry/ch26
     sections:
-      - { ref: "26:hf", title: "Hartree-Fock SCF Energy",
+      - { ref: "26:hf", title: "Hartree-Fock SCF Energy", skills: [quantum.bonding],
           wiki: textbooks/engel-reid-physical-chemistry/ch26-hf }
-      - { ref: "26:pes", title: "Potential Energy Surfaces",
+      - { ref: "26:pes", title: "Potential Energy Surfaces", skills: [quantum.bonding],
           wiki: textbooks/engel-reid-physical-chemistry/ch26-pes }
-      - { ref: "26:post-hf", title: "Post-HF Methods and DFT",
+      - { ref: "26:post-hf", title: "Post-HF Methods and DFT", skills: [quantum.bonding],
           wiki: textbooks/engel-reid-physical-chemistry/ch26-post-hf }
   - n: 27
     title: "Molecular Symmetry"

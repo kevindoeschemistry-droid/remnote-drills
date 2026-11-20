@@ -30,7 +30,7 @@ BASE = {"diff": sp.diff, "pi": sp.pi, "log": sp.log, "exp": sp.exp, "sqrt": sp.s
 # independently of the templates: an anchor item's own numbers are checked against these.
 CONST = {"c_kB": sp.Rational("1.380649e-23"), "c_NA": sp.Rational("6.02214076e23"), "c_h": sp.Rational("6.62607015e-34"),
          "c_c": sp.Integer(299792458), "c_e": sp.Rational("1.602176634e-19"), "c_Eh": sp.Rational("4.3597447222060e-18"),
-         "c_cal": sp.Rational("4.184"), "c_atm": sp.Integer(101325),
+         "c_me": sp.Rational("9.1093837015e-31"), "c_cal": sp.Rational("4.184"), "c_atm": sp.Integer(101325),
          "c_M": {"H": sp.Rational("1.008"), "C": sp.Rational("12.011"), "N": sp.Rational("14.007"), "O": sp.Rational("15.999"),
                  "Na": sp.Rational("22.990"), "P": sp.Rational("30.974"), "S": sp.Rational("32.06"), "Cl": sp.Rational("35.45"),
                  "K": sp.Rational("39.098"), "Ca": sp.Rational("40.078"), "Fe": sp.Rational("55.845")}}
@@ -137,13 +137,27 @@ def net_opposite(cells, q):
     return sp.Integer(next(j for j, st in state.items() if st[0] == want))
 
 
+def box_degeneracy(E):
+    """number of (nx, ny, nz), positive integers, with nx^2 + ny^2 + nz^2 = E"""
+    E = int(E)
+    return sp.Integer(sum(1 for a in range(1, 12) for b in range(1, 12) for c in range(1, 12) if a * a + b * b + c * c == E))
+
+
+def huckel_chain(N, k):
+    """x in alpha + x*beta for the k-th lowest pi orbital of a linear chain: k-th largest eigenvalue of the adjacency matrix"""
+    N, k = int(N), int(k)
+    M = sp.Matrix(N, N, lambda i, j: 1 if abs(i - j) == 1 else 0)
+    vals = sorted((sp.re(sp.N(v)) for v, mult in M.eigenvals().items() for _ in range(mult)), reverse=True)
+    return vals[k - 1]
+
+
 def rank_code(values):
     """labels 1..n written smallest value first, as one integer: [74, 70, 82, 78] -> 2143"""
     order = sorted(range(len(values)), key=lambda j: values[j])
     return sp.Integer(int("".join(str(j + 1) for j in order)))
 
 
-BASE.update({"cube_tally": cube_tally, "punch_count": punch_count, "net_opposite": net_opposite, "rank_code": rank_code})
+BASE.update({"cube_tally": cube_tally, "punch_count": punch_count, "net_opposite": net_opposite, "rank_code": rank_code, "box_degeneracy": box_degeneracy, "huckel_chain": huckel_chain})
 
 
 def check(p, H):
