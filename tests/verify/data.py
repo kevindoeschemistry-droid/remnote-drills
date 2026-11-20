@@ -82,6 +82,70 @@ def vanishes(res, var) -> bool:
     return abs(float(res)) <= 1e-7 * scale
 
 
+# ── spatial helpers for the DAT perceptual-ability items (written independently of scripts/pat_cases.py) ──
+def cube_tally(heights, k):
+    """cubes with exactly k painted faces: every exposed face is painted except the one resting on the table"""
+    hs = [[int(v) for v in row] for row in heights]
+    at = lambda r, c: hs[r][c] if 0 <= r < len(hs) and 0 <= c < len(hs[0]) else 0  # noqa: E731
+    count = 0
+    for r in range(len(hs)):
+        for c in range(len(hs[0])):
+            for z in range(hs[r][c]):
+                painted = (1 if z == hs[r][c] - 1 else 0) + sum(1 for dr, dc in ((1, 0), (-1, 0), (0, 1), (0, -1)) if at(r + dr, c + dc) <= z)
+                count += painted == int(k)
+    return sp.Integer(count)
+
+
+def punch_count(folds, px, py):
+    """holes in a 4 x 4 sheet after unfolding: count the layers under the punch.
+    folds: [(axis, line, side)] in order; axis 0 = vertical fold line x = line, 1 = horizontal y = line;
+    side -1 folds the part below the line onto the part above it, +1 the other way. (px, py): punched cell centre."""
+    pts = [(sp.Rational(2 * i + 1, 2), sp.Rational(2 * j + 1, 2)) for i in range(4) for j in range(4)]
+    def image(p):
+        for axis, line, side in folds:
+            v = p[int(axis)]
+            if (v - line) * int(side) > 0:
+                v = 2 * line - v
+            p = (v, p[1]) if int(axis) == 0 else (p[0], v)
+        return p
+    return sp.Integer(sum(1 for p in pts if image(p) == (sp.nsimplify(px), sp.nsimplify(py))))
+
+
+def net_opposite(cells, q):
+    """index of the face opposite face q when the six-square net `cells` [(x, y)] is folded into a cube"""
+    cells = [(int(x), int(y)) for x, y in cells]
+    # roll a cube over the net: each cell records which cube face (as an outward normal) lands on it
+    start = int(q)
+    state = {start: ((0, 0, -1), (1, 0, 0), (0, 1, 0))}  # (down, east, north) normals
+    todo = [start]
+    while todo:
+        i = todo.pop()
+        d, e, nn = state[i]
+        neg = lambda v: tuple(-a for a in v)  # noqa: E731
+        for j, (x, y) in enumerate(cells):
+            if j in state:
+                continue
+            dx, dy = x - cells[i][0], y - cells[i][1]
+            if (abs(dx), abs(dy)) not in ((1, 0), (0, 1)):
+                continue
+            if dx == 1: state[j] = (e, neg(d), nn)
+            elif dx == -1: state[j] = (neg(e), d, nn)
+            elif dy == 1: state[j] = (nn, e, neg(d))
+            else: state[j] = (neg(nn), e, d)
+            todo.append(j)
+    want = tuple(-a for a in state[start][0])
+    return sp.Integer(next(j for j, st in state.items() if st[0] == want))
+
+
+def rank_code(values):
+    """labels 1..n written smallest value first, as one integer: [74, 70, 82, 78] -> 2143"""
+    order = sorted(range(len(values)), key=lambda j: values[j])
+    return sp.Integer(int("".join(str(j + 1) for j in order)))
+
+
+BASE.update({"cube_tally": cube_tally, "punch_count": punch_count, "net_opposite": net_opposite, "rank_code": rank_code})
+
+
 def check(p, H):
     meta = p.get("meta", {})
     name = meta.get("data")

@@ -2,7 +2,7 @@
 
 Generated from `drills/frameworks/dat.yaml` by `scripts/framework.mjs`. ● drilled · ◐ partly · ○ no drills yet.
 
-**183 learning objectives** in 6 units (183 core): 0 drilled, 0 partly, 183 with no drills. Core: 0 / 183 drilled.
+**183 learning objectives** in 6 units (183 core): 3 drilled, 2 partly, 178 with no drills. Core: 3 / 183 drilled.
 
 ## Big ideas
 
@@ -31,7 +31,7 @@ Generated from `drills/frameworks/dat.yaml` by `scripts/framework.mjs`. ● dril
 | 1 · Biology | core | Biology: 40 of 100 Survey of the Natural Sciences items (Survey 90 min total) | 53 | 0 | 0 | 53 |
 | 2 · General Chemistry | core | General Chemistry: 30 of 100 Survey of the Natural Sciences items (periodic table provided) | 57 | 0 | 0 | 57 |
 | 3 · Organic Chemistry | core | Organic Chemistry: 30 of 100 Survey of the Natural Sciences items (new specifications, implemented April 2026) | 36 | 0 | 0 | 36 |
-| 4 · Perceptual Ability | core | Perceptual Ability: 90 items in 60 min, six parts (the guide gives no per-part counts) | 11 | 0 | 0 | 11 |
+| 4 · Perceptual Ability | core | Perceptual Ability: 90 items in 60 min, six parts (the guide gives no per-part counts) | 11 | 3 | 2 | 6 |
 | 5 · Reading Comprehension | core | Reading Comprehension: 50 items in 60 min, three scientific passages (no prior subject knowledge required) | 8 | 0 | 0 | 8 |
 | 6 · Quantitative Reasoning | core | Quantitative Reasoning: 40 items in 45 min (on-screen calculator provided) | 18 | 0 | 0 | 18 |
 
@@ -651,29 +651,29 @@ Big ideas: SPACE
 
 
 
-- ○ **DAT-4.3.A** Rank four interior angles from smallest to largest.
+- ● **DAT-4.3.A** Rank four interior angles from smallest to largest.
   - EK: Compare the openness at equal distance from each vertex; mentally rotate so one arm is horizontal; decide the most extreme angles first.
-  - P7 · P8
+  - P7 · P8 · drills: pat-angle-ranking
 
 ### 4.4 Paper Folding
 
 
 
-- ○ **DAT-4.4.A** Determine the hole pattern on a square sheet after it is unfolded.
+- ◐ **DAT-4.4.A** Determine the hole pattern on a square sheet after it is unfolded.
   - EK: Unfold in reverse order, reflecting each hole across each fold line; the paper is never turned over; holes per punch = layers at that spot.
-  - P7
-- ○ **DAT-4.4.B** Eliminate unfold choices by counting the expected holes and checking which quadrants must be symmetric.
+  - P7 · drills: ~pat-hole-punching
+- ● **DAT-4.4.B** Eliminate unfold choices by counting the expected holes and checking which quadrants must be symmetric.
   - EK: Total holes = punches × layers; a fold line is always a mirror axis of the final pattern.
   - Needs: DAT-4.4.A
-  - P6 · P8
+  - P6 · P8 · drills: pat-hole-punching
 
 ### 4.5 Cube Counting
 
 
 
-- ○ **DAT-4.5.A** Count the cubes in a figure that have a given number of painted faces.
+- ● **DAT-4.5.A** Count the cubes in a figure that have a given number of painted faces.
   - EK: Cubes are cemented and equal; every exposed face is painted except the resting bottom; hidden cubes exist only where needed for support; never zero.
-  - P7
+  - P7 · drills: pat-cube-counting
 - ○ **DAT-4.5.B** Tally every cube in a figure by painted-face count in one systematic pass, then answer all the questions on that figure from the tally.
   - EK: Go column by column, front to back, and record 1–5 for each cube; the tally total must equal the cube count.
   - Needs: DAT-4.5.A
@@ -683,9 +683,9 @@ Big ideas: SPACE
 
 
 
-- ○ **DAT-4.6.A** Identify which 3-D figure a flat pattern forms when folded.
+- ◐ **DAT-4.6.A** Identify which 3-D figure a flat pattern forms when folded.
   - EK: Faces adjacent in the pattern stay adjacent; opposite faces of a cube are never adjacent in the net; marked or shaded faces fix orientation.
-  - P7
+  - P7 · drills: ~pat-cube-net-opposite
 - ○ **DAT-4.6.B** Eliminate folded-figure choices by checking one distinctive face pair or a face count.
   - EK: Count faces and edges first; then test which face a marked edge must meet; one impossible adjacency rejects a choice.
   - Needs: DAT-4.6.A

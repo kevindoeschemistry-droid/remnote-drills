@@ -2105,7 +2105,9 @@
         "P7",
         "P8"
        ],
-       "drills": []
+       "drills": [
+        "pat-angle-ranking"
+       ]
       }
      ]
     },
@@ -2123,7 +2125,9 @@
        "p": [
         "P7"
        ],
-       "drills": []
+       "drills": [
+        "~pat-hole-punching"
+       ]
       },
       {
        "id": "B",
@@ -2138,7 +2142,9 @@
        "needs": [
         "DAT-4.4.A"
        ],
-       "drills": []
+       "drills": [
+        "pat-hole-punching"
+       ]
       }
      ]
     },
@@ -2156,7 +2162,9 @@
        "p": [
         "P7"
        ],
-       "drills": []
+       "drills": [
+        "pat-cube-counting"
+       ]
       },
       {
        "id": "B",
@@ -2188,7 +2196,9 @@
        "p": [
         "P7"
        ],
-       "drills": []
+       "drills": [
+        "~pat-cube-net-opposite"
+       ]
       },
       {
        "id": "B",
@@ -3798,32 +3808,40 @@
    "code": "DAT-4.3.A",
    "unit": 4,
    "topic": 3,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "pat-angle-ranking"
+   ],
    "partial": []
   },
   {
    "code": "DAT-4.4.A",
    "unit": 4,
    "topic": 4,
-   "status": "gap",
+   "status": "partial",
    "full": [],
-   "partial": []
+   "partial": [
+    "pat-hole-punching"
+   ]
   },
   {
    "code": "DAT-4.4.B",
    "unit": 4,
    "topic": 4,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "pat-hole-punching"
+   ],
    "partial": []
   },
   {
    "code": "DAT-4.5.A",
    "unit": 4,
    "topic": 5,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "pat-cube-counting"
+   ],
    "partial": []
   },
   {
@@ -3838,9 +3856,11 @@
    "code": "DAT-4.6.A",
    "unit": 4,
    "topic": 6,
-   "status": "gap",
+   "status": "partial",
    "full": [],
-   "partial": []
+   "partial": [
+    "pat-cube-net-opposite"
+   ]
   },
   {
    "code": "DAT-4.6.B",
