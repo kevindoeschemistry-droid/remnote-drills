@@ -1,19 +1,44 @@
-# OpenStax, University Physics, volumes 2 and 3 (Ling, Sanny, Moebs). Free; CC BY 4.0.
+# OpenStax, University Physics, volumes 1, 2 and 3 (Ling, Sanny, Moebs). Free; CC BY 4.0.
 # Chapter titles are from memory and were not checked against the published contents. Chapter numbers
-# below are prefixed with the volume (205 = volume 2, chapter 5). Mapped at chapter level only.
+# below are prefixed with the volume (105 = volume 1, chapter 5; 205 = volume 2, chapter 5). Mapped at chapter level only.
 id: openstax-university-physics
 title: "OpenStax — University Physics"
 short: "Univ. Physics"
 edition: 1
 field: physics
 chapters:
-  - { n: 205, title: "Electric Charges and Fields", skills: [physics.electrostatics] }
-  - { n: 206, title: "Gauss's Law", skills: [physics.electrostatics] }
+  - { n: 102, title: "Vectors", skills: [physics.kinematics] }
+  - { n: 103, title: "Motion Along a Straight Line", skills: [physics.kinematics, physics.calc-mechanics] }
+  - { n: 104, title: "Motion in Two and Three Dimensions", skills: [physics.kinematics, physics.calc-mechanics] }
+  - { n: 105, title: "Newton's Laws of Motion", skills: [physics.dynamics] }
+  - { n: 106, title: "Applications of Newton's Laws", skills: [physics.dynamics] }
+  - { n: 107, title: "Work and Kinetic Energy", skills: [physics.energy, physics.calc-mechanics] }
+  - { n: 108, title: "Potential Energy and Conservation of Energy", skills: [physics.energy, physics.calc-mechanics] }
+  - { n: 109, title: "Linear Momentum and Collisions", skills: [physics.momentum, physics.calc-mechanics] }
+  - { n: 110, title: "Fixed-Axis Rotation", skills: [physics.rotation, physics.calc-mechanics] }
+  - { n: 111, title: "Angular Momentum", skills: [physics.rotation] }
+  - { n: 112, title: "Static Equilibrium and Elasticity", skills: [physics.rotation] }
+  - { n: 113, title: "Gravitation", skills: [physics.dynamics, physics.rotation] }
+  - { n: 114, title: "Fluid Mechanics", skills: [physics.fluids] }
+  - { n: 115, title: "Oscillations", skills: [physics.oscillations, physics.calc-mechanics] }
+  - { n: 116, title: "Waves", skills: [physics.waves] }
+  - { n: 117, title: "Sound", skills: [physics.waves] }
+  - { n: 201, title: "Temperature and Heat", skills: [physics.thermal] }
+  - { n: 202, title: "The Kinetic Theory of Gases", skills: [physics.thermal] }
+  - { n: 203, title: "The First Law of Thermodynamics", skills: [physics.thermal] }
+  - { n: 204, title: "The Second Law of Thermodynamics", skills: [physics.thermal] }
+  - { n: 205, title: "Electric Charges and Fields", skills: [physics.electrostatics, physics.calc-em] }
+  - { n: 206, title: "Gauss's Law", skills: [physics.electrostatics, physics.calc-em] }
   - { n: 207, title: "Electric Potential", skills: [physics.electrostatics] }
   - { n: 208, title: "Capacitance", skills: [physics.electrostatics, physics.circuits] }
   - { n: 210, title: "Direct-Current Circuits", skills: [physics.circuits] }
   - { n: 211, title: "Magnetic Forces and Fields", skills: [physics.magnetism] }
   - { n: 212, title: "Sources of Magnetic Fields", skills: [physics.magnetism] }
-  - { n: 213, title: "Electromagnetic Induction", skills: [physics.magnetism] }
+  - { n: 213, title: "Electromagnetic Induction", skills: [physics.magnetism, physics.calc-em] }
   - { n: 216, title: "Electromagnetic Waves", skills: [physics.magnetism] }
+  - { n: 301, title: "The Nature of Light", skills: [physics.optics, physics.waves] }
+  - { n: 302, title: "Geometric Optics and Image Formation", skills: [physics.optics] }
+  - { n: 303, title: "Interference", skills: [physics.waves] }
+  - { n: 304, title: "Diffraction", skills: [physics.waves] }
+  - { n: 306, title: "Photons and Matter Waves", skills: [physics.modern] }
   - { n: 311, title: "Particle Physics and Cosmology", skills: [physics.particles] }
