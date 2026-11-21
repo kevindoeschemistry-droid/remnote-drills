@@ -91,7 +91,8 @@
         "mm-sub-same-change",
         "mm-sub-round-repay",
         "mm-sub-count-up",
-        "mm-add-compensate"
+        "mm-add-compensate",
+        "mm-money-subtract"
        ]
       },
       {
@@ -184,7 +185,7 @@
     },
     {
      "n": 5,
-     "title": "Multiplication short-cuts",
+     "title": "Multiplication and division short-cuts",
      "los": [
       {
        "id": "A",
@@ -256,6 +257,39 @@
        ],
        "drills": [
         "mm-double-and-halve"
+       ]
+      },
+      {
+       "id": "E",
+       "do": "Divide by 5 and 25 by rewriting the divisor, and by a two-digit number in stages.",
+       "ek": [
+        "÷5 = ×2 ÷10; ÷25 = ×4 ÷100; ÷35 = ÷5 then ÷7. Multiply back to check."
+       ],
+       "p": [
+        "P1",
+        "P2"
+       ],
+       "drills": [
+        "mm-div-5",
+        "mm-div-25",
+        "mm-div-stages"
+       ]
+      },
+      {
+       "id": "F",
+       "do": "Divide by a decimal by moving both decimal points until the divisor is whole.",
+       "ek": [
+        "12.6 ÷ 0.35 = 1260 ÷ 35: dollars ÷ dollars per minute becomes cents ÷ cents per minute."
+       ],
+       "p": [
+        "P1",
+        "P2"
+       ],
+       "drills": [
+        "mm-div-shift"
+       ],
+       "needs": [
+        "MM-1.5.E"
        ]
       }
      ]
@@ -2007,7 +2041,8 @@
     "mm-sub-same-change",
     "mm-sub-round-repay",
     "mm-sub-count-up",
-    "mm-add-compensate"
+    "mm-add-compensate",
+    "mm-money-subtract"
    ],
    "partial": []
   },
@@ -2092,6 +2127,28 @@
    "status": "ok",
    "full": [
     "mm-double-and-halve"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MM-1.5.E",
+   "unit": 1,
+   "topic": 5,
+   "status": "ok",
+   "full": [
+    "mm-div-5",
+    "mm-div-25",
+    "mm-div-stages"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MM-1.5.F",
+   "unit": 1,
+   "topic": 5,
+   "status": "ok",
+   "full": [
+    "mm-div-shift"
    ],
    "partial": []
   },

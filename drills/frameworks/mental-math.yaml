@@ -62,7 +62,7 @@ units:
       - n: 1
         title: "Operations on integers, fractions and decimals"
         los:
-          - { id: A, std: ["H1.1"], do: "Add and subtract multi-digit numbers left to right, and subtract from a power of ten by complements.", ek: ["Say the large part of the answer first; 1000 − n is nines-and-a-ten on the digits.", "Slide both numbers so the one taken away is round (541 − 229 = 542 − 230); count up when the two are close."], p: [P1, P2], drills: [mm-add-left-to-right, mm-subtract-from-1000, mm-sub-same-change, mm-sub-round-repay, mm-sub-count-up, mm-add-compensate] }
+          - { id: A, std: ["H1.1"], do: "Add and subtract multi-digit numbers left to right, and subtract from a power of ten by complements.", ek: ["Say the large part of the answer first; 1000 − n is nines-and-a-ten on the digits.", "Slide both numbers so the one taken away is round (541 − 229 = 542 − 230); count up when the two are close."], p: [P1, P2], drills: [mm-add-left-to-right, mm-subtract-from-1000, mm-sub-same-change, mm-sub-round-repay, mm-sub-count-up, mm-add-compensate, mm-money-subtract] }
           - { id: B, std: ["H1.1"], do: "Take a fraction of a whole number by dividing first.", ek: ["p/q of n: divide by q, then multiply by p."], p: [P1, P2], drills: [mm-fraction-of] }
       - n: 2
         title: "Order of operations"
@@ -77,12 +77,14 @@ units:
         los:
           - { id: A, std: ["H1.4"], do: "Compare two fractions by cross-multiplying.", ek: ["a/b > c/d exactly when ad > bc (positive denominators)."], p: [P1, P2], drills: [mm-compare-fractions] }
       - n: 5
-        title: "Multiplication short-cuts"
+        title: "Multiplication and division short-cuts"
         los:
           - { id: A, std: ["H1.5"], do: "Multiply by 11, 25, 5, 99 and 101 by rewriting the multiplier.", ek: ["11 = 10 + 1; 25 = 100/4; 5 = 10/2; 99 = 100 − 1; 101 = 100 + 1."], p: [P1, P2], drills: [mm-times-11, mm-times-25, mm-times-5, mm-times-99-101] }
           - { id: B, std: ["H1.5"], do: "Multiply two numbers just under 100 from their shortfalls.", ek: ["(100 − a)(100 − b) = 100(100 − a − b) + ab."], p: [P1, P2], drills: [mm-near-100] }
           - { id: C, std: ["H1.5"], do: "Multiply two-digit numbers that share a tens digit and whose ones digits sum to 10, or that sit evenly around a round number.", ek: ["(10t + u)(10t + 10 − u) = 100t(t + 1) + u(10 − u); (m − d)(m + d) = m² − d²."], p: [P1, P2], drills: [mm-same-tens, mm-difference-of-squares] }
           - { id: D, std: ["H1.5"], do: "Double one factor and halve the other to make a round number.", ek: ["ab = (a/2)(2b); a factor ending in 5 doubles to a multiple of 10."], p: [P1, P2], drills: [mm-double-and-halve] }
+          - { id: E, do: "Divide by 5 and 25 by rewriting the divisor, and by a two-digit number in stages.", ek: ["÷5 = ×2 ÷10; ÷25 = ×4 ÷100; ÷35 = ÷5 then ÷7. Multiply back to check."], p: [P1, P2], drills: [mm-div-5, mm-div-25, mm-div-stages] }
+          - { id: F, do: "Divide by a decimal by moving both decimal points until the divisor is whole.", ek: ["12.6 ÷ 0.35 = 1260 ÷ 35: dollars ÷ dollars per minute becomes cents ÷ cents per minute."], p: [P1, P2], drills: [mm-div-shift], needs: [MM-1.5.E] }
       - n: 6
         title: "Squaring numbers"
         los:
