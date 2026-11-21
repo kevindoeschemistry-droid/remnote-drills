@@ -1,0 +1,474 @@
+# AP Chemistry units 1–2: electron structure, periodic trends, nuclear chemistry and bonding.
+# Electron counts are rechecked from periodic-table position (pt_Z, pt_group in tests/verify/data.py).
+
+# ── electron configurations and the periodic table ─────────────────────────
+- template: ac-ion-d-count
+  skill: gchem.structure
+  pace: quick
+  cases:
+    - { ion: 'Fe²⁺', s: 'Fe', c: 2, d: 6 }
+    - { ion: 'Fe³⁺', s: 'Fe', c: 3, d: 5 }
+    - { ion: 'Cu⁺', s: 'Cu', c: 1, d: 10 }
+    - { ion: 'Cu²⁺', s: 'Cu', c: 2, d: 9 }
+    - { ion: 'Cr³⁺', s: 'Cr', c: 3, d: 3 }
+    - { ion: 'Mn²⁺', s: 'Mn', c: 2, d: 5 }
+    - { ion: 'Co³⁺', s: 'Co', c: 3, d: 6 }
+    - { ion: 'Ni²⁺', s: 'Ni', c: 2, d: 8 }
+    - { ion: 'Ti²⁺', s: 'Ti', c: 2, d: 2 }
+    - { ion: 'V³⁺', s: 'V', c: 3, d: 2 }
+    - { ion: 'Zn²⁺', s: 'Zn', c: 2, d: 10 }
+    - { ion: 'Ag⁺', s: 'Ag', c: 1, d: 10 }
+  prompt: 'How many d electrons does {{ion}} have? (Its noble-gas configuration is [core] $n$d$^?$.)'
+  parts:
+    - { ask: 'd electrons', label: r, value: d, tol: 0.0001, explain: 'A transition-metal ion loses its outer s electrons first, so the d count is the group number minus the charge. {{s}} is in group {{d + c}}: $ {{d + c}} - {{c}} = {{d}}$. Writing the ion as [core]$n$s$^2$… instead is the classic slip' }
+  verify: { expect: { r: "pt_group(pt_Z(s)) - c" } }
+
+- template: ac-unpaired-electrons
+  skill: gchem.structure
+  pace: quick
+  cases:
+    - { q: 'Fe²⁺', s: 'Fe', c: 2, blk: 1, n: 4 }
+    - { q: 'Fe³⁺', s: 'Fe', c: 3, blk: 1, n: 5 }
+    - { q: 'Mn²⁺', s: 'Mn', c: 2, blk: 1, n: 5 }
+    - { q: 'Cu²⁺', s: 'Cu', c: 2, blk: 1, n: 1 }
+    - { q: 'Ni²⁺', s: 'Ni', c: 2, blk: 1, n: 2 }
+    - { q: 'Cr³⁺', s: 'Cr', c: 3, blk: 1, n: 3 }
+    - { q: 'Co²⁺', s: 'Co', c: 2, blk: 1, n: 3 }
+    - { q: 'a nitrogen atom', s: 'N', c: 0, blk: 0, n: 3 }
+    - { q: 'an oxygen atom', s: 'O', c: 0, blk: 0, n: 2 }
+    - { q: 'a phosphorus atom', s: 'P', c: 0, blk: 0, n: 3 }
+    - { q: 'a chlorine atom', s: 'Cl', c: 0, blk: 0, n: 1 }
+    - { q: 'a sulfur atom', s: 'S', c: 0, blk: 0, n: 2 }
+  prompt: 'How many unpaired electrons does {{q}} have in its ground state? (Any unpaired electron makes it paramagnetic.)'
+  parts:
+    - { ask: 'Unpaired electrons', label: r, value: n, tol: 0.0001, explain: 'Fill the open subshell one electron per orbital before pairing (Hund''s rule): five d boxes, three p boxes. Up to half-full every electron is unpaired; past that, count the empty spaces instead' }
+  verify: { expect: { r: "Min(pt_group(pt_Z(s)) - c, 10 - (pt_group(pt_Z(s)) - c)) if blk == 1 else Min(pt_group(pt_Z(s)) - 12, 18 - pt_group(pt_Z(s)))" } }
+
+- template: ac-coulomb-compare
+  skill: gchem.structure
+  pace: quick
+  cases:
+    - { q: 'a 2p electron in fluorine or a 2p electron in oxygen', ans: 0, a: 'Fluorine', b: 'Oxygen' }
+    - { q: 'the 3s electron of sodium or the 2s electron of lithium', ans: 1, a: 'Sodium', b: 'Lithium' }
+    - { q: 'a 3p electron in chlorine or a 4p electron in bromine', ans: 0, a: 'Chlorine', b: 'Bromine' }
+    - { q: 'the outer electron of Na or of Na⁺ (a 2p electron)', ans: 1, a: 'Na (3s)', b: 'Na⁺ (2p)' }
+    - { q: 'a 1s electron in carbon or a 2p electron in carbon', ans: 0, a: 'The 1s electron', b: 'The 2p electron' }
+    - { q: 'the outer electron of potassium or of calcium', ans: 1, a: 'Potassium', b: 'Calcium' }
+  prompt: 'By Coulomb''s law, which is attracted more strongly to its nucleus: {{q}}?'
+  parts:
+    - ask: 'Stronger attraction'
+      label: a
+      choice: ["{{a}}", "{{b}}"]
+      correct: ans
+      explain: '$F \propto \dfrac{Z_\text{eff}\,e^2}{r^2}$. Across a period the nuclear charge grows while the shell, and so the distance and the shielding by core electrons, stay the same. Down a group the electron sits in a farther shell behind more core electrons'
+  verify: { authored: true }
+
+- template: ac-pes-identify
+  skill: gchem.structure
+  pace: quick
+  cases:
+    - { h: '2 2 6 1', Z: 11 }
+    - { h: '2 2 6 2', Z: 12 }
+    - { h: '2 2 6 2 1', Z: 13 }
+    - { h: '2 2 6 2 3', Z: 15 }
+    - { h: '2 2 6 2 4', Z: 16 }
+    - { h: '2 2 6 2 6 1', Z: 19 }
+    - { h: '2 2 3', Z: 7 }
+    - { h: '2 2 5', Z: 9 }
+    - { h: '2 2 6 2 6 2', Z: 20 }
+    - { h: '2 1', Z: 3 }
+  prompt: 'A photoelectron spectrum shows peaks whose relative heights, from highest binding energy to lowest, are {{h}}. What is the atomic number of the element?'
+  parts:
+    - { ask: 'Atomic number', label: r, value: Z, tol: 0.0001, explain: 'Each peak is a subshell (1s, 2s, 2p, 3s, 3p, 4s …, in order of falling binding energy) and its height is the number of electrons in it. Add the heights for the electron count of the neutral atom. The peak farthest left, the 1s, also moves to higher energy as Z grows' }
+  verify: { expect: { r: "sum([Integer(t) for t in h.split()])" } }
+
+- template: ac-periodic-trend
+  skill: gchem.structure
+  pace: recall
+  cases:
+    - { q: 'larger atomic radius', a: 'K', b: 'Br', ans: 0 }
+    - { q: 'larger atomic radius', a: 'Mg', b: 'Ba', ans: 1 }
+    - { q: 'higher first ionization energy', a: 'N', b: 'P', ans: 0 }
+    - { q: 'higher first ionization energy', a: 'Na', b: 'Cl', ans: 1 }
+    - { q: 'higher first ionization energy', a: 'N', b: 'O', ans: 0 }
+    - { q: 'higher first ionization energy', a: 'Be', b: 'B', ans: 0 }
+    - { q: 'higher electronegativity', a: 'O', b: 'S', ans: 0 }
+    - { q: 'higher electronegativity', a: 'C', b: 'F', ans: 1 }
+    - { q: 'larger atomic radius', a: 'O', b: 'F', ans: 0 }
+    - { q: 'more negative electron affinity', a: 'Cl', b: 'Na', ans: 0 }
+  prompt: 'Which has the {{q}}: {{a}} or {{b}}?'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["{{a}}", "{{b}}"]
+      correct: ans
+      explain: 'Across a period $Z_\text{eff}$ rises at constant shell: atoms shrink and hold electrons tighter (higher ionization energy and electronegativity). Down a group the shell number wins: atoms grow and hold less tightly. The two dips in ionization energy, B after Be and O after N, come from starting a p subshell and from the first paired p electron'
+  verify: { authored: true }
+
+- template: ac-successive-ie
+  skill: gchem.structure
+  pace: quick
+  cases:
+    - { L: [496, 4562, 6910, 9543], ls: '496, 4562, 6910, 9543', off: 0, per: 3, g: 1 }
+    - { L: [738, 1451, 7733, 10543], ls: '738, 1451, 7733, 10543', off: 0, per: 3, g: 2 }
+    - { L: [578, 1817, 2745, 11577], ls: '578, 1817, 2745, 11577', off: 10, per: 3, g: 13 }
+    - { L: [786, 1577, 3232, 4356, 16091], ls: '786, 1577, 3232, 4356, 16091', off: 10, per: 3, g: 14 }
+    - { L: [590, 1145, 4912, 6491], ls: '590, 1145, 4912, 6491', off: 0, per: 4, g: 2 }
+    - { L: [419, 3052, 4420, 5877], ls: '419, 3052, 4420, 5877', off: 0, per: 4, g: 1 }
+    - { L: [801, 2427, 3660, 25026], ls: '801, 2427, 3660, 25026', off: 10, per: 2, g: 13 }
+    - { L: [1086, 2353, 4621, 6223, 37831], ls: '1086, 2353, 4621, 6223, 37831', off: 10, per: 2, g: 14 }
+    - { L: [900, 1757, 14849, 21007], ls: '900, 1757, 14849, 21007', off: 0, per: 2, g: 2 }
+  prompt: 'An element in period {{per}} has successive ionization energies (kJ/mol) {{ls}}. What group is it in (1–18)?'
+  parts:
+    - { ask: 'Group', label: r, value: g, tol: 0.0001, explain: 'Find the big jump: it comes when the next electron must be pulled from the core. The number of electrons removed before the jump is the number of valence electrons, which is the group number for groups 1–2 and ten less than it for groups 13–18' }
+  verify: { expect: { r: "[r.index(Max(*r)) + 1 + off for r in [[L[i]/L[i - 1] for i in range(1, len(L))]]][0]" } }
+
+- template: ac-isoelectronic-rank
+  skill: gchem.structure
+  pace: quick
+  cases:
+    - { o1: 'O²⁻', o2: 'F⁻', o3: 'Na⁺', o4: 'Mg²⁺', Zs: [8, 9, 11, 12], big: 1, ans: 0 }
+    - { o1: 'O²⁻', o2: 'F⁻', o3: 'Na⁺', o4: 'Mg²⁺', Zs: [8, 9, 11, 12], big: 0, ans: 3 }
+    - { o1: 'S²⁻', o2: 'Cl⁻', o3: 'K⁺', o4: 'Ca²⁺', Zs: [16, 17, 19, 20], big: 1, ans: 0 }
+    - { o1: 'Ca²⁺', o2: 'K⁺', o3: 'Cl⁻', o4: 'S²⁻', Zs: [20, 19, 17, 16], big: 0, ans: 0 }
+    - { o1: 'N³⁻', o2: 'Ne', o3: 'Al³⁺', o4: 'Na⁺', Zs: [7, 10, 13, 11], big: 1, ans: 0 }
+    - { o1: 'Ar', o2: 'P³⁻', o3: 'Ca²⁺', o4: 'Cl⁻', Zs: [18, 15, 20, 17], big: 0, ans: 2 }
+  prompt: 'These species all have the same number of electrons. Which is the {{big ? "largest" : "smallest"}}?'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["{{o1}}", "{{o2}}", "{{o3}}", "{{o4}}"]
+      correct: ans
+      explain: 'Same electrons, different nuclear charge: the more protons, the harder the pull and the smaller the ion. So the anion with the fewest protons is largest and the most highly charged cation smallest. A cation is always smaller than its parent atom, an anion larger'
+  verify: { choices: { a: "Zs.index(Min(*Zs)) if big else Zs.index(Max(*Zs))" } }
+
+- template: ac-ion-charge-formula
+  skill: gchem.composition
+  pace: quick
+  cases:
+    - { a: 'aluminum', b: 'oxygen', o1: 'Al₂O₃', o2: 'AlO', o3: 'Al₃O₂', o4: 'AlO₃', ans: 0 }
+    - { a: 'magnesium', b: 'nitrogen', o1: 'MgN', o2: 'Mg₃N₂', o3: 'Mg₂N₃', o4: 'MgN₂', ans: 1 }
+    - { a: 'calcium', b: 'chlorine', o1: 'CaCl', o2: 'Ca₂Cl', o3: 'CaCl₂', o4: 'CaCl₃', ans: 2 }
+    - { a: 'sodium', b: 'sulfur', o1: 'NaS', o2: 'NaS₂', o3: 'Na₃S', o4: 'Na₂S', ans: 3 }
+    - { a: 'lithium', b: 'nitrogen', o1: 'Li₃N', o2: 'LiN', o3: 'LiN₃', o4: 'Li₂N', ans: 0 }
+    - { a: 'barium', b: 'phosphorus', o1: 'BaP', o2: 'Ba₃P₂', o3: 'Ba₂P₃', o4: 'BaP₂', ans: 1 }
+    - { a: 'potassium', b: 'oxygen', o1: 'KO', o2: 'KO₂', o3: 'K₂O', o4: 'K₃O', ans: 2 }
+    - { a: 'gallium', b: 'fluorine', o1: 'GaF', o2: 'Ga₂F', o3: 'Ga₃F', o4: 'GaF₃', ans: 3 }
+  prompt: 'What is the formula of the ionic compound formed by {{a}} and {{b}}?'
+  parts:
+    - ask: 'Formula'
+      label: a
+      choice: ["{{o1}}", "{{o2}}", "{{o3}}", "{{o4}}"]
+      correct: ans
+      explain: 'Main-group metals lose electrons down to the previous noble gas (group 1 → +1, group 2 → +2, group 13 → +3); nonmetals gain up to the next one (group 15 → −3, 16 → −2, 17 → −1). Then balance the charges with the smallest whole numbers'
+  verify: { authored: true }
+
+- template: ac-analogous-compound
+  skill: gchem.composition
+  pace: quick
+  cases:
+    - { k: 'Sodium forms Na₂O.', q: 'potassium and sulfur', o1: 'K₂S', o2: 'KS', o3: 'KS₂', o4: 'K₂S₃', ans: 0 }
+    - { k: 'Carbon forms CH₄.', q: 'silicon and hydrogen', o1: 'SiH₂', o2: 'SiH₄', o3: 'SiH₃', o4: 'Si₂H₄', ans: 1 }
+    - { k: 'Nitrogen forms NH₃.', q: 'phosphorus and hydrogen', o1: 'PH₂', o2: 'PH₄', o3: 'PH₃', o4: 'P₂H₃', ans: 2 }
+    - { k: 'Magnesium forms MgCl₂.', q: 'strontium and bromine', o1: 'SrBr', o2: 'Sr₂Br', o3: 'SrBr₃', o4: 'SrBr₂', ans: 3 }
+    - { k: 'Aluminum forms Al₂O₃.', q: 'gallium and sulfur', o1: 'Ga₂S₃', o2: 'GaS', o3: 'Ga₃S₂', o4: 'GaS₂', ans: 0 }
+    - { k: 'Oxygen forms H₂O.', q: 'selenium and hydrogen', o1: 'HSe', o2: 'H₂Se', o3: 'H₃Se', o4: 'HSe₂', ans: 1 }
+  prompt: '{{k}} Predict the formula of the compound of {{q}}.'
+  parts:
+    - ask: 'Formula'
+      label: a
+      choice: ["{{o1}}", "{{o2}}", "{{o3}}", "{{o4}}"]
+      correct: ans
+      explain: 'Elements in the same group have the same number of valence electrons, so they form the same kind of ions and bonds. Swap the element for its congener and keep the subscripts'
+  verify: { authored: true }
+
+- template: ac-quantum-numbers-allowed
+  skill: gchem.structure
+  pace: recall
+  given: { n: { int: [1, 4] }, l: { int: [0, 3] }, m: { int: [-3, 3] } }
+  prompt: 'Is the set $n = {{n}}$, $\ell = {{l}}$, $m_\ell = {{m}}$ allowed?'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["Allowed", "Not allowed"]
+      correct: '(l < n and abs(m) <= l) ? 0 : 1'
+      explain: '$\ell$ runs from 0 to $n - 1$ and $m_\ell$ from $-\ell$ to $+\ell$. So a subshell $\ell$ has $2\ell + 1$ orbitals holding $2(2\ell + 1)$ electrons, and shell $n$ has $n^2$ orbitals'
+  verify: { choices: { a: "0 if (l < n and Abs(m) <= l) else 1" } }
+
+# ── nuclear chemistry ──────────────────────────────────────────────────────
+- template: ac-nuclear-equation
+  skill: gchem.nuclear
+  pace: quick
+  cases:
+    - { q: '${}^{238}_{92}\mathrm{U} \rightarrow {}^{234}_{90}\mathrm{Th} + \,?$', dA: -4, dZ: -2 }
+    - { q: '${}^{226}_{88}\mathrm{Ra} \rightarrow {}^{222}_{86}\mathrm{Rn} + \,?$', dA: -4, dZ: -2 }
+    - { q: '${}^{14}_{6}\mathrm{C} \rightarrow {}^{14}_{7}\mathrm{N} + \,?$', dA: 0, dZ: 1 }
+    - { q: '${}^{3}_{1}\mathrm{H} \rightarrow {}^{3}_{2}\mathrm{He} + \,?$', dA: 0, dZ: 1 }
+    - { q: '${}^{11}_{6}\mathrm{C} \rightarrow {}^{11}_{5}\mathrm{B} + \,?$', dA: 0, dZ: -1 }
+    - { q: '${}^{22}_{11}\mathrm{Na} \rightarrow {}^{22}_{10}\mathrm{Ne} + \,?$', dA: 0, dZ: -1 }
+    - { q: '${}^{99\mathrm{m}}_{43}\mathrm{Tc} \rightarrow {}^{99}_{43}\mathrm{Tc} + \,?$', dA: 0, dZ: 0 }
+    - { q: '${}^{60}_{27}\mathrm{Co} \rightarrow {}^{60}_{28}\mathrm{Ni} + \,?$', dA: 0, dZ: 1 }
+    - { q: '${}^{210}_{84}\mathrm{Po} \rightarrow {}^{206}_{82}\mathrm{Pb} + \,?$', dA: -4, dZ: -2 }
+  prompt: 'What particle completes {{q}}?'
+  parts:
+    - ask: 'Particle'
+      label: a
+      choice: ["Alpha particle, He-4", "Beta-minus particle (an electron)", "Positron", "Gamma ray only"]
+      correct: 'dA == -4 ? 0 : (dZ == 1 ? 1 : (dZ == -1 ? 2 : 3))'
+      explain: 'Mass numbers and atomic numbers must each balance. Alpha takes away 4 and 2; beta-minus turns a neutron into a proton (Z up 1); a positron (or electron capture) turns a proton into a neutron (Z down 1); gamma changes neither'
+  verify: { choices: { a: "0 if dA == -4 else (1 if dZ == 1 else (2 if dZ == -1 else 3))" } }
+
+# ── bonding ────────────────────────────────────────────────────────────────
+- template: ac-bond-type
+  skill: gchem.bonding
+  pace: recall
+  cases:
+    - { q: 'H–Cl', en1: 2.20, en2: 3.16, met: 0 }
+    - { q: 'Na–Cl', en1: 0.93, en2: 3.16, met: 0 }
+    - { q: 'C–H', en1: 2.55, en2: 2.20, met: 0 }
+    - { q: 'Cl–Cl', en1: 3.16, en2: 3.16, met: 0 }
+    - { q: 'C–O', en1: 2.55, en2: 3.44, met: 0 }
+    - { q: 'K–F', en1: 0.82, en2: 3.98, met: 0 }
+    - { q: 'Cu–Zn (in brass)', en1: 1.90, en2: 1.65, met: 1 }
+    - { q: 'N–H', en1: 3.04, en2: 2.20, met: 0 }
+    - { q: 'Mg–O', en1: 1.31, en2: 3.44, met: 0 }
+    - { q: 'P–Cl', en1: 2.19, en2: 3.16, met: 0 }
+    - { q: 'Fe–Ni', en1: 1.83, en2: 1.91, met: 1 }
+  prompt: 'Classify the {{q}} bond (Pauling electronegativities {{en1}} and {{en2}}).'
+  parts:
+    - ask: 'Bond type'
+      label: a
+      choice: ["Nonpolar covalent", "Polar covalent", "Ionic", "Metallic"]
+      correct: 'met ? 3 : (abs(en1 - en2) < 0.4 ? 0 : (abs(en1 - en2) < 1.8 ? 1 : 2))'
+      explain: 'Two metals share a sea of electrons: metallic. Otherwise use the difference, here ${{abs(en1 - en2)}}$: under about 0.4 nonpolar, up to about 1.8 polar, beyond that ionic. It is a continuum, and a metal with a nonmetal is called ionic on the AP exam'
+  verify: { choices: { a: "3 if met else (0 if Abs(en1 - en2) < Rational(2, 5) else (1 if Abs(en1 - en2) < Rational(9, 5) else 2))" } }
+
+- template: ac-pe-curve
+  skill: gchem.bonding
+  pace: recall
+  cases:
+    - { q: 'the bond length', ans: 0 }
+    - { q: 'the bond energy', ans: 1 }
+    - { q: 'where repulsion between the nuclei dominates', ans: 2 }
+    - { q: 'where the two atoms no longer interact', ans: 3 }
+    - { q: 'what moves left (shorter) for a double bond than a single bond between the same atoms', ans: 0 }
+    - { q: 'what gets deeper for a stronger bond', ans: 1 }
+  prompt: 'On a plot of potential energy against internuclear distance for two atoms, where do you read {{q}}?'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["The distance at the minimum", "The depth of the minimum below zero", "The steep wall at short distance", "The flat region at large distance, at zero energy"]
+      correct: ans
+      explain: 'Far apart the energy is zero. As the atoms approach, attraction lowers the energy to a minimum: its position is the bond length, its depth the energy needed to break the bond. Closer still, nucleus–nucleus repulsion sends the curve steeply up. Smaller atoms and more shared pairs give shorter, deeper wells'
+  verify: { authored: true }
+
+- template: ac-lattice-energy-rank
+  skill: gchem.bonding
+  pace: quick
+  cases:
+    - { a: 'NaCl', b: 'MgO', qa: 1, ra: 283, qb: 4, rb: 212 }
+    - { a: 'LiF', b: 'KBr', qa: 1, ra: 209, qb: 1, rb: 334 }
+    - { a: 'NaF', b: 'NaI', qa: 1, ra: 235, qb: 1, rb: 322 }
+    - { a: 'KCl', b: 'CaO', qa: 1, ra: 319, qb: 4, rb: 240 }
+    - { a: 'MgO', b: 'CaO', qa: 4, ra: 212, qb: 4, rb: 240 }
+    - { a: 'CaS', b: 'KCl', qa: 4, ra: 284, qb: 1, rb: 319 }
+    - { a: 'NaCl', b: 'NaBr', qa: 1, ra: 283, qb: 1, rb: 298 }
+  prompt: 'Which has the larger lattice energy: {{a}} or {{b}}?'
+  parts:
+    - ask: 'Larger lattice energy'
+      label: a
+      choice: ["{{a}}", "{{b}}"]
+      correct: 'qa/ra > qb/rb ? 0 : 1'
+      explain: 'Coulomb''s law: $E \propto \dfrac{q_+ q_-}{r_+ + r_-}$. Charge matters first (2+ with 2− is four times 1+ with 1−); among equal charges the smaller ions win. Higher lattice energy means a higher melting point'
+  verify: { choices: { a: "0 if Rational(qa)/ra > Rational(qb)/rb else 1" } }
+
+- template: ac-ionic-properties
+  skill: gchem.bonding
+  pace: recall
+  cases:
+    - { q: 'solid NaCl does not conduct electricity, yet molten NaCl does', ans: 1 }
+    - { q: 'an ionic crystal shatters when struck', ans: 2 }
+    - { q: 'MgO melts at about 2850 °C', ans: 0 }
+    - { q: 'a solution of KBr in water conducts', ans: 1 }
+    - { q: 'NaCl has a higher melting point than ice', ans: 0 }
+  prompt: 'Explain why {{q}}.'
+  parts:
+    - ask: 'Best explanation'
+      label: a
+      choice: ["Strong Coulomb attractions run through the whole lattice", "Ions are fixed in the solid but free to move in the melt or solution", "A shifted layer brings like charges side by side and they repel", "Delocalised electrons carry the current"]
+      correct: ans
+      explain: 'An ionic solid is a three-dimensional array of cations and anions. Its properties all come from that picture: every ion is held by all its neighbours (high melting point), ions are locked in place (no conduction until melted or dissolved), and sliding one layer lines up like charges (brittle)'
+  verify: { authored: true }
+
+- template: ac-alloy-type
+  skill: gchem.bonding
+  pace: recall
+  cases:
+    - { q: 'steel (carbon in iron)', ans: 1 }
+    - { q: 'brass (zinc in copper)', ans: 0 }
+    - { q: 'bronze (tin in copper)', ans: 0 }
+    - { q: 'sterling silver (copper in silver)', ans: 0 }
+    - { q: 'iron hardened with dissolved nitrogen', ans: 1 }
+    - { q: 'white gold (nickel or palladium in gold)', ans: 0 }
+  prompt: 'Is {{q}} a substitutional or an interstitial alloy?'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["Substitutional: atoms of similar size replace host atoms", "Interstitial: much smaller atoms fill the holes between host atoms"]
+      correct: ans
+      explain: 'Compare atomic sizes. Metals of similar radius swap into lattice sites; small nonmetals such as C, N or B squeeze into the gaps. Interstitial atoms pin the layers, which makes the alloy harder and less malleable than the pure metal'
+  verify: { authored: true }
+
+- template: ac-valence-electrons
+  skill: gchem.bonding
+  pace: quick
+  cases:
+    - { f: 'CO₂', at: 'C O O', c: 0, e: 16 }
+    - { f: 'SO₄²⁻', at: 'S O O O O', c: -2, e: 32 }
+    - { f: 'NH₄⁺', at: 'N H H H H', c: 1, e: 8 }
+    - { f: 'NO₃⁻', at: 'N O O O', c: -1, e: 24 }
+    - { f: 'CH₂O', at: 'C H H O', c: 0, e: 12 }
+    - { f: 'HCN', at: 'H C N', c: 0, e: 10 }
+    - { f: 'PCl₃', at: 'P Cl Cl Cl', c: 0, e: 26 }
+    - { f: 'CO₃²⁻', at: 'C O O O', c: -2, e: 24 }
+    - { f: 'O₃', at: 'O O O', c: 0, e: 18 }
+    - { f: 'ClO₂⁻', at: 'Cl O O', c: -1, e: 20 }
+    - { f: 'H₂O₂', at: 'H H O O', c: 0, e: 14 }
+  prompt: 'How many valence electrons go into the Lewis structure of {{f}}?'
+  parts:
+    - { ask: 'Valence electrons', label: r, value: e, tol: 0.0001, explain: 'Add the group valence electrons of every atom (H 1, C 4, N 5, O 6, halogens 7), then add one electron per negative charge and subtract one per positive charge. Place them as bonding pairs first, then complete octets on the outer atoms' }
+  verify: { expect: { r: "sum([pt_group(pt_Z(a)) % 10 for a in at.split()]) - c" } }
+
+- template: ac-octet-exception
+  skill: gchem.bonding
+  pace: recall
+  cases:
+    - { q: 'BF₃', ans: 0 }
+    - { q: 'BeCl₂', ans: 0 }
+    - { q: 'SF₆', ans: 1 }
+    - { q: 'PCl₅', ans: 1 }
+    - { q: 'XeF₄', ans: 1 }
+    - { q: 'I₃⁻', ans: 1 }
+    - { q: 'NO', ans: 2 }
+    - { q: 'NO₂', ans: 2 }
+    - { q: 'ClO₂', ans: 2 }
+    - { q: 'CH₄', ans: 3 }
+    - { q: 'CO₂', ans: 3 }
+  prompt: 'In the best Lewis structure of {{q}}, how does the central atom relate to the octet rule?'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["Incomplete octet (fewer than 8)", "Expanded octet (more than 8)", "Odd number of electrons: one is unpaired", "Obeys the octet rule"]
+      correct: ans
+      explain: 'Count valence electrons first: an odd total cannot pair up (free radicals such as NO). Be and B are content with 4 and 6. Atoms from period 3 down can hold more than 8 when bonded to several electronegative atoms; period-2 atoms never can'
+  verify: { authored: true }
+
+- template: ac-formal-charge
+  skill: gchem.bonding
+  pace: quick
+  cases:
+    - { q: 'a nitrogen with four bonds and no lone pairs', V: 5, lp: 0, b: 4 }
+    - { q: 'an oxygen with one bond and three lone pairs', V: 6, lp: 3, b: 1 }
+    - { q: 'an oxygen with three bonds and one lone pair', V: 6, lp: 1, b: 3 }
+    - { q: 'a carbon with three bonds and one lone pair', V: 4, lp: 1, b: 3 }
+    - { q: 'an oxygen with two bonds and two lone pairs', V: 6, lp: 2, b: 2 }
+    - { q: 'a boron with four bonds', V: 3, lp: 0, b: 4 }
+    - { q: 'a nitrogen with two bonds and two lone pairs', V: 5, lp: 2, b: 2 }
+    - { q: 'a sulfur with six bonds', V: 6, lp: 0, b: 6 }
+    - { q: 'a carbon with three bonds and no lone pairs', V: 4, lp: 0, b: 3 }
+  prompt: 'In a Lewis structure, what is the formal charge on {{q}}?'
+  parts:
+    - ask: 'Formal charge'
+      label: a
+      choice: ["Minus two", "Minus one", "Zero", "Plus one", "Plus two"]
+      correct: V - 2*lp - b + 2
+      explain: 'FC = valence electrons − lone-pair electrons − bonds $= {{V}} - {{2*lp}} - {{b}}$. The best structure has formal charges closest to zero, and any negative charge on the most electronegative atom'
+  verify: { choices: { a: "V - 2*lp - b + 2" } }
+
+- template: ac-resonance-bond-order
+  skill: gchem.bonding
+  pace: quick
+  cases:
+    - { q: 'the N–O bonds of nitrate, NO₃⁻', tb: 4, n: 3 }
+    - { q: 'the C–O bonds of carbonate, CO₃²⁻', tb: 4, n: 3 }
+    - { q: 'the O–O bonds of ozone, O₃', tb: 3, n: 2 }
+    - { q: 'the N–O bonds of nitrite, NO₂⁻', tb: 3, n: 2 }
+    - { q: 'the C–O bonds of acetate, CH₃COO⁻', tb: 3, n: 2 }
+    - { q: 'the C–C bonds of benzene', tb: 9, n: 6 }
+  prompt: 'Drawing every resonance structure, what is the average bond order of {{q}}?'
+  parts:
+    - { ask: 'Bond order', label: r, value: tb/n, tol: 0.001, explain: 'Count the bonds (pairs) shared among the equivalent positions in one structure and divide by the number of positions: ${{tb}}/{{n}}$. All the bonds are identical, intermediate in length between single and double' }
+  verify: { expect: { r: "Rational(tb, n)" } }
+
+- template: ac-vsepr-shape
+  skill: gchem.bonding
+  pace: quick
+  cases:
+    - { f: 'CO₂', bp: 2, lp: 0 }
+    - { f: 'BF₃', bp: 3, lp: 0 }
+    - { f: 'SO₂', bp: 2, lp: 1 }
+    - { f: 'CH₄', bp: 4, lp: 0 }
+    - { f: 'NH₃', bp: 3, lp: 1 }
+    - { f: 'H₂O', bp: 2, lp: 2 }
+    - { f: 'PCl₅', bp: 5, lp: 0 }
+    - { f: 'SF₄', bp: 4, lp: 1 }
+    - { f: 'ClF₃', bp: 3, lp: 2 }
+    - { f: 'XeF₂', bp: 2, lp: 3 }
+    - { f: 'SF₆', bp: 6, lp: 0 }
+    - { f: 'BrF₅', bp: 5, lp: 1 }
+    - { f: 'XeF₄', bp: 4, lp: 2 }
+    - { f: 'I₃⁻', bp: 2, lp: 3 }
+  prompt: 'What is the molecular shape of {{f}}?'
+  parts:
+    - ask: 'Shape'
+      label: a
+      choice: ["Linear", "Trigonal planar", "Bent", "Tetrahedral", "Trigonal pyramidal", "Trigonal bipyramidal", "Seesaw", "T-shaped", "Octahedral", "Square pyramidal", "Square planar"]
+      correct: 'bp == 2 and lp == 0 ? 0 : (bp == 3 and lp == 0 ? 1 : (bp == 2 and (lp == 1 or lp == 2) ? 2 : (bp == 4 and lp == 0 ? 3 : (bp == 3 and lp == 1 ? 4 : (bp == 5 and lp == 0 ? 5 : (bp == 4 and lp == 1 ? 6 : (bp == 3 and lp == 2 ? 7 : (bp == 2 and lp == 3 ? 0 : (bp == 6 ? 8 : (bp == 5 ? 9 : 10))))))))))'
+      explain: 'The central atom of {{f}} has {{bp}} bonded atoms and {{lp}} lone pair{{lp == 1 ? "" : "s"}}: {{bp + lp}} domains. The domains set the electron geometry; the shape names only where the atoms are. Lone pairs take equatorial seats in a trigonal bipyramid and opposite seats in an octahedron'
+  verify: { choices: { a: "{(2, 0): 0, (3, 0): 1, (2, 1): 2, (2, 2): 2, (4, 0): 3, (3, 1): 4, (5, 0): 5, (4, 1): 6, (3, 2): 7, (2, 3): 0, (6, 0): 8, (5, 1): 9, (4, 2): 10}[(bp, lp)]" } }
+
+- template: ac-polarity
+  skill: gchem.bonding
+  pace: recall
+  cases:
+    - { f: 'CO₂', ans: 1 }
+    - { f: 'H₂O', ans: 0 }
+    - { f: 'CCl₄', ans: 1 }
+    - { f: 'CHCl₃', ans: 0 }
+    - { f: 'BF₃', ans: 1 }
+    - { f: 'NH₃', ans: 0 }
+    - { f: 'SF₆', ans: 1 }
+    - { f: 'SF₄', ans: 0 }
+    - { f: 'XeF₄', ans: 1 }
+    - { f: 'SO₂', ans: 0 }
+    - { f: 'CH₂Cl₂', ans: 0 }
+    - { f: 'PCl₅', ans: 1 }
+    - { f: 'HCN', ans: 0 }
+    - { f: 'BCl₃', ans: 1 }
+  prompt: 'Is {{f}} polar or nonpolar?'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["Polar", "Nonpolar"]
+      correct: ans
+      explain: 'Polar bonds are not enough: the bond dipoles must fail to cancel. Identical atoms arranged symmetrically (linear, trigonal planar, tetrahedral, square planar, octahedral) cancel; lone pairs on the central atom or mixed outer atoms usually leave a net dipole'
+  verify: { authored: true }
+
+- template: ac-sigma-pi
+  skill: gchem.bonding
+  pace: quick
+  cases:
+    - { f: 'HCN', s: 1, d: 0, t: 1 }
+    - { f: 'CO₂', s: 0, d: 2, t: 0 }
+    - { f: 'C₂H₄ (ethene)', s: 4, d: 1, t: 0 }
+    - { f: 'C₂H₂ (ethyne)', s: 2, d: 0, t: 1 }
+    - { f: 'CH₃COOH (acetic acid)', s: 6, d: 1, t: 0 }
+    - { f: 'CH₂=CH–C≡N (acrylonitrile)', s: 4, d: 1, t: 1 }
+    - { f: 'N₂', s: 0, d: 0, t: 1 }
+    - { f: 'H₂CO (formaldehyde)', s: 2, d: 1, t: 0 }
+    - { f: 'CH₃CHO (acetaldehyde)', s: 5, d: 1, t: 0 }
+  prompt: 'How many σ bonds and how many π bonds are in {{f}}?'
+  parts:
+    - { ask: 'σ bonds', label: r, value: s + d + t, tol: 0.0001, explain: 'Every bond has exactly one σ: here ${{s}}$ single + ${{d}}$ double + ${{t}}$ triple $= {{s + d + t}}$' }
+    - { ask: 'π bonds', label: p, value: d + 2*t, tol: 0.0001, explain: 'A double bond adds one π and a triple bond two. π bonds need unhybridised p orbitals, so an atom with one π bond is sp², with two sp' }
+  verify: { expect: { r: "s + d + t", p: "d + 2*t" } }

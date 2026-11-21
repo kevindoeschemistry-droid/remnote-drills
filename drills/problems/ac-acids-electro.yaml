@@ -1,0 +1,522 @@
+# AP Chemistry units 8 and 9: acids and bases, free energy, electrochemistry.
+# Kw = 1.0e-14 at 25 °C. F = e·N_A = 96485.33 C/mol; R = 8.314462618 J/(mol·K).
+
+# ── pH and strong acids ────────────────────────────────────────────────────
+- template: ac-ph-poh
+  skill: gchem.acidbase
+  pace: quick
+  cases:
+    - { q: '[H₃O⁺] is', w: 0 }
+    - { q: '[OH⁻] is', w: 1 }
+  given: { m: { pick: [1.0, 2.5, 4.0, 7.2] }, e: { int: [2, 12] } }
+  prompt: 'At 25 °C, {{q}} ${{m}}\times10^{-{{e}}}$ M. What is the pH?'
+  parts:
+    - { ask: 'pH', label: r, value: 'w == 0 ? -log10(m*10^(-e)) : 14 + log10(m*10^(-e))', tol: 0.001, explain: 'pH $= -\log[\mathrm{H_3O^+}]$, pOH $= -\log[\mathrm{OH^-}]$, and pH + pOH = 14 at 25 °C because $K_w = 1.0\times10^{-14}$. A mantissa above 1 makes the pH a little below the exponent' }
+  verify: { expect: { r: "(-log(nsimplify(m)*Integer(10)**(-e), 10)) if w == 0 else (14 + log(nsimplify(m)*Integer(10)**(-e), 10))" } }
+
+- template: ac-strong-acid-ph
+  skill: gchem.acidbase
+  pace: quick
+  cases:
+    - { f: 'HCl', k: 1, acid: 1 }
+    - { f: 'HNO₃', k: 1, acid: 1 }
+    - { f: 'HClO₄', k: 1, acid: 1 }
+    - { f: 'NaOH', k: 1, acid: 0 }
+    - { f: 'KOH', k: 1, acid: 0 }
+    - { f: 'Ba(OH)₂', k: 2, acid: 0 }
+    - { f: 'Ca(OH)₂', k: 2, acid: 0 }
+  given: { c: { pick: [0.0010, 0.0050, 0.020, 0.15] } }
+  prompt: 'What is the pH of ${{c}}$ M {{f}}?'
+  parts:
+    - { ask: 'pH', label: r, value: 'acid ? -log10(k*c) : 14 + log10(k*c)', tol: 0.001, explain: 'Strong acids (HCl, HBr, HI, HNO₃, HClO₄, H₂SO₄ for its first proton) and group 1 and heavy group 2 hydroxides ionize completely, so the ion concentration is ${{k}} \times {{c}}$ M. Remember the 2 in Ba(OH)₂' }
+  verify: { expect: { r: "(-log(k*c, 10)) if acid else (14 + log(k*c, 10))" } }
+
+- template: ac-weak-acid-ph
+  skill: gchem.acidbase
+  pace: quick
+  cases:
+    - { f: 'acetic acid', Ka: 1.8e-5 }
+    - { f: 'HF', Ka: 6.8e-4 }
+    - { f: 'HCN', Ka: 6.2e-10 }
+    - { f: 'formic acid', Ka: 1.8e-4 }
+    - { f: 'HOCl', Ka: 3.0e-8 }
+  given: { c: { pick: [0.010, 0.050, 0.100, 0.500] } }
+  prompt: 'What is the pH of ${{c}}$ M {{f}} ($K_a = {{Ka}}$), and what percent of it is ionized?'
+  parts:
+    - { ask: 'pH', label: r, value: -log10((-Ka + sqrt(Ka^2 + 4*Ka*c))/2), tol: 0.001, explain: '$K_a = \dfrac{x^2}{c - x}$ with $x = [\mathrm{H_3O^+}]$. When $x$ is small next to c, $x \approx \sqrt{K_a c}$; the exact root is $x = {{(-Ka + sqrt(Ka^2 + 4*Ka*c))/2}}$ M' }
+    - { ask: 'Percent ionized', label: p, value: 100*((-Ka + sqrt(Ka^2 + 4*Ka*c))/2)/c, tol: 0.002, explain: 'Percent ionization $= x/c \times 100$. It rises as the acid is diluted, even though the pH also rises' }
+  verify: { expect: { r: "-log(Max(*solve(Eq(x**2, nsimplify(Ka)*(c - x)), x)), 10)", p: "100*Max(*solve(Eq(x**2, nsimplify(Ka)*(c - x)), x))/c" } }
+
+- template: ac-weak-base-ph
+  skill: gchem.acidbase
+  pace: quick
+  cases:
+    - { f: 'ammonia', Kb: 1.8e-5 }
+    - { f: 'methylamine', Kb: 4.4e-4 }
+    - { f: 'pyridine', Kb: 1.7e-9 }
+    - { f: 'aniline', Kb: 4.3e-10 }
+  given: { c: { pick: [0.010, 0.050, 0.100, 0.250] } }
+  prompt: 'What is the pH of ${{c}}$ M {{f}} ($K_b = {{Kb}}$)?'
+  parts:
+    - { ask: 'pH', label: r, value: 14 + log10((-Kb + sqrt(Kb^2 + 4*Kb*c))/2), tol: 0.001, explain: 'Same ICE table as a weak acid, but $x$ is [OH⁻]: $K_b = x^2/(c - x)$. Find pOH $= -\log x$, then pH = 14 − pOH. Getting a pH below 7 for a base means you forgot that last step' }
+  verify: { expect: { r: "14 + log(Max(*solve(Eq(x**2, nsimplify(Kb)*(c - x)), x)), 10)" } }
+
+- template: ac-ka-from-ph
+  skill: gchem.acidbase
+  pace: quick
+  given: { c: { pick: [0.050, 0.100, 0.200] }, pH: { pick: [2.50, 2.87, 3.20, 3.75] } }
+  prompt: 'A ${{c}}$ M solution of a weak acid HA has pH ${{pH}}$. What is $K_a$?'
+  parts:
+    - { ask: 'K_a', label: r, value: (10^(-pH))^2/(c - 10^(-pH)), tol: 0.002, explain: '$[\mathrm{H_3O^+}] = [\mathrm{A^-}] = 10^{-\text{pH}} = {{10^(-pH)}}$ M, and $[\mathrm{HA}] = c - x$. Then $K_a = \dfrac{x^2}{c - x}$' }
+  verify: { expect: { r: "(Integer(10)**(-nsimplify(pH)))**2/(c - Integer(10)**(-nsimplify(pH)))" } }
+
+- template: ac-ka-kb
+  skill: gchem.acidbase
+  pace: quick
+  cases:
+    - { a: 'acetic acid', b: 'acetate', Ka: 1.8e-5 }
+    - { a: 'NH₄⁺', b: 'NH₃', Ka: 5.6e-10 }
+    - { a: 'HF', b: 'F⁻', Ka: 6.8e-4 }
+    - { a: 'HCN', b: 'CN⁻', Ka: 6.2e-10 }
+    - { a: 'H₂CO₃ (first proton)', b: 'HCO₃⁻', Ka: 4.3e-7 }
+  prompt: '{{a}} has $K_a = {{Ka}}$. What is $K_b$ of {{b}}?'
+  parts:
+    - { ask: 'K_b', label: r, value: 1e-14/Ka, tol: 0.002, explain: 'For a conjugate pair $K_a K_b = K_w = 1.0\times10^{-14}$ (equivalently p$K_a$ + p$K_b$ = 14). The weaker the acid, the stronger its conjugate base' }
+  verify: { expect: { r: "Rational(1, 10**14)/nsimplify(Ka)" } }
+
+- template: ac-strong-mixing
+  skill: gchem.acidbase
+  pace: quick
+  given: { Va: { pick: [20.0, 25.0, 50.0] }, Ca: { pick: [0.100, 0.200] }, Vb: { pick: [10.0, 15.0, 30.0, 40.0] }, Cb: { pick: [0.100, 0.150, 0.250] } }
+  require: ['Va*Ca != Vb*Cb']
+  prompt: '${{Va}}$ mL of ${{Ca}}$ M HCl is mixed with ${{Vb}}$ mL of ${{Cb}}$ M NaOH. What is the pH?'
+  parts:
+    - { ask: 'pH', label: r, value: 'Va*Ca > Vb*Cb ? -log10((Va*Ca - Vb*Cb)/(Va + Vb)) : 14 + log10((Vb*Cb - Va*Ca)/(Va + Vb))', tol: 0.001, explain: 'Neutralise first: mmol H⁺ $= {{Va*Ca}}$, mmol OH⁻ $= {{Vb*Cb}}$. Whatever is left over, divided by the total volume ${{Va + Vb}}$ mL, sets the pH' }
+  verify: { expect: { r: "(-log((Va*Ca - Vb*Cb)/(Va + Vb), 10)) if Va*Ca > Vb*Cb else (14 + log((Vb*Cb - Va*Ca)/(Va + Vb), 10))" } }
+
+- template: ac-mixture-kind
+  skill: gchem.acidbase
+  pace: quick
+  given: { na: { pick: [2.0, 5.0] }, nb: { pick: [1.0, 2.0, 5.0, 7.0] } }
+  prompt: '${{na}}$ mmol of acetic acid is mixed with ${{nb}}$ mmol of NaOH. What is in the flask?'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["A buffer: acetic acid and acetate both remain", "Only acetate (the salt): the equivalence point, basic", "Excess OH⁻ with acetate: the strong base sets the pH"]
+      correct: 'nb < na ? 0 : (nb == na ? 1 : 2)'
+      explain: 'The strong base reacts completely with the weak acid. Less base than acid leaves some HA beside its conjugate base: a buffer, with pH = pKa exactly at half-neutralization. Equal amounts leave only A⁻; more base leaves free OH⁻'
+  verify: { choices: { a: "0 if nb < na else (1 if nb == na else 2)" } }
+
+- template: ac-salt-ph
+  skill: gchem.acidbase
+  pace: recall
+  cases:
+    - { f: 'NH₄Cl', ans: 0 }
+    - { f: 'NaF', ans: 1 }
+    - { f: 'KNO₃', ans: 2 }
+    - { f: 'sodium acetate', ans: 1 }
+    - { f: 'FeCl₃', ans: 0 }
+    - { f: 'Na₂CO₃', ans: 1 }
+    - { f: 'NaCl', ans: 2 }
+    - { f: 'NH₄NO₃', ans: 0 }
+    - { f: 'KCN', ans: 1 }
+    - { f: 'LiBr', ans: 2 }
+  prompt: 'Is a solution of {{f}} acidic, basic or neutral?'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["Acidic", "Basic", "Neutral"]
+      correct: ans
+      explain: 'Ask where each ion came from. The conjugate of a strong acid or base (Cl⁻, NO₃⁻, Na⁺, K⁺) does nothing. The conjugate base of a weak acid (F⁻, acetate, CN⁻, CO₃²⁻) makes OH⁻; the conjugate acid of a weak base (NH₄⁺) and small highly charged metal ions (Fe³⁺, Al³⁺) make H₃O⁺'
+  verify: { authored: true }
+
+- template: ac-equivalence-ph
+  skill: gchem.acidbase
+  pace: workout
+  given: { Ca: { pick: [0.100, 0.200] }, Va: { pick: [25.0, 50.0] }, Cb: { pick: [0.100, 0.200] }, Ka: { pick: [1.8e-5, 6.8e-4, 3.0e-8] } }
+  prompt: '${{Va}}$ mL of ${{Ca}}$ M weak acid ($K_a = {{Ka}}$) is titrated with ${{Cb}}$ M NaOH. What is the pH at the equivalence point?'
+  parts:
+    - { ask: 'pH at equivalence', label: r, value: 14 + log10(sqrt(1e-14/Ka*Ca*Va/(Va + Ca*Va/Cb))), tol: 0.002, explain: 'At equivalence all HA has become A⁻: ${{Ca*Va}}$ mmol in ${{Va + Ca*Va/Cb}}$ mL. A⁻ is a weak base with $K_b = K_w/K_a$, so $[\mathrm{OH^-}] \approx \sqrt{K_b[\mathrm{A^-}]}$. The pH is above 7; at half-equivalence it equals p$K_a$' }
+  verify: { expect: { r: "14 + log(sqrt(Rational(1, 10**14)/nsimplify(Ka)*Ca*Va/(Va + Ca*Va/Cb)), 10)" } }
+
+- template: ac-indicator-choice
+  skill: gchem.acidbase
+  pace: recall
+  cases:
+    - { q: 'acetic acid titrated with NaOH (equivalence pH 8.7)', ph: 8.7 }
+    - { q: 'HCl titrated with NaOH (equivalence pH 7.0)', ph: 7.0 }
+    - { q: 'ammonia titrated with HCl (equivalence pH 5.3)', ph: 5.3 }
+    - { q: 'HF titrated with KOH (equivalence pH 8.1)', ph: 8.1 }
+    - { q: 'pyridine titrated with HNO₃ (equivalence pH 3.4)', ph: 3.4 }
+  prompt: 'Which indicator suits {{q}}?'
+  parts:
+    - ask: 'Indicator'
+      label: a
+      choice: ["Methyl orange (changes near pH 4)", "Bromothymol blue (changes near pH 7)", "Phenolphthalein (changes near pH 9)"]
+      correct: 'ph < 6 ? 0 : (ph < 8 ? 1 : 2)'
+      explain: 'Pick an indicator whose pKa sits near the equivalence pH, so its color changes on the steep part of the curve. Weak acid with strong base: basic equivalence. Weak base with strong acid: acidic. Strong with strong: 7'
+  verify: { choices: { a: "0 if ph < 6 else (1 if ph < 8 else 2)" } }
+
+- template: ac-polyprotic
+  skill: gchem.acidbase
+  pace: quick
+  cases:
+    - { f: 'H₃PO₄', pk: '2.15, 7.20, 12.35', pk1: 2.15 }
+    - { f: 'H₂CO₃', pk: '6.35, 10.33', pk1: 6.35 }
+    - { f: 'H₂SO₃', pk: '1.85, 7.20', pk1: 1.85 }
+    - { f: 'oxalic acid', pk: '1.25, 4.27', pk1: 1.25 }
+  given: { V1: { pick: [12.5, 18.0, 22.4] } }
+  prompt: 'A solution of {{f}} (p$K_a$ = {{pk}}) is titrated with NaOH; the first equivalence point comes at ${{V1}}$ mL. At what volume is the second equivalence point, and what is the pH at ${{V1/2}}$ mL?'
+  parts:
+    - { ask: 'Second equivalence (mL)', label: r, value: 2*V1, tol: 0.001, explain: 'Each proton takes the same amount of base, so the equivalence points are evenly spaced: the second needs twice the base of the first' }
+    - { ask: 'pH at half the first', label: p, value: pk1, tol: 0.001, explain: 'Halfway to the first equivalence point [H₂A⁻] = [H₃A] (or the first pair), so pH = p$K_{a1}$. Halfway between the first and second equivalence points pH = p$K_{a2}$' }
+  verify: { expect: { r: "2*V1", p: "pk1" } }
+
+- template: ac-acid-strength-structure
+  skill: gchem.acidbase
+  pace: recall
+  cases:
+    - { a: 'HF', b: 'HI', pa: 3.2, pb: -10 }
+    - { a: 'HClO', b: 'HClO₄', pa: 7.5, pb: -10 }
+    - { a: 'HOCl', b: 'HOBr', pa: 7.5, pb: 8.6 }
+    - { a: 'CH₃COOH', b: 'CCl₃COOH', pa: 4.76, pb: 0.66 }
+    - { a: 'H₂O', b: 'H₂S', pa: 14, pb: 7.0 }
+    - { a: 'HNO₃', b: 'HNO₂', pa: -1.4, pb: 3.3 }
+    - { a: 'H₂SO₃', b: 'H₂SO₄', pa: 1.85, pb: -3 }
+    - { a: 'HOI', b: 'HOCl', pa: 10.6, pb: 7.5 }
+    - { a: 'NH₃', b: 'H₂O', pa: 38, pb: 14 }
+  prompt: 'Which is the stronger acid: {{a}} or {{b}}?'
+  parts:
+    - ask: 'Stronger acid'
+      label: a
+      choice: ["{{a}}", "{{b}}"]
+      correct: 'pa < pb ? 0 : 1'
+      explain: 'Down a group, weaker H–X bonds win (HI > HF). Across a period, a more electronegative atom holds the H less tightly (H₂O > NH₃). For oxyacids, more O atoms and a more electronegative central atom pull electron density away and stabilise the conjugate base. (p$K_a$ {{pa}} and {{pb}})'
+  verify: { choices: { a: "0 if pa < pb else 1" } }
+
+- template: ac-lewis-acid
+  skill: gchem.acidbase
+  pace: recall
+  cases:
+    - { rx: 'BF₃ + NH₃ → F₃B–NH₃', o1: 'BF₃', o2: 'NH₃', ans: 0 }
+    - { rx: 'Al³⁺ + 6 H₂O → Al(H₂O)₆³⁺', o1: 'H₂O', o2: 'Al³⁺', ans: 1 }
+    - { rx: 'CO₂ + OH⁻ → HCO₃⁻', o1: 'CO₂', o2: 'OH⁻', ans: 0 }
+    - { rx: 'Ag⁺ + 2 NH₃ → Ag(NH₃)₂⁺', o1: 'NH₃', o2: 'Ag⁺', ans: 1 }
+    - { rx: 'Fe³⁺ + 6 CN⁻ → Fe(CN)₆³⁻', o1: 'Fe³⁺', o2: 'CN⁻', ans: 0 }
+    - { rx: 'Cl⁻ + AlCl₃ → AlCl₄⁻', o1: 'Cl⁻', o2: 'AlCl₃', ans: 1 }
+  prompt: 'In {{rx}}, which species is the Lewis acid?'
+  parts:
+    - ask: 'Lewis acid'
+      label: a
+      choice: ["{{o1}}", "{{o2}}"]
+      correct: ans
+      explain: 'A Lewis acid accepts an electron pair; a Lewis base donates one. Metal cations, electron-deficient molecules (BF₃, AlCl₃) and molecules with polar multiple bonds (CO₂) accept; lone-pair species (NH₃, H₂O, OH⁻, CN⁻, Cl⁻) donate'
+  verify: { authored: true }
+
+- template: ac-predominant-form
+  skill: gchem.acidbase
+  pace: recall
+  given: { pka: { pick: [3.8, 4.8, 6.5, 9.2] }, ph: { pick: [2.0, 4.0, 7.0, 7.4, 10.0] } }
+  require: [pka != ph]
+  prompt: 'An acid HA has p$K_a$ = ${{pka}}$. Which form predominates at pH ${{ph}}$?'
+  parts:
+    - ask: 'Predominant form'
+      label: a
+      choice: ["The acid form, HA", "The base form, A⁻"]
+      correct: 'ph < pka ? 0 : 1'
+      explain: '$\text{pH} - \text{p}K_a = \log\dfrac{[\mathrm{A^-}]}{[\mathrm{HA}]} = {{ph - pka}}$. Below the pKa the solution is acidic enough to keep the proton on; above it, the proton comes off. At pH = pKa the two are equal'
+  verify: { choices: { a: "0 if ph < pka else 1" } }
+
+# ── buffers ────────────────────────────────────────────────────────────────
+- template: ac-buffer-reaction
+  skill: gchem.acidbase
+  pace: quick
+  cases:
+    - { q: 'an acetic acid/acetate buffer', add: 'HCl', o1: 'H₃O⁺ + CH₃COO⁻ → CH₃COOH + H₂O', o2: 'OH⁻ + CH₃COOH → CH₃COO⁻ + H₂O', o3: 'H₃O⁺ + OH⁻ → 2 H₂O', o4: 'HCl + CH₃COOH → CH₃COOH₂⁺ + Cl⁻', ans: 0 }
+    - { q: 'an acetic acid/acetate buffer', add: 'NaOH', o1: 'H₃O⁺ + CH₃COO⁻ → CH₃COOH + H₂O', o2: 'OH⁻ + CH₃COOH → CH₃COO⁻ + H₂O', o3: 'Na⁺ + CH₃COO⁻ → CH₃COONa', o4: 'OH⁻ + CH₃COO⁻ → CH₂COO²⁻ + H₂O', ans: 1 }
+    - { q: 'an NH₃/NH₄⁺ buffer', add: 'HCl', o1: 'OH⁻ + NH₄⁺ → NH₃ + H₂O', o2: 'Cl⁻ + NH₄⁺ → NH₄Cl', o3: 'H₃O⁺ + NH₃ → NH₄⁺ + H₂O', o4: 'H₃O⁺ + NH₄⁺ → NH₅²⁺', ans: 2 }
+    - { q: 'an NH₃/NH₄⁺ buffer', add: 'NaOH', o1: 'H₃O⁺ + NH₃ → NH₄⁺ + H₂O', o2: 'Na⁺ + NH₃ → NaNH₃⁺', o3: 'OH⁻ + NH₃ → NH₂⁻ + H₂O', o4: 'OH⁻ + NH₄⁺ → NH₃ + H₂O', ans: 3 }
+    - { q: 'an H₂PO₄⁻/HPO₄²⁻ buffer', add: 'HCl', o1: 'H₃O⁺ + HPO₄²⁻ → H₂PO₄⁻ + H₂O', o2: 'OH⁻ + H₂PO₄⁻ → HPO₄²⁻ + H₂O', o3: 'H₃O⁺ + H₂PO₄⁻ → H₃PO₄ + H₂O', o4: 'HCl + HPO₄²⁻ → PO₄³⁻ + H₂Cl⁺', ans: 0 }
+  prompt: 'Some {{add}} is added to {{q}}. Which net ionic equation shows how the buffer absorbs it?'
+  parts:
+    - ask: 'Net ionic equation'
+      label: a
+      choice: ["{{o1}}", "{{o2}}", "{{o3}}", "{{o4}}"]
+      correct: ans
+      explain: 'A buffer holds a weak acid and its conjugate base. Added strong acid is used up by the base component, added strong base by the acid component, each turning a strong species into a weak one. The ratio shifts only a little, so the pH does too'
+  verify: { authored: true }
+
+- template: ac-henderson
+  skill: gchem.acidbase
+  pace: quick
+  cases:
+    - { pair: 'acetic acid/acetate', pka: 4.74 }
+    - { pair: 'NH₄⁺/NH₃', pka: 9.25 }
+    - { pair: 'H₂PO₄⁻/HPO₄²⁻', pka: 7.20 }
+    - { pair: 'HCO₃⁻/CO₃²⁻', pka: 10.33 }
+  given: { a: { pick: [0.10, 0.20, 0.30] }, b: { pick: [0.050, 0.15, 0.25, 0.40] } }
+  prompt: 'A {{pair}} buffer (p$K_a$ = ${{pka}}$) has ${{a}}$ M of the acid and ${{b}}$ M of the base. What is its pH?'
+  parts:
+    - { ask: 'pH', label: r, value: pka + log10(b/a), tol: 0.001, explain: 'Henderson–Hasselbalch: pH = p$K_a$ + $\log\dfrac{[\text{base}]}{[\text{acid}]}$. More base than acid puts the pH above the pKa. Moles work as well as concentrations, since the volume cancels' }
+  verify: { expect: { r: "pka + log(b/a, 10)" } }
+
+- template: ac-buffer-addition
+  skill: gchem.acidbase
+  pace: quick
+  given: { na: { pick: [0.100, 0.150, 0.200] }, nb: { pick: [0.100, 0.150, 0.200] }, ad: { pick: [0.010, 0.020, 0.050] }, w: { pick: [0, 1] } }
+  prompt: 'A buffer holds ${{na}}$ mol acetic acid and ${{nb}}$ mol acetate (p$K_a$ = 4.74). What is the pH after ${{ad}}$ mol of {{w == 0 ? "HCl" : "NaOH"}} is added?'
+  parts:
+    - { ask: 'pH', label: r, value: 'w == 0 ? 4.74 + log10((nb - ad)/(na + ad)) : 4.74 + log10((nb + ad)/(na - ad))', tol: 0.001, explain: 'Do the stoichiometry first, in moles: added {{w == 0 ? "H⁺ turns acetate into acetic acid" : "OH⁻ turns acetic acid into acetate"}}. Then use Henderson–Hasselbalch with the new amounts' }
+  verify: { expect: { r: "Rational(474, 100) + log(((nb - ad)/(na + ad)) if w == 0 else ((nb + ad)/(na - ad)), 10)" } }
+
+- template: ac-buffer-design
+  skill: gchem.acidbase
+  pace: quick
+  cases:
+    - { pair: 'acetic acid/acetate', pka: 4.74 }
+    - { pair: 'H₂PO₄⁻/HPO₄²⁻', pka: 7.20 }
+    - { pair: 'NH₄⁺/NH₃', pka: 9.25 }
+  given: { d: { pick: [-0.5, -0.3, 0.2, 0.4, 0.7] } }
+  prompt: 'Using the {{pair}} pair (p$K_a$ = ${{pka}}$), what base-to-acid mole ratio gives a buffer of pH ${{pka + d}}$?'
+  parts:
+    - { ask: 'Base : acid', label: r, value: 10^d, tol: 0.002, explain: '$\log\dfrac{[\text{base}]}{[\text{acid}]} = \text{pH} - \text{p}K_a = {{d}}$, so the ratio is $10^{ {{d}} }$. Choose a pair whose pKa is within 1 of the target; a buffer works best with a ratio between 0.1 and 10' }
+  verify: { expect: { r: "Integer(10)**nsimplify(d)" } }
+
+- template: ac-buffer-capacity
+  skill: gchem.acidbase
+  pace: recall
+  given: { a1: { pick: [0.10, 0.50] }, b1: { pick: [0.10, 0.50] }, a2: { pick: [0.20, 1.0] }, b2: { pick: [0.05, 0.30] }, w: { pick: [0, 1] } }
+  require: ['(w == 0 ? b1 : a1) != (w == 0 ? b2 : a2)']
+  prompt: 'Buffer 1 has ${{a1}}$ mol HA and ${{b1}}$ mol A⁻; buffer 2 has ${{a2}}$ mol HA and ${{b2}}$ mol A⁻. Which can absorb more added {{w == 0 ? "strong acid" : "strong base"}} before its pH changes sharply?'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["Buffer 1", "Buffer 2"]
+      correct: '(w == 0 ? b1 : a1) > (w == 0 ? b2 : a2) ? 0 : 1'
+      explain: 'Capacity against added acid is set by how much base component there is, and against added base by the acid component. More of both, in a ratio near 1, makes a buffer that resists in both directions'
+  verify: { choices: { a: "0 if (b1 if w == 0 else a1) > (b2 if w == 0 else a2) else 1" } }
+
+- template: ac-ph-solubility
+  skill: gchem.acidbase
+  pace: recall
+  cases:
+    - { f: 'CaF₂', ans: 0 }
+    - { f: 'AgCl', ans: 1 }
+    - { f: 'Mg(OH)₂', ans: 0 }
+    - { f: 'CaCO₃', ans: 0 }
+    - { f: 'PbI₂', ans: 1 }
+    - { f: 'Ca₃(PO₄)₂', ans: 0 }
+    - { f: 'AgBr', ans: 1 }
+    - { f: 'ZnS', ans: 0 }
+  prompt: 'Is {{f}} more soluble in acidic solution than in pure water?'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["Yes: acid removes the anion and pulls the dissolving equilibrium forward", "No: the anion is too weak a base to react with H₃O⁺"]
+      correct: ans
+      explain: 'If the anion is the conjugate base of a weak acid (F⁻, CO₃²⁻, PO₄³⁻, S²⁻, OH⁻), H₃O⁺ protonates it, lowering Q below Ksp so more solid dissolves. Anions of strong acids (Cl⁻, Br⁻, I⁻) are unaffected'
+  verify: { authored: true }
+
+# ── entropy and free energy ────────────────────────────────────────────────
+- template: ac-entropy-sign
+  skill: gchem.thermo
+  pace: recall
+  cases:
+    - { q: 'H₂O(l) → H₂O(g)', ans: 0 }
+    - { q: 'N₂(g) + 3 H₂(g) → 2 NH₃(g)', ans: 1 }
+    - { q: 'KNO₃(s) dissolving in water', ans: 0 }
+    - { q: 'CaCO₃(s) → CaO(s) + CO₂(g)', ans: 0 }
+    - { q: 'water freezing', ans: 1 }
+    - { q: '2 SO₂(g) + O₂(g) → 2 SO₃(g)', ans: 1 }
+    - { q: 'two gases mixing', ans: 0 }
+    - { q: 'a gas cooling at constant volume', ans: 1 }
+    - { q: 'Ag⁺(aq) + Cl⁻(aq) → AgCl(s)', ans: 1 }
+  prompt: 'What is the sign of ΔS for {{q}}?'
+  parts:
+    - ask: 'Sign of ΔS'
+      label: a
+      choice: ["Positive: more dispersal", "Negative: less dispersal"]
+      correct: ans
+      explain: 'Entropy rises with more ways to spread matter and energy: solid → liquid → gas, more moles of gas, mixing, dissolving a solid, higher temperature. Count gas moles first; they dominate'
+  verify: { authored: true }
+
+- template: ac-dg-from-dh-ds
+  skill: gchem.thermo
+  pace: quick
+  given: { dH: { pick: [-120, -46, 32, 178] }, dS: { pick: [-200, -99, 45, 161] }, T: { pick: [298, 500, 1000] } }
+  require: ['dH - T*dS/1000 != 0']
+  prompt: 'A reaction has $\Delta H^\circ = {{dH}}$ kJ/mol and $\Delta S^\circ = {{dS}}$ J/(mol·K). What is $\Delta G^\circ$ at ${{T}}$ K, in kJ/mol?'
+  parts:
+    - { ask: 'ΔG° (kJ/mol)', label: r, value: dH - T*dS/1000, tol: 0.001, explain: '$\Delta G^\circ = \Delta H^\circ - T\Delta S^\circ$; divide ΔS by 1000 to put it in kJ. Negative ΔG° means thermodynamically favorable as written' }
+  verify: { expect: { r: "dH - T*dS/Integer(1000)" } }
+
+- template: ac-crossover-temperature
+  skill: gchem.thermo
+  pace: quick
+  cases:
+    - { q: 'CaCO₃ → CaO + CO₂', dH: 178.3, dS: 160.5 }
+    - { q: 'N₂ + 3 H₂ → 2 NH₃', dH: -92.2, dS: -198.7 }
+    - { q: 'H₂O(l) → H₂O(g)', dH: 44.0, dS: 118.8 }
+    - { q: '2 SO₂ + O₂ → 2 SO₃', dH: -197.8, dS: -188.0 }
+    - { q: 'NH₄Cl(s) → NH₃(g) + HCl(g)', dH: 176.0, dS: 284.8 }
+  prompt: 'For {{q}}, $\Delta H^\circ = {{dH}}$ kJ/mol and $\Delta S^\circ = {{dS}}$ J/(mol·K). Above or below what temperature, in K, is it favorable?'
+  parts:
+    - { ask: 'Crossover T (K)', label: r, value: dH*1000/dS, tol: 0.002, explain: 'Set $\Delta G = 0$: $T = \Delta H/\Delta S$. Both positive: favorable above it (entropy wins when hot). Both negative: favorable below it. Opposite signs have no crossover' }
+  verify: { expect: { r: "solve(Eq(dH*1000 - x*dS, 0), x)[0]" } }
+
+- template: ac-kinetic-control
+  skill: gchem.thermo
+  pace: recall
+  cases:
+    - { q: 'Diamond does not visibly turn into graphite at room temperature.', ans: 0 }
+    - { q: 'A mixture of H₂ and O₂ can sit for years without reacting.', ans: 0 }
+    - { q: 'Sugar does not burst into flame in air at room temperature.', ans: 0 }
+    - { q: 'Table salt does not decompose into sodium and chlorine.', ans: 1 }
+    - { q: 'N₂ and O₂ in air do not form NO at room temperature.', ans: 1 }
+    - { q: 'Gasoline does not burn until a spark is applied.', ans: 0 }
+  prompt: 'Why? {{q}}'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["Thermodynamically favorable but kinetically slow: the activation energy is high", "Thermodynamically unfavorable: ΔG° is positive"]
+      correct: ans
+      explain: 'ΔG° says whether a process can go, not how fast. A favorable reaction with a high barrier can be infinitely slow at room temperature until heat, a spark or a catalyst gets it over the hump. An unfavorable one will not go however long you wait'
+  verify: { authored: true }
+
+- template: ac-dissolution-thermo
+  skill: gchem.thermo
+  pace: recall
+  cases:
+    - { f: 'NH₄NO₃ (a cold pack)', ans: 0 }
+    - { f: 'KNO₃ (the solution cools)', ans: 0 }
+    - { f: 'NH₄Cl (the solution cools)', ans: 0 }
+    - { f: 'CaCl₂ (a hot pack)', ans: 1 }
+    - { f: 'NaOH (the solution gets hot)', ans: 1 }
+    - { f: 'MgSO₄ (the solution warms)', ans: 1 }
+  prompt: '{{f}} dissolves readily in water. What drives it?'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["Entropy: dispersal of the ions outweighs an endothermic enthalpy change", "Enthalpy: hydration releases more energy than breaking the lattice costs"]
+      correct: ans
+      explain: 'Dissolving costs the lattice energy and returns the hydration energy. If the solution cools, the process is endothermic and can only be favorable because ΔS is positive enough. If it warms, hydration wins and enthalpy helps'
+  verify: { authored: true }
+
+- template: ac-coupled-reactions
+  skill: gchem.thermo
+  pace: quick
+  given: { dG: { pick: [13.8, 21.0, 40.0, 62.5] } }
+  prompt: 'A biosynthetic step has $\Delta G^\circ = +{{dG}}$ kJ/mol. ATP hydrolysis has $\Delta G^\circ = -30.5$ kJ/mol. What is the smallest whole number of ATP that must be coupled to make the step favorable?'
+  parts:
+    - { ask: 'ATP needed', label: r, value: ceil(dG/30.5), tol: 0.0001, explain: 'Free energies of coupled reactions add: $+{{dG}} - 30.5n < 0$ needs $n > {{dG/30.5}}$. The shared intermediate (a phosphorylated molecule) is what couples them; just running both in one flask is not enough' }
+  verify: { expect: { r: "ceiling(dG/Rational(305, 10))" } }
+
+# ── electrochemistry ───────────────────────────────────────────────────────
+- template: ac-galvanic-parts
+  skill: gchem.electro
+  pace: quick
+  cases:
+    - { q: 'is the anode', ans: 0 }
+    - { q: 'is the cathode', ans: 1 }
+    - { q: 'do electrons flow toward through the wire', ans: 1 }
+    - { q: 'do cations from the salt bridge move toward', ans: 1 }
+    - { q: 'gains mass', ans: 1 }
+    - { q: 'loses mass', ans: 0 }
+    - { q: 'do anions from the salt bridge move toward', ans: 0 }
+  given: { a: { pick: ['Zn', 'Mg', 'Al'] }, b: { pick: ['Cu', 'Ag'] } }
+  prompt: 'A galvanic cell joins a {{a}} electrode in its nitrate solution to a {{b}} electrode in its nitrate solution ({{b}} has the higher reduction potential). Which electrode {{q}}?'
+  parts:
+    - ask: 'Electrode'
+      label: a
+      choice: ["The {{a}} electrode", "The {{b}} electrode"]
+      correct: ans
+      explain: 'The metal with the higher reduction potential is reduced: it is the cathode, where metal plates out. The other is oxidized at the anode and dissolves. Electrons run anode → cathode through the wire; cations in the salt bridge drift toward the cathode, anions toward the anode. Notation: {{a}}|{{a}}ⁿ⁺||{{b}}ⁿ⁺|{{b}}'
+  verify: { authored: true }
+
+- template: ac-galvanic-electrolytic
+  skill: gchem.electro
+  pace: recall
+  cases:
+    - { q: 'ΔG of the cell reaction is negative', ans: 0 }
+    - { q: 'an external power source drives the reaction', ans: 1 }
+    - { q: 'the anode is the negative electrode', ans: 0 }
+    - { q: 'the anode is the positive electrode', ans: 1 }
+    - { q: 'a phone battery while it charges', ans: 1 }
+    - { q: 'a flashlight battery in use', ans: 0 }
+    - { q: 'E°cell for the reaction as run is negative', ans: 1 }
+    - { q: 'aluminum is produced from molten Al₂O₃', ans: 1 }
+  prompt: 'Galvanic or electrolytic: {{q}}?'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["Galvanic (voltaic)", "Electrolytic"]
+      correct: ans
+      explain: 'A galvanic cell runs a favorable reaction (ΔG < 0, E > 0) and delivers electrical work; an electrolytic cell is pushed through an unfavorable one by an outside source. Oxidation is at the anode in both, but the anode is negative in a galvanic cell and positive in an electrolytic one'
+  verify: { authored: true }
+
+- template: ac-spontaneous-redox
+  skill: gchem.electro
+  pace: quick
+  cases:
+    - { q: 'Zn(s) + Cu²⁺(aq) → Zn²⁺(aq) + Cu(s)', ec: 0.34, ea: -0.76 }
+    - { q: 'Cu(s) + 2 Ag⁺(aq) → Cu²⁺(aq) + 2 Ag(s)', ec: 0.80, ea: 0.34 }
+    - { q: 'Cu(s) + Zn²⁺(aq) → Cu²⁺(aq) + Zn(s)', ec: -0.76, ea: 0.34 }
+    - { q: '2 Ag(s) + 2 H⁺(aq) → 2 Ag⁺(aq) + H₂(g)', ec: 0.00, ea: 0.80 }
+    - { q: 'Fe(s) + 2 H⁺(aq) → Fe²⁺(aq) + H₂(g)', ec: 0.00, ea: -0.44 }
+    - { q: 'Cl₂(g) + 2 Br⁻(aq) → 2 Cl⁻(aq) + Br₂(l)', ec: 1.36, ea: 1.07 }
+    - { q: 'I₂(s) + 2 Br⁻(aq) → 2 I⁻(aq) + Br₂(l)', ec: 0.54, ea: 1.07 }
+  prompt: 'For {{q}}, the reduction potential of the species reduced is ${{ec}}$ V and of the species oxidized (written as a reduction) ${{ea}}$ V. What is E°cell, in V?'
+  parts:
+    - { ask: 'E°cell (V)', label: r, value: ec - ea, tol: 0.0005, explain: '$E^\circ_\text{cell} = E^\circ_\text{cathode} - E^\circ_\text{anode}$, both as reduction potentials; do not multiply E° by the coefficients. Positive means the reaction is thermodynamically favorable as written' }
+  verify: { expect: { r: "ec - ea" } }
+
+- template: ac-dg-from-e
+  skill: gchem.electro
+  pace: quick
+  given: { n: { int: [1, 3] }, E: { pick: [-0.42, 0.15, 0.46, 1.10, 1.56] } }
+  prompt: 'A cell reaction transfers ${{n}}$ mol of electrons and has $E^\circ = {{E}}$ V. What is $\Delta G^\circ$, in kJ/mol? ($F = 96{,}485$ C/mol)'
+  parts:
+    - { ask: 'ΔG° (kJ/mol)', label: r, value: -n*96485.33212331*E/1000, tol: 0.001, explain: '$\Delta G^\circ = -nFE^\circ$, in J (since 1 C·V = 1 J); divide by 1000. Positive E° gives negative ΔG° and K > 1: all three say the same thing' }
+  verify: { expect: { r: "-n*c_e*c_NA*E/1000" } }
+
+- template: ac-concentration-effect
+  skill: gchem.electro
+  pace: recall
+  cases:
+    - { q: '[Zn²⁺] is increased', ans: 1 }
+    - { q: '[Cu²⁺] is increased', ans: 0 }
+    - { q: 'the Cu²⁺ solution is diluted', ans: 1 }
+    - { q: 'the Zn²⁺ solution is diluted', ans: 0 }
+    - { q: 'the cell runs for a long time', ans: 1 }
+  prompt: 'In the cell Zn(s) + Cu²⁺(aq) → Zn²⁺(aq) + Cu(s), what happens to the cell potential when {{q}}?'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["It increases", "It decreases"]
+      correct: ans
+      explain: '$Q = [\mathrm{Zn^{2+}}]/[\mathrm{Cu^{2+}}]$. Raising Q (more product ion or less reactant ion) lowers E; lowering Q raises it. As the cell runs, Q climbs toward K and E falls to zero: the battery is dead at equilibrium'
+  verify: { authored: true }
+
+- template: ac-concentration-cell
+  skill: gchem.electro
+  pace: quick
+  given: { n: { pick: [1, 2] }, ch: { pick: [0.10, 0.50, 1.0] }, k: { pick: [10, 100, 1000] } }
+  prompt: 'A concentration cell has the same metal in ${{ch}}$ M and ${{ch/k}}$ M solutions of its ion (charge ${{n}}$+). What is its potential at 298.15 K, in V?'
+  parts:
+    - { ask: 'E (V)', label: r, value: 8.314462618*298.15/(n*96485.33212331)*log(k), tol: 0.002, explain: 'E° is zero (same half-reaction on both sides), so the Nernst equation leaves $E = \dfrac{RT}{nF}\ln\dfrac{c_\text{high}}{c_\text{low}} \approx \dfrac{0.0592}{n}\log({{k}})$. Electrons flow until the two concentrations are equal' }
+  verify: { expect: { r: "c_R*Rational(29815, 100)/(n*c_e*c_NA)*log(ch/(ch/k))" } }
+
+- template: ac-faraday
+  skill: gchem.electro
+  pace: quick
+  cases:
+    - { m: 'copper from Cu²⁺', M: 63.546, n: 2 }
+    - { m: 'silver from Ag⁺', M: 107.868, n: 1 }
+    - { m: 'nickel from Ni²⁺', M: 58.693, n: 2 }
+    - { m: 'aluminum from Al³⁺', M: 26.982, n: 3 }
+    - { m: 'zinc from Zn²⁺', M: 65.38, n: 2 }
+  given: { I: { pick: [0.500, 1.50, 2.00, 5.00] }, t: { pick: [10, 30, 60, 120] } }
+  prompt: 'A current of ${{I}}$ A runs for ${{t}}$ min, depositing {{m}} ($M = {{M}}$ g/mol). What mass is deposited, in g?'
+  parts:
+    - { ask: 'Mass (g)', label: r, value: I*t*60/96485.33212331/n*M, tol: 0.002, explain: 'charge $q = It$ (in coulombs, so minutes × 60) → moles of electrons $q/F$ → moles of metal ÷ {{n}} → grams' }
+  verify: { expect: { r: "I*t*60/(c_e*c_NA)/n*M" } }

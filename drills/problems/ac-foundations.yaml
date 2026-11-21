@@ -1,0 +1,344 @@
+# AP Chemistry, units 1 and 2 plus the general-chemistry foundations: one quick item per objective that
+# had no drill. Molar masses use the atomic weights in tests/verify/data.py (C 12.011, H 1.008, O 15.999 …);
+# each case carries the formula as an expression the verifier recomputes from those weights.
+
+# ── foundations ─────────────────────────────────────────────────────────────
+- template: ac-classify-matter
+  skill: gchem.measurement
+  pace: recall
+  cases:
+    - { q: 'copper wire', ans: 0 }
+    - { q: 'distilled water', ans: 1 }
+    - { q: 'air in a sealed jar', ans: 2 }
+    - { q: 'granite', ans: 3 }
+    - { q: 'table salt (sodium chloride)', ans: 1 }
+    - { q: 'salt water, fully dissolved', ans: 2 }
+    - { q: 'oxygen gas, O₂', ans: 0 }
+    - { q: 'oil floating on water', ans: 3 }
+    - { q: 'brass (a copper–zinc alloy)', ans: 2 }
+    - { q: 'sand mixed with iron filings', ans: 3 }
+    - { q: 'dry ice, solid CO₂', ans: 1 }
+    - { q: 'sulfur powder', ans: 0 }
+  prompt: 'Classify {{q}}.'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["Element", "Compound", "Homogeneous mixture (solution)", "Heterogeneous mixture"]
+      correct: ans
+      explain: 'Two questions settle it. Is the composition fixed (a pure substance) or variable (a mixture)? A pure substance made of one kind of atom is an element, of bonded atoms in a fixed ratio a compound. A mixture you cannot see the parts of is homogeneous; one with visible regions is heterogeneous. Alloys and air are solutions'
+  verify: { authored: true }
+
+- template: ac-physical-chemical
+  skill: gchem.measurement
+  pace: recall
+  cases:
+    - { q: 'iron rusting', ans: 1 }
+    - { q: 'ice melting', ans: 0 }
+    - { q: 'sugar dissolving in tea', ans: 0 }
+    - { q: 'wood burning', ans: 1 }
+    - { q: 'milk souring', ans: 1 }
+    - { q: 'boiling point of a liquid', ans: 0 }
+    - { q: 'flammability of a gas', ans: 1 }
+    - { q: 'density of a metal', ans: 0 }
+    - { q: 'baking soda fizzing in vinegar', ans: 1 }
+    - { q: 'copper being drawn into wire', ans: 0 }
+    - { q: 'reactivity with water', ans: 1 }
+    - { q: 'dry ice subliming', ans: 0 }
+  prompt: 'Is {{q}} physical or chemical?'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["Physical: the substance stays the same substance", "Chemical: new substances form, or the property describes forming them"]
+      correct: ans
+      explain: 'Ask whether the particles at the end are the same particles. Phase changes and dissolving move molecules apart; burning, rusting and souring rearrange bonds. A chemical property (flammability, reactivity) can only be observed by changing the substance'
+  verify: { authored: true }
+
+- template: ac-si-prefix
+  skill: gchem.measurement
+  pace: quick
+  given: { v: { pick: [2.5, 3.6, 4.2, 7.5, 8.1] } }
+  cases:
+    - { u1: 'mg', u2: 'kg', e1: -3, e2: 3 }
+    - { u1: 'μm', u2: 'nm', e1: -6, e2: -9 }
+    - { u1: 'kJ', u2: 'mJ', e1: 3, e2: -3 }
+    - { u1: 'GHz', u2: 'MHz', e1: 9, e2: 6 }
+    - { u1: 'cm', u2: 'μm', e1: -2, e2: -6 }
+    - { u1: 'ns', u2: 'ms', e1: -9, e2: -3 }
+    - { u1: 'pm', u2: 'nm', e1: -12, e2: -9 }
+    - { u1: 'mL', u2: 'L', e1: -3, e2: 0 }
+  prompt: 'Convert ${{v}}$ {{u1}} to {{u2}}.'
+  parts:
+    - { ask: 'Value in {{u2}}', label: r, value: v*10^(e1 - e2), tol: 0.0001, explain: 'Write both prefixes as powers of ten: {{u1}} is $10^{ {{e1}} }$ and {{u2}} is $10^{ {{e2}} }$ of the base unit. Multiply by $10^{ {{e1}} - ({{e2}}) } = 10^{ {{e1 - e2}} }$. Going to a smaller unit gives a bigger number' }
+  verify: { expect: { r: "v*Integer(10)**e1/Integer(10)**e2" } }
+
+- template: ac-sig-figs
+  skill: gchem.measurement
+  pace: recall
+  cases:
+    - { s: '0.00450', n: 3 }
+    - { s: '30.040', n: 5 }
+    - { s: '1200.', n: 4 }
+    - { s: '0.0102', n: 3 }
+    - { s: '5.00', n: 3 }
+    - { s: '100.0', n: 4 }
+    - { s: '0.000007', n: 1 }
+    - { s: '6.0230', n: 5 }
+    - { s: '81.0', n: 3 }
+    - { s: '0.5060', n: 4 }
+  prompt: 'How many significant figures does the measurement ${{s}}$ have?'
+  parts:
+    - { ask: 'Significant figures', label: r, value: n, tol: 0.0001, explain: 'Leading zeros only place the decimal point and never count. Zeros between digits count. Trailing zeros count when a decimal point is written: "100." has three, "100" is ambiguous. Write it in scientific notation to see: only the digits of the mantissa are significant' }
+  verify: { expect: { r: "len(s.replace('.', '').lstrip('0'))" } }
+
+- template: ac-sig-figs-product
+  skill: gchem.measurement
+  pace: recall
+  cases:
+    - { q: '$4.56 \times 1.4$', n: 2 }
+    - { q: '$12.11 + 18.0 + 1.013$', n: 3 }
+    - { q: '$0.0250 \div 3.00$', n: 3 }
+    - { q: '$100.0 - 0.25$', n: 4 }
+    - { q: '$6.022 \times 2.0$', n: 2 }
+    - { q: '$2.345 + 1.2$', n: 2 }
+    - { q: '$9.80 \times 3.1416$', n: 3 }
+    - { q: '$1.0 + 0.0021$', n: 2 }
+  prompt: 'How many significant figures belong in the result of {{q}}?'
+  parts:
+    - ask: 'Significant figures'
+      label: a
+      choice: ["1", "2", "3", "4", "5"]
+      correct: n - 1
+      explain: 'Multiplying or dividing: keep as many significant figures as the factor with the fewest. Adding or subtracting: keep the decimal places of the term with the fewest decimal places, and count the figures afterwards'
+  verify: { authored: true }
+
+- template: ac-percent-error
+  skill: gchem.measurement
+  pace: quick
+  cases:
+    - { q: 'the density of aluminum', t: 2.70, u: 'g/cm³' }
+    - { q: 'the boiling point of ethanol', t: 78.4, u: '°C' }
+    - { q: 'the molar mass of a gas', t: 44.0, u: 'g/mol' }
+    - { q: 'the specific heat of copper', t: 0.385, u: 'J/(g·K)' }
+  given: { f: { pick: [0.95, 0.97, 1.02, 1.04, 1.06] } }
+  prompt: 'A student measures {{q}} as ${{t*f}}$ {{u}}. The accepted value is ${{t}}$ {{u}}. What is the percent error?'
+  parts:
+    - { ask: 'Percent error', label: r, value: abs(t*f - t)/t*100, tol: 0.002, explain: '$\dfrac{|\text{measured} - \text{accepted}|}{\text{accepted}} \times 100 = \dfrac{|{{t*f}} - {{t}}|}{ {{t}} } \times 100$. Error measures accuracy (closeness to the true value); precision is how close repeated trials are to each other, and a precise result can still be inaccurate' }
+  verify: { expect: { r: "Abs(t*f - t)/t*100" } }
+
+- template: ac-density-displacement
+  skill: gchem.measurement
+  pace: quick
+  given: { m: { pick: [25.4, 41.7, 63.2, 88.5] }, v1: { pick: [20.0, 25.0, 30.0] }, dv: { pick: [3.2, 5.6, 7.9, 9.4] } }
+  prompt: 'A ${{m}}$ g metal piece is dropped into a graduated cylinder; the water level rises from ${{v1}}$ mL to ${{v1 + dv}}$ mL. What is the metal''s density, in g/cm³?'
+  parts:
+    - { ask: 'Density (g/cm³)', label: r, value: m/dv, tol: 0.002, explain: 'The rise in level is the metal''s volume: ${{dv}}$ mL $= {{dv}}$ cm³. Then $\rho = m/V = {{m}}/{{dv}}$' }
+  verify: { expect: { r: "solve(Eq(x*((v1 + dv) - v1), m), x)[0]" } }
+
+- template: ac-temperature-convert
+  skill: gchem.measurement
+  pace: recall
+  given: { T: { pick: [-40, -10, 0, 25, 37, 100, 212, 350] } }
+  cases:
+    - { q: '°C to K', k: 0 }
+    - { q: '°C to °F', k: 1 }
+    - { q: '°F to °C', k: 2 }
+  prompt: 'Convert ${{T}}$ ({{q}}).'
+  parts:
+    - { ask: 'Converted value', label: r, value: 'k == 0 ? T + 273.15 : (k == 1 ? T*9/5 + 32 : (T - 32)*5/9)', tol: 0.001, explain: '$K = {}^\circ C + 273.15$; ${}^\circ F = \tfrac95\,{}^\circ C + 32$, and back, ${}^\circ C = \tfrac59({}^\circ F - 32)$. A kelvin and a degree Celsius are the same size; a Fahrenheit degree is $5/9$ of one. At $-40$ the two scales agree' }
+  verify: { expect: { r: "[T + Rational(27315, 100), T*Rational(9, 5) + 32, (T - 32)*Rational(5, 9)][k]" } }
+
+- template: ac-unit-chain-cubed
+  skill: gchem.measurement
+  pace: quick
+  given: { v: { pick: [0.25, 1.5, 2.4, 3.75] } }
+  cases:
+    - { q: 'm³ to cm³', f: 1000000 }
+    - { q: 'L to cm³', f: 1000 }
+    - { q: 'cm³ to mL', f: 1 }
+    - { q: 'm² to cm²', f: 10000 }
+    - { q: 'mm³ to cm³', f: 0.001 }
+    - { q: 'km² to m²', f: 1000000 }
+  require: ['f != 1']
+  prompt: 'Convert ${{v}}$ ({{q}}).'
+  parts:
+    - { ask: 'Converted value', label: r, value: v*f, tol: 0.0001, explain: 'Square or cube the length factor along with the number: 1 m = 100 cm, so 1 m³ = $100^3$ cm³ $= 10^6$ cm³. A litre is a cube 10 cm on a side, 1000 cm³, and 1 cm³ is exactly 1 mL' }
+  verify: { expect: { r: "v*nsimplify(f)" } }
+
+- template: ac-nuclide-count
+  skill: gchem.composition
+  pace: recall
+  cases:
+    - { q: '${}^{37}_{17}\mathrm{Cl}^{-}$', Z: 17, A: 37, c: -1, w: 0 }
+    - { q: '${}^{56}_{26}\mathrm{Fe}^{3+}$', Z: 26, A: 56, c: 3, w: 2 }
+    - { q: '${}^{24}_{12}\mathrm{Mg}^{2+}$', Z: 12, A: 24, c: 2, w: 2 }
+    - { q: '${}^{16}_{8}\mathrm{O}^{2-}$', Z: 8, A: 16, c: -2, w: 2 }
+    - { q: '${}^{238}_{92}\mathrm{U}$', Z: 92, A: 238, c: 0, w: 1 }
+    - { q: '${}^{127}_{53}\mathrm{I}^{-}$', Z: 53, A: 127, c: -1, w: 1 }
+    - { q: '${}^{65}_{30}\mathrm{Zn}^{2+}$', Z: 30, A: 65, c: 2, w: 0 }
+    - { q: '${}^{14}_{6}\mathrm{C}$', Z: 6, A: 14, c: 0, w: 1 }
+  prompt: 'How many {{w == 0 ? "protons" : (w == 1 ? "neutrons" : "electrons")}} are in {{q}}?'
+  parts:
+    - { ask: 'Count', label: r, value: 'w == 0 ? Z : (w == 1 ? A - Z : Z - c)', tol: 0.0001, explain: 'Protons $= Z = {{Z}}$, neutrons $= A - Z = {{A - Z}}$, electrons $= Z - \text{charge} = {{Z - c}}$. A positive ion has lost electrons; a negative ion has gained them' }
+  verify: { expect: { r: "[Z, A - Z, Z - c][w]" } }
+
+- template: ac-ionic-formula
+  skill: gchem.composition
+  pace: quick
+  cases:
+    - { name: 'aluminum sulfate', ans: 0, o1: 'Al₂(SO₄)₃', o2: 'AlSO₄', o3: 'Al₃(SO₄)₂', o4: 'Al(SO₄)₃' }
+    - { name: 'calcium phosphate', ans: 1, o1: 'CaPO₄', o2: 'Ca₃(PO₄)₂', o3: 'Ca₂(PO₄)₃', o4: 'Ca(PO₄)₂' }
+    - { name: 'ammonium carbonate', ans: 2, o1: 'NH₄CO₃', o2: 'NH₄(CO₃)₂', o3: '(NH₄)₂CO₃', o4: 'NH₃CO₃' }
+    - { name: 'iron(III) oxide', ans: 3, o1: 'FeO', o2: 'Fe₃O₂', o3: 'FeO₃', o4: 'Fe₂O₃' }
+    - { name: 'magnesium nitride', ans: 0, o1: 'Mg₃N₂', o2: 'MgN', o3: 'Mg₂N₃', o4: 'Mg(NO₃)₂' }
+    - { name: 'sodium hydrogen carbonate', ans: 1, o1: 'Na₂CO₃', o2: 'NaHCO₃', o3: 'NaH₂CO₃', o4: 'Na(HCO₃)₂' }
+    - { name: 'copper(II) nitrate', ans: 2, o1: 'CuNO₃', o2: 'Cu₂NO₃', o3: 'Cu(NO₃)₂', o4: 'Cu(NO₂)₂' }
+    - { name: 'dinitrogen pentoxide', ans: 3, o1: 'N₅O₂', o2: 'NO₅', o3: 'N₂O₄', o4: 'N₂O₅' }
+    - { name: 'potassium permanganate', ans: 0, o1: 'KMnO₄', o2: 'K₂MnO₄', o3: 'KMnO₃', o4: 'K(MnO₄)₂' }
+    - { name: 'lead(II) chloride', ans: 1, o1: 'PbCl', o2: 'PbCl₂', o3: 'Pb₂Cl', o4: 'PbCl₄' }
+  prompt: 'Which is the formula of {{name}}?'
+  parts:
+    - ask: 'Formula'
+      label: a
+      choice: ["{{o1}}", "{{o2}}", "{{o3}}", "{{o4}}"]
+      correct: ans
+      explain: 'For an ionic compound, cross the charges so the total is zero, and put a polyatomic ion in parentheses when there are two or more of it. Roman numerals give the metal''s charge. Molecular compounds of two nonmetals say the count outright with Greek prefixes'
+  verify: { authored: true }
+
+- template: ac-molar-mass
+  skill: gchem.composition
+  pace: quick
+  cases:
+    - { f: 'CaCO₃', M: 100.086, mm: "c_M['Ca']+c_M['C']+3*c_M['O']" }
+    - { f: 'H₂SO₄', M: 98.072, mm: "2*c_M['H']+c_M['S']+4*c_M['O']" }
+    - { f: 'C₆H₁₂O₆', M: 180.156, mm: "6*c_M['C']+12*c_M['H']+6*c_M['O']" }
+    - { f: 'Fe₂O₃', M: 159.687, mm: "2*c_M['Fe']+3*c_M['O']" }
+    - { f: 'NaHCO₃', M: 84.006, mm: "c_M['Na']+c_M['H']+c_M['C']+3*c_M['O']" }
+    - { f: 'K₂SO₄', M: 174.252, mm: "2*c_M['K']+c_M['S']+4*c_M['O']" }
+    - { f: 'Ca₃(PO₄)₂', M: 310.174, mm: "3*c_M['Ca']+2*c_M['P']+8*c_M['O']" }
+    - { f: 'CaCl₂', M: 110.978, mm: "c_M['Ca']+2*c_M['Cl']" }
+  prompt: 'What is the molar mass of {{f}}, in g/mol? (H 1.008, C 12.011, N 14.007, O 15.999, Na 22.990, P 30.974, S 32.06, Cl 35.45, K 39.098, Ca 40.078, Fe 55.845)'
+  parts:
+    - { ask: 'Molar mass (g/mol)', label: r, value: M, tol: 0.0005, explain: 'Add each atom''s molar mass times its subscript, multiplying through parentheses. One mole is $6.022\times10^{23}$ formula units, and its mass in grams equals the formula mass in u' }
+  verify: { expect: { r: "calc(mm)" } }
+
+# ── atoms: composition and the mole ─────────────────────────────────────────
+- template: ac-moles-of-element
+  skill: gchem.composition
+  pace: quick
+  cases:
+    - { f: 'H₂O', el: 'H atoms', k: 2, M: 18.015, mm: "2*c_M['H']+c_M['O']" }
+    - { f: 'CO₂', el: 'O atoms', k: 2, M: 44.009, mm: "c_M['C']+2*c_M['O']" }
+    - { f: 'C₆H₁₂O₆', el: 'C atoms', k: 6, M: 180.156, mm: "6*c_M['C']+12*c_M['H']+6*c_M['O']" }
+    - { f: 'NH₃', el: 'H atoms', k: 3, M: 17.031, mm: "c_M['N']+3*c_M['H']" }
+    - { f: 'CaCl₂', el: 'Cl⁻ ions', k: 2, M: 110.978, mm: "c_M['Ca']+2*c_M['Cl']" }
+    - { f: 'CH₄', el: 'molecules', k: 1, M: 16.043, mm: "c_M['C']+4*c_M['H']" }
+  given: { m: { pick: [5.00, 12.5, 25.0, 50.0] } }
+  prompt: 'How many {{el}} are in ${{m}}$ g of {{f}} ($M = {{M}}$ g/mol)? Give the number divided by $10^{23}$.'
+  parts:
+    - { ask: 'Count ÷ 10²³', label: r, value: m/M*k*6.02214076, tol: 0.002, explain: 'grams → moles → particles: ${{m}}/{{M}}$ mol of {{f}}, times {{k}} per formula unit, times $6.022\times10^{23}$' }
+  verify: { expect: { r: "m/calc(mm)*k*c_NA/10**23" } }
+
+- template: ac-average-atomic-mass
+  skill: gchem.composition
+  pace: quick
+  cases:
+    - { el: 'chlorine', a: 'Cl-35', ma: 34.969, b: 'Cl-37', mb: 36.966, p: 75.78 }
+    - { el: 'boron', a: 'B-10', ma: 10.013, b: 'B-11', mb: 11.009, p: 19.9 }
+    - { el: 'copper', a: 'Cu-63', ma: 62.930, b: 'Cu-65', mb: 64.928, p: 69.15 }
+    - { el: 'gallium', a: 'Ga-69', ma: 68.926, b: 'Ga-71', mb: 70.925, p: 60.11 }
+    - { el: 'bromine', a: 'Br-79', ma: 78.918, b: 'Br-81', mb: 80.916, p: 50.69 }
+  prompt: '{{el}} is {{p}} percent {{a}} (${{ma}}$ u) and the rest {{b}} (${{mb}}$ u). What is its average atomic mass, in u?'
+  parts:
+    - { ask: 'Average mass (u)', label: r, value: (p*ma + (100 - p)*mb)/100, tol: 0.0002, explain: 'Weight each isotope by its fraction: ${{p/100}}({{ma}}) + {{1 - p/100}}({{mb}})$. The average sits closer to the more abundant isotope' }
+  verify: { expect: { r: "sum([p/100*ma, (1 - p/100)*mb])" } }
+
+- template: ac-isotope-abundance
+  skill: gchem.composition
+  pace: quick
+  cases:
+    - { el: 'chlorine', a: 'Cl-35', ma: 34.969, b: 'Cl-37', mb: 36.966, avg: 35.453 }
+    - { el: 'boron', a: 'B-10', ma: 10.013, b: 'B-11', mb: 11.009, avg: 10.811 }
+    - { el: 'copper', a: 'Cu-63', ma: 62.930, b: 'Cu-65', mb: 64.928, avg: 63.546 }
+    - { el: 'lithium', a: 'Li-6', ma: 6.0151, b: 'Li-7', mb: 7.0160, avg: 6.941 }
+    - { el: 'silver', a: 'Ag-107', ma: 106.905, b: 'Ag-109', mb: 108.905, avg: 107.868 }
+  prompt: '{{el}} has two isotopes, {{a}} (${{ma}}$ u) and {{b}} (${{mb}}$ u), and an average mass of ${{avg}}$ u. What percent is {{a}}?'
+  parts:
+    - { ask: 'Percent {{a}}', label: r, value: (mb - avg)/(mb - ma)*100, tol: 0.002, explain: 'Let $f$ be the fraction of {{a}}: $f({{ma}}) + (1 - f)({{mb}}) = {{avg}}$, so $f = \dfrac{ {{mb}} - {{avg}} }{ {{mb}} - {{ma}} }$. On a mass spectrum the taller peak is the more abundant isotope' }
+  verify: { expect: { r: "100*solve(Eq(x*ma + (1 - x)*mb, avg), x)[0]" } }
+
+- template: ac-mass-percent
+  skill: gchem.composition
+  pace: quick
+  cases:
+    - { f: 'H₂O', el: 'O', k: 1, mel: "c_M['O']", M: 18.015, mm: "2*c_M['H']+c_M['O']", me: 15.999 }
+    - { f: 'CaCO₃', el: 'Ca', k: 1, mel: "c_M['Ca']", M: 100.086, mm: "c_M['Ca']+c_M['C']+3*c_M['O']", me: 40.078 }
+    - { f: 'Fe₂O₃', el: 'Fe', k: 2, mel: "c_M['Fe']", M: 159.687, mm: "2*c_M['Fe']+3*c_M['O']", me: 55.845 }
+    - { f: 'C₆H₁₂O₆', el: 'C', k: 6, mel: "c_M['C']", M: 180.156, mm: "6*c_M['C']+12*c_M['H']+6*c_M['O']", me: 12.011 }
+    - { f: 'NH₃', el: 'N', k: 1, mel: "c_M['N']", M: 17.031, mm: "c_M['N']+3*c_M['H']", me: 14.007 }
+    - { f: 'H₂SO₄', el: 'S', k: 1, mel: "c_M['S']", M: 98.072, mm: "2*c_M['H']+c_M['S']+4*c_M['O']", me: 32.06 }
+  prompt: 'What is the mass percent of {{el}} in {{f}} ($M = {{M}}$ g/mol; {{el}} $= {{me}}$ g/mol)?'
+  parts:
+    - { ask: 'Mass percent {{el}}', label: r, value: k*me/M*100, tol: 0.001, explain: '$\dfrac{ {{k}} \times {{me}} }{ {{M}} } \times 100$. Count every atom of the element in the formula, not just one' }
+  verify: { expect: { r: "k*calc(mel)/calc(mm)*100" } }
+
+- template: ac-empirical-formula
+  skill: gchem.composition
+  pace: quick
+  cases:
+    - { q: '40.0 percent C, 6.7 percent H, 53.3 percent O', ans: 0, o1: 'CH₂O', o2: 'C₂H₄O', o3: 'CHO', o4: 'CH₃O', pc: 40.0, ph: 6.7, po: 53.3, a: 1, b: 2, c: 1 }
+    - { q: '85.6 percent C, 14.4 percent H', ans: 1, o1: 'CH', o2: 'CH₂', o3: 'CH₃', o4: 'C₂H₅', pc: 85.6, ph: 14.4, po: 0, a: 1, b: 2, c: 0 }
+    - { q: '92.3 percent C, 7.7 percent H', ans: 0, o1: 'CH', o2: 'CH₂', o3: 'C₂H₃', o4: 'C₃H₄', pc: 92.3, ph: 7.7, po: 0, a: 1, b: 1, c: 0 }
+    - { q: '54.5 percent C, 9.1 percent H, 36.4 percent O', ans: 2, o1: 'CH₂O', o2: 'C₃H₆O', o3: 'C₂H₄O', o4: 'C₄H₈O₃', pc: 54.5, ph: 9.1, po: 36.4, a: 2, b: 4, c: 1 }
+    - { q: '81.8 percent C, 18.2 percent H', ans: 3, o1: 'CH₃', o2: 'C₂H₅', o3: 'CH₄', o4: 'C₃H₈', pc: 81.8, ph: 18.2, po: 0, a: 3, b: 8, c: 0 }
+    - { q: '27.3 percent C, 72.7 percent O', ans: 1, o1: 'CO', o2: 'CO₂', o3: 'C₂O₃', o4: 'C₃O₄', pc: 27.3, ph: 0, po: 72.7, a: 1, b: 0, c: 2 }
+  prompt: 'A compound is {{q}} by mass. What is its empirical formula?'
+  parts:
+    - ask: 'Empirical formula'
+      label: a
+      choice: ["{{o1}}", "{{o2}}", "{{o3}}", "{{o4}}"]
+      correct: ans
+      explain: 'Take 100 g so percents become grams, divide each by its molar mass, then divide every mole count by the smallest. If a ratio ends in .5 or .33, multiply all of them by 2 or 3 to clear it'
+  verify: { choices: { a: "ans if all([Abs(m/(pc/c_M['C'])*a - z) < Rational(1, 10) for m, z in [(ph/c_M['H'], b), (po/c_M['O'], c)]]) else 9" } }
+
+- template: ac-molecular-formula
+  skill: gchem.composition
+  pace: quick
+  cases:
+    - { e: 'CH₂O', Me: 30.026, M: 180.16, n: 6, me: "c_M['C']+2*c_M['H']+c_M['O']" }
+    - { e: 'CH', Me: 13.019, M: 78.11, n: 6, me: "c_M['C']+c_M['H']" }
+    - { e: 'CH₂', Me: 14.027, M: 56.11, n: 4, me: "c_M['C']+2*c_M['H']" }
+    - { e: 'C₂H₅', Me: 29.062, M: 58.12, n: 2, me: "2*c_M['C']+5*c_M['H']" }
+    - { e: 'NO₂', Me: 46.005, M: 92.01, n: 2, me: "c_M['N']+2*c_M['O']" }
+    - { e: 'C₂H₄O', Me: 44.053, M: 88.11, n: 2, me: "2*c_M['C']+4*c_M['H']+c_M['O']" }
+  prompt: 'A compound has empirical formula {{e}} (${{Me}}$ g/mol) and molar mass ${{M}}$ g/mol. By what whole number must you multiply the empirical formula?'
+  parts:
+    - { ask: 'Multiplier', label: r, value: n, tol: 0.0001, explain: '$n = M/M_\text{emp} = {{M}}/{{Me}} \approx {{n}}$. Multiply every subscript by it' }
+  verify: { expect: { r: "floor(M/calc(me) + Rational(1, 2))" } }
+
+- template: ac-combustion-analysis
+  skill: gchem.composition
+  pace: quick
+  cases:
+    - { f: 'C₂H₆', a: 2, b: 6 }
+    - { f: 'C₃H₈', a: 3, b: 8 }
+    - { f: 'C₂H₄', a: 2, b: 4 }
+    - { f: 'C₆H₆', a: 6, b: 6 }
+    - { f: 'CH₄', a: 1, b: 4 }
+    - { f: 'C₄H₁₀', a: 4, b: 10 }
+  given: { n: { pick: [0.0100, 0.0200, 0.0500] } }
+  prompt: 'Burning a hydrocarbon gives ${{n*a*44.009}}$ g CO₂ (44.009 g/mol) and ${{n*b/2*18.015}}$ g H₂O (18.015 g/mol). What is the ratio of H atoms to C atoms in the compound?'
+  parts:
+    - { ask: 'H : C', label: r, value: b/a, tol: 0.002, explain: 'All the carbon ends up in CO₂ (one C each) and all the hydrogen in H₂O (two H each): mol C $= {{n*a*44.009}}/44.009$, mol H $= 2 \times {{n*b/2*18.015}}/18.015$. Divide to get the ratio; here the compound is {{f}}' }
+  verify: { expect: { r: "(2*(n*b/2*(2*c_M['H']+c_M['O']))/(2*c_M['H']+c_M['O']))/((n*a*(c_M['C']+2*c_M['O']))/(c_M['C']+2*c_M['O']))" } }
+
+- template: ac-impure-sample
+  skill: gchem.composition
+  pace: quick
+  cases:
+    - { q: 'calcium carbonate', g: 'CO₂', Mq: 100.086, Mg: 44.009, mq: "c_M['Ca']+c_M['C']+3*c_M['O']", mg: "c_M['C']+2*c_M['O']" }
+    - { q: 'sodium hydrogen carbonate', g: 'CO₂', Mq: 84.006, Mg: 44.009, mq: "c_M['Na']+c_M['H']+c_M['C']+3*c_M['O']", mg: "c_M['C']+2*c_M['O']" }
+  given: { ms: { pick: [2.00, 2.50, 4.00] }, pur: { pick: [62, 75, 84, 91] } }
+  prompt: 'A ${{ms}}$ g sample of impure {{q}} ($M = {{Mq}}$) releases ${{ms*pur/100/Mq*Mg}}$ g of {{g}} ($M = {{Mg}}$), one mole of gas per mole of {{q}}; nothing else in the sample reacts. What percent of the sample is {{q}}?'
+  parts:
+    - { ask: 'Percent {{q}}', label: r, value: pur, tol: 0.002, explain: 'Gas mass → moles of gas → moles (and grams) of {{q}}, then divide by the sample mass. The impurity contributes mass but no gas, so the percent is below 100' }
+  verify: { expect: { r: "((ms*pur/100/Mq*Mg)/calc(mg)*calc(mq))/ms*100" } }

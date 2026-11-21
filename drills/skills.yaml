@@ -42,6 +42,7 @@ domains:
   - { id: nuc, title: "Nuclear science" }
   - { id: ptable, title: "The periodic table" }
   - { id: physics, title: "Physics" }
+  - { id: gchem, title: "General chemistry" }
   - { id: md, title: "Molecular simulation" }
   - { id: compchem, title: "Computational chemistry" }
 
@@ -602,6 +603,24 @@ skills:
   - { id: ptable.d-block, domain: ptable, title: "The d block: positions, groups, triads and d-electron counts", short: "The d block" }
   - { id: ptable.f-block, domain: ptable, title: "The f block: lanthanoids, actinoids and f-electron counts", short: "The f block" }
   - { id: ptable.configurations, domain: ptable, title: "Ground-state electron configurations of the d and f blocks, with the exceptions", short: "Electron configurations", prereqs: [ptable.d-block, ptable.f-block] }
+  # ── general chemistry (AP Chemistry) ────────────────────────────────────────
+  - { id: gchem.measurement, domain: gchem, title: "Matter and measurement: classification, units, significant figures, density, temperature", short: "Measurement" }
+  - { id: gchem.composition, domain: gchem, title: "Atoms, ions, the mole, formulas and composition", short: "Composition", prereqs: [gchem.measurement] }
+  - { id: gchem.structure, domain: gchem, title: "Electron configurations, photoelectron spectra and periodic trends", short: "Atomic structure", prereqs: [gchem.composition] }
+  - { id: gchem.nuclear, domain: gchem, title: "Nuclear equations, half-lives and binding energy", short: "Nuclear chemistry", prereqs: [gchem.composition] }
+  - { id: gchem.bonding, domain: gchem, title: "Bond types, Lewis structures, formal charge, VSEPR, polarity and hybridization", short: "Bonding", prereqs: [gchem.structure] }
+  - { id: gchem.imf, domain: gchem, title: "Intermolecular forces, solids, liquids and phase diagrams", short: "IMFs and phases", prereqs: [gchem.bonding] }
+  - { id: gchem.gases, domain: gchem, title: "Gas laws, kinetic molecular theory and real gases", short: "Gases", prereqs: [gchem.composition] }
+  - { id: gchem.solutions, domain: gchem, title: "Solutions, concentration, separation, spectroscopy and colligative properties", short: "Solutions", prereqs: [gchem.imf] }
+  - { id: gchem.reactions, domain: gchem, title: "Reaction types, net ionic equations, acids and bases, redox", short: "Reactions", prereqs: [gchem.composition] }
+  - { id: gchem.stoichiometry, domain: gchem, title: "Stoichiometry: mass, limiting reactant, yield, solutions, gases, titration", short: "Stoichiometry", prereqs: [gchem.reactions] }
+  - { id: gchem.kinetics, domain: gchem, title: "Rates, rate laws, integrated laws, mechanisms and catalysis", short: "Kinetics", prereqs: [gchem.stoichiometry] }
+  - { id: gchem.thermochem, domain: gchem, title: "Thermochemistry: calorimetry, heating curves, enthalpies of reaction", short: "Thermochemistry", prereqs: [gchem.stoichiometry] }
+  - { id: gchem.equilibrium, domain: gchem, title: "Equilibrium: K, Q, ICE tables, Le Châtelier and solubility", short: "Equilibrium", prereqs: [gchem.kinetics] }
+  - { id: gchem.acidbase, domain: gchem, title: "Acid–base equilibria: pH, weak acids and bases, titrations and buffers", short: "Acids and bases", prereqs: [gchem.equilibrium] }
+  - { id: gchem.thermo, domain: gchem, title: "Entropy, free energy and favorability", short: "Free energy", prereqs: [gchem.thermochem, gchem.equilibrium] }
+  - { id: gchem.electro, domain: gchem, title: "Electrochemistry: cells, potentials, Nernst and electrolysis", short: "Electrochemistry", prereqs: [gchem.thermo] }
+
   # ── physics: electricity and magnetism, particles ───────────────────────────
   - { id: physics.kinematics, domain: physics, title: "Kinematics: vectors, graphs, constant acceleration, projectiles", short: "Kinematics" }
   - { id: physics.dynamics, domain: physics, title: "Forces: free-body diagrams, Newton's laws, friction, springs, circular motion, gravitation", short: "Forces", prereqs: [physics.kinematics] }
