@@ -1,0 +1,518 @@
+# AP Chemistry units 4 and 5: reactions, stoichiometry and kinetics.
+# Balanced coefficients are checked by multiplying an element-count matrix by the coefficient vector.
+
+# ── reactions ──────────────────────────────────────────────────────────────
+- template: ac-balance-coefficient
+  skill: gchem.reactions
+  pace: quick
+  cases:
+    - { eq: 'C₃H₈ + O₂ → CO₂ + H₂O', co: [1, 5, 3, 4], Mx: [[3, 0, -1, 0], [8, 0, 0, -2], [0, 2, -2, -1]], k: 1, ans: 5, sp: 'O₂' }
+    - { eq: 'CH₄ + O₂ → CO₂ + H₂O', co: [1, 2, 1, 2], Mx: [[1, 0, -1, 0], [4, 0, 0, -2], [0, 2, -2, -1]], k: 1, ans: 2, sp: 'O₂' }
+    - { eq: 'C₂H₆ + O₂ → CO₂ + H₂O', co: [2, 7, 4, 6], Mx: [[2, 0, -1, 0], [6, 0, 0, -2], [0, 2, -2, -1]], k: 1, ans: 7, sp: 'O₂' }
+    - { eq: 'Al + O₂ → Al₂O₃', co: [4, 3, 2], Mx: [[1, 0, -2], [0, 2, -3]], k: 1, ans: 3, sp: 'O₂' }
+    - { eq: 'C₆H₁₂O₆ + O₂ → CO₂ + H₂O', co: [1, 6, 6, 6], Mx: [[6, 0, -1, 0], [12, 0, 0, -2], [6, 2, -2, -1]], k: 1, ans: 6, sp: 'O₂' }
+    - { eq: 'NH₃ + O₂ → NO + H₂O', co: [4, 5, 4, 6], Mx: [[1, 0, -1, 0], [3, 0, 0, -2], [0, 2, -1, -1]], k: 1, ans: 5, sp: 'O₂' }
+    - { eq: 'C₈H₁₈ + O₂ → CO₂ + H₂O', co: [2, 25, 16, 18], Mx: [[8, 0, -1, 0], [18, 0, 0, -2], [0, 2, -2, -1]], k: 1, ans: 25, sp: 'O₂' }
+    - { eq: 'KClO₃ → KCl + O₂', co: [2, 2, 3], Mx: [[1, -1, 0], [1, -1, 0], [3, 0, -2]], k: 2, ans: 3, sp: 'O₂' }
+    - { eq: 'C₂H₅OH + O₂ → CO₂ + H₂O', co: [1, 3, 2, 3], Mx: [[2, 0, -1, 0], [6, 0, 0, -2], [1, 2, -2, -1]], k: 1, ans: 3, sp: 'O₂' }
+    - { eq: 'Fe₂O₃ + CO → Fe + CO₂', co: [1, 3, 2, 3], Mx: [[2, 0, -1, 0], [3, 1, 0, -2], [0, 1, 0, -1]], k: 1, ans: 3, sp: 'CO' }
+  prompt: 'Balance {{eq}} with the smallest whole numbers. What is the coefficient of {{sp}}?'
+  parts:
+    - { ask: 'Coefficient', label: r, value: ans, tol: 0.0001, explain: 'Balance the element in only one compound on each side first, leave free elements (O₂, Fe) for last, and clear any fraction by doubling everything. For hydrocarbon combustion: C to CO₂, H to H₂O, then O' }
+  verify: { expect: { r: "co[k] if (Matrix(Mx)*Matrix(co)).is_zero_matrix and gcd(co) == 1 else -1" } }
+
+- template: ac-precipitate-forms
+  skill: gchem.reactions
+  pace: recall
+  cases:
+    - { q: 'AgNO₃ and NaCl', ans: 0 }
+    - { q: 'KNO₃ and NaCl', ans: 1 }
+    - { q: 'BaCl₂ and Na₂SO₄', ans: 0 }
+    - { q: 'Pb(NO₃)₂ and KI', ans: 0 }
+    - { q: 'NaOH and FeCl₃', ans: 0 }
+    - { q: 'NH₄Cl and KNO₃', ans: 1 }
+    - { q: 'CaCl₂ and Na₂CO₃', ans: 0 }
+    - { q: 'KOH and NaNO₃', ans: 1 }
+    - { q: 'MgCl₂ and K₂SO₄', ans: 1 }
+    - { q: 'CuSO₄ and Na₂S', ans: 0 }
+  prompt: 'Does a precipitate form when solutions of {{q}} are mixed?'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["Yes", "No: every possible product is soluble"]
+      correct: ans
+      explain: 'Swap partners and check each new pair. Salts of Na⁺, K⁺, NH₄⁺ and NO₃⁻ are always soluble. Precipitates to know: AgCl, PbI₂, BaSO₄, most carbonates, sulfides and hydroxides of metals other than group 1'
+  verify: { authored: true }
+
+- template: ac-spectator-ions
+  skill: gchem.reactions
+  pace: quick
+  cases:
+    - { q: 'AgNO₃(aq) + NaCl(aq)', o1: 'Na⁺ and NO₃⁻', o2: 'Ag⁺ and Cl⁻', o3: 'Na⁺ and Cl⁻', o4: 'Ag⁺ and NO₃⁻', ans: 0 }
+    - { q: 'BaCl₂(aq) + Na₂SO₄(aq)', o1: 'Ba²⁺ and SO₄²⁻', o2: 'Na⁺ and Cl⁻', o3: 'Ba²⁺ and Cl⁻', o4: 'Na⁺ and SO₄²⁻', ans: 1 }
+    - { q: 'HCl(aq) + NaOH(aq)', o1: 'H⁺ and OH⁻', o2: 'H⁺ and Cl⁻', o3: 'Na⁺ and Cl⁻', o4: 'Na⁺ and OH⁻', ans: 2 }
+    - { q: 'Pb(NO₃)₂(aq) + KI(aq)', o1: 'Pb²⁺ and I⁻', o2: 'Pb²⁺ and NO₃⁻', o3: 'K⁺ and I⁻', o4: 'K⁺ and NO₃⁻', ans: 3 }
+    - { q: 'HNO₃(aq) + KOH(aq)', o1: 'K⁺ and NO₃⁻', o2: 'H⁺ and OH⁻', o3: 'K⁺ and OH⁻', o4: 'H⁺ and NO₃⁻', ans: 0 }
+    - { q: 'CaCl₂(aq) + K₂CO₃(aq)', o1: 'Ca²⁺ and CO₃²⁻', o2: 'K⁺ and Cl⁻', o3: 'Ca²⁺ and Cl⁻', o4: 'K⁺ and CO₃²⁻', ans: 1 }
+  prompt: 'Which are the spectator ions in {{q}}?'
+  parts:
+    - ask: 'Spectators'
+      label: a
+      choice: ["{{o1}}", "{{o2}}", "{{o3}}", "{{o4}}"]
+      correct: ans
+      explain: 'Write every strong electrolyte as its ions (the complete ionic equation). Ions that appear unchanged on both sides are spectators; cross them out to leave the net ionic equation, which keeps solids, water, gases and weak electrolytes whole'
+  verify: { authored: true }
+
+- template: ac-particle-leftover
+  skill: gchem.stoichiometry
+  pace: quick
+  cases:
+    - { rx: '2 H₂ + O₂ → 2 H₂O', A: 'H₂', B: 'O₂', p: 2, q: 1 }
+    - { rx: 'N₂ + 3 H₂ → 2 NH₃', A: 'N₂', B: 'H₂', p: 1, q: 3 }
+    - { rx: '2 CO + O₂ → 2 CO₂', A: 'CO', B: 'O₂', p: 2, q: 1 }
+    - { rx: 'H₂ + Cl₂ → 2 HCl', A: 'H₂', B: 'Cl₂', p: 1, q: 1 }
+  given: { a: { pick: [4, 6, 8, 10, 12] }, b: { pick: [3, 4, 6, 9] } }
+  require: ['a/p != b/q', 'min(a/p, b/q) == round(min(a/p, b/q))']
+  prompt: 'A particle diagram shows ${{a}}$ {{A}} and ${{b}}$ {{B}} molecules, which react completely by {{rx}}. How many molecules of the leftover reactant remain?'
+  parts:
+    - { ask: 'Molecules left over', label: r, value: 'a/p < b/q ? b - q*a/p : a - p*b/q', tol: 0.0001, explain: 'The reaction can run ${{min(a/p, b/q)}}$ times before one reactant runs out (the limiting one). Subtract what those runs use from the other reactant' }
+  verify: { expect: { r: "a + b - (p + q)*Min(Rational(a, p), Rational(b, q))" } }
+
+- template: ac-physical-chemical-process
+  skill: gchem.reactions
+  pace: recall
+  cases:
+    - { q: 'ice melting', ans: 0 }
+    - { q: 'sugar dissolving in water', ans: 0 }
+    - { q: 'methane burning', ans: 1 }
+    - { q: 'HCl ionizing in water to form H₃O⁺ and Cl⁻', ans: 1 }
+    - { q: 'ethanol boiling', ans: 0 }
+    - { q: 'water being split into H₂ and O₂ by electrolysis', ans: 1 }
+    - { q: 'iodine subliming', ans: 0 }
+    - { q: 'magnesium dissolving in hydrochloric acid with bubbles', ans: 1 }
+  prompt: 'Is {{q}} a physical or a chemical process?'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["Physical: only intermolecular attractions change", "Chemical: bonds break and form"]
+      correct: ans
+      explain: 'AP Chemistry draws the line at the particle level. Phase changes and dissolving molecular solids separate molecules but leave them intact; a reaction rearranges atoms into new substances, which shows up as new species in a particle diagram'
+  verify: { authored: true }
+
+- template: ac-reaction-class
+  skill: gchem.reactions
+  pace: recall
+  cases:
+    - { q: 'AgNO₃ + NaCl → AgCl + NaNO₃', ans: 0 }
+    - { q: 'HCl + NaOH → NaCl + H₂O', ans: 1 }
+    - { q: 'Zn + CuSO₄ → ZnSO₄ + Cu', ans: 2 }
+    - { q: 'CH₄ + 2 O₂ → CO₂ + 2 H₂O', ans: 2 }
+    - { q: '2 H₂O₂ → 2 H₂O + O₂', ans: 2 }
+    - { q: 'NH₃ + HCl → NH₄Cl', ans: 1 }
+    - { q: 'BaCl₂ + K₂SO₄ → BaSO₄ + 2 KCl', ans: 0 }
+    - { q: '2 Na + Cl₂ → 2 NaCl', ans: 2 }
+    - { q: 'H₂SO₄ + 2 KOH → K₂SO₄ + 2 H₂O', ans: 1 }
+  prompt: 'Classify {{q}}.'
+  parts:
+    - ask: 'Type'
+      label: a
+      choice: ["Precipitation", "Acid–base", "Redox"]
+      correct: ans
+      explain: 'Look for what changes. Oxidation numbers change: redox (every combustion, single replacement, and synthesis or decomposition involving a free element). A proton moves: acid–base. Ions combine into an insoluble solid: precipitation'
+  verify: { authored: true }
+
+- template: ac-predict-products
+  skill: gchem.reactions
+  pace: quick
+  cases:
+    - { q: 'C₂H₆ burns completely in O₂', o1: 'CO₂ + H₂O', o2: 'C + H₂O', o3: 'CO + H₂', o4: 'CH₄ + CO₂', ans: 0 }
+    - { q: 'magnesium is heated in oxygen', o1: 'Mg₂O', o2: 'MgO', o3: 'MgO₂', o4: 'Mg(OH)₂', ans: 1 }
+    - { q: 'calcium carbonate is heated strongly', o1: 'Ca + CO₂ + O₂', o2: 'CaC₂ + O₂', o3: 'CaO + CO₂', o4: 'CaO + CO', ans: 2 }
+    - { q: 'aqueous Pb(NO₃)₂ and KI are mixed', o1: 'Pb + KNO₃ + I₂', o2: 'PbK + NO₃I', o3: 'PbO + KI₃', o4: 'PbI₂ + KNO₃', ans: 3 }
+    - { q: 'potassium chlorate is heated', o1: 'KCl + O₂', o2: 'K + Cl₂ + O₂', o3: 'K₂O + Cl₂', o4: 'KClO + O₃', ans: 0 }
+    - { q: 'Na₂CO₃ reacts with hydrochloric acid', o1: 'NaCl + H₂CO₃ only', o2: 'NaCl + H₂O + CO₂', o3: 'Na + HCl + CO₂', o4: 'NaH + CO₂ + Cl₂', ans: 1 }
+    - { q: 'sodium metal is dropped into water', o1: 'Na₂O + H₂', o2: 'NaH + O₂', o3: 'NaOH + H₂', o4: 'NaOH + O₂', ans: 2 }
+  prompt: 'What are the products when {{q}}?'
+  parts:
+    - ask: 'Products'
+      label: a
+      choice: ["{{o1}}", "{{o2}}", "{{o3}}", "{{o4}}"]
+      correct: ans
+      explain: 'Recognise the pattern: complete combustion gives CO₂ and H₂O; a metal and a nonmetal combine as ions; carbonates lose CO₂ on heating or with acid (H₂CO₃ falls apart to H₂O + CO₂); double replacement swaps partners; active metals in water give the hydroxide and H₂'
+  verify: { authored: true }
+
+- template: ac-conjugate
+  skill: gchem.reactions
+  pace: recall
+  cases:
+    - { w: 'conjugate base of H₂SO₄', o1: 'HSO₄⁻', o2: 'SO₄²⁻', o3: 'H₃SO₄⁺', o4: 'H₂SO₃', ans: 0 }
+    - { w: 'conjugate base of NH₄⁺', o1: 'NH₂⁻', o2: 'NH₃', o3: 'NH₅²⁺', o4: 'N₂H₄', ans: 1 }
+    - { w: 'conjugate base of H₂O', o1: 'H₃O⁺', o2: 'O²⁻', o3: 'OH⁻', o4: 'H₂O₂', ans: 2 }
+    - { w: 'conjugate base of HCO₃⁻', o1: 'H₂CO₃', o2: 'CO₂', o3: 'HCO₂⁻', o4: 'CO₃²⁻', ans: 3 }
+    - { w: 'conjugate acid of NH₃', o1: 'NH₄⁺', o2: 'NH₂⁻', o3: 'NH₃⁺', o4: 'N₂H₅⁺', ans: 0 }
+    - { w: 'conjugate acid of H₂O', o1: 'OH⁻', o2: 'H₃O⁺', o3: 'H₂O₂', o4: 'H⁻', ans: 1 }
+    - { w: 'conjugate acid of CO₃²⁻', o1: 'H₂CO₃', o2: 'CO₂', o3: 'HCO₃⁻', o4: 'C₂O₄²⁻', ans: 2 }
+    - { w: 'conjugate base of H₂PO₄⁻', o1: 'H₃PO₄', o2: 'PO₄³⁻', o3: 'H₂PO₃⁻', o4: 'HPO₄²⁻', ans: 3 }
+  prompt: 'What is the {{w}}?'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["{{o1}}", "{{o2}}", "{{o3}}", "{{o4}}"]
+      correct: ans
+      explain: 'A conjugate pair differs by exactly one H⁺. Remove one H⁺ (and one unit of positive charge) to get the conjugate base; add one to get the conjugate acid. Water and HCO₃⁻ can go either way: they are amphiprotic'
+  verify: { authored: true }
+
+- template: ac-oxidation-number
+  skill: gchem.reactions
+  pace: quick
+  cases:
+    - { q: 'S in SO₄²⁻', ch: -2, oth: -8, k: 1 }
+    - { q: 'Mn in MnO₄⁻', ch: -1, oth: -8, k: 1 }
+    - { q: 'Cr in Cr₂O₇²⁻', ch: -2, oth: -14, k: 2 }
+    - { q: 'N in NO₃⁻', ch: -1, oth: -6, k: 1 }
+    - { q: 'N in NH₄⁺', ch: 1, oth: 4, k: 1 }
+    - { q: 'C in CO₃²⁻', ch: -2, oth: -6, k: 1 }
+    - { q: 'Cl in ClO⁻', ch: -1, oth: -2, k: 1 }
+    - { q: 'Cl in ClO₄⁻', ch: -1, oth: -8, k: 1 }
+    - { q: 'P in PO₄³⁻', ch: -3, oth: -8, k: 1 }
+    - { q: 'Fe in Fe₂O₃', ch: 0, oth: -6, k: 2 }
+    - { q: 'S in H₂S', ch: 0, oth: 2, k: 1 }
+    - { q: 'C in CH₄', ch: 0, oth: 4, k: 1 }
+    - { q: 'O in H₂O₂', ch: 0, oth: 2, k: 2 }
+    - { q: 'S in S₂O₃²⁻', ch: -2, oth: -6, k: 2 }
+  prompt: 'What is the oxidation number of {{q}}?'
+  parts:
+    - { ask: 'Oxidation number', label: r, value: (ch - oth)/k, tol: 0.0001, explain: 'Oxidation numbers add up to the charge. Fix the easy ones (O usually −2, H +1 with nonmetals, group 1 +1), so here the others total ${{oth}}$; the rest, ${{ch - oth}}$, is shared by {{k}} atom{{k == 1 ? "" : "s"}}' }
+  verify: { expect: { r: "solve(Eq(k*x + oth, ch), x)[0]" } }
+
+- template: ac-oxidizing-agent
+  skill: gchem.reactions
+  pace: quick
+  cases:
+    - { rx: 'Zn + Cu²⁺ → Zn²⁺ + Cu', o1: 'Zn', o2: 'Cu²⁺', ox: 1 }
+    - { rx: '2 Na + Cl₂ → 2 NaCl', o1: 'Na', o2: 'Cl₂', ox: 1 }
+    - { rx: 'Fe₂O₃ + 3 CO → 2 Fe + 3 CO₂', o1: 'Fe₂O₃', o2: 'CO', ox: 0 }
+    - { rx: 'Cu + 2 Ag⁺ → Cu²⁺ + 2 Ag', o1: 'Cu', o2: 'Ag⁺', ox: 1 }
+    - { rx: 'Cl₂ + 2 Br⁻ → 2 Cl⁻ + Br₂', o1: 'Cl₂', o2: 'Br⁻', ox: 0 }
+    - { rx: 'Zn + 2 H⁺ → Zn²⁺ + H₂', o1: 'Zn', o2: 'H⁺', ox: 1 }
+    - { rx: '2 Mg + O₂ → 2 MgO', o1: 'Mg', o2: 'O₂', ox: 1 }
+  given: { w: { pick: [0, 1] } }
+  prompt: 'In {{rx}}, which reactant is the {{w == 0 ? "oxidizing" : "reducing"}} agent?'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["{{o1}}", "{{o2}}"]
+      correct: 'w == 0 ? ox : 1 - ox'
+      explain: 'Find whose oxidation number goes down (it is reduced and is the oxidizing agent) and whose goes up (it is oxidized and is the reducing agent). OIL RIG: oxidation is loss, reduction is gain of electrons. The agent is named for what it does to the other species'
+  verify: { authored: true }
+
+- template: ac-electrons-transferred
+  skill: gchem.reactions
+  pace: quick
+  cases:
+    - { q: 'MnO₄⁻ → Mn²⁺ and Fe²⁺ → Fe³⁺', a: 5, b: 1, n: 5 }
+    - { q: 'Cr₂O₇²⁻ → 2 Cr³⁺ and Fe²⁺ → Fe³⁺', a: 6, b: 1, n: 6 }
+    - { q: 'MnO₄⁻ → Mn²⁺ and C₂O₄²⁻ → 2 CO₂', a: 5, b: 2, n: 10 }
+    - { q: 'NO₃⁻ → NO and Cu → Cu²⁺', a: 3, b: 2, n: 6 }
+    - { q: 'MnO₄⁻ → Mn²⁺ and Zn → Zn²⁺', a: 5, b: 2, n: 10 }
+    - { q: 'Ag⁺ → Ag and Cu → Cu²⁺', a: 1, b: 2, n: 2 }
+    - { q: 'Cr₂O₇²⁻ → 2 Cr³⁺ and I⁻ → I₂ (per I₂)', a: 6, b: 2, n: 6 }
+  prompt: 'The half-reactions {{q}} are combined in acidic solution with the smallest whole numbers. How many electrons are transferred in the overall equation?'
+  parts:
+    - { ask: 'Electrons transferred', label: r, value: n, tol: 0.0001, explain: 'Balance each half: atoms other than O and H, then O with H₂O, H with H⁺, charge with electrons. The two halves use {{a}} and {{b}} electrons; scale them to the least common multiple so the electrons cancel' }
+  verify: { expect: { r: "lcm(a, b)" } }
+
+- template: ac-activity-series
+  skill: gchem.reactions
+  pace: quick
+  cases:
+    - { q: 'zinc metal is placed in CuSO₄ solution', a: 'Zn', b: 'Cu', ans: 0 }
+    - { q: 'copper metal is placed in ZnSO₄ solution', a: 'Cu', b: 'Zn', ans: 1 }
+    - { q: 'copper wire is placed in AgNO₃ solution', a: 'Cu', b: 'Ag', ans: 0 }
+    - { q: 'silver is placed in hydrochloric acid', a: 'Ag', b: 'H', ans: 1 }
+    - { q: 'magnesium is placed in hydrochloric acid', a: 'Mg', b: 'H', ans: 0 }
+    - { q: 'iron nails are placed in CuCl₂ solution', a: 'Fe', b: 'Cu', ans: 0 }
+    - { q: 'lead is placed in Zn(NO₃)₂ solution', a: 'Pb', b: 'Zn', ans: 1 }
+    - { q: 'aluminum is placed in NiCl₂ solution', a: 'Al', b: 'Ni', ans: 0 }
+    - { q: 'gold is placed in nitric acid of the strength that only supplies H⁺', a: 'Au', b: 'H', ans: 1 }
+  prompt: 'Activity series, most active first: K, Na, Mg, Al, Zn, Fe, Ni, Sn, Pb, (H), Cu, Ag, Au. Does a reaction occur when {{q}}?'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["Yes: the metal is oxidized and displaces the other", "No reaction"]
+      correct: ans
+      explain: 'A metal displaces an ion only of a metal (or H₂) below it in the series: the more active metal gives up electrons more readily. So Zn plates out Cu, but Cu does nothing to Zn²⁺, and metals below H do not dissolve in plain acid'
+  verify: { choices: { a: "0 if 'K Na Mg Al Zn Fe Ni Sn Pb H Cu Ag Au'.split().index(a) < 'K Na Mg Al Zn Fe Ni Sn Pb H Cu Ag Au'.split().index(b) else 1" } }
+
+# ── stoichiometry ──────────────────────────────────────────────────────────
+- template: ac-mass-mass
+  skill: gchem.stoichiometry
+  pace: quick
+  cases:
+    - { rx: '2 H₂ + O₂ → 2 H₂O', A: 'O₂', B: 'H₂O', Ma: 31.998, Mb: 18.015, rt: 2, ma: "2*c_M['O']", mb: "2*c_M['H']+c_M['O']" }
+    - { rx: 'CaCO₃ → CaO + CO₂', A: 'CaCO₃', B: 'CO₂', Ma: 100.086, Mb: 44.009, rt: 1, ma: "c_M['Ca']+c_M['C']+3*c_M['O']", mb: "c_M['C']+2*c_M['O']" }
+    - { rx: 'N₂ + 3 H₂ → 2 NH₃', A: 'H₂', B: 'NH₃', Ma: 2.016, Mb: 17.031, rt: 0.6666666666666666, ma: "2*c_M['H']", mb: "c_M['N']+3*c_M['H']" }
+    - { rx: 'CH₄ + 2 O₂ → CO₂ + 2 H₂O', A: 'CH₄', B: 'H₂O', Ma: 16.043, Mb: 18.015, rt: 2, ma: "c_M['C']+4*c_M['H']", mb: "2*c_M['H']+c_M['O']" }
+    - { rx: '2 NaHCO₃ → Na₂CO₃ + H₂O + CO₂', A: 'NaHCO₃', B: 'CO₂', Ma: 84.006, Mb: 44.009, rt: 0.5, ma: "c_M['Na']+c_M['H']+c_M['C']+3*c_M['O']", mb: "c_M['C']+2*c_M['O']" }
+    - { rx: 'C₃H₈ + 5 O₂ → 3 CO₂ + 4 H₂O', A: 'C₃H₈', B: 'CO₂', Ma: 44.097, Mb: 44.009, rt: 3, ma: "3*c_M['C']+8*c_M['H']", mb: "c_M['C']+2*c_M['O']" }
+  given: { m: { pick: [5.00, 10.0, 25.0, 50.0] } }
+  prompt: 'By {{rx}}, what mass of {{B}} ($M = {{Mb}}$) forms from ${{m}}$ g of {{A}} ($M = {{Ma}}$), in g?'
+  parts:
+    - { ask: 'Mass of {{B}} (g)', label: r, value: m/Ma*rt*Mb, tol: 0.002, explain: 'grams A → moles A → moles B (by the coefficients, ${{rt}}$ mol {{B}} per mol {{A}}) → grams B. Never go straight from grams to grams: the ratio in the equation is a mole ratio' }
+  verify: { expect: { r: "m/calc(ma)*nsimplify(rt)*calc(mb)" } }
+
+- template: ac-limiting-reactant
+  skill: gchem.stoichiometry
+  pace: quick
+  given: { mN: { pick: [14.0, 28.0, 50.0] }, mH: { pick: [3.00, 5.00, 8.00, 12.0] } }
+  prompt: '${{mN}}$ g of N₂ (28.014 g/mol) reacts with ${{mH}}$ g of H₂ (2.016 g/mol) by N₂ + 3 H₂ → 2 NH₃. What is the theoretical yield of NH₃ (17.031 g/mol), in g?'
+  parts:
+    - { ask: 'Theoretical yield (g)', label: r, value: 'min(mN/28.014*2, mH/2.016*2/3)*17.031', tol: 0.002, explain: 'Work out the NH₃ each reactant could make on its own: ${{mN/28.014*2}}$ mol from N₂ and ${{mH/2.016*2/3}}$ mol from H₂. The smaller amount wins; that reactant is limiting and the other is left over' }
+  verify: { expect: { r: "Min(mN/(2*c_M['N'])*2, mH/(2*c_M['H'])*Rational(2, 3))*(c_M['N'] + 3*c_M['H'])" } }
+
+- template: ac-percent-yield
+  skill: gchem.stoichiometry
+  pace: quick
+  given: { th: { pick: [12.4, 25.0, 38.6, 50.0] }, f: { pick: [0.62, 0.78, 0.85, 0.93] } }
+  prompt: 'A synthesis has a theoretical yield of ${{th}}$ g and gives ${{th*f}}$ g of product. What is the percent yield?'
+  parts:
+    - { ask: 'Percent yield', label: r, value: f*100, tol: 0.002, explain: '$\dfrac{\text{actual}}{\text{theoretical}} \times 100$. Losses on transfer, side reactions and incomplete reactions keep it below 100; a yield above 100 usually means the product is still wet or impure' }
+  verify: { expect: { r: "(th*f)/th*100" } }
+
+- template: ac-solution-stoich
+  skill: gchem.stoichiometry
+  pace: quick
+  cases:
+    - { acid: 'HCl', k: 1 }
+    - { acid: 'H₂SO₄', k: 2 }
+    - { acid: 'HNO₃', k: 1 }
+  given: { Va: { pick: [20.0, 25.0, 50.0] }, Ca: { pick: [0.100, 0.150, 0.200] }, Cb: { pick: [0.100, 0.125, 0.250] } }
+  prompt: 'What volume of ${{Cb}}$ M NaOH, in mL, neutralizes ${{Va}}$ mL of ${{Ca}}$ M {{acid}}?'
+  parts:
+    - { ask: 'Volume NaOH (mL)', label: r, value: k*Ca*Va/Cb, tol: 0.002, explain: 'mol acid $= {{Ca}} \times {{Va}}$ mmol; {{acid}} gives {{k}} H⁺ each, and each OH⁻ takes one. Volume of base $= {{k}} \times {{Ca*Va}}/{{Cb}}$ mL' }
+  verify: { expect: { r: "solve(Eq(Cb*x, k*Ca*Va), x)[0]" } }
+
+- template: ac-gas-stoich
+  skill: gchem.stoichiometry
+  pace: quick
+  given: { m: { pick: [5.00, 10.0, 20.0] }, T: { pick: [273, 298, 350] }, P: { pick: [0.950, 1.00, 1.50] } }
+  prompt: 'Heating ${{m}}$ g of CaCO₃ (100.086 g/mol) gives CaO and CO₂. What volume of CO₂, in L, forms at ${{T}}$ K and ${{P}}$ atm? ($R = 0.08206$)'
+  parts:
+    - { ask: 'Volume CO₂ (L)', label: r, value: m/100.086*0.08206*T/P, tol: 0.002, explain: 'CaCO₃ → CaO + CO₂: one mol CO₂ per mol CaCO₃, so $n = {{m}}/100.086$, then $V = nRT/P$. At 273 K and 1 atm that is close to 22.4 L/mol' }
+  verify: { expect: { r: "solve(Eq(P*x, m/(c_M['Ca'] + c_M['C'] + 3*c_M['O'])*Rational(8206, 100000)*T), x)[0]" } }
+
+- template: ac-titration-concentration
+  skill: gchem.stoichiometry
+  pace: quick
+  cases:
+    - { acid: 'HCl', base: 'NaOH', k: 1 }
+    - { acid: 'H₂SO₄', base: 'NaOH', k: 2 }
+    - { acid: 'acetic acid', base: 'NaOH', k: 1 }
+    - { acid: 'HCl', base: 'Ba(OH)₂', k: 0.5 }
+  given: { Va: { pick: [10.0, 20.0, 25.0] }, Cb: { pick: [0.0950, 0.100, 0.120] }, Vb: { pick: [14.6, 18.2, 22.7, 31.4] } }
+  prompt: 'A ${{Va}}$ mL sample of {{acid}} needs ${{Vb}}$ mL of ${{Cb}}$ M {{base}} to reach the equivalence point. What is the acid''s molarity?'
+  parts:
+    - { ask: 'Molarity of acid', label: r, value: Cb*Vb/(k*Va), tol: 0.002, explain: 'At equivalence the moles of H⁺ from the acid equal the moles of OH⁻ added. Here mol {{acid}} $= {{Cb*Vb}}$ mmol of base $\div {{k}}$ (H⁺ per acid ÷ OH⁻ per base), divided by ${{Va}}$ mL' }
+  verify: { expect: { r: "solve(Eq(k*x*Va, Cb*Vb), x)[0]" } }
+
+# ── kinetics ───────────────────────────────────────────────────────────────
+- template: ac-rate-coefficients
+  skill: gchem.kinetics
+  pace: quick
+  cases:
+    - { rx: '2 N₂O₅ → 4 NO₂ + O₂', A: 'N₂O₅', B: 'NO₂', ca: 2, cb: 4 }
+    - { rx: '2 N₂O₅ → 4 NO₂ + O₂', A: 'N₂O₅', B: 'O₂', ca: 2, cb: 1 }
+    - { rx: 'N₂ + 3 H₂ → 2 NH₃', A: 'H₂', B: 'NH₃', ca: 3, cb: 2 }
+    - { rx: '2 NO + O₂ → 2 NO₂', A: 'O₂', B: 'NO₂', ca: 1, cb: 2 }
+    - { rx: '4 NH₃ + 5 O₂ → 4 NO + 6 H₂O', A: 'O₂', B: 'H₂O', ca: 5, cb: 6 }
+  given: { r: { pick: [0.012, 0.030, 0.045, 0.060] } }
+  prompt: 'In {{rx}}, {{A}} is consumed at ${{r}}$ M/s. How fast is {{B}} formed, in M/s?'
+  parts:
+    - { ask: 'Rate of formation of {{B}} (M/s)', label: r2, value: r*cb/ca, tol: 0.002, explain: 'Divide each species'' rate by its coefficient to get the one rate of reaction: $\dfrac{1}{ {{ca}} }\cdot{{r}} = \dfrac{1}{ {{cb}} }\cdot\text{rate}_{B}$' }
+  verify: { expect: { r2: "solve(Eq(r/ca, x/cb), x)[0]" } }
+
+- template: ac-rate-constant-units
+  skill: gchem.kinetics
+  pace: recall
+  given: { n: { int: [0, 3] } }
+  prompt: 'A reaction is order {{n}} overall, with concentrations in M and time in s. What are the units of $k$?'
+  parts:
+    - ask: 'Units of k'
+      label: a
+      choice: ["M/s", "1/s", "1/(M·s)", "1/(M²·s)"]
+      correct: n
+      explain: 'Rate is always M/s, and rate $= k[\,]^n$, so $k$ has units of $\mathrm{M}^{1-n}\,\mathrm{s}^{-1}$. Reading the units of a given $k$ is the fastest way to tell the order'
+  verify: { choices: { a: "n" } }
+
+- template: ac-rate-change
+  skill: gchem.kinetics
+  pace: quick
+  given: { a: { int: [0, 2] }, b: { int: [1, 2] }, f: { pick: [2, 3, 0.5] }, g: { pick: [1, 2, 3] } }
+  prompt: 'Rate $= k[\mathrm{A}]^{ {{a}} }[\mathrm{B}]^{ {{b}} }$. If [A] is multiplied by ${{f}}$ and [B] by ${{g}}$, by what factor does the rate change?'
+  parts:
+    - { ask: 'Factor', label: r, value: f^a*g^b, tol: 0.001, explain: 'Each concentration factor is raised to its order: ${{f}}^{ {{a}} } \times {{g}}^{ {{b}} } = {{f^a*g^b}}$. A zero-order reactant has no effect at all' }
+  verify: { expect: { r: "nsimplify(f)**a*nsimplify(g)**b" } }
+
+- template: ac-zero-order
+  skill: gchem.kinetics
+  pace: quick
+  given: { A0: { pick: [0.500, 0.800, 1.00] }, k: { pick: [0.0025, 0.0040, 0.010] }, f: { pick: [0.25, 0.5, 0.75] } }
+  prompt: 'A zero-order reaction has $k = {{k}}$ M/s and starts at ${{A0}}$ M. How long, in s, until [A] = ${{A0*f}}$ M?'
+  parts:
+    - { ask: 'Time (s)', label: r, value: (A0 - A0*f)/k, tol: 0.002, explain: 'Zero order: [A] falls in a straight line, $[\mathrm{A}] = [\mathrm{A}]_0 - kt$, so $t = ([\mathrm{A}]_0 - [\mathrm{A}])/k$. First order: $\ln[\mathrm{A}] = \ln[\mathrm{A}]_0 - kt$; second order: $1/[\mathrm{A}] = 1/[\mathrm{A}]_0 + kt$' }
+  verify: { expect: { r: "solve(Eq(A0*f, A0 - k*x), x)[0]" } }
+
+- template: ac-linear-plot
+  skill: gchem.kinetics
+  pace: recall
+  cases:
+    - { q: 'the reaction is first order in A', ans: 1 }
+    - { q: 'the reaction is second order in A', ans: 2 }
+    - { q: 'the reaction is zero order in A', ans: 0 }
+    - { q: 'the half-life stays the same as the reaction proceeds', ans: 1 }
+    - { q: 'each half-life is twice as long as the one before', ans: 2 }
+    - { q: 'each half-life is half as long as the one before', ans: 0 }
+  prompt: 'Which plot against time is a straight line if {{q}}?'
+  parts:
+    - ask: 'Linear plot'
+      label: a
+      choice: ["[A] against t", "ln[A] against t", "1/[A] against t"]
+      correct: ans
+      explain: 'Each integrated rate law is a line: zero order [A] (slope −k), first order ln[A] (slope −k), second order 1/[A] (slope +k). Half-lives: zero order shrinks with [A], first order is constant, second order grows'
+  verify: { authored: true }
+
+- template: ac-first-order-half-life
+  skill: gchem.kinetics
+  pace: quick
+  given: { k: { pick: [0.0050, 0.0231, 0.0693, 0.115] }, n: { int: [1, 4] } }
+  prompt: 'A first-order reaction has $k = {{k}}$ s⁻¹. What is its half-life, in s, and how much of 100 g remains after ${{n}}$ half-lives?'
+  parts:
+    - { ask: 'Half-life (s)', label: r, value: log(2)/k, tol: 0.002, explain: '$t_{1/2} = \ln 2/k = 0.693/{{k}}$, the same whatever the starting amount' }
+    - { ask: 'Grams left', label: m, value: 100/2^n, tol: 0.001, explain: 'Each half-life halves what is left: $100 \times (1/2)^{ {{n}} }$' }
+  verify: { expect: { r: "log(2)/k", m: "100*Rational(1, 2)**n" } }
+
+- template: ac-elementary-rate-law
+  skill: gchem.kinetics
+  pace: recall
+  cases:
+    - { q: 'NO₂ + NO₂ → NO₃ + NO', cs: [1, 1], o: 2 }
+    - { q: 'O₃ → O₂ + O', cs: [1], o: 1 }
+    - { q: '2 NO + O₂ → 2 NO₂ (as one step)', cs: [2, 1], o: 3 }
+    - { q: 'NO₃ + CO → NO₂ + CO₂', cs: [1, 1], o: 2 }
+    - { q: 'Cl + O₃ → ClO + O₂', cs: [1, 1], o: 2 }
+    - { q: 'N₂O₂ + H₂ → N₂O + H₂O', cs: [1, 1], o: 2 }
+    - { q: 'C₄H₈ → 2 C₂H₄', cs: [1], o: 1 }
+  prompt: 'What is the overall order of the rate law of the elementary step {{q}}?'
+  parts:
+    - { ask: 'Overall order', label: r, value: o, tol: 0.0001, explain: 'For an elementary step only, the rate law comes straight from the equation: each reactant''s coefficient is its order, and the overall order is the molecularity. For an overall reaction you cannot do this; it must come from experiment or a mechanism' }
+  verify: { expect: { r: "sum(cs)" } }
+
+- template: ac-collision-factor
+  skill: gchem.kinetics
+  pace: recall
+  cases:
+    - { q: 'Raising the temperature speeds a reaction mainly because', ans: 1 }
+    - { q: 'Increasing a reactant''s concentration speeds a reaction because', ans: 0 }
+    - { q: 'Adding a catalyst speeds a reaction because', ans: 3 }
+    - { q: 'Many collisions with enough energy still fail to react because they lack', ans: 2 }
+    - { q: 'Grinding a solid reactant into powder speeds a reaction because', ans: 0 }
+  prompt: '{{q}} …'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["more collisions happen each second", "a larger fraction of collisions have energy above Ea", "the right orientation", "a pathway with lower activation energy is opened"]
+      correct: ans
+      explain: 'A reaction needs collisions, with enough energy, in the right orientation. Concentration and surface area change how often collisions happen. Temperature mostly changes the fraction above Ea, which grows exponentially. A catalyst changes the path, not the temperature or the collision rate'
+  verify: { authored: true }
+
+- template: ac-energy-profile
+  skill: gchem.kinetics
+  pace: quick
+  given: { Ea: { pick: [45, 75, 120, 160] }, dH: { pick: [-90, -40, 25, 60] } }
+  require: [Ea > dH]
+  prompt: 'A reaction has a forward activation energy of ${{Ea}}$ kJ/mol and $\Delta H = {{dH}}$ kJ/mol. What is the activation energy of the reverse reaction, in kJ/mol?'
+  parts:
+    - { ask: 'Reverse Ea (kJ/mol)', label: r, value: Ea - dH, tol: 0.0001, explain: 'On the energy profile both reactions climb to the same transition state. The reverse climb starts from the products, $\Delta H$ away: $E_{a,\text{rev}} = E_{a,\text{fwd}} - \Delta H = {{Ea}} - ({{dH}})$' }
+  verify: { expect: { r: "solve(Eq(Ea, dH + x), x)[0]" } }
+
+- template: ac-mechanism-species
+  skill: gchem.kinetics
+  pace: quick
+  cases:
+    - { m: 'NO₂ + NO₂ → NO₃ + NO, then NO₃ + CO → NO₂ + CO₂', w: 'intermediate', o1: 'NO₃', o2: 'NO₂', o3: 'CO', o4: 'CO₂', ans: 0 }
+    - { m: 'O₃ + Cl → ClO + O₂, then ClO + O → Cl + O₂', w: 'catalyst', o1: 'ClO', o2: 'Cl', o3: 'O₃', o4: 'O₂', ans: 1 }
+    - { m: 'O₃ + Cl → ClO + O₂, then ClO + O → Cl + O₂', w: 'intermediate', o1: 'Cl', o2: 'O₃', o3: 'ClO', o4: 'O₂', ans: 2 }
+    - { m: 'H₂O₂ + I⁻ → H₂O + IO⁻, then H₂O₂ + IO⁻ → H₂O + O₂ + I⁻', w: 'catalyst', o1: 'IO⁻', o2: 'H₂O₂', o3: 'O₂', o4: 'I⁻', ans: 3 }
+    - { m: 'H₂O₂ + I⁻ → H₂O + IO⁻, then H₂O₂ + IO⁻ → H₂O + O₂ + I⁻', w: 'intermediate', o1: 'IO⁻', o2: 'I⁻', o3: 'H₂O', o4: 'O₂', ans: 0 }
+    - { m: '2 NO ⇌ N₂O₂, then N₂O₂ + O₂ → 2 NO₂', w: 'intermediate', o1: 'NO', o2: 'N₂O₂', o3: 'O₂', o4: 'NO₂', ans: 1 }
+  prompt: 'Mechanism: {{m}}. Which species is the {{w}}?'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["{{o1}}", "{{o2}}", "{{o3}}", "{{o4}}"]
+      correct: ans
+      explain: 'Add the steps and cancel what appears on both sides; the result must be the overall equation. A species made in an early step and used up later is an intermediate. One used up first and given back later is a catalyst'
+  verify: { authored: true }
+
+- template: ac-slow-first-step
+  skill: gchem.kinetics
+  pace: quick
+  cases:
+    - { q: 'NO₂ + NO₂ → NO₃ + NO (slow), then NO₃ + CO → NO₂ + CO₂ (fast)', s: 'CO', n: 0 }
+    - { q: 'NO₂ + NO₂ → NO₃ + NO (slow), then NO₃ + CO → NO₂ + CO₂ (fast)', s: 'NO₂', n: 2 }
+    - { q: 'H₂O₂ + I⁻ → H₂O + IO⁻ (slow), then H₂O₂ + IO⁻ → H₂O + O₂ + I⁻ (fast)', s: 'I⁻', n: 1 }
+    - { q: '(CH₃)₃CBr → (CH₃)₃C⁺ + Br⁻ (slow), then (CH₃)₃C⁺ + OH⁻ → (CH₃)₃COH (fast)', s: 'OH⁻', n: 0 }
+    - { q: '(CH₃)₃CBr → (CH₃)₃C⁺ + Br⁻ (slow), then (CH₃)₃C⁺ + OH⁻ → (CH₃)₃COH (fast)', s: '(CH₃)₃CBr', n: 1 }
+  prompt: 'Mechanism: {{q}}. What order in {{s}} does it predict?'
+  parts:
+    - ask: 'Order'
+      label: a
+      choice: ["0", "1", "2"]
+      correct: n
+      explain: 'When the first step is slow, the overall rate law is that step''s rate law. Reactants that only enter after the slow step do not appear in it, so their order is zero. If the observed rate law matches, the mechanism is consistent (not proven)'
+  verify: { authored: true }
+
+- template: ac-pre-equilibrium-order
+  skill: gchem.kinetics
+  pace: quick
+  cases:
+    - { q: '2 NO ⇌ N₂O₂ (fast), then N₂O₂ + O₂ → 2 NO₂ (slow)', law: 'k[\mathrm{NO}]^2[\mathrm{O_2}]', ex: [2, 1], o: 3 }
+    - { q: '2 NO ⇌ N₂O₂ (fast), then N₂O₂ + H₂ → N₂O + H₂O (slow)', law: 'k[\mathrm{NO}]^2[\mathrm{H_2}]', ex: [2, 1], o: 3 }
+    - { q: 'Br₂ ⇌ 2 Br (fast), then Br + H₂ → HBr + H (slow)', law: 'k[\mathrm{Br_2}]^{1/2}[\mathrm{H_2}]', ex: [0.5, 1], o: 1.5 }
+    - { q: 'Cl₂ ⇌ 2 Cl (fast), then Cl + CHCl₃ → HCl + CCl₃ (slow)', law: 'k[\mathrm{Cl_2}]^{1/2}[\mathrm{CHCl_3}]', ex: [0.5, 1], o: 1.5 }
+    - { q: 'O₃ ⇌ O₂ + O (fast), then O + O₃ → 2 O₂ (slow)', law: 'k[\mathrm{O_3}]^2/[\mathrm{O_2}]', ex: [2, -1], o: 1 }
+  prompt: 'Mechanism: {{q}}. Eliminating the intermediate, what is the overall order of the predicted rate law?'
+  parts:
+    - { ask: 'Overall order', label: r, value: o, tol: 0.0001, explain: 'Write the slow step''s rate law, which contains the intermediate. The fast step is at equilibrium, so solve its K expression for the intermediate and substitute. Here rate $= {{law}}$' }
+  verify: { expect: { r: "sum([nsimplify(e) for e in ex])" } }
+
+- template: ac-multistep-profile
+  skill: gchem.kinetics
+  pace: quick
+  given: { h: { int: [2, 4] } }
+  prompt: 'A reaction energy profile has ${{h}}$ peaks. How many elementary steps and how many intermediates does the mechanism have?'
+  parts:
+    - { ask: 'Steps', label: r, value: h, tol: 0.0001, explain: 'Each peak is a transition state, one per elementary step' }
+    - { ask: 'Intermediates', label: n, value: h - 1, tol: 0.0001, explain: 'Each valley between two peaks is an intermediate. The rate-determining step is the one whose peak sits highest above the starting reactants' }
+  verify: { expect: { r: "h", n: "h - 1" } }
+
+- template: ac-catalyst-effect
+  skill: gchem.kinetics
+  pace: recall
+  cases:
+    - { q: 'A catalyst changes ΔH of the reaction.', ans: 1 }
+    - { q: 'A catalyst lowers the activation energy of the forward and the reverse reaction.', ans: 0 }
+    - { q: 'A catalyst changes the equilibrium constant.', ans: 1 }
+    - { q: 'A catalyst lets a system reach equilibrium sooner.', ans: 0 }
+    - { q: 'A catalyst is used up by the reaction.', ans: 1 }
+    - { q: 'A heterogeneous catalyst works by adsorbing reactants on its surface.', ans: 0 }
+    - { q: 'An enzyme binds its substrate at an active site.', ans: 0 }
+    - { q: 'A catalyst shifts the equilibrium toward products.', ans: 1 }
+  prompt: 'True or false: {{q}}'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["True", "False"]
+      correct: ans
+      explain: 'A catalyst offers a different mechanism with a lower barrier. It speeds both directions equally, so K, ΔH and the equilibrium position stay put; only the time to get there changes. It is regenerated, though it takes part in the steps'
+  verify: { authored: true }

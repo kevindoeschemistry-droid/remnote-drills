@@ -1,0 +1,398 @@
+# AP Chemistry unit 3: intermolecular forces, gases, solutions and spectroscopy.
+# R = 0.08206 L·atm/(mol·K) throughout; physical constants for photons are the exact SI values.
+
+# ── intermolecular forces and phases ───────────────────────────────────────
+- template: ac-imf-identify
+  skill: gchem.imf
+  pace: recall
+  cases:
+    - { q: 'CH₄ molecules', ans: 0 }
+    - { q: 'HCl molecules', ans: 1 }
+    - { q: 'H₂O molecules', ans: 2 }
+    - { q: 'Na⁺ ions and water molecules in salt water', ans: 3 }
+    - { q: 'CH₃OH molecules', ans: 2 }
+    - { q: 'CO₂ molecules', ans: 0 }
+    - { q: 'CH₃Cl molecules', ans: 1 }
+    - { q: 'NH₃ molecules', ans: 2 }
+    - { q: 'I₂ molecules', ans: 0 }
+    - { q: 'acetone, (CH₃)₂CO, molecules', ans: 1 }
+    - { q: 'HF molecules', ans: 2 }
+    - { q: 'Cl⁻ ions and water molecules', ans: 3 }
+  prompt: 'What is the strongest intermolecular force between {{q}}?'
+  parts:
+    - ask: 'Strongest force'
+      label: a
+      choice: ["London dispersion only", "Dipole–dipole", "Hydrogen bonding", "Ion–dipole"]
+      correct: ans
+      explain: 'Every particle has London dispersion forces. A polar molecule adds dipole–dipole forces; H bonded directly to N, O or F adds hydrogen bonding; an ion among polar molecules gives ion–dipole. Note acetone is polar but has no O–H, so it cannot hydrogen bond to itself'
+  verify: { authored: true }
+
+- template: ac-boiling-rank
+  skill: gchem.imf
+  pace: quick
+  cases:
+    - { a: 'CH₄', b: 'C₂H₆', ta: -162, tb: -89 }
+    - { a: 'H₂O', b: 'H₂S', ta: 100, tb: -60 }
+    - { a: 'ethanol, CH₃CH₂OH', b: 'dimethyl ether, CH₃OCH₃', ta: 78, tb: -24 }
+    - { a: 'n-pentane', b: 'neopentane (2,2-dimethylpropane)', ta: 36, tb: 10 }
+    - { a: 'HF', b: 'HCl', ta: 20, tb: -85 }
+    - { a: 'Br₂', b: 'I₂', ta: 59, tb: 184 }
+    - { a: 'butane', b: 'acetone', ta: -1, tb: 56 }
+    - { a: 'CH₃SH', b: 'CH₃OH', ta: 6, tb: 65 }
+    - { a: 'F₂', b: 'Cl₂', ta: -188, tb: -34 }
+  given: { w: { pick: [0, 1] } }
+  prompt: 'Which has the higher {{w == 0 ? "boiling point" : "vapor pressure at room temperature"}}: {{a}} or {{b}}?'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["{{a}}", "{{b}}"]
+      correct: 'w == 0 ? (ta > tb ? 0 : 1) : (ta > tb ? 1 : 0)'
+      explain: 'Stronger intermolecular forces mean a higher boiling point and a lower vapor pressure. Compare hydrogen bonding first, then polarity, then the number of electrons and the contact area, which set the dispersion forces. (Boiling points: {{ta}} °C and {{tb}} °C.)'
+  verify: { choices: { a: "(0 if ta > tb else 1) if w == 0 else (1 if ta > tb else 0)" } }
+
+- template: ac-solid-type
+  skill: gchem.imf
+  pace: recall
+  cases:
+    - { q: 'diamond', ans: 2 }
+    - { q: 'sodium chloride', ans: 0 }
+    - { q: 'ice', ans: 1 }
+    - { q: 'copper', ans: 3 }
+    - { q: 'quartz, SiO₂', ans: 2 }
+    - { q: 'iodine crystals', ans: 1 }
+    - { q: 'magnesium oxide', ans: 0 }
+    - { q: 'iron', ans: 3 }
+    - { q: 'dry ice, CO₂', ans: 1 }
+    - { q: 'graphite', ans: 2 }
+    - { q: 'sucrose', ans: 1 }
+    - { q: 'calcium fluoride', ans: 0 }
+  prompt: 'What kind of solid is {{q}}?'
+  parts:
+    - ask: 'Type of solid'
+      label: a
+      choice: ["Ionic: high melting, brittle, conducts only melted or dissolved", "Molecular: low melting, soft, nonconducting", "Covalent network: very high melting, very hard, usually nonconducting", "Metallic: malleable, conducts as a solid"]
+      correct: ans
+      explain: 'Ask what sits at the lattice points and what holds them: ions held by Coulomb attraction, molecules held by intermolecular forces, atoms held by a web of covalent bonds, or cations in a sea of electrons. Graphite is the network solid that conducts, along its layers'
+  verify: { authored: true }
+
+- template: ac-boiling-pressure
+  skill: gchem.imf
+  pace: recall
+  cases:
+    - { q: 'on a mountain, where air pressure is lower', ans: 0 }
+    - { q: 'in a pressure cooker', ans: 1 }
+    - { q: 'when the stove is turned up higher', ans: 2 }
+    - { q: 'in a partly evacuated flask', ans: 0 }
+    - { q: 'in a sealed vessel at 2 atm', ans: 1 }
+    - { q: 'when more water is added to the pot', ans: 2 }
+  prompt: 'How does the boiling temperature of water change {{q}}?'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["It boils at a lower temperature", "It boils at a higher temperature", "The boiling temperature is unchanged"]
+      correct: ans
+      explain: 'A liquid boils when its vapor pressure equals the pressure above it. Vapor pressure rises with temperature as more molecules have the kinetic energy to escape the intermolecular forces. Lower the outside pressure and that point comes at a lower temperature; extra heat only boils it faster'
+  verify: { authored: true }
+
+- template: ac-phase-diagram
+  skill: gchem.imf
+  pace: recall
+  cases:
+    - { q: 'all three phases coexist', ans: 0 }
+    - { q: 'beyond it liquid and gas cannot be told apart', ans: 1 }
+    - { q: 'the liquid–gas line crosses 1 atm', ans: 2 }
+    - { q: 'the solid–liquid line crosses 1 atm', ans: 3 }
+    - { q: 'the lowest pressure at which a liquid can exist', ans: 0 }
+    - { q: 'the liquid–gas line ends', ans: 1 }
+  prompt: 'On a phase diagram, what is the point where {{q}}?'
+  parts:
+    - ask: 'Point'
+      label: a
+      choice: ["The triple point", "The critical point", "The normal boiling point", "The normal melting point"]
+      correct: ans
+      explain: 'Lines are two-phase equilibria and areas single phases: solid at low T and high P, gas at high T and low P. CO₂''s triple point is above 1 atm, so at 1 atm it sublimes. Water''s solid–liquid line leans left because ice is less dense than liquid water'
+  verify: { authored: true }
+
+# ── gases ──────────────────────────────────────────────────────────────────
+- template: ac-ideal-gas-solve
+  skill: gchem.gases
+  pace: quick
+  given: { n: { pick: [0.250, 0.500, 1.20, 2.50] }, T: { pick: [273, 298, 350, 400] }, V: { pick: [5.00, 10.0, 12.5, 22.4] } }
+  prompt: '${{n}}$ mol of gas fills a ${{V}}$ L flask at ${{T}}$ K. What is the pressure, in atm? ($R = 0.08206$ L·atm/(mol·K))'
+  parts:
+    - { ask: 'Pressure (atm)', label: r, value: n*0.08206*T/V, tol: 0.002, explain: '$P = nRT/V$. Match R to the units: 0.08206 L·atm/(mol·K) for atm and L; 8.314 J/(mol·K) for Pa and m³. Temperature must be in kelvin' }
+  verify: { expect: { r: "solve(Eq(x*V, n*Rational(8206, 100000)*T), x)[0]" } }
+
+- template: ac-combined-gas
+  skill: gchem.gases
+  pace: quick
+  given: { P1: { pick: [1.00, 1.50, 2.00] }, V1: { pick: [2.00, 4.50, 10.0] }, t1: { pick: [0, 25, 50] }, P2: { pick: [0.500, 1.25, 3.00] }, t2: { pick: [-20, 100, 150] } }
+  prompt: 'A gas at ${{P1}}$ atm, ${{V1}}$ L and ${{t1}}$ °C is changed to ${{P2}}$ atm and ${{t2}}$ °C. What is its new volume, in L?'
+  parts:
+    - { ask: 'V₂ (L)', label: r, value: P1*V1/P2*(t2 + 273.15)/(t1 + 273.15), tol: 0.002, explain: '$\dfrac{P_1V_1}{T_1} = \dfrac{P_2V_2}{T_2}$ with T in kelvin: ${{t1 + 273.15}}$ K and ${{t2 + 273.15}}$ K. Using °C is the classic slip. Volume goes up with T (Charles) and down with P (Boyle)' }
+  verify: { expect: { r: "solve(Eq(P1*V1/(t1 + Rational(27315, 100)), P2*x/(t2 + Rational(27315, 100))), x)[0]" } }
+
+- template: ac-gas-molar-mass
+  skill: gchem.gases
+  pace: quick
+  cases:
+    - { g: 'O₂', M: 31.998 }
+    - { g: 'CO₂', M: 44.009 }
+    - { g: 'N₂', M: 28.014 }
+    - { g: 'CH₄', M: 16.043 }
+    - { g: 'C₃H₈', M: 44.097 }
+  given: { V: { pick: [0.500, 1.00, 2.00] }, T: { pick: [298, 323, 373] }, P: { pick: [0.950, 1.00, 1.20] } }
+  prompt: 'A ${{V}}$ L sample of an unknown gas weighs ${{P*V/(0.08206*T)*M}}$ g at ${{T}}$ K and ${{P}}$ atm. What is its molar mass, in g/mol?'
+  parts:
+    - { ask: 'Molar mass (g/mol)', label: r, value: M, tol: 0.002, explain: '$n = PV/RT$, then $M = m/n$; in one step $M = \dfrac{mRT}{PV}$. The gas is {{g}}. The same rearrangement gives density: $d = PM/RT$' }
+  verify: { expect: { r: "solve(Eq(P*V, (P*V/(Rational(8206, 100000)*T)*M)/x*Rational(8206, 100000)*T), x)[0]" } }
+
+- template: ac-dalton-over-water
+  skill: gchem.gases
+  pace: quick
+  cases:
+    - { t: 20, pw: 17.5 }
+    - { t: 25, pw: 23.8 }
+    - { t: 30, pw: 31.8 }
+  given: { Pt: { pick: [740, 752, 760, 765] } }
+  prompt: 'Hydrogen is collected over water at {{t}} °C, where water''s vapor pressure is ${{pw}}$ mmHg. The total pressure is ${{Pt}}$ mmHg. What is the partial pressure of H₂, and the mole fraction of water vapor?'
+  parts:
+    - { ask: 'P(H₂) (mmHg)', label: r, value: Pt - pw, tol: 0.0005, explain: 'Dalton: partial pressures add, $P_\text{total} = P_{\mathrm{H_2}} + P_{\mathrm{H_2O}}$, so subtract the water''s vapor pressure' }
+    - { ask: 'Mole fraction of H₂O', label: f, value: pw/Pt, tol: 0.002, explain: '$\chi_i = P_i/P_\text{total} = {{pw}}/{{Pt}}$' }
+  verify: { expect: { r: "solve(Eq(x + pw, Pt), x)[0]", f: "pw/Pt" } }
+
+- template: ac-kmt-statement
+  skill: gchem.gases
+  pace: recall
+  cases:
+    - { q: 'Gas particles take up negligible volume compared with the container.', ans: 0 }
+    - { q: 'Collisions between gas particles are perfectly elastic.', ans: 0 }
+    - { q: 'The average kinetic energy is proportional to the absolute temperature.', ans: 0 }
+    - { q: 'At the same temperature, heavier molecules have a higher average kinetic energy.', ans: 1 }
+    - { q: 'At a higher temperature the speed distribution peaks at a higher speed and spreads out.', ans: 0 }
+    - { q: 'All molecules in a sample move at the same speed.', ans: 1 }
+    - { q: 'Ideal gas particles attract one another.', ans: 1 }
+    - { q: 'At the same temperature, a lighter gas has a higher most probable speed.', ans: 0 }
+  prompt: 'True or false, by kinetic molecular theory: {{q}}'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["True", "False"]
+      correct: ans
+      explain: 'Temperature fixes the average kinetic energy, $\tfrac12 m\overline{v^2}$, whatever the gas. So at one temperature a lighter gas moves faster, and a Maxwell–Boltzmann curve is a spread of speeds, not one speed. Ideal particles have no volume and no attractions'
+  verify: { authored: true }
+
+- template: ac-real-gas
+  skill: gchem.gases
+  pace: recall
+  cases:
+    - { q: 'CO₂ at 1 atm, just above its sublimation temperature', ans: 0 }
+    - { q: 'H₂ at 500 atm and room temperature', ans: 1 }
+    - { q: 'He at 1 atm and 500 K', ans: 2 }
+    - { q: 'NH₃ at 10 atm and 300 K', ans: 0 }
+    - { q: 'N₂ at 1000 atm', ans: 1 }
+    - { q: 'Ar at 0.1 atm and 300 K', ans: 2 }
+  prompt: 'What mainly governs how {{q}} departs from ideal behavior?'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["Attractions (the a term): the measured pressure falls below ideal", "Molecular volume (the b term): PV/nRT rises above 1", "Little departure: it is nearly ideal"]
+      correct: ans
+      explain: 'Gases are most ideal at high temperature and low pressure. Near condensation, attractions pull molecules off the walls and lower the pressure; at very high pressure the molecules'' own volume is a real share of the container. Polar, large molecules deviate most'
+  verify: { authored: true }
+
+# ── solutions ──────────────────────────────────────────────────────────────
+- template: ac-molarity
+  skill: gchem.solutions
+  pace: quick
+  cases:
+    - { f: 'NaCl', M: 58.44, mm: "c_M['Na']+c_M['Cl']" }
+    - { f: 'NaOH', M: 39.997, mm: "c_M['Na']+c_M['O']+c_M['H']" }
+    - { f: 'glucose, C₆H₁₂O₆', M: 180.156, mm: "6*c_M['C']+12*c_M['H']+6*c_M['O']" }
+    - { f: 'KCl', M: 74.548, mm: "c_M['K']+c_M['Cl']" }
+    - { f: 'CaCl₂', M: 110.978, mm: "c_M['Ca']+2*c_M['Cl']" }
+  given: { m: { pick: [2.50, 5.00, 12.0, 25.0] }, V: { pick: [100, 250, 500] } }
+  prompt: '${{m}}$ g of {{f}} ($M = {{M}}$ g/mol) is dissolved to make ${{V}}$ mL of solution. What is the molarity?'
+  parts:
+    - { ask: 'Molarity (mol/L)', label: r, value: m/M/(V/1000), tol: 0.002, explain: 'Molarity is moles of solute per litre of solution: $({{m}}/{{M}})\text{ mol} \div {{V/1000}}$ L. Convert mL to L first' }
+  verify: { expect: { r: "m/calc(mm)/(V/Integer(1000))" } }
+
+- template: ac-dilution
+  skill: gchem.solutions
+  pace: quick
+  given: { M1: { pick: [6.0, 12.0, 2.50, 1.00] }, M2: { pick: [0.100, 0.250, 0.500] }, V2: { pick: [250, 500, 1000] } }
+  prompt: 'What volume of ${{M1}}$ M stock, in mL, is diluted to make ${{V2}}$ mL of ${{M2}}$ M solution?'
+  parts:
+    - { ask: 'Stock volume (mL)', label: r, value: M2*V2/M1, tol: 0.002, explain: 'Moles of solute do not change on dilution: $M_1V_1 = M_2V_2$, so $V_1 = {{M2}} \times {{V2}}/{{M1}}$. Measure that volume, then add water up to the {{V2}} mL mark (for acids, add the acid to water)' }
+  verify: { expect: { r: "solve(Eq(M1*x, M2*V2), x)[0]" } }
+
+- template: ac-ion-concentration
+  skill: gchem.solutions
+  pace: quick
+  cases:
+    - { f: 'Al₂(SO₄)₃', ion: 'SO₄²⁻', k: 3 }
+    - { f: 'Al₂(SO₄)₃', ion: 'Al³⁺', k: 2 }
+    - { f: 'CaCl₂', ion: 'Cl⁻', k: 2 }
+    - { f: 'Na₃PO₄', ion: 'Na⁺', k: 3 }
+    - { f: 'K₂SO₄', ion: 'K⁺', k: 2 }
+    - { f: '(NH₄)₂CO₃', ion: 'NH₄⁺', k: 2 }
+    - { f: 'Fe(NO₃)₃', ion: 'NO₃⁻', k: 3 }
+  given: { c: { pick: [0.050, 0.120, 0.250, 0.400] } }
+  prompt: 'What is [{{ion}}] in ${{c}}$ M {{f}}, a strong electrolyte?'
+  parts:
+    - { ask: '[{{ion}}] (M)', label: r, value: k*c, tol: 0.001, explain: 'A strong electrolyte dissociates completely, and each formula unit gives {{k}} {{ion}}: ${{k}} \times {{c}}$ M' }
+  verify: { expect: { r: "k*c" } }
+
+- template: ac-molality-convert
+  skill: gchem.solutions
+  pace: quick
+  cases:
+    - { f: 'NaCl', M: 58.44, mm: "c_M['Na']+c_M['Cl']" }
+    - { f: 'glucose', M: 180.156, mm: "6*c_M['C']+12*c_M['H']+6*c_M['O']" }
+    - { f: 'ethanol', M: 46.069, mm: "2*c_M['C']+6*c_M['H']+c_M['O']" }
+    - { f: 'urea, CO(NH₂)₂', M: 60.056, mm: "c_M['C']+c_M['O']+2*c_M['N']+4*c_M['H']" }
+  given: { w: { pick: [5.0, 10.0, 15.0, 20.0] } }
+  prompt: 'An aqueous solution is ${{w}}$ percent {{f}} by mass ($M = {{M}}$ g/mol). What is its molality?'
+  parts:
+    - { ask: 'Molality (mol/kg)', label: r, value: (w/M)/((100 - w)/1000), tol: 0.002, explain: 'Take 100 g of solution: ${{w}}$ g of solute and ${{100 - w}}$ g of water. Molality is moles of solute per kilogram of solvent, not of solution: $({{w}}/{{M}}) \div {{(100 - w)/1000}}$' }
+  verify: { expect: { r: "(w/calc(mm))/((100 - w)/Integer(1000))" } }
+
+- template: ac-hydration-orientation
+  skill: gchem.solutions
+  pace: recall
+  cases:
+    - { ion: 'Na⁺', ans: 0 }
+    - { ion: 'Cl⁻', ans: 1 }
+    - { ion: 'Mg²⁺', ans: 0 }
+    - { ion: 'F⁻', ans: 1 }
+    - { ion: 'K⁺', ans: 0 }
+    - { ion: 'Br⁻', ans: 1 }
+    - { ion: 'Al³⁺', ans: 0 }
+    - { ion: 'SO₄²⁻', ans: 1 }
+  prompt: 'In a particle diagram of an aqueous solution, which end of each surrounding water molecule points toward a {{ion}} ion?'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["The oxygen end (partial negative)", "The hydrogen end (partial positive)"]
+      correct: ans
+      explain: 'Opposite partial charges attract: water''s δ− oxygen faces cations and its δ+ hydrogens face anions. Draw ions in the formula''s ratio, so CaCl₂ shows two Cl⁻ for every Ca²⁺'
+  verify: { authored: true }
+
+- template: ac-rf-value
+  skill: gchem.solutions
+  pace: quick
+  given: { d: { pick: [1.8, 2.6, 3.4, 4.5] }, f: { pick: [6.0, 7.5, 8.0] } }
+  prompt: 'On a paper chromatogram the solvent front moved ${{f}}$ cm and a dye spot ${{d}}$ cm. What is the R$_f$ of the dye?'
+  parts:
+    - { ask: 'Rf', label: r, value: d/f, tol: 0.002, explain: '$R_f = \dfrac{\text{distance moved by the spot}}{\text{distance moved by the solvent}}$. On polar paper with a less polar solvent, a component that interacts more strongly with the paper (stationary phase) travels less and has a smaller $R_f$' }
+  verify: { expect: { r: "d/f" } }
+
+- template: ac-solubility-polar
+  skill: gchem.solutions
+  pace: recall
+  cases:
+    - { q: 'methanol', ans: 0 }
+    - { q: 'iodine, I₂', ans: 1 }
+    - { q: 'sodium chloride', ans: 0 }
+    - { q: 'octane', ans: 1 }
+    - { q: 'glucose', ans: 0 }
+    - { q: 'naphthalene', ans: 1 }
+    - { q: 'acetic acid', ans: 0 }
+    - { q: 'carbon tetrachloride', ans: 1 }
+    - { q: 'ammonia', ans: 0 }
+    - { q: 'vegetable oil', ans: 1 }
+  prompt: 'Is {{q}} more soluble in water or in hexane?'
+  parts:
+    - ask: 'Better solvent'
+      label: a
+      choice: ["Water", "Hexane"]
+      correct: ans
+      explain: '"Like dissolves like": dissolving trades solute–solute and solvent–solvent attractions for solute–solvent ones. Ions and molecules that hydrogen bond or are strongly polar replace water–water attractions well; nonpolar molecules only offer dispersion forces, which hexane matches'
+  verify: { authored: true }
+
+- template: ac-henry-law
+  skill: gchem.solutions
+  pace: quick
+  cases:
+    - { g: 'CO₂', s1: 0.033 }
+    - { g: 'O₂', s1: 0.0013 }
+    - { g: 'N₂', s1: 0.00065 }
+  given: { P2: { pick: [0.21, 2.5, 4.0, 0.50] } }
+  prompt: 'At 25 °C the solubility of {{g}} in water is ${{s1}}$ M under 1.0 atm of {{g}}. What is its solubility under ${{P2}}$ atm?'
+  parts:
+    - { ask: 'Solubility (M)', label: r, value: s1*P2, tol: 0.002, explain: 'Henry''s law: a gas''s solubility is proportional to its partial pressure, $S = k_H P$. Gases dissolve less at higher temperature, which is why warm soda goes flat' }
+  verify: { expect: { r: "solve(Eq(x/P2, s1/1), x)[0]" } }
+
+# ── spectroscopy ───────────────────────────────────────────────────────────
+- template: ac-em-transition
+  skill: gchem.solutions
+  pace: recall
+  cases:
+    - { q: '1 cm', lam: 0.01 }
+    - { q: '2 mm', lam: 0.002 }
+    - { q: '10 μm', lam: 0.00001 }
+    - { q: '3 μm', lam: 0.000003 }
+    - { q: '300 nm', lam: 0.0000003 }
+    - { q: '500 nm', lam: 0.0000005 }
+    - { q: '250 nm', lam: 0.00000025 }
+  prompt: 'Light of wavelength {{q}} is absorbed by molecules. What change does it cause?'
+  parts:
+    - ask: 'Transition'
+      label: a
+      choice: ["Rotation (microwave)", "Vibration (infrared)", "Electronic transition (ultraviolet or visible)"]
+      correct: 'lam > 0.001 ? 0 : (lam > 0.0000007 ? 1 : 2)'
+      explain: 'Shorter wavelength, more energy per photon. Microwaves (about 1 mm to 1 m) turn molecules, infrared (700 nm to 1 mm) stretches and bends bonds, and ultraviolet and visible light move electrons between energy levels'
+  verify: { choices: { a: "0 if lam > Rational(1, 1000) else (1 if lam > Rational(7, 10000000) else 2)" } }
+
+- template: ac-photon-per-mole
+  skill: gchem.solutions
+  pace: quick
+  given: { lam: { pick: [250, 400, 486, 532, 656, 700] } }
+  prompt: 'What is the energy of one mole of ${{lam}}$ nm photons, in kJ/mol? ($h = 6.626\times10^{-34}$ J·s, $c = 2.998\times10^{8}$ m/s, $N_A = 6.022\times10^{23}$)'
+  parts:
+    - { ask: 'Energy (kJ/mol)', label: r, value: 6.62607015e-34*299792458*6.02214076e23/(lam*1e-9)/1000, tol: 0.002, explain: '$E = \dfrac{hc}{\lambda}$ per photon (convert nm to m), times $N_A$ for a mole, divided by 1000 for kJ. Shorter wavelengths carry more energy; about 300 kJ/mol of visible light is in the range of bond energies' }
+  verify: { expect: { r: "c_h*c_c*c_NA/(lam*Rational(1, 10**9))/1000" } }
+
+- template: ac-calibration-curve
+  skill: gchem.solutions
+  pace: quick
+  given: { m: { pick: [1250, 2400, 5800] }, b: { pick: [0.002, 0.010, 0.015] }, A: { pick: [0.215, 0.388, 0.540, 0.712] } }
+  prompt: 'A Beer''s-law calibration curve has slope ${{m}}$ M⁻¹ and intercept ${{b}}$. An unknown reads $A = {{A}}$. What is its concentration, in M?'
+  parts:
+    - { ask: 'Concentration (M)', label: r, value: (A - b)/m, tol: 0.002, explain: '$A = \varepsilon b c$ is a straight line through the standards: $A = mc + b$, so $c = (A - b)/m$. The slope is $\varepsilon$ times the path length. Too dark a sample falls off the linear range' }
+  verify: { expect: { r: "solve(Eq(m*x + b, A), x)[0]" } }
+
+# ── colligative properties ─────────────────────────────────────────────────
+- template: ac-raoult
+  skill: gchem.solutions
+  pace: quick
+  given: { n1: { pick: [5.00, 8.00, 10.0] }, n2: { pick: [0.250, 0.500, 1.00] }, P0: { pick: [23.8, 31.8, 92.5] } }
+  prompt: '${{n2}}$ mol of a nonvolatile solute is dissolved in ${{n1}}$ mol of a solvent whose vapor pressure is ${{P0}}$ mmHg. What is the solution''s vapor pressure, in mmHg?'
+  parts:
+    - { ask: 'Vapor pressure (mmHg)', label: r, value: P0*n1/(n1 + n2), tol: 0.002, explain: 'Raoult''s law: $P = \chi_\text{solvent} P^\circ$, with $\chi = {{n1}}/({{n1}} + {{n2}})$. Solute particles at the surface take the place of solvent molecules that could escape' }
+  verify: { expect: { r: "n1/(n1 + n2)*P0" } }
+
+- template: ac-freezing-point-i
+  skill: gchem.solutions
+  pace: quick
+  cases:
+    - { f: 'NaCl', i: 2 }
+    - { f: 'CaCl₂', i: 3 }
+    - { f: 'glucose', i: 1 }
+    - { f: 'K₂SO₄', i: 3 }
+    - { f: 'AlCl₃', i: 4 }
+    - { f: 'KNO₃', i: 2 }
+  given: { m: { pick: [0.100, 0.250, 0.500, 1.00] } }
+  prompt: 'By how much, in °C, does a ${{m}}$ m aqueous solution of {{f}} freeze below pure water? ($K_f = 1.86$ °C·kg/mol; assume complete dissociation.)'
+  parts:
+    - { ask: 'ΔT_f (°C)', label: r, value: i*1.86*m, tol: 0.002, explain: '$\Delta T_f = iK_f m$, where $i$ counts the particles per formula unit: {{i}} for {{f}}. Colligative properties depend on how many solute particles there are, not what they are' }
+  verify: { expect: { r: "i*Rational(186, 100)*m" } }
+
+- template: ac-osmotic-molar-mass
+  skill: gchem.solutions
+  pace: quick
+  given: { mg: { pick: [25.0, 50.0, 125] }, V: { pick: [10.0, 25.0, 100] }, M: { pick: [5000, 12000, 34000, 66000] } }
+  prompt: '${{mg}}$ mg of a protein in ${{V}}$ mL of solution has an osmotic pressure of ${{(mg/1000/M)/(V/1000)*0.08206*298*760}}$ mmHg at 298 K. What is the protein''s molar mass, in g/mol?'
+  parts:
+    - { ask: 'Molar mass (g/mol)', label: r, value: M, tol: 0.003, explain: '$\Pi = MRT$ with M the molarity: convert mmHg to atm (÷ 760), find mol/L, multiply by the volume in L for moles, and divide grams by moles. Osmotic pressure is large even for tiny concentrations, which is why it is used for big molecules' }
+  verify: { expect: { r: "solve(Eq((mg/1000/M)/(V/Integer(1000))*Rational(8206, 100000)*298*760/760, (mg/Integer(1000)/x)/(V/Integer(1000))*Rational(8206, 100000)*298), x)[0]" } }

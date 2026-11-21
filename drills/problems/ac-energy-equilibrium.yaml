@@ -1,0 +1,432 @@
+# AP Chemistry units 6 and 7: thermochemistry and equilibrium.
+# Water: c = 4.184 J/(g·K) liquid, 2.09 ice; ΔH_fus = 6.01 kJ/mol, ΔH_vap = 40.7 kJ/mol.
+
+# ── thermochemistry ────────────────────────────────────────────────────────
+- template: ac-endo-exo
+  skill: gchem.thermochem
+  pace: recall
+  cases:
+    - { q: 'A solid dissolves and the solution warms up.', ans: 0 }
+    - { q: 'A cold pack gets cold when the inner pouch breaks.', ans: 1 }
+    - { q: 'Propane burns.', ans: 0 }
+    - { q: 'Ice melts in your hand and your hand feels cold.', ans: 1 }
+    - { q: 'Steam condenses on a mirror.', ans: 0 }
+    - { q: 'Water is boiled.', ans: 1 }
+    - { q: 'Acid is added to water and the beaker gets hot.', ans: 0 }
+    - { q: 'Baking soda and vinegar react and the cup feels cooler.', ans: 1 }
+  prompt: '{{q}} Is the process exothermic or endothermic?'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["Exothermic: heat flows out of the system, q negative", "Endothermic: heat flows into the system, q positive"]
+      correct: ans
+      explain: 'The thermometer reads the surroundings. If they warm, the system gave heat away (exothermic, ΔH < 0); if they cool, the system took heat in (endothermic, ΔH > 0). Breaking bonds or attractions takes energy; forming them releases it'
+  verify: { authored: true }
+
+- template: ac-energy-diagram
+  skill: gchem.thermochem
+  pace: recall
+  given: { Hr: { pick: [40, 120, 250] }, Hp: { pick: [-80, 10, 90, 300] } }
+  require: [Hr != Hp]
+  prompt: 'On an energy diagram the reactants sit at ${{Hr}}$ kJ and the products at ${{Hp}}$ kJ on the same scale. What is ΔH, in kJ?'
+  parts:
+    - { ask: 'ΔH (kJ)', label: r, value: Hp - Hr, tol: 0.0001, explain: '$\Delta H = H_\text{products} - H_\text{reactants}$. Products below reactants: energy was released, exothermic. Products above: endothermic' }
+  verify: { expect: { r: "solve(Eq(Hr + x, Hp), x)[0]" } }
+
+- template: ac-heat-flow-particles
+  skill: gchem.thermochem
+  pace: recall
+  cases:
+    - { q: 'Heat flows from a hot block to cold water because faster particles transfer kinetic energy in collisions.', ans: 0 }
+    - { q: 'At thermal equilibrium the two bodies have the same temperature.', ans: 0 }
+    - { q: 'At thermal equilibrium the two bodies have gained and lost equal amounts of heat, so they hold equal energy.', ans: 1 }
+    - { q: 'Heat flows from the body with more total energy to the body with less.', ans: 1 }
+    - { q: 'The heat lost by the hot body equals the heat gained by the cold body, if nothing escapes.', ans: 0 }
+    - { q: 'Temperature measures the average kinetic energy of the particles.', ans: 0 }
+  prompt: 'True or false: {{q}}'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["True", "False"]
+      correct: ans
+      explain: 'Heat moves from higher to lower temperature (higher to lower average kinetic energy), not from more to less total energy: a bathtub of warm water holds more energy than a hot nail. Energy is conserved, so $q_\text{lost} = -q_\text{gained}$, and transfer stops when the temperatures match'
+  verify: { authored: true }
+
+- template: ac-q-mcdt
+  skill: gchem.thermochem
+  pace: quick
+  cases:
+    - { mat: 'water', c: 4.184 }
+    - { mat: 'aluminum', c: 0.897 }
+    - { mat: 'copper', c: 0.385 }
+    - { mat: 'iron', c: 0.449 }
+  given: { m: { pick: [25.0, 50.0, 100, 250] }, dT: { pick: [5.0, 12.5, 30.0, 45.0] } }
+  prompt: 'How much heat, in J, raises ${{m}}$ g of {{mat}} ($c = {{c}}$ J/(g·K)) by ${{dT}}$ °C?'
+  parts:
+    - { ask: 'q (J)', label: r, value: m*c*dT, tol: 0.001, explain: '$q = mc\Delta T$. A change of 1 °C equals a change of 1 K, so no conversion is needed for ΔT. Water''s large specific heat is why it buffers temperature' }
+  verify: { expect: { r: "m*c*dT" } }
+
+- template: ac-mixing-temperature
+  skill: gchem.thermochem
+  pace: quick
+  given: { m1: { pick: [50.0, 100, 150] }, T1: { pick: [70.0, 80.0, 90.0] }, m2: { pick: [100, 200, 250] }, T2: { pick: [10.0, 20.0, 25.0] } }
+  prompt: '${{m1}}$ g of water at ${{T1}}$ °C is mixed with ${{m2}}$ g of water at ${{T2}}$ °C. What is the final temperature, in °C?'
+  parts:
+    - { ask: 'Final temperature (°C)', label: r, value: (m1*T1 + m2*T2)/(m1 + m2), tol: 0.001, explain: 'Heat lost = heat gained: $m_1c(T_1 - T_f) = m_2c(T_f - T_2)$. With the same c it is a mass-weighted average, and it must land between the two starting temperatures' }
+  verify: { expect: { r: "solve(Eq(m1*(T1 - x), m2*(x - T2)), x)[0]" } }
+
+- template: ac-coffee-cup
+  skill: gchem.thermochem
+  pace: quick
+  given: { V: { pick: [25.0, 50.0, 100] }, C: { pick: [0.500, 1.00, 2.00] }, dT: { pick: [3.4, 6.7, 13.6] } }
+  prompt: '${{V}}$ mL of ${{C}}$ M HCl and ${{V}}$ mL of ${{C}}$ M NaOH are mixed in a coffee-cup calorimeter and warm by ${{dT}}$ °C. Taking the solution as water (1.00 g/mL, 4.184 J/(g·K)), what is ΔH per mole of water formed, in kJ/mol?'
+  parts:
+    - { ask: 'ΔH (kJ/mol)', label: r, value: -(2*V*4.184*dT)/1000/(C*V/1000), tol: 0.002, explain: 'Heat absorbed by the solution: $q = (2 \times {{V}}\text{ g})(4.184)({{dT}})$ J. The reaction released it, so $q_\text{rxn} = -q$. Divide by moles of water, ${{C*V/1000}}$ mol, and convert to kJ' }
+  verify: { expect: { r: "solve(Eq(x*(C*V/1000)*1000 + 2*V*Rational(4184, 1000)*dT, 0), x)[0]" } }
+
+- template: ac-phase-change-heat
+  skill: gchem.thermochem
+  pace: quick
+  cases:
+    - { q: 'melt', H: 6.01 }
+    - { q: 'boil', H: 40.7 }
+  given: { m: { pick: [9.00, 18.0, 36.0, 50.0] } }
+  prompt: 'How much heat, in kJ, does it take to {{q}} ${{m}}$ g of water at its {{H < 10 ? "melting" : "boiling"}} point? ($\Delta H = {{H}}$ kJ/mol, $M = 18.015$ g/mol)'
+  parts:
+    - { ask: 'q (kJ)', label: r, value: m/18.015*H, tol: 0.002, explain: 'During a phase change the temperature stays put, so there is no $mc\Delta T$: $q = n\Delta H = ({{m}}/18.015)({{H}})$. Vaporizing takes far more than melting because molecules must separate completely' }
+  verify: { expect: { r: "m/(2*c_M['H'] + c_M['O'])*H" } }
+
+- template: ac-heating-curve
+  skill: gchem.thermochem
+  pace: workout
+  given: { m: { pick: [10.0, 25.0, 50.0] }, T1: { pick: [-20, -10, -5] }, T2: { pick: [25, 50, 80] } }
+  prompt: 'How much heat, in kJ, turns ${{m}}$ g of ice at ${{T1}}$ °C into liquid water at ${{T2}}$ °C? (ice 2.09 J/(g·K), water 4.184 J/(g·K), ΔH_fus = 6.01 kJ/mol, 18.015 g/mol)'
+  parts:
+    - { ask: 'q (kJ)', label: r, value: (m*2.09*(0 - T1) + m/18.015*6010 + m*4.184*T2)/1000, tol: 0.002, explain: 'Three legs of the heating curve: warm the ice to 0 °C, ${{m*2.09*(0 - T1)}}$ J; melt it, ${{m/18.015*6010}}$ J; warm the water to {{T2}} °C, ${{m*4.184*T2}}$ J. The flat leg (melting) is usually the biggest' }
+  verify: { expect: { r: "(m*Rational(209, 100)*(-T1) + m/(2*c_M['H'] + c_M['O'])*6010 + m*Rational(4184, 1000)*T2)/1000" } }
+
+- template: ac-scale-dh
+  skill: gchem.thermochem
+  pace: quick
+  cases:
+    - { rx: 'CH₄ + 2 O₂ → CO₂ + 2 H₂O', dH: -890.4, A: 'CH₄', M: 16.043, rt: 1, w: 0 }
+    - { rx: 'N₂ + 3 H₂ → 2 NH₃', dH: -92.2, A: 'NH₃', M: 17.031, rt: 2, w: 0 }
+    - { rx: '2 H₂ + O₂ → 2 H₂O', dH: -571.6, A: 'H₂O', M: 18.015, rt: 2, w: 1 }
+    - { rx: 'CaCO₃ → CaO + CO₂', dH: 178.3, A: 'CaCO₃', M: 100.086, rt: 1, w: 0 }
+    - { rx: 'C₃H₈ + 5 O₂ → 3 CO₂ + 4 H₂O', dH: -2220, A: 'CO₂', M: 44.009, rt: 3, w: 1 }
+  given: { m: { pick: [5.00, 10.0, 32.0, 100] } }
+  prompt: 'For {{rx}}, $\Delta H = {{dH}}$ kJ. What is the heat change, in kJ, {{w == 0 ? "when " : "for the reverse reaction when "}}${{m}}$ g of {{A}} ($M = {{M}}$) {{w == 0 ? "takes part" : "is used up"}}?'
+  parts:
+    - { ask: 'q (kJ)', label: r, value: '(w == 0 ? 1 : -1)*dH*(m/M)/rt', tol: 0.002, explain: 'ΔH is per mole of reaction as written, which involves {{rt}} mol of {{A}}: scale by $({{m}}/{{M}})/{{rt}}$. Reversing a reaction flips the sign of ΔH' }
+  verify: { expect: { r: "(1 if w == 0 else -1)*dH*(m/M)/rt" } }
+
+- template: ac-bond-enthalpy
+  skill: gchem.thermochem
+  pace: quick
+  cases:
+    - { rx: 'H₂ + Cl₂ → 2 HCl', data: 'H–H 436, Cl–Cl 242, H–Cl 431', dH: -184, br: '436 + 242', fo: '2*431' }
+    - { rx: 'CH₄ + 2 O₂ → CO₂ + 2 H₂O', data: 'C–H 413, O=O 498, C=O 799, O–H 463', dH: -802, br: '4*413 + 2*498', fo: '2*799 + 4*463' }
+    - { rx: 'N₂ + 3 H₂ → 2 NH₃', data: 'N≡N 945, H–H 436, N–H 391', dH: -93, br: '945 + 3*436', fo: '6*391' }
+    - { rx: 'C₂H₄ + H₂ → C₂H₆', data: 'C=C 614, H–H 436, C–C 348, C–H 413', dH: -124, br: '614 + 436', fo: '348 + 2*413' }
+    - { rx: 'H₂ + F₂ → 2 HF', data: 'H–H 436, F–F 155, H–F 567', dH: -543, br: '436 + 155', fo: '2*567' }
+    - { rx: '2 H₂ + O₂ → 2 H₂O(g)', data: 'H–H 436, O=O 498, O–H 463', dH: -482, br: '2*436 + 498', fo: '4*463' }
+  prompt: 'Estimate ΔH, in kJ, for {{rx}} from average bond enthalpies (kJ/mol): {{data}}.'
+  parts:
+    - { ask: 'ΔH (kJ)', label: r, value: dH, tol: 0.0005, explain: '$\Delta H \approx \sum(\text{bonds broken}) - \sum(\text{bonds formed}) = ({{br}}) - ({{fo}})$. Breaking costs energy, forming releases it; count every bond, including each one in a coefficient''s worth of molecules' }
+  verify: { expect: { r: "calc(br) - calc(fo)" } }
+
+- template: ac-formation-reaction
+  skill: gchem.thermochem
+  pace: quick
+  cases:
+    - { f: 'H₂O(l)', o1: 'H₂(g) + ½ O₂(g) → H₂O(l)', o2: '2 H₂(g) + O₂(g) → 2 H₂O(l)', o3: '2 H(g) + O(g) → H₂O(l)', o4: 'H₂(g) + O(g) → H₂O(l)', ans: 0 }
+    - { f: 'CO₂(g)', o1: 'C(g) + O₂(g) → CO₂(g)', o2: 'C(s, graphite) + O₂(g) → CO₂(g)', o3: 'CO(g) + ½ O₂(g) → CO₂(g)', o4: 'C(s, diamond) + 2 O(g) → CO₂(g)', ans: 1 }
+    - { f: 'NH₃(g)', o1: 'N₂(g) + 3 H₂(g) → 2 NH₃(g)', o2: 'N(g) + 3 H(g) → NH₃(g)', o3: '½ N₂(g) + 3/2 H₂(g) → NH₃(g)', o4: 'N₂(g) + H₂(g) → NH₃(g)', ans: 2 }
+    - { f: 'NaCl(s)', o1: 'Na⁺(aq) + Cl⁻(aq) → NaCl(s)', o2: 'Na(g) + Cl(g) → NaCl(s)', o3: '2 Na(s) + Cl₂(g) → 2 NaCl(s)', o4: 'Na(s) + ½ Cl₂(g) → NaCl(s)', ans: 3 }
+    - { f: 'CH₃OH(l)', o1: 'C(s, graphite) + 2 H₂(g) + ½ O₂(g) → CH₃OH(l)', o2: 'CO(g) + 2 H₂(g) → CH₃OH(l)', o3: 'C(g) + 4 H(g) + O(g) → CH₃OH(l)', o4: '2 C(s) + 4 H₂(g) + O₂(g) → 2 CH₃OH(l)', ans: 0 }
+  prompt: 'Which equation is the standard formation reaction of {{f}}?'
+  parts:
+    - ask: 'Formation reaction'
+      label: a
+      choice: ["{{o1}}", "{{o2}}", "{{o3}}", "{{o4}}"]
+      correct: ans
+      explain: 'A formation reaction makes exactly one mole of the compound from its elements in their standard states (H₂, O₂, N₂, Cl₂ as gases, carbon as graphite, metals as solids), using fractions if needed. So $\Delta H_f^\circ$ of any element in its standard state is zero'
+  verify: { authored: true }
+
+- template: ac-hess-combine
+  skill: gchem.thermochem
+  pace: quick
+  cases:
+    - { t: 'C(s) + ½ O₂ → CO', r1: 'C(s) + O₂ → CO₂', h1: -393.5, r2: 'CO + ½ O₂ → CO₂', h2: -283.0, a: 1, b: -1 }
+    - { t: 'S(s) + 3/2 O₂ → SO₃', r1: 'S(s) + O₂ → SO₂', h1: -296.8, r2: 'SO₂ + ½ O₂ → SO₃', h2: -98.9, a: 1, b: 1 }
+    - { t: '½ N₂ + O₂ → NO₂', r1: 'N₂ + O₂ → 2 NO', h1: 180.6, r2: '2 NO + O₂ → 2 NO₂', h2: -114.1, a: 0.5, b: 0.5 }
+    - { t: 'H₂ + ½ O₂ → H₂O(g)', r1: 'H₂ + ½ O₂ → H₂O(l)', h1: -285.8, r2: 'H₂O(l) → H₂O(g)', h2: 44.0, a: 1, b: 1 }
+    - { t: '2 C(s) + H₂ → C₂H₂', r1: 'C₂H₂ + 5/2 O₂ → 2 CO₂ + H₂O(l)', h1: -1299.6, r2: '2 C(s) + 2 O₂ + H₂ + ½ O₂ → 2 CO₂ + H₂O(l)', h2: -1072.8, a: -1, b: 1 }
+  prompt: 'Find ΔH, in kJ, for {{t}} from (1) {{r1}}, ΔH = ${{h1}}$ kJ, and (2) {{r2}}, ΔH = ${{h2}}$ kJ.'
+  parts:
+    - { ask: 'ΔH (kJ)', label: r, value: a*h1 + b*h2, tol: 0.001, explain: 'Arrange the given equations so they add to the target: here ${{a}} \times (1) + {{b}} \times (2)$. Reversing an equation flips the sign of its ΔH; multiplying it multiplies ΔH' }
+  verify: { expect: { r: "nsimplify(a)*h1 + nsimplify(b)*h2" } }
+
+- template: ac-first-law
+  skill: gchem.thermochem
+  pace: quick
+  given: { q: { pick: [-500, -250, 150, 400, 850] }, P: { pick: [1.00, 2.00, 5.00] }, dV: { pick: [-1.50, -0.50, 0.80, 2.00] } }
+  require: ['q - P*dV*101.325 != 0']
+  prompt: 'A gas absorbs ${{q}}$ J of heat (negative means it gives heat off) while its volume changes by ${{dV}}$ L against a constant ${{P}}$ atm. What is ΔU, in J? (1 L·atm = 101.325 J)'
+  parts:
+    - { ask: 'ΔU (J)', label: r, value: q - P*dV*101.325, tol: 0.001, explain: '$\Delta U = q + w$ with $w = -P\Delta V$ (work done on the gas). Expanding gas does work on the surroundings, so $w < 0$: $w = -{{P}}({{dV}})(101.325) = {{-P*dV*101.325}}$ J' }
+  verify: { expect: { r: "q - P*dV*Rational(101325, 1000)" } }
+
+# ── equilibrium ────────────────────────────────────────────────────────────
+- template: ac-dynamic-equilibrium
+  skill: gchem.equilibrium
+  pace: recall
+  cases:
+    - { q: 'At equilibrium the forward and reverse reactions have stopped.', ans: 1 }
+    - { q: 'At equilibrium the forward and reverse rates are equal.', ans: 0 }
+    - { q: 'At equilibrium the concentrations of reactants and products are equal.', ans: 1 }
+    - { q: 'On a concentration–time graph, equilibrium begins where every curve goes flat.', ans: 0 }
+    - { q: 'Equilibrium can be reached starting from products only.', ans: 0 }
+    - { q: 'At equilibrium the concentrations stay constant.', ans: 0 }
+  prompt: 'True or false: {{q}}'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["True", "False"]
+      correct: ans
+      explain: 'Equilibrium is dynamic: both reactions keep running at the same rate, so nothing changes on the large scale. Concentrations become constant, not equal to each other, and the same equilibrium can be reached from either side'
+  verify: { authored: true }
+
+- template: ac-rate-direction
+  skill: gchem.equilibrium
+  pace: recall
+  given: { rf: { pick: [0.010, 0.025, 0.040] }, rr: { pick: [0.010, 0.020, 0.040] } }
+  prompt: 'At one instant a reversible reaction runs forward at ${{rf}}$ M/s and in reverse at ${{rr}}$ M/s. What happens next?'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["Net reaction forward: products build up", "Net reaction in reverse: reactants build up", "No net change: it is at equilibrium"]
+      correct: 'rf > rr ? 0 : (rf < rr ? 1 : 2)'
+      explain: 'The faster direction wins until the rates meet. As products build up the reverse rate rises and the forward rate falls, which is why a system always approaches equilibrium'
+  verify: { choices: { a: "0 if rf > rr else (1 if rf < rr else 2)" } }
+
+- template: ac-k-expression
+  skill: gchem.equilibrium
+  pace: quick
+  cases:
+    - { rx: 'N₂(g) + 3 H₂(g) ⇌ 2 NH₃(g)', o1: '[NH₃]²/([N₂][H₂]³)', o2: '[NH₃]/([N₂][H₂])', o3: '2[NH₃]/([N₂]·3[H₂])', o4: '[N₂][H₂]³/[NH₃]²', ans: 0 }
+    - { rx: 'CaCO₃(s) ⇌ CaO(s) + CO₂(g)', o1: '[CaO][CO₂]/[CaCO₃]', o2: '[CO₂]', o3: '1/[CO₂]', o4: '[CaCO₃]/[CaO]', ans: 1 }
+    - { rx: 'AgCl(s) ⇌ Ag⁺(aq) + Cl⁻(aq)', o1: '[Ag⁺][Cl⁻]/[AgCl]', o2: '1/([Ag⁺][Cl⁻])', o3: '[Ag⁺][Cl⁻]', o4: '[Ag⁺]+[Cl⁻]', ans: 2 }
+    - { rx: 'CH₃COOH(aq) + H₂O(l) ⇌ CH₃COO⁻(aq) + H₃O⁺(aq)', o1: '[CH₃COO⁻][H₃O⁺]/([CH₃COOH][H₂O])', o2: '[CH₃COOH]/([CH₃COO⁻][H₃O⁺])', o3: '[CH₃COO⁻]/[CH₃COOH]', o4: '[CH₃COO⁻][H₃O⁺]/[CH₃COOH]', ans: 3 }
+    - { rx: '2 SO₂(g) + O₂(g) ⇌ 2 SO₃(g)', o1: '[SO₃]²/([SO₂]²[O₂])', o2: '[SO₃]/([SO₂][O₂])', o3: '[SO₂]²[O₂]/[SO₃]²', o4: '2[SO₃]/(2[SO₂][O₂])', ans: 0 }
+    - { rx: 'H₂O(l) ⇌ H₂O(g)', o1: '[H₂O(g)]/[H₂O(l)]', o2: '[H₂O(g)]', o3: '[H₂O(l)]', o4: '1', ans: 1 }
+  prompt: 'What is the $K_c$ expression for {{rx}}?'
+  parts:
+    - ask: 'K_c'
+      label: a
+      choice: ["{{o1}}", "{{o2}}", "{{o3}}", "{{o4}}"]
+      correct: ans
+      explain: 'Products over reactants, each raised to its coefficient. Pure solids and liquids (including water as the solvent) are left out because their concentration does not change. $K_p$ is the same with partial pressures of the gases'
+  verify: { authored: true }
+
+- template: ac-q-vs-k
+  skill: gchem.equilibrium
+  pace: quick
+  given: { a: { pick: [0.10, 0.20, 0.50, 1.0] }, b: { pick: [0.05, 0.10, 0.30, 0.60] }, K: { pick: [0.0050, 0.050, 0.20, 0.75] } }
+  require: ['b^2/a != K']
+  prompt: 'For N₂O₄ ⇌ 2 NO₂, $K_c = {{K}}$. A mixture has [N₂O₄] = ${{a}}$ M and [NO₂] = ${{b}}$ M. Which way does it shift?'
+  parts:
+    - ask: 'Direction'
+      label: a
+      choice: ["Toward products: Q is less than K", "Toward reactants: Q is greater than K"]
+      correct: 'b^2/a < K ? 0 : 1'
+      explain: '$Q = \dfrac{[\mathrm{NO_2}]^2}{[\mathrm{N_2O_4}]} = \dfrac{ {{b}}^2}{ {{a}} } = {{b^2/a}}$. If Q < K there is too little product and the reaction runs forward; if Q > K it runs back'
+  verify: { choices: { a: "0 if b**2/a < K else 1" } }
+
+- template: ac-k-from-concentrations
+  skill: gchem.equilibrium
+  pace: quick
+  given: { h: { pick: [0.020, 0.050, 0.100] }, i: { pick: [0.030, 0.060, 0.100] }, hi: { pick: [0.150, 0.250, 0.400] } }
+  prompt: 'At equilibrium for H₂(g) + I₂(g) ⇌ 2 HI(g): [H₂] = ${{h}}$, [I₂] = ${{i}}$ and [HI] = ${{hi}}$ M. What is $K_c$?'
+  parts:
+    - { ask: 'K_c', label: r, value: hi^2/(h*i), tol: 0.002, explain: '$K_c = \dfrac{[\mathrm{HI}]^2}{[\mathrm{H_2}][\mathrm{I_2}]}$. Use only equilibrium concentrations. Here the moles of gas do not change, so $K_p = K_c$' }
+  verify: { expect: { r: "hi**2/(h*i)" } }
+
+- template: ac-ice-k
+  skill: gchem.equilibrium
+  pace: quick
+  given: { a: { pick: [0.500, 1.00, 2.00] }, f: { pick: [0.40, 0.60, 0.80] } }
+  prompt: '${{a}}$ M each of H₂ and I₂ are mixed. At equilibrium [HI] = ${{2*a*f}}$ M. What is $K_c$ for H₂ + I₂ ⇌ 2 HI?'
+  parts:
+    - { ask: 'K_c', label: r, value: (2*a*f)^2/(a - a*f)^2, tol: 0.002, explain: 'ICE: HI went up by $2x = {{2*a*f}}$, so $x = {{a*f}}$ and each of H₂ and I₂ fell to ${{a - a*f}}$ M. Then $K = \dfrac{(2x)^2}{(a - x)^2}$' }
+  verify: { expect: { r: "(2*a*f)**2/((a - (2*a*f)/2)*(a - (2*a*f)/2))" } }
+
+- template: ac-kc-kp
+  skill: gchem.equilibrium
+  pace: quick
+  cases:
+    - { rx: 'N₂ + 3 H₂ ⇌ 2 NH₃', dn: -2 }
+    - { rx: 'N₂O₄ ⇌ 2 NO₂', dn: 1 }
+    - { rx: '2 SO₂ + O₂ ⇌ 2 SO₃', dn: -1 }
+    - { rx: 'PCl₅ ⇌ PCl₃ + Cl₂', dn: 1 }
+    - { rx: 'CaCO₃(s) ⇌ CaO(s) + CO₂(g)', dn: 1 }
+  given: { Kc: { pick: [0.040, 0.50, 2.5, 15] }, T: { pick: [300, 500, 700] } }
+  prompt: 'For {{rx}} (all gases unless marked), $K_c = {{Kc}}$ at ${{T}}$ K. What is $K_p$? ($R = 0.08206$)'
+  parts:
+    - { ask: 'K_p', label: r, value: Kc*(0.08206*T)^dn, tol: 0.002, explain: '$K_p = K_c(RT)^{\Delta n}$, where $\Delta n$ is moles of gaseous products minus gaseous reactants: here ${{dn}}$. If $\Delta n = 0$ the two are equal' }
+  verify: { expect: { r: "Kc*(Rational(8206, 100000)*T)**dn" } }
+
+- template: ac-size-of-k
+  skill: gchem.equilibrium
+  pace: recall
+  given: { e: { pick: [-15, -8, -3, 0, 3, 9, 20] } }
+  prompt: 'A reaction has $K = 10^{ {{e}} }$. What does the equilibrium mixture look like?'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["Mostly reactants", "Comparable amounts of both", "Mostly products"]
+      correct: 'e < -2 ? 0 : (e > 2 ? 2 : 1)'
+      explain: 'K is products over reactants. Much greater than 1 (about $10^3$ or more): products dominate. Much less than 1: reactants dominate. Near 1, both are present in similar amounts. K says nothing about how fast equilibrium is reached'
+  verify: { choices: { a: "0 if e < -2 else (2 if e > 2 else 1)" } }
+
+- template: ac-k-manipulate
+  skill: gchem.equilibrium
+  pace: quick
+  cases:
+    - { q: 'reversed', p: -1, d: 1 }
+    - { q: 'doubled (every coefficient times 2)', p: 2, d: 1 }
+    - { q: 'halved', p: 1, d: 2 }
+    - { q: 'reversed and doubled', p: -2, d: 1 }
+    - { q: 'tripled', p: 3, d: 1 }
+  given: { K: { pick: [0.040, 2.5, 16, 100] } }
+  prompt: 'A reaction has $K = {{K}}$. What is K when the equation is {{q}}?'
+  parts:
+    - { ask: 'New K', label: r, value: K^(p/d), tol: 0.002, explain: 'Reversing inverts K; multiplying the coefficients by $n$ raises K to the $n$th power; adding reactions multiplies their Ks. Here $K^{ {{p}}/{{d}} }$' }
+  verify: { expect: { r: "nsimplify(K)**Rational(p, d)" } }
+
+- template: ac-small-x
+  skill: gchem.equilibrium
+  pace: quick
+  given: { c: { pick: [0.100, 0.500, 1.00] }, K: { pick: [1.0e-6, 4.0e-6, 2.5e-5] } }
+  prompt: 'For A(aq) ⇌ B(aq) + C(aq), $K = {{K}}$. Starting with ${{c}}$ M A only, what is [B] at equilibrium, in M? Use the small-x approximation.'
+  parts:
+    - { ask: '[B] (M)', label: r, value: sqrt(K*c), tol: 0.002, explain: 'ICE: $K = \dfrac{x^2}{c - x} \approx \dfrac{x^2}{c}$, so $x = \sqrt{Kc}$. Check: $x/c = {{100*sqrt(K*c)/c}}$ percent is under 5 percent, so dropping $x$ beside $c$ was fine' }
+  verify: { expect: { r: "sqrt(K*c)" } }
+
+- template: ac-quadratic-equilibrium
+  skill: gchem.equilibrium
+  pace: workout
+  given: { c: { pick: [0.0100, 0.0500, 0.100] }, K: { pick: [0.0040, 0.020, 0.050] } }
+  prompt: 'For A ⇌ B + C, $K = {{K}}$ and A starts at ${{c}}$ M. The small-x approximation fails here. What is [B] at equilibrium, in M?'
+  parts:
+    - { ask: '[B] (M)', label: r, value: (-K + sqrt(K^2 + 4*K*c))/2, tol: 0.002, explain: '$\dfrac{x^2}{c - x} = K$ gives $x^2 + Kx - Kc = 0$, so $x = \dfrac{-K + \sqrt{K^2 + 4Kc}}{2}$ (the positive root). The approximation fails when $x$ is more than about 5 percent of $c$, which happens when K is not much smaller than c' }
+  verify: { expect: { r: "Max(*solve(Eq(x**2, K*(c - x)), x))" } }
+
+- template: ac-equilibrium-particles
+  skill: gchem.equilibrium
+  pace: quick
+  given: { a: { int: [2, 6] }, b: { int: [1, 5] }, ab: { int: [2, 10] } }
+  prompt: 'A particle diagram of the equilibrium A₂(g) + B₂(g) ⇌ 2 AB(g) shows ${{a}}$ A₂, ${{b}}$ B₂ and ${{ab}}$ AB molecules in the box. What is K?'
+  parts:
+    - { ask: 'K', label: r, value: ab^2/(a*b), tol: 0.001, explain: 'Moles of gas are the same on both sides, so the box volume cancels and particle counts can stand in for concentrations: $K = \dfrac{ {{ab}}^2}{ {{a}} \times {{b}} }$. A diagram with a different ratio is not at equilibrium' }
+  verify: { expect: { r: "Rational(ab**2, a*b)" } }
+
+- template: ac-le-chatelier
+  skill: gchem.equilibrium
+  pace: recall
+  cases:
+    - { q: 'N₂ is added', ans: 0 }
+    - { q: 'NH₃ is removed', ans: 0 }
+    - { q: 'the volume is increased', ans: 1 }
+    - { q: 'the temperature is raised', ans: 1 }
+    - { q: 'argon is added at constant volume', ans: 2 }
+    - { q: 'a catalyst is added', ans: 2 }
+    - { q: 'the volume is decreased', ans: 0 }
+    - { q: 'H₂ is removed', ans: 1 }
+    - { q: 'the temperature is lowered', ans: 0 }
+  prompt: 'For N₂(g) + 3 H₂(g) ⇌ 2 NH₃(g), ΔH = −92 kJ, which way does the equilibrium shift when {{q}}?'
+  parts:
+    - ask: 'Shift'
+      label: a
+      choice: ["Toward products (right)", "Toward reactants (left)", "No shift"]
+      correct: ans
+      explain: 'The system counteracts the stress. Add a species: shift away from it; remove one: shift toward it. Smaller volume (higher pressure): toward fewer gas moles (4 → 2 here). Heat is a product of an exothermic reaction, so warming shifts left. Inert gas at constant volume and catalysts change nothing'
+  verify: { authored: true }
+
+- template: ac-le-chatelier-k
+  skill: gchem.equilibrium
+  pace: recall
+  cases:
+    - { q: 'An exothermic reaction is heated.', dh: -1, dT: 1 }
+    - { q: 'An endothermic reaction is heated.', dh: 1, dT: 1 }
+    - { q: 'An exothermic reaction is cooled.', dh: -1, dT: -1 }
+    - { q: 'An endothermic reaction is cooled.', dh: 1, dT: -1 }
+    - { q: 'More reactant is added.', dh: 1, dT: 0 }
+    - { q: 'The container is compressed.', dh: -1, dT: 0 }
+    - { q: 'A catalyst is added.', dh: 1, dT: 0 }
+  prompt: '{{q}} What happens to the value of K?'
+  parts:
+    - ask: 'K'
+      label: a
+      choice: ["K increases", "K decreases", "K is unchanged (Q changes instead)"]
+      correct: 'dT == 0 ? 2 : (dh*dT > 0 ? 0 : 1)'
+      explain: 'Concentration and pressure stresses change Q, and the system shifts until Q = K again with K fixed. Only temperature changes K itself: heating favours the endothermic direction, so K rises for an endothermic reaction and falls for an exothermic one'
+  verify: { choices: { a: "2 if dT == 0 else (0 if dh*dT > 0 else 1)" } }
+
+- template: ac-ksp-from-solubility
+  skill: gchem.equilibrium
+  pace: quick
+  cases:
+    - { f: 'AgCl', a: 1, b: 1 }
+    - { f: 'PbI₂', a: 1, b: 2 }
+    - { f: 'Ag₂CrO₄', a: 2, b: 1 }
+    - { f: 'CaF₂', a: 1, b: 2 }
+    - { f: 'Fe(OH)₃', a: 1, b: 3 }
+    - { f: 'Ca₃(PO₄)₂', a: 3, b: 2 }
+  given: { s: { pick: [1.0e-5, 2.0e-4, 1.3e-3, 6.5e-5] } }
+  prompt: 'The molar solubility of {{f}} is ${{s}}$ M. What is its $K_{sp}$?'
+  parts:
+    - { ask: 'K_sp', label: r, value: (a*s)^a*(b*s)^b, tol: 0.002, explain: 'Each mole that dissolves gives {{a}} mol cation and {{b}} mol anion: $K_{sp} = ({{a}}s)^{ {{a}} }({{b}}s)^{ {{b}} }$. Forgetting the coefficient inside the parentheses is the usual slip' }
+  verify: { expect: { r: "(a*s)**a*(b*s)**b" } }
+
+- template: ac-solubility-from-ksp
+  skill: gchem.equilibrium
+  pace: quick
+  cases:
+    - { f: 'AgBr', a: 1, b: 1, Ksp: 5.0e-13 }
+    - { f: 'CaF₂', a: 1, b: 2, Ksp: 3.9e-11 }
+    - { f: 'Ag₂CrO₄', a: 2, b: 1, Ksp: 1.1e-12 }
+    - { f: 'PbCl₂', a: 1, b: 2, Ksp: 1.7e-5 }
+    - { f: 'BaSO₄', a: 1, b: 1, Ksp: 1.1e-10 }
+    - { f: 'Mg(OH)₂', a: 1, b: 2, Ksp: 5.6e-12 }
+  prompt: '$K_{sp}$ of {{f}} is ${{Ksp}}$. What is its molar solubility, in M?'
+  parts:
+    - { ask: 'Solubility (M)', label: r, value: (Ksp/(a^a*b^b))^(1/(a + b)), tol: 0.002, explain: '$K_{sp} = {{a^a*b^b}}\,s^{ {{a + b}} }$, so $s = (K_{sp}/{{a^a*b^b}})^{1/{{a + b}} }$. Compare solubilities through s, not Ksp, when the salts have different ion ratios' }
+  verify: { expect: { r: "(nsimplify(Ksp)/(a**a*b**b))**Rational(1, a + b)" } }
+
+- template: ac-precipitation-qsp
+  skill: gchem.equilibrium
+  pace: quick
+  given: { c1: { pick: [1.0e-4, 1.0e-3, 0.010] }, c2: { pick: [2.0e-4, 5.0e-3, 0.020] } }
+  prompt: 'Equal volumes of ${{c1}}$ M AgNO₃ and ${{c2}}$ M NaCl are mixed. Does AgCl ($K_{sp} = 1.8\times10^{-10}$) precipitate?'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["Yes: Q exceeds Ksp", "No: Q is below Ksp"]
+      correct: '(c1/2)*(c2/2) > 1.8e-10 ? 0 : 1'
+      explain: 'Mixing equal volumes halves each concentration. $Q = [\mathrm{Ag^+}][\mathrm{Cl^-}] = ({{c1/2}})({{c2/2}}) = {{c1*c2/4}}$. A precipitate forms only when Q is larger than Ksp'
+  verify: { choices: { a: "0 if (c1/2)*(c2/2) > Rational(18, 10**11) else 1" } }
+
+- template: ac-common-ion
+  skill: gchem.equilibrium
+  pace: quick
+  cases:
+    - { f: 'AgCl', ion: 'NaCl', Ksp: 1.8e-10, b: 1 }
+    - { f: 'BaSO₄', ion: 'Na₂SO₄', Ksp: 1.1e-10, b: 1 }
+    - { f: 'CaF₂', ion: 'NaF', Ksp: 3.9e-11, b: 2 }
+    - { f: 'PbI₂', ion: 'KI', Ksp: 9.8e-9, b: 2 }
+  given: { c: { pick: [0.010, 0.050, 0.10] } }
+  prompt: 'What is the molar solubility of {{f}} ($K_{sp} = {{Ksp}}$) in ${{c}}$ M {{ion}}? (Assume the dissolved salt adds a negligible amount of the common ion.)'
+  parts:
+    - { ask: 'Solubility (M)', label: r, value: Ksp/c^b, tol: 0.002, explain: 'The anion is already at about ${{c}}$ M, so $K_{sp} = s \cdot c^{ {{b}} }$ and $s = K_{sp}/c^{ {{b}} }$. The common ion pushes the dissolving equilibrium back, so the salt is far less soluble than in pure water' }
+  verify: { expect: { r: "nsimplify(Ksp)/c**b" } }
