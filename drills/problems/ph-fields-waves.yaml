@@ -1,0 +1,546 @@
+# AP Physics electricity, magnetism, optics, waves and modern physics: one item for each objective
+# that had no drill. Constants are given in the prompt; numbers are recomputed by sympy.
+
+# ── electrostatics ──────────────────────────────────────────────────────────
+- template: ph-charge-levitation
+  skill: physics.electrostatics
+  pace: quick
+  given: { n: { pick: [1, 2, 3, 5] }, m: { pick: [1, 2, 5] } }
+  prompt: 'An oil drop of mass ${{m}} \times 10^{-15}$ kg carries ${{n}}$ extra electron{{n > 1 ? "s" : ""}}. What upward field holds it still, in kV/m? ($e = 1.60 \times 10^{-19}$ C.)'
+  parts:
+    - { ask: 'Field (kV/m)', label: r, tex: 'E', value: m*1e-15*9.8/(n*1.602176634e-19)/1000, tol: 0.003, explain: 'Balance the forces: $qE = mg$, so $E = mg/(ne)$. Millikan found that the charge always came in whole multiples of one value, $e$' }
+  verify: { expect: { r: "solve(Eq(n*c_e*x*1000, m*Rational(1, 10**15)*Rational(98, 10)), x)[0]" } }
+
+- template: ph-coulomb-in-medium
+  skill: physics.electrostatics
+  pace: recall
+  cases:
+    - { med: 'water', k: 80 }
+    - { med: 'ethanol', k: 24 }
+    - { med: 'glass', k: 5 }
+    - { med: 'oil', k: 2 }
+  given: { F: { pick: [0.4, 2, 8, 16] } }
+  prompt: 'Two charges attract with ${{F}}$ N in vacuum. With the same separation in {{med}} (dielectric constant ${{k}}$), what is the force, in N?'
+  parts:
+    - { ask: 'Force (N)', label: r, tex: 'F', value: F/k, tol: 0.002, explain: 'A medium screens the charges: $F = \dfrac{1}{4\pi\kappa\varepsilon_0}\dfrac{q_1q_2}{r^2}$, so the force falls by $\kappa$. Water''s 80 is why salts dissolve in it' }
+  verify: { expect: { r: "nsimplify(F)/k" } }
+
+- template: ph-force-superposition
+  skill: physics.electrostatics
+  pace: quick
+  given: { q: { pick: [1, 2, 3] }, a: { pick: [0.1, 0.2] }, b: { pick: [0.3, 0.4] } }
+  prompt: 'A ${{q}}$ µC charge sits on a line between two other ${{q}}$ µC charges, ${{a}}$ m from one and ${{b}}$ m from the other. What is the magnitude of the net force on it, in N? ($k = 8.99 \times 10^9$.)'
+  parts:
+    - { ask: 'Net force (N)', label: r, tex: 'F', value: 8.99e9*(q*1e-6)^2*(1/a^2 - 1/b^2), tol: 0.003, explain: 'Each neighbour pushes it away, in opposite directions, so subtract: $kq^2\left(\dfrac1{a^2} - \dfrac1{b^2}\right)$, pointing away from the nearer one. Forces add as vectors, never as plain magnitudes' }
+  verify: { expect: { r: "Rational(899, 100)*10**9*(q*Rational(1, 10**6))**2*(1/nsimplify(a)**2 - 1/nsimplify(b)**2)" } }
+
+- template: ph-charge-sharing
+  skill: physics.electrostatics
+  pace: recall
+  given: { q1: { pick: [6, 10, -4, 8] }, q2: { pick: [-2, 4, 12, 0] } }
+  require: [q1 + q2 != 0]
+  prompt: 'Two identical metal spheres carry ${{q1}}$ nC and ${{q2}}$ nC. They are touched together and separated. What charge does each carry, in nC?'
+  parts:
+    - { ask: 'Charge (nC)', label: r, tex: 'q', value: (q1 + q2)/2, tol: 0.001, explain: 'Charge is conserved and identical conductors share it equally: $\tfrac12(q_1 + q_2)$, signs included' }
+  verify: { expect: { r: "solve(Eq(2*x, q1 + q2), x)[0]" } }
+
+- template: ph-electron-in-field
+  skill: physics.electrostatics
+  pace: quick
+  given: { E: { pick: [1, 2, 5, 10] } }
+  prompt: 'An electron sits in a uniform field of ${{E}}$ kN/C. What is the size of its acceleration, in $10^{14}$ m/s²? ($e/m_e = 1.759 \times 10^{11}$ C/kg.)'
+  parts:
+    - { ask: 'Acceleration ($10^{14}$ m/s²)', label: r, tex: 'a', value: 1.758820e11*E*1000/1e14, tol: 0.003, explain: '$a = eE/m_e$, opposite to the field for a negative charge. Charges in a uniform field follow parabolas, just like projectiles' }
+  verify: { expect: { r: "c_e*E*1000/c_me/10**14" } }
+
+- template: ph-conductor-field
+  skill: physics.electrostatics
+  pace: recall
+  cases:
+    - { q: 'the electric field inside a conductor in equilibrium', ans: 0 }
+    - { q: 'where the excess charge on a conductor sits', ans: 1 }
+    - { q: 'the direction of the field just outside a conductor', ans: 2 }
+    - { q: 'the field between two large, oppositely charged parallel plates', ans: 3 }
+  prompt: 'What is true of {{q}}?'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["It is zero", "On the outer surface", "Perpendicular to the surface", "Uniform, pointing from the positive plate to the negative"]
+      correct: ans
+      explain: 'Free charges move until they feel no force, so the field inside vanishes and any excess charge pushes itself to the surface. A field component along the surface would move charge, so the field leaves perpendicular to it'
+  verify: { authored: true }
+
+- template: ph-field-lines
+  skill: physics.electrostatics
+  pace: recall
+  cases:
+    - { q: 'Where do field lines start and end?', ans: 0 }
+    - { q: 'What does the spacing of field lines show?', ans: 1 }
+    - { q: 'Can two field lines cross?', ans: 2 }
+    - { q: 'A charge has twice as many lines leaving it as another. What does that mean?', ans: 3 }
+  prompt: '{{q}}'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["They start on positive charges and end on negative ones", "Closer lines mean a stronger field", "No: the field has one direction at each point", "It carries twice the charge"]
+      correct: ans
+      explain: 'A field line points the way a positive test charge would be pushed. Lines are a picture of direction and strength; a charge is never pushed along a line once it is moving, unless the line is straight'
+  verify: { authored: true }
+
+- template: ph-potential-energy-pair
+  skill: physics.electrostatics
+  pace: quick
+  given: { q1: { pick: [1, 2, -3] }, q2: { pick: [2, -1, 4] }, r: { pick: [0.1, 0.3, 0.5] } }
+  prompt: 'What is the electric potential energy of charges of ${{q1}}$ µC and ${{q2}}$ µC that are ${{r}}$ m apart, in J? ($k = 8.99 \times 10^9$.)'
+  parts:
+    - { ask: 'Energy (J)', label: r2, tex: 'U', value: 8.99e9*q1*q2*1e-12/r, tol: 0.002, explain: '$U = \dfrac{kq_1q_2}{r}$, with signs. Negative means the pair is bound: it takes work to pull them apart' }
+  verify: { expect: { r2: "-integrate(Rational(899, 100)*10**9*q1*q2/10**12/x**2, (x, oo, nsimplify(r)))" } }
+
+- template: ph-parallel-plate-capacitance
+  skill: physics.electrostatics
+  pace: quick
+  given: { A: { pick: [10, 50, 100] }, d: { pick: [0.5, 1, 2] }, V: { pick: [9, 12] } }
+  prompt: 'A capacitor has plates of area ${{A}}$ cm² separated by ${{d}}$ mm of air. What charge does it hold at ${{V}}$ V, in pC? ($\varepsilon_0 = 8.85 \times 10^{-12}$ F/m.)'
+  parts:
+    - { ask: 'Charge (pC)', label: r, tex: 'Q', value: 8.854e-12*A*1e-4/(d*1e-3)*V*1e12, tol: 0.003, explain: '$C = \varepsilon_0A/d$, then $Q = CV$. Bigger plates or a narrower gap store more charge at the same voltage' }
+  verify: { expect: { r: "Rational(8854, 1000)/10**12*A/10**4/(nsimplify(d)/1000)*V*10**12" } }
+
+- template: ph-accelerated-electron
+  skill: physics.electrostatics
+  pace: quick
+  given: { V: { pick: [1, 10, 100, 1000] } }
+  prompt: 'An electron starts from rest and is accelerated through ${{V}}$ V. How fast is it then moving, in $10^6$ m/s?'
+  parts:
+    - { ask: 'Speed ($10^6$ m/s)', label: r, tex: 'v', value: sqrt(2*1.602176634e-19*V/9.1093837015e-31)/1e6, tol: 0.003, explain: 'The field does work $qV$, which all becomes kinetic energy: $eV = \tfrac12m_ev^2$. That energy is $V$ electronvolts, which is where the unit comes from' }
+  verify: { expect: { r: "Max(*solve(Eq(c_me*(x*10**6)**2/2, c_e*V), x))" } }
+
+# ── circuits ────────────────────────────────────────────────────────────────
+- template: ph-current-electrons
+  skill: physics.circuits
+  pace: quick
+  given: { I: { pick: [0.5, 1, 2, 10] } }
+  prompt: 'A current of ${{I}}$ A flows in a wire. How many electrons pass a point each second, in units of $10^{18}$?'
+  parts:
+    - { ask: 'Electrons ($10^{18}$/s)', label: r, tex: 'N', value: I/1.602176634e-19/1e18, tol: 0.002, explain: '$I = \Delta Q/\Delta t$, and each electron carries $e$: $N = I/e$. Conventional current points the way positive charge would flow, opposite to the electrons' }
+  verify: { expect: { r: "nsimplify(I)/c_e/10**18" } }
+
+- template: ph-wire-resistance
+  skill: physics.circuits
+  pace: quick
+  given: { L: { pick: [1, 10, 100] }, d: { pick: [0.5, 1, 2] } }
+  prompt: 'What is the resistance of ${{L}}$ m of copper wire ${{d}}$ mm across, in Ω? ($\rho = 1.68 \times 10^{-8}$ Ω·m.)'
+  parts:
+    - { ask: 'Resistance (Ω)', label: r, tex: 'R', value: 1.68e-8*L/(pi*(d*1e-3/2)^2), tol: 0.003, explain: '$R = \rho L/A$ with $A = \pi d^2/4$. Doubling the length doubles $R$; doubling the diameter divides it by four' }
+  verify: { expect: { r: "Rational(168, 100)/10**8*L/(pi*(nsimplify(d)/1000)**2/4)" } }
+
+- template: ph-ohm
+  skill: physics.circuits
+  pace: recall
+  given: { V: { pick: [1.5, 9, 12, 120] }, R: { pick: [3, 6, 10, 60] } }
+  prompt: 'What current flows through a ${{R}}$ Ω resistor with ${{V}}$ V across it, in A?'
+  parts:
+    - { ask: 'Current (A)', label: r2, tex: 'I', value: V/R, tol: 0.001, explain: '$I = V/R$. A component whose current is proportional to the voltage across it is ohmic; a bulb filament is not, because its resistance rises as it heats' }
+  verify: { expect: { r2: "solve(Eq(x*R, nsimplify(V)), x)[0]" } }
+
+- template: ph-terminal-voltage
+  skill: physics.circuits
+  pace: quick
+  given: { em: { pick: [1.5, 9, 12] }, r: { pick: [0.1, 0.5, 1] }, R: { pick: [2, 5, 10] } }
+  prompt: 'A battery with emf ${{em}}$ V and internal resistance ${{r}}$ Ω drives a ${{R}}$ Ω load. What voltage appears across its terminals, in V?'
+  parts:
+    - { ask: 'Terminal voltage (V)', label: r2, tex: 'V', value: em*R/(R + r), tol: 0.002, explain: 'The current is $\varepsilon/(R + r)$, and $Ir$ is lost inside the battery: $V = \varepsilon - Ir$. A heavy load drags the terminal voltage down' }
+  verify: { expect: { r2: "nsimplify(em) - nsimplify(r)*nsimplify(em)/(R + nsimplify(r))" } }
+
+- template: ph-loop-rule
+  skill: physics.circuits
+  pace: quick
+  given: { em: { pick: [6, 9, 12] }, R1: { pick: [2, 3, 4] }, R2: { pick: [1, 4, 6] } }
+  prompt: 'A ${{em}}$ V battery drives ${{R1}}$ Ω and ${{R2}}$ Ω resistors in series. What is the voltage across the ${{R2}}$ Ω resistor, in V?'
+  parts:
+    - { ask: 'Voltage (V)', label: r, tex: 'V_2', value: em*R2/(R1 + R2), tol: 0.001, explain: 'Round the loop the rises equal the drops: $\varepsilon = IR_1 + IR_2$. The voltage divides in proportion to the resistances' }
+  verify: { expect: { r: "R2*solve(Eq(em, x*R1 + x*R2), x)[0]" } }
+
+- template: ph-junction-rule
+  skill: physics.circuits
+  pace: recall
+  given: { I1: { pick: [2, 3, 5] }, I2: { pick: [1, 4] }, I3: { pick: [1, 2, 3] } }
+  prompt: 'Currents of ${{I1}}$ A and ${{I2}}$ A flow into a junction and ${{I3}}$ A flows out along one wire. How much flows out along the other wire, in A?'
+  parts:
+    - { ask: 'Current (A)', label: r, tex: 'I', value: I1 + I2 - I3, tol: 0.001, explain: 'Charge does not pile up at a junction: current in equals current out. A negative answer would mean that wire carries current in' }
+  verify: { expect: { r: "solve(Eq(I1 + I2, I3 + x), x)[0]" } }
+
+- template: ph-two-loop
+  skill: physics.circuits
+  pace: quick
+  given: { e1: { pick: [6, 12] }, e2: { pick: [3, 9] }, R1: { pick: [1, 2] }, R2: { pick: [2, 3] }, R3: { pick: [4, 6] } }
+  prompt: 'Batteries of ${{e1}}$ V (in series with ${{R1}}$ Ω) and ${{e2}}$ V (in series with ${{R2}}$ Ω) are connected in parallel, positive terminals together, across a ${{R3}}$ Ω load. What current flows through the load, in A?'
+  parts:
+    - { ask: 'Current (A)', label: r, tex: 'I_3', value: (e1/R1 + e2/R2)/(1 + R3/R1 + R3/R2), tol: 0.002, explain: 'Call the load voltage $V$. Each branch delivers $(\varepsilon_i - V)/R_i$, and by the junction rule they add to $V/R_3$. One unknown, one equation' }
+  verify: { expect: { r: "solve([Eq(Symbol('a') + Symbol('b'), x), Eq(e1 - Symbol('a')*R1, x*R3), Eq(e2 - Symbol('b')*R2, x*R3)], [Symbol('a'), Symbol('b'), x], dict=True)[0][x]" } }
+
+- template: ph-rc-limits
+  skill: physics.circuits
+  pace: quick
+  given: { em: { pick: [6, 12] }, R1: { pick: [2, 3, 4] }, R2: { pick: [4, 6, 8] }, late: { pick: [0, 1] } }
+  prompt: 'A ${{em}}$ V battery, a switch and a ${{R1}}$ Ω resistor are in series with a ${{R2}}$ Ω resistor that has an uncharged capacitor across it. What current does the battery supply {{late == 0 ? "just after the switch closes" : "a long time later"}}, in A?'
+  parts:
+    - { ask: 'Current (A)', label: r, tex: 'I', value: "late == 0 ? em/R1 : em/(R1 + R2)", tol: 0.001, explain: 'An uncharged capacitor acts as a wire at first, shorting out ${{R2}}$ Ω; a fully charged one carries no current, as if it were cut out. Between the two the change is exponential, with time constant set by the resistance the capacitor sees' }
+  verify: { expect: { r: "Rational(em, R1) if late == 0 else Rational(em, R1 + R2)" } }
+
+# ── magnetism ───────────────────────────────────────────────────────────────
+- template: ph-magnetic-dipole
+  skill: physics.magnetism
+  pace: recall
+  cases:
+    - { q: 'Outside a bar magnet, which way do field lines run?', ans: 0 }
+    - { q: 'The Earth''s geographic north pole is which kind of magnetic pole?', ans: 1 }
+    - { q: 'Which way does the north end of a compass needle point?', ans: 2 }
+    - { q: 'A bar magnet is cut in half. What do you get?', ans: 3 }
+  prompt: '{{q}}'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["From the north pole round to the south pole", "A magnetic south pole: it attracts compass north ends", "Along the local field direction", "Two smaller magnets, each with a north and a south pole"]
+      correct: ans
+      explain: 'Magnetic poles always come in pairs: there is no magnetic charge, so field lines close on themselves, running inside the magnet from south to north'
+  verify: { authored: true }
+
+- template: ph-velocity-selector
+  skill: physics.magnetism
+  pace: recall
+  given: { E: { pick: [1, 5, 10] }, B: { pick: [0.01, 0.05, 0.1] } }
+  prompt: 'Crossed fields of ${{E}}$ kV/m and ${{B}}$ T let one speed of charged particle pass straight through. What speed, in km/s?'
+  parts:
+    - { ask: 'Speed (km/s)', label: r2, tex: 'v', value: E/B, tol: 0.001, explain: 'The electric and magnetic forces cancel when $qE = qvB$, so $v = E/B$, independent of charge and mass' }
+  verify: { expect: { r2: "solve(Eq(x*1000*nsimplify(B), E*1000), x)[0]" } }
+
+- template: ph-parallel-wires
+  skill: physics.magnetism
+  pace: quick
+  given: { I1: { pick: [5, 10, 20] }, I2: { pick: [5, 10] }, d: { pick: [1, 2, 5] } }
+  prompt: 'Two long parallel wires ${{d}}$ cm apart carry ${{I1}}$ A and ${{I2}}$ A in the same direction. What force acts on each metre of wire, in µN, and is it attractive?'
+  parts:
+    - { ask: 'Force per metre (µN/m)', label: r2, tex: 'F/L', value: 2e-7*I1*I2/(d/100)*1e6, tol: 0.002, explain: 'One wire''s field, $\mu_0I_1/2\pi d$, acts on the other''s current: $F/L = \dfrac{\mu_0I_1I_2}{2\pi d}$. Same direction attract, opposite directions repel; this once defined the ampere' }
+  verify: { expect: { r2: "4*pi/10**7*I1/(2*pi*Rational(d, 100))*I2*10**6" } }
+
+- template: ph-magnetic-flux
+  skill: physics.magnetism
+  pace: quick
+  given: { B: { pick: [0.1, 0.5, 2] }, A: { pick: [10, 50, 100] }, th: { pick: [0, 30, 60] } }
+  prompt: 'A ${{B}}$ T field passes through a ${{A}}$ cm² loop at ${{th}}^\circ$ to the loop''s normal. What is the flux, in mWb?'
+  parts:
+    - { ask: 'Flux (mWb)', label: r2, tex: '\Phi', value: B*A*1e-4*cos(th*pi/180)*1000, tol: 0.002, explain: '$\Phi = BA\cos\theta$, with $\theta$ measured from the normal. A field lying in the plane of the loop gives no flux at all' }
+  verify: { expect: { r2: "nsimplify(B)*A/10**4*cos(pi*th/180)*1000" } }
+
+- template: ph-motional-emf
+  skill: physics.magnetism
+  pace: quick
+  given: { B: { pick: [0.2, 0.5, 1] }, L: { pick: [0.1, 0.2, 0.5] }, v: { pick: [2, 5, 10] }, R: { pick: [1, 2, 5] } }
+  prompt: 'A ${{L}}$ m rod slides at ${{v}}$ m/s along rails through a ${{B}}$ T field, closing a circuit of resistance ${{R}}$ Ω. What current flows, in A?'
+  parts:
+    - { ask: 'Current (A)', label: r2, tex: 'I', value: B*L*v/R, tol: 0.002, explain: 'The rod sweeps out area, so the flux changes at $BLv$: that is the emf, and $I = BLv/R$. The current feels a force $BIL$ opposing the motion, so something must keep pushing' }
+  verify: { expect: { r2: "diff(nsimplify(B)*nsimplify(L)*v*x, x)/R" } }
+
+# ── geometric optics ────────────────────────────────────────────────────────
+- template: ph-plane-mirror
+  skill: physics.optics
+  pace: recall
+  given: { d: { pick: [1, 1.5, 2, 3] } }
+  prompt: 'A person stands ${{d}}$ m in front of a plane mirror. How far is she from her image, in m?'
+  parts:
+    - { ask: 'Distance (m)', label: r, tex: 'D', value: 2*d, tol: 0.001, explain: 'The image is as far behind the mirror as the object is in front, upright and the same size: ${{d}} + {{d}}$. Each ray reflects at the angle it came in, measured from the normal' }
+  verify: { expect: { r: "nsimplify(d) + Abs(-nsimplify(d))" } }
+
+- template: ph-mirror-image-kind
+  skill: physics.optics
+  pace: quick
+  cases:
+    - { q: 'a concave mirror, object beyond twice the focal length', f: 10, o: 30 }
+    - { q: 'a concave mirror, object between one and two focal lengths', f: 10, o: 15 }
+    - { q: 'a concave mirror, object inside the focal length', f: 10, o: 5 }
+    - { q: 'a convex mirror, object anywhere in front', f: -10, o: 20 }
+  prompt: 'Describe the image formed by {{q}}.'
+  parts:
+    - ask: 'Image'
+      label: a
+      choice: ["Real, inverted, smaller", "Real, inverted, larger", "Virtual, upright, larger", "Virtual, upright, smaller"]
+      correct: "f/(f - o) > -1 and f/(f - o) < 0 ? 0 : (f/(f - o) < -1 ? 1 : (f/(f - o) > 1 ? 2 : 3))"
+      explain: 'Trace two rays: one parallel to the axis that reflects through the focus, one through the focus that reflects parallel. Where they meet is the image. Inside the focal length they diverge, so the image is behind the mirror: a make-up mirror. A convex mirror always gives a small upright image: a shop mirror'
+  verify: { choices: { a: "(lambda m: 0 if -1 < m < 0 else (1 if m < -1 else (2 if m > 1 else 3)))(Rational(f, f - o))" } }
+
+- template: ph-mirror-equation
+  skill: physics.optics
+  pace: quick
+  given: { f: { pick: [10, 15, 20] }, o: { pick: [5, 30, 40, 60] } }
+  require: [o != f]
+  prompt: 'An object is ${{o}}$ cm in front of a concave mirror of focal length ${{f}}$ cm. Where is the image, in cm (positive in front of the mirror)?'
+  parts:
+    - { ask: 'Image distance (cm)', label: r, tex: 'd_i', value: 1/(1/f - 1/o), tol: 0.002, explain: '$\dfrac1{d_o} + \dfrac1{d_i} = \dfrac1f$. A negative $d_i$ is a virtual image behind the mirror. Magnification $m = -d_i/d_o$' }
+  verify: { expect: { r: "solve(Eq(Rational(1, o) + 1/x, Rational(1, f)), x)[0]" } }
+
+- template: ph-snell
+  skill: physics.optics
+  pace: quick
+  cases:
+    - { med: 'water', n: 1.33 }
+    - { med: 'glass', n: 1.5 }
+    - { med: 'diamond', n: 2.42 }
+  given: { th: { pick: [20, 30, 45, 60] } }
+  prompt: 'Light in air strikes {{med}} ($n = {{n}}$) at ${{th}}^\circ$ from the normal. At what angle from the normal does it travel inside, in degrees?'
+  parts:
+    - { ask: 'Angle (°)', label: r, tex: '\theta_2', value: asin(sin(th*pi/180)/n)*180/pi, tol: 0.002, explain: '$n_1\sin\theta_1 = n_2\sin\theta_2$. Entering a slower medium (larger $n = c/v$) bends the ray toward the normal' }
+  verify: { expect: { r: "asin(sin(pi*th/180)/nsimplify(n))*180/pi" } }
+
+- template: ph-critical-angle
+  skill: physics.optics
+  pace: quick
+  cases:
+    - { med: 'water', n: 1.33 }
+    - { med: 'glass', n: 1.5 }
+    - { med: 'diamond', n: 2.42 }
+    - { med: 'optical fibre core', n: 1.46 }
+  prompt: 'What is the critical angle for light going from {{med}} ($n = {{n}}$) into air, in degrees?'
+  parts:
+    - { ask: 'Critical angle (°)', label: r, tex: '\theta_c', value: asin(1/n)*180/pi, tol: 0.002, explain: '$\sin\theta_c = n_2/n_1$: past this angle no light escapes and all of it reflects. It only happens going from a higher to a lower index. Diamond''s small critical angle traps light, which is why it sparkles' }
+  verify: { expect: { r: "asin(1/nsimplify(n))*180/pi" } }
+
+- template: ph-lens-image-kind
+  skill: physics.optics
+  pace: quick
+  cases:
+    - { q: 'a converging lens, object beyond twice the focal length (a camera)', f: 5, o: 20 }
+    - { q: 'a converging lens, object between one and two focal lengths (a projector)', f: 5, o: 8 }
+    - { q: 'a converging lens, object inside the focal length (a magnifier)', f: 5, o: 3 }
+    - { q: 'a diverging lens, object anywhere', f: -5, o: 10 }
+  prompt: 'Describe the image formed by {{q}}.'
+  parts:
+    - ask: 'Image'
+      label: a
+      choice: ["Real, inverted, smaller", "Real, inverted, larger", "Virtual, upright, larger", "Virtual, upright, smaller"]
+      correct: "f/(f - o) > -1 and f/(f - o) < 0 ? 0 : (f/(f - o) < -1 ? 1 : (f/(f - o) > 1 ? 2 : 3))"
+      explain: 'Three rays: parallel in, out through the far focus; through the centre, undeflected; through the near focus, out parallel. Real images form on the far side and can be projected; virtual ones are seen by looking through the lens'
+  verify: { choices: { a: "(lambda m: 0 if -1 < m < 0 else (1 if m < -1 else (2 if m > 1 else 3)))(Rational(f, f - o))" } }
+
+- template: ph-thin-lens-magnification
+  skill: physics.optics
+  pace: quick
+  given: { f: { pick: [5, 10, 20] }, o: { pick: [3, 15, 30, 50] } }
+  require: [o != f]
+  prompt: 'An object is ${{o}}$ cm from a converging lens of focal length ${{f}}$ cm. What is the magnification?'
+  parts:
+    - { ask: 'Magnification', label: r, tex: 'm', value: f/(f - o), tol: 0.002, explain: 'Find $d_i$ from $\dfrac1{d_o} + \dfrac1{d_i} = \dfrac1f$, then $m = -d_i/d_o$. Negative means inverted; a size above 1 means enlarged' }
+  verify: { expect: { r: "-solve(Eq(Rational(1, o) + 1/x, Rational(1, f)), x)[0]/o" } }
+
+# ── waves ───────────────────────────────────────────────────────────────────
+- template: ph-wave-type
+  skill: physics.waves
+  pace: recall
+  cases:
+    - { q: 'sound in air', ans: 1 }
+    - { q: 'light', ans: 0 }
+    - { q: 'a wave on a guitar string', ans: 0 }
+    - { q: 'a seismic P wave', ans: 1 }
+    - { q: 'a seismic S wave', ans: 0 }
+    - { q: 'a compression pulse along a Slinky', ans: 1 }
+  prompt: 'Is {{q}} transverse or longitudinal?'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["Transverse: the medium moves across the direction of travel", "Longitudinal: the medium moves along the direction of travel"]
+      correct: ans
+      explain: 'A wave carries energy and momentum, not matter: each bit of the medium only oscillates about where it was. Only transverse waves can be polarised, and fluids carry only longitudinal waves, which is how S waves revealed the liquid outer core'
+  verify: { authored: true }
+
+- template: ph-wave-equation
+  skill: physics.waves
+  pace: recall
+  given: { f: { pick: [110, 220, 440, 1000] } }
+  prompt: 'Sound travels at 343 m/s. What is the wavelength of a ${{f}}$ Hz tone, in m?'
+  parts:
+    - { ask: 'Wavelength (m)', label: r, tex: '\lambda', value: 343/f, tol: 0.002, explain: '$v = f\lambda$. The medium sets the speed; the source sets the frequency; the wavelength follows. Frequency does not change when a wave crosses into a new medium' }
+  verify: { expect: { r: "solve(Eq(f*x, 343), x)[0]" } }
+
+- template: ph-string-wave-speed
+  skill: physics.waves
+  pace: quick
+  given: { T: { pick: [50, 100, 200] }, mu: { pick: [1, 2, 5] } }
+  prompt: 'A string under ${{T}}$ N of tension has a mass of ${{mu}}$ g per metre. How fast do waves travel on it, in m/s?'
+  parts:
+    - { ask: 'Speed (m/s)', label: r, tex: 'v', value: sqrt(T/(mu/1000)), tol: 0.002, explain: '$v = \sqrt{T/\mu}$: tighter is faster, heavier is slower. Tuning a guitar string up raises the tension and so the pitch' }
+  verify: { expect: { r: "sqrt(T/Rational(mu, 1000))" } }
+
+- template: ph-pulse-at-boundary
+  skill: physics.waves
+  pace: recall
+  cases:
+    - { q: 'a pulse reaches a fixed end', ans: 0 }
+    - { q: 'a pulse reaches a free end', ans: 1 }
+    - { q: 'a pulse goes from a light string into a heavy one', ans: 2 }
+    - { q: 'a pulse goes from a heavy string into a light one', ans: 3 }
+  prompt: 'What happens when {{q}}?'
+  parts:
+    - ask: 'Result'
+      label: a
+      choice: ["It reflects inverted", "It reflects upright", "Part reflects inverted, part goes on upright", "Part reflects upright, part goes on upright"]
+      correct: ans
+      explain: 'Going into a slower, heavier medium acts like a fixed end: inverted reflection. Going into a faster, lighter one acts like a free end. The transmitted pulse is never inverted. Light reflecting off a higher-index surface flips the same way'
+  verify: { authored: true }
+
+- template: ph-malus
+  skill: physics.waves
+  pace: quick
+  given: { th: { pick: [0, 30, 45, 60] } }
+  prompt: 'Unpolarised light passes through two polarisers whose axes are ${{th}}^\circ$ apart. What fraction of the original intensity gets through?'
+  parts:
+    - { ask: 'Fraction', label: r, tex: 'I/I_0', value: 0.5*cos(th*pi/180)^2, tol: 0.002, explain: 'The first polariser passes half of unpolarised light. Each later one passes $\cos^2\theta$ of what reaches it (Malus''s law). Crossed polarisers pass nothing' }
+  verify: { expect: { r: "Rational(1, 2)*cos(pi*th/180)**2" } }
+
+- template: ph-em-spectrum
+  skill: physics.waves
+  pace: quick
+  cases:
+    - { band: 'red light', lam: 700e-9 }
+    - { band: 'violet light', lam: 400e-9 }
+    - { band: 'a microwave oven', lam: 0.122 }
+    - { band: 'an FM radio station', lam: 3.0 }
+    - { band: 'medical X-rays', lam: 1e-10 }
+  prompt: 'What is the frequency of {{band}}, wavelength ${{lam}}$ m, in Hz? Give the power of ten: $\log_{10} f$. ($c = 3.00 \times 10^8$ m/s.)'
+  parts:
+    - { ask: '$\log_{10} f$', label: r, tex: '\log f', value: log10(3e8/lam), tol: 0.005, explain: '$f = c/\lambda$. Radio (metres, ~$10^8$ Hz), microwaves (cm), infrared, visible (400–700 nm, ~$10^{14.7}$ Hz), ultraviolet, X-rays (~0.1 nm), gamma rays: all the same thing at different wavelengths' }
+  verify: { expect: { r: "log(3*10**8/nsimplify(lam), 10)" } }
+
+- template: ph-doppler
+  skill: physics.waves
+  pace: quick
+  given: { f: { pick: [400, 500, 1000] }, vs: { pick: [10, 20, 30] }, dir: { pick: [1, -1] } }
+  prompt: 'A ${{f}}$ Hz siren moves {{dir == 1 ? "toward" : "away from"}} you at ${{vs}}$ m/s. What frequency do you hear, in Hz? (Sound at 343 m/s.)'
+  parts:
+    - { ask: 'Frequency (Hz)', label: r, tex: "f'", value: f*343/(343 - dir*vs), tol: 0.002, explain: '$f'' = f\dfrac{v}{v \mp v_s}$: an approaching source bunches its wavefronts, raising the pitch; a receding one spreads them out' }
+  verify: { expect: { r: "f*343/(343 - dir*vs)" } }
+
+- template: ph-interference-point
+  skill: physics.waves
+  pace: quick
+  given: { lam: { pick: [0.5, 1, 2] }, k: { pick: [0, 1, 2, 3, 4, 5] } }
+  prompt: 'Two speakers emit the same ${{lam}}$ m wavelength in phase. A point is ${{k*lam/2}}$ m farther from one speaker than from the other. What happens there?'
+  parts:
+    - ask: 'Interference'
+      label: a
+      choice: ["Constructive: loud", "Destructive: quiet"]
+      correct: "mod(k, 2) == 0 ? 0 : 1"
+      explain: 'Divide the path difference by the wavelength. A whole number of wavelengths puts crests on crests; an odd number of half wavelengths puts crests on troughs'
+  verify: { choices: { a: "0 if k % 2 == 0 else 1" } }
+
+- template: ph-harmonics
+  skill: physics.waves
+  pace: quick
+  cases:
+    - { kind: 'a string fixed at both ends', open: 1 }
+    - { kind: 'a pipe open at both ends', open: 1 }
+    - { kind: 'a pipe closed at one end', open: 0 }
+  given: { L: { pick: [0.5, 0.65, 1] }, v: { pick: [343, 200] } }
+  prompt: 'What is the fundamental frequency of {{kind}}, ${{L}}$ m long, with wave speed ${{v}}$ m/s, in Hz?'
+  parts:
+    - { ask: 'Frequency (Hz)', label: r, tex: 'f_1', value: "open == 1 ? v/(2*L) : v/(4*L)", tol: 0.002, explain: 'Fit the standing wave: same type of end at both ends gives half a wavelength, $f_n = nv/2L$ for every $n$. A closed pipe has a node at one end and an antinode at the other, a quarter wavelength, $f_n = nv/4L$ for odd $n$ only' }
+  verify: { expect: { r: "v/(2*nsimplify(L)) if open == 1 else v/(4*nsimplify(L))" } }
+
+- template: ph-beats
+  skill: physics.waves
+  pace: recall
+  given: { f1: { pick: [438, 440, 442, 256] }, d: { pick: [1, 2, 3, 4, -3] } }
+  prompt: 'Two tones of ${{f1}}$ Hz and ${{f1 + d}}$ Hz sound together. How many beats per second do you hear?'
+  parts:
+    - { ask: 'Beats (Hz)', label: r, tex: 'f_b', value: abs(d), tol: 0.001, explain: 'The loudness swells and fades at the difference of the frequencies. Tuners listen for the beats to slow and vanish' }
+  verify: { expect: { r: "Abs(f1 - (f1 + d))" } }
+
+- template: ph-single-slit
+  skill: physics.waves
+  pace: quick
+  given: { lam: { pick: [450, 550, 633] }, a: { pick: [2, 5, 10] } }
+  prompt: 'Light of wavelength ${{lam}}$ nm passes through a slit ${{a}}$ µm wide. At what angle is the first dark fringe, in degrees?'
+  parts:
+    - { ask: 'Angle (°)', label: r, tex: '\theta', value: asin(lam*1e-9/(a*1e-6))*180/pi, tol: 0.002, explain: '$a\sin\theta = \lambda$ for the first minimum. A narrower opening spreads light more: diffraction matters when the opening is not much bigger than the wavelength' }
+  verify: { expect: { r: "asin(Rational(lam, 1000)/a)*180/pi" } }
+
+- template: ph-double-slit
+  skill: physics.waves
+  pace: quick
+  given: { lam: { pick: [500, 600, 650] }, d: { pick: [0.1, 0.2, 0.5] }, L: { pick: [1, 2] } }
+  prompt: 'Light of ${{lam}}$ nm falls on two slits ${{d}}$ mm apart. How far apart are the bright fringes on a screen ${{L}}$ m away, in mm?'
+  parts:
+    - { ask: 'Spacing (mm)', label: r, tex: '\Delta y', value: lam*1e-9*L/(d*1e-3)*1000, tol: 0.002, explain: 'Bright where $d\sin\theta = m\lambda$; for small angles the fringes are evenly spaced by $\lambda L/d$. A grating has many slits and the same rule, but much sharper bright lines' }
+  verify: { expect: { r: "Rational(lam, 10**9)*L/(nsimplify(d)/1000)*1000" } }
+
+- template: ph-thin-film
+  skill: physics.waves
+  pace: quick
+  given: { lam: { pick: [480, 550, 600, 650] } }
+  prompt: 'A soap film ($n = 1.33$) in air looks bright in reflected light of ${{lam}}$ nm. What is its smallest possible thickness, in nm?'
+  parts:
+    - { ask: 'Thickness (nm)', label: r, tex: 't', value: lam/(4*1.33), tol: 0.002, explain: 'The front reflection flips phase (air to soap) and the back one does not, so the film is bright when $2nt = \tfrac12\lambda$, the thinnest at $t = \lambda/4n$. Count the phase flips before choosing the condition' }
+  verify: { expect: { r: "solve(Eq(2*Rational(133, 100)*x, Rational(lam, 2)), x)[0]" } }
+
+# ── modern physics ──────────────────────────────────────────────────────────
+- template: ph-photon-energy
+  skill: physics.modern
+  pace: recall
+  given: { lam: { pick: [400, 500, 620, 700, 1240] } }
+  prompt: 'What is the energy of a ${{lam}}$ nm photon, in eV?'
+  parts:
+    - { ask: 'Energy (eV)', label: r, tex: 'E', value: 1239.841984/lam, tol: 0.002, explain: '$E = hc/\lambda$, and $hc = 1240$ eV·nm: carry that number. Visible light is about 1.8 to 3.1 eV, the size of a chemical bond' }
+  verify: { expect: { r: "c_h*c_c/(lam*Rational(1, 10**9))/c_e" } }
+
+- template: ph-de-broglie
+  skill: physics.modern
+  pace: quick
+  given: { V: { pick: [1, 10, 100, 150] } }
+  prompt: 'What is the de Broglie wavelength of an electron accelerated from rest through ${{V}}$ V, in nm?'
+  parts:
+    - { ask: 'Wavelength (nm)', label: r, tex: '\lambda', value: 6.62607015e-34/sqrt(2*9.1093837015e-31*1.602176634e-19*V)*1e9, tol: 0.003, explain: '$\lambda = h/p$ with $p = \sqrt{2m_eeV}$: about $1.23/\sqrt V$ nm. At 150 V it is 0.1 nm, the spacing of atoms in a crystal, which is how electron diffraction was found' }
+  verify: { expect: { r: "c_h/sqrt(2*c_me*c_e*V)*10**9" } }
+
+- template: ph-bohr-level
+  skill: physics.modern
+  pace: recall
+  given: { n: { pick: [1, 2, 3, 4] } }
+  prompt: 'In the Bohr model, what is the energy of hydrogen''s $n = {{n}}$ level, in eV?'
+  parts:
+    - { ask: 'Energy (eV)', label: r, tex: 'E_n', value: -13.6/n^2, tol: 0.002, explain: '$E_n = -13.6\text{ eV}/n^2$. Negative means bound; 13.6 eV ionises the atom from the ground state' }
+  verify: { expect: { r: "-Rational(136, 10)/n**2" } }
+
+- template: ph-hydrogen-line
+  skill: physics.modern
+  pace: quick
+  cases:
+    - { hi: 3, lo: 2 }
+    - { hi: 4, lo: 2 }
+    - { hi: 2, lo: 1 }
+    - { hi: 5, lo: 2 }
+    - { hi: 4, lo: 3 }
+  prompt: 'Hydrogen drops from $n = {{hi}}$ to $n = {{lo}}$. What wavelength does it emit, in nm?'
+  parts:
+    - { ask: 'Wavelength (nm)', label: r, tex: '\lambda', value: 1239.841984/(13.6*(1/lo^2 - 1/hi^2)), tol: 0.003, explain: 'The photon carries the energy difference, $13.6\left(\dfrac1{n_l^2} - \dfrac1{n_h^2}\right)$ eV, then $\lambda = 1240/E$. Drops to $n = 2$ are the visible Balmer lines: 3→2 is the red 656 nm line' }
+  verify: { expect: { r: "c_h*c_c/(Rational(136, 10)*c_e*(Rational(1, lo**2) - Rational(1, hi**2)))*10**9" } }
+
+- template: ph-photoelectric
+  skill: physics.modern
+  pace: quick
+  cases:
+    - { met: 'sodium', phi: 2.28 }
+    - { met: 'potassium', phi: 2.30 }
+    - { met: 'zinc', phi: 4.3 }
+  given: { lam: { pick: [200, 250, 300] } }
+  prompt: 'Light of ${{lam}}$ nm falls on {{met}}, work function ${{phi}}$ eV. What is the maximum kinetic energy of the ejected electrons, in eV?'
+  parts:
+    - { ask: 'KE (eV)', label: r, tex: 'K_{max}', value: 1239.841984/lam - phi, tol: 0.003, explain: 'One photon frees one electron: $K_{max} = hf - \phi$. The stopping potential is the same number in volts. Below the threshold frequency nothing is ejected, however bright the light' }
+  require: [1239.841984/lam > phi]
+  verify: { expect: { r: "c_h*c_c/(lam*Rational(1, 10**9))/c_e - nsimplify(phi)" } }
+
+- template: ph-compton
+  skill: physics.modern
+  pace: quick
+  given: { th: { pick: [30, 60, 90, 120, 180] } }
+  prompt: 'An X-ray photon scatters off a free electron through ${{th}}^\circ$. By how much does its wavelength increase, in pm?'
+  parts:
+    - { ask: 'Shift (pm)', label: r, tex: '\Delta\lambda', value: 2.42631*(1 - cos(th*pi/180)), tol: 0.002, explain: '$\Delta\lambda = \dfrac{h}{m_ec}(1 - \cos\theta)$ with $h/m_ec = 2.43$ pm. It treats light as a particle with momentum, and it is only noticeable for short wavelengths' }
+  verify: { expect: { r: "c_h/(c_me*c_c)*(1 - cos(pi*th/180))*10**12" } }

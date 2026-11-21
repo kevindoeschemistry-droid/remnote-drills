@@ -603,6 +603,19 @@ skills:
   - { id: ptable.f-block, domain: ptable, title: "The f block: lanthanoids, actinoids and f-electron counts", short: "The f block" }
   - { id: ptable.configurations, domain: ptable, title: "Ground-state electron configurations of the d and f blocks, with the exceptions", short: "Electron configurations", prereqs: [ptable.d-block, ptable.f-block] }
   # ── physics: electricity and magnetism, particles ───────────────────────────
+  - { id: physics.kinematics, domain: physics, title: "Kinematics: vectors, graphs, constant acceleration, projectiles", short: "Kinematics" }
+  - { id: physics.dynamics, domain: physics, title: "Forces: free-body diagrams, Newton's laws, friction, springs, circular motion, gravitation", short: "Forces", prereqs: [physics.kinematics] }
+  - { id: physics.energy, domain: physics, title: "Work, energy and power", short: "Energy", prereqs: [physics.dynamics] }
+  - { id: physics.momentum, domain: physics, title: "Momentum, impulse and collisions", short: "Momentum", prereqs: [physics.dynamics] }
+  - { id: physics.rotation, domain: physics, title: "Rotation: torque, inertia, angular momentum, rolling, orbits", short: "Rotation", prereqs: [physics.energy, physics.momentum] }
+  - { id: physics.oscillations, domain: physics, title: "Simple harmonic motion and pendulums", short: "Oscillations", prereqs: [physics.energy] }
+  - { id: physics.fluids, domain: physics, title: "Fluids: pressure, buoyancy, continuity and Bernoulli", short: "Fluids", prereqs: [physics.dynamics] }
+  - { id: physics.thermal, domain: physics, title: "Thermal physics: kinetic theory, gas laws, heat and engines", short: "Thermal physics", prereqs: [physics.energy] }
+  - { id: physics.optics, domain: physics, title: "Geometric optics: mirrors, refraction and lenses", short: "Optics" }
+  - { id: physics.waves, domain: physics, title: "Waves, sound, interference and diffraction", short: "Waves", prereqs: [physics.oscillations] }
+  - { id: physics.modern, domain: physics, title: "Photons, matter waves and the Bohr atom", short: "Modern physics", prereqs: [physics.waves] }
+  - { id: physics.calc-mechanics, domain: physics, title: "Mechanics with calculus (Physics C)", short: "Calculus mechanics", prereqs: [physics.rotation] }
+  - { id: physics.calc-em, domain: physics, title: "Electricity and magnetism with calculus (Physics C)", short: "Calculus E&M", prereqs: [physics.magnetism] }
   - { id: physics.electrostatics, domain: physics, title: "Electric force, field, potential and capacitance", short: "Electrostatics" }
   - { id: physics.circuits, domain: physics, title: "Circuits: resistors, capacitors, RC and LC", short: "Circuits", prereqs: [physics.electrostatics] }
   - { id: physics.magnetism, domain: physics, title: "Magnetic force and field, induction, electromagnetic waves", short: "Magnetism and induction", prereqs: [physics.circuits] }

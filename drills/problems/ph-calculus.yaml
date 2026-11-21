@@ -1,0 +1,393 @@
+# Calculus-based physics (AP Physics C): one item for each objective that had no drill.
+# Derivatives, integrals and field laws are recomputed by sympy from the defining relation.
+
+# ── kinematics and dynamics with calculus ───────────────────────────────────
+- template: pc-velocity-from-position
+  skill: physics.calc-mechanics
+  pace: quick
+  given: { a: { int: [1, 3] }, b: { int: [-4, 4] }, c: { int: [1, 6] }, t: { int: [1, 3] } }
+  prompt: 'A particle moves as $x(t) = {{a}}t^3 + ({{b}})t^2 + {{c}}t$ m. What is its velocity at $t = {{t}}$ s, in m/s?'
+  parts:
+    - { ask: 'Velocity (m/s)', label: r, tex: 'v', value: 3*a*t^2 + 2*b*t + c, tol: 0.001, explain: '$v = dx/dt = 3at^2 + 2bt + c$; differentiate again for $a(t) = 6at + 2b$. Velocity is the slope of position, acceleration the slope of velocity' }
+  require: [3*a*t^2 + 2*b*t + c != 0]
+  verify: { expect: { r: "diff(a*x**3 + b*x**2 + c*x, x).subs(x, t)" } }
+
+- template: pc-integrate-acceleration
+  skill: physics.calc-mechanics
+  pace: quick
+  given: { k: { int: [1, 6] }, v0: { int: [0, 5] }, t: { int: [1, 4] } }
+  prompt: 'An object has $a(t) = {{k}}t$ m/s² and starts at ${{v0}}$ m/s. What is its velocity at $t = {{t}}$ s, in m/s?'
+  parts:
+    - { ask: 'Velocity (m/s)', label: r, tex: 'v', value: v0 + k*t^2/2, tol: 0.001, explain: '$v(t) = v_0 + \displaystyle\int_0^t a\,dt = v_0 + \tfrac12kt^2$. The constant of integration is the initial condition; integrate again, with $x_0$, for position' }
+  verify: { expect: { r: "v0 + integrate(k*x, (x, 0, t))" } }
+
+- template: pc-velocity-of-position
+  skill: physics.calc-mechanics
+  pace: quick
+  given: { v0: { pick: [10, 20, 30] }, k: { pick: [0.5, 1, 2] }, X: { pick: [2, 4, 5] } }
+  require: [v0 - k*X > 0]
+  prompt: 'A boat coasting through water has $a = -{{k}}v$ (per second). It starts at ${{v0}}$ m/s. How fast is it moving after ${{X}}$ m, in m/s?'
+  parts:
+    - { ask: 'Speed (m/s)', label: r, tex: 'v', value: v0 - k*X, tol: 0.002, explain: 'When the acceleration depends on speed and you want position, use $a = v\,\dfrac{dv}{dx}$: here $v\,dv/dx = -kv$, so $dv/dx = -k$ and the speed falls linearly with distance, even though it decays exponentially in time' }
+  verify: { var: s, ode: "diff(T(s), s) + nsimplify(k)", bcs: ["T(0) = v0"], expect: { r: "T(X)" } }
+
+- template: pc-vector-speed
+  skill: physics.calc-mechanics
+  pace: quick
+  given: { a: { int: [1, 3] }, b: { int: [2, 6] }, t: { int: [1, 3] } }
+  prompt: 'A particle moves as $\vec r(t) = ({{a}}t^2)\hat\imath + ({{b}}t)\hat\jmath$ m. What is its speed at $t = {{t}}$ s, in m/s?'
+  parts:
+    - { ask: 'Speed (m/s)', label: r, tex: '|v|', value: sqrt((2*a*t)^2 + b^2), tol: 0.002, explain: 'Differentiate each component: $\vec v = (2at)\hat\imath + b\hat\jmath$, then take the magnitude. Vector calculus is ordinary calculus done one component at a time' }
+  verify: { expect: { r: "sqrt(diff(a*x**2, x).subs(x, t)**2 + diff(b*x, x)**2)" } }
+
+- template: pc-rod-center-of-mass
+  skill: physics.calc-mechanics
+  pace: quick
+  given: { n: { int: [1, 3] }, L: { pick: [1, 2, 3] } }
+  prompt: 'A rod of length ${{L}}$ m has density $\lambda = cx^{ {{n}} }$, with $x$ measured from one end. Where is its centre of mass, in m from that end?'
+  parts:
+    - { ask: 'Centre of mass (m)', label: r, tex: 'x_{cm}', value: (n + 1)*L/(n + 2), tol: 0.002, explain: '$x_{cm} = \dfrac{\int x\lambda\,dx}{\int \lambda\,dx} = \dfrac{n + 1}{n + 2}L$. A uniform rod ($n = 0$) gives $L/2$; the heavier end pulls the balance point toward it' }
+  verify: { expect: { r: "integrate(x*x**n, (x, 0, L))/integrate(x**n, (x, 0, L))" } }
+
+- template: pc-time-varying-force
+  skill: physics.calc-mechanics
+  pace: quick
+  given: { c: { pick: [2, 4, 6] }, m: { pick: [1, 2] }, t: { pick: [1, 2, 3] } }
+  prompt: 'A force $F = {{c}}t$ N acts on a ${{m}}$ kg mass at rest. What is its velocity at $t = {{t}}$ s, in m/s?'
+  parts:
+    - { ask: 'Velocity (m/s)', label: r, tex: 'v', value: c*t^2/(2*m), tol: 0.001, explain: '$a = F/m = ct/m$, so $v = \dfrac{ct^2}{2m}$. When the force changes with time, integrate the acceleration rather than using the constant-acceleration equations' }
+  verify: { expect: { r: "integrate(c*x/m, (x, 0, t))" } }
+
+- template: pc-tangential-radial
+  skill: physics.calc-mechanics
+  pace: quick
+  given: { v: { pick: [10, 20] }, r: { pick: [50, 100] }, at: { pick: [1, 2, 3] } }
+  prompt: 'A car on a curve of radius ${{r}}$ m is going ${{v}}$ m/s and speeding up at ${{at}}$ m/s². What is the magnitude of its total acceleration, in m/s²?'
+  parts:
+    - { ask: 'Acceleration (m/s²)', label: r2, tex: 'a', value: sqrt(at^2 + (v^2/r)^2), tol: 0.002, explain: 'The tangential part, $dv/dt$, changes the speed; the radial part, $v^2/r$, changes the direction. They are perpendicular, so add them as a right triangle' }
+  verify: { expect: { r2: "sqrt(at**2 + Rational(v**2, r)**2)" } }
+
+# ── energy and momentum with calculus ───────────────────────────────────────
+- template: pc-variable-work
+  skill: physics.calc-mechanics
+  pace: quick
+  given: { k: { int: [1, 6] }, L: { int: [1, 3] }, n: { int: [2, 3] } }
+  prompt: 'A force $F(x) = {{k}}x^{ {{n}} }$ N acts along $x$. How much work does it do from $x = 0$ to $x = {{L}}$ m, in J?'
+  parts:
+    - { ask: 'Work (J)', label: r, tex: 'W', value: k*L^(n + 1)/(n + 1), tol: 0.002, explain: '$W = \displaystyle\int F\,dx$: the area under the force–position curve, which for a changing force is an integral, not $F \times d$' }
+  verify: { expect: { r: "integrate(k*x**n, (x, 0, L))" } }
+
+- template: pc-potential-from-force
+  skill: physics.calc-mechanics
+  pace: quick
+  given: { k: { int: [1, 8] }, X: { int: [1, 3] } }
+  prompt: 'A conservative force is $F(x) = -{{k}}x^3$ N. Taking $U(0) = 0$, what is the potential energy at $x = {{X}}$ m, in J?'
+  parts:
+    - { ask: 'U (J)', label: r, tex: 'U', value: k*X^4/4, tol: 0.002, explain: '$U(x) = -\displaystyle\int_0^x F\,dx = \tfrac14kx^4$. The minus sign makes $U$ rise where the force pushes back toward the origin' }
+  verify: { expect: { r: "-integrate(-k*x**3, (x, 0, X))" } }
+
+- template: pc-force-from-potential
+  skill: physics.calc-mechanics
+  pace: quick
+  given: { a: { int: [1, 4] }, b: { int: [2, 12] } }
+  prompt: 'A particle has $U(x) = {{a}}x^2 - {{b}}x$ J. Where is its equilibrium point, in m? (It is stable: $U$ has a minimum there.)'
+  parts:
+    - { ask: 'Equilibrium (m)', label: r, tex: 'x_0', value: b/(2*a), tol: 0.002, explain: '$F = -dU/dx = -(2ax - b)$ vanishes at $x = b/2a$. A minimum of $U$ is stable, a maximum unstable: the force always points downhill on the U(x) graph' }
+  verify: { expect: { r: "solve(diff(a*x**2 - b*x, x), x)[0]" } }
+
+- template: pc-power-integral
+  skill: physics.calc-mechanics
+  pace: quick
+  given: { c: { pick: [10, 20, 50] }, T: { pick: [2, 4, 10] } }
+  prompt: 'A motor delivers power $P(t) = {{c}}t$ W. How much work does it do in the first ${{T}}$ s, in J?'
+  parts:
+    - { ask: 'Work (J)', label: r, tex: 'W', value: c*T^2/2, tol: 0.001, explain: 'Power is the rate of work, $P = dW/dt$, so $W = \displaystyle\int P\,dt$. Instantaneous power from a force is $\vec F\cdot\vec v$' }
+  verify: { expect: { r: "integrate(c*x, (x, 0, T))" } }
+
+- template: pc-impulse-integral
+  skill: physics.calc-mechanics
+  pace: quick
+  given: { F0: { pick: [100, 200, 500] }, T: { pick: [0.01, 0.02, 0.05] }, m: { pick: [0.1, 0.5] } }
+  prompt: 'A kick exerts $F = {{F0}}\sin(\pi t/{{T}})$ N for $0 \le t \le {{T}}$ s on a ${{m}}$ kg ball at rest. How fast does the ball leave, in m/s?'
+  parts:
+    - { ask: 'Speed (m/s)', label: r, tex: 'v', value: 2*F0*T/(pi*m), tol: 0.002, explain: 'Impulse is the area under F–t: $\displaystyle\int_0^T F_0\sin(\pi t/T)\,dt = \dfrac{2F_0T}{\pi}$. Divide by the mass for the change in velocity' }
+  verify: { expect: { r: "integrate(F0*sin(pi*x/nsimplify(T)), (x, 0, nsimplify(T)))/nsimplify(m)" } }
+
+# ── rotation with calculus ──────────────────────────────────────────────────
+- template: pc-angular-calculus
+  skill: physics.calc-mechanics
+  pace: quick
+  given: { a: { pick: [0.5, 1, 2] }, b: { int: [1, 4] }, t: { int: [1, 3] } }
+  prompt: 'A wheel turns as $\theta(t) = {{a}}t^3 + {{b}}t$ rad. What is its angular acceleration at $t = {{t}}$ s, in rad/s²?'
+  parts:
+    - { ask: 'Angular acceleration (rad/s²)', label: r, tex: '\alpha', value: 6*a*t, tol: 0.001, explain: '$\omega = d\theta/dt$ and $\alpha = d\omega/dt$: here $\alpha = 6at$. Exactly the linear rules with new letters' }
+  verify: { expect: { r: "diff(nsimplify(a)*x**3 + b*x, x, 2).subs(x, t)" } }
+
+- template: pc-torque-cross
+  skill: physics.calc-mechanics
+  pace: quick
+  given: { rx: { int: [1, 4] }, ry: { int: [-3, 3] }, Fx: { int: [-4, 4] }, Fy: { int: [1, 5] } }
+  require: [rx*Fy - ry*Fx != 0]
+  prompt: 'A force $\vec F = ({{Fx}}, {{Fy}}, 0)$ N acts at $\vec r = ({{rx}}, {{ry}}, 0)$ m from an axis along $z$. What is the $z$ component of the torque, in N·m?'
+  parts:
+    - { ask: '$\tau_z$ (N·m)', label: r, tex: '\tau_z', value: rx*Fy - ry*Fx, tol: 0.001, explain: '$\tau_z = r_xF_y - r_yF_x$. Positive means counterclockwise seen from $+z$; the cross product gives the size and the sense at once' }
+  verify: { expect: { r: "Matrix([rx, ry, 0]).cross(Matrix([Fx, Fy, 0]))[2]" } }
+
+- template: pc-inertia-integral
+  skill: physics.calc-mechanics
+  pace: quick
+  cases:
+    - { shape: 'a uniform rod about one end', kind: 0 }
+    - { shape: 'a uniform rod about its centre', kind: 1 }
+    - { shape: 'a uniform disk about its axis', kind: 2 }
+  given: { M: { pick: [1, 2, 3] }, L: { pick: [1, 2] } }
+  prompt: 'Derive by integration the rotational inertia of {{shape}}, with mass ${{M}}$ kg and {{kind == 2 ? "radius" : "length"}} ${{L}}$ m. Give it in kg·m².'
+  parts:
+    - { ask: 'Inertia (kg·m²)', label: r, tex: 'I', value: "kind == 0 ? M*L^2/3 : (kind == 1 ? M*L^2/12 : M*L^2/2)", tol: 0.002, explain: '$I = \displaystyle\int r^2\,dm$. For a rod $dm = (M/L)dx$; for a disk use rings, $dm = (M/\pi R^2)2\pi r\,dr$. That gives $ML^2/3$, $ML^2/12$ and $MR^2/2$' }
+  verify: { expect: { r: "[integrate(x**2*M/L, (x, 0, L)), integrate(x**2*M/L, (x, -Rational(L, 2), Rational(L, 2))), integrate(x**2*M/(pi*L**2)*2*pi*x, (x, 0, L))][kind]" } }
+
+- template: pc-torque-from-L
+  skill: physics.calc-mechanics
+  pace: quick
+  given: { c: { pick: [0.5, 1, 2] }, n: { int: [2, 3] }, t: { int: [1, 3] } }
+  prompt: 'A flywheel''s angular momentum grows as $L(t) = {{c}}t^{ {{n}} }$ kg·m²/s. What net torque acts at $t = {{t}}$ s, in N·m?'
+  parts:
+    - { ask: 'Torque (N·m)', label: r, tex: '\tau', value: c*n*t^(n - 1), tol: 0.001, explain: '$\tau_{net} = dL/dt$, the rotational form of $F = dp/dt$. For a point mass $\vec L = \vec r \times \vec p$' }
+  verify: { expect: { r: "diff(nsimplify(c)*x**n, x).subs(x, t)" } }
+
+- template: pc-rolling-friction
+  skill: physics.calc-mechanics
+  pace: quick
+  cases:
+    - { shape: 'a solid sphere', c: 0.4 }
+    - { shape: 'a solid cylinder', c: 0.5 }
+    - { shape: 'a hoop', c: 1 }
+  given: { m: { pick: [1, 2, 5] }, th: { pick: [20, 30, 45] } }
+  prompt: '{{shape}} of mass ${{m}}$ kg rolls without slipping down a ${{th}}^\circ$ incline ($I = cMR^2$, $c = {{c}}$). What static friction force acts on it, in N?'
+  parts:
+    - { ask: 'Friction (N)', label: r, tex: 'f', value: m*9.8*sin(th*pi/180)*c/(1 + c), tol: 0.002, explain: 'Translation: $mg\sin\theta - f = ma$. Rotation about the centre: $fR = cmR^2(a/R)$, so $f = cma$. Together $a = \dfrac{g\sin\theta}{1 + c}$ and $f = \dfrac{c}{1 + c}mg\sin\theta$: friction does no work, it only sets the spin' }
+  verify: { expect: { r: "solve([Eq(m*Rational(98, 10)*sin(pi*th/180) - x, m*Symbol('a')), Eq(x, nsimplify(c)*m*Symbol('a'))], [x, Symbol('a')], dict=True)[0][x]" } }
+
+- template: pc-physical-pendulum
+  skill: physics.calc-mechanics
+  pace: quick
+  given: { L: { pick: [0.5, 1, 1.5] } }
+  prompt: 'A uniform rod ${{L}}$ m long swings from one end. What is its small-angle period, in s?'
+  parts:
+    - { ask: 'Period (s)', label: r, tex: 'T', value: 2*pi*sqrt(2*L/(3*9.8)), tol: 0.002, explain: '$I\ddot\theta = -mgd\theta$ gives $\omega = \sqrt{mgd/I}$. With $I = mL^2/3$ and $d = L/2$: $T = 2\pi\sqrt{2L/3g}$, shorter than a simple pendulum of the same length' }
+  verify: { expect: { r: "2*pi/sqrt(Symbol('m')*Rational(98, 10)*nsimplify(L)/2/(Symbol('m')*nsimplify(L)**2/3))" } }
+
+# ── fields and Gauss ────────────────────────────────────────────────────────
+- template: pc-ring-field
+  skill: physics.calc-em
+  pace: quick
+  given: { Q: { pick: [1, 5, 10] }, a: { pick: [0.1, 0.2] }, z: { pick: [0.1, 0.2, 0.3] } }
+  prompt: 'A ring of radius ${{a}}$ m carries ${{Q}}$ nC spread evenly. What is the field on its axis ${{z}}$ m from the centre, in N/C? ($k = 8.99 \times 10^9$.)'
+  parts:
+    - { ask: 'Field (N/C)', label: r, tex: 'E', value: 8.99e9*Q*1e-9*z/(z^2 + a^2)^1.5, tol: 0.003, explain: 'By symmetry the sideways parts cancel; each piece contributes $k\,dq\,z/(z^2 + a^2)^{3/2}$ along the axis, and they all have the same distance, so the integral is easy. Far away it becomes $kQ/z^2$' }
+  verify: { expect: { r: "integrate(Rational(899, 100)*10**9*Q/10**9/(2*pi)*nsimplify(z)/(nsimplify(z)**2 + nsimplify(a)**2)**Rational(3, 2), (x, 0, 2*pi))" } }
+
+- template: pc-flux-flat
+  skill: physics.calc-em
+  pace: quick
+  given: { E: { pick: [100, 500, 1000] }, s: { pick: [0.1, 0.2, 0.5] }, th: { pick: [0, 30, 60] } }
+  prompt: 'A uniform field of ${{E}}$ N/C crosses a flat square of side ${{s}}$ m at ${{th}}^\circ$ to the square''s normal. What is the flux, in N·m²/C?'
+  parts:
+    - { ask: 'Flux (N·m²/C)', label: r2, tex: '\Phi', value: E*s^2*cos(th*pi/180), tol: 0.002, explain: '$\Phi = \vec E \cdot \vec A = EA\cos\theta$. Through a closed surface with no charge inside, a uniform field gives zero net flux: what goes in comes out' }
+  verify: { expect: { r2: "E*nsimplify(s)**2*cos(pi*th/180)" } }
+
+- template: pc-gauss-sphere
+  skill: physics.calc-em
+  pace: quick
+  given: { Q: { pick: [1, 2, 5] }, R: { pick: [0.1, 0.2] }, f: { pick: [0.5, 2, 3] } }
+  prompt: 'A solid sphere of radius ${{R}}$ m carries ${{Q}}$ nC spread uniformly through it. What is the field at ${{f*R}}$ m from the centre, in N/C?'
+  parts:
+    - { ask: 'Field (N/C)', label: r2, tex: 'E', value: "f < 1 ? 8.99*Q*f*R/R^3 : 8.99*Q/(f*R)^2", tol: 0.003, explain: 'Draw a spherical Gaussian surface through the point: $E\,4\pi r^2 = Q_{enc}/\varepsilon_0$. Outside, all of $Q$ is enclosed and $E = kQ/r^2$; inside, only $Q(r/R)^3$, so $E = kQr/R^3$, rising linearly from zero' }
+  verify: { expect: { r2: "Rational(899, 100)*Q*(Min(nsimplify(f)*nsimplify(R), nsimplify(R))**3/nsimplify(R)**3)/(nsimplify(f)*nsimplify(R))**2" } }
+
+- template: pc-gauss-nonuniform
+  skill: physics.calc-em
+  pace: quick
+  given: { r: { pick: [1, 2, 3] }, n: { int: [1, 2] } }
+  prompt: 'A sphere has charge density $\rho = c\,r^{ {{n}} }$. How much charge lies within radius ${{r}}$ (in units with $c = 1$)? The field there then follows from Gauss''s law.'
+  parts:
+    - { ask: 'Enclosed charge', label: r2, tex: 'Q', value: 4*pi*r^(n + 3)/(n + 3), tol: 0.002, explain: '$Q_{enc} = \displaystyle\int_0^r \rho\,4\pi r''^2\,dr'' = \dfrac{4\pi c\,r^{n + 3}}{n + 3}$, then $E = Q_{enc}/(4\pi\varepsilon_0r^2)$. Shells, not slices, because the density depends only on radius' }
+  verify: { expect: { r2: "integrate(x**n*4*pi*x**2, (x, 0, r))" } }
+
+# ── potential ───────────────────────────────────────────────────────────────
+- template: pc-potential-integral
+  skill: physics.calc-em
+  pace: quick
+  given: { c: { pick: [10, 50, 100] }, L: { pick: [1, 2, 3] } }
+  prompt: 'A field along $x$ is $E_x = {{c}}x$ V/m. What is $V(0) - V({{L}})$, in V?'
+  parts:
+    - { ask: 'Potential difference (V)', label: r, tex: '\Delta V', value: c*L^2/2, tol: 0.001, explain: '$V(b) - V(a) = -\displaystyle\int_a^b \vec E\cdot d\vec l$, so $V(0) - V(L) = \displaystyle\int_0^L cx\,dx = cL^2/2$. Potential falls in the direction the field points' }
+  verify: { expect: { r: "integrate(c*x, (x, 0, L))" } }
+
+- template: pc-ring-potential
+  skill: physics.calc-em
+  pace: quick
+  given: { Q: { pick: [1, 5, 10] }, a: { pick: [0.1, 0.3] }, z: { pick: [0, 0.4] } }
+  prompt: 'A ring of radius ${{a}}$ m carries ${{Q}}$ nC. What is the potential on its axis ${{z}}$ m from the centre, in V?'
+  parts:
+    - { ask: 'Potential (V)', label: r2, tex: 'V', value: 8.99*Q/sqrt(z^2 + a^2), tol: 0.002, explain: 'Potential is a scalar, so just add $k\,dq/r$; every bit of the ring is the same distance $\sqrt{z^2 + a^2}$ away. Differentiate along $z$ to recover the field' }
+  verify: { expect: { r2: "integrate(Rational(899, 100)*Q/(2*pi)/sqrt(nsimplify(z)**2 + nsimplify(a)**2), (x, 0, 2*pi))" } }
+
+- template: pc-field-from-potential
+  skill: physics.calc-em
+  pace: quick
+  given: { a: { int: [1, 5] }, b: { int: [1, 3] }, X: { int: [1, 3] } }
+  prompt: 'The potential is $V(x) = {{a}}x^2 + {{b}}x$ V. What is $E_x$ at $x = {{X}}$ m, in V/m?'
+  parts:
+    - { ask: '$E_x$ (V/m)', label: r, tex: 'E_x', value: -(2*a*X + b), tol: 0.001, explain: '$E_x = -dV/dx$: the field points down the potential slope, so here it is negative' }
+  verify: { expect: { r: "-diff(a*x**2 + b*x, x).subs(x, X)" } }
+
+# ── conductors and capacitors ───────────────────────────────────────────────
+- template: pc-shell-charges
+  skill: physics.calc-em
+  pace: quick
+  given: { q: { pick: [2, 3, -4] }, Qs: { pick: [0, 5, -1] } }
+  require: [q + Qs != 0]
+  prompt: 'A ${{q}}$ nC point charge sits at the centre of a conducting shell carrying a net ${{Qs}}$ nC. What charge sits on the shell''s outer surface, in nC?'
+  parts:
+    - { ask: 'Outer charge (nC)', label: r, tex: 'Q_{out}', value: q + Qs, tol: 0.001, explain: 'The field inside the metal is zero, so a Gaussian surface in it encloses no net charge: the inner surface carries $-q$. The rest of the shell''s charge, $Q_s + q$, goes to the outside, and the field outside is as if it all sat at the centre' }
+  verify: { expect: { r: "Qs - (-q)" } }
+
+- template: pc-spheres-sharing
+  skill: physics.calc-em
+  pace: quick
+  given: { Q: { pick: [10, 20, 30] }, R1: { pick: [1, 2, 3] }, R2: { pick: [4, 6] } }
+  prompt: 'Metal spheres of radii ${{R1}}$ cm and ${{R2}}$ cm, far apart, are joined by a thin wire and share ${{Q}}$ nC. How much charge ends up on the smaller one, in nC?'
+  parts:
+    - { ask: 'Charge (nC)', label: r, tex: 'Q_1', value: Q*R1/(R1 + R2), tol: 0.001, explain: 'Joined conductors reach the same potential: $kQ_1/R_1 = kQ_2/R_2$, so charge divides in proportion to radius. The smaller sphere then has the stronger surface field, which is why charge leaks from sharp points' }
+  verify: { expect: { r: "solve([Eq(x/R1, Symbol('q')/R2), Eq(x + Symbol('q'), Q)], [x, Symbol('q')], dict=True)[0][x]" } }
+
+- template: pc-capacitance-geometry
+  skill: physics.calc-em
+  pace: quick
+  cases:
+    - { shape: 'spherical', a: 5, b: 10, kind: 0 }
+    - { shape: 'spherical', a: 10, b: 12, kind: 0 }
+    - { shape: 'cylindrical (per metre of length)', a: 1, b: 3, kind: 1 }
+    - { shape: 'cylindrical (per metre of length)', a: 2, b: 5, kind: 1 }
+  prompt: 'A {{shape}} capacitor has inner radius ${{a}}$ cm and outer radius ${{b}}$ cm. What is its capacitance, in pF{{kind == 1 ? " per metre" : ""}}? ($\varepsilon_0 = 8.854 \times 10^{-12}$ F/m.)'
+  parts:
+    - { ask: 'Capacitance (pF)', label: r, tex: 'C', value: "kind == 0 ? 4*pi*8.854e-12*(a/100)*(b/100)/((b - a)/100)*1e12 : 2*pi*8.854e-12/log(b/a)*1e12", tol: 0.003, explain: 'Put $\pm Q$ on the conductors, find $E$ between them with Gauss, integrate for $\Delta V$, then $C = Q/\Delta V$. Sphere: $4\pi\varepsilon_0\dfrac{ab}{b - a}$. Cylinder: $\dfrac{2\pi\varepsilon_0L}{\ln(b/a)}$' }
+  verify: { expect: { r: "[1/integrate(1/(4*pi*Rational(8854, 1000)/10**12*x**2), (x, Rational(a, 100), Rational(b, 100)))*10**12, 1/integrate(1/(2*pi*Rational(8854, 1000)/10**12*x), (x, Rational(a, 100), Rational(b, 100)))*10**12][kind]" } }
+
+- template: pc-field-energy-density
+  skill: physics.calc-em
+  pace: quick
+  given: { E: { pick: [1, 2, 3] }, V: { pick: [1, 10, 100] } }
+  prompt: 'A region of ${{V}}$ cm³ holds a uniform field of ${{E}}$ MV/m. How much energy is stored in the field, in mJ? ($\varepsilon_0 = 8.854 \times 10^{-12}$.)'
+  parts:
+    - { ask: 'Energy (mJ)', label: r, tex: 'U', value: 0.5*8.854e-12*(E*1e6)^2*V*1e-6*1000, tol: 0.002, explain: 'The energy lives in the field itself: $u = \tfrac12\varepsilon_0E^2$ per unit volume. For a parallel-plate capacitor this reproduces $\tfrac12CV^2$ exactly' }
+  verify: { expect: { r: "Rational(1, 2)*Rational(8854, 1000)/10**12*(E*10**6)**2*V/10**6*1000" } }
+
+- template: pc-dielectric-effect
+  skill: physics.calc-em
+  pace: quick
+  cases:
+    - { q: 'the charge Q', conn: 1, ex: 1 }
+    - { q: 'the voltage V', conn: 1, ex: 0 }
+    - { q: 'the stored energy U', conn: 1, ex: 1 }
+    - { q: 'the charge Q', conn: 0, ex: 0 }
+    - { q: 'the voltage V', conn: 0, ex: -1 }
+    - { q: 'the stored energy U', conn: 0, ex: -1 }
+    - { q: 'the field E between the plates', conn: 0, ex: -1 }
+  given: { k: { pick: [2, 3, 5] } }
+  prompt: 'A slab with dielectric constant ${{k}}$ fills a parallel-plate capacitor while the battery is {{conn == 1 ? "still connected" : "disconnected"}}. By what factor does {{q}} change?'
+  parts:
+    - { ask: 'Factor', label: r, tex: 'f', value: k^ex, tol: 0.001, explain: '$C$ always rises by $\kappa$. With the battery connected $V$ is held fixed, so $Q = CV$ and $U = \tfrac12CV^2$ rise by $\kappa$. Disconnected, $Q$ is fixed, so $V = Q/C$, $E = V/d$ and $U = Q^2/2C$ all fall by $\kappa$' }
+  verify: { expect: { r: "k**ex" } }
+
+# ── current and magnetic fields ─────────────────────────────────────────────
+- template: pc-current-from-charge
+  skill: physics.calc-em
+  pace: quick
+  given: { a: { pick: [0.5, 1, 2] }, b: { int: [1, 4] }, t: { int: [1, 3] } }
+  prompt: 'The charge that has passed a point is $q(t) = {{a}}t^2 + {{b}}t$ C. What is the current at $t = {{t}}$ s, in A?'
+  parts:
+    - { ask: 'Current (A)', label: r, tex: 'I', value: 2*a*t + b, tol: 0.001, explain: '$I = dq/dt$. In a wire $I = nqv_dA$: the drift speed of electrons is only about a tenth of a millimetre per second, even though the signal travels near light speed' }
+  verify: { expect: { r: "diff(nsimplify(a)*x**2 + b*x, x).subs(x, t)" } }
+
+- template: pc-magnetic-cross
+  skill: physics.calc-em
+  pace: quick
+  given: { vx: { pick: [1, 2, 5] }, vy: { pick: [0, 1, 3] }, Bz: { pick: [0.1, 0.5, 1] } }
+  prompt: 'A proton moves with $\vec v = ({{vx}}, {{vy}}, 0) \times 10^6$ m/s through $\vec B = (0, 0, {{Bz}})$ T. What is the $y$ component of the force, in $10^{-13}$ N? ($e = 1.602 \times 10^{-19}$ C.)'
+  parts:
+    - { ask: '$F_y$ ($10^{-13}$ N)', label: r, tex: 'F_y', value: -1.602176634*vx*Bz, tol: 0.002, explain: '$\vec F = q\vec v \times \vec B$, and $(\vec v \times \vec B)_y = v_zB_x - v_xB_z = -v_xB_z$. A velocity component along $\vec B$ feels nothing' }
+  verify: { expect: { r: "(c_e*Matrix([vx*10**6, vy*10**6, 0]).cross(Matrix([0, 0, nsimplify(Bz)])))[1]*10**13" } }
+
+- template: pc-biot-savart-loop
+  skill: physics.calc-em
+  pace: quick
+  cases:
+    - { arc: 'a full circular loop', f: 1 }
+    - { arc: 'a semicircular arc (the straight leads point at the centre)', f: 0.5 }
+    - { arc: 'a quarter-circle arc (the straight leads point at the centre)', f: 0.25 }
+  given: { I: { pick: [1, 2, 5, 10] }, R: { pick: [1, 2, 5] } }
+  prompt: 'A current of ${{I}}$ A flows round {{arc}} of radius ${{R}}$ cm. What is the field at the centre, in µT?'
+  parts:
+    - { ask: 'Field (µT)', label: r2, tex: 'B', value: f*4*pi*1e-7*I/(2*R/100)*1e6, tol: 0.002, explain: 'Biot–Savart: every element of the arc is the same distance $R$ away and perpendicular to the radius, so $B = \dfrac{\mu_0I}{4\pi R^2}\times(\text{arc length})$: $\mu_0I/2R$ for a full loop. Straight leads aimed at the centre add nothing' }
+  verify: { expect: { r2: "integrate(4*pi/10**7*I/(4*pi*Rational(R, 100)**2)*Rational(R, 100), (x, 0, 2*pi*nsimplify(f)))*10**6" } }
+
+- template: pc-ampere
+  skill: physics.calc-em
+  pace: quick
+  cases:
+    - { where: 'inside a long straight wire of radius 2 cm, 1 cm from its axis', kind: 0 }
+    - { where: 'inside a long straight wire of radius 2 cm, at its surface', kind: 1 }
+    - { where: 'inside a toroid of 500 turns, 10 cm from its centre', kind: 2 }
+  given: { I: { pick: [2, 5, 10] } }
+  prompt: 'A current of ${{I}}$ A flows. Using Ampère''s law, find $B$ {{where}}, in µT (current spread evenly over the wire''s cross-section).'
+  parts:
+    - { ask: 'Field (µT)', label: r2, tex: 'B', value: "kind == 0 ? 2e-7*I*0.01/0.02^2*1e6 : (kind == 1 ? 2e-7*I/0.02*1e6 : 2e-7*500*I/0.1*1e6)", tol: 0.003, explain: 'Take a circle where $B$ has one value: $B\,2\pi r = \mu_0I_{enc}$. Inside a wire $I_{enc} = I r^2/R^2$, so $B$ grows linearly with $r$; in a toroid $I_{enc} = NI$' }
+  verify: { expect: { r2: "[4*pi/10**7*I*Rational(1, 4)/(2*pi*Rational(1, 100)), 4*pi/10**7*I/(2*pi*Rational(2, 100)), 4*pi/10**7*500*I/(2*pi*Rational(1, 10))][kind]*10**6" } }
+
+# ── induction ───────────────────────────────────────────────────────────────
+- template: pc-flux-near-wire
+  skill: physics.calc-em
+  pace: quick
+  given: { I: { pick: [5, 10, 20] }, a: { pick: [1, 2] }, b: { pick: [3, 5, 10] }, L: { pick: [10, 20] } }
+  prompt: 'A rectangular loop ${{L}}$ cm long lies beside a long wire carrying ${{I}}$ A, its near and far sides ${{a}}$ cm and ${{b}}$ cm from the wire. What flux passes through it, in µWb?'
+  parts:
+    - { ask: 'Flux (µWb)', label: r, tex: '\Phi', value: 2e-7*I*L/100*log(b/a)*1e6, tol: 0.003, explain: 'The field changes across the loop, so slice it into strips of width $dr$: $\Phi = \displaystyle\int_a^b \dfrac{\mu_0I}{2\pi r}L\,dr = \dfrac{\mu_0IL}{2\pi}\ln\dfrac ba$' }
+  verify: { expect: { r: "integrate(4*pi/10**7*I/(2*pi*x)*Rational(L, 100), (x, Rational(a, 100), Rational(b, 100)))*10**6" } }
+
+- template: pc-generator-emf
+  skill: physics.calc-em
+  pace: quick
+  given: { N: { pick: [50, 100, 200] }, B: { pick: [0.1, 0.5] }, A: { pick: [100, 200] }, f: { pick: [50, 60] } }
+  prompt: 'A ${{N}}$-turn coil of area ${{A}}$ cm² spins at ${{f}}$ rev/s in a ${{B}}$ T field. What is the peak emf, in V?'
+  parts:
+    - { ask: 'Peak emf (V)', label: r2, tex: '\mathcal{E}_0', value: N*B*A*1e-4*2*pi*f, tol: 0.002, explain: '$\Phi = BA\cos\omega t$, so $\mathcal{E} = -N\,d\Phi/dt = NBA\omega\sin\omega t$, peaking at $NBA\omega$ with $\omega = 2\pi f$. Faster spinning or more turns means more voltage' }
+  verify: { expect: { r2: "Max(*[Abs(diff(-N*nsimplify(B)*A/10**4*cos(2*pi*f*x), x).subs(x, Rational(1, 4*f)))])" } }
+
+- template: pc-rod-terminal-speed
+  skill: physics.calc-em
+  pace: quick
+  given: { F: { pick: [0.5, 1, 2] }, R: { pick: [1, 2, 5] }, B: { pick: [0.5, 1] }, L: { pick: [0.2, 0.5] } }
+  prompt: 'A rod of length ${{L}}$ m on rails in a ${{B}}$ T field is pulled by a constant ${{F}}$ N force; the circuit has resistance ${{R}}$ Ω. What terminal speed does it reach, in m/s?'
+  parts:
+    - { ask: 'Speed (m/s)', label: r2, tex: 'v_t', value: F*R/(B^2*L^2), tol: 0.002, explain: 'The induced current $BLv/R$ feels a backward force $B^2L^2v/R$. It grows with speed until it equals $F$: $v_t = FR/B^2L^2$. The approach is exponential, like a falling object with drag' }
+  verify: { expect: { r2: "solve(Eq(nsimplify(B)**2*nsimplify(L)**2*x/R, nsimplify(F)), x)[0]" } }
+
+- template: pc-solenoid-inductance
+  skill: physics.calc-em
+  pace: quick
+  given: { N: { pick: [100, 500, 1000] }, A: { pick: [1, 5, 10] }, l: { pick: [10, 20] } }
+  prompt: 'A solenoid has ${{N}}$ turns, cross-section ${{A}}$ cm² and length ${{l}}$ cm. What is its self-inductance, in mH?'
+  parts:
+    - { ask: 'Inductance (mH)', label: r2, tex: 'L', value: 4*pi*1e-7*N^2*A*1e-4/(l/100)*1000, tol: 0.002, explain: '$B = \mu_0NI/l$ inside, each turn links $BA$, so $L = N\Phi/I = \mu_0N^2A/l$. The emf across it is $-L\,dI/dt$ and the energy it stores is $\tfrac12LI^2$' }
+  verify: { expect: { r2: "N*(4*pi/10**7*N/Rational(l, 100)*A/10**4)*1000" } }
+
+- template: pc-lc-current
+  skill: physics.calc-em
+  pace: quick
+  given: { C: { pick: [1, 10, 100] }, L: { pick: [1, 10] }, V: { pick: [5, 10] } }
+  prompt: 'A ${{C}}$ µF capacitor charged to ${{V}}$ V is connected across a ${{L}}$ mH inductor. What is the peak current, in mA?'
+  parts:
+    - { ask: 'Peak current (mA)', label: r2, tex: 'I_0', value: V*sqrt(C*1e-6/(L*1e-3))*1000, tol: 0.002, explain: 'Energy sloshes between the fields: $\tfrac12CV_0^2 = \tfrac12LI_0^2$. The charge obeys $\ddot q = -q/LC$, an oscillator with $\omega = 1/\sqrt{LC}$' }
+  verify: { expect: { r2: "Max(*solve(Eq(L/1000*x**2, C/10**6*V**2), x))*1000" } }
