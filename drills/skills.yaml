@@ -672,6 +672,8 @@ skills:
   - { id: prog.java-collections, domain: prog, title: "Arrays, ArrayLists and 2D arrays", short: "Collections", prereqs: [prog.java-control] }
   - { id: prog.java-algorithms, domain: prog, title: "Searching, sorting and recursion", short: "Algorithms", prereqs: [prog.java-collections] }
   - { id: prog.python, domain: prog, title: "Python: arithmetic, sequences, comprehensions, dicts and functions", short: "Python", prereqs: [prog.java-control] }
+  - { id: prog.shell, domain: prog, title: "The Unix shell: paths, files, wildcards, filters, pipes, grep and find", short: "Shell" }
+  - { id: prog.git, domain: prog, title: "Git: status, history, undoing, ignoring and branches", short: "Git", prereqs: [prog.shell] }
 
   # ── physics: electricity and magnetism, particles ───────────────────────────
   - { id: physics.kinematics, domain: physics, title: "Kinematics: vectors, graphs, constant acceleration, projectiles", short: "Kinematics" }

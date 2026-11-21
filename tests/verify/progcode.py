@@ -86,7 +86,37 @@ def py_pick(code, options):
     return hits[0]
 
 
-FUNCS = {"java_out": java_out, "java_ret": java_ret, "java_pick": java_pick, "py_out": py_out, "py_pick": py_pick}
+def sh_run(setup: str, cmds: str) -> str:
+    """stdout of `cmds` run by bash in a fresh directory after `setup` (not shown) has made its files;
+    git commands get a throwaway identity and no global config"""
+    key = "sh:" + hashlib.sha1((setup + "\0" + cmds).encode()).hexdigest()
+    if key not in _CACHE:
+        with tempfile.TemporaryDirectory() as d:
+            env = {"PATH": "/usr/local/bin:/usr/bin:/bin", "HOME": d, "LC_ALL": "C", "GIT_CONFIG_NOSYSTEM": "1",
+                   "GIT_AUTHOR_NAME": "A", "GIT_AUTHOR_EMAIL": "a@example.com", "GIT_COMMITTER_NAME": "A",
+                   "GIT_COMMITTER_EMAIL": "a@example.com"}
+            Path(d, "work").mkdir()
+            r = subprocess.run(["bash", "-c", "set -e\ngit config --global init.defaultBranch main\n" + setup + "\n" + cmds],
+                               cwd=Path(d, "work"), capture_output=True, text=True, timeout=60, env=env)
+            if r.returncode != 0:
+                raise RuntimeError(f"bash failed:\n{setup}\n{cmds}\n{r.stderr[-2000:]}")
+            _CACHE[key] = r.stdout
+    return _CACHE[key]
+
+
+def sh_out(setup, cmds):
+    return _num(sh_run(setup, cmds))
+
+
+def sh_pick(setup, cmds, options):
+    got = _show(sh_run(setup, cmds))
+    hits = [i for i, o in enumerate(options) if str(o) == got]
+    if len(hits) != 1:
+        raise ValueError(f"bash printed {got!r}, options {options}")
+    return hits[0]
+
+
+FUNCS = {"sh_out": sh_out, "sh_pick": sh_pick, "java_out": java_out, "java_ret": java_ret, "java_pick": java_pick, "py_out": py_out, "py_pick": py_pick}
 
 
 def check(p, H):

@@ -2,7 +2,7 @@
 
 Generated from `drills/frameworks/programming.yaml` by `scripts/framework.mjs`. ● drilled · ◐ partly · ○ no drills yet.
 
-**140 learning objectives** in 9 units (136 core): 64 drilled, 0 partly, 76 with no drills. Core: 64 / 136 drilled.
+**140 learning objectives** in 9 units (136 core): 76 drilled, 0 partly, 64 with no drills. Core: 76 / 136 drilled.
 
 ## Big ideas
 
@@ -30,8 +30,8 @@ Generated from `drills/frameworks/programming.yaml` by `scripts/framework.mjs`. 
 | 2 · Selection and iteration | core | 25–35% | 21 | 15 | 0 | 6 |
 | 3 · Class creation | core | 10–18% | 10 | 5 | 0 | 5 |
 | 4 · Data collections | core | 30–40% | 24 | 16 | 0 | 8 |
-| 5 · The Unix shell | core | — | 11 | 0 | 0 | 11 |
-| 6 · Version control with Git | core | — | 9 | 0 | 0 | 9 |
+| 5 · The Unix shell | core | — | 11 | 8 | 0 | 3 |
+| 6 · Version control with Git | core | — | 9 | 4 | 0 | 5 |
 | 7 · Python | core | — | 15 | 12 | 0 | 3 |
 | 8 · Scientific computing with NumPy | core | — | 19 | 0 | 0 | 19 |
 | 9 · Computing systems, networks and impact | extension | — | 4 | 0 | 0 | 4 |
@@ -532,39 +532,39 @@ Big ideas: CSN
 
 Book: swc-sh §1, §2
 
-- ○ **PR-5.1.A** (SWC-SH-2) Resolve an absolute or relative path (with ., .. and ~) from a given working directory to the directory or file it names.
+- ● **PR-5.1.A** (SWC-SH-2) Resolve an absolute or relative path (with ., .. and ~) from a given working directory to the directory or file it names.
   - EK: / is the root; a path not starting with / is relative to pwd; .. is the parent, . the current directory, ~ your home.
-  - P3
-- ○ **PR-5.1.B** (SWC-SH-2) Predict the output of a sequence of cd, pwd and ls (-a, -l, -F) commands.
+  - P3 · drills: pr-sh-paths
+- ● **PR-5.1.B** (SWC-SH-2) Predict the output of a sequence of cd, pwd and ls (-a, -l, -F) commands.
   - EK: cd with no argument returns home; ls -a shows hidden dot-files; -F marks directories with /.
   - Needs: PR-5.1.A
-  - P3
+  - P3 · drills: pr-sh-paths
 
 ### 5.2 Working with files and wildcards
 
 Book: swc-sh §3, §4
 
-- ○ **PR-5.2.A** (SWC-SH-3) Predict the file tree after mkdir, touch, cp, mv and rm commands.
+- ● **PR-5.2.A** (SWC-SH-3) Predict the file tree after mkdir, touch, cp, mv and rm commands.
   - EK: mv moves or renames and silently overwrites; cp copies; rm deletes for good (no trash); cp and rm need -r for directories.
   - Needs: PR-5.1.B
-  - P3
-- ○ **PR-5.2.B** (SWC-SH-4) Expand a wildcard pattern (*, ?) against a directory listing.
+  - P3 · drills: pr-sh-files
+- ● **PR-5.2.B** (SWC-SH-4) Expand a wildcard pattern (*, ?) against a directory listing.
   - EK: The shell expands *.pdb before the command runs; * matches any run of characters, ? exactly one.
   - Needs: PR-5.2.A
-  - P3
+  - P3 · drills: pr-sh-wildcards
 
 ### 5.3 Pipes and filters
 
 Book: swc-sh §4
 
-- ○ **PR-5.3.A** (SWC-SH-4) Predict the output of wc, sort (-n, -r), head, tail, cut and uniq on given text.
+- ● **PR-5.3.A** (SWC-SH-4) Predict the output of wc, sort (-n, -r), head, tail, cut and uniq on given text.
   - EK: sort is alphabetical unless -n (so 10 sorts before 2); uniq removes only adjacent duplicates, so sort first; wc -l counts lines.
   - Needs: PR-5.2.B
-  - P3
-- ○ **PR-5.3.B** (SWC-SH-4) Build a pipeline with |, > and >> that answers a question about files, and predict its output.
+  - P3 · drills: pr-sh-filters
+- ● **PR-5.3.B** (SWC-SH-4) Build a pipeline with |, > and >> that answers a question about files, and predict its output.
   - EK: > overwrites a file, >> appends; | sends one command's standard output to the next command's input.
   - Needs: PR-5.3.A
-  - P2 · P3
+  - P2 · P3 · drills: pr-sh-redirect
 
 ### 5.4 Loops and shell scripts
 
@@ -587,14 +587,14 @@ Book: swc-sh §5, §6
 
 Book: swc-sh §7
 
-- ○ **PR-5.5.A** (SWC-SH-7) Predict which lines grep matches with -i, -v, -w, -n, -c and -r.
+- ● **PR-5.5.A** (SWC-SH-7) Predict which lines grep matches with -i, -v, -w, -n, -c and -r.
   - EK: -i ignores case, -v inverts, -w matches whole words, -n numbers lines, -c counts, -r searches directories.
   - Needs: PR-5.3.A
-  - P3
-- ○ **PR-5.5.B** (SWC-SH-7) Predict which files find selects with -name, -type and -maxdepth, and feed its result to another command with $(...).
+  - P3 · drills: pr-sh-grep
+- ● **PR-5.5.B** (SWC-SH-7) Predict which files find selects with -name, -type and -maxdepth, and feed its result to another command with $(...).
   - EK: Quote the pattern (find . -name '*.txt') so the shell does not expand it first; $(command) is replaced by that command's output.
   - Needs: PR-5.5.A, PR-5.2.B
-  - P3
+  - P3 · drills: pr-sh-find
 
 ## Unit 6 · Version control with Git
 
@@ -607,10 +607,10 @@ Book: swc-git §1, §3, §4
 - ○ **PR-6.1.A** (SWC-GIT-1) Explain what a commit records and why it beats keeping copies like thesis_final_v2.
   - EK: A commit is a snapshot of the staged files with author, time, message and a link to its parent; history is the chain of commits.
   - P5
-- ○ **PR-6.1.B** (SWC-GIT-3, SWC-GIT-4) Predict git status (untracked, modified, staged) after edits, git add and git commit.
+- ● **PR-6.1.B** (SWC-GIT-3, SWC-GIT-4) Predict git status (untracked, modified, staged) after edits, git add and git commit.
   - EK: Working tree → git add → staging area → git commit → repository; only staged changes go into a commit.
   - Needs: PR-6.1.A, PR-5.2.A
-  - P3
+  - P3 · drills: pr-git-status
 
 ### 6.2 Exploring and undoing history
 
@@ -620,19 +620,19 @@ Book: swc-git §5
   - EK: HEAD is the current commit, HEAD~1 its parent; git diff shows unstaged changes, git diff --staged staged ones; + lines added, − lines removed.
   - Needs: PR-6.1.B
   - P3
-- ○ **PR-6.2.B** (SWC-GIT-5) Choose the command that undoes a change: discard a file's edits, unstage it, or revert a commit.
+- ● **PR-6.2.B** (SWC-GIT-5) Choose the command that undoes a change: discard a file's edits, unstage it, or revert a commit.
   - EK: git restore file discards working-tree edits; git restore --staged file unstages; git revert makes a new commit that undoes an old one without rewriting history.
   - Needs: PR-6.2.A
-  - P4
+  - P4 · drills: pr-git-history
 
 ### 6.3 Ignoring files and what not to commit
 
 Book: swc-git §6, §8, §9, §10
 
-- ○ **PR-6.3.A** (SWC-GIT-6) Predict which files a .gitignore excludes, including directory patterns and ! negation.
+- ● **PR-6.3.A** (SWC-GIT-6) Predict which files a .gitignore excludes, including directory patterns and ! negation.
   - EK: *.dat ignores every .dat file; results/ ignores a directory; !keep.dat re-includes one; files already tracked are not affected.
   - Needs: PR-6.1.B, PR-5.2.B
-  - P3
+  - P3 · drills: pr-git-ignore
 - ○ **PR-6.3.B** (SWC-GIT-8, SWC-GIT-9, SWC-GIT-10) Decide what stays out of a repository (secrets, large raw data, generated output) and add a licence and citation file to shared code.
   - EK: A secret pushed once stays in history; with no licence, others may not legally reuse the code; CITATION.cff tells people how to cite it.
   - Needs: PR-6.3.A
@@ -651,10 +651,10 @@ Book: swc-git §7, §11, §12
 
 Book: swc-git §13, §14, §15
 
-- ○ **PR-6.5.A** (SWC-GIT-13) Create and switch branches, and predict which commits each branch contains after new commits and a merge.
+- ● **PR-6.5.A** (SWC-GIT-13) Create and switch branches, and predict which commits each branch contains after new commits and a merge.
   - EK: A branch is a movable pointer to a commit; git switch -c name creates one; a fast-forward merge only moves the pointer, otherwise merge makes a two-parent commit.
   - Needs: PR-6.4.A
-  - P3
+  - P3 · drills: pr-git-branch
 - ○ **PR-6.5.B** (SWC-GIT-15) Read conflict markers and resolve a merge conflict to a stated intended result.
   - EK: <<<<<<< HEAD marks your side, ======= separates, >>>>>>> branch ends theirs; edit to the final text, delete the markers, then add and commit.
   - Needs: PR-6.5.A
