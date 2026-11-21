@@ -1,0 +1,655 @@
+# Financial accounting on the CPA Exam's FAR blueprint (Financial Accounting and Reporting), US GAAP.
+# Area I financial reporting, Area II select balance sheet accounts, Area III select transactions.
+# One question each. Every calculation is recomputed by sympy (inventory cost flow by a separate
+# unit-by-unit routine, fa_inventory in tests/verify/data.py; bond and lease values as explicit sums
+# of discounted payments); classifications and rules are authored.
+
+# ── Area I · A  for-profit statements ──────────────────────────────────────
+- template: fa-statement-home
+  skill: acct.statements
+  pace: recall
+  cases:
+    - { s: 'inventory on hand at year end', ans: 0 }
+    - { s: 'cost of goods sold', ans: 1 }
+    - { s: 'an unrealized gain on available-for-sale debt securities', ans: 2 }
+    - { s: 'a foreign currency translation adjustment', ans: 2 }
+    - { s: 'dividends declared', ans: 3 }
+    - { s: 'the purchase of treasury stock', ans: 3 }
+    - { s: 'cash paid to buy equipment', ans: 4 }
+  prompt: 'Where is {{s}} reported (its main home)?'
+  parts:
+    - ask: 'Statement'
+      label: a
+      choice: ["Balance sheet", "Income statement", "Other comprehensive income", "Statement of changes in equity", "Statement of cash flows (investing)"]
+      correct: ans
+      explain: 'Net income items go on the income statement; a short list of unrealized items (AFS debt securities, translation adjustments, some pension items, cash flow hedges) skips net income and goes to OCI, then accumulates in equity. Transactions with owners (dividends, treasury stock) appear in the statement of changes in equity'
+  verify: { authored: true }
+
+- template: fa-cf-class
+  skill: acct.statements
+  pace: recall
+  cases:
+    - { s: 'interest paid on a bank loan', ans: 0 }
+    - { s: 'dividends received from an investment', ans: 0 }
+    - { s: 'income taxes paid', ans: 0 }
+    - { s: 'cash paid to buy available-for-sale securities', ans: 1 }
+    - { s: 'proceeds from selling equipment', ans: 1 }
+    - { s: 'dividends paid to shareholders', ans: 2 }
+    - { s: 'repayment of a loan''s principal', ans: 2 }
+    - { s: 'converting bonds payable into common stock', ans: 3 }
+    - { s: 'buying land by issuing a note to the seller', ans: 3 }
+  prompt: 'Under US GAAP, where does {{s}} go in the statement of cash flows?'
+  parts:
+    - ask: 'Section'
+      label: a
+      choice: ["Operating", "Investing", "Financing", "Not in the statement: a noncash activity, disclosed separately"]
+      correct: ans
+      explain: 'Under US GAAP interest paid, interest and dividends received, and taxes are operating; long-term assets and investments are investing; owners and lenders'' principal are financing, including dividends paid. A swap with no cash (debt for stock, a note for land) is disclosed, not shown as a cash flow. IFRS allows choices for interest and dividends'
+  verify: { authored: true }
+
+- template: fa-cfo-indirect
+  skill: acct.statements
+  pace: quick
+  given: { ni: { pick: [120000, 250000] }, dep: { pick: [30000, 45000] }, gain: { pick: [5000, 12000] }, dar: { pick: [-8000, 10000] }, dinv: { pick: [6000, -4000] }, dap: { pick: [7000, -3000] } }
+  prompt: 'Net income was {{ni}}. Depreciation was {{dep}}, and there was a {{gain}} gain on selling equipment. Accounts receivable {{dar > 0 ? "rose" : "fell"}} by {{abs(dar)}}, inventory {{dinv > 0 ? "rose" : "fell"}} by {{abs(dinv)}}, and accounts payable {{dap > 0 ? "rose" : "fell"}} by {{abs(dap)}}. What is cash from operating activities (indirect method)?'
+  parts:
+    - { ask: 'Cash from operations', label: a, value: ni + dep - gain - dar - dinv + dap, tol: 0.0001, explain: 'Start from net income, add back noncash expenses (depreciation), remove gains (the cash goes to investing), then adjust for working capital: an increase in a current asset uses cash, an increase in a current liability provides it' }
+  verify: { expect: { a: "ni + dep - gain + (-dar) + (-dinv) + dap" } }
+
+- template: fa-cash-collected
+  skill: acct.statements
+  pace: quick
+  given: { sales: { pick: [500000, 800000] }, dar: { pick: [-20000, 15000, 30000] } }
+  prompt: 'Credit sales were {{sales}} and accounts receivable {{dar > 0 ? "rose" : "fell"}} by {{abs(dar)}} during the year (no write-offs). How much cash was collected from customers?'
+  parts:
+    - { ask: 'Cash collected', label: a, value: sales - dar, tol: 0.0001, explain: 'Beginning AR + sales − collections = ending AR, so collections = sales − the increase in AR. A fall in AR means customers paid down old balances too' }
+  verify: { expect: { a: "sales - dar" } }
+
+- template: fa-goodwill
+  skill: acct.statements
+  pace: quick
+  given: { cons: { pick: [800000, 900000] }, nci: { pick: [200000, 250000] }, fvna: { pick: [700000, 850000] } }
+  prompt: 'A parent pays {{cons}} for a controlling interest. The noncontrolling interest''s fair value is {{nci}}, and the fair value of the subsidiary''s identifiable net assets is {{fvna}}. How much goodwill is recognized?'
+  parts:
+    - { ask: 'Goodwill', label: a, value: cons + nci - fvna, tol: 0.0001, explain: 'Goodwill = consideration transferred + fair value of the noncontrolling interest − fair value of identifiable net assets. If that comes out negative, it is a bargain purchase gain instead' }
+  verify: { expect: { a: "(cons + nci) - fvna" } }
+
+- template: fa-nci-income
+  skill: acct.statements
+  pace: quick
+  given: { pct: { pick: [0.6, 0.75, 0.8, 0.9] }, nis: { pick: [200000, 360000] } }
+  prompt: 'A parent owns {{pct*100}}% of a subsidiary that earned {{nis}}. How much of the subsidiary''s net income is attributed to the noncontrolling interest?'
+  parts:
+    - { ask: 'NCI share', label: a, value: (1 - pct)*nis, tol: 0.0001, explain: 'Consolidated net income includes 100% of the subsidiary; it is then split between the parent and the noncontrolling interest by ownership' }
+  verify: { expect: { a: "nis - pct*nis" } }
+
+- template: fa-intercompany-profit
+  skill: acct.statements
+  pace: quick
+  given: { left: { pick: [40000, 60000, 90000] }, gm: { pick: [0.2, 0.25, 0.4] } }
+  prompt: 'A subsidiary sold goods to its parent at a {{gm*100}}% gross margin on the selling price. At year end the parent still holds {{left}} of them, at the transfer price. How much unrealized profit is eliminated in consolidation?'
+  parts:
+    - { ask: 'Unrealized profit', label: a, value: left*gm, tol: 0.0001, explain: 'The group has not sold those goods to anyone outside it, so the seller''s profit in the remaining inventory is removed: remaining inventory × gross margin' }
+  verify: { expect: { a: "gm*left" } }
+
+# ── Area I · B, C  not-for-profit and government ───────────────────────────
+- template: fa-nfp-net-assets
+  skill: acct.nfp-gov
+  pace: recall
+  cases:
+    - { s: 'a cash gift with no donor conditions or restrictions', ans: 0 }
+    - { s: 'money the board decides to set aside for a future building', ans: 0 }
+    - { s: 'a gift the donor says must be spent on scholarships', ans: 1 }
+    - { s: 'an endowment gift whose principal the donor says must be kept forever', ans: 1 }
+    - { s: 'scholarship money from a restricted gift, once the scholarships are paid', ans: 2 }
+  prompt: 'In a nongovernmental not-for-profit''s statements, how is {{s}} reported?'
+  parts:
+    - ask: 'Class'
+      label: a
+      choice: ["Net assets without donor restrictions", "Net assets with donor restrictions", "Released: reclassified from with to without donor restrictions"]
+      correct: ans
+      explain: 'Only a donor can restrict: the board''s own designations stay without donor restrictions. When the purpose or time restriction is met, the net assets are released, shown as a reclassification on the statement of activities'
+  verify: { authored: true }
+
+- template: fa-gov-basis
+  skill: acct.nfp-gov
+  pace: recall
+  cases:
+    - { s: 'governmental funds (general, special revenue, capital projects, debt service, permanent)', ans: 0 }
+    - { s: 'proprietary funds (enterprise and internal service)', ans: 1 }
+    - { s: 'fiduciary funds (pension trust, custodial)', ans: 1 }
+    - { s: 'the government-wide statements', ans: 1 }
+  prompt: 'Which measurement focus and basis of accounting do {{s}} use?'
+  parts:
+    - ask: 'Basis'
+      label: a
+      choice: ["Current financial resources, modified accrual", "Economic resources, full accrual"]
+      correct: ans
+      explain: 'Governmental funds track spendable resources: revenue when measurable and available, capital assets and long-term debt left out. Everything else, including the government-wide view, uses business-style accrual accounting. Reconciliations bridge the two'
+  verify: { authored: true }
+
+- template: fa-fund-purpose
+  skill: acct.nfp-gov
+  pace: recall
+  cases:
+    - { s: 'everything not required to be accounted for in another fund', o1: 'General fund', o2: 'Special revenue fund', o3: 'Enterprise fund', o4: 'Custodial fund', ans: 0 }
+    - { s: 'a gas tax legally restricted to road maintenance', o1: 'General fund', o2: 'Special revenue fund', o3: 'Debt service fund', o4: 'Permanent fund', ans: 1 }
+    - { s: 'building a new city hall with bond proceeds', o1: 'Enterprise fund', o2: 'Debt service fund', o3: 'Capital projects fund', o4: 'General fund', ans: 2 }
+    - { s: 'a water utility that charges residents fees for service', o1: 'Internal service fund', o2: 'Special revenue fund', o3: 'General fund', o4: 'Enterprise fund', ans: 3 }
+    - { s: 'a motor pool that charges other city departments', o1: 'Internal service fund', o2: 'Enterprise fund', o3: 'Capital projects fund', o4: 'Custodial fund', ans: 0 }
+    - { s: 'resources set aside to pay principal and interest on general long-term debt', o1: 'Capital projects fund', o2: 'Debt service fund', o3: 'Permanent fund', o4: 'Pension trust fund', ans: 1 }
+    - { s: 'a gift whose earnings, but not principal, support the city cemetery', o1: 'Private-purpose trust fund', o2: 'Special revenue fund', o3: 'Permanent fund', o4: 'Custodial fund', ans: 2 }
+  prompt: 'Which fund accounts for {{s}}?'
+  parts:
+    - ask: 'Fund'
+      label: a
+      choice: ["{{o1}}", "{{o2}}", "{{o3}}", "{{o4}}"]
+      correct: ans
+      explain: 'Governmental funds: general, special revenue, capital projects, debt service, permanent. Proprietary funds charge fees: enterprise (public), internal service (other departments). Fiduciary funds hold resources for others: pension and other trust funds, custodial funds'
+  verify: { authored: true }
+
+# ── Area I · D, E, F  public companies, special frameworks, ratios ─────────
+- template: fa-public-reporting
+  skill: acct.statements
+  pace: recall
+  cases:
+    - { s: 'the annual report a public company files with the SEC', o1: 'Form 10-K', o2: 'Form 10-Q', o3: 'Form 8-K', o4: 'Form S-1', ans: 0 }
+    - { s: 'the quarterly report, with reviewed but unaudited statements', o1: 'Form 8-K', o2: 'Form 10-Q', o3: 'Form 10-K', o4: 'Proxy statement', ans: 1 }
+    - { s: 'the report of a major event, such as a change of auditor, within days', o1: 'Form 10-Q', o2: 'Form 10-K', o3: 'Form 8-K', o4: 'Form 20-F', ans: 2 }
+    - { s: 'the threshold that makes an operating segment reportable (revenue, profit or assets)', o1: '5% of the total', o2: '25% of the total', o3: '50% of the total', o4: '10% of the total', ans: 3 }
+    - { s: 'the minimum share of consolidated external revenue that reportable segments must cover together', o1: '75%', o2: '50%', o3: '90%', o4: '10%', ans: 0 }
+  prompt: 'What is {{s}}?'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["{{o1}}", "{{o2}}", "{{o3}}", "{{o4}}"]
+      correct: ans
+      explain: 'Public companies file a 10-K each year (audited), a 10-Q for each of the other quarters (reviewed), and an 8-K for significant events. A segment is reportable at 10% of combined revenue, profit or loss, or assets, and segments are added until they cover 75% of external revenue'
+  verify: { authored: true }
+
+- template: fa-special-framework
+  skill: acct.statements
+  pace: quick
+  cases:
+    - { s: 'Under the pure cash basis, when is revenue recorded?', o1: 'When cash is received', o2: 'When it is earned', o3: 'When invoiced', o4: 'At year end', ans: 0 }
+    - { s: 'Which special purpose framework follows the rules used to file the entity''s income tax return?', o1: 'Cash basis', o2: 'Tax basis', o3: 'Regulatory basis', o4: 'Contractual basis', ans: 1 }
+    - { s: 'A modified cash basis most commonly adds which accrual item to the cash basis?', o1: 'Accrued revenue', o2: 'Deferred taxes', o3: 'Capitalized fixed assets with depreciation', o4: 'Pension obligations', ans: 2 }
+    - { s: 'What must statements on a special purpose framework do?', o1: 'Follow GAAP in full', o2: 'Show a GAAP reconciliation', o3: 'Be audited', o4: 'Describe the basis and how it differs from GAAP', ans: 3 }
+  prompt: '{{s}}'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["{{o1}}", "{{o2}}", "{{o3}}", "{{o4}}"]
+      correct: ans
+      explain: 'Special purpose frameworks (cash, modified cash, tax, regulatory, contractual) are other comprehensive bases of accounting. Titles should avoid GAAP terms (say "statement of revenues collected", not "income statement"), and the notes describe the basis and its main differences from GAAP'
+  verify: { authored: true }
+
+- template: fa-current-ratio
+  skill: acct.statements
+  pace: quick
+  given: { cash: { pick: [20000, 50000] }, ar: { pick: [60000, 90000] }, inv: { pick: [80000, 120000] }, cl: { pick: [100000, 125000] } }
+  prompt: 'Cash is {{cash}}, accounts receivable {{ar}}, inventory {{inv}}, and current liabilities {{cl}}. What is the current ratio?'
+  parts:
+    - { ask: 'Current ratio', label: a, value: (cash + ar + inv)/cl, tol: 0.001, explain: 'Current assets ÷ current liabilities. The quick (acid-test) ratio leaves out inventory and prepaids: (cash + marketable securities + receivables) ÷ current liabilities' }
+  verify: { expect: { a: "(cash + ar + inv)/cl" } }
+
+- template: fa-quick-ratio
+  skill: acct.statements
+  pace: quick
+  given: { cash: { pick: [20000, 50000] }, ar: { pick: [60000, 90000] }, inv: { pick: [80000, 120000] }, cl: { pick: [100000, 125000] } }
+  prompt: 'Cash is {{cash}}, accounts receivable {{ar}}, inventory {{inv}}, and current liabilities {{cl}}. What is the quick (acid-test) ratio?'
+  parts:
+    - { ask: 'Quick ratio', label: a, value: (cash + ar)/cl, tol: 0.001, explain: 'Quick assets (cash, marketable securities, receivables) ÷ current liabilities. Inventory is left out because it must be sold before it becomes cash' }
+  verify: { expect: { a: "(cash + ar)/cl" } }
+
+- template: fa-ar-turnover
+  skill: acct.statements
+  pace: quick
+  given: { sales: { pick: [730000, 1095000] }, ar0: { pick: [80000, 100000] }, ar1: { pick: [100000, 120000] } }
+  prompt: 'Net credit sales were {{sales}}. Accounts receivable was {{ar0}} at the start of the year and {{ar1}} at the end. How many days of sales are in receivables on average (365-day year)?'
+  parts:
+    - { ask: 'Days', label: a, value: 365/(sales/((ar0 + ar1)/2)), tol: 0.001, explain: 'Receivables turnover = credit sales ÷ average receivables; days sales outstanding = 365 ÷ turnover, the average time to collect' }
+  verify: { expect: { a: "(ar0 + ar1)/2/(sales/365)" } }
+
+- template: fa-inventory-days
+  skill: acct.statements
+  pace: quick
+  given: { cogs: { pick: [365000, 547500] }, inv0: { pick: [40000, 60000] }, inv1: { pick: [50000, 70000] } }
+  prompt: 'Cost of goods sold was {{cogs}}; inventory was {{inv0}} at the start of the year and {{inv1}} at the end. On average, how many days is inventory held (365-day year)?'
+  parts:
+    - { ask: 'Days', label: a, value: 365/(cogs/((inv0 + inv1)/2)), tol: 0.001, explain: 'Inventory turnover = COGS ÷ average inventory (cost, not sales, because inventory is carried at cost); days in inventory = 365 ÷ turnover' }
+  verify: { expect: { a: "(inv0 + inv1)/2/(cogs/365)" } }
+
+- template: fa-eps
+  skill: acct.statements
+  pace: quick
+  given: { ni: { pick: [500000, 900000] }, pref: { pick: [50000, 100000] }, sh: { pick: [100000, 200000, 250000] } }
+  prompt: 'Net income was {{ni}}. Preferred dividends declared were {{pref}}, and weighted-average common shares outstanding were {{sh}}. What is basic EPS?'
+  parts:
+    - { ask: 'Basic EPS', label: a, value: (ni - pref)/sh, tol: 0.001, explain: 'Basic EPS = income available to common shareholders ÷ weighted-average common shares. Subtract preferred dividends declared (or, if cumulative, the year''s dividends whether declared or not)' }
+  verify: { expect: { a: "(ni - pref)/sh" } }
+
+- template: fa-weighted-shares
+  skill: acct.statements
+  pace: quick
+  given: { s0: { pick: [100000, 120000] }, k: { pick: [24000, 36000] }, mo: { pick: [4, 7, 10] } }
+  prompt: '{{s0}} common shares were outstanding all year, and {{k}} more were issued for cash on {{mo == 4 ? "April" : (mo == 7 ? "July" : "October")}} 1. What is the weighted-average number of shares for EPS?'
+  parts:
+    - { ask: 'Weighted shares', label: a, value: s0 + k*(13 - mo)/12, tol: 0.0001, explain: 'Weight new shares by the fraction of the year they were outstanding (from April 1 that is 9 of 12 months). A stock dividend or split is different: it is applied retroactively, as if it had always been in effect' }
+  verify: { expect: { a: "s0 + k*Rational(12 - (mo - 1), 12)" } }
+
+# ── Area II · A, B  cash and receivables ───────────────────────────────────
+- template: fa-cash-equivalent
+  skill: acct.current-assets
+  pace: recall
+  cases:
+    - { s: 'a 3-month Treasury bill bought 2 months before year end', ans: 0 }
+    - { s: 'a money market fund', ans: 0 }
+    - { s: 'petty cash', ans: 0 }
+    - { s: 'a 6-month certificate of deposit', ans: 1 }
+    - { s: 'a customer''s postdated check', ans: 1 }
+    - { s: 'cash legally restricted for a plant expansion in three years', ans: 1 }
+  prompt: 'Is {{s}} reported in cash and cash equivalents?'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["Yes", "No"]
+      correct: ans
+      explain: 'Cash equivalents are short-term, highly liquid investments with an original maturity of three months or less when bought. Postdated checks are receivables; restricted cash is shown separately (noncurrent if the restriction runs past a year)'
+  verify: { authored: true }
+
+- template: fa-bank-rec
+  skill: acct.current-assets
+  pace: quick
+  given: { bank: { pick: [42000, 58000] }, dit: { pick: [3500, 6200] }, oc: { pick: [4800, 7100] } }
+  prompt: 'The bank statement shows {{bank}}. Deposits in transit total {{dit}} and outstanding checks {{oc}}. What is the correct (adjusted) cash balance?'
+  parts:
+    - { ask: 'Adjusted cash', label: a, value: bank + dit - oc, tol: 0.0001, explain: 'Bank side: add deposits the bank has not yet recorded, subtract checks that have not cleared. The book side is adjusted separately for items the bank knew first: collections and interest added, service charges and NSF checks subtracted. Both sides must reach the same number' }
+  verify: { expect: { a: "bank - (oc - dit)" } }
+
+- template: fa-allowance
+  skill: acct.current-assets
+  pace: quick
+  given: { ar: { pick: [50000, 80000] }, rate: { pick: [0.03, 0.05] }, old: { pick: [500, 1200] }, side: { pick: [0, 1] } }
+  prompt: 'Year-end receivables are {{ar}}, and {{rate*100}}% is expected to be uncollectible. Before adjusting, the allowance has a {{old}} {{side == 0 ? "credit" : "debit"}} balance. What is bad debt expense for the year?'
+  parts:
+    - { ask: 'Bad debt expense', label: a, value: "rate*ar - (side == 0 ? old : -old)", tol: 0.0001, explain: 'The balance-sheet (percentage of receivables) approach sets the ending allowance; the expense is whatever brings the account there. A debit balance (write-offs exceeded the estimate) means the expense must cover that too' }
+  verify: { expect: { a: "rate*ar - old + 2*old*side" } }
+
+- template: fa-aging
+  skill: acct.current-assets
+  pace: quick
+  cases:
+    - { c1: 60000, c2: 20000, c3: 8000, r1: 0.01, r2: 0.05, r3: 0.25 }
+    - { c1: 90000, c2: 30000, c3: 10000, r1: 0.02, r2: 0.1, r3: 0.4 }
+    - { c1: 45000, c2: 15000, c3: 5000, r1: 0.01, r2: 0.04, r3: 0.5 }
+  prompt: 'Receivables are aged: {{c1}} current ({{r1*100}}% expected to be uncollectible), {{c2}} 31–90 days ({{r2*100}}%), and {{c3}} over 90 days ({{r3*100}}%). What should the allowance for doubtful accounts be?'
+  parts:
+    - { ask: 'Allowance', label: a, value: c1*r1 + c2*r2 + c3*r3, tol: 0.0001, explain: 'An aging schedule applies a higher loss rate to older balances and adds them up. Under CECL the rates should reflect expected lifetime losses, including forecasts, not just history' }
+  verify: { expect: { a: "r1*c1 + r2*c2 + r3*c3" } }
+
+# ── Area II · C  inventory ─────────────────────────────────────────────────
+- template: fa-inventory-flow
+  skill: acct.current-assets
+  pace: quick
+  cases:
+    - { m: 0, q1: 100, k1: 10, q2: 200, k2: 12, q3: 150, k3: 15, sold: 300, ans: 2250 }
+    - { m: 1, q1: 100, k1: 10, q2: 200, k2: 12, q3: 150, k3: 15, sold: 300, ans: 1600 }
+    - { m: 2, q1: 100, k1: 10, q2: 200, k2: 12, q3: 150, k3: 15, sold: 300, ans: 1883.3333333333333 }
+    - { m: 0, q1: 50, k1: 20, q2: 100, k2: 22, q3: 50, k3: 25, sold: 120, ans: 1910 }
+    - { m: 1, q1: 50, k1: 20, q2: 100, k2: 22, q3: 50, k3: 25, sold: 120, ans: 1660 }
+    - { m: 2, q1: 50, k1: 20, q2: 100, k2: 22, q3: 50, k3: 25, sold: 120, ans: 1780 }
+    - { m: 0, q1: 200, k1: 5, q2: 300, k2: 6, q3: 100, k3: 8, sold: 400, ans: 1400 }
+    - { m: 1, q1: 200, k1: 5, q2: 300, k2: 6, q3: 100, k3: 8, sold: 400, ans: 1000 }
+    - { m: 2, q1: 200, k1: 5, q2: 300, k2: 6, q3: 100, k3: 8, sold: 400, ans: 1200 }
+    - { m: 0, q1: 80, k1: 30, q2: 120, k2: 33, q3: 100, k3: 36, sold: 150, ans: 5250 }
+    - { m: 1, q1: 80, k1: 30, q2: 120, k2: 33, q3: 100, k3: 36, sold: 150, ans: 4710 }
+    - { m: 2, q1: 80, k1: 30, q2: 120, k2: 33, q3: 100, k3: 36, sold: 150, ans: 4980 }
+  prompt: 'Beginning inventory: {{q1}} units at {{k1}}. Purchases: {{q2}} at {{k2}}, then {{q3}} at {{k3}}. {{sold}} units were sold. What is ending inventory under periodic {{m == 0 ? "FIFO" : (m == 1 ? "LIFO" : "weighted average")}}?'
+  parts:
+    - { ask: 'Ending inventory', label: a, value: ans, tol: 0.0001, explain: 'FIFO sells the oldest units first, so ending inventory is the newest (highest, when prices rise) costs. LIFO leaves the oldest costs in inventory. Weighted average prices every unit at total cost ÷ total units available. With rising prices FIFO gives the highest ending inventory and income' }
+  verify: { expect: { a: "fa_inventory(m, [(q1, k1), (q2, k2), (q3, k3)], sold)" } }
+
+- template: fa-lcnrv
+  skill: acct.current-assets
+  pace: quick
+  given: { cost: { pick: [50, 80] }, price: { pick: [60, 90] }, sell: { pick: [8, 15] }, n: { pick: [100, 400] } }
+  prompt: 'A FIFO company holds {{n}} units that cost {{cost}} each. They sell for {{price}} each, with selling costs of {{sell}} each. At what total amount are they carried?'
+  parts:
+    - { ask: 'Carrying amount', label: a, value: "n*min(cost, price - sell)", tol: 0.0001, explain: 'Under FIFO or average cost, inventory is carried at the lower of cost and net realizable value (selling price − costs to complete and sell). LIFO and the retail method still use the older lower-of-cost-or-market rule' }
+  verify: { expect: { a: "n*Min(cost, price - sell)" } }
+
+- template: fa-gross-profit-method
+  skill: acct.current-assets
+  pace: quick
+  given: { bi: { pick: [40000, 60000] }, pur: { pick: [200000, 260000] }, sales: { pick: [300000, 350000] }, gm: { pick: [0.3, 0.4] } }
+  prompt: 'Inventory was destroyed in a fire. Beginning inventory was {{bi}}, purchases {{pur}}, sales {{sales}}, and the usual gross margin is {{gm*100}}% of sales. Estimate the inventory lost.'
+  parts:
+    - { ask: 'Estimated inventory', label: a, value: bi + pur - sales*(1 - gm), tol: 0.0001, explain: 'Goods available − estimated cost of goods sold, where COGS = sales × (1 − gross margin). Used for insurance claims and interim estimates, never for annual statements' }
+  verify: { expect: { a: "bi + pur - (sales - gm*sales)" } }
+
+# ── Area II · D, F  PP&E and intangibles ───────────────────────────────────
+- template: fa-dep-sl
+  skill: acct.long-lived
+  pace: quick
+  given: { cost: { pick: [10000, 50000, 80000] }, sv: { pick: [0.05, 0.1] }, life: { pick: [4, 5, 8, 10] } }
+  prompt: 'Equipment costs {{cost}}, has a salvage value of {{cost*sv}} and a {{life}}-year life. What is annual straight-line depreciation?'
+  parts:
+    - { ask: 'Depreciation', label: a, value: (cost - cost*sv)/life, tol: 0.0001, explain: 'Straight line spreads the depreciable base (cost − salvage) evenly over the life' }
+  verify: { expect: { a: "cost*(1 - sv)/life" } }
+
+- template: fa-dep-ddb
+  skill: acct.long-lived
+  pace: quick
+  given: { cost: { pick: [10000, 50000, 80000] }, sv: { pick: [0.05, 0.1] }, life: { pick: [4, 5, 8, 10] } }
+  prompt: 'Equipment costs {{cost}}, has a salvage value of {{cost*sv}} and a {{life}}-year life. What is double-declining-balance depreciation in year 2?'
+  parts:
+    - { ask: 'Year-2 depreciation', label: a, value: cost*(1 - 2/life)*(2/life), tol: 0.0001, explain: 'DDB applies twice the straight-line rate (2 ÷ life) to the book value at the start of each year, ignoring salvage until book value would fall below it. Year 1 = cost × 2/n; year 2 = (cost − year 1) × 2/n' }
+  verify: { expect: { a: "(cost - cost*Rational(2)/life)*Rational(2)/life" } }
+
+- template: fa-dep-syd
+  skill: acct.long-lived
+  pace: quick
+  given: { cost: { pick: [10000, 50000, 80000] }, sv: { pick: [0.05, 0.1] }, life: { pick: [4, 5, 8] }, yr: { pick: [1, 2, 3] } }
+  prompt: 'Equipment costs {{cost}}, has a salvage value of {{cost*sv}} and a {{life}}-year life. What is sum-of-the-years''-digits depreciation in year {{yr}}?'
+  parts:
+    - { ask: 'Depreciation', label: a, value: (cost - cost*sv)*(life - yr + 1)/(life*(life + 1)/2), tol: 0.0001, explain: 'SYD multiplies the depreciable base by (remaining life at the start of the year) ÷ (1 + 2 + … + n). For a 5-year life the fractions are 5/15, 4/15, 3/15, 2/15, 1/15' }
+  verify: { expect: { a: "cost*(1 - sv)*(life - yr + 1)/Sum(Symbol('j'), (Symbol('j'), 1, life)).doit()" } }
+
+- template: fa-disposal
+  skill: acct.long-lived
+  pace: quick
+  given: { cost: { pick: [60000, 90000] }, acc: { pick: [35000, 50000] }, proc: { pick: [20000, 45000] } }
+  prompt: 'A machine that cost {{cost}}, with accumulated depreciation of {{acc}}, is sold for {{proc}}. What is the gain (positive) or loss (negative)?'
+  parts:
+    - { ask: 'Gain or loss', label: a, value: proc - (cost - acc), tol: 0.0001, explain: 'Proceeds − book value, where book value = cost − accumulated depreciation (brought up to the date of sale first)' }
+  verify: { expect: { a: "proc + acc - cost" } }
+
+- template: fa-change-estimate
+  skill: acct.long-lived
+  pace: quick
+  given: { cost: { pick: [100000, 120000] }, life: { pick: [10, 8] }, used: { pick: [3, 4] }, rem: { pick: [3, 7] } }
+  prompt: 'An asset cost {{cost}}, no salvage, and has been depreciated straight-line over a {{life}}-year life for {{used}} years. Management now expects it to last {{rem}} more years. What is depreciation for the current year?'
+  parts:
+    - { ask: 'Depreciation', label: a, value: (cost - cost/life*used)/rem, tol: 0.0001, explain: 'A change in estimate is prospective: no restatement. Spread the remaining book value over the remaining life from now on' }
+  verify: { expect: { a: "cost*(life - used)/life/rem" } }
+
+- template: fa-capitalized-interest
+  skill: acct.long-lived
+  pace: quick
+  cases:
+    - { waae: 800000, rate: 0.08, actual: 90000 }
+    - { waae: 1500000, rate: 0.06, actual: 70000 }
+    - { waae: 600000, rate: 0.1, actual: 50000 }
+    - { waae: 2000000, rate: 0.05, actual: 120000 }
+  prompt: 'While building its own warehouse, a company''s weighted-average accumulated expenditures were {{waae}}. The applicable interest rate is {{rate*100}}%, and actual interest incurred in the year was {{actual}}. How much interest is capitalized?'
+  parts:
+    - { ask: 'Capitalized interest', label: a, value: "min(waae*rate, actual)", tol: 0.0001, explain: 'Capitalize avoidable interest (weighted-average accumulated expenditures × rate), but never more than the interest actually incurred' }
+  verify: { expect: { a: "Min(rate*waae, actual)" } }
+
+- template: fa-goodwill-impairment
+  skill: acct.long-lived
+  pace: quick
+  cases:
+    - { gw: 200000, carry: 1500000, fv: 1400000 }
+    - { gw: 80000, carry: 900000, fv: 750000 }
+    - { gw: 150000, carry: 2000000, fv: 1950000 }
+    - { gw: 50000, carry: 600000, fv: 500000 }
+  prompt: 'A reporting unit carries goodwill of {{gw}}. Its total carrying amount is {{carry}} and its fair value is {{fv}}. What goodwill impairment loss is recognized?'
+  parts:
+    - { ask: 'Impairment loss', label: a, value: "min(gw, carry - fv)", tol: 0.0001, explain: 'Goodwill is not amortized (except under the private-company alternative); it is tested for impairment. The loss is the excess of the unit''s carrying amount over its fair value, capped at the goodwill itself' }
+  verify: { expect: { a: "Min(gw, carry - fv)" } }
+
+# ── Area II · E  investments ───────────────────────────────────────────────
+- template: fa-investment-class
+  skill: acct.investments
+  pace: recall
+  cases:
+    - { s: 'debt securities bought to sell in the near term', ans: 0 }
+    - { s: 'equity securities (under 20%, readily determinable fair value)', ans: 0 }
+    - { s: 'debt securities neither trading nor held to maturity', ans: 1 }
+    - { s: 'debt securities the company intends and is able to hold to maturity', ans: 2 }
+    - { s: '30% of another company''s voting stock, giving significant influence', ans: 3 }
+  prompt: 'How are {{s}} measured after purchase?'
+  parts:
+    - ask: 'Measurement'
+      label: a
+      choice: ["Fair value, changes through net income", "Fair value, unrealized changes through other comprehensive income", "Amortized cost", "Equity method"]
+      correct: ans
+      explain: 'Debt securities: trading (FV-NI), available for sale (FV-OCI), held to maturity (amortized cost). Equity securities are at fair value through net income unless the investor has significant influence (about 20–50%, equity method) or control (consolidate)'
+  verify: { authored: true }
+
+- template: fa-equity-method
+  skill: acct.investments
+  pace: quick
+  given: { cost: { pick: [300000, 450000] }, pct: { pick: [0.25, 0.3, 0.4] }, nii: { pick: [200000, 120000] }, div: { pick: [50000, 80000] } }
+  prompt: 'An investor pays {{cost}} for {{pct*100}}% of a company and gains significant influence. That year the investee earns {{nii}} and pays {{div}} in dividends. What is the investment''s carrying amount at year end?'
+  parts:
+    - { ask: 'Carrying amount', label: a, value: cost + pct*nii - pct*div, tol: 0.0001, explain: 'Under the equity method the investment rises by the investor''s share of income (recognized as income) and falls by its share of dividends (a return of investment, not income)' }
+  verify: { expect: { a: "cost + pct*(nii - div)" } }
+
+# ── Area II · G, H  payables and debt ──────────────────────────────────────
+- template: fa-accrued-interest
+  skill: acct.liabilities
+  pace: quick
+  given: { prin: { pick: [60000, 120000] }, rate: { pick: [0.06, 0.08, 0.09] }, mo: { pick: [2, 3, 4, 5] } }
+  prompt: 'A {{prin}} note payable at {{rate*100}}% annual interest was signed {{mo}} months before year end; interest is paid at maturity. How much interest is accrued at year end?'
+  parts:
+    - { ask: 'Accrued interest', label: a, value: prin*rate*mo/12, tol: 0.0001, explain: 'Principal × annual rate × fraction of the year elapsed. The accrual records the expense in the period it is incurred, before any cash is paid' }
+  verify: { expect: { a: "prin*rate*Rational(mo, 12)" } }
+
+- template: fa-bond-price
+  skill: acct.liabilities
+  pace: quick
+  given: { cr: { pick: [0.06, 0.08] }, mr: { pick: [0.05, 0.07, 0.1] }, n: { pick: [5, 10] } }
+  prompt: 'A company issues 100,000 of bonds paying {{cr*100}}% interest annually for {{n}} years, when the market rate is {{mr*100}}%. What do the bonds sell for?'
+  parts:
+    - { ask: 'Issue price', label: a, value: 100000*(1 + mr)^(-n) + 100000*cr*(1 - (1 + mr)^(-n))/mr, tol: 0.0001, explain: 'Price = present value of the face amount + present value of the coupon annuity, both at the market rate. Coupon above market → premium; below → discount' }
+  verify: { expect: { a: "Sum(100000*cr/(1 + mr)**Symbol('t'), (Symbol('t'), 1, n)).doit() + 100000/(1 + mr)**n" } }
+
+- template: fa-bond-amortization
+  skill: acct.liabilities
+  pace: quick
+  cases:
+    - { carry: 92640, mr: 0.08, cr: 0.06 }
+    - { carry: 104100, mr: 0.05, cr: 0.06 }
+    - { carry: 95000, mr: 0.07, cr: 0.05 }
+    - { carry: 108000, mr: 0.06, cr: 0.08 }
+  prompt: 'Bonds with a 100,000 face pay {{cr*100}}% annually. Their carrying amount at the start of the year is {{carry}}, and the market rate at issue was {{mr*100}}%. Under the effective interest method, by how much does the carrying amount change this year (increase positive)?'
+  parts:
+    - { ask: 'Change in carrying amount', label: a, value: carry*mr - 100000*cr, tol: 0.0001, explain: 'Interest expense = carrying amount × market rate at issue; cash paid = face × coupon rate. The difference amortizes the discount (carrying amount rises toward face) or the premium (it falls toward face)' }
+  verify: { expect: { a: "mr*carry - cr*100000" } }
+
+# ── Area II · I  equity ────────────────────────────────────────────────────
+- template: fa-stock-dividend
+  skill: acct.equity
+  pace: quick
+  given: { sh: { pick: [100000, 200000] }, pct: { pick: [0.05, 0.1] }, mp: { pick: [25, 40] }, par: { pick: [1, 5] } }
+  prompt: 'A company with {{sh}} shares outstanding ({{par}} par) declares a {{pct*100}}% stock dividend when the market price is {{mp}}. By how much does retained earnings fall?'
+  parts:
+    - { ask: 'Decrease in retained earnings', label: a, value: sh*pct*mp, tol: 0.0001, explain: 'A small stock dividend (under about 20–25%) is recorded at the shares'' fair value; a large one at par. Total equity does not change: retained earnings move into common stock and paid-in capital' }
+  verify: { expect: { a: "pct*sh*mp" } }
+
+- template: fa-retained-earnings
+  skill: acct.equity
+  pace: quick
+  given: { re0: { pick: [400000, 650000] }, ni: { pick: [150000, -50000] }, div: { pick: [40000, 60000] }, ppa: { pick: [0, -20000, 15000] } }
+  prompt: 'Retained earnings started the year at {{re0}}. Net {{ni > 0 ? "income" : "loss"}} was {{abs(ni)}}, cash dividends declared were {{div}}{{ppa == 0 ? "" : ", and an error from a prior year required a correction"}}{{ppa == 0 ? "" : (ppa > 0 ? " increasing" : " decreasing")}}{{ppa == 0 ? "" : " opening retained earnings by "}}{{ppa == 0 ? "" : abs(ppa)}}. What is ending retained earnings?'
+  parts:
+    - { ask: 'Ending retained earnings', label: a, value: re0 + ppa + ni - div, tol: 0.0001, explain: 'Opening balance, adjusted for any prior-period error correction (net of tax), plus net income, minus dividends declared. Error corrections go straight to opening retained earnings, never through current income' }
+  verify: { expect: { a: "(re0 + ppa) + ni - div" } }
+
+# ── Area III  transactions ─────────────────────────────────────────────────
+- template: fa-accounting-change
+  skill: acct.transactions
+  pace: recall
+  cases:
+    - { s: 'switching inventory costing from FIFO to weighted average', ans: 0 }
+    - { s: 'adopting a new FASB standard that requires full retrospective application', ans: 0 }
+    - { s: 'revising a machine''s useful life from 10 to 6 years', ans: 1 }
+    - { s: 'switching from straight-line to double-declining-balance depreciation', ans: 1 }
+    - { s: 'raising the estimated bad-debt rate', ans: 1 }
+    - { s: 'finding that last year''s depreciation was never recorded', ans: 2 }
+  prompt: 'How is {{s}} reported?'
+  parts:
+    - ask: 'Treatment'
+      label: a
+      choice: ["Change in principle: retrospective, prior periods recast", "Change in estimate: prospective, current and future periods only", "Error correction: restate prior periods, adjust opening retained earnings"]
+      correct: ans
+      explain: 'Principles are applied retrospectively so periods are comparable; estimates change prospectively because new information does not make the old estimate wrong. A change in depreciation method is a change in estimate effected by a change in principle, so it is prospective. Errors are restatements'
+  verify: { authored: true }
+
+- template: fa-contingency
+  skill: acct.transactions
+  pace: recall
+  cases:
+    - { s: 'a lawsuit loss is probable and estimated at 500,000', ans: 0 }
+    - { s: 'a lawsuit loss is probable, estimated between 200,000 and 600,000 with no best estimate', ans: 1 }
+    - { s: 'a lawsuit loss is reasonably possible', ans: 2 }
+    - { s: 'the company expects to win 300,000 in its own lawsuit against a supplier', ans: 3 }
+  prompt: 'Under US GAAP, what does a company do when {{s}}?'
+  parts:
+    - ask: 'Treatment'
+      label: a
+      choice: ["Accrue the loss and disclose it", "Accrue the low end of the range and disclose the range", "Disclose only", "Nothing until it is realized (disclosure allowed, without misleading)"]
+      correct: ans
+      explain: 'Accrue a loss contingency only when probable and reasonably estimable; within a range accrue the best estimate, or the minimum if none is better. Reasonably possible losses are disclosed; remote ones are not, except guarantees. Gain contingencies are not recognized until realized'
+  verify: { authored: true }
+
+- template: fa-revenue-steps
+  skill: acct.transactions
+  pace: recall
+  cases:
+    - { s: 'identify the contract with the customer', ans: 0 }
+    - { s: 'identify the performance obligations', ans: 1 }
+    - { s: 'determine the transaction price', ans: 2 }
+    - { s: 'allocate the transaction price to the performance obligations', ans: 3 }
+  prompt: 'In the five-step revenue model (ASC 606), what step comes right after: {{s}}?'
+  parts:
+    - ask: 'Next step'
+      label: a
+      choice: ["Identify the performance obligations", "Determine the transaction price", "Allocate the price to the performance obligations", "Recognize revenue when (or as) each obligation is satisfied"]
+      correct: ans
+      explain: 'Contract → performance obligations (distinct goods or services) → transaction price (including variable consideration, constrained) → allocate by relative standalone selling price → recognize at a point in time or over time as control transfers'
+  verify: { authored: true }
+
+- template: fa-ssp-allocation
+  skill: acct.transactions
+  pace: quick
+  given: { price: { pick: [1000, 1200] }, s1: { pick: [900, 1000] }, s2: { pick: [300, 500] } }
+  prompt: 'A phone and a one-year service plan are sold together for {{price}}. Sold separately, the phone goes for {{s1}} and the plan for {{s2}}. How much of the price is allocated to the phone?'
+  parts:
+    - { ask: 'Allocated to the phone', label: a, value: price*s1/(s1 + s2), tol: 0.0001, explain: 'Allocate the transaction price in proportion to standalone selling prices: price × s1 ÷ (s1 + s2). The phone''s share is recognized at delivery; the plan''s over the year' }
+  verify: { expect: { a: "price - price*s2/(s1 + s2)" } }
+
+- template: fa-expected-value
+  skill: acct.transactions
+  pace: quick
+  cases:
+    - { p1: 0.6, v1: 100000, p2: 0.3, v2: 80000, p3: 0.1, v3: 50000 }
+    - { p1: 0.5, v1: 20000, p2: 0.4, v2: 10000, p3: 0.1, v3: 5000 }
+    - { p1: 0.7, v1: 300000, p2: 0.2, v2: 250000, p3: 0.1, v3: 200000 }
+  prompt: 'A contract''s bonus depends on results: {{v1}} with probability {{p1}}, {{v2}} with probability {{p2}}, {{v3}} with probability {{p3}}. Using the expected value method (before any constraint), what variable consideration is estimated?'
+  parts:
+    - { ask: 'Expected value', label: a, value: p1*v1 + p2*v2 + p3*v3, tol: 0.0001, explain: 'Expected value = Σ probability × amount, suited to many similar contracts; the most likely amount suits two or so outcomes. Either way, include it only to the extent a significant reversal is not probable (the constraint)' }
+  verify: { expect: { a: "v1*p1 + v2*p2 + v3*p3" } }
+
+- template: fa-over-time
+  skill: acct.transactions
+  pace: quick
+  given: { cc: { pick: [400000, 600000] }, r1: { pick: [200000, 300000] } }
+  prompt: 'A 1,000,000 construction contract recognizes revenue over time by costs incurred. By the end of year 2, costs to date are {{cc}} and total costs are now estimated at 800,000. Revenue recognized in year 1 was {{r1}}. How much revenue is recognized in year 2?'
+  parts:
+    - { ask: 'Year-2 revenue', label: a, value: cc/800000*1000000 - r1, tol: 0.0001, explain: 'Cumulative revenue = (costs to date ÷ estimated total costs) × contract price; this year''s revenue is cumulative revenue minus what earlier years already recognized. A change in total estimated cost is a change in estimate, caught up in the current year' }
+  verify: { expect: { a: "1000000*cc/800000 - r1" } }
+
+- template: fa-temp-perm
+  skill: acct.transactions
+  pace: recall
+  cases:
+    - { s: 'faster depreciation on the tax return than in the books', ans: 0 }
+    - { s: 'installment sales taxed when cash is collected', ans: 0 }
+    - { s: 'a warranty expense accrued in the books, deductible when paid', ans: 1 }
+    - { s: 'rent collected in advance, taxed when received', ans: 1 }
+    - { s: 'interest on municipal bonds', ans: 2 }
+    - { s: 'a fine for breaking the law', ans: 2 }
+  prompt: 'Is {{s}} a temporary or a permanent difference, and what does it create?'
+  parts:
+    - ask: 'Difference'
+      label: a
+      choice: ["Temporary: a deferred tax liability (taxable later)", "Temporary: a deferred tax asset (deductible later)", "Permanent: no deferred tax"]
+      correct: ans
+      explain: 'Temporary differences reverse: when book income runs ahead of taxable income now (tax deductions sooner, income taxed later) the company owes tax later, a liability; when taxable income runs ahead (expenses deducted later, revenue taxed sooner) it gets a deduction later, an asset. Permanent differences never reverse'
+  verify: { authored: true }
+
+- template: fa-deferred-tax
+  skill: acct.transactions
+  pace: quick
+  given: { diff: { pick: [50000, 80000, 120000] }, rnow: { pick: [0.21, 0.25] }, rfut: { pick: [0.21, 0.3] } }
+  prompt: 'At year end, equipment''s book value exceeds its tax basis by {{diff}}. The tax rate is {{rnow*100}}% this year, and the rate enacted for the years when the difference reverses is {{rfut*100}}%. What deferred tax liability is reported?'
+  parts:
+    - { ask: 'Deferred tax liability', label: a, value: diff*rfut, tol: 0.0001, explain: 'Deferred taxes use the enacted rate for the years the difference will reverse, not the current rate. Rates that have only been proposed are ignored until enacted' }
+  verify: { expect: { a: "rfut*diff" } }
+
+- template: fa-subsequent-event
+  skill: acct.transactions
+  pace: recall
+  cases:
+    - { s: 'a major customer, struggling for months, files for bankruptcy two weeks after year end', ans: 0 }
+    - { s: 'a lawsuit about a year-ago accident is settled after year end for more than was accrued', ans: 0 }
+    - { s: 'a warehouse burns down a month after year end', ans: 1 }
+    - { s: 'the company issues new shares after year end', ans: 1 }
+    - { s: 'a customer whose finances were sound at year end is ruined by a flood in February', ans: 1 }
+  prompt: 'Before the statements are issued, {{s}}. How is it treated?'
+  parts:
+    - ask: 'Treatment'
+      label: a
+      choice: ["Recognized: adjust the year-end statements", "Not recognized: disclose if material"]
+      correct: ans
+      explain: 'If the event gives evidence about conditions that existed at the balance-sheet date, adjust. If the condition arose after that date, do not adjust; disclose it when leaving it out would mislead'
+  verify: { authored: true }
+
+- template: fa-fair-value-level
+  skill: acct.transactions
+  pace: recall
+  cases:
+    - { s: 'the quoted closing price of the same stock on a stock exchange', ans: 0 }
+    - { s: 'quoted prices for similar bonds, adjusted for differences', ans: 1 }
+    - { s: 'an interest rate swap valued from observable yield curves', ans: 1 }
+    - { s: 'a private company''s shares valued from management''s cash-flow forecasts', ans: 2 }
+  prompt: 'In the fair value hierarchy, which level is {{s}}?'
+  parts:
+    - ask: 'Level'
+      label: a
+      choice: ["Level 1: quoted price for the identical item in an active market", "Level 2: observable inputs other than Level 1 prices", "Level 3: unobservable inputs"]
+      correct: ans
+      explain: 'Fair value is an exit price between market participants. The hierarchy ranks inputs, not assets: use the highest level available, and disclose more (including a roll-forward) for Level 3 measurements'
+  verify: { authored: true }
+
+- template: fa-lease-class
+  skill: acct.liabilities
+  pace: quick
+  cases:
+    - { s: 'ownership passes to the lessee at the end of the lease', ans: 0 }
+    - { s: 'the lessee has a purchase option it is reasonably certain to exercise', ans: 0 }
+    - { s: 'the lease term is 80% of the asset''s remaining economic life', ans: 0 }
+    - { s: 'the present value of the payments is 95% of the asset''s fair value', ans: 0 }
+    - { s: 'the asset is so specialized only the lessee can use it', ans: 0 }
+    - { s: 'a 3-year office lease of a 40-year building, payments well below its value, no options', ans: 1 }
+  prompt: 'Under ASC 842, a lessee finds that {{s}}. How is the lease classified?'
+  parts:
+    - ask: 'Class'
+      label: a
+      choice: ["Finance lease", "Operating lease"]
+      correct: ans
+      explain: 'Any one of five tests makes a finance lease: ownership transfers, a purchase option reasonably certain, a term for the major part of the economic life (about 75%), payments worth substantially all of fair value (about 90%), or a specialized asset. Both classes put a right-of-use asset and a lease liability on the balance sheet; they differ in the expense pattern'
+  verify: { authored: true }
+
+- template: fa-lease-liability
+  skill: acct.liabilities
+  pace: quick
+  given: { pmt: { pick: [10000, 25000] }, r: { pick: [0.05, 0.06, 0.08] }, n: { pick: [3, 5] }, due: { pick: [0, 1] } }
+  prompt: 'A lease requires {{n}} annual payments of {{pmt}}, each paid at the {{due == 1 ? "start" : "end"}} of the year; the discount rate is {{r*100}}%. What lease liability is recognized at commencement?'
+  parts:
+    - { ask: 'Lease liability', label: a, value: pmt*(1 - (1 + r)^(-n))/r*(1 + r)^due, tol: 0.0001, explain: 'The liability is the present value of the payments not yet made. Payments at the start of each year are an annuity due: worth (1 + r) times the same payments at year end, because each arrives a year sooner' }
+  verify: { expect: { a: "Sum(pmt/(1 + r)**(Symbol('t') - due), (Symbol('t'), 1, n)).doit()" } }

@@ -46,6 +46,7 @@ domains:
   - { id: bio, title: "Biology" }
   - { id: sql, title: "SQL" }
   - { id: aib, title: "AI basics" }
+  - { id: acct, title: "Financial accounting" }
   - { id: md, title: "Molecular simulation" }
   - { id: compchem, title: "Computational chemistry" }
 
@@ -656,6 +657,14 @@ skills:
   - { id: aib.agents, domain: aib, title: "Agents, tools and retrieval", short: "Agents", prereqs: [aib.use] }
   - { id: aib.safety, domain: aib, title: "Scams, deepfakes and privacy", short: "Staying safe", prereqs: [aib.concepts] }
   - { id: aib.future, domain: aib, title: "Scaling, alignment and the road ahead", short: "Big questions", prereqs: [aib.training] }
+  - { id: acct.statements, domain: acct, title: "Financial statements, consolidation, EPS, ratios and public-company reporting", short: "Statements and ratios" }
+  - { id: acct.nfp-gov, domain: acct, title: "Not-for-profit and state and local government reporting", short: "NFP and government", prereqs: [acct.statements] }
+  - { id: acct.current-assets, domain: acct, title: "Cash, receivables and inventory", short: "Current assets", prereqs: [acct.statements] }
+  - { id: acct.long-lived, domain: acct, title: "Property, plant and equipment; intangibles and goodwill", short: "Long-lived assets", prereqs: [acct.current-assets] }
+  - { id: acct.investments, domain: acct, title: "Investments in debt and equity securities", short: "Investments", prereqs: [acct.statements] }
+  - { id: acct.liabilities, domain: acct, title: "Payables, notes, bonds and leases", short: "Liabilities and leases", prereqs: [acct.current-assets] }
+  - { id: acct.equity, domain: acct, title: "Stockholders' equity", short: "Equity", prereqs: [acct.statements] }
+  - { id: acct.transactions, domain: acct, title: "Revenue, income taxes, changes, contingencies, fair value and subsequent events", short: "Select transactions", prereqs: [acct.long-lived, acct.liabilities] }
 
   # ── physics: electricity and magnetism, particles ───────────────────────────
   - { id: physics.kinematics, domain: physics, title: "Kinematics: vectors, graphs, constant acceleration, projectiles", short: "Kinematics" }
