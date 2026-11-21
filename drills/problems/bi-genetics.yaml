@@ -1,0 +1,561 @@
+# AP Biology units 5 and 6: heredity and gene expression (also DAT biology).
+# Cross probabilities are recomputed from the parents' genotypes; counts by sympy.
+
+# ── meiosis and inheritance ────────────────────────────────────────────────
+- template: bi-meiosis-count
+  skill: bio.heredity
+  pace: quick
+  cases:
+    - { q: 'chromosomes in a cell at metaphase I', f: 1 }
+    - { q: 'chromatids in a cell at metaphase I', f: 2 }
+    - { q: 'chromosomes in each cell right after meiosis I', f: 0.5 }
+    - { q: 'chromatids in each cell right after meiosis I', f: 1 }
+    - { q: 'chromosomes in each gamete', f: 0.5 }
+    - { q: 'chromosomes in each cell at anaphase II (both sets of separated chromatids counted)', f: 1 }
+  given: { N: { pick: [8, 12, 24, 46] } }
+  prompt: 'A diploid cell has $2n = {{N}}$ chromosomes. How many {{q}}?'
+  parts:
+    - { ask: 'Count', label: r, value: f*N, tol: 0.0001, explain: 'After S phase each chromosome has two chromatids. Meiosis I separates homologues (chromosome number halves, chromatids still paired); meiosis II separates sister chromatids. Count chromosomes by counting centromeres' }
+  verify: { expect: { r: "nsimplify(f)*N" } }
+
+- template: bi-mitosis-vs-meiosis
+  skill: bio.heredity
+  pace: recall
+  cases:
+    - { q: 'One division producing two genetically identical diploid cells', ans: 0 }
+    - { q: 'Two divisions producing four haploid, genetically different cells', ans: 1 }
+    - { q: 'Homologous chromosomes pair (synapsis) and cross over', ans: 1 }
+    - { q: 'Used for growth, repair and asexual reproduction', ans: 0 }
+    - { q: 'Homologues separate at anaphase I', ans: 1 }
+    - { q: 'Sister chromatids separate in the only anaphase', ans: 0 }
+  prompt: 'Mitosis or meiosis: {{q}}?'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["Mitosis", "Meiosis"]
+      correct: ans
+      explain: 'Meiosis I is the special division: homologues pair, cross over and separate, halving the chromosome number. Meiosis II is mitosis-like. Mitosis keeps the chromosome set identical'
+  verify: { authored: true }
+
+- template: bi-gamete-combinations
+  skill: bio.heredity
+  pace: quick
+  cases:
+    - { q: 'genetically different gametes can one person make by independent assortment alone', k: 0 }
+    - { q: 'different zygotes can two parents make by independent assortment and random fertilisation', k: 1 }
+  given: { n: { pick: [2, 3, 4, 23] } }
+  prompt: 'An organism has $n = {{n}}$ pairs of chromosomes. Ignoring crossing over, how many {{q}}?'
+  parts:
+    - { ask: 'Combinations', label: r, value: 'k == 0 ? 2^n : 4^n', tol: 0.0001, explain: 'Each pair lines up independently at metaphase I, two ways each: $2^n$ gametes ($2^{23} \approx 8.4$ million in humans). Random fertilisation multiplies two such sets, $(2^n)^2$. Crossing over adds far more' }
+  verify: { expect: { r: "Integer(2)**n if k == 0 else (Integer(2)**n)**2" } }
+
+- template: bi-conserved-processes
+  skill: bio.heredity
+  pace: recall
+  cases:
+    - { q: 'Yeast, plants and humans all use the same mitotic spindle proteins and cyclins.', ans: 0 }
+    - { q: 'All eukaryotes use meiosis and fertilisation in sexual reproduction.', ans: 0 }
+    - { q: 'A human gene can rescue a yeast mutant lacking its version of the gene.', ans: 0 }
+    - { q: 'Bats and birds both have wings for flight.', ans: 1 }
+  prompt: '{{q}} What does this best support?'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["Common ancestry of the organisms that share it", "Convergent evolution under similar pressures"]
+      correct: ans
+      explain: 'Intricate molecular machinery shared down to the gene sequence is very unlikely to evolve twice, so it points to inheritance from a common ancestor. Similar functions built from different parts (wings) are convergence'
+  verify: { authored: true }
+
+- template: bi-monohybrid
+  skill: bio.heredity
+  pace: quick
+  cases:
+    - { p1: 'Aa', p2: 'Aa', w: 0, v: 0.25 }
+    - { p1: 'Aa', p2: 'Aa', w: 1, v: 0.75 }
+    - { p1: 'Aa', p2: 'aa', w: 0, v: 0.5 }
+    - { p1: 'AA', p2: 'aa', w: 1, v: 1 }
+    - { p1: 'Aa', p2: 'AA', w: 1, v: 1 }
+    - { p1: 'aa', p2: 'aa', w: 0, v: 1 }
+  prompt: 'In the cross {{p1}} × {{p2}} (A dominant), what fraction of offspring show the {{w == 0 ? "recessive" : "dominant"}} phenotype?'
+  parts:
+    - { ask: 'Fraction', label: r, value: v, tol: 0.0001, explain: 'Each parent passes one allele, each with probability 1/2. The recessive phenotype needs aa: multiply the chance each parent gives a. A cross with aa (a test cross) reveals an unknown dominant genotype' }
+  verify: { expect: { r: "(p1.count('a')*p2.count('a')/Integer(4)) if w == 0 else 1 - p1.count('a')*p2.count('a')/Integer(4)" } }
+
+- template: bi-dihybrid
+  skill: bio.heredity
+  pace: quick
+  cases:
+    - { p1: 'AaBb', p2: 'AaBb', t: 'A_B_ (both dominant)', da: 1, db: 1, v: 0.5625 }
+    - { p1: 'AaBb', p2: 'AaBb', t: 'A_bb', da: 1, db: 0, v: 0.1875 }
+    - { p1: 'AaBb', p2: 'AaBb', t: 'aabb', da: 0, db: 0, v: 0.0625 }
+    - { p1: 'AaBb', p2: 'aabb', t: 'aabb', da: 0, db: 0, v: 0.25 }
+    - { p1: 'AABb', p2: 'aaBb', t: 'A_bb', da: 1, db: 0, v: 0.25 }
+    - { p1: 'AaBb', p2: 'Aabb', t: 'aaB_', da: 0, db: 1, v: 0.125 }
+  prompt: 'With independent assortment, what fraction of offspring of {{p1}} × {{p2}} are {{t}}?'
+  parts:
+    - { ask: 'Fraction', label: r, value: v, tol: 0.0001, explain: 'Treat each gene as its own monohybrid cross and multiply (product rule): for example, AaBb × AaBb gives A_ with 3/4 and bb with 1/4, so A_bb = 3/16. Use the sum rule for "either/or" outcomes' }
+  verify: { expect: { r: "((p1[0:2].count('a')*p2[0:2].count('a')/Integer(4)) if da == 0 else 1 - p1[0:2].count('a')*p2[0:2].count('a')/Integer(4))*((p1[2:4].count('b')*p2[2:4].count('b')/Integer(4)) if db == 0 else 1 - p1[2:4].count('b')*p2[2:4].count('b')/Integer(4))" } }
+
+- template: bi-pedigree-pattern
+  skill: bio.heredity
+  pace: recall
+  cases:
+    - { q: 'Two unaffected parents have an affected child; males and females are affected equally.', ans: 0 }
+    - { q: 'Every affected person has an affected parent; about half the children of an affected parent are affected, of both sexes.', ans: 1 }
+    - { q: 'Mostly males are affected; they inherit it through unaffected carrier mothers; it never passes father to son.', ans: 2 }
+    - { q: 'An affected father passes it to all his daughters and none of his sons.', ans: 3 }
+    - { q: 'It skips generations and appears in children of first-cousin marriages.', ans: 0 }
+  prompt: 'Which inheritance pattern fits this pedigree? {{q}}'
+  parts:
+    - ask: 'Pattern'
+      label: a
+      choice: ["Autosomal recessive", "Autosomal dominant", "X-linked recessive", "X-linked dominant"]
+      correct: ans
+      explain: 'Unaffected parents with an affected child: recessive. Every generation: likely dominant. Sex bias toward males and no father-to-son passage: X-linked recessive. Father to all daughters: X-linked dominant'
+  verify: { authored: true }
+
+- template: bi-pedigree-probability
+  skill: bio.heredity
+  pace: quick
+  cases:
+    - { q: 'Two carriers (Aa) of a recessive disease have an unaffected child. What is the probability that this child is a carrier?', v: 0.6666666666666666, ex: 'Rational(2, 3)' }
+    - { q: 'Two carriers (Aa) plan two children. What is the probability that both are affected?', v: 0.0625, ex: 'Rational(1, 4)**2' }
+    - { q: 'Two carriers (Aa) plan a child. What is the probability it is an affected girl?', v: 0.125, ex: 'Rational(1, 4)*Rational(1, 2)' }
+    - { q: 'A carrier woman (XᴬXᵃ) and an unaffected man have a son. What is the probability he is affected?', v: 0.5, ex: 'Rational(1, 2)' }
+    - { q: 'An unaffected sibling of an affected person (parents unaffected) marries a known carrier. What is the probability their first child is affected?', v: 0.16666666666666666, ex: 'Rational(2, 3)*Rational(1, 2)*Rational(1, 2)' }
+  prompt: '{{q}}'
+  parts:
+    - { ask: 'Probability', label: r, value: v, tol: 0.001, explain: 'Condition on what you know (an unaffected child of Aa × Aa is AA or Aa, so 2/3 Aa), multiply independent events, and remember sex is a further 1/2 when it is specified' }
+  verify: { expect: { r: "calc(ex)" } }
+
+- template: bi-chi-square
+  skill: bio.heredity
+  pace: quick
+  given: { n: { pick: [100, 160, 200, 400] }, r: { pick: [1, 3] }, d: { pick: [4, 7, 10, 13] } }
+  prompt: 'A cross is expected to give a {{r}} : 1 ratio. Of ${{n}}$ offspring, ${{n*r/(r + 1) + d}}$ show the first phenotype and ${{n/(r + 1) - d}}$ the second. What is χ²? (Critical value at p = 0.05 with 1 df: 3.84)'
+  parts:
+    - { ask: 'χ²', label: x2, value: d^2/(n*r/(r + 1)) + d^2/(n/(r + 1)), tol: 0.002, explain: 'Expected counts: ${{n*r/(r + 1)}}$ and ${{n/(r + 1)}}$. $\chi^2 = \sum (o - e)^2/e$. Degrees of freedom = categories − 1. If χ² exceeds the critical value, reject the hypothesis that the data fit the ratio' }
+  verify: { expect: { x2: "sum([(o - e)**2/e for o, e in [(n*Rational(r, r + 1) + d, n*Rational(r, r + 1)), (n*Rational(1, r + 1) - d, n*Rational(1, r + 1))]])" } }
+
+- template: bi-non-mendelian
+  skill: bio.heredity
+  pace: quick
+  cases:
+    - { q: 'Red (RR) and white (WW) snapdragons give pink offspring. Two pink plants are crossed. Fraction pink?', v: 0.5, ex: 'Rational(1, 2)' }
+    - { q: 'Red (RR) and white (WW) snapdragons give pink offspring. Two pink plants are crossed. Fraction red?', v: 0.25, ex: 'Rational(1, 4)' }
+    - { q: 'Parents with blood types Iᴬi and Iᴮi have a child. Probability of type AB?', v: 0.25, ex: 'Rational(1, 2)*Rational(1, 2)' }
+    - { q: 'Parents with blood types Iᴬi and Iᴮi have a child. Probability of type O?', v: 0.25, ex: 'Rational(1, 2)*Rational(1, 2)' }
+    - { q: 'Parents Iᴬi × IᴬIᴮ. Probability of type A?', v: 0.5, ex: 'Rational(1, 2)*Rational(1, 2) + Rational(1, 2)*Rational(1, 2)' }
+    - { q: 'Roan cattle (RW, codominant red and white hairs) are crossed. Fraction roan?', v: 0.5, ex: 'Rational(1, 2)' }
+  prompt: '{{q}}'
+  parts:
+    - { ask: 'Fraction', label: r, value: v, tol: 0.0001, explain: 'Incomplete dominance blends (the heterozygote is intermediate); codominance shows both (AB blood, roan). Either way the genotype ratio is still 1 : 2 : 1, but now each genotype has its own phenotype' }
+  verify: { expect: { r: "calc(ex)" } }
+
+- template: bi-x-linked
+  skill: bio.heredity
+  pace: quick
+  cases:
+    - { q: 'XᴬXᵃ × XᴬY: fraction of sons affected', v: 0.5, ex: 'Rational(1, 2)' }
+    - { q: 'XᴬXᵃ × XᴬY: fraction of daughters who are carriers', v: 0.5, ex: 'Rational(1, 2)' }
+    - { q: 'XᴬXᵃ × XᵃY: fraction of daughters affected', v: 0.5, ex: 'Rational(1, 2)' }
+    - { q: 'XᵃXᵃ × XᴬY: fraction of sons affected', v: 1, ex: 'Integer(1)' }
+    - { q: 'XᴬXᴬ × XᵃY: fraction of daughters who are carriers', v: 1, ex: 'Integer(1)' }
+    - { q: 'XᴬXᵃ × XᴬY: fraction of all children affected', v: 0.25, ex: 'Rational(1, 2)*Rational(1, 2)' }
+  prompt: 'For an X-linked recessive trait (a = affected): {{q}}?'
+  parts:
+    - { ask: 'Fraction', label: r, value: v, tol: 0.0001, explain: 'Sons get their only X from the mother and a Y from the father, so the mother alone decides sons. Daughters get one X from each parent, so an affected daughter needs an affected father and a carrier or affected mother' }
+  verify: { expect: { r: "calc(ex)" } }
+
+- template: bi-map-distance
+  skill: bio.heredity
+  pace: quick
+  given: { N: { pick: [500, 800, 1000, 2000] }, f: { pick: [0.05, 0.12, 0.20, 0.34] } }
+  prompt: 'A test cross gives ${{N}}$ offspring, of which ${{N*f}}$ are recombinant. What is the map distance between the genes, in cM?'
+  parts:
+    - { ask: 'Distance (cM)', label: r, value: 100*f, tol: 0.001, explain: 'Recombination frequency = recombinants/total; 1 percent = 1 map unit (cM). Unlinked genes give 50 percent, so linkage shows as far fewer recombinants than parental types' }
+  verify: { expect: { r: "100*(N*f)/N" } }
+
+- template: bi-maternal-polygenic
+  skill: bio.heredity
+  pace: recall
+  cases:
+    - { q: 'A mitochondrial disease is passed by affected mothers to all their children, never by fathers.', ans: 0 }
+    - { q: 'Human height shows a bell-shaped distribution, not a few distinct classes.', ans: 1 }
+    - { q: 'Variegated leaf color in some plants follows the seed parent only.', ans: 0 }
+    - { q: 'Skin color varies continuously across a population.', ans: 1 }
+  prompt: '{{q}} What explains the pattern?'
+  parts:
+    - ask: 'Explanation'
+      label: a
+      choice: ["Organelle genes inherited through the egg's cytoplasm", "Many genes each adding a small effect (polygenic), plus environment"]
+      correct: ans
+      explain: 'Mitochondria and chloroplasts come from the egg, so their genes follow the mother. Traits set by many additive genes show continuous variation instead of Mendelian ratios'
+  verify: { authored: true }
+
+- template: bi-environment-phenotype
+  skill: bio.heredity
+  pace: recall
+  cases:
+    - { q: 'Hydrangea flowers are blue in acidic soil and pink in alkaline soil.', ans: 0 }
+    - { q: 'Himalayan rabbits grow dark fur only on cold extremities.', ans: 0 }
+    - { q: 'People with PKU stay healthy on a low-phenylalanine diet.', ans: 0 }
+    - { q: 'Identical twins raised apart differ in adult height.', ans: 0 }
+    - { q: 'An albino plant cannot make chlorophyll in any light.', ans: 1 }
+  prompt: '{{q}} Is this the environment changing how a genotype is expressed?'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["Yes: same genotype, different phenotype in different conditions", "No: the genotype alone fixes it"]
+      correct: ans
+      explain: 'Phenotype = genotype × environment. Temperature-sensitive enzymes (Himalayan rabbit), soil chemistry, diet and nutrition all change how genes are expressed (phenotypic plasticity)'
+  verify: { authored: true }
+
+- template: bi-nondisjunction
+  skill: bio.heredity
+  pace: quick
+  cases:
+    - { q: 'Homologues fail to separate in meiosis I. What fraction of the four gametes is abnormal?', o1: 'All four', o2: 'Half', o3: 'None', ans: 0 }
+    - { q: 'Sister chromatids fail to separate in one cell in meiosis II. What fraction of the four gametes is abnormal?', o1: 'All four', o2: 'Half', o3: 'One quarter', ans: 1 }
+    - { q: 'Trisomy 21 causes', o1: 'Turner syndrome', o2: 'Down syndrome', o3: 'Klinefelter syndrome', ans: 1 }
+    - { q: 'An XXY karyotype causes', o1: 'Klinefelter syndrome', o2: 'Turner syndrome', o3: 'Down syndrome', ans: 0 }
+    - { q: 'An XO karyotype causes', o1: 'Klinefelter syndrome', o2: 'Down syndrome', o3: 'Turner syndrome', ans: 2 }
+  prompt: '{{q}}'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["{{o1}}", "{{o2}}", "{{o3}}"]
+      correct: ans
+      explain: 'Nondisjunction leaves gametes with an extra (n + 1) or missing (n − 1) chromosome; fertilisation then gives trisomy or monosomy. An error in meiosis I affects every gamete, one in meiosis II only the two from that cell'
+  verify: { authored: true }
+
+- template: bi-karyotype
+  skill: bio.heredity
+  pace: recall
+  cases:
+    - { q: '47, XX, +21', ans: 0 }
+    - { q: '47, XXY', ans: 1 }
+    - { q: '45, X', ans: 2 }
+    - { q: '46, XY', ans: 3 }
+    - { q: '47, XY, +21', ans: 0 }
+  prompt: 'What does the karyotype {{q}} show?'
+  parts:
+    - ask: 'Reading'
+      label: a
+      choice: ["Down syndrome (trisomy 21)", "Klinefelter syndrome (male with an extra X)", "Turner syndrome (female with one X)", "A typical male"]
+      correct: ans
+      explain: 'A karyotype lists the total chromosome count, the sex chromosomes, then any extra or missing autosome. A Y makes the person male whatever the number of X chromosomes'
+  verify: { authored: true }
+
+# ── DNA, replication and expression ────────────────────────────────────────
+- template: bi-genome-organization
+  skill: bio.molecular-genetics
+  pace: recall
+  cases:
+    - { q: 'a single circular chromosome plus plasmids', ans: 0 }
+    - { q: 'several linear chromosomes wrapped around histones', ans: 1 }
+    - { q: 'genes grouped in operons transcribed as one mRNA', ans: 0 }
+    - { q: 'genes interrupted by introns', ans: 1 }
+  prompt: 'Is this typical of prokaryotic or eukaryotic genomes: {{q}}?'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["Prokaryotic", "Eukaryotic"]
+      correct: ans
+      explain: 'Prokaryotic genomes are compact: circular, mostly coding, with operons and plasmids. Eukaryotic genomes are linear chromosomes packed as chromatin, with introns, much noncoding DNA and telomeres'
+  verify: { authored: true }
+
+- template: bi-dna-evidence
+  skill: bio.molecular-genetics
+  pace: recall
+  cases:
+    - { q: 'Griffith', ans: 0 }
+    - { q: 'Avery, MacLeod and McCarty', ans: 1 }
+    - { q: 'Hershey and Chase', ans: 2 }
+    - { q: 'Franklin (with Wilkins)', ans: 3 }
+  prompt: 'What did {{q}} show?'
+  parts:
+    - ask: 'Finding'
+      label: a
+      choice: ["Heat-killed virulent bacteria could transform harmless ones", "The transforming principle is DNA (destroyed by DNase, not protease)", "Phage DNA, not protein, enters bacteria and directs new phage", "X-ray diffraction revealing a regular double helix"]
+      correct: ans
+      explain: 'DNA suits heredity: it is stable, copies by complementary pairing and stores information in its base sequence. These experiments, plus Chargaff''s rules, led to Watson and Crick''s model'
+  verify: { authored: true }
+
+- template: bi-replication-enzyme
+  skill: bio.molecular-genetics
+  pace: recall
+  cases:
+    - { q: 'Unwinds the double helix at the fork', ans: 0 }
+    - { q: 'Relieves supercoiling ahead of the fork', ans: 1 }
+    - { q: 'Lays down a short RNA primer', ans: 2 }
+    - { q: 'Adds DNA nucleotides to the 3′ end and proofreads', ans: 3 }
+    - { q: 'Seals nicks between Okazaki fragments', ans: 4 }
+    - { q: 'Extends telomeres in germ and stem cells', ans: 5 }
+  prompt: 'Which enzyme: {{q}}?'
+  parts:
+    - ask: 'Enzyme'
+      label: a
+      choice: ["Helicase", "Topoisomerase", "Primase", "DNA polymerase", "DNA ligase", "Telomerase"]
+      correct: ans
+      explain: 'DNA polymerase cannot start a strand, only extend one from a 3′ end, so primase makes an RNA primer that is later replaced. Replication is semiconservative: each new helix has one old strand and one new'
+  verify: { authored: true }
+
+- template: bi-leading-lagging
+  skill: bio.molecular-genetics
+  pace: recall
+  cases:
+    - { q: 'is made continuously toward the fork', ans: 0 }
+    - { q: 'is made in Okazaki fragments away from the fork', ans: 1 }
+    - { q: 'needs many primers', ans: 1 }
+    - { q: 'needs ligase to join its pieces', ans: 1 }
+    - { q: 'needs just one primer', ans: 0 }
+  prompt: 'Which strand {{q}}?'
+  parts:
+    - ask: 'Strand'
+      label: a
+      choice: ["Leading strand", "Lagging strand"]
+      correct: ans
+      explain: 'Polymerase only works 5′→3′ and the template strands are antiparallel. On one strand that direction follows the opening fork (continuous); on the other it runs away from the fork, so synthesis restarts in short fragments'
+  verify: { authored: true }
+
+- template: bi-meselson-stahl
+  skill: bio.molecular-genetics
+  pace: quick
+  given: { n: { int: [1, 4] }, w: { pick: [0, 1] } }
+  require: ['w == 0 or n > 1']
+  prompt: 'Bacteria grown on ¹⁵N are moved to ¹⁴N medium. After ${{n}}$ generation{{n == 1 ? "" : "s"}}, what fraction of the DNA molecules is {{w == 0 ? "hybrid (¹⁵N/¹⁴N)" : "light (¹⁴N only)"}}?'
+  parts:
+    - { ask: 'Fraction', label: r, value: 'w == 0 ? 2/2^n : 1 - 2/2^n', tol: 0.0001, explain: 'Semiconservative replication keeps the two original heavy strands intact, each in one hybrid molecule. After $n$ generations there are $2^n$ molecules, always exactly 2 hybrid; the rest are light' }
+  verify: { expect: { r: "(2/Integer(2)**n) if w == 0 else 1 - 2/Integer(2)**n" } }
+
+- template: bi-transcribe
+  skill: bio.molecular-genetics
+  pace: quick
+  cases:
+    - { t: '3′-TACGGATTC-5′', o1: '5′-AUGCCUAAG-3′', o2: '5′-ATGCCTAAG-3′', o3: '5′-UACGGAUUC-3′', o4: '3′-AUGCCUAAG-5′', ans: 0 }
+    - { t: '3′-TACAAACCG-5′', o1: '5′-AUGTTTGGC-3′', o2: '5′-AUGUUUGGC-3′', o3: '5′-UACAAACCG-3′', o4: '3′-ATGTTTGGC-5′', ans: 1 }
+    - { t: '3′-TACCGTATT-5′', o1: '5′-UACCGUAUU-3′', o2: '5′-ATGGCATAA-3′', o3: '5′-AUGGCAUAA-3′', o4: '3′-AUGGCAUAA-5′', ans: 2 }
+  prompt: 'What mRNA is transcribed from the template strand {{t}}?'
+  parts:
+    - ask: 'mRNA'
+      label: a
+      choice: ["{{o1}}", "{{o2}}", "{{o3}}", "{{o4}}"]
+      correct: ans
+      explain: 'RNA polymerase reads the template 3′→5′ and builds mRNA 5′→3′, pairing A–U, T–A, G–C, C–G. The mRNA matches the coding (non-template) strand, with U for T'
+  verify: { authored: true }
+
+- template: bi-rna-processing
+  skill: bio.molecular-genetics
+  pace: recall
+  cases:
+    - { q: 'A modified guanine added to the 5′ end', ans: 0 }
+    - { q: 'A string of adenines added to the 3′ end', ans: 1 }
+    - { q: 'Introns cut out and exons joined by the spliceosome', ans: 2 }
+    - { q: 'Different exons kept in different cells, giving different proteins from one gene', ans: 3 }
+  prompt: 'Which RNA-processing step: {{q}}?'
+  parts:
+    - ask: 'Step'
+      label: a
+      choice: ["5′ cap: protects mRNA and helps the ribosome bind", "Poly-A tail: protects mRNA and aids export", "Splicing", "Alternative splicing"]
+      correct: ans
+      explain: 'Eukaryotic pre-mRNA is capped, tailed and spliced in the nucleus before export. Alternative splicing is why about 20 000 human genes give many more proteins. Prokaryotes translate their mRNA while it is still being made'
+  verify: { authored: true }
+
+- template: bi-translate
+  skill: bio.molecular-genetics
+  pace: quick
+  cases:
+    - { m: '5′-AUGUUUGGCUAA-3′', o1: 'Met–Phe–Gly', o2: 'Met–Phe–Gly–Stop–Lys', o3: 'Phe–Gly', o4: 'Met–Leu–Gly', ans: 0 }
+    - { m: '5′-GCAUGGCAUGGUGA-3′', o1: 'Ala–Trp–His–Gly', o2: 'Met–Ala–Trp', o3: 'Met–Val', o4: 'Trp–His–Gly', ans: 1 }
+    - { m: '5′-AUGAAAGAUUGA-3′', o1: 'Met–Lys–Asp–Trp', o2: 'Lys–Asp', o3: 'Met–Lys–Asp', o4: 'Met–Asn–Asp', ans: 2 }
+    - { m: '5′-CCAUGUCUCCGUAG-3′', o1: 'Pro–Cys–Leu–Arg', o2: 'Met–Ser', o3: 'Met–Ser–Pro–Stop', o4: 'Met–Ser–Pro', ans: 3 }
+  prompt: 'What peptide does the ribosome make from {{m}}? (AUG Met, UUU Phe, GGC Gly, GCA Ala, UGG Trp, AAA Lys, GAU Asp, UCU Ser, CCG Pro; UAA, UAG, UGA stop)'
+  parts:
+    - ask: 'Peptide'
+      label: a
+      choice: ["{{o1}}", "{{o2}}", "{{o3}}", "{{o4}}"]
+      correct: ans
+      explain: 'Scan from the 5′ end for the first AUG, then read codons three bases at a time until a stop codon, which codes nothing. Bases before AUG (the 5′ UTR) are not translated'
+  verify: { authored: true }
+
+- template: bi-ribosome-sites
+  skill: bio.molecular-genetics
+  pace: recall
+  cases:
+    - { q: 'the new aminoacyl-tRNA arrives', ans: 0 }
+    - { q: 'the tRNA holding the growing chain sits', ans: 1 }
+    - { q: 'the empty tRNA leaves', ans: 2 }
+    - { q: 'the initiator tRNA (Met) first binds', ans: 1 }
+  prompt: 'Which ribosome site is where {{q}}?'
+  parts:
+    - ask: 'Site'
+      label: a
+      choice: ["A site", "P site", "E site"]
+      correct: ans
+      explain: 'Initiation: small subunit, mRNA and Met-tRNA assemble at the start codon (P site), then the large subunit joins. Elongation: tRNA enters A, the chain transfers to it, the ribosome shifts and the empty tRNA exits from E. A stop codon brings in a release factor'
+  verify: { authored: true }
+
+- template: bi-eukaryote-regulation
+  skill: bio.molecular-genetics
+  pace: recall
+  cases:
+    - { q: 'Histone acetylation', ans: 0 }
+    - { q: 'DNA methylation at a promoter', ans: 1 }
+    - { q: 'An activator binding an enhancer', ans: 0 }
+    - { q: 'A repressor binding a silencer', ans: 1 }
+    - { q: 'A microRNA binding an mRNA', ans: 1 }
+    - { q: 'Removing histone acetyl groups (deacetylation)', ans: 1 }
+  prompt: 'Does this usually raise or lower expression of a eukaryotic gene: {{q}}?'
+  parts:
+    - ask: 'Effect'
+      label: a
+      choice: ["Raises expression", "Lowers expression"]
+      correct: ans
+      explain: 'Acetylation loosens chromatin so the promoter is reachable; methylation and deacetylation compact it. These epigenetic marks can be passed to daughter cells without changing the DNA sequence'
+  verify: { authored: true }
+
+- template: bi-operon
+  skill: bio.molecular-genetics
+  pace: quick
+  cases:
+    - { q: 'lac operon: lactose present, glucose absent', ans: 0 }
+    - { q: 'lac operon: lactose absent', ans: 1 }
+    - { q: 'lac operon: both lactose and glucose present', ans: 2 }
+    - { q: 'trp operon: tryptophan abundant', ans: 1 }
+    - { q: 'trp operon: tryptophan scarce', ans: 0 }
+    - { q: 'lac operon: the lacI repressor gene is deleted, lactose absent', ans: 0 }
+    - { q: 'lac operon: the operator is mutated so the repressor cannot bind, lactose absent', ans: 0 }
+  prompt: '{{q}}. How much is the operon transcribed?'
+  parts:
+    - ask: 'Expression'
+      label: a
+      choice: ["High", "Off (repressed)", "Low: repressor off but no CAP–cAMP boost"]
+      correct: ans
+      explain: 'lac is inducible: lactose (allolactose) pulls the repressor off the operator, and low glucose raises cAMP so CAP boosts transcription. trp is repressible: tryptophan is a corepressor that lets the repressor bind. Without a working repressor or operator, transcription is constitutive'
+  verify: { authored: true }
+
+- template: bi-combinatorial-control
+  skill: bio.molecular-genetics
+  pace: recall
+  cases:
+    - { q: 'A liver gene has an enhancer with sites for activators A, B and C. Liver cells have all three; kidney cells have only A. Where is the gene expressed?', ans: 0 }
+    - { q: 'Why can a small number of transcription factors control thousands of genes in specific patterns?', ans: 1 }
+    - { q: 'Every cell has the same genome. Why does a neuron make different proteins from a muscle cell?', ans: 2 }
+    - { q: 'How do enhancers far from a gene affect its promoter?', ans: 3 }
+  prompt: '{{q}}'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["Only in liver cells, which have the full combination", "Each gene responds to its own combination of factors", "Different cells express different sets of transcription factors, so different genes", "DNA loops so activators bound at the enhancer contact the promoter's machinery"]
+      correct: ans
+      explain: 'Combinatorial control: a gene''s output depends on the combination of factors bound at its enhancers. Differential gene expression from the same genome is what makes cell types different'
+  verify: { authored: true }
+
+- template: bi-mutation-type
+  skill: bio.molecular-genetics
+  pace: quick
+  cases:
+    - { q: 'GAA → GAG (both code Glu)', ans: 0 }
+    - { q: 'GAG → GTG (Glu → Val)', ans: 1 }
+    - { q: 'UAC → UAG (Tyr → stop)', ans: 2 }
+    - { q: 'one base inserted near the start of the coding sequence', ans: 3 }
+    - { q: 'one base deleted in the middle of the gene', ans: 3 }
+    - { q: 'AAA → AGA (Lys → Arg)', ans: 1 }
+  prompt: 'What kind of mutation is {{q}}?'
+  parts:
+    - ask: 'Type'
+      label: a
+      choice: ["Silent: same amino acid", "Missense: a different amino acid", "Nonsense: an early stop codon", "Frameshift: every codon downstream changes"]
+      correct: ans
+      explain: 'The code is redundant, so many third-base changes are silent. Missense effects range from none to severe depending on the residue. Nonsense truncates the protein; an insertion or deletion not a multiple of three shifts the reading frame and usually destroys function'
+  verify: { authored: true }
+
+- template: bi-sickle-cell
+  skill: bio.molecular-genetics
+  pace: recall
+  cases:
+    - { q: 'What is the DNA change behind sickle-cell anaemia?', ans: 0 }
+    - { q: 'What does it change in the protein?', ans: 1 }
+    - { q: 'Why do red blood cells sickle?', ans: 2 }
+    - { q: 'Why is the allele common in malaria regions?', ans: 3 }
+  prompt: '{{q}}'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["One base substitution (A → T) in the β-globin gene", "Glutamate becomes valine at position 6 of β-globin", "Deoxygenated hemoglobin polymerises into fibres through the new hydrophobic patch", "Heterozygotes resist malaria (heterozygote advantage)"]
+      correct: ans
+      explain: 'Genotype → protein → cell → organism: one base changes one amino acid, which changes how the protein packs, which deforms cells, which block capillaries and cause anaemia. Selection keeps the allele where malaria is common'
+  verify: { authored: true }
+
+- template: bi-variation-source
+  skill: bio.molecular-genetics
+  pace: recall
+  cases:
+    - { q: 'A DNA polymerase error escapes proofreading.', ans: 0 }
+    - { q: 'A bacterium picks up a resistance plasmid from another species.', ans: 1 }
+    - { q: 'Two flu strains infect one cell and swap RNA segments.', ans: 2 }
+    - { q: 'A phage carries a gene from one bacterium to another (transduction).', ans: 1 }
+  prompt: '{{q}} What source of variation is this?'
+  parts:
+    - ask: 'Source'
+      label: a
+      choice: ["Mutation from a replication error", "Horizontal gene transfer", "Viral recombination (reassortment)"]
+      correct: ans
+      explain: 'New alleles come from mutation; bacteria also trade genes sideways by transformation, transduction and conjugation; viruses recombine when they co-infect a cell. All of it gives selection something to act on'
+  verify: { authored: true }
+
+- template: bi-restriction-fragments
+  skill: bio.molecular-genetics
+  pace: quick
+  cases:
+    - { q: 'linear DNA', top: 0 }
+    - { q: 'a circular plasmid', top: 1 }
+  given: { k: { int: [1, 4] } }
+  prompt: 'A restriction enzyme cuts {{q}} at ${{k}}$ site{{k == 1 ? "" : "s"}}. How many fragments are produced?'
+  parts:
+    - { ask: 'Fragments', label: r, value: 'top == 0 ? k + 1 : k', tol: 0.0001, explain: 'Each cut through a line adds one piece; a circle needs one cut just to open it. On a gel, smaller fragments travel farther toward the + electrode, and matching band patterns match DNA samples' }
+  verify: { expect: { r: "(k + 1) if top == 0 else k" } }
+
+- template: bi-gel-reading
+  skill: bio.molecular-genetics
+  pace: recall
+  cases:
+    - { q: 'Which way does DNA move in the gel, and why?', ans: 0 }
+    - { q: 'Which fragments travel farthest?', ans: 1 }
+    - { q: 'A crime-scene sample has bands at 3.0, 1.8 and 0.6 kb. Which suspect matches?', ans: 2 }
+    - { q: 'Why run a ladder in one lane?', ans: 3 }
+  prompt: '{{q}}'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["Toward the positive electrode, because DNA's phosphates are negative", "The smallest ones", "The one whose lane shows exactly those three bands", "Its known sizes let you read the size of unknown bands"]
+      correct: ans
+      explain: 'Electrophoresis sorts DNA by size: all fragments have the same charge per length, and the gel sieves small pieces through faster. Distance is roughly linear in the log of the size'
+  verify: { authored: true }
+
+- template: bi-pcr
+  skill: bio.molecular-genetics
+  pace: quick
+  given: { N0: { pick: [1, 10, 50, 200] }, n: { pick: [10, 20, 25, 30] } }
+  prompt: 'PCR starts with ${{N0}}$ copies of a target sequence. Assuming perfect doubling, how many copies are there after ${{n}}$ cycles? (Give the number divided by 10⁶.)'
+  parts:
+    - { ask: 'Copies ÷ 10⁶', label: r, value: N0*2^n/1e6, tol: 0.001, explain: 'Each cycle (denature at about 95 °C, anneal primers at about 55 °C, extend with heat-stable Taq polymerase at 72 °C) doubles the target: $N_0 \cdot 2^n$. Thirty cycles multiply by about a billion' }
+  verify: { expect: { r: "N0*Integer(2)**n/10**6" } }
+
+- template: bi-cloning
+  skill: bio.molecular-genetics
+  pace: recall
+  cases:
+    - { q: 'Cutting a plasmid and a gene with the same restriction enzyme', ans: 0 }
+    - { q: 'Joining the gene into the plasmid', ans: 1 }
+    - { q: 'Getting the recombinant plasmid into bacteria', ans: 2 }
+    - { q: 'Finding the bacteria that took up the plasmid', ans: 3 }
+  prompt: 'In cloning, what does this step accomplish? {{q}}'
+  parts:
+    - ask: 'Purpose'
+      label: a
+      choice: ["Matching sticky ends that can base-pair", "DNA ligase seals the sugar–phosphate backbone", "Transformation (heat shock or electroporation)", "Selection on an antibiotic the plasmid's resistance gene protects against"]
+      correct: ans
+      explain: 'Restriction enzymes cut at specific palindromic sites, leaving matching sticky ends. Ligase joins them, bacteria take up the plasmid, and antibiotic selection keeps only transformed cells. Sequencing then confirms the insert'
+  verify: { authored: true }

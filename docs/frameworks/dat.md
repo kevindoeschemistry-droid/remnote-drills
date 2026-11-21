@@ -2,7 +2,7 @@
 
 Generated from `drills/frameworks/dat.yaml` by `scripts/framework.mjs`. ● drilled · ◐ partly · ○ no drills yet.
 
-**183 learning objectives** in 6 units (183 core): 126 drilled, 3 partly, 54 with no drills. Core: 126 / 183 drilled.
+**183 learning objectives** in 6 units (183 core): 178 drilled, 4 partly, 1 with no drills. Core: 178 / 183 drilled.
 
 ## Big ideas
 
@@ -28,7 +28,7 @@ Generated from `drills/frameworks/dat.yaml` by `scripts/framework.mjs`. ● dril
 
 | Unit | Scope | Est. weight | LOs | ● | ◐ | ○ |
 |---|---|---|---|---|---|---|
-| 1 · Biology | core | Biology: 40 of 100 Survey of the Natural Sciences items (Survey 90 min total) | 53 | 0 | 0 | 53 |
+| 1 · Biology | core | Biology: 40 of 100 Survey of the Natural Sciences items (Survey 90 min total) | 53 | 52 | 1 | 0 |
 | 2 · General Chemistry | core | General Chemistry: 30 of 100 Survey of the Natural Sciences items (periodic table provided) | 57 | 57 | 0 | 0 |
 | 3 · Organic Chemistry | core | Organic Chemistry: 30 of 100 Survey of the Natural Sciences items (new specifications, implemented April 2026) | 36 | 36 | 0 | 0 |
 | 4 · Perceptual Ability | core | Perceptual Ability: 90 items in 60 min, six parts (the guide gives no per-part counts) | 11 | 8 | 3 | 0 |
@@ -43,190 +43,190 @@ Big ideas: STRUCT, ENERGY, INFO, SYS
 
 
 
-- ○ **DAT-1.1.A** Classify a biomolecule as carbohydrate, lipid, protein or nucleic acid from its monomer and linking bond.
+- ● **DAT-1.1.A** Classify a biomolecule as carbohydrate, lipid, protein or nucleic acid from its monomer and linking bond.
   - EK: Glycosidic, ester, peptide and phosphodiester bonds; all formed by dehydration, broken by hydrolysis.
-  - P1 · P5
-- ○ **DAT-1.1.B** Predict how an inhibitor type changes Km and Vmax of an enzyme.
+  - P1 · P5 · drills: bi-monomer-bond, bi-macromolecule-elements
+- ● **DAT-1.1.B** Predict how an inhibitor type changes Km and Vmax of an enzyme.
   - EK: Competitive: Km up, Vmax same; noncompetitive: Vmax down, Km same; uncompetitive: both down.
-  - P2 · P5
-- ○ **DAT-1.1.C** Locate each stage of cellular respiration and state its inputs, outputs and ATP yield.
+  - P2 · P5 · drills: bi-inhibition, bi-rate-curve
+- ● **DAT-1.1.C** Locate each stage of cellular respiration and state its inputs, outputs and ATP yield.
   - EK: Glycolysis (cytosol, 2 ATP net) → pyruvate oxidation + Krebs (matrix) → ETC (inner membrane, O2 final acceptor); ~30–32 ATP per glucose.
-  - P1
-- ○ **DAT-1.1.D** Distinguish the light reactions from the Calvin cycle by location, inputs and products.
+  - P1 · drills: bi-respiration-stages, bi-chemiosmosis
+- ● **DAT-1.1.D** Distinguish the light reactions from the Calvin cycle by location, inputs and products.
   - EK: Thylakoid: H2O split, O2 released, ATP + NADPH made; stroma: rubisco fixes CO2 using ATP and NADPH.
-  - P1 · P2
-- ○ **DAT-1.1.E** Predict the direction and energy requirement of a membrane transport process.
+  - P1 · P2 · drills: bi-photosynthesis-overview, bi-light-reactions
+- ● **DAT-1.1.E** Predict the direction and energy requirement of a membrane transport process.
   - EK: Passive goes down the gradient; active uses ATP or a coupled gradient; water moves toward higher solute concentration.
-  - P2
-- ○ **DAT-1.1.F** Trace a signal from ligand to response for a GPCR, receptor tyrosine kinase or intracellular receptor.
+  - P2 · drills: bi-passive-active, bi-cotransport
+- ● **DAT-1.1.F** Trace a signal from ligand to response for a GPCR, receptor tyrosine kinase or intracellular receptor.
   - EK: Hydrophilic ligands bind surface receptors and use second messengers (cAMP, Ca2+, IP3/DAG); steroids cross the membrane and act on genes.
-  - P2 · P5
-- ○ **DAT-1.1.G** Decide whether a cellular reaction is spontaneous and how coupling or an enzyme changes it.
+  - P2 · P5 · drills: bi-receptor-type, bi-signal-stages
+- ● **DAT-1.1.G** Decide whether a cellular reaction is spontaneous and how coupling or an enzyme changes it.
   - EK: ΔG < 0 is spontaneous; ATP hydrolysis drives endergonic steps by coupling; enzymes lower Ea, never ΔG.
-  - P2
-- ○ **DAT-1.1.H** Order the cell-cycle phases and mitotic stages and name the checkpoint controls.
+  - P2 · drills: bi-enzyme-energy, bi-atp-coupling
+- ● **DAT-1.1.H** Order the cell-cycle phases and mitotic stages and name the checkpoint controls.
   - EK: G1 → S → G2 → M (prophase, metaphase, anaphase, telophase); cyclin–CDK complexes and p53 gate the transitions.
-  - P1
-- ○ **DAT-1.1.I** Compare mitosis and meiosis by ploidy, crossing over and products.
+  - P1 · drills: bi-mitosis-stage, bi-checkpoint
+- ● **DAT-1.1.I** Compare mitosis and meiosis by ploidy, crossing over and products.
   - EK: Meiosis I separates homologs (2n → n) with crossing over in prophase I; meiosis II separates sister chromatids.
   - Needs: DAT-1.1.H
-  - P1 · P2
-- ○ **DAT-1.1.J** Match an organelle to its function and tell prokaryotic from eukaryotic cells.
+  - P1 · P2 · drills: bi-mitosis-vs-meiosis, bi-meiosis-count
+- ● **DAT-1.1.J** Match an organelle to its function and tell prokaryotic from eukaryotic cells.
   - EK: RER makes secreted/membrane proteins; Golgi modifies and sorts; lysosome digests; peroxisome breaks H2O2 and fatty acids; mitochondria and chloroplasts carry their own DNA.
-  - P1
-- ○ **DAT-1.1.K** Identify cytoskeletal elements and cell junctions by structure and role.
+  - P1 · drills: bi-organelle-function, bi-prokaryote-eukaryote
+- ● **DAT-1.1.K** Identify cytoskeletal elements and cell junctions by structure and role.
   - EK: Microtubules (tubulin: spindle, cilia), microfilaments (actin: contraction, cleavage), intermediate filaments (keratin: strength); tight, gap and desmosome junctions.
-  - P1
-- ○ **DAT-1.1.L** Choose the experimental technique that answers a cell-biology question and interpret its result.
+  - P1 · drills: bi-cytoskeleton
+- ● **DAT-1.1.L** Choose the experimental technique that answers a cell-biology question and interpret its result.
   - EK: Differential centrifugation separates by size/density; SDS-PAGE by mass; fluorescent tags localize; radiolabel pulse-chase follows a pathway.
-  - P2 · P5
+  - P2 · P5 · drills: bi-cell-techniques
 
 ### 1.2 Diversity of Life
 
 
 
-- ○ **DAT-1.2.A** Describe virus structure and distinguish lytic, lysogenic and retroviral life cycles.
+- ● **DAT-1.2.A** Describe virus structure and distinguish lytic, lysogenic and retroviral life cycles.
   - EK: Capsid around DNA or RNA, no metabolism; lysogenic phage integrates as a prophage; retroviruses use reverse transcriptase.
-  - P1
-- ○ **DAT-1.2.B** Distinguish Archaea from Bacteria and Eukarya by membrane, wall and genetic machinery.
+  - P1 · drills: bi-virus-cycle
+- ● **DAT-1.2.B** Distinguish Archaea from Bacteria and Eukarya by membrane, wall and genetic machinery.
   - EK: Archaea: ether-linked lipids, no peptidoglycan, histones and eukaryote-like RNA polymerase.
-  - P1
-- ○ **DAT-1.2.C** Classify a bacterium by shape, Gram stain and metabolism, and name its modes of gene transfer.
+  - P1 · drills: bi-archaea
+- ● **DAT-1.2.C** Classify a bacterium by shape, Gram stain and metabolism, and name its modes of gene transfer.
   - EK: Gram+ thick peptidoglycan, Gram− thin wall plus outer LPS membrane; binary fission; transformation, transduction, conjugation.
-  - P1 · P2
-- ○ **DAT-1.2.D** Identify the defining features and life cycle of fungi.
+  - P1 · P2 · drills: bi-bacteria-classify, bi-variation-source
+- ● **DAT-1.2.D** Identify the defining features and life cycle of fungi.
   - EK: Chitin walls, absorptive heterotrophs, hyphae/mycelium; haploid-dominant life cycle.
-  - P1
-- ○ **DAT-1.2.E** Place a described protist in its group and explain why Protista is not a natural clade.
+  - P1 · drills: bi-fungi
+- ● **DAT-1.2.E** Place a described protist in its group and explain why Protista is not a natural clade.
   - EK: Eukaryotes that are not plants, animals or fungi (algae, amoebae, ciliates, Plasmodium); paraphyletic.
-  - P1 · P2
-- ○ **DAT-1.2.F** Order plant groups by key innovation and identify the dominant generation in each.
+  - P1 · P2 · drills: bi-protists
+- ● **DAT-1.2.F** Order plant groups by key innovation and identify the dominant generation in each.
   - EK: Mosses (gametophyte-dominant, no vasculature) → ferns (vascular, sporophyte-dominant) → gymnosperms (seeds, pollen) → angiosperms (flowers, fruit, double fertilization).
-  - P1
-- ○ **DAT-1.2.G** Classify an animal by symmetry, germ layers, body cavity and protostome/deuterostome development.
+  - P1 · drills: bi-plant-groups
+- ● **DAT-1.2.G** Classify an animal by symmetry, germ layers, body cavity and protostome/deuterostome development.
   - EK: Deuterostomes (echinoderms, chordates): blastopore becomes the anus, radial cleavage; protostomes: mouth, spiral cleavage.
-  - P1 · P2
-- ○ **DAT-1.2.H** Identify the four chordate features and the traits that separate vertebrate classes.
+  - P1 · P2 · drills: bi-animal-body-plan
+- ● **DAT-1.2.H** Identify the four chordate features and the traits that separate vertebrate classes.
   - EK: Notochord, dorsal hollow nerve cord, pharyngeal slits, post-anal tail; amniotic egg separates reptiles, birds and mammals from amphibians.
-  - P1
+  - P1 · drills: bi-chordates
 
 ### 1.3 Structure and Function of Systems
 
 
 
-- ○ **DAT-1.3.A** Describe the layers of the skin and their roles in protection and thermoregulation.
+- ● **DAT-1.3.A** Describe the layers of the skin and their roles in protection and thermoregulation.
   - EK: Avascular epidermis (keratinocytes, melanocytes); dermis holds vessels, glands and receptors; sweat and vasodilation dump heat.
-  - P1
-- ○ **DAT-1.3.B** Predict how bone remodeling and blood Ca2+ respond to PTH, calcitonin and vitamin D.
+  - P1 · drills: bi-skin
+- ● **DAT-1.3.B** Predict how bone remodeling and blood Ca2+ respond to PTH, calcitonin and vitamin D.
   - EK: Osteoblasts build, osteoclasts resorb; PTH and calcitriol raise blood Ca2+, calcitonin lowers it.
-  - P2
-- ○ **DAT-1.3.C** Explain each step of the sliding-filament cycle and its dependence on Ca2+ and ATP.
+  - P2 · drills: bi-calcium-bone
+- ● **DAT-1.3.C** Explain each step of the sliding-filament cycle and its dependence on Ca2+ and ATP.
   - EK: Ca2+ binds troponin, tropomyosin uncovers actin sites, myosin power stroke; ATP binding releases the head.
-  - P1 · P2
-- ○ **DAT-1.3.D** Trace blood through the heart and vessels and identify which vessels carry oxygenated blood.
+  - P1 · P2 · drills: bi-sliding-filament
+- ● **DAT-1.3.D** Trace blood through the heart and vessels and identify which vessels carry oxygenated blood.
   - EK: RA → RV → pulmonary artery → lungs → pulmonary veins → LA → LV → aorta; arteries leave the heart regardless of O2 content.
-  - P1
-- ○ **DAT-1.3.E** Predict the direction a condition shifts the oxygen–hemoglobin dissociation curve.
+  - P1 · drills: bi-blood-path
+- ● **DAT-1.3.E** Predict the direction a condition shifts the oxygen–hemoglobin dissociation curve.
   - EK: Right shift (lower affinity): ↑CO2, ↑H+, ↑temperature, ↑2,3-BPG; fetal Hb and CO shift left.
-  - P2 · P5
-- ○ **DAT-1.3.F** Distinguish innate from adaptive immunity and match B, CD4+ and CD8+ cells to their actions.
+  - P2 · P5 · drills: bi-oxygen-curve
+- ● **DAT-1.3.F** Distinguish innate from adaptive immunity and match B, CD4+ and CD8+ cells to their actions.
   - EK: B cells make antibodies (humoral); CD8+ kill cells presenting on MHC I; CD4+ helpers recognize MHC II on APCs.
-  - P1 · P2
-- ○ **DAT-1.3.G** Match a digestive enzyme to its source, substrate and site of action.
+  - P1 · P2 · drills: bi-innate-adaptive, bi-lymphocytes
+- ● **DAT-1.3.G** Match a digestive enzyme to its source, substrate and site of action.
   - EK: Salivary amylase (mouth), pepsin (stomach), pancreatic trypsin, lipase and amylase (duodenum); bile emulsifies; absorption is in the small intestine.
-  - P1
-- ○ **DAT-1.3.H** Explain ventilation mechanics and how O2 and CO2 are exchanged and carried.
+  - P1 · drills: bi-digestive-enzyme
+- ● **DAT-1.3.H** Explain ventilation mechanics and how O2 and CO2 are exchanged and carried.
   - EK: Diaphragm contracts → thoracic volume up, pressure down → air in; exchange by diffusion in alveoli; most CO2 travels as HCO3−.
-  - P1 · P2
-- ○ **DAT-1.3.I** Assign filtration, reabsorption and concentration to nephron segments and predict the effect of ADH and aldosterone.
+  - P1 · P2 · drills: bi-ventilation
+- ● **DAT-1.3.I** Assign filtration, reabsorption and concentration to nephron segments and predict the effect of ADH and aldosterone.
   - EK: Glomerulus filters; PCT reabsorbs most solute; loop of Henle builds the gradient; ADH inserts aquaporins in the collecting duct; aldosterone retains Na+.
-  - P2
-- ○ **DAT-1.3.J** Explain the ion movements behind the resting potential, action potential and synaptic transmission.
+  - P2 · drills: bi-nephron, bi-kidney-hormone
+- ● **DAT-1.3.J** Explain the ion movements behind the resting potential, action potential and synaptic transmission.
   - EK: Na+ in depolarizes, K+ out repolarizes; Na+/K+-ATPase pumps 3 Na+ out, 2 K+ in; myelin enables saltatory conduction; Ca2+ triggers vesicle release.
-  - P1 · P2
-- ○ **DAT-1.3.K** Identify the receptor and structure responsible for a sensory function.
+  - P1 · P2 · drills: bi-action-potential, bi-synapse
+- ● **DAT-1.3.K** Identify the receptor and structure responsible for a sensory function.
   - EK: Rods: dim light; cones: color; cochlear hair cells: hearing; semicircular canals and vestibule: balance.
-  - P1
-- ○ **DAT-1.3.L** Match a hormone to its gland and target action and predict a negative-feedback response.
+  - P1 · drills: bi-sensory-receptor
+- ● **DAT-1.3.L** Match a hormone to its gland and target action and predict a negative-feedback response.
   - EK: Peptide hormones use surface receptors, steroids act in the nucleus; hypothalamus → anterior pituitary → gland axes are damped by negative feedback.
-  - P1 · P2
-- ○ **DAT-1.3.M** Sequence the menstrual cycle's hormone changes and compare spermatogenesis with oogenesis.
+  - P1 · P2 · drills: bi-gland-hormone, bi-hpa-feedback
+- ● **DAT-1.3.M** Sequence the menstrual cycle's hormone changes and compare spermatogenesis with oogenesis.
   - EK: Estrogen peak → LH surge → ovulation; corpus luteum makes progesterone; one oocyte plus polar bodies vs four sperm per meiosis.
-  - P1 · P5
+  - P1 · P5 · drills: bi-menstrual-cycle, bi-gametogenesis
 
 ### 1.4 Genetics
 
 
 
-- ○ **DAT-1.4.A** Assign each DNA replication enzyme its role and explain leading vs lagging strand synthesis.
+- ● **DAT-1.4.A** Assign each DNA replication enzyme its role and explain leading vs lagging strand synthesis.
   - EK: Helicase unwinds, primase lays RNA primer, DNA pol III extends 5′→3′, pol I replaces primers, ligase seals Okazaki fragments.
-  - P1
-- ○ **DAT-1.4.B** Transcribe and translate a sequence and name the eukaryotic RNA-processing steps.
+  - P1 · drills: bi-replication-enzyme, bi-leading-lagging
+- ● **DAT-1.4.B** Transcribe and translate a sequence and name the eukaryotic RNA-processing steps.
   - EK: mRNA is antiparallel to the template, read 5′→3′ from AUG; 5′ cap, poly-A tail and splicing happen in the nucleus.
-  - P2 · P5
-- ○ **DAT-1.4.C** Predict the protein-level effect of a silent, missense, nonsense or frameshift mutation.
+  - P2 · P5 · drills: bi-transcribe, bi-translate, bi-rna-processing
+- ● **DAT-1.4.C** Predict the protein-level effect of a silent, missense, nonsense or frameshift mutation.
   - EK: Insertions or deletions not in multiples of 3 shift the reading frame; nonsense creates an early stop codon.
   - Needs: DAT-1.4.B
-  - P2
-- ○ **DAT-1.4.D** Solve monohybrid, dihybrid and test crosses for genotype and phenotype ratios.
+  - P2 · drills: bi-mutation-type
+- ● **DAT-1.4.D** Solve monohybrid, dihybrid and test crosses for genotype and phenotype ratios.
   - EK: Heterozygote cross 3:1; dihybrid 9:3:3:1; test cross with a heterozygote 1:1; multiply probabilities for independent genes.
-  - P3
-- ○ **DAT-1.4.E** Recognize incomplete dominance, codominance, epistasis and linkage from offspring ratios, and convert recombination frequency to map distance.
+  - P3 · drills: bi-monohybrid, bi-dihybrid
+- ● **DAT-1.4.E** Recognize incomplete dominance, codominance, epistasis and linkage from offspring ratios, and convert recombination frequency to map distance.
   - EK: 1% recombinant offspring = 1 map unit; linked genes give excess parental types; 9:3:4 signals recessive epistasis.
   - Needs: DAT-1.4.D
-  - P2 · P3
-- ○ **DAT-1.4.F** Determine the inheritance pattern of a trait from a pedigree.
+  - P2 · P3 · drills: bi-non-mendelian, bi-map-distance
+- ● **DAT-1.4.F** Determine the inheritance pattern of a trait from a pedigree.
   - EK: Autosomal recessive skips generations; X-linked recessive mostly affects males with no father-to-son transmission; dominant appears every generation.
-  - P5
-- ○ **DAT-1.4.G** Explain how nondisjunction causes aneuploidy and predict gametes from a meiosis I vs II error.
+  - P5 · drills: bi-pedigree-pattern, bi-pedigree-probability
+- ● **DAT-1.4.G** Explain how nondisjunction causes aneuploidy and predict gametes from a meiosis I vs II error.
   - EK: An error in meiosis I gives all abnormal gametes; in meiosis II, half are normal; trisomy 21, XXY and XO are common results.
   - Needs: DAT-1.1.I
-  - P2
-- ○ **DAT-1.4.H** Predict lac and trp operon expression under given nutrient conditions.
+  - P2 · drills: bi-nondisjunction
+- ● **DAT-1.4.H** Predict lac and trp operon expression under given nutrient conditions.
   - EK: Lac is inducible: lactose inactivates the repressor, low glucose raises cAMP–CAP; trp is repressible: tryptophan activates the repressor.
-  - P2
-- ○ **DAT-1.4.I** Explain how chromatin modification and DNA methylation regulate eukaryotic genes heritably.
+  - P2 · drills: bi-operon
+- ● **DAT-1.4.I** Explain how chromatin modification and DNA methylation regulate eukaryotic genes heritably.
   - EK: Histone acetylation opens chromatin (on); DNA methylation of promoters silences; changes persist without altering sequence.
-  - P1 · P2
-- ○ **DAT-1.4.J** Choose and interpret a genetic technology: PCR, restriction digest, gel electrophoresis, cloning, CRISPR or sequencing.
+  - P1 · P2 · drills: bi-eukaryote-regulation
+- ● **DAT-1.4.J** Choose and interpret a genetic technology: PCR, restriction digest, gel electrophoresis, cloning, CRISPR or sequencing.
   - EK: PCR cycles denature–anneal–extend, doubling copies (2^n); smaller fragments run farther on a gel; Cas9 cuts where its guide RNA matches.
-  - P2 · P5
-- ○ **DAT-1.4.K** Relate genome size to gene number and interpret genomic comparisons between species.
+  - P2 · P5 · drills: bi-pcr, bi-gel-reading, bi-cloning
+- ◐ **DAT-1.4.K** Relate genome size to gene number and interpret genomic comparisons between species.
   - EK: Most eukaryotic DNA is noncoding; genome size does not track complexity; shared sequence measures relatedness.
-  - P2
-- ○ **DAT-1.4.L** Trace early development from fertilization through gastrulation and match germ layers to the tissues they form.
+  - P2 · drills: ~bi-genome-organization
+- ● **DAT-1.4.L** Trace early development from fertilization through gastrulation and match germ layers to the tissues they form.
   - EK: Ectoderm: nervous system, epidermis; mesoderm: muscle, bone, blood, kidney; endoderm: gut and lung lining; Hox genes set the body axis.
-  - P1
+  - P1 · drills: bi-development-stage, bi-germ-layers
 
 ### 1.5 Evolution and Ecology
 
 
 
-- ○ **DAT-1.5.A** Identify the type of selection from a change in a trait distribution.
+- ● **DAT-1.5.A** Identify the type of selection from a change in a trait distribution.
   - EK: Directional shifts the mean; stabilizing narrows it; disruptive favors both extremes; selection acts on phenotype.
-  - P2 · P5
-- ○ **DAT-1.5.B** Calculate allele and genotype frequencies with Hardy–Weinberg and state its assumptions.
+  - P2 · P5 · drills: bi-selection-type
+- ● **DAT-1.5.B** Calculate allele and genotype frequencies with Hardy–Weinberg and state its assumptions.
   - EK: p + q = 1; p² + 2pq + q² = 1; no selection, mutation, migration or drift, random mating, large population.
   - Needs: DAT-1.4.D
-  - P3
-- ○ **DAT-1.5.C** Classify a reproductive barrier and a speciation mode from a scenario.
+  - P3 · drills: bi-hardy-weinberg, bi-hw-conditions
+- ● **DAT-1.5.C** Classify a reproductive barrier and a speciation mode from a scenario.
   - EK: Prezygotic (habitat, temporal, behavioral, mechanical, gametic) vs postzygotic (hybrid inviability, sterility); allopatric needs a geographic barrier.
-  - P2
-- ○ **DAT-1.5.D** Distinguish homologous, analogous and vestigial structures and read relatedness from a phylogenetic tree.
+  - P2 · drills: bi-reproductive-barrier, bi-speciation
+- ● **DAT-1.5.D** Distinguish homologous, analogous and vestigial structures and read relatedness from a phylogenetic tree.
   - EK: Homology reflects common ancestry; analogy reflects convergence; the most recent shared node marks the closest relatives.
-  - P5
-- ○ **DAT-1.5.E** Classify an animal behavior as fixed action pattern, imprinting, habituation, classical or operant conditioning, or altruism.
+  - P5 · drills: bi-structure-homology, bi-phylogeny-reading
+- ● **DAT-1.5.E** Classify an animal behavior as fixed action pattern, imprinting, habituation, classical or operant conditioning, or altruism.
   - EK: Innate behaviors need no learning; kin selection explains altruism toward relatives sharing genes.
-  - P1 · P2
-- ○ **DAT-1.5.F** Predict population growth under exponential and logistic models and contrast r- and K-strategists.
+  - P1 · P2 · drills: bi-behavior-type
+- ● **DAT-1.5.F** Predict population growth under exponential and logistic models and contrast r- and K-strategists.
   - EK: dN/dt = rN(K − N)/K; growth is fastest at N = K/2; r-selected: many offspring, little care.
-  - P2 · P5
-- ○ **DAT-1.5.G** Classify species interactions by their effect on each partner and order the stages of succession.
+  - P2 · P5 · drills: bi-exponential-growth, bi-logistic-growth
+- ● **DAT-1.5.G** Classify species interactions by their effect on each partner and order the stages of succession.
   - EK: Mutualism +/+, commensalism +/0, parasitism and predation +/−, competition −/−; primary succession starts on bare substrate.
-  - P1
-- ○ **DAT-1.5.H** Calculate energy transfer across trophic levels and trace carbon and nitrogen through an ecosystem.
+  - P1 · drills: bi-interaction-type, bi-succession
+- ● **DAT-1.5.H** Calculate energy transfer across trophic levels and trace carbon and nitrogen through an ecosystem.
   - EK: About 10% of energy passes to each higher level; N2 fixation → nitrification → assimilation → denitrification.
-  - P1 · P3
+  - P1 · P3 · drills: bi-trophic-energy, bi-biogeochemical
 
 ## Unit 2 · General Chemistry
 

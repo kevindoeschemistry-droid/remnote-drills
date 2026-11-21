@@ -1,0 +1,698 @@
+# AP Biology units 1 and 2 (chemistry of life, cell structure and function), also used by the DAT.
+# One question each. Numbers (polymer water counts, Chargaff, SA/V, water potential) are recomputed by sympy.
+
+# ── water and macromolecules ───────────────────────────────────────────────
+- template: bi-water-interaction
+  skill: bio.molecules
+  pace: recall
+  cases:
+    - { q: 'two water molecules', ans: 0 }
+    - { q: 'water and a dissolved Na⁺ ion', ans: 1 }
+    - { q: 'water and a dissolved Cl⁻ ion', ans: 2 }
+    - { q: 'water and the O–H of glucose', ans: 0 }
+    - { q: 'water and a long hydrocarbon chain', ans: 3 }
+  prompt: 'What holds {{q}} together, if anything?'
+  parts:
+    - ask: 'Interaction'
+      label: a
+      choice: ["Hydrogen bonds (partial-positive H to partial-negative O or N)", "Water's partly negative oxygen faces the cation", "Water's partly positive hydrogens face the anion", "Nothing strong: water excludes it (hydrophobic)"]
+      correct: ans
+      explain: 'Oxygen pulls electrons from hydrogen, so water is polar: δ− at O, δ+ at each H. That lets it hydrogen bond to itself and to polar groups and surround ions. Nonpolar chains offer no partial charges, so water molecules H-bond to each other instead and push the chains together'
+  verify: { authored: true }
+
+- template: bi-water-property
+  skill: bio.molecules
+  pace: recall
+  cases:
+    - { q: 'Water rises up the narrow xylem vessels of a tall tree.', ans: 0 }
+    - { q: 'Sweating cools the body.', ans: 1 }
+    - { q: 'Coastal and lake temperatures change slowly through the seasons.', ans: 2 }
+    - { q: 'Fish survive winter under a frozen pond surface.', ans: 3 }
+    - { q: 'Salts, sugars and amino acids dissolve in cytoplasm.', ans: 4 }
+    - { q: 'An insect can stand on a pond surface.', ans: 0 }
+  prompt: '{{q}} Which property of water explains it?'
+  parts:
+    - ask: 'Property'
+      label: a
+      choice: ["Cohesion and adhesion (surface tension, capillary action)", "High heat of vaporization", "High specific heat", "Ice is less dense than liquid water", "Water dissolves polar and ionic substances"]
+      correct: ans
+      explain: 'Every one traces back to hydrogen bonding: H-bonds hold molecules to each other (cohesion) and to polar surfaces (adhesion), absorb heat before molecules speed up (specific heat) or escape (vaporization), and lock ice into an open lattice that floats'
+  verify: { authored: true }
+
+- template: bi-macromolecule-elements
+  skill: bio.molecules
+  pace: recall
+  cases:
+    - { q: 'contains sulfur in some of its monomers', ans: 0 }
+    - { q: 'has phosphorus in its backbone', ans: 1 }
+    - { q: 'contains only C, H and O, roughly in a 1 : 2 : 1 ratio', ans: 2 }
+    - { q: 'is made almost entirely of C and H with a little O, and is hydrophobic', ans: 3 }
+    - { q: 'contains nitrogen in every monomer and no phosphorus', ans: 0 }
+  prompt: 'Which macromolecule class {{q}}?'
+  parts:
+    - ask: 'Class'
+      label: a
+      choice: ["Proteins", "Nucleic acids", "Carbohydrates", "Lipids (triglycerides)"]
+      correct: ans
+      explain: 'All four contain C, H and O. Nitrogen: proteins (amino groups) and nucleic acids (bases). Phosphorus: nucleic acids (phosphate backbone) and phospholipids. Sulfur: proteins only (cysteine, methionine)'
+  verify: { authored: true }
+
+- template: bi-radiolabel
+  skill: bio.molecules
+  pace: recall
+  cases:
+    - { q: '³⁵S', ans: 0 }
+    - { q: '³²P', ans: 1 }
+    - { q: '¹⁵N', ans: 2 }
+    - { q: '¹⁴C', ans: 3 }
+  prompt: 'Cells are grown with {{q}}. Which macromolecules pick up the label?'
+  parts:
+    - ask: 'Labelled'
+      label: a
+      choice: ["Proteins only", "Nucleic acids (and phospholipids), not proteins", "Proteins and nucleic acids", "All four classes"]
+      correct: ans
+      explain: 'Follow the element: S is in proteins only, P in nucleic acids and phospholipids, N in proteins and nucleic acids, C everywhere. Hershey and Chase used ³⁵S for phage protein and ³²P for phage DNA, and only the ³²P entered the bacteria'
+  verify: { authored: true }
+
+- template: bi-dehydration-hydrolysis
+  skill: bio.molecules
+  pace: recall
+  cases:
+    - { q: 'Two glucose molecules join into maltose.', ans: 0 }
+    - { q: 'Pepsin breaks a protein into peptides in the stomach.', ans: 1 }
+    - { q: 'A ribosome links an amino acid to a growing chain.', ans: 0 }
+    - { q: 'Lipase splits a triglyceride into glycerol and fatty acids.', ans: 1 }
+    - { q: 'Glycogen is broken down to release glucose.', ans: 1 }
+    - { q: 'DNA polymerase adds a nucleotide to a strand.', ans: 0 }
+  prompt: '{{q}} Which reaction is this?'
+  parts:
+    - ask: 'Reaction'
+      label: a
+      choice: ["Dehydration synthesis: a bond forms and water is released", "Hydrolysis: water is used to break a bond"]
+      correct: ans
+      explain: 'Polymers are built by removing an –OH from one monomer and an –H from the next (dehydration) and broken by adding water back across the bond (hydrolysis). Building takes energy; hydrolysis releases it'
+  verify: { authored: true }
+
+- template: bi-polymer-water
+  skill: bio.molecules
+  pace: quick
+  given: { n: { pick: [5, 12, 20, 50, 100, 300] }, w: { pick: [0, 1] } }
+  prompt: '{{w == 0 ? "How many water molecules are released when" : "How many water molecules are used up when"}} ${{n}}$ monomers are {{w == 0 ? "joined into" : "cut out of"}} one linear chain?'
+  parts:
+    - { ask: 'Water molecules', label: r, value: n - 1, tol: 0.0001, explain: 'A linear chain of $n$ monomers has $n - 1$ links, one water per link: $ {{n}} - 1 = {{n - 1}}$. A triglyceride (glycerol plus three fatty acids) has three ester links, so three waters' }
+  verify: { expect: { r: "n - 1" } }
+
+- template: bi-monomer-bond
+  skill: bio.molecules
+  pace: recall
+  cases:
+    - { q: 'proteins', ans: 0 }
+    - { q: 'polysaccharides', ans: 1 }
+    - { q: 'nucleic acids', ans: 2 }
+    - { q: 'triglycerides', ans: 3 }
+  prompt: 'What are the building blocks and the linking bond of {{q}}?'
+  parts:
+    - ask: 'Monomer and bond'
+      label: a
+      choice: ["Amino acids, peptide bonds", "Monosaccharides, glycosidic bonds", "Nucleotides, phosphodiester bonds", "Glycerol and three fatty acids, ester bonds"]
+      correct: ans
+      explain: 'Each class is a monomer and one kind of dehydration bond. Triglycerides are not true polymers (no repeating chain), but are assembled the same way'
+  verify: { authored: true }
+
+- template: bi-side-chain
+  skill: bio.molecules
+  pace: recall
+  cases:
+    - { aa: 'leucine', ans: 0 }
+    - { aa: 'serine', ans: 1 }
+    - { aa: 'lysine', ans: 2 }
+    - { aa: 'aspartate', ans: 2 }
+    - { aa: 'phenylalanine', ans: 0 }
+    - { aa: 'glutamine', ans: 1 }
+    - { aa: 'valine', ans: 0 }
+    - { aa: 'glutamate', ans: 2 }
+    - { aa: 'threonine', ans: 1 }
+    - { aa: 'arginine', ans: 2 }
+    - { aa: 'isoleucine', ans: 0 }
+    - { aa: 'asparagine', ans: 1 }
+  prompt: 'Classify the side chain of {{aa}} and say where it usually sits in a soluble protein.'
+  parts:
+    - ask: 'Class'
+      label: a
+      choice: ["Nonpolar, buried in the interior", "Polar uncharged, on the surface", "Charged at pH 7, on the surface"]
+      correct: ans
+      explain: 'Hydrocarbon side chains (Ala, Val, Leu, Ile, Met, Phe, Trp, Pro) are nonpolar and pack inside, away from water. –OH and amide side chains (Ser, Thr, Asn, Gln, Tyr) are polar. Asp and Glu carry −, Lys, Arg (and sometimes His) +'
+  verify: { authored: true }
+
+- template: bi-lipid-types
+  skill: bio.molecules
+  pace: recall
+  cases:
+    - { q: 'Solid at room temperature; fatty acid chains with no C=C', ans: 0 }
+    - { q: 'Liquid at room temperature; kinked chains with cis C=C bonds', ans: 1 }
+    - { q: 'A hydrophilic phosphate head and two hydrophobic tails', ans: 2 }
+    - { q: 'Four fused carbon rings', ans: 3 }
+    - { q: 'Main lipid of the plasma membrane bilayer', ans: 2 }
+    - { q: 'Cholesterol, testosterone and estrogen', ans: 3 }
+  prompt: 'Which lipid fits: {{q}}?'
+  parts:
+    - ask: 'Lipid'
+      label: a
+      choice: ["Saturated fat", "Unsaturated fat (oil)", "Phospholipid", "Steroid"]
+      correct: ans
+      explain: 'Straight saturated chains pack tightly (solid); cis double bonds kink chains so they pack loosely (liquid). A phospholipid is amphipathic and forms bilayers. Steroids are ring systems, not chains'
+  verify: { authored: true }
+
+- template: bi-polysaccharide
+  skill: bio.molecules
+  pace: recall
+  cases:
+    - { q: 'cellulose', ans: 0 }
+    - { q: 'amylose (starch)', ans: 1 }
+    - { q: 'glycogen', ans: 2 }
+    - { q: 'chitin', ans: 3 }
+  prompt: 'Which description fits {{q}}?'
+  parts:
+    - ask: 'Description'
+      label: a
+      choice: ["β-1,4 glucose, straight unbranched chains in H-bonded fibres: plant wall", "α-1,4 glucose, helical, little branching: plant storage", "α-1,4 glucose with frequent α-1,6 branches: animal storage", "β-1,4 N-acetylglucosamine: fungal walls and insect exoskeletons"]
+      correct: ans
+      explain: 'The linkage decides the job. α links coil and are easy to hydrolyse (storage); β links flip each unit, giving straight chains that H-bond side by side into tough fibres (structure). More branches mean more ends to release glucose from quickly'
+  verify: { authored: true }
+
+- template: bi-protein-levels
+  skill: bio.molecules
+  pace: recall
+  cases:
+    - { q: 'the sequence of amino acids held by peptide bonds', ans: 0 }
+    - { q: 'α-helices and β-sheets held by H-bonds between backbone C=O and N–H', ans: 1 }
+    - { q: 'the overall 3-D fold held by R-group interactions and disulfide bridges', ans: 2 }
+    - { q: 'several polypeptide subunits assembled together, as in hemoglobin', ans: 3 }
+    - { q: 'hydrophobic side chains clustering in the core', ans: 2 }
+  prompt: 'Which level of protein structure is {{q}}?'
+  parts:
+    - ask: 'Level'
+      label: a
+      choice: ["Primary", "Secondary", "Tertiary", "Quaternary"]
+      correct: ans
+      explain: 'Secondary structure uses the backbone only; tertiary uses side chains (hydrophobic clustering, H-bonds, ionic bonds, disulfides). Denaturation undoes secondary to quaternary structure but leaves the primary sequence intact'
+  verify: { authored: true }
+
+- template: bi-monomer-substitution
+  skill: bio.molecules
+  pace: quick
+  cases:
+    - { q: 'Glu → Val on the surface of hemoglobin β', o1: 'No effect: both are amino acids', o2: 'A hydrophobic patch makes hemoglobin molecules stick into fibres (sickle cell)', o3: 'The protein cannot be made', ans: 1 }
+    - { q: 'Leu → Ile in a buried position', o1: 'Little change: both are nonpolar and similar in size', o2: 'The protein unfolds completely', o3: 'A disulfide bond forms', ans: 0 }
+    - { q: 'Cys → Ser where a disulfide bridge forms', o1: 'No change', o2: 'The protein becomes more stable', o3: 'The disulfide is lost and the fold is weakened', ans: 2 }
+    - { q: 'Leu → Lys in the hydrophobic core', o1: 'A buried charge destabilises the fold', o2: 'Little change', o3: 'The protein becomes more soluble and works better', ans: 0 }
+    - { q: 'α-1,4 linkages replaced by β-1,4 in a glucose polymer', o1: 'It becomes glycogen', o2: 'It becomes a straight, fibrous, hard-to-digest chain like cellulose', o3: 'Nothing changes', ans: 1 }
+  prompt: 'Predict the effect of {{q}}.'
+  parts:
+    - ask: 'Effect'
+      label: a
+      choice: ["{{o1}}", "{{o2}}", "{{o3}}"]
+      correct: ans
+      explain: 'Ask what the swapped unit does in the structure. A similar replacement in a tolerant spot changes little; a change in charge, polarity or bonding at a key spot changes the fold, the interactions and so the function'
+  verify: { authored: true }
+
+- template: bi-directionality
+  skill: bio.molecules
+  pace: recall
+  cases:
+    - { q: 'DNA polymerase adds nucleotides to which end of a new strand?', o1: 'The 3′ end', o2: 'The 5′ end', o3: 'Either end', ans: 0 }
+    - { q: 'Which end of a polypeptide is made first?', o1: 'The C-terminus', o2: 'The N-terminus', o3: 'The middle', ans: 1 }
+    - { q: 'In which direction does a ribosome read mRNA?', o1: '3′ to 5′', o2: 'Either way', o3: '5′ to 3′', ans: 2 }
+    - { q: 'Why can a new nucleotide join only at the 3′ end?', o1: 'The 3′ –OH attacks the incoming nucleotide''s phosphate', o2: 'The 5′ end has no atoms', o3: 'Enzymes cannot reach the 5′ end', ans: 0 }
+  prompt: '{{q}}'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["{{o1}}", "{{o2}}", "{{o3}}"]
+      correct: ans
+      explain: 'Nucleic acids have a 5′ phosphate end and a 3′ hydroxyl end; proteins have an N (amino) end and a C (carboxyl) end. Each link forms from the free –OH or –NH₂ of the chain''s growing end, so polymers grow 5′→3′ and N→C'
+  verify: { authored: true }
+
+- template: bi-dna-rna
+  skill: bio.molecules
+  pace: recall
+  cases:
+    - { q: 'has deoxyribose as its sugar', ans: 0 }
+    - { q: 'contains uracil instead of thymine', ans: 1 }
+    - { q: 'is usually a double-stranded helix', ans: 0 }
+    - { q: 'is usually single-stranded and can fold and catalyse reactions', ans: 1 }
+    - { q: 'has a 2′ –OH on its sugar, making it less stable', ans: 1 }
+  prompt: 'Which nucleic acid {{q}}?'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["DNA", "RNA"]
+      correct: ans
+      explain: 'DNA: deoxyribose, A T G C, double-stranded and stable for storage. RNA: ribose (with the reactive 2′ –OH), A U G C, usually single-stranded, so it can fold into tRNA, rRNA and ribozymes'
+  verify: { authored: true }
+
+- template: bi-chargaff
+  skill: bio.molecules
+  pace: quick
+  given: { a: { pick: [18, 22, 27, 31, 34] }, w: { pick: [0, 1, 2] } }
+  prompt: 'A double-stranded DNA sample is ${{a}}$ percent adenine. What percent is {{w == 0 ? "thymine" : (w == 1 ? "guanine" : "cytosine plus guanine")}}?'
+  parts:
+    - { ask: 'Percent', label: r, value: 'w == 0 ? a : (w == 1 ? 50 - a : 100 - 2*a)', tol: 0.0001, explain: 'Chargaff: A pairs with T and G with C, so A = T and G = C. A + T = $2 \times {{a}}$ percent leaves $100 - {{2*a}}$ percent for G + C, half of it G' }
+  verify: { expect: { r: "[a, (100 - 2*a)/Integer(2), 100 - 2*a][w]" } }
+
+- template: bi-complementary-strand
+  skill: bio.molecules
+  pace: quick
+  cases:
+    - { s: '5′-ATGCCA-3′', o1: '5′-TGGCAT-3′', o2: '5′-TACGGT-3′', o3: '3′-ATGCCA-5′', o4: '5′-UACGGU-3′', ans: 0 }
+    - { s: '5′-GGATCC-3′', o1: '5′-CCTAGG-3′', o2: '5′-GGATCC-3′', o3: '3′-GGATCC-5′', o4: '5′-CCUAGG-3′', ans: 1 }
+    - { s: '5′-TTAGCA-3′', o1: '5′-AATCGT-3′', o2: '3′-TTAGCA-5′', o3: '5′-TGCTAA-3′', o4: '5′-ACGATT-3′', ans: 2 }
+    - { s: '5′-CAGTAC-3′', o1: '5′-GTCATG-3′', o2: '3′-CAGTAC-5′', o3: '5′-CATGAC-3′', o4: '5′-GTACTG-3′', ans: 3 }
+  prompt: 'What is the complementary strand of {{s}}, written 5′ to 3′?'
+  parts:
+    - ask: 'Complement'
+      label: a
+      choice: ["{{o1}}", "{{o2}}", "{{o3}}", "{{o4}}"]
+      correct: ans
+      explain: 'Pair each base (A–T, G–C), which gives the complement 3′→5′ under the original; then reverse it to write it 5′→3′. The strands are antiparallel'
+  verify: { authored: true }
+
+# ── cell structure ─────────────────────────────────────────────────────────
+- template: bi-ribosome-ancestry
+  skill: bio.cells
+  pace: recall
+  cases:
+    - { q: 'What are ribosomes made of?', o1: 'rRNA and protein, with no membrane', o2: 'A phospholipid membrane around DNA', o3: 'Only protein', ans: 0 }
+    - { q: 'Which cells have ribosomes?', o1: 'Only eukaryotic cells', o2: 'Every cell, prokaryote and eukaryote', o3: 'Only cells that secrete proteins', ans: 1 }
+    - { q: 'What does the universal presence of ribosomes suggest?', o1: 'Convergent evolution', o2: 'Recent horizontal gene transfer', o3: 'All life shares a common ancestor', ans: 2 }
+  prompt: '{{q}}'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["{{o1}}", "{{o2}}", "{{o3}}"]
+      correct: ans
+      explain: 'Ribosomes are rRNA–protein machines that translate mRNA in every living cell, with the same genetic code. A structure that complex and universal points to one origin rather than many'
+  verify: { authored: true }
+
+- template: bi-organelle-function
+  skill: bio.cells
+  pace: recall
+  cases:
+    - { q: 'Makes proteins for secretion or for membranes', ans: 0 }
+    - { q: 'Makes lipids and detoxifies drugs; stores Ca²⁺ in muscle', ans: 1 }
+    - { q: 'Modifies, sorts and packages proteins into vesicles', ans: 2 }
+    - { q: 'Site of aerobic respiration', ans: 3 }
+    - { q: 'Digests worn-out parts and engulfed material with hydrolytic enzymes', ans: 4 }
+    - { q: 'Stores water and keeps a plant cell turgid', ans: 5 }
+    - { q: 'Site of photosynthesis', ans: 6 }
+  prompt: 'Which organelle: {{q}}?'
+  parts:
+    - ask: 'Organelle'
+      label: a
+      choice: ["Rough ER", "Smooth ER", "Golgi apparatus", "Mitochondrion", "Lysosome", "Central vacuole", "Chloroplast"]
+      correct: ans
+      explain: 'The rough ER is studded with ribosomes; the smooth ER has none and handles lipids and detox. The Golgi is the shipping center. Mitochondria and chloroplasts transform energy; lysosomes and vacuoles digest and store'
+  verify: { authored: true }
+
+- template: bi-secretory-pathway
+  skill: bio.cells
+  pace: quick
+  cases:
+    - { q: 'A ribosome makes a protein with an ER signal sequence. Where does the protein go first?', o1: 'Into the rough ER lumen', o2: 'Straight to the Golgi', o3: 'Into a lysosome', o4: 'Into the nucleus', ans: 0 }
+    - { q: 'After the rough ER, the protein travels to', o1: 'the plasma membrane directly', o2: 'the Golgi, in a transport vesicle', o3: 'the mitochondrion', o4: 'the smooth ER', ans: 1 }
+    - { q: 'After the Golgi, a secreted protein travels', o1: 'back to the nucleus', o2: 'into the cytosol', o3: 'in a secretory vesicle that fuses with the plasma membrane', o4: 'to a ribosome', ans: 2 }
+    - { q: 'Which organelle adds most sugar tags and sorts proteins to their destinations?', o1: 'Lysosome', o2: 'Smooth ER', o3: 'Nucleus', o4: 'Golgi apparatus', ans: 3 }
+  prompt: '{{q}}'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["{{o1}}", "{{o2}}", "{{o3}}", "{{o4}}"]
+      correct: ans
+      explain: 'Secretory route: ribosome on rough ER → ER lumen (folding, first glycosylation) → transport vesicle → Golgi (cis to trans: modification, sorting) → secretory vesicle → exocytosis at the plasma membrane'
+  verify: { authored: true }
+
+- template: bi-structure-function
+  skill: bio.cells
+  pace: quick
+  cases:
+    - { q: 'Heart muscle cells', o1: 'Many mitochondria', o2: 'Many chloroplasts', o3: 'A large central vacuole', ans: 0 }
+    - { q: 'Pancreatic cells that secrete digestive enzymes', o1: 'Abundant smooth ER', o2: 'Abundant rough ER and Golgi', o3: 'Many lysosomes', ans: 1 }
+    - { q: 'Liver cells that break down drugs and alcohol', o1: 'Many chloroplasts', o2: 'Few organelles', o3: 'Abundant smooth ER', ans: 2 }
+    - { q: 'Macrophages that engulf bacteria', o1: 'Many lysosomes', o2: 'Many chloroplasts', o3: 'A cell wall', ans: 0 }
+    - { q: 'Cells of the adrenal cortex that make steroid hormones', o1: 'Abundant rough ER', o2: 'Abundant smooth ER', o3: 'Many ribosomes free in the cytosol', ans: 1 }
+  prompt: 'Which feature would you expect to be prominent in: {{q}}?'
+  parts:
+    - ask: 'Feature'
+      label: a
+      choice: ["{{o1}}", "{{o2}}", "{{o3}}"]
+      correct: ans
+      explain: 'Cells build up the organelle their job needs: energy-hungry cells pack mitochondria, protein exporters have rough ER and Golgi, lipid and steroid makers and detoxifiers have smooth ER, and phagocytes have lysosomes'
+  verify: { authored: true }
+
+- template: bi-folded-membranes
+  skill: bio.cells
+  pace: recall
+  cases:
+    - { q: 'Why is the inner mitochondrial membrane folded into cristae?', ans: 0 }
+    - { q: 'Why are thylakoid membranes stacked into grana?', ans: 0 }
+    - { q: 'Why does the inner mitochondrial membrane need to be nearly impermeable to H⁺?', ans: 1 }
+    - { q: 'Why is the thylakoid space a separate compartment from the stroma?', ans: 1 }
+  prompt: '{{q}}'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["More membrane area for electron transport chains and ATP synthase", "So a proton gradient can build across it and drive ATP synthase", "To store DNA", "To keep enzymes out"]
+      correct: ans
+      explain: 'Electron transport and ATP synthase are membrane proteins, so more membrane means more energy captured. The membrane must also hold H⁺ on one side: the gradient is the stored energy that ATP synthase taps'
+  verify: { authored: true }
+
+- template: bi-sa-volume
+  skill: bio.cells
+  pace: quick
+  cases:
+    - { sh: 'cube of side', k: 0 }
+    - { sh: 'sphere of radius', k: 1 }
+  given: { s: { pick: [1, 2, 3, 5, 10] } }
+  prompt: 'What is the surface-area-to-volume ratio of a {{sh}} ${{s}}$ μm, in μm⁻¹?'
+  parts:
+    - { ask: 'SA/V (μm⁻¹)', label: r, value: 'k == 0 ? 6/s : 3/s', tol: 0.001, explain: 'Cube: $6s^2/s^3 = 6/s$. Sphere: $4\pi r^2 / \tfrac43\pi r^3 = 3/r$. The ratio falls as size grows, so a big cell has too little membrane for its volume' }
+  verify: { expect: { r: "(6*s**2)/s**3 if k == 0 else (4*pi*s**2)/(Rational(4, 3)*pi*s**3)" } }
+
+- template: bi-sa-v-consequence
+  skill: bio.cells
+  pace: recall
+  cases:
+    - { q: 'Why are most cells microscopic?', ans: 0 }
+    - { q: 'Why does an elephant have a lower metabolic rate per gram than a mouse?', ans: 1 }
+    - { q: 'Why do large animals need lungs and a circulatory system?', ans: 2 }
+    - { q: 'A cell doubles in diameter. What happens to its exchange per unit volume?', ans: 3 }
+  prompt: '{{q}}'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["Small size keeps SA/V high enough for exchange across the membrane", "A smaller SA/V loses heat more slowly, so less metabolism per gram keeps it warm", "Diffusion across the body surface alone is too slow for their volume", "It halves, because SA/V scales as 1/size"]
+      correct: ans
+      explain: 'Volume (demand) grows as size cubed, surface (supply) as size squared. So the bigger the cell or animal, the less surface each unit of volume gets, and the more it needs folds, specialised surfaces and transport systems'
+  verify: { authored: true }
+
+- template: bi-exchange-surface
+  skill: bio.cells
+  pace: recall
+  cases:
+    - { q: 'Microvilli on intestinal cells', ans: 0 }
+    - { q: 'Alveoli in lungs', ans: 1 }
+    - { q: 'Root hairs', ans: 2 }
+    - { q: 'Gill filaments and lamellae', ans: 1 }
+    - { q: 'Villi of the small intestine', ans: 0 }
+    - { q: 'Cristae of mitochondria', ans: 3 }
+  prompt: '{{q}} raise surface area for what?'
+  parts:
+    - ask: 'Purpose'
+      label: a
+      choice: ["Absorbing nutrients", "Gas exchange", "Taking up water and minerals", "Room for respiratory enzymes and ATP synthase"]
+      correct: ans
+      explain: 'Folding, branching and projections add area without adding much volume, so exchange keeps up with demand. Thin walls and a steep gradient (kept by blood flow or ventilation) add to the gain'
+  verify: { authored: true }
+
+- template: bi-bilayer
+  skill: bio.cells
+  pace: recall
+  cases:
+    - { q: 'Why do phospholipids form a bilayer in water?', ans: 0 }
+    - { q: 'What do integral proteins add?', ans: 1 }
+    - { q: 'What do glycoproteins and glycolipids on the outer surface do?', ans: 2 }
+    - { q: 'Where are the fatty acid tails?', ans: 3 }
+  prompt: '{{q}}'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["Hydrophilic heads face water and hydrophobic tails hide inside", "Channels, carriers, pumps and receptors that span the membrane", "Cell recognition and signaling", "In the interior of the bilayer, away from water"]
+      correct: ans
+      explain: 'Phospholipids are amphipathic, so in water they self-assemble with tails inward. Proteins give the membrane its specific jobs: transport, signaling, attachment and identity'
+  verify: { authored: true }
+
+- template: bi-membrane-fluidity
+  skill: bio.cells
+  pace: recall
+  cases:
+    - { q: 'Raising the temperature', ans: 0 }
+    - { q: 'More saturated fatty acid tails', ans: 1 }
+    - { q: 'More unsaturated (cis-kinked) tails', ans: 0 }
+    - { q: 'Cholesterol at low temperature', ans: 0 }
+    - { q: 'Cholesterol at high temperature', ans: 1 }
+    - { q: 'Cooling the membrane', ans: 1 }
+  prompt: 'How does this change membrane fluidity: {{q}}?'
+  parts:
+    - ask: 'Effect'
+      label: a
+      choice: ["More fluid", "Less fluid"]
+      correct: ans
+      explain: 'The membrane is a fluid mosaic of lipids and proteins that drift sideways. Heat and kinked tails loosen packing; cold and straight saturated tails tighten it. Cholesterol is a buffer: it stiffens a warm membrane and keeps a cold one from freezing'
+  verify: { authored: true }
+
+- template: bi-bilayer-permeability
+  skill: bio.cells
+  pace: recall
+  cases:
+    - { q: 'O₂', ans: 0 }
+    - { q: 'CO₂', ans: 0 }
+    - { q: 'glucose', ans: 2 }
+    - { q: 'Na⁺', ans: 2 }
+    - { q: 'water', ans: 1 }
+    - { q: 'a steroid hormone', ans: 0 }
+    - { q: 'an amino acid', ans: 2 }
+    - { q: 'ethanol', ans: 0 }
+  prompt: 'How does {{q}} cross a pure phospholipid bilayer?'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["Crosses readily: small or nonpolar", "Crosses slowly: small but polar", "Barely at all: needs a transport protein"]
+      correct: ans
+      explain: 'The hydrophobic core lets through small nonpolar molecules and lipids. Charge is the strongest barrier, size next. Water leaks slowly but cells speed it with aquaporins'
+  verify: { authored: true }
+
+- template: bi-cell-wall
+  skill: bio.cells
+  pace: recall
+  cases:
+    - { q: 'plants', ans: 0 }
+    - { q: 'fungi', ans: 1 }
+    - { q: 'bacteria', ans: 2 }
+    - { q: 'animals', ans: 3 }
+  prompt: 'What is the cell wall of {{q}} made of?'
+  parts:
+    - ask: 'Wall'
+      label: a
+      choice: ["Cellulose", "Chitin", "Peptidoglycan", "No cell wall"]
+      correct: ans
+      explain: 'A wall resists the pressure of water rushing into a cell kept hypertonic to its surroundings, so the cell becomes turgid instead of bursting. Animal cells lack walls and must control water balance in other ways; penicillin kills bacteria by blocking peptidoglycan synthesis'
+  verify: { authored: true }
+
+- template: bi-passive-active
+  skill: bio.cells
+  pace: recall
+  cases:
+    - { q: 'O₂ diffusing from alveoli into blood', ans: 0 }
+    - { q: 'glucose entering a red blood cell through GLUT1, down its gradient', ans: 1 }
+    - { q: 'the Na⁺/K⁺ pump moving both ions against their gradients', ans: 2 }
+    - { q: 'water moving through aquaporins', ans: 1 }
+    - { q: 'H⁺ pumped into a lysosome', ans: 2 }
+    - { q: 'CO₂ leaving a cell', ans: 0 }
+  prompt: 'What kind of transport is {{q}}?'
+  parts:
+    - ask: 'Type'
+      label: a
+      choice: ["Simple diffusion: passive, no protein", "Facilitated diffusion: passive, through a protein", "Active transport: uses energy against the gradient"]
+      correct: ans
+      explain: 'Down the gradient is passive (no ATP), with or without a channel or carrier. Against the gradient costs energy, from ATP directly (pumps) or from another gradient (cotransport)'
+  verify: { authored: true }
+
+- template: bi-bulk-transport
+  skill: bio.cells
+  pace: recall
+  cases:
+    - { q: 'A white blood cell engulfs a bacterium', ans: 0 }
+    - { q: 'A cell takes in droplets of extracellular fluid nonselectively', ans: 1 }
+    - { q: 'A cell takes up LDL particles bound to specific receptors in coated pits', ans: 2 }
+    - { q: 'A nerve terminal releases neurotransmitter', ans: 3 }
+    - { q: 'A pancreatic cell releases insulin', ans: 3 }
+  prompt: '{{q}}. Which process?'
+  parts:
+    - ask: 'Process'
+      label: a
+      choice: ["Phagocytosis", "Pinocytosis", "Receptor-mediated endocytosis", "Exocytosis"]
+      correct: ans
+      explain: 'Bulk transport moves large particles or volumes in vesicles and needs energy. Endocytosis brings material in (cell eating, cell drinking, or receptor-selected cargo); exocytosis fuses vesicles with the membrane to release contents'
+  verify: { authored: true }
+
+- template: bi-channel-carrier
+  skill: bio.cells
+  pace: recall
+  cases:
+    - { q: 'forms a hydrophilic pore that ions flow through, often gated', ans: 0 }
+    - { q: 'binds its solute, changes shape and releases it on the other side', ans: 1 }
+    - { q: 'can saturate because each one handles a limited number of molecules per second', ans: 1 }
+    - { q: 'lets water through rapidly (an aquaporin)', ans: 0 }
+  prompt: 'Which kind of transport protein {{q}}?'
+  parts:
+    - ask: 'Protein'
+      label: a
+      choice: ["Channel protein", "Carrier protein"]
+      correct: ans
+      explain: 'Both give polar and charged substances a way across, down their gradient, with no energy. Channels are fast pores; carriers bind and flip, so they are slower and saturate'
+  verify: { authored: true }
+
+- template: bi-diffusion-graph
+  skill: bio.cells
+  pace: recall
+  cases:
+    - { q: 'Uptake rate rises in a straight line with concentration and never levels off.', ans: 0 }
+    - { q: 'Uptake rate rises and then levels off at a maximum.', ans: 1 }
+    - { q: 'Adding more of the transport protein raises the plateau.', ans: 1 }
+    - { q: 'O₂ uptake into a cell against outside concentration.', ans: 0 }
+  prompt: '{{q}} Which kind of diffusion?'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["Simple diffusion", "Carrier-mediated (facilitated) diffusion"]
+      correct: ans
+      explain: 'Simple diffusion rate is proportional to the gradient. A carrier saturates when every carrier is busy, so the curve plateaus, just like an enzyme at Vmax'
+  verify: { authored: true }
+
+- template: bi-tonicity
+  skill: bio.cells
+  pace: recall
+  cases:
+    - { q: 'A red blood cell in distilled water', ans: 0 }
+    - { q: 'A red blood cell in 0.9 percent saline', ans: 1 }
+    - { q: 'A red blood cell in seawater', ans: 2 }
+    - { q: 'A plant cell in distilled water', ans: 3 }
+    - { q: 'A plant cell in concentrated salt solution', ans: 4 }
+    - { q: 'A plant cell in an isotonic solution', ans: 5 }
+  prompt: 'What happens to: {{q}}?'
+  parts:
+    - ask: 'Outcome'
+      label: a
+      choice: ["Water rushes in and it bursts (lysis)", "No net water movement; normal shape", "Water leaves and it shrivels (crenation)", "Water enters and it becomes turgid (the wall stops bursting)", "Water leaves and the membrane pulls from the wall (plasmolysis)", "Flaccid: no net movement, the plant wilts"]
+      correct: ans
+      explain: 'Water moves toward the higher solute concentration (hypertonic side). Animal cells have no wall, so hypotonic surroundings burst them; plant cells prefer hypotonic surroundings, where the wall turns inflow into turgor pressure'
+  verify: { authored: true }
+
+- template: bi-water-potential
+  skill: bio.cells
+  pace: quick
+  cases:
+    - { f: 'sucrose', i: 1 }
+    - { f: 'NaCl', i: 2 }
+    - { f: 'CaCl₂', i: 3 }
+  given: { C: { pick: [0.10, 0.20, 0.30, 0.50] }, t: { pick: [20, 22, 25] }, pp: { pick: [0, 0.2, 0.5] } }
+  prompt: 'A cell contains ${{C}}$ M {{f}} at {{t}} °C with a pressure potential of ${{pp}}$ bar. What is its water potential, in bar? ($\psi_s = -iCRT$, $R = 0.0831$ L·bar/(mol·K))'
+  parts:
+    - { ask: 'ψ (bar)', label: r, value: -i*C*0.0831*(t + 273) + pp, tol: 0.002, explain: '$\psi_s = -({{i}})({{C}})(0.0831)({{t + 273}}) = {{-i*C*0.0831*(t + 273)}}$ bar; then $\psi = \psi_s + \psi_p$. Water moves from higher (less negative) to lower water potential' }
+  verify: { expect: { r: "-i*C*Rational(831, 10000)*(t + 273) + pp" } }
+
+- template: bi-osmoregulation
+  skill: bio.cells
+  pace: recall
+  cases:
+    - { q: 'A Paramecium in pond water', ans: 0 }
+    - { q: 'A plant in moist soil', ans: 1 }
+    - { q: 'A freshwater fish', ans: 2 }
+    - { q: 'A marine fish', ans: 3 }
+  prompt: 'How does {{q}} manage its water balance?'
+  parts:
+    - ask: 'Strategy'
+      label: a
+      choice: ["A contractile vacuole pumps out the water that keeps flowing in", "Its cell walls hold the inflow as turgor pressure", "Kidneys make large amounts of dilute urine; gills take up salts", "It drinks seawater and gills excrete salt; little, concentrated urine"]
+      correct: ans
+      explain: 'Organisms in hypotonic surroundings gain water and must expel it (contractile vacuoles, dilute urine) or resist it (walls). Those in hypertonic surroundings lose water and must replace it and dump salt'
+  verify: { authored: true }
+
+- template: bi-sodium-potassium-pump
+  skill: bio.cells
+  pace: recall
+  cases:
+    - { q: 'How many Na⁺ ions does one cycle move, and which way?', o1: '3 out of the cell', o2: '2 into the cell', o3: '1 out of the cell', ans: 0 }
+    - { q: 'How many K⁺ ions does one cycle move, and which way?', o1: '3 out of the cell', o2: '2 into the cell', o3: '3 into the cell', ans: 1 }
+    - { q: 'What powers each cycle?', o1: 'The Na⁺ gradient', o2: 'Light', o3: 'Hydrolysis of one ATP', ans: 2 }
+    - { q: 'Why does the pump make the inside of the cell negative?', o1: 'It moves more positive charge out than in', o2: 'It imports Cl⁻', o3: 'It exports proteins', ans: 0 }
+  prompt: 'The Na⁺/K⁺-ATPase: {{q}}'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["{{o1}}", "{{o2}}", "{{o3}}"]
+      correct: ans
+      explain: 'Each ATP pumps 3 Na⁺ out and 2 K⁺ in, against both gradients. The net loss of one positive charge per cycle, plus K⁺ leaking back out, makes the resting potential (about −70 mV), and the Na⁺ gradient powers cotransport'
+  verify: { authored: true }
+
+- template: bi-cotransport
+  skill: bio.cells
+  pace: recall
+  cases:
+    - { q: 'SGLT1 pulls glucose into intestinal cells against its gradient. What powers it?', o1: 'Na⁺ flowing in down its gradient', o2: 'ATP hydrolysis by SGLT1 itself', o3: 'Glucose diffusing out', ans: 0 }
+    - { q: 'Plant cells load sucrose into phloem with a H⁺/sucrose symporter. What made the H⁺ gradient?', o1: 'Sucrose', o2: 'A proton pump using ATP', o3: 'Osmosis', ans: 1 }
+    - { q: 'If the Na⁺/K⁺ pump stops, what happens to Na⁺–glucose cotransport?', o1: 'It speeds up', o2: 'Nothing', o3: 'It slows and stops as the Na⁺ gradient runs down', ans: 2 }
+  prompt: '{{q}}'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["{{o1}}", "{{o2}}", "{{o3}}"]
+      correct: ans
+      explain: 'Cotransport (secondary active transport) couples one solute moving down a gradient to another moving up. The gradient was built by a primary pump that spends ATP, so the cost is paid indirectly'
+  verify: { authored: true }
+
+- template: bi-compartments
+  skill: bio.cells
+  pace: recall
+  cases:
+    - { q: 'Why are hydrolytic enzymes kept inside lysosomes?', ans: 0 }
+    - { q: 'Why can a eukaryotic cell run fatty acid synthesis and breakdown at once?', ans: 1 }
+    - { q: 'Why does the inside of a lysosome have a pH near 5 while the cytosol is near 7.2?', ans: 2 }
+    - { q: 'What does folding the ER into a large network give the cell?', ans: 3 }
+    - { q: 'Why do internal membranes matter more in large cells than in bacteria?', ans: 3 }
+  prompt: '{{q}}'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["So they cannot digest the rest of the cell", "The opposing pathways run in separate compartments (cytosol and mitochondria)", "A membrane with proton pumps keeps different conditions on each side", "Far more membrane area for membrane-bound enzymes and reactions"]
+      correct: ans
+      explain: 'Membranes divide a eukaryotic cell into compartments with their own pH, ions and enzymes, so incompatible processes run side by side, and they add the internal surface that membrane-bound reactions need'
+  verify: { authored: true }
+
+- template: bi-prokaryote-eukaryote
+  skill: bio.cells
+  pace: recall
+  cases:
+    - { q: 'DNA enclosed in a nucleus', ans: 1 }
+    - { q: 'A single circular chromosome in a nucleoid', ans: 0 }
+    - { q: '70S ribosomes only', ans: 0 }
+    - { q: 'Membrane-bound organelles such as mitochondria and ER', ans: 1 }
+    - { q: 'Linear chromosomes wound on histones', ans: 1 }
+    - { q: 'Plasmids and a peptidoglycan wall are common', ans: 0 }
+  prompt: 'Is this a prokaryotic or a eukaryotic feature: {{q}}?'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["Prokaryotic", "Eukaryotic"]
+      correct: ans
+      explain: 'Both have a plasma membrane, cytoplasm, ribosomes and DNA. Eukaryotes add a nucleus, membrane-bound organelles, linear chromosomes and 80S ribosomes in the cytosol; prokaryotes are smaller, with a nucleoid and 70S ribosomes'
+  verify: { authored: true }
+
+- template: bi-endosymbiosis
+  skill: bio.cells
+  pace: recall
+  cases:
+    - { q: 'Mitochondria have their own circular DNA.', ans: 0 }
+    - { q: 'Mitochondria have 70S ribosomes like bacteria.', ans: 0 }
+    - { q: 'Chloroplasts have a double membrane, the inner one bacterium-like.', ans: 0 }
+    - { q: 'Mitochondria divide by a process like binary fission.', ans: 0 }
+    - { q: 'Mitochondria are found in every eukaryotic cell without exception.', ans: 1 }
+    - { q: 'The nucleus has a double membrane.', ans: 1 }
+  prompt: 'Is this evidence that mitochondria and chloroplasts descend from engulfed prokaryotes? {{q}}'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["Yes, it supports endosymbiosis", "No, it is not evidence for it"]
+      correct: ans
+      explain: 'Endosymbiotic theory rests on prokaryote-like traits: own circular DNA, 70S ribosomes, fission, double membranes, and gene sequences close to α-proteobacteria and cyanobacteria. A trait that is not prokaryote-like does not bear on it'
+  verify: { authored: true }
