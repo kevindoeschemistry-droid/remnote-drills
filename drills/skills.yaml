@@ -47,6 +47,7 @@ domains:
   - { id: sql, title: "SQL" }
   - { id: aib, title: "AI basics" }
   - { id: acct, title: "Financial accounting" }
+  - { id: prog, title: "Programming" }
   - { id: md, title: "Molecular simulation" }
   - { id: compchem, title: "Computational chemistry" }
 
@@ -665,6 +666,14 @@ skills:
   - { id: acct.liabilities, domain: acct, title: "Payables, notes, bonds and leases", short: "Liabilities and leases", prereqs: [acct.current-assets] }
   - { id: acct.equity, domain: acct, title: "Stockholders' equity", short: "Equity", prereqs: [acct.statements] }
   - { id: acct.transactions, domain: acct, title: "Revenue, income taxes, changes, contingencies, fair value and subsequent events", short: "Select transactions", prereqs: [acct.long-lived, acct.liabilities] }
+  - { id: prog.java-basics, domain: prog, title: "Java basics: types, expressions, casting, overflow, printing, Math", short: "Java basics" }
+  - { id: prog.java-objects, domain: prog, title: "Objects, references, strings and writing classes", short: "Objects and classes", prereqs: [prog.java-basics] }
+  - { id: prog.java-control, domain: prog, title: "Selection, boolean logic and loops", short: "Selection and loops", prereqs: [prog.java-basics] }
+  - { id: prog.java-collections, domain: prog, title: "Arrays, ArrayLists and 2D arrays", short: "Collections", prereqs: [prog.java-control] }
+  - { id: prog.java-algorithms, domain: prog, title: "Searching, sorting and recursion", short: "Algorithms", prereqs: [prog.java-collections] }
+  - { id: prog.python, domain: prog, title: "Python: arithmetic, sequences, comprehensions, dicts and functions", short: "Python", prereqs: [prog.java-control] }
+  - { id: prog.shell, domain: prog, title: "The Unix shell: paths, files, wildcards, filters, pipes, grep and find", short: "Shell" }
+  - { id: prog.git, domain: prog, title: "Git: status, history, undoing, ignoring and branches", short: "Git", prereqs: [prog.shell] }
 
   # ── physics: electricity and magnetism, particles ───────────────────────────
   - { id: physics.kinematics, domain: physics, title: "Kinematics: vectors, graphs, constant acceleration, projectiles", short: "Kinematics" }

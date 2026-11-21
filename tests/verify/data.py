@@ -588,6 +588,8 @@ _sys.path.insert(0, str(Path(__file__).parent))
 from sql import FUNCS as _SQL, check_tables as _sql_tables  # noqa: E402
 BASE.update(_SQL)
 BASE["fa_inventory"] = fa_inventory
+from progcode import FUNCS as _CODE  # noqa: E402
+BASE.update(_CODE)
 _bad = _sql_tables(TEMPLATES)
 if _bad:
     raise SystemExit(f"SQL figures differ from tests/verify/sql.py TABLES: {_bad}")

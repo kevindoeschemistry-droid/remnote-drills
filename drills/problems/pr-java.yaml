@@ -1,0 +1,1096 @@
+# Programming Foundations, Java (AP CSA units 1–4): read the code on the card, predict what it does.
+# The code is drawn as a `code` figure from the case field `code`. Every answer is checked by
+# compiling and running the snippet (tests/verify/progcode.py: java_out, java_ret, java_pick), with
+# the snippet as the body of main(); `defs` holds methods or nested classes shown above it.
+# An uncaught exception prints its class name, so "ArrayIndexOutOfBoundsException" is an output.
+
+# ── unit 1: using objects and methods ──────────────────────────────────────
+- template: pr-error-kind
+  skill: prog.java-basics
+  pace: recall
+  cases:
+    - { s: 'A line is missing its semicolon, and the program will not compile.', ans: 0 }
+    - { s: 'int x = "five"; is rejected before the program runs.', ans: 0 }
+    - { s: 'The program compiles, then stops with ArithmeticException: / by zero.', ans: 1 }
+    - { s: 'The program compiles, then stops with ArrayIndexOutOfBoundsException.', ans: 1 }
+    - { s: 'The program runs to the end, but the average it prints is always too low.', ans: 2 }
+    - { s: 'A loop meant to run 10 times runs 9 times, with no error message.', ans: 2 }
+  prompt: '{{s}} What kind of error is this?'
+  parts:
+    - ask: 'Kind'
+      label: a
+      choice: ["Syntax (compile-time) error", "Run-time error (exception)", "Logic error"]
+      correct: ans
+      explain: 'The compiler catches syntax and type errors before anything runs. A run-time error is an exception thrown while running. A logic error raises no alarm at all: the program does the wrong thing, and only tests with known answers catch it'
+  verify: { authored: true }
+
+- template: pr-binary
+  skill: prog.java-basics
+  pace: quick
+  cases:
+    - { b: '1011', ans: 11 }
+    - { b: '110010', ans: 50 }
+    - { b: '11111111', ans: 255 }
+    - { b: '1000000', ans: 64 }
+    - { b: '101010', ans: 42 }
+  prompt: 'What is the binary number {{b}} in decimal?'
+  parts:
+    - { ask: 'Decimal', label: a, value: ans, tol: 0.0001, explain: 'Each place is a power of 2, from 1 on the right: add the powers where the bit is 1. Eight bits run from 0 to 255' }
+  verify: { expect: { a: "py_out('print(int(\"' + b + '\", 2))')" } }
+
+- template: pr-bits
+  skill: prog.java-basics
+  pace: quick
+  given: { nb: { pick: [3, 4, 6, 8, 10, 16] } }
+  prompt: 'How many different values can {{nb}} bits represent?'
+  parts:
+    - { ask: 'Values', label: a, value: 2^nb, tol: 0.0001, explain: 'Each bit doubles the count: n bits give 2ⁿ patterns. Going the other way, N values need ⌈log₂ N⌉ bits' }
+  verify: { expect: { a: "2**nb" } }
+
+- template: pr-int-arith
+  skill: prog.java-basics
+  pace: quick
+  figure: { type: code, src: code }
+  cases:
+    - { code: "System.out.print(17 / 5);", ans: 3 }
+    - { code: "System.out.print(17 % 5);", ans: 2 }
+    - { code: "System.out.print(17 / 5.0);", ans: 3.4 }
+    - { code: "System.out.print(2 + 3 * 4 % 5);", ans: 4 }
+    - { code: "System.out.print(-17 / 5);", ans: -3 }
+    - { code: "System.out.print(-17 % 5);", ans: -2 }
+    - { code: "System.out.print(7 / 2 * 2.0);", ans: 6 }
+  prompt: 'What does this print?'
+  parts:
+    - { ask: 'Output', label: a, value: ans, tol: 0.0001, explain: 'int / int is integer division, truncated toward zero, and % is the remainder with the sign of the left operand. If either operand is a double the division is real. *, / and % share a precedence and run left to right' }
+  verify: { expect: { a: "java_out(code)" } }
+
+- template: pr-print-concat
+  skill: prog.java-basics
+  pace: quick
+  figure: { type: code, src: code }
+  cases:
+    - { code: "System.out.print(1 + 2 + \"x\" + 1 + 2);", o1: '3x12', o2: '12x3', o3: '3x3', o4: '12x12', ans: 0 }
+    - { code: "System.out.print(\"x\" + 1 + 2);", o1: 'x3', o2: 'x12', o3: '3x', o4: 'An error', ans: 1 }
+    - { code: "System.out.print(\"x\" + (1 + 2));", o1: 'x12', o2: '3x', o3: 'x3', o4: 'x(1 + 2)', ans: 2 }
+    - { code: "System.out.print('a' + 1);", o1: 'a1', o2: 'b', o3: 'An error', o4: '98', ans: 3 }
+    - { code: "System.out.print(\"\" + 'a' + 1);", o1: 'a1', o2: '98', o3: 'b', o4: 'a 1', ans: 0 }
+  prompt: 'What does this print?'
+  parts:
+    - ask: 'Output'
+      label: a
+      choice: ["{{o1}}", "{{o2}}", "{{o3}}", "{{o4}}"]
+      correct: ans
+      explain: '+ runs left to right. Until a String appears it adds numbers; once one side is a String, each further + joins text. A char plus an int is arithmetic on the character code (''a'' is 97)'
+  verify: { choices: { a: "java_pick(code, [o1, o2, o3, o4])" } }
+
+- template: pr-assign-trace
+  skill: prog.java-basics
+  pace: quick
+  figure: { type: code, src: code }
+  cases:
+    - code: |
+        int a = 5;
+        int b = a * 2;
+        a = b - a;
+        b += a;
+        System.out.print(b);
+      ans: 15
+    - code: |
+        int x = 10;
+        x -= 3;
+        x *= 2;
+        x %= 5;
+        System.out.print(x);
+      ans: 4
+    - code: |
+        int i = 4;
+        int j = i++ + 2;
+        System.out.print(j * 10 + i);
+      ans: 65
+    - code: |
+        int k = 3;
+        k++;
+        k += k;
+        k--;
+        System.out.print(k);
+      ans: 7
+    - code: |
+        int a = 2, b = 7;
+        int t = a;
+        a = b;
+        b = t;
+        System.out.print(a - b);
+      ans: 5
+  prompt: 'What does this print?'
+  parts:
+    - { ask: 'Output', label: a, value: ans, tol: 0.0001, explain: 'Trace one statement at a time and keep a column per variable. x += y means x = x + y. i++ used inside an expression gives the old value, then adds 1' }
+  verify: { expect: { a: "java_out(code)" } }
+
+- template: pr-cast
+  skill: prog.java-basics
+  pace: quick
+  figure: { type: code, src: code }
+  cases:
+    - { code: "System.out.print((int) 7.9);", ans: 7 }
+    - { code: "System.out.print((int) -7.9);", ans: -7 }
+    - { code: "System.out.print((double) 7 / 2);", ans: 3.5 }
+    - { code: "System.out.print((double) (7 / 2));", ans: 3 }
+    - { code: "System.out.print((int) (6.5 + 0.5));", ans: 7 }
+    - { code: "System.out.print((int) 2.99 * 3);", ans: 6 }
+  prompt: 'What does this print?'
+  parts:
+    - { ask: 'Output', label: a, value: ans, tol: 0.0001, explain: 'Casting a double to int drops the fraction (toward zero), it does not round; (int)(x + 0.5) rounds a positive x. A cast binds tighter than arithmetic, so (double) 7 / 2 is 7.0 / 2 = 3.5, while (double)(7 / 2) casts the integer result 3' }
+  verify: { expect: { a: "java_out(code)" } }
+
+- template: pr-overflow
+  skill: prog.java-basics
+  pace: quick
+  figure: { type: code, src: code }
+  cases:
+    - { code: "System.out.print(Integer.MAX_VALUE + 1);", ans: -2147483648 }
+    - { code: "System.out.print(Integer.MIN_VALUE - 1);", ans: 2147483647 }
+    - { code: "int big = 2000000000;\nSystem.out.print(big + big);", ans: -294967296 }
+    - { code: "long big = 2000000000;\nSystem.out.print(big + big);", ans: 4000000000 }
+  prompt: 'What does this print?'
+  parts:
+    - { ask: 'Output', label: a, value: ans, tol: 0.0001, explain: 'An int holds −2,147,483,648 to 2,147,483,647. Going past either end wraps around silently (2³² is added or subtracted), with no error. A long has 64 bits and room to spare' }
+  verify: { expect: { a: "java_out(code)" } }
+
+- template: pr-double-compare
+  skill: prog.java-basics
+  pace: quick
+  figure: { type: code, src: code }
+  cases:
+    - { code: "System.out.print(0.1 + 0.2 == 0.3);", ans: 1 }
+    - { code: "System.out.print(Math.abs(0.1 + 0.2 - 0.3) < 1e-9);", ans: 0 }
+    - { code: "System.out.print(0.5 + 0.25 == 0.75);", ans: 0 }
+    - { code: "double d = 1.0 / 3;\nSystem.out.print(d * 3 == 1.0);", ans: 0 }
+  prompt: 'What does this print?'
+  parts:
+    - ask: 'Output'
+      label: a
+      choice: ["true", "false"]
+      correct: ans
+      explain: 'Doubles are stored in binary, and 0.1, 0.2 and 0.3 have no exact binary form, so their sum misses 0.3 by a tiny amount. Halves and quarters are exact. Compare doubles with a tolerance, not =='
+  verify: { choices: { a: "java_pick(code, ['true', 'false'])" } }
+
+- template: pr-math-class
+  skill: prog.java-basics
+  pace: quick
+  figure: { type: code, src: code }
+  cases:
+    - { code: "System.out.print(Math.pow(2, 10));", ans: 1024 }
+    - { code: "System.out.print(Math.sqrt(144) + Math.abs(-3));", ans: 15 }
+    - { code: "System.out.print((int) Math.pow(3, 4) % 10);", ans: 1 }
+    - { code: "System.out.print(Math.abs(-7) / 2);", ans: 3 }
+    - { code: "System.out.print(Math.max(3, Math.min(9, 5)));", ans: 5 }
+  prompt: 'What does this print?'
+  parts:
+    - { ask: 'Output', label: a, value: ans, tol: 0.0001, explain: 'Math''s methods are static: call them on the class. Math.pow and Math.sqrt return doubles (Math.pow(2, 10) prints 1024.0); Math.abs and Math.max keep the type they are given' }
+  verify: { expect: { a: "java_out(code)" } }
+
+- template: pr-random-range
+  skill: prog.java-basics
+  pace: quick
+  cases:
+    - { e: '(int) (Math.random() * 6) + 1', o1: '1 to 6', o2: '0 to 6', o3: '0 to 5', o4: '1 to 7', ans: 0 }
+    - { e: '(int) (Math.random() * 10)', o1: '1 to 10', o2: '0 to 9', o3: '0 to 10', o4: '1 to 9', ans: 1 }
+    - { e: '(int) (Math.random() * 11) + 5', o1: '5 to 16', o2: '5 to 11', o3: '5 to 15', o4: '6 to 16', ans: 2 }
+    - { e: '(int) (Math.random() * 3) - 1', o1: '0 to 2', o2: '-1 to 2', o3: '-3 to 3', o4: '-1 to 1', ans: 3 }
+  prompt: 'What range of whole numbers can {{e}} produce?'
+  parts:
+    - ask: 'Range'
+      label: a
+      choice: ["{{o1}}", "{{o2}}", "{{o3}}", "{{o4}}"]
+      correct: ans
+      explain: 'Math.random() is in [0, 1), so Math.random() * n is in [0, n) and (int) of it is 0 to n − 1. Adding a shifts that to a to a + n − 1: for a to b inclusive use (int) (Math.random() * (b − a + 1)) + a'
+  verify: { authored: true }
+
+- template: pr-alias
+  skill: prog.java-objects
+  pace: quick
+  figure: { type: code, src: code }
+  cases:
+    - code: |
+        int[] a = {1, 2, 3};
+        int[] b = a;
+        b[0] = 9;
+        System.out.print(a[0]);
+      ans: 9
+    - code: |
+        int[] a = {1, 2, 3};
+        int[] b = a.clone();
+        b[0] = 9;
+        System.out.print(a[0]);
+      ans: 1
+    - code: |
+        int x = 4;
+        int y = x;
+        y = 7;
+        System.out.print(x);
+      ans: 4
+    - code: |
+        StringBuilder s = new StringBuilder("ab");
+        StringBuilder t = s;
+        t.append("cd");
+        System.out.print(s.length());
+      ans: 4
+  prompt: 'What does this print?'
+  parts:
+    - { ask: 'Output', label: a, value: ans, tol: 0.0001, explain: 'A variable of a reference type holds a reference, so b = a makes two names for one object, and a change through either shows through both. A primitive variable holds the value itself, and copying it makes an independent copy' }
+  verify: { expect: { a: "java_out(code)" } }
+
+- template: pr-string-methods
+  skill: prog.java-objects
+  pace: quick
+  figure: { type: code, src: code }
+  cases:
+    - { code: "String s = \"computer\";\nSystem.out.print(s.substring(3, 6));", o1: 'put', o2: 'pute', o3: 'mpu', o4: 'pu', ans: 0 }
+    - { code: "String s = \"computer\";\nSystem.out.print(s.indexOf(\"t\") + s.length());", o1: '13', o2: '14', o3: '12', o4: '5t8', ans: 0 }
+    - { code: "String s = \"banana\";\nSystem.out.print(s.indexOf(\"an\") + \",\" + s.indexOf(\"x\"));", o1: '1,0', o2: '2,-1', o3: '1,-1', o4: '1,6', ans: 2 }
+    - { code: "String s = \"apple\";\nSystem.out.print(s.compareTo(\"banana\") < 0);", o1: 'false', o2: 'An error', o3: '-1', o4: 'true', ans: 3 }
+    - { code: "String s = \"hello\";\nSystem.out.print(s.substring(s.length() - 2));", o1: 'll', o2: 'lo', o3: 'o', o4: 'An error', ans: 1 }
+    - { code: "String s = \"abc\";\nSystem.out.print(s.substring(1, 1).length());", o1: '1', o2: 'An error', o3: '0', o4: 'b', ans: 2 }
+  prompt: 'What does this print?'
+  parts:
+    - ask: 'Output'
+      label: a
+      choice: ["{{o1}}", "{{o2}}", "{{o3}}", "{{o4}}"]
+      correct: ans
+      explain: 'substring(a, b) runs from index a up to but not including b (length b − a); substring(a) runs to the end. indexOf gives the first match''s index or −1. compareTo is negative when the string comes first alphabetically'
+  verify: { choices: { a: "java_pick(code, [o1, o2, o3, o4])" } }
+
+- template: pr-string-equals
+  skill: prog.java-objects
+  pace: quick
+  figure: { type: code, src: code }
+  cases:
+    - { code: "String a = new String(\"hi\");\nString b = new String(\"hi\");\nSystem.out.print(a == b);", ans: 1 }
+    - { code: "String a = new String(\"hi\");\nString b = new String(\"hi\");\nSystem.out.print(a.equals(b));", ans: 0 }
+    - { code: "String a = new String(\"hi\");\nString b = a;\nSystem.out.print(a == b);", ans: 0 }
+    - { code: "String a = \"Hi\";\nSystem.out.print(a.equals(\"hi\"));", ans: 1 }
+  prompt: 'What does this print?'
+  parts:
+    - ask: 'Output'
+      label: a
+      choice: ["true", "false"]
+      correct: ans
+      explain: '== on objects asks whether two references point to the same object; equals asks whether the contents match (case matters, use equalsIgnoreCase otherwise). Two new String objects are different objects with equal contents'
+  verify: { choices: { a: "java_pick(code, ['true', 'false'])" } }
+
+- template: pr-null-pointer
+  skill: prog.java-objects
+  pace: quick
+  figure: { type: code, src: code }
+  cases:
+    - { code: "String s = null;\nSystem.out.print(s.length());", o1: '0', o2: 'NullPointerException', o3: 'null', o4: 'An empty line', ans: 1 }
+    - { code: "String s = null;\nSystem.out.print(s + \"!\");", o1: 'null!', o2: 'NullPointerException', o3: '!', o4: 'An error at compile time', ans: 0 }
+    - { code: "String s = null;\nSystem.out.print(s == null);", o1: 'false', o2: 'NullPointerException', o3: 'true', o4: 'null', ans: 2 }
+    - { code: "String s = null;\nSystem.out.print(\"a\".equals(s));", o1: 'NullPointerException', o2: 'true', o3: 'null', o4: 'false', ans: 3 }
+  prompt: 'What does this print?'
+  parts:
+    - ask: 'Output'
+      label: a
+      choice: ["{{o1}}", "{{o2}}", "{{o3}}", "{{o4}}"]
+      correct: ans
+      explain: 'Calling a method on null throws NullPointerException. Comparing a reference with null is fine, and concatenation turns null into the text "null". Calling equals on a known non-null object (a literal) is safe even if its argument is null'
+  verify: { choices: { a: "java_pick(code, [o1, o2, o3, o4])" } }
+
+# ── unit 2: selection and iteration ────────────────────────────────────────
+- template: pr-if-chain
+  skill: prog.java-control
+  pace: quick
+  figure: { type: code, src: code }
+  cases:
+    - code: |
+        int score = 85;
+        if (score >= 90) System.out.print("A");
+        else if (score >= 80) System.out.print("B");
+        else if (score >= 70) System.out.print("C");
+        else System.out.print("F");
+      o1: 'A'
+      o2: 'B'
+      o3: 'BC'
+      o4: 'F'
+      ans: 1
+    - code: |
+        int score = 85;
+        if (score >= 90) System.out.print("A");
+        if (score >= 80) System.out.print("B");
+        if (score >= 70) System.out.print("C");
+      o1: 'B'
+      o2: 'BC'
+      o3: 'ABC'
+      o4: 'C'
+      ans: 1
+    - code: |
+        int x = 5;
+        if (x > 3)
+          if (x > 10) System.out.print("big");
+        else System.out.print("small");
+      o1: 'big'
+      o2: 'small'
+      o3: 'Nothing'
+      o4: 'bigsmall'
+      ans: 1
+    - code: |
+        int x = 2;
+        if (x > 3)
+          if (x > 10) System.out.print("big");
+        else System.out.print("small");
+        System.out.print("!");
+      o1: 'small!'
+      o2: 'big!'
+      o3: '!'
+      o4: 'small'
+      ans: 2
+  prompt: 'What does this print?'
+  parts:
+    - ask: 'Output'
+      label: a
+      choice: ["{{o1}}", "{{o2}}", "{{o3}}", "{{o4}}"]
+      correct: ans
+      explain: 'An else-if chain runs at most one branch, the first true one; separate ifs each test independently. An else belongs to the nearest unmatched if, whatever the indentation suggests (the dangling else), so use braces'
+  verify: { choices: { a: "java_pick(code, [o1, o2, o3, o4])" } }
+
+- template: pr-short-circuit
+  skill: prog.java-control
+  pace: quick
+  figure: { type: code, src: code }
+  cases:
+    - { code: "int d = 0;\nSystem.out.print(d != 0 && 10 / d > 1);", o1: 'true', o2: 'false', o3: 'ArithmeticException', o4: '0', ans: 1 }
+    - { code: "int d = 0;\nSystem.out.print(10 / d > 1 && d != 0);", o1: 'true', o2: 'false', o3: 'ArithmeticException', o4: '0', ans: 2 }
+    - { code: "int d = 0;\nSystem.out.print(d == 0 || 10 / d > 1);", o1: 'true', o2: 'false', o3: 'ArithmeticException', o4: '1', ans: 0 }
+    - { code: "boolean p = true, q = false;\nSystem.out.print(!p || q && !q);", o1: 'true', o2: 'false', o3: 'ArithmeticException', o4: 'An error', ans: 1 }
+    - { code: "boolean p = false, q = true;\nSystem.out.print(p || q && !p);", o1: 'true', o2: 'false', o3: 'ArithmeticException', o4: 'An error', ans: 0 }
+  prompt: 'What does this print?'
+  parts:
+    - ask: 'Output'
+      label: a
+      choice: ["{{o1}}", "{{o2}}", "{{o3}}", "{{o4}}"]
+      correct: ans
+      explain: '&& stops as soon as the left side is false, and || as soon as it is true, so the right side may never run: that is how a guard like d != 0 && 10 / d … avoids dividing by zero. ! binds tightest, then &&, then ||'
+  verify: { choices: { a: "java_pick(code, [o1, o2, o3, o4])" } }
+
+- template: pr-demorgan
+  skill: prog.java-control
+  pace: quick
+  cases:
+    - { e: '!(a && b)', o1: '!a || !b', o2: '!a && !b', o3: 'a || b', o4: '!a || b', ans: 0 }
+    - { e: '!(a || b)', o1: '!a || !b', o2: '!a && !b', o3: 'a && !b', o4: '!(a && b)', ans: 1 }
+    - { e: '!(x > 3 && y <= 5)', o1: 'x <= 3 && y > 5', o2: 'x < 3 || y >= 5', o3: 'x <= 3 || y > 5', o4: 'x > 3 || y <= 5', ans: 2 }
+    - { e: '!(x == 0 || y != 2)', o1: 'x != 0 || y == 2', o2: 'x == 0 && y == 2', o3: 'x != 0 && y != 2', o4: 'x != 0 && y == 2', ans: 3 }
+  prompt: 'Which expression is equivalent to {{e}}?'
+  parts:
+    - ask: 'Equivalent'
+      label: a
+      choice: ["{{o1}}", "{{o2}}", "{{o3}}", "{{o4}}"]
+      correct: ans
+      explain: 'De Morgan: !(a && b) is !a || !b, and !(a || b) is !a && !b. Negating a comparison flips it completely: the opposite of > is <=, of == is !='
+  verify: { authored: true }
+
+- template: pr-while-trace
+  skill: prog.java-control
+  pace: quick
+  figure: { type: code, src: code }
+  cases:
+    - code: |
+        int n = 1, count = 0;
+        while (n < 100) {
+          n *= 3;
+          count++;
+        }
+        System.out.print(count);
+      ans: 5
+    - code: |
+        int n = 1234, sum = 0;
+        while (n > 0) {
+          sum += n % 10;
+          n /= 10;
+        }
+        System.out.print(sum);
+      ans: 10
+    - code: |
+        int n = 50, steps = 0;
+        while (n != 1) {
+          n = (n % 2 == 0) ? n / 2 : 3 * n + 1;
+          steps++;
+        }
+        System.out.print(steps);
+      ans: 24
+    - code: |
+        int a = 48, b = 18;
+        while (b != 0) {
+          int r = a % b;
+          a = b;
+          b = r;
+        }
+        System.out.print(a);
+      ans: 6
+    - code: |
+        int n = 9075, rev = 0;
+        while (n > 0) {
+          rev = rev * 10 + n % 10;
+          n /= 10;
+        }
+        System.out.print(rev);
+      ans: 5709
+  prompt: 'What does this print?'
+  parts:
+    - { ask: 'Output', label: a, value: ans, tol: 0.0001, explain: 'Trace the variables in a table, one row per pass, checking the condition before each pass. n % 10 is the last digit and n / 10 drops it, which is how digit loops peel a number. The remainder loop is Euclid''s gcd' }
+  verify: { expect: { a: "java_out(code)" } }
+
+- template: pr-for-count
+  skill: prog.java-control
+  pace: quick
+  figure: { type: code, src: code }
+  cases:
+    - { code: "int c = 0;\nfor (int i = 0; i < 10; i++) c++;\nSystem.out.print(c);", ans: 10 }
+    - { code: "int c = 0;\nfor (int i = 1; i <= 10; i++) c++;\nSystem.out.print(c);", ans: 10 }
+    - { code: "int c = 0;\nfor (int i = 3; i <= 20; i += 3) c++;\nSystem.out.print(c);", ans: 6 }
+    - { code: "int c = 0;\nfor (int i = 10; i > 0; i -= 2) c++;\nSystem.out.print(c);", ans: 5 }
+    - { code: "int c = 0;\nfor (int i = 5; i < 50; i *= 2) c++;\nSystem.out.print(c);", ans: 4 }
+    - { code: "int c = 0;\nfor (int i = 2; i < 17; i += 4) c++;\nSystem.out.print(c);", ans: 4 }
+  prompt: 'How many times does the loop body run? (The code prints it.)'
+  parts:
+    - { ask: 'Iterations', label: a, value: ans, tol: 0.0001, explain: 'For i from a while i < b, stepping by s: ⌈(b − a) ÷ s⌉ passes; with <= add one when b is reached exactly. List the first few and last values of i when in doubt' }
+  verify: { expect: { a: "java_out(code)" } }
+
+- template: pr-off-by-one
+  skill: prog.java-control
+  pace: quick
+  cases:
+    - { s: 'print the numbers 1 through n', ans: 0 }
+    - { s: 'visit every index of an array arr', ans: 1 }
+    - { s: 'visit every index of arr except the last, to compare arr[i] with arr[i + 1]', ans: 2 }
+    - { s: 'count down from n to 1', ans: 3 }
+  prompt: 'Which loop header does it right: {{s}}?'
+  parts:
+    - ask: 'Header'
+      label: a
+      choice: ["for (int i = 1; i <= n; i++)", "for (int i = 0; i < arr.length; i++)", "for (int i = 0; i < arr.length - 1; i++)", "for (int i = n; i >= 1; i--)"]
+      correct: ans
+      explain: 'Match the bound to the first and last value you need: indices run 0 to length − 1, so i < arr.length; a pairwise comparison with i + 1 must stop one earlier. Check the first and last pass by hand'
+  verify: { authored: true }
+
+- template: pr-accumulate
+  skill: prog.java-control
+  pace: quick
+  figure: { type: code, src: code }
+  cases:
+    - code: |
+        int sum = 0;
+        for (int i = 1; i <= 10; i++) {
+          if (i % 3 == 0) sum += i;
+        }
+        System.out.print(sum);
+      ans: 18
+    - code: |
+        int p = 1;
+        for (int i = 2; i <= 5; i++) p *= i;
+        System.out.print(p);
+      ans: 120
+    - code: |
+        int[] v = {4, 9, 2, 7, 9, 1};
+        int max = v[0];
+        for (int x : v) if (x > max) max = x;
+        System.out.print(max);
+      ans: 9
+    - code: |
+        int[] v = {4, 9, 2, 7, 9, 1};
+        int at = 0;
+        for (int i = 1; i < v.length; i++)
+          if (v[i] < v[at]) at = i;
+        System.out.print(at);
+      ans: 5
+    - code: |
+        int count = 0;
+        for (int d = 1; d <= 36; d++)
+          if (36 % d == 0) count++;
+        System.out.print(count);
+      ans: 9
+  prompt: 'What does this print?'
+  parts:
+    - { ask: 'Output', label: a, value: ans, tol: 0.0001, explain: 'Accumulators start at the identity (0 for a sum or count, 1 for a product) and update once per pass. A running max starts at the first element, not at 0, so all-negative data still works' }
+  verify: { expect: { a: "java_out(code)" } }
+
+- template: pr-string-loop
+  skill: prog.java-control
+  pace: quick
+  figure: { type: code, src: code }
+  cases:
+    - code: |
+        String s = "stressed";
+        String r = "";
+        for (int i = s.length() - 1; i >= 0; i--)
+          r += s.substring(i, i + 1);
+        System.out.print(r);
+      o1: 'desserts'
+      o2: 'stressed'
+      o3: 'dessert'
+      o4: 'tsserts'
+      ans: 0
+    - code: |
+        String s = "mississippi";
+        int c = 0;
+        for (int i = 0; i < s.length(); i++)
+          if (s.charAt(i) == 's') c++;
+        System.out.print(c);
+      o1: '2'
+      o2: '4'
+      o3: '3'
+      o4: '11'
+      ans: 1
+    - code: |
+        String s = "banana";
+        String out = "";
+        for (int i = 0; i < s.length(); i++)
+          if (s.charAt(i) != 'a') out += s.charAt(i);
+        System.out.print(out);
+      o1: 'aaa'
+      o2: 'bnna'
+      o3: 'bnn'
+      o4: 'banana'
+      ans: 2
+    - code: |
+        String s = "level";
+        boolean p = true;
+        for (int i = 0; i < s.length() / 2; i++)
+          if (s.charAt(i) != s.charAt(s.length() - 1 - i)) p = false;
+        System.out.print(p);
+      o1: 'false'
+      o2: 'level'
+      o3: '2'
+      o4: 'true'
+      ans: 3
+  prompt: 'What does this print?'
+  parts:
+    - ask: 'Output'
+      label: a
+      choice: ["{{o1}}", "{{o2}}", "{{o3}}", "{{o4}}"]
+      correct: ans
+      explain: 'A string is traversed by index from 0 to length() − 1; substring(i, i + 1) and charAt(i) both get one character (a String and a char). Strings are immutable, so building one means making a new string each pass'
+  verify: { choices: { a: "java_pick(code, [o1, o2, o3, o4])" } }
+
+- template: pr-nested-count
+  skill: prog.java-control
+  pace: quick
+  figure: { type: code, src: code }
+  cases:
+    - { code: "int c = 0;\nfor (int i = 0; i < 4; i++)\n  for (int j = 0; j < 5; j++) c++;\nSystem.out.print(c);", ans: 20 }
+    - { code: "int c = 0;\nfor (int i = 0; i < 5; i++)\n  for (int j = 0; j < i; j++) c++;\nSystem.out.print(c);", ans: 10 }
+    - { code: "int c = 0;\nfor (int i = 1; i <= 4; i++)\n  for (int j = i; j <= 4; j++) c++;\nSystem.out.print(c);", ans: 10 }
+    - { code: "int c = 0;\nfor (int i = 0; i < 6; i++)\n  for (int j = i + 1; j < 6; j++) c++;\nSystem.out.print(c);", ans: 15 }
+    - { code: "int c = 0;\nfor (int i = 0; i < 3; i++)\n  for (int j = 0; j < 4; j += 2) c++;\nSystem.out.print(c);", ans: 6 }
+  prompt: 'How many times does c++ run? (The code prints it.)'
+  parts:
+    - { ask: 'Count', label: a, value: ans, tol: 0.0001, explain: 'Independent bounds multiply. When the inner bound depends on i, add up the inner counts row by row: 0 + 1 + 2 + … + (n − 1) = n(n − 1)/2, the number of pairs i < j' }
+  verify: { expect: { a: "java_out(code)" } }
+
+- template: pr-nested-print
+  skill: prog.java-control
+  pace: quick
+  figure: { type: code, src: code }
+  cases:
+    - code: |
+        for (int i = 1; i <= 3; i++) {
+          for (int j = 1; j <= i; j++) System.out.print(j);
+          System.out.println();
+        }
+      o1: '1 / 12 / 123'
+      o2: '1 / 22 / 333'
+      o3: '123 / 12 / 1'
+      o4: '111 / 22 / 3'
+      ans: 0
+    - code: |
+        for (int i = 1; i <= 3; i++) {
+          for (int j = 1; j <= i; j++) System.out.print(i);
+          System.out.println();
+        }
+      o1: '1 / 12 / 123'
+      o2: '1 / 22 / 333'
+      o3: '333 / 22 / 1'
+      o4: '123 / 123 / 123'
+      ans: 1
+    - code: |
+        for (int i = 3; i >= 1; i--) {
+          for (int j = 1; j <= i; j++) System.out.print("*");
+          System.out.println();
+        }
+      o1: '* / ** / ***'
+      o2: '*** / *** / ***'
+      o3: '*** / ** / *'
+      o4: '*** / **'
+      ans: 2
+    - code: |
+        for (int i = 0; i < 2; i++) {
+          for (int j = 0; j < 3; j++) System.out.print(i + j);
+          System.out.println();
+        }
+      o1: '00 / 11 / 22'
+      o2: '012 / 012'
+      o3: '123 / 234'
+      o4: '012 / 123'
+      ans: 3
+  prompt: 'What does this print? (" / " marks a new line.)'
+  parts:
+    - ask: 'Output'
+      label: a
+      choice: ["{{o1}}", "{{o2}}", "{{o3}}", "{{o4}}"]
+      correct: ans
+      explain: 'The outer loop makes the rows and the inner loop the characters in each row; println ends the row. If the inner bound is i, the row lengths grow (or shrink) with i'
+  verify: { choices: { a: "java_pick(code, [o1, o2, o3, o4])" } }
+
+# ── unit 3: class creation ─────────────────────────────────────────────────
+- template: pr-default-values
+  skill: prog.java-objects
+  pace: recall
+  cases:
+    - { t: 'int', code: 'System.out.print((new int[1])[0]);', o1: '0', o2: 'null', o3: 'An error', o4: '1', ans: 0 }
+    - { t: 'double', code: 'System.out.print((new double[1])[0]);', o1: '0', o2: '0.0', o3: 'null', o4: 'NaN', ans: 1 }
+    - { t: 'boolean', code: 'System.out.print((new boolean[1])[0]);', o1: 'true', o2: 'null', o3: 'false', o4: '0', ans: 2 }
+    - { t: 'String', code: 'System.out.print((new String[1])[0]);', o1: '""', o2: 'An error', o3: '"null"', o4: 'null', ans: 3 }
+  prompt: 'An instance variable of type {{t}} is never set by the constructor. What value does it hold?'
+  parts:
+    - ask: 'Default'
+      label: a
+      choice: ["{{o1}}", "{{o2}}", "{{o3}}", "{{o4}}"]
+      correct: ans
+      explain: 'Fields get defaults: 0 for int, 0.0 for double, false for boolean, null for any reference (String, arrays, objects). Local variables get none: using one before assigning it will not compile'
+  verify: { choices: { a: "java_pick(code, [o1, o2, o3, o4])" } }
+
+- template: pr-pass-by-value
+  skill: prog.java-objects
+  pace: quick
+  figure: { type: code, src: full }
+  cases:
+    - defs: "static void bump(int n) { n++; }"
+      code: "int x = 5;\nbump(x);\nSystem.out.print(x);"
+      full: "static void bump(int n) { n++; }\n\nint x = 5;\nbump(x);\nSystem.out.print(x);"
+      ans: 5
+    - defs: "static void bump(int[] a) { a[0]++; }"
+      code: "int[] x = {5};\nbump(x);\nSystem.out.print(x[0]);"
+      full: "static void bump(int[] a) { a[0]++; }\n\nint[] x = {5};\nbump(x);\nSystem.out.print(x[0]);"
+      ans: 6
+    - defs: "static void reset(int[] a) { a = new int[] {0}; }"
+      code: "int[] x = {5};\nreset(x);\nSystem.out.print(x[0]);"
+      full: "static void reset(int[] a) { a = new int[] {0}; }\n\nint[] x = {5};\nreset(x);\nSystem.out.print(x[0]);"
+      ans: 5
+    - defs: "static int twice(int n) { n *= 2; return n; }"
+      code: "int x = 5;\nint y = twice(x);\nSystem.out.print(x + y);"
+      full: "static int twice(int n) { n *= 2; return n; }\n\nint x = 5;\nint y = twice(x);\nSystem.out.print(x + y);"
+      ans: 15
+  prompt: 'The method is defined, then the lines below it run in main. What is printed?'
+  parts:
+    - { ask: 'Output', label: a, value: ans, tol: 0.0001, explain: 'Java passes copies. A copied int is independent of the caller''s. A copied reference still points to the caller''s object, so changing the object shows; but pointing the copy at a new object does not change the caller''s variable' }
+  verify: { expect: { a: "java_out(code, defs)" } }
+
+- template: pr-class-trace
+  skill: prog.java-objects
+  pace: quick
+  figure: { type: code, src: full }
+  cases:
+    - defs: |
+        static class Counter {
+          private int n;
+          public Counter(int start) { n = start; }
+          public void add(int k) { n += k; }
+          public int get() { return n; }
+        }
+      code: |
+        Counter a = new Counter(3);
+        Counter b = new Counter(10);
+        a.add(4);
+        b.add(a.get());
+        System.out.print(b.get());
+      full: |
+        class Counter {
+          private int n;
+          public Counter(int start) { n = start; }
+          public void add(int k) { n += k; }
+          public int get() { return n; }
+        }
+
+        Counter a = new Counter(3);
+        Counter b = new Counter(10);
+        a.add(4);
+        b.add(a.get());
+        System.out.print(b.get());
+      ans: 17
+    - defs: |
+        static class Account {
+          private int balance;
+          private static int made = 0;
+          public Account(int b) { balance = b; made++; }
+          public static int count() { return made; }
+        }
+      code: |
+        Account x = new Account(5);
+        Account y = new Account(9);
+        Account z = x;
+        System.out.print(Account.count());
+      full: |
+        class Account {
+          private int balance;
+          private static int made = 0;
+          public Account(int b) { balance = b; made++; }
+          public static int count() { return made; }
+        }
+
+        Account x = new Account(5);
+        Account y = new Account(9);
+        Account z = x;
+        System.out.print(Account.count());
+      ans: 2
+    - defs: |
+        static class Box {
+          private int size;
+          public Box(int size) { size = size; }
+          public int getSize() { return size; }
+        }
+      code: |
+        Box b = new Box(8);
+        System.out.print(b.getSize() + 1);
+      full: |
+        class Box {
+          private int size;
+          public Box(int size) { size = size; }
+          public int getSize() { return size; }
+        }
+
+        Box b = new Box(8);
+        System.out.print(b.getSize() + 1);
+      ans: 1
+    - defs: |
+        static class Box {
+          private int size;
+          public Box(int size) { this.size = size; }
+          public int getSize() { return size; }
+        }
+      code: |
+        Box b = new Box(8);
+        System.out.print(b.getSize());
+      full: |
+        class Box {
+          private int size;
+          public Box(int size) { this.size = size; }
+          public int getSize() { return size; }
+        }
+
+        Box b = new Box(8);
+        System.out.print(b.getSize());
+      ans: 8
+  prompt: 'The class is defined, then the lines below it run in main. What is printed?'
+  parts:
+    - { ask: 'Output', label: a, value: ans, tol: 0.0001, explain: 'Each object has its own instance variables; a static variable is one copy shared by the whole class. Copying a reference (z = x) makes no new object. A parameter with the same name as a field hides it, so size = size changes nothing: write this.size = size' }
+  verify: { expect: { a: "java_out(code, defs)" } }
+
+# ── unit 4: data collections ───────────────────────────────────────────────
+- template: pr-array-basics
+  skill: prog.java-collections
+  pace: quick
+  figure: { type: code, src: code }
+  cases:
+    - { code: "int[] a = new int[5];\nSystem.out.print(a.length + a[4]);", o1: '5', o2: '4', o3: 'ArrayIndexOutOfBoundsException', o4: '9', ans: 0 }
+    - { code: "int[] a = {3, 6, 9};\nSystem.out.print(a[a.length]);", o1: '9', o2: '0', o3: 'ArrayIndexOutOfBoundsException', o4: '3', ans: 2 }
+    - { code: "int[] a = {3, 6, 9};\nSystem.out.print(a[a.length - 1] - a[0]);", o1: '3', o2: '6', o3: 'ArrayIndexOutOfBoundsException', o4: '9', ans: 1 }
+    - { code: "double[] d = new double[2];\nSystem.out.print(d[1]);", o1: '0', o2: 'null', o3: 'ArrayIndexOutOfBoundsException', o4: '0.0', ans: 3 }
+    - { code: "String[] s = new String[2];\nSystem.out.print(s[0]);", o1: 'null', o2: '""', o3: 'NullPointerException', o4: '0', ans: 0 }
+  prompt: 'What does this print?'
+  parts:
+    - ask: 'Output'
+      label: a
+      choice: ["{{o1}}", "{{o2}}", "{{o3}}", "{{o4}}"]
+      correct: ans
+      explain: 'An array of length n has indices 0 to n − 1; index n is out of bounds. new fills it with defaults (0, 0.0, false or null). Printing a null reference prints "null"; calling a method on it would throw'
+  verify: { choices: { a: "java_pick(code, [o1, o2, o3, o4])" } }
+
+- template: pr-array-algorithms
+  skill: prog.java-collections
+  pace: quick
+  figure: { type: code, src: code }
+  cases:
+    - code: |
+        int[] a = {1, 2, 3, 4, 5};
+        for (int i = 0; i < a.length / 2; i++) {
+          int t = a[i];
+          a[i] = a[a.length - 1 - i];
+          a[a.length - 1 - i] = t;
+        }
+        System.out.print(Arrays.toString(a));
+      o1: '[5, 4, 3, 2, 1]'
+      o2: '[1, 2, 3, 4, 5]'
+      o3: '[5, 4, 3, 4, 5]'
+      o4: '[5, 2, 3, 4, 1]'
+      ans: 0
+    - code: |
+        int[] a = {1, 2, 3, 4, 5};
+        int first = a[0];
+        for (int i = 0; i < a.length - 1; i++) a[i] = a[i + 1];
+        a[a.length - 1] = first;
+        System.out.print(Arrays.toString(a));
+      o1: '[5, 1, 2, 3, 4]'
+      o2: '[2, 3, 4, 5, 1]'
+      o3: '[2, 3, 4, 5, 5]'
+      o4: '[1, 1, 2, 3, 4]'
+      ans: 1
+    - code: |
+        int[] a = {1, 2, 3, 4, 5};
+        for (int i = 1; i < a.length; i++) a[i] = a[i - 1];
+        System.out.print(Arrays.toString(a));
+      o1: '[1, 1, 2, 3, 4]'
+      o2: '[2, 3, 4, 5, 5]'
+      o3: '[1, 1, 1, 1, 1]'
+      o4: '[5, 1, 2, 3, 4]'
+      ans: 2
+    - code: |
+        int[] a = {3, 5, 5, 8, 2, 9};
+        int ups = 0;
+        for (int i = 0; i < a.length - 1; i++)
+          if (a[i + 1] > a[i]) ups++;
+        System.out.print(ups);
+      o1: '5'
+      o2: '4'
+      o3: '2'
+      o4: '3'
+      ans: 3
+  prompt: 'What does this print?'
+  parts:
+    - ask: 'Output'
+      label: a
+      choice: ["{{o1}}", "{{o2}}", "{{o3}}", "{{o4}}"]
+      correct: ans
+      explain: 'Reversing swaps a[i] with a[length − 1 − i] for the first half only (going all the way swaps everything back). Shifting left copies a[i + 1] into a[i] after saving a[0]; copying forward from a[i − 1] instead spreads the first value through the whole array'
+  verify: { choices: { a: "java_pick(code, [o1, o2, o3, o4])" } }
+
+- template: pr-enhanced-for
+  skill: prog.java-collections
+  pace: quick
+  figure: { type: code, src: code }
+  cases:
+    - { code: "int[] a = {1, 2, 3};\nfor (int x : a) x *= 10;\nSystem.out.print(a[0] + a[1] + a[2]);", ans: 6 }
+    - { code: "int[] a = {1, 2, 3};\nfor (int i = 0; i < a.length; i++) a[i] *= 10;\nSystem.out.print(a[0] + a[1] + a[2]);", ans: 60 }
+    - { code: "int[] a = {2, 4, 6, 8, 10};\nint s = 0;\nfor (int i = 0; i < a.length; i += 2) s += a[i];\nSystem.out.print(s);", ans: 18 }
+    - { code: "int[] a = {2, 4, 6, 8, 10};\nint s = 0;\nfor (int i = a.length - 1; i > 0; i -= 2) s += a[i];\nSystem.out.print(s);", ans: 16 }
+  prompt: 'What does this print?'
+  parts:
+    - { ask: 'Output', label: a, value: ans, tol: 0.0001, explain: 'The enhanced for loop gives you a copy of each element, so assigning to it does not change the array; use an index to modify. Stepping by 2 from 0 visits even indices; from the end, check which index the bound stops before' }
+  verify: { expect: { a: "java_out(code)" } }
+
+- template: pr-arraylist
+  skill: prog.java-collections
+  pace: quick
+  figure: { type: code, src: code }
+  cases:
+    - code: |
+        ArrayList<Integer> L = new ArrayList<>();
+        L.add(5); L.add(7); L.add(0, 3);
+        L.set(1, 9);
+        System.out.print(L);
+      o1: '[3, 9, 7]'
+      o2: '[9, 5, 7]'
+      o3: '[3, 5, 9]'
+      o4: '[3, 9, 5, 7]'
+      ans: 0
+    - code: |
+        ArrayList<Integer> L = new ArrayList<>();
+        L.add(4); L.add(8); L.add(15); L.add(16);
+        L.remove(1);
+        System.out.print(L + " " + L.size());
+      o1: '[4, 15, 16] 4'
+      o2: '[4, 15, 16] 3'
+      o3: '[8, 15, 16] 3'
+      o4: '[4, 8, 16] 3'
+      ans: 1
+    - code: |
+        ArrayList<Integer> L = new ArrayList<>(List.of(2, 2, 3, 2, 5));
+        for (int i = 0; i < L.size(); i++)
+          if (L.get(i) == 2) L.remove(i);
+        System.out.print(L);
+      o1: '[3, 5]'
+      o2: '[2, 3, 5]'
+      o3: '[2, 3, 2, 5]'
+      o4: '[3, 2, 5]'
+      ans: 1
+    - code: |
+        ArrayList<Integer> L = new ArrayList<>(List.of(2, 2, 3, 2, 5));
+        for (int i = L.size() - 1; i >= 0; i--)
+          if (L.get(i) == 2) L.remove(i);
+        System.out.print(L);
+      o1: '[2, 3, 5]'
+      o2: '[3, 2, 5]'
+      o3: '[3, 5]'
+      o4: '[2, 3]'
+      ans: 2
+  prompt: 'What does this print?'
+  parts:
+    - ask: 'Output'
+      label: a
+      choice: ["{{o1}}", "{{o2}}", "{{o3}}", "{{o4}}"]
+      correct: ans
+      explain: 'add(i, x) inserts and shifts the rest right; set replaces; remove(i) deletes and shifts the rest left, so size() shrinks. Removing while walking forward skips the element that slides into the gap; walk backward (or only step forward when nothing was removed)'
+  verify: { choices: { a: "java_pick(code, [o1, o2, o3, o4])" } }
+
+- template: pr-2d-array
+  skill: prog.java-collections
+  pace: quick
+  figure: { type: code, src: code }
+  cases:
+    - code: |
+        int[][] g = new int[3][4];
+        System.out.print(g.length * 10 + g[0].length);
+      ans: 34
+    - code: |
+        int[][] g = { {1, 2, 3}, {4, 5, 6} };
+        System.out.print(g[1][2] - g[0][1]);
+      ans: 4
+    - code: |
+        int[][] g = { {1, 2, 3}, {4, 5, 6} };
+        int s = 0;
+        for (int c = 0; c < g[0].length; c++) s += g[1][c];
+        System.out.print(s);
+      ans: 15
+    - code: |
+        int[][] g = { {1, 2, 3}, {4, 5, 6}, {7, 8, 9} };
+        int s = 0;
+        for (int i = 0; i < g.length; i++) s += g[i][i];
+        System.out.print(s);
+      ans: 15
+    - code: |
+        int[][] g = { {1, 2, 3}, {4, 5, 6} };
+        int s = 0;
+        for (int r = 0; r < g.length; r++) s += g[r][0];
+        System.out.print(s);
+      ans: 5
+  prompt: 'What does this print?'
+  parts:
+    - { ask: 'Output', label: a, value: ans, tol: 0.0001, explain: 'A 2D array is an array of rows: g.length counts rows, g[0].length columns, and g[r][c] is row r, column c. Fixing the row and looping over c walks across a row; fixing the column walks down it' }
+  verify: { expect: { a: "java_out(code)" } }
+
+- template: pr-2d-order
+  skill: prog.java-collections
+  pace: quick
+  figure: { type: code, src: code }
+  cases:
+    - code: |
+        int[][] g = { {1, 2, 3}, {4, 5, 6} };
+        for (int r = 0; r < g.length; r++)
+          for (int c = 0; c < g[0].length; c++)
+            System.out.print(g[r][c]);
+      o1: '123456'
+      o2: '142536'
+      o3: '654321'
+      o4: '321654'
+      ans: 0
+    - code: |
+        int[][] g = { {1, 2, 3}, {4, 5, 6} };
+        for (int c = 0; c < g[0].length; c++)
+          for (int r = 0; r < g.length; r++)
+            System.out.print(g[r][c]);
+      o1: '123456'
+      o2: '142536'
+      o3: '415263'
+      o4: '635241'
+      ans: 1
+    - code: |
+        int[][] g = { {1, 2, 3}, {4, 5, 6} };
+        for (int r = g.length - 1; r >= 0; r--)
+          for (int c = 0; c < g[0].length; c++)
+            System.out.print(g[r][c]);
+      o1: '654321'
+      o2: '123456'
+      o3: '456123'
+      o4: '415263'
+      ans: 2
+  prompt: 'What does this print?'
+  parts:
+    - ask: 'Output'
+      label: a
+      choice: ["{{o1}}", "{{o2}}", "{{o3}}", "{{o4}}"]
+      correct: ans
+      explain: 'The outer loop variable changes slowest. Rows outside, columns inside is row-major order (reading order); columns outside is column-major (down each column in turn)'
+  verify: { choices: { a: "java_pick(code, [o1, o2, o3, o4])" } }
+
+- template: pr-search-count
+  skill: prog.java-algorithms
+  pace: quick
+  figure: { type: code, src: full }
+  cases:
+    - defs: &BS |
+        static int steps = 0;
+        static int find(int[] a, int t) {
+          int lo = 0, hi = a.length - 1;
+          while (lo <= hi) {
+            steps++;
+            int mid = (lo + hi) / 2;
+            if (a[mid] == t) return mid;
+            if (a[mid] < t) lo = mid + 1; else hi = mid - 1;
+          }
+          return -1;
+        }
+      code: "int[] a = {2, 5, 8, 12, 16, 23, 38, 56, 72, 91};\nfind(a, 23);\nSystem.out.print(steps);"
+      full: "Binary search, counting passes (steps):\nfind({2, 5, 8, 12, 16, 23, 38, 56, 72, 91}, 23)"
+      ans: 3
+    - defs: *BS
+      code: "int[] a = {2, 5, 8, 12, 16, 23, 38, 56, 72, 91};\nfind(a, 91);\nSystem.out.print(steps);"
+      full: "Binary search, counting passes (steps):\nfind({2, 5, 8, 12, 16, 23, 38, 56, 72, 91}, 91)"
+      ans: 4
+    - defs: *BS
+      code: "int[] a = {2, 5, 8, 12, 16, 23, 38, 56, 72, 91};\nfind(a, 16);\nSystem.out.print(steps);"
+      full: "Binary search, counting passes (steps):\nfind({2, 5, 8, 12, 16, 23, 38, 56, 72, 91}, 16)"
+      ans: 1
+    - defs: *BS
+      code: "int[] a = {2, 5, 8, 12, 16, 23, 38, 56, 72, 91};\nfind(a, 4);\nSystem.out.print(steps);"
+      full: "Binary search, counting passes (steps):\nfind({2, 5, 8, 12, 16, 23, 38, 56, 72, 91}, 4)"
+      ans: 3
+  prompt: 'Iterative binary search with lo = 0, hi = length − 1 and mid = (lo + hi) / 2 runs on the sorted array shown. How many times does the loop body run?'
+  parts:
+    - { ask: 'Passes', label: a, value: ans, tol: 0.0001, explain: 'Each pass checks a[mid] and throws away half of what is left (lo = mid + 1 or hi = mid − 1), stopping on a match or when lo passes hi. List the midpoints: index 4 (16) first here. At most about log₂ n + 1 passes; linear search may need all n' }
+  verify: { expect: { a: "java_out(code, defs)" } }
+
+- template: pr-sort-pass
+  skill: prog.java-algorithms
+  pace: quick
+  cases:
+    - { m: 0, k: 1, arr: '[5, 2, 9, 1, 7]', code: "int[] a = {5, 2, 9, 1, 7};\nsortPasses(a, 0, 1);\nSystem.out.print(Arrays.toString(a));", o1: '[1, 2, 9, 5, 7]', o2: '[2, 5, 9, 1, 7]', o3: '[2, 5, 1, 7, 9]', o4: '[1, 5, 2, 9, 7]', ans: 0 }
+    - { m: 0, k: 2, arr: '[5, 2, 9, 1, 7]', code: "int[] a = {5, 2, 9, 1, 7};\nsortPasses(a, 0, 2);\nSystem.out.print(Arrays.toString(a));", o1: '[1, 2, 9, 5, 7]', o2: '[1, 2, 5, 9, 7]', o3: '[2, 5, 9, 1, 7]', o4: '[1, 2, 9, 7, 5]', ans: 0 }
+    - { m: 1, k: 1, arr: '[5, 2, 9, 1, 7]', code: "int[] a = {5, 2, 9, 1, 7};\nsortPasses(a, 1, 1);\nSystem.out.print(Arrays.toString(a));", o1: '[1, 2, 9, 5, 7]', o2: '[2, 5, 9, 1, 7]', o3: '[2, 5, 1, 7, 9]', o4: '[5, 2, 9, 1, 7]', ans: 1 }
+    - { m: 1, k: 3, arr: '[5, 2, 9, 1, 7]', code: "int[] a = {5, 2, 9, 1, 7};\nsortPasses(a, 1, 3);\nSystem.out.print(Arrays.toString(a));", o1: '[1, 2, 5, 9, 7]', o2: '[1, 2, 9, 5, 7]', o3: '[2, 5, 9, 1, 7]', o4: '[1, 2, 5, 7, 9]', ans: 0 }
+    - { m: 0, k: 1, arr: '[3, 8, 6, 4, 2]', code: "int[] a = {3, 8, 6, 4, 2};\nsortPasses(a, 0, 1);\nSystem.out.print(Arrays.toString(a));", o1: '[3, 6, 8, 4, 2]', o2: '[2, 3, 8, 6, 4]', o3: '[2, 8, 6, 4, 3]', o4: '[3, 8, 6, 2, 4]', ans: 2 }
+    - { m: 1, k: 2, arr: '[3, 8, 6, 4, 2]', code: "int[] a = {3, 8, 6, 4, 2};\nsortPasses(a, 1, 2);\nSystem.out.print(Arrays.toString(a));", o1: '[3, 6, 8, 4, 2]', o2: '[3, 4, 6, 8, 2]', o3: '[2, 3, 8, 6, 4]', o4: '[3, 8, 6, 4, 2]', ans: 0 }
+  prompt: '{{m == 0 ? "Selection" : "Insertion"}} sort (ascending, the standard AP CSA version) runs on {{arr}}. What is the array after pass {{k}}?'
+  parts:
+    - ask: 'After the pass'
+      label: a
+      choice: ["{{o1}}", "{{o2}}", "{{o3}}", "{{o4}}"]
+      correct: ans
+      explain: 'Selection sort pass k finds the smallest remaining element and swaps it into position k − 1, so the front k elements are final. Insertion sort pass k takes element k and slides it left into the already-sorted front, so the front k + 1 elements are sorted among themselves but not yet final'
+  verify: { choices: { a: "java_pick(code, [o1, o2, o3, o4], 'static void sortPasses(int[] a, int m, int k) {   for (int p = 1; p <= k; p++) {     if (m == 0) { int j = p - 1, mi = j; for (int i = j + 1; i < a.length; i++) if (a[i] < a[mi]) mi = i; int t = a[j]; a[j] = a[mi]; a[mi] = t; }     else { int v = a[p], i = p - 1; while (i >= 0 && a[i] > v) { a[i + 1] = a[i]; i--; } a[i + 1] = v; }   } }')" } }
+
+- template: pr-recursion
+  skill: prog.java-algorithms
+  pace: quick
+  figure: { type: code, src: full }
+  cases:
+    - { defs: "static int f(int n) {\n  if (n <= 1) return 1;\n  return n * f(n - 1);\n}", call: 'f(5)', full: "static int f(int n) {\n  if (n <= 1) return 1;\n  return n * f(n - 1);\n}\n\nf(5)", ans: 120 }
+    - { defs: "static int g(int n) {\n  if (n < 10) return n;\n  return n % 10 + g(n / 10);\n}", call: 'g(4072)', full: "static int g(int n) {\n  if (n < 10) return n;\n  return n % 10 + g(n / 10);\n}\n\ng(4072)", ans: 13 }
+    - { defs: "static int p(int b, int e) {\n  if (e == 0) return 1;\n  return b * p(b, e - 1);\n}", call: 'p(3, 4)', full: "static int p(int b, int e) {\n  if (e == 0) return 1;\n  return b * p(b, e - 1);\n}\n\np(3, 4)", ans: 81 }
+    - { defs: "static int m(int n) {\n  if (n <= 0) return 0;\n  return n + m(n - 2);\n}", call: 'm(7)', full: "static int m(int n) {\n  if (n <= 0) return 0;\n  return n + m(n - 2);\n}\n\nm(7)", ans: 16 }
+    - { defs: "static int h(int a, int b) {\n  if (b == 0) return a;\n  return h(b, a % b);\n}", call: 'h(84, 36)', full: "static int h(int a, int b) {\n  if (b == 0) return a;\n  return h(b, a % b);\n}\n\nh(84, 36)", ans: 12 }
+  prompt: 'What does the call on the last line return?'
+  parts:
+    - { ask: 'Return value', label: a, value: ans, tol: 0.0001, explain: 'Write the chain of calls down to the base case, then multiply or add back up as each call returns. Every recursive call must move toward the base case, or the calls never stop (StackOverflowError)' }
+  verify: { expect: { a: "java_ret(defs, call)" } }
+
+- template: pr-recursion-calls
+  skill: prog.java-algorithms
+  pace: quick
+  cases:
+    - { n: 4, call: 'run(4)', ans: 9 }
+    - { n: 5, call: 'run(5)', ans: 15 }
+    - { n: 6, call: 'run(6)', ans: 25 }
+    - { n: 3, call: 'run(3)', ans: 5 }
+  prompt: 'Naive Fibonacci: fib(n) returns n when n < 2 and fib(n − 1) + fib(n − 2) otherwise. How many calls to fib does fib({{n}}) make in all, counting the first?'
+  parts:
+    - { ask: 'Calls', label: a, value: ans, tol: 0.0001, explain: 'Calls(n) = 1 + calls(n − 1) + calls(n − 2), with one call for n = 0 or 1. The count grows like the Fibonacci numbers themselves, exponentially, because the same subproblems are solved again and again' }
+  verify: { expect: { a: "java_ret('static int calls = 0;\\nstatic int fib(int n) { calls++; if (n < 2) return n; return fib(n - 1) + fib(n - 2); }\\nstatic int run(int n) { fib(n); return calls; }', call)" } }
