@@ -116,7 +116,24 @@ def sh_pick(setup, cmds, options):
     return hits[0]
 
 
-FUNCS = {"sh_out": sh_out, "sh_pick": sh_pick, "java_out": java_out, "java_ret": java_ret, "java_pick": java_pick, "py_out": py_out, "py_pick": py_pick}
+def c_lines(body: str) -> int:
+    """number of lines printed by a C main() body that may fork: stdout is unbuffered (as at a
+    terminal, where printf flushes at each newline) and every process waits for its children"""
+    src = ("#include <stdio.h>\n#include <unistd.h>\n#include <sys/wait.h>\nint main(void) {\n"
+           "setvbuf(stdout, NULL, _IONBF, 0);\n" + body + "\nwhile (wait(NULL) > 0) ;\nreturn 0;\n}\n")
+    key = "c:" + hashlib.sha1(src.encode()).hexdigest()
+    if key not in _CACHE:
+        with tempfile.TemporaryDirectory() as d:
+            Path(d, "m.c").write_text(src)
+            out, err, rc = _run(["cc", "-w", "-o", "m", "m.c"], d)
+            if rc != 0:
+                raise RuntimeError(f"cc failed:\n{src}\n{err[-2000:]}")
+            out, err, rc = _run(["./m"], d)
+        _CACHE[key] = out
+    return sp.Integer(len(_CACHE[key].splitlines()))
+
+
+FUNCS = {"c_lines": c_lines, "sh_out": sh_out, "sh_pick": sh_pick, "java_out": java_out, "java_ret": java_ret, "java_pick": java_pick, "py_out": py_out, "py_pick": py_pick}
 
 
 def check(p, H):
