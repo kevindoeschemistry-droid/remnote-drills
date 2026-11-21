@@ -2,7 +2,7 @@
 
 Generated from `drills/frameworks/dat.yaml` by `scripts/framework.mjs`. ● drilled · ◐ partly · ○ no drills yet.
 
-**183 learning objectives** in 6 units (183 core): 7 drilled, 2 partly, 174 with no drills. Core: 7 / 183 drilled.
+**183 learning objectives** in 6 units (183 core): 126 drilled, 3 partly, 54 with no drills. Core: 126 / 183 drilled.
 
 ## Big ideas
 
@@ -29,11 +29,11 @@ Generated from `drills/frameworks/dat.yaml` by `scripts/framework.mjs`. ● dril
 | Unit | Scope | Est. weight | LOs | ● | ◐ | ○ |
 |---|---|---|---|---|---|---|
 | 1 · Biology | core | Biology: 40 of 100 Survey of the Natural Sciences items (Survey 90 min total) | 53 | 0 | 0 | 53 |
-| 2 · General Chemistry | core | General Chemistry: 30 of 100 Survey of the Natural Sciences items (periodic table provided) | 57 | 0 | 0 | 57 |
-| 3 · Organic Chemistry | core | Organic Chemistry: 30 of 100 Survey of the Natural Sciences items (new specifications, implemented April 2026) | 36 | 0 | 0 | 36 |
-| 4 · Perceptual Ability | core | Perceptual Ability: 90 items in 60 min, six parts (the guide gives no per-part counts) | 11 | 7 | 2 | 2 |
-| 5 · Reading Comprehension | core | Reading Comprehension: 50 items in 60 min, three scientific passages (no prior subject knowledge required) | 8 | 0 | 0 | 8 |
-| 6 · Quantitative Reasoning | core | Quantitative Reasoning: 40 items in 45 min (on-screen calculator provided) | 18 | 0 | 0 | 18 |
+| 2 · General Chemistry | core | General Chemistry: 30 of 100 Survey of the Natural Sciences items (periodic table provided) | 57 | 57 | 0 | 0 |
+| 3 · Organic Chemistry | core | Organic Chemistry: 30 of 100 Survey of the Natural Sciences items (new specifications, implemented April 2026) | 36 | 36 | 0 | 0 |
+| 4 · Perceptual Ability | core | Perceptual Ability: 90 items in 60 min, six parts (the guide gives no per-part counts) | 11 | 8 | 3 | 0 |
+| 5 · Reading Comprehension | core | Reading Comprehension: 50 items in 60 min, three scientific passages (no prior subject knowledge required) | 8 | 7 | 0 | 1 |
+| 6 · Quantitative Reasoning | core | Quantitative Reasoning: 40 items in 45 min (on-screen calculator provided) | 18 | 18 | 0 | 0 |
 
 ## Unit 1 · Biology
 
@@ -236,246 +236,246 @@ Big ideas: STRUCT, ENERGY, DATA
 
 
 
-- ○ **DAT-2.1.A** Calculate percent composition by mass from a formula.
+- ● **DAT-2.1.A** Calculate percent composition by mass from a formula.
   - EK: Mass % = (n × atomic mass of element) / molar mass × 100.
-  - P3
-- ○ **DAT-2.1.B** Determine an empirical formula from mass data, then the molecular formula from molar mass.
+  - P3 · drills: ac-mass-percent
+- ● **DAT-2.1.B** Determine an empirical formula from mass data, then the molecular formula from molar mass.
   - EK: Convert to moles, divide by the smallest, clear fractions; molecular = empirical × (M / M_empirical).
-  - P3
-- ○ **DAT-2.1.C** Balance a chemical equation by inspection.
+  - P3 · drills: ac-empirical-formula, ac-molecular-formula
+- ● **DAT-2.1.C** Balance a chemical equation by inspection.
   - EK: Atoms of each element and total charge are conserved; balance pure elements last.
-  - P1
-- ○ **DAT-2.1.D** Convert among mass, moles, particles and volume using molar mass, Avogadro's number and density.
+  - P1 · drills: ac-balance-coefficient
+- ● **DAT-2.1.D** Convert among mass, moles, particles and volume using molar mass, Avogadro's number and density.
   - EK: n = m / M; N = n × 6.02 × 10²³; ρ = m / V.
-  - P3
-- ○ **DAT-2.1.E** Find the limiting reagent, theoretical yield and percent yield from a balanced equation.
+  - P3 · drills: ac-moles-of-element, ac-density-displacement
+- ● **DAT-2.1.E** Find the limiting reagent, theoretical yield and percent yield from a balanced equation.
   - EK: Compare moles available ÷ coefficient; the smallest ratio limits; % yield = actual / theoretical × 100.
   - Needs: DAT-2.1.C, DAT-2.1.D
-  - P3
+  - P3 · drills: ac-limiting-reactant, ac-percent-yield
 
 ### 2.2 Gases
 
 
 
-- ○ **DAT-2.2.A** Solve for an unknown P, V, n or T with the ideal gas law.
+- ● **DAT-2.2.A** Solve for an unknown P, V, n or T with the ideal gas law.
   - EK: PV = nRT with T in kelvin; R = 0.0821 L·atm/(mol·K); 1 mol at STP ≈ 22.4 L.
-  - P3
-- ○ **DAT-2.2.B** Predict a new state with Boyle's, Charles's or the combined gas law.
+  - P3 · drills: ac-ideal-gas-solve, pc-ideal-gas
+- ● **DAT-2.2.B** Predict a new state with Boyle's, Charles's or the combined gas law.
   - EK: P1V1/T1 = P2V2/T2; hold the constant variables fixed and cancel them.
   - Needs: DAT-2.2.A
-  - P3
-- ○ **DAT-2.2.C** Calculate partial pressures from mole fractions using Dalton's law.
+  - P3 · drills: ac-combined-gas, ph-ideal-gas-change
+- ● **DAT-2.2.C** Calculate partial pressures from mole fractions using Dalton's law.
   - EK: P_total = ΣP_i; P_i = X_i P_total.
-  - P3
-- ○ **DAT-2.2.D** Apply kinetic molecular theory to compare molecular speeds and effusion rates and predict deviations from ideality.
+  - P3 · drills: ac-dalton-over-water
+- ● **DAT-2.2.D** Apply kinetic molecular theory to compare molecular speeds and effusion rates and predict deviations from ideality.
   - EK: Average KE ∝ T; rate₁/rate₂ = √(M₂/M₁); real gases deviate at high P and low T.
-  - P2 · P3
+  - P2 · P3 · drills: pc-effusion, ac-kmt-statement, ac-real-gas
 
 ### 2.3 Liquids and Solids
 
 
 
-- ○ **DAT-2.3.A** Rank substances by intermolecular force strength and predict boiling point, viscosity and surface tension.
+- ● **DAT-2.3.A** Rank substances by intermolecular force strength and predict boiling point, viscosity and surface tension.
   - EK: London < dipole–dipole < H-bonding (N, O, F–H) < ion–dipole; London grows with size and surface area.
-  - P2
-- ○ **DAT-2.3.B** Read a phase diagram or heating curve and calculate the heat for each segment.
+  - P2 · drills: ac-imf-identify, ac-boiling-rank
+- ● **DAT-2.3.B** Read a phase diagram or heating curve and calculate the heat for each segment.
   - EK: Sloped segments: q = mcΔT; flat segments: q = nΔH_phase; the triple point and critical point bound the liquid.
-  - P3 · P5
-- ○ **DAT-2.3.C** Predict how temperature and IMF strength change vapor pressure and normal boiling point.
+  - P3 · P5 · drills: ac-phase-diagram, ac-heating-curve
+- ● **DAT-2.3.C** Predict how temperature and IMF strength change vapor pressure and normal boiling point.
   - EK: Vapor pressure rises with T and falls with stronger IMFs; boiling occurs when vapor pressure equals external pressure.
-  - P2
-- ○ **DAT-2.3.D** Classify a solid as ionic, molecular, covalent network or metallic and predict its properties.
+  - P2 · drills: ac-boiling-pressure
+- ● **DAT-2.3.D** Classify a solid as ionic, molecular, covalent network or metallic and predict its properties.
   - EK: Network solids (diamond, SiO2) have the highest melting points; metals conduct as solids; ionic solids conduct only when molten or dissolved.
-  - P1 · P2
+  - P1 · P2 · drills: ac-solid-type
 
 ### 2.4 Solutions
 
 
 
-- ○ **DAT-2.4.A** Convert among molarity, molality, mole fraction, mass percent and ppm, and solve dilutions.
+- ● **DAT-2.4.A** Convert among molarity, molality, mole fraction, mass percent and ppm, and solve dilutions.
   - EK: M = mol/L solution; m = mol/kg solvent; M1V1 = M2V2.
-  - P3
-- ○ **DAT-2.4.B** Calculate boiling-point elevation, freezing-point depression and osmotic pressure.
+  - P3 · drills: ac-molality-convert, ac-dilution
+- ● **DAT-2.4.B** Calculate boiling-point elevation, freezing-point depression and osmotic pressure.
   - EK: ΔT = iKm; π = iMRT; i is the number of particles per formula unit (NaCl ≈ 2).
   - Needs: DAT-2.4.A
-  - P3
-- ○ **DAT-2.4.C** Predict solubility from polarity and how temperature and pressure change it.
+  - P3 · drills: ac-freezing-point-i, ac-osmotic-molar-mass
+- ● **DAT-2.4.C** Predict solubility from polarity and how temperature and pressure change it.
   - EK: Like dissolves like; gas solubility falls with T and rises with partial pressure (Henry's law); most solids dissolve better hot.
-  - P2
-- ○ **DAT-2.4.D** Calculate vapor-pressure lowering with Raoult's law.
+  - P2 · drills: ac-solubility-polar, ac-henry-law
+- ● **DAT-2.4.D** Calculate vapor-pressure lowering with Raoult's law.
   - EK: P_solution = X_solvent × P°_solvent.
-  - P3
+  - P3 · drills: ac-raoult
 
 ### 2.5 Acids and Bases
 
 
 
-- ○ **DAT-2.5.A** Identify Brønsted–Lowry acids, bases and conjugate pairs in a reaction.
+- ● **DAT-2.5.A** Identify Brønsted–Lowry acids, bases and conjugate pairs in a reaction.
   - EK: Acid donates H+, base accepts; a stronger acid has a weaker conjugate base.
-  - P1
-- ○ **DAT-2.5.B** Calculate pH, pOH, [H+] and [OH−] for strong acids and bases without a calculator.
+  - P1 · drills: ac-conjugate
+- ● **DAT-2.5.B** Calculate pH, pOH, [H+] and [OH−] for strong acids and bases without a calculator.
   - EK: pH = −log[H+]; pH + pOH = 14 at 25 °C; for [H+] = a × 10⁻ⁿ, pH is between n − 1 and n.
-  - P3
-- ○ **DAT-2.5.C** Estimate the pH of a weak acid or base from Ka or Kb.
+  - P3 · drills: ac-strong-acid-ph, ac-ph-poh
+- ● **DAT-2.5.C** Estimate the pH of a weak acid or base from Ka or Kb.
   - EK: [H+] ≈ √(Ka C) when ionization is small; Ka × Kb = Kw.
   - Needs: DAT-2.5.B
-  - P3
-- ○ **DAT-2.5.D** Calculate buffer pH with Henderson–Hasselbalch and choose a buffer for a target pH.
+  - P3 · drills: ac-weak-acid-ph, ac-weak-base-ph
+- ● **DAT-2.5.D** Calculate buffer pH with Henderson–Hasselbalch and choose a buffer for a target pH.
   - EK: pH = pKa + log([A−]/[HA]); a buffer works best within pKa ± 1.
-  - P3 · P2
-- ○ **DAT-2.5.E** Read a titration curve to find the equivalence point, half-equivalence point and pKa.
+  - P3 · P2 · drills: ac-henderson, ac-buffer-design
+- ● **DAT-2.5.E** Read a titration curve to find the equivalence point, half-equivalence point and pKa.
   - EK: At half-equivalence pH = pKa; weak acid + strong base equivalence pH > 7; n_acid = n_base at equivalence.
   - Needs: DAT-2.5.D
-  - P5
+  - P5 · drills: ac-indicator-choice, ac-polyprotic, ac-equivalence-ph
 
 ### 2.6 Chemical Equilibria
 
 
 
-- ○ **DAT-2.6.A** Write an equilibrium expression and use Q vs K to predict the direction of shift.
+- ● **DAT-2.6.A** Write an equilibrium expression and use Q vs K to predict the direction of shift.
   - EK: Products over reactants raised to coefficients; omit pure solids and liquids; Q < K shifts right.
-  - P1 · P2
-- ○ **DAT-2.6.B** Predict the effect of a concentration, pressure or temperature change with Le Chatelier's principle.
+  - P1 · P2 · drills: ac-k-expression, ac-q-vs-k
+- ● **DAT-2.6.B** Predict the effect of a concentration, pressure or temperature change with Le Chatelier's principle.
   - EK: Only temperature changes K; added pressure favors fewer gas moles; heat acts as a product in exothermic reactions.
-  - P2
-- ○ **DAT-2.6.C** Calculate molar solubility from Ksp, including the common-ion effect.
+  - P2 · drills: ac-le-chatelier
+- ● **DAT-2.6.C** Calculate molar solubility from Ksp, including the common-ion effect.
   - EK: For AB2: Ksp = 4s³; a common ion lowers solubility; precipitation occurs when Q > Ksp.
-  - P3
-- ○ **DAT-2.6.D** Solve for equilibrium concentrations with an ICE table and the small-x approximation.
+  - P3 · drills: ac-solubility-from-ksp, ac-common-ion
+- ● **DAT-2.6.D** Solve for equilibrium concentrations with an ICE table and the small-x approximation.
   - EK: Initial – change – equilibrium; drop x when K is tiny relative to the starting concentration.
   - Needs: DAT-2.6.A
-  - P3
+  - P3 · drills: ac-small-x, ac-ice-k
 
 ### 2.7 Thermodynamics and Thermochemistry
 
 
 
-- ○ **DAT-2.7.A** Calculate ΔH_rxn from Hess's law, enthalpies of formation or bond energies.
+- ● **DAT-2.7.A** Calculate ΔH_rxn from Hess's law, enthalpies of formation or bond energies.
   - EK: ΔH = ΣΔH_f(products) − ΣΔH_f(reactants); with bond energies, broken − formed; reverse a step, flip the sign.
-  - P3
-- ○ **DAT-2.7.B** Predict the sign of ΔS for a process.
+  - P3 · drills: ac-hess-combine, pc-hess, ac-bond-enthalpy
+- ● **DAT-2.7.B** Predict the sign of ΔS for a process.
   - EK: Entropy rises with more gas moles, solid → liquid → gas, dissolving, and higher T.
-  - P2
-- ○ **DAT-2.7.C** Determine spontaneity and the crossover temperature from ΔH and ΔS.
+  - P2 · drills: ac-entropy-sign
+- ● **DAT-2.7.C** Determine spontaneity and the crossover temperature from ΔH and ΔS.
   - EK: ΔG = ΔH − TΔS; − ΔH, + ΔS always spontaneous; T_cross = ΔH/ΔS.
   - Needs: DAT-2.7.B
-  - P2 · P3
-- ○ **DAT-2.7.D** Relate ΔG° to K and to E°cell.
+  - P2 · P3 · drills: ac-crossover-temperature, ac-dg-from-dh-ds
+- ● **DAT-2.7.D** Relate ΔG° to K and to E°cell.
   - EK: ΔG° = −RT ln K = −nFE°; K > 1 ⇔ ΔG° < 0 ⇔ E° > 0.
-  - P2
-- ○ **DAT-2.7.E** Calculate heat exchanged in calorimetry and final temperatures of mixtures.
+  - P2 · drills: ac-dg-from-e, pc-cell-equilibrium-constant
+- ● **DAT-2.7.E** Calculate heat exchanged in calorimetry and final temperatures of mixtures.
   - EK: q = mcΔT; heat lost by the hot body = heat gained by the cold one; c_water = 4.18 J/(g·°C).
-  - P3
-- ○ **DAT-2.7.F** Apply the first and third laws to a system: sign conventions for q and w, and absolute entropy.
+  - P3 · drills: ac-mixing-temperature, ac-coffee-cup, ac-q-mcdt
+- ● **DAT-2.7.F** Apply the first and third laws to a system: sign conventions for q and w, and absolute entropy.
   - EK: ΔU = q + w (work on the system positive); S = 0 for a perfect crystal at 0 K; state functions are path-independent.
-  - P1
+  - P1 · drills: ac-first-law, ac-third-law
 
 ### 2.8 Chemical Kinetics
 
 
 
-- ○ **DAT-2.8.A** Determine reaction orders and the rate constant from initial-rate data.
+- ● **DAT-2.8.A** Determine reaction orders and the rate constant from initial-rate data.
   - EK: Doubling [A] doubles rate → 1st order, quadruples → 2nd, no change → 0th; units of k depend on overall order.
-  - P3 · P5
-- ○ **DAT-2.8.B** Calculate the remaining amount or time from a first-order half-life.
+  - P3 · P5 · drills: pc-initial-rates, ac-rate-change
+- ● **DAT-2.8.B** Calculate the remaining amount or time from a first-order half-life.
   - EK: t½ = 0.693/k, independent of concentration; after n half-lives (½)ⁿ remains.
-  - P3
-- ○ **DAT-2.8.C** Read Ea, ΔH and the effect of a catalyst from a reaction energy diagram, and predict how T changes the rate.
+  - P3 · drills: ac-first-order-half-life
+- ● **DAT-2.8.C** Read Ea, ΔH and the effect of a catalyst from a reaction energy diagram, and predict how T changes the rate.
   - EK: k = A e^(−Ea/RT); catalysts lower Ea for both directions without changing ΔH or K.
-  - P5 · P2
-- ○ **DAT-2.8.D** Derive a rate law from a mechanism's rate-determining step and identify intermediates and catalysts.
+  - P5 · P2 · drills: ac-energy-profile, ac-catalyst-effect, ac-arrhenius-plot
+- ● **DAT-2.8.D** Derive a rate law from a mechanism's rate-determining step and identify intermediates and catalysts.
   - EK: The slow step sets the rate law; intermediates are made then consumed, catalysts are consumed then regenerated.
-  - P2
+  - P2 · drills: ac-slow-first-step, ac-mechanism-species, ac-pre-equilibrium-order
 
 ### 2.9 Oxidation–Reduction Reactions
 
 
 
-- ○ **DAT-2.9.A** Assign oxidation numbers and identify the oxidizing and reducing agents.
+- ● **DAT-2.9.A** Assign oxidation numbers and identify the oxidizing and reducing agents.
   - EK: F always −1, O usually −2, H +1 with nonmetals; the species oxidized is the reducing agent.
-  - P1
-- ○ **DAT-2.9.B** Balance a redox equation in acidic or basic solution by half-reactions.
+  - P1 · drills: ac-oxidation-number, ac-oxidizing-agent
+- ● **DAT-2.9.B** Balance a redox equation in acidic or basic solution by half-reactions.
   - EK: Balance atoms, O with H2O, H with H+, charge with e−; in base add OH− to both sides to cancel H+.
   - Needs: DAT-2.9.A
-  - P1
-- ○ **DAT-2.9.C** Calculate E°cell from reduction potentials and identify anode, cathode and electron flow in galvanic and electrolytic cells.
+  - P1 · drills: ac-electrons-transferred
+- ● **DAT-2.9.C** Calculate E°cell from reduction potentials and identify anode, cathode and electron flow in galvanic and electrolytic cells.
   - EK: E°cell = E°cathode − E°anode; oxidation at the anode; electrons flow anode → cathode; galvanic E° > 0, electrolytic needs input.
-  - P2 · P3
-- ○ **DAT-2.9.D** Calculate the mass plated or the current/time needed in electrolysis.
+  - P2 · P3 · drills: ac-spontaneous-redox, ac-galvanic-parts, ac-galvanic-electrolytic
+- ● **DAT-2.9.D** Calculate the mass plated or the current/time needed in electrolysis.
   - EK: n_e = It/F with F = 96 485 C/mol; moles metal = n_e / (electrons per ion).
-  - P3
+  - P3 · drills: ac-faraday
 
 ### 2.10 Atomic and Molecular Structure
 
 
 
-- ○ **DAT-2.10.A** Write the electron configuration of an atom or ion, including Cr/Cu exceptions and transition-metal cations.
+- ● **DAT-2.10.A** Write the electron configuration of an atom or ion, including Cr/Cu exceptions and transition-metal cations.
   - EK: Aufbau, Pauli, Hund; transition metals lose 4s before 3d; half- and fully filled d subshells are favored.
-  - P1
-- ○ **DAT-2.10.B** Assign or validate a set of quantum numbers for an electron.
+  - P1 · drills: pt-config-anomaly, ac-ion-d-count, pt-config-write-d
+- ● **DAT-2.10.B** Assign or validate a set of quantum numbers for an electron.
   - EK: n ≥ 1; ℓ = 0 … n − 1; m_ℓ = −ℓ … +ℓ; m_s = ±½.
-  - P1
-- ○ **DAT-2.10.C** Draw a Lewis structure and use formal charge to choose the best one.
+  - P1 · drills: ac-quantum-numbers-allowed
+- ● **DAT-2.10.C** Draw a Lewis structure and use formal charge to choose the best one.
   - EK: FC = valence − nonbonding e− − ½ bonding e−; the best structure minimizes formal charges and puts negatives on electronegative atoms.
-  - P1 · P5
-- ○ **DAT-2.10.D** Predict molecular geometry, bond angle and polarity with VSEPR.
+  - P1 · P5 · drills: ac-valence-electrons, ac-formal-charge
+- ● **DAT-2.10.D** Predict molecular geometry, bond angle and polarity with VSEPR.
   - EK: Electron domains set the shape (4 → tetrahedral 109.5°, lone pairs compress angles); symmetric shapes cancel bond dipoles.
   - Needs: DAT-2.10.C
-  - P2 · P7
-- ○ **DAT-2.10.E** Identify hybridization and count σ and π bonds; classify a bond as ionic, polar or nonpolar covalent.
+  - P2 · P7 · drills: ac-vsepr-shape, ac-polarity
+- ● **DAT-2.10.E** Identify hybridization and count σ and π bonds; classify a bond as ionic, polar or nonpolar covalent.
   - EK: Domains 2/3/4 → sp/sp²/sp³; single = 1σ, double = 1σ + 1π, triple = 1σ + 2π; ΔEN > ~1.7 is ionic.
-  - P1
-- ○ **DAT-2.10.F** Count protons, neutrons and electrons in an isotope or ion and compute average atomic mass.
+  - P1 · drills: ac-sigma-pi, ac-bond-type, qm-hybridisation
+- ● **DAT-2.10.F** Count protons, neutrons and electrons in an isotope or ion and compute average atomic mass.
   - EK: Z = protons, A = protons + neutrons; average mass = Σ(fraction × isotope mass).
-  - P3
-- ○ **DAT-2.10.G** Relate photon energy, frequency and wavelength to electron transitions and the experiments behind atomic theory.
+  - P3 · drills: ac-nuclide-count, ac-average-atomic-mass
+- ● **DAT-2.10.G** Relate photon energy, frequency and wavelength to electron transitions and the experiments behind atomic theory.
   - EK: E = hν = hc/λ; emission when e− falls to a lower level; Thomson (electron), Rutherford (nucleus), Bohr (quantized levels).
-  - P1 · P3
+  - P1 · P3 · drills: ac-photon-per-mole, pc-bohr, ac-atomic-experiments
 
 ### 2.11 Periodic Properties
 
 
 
-- ○ **DAT-2.11.A** Rank elements by atomic radius, ionization energy, electronegativity and electron affinity.
+- ● **DAT-2.11.A** Rank elements by atomic radius, ionization energy, electronegativity and electron affinity.
   - EK: Across a period Z_eff rises: radius falls, IE and EN rise; down a group radius rises, IE falls; cations smaller, anions larger.
-  - P1 · P2
-- ○ **DAT-2.11.B** Predict the typical ions, reactivity and compounds of alkali metals, alkaline-earth metals, halogens and noble gases.
+  - P1 · P2 · drills: ac-periodic-trend
+- ● **DAT-2.11.B** Predict the typical ions, reactivity and compounds of alkali metals, alkaline-earth metals, halogens and noble gases.
   - EK: Group 1 forms +1 and reacts with water to give H2 and hydroxide; halogens form −1, reactivity falls down the group; noble gases are inert.
-  - P1
-- ○ **DAT-2.11.C** Explain characteristic properties of transition elements: multiple oxidation states, colored ions and paramagnetism.
+  - P1 · drills: ac-group-chemistry, ac-analogous-compound
+- ● **DAT-2.11.C** Explain characteristic properties of transition elements: multiple oxidation states, colored ions and paramagnetism.
   - EK: Partially filled d orbitals give variable charges, d–d color and unpaired electrons.
-  - P1
+  - P1 · drills: ac-transition-properties, ac-unpaired-electrons
 
 ### 2.12 Nuclear Reactions
 
 
 
-- ○ **DAT-2.12.A** Balance a nuclear equation and identify the decay mode from the change in A and Z.
+- ● **DAT-2.12.A** Balance a nuclear equation and identify the decay mode from the change in A and Z.
   - EK: α: A − 4, Z − 2; β−: Z + 1; β+ and electron capture: Z − 1; γ: no change; A and Z both conserved.
-  - P1
-- ○ **DAT-2.12.B** Calculate the remaining fraction or the elapsed time for radioactive decay.
+  - P1 · drills: ac-nuclear-equation
+- ● **DAT-2.12.B** Calculate the remaining fraction or the elapsed time for radioactive decay.
   - EK: N = N₀(½)^(t/t½); decay is first order.
-  - P3
-- ○ **DAT-2.12.C** Calculate binding energy from mass defect and compare nuclear stability.
+  - P3 · drills: nu-fraction-remaining, nu-time-to-decay
+- ● **DAT-2.12.C** Calculate binding energy from mass defect and compare nuclear stability.
   - EK: E = Δm c²; 1 u ≈ 931.5 MeV; binding energy per nucleon peaks near Fe-56.
-  - P3
+  - P3 · drills: nu-binding-energy
 
 ### 2.13 Laboratory
 
 
 
-- ○ **DAT-2.13.A** Choose the glassware or equipment for a measurement and report the result to the right significant figures.
+- ● **DAT-2.13.A** Choose the glassware or equipment for a measurement and report the result to the right significant figures.
   - EK: Volumetric pipets and flasks are precise; beakers are not; read the meniscus at eye level, one estimated digit.
-  - P1
-- ○ **DAT-2.13.B** Distinguish accuracy from precision, classify an error as random or systematic, and compute percent error.
+  - P1 · drills: ac-glassware, ac-sig-figs-product
+- ● **DAT-2.13.B** Distinguish accuracy from precision, classify an error as random or systematic, and compute percent error.
   - EK: % error = |measured − true| / true × 100; systematic error shifts every reading the same way.
-  - P2 · P3
-- ○ **DAT-2.13.C** Identify the correct safety procedure for a lab hazard.
+  - P2 · P3 · drills: ac-error-type, ac-percent-error
+- ● **DAT-2.13.C** Identify the correct safety procedure for a lab hazard.
   - EK: Add acid to water; work with volatiles in the fume hood; flush skin or eye exposure for 15 minutes.
-  - P1
-- ○ **DAT-2.13.D** Extract a quantity from a plotted data set, such as a slope, intercept or best-fit value.
+  - P1 · drills: ac-lab-safety
+- ● **DAT-2.13.D** Extract a quantity from a plotted data set, such as a slope, intercept or best-fit value.
   - EK: Linearize first (ln[A] vs t for 1st order; 1/T vs ln k for Ea); the slope carries the physical constant.
-  - P5
+  - P5 · drills: ac-arrhenius-plot, ac-calibration-curve
 
 ## Unit 3 · Organic Chemistry
 
@@ -485,141 +485,141 @@ Big ideas: STRUCT, ENERGY, SPACE
 
 
 
-- ○ **DAT-3.1.A** Predict the product of a step from its curved arrows, telling two-electron arrows from fishhooks.
+- ● **DAT-3.1.A** Predict the product of a step from its curved arrows, telling two-electron arrows from fishhooks.
   - EK: Double-headed arrows move electron pairs and fishhooks move single electrons, always from the electron source to the electron sink.
-  - P5
-- ○ **DAT-3.1.B** Draw the curved arrows that convert given reactants into given products.
+  - P5 · drills: st-mech-sn2-1, st-mech-hbr-addition-1, or-radical-halogenation
+- ● **DAT-3.1.B** Draw the curved arrows that convert given reactants into given products.
   - EK: Start arrows at lone pairs or bonds, end at an atom or bond; count formal charges before and after.
   - Needs: DAT-3.1.A
-  - P5
-- ○ **DAT-3.1.C** Draw resonance structures and pick the major contributor.
+  - P5 · drills: st-mech-e2-1, st-mech-acyl-substitution-1
+- ● **DAT-3.1.C** Draw resonance structures and pick the major contributor.
   - EK: Move only π and lone-pair electrons; the best contributor has full octets, fewest charges, and negative charge on the most electronegative atom.
-  - P5 · P2
-- ○ **DAT-3.1.D** Predict the steps and selectivity of a free-radical halogenation.
+  - P5 · P2 · drills: or-resonance-major
+- ● **DAT-3.1.D** Predict the steps and selectivity of a free-radical halogenation.
   - EK: Initiation, propagation, termination; Br₂ is highly selective for the 3° hydrogen, Cl₂ much less so; radical stability 3° > 2° > 1°.
-  - P2
-- ○ **DAT-3.1.E** Predict the product of an electrophilic addition, including Markovnikov regiochemistry and carbocation rearrangements.
+  - P2 · drills: or-radical-halogenation
+- ● **DAT-3.1.E** Predict the product of an electrophilic addition, including Markovnikov regiochemistry and carbocation rearrangements.
   - EK: H adds to the carbon with more H; a carbocation shifts H or CH₃ to become more substituted or resonance-stabilized.
-  - P2
-- ○ **DAT-3.1.F** Decide whether SN1, SN2, E1 or E2 operates from substrate, nucleophile/base, solvent and temperature.
+  - P2 · drills: rx-predict-alkene-hbr, rx-predict-alkene-hydration, st-mech-hbr-addition-2
+- ● **DAT-3.1.F** Decide whether SN1, SN2, E1 or E2 operates from substrate, nucleophile/base, solvent and temperature.
   - EK: SN2: 1°, strong nucleophile, polar aprotic, inversion; SN1/E1: 3°, weak nucleophile, polar protic; E2: strong bulky base, anti-periplanar H; heat favors elimination.
-  - P2 · P6
-- ○ **DAT-3.1.G** Predict the product of a Diels–Alder reaction, including stereochemistry.
+  - P2 · P6 · drills: or-substitution-or-elimination
+- ● **DAT-3.1.G** Predict the product of a Diels–Alder reaction, including stereochemistry.
   - EK: s-cis diene + dienophile → cyclohexene in one concerted step; dienophile substituents keep their cis/trans relationship; endo is favored.
-  - P2 · P7
-- ○ **DAT-3.1.H** Read a reaction coordinate diagram: count steps, locate intermediates and transition states, and find the rate-determining step.
+  - P2 · P7 · drills: rx-predict-cc-diels-alder
+- ● **DAT-3.1.H** Read a reaction coordinate diagram: count steps, locate intermediates and transition states, and find the rate-determining step.
   - EK: Peaks are transition states, valleys are intermediates; the highest barrier is rate-determining; Hammond: a TS resembles the species nearer in energy.
-  - P5
+  - P5 · drills: ac-multistep-profile, ac-energy-profile
 
 ### 3.2 Chemical Synthesis
 
 
 
-- ○ **DAT-3.2.A** Predict the substitution or elimination product, including stereochemistry and Zaitsev vs Hofmann regiochemistry.
+- ● **DAT-3.2.A** Predict the substitution or elimination product, including stereochemistry and Zaitsev vs Hofmann regiochemistry.
   - EK: SN2 inverts, SN1 racemizes; small bases give the more substituted alkene, bulky bases (t-BuO⁻) the less substituted one.
   - Needs: DAT-3.1.F
-  - P2
-- ○ **DAT-3.2.B** Predict the product of an alkene or alkyne reaction: HX, hydration, hydroboration–oxidation, halogenation, hydrogenation, ozonolysis.
+  - P2 · drills: rx-predict-sub-e2-zaitsev, rx-predict-sub-e2-hofmann, rx-predict-sub-williamson
+- ● **DAT-3.2.B** Predict the product of an alkene or alkyne reaction: HX, hydration, hydroboration–oxidation, halogenation, hydrogenation, ozonolysis.
   - EK: Hydroboration is anti-Markovnikov and syn; X₂ adds anti; Lindlar gives cis alkene, Na/NH₃ trans; ozonolysis cleaves C=C to carbonyls.
-  - P1 · P2
-- ○ **DAT-3.2.C** Predict the product of an alcohol reaction: oxidation, conversion to a halide or sulfonate, dehydration.
+  - P1 · P2 · drills: rx-predict-alkene-hydroboration, rx-predict-alkene-bromination, rx-predict-alkyne-lindlar, rx-predict-alkyne-hydration
+- ● **DAT-3.2.C** Predict the product of an alcohol reaction: oxidation, conversion to a halide or sulfonate, dehydration.
   - EK: PCC stops 1° alcohols at the aldehyde, chromic acid goes to the acid; 3° alcohols resist oxidation; SOCl₂/PBr₃ give halides with inversion.
-  - P1 · P2
-- ○ **DAT-3.2.D** Predict the regiochemistry and stereochemistry of ether cleavage and epoxide opening under acid and base.
+  - P1 · P2 · drills: rx-predict-sub-pcc, rx-predict-sub-jones, rx-predict-sub-socl2, rx-predict-sub-tosylation
+- ● **DAT-3.2.D** Predict the regiochemistry and stereochemistry of ether cleavage and epoxide opening under acid and base.
   - EK: Base or strong nucleophile attacks the less hindered epoxide carbon; acid directs attack to the more substituted carbon; opening is anti.
-  - P2
-- ○ **DAT-3.2.E** Predict the product of an electrophilic aromatic substitution from substituent directing effects.
+  - P2 · drills: or-epoxide-opening
+- ● **DAT-3.2.E** Predict the product of an electrophilic aromatic substitution from substituent directing effects.
   - EK: Activators (−OH, −NH₂, −R) and halogens direct ortho/para; deactivators (−NO₂, −C=O, −CN, −SO₃H) direct meta; halogens deactivate.
-  - P1 · P2
-- ○ **DAT-3.2.F** Rank carboxylic acid derivatives by reactivity and predict nucleophilic acyl substitution products.
+  - P1 · P2 · drills: or-directing-effect, rx-predict-aromatic-nitration-toluene, rx-predict-aromatic-bromination-nitrobenzene
+- ● **DAT-3.2.F** Rank carboxylic acid derivatives by reactivity and predict nucleophilic acyl substitution products.
   - EK: Acid chloride > anhydride > ester ≈ acid > amide; a derivative converts only to less reactive ones.
-  - P1 · P2
-- ○ **DAT-3.2.G** Predict the product of nucleophilic addition to an aldehyde or ketone: hydride, Grignard, acetal, imine/enamine, Wittig.
+  - P1 · P2 · drills: or-acyl-reactivity, rx-predict-acyl-saponification, rx-predict-acyl-amide
+- ● **DAT-3.2.G** Predict the product of nucleophilic addition to an aldehyde or ketone: hydride, Grignard, acetal, imine/enamine, Wittig.
   - EK: Aldehydes are more reactive than ketones; Grignard adds carbon then protonates to an alcohol; 1° amines give imines, 2° give enamines.
-  - P1 · P2
-- ○ **DAT-3.2.H** Predict the product of an alpha-carbonyl reaction: enolate alkylation, aldol, Claisen, haloform.
+  - P1 · P2 · drills: rx-predict-carbonyl-grignard, rx-predict-carbonyl-acetal, rx-predict-carbonyl-imine, rx-predict-carbonyl-nabh4
+- ● **DAT-3.2.H** Predict the product of an alpha-carbonyl reaction: enolate alkylation, aldol, Claisen, haloform.
   - EK: LDA at low T forms the kinetic (less substituted) enolate; aldol makes a β-hydroxy carbonyl that dehydrates to an enone with heat.
-  - P2
-- ○ **DAT-3.2.I** Plan a two-step or multi-step synthesis by working backward from the target.
+  - P2 · drills: rx-predict-carbonyl-lda-alkylation, rx-predict-cc-aldol-condensation, rx-predict-acyl-claisen
+- ● **DAT-3.2.I** Plan a two-step or multi-step synthesis by working backward from the target.
   - EK: Disconnect the bond formed last; track carbon count and functional-group changes; reject routes with wrong regio- or stereochemistry.
   - Needs: DAT-3.2.B, DAT-3.2.C, DAT-3.2.G
-  - P2 · P6
-- ○ **DAT-3.2.J** Predict which functional group reacts when a molecule carries several.
+  - P2 · P6 · drills: rx-reagent-alkene-hydroboration, rx-reagent-carbonyl-grignard, rx-reagent-sub-pcc
+- ● **DAT-3.2.J** Predict which functional group reacts when a molecule carries several.
   - EK: NaBH₄ reduces aldehydes and ketones only; LiAlH₄ also reduces esters, acids and amides; protect an alcohol or carbonyl to spare it.
-  - P2 · P6
+  - P2 · P6 · drills: or-chemoselectivity
 
 ### 3.3 Acid–Base Chemistry
 
 
 
-- ○ **DAT-3.3.A** Rank compounds from different functional groups by acidity using pKa landmarks.
+- ● **DAT-3.3.A** Rank compounds from different functional groups by acidity using pKa landmarks.
   - EK: ≈ pKa: HCl −7, RCOOH 5, phenol 10, H₂O 15.7, ROH 16–18, terminal alkyne 25, NH₃ 38, alkane 50.
-  - P1
-- ○ **DAT-3.3.B** Rank acids within a functional group by charge, atom size, electronegativity, resonance, induction, hybridization and sterics.
+  - P1 · drills: or-pka-landmarks
+- ● **DAT-3.3.B** Rank acids within a functional group by charge, atom size, electronegativity, resonance, induction, hybridization and sterics.
   - EK: A more stable conjugate base means a stronger acid: larger atom > more electronegative > resonance > induction (falls off with distance) > more s character.
-  - P2
-- ○ **DAT-3.3.C** Predict the products and direction of an acid–base equilibrium.
+  - P2 · drills: or-acid-ranking-ario
+- ● **DAT-3.3.C** Predict the products and direction of an acid–base equilibrium.
   - EK: The equilibrium favors the side with the weaker acid (higher pKa); K ≈ 10^(pKa product acid − pKa reactant acid).
   - Needs: DAT-3.3.A
-  - P2
-- ○ **DAT-3.3.D** Rank nitrogen and oxygen bases by basicity, including resonance and steric effects on amines.
+  - P2 · drills: or-acid-base-direction, or-acid-base-log-k
+- ● **DAT-3.3.D** Rank nitrogen and oxygen bases by basicity, including resonance and steric effects on amines.
   - EK: Alkylamines > NH₃ > aniline > amide; lone pairs in resonance or in sp orbitals are less basic.
-  - P2
+  - P2 · drills: or-amine-basicity
 
 ### 3.4 Chemical and Physical Properties of Molecules
 
 
 
-- ○ **DAT-3.4.A** Rank organic compounds by boiling point, melting point and water solubility.
+- ● **DAT-3.4.A** Rank organic compounds by boiling point, melting point and water solubility.
   - EK: H-bonding and molar mass raise bp; branching lowers bp but symmetry raises mp; small alcohols and acids are water-soluble.
-  - P2
-- ○ **DAT-3.4.B** Choose and interpret a separation technique: TLC/column chromatography, acid–base extraction, recrystallization, distillation.
+  - P2 · drills: or-boiling-solubility
+- ● **DAT-3.4.B** Choose and interpret a separation technique: TLC/column chromatography, acid–base extraction, recrystallization, distillation.
   - EK: On silica, polar compounds have lower Rf; acids move to aqueous NaHCO₃/NaOH as salts, amines to aqueous HCl; distill when bp differ by > 25 °C, otherwise fractional.
-  - P2 · P5
-- ○ **DAT-3.4.C** Identify functional groups from characteristic IR absorptions.
+  - P2 · P5 · drills: or-separation
+- ● **DAT-3.4.C** Identify functional groups from characteristic IR absorptions.
   - EK: Broad O–H 3200–3550; acid O–H 2500–3300; C=O ~1700 (strong, sharp); N–H 3300–3500; C≡N/C≡C ~2100–2250.
-  - P1 · P5
-- ○ **DAT-3.4.D** Interpret a ¹H NMR spectrum from chemical shift, integration and splitting.
+  - P1 · P5 · drills: or-ir-group
+- ● **DAT-3.4.D** Interpret a ¹H NMR spectrum from chemical shift, integration and splitting.
   - EK: Shifts: alkyl 0.9–2, next to C=O 2–2.5, next to O 3.3–4, vinyl 4.5–6.5, aromatic 6.5–8, aldehyde 9–10, acid 10–12; n + 1 rule.
-  - P5
-- ○ **DAT-3.4.E** Count ¹³C NMR signals from molecular symmetry and assign shift regions.
+  - P5 · drills: nmr-multiplicity, nmr-downfield, or-h1-environments
+- ● **DAT-3.4.E** Count ¹³C NMR signals from molecular symmetry and assign shift regions.
   - EK: One signal per unique carbon environment; C=O 160–220, aromatic/alkene 100–150, C–O 50–90, alkyl 0–50.
-  - P5 · P7
-- ○ **DAT-3.4.F** Deduce a structure from a molecular formula and combined IR, ¹H and ¹³C NMR data.
+  - P5 · P7 · drills: or-c13-signals
+- ● **DAT-3.4.F** Deduce a structure from a molecular formula and combined IR, ¹H and ¹³C NMR data.
   - EK: Degrees of unsaturation = (2C + 2 + N − H − X)/2; one ring or π bond each; a benzene ring counts 4.
   - Needs: DAT-3.4.C, DAT-3.4.D, DAT-3.4.E
-  - P5 · P6
+  - P5 · P6 · drills: or-structure-from-data, or-degrees-of-unsaturation
 
 ### 3.5 Structural Evaluation
 
 
 
-- ○ **DAT-3.5.A** Name a compound by IUPAC rules, or draw it from its name.
+- ● **DAT-3.5.A** Name a compound by IUPAC rules, or draw it from its name.
   - EK: Highest-priority group sets the suffix and lowest locant; longest chain containing it; substituents alphabetical; E/Z and R/S as prefixes.
   - Needs: DAT-3.5.B
-  - P1
-- ○ **DAT-3.5.B** Identify every functional group in a structure.
+  - P1 · drills: or-iupac-name
+- ● **DAT-3.5.B** Identify every functional group in a structure.
   - EK: Know alcohol, ether, aldehyde, ketone, acid, ester, amide, amine, nitrile, acid chloride, anhydride, epoxide, phenol, thiol, imine, enamine.
-  - P1 · P5
-- ○ **DAT-3.5.C** Assign R/S configuration to a stereocenter and identify chiral molecules.
+  - P1 · P5 · drills: st-name-an-ester, st-name-a-ketone, st-name-a-primary-amide
+- ● **DAT-3.5.C** Assign R/S configuration to a stereocenter and identify chiral molecules.
   - EK: Rank by atomic number (CIP), lowest priority to the back, trace 1→2→3; if the lowest points forward, reverse the answer.
-  - P5 · P7
-- ○ **DAT-3.5.D** Classify a pair of structures as identical, enantiomers, diastereomers, meso or constitutional isomers.
+  - P5 · P7 · drills: or-rs-from-arrangement, or-cip-priority
+- ● **DAT-3.5.D** Classify a pair of structures as identical, enantiomers, diastereomers, meso or constitutional isomers.
   - EK: Enantiomers invert every stereocenter, diastereomers some; meso has stereocenters and an internal mirror plane; max 2ⁿ stereoisomers.
   - Needs: DAT-3.5.C
-  - P5 · P7
-- ○ **DAT-3.5.E** Pick the most stable Newman or chair conformation.
+  - P5 · P7 · drills: or-isomer-relationship, or-stereoisomer-maximum
+- ● **DAT-3.5.E** Pick the most stable Newman or chair conformation.
   - EK: Anti < gauche < eclipsed in energy; bulky chair substituents go equatorial; a ring flip swaps axial and equatorial.
-  - P7
-- ○ **DAT-3.5.F** Classify a ring as aromatic, antiaromatic or nonaromatic.
+  - P7 · drills: or-conformation
+- ● **DAT-3.5.F** Classify a ring as aromatic, antiaromatic or nonaromatic.
   - EK: Cyclic, planar, fully conjugated with 4n + 2 π electrons is aromatic; 4n is antiaromatic; count lone pairs only if they sit in the p system.
-  - P2
-- ○ **DAT-3.5.G** Compare bond lengths, bond angles and hybridization across a structure.
+  - P2 · drills: or-aromaticity
+- ● **DAT-3.5.G** Compare bond lengths, bond angles and hybridization across a structure.
   - EK: More s character means shorter, stronger C–H bonds: sp 180°, sp² 120°, sp³ 109.5°; triple < double < single in length.
-  - P1
-- ○ **DAT-3.5.H** Rank carbocations, radicals, carbanions and alkenes by stability.
+  - P1 · drills: or-hybridization-geometry
+- ● **DAT-3.5.H** Rank carbocations, radicals, carbanions and alkenes by stability.
   - EK: Carbocations and radicals: allylic/benzylic ≈ 3° > 2° > 1° > methyl (hyperconjugation, resonance); carbanions the reverse; more substituted and trans alkenes are more stable.
-  - P2
+  - P2 · drills: or-stability-rank
 
 ## Unit 4 · Perceptual Ability
 
@@ -674,10 +674,10 @@ Big ideas: SPACE
 - ● **DAT-4.5.A** Count the cubes in a figure that have a given number of painted faces.
   - EK: Cubes are cemented and equal; every exposed face is painted except the resting bottom; hidden cubes exist only where needed for support; never zero.
   - P7 · drills: pat-cube-counting
-- ○ **DAT-4.5.B** Tally every cube in a figure by painted-face count in one systematic pass, then answer all the questions on that figure from the tally.
+- ● **DAT-4.5.B** Tally every cube in a figure by painted-face count in one systematic pass, then answer all the questions on that figure from the tally.
   - EK: Go column by column, front to back, and record 1–5 for each cube; the tally total must equal the cube count.
   - Needs: DAT-4.5.A
-  - P8
+  - P8 · drills: pat-cube-counting
 
 ### 4.6 3-D Form Development
 
@@ -686,10 +686,10 @@ Big ideas: SPACE
 - ◐ **DAT-4.6.A** Identify which 3-D figure a flat pattern forms when folded.
   - EK: Faces adjacent in the pattern stay adjacent; opposite faces of a cube are never adjacent in the net; marked or shaded faces fix orientation.
   - P7 · drills: ~pat-cube-net-opposite
-- ○ **DAT-4.6.B** Eliminate folded-figure choices by checking one distinctive face pair or a face count.
+- ◐ **DAT-4.6.B** Eliminate folded-figure choices by checking one distinctive face pair or a face count.
   - EK: Count faces and edges first; then test which face a marked edge must meet; one impossible adjacency rejects a choice.
   - Needs: DAT-4.6.A
-  - P6 · P8
+  - P6 · P8 · drills: ~pat-cube-net-opposite
 
 ## Unit 5 · Reading Comprehension
 
@@ -699,32 +699,32 @@ Big ideas: DATA
 
 
 
-- ○ **DAT-5.1.A** Locate the passage sentence that answers a detail question and match it to the choice that restates it.
+- ● **DAT-5.1.A** Locate the passage sentence that answers a detail question and match it to the choice that restates it.
   - EK: Detail answers paraphrase the text; choices that copy its wording but change a qualifier, number or relationship are traps.
-  - P5 · P6
-- ○ **DAT-5.1.B** Identify the main idea of a passage or paragraph.
+  - P5 · P6 · drills: dt-rc-detail
+- ● **DAT-5.1.B** Identify the main idea of a passage or paragraph.
   - EK: The main idea covers the whole passage; choices that are true of one paragraph only are too narrow, ones that go beyond it too broad.
-  - P5 · P6
-- ○ **DAT-5.1.C** Infer the meaning of a technical term or phrase from its context in the passage.
+  - P5 · P6 · drills: dt-rc-main-idea
+- ● **DAT-5.1.C** Infer the meaning of a technical term or phrase from its context in the passage.
   - EK: Passages define their terms nearby — by apposition, example or contrast; use the passage's meaning, not outside knowledge.
-  - P5
-- ○ **DAT-5.1.D** Judge whether a statement is supported, contradicted or not addressed by the passage.
+  - P5 · drills: dt-rc-vocabulary
+- ● **DAT-5.1.D** Judge whether a statement is supported, contradicted or not addressed by the passage.
   - EK: Except/not and true-statement items require checking every choice against the text; 'not addressed' is not 'false'.
-  - P5 · P6
+  - P5 · P6 · drills: dt-rc-supported
 
 ### 5.2 Analyzing and inferring
 
 
 
-- ○ **DAT-5.2.A** Draw an inference that follows necessarily from stated facts in the passage.
+- ● **DAT-5.2.A** Draw an inference that follows necessarily from stated facts in the passage.
   - EK: A correct inference needs no outside facts and no extra assumption; reject extreme words (always, never, proves).
-  - P2 · P6
-- ○ **DAT-5.2.B** Identify the author's purpose, tone or attitude toward a claim.
+  - P2 · P6 · drills: dt-rc-inference
+- ● **DAT-5.2.B** Identify the author's purpose, tone or attitude toward a claim.
   - EK: Scientific passages are mostly neutral-informative; tone choices like hostile or ecstatic are rarely right.
-  - P5 · P6
-- ○ **DAT-5.2.C** Trace a cause–effect sequence, comparison or chronology described in the passage.
+  - P5 · P6 · drills: dt-rc-tone
+- ● **DAT-5.2.C** Trace a cause–effect sequence, comparison or chronology described in the passage.
   - EK: Map the passage's structure (who, what, when, why) as you read so sequence questions take seconds.
-  - P5
+  - P5 · drills: dt-rc-sequence
 
 ### 5.3 Passage strategy and timing
 
@@ -742,78 +742,78 @@ Big ideas: DATA
 
 
 
-- ○ **DAT-6.1.A** Solve linear, quadratic and systems of equations and simplify algebraic expressions.
+- ● **DAT-6.1.A** Solve linear, quadratic and systems of equations and simplify algebraic expressions.
   - EK: Factor or use x = (−b ± √(b² − 4ac))/2a; eliminate or substitute for systems; check that the answer fits the original.
-  - P4
-- ○ **DAT-6.1.B** Solve a linear or compound inequality and express its solution set.
+  - P4 · drills: alg-linear-eq, alg-quad-formula, k8-system
+- ● **DAT-6.1.B** Solve a linear or compound inequality and express its solution set.
   - EK: Multiplying or dividing by a negative flips the inequality sign.
-  - P4
-- ○ **DAT-6.1.C** Simplify and evaluate expressions with exponents, roots and scientific notation.
+  - P4 · drills: alg-linear-ineq
+- ● **DAT-6.1.C** Simplify and evaluate expressions with exponents, roots and scientific notation.
   - EK: a^m a^n = a^(m+n); (a^m)^n = a^(mn); a^(−n) = 1/a^n; a^(1/n) = ⁿ√a.
-  - P3 · P4
-- ○ **DAT-6.1.D** Solve equations and inequalities with absolute value.
+  - P3 · P4 · drills: k8-int-exponents, k8-sci-notation, mm-exponent-laws
+- ● **DAT-6.1.D** Solve equations and inequalities with absolute value.
   - EK: |x| = a gives x = ±a; |x| < a gives −a < x < a; |x| > a gives x < −a or x > a.
-  - P4
-- ○ **DAT-6.1.E** Set up and solve a ratio or proportion, including direct and inverse variation.
+  - P4 · drills: dt-absolute-value
+- ● **DAT-6.1.E** Set up and solve a ratio or proportion, including direct and inverse variation.
   - EK: a/b = c/d ⇒ ad = bc; direct y = kx, inverse y = k/x; part-to-part vs part-to-whole ratios differ.
-  - P3 · P4
-- ○ **DAT-6.1.F** Read and interpret graphs of lines and functions: slope, intercepts, intersections, transformations.
+  - P3 · P4 · drills: mm-proportion, mm-variation, k8-prop-k
+- ● **DAT-6.1.F** Read and interpret graphs of lines and functions: slope, intercepts, intersections, transformations.
   - EK: Slope = Δy/Δx; y = mx + b; parallel lines share slope, perpendicular slopes multiply to −1.
-  - P5
+  - P5 · drills: k8-slope, alg-intercepts, alg-transform
 
 ### 6.2 Data Analysis, Interpretation and Sufficiency
 
 
 
-- ○ **DAT-6.2.A** Extract and combine values from a table, bar chart or line graph to answer a question.
+- ● **DAT-6.2.A** Extract and combine values from a table, bar chart or line graph to answer a question.
   - EK: Read the axes, units and scale before any value; percent change = (new − old)/old × 100.
-  - P5 · P4
-- ○ **DAT-6.2.B** Decide whether the given statements are sufficient to answer a question, alone or together.
+  - P5 · P4 · drills: k8-histogram-read, k8-two-way
+- ● **DAT-6.2.B** Decide whether the given statements are sufficient to answer a question, alone or together.
   - EK: Test each statement alone, then together; sufficiency means one determined value, not the value itself; don't compute what you only need to know exists.
-  - P2 · P6
+  - P2 · P6 · drills: dt-data-sufficiency
 
 ### 6.3 Quantitative Comparison
 
 
 
-- ○ **DAT-6.3.A** Compare two quantities and decide which is greater, whether they are equal, or whether the relationship can't be determined.
+- ● **DAT-6.3.A** Compare two quantities and decide which is greater, whether they are equal, or whether the relationship can't be determined.
   - EK: Try special cases (0, 1, negatives, fractions); if different cases give different orders, it can't be determined.
-  - P2 · P6
-- ○ **DAT-6.3.B** Simplify both sides identically to compare them without computing exact values.
+  - P2 · P6 · drills: dt-quant-compare
+- ● **DAT-6.3.B** Simplify both sides identically to compare them without computing exact values.
   - EK: Add, subtract or multiply by a positive on both sides; multiplying by an unknown sign is not allowed.
   - Needs: DAT-6.3.A
-  - P3
+  - P3 · drills: dt-quant-compare, mm-difference-of-squares
 
 ### 6.4 Probability and Statistics
 
 
 
-- ○ **DAT-6.4.A** Calculate the probability of compound events: and/or, independent, dependent and complementary.
+- ● **DAT-6.4.A** Calculate the probability of compound events: and/or, independent, dependent and complementary.
   - EK: P(A and B) = P(A)P(B|A); P(A or B) = P(A) + P(B) − P(A and B); P(at least one) = 1 − P(none).
-  - P4
-- ○ **DAT-6.4.B** Count arrangements with permutations and combinations.
+  - P4 · drills: stats-addition, stats-mult-rule, stats-conditional
+- ● **DAT-6.4.B** Count arrangements with permutations and combinations.
   - EK: nPr = n!/(n − r)! when order matters; nCr = n!/[r!(n − r)!] when it does not.
-  - P4
-- ○ **DAT-6.4.C** Calculate and compare mean, median, mode, range and standard deviation, including the effect of changing a data point.
+  - P4 · drills: mm-combinations, stats-counting
+- ● **DAT-6.4.C** Calculate and compare mean, median, mode, range and standard deviation, including the effect of changing a data point.
   - EK: Mean = sum/n, so a new mean gives the missing value by sum; an outlier moves the mean, not the median; adding a constant leaves SD unchanged.
-  - P3 · P4
-- ○ **DAT-6.4.D** Find a weighted average or the combined mean of two groups.
+  - P3 · P4 · drills: stats-center, k8-center-spread
+- ● **DAT-6.4.D** Find a weighted average or the combined mean of two groups.
   - EK: Combined mean = (n₁x̄₁ + n₂x̄₂)/(n₁ + n₂); it lies closer to the larger group's mean.
-  - P4
+  - P4 · drills: dt-weighted-average
 
 ### 6.5 Applied Mathematics (Word) Problems
 
 
 
-- ○ **DAT-6.5.A** Solve rate, distance and work problems.
+- ● **DAT-6.5.A** Solve rate, distance and work problems.
   - EK: d = rt; combined work: 1/t = 1/t₁ + 1/t₂; average speed = total distance / total time, not the mean of speeds.
-  - P2 · P4
-- ○ **DAT-6.5.B** Solve percent, discount, markup and interest problems.
+  - P2 · P4 · drills: dt-rate-distance, dt-work-rate
+- ● **DAT-6.5.B** Solve percent, discount, markup and interest problems.
   - EK: Successive percent changes multiply (×1.2 then ×0.8 = ×0.96); simple I = Prt; compound A = P(1 + r)^t.
-  - P4
-- ○ **DAT-6.5.C** Solve mixture and concentration problems.
+  - P4 · drills: k8-percent-change, mm-sale-price, alg2-successive-percent
+- ● **DAT-6.5.C** Solve mixture and concentration problems.
   - EK: Amount of solute is conserved: c₁V₁ + c₂V₂ = c_f(V₁ + V₂).
-  - P2 · P4
-- ○ **DAT-6.5.D** Convert units and solve age, consecutive-integer and number-relationship problems by translating words into equations.
+  - P2 · P4 · drills: dt-mixture
+- ● **DAT-6.5.D** Convert units and solve age, consecutive-integer and number-relationship problems by translating words into equations.
   - EK: Chain conversion factors so units cancel; define one variable, write every other quantity in terms of it.
-  - P2 · P4
+  - P2 · P4 · drills: dt-consecutive, dt-age-problem, mm-unit-conversion

@@ -1,0 +1,430 @@
+# Organic chemistry for the DAT (and Bruice): structure, stereochemistry, acidity, selectivity,
+# separations and spectroscopy. One question each. Where pKa values decide the answer the verifier
+# recomputes the choice from them; the rest are marked by hand.
+
+# ── reasoning: resonance, radicals, selectivity ────────────────────────────
+- template: or-resonance-major
+  skill: orgo.reasoning
+  pace: quick
+  cases:
+    - { q: 'the enolate of acetone', o1: 'Negative charge on oxygen, C=C double bond', o2: 'Negative charge on carbon, C=O double bond', o3: 'Both contribute equally', ans: 0 }
+    - { q: 'protonated acetone (the oxocarbenium ion)', o1: 'Positive charge on carbon, one bond to O', o2: 'Positive charge on oxygen, every atom with an octet', o3: 'Both contribute equally', ans: 1 }
+    - { q: 'the acetate ion', o1: 'Negative charge on the carbonyl oxygen', o2: 'Negative charge on the other oxygen', o3: 'Both contribute equally', ans: 2 }
+    - { q: 'an amide, R–C(=O)–NH₂', o1: 'Neutral, C=O and C–N single bond', o2: 'C=N⁺ double bond with O⁻', o3: 'Both contribute equally', ans: 0 }
+    - { q: 'the allyl cation', o1: 'Positive charge on carbon 1', o2: 'Positive charge on carbon 3', o3: 'Both contribute equally', ans: 2 }
+    - { q: 'the cyanate ion, OCN⁻', o1: 'Negative charge on nitrogen, C=O', o2: 'Negative charge on oxygen, C≡N', o3: 'Both contribute equally', ans: 1 }
+  prompt: 'Which resonance contributor of {{q}} is the major one?'
+  parts:
+    - ask: 'Major contributor'
+      label: a
+      choice: ["{{o1}}", "{{o2}}", "{{o3}}"]
+      correct: ans
+      explain: 'Rank contributors by: full octets first, then fewest formal charges, then negative charge on the more electronegative atom (positive on the less). Equivalent structures contribute equally, and the real molecule is their weighted average'
+  verify: { authored: true }
+
+- template: or-radical-halogenation
+  skill: orgo.reasoning
+  pace: quick
+  cases:
+    - { q: 'Which hydrogen of 2-methylpropane does Br₂/light replace mainly?', o1: 'A primary (methyl) H', o2: 'The tertiary H', o3: 'All equally, by statistics', ans: 1 }
+    - { q: 'Which halogenation is far more selective?', o1: 'Chlorination', o2: 'Bromination', o3: 'They are equally selective', ans: 1 }
+    - { q: 'Light splitting Br₂ into two Br· is which step?', o1: 'Initiation', o2: 'Propagation', o3: 'Termination', ans: 0 }
+    - { q: 'Br· + R–H → HBr + R· is which step?', o1: 'Initiation', o2: 'Propagation', o3: 'Termination', ans: 1 }
+    - { q: 'R· + Br· → R–Br is which step?', o1: 'Initiation', o2: 'Propagation', o3: 'Termination', ans: 2 }
+    - { q: 'NBS with light brominates propene at which position?', o1: 'The allylic CH₃', o2: 'Across the C=C', o3: 'The vinylic C–H', ans: 0 }
+  prompt: 'Free-radical halogenation: {{q}}'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["{{o1}}", "{{o2}}", "{{o3}}"]
+      correct: ans
+      explain: 'Radical stability follows tertiary > secondary > primary, with allylic and benzylic best of all. Bromine''s hydrogen abstraction is endothermic, so its transition state resembles the radical (Hammond) and it strongly prefers the most stable one; chlorination is fast and less choosy. Propagation steps make one radical for each one used'
+  verify: { authored: true }
+
+- template: or-epoxide-opening
+  skill: orgo.reasoning
+  pace: quick
+  cases:
+    - { q: '2,2-dimethyloxirane is opened by CH₃O⁻ in methanol', ans: 1 }
+    - { q: '2,2-dimethyloxirane is opened by CH₃OH with H₂SO₄', ans: 0 }
+    - { q: 'methyloxirane reacts with a Grignard reagent', ans: 1 }
+    - { q: 'methyloxirane reacts with HBr', ans: 0 }
+    - { q: 'tert-butyl methyl ether is cleaved by HI', ans: 0 }
+    - { q: 'ethyl methyl ether is cleaved by HI', ans: 1 }
+  prompt: 'When {{q}}, the nucleophile bonds to the …'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["more substituted carbon (SN1-like)", "less substituted carbon (SN2)"]
+      correct: ans
+      explain: 'Under basic or neutral conditions a strong nucleophile does SN2 and attacks the less hindered carbon, with inversion. Under acid the protonated ring or ether builds positive charge on the carbon that best supports it, so the nucleophile goes to the more substituted carbon; a tertiary ether cleaves by SN1'
+  verify: { authored: true }
+
+- template: or-acyl-reactivity
+  skill: orgo.reasoning
+  pace: recall
+  cases:
+    - { a: 'an acid chloride', b: 'an ester', ra: 1, rb: 3 }
+    - { a: 'an amide', b: 'an acid anhydride', ra: 5, rb: 2 }
+    - { a: 'an ester', b: 'an amide', ra: 3, rb: 5 }
+    - { a: 'a carboxylate ion', b: 'a carboxylic acid', ra: 6, rb: 4 }
+    - { a: 'an acid anhydride', b: 'an acid chloride', ra: 2, rb: 1 }
+    - { a: 'a thioester', b: 'an ester', ra: 2.5, rb: 3 }
+  prompt: 'Which is more reactive toward nucleophilic acyl substitution: {{a}} or {{b}}?'
+  parts:
+    - ask: 'More reactive'
+      label: a
+      choice: ["{{a}}", "{{b}}"]
+      correct: 'ra < rb ? 0 : 1'
+      explain: 'Order: acid chloride > anhydride > thioester > ester ≈ acid > amide > carboxylate. The better the leaving group (weaker its conjugate base) and the less the substituent donates into the C=O, the more reactive. A reaction can only go downhill: chloride → anhydride → ester → amide'
+  verify: { choices: { a: "0 if ra < rb else 1" } }
+
+- template: or-chemoselectivity
+  skill: orgo.reasoning
+  pace: quick
+  cases:
+    - { q: 'NaBH₄ with a molecule containing a ketone and an ester', o1: 'Reduces only the ketone', o2: 'Reduces only the ester', o3: 'Reduces both', ans: 0 }
+    - { q: 'LiAlH₄ with a molecule containing a ketone and an ester', o1: 'Reduces only the ketone', o2: 'Reduces only the ester', o3: 'Reduces both', ans: 2 }
+    - { q: 'H₂ with Pd/C on a molecule containing a C=C and an ester', o1: 'Reduces only the C=C', o2: 'Reduces only the ester', o3: 'Reduces both', ans: 0 }
+    - { q: 'CH₃MgBr with a molecule containing an O–H and a ketone', o1: 'Adds to the ketone first', o2: 'Is destroyed by deprotonating the O–H', o3: 'Does nothing', ans: 1 }
+    - { q: 'PCC with a molecule containing a primary alcohol and a C=C', o1: 'Oxidizes the alcohol to an aldehyde', o2: 'Cleaves the C=C', o3: 'Oxidizes the alcohol to a carboxylic acid', ans: 0 }
+    - { q: 'mCPBA with a molecule containing a C=C and an alcohol', o1: 'Oxidizes the alcohol', o2: 'Epoxidizes the C=C', o3: 'Does both', ans: 1 }
+  prompt: 'What happens with {{q}}?'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["{{o1}}", "{{o2}}", "{{o3}}"]
+      correct: ans
+      explain: 'Match the reagent''s strength to each group. NaBH₄ is mild (aldehydes, ketones); LiAlH₄ reduces nearly every carbonyl. Catalytic H₂ takes C=C before C=O. Grignards and other strong bases react with any acidic O–H or N–H before they add. PCC stops at the aldehyde'
+  verify: { authored: true }
+
+# ── acidity and basicity ───────────────────────────────────────────────────
+- template: or-pka-landmarks
+  skill: orgo.reasoning
+  pace: recall
+  cases:
+    - { a: 'a carboxylic acid', b: 'a phenol', pa: 4.8, pb: 10 }
+    - { a: 'an alcohol', b: 'a phenol', pa: 16, pb: 10 }
+    - { a: 'a terminal alkyne', b: 'an alcohol', pa: 25, pb: 16 }
+    - { a: 'a terminal alkyne', b: 'an amine N–H', pa: 25, pb: 36 }
+    - { a: 'water', b: 'an alkane', pa: 15.7, pb: 50 }
+    - { a: 'a protonated amine, R–NH₃⁺', b: 'a carboxylic acid', pa: 10.6, pb: 4.8 }
+    - { a: 'the α-H of a ketone', b: 'an alcohol', pa: 20, pb: 16 }
+    - { a: 'a 1,3-diketone (its CH₂)', b: 'the α-H of a ketone', pa: 9, pb: 20 }
+    - { a: 'an alkene C–H', b: 'a terminal alkyne', pa: 44, pb: 25 }
+    - { a: 'a thiol', b: 'an alcohol', pa: 10.5, pb: 16 }
+  prompt: 'Which is more acidic: {{a}} or {{b}}?'
+  parts:
+    - ask: 'More acidic'
+      label: a
+      choice: ["{{a}}", "{{b}}"]
+      correct: 'pa < pb ? 0 : 1'
+      explain: 'Landmarks: RCOOH 5, R–NH₃⁺ 10, phenol 10, thiol 10, 1,3-dicarbonyl 9–11, water 15.7, alcohol 16, ketone α-H 20, alkyne 25, amine 36, alkene 44, alkane 50. Here {{pa}} vs {{pb}}: lower pKa, stronger acid'
+  verify: { choices: { a: "0 if pa < pb else 1" } }
+
+- template: or-acid-ranking-ario
+  skill: orgo.reasoning
+  pace: quick
+  cases:
+    - { a: 'ClCH₂COOH', b: 'CH₃COOH', pa: 2.9, pb: 4.8, why: 'induction' }
+    - { a: 'ClCH₂COOH', b: 'FCH₂COOH', pa: 2.9, pb: 2.6, why: 'induction (F is more electronegative)' }
+    - { a: 'CH₃CH₂OH', b: 'CH₃CH₂SH', pa: 16, pb: 10.6, why: 'atom size' }
+    - { a: 'phenol', b: 'cyclohexanol', pa: 10, pb: 16, why: 'resonance' }
+    - { a: 'p-nitrophenol', b: 'phenol', pa: 7.2, pb: 10, why: 'resonance with the nitro group' }
+    - { a: 'ethene', b: 'ethyne', pa: 44, pb: 25, why: 'hybridization (sp holds the lone pair closer)' }
+    - { a: '2-chlorobutanoic acid', b: '4-chlorobutanoic acid', pa: 2.9, pb: 4.5, why: 'induction falls off with distance' }
+    - { a: 'CH₃NH₂', b: 'CH₃OH', pa: 40, pb: 15.5, why: 'electronegativity across a row' }
+  prompt: 'Which is the stronger acid: {{a}} or {{b}}?'
+  parts:
+    - ask: 'Stronger acid'
+      label: a
+      choice: ["{{a}}", "{{b}}"]
+      correct: 'pa < pb ? 0 : 1'
+      explain: 'Judge the conjugate base: the more stable the anion, the stronger the acid. Check in order: the atom bearing the charge (size down a group, electronegativity across a row), resonance, induction, then orbital (sp > sp² > sp³). Here it comes down to {{why}}'
+  verify: { choices: { a: "0 if pa < pb else 1" } }
+
+- template: or-amine-basicity
+  skill: orgo.reasoning
+  pace: quick
+  cases:
+    - { a: 'ammonia', b: 'aniline', pa: 9.25, pb: 4.6 }
+    - { a: 'ammonia', b: 'methylamine', pa: 9.25, pb: 10.6 }
+    - { a: 'pyridine', b: 'piperidine', pa: 5.2, pb: 11.1 }
+    - { a: 'acetamide', b: 'ethylamine', pa: -0.5, pb: 10.7 }
+    - { a: 'pyridine', b: 'pyrrole', pa: 5.2, pb: -3.8 }
+    - { a: 'p-methoxyaniline', b: 'p-nitroaniline', pa: 5.3, pb: 1.0 }
+    - { a: 'diethylamine', b: 'aniline', pa: 11.0, pb: 4.6 }
+  prompt: 'Which is the stronger base: {{a}} or {{b}}?'
+  parts:
+    - ask: 'Stronger base'
+      label: a
+      choice: ["{{a}}", "{{b}}"]
+      correct: 'pa > pb ? 0 : 1'
+      explain: 'A base is stronger when its lone pair is more available, which shows as a higher pKa of its conjugate acid ({{pa}} vs {{pb}}). Alkyl groups donate; delocalising the lone pair into a ring or a C=O (aniline, amides, pyrrole) weakens it badly; an sp² lone pair (pyridine) is held tighter than an sp³ one'
+  verify: { choices: { a: "0 if pa > pb else 1" } }
+
+# ── physical properties and separations ────────────────────────────────────
+- template: or-boiling-solubility
+  skill: orgo.reasoning
+  pace: recall
+  cases:
+    - { q: 'higher boiling point', a: '1-butanol', b: 'diethyl ether', ans: 0 }
+    - { q: 'higher boiling point', a: '1-butanol', b: 'butanoic acid', ans: 1 }
+    - { q: 'higher boiling point', a: 'hexane', b: 'pentane', ans: 0 }
+    - { q: 'higher boiling point', a: '2,2-dimethylpropane', b: 'pentane', ans: 1 }
+    - { q: 'higher boiling point', a: 'acetone', b: 'butane', ans: 0 }
+    - { q: 'greater solubility in water', a: 'ethanol', b: '1-hexanol', ans: 0 }
+    - { q: 'greater solubility in water', a: 'hexane', b: 'diethyl ether', ans: 1 }
+    - { q: 'greater solubility in water', a: 'sodium benzoate', b: 'benzoic acid', ans: 0 }
+    - { q: 'higher boiling point', a: 'trimethylamine', b: 'propylamine', ans: 1 }
+  prompt: 'Which has the {{q}}: {{a}} or {{b}}?'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["{{a}}", "{{b}}"]
+      correct: ans
+      explain: 'Boiling point follows intermolecular forces: carboxylic acids (H-bonded dimers) > alcohols and amides > polar aprotic > nonpolar; then more surface area (longer, less branched chains). Water solubility needs H-bonding or ionic groups and falls as the carbon chain grows past about four carbons per polar group'
+  verify: { authored: true }
+
+- template: or-separation
+  skill: orgo.reasoning
+  pace: recall
+  cases:
+    - { q: 'Separate benzoic acid from naphthalene dissolved in ether', ans: 0 }
+    - { q: 'Purify a crude solid that is soluble in hot ethanol and not in cold', ans: 1 }
+    - { q: 'Separate two liquids that boil at 80 °C and 110 °C', ans: 2 }
+    - { q: 'Check whether a reaction has used up its starting material', ans: 3 }
+    - { q: 'Remove an amine from a neutral organic compound', ans: 0 }
+    - { q: 'Separate two compounds of similar boiling point but different polarity on a gram scale', ans: 3 }
+    - { q: 'Isolate a high-boiling liquid that would decompose at its normal boiling point', ans: 2 }
+  prompt: '{{q}}: which technique?'
+  parts:
+    - ask: 'Technique'
+      label: a
+      choice: ["Acid–base extraction", "Recrystallization", "Distillation (fractional or vacuum)", "Chromatography (TLC or column)"]
+      correct: ans
+      explain: 'Extraction exploits a group you can ionise (acids into aqueous base, amines into aqueous acid). Recrystallization exploits solubility that rises with temperature. Distillation separates by boiling point (vacuum lowers it). Chromatography separates by polarity: on silica, the more polar compound moves less (lower R_f)'
+  verify: { authored: true }
+
+# ── spectroscopy ───────────────────────────────────────────────────────────
+- template: or-ir-group
+  skill: orgo.spectroscopy
+  pace: recall
+  cases:
+    - { q: 'a broad, strong band at 3200–3550 cm⁻¹ and no C=O', ans: 0 }
+    - { q: 'a very broad band from 2500 to 3300 cm⁻¹ plus a strong band at 1710 cm⁻¹', ans: 1 }
+    - { q: 'a strong, sharp band at 1715 cm⁻¹ and nothing above 3000 except C–H', ans: 2 }
+    - { q: 'a sharp, medium band at 2250 cm⁻¹', ans: 3 }
+    - { q: 'a sharp band at 3300 cm⁻¹ and a weak band at 2120 cm⁻¹', ans: 4 }
+    - { q: 'two sharp spikes near 3350 and 3450 cm⁻¹ and no C=O', ans: 5 }
+    - { q: 'a strong band at 1725 cm⁻¹ with two weak bands near 2720 and 2820 cm⁻¹', ans: 6 }
+  prompt: 'An IR spectrum shows {{q}}. Which functional group?'
+  parts:
+    - ask: 'Functional group'
+      label: a
+      choice: ["Alcohol O–H", "Carboxylic acid", "Ketone C=O", "Nitrile C≡N", "Terminal alkyne", "Primary amine N–H", "Aldehyde"]
+      correct: ans
+      explain: 'Read the spectrum top-down: 3200–3600 (O–H broad, N–H sharp: two spikes for NH₂), 3300 sharp (≡C–H), 2100–2260 (triple bonds), 1650–1780 (C=O: ketone 1715, aldehyde 1725 with the 2720/2820 pair, ester 1735, acid 1710 with the huge O–H). Below 1500 is the fingerprint region'
+  verify: { authored: true }
+
+- template: or-c13-signals
+  skill: orgo.spectroscopy
+  pace: quick
+  cases:
+    - { f: 'benzene', n: 1 }
+    - { f: 'toluene', n: 5 }
+    - { f: 'ethanol', n: 2 }
+    - { f: 'acetone', n: 2 }
+    - { f: '2-butanone', n: 4 }
+    - { f: 'p-xylene (1,4-dimethylbenzene)', n: 3 }
+    - { f: 'cyclohexane', n: 1 }
+    - { f: '2-propanol', n: 2 }
+    - { f: 'diethyl ether', n: 2 }
+    - { f: 'methyl acetate', n: 3 }
+    - { f: 'm-xylene (1,3-dimethylbenzene)', n: 5 }
+    - { f: 'o-xylene (1,2-dimethylbenzene)', n: 4 }
+    - { f: 'tert-butyl alcohol', n: 2 }
+    - { f: 'cyclohexanone', n: 4 }
+  prompt: 'How many signals does the ¹³C NMR spectrum of {{f}} show?'
+  parts:
+    - ask: 'Signals'
+      label: a
+      choice: ["1", "2", "3", "4", "5", "6"]
+      correct: n - 1
+      explain: 'Count carbons that symmetry cannot swap. Find every mirror plane and rotation axis, then group carbons that land on each other. Shift regions: sp³ 0–50 (more with O or N attached, 50–90), aromatic and alkene 100–150, C=O 160–220'
+  verify: { authored: true }
+
+- template: or-h1-environments
+  skill: orgo.spectroscopy
+  pace: quick
+  cases:
+    - { f: 'ethyl acetate', n: 3 }
+    - { f: 'acetone', n: 1 }
+    - { f: '1-propanol', n: 4 }
+    - { f: 'toluene', n: 4 }
+    - { f: 'p-xylene', n: 2 }
+    - { f: '2-chloropropane', n: 2 }
+    - { f: 'diethyl ether', n: 2 }
+    - { f: 'tert-butyl methyl ether', n: 2 }
+    - { f: 'propanoic acid', n: 3 }
+    - { f: '1-chlorobutane', n: 4 }
+  prompt: 'How many distinct ¹H NMR signals does {{f}} give?'
+  parts:
+    - ask: 'Signals'
+      label: a
+      choice: ["1", "2", "3", "4", "5"]
+      correct: n - 1
+      explain: 'Hydrogens are equivalent when symmetry or free rotation swaps them (all three H of a CH₃). Then read each signal: integration gives the relative number of H, splitting gives $n + 1$ for $n$ neighbouring H, and electronegative neighbours shift it downfield'
+  verify: { authored: true }
+
+- template: or-structure-from-data
+  skill: orgo.spectroscopy
+  pace: workout
+  cases:
+    - { q: 'C₃H₆O; IR 1715 cm⁻¹; ¹H NMR one singlet (6H) at 2.1 ppm', o1: 'Propanal', o2: 'Acetone', o3: 'Allyl alcohol', o4: 'Methyl vinyl ether', ans: 1 }
+    - { q: 'C₂H₆O; IR broad 3350 cm⁻¹; ¹H NMR triplet (3H) 1.2, quartet (2H) 3.7, broad singlet (1H)', o1: 'Ethanol', o2: 'Dimethyl ether', o3: 'Acetaldehyde', o4: 'Ethylene glycol', ans: 0 }
+    - { q: 'C₄H₈O₂; IR 1740 cm⁻¹; ¹H NMR singlet (3H) 2.0, quartet (2H) 4.1, triplet (3H) 1.2', o1: 'Butanoic acid', o2: 'Methyl propanoate', o3: 'Ethyl acetate', o4: '1,4-dioxane', ans: 2 }
+    - { q: 'C₃H₆O₂; IR very broad 2500–3300 and 1710 cm⁻¹; ¹H NMR triplet (3H), quartet (2H), singlet (1H) at 11.8', o1: 'Methyl acetate', o2: 'Ethyl formate', o3: 'Hydroxyacetone', o4: 'Propanoic acid', ans: 3 }
+    - { q: 'C₈H₁₀; ¹H NMR singlet (4H) at 7.1 and singlet (6H) at 2.3', o1: 'p-Xylene', o2: 'Ethylbenzene', o3: 'o-Xylene', o4: 'm-Xylene', ans: 0 }
+  prompt: '{{q}}. Which compound is it?'
+  parts:
+    - ask: 'Compound'
+      label: a
+      choice: ["{{o1}}", "{{o2}}", "{{o3}}", "{{o4}}"]
+      correct: ans
+      explain: 'Start with degrees of unsaturation from the formula, use IR for the functional group, then NMR for the pieces: a quartet next to a triplet is an ethyl group, a singlet CH₃ near 2 ppm sits on a C=O, a signal near 4 ppm is on oxygen, and 10–12 ppm is a carboxylic acid'
+  verify: { authored: true }
+
+# ── structure and stereochemistry ──────────────────────────────────────────
+- template: or-iupac-name
+  skill: orgo.structure
+  pace: quick
+  cases:
+    - { f: 'CH₃CH(CH₃)CH₂CH₃', o1: '2-methylbutane', o2: '3-methylbutane', o3: 'isopentane-2', o4: '2-ethylpropane', ans: 0 }
+    - { f: 'CH₃CH₂CH(OH)CH₃', o1: '3-butanol', o2: '2-butanol', o3: '1-methylpropanol', o4: 'butan-3-ol', ans: 1 }
+    - { f: 'CH₃COCH₂CH₂CH₃', o1: 'pentanal', o2: '4-pentanone', o3: '2-pentanone', o4: 'propyl methyl aldehyde', ans: 2 }
+    - { f: 'CH₂=CHCH₂CH₃', o1: '2-butene', o2: '3-butene', o3: 'butyne', o4: '1-butene', ans: 3 }
+    - { f: 'CH₃CH₂COOCH₃', o1: 'methyl propanoate', o2: 'propyl methanoate', o3: 'ethyl acetate', o4: 'methyl butanoate', ans: 0 }
+    - { f: 'CH₃CH(Cl)CH₂CH₂CH₃', o1: '4-chloropentane', o2: '2-chloropentane', o3: '2-chlorobutane', o4: '1-chloro-1-methylbutane', ans: 1 }
+    - { f: '(CH₃)₂CHCH₂CHO', o1: '2-methylbutanal', o2: '3-methylbutanoic acid', o3: '3-methylbutanal', o4: 'isobutyl ketone', ans: 2 }
+    - { f: 'CH₃CH₂CH₂NH₂', o1: '1-aminopropene', o2: 'propanamide', o3: 'propylamide', o4: 'propan-1-amine', ans: 3 }
+  prompt: 'What is the IUPAC name of {{f}}?'
+  parts:
+    - ask: 'Name'
+      label: a
+      choice: ["{{o1}}", "{{o2}}", "{{o3}}", "{{o4}}"]
+      correct: ans
+      explain: 'Find the longest chain containing the main functional group, number from the end that gives that group (then the multiple bonds, then substituents) the lowest locant, and name substituents alphabetically. Suffix order: acid > ester > amide > nitrile > aldehyde > ketone > alcohol > amine'
+  verify: { authored: true }
+
+- template: or-rs-from-arrangement
+  skill: orgo.structure
+  pace: recall
+  given: { cw: { pick: [0, 1] }, away: { pick: [0, 1] } }
+  prompt: 'At a stereocenter, priorities 1 → 2 → 3 run {{cw == 1 ? "clockwise" : "counterclockwise"}} with the lowest-priority group pointing {{away == 1 ? "away from you (dashed)" : "toward you (wedged)"}}. Is it R or S?'
+  parts:
+    - ask: 'Configuration'
+      label: a
+      choice: ["R", "S"]
+      correct: '(cw == 1) == (away == 1) ? 0 : 1'
+      explain: 'With the lowest priority in back, clockwise is R and counterclockwise S. If the lowest priority points at you, read the direction and then reverse the answer'
+  verify: { choices: { a: "0 if cw == away else 1" } }
+
+- template: or-cip-priority
+  skill: orgo.structure
+  pace: quick
+  cases:
+    - { q: '–OH, –CH₃, –CH₂OH, –H', o1: '–OH', o2: '–CH₂OH', o3: '–CH₃', o4: '–H', ans: 0 }
+    - { q: '–CH₂OH, –CHO, –COOH, –CH₃', o1: '–CHO', o2: '–CH₂OH', o3: '–COOH', o4: '–CH₃', ans: 2 }
+    - { q: '–CH(CH₃)₂, –CH₂CH₂CH₃, –C(CH₃)₃, –CH=CH₂', o1: '–CH(CH₃)₂', o2: '–CH₂CH₂CH₃', o3: '–CH=CH₂', o4: '–C(CH₃)₃', ans: 3 }
+    - { q: '–Br, –Cl, –OH, –NH₂', o1: '–Br', o2: '–Cl', o3: '–OH', o4: '–NH₂', ans: 0 }
+    - { q: '–CH₂Cl, –CH₂OH, –CH₂NH₂, –CH₂CH₃', o1: '–CH₂OH', o2: '–CH₂Cl', o3: '–CH₂NH₂', o4: '–CH₂CH₃', ans: 1 }
+  prompt: 'Which group has the highest CIP priority: {{q}}?'
+  parts:
+    - ask: 'Highest priority'
+      label: a
+      choice: ["{{o1}}", "{{o2}}", "{{o3}}", "{{o4}}"]
+      correct: ans
+      explain: 'Compare atomic numbers of the atoms bonded to the stereocenter. On a tie, list the next atoms out as a set and compare the highest first; a double bond counts its partner twice. So –CHO (O, O, H) beats –CH₂OH (O, H, H), and –CH₂Cl beats –CH₂OH because Cl outranks O'
+  verify: { authored: true }
+
+- template: or-isomer-relationship
+  skill: orgo.structure
+  pace: quick
+  cases:
+    - { q: '(2R,3R)-2,3-dibromopentane and (2S,3S)-2,3-dibromopentane', ans: 1 }
+    - { q: '(2R,3R)-2,3-dibromopentane and (2R,3S)-2,3-dibromopentane', ans: 2 }
+    - { q: '(2R,3S)-2,3-dibromobutane and (2S,3R)-2,3-dibromobutane', ans: 0 }
+    - { q: 'butane and 2-methylpropane', ans: 3 }
+    - { q: 'cis-2-butene and trans-2-butene', ans: 2 }
+    - { q: '(R)-2-butanol and the same molecule rotated 180° in the plane', ans: 0 }
+    - { q: '1-propanol and 2-propanol', ans: 3 }
+    - { q: '(R)-alanine and (S)-alanine', ans: 1 }
+  prompt: 'How are these related: {{q}}?'
+  parts:
+    - ask: 'Relationship'
+      label: a
+      choice: ["Identical (the same compound, or one meso compound)", "Enantiomers", "Diastereomers", "Constitutional isomers"]
+      correct: ans
+      explain: 'Different connectivity: constitutional isomers. Same connectivity: compare configurations. Every center inverted: enantiomers (non-superimposable mirror images). Some but not all inverted, or cis/trans: diastereomers. A molecule with stereocenters and an internal mirror plane is meso, so its "mirror image" is itself'
+  verify: { authored: true }
+
+- template: or-conformation
+  skill: orgo.structure
+  pace: recall
+  cases:
+    - { q: 'butane viewed down C2–C3', o1: 'Anti (methyls 180° apart)', o2: 'Gauche (methyls 60° apart)', o3: 'Eclipsed (methyls 0° apart)', ans: 0 }
+    - { q: 'tert-butylcyclohexane', o1: 'Chair with tert-butyl axial', o2: 'Chair with tert-butyl equatorial', o3: 'Boat', ans: 1 }
+    - { q: 'trans-1,4-dimethylcyclohexane', o1: 'Chair with both methyls axial', o2: 'Chair with one axial, one equatorial', o3: 'Chair with both methyls equatorial', ans: 2 }
+    - { q: 'cis-1,3-dimethylcyclohexane', o1: 'Chair with both methyls equatorial', o2: 'Chair with both methyls axial', o3: 'Chair with one axial, one equatorial', ans: 0 }
+    - { q: 'ethane', o1: 'Staggered', o2: 'Eclipsed', o3: 'Both are equal in energy', ans: 0 }
+    - { q: 'cis-1-tert-butyl-4-methylcyclohexane', o1: 'Chair with tert-butyl axial', o2: 'Chair with tert-butyl equatorial, methyl axial', o3: 'Chair with both equatorial', ans: 1 }
+  prompt: 'What is the most stable conformation of {{q}}?'
+  parts:
+    - ask: 'Most stable'
+      label: a
+      choice: ["{{o1}}", "{{o2}}", "{{o3}}"]
+      correct: ans
+      explain: 'Staggered beats eclipsed (torsional strain), anti beats gauche (steric strain). In a chair, big groups go equatorial to avoid 1,3-diaxial clashes; when both cannot, the larger group wins the equatorial seat. Check cis/trans by up/down, not by axial/equatorial'
+  verify: { authored: true }
+
+- template: or-hybridization-geometry
+  skill: orgo.structure
+  pace: recall
+  cases:
+    - { q: 'a carbonyl carbon', ans: 1 }
+    - { q: 'the nitrogen of a nitrile', ans: 0 }
+    - { q: 'the nitrogen of pyridine', ans: 1 }
+    - { q: 'the oxygen of water', ans: 2 }
+    - { q: 'the central carbon of CO₂', ans: 0 }
+    - { q: 'a carbon of benzene', ans: 1 }
+    - { q: 'the carbon of a methyl carbocation', ans: 1 }
+    - { q: 'the nitrogen of an amide (lone pair in resonance)', ans: 1 }
+    - { q: 'a carbon of ethyne', ans: 0 }
+  prompt: 'What is the hybridization of {{q}}?'
+  parts:
+    - ask: 'Hybridization'
+      label: a
+      choice: ["sp (linear, 180°)", "sp² (trigonal planar, 120°)", "sp³ (tetrahedral, 109.5°)"]
+      correct: ans
+      explain: 'Count σ bonds plus lone pairs: 2 → sp, 3 → sp², 4 → sp³. A lone pair in resonance (amide N, pyrrole N) sits in a p orbital, which makes the atom sp². More s character means shorter, stronger bonds: C≡C 120 pm < C=C 134 pm < C–C 154 pm'
+  verify: { authored: true }
+
+- template: or-stability-rank
+  skill: orgo.structure
+  pace: recall
+  cases:
+    - { q: 'carbocation', o1: 'Methyl, CH₃⁺', o2: 'Primary', o3: 'Tertiary', o4: 'Secondary', ans: 2 }
+    - { q: 'carbocation', o1: 'Benzylic (primary)', o2: 'Primary alkyl', o3: 'Methyl', o4: 'Vinyl', ans: 0 }
+    - { q: 'radical', o1: 'Primary', o2: 'Allylic', o3: 'Methyl', o4: 'Secondary', ans: 1 }
+    - { q: 'carbanion', o1: 'Tertiary', o2: 'Secondary', o3: 'Primary', o4: 'Methyl', ans: 3 }
+    - { q: 'alkene', o1: '1-butene', o2: 'cis-2-butene', o3: 'trans-2-butene', o4: '2-methyl-2-butene (trisubstituted)', ans: 3 }
+    - { q: 'alkene', o1: 'cis-2-butene', o2: 'trans-2-butene', o3: '1-butene', o4: 'they are all equal', ans: 1 }
+  prompt: 'Which {{q}} is the most stable?'
+  parts:
+    - ask: 'Most stable'
+      label: a
+      choice: ["{{o1}}", "{{o2}}", "{{o3}}", "{{o4}}"]
+      correct: ans
+      explain: 'Electron-poor centers (cations, radicals) are stabilised by alkyl groups (hyperconjugation) and by resonance: allylic and benzylic win, vinyl loses. Carbanions run the other way: alkyl groups destabilise them. Alkenes: more substituted and trans are more stable'
+  verify: { authored: true }
