@@ -8,6 +8,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 
 | Framework | Primary basis | Kind | How firmly | Also | Wanted | Objectives | Anchored | House only |
 |---|---|---|---|---|---|---|---|---|
+| Financial Accounting (CPA FAR) | Uniform CPA Examination Blueprints: Financial Accounting and Reporting (FAR) | exam-spec | read in part | — | — | 26 | 26 | 0 |
 | AI Basics | Harper Carroll, Academy: free AI course (10 modules, 90 lessons) | course | read in part | — | — | 19 | 19 | 0 |
 | AI Safety | BlueDot Impact course syllabi (Technical AI Safety, Governance, AGI Strategy) | course | read in full | — | — | 104 | 0 | 104 |
 | Anchor Quantities | CODATA Recommended Values of the Fundamental Physical Constants: 2022 (NIST SP 961) | reference | read in part | snapshot-key-numbers, francl-take-a-number, cfr-21-101-9 | acs-accm-pchem | 14 | 3 | 11 |
@@ -45,6 +46,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 
 ### Notes
 
+- **Financial Accounting (CPA FAR)**: Units are the FAR blueprint's three areas and topics are its groups; the objectives are ours, written against the group titles (the representative tasks were not read).
 - **AI Basics**: Units follow the ten modules of Harper Carroll's free Academy course. Only her module titles were readable, so the objectives under them are a house list.
 - **AI Safety**: No accredited standard exists; course syllabi and lab frameworks are the closest thing.
 - **Anchor Quantities**: Values from CODATA 2022, standard atomic weights and 21 CFR 101.9. Which values to carry is a house list for units 1–4 and the SnapShot Key Numbers in Biology sheet for units 5–6. No chemistry standard for this was found; the ACS content maps have not been opened to check.
@@ -76,6 +78,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 
 ## Frameworks not yet on a fully read standard
 
+- **Financial Accounting (CPA FAR)**: exam-spec, read in part
 - **AI Basics**: course, read in part
 - **AI Safety**: course, read in full
 - **Anchor Quantities**: reference, read in part; should move to ACS Exams Institute Anchoring Concepts Content Map IV: Physical Chemistry (J. Chem. Educ. 2018, 95, 238)
@@ -626,3 +629,36 @@ https://harpercarroll.ai/academy
 | **10** | **Big questions and the road ahead** (undefined questions) | | | |
 
 **Areas with nothing answering to them:** 1 Welcome: what AI is, and why it matters; 2 The big idea: AI turns the world into math; 3 Neural networks: the engine under the hood; 4 LLMs: key terms and basics; 5 Training: how AI actually learns (optional); 6 Using AI wisely: limits, trust and better prompts; 7 AI and tools: what turns a chatbot into an agent; 8 The toolbox: choosing AI and building with it; 9 Staying safe: scams, deepfakes and AI content; 10 Big questions and the road ahead.
+
+## Uniform CPA Examination Blueprints: Financial Accounting and Reporting (FAR)
+
+https://dlcp.dc.gov/sites/default/files/dc/sites/DLCP/publication/attachments/Uniform%20CPA%20Examination%20Blueprints%202.5.24.pdf
+
+0 of 0 items have at least one objective answering to them.
+
+| Item | Topic | Objectives | With a drill | Where |
+|---|---|---|---|---|
+| **I.A** | **General-purpose financial reporting: for-profit business entities** (undefined questions) | | | |
+| **I.B** | **General-purpose financial reporting: nongovernmental not-for-profit entities** (undefined questions) | | | |
+| **I.C** | **State and local government concepts** (undefined questions) | | | |
+| **I.D** | **Public company reporting topics** (undefined questions) | | | |
+| **I.E** | **Special purpose frameworks** (undefined questions) | | | |
+| **I.F** | **Financial statement ratios and performance metrics** (undefined questions) | | | |
+| **II.A** | **Cash and cash equivalents** (undefined questions) | | | |
+| **II.B** | **Trade receivables** (undefined questions) | | | |
+| **II.C** | **Inventory** (undefined questions) | | | |
+| **II.D** | **Property, plant and equipment** (undefined questions) | | | |
+| **II.E** | **Investments** (undefined questions) | | | |
+| **II.F** | **Intangible assets** (undefined questions) | | | |
+| **II.G** | **Payables and accrued liabilities** (undefined questions) | | | |
+| **II.H** | **Debt (financial liabilities)** (undefined questions) | | | |
+| **II.I** | **Equity** (undefined questions) | | | |
+| **III.A** | **Accounting changes and error corrections** (undefined questions) | | | |
+| **III.B** | **Contingencies and commitments** (undefined questions) | | | |
+| **III.C** | **Revenue recognition** (undefined questions) | | | |
+| **III.D** | **Accounting for income taxes** (undefined questions) | | | |
+| **III.E** | **Fair value measurements** (undefined questions) | | | |
+| **III.F** | **Lessee accounting** (undefined questions) | | | |
+| **III.G** | **Subsequent events** (undefined questions) | | | |
+
+**Areas with nothing answering to them:** I.A General-purpose financial reporting: for-profit business entities; I.B General-purpose financial reporting: nongovernmental not-for-profit entities; I.C State and local government concepts; I.D Public company reporting topics; I.E Special purpose frameworks; I.F Financial statement ratios and performance metrics; II.A Cash and cash equivalents; II.B Trade receivables; II.C Inventory; II.D Property, plant and equipment; II.E Investments; II.F Intangible assets; II.G Payables and accrued liabilities; II.H Debt (financial liabilities); II.I Equity; III.A Accounting changes and error corrections; III.B Contingencies and commitments; III.C Revenue recognition; III.D Accounting for income taxes; III.E Fair value measurements; III.F Lessee accounting; III.G Subsequent events.

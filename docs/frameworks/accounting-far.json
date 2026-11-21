@@ -1,0 +1,923 @@
+{
+ "id": "accounting-far",
+ "title": "Financial Accounting (CPA FAR)",
+ "code": "FA",
+ "draft": 1,
+ "track": "business",
+ "requires": [],
+ "level": 3,
+ "domains": [],
+ "basis": {
+  "primary": "cpa-far",
+  "note": "Units are the FAR blueprint's three areas and topics are its groups; the objectives are ours, written against the group titles (the representative tasks were not read)."
+ },
+ "big_ideas": [
+  {
+   "id": "ACCR",
+   "title": "Accrual accounting matches effects to periods",
+   "text": "Revenue when earned, expenses when incurred, estimates revised prospectively, errors restated."
+  },
+  {
+   "id": "MEAS",
+   "title": "Each item has a measurement basis",
+   "text": "Cost, amortized cost, fair value, net realizable value or present value, and the choice decides where changes are reported."
+  },
+  {
+   "id": "PRES",
+   "title": "Presentation tells users where to look",
+   "text": "Which statement, which section, which class of net assets or fund an item lands in is itself information."
+  }
+ ],
+ "practices": [
+  {
+   "id": "P1",
+   "title": "Compute",
+   "text": "Carry an accounting measurement to a number."
+  },
+  {
+   "id": "P2",
+   "title": "Classify",
+   "text": "Put an item in the right statement, section, class, level or treatment."
+  },
+  {
+   "id": "P3",
+   "title": "Apply the rule",
+   "text": "State what GAAP requires in a situation."
+  }
+ ],
+ "units": [
+  {
+   "id": "reporting",
+   "n": 1,
+   "title": "Financial reporting",
+   "scope": "core",
+   "ideas": [
+    "PRES",
+    "ACCR"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "For-profit financial statements",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "cpa-far:I.A"
+       ],
+       "do": "Place an item in the statement where it is reported.",
+       "ek": [
+        "A short list of unrealized items goes to OCI; owner transactions to the statement of changes in equity."
+       ],
+       "p": [
+        "P2"
+       ],
+       "drills": [
+        "fa-statement-home"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "cpa-far:I.A"
+       ],
+       "do": "Classify cash flows and compute operating cash flow by the indirect method and cash collected from customers.",
+       "ek": [
+        "Interest paid and dividends received are operating under US GAAP."
+       ],
+       "p": [
+        "P1",
+        "P2"
+       ],
+       "drills": [
+        "fa-cf-class",
+        "fa-cfo-indirect",
+        "fa-cash-collected"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "cpa-far:I.A"
+       ],
+       "do": "Compute goodwill, the noncontrolling interest's share of income, and intercompany profit to eliminate in consolidation.",
+       "ek": [
+        "Goodwill = consideration + NCI fair value − net identifiable assets."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "fa-goodwill",
+        "fa-nci-income",
+        "fa-intercompany-profit"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "title": "Not-for-profit entities",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "cpa-far:I.B"
+       ],
+       "do": "Classify contributions and releases between net assets with and without donor restrictions.",
+       "ek": [
+        "Only donors restrict; board designations do not."
+       ],
+       "p": [
+        "P2"
+       ],
+       "drills": [
+        "fa-nfp-net-assets"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 3,
+     "title": "State and local government",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "cpa-far:I.C"
+       ],
+       "do": "Give the measurement focus and basis for each fund type and the government-wide statements, and pick the fund for an activity.",
+       "ek": [
+        "Governmental funds: current financial resources, modified accrual."
+       ],
+       "p": [
+        "P2"
+       ],
+       "drills": [
+        "fa-gov-basis",
+        "fa-fund-purpose"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 4,
+     "title": "Public companies and special purpose frameworks",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "cpa-far:I.D"
+       ],
+       "do": "Name SEC filings and the segment reporting thresholds.",
+       "ek": [
+        "10-K, 10-Q, 8-K; 10% tests, 75% coverage."
+       ],
+       "p": [
+        "P3"
+       ],
+       "drills": [
+        "fa-public-reporting"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "cpa-far:I.E"
+       ],
+       "do": "Apply the cash, modified cash and tax bases.",
+       "ek": [
+        "Describe the basis and its differences from GAAP."
+       ],
+       "p": [
+        "P3"
+       ],
+       "drills": [
+        "fa-special-framework"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 5,
+     "title": "Ratios and performance metrics",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "cpa-far:I.F"
+       ],
+       "do": "Compute liquidity and activity ratios: current, quick, days in receivables and days in inventory.",
+       "ek": [
+        "Turnover uses averages; days = 365 ÷ turnover."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "fa-current-ratio",
+        "fa-quick-ratio",
+        "fa-ar-turnover",
+        "fa-inventory-days"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "cpa-far:I.F",
+        "cpa-far:I.A"
+       ],
+       "do": "Compute weighted-average shares and basic EPS.",
+       "ek": [
+        "Subtract preferred dividends; weight shares by time outstanding."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "fa-eps",
+        "fa-weighted-shares"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "balance-sheet",
+   "n": 2,
+   "title": "Select balance sheet accounts",
+   "scope": "core",
+   "ideas": [
+    "MEAS"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "Cash and receivables",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "cpa-far:II.A"
+       ],
+       "do": "Decide what counts as a cash equivalent and reconcile a bank balance.",
+       "ek": [
+        "Original maturity of three months or less."
+       ],
+       "p": [
+        "P1",
+        "P2"
+       ],
+       "drills": [
+        "fa-cash-equivalent",
+        "fa-bank-rec"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "cpa-far:II.B"
+       ],
+       "do": "Estimate the allowance for credit losses and bad debt expense.",
+       "ek": [
+        "The expense brings the allowance to its required balance."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "fa-allowance",
+        "fa-aging"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "title": "Inventory",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "cpa-far:II.C"
+       ],
+       "do": "Cost ending inventory by FIFO, LIFO and weighted average, apply lower of cost and NRV, and estimate it by the gross profit method.",
+       "ek": [
+        "Rising prices: FIFO gives the highest ending inventory."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "fa-inventory-flow",
+        "fa-lcnrv",
+        "fa-gross-profit-method"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 3,
+     "title": "Property, plant and equipment",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "cpa-far:II.D"
+       ],
+       "do": "Compute straight-line, double-declining-balance and sum-of-the-years'-digits depreciation, a disposal gain or loss, and depreciation after a change in estimate.",
+       "ek": [
+        "Estimates change prospectively."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "fa-dep-sl",
+        "fa-dep-ddb",
+        "fa-dep-syd",
+        "fa-disposal",
+        "fa-change-estimate"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "cpa-far:II.D"
+       ],
+       "do": "Compute interest capitalized during construction.",
+       "ek": [
+        "Avoidable interest, capped at actual."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "fa-capitalized-interest"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 4,
+     "title": "Investments",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "cpa-far:II.E"
+       ],
+       "do": "Choose the measurement for a debt or equity investment and apply the equity method.",
+       "ek": [
+        "Trading FV-NI, AFS FV-OCI, HTM amortized cost; 20–50% equity method."
+       ],
+       "p": [
+        "P1",
+        "P2"
+       ],
+       "drills": [
+        "fa-investment-class",
+        "fa-equity-method"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 5,
+     "title": "Intangible assets",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "cpa-far:II.F"
+       ],
+       "do": "Measure a goodwill impairment.",
+       "ek": [
+        "Carrying amount over fair value, capped at goodwill."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "fa-goodwill-impairment"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 6,
+     "title": "Payables and debt",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "cpa-far:II.G"
+       ],
+       "do": "Accrue interest on a note payable.",
+       "ek": [
+        "Principal × rate × time."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "fa-accrued-interest"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "cpa-far:II.H"
+       ],
+       "do": "Price a bond and amortize its discount or premium by the effective interest method.",
+       "ek": [
+        "Expense at the market rate on carrying amount; cash at the coupon rate on face."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "fa-bond-price",
+        "fa-bond-amortization"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 7,
+     "title": "Equity",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "cpa-far:II.I"
+       ],
+       "do": "Record a stock dividend and roll retained earnings forward, including a prior-period adjustment.",
+       "ek": [
+        "Small stock dividends at fair value; error corrections adjust opening retained earnings."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "fa-stock-dividend",
+        "fa-retained-earnings"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "transactions",
+   "n": 3,
+   "title": "Select transactions",
+   "scope": "core",
+   "ideas": [
+    "ACCR",
+    "MEAS"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "Changes, contingencies and subsequent events",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "cpa-far:III.A"
+       ],
+       "do": "Tell a change in principle, a change in estimate and an error correction apart, and say how each is reported.",
+       "ek": [
+        "Retrospective, prospective, restatement."
+       ],
+       "p": [
+        "P2"
+       ],
+       "drills": [
+        "fa-accounting-change"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "cpa-far:III.B"
+       ],
+       "do": "Decide whether to accrue, disclose or ignore a contingency.",
+       "ek": [
+        "Probable and estimable → accrue; a range → best estimate or minimum."
+       ],
+       "p": [
+        "P3"
+       ],
+       "drills": [
+        "fa-contingency"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "cpa-far:III.G"
+       ],
+       "do": "Decide whether a subsequent event is recognized or only disclosed.",
+       "ek": [
+        "Conditions existing at the balance-sheet date are recognized."
+       ],
+       "p": [
+        "P2"
+       ],
+       "drills": [
+        "fa-subsequent-event"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "title": "Revenue recognition",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "cpa-far:III.C"
+       ],
+       "do": "Order the five steps, allocate a price by standalone selling prices, estimate variable consideration, and recognize revenue over time.",
+       "ek": [
+        "Cost-to-cost: cumulative revenue minus what earlier years recognized."
+       ],
+       "p": [
+        "P1",
+        "P3"
+       ],
+       "drills": [
+        "fa-revenue-steps",
+        "fa-ssp-allocation",
+        "fa-expected-value",
+        "fa-over-time"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 3,
+     "title": "Income taxes",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "cpa-far:III.D"
+       ],
+       "do": "Classify temporary and permanent differences and measure a deferred tax liability at the enacted rate.",
+       "ek": [
+        "Use the rate enacted for the reversal years."
+       ],
+       "p": [
+        "P1",
+        "P2"
+       ],
+       "drills": [
+        "fa-temp-perm",
+        "fa-deferred-tax"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 4,
+     "title": "Fair value",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "cpa-far:III.E"
+       ],
+       "do": "Place a valuation input in the fair value hierarchy.",
+       "ek": [
+        "Level 1 quoted identical, Level 2 observable, Level 3 unobservable."
+       ],
+       "p": [
+        "P2"
+       ],
+       "drills": [
+        "fa-fair-value-level"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 5,
+     "title": "Lessee accounting",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "cpa-far:III.F"
+       ],
+       "do": "Classify a lease as finance or operating and measure the lease liability.",
+       "ek": [
+        "Five tests; liability = PV of remaining payments."
+       ],
+       "p": [
+        "P1",
+        "P2"
+       ],
+       "drills": [
+        "fa-lease-class",
+        "fa-lease-liability"
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "rows": [
+  {
+   "code": "FA-1.1.A",
+   "unit": 1,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "fa-statement-home"
+   ],
+   "partial": []
+  },
+  {
+   "code": "FA-1.1.B",
+   "unit": 1,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "fa-cf-class",
+    "fa-cfo-indirect",
+    "fa-cash-collected"
+   ],
+   "partial": []
+  },
+  {
+   "code": "FA-1.1.C",
+   "unit": 1,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "fa-goodwill",
+    "fa-nci-income",
+    "fa-intercompany-profit"
+   ],
+   "partial": []
+  },
+  {
+   "code": "FA-1.2.A",
+   "unit": 1,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "fa-nfp-net-assets"
+   ],
+   "partial": []
+  },
+  {
+   "code": "FA-1.3.A",
+   "unit": 1,
+   "topic": 3,
+   "status": "ok",
+   "full": [
+    "fa-gov-basis",
+    "fa-fund-purpose"
+   ],
+   "partial": []
+  },
+  {
+   "code": "FA-1.4.A",
+   "unit": 1,
+   "topic": 4,
+   "status": "ok",
+   "full": [
+    "fa-public-reporting"
+   ],
+   "partial": []
+  },
+  {
+   "code": "FA-1.4.B",
+   "unit": 1,
+   "topic": 4,
+   "status": "ok",
+   "full": [
+    "fa-special-framework"
+   ],
+   "partial": []
+  },
+  {
+   "code": "FA-1.5.A",
+   "unit": 1,
+   "topic": 5,
+   "status": "ok",
+   "full": [
+    "fa-current-ratio",
+    "fa-quick-ratio",
+    "fa-ar-turnover",
+    "fa-inventory-days"
+   ],
+   "partial": []
+  },
+  {
+   "code": "FA-1.5.B",
+   "unit": 1,
+   "topic": 5,
+   "status": "ok",
+   "full": [
+    "fa-eps",
+    "fa-weighted-shares"
+   ],
+   "partial": []
+  },
+  {
+   "code": "FA-2.1.A",
+   "unit": 2,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "fa-cash-equivalent",
+    "fa-bank-rec"
+   ],
+   "partial": []
+  },
+  {
+   "code": "FA-2.1.B",
+   "unit": 2,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "fa-allowance",
+    "fa-aging"
+   ],
+   "partial": []
+  },
+  {
+   "code": "FA-2.2.A",
+   "unit": 2,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "fa-inventory-flow",
+    "fa-lcnrv",
+    "fa-gross-profit-method"
+   ],
+   "partial": []
+  },
+  {
+   "code": "FA-2.3.A",
+   "unit": 2,
+   "topic": 3,
+   "status": "ok",
+   "full": [
+    "fa-dep-sl",
+    "fa-dep-ddb",
+    "fa-dep-syd",
+    "fa-disposal",
+    "fa-change-estimate"
+   ],
+   "partial": []
+  },
+  {
+   "code": "FA-2.3.B",
+   "unit": 2,
+   "topic": 3,
+   "status": "ok",
+   "full": [
+    "fa-capitalized-interest"
+   ],
+   "partial": []
+  },
+  {
+   "code": "FA-2.4.A",
+   "unit": 2,
+   "topic": 4,
+   "status": "ok",
+   "full": [
+    "fa-investment-class",
+    "fa-equity-method"
+   ],
+   "partial": []
+  },
+  {
+   "code": "FA-2.5.A",
+   "unit": 2,
+   "topic": 5,
+   "status": "ok",
+   "full": [
+    "fa-goodwill-impairment"
+   ],
+   "partial": []
+  },
+  {
+   "code": "FA-2.6.A",
+   "unit": 2,
+   "topic": 6,
+   "status": "ok",
+   "full": [
+    "fa-accrued-interest"
+   ],
+   "partial": []
+  },
+  {
+   "code": "FA-2.6.B",
+   "unit": 2,
+   "topic": 6,
+   "status": "ok",
+   "full": [
+    "fa-bond-price",
+    "fa-bond-amortization"
+   ],
+   "partial": []
+  },
+  {
+   "code": "FA-2.7.A",
+   "unit": 2,
+   "topic": 7,
+   "status": "ok",
+   "full": [
+    "fa-stock-dividend",
+    "fa-retained-earnings"
+   ],
+   "partial": []
+  },
+  {
+   "code": "FA-3.1.A",
+   "unit": 3,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "fa-accounting-change"
+   ],
+   "partial": []
+  },
+  {
+   "code": "FA-3.1.B",
+   "unit": 3,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "fa-contingency"
+   ],
+   "partial": []
+  },
+  {
+   "code": "FA-3.1.C",
+   "unit": 3,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "fa-subsequent-event"
+   ],
+   "partial": []
+  },
+  {
+   "code": "FA-3.2.A",
+   "unit": 3,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "fa-revenue-steps",
+    "fa-ssp-allocation",
+    "fa-expected-value",
+    "fa-over-time"
+   ],
+   "partial": []
+  },
+  {
+   "code": "FA-3.3.A",
+   "unit": 3,
+   "topic": 3,
+   "status": "ok",
+   "full": [
+    "fa-temp-perm",
+    "fa-deferred-tax"
+   ],
+   "partial": []
+  },
+  {
+   "code": "FA-3.4.A",
+   "unit": 3,
+   "topic": 4,
+   "status": "ok",
+   "full": [
+    "fa-fair-value-level"
+   ],
+   "partial": []
+  },
+  {
+   "code": "FA-3.5.A",
+   "unit": 3,
+   "topic": 5,
+   "status": "ok",
+   "full": [
+    "fa-lease-class",
+    "fa-lease-liability"
+   ],
+   "partial": []
+  }
+ ],
+ "orphanTpl": []
+}

@@ -1,0 +1,179 @@
+# Programming Foundations, the Unix shell and Git (units 5 and 6, Software Carpentry's lessons).
+# The card shows the commands (a `code` figure from the case field `cmds`) and describes the
+# starting files in the prompt; `setup` builds those files and is not shown. Every answer is checked
+# by running setup then cmds with bash in a fresh directory (tests/verify/progcode.py: sh_out,
+# sh_pick); git runs with a throwaway identity and main as the default branch.
+# No card text may contain a dollar sign (static-sim), so variables and arguments are not drilled here.
+
+- template: pr-sh-paths
+  skill: prog.shell
+  pace: quick
+  figure: { type: code, src: cmds }
+  cases:
+    - { setup: "mkdir -p data/raw data/clean code", cmds: "cd data/raw\ncd ../clean\npwd", o1: '~/data/clean', o2: '~/data/raw/clean', o3: '~/clean', o4: '~/data', ans: 0 }
+    - { setup: "mkdir -p data/raw data/clean code", cmds: "cd data/raw\ncd ../../code\npwd", o1: '~/data/code', o2: '~/code', o3: '~/data/raw/code', o4: '~', ans: 1 }
+    - { setup: "mkdir -p data/raw data/clean code", cmds: "cd data\ncd ./raw/..\npwd", o1: '~/data/raw', o2: '~', o3: '~/data', o4: '~/raw', ans: 2 }
+    - { setup: "mkdir -p data/raw data/clean code", cmds: "cd code\ncd ../data/raw/../clean\npwd", o1: '~/data/raw/clean', o2: '~/code/data/clean', o3: '~/clean', o4: '~/data/clean', ans: 3 }
+  prompt: 'You start in your home directory (~), which holds data/raw, data/clean and code. After these commands, where are you?'
+  parts:
+    - ask: 'Working directory'
+      label: a
+      choice: ["{{o1}}", "{{o2}}", "{{o3}}", "{{o4}}"]
+      correct: ans
+      explain: 'A path without a leading / is relative to where you are now. .. is the parent directory and . is the current one, so they can appear mid-path. ~ is your home directory'
+  verify: { choices: { a: "sh_pick(setup, cmds + \" | sed s#.*/work#~#\", [o1, o2, o3, o4])" } }
+
+- template: pr-sh-files
+  skill: prog.shell
+  pace: quick
+  figure: { type: code, src: cmds }
+  cases:
+    - { setup: "mkdir notes; touch notes/a.txt notes/b.txt", cmds: "mkdir old\nmv notes/a.txt old/\ncp notes/b.txt old/c.txt\nls old | wc -l", ans: 2 }
+    - { setup: "mkdir notes; touch notes/a.txt notes/b.txt", cmds: "mv notes/a.txt notes/b.txt\nls notes | wc -l", ans: 1 }
+    - { setup: "mkdir notes; touch notes/a.txt notes/b.txt", cmds: "cp -r notes backup\nrm notes/a.txt\nls backup | wc -l", ans: 2 }
+    - { setup: "mkdir notes; touch notes/a.txt notes/b.txt", cmds: "mkdir -p x/y/z\ntouch x/y/z/f.txt x/g.txt\nfind x -type f | wc -l", ans: 2 }
+    - { setup: "mkdir notes; touch notes/a.txt notes/b.txt", cmds: "touch notes/a.txt notes/c.txt\nls notes | wc -l", ans: 3 }
+  prompt: 'The directory notes holds a.txt and b.txt. After these commands, what number is printed?'
+  parts:
+    - { ask: 'Printed', label: a, value: ans, tol: 0.0001, explain: 'mv moves or renames, and moving onto an existing file silently replaces it. cp copies (cp -r for a directory, and a copy is independent of the original). touch creates a missing file and only updates the time on an existing one. ls … | wc -l counts the names' }
+  verify: { expect: { a: "sh_out(setup, cmds)" } }
+
+- template: pr-sh-wildcards
+  skill: prog.shell
+  pace: quick
+  figure: { type: code, src: cmds }
+  cases:
+    - { cmds: "ls *.pdb | wc -l", ans: 5 }
+    - { cmds: "ls p*.pdb | wc -l", ans: 2 }
+    - { cmds: "ls ?thane.pdb | wc -l", ans: 1 }
+    - { cmds: "ls *.* | wc -l", ans: 6 }
+    - { cmds: "ls c*.* | wc -l", ans: 1 }
+  prompt: 'The directory holds cubane.pdb, ethane.pdb, methane.pdb, pentane.pdb, propane.pdb, notes.txt and a subdirectory old. What number is printed?'
+  parts:
+    - { ask: 'Printed', label: a, value: ans, tol: 0.0001, explain: 'The shell expands the pattern before the command runs: * matches any run of characters (including none) and ? exactly one. ?thane matches ethane but not methane, which has two letters before "thane"' }
+  verify: { expect: { a: "sh_out('touch cubane.pdb ethane.pdb methane.pdb pentane.pdb propane.pdb notes.txt; mkdir old', cmds)" } }
+
+- template: pr-sh-filters
+  skill: prog.shell
+  pace: quick
+  figure: { type: code, src: cmds }
+  cases:
+    - { cmds: "sort -n lengths.txt | head -n 1", o1: '9 ethane', o2: '12 cubane', o3: '30 propane', o4: '21 methane', ans: 0 }
+    - { cmds: "sort lengths.txt | head -n 1", o1: '9 ethane', o2: '12 cubane', o3: '30 propane', o4: '21 methane', ans: 1 }
+    - { cmds: "sort -n -r lengths.txt | head -n 2 | tail -n 1", o1: '30 propane', o2: '12 cubane', o3: '21 methane', o4: '9 ethane', ans: 2 }
+    - { cmds: "cut -d ' ' -f 2 lengths.txt | sort | uniq | wc -l", o1: '5', o2: '3', o3: '6', o4: '4', ans: 3 }
+    - { cmds: "wc -l < lengths.txt", o1: '5', o2: '4', o3: '6', o4: '10', ans: 0 }
+  prompt: 'lengths.txt has five lines: "21 methane", "9 ethane", "30 propane", "12 cubane", "21 methane". What does this print?'
+  parts:
+    - ask: 'Output'
+      label: a
+      choice: ["{{o1}}", "{{o2}}", "{{o3}}", "{{o4}}"]
+      correct: ans
+      explain: 'sort compares as text by default, so "12" comes before "9"; -n compares numbers and -r reverses. head and tail keep the first or last lines; cut -d " " -f 2 keeps the second field; uniq drops only adjacent duplicates, which is why it follows sort'
+  verify: { choices: { a: "sh_pick('printf \"21 methane\\\\n9 ethane\\\\n30 propane\\\\n12 cubane\\\\n21 methane\\\\n\" > lengths.txt', cmds, [o1, o2, o3, o4])" } }
+
+- template: pr-sh-redirect
+  skill: prog.shell
+  pace: quick
+  figure: { type: code, src: cmds }
+  cases:
+    - { cmds: "echo a > log.txt\necho b > log.txt\nwc -l < log.txt", ans: 1 }
+    - { cmds: "echo a > log.txt\necho b >> log.txt\nwc -l < log.txt", ans: 2 }
+    - { cmds: "seq 1 10 > n.txt\nhead -n 7 n.txt | tail -n 3 | head -n 1", ans: 5 }
+    - { cmds: "seq 1 10 > n.txt\ngrep 1 n.txt | wc -l", ans: 2 }
+    - { cmds: "seq 1 10 > n.txt\ncat n.txt n.txt | sort -u | wc -l", ans: 10 }
+  prompt: 'The directory starts empty. What number is printed?'
+  parts:
+    - { ask: 'Printed', label: a, value: ans, tol: 0.0001, explain: '> replaces a file''s contents and >> appends. A pipe passes one command''s output to the next. sort -u drops repeated lines, so a file joined to itself and deduplicated has its original count' }
+  verify: { expect: { a: "sh_out('', cmds)" } }
+
+- template: pr-sh-grep
+  skill: prog.shell
+  pace: quick
+  figure: { type: code, src: cmds }
+  cases:
+    - { cmds: "grep The haiku.txt | wc -l", ans: 2 }
+    - { cmds: "grep -w The haiku.txt | wc -l", ans: 1 }
+    - { cmds: "grep -i the haiku.txt | wc -l", ans: 4 }
+    - { cmds: "grep -v the haiku.txt | wc -l", ans: 5 }
+    - { cmds: "grep -c is haiku.txt", ans: 2 }
+  prompt: 'haiku.txt holds 7 lines: "The Tao that is seen", "Is not the true Tao, until", "You bring fresh toner.", "With searching comes loss", "and the presence of absence:", "Thesis not found.", "Yesterday it worked". What number is printed?'
+  parts:
+    - { ask: 'Printed', label: a, value: ans, tol: 0.0001, explain: 'grep matches anywhere in the line and is case-sensitive: "The" is in "Thesis" too. -w needs a whole word, -i ignores case, -v keeps the lines that do not match, and -c counts matching lines' }
+  verify: { expect: { a: "sh_out('printf \"The Tao that is seen\\\\nIs not the true Tao, until\\\\nYou bring fresh toner.\\\\nWith searching comes loss\\\\nand the presence of absence:\\\\nThesis not found.\\\\nYesterday it worked\\\\n\" > haiku.txt', cmds)" } }
+
+- template: pr-sh-find
+  skill: prog.shell
+  pace: quick
+  figure: { type: code, src: cmds }
+  cases:
+    - { cmds: "find . -name '*.txt' | wc -l", ans: 4 }
+    - { cmds: "find . -maxdepth 1 -name '*.txt' | wc -l", ans: 1 }
+    - { cmds: "find . -type d | wc -l", ans: 4 }
+    - { cmds: "find . -name '*.txt' | xargs cat | wc -l", ans: 4 }
+  prompt: 'Starting from an empty directory, the files are: a.txt; data/one.txt, data/two.txt, data/b.csv; data/old/three.txt; code/run.sh. Each .txt file has one line. What number is printed?'
+  parts:
+    - { ask: 'Printed', label: a, value: ans, tol: 0.0001, explain: 'find walks down every subdirectory unless -maxdepth stops it; -name matches the file name against a quoted pattern; -type d keeps directories, including "." itself. Its output can feed another command through xargs' }
+  verify: { expect: { a: "sh_out('mkdir -p data/old code; echo line > a.txt; echo line > data/one.txt; echo line > data/two.txt; echo line > data/old/three.txt; echo x,y > data/b.csv; echo ls > code/run.sh', cmds)" } }
+
+- template: pr-git-status
+  skill: prog.git
+  pace: quick
+  figure: { type: code, src: cmds }
+  cases:
+    - { cmds: "echo hi > notes.txt\ngit status --short", o1: '?? notes.txt', o2: 'A  notes.txt', o3: 'M  notes.txt', o4: ' M notes.txt', ans: 0 }
+    - { cmds: "echo hi > notes.txt\ngit add notes.txt\ngit status --short", o1: '?? notes.txt', o2: 'A  notes.txt', o3: ' M notes.txt', o4: 'Nothing', ans: 1 }
+    - { cmds: "echo more >> readme.md\ngit status --short", o1: '?? readme.md', o2: 'A  readme.md', o3: ' M readme.md', o4: 'M  readme.md', ans: 2 }
+    - { cmds: "echo more >> readme.md\ngit add readme.md\ngit status --short", o1: ' M readme.md', o2: '?? readme.md', o3: 'MM readme.md', o4: 'M  readme.md', ans: 3 }
+    - { cmds: "echo more >> readme.md\ngit add readme.md\necho again >> readme.md\ngit status --short", o1: 'MM readme.md', o2: 'M  readme.md', o3: ' M readme.md', o4: 'A  readme.md', ans: 0 }
+  prompt: 'A repository has one commit, which tracks readme.md, and nothing else has changed. After these commands, what does git status --short show? (Column 1 is the staging area, column 2 the working tree.)'
+  parts:
+    - ask: 'Status'
+      label: a
+      choice: ["{{o1}}", "{{o2}}", "{{o3}}", "{{o4}}"]
+      correct: ans
+      explain: '?? is untracked. The first column shows what is staged (A added, M modified), the second what has changed in the working tree since staging. git add stages the file as it is at that moment, so a later edit shows as MM: staged, then modified again'
+  verify: { choices: { a: "sh_pick('git init -q .; echo start > readme.md; git add readme.md; git commit -qm start', cmds, [o1, o2, o3, o4])" } }
+
+- template: pr-git-history
+  skill: prog.git
+  pace: quick
+  figure: { type: code, src: cmds }
+  cases:
+    - { cmds: "echo b >> f.txt\ngit commit -qam two\necho c >> f.txt\ngit log --oneline | wc -l", ans: 2 }
+    - { cmds: "echo b >> f.txt\ngit commit -qam two\ngit revert --no-edit HEAD > /dev/null\ngit log --oneline | wc -l", ans: 3 }
+    - { cmds: "echo b >> f.txt\ngit commit -qam two\ngit revert --no-edit HEAD > /dev/null\nwc -l < f.txt", ans: 1 }
+    - { cmds: "echo b >> f.txt\ngit restore f.txt\nwc -l < f.txt", ans: 1 }
+    - { cmds: "echo b >> f.txt\ngit add f.txt\ngit restore --staged f.txt\ngit commit -qam two\ngit log --oneline | wc -l", ans: 2 }
+  prompt: 'A repository has one commit, in which f.txt has a single line. What number do these commands print?'
+  parts:
+    - { ask: 'Printed', label: a, value: ans, tol: 0.0001, explain: 'Only committed changes appear in the log. git revert makes a new commit that undoes an old one, so history grows and the file goes back. git restore throws away working-tree edits; git restore --staged only unstages, keeping the edit (commit -a then commits it anyway)' }
+  verify: { expect: { a: "sh_out('git init -q .; echo a > f.txt; git add f.txt; git commit -qm one', cmds)" } }
+
+- template: pr-git-ignore
+  skill: prog.git
+  pace: quick
+  figure: { type: code, src: cmds }
+  cases:
+    - { cmds: "printf '*.dat\\n' > .gitignore\ngit status --short --untracked-files=all | wc -l", ans: 4 }
+    - { cmds: "printf 'results/\\n' > .gitignore\ngit status --short --untracked-files=all | wc -l", ans: 4 }
+    - { cmds: "printf '*.dat\\n!keep.dat\\n' > .gitignore\ngit status --short --untracked-files=all | grep -c dat", ans: 1 }
+    - { cmds: "printf '*.dat\\nresults/\\n' > .gitignore\ngit status --short --untracked-files=all | wc -l", ans: 2 }
+  prompt: 'A new repository has these untracked files: a.dat, keep.dat, run.py, results/out.csv, results/plot.png. After writing the .gitignore shown, what number is printed? (.gitignore is itself untracked.)'
+  parts:
+    - { ask: 'Printed', label: a, value: ans, tol: 0.0001, explain: 'A pattern ignores every matching untracked file; a trailing / ignores a whole directory; a line starting with ! re-includes a file a previous pattern excluded. Ignoring has no effect on files already tracked' }
+  verify: { expect: { a: "sh_out('git init -q .; touch a.dat keep.dat run.py; mkdir results; touch results/out.csv results/plot.png', cmds)" } }
+
+- template: pr-git-branch
+  skill: prog.git
+  pace: quick
+  figure: { type: code, src: cmds }
+  cases:
+    - { cmds: "git switch -qc feature\necho b > b.txt; git add b.txt; git commit -qm b\ngit switch -q main\nls | wc -l", ans: 1 }
+    - { cmds: "git switch -qc feature\necho b > b.txt; git add b.txt; git commit -qm b\ngit switch -q main\ngit merge -q feature\nls | wc -l", ans: 2 }
+    - { cmds: "git switch -qc feature\necho b > b.txt; git add b.txt; git commit -qm b\ngit switch -q main\ngit log --oneline | wc -l", ans: 1 }
+    - { cmds: "git switch -qc feature\necho b > b.txt; git add b.txt; git commit -qm b\ngit switch -q main\necho c > c.txt; git add c.txt; git commit -qm c\ngit merge -q --no-edit feature\ngit log --oneline | wc -l", ans: 4 }
+  prompt: 'A repository on main has one commit, which holds a.txt. What number do these commands print?'
+  parts:
+    - { ask: 'Printed', label: a, value: ans, tol: 0.0001, explain: 'A commit on a branch is invisible from main until it is merged. If main has not moved, the merge just fast-forwards main to the branch; if both moved, git makes a merge commit, so the log counts one extra commit' }
+  verify: { expect: { a: "sh_out('git init -q .; echo a > a.txt; git add a.txt; git commit -qm a', cmds)" } }

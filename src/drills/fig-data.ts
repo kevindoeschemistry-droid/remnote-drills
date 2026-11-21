@@ -454,6 +454,21 @@ function scheme(f: any, scope: Scope): string {
   return svg(Wd, y, body);
 }
 
+/** a code listing in a monospace font, indentation kept: `src` is the code, or the name of a case
+ *  field holding it (taken raw, so braces in Java or Python are never read as {{ }} fills) */
+function code(f: any, scope: Scope): string {
+  const lines = fx(f.src, scope).replace(/\n$/, "").split("\n");
+  const esc = (t: string) => t.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/ /g, "\u00a0");
+  // a long line shrinks the font (down to about 9 px at 63 characters) rather than running off the card
+  const PAD = 6, longest = Math.max(...lines.map((l) => l.length));
+  const fs = Math.min(11, (W - 2 * PAD) / (longest * 0.61)), CH = fs * 0.61, LH = fs * 1.36;
+  const w = Math.min(W, Math.max(120, Math.ceil(longest * CH + 2 * PAD)));
+  const h = lines.length * LH + 2 * PAD;
+  let s = `<rect x="0.5" y="0.5" width="${w - 1}" height="${h - 1}" rx="4" fill="${ACCENT}" fill-opacity="0.06" stroke-opacity="0.3"/>`;
+  lines.forEach((l, i) => { s += `<text x="${PAD}" y="${(PAD + (i + 1) * LH - 4).toFixed(1)}" fill="currentColor" stroke="none" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="${fs.toFixed(2)}" xml:space="preserve">${esc(l)}</text>`; });
+  return svg(w, h, s);
+}
+
 export function renderFigure(f: any, scope: Scope): string {
   switch (f?.type) {
     case "plot": return plot(f, scope);
@@ -466,6 +481,7 @@ export function renderFigure(f: any, scope: Scope): string {
     case "cubes": return cubes(f, scope);
     case "views": return views(f, scope);
     case "prism": return prism(f, scope);
+    case "code": return code(f, scope);
     default: throw new Error(`unknown figure type ${f?.type}`);
   }
 }
