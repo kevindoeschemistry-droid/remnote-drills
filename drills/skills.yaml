@@ -45,6 +45,7 @@ domains:
   - { id: gchem, title: "General chemistry" }
   - { id: bio, title: "Biology" }
   - { id: sql, title: "SQL" }
+  - { id: aib, title: "AI basics" }
   - { id: md, title: "Molecular simulation" }
   - { id: compchem, title: "Computational chemistry" }
 
@@ -647,6 +648,14 @@ skills:
   - { id: sql.ddl, domain: sql, title: "Tables, constraints, views, indexes, sequences and synonyms", short: "DDL and objects", prereqs: [sql.dml] }
   - { id: sql.admin, domain: sql, title: "Privileges, the data dictionary and time zones", short: "Access, dictionary, time", prereqs: [sql.ddl] }
   - { id: sql.analytic, domain: sql, title: "Window functions and star-schema reporting", short: "Windows and reporting", prereqs: [sql.aggregate, sql.joins] }
+  - { id: aib.concepts, domain: aib, title: "What AI is, and how the world becomes numbers", short: "AI and data as numbers" }
+  - { id: aib.networks, domain: aib, title: "Neurons, layers, activations and parameters", short: "Neural networks", prereqs: [aib.concepts] }
+  - { id: aib.llms, domain: aib, title: "Language models: tokens, context, next-token prediction, softmax and temperature", short: "LLMs", prereqs: [aib.networks] }
+  - { id: aib.training, domain: aib, title: "How models learn: loss, gradient descent, fitting and evaluation", short: "Training", prereqs: [aib.networks] }
+  - { id: aib.use, domain: aib, title: "Using AI well: limits, prompting, choosing a model, cost", short: "Using AI", prereqs: [aib.llms] }
+  - { id: aib.agents, domain: aib, title: "Agents, tools and retrieval", short: "Agents", prereqs: [aib.use] }
+  - { id: aib.safety, domain: aib, title: "Scams, deepfakes and privacy", short: "Staying safe", prereqs: [aib.concepts] }
+  - { id: aib.future, domain: aib, title: "Scaling, alignment and the road ahead", short: "Big questions", prereqs: [aib.training] }
 
   # ── physics: electricity and magnetism, particles ───────────────────────────
   - { id: physics.kinematics, domain: physics, title: "Kinematics: vectors, graphs, constant acceleration, projectiles", short: "Kinematics" }

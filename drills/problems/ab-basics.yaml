@@ -1,0 +1,597 @@
+# AI basics, on the ten modules of Harper Carroll's free Academy course (harpercarroll.ai/academy).
+# Only her module titles could be read; the objectives under them are ours. One question each.
+# Arithmetic (pixels, dot products, neurons, softmax, parameter counts, memory, training steps,
+# precision and recall, cost, compute) is recomputed by sympy; facts and judgements are authored.
+
+# ── 1 what AI is ───────────────────────────────────────────────────────────
+- template: ab-ai-ml-dl
+  skill: aib.concepts
+  pace: recall
+  cases:
+    - { s: 'a chess program that searches moves using rules a programmer wrote', ans: 0 }
+    - { s: 'a route planner that finds the shortest path on a road map', ans: 0 }
+    - { s: 'a spam filter that learned word weights from emails people labelled', ans: 1 }
+    - { s: 'a house-price model fitted to past sales (a regression)', ans: 1 }
+    - { s: 'a photo app that recognizes faces with a many-layer neural network', ans: 2 }
+    - { s: 'a speech-to-text system built on a deep neural network', ans: 2 }
+    - { s: 'a chatbot that writes new paragraphs in answer to a prompt', ans: 3 }
+    - { s: 'a model that makes new images from a text description', ans: 3 }
+  prompt: 'Where does {{s}} sit among the nested fields AI ⊃ machine learning ⊃ deep learning ⊃ generative AI?'
+  parts:
+    - ask: 'Field'
+      label: a
+      choice: ["AI, but not machine learning: rules or search written by people", "Machine learning, but not deep learning", "Deep learning: a neural network with many layers", "Generative AI: deep learning that produces new content"]
+      correct: ans
+      explain: 'AI is any system that does something we would call intelligent. Machine learning is the part that learns its behaviour from data instead of following hand-written rules. Deep learning is machine learning with many-layered neural networks. Generative AI is deep learning used to produce text, images or sound rather than just labels'
+  verify: { authored: true }
+
+# ── 2 the world as numbers ─────────────────────────────────────────────────
+- template: ab-represent
+  skill: aib.concepts
+  pace: recall
+  cases:
+    - { s: 'a color photo', ans: 0 }
+    - { s: 'a sentence', ans: 1 }
+    - { s: 'a recording of speech', ans: 2 }
+    - { s: 'which of five shirt colors a customer picked', ans: 3 }
+  prompt: 'How is {{s}} usually turned into numbers a model can use?'
+  parts:
+    - ask: 'Representation'
+      label: a
+      choice: ["A grid of pixels, three numbers (red, green, blue) each", "Tokens, each mapped to an ID and then to an embedding vector", "Sound-wave amplitudes sampled many times a second, or a spectrogram of them", "A one-hot vector: a 1 in that category's slot and 0 everywhere else"]
+      correct: ans
+      explain: 'Every model computes on numbers, so every input is encoded first. The encoding should keep what matters: nearby pixels stay nearby, words with similar meanings get similar embedding vectors, and unordered categories get one-hot vectors so no category looks "bigger" than another'
+  verify: { authored: true }
+
+- template: ab-pixels
+  skill: aib.concepts
+  pace: quick
+  given: { w: { pick: [28, 32, 64, 224] }, h: { pick: [28, 32, 64, 224] } }
+  prompt: 'A color image is {{w}} × {{h}} pixels, each stored as red, green and blue intensities. How many numbers describe it?'
+  parts:
+    - { ask: 'Numbers', label: a, value: w*h*3, tol: 0.0001, explain: '{{w}} × {{h}} pixels × 3 channels. A grayscale image needs one number per pixel. This is why images are big inputs: a modest 224 × 224 photo is already about 150,000 numbers' }
+  verify: { expect: { a: "w*h*3" } }
+
+- template: ab-dot
+  skill: aib.concepts
+  pace: quick
+  cases:
+    - { u1: 1, u2: 2, u3: 3, v1: 4, v2: 0, v3: -1, ans: 1 }
+    - { u1: 2, u2: -1, u3: 1, v1: 1, v2: 3, v3: 2, ans: 1 }
+    - { u1: 3, u2: 1, u3: 2, v1: 1, v2: 2, v3: 3, ans: 11 }
+    - { u1: 1, u2: 1, u3: 0, v1: 2, v2: -3, v3: 4, ans: -1 }
+    - { u1: 2, u2: 2, u3: 1, v1: 1, v2: -1, v3: 4, ans: 4 }
+  prompt: 'What is the dot product of ({{u1}}, {{u2}}, {{u3}}) and ({{v1}}, {{v2}}, {{v3}})?'
+  parts:
+    - { ask: 'Dot product', label: a, value: ans, tol: 0.0001, explain: 'Multiply matching entries and add. The dot product is the basic operation inside a neural network (inputs times weights) and inside attention, where it scores how well two vectors line up' }
+  verify: { expect: { a: "u1*v1 + u2*v2 + u3*v3" } }
+
+- template: ab-cosine
+  skill: aib.concepts
+  pace: quick
+  cases:
+    - { u1: 1, u2: 0, v1: 1, v2: 1 }
+    - { u1: 3, u2: 4, v1: 4, v2: 3 }
+    - { u1: 1, u2: 2, v1: 2, v2: 4 }
+    - { u1: 1, u2: 0, v1: -1, v2: 0 }
+    - { u1: 2, u2: 1, v1: 1, v2: 3 }
+  prompt: 'Two embedding vectors are ({{u1}}, {{u2}}) and ({{v1}}, {{v2}}). What is their cosine similarity?'
+  parts:
+    - { ask: 'Cosine similarity', label: a, value: (u1*v1 + u2*v2)/(sqrt(u1^2 + u2^2)*sqrt(v1^2 + v2^2)), tol: 0.001, explain: 'Dot product divided by the two lengths: the cosine of the angle between the vectors. 1 means same direction (similar meaning), 0 unrelated, −1 opposite. Length does not matter, so (1, 2) and (2, 4) score 1. Search over embeddings ranks documents this way' }
+  verify: { expect: { a: "(u1*v1 + u2*v2)/(sqrt(u1**2 + u2**2)*sqrt(v1**2 + v2**2))" } }
+
+# ── 3 neural networks ──────────────────────────────────────────────────────
+- template: ab-neuron
+  skill: aib.networks
+  pace: quick
+  cases:
+    - { w1: 0.5, w2: -1, x1: 4, x2: 1, b: 1 }
+    - { w1: 2, w2: 1, x1: 3, x2: -2, b: -1 }
+    - { w1: 1, w2: 1, x1: 2, x2: 3, b: -4 }
+    - { w1: -1, w2: 2, x1: 3, x2: 4, b: 0.5 }
+    - { w1: 3, w2: -2, x1: 1, x2: 1, b: 0.5 }
+  prompt: 'A neuron has weights ({{w1}}, {{w2}}), bias {{b}} and a ReLU activation. What does it output for inputs ({{x1}}, {{x2}})?'
+  parts:
+    - { ask: 'Output', label: a, value: "max(0, w1*x1 + w2*x2 + b)", tol: 0.0001, explain: 'Weighted sum plus bias: {{w1}}·{{x1}} + {{w2}}·{{x2}} + {{b}}. ReLU then passes a positive result unchanged and turns a negative one into 0' }
+  verify: { expect: { a: "Max(0, w1*x1 + w2*x2 + b)" } }
+
+- template: ab-sigmoid
+  skill: aib.networks
+  pace: quick
+  cases:
+    - { z: 0 }
+    - { z: 1 }
+    - { z: -1 }
+    - { z: 2 }
+    - { z: 3 }
+  prompt: 'What is the sigmoid σ(z) = 1/(1 + e^(−z)) at z = {{z}}?'
+  parts:
+    - { ask: 'σ(z)', label: a, value: 1/(1 + exp(-z)), tol: 0.001, explain: 'The sigmoid squashes any number into (0, 1): 0.5 at z = 0, near 1 for large z, near 0 for very negative z, and σ(−z) = 1 − σ(z). That makes it a natural output for a yes-or-no probability' }
+  verify: { expect: { a: "1/(1 + exp(-z))" } }
+
+- template: ab-activation
+  skill: aib.networks
+  pace: recall
+  cases:
+    - { s: 'turns a list of scores into probabilities that add to 1', ans: 0 }
+    - { s: 'squashes one number into the range 0 to 1, for a yes-or-no output', ans: 1 }
+    - { s: 'passes positive numbers through and turns negative ones into 0', ans: 2 }
+    - { s: 'without any of these, a stack of layers is no more powerful than a single layer', ans: 3 }
+  prompt: 'Which statement matches: {{s}}?'
+  parts:
+    - ask: 'Match'
+      label: a
+      choice: ["Softmax", "Sigmoid", "ReLU", "The reason networks need a nonlinear activation at all"]
+      correct: ans
+      explain: 'Each layer computes weighted sums, which are linear; linear functions of linear functions are still linear. A nonlinear activation between layers is what lets depth add power. ReLU is the common hidden-layer choice; sigmoid and softmax are typical at the output'
+  verify: { authored: true }
+
+- template: ab-network-parts
+  skill: aib.networks
+  pace: recall
+  cases:
+    - { s: 'the numbers the network adjusts during training', o1: 'Weights and biases (the parameters)', o2: 'The inputs', o3: 'The activations', o4: 'The labels', ans: 0 }
+    - { s: 'running an input through the layers to get an output', o1: 'Backpropagation', o2: 'The forward pass', o3: 'An epoch', o4: 'Fine-tuning', ans: 1 }
+    - { s: 'working out how much each weight contributed to the error', o1: 'The forward pass', o2: 'Tokenization', o3: 'Backpropagation', o4: 'Sampling', ans: 2 }
+    - { s: 'the layers between the input and the output', o1: 'Output layers', o2: 'Embedding tables', o3: 'Context windows', o4: 'Hidden layers', ans: 3 }
+    - { s: 'what one neuron computes before its activation', o1: 'A weighted sum of its inputs plus a bias', o2: 'The average of its inputs', o3: 'The largest input', o4: 'A random number', ans: 0 }
+  prompt: 'What is the name for {{s}}?'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["{{o1}}", "{{o2}}", "{{o3}}", "{{o4}}"]
+      correct: ans
+      explain: 'A network is layers of neurons, each a weighted sum plus bias followed by an activation. The forward pass computes the output; the loss measures how wrong it is; backpropagation finds each parameter''s share of the blame, and gradient descent nudges the parameters to shrink the loss'
+  verify: { authored: true }
+
+- template: ab-params-layer
+  skill: aib.networks
+  pace: quick
+  given: { fin: { pick: [3, 4, 10, 784] }, fout: { pick: [2, 5, 10, 128] } }
+  prompt: 'A fully connected layer takes {{fin}} inputs and has {{fout}} neurons, each with its own bias. How many parameters does it have?'
+  parts:
+    - { ask: 'Parameters', label: a, value: fin*fout + fout, tol: 0.0001, explain: 'Every neuron has one weight per input plus one bias: {{fout}} × ({{fin}} + 1). Parameter counts in the billions for language models come from stacking many such layers, each thousands wide' }
+  verify: { expect: { a: "fout*(fin + 1)" } }
+
+- template: ab-params-net
+  skill: aib.networks
+  pace: quick
+  given: { p: { pick: [4, 8, 16] }, q: { pick: [16, 32] }, r: { pick: [2, 3, 10] } }
+  prompt: 'A network has {{p}} inputs, one hidden layer of {{q}} neurons and an output layer of {{r}} neurons, fully connected with biases. How many parameters in all?'
+  parts:
+    - { ask: 'Parameters', label: a, value: (p*q + q) + (q*r + r), tol: 0.0001, explain: 'Count each layer separately: hidden {{q}} × ({{p}} + 1), output {{r}} × ({{q}} + 1), then add' }
+  verify: { expect: { a: "q*(p + 1) + r*(q + 1)" } }
+
+# ── 4 LLM key terms ────────────────────────────────────────────────────────
+- template: ab-llm-term
+  skill: aib.llms
+  pace: recall
+  cases:
+    - { s: 'the chunk of text, often part of a word, that a language model reads and writes one at a time', o1: 'Token', o2: 'Parameter', o3: 'Embedding', o4: 'Prompt', ans: 0 }
+    - { s: 'the most text, prompt and reply together, that the model can take into account at once', o1: 'Training set', o2: 'Context window', o3: 'Vocabulary', o4: 'Batch', ans: 1 }
+    - { s: 'a vector of numbers standing for a token, placed so that similar meanings sit close together', o1: 'Logit', o2: 'Weight', o3: 'Embedding', o4: 'Token ID', ans: 2 }
+    - { s: 'running a trained model to get an answer, as opposed to training it', o1: 'Backpropagation', o2: 'Fine-tuning', o3: 'Pretraining', o4: 'Inference', ans: 3 }
+    - { s: 'a confident, fluent answer that is false or made up', o1: 'Hallucination', o2: 'Overfitting', o3: 'Jailbreak', o4: 'Temperature', ans: 0 }
+    - { s: 'the setting that controls how random the choice of the next token is', o1: 'Context window', o2: 'Temperature', o3: 'Learning rate', o4: 'Top layer', ans: 1 }
+    - { s: 'the mechanism inside a transformer that lets each token weigh every other token in the context', o1: 'Dropout', o2: 'Pooling', o3: 'Attention', o4: 'Recurrence', ans: 2 }
+  prompt: 'What is the term for {{s}}?'
+  parts:
+    - ask: 'Term'
+      label: a
+      choice: ["{{o1}}", "{{o2}}", "{{o3}}", "{{o4}}"]
+      correct: ans
+      explain: 'A large language model is a transformer trained to predict the next token. Text is split into tokens, each turned into an embedding; attention mixes information across the context window; the output is a score for every token in the vocabulary, and temperature shapes how the next one is picked'
+  verify: { authored: true }
+
+- template: ab-next-token
+  skill: aib.llms
+  pace: recall
+  cases:
+    - { s: 'the prompt is split into tokens', ans: 0 }
+    - { s: 'each token is turned into an embedding and run through the transformer layers', ans: 1 }
+    - { s: 'the model outputs a score (logit) for every token in its vocabulary', ans: 2 }
+    - { s: 'the scores are turned into probabilities and one token is picked', ans: 3 }
+  prompt: 'When a language model writes a reply, what comes right after this step: {{s}}?'
+  parts:
+    - ask: 'Next step'
+      label: a
+      choice: ["Each token becomes an embedding and runs through the layers", "A score for every possible next token", "Softmax (with temperature) turns scores into probabilities and one token is sampled", "The chosen token is appended to the text and the whole loop runs again"]
+      correct: ans
+      explain: 'Generation is a loop of next-token prediction: tokenize, embed, run the layers, score every token, sample one, append it, repeat until a stop token or a length limit. The model never plans a whole sentence at once; everything it "knows" shapes one probability distribution at a time'
+  verify: { authored: true }
+
+- template: ab-tokens
+  skill: aib.llms
+  pace: quick
+  given: { wd: { pick: [300, 750, 1500, 3000] } }
+  prompt: 'Using the rule of thumb that one token is about three-quarters of an English word, roughly how many tokens is a {{wd}}-word text?'
+  parts:
+    - { ask: 'Tokens (estimate)', label: a, value: wd*4/3, tol: 0.05, explain: 'Words ÷ 0.75, or about 4/3 tokens per word (roughly 4 characters per token). Common words are one token; rare words, names, numbers and other languages split into several, so this is only an English estimate' }
+  verify: { expect: { a: "wd*Rational(4, 3)" } }
+
+- template: ab-context-pages
+  skill: aib.llms
+  pace: quick
+  given: { ctx: { pick: [8000, 32000, 128000, 200000, 1000000] } }
+  prompt: 'A model has a {{ctx}}-token context window. At about 0.75 words per token and 500 words per page, roughly how many pages fit?'
+  parts:
+    - { ask: 'Pages (estimate)', label: a, value: ctx*0.75/500, tol: 0.05, explain: 'Tokens × 0.75 = words; words ÷ 500 = pages. The window holds the prompt, any attached documents and the reply together, so leave room for the answer' }
+  verify: { expect: { a: "ctx*Rational(3, 4)/500" } }
+
+- template: ab-softmax
+  skill: aib.llms
+  pace: quick
+  cases:
+    - { z1: 2, z2: 1, z3: 0 }
+    - { z1: 1, z2: 1, z3: 0 }
+    - { z1: 3, z2: 0, z3: 0 }
+    - { z1: 0, z2: 0, z3: 0 }
+    - { z1: 1, z2: 0, z3: -1 }
+  prompt: 'A model scores three possible next tokens {{z1}}, {{z2}} and {{z3}}. Softmax turns the scores into probabilities. What is the probability of the first token?'
+  parts:
+    - { ask: 'Probability', label: a, value: exp(z1)/(exp(z1) + exp(z2) + exp(z3)), tol: 0.001, explain: 'Softmax: raise e to each score, then divide by the total, so the results are positive and add to 1. Only differences between scores matter, and a lead of one point multiplies the odds by e ≈ 2.7' }
+  verify: { expect: { a: "exp(z1)/(exp(z1) + exp(z2) + exp(z3))" } }
+
+- template: ab-temperature
+  skill: aib.llms
+  pace: quick
+  cases:
+    - { z1: 2, z2: 0, t: 1 }
+    - { z1: 2, z2: 0, t: 2 }
+    - { z1: 2, z2: 0, t: 0.5 }
+    - { z1: 1, z2: 0, t: 0.25 }
+    - { z1: 3, z2: 1, t: 4 }
+  prompt: 'Two candidate tokens score {{z1}} and {{z2}}. At temperature {{t}} (divide each score by the temperature, then softmax), what is the probability of the first?'
+  parts:
+    - { ask: 'Probability', label: a, value: exp(z1/t)/(exp(z1/t) + exp(z2/t)), tol: 0.001, explain: 'Dividing by a low temperature stretches the gaps, so the favourite wins almost every time (near-deterministic output). A high temperature shrinks the gaps and flattens the odds (more varied, more error-prone output)' }
+  verify: { expect: { a: "exp(z1/t)/(exp(z1/t) + exp(z2/t))" } }
+
+- template: ab-weight-memory
+  skill: aib.llms
+  pace: quick
+  given: { nb: { pick: [1, 7, 8, 70, 405] }, by: { pick: [2, 1, 0.5] } }
+  prompt: 'About how many gigabytes do the weights of a {{nb}}-billion-parameter model take at {{by == 2 ? "16-bit" : (by == 1 ? "8-bit" : "4-bit")}} precision?'
+  parts:
+    - { ask: 'GB', label: a, value: nb*by, tol: 0.0001, explain: 'Parameters × bytes per parameter: 16-bit is 2 bytes, 8-bit 1 byte, 4-bit half a byte, and a billion bytes is a gigabyte. Running the model needs more memory than this for the context (the KV cache) and activations. Quantizing to fewer bits is how big models fit on smaller machines' }
+  verify: { expect: { a: "nb*by" } }
+
+# ── 5 training ─────────────────────────────────────────────────────────────
+- template: ab-learning-type
+  skill: aib.training
+  pace: recall
+  cases:
+    - { s: 'learning to tell cats from dogs from photos labelled by people', ans: 0 }
+    - { s: 'predicting tomorrow''s demand from past days with known outcomes', ans: 0 }
+    - { s: 'grouping customers into segments nobody has named', ans: 1 }
+    - { s: 'learning to play a game from points won and lost', ans: 2 }
+    - { s: 'a robot learning to walk by trial and reward', ans: 2 }
+    - { s: 'pretraining a language model to predict the next word of web text', ans: 3 }
+  prompt: 'What kind of learning is {{s}}?'
+  parts:
+    - ask: 'Type'
+      label: a
+      choice: ["Supervised: inputs with correct answers", "Unsupervised: find structure with no answers given", "Reinforcement: learn from rewards for actions", "Self-supervised: the data supplies its own answers"]
+      correct: ans
+      explain: 'Supervised learning needs labels; unsupervised learning has none and looks for patterns; reinforcement learning acts and is scored. Next-word prediction is self-supervised, a kind of supervised learning where the label (the next word) comes free with the text, which is why it can use the whole web'
+  verify: { authored: true }
+
+- template: ab-train-stage
+  skill: aib.training
+  pace: recall
+  cases:
+    - { s: 'reads trillions of tokens of general text to learn to predict the next token', ans: 0 }
+    - { s: 'continues training on a smaller set of example conversations or task answers', ans: 1 }
+    - { s: 'uses people''s (or a model''s) ratings of which answer is better to shape behaviour', ans: 2 }
+    - { s: 'happens every time someone sends a prompt, and changes no weights', ans: 3 }
+  prompt: 'Which stage of building a chat assistant {{s}}?'
+  parts:
+    - ask: 'Stage'
+      label: a
+      choice: ["Pretraining", "Supervised fine-tuning (instruction tuning)", "Reinforcement learning from feedback (RLHF and similar)", "Inference"]
+      correct: ans
+      explain: 'Pretraining makes a model that can continue any text; fine-tuning on examples teaches it to follow instructions and act as an assistant; feedback-based reinforcement learning tunes it toward answers people prefer. Using the model afterward is inference: it learns nothing from your chat unless that data is later used for training'
+  verify: { authored: true }
+
+- template: ab-gd-step
+  skill: aib.training
+  pace: quick
+  cases:
+    - { w: 2, lr: 0.1, g: 5 }
+    - { w: 0.5, lr: 0.01, g: -20 }
+    - { w: 3, lr: 0.5, g: 2 }
+    - { w: -1, lr: 0.1, g: 4 }
+    - { w: 1, lr: 0.05, g: -10 }
+  prompt: 'A weight is {{w}}, the gradient of the loss with respect to it is {{g}}, and the learning rate is {{lr}}. What is the weight after one gradient-descent step?'
+  parts:
+    - { ask: 'New weight', label: a, value: w - lr*g, tol: 0.0001, explain: 'Step against the gradient: w − (learning rate) × gradient. A positive gradient means the loss rises as w rises, so w goes down. Too big a learning rate overshoots; too small crawls' }
+  verify: { expect: { a: "w - lr*g" } }
+
+- template: ab-mse
+  skill: aib.training
+  pace: quick
+  cases:
+    - { p1: 3, p2: 5, p3: 2, t1: 2, t2: 5, t3: 4 }
+    - { p1: 1, p2: 1, p3: 1, t1: 0, t2: 2, t3: 1 }
+    - { p1: 10, p2: 7, p3: 4, t1: 8, t2: 8, t3: 4 }
+    - { p1: 0, p2: 3, p3: 6, t1: 3, t2: 3, t3: 3 }
+  prompt: 'A model predicts {{p1}}, {{p2}}, {{p3}}; the true values are {{t1}}, {{t2}}, {{t3}}. What is the mean squared error?'
+  parts:
+    - { ask: 'MSE', label: a, value: ((p1 - t1)^2 + (p2 - t2)^2 + (p3 - t3)^2)/3, tol: 0.0001, explain: 'Square each error, then average. Squaring makes every error count positively and punishes big misses more than small ones. Training is the search for weights that make this loss small' }
+  verify: { expect: { a: "((p1 - t1)**2 + (p2 - t2)**2 + (p3 - t3)**2)/Integer(3)" } }
+
+- template: ab-steps
+  skill: aib.training
+  pace: quick
+  given: { nex: { pick: [10000, 50000, 60000] }, bs: { pick: [50, 100, 250, 500] }, ep: { pick: [1, 3, 5, 10] } }
+  prompt: 'A model trains on {{nex}} examples in batches of {{bs}} for {{ep}} epochs, with one weight update per batch. How many updates is that?'
+  parts:
+    - { ask: 'Updates', label: a, value: ep*nex/bs, tol: 0.0001, explain: 'One epoch is one pass through all the data: {{nex}} ÷ {{bs}} batches. Multiply by the number of epochs' }
+  verify: { expect: { a: "ep*nex/bs" } }
+
+- template: ab-fit
+  skill: aib.training
+  pace: quick
+  cases:
+    - { s: 'training loss keeps falling but validation loss has started rising', ans: 0 }
+    - { s: 'it scores 99% on its training examples and 60% on new ones', ans: 0 }
+    - { s: 'both training and validation loss stay high', ans: 1 }
+    - { s: 'training and validation loss fall together and level off close to each other', ans: 2 }
+  prompt: 'A model is being trained and {{s}}. What is happening?'
+  parts:
+    - ask: 'Diagnosis'
+      label: a
+      choice: ["Overfitting: memorizing the training data instead of the pattern", "Underfitting: too simple or too little training to capture the pattern", "A good fit"]
+      correct: ans
+      explain: 'Judge a model on data it has not trained on. A widening gap between training and validation performance is overfitting (cure: more data, regularization, stop earlier). Poor performance on both is underfitting (cure: a bigger model, better features, more training)'
+  verify: { authored: true }
+
+- template: ab-data-split
+  skill: aib.training
+  pace: recall
+  cases:
+    - { s: 'the examples the weights are fitted to', ans: 0 }
+    - { s: 'the examples used to choose settings and decide when to stop', ans: 1 }
+    - { s: 'the examples kept untouched until the very end, to report how well the final model does', ans: 2 }
+  prompt: 'Which split of the data is {{s}}?'
+  parts:
+    - ask: 'Split'
+      label: a
+      choice: ["Training set", "Validation set", "Test set"]
+      correct: ans
+      explain: 'Fit on the training set, tune on the validation set, and look at the test set once. Every time the test set influences a choice, it stops being an honest estimate of performance on new data'
+  verify: { authored: true }
+
+- template: ab-precision
+  skill: aib.training
+  pace: quick
+  given: { tp: { pick: [40, 60, 80, 90] }, fp: { pick: [10, 20, 5] }, fn: { pick: [10, 20, 30] } }
+  prompt: 'A spam filter flags {{tp + fp}} emails: {{tp}} really are spam and {{fp}} are not. It misses {{fn}} spam emails. What is its precision?'
+  parts:
+    - { ask: 'Precision', label: a, value: tp/(tp + fp), tol: 0.001, explain: 'Precision = true positives ÷ everything flagged: of what it called spam, how much was spam. Recall = true positives ÷ all real spam: of the spam, how much it caught. Raising the threshold usually trades recall for precision' }
+  verify: { expect: { a: "tp/(tp + fp)" } }
+
+- template: ab-recall
+  skill: aib.training
+  pace: quick
+  given: { tp: { pick: [40, 60, 80, 90] }, fp: { pick: [10, 20, 5] }, fn: { pick: [10, 20, 30] } }
+  prompt: 'A screening model flags {{tp + fp}} patients: {{tp}} have the disease and {{fp}} do not. It misses {{fn}} who do. What is its recall?'
+  parts:
+    - { ask: 'Recall', label: a, value: tp/(tp + fn), tol: 0.001, explain: 'Recall (sensitivity) = true positives ÷ everyone who really has it = {{tp}} ÷ ({{tp}} + {{fn}}). For screening, missed cases are costly, so recall usually matters more than precision' }
+  verify: { expect: { a: "tp/(tp + fn)" } }
+
+# ── 6 using AI wisely ──────────────────────────────────────────────────────
+- template: ab-hallucination
+  skill: aib.use
+  pace: quick
+  cases:
+    - { s: 'Why can a chatbot cite a paper that does not exist?', o1: 'It is trained to produce likely-sounding text, not to look facts up', o2: 'It is lying on purpose', o3: 'Its database is corrupted', o4: 'Someone edited its answer', ans: 0 }
+    - { s: 'What most reduces made-up facts in an answer?', o1: 'Asking it to be more confident', o2: 'Giving it the source documents (or a search tool) and asking it to quote them', o3: 'Raising the temperature', o4: 'Asking the same question in capitals', ans: 1 }
+    - { s: 'A chatbot gives a precise statistic with no source. What should you do?', o1: 'Trust it if it sounds specific', o2: 'Ask it whether it is sure and accept its yes', o3: 'Find the figure in a primary source before using it', o4: 'Ask a second time and average', ans: 2 }
+    - { s: 'Which task is a language model most reliable at?', o1: 'Exact arithmetic on long numbers without a tool', o2: 'Quoting a specific page from memory', o3: 'Today''s stock price without search', o4: 'Rewording or summarizing text you give it', ans: 3 }
+  prompt: '{{s}}'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["{{o1}}", "{{o2}}", "{{o3}}", "{{o4}}"]
+      correct: ans
+      explain: 'A language model generates what is likely given its training and context; fluency is not evidence of truth. It is strongest working on material in front of it, weakest recalling exact facts, figures and citations from memory. Ground it with sources or tools and check anything that matters'
+  verify: { authored: true }
+
+- template: ab-prompt-fix
+  skill: aib.use
+  pace: quick
+  cases:
+    - { s: 'the answer is generic and ignores your situation', ans: 0 }
+    - { s: 'the answer comes back in the wrong format for your spreadsheet', ans: 1 }
+    - { s: 'the style is never quite what you want, though you could show what you mean', ans: 2 }
+    - { s: 'a long, multi-part task comes back muddled', ans: 3 }
+  prompt: 'You prompt a chatbot and {{s}}. Which change fixes that best?'
+  parts:
+    - ask: 'Fix'
+      label: a
+      choice: ["Give context: who it is for, what you know, what you are trying to do", "State the output format exactly (columns, length, structure)", "Include one or two examples of what good looks like", "Break it into steps, or ask for one part at a time"]
+      correct: ans
+      explain: 'The model only knows what is in the context, so a good prompt reads like a brief to a capable colleague: the goal, the background, the constraints, the format and, where taste matters, examples. Iterate: tell it what was wrong with the last answer'
+  verify: { authored: true }
+
+- template: ab-what-model-knows
+  skill: aib.use
+  pace: quick
+  cases:
+    - { s: 'yesterday''s news, with no search tool connected', ans: 0 }
+    - { s: 'yesterday''s news, with a web-search tool it can call', ans: 1 }
+    - { s: 'what you told it earlier in this same conversation', ans: 1 }
+    - { s: 'the contents of a PDF you attached to this chat', ans: 1 }
+    - { s: 'what you told it in a separate chat last month, with no memory feature', ans: 0 }
+  prompt: 'Can a chat model reliably know {{s}}?'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["No: it is not in the training data or the context", "Yes: it is in the context window or a tool can fetch it"]
+      correct: ans
+      explain: 'A model knows two things: what it absorbed in training, up to its knowledge cutoff, and whatever is in its context window right now (your messages, attachments, tool results). Anything else it can only guess at'
+  verify: { authored: true }
+
+# ── 7 agents ───────────────────────────────────────────────────────────────
+- template: ab-agent-part
+  skill: aib.agents
+  pace: recall
+  cases:
+    - { s: 'decides what to do next and writes the text', ans: 0 }
+    - { s: 'lets it search the web, run code or send an email', ans: 1 }
+    - { s: 'keeps notes or past results so later steps can use them', ans: 2 }
+    - { s: 'repeats decide, act and check until the goal is met or it should stop', ans: 3 }
+  prompt: 'In an AI agent, which part {{s}}?'
+  parts:
+    - ask: 'Part'
+      label: a
+      choice: ["The model (the LLM)", "Tools", "Memory", "The loop"]
+      correct: ans
+      explain: 'A chatbot answers once. An agent wraps the model in a harness: tools it can call, memory it can read and write, and a loop that feeds each result back so the model can choose its next move, step after step, toward a goal'
+  verify: { authored: true }
+
+- template: ab-agent-loop
+  skill: aib.agents
+  pace: recall
+  cases:
+    - { s: 'the model reads the goal and decides to call a tool', ans: 0 }
+    - { s: 'the tool runs', ans: 1 }
+    - { s: 'the model reads what came back', ans: 2 }
+  prompt: 'In an agent''s loop, what comes right after this: {{s}}?'
+  parts:
+    - ask: 'Next'
+      label: a
+      choice: ["The harness runs the tool with the arguments the model chose", "Its result is put back into the model's context", "The model decides the next step: another tool call, or a final answer"]
+      correct: ans
+      explain: 'The model never runs anything itself: it writes a request, the harness carries it out and returns the result as new context. Knowing when to stop, or to ask a person, is part of the design'
+  verify: { authored: true }
+
+- template: ab-rag-step
+  skill: aib.agents
+  pace: recall
+  cases:
+    - { s: 'the documents are split into chunks and each chunk is turned into an embedding', ans: 0 }
+    - { s: 'a question arrives and is turned into an embedding', ans: 1 }
+    - { s: 'the closest chunks have been found', ans: 2 }
+  prompt: 'In retrieval-augmented generation (RAG), what comes right after this: {{s}}?'
+  parts:
+    - ask: 'Next'
+      label: a
+      choice: ["The embeddings are stored in a searchable index (a vector database)", "The chunks with the most similar embeddings are retrieved", "They are pasted into the prompt and the model answers from them"]
+      correct: ans
+      explain: 'RAG answers from your documents without retraining: embed and index the documents once; for each question, embed it, fetch the most similar chunks, and give them to the model as context. Quality depends on what gets retrieved, so a wrong chunk gives a wrong answer'
+  verify: { authored: true }
+
+# ── 8 the toolbox ──────────────────────────────────────────────────────────
+- template: ab-model-choice
+  skill: aib.use
+  pace: quick
+  cases:
+    - { s: 'tagging a million short support tickets cheaply and fast', ans: 0 }
+    - { s: 'a hard, multi-step analysis where quality matters more than cost', ans: 1 }
+    - { s: 'working on confidential files that must not leave your own computer', ans: 2 }
+    - { s: 'reading a photo of a whiteboard and turning it into notes', ans: 3 }
+  prompt: 'Which kind of model fits {{s}}?'
+  parts:
+    - ask: 'Choice'
+      label: a
+      choice: ["A small, fast, cheap model", "The largest, most capable model available", "An open-weights model run locally", "A multimodal model that accepts images"]
+      correct: ans
+      explain: 'Match the model to the job: small models for high-volume simple tasks, frontier models for hard reasoning, open weights on your own hardware when data cannot leave, multimodal models when the input is an image or audio. Test on your own examples rather than trusting a leaderboard'
+  verify: { authored: true }
+
+- template: ab-api-cost
+  skill: aib.use
+  pace: quick
+  given: { tin: { pick: [1, 2, 10] }, tout: { pick: [0.5, 1, 2] }, pin: { pick: [1, 3, 15] }, pout: { pick: [5, 15, 75] } }
+  prompt: 'An API charges {{pin}} dollars per million input tokens and {{pout}} dollars per million output tokens. A job sends {{tin}} million tokens in and gets {{tout}} million back. What does it cost, in dollars?'
+  parts:
+    - { ask: 'Cost (dollars)', label: a, value: tin*pin + tout*pout, tol: 0.0001, explain: 'Input and output are priced separately, and output usually costs several times more per token. Long prompts sent many times (with documents attached) are often the hidden cost' }
+  verify: { expect: { a: "tin*pin + tout*pout" } }
+
+# ── 9 staying safe ─────────────────────────────────────────────────────────
+- template: ab-scam-defense
+  skill: aib.safety
+  pace: quick
+  cases:
+    - { s: 'A call in your mother''s voice says she is in trouble and needs money wired now.', o1: 'Hang up and call her back on the number you already have, or ask your family''s agreed code word', o2: 'Send a small amount to be safe', o3: 'Ask her a question only she would know and pay if she answers', o4: 'Keep her talking to check the voice', ans: 0 }
+    - { s: 'Your "CEO" joins a video call and asks you to transfer funds urgently.', o1: 'Do it: you can see their face', o2: 'Confirm through a separate, known channel before acting', o3: 'Ask them to turn the camera off and on', o4: 'Transfer half', ans: 1 }
+    - { s: 'A message says your account is locked and links to a login page.', o1: 'Log in quickly from the link', o2: 'Reply asking if it is real', o3: 'Go to the site yourself, not through the link', o4: 'Forward it to friends', ans: 2 }
+    - { s: 'Why do AI-made scams work better than older ones?', o1: 'AI makes them legal', o2: 'Banks cannot stop them', o3: 'They only target experts', o4: 'Voices, faces and fluent personal messages are now cheap to fake at scale', ans: 3 }
+  prompt: '{{s}} What is the right response?'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["{{o1}}", "{{o2}}", "{{o3}}", "{{o4}}"]
+      correct: ans
+      explain: 'Urgency, secrecy and a request for money or a login are the signature of a scam, however real the voice or face seems. A few seconds of audio is enough to clone a voice. Verify through a channel you already trust, and agree a family code word in advance'
+  verify: { authored: true }
+
+- template: ab-deepfake-check
+  skill: aib.safety
+  pace: quick
+  cases:
+    - { s: 'the most reliable way to check whether a viral video is real', ans: 0 }
+    - { s: 'how much to trust an online "AI detector" that says a picture is fake', ans: 1 }
+    - { s: 'what Content Credentials (C2PA) metadata on an image can tell you', ans: 2 }
+  prompt: 'Which is true of {{s}}?'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["Trace it to its original source and see whether credible outlets confirm it", "Not much: detectors miss many fakes and flag real images", "Where the file came from and how it was edited, if the creator's tools attached it"]
+      correct: ans
+      explain: 'Visual tells (odd hands, warped text) fade as generators improve, and detectors are unreliable either way. Provenance holds up better: who first posted it, whether it carries signed credentials, and whether independent sources report the same event'
+  verify: { authored: true }
+
+- template: ab-privacy
+  skill: aib.safety
+  pace: quick
+  cases:
+    - { s: 'your passwords or one-time codes', ans: 0 }
+    - { s: 'a client''s confidential contract, on a consumer account your employer has not approved', ans: 0 }
+    - { s: 'a public article you want summarized', ans: 1 }
+    - { s: 'a draft email with no private details', ans: 1 }
+  prompt: 'Should you paste {{s}} into a public AI chatbot?'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["No", "Fine"]
+      correct: ans
+      explain: 'Treat a chatbot like any online service: what you type may be stored, reviewed, or used for training depending on the plan and settings. Never share credentials; keep confidential work on tools your organization has approved, and check the data settings'
+  verify: { authored: true }
+
+# ── 10 big questions ───────────────────────────────────────────────────────
+- template: ab-big-ideas
+  skill: aib.future
+  pace: recall
+  cases:
+    - { s: 'the finding that model loss falls predictably as parameters, data and compute grow', o1: 'Scaling laws', o2: 'Moore''s law', o3: 'Overfitting', o4: 'The Turing test', ans: 0 }
+    - { s: 'the problem of making an AI system pursue what its developers actually intend', o1: 'Optimization', o2: 'Alignment', o3: 'Quantization', o4: 'Retrieval', ans: 1 }
+    - { s: 'a system that matches people across most cognitive tasks, not just one', o1: 'Narrow AI', o2: 'An expert system', o3: 'Artificial general intelligence (AGI)', o4: 'A foundation model', ans: 2 }
+    - { s: 'a large model pretrained on broad data and then adapted to many tasks', o1: 'An expert system', o2: 'A decision tree', o3: 'A lookup table', o4: 'A foundation model', ans: 3 }
+  prompt: 'What is the name for {{s}}?'
+  parts:
+    - ask: 'Term'
+      label: a
+      choice: ["{{o1}}", "{{o2}}", "{{o3}}", "{{o4}}"]
+      correct: ans
+      explain: 'Scaling laws are why labs train ever-larger models; alignment is the work of making those models do what is intended, including when they are more capable than the people checking them. AGI has no single agreed definition, which is one reason forecasts of it differ so widely'
+  verify: { authored: true }
+
+- template: ab-train-compute
+  skill: aib.future
+  pace: quick
+  given: { nb: { pick: [1, 7, 70] }, dt: { pick: [1, 2, 15] } }
+  prompt: 'Training compute is roughly 6 × parameters × training tokens. About how many floating-point operations does training a {{nb}}-billion-parameter model on {{dt}} trillion tokens take, in units of 10²¹?'
+  parts:
+    - { ask: 'FLOPs (× 10²¹)', label: a, value: 6*nb*dt, tol: 0.0001, explain: '6 × {{nb}} × 10⁹ × {{dt}} × 10¹² = {{6*nb*dt}} × 10²¹. The 6 counts about two operations per parameter per token forward and four backward. It is an estimate that ignores attention''s extra cost' }
+  verify: { expect: { a: "6*nb*Integer(10)**9*dt*Integer(10)**12/Integer(10)**21" } }
+
+- template: ab-chinchilla
+  skill: aib.future
+  pace: quick
+  given: { nb: { pick: [1, 7, 70, 400] } }
+  prompt: 'The Chinchilla rule of thumb says a compute-optimal model trains on about 20 tokens per parameter. How many billion tokens is that for a {{nb}}-billion-parameter model?'
+  parts:
+    - { ask: 'Billion tokens', label: a, value: 20*nb, tol: 0.0001, explain: 'Hoffmann et al. (2022) found that for a fixed compute budget, parameters and data should grow together, about 20 tokens per parameter. Models meant for cheap use are often trained well past this, because a smaller model trained longer costs less to run' }
+  verify: { expect: { a: "20*nb" } }
