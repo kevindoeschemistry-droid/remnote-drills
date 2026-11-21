@@ -1,0 +1,1301 @@
+# Molecular simulation: one item for each objective of the Molecular Simulation framework that had no
+# drill. Facts come from the framework's own essential-knowledge lines (LiveCoMS best practices, the
+# CHARMM/BLaDE documentation and the ALF tutorial as written up there). kT = 0.593 kcal/mol at 298 K.
+# Numeric items are recomputed by sympy; concept items are authored.
+
+# ── statistical mechanics ───────────────────────────────────────────────────
+- template: md-choose-ensemble
+  skill: md.statmech
+  pace: recall
+  cases:
+    - { q: 'reproduce a binding measurement made on a bench at fixed temperature and pressure', ans: 2 }
+    - { q: 'test whether an integrator conserves energy', ans: 0 }
+    - { q: 'measure unperturbed dynamics, such as a diffusion coefficient, after equilibration', ans: 0 }
+    - { q: 'sample at fixed temperature in a box whose density is already set', ans: 1 }
+    - { q: 'let molecules enter and leave a region in contact with a reservoir', ans: 3 }
+  prompt: 'Which ensemble fits this goal: {{q}}?'
+  parts:
+    - ask: 'Ensemble'
+      label: a
+      choice: ["NVE", "NVT", "NPT", "μVT"]
+      correct: ans
+      explain: 'Bench conditions are fixed T and P: NPT, whose free energy is G. NVT gives the Helmholtz energy A. NVE conserves the Hamiltonian, which is what an integrator test and unperturbed dynamics need. μVT fixes chemical potential and lets particle number vary'
+  verify: { authored: true }
+
+- template: md-ergodicity
+  skill: md.statmech
+  pace: recall
+  cases:
+    - { q: 'What does the ergodic hypothesis claim?', ans: 0 }
+    - { q: 'A side chain has two rotamers separated by a barrier of many kT. What does that do to a short run?', ans: 1 }
+    - { q: 'A buried water never exchanges with bulk during the run. What is the consequence?', ans: 1 }
+    - { q: 'Two runs from different starts give different averages beyond their error bars. What is the likely cause?', ans: 2 }
+  prompt: '{{q}}'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["A long time average equals the ensemble average", "The run is quasi-nonergodic: it stays in one basin, so its averages describe only part of the ensemble", "Neither run has visited all the relevant states"]
+      correct: ans
+      explain: 'Time averages equal ensemble averages only if the trajectory visits every relevant state. Barriers of many kT (slow rotamers, buried waters, unfolding) make simulations nonergodic on accessible timescales'
+  verify: { authored: true }
+
+- template: md-free-energy-kinds
+  skill: md.statmech
+  pace: recall
+  cases:
+    - { q: 'An NVT simulation gives ratios of which partition function, and so which free energy?', ans: 0 }
+    - { q: 'An NPT simulation gives which free energy?', ans: 1 }
+    - { q: 'A histogram of a reaction coordinate gives what?', ans: 2 }
+    - { q: 'Why can a simulation not give an absolute free energy directly?', ans: 3 }
+  prompt: '{{q}}'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["The canonical Q, so the Helmholtz energy A = −kT ln Q", "The Gibbs energy G = −kT ln Δ", "A potential of mean force, W(ξ) = −kT ln P(ξ) + const", "The absolute partition function is intractable; only ratios of Q are ensemble averages"]
+      correct: ans
+      explain: 'Simulations measure differences: a ratio of partition functions is an average you can sample, an absolute one is not. The PMF is a free energy along a chosen coordinate, defined up to a constant'
+  verify: { authored: true }
+
+# ── force fields ────────────────────────────────────────────────────────────
+- template: md-charmm-terms
+  skill: md.forcefields
+  pace: recall
+  cases:
+    - { q: 'K_b(b − b₀)²', ans: 0 }
+    - { q: 'K_φ[1 + cos(nφ − δ)]', ans: 1 }
+    - { q: 'ε[(R_min/r)¹² − 2(R_min/r)⁶]', ans: 2 }
+    - { q: 'a correction map on pairs of backbone dihedrals', ans: 3 }
+    - { q: 'pairs of atoms one or two bonds apart', ans: 4 }
+    - { q: 'pairs of atoms three bonds apart', ans: 5 }
+  prompt: 'In the CHARMM potential energy function, what is this? {{q}}'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["The harmonic bond term", "The periodic dihedral term", "The Lennard-Jones term in CHARMM form", "CMAP", "Excluded from nonbonded terms (1-2 and 1-3 pairs)", "Included, with special 1-4 Lennard-Jones parameters"]
+      correct: ans
+      explain: 'CHARMM: bonds, angles, Urey–Bradley, dihedrals, impropers and CMAP are bonded terms; Lennard-Jones and Coulomb act between nonbonded pairs, with 1-2 and 1-3 pairs excluded and 1-4 pairs using special LJ parameters'
+  verify: { authored: true }
+
+- template: md-charmm-files
+  skill: md.forcefields
+  pace: recall
+  cases:
+    - { q: 'atom names, types, charges, connectivity and patches for each residue', ans: 0 }
+    - { q: 'the numerical constants for bonds, angles, dihedrals and LJ', ans: 1 }
+    - { q: 'the generated list of atoms, bonds, angles and dihedrals for this particular system', ans: 2 }
+    - { q: 'the coordinates', ans: 3 }
+    - { q: 'a stream that reads in a whole topology and parameter set', ans: 4 }
+  prompt: 'Which CHARMM file holds {{q}}?'
+  parts:
+    - ask: 'File'
+      label: a
+      choice: ["RTF", "PRM", "PSF", "CRD", "toppar.str"]
+      correct: ans
+      explain: 'The RTF says which terms exist per residue; the PRM supplies their constants; the PSF is the system built from them; the CRD gives positions. Topology and parameters are read first, then the structure'
+  verify: { authored: true }
+
+- template: md-charmm-residue-names
+  skill: md.forcefields
+  pace: recall
+  cases:
+    - { q: 'a protonated (neutral) aspartic acid', ans: 0 }
+    - { q: 'a protonated (neutral) glutamic acid', ans: 1 }
+    - { q: 'a doubly protonated, positive histidine', ans: 2 }
+    - { q: 'a neutral lysine', ans: 3 }
+    - { q: 'neutral caps on a peptide cut from a longer chain', ans: 4 }
+  prompt: 'What CHARMM36 name or patch gives {{q}}?'
+  parts:
+    - ask: 'Name'
+      label: a
+      choice: ["ASPP", "GLUP", "HSP", "LSN", "ACE and CT3"]
+      correct: ans
+      explain: 'By default ASP and GLU are deprotonated and LYS protonated; histidine must always be specified (HSD, HSE or HSP). A whole protein gets charged NTER/CTER termini; a peptide cut from a chain gets neutral ACE/CT3 caps'
+  verify: { authored: true }
+
+- template: md-force-field-fitting
+  skill: md.forcefields
+  pace: recall
+  cases:
+    - { q: 'partial charges', ans: 0 }
+    - { q: 'dihedral parameters', ans: 1 }
+    - { q: 'Lennard-Jones parameters', ans: 2 }
+    - { q: 'cutoffs, constraints and the water model', ans: 3 }
+  prompt: 'In CHARMM36 and CGenFF, how are the {{q}} set?'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["Fitted to quantum interaction energies with TIP3P water", "Fitted to quantum torsion scans", "Fitted to liquid densities and heats of vaporisation", "They are part of the force field definition: use the settings it was fitted with"]
+      correct: ans
+      explain: 'A force field is a package: change its water model, cutoff scheme or constraints and you are running a different, untested model'
+  verify: { authored: true }
+
+- template: md-cgenff-penalty
+  skill: md.forcefields
+  pace: recall
+  given: { pen: { pick: [3, 8, 15, 32, 48, 65, 120] } }
+  prompt: 'CGenFF assigns a parameter with penalty score ${{pen}}$. What should you do?'
+  parts:
+    - ask: 'Action'
+      label: a
+      choice: ["Accept it", "Validate it against quantum data", "Reparameterise it against quantum data"]
+      correct: "pen < 10 ? 0 : (pen <= 50 ? 1 : 2)"
+      explain: 'Below 10 the analogy is good; 10 to 50, check it; above 50 the assignment is a guess, so fit new parameters'
+  verify: { choices: { a: "0 if pen < 10 else (1 if pen <= 50 else 2)" } }
+
+- template: md-water-models
+  skill: md.forcefields
+  pace: recall
+  cases:
+    - { q: 'Which water model is CHARMM36 fitted with?', ans: 0 }
+    - { q: 'What does the CHARMM variant of TIP3P add?', ans: 1 }
+    - { q: 'What is TIP3P''s best-known error?', ans: 2 }
+    - { q: 'What distinguishes TIP4P-type models?', ans: 3 }
+  prompt: '{{q}}'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["TIP3P (CHARMM variant): rigid, three sites", "Lennard-Jones parameters on the hydrogens", "It diffuses about twice too fast", "A fourth, virtual M site carries the negative charge"]
+      correct: ans
+      explain: 'A better water model is not automatically better with CHARMM36: the protein parameters were fitted alongside TIP3P, so swapping water breaks the balance'
+  verify: { authored: true }
+
+# ── integration ─────────────────────────────────────────────────────────────
+- template: md-integrator-properties
+  skill: md.integration
+  pace: recall
+  cases:
+    - { q: 'In leapfrog, where are velocities stored?', ans: 0 }
+    - { q: 'Why does the energy of a symplectic integrator not drift?', ans: 1 }
+    - { q: 'Steady drift of total energy in NVE means what?', ans: 2 }
+  prompt: '{{q}}'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["At half steps: v(t + ½Δt) = v(t − ½Δt) + a(t)Δt", "It exactly conserves a nearby shadow Hamiltonian, so the true energy only fluctuates", "The time step, constraint tolerance or cutoff treatment is too loose"]
+      correct: ans
+      explain: 'Velocity Verlet and leapfrog are time-reversible and symplectic. Bounded fluctuation is healthy; a trend is a symptom'
+  verify: { authored: true }
+
+- template: md-velocity-verlet-step
+  skill: md.integration
+  pace: quick
+  given: { x0: { pick: [1, 0.5, 2] }, v0: { pick: [0, 1, -1] }, k: { pick: [1, 4] }, dt: { pick: [0.1, 0.2] } }
+  prompt: 'A particle of mass 1 has force $F = -{{k}}x$. Take one velocity-Verlet step of $\Delta t = {{dt}}$ from $x_0 = {{x0}}$, $v_0 = {{v0}}$. What is $x_1$?'
+  parts:
+    - { ask: '$x_1$', label: r, tex: 'x_1', value: x0 + v0*dt - 0.5*k*x0*dt^2, tol: 0.0001, explain: '$x_1 = x_0 + v_0\Delta t + \tfrac12a_0\Delta t^2$ with $a_0 = -{{k}}x_0$. Then compute $a_1$ at $x_1$ and finish with $v_1 = v_0 + \tfrac12(a_0 + a_1)\Delta t$' }
+  verify: { expect: { r: "nsimplify(x0) + v0*nsimplify(dt) + Rational(1, 2)*(-k*nsimplify(x0))*nsimplify(dt)**2" } }
+
+- template: md-hmr-choice
+  skill: md.integration
+  pace: recall
+  cases:
+    - { q: 'You want 4 fs steps in a plain equilibrium simulation and care about thermodynamics, not kinetics.', ans: 0 }
+    - { q: 'A bond to an alchemical atom changes length between end states.', ans: 1 }
+    - { q: 'You need accurate dynamical rates.', ans: 2 }
+  prompt: '{{q}} What do you do?'
+  parts:
+    - ask: 'Choice'
+      label: a
+      choice: ["Use hydrogen mass repartitioning: total mass and thermodynamics are kept", "Drop the constraint on that bond and use 1 fs", "Avoid mass repartitioning: it alters kinetics"]
+      correct: ans
+      explain: 'HMR moves mass from heavy atoms to their hydrogens so the fastest motions slow down. Constraining a bond whose length differs between alchemical states biases single-topology results'
+  verify: { authored: true }
+
+- template: md-diagnose-instability
+  skill: md.integration
+  pace: recall
+  cases:
+    - { q: 'The run crashes in the first few steps with SHAKE failures.', ans: 0 }
+    - { q: 'The temperature spikes at once and the energy blows up after a fresh build.', ans: 0 }
+    - { q: 'A long NVE run shows a slow, steady energy drift.', ans: 1 }
+  prompt: '{{q}} What is the likely cause?'
+  parts:
+    - ask: 'Cause'
+      label: a
+      choice: ["Unrelaxed contacts or too large a time step: minimise, or shorten the step", "The time step, constraint tolerance or cutoff treatment is too loose"]
+      correct: ans
+      explain: 'Early crashes point at the starting structure or a time step that cannot resolve the fastest motion; a slow drift points at accumulated error from settings'
+  verify: { authored: true }
+
+# ── thermostats and barostats ───────────────────────────────────────────────
+- template: md-thermostat-choice
+  skill: md.integration
+  pace: recall
+  cases:
+    - { q: 'a robust general-purpose canonical thermostat', ans: 0 }
+    - { q: 'canonical sampling of a small system that needs good ergodicity', ans: 1 }
+    - { q: 'a thermostat that also adds friction and noise, robust but damping dynamics', ans: 2 }
+    - { q: 'a thermostat that gives the wrong ensemble and can cause the flying ice cube', ans: 3 }
+  prompt: 'Which thermostat is {{q}}?'
+  parts:
+    - ask: 'Thermostat'
+      label: a
+      choice: ["Bussi stochastic velocity rescaling", "Nosé–Hoover chains", "Langevin", "Berendsen or simple velocity rescaling"]
+      correct: ans
+      explain: 'Berendsen suppresses kinetic-energy fluctuations and drains energy into slow modes; fine for a quick start, wrong for production'
+  verify: { authored: true }
+
+- template: md-langevin
+  skill: md.integration
+  pace: recall
+  cases:
+    - { q: 'What does raising the friction coefficient γ do?', ans: 0 }
+    - { q: 'What sets the size of the random force?', ans: 1 }
+    - { q: 'What does an fbeta of 0.1 ps⁻¹ mean?', ans: 2 }
+  prompt: 'In Langevin dynamics, m dv/dt = F − γmv + R(t). {{q}}'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["Tighter temperature control but slower, less faithful dynamics", "Fluctuation–dissipation: ⟨R(t)R(t′)⟩ = 2γmkT δ(t − t′)", "Weak coupling: dynamics stay close to Newtonian"]
+      correct: ans
+      explain: 'The friction and the noise are tied together so the system samples the canonical ensemble at T. BLaDE uses a g-BAOAB Langevin integrator'
+  verify: { authored: true }
+
+- template: md-barostat-choice
+  skill: md.integration
+  pace: recall
+  cases:
+    - { q: 'early equilibration only', ans: 0 }
+    - { q: 'NPT production for an isotropic solution', ans: 1 }
+    - { q: 'a membrane or a crystal', ans: 2 }
+  prompt: 'Which pressure coupling suits {{q}}?'
+  parts:
+    - ask: 'Barostat'
+      label: a
+      choice: ["Berendsen", "Monte Carlo barostat, Langevin piston or Parrinello–Rahman, isotropic", "Anisotropic or semi-isotropic coupling"]
+      correct: ans
+      explain: 'Berendsen relaxes the volume quickly but samples the wrong ensemble. A membrane needs its plane and its normal to respond separately'
+  verify: { authored: true }
+
+- template: md-mc-barostat
+  skill: md.integration
+  pace: recall
+  cases:
+    - { q: 'iprs', ans: 0 }
+    - { q: 'pref', ans: 1 }
+    - { q: 'prdv', ans: 2 }
+    - { q: 'the N in the acceptance rule', ans: 3 }
+  prompt: 'In BLaDE''s Monte Carlo barostat, what does {{q}} set?'
+  parts:
+    - ask: 'Meaning'
+      label: a
+      choice: ["Steps between volume moves (default 50)", "The target pressure in atm (1)", "The standard deviation of the volume move in cubic ångström (100)", "The number of heavy atoms"]
+      correct: ans
+      explain: 'A volume move is accepted with probability min{1, exp[−β(ΔU + PΔV) + N ln(V′/V)]}'
+  verify: { authored: true }
+
+# ── boxes and electrostatics ────────────────────────────────────────────────
+- template: md-box-waters
+  skill: md.boundaries
+  pace: quick
+  cases:
+    - { cell: 'cubic', f: 1 }
+    - { cell: 'truncated-octahedral', f: 0.770 }
+    - { cell: 'rhombic-dodecahedral', f: 0.707 }
+  given: { d: { pick: [30, 40, 50] }, e: { pick: [10, 12] } }
+  prompt: 'A solute spans ${{d}}$ Å and needs ${{e}}$ Å of water on every side. Ignoring the solute''s own volume, about how many waters fill a {{cell}} cell with the same image distance? (Water ≈ 0.0334 molecules per Å³; the cell''s volume is ${{f}}$ times the cube''s.)'
+  parts:
+    - { ask: 'Waters', label: r, tex: 'N', value: 0.0334*f*(d + 2*e)^3, tol: 0.002, explain: 'Image distance = solute extent + 2 × edge = ${{d + 2*e}}$ Å. A truncated octahedron needs 23% fewer atoms than a cube and a rhombic dodecahedron 29% fewer, for the same protection from images' }
+  verify: { expect: { r: "Rational(334, 10000)*nsimplify(f)*(d + 2*e)**3" } }
+
+- template: md-periodic-artifacts
+  skill: md.boundaries
+  pace: recall
+  cases:
+    - { q: 'Why are periodic images better than a solvent droplet?', ans: 0 }
+    - { q: 'When do periodic artifacts grow?', ans: 1 }
+    - { q: 'Why do the unfolded-state pentapeptides use a fixed 40 Å box?', ans: 2 }
+  prompt: '{{q}}'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["A droplet has a surface that distorts the solute; images have none", "With a net charge, a small box, or a solute that expands", "An unfolded chain can stretch, so it needs a larger box fixed in advance"]
+      correct: ans
+      explain: 'Periodic boundaries trade a large surface artifact for a smaller image artifact; keep the image distance large compared with anything the solute can do'
+  verify: { authored: true }
+
+- template: md-ewald
+  skill: md.boundaries
+  pace: recall
+  cases:
+    - { q: 'Why does a plain Coulomb cutoff fail in a liquid?', ans: 0 }
+    - { q: 'What does the Ewald method do with 1/r?', ans: 1 }
+    - { q: 'How does PME scale?', ans: 2 }
+    - { q: 'How is a box with net charge handled?', ans: 3 }
+  prompt: '{{q}}'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["1/r falls off more slowly than the number of neighbours grows (as r²)", "Splits it into a short-ranged erfc(κr)/r part summed in real space and a smooth part summed in reciprocal space", "O(N log N), using a grid and fast Fourier transforms", "A uniform neutralising background is added"]
+      correct: ans
+      explain: 'Larger κ moves work from real space to reciprocal space; the split is exact, so only accuracy settings change the answer'
+  verify: { authored: true }
+
+- template: md-pme-settings
+  skill: md.boundaries
+  pace: recall
+  cases:
+    - { q: 'the real-space cutoff in a typical CHARMM36 setup', ans: 0 }
+    - { q: 'the Ewald splitting parameter κ', ans: 1 }
+    - { q: 'the reciprocal grid spacing', ans: 2 }
+    - { q: 'the interpolation orders BLaDE supports', ans: 3 }
+  prompt: 'What is {{q}}?'
+  parts:
+    - ask: 'Value'
+      label: a
+      choice: ["12 Å", "About 0.34 per Å", "No more than 1 Å", "4, 6 or 8"]
+      correct: ans
+      explain: 'Cutoff, κ and grid are chosen together for a target accuracy; larger κ shifts work to reciprocal space'
+  verify: { authored: true }
+
+- template: md-lj-cutoff
+  skill: md.boundaries
+  pace: recall
+  cases:
+    - { q: 'the CHARMM36 Lennard-Jones treatment', ans: 0 }
+    - { q: 'the pair-list cutoff', ans: 1 }
+    - { q: 'what BLaDE accepts for electrostatics', ans: 2 }
+    - { q: 'when to add a long-range dispersion correction', ans: 3 }
+  prompt: 'What is {{q}}?'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["Force switching (vfswitch) from 10 to 12 Å", "14 to 16 Å, a buffer beyond the cutoff", "PME or VSWITCH", "Only if the force field was fitted with one"]
+      correct: ans
+      explain: 'Switched, shifted and force-switched cutoffs taper the energy or force differently; the cutoff scheme is part of the force field'
+  verify: { authored: true }
+
+# ── preparation ─────────────────────────────────────────────────────────────
+- template: md-protonation-fraction
+  skill: md.prep
+  pace: quick
+  given: { pKa: { pick: [3.9, 4.3, 6.0, 6.5, 10.5] }, pH: { pick: [3.0, 5.4, 7.0] } }
+  prompt: 'A residue has pKa ${{pKa}}$. What fraction of it is protonated at pH ${{pH}}$?'
+  parts:
+    - { ask: 'Fraction protonated', label: r, tex: 'f', value: 1/(1 + 10^(pH - pKa)), tol: 0.002, explain: '$f = \dfrac{1}{1 + 10^{\mathrm{pH} - \mathrm{p}K_a}}$: below the pKa, mostly protonated. Use the predicted pKa for the folded state and the model pKa for an unfolded peptide, and record the choice for the methods section' }
+  verify: { expect: { r: "1/(1 + 10**(nsimplify(pH) - nsimplify(pKa)))" } }
+
+- template: md-histidine-tautomer
+  skill: md.prep
+  pace: recall
+  cases:
+    - { q: 'pH well below its pKa, so both nitrogens carry hydrogen', ans: 2 }
+    - { q: 'neutral, with an acceptor next to Nδ and a donor next to Nε', ans: 0 }
+    - { q: 'neutral, with an acceptor next to Nε and a donor next to Nδ', ans: 1 }
+    - { q: 'neutral, solvent-exposed, no clear hydrogen-bond partners', ans: 1 }
+  prompt: 'Which histidine name fits: {{q}}?'
+  parts:
+    - ask: 'Name'
+      label: a
+      choice: ["HSD (H on Nδ)", "HSE (H on Nε)", "HSP (both)"]
+      correct: ans
+      explain: 'Put the hydrogen on the nitrogen that can donate it to a nearby acceptor. When exposed or unclear, HSE, which is marginally more stable in the unfolded state'
+  verify: { authored: true }
+
+- template: md-solution-builder
+  skill: md.prep
+  pace: recall
+  cases:
+    - { q: 'crystallographic waters for a folded protein', ans: 0 }
+    - { q: 'crystallisation additives such as BME or chloride', ans: 1 }
+    - { q: 'the temperature', ans: 2 }
+  prompt: 'Building a box in CHARMM-GUI Solution Builder, what do you do with {{q}}?'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["Keep them: buried pockets refill slowly", "Drop them unless they matter to the question", "Set it to the experiment (often 298.15 K, not the 303.15 K default)"]
+      correct: ans
+      explain: 'Match the simulated system to the experiment being reproduced, not to the crystal or the tool''s defaults'
+  verify: { authored: true }
+
+- template: md-prep-order
+  skill: md.prep
+  pace: recall
+  cases:
+    - { q: 'first', ans: 0 }
+    - { q: 'second, after velocities are assigned', ans: 1 }
+    - { q: 'third', ans: 2 }
+    - { q: 'last', ans: 3 }
+  prompt: 'In the standard preparation, which stage comes {{q}}?'
+  parts:
+    - ask: 'Stage'
+      label: a
+      choice: ["Minimise, to remove clashes", "Restrained NVT, to relax the solvent at constant volume", "NPT, to relax the volume at constant pressure", "Production"]
+      correct: ans
+      explain: 'Each stage fixes what the next one assumes. NVT production at a set density needs an NPT equilibration first'
+  verify: { authored: true }
+
+- template: md-maxwell-spread
+  skill: md.prep
+  pace: quick
+  cases:
+    - { atom: 'a hydrogen', M: 1.008 }
+    - { atom: 'a carbon', M: 12.011 }
+    - { atom: 'an oxygen', M: 15.999 }
+    - { atom: 'a sodium ion', M: 22.990 }
+  given: { T: { pick: [298.15, 310] } }
+  prompt: 'Velocities are drawn from a Maxwell–Boltzmann distribution at ${{T}}$ K. What is the standard deviation of one velocity component of {{atom}} (${{M}}$ g/mol), in Å/ps? ($R = 8.3145$ J/(mol·K); 1 Å/ps = 100 m/s.)'
+  parts:
+    - { ask: 'σ (Å/ps)', label: r, tex: '\sigma_v', value: sqrt(8.314462618*T/(M/1000))/100, tol: 0.002, explain: '$\sigma_v = \sqrt{k_BT/m}$ per Cartesian component, and $v_{rms} = \sqrt3\,\sigma_v$. Hydrogens move about $\sqrt{12}$ times faster than carbons' }
+  verify: { expect: { r: "sqrt(c_R*nsimplify(T)/(nsimplify(M)/1000))/100" } }
+
+- template: md-equilibration-done
+  skill: md.prep
+  pace: recall
+  cases:
+    - { q: 'Energy, temperature, pressure and density all fluctuate about stable means, and RMSD has plateaued', ans: 0 }
+    - { q: 'Density is still rising slowly', ans: 1 }
+    - { q: 'RMSD is small but still climbing', ans: 1 }
+  prompt: '{{q}}. Is equilibration complete?'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["Yes: discard the burn-in and analyse the rest", "No: extend it"]
+      correct: ans
+      explain: 'Look for no drift in several observables, not one small number. Apply the same burn-in cut to every run'
+  verify: { authored: true }
+
+# ── uncertainty ─────────────────────────────────────────────────────────────
+- template: md-statistical-inefficiency
+  skill: md.analysis
+  pace: quick
+  given: { r: { pick: [0.5, 0.6, 0.8, 0.9] } }
+  prompt: 'A time series has autocorrelation $C_j = {{r}}^j$. What is its statistical inefficiency $g = 1 + 2\sum_{j \ge 1} C_j$?'
+  parts:
+    - { ask: '$g$', label: r2, tex: 'g', value: (1 + r)/(1 - r), tol: 0.002, explain: '$\sum_{j\ge1} r^j = \dfrac{r}{1 - r}$, so $g = \dfrac{1 + r}{1 - r}$: about one independent sample every $g$ frames. Sum the measured $C_j$ until it converges, but stop before it starts integrating noise' }
+  verify: { expect: { r2: "1 + 2*summation(nsimplify(r)**x, (x, 1, oo))" } }
+
+- template: md-block-average
+  skill: md.analysis
+  pace: quick
+  cases:
+    - { b1: 2.1, b2: 2.5, b3: 1.9, b4: 2.3, b5: 2.2 }
+    - { b1: -5.2, b2: -4.8, b3: -5.0, b4: -5.5, b5: -4.9 }
+    - { b1: 10.4, b2: 11.0, b3: 10.1, b4: 10.7, b5: 10.3 }
+  prompt: 'A trajectory is split into five equal blocks with means ${{b1}}$, ${{b2}}$, ${{b3}}$, ${{b4}}$ and ${{b5}}$. What is the standard error of the overall mean?'
+  parts:
+    - { ask: 'Standard error', label: r, tex: 'SE', value: sqrt(((b1 - (b1+b2+b3+b4+b5)/5)^2 + (b2 - (b1+b2+b3+b4+b5)/5)^2 + (b3 - (b1+b2+b3+b4+b5)/5)^2 + (b4 - (b1+b2+b3+b4+b5)/5)^2 + (b5 - (b1+b2+b3+b4+b5)/5)^2)/4)/sqrt(5), tol: 0.002, explain: 'Take the sample standard deviation of the block means (divide by $M - 1 = 4$), then divide by $\sqrt M$. Repeat with longer blocks: the right block size is where this estimate stops growing' }
+  verify: { expect: { r: "sqrt(((nsimplify(b1) - (nsimplify(b1) + nsimplify(b2) + nsimplify(b3) + nsimplify(b4) + nsimplify(b5))/5)**2 + (nsimplify(b2) - (nsimplify(b1) + nsimplify(b2) + nsimplify(b3) + nsimplify(b4) + nsimplify(b5))/5)**2 + (nsimplify(b3) - (nsimplify(b1) + nsimplify(b2) + nsimplify(b3) + nsimplify(b4) + nsimplify(b5))/5)**2 + (nsimplify(b4) - (nsimplify(b1) + nsimplify(b2) + nsimplify(b3) + nsimplify(b4) + nsimplify(b5))/5)**2 + (nsimplify(b5) - (nsimplify(b1) + nsimplify(b2) + nsimplify(b3) + nsimplify(b4) + nsimplify(b5))/5)**2)/4)/sqrt(5)" } }
+
+- template: md-t-interval
+  skill: md.analysis
+  pace: quick
+  cases:
+    - { n: 5, t: 2.78 }
+    - { n: 6, t: 2.57 }
+  given: { s: { pick: [0.4, 0.6, 1.0] } }
+  prompt: '${{n}}$ independent trials give a standard deviation of ${{s}}$ kcal/mol across their means. What is the half-width of the 95% confidence interval, in kcal/mol? ($t = {{t}}$ for ${{n - 1}}$ degrees of freedom.)'
+  parts:
+    - { ask: 'Half-width (kcal/mol)', label: r, tex: 'w', value: t*s/sqrt(n), tol: 0.002, explain: '$SE = s/\sqrt n$, and the interval is $\bar x \pm t\,SE$. With so few trials $t$ is well above 1.96; and it only holds if the starting structures were independent' }
+  verify: { expect: { r: "nsimplify(t)*nsimplify(s)/sqrt(n)" } }
+
+- template: md-bootstrap
+  skill: md.analysis
+  pace: recall
+  cases:
+    - { q: 'What do you resample?', ans: 0 }
+    - { q: 'How is a 95% bootstrap interval read off?', ans: 1 }
+    - { q: 'A free energy is −4.3172 with an uncertainty of 0.4 kcal/mol. How should it be reported?', ans: 2 }
+  prompt: 'Bootstrapping an uncertainty from correlated simulation data. {{q}}'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["Blocks or independent trials, never raw frames", "The 2.5th to 97.5th percentiles of the resampled values", "−4.3 ± 0.4 kcal/mol, with the confidence level stated"]
+      correct: ans
+      explain: 'Resampling frames that are correlated shrinks the error bar; report only the digits the uncertainty supports'
+  verify: { authored: true }
+
+- template: md-dark-uncertainty
+  skill: md.analysis
+  pace: recall
+  cases:
+    - { q: 'Can convergence checks prove a simulation is well sampled?', ans: 0 }
+    - { q: 'Independent runs from different starts disagree beyond their error bars. What does it mean?', ans: 1 }
+    - { q: 'A property drifts throughout the run. What does it mean?', ans: 2 }
+  prompt: '{{q}}'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["No: they can only rule good sampling out", "Unvisited states: sampling error that no single error bar shows", "The run has not reached the distribution it is sampling"]
+      correct: ans
+      explain: 'Statistical uncertainty assumes the sampled distribution is the right one; sampling error is what happens when it is not'
+  verify: { authored: true }
+
+# ── free-energy theory ──────────────────────────────────────────────────────
+- template: md-zwanzig
+  skill: md.free-energy
+  pace: quick
+  given: { p: { pick: [0.5, 0.1, 0.02, 2, 10] } }
+  prompt: 'Sampling state 0 gives $\langle e^{-\beta\Delta U}\rangle_0 = {{p}}$ at 298 K. What is $\Delta A_{0\to1}$, in kcal/mol? ($kT = 0.593$ kcal/mol.)'
+  parts:
+    - { ask: '$\Delta A$ (kcal/mol)', label: r, tex: '\Delta A', value: -0.593*log(p), tol: 0.002, explain: 'Zwanzig: $\Delta A = -kT\ln\langle e^{-\beta\Delta U}\rangle_0$, exact in the limit because the average equals $Q_1/Q_0$. In practice the exponential average is dominated by rare low-$\Delta U$ samples' }
+  verify: { expect: { r: "-Rational(593, 1000)*log(nsimplify(p))" } }
+
+- template: md-cumulant
+  skill: md.free-energy
+  pace: quick
+  given: { mu: { pick: [2, 5, -1, 8] }, sd: { pick: [0.5, 1, 1.5] } }
+  prompt: '$\Delta U$ sampled in state 0 has mean ${{mu}}$ and standard deviation ${{sd}}$ kcal/mol at 298 K. Estimate $\Delta A$ with the second-order cumulant expansion, in kcal/mol. ($kT = 0.593$.)'
+  parts:
+    - { ask: '$\Delta A$ (kcal/mol)', label: r, tex: '\Delta A', value: mu - sd^2/(2*0.593), tol: 0.002, explain: '$\Delta A \approx \langle\Delta U\rangle - \dfrac{\sigma^2}{2kT}$, exact for a Gaussian. The variance term grows fast: a σ much over 1–2 kT means the states barely overlap' }
+  verify: { expect: { r: "mu - nsimplify(sd)**2/(2*Rational(593, 1000))" } }
+
+- template: md-fep-reliability
+  skill: md.free-energy
+  pace: recall
+  cases:
+    - { q: 'ΔU has a standard deviation of about 1 kT and forward and reverse agree', ans: 0 }
+    - { q: 'ΔU has a standard deviation of 5 kT', ans: 1 }
+    - { q: 'forward and reverse estimates differ by 2 kcal/mol', ans: 1 }
+  prompt: 'An FEP step shows this: {{q}}. Is the estimate reliable?'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["Yes: neighbouring states overlap", "No: add intermediate states"]
+      correct: ans
+      explain: 'The exponential average is biased and noisy unless σ of ΔU is within about 1–2 kT; hysteresis between directions is the same warning'
+  verify: { authored: true }
+
+- template: md-ti-trapezoid
+  skill: md.free-energy
+  pace: quick
+  cases:
+    - { g0: 10, g1: 6, g2: 3, g3: 1, g4: 0.5 }
+    - { g0: -8, g1: -5, g2: -2, g3: 0.5, g4: 2 }
+    - { g0: 20, g1: 12, g2: 8, g3: 5, g4: 3 }
+  prompt: '$\langle\partial U/\partial\lambda\rangle$ is ${{g0}}$, ${{g1}}$, ${{g2}}$, ${{g3}}$ and ${{g4}}$ kcal/mol at $\lambda = 0, 0.25, 0.5, 0.75, 1$. Estimate $\Delta A$ with the trapezoid rule, in kcal/mol.'
+  parts:
+    - { ask: '$\Delta A$ (kcal/mol)', label: r, tex: '\Delta A', value: 0.25*(g0/2 + g1 + g2 + g3 + g4/2), tol: 0.002, explain: 'Thermodynamic integration: $\Delta A = \int_0^1 \langle\partial U/\partial\lambda\rangle\,d\lambda$. Trapezoid: width × (half the ends + the middle points). Simpson needs an odd number of evenly spaced points' }
+  verify: { expect: { r: "Rational(1, 4)*(nsimplify(g0)/2 + nsimplify(g1) + nsimplify(g2) + nsimplify(g3) + nsimplify(g4)/2)" } }
+
+- template: md-linear-mixing
+  skill: md.free-energy
+  pace: recall
+  cases:
+    - { q: 'For U = (1 − λ)U₀ + λU₁, what is ∂U/∂λ?', ans: 0 }
+    - { q: 'Why does ⟨∂U/∂λ⟩ misbehave near λ = 0 for an appearing atom under linear LJ scaling?', ans: 1 }
+  prompt: '{{q}}'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["U₁ − U₀", "It diverges: other atoms can sit on the barely-present atom, so more windows or soft-core are needed"]
+      correct: ans
+      explain: 'A linear path is simple to write but its integrand is badly curved at the ends when atoms appear or vanish'
+  verify: { authored: true }
+
+- template: md-bar-mbar
+  skill: md.free-energy
+  pace: recall
+  cases:
+    - { q: 'What does BAR use that one-sided exponential averaging does not?', ans: 0 }
+    - { q: 'What does MBAR do?', ans: 1 }
+    - { q: 'MBAR with only two states is what?', ans: 2 }
+    - { q: 'Binned MBAR is what?', ans: 3 }
+  prompt: '{{q}}'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["Samples from both directions, solved self-consistently: the minimum-variance two-state estimator", "Reweights every sample to every state and solves for all free energies at once", "BAR", "WHAM, which ALF uses for flattening"]
+      correct: ans
+      explain: 'All three are the same idea at different scales: use every sample, from every state, to estimate every free energy'
+  verify: { authored: true }
+
+- template: md-overlap-matrix
+  skill: md.free-energy
+  pace: recall
+  cases:
+    - { q: 'Every state shares substantial overlap with its neighbours', ans: 0 }
+    - { q: 'The overlap between states 7 and 8 is nearly zero', ans: 1 }
+  prompt: 'Reading an MBAR overlap matrix: {{q}}. What do you do?'
+  parts:
+    - ask: 'Action'
+      label: a
+      choice: ["Nothing: the schedule is adequate", "Insert a state between 7 and 8"]
+      correct: ans
+      explain: 'A weak off-diagonal link breaks the chain of overlap that the estimator relies on. 20–40 states are typical for an alchemical transformation'
+  verify: { authored: true }
+
+- template: md-lambda-schedule
+  skill: md.free-energy
+  pace: recall
+  cases:
+    - { q: 'first, for atoms that are disappearing', ans: 0 }
+    - { q: 'then, for those atoms', ans: 1 }
+    - { q: 'last, for atoms that are appearing', ans: 2 }
+  prompt: 'In an alchemical schedule, what changes {{q}}?'
+  parts:
+    - ask: 'Step'
+      label: a
+      choice: ["Their charges are switched off while the LJ cores are still on", "Their LJ is transformed, with soft-core", "Their charges are switched on once their LJ cores are in place"]
+      correct: ans
+      explain: 'Never change charges and LJ together on a linear path when sites appear or vanish: a charge without a core lets opposite charges collapse onto each other'
+  verify: { authored: true }
+
+- template: md-soft-core
+  skill: md.free-energy
+  pace: recall
+  cases:
+    - { q: 'What is the endpoint catastrophe?', ans: 0 }
+    - { q: 'What does a soft-core potential do?', ans: 1 }
+    - { q: 'What soft-core cutoff does MSλD use?', ans: 2 }
+  prompt: '{{q}}'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["As an atom''s LJ is scaled to zero, others can overlap it and r⁻¹² diverges", "Remaps short distances so the energy stays finite", "Distances inside a λ-dependent cutoff with r₀ = 2 Å"]
+      correct: ans
+      explain: 'Soft-core makes the integrand smooth near the ends of the path, so fewer windows are needed and none blows up'
+  verify: { authored: true }
+
+- template: md-topology-kinds
+  skill: md.free-energy
+  pace: recall
+  cases:
+    - { q: 'What topology does MSλD use?', ans: 0 }
+    - { q: 'Do two substituents at the same site interact?', ans: 1 }
+    - { q: 'What does decoupling turn off?', ans: 2 }
+    - { q: 'What does annihilation turn off?', ans: 3 }
+  prompt: '{{q}}'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["A shared core plus one complete substituent group per alternative", "No: substituents at one site never see each other", "Only the intermolecular terms", "Intramolecular nonbonded terms as well"]
+      correct: ans
+      explain: 'Multiple topology lets several alternatives coexist without overlapping, which is what lets λ dynamics sample them all in one run'
+  verify: { authored: true }
+
+# ── thermodynamic cycles ────────────────────────────────────────────────────
+- template: md-relative-binding
+  skill: md.free-energy
+  pace: quick
+  given: { gc: { pick: [-3.2, 1.5, 4.0, -1.1] }, gs: { pick: [-2.0, 0.8, 2.5] } }
+  require: [gc != gs]
+  prompt: 'Mutating ligand A to B costs ${{gc}}$ kcal/mol in the complex and ${{gs}}$ kcal/mol in solvent. What is $\Delta\Delta G_{bind}$ for B relative to A, in kcal/mol?'
+  parts:
+    - { ask: '$\Delta\Delta G$ (kcal/mol)', label: r, tex: '\Delta\Delta G', value: gc - gs, tol: 0.001, explain: 'Close the cycle: $\Delta G_{bind}(B) - \Delta G_{bind}(A) = \Delta G_{complex} - \Delta G_{solvent}$. The physical binding legs are never simulated; negative means B binds better' }
+  verify: { expect: { r: "solve(Eq(x + nsimplify(gs), nsimplify(gc)), x)[0]" } }
+
+- template: md-folding-ddg
+  skill: md.free-energy
+  pace: quick
+  given: { gf: { pick: [2.4, 5.1, -0.6, 3.3] }, gu: { pick: [1.0, 2.2, 0.4] } }
+  require: [gf != gu]
+  prompt: 'An alchemical mutation costs ${{gf}}$ kcal/mol in the folded protein and ${{gu}}$ kcal/mol in the unfolded-state pentapeptide. What is $\Delta\Delta G_{fold}$, in kcal/mol, and is the mutation stabilising?'
+  parts:
+    - { ask: '$\Delta\Delta G$ (kcal/mol)', label: r, tex: '\Delta\Delta G', value: gf - gu, tol: 0.001, explain: '$\Delta\Delta G_{fold} = \Delta G_{alch}(\text{folded}) - \Delta G_{alch}(\text{unfolded})$; positive is destabilising. The capped pentapeptide models a locally solvated unfolded state and ignores nonlocal contacts' }
+  verify: { expect: { r: "nsimplify(gf) - nsimplify(gu)" } }
+
+- template: md-cycle-closure
+  skill: md.free-energy
+  pace: quick
+  given: { ab: { pick: [1.2, -0.8, 2.5] }, bc: { pick: [0.6, -1.4, 1.1] }, ca: { pick: [-1.5, 0.9, -3.4] } }
+  require: [ab + bc + ca != 0]
+  prompt: 'In a perturbation network, A→B is ${{ab}}$, B→C is ${{bc}}$ and C→A is ${{ca}}$ kcal/mol. What is the cycle-closure error, in kcal/mol?'
+  parts:
+    - { ask: 'Closure (kcal/mol)', label: r, tex: '\epsilon', value: ab + bc + ca, tol: 0.001, explain: 'Free energy is a state function, so the sum round a closed loop should be zero; what is left measures the error on those edges. Star maps are cheap but give no loops to check' }
+  verify: { expect: { r: "nsimplify(ab) + nsimplify(bc) + nsimplify(ca)" } }
+
+- template: md-double-decoupling
+  skill: md.free-energy
+  pace: recall
+  cases:
+    - { q: 'Which two legs are simulated?', ans: 0 }
+    - { q: 'What keeps the decoupled ligand in the site?', ans: 1 }
+    - { q: 'What term converts the result to 1 M?', ans: 2 }
+  prompt: 'Absolute binding by double decoupling. {{q}}'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["Decoupling the ligand in solvent and in the restrained binding site", "Restraints, often Boresch''s six-degree-of-freedom set, whose free energy is analytic", "The standard-state correction"]
+      correct: ans
+      explain: 'ΔG°_bind collects both decoupling legs, the restraint term and the standard-state term; remove charges before LJ in each leg'
+  verify: { authored: true }
+
+- template: md-standard-state
+  skill: md.free-energy
+  pace: quick
+  given: { V: { pick: [10, 50, 100, 500] } }
+  prompt: 'A restraint confines a ligand to ${{V}}$ Å³. What is the free energy of releasing it to the 1 M standard volume (1661 Å³ per molecule), $-kT\ln(V_{site}/V^\circ)$, in kcal/mol at 298 K?'
+  parts:
+    - { ask: 'Correction (kcal/mol)', label: r, tex: '\Delta G', value: -0.593*log(V/1661), tol: 0.002, explain: '$V^\circ = 1661$ Å³ is the volume per molecule at 1 mol/L. A tighter restraint means a larger correction' }
+  verify: { expect: { r: "-Rational(593, 1000)*log(Rational(V, 1661))" } }
+
+- template: md-relative-or-absolute
+  skill: md.free-energy
+  pace: recall
+  cases:
+    - { q: 'a congeneric series sharing a core with a reliable bound pose', ans: 0 }
+    - { q: 'ligands with no common substructure', ans: 1 }
+    - { q: 'an uncertain binding site, or comparing two poses', ans: 1 }
+  prompt: 'Which calculation suits {{q}}?'
+  parts:
+    - ask: 'Calculation'
+      label: a
+      choice: ["Relative", "Absolute"]
+      correct: ans
+      explain: 'Relative calculations cancel most of the error by changing only the differing part; absolute ones are needed when there is nothing shared to keep fixed'
+  verify: { authored: true }
+
+- template: md-match-conditions
+  skill: md.free-energy
+  pace: recall
+  cases:
+    - { q: 'T4 lysozyme sites L99, M106 and F153', ans: 0 }
+    - { q: 'T4 lysozyme site V149', ans: 1 }
+  prompt: 'At what pH were the stabilities for {{q}} measured, and so at what pH must the folded-state setup be built?'
+  parts:
+    - ask: 'pH'
+      label: a
+      choice: ["pH 3.0", "pH 5.4"]
+      correct: ans
+      explain: 'Match pH, salt, temperature, construct and protonation to the experiment you compare with; here that means two folded-state setups'
+  verify: { authored: true }
+
+# ── λ dynamics ──────────────────────────────────────────────────────────────
+- template: md-lambda-hamiltonian
+  skill: md.lambda
+  pace: recall
+  cases:
+    - { q: 'What term does λ dynamics add to the Hamiltonian?', ans: 0 }
+    - { q: 'What force moves λ?', ans: 1 }
+    - { q: 'What does the time λ spends near each end state tell you?', ans: 2 }
+  prompt: '{{q}}'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["A kinetic energy for λ, with a fictitious mass", "−∂U/∂λ", "The relative free energies of the end states"]
+      correct: ans
+      explain: '$H = K(x) + \tfrac12m_\lambda\dot\lambda^2 + U(x, \lambda)$. Treating λ as a particle lets one simulation visit several alchemical states, and its populations measure their free energies'
+  verify: { authored: true }
+
+- template: md-msld-potential
+  skill: md.lambda
+  pace: recall
+  cases:
+    - { q: 'the environment term U₀', ans: 0 }
+    - { q: 'a substituent''s own terms U_si', ans: 1 }
+    - { q: 'interactions between substituents at different sites', ans: 2 }
+    - { q: 'interactions between substituents at the same site', ans: 3 }
+  prompt: 'In the MSλD potential, how does {{q}} scale?'
+  parts:
+    - ask: 'Scaling'
+      label: a
+      choice: ["Not at all", "By that substituents own λ", "By the product of the two λ values", "They are excluded"]
+      correct: ans
+      explain: '$U = U_0 + \sum\lambda_{si}U_{si} + \sum\lambda_{si}\lambda_{tj}U_{si,tj}$ for $s \ne t$, with the λ at each site summing to 1'
+  verify: { authored: true }
+
+- template: md-lambda-count
+  skill: md.lambda
+  pace: quick
+  cases:
+    - { desc: 'one site with a native and 5 mutants', n1: 6, n2: 1, n3: 1, ask2: 1 }
+    - { desc: 'three sites with 2, 3 and 4 substituents', n1: 2, n2: 3, n3: 4, ask2: 1 }
+    - { desc: 'three sites with 2, 3 and 4 substituents', n1: 2, n2: 3, n3: 4, ask2: 0 }
+    - { desc: 'two sites with 6 and 6 substituents', n1: 6, n2: 6, n3: 1, ask2: 0 }
+  prompt: 'An MSλD system has {{desc}} (sites with one entry have no alternatives). How many {{ask2 == 1 ? "λ variables (nblocks, counting only sites with alternatives)" : "chemical end states"}} does it have?'
+  parts:
+    - { ask: 'Count', label: r, tex: 'N', value: "ask2 == 1 ? (n1 > 1 ? n1 : 0) + (n2 > 1 ? n2 : 0) + (n3 > 1 ? n3 : 0) : n1*n2*n3", tol: 0.0001, explain: 'nsubs counts native plus each mutant per site. nblocks is the sum of nsubs; end states are the product, which is how 15 two-way sites reach 32,768' }
+  verify: { expect: { r: "sum(n for n in [n1, n2, n3] if n > 1) if ask2 == 1 else n1*n2*n3" } }
+
+- template: md-fnex-lambda
+  skill: md.lambda
+  pace: quick
+  given: { t1: { pick: [0, 30, 90] }, t2: { pick: [-90, 0, 45] } }
+  require: [t1 != t2]
+  prompt: 'Two substituents have θ₁ = ${{t1}}^\circ$ and θ₂ = ${{t2}}^\circ$. With the fnex constraint, $\lambda_i = e^{c\sin\theta_i}/\sum_j e^{c\sin\theta_j}$ and $c = 5.5$. What is λ₁?'
+  parts:
+    - { ask: 'λ₁', label: r, tex: '\lambda_1', value: exp(5.5*sin(t1*pi/180))/(exp(5.5*sin(t1*pi/180)) + exp(5.5*sin(t2*pi/180))), tol: 0.002, explain: 'θ is unbounded but λ stays in (0, 1) and the λ at a site sum to 1 automatically, so the integrator needs no constraint force' }
+  verify: { expect: { r: "exp(Rational(11, 2)*sin(pi*t1/180))/(exp(Rational(11, 2)*sin(pi*t1/180)) + exp(Rational(11, 2)*sin(pi*t2/180)))" } }
+
+- template: md-fnex-bounds
+  skill: md.lambda
+  pace: quick
+  given: { N: { pick: [2, 3, 6, 9] } }
+  prompt: 'With fnex and $c = 5.5$, the largest λ one of ${{N}}$ substituents can reach is $[1 + (N - 1)e^{-2c}]^{-1}$. How far short of 1 is it, in units of $10^{-5}$?'
+  parts:
+    - { ask: 'Shortfall ($10^{-5}$)', label: r, tex: '1 - \lambda_{max}', value: (1 - 1/(1 + (N - 1)*exp(-11)))*1e5, tol: 0.002, explain: 'Exact end states are never sampled, which costs about 0.1–0.2 kcal/mol, and sampling weakens past 8–9 substituents. Piecewise constraints (fnpwise2026) reach the endpoints exactly' }
+  verify: { expect: { r: "(1 - 1/(1 + (N - 1)*exp(-11)))*10**5" } }
+
+- template: md-alf-bias-terms
+  skill: md.lambda
+  pace: recall
+  cases:
+    - { q: 'the fixed φ (b) term', ans: 0 }
+    - { q: 'the quadratic ψ (c) term', ans: 1 }
+    - { q: 'the endpoint χ (x) and ω (s) terms', ans: 2 }
+    - { q: 'the t and u terms of bcxstu2026', ans: 3 }
+  prompt: 'What does {{q}} do in ALF''s biasing potential?'
+  parts:
+    - ask: 'Role'
+      label: a
+      choice: ["Offsets each substituent''s free energy (about −ΔG) so all endpoints are equally populated", "Changes the barrier between pairs of substituents", "Shapes the landscape near the endpoints", "Extra flexibility for systems with many substituents"]
+      correct: ans
+      explain: 'Together the biases flatten the alchemical landscape so λ moves freely; the fixed biases are subtracted back out to get free energies'
+  verify: { authored: true }
+
+- template: md-bias-pairs
+  skill: md.lambda
+  pace: quick
+  given: { nb: { pick: [4, 6, 10, 20] }, per: { pick: [5, 9] } }
+  prompt: 'A block setup has ${{nb}}$ blocks and uses ${{per}}$ potentials per pair ({{per == 5 ? "bcxs2018" : "bcxstu2026"}}). How many pairwise bias potentials must it allocate?'
+  parts:
+    - { ask: 'Potentials', label: r, tex: 'N', value: per*nb*(nb - 1)/2, tol: 0.0001, explain: 'Pairs = nblocks(nblocks − 1)/2, times the potentials per pair. This is the ldbi count in the block setup' }
+  verify: { expect: { r: "per*binomial(nb, 2)" } }
+
+- template: md-populations-to-dg
+  skill: md.lambda
+  pace: quick
+  given: { Pi: { pick: [0.2, 0.3, 0.4] }, Pj: { pick: [0.1, 0.25, 0.5] }, dphi: { pick: [-2.0, 0.5, 1.5] } }
+  require: [Pi != Pj]
+  prompt: 'In production, substituent i spends ${{Pi}}$ and substituent j ${{Pj}}$ of the frames at λ > 0.99. Their fixed biases differ by $\varphi_j - \varphi_i = {{dphi}}$ kcal/mol. What is $\Delta G_{i\to j}$, in kcal/mol? ($kT = 0.593$.)'
+  parts:
+    - { ask: '$\Delta G$ (kcal/mol)', label: r, tex: '\Delta G', value: -0.593*log(Pj/Pi) - dphi, tol: 0.002, explain: '$\Delta G_{i\to j} = -kT\ln(P_j/P_i) - (\varphi_j - \varphi_i)$: the population ratio of the biased simulation, with the bias taken back out. Count only frames past the cutoff (0.99 in production)' }
+  verify: { expect: { r: "-Rational(593, 1000)*log(nsimplify(Pj)/nsimplify(Pi)) - nsimplify(dphi)" } }
+
+- template: md-unsampled-result
+  skill: md.lambda
+  pace: recall
+  cases:
+    - { q: 'A Result.txt entry is nan', ans: 0 }
+    - { q: 'One substituent''s value is far noisier than the others', ans: 0 }
+  prompt: '{{q}}. What do you do?'
+  parts:
+    - ask: 'Action'
+      label: a
+      choice: ["Treat it as unsampled: refine the biases with another production of the same length before extending", "Report it with a wide error bar", "Extend production straight away"]
+      correct: ans
+      explain: 'A histogram estimator needs every end state visited; an unvisited substituent means the biases have not converged'
+  verify: { authored: true }
+
+# ── ALF in practice ─────────────────────────────────────────────────────────
+- template: md-alf-cycle
+  skill: md.lambda
+  pace: recall
+  cases:
+    - { q: 'What combines the recent runs at different biases?', ans: 0 }
+    - { q: 'How are bias changes chosen?', ans: 1 }
+    - { q: 'Why are bias updates limited to a few kcal/mol?', ans: 2 }
+  prompt: 'One ALF flattening cycle. {{q}}'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["WHAM or MBAR reweighting", "A linear model of how the profiles respond, fed into a quadratic penalty on deviations from flat", "Only the bottom few kcal/mol of each basin was sampled"]
+      correct: ans
+      explain: 'Run MD, reweight, compute 1-D and 2-D profiles, fit bias changes, write the next variables file, repeat'
+  verify: { authored: true }
+
+- template: md-flattening-converged
+  skill: md.lambda
+  pace: recall
+  cases:
+    - { q: 'Every free-energy profile is sampled across its whole range, with small bumps', ans: 0 }
+    - { q: 'One profile has a large unsampled gap', ans: 1 }
+  prompt: 'From the PlotFreeEnergy5 profiles: {{q}}. Start production?'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["Yes: thermodynamic accessibility is what matters, not perfect flatness", "No: keep flattening"]
+      correct: ans
+      explain: 'Production needs every end state reachable; it does not need a perfectly flat landscape'
+  verify: { authored: true }
+
+- template: md-alf-steps
+  skill: md.lambda
+  pace: recall
+  given: { ps: { pick: [25, 75, 100, 1000] }, dt: { pick: [2, 4] } }
+  prompt: 'How many steps is ${{ps}}$ ps at a ${{dt}}$ fs time step?'
+  parts:
+    - { ask: 'Steps', label: r, tex: 'N', value: ps*1000/dt, tol: 0.0001, explain: '1 ps is 1000 fs. A 100 ps flattening cycle is 25 ps of equilibration and 75 ps of sampling, so the sampling-steps argument is three times the equilibration one' }
+  verify: { expect: { r: "Rational(ps*1000, dt)" } }
+
+- template: md-production-ramp
+  skill: md.lambda
+  pace: quick
+  given: { a: { pick: [5, 10] }, f: { pick: [4, 5] }, rounds: { pick: [2, 3] } }
+  prompt: 'Production runs five independent trials, ${{a}}$ ns each in the first round, extending each trial by a factor of ${{f}}$ per round for ${{rounds}}$ rounds in all. How much simulation time is that altogether, in ns?'
+  parts:
+    - { ask: 'Total (ns)', label: r, tex: 'T', value: "rounds == 2 ? 5*(a + a*f) : 5*(a + a*f + a*f^2)", tol: 0.0001, explain: 'Five trials per round, each round 4–5 times longer, for example 5 → 20 → 100 ns. Typical lengths: solvation 10–20 ns, simple protein mutations 40 ns, hard ones 100 ns' }
+  verify: { expect: { r: "5*(a + a*f) if rounds == 2 else 5*(a + a*f + a*f**2)" } }
+
+- template: md-alf-info
+  skill: md.lambda
+  pace: recall
+  cases:
+    - { q: 'name', ans: 0 }
+    - { q: 'nblocks', ans: 1 }
+    - { q: 'nreps', ans: 2 }
+    - { q: 'q', ans: 3 }
+  prompt: 'In alf_info.py, what must {{q}} be?'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["The same as prep/name.inp", "The sum of nsubs", "1 without replica exchange", "Each substituent''s net charge"]
+      correct: ans
+      explain: 'alf_info.py also sets nsubs, temp and enginepath, and optionally the loss, bias and implicit-constraint choices'
+  verify: { authored: true }
+
+- template: md-alf-choices
+  skill: md.lambda
+  pace: recall
+  cases:
+    - { q: 'the loss function', ans: 0 }
+    - { q: 'the implicit constraint', ans: 1 }
+    - { q: 'the bias scheme for about 2 substituents per site', ans: 2 }
+    - { q: 'the bias scheme for about 20 substituents per site', ans: 3 }
+  prompt: 'In current best practice, what should you choose for {{q}}?'
+  parts:
+    - ask: 'Choice'
+      label: a
+      choice: ["nonlinear2024", "fnpwise2026", "bcxs2018", "bcxstu2026, with matching blocksetup.inp edits"]
+      correct: ans
+      explain: 'The defaults linear2018, bcxs2018 and fnex2011 are no longer best practice except where noted'
+  verify: { authored: true }
+
+- template: md-ddg-fold-error
+  skill: md.lambda
+  pace: quick
+  given: { sf: { pick: [0.1, 0.2, 0.3] }, su: { pick: [0.05, 0.1, 0.2] } }
+  prompt: 'Result.txt gives a mutant''s dG with uncertainty ${{sf}}$ kcal/mol in the folded ensemble and ${{su}}$ kcal/mol in the unfolded one. What is the uncertainty of $\Delta\Delta G_{fold}$, in kcal/mol?'
+  parts:
+    - { ask: 'Uncertainty (kcal/mol)', label: r, tex: '\sigma', value: sqrt(sf^2 + su^2), tol: 0.002, explain: '$\Delta\Delta G = dG(\text{folded}) - dG(\text{unfolded})$, and independent errors add in quadrature' }
+  verify: { expect: { r: "sqrt(nsimplify(sf)**2 + nsimplify(su)**2)" } }
+
+- template: md-alchemical-definitions
+  skill: md.lambda
+  pace: recall
+  cases:
+    - { q: 's1seq1 = 0', ans: 0 }
+    - { q: 'the codes h, b and j', ans: 1 }
+    - { q: 'nterres and cterres in the unfolded system', ans: 2 }
+  prompt: 'In alchemical_definitions.inp, what does {{q}} mean?'
+  parts:
+    - ask: 'Meaning'
+      label: a
+      choice: ["The native residue", "HSD, HSE and HSP", "The first and last resid of the pentapeptide: the site ± 2"]
+      correct: ans
+      explain: 'Further substituents are one-letter codes; in the folded system nterres and cterres span the whole chain (1–162 for T4 lysozyme)'
+  verify: { authored: true }
+
+- template: md-prep-directory
+  skill: md.lambda
+  pace: recall
+  cases:
+    - { q: 'Why is DIMENS removed from system.inp?', ans: 0 }
+    - { q: 'What does patchloop do?', ans: 1 }
+    - { q: 'What does deleteloop do?', ans: 2 }
+    - { q: 'What does blocksetup do?', ans: 3 }
+  prompt: '{{q}}'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["It must be in the first script CHARMM reads", "Adds the alchemical atoms", "Removes spurious angles and dihedrals between substituents", "Applies the λ scaling and the biases"]
+      correct: ans
+      explain: 'selectloop names the alchemical atoms; system.inp is adapted from CHARMM-GUI''s step5_production.inp'
+  verify: { authored: true }
+
+# ── analysis ────────────────────────────────────────────────────────────────
+- template: md-rmsd
+  skill: md.analysis
+  pace: quick
+  cases:
+    - { d1: 1.0, d2: 2.0, d3: 2.0 }
+    - { d1: 0.5, d2: 0.5, d3: 1.0 }
+    - { d1: 3.0, d2: 0.0, d3: 4.0 }
+  prompt: 'After optimal superposition, three atoms are displaced by ${{d1}}$, ${{d2}}$ and ${{d3}}$ Å from the reference. What is the RMSD, in Å?'
+  parts:
+    - { ask: 'RMSD (Å)', label: r, tex: 'RMSD', value: sqrt((d1^2 + d2^2 + d3^2)/3), tol: 0.002, explain: '$\sqrt{\tfrac1N\sum|r_i - r_i^{ref}|^2}$ after Kabsch alignment on a chosen set (Cα or backbone). For stability, look for a plateau over time, not a small number' }
+  verify: { expect: { r: "sqrt((nsimplify(d1)**2 + nsimplify(d2)**2 + nsimplify(d3)**2)/3)" } }
+
+- template: md-b-factor
+  skill: md.analysis
+  pace: quick
+  given: { rmsf: { pick: [0.5, 0.8, 1.0, 1.5] } }
+  prompt: 'A residue has an RMSF of ${{rmsf}}$ Å. What crystallographic B-factor does that correspond to, in Å²?'
+  parts:
+    - { ask: 'B (Å²)', label: r, tex: 'B', value: 8*pi^2/3*rmsf^2, tol: 0.002, explain: '$B = \dfrac{8\pi^2}{3}\mathrm{RMSF}^2$: about 26 Å² for 1 Å of fluctuation. Align before computing RMSF, or overall tumbling swamps it' }
+  verify: { expect: { r: "8*pi**2/3*nsimplify(rmsf)**2" } }
+
+- template: md-hydrogen-bond
+  skill: md.analysis
+  pace: recall
+  given: { d: { pick: [2.8, 3.2, 3.4, 3.7, 4.0] }, ang: { pick: [110, 140, 165] } }
+  prompt: 'Using the criterion D···A ≤ 3.5 Å and D–H···A ≥ 120°, is a contact at ${{d}}$ Å and ${{ang}}^\circ$ a hydrogen bond?'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["Yes", "No"]
+      correct: "d <= 3.5 and ang >= 120 ? 0 : 1"
+      explain: 'Both conditions must hold. Report hydrogen bonds as an occupancy, the fraction of frames that pass, and state the criterion you used'
+  verify: { choices: { a: "0 if (nsimplify(d) <= Rational(7, 2) and ang >= 120) else 1" } }
+
+- template: md-clustering
+  skill: md.analysis
+  pace: recall
+  cases:
+    - { q: 'What distance is usually clustered on?', ans: 0 }
+    - { q: 'How can clustering test whether independent runs agree?', ans: 1 }
+    - { q: 'What do you report for each cluster?', ans: 2 }
+  prompt: '{{q}}'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["Pairwise RMSD between frames", "Cluster all runs together and check whether each run populates the same clusters", "Its population and a representative structure"]
+      correct: ans
+      explain: 'Cutoff-based or hierarchical clustering both work; combining runs is what turns clustering into a convergence check'
+  verify: { authored: true }
+
+- template: md-pmf-histogram
+  skill: md.analysis
+  pace: quick
+  given: { n1: { pick: [400, 1000, 250] }, n2: { pick: [100, 50, 20] } }
+  prompt: 'A histogram of a coordinate has ${{n1}}$ counts in bin A and ${{n2}}$ in bin B at 298 K. How much higher is the PMF at B than at A, in kcal/mol? ($kT = 0.593$.)'
+  parts:
+    - { ask: 'ΔW (kcal/mol)', label: r, tex: '\Delta W', value: 0.593*log(n1/n2), tol: 0.002, explain: '$W(\xi) = -kT\ln P(\xi) + \text{const}$, so differences need only the count ratio. Empty bins carry no information' }
+  verify: { expect: { r: "-Rational(593, 1000)*log(Rational(n2, n1))" } }
+
+- template: md-trajectory-loading
+  skill: md.analysis
+  pace: recall
+  cases:
+    - { q: 'Why load the PSF before the DCD in VMD?', ans: 0 }
+    - { q: 'A protein''s RMSD jumps suddenly to 40 Å for a few frames. What happened?', ans: 1 }
+  prompt: '{{q}}'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["The DCD holds only coordinates; the PSF supplies the atoms", "It crossed a box face and was wrapped: re-centre or unwrap before measuring"]
+      correct: ans
+      explain: 'Imaging artifacts corrupt RMSD and distances until the coordinates are made whole'
+  verify: { authored: true }
+
+# ── workflow ────────────────────────────────────────────────────────────────
+- template: md-slurm
+  skill: md.workflow
+  pace: recall
+  cases:
+    - { q: 'A job on the gpu partition starts without a GPU. What is missing?', ans: 0 }
+    - { q: 'How is the time limit given?', ans: 1 }
+    - { q: 'When should --mem be added?', ans: 2 }
+    - { q: 'How do you run four chained segments one at a time?', ans: 3 }
+    - { q: 'Where do you debug interactively?', ans: 4 }
+  prompt: '{{q}}'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["--gres=gpu:1: a GPU partition alone gives no GPU", "--time in minutes", "Only after a job runs out of memory", "An array of four tasks limited to one at a time (--array=1-4, throttled to 1)", "In an srun --pty session, not on the login node"]
+      correct: ans
+      explain: 'Use -p free-gpu or gpu, and -A rhayes1_lab_gpu only on paid partitions. The array syntax is --array=1-4%1'
+  verify: { authored: true }
+
+- template: md-gpu-cost
+  skill: md.workflow
+  pace: quick
+  given: { ns: { pick: [100, 400, 1000] }, rate: { pick: [50, 100, 200] } }
+  prompt: 'A campaign needs ${{ns}}$ ns at ${{rate}}$ ns/day on one GPU. What would it cost on the paid partition at \$0.32 per GPU-hour, in dollars?'
+  parts:
+    - { ask: 'Cost ($)', label: r, tex: 'C', value: 24*ns/rate*0.32, tol: 0.002, explain: 'GPU-hours = 24 × ns / (ns/day). The free partition costs nothing but jobs are preempted, which ALF tolerates because it restarts cleanly' }
+  verify: { expect: { r: "24*Rational(ns, rate)*Rational(32, 100)" } }
+
+- template: md-engine-choice
+  skill: md.workflow
+  pace: recall
+  cases:
+    - { q: 'MSλD on a GPU, as fast as possible', ans: 0 }
+    - { q: 'plain MD, fast, outside CHARMM', ans: 1 }
+    - { q: 'a feature BLaDE lacks, such as MPI, on a GPU', ans: 2 }
+    - { q: 'a quick CPU test of a script', ans: 3 }
+  prompt: 'Which engine fits: {{q}}?'
+  parts:
+    - ask: 'Engine'
+      label: a
+      choice: ["BLaDE", "OpenMM", "DOMDEC", "Standard CHARMM"]
+      correct: ans
+      explain: 'BLaDE runs MSλD 5–8 times faster than DOMDEC; DOMDEC on a GPU is about 5 times slower than BLaDE; OpenMM is fast for plain MD but does not run λ dynamics within CHARMM'
+  verify: { authored: true }
+
+- template: md-blade-commands
+  skill: md.workflow
+  pace: recall
+  cases:
+    - { q: 'How do you send ENER, MINI or DYNA to BLaDE?', ans: 0 }
+    - { q: 'How do you turn on NPT in BLaDE?', ans: 1 }
+    - { q: 'How do you set the friction?', ans: 2 }
+    - { q: 'Which thermostat and barostat does BLaDE support?', ans: 3 }
+  prompt: '{{q}}'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["Add the keyword blade", "Add prmc iprs 100 pref 1 prdv 100", "scalar fbeta set 0.1 sele all end", "Langevin (or NVE) and the Monte Carlo barostat only"]
+      correct: ans
+      explain: 'BLaDE also allows H-bond constraints only, one GPU per OpenMP thread and no MPI'
+  verify: { authored: true }
+
+- template: md-openmm
+  skill: md.workflow
+  pace: recall
+  cases:
+    - { q: 'Which integrator?', ans: 0 }
+    - { q: 'Which barostat?', ans: 1 }
+    - { q: 'Which constraints?', ans: 2 }
+    - { q: 'Where can the inputs come from?', ans: 3 }
+  prompt: 'Running plain MD from CHARMM files through OpenMM''s Python API. {{q}}'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["LangevinMiddleIntegrator at the target temperature", "MonteCarloBarostat at 1 bar", "Bonds to hydrogen, with PME for electrostatics", "CHARMM-GUI can write OpenMM inputs directly"]
+      correct: ans
+      explain: 'Load the PSF and the parameter set, build the System, add the integrator and barostat, then run'
+  verify: { authored: true }
+
+- template: md-charmm-script
+  skill: md.workflow
+  pace: recall
+  cases:
+    - { q: 'How does a title block end?', ans: 0 }
+    - { q: 'What starts a comment?', ans: 1 }
+    - { q: 'Is CHARMM case-sensitive?', ans: 2 }
+    - { q: 'Which documentation covers λ scaling?', ans: 3 }
+  prompt: '{{q}}'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["At a line holding a lone *", "!", "Commands no, file paths yes, so quote paths", "BLOCK"]
+      correct: ans
+      explain: 'Titles start with *. Variables come as @name or @@name, system values as ?name; loops are built from if and goto'
+  verify: { authored: true }
+
+- template: md-reproducibility
+  skill: md.workflow
+  pace: recall
+  cases:
+    - { q: 'force-field and engine versions', ans: 0 }
+    - { q: 'random seeds', ans: 0 }
+    - { q: 'the analysis and uncertainty scripts', ans: 0 }
+    - { q: 'protonation states, box and ions', ans: 0 }
+    - { q: 'which login node the job was submitted from', ans: 1 }
+  prompt: 'Should a simulation record include {{q}}?'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["Yes: without it the result cannot be checked or rerun", "No: it does not affect the result"]
+      correct: ans
+      explain: 'Keep every input and script under version control, and document the full uncertainty procedure'
+  verify: { authored: true }
+
+- template: md-trajectory-storage
+  skill: md.workflow
+  pace: quick
+  given: { atoms: { pick: [20000, 50000, 100000] }, steps: { pick: [5000000, 50000000] }, nsavc: { pick: [1000, 5000, 10000] } }
+  prompt: 'A DCD stores ${{atoms}}$ atoms every ${{nsavc}}$ steps over ${{steps}}$ steps. How large is it, in GB?'
+  parts:
+    - { ask: 'Size (GB)', label: r, tex: 'S', value: 12*atoms*steps/nsavc/1e9, tol: 0.002, explain: 'Single-precision x, y and z: 12 bytes per atom per frame; frames = steps / nsavc' }
+  verify: { expect: { r: "12*atoms*Rational(steps, nsavc)/10**9" } }
+
+- template: md-alf-cleanup
+  skill: md.workflow
+  pace: recall
+  cases:
+    - { q: 'run*/output and analysis*/data', ans: 0 }
+    - { q: 'Energy, Lambda and slurm logs', ans: 0 }
+    - { q: 'alchemical trajectories (run*/res) of published work', ans: 1 }
+    - { q: 'spatial DCDs, after publication', ans: 2 }
+  prompt: 'Cleaning up a finished ALF project: what happens to {{q}}?'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["Disposable", "Keep", "May be deleted"]
+      correct: ans
+      explain: 'Keep what is needed to recompute the published numbers; the rest can be regenerated'
+  verify: { authored: true }
+
+# ── advanced λ dynamics ─────────────────────────────────────────────────────
+- template: md-intersite-coupling
+  skill: md.lambda
+  pace: recall
+  cases:
+    - { q: 'sites that do not interact', ans: 0 }
+    - { q: 'flattening runs with significant coupling', ans: 1 }
+    - { q: 'postprocessing with significant coupling', ans: 2 }
+  prompt: 'What ntersite setting suits {{q}}?'
+  parts:
+    - ask: 'ntersite'
+      label: a
+      choice: ["[0,0], the default", "[0,1] in short runflat cycles", "[2,1], adjusting only the c intersite biases"]
+      correct: ans
+      explain: 'Intersite biases are only worth their cost when substituents at different sites interact'
+  verify: { authored: true }
+
+- template: md-estimator-choice
+  skill: md.lambda
+  pace: recall
+  given: { lg: { pick: [2, 4, 5, 7, 9] } }
+  prompt: 'A chemical space has about $10^{ {{lg}} }$ end states. Which estimator suits it?'
+  parts:
+    - ask: 'Estimator'
+      label: a
+      choice: ["Histogram: every end state is visited", "Potts model fitted by likelihood (LM)", "Potts model fitted by pseudolikelihood (PLM)"]
+      correct: "lg <= 2 ? 0 : (lg < 6 ? 1 : 2)"
+      explain: 'Histograms need every end state visited, about 100–500 at most. The Potts model keeps one- and two-site terms only; likelihood below about 10⁶ end states, pseudolikelihood above'
+  verify: { choices: { a: "0 if lg <= 2 else (1 if lg < 6 else 2)" } }
+
+- template: md-partition-mutations
+  skill: md.lambda
+  pace: recall
+  given: { n: { pick: [4, 6, 9, 14, 20] } }
+  prompt: 'With the classic constraints and biases, a site needs ${{n}}$ substituents. What do you do?'
+  parts:
+    - ask: 'Action'
+      label: a
+      choice: ["Run them at one site", "Split them across systems that share a reference substituent"]
+      correct: "n <= 6 ? 0 : 1"
+      explain: 'The ALF README advises at most 6 substituents per site, 9 being the tested ceiling. Newer constraints and biases (2024–2026) extend this to dozens'
+  verify: { choices: { a: "0 if n <= 6 else 1" } }
+
+- template: md-charge-change
+  skill: md.lambda
+  pace: recall
+  cases:
+    - { q: 'What goes wrong when a perturbation changes the net charge in a PME box?', ans: 0 }
+    - { q: 'What does ALF''s q key enable?', ans: 1 }
+    - { q: 'What is an alternative?', ans: 2 }
+  prompt: '{{q}}'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["Finite-size artifacts from the neutralising background", "The discrete solvent correction, the largest term that can be computed", "Co-alchemical ions that change charge the opposite way"]
+      correct: ans
+      explain: 'Charge-changing mutations need a correction or a compensating ion; otherwise their free energies depend on box size'
+  verify: { authored: true }
+
+- template: md-replica-exchange
+  skill: md.lambda
+  pace: recall
+  cases:
+    - { q: 'Why do some sites need replica exchange?', ans: 0 }
+    - { q: 'How does biasing-potential replica exchange help?', ans: 1 }
+    - { q: 'What does it need to run?', ans: 2 }
+  prompt: '{{q}}'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["Slow coupled conformational and alchemical barriers (A42, A98, M102 in T4 lysozyme)", "Replicas with offset biases exchange to cross the barriers", "nreps above 1 and working MPI on the cluster"]
+      correct: ans
+      explain: 'When λ cannot move without a slow conformational change, a ladder of biased replicas carries it across'
+  verify: { authored: true }
+
+- template: md-proline-glycine
+  skill: md.lambda
+  pace: recall
+  cases:
+    - { q: 'Why is a proline mutation hard?', ans: 0 }
+    - { q: 'Why is a glycine mutation hard?', ans: 1 }
+    - { q: 'Where is the workaround described?', ans: 2 }
+  prompt: '{{q}}'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["Its side chain bonds back to the backbone nitrogen, closing a ring", "It has no Cβ, so backbone terms such as CMAP differ", "Hayes and Brooks, 2021"]
+      correct: ans
+      explain: 'Both change backbone terms between substituents, which ordinary side-chain topologies assume are shared'
+  verify: { authored: true }
