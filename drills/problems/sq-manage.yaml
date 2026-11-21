@@ -1,0 +1,507 @@
+# SQL, part 2: changing data and managing objects. Oracle 1Z0-071 exam topic groups 10–16
+# (DML and transactions, indexes, synonyms and sequences, DDL, views, user access, the data
+# dictionary, time zones), then window functions and star-schema reporting, which the exam leaves
+# out and the computer-science and information-systems frameworks ask for.
+#
+# Statements that change data are run by the verifier (tests/verify/sql.py) and then queried.
+# Oracle behaviour SQLite does not share (DDL committing, MERGE, INSERT ALL) is checked against a
+# script written the long way (`vs`), so the card's answer rests on Oracle's rule and the
+# arithmetic on the database. Rules no query can show are authored.
+
+# ── 10 DML and transactions ────────────────────────────────────────────────
+- template: sq-dml-after
+  skill: sql.dml
+  pace: quick
+  figure: &EMP
+    type: scheme
+    plain: true
+    panels:
+      - type: table
+        caption: emp
+        head: [id, name, dept, salary, mgr, hired]
+        rows: [[1, Ana, Sales, 5000, "NULL", 2019], [2, Ben, Sales, 4000, 1, 2021], [3, Cy, IT, 6000, "NULL", 2018], [4, Dee, IT, 5500, 3, 2020], [5, Eli, IT, "NULL", 3, 2022], [6, Fay, HR, 4500, "NULL", 2021]]
+  cases:
+    - { s: "INSERT INTO emp (id, name, dept) VALUES (7, 'Gus', 'Ops')", q: "SELECT COUNT(salary) FROM emp", ans: 5 }
+    - { s: "UPDATE emp SET salary = salary + 500 WHERE dept = 'Sales'", q: "SELECT SUM(salary) FROM emp", ans: 26000 }
+    - { s: "DELETE FROM emp WHERE salary IS NULL OR salary < 4500", q: "SELECT COUNT(*) FROM emp", ans: 4 }
+    - { s: "UPDATE emp SET mgr = 3 WHERE mgr IS NULL AND id <> 3", q: "SELECT COUNT(*) FROM emp WHERE mgr = 3", ans: 4 }
+    - { s: "INSERT INTO emp SELECT id + 10, name, dept, salary, mgr, hired FROM emp WHERE dept = 'IT'", q: "SELECT COUNT(*) FROM emp", ans: 9 }
+    - { s: "UPDATE emp SET salary = NULL WHERE dept = 'HR'", q: "SELECT AVG(salary) FROM emp", ans: 5125 }
+    - { s: "UPDATE emp SET salary = 7000", q: "SELECT COUNT(DISTINCT salary) FROM emp", ans: 1 }
+  prompt: 'After {{s}}, what does {{q}} return?'
+  parts:
+    - { ask: 'Value', label: a, value: ans, tol: 0.0001, explain: 'Columns left out of an INSERT get their default, NULL unless one was declared. UPDATE and DELETE touch every row the WHERE clause keeps, and with no WHERE clause, every row. INSERT … SELECT copies as many rows as the query returns, with no VALUES keyword' }
+  verify: { expect: { a: "sql_after('emp', s, q)" } }
+
+- template: sq-transaction
+  skill: sql.dml
+  pace: quick
+  figure: *EMP
+  cases:
+    - { s: "DELETE FROM emp WHERE id = 6; SAVEPOINT s1; DELETE FROM emp WHERE id = 5; ROLLBACK TO s1; COMMIT;", vs: "BEGIN; DELETE FROM emp WHERE id = 6; SAVEPOINT s1; DELETE FROM emp WHERE id = 5; ROLLBACK TO s1; COMMIT;", q: "SELECT COUNT(*) FROM emp", ans: 5 }
+    - { s: "DELETE FROM emp WHERE id = 6; ROLLBACK;", vs: "BEGIN; DELETE FROM emp WHERE id = 6; ROLLBACK;", q: "SELECT COUNT(*) FROM emp", ans: 6 }
+    - { s: "UPDATE emp SET salary = 1000 WHERE id = 1; COMMIT; ROLLBACK;", vs: "BEGIN; UPDATE emp SET salary = 1000 WHERE id = 1; COMMIT;", q: "SELECT salary FROM emp WHERE id = 1", ans: 1000 }
+    - { s: "DELETE FROM emp WHERE dept = 'IT'; CREATE TABLE t (x NUMBER); ROLLBACK;", vs: "BEGIN; DELETE FROM emp WHERE dept = 'IT'; COMMIT;", q: "SELECT COUNT(*) FROM emp", ans: 3 }
+    - { s: "INSERT INTO emp (id, name) VALUES (7, 'Gus'); SAVEPOINT a; INSERT INTO emp (id, name) VALUES (8, 'Hal'); SAVEPOINT b; DELETE FROM emp WHERE id = 1; ROLLBACK TO a; COMMIT;", vs: "BEGIN; INSERT INTO emp (id, name) VALUES (7, 'Gus'); SAVEPOINT a; INSERT INTO emp (id, name) VALUES (8, 'Hal'); SAVEPOINT b; DELETE FROM emp WHERE id = 1; ROLLBACK TO a; COMMIT;", q: "SELECT COUNT(*) FROM emp", ans: 7 }
+    - { s: "UPDATE emp SET salary = 9000 WHERE id = 2; SAVEPOINT a; UPDATE emp SET salary = 8000 WHERE id = 2; ROLLBACK TO a; ROLLBACK;", vs: "BEGIN; UPDATE emp SET salary = 9000 WHERE id = 2; SAVEPOINT a; UPDATE emp SET salary = 8000 WHERE id = 2; ROLLBACK TO a; ROLLBACK;", q: "SELECT salary FROM emp WHERE id = 2", ans: 4000 }
+    - { s: "DELETE FROM emp WHERE id = 1; TRUNCATE TABLE depts; ROLLBACK;", vs: "BEGIN; DELETE FROM emp WHERE id = 1; COMMIT;", q: "SELECT COUNT(*) FROM emp", ans: 5 }
+  prompt: 'One Oracle session runs: {{s}} Then what does {{q}} return?'
+  parts:
+    - { ask: 'Value', label: a, value: ans, tol: 0.0001, explain: 'A transaction starts with the first DML and ends at COMMIT or ROLLBACK. ROLLBACK TO a savepoint undoes only the work after it and leaves the transaction open; a plain ROLLBACK undoes all of it. Any DDL (CREATE, TRUNCATE…) commits what came before it, so a ROLLBACK afterward has nothing to undo' }
+  verify: { expect: { a: "sql_after('emp', vs, q)" } }
+
+- template: sq-merge
+  skill: sql.dml
+  pace: quick
+  figure: &EMPD
+    type: scheme
+    plain: true
+    panels:
+      - type: table
+        caption: emp
+        head: [id, name, dept, salary, mgr, hired]
+        rows: [[1, Ana, Sales, 5000, "NULL", 2019], [2, Ben, Sales, 4000, 1, 2021], [3, Cy, IT, 6000, "NULL", 2018], [4, Dee, IT, 5500, 3, 2020], [5, Eli, IT, "NULL", 3, 2022], [6, Fay, HR, 4500, "NULL", 2021]]
+      - type: table
+        caption: depts
+        head: [dept, city]
+        rows: [[Sales, Boston], [IT, Austin], [Ops, Denver]]
+  cases:
+    - { s: "MERGE INTO depts d USING (SELECT DISTINCT dept FROM emp) e ON (d.dept = e.dept) WHEN NOT MATCHED THEN INSERT (dept, city) VALUES (e.dept, 'TBD')", vs: "INSERT INTO depts SELECT DISTINCT dept, 'TBD' FROM emp WHERE dept NOT IN (SELECT dept FROM depts);", q: "SELECT COUNT(*) FROM depts", ans: 4 }
+    - { s: "MERGE INTO emp e USING (SELECT 5 id, 5200 sal FROM DUAL) n ON (e.id = n.id) WHEN MATCHED THEN UPDATE SET e.salary = n.sal WHEN NOT MATCHED THEN INSERT (id, salary) VALUES (n.id, n.sal)", vs: "UPDATE emp SET salary = 5200 WHERE id = 5;", q: "SELECT SUM(salary) FROM emp", ans: 30200 }
+    - { s: "MERGE INTO emp e USING (SELECT 9 id, 5200 sal FROM DUAL) n ON (e.id = n.id) WHEN MATCHED THEN UPDATE SET e.salary = n.sal WHEN NOT MATCHED THEN INSERT (id, salary) VALUES (n.id, n.sal)", vs: "INSERT INTO emp (id, salary) VALUES (9, 5200);", q: "SELECT COUNT(*) FROM emp", ans: 7 }
+    - { s: "MERGE INTO emp e USING depts d ON (e.dept = d.dept) WHEN MATCHED THEN UPDATE SET e.salary = NVL(e.salary, 0) + 100", vs: "UPDATE emp SET salary = NVL(salary, 0) + 100 WHERE dept IN (SELECT dept FROM depts);", q: "SELECT SUM(salary) FROM emp", ans: 25500 }
+  prompt: 'After {{s}}, what does {{q}} return?'
+  parts:
+    - { ask: 'Value', label: a, value: ans, tol: 0.0001, explain: 'MERGE matches each source row to the target with the ON condition: matched rows take the WHEN MATCHED update, unmatched source rows the WHEN NOT MATCHED insert. Either branch may be left out. Target rows with no source row are untouched, and a target row matched twice is an error' }
+  verify: { expect: { a: "sql_after('emp', vs, q)" } }
+
+- template: sq-multi-insert
+  skill: sql.dml
+  pace: quick
+  figure: *EMP
+  cases:
+    - { s: "INSERT ALL WHEN salary >= 5000 THEN INTO hi VALUES (id) WHEN salary >= 4500 THEN INTO mid VALUES (id) SELECT id, salary FROM emp", w: 'rows are in mid', vs: "CREATE TABLE hi (id NUMBER); CREATE TABLE mid (id NUMBER); INSERT INTO hi SELECT id FROM emp WHERE salary >= 5000; INSERT INTO mid SELECT id FROM emp WHERE salary >= 4500;", vq: "SELECT COUNT(*) FROM mid", ans: 4 }
+    - { s: "INSERT FIRST WHEN salary >= 5000 THEN INTO hi VALUES (id) WHEN salary >= 4500 THEN INTO mid VALUES (id) SELECT id, salary FROM emp", w: 'rows are in mid', vs: "CREATE TABLE hi (id NUMBER); CREATE TABLE mid (id NUMBER); INSERT INTO hi SELECT id FROM emp WHERE salary >= 5000; INSERT INTO mid SELECT id FROM emp WHERE salary >= 4500 AND salary < 5000;", vq: "SELECT COUNT(*) FROM mid", ans: 1 }
+    - { s: "INSERT ALL WHEN salary >= 5000 THEN INTO hi VALUES (id) WHEN salary >= 4500 THEN INTO mid VALUES (id) SELECT id, salary FROM emp", w: 'rows were inserted in all', vs: "CREATE TABLE hi (id NUMBER); CREATE TABLE mid (id NUMBER); INSERT INTO hi SELECT id FROM emp WHERE salary >= 5000; INSERT INTO mid SELECT id FROM emp WHERE salary >= 4500;", vq: "SELECT (SELECT COUNT(*) FROM hi) + (SELECT COUNT(*) FROM mid)", ans: 7 }
+    - { s: "INSERT FIRST WHEN salary >= 5000 THEN INTO hi VALUES (id) WHEN salary >= 4500 THEN INTO mid VALUES (id) SELECT id, salary FROM emp", w: 'rows were inserted in all', vs: "CREATE TABLE hi (id NUMBER); CREATE TABLE mid (id NUMBER); INSERT INTO hi SELECT id FROM emp WHERE salary >= 5000; INSERT INTO mid SELECT id FROM emp WHERE salary >= 4500 AND salary < 5000;", vq: "SELECT (SELECT COUNT(*) FROM hi) + (SELECT COUNT(*) FROM mid)", ans: 4 }
+    - { s: "INSERT ALL INTO hi VALUES (id) INTO mid VALUES (id) SELECT id FROM emp WHERE dept = 'IT'", w: 'rows were inserted in all', vs: "CREATE TABLE hi (id NUMBER); CREATE TABLE mid (id NUMBER); INSERT INTO hi SELECT id FROM emp WHERE dept = 'IT'; INSERT INTO mid SELECT id FROM emp WHERE dept = 'IT';", vq: "SELECT (SELECT COUNT(*) FROM hi) + (SELECT COUNT(*) FROM mid)", ans: 6 }
+  prompt: 'Empty tables hi(id) and mid(id) exist. After {{s}}, how many {{w}}?'
+  parts:
+    - { ask: 'Rows', label: a, value: ans, tol: 0.0001, explain: 'INSERT ALL tests every WHEN clause for each source row and inserts into every table whose test passes. INSERT FIRST stops at the first passing WHEN, so a row lands in one table at most. Without WHEN, INSERT ALL puts every row into every listed table' }
+  verify: { expect: { a: "sql_after('emp', vs, vq)" } }
+
+# ── 11 indexes, synonyms and sequences ─────────────────────────────────────
+- template: sq-sequence
+  skill: sql.ddl
+  pace: quick
+  given: { st: { pick: [1, 10, 100, 1000] }, inc: { pick: [1, 2, 5, 10] }, n: { pick: [2, 3, 4, 5] } }
+  prompt: 'CREATE SEQUENCE s START WITH {{st}} INCREMENT BY {{inc}}. A session then calls s.NEXTVAL {{n}} times. What does s.CURRVAL return now?'
+  parts:
+    - { ask: 'CURRVAL', label: a, value: st + (n - 1)*inc, tol: 0.0001, explain: 'The first NEXTVAL returns the START WITH value; each later one adds the increment. CURRVAL repeats the last value NEXTVAL gave this session, and is an error before the session''s first NEXTVAL' }
+  verify: { expect: { a: "st + (n - 1)*inc" } }
+
+- template: sq-sequence-cycle
+  skill: sql.ddl
+  pace: quick
+  given: { m: { pick: [3, 4, 5] }, k: { pick: [5, 7, 8, 10, 11] } }
+  prompt: 'CREATE SEQUENCE s START WITH 1 INCREMENT BY 1 MAXVALUE {{m}} CYCLE NOCACHE. What does call number {{k}} to s.NEXTVAL return?'
+  parts:
+    - { ask: 'Value', label: a, value: "mod(k - 1, m) + 1", tol: 0.0001, explain: 'After MAXVALUE a CYCLE sequence starts again at MINVALUE (1 by default for an ascending sequence), so the values run 1, 2, …, {{m}}, 1, 2, … . Without CYCLE the next call after MAXVALUE is an error. A sequence never promises gap-free numbers: rolled-back transactions and cached values leave gaps' }
+  verify: { expect: { a: "k - m*(ceiling(Integer(k)/m) - 1)" } }
+
+- template: sq-index-use
+  skill: sql.ddl
+  pace: quick
+  cases:
+    - { w: "WHERE name = 'Ana'", ans: 0 }
+    - { w: "WHERE name LIKE 'A%'", ans: 0 }
+    - { w: "WHERE UPPER(name) = 'ANA'", ans: 1 }
+    - { w: "WHERE SUBSTR(name, 1, 1) = 'A'", ans: 1 }
+    - { w: "WHERE name LIKE '%a'", ans: 2 }
+    - { w: "WHERE name IS NULL", ans: 3 }
+  prompt: 'There is an ordinary B-tree index on emp(name) and nothing else. Can Oracle use it to find the rows for SELECT * FROM emp {{w}}?'
+  parts:
+    - ask: 'Index'
+      label: a
+      choice: ["Yes", "No: a function is applied to the column", "No: the pattern starts with a wildcard", "No: a B-tree index does not store rows whose key is entirely NULL"]
+      correct: ans
+      explain: 'An index stores the column''s values in order, so it helps when the search is on those values or a known prefix of them. Wrapping the column in a function hides the stored values (a function-based index on UPPER(name) would fix that). A leading % means any start, so there is no place in the order to begin'
+  verify: { authored: true }
+
+- template: sq-objects
+  skill: sql.ddl
+  pace: recall
+  cases:
+    - { c: 'Adding a PRIMARY KEY or UNIQUE constraint to a table also creates', o1: 'a unique index, if one does not exist', o2: 'a sequence', o3: 'a public synonym', o4: 'nothing else', ans: 0 }
+    - { c: 'A PUBLIC synonym for scott.emp', o1: 'gives every user the right to query it', o2: 'lets every user refer to it as emp, if they already have the privilege', o3: 'copies the table', o4: 'can only be created by scott', ans: 1 }
+    - { c: 'Dropping a table does what to its indexes', o1: 'Leaves them, invalid', o2: 'Moves them to another table', o3: 'Drops them with the table', o4: 'Nothing until the next COMMIT', ans: 2 }
+    - { c: 'Dropping a table does what to synonyms that point to it', o1: 'Drops them too', o2: 'Repoints them to the recycle bin', o3: 'Raises an error', o4: 'Leaves them in place, now invalid', ans: 3 }
+    - { c: 'Calling s.CURRVAL before s.NEXTVAL in a new session', o1: 'raises an error', o2: 'returns the START WITH value', o3: 'returns 0', o4: 'returns NULL', ans: 0 }
+    - { c: 'Making an index INVISIBLE', o1: 'drops it but keeps its definition', o2: 'keeps it up to date but stops the optimizer from using it', o3: 'hides it from the data dictionary', o4: 'makes the table read-only', ans: 1 }
+  prompt: '{{c}}?'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["{{o1}}", "{{o2}}", "{{o3}}", "{{o4}}"]
+      correct: ans
+      explain: 'Indexes belong to their table and go with it. A synonym is only a name; it outlives what it points to and grants nothing. Primary key and unique constraints are enforced through a unique index. Sequences are independent objects whose CURRVAL is per session'
+  verify: { authored: true }
+
+# ── 12 DDL ─────────────────────────────────────────────────────────────────
+- template: sq-constraint-fail
+  skill: sql.ddl
+  pace: quick
+  figure: *EMPD
+  cases:
+    - { ddl: &DDL "CREATE TABLE t (id NUMBER PRIMARY KEY, code VARCHAR2(3) UNIQUE, qty NUMBER CHECK (qty > 0), dept VARCHAR2(10) REFERENCES depts (dept)); INSERT INTO t VALUES (1, 'A', 5, 'IT');", o1: "(2, 'B', 3, 'Sales')", o2: "(3, 'C', -1, 'IT')", o3: "(4, 'D', 2, NULL)", o4: "(5, NULL, 1, 'IT')", ans: 1 }
+    - { ddl: *DDL, o1: "(1, 'Z', 2, 'IT')", o2: "(6, 'E', 9, 'Sales')", o3: "(7, 'F', 1, NULL)", o4: "(8, NULL, 4, 'Sales')", ans: 0 }
+    - { ddl: *DDL, o1: "(2, 'B', 2, 'IT')", o2: "(3, NULL, 2, NULL)", o3: "(4, 'A', 2, 'IT')", o4: "(5, 'C', 7, 'Sales')", ans: 2 }
+    - { ddl: *DDL, o1: "(2, 'B', 2, 'Sales')", o2: "(3, 'C', 1, 'IT')", o3: "(4, 'D', 3, NULL)", o4: "(5, 'E', 2, 'HR')", ans: 3 }
+    - { ddl: *DDL, o1: "(2, 'B', NULL, 'IT')", o2: "(3, 'C', 0, 'IT')", o3: "(4, NULL, 6, 'Ops')", o4: "(5, 'D', 8, NULL)", ans: 1 }
+  prompt: 'After {{ddl}} which of these, run next as INSERT INTO t VALUES …, fails?'
+  parts:
+    - ask: 'Fails'
+      label: a
+      choice: ["{{o1}}", "{{o2}}", "{{o3}}", "{{o4}}"]
+      correct: ans
+      explain: 'PRIMARY KEY is unique and not null. UNIQUE forbids a repeated value but allows any number of NULLs. A CHECK fails only when its condition is false; NULL makes it unknown, which passes. A foreign key value must exist in the parent table (HR is not in depts) or be NULL'
+  verify: { choices: { a: "sql_fails('emp', [ddl + ' INSERT INTO t VALUES ' + o + ';' for o in [o1, o2, o3, o4]])" } }
+
+- template: sq-constraint-type
+  skill: sql.ddl
+  pace: recall
+  cases:
+    - { t: 'P', ans: 0 }
+    - { t: 'R', ans: 1 }
+    - { t: 'U', ans: 2 }
+    - { t: 'C', ans: 3 }
+  prompt: 'In USER_CONSTRAINTS, what kind of constraint has CONSTRAINT_TYPE {{t}}?'
+  parts:
+    - ask: 'Constraint'
+      label: a
+      choice: ["Primary key", "Foreign key (referential)", "Unique", "Check, including NOT NULL"]
+      correct: ans
+      explain: 'P primary key, R referential (foreign key), U unique, C check. A NOT NULL column is stored as a check constraint, so it shows up as C. The columns each constraint covers are in USER_CONS_COLUMNS'
+  verify: { authored: true }
+
+- template: sq-ddl-facts
+  skill: sql.ddl
+  pace: recall
+  cases:
+    - { c: 'removes only the rows that match a condition', ans: 0 }
+    - { c: 'removes rows and can be undone with ROLLBACK', ans: 0 }
+    - { c: 'fires DELETE triggers row by row', ans: 0 }
+    - { c: 'removes every row, keeps the table, and cannot be rolled back', ans: 1 }
+    - { c: 'empties the table and resets its storage high-water mark', ans: 1 }
+    - { c: 'removes the table itself, which FLASHBACK TABLE … TO BEFORE DROP can bring back', ans: 2 }
+    - { c: 'removes the table along with its indexes, constraints and triggers', ans: 2 }
+  prompt: 'Which statement {{c}}?'
+  parts:
+    - ask: 'Statement'
+      label: a
+      choice: ["DELETE FROM t", "TRUNCATE TABLE t", "DROP TABLE t"]
+      correct: ans
+      explain: 'DELETE is DML: it can filter, it logs every row, it fires triggers and it waits for COMMIT. TRUNCATE is DDL: all rows, fast, commits at once. DROP removes the table and everything that hangs off it; by default it goes to the recycle bin, unless PURGE is added'
+  verify: { authored: true }
+
+- template: sq-datatypes
+  skill: sql.ddl
+  pace: quick
+  cases:
+    - { c: "LENGTH of 'ab' stored in a CHAR(5) column", o1: '5', o2: '2', o3: '3', o4: 'NULL', ans: 0 }
+    - { c: "LENGTH of 'ab' stored in a VARCHAR2(5) column", o1: '5', o2: '2', o3: '3', o4: 'NULL', ans: 1 }
+    - { c: 'The largest value a NUMBER(5,2) column can hold', o1: '99999', o2: '99999.99', o3: '999.99', o4: '9.99', ans: 2 }
+    - { c: '12.345 inserted into a NUMBER(5,2) column is stored as', o1: '12.345', o2: '12.34', o3: 'An error', o4: '12.35', ans: 3 }
+    - { c: '1234.5 inserted into a NUMBER(5,2) column', o1: 'Error: value larger than the precision allows', o2: 'Stored as 999.99', o3: 'Stored as 1234.50', o4: 'Stored as 234.50', ans: 0 }
+    - { c: 'The type to use for a time with fractional seconds', o1: 'DATE', o2: 'TIMESTAMP', o3: 'NUMBER', o4: 'INTERVAL DAY TO SECOND', ans: 1 }
+  prompt: '{{c}}?'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["{{o1}}", "{{o2}}", "{{o3}}", "{{o4}}"]
+      correct: ans
+      explain: 'CHAR(n) pads with spaces to n; VARCHAR2(n) stores what it is given, up to n. NUMBER(p, s) has p digits in all, s of them after the point: extra decimals are rounded away, extra digits before the point are an error. DATE keeps whole seconds; TIMESTAMP keeps fractions'
+  verify: { authored: true }
+
+- template: sq-temp-external
+  skill: sql.ddl
+  pace: quick
+  cases:
+    - { c: 'In a global temporary table created ON COMMIT DELETE ROWS, what happens to your rows when you COMMIT', o1: 'They are deleted', o2: 'They are kept until you log off', o3: 'They are copied to a permanent table', o4: 'Nothing', ans: 0 }
+    - { c: 'In a global temporary table created ON COMMIT PRESERVE ROWS, when do your rows go', o1: 'At each COMMIT', o2: 'When your session ends', o3: 'Never', o4: 'When the table is dropped', ans: 1 }
+    - { c: 'Can another session see the rows you put in a global temporary table', o1: 'Yes, after you COMMIT', o2: 'Yes, at once', o3: 'No: each session sees only its own rows', o4: 'Only the table''s owner can', ans: 2 }
+    - { c: 'Can you UPDATE or DELETE rows of an external table', o1: 'Yes, like any table', o2: 'Only with MERGE', o3: 'Only its owner can', o4: 'No: it is read-only, its data stays in files outside the database', ans: 3 }
+    - { c: 'What does ALTER TABLE emp SET UNUSED (hired) do', o1: 'Hides the column at once; its space is reclaimed later by DROP UNUSED COLUMNS', o2: 'Deletes the column''s data and frees the space immediately', o3: 'Makes the column read-only', o4: 'Nothing until the next COMMIT', ans: 0 }
+    - { c: 'Can a DROP TABLE be rolled back', o1: 'Yes, until COMMIT', o2: 'No, but FLASHBACK TABLE … TO BEFORE DROP can bring it back from the recycle bin', o3: 'Yes, with ROLLBACK TO a savepoint', o4: 'No, the data is gone for good', ans: 1 }
+  prompt: '{{c}}?'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["{{o1}}", "{{o2}}", "{{o3}}", "{{o4}}"]
+      correct: ans
+      explain: 'A global temporary table''s definition is permanent and shared; its rows are private to a session and last until COMMIT or the end of the session, as the ON COMMIT clause says. An external table is a read-only window onto an operating-system file. DDL commits, so it is undone with flashback, not ROLLBACK'
+  verify: { authored: true }
+
+# ── 13 views ───────────────────────────────────────────────────────────────
+- template: sq-view-dml
+  skill: sql.ddl
+  pace: quick
+  cases:
+    - { v: "CREATE VIEW v AS SELECT id, name, salary FROM emp WHERE dept = 'IT'", d: 'UPDATE v SET salary = 6100 WHERE id = 4', ans: 0 }
+    - { v: "CREATE VIEW v AS SELECT dept, AVG(salary) avg_sal FROM emp GROUP BY dept", d: "UPDATE v SET avg_sal = 5000 WHERE dept = 'IT'", ans: 1 }
+    - { v: "CREATE VIEW v AS SELECT DISTINCT dept FROM emp", d: "DELETE FROM v WHERE dept = 'HR'", ans: 2 }
+    - { v: "CREATE VIEW v AS SELECT id, name FROM emp WITH READ ONLY", d: 'DELETE FROM v WHERE id = 6', ans: 3 }
+    - { v: "CREATE VIEW v AS SELECT id, dept FROM emp WHERE dept = 'IT' WITH CHECK OPTION", d: "UPDATE v SET dept = 'HR' WHERE id = 4", ans: 4 }
+    - { v: "CREATE VIEW v AS SELECT id, dept FROM emp WHERE dept = 'IT' WITH CHECK OPTION", d: "UPDATE v SET dept = 'IT' WHERE id = 4", ans: 0 }
+  prompt: 'After {{v}}, does {{d}} work?'
+  parts:
+    - ask: 'Result'
+      label: a
+      choice: ["Yes", "No: the view has a group function or GROUP BY", "No: the view has DISTINCT", "No: the view is WITH READ ONLY", "No: WITH CHECK OPTION, and the row would leave the view"]
+      correct: ans
+      explain: 'DML through a view works when each view row traces back to one base-table row. Group functions, GROUP BY and DISTINCT break that link. WITH READ ONLY forbids all DML; WITH CHECK OPTION allows only changes that keep the row visible through the view'
+  verify: { authored: true }
+
+- template: sq-view-facts
+  skill: sql.ddl
+  pace: recall
+  cases:
+    - { c: 'What does CREATE OR REPLACE VIEW keep that DROP VIEW then CREATE VIEW would lose', o1: 'The grants on the view', o2: 'The base table''s rows', o3: 'Nothing', o4: 'The view''s old column list', ans: 0 }
+    - { c: 'What does CREATE FORCE VIEW do when the base table does not exist yet', o1: 'Raises an error', o2: 'Creates the view anyway, invalid until the table exists', o3: 'Creates the table too', o4: 'Waits for the table', ans: 1 }
+    - { c: 'What happens to a view when its base table is dropped', o1: 'It is dropped too', o2: 'It keeps showing the old rows', o3: 'It stays, but is invalid', o4: 'It becomes a table', ans: 2 }
+    - { c: 'What is an inline view', o1: 'A view stored in the data dictionary', o2: 'A view WITH READ ONLY', o3: 'A view on another view', o4: 'A subquery in the FROM clause, with an alias', ans: 3 }
+    - { c: 'What does DROP VIEW delete', o1: 'Only the view''s definition: no data', o2: 'The base table''s rows the view showed', o3: 'The base table', o4: 'The view and its indexes', ans: 0 }
+  prompt: '{{c}}?'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["{{o1}}", "{{o2}}", "{{o3}}", "{{o4}}"]
+      correct: ans
+      explain: 'A view is a stored query: it holds no rows of its own, so creating or dropping it touches no data. It depends on its base tables and is recompiled, or marked invalid, as they change'
+  verify: { authored: true }
+
+# ── 14 user access ─────────────────────────────────────────────────────────
+- template: sq-privilege-kind
+  skill: sql.admin
+  pace: recall
+  cases:
+    - { g: 'GRANT CREATE TABLE TO ben', ans: 0 }
+    - { g: 'GRANT CREATE SESSION TO ben', ans: 0 }
+    - { g: 'GRANT DROP ANY TABLE TO ben', ans: 0 }
+    - { g: 'GRANT SELECT ON emp TO ben', ans: 1 }
+    - { g: 'GRANT UPDATE (salary) ON emp TO ben', ans: 1 }
+    - { g: 'GRANT REFERENCES ON depts TO ben', ans: 1 }
+    - { g: 'GRANT EXECUTE ON pay_pkg TO ben', ans: 1 }
+  prompt: 'Is {{g}} a system privilege or an object privilege?'
+  parts:
+    - ask: 'Kind'
+      label: a
+      choice: ["System privilege: the right to do something in the database", "Object privilege: the right to use one named object"]
+      correct: ans
+      explain: 'Object privileges name an object with ON (SELECT ON emp); system privileges do not (CREATE TABLE, CREATE SESSION, anything with ANY). UPDATE, INSERT and REFERENCES can be limited to columns'
+  verify: { authored: true }
+
+- template: sq-revoke-cascade
+  skill: sql.admin
+  pace: quick
+  cases:
+    - { c: 'A grants SELECT ON emp to B WITH GRANT OPTION; B grants it to C; A revokes it from B', ans: 0 }
+    - { c: 'A grants CREATE TABLE to B WITH ADMIN OPTION; B grants it to C; A revokes it from B', ans: 1 }
+    - { c: 'A grants the role clerk to B WITH ADMIN OPTION; B grants clerk to C; A revokes clerk from B', ans: 1 }
+    - { c: 'A grants SELECT ON emp to the role clerk, which C has; A revokes SELECT ON emp from clerk', ans: 0 }
+  prompt: '{{c}}. Does C still have it?'
+  parts:
+    - ask: 'C'
+      label: a
+      choice: ["No: C loses it too", "Yes: C keeps it"]
+      correct: ans
+      explain: 'Revoking an object privilege cascades to everyone who received it through the revokee''s GRANT OPTION. System privileges and roles passed on WITH ADMIN OPTION do not cascade. A privilege taken from a role is gone at once for everyone who has the role'
+  verify: { authored: true }
+
+- template: sq-grant-facts
+  skill: sql.admin
+  pace: recall
+  cases:
+    - { c: 'Who can grant SELECT on scott.emp to others', o1: 'scott, or anyone who received it WITH GRANT OPTION', o2: 'Only a DBA', o3: 'Anyone who can query it', o4: 'Only scott', ans: 0 }
+    - { c: 'Can WITH GRANT OPTION be given when granting an object privilege to a role', o1: 'Yes', o2: 'No', o3: 'Only for SELECT', o4: 'Only by a DBA', ans: 1 }
+    - { c: 'Who receives GRANT SELECT ON emp TO PUBLIC', o1: 'Nobody until roles are set', o2: 'Only DBAs', o3: 'Every user, now and later', o4: 'Users created after the grant', ans: 2 }
+    - { c: 'Which privilege does a new user need just to log in', o1: 'CONNECT ANY', o2: 'SELECT ANY TABLE', o3: 'RESOURCE', o4: 'CREATE SESSION', ans: 3 }
+    - { c: 'What does a role do', o1: 'Groups privileges so they can be granted and revoked together', o2: 'Owns tables', o3: 'Logs in like a user', o4: 'Replaces a schema', ans: 0 }
+  prompt: '{{c}}?'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["{{o1}}", "{{o2}}", "{{o3}}", "{{o4}}"]
+      correct: ans
+      explain: 'The owner of an object holds every privilege on it and can pass any of them on, optionally WITH GRANT OPTION (never to a role). PUBLIC is every user. A role is a named bundle of privileges; users get it like a privilege'
+  verify: { authored: true }
+
+# ── 15 data dictionary ─────────────────────────────────────────────────────
+- template: sq-dictionary
+  skill: sql.admin
+  pace: recall
+  cases:
+    - { c: 'the columns of your own tables and their types', o1: 'USER_TAB_COLUMNS', o2: 'USER_TABLES', o3: 'USER_CONSTRAINTS', o4: 'ALL_OBJECTS', ans: 0 }
+    - { c: 'your constraints and their types', o1: 'USER_TAB_COLUMNS', o2: 'USER_CONSTRAINTS', o3: 'USER_CONS_COLUMNS', o4: 'USER_INDEXES', ans: 1 }
+    - { c: 'which columns each of your constraints covers', o1: 'USER_CONSTRAINTS', o2: 'USER_TAB_COLUMNS', o3: 'USER_CONS_COLUMNS', o4: 'USER_IND_COLUMNS', ans: 2 }
+    - { c: 'every object you can use, including other users''', o1: 'USER_OBJECTS', o2: 'DBA_OBJECTS', o3: 'DICTIONARY', o4: 'ALL_OBJECTS', ans: 3 }
+    - { c: 'the query text behind your views', o1: 'USER_VIEWS', o2: 'USER_SOURCE', o3: 'USER_OBJECTS', o4: 'USER_TABLES', ans: 0 }
+    - { c: 'your sequences and the last number each has handed out', o1: 'USER_OBJECTS', o2: 'USER_SEQUENCES', o3: 'USER_TABLES', o4: 'USER_SYNONYMS', ans: 1 }
+    - { c: 'the names and descriptions of every dictionary view', o1: 'ALL_VIEWS', o2: 'USER_OBJECTS', o3: 'DICTIONARY', o4: 'DBA_TABLES', ans: 2 }
+  prompt: 'Which data dictionary view shows {{c}}?'
+  parts:
+    - ask: 'View'
+      label: a
+      choice: ["{{o1}}", "{{o2}}", "{{o3}}", "{{o4}}"]
+      correct: ans
+      explain: 'Dictionary view names say what they list: TABLES, TAB_COLUMNS, CONSTRAINTS, CONS_COLUMNS, INDEXES, IND_COLUMNS, VIEWS, SEQUENCES, SYNONYMS, OBJECTS. DICTIONARY (also called DICT) lists them all with a comment on each. The dictionary is read-only and kept by Oracle itself'
+  verify: { authored: true }
+
+- template: sq-dictionary-prefix
+  skill: sql.admin
+  pace: recall
+  cases:
+    - { p: 'USER_', ans: 0 }
+    - { p: 'ALL_', ans: 1 }
+    - { p: 'DBA_', ans: 2 }
+    - { p: 'V followed by a dollar sign (the V-dollar views)', ans: 3 }
+  prompt: 'What does a dictionary view whose name starts with {{p}} cover?'
+  parts:
+    - ask: 'Scope'
+      label: a
+      choice: ["Objects you own", "Objects you own or have been granted access to", "Every object in the database (needs a privilege to query)", "The live state of the running instance (dynamic performance views)"]
+      correct: ans
+      explain: 'USER_ ⊂ ALL_ ⊂ DBA_: the same views at three scopes, and USER_ views drop the OWNER column because it is always you. The V-dollar views are not stored tables at all; they read memory structures of the running instance'
+  verify: { authored: true }
+
+# ── 16 time zones and intervals ────────────────────────────────────────────
+- template: sq-timezone-fn
+  skill: sql.admin
+  pace: recall
+  cases:
+    - { f: 'CURRENT_DATE', ans: 0 }
+    - { f: 'CURRENT_TIMESTAMP', ans: 1 }
+    - { f: 'LOCALTIMESTAMP', ans: 2 }
+    - { f: 'SYSDATE', ans: 3 }
+    - { f: 'SYSTIMESTAMP', ans: 3 }
+  prompt: 'What does {{f}} return?'
+  parts:
+    - ask: 'Returns'
+      label: a
+      choice: ["A DATE, in the session's time zone", "A TIMESTAMP WITH TIME ZONE, in the session's time zone", "A TIMESTAMP with no zone, in the session's time zone", "The database server's own clock (its operating system's time zone)"]
+      correct: ans
+      explain: 'The CURRENT_ and LOCAL functions follow the session (ALTER SESSION SET TIME_ZONE changes them): CURRENT_DATE is a DATE, CURRENT_TIMESTAMP carries its zone, LOCALTIMESTAMP drops it. SYSDATE and SYSTIMESTAMP ignore the session and read the server'
+  verify: { authored: true }
+
+- template: sq-tz-types
+  skill: sql.admin
+  pace: recall
+  cases:
+    - { c: 'stores the time with its own offset or region, and shows it as stored', ans: 0 }
+    - { c: 'is converted to the database time zone when stored and shown in each user''s session time zone', ans: 1 }
+    - { c: 'keeps fractional seconds but no time zone at all', ans: 2 }
+    - { c: 'keeps century to second, with no fractional seconds and no zone', ans: 3 }
+  prompt: 'Which data type {{c}}?'
+  parts:
+    - ask: 'Type'
+      label: a
+      choice: ["TIMESTAMP WITH TIME ZONE", "TIMESTAMP WITH LOCAL TIME ZONE", "TIMESTAMP", "DATE"]
+      correct: ans
+      explain: 'DATE and TIMESTAMP know nothing of zones. WITH TIME ZONE remembers the zone it was given. WITH LOCAL TIME ZONE normalizes to the database''s zone and translates for each reader, so everyone sees the same instant on their own clock'
+  verify: { authored: true }
+
+- template: sq-interval-ym
+  skill: sql.admin
+  pace: quick
+  given: { y: { pick: [1, 2, 3, 5] }, mo: { pick: [3, 6, 9, 11] } }
+  prompt: 'How many months long is INTERVAL ''{{y}}-{{mo}}'' YEAR TO MONTH?'
+  parts:
+    - { ask: 'Months', label: a, value: 12*y + mo, tol: 0.0001, explain: 'A YEAR TO MONTH literal is written ''years-months''. INTERVAL YEAR TO MONTH holds only years and months; days and smaller units need INTERVAL DAY TO SECOND' }
+  verify: { expect: { a: "12*y + mo" } }
+
+- template: sq-interval-ds
+  skill: sql.admin
+  pace: quick
+  given: { d: { pick: [1, 2, 3, 4] }, h: { pick: [2, 6, 12, 18] }, mi: { pick: [0, 30] } }
+  prompt: 'How many hours long is INTERVAL ''{{d}} {{h}}:{{mi == 0 ? "00" : mi}}:00'' DAY TO SECOND?'
+  parts:
+    - { ask: 'Hours', label: a, value: 24*d + h + mi/60, tol: 0.0001, explain: 'A DAY TO SECOND literal is written ''days hours:minutes:seconds''. Adding one to a DATE or TIMESTAMP moves it by exactly that much time' }
+  verify: { expect: { a: "24*d + h + mi/Integer(60)" } }
+
+- template: sq-interval-add
+  skill: sql.admin
+  pace: quick
+  cases:
+    - { e: "DATE '2026-01-31' + INTERVAL '1' MONTH", o1: 'An error: ORA-01839 date not valid for month specified', o2: '2026-02-28', o3: '2026-03-03', o4: '2026-03-31', ans: 0 }
+    - { e: "ADD_MONTHS(DATE '2026-01-31', 1)", o1: 'An error', o2: '2026-02-28', o3: '2026-03-03', o4: '2026-02-31', ans: 1 }
+    - { e: "DATE '2026-01-15' + INTERVAL '10' DAY", o1: '2026-01-05', o2: '2026-11-15', o3: '2026-01-25', o4: 'An error', ans: 2 }
+    - { e: "TIMESTAMP '2026-03-01 23:00:00' + INTERVAL '2' HOUR", o1: '2026-03-01 25:00:00', o2: '2026-03-01 01:00:00', o3: 'An error', o4: '2026-03-02 01:00:00', ans: 3 }
+    - { e: "EXTRACT(MONTH FROM DATE '2026-11-20')", o1: '11', o2: 'NOV', o3: 'November', o4: '2026-11', ans: 0 }
+  prompt: 'What does SELECT {{e}} FROM DUAL give?'
+  parts:
+    - ask: 'Result'
+      label: a
+      choice: ["{{o1}}", "{{o2}}", "{{o3}}", "{{o4}}"]
+      correct: ans
+      explain: 'Adding a month interval keeps the day of the month, and fails when that day does not exist in the new month. ADD_MONTHS clips to the month''s last day instead. Day and hour intervals simply move the clock. EXTRACT returns a number'
+  verify: { authored: true }
+
+# ── beyond the exam: window functions and star-schema reporting ────────────
+- template: sq-window
+  skill: sql.analytic
+  pace: quick
+  figure: *EMP
+  cases:
+    - { q: "SELECT r FROM (SELECT id, SUM(salary) OVER (ORDER BY id) r FROM emp) WHERE id = 3", vq: "SELECT r FROM (SELECT id, SUM(salary) OVER (ORDER BY id) r FROM emp) WHERE id = 3", ans: 15000 }
+    - { q: "SELECT r FROM (SELECT id, RANK() OVER (ORDER BY salary DESC) r FROM emp) WHERE id = 4", vq: "SELECT r FROM (SELECT id, RANK() OVER (ORDER BY salary DESC NULLS FIRST) r FROM emp) WHERE id = 4", ans: 3 }
+    - { q: "SELECT r FROM (SELECT id, RANK() OVER (ORDER BY hired) r FROM emp) WHERE id = 5", vq: "SELECT r FROM (SELECT id, RANK() OVER (ORDER BY hired) r FROM emp) WHERE id = 5", ans: 6 }
+    - { q: "SELECT r FROM (SELECT id, DENSE_RANK() OVER (ORDER BY hired) r FROM emp) WHERE id = 5", vq: "SELECT r FROM (SELECT id, DENSE_RANK() OVER (ORDER BY hired) r FROM emp) WHERE id = 5", ans: 5 }
+    - { q: "SELECT r FROM (SELECT id, ROW_NUMBER() OVER (PARTITION BY dept ORDER BY id) r FROM emp) WHERE id = 5", vq: "SELECT r FROM (SELECT id, ROW_NUMBER() OVER (PARTITION BY dept ORDER BY id) r FROM emp) WHERE id = 5", ans: 3 }
+    - { q: "SELECT r FROM (SELECT id, AVG(salary) OVER (PARTITION BY dept) r FROM emp) WHERE id = 2", vq: "SELECT r FROM (SELECT id, AVG(salary) OVER (PARTITION BY dept) r FROM emp) WHERE id = 2", ans: 4500 }
+    - { q: "SELECT r FROM (SELECT id, LAG(salary) OVER (ORDER BY id) r FROM emp) WHERE id = 4", vq: "SELECT r FROM (SELECT id, LAG(salary) OVER (ORDER BY id) r FROM emp) WHERE id = 4", ans: 6000 }
+    - { q: "SELECT r FROM (SELECT id, SUM(salary) OVER (PARTITION BY dept ORDER BY id) r FROM emp) WHERE id = 5", vq: "SELECT r FROM (SELECT id, SUM(salary) OVER (PARTITION BY dept ORDER BY id) r FROM emp) WHERE id = 5", ans: 11500 }
+  prompt: 'What does this return? {{q}}'
+  parts:
+    - { ask: 'Value', label: a, value: ans, tol: 0.0001, explain: 'A window function computes over a set of rows related to the current one without collapsing them: PARTITION BY restarts it per group, ORDER BY makes SUM a running total. RANK leaves gaps after ties, DENSE_RANK does not, ROW_NUMBER never ties. Oracle puts NULLs first in a descending order. The inner query is needed because WHERE runs before the window does' }
+  verify: { expect: { a: "sql_val('emp', vq)" } }
+
+- template: sq-top-per-group
+  skill: sql.analytic
+  pace: quick
+  figure: *EMP
+  cases:
+    - { q: "SELECT name FROM (SELECT name, ROW_NUMBER() OVER (PARTITION BY dept ORDER BY salary DESC NULLS LAST) rn FROM emp) WHERE rn = 1 ORDER BY name", o1: 'Ana, Cy, Fay', o2: 'Cy', o3: 'Ana, Eli, Fay', o4: 'Ben, Dee, Fay', ans: 0 }
+    - { q: "SELECT name FROM (SELECT name, ROW_NUMBER() OVER (ORDER BY hired, id) rn FROM emp) WHERE rn BETWEEN 2 AND 3 ORDER BY rn", o1: 'Cy, Ana', o2: 'Ana, Dee', o3: 'Dee, Ben', o4: 'Ana, Dee, Ben', ans: 1 }
+    - { q: "SELECT name FROM (SELECT name, RANK() OVER (ORDER BY hired DESC) rk FROM emp) WHERE rk = 2 ORDER BY name", o1: 'Ben', o2: 'Fay', o3: 'Ben, Fay', o4: 'Dee', ans: 2 }
+    - { q: "SELECT name FROM (SELECT name, DENSE_RANK() OVER (ORDER BY hired DESC) dr FROM emp) WHERE dr = 3 ORDER BY name", o1: 'Ana', o2: 'Ben, Fay', o3: 'Nobody', o4: 'Dee', ans: 3 }
+  prompt: 'Which names does this return, in order? {{q}}'
+  parts:
+    - ask: 'Rows'
+      label: a
+      choice: ["{{o1}}", "{{o2}}", "{{o3}}", "{{o4}}"]
+      correct: ans
+      explain: 'Number the rows in an inline view, then filter on the number outside it: that is how to get the top n per group or a page of results. With ties, RANK skips numbers (two people at 2, nobody at 3) and DENSE_RANK does not'
+  verify: { choices: { a: "sql_list('emp', q, [o1, o2, o3, o4])" } }
+
+- template: sq-star-agg
+  skill: sql.analytic
+  pace: quick
+  figure:
+    type: scheme
+    plain: true
+    panels:
+      - { type: table, caption: sales, head: [day, store, product, units], rows: [[1, S1, P1, 3], [1, S2, P1, 5], [1, S1, P2, 2], [2, S1, P1, 4], [2, S2, P2, 6], [3, S2, P1, 1]] }
+      - { type: table, caption: products, head: [product, category, price], rows: [[P1, Tea, 4], [P2, Cake, 10]] }
+      - { type: table, caption: stores, head: [store, region], rows: [[S1, West], [S2, East]] }
+  cases:
+    - { q: "SELECT SUM(s.units * p.price) FROM sales s JOIN products p ON s.product = p.product", ans: 132 }
+    - { q: "SELECT SUM(s.units * p.price) FROM sales s JOIN products p ON s.product = p.product JOIN stores t ON s.store = t.store WHERE t.region = 'West'", ans: 48 }
+    - { q: "SELECT SUM(s.units) FROM sales s JOIN stores t ON s.store = t.store WHERE t.region = 'East'", ans: 12 }
+    - { q: "SELECT SUM(s.units * p.price) FROM sales s JOIN products p ON s.product = p.product JOIN stores t ON s.store = t.store WHERE t.region = 'East' AND p.category = 'Cake'", ans: 60 }
+    - { q: "SELECT AVG(units) FROM sales WHERE day = 1", ans: 3.3333333333333335 }
+    - { q: "SELECT MAX(r) FROM (SELECT s.day, SUM(s.units * p.price) r FROM sales s JOIN products p ON s.product = p.product GROUP BY s.day)", ans: 76 }
+    - { q: "SELECT COUNT(*) FROM (SELECT t.region, p.category FROM sales s JOIN products p ON s.product = p.product JOIN stores t ON s.store = t.store GROUP BY t.region, p.category)", ans: 4 }
+  prompt: 'sales is a fact table (one row per sale); products and stores are dimensions. What does this return? {{q}}'
+  parts:
+    - { ask: 'Value', label: a, value: ans, tol: 0.0001, explain: 'A star-schema report joins the fact table to the dimensions it needs, filters on dimension attributes, and groups at the level asked. Measures come from the fact rows (units) or are computed from them with dimension attributes (units × price), always before summing' }
+  verify: { expect: { a: "sql_val('star', q)" } }

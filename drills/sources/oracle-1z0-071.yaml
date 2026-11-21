@@ -1,0 +1,27 @@
+# Oracle Database SQL, exam 1Z0-071: the published exam topics, read through a restatement
+# (examcert.app, 2026), not Oracle's own page. Not a textbook: each "chapter" is one of the exam's
+# sixteen topic groups, in the exam's order, and the last is ours (analytic SQL, which the exam
+# leaves out). The dialect throughout is Oracle's.
+id: oracle-1z0-071
+title: "Oracle Database SQL — exam 1Z0-071 topics"
+short: "1Z0-071"
+edition: 2026
+field: databases
+chapters:
+  - { n: 1, title: "Relational database concepts", skills: [sql.select] }
+  - { n: 2, title: "Retrieving data with SELECT", skills: [sql.select] }
+  - { n: 3, title: "Restricting and sorting data", skills: [sql.select] }
+  - { n: 4, title: "Single-row functions", skills: [sql.functions] }
+  - { n: 5, title: "Conversion functions and conditional expressions", skills: [sql.functions] }
+  - { n: 6, title: "Group functions", skills: [sql.aggregate] }
+  - { n: 7, title: "Displaying data from multiple tables", skills: [sql.joins] }
+  - { n: 8, title: "Subqueries", skills: [sql.subqueries] }
+  - { n: 9, title: "Set operators", skills: [sql.subqueries] }
+  - { n: 10, title: "Managing tables with DML; transactions", skills: [sql.dml] }
+  - { n: 11, title: "Indexes, synonyms and sequences", skills: [sql.ddl] }
+  - { n: 12, title: "DDL: tables, data types and constraints", skills: [sql.ddl] }
+  - { n: 13, title: "Views", skills: [sql.ddl] }
+  - { n: 14, title: "Controlling user access", skills: [sql.admin] }
+  - { n: 15, title: "Data dictionary views", skills: [sql.admin] }
+  - { n: 16, title: "Data in different time zones", skills: [sql.admin] }
+  - { n: 17, title: "Analytic functions and star-schema reporting (beyond the exam; our grouping)", skills: [sql.analytic] }
