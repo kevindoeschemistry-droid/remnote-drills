@@ -1,0 +1,581 @@
+# Second question types for high-school mathematics, part B: Algebra 2, precalculus, inference.
+
+# ── complex numbers and polynomials ────────────────────────────────────────
+- template: hs2-i-power
+  skill: alg.complex
+  pace: recall
+  given: { n: { int: [2, 60] } }
+  prompt: 'Simplify $i^{ {{n}} }$.'
+  parts:
+    - ask: 'Value'
+      label: a
+      choice: ["1", "i", "-1", "-i"]
+      correct: 'n % 4'
+      explain: 'Powers of i cycle every 4: 1, i, −1, −i. Divide the exponent by 4 and use the remainder, here {{n % 4}}'
+  verify: { choices: { a: "n % 4" } }
+
+- template: hs2-complex-factor-root
+  skill: alg.complex
+  pace: recall
+  given: { k: { int: [1, 9] } }
+  prompt: 'Factor $x^2 + {{k^2}}$ over the complex numbers as $(x + ai)(x - ai)$. What is a?'
+  parts:
+    - { ask: 'a', label: r, value: k, tol: 0.0001, explain: 'A sum of squares factors with i: $x^2 + {{k}}^2 = (x + {{k}}i)(x - {{k}}i)$, so the roots are ±{{k}}i' }
+  verify: { expect: { r: "Max(*[im(z) for z in solve(Eq(x**2 + k**2, 0), x)])" } }
+
+- template: hs2-sum-of-cubes
+  skill: alg.polynomials
+  pace: recall
+  given: { a: { int: [1, 5] }, w: { pick: [0, 1] } }
+  prompt: '$x^3 {{w == 0 ? "+" : "-"}} {{a^3}}$ factors as $(x {{w == 0 ? "+" : "-"}} {{a}})(x^2 + bx + {{a^2}})$. What is b?'
+  parts:
+    - { ask: 'b', label: r, value: 'w == 0 ? -a : a', tol: 0.0001, explain: 'a³ + b³ = (a + b)(a² − ab + b²) and a³ − b³ = (a − b)(a² + ab + b²): the middle sign is opposite the first factor''s' }
+  verify: { expect: { r: "solve(Eq(expand((Symbol('t') + (a if w == 0 else -a))*(Symbol('t')**2 + x*Symbol('t') + a**2)).coeff(Symbol('t'), 2), 0), x)[0]" } }
+
+- template: hs2-identity-numeric
+  skill: alg.polynomials
+  pace: quick
+  given: { m: { int: [2, 6] }, n: { int: [1, 5] } }
+  require: [m > n]
+  prompt: '$(m^2 - n^2)^2 + (2mn)^2 = (m^2 + n^2)^2$ makes Pythagorean triples. With m = {{m}}, n = {{n}}, what is the hypotenuse?'
+  parts:
+    - { ask: 'Hypotenuse', label: r, value: m^2 + n^2, tol: 0.0001, explain: 'Legs {{m^2 - n^2}} and {{2*m*n}}, hypotenuse {{m^2 + n^2}}. Proving the identity once (expand both sides) guarantees every such triple works' }
+  verify: { expect: { r: "sqrt((m**2 - n**2)**2 + (2*m*n)**2)" } }
+
+- template: hs2-root-count
+  skill: alg.polynomials
+  pace: recall
+  given: { d: { int: [2, 7] } }
+  prompt: 'How many complex roots, counted with multiplicity, does a polynomial of degree ${{d}}$ have?'
+  parts:
+    - { ask: 'Roots', label: r, value: d, tol: 0.0001, explain: 'The Fundamental Theorem of Algebra: exactly n roots in the complex numbers. Non-real roots of real polynomials come in conjugate pairs' }
+  verify: { expect: { r: "d" } }
+
+- template: hs2-remainder-check
+  skill: alg.polynomials
+  pace: quick
+  given: { a: { int: [-3, 3] }, b: { int: [-5, 5] }, c: { int: [-5, 5] }, r: { int: [-3, 3] } }
+  require: [r != 0, 'r^2 + b*r + c != 0']
+  prompt: 'What is the remainder when $x^2 + ({{b}})x + ({{c}})$ is divided by $x - ({{r}})$?'
+  parts:
+    - { ask: 'Remainder', label: s, value: r^2 + b*r + c, tol: 0.0001, explain: 'Remainder theorem: substitute x = {{r}}. If the remainder is 0, then x − ({{r}}) is a factor' }
+  verify: { expect: { s: "r**2 + b*r + c" } }
+
+- template: hs2-rational-simplify
+  skill: alg.rational
+  pace: quick
+  given: { a: { int: [1, 6] }, b: { int: [1, 6] }, t: { int: [7, 12] } }
+  require: [a != b]
+  prompt: 'Simplify $\dfrac{x^2 - {{a^2}}}{x - {{a}}} + \dfrac{1}{x + {{b}}}\cdot (x + {{b}})$ and evaluate at x = {{t}}.'
+  parts:
+    - { ask: 'Value', label: r, value: t + a + 1, tol: 0.0001, explain: 'Factor and cancel: (x² − {{a^2}})/(x − {{a}}) = x + {{a}} (for x ≠ {{a}}), and the second term is 1. Rational expressions behave like fractions: closed under +, −, ×, ÷ by nonzero' }
+  verify: { expect: { r: "(t**2 - a**2)/(t - a) + Integer(1)/(t + b)*(t + b)" } }
+
+- template: hs2-extraneous
+  skill: alg.rational
+  pace: quick
+  given: { k: { int: [1, 6] } }
+  prompt: 'Solve $\sqrt{x + {{k^2 - k}}} = x - {{k}}$ after squaring both sides. How many of the squared equation''s roots are real solutions of the original?'
+  parts:
+    - { ask: 'Valid solutions', label: r, value: 1, tol: 0.0001, explain: 'Squaring can add solutions that make the right side negative. Always substitute each candidate back into the original equation' }
+  verify: { expect: { r: "len([z for z in solve(Eq(x + k**2 - k, (x - k)**2), x) if (z - k) >= 0])" } }
+
+- template: hs2-sign-change-root
+  skill: alg.polynomials
+  pace: recall
+  given: { a: { int: [1, 4] } }
+  prompt: 'f(x) = x³ − {{a}}x − 1. f(1) = {{1 - a - 1}} and f(3) = {{27 - 3*a - 1}}. What can you conclude?'
+  parts:
+    - ask: 'Conclusion'
+      label: a
+      choice: ["f has a root between 1 and 3", "f has no root between 1 and 3", "Nothing"]
+      correct: 0
+      explain: 'A continuous function that changes sign must cross zero in between (Intermediate Value Theorem); halving the interval homes in on it'
+  verify: { choices: { a: "0 if (1 - a - 1)*(27 - 3*a - 1) < 0 else 1" } }
+
+# ── trigonometry ───────────────────────────────────────────────────────────
+- template: hs2-arc-radians
+  skill: trig.unit-circle
+  pace: recall
+  given: { r: { int: [2, 10] }, t: { pick: [0.5, 1, 1.5, 2, 3] } }
+  prompt: 'A central angle of ${{t}}$ radians cuts an arc in a circle of radius ${{r}}$. How long is the arc?'
+  parts:
+    - { ask: 'Arc length', label: s, value: r*t, tol: 0.0001, explain: 'One radian is the angle whose arc equals the radius, so s = rθ. On the unit circle the arc length is the angle' }
+  verify: { expect: { s: "r*nsimplify(t)" } }
+
+- template: hs2-sinusoid-params
+  skill: trig.graphs
+  pace: quick
+  given: { A: { int: [2, 8] }, k: { int: [5, 20] }, P: { pick: [4, 12, 24] } }
+  prompt: 'A tide rises to ${{k + A}}$ ft and falls to ${{k - A}}$ ft, repeating every ${{P}}$ hours. In y = A sin(Bt) + k, what is B?'
+  parts:
+    - { ask: 'B', label: b, value: 2*pi/P, tol: 0.001, explain: 'Amplitude = (max − min)/2 = {{A}}, midline k = {{k}}, period = 2π/B so B = 2π/{{P}}' }
+  verify: { expect: { b: "2*pi/P" } }
+
+- template: hs2-pyth-quadrant
+  skill: trig.identities
+  pace: quick
+  cases:
+    - { s: 0.6, q: 'II', c: -0.8 }
+    - { s: -0.6, q: 'III', c: -0.8 }
+    - { s: 0.8, q: 'I', c: 0.6 }
+    - { s: -0.28, q: 'IV', c: 0.96 }
+    - { s: 0.28, q: 'II', c: -0.96 }
+  prompt: 'sin θ = {{s}} and θ is in quadrant {{q}}. What is cos θ?'
+  parts:
+    - { ask: 'cos θ', label: r, value: c, tol: 0.0001, explain: 'cos²θ = 1 − sin²θ = {{1 - s^2}}, so |cos θ| = {{abs(c)}}; the quadrant fixes the sign (cos is positive in I and IV)' }
+  verify: { expect: { r: "(1 if q in ['I', 'IV'] else -1)*sqrt(1 - nsimplify(s)**2)" } }
+
+- template: hs2-trig-symmetry
+  skill: trig.unit-circle
+  pace: recall
+  cases:
+    - { q: 'sin(−θ)', ans: 0 }
+    - { q: 'cos(−θ)', ans: 1 }
+    - { q: 'sin(θ + 2π)', ans: 2 }
+    - { q: 'cos(π − θ)', ans: 3 }
+  prompt: 'Using the unit circle, {{q}} equals:'
+  parts:
+    - ask: 'Equals'
+      label: a
+      choice: ["−sin θ (sine is odd)", "cos θ (cosine is even)", "sin θ (period 2π)", "−cos θ"]
+      correct: ans
+      explain: 'Reflecting across the x-axis negates y (sine) and keeps x (cosine); a full turn returns to the same point; reflecting across the y-axis negates x'
+  verify: { authored: true }
+
+- template: hs2-inverse-trig-range
+  skill: alg.functions
+  pace: recall
+  cases:
+    - { q: 'arcsin', ans: 0 }
+    - { q: 'arccos', ans: 1 }
+    - { q: 'arctan', ans: 2 }
+  prompt: 'What interval does {{q}} return values in?'
+  parts:
+    - ask: 'Range'
+      label: a
+      choice: ["[−π/2, π/2]", "[0, π]", "(−π/2, π/2)"]
+      correct: ans
+      explain: 'Each trig function is restricted to an interval where it is one-to-one, so an inverse exists; the inverse''s range is that interval'
+  verify: { authored: true }
+
+- template: hs2-trig-solution-count
+  skill: trig.graphs
+  pace: quick
+  given: { v: { pick: [0.3, 0.5, 0.8] }, n: { int: [1, 3] } }
+  prompt: 'How many solutions does sin x = {{v}} have on $0 \le x < {{2*n}}\pi$?'
+  parts:
+    - { ask: 'Solutions', label: r, value: 2*n, tol: 0.0001, explain: 'Each full period has two solutions for 0 < v < 1 (one in quadrant I, one in II), and the interval covers ${{n}}$ periods' }
+  verify: { expect: { r: "len(solve(Eq(sin(x), nsimplify(v)), x))*n" } }
+
+- template: hs2-addition-exact
+  skill: trig.identities
+  pace: quick
+  cases:
+    - { q: 'sin 75°', v: 0.9659258262890683, ex: 'sin(5*pi/12)' }
+    - { q: 'cos 75°', v: 0.25881904510252074, ex: 'cos(5*pi/12)' }
+    - { q: 'sin 15°', v: 0.25881904510252074, ex: 'sin(pi/12)' }
+    - { q: 'cos 15°', v: 0.9659258262890683, ex: 'cos(pi/12)' }
+  prompt: 'Use an addition or subtraction formula with 45° and 30° to find {{q}}.'
+  parts:
+    - { ask: 'Value', label: r, value: v, tol: 0.0001, explain: 'sin(A ± B) = sin A cos B ± cos A sin B; cos(A ± B) = cos A cos B ∓ sin A sin B. The exact values are (√6 ± √2)/4' }
+  verify: { expect: { r: "calc(ex)" } }
+
+- template: hs2-double-angle
+  skill: trig.identities
+  pace: quick
+  cases:
+    - { s: 0.6, c: 0.8 }
+    - { s: 0.8, c: 0.6 }
+    - { s: 0.28, c: 0.96 }
+  given: { w: { pick: [0, 1] } }
+  prompt: 'sin θ = {{s}} and cos θ = {{c}}. What is {{w == 0 ? "sin 2θ" : "cos 2θ"}}?'
+  parts:
+    - { ask: 'Value', label: r, value: 'w == 0 ? 2*s*c : c^2 - s^2', tol: 0.0001, explain: 'sin 2θ = 2 sin θ cos θ; cos 2θ = cos²θ − sin²θ, both from the addition formulas with A = B = θ' }
+  verify: { expect: { r: "(2*nsimplify(s)*nsimplify(c)) if w == 0 else (nsimplify(c)**2 - nsimplify(s)**2)" } }
+
+# ── modeling ───────────────────────────────────────────────────────────────
+- template: hs2-half-life-model
+  skill: alg.exponential
+  pace: quick
+  given: { A0: { pick: [80, 200, 500] }, h: { pick: [3, 6, 8] }, n: { int: [1, 4] } }
+  prompt: 'A drug has a half-life of ${{h}}$ hours: A(t) = {{A0}}(1/2)^{t/{{h}}}. How much remains after ${{n*h}}$ hours?'
+  parts:
+    - { ask: 'Amount', label: r, value: A0/2^n, tol: 0.0001, explain: '{{n*h}} hours is {{n}} half-lives: {{A0}} × (1/2)^{{n}}' }
+  verify: { expect: { r: "A0*Rational(1, 2)**Rational(n*h, h)" } }
+
+- template: hs2-damped-model
+  skill: alg.exponential
+  pace: recall
+  cases:
+    - { q: 'A spring''s bounces get smaller over time', ans: 0 }
+    - { q: 'Hot soup cools toward room temperature', ans: 1 }
+    - { q: 'Daylight hours over a year', ans: 2 }
+  prompt: '{{q}}. Which model?'
+  parts:
+    - ask: 'Model'
+      label: a
+      choice: ["A decaying exponential times a sinusoid", "Room temperature plus a decaying exponential", "A plain sinusoid, A sin(Bt) + k"]
+      correct: ans
+      explain: 'Build models by combining families: multiply when one effect scales another (decaying amplitude), add when effects stack (a baseline plus a decay)'
+  verify: { authored: true }
+
+- template: hs2-periodic-features
+  skill: trig.unit-circle
+  pace: quick
+  given: { A: { int: [2, 15] }, k: { int: [20, 60] } }
+  prompt: 'The temperature follows T(t) = {{A}} sin(πt/12) + {{k}} (t in hours). What is the daily maximum?'
+  parts:
+    - { ask: 'Maximum', label: r, value: k + A, tol: 0.0001, explain: 'Sine peaks at 1, so the maximum is the midline plus the amplitude; the period is 2π/(π/12) = 24 hours' }
+  verify: { expect: { r: "k + A" } }
+
+# ── inference ──────────────────────────────────────────────────────────────
+- template: hs2-misleading-report
+  skill: stats.descriptive
+  pace: recall
+  cases:
+    - { q: 'A bar graph''s y-axis starts at 95 instead of 0', ans: 0 }
+    - { q: 'A survey of website visitors claims to represent all adults', ans: 1 }
+    - { q: 'A study of 12 people claims a drug works for everyone', ans: 2 }
+    - { q: 'An observational study concludes coffee causes long life', ans: 3 }
+  prompt: '{{q}}. What is the flaw?'
+  parts:
+    - ask: 'Flaw'
+      label: a
+      choice: ["A truncated axis exaggerates differences", "Voluntary-response sample: biased", "Sample too small to generalise", "Causal claim without an experiment"]
+      correct: ans
+      explain: 'Evaluate a data report by asking how the data were collected, how big the sample was, whether the display is honest, and whether the conclusion matches the design'
+  verify: { authored: true }
+
+# ── precalculus functions ──────────────────────────────────────────────────
+- template: hs2-inverse-check
+  skill: alg.functions
+  pace: quick
+  given: { m: { int: [2, 6] }, b: { int: [-8, 8] }, t: { int: [-5, 9] } }
+  prompt: 'f(x) = {{m}}x + ({{b}}) and g(x) = (x − ({{b}}))/{{m}}. Compute f(g({{t}})).'
+  parts:
+    - { ask: 'f(g(t))', label: r, value: t, tol: 0.0001, explain: 'If f and g are inverses, f(g(x)) = x for every x: each undoes the other' }
+  require: ['t != 0']
+  verify: { expect: { r: "m*((t - b)/m) + b" } }
+
+- template: hs2-inverse-graph
+  skill: alg.functions
+  pace: recall
+  given: { a: { int: [-6, 6] }, b: { int: [-6, 6] } }
+  require: [a != b, 'b != 0']
+  prompt: 'The graph of f passes through ({{a}}, {{b}}). Which point must lie on the graph of f⁻¹? Give its x-coordinate.'
+  parts:
+    - { ask: 'x-coordinate', label: r, value: b, tol: 0.0001, explain: 'An inverse swaps inputs and outputs: ({{a}}, {{b}}) becomes ({{b}}, {{a}}), a reflection across y = x' }
+  verify: { expect: { r: "b" } }
+
+- template: hs2-restrict-domain
+  skill: alg.functions
+  pace: recall
+  cases:
+    - { q: 'f(x) = x²', ans: 0 }
+    - { q: 'f(x) = (x − 3)²', ans: 1 }
+    - { q: 'f(x) = |x|', ans: 0 }
+    - { q: 'f(x) = cos x', ans: 2 }
+  prompt: 'On which domain is {{q}} one-to-one (so it has an inverse)?'
+  parts:
+    - ask: 'Domain'
+      label: a
+      choice: ["x ≥ 0", "x ≥ 3", "0 ≤ x ≤ π"]
+      correct: ans
+      explain: 'Keep a piece where the function only increases or only decreases, so it passes the horizontal line test'
+  verify: { authored: true }
+
+- template: hs2-log-estimate
+  skill: alg.exponential
+  pace: recall
+  given: { n: { pick: [20, 50, 300, 700, 2000, 5000] } }
+  prompt: 'Between which two whole numbers is $\log_{10} {{n}}$? Give the smaller.'
+  parts:
+    - { ask: 'Lower whole number', label: r, value: 'floor(log10(n))', tol: 0.0001, explain: 'Find the powers of 10 on either side of {{n}}: the log is the exponent, so it lies between those exponents' }
+  verify: { expect: { r: "floor(log(n, 10))" } }
+
+- template: hs2-log-domain
+  skill: alg.exponential
+  pace: quick
+  given: { a: { int: [1, 6] }, b: { int: [2, 9] } }
+  prompt: 'Solve $\log_2(x + {{a}}) + \log_2(x - {{a}}) = \log_2({{b^2 - a^2}})$. Which solution is valid? Give it.'
+  parts:
+    - { ask: 'x', label: r, value: b, tol: 0.0001, explain: 'Combine: (x + {{a}})(x − {{a}}) = {{b^2 - a^2}}, so x = ±{{b}}. Reject −{{b}}: a log needs a positive argument' }
+  verify: { expect: { r: "Max(*solve(Eq((x + a)*(x - a), b**2 - a**2), x))" } }
+
+- template: hs2-asymptote
+  skill: alg.rational
+  pace: recall
+  given: { a: { int: [-6, 6] }, b: { int: [-6, 6] }, w: { pick: [0, 1] } }
+  require: [a != b, a != 0, 'w == 0 or b != 0']
+  prompt: 'f(x) = (x − ({{b}}))/(x − ({{a}})). What is the {{w == 0 ? "vertical asymptote x =" : "zero x ="}} ?'
+  parts:
+    - { ask: 'x', label: r, value: 'w == 0 ? a : b', tol: 0.0001, explain: 'The denominator''s zero ({{a}}) gives a vertical asymptote, the numerator''s ({{b}}) a zero; equal degrees give a horizontal asymptote y = 1. A common factor would give a hole instead' }
+  verify: { expect: { r: "a if w == 0 else b" } }
+
+# ── complex plane ──────────────────────────────────────────────────────────
+- template: hs2-modulus
+  skill: alg.complex
+  pace: recall
+  cases:
+    - { a: 3, b: 4, m: 5 }
+    - { a: 5, b: -12, m: 13 }
+    - { a: -6, b: 8, m: 10 }
+    - { a: 8, b: 15, m: 17 }
+  prompt: 'What is the modulus of {{a}} + ({{b}})i?'
+  parts:
+    - { ask: 'Modulus', label: r, value: m, tol: 0.0001, explain: '|z| = √(a² + b²), the distance from 0 in the complex plane; also z·z̄ = |z|²' }
+  verify: { expect: { r: "sqrt(a**2 + b**2)" } }
+
+- template: hs2-complex-midpoint
+  skill: alg.complex
+  pace: recall
+  given: { a: { int: [-8, 8] }, b: { int: [-8, 8] }, c: { int: [-8, 8] }, d: { int: [-8, 8] } }
+  require: [a + c != 0]
+  prompt: 'What is the real part of the midpoint of {{a}} + ({{b}})i and {{c}} + ({{d}})i?'
+  parts:
+    - { ask: 'Real part', label: r, value: (a + c)/2, tol: 0.0001, explain: 'Complex numbers are points: the midpoint averages real and imaginary parts, (z₁ + z₂)/2' }
+  verify: { expect: { r: "Rational(a + c, 2)" } }
+
+# ── vectors and matrices ───────────────────────────────────────────────────
+- template: hs2-vector-or-scalar
+  skill: alg.vectors-matrices
+  pace: recall
+  cases:
+    - { q: 'velocity 30 m/s north', ans: 0 }
+    - { q: 'mass 5 kg', ans: 1 }
+    - { q: 'a force of 10 N pushing left', ans: 0 }
+    - { q: 'temperature 20 °C', ans: 1 }
+    - { q: 'displacement 3 km east', ans: 0 }
+  prompt: 'Is {{q}} a vector or a scalar?'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["Vector", "Scalar"]
+      correct: ans
+      explain: 'Vectors have magnitude and direction, drawn as directed segments; scalars have magnitude only'
+  verify: { authored: true }
+
+- template: hs2-vector-from-points
+  skill: alg.vectors-matrices
+  pace: recall
+  given: { x1: { int: [-6, 6] }, y1: { int: [-6, 6] }, x2: { int: [-6, 6] }, y2: { int: [-6, 6] } }
+  require: [x2 != x1]
+  prompt: 'A vector starts at ({{x1}}, {{y1}}) and ends at ({{x2}}, {{y2}}). What is its x-component?'
+  parts:
+    - { ask: 'x-component', label: r, value: x2 - x1, tol: 0.0001, explain: 'Components = terminal − initial point: ({{x2 - x1}}, {{y2 - y1}})' }
+  verify: { expect: { r: "x2 - x1" } }
+
+- template: hs2-vector-sum-magnitude
+  skill: alg.vectors-matrices
+  pace: quick
+  cases:
+    - { a: 3, b: 4, m: 5 }
+    - { a: 6, b: 8, m: 10 }
+    - { a: 5, b: 12, m: 13 }
+  prompt: 'A walker goes {{a}} km east then {{b}} km north. How far is she from the start?'
+  parts:
+    - { ask: 'Distance (km)', label: r, value: m, tol: 0.0001, explain: 'Add vectors tip-to-tail: (a, 0) + (0, b) = (a, b), magnitude √(a² + b²)' }
+  verify: { expect: { r: "sqrt(a**2 + b**2)" } }
+
+- template: hs2-vector-difference
+  skill: alg.vectors-matrices
+  pace: recall
+  given: { a: { int: [-6, 6] }, b: { int: [-6, 6] }, c: { int: [-6, 6] }, d: { int: [-6, 6] } }
+  require: [a != c]
+  prompt: 'v = ({{a}}, {{b}}) and w = ({{c}}, {{d}}). What is the x-component of v − w?'
+  parts:
+    - { ask: 'x-component', label: r, value: a - c, tol: 0.0001, explain: 'v − w = v + (−w): subtract component-wise. Drawn tail-to-tail, v − w points from the tip of w to the tip of v' }
+  verify: { expect: { r: "a - c" } }
+
+- template: hs2-scalar-multiple
+  skill: alg.vectors-matrices
+  pace: recall
+  given: { c: { int: [-4, 4] }, a: { int: [-5, 5] }, b: { int: [-5, 5] } }
+  require: [c != 0, a != 0]
+  prompt: 'What is the x-component of {{c}}·({{a}}, {{b}})?'
+  parts:
+    - { ask: 'x-component', label: r, value: c*a, tol: 0.0001, explain: 'A scalar multiplies every component; a negative scalar reverses the direction' }
+  verify: { expect: { r: "c*a" } }
+
+- template: hs2-scalar-length
+  skill: alg.vectors-matrices
+  pace: recall
+  given: { c: { int: [-5, 5] }, L: { int: [2, 9] } }
+  require: [c != 0]
+  prompt: '‖v‖ = {{L}}. What is ‖{{c}}v‖, and does it point the same way as v? (Give the length.)'
+  parts:
+    - { ask: 'Length', label: r, value: 'abs(c)*L', tol: 0.0001, explain: '‖cv‖ = |c|·‖v‖. Positive c keeps the direction, negative c reverses it' }
+  verify: { expect: { r: "Abs(c)*L" } }
+
+- template: hs2-boat-current
+  skill: alg.vectors-matrices
+  pace: quick
+  cases:
+    - { v: 4, c: 3, s: 5 }
+    - { v: 12, c: 5, s: 13 }
+    - { v: 8, c: 6, s: 10 }
+  prompt: 'A boat heads straight across a river at {{v}} km/h while the current flows at {{c}} km/h. What is its speed relative to the shore?'
+  parts:
+    - { ask: 'Speed (km/h)', label: r, value: s, tol: 0.0001, explain: 'Velocities add as vectors: perpendicular components combine by Pythagoras' }
+  verify: { expect: { r: "sqrt(v**2 + c**2)" } }
+
+- template: hs2-matrix-data
+  skill: alg.vectors-matrices
+  pace: quick
+  given: { a: { int: [2, 9] }, b: { int: [2, 9] }, p: { int: [3, 12] }, q: { int: [3, 12] } }
+  prompt: 'Store A sells {{a}} shirts and {{b}} hats; shirts cost {{p}} dollars and hats {{q}}. As [{{a}} {{b}}]·[{{p}}; {{q}}], what is store A''s revenue?'
+  parts:
+    - { ask: 'Revenue', label: r, value: a*p + b*q, tol: 0.0001, explain: 'Row times column: multiply matching entries and add. Matrices organise many such calculations at once' }
+  verify: { expect: { r: "(Matrix([[a, b]])*Matrix([p, q]))[0]" } }
+
+- template: hs2-scalar-matrix
+  skill: alg.vectors-matrices
+  pace: recall
+  given: { k: { pick: [1.1, 1.2, 0.9, 2] }, e: { int: [10, 50] } }
+  prompt: 'Every price in a price matrix rises by a factor of {{k}}. An entry was {{e}}. What is it now?'
+  parts:
+    - { ask: 'New entry', label: r, value: k*e, tol: 0.0001, explain: 'Scalar multiplication multiplies every entry by the same number' }
+  verify: { expect: { r: "nsimplify(k)*e" } }
+
+- template: hs2-matrix-associative
+  skill: alg.vectors-matrices
+  pace: recall
+  cases:
+    - { q: 'AB = BA for all square matrices', ans: 1 }
+    - { q: '(AB)C = A(BC)', ans: 0 }
+    - { q: 'A(B + C) = AB + AC', ans: 0 }
+    - { q: 'AI = IA = A for the identity matrix I', ans: 0 }
+  prompt: 'True or false for square matrices: {{q}}'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["True", "False"]
+      correct: ans
+      explain: 'Matrix multiplication is associative and distributive but not commutative: order matters, because each matrix is a transformation and transformations in a different order differ'
+  verify: { authored: true }
+
+- template: hs2-identity-inverse
+  skill: alg.vectors-matrices
+  pace: recall
+  given: { a: { int: [1, 6] }, b: { int: [1, 6] }, c: { int: [1, 6] }, d: { int: [1, 12] } }
+  prompt: 'Does [[{{a}}, {{b}}], [{{c}}, {{d}}]] have an inverse?'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["Yes: the determinant is nonzero", "No: the determinant is zero"]
+      correct: 'a*d - b*c != 0 ? 0 : 1'
+      explain: 'A square matrix is invertible exactly when its determinant ad − bc is nonzero; here it is {{a*d - b*c}}. The zero matrix acts like 0 and the identity like 1 in matrix arithmetic'
+  verify: { choices: { a: "0 if Matrix([[a, b], [c, d]]).det() != 0 else 1" } }
+
+- template: hs2-matrix-vector
+  skill: alg.vectors-matrices
+  pace: quick
+  given: { a: { int: [-3, 3] }, b: { int: [-3, 3] }, c: { int: [-3, 3] }, d: { int: [-3, 3] }, x1: { int: [-4, 4] }, y1: { int: [-4, 4] } }
+  require: ['a*x1 + b*y1 != 0']
+  prompt: 'What is the first component of [[{{a}}, {{b}}], [{{c}}, {{d}}]]·({{x1}}, {{y1}})?'
+  parts:
+    - { ask: 'First component', label: r, value: a*x1 + b*y1, tol: 0.0001, explain: 'Each output component is a row dotted with the vector. A matrix is a linear transformation of vectors' }
+  verify: { expect: { r: "(Matrix([[a, b], [c, d]])*Matrix([x1, y1]))[0]" } }
+
+- template: hs2-matrix-equation-dims
+  skill: alg.vectors-matrices
+  pace: recall
+  given: { m: { int: [2, 4] }, n: { int: [2, 4] } }
+  prompt: 'A system has {{m}} equations in {{n}} unknowns, written Ax = b. How many entries does A have?'
+  parts:
+    - { ask: 'Entries', label: r, value: m*n, tol: 0.0001, explain: 'A is {{m}} × {{n}}: one row per equation, one column per unknown; x has {{n}} entries and b has {{m}}' }
+  verify: { expect: { r: "m*n" } }
+
+- template: hs2-inverse-2x2
+  skill: la.inverse
+  pace: quick
+  cases:
+    - { a: 2, b: 1, c: 5, d: 3 }
+    - { a: 3, b: 2, c: 4, d: 3 }
+    - { a: 1, b: 2, c: 3, d: 7 }
+    - { a: 4, b: 3, c: 1, d: 1 }
+  given: { p: { int: [-5, 5] }, q: { int: [-5, 5] } }
+  prompt: 'Solve [[{{a}}, {{b}}], [{{c}}, {{d}}]]·(x, y) = ({{a*p + b*q}}, {{c*p + d*q}}) using the inverse. What is x?'
+  require: ['p != 0']
+  parts:
+    - { ask: 'x', label: r, value: p, tol: 0.0001, explain: 'For [[a, b], [c, d]] the inverse is (1/(ad − bc))·[[d, −b], [−c, a]]; here ad − bc = {{a*d - b*c}}. Multiply it by the right-hand side' }
+  verify: { expect: { r: "(Matrix([[a, b], [c, d]]).inv()*Matrix([a*p + b*q, c*p + d*q]))[0]" } }
+
+# ── conics, solids, expected value ─────────────────────────────────────────
+- template: hs2-ellipse-foci
+  skill: geo.coordinates
+  pace: quick
+  cases:
+    - { a: 5, b: 3, c: 4 }
+    - { a: 13, b: 5, c: 12 }
+    - { a: 10, b: 6, c: 8 }
+    - { a: 5, b: 4, c: 3 }
+  prompt: 'The ellipse x²/{{a^2}} + y²/{{b^2}} = 1 has foci at (±c, 0). What is c?'
+  parts:
+    - { ask: 'c', label: r, value: c, tol: 0.0001, explain: 'For an ellipse c² = a² − b² (the sum of distances to the foci is 2a); for a hyperbola c² = a² + b²' }
+  verify: { expect: { r: "sqrt(a**2 - b**2)" } }
+
+- template: hs2-cavalieri
+  skill: geo.measurement
+  pace: recall
+  cases:
+    - { q: 'A straight stack of coins and a slanted stack of the same coins', ans: 0 }
+    - { q: 'A cylinder and an oblique cylinder with the same base and height', ans: 0 }
+    - { q: 'A cone and a cylinder with the same base and height', ans: 1 }
+  prompt: '{{q}}: equal volumes?'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["Equal: every cross-section at the same height has the same area", "Not equal"]
+      correct: ans
+      explain: 'Cavalieri''s principle: solids whose cross-sections match in area at every height have equal volumes. A cone''s cross-sections shrink, giving one third of the cylinder'
+  verify: { authored: true }
+
+- template: hs2-random-variable
+  skill: stats.expected-value
+  pace: recall
+  cases:
+    - { q: 'X = number of heads in 3 coin tosses. Possible values?', ans: 0 }
+    - { q: 'X = sum of two dice. Possible values?', ans: 1 }
+    - { q: 'X = number of tosses until the first head. Possible values?', ans: 2 }
+  prompt: '{{q}}'
+  parts:
+    - ask: 'Values'
+      label: a
+      choice: ["0, 1, 2, 3", "2 through 12", "1, 2, 3, … (no upper limit)"]
+      correct: ans
+      explain: 'A random variable assigns a number to each outcome; its distribution lists each value with its probability'
+  verify: { authored: true }
+
+- template: hs2-empirical-mean
+  skill: stats.expected-value
+  pace: quick
+  given: { a: { int: [5, 20] }, b: { int: [5, 20] }, c: { int: [5, 20] } }
+  prompt: 'In a survey, ${{a}}$ households had 1 car, ${{b}}$ had 2 and ${{c}}$ had 3. What is the mean number of cars per household?'
+  parts:
+    - { ask: 'Mean', label: r, value: (a + 2*b + 3*c)/(a + b + c), tol: 0.001, explain: 'Turn counts into relative frequencies and weight each value: (1·{{a}} + 2·{{b}} + 3·{{c}})/{{a + b + c}}' }
+  verify: { expect: { r: "Rational(a + 2*b + 3*c, a + b + c)" } }
+
+- template: hs2-raffle-ev
+  skill: stats.expected-value
+  pace: quick
+  given: { N: { pick: [100, 500, 1000] }, P: { pick: [100, 250, 500] }, c: { pick: [1, 2, 5] } }
+  prompt: '{{N}} raffle tickets are sold at {{c}} dollars each for one prize worth {{P}} dollars. What is the expected net gain of one ticket, in dollars?'
+  parts:
+    - { ask: 'Expected net gain', label: r, value: P/N - c, tol: 0.001, explain: 'E = (1/{{N}})·{{P}} − {{c}}: the prize''s share per ticket minus the cost. A negative value means you lose that much per ticket on average' }
+  require: ['P/N != c']
+  verify: { expect: { r: "Rational(P, N) - c" } }
+
+- template: hs2-strategy-ev
+  skill: stats.expected-value
+  pace: quick
+  given: { d1: { pick: [500, 1000] }, p1: { pick: [40, 60] }, d2: { pick: [100, 250] }, p2: { pick: [80, 100] }, pr: { pick: [0.1, 0.2, 0.3] } }
+  prompt: 'Plan A: premium {{p1}} dollars a month, deductible {{d1}}. Plan B: premium {{p2}}, deductible {{d2}}. With a {{pr}} chance of one claim a year, which plan has the lower expected yearly cost?'
+  parts:
+    - ask: 'Lower expected cost'
+      label: a
+      choice: ["Plan A", "Plan B"]
+      correct: '12*p1 + pr*d1 < 12*p2 + pr*d2 ? 0 : 1'
+      explain: 'Expected cost = 12·premium + P(claim)·deductible: A {{12*p1 + pr*d1}}, B {{12*p2 + pr*d2}}. Expected value guides the choice, though risk tolerance matters too'
+  verify: { choices: { a: "0 if 12*p1 + nsimplify(pr)*d1 < 12*p2 + nsimplify(pr)*d2 else 1" } }

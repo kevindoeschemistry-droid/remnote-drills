@@ -759,6 +759,7 @@ Book: kreyszig-10e §9.7, §9.8, §9.9, §10.7, §10.9
 - mm-coverup-three (calc.partial-fractions)
 - mm-coverup-repeated (calc.partial-fractions)
 - mm-coverup-quadratic (calc.partial-fractions)
+- hs2-inverse-2x2 (la.inverse)
 - mm-eigen-trace-det (la.eigenvalues)
 - mm-damping-class (ode2.characteristic)
 - mm-particular-form (ode2.undetermined)

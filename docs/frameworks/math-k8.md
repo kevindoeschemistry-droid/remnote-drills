@@ -1334,3 +1334,4 @@ Big ideas: LINE, OPS, MULT, SHAPE, DATA
 - mm-square-near-50 (k8.exponents)
 - mm-square-near-100 (k8.exponents)
 - mm-square-two-digit (k8.exponents)
+- hs2-function-equation (k8.linear)
