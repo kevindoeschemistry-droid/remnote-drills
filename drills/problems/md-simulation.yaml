@@ -1092,9 +1092,9 @@
   skill: md.workflow
   pace: quick
   given: { ns: { pick: [100, 400, 1000] }, rate: { pick: [50, 100, 200] } }
-  prompt: 'A campaign needs ${{ns}}$ ns at ${{rate}}$ ns/day on one GPU. What would it cost on the paid partition at \$0.32 per GPU-hour, in dollars?'
+  prompt: 'A campaign needs ${{ns}}$ ns at ${{rate}}$ ns/day on one GPU. What would it cost on the paid partition at 0.32 dollars per GPU-hour, in dollars?'
   parts:
-    - { ask: 'Cost ($)', label: r, tex: 'C', value: 24*ns/rate*0.32, tol: 0.002, explain: 'GPU-hours = 24 × ns / (ns/day). The free partition costs nothing but jobs are preempted, which ALF tolerates because it restarts cleanly' }
+    - { ask: 'Cost (dollars)', label: r, tex: 'C', value: 24*ns/rate*0.32, tol: 0.002, explain: 'GPU-hours = 24 × ns / (ns/day). The free partition costs nothing but jobs are preempted, which ALF tolerates because it restarts cleanly' }
   verify: { expect: { r: "24*Rational(ns, rate)*Rational(32, 100)" } }
 
 - template: md-engine-choice
