@@ -116,3 +116,7 @@ Big ideas: MAIN
 - ● **LA-7.1.A** (lay-5e:7) Find a singular value of a small matrix.
   - EK: Singular values are the square roots of the eigenvalues of AᵀA.
   - P1 · drills: la-singular-value
+
+## Drills not yet placed on the map
+
+- hs2-inverse-2x2 (la.inverse)

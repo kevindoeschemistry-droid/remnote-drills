@@ -1,0 +1,1003 @@
+# Second question types for grades 6 to 8 (Common Core). Each objective that was drilled one way gets a
+# different kind of question: in reverse, by inspection, as an estimate, as a comparison, or in words.
+
+# ── Grade 6: ratios and rates ──────────────────────────────────────────────
+- template: g68-ratio-part-whole
+  skill: k8.ratios
+  pace: quick
+  given: { a: { int: [1, 5] }, b: { int: [2, 7] }, k: { int: [2, 8] } }
+  require: [a != b]
+  prompt: 'The ratio of boys to girls is ${{a}} : {{b}}$ and there are ${{(a + b)*k}}$ students. How many are girls?'
+  parts:
+    - { ask: 'Girls', label: g, value: b*k, tol: 0.0001, explain: 'The ratio has ${{a + b}}$ parts in all, so each part is ${{(a + b)*k}} \div {{a + b}} = {{k}}$ students; girls are ${{b}}$ parts' }
+  verify: { expect: { g: "b*((a + b)*k/(a + b))" } }
+
+- template: g68-better-buy
+  skill: k8.ratios
+  pace: quick
+  given: { p1: { pick: [3, 4, 5, 6] }, n1: { pick: [12, 16, 20] }, p2: { pick: [5, 7, 8, 9] }, n2: { pick: [24, 30, 32] } }
+  require: ['p1/n1 != p2/n2']
+  prompt: 'Pack A: ${{n1}}$ oz for ${{p1}}$ dollars. Pack B: ${{n2}}$ oz for ${{p2}}$ dollars. Which is the better buy?'
+  parts:
+    - ask: 'Better buy'
+      label: a
+      choice: ["Pack A", "Pack B"]
+      correct: 'p1/n1 < p2/n2 ? 0 : 1'
+      explain: 'Compare unit prices: ${{p1/n1|3}}$ vs ${{p2/n2|3}}$ dollars per oz. The lower price per ounce is the better buy'
+  verify: { choices: { a: "0 if Rational(p1, n1) < Rational(p2, n2) else 1" } }
+
+- template: g68-ratio-graph-point
+  skill: k8.ratios
+  pace: recall
+  given: { a: { int: [2, 6] }, b: { int: [3, 9] }, k: { int: [2, 7] } }
+  prompt: 'Equivalent ratios ${{a}} : {{b}}$ are plotted as points (x, y). If x = ${{a*k}}$, what is y?'
+  parts:
+    - { ask: 'y', label: y, value: b*k, tol: 0.0001, explain: 'Equivalent ratios scale both terms by the same factor (${{k}}$ here), so the points lie on a line through the origin' }
+  verify: { expect: { y: "Rational(b, a)*(a*k)" } }
+
+- template: g68-speed-time
+  skill: k8.ratios
+  pace: quick
+  given: { v: { pick: [40, 45, 55, 60, 65] }, d: { pick: [90, 120, 165, 195] } }
+  prompt: 'A car travels at a constant ${{v}}$ mph. How long does it take to go ${{d}}$ miles, in hours?'
+  parts:
+    - { ask: 'Hours', label: t, value: d/v, tol: 0.001, explain: 'time = distance ÷ rate. Check the units: miles ÷ (miles per hour) = hours' }
+  verify: { expect: { t: "Rational(d, v)" } }
+
+- template: g68-unit-convert-ratio
+  skill: k8.ratios
+  pace: quick
+  cases:
+    - { q: 'mph to feet per second', f: 1.4666666666666666, ex: 'Rational(5280, 3600)' }
+    - { q: 'meters per second to km per hour', f: 3.6, ex: 'Rational(3600, 1000)' }
+    - { q: 'gallons to quarts', f: 4, ex: 'Integer(4)' }
+    - { q: 'inches to centimeters (2.54 cm per inch)', f: 2.54, ex: 'Rational(254, 100)' }
+  given: { n: { pick: [5, 12, 30, 60] } }
+  prompt: 'Convert ${{n}}$ ({{q}}).'
+  parts:
+    - { ask: 'Value', label: r, value: n*f, tol: 0.001, explain: 'Multiply by a conversion factor written as a fraction equal to 1, so the unwanted unit cancels' }
+  verify: { expect: { r: "n*calc(ex)" } }
+
+# ── Grade 6: number system ─────────────────────────────────────────────────
+- template: g68-fraction-divide-check
+  skill: k8.fractions
+  pace: quick
+  given: { a: { int: [1, 5] }, b: { int: [2, 6] }, c: { int: [1, 5] }, d: { int: [2, 6] } }
+  require: [a < b, c < d]
+  prompt: 'How many {{c}}/{{d}}-cup servings are in {{a}}/{{b}} cup? (As a decimal.)'
+  parts:
+    - { ask: 'Servings', label: r, value: (a/b)/(c/d), tol: 0.001, explain: '{{a}}/{{b}} ÷ {{c}}/{{d}} = {{a}}/{{b}} × {{d}}/{{c}}. Check by multiplying the answer back by {{c}}/{{d}}' }
+  verify: { expect: { r: "Rational(a, b)/Rational(c, d)" } }
+
+- template: g68-long-division-estimate
+  skill: k8.mult-div
+  pace: recall
+  given: { a: { int: [1200, 9800] }, b: { int: [12, 49] } }
+  prompt: 'How many digits does the whole-number part of ${{a}} \div {{b}}$ have?'
+  parts:
+    - { ask: 'Digits', label: r, value: 'floor(log10(floor(a/b))) + 1', tol: 0.0001, explain: 'Estimate first: ${{a}} \div {{b}}$ is about ${{floor(a/b)}}$. Checking the size before dividing catches misplaced digits' }
+  verify: { expect: { r: "floor(log(floor(Rational(a, b)), 10)) + 1" } }
+
+- template: g68-decimal-product-place
+  skill: k8.decimals
+  pace: recall
+  given: { a: { int: [11, 99] }, b: { int: [11, 99] }, p: { int: [1, 2] }, q: { int: [1, 2] } }
+  prompt: '${{a}} \times {{b}} = {{a*b}}$. What is ${{a/10^p}} \times {{b/10^q}}$?'
+  parts:
+    - { ask: 'Product', label: r, value: a*b/10^(p + q), tol: 0.0001, explain: 'Count decimal places in the factors (${{p}} + {{q}}$) and give the product that many' }
+  verify: { expect: { r: "Integer(a*b)/Integer(10)**(p + q)" } }
+
+- template: g68-signed-meaning
+  skill: k8.integers
+  pace: recall
+  cases:
+    - { q: 'a diver 30 ft below sea level', v: -30 }
+    - { q: 'a deposit of 25 dollars', v: 25 }
+    - { q: '8 degrees below zero', v: -8 }
+    - { q: 'a loss of 12 yards in football', v: -12 }
+    - { q: 'an elevation of 1500 ft above sea level', v: 1500 }
+  prompt: 'Write {{q}} as a signed number.'
+  parts:
+    - { ask: 'Number', label: r, value: v, tol: 0.0001, explain: 'Pick a zero (sea level, no money, 0°) and use negatives for the opposite direction' }
+  verify: { expect: { r: "v" } }
+
+- template: g68-opposite-of-opposite
+  skill: k8.integers
+  pace: recall
+  given: { n: { int: [-15, 15] } }
+  require: [n != 0]
+  prompt: 'What is $-(-({{n}}))$?'
+  parts:
+    - { ask: 'Value', label: r, value: n, tol: 0.0001, explain: 'Taking the opposite twice lands back where you started: reflect across 0, then back' }
+  verify: { expect: { r: "-(-(n))" } }
+
+- template: g68-reflect-point
+  skill: k8.integers
+  pace: recall
+  given: { px: { int: [-8, 8] }, y: { int: [-8, 8] }, w: { pick: [0, 1] } }
+  require: [px != 0, y != 0, px != y]
+  prompt: 'Reflect $({{px}}, {{y}})$ across the {{w == 0 ? "x-axis" : "y-axis"}}. What is the sum of the new coordinates?'
+  parts:
+    - { ask: 'Sum', label: s, value: 'w == 0 ? px - y : -px + y', tol: 0.0001, explain: 'Across the x-axis the y-coordinate changes sign; across the y-axis the x-coordinate does' }
+  verify: { expect: { s: "(px - y) if w == 0 else (-px + y)" } }
+
+- template: g68-order-negatives
+  skill: k8.integers
+  pace: recall
+  given: { a: { int: [-20, -1] }, b: { int: [-20, -1] } }
+  require: [a != b]
+  prompt: 'Which is greater: ${{a}}$ or ${{b}}$?'
+  parts:
+    - ask: 'Greater'
+      label: a
+      choice: ["{{a}}", "{{b}}"]
+      correct: 'a > b ? 0 : 1'
+      explain: 'Farther right on the number line is greater, so the negative closer to zero is greater: −3 > −7 even though 7 > 3'
+  verify: { choices: { a: "0 if a > b else 1" } }
+
+- template: g68-abs-meaning
+  skill: k8.integers
+  pace: recall
+  given: { a: { int: [-50, -5] } }
+  prompt: 'An account balance is ${{a}}$ dollars. How large is the debt, in dollars?'
+  parts:
+    - { ask: 'Debt', label: r, value: -a, tol: 0.0001, explain: 'The size of the debt is the absolute value, $|{{a}}| = {{-a}}$. A balance less than −30 is a debt greater than 30' }
+  verify: { expect: { r: "Abs(a)" } }
+
+- template: g68-same-coordinate-distance
+  skill: k8.integers
+  pace: recall
+  given: { x: { int: [-9, 9] }, y1: { int: [-9, 9] }, y2: { int: [-9, 9] } }
+  require: [y1 != y2]
+  prompt: 'How far apart are $({{x}}, {{y1}})$ and $({{x}}, {{y2}})$?'
+  parts:
+    - { ask: 'Distance', label: d, value: 'abs(y1 - y2)', tol: 0.0001, explain: 'Same x, so the points are on a vertical line: the distance is the difference of the y-coordinates, $|{{y1}} - ({{y2}})|$. Across the axis you add absolute values' }
+  verify: { expect: { d: "Abs(y1 - y2)" } }
+
+# ── Grade 6: expressions and equations ─────────────────────────────────────
+- template: g68-exponent-meaning
+  skill: k8.expressions
+  pace: recall
+  given: { b: { int: [2, 6] }, e: { int: [2, 4] } }
+  prompt: 'Write ${{b}}^{ {{e}} }$ as a product and give its value.'
+  parts:
+    - { ask: 'Value', label: r, value: b^e, tol: 0.0001, explain: '${{b}}^{ {{e}} }$ is ${{b}}$ multiplied by itself ${{e}}$ times, not ${{b}} \times {{e}}$' }
+  verify: { expect: { r: "Integer(b)**e" } }
+
+- template: g68-parts-of-expression
+  skill: k8.expressions
+  pace: recall
+  given: { a: { int: [2, 9] }, b: { int: [2, 9] }, c: { int: [1, 9] } }
+  prompt: 'In ${{a}}x + {{b}}y - {{c}}$, how many terms are there, and what is the coefficient of y? (Give the coefficient.)'
+  parts:
+    - { ask: 'Coefficient of y', label: r, value: b, tol: 0.0001, explain: 'Terms are separated by + and −: three here. A coefficient multiplies a variable; ${{c}}$ is the constant term' }
+  verify: { expect: { r: "b" } }
+
+- template: g68-formula-reverse
+  skill: k8.expressions
+  pace: quick
+  given: { s: { int: [2, 9] } }
+  prompt: 'A cube has volume ${{s^3}}$ cm³ ($V = s^3$). How long is each edge?'
+  parts:
+    - { ask: 'Edge (cm)', label: e, value: s, tol: 0.0001, explain: 'Undo the cube: which number times itself three times gives ${{s^3}}$? Knowing cubes to 10 helps' }
+  verify: { expect: { e: "Integer(s**3)**Rational(1, 3)" } }
+
+- template: g68-factor-gcf
+  skill: k8.expressions
+  pace: recall
+  given: { k: { pick: [2, 3, 4, 5, 6] }, a: { int: [1, 7] }, b: { int: [1, 9] } }
+  require: ['gcd(a, b) == 1']
+  prompt: 'Factor ${{k*a}}x + {{k*b}}$ as $k(\ldots)$ with the greatest whole-number factor. What is k?'
+  parts:
+    - { ask: 'k', label: r, value: k, tol: 0.0001, explain: 'Pull out the GCF: ${{k}}({{a}}x + {{b}})$. Distribute to check' }
+  verify: { expect: { r: "gcd(k*a, k*b)" } }
+
+- template: g68-equivalent-test
+  skill: k8.expressions
+  pace: recall
+  given: { a: { int: [2, 6] }, b: { int: [1, 7] } }
+  prompt: 'Are ${{a}}(x + {{b}})$ and ${{a}}x + {{b}}$ equivalent? Substitute x = 1 into both and give the first expression''s value.'
+  parts:
+    - { ask: 'First at x = 1', label: r, value: a*(1 + b), tol: 0.0001, explain: '${{a}}(1 + {{b}}) = {{a*(1 + b)}}$, but ${{a}} + {{b}} = {{a + b}}$, so they are not equivalent: distribute to every term inside the parentheses' }
+  verify: { expect: { r: "a*(1 + b)" } }
+
+- template: g68-solution-from-set
+  skill: k8.expressions
+  pace: recall
+  given: { a: { int: [2, 6] }, s: { int: [2, 9] }, b: { int: [1, 10] } }
+  prompt: 'Which of 1, 2, …, 10 makes ${{a}}x + {{b}} = {{a*s + b}}$ true?'
+  parts:
+    - { ask: 'x', label: r, value: s, tol: 0.0001, explain: 'Test values, or undo the operations: subtract ${{b}}$, divide by ${{a}}$' }
+  verify: { expect: { r: "solve(Eq(a*x + b, a*s + b), x)[0]" } }
+
+- template: g68-words-to-expression
+  skill: k8.expressions
+  pace: recall
+  cases:
+    - { q: '5 less than a number n, with n = ', ex: 0 }
+    - { q: 'twice the sum of a number n and 3, with n = ', ex: 1 }
+    - { q: 'a number n divided by 4, then increased by 7, with n = ', ex: 2 }
+  given: { n: { pick: [8, 12, 20] } }
+  prompt: 'Evaluate {{q}}{{n}}.'
+  parts:
+    - { ask: 'Value', label: r, value: 'ex == 0 ? n - 5 : (ex == 1 ? 2*(n + 3) : n/4 + 7)', tol: 0.0001, explain: '"Less than" reverses order (n − 5, not 5 − n); "the sum of … " groups before doubling' }
+  verify: { expect: { r: "[n - 5, 2*(n + 3), Rational(n, 4) + 7][ex]" } }
+
+- template: g68-one-step-reverse
+  skill: k8.expressions
+  pace: recall
+  given: { p: { int: [2, 12] }, x0: { int: [2, 15] } }
+  prompt: '${{p}}x = {{p*x0}}$. Solve, then check by substituting.'
+  parts:
+    - { ask: 'x', label: r, value: x0, tol: 0.0001, explain: 'Divide both sides by ${{p}}$; check ${{p}} \times {{x0}} = {{p*x0}}$' }
+  verify: { expect: { r: "solve(Eq(p*x, p*x0), x)[0]" } }
+
+- template: g68-inequality-words
+  skill: k8.expressions
+  pace: recall
+  cases:
+    - { q: 'You must be at least 48 inches tall to ride.', ans: 0 }
+    - { q: 'The elevator holds at most 12 people.', ans: 1 }
+    - { q: 'The temperature stayed above 20 degrees.', ans: 2 }
+    - { q: 'Fewer than 30 students may enroll.', ans: 3 }
+  prompt: '{{q}} Which inequality?'
+  parts:
+    - ask: 'Inequality'
+      label: a
+      choice: ["x ≥ the value", "x ≤ the value", "x > the value", "x < the value"]
+      correct: ans
+      explain: '"At least" includes the value (≥), "at most" (≤); "more than / above" and "fewer than / below" exclude it. Each has infinitely many solutions'
+  verify: { authored: true }
+
+- template: g68-dependent-table
+  skill: k8.expressions
+  pace: recall
+  given: { m: { int: [2, 9] }, b: { int: [0, 10] }, x1: { int: [2, 9] } }
+  prompt: 'In a table, y = ${{m}}x + {{b}}$. When x = ${{x1}}$, what is y, and which variable is dependent?'
+  parts:
+    - { ask: 'y', label: y, value: m*x1 + b, tol: 0.0001, explain: 'y depends on x: choose x, then compute y. Every increase of 1 in x adds ${{m}}$ to y' }
+  verify: { expect: { y: "m*x1 + b" } }
+
+# ── Grade 6: geometry and statistics ───────────────────────────────────────
+- template: g68-triangle-area-reverse
+  skill: k8.geometry
+  pace: quick
+  given: { b: { int: [4, 16] }, h: { int: [3, 12] } }
+  prompt: 'A triangle has area ${{b*h/2}}$ cm² and base ${{b}}$ cm. What is its height?'
+  parts:
+    - { ask: 'Height (cm)', label: s, value: h, tol: 0.0001, explain: '$A = \tfrac12 bh$, so $h = 2A/b$. A triangle is half of a parallelogram with the same base and height' }
+  verify: { expect: { s: "solve(Eq(Rational(1, 2)*b*x, Rational(b*h, 2)), x)[0]" } }
+
+- template: g68-fraction-volume-cubes
+  skill: k8.measurement
+  pace: quick
+  given: { l: { int: [1, 4] }, w: { int: [1, 4] }, h: { int: [1, 4] } }
+  prompt: 'How many cubes with edge 1/2 in fill a box ${{l}}$ in × ${{w}}$ in × ${{h}}$ in?'
+  parts:
+    - { ask: 'Cubes', label: n, value: 8*l*w*h, tol: 0.0001, explain: 'Each inch holds 2 half-inch cubes along each edge, so each cubic inch holds $2^3 = 8$. Volume ${{l*w*h}}$ in³ × 8' }
+  verify: { expect: { n: "(2*l)*(2*w)*(2*h)" } }
+
+- template: g68-polygon-coordinates
+  skill: k8.integers
+  pace: quick
+  given: { x1: { int: [-6, 0] }, x2: { int: [1, 7] }, y1: { int: [-5, 0] }, y2: { int: [1, 6] } }
+  prompt: 'A rectangle has vertices $({{x1}}, {{y1}})$, $({{x2}}, {{y1}})$, $({{x2}}, {{y2}})$, $({{x1}}, {{y2}})$. What is its perimeter?'
+  parts:
+    - { ask: 'Perimeter', label: p, value: 2*((x2 - x1) + (y2 - y1)), tol: 0.0001, explain: 'Side lengths come from coordinate differences: ${{x2 - x1}}$ and ${{y2 - y1}}$' }
+  verify: { expect: { p: "2*((x2 - x1) + (y2 - y1))" } }
+
+- template: g68-net-count
+  skill: k8.geometry
+  pace: recall
+  cases:
+    - { s: 'cube', f: 6 }
+    - { s: 'rectangular prism', f: 6 }
+    - { s: 'triangular prism', f: 5 }
+    - { s: 'square pyramid', f: 5 }
+    - { s: 'triangular pyramid', f: 4 }
+  prompt: 'How many polygons are in a net of a {{s}}?'
+  parts:
+    - { ask: 'Faces', label: r, value: f, tol: 0.0001, explain: 'A net unfolds every face flat, so it has one polygon per face. Surface area is the total area of those polygons' }
+  verify: { expect: { r: "f" } }
+
+- template: g68-statistical-question
+  skill: k8.data
+  pace: recall
+  cases:
+    - { q: 'How old are the students in my school?', ans: 0 }
+    - { q: 'How old am I?', ans: 1 }
+    - { q: 'How many hours do sixth graders sleep on school nights?', ans: 0 }
+    - { q: 'What is the height of the school flagpole?', ans: 1 }
+  prompt: 'Is this a statistical question? "{{q}}"'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["Yes: the answers vary", "No: it has one answer"]
+      correct: ans
+      explain: 'A statistical question expects variability in the data collected to answer it'
+  verify: { authored: true }
+
+- template: g68-distribution-shape
+  skill: k8.data
+  pace: recall
+  cases:
+    - { q: 'Most values are low with a long tail of high values (like incomes).', ans: 0 }
+    - { q: 'Values pile up symmetrically around the middle.', ans: 1 }
+    - { q: 'Most values are high with a tail of low values (like scores on an easy test).', ans: 2 }
+  prompt: '{{q}} How is the distribution described?'
+  parts:
+    - ask: 'Shape'
+      label: a
+      choice: ["Skewed right", "Symmetric", "Skewed left"]
+      correct: ans
+      explain: 'A distribution is described by its center, spread and overall shape. Skew is named for the side of the long tail; the mean is pulled toward the tail'
+  verify: { authored: true }
+
+- template: g68-mean-vs-median
+  skill: k8.data
+  pace: recall
+  given: { a: { int: [10, 20] }, o: { pick: [80, 95, 120] } }
+  prompt: 'Data: ${{a}}, {{a + 1}}, {{a + 2}}, {{a + 3}}, {{o}}$. Which better describes a typical value: the mean or the median? Give the median.'
+  parts:
+    - { ask: 'Median', label: m, value: a + 2, tol: 0.0001, explain: 'The outlier ${{o}}$ drags the mean up to ${{(4*a + 6 + o)/5}}$; the median, ${{a + 2}}$, resists outliers. The IQR likewise resists them better than the range' }
+  verify: { expect: { m: "sorted([a, a + 1, a + 2, a + 3, o])[2]" } }
+
+- template: g68-box-plot-read
+  skill: k8.data
+  pace: recall
+  given: { mn: { int: [2, 10] }, q1: { int: [12, 20] }, md: { int: [22, 30] }, q3: { int: [32, 40] }, mx: { int: [45, 60] } }
+  prompt: 'A box plot shows minimum ${{mn}}$, Q1 ${{q1}}$, median ${{md}}$, Q3 ${{q3}}$, maximum ${{mx}}$. What is the interquartile range?'
+  parts:
+    - { ask: 'IQR', label: r, value: q3 - q1, tol: 0.0001, explain: 'IQR = Q3 − Q1, the width of the box, which holds the middle half of the data' }
+  verify: { expect: { r: "q3 - q1" } }
+
+# ── Grade 7: proportional relationships and rational numbers ───────────────
+- template: g68-complex-unit-rate
+  skill: k8.ratios
+  pace: quick
+  given: { a: { int: [1, 3] }, b: { int: [2, 4] }, c: { int: [1, 3] }, d: { int: [2, 6] } }
+  require: [a < b, c < d]
+  prompt: 'A walker covers {{a}}/{{b}} mile every {{c}}/{{d}} hour. What is the speed in miles per hour? (As a decimal.)'
+  parts:
+    - { ask: 'mph', label: r, value: (a/b)/(c/d), tol: 0.001, explain: 'Unit rate = miles per 1 hour: divide {{a}}/{{b}} by {{c}}/{{d}}' }
+  verify: { expect: { r: "Rational(a, b)/Rational(c, d)" } }
+
+- template: g68-proportional-graph-test
+  skill: k8.ratios
+  pace: recall
+  cases:
+    - { q: 'a straight line through the origin', ans: 0 }
+    - { q: 'a straight line that crosses the y-axis at 5', ans: 1 }
+    - { q: 'a curve through the origin', ans: 1 }
+    - { q: 'points (1, 3), (2, 6), (4, 12)', ans: 0 }
+    - { q: 'points (1, 4), (2, 6), (3, 8)', ans: 1 }
+  prompt: 'Is the relationship shown by {{q}} proportional?'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["Proportional", "Not proportional"]
+      correct: ans
+      explain: 'Proportional means y/x is the same for every pair: a straight line through (0, 0). A line with a nonzero intercept is linear but not proportional'
+  verify: { authored: true }
+
+- template: g68-k-from-point
+  skill: k8.ratios
+  pace: recall
+  given: { k: { pick: [1.5, 2, 2.5, 3, 4, 0.5] }, x0: { int: [2, 8] } }
+  prompt: 'A proportional graph passes through $({{x0}}, {{k*x0}})$. What is the y-value at x = 1?'
+  parts:
+    - { ask: 'y at x = 1', label: r, value: k, tol: 0.0001, explain: 'The point (1, r) on a proportional graph shows the unit rate r: here ${{k*x0}} \div {{x0}}$' }
+  verify: { expect: { r: "nsimplify(k)*x0/x0" } }
+
+- template: g68-k-meaning
+  skill: k8.ratios
+  pace: quick
+  given: { p: { pick: [3, 4, 6, 8] }, n: { int: [3, 12] } }
+  prompt: 'The cost of n tickets is t = ${{p}}$n. What does the point $({{n}}, {{p*n}})$ mean? Give its second coordinate.'
+  parts:
+    - { ask: 'Cost', label: c, value: p*n, tol: 0.0001, explain: '${{n}}$ tickets cost ${{p*n}}$ dollars; the constant of proportionality ${{p}}$ is the price per ticket' }
+  verify: { expect: { c: "p*n" } }
+
+- template: g68-add-number-line
+  skill: k8.integers
+  pace: recall
+  given: { p: { int: [-9, 9] }, q: { int: [-9, 9] } }
+  require: [p + q != 0, q != 0]
+  prompt: 'Start at ${{p}}$ on a number line and move ${{abs(q)}}$ {{q > 0 ? "right" : "left"}}. Which sum is that, and where do you land?'
+  parts:
+    - { ask: 'Landing point', label: r, value: p + q, tol: 0.0001, explain: '$p + q$ is $|q|$ units from $p$, right if q is positive, left if negative' }
+  verify: { expect: { r: "p + q" } }
+
+- template: g68-sign-of-product
+  skill: k8.integers
+  pace: recall
+  given: { n: { int: [2, 7] } }
+  prompt: 'Is the product of ${{n}}$ negative numbers positive or negative?'
+  parts:
+    - ask: 'Sign'
+      label: a
+      choice: ["Positive", "Negative"]
+      correct: 'n % 2'
+      explain: 'Each pair of negatives makes a positive, so an even count is positive and an odd count negative'
+  verify: { choices: { a: "n % 2" } }
+
+- template: g68-fraction-to-decimal-type
+  skill: k8.decimals
+  pace: recall
+  cases:
+    - { f: '3/8', ans: 0 }
+    - { f: '2/3', ans: 1 }
+    - { f: '7/20', ans: 0 }
+    - { f: '5/6', ans: 1 }
+    - { f: '4/25', ans: 0 }
+    - { f: '1/7', ans: 1 }
+  prompt: 'Does {{f}} written as a decimal terminate or repeat?'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["Terminates", "Repeats"]
+      correct: ans
+      explain: 'In lowest terms, a fraction terminates exactly when the denominator has no prime factors except 2 and 5. Long division of any rational number ends in zeros or a repeating block'
+  verify: { authored: true }
+
+- template: g68-rational-word
+  skill: k8.integers
+  pace: quick
+  given: { t: { int: [-8, 5] }, d: { int: [3, 12] }, h: { int: [2, 5] } }
+  prompt: 'The temperature is ${{t}}$ °F and falls ${{d}}$ degrees every hour for ${{h}}$ hours. What is it then?'
+  parts:
+    - { ask: 'Temperature (°F)', label: r, value: t - d*h, tol: 0.0001, explain: '${{t}} + {{h}}(-{{d}}) = {{t - d*h}}$. A fall is a negative change' }
+  verify: { expect: { r: "t + h*(-d)" } }
+
+- template: g68-expand-factor
+  skill: k8.expressions
+  pace: recall
+  given: { a: { int: [-5, 5] }, b: { int: [2, 6] }, c: { int: [-7, 7] } }
+  require: [a != 0, c != 0, 'a*b + b != 0']
+  prompt: 'Expand and simplify ${{a}}({{b}}x + ({{c}})) + {{b}}x$. What is the coefficient of x?'
+  parts:
+    - { ask: 'Coefficient', label: r, value: a*b + b, tol: 0.0001, explain: 'Distribute ${{a}}$ to both terms, then combine like terms: ${{a*b}}x + {{b}}x$' }
+  verify: { expect: { r: "expand(a*(b*Symbol('t') + c) + b*Symbol('t')).coeff(Symbol('t'))" } }
+
+- template: g68-percent-increase-form
+  skill: k8.expressions
+  pace: recall
+  given: { p: { pick: [5, 8, 10, 15, 20, 25] }, w: { pick: [0, 1] } }
+  prompt: '"{{w == 0 ? "Increase" : "Decrease"}} a price by ${{p}}$ percent" is the same as multiplying it by what number?'
+  parts:
+    - { ask: 'Multiplier', label: r, value: 'w == 0 ? 1 + p/100 : 1 - p/100', tol: 0.0001, explain: 'Rewrite the two steps as one: ${{w == 0 ? "a + " : "a - "}}{{p/100}}a = {{w == 0 ? 1 + p/100 : 1 - p/100}}a$. A single multiplier also makes repeated changes easy' }
+  verify: { expect: { r: "(1 + Rational(p, 100)) if w == 0 else (1 - Rational(p, 100))" } }
+
+- template: g68-two-step-arithmetic-vs-algebra
+  skill: k8.expressions
+  pace: quick
+  given: { p: { int: [2, 6] }, x0: { int: [3, 12] }, q: { int: [1, 20] } }
+  prompt: 'Solve ${{p}}(x + {{q}}) = {{p*(x0 + q)}}$.'
+  parts:
+    - { ask: 'x', label: r, value: x0, tol: 0.0001, explain: 'Either divide by ${{p}}$ first (x + {{q}} = {{x0 + q}}) or distribute first; dividing first is shorter' }
+  verify: { expect: { r: "solve(Eq(p*(x + q), p*(x0 + q)), x)[0]" } }
+
+- template: g68-inequality-flip
+  skill: k8.expressions
+  pace: recall
+  given: { a: { int: [2, 6] }, c: { int: [-12, 12] } }
+  prompt: 'Solve $-{{a}}x > {{a*c}}$. Is the solution x > {{-c}} or x < {{-c}}?'
+  parts:
+    - ask: 'Solution'
+      label: a
+      choice: ["x > {{-c}}", "x < {{-c}}"]
+      correct: 1
+      explain: 'Dividing both sides by a negative number reverses the inequality sign. Check with a value: x = {{-c - 1}} makes the left side ${{a*(c + 1)}}$, which is greater'
+  verify: { choices: { a: "1" } }
+
+# ── Grade 7: geometry ──────────────────────────────────────────────────────
+- template: g68-scale-area
+  skill: k8.ratios
+  pace: quick
+  given: { s: { pick: [2, 3, 4, 5, 10] }, A: { int: [2, 12] } }
+  prompt: 'A drawing is made at scale 1 : {{s}}. A room on the drawing has area ${{A}}$ cm². What is the real area, in cm²?'
+  parts:
+    - { ask: 'Real area', label: r, value: A*s^2, tol: 0.0001, explain: 'Lengths scale by ${{s}}$, so areas scale by ${{s}}^2 = {{s^2}}$' }
+  verify: { expect: { r: "A*s**2" } }
+
+- template: g68-triangle-exists
+  skill: k8.geometry
+  pace: recall
+  given: { a: { int: [2, 10] }, b: { int: [2, 10] }, c: { int: [2, 20] } }
+  prompt: 'Can sides ${{a}}$, ${{b}}$ and ${{c}}$ make a triangle?'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["Yes", "No"]
+      correct: '(a + b > c and a + c > b and b + c > a) ? 0 : 1'
+      explain: 'Triangle inequality: each pair of sides must add to more than the third. The two short sides must reach past the long one'
+  verify: { choices: { a: "0 if (a + b > c and a + c > b and b + c > a) else 1" } }
+
+- template: g68-slice-shape
+  skill: geo.measurement
+  pace: recall
+  cases:
+    - { q: 'a cylinder cut parallel to its base', ans: 0 }
+    - { q: 'a cube cut parallel to a face', ans: 1 }
+    - { q: 'a cone cut parallel to its base', ans: 0 }
+    - { q: 'a rectangular pyramid cut parallel to its base', ans: 2 }
+    - { q: 'a cylinder cut vertically through its axis', ans: 2 }
+  prompt: 'What shape is the cross-section of {{q}}?'
+  parts:
+    - ask: 'Shape'
+      label: a
+      choice: ["Circle", "Square", "Rectangle"]
+      correct: ans
+      explain: 'A slice parallel to the base copies the base shape (smaller for cones and pyramids). A slice through the axis shows the side profile'
+  verify: { authored: true }
+
+- template: g68-circle-reverse
+  skill: k8.geometry
+  pace: quick
+  given: { r: { int: [2, 15] }, w: { pick: [0, 1] } }
+  prompt: 'A circle has {{w == 0 ? "circumference" : "area"}} ${{w == 0 ? 2*r : r^2}}π$. What is its radius?'
+  parts:
+    - { ask: 'Radius', label: s, value: r, tol: 0.0001, explain: '{{w == 0 ? "C = 2πr, so r = C/(2π)" : "A = πr², so r = √(A/π)"}}. Area grows with the square of the radius' }
+  verify: { expect: { s: "r" } }
+
+- template: g68-angle-algebra
+  skill: k8.geometry
+  pace: quick
+  given: { a: { int: [2, 5] }, b: { int: [2, 20] }, w: { pick: [90, 180] } }
+  require: ['(w - b) % (a + 1) == 0', '(w - b)/(a + 1) > 0']
+  prompt: 'Two angles are {{w == 90 ? "complementary" : "supplementary"}}: one is $x$° and the other is $({{a}}x + {{b}})$°. Find x.'
+  parts:
+    - { ask: 'x', label: r, value: (w - b)/(a + 1), tol: 0.0001, explain: 'They add to ${{w}}$°: $x + {{a}}x + {{b}} = {{w}}$. Vertical angles are equal; adjacent angles on a line add to 180°' }
+  verify: { expect: { r: "solve(Eq(x + a*x + b, w), x)[0]" } }
+
+# ── Grade 7: statistics and probability ────────────────────────────────────
+- template: g68-random-sample
+  skill: k8.data
+  pace: recall
+  cases:
+    - { q: 'Surveying the first 30 students to arrive at school', ans: 1 }
+    - { q: 'Drawing 30 names at random from the full school roster', ans: 0 }
+    - { q: 'Asking the soccer team about favorite sports', ans: 1 }
+    - { q: 'Numbering every voter and using a random number generator to pick 100', ans: 0 }
+  prompt: 'Is this sample representative of the whole group? {{q}}'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["Yes: random, so likely representative", "No: likely biased"]
+      correct: ans
+      explain: 'Random sampling gives every member an equal chance, so samples tend to represent the population; convenience and volunteer samples are biased'
+  verify: { authored: true }
+
+- template: g68-sample-scale-up
+  skill: k8.data
+  pace: quick
+  given: { n: { pick: [40, 50, 80] }, k: { int: [5, 30] }, N: { pick: [400, 800, 1200] } }
+  require: [k < n]
+  prompt: 'In a random sample of ${{n}}$ students, ${{k}}$ walk to school. About how many of the school''s ${{N}}$ students walk?'
+  parts:
+    - { ask: 'Estimate', label: r, value: k*N/n, tol: 0.001, explain: 'Assume the sample proportion, {{k}}/{{n}}, holds for the population: ${{k}}/{{n}} \times {{N}}$' }
+  verify: { expect: { r: "Rational(k, n)*N" } }
+
+- template: g68-overlap-mad
+  skill: k8.data
+  pace: quick
+  given: { m1: { int: [50, 70] }, d: { int: [4, 20] }, mad: { pick: [2, 4, 5] } }
+  prompt: 'Two groups have means ${{m1}}$ and ${{m1 + d}}$, each with MAD ${{mad}}$. How many MADs apart are the means?'
+  parts:
+    - { ask: 'MADs apart', label: r, value: d/mad, tol: 0.001, explain: 'Express the difference in units of variability: ${{d}} \div {{mad}}$. Two or more MADs apart means little overlap, a real difference' }
+  verify: { expect: { r: "Rational(d, mad)" } }
+
+- template: g68-compare-centers
+  skill: k8.data
+  pace: quick
+  given: { a: { int: [10, 20] }, b: { int: [10, 20] } }
+  require: [a != b]
+  prompt: 'Random samples: class A median ${{a}}$ minutes of reading, class B median ${{b}}$. Which class probably reads more, and by how much? (Give the difference.)'
+  parts:
+    - { ask: 'Difference', label: r, value: 'abs(a - b)', tol: 0.0001, explain: 'Compare centers, but judge against the spread: a difference small relative to the IQRs may just be sampling variation' }
+  verify: { expect: { r: "Abs(a - b)" } }
+
+- template: g68-likelihood-words
+  skill: k8.data
+  pace: recall
+  given: { p: { pick: [0, 0.1, 0.5, 0.9, 1] } }
+  prompt: 'An event has probability ${{p}}$. How likely is it?'
+  parts:
+    - ask: 'Likelihood'
+      label: a
+      choice: ["Impossible", "Unlikely", "Equally likely as not", "Likely", "Certain"]
+      correct: 'p == 0 ? 0 : (p < 0.5 ? 1 : (p == 0.5 ? 2 : (p < 1 ? 3 : 4)))'
+      explain: 'Probability runs from 0 (impossible) to 1 (certain); 1/2 is a toss-up'
+  verify: { choices: { a: "0 if p == 0 else (1 if p < Rational(1, 2) else (2 if p == Rational(1, 2) else (3 if p < 1 else 4)))" } }
+
+- template: g68-relative-frequency
+  skill: k8.data
+  pace: recall
+  given: { n: { pick: [50, 100, 200] }, k: { int: [8, 40] } }
+  require: [k < n]
+  prompt: 'A spinner landed on red ${{k}}$ times in ${{n}}$ spins. Estimate the probability of red.'
+  parts:
+    - { ask: 'Probability', label: r, value: k/n, tol: 0.001, explain: 'Relative frequency = {{k}}/{{n}}. More trials bring it closer to the true probability' }
+  verify: { expect: { r: "Rational(k, n)" } }
+
+- template: g68-uniform-model
+  skill: k8.data
+  pace: recall
+  given: { n: { pick: [6, 8, 10, 12, 20] }, k: { int: [1, 5] } }
+  prompt: 'A fair ${{n}}$-sided die is rolled. What is the probability of rolling ${{k}}$ or less?'
+  parts:
+    - { ask: 'Probability', label: r, value: k/n, tol: 0.001, explain: 'Equally likely outcomes: favorable ÷ total = {{k}}/{{n}}' }
+  verify: { expect: { r: "Rational(k, n)" } }
+
+- template: g68-sample-space-count
+  skill: k8.data
+  pace: recall
+  given: { a: { int: [2, 4] }, b: { int: [2, 6] } }
+  prompt: 'A menu has ${{a}}$ drinks and ${{b}}$ sandwiches. How many drink–sandwich combinations are there?'
+  parts:
+    - { ask: 'Combinations', label: r, value: a*b, tol: 0.0001, explain: 'A tree diagram or table lists ${{a}} \times {{b}}$ outcomes. Probability of one specific combination is 1/{{a*b}}' }
+  verify: { expect: { r: "a*b" } }
+
+- template: g68-simulation-design
+  skill: stats.probability
+  pace: recall
+  cases:
+    - { q: 'A player makes 70 percent of free throws. Simulate one shot with', ans: 0 }
+    - { q: 'Each cereal box holds one of 4 equally likely prizes. Simulate one box with', ans: 1 }
+    - { q: 'A coin is fair. Simulate one toss with', ans: 2 }
+  prompt: '{{q}}:'
+  parts:
+    - ask: 'Simulation'
+      label: a
+      choice: ["a random digit 0–9, where 0–6 means made", "a 4-sided die or a spinner with 4 equal parts", "a random digit, even means heads"]
+      correct: ans
+      explain: 'A simulation uses a chance device with the same probabilities as the real event; repeating it many times estimates the probability of compound events'
+  verify: { authored: true }
+
+# ── Grade 8 ────────────────────────────────────────────────────────────────
+- template: g68-rational-or-irrational
+  skill: k8.decimals
+  pace: recall
+  cases:
+    - { q: '√49', ans: 0 }
+    - { q: '√50', ans: 1 }
+    - { q: '0.333…', ans: 0 }
+    - { q: 'π', ans: 1 }
+    - { q: '−5/8', ans: 0 }
+    - { q: '√2 / 2', ans: 1 }
+    - { q: '0.121212…', ans: 0 }
+  prompt: 'Is {{q}} rational or irrational?'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["Rational", "Irrational"]
+      correct: ans
+      explain: 'Rational numbers are fractions of integers, and their decimals terminate or repeat. Square roots of non-perfect squares, π and e are irrational'
+  verify: { authored: true }
+
+- template: g68-sci-compare
+  skill: k8.exponents
+  pace: recall
+  given: { a: { pick: [2, 3, 4, 6, 8] }, m: { int: [5, 9] }, b: { pick: [2, 3, 5] }, n: { int: [2, 5] } }
+  prompt: 'About how many times larger is ${{a}} \times 10^{ {{m}} }$ than ${{b}} \times 10^{ {{n}} }$?'
+  parts:
+    - { ask: 'Times larger', label: r, value: a/b*10^(m - n), tol: 0.001, explain: 'Divide the coefficients and subtract the exponents: $({{a}}/{{b}}) \times 10^{ {{m - n}} }$' }
+  verify: { expect: { r: "Rational(a, b)*Integer(10)**(m - n)" } }
+
+- template: g68-sci-operation
+  skill: k8.exponents
+  pace: quick
+  given: { a: { pick: [1.5, 2, 2.5, 3, 4] }, m: { int: [3, 8] }, b: { pick: [2, 3, 4] }, n: { int: [2, 6] } }
+  prompt: '$({{a}} \times 10^{ {{m}} })({{b}} \times 10^{ {{n}} })$ in scientific notation. What is the exponent?'
+  parts:
+    - { ask: 'Exponent', label: r, value: 'a*b >= 10 ? m + n + 1 : m + n', tol: 0.0001, explain: 'Multiply coefficients (${{a*b}}$) and add exponents; if the coefficient reaches 10, shift one place and add 1 to the exponent' }
+  verify: { expect: { r: "floor(log(nsimplify(a)*b*Integer(10)**(m + n), 10))" } }
+
+- template: g68-compare-rates-forms
+  skill: k8.ratios
+  pace: quick
+  given: { a: { pick: [2, 3, 4, 5] }, b: { pick: [6, 10, 14] }, t: { pick: [2, 3, 4] } }
+  require: ['a != b/t']
+  prompt: 'Runner A: d = {{a}}t. Runner B goes ${{b}}$ m in ${{t}}$ s. Who is faster?'
+  parts:
+    - ask: 'Faster'
+      label: a
+      choice: ["Runner A", "Runner B"]
+      correct: 'a > b/t ? 0 : 1'
+      explain: 'Put both as unit rates: A ${{a}}$ m/s, B ${{b/t}}$ m/s. The slope of a distance–time graph is the speed'
+  verify: { choices: { a: "0 if a > Rational(b, t) else 1" } }
+
+- template: g68-slope-from-points
+  skill: k8.linear
+  pace: recall
+  given: { x1: { int: [-5, 3] }, y1: { int: [-5, 5] }, dx: { int: [1, 5] }, m: { int: [-4, 4] } }
+  require: [m != 0]
+  prompt: 'What is the slope of the line through $({{x1}}, {{y1}})$ and $({{x1 + dx}}, {{y1 + m*dx}})$?'
+  parts:
+    - { ask: 'Slope', label: r, value: m, tol: 0.0001, explain: 'Rise over run: $({{m*dx}})/{{dx}}$. Any two points give the same slope, because the slope triangles are similar' }
+  verify: { expect: { r: "Rational(m*dx, dx)" } }
+
+- template: g68-solutions-count
+  skill: k8.linear
+  pace: recall
+  given: { a: { int: [2, 6] }, b: { int: [1, 9] }, w: { pick: [0, 1, 2] } }
+  prompt: 'How many solutions does ${{a}}x + {{b}} = {{w == 0 ? a + 1 : a}}x + {{w == 2 ? b + 1 : b}}$ have?'
+  parts:
+    - ask: 'Solutions'
+      label: a
+      choice: ["Exactly one", "Infinitely many", "None"]
+      correct: w
+      explain: 'Simplify to see: different x-coefficients give one solution; identical sides give infinitely many (an identity); same x-coefficient but different constants give none (a contradiction like 0 = 1)'
+  verify: { choices: { a: "0 if len(solve(Eq(a*x + b, (a + 1 if w == 0 else a)*x + (b + 1 if w == 2 else b)), x)) == 1 else (1 if w == 1 else 2)" } }
+
+- template: g68-linear-equation-check
+  skill: k8.linear
+  pace: quick
+  given: { a: { int: [2, 6] }, b: { int: [1, 8] }, x0: { int: [-5, 6] } }
+  prompt: 'Is x = ${{x0}}$ a solution of ${{a}}(x - {{b}}) = {{a*(x0 - b)}}$? Give the left side''s value at x = {{x0}}.'
+  parts:
+    - { ask: 'Left side', label: r, value: a*(x0 - b), tol: 0.0001, explain: 'Substitute and evaluate: ${{a}}({{x0}} - {{b}}) = {{a*(x0 - b)}}$, which matches, so yes' }
+  require: ['a*(x0 - b) != 0']
+  verify: { expect: { r: "a*(x0 - b)" } }
+
+- template: g68-system-intersection
+  skill: k8.linear
+  pace: recall
+  cases:
+    - { q: 'two lines with different slopes', ans: 0 }
+    - { q: 'two parallel lines with different intercepts', ans: 1 }
+    - { q: 'two equations that describe the same line', ans: 2 }
+  prompt: 'A system''s graph shows {{q}}. How many solutions?'
+  parts:
+    - ask: 'Solutions'
+      label: a
+      choice: ["Exactly one: where they cross", "None", "Infinitely many"]
+      correct: ans
+      explain: 'A solution of a system is a point on both lines, so count the intersections'
+  verify: { authored: true }
+
+- template: g68-system-substitution
+  skill: k8.linear
+  pace: quick
+  given: { m: { int: [1, 4] }, b: { int: [-5, 5] }, x0: { int: [-4, 5] }, c: { int: [1, 3] } }
+  prompt: 'Solve: y = {{m}}x + {{b}} and x + {{c}}y = {{x0 + c*(m*x0 + b)}}. What is x?'
+  parts:
+    - { ask: 'x', label: r, value: x0, tol: 0.0001, explain: 'Substitute the first equation into the second: x + {{c}}({{m}}x + {{b}}) = {{x0 + c*(m*x0 + b)}}, then solve for x' }
+  verify: { expect: { r: "solve(Eq(x + c*(m*x + b), x0 + c*(m*x0 + b)), x)[0]" } }
+
+- template: g68-system-word-two
+  skill: k8.linear
+  pace: quick
+  given: { a: { int: [5, 15] }, b: { int: [2, 10] }, n: { int: [10, 30] } }
+  require: [a != b, 'n > 7']
+  prompt: 'Adult tickets cost ${{a}}$ dollars and child tickets ${{b}}$. ${{n}}$ tickets sold for ${{a*7 + b*(n - 7)}}$ dollars. How many adult tickets were sold?'
+  parts:
+    - { ask: 'Adult tickets', label: r, value: 7, tol: 0.0001, explain: 'Let a + c = {{n}} and {{a}}a + {{b}}c = total; substitute c = {{n}} − a and solve' }
+  verify: { expect: { r: "solve(Eq(a*x + b*(n - x), a*7 + b*(n - 7)), x)[0]" } }
+
+- template: g68-function-from-table
+  skill: k8.linear
+  pace: recall
+  cases:
+    - { q: 'inputs 1, 2, 3, 2 with outputs 5, 6, 7, 8', ans: 1 }
+    - { q: 'inputs 1, 2, 3, 4 with outputs 5, 5, 5, 5', ans: 0 }
+    - { q: 'inputs −1, 0, 1, 2 with outputs 1, 0, 1, 4', ans: 0 }
+    - { q: 'the points (3, 1), (3, 2), (4, 5)', ans: 1 }
+  prompt: 'Is this a function: {{q}}?'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["Yes: each input has exactly one output", "No: an input has two outputs"]
+      correct: ans
+      explain: 'Outputs may repeat; inputs may not be paired with two different outputs (the vertical line test)'
+  verify: { authored: true }
+
+- template: g68-compare-functions
+  skill: k8.linear
+  pace: quick
+  given: { m1: { int: [1, 6] }, m2: { int: [1, 6] }, b2: { int: [0, 10] } }
+  require: [m1 != m2]
+  prompt: 'Function A is y = {{m1}}x + 3. Function B has the table (0, {{b2}}), (1, {{b2 + m2}}), (2, {{b2 + 2*m2}}). Which has the greater rate of change?'
+  parts:
+    - ask: 'Greater rate'
+      label: a
+      choice: ["Function A", "Function B"]
+      correct: 'm1 > m2 ? 0 : 1'
+      explain: 'Rate of change is the slope: ${{m1}}$ for A; B rises ${{m2}}$ per step of 1 in x'
+  verify: { choices: { a: "0 if m1 > m2 else 1" } }
+
+- template: g68-linear-from-equation
+  skill: k8.linear
+  pace: recall
+  cases:
+    - { q: 'y = 3x − 2', ans: 0 }
+    - { q: 'y = x²', ans: 1 }
+    - { q: 'A = s² (area of a square)', ans: 1 }
+    - { q: 'y = −x/2 + 7', ans: 0 }
+    - { q: 'y = 2/x', ans: 1 }
+  prompt: 'Is {{q}} a linear function?'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["Linear", "Not linear"]
+      correct: ans
+      explain: 'Linear means y = mx + b: equal steps in x give equal steps in y. Squares and reciprocals bend'
+  verify: { authored: true }
+
+- template: g68-model-from-two-points
+  skill: k8.linear
+  pace: quick
+  given: { m: { int: [2, 8] }, b: { int: [5, 30] }, x1: { int: [1, 4] }, x2: { int: [5, 10] } }
+  prompt: 'A plant is ${{m*x1 + b}}$ cm tall after ${{x1}}$ weeks and ${{m*x2 + b}}$ cm after ${{x2}}$ weeks, growing steadily. How tall was it at week 0?'
+  parts:
+    - { ask: 'Initial height (cm)', label: r, value: b, tol: 0.0001, explain: 'Rate = change in height ÷ change in time = ${{m}}$ cm/week. Work back ${{x1}}$ weeks from the first point' }
+  verify: { expect: { r: "(m*x1 + b) - Rational((m*x2 + b) - (m*x1 + b), x2 - x1)*x1" } }
+
+- template: g68-graph-shape-story
+  skill: k8.linear
+  pace: recall
+  cases:
+    - { q: 'Distance from home stays the same while you sit at a friend''s house', ans: 0 }
+    - { q: 'Water drains from a tank at a constant rate', ans: 1 }
+    - { q: 'A car speeds up from a stop', ans: 2 }
+    - { q: 'Savings grow by the same amount each week', ans: 3 }
+  prompt: '{{q}}. What does the graph look like?'
+  parts:
+    - ask: 'Graph'
+      label: a
+      choice: ["Horizontal segment", "Straight line going down", "Curve getting steeper", "Straight line going up"]
+      correct: ans
+      explain: 'Read graphs qualitatively: flat means no change, straight means a constant rate, curving means the rate itself is changing'
+  verify: { authored: true }
+
+- template: g68-rigid-motion-preserves
+  skill: geo.congruence
+  pace: recall
+  cases:
+    - { q: 'side lengths after a rotation', ans: 0 }
+    - { q: 'side lengths after a dilation by 2', ans: 1 }
+    - { q: 'angle measures after a dilation', ans: 0 }
+    - { q: 'orientation (clockwise order of vertices) after a reflection', ans: 1 }
+    - { q: 'parallel lines after a translation', ans: 0 }
+  prompt: 'Are {{q}} preserved?'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["Preserved", "Not preserved"]
+      correct: ans
+      explain: 'Rotations, reflections and translations keep lengths and angles (congruence); reflections reverse orientation. Dilations keep angles and parallelism but change lengths (similarity)'
+  verify: { authored: true }
+
+- template: g68-transformation-coords
+  skill: k8.geometry
+  pace: quick
+  cases:
+    - { q: 'rotated 90° counterclockwise about the origin', k: 0 }
+    - { q: 'rotated 180° about the origin', k: 1 }
+    - { q: 'dilated by a factor of 3 from the origin', k: 2 }
+    - { q: 'reflected across the line y = x', k: 3 }
+  given: { px: { int: [1, 6] }, y: { int: [1, 6] } }
+  require: [px != y]
+  prompt: 'The point $({{px}}, {{y}})$ is {{q}}. What is the new x-coordinate?'
+  parts:
+    - { ask: 'New x', label: r, value: 'k == 0 ? -y : (k == 1 ? -px : (k == 2 ? 3*px : y))', tol: 0.0001, explain: '90° CCW: (x, y) → (−y, x). 180°: (−x, −y). Dilation by k: (kx, ky). Across y = x: (y, x)' }
+  verify: { expect: { r: "[-y, -px, 3*px, y][k]" } }
+
+- template: g68-similar-triangles
+  skill: geo.congruence
+  pace: quick
+  given: { a: { int: [3, 8] }, k: { pick: [1.5, 2, 2.5, 3] }, b: { int: [4, 10] } }
+  prompt: 'Two triangles are similar with scale factor ${{k}}$. A side of ${{b}}$ in the small triangle matches which length in the large one?'
+  parts:
+    - { ask: 'Length', label: r, value: k*b, tol: 0.0001, explain: 'Similar figures have equal angles and proportional sides: multiply by the scale factor. Two equal angle pairs (AA) are enough to prove triangles similar' }
+  verify: { expect: { r: "nsimplify(k)*b" } }
+
+- template: g68-exterior-angle
+  skill: k8.geometry
+  pace: recall
+  given: { a: { int: [25, 80] }, b: { int: [25, 80] } }
+  prompt: 'Two interior angles of a triangle are ${{a}}$° and ${{b}}$°. What is the exterior angle at the third vertex?'
+  parts:
+    - { ask: 'Exterior angle', label: r, value: a + b, tol: 0.0001, explain: 'The exterior angle equals the sum of the two remote interior angles, ${{a}} + {{b}}$, because it and the third angle both make 180° with the same angle' }
+  verify: { expect: { r: "180 - (180 - a - b)" } }
+
+- template: g68-pythag-converse-check
+  skill: k8.geometry
+  pace: recall
+  given: { a: { int: [3, 12] }, b: { int: [4, 15] }, c: { int: [5, 20] } }
+  require: [c > a, c > b, a + b > c]
+  prompt: 'Is a triangle with sides ${{a}}$, ${{b}}$, ${{c}}$ a right triangle?'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["Right", "Not right"]
+      correct: 'a^2 + b^2 == c^2 ? 0 : 1'
+      explain: 'Converse of the Pythagorean theorem: it is right exactly when ${{a}}^2 + {{b}}^2 = {{c}}^2$; here ${{a^2 + b^2}}$ vs ${{c^2}}$'
+  verify: { choices: { a: "0 if a**2 + b**2 == c**2 else 1" } }
+
+- template: g68-pythag-3d
+  skill: k8.geometry
+  pace: quick
+  cases:
+    - { l: 3, w: 4, h: 12, d: 13 }
+    - { l: 2, w: 3, h: 6, d: 7 }
+    - { l: 1, w: 4, h: 8, d: 9 }
+    - { l: 2, w: 6, h: 9, d: 11 }
+    - { l: 4, w: 4, h: 7, d: 9 }
+  prompt: 'What is the length of the space diagonal of a ${{l}} \times {{w}} \times {{h}}$ box?'
+  parts:
+    - { ask: 'Diagonal', label: r, value: d, tol: 0.0001, explain: 'Use the theorem twice: the floor diagonal is $\sqrt{ {{l}}^2 + {{w}}^2 }$, then $d = \sqrt{ {{l}}^2 + {{w}}^2 + {{h}}^2 }$' }
+  verify: { expect: { r: "sqrt(l**2 + w**2 + h**2)" } }
+
+- template: g68-distance-axes
+  skill: k8.geometry
+  pace: recall
+  given: { a: { int: [3, 9] }, b: { int: [3, 9] } }
+  prompt: 'How far is $({{a}}, 0)$ from $(0, {{b}})$? (Give the square of the distance.)'
+  parts:
+    - { ask: 'Distance squared', label: r, value: a^2 + b^2, tol: 0.0001, explain: 'The two points and the origin make a right triangle with legs ${{a}}$ and ${{b}}$: $d^2 = {{a}}^2 + {{b}}^2$' }
+  verify: { expect: { r: "a**2 + b**2" } }
+
+- template: g68-volume-compare
+  skill: k8.geometry
+  pace: recall
+  cases:
+    - { q: 'a cone and a cylinder with the same radius and height', v: 3 }
+    - { q: 'a cylinder and a sphere that fits exactly inside it, cylinder to sphere', v: 1.5 }
+    - { q: 'two cylinders, the second with twice the radius, second to first', v: 4 }
+    - { q: 'two cones, the second twice as tall, second to first', v: 2 }
+  prompt: 'What is the ratio of the volumes for {{q}}? (First to second, unless stated.)'
+  parts:
+    - { ask: 'Ratio', label: r, value: v, tol: 0.001, explain: '$V_\text{cyl} = \pi r^2 h$, $V_\text{cone} = \tfrac13 \pi r^2 h$, $V_\text{sphere} = \tfrac43 \pi r^3$. Volume scales with radius squared and height' }
+  verify: { expect: { r: "nsimplify(v)" } }
+
+- template: g68-scatter-association
+  skill: stats.bivariate
+  pace: recall
+  cases:
+    - { q: 'hours studied and test score', ans: 0 }
+    - { q: 'outdoor temperature and heating bill', ans: 1 }
+    - { q: 'shoe size and phone number', ans: 2 }
+    - { q: 'age of a car and its value', ans: 1 }
+  prompt: 'What association would you expect between {{q}}?'
+  parts:
+    - ask: 'Association'
+      label: a
+      choice: ["Positive", "Negative", "None"]
+      correct: ans
+      explain: 'Positive: both rise together; negative: one falls as the other rises. Look also for clusters, outliers and whether the pattern is linear'
+  verify: { authored: true }
+
+- template: g68-trend-line-judge
+  skill: stats.bivariate
+  pace: recall
+  cases:
+    - { q: 'goes through the middle of the cloud with about as many points above as below', ans: 0 }
+    - { q: 'connects the first and last points only', ans: 1 }
+    - { q: 'passes above every point', ans: 1 }
+  prompt: 'A trend line that {{q}} is:'
+  parts:
+    - ask: 'Judgment'
+      label: a
+      choice: ["A good fit", "A poor fit"]
+      correct: ans
+      explain: 'Fit a line by eye so the points are balanced around it and their distances to it are small; it need not touch any point'
+  verify: { authored: true }
+
+- template: g68-slope-meaning
+  skill: k8.data
+  pace: quick
+  given: { m: { pick: [1.5, 2, 2.5, 3] }, b: { int: [40, 60] } }
+  prompt: 'A model says height (in) = ${{m}}$ × age (yr) + ${{b}}$ for children. By how much does height change per year, according to the model?'
+  parts:
+    - { ask: 'Inches per year', label: r, value: m, tol: 0.0001, explain: 'The slope is the change in y per one unit of x; the intercept ${{b}}$ is the model''s value at age 0, which may not make sense outside the data' }
+  verify: { expect: { r: "nsimplify(m)" } }
+
+- template: g68-two-way-relative
+  skill: k8.data
+  pace: quick
+  given: { a: { int: [10, 30] }, b: { int: [5, 25] }, c: { int: [5, 25] }, d: { int: [10, 30] } }
+  prompt: 'A two-way table: of students with pets, ${{a}}$ like cats and ${{b}}$ like dogs; of students without pets, ${{c}}$ like cats and ${{d}}$ like dogs. What fraction of pet owners like cats? (As a decimal.)'
+  parts:
+    - { ask: 'Fraction', label: r, value: a/(a + b), tol: 0.001, explain: 'Relative frequency within a row: ${{a}} \div ({{a}} + {{b}})$. Compare it with ${{c}} \div ({{c}} + {{d}})$ for non-owners to see an association' }
+  verify: { expect: { r: "Rational(a, a + b)" } }

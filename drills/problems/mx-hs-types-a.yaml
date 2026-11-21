@@ -1,0 +1,1109 @@
+# Second question types for high-school mathematics, part A: Algebra 1, statistics, geometry.
+# Each objective that was drilled one way gets a different kind of question.
+
+# ── Algebra 1: quantities, equations, inequalities ─────────────────────────
+- template: hs2-unit-check
+  skill: alg.linear
+  pace: recall
+  cases:
+    - { q: 'speed (m/s) × time (s)', ans: 0 }
+    - { q: 'cost (dollars) ÷ weight (lb)', ans: 1 }
+    - { q: 'density (g/cm³) × volume (cm³)', ans: 2 }
+    - { q: 'distance (km) ÷ fuel (L)', ans: 3 }
+  prompt: 'What unit does {{q}} give?'
+  parts:
+    - ask: 'Unit'
+      label: a
+      choice: ["m", "dollars per lb", "g", "km per L"]
+      correct: ans
+      explain: 'Treat units like algebra: multiply and cancel. Checking the unit of an answer catches a wrong operation before any arithmetic'
+  verify: { authored: true }
+
+- template: hs2-variable-meaning
+  skill: alg.linear
+  pace: recall
+  cases:
+    - { q: 'A gym charges 25 dollars plus 10 dollars per class: C = 25 + 10n. What does n stand for?', ans: 0 }
+    - { q: 'In C = 25 + 10n, what does 25 stand for?', ans: 1 }
+    - { q: 'In C = 25 + 10n, what does 10 stand for?', ans: 2 }
+  prompt: '{{q}}'
+  parts:
+    - ask: 'Meaning'
+      label: a
+      choice: ["The number of classes", "The fixed joining fee", "The cost per class"]
+      correct: ans
+      explain: 'Name every variable with its unit before writing an equation; constants then have clear meanings (start-up cost, rate)'
+  verify: { authored: true }
+
+- template: hs2-precision-context
+  skill: alg.linear
+  pace: recall
+  cases:
+    - { q: 'A room measured as 3.2 m by 4.15 m has area', ans: 0 }
+    - { q: 'Dividing 10 dollars among 3 people gives each', ans: 1 }
+    - { q: 'A survey of 87 people, 29 said yes, gives a yes-rate of', ans: 2 }
+  prompt: '{{q}} …'
+  parts:
+    - ask: 'Best report'
+      label: a
+      choice: ["about 13 m² (the measurement supports two significant figures)", "3.33 dollars (money to the cent)", "about 33 percent"]
+      correct: ans
+      explain: 'Report to the precision the inputs and the context support: a calculator''s full display claims accuracy the data does not have'
+  verify: { authored: true }
+
+- template: hs2-expression-parts-context
+  skill: alg.exponential
+  pace: recall
+  cases:
+    - { q: 'In A = P(1 + r)ⁿ, what does (1 + r) represent?', ans: 0 }
+    - { q: 'In A = P(1 + r)ⁿ, what does P represent?', ans: 1 }
+    - { q: 'In the profit expression p(1 − 0.2), what does 0.2 represent?', ans: 2 }
+  prompt: '{{q}}'
+  parts:
+    - ask: 'Meaning'
+      label: a
+      choice: ["The growth factor per period", "The starting amount", "A 20 percent reduction"]
+      correct: ans
+      explain: 'See groups of symbols as single quantities: a factor, a base amount, a rate. That reading tells you how the expression behaves'
+  verify: { authored: true }
+
+- template: hs2-chunk-solve
+  skill: alg.exponential
+  pace: quick
+  given: { h: { int: [1, 6] }, k: { pick: [4, 9, 16, 25] } }
+  prompt: 'Treat $(x - {{h}})$ as one quantity: solve $(x - {{h}})^2 = {{k}}$. What is the larger solution?'
+  parts:
+    - { ask: 'Larger x', label: r, value: h + sqrt(k), tol: 0.0001, explain: 'Let u = x − {{h}}: u² = {{k}} gives u = ±{{sqrt(k)}}, so x = {{h}} ± {{sqrt(k)}}. No expanding needed' }
+  verify: { expect: { r: "Max(*solve(Eq((x - h)**2, k), x))" } }
+
+- template: hs2-property-of-step
+  skill: alg.linear
+  pace: recall
+  cases:
+    - { q: '3x + 5 = 20 becomes 3x = 15', ans: 0 }
+    - { q: '3x = 15 becomes x = 5', ans: 1 }
+    - { q: '2(x + 4) = 18 becomes 2x + 8 = 18', ans: 2 }
+    - { q: 'x/4 = 7 becomes x = 28', ans: 3 }
+  prompt: 'Which property justifies the step: {{q}}?'
+  parts:
+    - ask: 'Property'
+      label: a
+      choice: ["Subtraction property of equality", "Division property of equality", "Distributive property", "Multiplication property of equality"]
+      correct: ans
+      explain: 'Each step keeps the equation true by doing the same thing to both sides, or rewrites one side with a property of operations'
+  verify: { authored: true }
+
+- template: hs2-inequality-test-value
+  skill: alg.linear
+  pace: recall
+  given: { a: { int: [2, 6] }, b: { int: [1, 12] }, c: { int: [-10, 20] }, t: { int: [-5, 8] } }
+  prompt: 'Is x = ${{t}}$ in the solution set of $-{{a}}x + {{b}} \ge {{c}}$?'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["Yes", "No"]
+      correct: '-a*t + b >= c ? 0 : 1'
+      explain: 'Substitute: $-{{a}}({{t}}) + {{b}} = {{-a*t + b}}$, compared with ${{c}}$. Solving gives x ≤ {{(b - c)/a}} (the sign flips when dividing by −{{a}})'
+  verify: { choices: { a: "0 if -a*t + b >= c else 1" } }
+
+- template: hs2-word-inequality
+  skill: alg.linear
+  pace: quick
+  given: { f: { pick: [15, 20, 25] }, p: { pick: [3, 4, 6] }, B: { pick: [80, 100, 120] } }
+  prompt: 'A taxi charges ${{f}}$ dollars plus ${{p}}$ dollars per mile. You have ${{B}}$ dollars. What is the greatest whole number of miles you can ride?'
+  parts:
+    - { ask: 'Miles', label: r, value: 'floor((B - f)/p)', tol: 0.0001, explain: 'Solve ${{f}} + {{p}}m \le {{B}}$: m ≤ {{(B - f)/p}}. Round down, because a whole mile more would cost too much' }
+  verify: { expect: { r: "floor(Rational(B - f, p))" } }
+
+- template: hs2-two-var-intercepts
+  skill: alg.linear
+  pace: quick
+  given: { a: { pick: [2, 3, 4, 5] }, b: { pick: [2, 4, 5, 6] }, k: { int: [2, 6] } }
+  prompt: 'Pens cost ${{a}}$ dollars and notebooks ${{b}}$ dollars; you spend ${{a*b*k}}$ dollars: ${{a}}x + {{b}}y = {{a*b*k}}$. What is the y-intercept, and what does it mean? (Give the value.)'
+  parts:
+    - { ask: 'y-intercept', label: r, value: a*k, tol: 0.0001, explain: 'Set x = 0: y = {{a*b*k}}/{{b}} = {{a*k}}, the number of notebooks if you buy no pens. The x-intercept is all pens' }
+  verify: { expect: { r: "Rational(a*b*k, b)" } }
+
+- template: hs2-viable-check
+  skill: alg.linear
+  pace: recall
+  cases:
+    - { q: 'x + y ≤ 40 and 2x + 3y ≤ 100 (hours and budget); point (20, 15)', ans: 0 }
+    - { q: 'x + y ≤ 40 and 2x + 3y ≤ 100; point (30, 15)', ans: 1 }
+    - { q: 'x ≥ 0, y ≥ 0, x + y ≤ 10; point (−2, 5)', ans: 1 }
+    - { q: 'x + 2y ≥ 12, x ≤ 8; point (6, 4)', ans: 0 }
+  prompt: 'Constraints: {{q}}. Is it a viable option?'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["Viable: meets every constraint", "Not viable"]
+      correct: ans
+      explain: 'A point is viable only if it satisfies every inequality (and makes sense: no negative counts)'
+  verify: { authored: true }
+
+- template: hs2-literal-plug
+  skill: alg.linear
+  pace: quick
+  cases:
+    - { f: 'V = IR, find R', a: 'V', b: 'I', k: 0 }
+    - { f: 'A = lw, find w', a: 'A', b: 'l', k: 0 }
+    - { f: 'd = rt, find t', a: 'd', b: 'r', k: 0 }
+  given: { p: { pick: [12, 24, 36, 60] }, q: { pick: [2, 3, 4, 6] } }
+  prompt: '{{f}} when {{a}} = ${{p}}$ and {{b}} = ${{q}}$.'
+  parts:
+    - { ask: 'Value', label: r, value: p/q, tol: 0.0001, explain: 'Rearrange first ({{a}} ÷ {{b}}), then substitute: solving the formula once lets you reuse it for any values' }
+  verify: { expect: { r: "Rational(p, q)" } }
+
+# ── Algebra 1: functions ───────────────────────────────────────────────────
+- template: hs2-function-equation
+  skill: k8.linear
+  pace: recall
+  cases:
+    - { q: 'y = x²', ans: 0 }
+    - { q: 'x = y²', ans: 1 }
+    - { q: 'x² + y² = 25', ans: 1 }
+    - { q: 'y = |x|', ans: 0 }
+    - { q: 'y = √x', ans: 0 }
+  prompt: 'Does {{q}} define y as a function of x?'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["Yes", "No: some x gives two y values"]
+      correct: ans
+      explain: 'Solve for y: if any x gives two y-values (like ±√x), it fails the vertical line test and is not a function'
+  verify: { authored: true }
+
+- template: hs2-function-reverse
+  skill: alg.functions
+  pace: recall
+  given: { m: { int: [2, 7] }, b: { int: [-5, 9] }, x0: { int: [-4, 8] } }
+  prompt: 'f(x) = {{m}}x + {{b}}. For what x is f(x) = ${{m*x0 + b}}$?'
+  parts:
+    - { ask: 'x', label: r, value: x0, tol: 0.0001, explain: 'f(x) = value is an equation: {{m}}x + {{b}} = {{m*x0 + b}}. Finding f(3) is evaluating; finding x with f(x) = 3 is solving' }
+  verify: { expect: { r: "solve(Eq(m*x + b, m*x0 + b), x)[0]" } }
+
+- template: hs2-recursive-term
+  skill: alg.sequences
+  pace: quick
+  given: { a1: { int: [2, 10] }, d: { int: [-4, 6] }, n: { int: [5, 15] } }
+  require: [d != 0]
+  prompt: 'f(1) = {{a1}} and f(n) = f(n − 1) + ({{d}}). What is f({{n}})?'
+  parts:
+    - { ask: 'f(n)', label: r, value: a1 + (n - 1)*d, tol: 0.0001, explain: 'A recursive rule adds {{d}} each step; the explicit form is f(n) = {{a1}} + (n − 1)({{d}})' }
+  verify: { expect: { r: "a1 + (n - 1)*d" } }
+
+- template: hs2-feature-context
+  skill: alg.quadratics
+  pace: recall
+  cases:
+    - { q: 'the y-intercept of a ball''s height graph h(t)', ans: 0 }
+    - { q: 'the vertex of h(t)', ans: 1 }
+    - { q: 'the positive t-intercept of h(t)', ans: 2 }
+    - { q: 'the interval where h(t) is increasing', ans: 3 }
+  prompt: 'What does {{q}} mean?'
+  parts:
+    - ask: 'Meaning'
+      label: a
+      choice: ["The launch height at t = 0", "The maximum height and when it happens", "When the ball hits the ground", "While the ball is rising"]
+      correct: ans
+      explain: 'Translate each graph feature into the story: intercepts are starting or ending values, the vertex an extreme, increasing intervals when the quantity grows'
+  verify: { authored: true }
+
+- template: hs2-domain-context
+  skill: alg.functions
+  pace: recall
+  cases:
+    - { q: 'C(n), the cost of n concert tickets', ans: 0 }
+    - { q: 'h(t), the height of a ball from launch until it lands at t = 4', ans: 1 }
+    - { q: 'A(r), the area of a circle of radius r', ans: 2 }
+  prompt: 'What is a sensible domain for {{q}}?'
+  parts:
+    - ask: 'Domain'
+      label: a
+      choice: ["Whole numbers 0, 1, 2, …", "0 ≤ t ≤ 4", "r > 0"]
+      correct: ans
+      explain: 'The context limits the domain: counts are whole numbers, time runs only while the event lasts, lengths are positive'
+  verify: { authored: true }
+
+- template: hs2-point-on-line
+  skill: alg.linear
+  pace: recall
+  given: { m: { int: [-4, 5] }, b: { int: [-6, 6] }, x0: { int: [-3, 5] } }
+  prompt: 'The point $({{x0}}, k)$ lies on y = {{m}}x + ({{b}}). What is k?'
+  parts:
+    - { ask: 'k', label: r, value: m*x0 + b, tol: 0.0001, explain: 'A point is on the graph exactly when its coordinates satisfy the equation: k = {{m}}({{x0}}) + ({{b}})' }
+  require: ['m*x0 + b != 0']
+  verify: { expect: { r: "m*x0 + b" } }
+
+- template: hs2-equal-differences
+  skill: alg.exponential
+  pace: recall
+  cases:
+    - { q: 'y: 3, 7, 11, 15 for x = 0, 1, 2, 3', ans: 0 }
+    - { q: 'y: 3, 6, 12, 24 for x = 0, 1, 2, 3', ans: 1 }
+    - { q: 'y: 100, 90, 81, 72.9 for x = 0, 1, 2, 3', ans: 1 }
+    - { q: 'y: 50, 45, 40, 35 for x = 0, 1, 2, 3', ans: 0 }
+    - { q: 'y: 1, 4, 9, 16 for x = 1, 2, 3, 4', ans: 2 }
+  prompt: 'Is this table linear, exponential or neither? {{q}}'
+  parts:
+    - ask: 'Type'
+      label: a
+      choice: ["Linear: equal differences", "Exponential: equal ratios", "Neither"]
+      correct: ans
+      explain: 'Over equal x-steps, linear functions add the same amount and exponential functions multiply by the same factor'
+  verify: { authored: true }
+
+- template: hs2-constant-percent
+  skill: alg.exponential
+  pace: recall
+  cases:
+    - { q: 'A car loses 15 percent of its value each year.', ans: 1 }
+    - { q: 'A plant grows 2 cm each week.', ans: 0 }
+    - { q: 'A town''s population grows 3 percent per year.', ans: 1 }
+    - { q: 'A tank drains 5 L per minute.', ans: 0 }
+  prompt: '{{q}} Linear or exponential model?'
+  parts:
+    - ask: 'Model'
+      label: a
+      choice: ["Linear", "Exponential"]
+      correct: ans
+      explain: 'A constant amount per unit time is linear; a constant percent per unit time is exponential'
+  verify: { authored: true }
+
+- template: hs2-explicit-arithmetic
+  skill: alg.sequences
+  pace: quick
+  given: { a: { int: [3, 20] }, d: { int: [2, 9] }, n: { int: [10, 40] } }
+  prompt: 'Seats in a theater: ${{a}}$ in the first row and ${{d}}$ more in each row after. How many seats are in row ${{n}}$?'
+  parts:
+    - { ask: 'Seats', label: r, value: a + (n - 1)*d, tol: 0.0001, explain: 'Explicit form: a(n) = {{a}} + (n − 1)·{{d}}. Row 1 has no additions yet' }
+  verify: { expect: { r: "a + (n - 1)*d" } }
+
+- template: hs2-parameter-meaning
+  skill: alg.exponential
+  pace: recall
+  given: { a: { pick: [200, 500, 1200] }, r: { pick: [1.05, 1.08, 0.9, 0.75] } }
+  prompt: 'Value V(t) = {{a}}({{r}})ᵗ. What percent does V change each period (positive for growth, negative for decay)?'
+  parts:
+    - { ask: 'Percent change', label: p, value: 100*(r - 1), tol: 0.001, explain: 'The base is the growth factor: {{r}} = 1 + ({{r - 1}}), so the rate is {{100*(r - 1)}} percent per period; {{a}} is the starting value' }
+  verify: { expect: { p: "100*(nsimplify(r) - 1)" } }
+
+- template: hs2-rational-exponent
+  skill: alg.exponential
+  pace: recall
+  cases:
+    - { b: 8, p: 2, q: 3, v: 4 }
+    - { b: 27, p: 2, q: 3, v: 9 }
+    - { b: 16, p: 3, q: 4, v: 8 }
+    - { b: 32, p: 3, q: 5, v: 8 }
+    - { b: 25, p: 3, q: 2, v: 125 }
+    - { b: 81, p: 3, q: 4, v: 27 }
+  prompt: 'Evaluate ${{b}}^{ {{p}}/{{q}} }$ without a calculator.'
+  parts:
+    - { ask: 'Value', label: r, value: v, tol: 0.0001, explain: 'Root first, then power: $(\sqrt[{{q}}]{ {{b}} })^{ {{p}} }$. This follows from $(b^{1/q})^q = b$' }
+  verify: { expect: { r: "Integer(b)**Rational(p, q)" } }
+
+- template: hs2-exponential-overtakes
+  skill: alg.exponential
+  pace: quick
+  given: { m: { pick: [10, 50, 100] } }
+  prompt: 'For which smallest whole number x does $2^x$ first exceed ${{m}}x$?'
+  parts:
+    - { ask: 'x', label: r, value: 'm == 10 ? 6 : (m == 50 ? 9 : 10)', tol: 0.0001, explain: 'Test powers of 2 against the line: however steep the line, a growing exponential eventually passes it and never falls back' }
+  verify: { expect: { r: "Min(*[k for k in range(2, 40) if 2**k > m*k])" } }
+
+- template: hs2-compare-intercepts
+  skill: alg.functions
+  pace: quick
+  given: { b1: { int: [-5, 10] }, m2: { int: [1, 5] }, x2: { int: [1, 4] }, y2: { int: [-6, 12] } }
+  require: ['y2 - m2*x2 != b1']
+  prompt: 'f(x) = 3x + ({{b1}}). g is linear with slope {{m2}} through ({{x2}}, {{y2}}). Which has the greater y-intercept?'
+  parts:
+    - ask: 'Greater y-intercept'
+      label: a
+      choice: ["f", "g"]
+      correct: 'b1 > y2 - m2*x2 ? 0 : 1'
+      explain: 'Find g''s intercept: {{y2}} − {{m2}}({{x2}}) = {{y2 - m2*x2}}; compare with {{b1}}. Put both functions in the same form before comparing'
+  verify: { choices: { a: "0 if b1 > y2 - m2*x2 else 1" } }
+
+# ── Algebra 1: systems ─────────────────────────────────────────────────────
+- template: hs2-elimination-why
+  skill: alg.linear
+  pace: recall
+  cases:
+    - { q: 'Why may you replace one equation by the sum of the two equations?', ans: 0 }
+    - { q: 'Why may you multiply an equation by a nonzero number?', ans: 1 }
+    - { q: 'Adding x + y = 7 and x − y = 1 gives', ans: 2 }
+  prompt: '{{q}}'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["Any (x, y) solving both equations also solves their sum, and vice versa, so the solutions are unchanged", "It describes the same line, so the solutions are unchanged", "2x = 8, so x = 4"]
+      correct: ans
+      explain: 'Elimination produces an equivalent system: the new system has exactly the same solutions as the original'
+  verify: { authored: true }
+
+- template: hs2-intersection-meaning
+  skill: alg.linear
+  pace: recall
+  cases:
+    - { q: 'The graphs of y = f(x) and y = g(x) cross at x = 3. What does 3 solve?', ans: 0 }
+    - { q: 'y = 2x and y = x + 1 cross at (1, 2). Which equation has solution x = 1?', ans: 1 }
+    - { q: 'Graphs of f and g never meet. How many solutions does f(x) = g(x) have?', ans: 2 }
+  prompt: '{{q}}'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["The equation f(x) = g(x)", "2x = x + 1", "None"]
+      correct: ans
+      explain: 'At an intersection both functions give the same y for the same x, which is exactly what f(x) = g(x) asks'
+  verify: { authored: true }
+
+- template: hs2-half-plane-test
+  skill: alg.linear
+  pace: recall
+  given: { m: { int: [-3, 3] }, b: { int: [-4, 4] }, w: { pick: [0, 1] } }
+  prompt: 'To graph y {{w == 0 ? ">" : "<"}} {{m}}x + ({{b}}), test the origin. Is (0, 0) in the shaded region?'
+  require: ['b != 0']
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["Yes: shade the side with the origin", "No: shade the other side"]
+      correct: '(w == 0 ? 0 > b : 0 < b) ? 0 : 1'
+      explain: 'Substitute (0, 0): is 0 {{w == 0 ? ">" : "<"}} {{b}}? The boundary is dashed because the inequality is strict'
+  verify: { choices: { a: "0 if ((0 > b) if w == 0 else (0 < b)) else 1" } }
+
+# ── Statistics ─────────────────────────────────────────────────────────────
+- template: hs2-outlier-effect
+  skill: stats.descriptive
+  pace: recall
+  cases:
+    - { q: 'Adding one very large value changes the mean', ans: 0 }
+    - { q: 'Adding one very large value changes the median', ans: 1 }
+    - { q: 'Adding one very large value changes the standard deviation', ans: 0 }
+    - { q: 'Adding one very large value changes the IQR', ans: 1 }
+  prompt: '{{q}} …'
+  parts:
+    - ask: 'Effect'
+      label: a
+      choice: ["a lot", "very little"]
+      correct: ans
+      explain: 'Mean, range and standard deviation use every value''s size, so outliers drag them; median and IQR use positions, so they resist outliers. Report median and IQR for skewed data'
+  verify: { authored: true }
+
+- template: hs2-two-way-marginal
+  skill: stats.bivariate
+  pace: quick
+  given: { a: { int: [10, 40] }, b: { int: [10, 40] }, c: { int: [10, 40] }, d: { int: [10, 40] } }
+  prompt: 'A two-way table: juniors ${{a}}$ yes, ${{b}}$ no; seniors ${{c}}$ yes, ${{d}}$ no. What fraction of all students said yes? (As a decimal.)'
+  parts:
+    - { ask: 'Marginal relative frequency', label: r, value: (a + c)/(a + b + c + d), tol: 0.001, explain: 'Marginal: a column total over the grand total. Conditional: restrict to one row (juniors who said yes, {{a}}/{{a + b}}). Comparing conditionals across rows reveals association' }
+  verify: { expect: { r: "Rational(a + c, a + b + c + d)" } }
+
+- template: hs2-model-type
+  skill: stats.bivariate
+  pace: recall
+  cases:
+    - { q: 'Bacteria counts double every hour', ans: 1 }
+    - { q: 'Height of a thrown ball over time', ans: 2 }
+    - { q: 'Total pay at a fixed hourly wage', ans: 0 }
+    - { q: 'Drug concentration falling by a fixed percent each hour', ans: 1 }
+  prompt: '{{q}}: which function family fits best?'
+  parts:
+    - ask: 'Model'
+      label: a
+      choice: ["Linear", "Exponential", "Quadratic"]
+      correct: ans
+      explain: 'Pick the family from the mechanism: constant rate → linear, constant percent → exponential, gravity or area → quadratic. Then check with a residual plot'
+  verify: { authored: true }
+
+- template: hs2-residual-pattern
+  skill: stats.bivariate
+  pace: recall
+  cases:
+    - { q: 'Residuals scatter randomly around 0 with no pattern', ans: 0 }
+    - { q: 'Residuals form a U shape', ans: 1 }
+    - { q: 'Residuals fan out wider as x grows', ans: 2 }
+  prompt: '{{q}}. What does it say about a linear fit?'
+  parts:
+    - ask: 'Conclusion'
+      label: a
+      choice: ["The linear model is appropriate", "A curved model would fit better", "The spread is not constant, so predictions are less reliable for large x"]
+      correct: ans
+      explain: 'Residual = observed − predicted. A good model leaves residuals that look like random noise'
+  verify: { authored: true }
+
+- template: hs2-predict-line
+  skill: stats.bivariate
+  pace: quick
+  given: { m: { pick: [2.5, 3.2, 4.0, 1.8] }, b: { pick: [12, 20, 35] }, x0: { int: [3, 15] } }
+  prompt: 'A least-squares line is ŷ = {{m}}x + {{b}}. Predict y when x = {{x0}}. If the actual y is {{m*x0 + b + 4}}, what is the residual? (Give the residual.)'
+  parts:
+    - { ask: 'Residual', label: r, value: 4, tol: 0.0001, explain: 'Predicted ŷ = {{m*x0 + b}}; residual = actual − predicted. Positive residuals sit above the line' }
+  verify: { expect: { r: "(nsimplify(m)*x0 + b + 4) - (nsimplify(m)*x0 + b)" } }
+
+- template: hs2-causation
+  skill: stats.descriptive
+  pace: recall
+  cases:
+    - { q: 'Ice-cream sales and drownings are strongly correlated. Does ice cream cause drowning?', ans: 1 }
+    - { q: 'In a randomised experiment, the group given a drug recovered faster. Can we conclude the drug helps?', ans: 0 }
+    - { q: 'Countries with more TVs per person have longer life expectancy. Do TVs extend life?', ans: 1 }
+  prompt: '{{q}}'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["Yes: random assignment supports a causal conclusion", "No: correlation alone does not show causation (look for a lurking variable)"]
+      correct: ans
+      explain: 'Observational data can show association; only a randomised experiment controls for lurking variables (summer heat, wealth) well enough to support cause and effect'
+  verify: { authored: true }
+
+# ── Polynomials and quadratics ─────────────────────────────────────────────
+- template: hs2-poly-degree
+  skill: alg.polynomials
+  pace: recall
+  given: { a: { int: [1, 4] }, b: { int: [1, 4] } }
+  prompt: 'What is the degree of the product of a degree-{{a}} polynomial and a degree-{{b}} polynomial?'
+  parts:
+    - { ask: 'Degree', label: r, value: a + b, tol: 0.0001, explain: 'Leading terms multiply and exponents add. Polynomials are closed under +, − and × (like integers), but not under ÷' }
+  verify: { expect: { r: "a + b" } }
+
+- template: hs2-square-root-solve
+  skill: alg.quadratics
+  pace: recall
+  given: { a: { pick: [2, 3, 4, 5] }, r: { int: [2, 9] } }
+  prompt: 'Solve ${{a}}x^2 = {{a*r^2}}$ by taking square roots. What is the positive solution?'
+  parts:
+    - { ask: 'x', label: s, value: r, tol: 0.0001, explain: 'Divide: x² = {{r^2}}, so x = ±{{r}}. Taking square roots needs no factoring when there is no x term' }
+  verify: { expect: { s: "Max(*solve(Eq(a*x**2, a*r**2), x))" } }
+
+- template: hs2-complete-square-constant
+  skill: alg.quadratics
+  pace: recall
+  given: { b: { pick: [2, 4, 6, 8, 10, 12, 14] } }
+  prompt: 'What constant completes the square: $x^2 + {{b}}x + \;?$'
+  parts:
+    - { ask: 'Constant', label: c, value: (b/2)^2, tol: 0.0001, explain: 'Half the x-coefficient, squared: $({{b/2}})^2$, giving $(x + {{b/2}})^2$' }
+  verify: { expect: { c: "(Rational(b, 2))**2" } }
+
+- template: hs2-reject-solution
+  skill: alg.quadratics
+  pace: quick
+  given: { w: { int: [3, 9] }, d: { int: [2, 6] } }
+  prompt: 'A rectangle''s length is ${{d}}$ more than its width and its area is ${{w*(w + d)}}$. What is the width?'
+  parts:
+    - { ask: 'Width', label: r, value: w, tol: 0.0001, explain: 'x(x + {{d}}) = {{w*(w + d)}} gives x = {{w}} or x = {{-w - d}}; reject the negative root because a width cannot be negative' }
+  verify: { expect: { r: "Max(*solve(Eq(x*(x + d), w*(w + d)), x))" } }
+
+- template: hs2-line-parabola-count
+  skill: alg.quadratics
+  pace: quick
+  given: { m: { int: [-3, 3] }, c: { int: [-3, 3] } }
+  prompt: 'How many times does y = {{m}}x + ({{c}}) meet y = x²?'
+  parts:
+    - ask: 'Intersections'
+      label: a
+      choice: ["Two", "One (tangent)", "None"]
+      correct: 'm^2 + 4*c > 0 ? 0 : (m^2 + 4*c == 0 ? 1 : 2)'
+      explain: 'Set equal: x² − {{m}}x − ({{c}}) = 0. The discriminant ${{m^2 + 4*c}}$ tells: positive two, zero one, negative none'
+  verify: { choices: { a: "0 if m**2 + 4*c > 0 else (1 if m**2 + 4*c == 0 else 2)" } }
+
+- template: hs2-rational-sum-type
+  skill: alg.rational
+  pace: recall
+  cases:
+    - { q: '1/2 + 1/3', ans: 0 }
+    - { q: '√2 + 3', ans: 1 }
+    - { q: '√2 × √2', ans: 0 }
+    - { q: '5 × √3', ans: 1 }
+    - { q: '√2 + (−√2)', ans: 0 }
+  prompt: 'Is {{q}} rational or irrational?'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["Rational", "Irrational"]
+      correct: ans
+      explain: 'Rational + rational and rational × rational stay rational; rational + irrational is irrational, and so is nonzero rational × irrational. Two irrationals can give either'
+  verify: { authored: true }
+
+- template: hs2-growth-rate-read
+  skill: alg.exponential
+  pace: recall
+  given: { r: { pick: [1.02, 1.1, 0.95, 0.8] }, k: { pick: [12, 4, 2] } }
+  prompt: '$y = 100({{r}})^{t/{{k}}}$, t in months. Is it growth or decay, and by what percent every {{k}} months?'
+  parts:
+    - { ask: 'Percent per {{k}} months', label: p, value: 100*(r - 1), tol: 0.001, explain: 'Every {{k}} months the exponent grows by 1, multiplying y by {{r}}: a change of {{100*(r - 1)}} percent' }
+  verify: { expect: { p: "100*(nsimplify(r) - 1)" } }
+
+- template: hs2-compare-maxima-forms
+  skill: alg.quadratics
+  pace: quick
+  given: { a: { int: [1, 3] }, h: { int: [1, 5] }, k: { int: [5, 20] }, m: { int: [5, 20] } }
+  require: [k != m]
+  prompt: 'f(x) = −{{a}}(x − {{h}})² + {{k}}. g is a parabola whose table peaks at ({{h + 1}}, {{m}}). Which has the greater maximum?'
+  parts:
+    - ask: 'Greater maximum'
+      label: a
+      choice: ["f", "g"]
+      correct: 'k > m ? 0 : 1'
+      explain: 'Vertex form shows f''s maximum, {{k}}, directly; g''s is {{m}}'
+  verify: { choices: { a: "0 if k > m else 1" } }
+
+- template: hs2-combined-function
+  skill: alg.exponential
+  pace: quick
+  given: { T: { pick: [20, 22, 25] }, D: { pick: [60, 70, 80] }, t: { int: [1, 3] } }
+  prompt: 'Coffee cools as C(t) = {{T}} + {{D}}(0.5)ᵗ (t in tens of minutes). What is its temperature at t = {{t}}?'
+  parts:
+    - { ask: 'Temperature', label: r, value: T + D*0.5^t, tol: 0.0001, explain: 'A constant (room temperature) plus a decaying exponential (the excess heat): {{T}} + {{D}}(0.5)^{{t}}' }
+  verify: { expect: { r: "T + D*Rational(1, 2)**t" } }
+
+- template: hs2-vertex-after-transform
+  skill: alg.functions
+  pace: recall
+  given: { h: { int: [-5, 5] }, k: { int: [-6, 6] } }
+  prompt: 'The graph of y = x² is shifted to y = (x − ({{h}}))² + ({{k}}). What is the x-coordinate plus the y-coordinate of the new vertex?'
+  require: ['h + k != 0']
+  parts:
+    - { ask: 'h + k', label: r, value: h + k, tol: 0.0001, explain: 'f(x − h) moves the graph h right; + k moves it k up. The vertex goes from (0, 0) to ({{h}}, {{k}})' }
+  verify: { expect: { r: "h + k" } }
+
+- template: hs2-even-odd-algebra
+  skill: alg.functions
+  pace: recall
+  cases:
+    - { q: 'f(x) = x⁴ − 3x²', ans: 0 }
+    - { q: 'f(x) = x³ + 2x', ans: 1 }
+    - { q: 'f(x) = x² + x', ans: 2 }
+    - { q: 'f(x) = cos x', ans: 0 }
+    - { q: 'f(x) = sin x', ans: 1 }
+  prompt: 'Is {{q}} even, odd or neither?'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["Even: f(−x) = f(x)", "Odd: f(−x) = −f(x)", "Neither"]
+      correct: ans
+      explain: 'Replace x by −x and simplify. Even functions are symmetric about the y-axis, odd ones about the origin'
+  verify: { authored: true }
+
+# ── Geometry: congruence ───────────────────────────────────────────────────
+- template: hs2-definition-term
+  skill: geo.congruence
+  pace: recall
+  cases:
+    - { q: 'all points in a plane at a given distance from a given point', ans: 0 }
+    - { q: 'lines in a plane that do not intersect', ans: 1 }
+    - { q: 'lines that meet at a right angle', ans: 2 }
+    - { q: 'the part of a line between two points', ans: 3 }
+  prompt: 'Which term is defined as {{q}}?'
+  parts:
+    - ask: 'Term'
+      label: a
+      choice: ["Circle", "Parallel lines", "Perpendicular lines", "Line segment"]
+      correct: ans
+      explain: 'Definitions build on undefined notions (point, line, distance along a line, distance around a circular arc). Precise definitions are what proofs rest on'
+  verify: { authored: true }
+
+- template: hs2-transformation-function
+  skill: geo.congruence
+  pace: recall
+  given: { a: { int: [-5, 5] }, b: { int: [-5, 5] }, x0: { int: [-6, 6] }, y0: { int: [-6, 6] } }
+  require: [a != 0, 'x0 + a != 0']
+  prompt: 'T(x, y) = (x + {{a}}, y + ({{b}})). What is the x-coordinate of T({{x0}}, {{y0}})?'
+  parts:
+    - { ask: 'x-coordinate', label: r, value: x0 + a, tol: 0.0001, explain: 'A transformation is a function on points; this translation moves every point {{a}} across and {{b}} up, preserving distances and angles' }
+  verify: { expect: { r: "x0 + a" } }
+
+- template: hs2-rotational-symmetry
+  skill: geo.congruence
+  pace: recall
+  cases:
+    - { s: 'a square', n: 90 }
+    - { s: 'a regular hexagon', n: 60 }
+    - { s: 'an equilateral triangle', n: 120 }
+    - { s: 'a regular octagon', n: 45 }
+    - { s: 'a rectangle (not a square)', n: 180 }
+    - { s: 'a regular pentagon', n: 72 }
+  prompt: 'What is the smallest positive rotation that carries {{s}} onto itself, in degrees?'
+  parts:
+    - { ask: 'Degrees', label: r, value: n, tol: 0.0001, explain: 'A regular n-gon has rotational symmetry of 360°/n. A parallelogram has 180° symmetry but no lines of symmetry unless it is a rhombus or rectangle' }
+  verify: { expect: { r: "n" } }
+
+- template: hs2-rigid-define
+  skill: geo.congruence
+  pace: recall
+  cases:
+    - { q: 'Every point moves the same distance in the same direction', ans: 0 }
+    - { q: 'Every point moves along a circle centered at a fixed point through the same angle', ans: 1 }
+    - { q: 'The mirror line is the perpendicular bisector of each segment joining a point to its image', ans: 2 }
+  prompt: 'Which transformation is defined by: {{q}}?'
+  parts:
+    - ask: 'Transformation'
+      label: a
+      choice: ["Translation", "Rotation", "Reflection"]
+      correct: ans
+      explain: 'Rigid motions are defined with angles, circles, perpendicular and parallel lines; all preserve distance and angle'
+  verify: { authored: true }
+
+- template: hs2-rotation-image
+  skill: geo.congruence
+  pace: quick
+  cases:
+    - { q: '90° clockwise about the origin', k: 0 }
+    - { q: '270° counterclockwise about the origin', k: 0 }
+    - { q: 'a reflection across y = −x', k: 1 }
+    - { q: 'a reflection across the y-axis', k: 2 }
+  given: { px: { int: [1, 7] }, py: { int: [1, 7] } }
+  prompt: 'Find the image of ({{px}}, {{py}}) under {{q}}. Give its y-coordinate.'
+  parts:
+    - { ask: 'y-coordinate', label: r, value: 'k == 0 ? -px : (k == 1 ? -px : py)', tol: 0.0001, explain: '90° CW (= 270° CCW): (x, y) → (y, −x). Across y = −x: (x, y) → (−y, −x). Across the y-axis: (−x, y)' }
+  verify: { expect: { r: "[-px, -px, py][k]" } }
+
+- template: hs2-congruent-decide
+  skill: geo.congruence
+  pace: recall
+  cases:
+    - { q: 'A triangle and its image after a rotation', ans: 0 }
+    - { q: 'A triangle and its image after a dilation by 2', ans: 1 }
+    - { q: 'A figure and its mirror image', ans: 0 }
+    - { q: 'Two circles with radii 3 and 4', ans: 1 }
+  prompt: '{{q}}: congruent?'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["Congruent", "Not congruent"]
+      correct: ans
+      explain: 'Two figures are congruent exactly when some sequence of rigid motions maps one onto the other; a dilation changes size'
+  verify: { authored: true }
+
+- template: hs2-congruence-criterion
+  skill: geo.congruence
+  pace: recall
+  cases:
+    - { q: 'Three pairs of sides are congruent.', ans: 0 }
+    - { q: 'Two pairs of sides and the included angle are congruent.', ans: 1 }
+    - { q: 'Two pairs of angles and the included side are congruent.', ans: 2 }
+    - { q: 'Two pairs of angles and a non-included side are congruent.', ans: 3 }
+    - { q: 'Three pairs of angles are congruent.', ans: 4 }
+    - { q: 'Two pairs of sides and a non-included angle are congruent.', ans: 4 }
+  prompt: '{{q}} Which criterion, if any, proves the triangles congruent?'
+  parts:
+    - ask: 'Criterion'
+      label: a
+      choice: ["SSS", "SAS", "ASA", "AAS", "None: AAA and SSA do not prove congruence"]
+      correct: ans
+      explain: 'SSS, SAS, ASA and AAS (and HL for right triangles) work. AAA gives only similarity; SSA can allow two different triangles'
+  verify: { authored: true }
+
+- template: hs2-transversal-angle
+  skill: geo.congruence
+  pace: recall
+  cases:
+    - { q: 'alternate interior', k: 0 }
+    - { q: 'corresponding', k: 0 }
+    - { q: 'same-side interior', k: 1 }
+    - { q: 'alternate exterior', k: 0 }
+  given: { a: { int: [35, 145] } }
+  prompt: 'Parallel lines are cut by a transversal. One angle is ${{a}}$°. What is its {{q}} partner?'
+  parts:
+    - { ask: 'Degrees', label: r, value: 'k == 0 ? a : 180 - a', tol: 0.0001, explain: 'Alternate and corresponding angles are congruent; same-side interior angles are supplementary. These follow from parallel lines being translations of each other' }
+  require: ['a != 90']
+  verify: { expect: { r: "a if k == 0 else 180 - a" } }
+
+- template: hs2-isosceles-angle
+  skill: geo.congruence
+  pace: recall
+  given: { v: { int: [20, 140] } }
+  require: ['v % 2 == 0']
+  prompt: 'An isosceles triangle has vertex angle ${{v}}$°. What is each base angle?'
+  parts:
+    - { ask: 'Degrees', label: r, value: (180 - v)/2, tol: 0.0001, explain: 'Base angles of an isosceles triangle are congruent and all three angles sum to 180°' }
+  verify: { expect: { r: "solve(Eq(v + 2*x, 180), x)[0]" } }
+
+- template: hs2-parallelogram-angle
+  skill: geo.congruence
+  pace: recall
+  given: { a: { int: [40, 85] }, w: { pick: [0, 1] } }
+  prompt: 'One angle of a parallelogram is ${{a}}$°. What is the angle {{w == 0 ? "opposite it" : "next to it"}}?'
+  parts:
+    - { ask: 'Degrees', label: r, value: 'w == 0 ? a : 180 - a', tol: 0.0001, explain: 'Opposite angles of a parallelogram are congruent; consecutive angles are supplementary (they are same-side interior angles)' }
+  verify: { expect: { r: "a if w == 0 else 180 - a" } }
+
+- template: hs2-construction-step
+  skill: geo.congruence
+  pace: recall
+  cases:
+    - { q: 'perpendicular bisector of AB', ans: 0 }
+    - { q: 'bisector of angle A', ans: 1 }
+    - { q: 'copy of segment AB on a ray', ans: 2 }
+    - { q: 'line through P parallel to ℓ', ans: 3 }
+  prompt: 'Which first step starts the construction of the {{q}}?'
+  parts:
+    - ask: 'First step'
+      label: a
+      choice: ["Arcs of equal radius (more than half AB) from A and from B", "An arc from A crossing both sides of the angle", "Set the compass to length AB", "Draw a transversal through P and copy the angle it makes with ℓ"]
+      correct: ans
+      explain: 'Compass-and-straightedge constructions rely on congruent radii: equal arcs make congruent segments, and points equidistant from A and B lie on the perpendicular bisector'
+  verify: { authored: true }
+
+- template: hs2-inscribed-construction
+  skill: geo.congruence
+  pace: recall
+  cases:
+    - { q: 'a regular hexagon in a circle', ans: 0 }
+    - { q: 'an equilateral triangle in a circle', ans: 1 }
+    - { q: 'a square in a circle', ans: 2 }
+  prompt: 'How do you construct {{q}}?'
+  parts:
+    - ask: 'Method'
+      label: a
+      choice: ["Step the radius around the circle six times", "Step the radius around and use every other point", "Draw two perpendicular diameters and join their endpoints"]
+      correct: ans
+      explain: 'The hexagon''s side equals the radius, because it is made of six equilateral triangles; the triangle and square follow from the hexagon''s points and from perpendicular diameters'
+  verify: { authored: true }
+
+# ── Geometry: similarity and trigonometry ──────────────────────────────────
+- template: hs2-dilation-parallel
+  skill: geo.similarity
+  pace: recall
+  cases:
+    - { q: 'A line not through the center of dilation becomes', ans: 0 }
+    - { q: 'A line through the center of dilation becomes', ans: 1 }
+    - { q: 'An angle''s measure after dilation is', ans: 2 }
+  prompt: '{{q}} …'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["a parallel line", "the same line", "unchanged"]
+      correct: ans
+      explain: 'Dilations move points along rays from the center, scaling distances by k. Lines through the center stay put; other lines move to parallel lines; angles keep their size'
+  verify: { authored: true }
+
+- template: hs2-dilation-length
+  skill: geo.similarity
+  pace: recall
+  given: { L: { int: [3, 12] }, k: { pick: [0.5, 1.5, 2, 3] } }
+  prompt: 'A segment of length ${{L}}$ is dilated by scale factor ${{k}}$. How long is the image?'
+  parts:
+    - { ask: 'Length', label: r, value: k*L, tol: 0.0001, explain: 'Dilation multiplies every length by k (shrinks if k < 1)' }
+  verify: { expect: { r: "nsimplify(k)*L" } }
+
+- template: hs2-similar-scale
+  skill: geo.similarity
+  pace: quick
+  given: { a: { int: [3, 9] }, b: { int: [4, 12] }, k: { pick: [2, 3, 1.5] } }
+  prompt: 'Triangle ABC has AB = {{a}} and BC = {{b}}. A similar triangle has A′B′ = {{k*a}}. What is B′C′?'
+  parts:
+    - { ask: 'B′C′', label: r, value: k*b, tol: 0.0001, explain: 'Scale factor = {{k*a}}/{{a}} = {{k}}; multiply every side by it' }
+  verify: { expect: { r: "nsimplify(k)*b" } }
+
+- template: hs2-aa-why
+  skill: geo.similarity
+  pace: recall
+  cases:
+    - { q: 'Why are two angles enough to prove triangles similar?', ans: 0 }
+    - { q: 'Two right triangles share an acute angle. Are they similar?', ans: 1 }
+    - { q: 'Two isosceles triangles have congruent vertex angles. Are they similar?', ans: 1 }
+  prompt: '{{q}}'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["The third angles must then match too (sum 180°), and a dilation plus a rigid motion maps one onto the other", "Yes, by AA"]
+      correct: ans
+      explain: 'Similarity transformations preserve angles, so matching two angles pins the shape; only size can differ'
+  verify: { authored: true }
+
+- template: hs2-side-splitter-reverse
+  skill: geo.similarity
+  pace: quick
+  given: { a: { int: [2, 8] }, b: { int: [3, 9] }, c: { int: [2, 8] } }
+  prompt: 'A line parallel to BC cuts AB at D and AC at E. AD = {{a}}, DB = {{b}}, AE = {{c}}. What is EC?'
+  parts:
+    - { ask: 'EC', label: r, value: b*c/a, tol: 0.001, explain: 'A parallel line splits the sides proportionally: AD/DB = AE/EC' }
+  verify: { expect: { r: "solve(Eq(Rational(a, b), c/x), x)[0]" } }
+
+- template: hs2-altitude-mean
+  skill: geo.similarity
+  pace: quick
+  cases:
+    - { p: 4, q: 9, h: 6 }
+    - { p: 2, q: 8, h: 4 }
+    - { p: 3, q: 12, h: 6 }
+    - { p: 1, q: 16, h: 4 }
+    - { p: 9, q: 16, h: 12 }
+  prompt: 'The altitude to the hypotenuse of a right triangle splits the hypotenuse into ${{p}}$ and ${{q}}$. How long is the altitude?'
+  parts:
+    - { ask: 'Altitude', label: r, value: h, tol: 0.0001, explain: 'The altitude makes two triangles similar to each other, so p/h = h/q: h = √(pq), the geometric mean' }
+  verify: { expect: { r: "sqrt(p*q)" } }
+
+- template: hs2-trig-from-sides
+  skill: geo.right-triangles
+  pace: recall
+  cases:
+    - { a: 3, b: 4, c: 5 }
+    - { a: 5, b: 12, c: 13 }
+    - { a: 8, b: 15, c: 17 }
+    - { a: 7, b: 24, c: 25 }
+  given: { w: { pick: [0, 1, 2] } }
+  prompt: 'A right triangle has legs {{a}} and {{b}} and hypotenuse {{c}}. For the angle opposite the side {{a}}, what is its {{w == 0 ? "sine" : (w == 1 ? "cosine" : "tangent")}}?'
+  parts:
+    - { ask: 'Ratio', label: r, value: 'w == 0 ? a/c : (w == 1 ? b/c : a/b)', tol: 0.0001, explain: 'SOH CAH TOA. The ratio depends only on the angle: any similar triangle gives the same value' }
+  verify: { expect: { r: "[Rational(a, c), Rational(b, c), Rational(a, b)][w]" } }
+
+- template: hs2-cofunction
+  skill: geo.right-triangles
+  pace: recall
+  given: { t: { int: [10, 80] }, v: { pick: [0.25, 0.4, 0.6, 0.8] } }
+  prompt: 'If sin({{t}}°) = {{v}}, what is cos({{90 - t}}°)?'
+  parts:
+    - { ask: 'Value', label: r, value: v, tol: 0.0001, explain: 'The two acute angles of a right triangle are complementary, and the side opposite one is adjacent to the other: sin θ = cos(90° − θ)' }
+  verify: { expect: { r: "nsimplify(v)" } }
+
+- template: hs2-model-shape
+  skill: geo.measurement
+  pace: recall
+  cases:
+    - { q: 'a tree trunk', ans: 0 }
+    - { q: 'a human torso, roughly', ans: 0 }
+    - { q: 'an ice-cream cone', ans: 1 }
+    - { q: 'a basketball', ans: 2 }
+    - { q: 'a shoebox', ans: 3 }
+  prompt: 'Which solid best models {{q}}?'
+  parts:
+    - ask: 'Solid'
+      label: a
+      choice: ["Cylinder", "Cone", "Sphere", "Rectangular prism"]
+      correct: ans
+      explain: 'Modeling replaces a real object with a simple shape whose formulas you know, accepting some error for a quick estimate'
+  verify: { authored: true }
+
+- template: hs2-density-reverse
+  skill: geo.measurement
+  pace: quick
+  given: { d: { pick: [150, 300, 1200] }, A: { pick: [20, 45, 80] } }
+  prompt: 'A county has population density ${{d}}$ people per square mile and area ${{A}}$ square miles. What is its population?'
+  parts:
+    - { ask: 'Population', label: r, value: d*A, tol: 0.0001, explain: 'Density = amount ÷ area (or volume), so amount = density × area' }
+  verify: { expect: { r: "d*A" } }
+
+- template: hs2-least-material
+  skill: geo.measurement
+  pace: recall
+  cases:
+    - { q: 'An open-top box with a square base must hold a fixed volume. To use the least cardboard, its height should be', ans: 0 }
+    - { q: 'A closed cylindrical can holds a fixed volume with the least metal when its height equals', ans: 1 }
+    - { q: 'For a fixed perimeter, the rectangle with the most area is', ans: 2 }
+  prompt: '{{q}} …'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["half the base edge", "its diameter", "a square"]
+      correct: ans
+      explain: 'Design problems trade one dimension against another under a constraint; the best shape is usually the most balanced one'
+  verify: { authored: true }
+
+- template: hs2-area-sin
+  skill: geo.right-triangles
+  pace: quick
+  cases:
+    - { C: 30, s: 0.5 }
+    - { C: 90, s: 1 }
+    - { C: 150, s: 0.5 }
+  given: { a: { int: [4, 12] }, b: { int: [4, 12] } }
+  prompt: 'Two sides of a triangle are ${{a}}$ and ${{b}}$ with included angle ${{C}}$°. What is its area?'
+  parts:
+    - { ask: 'Area', label: r, value: a*b*s/2, tol: 0.0001, explain: 'Drop an altitude: its length is ${{b}} \sin {{C}}° $, so A = ½·{{a}}·{{b}}·sin {{C}}°' }
+  verify: { expect: { r: "Rational(1, 2)*a*b*sin(C*pi/180)" } }
+
+- template: hs2-law-of-sines
+  skill: geo.right-triangles
+  pace: quick
+  cases:
+    - { A: 30, B: 90, a: 5, b: 10 }
+    - { A: 30, B: 120, a: 4, b: 6.928203230275509 }
+    - { A: 90, B: 30, a: 12, b: 6 }
+    - { A: 30, B: 45, a: 6, b: 8.48528137423857 }
+  prompt: 'In triangle ABC, A = {{A}}°, B = {{B}}° and a = {{a}}. Find b with the Law of Sines.'
+  parts:
+    - { ask: 'b', label: r, value: b, tol: 0.001, explain: 'a/sin A = b/sin B, so b = a·sin B / sin A. The Law of Cosines, c² = a² + b² − 2ab cos C, handles SAS and SSS' }
+  verify: { expect: { r: "a*sin(B*pi/180)/sin(A*pi/180)" } }
+
+- template: hs2-composite-solid
+  skill: geo.measurement
+  pace: quick
+  given: { r: { int: [1, 5] }, h: { int: [3, 10] } }
+  prompt: 'A silo is a cylinder of radius ${{r}}$ and height ${{h}}$ topped by a hemisphere of the same radius. What is its volume, divided by π?'
+  parts:
+    - { ask: 'Volume ÷ π', label: v, value: r^2*h + 2*r^3/3, tol: 0.001, explain: 'Add the parts: πr²h + ½·(4/3)πr³' }
+  verify: { expect: { v: "(pi*r**2*h + Rational(2, 3)*pi*r**3)/pi" } }
+
+# ── Geometry: coordinates and circles ──────────────────────────────────────
+- template: hs2-coordinate-right-angle
+  skill: geo.coordinates
+  pace: quick
+  given: { a: { int: [1, 4] }, b: { int: [1, 4] }, w: { pick: [0, 1] } }
+  prompt: 'Points P(0, 0), Q({{a}}, {{b}}) and R({{w == 0 ? -b : b}}, {{w == 0 ? a : a + 1}}). Is angle Q P R a right angle? Give the product of the slopes of PQ and PR.'
+  parts:
+    - { ask: 'Product of slopes', label: r, value: '(b/a)*((w == 0 ? a : a + 1)/(w == 0 ? -b : b))', tol: 0.001, explain: 'Perpendicular lines have slopes whose product is −1; the coordinates prove or disprove it without measuring' }
+  verify: { expect: { r: "Rational(b, a)*Rational(a if w == 0 else a + 1, -b if w == 0 else b)" } }
+
+- template: hs2-midpoint
+  skill: geo.coordinates
+  pace: recall
+  given: { x1: { int: [-8, 8] }, y1: { int: [-8, 8] }, x2: { int: [-8, 8] }, y2: { int: [-8, 8] } }
+  require: [x1 + x2 != 0]
+  prompt: 'What is the x-coordinate of the midpoint of ({{x1}}, {{y1}}) and ({{x2}}, {{y2}})?'
+  parts:
+    - { ask: 'x', label: r, value: (x1 + x2)/2, tol: 0.0001, explain: 'The midpoint averages the coordinates; it is the 1 : 1 partition of the segment' }
+  verify: { expect: { r: "Rational(x1 + x2, 2)" } }
+
+- template: hs2-shoelace
+  skill: geo.coordinates
+  pace: quick
+  given: { a: { int: [2, 8] }, b: { int: [2, 8] }, c: { int: [-4, 6] } }
+  prompt: 'A triangle has vertices (0, 0), ({{a}}, 0) and ({{c}}, {{b}}). What is its area?'
+  parts:
+    - { ask: 'Area', label: r, value: a*b/2, tol: 0.0001, explain: 'Base {{a}} lies on the x-axis and the height is the third point''s y-coordinate, {{b}}, wherever its x is' }
+  verify: { expect: { r: "Abs(a*b - 0)/2" } }
+
+- template: hs2-parabola-focus
+  skill: geo.coordinates
+  pace: quick
+  given: { p: { pick: [1, 2, 3, 0.5, 0.25] } }
+  prompt: 'A parabola has focus (0, {{p}}) and directrix y = −{{p}}. Its equation is y = ax². What is a?'
+  parts:
+    - { ask: 'a', label: r, value: 1/(4*p), tol: 0.0001, explain: 'Equal distances: x² + (y − p)² = (y + p)² gives x² = 4py, so y = x²/(4p)' }
+  verify: { expect: { r: "1/(4*nsimplify(p))" } }
+
+- template: hs2-circle-scale
+  skill: geo.circles
+  pace: recall
+  given: { r1: { int: [2, 6] }, k: { int: [2, 4] } }
+  prompt: 'Circle A has radius ${{r1}}$ and circle B radius ${{k*r1}}$. By what factor must A be dilated to match B, and how many times larger is B''s area? (Give the area factor.)'
+  parts:
+    - { ask: 'Area factor', label: r, value: k^2, tol: 0.0001, explain: 'All circles are similar: translate centers together and dilate by {{k}}. Areas scale by the square of the factor' }
+  verify: { expect: { r: "k**2" } }
+
+- template: hs2-triangle-centers
+  skill: geo.circles
+  pace: recall
+  cases:
+    - { q: 'the center of the circle through all three vertices', ans: 0 }
+    - { q: 'the center of the circle tangent to all three sides', ans: 1 }
+    - { q: 'Opposite angles of a quadrilateral inscribed in a circle are', ans: 2 }
+  prompt: '{{q}} …'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["the circumcenter: where the perpendicular bisectors meet", "the incenter: where the angle bisectors meet", "supplementary"]
+      correct: ans
+      explain: 'Points on a perpendicular bisector are equidistant from two vertices; points on an angle bisector are equidistant from two sides'
+  verify: { authored: true }
+
+- template: hs2-tangent-length
+  skill: geo.circles
+  pace: quick
+  cases:
+    - { r: 3, d: 5, t: 4 }
+    - { r: 5, d: 13, t: 12 }
+    - { r: 8, d: 17, t: 15 }
+    - { r: 6, d: 10, t: 8 }
+  prompt: 'A point is ${{d}}$ from the center of a circle of radius ${{r}}$. How long is a tangent segment from the point to the circle?'
+  parts:
+    - { ask: 'Tangent length', label: r2, value: t, tol: 0.0001, explain: 'A tangent is perpendicular to the radius at the point of tangency, making a right triangle with hypotenuse {{d}}. Constructing one uses that right angle (Thales'' circle on the segment to the center)' }
+  verify: { expect: { r2: "sqrt(d**2 - r**2)" } }
+
+- template: hs2-arc-length
+  skill: geo.circles
+  pace: quick
+  given: { r: { int: [2, 12] }, t: { pick: [30, 45, 60, 90, 120] } }
+  prompt: 'An arc subtends ${{t}}$° in a circle of radius ${{r}}$. What is its length, divided by π?'
+  parts:
+    - { ask: 'Length ÷ π', label: s, value: 2*r*t/360, tol: 0.0001, explain: 'An arc is the same fraction of the circumference as its angle is of 360°: ({{t}}/360)·2π({{r}}). In radians that is just rθ' }
+  verify: { expect: { s: "(Rational(t, 360)*2*pi*r)/pi" } }
+
+- template: hs2-point-on-circle
+  skill: geo.circles
+  pace: recall
+  given: { h: { int: [-3, 3] }, k: { int: [-3, 3] }, dx: { pick: [3, 5, 6] }, dy: { pick: [4, 8, 12] }, w: { pick: [0, 1] } }
+  prompt: 'Does ({{h + dx}}, {{k + dy + w}}) lie on the circle centered at ({{h}}, {{k}}) through ({{h + dx}}, {{k + dy}})?'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["Yes", "No"]
+      correct: 'w == 0 ? 0 : 1'
+      explain: 'Compare the distance from the center with the radius, using d² = Δx² + Δy²'
+  verify: { choices: { a: "0 if dx**2 + (dy + w)**2 == dx**2 + dy**2 else 1" } }
+
+# ── Probability ────────────────────────────────────────────────────────────
+- template: hs2-independence-check
+  skill: stats.probability
+  pace: quick
+  given: { a: { pick: [0.2, 0.4, 0.5] }, b: { pick: [0.3, 0.5, 0.6] }, w: { pick: [0, 1] } }
+  prompt: 'P(A) = {{a}}, P(B) = {{b}}, P(A and B) = {{w == 0 ? a*b : a*b + 0.05}}. Are A and B independent?'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["Independent", "Not independent"]
+      correct: w
+      explain: 'Independent exactly when P(A and B) = P(A)·P(B) = {{a*b}}'
+  verify: { choices: { a: "0 if (nsimplify(a)*nsimplify(b) if w == 0 else nsimplify(a)*nsimplify(b) + Rational(1, 20)) == nsimplify(a)*nsimplify(b) else 1" } }
+
+- template: hs2-conditional-table
+  skill: stats.probability
+  pace: quick
+  given: { a: { int: [10, 40] }, b: { int: [10, 40] }, c: { int: [10, 40] }, d: { int: [10, 40] } }
+  prompt: 'Of students who play sports, ${{a}}$ are in band and ${{b}}$ are not; of those who don''t play sports, ${{c}}$ are in band and ${{d}}$ are not. What is P(sports | band)? (As a decimal.)'
+  parts:
+    - { ask: 'P(sports | band)', label: r, value: a/(a + c), tol: 0.001, explain: 'Condition on band: restrict to the band column, {{a}} + {{c}} students, and take the sports share. P(band | sports) = {{a}}/{{a + b}} is a different question' }
+  verify: { expect: { r: "Rational(a, a + c)" } }
+
+- template: hs2-conditional-words
+  skill: stats.probability
+  pace: recall
+  cases:
+    - { q: 'The chance a smoker gets lung cancer', ans: 0 }
+    - { q: 'The chance a lung-cancer patient is a smoker', ans: 1 }
+    - { q: 'Knowing it rained does not change the chance of a traffic delay', ans: 2 }
+  prompt: '{{q}} is written:'
+  parts:
+    - ask: 'Notation'
+      label: a
+      choice: ["P(cancer | smoker)", "P(smoker | cancer)", "P(delay | rain) = P(delay): independence"]
+      correct: ans
+      explain: 'The condition goes after the bar. Swapping it gives a different, often very different, probability'
+  verify: { authored: true }
+
+- template: hs2-without-replacement
+  skill: stats.probability
+  pace: quick
+  given: { r: { int: [2, 6] }, b: { int: [2, 6] } }
+  prompt: 'A bag has ${{r}}$ red and ${{b}}$ blue marbles. Two are drawn without replacement. What is the probability both are red? (As a decimal.)'
+  parts:
+    - { ask: 'Probability', label: p, value: r*(r - 1)/((r + b)*(r + b - 1)), tol: 0.001, explain: 'P(A and B) = P(A)·P(B | A) = ({{r}}/{{r + b}})·({{r - 1}}/{{r + b - 1}}): the second draw has one fewer red and one fewer marble' }
+  verify: { expect: { p: "Rational(r, r + b)*Rational(r - 1, r + b - 1)" } }
+
+- template: hs2-fair-decision
+  skill: stats.probability
+  pace: recall
+  cases:
+    - { q: 'Three friends must pick one to drive. Which is fair?', ans: 0 }
+    - { q: 'Toss two coins: HH means Ana, TT means Ben, mixed means Cy. Is it fair?', ans: 1 }
+    - { q: 'Roll a die: 1–2 Ana, 3–4 Ben, 5–6 Cy. Is it fair?', ans: 0 }
+  prompt: '{{q}}'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["Fair: each has probability 1/3", "Not fair: mixed has probability 1/2"]
+      correct: ans
+      explain: 'A fair decision gives each option equal probability; list the sample space to check'
+  verify: { authored: true }
+
+- template: hs2-positive-predictive
+  skill: stats.probability
+  pace: quick
+  given: { N: { pick: [10000] }, prev: { pick: [0.01, 0.02, 0.05] }, sens: { pick: [0.9, 0.95] }, fp: { pick: [0.05, 0.1] } }
+  prompt: 'In ${{N}}$ people, ${{100*prev}}$ percent have a disease. The test catches ${{100*sens}}$ percent of cases and falsely flags ${{100*fp}}$ percent of healthy people. What fraction of positive tests are true positives? (As a decimal.)'
+  parts:
+    - { ask: 'P(disease | positive)', label: r, value: N*prev*sens/(N*prev*sens + N*(1 - prev)*fp), tol: 0.002, explain: 'Count: true positives {{N*prev*sens}}, false positives {{N*(1 - prev)*fp}}. With a rare disease, false positives can outnumber true ones' }
+  verify: { expect: { r: "N*nsimplify(prev)*nsimplify(sens)/(N*nsimplify(prev)*nsimplify(sens) + N*(1 - nsimplify(prev))*nsimplify(fp))" } }

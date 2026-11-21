@@ -68,11 +68,12 @@ async function mount(label: string, seed: Record<string, any>, expect: string[],
   await mount("built before the choice existed", { "library.root": "r1", "library.signature": "old" }, ["Update the Library", "Drill cards:"]);
   await mount("built with a saved choice", { "library.root": "r1", "library.cardFrameworks": ["heat-transfer"] }, ["Drill cards: 1 of"]);
   // objectives without drills are hidden until asked for: no empty tracks, no "no drills" dead end
-  const firstUndrilledMath = PATH_LOS.find((l: any) => l.fw.track === "math" && !l.drills.length);
+  const firstUndrilledMath = PATH_LOS.find((l: any) => l.fw.track === "math" && !l.drills.length) ?? PATH_LOS.find((l: any) => !l.drills.length);
   const known0: Record<string, string> = {};
   for (const l of PATH_LOS) { if (l === firstUndrilledMath) break; known0[l.code] = "known"; }
+  local = { "path.track": firstUndrilledMath.fw.track };
   await mount("undrilled hidden", { "library.root": "r1", "path.mastery": known0 }, ["objectives without drills", "warm"], ["No drills for this objective yet", "Athletics", "mastered"]);
-  local = { "path.showUndrilled": true };
+  local = { "path.showUndrilled": true, "path.track": firstUndrilledMath.fw.track };
   await mount("whole map shown", { "library.root": "r1", "path.mastery": known0 }, ["Hide objectives without drills", "No drills for this objective yet", "Athletics"]);
   local = {};
 
