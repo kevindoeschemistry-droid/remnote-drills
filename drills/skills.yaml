@@ -626,4 +626,8 @@ skills:
   - { id: md.integration, domain: md, title: "Time steps, constraints and degrees of freedom", short: "Integration", prereqs: [md.forcefields] }
   - { id: md.boundaries, domain: md, title: "Periodic boxes, density and ions", short: "Periodic boundaries", prereqs: [md.forcefields] }
   - { id: md.analysis, domain: md, title: "Uncertainty, correlation and binding free energies", short: "Analysis and uncertainty", prereqs: [md.statmech] }
+  - { id: md.prep, domain: md, title: "System preparation: protonation, solvation, equilibration", short: "Preparation", prereqs: [md.boundaries] }
+  - { id: md.free-energy, domain: md, title: "Alchemical free energies: FEP, TI, BAR/MBAR, schedules and thermodynamic cycles", short: "Free-energy methods", prereqs: [md.statmech, md.analysis] }
+  - { id: md.lambda, domain: md, title: "λ dynamics, MSλD and ALF in practice", short: "λ dynamics and ALF", prereqs: [md.free-energy] }
+  - { id: md.workflow, domain: md, title: "Engines, clusters, scripts and reproducibility", short: "Workflow" }
   - { id: compchem.methods, domain: compchem, title: "Electronic structure in practice: basis sets, cost, units, choosing a method", short: "Electronic-structure methods", prereqs: [quantum.bonding] }

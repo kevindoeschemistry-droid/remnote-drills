@@ -28,7 +28,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 | Molecular Simulation | LiveCoMS best-practice papers for molecular simulation | course | read in part | — | — | 102 | 0 | 102 |
 | Nuclear Science and Reactor Theory | NRC Generic Fundamentals Examination, reactor theory topics (PWR catalog 192001-192008) | exam-spec | read in part | doe-hdbk-1019 | — | 19 | 19 | 0 |
 | Organic Reactions: Predict the Product | Bruice, Organic Chemistry, 8th edition (table of contents) | textbook | read in part | — | aamc-mcat-outline | 25 | 3 | 22 |
-| Particle Physics | OpenStax University Physics, volumes 2 and 3 (chapter list) | textbook | not opened | — | — | 6 | 0 | 6 |
+| Particle Physics | AQA AS and A-level Physics (7407/7408), section 3.2 Particles and radiation | standard | read in part | openstax-university-physics | — | 13 | 12 | 1 |
 | The Periodic Table from Memory | IUPAC Periodic Table of the Elements (release of 4 May 2022) | reference | read in part | — | — | 15 | 10 | 5 |
 | Physical Chemistry | Engel & Reid, Physical Chemistry, 3rd ed. (through the wiki's drill pages) | textbook | read in part | fe-chemical | acs-accm-pchem | 141 | 59 | 82 |
 | Physics (AP) | AP Physics 1, 2 and C Course and Exam Descriptions | standard | read in part | — | — | 201 | 201 | 0 |
@@ -58,7 +58,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 - **Molecular Simulation**: No standard exists for this subject; triangulated from best-practice papers, textbooks and the Hayes group tutorial.
 - **Nuclear Science and Reactor Theory**: Reactor-theory units follow the NRC Generic Fundamentals Examination topic list (read in part). Nuclear physics and shielding follow the DOE fundamentals handbook's first module (read in part). Health-physics standards for the radiation-protection unit have not been looked at.
 - **Organic Reactions: Predict the Product**: Families follow the reaction chapters of Bruice's Organic Chemistry (a textbook, not a standard; chapter titles 2-17 from memory). The reactions and substrates in each are a house list. Every product is mass-balanced against its reactant by the generator; regiochemistry and stereochemistry were checked by eye.
-- **Particle Physics**: No published standard was read. Topics follow an introductory modern-physics chapter (OpenStax University Physics vol. 3 ch. 11, chapter title from memory); the objective list is a house decision.
+- **Particle Physics**: Objectives follow AQA A-level Physics section 3.2 (Particles and radiation), read in this session. The Lorentz-factor items go beyond it and rest on a university textbook chapter.
 - **The Periodic Table from Memory**: Content from the IUPAC table (release note read; element list cross-checked in the verifier). Which parts to know by heart is a house decision from Kevin's organometallics course.
 - **Physical Chemistry**: Textbook-shaped until the ACS content map is read. Thermodynamics and kinetics units are anchored to fe-chemical; quantum and spectroscopy have no outside anchor yet.
 - **Physics (AP)**: Objective codes read for a few units only.
@@ -83,7 +83,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 - **Molecular Simulation**: course, read in part
 - **Nuclear Science and Reactor Theory**: exam-spec, read in part
 - **Organic Reactions: Predict the Product**: textbook, read in part; should move to AAMC, What's on the MCAT Exam? content outline (categories 1A, 1D, 5D)
-- **Particle Physics**: textbook, not opened
+- **Particle Physics**: standard, read in part
 - **The Periodic Table from Memory**: reference, read in part
 - **Physical Chemistry**: textbook, read in part; should move to ACS Exams Institute Anchoring Concepts Content Map IV: Physical Chemistry (J. Chem. Educ. 2018, 95, 238)
 - **Physics (AP)**: standard, read in part
@@ -550,3 +550,25 @@ https://apcentral.collegeboard.org/courses/ap-statistics
 | **7** | **Symmetric Matrices and Quadratic Forms** (undefined questions) | | | |
 
 **Areas with nothing answering to them:** 1 Linear Equations in Linear Algebra; 2 Matrix Algebra; 3 Determinants; 4 Vector Spaces; 5 Eigenvalues and Eigenvectors; 6 Orthogonality and Least Squares; 7 Symmetric Matrices and Quadratic Forms.
+
+## AQA AS and A-level Physics (7407/7408), section 3.2 Particles and radiation
+
+https://www.aqa.org.uk/subjects/physics/a-level/physics-7408/specification/subject-content/particles-and-radiation
+
+0 of 0 items have at least one objective answering to them.
+
+| Item | Topic | Objectives | With a drill | Where |
+|---|---|---|---|---|
+| **3.2.1.1** | **Constituents of the atom** (undefined questions) | | | |
+| **3.2.1.2** | **Stable and unstable nuclei** (undefined questions) | | | |
+| **3.2.1.3** | **Particles, antiparticles and photons** (undefined questions) | | | |
+| **3.2.1.4** | **Particle interactions** (undefined questions) | | | |
+| **3.2.1.5** | **Classification of particles** (undefined questions) | | | |
+| **3.2.1.6** | **Quarks and antiquarks** (undefined questions) | | | |
+| **3.2.1.7** | **Applications of conservation laws** (undefined questions) | | | |
+| **3.2.2.1** | **The photoelectric effect** (undefined questions) | | | |
+| **3.2.2.2** | **Collisions of electrons with atoms** (undefined questions) | | | |
+| **3.2.2.3** | **Energy levels and photon emission** (undefined questions) | | | |
+| **3.2.2.4** | **Wave-particle duality** (undefined questions) | | | |
+
+**Areas with nothing answering to them:** 3.2.1.1 Constituents of the atom; 3.2.1.2 Stable and unstable nuclei; 3.2.1.3 Particles, antiparticles and photons; 3.2.1.4 Particle interactions; 3.2.1.5 Classification of particles; 3.2.1.6 Quarks and antiquarks; 3.2.1.7 Applications of conservation laws; 3.2.2.1 The photoelectric effect; 3.2.2.2 Collisions of electrons with atoms; 3.2.2.3 Energy levels and photon emission; 3.2.2.4 Wave-particle duality.

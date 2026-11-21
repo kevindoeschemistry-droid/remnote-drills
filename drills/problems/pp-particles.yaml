@@ -226,3 +226,52 @@
       correct: ans
       explain: 'Secular equilibrium: $\lambda_PN_P = \lambda_DN_D$. Equal activities, very unequal numbers of atoms, and the daughter grows back on its own half-life. It is why radium ore always contains radon'
   verify: { authored: true }
+
+# ── added on the AQA 7408 section 3.2 basis ────────────────────────────────
+- template: pp-specific-charge
+  skill: physics.particles
+  pace: quick
+  cases:
+    - { p: 'an electron', z: 1, m: 0.000548579909 }
+    - { p: 'a proton', z: 1, m: 1.007276466621 }
+    - { p: 'an alpha particle', z: 2, m: 4.001506179127 }
+  prompt: 'What is the specific charge (charge ÷ mass) of {{p}}, in units of $10^{7}$ C/kg? (Mass ${{m}}$ u, 1 u = $1.6605 \times 10^{-27}$ kg, $e = 1.602 \times 10^{-19}$ C.)'
+  parts:
+    - { ask: 'Specific charge ($10^7$ C/kg)', label: r, tex: 'q/m', value: z*1.602176634e-19/(m*1.66053906660e-27)/1e7, tol: 0.002, explain: 'Divide charge by mass. An electron''s is about 1836 times a proton''s, which is why electrons bend so much more in a field. An alpha particle has twice the charge but four times the mass' }
+  verify: { expect: { r: "z*c_e/(nsimplify(m, rational=True)*Rational(166053906660, 10**38))/10**7" } }
+
+- template: pp-strangeness
+  skill: physics.particles
+  pace: recall
+  cases:
+    - { name: 'the kaon K⁺', q: 'uS', S: 1 }
+    - { name: 'the kaon K⁻', q: 'sU', S: -1 }
+    - { name: 'the Λ', q: 'uds', S: -1 }
+    - { name: 'the Ξ⁰', q: 'uss', S: -2 }
+    - { name: 'the Ω⁻', q: 'sss', S: -3 }
+    - { name: 'the proton', q: 'uud', S: 0 }
+    - { name: 'the anti-Λ', q: 'UDS', S: 1 }
+  prompt: '{{name}} has quark content {{q}} (capital = antiquark). What is its strangeness?'
+  parts:
+    - ask: 'Strangeness'
+      label: a
+      choice: ["-3", "-2", "-1", "0", "+1"]
+      correct: S + 3
+      explain: 'Each strange quark carries strangeness −1 and each anti-strange quark +1. Strangeness is conserved in strong interactions, so strange particles are made in pairs, but it can change by one in the weak interactions that make them decay'
+  verify: { choices: { a: "q.count('S') - q.count('s') + 3" } }
+
+- template: pp-quark-change
+  skill: physics.particles
+  pace: recall
+  cases:
+    - { q: 'beta-minus decay', ans: 0 }
+    - { q: 'beta-plus decay', ans: 1 }
+    - { q: 'electron capture', ans: 1 }
+  prompt: 'What happens to a quark in {{q}}?'
+  parts:
+    - ask: 'Change'
+      label: a
+      choice: ["A down quark becomes an up quark: n → p + e⁻ + antineutrino", "An up quark becomes a down quark, so a proton becomes a neutron"]
+      correct: ans
+      explain: 'Only the weak interaction changes a quark''s flavour, through W exchange. Electron capture, p + e⁻ → n + νₑ, makes the same quark change as beta-plus decay'
+  verify: { authored: true }
