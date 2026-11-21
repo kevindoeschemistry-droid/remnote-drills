@@ -578,6 +578,77 @@
      ]
     }
    ]
+  },
+  {
+   "id": "mechanisms",
+   "n": 8,
+   "title": "Mechanisms with curved arrows",
+   "scope": "core",
+   "ideas": [
+    "RULES"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "The four patterns",
+     "los": [
+      {
+       "id": "A",
+       "do": "Draw the SN2 mechanism: both arrows and the products.",
+       "ek": [
+        "Backside attack and loss of the leaving group in one step; inversion."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "st-mech-sn2-1"
+       ]
+      },
+      {
+       "id": "B",
+       "do": "Draw the E2 mechanism: three arrows and the products.",
+       "ek": [
+        "Base to H, C–H electrons to the π bond, leaving group out; anti-periplanar."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "st-mech-e2-1"
+       ]
+      },
+      {
+       "id": "C",
+       "do": "Draw the two steps of electrophilic addition of HX to an alkene, with the carbocation.",
+       "ek": [
+        "The π bond takes the proton to give the more stable cation; the halide then adds."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "st-mech-hbr-addition-1",
+        "st-mech-hbr-addition-2"
+       ]
+      },
+      {
+       "id": "D",
+       "do": "Draw the two steps of nucleophilic acyl substitution, with the tetrahedral intermediate.",
+       "ek": [
+        "Addition to C=O, then elimination of the leaving group."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "st-mech-acyl-substitution-1",
+        "st-mech-acyl-substitution-2"
+       ]
+      }
+     ]
+    }
+   ]
   }
  ],
  "rows": [
@@ -879,6 +950,48 @@
     "rx-reagent-cc-aldol-condensation",
     "rx-predict-cc-diels-alder",
     "rx-reagent-cc-diels-alder"
+   ],
+   "partial": []
+  },
+  {
+   "code": "OR-8.1.A",
+   "unit": 8,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "st-mech-sn2-1"
+   ],
+   "partial": []
+  },
+  {
+   "code": "OR-8.1.B",
+   "unit": 8,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "st-mech-e2-1"
+   ],
+   "partial": []
+  },
+  {
+   "code": "OR-8.1.C",
+   "unit": 8,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "st-mech-hbr-addition-1",
+    "st-mech-hbr-addition-2"
+   ],
+   "partial": []
+  },
+  {
+   "code": "OR-8.1.D",
+   "unit": 8,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "st-mech-acyl-substitution-1",
+    "st-mech-acyl-substitution-2"
    ],
    "partial": []
   }

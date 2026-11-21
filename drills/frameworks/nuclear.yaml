@@ -144,3 +144,17 @@ units:
         title: "Energy"
         los:
           - { id: A, do: "Relate thermal power to fuel consumed, and state the size of decay heat after shutdown.", ek: ["About 200 MeV per fission, so about 1 g of U-235 per megawatt-day; decay heat starts at 6–7% of full power."], p: [P1, P3], drills: [nu-fuel-consumption, nu-decay-heat] }
+  - id: radioactivity
+    n: 7
+    title: "Radioactivity in practice"
+    scope: core
+    std: ["doe-hdbk-1019:1"]
+    ideas: [EXPONENTIAL]
+    topics:
+      - n: 1
+        title: "Chains, activity and dating"
+        los:
+          - { id: A, std: ["doe-hdbk-1019:1"], do: "Follow a nuclide through a sequence of alpha and beta decays and count the decays in a series.", ek: ["Alpha: Z − 2, A − 4. Beta-minus: Z + 1. Only alphas change A."], p: [P1], drills: [ra-decay-chain, ra-count-alphas] }
+          - { id: B, std: ["doe-hdbk-1019:1"], do: "Calculate an activity from a mass and a half-life, and convert between becquerels and curies.", ek: ["A = λN; 1 Ci = 3.7 × 10¹⁰ Bq."], p: [P1, P3], drills: [ra-activity-from-mass, ra-becquerel-curie] }
+          - { id: C, std: ["doe-hdbk-1019:1"], do: "Date a sample from its remaining activity and find an effective half-life in the body.", ek: ["t = T ln(1/f)/ln 2; removal rates add."], p: [P1], drills: [ra-carbon-dating, ra-effective-half-life] }
+          - { id: D, std: ["doe-hdbk-1019:1"], do: "Calculate a Q-value from a mass difference and describe secular equilibrium.", ek: ["931.5 MeV per u; at equilibrium parent and daughter activities are equal."], p: [P1, P2], drills: [ra-q-value, ra-secular-equilibrium] }

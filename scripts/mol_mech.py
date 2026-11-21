@@ -143,6 +143,110 @@ HEAD = """# Mechanisms as drawn states with curved arrows.
 """
 
 
+# ── the four mechanisms every other one is built from ───────────────────────
+def small_mechanisms():
+    """(slug, name, skill, formula, [(state title, why this step happens, State)])"""
+    out = []
+
+    # SN2: hydroxide on bromoethane
+    def sn2(done):
+        s = State()
+        s.atom("O", 0.0, 0.0, "HO" if done else "HO-")
+        s.atom("C1", 2.0, 0.0); s.atom("C2", 2.0, 1.0)
+        s.atom("Br", 3.4, 0.0, "Br-" if done else "Br")
+        s.bond("C1", "C2")
+        s.bond("O", "C1") if done else s.bond("C1", "Br")
+        return s
+    a = sn2(False); a.arrow("O", "C1", -0.3); a.arrow(("C1", "Br"), "Br", -0.5)
+    out.append(("sn2", "the SN2 reaction of hydroxide with bromoethane", "orgo.substitution-elimination", "C2H6BrO-", [
+        ("Hydroxide and bromoethane", "One step. The nucleophile attacks the carbon from the side opposite the leaving group while the C–Br bond breaks: two arrows, no intermediate, and the configuration at carbon inverts", a),
+        ("Ethanol and bromide", "", sn2(True))]))
+
+    # E2: an alkoxide on bromoethane
+    def e2(done):
+        s = State()
+        s.atom("R", -0.2, 1.6, "R"); s.atom("O", 0.8, 1.6, "O" if done else "O-")
+        s.atom("H", 1.6, 0.8, "H"); s.atom("Cb", 2.3, 0.0); s.atom("Ca", 3.3, 0.0)
+        s.atom("Br", 3.9, -0.9, "Br-" if done else "Br")
+        s.bond("R", "O")
+        if done:
+            s.bond("O", "H"); s.bond("Cb", "Ca", 2)
+        else:
+            s.bond("H", "Cb"); s.bond("Cb", "Ca"); s.bond("Ca", "Br")
+        return s
+    a = e2(False); a.arrow("O", "H", -0.3); a.arrow(("H", "Cb"), ("Cb", "Ca"), -0.4); a.arrow(("Ca", "Br"), "Br", -0.5)
+    out.append(("e2", "the E2 elimination of bromoethane by an alkoxide", "orgo.substitution-elimination", "C2H5BrOR-", [
+        ("An alkoxide and bromoethane", "One step, three arrows in a row: the base takes the β-hydrogen, the C–H electrons become the π bond, and the leaving group departs. The H and the leaving group must be anti to each other", a),
+        ("An alcohol, ethene and bromide", "", e2(True))]))
+
+    # electrophilic addition: HBr to 2-methylpropene
+    def add(stage):
+        s = State()
+        s.atom("C1", 0.0, 0.0); s.atom("C2", 1.0, 0.0, "C+" if stage == 1 else None)
+        s.atom("C3", 1.5, -0.87); s.atom("C4", 2.0, 0.0)
+        s.atom("H", -0.3, 1.2, "H"); s.atom("Br", 0.9, 1.9, "Br-" if stage == 1 else "Br")
+        s.bond("C2", "C3"); s.bond("C2", "C4")
+        if stage == 0:
+            s.bond("C1", "C2", 2); s.bond("H", "Br")
+        else:
+            s.bond("C1", "C2"); s.bond("C1", "H")
+        if stage == 2:
+            s.bond("C2", "Br")
+        return s
+    a = add(0); a.arrow(("C1", "C2"), "H", 0.4); a.arrow(("H", "Br"), "Br", 0.5)
+    b = add(1); b.arrow("Br", "C2", 0.3)
+    out.append(("hbr-addition", "the addition of HBr to 2-methylpropene", "orgo.alkene-reactions", "C4H9Br", [
+        ("2-Methylpropene and HBr", "The π bond is the nucleophile. It takes the proton onto the carbon with more hydrogens, because that leaves the positive charge on the more substituted carbon: a tertiary carbocation", a),
+        ("Carbocation and bromide", "The halide attacks the carbocation. The first step decided the product; this one is fast", b),
+        ("2-Bromo-2-methylpropane", "", add(2))]))
+
+    # nucleophilic acyl substitution: hydroxide on an ester
+    def acyl_sub(stage):
+        s = State()
+        s.atom("Rc", 1.13, -0.5, "R"); s.atom("C", 2.0, 0.0)
+        s.atom("O1", 2.0, 1.0, "O-" if stage == 1 else "O")
+        s.atom("O2", 2.87, -0.5, "O-" if stage == 2 else "O"); s.atom("R2", 3.74, 0.0, "R")
+        s.atom("O3", 0.5, 0.9, "HO-" if stage == 0 else "HO")
+        s.bond("Rc", "C"); s.bond("C", "O1", 1 if stage == 1 else 2); s.bond("O2", "R2")
+        if stage < 2:
+            s.bond("C", "O2")
+        if stage > 0:
+            s.bond("O3", "C")
+        return s
+    a = acyl_sub(0); a.arrow("O3", "C", -0.3); a.arrow(("C", "O1"), "O1", 0.5)
+    b = acyl_sub(1); b.arrow("O1", ("C", "O1"), 0.5); b.arrow(("C", "O2"), "O2", -0.5)
+    out.append(("acyl-substitution", "the attack of hydroxide on an ester (nucleophilic acyl substitution)", "orgo.acyl-reactions", "CHO3R2-", [
+        ("An ester and hydroxide", "Addition: the nucleophile attacks the carbonyl carbon and the π electrons move up onto oxygen. The carbon becomes tetrahedral", a),
+        ("The tetrahedral intermediate", "Elimination: the oxyanion pushes back down, re-forming C=O, and the best leaving group is expelled. Every acyl substitution is these two steps", b),
+        ("A carboxylic acid and an alkoxide", "", acyl_sub(2))]))
+    return out
+
+
+def small_items():
+    out = ["\n# ── core organic mechanisms: SN2, E2, electrophilic addition, acyl substitution ──\n"]
+    for slug, name, skill, formula, steps in small_mechanisms():
+        for k in range(len(steps) - 1):
+            title, why, s = steps[k]
+            nxt_title, _, nxt = steps[k + 1]
+            n_of = f", step {k + 1} of {len(steps) - 1}" if len(steps) > 2 else ""
+            out.append(f"""
+- template: st-mech-{slug}-{k + 1}
+  skill: {skill}
+  pace: quick
+  prompt: 'Mechanism: {name}{n_of}. Starting from {title[0].lower() + title[1:]}, draw the curved arrows and what they lead to.'
+  figure:
+{s.yaml("    ", formula, arrows=False)}  parts:
+    - ask: 'Draw the arrows and the next state, then compare'
+      label: a
+      draw: true
+      solution:
+        type: scheme
+        panels:
+{item(s.yaml("            ", formula))}{item(nxt.yaml("            ", formula, arrows=False, caption=nxt_title))}      explain: '{why}'
+""")
+    return "".join(out)
+
+
 def item(block):
     """a figure block as one entry of a YAML list"""
     return "          - " + block[12:]
@@ -201,6 +305,7 @@ def main():
       explain: 'The triad: Asp102 holds His57, His57 shuttles the proton, Ser195 attacks. The oxyanion hole, two backbone N-H groups, hydrogen-bonds the oxyanion'
   verify: {{ authored: true }}
 """)
+    out.append(small_items())
     path = Path(__file__).resolve().parents[1] / "drills/problems/st-mechanisms.yaml"
     path.write_text("".join(out), encoding="utf8")
     print(f"wrote {path}")

@@ -37,7 +37,7 @@ CONST = {"c_kB": sp.Rational("1.380649e-23"), "c_NA": sp.Rational("6.02214076e23
                  "K": sp.Rational("39.098"), "Ca": sp.Rational("40.078"), "Fe": sp.Rational("55.845")}}
 CONST["c_R"] = CONST["c_kB"] * CONST["c_NA"]
 BASE.update(CONST)
-BASE.update({"nsimplify": sp.nsimplify, "expand": sp.expand, "powsimp": sp.powsimp, "simplify": sp.simplify, "idiff": sp.idiff, "erf": sp.erf, "erfc": sp.erfc, "atan2": sp.atan2, "arg": sp.arg, "ceiling": sp.ceiling})
+BASE.update({"Integer": sp.Integer, "nsimplify": sp.nsimplify, "expand": sp.expand, "powsimp": sp.powsimp, "simplify": sp.simplify, "idiff": sp.idiff, "erf": sp.erf, "erfc": sp.erfc, "atan2": sp.atan2, "arg": sp.arg, "ceiling": sp.ceiling})
 # calc("c_R*298.15/1000"): evaluate a case's own formula string against the constants above
 BASE["calc"] = lambda q: sp.sympify(eval(q, {"__builtins__": {}}, BASE))  # noqa: S307 — our own repo's YAML
 
@@ -200,6 +200,55 @@ def keyhole_fit(heights, mask, any_direction=False):
     if len(hits) > 1:
         raise ValueError("opening fits more than one direction")
     return sp.Integer(hits[0] if hits else 3)
+
+
+# quarks and particles: (charge, baryon number, electron number, muon number), written apart from the cases
+_QUARK = {"u": sp.Rational(2, 3), "c": sp.Rational(2, 3), "t": sp.Rational(2, 3), "d": -sp.Rational(1, 3), "s": -sp.Rational(1, 3), "b": -sp.Rational(1, 3)}
+_PARTICLE = {"p": (1, 1, 0, 0), "n": (0, 1, 0, 0), "e": (-1, 0, 1, 0), "nue": (0, 0, 1, 0), "mu": (-1, 0, 0, 1), "numu": (0, 0, 0, 1),
+             "gamma": (0, 0, 0, 0), "pi+": (1, 0, 0, 0), "pi-": (-1, 0, 0, 0), "pi0": (0, 0, 0, 0)}
+
+
+def pp_charge(quarks):
+    return sum(_QUARK[q] if q.islower() else -_QUARK[q.lower()] for q in str(quarks))
+
+
+def pp_baryon(quarks):
+    return sum(sp.Rational(1, 3) if q.islower() else -sp.Rational(1, 3) for q in str(quarks))
+
+
+def pp_balance(lhs, rhs):
+    """0 balanced; otherwise the first of charge (1), baryon number (2), a lepton number (3) that fails"""
+    def total(side):
+        t = [0, 0, 0, 0]
+        for name in str(side).split():
+            anti = name.endswith("bar")
+            v = _PARTICLE[name[:-3] if anti else name]
+            t = [a + (-b if anti else b) for a, b in zip(t, v)]
+        return t
+    L, R = total(lhs), total(rhs)
+    if L[0] != R[0]:
+        return sp.Integer(1)
+    if L[1] != R[1]:
+        return sp.Integer(2)
+    return sp.Integer(0 if L[2:] == R[2:] else 3)
+
+
+def ra_chain(Z, A, n_alpha, n_beta):
+    """(Z, A) after the stated alpha and beta-minus decays, one decay at a time"""
+    Z, A = int(Z), int(A)
+    for _ in range(int(n_alpha)):
+        Z, A = Z - 2, A - 4
+    for _ in range(int(n_beta)):
+        Z += 1
+    return sp.Integer(Z), sp.Integer(A)
+
+
+def basis_count(nH, nHeavy, kind):
+    """basis functions for H and second-row atoms: 0 STO-3G, 1 6-31G, 2 6-31G(d) with six d functions"""
+    shells_H = {0: ["s"], 1: ["s", "s"], 2: ["s", "s"]}[int(kind)]
+    shells_X = {0: ["s", "s", "p"], 1: ["s", "s", "s", "p", "p"], 2: ["s", "s", "s", "p", "p", "d"]}[int(kind)]
+    size = {"s": 1, "p": 3, "d": 6}
+    return sp.Integer(int(nH) * sum(size[t] for t in shells_H) + int(nHeavy) * sum(size[t] for t in shells_X))
 
 
 def sn_e(sub, nuc):
@@ -517,7 +566,7 @@ def rank_code(values):
     return sp.Integer(int("".join(str(j + 1) for j in order)))
 
 
-BASE.update({"cube_tally": cube_tally, "punch_count": punch_count, "net_opposite": net_opposite, "rank_code": rank_code, "box_degeneracy": box_degeneracy, "huckel_chain": huckel_chain, "view_identify": view_identify, "keyhole_fit": keyhole_fit, "sph_L2": sph_L2, "fc_strongest": fc_strongest, "hf_energy": hf_energy, "hund_ground": hund_ground, "hund_choice": hund_choice, "mo_fill": mo_fill, "commutes": commutes, "view_missing": view_missing, "keyhole_pick": keyhole_pick, "prism_identify": prism_identify, "prism_keyhole": prism_keyhole, "pt_Z": pt_Z, "pt_group": pt_group, "pt_below": pt_below, "pt_config": pt_config, "pt_madelung": pt_madelung, "sn_e": sn_e})
+BASE.update({"cube_tally": cube_tally, "punch_count": punch_count, "net_opposite": net_opposite, "rank_code": rank_code, "box_degeneracy": box_degeneracy, "huckel_chain": huckel_chain, "view_identify": view_identify, "keyhole_fit": keyhole_fit, "sph_L2": sph_L2, "fc_strongest": fc_strongest, "hf_energy": hf_energy, "hund_ground": hund_ground, "hund_choice": hund_choice, "mo_fill": mo_fill, "commutes": commutes, "view_missing": view_missing, "keyhole_pick": keyhole_pick, "prism_identify": prism_identify, "prism_keyhole": prism_keyhole, "pt_Z": pt_Z, "pt_group": pt_group, "pt_below": pt_below, "pt_config": pt_config, "pt_madelung": pt_madelung, "sn_e": sn_e, "pp_charge": pp_charge, "pp_baryon": pp_baryon, "pp_balance": pp_balance, "ra_chain": ra_chain, "basis_count": basis_count})
 
 
 def check(p, H):

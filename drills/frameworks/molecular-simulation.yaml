@@ -126,13 +126,13 @@ units:
         los:
           - { id: A, do: "Choose the ensemble (NVE, NVT, NPT, μVT) that matches a described experiment or simulation goal — choice rep.", ek: ["Bench conditions (fixed T and P) ⇒ NPT, whose free energy is G; NVT gives A; NVE conserves H and is used to test integrators and measure unperturbed dynamics."], p: [P1], drills: [] }
           - { id: B, do: "State the ergodic hypothesis and identify features of a system that break it on simulation timescales.", ek: ["Time average = ensemble average only if the trajectory visits all relevant states; barriers of many k_BT (slow rotamers, buried waters, unfolding) make runs quasi-nonergodic."], p: [P5], drills: [] }
-          - { id: C, do: "Calculate the instantaneous temperature from kinetic energy and the count of degrees of freedom — numeric rep.", ek: ["⟨K⟩ = (N_df/2) k_B T; N_df = 3N − N_constraints − 3 when centre-of-mass motion is removed."], p: [P4], drills: [] }
+          - { id: C, do: "Calculate the instantaneous temperature from kinetic energy and the count of degrees of freedom — numeric rep.", ek: ["⟨K⟩ = (N_df/2) k_B T; N_df = 3N − N_constraints − 3 when centre-of-mass motion is removed."], p: [P4], drills: ["cc-kinetic-temperature"] }
       - n: 2
         title: Boltzmann weights and free energy
         book: { livecoms-md-basics: ["3.2", "3.3"], frenkel-smit: ["Ch 2"], tuckerman: ["Ch 4", "Ch 5"] }
         los:
-          - { id: A, do: "Calculate the population ratio of two states from their energy difference at a given temperature — numeric rep.", ek: ["p_i/p_j = exp[−(E_i − E_j)/k_BT]; k_BT = 0.593 kcal/mol at 298.15 K, so 1.36 kcal/mol is a factor of 10."], p: [P4], drills: [] }
-          - { id: B, do: "Convert between a population (or probability) ratio and a free-energy difference — numeric rep.", ek: ["ΔG_A→B = −k_BT ln(P_B/P_A); a free energy counts every microstate of a state, so it includes entropy, not just the lowest energy."], p: [P4], needs: [MD-1.2.A], drills: [] }
+          - { id: A, do: "Calculate the population ratio of two states from their energy difference at a given temperature — numeric rep.", ek: ["p_i/p_j = exp[−(E_i − E_j)/k_BT]; k_BT = 0.593 kcal/mol at 298.15 K, so 1.36 kcal/mol is a factor of 10."], p: [P4], drills: ["cc-population-ratio"] }
+          - { id: B, do: "Convert between a population (or probability) ratio and a free-energy difference — numeric rep.", ek: ["ΔG_A→B = −k_BT ln(P_B/P_A); a free energy counts every microstate of a state, so it includes entropy, not just the lowest energy."], p: [P4], needs: [MD-1.2.A], drills: ["cc-free-energy-from-ratio"] }
           - { id: C, do: "Distinguish Helmholtz and Gibbs free energy and the potential of mean force along a coordinate, and state which one a given simulation yields.", ek: ["A = −k_BT ln Q (NVT), G = −k_BT ln Δ (NPT); W(ξ) = −k_BT ln P(ξ) + const. Absolute Q is intractable, but ratios of Q are ensemble averages."], p: [P1], drills: [] }
 
   # ── 2 ────────────────────────────────────────────────────────────────────
@@ -147,7 +147,7 @@ units:
         book: { livecoms-md-basics: ["3.5", "4.1"], allen-tildesley: ["Ch 1"], molssi-mmtools: ["Introduction"] }
         los:
           - { id: A, do: "Write the CHARMM potential energy function term by term and name each parameter and the pairs each term excludes.", ek: ["Bonds K_b(b − b₀)², angles K_θ(θ − θ₀)², Urey–Bradley, dihedrals K_φ[1 + cos(nφ − δ)], impropers, CMAP, LJ ε[(R_min/r)¹² − 2(R_min/r)⁶], Coulomb; 1-2 and 1-3 pairs excluded, 1-4 pairs use special LJ parameters."], p: [P2], drills: [] }
-          - { id: B, do: "Calculate a Lennard-Jones or Coulomb pair energy from CHARMM parameters using the combining rules — numeric rep.", ek: ["ε_ij = √(ε_i ε_j), R_min,ij = R_min,i/2 + R_min,j/2; Coulomb = 332.06 q_i q_j / r kcal/mol with r in Å and q in e."], p: [P4], drills: [] }
+          - { id: B, do: "Calculate a Lennard-Jones or Coulomb pair energy from CHARMM parameters using the combining rules — numeric rep.", ek: ["ε_ij = √(ε_i ε_j), R_min,ij = R_min,i/2 + R_min,j/2; Coulomb = 332.06 q_i q_j / r kcal/mol with r in Å and q in e."], p: [P4], drills: ["cc-lj-energy", "cc-lj-minimum", "cc-coulomb-energy"] }
       - n: 2
         title: Topology, parameter and structure files
         book: { orientation: ["Tutorial 2", "Tutorial 4.3"] }
@@ -183,8 +183,8 @@ units:
         title: Timestep and constraints
         book: { livecoms-md-basics: ["4.3"], livecoms-afe: ["7.1.1"], hayes2021-blade: ["2"], allen-tildesley: ["Ch 3"] }
         los:
-          - { id: A, do: "Calculate the period of the fastest vibration from its wavenumber and pick the largest stable timestep with and without hydrogen-bond constraints — numeric rep.", ek: ["T = 1/(c ν̃); X–H stretches at 3000–3600 cm⁻¹ have T ≈ 9–11 fs; with Δt ≲ T/10 that is ~1 fs unconstrained, ~2 fs with X–H constrained (rigid water roughly doubles Δt)."], p: [P3, P4], drills: [] }
-          - { id: B, do: "Explain how SHAKE, RATTLE and SETTLE impose holonomic constraints and count the degrees of freedom they remove.", ek: ["Lagrange multipliers iteratively restore bond lengths each step; SETTLE solves rigid 3-site water analytically; each constraint removes one degree of freedom (enters N_df)."], p: [P3], needs: [MD-1.1.C], drills: [] }
+          - { id: A, do: "Calculate the period of the fastest vibration from its wavenumber and pick the largest stable timestep with and without hydrogen-bond constraints — numeric rep.", ek: ["T = 1/(c ν̃); X–H stretches at 3000–3600 cm⁻¹ have T ≈ 9–11 fs; with Δt ≲ T/10 that is ~1 fs unconstrained, ~2 fs with X–H constrained (rigid water roughly doubles Δt)."], p: [P3, P4], drills: ["cc-vibration-period", "cc-steps-needed"] }
+          - { id: B, do: "Explain how SHAKE, RATTLE and SETTLE impose holonomic constraints and count the degrees of freedom they remove.", ek: ["Lagrange multipliers iteratively restore bond lengths each step; SETTLE solves rigid 3-site water analytically; each constraint removes one degree of freedom (enters N_df)."], p: [P3], needs: [MD-1.1.C], drills: ["~cc-degrees-of-freedom"] }
           - { id: C, do: "Decide when to use hydrogen mass repartitioning at 4 fs, or drop constraints and use 1 fs, including for bonds to alchemical atoms — choice rep.", ek: ["HMR moves mass from heavy atoms to their H, conserving total mass and thermodynamics but altering kinetics. Constraints on bonds that change length between alchemical states bias single-topology results; 1 fs without them is the general fix."], p: [P3], drills: [] }
           - { id: D, do: "Diagnose an unstable timestep or bad starting structure from run symptoms (SHAKE failures, energy blow-up, temperature spikes).", ek: ["Early crashes usually mean unrelaxed contacts (minimize) or too large a Δt; steady NVE drift means Δt, constraint tolerance or cutoff treatment is too loose."], p: [P5], drills: [] }
 
@@ -207,7 +207,7 @@ units:
         los:
           - { id: A, do: "Choose a barostat for equilibration vs production and for isotropic vs anisotropic cells — choice rep.", ek: ["Berendsen only for early equilibration; Monte Carlo barostat, Langevin piston and Parrinello–Rahman sample NPT; anisotropic or semi-isotropic coupling for membranes and crystals."], p: [P3], drills: [] }
           - { id: B, do: "Explain how a Monte Carlo barostat accepts a volume move and set its BLaDE parameters (prmc, iprs, pref, prdv).", ek: ["Accept with min{1, exp[−β(ΔU + PΔV) + N ln(V′/V)]}; BLaDE's N counts heavy atoms. iprs = steps between attempts (default 50), pref = pressure in atm (1), prdv = σ of ΔV in Å³ (100)."], p: [P3, P6], drills: [] }
-          - { id: C, do: "Calculate a system's density from its box dimensions and total mass and check it against the expected value — numeric rep.", ek: ["ρ = M/(N_A V); 1 g/cm³ = 0.6022 amu/Å³. Pure TIP3P at 298 K should sit near 0.98–1.0 g/cm³."], p: [P4, P5], drills: [] }
+          - { id: C, do: "Calculate a system's density from its box dimensions and total mass and check it against the expected value — numeric rep.", ek: ["ρ = M/(N_A V); 1 g/cm³ = 0.6022 amu/Å³. Pure TIP3P at 298 K should sit near 0.98–1.0 g/cm³."], p: [P4, P5], drills: ["cc-box-density"] }
 
   # ── 5 ────────────────────────────────────────────────────────────────────
   - id: boundaries
@@ -220,7 +220,7 @@ units:
         title: Periodic boundary conditions and box choice
         book: { livecoms-md-basics: ["4.2"], orientation: ["Tutorial 1.2", "Tutorial 2"], allen-tildesley: ["Ch 1"], frenkel-smit: ["Ch 4"] }
         los:
-          - { id: A, do: "Apply the minimum-image convention to find the distance between two atoms in a periodic box — numeric rep.", ek: ["Δx ← Δx − L·round(Δx/L) per axis; valid only when the nonbonded cutoff is below L/2."], p: [P4], drills: [] }
+          - { id: A, do: "Apply the minimum-image convention to find the distance between two atoms in a periodic box — numeric rep.", ek: ["Δx ← Δx − L·round(Δx/L) per axis; valid only when the nonbonded cutoff is below L/2."], p: [P4], drills: ["cc-minimum-image"] }
           - { id: B, do: "Size a solvent box from the solute's extent and edge distance and compare atom counts for cubic, truncated-octahedral and rhombic-dodecahedral cells — numeric rep.", ek: ["Cube side = d_max + 2 × edge (10 Å is standard; more for highly charged solutes like RNA). For the same image distance d: V_cube = d³, V_oct ≈ 0.770 d³ (23% fewer atoms), V_RD ≈ 0.707 d³ (29% fewer). Water ≈ 0.0334 molecules/Å³."], p: [P2, P4], drills: [] }
           - { id: C, do: "Explain why periodic artifacts are smaller than vacuum-interface artifacts and name the cases where they are not.", ek: ["A droplet's surface distorts the solute; images avoid it. Artifacts grow with net charge, small boxes, and solutes that expand (unfolded chains need a fixed, larger box, e.g. 40 Å for the pentapeptides)."], p: [P2, P5], drills: [] }
       - n: 2
@@ -244,7 +244,7 @@ units:
         los:
           - { id: A, do: "Assign protonation states from propka pKa predictions at the experimental pH, using predicted pKa for the folded state and model pKa for an unfolded peptide — numeric rep.", ek: ["pH < pKa ⇒ protonated; fraction protonated = 1/(1 + 10^(pH − pKa)). Check ASP, GLU, HIS, LYS; ARG, TYR, CYS rarely titrate. Record the states — they go in the methods section."], p: [P2, P4], drills: [] }
           - { id: B, do: "Choose a histidine tautomer (HSD, HSE, HSP) from its pKa and hydrogen-bond environment — choice rep.", ek: ["Protonated ⇒ HSP; otherwise put H on the δ or ε N according to nearby donors/acceptors; HSE when exposed or unclear (marginally more stable in the unfolded state)."], p: [P2], needs: [MD-6.1.A], drills: [] }
-          - { id: C, do: "Calculate the number of counterions and salt ion pairs needed to neutralize a box and reach a target concentration — numeric rep.", ek: ["N_pairs ≈ c(M) × V(Å³) × 6.022 × 10⁻⁴; neutralize the net solute charge first. Mimic the experiment; otherwise ~150 mM (Na⁺ extracellular, K⁺ intracellular)."], p: [P2, P4], drills: [] }
+          - { id: C, do: "Calculate the number of counterions and salt ion pairs needed to neutralize a box and reach a target concentration — numeric rep.", ek: ["N_pairs ≈ c(M) × V(Å³) × 6.022 × 10⁻⁴; neutralize the net solute charge first. Mimic the experiment; otherwise ~150 mM (Na⁺ extracellular, K⁺ intracellular)."], p: [P2, P4], drills: ["cc-neutralising-ions"] }
           - { id: D, do: "Build a solvated, ionized protein box in CHARMM-GUI Solution Builder at the experimental temperature, pH and salt, deciding which crystallographic components and termini to keep.", ek: ["Keep crystallographic waters for the folded protein (pockets refill slowly); drop BME/Cl⁻ additives unless relevant; set temperature to the experiment (often 298.15 K, not the 303.15 K default)."], p: [P2, P6], drills: [] }
       - n: 2
         title: Minimization, heating and equilibration
@@ -266,14 +266,14 @@ units:
         book: { livecoms-uq: ["6.1", "7.3.1"], frenkel-smit: ["App G"], allen-tildesley: ["Ch 8"], livecoms-md-basics: ["4.3.5"] }
         los:
           - { id: A, do: "Compute a normalized autocorrelation function and integrated correlation time from a short time series — numeric rep.", ek: ["C_j = ⟨δx_k δx_{k+j}⟩ / s²; τ_int = Σ_j C_j, summed until it converges but before it integrates noise."], p: [P4], drills: [] }
-          - { id: B, do: "Calculate the statistical inefficiency and effective number of independent samples, and from them the standard error of a mean — numeric rep.", ek: ["g = 1 + 2Σ_{j≥1} C_j (in frames); N_ind = N/g; s(x̄) = s(x)/√N_ind. Saving frames more often than τ adds disk, not information."], p: [P4, P5], needs: [MD-7.1.A], drills: [] }
+          - { id: B, do: "Calculate the statistical inefficiency and effective number of independent samples, and from them the standard error of a mean — numeric rep.", ek: ["g = 1 + 2Σ_{j≥1} C_j (in frames); N_ind = N/g; s(x̄) = s(x)/√N_ind. Saving frames more often than τ adds disk, not information."], p: [P4, P5], needs: [MD-7.1.A], drills: ["~cc-effective-samples"] }
       - n: 2
         title: Error bars
         book: { livecoms-uq: ["6.2", "7.2", "7.3.2", "7.4", "7.5", "7.6"] }
         los:
           - { id: A, do: "Compute a standard error from block averages and identify the block size at which the estimate plateaus — numeric rep.", ek: ["Split N frames into M equal blocks of n; s(x̄) = s(block means)/√M; increase n until s(x̄) stops growing."], p: [P4, P5], drills: [] }
           - { id: B, do: "Compute a standard error and 95% confidence interval from n independent trials using the Student t factor — numeric rep.", ek: ["SE = s/√n with s over trial means; CI = x̄ ± t·SE, t(0.975, n − 1) = 2.78 for n = 5, 2.57 for n = 6. Starting structures must be independent for this to hold."], p: [P4, P5], drills: [] }
-          - { id: C, do: "Propagate uncertainty through sums, differences and nonlinear functions, e.g. σ(ΔΔG) from two legs — numeric rep.", ek: ["Independent legs: σ²(a − b) = σ²_a + σ²_b; nonlinear F: σ²_F ≈ Σ(∂F/∂x_i)² σ²_i, valid when noise-to-signal is small."], p: [P4], drills: [] }
+          - { id: C, do: "Propagate uncertainty through sums, differences and nonlinear functions, e.g. σ(ΔΔG) from two legs — numeric rep.", ek: ["Independent legs: σ²(a − b) = σ²_a + σ²_b; nonlinear F: σ²_F ≈ Σ(∂F/∂x_i)² σ²_i, valid when noise-to-signal is small."], p: [P4], drills: ["cc-error-propagation"] }
           - { id: D, do: "Bootstrap a confidence interval for a derived quantity from correlated data, and report it with significant figures that match the uncertainty.", ek: ["Resample blocks or independent trials, not raw frames; 95% CI = 2.5th–97.5th percentile. Report the confidence level and only meaningful digits."], p: [P5], drills: [] }
       - n: 3
         title: Sampling quality
@@ -341,7 +341,7 @@ units:
         title: Comparing to experiment
         book: { livecoms-afe: ["4.1", "4.3", "5.1", "5.4"] }
         los:
-          - { id: A, do: "Convert between K_d and ΔG° and between fold-changes and ΔΔG, and judge a prediction against expected accuracy — numeric rep.", ek: ["ΔG° = RT ln(K_d/1 M); a 10× change in K_d is 1.36 kcal/mol at 298 K; ~1–2 kcal/mol RMS error is typical in favourable cases."], p: [P4, P5], drills: [] }
+          - { id: A, do: "Convert between K_d and ΔG° and between fold-changes and ΔΔG, and judge a prediction against expected accuracy — numeric rep.", ek: ["ΔG° = RT ln(K_d/1 M); a 10× change in K_d is 1.36 kcal/mol at 298 K; ~1–2 kcal/mol RMS error is typical in favourable cases."], p: [P4, P5], drills: ["cc-kd-to-free-energy"] }
           - { id: B, do: "Match simulation conditions (pH, salt, temperature, construct, protonation) to the experiment being reproduced.", ek: ["The T4 lysozyme sites were measured at pH 3.0 (L99, M106, F153) and 5.4 (V149), so two folded-state setups are needed."], p: [P1, P2], drills: [] }
 
   # ── 10 ───────────────────────────────────────────────────────────────────

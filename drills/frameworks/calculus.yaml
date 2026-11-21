@@ -200,7 +200,7 @@ units:
         title: The power rule
         ced: "2.5"
         los:
-          - { id: A, std: [FUN-3.A], do: "Differentiate x^n for any real n, rewriting roots and reciprocals as powers first.", ek: ["d/dx x^n = n x^(n−1); √x = x^(1/2), 1/x³ = x^(−3)."], p: [P1], drills: [ca-power-rule, ca-power-reciprocal, ca-power-root], needs: [CA-2.2.A] }
+          - { id: A, std: [FUN-3.A], do: "Differentiate x^n for any real n, rewriting roots and reciprocals as powers first.", ek: ["d/dx x^n = n x^(n−1); √x = x^(1/2), 1/x³ = x^(−3)."], p: [P1], drills: [ca-power-rule, ca-power-reciprocal, ca-power-root, hy-derivative-which, hy-derivative-value], needs: [CA-2.2.A] }
       - n: 6
         title: Constant, sum, difference and constant-multiple rules
         ced: "2.6"
@@ -298,12 +298,12 @@ units:
         title: Solving related rates problems
         ced: "4.5"
         los:
-          - { id: A, std: [CHA-3.E], do: "Solve a related-rates problem: draw, relate the quantities with geometry, differentiate, then substitute the instant's values.", ek: ["Substitute values only after differentiating; similar triangles or Pythagoras usually give the relation."], p: [P1, P4], drills: [ca-related-circle, ca-related-ladder], needs: [CA-4.4.A] }
+          - { id: A, std: [CHA-3.E], do: "Solve a related-rates problem: draw, relate the quantities with geometry, differentiate, then substitute the instant's values.", ek: ["Substitute values only after differentiating; similar triangles or Pythagoras usually give the relation."], p: [P1, P4], drills: [ca-related-circle, ca-related-ladder, ca2-related-rate-scaling], needs: [CA-4.4.A] }
       - n: 6
         title: Local linearity and linearization
         ced: "4.6"
         los:
-          - { id: A, std: [CHA-3.F], do: "Approximate a function value with the tangent-line approximation.", ek: ["f(x) ≈ f(a) + f′(a)(x − a) for x near a."], p: [P1], drills: [ca-linearization], needs: [CA-2.2.B] }
+          - { id: A, std: [CHA-3.F], do: "Approximate a function value with the tangent-line approximation.", ek: ["f(x) ≈ f(a) + f′(a)(x − a) for x near a."], p: [P1], drills: [ca-linearization, ca2-linear-approx-root], needs: [CA-2.2.B] }
           - { id: B, std: [CHA-3.F], do: "Decide whether a tangent-line approximation over- or under-estimates, from concavity.", ek: ["Concave up ⇒ tangent lies below ⇒ underestimate; concave down ⇒ overestimate."], p: [P3], drills: [ca-linearization-error], needs: [CA-4.6.A, CA-3.6.A] }
       - n: 7
         title: L'Hospital's rule
@@ -348,7 +348,7 @@ units:
         title: Concavity and points of inflection
         ced: "5.6"
         los:
-          - { id: A, std: [FUN-4.A], do: "Find intervals of concavity and points of inflection from the sign of f″.", ek: ["f″ > 0 ⇒ concave up (f′ increasing); inflection where f″ changes sign, not merely where f″ = 0."], p: [P1, P3], drills: [ca-inflection], needs: [CA-3.6.A, CA-5.3.A] }
+          - { id: A, std: [FUN-4.A], do: "Find intervals of concavity and points of inflection from the sign of f″.", ek: ["f″ > 0 ⇒ concave up (f′ increasing); inflection where f″ changes sign, not merely where f″ = 0."], p: [P1, P3], drills: [ca-inflection, ca2-concavity-meaning], needs: [CA-3.6.A, CA-5.3.A] }
       - n: 7
         title: The second derivative test
         ced: "5.7"
@@ -397,7 +397,7 @@ units:
         title: Riemann sums
         ced: "6.2"
         los:
-          - { id: A, std: [LIM-5.A], do: "Approximate a definite integral with left, right, midpoint or trapezoidal sums from a formula or a table with unequal subintervals.", ek: ["Sum of (height × width); trapezoid = average of left and right heights × width."], p: [P1], drills: [ca-riemann-sums, ca-trapezoid-table], needs: [CA-6.1.A] }
+          - { id: A, std: [LIM-5.A], do: "Approximate a definite integral with left, right, midpoint or trapezoidal sums from a formula or a table with unequal subintervals.", ek: ["Sum of (height × width); trapezoid = average of left and right heights × width."], p: [P1], drills: [ca-riemann-sums, ca-trapezoid-table, ca2-integral-by-area, ca2-symmetry-integral], needs: [CA-6.1.A] }
           - { id: B, std: [LIM-5.A], do: "Decide whether a Riemann or trapezoidal sum over- or under-estimates from monotonicity or concavity.", ek: ["Increasing f: left sum under, right sum over. Concave up: trapezoid over, midpoint under."], p: [P3], drills: ["~ca-riemann-sums", ca-riemann-over-under], needs: [CA-6.2.A, CA-5.6.A] }
       - n: 3
         title: Riemann sums, summation notation and the definite integral
@@ -408,7 +408,7 @@ units:
         title: The Fundamental Theorem and accumulation functions
         ced: "6.4"
         los:
-          - { id: A, std: [FUN-5.A], do: "Differentiate an accumulation function, including variable upper and lower limits.", ek: ["d/dx ∫_a^x f(t)dt = f(x); with limit g(x): f(g(x))g′(x); a variable lower limit flips the sign."], p: [P1], drills: [ca-ftc-derivative], needs: [CA-6.3.A, CA-3.1.A] }
+          - { id: A, std: [FUN-5.A], do: "Differentiate an accumulation function, including variable upper and lower limits.", ek: ["d/dx ∫_a^x f(t)dt = f(x); with limit g(x): f(g(x))g′(x); a variable lower limit flips the sign."], p: [P1], drills: [ca-ftc-derivative, ca2-ftc-derivative], needs: [CA-6.3.A, CA-3.1.A] }
       - n: 5
         title: Behaviour of accumulation functions
         ced: "6.5"
@@ -433,7 +433,7 @@ units:
         title: Integration by substitution
         ced: "6.9"
         los:
-          - { id: A, std: [FUN-6.D], do: "Evaluate indefinite and definite integrals by u-substitution, changing the limits to u-values for a definite integral.", ek: ["∫f(g(x))g′(x)dx = ∫f(u)du; a missing constant factor is fine, a missing x is not; ∫_a^b → ∫_(g(a))^(g(b))."], p: [P1], drills: [usub-poly, usub-exp, usub-trig, usub-log, usub-ratio, usub-linear, ca-usub-definite], needs: [CA-6.8.A, CA-3.1.A] }
+          - { id: A, std: [FUN-6.D], do: "Evaluate indefinite and definite integrals by u-substitution, changing the limits to u-values for a definite integral.", ek: ["∫f(g(x))g′(x)dx = ∫f(u)du; a missing constant factor is fine, a missing x is not; ∫_a^b → ∫_(g(a))^(g(b))."], p: [P1], drills: [usub-poly, usub-exp, usub-trig, usub-log, usub-ratio, usub-linear, ca-usub-definite, ca2-u-sub-choice], needs: [CA-6.8.A, CA-3.1.A] }
       - n: 10
         title: Long division and completing the square
         ced: "6.10"
@@ -531,7 +531,7 @@ units:
         title: Average value of a function
         ced: "8.1"
         los:
-          - { id: A, std: [CHA-4.B], do: "Find the average value of a function on an interval.", ek: ["f_avg = (1/(b − a))∫_a^b f(x)dx — the height of the rectangle with the same area."], p: [P1], drills: [ca-average-value], needs: [CA-6.7.A] }
+          - { id: A, std: [CHA-4.B], do: "Find the average value of a function on an interval.", ek: ["f_avg = (1/(b − a))∫_a^b f(x)dx — the height of the rectangle with the same area."], p: [P1], drills: [ca-average-value, ca2-average-value], needs: [CA-6.7.A] }
       - n: 2
         title: Position, velocity and acceleration with integrals
         ced: "8.2"
@@ -668,7 +668,7 @@ units:
         title: Geometric series
         ced: "10.2"
         los:
-          - { id: A, std: [LIM-7.A], do: "Decide whether a geometric series converges and find its sum.", ek: ["Σ_(n=0)^∞ ar^n = a/(1 − r) if |r| < 1; diverges if |r| ≥ 1."], p: [P1], drills: [ca-geometric-series], needs: [CA-10.1.A] }
+          - { id: A, std: [LIM-7.A], do: "Decide whether a geometric series converges and find its sum.", ek: ["Σ_(n=0)^∞ ar^n = a/(1 − r) if |r| < 1; diverges if |r| ≥ 1."], p: [P1], drills: [ca-geometric-series, ca2-geometric-series-sum], needs: [CA-10.1.A] }
       - n: 3
         title: The nth-term test
         ced: "10.3"
@@ -713,7 +713,7 @@ units:
         title: Taylor polynomials
         ced: "10.11"
         los:
-          - { id: A, std: [LIM-8.A, LIM-8.B], do: "Build the nth-degree Taylor polynomial about x = a and use it to approximate a function value (or read derivatives off its coefficients).", ek: ["P_n(x) = Σ_(k=0)^n f^(k)(a)(x − a)^k/k!; coefficient of (x − a)^k is f^(k)(a)/k!; P₁ is the tangent line."], p: [P1, P2], drills: [ca-taylor-exp, ca-taylor-ln, ca-taylor-coefficients], needs: [CA-3.6.A, CA-4.6.A] }
+          - { id: A, std: [LIM-8.A, LIM-8.B], do: "Build the nth-degree Taylor polynomial about x = a and use it to approximate a function value (or read derivatives off its coefficients).", ek: ["P_n(x) = Σ_(k=0)^n f^(k)(a)(x − a)^k/k!; coefficient of (x − a)^k is f^(k)(a)/k!; P₁ is the tangent line."], p: [P1, P2], drills: [ca-taylor-exp, ca-taylor-ln, ca-taylor-coefficients, ca2-taylor-coefficient], needs: [CA-3.6.A, CA-4.6.A] }
       - n: 12
         title: The Lagrange error bound
         ced: "10.12"
@@ -937,3 +937,21 @@ units:
         los:
           - { id: A, std: [ST-16.9], do: "Use the divergence theorem to compute the outward flux through a closed surface as a volume integral, or the reverse.", ek: ["∯_S F·n dS = ∭_E ∇·F dV, n outward."], p: [P1, P3], drills: [cm-divergence-theorem], needs: [CA-14.7.B, CA-14.5.A, CA-13.7.A] }
           - { id: B, std: [ST-16.9], do: "Turn an integral balance on an arbitrary control volume into a differential conservation law with the divergence theorem.", ek: ["d/dt∭c dV = −∯N·n dS + ∭R dV for every volume ⇒ ∂c/∂t + ∇·N = R."], p: [P2, P3], drills: [ca-conservation-law], needs: [CA-14.9.A, CA-14.5.B] }
+  - id: hyperbolic
+    n: 15
+    title: "Hyperbolic functions"
+    scope: core
+    ideas: [CHA]
+    topics:
+      - n: 1
+        title: "Definitions and identities"
+        los:
+          - { id: A, std: [ST-3.11], do: "Recognise sinh, cosh and tanh from their exponential definitions and evaluate them at ln a.", ek: ["cosh x = ½(eˣ + e⁻ˣ), sinh x = ½(eˣ − e⁻ˣ); eˣ = cosh x + sinh x."], p: [P1], drills: [hy-which-definition, hy-value-at-log, hy-tanh-value] }
+          - { id: B, std: [ST-3.11], do: "Use cosh² − sinh² = 1 and the double-argument identities, and tell a true hyperbolic identity from a false one.", ek: ["Osborn's rule: flip the sign of any product of two sines."], p: [P1], drills: [hy-pythagorean, hy-identity-check, hy-double-argument] }
+          - { id: C, std: [ST-3.11], do: "Describe the graphs: parity, range and behaviour for small and large x.", ek: ["cosh ≥ 1 and even; sinh odd and unbounded; tanh odd and between −1 and 1."], p: [P1], drills: [hy-parity-and-range] }
+      - n: 2
+        title: "Calculus and uses"
+        los:
+          - { id: A, std: [ST-3.11], do: "Differentiate and integrate hyperbolic functions.", ek: ["sinh′ = cosh, cosh′ = sinh, tanh′ = sech²; no sign changes."], p: [P1], drills: [hy-derivative-which, hy-derivative-value, hy-integral] }
+          - { id: B, std: [ST-3.11], do: "Write an inverse hyperbolic function as a logarithm.", ek: ["sinh⁻¹ s = ln(s + √(s² + 1))."], p: [P1], drills: [hy-inverse-sinh] }
+          - { id: C, std: [ST-3.11], do: "Solve y″ = k²y with cosh and sinh, connect them to the circular functions, and say where each turns up.", ek: ["cos(ix) = cosh x; catenary, fins and slabs use cosh; saturating ratios use tanh."], p: [P1], drills: [hy-ode-solution, hy-circular-link, hy-where-used] }

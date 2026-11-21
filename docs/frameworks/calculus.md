@@ -2,7 +2,7 @@
 
 Generated from `drills/frameworks/calculus.yaml` by `scripts/framework.mjs`. ● drilled · ◐ partly · ○ no drills yet.
 
-**173 learning objectives** in 14 units (100 core): 173 drilled, 0 partly, 0 with no drills. Core: 100 / 100 drilled.
+**179 learning objectives** in 15 units (106 core): 179 drilled, 0 partly, 0 with no drills. Core: 106 / 106 drilled.
 
 ## Big ideas
 
@@ -35,6 +35,7 @@ Generated from `drills/frameworks/calculus.yaml` by `scripts/framework.mjs`. ●
 | 12 · Partial derivatives | extension | — | 12 | 12 | 0 | 0 |
 | 13 · Multiple integrals | extension | — | 9 | 9 | 0 | 0 |
 | 14 · Vector calculus | extension | — | 14 | 14 | 0 | 0 |
+| 15 · Hyperbolic functions | core | — | 6 | 6 | 0 | 0 |
 
 ## Unit 1 · Limits and continuity
 
@@ -242,7 +243,7 @@ Big ideas: CHA, LIM, FUN
 - ● **CA-2.5.A** (FUN-3.A) Differentiate x^n for any real n, rewriting roots and reciprocals as powers first.
   - EK: d/dx x^n = n x^(n−1); √x = x^(1/2), 1/x³ = x^(−3).
   - Needs: CA-2.2.A
-  - P1 · drills: ca-power-rule, ca-power-reciprocal, ca-power-root
+  - P1 · drills: ca-power-rule, ca-power-reciprocal, ca-power-root, hy-derivative-which, hy-derivative-value
 
 ### 2.6 Constant, sum, difference and constant-multiple rules
 
@@ -402,7 +403,7 @@ Big ideas: CHA, LIM
 - ● **CA-4.5.A** (CHA-3.E) Solve a related-rates problem: draw, relate the quantities with geometry, differentiate, then substitute the instant's values.
   - EK: Substitute values only after differentiating; similar triangles or Pythagoras usually give the relation.
   - Needs: CA-4.4.A
-  - P1 · P4 · drills: ca-related-circle, ca-related-ladder
+  - P1 · P4 · drills: ca-related-circle, ca-related-ladder, ca2-related-rate-scaling
 
 ### 4.6 Local linearity and linearization
 
@@ -411,7 +412,7 @@ Big ideas: CHA, LIM
 - ● **CA-4.6.A** (CHA-3.F) Approximate a function value with the tangent-line approximation.
   - EK: f(x) ≈ f(a) + f′(a)(x − a) for x near a.
   - Needs: CA-2.2.B
-  - P1 · drills: ca-linearization
+  - P1 · drills: ca-linearization, ca2-linear-approx-root
 - ● **CA-4.6.B** (CHA-3.F) Decide whether a tangent-line approximation over- or under-estimates, from concavity.
   - EK: Concave up ⇒ tangent lies below ⇒ underestimate; concave down ⇒ overestimate.
   - Needs: CA-4.6.A, CA-3.6.A
@@ -486,7 +487,7 @@ Big ideas: FUN
 - ● **CA-5.6.A** (FUN-4.A) Find intervals of concavity and points of inflection from the sign of f″.
   - EK: f″ > 0 ⇒ concave up (f′ increasing); inflection where f″ changes sign, not merely where f″ = 0.
   - Needs: CA-3.6.A, CA-5.3.A
-  - P1 · P3 · drills: ca-inflection
+  - P1 · P3 · drills: ca-inflection, ca2-concavity-meaning
 
 ### 5.7 The second derivative test
 
@@ -566,7 +567,7 @@ Big ideas: CHA, LIM, FUN
 - ● **CA-6.2.A** (LIM-5.A) Approximate a definite integral with left, right, midpoint or trapezoidal sums from a formula or a table with unequal subintervals.
   - EK: Sum of (height × width); trapezoid = average of left and right heights × width.
   - Needs: CA-6.1.A
-  - P1 · drills: ca-riemann-sums, ca-trapezoid-table
+  - P1 · drills: ca-riemann-sums, ca-trapezoid-table, ca2-integral-by-area, ca2-symmetry-integral
 - ● **CA-6.2.B** (LIM-5.A) Decide whether a Riemann or trapezoidal sum over- or under-estimates from monotonicity or concavity.
   - EK: Increasing f: left sum under, right sum over. Concave up: trapezoid over, midpoint under.
   - Needs: CA-6.2.A, CA-5.6.A
@@ -588,7 +589,7 @@ Big ideas: CHA, LIM, FUN
 - ● **CA-6.4.A** (FUN-5.A) Differentiate an accumulation function, including variable upper and lower limits.
   - EK: d/dx ∫_a^x f(t)dt = f(x); with limit g(x): f(g(x))g′(x); a variable lower limit flips the sign.
   - Needs: CA-6.3.A, CA-3.1.A
-  - P1 · drills: ca-ftc-derivative
+  - P1 · drills: ca-ftc-derivative, ca2-ftc-derivative
 
 ### 6.5 Behaviour of accumulation functions
 
@@ -633,7 +634,7 @@ Big ideas: CHA, LIM, FUN
 - ● **CA-6.9.A** (FUN-6.D) Evaluate indefinite and definite integrals by u-substitution, changing the limits to u-values for a definite integral.
   - EK: ∫f(g(x))g′(x)dx = ∫f(u)du; a missing constant factor is fine, a missing x is not; ∫_a^b → ∫_(g(a))^(g(b)).
   - Needs: CA-6.8.A, CA-3.1.A
-  - P1 · drills: usub-poly, usub-exp, usub-trig, usub-log, usub-ratio, usub-linear, ca-usub-definite
+  - P1 · drills: usub-poly, usub-exp, usub-trig, usub-log, usub-ratio, usub-linear, ca-usub-definite, ca2-u-sub-choice
 
 ### 6.10 Long division and completing the square
 
@@ -784,7 +785,7 @@ Big ideas: CHA, LIM
 - ● **CA-8.1.A** (CHA-4.B) Find the average value of a function on an interval.
   - EK: f_avg = (1/(b − a))∫_a^b f(x)dx — the height of the rectangle with the same area.
   - Needs: CA-6.7.A
-  - P1 · drills: ca-average-value
+  - P1 · drills: ca-average-value, ca2-average-value
 
 ### 8.2 Position, velocity and acceleration with integrals
 
@@ -1011,7 +1012,7 @@ Big ideas: LIM, FUN
 - ● **CA-10.2.A** (LIM-7.A) Decide whether a geometric series converges and find its sum.
   - EK: Σ_(n=0)^∞ ar^n = a/(1 − r) if |r| < 1; diverges if |r| ≥ 1.
   - Needs: CA-10.1.A
-  - P1 · drills: ca-geometric-series
+  - P1 · drills: ca-geometric-series, ca2-geometric-series-sum
 
 ### 10.3 The nth-term test
 
@@ -1092,7 +1093,7 @@ Big ideas: LIM, FUN
 - ● **CA-10.11.A** (LIM-8.A, LIM-8.B) Build the nth-degree Taylor polynomial about x = a and use it to approximate a function value (or read derivatives off its coefficients).
   - EK: P_n(x) = Σ_(k=0)^n f^(k)(a)(x − a)^k/k!; coefficient of (x − a)^k is f^(k)(a)/k!; P₁ is the tangent line.
   - Needs: CA-3.6.A, CA-4.6.A
-  - P1 · P2 · drills: ca-taylor-exp, ca-taylor-ln, ca-taylor-coefficients
+  - P1 · P2 · drills: ca-taylor-exp, ca-taylor-ln, ca-taylor-coefficients, ca2-taylor-coefficient
 
 ### 10.12 The Lagrange error bound
 
@@ -1491,6 +1492,38 @@ Book: stewart-8e §16.9
   - EK: d/dt∭c dV = −∯N·n dS + ∭R dV for every volume ⇒ ∂c/∂t + ∇·N = R.
   - Needs: CA-14.9.A, CA-14.5.B
   - P2 · P3 · drills: ca-conservation-law
+
+## Unit 15 · Hyperbolic functions
+
+Big ideas: CHA
+
+### 15.1 Definitions and identities
+
+
+
+- ● **CA-15.1.A** (ST-3.11) Recognise sinh, cosh and tanh from their exponential definitions and evaluate them at ln a.
+  - EK: cosh x = ½(eˣ + e⁻ˣ), sinh x = ½(eˣ − e⁻ˣ); eˣ = cosh x + sinh x.
+  - P1 · drills: hy-which-definition, hy-value-at-log, hy-tanh-value
+- ● **CA-15.1.B** (ST-3.11) Use cosh² − sinh² = 1 and the double-argument identities, and tell a true hyperbolic identity from a false one.
+  - EK: Osborn's rule: flip the sign of any product of two sines.
+  - P1 · drills: hy-pythagorean, hy-identity-check, hy-double-argument
+- ● **CA-15.1.C** (ST-3.11) Describe the graphs: parity, range and behaviour for small and large x.
+  - EK: cosh ≥ 1 and even; sinh odd and unbounded; tanh odd and between −1 and 1.
+  - P1 · drills: hy-parity-and-range
+
+### 15.2 Calculus and uses
+
+
+
+- ● **CA-15.2.A** (ST-3.11) Differentiate and integrate hyperbolic functions.
+  - EK: sinh′ = cosh, cosh′ = sinh, tanh′ = sech²; no sign changes.
+  - P1 · drills: hy-derivative-which, hy-derivative-value, hy-integral
+- ● **CA-15.2.B** (ST-3.11) Write an inverse hyperbolic function as a logarithm.
+  - EK: sinh⁻¹ s = ln(s + √(s² + 1)).
+  - P1 · drills: hy-inverse-sinh
+- ● **CA-15.2.C** (ST-3.11) Solve y″ = k²y with cosh and sinh, connect them to the circular functions, and say where each turns up.
+  - EK: cos(ix) = cosh x; catenary, fins and slabs use cosh; saturating ratios use tanh.
+  - P1 · drills: hy-ode-solution, hy-circular-link, hy-where-used
 
 ## Drills not yet placed on the map
 

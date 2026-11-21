@@ -1,0 +1,228 @@
+# Particle physics and radioactivity beyond the reactor: quarks and leptons, conservation laws,
+# rest energy, decay chains, activity and dating. One question each. Charges and quantum numbers are
+# recomputed from a particle table kept in the verifier, apart from the one the cases were written from.
+
+- template: pp-hadron-charge
+  skill: physics.particles
+  pace: recall
+  cases:
+    - { name: 'the proton', q: 'uud', ans: 1 }
+    - { name: 'the neutron', q: 'udd', ans: 0 }
+    - { name: 'the positive pion, π⁺', q: 'uD', ans: 1 }
+    - { name: 'the negative pion, π⁻', q: 'dU', ans: -1 }
+    - { name: 'the Δ⁺⁺', q: 'uuu', ans: 2 }
+    - { name: 'the Λ', q: 'uds', ans: 0 }
+    - { name: 'the positive kaon, K⁺', q: 'uS', ans: 1 }
+    - { name: 'the Σ⁻', q: 'dds', ans: -1 }
+    - { name: 'the Ω⁻', q: 'sss', ans: -1 }
+    - { name: 'the antiproton', q: 'UUD', ans: -1 }
+  prompt: 'The quark content of {{name}} is written {{q}}, with a capital letter for an antiquark. What is its electric charge, in units of $e$?'
+  parts:
+    - ask: 'Charge'
+      label: a
+      choice: ["-1", "0", "+1", "+2"]
+      correct: ans + 1
+      explain: 'Up-type quarks (u, c, t) carry $+\tfrac23$; down-type (d, s, b) carry $-\tfrac13$; an antiquark carries the opposite. Add them. Three quarks make a baryon, a quark and an antiquark a meson, and the total always comes out whole'
+  verify: { choices: { a: "pp_charge(q) + 1" } }
+
+- template: pp-hadron-type
+  skill: physics.particles
+  pace: recall
+  cases:
+    - { q: 'uud', ans: 0 }
+    - { q: 'uD', ans: 1 }
+    - { q: 'sss', ans: 0 }
+    - { q: 'cC', ans: 1 }
+    - { q: 'UDD', ans: 2 }
+    - { q: 'dS', ans: 1 }
+    - { q: 'udb', ans: 0 }
+  prompt: 'A hadron has quark content {{q}} (capital = antiquark). What kind is it?'
+  parts:
+    - ask: 'Kind'
+      label: a
+      choice: ["A baryon: three quarks, baryon number +1", "A meson: a quark and an antiquark, baryon number 0", "An antibaryon: three antiquarks, baryon number -1"]
+      correct: ans
+      explain: 'Each quark has baryon number $+\tfrac13$ and each antiquark $-\tfrac13$. Baryons are fermions; mesons are bosons. No free quark has ever been seen'
+  verify: { choices: { a: "{1: 0, 0: 1, -1: 2}[pp_baryon(q)]" } }
+
+- template: pp-conservation
+  skill: physics.particles
+  pace: quick
+  cases:
+    - { rx: 'n → p + e⁻ + ν̄ₑ', lhs: 'n', rhs: 'p e nuebar', ans: 0 }
+    - { rx: 'n → p + e⁻', lhs: 'n', rhs: 'p e', ans: 3 }
+    - { rx: 'p → e⁺ + γ', lhs: 'p', rhs: 'ebar gamma', ans: 2 }
+    - { rx: 'μ⁻ → e⁻ + ν̄ₑ + ν_μ', lhs: 'mu', rhs: 'e nuebar numu', ans: 0 }
+    - { rx: 'μ⁻ → e⁻ + γ', lhs: 'mu', rhs: 'e gamma', ans: 3 }
+    - { rx: 'π⁺ → μ⁺ + ν_μ', lhs: 'pi+', rhs: 'mubar numu', ans: 0 }
+    - { rx: 'p + p → p + p + n', lhs: 'p p', rhs: 'p p n', ans: 2 }
+    - { rx: 'e⁻ + e⁺ → γ + γ', lhs: 'e ebar', rhs: 'gamma gamma', ans: 0 }
+    - { rx: 'p + p̄ → π⁺ + π⁻', lhs: 'p pbar', rhs: 'pi+ pi-', ans: 0 }
+    - { rx: 'n → p + e⁻ + νₑ', lhs: 'n', rhs: 'p e nue', ans: 3 }
+    - { rx: 'n → p + e⁺ + νₑ', lhs: 'n', rhs: 'p ebar nue', ans: 1 }
+  prompt: 'Do charge, baryon number and the lepton numbers all balance? {{rx}}'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["Yes: nothing forbids it on these grounds", "No: charge does not balance", "No: baryon number does not balance", "No: a lepton number does not balance"]
+      correct: ans
+      explain: 'Check in order: charge, baryon number, then electron and muon lepton number separately. Beta decay needs an antineutrino exactly so that the electron''s lepton number is cancelled. A reaction that passes may still be forbidden by energy'
+  verify: { choices: { a: "pp_balance(lhs, rhs)" } }
+
+- template: pp-force-carrier
+  skill: physics.particles
+  pace: recall
+  cases:
+    - { q: 'Which particle carries the electromagnetic force?', ans: 0 }
+    - { q: 'Which particles carry the weak force?', ans: 1 }
+    - { q: 'Which particle carries the strong force between quarks?', ans: 2 }
+    - { q: 'Which interaction is responsible for beta decay?', ans: 1 }
+    - { q: 'Which interaction changes a quark''s flavour?', ans: 1 }
+    - { q: 'Which interaction holds a proton together?', ans: 2 }
+    - { q: 'Which carrier has mass, giving its force a very short range?', ans: 1 }
+  prompt: '{{q}}'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["The photon (electromagnetic)", "The W and Z bosons (weak)", "The gluon (strong)"]
+      correct: ans
+      explain: 'Photon: electromagnetic, massless, infinite range. W and Z: weak, about 80 and 91 GeV, so the range is tiny; only the weak force changes flavour. Gluons: strong, massless but confined. Gravity has no place in the Standard Model'
+  verify: { authored: true }
+
+- template: pp-rest-energy
+  skill: physics.particles
+  pace: quick
+  given: { m: { pick: [0.0005486, 1.00728, 1.00866, 4.0015, 0.1134] } }
+  prompt: 'What is the rest energy of a particle of mass ${{m|6}}$ u, in MeV? (1 u = 931.494 MeV/c².)'
+  parts:
+    - { ask: 'Rest energy (MeV)', label: r, tex: 'E', value: m*931.494, tol: 0.002, explain: '$E = mc^2$, and in these units the conversion is a single multiplication. Worth knowing: electron 0.511 MeV, muon 105.7 MeV, proton 938.3 MeV, neutron 939.6 MeV' }
+  verify: { expect: { r: "nsimplify(m, rational=True)*Rational(931494, 1000)" } }
+
+- template: pp-pair-threshold
+  skill: physics.particles
+  pace: recall
+  cases:
+    - { pair: 'an electron and a positron', m: 0.511 }
+    - { pair: 'a muon and an antimuon', m: 105.7 }
+    - { pair: 'a proton and an antiproton', m: 938.3 }
+  prompt: 'What is the least energy a photon needs to create {{pair}}, in MeV? (Rest energy ${{m}}$ MeV each.)'
+  parts:
+    - { ask: 'Threshold (MeV)', label: r, tex: 'E', value: 2*m, tol: 0.001, explain: 'Twice the rest energy: matter is made in particle-antiparticle pairs so that charge and lepton or baryon number stay zero. Annihilation runs it backward, giving two 0.511 MeV photons for an electron and positron at rest' }
+  verify: { expect: { r: "sum([nsimplify(m), nsimplify(m)])" } }
+
+- template: pp-lorentz-factor
+  skill: physics.particles
+  pace: quick
+  given: { b: { pick: [0.6, 0.8, 0.9, 0.99] } }
+  prompt: 'A particle moves at ${{b}}c$. What is its Lorentz factor $\gamma$?'
+  parts:
+    - { ask: '$\gamma$', label: r, tex: '\gamma', value: 1/sqrt(1 - b^2), tol: 0.005, explain: '$\gamma = \dfrac{1}{\sqrt{1 - v^2/c^2}}$. Its lifetime in the lab is $\gamma$ times its lifetime at rest and its total energy is $\gamma mc^2$. $0.6c$ gives 1.25 and $0.8c$ gives 1.67, the 3-4-5 triangle' }
+  verify: { expect: { r: "1/sqrt(1 - nsimplify(b)**2)" } }
+
+- template: pp-muon-survival
+  skill: physics.particles
+  pace: quick
+  given: { g: { pick: [5, 10, 20] } }
+  prompt: 'A muon lives $2.2$ µs at rest. How far does one travel on average at nearly the speed of light with $\gamma = {{g}}$, in km? ($c = 3.0 \times 10^5$ km/s.)'
+  parts:
+    - { ask: 'Distance (km)', label: r, tex: 'd', value: g*2.2e-6*3e5, tol: 0.01, explain: 'Its lifetime in our frame is $\gamma \times 2.2$ µs. Without time dilation a muon would cover about 0.66 km; that cosmic-ray muons made 15 km up reach the ground is a direct test of relativity' }
+  verify: { expect: { r: "g*Rational(22, 10)/10**6*3*10**5" } }
+
+# ── radioactivity ───────────────────────────────────────────────────────────
+- template: ra-decay-chain
+  skill: nuc.decay
+  pace: quick
+  cases:
+    - { p: 'uranium-238', A: 238, Zp: 92, na: 1, nb: 0 }
+    - { p: 'uranium-238', A: 238, Zp: 92, na: 1, nb: 2 }
+    - { p: 'thorium-232', A: 232, Zp: 90, na: 2, nb: 2 }
+    - { p: 'radium-226', A: 226, Zp: 88, na: 2, nb: 0 }
+    - { p: 'uranium-235', A: 235, Zp: 92, na: 3, nb: 2 }
+    - { p: 'polonium-218', A: 218, Zp: 84, na: 1, nb: 1 }
+  prompt: '{{p}} ($Z = {{Zp}}$) undergoes ${{na}}$ alpha decay{{na > 1 ? "s" : ""}} and ${{nb}}$ beta-minus decay{{nb == 1 ? "" : "s"}}. What is the atomic number of the result?'
+  parts:
+    - { ask: 'Atomic number', label: r, tex: 'Z', value: Zp - 2*na + nb, tol: 0.0001, explain: 'Each alpha takes away 2 protons and 4 nucleons; each beta-minus turns a neutron into a proton, adding 1 to $Z$ and leaving $A$ alone. The mass number here is ${{A - 4*na}}$. The order of the decays does not matter' }
+  verify: { expect: { r: "ra_chain(Zp, A, na, nb)[0]" } }
+
+- template: ra-count-alphas
+  skill: nuc.decay
+  pace: quick
+  cases:
+    - { p: 'uranium-238', d: 'lead-206', A1: 238, Z1: 92, A2: 206, Z2: 82 }
+    - { p: 'thorium-232', d: 'lead-208', A1: 232, Z1: 90, A2: 208, Z2: 82 }
+    - { p: 'uranium-235', d: 'lead-207', A1: 235, Z1: 92, A2: 207, Z2: 82 }
+    - { p: 'radium-226', d: 'lead-206', A1: 226, Z1: 88, A2: 206, Z2: 82 }
+    - { p: 'neptunium-237', d: 'bismuth-209', A1: 237, Z1: 93, A2: 209, Z2: 83 }
+  prompt: 'The decay series from {{p}} ($Z = {{Z1}}$) ends at {{d}} ($Z = {{Z2}}$). How many beta-minus decays does it contain?'
+  parts:
+    - { ask: 'Beta decays', label: r, tex: 'n_\beta', value: Z2 - Z1 + (A1 - A2)/2, tol: 0.0001, explain: 'Only alphas change the mass number, so count them first: $({{A1}} - {{A2}})/4 = {{(A1 - A2)/4}}$. They lower $Z$ by ${{(A1 - A2)/2}}$; the betas must bring it back up to ${{Z2}}$' }
+  verify: { expect: { r: "solve([Eq(A1 - 4*x, A2), Eq(Z1 - 2*x + Symbol('b'), Z2)], [x, Symbol('b')], dict=True)[0][Symbol('b')]" } }
+
+- template: ra-activity-from-mass
+  skill: nuc.decay
+  pace: quick
+  cases:
+    - { iso: 'cobalt-60', M: 60, T: 5.27, unit: 'years', sec: 166300000 }
+    - { iso: 'caesium-137', M: 137, T: 30.1, unit: 'years', sec: 949900000 }
+    - { iso: 'iodine-131', M: 131, T: 8.02, unit: 'days', sec: 692900 }
+    - { iso: 'technetium-99m', M: 99, T: 6.01, unit: 'hours', sec: 21640 }
+  prompt: 'What is the activity of 1.0 µg of {{iso}} (half-life ${{T}}$ {{unit}}, which is ${{sec}}$ s), in MBq? ($N_A = 6.022 \times 10^{23}$.)'
+  parts:
+    - { ask: 'Activity (MBq)', label: r, tex: 'A', value: log(2)/sec*(1e-6/M*6.02214076e23)/1e6, tol: 0.01, explain: '$A = \lambda N$ with $\lambda = \dfrac{\ln 2}{T_{1/2}}$ in s⁻¹ and $N = \dfrac{m}{M}N_A$. A short half-life means a high specific activity: the same mass decays faster' }
+  verify: { expect: { r: "log(2)/sec*(Rational(1, 10**6)/M*c_NA)/10**6" } }
+
+- template: ra-becquerel-curie
+  skill: nuc.radiation
+  pace: recall
+  given: { a: { pick: [1, 5, 10, 100] } }
+  prompt: 'Convert ${{a}}$ mCi to MBq. (1 Ci = $3.7 \times 10^{10}$ Bq.)'
+  parts:
+    - { ask: 'MBq', label: r, tex: 'A', value: 37*a, tol: 0.001, explain: '1 mCi = 37 MBq. A becquerel is one decay per second, which is tiny; the curie is the activity of about a gram of radium' }
+  verify: { expect: { r: "a*Rational(1, 1000)*37*10**9/10**6" } }
+
+- template: ra-carbon-dating
+  skill: nuc.decay
+  pace: quick
+  given: { f: { pick: [0.5, 0.25, 0.125, 0.8, 0.1] } }
+  prompt: 'A sample has ${{f*100}}\%$ of the carbon-14 activity of living material. How old is it, in years? (Half-life 5730 years.)'
+  parts:
+    - { ask: 'Age (years)', label: r, tex: 't', value: -5730*log(f)/log(2), tol: 0.005, explain: '$t = T_{1/2}\,\dfrac{\ln(1/f)}{\ln 2}$. Each halving is 5730 years; after about ten half-lives too little is left to measure, which sets the limit of the method near 50,000 years' }
+  verify: { expect: { r: "5730*log(nsimplify(f), Rational(1, 2))" } }
+
+- template: ra-effective-half-life
+  skill: nuc.radiation
+  pace: quick
+  given: { Tp: { pick: [8, 6, 30, 110] }, Tb: { pick: [24, 70, 138, 4] } }
+  prompt: 'A radionuclide has a physical half-life of ${{Tp}}$ and is cleared from the body with a biological half-life of ${{Tb}}$ (same units). What is its effective half-life?'
+  parts:
+    - { ask: 'Effective half-life', label: r, tex: 'T_{eff}', value: Tp*Tb/(Tp + Tb), tol: 0.005, explain: 'The two removal rates add, so the half-lives combine like resistors in parallel: $\dfrac1{T_{eff}} = \dfrac1{T_p} + \dfrac1{T_b}$. The result is always shorter than either' }
+  verify: { expect: { r: "log(2)/(log(2)/Tp + log(2)/Tb)" } }
+
+- template: ra-q-value
+  skill: nuc.decay
+  pace: quick
+  cases:
+    - { rx: 'the alpha decay of polonium-210', dm: 0.005807 }
+    - { rx: 'the alpha decay of uranium-238', dm: 0.004585 }
+    - { rx: 'the fusion of deuterium and tritium', dm: 0.018883 }
+    - { rx: 'the beta decay of a free neutron', dm: 0.000840 }
+  prompt: 'In {{rx}} the products are lighter than the reactants by ${{dm|6}}$ u. How much energy is released, in MeV?'
+  parts:
+    - { ask: 'Q (MeV)', label: r, tex: 'Q', value: dm*931.494, tol: 0.005, explain: '$Q = \Delta m\,c^2$ with 931.5 MeV per u. Fusion of D and T releases 17.6 MeV from five nucleons; fission releases about 200 MeV from 236: fusion wins per unit mass' }
+  verify: { expect: { r: "nsimplify(dm, rational=True)*Rational(931494, 1000)" } }
+
+- template: ra-secular-equilibrium
+  skill: nuc.decay
+  pace: recall
+  cases:
+    - { q: 'A long-lived parent has been sealed with its short-lived daughter for many daughter half-lives. How do their activities compare?', ans: 0 }
+    - { q: 'In that sealed sample, which has more atoms present?', ans: 1 }
+    - { q: 'The daughter is chemically removed. How long until its activity is back to half the parent''s?', ans: 2 }
+  prompt: '{{q}}'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["They are equal: the daughter decays as fast as it is made", "The parent, by the ratio of the half-lives", "One half-life of the daughter"]
+      correct: ans
+      explain: 'Secular equilibrium: $\lambda_PN_P = \lambda_DN_D$. Equal activities, very unequal numbers of atoms, and the daughter grows back on its own half-life. It is why radium ore always contains radon'
+  verify: { authored: true }

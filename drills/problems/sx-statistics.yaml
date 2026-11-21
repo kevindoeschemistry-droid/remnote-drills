@@ -1,0 +1,278 @@
+# Statistics: distributions, sampling distributions and inference, the parts the existing stats-*
+# items did not reach. Follows the units of the revised AP Statistics framework (2026-27).
+# One question each; numbers are recomputed by sympy.
+
+- template: sx-z-score
+  skill: stats.distributions
+  pace: recall
+  given: { mu: { pick: [50, 70, 100, 500] }, sd: { pick: [5, 10, 15, 100] }, z: { pick: [-2, -1.5, -1, 0.5, 1, 2, 2.5] } }
+  prompt: 'A distribution has mean ${{mu}}$ and standard deviation ${{sd}}$. What is the z-score of ${{mu + z*sd}}$?'
+  parts:
+    - { ask: 'z', label: r, tex: 'z', value: z, tol: 0.001, explain: '$z = \dfrac{x - \mu}{\sigma}$: how many standard deviations from the mean, and on which side. It lets values from different scales be compared' }
+  verify: { expect: { r: "solve(Eq(mu + x*sd, mu + nsimplify(z)*sd), x)[0]" } }
+
+- template: sx-empirical-rule
+  skill: stats.distributions
+  pace: recall
+  cases:
+    - { q: 'within one standard deviation of the mean', lo: -1, hi: 1, pct: 68 }
+    - { q: 'within two standard deviations of the mean', lo: -2, hi: 2, pct: 95 }
+    - { q: 'within three standard deviations of the mean', lo: -3, hi: 3, pct: 99.7 }
+    - { q: 'above the mean', lo: 0, hi: 9, pct: 50 }
+    - { q: 'more than two standard deviations above the mean', lo: 2, hi: 9, pct: 2.5 }
+    - { q: 'more than one standard deviation below the mean', lo: -9, hi: -1, pct: 16 }
+    - { q: 'between the mean and one standard deviation above it', lo: 0, hi: 1, pct: 34 }
+    - { q: 'between one and two standard deviations above the mean', lo: 1, hi: 2, pct: 13.5 }
+  prompt: 'In a normal distribution, about what percent of values lie {{q}}? Use the 68-95-99.7 rule.'
+  parts:
+    - { ask: 'Percent', label: r, tex: 'p', value: pct, tol: 0.03, explain: 'About 68% within one, 95% within two, 99.7% within three. Everything else comes from symmetry: split what is left over equally between the two tails' }
+  verify: { expect: { r: "{-9: 0, -3: Rational(15, 100), -2: Rational(5, 2), -1: 16, 0: 50, 1: 84, 2: Rational(195, 2), 3: Rational(9985, 100), 9: 100}[hi] - {-9: 0, -3: Rational(15, 100), -2: Rational(5, 2), -1: 16, 0: 50, 1: 84, 2: Rational(195, 2), 3: Rational(9985, 100), 9: 100}[lo]" } }
+
+- template: sx-binomial-probability
+  skill: stats.distributions
+  pace: quick
+  given: { n: { pick: [4, 5, 6] }, k: { pick: [1, 2, 3] }, p: { pick: [0.2, 0.25, 0.5] } }
+  prompt: 'Each of ${{n}}$ independent trials succeeds with probability ${{p}}$. What is the probability of exactly ${{k}}$ successes?'
+  parts:
+    - { ask: 'Probability', label: r, tex: 'P', value: factorial(n)/(factorial(k)*factorial(n - k))*p^k*(1 - p)^(n - k), tol: 0.005, explain: '$\dbinom{n}{k}p^k(1 - p)^{n - k}$: the probability of one particular arrangement of ${{k}}$ successes and ${{n - k}}$ failures, times the $\dbinom{ {{n}} }{ {{k}} } = {{factorial(n)/(factorial(k)*factorial(n - k))}}$ arrangements' }
+  verify: { expect: { r: "binomial(n, k)*nsimplify(p)**k*(1 - nsimplify(p))**(n - k)" } }
+
+- template: sx-binomial-spread
+  skill: stats.distributions
+  pace: quick
+  given: { n: { pick: [25, 64, 100, 400] }, p: { pick: [0.1, 0.2, 0.5, 0.8] } }
+  prompt: 'A binomial count has $n = {{n}}$ and $p = {{p}}$. What is its standard deviation?'
+  parts:
+    - { ask: 'Standard deviation', label: r, tex: '\sigma', value: sqrt(n*p*(1 - p)), tol: 0.005, explain: 'Mean $np = {{n*p}}$, variance $np(1 - p)$, so $\sigma = \sqrt{np(1 - p)}$. The spread is widest at $p = 0.5$ and grows only as $\sqrt n$' }
+  verify: { expect: { r: "sqrt(n*nsimplify(p)*(1 - nsimplify(p)))" } }
+
+- template: sx-geometric-wait
+  skill: stats.distributions
+  pace: recall
+  given: { d: { pick: [2, 4, 5, 6, 10, 20] } }
+  prompt: 'Each attempt succeeds with probability $\dfrac{1}{ {{d}} }$. On average, how many attempts does the first success take?'
+  parts:
+    - { ask: 'Expected attempts', label: r, tex: 'E', value: d, tol: 0.0001, explain: 'For a geometric wait, $E = 1/p$. A one-in-six event takes six tries on average, although the single most likely number of tries is one' }
+  verify: { expect: { r: "summation(x*Rational(1, d)*(1 - Rational(1, d))**(x - 1), (x, 1, oo))" } }
+
+- template: sx-linear-transform
+  skill: stats.distributions
+  pace: quick
+  given: { a: { pick: [10, 32, -5] }, b: { pick: [2, 1.8, -3, 0.5] }, s: { pick: [4, 5, 10] } }
+  prompt: '$X$ has standard deviation ${{s}}$. What is the standard deviation of $Y = {{a}} + ({{b}})X$?'
+  parts:
+    - { ask: 'SD of Y', label: r, tex: '\sigma_Y', value: abs(b)*s, tol: 0.001, explain: 'Adding a constant slides the distribution without changing its spread; multiplying stretches it by $|b|$. A standard deviation is never negative' }
+  verify: { expect: { r: "sqrt(nsimplify(b)**2*s**2)" } }
+
+- template: sx-sum-of-independent
+  skill: stats.distributions
+  pace: quick
+  cases:
+    - { s1: 3, s2: 4 }
+    - { s1: 5, s2: 12 }
+    - { s1: 6, s2: 8 }
+    - { s1: 1, s2: 1 }
+    - { s1: 2, s2: 2 }
+  given: { sign: { pick: [0, 1] } }
+  prompt: '$X$ and $Y$ are independent with standard deviations ${{s1}}$ and ${{s2}}$. What is the standard deviation of $X {{sign == 0 ? "+" : "-"}} Y$?'
+  parts:
+    - { ask: 'Standard deviation', label: r, tex: '\sigma', value: sqrt(s1^2 + s2^2), tol: 0.005, explain: 'Variances add, standard deviations do not: $\sqrt{ {{s1}}^2 + {{s2}}^2}$. It is the same for a difference as for a sum, because subtracting a random quantity adds uncertainty too' }
+  verify: { expect: { r: "sqrt(s1**2 + (-1)**(2*sign)*s2**2)" } }
+
+- template: sx-standard-error-mean
+  skill: stats.sampling
+  pace: recall
+  given: { s: { pick: [10, 12, 15, 20, 30] }, n: { pick: [4, 9, 16, 25, 36, 100] } }
+  prompt: 'A population has standard deviation ${{s}}$. What is the standard deviation of the mean of a random sample of ${{n}}$?'
+  parts:
+    - { ask: 'Standard error', label: r, tex: '\sigma_{\bar x}', value: s/sqrt(n), tol: 0.001, explain: '$\sigma_{\bar x} = \dfrac{\sigma}{\sqrt n}$. Averages vary less than individuals, but only by the square root of the sample size' }
+  verify: { expect: { r: "sqrt(n*s**2)/n" } }
+
+- template: sx-standard-error-proportion
+  skill: stats.sampling
+  pace: quick
+  given: { p: { pick: [0.1, 0.2, 0.5, 0.36, 0.8] }, n: { pick: [100, 400, 900, 1600] } }
+  prompt: 'The true proportion is ${{p}}$. What is the standard deviation of the sample proportion for random samples of ${{n}}$?'
+  parts:
+    - { ask: 'Standard deviation', label: r, tex: '\sigma_{\hat p}', value: sqrt(p*(1 - p)/n), tol: 0.005, explain: '$\sigma_{\hat p} = \sqrt{\dfrac{p(1 - p)}{n}}$: the binomial standard deviation divided by $n$. Largest at $p = 0.5$, which is why polls quote a single margin of error' }
+  verify: { expect: { r: "sqrt(n*nsimplify(p)*(1 - nsimplify(p)))/n" } }
+
+- template: sx-margin-and-sample-size
+  skill: stats.sampling
+  pace: recall
+  given: { f: { pick: [4, 9, 16, 100] } }
+  prompt: 'A poll is repeated with ${{f}}$ times as many people. By what factor does its margin of error change?'
+  parts:
+    - { ask: 'Factor', label: r, tex: 'k', value: 1/sqrt(f), tol: 0.001, explain: 'Margin of error goes as $1/\sqrt n$. Halving the margin takes four times the sample: precision gets expensive fast' }
+  verify: { expect: { r: "sqrt(Rational(1, 4)/(f*x))/sqrt(Rational(1, 4)/x)" } }
+
+- template: sx-proportion-margin
+  skill: stats.inference
+  pace: quick
+  given: { ph: { pick: [0.5, 0.4, 0.2, 0.64] }, n: { pick: [100, 400, 625, 1600] } }
+  prompt: 'In a random sample of ${{n}}$, the sample proportion is ${{ph}}$. What is the margin of error of a 95% confidence interval? Use $z^* = 1.96$.'
+  parts:
+    - { ask: 'Margin of error', label: r, tex: 'E', value: 1.96*sqrt(ph*(1 - ph)/n), tol: 0.01, explain: '$E = z^*\sqrt{\dfrac{\hat p(1 - \hat p)}{n}}$. Quick check: for $\hat p$ near 0.5 it is about $1/\sqrt n$' }
+  verify: { expect: { r: "Rational(196, 100)*sqrt(nsimplify(ph)*(1 - nsimplify(ph))/n)" } }
+
+- template: sx-sample-size-needed
+  skill: stats.inference
+  pace: quick
+  given: { E: { pick: [0.01, 0.02, 0.04, 0.05] } }
+  prompt: 'How many people must a poll sample for a 95% margin of error of ${{E}}$, planning for the worst case $p = 0.5$? Use $z^* = 2$ and give the exact value before rounding up.'
+  parts:
+    - { ask: 'n', label: r, tex: 'n', value: 1/E^2, tol: 0.001, explain: '$n = \left(\dfrac{z^*}{E}\right)^2p(1 - p) = \dfrac{4 \times 0.25}{E^2} = \dfrac{1}{E^2}$. With $z^* = 2$ the worst-case rule is simply one over the margin squared' }
+  verify: { expect: { r: "solve(Eq(2*sqrt(Rational(1, 4)/x), nsimplify(E)), x)[0]" } }
+
+- template: sx-proportion-z-statistic
+  skill: stats.inference
+  pace: quick
+  given: { p0: { pick: [0.5, 0.2, 0.25] }, n: { pick: [100, 400] }, d: { pick: [0.04, 0.05, 0.1, -0.05] } }
+  prompt: 'Test $H_0\!: p = {{p0}}$. A random sample of ${{n}}$ gives $\hat p = {{p0 + d}}$. What is the z statistic?'
+  parts:
+    - { ask: 'z', label: r, tex: 'z', value: d/sqrt(p0*(1 - p0)/n), tol: 0.01, explain: '$z = \dfrac{\hat p - p_0}{\sqrt{p_0(1 - p_0)/n}}$. The standard error uses the hypothesised $p_0$, because the test asks what would happen if $H_0$ were true' }
+  verify: { expect: { r: "nsimplify(d)/sqrt(nsimplify(p0)*(1 - nsimplify(p0))/n)" } }
+
+- template: sx-t-statistic
+  skill: stats.inference
+  pace: quick
+  given: { mu0: { pick: [50, 100, 12] }, d: { pick: [2, 3, -2, 1.5] }, s: { pick: [4, 6, 10] }, n: { pick: [16, 25, 36] } }
+  prompt: 'Test $H_0\!: \mu = {{mu0}}$. A sample of ${{n}}$ has mean ${{mu0 + d}}$ and standard deviation ${{s}}$. What is the t statistic?'
+  parts:
+    - { ask: 't', label: r, tex: 't', value: d/(s/sqrt(n)), tol: 0.005, explain: '$t = \dfrac{\bar x - \mu_0}{s/\sqrt n}$, with $n - 1 = {{n - 1}}$ degrees of freedom. It counts how many standard errors the sample mean sits from the claim' }
+  verify: { expect: { r: "nsimplify(d)*sqrt(n)/s" } }
+
+- template: sx-degrees-of-freedom
+  skill: stats.inference
+  pace: recall
+  cases:
+    - { q: 'a one-sample t test with 24 observations', na: 24, nb: 1, mode: 0, df: 23 }
+    - { q: 'a matched-pairs t test on 15 pairs', na: 15, nb: 1, mode: 0, df: 14 }
+    - { q: 'a chi-square goodness-of-fit test with 6 categories', na: 6, nb: 1, mode: 0, df: 5 }
+    - { q: 'a chi-square test on a table with 3 rows and 4 columns', na: 3, nb: 4, mode: 1, df: 6 }
+    - { q: 'a chi-square test on a 2 by 2 table', na: 2, nb: 2, mode: 1, df: 1 }
+    - { q: 'a t test for the slope of a regression line through 20 points', na: 20, nb: 1, mode: 2, df: 18 }
+  prompt: 'How many degrees of freedom has {{q}}?'
+  parts:
+    - { ask: 'Degrees of freedom', label: r, tex: 'df', value: df, tol: 0.0001, explain: 'Count the values free to vary once the totals are fixed: $n - 1$ for a mean, categories minus one for goodness of fit, $(r - 1)(c - 1)$ for a table, and $n - 2$ for a slope, which uses up two estimates' }
+  verify: { expect: { r: "[na - 1, (na - 1)*(nb - 1), na - 2][mode]" } }
+
+- template: sx-p-value-decision
+  skill: stats.inference
+  pace: recall
+  given: { pv: { pick: [0.003, 0.02, 0.04, 0.06, 0.12, 0.3] }, al: { pick: [0.01, 0.05, 0.1] } }
+  prompt: 'A test gives a p-value of ${{pv}}$ at significance level $\alpha = {{al}}$. What is the conclusion?'
+  parts:
+    - ask: 'Conclusion'
+      label: a2
+      choice: ["Reject the null hypothesis: the result is statistically significant", "Fail to reject the null hypothesis: the evidence is not strong enough"]
+      correct: "pv < al ? 0 : 1"
+      explain: 'Reject when $p < \alpha$. The p-value is the probability of data at least this extreme if the null hypothesis were true. It is not the probability that the null hypothesis is true, and failing to reject is not the same as accepting'
+  verify: { choices: { a2: "0 if pv < al else 1" } }
+
+- template: sx-error-types
+  skill: stats.inference
+  pace: recall
+  cases:
+    - { q: 'A test concludes a drug works when in fact it does not.', ans: 0 }
+    - { q: 'A test fails to detect a drug that really does work.', ans: 1 }
+    - { q: 'A fire alarm sounds with no fire (null: no fire).', ans: 0 }
+    - { q: 'A fire alarm stays silent during a fire (null: no fire).', ans: 1 }
+    - { q: 'Lowering α from 0.05 to 0.01, with nothing else changed, makes which error more likely?', ans: 1 }
+    - { q: 'The probability of which error equals the significance level α?', ans: 0 }
+  prompt: '{{q}} Which error is it?'
+  parts:
+    - ask: 'Error'
+      label: a2
+      choice: ["Type I: rejecting a true null hypothesis", "Type II: failing to reject a false null hypothesis"]
+      correct: ans
+      explain: 'Type I is a false alarm, with probability $\alpha$. Type II is a miss, with probability $\beta$; power is $1 - \beta$. For a fixed sample size, making one rarer makes the other more common'
+  verify: { authored: true }
+
+- template: sx-chi-square-expected
+  skill: stats.inference
+  pace: quick
+  given: { rt: { pick: [40, 60, 80] }, ct: { pick: [50, 100, 150] }, N: { pick: [200, 400] } }
+  prompt: 'In a two-way table of ${{N}}$ people, one row totals ${{rt}}$ and one column totals ${{ct}}$. What count is expected in their cell if the two variables are independent?'
+  parts:
+    - { ask: 'Expected count', label: r, tex: 'E', value: rt*ct/N, tol: 0.001, explain: 'Row total times column total over the grand total. It is the multiplication rule for independent events, $P(A)P(B)$, turned into a count' }
+  verify: { expect: { r: "Rational(rt, N)*Rational(ct, N)*N" } }
+
+- template: sx-chi-square-term
+  skill: stats.inference
+  pace: quick
+  given: { E: { pick: [10, 20, 25, 50] }, d: { pick: [5, 10, -5, 4] } }
+  prompt: 'A cell has observed count ${{E + d}}$ and expected count ${{E}}$. What does it contribute to the chi-square statistic?'
+  parts:
+    - { ask: 'Contribution', label: r, tex: '\chi^2', value: d^2/E, tol: 0.001, explain: '$\dfrac{(O - E)^2}{E}$: the squared miss, measured against what was expected. A miss of 5 matters much more when 10 were expected than when 50 were' }
+  verify: { expect: { r: "Rational((E + d - E)**2, E)" } }
+
+- template: sx-confidence-meaning
+  skill: stats.inference
+  pace: recall
+  cases:
+    - { q: 'What does "95% confident" refer to?', ans: 0 }
+    - { q: 'A 95% interval for a mean is 12 to 18. Is there a 95% chance the next observation falls in it?', ans: 1 }
+    - { q: 'With the same data, how does a 99% interval compare with a 95% one?', ans: 2 }
+    - { q: 'A 95% interval for a difference in means contains 0. What follows at the 5% level?', ans: 3 }
+  prompt: '{{q}}'
+  parts:
+    - ask: 'Answer'
+      label: a2
+      choice: ["The method: 95 in 100 intervals built this way capture the true value", "No: the interval is about the population mean, not individual values", "It is wider: more confidence costs precision", "The difference is not statistically significant"]
+      correct: ans
+      explain: 'A confidence level describes how often the procedure works over many samples. Any one interval either contains the parameter or does not'
+  verify: { authored: true }
+
+- template: sx-sampling-bias
+  skill: stats.sampling
+  pace: recall
+  cases:
+    - { q: 'A website asks visitors to click to answer a poll.', ans: 0 }
+    - { q: 'A phone survey reaches only landlines.', ans: 1 }
+    - { q: 'Half the people selected for a survey do not reply.', ans: 2 }
+    - { q: 'A researcher surveys the first 50 people leaving a gym about exercise.', ans: 3 }
+    - { q: 'A survey asks: do you agree that wasteful spending should be cut?', ans: 4 }
+  prompt: '{{q}} What is the main problem?'
+  parts:
+    - ask: 'Problem'
+      label: a2
+      choice: ["Voluntary response bias", "Undercoverage", "Nonresponse bias", "Convenience sampling", "Wording (response) bias"]
+      correct: ans
+      explain: 'Ask who had no chance of being chosen (undercoverage), who chose themselves (voluntary response), who was chosen but is missing (nonresponse), who was merely easy to reach (convenience), and whether the question pushed an answer. A bigger sample cures none of them'
+  verify: { authored: true }
+
+- template: sx-experiment-design
+  skill: stats.sampling
+  pace: recall
+  cases:
+    - { q: 'Why are subjects assigned to treatments at random?', ans: 0 }
+    - { q: 'Why can an observational study not show cause and effect?', ans: 1 }
+    - { q: 'Why is a placebo group used?', ans: 2 }
+    - { q: 'Why are subjects grouped into blocks before assignment?', ans: 3 }
+  prompt: '{{q}}'
+  parts:
+    - ask: 'Answer'
+      label: a2
+      choice: ["So the groups are alike on average in everything except the treatment", "A confounding variable may explain both the treatment and the outcome", "To separate the effect of the treatment from the effect of being treated at all", "To remove variation from a known source so the treatment effect is easier to see"]
+      correct: ans
+      explain: 'Random sampling lets you generalise to a population; random assignment lets you conclude cause. They are different randomisations doing different jobs'
+  verify: { authored: true }
+
+- template: sx-r-squared
+  skill: stats.bivariate
+  pace: recall
+  given: { r: { pick: [0.9, 0.8, 0.7, 0.6, 0.5, -0.9, -0.5] } }
+  prompt: 'The correlation between two variables is $r = {{r}}$. What percent of the variation in $y$ does the regression line explain?'
+  parts:
+    - { ask: 'Percent explained', label: r2, tex: 'r^2', value: 100*r^2, tol: 0.005, explain: '$r^2$, as a percent. A correlation of 0.5 sounds moderate but explains only a quarter of the variation; the sign of $r$ does not matter here' }
+  verify: { expect: { r2: "100*nsimplify(r)**2" } }
+
+- template: sx-slope-from-correlation
+  skill: stats.bivariate
+  pace: quick
+  given: { r: { pick: [0.5, 0.8, -0.6, 0.9] }, sx: { pick: [2, 4, 5] }, sy: { pick: [10, 6, 20] } }
+  prompt: 'Two variables have correlation ${{r}}$, with $s_x = {{sx}}$ and $s_y = {{sy}}$. What is the slope of the least-squares line?'
+  parts:
+    - { ask: 'Slope', label: r2, tex: 'b', value: r*sy/sx, tol: 0.005, explain: '$b = r\,\dfrac{s_y}{s_x}$. One standard deviation along $x$ predicts only $r$ standard deviations in $y$: that shrinkage is regression to the mean' }
+  verify: { expect: { r2: "solve(Eq(x*sx, nsimplify(r)*sy), x)[0]" } }

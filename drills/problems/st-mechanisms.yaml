@@ -193,3 +193,173 @@
       correct: ans
       explain: 'The triad: Asp102 holds His57, His57 shuttles the proton, Ser195 attacks. The oxyanion hole, two backbone N-H groups, hydrogen-bonds the oxyanion'
   verify: { authored: true }
+
+# ── core organic mechanisms: SN2, E2, electrophilic addition, acyl substitution ──
+
+- template: st-mech-sn2-1
+  skill: orgo.substitution-elimination
+  pace: quick
+  prompt: 'Mechanism: the SN2 reaction of hydroxide with bromoethane. Starting from hydroxide and bromoethane, draw the curved arrows and what they lead to.'
+  figure:
+    type: molecule
+    formula: C2H6BrO-
+    atoms: [[0.0, 0.0, "HO-"], [2.0, 0.0], [2.0, 1.0], [3.4, 0.0, "Br"]]
+    bonds: [[1, 2], [1, 3]]
+  parts:
+    - ask: 'Draw the arrows and the next state, then compare'
+      label: a
+      draw: true
+      solution:
+        type: scheme
+        panels:
+          - type: molecule
+            formula: C2H6BrO-
+            atoms: [[0.0, 0.0, "HO-"], [2.0, 0.0], [2.0, 1.0], [3.4, 0.0, "Br"]]
+            bonds: [[1, 2], [1, 3]]
+            arrows: [[0, 1, -0.3], [[1, 3], 3, -0.5]]
+          - type: molecule
+            formula: C2H6BrO-
+            caption: 'Ethanol and bromide'
+            atoms: [[0.0, 0.0, "HO"], [2.0, 0.0], [2.0, 1.0], [3.4, 0.0, "Br-"]]
+            bonds: [[1, 2], [0, 1]]
+      explain: 'One step. The nucleophile attacks the carbon from the side opposite the leaving group while the C–Br bond breaks: two arrows, no intermediate, and the configuration at carbon inverts'
+
+- template: st-mech-e2-1
+  skill: orgo.substitution-elimination
+  pace: quick
+  prompt: 'Mechanism: the E2 elimination of bromoethane by an alkoxide. Starting from an alkoxide and bromoethane, draw the curved arrows and what they lead to.'
+  figure:
+    type: molecule
+    formula: C2H5BrOR-
+    atoms: [[-0.2, 1.6, "R"], [0.8, 1.6, "O-"], [1.6, 0.8, "H"], [2.3, 0.0], [3.3, 0.0], [3.9, -0.9, "Br"]]
+    bonds: [[0, 1], [2, 3], [3, 4], [4, 5]]
+  parts:
+    - ask: 'Draw the arrows and the next state, then compare'
+      label: a
+      draw: true
+      solution:
+        type: scheme
+        panels:
+          - type: molecule
+            formula: C2H5BrOR-
+            atoms: [[-0.2, 1.6, "R"], [0.8, 1.6, "O-"], [1.6, 0.8, "H"], [2.3, 0.0], [3.3, 0.0], [3.9, -0.9, "Br"]]
+            bonds: [[0, 1], [2, 3], [3, 4], [4, 5]]
+            arrows: [[1, 2, -0.3], [[2, 3], [3, 4], -0.4], [[4, 5], 5, -0.5]]
+          - type: molecule
+            formula: C2H5BrOR-
+            caption: 'An alcohol, ethene and bromide'
+            atoms: [[-0.2, 1.6, "R"], [0.8, 1.6, "O"], [1.6, 0.8, "H"], [2.3, 0.0], [3.3, 0.0], [3.9, -0.9, "Br-"]]
+            bonds: [[0, 1], [1, 2], [3, 4, 2]]
+      explain: 'One step, three arrows in a row: the base takes the β-hydrogen, the C–H electrons become the π bond, and the leaving group departs. The H and the leaving group must be anti to each other'
+
+- template: st-mech-hbr-addition-1
+  skill: orgo.alkene-reactions
+  pace: quick
+  prompt: 'Mechanism: the addition of HBr to 2-methylpropene, step 1 of 2. Starting from 2-Methylpropene and HBr, draw the curved arrows and what they lead to.'
+  figure:
+    type: molecule
+    formula: C4H9Br
+    atoms: [[0.0, 0.0], [1.0, 0.0], [1.5, -0.87], [2.0, 0.0], [-0.3, 1.2, "H"], [0.9, 1.9, "Br"]]
+    bonds: [[1, 2], [1, 3], [0, 1, 2], [4, 5]]
+  parts:
+    - ask: 'Draw the arrows and the next state, then compare'
+      label: a
+      draw: true
+      solution:
+        type: scheme
+        panels:
+          - type: molecule
+            formula: C4H9Br
+            atoms: [[0.0, 0.0], [1.0, 0.0], [1.5, -0.87], [2.0, 0.0], [-0.3, 1.2, "H"], [0.9, 1.9, "Br"]]
+            bonds: [[1, 2], [1, 3], [0, 1, 2], [4, 5]]
+            arrows: [[[0, 1], 4, 0.4], [[4, 5], 5, 0.5]]
+          - type: molecule
+            formula: C4H9Br
+            caption: 'Carbocation and bromide'
+            atoms: [[0.0, 0.0], [1.0, 0.0, "C+"], [1.5, -0.87], [2.0, 0.0], [-0.3, 1.2, "H"], [0.9, 1.9, "Br-"]]
+            bonds: [[1, 2], [1, 3], [0, 1], [0, 4]]
+      explain: 'The π bond is the nucleophile. It takes the proton onto the carbon with more hydrogens, because that leaves the positive charge on the more substituted carbon: a tertiary carbocation'
+
+- template: st-mech-hbr-addition-2
+  skill: orgo.alkene-reactions
+  pace: quick
+  prompt: 'Mechanism: the addition of HBr to 2-methylpropene, step 2 of 2. Starting from carbocation and bromide, draw the curved arrows and what they lead to.'
+  figure:
+    type: molecule
+    formula: C4H9Br
+    atoms: [[0.0, 0.0], [1.0, 0.0, "C+"], [1.5, -0.87], [2.0, 0.0], [-0.3, 1.2, "H"], [0.9, 1.9, "Br-"]]
+    bonds: [[1, 2], [1, 3], [0, 1], [0, 4]]
+  parts:
+    - ask: 'Draw the arrows and the next state, then compare'
+      label: a
+      draw: true
+      solution:
+        type: scheme
+        panels:
+          - type: molecule
+            formula: C4H9Br
+            atoms: [[0.0, 0.0], [1.0, 0.0, "C+"], [1.5, -0.87], [2.0, 0.0], [-0.3, 1.2, "H"], [0.9, 1.9, "Br-"]]
+            bonds: [[1, 2], [1, 3], [0, 1], [0, 4]]
+            arrows: [[5, 1, 0.3]]
+          - type: molecule
+            formula: C4H9Br
+            caption: '2-Bromo-2-methylpropane'
+            atoms: [[0.0, 0.0], [1.0, 0.0], [1.5, -0.87], [2.0, 0.0], [-0.3, 1.2, "H"], [0.9, 1.9, "Br"]]
+            bonds: [[1, 2], [1, 3], [0, 1], [0, 4], [1, 5]]
+      explain: 'The halide attacks the carbocation. The first step decided the product; this one is fast'
+
+- template: st-mech-acyl-substitution-1
+  skill: orgo.acyl-reactions
+  pace: quick
+  prompt: 'Mechanism: the attack of hydroxide on an ester (nucleophilic acyl substitution), step 1 of 2. Starting from an ester and hydroxide, draw the curved arrows and what they lead to.'
+  figure:
+    type: molecule
+    formula: CHO3R2-
+    atoms: [[1.13, -0.5, "R"], [2.0, 0.0], [2.0, 1.0, "O"], [2.87, -0.5, "O"], [3.74, 0.0, "R"], [0.5, 0.9, "HO-"]]
+    bonds: [[0, 1], [1, 2, 2], [3, 4], [1, 3]]
+  parts:
+    - ask: 'Draw the arrows and the next state, then compare'
+      label: a
+      draw: true
+      solution:
+        type: scheme
+        panels:
+          - type: molecule
+            formula: CHO3R2-
+            atoms: [[1.13, -0.5, "R"], [2.0, 0.0], [2.0, 1.0, "O"], [2.87, -0.5, "O"], [3.74, 0.0, "R"], [0.5, 0.9, "HO-"]]
+            bonds: [[0, 1], [1, 2, 2], [3, 4], [1, 3]]
+            arrows: [[5, 1, -0.3], [[1, 2], 2, 0.5]]
+          - type: molecule
+            formula: CHO3R2-
+            caption: 'The tetrahedral intermediate'
+            atoms: [[1.13, -0.5, "R"], [2.0, 0.0], [2.0, 1.0, "O-"], [2.87, -0.5, "O"], [3.74, 0.0, "R"], [0.5, 0.9, "HO"]]
+            bonds: [[0, 1], [1, 2], [3, 4], [1, 3], [5, 1]]
+      explain: 'Addition: the nucleophile attacks the carbonyl carbon and the π electrons move up onto oxygen. The carbon becomes tetrahedral'
+
+- template: st-mech-acyl-substitution-2
+  skill: orgo.acyl-reactions
+  pace: quick
+  prompt: 'Mechanism: the attack of hydroxide on an ester (nucleophilic acyl substitution), step 2 of 2. Starting from the tetrahedral intermediate, draw the curved arrows and what they lead to.'
+  figure:
+    type: molecule
+    formula: CHO3R2-
+    atoms: [[1.13, -0.5, "R"], [2.0, 0.0], [2.0, 1.0, "O-"], [2.87, -0.5, "O"], [3.74, 0.0, "R"], [0.5, 0.9, "HO"]]
+    bonds: [[0, 1], [1, 2], [3, 4], [1, 3], [5, 1]]
+  parts:
+    - ask: 'Draw the arrows and the next state, then compare'
+      label: a
+      draw: true
+      solution:
+        type: scheme
+        panels:
+          - type: molecule
+            formula: CHO3R2-
+            atoms: [[1.13, -0.5, "R"], [2.0, 0.0], [2.0, 1.0, "O-"], [2.87, -0.5, "O"], [3.74, 0.0, "R"], [0.5, 0.9, "HO"]]
+            bonds: [[0, 1], [1, 2], [3, 4], [1, 3], [5, 1]]
+            arrows: [[2, [1, 2], 0.5], [[1, 3], 3, -0.5]]
+          - type: molecule
+            formula: CHO3R2-
+            caption: 'A carboxylic acid and an alkoxide'
+            atoms: [[1.13, -0.5, "R"], [2.0, 0.0], [2.0, 1.0, "O"], [2.87, -0.5, "O-"], [3.74, 0.0, "R"], [0.5, 0.9, "HO"]]
+            bonds: [[0, 1], [1, 2, 2], [3, 4], [5, 1]]
+      explain: 'Elimination: the oxyanion pushes back down, re-forming C=O, and the best leaving group is expelled. Every acyl substitution is these two steps'

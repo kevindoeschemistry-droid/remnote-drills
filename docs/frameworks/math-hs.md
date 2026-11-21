@@ -154,7 +154,7 @@ Big ideas: FUNC, MODEL, EQUIV
 - ● **MH-2.2.C** (F-IF.B.6) Calculate and interpret the average rate of change of a function over an interval from a formula, a table or a graph.
   - EK: Average rate of change = (f(b) − f(a))/(b − a), the slope of the secant line, in output units per input unit.
   - Needs: MH-2.2.A
-  - MP2 · MP6 · drills: alg-avg-rate
+  - MP2 · MP6 · drills: alg-avg-rate, alg2-average-rate
 
 ### 2.3 Graphs of equations and linear functions
 
@@ -337,15 +337,15 @@ Big ideas: EQUIV, NUM
 - ● **MH-4.2.A** (A-SSE.B.3a) Factor a quadratic expression to reveal the zeros of the function it defines.
   - EK: ax² + bx + c = a(x − r)(x − s) ⇒ zeros at x = r and x = s.
   - Needs: MH-4.1.B
-  - MP7 · drills: alg-factor-zeros
+  - MP7 · drills: alg-factor-zeros, alg2-axis-from-roots, alg2-quadratic-from-roots
 - ● **MH-4.2.B** (A-SSE.B.3b) Complete the square in a quadratic expression to reveal the maximum or minimum value of the function it defines.
   - EK: ax² + bx + c = a(x − h)² + k with h = −b/2a; the extreme value is k, reached at x = h.
   - Needs: MH-4.1.A
-  - MP7 · drills: alg-complete-square
+  - MP7 · drills: alg-complete-square, alg2-perfect-square-constant
 - ● **MH-4.2.C** (A-SSE.B.3c) Use the properties of exponents to transform an exponential expression, e.g. 1.15^t ≈ 1.012^(12t), to reveal an equivalent monthly rate.
   - EK: b^t = (b^(1/k))^(kt): the same growth expressed per 1/k of the unit.
   - Needs: MH-2.6.B
-  - MP7 · drills: alg-exp-params
+  - MP7 · drills: alg-exp-params, alg2-successive-percent, alg2-doubling-time
 
 ### 4.3 Solve quadratic equations in one variable
 
@@ -362,7 +362,7 @@ Big ideas: EQUIV, NUM
 - ● **MH-4.3.C** (A-REI.B.4b) Solve a quadratic equation with the quadratic formula, choosing the method that fits its form, and use the discriminant to recognise when it has no real solutions.
   - EK: b² − 4ac > 0: two real roots; = 0: one repeated root; < 0: no real roots (complex a ± bi).
   - Needs: MH-4.3.B
-  - MP6 · MP7 · drills: alg-quad-formula
+  - MP6 · MP7 · drills: alg-quad-formula, alg2-discriminant-count
 - ● **MH-4.3.D** (A-CED.A.1) Write and solve a quadratic equation that models a word problem, rejecting solutions that do not fit the context.
   - EK: A negative time or length from the formula is a mathematical root, not an answer.
   - Needs: MH-4.3.C, MH-1.4.A
@@ -438,7 +438,7 @@ Big ideas: FUNC, EQUIV, NUM, MODEL
 - ● **MH-5.3.D** (F-BF.B.4a) Solve f(x) = c for a simple invertible function f and write an expression for the inverse, e.g. f(x) = 2x³ or f(x) = (x + 1)/(x − 1).
   - EK: Swap the roles of x and y and solve for y.
   - Needs: MH-1.4.D, MH-2.6.B
-  - MP7 · drills: alg-inverse, mm-inverse-function-value
+  - MP7 · drills: alg-inverse, mm-inverse-function-value, alg2-inverse-undoes
 - ● **MH-5.3.E** (F-LE.A.3) Show with tables and graphs that an increasing exponential function eventually exceeds any quadratic or polynomial function.
   - EK: Exponential growth multiplies by a fixed factor; polynomial growth's ratio f(x + 1)/f(x) tends to 1.
   - Needs: MH-2.6.D, MH-5.2.B
@@ -623,7 +623,7 @@ Big ideas: XFORM, MODEL
 - ● **MH-8.1.B** (G-GMD.A.3) Use the volume formulas for cylinders, pyramids, cones and spheres to solve problems.
   - EK: V = Bh (prism, cylinder); V = ⅓Bh (pyramid, cone); V = (4/3)πr³ (sphere).
   - Needs: MH-8.1.A, MH-1.4.D
-  - MP4 · MP6 · drills: geo-volume
+  - MP4 · MP6 · drills: geo-volume, geo2-scale-factor
 
 ### 8.2 Visualize relations between two- and three-dimensional objects
 
@@ -837,7 +837,7 @@ Big ideas: NUM, EQUIV, FUNC
 - ● **MH-12.3.C** (F-IF.C.7c) Graph a polynomial function, identifying zeros when suitable factorizations are available and showing end behaviour.
   - EK: Degree n has at most n real zeros and at most n − 1 turning points.
   - Needs: MH-12.3.B, MH-5.2.B
-  - MP5 · MP6 · drills: hs-end-behaviour, dr-cubic, ~alg-poly-zeros, ~hs-parabola-features
+  - MP5 · MP6 · drills: hs-end-behaviour, dr-cubic, alg2-end-behaviour, ~alg-poly-zeros, ~hs-parabola-features
 - ● **MH-12.3.D** (N-CN.C.9) (+) Know the Fundamental Theorem of Algebra and show that it is true for quadratic polynomials.
   - EK: A degree-n polynomial has exactly n complex zeros counted with multiplicity.
   - Needs: MH-12.1.D, MH-12.3.B
@@ -888,7 +888,7 @@ Big ideas: FUNC, XFORM, MODEL
 - ● **MH-13.1.B** (F-TF.A.2) Explain how the unit circle extends sine and cosine to all real numbers, read as radian measures of angles traversed counterclockwise.
   - EK: The point at angle t on the unit circle is (cos t, sin t).
   - Needs: MH-13.1.A, MH-7.3.A
-  - MP3 · MP7 · drills: trig-exact
+  - MP3 · MP7 · drills: trig-exact, trig2-quadrant-sign, trig2-reference-angle
 
 ### 13.2 Model periodic phenomena with trigonometric functions
 
@@ -919,7 +919,7 @@ Big ideas: FUNC, MODEL
 - ● **MH-14.1.A** (F-LE.A.4) Express the solution of ab^(ct) = d as a logarithm (base 2, 10 or e) and evaluate it with technology.
   - EK: log_b x = y ⇔ b^y = x; t = log_b(d/a)/c.
   - Needs: MH-4.2.C, MH-5.3.D
-  - MP7 · MP5 · drills: alg-exp-solve, mm-log-exact
+  - MP7 · MP5 · drills: alg-exp-solve, mm-log-exact, alg2-log-estimate
 - ● **MH-14.1.B** (F-IF.C.7e) Graph a logarithmic function, showing the intercept, the vertical asymptote and end behaviour, as the reflection of an exponential across y = x.
   - EK: y = log_b x passes through (1, 0), has asymptote x = 0, and grows without bound but ever more slowly.
   - Needs: MH-14.1.A, MH-2.6.C
@@ -1289,7 +1289,45 @@ Big ideas: DATA, MODEL
 - mm-circle-angles (geo.circles)
 - mm-circle-radius (geo.circles)
 - mm-polar-to-rectangular (trig.unit-circle)
+- hy-which-definition (trig.hyperbolic)
+- hy-value-at-log (trig.hyperbolic)
+- hy-pythagorean (trig.hyperbolic)
+- hy-identity-check (trig.hyperbolic)
+- hy-derivative-which (trig.hyperbolic)
+- hy-derivative-value (trig.hyperbolic)
+- hy-parity-and-range (trig.hyperbolic)
+- hy-tanh-value (trig.hyperbolic)
+- hy-inverse-sinh (trig.hyperbolic)
+- hy-double-argument (trig.hyperbolic)
+- hy-integral (trig.hyperbolic)
+- hy-ode-solution (trig.hyperbolic)
+- hy-circular-link (trig.hyperbolic)
+- hy-where-used (trig.hyperbolic)
 - k8-scatter-association (stats.bivariate)
+- sx-r-squared (stats.bivariate)
+- sx-slope-from-correlation (stats.bivariate)
 - mm-subsets (stats.probability)
 - mm-two-dice (stats.probability)
 - k8-simulation-estimate (stats.probability)
+- sx-z-score (stats.distributions)
+- sx-empirical-rule (stats.distributions)
+- sx-binomial-probability (stats.distributions)
+- sx-binomial-spread (stats.distributions)
+- sx-geometric-wait (stats.distributions)
+- sx-linear-transform (stats.distributions)
+- sx-sum-of-independent (stats.distributions)
+- sx-standard-error-mean (stats.sampling)
+- sx-standard-error-proportion (stats.sampling)
+- sx-margin-and-sample-size (stats.sampling)
+- sx-sampling-bias (stats.sampling)
+- sx-experiment-design (stats.sampling)
+- sx-proportion-margin (stats.inference)
+- sx-sample-size-needed (stats.inference)
+- sx-proportion-z-statistic (stats.inference)
+- sx-t-statistic (stats.inference)
+- sx-degrees-of-freedom (stats.inference)
+- sx-p-value-decision (stats.inference)
+- sx-error-types (stats.inference)
+- sx-chi-square-expected (stats.inference)
+- sx-chi-square-term (stats.inference)
+- sx-confidence-meaning (stats.inference)

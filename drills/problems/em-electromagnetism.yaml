@@ -1,0 +1,182 @@
+# Electricity and magnetism: one-question items on the relations an introductory E&M course runs on.
+# Constants are given in the prompt; every number is recomputed by sympy.
+
+- template: em-coulomb-force
+  skill: physics.electrostatics
+  pace: quick
+  given: { q1: { pick: [1, 2, 5] }, q2: { pick: [1, 3, 4] }, r: { pick: [0.1, 0.2, 0.5, 1] } }
+  prompt: 'Two point charges of ${{q1}}$ µC and ${{q2}}$ µC are ${{r}}$ m apart. What is the magnitude of the force between them, in N? ($k = 8.99 \times 10^9$ N·m²/C².)'
+  parts:
+    - { ask: 'Force (N)', label: r2, tex: 'F', value: 8.99e9*q1*1e-6*q2*1e-6/r^2, tol: 0.005, explain: '$F = \dfrac{kq_1q_2}{r^2}$. Microcoulombs squared give $10^{-12}$, so the answer is $8.99 \times 10^{-3}\,q_1q_2/r^2$ with the charges in µC. Halving the distance quadruples the force' }
+  verify: { expect: { r2: "Rational(899, 100)*10**9*q1*q2/10**12/nsimplify(r)**2" } }
+
+- template: em-field-point-charge
+  skill: physics.electrostatics
+  pace: quick
+  given: { q: { pick: [1, 2, 4, 10] }, r: { pick: [0.1, 0.3, 1, 2] } }
+  prompt: 'What is the electric field ${{r}}$ m from a point charge of ${{q}}$ nC, in N/C? ($k = 8.99 \times 10^9$.)'
+  parts:
+    - { ask: 'Field (N/C)', label: r2, tex: 'E', value: 8.99*q/r^2, tol: 0.005, explain: '$E = \dfrac{kq}{r^2}$; with $q$ in nC, $kq = 8.99q$ N·m²/C. The field is the force per unit charge and points away from a positive charge' }
+  verify: { expect: { r2: "Rational(899, 100)*10**9*q/10**9/nsimplify(r)**2" } }
+
+- template: em-potential-point-charge
+  skill: physics.electrostatics
+  pace: quick
+  given: { q: { pick: [1, 2, 5] }, r: { pick: [0.1, 0.5, 1] } }
+  prompt: 'What is the electric potential ${{r}}$ m from a point charge of ${{q}}$ nC, in volts, taking $V = 0$ far away?'
+  parts:
+    - { ask: 'Potential (V)', label: r2, tex: 'V', value: 8.99*q/r, tol: 0.005, explain: '$V = \dfrac{kq}{r}$: one power of $r$, not two, and a scalar, so potentials from several charges simply add' }
+  verify: { expect: { r2: "integrate(Rational(899, 100)*q/x**2, (x, nsimplify(r), oo))" } }
+
+- template: em-uniform-field-voltage
+  skill: physics.electrostatics
+  pace: recall
+  given: { V: { pick: [9, 12, 100, 1000] }, d: { pick: [1, 2, 5, 10] } }
+  prompt: 'Two parallel plates ${{d}}$ mm apart have ${{V}}$ V across them. What is the field between them, in V/m?'
+  parts:
+    - { ask: 'Field (V/m)', label: r2, tex: 'E', value: V/(d*1e-3), tol: 0.001, explain: '$E = V/d$ for a uniform field. A volt per metre is the same thing as a newton per coulomb' }
+  verify: { expect: { r2: "solve(Eq(x*Rational(d, 1000), V), x)[0]" } }
+
+- template: em-capacitor-energy
+  skill: physics.electrostatics
+  pace: quick
+  given: { C: { pick: [10, 47, 100, 470] }, V: { pick: [5, 12, 50] } }
+  prompt: 'How much energy is stored in a ${{C}}$ µF capacitor charged to ${{V}}$ V, in mJ?'
+  parts:
+    - { ask: 'Energy (mJ)', label: r2, tex: 'U', value: 0.5*C*1e-6*V^2*1000, tol: 0.005, explain: '$U = \tfrac12CV^2$, which is also $\tfrac12QV$: the average voltage while charging is half the final one' }
+  verify: { expect: { r2: "integrate(x/(C*Rational(1, 10**6)), (x, 0, C*Rational(1, 10**6)*V))*1000" } }
+
+- template: em-capacitors-combined
+  skill: physics.circuits
+  pace: quick
+  given: { C1: { pick: [2, 3, 6] }, C2: { pick: [3, 6, 12] }, ser: { pick: [0, 1] } }
+  prompt: 'Capacitors of ${{C1}}$ µF and ${{C2}}$ µF are connected in {{ser == 1 ? "series" : "parallel"}}. What is the equivalent capacitance, in µF?'
+  parts:
+    - { ask: 'Capacitance (µF)', label: r2, tex: 'C', value: "ser == 1 ? C1*C2/(C1 + C2) : C1 + C2", tol: 0.005, explain: 'Capacitors combine the opposite way to resistors: they add in parallel (more plate area) and combine as product over sum in series (a wider gap)' }
+  verify: { expect: { r2: "1/(Rational(1, C1) + Rational(1, C2)) if ser == 1 else C1 + C2" } }
+
+- template: em-resistors-combined
+  skill: physics.circuits
+  pace: quick
+  given: { R1: { pick: [2, 3, 6, 10] }, R2: { pick: [3, 6, 12, 15] }, ser: { pick: [0, 1] } }
+  prompt: 'Resistors of ${{R1}}$ Ω and ${{R2}}$ Ω are connected in {{ser == 1 ? "series" : "parallel"}}. What is the equivalent resistance, in Ω?'
+  parts:
+    - { ask: 'Resistance (Ω)', label: r2, tex: 'R', value: "ser == 1 ? R1 + R2 : R1*R2/(R1 + R2)", tol: 0.005, explain: 'Series adds. Parallel is product over sum and is always less than the smaller resistor, because a second path can only make it easier for current to flow' }
+  verify: { expect: { r2: "R1 + R2 if ser == 1 else 1/(Rational(1, R1) + Rational(1, R2))" } }
+
+- template: em-power-dissipated
+  skill: physics.circuits
+  pace: recall
+  given: { V: { pick: [5, 12, 120, 240] }, R: { pick: [10, 24, 60, 100] } }
+  prompt: 'What power does a ${{R}}$ Ω resistor dissipate with ${{V}}$ V across it, in watts?'
+  parts:
+    - { ask: 'Power (W)', label: r2, tex: 'P', value: V^2/R, tol: 0.001, explain: '$P = IV = \dfrac{V^2}{R} = I^2R$. Pick the form that uses what you are given' }
+  verify: { expect: { r2: "(V/Integer(R))*V" } }
+
+- template: em-rc-time-constant
+  skill: physics.circuits
+  pace: quick
+  given: { R: { pick: [1, 10, 47, 100] }, C: { pick: [1, 10, 100] } }
+  prompt: 'What is the time constant of a ${{R}}$ kΩ resistor with a ${{C}}$ µF capacitor, in ms?'
+  parts:
+    - { ask: 'Time constant (ms)', label: r2, tex: '\tau', value: R*C, tol: 0.001, explain: '$\tau = RC$, and kΩ times µF is ms. After one time constant a charging capacitor has reached 63%; after five it is done for practical purposes' }
+  verify: { expect: { r2: "R*1000*C*Rational(1, 10**6)*1000" } }
+
+- template: em-rc-fraction
+  skill: physics.circuits
+  pace: quick
+  given: { n: { pick: [1, 2, 3, 5] } }
+  prompt: 'A discharging capacitor has been going for ${{n}}$ time constant{{n > 1 ? "s" : ""}}. What fraction of its initial voltage remains?'
+  parts:
+    - { ask: 'Fraction', label: r2, tex: 'f', value: exp(-n), tol: 0.01, explain: '$V = V_0e^{-t/\tau}$: 37% after one, 14% after two, 5% after three, under 1% after five' }
+  verify: { var: s, ode: "diff(T(s), s) + T(s)", bcs: ["T(0) = 1"], expect: { r2: "T(n)" } }
+
+- template: em-magnetic-force
+  skill: physics.magnetism
+  pace: quick
+  given: { v: { pick: [1, 2, 5] }, B: { pick: [0.1, 0.5, 2] }, th: { pick: [30, 90] } }
+  prompt: 'A proton ($e = 1.60 \times 10^{-19}$ C) moves at ${{v}} \times 10^6$ m/s at ${{th}}^\circ$ to a ${{B}}$ T field. What is the force on it, in units of $10^{-13}$ N?'
+  parts:
+    - { ask: 'Force ($10^{-13}$ N)', label: r2, tex: 'F', value: 1.6*v*B*sin(th*pi/180), tol: 0.005, explain: '$F = qvB\sin\theta$. The force is perpendicular to both the velocity and the field, so it turns the particle without changing its speed' }
+  verify: { expect: { r2: "Rational(16, 10)*v*nsimplify(B)*sin(pi*th/180)" } }
+
+- template: em-cyclotron-radius
+  skill: physics.magnetism
+  pace: quick
+  given: { fv: { pick: [2, 3, 0.5] }, fB: { pick: [1, 2, 4] } }
+  prompt: 'A charged particle circles in a magnetic field. Its speed is multiplied by ${{fv}}$ and the field by ${{fB}}$. By what factor does the radius of its path change?'
+  parts:
+    - { ask: 'Factor', label: r2, tex: 'k', value: fv/fB, tol: 0.005, explain: '$qvB = \dfrac{mv^2}{r}$ gives $r = \dfrac{mv}{qB}$: faster or heavier means a wider circle, a stronger field a tighter one. The period, $2\pi m/qB$, does not depend on speed at all, which is what makes a cyclotron work' }
+  verify: { expect: { r2: "solve(Eq(Symbol('q')*fv*Symbol('v')*fB*Symbol('B'), Symbol('m')*(fv*Symbol('v'))**2/x), x)[0]/solve(Eq(Symbol('q')*Symbol('v')*Symbol('B'), Symbol('m')*Symbol('v')**2/x), x)[0]" } }
+
+- template: em-field-of-wire
+  skill: physics.magnetism
+  pace: quick
+  given: { I: { pick: [1, 5, 10, 20] }, r: { pick: [1, 2, 5, 10] } }
+  prompt: 'What is the magnetic field ${{r}}$ cm from a long straight wire carrying ${{I}}$ A, in µT? ($\mu_0 = 4\pi \times 10^{-7}$ T·m/A.)'
+  parts:
+    - { ask: 'Field (µT)', label: r2, tex: 'B', value: 2e-7*I/(r*0.01)*1e6, tol: 0.005, explain: '$B = \dfrac{\mu_0I}{2\pi r} = 2 \times 10^{-7}\,\dfrac{I}{r}$. It falls as $1/r$, not $1/r^2$, and circles the wire by the right-hand rule. For scale, the Earth''s field is about 50 µT' }
+  verify: { expect: { r2: "4*pi*Rational(1, 10**7)*I/(2*pi*Rational(r, 100))*10**6" } }
+
+- template: em-solenoid-field
+  skill: physics.magnetism
+  pace: quick
+  given: { N: { pick: [100, 500, 1000] }, L: { pick: [10, 20, 50] }, I: { pick: [0.5, 1, 2] } }
+  prompt: 'A solenoid has ${{N}}$ turns over ${{L}}$ cm and carries ${{I}}$ A. What is the field inside, in mT?'
+  parts:
+    - { ask: 'Field (mT)', label: r2, tex: 'B', value: 4*pi*1e-7*N/(L*0.01)*I*1000, tol: 0.005, explain: '$B = \mu_0nI$ with $n$ the turns per metre. It is uniform inside and does not depend on the radius' }
+  verify: { expect: { r2: "4*pi*Rational(1, 10**7)*N/Rational(L, 100)*nsimplify(I)*1000" } }
+
+- template: em-faraday-emf
+  skill: physics.magnetism
+  pace: quick
+  given: { N: { pick: [1, 50, 200] }, A: { pick: [10, 50, 100] }, dB: { pick: [0.1, 0.5, 2] }, dt: { pick: [0.01, 0.1, 1] } }
+  prompt: 'The field through a ${{N}}$-turn coil of area ${{A}}$ cm² changes by ${{dB}}$ T in ${{dt}}$ s. What is the average emf, in volts?'
+  parts:
+    - { ask: 'emf (V)', label: r2, tex: '\mathcal{E}', value: N*A*1e-4*dB/dt, tol: 0.005, explain: '$\mathcal{E} = N\dfrac{\Delta\Phi}{\Delta t}$ with $\Phi = BA$. What matters is how fast the flux changes; Lenz''s law says the induced current opposes that change' }
+  verify: { expect: { r2: "N*Rational(A, 10**4)*nsimplify(dB)/nsimplify(dt)" } }
+
+- template: em-lenz-direction
+  skill: physics.magnetism
+  pace: recall
+  cases:
+    - { q: 'the north pole of a magnet moves toward a loop', ans: 0 }
+    - { q: 'the north pole of a magnet moves away from a loop', ans: 1 }
+    - { q: 'the field through a loop is increasing', ans: 0 }
+    - { q: 'a loop is pulled out of a field region', ans: 1 }
+  prompt: 'What does the induced current in the loop do when {{q}}?'
+  parts:
+    - ask: 'The induced field'
+      label: a
+      choice: ["Opposes the applied field: the loop repels the change", "Points the same way as the applied field: the loop tries to keep the flux it had"]
+      correct: ans
+      explain: 'Lenz''s law: the induced current opposes the change in flux, not the flux. Growing flux is opposed; shrinking flux is propped up. It is energy conservation: otherwise the change would feed itself'
+  verify: { authored: true }
+
+- template: em-gauss-flux
+  skill: physics.electrostatics
+  pace: quick
+  given: { q: { pick: [1, 2, 5, 8.85] } }
+  prompt: 'A closed surface encloses a net charge of ${{q}}$ nC. What is the electric flux through it, in N·m²/C? ($\varepsilon_0 = 8.85 \times 10^{-12}$.)'
+  parts:
+    - { ask: 'Flux (N·m²/C)', label: r2, tex: '\Phi', value: q*1e-9/8.85e-12, tol: 0.005, explain: '$\Phi = Q_{enc}/\varepsilon_0$, whatever the shape or size of the surface and wherever the charge sits inside it. Charges outside contribute nothing' }
+  verify: { expect: { r2: "nsimplify(q)*Rational(1, 10**9)/(Rational(885, 100)*Rational(1, 10**12))" } }
+
+- template: em-wave-fields
+  skill: physics.magnetism
+  pace: quick
+  given: { E: { pick: [3, 30, 300, 600] } }
+  prompt: 'An electromagnetic wave has a peak electric field of ${{E}}$ V/m. What is its peak magnetic field, in µT? ($c = 3.00 \times 10^8$ m/s.)'
+  parts:
+    - { ask: 'Field (µT)', label: r2, tex: 'B', value: E/3e8*1e6, tol: 0.005, explain: '$E = cB$. The magnetic field of a light wave looks tiny in tesla only because of the units; the two fields carry equal energy' }
+  verify: { expect: { r2: "solve(Eq(E, 3*10**8*x/10**6), x)[0]" } }
+
+- template: em-lc-frequency
+  skill: physics.circuits
+  pace: quick
+  given: { fL: { pick: [4, 9, 1] }, fC: { pick: [1, 4, 9] } }
+  prompt: 'In an LC circuit the inductance is multiplied by ${{fL}}$ and the capacitance by ${{fC}}$. By what factor does the resonant frequency change?'
+  parts:
+    - { ask: 'Factor', label: r2, tex: 'k', value: 1/sqrt(fL*fC), tol: 0.005, explain: '$f = \dfrac{1}{2\pi\sqrt{LC}}$: the electrical twin of $\sqrt{k/m}$ for a mass on a spring, with $L$ playing mass and $1/C$ playing stiffness' }
+  verify: { expect: { r2: "(1/(2*pi*sqrt(fL*x*fC*Symbol('C', positive=True))))/(1/(2*pi*sqrt(x*Symbol('C', positive=True))))" } }
+  require: [fL*fC != 1]

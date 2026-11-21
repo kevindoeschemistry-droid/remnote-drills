@@ -702,7 +702,9 @@
        "drills": [
         "ca-power-rule",
         "ca-power-reciprocal",
-        "ca-power-root"
+        "ca-power-root",
+        "hy-derivative-which",
+        "hy-derivative-value"
        ],
        "needs": [
         "CA-2.2.A"
@@ -1207,7 +1209,8 @@
        ],
        "drills": [
         "ca-related-circle",
-        "ca-related-ladder"
+        "ca-related-ladder",
+        "ca2-related-rate-scaling"
        ],
        "needs": [
         "CA-4.4.A"
@@ -1233,7 +1236,8 @@
         "P1"
        ],
        "drills": [
-        "ca-linearization"
+        "ca-linearization",
+        "ca2-linear-approx-root"
        ],
        "needs": [
         "CA-2.2.B"
@@ -1474,7 +1478,8 @@
         "P3"
        ],
        "drills": [
-        "ca-inflection"
+        "ca-inflection",
+        "ca2-concavity-meaning"
        ],
        "needs": [
         "CA-3.6.A",
@@ -1729,7 +1734,9 @@
        ],
        "drills": [
         "ca-riemann-sums",
-        "ca-trapezoid-table"
+        "ca-trapezoid-table",
+        "ca2-integral-by-area",
+        "ca2-symmetry-integral"
        ],
        "needs": [
         "CA-6.1.A"
@@ -1804,7 +1811,8 @@
         "P1"
        ],
        "drills": [
-        "ca-ftc-derivative"
+        "ca-ftc-derivative",
+        "ca2-ftc-derivative"
        ],
        "needs": [
         "CA-6.3.A",
@@ -1949,7 +1957,8 @@
         "usub-log",
         "usub-ratio",
         "usub-linear",
-        "ca-usub-definite"
+        "ca-usub-definite",
+        "ca2-u-sub-choice"
        ],
        "needs": [
         "CA-6.8.A",
@@ -2439,7 +2448,8 @@
         "P1"
        ],
        "drills": [
-        "ca-average-value"
+        "ca-average-value",
+        "ca2-average-value"
        ],
        "needs": [
         "CA-6.7.A"
@@ -3123,7 +3133,8 @@
         "P1"
        ],
        "drills": [
-        "ca-geometric-series"
+        "ca-geometric-series",
+        "ca2-geometric-series-sum"
        ],
        "needs": [
         "CA-10.1.A"
@@ -3368,7 +3379,8 @@
        "drills": [
         "ca-taylor-exp",
         "ca-taylor-ln",
-        "ca-taylor-coefficients"
+        "ca-taylor-coefficients",
+        "ca2-taylor-coefficient"
        ],
        "needs": [
         "CA-3.6.A",
@@ -4864,6 +4876,133 @@
      ]
     }
    ]
+  },
+  {
+   "id": "hyperbolic",
+   "n": 15,
+   "title": "Hyperbolic functions",
+   "scope": "core",
+   "ideas": [
+    "CHA"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "Definitions and identities",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "ST-3.11"
+       ],
+       "do": "Recognise sinh, cosh and tanh from their exponential definitions and evaluate them at ln a.",
+       "ek": [
+        "cosh x = ½(eˣ + e⁻ˣ), sinh x = ½(eˣ − e⁻ˣ); eˣ = cosh x + sinh x."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "hy-which-definition",
+        "hy-value-at-log",
+        "hy-tanh-value"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "ST-3.11"
+       ],
+       "do": "Use cosh² − sinh² = 1 and the double-argument identities, and tell a true hyperbolic identity from a false one.",
+       "ek": [
+        "Osborn's rule: flip the sign of any product of two sines."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "hy-pythagorean",
+        "hy-identity-check",
+        "hy-double-argument"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "ST-3.11"
+       ],
+       "do": "Describe the graphs: parity, range and behaviour for small and large x.",
+       "ek": [
+        "cosh ≥ 1 and even; sinh odd and unbounded; tanh odd and between −1 and 1."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "hy-parity-and-range"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "title": "Calculus and uses",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "ST-3.11"
+       ],
+       "do": "Differentiate and integrate hyperbolic functions.",
+       "ek": [
+        "sinh′ = cosh, cosh′ = sinh, tanh′ = sech²; no sign changes."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "hy-derivative-which",
+        "hy-derivative-value",
+        "hy-integral"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "ST-3.11"
+       ],
+       "do": "Write an inverse hyperbolic function as a logarithm.",
+       "ek": [
+        "sinh⁻¹ s = ln(s + √(s² + 1))."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "hy-inverse-sinh"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "ST-3.11"
+       ],
+       "do": "Solve y″ = k²y with cosh and sinh, connect them to the circular functions, and say where each turns up.",
+       "ek": [
+        "cos(ix) = cosh x; catenary, fins and slabs use cosh; saturating ratios use tanh."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "hy-ode-solution",
+        "hy-circular-link",
+        "hy-where-used"
+       ]
+      }
+     ]
+    }
+   ]
   }
  ],
  "rows": [
@@ -5129,7 +5268,9 @@
    "full": [
     "ca-power-rule",
     "ca-power-reciprocal",
-    "ca-power-root"
+    "ca-power-root",
+    "hy-derivative-which",
+    "hy-derivative-value"
    ],
    "partial": []
   },
@@ -5324,7 +5465,8 @@
    "status": "ok",
    "full": [
     "ca-related-circle",
-    "ca-related-ladder"
+    "ca-related-ladder",
+    "ca2-related-rate-scaling"
    ],
    "partial": []
   },
@@ -5334,7 +5476,8 @@
    "topic": 6,
    "status": "ok",
    "full": [
-    "ca-linearization"
+    "ca-linearization",
+    "ca2-linear-approx-root"
    ],
    "partial": []
   },
@@ -5427,7 +5570,8 @@
    "topic": 6,
    "status": "ok",
    "full": [
-    "ca-inflection"
+    "ca-inflection",
+    "ca2-concavity-meaning"
    ],
    "partial": []
   },
@@ -5523,7 +5667,9 @@
    "status": "ok",
    "full": [
     "ca-riemann-sums",
-    "ca-trapezoid-table"
+    "ca-trapezoid-table",
+    "ca2-integral-by-area",
+    "ca2-symmetry-integral"
    ],
    "partial": []
   },
@@ -5555,7 +5701,8 @@
    "topic": 4,
    "status": "ok",
    "full": [
-    "ca-ftc-derivative"
+    "ca-ftc-derivative",
+    "ca2-ftc-derivative"
    ],
    "partial": []
   },
@@ -5614,7 +5761,8 @@
     "usub-log",
     "usub-ratio",
     "usub-linear",
-    "ca-usub-definite"
+    "ca-usub-definite",
+    "ca2-u-sub-choice"
    ],
    "partial": []
   },
@@ -5797,7 +5945,8 @@
    "topic": 1,
    "status": "ok",
    "full": [
-    "ca-average-value"
+    "ca-average-value",
+    "ca2-average-value"
    ],
    "partial": []
   },
@@ -6050,7 +6199,8 @@
    "topic": 2,
    "status": "ok",
    "full": [
-    "ca-geometric-series"
+    "ca-geometric-series",
+    "ca2-geometric-series-sum"
    ],
    "partial": []
   },
@@ -6144,7 +6294,8 @@
    "full": [
     "ca-taylor-exp",
     "ca-taylor-ln",
-    "ca-taylor-coefficients"
+    "ca-taylor-coefficients",
+    "ca2-taylor-coefficient"
    ],
    "partial": []
   },
@@ -6679,6 +6830,74 @@
    "status": "ok",
    "full": [
     "ca-conservation-law"
+   ],
+   "partial": []
+  },
+  {
+   "code": "CA-15.1.A",
+   "unit": 15,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "hy-which-definition",
+    "hy-value-at-log",
+    "hy-tanh-value"
+   ],
+   "partial": []
+  },
+  {
+   "code": "CA-15.1.B",
+   "unit": 15,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "hy-pythagorean",
+    "hy-identity-check",
+    "hy-double-argument"
+   ],
+   "partial": []
+  },
+  {
+   "code": "CA-15.1.C",
+   "unit": 15,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "hy-parity-and-range"
+   ],
+   "partial": []
+  },
+  {
+   "code": "CA-15.2.A",
+   "unit": 15,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "hy-derivative-which",
+    "hy-derivative-value",
+    "hy-integral"
+   ],
+   "partial": []
+  },
+  {
+   "code": "CA-15.2.B",
+   "unit": 15,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "hy-inverse-sinh"
+   ],
+   "partial": []
+  },
+  {
+   "code": "CA-15.2.C",
+   "unit": 15,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "hy-ode-solution",
+    "hy-circular-link",
+    "hy-where-used"
    ],
    "partial": []
   }
