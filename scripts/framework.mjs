@@ -116,7 +116,7 @@ if (!process.argv[2] && !failed) {
   const missing = [];
   for (const id of ids) for (const r of all[id].requires ?? []) if (!all[r]) missing.push(`${id} requires ${r}, which isn't written yet`);
   // Kahn's algorithm; ties broken by track order, then the order frameworks were listed in TRACKS
-  const TRACKS = ["math", "science", "computing", "engineering", "health", "safety", "communication", "athletics"];
+  const TRACKS = ["math", "science", "computing", "engineering", "business", "health", "safety", "communication", "athletics"];
   const rank = (id) => [TRACKS.indexOf(all[id].track ?? "zz") === -1 ? 99 : TRACKS.indexOf(all[id].track), all[id].level ?? 0, id];
   const cmp = (a, b) => { const x = rank(a), y = rank(b); return x[0] - y[0] || x[1] - y[1] || String(x[2]).localeCompare(String(y[2])); };
   const indeg = Object.fromEntries(ids.map((id) => [id, (all[id].requires ?? []).filter((r) => all[r]).length]));
@@ -168,7 +168,7 @@ if (!process.argv[2] && !failed) {
   fs.writeFileSync(path.join(root, "docs/frameworks/path.json"), JSON.stringify({ frameworks: order, objectives: seq.map((x) => x.code) }));
 
   // for the plugin: the whole library (Library builder, Path tab) and a small LO → drills map (cards)
-  const TRACK_TITLES = { math: "Math", science: "Science", computing: "Computing", engineering: "Engineering", health: "Health", safety: "AI Safety", communication: "Communication", athletics: "Athletics" };
+  const TRACK_TITLES = { math: "Math", science: "Science", computing: "Computing", engineering: "Engineering", business: "Business", health: "Health", safety: "AI Safety", communication: "Communication", athletics: "Athletics" };
   // how long a template takes: stated (`pace:` on a problems-as-data template) or, when it isn't, a
   // guess from its shape: one question is quick, several parts or a coded generator is a workout.
   // An objective is as slow as its slowest drill.
