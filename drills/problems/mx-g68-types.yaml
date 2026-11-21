@@ -324,6 +324,9 @@
     - { q: 'Most values are low with a long tail of high values (like incomes).', ans: 0 }
     - { q: 'Values pile up symmetrically around the middle.', ans: 1 }
     - { q: 'Most values are high with a tail of low values (like scores on an easy test).', ans: 2 }
+    - { q: 'The mean is much larger than the median.', ans: 0 }
+    - { q: 'The mean is well below the median.', ans: 2 }
+    - { q: 'Mean and median are about equal and the halves mirror each other.', ans: 1 }
   prompt: '{{q}} How is the distribution described?'
   parts:
     - ask: 'Shape'
@@ -747,6 +750,9 @@
     - { q: 'two lines with different slopes', ans: 0 }
     - { q: 'two parallel lines with different intercepts', ans: 1 }
     - { q: 'two equations that describe the same line', ans: 2 }
+    - { q: 'y = 2x + 1 and y = 2x − 3', ans: 1 }
+    - { q: 'y = x and y = −x + 4', ans: 0 }
+    - { q: '2y = 4x + 2 and y = 2x + 1', ans: 2 }
   prompt: 'A system''s graph shows {{q}}. How many solutions?'
   parts:
     - ask: 'Solutions'
@@ -975,6 +981,9 @@
     - { q: 'goes through the middle of the cloud with about as many points above as below', ans: 0 }
     - { q: 'connects the first and last points only', ans: 1 }
     - { q: 'passes above every point', ans: 1 }
+    - { q: 'follows the direction of the cloud with small, balanced gaps to the points', ans: 0 }
+    - { q: 'is horizontal through a cloud that clearly rises', ans: 1 }
+    - { q: 'splits the points evenly along its whole length', ans: 0 }
   prompt: 'A trend line that {{q}} is:'
   parts:
     - ask: 'Judgment'

@@ -211,6 +211,9 @@
     - { q: 'A spring''s bounces get smaller over time', ans: 0 }
     - { q: 'Hot soup cools toward room temperature', ans: 1 }
     - { q: 'Daylight hours over a year', ans: 2 }
+    - { q: 'A guitar string''s note fades away', ans: 0 }
+    - { q: 'A cold drink warms toward room temperature', ans: 1 }
+    - { q: 'The height of a seat on a Ferris wheel', ans: 2 }
   prompt: '{{q}}. Which model?'
   parts:
     - ask: 'Model'
@@ -369,13 +372,10 @@
 - template: hs2-vector-sum-magnitude
   skill: alg.vectors-matrices
   pace: quick
-  cases:
-    - { a: 3, b: 4, m: 5 }
-    - { a: 6, b: 8, m: 10 }
-    - { a: 5, b: 12, m: 13 }
+  given: { a: { pick: [2, 3, 5, 7, 8] }, b: { pick: [4, 6, 9, 11] } }
   prompt: 'A walker goes {{a}} km east then {{b}} km north. How far is she from the start?'
   parts:
-    - { ask: 'Distance (km)', label: r, value: m, tol: 0.0001, explain: 'Add vectors tip-to-tail: (a, 0) + (0, b) = (a, b), magnitude √(a² + b²)' }
+    - { ask: 'Distance (km)', label: r, value: sqrt(a^2 + b^2), tol: 0.0001, explain: 'Add vectors tip-to-tail: (a, 0) + (0, b) = (a, b), magnitude √(a² + b²)' }
   verify: { expect: { r: "sqrt(a**2 + b**2)" } }
 
 - template: hs2-vector-difference
@@ -411,13 +411,10 @@
 - template: hs2-boat-current
   skill: alg.vectors-matrices
   pace: quick
-  cases:
-    - { v: 4, c: 3, s: 5 }
-    - { v: 12, c: 5, s: 13 }
-    - { v: 8, c: 6, s: 10 }
+  given: { v: { pick: [4, 6, 9, 12] }, c: { pick: [2, 3, 5, 7] } }
   prompt: 'A boat heads straight across a river at {{v}} km/h while the current flows at {{c}} km/h. What is its speed relative to the shore?'
   parts:
-    - { ask: 'Speed (km/h)', label: r, value: s, tol: 0.0001, explain: 'Velocities add as vectors: perpendicular components combine by Pythagoras' }
+    - { ask: 'Speed (km/h)', label: r, value: sqrt(v^2 + c^2), tol: 0.0001, explain: 'Velocities add as vectors: perpendicular components combine by Pythagoras' }
   verify: { expect: { r: "sqrt(v**2 + c**2)" } }
 
 - template: hs2-matrix-data
@@ -523,6 +520,9 @@
     - { q: 'A straight stack of coins and a slanted stack of the same coins', ans: 0 }
     - { q: 'A cylinder and an oblique cylinder with the same base and height', ans: 0 }
     - { q: 'A cone and a cylinder with the same base and height', ans: 1 }
+    - { q: 'A prism and an oblique prism with the same base and height', ans: 0 }
+    - { q: 'A pyramid and a prism with the same base and height', ans: 1 }
+    - { q: 'A ream of paper squared up and the same ream pushed into a slant', ans: 0 }
   prompt: '{{q}}: equal volumes?'
   parts:
     - ask: 'Answer'
