@@ -8,6 +8,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 
 | Framework | Primary basis | Kind | How firmly | Also | Wanted | Objectives | Anchored | House only |
 |---|---|---|---|---|---|---|---|---|
+| AI Basics | Harper Carroll, Academy: free AI course (10 modules, 90 lessons) | course | read in part | — | — | 19 | 19 | 0 |
 | AI Safety | BlueDot Impact course syllabi (Technical AI Safety, Governance, AGI Strategy) | course | read in full | — | — | 104 | 0 | 104 |
 | Anchor Quantities | CODATA Recommended Values of the Fundamental Physical Constants: 2022 (NIST SP 961) | reference | read in part | snapshot-key-numbers, francl-take-a-number, cfr-21-101-9 | acs-accm-pchem | 14 | 3 | 11 |
 | Basketball | USA Basketball Player Development Curriculum | standard | read in part | — | — | 88 | 0 | 88 |
@@ -44,6 +45,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 
 ### Notes
 
+- **AI Basics**: Units follow the ten modules of Harper Carroll's free Academy course. Only her module titles were readable, so the objectives under them are a house list.
 - **AI Safety**: No accredited standard exists; course syllabi and lab frameworks are the closest thing.
 - **Anchor Quantities**: Values from CODATA 2022, standard atomic weights and 21 CFR 101.9. Which values to carry is a house list for units 1–4 and the SnapShot Key Numbers in Biology sheet for units 5–6. No chemistry standard for this was found; the ACS content maps have not been opened to check.
 - **Basketball**: Introductory level read in full, higher levels in overview only.
@@ -74,6 +76,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 
 ## Frameworks not yet on a fully read standard
 
+- **AI Basics**: course, read in part
 - **AI Safety**: course, read in full
 - **Anchor Quantities**: reference, read in part; should move to ACS Exams Institute Anchoring Concepts Content Map IV: Physical Chemistry (J. Chem. Educ. 2018, 95, 238)
 - **Basketball**: standard, read in part
@@ -602,3 +605,24 @@ https://www.examcert.app/blog/oracle-1z0-071-syllabus-2026/
 | **16** | **Data in different time zones** (undefined questions) | | | |
 
 **Areas with nothing answering to them:** 1 Relational database concepts; 2 Retrieving data with SELECT; 3 Restricting and sorting data; 4 Single-row functions; 5 Conversion functions and conditional expressions; 6 Group functions; 7 Displaying data from multiple tables; 8 Subqueries; 9 Set operators; 10 Managing tables with DML; transactions; 11 Indexes, synonyms and sequences; 12 DDL: tables, data types and constraints; 13 Views; 14 Controlling user access; 15 Data dictionary views; 16 Data in different time zones.
+
+## Harper Carroll, Academy: free AI course (10 modules, 90 lessons)
+
+https://harpercarroll.ai/academy
+
+0 of 0 items have at least one objective answering to them.
+
+| Item | Topic | Objectives | With a drill | Where |
+|---|---|---|---|---|
+| **1** | **Welcome: what AI is, and why it matters** (undefined questions) | | | |
+| **2** | **The big idea: AI turns the world into math** (undefined questions) | | | |
+| **3** | **Neural networks: the engine under the hood** (undefined questions) | | | |
+| **4** | **LLMs: key terms and basics** (undefined questions) | | | |
+| **5** | **Training: how AI actually learns (optional)** (undefined questions) | | | |
+| **6** | **Using AI wisely: limits, trust and better prompts** (undefined questions) | | | |
+| **7** | **AI and tools: what turns a chatbot into an agent** (undefined questions) | | | |
+| **8** | **The toolbox: choosing AI and building with it** (undefined questions) | | | |
+| **9** | **Staying safe: scams, deepfakes and AI content** (undefined questions) | | | |
+| **10** | **Big questions and the road ahead** (undefined questions) | | | |
+
+**Areas with nothing answering to them:** 1 Welcome: what AI is, and why it matters; 2 The big idea: AI turns the world into math; 3 Neural networks: the engine under the hood; 4 LLMs: key terms and basics; 5 Training: how AI actually learns (optional); 6 Using AI wisely: limits, trust and better prompts; 7 AI and tools: what turns a chatbot into an agent; 8 The toolbox: choosing AI and building with it; 9 Staying safe: scams, deepfakes and AI content; 10 Big questions and the road ahead.
