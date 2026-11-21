@@ -1,0 +1,802 @@
+# Second question types for grades 3 to 5 (Common Core). Each objective that was drilled one way gets a
+# different kind of question: in reverse, by inspection, as an estimate, as a comparison, or in words.
+
+# ── Grade 3: multiplication and division ───────────────────────────────────
+- template: g35-groups-to-product
+  skill: k8.mult-div
+  pace: recall
+  given: { g: { int: [2, 9] }, n: { int: [2, 9] } }
+  prompt: 'Which multiplication matches ${{g}}$ bags with ${{n}}$ apples in each bag, and what is the total?'
+  parts:
+    - { ask: 'Total', label: t, value: g*n, tol: 0.0001, explain: '${{g}} \times {{n}}$ means ${{g}}$ groups of ${{n}}$. The first factor counts groups, the second tells the size of each group' }
+  verify: { expect: { t: "sum([n for i in range(g)])" } }
+
+- template: g35-quotient-meaning
+  skill: k8.mult-div
+  pace: recall
+  given: { n: { int: [2, 9] }, q: { int: [2, 9] }, w: { pick: [0, 1] } }
+  prompt: '{{w == 0 ? "Share" : "Pack"}} ${{n*q}}$ stickers {{w == 0 ? "equally among" : "into groups of"}} ${{n}}$. {{w == 0 ? "How many does each person get?" : "How many groups?"}}'
+  parts:
+    - { ask: 'Answer', label: r, value: q, tol: 0.0001, explain: 'Division answers two questions: how many in each share (sharing) or how many shares (measuring). Both are ${{n*q}} \div {{n}} = {{q}}$' }
+  verify: { expect: { r: "solve(Eq(n*x, n*q), x)[0]" } }
+
+- template: g35-array-word
+  skill: k8.mult-div
+  pace: quick
+  given: { r: { int: [3, 9] }, c: { int: [3, 9] } }
+  prompt: 'Chairs are set in ${{r}}$ equal rows with ${{r*c}}$ chairs in all. How many chairs are in each row?'
+  parts:
+    - { ask: 'Chairs per row', label: n, value: c, tol: 0.0001, explain: 'An array with a known total and number of rows: divide, ${{r*c}} \div {{r}} = {{c}}$. Check by multiplying back' }
+  verify: { expect: { n: "solve(Eq(r*x, r*c), x)[0]" } }
+
+- template: g35-missing-divisor
+  skill: k8.mult-div
+  pace: recall
+  given: { a: { int: [2, 9] }, b: { int: [2, 9] } }
+  prompt: '${{a*b}} \div \;? = {{b}}$'
+  parts:
+    - { ask: 'Missing number', label: r, value: a, tol: 0.0001, explain: 'Think multiplication: ${{b}} \times \;? = {{a*b}}$. Division facts are multiplication facts read backwards' }
+  verify: { expect: { r: "solve(Eq(a*b/x, b), x)[0]" } }
+
+- template: g35-fact-from-known
+  skill: k8.mult-div
+  pace: recall
+  given: { a: { int: [3, 9] }, b: { int: [3, 9] } }
+  prompt: 'You know ${{a}} \times {{b}} = {{a*b}}$. Use it to find ${{a}} \times {{b + 1}}$.'
+  parts:
+    - { ask: 'Product', label: r, value: a*(b + 1), tol: 0.0001, explain: 'One more group of ${{a}}$: ${{a*b}} + {{a}} = {{a*(b + 1)}}$. Unknown facts come from known ones by adding or taking away a group' }
+  verify: { expect: { r: "a*b + a" } }
+
+- template: g35-two-step-estimate
+  skill: k8.mult-div
+  pace: quick
+  given: { p: { int: [3, 9] }, n: { int: [4, 9] }, s: { int: [5, 30] } }
+  prompt: 'Tickets cost ${{p}}$ dollars each. A family buys ${{n}}$ tickets and pays with ${{p*n + s}}$ dollars. How much change do they get?'
+  parts:
+    - { ask: 'Change (dollars)', label: r, value: s, tol: 0.0001, explain: 'Step 1: ${{n}} \times {{p}} = {{n*p}}$. Step 2: ${{p*n + s}} - {{n*p}} = {{s}}$. Check that the answer is reasonable: change must be less than the amount paid' }
+  verify: { expect: { r: "(p*n + s) - n*p" } }
+
+- template: g35-pattern-rule
+  skill: k8.mult-div
+  pace: recall
+  cases:
+    - { q: 'Any number times an even number is', ans: 0 }
+    - { q: 'Odd times odd is', ans: 1 }
+    - { q: 'The products in the 5s row of a times table always end in', ans: 2 }
+    - { q: 'The sum of two odd numbers is', ans: 0 }
+    - { q: 'Products in the 9s row (9 to 90): their digits always add to', ans: 3 }
+  prompt: '{{q}} …'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["even", "odd", "0 or 5", "9"]
+      correct: ans
+      explain: 'Patterns in the tables come from the properties of operations: an even factor means the product splits into pairs, and 9 × n = 10n − n'
+  verify: { authored: true }
+
+- template: g35-round-number-line
+  skill: k8.place-value
+  pace: recall
+  given: { n: { int: [101, 999] }, w: { pick: [10, 100] } }
+  prompt: 'Between which two multiples of ${{w}}$ does ${{n}}$ lie, and which is it closer to?'
+  parts:
+    - { ask: 'Nearest multiple', label: r, value: 'round(n/w)*w', tol: 0.0001, explain: 'Find the multiples on either side: ${{floor(n/w)*w}}$ and ${{floor(n/w)*w + w}}$. The halfway point decides; exactly halfway rounds up' }
+  require: ['n % w != w/2']
+  verify: { expect: { r: "floor(Rational(n, w) + Rational(1, 2))*w" } }
+
+# ── Grade 3: fractions ─────────────────────────────────────────────────────
+- template: g35-unit-fraction-compare
+  skill: k8.fractions
+  pace: recall
+  given: { a: { int: [2, 10] }, b: { int: [2, 10] } }
+  require: [a != b]
+  prompt: 'Which is bigger: 1/{{a}} or 1/{{b}} of the same pizza?'
+  parts:
+    - ask: 'Bigger'
+      label: a
+      choice: ["1/{{a}}", "1/{{b}}"]
+      correct: 'a < b ? 0 : 1'
+      explain: 'More equal pieces means smaller pieces, so the smaller denominator gives the bigger unit fraction'
+  verify: { choices: { a: "0 if a < b else 1" } }
+
+- template: g35-fraction-from-line
+  skill: k8.fractions
+  pace: recall
+  given: { b: { int: [2, 8] }, a: { int: [1, 8] } }
+  require: [a <= b]
+  prompt: 'The space from 0 to 1 on a number line is split into ${{b}}$ equal parts. A point is ${{a}}$ parts from 0. What fraction is it at? (Give it as a decimal.)'
+  parts:
+    - { ask: 'Value', label: r, value: a/b, tol: 0.001, explain: 'Each part is 1/{{b}}; ${{a}}$ of them is {{a}}/{{b}}' }
+  verify: { expect: { r: "Rational(a, b)" } }
+
+- template: g35-equivalent-missing
+  skill: k8.fractions
+  pace: recall
+  given: { a: { int: [1, 5] }, b: { int: [2, 6] }, k: { int: [2, 4] } }
+  require: [a < b]
+  prompt: '{{a}}/{{b}} = ?/{{b*k}}'
+  parts:
+    - { ask: 'Missing numerator', label: r, value: a*k, tol: 0.0001, explain: 'The denominator was multiplied by ${{k}}$, so multiply the numerator by ${{k}}$ too: the pieces are ${{k}}$ times smaller, so you need ${{k}}$ times as many' }
+  verify: { expect: { r: "solve(Eq(Rational(a, b), x/(b*k)), x)[0]" } }
+
+- template: g35-whole-as-fraction
+  skill: k8.fractions
+  pace: recall
+  given: { n: { int: [1, 6] }, b: { int: [2, 8] } }
+  prompt: '${{n}}$ whole{{n == 1 ? "" : "s"}} = ?/{{b}}'
+  parts:
+    - { ask: 'Numerator', label: r, value: n*b, tol: 0.0001, explain: 'Each whole is {{b}}/{{b}}, so ${{n}}$ wholes is ${{n*b}}$/{{b}}. A fraction with equal top and bottom is 1' }
+  verify: { expect: { r: "n*b" } }
+
+- template: g35-same-numerator-compare
+  skill: k8.fractions
+  pace: recall
+  given: { a: { int: [2, 5] }, b: { int: [3, 9] }, c: { int: [3, 9] } }
+  require: [b != c, a < b, a < c]
+  prompt: 'Which is greater: {{a}}/{{b}} or {{a}}/{{c}}?'
+  parts:
+    - ask: 'Greater'
+      label: a
+      choice: ["{{a}}/{{b}}", "{{a}}/{{c}}"]
+      correct: 'b < c ? 0 : 1'
+      explain: 'Same number of pieces, so the bigger pieces (smaller denominator) win. With the same denominator you would compare numerators instead'
+  verify: { choices: { a: "0 if b < c else 1" } }
+
+# ── Grade 3: measurement and data ──────────────────────────────────────────
+- template: g35-elapsed-end
+  skill: k8.measurement
+  pace: quick
+  given: { h: { int: [1, 10] }, m: { pick: [5, 15, 20, 35, 40] }, d: { pick: [25, 35, 45, 50] } }
+  prompt: 'A movie starts at {{h}}:{{m < 10 ? "0" : ""}}{{m}} and lasts ${{d}}$ minutes. At how many minutes past which hour does it end? (Give minutes past the hour.)'
+  parts:
+    - { ask: 'Minutes past the hour', label: r, value: '(m + d) % 60', tol: 0.0001, explain: 'Add the minutes: ${{m}} + {{d}} = {{m + d}}$. Past 60, one hour has gone by and ${{(m + d) % 60}}$ minutes remain' }
+  require: ['(m + d) % 60 != 0']
+  verify: { expect: { r: "(m + d) % 60" } }
+
+- template: g35-estimate-mass
+  skill: k8.measurement
+  pace: recall
+  cases:
+    - { q: 'a paper clip', o1: '1 gram', o2: '1 kilogram', o3: '100 grams', ans: 0 }
+    - { q: 'a large textbook', o1: '1 gram', o2: '1 kilogram', o3: '100 kilograms', ans: 1 }
+    - { q: 'a full bathtub of water', o1: '2 liters', o2: '20 liters', o3: '200 liters', ans: 2 }
+    - { q: 'a teaspoon of medicine', o1: '5 milliliters', o2: '5 liters', o3: '50 liters', ans: 0 }
+  prompt: 'About how much is {{q}}?'
+  parts:
+    - ask: 'Estimate'
+      label: a
+      choice: ["{{o1}}", "{{o2}}", "{{o3}}"]
+      correct: ans
+      explain: 'Benchmarks: a paper clip is about 1 g, a liter bottle of water about 1 kg, a teaspoon about 5 mL'
+  verify: { authored: true }
+
+- template: g35-scaled-graph
+  skill: k8.measurement
+  pace: quick
+  given: { s: { pick: [2, 5, 10] }, a: { int: [2, 8] }, b: { int: [1, 7] } }
+  require: [a != b]
+  prompt: 'In a picture graph each symbol stands for ${{s}}$ students. Pizza has ${{a}}$ symbols and tacos ${{b}}$. How many more students chose the more popular food?'
+  parts:
+    - { ask: 'More students', label: r, value: 's*abs(a - b)', tol: 0.0001, explain: 'Find the difference in symbols, ${{abs(a - b)}}$, then multiply by the scale, ${{s}}$' }
+  verify: { expect: { r: "s*Abs(a - b)" } }
+
+- template: g35-quarter-inch
+  skill: k8.measurement
+  pace: recall
+  given: { w: { int: [1, 7] }, q: { int: [1, 3] } }
+  prompt: 'An object ends ${{q}}$ quarter-inch mark{{q == 1 ? "" : "s"}} past the ${{w}}$-inch mark. How long is it, in inches (as a decimal)?'
+  parts:
+    - { ask: 'Length (in)', label: r, value: w + q/4, tol: 0.0001, explain: 'Each quarter-inch is 0.25 in: ${{w}} + {{q}} \times 0.25$. Two quarters make a half' }
+  verify: { expect: { r: "w + Rational(q, 4)" } }
+
+- template: g35-area-meaning
+  skill: k8.measurement
+  pace: recall
+  cases:
+    - { q: 'How much space a rug covers', ans: 0 }
+    - { q: 'The length of fence around a yard', ans: 1 }
+    - { q: 'How much paint covers a wall', ans: 0 }
+    - { q: 'The length of ribbon around a picture frame', ans: 1 }
+  prompt: '{{q}}: area or perimeter?'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["Area (square units)", "Perimeter (length units)"]
+      correct: ans
+      explain: 'Area counts the unit squares that cover a flat shape; perimeter is the distance around it'
+  verify: { authored: true }
+
+- template: g35-area-count-row
+  skill: k8.measurement
+  pace: recall
+  given: { r: { int: [2, 9] }, c: { int: [2, 9] } }
+  prompt: 'A floor is tiled with ${{r}}$ rows of ${{c}}$ square-foot tiles. What is its area in square feet?'
+  parts:
+    - { ask: 'Area (sq ft)', label: a, value: r*c, tol: 0.0001, explain: 'Each tile is 1 square foot; counting by rows is ${{r}} \times {{c}}$' }
+  verify: { expect: { a: "r*c" } }
+
+- template: g35-rect-missing-side
+  skill: k8.measurement
+  pace: quick
+  given: { l: { int: [3, 12] }, w: { int: [2, 9] } }
+  prompt: 'A rectangle has area ${{l*w}}$ square cm and one side ${{l}}$ cm. How long is the other side?'
+  parts:
+    - { ask: 'Side (cm)', label: s, value: w, tol: 0.0001, explain: 'Area = length × width, so width = area ÷ length: ${{l*w}} \div {{l}}$' }
+  verify: { expect: { s: "solve(Eq(l*x, l*w), x)[0]" } }
+
+- template: g35-area-split
+  skill: k8.measurement
+  pace: quick
+  given: { a: { int: [3, 9] }, b: { int: [10, 10] }, c: { int: [1, 6] } }
+  prompt: 'Find ${{a}} \times {{b + c}}$ by splitting ${{b + c}}$ into ${{b}} + {{c}}$.'
+  parts:
+    - { ask: 'Product', label: r, value: a*(b + c), tol: 0.0001, explain: 'Split the rectangle: ${{a}} \times {{b}} + {{a}} \times {{c}} = {{a*b}} + {{a*c}}$. That is the distributive property drawn as area' }
+  verify: { expect: { r: "a*b + a*c" } }
+
+- template: g35-rectilinear-subtract
+  skill: k8.measurement
+  pace: quick
+  given: { L: { int: [6, 12] }, W: { int: [5, 10] }, l: { int: [2, 4] }, w: { int: [2, 4] } }
+  prompt: 'An L-shaped room is a ${{L}}$ by ${{W}}$ ft rectangle with a ${{l}}$ by ${{w}}$ ft corner cut out. What is its area?'
+  parts:
+    - { ask: 'Area (sq ft)', label: a, value: L*W - l*w, tol: 0.0001, explain: 'Instead of splitting the L into two rectangles, take the whole rectangle and subtract the missing corner: ${{L*W}} - {{l*w}}$' }
+  verify: { expect: { a: "L*W - l*w" } }
+
+- template: g35-same-perimeter
+  skill: k8.measurement
+  pace: quick
+  given: { P: { pick: [12, 16, 20, 24] } }
+  prompt: 'Rectangles with whole-number sides all have perimeter ${{P}}$. What is the largest area any of them can have?'
+  parts:
+    - { ask: 'Largest area', label: a, value: (P/4)^2, tol: 0.0001, explain: 'Length + width = ${{P/2}}$. The closer the two sides are, the larger the area, so the square ${{P/4}} \times {{P/4}}$ wins. Same perimeter does not mean same area' }
+  verify: { expect: { a: "Max(*[l*(P/2 - l) for l in range(1, P//2)])" } }
+
+- template: g35-shared-attribute
+  skill: k8.measurement
+  pace: recall
+  cases:
+    - { q: 'squares, rectangles and rhombuses', ans: 0 }
+    - { q: 'squares and rhombuses', ans: 1 }
+    - { q: 'squares and rectangles', ans: 2 }
+    - { q: 'rectangles, trapezoids and squares', ans: 3 }
+  prompt: 'What do {{q}} all have in common?'
+  parts:
+    - ask: 'Shared attribute'
+      label: a
+      choice: ["Four sides with opposite sides parallel (parallelograms)", "Four equal sides", "Four right angles", "Four sides (quadrilaterals)"]
+      correct: ans
+      explain: 'Shapes in different categories can share attributes, and the shared attributes define a bigger category: every square is a rectangle and a rhombus'
+  verify: { authored: true }
+
+- template: g35-equal-area-parts
+  skill: k8.fractions
+  pace: recall
+  given: { A: { pick: [12, 24, 36, 48] }, b: { pick: [2, 3, 4, 6] } }
+  prompt: 'A rectangle of area ${{A}}$ square cm is split into ${{b}}$ parts of equal area. What is the area of each part, and what fraction of the whole is it? (Give the area.)'
+  parts:
+    - { ask: 'Area of one part', label: a, value: A/b, tol: 0.0001, explain: 'Each part is 1/{{b}} of the whole: ${{A}} \div {{b}} = {{A/b}}$ square cm. Equal-area parts need not be the same shape' }
+  verify: { expect: { a: "Rational(A, b)" } }
+
+# ── Grade 4: operations ────────────────────────────────────────────────────
+- template: g35-times-as-many-reverse
+  skill: k8.mult-div
+  pace: quick
+  given: { k: { int: [2, 9] }, s: { int: [3, 12] } }
+  prompt: 'A tree is ${{k*s}}$ ft tall, which is ${{k}}$ times as tall as a bush. How tall is the bush?'
+  parts:
+    - { ask: 'Height (ft)', label: h, value: s, tol: 0.0001, explain: '"$k$ times as tall" means tree = ${{k}}$ × bush, so bush = ${{k*s}} \div {{k}}$. Comparing by "how many times" is multiplicative; "how many more" is additive' }
+  verify: { expect: { h: "solve(Eq(k*x, k*s), x)[0]" } }
+
+- template: g35-additive-or-multiplicative
+  skill: k8.mult-div
+  pace: quick
+  given: { a: { int: [3, 9] }, k: { int: [2, 5] }, w: { pick: [0, 1] } }
+  prompt: 'Jon has ${{a}}$ cards. Ana has {{w == 0 ? "" : ""}}${{k}}$ {{w == 0 ? "times as many" : "more"}} than Jon. How many does Ana have?'
+  parts:
+    - { ask: 'Ana''s cards', label: r, value: 'w == 0 ? k*a : a + k', tol: 0.0001, explain: '"Times as many" multiplies; "more than" adds. Read the comparison word before choosing the operation' }
+  verify: { expect: { r: "k*a if w == 0 else a + k" } }
+
+- template: g35-remainder-meaning
+  skill: k8.mult-div
+  pace: quick
+  given: { n: { int: [20, 70] }, g: { pick: [4, 6, 8] }, w: { pick: [0, 1] } }
+  require: ['n % g != 0']
+  prompt: '${{n}}$ students ride in vans that hold ${{g}}$ each. {{w == 0 ? "How many vans are needed?" : "How many full vans are there?"}}'
+  parts:
+    - { ask: 'Vans', label: r, value: 'w == 0 ? ceil(n/g) : floor(n/g)', tol: 0.0001, explain: '${{n}} \div {{g}} = {{floor(n/g)}}$ remainder ${{n % g}}$. The context decides: the leftover students still need a van, so round up for "needed", but not for "full"' }
+  verify: { expect: { r: "ceiling(Rational(n, g)) if w == 0 else floor(Rational(n, g))" } }
+
+- template: g35-prime-composite
+  skill: k8.mult-div
+  pace: recall
+  given: { n: { int: [2, 99] } }
+  prompt: 'Is ${{n}}$ prime or composite?'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["Prime: only 1 and itself as factors", "Composite: has another factor pair"]
+      correct: 'isPrime(n) ? 0 : 1'
+      explain: 'Test divisors up to the square root of the number. 1 is neither prime nor composite'
+  verify: { choices: { a: "0 if len(divisors(n)) == 2 else 1" } }
+
+- template: g35-pattern-term
+  skill: k8.mult-div
+  pace: quick
+  given: { s: { int: [1, 9] }, d: { int: [2, 7] }, k: { int: [5, 12] } }
+  prompt: 'A pattern starts at ${{s}}$ and adds ${{d}}$ each time. What is the ${{k}}$th number?'
+  parts:
+    - { ask: 'Term', label: r, value: s + (k - 1)*d, tol: 0.0001, explain: 'The first term has no additions yet, so the {{k}}th has ${{k - 1}}$: ${{s}} + {{k - 1}} \times {{d}}$' }
+  verify: { expect: { r: "s + (k - 1)*d" } }
+
+- template: g35-place-shift
+  skill: k8.place-value
+  pace: recall
+  given: { d: { int: [1, 9] }, p: { int: [1, 3] } }
+  prompt: 'In ${{d*10^(p + 1)}}$ and ${{d*10^p}}$, how many times greater is the value of the digit {{d}} in the first number?'
+  parts:
+    - { ask: 'Times greater', label: r, value: 10, tol: 0.0001, explain: 'Moving one place to the left multiplies a digit''s value by 10' }
+  verify: { expect: { r: "Integer(d*10**(p + 1))/(d*10**p)" } }
+
+- template: g35-round-reverse
+  skill: k8.place-value
+  pace: recall
+  given: { r: { pick: [3000, 45000, 120000] }, w: { pick: [100, 1000] } }
+  prompt: 'A number rounds to ${{r}}$ when rounded to the nearest ${{w}}$. What is the smallest whole number it could be?'
+  parts:
+    - { ask: 'Smallest', label: n, value: r - w/2, tol: 0.0001, explain: 'Anything from halfway below (${{r - w/2}}$) up to just under halfway above rounds to ${{r}}$; halfway rounds up, so ${{r - w/2}}$ counts' }
+  verify: { expect: { n: "r - Rational(w, 2)" } }
+
+# ── Grade 4: fractions and decimals ────────────────────────────────────────
+- template: g35-simplest-form
+  skill: k8.fractions
+  pace: recall
+  given: { a: { int: [1, 7] }, b: { int: [2, 9] }, k: { int: [2, 6] } }
+  require: [a < b, 'gcd(a, b) == 1']
+  prompt: 'Write {{a*k}}/{{b*k}} in simplest form. What is the denominator?'
+  parts:
+    - { ask: 'Denominator', label: r, value: b, tol: 0.0001, explain: 'Divide top and bottom by their greatest common factor, ${{k}}$: {{a}}/{{b}}' }
+  verify: { expect: { r: "b*k/gcd(a*k, b*k)" } }
+
+- template: g35-joining-parts
+  skill: k8.fractions
+  pace: recall
+  given: { a: { int: [1, 5] }, c: { int: [1, 5] }, b: { int: [6, 12] } }
+  require: [a + c <= b]
+  prompt: 'Ella eats {{a}}/{{b}} of a pie and Tom eats {{c}}/{{b}}. How many {{b}}ths of the pie did they eat together?'
+  parts:
+    - { ask: 'Numerator (twelfths etc.)', label: r, value: a + c, tol: 0.0001, explain: 'Same-size pieces, so count them: ${{a}} + {{c}} = {{a + c}}$ pieces of size 1/{{b}}. The denominator names the piece and does not change' }
+  verify: { expect: { r: "a + c" } }
+
+- template: g35-decompose-unit
+  skill: k8.fractions
+  pace: recall
+  given: { a: { int: [2, 7] }, b: { int: [4, 10] } }
+  require: [a < b]
+  prompt: '{{a}}/{{b}} is the sum of how many copies of 1/{{b}}?'
+  parts:
+    - { ask: 'Copies', label: r, value: a, tol: 0.0001, explain: '{{a}}/{{b}} = 1/{{b}} + 1/{{b}} + … ({{a}} times). It can also be split other ways, such as {{a - 1}}/{{b}} + 1/{{b}}' }
+  verify: { expect: { r: "Rational(a, b)/Rational(1, b)" } }
+
+- template: g35-mixed-to-improper
+  skill: k8.fractions
+  pace: recall
+  given: { w: { int: [1, 5] }, a: { int: [1, 7] }, b: { int: [2, 8] } }
+  require: [a < b]
+  prompt: 'Write {{w}} {{a}}/{{b}} as an improper fraction. What is the numerator?'
+  parts:
+    - { ask: 'Numerator', label: r, value: w*b + a, tol: 0.0001, explain: '${{w}}$ wholes are ${{w*b}}$/{{b}}; add the {{a}}/{{b}}: ${{w*b + a}}$/{{b}}' }
+  verify: { expect: { r: "(w + Rational(a, b))*b" } }
+
+- template: g35-fraction-word-subtract
+  skill: k8.fractions
+  pace: quick
+  given: { a: { int: [5, 11] }, c: { int: [1, 4] }, b: { int: [12, 12] } }
+  require: [c < a]
+  prompt: 'A ribbon is {{a}}/{{b}} m long. Kim cuts off {{c}}/{{b}} m. How many twelfths of a meter are left?'
+  parts:
+    - { ask: 'Twelfths left', label: r, value: a - c, tol: 0.0001, explain: 'Separate parts of the same whole: ${{a}} - {{c}} = {{a - c}}$ twelfths' }
+  verify: { expect: { r: "a - c" } }
+
+- template: g35-fraction-times-repeated
+  skill: k8.fractions
+  pace: recall
+  given: { n: { int: [2, 6] }, a: { int: [1, 4] }, b: { int: [3, 8] } }
+  require: [a < b]
+  prompt: '${{n}} \times \tfrac{ {{a}} }{ {{b}} }$ is the same as adding {{a}}/{{b}} how many times, and what is the numerator over {{b}}?'
+  parts:
+    - { ask: 'Numerator', label: r, value: n*a, tol: 0.0001, explain: '{{a}}/{{b}} added ${{n}}$ times is ${{n*a}}$/{{b}}: multiply the numerator, keep the denominator' }
+  verify: { expect: { r: "n*Rational(a, b)*b" } }
+
+- template: g35-fraction-times-estimate
+  skill: k8.fractions
+  pace: recall
+  given: { n: { int: [3, 9] }, a: { int: [1, 3] }, b: { int: [4, 8] } }
+  require: [a < b]
+  prompt: 'Each of ${{n}}$ friends drinks {{a}}/{{b}} L of juice. Is the total more or less than ${{n}}$ L, and how many {{b}}ths of a liter is it? (Give the numerator.)'
+  parts:
+    - { ask: 'Numerator', label: r, value: n*a, tol: 0.0001, explain: 'Each drinks less than a liter, so the total is less than ${{n}}$ L: ${{n}} \times {{a}}/{{b}} = {{n*a}}/{{b}}$' }
+  verify: { expect: { r: "n*a" } }
+
+- template: g35-hundredths-sum
+  skill: k8.fractions
+  pace: recall
+  given: { a: { int: [1, 9] }, c: { int: [1, 99] } }
+  prompt: '{{a}}/10 + {{c}}/100 = ?/100'
+  parts:
+    - { ask: 'Hundredths', label: r, value: 10*a + c, tol: 0.0001, explain: 'Rewrite tenths as hundredths first: {{a}}/10 = {{10*a}}/100, then add' }
+  verify: { expect: { r: "(Rational(a, 10) + Rational(c, 100))*100" } }
+
+- template: g35-decimal-to-fraction
+  skill: k8.fractions
+  pace: recall
+  given: { n: { int: [1, 99] } }
+  prompt: 'Write ${{n/100}}$ as a fraction over 100. What is the numerator?'
+  parts:
+    - { ask: 'Numerator', label: r, value: n, tol: 0.0001, explain: 'The hundredths place is the second digit after the point: ${{n/100}}$ = {{n}}/100' }
+  verify: { expect: { r: "nsimplify(n/100)*100" } }
+
+- template: g35-decimal-compare-trap
+  skill: k8.place-value
+  pace: recall
+  given: { a: { int: [1, 9] }, b: { int: [10, 99] } }
+  require: ['10*a != b']
+  prompt: 'Which is greater: ${{a/10}}$ or ${{b/100}}$?'
+  parts:
+    - ask: 'Greater'
+      label: a
+      choice: ["{{a/10}}", "{{b/100}}"]
+      correct: '10*a > b ? 0 : 1'
+      explain: 'Compare place by place (write both to hundredths: ${{a/10}}$ = ${{10*a}}$ hundredths). More digits does not mean bigger: 0.5 > 0.45'
+  verify: { choices: { a: "0 if 10*a > b else 1" } }
+
+# ── Grade 4: measurement and angles ────────────────────────────────────────
+- template: g35-unit-table
+  skill: k8.measurement
+  pace: recall
+  cases:
+    - { q: 'feet in 3 yards', v: 9 }
+    - { q: 'inches in 2 feet', v: 24 }
+    - { q: 'ounces in 3 pounds', v: 48 }
+    - { q: 'minutes in 4 hours', v: 240 }
+    - { q: 'meters in 5 kilometers', v: 5000 }
+    - { q: 'milliliters in 2 liters', v: 2000 }
+    - { q: 'grams in 3 kilograms', v: 3000 }
+    - { q: 'seconds in 5 minutes', v: 300 }
+  prompt: 'How many {{q}}?'
+  parts:
+    - { ask: 'Amount', label: r, value: v, tol: 0.0001, explain: 'Going to a smaller unit, multiply: 1 yd = 3 ft, 1 ft = 12 in, 1 lb = 16 oz, 1 hr = 60 min, 1 km = 1000 m, 1 L = 1000 mL, 1 kg = 1000 g' }
+  verify: { expect: { r: "v" } }
+
+- template: g35-measure-word
+  skill: k8.measurement
+  pace: quick
+  given: { a: { int: [2, 5] }, b: { int: [100, 800] } }
+  prompt: 'A pitcher holds ${{a}}$ L. You pour out ${{b}}$ mL. How many mL are left?'
+  parts:
+    - { ask: 'mL', label: r, value: 1000*a - b, tol: 0.0001, explain: 'Put both in the same unit first: ${{a}}$ L = ${{1000*a}}$ mL, then subtract' }
+  verify: { expect: { r: "1000*a - b" } }
+
+- template: g35-line-plot-fraction
+  skill: k8.data
+  pace: quick
+  given: { a: { int: [1, 4] }, b: { int: [1, 4] }, c: { int: [1, 4] } }
+  prompt: 'A line plot shows worms of length 1/4 in (${{a}}$ X''s), 1/2 in (${{b}}$) and 3/4 in (${{c}}$). What is their total length, in inches?'
+  parts:
+    - { ask: 'Total (in)', label: r, value: a/4 + b/2 + 3*c/4, tol: 0.0001, explain: 'Multiply each length by how many X''s it has, then add: ${{a}}(1/4) + {{b}}(1/2) + {{c}}(3/4)$' }
+  verify: { expect: { r: "a*Rational(1, 4) + b*Rational(1, 2) + c*Rational(3, 4)" } }
+
+- template: g35-turn-degrees
+  skill: k8.measurement
+  pace: recall
+  cases:
+    - { q: 'a quarter turn', v: 90 }
+    - { q: 'a half turn', v: 180 }
+    - { q: 'three-quarters of a turn', v: 270 }
+    - { q: 'a full turn', v: 360 }
+    - { q: 'one-twelfth of a turn (the minute hand moving 5 minutes)', v: 30 }
+  prompt: 'How many degrees is {{q}}?'
+  parts:
+    - { ask: 'Degrees', label: r, value: v, tol: 0.0001, explain: 'A full turn is 360°, so each fraction of a turn is that fraction of 360' }
+  verify: { expect: { r: "v" } }
+
+- template: g35-protractor-read
+  skill: k8.measurement
+  pace: recall
+  given: { a: { int: [20, 160] } }
+  prompt: 'One ray of an angle lies on the 0° line of a protractor''s outer scale and the other crosses ${{a}}$° on the outer scale. The inner scale at that point reads ${{180 - a}}$°. What is the angle?'
+  parts:
+    - { ask: 'Degrees', label: r, value: a, tol: 0.0001, explain: 'Read the scale that starts at 0 on the ray you lined up. Check: is the angle acute (under 90) or obtuse? That catches reading the wrong scale' }
+  verify: { expect: { r: "a" } }
+
+- template: g35-angle-missing
+  skill: k8.measurement
+  pace: recall
+  given: { a: { int: [15, 75] }, w: { pick: [90, 180] } }
+  prompt: 'Two angles together make a {{w == 90 ? "right angle" : "straight line"}}. One is ${{a}}$°. What is the other?'
+  parts:
+    - { ask: 'Degrees', label: r, value: w - a, tol: 0.0001, explain: 'Angle measure adds: the parts make the whole, ${{w}}$°' }
+  verify: { expect: { r: "w - a" } }
+
+- template: g35-line-relation
+  skill: k8.geometry
+  pace: recall
+  cases:
+    - { q: 'Two lines that never meet and stay the same distance apart', ans: 0 }
+    - { q: 'Two lines that meet at a right angle', ans: 1 }
+    - { q: 'Two lines that cross but not at a right angle', ans: 2 }
+    - { q: 'The opposite sides of a rectangle', ans: 0 }
+    - { q: 'Adjacent sides of a square', ans: 1 }
+  prompt: '{{q}} are:'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["Parallel", "Perpendicular", "Intersecting (neither)"]
+      correct: ans
+      explain: 'Perpendicular lines meet at 90°; parallel lines never meet. A ray has one endpoint, a segment two, a line none'
+  verify: { authored: true }
+
+- template: g35-classify-triangle
+  skill: k8.geometry
+  pace: recall
+  given: { a: { int: [20, 80] }, b: { int: [20, 80] } }
+  prompt: 'A triangle has angles ${{a}}$° and ${{b}}$°. Is it acute, right or obtuse?'
+  parts:
+    - ask: 'Type'
+      label: a
+      choice: ["Acute", "Right", "Obtuse"]
+      correct: '180 - a - b < 90 ? 0 : (180 - a - b == 90 ? 1 : 2)'
+      explain: 'The third angle is $180 - {{a}} - {{b}} = {{180 - a - b}}$°. The largest angle names the triangle'
+  verify: { choices: { a: "0 if 180 - a - b < 90 else (1 if 180 - a - b == 90 else 2)" } }
+
+- template: g35-symmetry-count
+  skill: k8.geometry
+  pace: recall
+  cases:
+    - { s: 'a square', n: 4 }
+    - { s: 'a rectangle that is not a square', n: 2 }
+    - { s: 'an equilateral triangle', n: 3 }
+    - { s: 'a regular hexagon', n: 6 }
+    - { s: 'an isosceles triangle that is not equilateral', n: 1 }
+    - { s: 'a regular pentagon', n: 5 }
+  prompt: 'How many lines of symmetry does {{s}} have?'
+  parts:
+    - { ask: 'Lines', label: r, value: n, tol: 0.0001, explain: 'A line of symmetry folds the shape onto itself exactly. A regular polygon with n sides has n lines; a rectangle''s diagonals are not lines of symmetry' }
+  verify: { expect: { r: "n" } }
+
+# ── Grade 5 ────────────────────────────────────────────────────────────────
+- template: g35-expression-compare
+  skill: k8.expressions
+  pace: recall
+  given: { a: { int: [2, 9] }, b: { int: [10, 99] }, c: { int: [2, 9] } }
+  prompt: 'Without calculating: ${{a}} \times ({{b}} + {{c}})$ is how many times as large as ${{b}} + {{c}}$?'
+  parts:
+    - { ask: 'Times as large', label: r, value: a, tol: 0.0001, explain: 'The parentheses make ${{b}} + {{c}}$ one quantity, and multiplying by ${{a}}$ makes it ${{a}}$ times as large' }
+  verify: { expect: { r: "a*(b + c)/(b + c)" } }
+
+- template: g35-two-rules
+  skill: k8.linear
+  pace: quick
+  given: { a: { int: [2, 5] }, k: { int: [3, 6] } }
+  prompt: 'Pattern A starts at 0 and adds ${{a}}$; pattern B starts at 0 and adds ${{2*a}}$. When pattern A reaches ${{a*k}}$, what has pattern B reached?'
+  parts:
+    - { ask: 'Pattern B', label: r, value: 2*a*k, tol: 0.0001, explain: 'Corresponding terms of B are always twice those of A, because B adds twice as much each step. Plotted as pairs, they lie on a line through the origin' }
+  verify: { expect: { r: "2*(a*k)" } }
+
+- template: g35-decimal-tenfold
+  skill: k8.decimals
+  pace: recall
+  given: { n: { int: [11, 999] }, p: { int: [1, 3] }, w: { pick: [0, 1] } }
+  prompt: '${{n/1000}} \{{w == 0 ? "times" : "div"}} 10^{ {{p}} }$'
+  parts:
+    - { ask: 'Value', label: r, value: 'w == 0 ? n/1000*10^p : n/1000/10^p', tol: 0.0001, explain: 'Multiplying by ten shifts every digit one place left; dividing shifts right. The decimal point stays put while the digits move' }
+  verify: { expect: { r: "nsimplify(n/1000)*Integer(10)**p if w == 0 else nsimplify(n/1000)/Integer(10)**p" } }
+
+- template: g35-decimal-order
+  skill: k8.decimals
+  pace: recall
+  given: { a: { int: [1, 9] }, b: { int: [1, 99] }, c: { int: [1, 999] } }
+  prompt: 'Which is largest: ${{a/10}}$, ${{b/100}}$ or ${{c/1000}}$?'
+  require: ['100*a != 10*b', '100*a != c', '10*b != c']
+  parts:
+    - ask: 'Largest'
+      label: a
+      choice: ["{{a/10}}", "{{b/100}}", "{{c/1000}}"]
+      correct: '100*a > 10*b and 100*a > c ? 0 : (10*b > c ? 1 : 2)'
+      explain: 'Write all three to thousandths (${{100*a}}$, ${{10*b}}$, ${{c}}$ thousandths) and compare like whole numbers'
+  verify: { choices: { a: "0 if 100*a > 10*b and 100*a > c else (1 if 10*b > c else 2)" } }
+
+- template: g35-round-decimal-reverse
+  skill: k8.decimals
+  pace: recall
+  given: { n: { int: [1001, 9999] } }
+  require: ['n % 10 != 5']
+  prompt: 'Round ${{n/1000}}$ to the nearest hundredth.'
+  parts:
+    - { ask: 'Rounded', label: r, value: 'round(n/10)/100', tol: 0.0001, explain: 'Look at the thousandths digit: 5 or more rounds the hundredths up' }
+  verify: { expect: { r: "floor(Rational(n, 10) + Rational(1, 2))/100" } }
+
+- template: g35-multiply-estimate
+  skill: k8.mult-div
+  pace: recall
+  given: { a: { int: [120, 980] }, b: { int: [12, 98] } }
+  prompt: 'Estimate ${{a}} \times {{b}}$ by rounding each factor to its first digit.'
+  parts:
+    - { ask: 'Estimate', label: r, value: 'round(a/100)*100*round(b/10)*10', tol: 0.0001, explain: 'Round to ${{round(a/100)*100}} \times {{round(b/10)*10}}$. The exact product is ${{a*b}}$: an estimate checks the size of an algorithm''s answer' }
+  verify: { expect: { r: "floor(Rational(a, 100) + Rational(1, 2))*100*floor(Rational(b, 10) + Rational(1, 2))*10" } }
+
+- template: g35-common-denominator
+  skill: k8.fractions
+  pace: recall
+  cases:
+    - { a: 2, b: 3 }
+    - { a: 3, b: 4 }
+    - { a: 4, b: 6 }
+    - { a: 6, b: 8 }
+    - { a: 5, b: 10 }
+    - { a: 3, b: 5 }
+    - { a: 9, b: 12 }
+  prompt: 'What is the least common denominator for adding a fraction over {{a}} to a fraction over {{b}}?'
+  parts:
+    - { ask: 'LCD', label: r, value: 'a*b/gcd(a, b)', tol: 0.0001, explain: 'The least common denominator is the least common multiple of the denominators. Any common multiple works, but the least keeps numbers small' }
+  verify: { expect: { r: "lcm(a, b)" } }
+
+- template: g35-fraction-benchmark
+  skill: k8.fractions
+  pace: recall
+  given: { a: { int: [1, 7] }, b: { int: [3, 9] }, c: { int: [1, 7] }, d: { int: [3, 9] } }
+  require: [a < b, c < d]
+  prompt: 'Estimate: is {{a}}/{{b}} + {{c}}/{{d}} more or less than 1?'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["More than 1", "Less than 1", "Exactly 1"]
+      correct: 'a*d + c*b > b*d ? 0 : (a*d + c*b < b*d ? 1 : 2)'
+      explain: 'Compare each fraction with 1/2: two fractions over 1/2 add to more than 1, two under to less. The exact sum is ${{a*d + c*b}}/{{b*d}}$'
+  verify: { choices: { a: "0 if Rational(a, b) + Rational(c, d) > 1 else (1 if Rational(a, b) + Rational(c, d) < 1 else 2)" } }
+
+- template: g35-division-as-fraction
+  skill: k8.fractions
+  pace: recall
+  given: { n: { int: [2, 9] }, p: { int: [2, 9] } }
+  require: ['n % p != 0']
+  prompt: '${{n}}$ pizzas are shared equally by ${{p}}$ people. How much does each person get? (As a decimal.)'
+  parts:
+    - { ask: 'Pizza each', label: r, value: n/p, tol: 0.001, explain: 'Sharing ${{n}}$ among ${{p}}$ is ${{n}} \div {{p}}$, which is the fraction {{n}}/{{p}}' }
+  verify: { expect: { r: "Rational(n, p)" } }
+
+- template: g35-fraction-area
+  skill: k8.fractions
+  pace: recall
+  given: { a: { int: [1, 3] }, b: { int: [2, 4] }, c: { int: [1, 3] }, d: { int: [2, 5] } }
+  require: [a < b, c < d]
+  prompt: 'A garden is {{a}}/{{b}} m by {{c}}/{{d}} m. What is its area, in m² (as a decimal)?'
+  parts:
+    - { ask: 'Area (m²)', label: r, value: a*c/(b*d), tol: 0.001, explain: 'Area is length × width: {{a}}/{{b}} × {{c}}/{{d}} = {{a*c}}/{{b*d}}. Tile the unit square into ${{b*d}}$ small rectangles and the garden covers ${{a*c}}$ of them' }
+  verify: { expect: { r: "Rational(a, b)*Rational(c, d)" } }
+
+- template: g35-scaling-size
+  skill: k8.fractions
+  pace: recall
+  given: { n: { int: [10, 90] }, a: { int: [1, 7] }, b: { int: [2, 8] }, w: { pick: [0, 1] } }
+  require: [a != b]
+  prompt: 'Without calculating: is ${{n}} \times \tfrac{ {{a}} }{ {{b}} }$ greater or less than ${{n}}$?'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["Greater", "Less"]
+      correct: 'a > b ? 0 : 1'
+      explain: 'Multiplying by a fraction greater than 1 makes a number bigger; by a fraction less than 1, smaller. That is multiplication as scaling'
+  verify: { choices: { a: "0 if a > b else 1" } }
+
+- template: g35-unit-fraction-divide-check
+  skill: k8.fractions
+  pace: recall
+  given: { n: { int: [2, 8] }, b: { int: [2, 6] } }
+  prompt: 'How many 1/{{b}}-cup servings are in ${{n}}$ cups of rice?'
+  parts:
+    - { ask: 'Servings', label: r, value: n*b, tol: 0.0001, explain: 'Each cup holds ${{b}}$ servings of 1/{{b}} cup, so ${{n}} \div \tfrac{1}{ {{b}} } = {{n}} \times {{b}}$. Check: ${{n*b}} \times \tfrac{1}{ {{b}} } = {{n}}$' }
+  verify: { expect: { r: "n/Rational(1, b)" } }
+
+- template: g35-metric-convert-decimal
+  skill: k8.measurement
+  pace: recall
+  cases:
+    - { q: 'cm to m', f: 0.01 }
+    - { q: 'mm to cm', f: 0.1 }
+    - { q: 'g to kg', f: 0.001 }
+    - { q: 'mL to L', f: 0.001 }
+  given: { n: { pick: [5, 25, 150, 3200] } }
+  prompt: 'Convert ${{n}}$ ({{q}}).'
+  parts:
+    - { ask: 'Value', label: r, value: n*f, tol: 0.0001, explain: 'Going to a bigger unit gives a smaller number: divide by 10, 100 or 1000 by sliding the decimal point' }
+  verify: { expect: { r: "n*nsimplify(f)" } }
+
+- template: g35-line-plot-share
+  skill: k8.data
+  pace: quick
+  given: { a: { int: [1, 4] }, b: { int: [1, 4] }, c: { int: [1, 4] } }
+  prompt: 'Beakers hold 1/4 L (${{a}}$), 1/2 L (${{b}}$) and 3/4 L (${{c}}$). If all the liquid were shared equally among the beakers, how much would each hold, in L?'
+  parts:
+    - { ask: 'L each', label: r, value: (a/4 + b/2 + 3*c/4)/(a + b + c), tol: 0.001, explain: 'Find the total liquid, then divide by the number of beakers, ${{a + b + c}}$: that is the mean' }
+  verify: { expect: { r: "(a*Rational(1, 4) + b*Rational(1, 2) + c*Rational(3, 4))/(a + b + c)" } }
+
+- template: g35-volume-cubes-layers
+  skill: k8.geometry
+  pace: recall
+  given: { l: { int: [2, 6] }, w: { int: [2, 6] }, h: { int: [2, 5] } }
+  prompt: 'Each layer of a box holds ${{l}}$ by ${{w}}$ unit cubes, and there are ${{h}}$ layers. How many cubic units is its volume?'
+  parts:
+    - { ask: 'Volume', label: v, value: l*w*h, tol: 0.0001, explain: 'One layer has ${{l*w}}$ cubes (the base area); ${{h}}$ layers make ${{l*w*h}}$' }
+  verify: { expect: { v: "l*w*h" } }
+
+- template: g35-volume-missing-edge
+  skill: k8.geometry
+  pace: quick
+  given: { l: { int: [2, 8] }, w: { int: [2, 6] }, h: { int: [2, 9] } }
+  prompt: 'A box has volume ${{l*w*h}}$ cm³, length ${{l}}$ cm and width ${{w}}$ cm. How tall is it?'
+  parts:
+    - { ask: 'Height (cm)', label: s, value: h, tol: 0.0001, explain: '$V = lwh$, so $h = V/(lw) = {{l*w*h}} \div {{l*w}}$' }
+  verify: { expect: { s: "solve(Eq(l*w*x, l*w*h), x)[0]" } }
+
+- template: g35-volume-unit-choice
+  skill: k8.geometry
+  pace: recall
+  cases:
+    - { q: 'the space inside a shoebox', ans: 0 }
+    - { q: 'the amount of floor a rug covers', ans: 1 }
+    - { q: 'the length of a hallway', ans: 2 }
+    - { q: 'the amount of sand that fills a sandbox', ans: 0 }
+  prompt: 'Which unit fits {{q}}?'
+  parts:
+    - ask: 'Unit'
+      label: a
+      choice: ["Cubic units (volume)", "Square units (area)", "Length units"]
+      correct: ans
+      explain: 'Volume counts unit cubes that fill a solid; area counts unit squares that cover a surface; length counts units along a line'
+  verify: { authored: true }
+
+- template: g35-composite-volume-word
+  skill: k8.geometry
+  pace: quick
+  given: { a: { int: [2, 6] }, b: { int: [2, 6] }, c: { int: [2, 6] }, d: { int: [1, 4] } }
+  prompt: 'Two boxes are stacked: ${{a}} \times {{b}} \times {{c}}$ ft and ${{a}} \times {{b}} \times {{d}}$ ft. What is the total volume, and what single box would have the same volume? (Give the volume.)'
+  parts:
+    - { ask: 'Volume (ft³)', label: v, value: a*b*(c + d), tol: 0.0001, explain: 'Volumes add: ${{a*b*c}} + {{a*b*d}}$. Since they share a ${{a}} \times {{b}}$ base it is one ${{a}} \times {{b}} \times {{c + d}}$ box' }
+  verify: { expect: { v: "a*b*c + a*b*d" } }
+
+- template: g35-coordinate-move
+  skill: k8.integers
+  pace: recall
+  given: { x0: { int: [0, 6] }, y0: { int: [0, 6] }, r: { int: [1, 4] }, u: { int: [1, 4] } }
+  prompt: 'Start at $({{x0}}, {{y0}})$. Move ${{r}}$ right and ${{u}}$ up. What is the new x-coordinate plus the new y-coordinate?'
+  parts:
+    - { ask: 'x + y', label: s, value: x0 + r + y0 + u, tol: 0.0001, explain: 'Right changes the first coordinate (x), up changes the second (y): $({{x0 + r}}, {{y0 + u}})$' }
+  verify: { expect: { s: "(x0 + r) + (y0 + u)" } }
+
+- template: g35-graph-story
+  skill: k8.integers
+  pace: quick
+  given: { p: { int: [2, 6] }, n: { int: [2, 8] } }
+  prompt: 'Points $(n, \text{cost})$ show ${{p}}$ dollars per notebook. What is the y-coordinate of the point for ${{n}}$ notebooks?'
+  parts:
+    - { ask: 'Cost', label: c, value: p*n, tol: 0.0001, explain: 'Each point pairs an input with its output: $({{n}}, {{p*n}})$. The points lie on a line through the origin' }
+  verify: { expect: { c: "p*n" } }
+
+- template: g35-hierarchy-always
+  skill: k8.measurement
+  pace: recall
+  cases:
+    - { q: 'Every square is a rectangle.', ans: 0 }
+    - { q: 'Every rectangle is a square.', ans: 1 }
+    - { q: 'Every rhombus is a parallelogram.', ans: 0 }
+    - { q: 'Every parallelogram is a rhombus.', ans: 1 }
+    - { q: 'A square is a rhombus.', ans: 0 }
+    - { q: 'Every trapezoid (one pair of parallel sides, US definition) is a parallelogram.', ans: 1 }
+  prompt: 'True or false: {{q}}'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["True", "False"]
+      correct: ans
+      explain: 'A subcategory has every attribute of its category, plus more. Squares are rectangles and rhombuses; the reverse is not true'
+  verify: { authored: true }

@@ -2,7 +2,7 @@
 
 Generated from `drills/frameworks/math-k8.yaml` by `scripts/framework.mjs`. ● drilled · ◐ partly · ○ no drills yet.
 
-**258 learning objectives** in 9 units (258 core): 252 drilled, 6 partly, 0 with no drills. Core: 252 / 258 drilled.
+**258 learning objectives** in 9 units (258 core): 253 drilled, 5 partly, 0 with no drills. Core: 253 / 258 drilled.
 
 ## Big ideas
 
@@ -34,7 +34,7 @@ Generated from `drills/frameworks/math-k8.yaml` by `scripts/framework.mjs`. ● 
 | 2 · Grade 1 — addition and subtraction within 20, tens and ones, length units | core | — | 21 | 21 | 0 | 0 |
 | 3 · Grade 2 — base ten to 1000, fluency within 100, standard length units | core | — | 26 | 26 | 0 | 0 |
 | 4 · Grade 3 — multiplication and division within 100, unit fractions, area | core | — | 30 | 30 | 0 | 0 |
-| 5 · Grade 4 — multi-digit arithmetic, fraction equivalence and operations, angles | core | — | 32 | 31 | 1 | 0 |
+| 5 · Grade 4 — multi-digit arithmetic, fraction equivalence and operations, angles | core | — | 32 | 32 | 0 | 0 |
 | 6 · Grade 5 — fraction addition and multiplication, decimals to thousandths, volume | core | — | 30 | 30 | 0 | 0 |
 | 7 · Grade 6 — ratios and rates, negative numbers, expressions and one-step equations, distributions | core | — | 36 | 36 | 0 | 0 |
 | 8 · Grade 7 — proportional relationships, rational-number arithmetic, linear equations, sampling and probability | core | — | 30 | 29 | 1 | 0 |
@@ -400,19 +400,19 @@ Big ideas: OPS, MULT, LINE, MEAS
 - ● **MK-4.1.A** (3.OA.A.1) Interpret products of whole numbers (5 × 7 as the total in 5 groups of 7 objects).
   - EK: a × b = a groups of b.
   - Needs: MK-3.1.D, MK-3.4.B
-  - MP2 · MP4 · drills: k8-array
+  - MP2 · MP4 · drills: k8-array, g35-groups-to-product
 - ● **MK-4.1.B** (3.OA.A.2) Interpret whole-number quotients (56 ÷ 8 as the number in each share, or the number of shares).
   - EK: Division asks either "how many in each group?" or "how many groups?".
   - Needs: MK-4.1.A
-  - MP2 · drills: k8-word-mult
+  - MP2 · drills: k8-word-mult, g35-quotient-meaning
 - ● **MK-4.1.C** (3.OA.A.3) Use multiplication and division within 100 to solve word problems with equal groups, arrays and measurement quantities.
   - EK: Identify which of group size, number of groups, or total is unknown.
   - Needs: MK-4.1.A, MK-4.1.B
-  - MP1 · MP4 · drills: k8-word-mult
+  - MP1 · MP4 · drills: k8-word-mult, g35-array-word
 - ● **MK-4.1.D** (3.OA.A.4) Determine the unknown whole number in a multiplication or division equation relating three whole numbers (8 × ? = 48).
   - EK: Any of the three numbers in a × b = c can be the unknown.
   - Needs: MK-4.1.C, MK-2.1.H
-  - MP2 · drills: k8-missing-factor
+  - MP2 · drills: k8-missing-factor, g35-missing-divisor
 - ● **MK-4.1.E** (3.OA.B.5) Apply the commutative, associative and distributive properties as strategies to multiply and divide.
   - EK: 8 × 7 = 8 × 5 + 8 × 2; order and grouping don't change a product.
   - Needs: MK-4.1.A, MK-2.1.C
@@ -424,15 +424,15 @@ Big ideas: OPS, MULT, LINE, MEAS
 - ● **MK-4.1.G** (3.OA.C.7) Fluently multiply and divide within 100; know from memory all products of two one-digit numbers.
   - EK: Single-digit products are recalled, not computed.
   - Needs: MK-4.1.E, MK-4.1.F
-  - MP6 · drills: k8-mult-facts
+  - MP6 · drills: k8-mult-facts, g35-fact-from-known
 - ● **MK-4.1.H** (3.OA.D.8) Solve two-step word problems using the four operations, representing them with equations with a letter for the unknown, and check answers by mental computation and estimation.
   - EK: Write each step as an equation; estimate to catch wrong-operation errors.
   - Needs: MK-4.1.C, MK-3.1.A
-  - MP1 · MP4 · drills: k8-word-2step
+  - MP1 · MP4 · drills: k8-word-2step, g35-two-step-estimate
 - ● **MK-4.1.I** (3.OA.D.9) Identify arithmetic patterns (including in the addition and multiplication tables) and explain them using properties of operations.
   - EK: 4 × any number is even because 4 × n = 2 × (2 × n).
   - Needs: MK-4.1.G
-  - MP7 · MP8 · drills: k8-arithmetic-patterns, ~k8-pattern
+  - MP7 · MP8 · drills: k8-arithmetic-patterns, g35-pattern-rule, ~k8-pattern
 
 ### 4.2 Number and Operations in Base Ten
 
@@ -441,7 +441,7 @@ Big ideas: OPS, MULT, LINE, MEAS
 - ● **MK-4.2.A** (3.NBT.A.1) Use place value understanding to round whole numbers to the nearest 10 or 100.
   - EK: Round to the nearer multiple; halfway rounds up.
   - Needs: MK-3.2.D, MK-3.3.F
-  - MP6 · drills: k8-round-10-100
+  - MP6 · drills: k8-round-10-100, g35-round-number-line
 - ● **MK-4.2.B** (3.NBT.A.2) Fluently add and subtract within 1000 using strategies and algorithms based on place value, properties, and the add–subtract relationship.
   - EK: Regroup across places: ten ones = one ten, ten tens = one hundred.
   - Needs: MK-3.2.G, MK-3.2.I
@@ -458,7 +458,7 @@ Big ideas: OPS, MULT, LINE, MEAS
 - ● **MK-4.3.A** (3.NF.A.1) Understand a fraction 1/b as one part when a whole is partitioned into b equal parts, and a/b as a parts of size 1/b.
   - EK: The denominator names the size of the part; the numerator counts parts.
   - Needs: MK-3.4.C
-  - MP2 · MP4 · drills: k8-unit-share
+  - MP2 · MP4 · drills: k8-unit-share, g35-unit-fraction-compare
 - ● **MK-4.3.B** (3.NF.A.2a) Represent 1/b on a number line by partitioning 0 to 1 into b equal parts; each part has size 1/b and its endpoint locates 1/b.
   - EK: Fractions are numbers: points on the same line as whole numbers.
   - Needs: MK-4.3.A, MK-3.3.F
@@ -466,19 +466,19 @@ Big ideas: OPS, MULT, LINE, MEAS
 - ● **MK-4.3.C** (3.NF.A.2b) Represent a/b on a number line by marking off a lengths of 1/b from 0.
   - EK: a/b is a jumps of size 1/b from 0.
   - Needs: MK-4.3.B
-  - MP4 · drills: k8-frac-line
+  - MP4 · drills: k8-frac-line, g35-fraction-from-line
 - ● **MK-4.3.D** (3.NF.A.3a, 3.NF.A.3b) Explain equivalence of fractions as being the same size or the same point on a number line; recognize and generate simple equivalent fractions (1/2 = 2/4, 4/6 = 2/3) with a visual model.
   - EK: Equivalent fractions name the same point with different-size parts.
   - Needs: MK-4.3.C
-  - MP3 · MP7 · drills: k8-frac-equiv
+  - MP3 · MP7 · drills: k8-frac-equiv, g35-equivalent-missing
 - ● **MK-4.3.E** (3.NF.A.3c) Express whole numbers as fractions and recognize fractions equivalent to whole numbers (3 = 3/1; 4/4 = 1).
   - EK: b/b = 1, and n/1 = n.
   - Needs: MK-4.3.D
-  - MP7 · drills: k8-frac-whole
+  - MP7 · drills: k8-frac-whole, g35-whole-as-fraction
 - ● **MK-4.3.F** (3.NF.A.3d) Compare two fractions with the same numerator or the same denominator by reasoning about their size, recording with >, =, <; comparisons are valid only for the same whole.
   - EK: Same denominator: more parts is more. Same numerator: smaller parts (bigger denominator) is less.
   - Needs: MK-4.3.D
-  - MP2 · MP3 · drills: k8-cmp-frac-same
+  - MP2 · MP3 · drills: k8-cmp-frac-same, g35-same-numerator-compare
 
 ### 4.4 Measurement and Data
 
@@ -487,43 +487,43 @@ Big ideas: OPS, MULT, LINE, MEAS
 - ● **MK-4.4.A** (3.MD.A.1) Tell and write time to the nearest minute; measure time intervals in minutes and solve elapsed-time word problems (e.g. on a number line).
   - EK: Elapsed time is a difference; jump to the next hour on a number line.
   - Needs: MK-3.3.G, MK-3.3.F
-  - MP4 · MP6 · drills: k8-elapsed
+  - MP4 · MP6 · drills: k8-elapsed, g35-elapsed-end
 - ● **MK-4.4.B** (3.MD.A.2) Measure and estimate liquid volumes and masses in g, kg and L; solve one-step word problems with them using the four operations.
   - EK: Volume and mass add like lengths when units match.
   - Needs: MK-4.1.C, MK-3.3.A
-  - MP4 · MP5 · drills: k8-mass-volume-problem, ~k8-word-mult
+  - MP4 · MP5 · drills: k8-mass-volume-problem, g35-estimate-mass, aq-spoon-of-water, ~k8-word-mult
 - ● **MK-4.4.C** (3.MD.B.3) Draw a scaled picture graph and scaled bar graph for several categories, and solve one- and two-step "how many more/less" problems from them.
   - EK: In a scaled graph each symbol or grid step stands for several units.
   - Needs: MK-3.3.J, MK-4.1.C
-  - MP4 · drills: k8-data-scaled
+  - MP4 · drills: k8-data-scaled, g35-scaled-graph
 - ● **MK-4.4.D** (3.MD.B.4) Measure lengths with rulers marked in halves and fourths of an inch and show the data on a line plot in whole numbers, halves or quarters.
   - EK: Ruler marks between whole numbers are fractions on a number line.
   - Needs: MK-3.3.I, MK-4.3.C
-  - MP5 · drills: k8-ruler-quarters, ~k8-line-plot
+  - MP5 · drills: k8-ruler-quarters, g35-quarter-inch, ~k8-line-plot
 - ● **MK-4.4.E** (3.MD.C.5a, 3.MD.C.5b) Recognize area as an attribute of plane figures: a unit square has one square unit of area, and a figure covered by n unit squares without gaps or overlaps has area n.
   - EK: Area counts unit squares that cover a region.
   - Needs: MK-3.4.B
-  - MP6 · drills: k8-area-squares, ~k8-rect-area
+  - MP6 · drills: k8-area-squares, g35-area-meaning, ~k8-rect-area
 - ● **MK-4.4.F** (3.MD.C.6) Measure areas by counting unit squares (square cm, square m, square in, square ft, and improvised units).
   - EK: Area = number of unit squares, labeled with the square unit.
   - Needs: MK-4.4.E
-  - MP5 · MP6 · drills: k8-area-squares, ~k8-array
+  - MP5 · MP6 · drills: k8-area-squares, g35-area-count-row, ~k8-array
 - ● **MK-4.4.G** (3.MD.C.7a, 3.MD.C.7b) Find the area of a rectangle with whole-number sides by tiling it and show it equals the product of the side lengths; multiply side lengths to solve area problems.
   - EK: Area of a rectangle = rows × columns = length × width.
   - Needs: MK-4.4.F, MK-4.1.A
-  - MP7 · drills: k8-rect-area
+  - MP7 · drills: k8-rect-area, g35-rect-missing-side
 - ● **MK-4.4.H** (3.MD.C.7c) Use tiling to show that a rectangle with sides a and b + c has area a × b + a × c (area models for the distributive property).
   - EK: Split a rectangle and the areas add: a(b + c) = ab + ac.
   - Needs: MK-4.4.G, MK-4.1.E
-  - MP4 · MP7 · drills: k8-area-distributive
+  - MP4 · MP7 · drills: k8-area-distributive, g35-area-split
 - ● **MK-4.4.I** (3.MD.C.7d) Find areas of rectilinear figures by decomposing them into non-overlapping rectangles and adding the areas.
   - EK: Area is additive.
   - Needs: MK-4.4.G
-  - MP1 · MP7 · drills: k8-rectilinear
+  - MP1 · MP7 · drills: k8-rectilinear, g35-rectilinear-subtract
 - ● **MK-4.4.J** (3.MD.D.8) Solve perimeter problems: find the perimeter from side lengths, find an unknown side, and show rectangles with the same perimeter and different areas or the same area and different perimeters.
   - EK: Perimeter is a length around; area is the space inside — they vary independently.
   - Needs: MK-4.4.G, MK-3.3.E
-  - MP1 · MP3 · drills: k8-perimeter
+  - MP1 · MP3 · drills: k8-perimeter, g35-same-perimeter
 
 ### 4.5 Geometry
 
@@ -532,11 +532,11 @@ Big ideas: OPS, MULT, LINE, MEAS
 - ● **MK-4.5.A** (3.G.A.1) Understand that shapes in different categories may share attributes that define a larger category; recognize rhombuses, rectangles and squares as quadrilaterals and draw quadrilaterals that are none of these.
   - EK: Categories nest: every square is a rectangle and a rhombus, and all are quadrilaterals.
   - Needs: MK-3.4.A
-  - MP3 · MP7 · drills: k8-shape-hierarchy
+  - MP3 · MP7 · drills: k8-shape-hierarchy, g35-shared-attribute
 - ● **MK-4.5.B** (3.G.A.2) Partition shapes into parts with equal areas and express the area of each part as a unit fraction of the whole.
   - EK: Equal-area parts of a whole are each 1/b of it.
   - Needs: MK-4.3.A, MK-4.4.E
-  - MP2 · drills: k8-unit-share
+  - MP2 · drills: k8-unit-share, g35-equal-area-parts
 
 ## Unit 5 · Grade 4 — multi-digit arithmetic, fraction equivalence and operations, angles
 
@@ -549,23 +549,23 @@ Big ideas: PV, LINE, MULT, MEAS, SHAPE
 - ● **MK-5.1.A** (4.OA.A.1) Interpret a multiplication equation as a comparison (35 = 5 × 7 as 35 is 5 times as many as 7) and write comparisons as equations.
   - EK: "Times as many" is multiplicative comparison, not additive.
   - Needs: MK-4.1.A
-  - MP2 · drills: k8-mult-compare
+  - MP2 · drills: k8-mult-compare, g35-times-as-many-reverse
 - ● **MK-5.1.B** (4.OA.A.2) Multiply or divide to solve word problems involving multiplicative comparison, distinguishing it from additive comparison.
   - EK: "3 times as many" multiplies; "3 more than" adds.
   - Needs: MK-5.1.A, MK-4.1.C
-  - MP1 · MP4 · drills: k8-mult-compare
+  - MP1 · MP4 · drills: k8-mult-compare, g35-additive-or-multiplicative
 - ● **MK-5.1.C** (4.OA.A.3) Solve multistep word problems with whole numbers and the four operations, including problems where remainders must be interpreted; check with estimation.
   - EK: A remainder may be dropped, rounded up, or reported, depending on the context.
   - Needs: MK-4.1.H
-  - MP1 · MP2 · drills: k8-remainder-word
+  - MP1 · MP2 · drills: k8-remainder-word, g35-remainder-meaning
 - ● **MK-5.1.D** (4.OA.B.4) Find all factor pairs of a whole number 1–100, recognize it as a multiple of each factor, and determine whether it is prime or composite.
   - EK: A prime has exactly two factors, 1 and itself.
   - Needs: MK-4.1.G
-  - MP7 · drills: k8-factors
+  - MP7 · drills: k8-factors, g35-prime-composite, mm-count-divisors
 - ● **MK-5.1.E** (4.OA.C.5) Generate a number or shape pattern that follows a given rule and identify features of the pattern not explicit in the rule.
   - EK: Rule "add 3" from 1 gives alternating odd and even numbers.
   - Needs: MK-4.1.I
-  - MP7 · MP8 · drills: k8-pattern
+  - MP7 · MP8 · drills: k8-pattern, g35-pattern-term
 
 ### 5.2 Number and Operations in Base Ten
 
@@ -574,7 +574,7 @@ Big ideas: PV, LINE, MULT, MEAS, SHAPE
 - ● **MK-5.2.A** (4.NBT.A.1) Recognize that in a multi-digit whole number a digit in one place represents ten times what it represents in the place to its right (700 ÷ 70 = 10).
   - EK: Each place is worth 10 × the place to its right.
   - Needs: MK-4.2.C, MK-3.2.A
-  - MP7 · drills: k8-ten-times
+  - MP7 · drills: k8-ten-times, g35-place-shift
 - ● **MK-5.2.B** (4.NBT.A.2) Read and write multi-digit whole numbers using base-ten numerals, number names and expanded form; compare two multi-digit numbers with >, =, <.
   - EK: Compare digit by digit from the largest place.
   - Needs: MK-5.2.A, MK-3.2.C, MK-3.2.D
@@ -582,7 +582,7 @@ Big ideas: PV, LINE, MULT, MEAS, SHAPE
 - ● **MK-5.2.C** (4.NBT.A.3) Use place value understanding to round multi-digit whole numbers to any place.
   - EK: Look one place to the right of the rounding place.
   - Needs: MK-4.2.A, MK-5.2.B
-  - MP6 · drills: k8-round-any
+  - MP6 · drills: k8-round-any, g35-round-reverse
 - ● **MK-5.2.D** (4.NBT.B.4) Fluently add and subtract multi-digit whole numbers using the standard algorithm.
   - EK: The standard algorithm is place-value regrouping written compactly.
   - Needs: MK-4.2.B, MK-5.2.A
@@ -603,7 +603,7 @@ Big ideas: PV, LINE, MULT, MEAS, SHAPE
 - ● **MK-5.3.A** (4.NF.A.1) Explain why a/b = (n × a)/(n × b) using visual fraction models, and use this to recognize and generate equivalent fractions.
   - EK: Multiplying numerator and denominator by n splits each part into n smaller parts — same amount.
   - Needs: MK-4.3.D, MK-4.1.G
-  - MP3 · MP7 · drills: k8-frac-equiv
+  - MP3 · MP7 · drills: k8-frac-equiv, g35-simplest-form
 - ● **MK-5.3.B** (4.NF.A.2) Compare two fractions with different numerators and different denominators by creating common denominators or numerators or comparing to a benchmark like 1/2.
   - EK: Rename to a common unit, then compare counts.
   - Needs: MK-5.3.A, MK-4.3.F
@@ -611,39 +611,39 @@ Big ideas: PV, LINE, MULT, MEAS, SHAPE
 - ● **MK-5.3.C** (4.NF.B.3a) Understand addition and subtraction of fractions as joining and separating parts referring to the same whole.
   - EK: Adding fractions with the same denominator adds numbers of same-size parts.
   - Needs: MK-4.3.A
-  - MP2 · drills: k8-frac-add-like
+  - MP2 · drills: k8-frac-add-like, g35-joining-parts
 - ● **MK-5.3.D** (4.NF.B.3b) Decompose a fraction into a sum of fractions with the same denominator in more than one way (3/8 = 1/8 + 2/8; 2 1/8 = 1 + 1 + 1/8 = 8/8 + 8/8 + 1/8).
   - EK: A fraction is a sum of unit fractions.
   - Needs: MK-5.3.C
-  - MP7 · drills: k8-frac-decompose
+  - MP7 · drills: k8-frac-decompose, g35-decompose-unit
 - ● **MK-5.3.E** (4.NF.B.3c) Add and subtract mixed numbers with like denominators by replacing each with an equivalent fraction or using properties of operations.
   - EK: Mixed number a b/c = a + b/c; regroup a whole as c/c when needed.
   - Needs: MK-5.3.D, MK-4.3.E
-  - MP7 · drills: k8-frac-mixed-like
+  - MP7 · drills: k8-frac-mixed-like, g35-mixed-to-improper
 - ● **MK-5.3.F** (4.NF.B.3d) Solve word problems involving addition and subtraction of fractions referring to the same whole and having like denominators.
   - EK: Only parts of the same whole can be combined.
   - Needs: MK-5.3.E
-  - MP1 · MP4 · drills: k8-fraction-word-problem, ~k8-frac-add-like
+  - MP1 · MP4 · drills: k8-fraction-word-problem, g35-fraction-word-subtract, ~k8-frac-add-like
 - ● **MK-5.3.G** (4.NF.B.4a, 4.NF.B.4b) Understand a/b as a multiple of 1/b and multiply a fraction by a whole number: n × (a/b) = (n × a)/b.
   - EK: 3 × 2/5 = 6 × 1/5 = 6/5.
   - Needs: MK-5.3.D, MK-4.1.A
-  - MP7 · MP8 · drills: k8-frac-times-whole
+  - MP7 · MP8 · drills: k8-frac-times-whole, g35-fraction-times-repeated
 - ● **MK-5.3.H** (4.NF.B.4c) Solve word problems involving multiplication of a fraction by a whole number.
   - EK: "5 people each eat 3/8 lb" is 5 × 3/8.
   - Needs: MK-5.3.G
-  - MP4 · drills: k8-frac-times-word
+  - MP4 · drills: k8-frac-times-word, g35-fraction-times-estimate
 - ● **MK-5.3.I** (4.NF.C.5) Express a fraction with denominator 10 as an equivalent fraction with denominator 100, and add two fractions with denominators 10 and 100 (3/10 + 4/100 = 34/100).
   - EK: 1/10 = 10/100.
   - Needs: MK-5.3.A, MK-5.3.C
-  - MP7 · drills: k8-frac-hundredths
+  - MP7 · drills: k8-frac-hundredths, g35-hundredths-sum
 - ● **MK-5.3.J** (4.NF.C.6) Use decimal notation for fractions with denominators 10 or 100 (0.62 = 62/100) and locate them on a number line.
   - EK: Decimal places continue base ten to the right: tenths, hundredths.
   - Needs: MK-5.3.I, MK-5.2.A
-  - MP6 · MP7 · drills: k8-frac-to-dec
+  - MP6 · MP7 · drills: k8-frac-to-dec, g35-decimal-to-fraction
 - ● **MK-5.3.K** (4.NF.C.7) Compare two decimals to hundredths by reasoning about their size, recording with >, =, <; comparisons are valid only for the same whole.
   - EK: 0.5 > 0.45 because 50 hundredths > 45 hundredths.
   - Needs: MK-5.3.J, MK-5.3.B
-  - MP2 · MP3 · drills: k8-cmp-dec2
+  - MP2 · MP3 · drills: k8-cmp-dec2, g35-decimal-compare-trap
 
 ### 5.4 Measurement and Data
 
@@ -652,11 +652,11 @@ Big ideas: PV, LINE, MULT, MEAS, SHAPE
 - ● **MK-5.4.A** (4.MD.A.1) Know relative sizes of units in one system (km, m, cm; kg, g; lb, oz; l, ml; hr, min, sec) and express a larger-unit measurement in a smaller unit, recording equivalents in a two-column table.
   - EK: 1 m = 100 cm, 1 kg = 1000 g, 1 lb = 16 oz, 1 hr = 60 min: convert to smaller units by multiplying.
   - Needs: MK-5.1.A, MK-4.4.B
-  - MP6 · MP7 · drills: k8-convert-down
+  - MP6 · MP7 · drills: k8-convert-down, g35-unit-table, aq-household-measure
 - ● **MK-5.4.B** (4.MD.A.2) Use the four operations to solve word problems involving distances, time intervals, liquid volumes, masses and money, including simple fractions or decimals; represent quantities on number line diagrams.
   - EK: Convert to one unit first, then operate.
   - Needs: MK-5.4.A, MK-5.3.F, MK-4.4.A
-  - MP1 · MP4 · drills: k8-elapsed-time, ~k8-elapsed, ~k8-money
+  - MP1 · MP4 · drills: k8-elapsed-time, g35-measure-word, ~k8-elapsed, ~k8-money
 - ● **MK-5.4.C** (4.MD.A.3) Apply the area and perimeter formulas for rectangles in real-world and mathematical problems, including finding an unknown side.
   - EK: A = l × w; P = 2l + 2w.
   - Needs: MK-4.4.G, MK-4.4.J, MK-5.2.E
@@ -664,36 +664,36 @@ Big ideas: PV, LINE, MULT, MEAS, SHAPE
 - ● **MK-5.4.D** (4.MD.B.4) Make a line plot of measurements in fractions of a unit (1/2, 1/4, 1/8) and solve addition and subtraction of fractions using it.
   - EK: Line-plot marks are data on a fraction number line.
   - Needs: MK-4.4.D, MK-5.3.F
-  - MP4 · drills: k8-line-plot
+  - MP4 · drills: k8-line-plot, g35-line-plot-fraction
 - ● **MK-5.4.E** (4.MD.C.5a, 4.MD.C.5b) Recognize an angle as two rays sharing an endpoint and measure it against a circle: a one-degree angle turns through 1/360 of a circle; n one-degree angles make n degrees.
   - EK: An angle measures turn, as a fraction of a full circle (360°).
   - Needs: MK-4.3.A
-  - MP6 · drills: k8-angle-turn
+  - MP6 · drills: k8-angle-turn, g35-turn-degrees
 - ● **MK-5.4.F** (4.MD.C.6) Measure angles in whole-number degrees with a protractor and sketch angles of a specified measure.
   - EK: Line one ray up with 0 on the protractor and read the scale that starts there.
   - Needs: MK-5.4.E
-  - MP5 · MP6 · drills: dr-angle
+  - MP5 · MP6 · drills: dr-angle, g35-protractor-read
 - ● **MK-5.4.G** (4.MD.C.7) Recognize angle measure as additive and solve addition and subtraction problems to find unknown angles on a diagram.
   - EK: Adjacent non-overlapping angles add to the whole angle.
   - Needs: MK-5.4.F
-  - MP2 · MP4 · drills: k8-angle-add
+  - MP2 · MP4 · drills: k8-angle-add, g35-angle-missing
 
 ### 5.5 Geometry
 
 
 
-- ◐ **MK-5.5.A** (4.G.A.1) Draw points, lines, segments, rays, angles (right, acute, obtuse), and perpendicular and parallel lines, and identify them in figures.
+- ● **MK-5.5.A** (4.G.A.1) Draw points, lines, segments, rays, angles (right, acute, obtuse), and perpendicular and parallel lines, and identify them in figures.
   - EK: Right = 90°, acute < 90°, obtuse between 90° and 180°.
   - Needs: MK-5.4.E
-  - MP5 · MP6 · drills: ~k8-classify-angle, ~dr-line-pair
+  - MP5 · MP6 · drills: g35-line-relation, ~k8-classify-angle, ~dr-line-pair
 - ● **MK-5.5.B** (4.G.A.2) Classify two-dimensional figures by parallel or perpendicular lines and by angles of a specified size; recognize right triangles.
   - EK: A right triangle has one 90° angle.
   - Needs: MK-5.5.A, MK-4.5.A
-  - MP3 · MP7 · drills: k8-angle-type
+  - MP3 · MP7 · drills: k8-angle-type, g35-classify-triangle
 - ● **MK-5.5.C** (4.G.A.3) Recognize a line of symmetry for a two-dimensional figure, identify line-symmetric figures and draw lines of symmetry.
   - EK: A figure folded along a line of symmetry matches itself.
   - Needs: MK-5.5.A
-  - MP7 · drills: k8-symmetry-lines
+  - MP7 · drills: k8-symmetry-lines, g35-symmetry-count
 
 ## Unit 6 · Grade 5 — fraction addition and multiplication, decimals to thousandths, volume
 
@@ -710,11 +710,11 @@ Big ideas: LINE, PV, MULT, MEAS, SHAPE
 - ● **MK-6.1.B** (5.OA.A.2) Write simple expressions that record calculations with numbers and interpret them without evaluating (3 × (18932 + 921) is three times as large as 18932 + 921).
   - EK: An expression's structure shows a relationship without computing it.
   - Needs: MK-6.1.A, MK-5.1.A
-  - MP2 · MP7 · drills: k8-times-as-large
+  - MP2 · MP7 · drills: k8-times-as-large, g35-expression-compare
 - ● **MK-6.1.C** (5.OA.B.3) Generate two numerical patterns from two given rules, form ordered pairs from corresponding terms, graph them, and identify relationships between corresponding terms.
   - EK: Rules "add 3" and "add 6" from 0 give terms where the second is always twice the first.
   - Needs: MK-5.1.E
-  - MP7 · MP8 · drills: k8-two-patterns
+  - MP7 · MP8 · drills: k8-two-patterns, g35-two-rules
 
 ### 6.2 Number and Operations in Base Ten
 
@@ -723,7 +723,7 @@ Big ideas: LINE, PV, MULT, MEAS, SHAPE
 - ● **MK-6.2.A** (5.NBT.A.1) Recognize that in a multi-digit number a digit represents 10 times as much as in the place to its right and 1/10 of what it represents in the place to its left.
   - EK: Moving one place left multiplies by 10; one place right divides by 10.
   - Needs: MK-5.2.A, MK-5.3.J
-  - MP7 · drills: k8-ten-times-dec
+  - MP7 · drills: k8-ten-times-dec, g35-decimal-tenfold
 - ● **MK-6.2.B** (5.NBT.A.2) Explain patterns in the number of zeros of a product when multiplying by a power of 10 and in decimal-point placement when multiplying or dividing by a power of 10; use whole-number exponents for powers of 10.
   - EK: × 10ⁿ shifts every digit n places left.
   - Needs: MK-6.2.A
@@ -735,15 +735,15 @@ Big ideas: LINE, PV, MULT, MEAS, SHAPE
 - ● **MK-6.2.D** (5.NBT.A.3b) Compare two decimals to thousandths based on the meanings of the digits, using >, =, <.
   - EK: Compare place by place from the left; trailing zeros don't change value.
   - Needs: MK-6.2.C, MK-5.3.K
-  - MP2 · MP6 · drills: k8-cmp-dec3
+  - MP2 · MP6 · drills: k8-cmp-dec3, g35-decimal-order
 - ● **MK-6.2.E** (5.NBT.A.4) Use place value understanding to round decimals to any place.
   - EK: Rounding decimals follows the same rule as whole numbers.
   - Needs: MK-6.2.C, MK-5.2.C
-  - MP6 · drills: k8-round-dec
+  - MP6 · drills: k8-round-dec, g35-round-decimal-reverse
 - ● **MK-6.2.F** (5.NBT.B.5) Fluently multiply multi-digit whole numbers using the standard algorithm.
   - EK: The algorithm records partial products by place.
   - Needs: MK-5.2.E
-  - MP6 · drills: k8-mult-std
+  - MP6 · drills: k8-mult-std, g35-multiply-estimate, mm-near-100, mm-same-tens
 - ● **MK-6.2.G** (5.NBT.B.6) Find whole-number quotients of whole numbers with up to four-digit dividends and two-digit divisors using place-value strategies and the multiplication–division relationship.
   - EK: Estimate each quotient digit by rounding the divisor; check by multiplying back.
   - Needs: MK-5.2.F
@@ -760,15 +760,15 @@ Big ideas: LINE, PV, MULT, MEAS, SHAPE
 - ● **MK-6.3.A** (5.NF.A.1) Add and subtract fractions with unlike denominators (including mixed numbers) by replacing them with equivalent fractions that have like denominators.
   - EK: a/b + c/d = (ad + bc)/bd.
   - Needs: MK-5.3.A, MK-5.3.E
-  - MP7 · drills: k8-frac-add
+  - MP7 · drills: k8-frac-add, g35-common-denominator
 - ● **MK-6.3.B** (5.NF.A.2) Solve word problems involving addition and subtraction of fractions referring to the same whole, including unlike denominators, and use benchmark fractions to check reasonableness.
   - EK: 2/5 + 1/2 = 3/7 is wrong: 3/7 < 1/2.
   - Needs: MK-6.3.A, MK-5.3.F
-  - MP1 · MP4 · drills: k8-frac-add-word
+  - MP1 · MP4 · drills: k8-frac-add-word, g35-fraction-benchmark
 - ● **MK-6.3.C** (5.NF.B.3) Interpret a fraction as division of the numerator by the denominator (a/b = a ÷ b) and solve word problems where whole-number division gives a fraction or mixed number.
   - EK: Sharing 3 pizzas among 4 people gives each 3/4 of a pizza.
   - Needs: MK-5.3.G, MK-5.2.F
-  - MP2 · MP4 · drills: k8-frac-as-div
+  - MP2 · MP4 · drills: k8-frac-as-div, g35-division-as-fraction
 - ● **MK-6.3.D** (5.NF.B.4a) Interpret (a/b) × q as a parts of a partition of q into b equal parts, and multiply a fraction by a fraction: (a/b) × (c/d) = ac/bd.
   - EK: 2/3 × 4 = 8/3; (2/3) × (4/5) = 8/15.
   - Needs: MK-5.3.G, MK-6.3.C
@@ -776,7 +776,7 @@ Big ideas: LINE, PV, MULT, MEAS, SHAPE
 - ● **MK-6.3.E** (5.NF.B.4b) Find the area of a rectangle with fractional side lengths by tiling with unit squares of the appropriate unit-fraction side, and show it equals the product of the side lengths.
   - EK: Area = length × width holds for fractional sides.
   - Needs: MK-6.3.D, MK-5.4.C
-  - MP4 · MP7 · drills: k8-frac-area
+  - MP4 · MP7 · drills: k8-frac-area, g35-fraction-area
 - ● **MK-6.3.F** (5.NF.B.5a, 5.NF.B.5b) Interpret multiplication as scaling: compare the size of a product to one factor from the other factor, without multiplying.
   - EK: × (factor > 1) enlarges; × (factor < 1) shrinks; a/b = (n×a)/(n×b) is × n/n = × 1.
   - Needs: MK-6.3.D, MK-5.1.A
@@ -784,7 +784,7 @@ Big ideas: LINE, PV, MULT, MEAS, SHAPE
 - ● **MK-6.3.G** (5.NF.B.6) Solve real-world problems involving multiplication of fractions and mixed numbers using visual fraction models or equations.
   - EK: "Of" a quantity usually means multiply.
   - Needs: MK-6.3.D, MK-6.3.F
-  - MP1 · MP4 · drills: k8-frac-mult-mixed
+  - MP1 · MP4 · drills: k8-frac-mult-mixed, g35-scaling-size
 - ● **MK-6.3.H** (5.NF.B.7a, 5.NF.B.7b) Divide a unit fraction by a non-zero whole number and a whole number by a unit fraction (1/3 ÷ 4 = 1/12; 4 ÷ 1/5 = 20), using the multiplication–division relationship.
   - EK: 4 ÷ 1/5 asks how many fifths are in 4.
   - Needs: MK-6.3.C, MK-6.3.D
@@ -792,7 +792,7 @@ Big ideas: LINE, PV, MULT, MEAS, SHAPE
 - ● **MK-6.3.I** (5.NF.B.7c) Solve real-world problems involving division of unit fractions by whole numbers and of whole numbers by unit fractions.
   - EK: Sharing 1/2 lb among 3 people: 1/2 ÷ 3 = 1/6 lb each.
   - Needs: MK-6.3.H
-  - MP1 · MP4 · drills: k8-frac-unit-div-word
+  - MP1 · MP4 · drills: k8-frac-unit-div-word, g35-unit-fraction-divide-check
 
 ### 6.4 Measurement and Data
 
@@ -801,27 +801,27 @@ Big ideas: LINE, PV, MULT, MEAS, SHAPE
 - ● **MK-6.4.A** (5.MD.A.1) Convert among different-sized standard measurement units within one system (5 cm to 0.05 m) and use the conversions in multi-step real-world problems.
   - EK: Converting within the metric system is multiplying or dividing by a power of 10.
   - Needs: MK-5.4.A, MK-6.2.B, MK-6.2.H
-  - MP6 · MP7 · drills: k8-convert
+  - MP6 · MP7 · drills: k8-convert, g35-metric-convert-decimal, mm-unit-conversion
 - ● **MK-6.4.B** (5.MD.B.2) Make a line plot of measurements in fractions of a unit (1/2, 1/4, 1/8) and use operations on fractions to solve problems from it (redistribute amounts equally).
   - EK: An equal redistribution of total amount is the mean.
   - Needs: MK-5.4.D, MK-6.3.B
-  - MP4 · drills: k8-line-plot-share
+  - MP4 · drills: k8-line-plot-share, g35-line-plot-share
 - ● **MK-6.4.C** (5.MD.C.3a, 5.MD.C.3b) Recognize volume as an attribute of solid figures: a unit cube has one cubic unit of volume, and a solid packed by n unit cubes without gaps or overlaps has volume n.
   - EK: Volume counts unit cubes that fill a solid.
   - Needs: MK-4.4.E
-  - MP6 · drills: k8-volume-by-layers, ~k8-volume-prism
+  - MP6 · drills: k8-volume-by-layers, g35-volume-unit-choice, ~k8-volume-prism
 - ● **MK-6.4.D** (5.MD.C.4) Measure volumes by counting unit cubes (cubic cm, cubic in, cubic ft, improvised units).
   - EK: Volume = number of unit cubes, labeled with the cubic unit.
   - Needs: MK-6.4.C
-  - MP5 · MP6 · drills: k8-volume-by-layers, ~k8-volume-prism
+  - MP5 · MP6 · drills: k8-volume-by-layers, g35-volume-cubes-layers, ~k8-volume-prism
 - ● **MK-6.4.E** (5.MD.C.5a, 5.MD.C.5b) Find the volume of a right rectangular prism with whole-number edges by packing it with unit cubes, show it equals the product of the edge lengths, and apply V = l × w × h and V = b × h.
   - EK: V = (area of base) × height = layers × cubes per layer.
   - Needs: MK-6.4.D, MK-4.4.G, MK-4.1.E
-  - MP4 · MP7 · drills: k8-volume-prism
+  - MP4 · MP7 · drills: k8-volume-prism, g35-volume-missing-edge
 - ● **MK-6.4.F** (5.MD.C.5c) Recognize volume as additive and find volumes of solids made of two non-overlapping right rectangular prisms.
   - EK: Volume is additive.
   - Needs: MK-6.4.E, MK-4.4.I
-  - MP1 · MP7 · drills: k8-volume-composite
+  - MP1 · MP7 · drills: k8-volume-composite, g35-composite-volume-word
 
 ### 6.5 Geometry
 
@@ -830,19 +830,19 @@ Big ideas: LINE, PV, MULT, MEAS, SHAPE
 - ● **MK-6.5.A** (5.G.A.1) Use a pair of perpendicular number lines (axes) meeting at the origin to define a coordinate system, and locate a point with an ordered pair (x-coordinate, y-coordinate).
   - EK: (x, y): move x along the horizontal axis, then y up.
   - Needs: MK-5.5.A, MK-3.3.F
-  - MP6 · drills: k8-plot-q1
+  - MP6 · drills: k8-plot-q1, g35-coordinate-move
 - ● **MK-6.5.B** (5.G.A.2) Represent real-world and mathematical problems by graphing points in the first quadrant and interpret coordinate values in context.
   - EK: Each coordinate is a quantity; a point pairs two quantities.
   - Needs: MK-6.5.A, MK-6.1.C
-  - MP4 · drills: k8-read-point, ~k8-plot-q1
+  - MP4 · drills: k8-read-point, g35-graph-story, ~k8-plot-q1
 - ● **MK-6.5.C** (5.G.B.3) Understand that attributes of a category of two-dimensional figures belong to all its subcategories (all rectangles have four right angles, and squares are rectangles).
   - EK: A subcategory inherits every defining attribute of its category.
   - Needs: MK-5.5.B, MK-4.5.A
-  - MP3 · MP7 · drills: k8-shape-hierarchy
+  - MP3 · MP7 · drills: k8-shape-hierarchy, g35-hierarchy-always
 - ● **MK-6.5.D** (5.G.B.4) Classify two-dimensional figures in a hierarchy based on properties.
   - EK: Quadrilateral ⊃ parallelogram ⊃ rectangle/rhombus ⊃ square.
   - Needs: MK-6.5.C
-  - MP7 · drills: k8-shape-hierarchy
+  - MP7 · drills: k8-shape-hierarchy, g35-hierarchy-always
 
 ## Unit 7 · Grade 6 — ratios and rates, negative numbers, expressions and one-step equations, distributions
 
@@ -1326,18 +1326,12 @@ Big ideas: LINE, OPS, MULT, SHAPE, DATA
 - mm-roman-numerals (k8.place-value)
 - mm-base-to-ten (k8.place-value)
 - mm-remainder-product (k8.mult-div)
-- mm-near-100 (k8.mult-div)
-- mm-same-tens (k8.mult-div)
 - mm-difference-of-squares (k8.mult-div)
 - mm-remainder-digits (k8.mult-div)
 - mm-remainder-11 (k8.mult-div)
-- mm-count-divisors (k8.mult-div)
 - mm-sum-divisors (k8.mult-div)
 - mm-reciprocal-mixed (k8.fractions)
 - mm-repeating-decimal (k8.decimals)
-- aq-household-measure (k8.measurement)
-- aq-spoon-of-water (k8.measurement)
-- mm-unit-conversion (k8.measurement)
 - mm-proportion (k8.ratios)
 - mm-absolute-value (k8.integers)
 - mm-floor (k8.integers)
