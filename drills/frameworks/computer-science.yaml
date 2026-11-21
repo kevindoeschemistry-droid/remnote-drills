@@ -307,7 +307,7 @@ units:
         book: { cs2023: [DM-Querying] }
         los:
           - { id: A, do: "Write a SQL query with joins, GROUP BY and HAVING for a described question — auto-checked by comparing result sets.", ek: ["WHERE filters rows before grouping, HAVING filters groups after; every non-aggregated SELECT column must be grouped."], p: [P5], needs: [CS-7.1.B], drills: [] }
-          - { id: B, do: "Predict the result of an outer join, a comparison with NULL, or an aggregate over a column containing NULLs.", ek: ["NULL = NULL is unknown, not true; COUNT(*) counts rows, COUNT(col) skips NULLs; LEFT JOIN keeps unmatched left rows with NULLs."], p: [P3], drills: [] }
+          - { id: B, do: "Predict the result of an outer join, a comparison with NULL, or an aggregate over a column containing NULLs.", ek: ["NULL = NULL is unknown, not true; COUNT(*) counts rows, COUNT(col) skips NULLs; LEFT JOIN keeps unmatched left rows with NULLs."], p: [P3], drills: ["sq-join-count", "sq-null-trap", "sq-aggregate"] }
           - { id: C, do: "Write a query using a correlated subquery, CTE or window function (rank, running total, top-n per group).", ek: ["Window functions compute over a PARTITION BY … ORDER BY frame without collapsing rows."], p: [P5], needs: [CS-7.2.A], drills: [] }
       - n: 3
         title: Functional dependencies and normal forms

@@ -35,6 +35,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 | Programming Foundations | AP Computer Science A Course and Exam Description (Fall 2025) | standard | read in full | — | — | 140 | 140 | 0 |
 | Chemical Reaction Engineering | NCEES FE Chemical CBT Exam Specifications (effective July 2020) | exam-spec | read in full | — | — | 9 | 9 | 0 |
 | Speaking and Articulation | Competent Speaker Speech Evaluation Form, 2nd ed. | rubric | read in full | toastmasters-pathways | — | 69 | 0 | 69 |
+| SQL | Oracle Database SQL, exam 1Z0-071: exam topics | exam-spec | read through a crosswalk | — | — | 40 | 37 | 3 |
 | Statistics | AP Statistics revised course framework (2026-27) | standard | read in part | — | — | 13 | 13 | 0 |
 | Structures from Memory | Bruice, Organic Chemistry, 8th edition (table of contents) | textbook | read in part | iupac-aa-1983 | aamc-mcat-outline | 12 | 10 | 2 |
 | Swimming | World Aquatics swimming rules (with USA Swimming and USMS stroke rules) | rulebook | read in full | — | asca-certification | 88 | 0 | 88 |
@@ -64,6 +65,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 - **Physics (AP)**: Objective codes read for a few units only.
 - **Chemical Reaction Engineering**: Topics from FE Chemical area 12, read in full. Objectives and their order are ours. Limited so far to isothermal, constant-density reactions; the gaps are listed in the file header.
 - **Speaking and Articulation**: A scoring rubric plus Toastmasters' competency list; unit order is ours.
+- **SQL**: Units 1–7 follow the sixteen topic groups of Oracle's 1Z0-071 exam, read through a restatement rather than Oracle's page. Unit 8 is a house list: no standard for analytic SQL was found.
 - **Statistics**: Units follow the revised AP Statistics course (2026-27), of which only the unit list was read. The objectives under each unit are a house list.
 - **Structures from Memory**: Units follow the chapter list of Bruice's Organic Chemistry (a textbook, not a standard). The amino acids follow IUPAC-IUB 1983 Table 1. Which compounds to carry in each unit is a house list; the MCAT content outline names the same families and has not been opened.
 - **Swimming**: Rules and research papers; they say what is legal and why technique works, not what to learn in what order. Unit order is ours.
@@ -88,6 +90,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 - **Physical Chemistry**: textbook, read in part; should move to ACS Exams Institute Anchoring Concepts Content Map IV: Physical Chemistry (J. Chem. Educ. 2018, 95, 238)
 - **Physics (AP)**: standard, read in part
 - **Speaking and Articulation**: rubric, read in full
+- **SQL**: exam-spec, read through a crosswalk
 - **Statistics**: standard, read in part
 - **Structures from Memory**: textbook, read in part; should move to AAMC, What's on the MCAT Exam? content outline (categories 1A, 1D, 5D)
 - **Swimming**: rulebook, read in full; should move to ASCA coach certification curriculum
@@ -572,3 +575,30 @@ https://www.aqa.org.uk/subjects/physics/a-level/physics-7408/specification/subje
 | **3.2.2.4** | **Wave-particle duality** (undefined questions) | | | |
 
 **Areas with nothing answering to them:** 3.2.1.1 Constituents of the atom; 3.2.1.2 Stable and unstable nuclei; 3.2.1.3 Particles, antiparticles and photons; 3.2.1.4 Particle interactions; 3.2.1.5 Classification of particles; 3.2.1.6 Quarks and antiquarks; 3.2.1.7 Applications of conservation laws; 3.2.2.1 The photoelectric effect; 3.2.2.2 Collisions of electrons with atoms; 3.2.2.3 Energy levels and photon emission; 3.2.2.4 Wave-particle duality.
+
+## Oracle Database SQL, exam 1Z0-071: exam topics
+
+https://www.examcert.app/blog/oracle-1z0-071-syllabus-2026/
+
+0 of 0 items have at least one objective answering to them.
+
+| Item | Topic | Objectives | With a drill | Where |
+|---|---|---|---|---|
+| **1** | **Relational database concepts** (undefined questions) | | | |
+| **2** | **Retrieving data with SELECT** (undefined questions) | | | |
+| **3** | **Restricting and sorting data** (undefined questions) | | | |
+| **4** | **Single-row functions** (undefined questions) | | | |
+| **5** | **Conversion functions and conditional expressions** (undefined questions) | | | |
+| **6** | **Group functions** (undefined questions) | | | |
+| **7** | **Displaying data from multiple tables** (undefined questions) | | | |
+| **8** | **Subqueries** (undefined questions) | | | |
+| **9** | **Set operators** (undefined questions) | | | |
+| **10** | **Managing tables with DML; transactions** (undefined questions) | | | |
+| **11** | **Indexes, synonyms and sequences** (undefined questions) | | | |
+| **12** | **DDL: tables, data types and constraints** (undefined questions) | | | |
+| **13** | **Views** (undefined questions) | | | |
+| **14** | **Controlling user access** (undefined questions) | | | |
+| **15** | **Data dictionary views** (undefined questions) | | | |
+| **16** | **Data in different time zones** (undefined questions) | | | |
+
+**Areas with nothing answering to them:** 1 Relational database concepts; 2 Retrieving data with SELECT; 3 Restricting and sorting data; 4 Single-row functions; 5 Conversion functions and conditional expressions; 6 Group functions; 7 Displaying data from multiple tables; 8 Subqueries; 9 Set operators; 10 Managing tables with DML; transactions; 11 Indexes, synonyms and sequences; 12 DDL: tables, data types and constraints; 13 Views; 14 Controlling user access; 15 Data dictionary views; 16 Data in different time zones.

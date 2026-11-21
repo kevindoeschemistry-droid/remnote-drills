@@ -118,7 +118,7 @@ export function buildData(t: DataTemplate, r: Rng): Draft {
       require_(idx >= 0 && idx < options.length && new Set(options).size === options.length);
       const correct = options[idx];
       values[p.label] = idx;
-      return { ask, answer: { kind: "choice", options, correct } as Answer, answerTex: `\\text{${correct.replace(/[{}$\\]/g, "")}}`, explain };
+      return { ask, answer: { kind: "choice", options, correct } as Answer, answerTex: `\\text{${correct.replace(/[{}$\\]/g, "").replace(/[_%&#]/g, (m) => "\\" + m).replace(/\^/g, "\\textasciicircum{}").replace(/~/g, "\\textasciitilde{}")}}`, explain };
     }
     if (p.ode && p.sol) {
       const rhs = symbolic(p.ode, scope), sol = symbolic(p.sol, scope);

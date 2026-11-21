@@ -569,6 +569,15 @@ def rank_code(values):
 BASE.update({"cube_tally": cube_tally, "punch_count": punch_count, "net_opposite": net_opposite, "rank_code": rank_code, "box_degeneracy": box_degeneracy, "huckel_chain": huckel_chain, "view_identify": view_identify, "keyhole_fit": keyhole_fit, "sph_L2": sph_L2, "fc_strongest": fc_strongest, "hf_energy": hf_energy, "hund_ground": hund_ground, "hund_choice": hund_choice, "mo_fill": mo_fill, "commutes": commutes, "view_missing": view_missing, "keyhole_pick": keyhole_pick, "prism_identify": prism_identify, "prism_keyhole": prism_keyhole, "pt_Z": pt_Z, "pt_group": pt_group, "pt_below": pt_below, "pt_config": pt_config, "pt_madelung": pt_madelung, "sn_e": sn_e, "pp_charge": pp_charge, "pp_baryon": pp_baryon, "pp_balance": pp_balance, "ra_chain": ra_chain, "basis_count": basis_count})
 
 
+import sys as _sys  # noqa: E402
+_sys.path.insert(0, str(Path(__file__).parent))
+from sql import FUNCS as _SQL, check_tables as _sql_tables  # noqa: E402
+BASE.update(_SQL)
+_bad = _sql_tables(TEMPLATES)
+if _bad:
+    raise SystemExit(f"SQL figures differ from tests/verify/sql.py TABLES: {_bad}")
+
+
 def check(p, H):
     meta = p.get("meta", {})
     name = meta.get("data")

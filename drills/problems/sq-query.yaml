@@ -1,0 +1,711 @@
+# SQL, part 1: querying. Oracle 1Z0-071 exam topic groups 1–9 (relational concepts, SELECT,
+# restricting and sorting, single-row and conversion functions, group functions, joins,
+# subqueries, set operators). One question each, on six-row tables drawn on the card.
+#
+# Every answer about a query is checked by running it (tests/verify/sql.py: SQLite with the Oracle
+# functions added). The tables on the cards are typed again in that file, and the verifier fails if
+# the two differ. Facts no query can show (Oracle's own rules and error messages) are authored.
+
+# ── 1 relational concepts ──────────────────────────────────────────────────
+- template: sq-statement-kind
+  skill: sql.select
+  pace: recall
+  cases:
+    - { st: 'INSERT INTO emp …', ans: 0 }
+    - { st: 'MERGE INTO depts …', ans: 0 }
+    - { st: 'DELETE FROM emp WHERE …', ans: 0 }
+    - { st: 'TRUNCATE TABLE emp', ans: 1 }
+    - { st: 'CREATE INDEX emp_name_ix …', ans: 1 }
+    - { st: 'ALTER TABLE emp ADD …', ans: 1 }
+    - { st: 'RENAME emp TO staff', ans: 1 }
+    - { st: 'GRANT SELECT ON emp TO ben', ans: 2 }
+    - { st: 'REVOKE SELECT ON emp FROM ben', ans: 2 }
+    - { st: 'COMMIT', ans: 3 }
+    - { st: 'SAVEPOINT before_raise', ans: 3 }
+    - { st: 'ROLLBACK TO before_raise', ans: 3 }
+  prompt: 'What kind of statement is {{st}}?'
+  parts:
+    - ask: 'Kind'
+      label: a
+      choice: ["DML: changes rows", "DDL: changes structure (and commits)", "DCL: grants or takes away rights", "Transaction control"]
+      correct: ans
+      explain: 'DML is INSERT, UPDATE, DELETE and MERGE. DDL is CREATE, ALTER, DROP, RENAME, TRUNCATE and COMMENT, and in Oracle each one commits the open transaction. DCL is GRANT and REVOKE. COMMIT, ROLLBACK and SAVEPOINT control the transaction. TRUNCATE empties a table like DELETE but is DDL, so it cannot be rolled back'
+  verify: { authored: true }
+
+- template: sq-keys
+  skill: sql.select
+  pace: recall
+  cases:
+    - { col: 'emp.id', ans: 0 }
+    - { col: 'depts.dept', ans: 0 }
+    - { col: 'emp.dept', ans: 1 }
+    - { col: 'emp.mgr', ans: 2 }
+    - { col: 'emp.salary', ans: 3 }
+    - { col: 'depts.city', ans: 3 }
+  prompt: 'In emp(id, name, dept, salary, mgr, hired) and depts(dept, city), where each employee''s mgr is another employee''s id, what is {{col}}?'
+  parts:
+    - ask: 'Role'
+      label: a
+      choice: ["The primary key of its table", "A foreign key to the other table", "A foreign key to its own table", "Not a key"]
+      correct: ans
+      explain: 'A primary key identifies each row: unique and never null. A foreign key holds values of some primary or unique key and may be null. When it points into its own table (mgr → id) the table can be joined to itself to pair each row with its parent'
+  verify: { authored: true }
+
+# ── 2 SELECT ────────────────────────────────────────────────────────────────
+- template: sq-select-expr
+  skill: sql.select
+  pace: quick
+  figure: &EMP
+    type: scheme
+    plain: true
+    panels:
+      - type: table
+        caption: emp
+        head: [id, name, dept, salary, mgr, hired]
+        rows: [[1, Ana, Sales, 5000, "NULL", 2019], [2, Ben, Sales, 4000, 1, 2021], [3, Cy, IT, 6000, "NULL", 2018], [4, Dee, IT, 5500, 3, 2020], [5, Eli, IT, "NULL", 3, 2022], [6, Fay, HR, 4500, "NULL", 2021]]
+  cases:
+    - { q: "SELECT salary*12 + 100 FROM emp WHERE id = 2", ans: 48100 }
+    - { q: "SELECT 12*(salary + 100) FROM emp WHERE id = 6", ans: 55200 }
+    - { q: "SELECT salary + salary*0.1 FROM emp WHERE id = 4", ans: 6050 }
+    - { q: "SELECT (salary - 500)/100 FROM emp WHERE id = 1", ans: 45 }
+    - { q: "SELECT hired + 5 FROM emp WHERE id = 3", ans: 2023 }
+    - { q: "SELECT salary - 100*2 FROM emp WHERE id = 2", ans: 3800 }
+  prompt: 'What does this return? {{q}}'
+  parts:
+    - { ask: 'Value', label: a, value: ans, tol: 0.0001, explain: 'Multiplication and division before addition and subtraction, left to right; parentheses first. The expression is worked out once for each row the WHERE clause keeps' }
+  verify: { expect: { a: "sql_val('emp', q)" } }
+
+- template: sq-null-arith
+  skill: sql.select
+  pace: quick
+  figure: *EMP
+  cases:
+    - { q: "SELECT salary + 100 FROM emp WHERE id = 5", ans: 0 }
+    - { q: "SELECT salary * 0 FROM emp WHERE id = 5", ans: 0 }
+    - { q: "SELECT salary - salary FROM emp WHERE id = 5", ans: 0 }
+    - { q: "SELECT NVL(salary, 0) + 100 FROM emp WHERE id = 5", ans: 2 }
+    - { q: "SELECT NVL(salary, 0) * 0 FROM emp WHERE id = 5", ans: 1 }
+    - { q: "SELECT NVL(salary, 100) FROM emp WHERE id = 5", ans: 2 }
+    - { q: "SELECT mgr * 0 FROM emp WHERE id = 1", ans: 0 }
+  prompt: 'What does this return? {{q}}'
+  parts:
+    - ask: 'Result'
+      label: a
+      choice: ["NULL", "0", "100", "An error"]
+      correct: ans
+      explain: 'Any arithmetic with NULL gives NULL, even NULL × 0 and NULL − NULL: NULL means "unknown", and unknown minus itself is still unknown. NVL(x, v) swaps a NULL for v before the arithmetic'
+  verify: { choices: { a: "sql_pick('emp', q, ['NULL', '0', '100', 'An error'])" } }
+
+- template: sq-distinct-rows
+  skill: sql.select
+  pace: quick
+  figure: *EMP
+  cases:
+    - { q: "SELECT DISTINCT dept FROM emp", ans: 3 }
+    - { q: "SELECT DISTINCT dept, hired FROM emp", ans: 6 }
+    - { q: "SELECT DISTINCT hired FROM emp", ans: 5 }
+    - { q: "SELECT DISTINCT mgr FROM emp", ans: 3 }
+    - { q: "SELECT DISTINCT dept, mgr FROM emp", ans: 5 }
+  prompt: 'How many rows does this return? {{q}}'
+  parts:
+    - { ask: 'Rows', label: a, value: ans, tol: 0.0001, explain: 'DISTINCT applies to the whole select list: two rows are duplicates only if every listed column matches. All NULLs count as one value here, so NULL appears once' }
+  verify: { expect: { a: "sql_count('emp', q)" } }
+
+- template: sq-alias-legal
+  skill: sql.select
+  pace: quick
+  cases:
+    - { c: 'ORDER BY annual', ans: 0 }
+    - { c: 'ORDER BY 1', ans: 0 }
+    - { c: 'WHERE salary*12 > 50000', ans: 0 }
+    - { c: 'WHERE annual > 50000', ans: 1 }
+    - { c: 'HAVING annual > 50000', ans: 1 }
+    - { c: 'GROUP BY annual', ans: 1 }
+  prompt: 'SELECT salary*12 AS annual FROM emp … What happens when the query ends with {{c}}? (Oracle 19c)'
+  parts:
+    - ask: 'Result'
+      label: a
+      choice: ["Runs", "Error: the alias is not known in that clause"]
+      correct: ans
+      explain: 'FROM, WHERE, GROUP BY and HAVING are worked out before SELECT, so an alias defined in the select list does not exist yet there; repeat the expression instead. ORDER BY runs last, so it can use the alias or the column position. (Oracle 23ai began allowing aliases in GROUP BY and HAVING; the exam is validated through 19c)'
+  verify: { authored: true }
+
+- template: sq-concat
+  skill: sql.select
+  pace: quick
+  figure: *EMP
+  cases:
+    - { q: "SELECT name || ' works in ' || dept FROM emp WHERE id = 4", o1: 'Dee works in IT', o2: 'Deeworks inIT', o3: 'name works in dept', o4: 'An error', ans: 0 }
+    - { q: "SELECT CONCAT(name, dept) FROM emp WHERE id = 6", o1: 'Fay HR', o2: 'FayHR', o3: 'Fay, HR', o4: 'An error', ans: 1 }
+    - { q: "SELECT CONCAT(CONCAT(name, ' '), dept) FROM emp WHERE id = 2", o1: 'BenSales', o2: 'Ben  Sales', o3: 'Ben Sales', o4: 'An error', ans: 2 }
+    - { q: "SELECT name || hired FROM emp WHERE id = 3", o1: 'Cy 2018', o2: 'An error', o3: 'Cy+2018', o4: 'Cy2018', ans: 3 }
+  prompt: 'What does this return? {{q}}'
+  parts:
+    - ask: 'Result'
+      label: a
+      choice: ["{{o1}}", "{{o2}}", "{{o3}}", "{{o4}}"]
+      correct: ans
+      explain: '|| joins strings exactly as written, adding no spaces; a number is converted to text first. Oracle''s CONCAT takes exactly two arguments, so three pieces need CONCAT nested in CONCAT'
+  verify: { choices: { a: "sql_pick('emp', q, [o1, o2, o3, o4])" } }
+
+- template: sq-oracle-empty-string
+  skill: sql.select
+  pace: quick
+  cases:
+    - { e: "'abc' || NULL", o1: 'abc', o2: 'NULL', o3: 'abcNULL', o4: 'An error', ans: 0 }
+    - { e: "LENGTH('')", o1: '0', o2: 'NULL', o3: '1', o4: 'An error', ans: 1 }
+    - { e: "NVL('', 'empty')", o1: 'An empty string', o2: 'NULL', o3: 'empty', o4: 'An error', ans: 2 }
+    - { e: "q'[It's here]'", o1: "q'[It's here]'", o2: '[It''s here]', o3: 'An error', o4: "It's here", ans: 3 }
+  prompt: 'In Oracle, what does SELECT {{e}} FROM DUAL return?'
+  parts:
+    - ask: 'Result'
+      label: a
+      choice: ["{{o1}}", "{{o2}}", "{{o3}}", "{{o4}}"]
+      correct: ans
+      explain: 'Oracle stores a zero-length string as NULL, so '''' is NULL: its LENGTH is NULL and NVL replaces it. Unlike arithmetic, || treats NULL as an empty string. The q-quote q''[ … ]'' lets a literal contain apostrophes without doubling them; any bracket pair or repeated character can be the delimiter'
+  verify: { authored: true }
+
+# ── 3 restricting and sorting ──────────────────────────────────────────────
+- template: sq-where-count
+  skill: sql.select
+  pace: quick
+  figure: *EMP
+  cases:
+    - { w: "WHERE dept = 'IT' OR dept = 'Sales' AND salary > 4500", ans: 4 }
+    - { w: "WHERE (dept = 'IT' OR dept = 'Sales') AND salary > 4500", ans: 3 }
+    - { w: "WHERE salary BETWEEN 4500 AND 5500", ans: 3 }
+    - { w: "WHERE dept IN ('HR', 'Ops')", ans: 1 }
+    - { w: "WHERE mgr IS NULL", ans: 3 }
+    - { w: "WHERE salary <> 5000", ans: 4 }
+    - { w: "WHERE NOT salary > 5000", ans: 3 }
+    - { w: "WHERE name LIKE '_e%'", ans: 2 }
+    - { w: "WHERE hired >= 2021 AND mgr IS NOT NULL", ans: 2 }
+  prompt: 'How many rows does this return? SELECT * FROM emp {{w}}'
+  parts:
+    - { ask: 'Rows', label: a, value: ans, tol: 0.0001, explain: 'AND binds tighter than OR, so A OR B AND C means A OR (B AND C). BETWEEN includes both ends. A comparison with NULL is unknown, not true, so a NULL salary fails both salary <> 5000 and NOT salary > 5000; test for it with IS NULL. In LIKE, _ is one character and % any run of characters' }
+  verify: { expect: { a: "sql_count('emp', 'SELECT * FROM emp ' + w)" } }
+
+- template: sq-null-trap
+  skill: sql.select
+  pace: quick
+  figure: *EMP
+  cases:
+    - { w: "id NOT IN (SELECT mgr FROM emp)", ans: 0 }
+    - { w: "salary = NULL", ans: 0 }
+    - { w: "salary IS NULL", ans: 1 }
+    - { w: "id IN (SELECT mgr FROM emp)", ans: 2 }
+    - { w: "id NOT IN (SELECT mgr FROM emp WHERE mgr IS NOT NULL)", ans: 3 }
+    - { w: "NOT EXISTS (SELECT 1 FROM emp m WHERE m.mgr = emp.id)", ans: 3 }
+  prompt: 'How many rows does this return? SELECT name FROM emp WHERE {{w}}'
+  parts:
+    - ask: 'Rows'
+      label: a
+      choice: ["0", "1", "2", "4"]
+      correct: ans
+      explain: 'x NOT IN (list) means x <> each item AND …; against a NULL item that is unknown, so the whole test is never true and no row comes back. = NULL is never true either: use IS NULL. NOT EXISTS ignores NULLs, which is why it is the safe way to write "not anyone''s manager"'
+  verify: { choices: { a: "{0: 0, 1: 1, 2: 2, 4: 3}[sql_count('emp', 'SELECT name FROM emp WHERE ' + w)]" } }
+
+- template: sq-order-first
+  skill: sql.select
+  pace: quick
+  figure: *EMP
+  cases:
+    - { o: 'salary DESC', vo: 'salary DESC NULLS FIRST', o1: 'Cy', o2: 'Eli', o3: 'Ana', o4: 'Ben', ans: 1 }
+    - { o: 'salary DESC NULLS LAST', vo: 'salary DESC NULLS LAST', o1: 'Cy', o2: 'Eli', o3: 'Dee', o4: 'Ben', ans: 0 }
+    - { o: 'salary', vo: 'salary NULLS LAST', o1: 'Eli', o2: 'Fay', o3: 'Ben', o4: 'Cy', ans: 2 }
+    - { o: 'dept, salary DESC', vo: 'dept, salary DESC NULLS FIRST', o1: 'Ana', o2: 'Cy', o3: 'Eli', o4: 'Fay', ans: 3 }
+    - { o: 'hired DESC, name', vo: 'hired DESC, name', o1: 'Eli', o2: 'Fay', o3: 'Ben', o4: 'Cy', ans: 0 }
+    - { o: 'dept, 1', vo: 'dept, 1', o1: 'Ana', o2: 'Cy', o3: 'Fay', o4: 'Eli', ans: 2 }
+    - { o: 'LENGTH(name), name', vo: 'LENGTH(name), name', o1: 'Ana', o2: 'Ben', o3: 'Dee', o4: 'Cy', ans: 3 }
+  prompt: 'SELECT name FROM emp ORDER BY {{o}}. Which name comes first? (Oracle)'
+  parts:
+    - ask: 'First row'
+      label: a
+      choice: ["{{o1}}", "{{o2}}", "{{o3}}", "{{o4}}"]
+      correct: ans
+      explain: 'Oracle sorts NULL as if it were larger than every value: last in ascending order, first in descending order, unless NULLS FIRST or NULLS LAST says otherwise. Later sort keys only break ties in earlier ones. A number in ORDER BY is a position in the select list: here 1 is name'
+  verify: { choices: { a: "sql_pick('emp', 'SELECT name FROM emp ORDER BY ' + vo + ' FETCH FIRST 1 ROWS ONLY', [o1, o2, o3, o4])" } }
+
+- template: sq-fetch-rows
+  skill: sql.select
+  pace: quick
+  figure: *EMP
+  cases:
+    - { q: "SELECT name FROM emp ORDER BY id FETCH FIRST 2 ROWS ONLY", o1: 'Ana, Ben', o2: 'Eli, Fay', o3: 'Ben, Cy', o4: 'Ana', ans: 0 }
+    - { q: "SELECT name FROM emp ORDER BY id OFFSET 4 ROWS FETCH NEXT 2 ROWS ONLY", o1: 'Dee, Eli', o2: 'Eli, Fay', o3: 'Ana, Ben', o4: 'Fay', ans: 1 }
+    - { q: "SELECT name FROM emp ORDER BY hired OFFSET 1 ROWS FETCH NEXT 2 ROWS ONLY", o1: 'Cy, Ana', o2: 'Dee, Ben', o3: 'Ana, Dee', o4: 'Ben, Fay', ans: 2 }
+    - { q: "SELECT name FROM emp ORDER BY id DESC FETCH FIRST 3 ROWS ONLY", o1: 'Ana, Ben, Cy', o2: 'Dee, Eli, Fay', o3: 'Fay, Dee, Eli', o4: 'Fay, Eli, Dee', ans: 3 }
+  prompt: 'Which names does this return, in order? {{q}}'
+  parts:
+    - ask: 'Rows'
+      label: a
+      choice: ["{{o1}}", "{{o2}}", "{{o3}}", "{{o4}}"]
+      correct: ans
+      explain: 'The row-limiting clause runs after ORDER BY: OFFSET n ROWS skips the first n sorted rows, then FETCH FIRST (or NEXT) m ROWS ONLY keeps m. Without ORDER BY the rows kept are whatever order the database happens to read'
+  verify: { choices: { a: "sql_list('emp', q, [o1, o2, o3, o4])" } }
+
+- template: sq-substitution
+  skill: sql.select
+  pace: recall
+  cases:
+    - { c: 'the variable &dept appears twice in one statement', ans: 0 }
+    - { c: 'the variable &&dept appears twice in one statement', ans: 1 }
+    - { c: 'DEFINE dept = IT was run earlier, then a statement uses &dept', ans: 2 }
+    - { c: 'SET VERIFY ON, then a statement uses &dept', ans: 3 }
+  prompt: 'In SQL*Plus or SQL Developer, what happens when {{c}}?'
+  parts:
+    - ask: 'Result'
+      label: a
+      choice: ["It prompts for a value each time the variable appears", "It prompts once and keeps the value for the session", "No prompt: the defined value is used", "The statement is shown before and after substitution"]
+      correct: ans
+      explain: 'A single & prompts at every appearance. && prompts once and DEFINEs the variable, so later uses (even in later statements) reuse it until UNDEFINE. VERIFY ON echoes the old and new lines so you can see what was substituted. Substitution is done by the client tool, not the database'
+  verify: { authored: true }
+
+# ── 4 single-row functions ─────────────────────────────────────────────────
+- template: sq-char-number
+  skill: sql.functions
+  pace: quick
+  cases:
+    - { e: "LENGTH(TRIM('  data  '))", ans: 4 }
+    - { e: "INSTR('BANANA', 'AN', 1, 2)", ans: 4 }
+    - { e: "INSTR('a.b.c', '.')", ans: 2 }
+    - { e: "LENGTH(LPAD('7', 3, '0'))", ans: 3 }
+    - { e: "LENGTH(REPLACE('banana', 'a'))", ans: 3 }
+    - { e: "INSTR('Mississippi', 'ss', 1, 2)", ans: 6 }
+    - { e: "LENGTH(RPAD('Oracle', 4))", ans: 4 }
+  prompt: 'What does SELECT {{e}} FROM DUAL return?'
+  parts:
+    - { ask: 'Value', label: a, value: ans, tol: 0.0001, explain: 'INSTR(s, sub, start, n) is the position (from 1) of the nth match, 0 if none. TRIM removes leading and trailing spaces. LPAD and RPAD pad or cut to exactly the length asked. REPLACE with no third argument deletes every match' }
+  verify: { expect: { a: "sql_val('emp', 'SELECT ' + e + ' FROM DUAL')" } }
+
+- template: sq-char-text
+  skill: sql.functions
+  pace: quick
+  cases:
+    - { e: "SUBSTR('DATABASE', 3, 4)", o1: 'TABA', o2: 'ATAB', o3: 'TAB', o4: 'BASE', ans: 0 }
+    - { e: "SUBSTR('DATABASE', -4)", o1: 'DATA', o2: 'BASE', o3: 'ASE', o4: 'An error', ans: 1 }
+    - { e: "INITCAP('sql basics')", o1: 'SQL BASICS', o2: 'Sql basics', o3: 'Sql Basics', o4: 'sql Basics', ans: 2 }
+    - { e: "LPAD('42', 5, '0')", o1: '42000', o2: '0042', o3: '42', o4: '00042', ans: 3 }
+    - { e: "RPAD('ab', 4, 'x')", o1: 'abxx', o2: 'xxab', o3: 'abx', o4: 'ab', ans: 0 }
+    - { e: "UPPER(SUBSTR('oracle', 1, 1)) || SUBSTR('oracle', 2)", o1: 'ORACLE', o2: 'Oracle', o3: 'oracle', o4: 'O', ans: 1 }
+  prompt: 'What does SELECT {{e}} FROM DUAL return?'
+  parts:
+    - ask: 'Result'
+      label: a
+      choice: ["{{o1}}", "{{o2}}", "{{o3}}", "{{o4}}"]
+      correct: ans
+      explain: 'SUBSTR(s, start, length) counts from 1; a negative start counts back from the end, and no length means to the end. INITCAP capitalizes the first letter of each word and lowers the rest. LPAD pads on the left, RPAD on the right, to exactly the length given'
+  verify: { choices: { a: "sql_pick('emp', 'SELECT ' + e + ' FROM DUAL', [o1, o2, o3, o4])" } }
+
+- template: sq-number-fn
+  skill: sql.functions
+  pace: quick
+  cases:
+    - { e: "ROUND(1234.567, -2)", ans: 1200 }
+    - { e: "ROUND(1234.567, 1)", ans: 1234.6 }
+    - { e: "TRUNC(15.79, 1)", ans: 15.7 }
+    - { e: "TRUNC(-15.79)", ans: -15 }
+    - { e: "MOD(17, 5)", ans: 2 }
+    - { e: "MOD(-17, 5)", ans: -2 }
+    - { e: "ROUND(-2.5)", ans: -3 }
+    - { e: "ROUND(45.926, -1)", ans: 50 }
+    - { e: "TRUNC(45.926, 2)", ans: 45.92 }
+  prompt: 'What does SELECT {{e}} FROM DUAL return?'
+  parts:
+    - { ask: 'Value', label: a, value: ans, tol: 0.0001, explain: 'ROUND(n, d) rounds to d decimal places, halves away from zero; a negative d rounds to tens, hundreds…. TRUNC just cuts, toward zero. MOD(m, n) is the remainder of m ÷ n with the sign of m' }
+  verify: { expect: { a: "sql_val('emp', 'SELECT ' + e + ' FROM DUAL')" } }
+
+- template: sq-date-number
+  skill: sql.functions
+  pace: quick
+  cases:
+    - { e: "DATE '2026-03-01' - DATE '2026-02-01'", ans: 28 }
+    - { e: "DATE '2024-03-01' - DATE '2024-02-01'", ans: 29 }
+    - { e: "DATE '2027-01-01' - DATE '2026-12-25'", ans: 7 }
+    - { e: "MONTHS_BETWEEN(DATE '2026-06-15', DATE '2026-03-15')", ans: 3 }
+    - { e: "MONTHS_BETWEEN(DATE '2026-05-31', DATE '2026-02-28')", ans: 3 }
+    - { e: "MONTHS_BETWEEN(DATE '2026-01-15', DATE '2026-04-15')", ans: -3 }
+  prompt: 'What does SELECT {{e}} FROM DUAL return?'
+  parts:
+    - { ask: 'Value', label: a, value: ans, tol: 0.0001, explain: 'Subtracting two DATEs gives the number of days between them. MONTHS_BETWEEN(later, earlier) is positive, a whole number when the days of the month match or both dates are month-ends; otherwise the leftover days count as fractions of a 31-day month' }
+  verify: { expect: { a: "sql_val('emp', 'SELECT ' + e + ' FROM DUAL')" } }
+
+- template: sq-date-text
+  skill: sql.functions
+  pace: quick
+  cases:
+    - { e: "ADD_MONTHS(DATE '2026-01-31', 1)", o1: '2026-02-28', o2: '2026-03-03', o3: '2026-02-31', o4: '2026-03-31', ans: 0 }
+    - { e: "LAST_DAY(DATE '2024-02-10')", o1: '2024-02-28', o2: '2024-02-29', o3: '2024-03-01', o4: '2024-02-10', ans: 1 }
+    - { e: "NEXT_DAY(DATE '2026-11-20', 'FRIDAY')", o1: '2026-11-20', o2: '2026-11-21', o3: '2026-11-27', o4: '2026-12-04', ans: 2 }
+    - { e: "DATE '2026-12-30' + 5", o1: '2026-12-35', o2: '2026-01-04', o3: '2027-01-05', o4: '2027-01-04', ans: 3 }
+    - { e: "ADD_MONTHS(DATE '2026-02-28', 1)", o1: '2026-03-31', o2: '2026-03-28', o3: '2026-03-30', o4: '2026-04-28', ans: 0 }
+  prompt: 'What date does SELECT {{e}} FROM DUAL return (written year-month-day)? 2026-11-20 is a Friday.'
+  parts:
+    - ask: 'Date'
+      label: a
+      choice: ["{{o1}}", "{{o2}}", "{{o3}}", "{{o4}}"]
+      correct: ans
+      explain: 'ADD_MONTHS keeps the day of the month, but a month-end stays a month-end: Jan 31 + 1 month is Feb 28, and Feb 28 + 1 month is Mar 31. NEXT_DAY gives the first named weekday strictly after the date, so from a Friday it jumps a full week. DATE + n adds n days'
+  verify: { choices: { a: "sql_pick('emp', 'SELECT ' + e + ' FROM DUAL', [o1, o2, o3, o4])" } }
+
+# ── 5 conversion and conditional expressions ───────────────────────────────
+- template: sq-null-fn
+  skill: sql.functions
+  pace: quick
+  figure: *EMP
+  cases:
+    - { q: "SELECT SUM(NVL(salary, 1000)) FROM emp", ans: 26000 }
+    - { q: "SELECT SUM(NVL2(salary, 1, 0)) FROM emp", ans: 5 }
+    - { q: "SELECT COUNT(NULLIF(dept, 'IT')) FROM emp", ans: 3 }
+    - { q: "SELECT COALESCE(NULL, NULL, 7, 9) FROM DUAL", ans: 7 }
+    - { q: "SELECT NULLIF(5, 6) FROM DUAL", ans: 5 }
+    - { q: "SELECT AVG(NVL(salary, 0)) FROM emp", ans: 4166.666666666667 }
+    - { q: "SELECT COALESCE(salary, mgr * 1000) FROM emp WHERE id = 5", ans: 3000 }
+  prompt: 'What does this return? {{q}}'
+  parts:
+    - { ask: 'Value', label: a, value: ans, tol: 0.0001, explain: 'NVL(x, v): v when x is NULL. NVL2(x, a, b): a when x is not NULL, b when it is. NULLIF(a, b): NULL when a = b, else a. COALESCE returns its first non-NULL argument. Turning NULLs into 0 before AVG changes the divisor from 5 to 6' }
+  verify: { expect: { a: "sql_val('emp', q)" } }
+
+- template: sq-case-decode
+  skill: sql.functions
+  pace: quick
+  figure: *EMP
+  cases:
+    - { q: "SELECT SUM(CASE WHEN salary >= 5000 THEN 1 ELSE 0 END) FROM emp", ans: 3 }
+    - { q: "SELECT SUM(CASE dept WHEN 'IT' THEN 2 WHEN 'Sales' THEN 1 ELSE 0 END) FROM emp", ans: 8 }
+    - { q: "SELECT SUM(DECODE(dept, 'IT', salary, 0)) FROM emp", ans: 11500 }
+    - { q: "SELECT MAX(CASE WHEN salary IS NULL THEN id END) FROM emp", ans: 5 }
+    - { q: "SELECT COUNT(CASE WHEN hired < 2021 THEN 1 END) FROM emp", ans: 3 }
+    - { q: "SELECT SUM(DECODE(mgr, NULL, 1, 0)) FROM emp", ans: 3 }
+  prompt: 'What does this return? {{q}}'
+  parts:
+    - { ask: 'Value', label: a, value: ans, tol: 0.0001, explain: 'CASE returns the first THEN whose WHEN is true, else the ELSE value, else NULL. DECODE(x, s1, r1, s2, r2, …, default) is Oracle''s compact equality CASE, and unlike = it treats two NULLs as a match. COUNT skips the NULLs a CASE with no ELSE produces' }
+  verify: { expect: { a: "sql_val('emp', q)" } }
+
+- template: sq-to-char
+  skill: sql.functions
+  pace: quick
+  cases:
+    - { e: "TO_CHAR(1234.5, '9,999.99')", o1: ' 1,234.50', o2: '1234.5', o3: '1,234.5', o4: '########', ans: 0 }
+    - { e: "TO_CHAR(12345, '9,999')", o1: '12,345', o2: '######', o3: '2,345', o4: '12345', ans: 1 }
+    - { e: "TO_CHAR(DATE '2026-11-20', 'DD-MON-YYYY')", o1: '20-11-2026', o2: '2026-NOV-20', o3: '20-NOV-2026', o4: 'Friday 20', ans: 2 }
+    - { e: "TO_CHAR(DATE '2026-11-20', 'fmDay')", o1: 'FRIDAY', o2: 'Fri', o3: '20', o4: 'Friday', ans: 3 }
+    - { e: "TO_NUMBER('1,234.50', '9,999.99')", o1: '1234.5', o2: '1,234.50', o3: 'An error', o4: '1234', ans: 0 }
+    - { e: "TO_CHAR(0.5, '0.99')", o1: '.50', o2: ' 0.50', o3: '0.5', o4: '00.50', ans: 1 }
+  prompt: 'What does SELECT {{e}} FROM DUAL return?'
+  parts:
+    - ask: 'Result'
+      label: a
+      choice: ["{{o1}}", "{{o2}}", "{{o3}}", "{{o4}}"]
+      correct: ans
+      explain: '9 is a digit position, 0 a digit that is always shown, and , . print separators. A number too wide for its model prints as # signs. Number models leave one leading position for the sign, which is why the results start with a space. In dates, DD, MON, YYYY and Day are fields; fm (fill mode) drops the padding'
+  verify: { authored: true }
+
+- template: sq-implicit
+  skill: sql.functions
+  pace: quick
+  cases:
+    - { c: "WHERE salary = '5000'", ans: 0 }
+    - { c: "WHERE id = '6'", ans: 0 }
+    - { c: "SELECT '10' + 5 FROM DUAL", ans: 0 }
+    - { c: "WHERE hired_on = '20-NOV-26'", ans: 1 }
+    - { c: "SELECT 'ten' + 5 FROM DUAL", ans: 2 }
+    - { c: "WHERE salary = '5,000'", ans: 2 }
+  prompt: 'salary and id are NUMBER columns and hired_on is a DATE. In Oracle, what happens with {{c}}?'
+  parts:
+    - ask: 'Result'
+      label: a
+      choice: ["Works: the string is converted to a number", "Works only if the string matches the session's date format", "Fails: ORA-01722 invalid number"]
+      correct: ans
+      explain: 'Oracle converts a character string to the type it is compared with or added to. Text that looks like a plain number converts; anything else (letters, a thousands comma) raises invalid number. A string compared with a DATE is read with NLS_DATE_FORMAT, so the same query can fail on another session: use TO_DATE or a DATE literal instead'
+  verify: { authored: true }
+
+# ── 6 group functions ──────────────────────────────────────────────────────
+- template: sq-aggregate
+  skill: sql.aggregate
+  pace: quick
+  figure: *EMP
+  cases:
+    - { q: "SELECT COUNT(*) FROM emp", ans: 6 }
+    - { q: "SELECT COUNT(salary) FROM emp", ans: 5 }
+    - { q: "SELECT COUNT(DISTINCT dept) FROM emp", ans: 3 }
+    - { q: "SELECT COUNT(mgr) FROM emp", ans: 3 }
+    - { q: "SELECT AVG(salary) FROM emp", ans: 5000 }
+    - { q: "SELECT SUM(salary) / COUNT(*) FROM emp", ans: 4166.666666666667 }
+    - { q: "SELECT MAX(salary) - MIN(salary) FROM emp", ans: 2000 }
+    - { q: "SELECT COUNT(DISTINCT mgr) FROM emp", ans: 2 }
+  prompt: 'What does this return? {{q}}'
+  parts:
+    - { ask: 'Value', label: a, value: ans, tol: 0.0001, explain: 'COUNT(*) counts rows; COUNT(col) counts the non-NULL values in col. Every other group function also skips NULLs, so AVG(salary) divides by 5 here, not 6' }
+  verify: { expect: { a: "sql_val('emp', q)" } }
+
+- template: sq-group-rows
+  skill: sql.aggregate
+  pace: quick
+  figure: *EMP
+  cases:
+    - { q: "SELECT dept, COUNT(*) FROM emp GROUP BY dept", ans: 3 }
+    - { q: "SELECT dept, COUNT(*) FROM emp GROUP BY dept HAVING COUNT(*) > 1", ans: 2 }
+    - { q: "SELECT dept, COUNT(*) FROM emp WHERE salary > 4500 GROUP BY dept", ans: 2 }
+    - { q: "SELECT dept, hired, COUNT(*) FROM emp GROUP BY dept, hired", ans: 6 }
+    - { q: "SELECT dept FROM emp GROUP BY dept HAVING AVG(salary) > 5000", ans: 1 }
+    - { q: "SELECT mgr, COUNT(*) FROM emp GROUP BY mgr", ans: 3 }
+  prompt: 'How many rows does this return? {{q}}'
+  parts:
+    - { ask: 'Rows', label: a, value: ans, tol: 0.0001, explain: 'One row per distinct combination of the GROUP BY columns, with NULL forming a group of its own. WHERE drops rows before they are grouped (a group with no rows left disappears); HAVING drops whole groups afterward' }
+  verify: { expect: { a: "sql_count('emp', q)" } }
+
+- template: sq-group-nested
+  skill: sql.aggregate
+  pace: quick
+  figure: *EMP
+  cases:
+    - { q: "SELECT MAX(AVG(salary)) FROM emp GROUP BY dept", vq: "SELECT MAX(v) FROM (SELECT AVG(salary) v FROM emp GROUP BY dept)", ans: 5750 }
+    - { q: "SELECT MIN(MAX(salary)) FROM emp GROUP BY dept", vq: "SELECT MIN(v) FROM (SELECT MAX(salary) v FROM emp GROUP BY dept)", ans: 4500 }
+    - { q: "SELECT AVG(COUNT(*)) FROM emp GROUP BY dept", vq: "SELECT AVG(v) FROM (SELECT COUNT(*) v FROM emp GROUP BY dept)", ans: 2 }
+    - { q: "SELECT SUM(salary) FROM emp GROUP BY dept HAVING COUNT(*) = 3", vq: "SELECT SUM(salary) FROM emp GROUP BY dept HAVING COUNT(*) = 3", ans: 11500 }
+    - { q: "SELECT MAX(COUNT(salary)) FROM emp GROUP BY dept", vq: "SELECT MAX(v) FROM (SELECT COUNT(salary) v FROM emp GROUP BY dept)", ans: 2 }
+  prompt: 'What does this return? {{q}}'
+  parts:
+    - { ask: 'Value', label: a, value: ans, tol: 0.0001, explain: 'Oracle allows one group function inside another when there is a GROUP BY: the inner one runs per group, the outer one over those results, leaving a single row. Nothing else may then be in the select list. Two levels is the limit' }
+  verify: { expect: { a: "sql_val('emp', vq)" } }
+
+- template: sq-group-error
+  skill: sql.aggregate
+  pace: quick
+  cases:
+    - { q: "SELECT dept, COUNT(*) FROM emp GROUP BY dept HAVING COUNT(*) > 1", ans: 0 }
+    - { q: "SELECT COUNT(*) FROM emp GROUP BY dept", ans: 0 }
+    - { q: "SELECT dept, name, COUNT(*) FROM emp GROUP BY dept", ans: 1 }
+    - { q: "SELECT dept FROM emp GROUP BY dept HAVING salary > 4000", ans: 1 }
+    - { q: "SELECT dept, COUNT(*) FROM emp WHERE COUNT(*) > 1 GROUP BY dept", ans: 2 }
+    - { q: "SELECT dept, MAX(AVG(salary)) FROM emp GROUP BY dept", ans: 3 }
+  prompt: 'What happens? {{q}}'
+  parts:
+    - ask: 'Result'
+      label: a
+      choice: ["Runs", "Error: a column that is neither grouped nor inside a group function", "Error: a group function in WHERE", "Error: a plain column beside a nested group function"]
+      correct: ans
+      explain: 'With GROUP BY, everything in SELECT and HAVING must be a grouped column, a group function or a constant (a grouped column need not be selected). WHERE runs before grouping, so it cannot test a group function: that belongs in HAVING. A nested group function returns one row, so no per-group column can stand beside it'
+  verify: { authored: true }
+
+- template: sq-clause-order
+  skill: sql.aggregate
+  pace: recall
+  cases:
+    - { c: 'FROM (and its joins)', ans: 0 }
+    - { c: 'WHERE', ans: 1 }
+    - { c: 'GROUP BY', ans: 2 }
+    - { c: 'HAVING', ans: 3 }
+    - { c: 'SELECT', ans: 4 }
+  prompt: 'In the order a query is logically worked out, which clause comes right after {{c}}?'
+  parts:
+    - ask: 'Next clause'
+      label: a
+      choice: ["WHERE", "GROUP BY", "HAVING", "SELECT", "ORDER BY"]
+      correct: ans
+      explain: 'FROM → WHERE → GROUP BY → HAVING → SELECT → ORDER BY (then the row limit). That order explains the rules: WHERE cannot see group functions, nothing before SELECT can see its aliases, and ORDER BY can use both aliases and positions'
+  verify: { authored: true }
+
+# ── 7 joins ────────────────────────────────────────────────────────────────
+- template: sq-join-count
+  skill: sql.joins
+  pace: quick
+  figure: &EMPD
+    type: scheme
+    plain: true
+    panels:
+      - type: table
+        caption: emp
+        head: [id, name, dept, salary, mgr, hired]
+        rows: [[1, Ana, Sales, 5000, "NULL", 2019], [2, Ben, Sales, 4000, 1, 2021], [3, Cy, IT, 6000, "NULL", 2018], [4, Dee, IT, 5500, 3, 2020], [5, Eli, IT, "NULL", 3, 2022], [6, Fay, HR, 4500, "NULL", 2021]]
+      - type: table
+        caption: depts
+        head: [dept, city]
+        rows: [[Sales, Boston], [IT, Austin], [Ops, Denver]]
+  cases:
+    - { j: "emp e JOIN depts d ON e.dept = d.dept", ans: 5 }
+    - { j: "emp e LEFT JOIN depts d ON e.dept = d.dept", ans: 6 }
+    - { j: "emp e RIGHT JOIN depts d ON e.dept = d.dept", ans: 6 }
+    - { j: "emp e FULL JOIN depts d ON e.dept = d.dept", ans: 7 }
+    - { j: "emp CROSS JOIN depts", ans: 18 }
+    - { j: "emp NATURAL JOIN depts", ans: 5 }
+    - { j: "emp JOIN depts USING (dept)", ans: 5 }
+    - { j: "emp e LEFT JOIN depts d ON e.dept = d.dept WHERE d.city IS NULL", ans: 1 }
+    - { j: "emp e RIGHT JOIN depts d ON e.dept = d.dept WHERE e.id IS NULL", ans: 1 }
+  prompt: 'How many rows does this return? SELECT * FROM {{j}}'
+  parts:
+    - { ask: 'Rows', label: a, value: ans, tol: 0.0001, explain: 'An inner join keeps matched pairs only (HR has no depts row, Ops has no employees). LEFT adds unmatched rows of the left table with NULLs on the right, RIGHT the reverse, FULL both. CROSS pairs every row with every row (6 × 3). NATURAL and USING join on the same-named column. Keeping the rows whose other side is NULL finds the unmatched ones' }
+  verify: { expect: { a: "sql_count('emp', 'SELECT * FROM ' + j)" } }
+
+- template: sq-join-pick
+  skill: sql.joins
+  pace: quick
+  figure: *EMPD
+  cases:
+    - { want: 'only employees whose department has a row in depts', t: "SELECT e.name, d.dept FROM emp e, depts d WHERE e.dept = d.dept", ans: 0 }
+    - { want: 'every employee, with their department''s depts row where there is one', t: "SELECT e.name, d.dept FROM emp e, depts d WHERE e.dept = d.dept UNION ALL SELECT name, NULL FROM emp WHERE dept NOT IN (SELECT dept FROM depts)", ans: 1 }
+    - { want: 'every department in depts, with its employees where it has any', t: "SELECT e.name, d.dept FROM emp e, depts d WHERE e.dept = d.dept UNION ALL SELECT NULL, dept FROM depts WHERE dept NOT IN (SELECT dept FROM emp)", ans: 2 }
+    - { want: 'every employee and every department, paired where they match', t: "SELECT e.name, d.dept FROM emp e, depts d WHERE e.dept = d.dept UNION ALL SELECT name, NULL FROM emp WHERE dept NOT IN (SELECT dept FROM depts) UNION ALL SELECT NULL, dept FROM depts WHERE dept NOT IN (SELECT dept FROM emp)", ans: 3 }
+  prompt: 'SELECT e.name, d.dept FROM emp e ___ depts d ON e.dept = d.dept. Which join gives {{want}}?'
+  parts:
+    - ask: 'Join'
+      label: a
+      choice: ["JOIN", "LEFT JOIN", "RIGHT JOIN", "FULL JOIN"]
+      correct: ans
+      explain: 'Name the table whose rows must all survive: the left one (LEFT), the right one (RIGHT), both (FULL) or neither (inner JOIN). Here an inner join loses Fay (HR) and Ops; LEFT keeps Fay, RIGHT keeps Ops, FULL keeps both'
+  verify: { choices: { a: "sql_match('emp', ['SELECT e.name, d.dept FROM emp e ' + k + ' depts d ON e.dept = d.dept' for k in ['JOIN', 'LEFT JOIN', 'RIGHT JOIN', 'FULL JOIN']], t)" } }
+
+- template: sq-self-join
+  skill: sql.joins
+  pace: quick
+  figure: *EMP
+  cases:
+    - { q: "SELECT COUNT(*) FROM emp e JOIN emp m ON e.mgr = m.id", ans: 3 }
+    - { q: "SELECT COUNT(*) FROM emp e LEFT JOIN emp m ON e.mgr = m.id", ans: 6 }
+    - { q: "SELECT COUNT(DISTINCT m.id) FROM emp e JOIN emp m ON e.mgr = m.id", ans: 2 }
+    - { q: "SELECT COUNT(*) FROM emp e JOIN emp m ON e.mgr = m.id WHERE e.salary < m.salary", ans: 2 }
+    - { q: "SELECT m.id FROM emp e JOIN emp m ON e.mgr = m.id WHERE e.name = 'Ben'", ans: 1 }
+    - { q: "SELECT SUM(m.salary) FROM emp e JOIN emp m ON e.mgr = m.id WHERE m.dept = 'IT'", ans: 12000 }
+  prompt: 'Each employee''s mgr is the id of their manager. What does this return? {{q}}'
+  parts:
+    - { ask: 'Value', label: a, value: ans, tol: 0.0001, explain: 'A self-join reads the table twice under two aliases: e is the employee, m the row whose id matches e.mgr. Inner joining drops people with no manager; a manager with two reports appears twice' }
+  verify: { expect: { a: "sql_val('emp', q)" } }
+
+- template: sq-nonequi
+  skill: sql.joins
+  pace: quick
+  figure: &EMPG
+    type: scheme
+    plain: true
+    panels:
+      - type: table
+        caption: emp
+        head: [id, name, dept, salary, mgr, hired]
+        rows: [[1, Ana, Sales, 5000, "NULL", 2019], [2, Ben, Sales, 4000, 1, 2021], [3, Cy, IT, 6000, "NULL", 2018], [4, Dee, IT, 5500, 3, 2020], [5, Eli, IT, "NULL", 3, 2022], [6, Fay, HR, 4500, "NULL", 2021]]
+      - type: table
+        caption: grades
+        head: [grade, lo, hi]
+        rows: [[A, 0, 4499], [B, 4500, 5499], [C, 5500, 9999]]
+  cases:
+    - { q: "SELECT COUNT(*) FROM emp e JOIN grades g ON e.salary BETWEEN g.lo AND g.hi WHERE g.grade = 'B'", ans: 2 }
+    - { q: "SELECT COUNT(*) FROM emp e JOIN grades g ON e.salary BETWEEN g.lo AND g.hi WHERE g.grade = 'C'", ans: 2 }
+    - { q: "SELECT COUNT(*) FROM emp e JOIN grades g ON e.salary BETWEEN g.lo AND g.hi", ans: 5 }
+    - { q: "SELECT COUNT(*) FROM emp e LEFT JOIN grades g ON e.salary BETWEEN g.lo AND g.hi", ans: 6 }
+    - { q: "SELECT SUM(e.salary) FROM emp e JOIN grades g ON e.salary BETWEEN g.lo AND g.hi WHERE g.grade <> 'C'", ans: 13500 }
+  prompt: 'What does this return? {{q}}'
+  parts:
+    - { ask: 'Value', label: a, value: ans, tol: 0.0001, explain: 'A non-equijoin matches on a range instead of equality: each salary lands in the one grade whose lo–hi band contains it. A NULL salary is in no band, so an inner join drops Eli and a LEFT JOIN keeps him with a NULL grade' }
+  verify: { expect: { a: "sql_val('emp', q)" } }
+
+- template: sq-oracle-plus
+  skill: sql.joins
+  pace: quick
+  cases:
+    - { w: 'WHERE e.dept = d.dept', ans: 0 }
+    - { w: 'WHERE e.dept = d.dept(+)', ans: 1 }
+    - { w: 'WHERE e.dept(+) = d.dept', ans: 2 }
+    - { w: 'WHERE e.dept(+) = d.dept(+)', ans: 3 }
+  prompt: 'SELECT … FROM emp e, depts d {{w}}. Which ANSI join is this?'
+  parts:
+    - ask: 'Join'
+      label: a
+      choice: ["emp JOIN depts (inner)", "emp LEFT JOIN depts: every employee kept", "emp RIGHT JOIN depts: every department kept", "None: (+) cannot be on both sides"]
+      correct: ans
+      explain: 'Oracle''s old outer-join mark (+) goes on the side that may be missing, the side that gets NULLs. So (+) on depts keeps every employee. There is no (+) form of a full outer join; write FULL JOIN in ANSI syntax'
+  verify: { authored: true }
+
+# ── 8 subqueries ───────────────────────────────────────────────────────────
+- template: sq-subquery-count
+  skill: sql.subqueries
+  pace: quick
+  figure: *EMPD
+  cases:
+    - { w: "salary > (SELECT AVG(salary) FROM emp)", vw: "salary > (SELECT AVG(salary) FROM emp)", ans: 2 }
+    - { w: "salary = (SELECT MAX(salary) FROM emp)", vw: "salary = (SELECT MAX(salary) FROM emp)", ans: 1 }
+    - { w: "dept IN (SELECT dept FROM depts)", vw: "dept IN (SELECT dept FROM depts)", ans: 5 }
+    - { w: "dept NOT IN (SELECT dept FROM depts)", vw: "dept NOT IN (SELECT dept FROM depts)", ans: 1 }
+    - { w: "salary > ALL (SELECT salary FROM emp WHERE dept = 'Sales')", vw: "salary > (SELECT MAX(salary) FROM emp WHERE dept = 'Sales')", ans: 2 }
+    - { w: "salary < ANY (SELECT salary FROM emp WHERE dept = 'IT')", vw: "salary < (SELECT MAX(salary) FROM emp WHERE dept = 'IT')", ans: 4 }
+    - { w: "salary > (SELECT AVG(salary) FROM emp x WHERE x.dept = e.dept)", vw: "salary > (SELECT AVG(salary) FROM emp x WHERE x.dept = e.dept)", ans: 2 }
+    - { w: "EXISTS (SELECT 1 FROM emp x WHERE x.mgr = e.id)", vw: "EXISTS (SELECT 1 FROM emp x WHERE x.mgr = e.id)", ans: 2 }
+  prompt: 'How many rows does this return? SELECT name FROM emp e WHERE {{w}}'
+  parts:
+    - { ask: 'Rows', label: a, value: ans, tol: 0.0001, explain: '> ALL means greater than the largest value, < ANY less than the largest, > ANY greater than the smallest. A correlated subquery (one that mentions e) is rerun for every outer row, so "above my own department''s average" compares each person with a different number. EXISTS is true when the subquery returns any row at all' }
+  verify: { expect: { a: "sql_count('emp', 'SELECT name FROM emp e WHERE ' + vw)" } }
+
+- template: sq-subquery-error
+  skill: sql.subqueries
+  pace: quick
+  cases:
+    - { w: "salary IN (SELECT salary FROM emp WHERE dept = 'IT')", ans: 0 }
+    - { w: "salary = (SELECT salary FROM emp WHERE dept = 'HR')", ans: 0 }
+    - { w: "salary > ANY (SELECT salary FROM emp WHERE dept = 'IT')", ans: 0 }
+    - { w: "salary = (SELECT salary FROM emp WHERE dept = 'Ops')", ans: 1 }
+    - { w: "salary = (SELECT salary FROM emp WHERE dept = 'IT')", ans: 2 }
+    - { w: "salary > (SELECT salary FROM emp WHERE dept = 'Sales')", ans: 2 }
+  prompt: 'On the emp table above (HR has one employee, Ops none), what happens? SELECT name FROM emp WHERE {{w}}'
+  parts:
+    - ask: 'Result'
+      label: a
+      choice: ["Runs and returns rows", "Runs but returns no rows", "Error: single-row subquery returns more than one row"]
+      correct: ans
+      explain: '=, <, > and the like expect the subquery to give at most one row; more raises ORA-01427 at run time, not when parsed. A subquery that finds nothing gives NULL, so the comparison is never true and no rows come back. IN, ANY and ALL take any number of rows'
+  verify: { authored: true }
+
+- template: sq-correlated-dml
+  skill: sql.subqueries
+  pace: quick
+  figure: *EMPD
+  cases:
+    - { s: "UPDATE emp e SET salary = (SELECT MAX(salary) FROM emp x WHERE x.dept = e.dept) WHERE salary IS NULL", q: "SELECT salary FROM emp WHERE id = 5", ans: 6000 }
+    - { s: "DELETE FROM emp e WHERE salary < (SELECT AVG(salary) FROM emp x WHERE x.dept = e.dept)", q: "SELECT COUNT(*) FROM emp", ans: 4 }
+    - { s: "DELETE FROM emp WHERE dept NOT IN (SELECT dept FROM depts)", q: "SELECT COUNT(*) FROM emp", ans: 5 }
+    - { s: "UPDATE emp SET salary = salary * 1.1 WHERE dept = (SELECT dept FROM depts WHERE city = 'Austin')", q: "SELECT SUM(salary) FROM emp", ans: 26150 }
+    - { s: "UPDATE emp e SET salary = (SELECT salary FROM emp m WHERE m.id = e.mgr) WHERE mgr IS NOT NULL", q: "SELECT SUM(salary) FROM emp", ans: 32500 }
+  prompt: 'After {{s}}, what does {{q}} return?'
+  parts:
+    - { ask: 'Value', label: a, value: ans, tol: 0.0001, explain: 'In a correlated UPDATE or DELETE the subquery is worked out for each target row, against the table as it stood when the statement began, so averages do not drift as rows change' }
+  verify: { expect: { a: "sql_after('emp', s, q)" } }
+
+# ── 9 set operators ────────────────────────────────────────────────────────
+- template: sq-set-count
+  skill: sql.subqueries
+  pace: quick
+  figure:
+    type: scheme
+    plain: true
+    panels:
+      - { type: table, caption: a, head: [n], rows: [[1], [2], [2], [3]] }
+      - { type: table, caption: b, head: [n], rows: [[2], [3], [4]] }
+  cases:
+    - { q: "SELECT n FROM a UNION SELECT n FROM b", ans: 4 }
+    - { q: "SELECT n FROM a UNION ALL SELECT n FROM b", ans: 7 }
+    - { q: "SELECT n FROM a INTERSECT SELECT n FROM b", ans: 2 }
+    - { q: "SELECT n FROM a MINUS SELECT n FROM b", ans: 1 }
+    - { q: "SELECT n FROM b MINUS SELECT n FROM a", ans: 1 }
+    - { q: "SELECT n FROM a UNION ALL SELECT n FROM a", ans: 8 }
+    - { q: "SELECT n FROM a INTERSECT SELECT n FROM a", ans: 3 }
+    - { q: "SELECT n FROM a UNION SELECT n FROM a", ans: 3 }
+  prompt: 'How many rows does this return? {{q}}'
+  parts:
+    - { ask: 'Rows', label: a, value: ans, tol: 0.0001, explain: 'UNION ALL keeps every row from both queries. UNION, INTERSECT and MINUS treat each side as a set: duplicates are removed (and the result is sorted). MINUS keeps the first query''s values that the second lacks, so its order matters' }
+  verify: { expect: { a: "sql_count('sets', q)" } }
+
+- template: sq-set-rules
+  skill: sql.subqueries
+  pace: recall
+  cases:
+    - { c: 'Where may ORDER BY appear in a compound query?', o1: 'Once, at the very end', o2: 'After each SELECT', o3: 'Only in the first SELECT', o4: 'Nowhere', ans: 0 }
+    - { c: 'Which column names does the result of a UNION carry?', o1: 'The last query''s', o2: 'The first query''s', o3: 'Generated names', o4: 'Whichever query is longer', ans: 1 }
+    - { c: 'What happens with SELECT n, n FROM a UNION SELECT n FROM b?', o1: 'Runs; the missing column is NULL', o2: 'Runs; the extra column is dropped', o3: 'Error: the queries return different numbers of columns', o4: 'Runs as UNION ALL', ans: 2 }
+    - { c: 'A UNION and an INTERSECT in one statement with no parentheses are worked out how?', o1: 'INTERSECT first', o2: 'UNION first', o3: 'An error', o4: 'Left to right: all set operators rank equally', ans: 3 }
+    - { c: 'Which set operator is cheapest, because it neither sorts nor removes duplicates?', o1: 'UNION ALL', o2: 'UNION', o3: 'INTERSECT', o4: 'MINUS', ans: 0 }
+  prompt: '{{c}}'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["{{o1}}", "{{o2}}", "{{o3}}", "{{o4}}"]
+      correct: ans
+      explain: 'The queries in a compound query must select the same number of columns, of matching type groups, in the same order. Names come from the first query, ORDER BY goes once at the end (by those names or by position), and Oracle evaluates UNION, UNION ALL, INTERSECT and MINUS left to right unless parentheses say otherwise'
+  verify: { authored: true }

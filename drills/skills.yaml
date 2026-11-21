@@ -44,6 +44,7 @@ domains:
   - { id: physics, title: "Physics" }
   - { id: gchem, title: "General chemistry" }
   - { id: bio, title: "Biology" }
+  - { id: sql, title: "SQL" }
   - { id: md, title: "Molecular simulation" }
   - { id: compchem, title: "Computational chemistry" }
 
@@ -637,6 +638,15 @@ skills:
   - { id: gchem.acidbase, domain: gchem, title: "Acid–base equilibria: pH, weak acids and bases, titrations and buffers", short: "Acids and bases", prereqs: [gchem.equilibrium] }
   - { id: gchem.thermo, domain: gchem, title: "Entropy, free energy and favorability", short: "Free energy", prereqs: [gchem.thermochem, gchem.equilibrium] }
   - { id: gchem.electro, domain: gchem, title: "Electrochemistry: cells, potentials, Nernst and electrolysis", short: "Electrochemistry", prereqs: [gchem.thermo] }
+  - { id: sql.select, domain: sql, title: "Relational basics, SELECT, filtering and sorting", short: "SELECT and WHERE" }
+  - { id: sql.functions, domain: sql, title: "Single-row, conversion and conditional functions", short: "Functions", prereqs: [sql.select] }
+  - { id: sql.aggregate, domain: sql, title: "Group functions, GROUP BY and HAVING", short: "Grouping", prereqs: [sql.functions] }
+  - { id: sql.joins, domain: sql, title: "Inner, outer, self and non-equi joins", short: "Joins", prereqs: [sql.select] }
+  - { id: sql.subqueries, domain: sql, title: "Subqueries and set operators", short: "Subqueries and sets", prereqs: [sql.joins, sql.aggregate] }
+  - { id: sql.dml, domain: sql, title: "INSERT, UPDATE, DELETE, MERGE and transactions", short: "DML and transactions", prereqs: [sql.subqueries] }
+  - { id: sql.ddl, domain: sql, title: "Tables, constraints, views, indexes, sequences and synonyms", short: "DDL and objects", prereqs: [sql.dml] }
+  - { id: sql.admin, domain: sql, title: "Privileges, the data dictionary and time zones", short: "Access, dictionary, time", prereqs: [sql.ddl] }
+  - { id: sql.analytic, domain: sql, title: "Window functions and star-schema reporting", short: "Windows and reporting", prereqs: [sql.aggregate, sql.joins] }
 
   # ── physics: electricity and magnetism, particles ───────────────────────────
   - { id: physics.kinematics, domain: physics, title: "Kinematics: vectors, graphs, constant acceleration, projectiles", short: "Kinematics" }

@@ -2,7 +2,7 @@
 
 Generated from `drills/frameworks/computer-science.yaml` by `scripts/framework.mjs`. ● drilled · ◐ partly · ○ no drills yet.
 
-**140 learning objectives** in 19 units (128 core): 0 drilled, 0 partly, 140 with no drills. Core: 0 / 128 drilled.
+**140 learning objectives** in 19 units (128 core): 1 drilled, 0 partly, 139 with no drills. Core: 1 / 128 drilled.
 
 ## Big ideas
 
@@ -34,7 +34,7 @@ Generated from `drills/frameworks/computer-science.yaml` by `scripts/framework.m
 | 4 · Algorithm design and graph algorithms | core | — | 11 | 0 | 0 | 11 |
 | 5 · Models of computation and complexity classes | core | — | 6 | 0 | 0 | 6 |
 | 6 · Software engineering | core | — | 8 | 0 | 0 | 8 |
-| 7 · Databases and data management | core | — | 13 | 0 | 0 | 13 |
+| 7 · Databases and data management | core | — | 13 | 1 | 0 | 12 |
 | 8 · Computer architecture and systems performance | core | — | 9 | 0 | 0 | 9 |
 | 9 · Operating systems and systems programming | core | — | 11 | 0 | 0 | 11 |
 | 10 · Networking | core | — | 9 | 0 | 0 | 9 |
@@ -391,9 +391,9 @@ Book: cs2023 §DM-Querying
   - EK: WHERE filters rows before grouping, HAVING filters groups after; every non-aggregated SELECT column must be grouped.
   - Needs: CS-7.1.B
   - P5
-- ○ **CS-7.2.B** Predict the result of an outer join, a comparison with NULL, or an aggregate over a column containing NULLs.
+- ● **CS-7.2.B** Predict the result of an outer join, a comparison with NULL, or an aggregate over a column containing NULLs.
   - EK: NULL = NULL is unknown, not true; COUNT(*) counts rows, COUNT(col) skips NULLs; LEFT JOIN keeps unmatched left rows with NULLs.
-  - P3
+  - P3 · drills: sq-join-count, sq-null-trap, sq-aggregate
 - ○ **CS-7.2.C** Write a query using a correlated subquery, CTE or window function (rank, running total, top-n per group).
   - EK: Window functions compute over a PARTITION BY … ORDER BY frame without collapsing rows.
   - Needs: CS-7.2.A
