@@ -1,25 +1,26 @@
-# Particle Physics — curriculum framework (draft 1, for Kevin's markup)
+# Particle Physics — curriculum framework (draft 2, for Kevin's markup)
 #
-# Basis, stated plainly: no standard was read for this. The topics are the ones an introductory
-# modern-physics chapter covers (OpenStax University Physics vol. 3, ch. 11, title from memory); the IB
-# Physics guide and the Particle Data Group's teaching materials are the places to look for a real one.
-# Until then the objective list is a house decision.
+# Basis:
+#   aqa-7408-particles  AQA A-level Physics section 3.2, Particles and radiation (read in this session).
+#                       Every objective below cites the section it serves.
+#   openstax-university-physics  vol. 3 ch. 11, for the relativity items the AQA section leaves out.
 #
-# Not here yet: Feynman diagrams, colour and confinement, strangeness and the other flavour quantum
-# numbers, parity and CP, neutrino oscillation, the Higgs mechanism, accelerators and detectors,
-# relativistic energy-momentum problems, and cosmology.
+# Not here yet: Feynman diagrams drawn from memory, the four interactions ranked by strength and range,
+# kaon and pion decays written out, colour and confinement, parity and CP, neutrino oscillation,
+# the Higgs mechanism, accelerators and detectors, and cosmology.
 id: particle-physics
 title: Particle Physics
 code: PP
-draft: 1
+draft: 2
 track: science
 requires: [physics, nuclear]
 level: 4
 domains: []
 
 basis:
-  primary: openstax-university-physics
-  note: "No published standard was read. Topics follow an introductory modern-physics chapter (OpenStax University Physics vol. 3 ch. 11, chapter title from memory); the objective list is a house decision."
+  primary: aqa-7408-particles
+  also: [openstax-university-physics]
+  note: "Objectives follow AQA A-level Physics section 3.2 (Particles and radiation), read in this session. The Lorentz-factor items go beyond it and rest on a university textbook chapter."
 
 big_ideas:
   - id: ZOO
@@ -47,12 +48,12 @@ units:
       - n: 1
         title: "Quarks and hadrons"
         los:
-          - { id: A, do: "Find the charge of a hadron from its quark content.", ek: ["u, c, t: +2/3; d, s, b: −1/3; antiquarks opposite."], p: [P1], drills: [pp-hadron-charge] }
-          - { id: B, do: "Classify a hadron as a baryon, an antibaryon or a meson.", ek: ["Three quarks, three antiquarks, or a quark and an antiquark."], p: [P2], drills: [pp-hadron-type] }
+          - { id: A, std: ["aqa-7408-particles:3.2.1.6"], do: "Find the charge of a hadron from its quark content.", ek: ["u, c, t: +2/3; d, s, b: −1/3; antiquarks opposite."], p: [P1], drills: [pp-hadron-charge] }
+          - { id: B, std: ["aqa-7408-particles:3.2.1.5"], do: "Classify a hadron as a baryon, an antibaryon or a meson.", ek: ["Three quarks, three antiquarks, or a quark and an antiquark."], p: [P2], drills: [pp-hadron-type] }
       - n: 2
         title: "Forces"
         los:
-          - { id: A, do: "Name the carrier of each interaction and the interaction behind a given process.", ek: ["Photon, W and Z, gluon; only the weak force changes flavour."], p: [P2], drills: [pp-force-carrier] }
+          - { id: A, std: ["aqa-7408-particles:3.2.1.4"], do: "Name the carrier of each interaction and the interaction behind a given process.", ek: ["Photon, W and Z, gluon; only the weak force changes flavour."], p: [P2], drills: [pp-force-carrier] }
   - id: conservation
     n: 2
     title: "Conservation laws and energy"
@@ -62,9 +63,30 @@ units:
       - n: 1
         title: "Allowed and forbidden"
         los:
-          - { id: A, do: "Check charge, baryon number and lepton numbers in a reaction or decay.", ek: ["Each balances separately; electron and muon lepton numbers are counted apart."], p: [P2], drills: [pp-conservation] }
+          - { id: A, std: ["aqa-7408-particles:3.2.1.7"], do: "Check charge, baryon number and lepton numbers in a reaction or decay.", ek: ["Each balances separately; electron and muon lepton numbers are counted apart."], p: [P2], drills: [pp-conservation] }
       - n: 2
         title: "Mass and energy"
         los:
-          - { id: A, do: "Convert a mass to a rest energy and find a pair-production threshold.", ek: ["931.5 MeV per u; a pair costs twice the rest energy."], p: [P1], drills: [pp-rest-energy, pp-pair-threshold] }
+          - { id: A, std: ["aqa-7408-particles:3.2.1.3"], do: "Convert a mass to a rest energy and find a pair-production threshold.", ek: ["931.5 MeV per u; a pair costs twice the rest energy."], p: [P1], drills: [pp-rest-energy, pp-pair-threshold] }
           - { id: B, do: "Calculate a Lorentz factor and a dilated lifetime or range.", ek: ["γ = 1/√(1 − v²/c²); lab lifetime = γ × rest lifetime."], p: [P1], drills: [pp-lorentz-factor, pp-muon-survival] }
+      - n: 3
+        title: "Strangeness, quark changes and specific charge"
+        los:
+          - { id: A, std: ["aqa-7408-particles:3.2.1.6"], do: "Find the strangeness of a hadron and say which interactions conserve it.", ek: ["s quark −1, anti-s +1; conserved by the strong interaction, changed by one in weak decays."], p: [P1, P2], drills: [pp-strangeness] }
+          - { id: B, std: ["aqa-7408-particles:3.2.1.7"], do: "State the quark change in beta-minus decay, beta-plus decay and electron capture.", ek: ["β⁻: d → u. β⁺ and electron capture: u → d. Only the weak interaction changes flavour."], p: [P2], drills: [pp-quark-change, ra-decay-chain] }
+          - { id: C, std: ["aqa-7408-particles:3.2.1.1"], do: "Calculate the specific charge of a particle or nucleus.", ek: ["Specific charge = charge ÷ mass, in C/kg."], p: [P1], drills: [pp-specific-charge] }
+  - id: quantum-phenomena
+    n: 3
+    title: "Electromagnetic radiation and quantum phenomena"
+    scope: core
+    std: ["aqa-7408-particles:3.2.2.1"]
+    ideas: [CONSERVE]
+    topics:
+      - n: 1
+        title: "Photons and energy levels"
+        los:
+          - { id: A, std: ["aqa-7408-particles:3.2.2.1"], do: "Apply the photoelectric equation with the work function and threshold frequency.", ek: ["hf = φ + E_k,max; below threshold nothing is emitted."], p: [P1], drills: [ph-photoelectric, ph-photon-energy] }
+          - { id: B, std: ["aqa-7408-particles:3.2.2.2"], do: "Convert between electronvolts and joules and find the energy an electron gains through a potential difference.", ek: ["1 eV = 1.60 × 10⁻¹⁹ J; an electron through V volts gains V eV."], p: [P1], drills: [ph-accelerated-electron] }
+          - { id: C, std: ["aqa-7408-particles:3.2.2.3"], do: "Relate a spectral line to the energy difference between two levels.", ek: ["hf = E₁ − E₂."], p: [P1], drills: [ph-hydrogen-line, ph-bohr-level] }
+          - { id: D, std: ["aqa-7408-particles:3.2.2.4"], do: "Calculate a de Broglie wavelength and say how diffraction changes with momentum.", ek: ["λ = h/mv; more momentum, shorter wavelength, less spreading."], p: [P1], drills: [ph-de-broglie] }
+
