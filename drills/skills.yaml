@@ -48,6 +48,7 @@ domains:
   - { id: aib, title: "AI basics" }
   - { id: acct, title: "Financial accounting" }
   - { id: prog, title: "Programming" }
+  - { id: csci, title: "Computer science" }
   - { id: md, title: "Molecular simulation" }
   - { id: compchem, title: "Computational chemistry" }
 
@@ -674,6 +675,15 @@ skills:
   - { id: prog.python, domain: prog, title: "Python: arithmetic, sequences, comprehensions, dicts and functions", short: "Python", prereqs: [prog.java-control] }
   - { id: prog.shell, domain: prog, title: "The Unix shell: paths, files, wildcards, filters, pipes, grep and find", short: "Shell" }
   - { id: prog.git, domain: prog, title: "Git: status, history, undoing, ignoring and branches", short: "Git", prereqs: [prog.shell] }
+  - { id: cs.discrete, domain: csci, title: "Counting, recurrences and probability for computing", short: "Discrete math" }
+  - { id: cs.analysis, domain: csci, title: "Growth rates, big-O of code, the master theorem, amortized cost", short: "Algorithm analysis", prereqs: [cs.discrete] }
+  - { id: cs.structures, domain: csci, title: "Data structures and databases: hashing, trees, heaps, keys, isolation", short: "Data structures", prereqs: [cs.analysis] }
+  - { id: cs.graphs, domain: csci, title: "Algorithm design: greedy, dynamic programming and graph algorithms", short: "Algorithms", prereqs: [cs.structures] }
+  - { id: cs.theory, domain: csci, title: "Automata, decidability and complexity classes", short: "Theory", prereqs: [cs.graphs] }
+  - { id: cs.systems, domain: csci, title: "Architecture, performance laws and operating systems", short: "Systems", prereqs: [cs.discrete] }
+  - { id: cs.networks, domain: csci, title: "Network delay, addressing and forwarding", short: "Networks", prereqs: [cs.systems] }
+  - { id: cs.security, domain: csci, title: "Vulnerabilities, toy RSA, password entropy and risk", short: "Security", prereqs: [cs.discrete] }
+  - { id: cs.software, domain: csci, title: "Software engineering, ML metrics, accessibility and sustainability", short: "Software and practice", prereqs: [cs.analysis] }
 
   # ── physics: electricity and magnetism, particles ───────────────────────────
   - { id: physics.kinematics, domain: physics, title: "Kinematics: vectors, graphs, constant acceleration, projectiles", short: "Kinematics" }

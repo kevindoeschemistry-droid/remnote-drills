@@ -1,0 +1,680 @@
+# Computer science (CS2023 body of knowledge), a first pass on the objectives a checker can
+# recompute: counting, recurrences, probability, data-structure and graph-algorithm traces, dynamic
+# programming, scheduling, paging, caches, performance laws, networking arithmetic, toy RSA.
+# Hand-worked answers; tests/verify/csalgo.py recomputes the traces with its own implementations
+# (graphs written "a-b:3", neighbours in alphabetical order), and sympy the formulas.
+
+# ── 1 discrete and probabilistic foundations ───────────────────────────────
+- template: cs-counting
+  skill: cs.discrete
+  pace: quick
+  cases:
+    - { s: 'How many 4-character PINs use the digits 0–9 with repetition allowed?', ans: 10000, v: "10**4" }
+    - { s: 'How many ways can 3 of 8 runners finish first, second and third?', ans: 336, v: "8*7*6" }
+    - { s: 'How many 3-person committees can be chosen from 10 people?', ans: 120, v: "binomial(10, 3)" }
+    - { s: 'How many distinct arrangements are there of the letters of BANANA?', ans: 60, v: "factorial(6)/(factorial(3)*factorial(2))" }
+    - { s: 'How many integers from 1 to 100 are divisible by 3 or 5?', ans: 47, v: "floor(100/3) + floor(100/5) - floor(100/15)" }
+    - { s: 'How many 8-bit strings contain exactly three 1s?', ans: 56, v: "binomial(8, 3)" }
+    - { s: 'How many ways can 5 identical cookies be shared among 3 children (some may get none)?', ans: 21, v: "binomial(7, 2)" }
+  prompt: '{{s}}'
+  parts:
+    - { ask: 'Count', label: a, value: ans, tol: 0.0001, explain: 'Order matters and repeats allowed: nᵏ. Order matters, no repeats: n!/(n − k)!. Order does not matter: C(n, k). Repeated letters divide out their own orderings. "Or" needs inclusion–exclusion (subtract the overlap). Identical items into bins: stars and bars, C(n + k − 1, k − 1)' }
+  verify: { expect: { a: "sympify(v)" } }
+
+- template: cs-recurrence
+  skill: cs.discrete
+  pace: quick
+  given: { nn: { pick: [10, 20, 50, 100] } }
+  cases:
+    - { r: 'T(n) = T(n − 1) + n, T(1) = 1', k: 0 }
+    - { r: 'T(n) = T(n − 1) + 2, T(1) = 3', k: 1 }
+    - { r: 'T(n) = 2T(n − 1), T(1) = 1', k: 2 }
+    - { r: 'T(n) = T(n − 1) + 2n − 1, T(1) = 1', k: 3 }
+  prompt: 'With {{r}}, what is T({{nn}})?'
+  parts:
+    - { ask: 'T(n)', label: a, value: "k == 0 ? nn*(nn + 1)/2 : (k == 1 ? 2*nn + 1 : (k == 2 ? 2^(nn - 1) : nn^2))", tol: 0.0001, explain: 'Unroll the recurrence: adding n each step sums 1 + 2 + … + n = n(n + 1)/2; adding a constant gives a line; doubling gives 2ⁿ⁻¹; adding the odd numbers gives n²' }
+  verify: { expect: { a: "[Sum(Symbol('i'), (Symbol('i'), 1, nn)).doit(), 3 + 2*(nn - 1), 2**(nn - 1), Sum(2*Symbol('i') - 1, (Symbol('i'), 1, nn)).doit()][k]" } }
+
+- template: cs-expected-collisions
+  skill: cs.discrete
+  pace: quick
+  given: { nk: { pick: [10, 20, 30, 50] }, m: { pick: [100, 365, 1000] } }
+  prompt: '{{nk}} keys are hashed uniformly at random into {{m}} slots. What is the expected number of colliding pairs (two keys in the same slot)?'
+  parts:
+    - { ask: 'Expected pairs', label: a, value: nk*(nk - 1)/2/m, tol: 0.001, explain: 'Linearity of expectation: one indicator per pair of keys, each pair colliding with probability 1/m, so the expectation is C(n, 2)/m, whether or not the pairs are independent. The birthday problem is this with m = 365' }
+  verify: { expect: { a: "binomial(nk, 2)/m" } }
+
+- template: cs-bayes-alert
+  skill: cs.discrete
+  pace: quick
+  given: { base: { pick: [0.001, 0.01, 0.05] }, tpr: { pick: [0.9, 0.99] }, fpr: { pick: [0.01, 0.05] } }
+  prompt: 'An intrusion detector catches {{tpr*100}}% of real attacks and falsely alarms on {{fpr*100}}% of normal sessions. {{base*100}}% of sessions are attacks. When it alarms, what is the probability the session really is an attack?'
+  parts:
+    - { ask: 'P(attack | alarm)', label: a, value: base*tpr/(base*tpr + (1 - base)*fpr), tol: 0.001, explain: 'Bayes: true alarms ÷ all alarms = P(A)·TPR ÷ (P(A)·TPR + P(not A)·FPR). With rare attacks, false alarms from the huge normal majority swamp the true ones: the base-rate fallacy' }
+  verify: { expect: { a: "tpr*base/(tpr*base + fpr - fpr*base)" } }
+
+# ── 2 algorithm analysis ───────────────────────────────────────────────────
+- template: cs-growth-rank
+  skill: cs.analysis
+  pace: recall
+  cases:
+    - { s: 'n log n vs n^1.5', ans: 1 }
+    - { s: '2ⁿ vs n¹⁰⁰', ans: 0 }
+    - { s: 'log₂ n vs √n', ans: 1 }
+    - { s: 'n! vs 2ⁿ', ans: 0 }
+    - { s: '(log n)³ vs n^0.1', ans: 1 }
+    - { s: 'log₂ n vs log₁₀ n', ans: 2 }
+  prompt: 'For large n, which grows faster: {{s}}?'
+  parts:
+    - ask: 'Faster'
+      label: a
+      choice: ["The first", "The second", "Neither: same order (they differ by a constant factor)"]
+      correct: ans
+      explain: 'Order: constants < logs < powers of logs < nᶜ for any c > 0 < polynomials < exponentials < factorials. Any polynomial eventually loses to any exponential, however large its degree. Logs in different bases differ by a constant factor, so the base does not matter in big-O'
+  verify: { authored: true }
+
+- template: cs-big-o-code
+  skill: cs.analysis
+  pace: quick
+  figure: { type: code, src: code }
+  cases:
+    - { code: "for (int i = 0; i < n; i++)\n  for (int j = 0; j < n; j++) work();", ans: 2 }
+    - { code: "for (int i = 0; i < n; i++)\n  for (int j = i; j < n; j++) work();", ans: 2 }
+    - { code: "for (int i = 1; i < n; i *= 2) work();", ans: 0 }
+    - { code: "for (int i = 0; i < n; i++)\n  for (int j = 1; j < n; j *= 2) work();", ans: 1 }
+    - { code: "for (int i = n; i > 0; i /= 2)\n  for (int j = 0; j < i; j++) work();", ans: 3 }
+    - { code: "for (int i = 0; i < n; i++) work();\nfor (int j = 0; j < n; j++) work();", ans: 3 }
+  prompt: 'How many times does work() run, in big-O terms?'
+  parts:
+    - ask: 'Order'
+      label: a
+      choice: ["O(log n)", "O(n log n)", "O(n²)", "O(n)"]
+      correct: ans
+      explain: 'Multiply nested independent loops, add sequential ones. A loop variable that doubles or halves runs log n times. A triangular inner loop still gives n²/2, which is O(n²). The halving outer loop with an inner loop to i sums n + n/2 + n/4 + … < 2n, so O(n)'
+  verify: { authored: true }
+
+- template: cs-master
+  skill: cs.analysis
+  pace: quick
+  cases:
+    - { r: 'T(n) = 2T(n/2) + n', ans: 1 }
+    - { r: 'T(n) = T(n/2) + 1', ans: 0 }
+    - { r: 'T(n) = 4T(n/2) + n', ans: 2 }
+    - { r: 'T(n) = 2T(n/2) + 1', ans: 3 }
+    - { r: 'T(n) = 2T(n/2) + n²', ans: 2 }
+    - { r: 'T(n) = 8T(n/2) + n²', ans: 4 }
+  prompt: 'Solve {{r}} by the master theorem.'
+  parts:
+    - ask: 'T(n)'
+      label: a
+      choice: ["Θ(log n)", "Θ(n log n)", "Θ(n²)", "Θ(n)", "Θ(n³)"]
+      correct: ans
+      explain: 'Compare f(n) with n^(log_b a). If f is smaller (by a polynomial factor), the leaves win: Θ(n^(log_b a)). If equal, multiply by log n. If f is bigger (and regular), the root wins: Θ(f). Merge sort is 2T(n/2) + n = Θ(n log n); binary search is T(n/2) + 1 = Θ(log n)'
+  verify: { authored: true }
+
+- template: cs-amortized
+  skill: cs.analysis
+  pace: quick
+  given: { nops: { pick: [8, 16, 32, 64] } }
+  prompt: 'A dynamic array starts with capacity 1 and doubles when full; copying an element costs 1 and writing the new element costs 1. What is the total cost of {{nops}} appends?'
+  parts:
+    - { ask: 'Total cost', label: a, value: nops + (nops - 1), tol: 0.0001, explain: 'Copies happen at sizes 1, 2, 4, …, n/2, which add up to n − 1, plus n writes: under 2n in all, so each append is O(1) amortized even though a single append can cost O(n)' }
+  verify: { expect: { a: "nops + Sum(2**Symbol('j'), (Symbol('j'), 0, log(nops, 2) - 1)).doit()" } }
+
+# ── 3 data structures ──────────────────────────────────────────────────────
+- template: cs-structure-cost
+  skill: cs.structures
+  pace: recall
+  cases:
+    - { s: 'reading element i of an array', ans: 0 }
+    - { s: 'inserting at the front of a singly linked list', ans: 0 }
+    - { s: 'inserting at the front of an array of n elements', ans: 1 }
+    - { s: 'reading element i of a linked list', ans: 1 }
+    - { s: 'searching a balanced binary search tree', ans: 2 }
+    - { s: 'extract-min from a binary heap', ans: 2 }
+    - { s: 'looking up a key in a hash table (expected, low load)', ans: 0 }
+    - { s: 'looking up a key in a hash table when every key collides', ans: 1 }
+  prompt: 'What does {{s}} cost?'
+  parts:
+    - ask: 'Cost'
+      label: a
+      choice: ["O(1)", "O(n)", "O(log n)"]
+      correct: ans
+      explain: 'Arrays give O(1) access by index but must shift to insert in front; linked lists insert at a known spot in O(1) but must walk to find it. Balanced trees and heaps keep height log n. Hash tables are O(1) only on average: a bad hash or a full table degrades to a list'
+  verify: { authored: true }
+
+- template: cs-hash-probe
+  skill: cs.structures
+  pace: quick
+  cases:
+    - { ks: '12 22 32 5', mode: linear, o1: '- - 12 22 32 5 - - - -', o2: '- - 12 - - 5 - - 22 32', o3: '5 - 12 22 32 - - - - -', o4: '- - 32 22 12 5 - - - -', ans: 0 }
+    - { ks: '15 25 35 9', mode: linear, o1: '- - - - - 15 25 35 - 9', o2: '- - - - - 15 25 35 9 -', o3: '9 - - - - 15 25 35 - -', o4: '- - - - - 15 - 25 - 35', ans: 0 }
+    - { ks: '18 28 38 8', mode: linear, o1: '8 - - - - - - - 18 28', o2: '28 38 8 - - - - - 18 -', o3: '38 8 - - - - - - 18 28', o4: '8 28 38 - - - - - 18 -', ans: 2 }
+    - { ks: '19 29 9 0', mode: linear, o1: '0 29 9 - - - - - - 19', o2: '29 9 0 - - - - - - 19', o3: '29 0 9 - - - - - - 19', o4: '0 9 29 - - - - - - 19', ans: 1 }
+  prompt: 'Keys {{ks}} are inserted in that order into a 10-slot table with h(k) = k mod 10 and linear probing (try the next slot up, wrapping around). What does the table hold, slots 0 to 9 ("-" empty)?'
+  parts:
+    - ask: 'Table'
+      label: a
+      choice: ["{{o1}}", "{{o2}}", "{{o3}}", "{{o4}}"]
+      correct: ans
+      explain: 'Each key goes to its home slot, or the next free one after it; keys that land in a run make the run longer (primary clustering), so later keys with nearby home slots get pushed further along. The probe sequence wraps from slot 9 to slot 0'
+  verify: { choices: { a: "pick(probe_table(ks, 10, mode), [o1, o2, o3, o4])" } }
+
+- template: cs-load-factor
+  skill: cs.structures
+  pace: quick
+  given: { alpha: { pick: [0.5, 0.75, 0.9] } }
+  prompt: 'In a linear-probing hash table at load factor α = {{alpha}}, an unsuccessful search takes about ½(1 + 1/(1 − α)²) probes. How many is that?'
+  parts:
+    - { ask: 'Probes', label: a, value: (1 + 1/(1 - alpha)^2)/2, tol: 0.001, explain: 'Load factor = keys ÷ slots. Probe counts in open addressing blow up as α nears 1 (at 0.9, about 50 probes), which is why such tables resize around 0.5–0.75; chaining degrades only linearly, about 1 + α' }
+  verify: { expect: { a: "Rational(1, 2)*(1 + (1 - alpha)**-2)" } }
+
+- template: cs-bst-traversal
+  skill: cs.structures
+  pace: quick
+  cases:
+    - { ks: '50 30 70 20 40 60 80', kind: pre, o1: '50 30 20 40 70 60 80', o2: '20 30 40 50 60 70 80', o3: '20 40 30 60 80 70 50', o4: '50 30 70 20 40 60 80', ans: 0 }
+    - { ks: '50 30 70 20 40 60 80', kind: post, o1: '50 30 20 40 70 60 80', o2: '20 40 30 60 80 70 50', o3: '20 30 40 50 60 70 80', o4: '80 60 70 40 20 30 50', ans: 1 }
+    - { ks: '8 3 10 1 6 14 4 7', kind: in, o1: '8 3 1 6 4 7 10 14', o2: '1 4 7 6 3 14 10 8', o3: '1 3 4 6 7 8 10 14', o4: '8 3 10 1 6 14 4 7', ans: 2 }
+    - { ks: '8 3 10 1 6 14 4 7', kind: pre, o1: '1 3 4 6 7 8 10 14', o2: '8 3 10 1 6 14 4 7', o3: '1 4 7 6 3 14 10 8', o4: '8 3 1 6 4 7 10 14', ans: 3 }
+    - { ks: '40 20 60 10 30', kind: post, o1: '10 30 20 60 40', o2: '40 20 10 30 60', o3: '10 20 30 40 60', o4: '30 10 20 60 40', ans: 0 }
+  prompt: 'Keys {{ks}} are inserted in that order into an empty binary search tree. What is its {{kind}}-order traversal?'
+  parts:
+    - ask: 'Traversal'
+      label: a
+      choice: ["{{o1}}", "{{o2}}", "{{o3}}", "{{o4}}"]
+      correct: ans
+      explain: 'Build the tree first (smaller keys left, larger right). Pre-order visits the node, then its left and right subtrees; in-order visits left, node, right, which always gives sorted order; post-order visits both subtrees before the node, so the root comes last'
+  verify: { choices: { a: "pick(bst_order(ks, kind), [o1, o2, o3, o4])" } }
+
+- template: cs-heap-trace
+  skill: cs.structures
+  pace: quick
+  cases:
+    - { ks: '5 3 8 1 9 2', ex: 0, o1: '1 3 2 5 9 8', o2: '1 2 3 5 8 9', o3: '1 3 8 5 9 2', o4: '5 3 8 1 9 2', ans: 0 }
+    - { ks: '5 3 8 1 9 2', ex: 1, o1: '3 5 2 8 9', o2: '2 3 8 5 9', o3: '2 5 3 9 8', o4: '3 2 8 5 9', ans: 1 }
+    - { ks: '10 20 15 5', ex: 0, o1: '5 10 15 20', o2: '10 5 15 20', o3: '5 20 15 10', o4: '5 10 20 15', ans: 0 }
+    - { ks: '7 6 5 4 3', ex: 0, o1: '3 4 5 6 7', o2: '7 6 5 4 3', o3: '3 4 6 7 5', o4: '4 3 6 7 5', ans: 2 }
+    - { ks: '7 6 5 4 3', ex: 1, o1: '4 5 6 7', o2: '4 6 5 7', o3: '5 4 6 7', o4: '4 7 5 6', ans: 0 }
+  prompt: 'Keys {{ks}} are inserted in that order into an empty binary min-heap (stored as an array), then extract-min runs {{ex}} time{{ex == 1 ? "" : "s"}}. What is the array?'
+  parts:
+    - ask: 'Array'
+      label: a
+      choice: ["{{o1}}", "{{o2}}", "{{o3}}", "{{o4}}"]
+      correct: ans
+      explain: 'Insert appends at the end and sifts up, swapping with the parent at (i − 1)/2 while smaller. Extract-min moves the last element to the root and sifts it down, swapping with the smaller child. A heap is only partly ordered: each parent ≤ its children, nothing more'
+  verify: { choices: { a: "pick(heap_after(ks, ex), [o1, o2, o3, o4])" } }
+
+- template: cs-btree-height
+  skill: cs.structures
+  pace: quick
+  given: { fan: { pick: [100, 200, 500] }, lev: { pick: [2, 3, 4] } }
+  prompt: 'A B+-tree index has a fan-out of {{fan}} (each node points to {{fan}} children). About how many leaf pages can {{lev}} levels below the root reach?'
+  parts:
+    - { ask: 'Leaf pages', label: a, value: fan^lev, tol: 0.0001, explain: 'Each level multiplies the reach by the fan-out, so height is about log_fanout(n). With fan-out in the hundreds, three or four levels cover billions of rows: a lookup costs a handful of page reads, and the top levels usually sit in memory. That is why databases use B+-trees, not binary trees' }
+  verify: { expect: { a: "fan**lev" } }
+
+# ── 4 algorithm design and graphs ──────────────────────────────────────────
+- template: cs-huffman
+  skill: cs.graphs
+  pace: quick
+  cases:
+    - { fs: '5 9 12 13 16 45', ans: 224 }
+    - { fs: '1 1 2 4', ans: 14 }
+    - { fs: '10 10 10 10', ans: 80 }
+    - { fs: '3 5 6 7 9', ans: 68 }
+  prompt: 'Symbols occur with frequencies {{fs}}. How many bits does the Huffman-coded message take in all?'
+  parts:
+    - { ask: 'Bits', label: a, value: ans, tol: 0.0001, explain: 'Repeatedly merge the two smallest weights. Each merge adds one bit to every symbol beneath it, so the total length is the sum of all the merged weights. Equal frequencies give a fixed-length code' }
+  verify: { expect: { a: "huffman_bits(fs)" } }
+
+- template: cs-dp
+  skill: cs.graphs
+  pace: quick
+  cases:
+    - { kind: 0, a1: 'ABCBDAB', b1: 'BDCABA', ans: 4 }
+    - { kind: 0, a1: 'AGGTAB', b1: 'GXTXAYB', ans: 4 }
+    - { kind: 1, a1: 'kitten', b1: 'sitting', ans: 3 }
+    - { kind: 1, a1: 'sunday', b1: 'saturday', ans: 3 }
+    - { kind: 1, a1: 'flaw', b1: 'lawn', ans: 2 }
+  prompt: 'What is the {{kind == 0 ? "length of the longest common subsequence" : "edit distance (insert, delete or substitute one character, each costing 1)"}} of {{a1}} and {{b1}}?'
+  parts:
+    - { ask: 'Value', label: a, value: ans, tol: 0.0001, explain: 'Both fill an (m + 1) × (n + 1) table. LCS: match → diagonal + 1, else max of left and up. Edit distance: row and column 0 count up from 0, then each cell is the minimum of up + 1 (delete), left + 1 (insert) and diagonal + (0 if the letters match, else 1)' }
+  verify: { expect: { a: "lcs(a1, b1) if kind == 0 else edit_distance(a1, b1)" } }
+
+- template: cs-knapsack-coins
+  skill: cs.graphs
+  pace: quick
+  cases:
+    - { kind: 0, items: '1:1 3:4 4:5 5:7', cap: 7, ans: 9 }
+    - { kind: 0, items: '2:3 3:4 4:5 5:6', cap: 5, ans: 7 }
+    - { kind: 0, items: '1:15 5:10 3:9 4:5', cap: 8, ans: 29 }
+    - { kind: 1, items: '1 2 5', cap: 5, ans: 4 }
+    - { kind: 1, items: '2 3 5', cap: 10, ans: 4 }
+    - { kind: 1, items: '1 5 10', cap: 12, ans: 4 }
+  prompt: '{{kind == 0 ? "0/1 knapsack, items written weight:value, capacity" : "How many ways can these coin values make the amount (order does not matter): coins"}} {{items}}{{kind == 0 ? "; capacity " : ", amount "}}{{cap}}. {{kind == 0 ? "What is the best total value?" : ""}}'
+  parts:
+    - { ask: 'Value', label: a, value: ans, tol: 0.0001, explain: 'Knapsack: best[i][w] = max(best[i − 1][w], value_i + best[i − 1][w − weight_i]), each item used at most once. Coin counting: ways[a] += ways[a − c], looping over coins outside the amounts so each combination is counted once, not each ordering' }
+  verify: { expect: { a: "knapsack(items, cap) if kind == 0 else coin_ways(items, cap)" } }
+
+- template: cs-graph-search
+  skill: cs.graphs
+  pace: quick
+  cases:
+    - { g: 'a-b a-c b-d c-d d-e', kind: bfs, kn: 0, o1: 'abcde', o2: 'abdce', o3: 'acbde', o4: 'abdec', ans: 0 }
+    - { g: 'a-b a-c b-d c-d d-e', kind: dfs, kn: 1, o1: 'abcde', o2: 'abdce', o3: 'acdbe', o4: 'abdec', ans: 1 }
+    - { g: 'a-b a-d b-c b-e d-e e-f', kind: bfs, kn: 0, o1: 'abcdef', o2: 'abcedf', o3: 'abdcef', o4: 'abecdf', ans: 2 }
+    - { g: 'a-b a-d b-c b-e d-e e-f', kind: dfs, kn: 1, o1: 'abcedf', o2: 'abdecf', o3: 'abdcef', o4: 'abcdef', ans: 0 }
+  prompt: 'Run {{kn == 0 ? "breadth" : "depth"}}-first search from a on the undirected graph with edges {{g}}, taking neighbours in alphabetical order. In what order are the vertices visited?'
+  parts:
+    - ask: 'Order'
+      label: a
+      choice: ["{{o1}}", "{{o2}}", "{{o3}}", "{{o4}}"]
+      correct: ans
+      explain: 'BFS uses a queue: all neighbours of a, then their unvisited neighbours, level by level, which gives shortest hop counts. DFS (recursive) goes as deep as it can along the first unvisited neighbour before backing up'
+  verify: { choices: { a: "pick(bfs_order(g, 'a') if kind == 'bfs' else dfs_order(g, 'a'), [o1, o2, o3, o4])" } }
+
+- template: cs-topo
+  skill: cs.graphs
+  pace: quick
+  cases:
+    - { g: 'a>b a>c b>d c>d', o1: 'abcd', o2: 'acbd', o3: 'abdc', o4: 'dcba', ans: 0 }
+    - { g: 'c>a c>b a>d b>d d>e', o1: 'abcde', o2: 'cabde', o3: 'cbade', o4: 'cadbe', ans: 1 }
+    - { g: 'b>a d>a c>b c>d', o1: 'abcd', o2: 'cbda', o3: 'cbad', o4: 'cdba', ans: 1 }
+    - { g: 'e>d d>c c>b b>a', o1: 'abcde', o2: 'edcab', o3: 'decba', o4: 'edcba', ans: 3 }
+  prompt: 'Kahn''s algorithm runs on the directed graph {{g}}, always removing the alphabetically first vertex with no incoming edges. What order does it produce?'
+  parts:
+    - ask: 'Order'
+      label: a
+      choice: ["{{o1}}", "{{o2}}", "{{o3}}", "{{o4}}"]
+      correct: ans
+      explain: 'Kahn''s algorithm repeatedly outputs a vertex with in-degree 0 and deletes its outgoing edges. Every edge u → v puts u before v. If vertices remain but none has in-degree 0, the graph has a cycle and no topological order exists'
+  verify: { choices: { a: "pick(topo_order(g), [o1, o2, o3, o4])" } }
+
+- template: cs-shortest-path
+  skill: cs.graphs
+  pace: quick
+  cases:
+    - { g: 'a-b:4 a-c:1 c-b:2 b-d:5 c-d:8', t: d, ans: 8 }
+    - { g: 'a-b:7 a-c:9 a-f:14 b-c:10 b-d:15 c-d:11 c-f:2 d-e:6 e-f:9', t: e, ans: 20 }
+    - { g: 'a-b:2 b-c:2 a-c:5 c-d:1 b-d:4', t: d, ans: 5 }
+    - { g: 'a-b:1 b-c:1 c-d:1 a-d:4', t: d, ans: 3 }
+  prompt: 'Dijkstra''s algorithm runs from a on the undirected weighted graph {{g}} (weights after the colon). What is the shortest distance to {{t}}?'
+  parts:
+    - { ask: 'Distance', label: a, value: ans, tol: 0.0001, explain: 'Settle the closest unsettled vertex, then relax its edges (dist[v] = min(dist[v], dist[u] + w)). A detour through cheap edges can beat a direct heavy one. Dijkstra needs non-negative weights; Bellman–Ford handles negative ones' }
+  verify: { expect: { a: "dijkstra(g, 'a', t)" } }
+
+- template: cs-mst
+  skill: cs.graphs
+  pace: quick
+  cases:
+    - { g: 'a-b:4 a-c:1 c-b:2 b-d:5 c-d:8', ans: 8 }
+    - { g: 'a-b:7 a-c:9 a-f:14 b-c:10 b-d:15 c-d:11 c-f:2 d-e:6 e-f:9', ans: 33 }
+    - { g: 'a-b:1 b-c:2 c-d:3 d-a:4 a-c:5', ans: 6 }
+    - { g: 'a-b:3 a-c:3 b-c:3 c-d:1', ans: 7 }
+  prompt: 'What is the total weight of a minimum spanning tree of the undirected graph {{g}}?'
+  parts:
+    - { ask: 'MST weight', label: a, value: ans, tol: 0.0001, explain: 'Kruskal: take edges from lightest to heaviest, skipping any that would close a cycle, until n − 1 edges are chosen. Prim grows one tree from a vertex by the cheapest edge leaving it. Both give the same weight; ties can give different trees' }
+  verify: { expect: { a: "mst_weight(g)" } }
+
+# ── 5 computation and complexity ───────────────────────────────────────────
+- template: cs-complexity-class
+  skill: cs.theory
+  pace: quick
+  cases:
+    - { s: 'sorting a list', ans: 0 }
+    - { s: 'shortest paths with non-negative weights', ans: 0 }
+    - { s: 'deciding whether a graph has a perfect matching', ans: 0 }
+    - { s: 'Boolean satisfiability (SAT)', ans: 1 }
+    - { s: 'deciding whether a graph has a Hamiltonian cycle', ans: 1 }
+    - { s: 'deciding whether a graph can be 3-coloured', ans: 1 }
+    - { s: 'deciding whether an arbitrary program halts on its input', ans: 2 }
+  prompt: 'Which class does {{s}} fall in, as far as is known?'
+  parts:
+    - ask: 'Class'
+      label: a
+      choice: ["In P (polynomial-time algorithm known)", "NP-complete", "Undecidable"]
+      correct: ans
+      explain: 'NP problems have certificates checkable in polynomial time; NP-complete ones are the hardest of them (SAT, 3-coloring, Hamiltonian cycle), and no polynomial algorithm is known for any. Undecidable problems have no algorithm at all; halting is the first, by diagonalization'
+  verify: { authored: true }
+
+- template: cs-dfa
+  skill: cs.theory
+  pace: quick
+  cases:
+    - { lang: 'binary strings with an even number of 1s', w: '1101', ans: 1 }
+    - { lang: 'binary strings with an even number of 1s', w: '1001', ans: 0 }
+    - { lang: 'binary strings that end in 01', w: '1101', ans: 0 }
+    - { lang: 'binary strings that end in 01', w: '0110', ans: 1 }
+    - { lang: 'binary strings whose value is divisible by 3', w: '1001', ans: 0 }
+    - { lang: 'binary strings whose value is divisible by 3', w: '1010', ans: 1 }
+  prompt: 'A DFA accepts {{lang}}. Does it accept {{w}}?'
+  parts:
+    - ask: 'Accepts'
+      label: a
+      choice: ["Accepts", "Rejects"]
+      correct: ans
+      explain: 'A DFA has one state per fact it must remember: parity of 1s needs two states, "ends in 01" three, and divisibility by 3 three (the remainder so far, updated as r → 2r + bit mod 3). 1001 is 9, divisible by 3; 1010 is 10, not'
+  verify: { authored: true }
+
+# ── 6 software engineering ─────────────────────────────────────────────────
+- template: cs-availability
+  skill: cs.software
+  pace: quick
+  given: { av: { pick: [0.99, 0.999] }, k: { pick: [2, 3] }, par: { pick: [0, 1] } }
+  prompt: 'Each of {{k}} components is available {{av*100}}% of the time, independently. They are connected in {{par == 1 ? "parallel (the system works if any one works)" : "series (the system needs all of them)"}}. What is the system''s availability, as a fraction?'
+  parts:
+    - { ask: 'Availability', label: a, value: "par == 1 ? 1 - (1 - av)^k : av^k", tol: 0.0000001, explain: 'Series multiplies availabilities, so a chain is weaker than its weakest link. Redundant parallel copies fail only if all fail: 1 − (1 − A)ᵏ. Two 99% copies give 99.99%: two more nines' }
+  verify: { expect: { a: "1 - (1 - av)**k if par == 1 else av**k" } }
+
+- template: cs-design-pattern
+  skill: cs.software
+  pace: quick
+  cases:
+    - { s: 'Swap the sorting algorithm a report uses at run time by passing in a comparator object.', o1: 'Strategy', o2: 'Observer', o3: 'Singleton', o4: 'Adapter', ans: 0 }
+    - { s: 'A spreadsheet chart redraws itself whenever the cells it watches change.', o1: 'Factory', o2: 'Observer', o3: 'Decorator', o4: 'Strategy', ans: 1 }
+    - { s: 'Wrap an old payment library so it presents the interface the new checkout code expects.', o1: 'Decorator', o2: 'Strategy', o3: 'Adapter', o4: 'Observer', ans: 2 }
+    - { s: 'Add logging and caching around a data source without changing it, layer on layer.', o1: 'Adapter', o2: 'Singleton', o3: 'Factory', o4: 'Decorator', ans: 3 }
+    - { s: 'A class with a 500-line method that parses, validates, saves and emails.', o1: 'Single responsibility', o2: 'Open–closed', o3: 'Liskov substitution', o4: 'Dependency inversion', ans: 0 }
+    - { s: 'Adding a new shape means editing a switch statement in every drawing function.', o1: 'Liskov substitution', o2: 'Open–closed', o3: 'Interface segregation', o4: 'Single responsibility', ans: 1 }
+    - { s: 'Square extends Rectangle, and setWidth on a Square silently changes its height too.', o1: 'Open–closed', o2: 'Interface segregation', o3: 'Liskov substitution', o4: 'Dependency inversion', ans: 2 }
+  prompt: '{{s}} Which pattern (or, for a problem, which SOLID principle) is this?'
+  parts:
+    - ask: 'Name'
+      label: a
+      choice: ["{{o1}}", "{{o2}}", "{{o3}}", "{{o4}}"]
+      correct: ans
+      explain: 'Strategy swaps an algorithm, observer notifies dependents, adapter converts an interface, decorator adds behaviour by wrapping. SOLID: one reason to change per class; open to extension but closed to modification; subtypes usable wherever the base type is; small interfaces; depend on abstractions'
+  verify: { authored: true }
+
+# ── 7 databases ────────────────────────────────────────────────────────────
+- template: cs-candidate-keys
+  skill: cs.structures
+  pace: quick
+  cases:
+    - { rel: ABCD, fds: 'A>B B>C', o1: 'AD', o2: 'A', o3: 'AB', o4: 'ABD', ans: 0 }
+    - { rel: ABCD, fds: 'AB>C C>D D>A', o1: 'AB', o2: 'AB BC BD', o3: 'AB CB', o4: 'ABC', ans: 1 }
+    - { rel: ABCDE, fds: 'A>BC CD>E B>D E>A', o1: 'A', o2: 'A E', o3: 'A E BC CD', o4: 'CD', ans: 2 }
+    - { rel: ABC, fds: 'A>B B>C C>A', o1: 'ABC', o2: 'A', o3: 'AB BC', o4: 'A B C', ans: 3 }
+  prompt: 'Relation R({{rel}}) has functional dependencies {{fds}} (X>Y means X determines Y). What are all its candidate keys?'
+  parts:
+    - ask: 'Candidate keys'
+      label: a
+      choice: ["{{o1}}", "{{o2}}", "{{o3}}", "{{o4}}"]
+      correct: ans
+      explain: 'A candidate key is a minimal set whose closure is every attribute. Attributes that appear on no right-hand side must be in every key. Grow sets from small to large, compute closures by applying the FDs until nothing changes, and drop supersets of keys already found'
+  verify: { choices: { a: "pick(candidate_keys(rel, fds), [o1, o2, o3, o4])" } }
+
+- template: cs-isolation-anomaly
+  skill: cs.structures
+  pace: quick
+  cases:
+    - { s: 'T1 reads a balance T2 has written but not committed; T2 then rolls back.', ans: 0 }
+    - { s: 'T1 reads a row twice and gets different values because T2 updated and committed in between.', ans: 1 }
+    - { s: 'T1 counts rows matching a condition twice and gets a different count because T2 inserted a matching row.', ans: 2 }
+    - { s: 'T1 and T2 both read a stock level of 10, each subtracts its own sale, and one write overwrites the other.', ans: 3 }
+  prompt: 'Which anomaly is this? {{s}}'
+  parts:
+    - ask: 'Anomaly'
+      label: a
+      choice: ["Dirty read", "Non-repeatable read", "Phantom", "Lost update"]
+      correct: ans
+      explain: 'READ COMMITTED prevents dirty reads, REPEATABLE READ non-repeatable reads, SERIALIZABLE phantoms too. A lost update is two read-modify-write cycles interleaving; fix it with an atomic update, SELECT … FOR UPDATE or a higher isolation level'
+  verify: { authored: true }
+
+# ── 8 architecture and performance ─────────────────────────────────────────
+- template: cs-twos-complement
+  skill: cs.systems
+  pace: quick
+  cases:
+    - { bits: '11111111', ans: -1 }
+    - { bits: '10000000', ans: -128 }
+    - { bits: '11110110', ans: -10 }
+    - { bits: '01111111', ans: 127 }
+    - { bits: '10110100', ans: -76 }
+  prompt: 'What value does the 8-bit two''s-complement pattern {{bits}} represent?'
+  parts:
+    - { ask: 'Value', label: a, value: ans, tol: 0.0001, explain: 'The top bit is worth −128 and the others their usual positive weights. Equivalently, if the top bit is 1, flip all bits, add 1, and negate. 8 bits cover −128 to 127' }
+  verify: { expect: { a: "py_out('b = \\'' + bits + '\\'; v = int(b, 2); print(v - 256 if b[0] == \\'1\\' else v)')" } }
+
+- template: cs-cache-bits
+  skill: cs.systems
+  pace: quick
+  given: { kb: { pick: [16, 32, 64] }, blk: { pick: [32, 64] }, ways: { pick: [1, 2, 4] } }
+  prompt: 'A {{kb}} KB cache has {{blk}}-byte blocks and is {{ways == 1 ? "direct-mapped" : "set-associative with"}}{{ways == 1 ? "" : " "}}{{ways == 1 ? "" : ways}}{{ways == 1 ? "" : " ways"}}, with 32-bit addresses. How many tag bits does each address have?'
+  parts:
+    - { ask: 'Tag bits', label: a, value: 32 - log2(kb*1024/blk/ways) - log2(blk), tol: 0.0001, explain: 'Offset bits = log₂(block size). Sets = cache size ÷ (block size × ways), and index bits = log₂(sets). The tag is whatever is left of the address. More ways means fewer sets, a shorter index and a longer tag' }
+  verify: { expect: { a: "32 - log(kb*1024/(blk*ways), 2) - log(blk, 2)" } }
+
+- template: cs-amat
+  skill: cs.systems
+  pace: quick
+  given: { h1: { pick: [1, 2] }, m1: { pick: [0.05, 0.1] }, h2: { pick: [10, 20] }, m2: { pick: [0.2, 0.5] }, mem: { pick: [100, 200] } }
+  prompt: 'L1 hits take {{h1}} cycles and miss {{m1*100}}% of the time; L2 hits take {{h2}} cycles and miss {{m2*100}}% of L1''s misses; memory takes {{mem}} cycles. What is the average memory access time, in cycles?'
+  parts:
+    - { ask: 'AMAT', label: a, value: h1 + m1*(h2 + m2*mem), tol: 0.0001, explain: 'AMAT = hit time + miss rate × miss penalty, nested: L1''s miss penalty is L2''s own AMAT. Local miss rates (per access reaching that level) multiply' }
+  verify: { expect: { a: "h1 + m1*h2 + m1*m2*mem" } }
+
+- template: cs-cpu-time
+  skill: cs.systems
+  pace: quick
+  given: { ic: { pick: [2, 5, 10] }, cpi: { pick: [1.5, 2, 2.5] }, ghz: { pick: [2, 2.5, 4] } }
+  prompt: 'A program runs {{ic}} billion instructions at an average CPI of {{cpi}} on a {{ghz}} GHz processor. How many seconds does it take?'
+  parts:
+    - { ask: 'Seconds', label: a, value: ic*cpi/ghz, tol: 0.0001, explain: 'CPU time = instructions × cycles per instruction ÷ clock rate. Improving any one factor helps only if the others do not get worse: a faster clock with a higher CPI can lose' }
+  verify: { expect: { a: "ic*10**9*cpi/(ghz*10**9)" } }
+
+- template: cs-amdahl
+  skill: cs.systems
+  pace: quick
+  given: { fr: { pick: [0.5, 0.8, 0.9, 0.95] }, sp: { pick: [4, 10, 100] } }
+  prompt: 'A fraction {{fr}} of a program''s run time is sped up {{sp}}×; the rest is unchanged. What is the overall speedup?'
+  parts:
+    - { ask: 'Speedup', label: a, value: 1/((1 - fr) + fr/sp), tol: 0.001, explain: 'Amdahl''s law: speedup = 1 ÷ ((1 − f) + f/s). Even with infinite s it can never beat 1/(1 − f): with 95% parallel, at most 20×. Gustafson''s law is the hopeful counterpart when the problem grows with the machine' }
+  verify: { expect: { a: "1/(1 - fr + fr/sp)" } }
+
+- template: cs-little
+  skill: cs.systems
+  pace: quick
+  given: { lam: { pick: [50, 200, 1000] }, wsec: { pick: [0.02, 0.1, 0.5] } }
+  prompt: 'Requests arrive at {{lam}} per second and each spends {{wsec}} s in the system on average. How many requests are in the system at once, on average?'
+  parts:
+    - { ask: 'Requests in system', label: a, value: lam*wsec, tol: 0.0001, explain: 'Little''s law: L = λW, for any stable system, whatever the arrival pattern. It sizes thread pools and connection limits: halve the latency and you need half the concurrency for the same throughput' }
+  verify: { expect: { a: "wsec*lam" } }
+
+# ── 9 operating systems ────────────────────────────────────────────────────
+- template: cs-fork
+  skill: cs.systems
+  pace: quick
+  figure: { type: code, src: code }
+  cases:
+    - { code: "fork();\nfork();\nprintf(\"hi\\n\");", ans: 4 }
+    - { code: "fork();\nfork();\nfork();\nprintf(\"hi\\n\");", ans: 8 }
+    - { code: "for (int i = 0; i < 2; i++) fork();\nprintf(\"hi\\n\");", ans: 4 }
+    - { code: "if (fork() == 0) fork();\nprintf(\"hi\\n\");", ans: 3 }
+    - { code: "printf(\"hi\\n\");\nfork();", ans: 1 }
+  prompt: 'How many times is "hi" printed (output goes to a terminal, so each line is flushed at once)?'
+  parts:
+    - { ask: 'Lines', label: a, value: ans, tol: 0.0001, explain: 'fork() returns twice: 0 in the new child, the child''s PID in the parent, and both carry on from the next line. n unconditional forks in a row give 2ⁿ processes. Only the child of the first fork runs the second fork in "if (fork() == 0) fork();", giving 3' }
+  verify: { expect: { a: "c_lines(code)" } }
+
+- template: cs-scheduling
+  skill: cs.systems
+  pace: quick
+  cases:
+    - { procs: '0:24 0:3 0:3', alg: fcfs, an: 0, q: 0, ans: 17 }
+    - { procs: '0:24 0:3 0:3', alg: rr, an: 3, q: 4, ans: 5.666666666666667 }
+    - { procs: '0:8 1:4 2:9 3:5', alg: srtf, an: 2, q: 0, ans: 6.5 }
+    - { procs: '0:6 0:8 0:7 0:3', alg: sjf, an: 1, q: 0, ans: 7 }
+    - { procs: '0:3 0:24 0:3', alg: fcfs, an: 0, q: 0, ans: 10 }
+  prompt: 'Processes arrive and need CPU as arrival:burst = {{procs}}, in that order (P1, P2, …). Under {{an == 0 ? "first-come first-served" : (an == 1 ? "non-preemptive shortest job first" : (an == 2 ? "shortest remaining time first" : "round robin"))}}{{an == 3 ? ", quantum " : ""}}{{an == 3 ? q : ""}}, what is the average waiting time?'
+  parts:
+    - { ask: 'Average wait', label: a, value: ans, tol: 0.001, explain: 'Waiting time = finish − arrival − burst. Draw the Gantt chart. Putting a long job first (the convoy effect) makes everyone wait; SJF and its preemptive form SRTF minimize the average but need burst lengths in advance, while round robin trades waiting for responsiveness' }
+  verify: { expect: { a: "avg_wait(procs, alg, q)" } }
+
+- template: cs-page-faults
+  skill: cs.systems
+  pace: quick
+  cases:
+    - { refs: '70120304230321201701', fr: 3, alg: fifo, an: 0, ans: 15 }
+    - { refs: '70120304230321201701', fr: 3, alg: lru, an: 1, ans: 12 }
+    - { refs: '70120304230321201701', fr: 3, alg: opt, an: 2, ans: 9 }
+    - { refs: '123412512345', fr: 3, alg: fifo, an: 0, ans: 9 }
+    - { refs: '123412512345', fr: 4, alg: fifo, an: 0, ans: 10 }
+  prompt: 'With {{fr}} empty frames and {{an == 0 ? "FIFO" : (an == 1 ? "LRU" : "optimal")}} replacement, how many page faults does the reference string {{refs}} cause (one digit per page)?'
+  parts:
+    - { ask: 'Faults', label: a, value: ans, tol: 0.0001, explain: 'Every first touch faults. FIFO evicts the page loaded longest ago; LRU the page used longest ago; optimal the page used furthest in the future (unknowable in practice, but a lower bound). FIFO can fault more with more frames: Belady''s anomaly, as in 123412512345' }
+  verify: { expect: { a: "page_faults(refs, fr, alg)" } }
+
+- template: cs-eat
+  skill: cs.systems
+  pace: quick
+  given: { hit: { pick: [0.9, 0.98, 0.99] }, mem: { pick: [100, 80] }, tlb: { pick: [0, 20] } }
+  prompt: 'With a one-level page table, a memory access takes {{mem}} ns, a TLB lookup {{tlb}} ns, and the TLB hit rate is {{hit*100}}%. What is the effective access time, in ns?'
+  parts:
+    - { ask: 'EAT (ns)', label: a, value: hit*(tlb + mem) + (1 - hit)*(tlb + 2*mem), tol: 0.0001, explain: 'A TLB hit costs the lookup plus one memory access; a miss also reads the page table first, two accesses. Weight by the hit rate. Without a TLB every access would cost double' }
+  verify: { expect: { a: "tlb + mem + (1 - hit)*mem" } }
+
+- template: cs-inode-size
+  skill: cs.systems
+  pace: quick
+  given: { blkb: { pick: [1024, 4096] }, direct: { pick: [10, 12] } }
+  prompt: 'An inode has {{direct}} direct pointers plus one single-, one double- and one triple-indirect pointer. Blocks are {{blkb}} bytes and pointers 4 bytes. What is the maximum file size, in blocks?'
+  parts:
+    - { ask: 'Blocks', label: a, value: direct + (blkb/4) + (blkb/4)^2 + (blkb/4)^3, tol: 0.0001, explain: 'Each indirect block holds block size ÷ 4 pointers, p. The total is direct + p + p² + p³ blocks; the triple-indirect term dominates. With 4 KB blocks that is about 4 TB' }
+  verify: { expect: { a: "direct + Sum((blkb/4)**Symbol('j'), (Symbol('j'), 1, 3)).doit()" } }
+
+# ── 10 networking ──────────────────────────────────────────────────────────
+- template: cs-delay
+  skill: cs.networks
+  pace: quick
+  given: { mb: { pick: [1, 10] }, mbps: { pick: [10, 100] }, km: { pick: [1000, 4000] } }
+  prompt: 'A {{mb}} MB file (1 MB = 8 × 10⁶ bits) goes over a {{mbps}} Mb/s link {{km}} km long, at a propagation speed of 2 × 10⁸ m/s. What is the total delay in milliseconds (transmission plus propagation)?'
+  parts:
+    - { ask: 'Delay (ms)', label: a, value: (mb*8e6/(mbps*1e6) + km*1000/2e8)*1000, tol: 0.0001, explain: 'Transmission delay = size ÷ bandwidth (pushing the bits onto the wire); propagation delay = distance ÷ signal speed (the first bit''s trip). Big files on fast links are dominated by distance; the bandwidth–delay product is how many bits are in flight' }
+  verify: { expect: { a: "1000*mb*8*10**6/(mbps*10**6) + 1000*km*1000/(2*10**8)" } }
+
+- template: cs-cidr
+  skill: cs.networks
+  pace: quick
+  cases:
+    - { net: '192.168.1.0/24', ans: 254 }
+    - { net: '192.168.1.0/26', ans: 62 }
+    - { net: '10.0.0.0/16', ans: 65534 }
+    - { net: '172.16.4.0/22', ans: 1022 }
+    - { net: '192.168.1.64/27', ans: 30 }
+    - { net: '10.1.1.4/30', ans: 2 }
+  prompt: 'How many usable host addresses does the IPv4 block {{net}} have?'
+  parts:
+    - { ask: 'Hosts', label: a, value: ans, tol: 0.0001, explain: 'A /p block has 2^(32 − p) addresses, minus two: the network address (all host bits 0) and the broadcast address (all 1). A /30 leaves just 2, enough for a point-to-point link' }
+  verify: { expect: { a: "cidr_hosts(net)" } }
+
+- template: cs-longest-prefix
+  skill: cs.networks
+  pace: quick
+  cases:
+    - { tbl: '10.0.0.0/8=A 10.1.0.0/16=B 10.1.2.0/24=C 0.0.0.0/0=D', ip: '10.1.3.4', ans: 1 }
+    - { tbl: '10.0.0.0/8=A 10.1.0.0/16=B 10.1.2.0/24=C 0.0.0.0/0=D', ip: '10.1.2.200', ans: 2 }
+    - { tbl: '10.0.0.0/8=A 10.1.0.0/16=B 10.1.2.0/24=C 0.0.0.0/0=D', ip: '10.9.9.9', ans: 0 }
+    - { tbl: '10.0.0.0/8=A 10.1.0.0/16=B 10.1.2.0/24=C 0.0.0.0/0=D', ip: '8.8.8.8', ans: 3 }
+  prompt: 'A router''s table: 10.0.0.0/8 → A, 10.1.0.0/16 → B, 10.1.2.0/24 → C, default (0.0.0.0/0) → D. Which interface does a packet to {{ip}} leave by?'
+  parts:
+    - ask: 'Interface'
+      label: a
+      choice: ["A", "B", "C", "D"]
+      correct: ans
+      explain: 'Of all entries that match the destination, the router uses the most specific: the longest prefix. The default route matches everything, so it is used only when nothing else does'
+  verify: { choices: { a: "pick(lpm(tbl, ip), ['A', 'B', 'C', 'D'])" } }
+
+# ── 11 security ────────────────────────────────────────────────────────────
+- template: cs-rsa
+  skill: cs.security
+  pace: quick
+  cases:
+    - { p: 5, q: 11, e: 3, msg: 2, kind: 0, ans: 27 }
+    - { p: 5, q: 11, e: 3, msg: 2, kind: 1, ans: 8 }
+    - { p: 3, q: 11, e: 7, msg: 4, kind: 0, ans: 3 }
+    - { p: 3, q: 11, e: 7, msg: 4, kind: 1, ans: 16 }
+    - { p: 7, q: 13, e: 5, msg: 10, kind: 0, ans: 29 }
+    - { p: 7, q: 13, e: 5, msg: 10, kind: 1, ans: 82 }
+  prompt: 'Toy RSA with p = {{p}}, q = {{q}} and public exponent e = {{e}}. What is {{kind == 0 ? "the private exponent d" : "the ciphertext of the message"}}{{kind == 1 ? " m = " : ""}}{{kind == 1 ? msg : ""}}?'
+  parts:
+    - { ask: 'Value', label: a, value: ans, tol: 0.0001, explain: 'n = pq and φ(n) = (p − 1)(q − 1); d is the inverse of e mod φ(n), so ed ≡ 1 (mod φ(n)). Encrypt with c = mᵉ mod n and decrypt with m = cᵈ mod n. Real keys use primes hundreds of digits long, and padding' }
+  verify: { expect: { a: "mod_inverse(e, (p - 1)*(q - 1)) if kind == 0 else powmod(msg, e, p*q)" } }
+
+- template: cs-password-entropy
+  skill: cs.security
+  pace: quick
+  given: { alpha: { pick: [26, 62, 94] }, len: { pick: [8, 10, 12] } }
+  prompt: 'A password is {{len}} characters drawn uniformly at random from {{alpha}} symbols. How many bits of entropy does it have?'
+  parts:
+    - { ask: 'Bits', label: a, value: len*log2(alpha), tol: 0.001, explain: 'Entropy = length × log₂(alphabet size), and brute force needs about 2^(bits − 1) guesses on average. Only truly random passwords get this; human-chosen ones have far less. Store them with a slow salted hash (bcrypt, scrypt, Argon2), never plain or with a fast hash' }
+  verify: { expect: { a: "len*log(alpha)/log(2)" } }
+
+- template: cs-ale
+  skill: cs.security
+  pace: quick
+  given: { av: { pick: [200000, 500000] }, ef: { pick: [0.25, 0.4] }, aro: { pick: [0.1, 0.5, 2] } }
+  prompt: 'An asset is worth {{av}}. An incident destroys {{ef*100}}% of its value (the exposure factor) and is expected {{aro}} times a year. What is the annualized loss expectancy?'
+  parts:
+    - { ask: 'ALE', label: a, value: av*ef*aro, tol: 0.0001, explain: 'Single loss expectancy = asset value × exposure factor; ALE = SLE × annual rate of occurrence. A control is worth it when the ALE it removes exceeds its annual cost' }
+  verify: { expect: { a: "aro*(av*ef)" } }
+
+- template: cs-vulnerability
+  skill: cs.security
+  pace: quick
+  cases:
+    - { s: 'query = "SELECT * FROM users WHERE name = ''" + name + "''"', o1: 'SQL injection', o2: 'Cross-site scripting', o3: 'Path traversal', o4: 'CSRF', ans: 0 }
+    - { s: 'A comment box saves user text and shows it on the page as raw HTML.', o1: 'SQL injection', o2: 'Stored cross-site scripting', o3: 'Buffer overflow', o4: 'Open redirect', ans: 1 }
+    - { s: 'open("/srv/files/" + request.param("file")) with file = ../../etc/passwd', o1: 'Cross-site scripting', o2: 'SQL injection', o3: 'Path traversal', o4: 'Race condition', ans: 2 }
+    - { s: 'A bank''s transfer endpoint acts on any POST that carries the user''s session cookie, from any site.', o1: 'SQL injection', o2: 'Buffer overflow', o3: 'Path traversal', o4: 'Cross-site request forgery', ans: 3 }
+    - { s: 'strcpy(buf, input) into a 64-byte buffer, with input of any length.', o1: 'Buffer overflow', o2: 'Cross-site scripting', o3: 'CSRF', o4: 'Path traversal', ans: 0 }
+  prompt: 'Which vulnerability is this? {{s}}'
+  parts:
+    - ask: 'Vulnerability'
+      label: a
+      choice: ["{{o1}}", "{{o2}}", "{{o3}}", "{{o4}}"]
+      correct: ans
+      explain: 'Mixing untrusted data into code is the common root: SQL (fix with parameterized queries), HTML (context-aware output encoding), file paths (canonicalize and check against an allow-list). CSRF abuses ambient cookies (fix with tokens and SameSite). Overflow writes past a buffer (check lengths, use safe APIs)'
+  verify: { authored: true }
+
+# ── 13 machine learning and 14 parallel computing ──────────────────────────
+- template: cs-f1
+  skill: cs.software
+  pace: quick
+  given: { tp: { pick: [40, 80] }, fp: { pick: [10, 20] }, fn: { pick: [10, 40] } }
+  prompt: 'A classifier has {{tp}} true positives, {{fp}} false positives and {{fn}} false negatives. What is its F1 score?'
+  parts:
+    - { ask: 'F1', label: a, value: 2*tp/(2*tp + fp + fn), tol: 0.001, explain: 'F1 is the harmonic mean of precision and recall, 2PR/(P + R) = 2TP/(2TP + FP + FN). It ignores true negatives, which suits rare positive classes where accuracy is misleading' }
+  verify: { expect: { a: "2*(tp/(tp + fp))*(tp/(tp + fn))/(tp/(tp + fp) + tp/(tp + fn))" } }
+
+- template: cs-work-span
+  skill: cs.systems
+  pace: quick
+  given: { wk: { pick: [1000, 4000] }, spn: { pick: [10, 50] }, pr: { pick: [4, 16, 64] } }
+  prompt: 'A parallel computation has work {{wk}} (total operations) and span {{spn}} (the longest chain of dependent steps). What upper bound does Brent''s theorem give for its time on {{pr}} processors?'
+  parts:
+    - { ask: 'Time bound', label: a, value: wk/pr + spn, tol: 0.0001, explain: 'T_p ≤ W/p + S (Brent). Nothing beats max(W/p, S). Parallelism = W/S: past that many processors, the span dominates and more processors stop helping' }
+  verify: { expect: { a: "spn + wk/pr" } }
+
+- template: cs-contrast
+  skill: cs.software
+  pace: quick
+  cases:
+    - { l1: 1, l2: 0, ans: 21 }
+    - { l1: 0.5, l2: 0.05, ans: 5.5 }
+    - { l1: 0.2, l2: 0.1, ans: 2 }
+    - { l1: 0.7, l2: 0.15, ans: 3.75 }
+  prompt: 'Text has relative luminance {{l1}} and its background {{l2}}. What is the WCAG contrast ratio?'
+  parts:
+    - { ask: 'Contrast ratio', label: a, value: (l1 + 0.05)/(l2 + 0.05), tol: 0.001, explain: '(L_lighter + 0.05) ÷ (L_darker + 0.05), from 1:1 to 21:1 (white on black). WCAG 2 AA needs 4.5:1 for normal text and 3:1 for large text' }
+  verify: { expect: { a: "(l1 + Rational(1, 20))/(l2 + Rational(1, 20))" } }
+
+- template: cs-carbon
+  skill: cs.software
+  pace: quick
+  given: { kw: { pick: [0.3, 0.7] }, ngpu: { pick: [8, 64] }, hours: { pick: [24, 100] }, pue: { pick: [1.1, 1.5] }, gi: { pick: [0.2, 0.4] } }
+  prompt: 'A training run uses {{ngpu}} GPUs drawing {{kw}} kW each for {{hours}} hours, in a data center with PUE {{pue}}, on a grid emitting {{gi}} kg CO₂ per kWh. How many kg of CO₂ is that?'
+  parts:
+    - { ask: 'kg CO₂', label: a, value: kw*ngpu*hours*pue*gi, tol: 0.0001, explain: 'Energy = power × count × time; PUE scales IT energy up to the whole facility (cooling, power losses); grid intensity turns kWh into carbon. Running the same job where and when the grid is cleaner can cut emissions several-fold' }
+  verify: { expect: { a: "(kw*ngpu*hours)*pue*gi" } }
