@@ -1,0 +1,698 @@
+# Second question types for Kindergarten to grade 2 (Common Core K-2). Each objective that was drilled
+# one way gets a different kind of question: in reverse, by inspection, as a comparison, or in words.
+# One question each, recall or quick.
+
+# ── Kindergarten ───────────────────────────────────────────────────────────
+- template: k2-number-after
+  skill: k8.counting
+  pace: recall
+  given: { n: { int: [3, 18] }, s: { pick: [1, 2] }, w: { pick: [0, 1] } }
+  prompt: 'What number comes {{s == 1 ? "just" : "two numbers"}} {{w == 0 ? "after" : "before"}} ${{n}}$ when you count?'
+  parts:
+    - { ask: 'Number', label: r, value: 'w == 0 ? n + s : n - s', tol: 0.0001, explain: 'Start at ${{n}}$ and count {{w == 0 ? "on" : "back"}} {{s}}. You do not need to start from 1' }
+  verify: { expect: { r: "(n + s) if w == 0 else (n - s)" } }
+
+- template: k2-numeral-word
+  skill: k8.counting
+  pace: recall
+  cases:
+    - { w: 'fourteen', n: 14 }
+    - { w: 'eleven', n: 11 }
+    - { w: 'seventeen', n: 17 }
+    - { w: 'twelve', n: 12 }
+    - { w: 'twenty', n: 20 }
+    - { w: 'nineteen', n: 19 }
+    - { w: 'eight', n: 8 }
+    - { w: 'fifteen', n: 15 }
+  prompt: 'Write the number "{{w}}" as a numeral.'
+  parts:
+    - { ask: 'Numeral', label: r, value: n, tol: 0.0001, explain: 'The teen words name the ones first ("four-teen" is 10 and 4), but the numeral writes the ten first: 14. Eleven and twelve are the irregular ones' }
+  verify: { expect: { r: "n" } }
+
+- template: k2-last-number
+  skill: k8.counting
+  pace: recall
+  given: { n: { int: [4, 15] } }
+  prompt: 'Maya touches each block once and counts "1, 2, 3, …, {{n}}." Then she mixes the blocks up and counts again. What number will she end on?'
+  parts:
+    - { ask: 'Last number', label: r, value: n, tol: 0.0001, explain: 'The last number said tells how many there are, and moving the objects around does not change how many. So she ends on ${{n}}$ again' }
+  verify: { expect: { r: "n" } }
+
+- template: k2-ten-frame
+  skill: k8.counting
+  pace: recall
+  given: { k: { int: [1, 10] }, w: { pick: [0, 1] } }
+  prompt: '{{w == 0 ? "A full ten-frame and" : "A ten-frame has"}} ${{k}}$ {{w == 0 ? "more dots. How many dots in all?" : "dots. How many empty boxes are left?"}}'
+  require: ['w == 0 or k < 10']
+  parts:
+    - { ask: 'Number', label: r, value: 'w == 0 ? 10 + k : 10 - k', tol: 0.0001, explain: 'A ten-frame always holds 10. Seeing a full frame as "ten" means you count on from 10 instead of from 1' }
+  verify: { expect: { r: "(10 + k) if w == 0 else (10 - k)" } }
+
+- template: k2-how-many-more
+  skill: k8.counting
+  pace: recall
+  given: { a: { int: [2, 10] }, b: { int: [1, 10] } }
+  require: [a != b]
+  prompt: 'One group has ${{a}}$ apples and another has ${{b}}$. How many more apples does the bigger group have?'
+  parts:
+    - { ask: 'How many more', label: r, value: 'abs(a - b)', tol: 0.0001, explain: 'Line the two groups up one-to-one; the leftovers in the bigger group are how many more: ${{max(a, b)}} - {{min(a, b)}}$' }
+  verify: { expect: { r: "Abs(a - b)" } }
+
+- template: k2-number-between
+  skill: k8.counting
+  pace: recall
+  given: { n: { int: [1, 8] } }
+  prompt: 'What number is between ${{n}}$ and ${{n + 2}}$?'
+  parts:
+    - { ask: 'Number', label: r, value: n + 1, tol: 0.0001, explain: 'Counting $ {{n}}, \;?, \;{{n + 2}}$: the number in the middle is one more than ${{n}}$' }
+  verify: { expect: { r: "n + 1" } }
+
+- template: k2-story-equation
+  skill: k8.add-sub
+  pace: quick
+  given: { a: { int: [2, 7] }, b: { int: [1, 5] }, w: { pick: [0, 1] }, f: { pick: [0, 1] } }
+  require: ['w == 0 or a > b']
+  prompt: 'Sam has ${{a}}$ stickers and {{w == 0 ? "gets" : "gives away"}} ${{b}}$. Which equation tells the story?'
+  parts:
+    - ask: 'Equation'
+      label: a
+      choice:
+        - '{{a}} {{(f == 0) == (w == 0) ? "+" : "-"}} {{b}}'
+        - '{{a}} {{(f == 0) == (w == 0) ? "-" : "+"}} {{b}}'
+      correct: f
+      explain: 'Getting more joins groups (add); giving away takes from a group (subtract). Act it out with fingers or objects if unsure'
+  verify: { choices: { a: "f" } }
+
+- template: k2-pair-for-number
+  skill: k8.add-sub
+  pace: recall
+  given: { n: { int: [5, 10] }, a: { int: [1, 4] }, f: { pick: [0, 1] } }
+  prompt: 'Which pair of numbers makes ${{n}}$?'
+  parts:
+    - ask: 'Pair'
+      label: a
+      choice: ["{{a}} and {{f == 0 ? n - a : n - a + 1}}", "{{a}} and {{f == 1 ? n - a : n - a + 1}}"]
+      correct: f
+      explain: '${{a}}$ and ${{n - a}}$ make ${{n}}$. Every number can be broken into two parts in several ways, and the parts can swap places'
+  verify: { choices: { a: "f" } }
+
+- template: k2-make-ten-pairs
+  skill: k8.add-sub
+  pace: recall
+  given: { a: { int: [1, 9] } }
+  prompt: 'You hold up ${{a}}$ fingers. How many more fingers do you need to show 10?'
+  parts:
+    - { ask: 'Fingers', label: r, value: 10 - a, tol: 0.0001, explain: 'The fingers you are not holding up are the missing part of ten: $10 - {{a}} = {{10 - a}}$. Pairs that make ten: 1 and 9, 2 and 8, 3 and 7, 4 and 6, 5 and 5' }
+  verify: { expect: { r: "solve(Eq(a + x, 10), x)[0]" } }
+
+- template: k2-within-five-missing
+  skill: k8.add-sub
+  pace: recall
+  given: { a: { int: [0, 5] }, b: { int: [1, 5] } }
+  require: [a + b <= 5]
+  prompt: '${{a}} + \;? = {{a + b}}$'
+  parts:
+    - { ask: 'Missing number', label: r, value: b, tol: 0.0001, explain: 'Count up from ${{a}}$ to ${{a + b}}$: that is ${{b}}$ steps. Sums within 5 should be known instantly' }
+  verify: { expect: { r: "solve(Eq(a + x, a + b), x)[0]" } }
+
+- template: k2-teen-in-words
+  skill: k8.place-value
+  pace: recall
+  given: { k: { int: [1, 9] }, w: { pick: [0, 1] } }
+  prompt: '{{w == 0 ? "Ten and" : "How many ones are in"}} ${{w == 0 ? k : 10 + k}}$ {{w == 0 ? "more is what number?" : "besides the ten?"}}'
+  parts:
+    - { ask: 'Number', label: r, value: 'w == 0 ? 10 + k : k', tol: 0.0001, explain: 'A teen number is one ten and some ones: ${{10 + k}} = 10 + {{k}}$' }
+  verify: { expect: { r: "(10 + k) if w == 0 else k" } }
+
+- template: k2-measurable-attribute
+  skill: k8.measurement
+  pace: recall
+  cases:
+    - { q: 'how long a pencil is', ans: 0 }
+    - { q: 'how heavy a backpack is', ans: 1 }
+    - { q: 'how much water a cup holds', ans: 2 }
+    - { q: 'how tall a door is', ans: 0 }
+    - { q: 'which rock is heavier', ans: 1 }
+    - { q: 'which bottle holds more juice', ans: 2 }
+  prompt: 'Which attribute describes {{q}}?'
+  parts:
+    - ask: 'Attribute'
+      label: a
+      choice: ["Length (long, short, tall)", "Weight (heavy, light)", "Capacity (holds more, holds less)"]
+      correct: ans
+      explain: 'One object has several attributes you can measure. Name the one the question cares about before comparing'
+  verify: { authored: true }
+
+- template: k2-compare-attribute
+  skill: k8.measurement
+  pace: recall
+  given: { a: { int: [3, 12] }, b: { int: [3, 12] }, w: { pick: [0, 1] } }
+  require: [a != b]
+  prompt: 'A red ribbon is ${{a}}$ paper clips long and a blue ribbon is ${{b}}$ paper clips long. Which is {{w == 0 ? "longer" : "shorter"}}?'
+  parts:
+    - ask: 'Ribbon'
+      label: a
+      choice: ["Red", "Blue"]
+      correct: 'w == 0 ? (a > b ? 0 : 1) : (a < b ? 0 : 1)'
+      explain: 'When both are measured with the same unit, the one that takes more units is longer'
+  verify: { choices: { a: "(0 if a > b else 1) if w == 0 else (0 if a < b else 1)" } }
+
+- template: k2-sort-count
+  skill: k8.measurement
+  pace: recall
+  given: { r: { int: [2, 7] }, b: { int: [2, 7] }, g: { int: [1, 6] } }
+  prompt: 'A bag has ${{r}}$ red, ${{b}}$ blue and ${{g}}$ green cubes. After sorting by color, how many cubes are in the biggest pile?'
+  parts:
+    - { ask: 'Cubes', label: r2, value: 'max(r, b, g)', tol: 0.0001, explain: 'Sort into piles by color, count each pile, then compare the counts' }
+  verify: { expect: { r2: "Max(r, b, g)" } }
+
+- template: k2-position-words
+  skill: k8.geometry
+  pace: recall
+  cases:
+    - { q: 'The cat is on the rug and the lamp hangs from the ceiling. The lamp is ___ the cat.', ans: 0 }
+    - { q: 'The ball rolled under the table. The table is ___ the ball.', ans: 0 }
+    - { q: 'The box is under the bed. The box is ___ the bed.', ans: 1 }
+    - { q: 'The book is between the cup and the plate, touching both. The cup is ___ the book.', ans: 2 }
+  prompt: '{{q}}'
+  parts:
+    - ask: 'Word'
+      label: a
+      choice: ["above", "below", "next to"]
+      correct: ans
+      explain: 'Position words describe where one object is compared with another: above, below, beside, in front of, behind, next to'
+  verify: { authored: true }
+
+- template: k2-shape-sides
+  skill: k8.geometry
+  pace: recall
+  cases:
+    - { s: 'triangle', n: 3 }
+    - { s: 'square', n: 4 }
+    - { s: 'rectangle', n: 4 }
+    - { s: 'hexagon', n: 6 }
+    - { s: 'pentagon', n: 5 }
+  given: { w: { pick: [0, 1] } }
+  prompt: 'How many {{w == 0 ? "sides" : "corners (vertices)"}} does a {{s}} have, however big it is or however it is turned?'
+  parts:
+    - { ask: 'Count', label: r, value: n, tol: 0.0001, explain: 'Turning or resizing a shape does not change its name or its number of sides and corners; a polygon has as many corners as sides' }
+  verify: { expect: { r: "n" } }
+
+- template: k2-solid-or-flat
+  skill: k8.geometry
+  pace: recall
+  cases:
+    - { q: 'a ball', ans: 1 }
+    - { q: 'a drawing of a circle', ans: 0 }
+    - { q: 'a soup can', ans: 1 }
+    - { q: 'a paper triangle', ans: 0 }
+    - { q: 'a dice cube', ans: 1 }
+    - { q: 'a square sticker', ans: 0 }
+  prompt: 'Is {{q}} shaped like a flat (2-D) shape or a solid (3-D) shape?'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["Flat (2-D)", "Solid (3-D)"]
+      correct: ans
+      explain: 'Flat shapes lie on a page (circle, square, triangle). Solids take up space and can be held (sphere, cylinder, cube, cone)'
+  verify: { authored: true }
+
+- template: k2-solid-faces
+  skill: k8.geometry
+  pace: recall
+  cases:
+    - { s: 'cube', n: 6 }
+    - { s: 'rectangular box', n: 6 }
+    - { s: 'cylinder', n: 2 }
+    - { s: 'cone', n: 1 }
+    - { s: 'triangular pyramid', n: 4 }
+  prompt: 'How many flat faces does a {{s}} have?'
+  parts:
+    - { ask: 'Flat faces', label: r, value: n, tol: 0.0001, explain: 'Compare solids by their parts: flat faces, curved surfaces, edges and corners. A sphere has no flat face at all' }
+  verify: { expect: { r: "n" } }
+
+- template: k2-build-shape
+  skill: k8.geometry
+  pace: recall
+  cases:
+    - { s: 'triangle', n: 3 }
+    - { s: 'square', n: 4 }
+    - { s: 'pentagon', n: 5 }
+    - { s: 'hexagon', n: 6 }
+  prompt: 'You build a {{s}} out of straws, one straw per side. How many straws do you need?'
+  parts:
+    - { ask: 'Straws', label: r, value: n, tol: 0.0001, explain: 'Each side is one straw and the corners are where straws meet' }
+  verify: { expect: { r: "n" } }
+
+- template: k2-compose-count
+  skill: k8.geometry
+  pace: recall
+  cases:
+    - { q: 'right triangles make one rectangle', n: 2 }
+    - { q: 'small squares make one bigger square twice as wide', n: 4 }
+    - { q: 'equilateral triangles make one regular hexagon', n: 6 }
+    - { q: 'half-circles make one circle', n: 2 }
+  prompt: 'How many identical {{q}}?'
+  parts:
+    - { ask: 'Pieces', label: r, value: n, tol: 0.0001, explain: 'Composing shapes: smaller shapes fit together with no gaps or overlaps to make a larger one' }
+  verify: { expect: { r: "n" } }
+
+# ── Grade 1 ────────────────────────────────────────────────────────────────
+- template: k2-word-compare
+  skill: k8.add-sub
+  pace: quick
+  given: { a: { int: [8, 18] }, b: { int: [2, 9] } }
+  require: [a > b]
+  prompt: 'Lucy has ${{a}}$ marbles. Jo has ${{b}}$ fewer than Lucy. How many marbles does Jo have?'
+  parts:
+    - { ask: 'Marbles', label: r, value: a - b, tol: 0.0001, explain: '"Fewer than" Lucy means take away from Lucy''s count: ${{a}} - {{b}}$. Draw two bars, one shorter, to see it' }
+  verify: { expect: { r: "a - b" } }
+
+- template: k2-three-addends-word
+  skill: k8.add-sub
+  pace: quick
+  given: { a: { int: [2, 7] }, b: { int: [2, 7] }, c: { int: [1, 6] } }
+  prompt: 'There are ${{a}}$ red, ${{b}}$ yellow and ${{c}}$ blue balloons. Which two would you add first to make it easiest, and what is the total?'
+  parts:
+    - { ask: 'Total', label: r, value: a + b + c, tol: 0.0001, explain: 'Any order gives the same total. Look for a pair that makes ten, or a double, and add the third number last' }
+  verify: { expect: { r: "a + b + c" } }
+
+- template: k2-think-addition
+  skill: k8.add-sub
+  pace: recall
+  given: { a: { int: [11, 18] }, b: { int: [3, 9] } }
+  require: [a - b > 0, a - b < 10]
+  prompt: 'To find ${{a}} - {{b}}$, think: ${{b}} + \;? = {{a}}$. What is the missing number?'
+  parts:
+    - { ask: 'Missing number', label: r, value: a - b, tol: 0.0001, explain: 'Subtraction is an unknown-addend problem: count up from ${{b}}$ to ${{a}}$, or use a fact you know' }
+  verify: { expect: { r: "solve(Eq(b + x, a), x)[0]" } }
+
+- template: k2-count-back
+  skill: k8.add-sub
+  pace: recall
+  given: { a: { int: [6, 20] }, b: { pick: [1, 2, 3] } }
+  prompt: 'Count back ${{b}}$ from ${{a}}$. Which subtraction is that, and what is the answer?'
+  parts:
+    - { ask: 'Answer', label: r, value: a - b, tol: 0.0001, explain: 'Counting back {{b}} is subtracting {{b}}: ${{a}} - {{b}} = {{a - b}}$. Counting on is adding' }
+  verify: { expect: { r: "a - b" } }
+
+- template: k2-equal-sign-missing
+  skill: k8.add-sub
+  pace: quick
+  given: { a: { int: [2, 9] }, b: { int: [2, 9] }, c: { int: [1, 8] } }
+  require: [a + b - c > 0]
+  prompt: '${{a}} + {{b}} = \;? + {{c}}$'
+  parts:
+    - { ask: 'Missing number', label: r, value: a + b - c, tol: 0.0001, explain: 'The equal sign means "the same amount as", not "the answer comes next". The left side is ${{a + b}}$, so the right side must also be ${{a + b}}$' }
+  verify: { expect: { r: "solve(Eq(a + b, x + c), x)[0]" } }
+
+- template: k2-unknown-start
+  skill: k8.add-sub
+  pace: quick
+  given: { b: { int: [2, 9] }, s: { int: [11, 20] } }
+  require: [s - b > 0]
+  prompt: '$? + {{b}} = {{s}}$'
+  parts:
+    - { ask: 'Missing number', label: r, value: s - b, tol: 0.0001, explain: 'The unknown can be anywhere. Undo the adding: ${{s}} - {{b}} = {{s - b}}$' }
+  verify: { expect: { r: "solve(Eq(x + b, s), x)[0]" } }
+
+- template: k2-count-by-tens
+  skill: k8.counting
+  pace: recall
+  given: { n: { int: [11, 89] }, k: { int: [2, 3] } }
+  prompt: 'Count on by tens from ${{n}}$, ${{k}}$ times. Where do you land?'
+  parts:
+    - { ask: 'Number', label: r, value: n + 10*k, tol: 0.0001, explain: 'Counting by tens changes only the tens digit: ${{n}}$ → ${{n + 10}}$ …' }
+  verify: { expect: { r: "n + 10*k" } }
+
+- template: k2-tens-ones-build
+  skill: k8.place-value
+  pace: recall
+  given: { t: { int: [1, 9] }, o: { int: [0, 9] } }
+  prompt: 'What number is ${{t}}$ tens and ${{o}}$ ones?'
+  parts:
+    - { ask: 'Number', label: r, value: 10*t + o, tol: 0.0001, explain: 'Each ten is 10: ${{t}} \times 10 + {{o}} = {{10*t + o}}$' }
+  verify: { expect: { r: "10*t + o" } }
+
+- template: k2-compare-reason
+  skill: k8.counting
+  pace: recall
+  given: { a: { int: [1, 9] }, b: { int: [0, 9] }, c: { int: [0, 9] } }
+  require: [b != c]
+  prompt: 'Which is greater: ${{a}}{{b}}$ or ${{a}}{{c}}$? (Both have the same tens digit.)'
+  parts:
+    - ask: 'Greater'
+      label: a
+      choice: ["{{a}}{{b}}", "{{a}}{{c}}"]
+      correct: 'b > c ? 0 : 1'
+      explain: 'Compare tens first; when the tens are equal, the ones decide'
+  verify: { choices: { a: "0 if b > c else 1" } }
+
+- template: k2-add-tens-first
+  skill: k8.add-sub
+  pace: recall
+  given: { a: { int: [12, 79] }, t: { pick: [10, 20, 30, 40] } }
+  require: [a + t < 100]
+  prompt: 'Add ${{a}} + {{t}}$ by changing only one digit.'
+  parts:
+    - { ask: 'Sum', label: r, value: a + t, tol: 0.0001, explain: 'Adding tens leaves the ones alone: ${{t/10}}$ more tens on ${{a}}$ gives ${{a + t}}$' }
+  verify: { expect: { r: "a + t" } }
+
+- template: k2-ten-less-word
+  skill: k8.place-value
+  pace: recall
+  given: { n: { int: [21, 99] }, w: { pick: [0, 1] } }
+  prompt: 'A book has ${{n}}$ pages. Another has 10 {{w == 0 ? "more" : "fewer"}}. How many pages does it have?'
+  parts:
+    - { ask: 'Pages', label: r, value: 'w == 0 ? n + 10 : n - 10', tol: 0.0001, explain: 'Ten more or ten less changes the tens digit by one and leaves the ones digit' }
+  verify: { expect: { r: "(n + 10) if w == 0 else (n - 10)" } }
+
+- template: k2-tens-subtract-word
+  skill: k8.add-sub
+  pace: recall
+  given: { a: { pick: [50, 60, 70, 80, 90] }, b: { pick: [10, 20, 30, 40] } }
+  prompt: 'A jar holds ${{a}}$ beads. ${{b}}$ are used. How many are left?'
+  parts:
+    - { ask: 'Beads', label: r, value: a - b, tol: 0.0001, explain: 'Think in tens: ${{a/10}}$ tens minus ${{b/10}}$ tens is ${{(a - b)/10}}$ tens' }
+  verify: { expect: { r: "a - b" } }
+
+- template: k2-indirect-length
+  skill: k8.measurement
+  pace: recall
+  cases:
+    - { q: 'The pencil is longer than the crayon. The crayon is longer than the eraser.', ans: 0 }
+    - { q: 'The rope is shorter than the hose. The hose is shorter than the fence.', ans: 1 }
+    - { q: 'Ann is taller than Ben. Cara is taller than Ann.', ans: 2 }
+  prompt: '{{q}} Which is longest (or tallest)?'
+  parts:
+    - ask: 'Longest'
+      label: a
+      choice: ["The first one named (pencil)", "The last one named (fence)", "The one taller than Ann (Cara)"]
+      correct: ans
+      explain: 'Compare two things through a third: if A is longer than B and B is longer than C, then A is longer than C'
+  verify: { authored: true }
+
+- template: k2-units-of-length
+  skill: k8.measurement
+  pace: recall
+  given: { n: { int: [3, 12] }, k: { pick: [2, 3] } }
+  prompt: 'A desk is ${{n*k}}$ paper clips long. How many crayons long is it, if one crayon is as long as ${{k}}$ paper clips?'
+  parts:
+    - { ask: 'Crayons', label: r, value: n, tol: 0.0001, explain: 'A longer unit fits fewer times: ${{n*k}} \div {{k}} = {{n}}$. Units must be laid end to end with no gaps or overlaps' }
+  verify: { expect: { r: "n*k/k" } }
+
+- template: k2-half-hour-later
+  skill: k8.measurement
+  pace: recall
+  given: { h: { int: [1, 11] }, m: { pick: [0, 30] } }
+  prompt: 'It is {{h}}:{{m == 0 ? "00" : "30"}}. What time will it be in half an hour? (Give the hour, and 0 or 30 for minutes, as hour + minutes/60.)'
+  parts:
+    - { ask: 'Time as hours (3:30 = 3.5)', label: r, value: 'h + m/60 + 0.5', tol: 0.0001, explain: 'Half an hour is 30 minutes: on the clock the minute hand moves halfway round. At half past, the hour hand sits halfway between two numbers' }
+  verify: { expect: { r: "h + Rational(m, 60) + Rational(1, 2)" } }
+
+- template: k2-chart-how-many
+  skill: k8.measurement
+  pace: recall
+  given: { a: { int: [3, 9] }, b: { int: [2, 8] }, c: { int: [1, 7] } }
+  prompt: 'A tally chart shows dogs ${{a}}$, cats ${{b}}$, fish ${{c}}$. How many pets in all?'
+  parts:
+    - { ask: 'Total', label: r, value: a + b + c, tol: 0.0001, explain: 'Add every category for "in all"; subtract two categories for "how many more"' }
+  verify: { expect: { r: "a + b + c" } }
+
+- template: k2-defining-yes-no
+  skill: k8.geometry
+  pace: recall
+  cases:
+    - { q: 'A triangle must be red.', ans: 1 }
+    - { q: 'A triangle must have three straight sides.', ans: 0 }
+    - { q: 'A square must have four equal sides and four square corners.', ans: 0 }
+    - { q: 'A rectangle must be wider than it is tall.', ans: 1 }
+    - { q: 'A circle must be big.', ans: 1 }
+    - { q: 'A shape must be closed to be a triangle.', ans: 0 }
+  prompt: 'True or false: {{q}}'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["True: that is a defining attribute", "False: that is not what makes the shape"]
+      correct: ans
+      explain: 'Defining attributes (number of sides, closed, square corners) decide the shape. Color, size and which way it is turned never do'
+  verify: { authored: true }
+
+- template: k2-compose-shapes-name
+  skill: k8.geometry
+  pace: recall
+  cases:
+    - { q: 'two squares side by side', ans: 0 }
+    - { q: 'two identical right triangles joined along their long sides', ans: 0 }
+    - { q: 'a square with a triangle on top', ans: 1 }
+    - { q: 'two half-circles joined along their straight edges', ans: 2 }
+  prompt: 'What shape do you get from {{q}}?'
+  parts:
+    - ask: 'Shape'
+      label: a
+      choice: ["A rectangle", "A pentagon (house shape)", "A circle"]
+      correct: ans
+      explain: 'Count the sides of the new outline: shared edges disappear inside'
+  verify: { authored: true }
+
+- template: k2-fourths-count
+  skill: k8.fractions
+  pace: recall
+  cases:
+    - { q: 'halves', n: 2 }
+    - { q: 'fourths (quarters)', n: 4 }
+  prompt: 'A pizza is cut into equal {{q}}. How many pieces make the whole pizza?'
+  parts:
+    - { ask: 'Pieces', label: r, value: n, tol: 0.0001, explain: 'Two halves or four fourths make one whole. More equal shares means smaller shares' }
+  verify: { expect: { r: "n" } }
+
+# ── Grade 2 ────────────────────────────────────────────────────────────────
+- template: k2-two-step-word
+  skill: k8.add-sub
+  pace: quick
+  given: { a: { int: [20, 60] }, b: { int: [5, 25] }, c: { int: [5, 20] } }
+  require: [a + b - c > 0]
+  prompt: 'A class had ${{a}}$ books, bought ${{b}}$ more, then gave ${{c}}$ to another class. How many books now?'
+  parts:
+    - { ask: 'Books', label: r, value: a + b - c, tol: 0.0001, explain: 'Two steps: ${{a}} + {{b}} = {{a + b}}$, then ${{a + b}} - {{c}} = {{a + b - c}}$. A bar model keeps the steps straight' }
+  verify: { expect: { r: "a + b - c" } }
+
+- template: k2-fact-family
+  skill: k8.add-sub
+  pace: recall
+  given: { a: { int: [3, 9] }, b: { int: [3, 9] } }
+  prompt: 'You know ${{a}} + {{b}} = {{a + b}}$. What is ${{a + b}} - {{a}}$?'
+  parts:
+    - { ask: 'Difference', label: r, value: b, tol: 0.0001, explain: 'Addition and subtraction facts come in families: the same three numbers make two additions and two subtractions' }
+  verify: { expect: { r: "solve(Eq(a + x, a + b), x)[0]" } }
+
+- template: k2-even-odd-sum
+  skill: k8.add-sub
+  pace: recall
+  given: { a: { int: [1, 20] }, b: { int: [1, 20] } }
+  prompt: 'Is ${{a}} + {{b}}$ even or odd? (Decide before adding.)'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["Even", "Odd"]
+      correct: '(a + b) % 2'
+      explain: 'Even plus even and odd plus odd are even; even plus odd is odd. An even number can be split into two equal groups (pairs with none left over)'
+  verify: { choices: { a: "(a + b) % 2" } }
+
+- template: k2-array-equation
+  skill: k8.mult-div
+  pace: recall
+  given: { r: { int: [2, 5] }, c: { int: [2, 5] } }
+  prompt: 'An array has ${{r}}$ rows of ${{c}}$. Write the total as a repeated addition and give it.'
+  parts:
+    - { ask: 'Total', label: t, value: r*c, tol: 0.0001, explain: 'Add one row at a time: ${{c}}$ added ${{r}}$ times $= {{r*c}}$. Turning the array gives ${{r}}$ added ${{c}}$ times, the same total' }
+  verify: { expect: { t: "sum([c for i in range(r)])" } }
+
+- template: k2-hundreds-value
+  skill: k8.place-value
+  pace: recall
+  given: { h: { int: [1, 9] }, t: { int: [0, 9] }, o: { int: [0, 9] }, w: { pick: [0, 1, 2] } }
+  prompt: 'In ${{100*h + 10*t + o}}$, what is the value of the digit in the {{w == 0 ? "hundreds" : (w == 1 ? "tens" : "ones")}} place?'
+  require: ['(w == 0) or (w == 1 and t > 0) or (w == 2 and o > 0)']
+  parts:
+    - { ask: 'Value', label: r, value: 'w == 0 ? 100*h : (w == 1 ? 10*t : o)', tol: 0.0001, explain: 'A digit''s value depends on its place: hundreds are worth 100 each, tens 10, ones 1' }
+  verify: { expect: { r: "[100*h, 10*t, o][w]" } }
+
+- template: k2-skip-count-next
+  skill: k8.counting
+  pace: recall
+  cases:
+    - { s: 5 }
+    - { s: 10 }
+    - { s: 100 }
+  given: { k: { int: [1, 7] } }
+  prompt: 'Skip-count by {{s}}s: ${{s*k}}, {{s*(k + 1)}}, {{s*(k + 2)}}, \;?$'
+  parts:
+    - { ask: 'Next', label: r, value: s*(k + 3), tol: 0.0001, explain: 'Each step adds ${{s}}$. Counting by 5s ends in 0 or 5; by 10s the ones digit stays 0' }
+  verify: { expect: { r: "s*(k + 3)" } }
+
+- template: k2-expanded-to-number
+  skill: k8.place-value
+  pace: recall
+  given: { h: { int: [1, 9] }, t: { int: [0, 9] }, o: { int: [1, 9] } }
+  prompt: 'Write ${{100*h}} + {{10*t}} + {{o}}$ as one number.'
+  parts:
+    - { ask: 'Number', label: r, value: 100*h + 10*t + o, tol: 0.0001, explain: 'Expanded form shows each digit''s value; put the digits in their places. A zero holds the tens place when there are no tens' }
+  verify: { expect: { r: "100*h + 10*t + o" } }
+
+- template: k2-compare-three-digit
+  skill: k8.counting
+  pace: recall
+  given: { a: { int: [100, 999] }, b: { int: [100, 999] } }
+  require: ['floor(a/100) == floor(b/100)', a != b]
+  prompt: 'Which is greater: ${{a}}$ or ${{b}}$?'
+  parts:
+    - ask: 'Greater'
+      label: a
+      choice: ["{{a}}", "{{b}}"]
+      correct: 'a > b ? 0 : 1'
+      explain: 'Same hundreds, so compare tens; if those match too, compare ones'
+  verify: { choices: { a: "0 if a > b else 1" } }
+
+- template: k2-add-four-tens
+  skill: k8.add-sub
+  pace: quick
+  given: { a: { int: [11, 49] }, b: { int: [11, 49] }, c: { int: [11, 49] }, d: { int: [11, 49] } }
+  prompt: 'Add the tens first, then the ones: ${{a}} + {{b}} + {{c}} + {{d}}$'
+  parts:
+    - { ask: 'Sum', label: r, value: a + b + c + d, tol: 0.0001, explain: 'Tens: ${{10*floor(a/10) + 10*floor(b/10) + 10*floor(c/10) + 10*floor(d/10)}}$. Ones: ${{a % 10 + b % 10 + c % 10 + d % 10}}$. Then combine' }
+  verify: { expect: { r: "a + b + c + d" } }
+
+- template: k2-hundred-less-word
+  skill: k8.place-value
+  pace: recall
+  given: { n: { int: [200, 899] }, w: { pick: [0, 1] } }
+  prompt: 'A school has ${{n}}$ students. Next year it will have 100 {{w == 0 ? "more" : "fewer"}}. How many is that?'
+  parts:
+    - { ask: 'Students', label: r, value: 'w == 0 ? n + 100 : n - 100', tol: 0.0001, explain: '100 more or less changes only the hundreds digit' }
+  verify: { expect: { r: "(n + 100) if w == 0 else (n - 100)" } }
+
+- template: k2-unit-size
+  skill: k8.measurement
+  pace: recall
+  cases:
+    - { q: 'inches or feet', ans: 0 }
+    - { q: 'centimeters or meters', ans: 0 }
+  given: { w: { pick: [0, 1] } }
+  prompt: 'You measure the same table in {{q}}. Which unit gives the larger number?'
+  parts:
+    - ask: 'Unit'
+      label: a
+      choice: ["The smaller unit (inches, centimeters)", "The larger unit (feet, meters)"]
+      correct: ans
+      explain: 'A smaller unit fits more times into the same length, so the number of units is bigger'
+  verify: { authored: true }
+
+- template: k2-estimate-length
+  skill: k8.measurement
+  pace: recall
+  cases:
+    - { q: 'a car', o1: '4 meters', o2: '4 centimeters', o3: '40 meters', ans: 0 }
+    - { q: 'a paper clip', o1: '3 meters', o2: '3 centimeters', o3: '3 feet', ans: 1 }
+    - { q: 'a classroom door''s height', o1: '7 inches', o2: '70 feet', o3: '7 feet', ans: 2 }
+    - { q: 'a new pencil', o1: '7 inches', o2: '7 feet', o3: '7 yards', ans: 0 }
+  prompt: 'About how long is {{q}}?'
+  parts:
+    - ask: 'Estimate'
+      label: a
+      choice: ["{{o1}}", "{{o2}}", "{{o3}}"]
+      correct: ans
+      explain: 'Benchmarks: a centimeter is a fingernail''s width, an inch a thumb joint, a foot a ruler, a meter a big step'
+  verify: { authored: true }
+
+- template: k2-length-difference
+  skill: k8.measurement
+  pace: recall
+  given: { a: { int: [20, 95] }, b: { int: [10, 80] } }
+  require: [a > b]
+  prompt: 'A rope is ${{a}}$ cm and a string is ${{b}}$ cm. How much longer is the rope?'
+  parts:
+    - { ask: 'cm', label: r, value: a - b, tol: 0.0001, explain: 'How much longer means subtract: ${{a}} - {{b}}$. Both lengths must be in the same unit' }
+  verify: { expect: { r: "a - b" } }
+
+- template: k2-number-line-length
+  skill: k8.measurement
+  pace: recall
+  given: { a: { int: [5, 60] }, b: { int: [3, 30] } }
+  prompt: 'On a number line, jump from ${{a}}$ forward ${{b}}$. Where do you land?'
+  parts:
+    - { ask: 'Number', label: r, value: a + b, tol: 0.0001, explain: 'A number line is a ruler: a jump of ${{b}}$ units is a length of ${{b}}$, so adding means moving right' }
+  verify: { expect: { r: "a + b" } }
+
+- template: k2-elapsed-five
+  skill: k8.measurement
+  pace: quick
+  given: { m: { pick: [5, 10, 15, 20, 25, 35, 40] }, k: { pick: [10, 15, 20, 25] } }
+  require: [m + k < 60]
+  prompt: 'The minute hand points at the {{m/5}}. In ${{k}}$ minutes, which number will it point at?'
+  parts:
+    - { ask: 'Number on the clock', label: r, value: (m + k)/5, tol: 0.0001, explain: 'Each number on the clock face is 5 minutes for the minute hand: {{m/5}} means {{m}} minutes, and {{k}} more minutes is ${{k/5}}$ more numbers' }
+  verify: { expect: { r: "(m + k)/Integer(5)" } }
+
+- template: k2-coins-total
+  skill: k8.measurement
+  pace: quick
+  given: { q: { int: [0, 3] }, d: { int: [0, 4] }, n: { int: [0, 3] }, p: { int: [1, 4] } }
+  prompt: 'How many cents are ${{q}}$ quarters, ${{d}}$ dimes, ${{n}}$ nickels and ${{p}}$ pennies?'
+  parts:
+    - { ask: 'Cents', label: r, value: 25*q + 10*d + 5*n + p, tol: 0.0001, explain: 'Count the biggest coins first: quarters by 25, dimes by 10, nickels by 5, then pennies' }
+  verify: { expect: { r: "25*q + 10*d + 5*n + p" } }
+
+- template: k2-line-plot-read
+  skill: k8.data
+  pace: quick
+  given: { a: { int: [1, 5] }, b: { int: [1, 5] }, c: { int: [1, 5] } }
+  prompt: 'A line plot of pencil lengths shows ${{a}}$ X''s above 4 in, ${{b}}$ above 5 in and ${{c}}$ above 6 in. How many pencils were measured?'
+  parts:
+    - { ask: 'Pencils', label: r, value: a + b + c, tol: 0.0001, explain: 'Each X is one measurement, so count every X. The tallest stack is the most common length' }
+  verify: { expect: { r: "a + b + c" } }
+
+- template: k2-bar-graph-more
+  skill: k8.measurement
+  pace: quick
+  given: { a: { int: [3, 15] }, b: { int: [2, 15] } }
+  require: [a != b]
+  prompt: 'A bar graph shows ${{a}}$ votes for apples and ${{b}}$ for bananas. How many more votes did the winner get?'
+  parts:
+    - { ask: 'More votes', label: r, value: 'abs(a - b)', tol: 0.0001, explain: 'Read each bar''s height on the scale, then subtract the smaller from the larger' }
+  verify: { expect: { r: "Abs(a - b)" } }
+
+- template: k2-shape-from-angles
+  skill: k8.measurement
+  pace: recall
+  cases:
+    - { n: 3, s: 'triangle' }
+    - { n: 4, s: 'quadrilateral' }
+    - { n: 5, s: 'pentagon' }
+    - { n: 6, s: 'hexagon' }
+  prompt: 'A flat shape has ${{n}}$ angles. How many sides does it have?'
+  parts:
+    - { ask: 'Sides', label: r, value: n, tol: 0.0001, explain: 'A polygon has the same number of sides as angles; with {{n}} it is a {{s}}' }
+  verify: { expect: { r: "n" } }
+
+- template: k2-rectangle-squares
+  skill: k8.mult-div
+  pace: recall
+  given: { r: { int: [2, 5] }, c: { int: [2, 6] } }
+  prompt: 'A rectangle is split into ${{r}}$ rows and ${{c}}$ columns of same-size squares. How many squares?'
+  parts:
+    - { ask: 'Squares', label: n, value: r*c, tol: 0.0001, explain: 'Count by rows: ${{c}}$ in each of ${{r}}$ rows, ${{r*c}}$ in all. This is the start of area and of multiplication' }
+  verify: { expect: { n: "r*c" } }
+
+- template: k2-thirds-word
+  skill: k8.fractions
+  pace: recall
+  cases:
+    - { q: 'halves', n: 2 }
+    - { q: 'thirds', n: 3 }
+    - { q: 'fourths', n: 4 }
+  given: { w: { pick: [0, 1] } }
+  prompt: 'A rectangle is cut into equal {{q}}. {{w == 0 ? "How many pieces make the whole?" : "How many pieces are in two of these wholes?"}}'
+  parts:
+    - { ask: 'Pieces', label: r, value: 'w == 0 ? n : 2*n', tol: 0.0001, explain: 'The name tells how many equal shares make one whole: {{n}} {{q}}. Equal shares of the same whole need not be the same shape' }
+  verify: { expect: { r: "n if w == 0 else 2*n" } }

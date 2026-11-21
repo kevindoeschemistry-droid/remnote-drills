@@ -2,7 +2,7 @@
 
 Generated from `drills/frameworks/math-k8.yaml` by `scripts/framework.mjs`. ● drilled · ◐ partly · ○ no drills yet.
 
-**258 learning objectives** in 9 units (258 core): 242 drilled, 13 partly, 3 with no drills. Core: 242 / 258 drilled.
+**258 learning objectives** in 9 units (258 core): 252 drilled, 6 partly, 0 with no drills. Core: 252 / 258 drilled.
 
 ## Big ideas
 
@@ -30,9 +30,9 @@ Generated from `drills/frameworks/math-k8.yaml` by `scripts/framework.mjs`. ● 
 
 | Unit | Scope | Est. weight | LOs | ● | ◐ | ○ |
 |---|---|---|---|---|---|---|
-| 1 · Kindergarten — counting, adding and subtracting within 10, shapes | core | — | 22 | 16 | 3 | 3 |
-| 2 · Grade 1 — addition and subtraction within 20, tens and ones, length units | core | — | 21 | 20 | 1 | 0 |
-| 3 · Grade 2 — base ten to 1000, fluency within 100, standard length units | core | — | 26 | 23 | 3 | 0 |
+| 1 · Kindergarten — counting, adding and subtracting within 10, shapes | core | — | 22 | 22 | 0 | 0 |
+| 2 · Grade 1 — addition and subtraction within 20, tens and ones, length units | core | — | 21 | 21 | 0 | 0 |
+| 3 · Grade 2 — base ten to 1000, fluency within 100, standard length units | core | — | 26 | 26 | 0 | 0 |
 | 4 · Grade 3 — multiplication and division within 100, unit fractions, area | core | — | 30 | 30 | 0 | 0 |
 | 5 · Grade 4 — multi-digit arithmetic, fraction equivalence and operations, angles | core | — | 32 | 31 | 1 | 0 |
 | 6 · Grade 5 — fraction addition and multiplication, decimals to thousandths, volume | core | — | 30 | 30 | 0 | 0 |
@@ -54,36 +54,36 @@ Big ideas: COUNT, OPS, MEAS, SHAPE
 - ● **MK-1.1.B** (K.CC.A.2) Count forward beginning from a given number within the known sequence (instead of having to begin at 1).
   - EK: Any number in the sequence can be a starting point; the next number is always one more.
   - Needs: MK-1.1.A
-  - MP7 · drills: k8-count-on
-- ◐ **MK-1.1.C** (K.CC.A.3) Write numbers from 0 to 20 and represent a number of objects with a written numeral 0–20 (0 = no objects).
+  - MP7 · drills: k8-count-on, k2-number-after
+- ● **MK-1.1.C** (K.CC.A.3) Write numbers from 0 to 20 and represent a number of objects with a written numeral 0–20 (0 = no objects).
   - EK: A numeral is a symbol for how many; 0 names an empty set.
   - Needs: MK-1.1.A
-  - MP6 · drills: ~k8-count-dots
+  - MP6 · drills: k2-numeral-word, ~k8-count-dots
 - ● **MK-1.1.D** (K.CC.B.4a, K.CC.B.4b, K.CC.B.4c) Count objects by saying the number names in standard order, pairing each object with one and only one number name.
   - EK: One-to-one correspondence; the last number said is how many (cardinality), whatever the order counted; each successive number is one larger.
   - Needs: MK-1.1.A
-  - MP2 · MP6 · drills: k8-count-dots
+  - MP2 · MP6 · drills: k8-count-dots, k2-last-number
 - ● **MK-1.1.E** (K.CC.B.5) Count to answer "how many?" for up to 20 objects in a line, array or circle (10 scattered), and count out that many objects given a number 1–20.
   - EK: Arrangement does not change how many; scattered sets need a way to track what was counted.
   - Needs: MK-1.1.D
-  - MP6 · drills: k8-count-dots
+  - MP6 · drills: k8-count-dots, k2-ten-frame
 - ● **MK-1.1.F** (K.CC.C.6) Identify whether the number of objects in one group is greater than, less than, or equal to the number in another group (up to 10).
   - EK: Compare by matching one-to-one or by counting; leftover objects mean more.
   - Needs: MK-1.1.E
-  - MP2 · MP3 · drills: k8-compare-groups, ~k8-cmp-10
+  - MP2 · MP3 · drills: k8-compare-groups, k2-how-many-more, ~k8-cmp-10
 - ● **MK-1.1.G** (K.CC.C.7) Compare two numbers between 1 and 10 presented as written numerals.
   - EK: A number later in the counting sequence is greater.
   - Needs: MK-1.1.F, MK-1.1.C
-  - MP2 · drills: k8-cmp-10
+  - MP2 · drills: k8-cmp-10, k2-number-between
 
 ### 1.2 Operations and Algebraic Thinking
 
 
 
-- ◐ **MK-1.2.A** (K.OA.A.1) Represent addition and subtraction with objects, fingers, drawings, sounds, acting out situations, expressions or equations.
+- ● **MK-1.2.A** (K.OA.A.1) Represent addition and subtraction with objects, fingers, drawings, sounds, acting out situations, expressions or equations.
   - EK: Addition is putting together or adding to; subtraction is taking apart or taking from.
   - Needs: MK-1.1.E
-  - MP4 · drills: ~k8-word-add10
+  - MP4 · drills: k2-story-equation, ~k8-word-add10
 - ● **MK-1.2.B** (K.OA.A.2) Solve addition and subtraction word problems, and add and subtract within 10 (e.g. 1 + 1), using objects or drawings.
   - EK: Act out the story: join the groups and count all, or remove and count what is left.
   - Needs: MK-1.2.A
@@ -91,15 +91,15 @@ Big ideas: COUNT, OPS, MEAS, SHAPE
 - ● **MK-1.2.C** (K.OA.A.3) Decompose numbers less than or equal to 10 into pairs in more than one way (5 = 2 + 3 = 4 + 1).
   - EK: A number is made of parts; the same whole splits many ways.
   - Needs: MK-1.2.A
-  - MP7 · drills: k8-decompose10
+  - MP7 · drills: k8-decompose10, k2-pair-for-number
 - ● **MK-1.2.D** (K.OA.A.4) For any number 1 to 9, find the number that makes 10 when added to it.
   - EK: Partners of ten: 1+9, 2+8, 3+7, 4+6, 5+5.
   - Needs: MK-1.2.C
-  - MP7 · drills: k8-make-ten
+  - MP7 · drills: k8-make-ten, k2-make-ten-pairs
 - ● **MK-1.2.E** (K.OA.A.5) Fluently add and subtract within 5.
   - EK: Facts within 5 are known, not counted out.
   - Needs: MK-1.2.B, MK-1.2.C
-  - MP6 · drills: k8-add5
+  - MP6 · drills: k8-add5, k2-within-five-missing
 
 ### 1.3 Number and Operations in Base Ten
 
@@ -108,50 +108,50 @@ Big ideas: COUNT, OPS, MEAS, SHAPE
 - ● **MK-1.3.A** (K.NBT.A.1) Compose and decompose numbers from 11 to 19 into ten ones and some further ones (18 = 10 + 8).
   - EK: Teen numbers are ten ones and some more ones.
   - Needs: MK-1.2.D, MK-1.1.E
-  - MP7 · drills: k8-teen
+  - MP7 · drills: k8-teen, k2-teen-in-words
 
 ### 1.4 Measurement and Data
 
 
 
-- ○ **MK-1.4.A** (K.MD.A.1) Describe measurable attributes of objects, such as length or weight, and several attributes of one object.
+- ● **MK-1.4.A** (K.MD.A.1) Describe measurable attributes of objects, such as length or weight, and several attributes of one object.
   - EK: An object has several attributes that can be measured.
-  - MP6
-- ◐ **MK-1.4.B** (K.MD.A.2) Directly compare two objects with a measurable attribute in common and say which has more or less of it.
+  - MP6 · drills: k2-measurable-attribute
+- ● **MK-1.4.B** (K.MD.A.2) Directly compare two objects with a measurable attribute in common and say which has more or less of it.
   - EK: Line objects up from a common start to compare length.
   - Needs: MK-1.4.A
-  - MP6 · drills: ~k8-order-lengths
+  - MP6 · drills: k2-compare-attribute, ~k8-order-lengths
 - ● **MK-1.4.C** (K.MD.B.3) Classify objects into given categories, count the objects in each category, and sort the categories by count (counts ≤ 10).
   - EK: Sorting then counting turns a pile into data.
   - Needs: MK-1.1.E
-  - MP4 · drills: k8-data-graph
+  - MP4 · drills: k8-data-graph, k2-sort-count
 
 ### 1.5 Geometry
 
 
 
-- ○ **MK-1.5.A** (K.G.A.1) Describe objects in the environment using names of shapes and their relative positions (above, below, beside, in front of, behind, next to).
+- ● **MK-1.5.A** (K.G.A.1) Describe objects in the environment using names of shapes and their relative positions (above, below, beside, in front of, behind, next to).
   - EK: Position words describe where an object is relative to another.
-  - MP6
+  - MP6 · drills: k2-position-words
 - ● **MK-1.5.B** (K.G.A.2) Name shapes correctly regardless of their orientation or overall size.
   - EK: A shape keeps its name when it is turned or resized.
-  - MP7 · drills: k8-name-the-shape
+  - MP7 · drills: k8-name-the-shape, k2-shape-sides
 - ● **MK-1.5.C** (K.G.A.3) Identify shapes as two-dimensional (flat) or three-dimensional (solid).
   - EK: Flat shapes have length and width; solids also have depth.
   - Needs: MK-1.5.B
-  - MP6 · drills: k8-flat-or-solid
+  - MP6 · drills: k8-flat-or-solid, k2-solid-or-flat
 - ● **MK-1.5.D** (K.G.B.4) Analyze and compare two- and three-dimensional shapes by their parts and attributes (number of sides, vertices, equal sides).
   - EK: Shapes are defined by their parts, not by how they look at first glance.
   - Needs: MK-1.5.B, MK-1.5.C
-  - MP3 · MP7 · drills: k8-shape-attr
-- ○ **MK-1.5.E** (K.G.B.5) Model shapes by building them from components (sticks, clay) and drawing them.
+  - MP3 · MP7 · drills: k8-shape-attr, k2-solid-faces
+- ● **MK-1.5.E** (K.G.B.5) Model shapes by building them from components (sticks, clay) and drawing them.
   - EK: Building a shape requires knowing its parts.
   - Needs: MK-1.5.D
-  - MP4
+  - MP4 · drills: k2-build-shape
 - ● **MK-1.5.F** (K.G.B.6) Compose simple shapes to form larger shapes (two triangles make a rectangle).
   - EK: Shapes combine into new shapes.
   - Needs: MK-1.5.D
-  - MP7 · drills: k8-compose-shapes
+  - MP7 · drills: k8-compose-shapes, k2-compose-count
 
 ## Unit 2 · Grade 1 — addition and subtraction within 20, tens and ones, length units
 
@@ -164,11 +164,11 @@ Big ideas: OPS, PV, MEAS, SHAPE
 - ● **MK-2.1.A** (1.OA.A.1) Use addition and subtraction within 20 to solve word problems (adding to, taking from, putting together, taking apart, comparing) with unknowns in all positions.
   - EK: The same situation can hide the result, the change or the start; an equation with a symbol for the unknown records it.
   - Needs: MK-1.2.B
-  - MP1 · MP4 · drills: k8-word-add20
+  - MP1 · MP4 · drills: k8-word-add20, k2-word-compare
 - ● **MK-2.1.B** (1.OA.A.2) Solve word problems that call for adding three whole numbers whose sum is ≤ 20.
   - EK: Add three numbers by adding two, then the third.
   - Needs: MK-2.1.A
-  - MP1 · drills: k8-add3
+  - MP1 · drills: k8-add3, k2-three-addends-word
 - ● **MK-2.1.C** (1.OA.B.3) Apply the commutative and associative properties of addition as strategies (8+3 = 3+8; 2+6+4 = 2+10).
   - EK: Order and grouping don't change a sum.
   - Needs: MK-1.2.C
@@ -176,11 +176,11 @@ Big ideas: OPS, PV, MEAS, SHAPE
 - ● **MK-2.1.D** (1.OA.B.4) Understand subtraction as an unknown-addend problem (10 − 8 as 8 + ? = 10).
   - EK: Subtraction finds a missing part.
   - Needs: MK-1.2.A
-  - MP7 · drills: k8-missing-addend
+  - MP7 · drills: k8-missing-addend, k2-think-addition
 - ● **MK-2.1.E** (1.OA.C.5) Relate counting to addition and subtraction (counting on 2 to add 2).
   - EK: Adding n means counting on n; subtracting means counting back.
   - Needs: MK-1.1.B
-  - MP7 · drills: k8-count-on-to-add, ~k8-count-on
+  - MP7 · drills: k8-count-on-to-add, k2-count-back, ~k8-count-on
 - ● **MK-2.1.F** (1.OA.C.6) Add and subtract within 20, fluently within 10, using strategies such as making ten, decomposing to ten, and known sums (8+6 = 8+2+4).
   - EK: Making ten turns a hard fact into an easy one.
   - Needs: MK-1.2.D, MK-1.2.E, MK-2.1.C, MK-2.1.D, MK-2.1.E
@@ -188,11 +188,11 @@ Big ideas: OPS, PV, MEAS, SHAPE
 - ● **MK-2.1.G** (1.OA.D.7) Understand the meaning of the equal sign and decide whether equations like 6 = 6, 7 = 8 − 1, 5 + 2 = 2 + 5 are true or false.
   - EK: = means "the same amount as", not "the answer comes next".
   - Needs: MK-1.2.C
-  - MP6 · drills: k8-true-false
+  - MP6 · drills: k8-true-false, k2-equal-sign-missing
 - ● **MK-2.1.H** (1.OA.D.8) Determine the unknown whole number in an addition or subtraction equation relating three whole numbers (8 + ? = 11).
   - EK: Any of the three numbers can be the unknown.
   - Needs: MK-2.1.G, MK-2.1.D
-  - MP2 · drills: k8-missing-addend
+  - MP2 · drills: k8-missing-addend, k2-unknown-start
 
 ### 2.2 Number and Operations in Base Ten
 
@@ -201,27 +201,27 @@ Big ideas: OPS, PV, MEAS, SHAPE
 - ● **MK-2.2.A** (1.NBT.A.1) Count to 120 starting at any number less than 120; read and write numerals in this range.
   - EK: The tens-and-ones pattern continues past 100.
   - Needs: MK-1.1.B, MK-1.1.C
-  - MP7 · drills: k8-count-120
+  - MP7 · drills: k8-count-120, k2-count-by-tens
 - ● **MK-2.2.B** (1.NBT.B.2a, 1.NBT.B.2b, 1.NBT.B.2c) Understand that the two digits of a two-digit number represent amounts of tens and ones (10 is a bundle of ten ones; 11–19 are a ten and some ones; 10, 20 … 90 are tens and 0 ones).
   - EK: Place determines value: the left digit counts tens.
   - Needs: MK-1.3.A
-  - MP7 · drills: k8-tens-ones
+  - MP7 · drills: k8-tens-ones, k2-tens-ones-build
 - ● **MK-2.2.C** (1.NBT.B.3) Compare two two-digit numbers based on the meanings of the tens and ones digits, recording with >, =, <.
   - EK: Compare tens first; ones only break a tie.
   - Needs: MK-2.2.B, MK-1.1.G
-  - MP2 · MP6 · drills: k8-cmp-2d
+  - MP2 · MP6 · drills: k8-cmp-2d, k2-compare-reason
 - ● **MK-2.2.D** (1.NBT.C.4) Add within 100 (two-digit + one-digit, two-digit + a multiple of 10) using models and place-value strategies, composing a ten when needed.
   - EK: Add tens to tens and ones to ones; ten ones make a new ten.
   - Needs: MK-2.2.B, MK-2.1.F
-  - MP3 · MP7 · drills: k8-add2d1d
+  - MP3 · MP7 · drills: k8-add2d1d, k2-add-tens-first
 - ● **MK-2.2.E** (1.NBT.C.5) Given a two-digit number, mentally find 10 more or 10 less without counting.
   - EK: Adding or taking 10 changes only the tens digit.
   - Needs: MK-2.2.B
-  - MP7 · drills: k8-ten-more
+  - MP7 · drills: k8-ten-more, k2-ten-less-word
 - ● **MK-2.2.F** (1.NBT.C.6) Subtract multiples of 10 in the range 10–90 from multiples of 10 in the same range.
   - EK: 70 − 30 is 7 tens − 3 tens = 4 tens.
   - Needs: MK-2.2.E, MK-2.1.D
-  - MP7 · drills: k8-sub-tens
+  - MP7 · drills: k8-sub-tens, k2-tens-subtract-word
 
 ### 2.3 Measurement and Data
 
@@ -230,19 +230,19 @@ Big ideas: OPS, PV, MEAS, SHAPE
 - ● **MK-2.3.A** (1.MD.A.1) Order three objects by length, and compare the lengths of two objects indirectly by using a third object.
   - EK: If A is longer than C and C is longer than B, then A is longer than B (transitivity).
   - Needs: MK-1.4.B
-  - MP3 · drills: k8-order-lengths
-- ◐ **MK-2.3.B** (1.MD.A.2) Express the length of an object as a whole number of length units by laying copies of a shorter unit end to end with no gaps or overlaps.
+  - MP3 · drills: k8-order-lengths, k2-indirect-length
+- ● **MK-2.3.B** (1.MD.A.2) Express the length of an object as a whole number of length units by laying copies of a shorter unit end to end with no gaps or overlaps.
   - EK: Length = number of same-size units that span it.
   - Needs: MK-2.3.A, MK-1.1.E
-  - MP5 · MP6 · drills: ~k8-ruler-length
+  - MP5 · MP6 · drills: k2-units-of-length, ~k8-ruler-length
 - ● **MK-2.3.C** (1.MD.B.3) Tell and write time in hours and half-hours using analog and digital clocks.
   - EK: The hour hand points between numbers at the half hour.
   - Needs: MK-2.2.A
-  - MP6 · drills: k8-time-half
+  - MP6 · drills: k8-time-half, k2-half-hour-later
 - ● **MK-2.3.D** (1.MD.C.4) Organize, represent and interpret data with up to three categories; ask and answer how many in each and how many more or less.
   - EK: Comparing category counts is a compare-type subtraction problem.
   - Needs: MK-1.4.C, MK-2.1.A
-  - MP4 · drills: k8-data-graph
+  - MP4 · drills: k8-data-graph, k2-chart-how-many
 
 ### 2.4 Geometry
 
@@ -251,15 +251,15 @@ Big ideas: OPS, PV, MEAS, SHAPE
 - ● **MK-2.4.A** (1.G.A.1) Distinguish defining attributes (triangles are closed and three-sided) from non-defining ones (color, orientation, size); build and draw shapes with given attributes.
   - EK: A shape's name depends only on its defining attributes.
   - Needs: MK-1.5.D
-  - MP3 · MP6 · drills: k8-defining-attribute, ~k8-shape-attr
+  - MP3 · MP6 · drills: k8-defining-attribute, k2-defining-yes-no, ~k8-shape-attr
 - ● **MK-2.4.B** (1.G.A.2) Compose two- or three-dimensional shapes into a composite shape, and compose new shapes from it.
   - EK: Composite shapes can be treated as units.
   - Needs: MK-1.5.F
-  - MP7 · drills: k8-compose-shapes
+  - MP7 · drills: k8-compose-shapes, k2-compose-shapes-name
 - ● **MK-2.4.C** (1.G.A.3) Partition circles and rectangles into two and four equal shares, using halves, fourths and quarters; more equal shares make smaller shares.
   - EK: Equal shares of one whole are the same size.
   - Needs: MK-2.4.A
-  - MP6 · drills: k8-equal-shares, ~k8-unit-share
+  - MP6 · drills: k8-equal-shares, k2-fourths-count, ~k8-unit-share
 
 ## Unit 3 · Grade 2 — base ten to 1000, fluency within 100, standard length units
 
@@ -272,19 +272,19 @@ Big ideas: PV, OPS, MEAS, DATA
 - ● **MK-3.1.A** (2.OA.A.1) Use addition and subtraction within 100 to solve one- and two-step word problems with unknowns in all positions.
   - EK: Two-step problems chain two situations; an equation with a symbol records each step.
   - Needs: MK-2.1.A, MK-2.2.D
-  - MP1 · MP4 · drills: k8-word-add100
+  - MP1 · MP4 · drills: k8-word-add100, k2-two-step-word
 - ● **MK-3.1.B** (2.OA.B.2) Fluently add and subtract within 20 using mental strategies; know from memory all sums of two one-digit numbers.
   - EK: Single-digit sums are recalled, not computed.
   - Needs: MK-2.1.F
-  - MP6 · drills: k8-add20
+  - MP6 · drills: k8-add20, k2-fact-family
 - ● **MK-3.1.C** (2.OA.C.3) Determine whether a group of up to 20 objects has an odd or even number of members (pairing, counting by 2s); write an even number as a sum of two equal addends.
   - EK: Even numbers split into two equal groups or pairs with none left.
   - Needs: MK-2.1.F
-  - MP7 · drills: k8-even-odd
+  - MP7 · drills: k8-even-odd, k2-even-odd-sum
 - ● **MK-3.1.D** (2.OA.C.4) Use addition to find the total in a rectangular array with up to 5 rows and 5 columns; write an equation as a sum of equal addends.
   - EK: An array is equal rows; total = repeated addition of a row.
   - Needs: MK-3.1.C
-  - MP7 · drills: k8-array
+  - MP7 · drills: k8-array, k2-array-equation
 
 ### 3.2 Number and Operations in Base Ten
 
@@ -293,19 +293,19 @@ Big ideas: PV, OPS, MEAS, DATA
 - ● **MK-3.2.A** (2.NBT.A.1a, 2.NBT.A.1b) Understand that the three digits of a three-digit number represent hundreds, tens and ones; 100 is a bundle of ten tens.
   - EK: Each place is ten of the place to its right.
   - Needs: MK-2.2.B
-  - MP7 · drills: k8-expanded
+  - MP7 · drills: k8-expanded, k2-hundreds-value
 - ● **MK-3.2.B** (2.NBT.A.2) Count within 1000; skip-count by 5s, 10s and 100s.
   - EK: Skip-counting by 10s or 100s changes one digit at a time.
   - Needs: MK-2.2.A, MK-3.2.A
-  - MP7 · drills: k8-skip-count
+  - MP7 · drills: k8-skip-count, k2-skip-count-next
 - ● **MK-3.2.C** (2.NBT.A.3) Read and write numbers to 1000 using base-ten numerals, number names and expanded form.
   - EK: Expanded form shows each digit's value: 352 = 300 + 50 + 2.
   - Needs: MK-3.2.A
-  - MP6 · drills: k8-expanded
+  - MP6 · drills: k8-expanded, k2-expanded-to-number
 - ● **MK-3.2.D** (2.NBT.A.4) Compare two three-digit numbers based on the meanings of the digits, using >, =, <.
   - EK: Compare from the largest place down.
   - Needs: MK-3.2.A, MK-2.2.C
-  - MP2 · MP6 · drills: k8-cmp-3d
+  - MP2 · MP6 · drills: k8-cmp-3d, k2-compare-three-digit
 - ● **MK-3.2.E** (2.NBT.B.5) Fluently add and subtract within 100 using strategies based on place value, properties of operations, and the relationship between addition and subtraction.
   - EK: Decompose by place, then combine like units.
   - Needs: MK-2.2.D, MK-2.2.F, MK-3.1.B
@@ -313,7 +313,7 @@ Big ideas: PV, OPS, MEAS, DATA
 - ● **MK-3.2.F** (2.NBT.B.6) Add up to four two-digit numbers using strategies based on place value and properties of operations.
   - EK: Group tens with tens, ones with ones, in any order.
   - Needs: MK-3.2.E
-  - MP7 · drills: k8-add4x2d
+  - MP7 · drills: k8-add4x2d, k2-add-four-tens
 - ● **MK-3.2.G** (2.NBT.B.7) Add and subtract within 1000 using models, drawings and place-value strategies, composing or decomposing tens and hundreds as needed.
   - EK: Ten tens make a hundred; a hundred can be broken into ten tens.
   - Needs: MK-3.2.E, MK-3.2.A
@@ -321,7 +321,7 @@ Big ideas: PV, OPS, MEAS, DATA
 - ● **MK-3.2.H** (2.NBT.B.8) Mentally add or subtract 10 or 100 to or from a number 100–900.
   - EK: Adding 10 or 100 changes only that digit (unless it regroups).
   - Needs: MK-2.2.E, MK-3.2.A
-  - MP7 · drills: k8-hundred-more
+  - MP7 · drills: k8-hundred-more, k2-hundred-less-word
 - ● **MK-3.2.I** (2.NBT.B.9) Explain why addition and subtraction strategies work, using place value and the properties of operations.
   - EK: A strategy is valid because of place value and the properties, not because it gives the right answer once.
   - Needs: MK-3.2.G
@@ -331,46 +331,46 @@ Big ideas: PV, OPS, MEAS, DATA
 
 
 
-- ◐ **MK-3.3.A** (2.MD.A.1) Measure the length of an object by selecting and using an appropriate tool (ruler, yardstick, meter stick, measuring tape).
+- ● **MK-3.3.A** (2.MD.A.1) Measure the length of an object by selecting and using an appropriate tool (ruler, yardstick, meter stick, measuring tape).
   - EK: A ruler is a row of iterated units with 0 at the start.
   - Needs: MK-2.3.B
-  - MP5 · drills: ~k8-ruler-length
+  - MP5 · drills: k2-unit-size, k2-estimate-length, ~k8-ruler-length
 - ● **MK-3.3.B** (2.MD.A.2) Measure an object twice using units of different lengths and describe how the measurements relate to the unit size.
   - EK: Bigger unit → fewer units; the count and unit size vary inversely.
   - Needs: MK-3.3.A
-  - MP6 · MP7 · drills: k8-two-units
+  - MP6 · MP7 · drills: k8-two-units, k2-unit-size
 - ● **MK-3.3.C** (2.MD.A.3) Estimate lengths using units of inches, feet, centimeters and meters.
   - EK: Benchmarks (a finger ≈ 1 cm, a door ≈ 2 m) make estimates.
   - Needs: MK-3.3.A
-  - MP5 · drills: k8-sensible-length
+  - MP5 · drills: k8-sensible-length, k2-estimate-length
 - ● **MK-3.3.D** (2.MD.A.4) Measure to determine how much longer one object is than another, in a standard length unit.
   - EK: Difference in length = longer measure − shorter measure.
   - Needs: MK-3.3.A
-  - MP6 · drills: k8-how-much-longer, ~k8-word-add100
+  - MP6 · drills: k8-how-much-longer, k2-length-difference, ~k8-word-add100
 - ● **MK-3.3.E** (2.MD.B.5) Use addition and subtraction within 100 to solve word problems involving lengths in the same units.
   - EK: Lengths add and subtract like numbers when the units match.
   - Needs: MK-3.3.D, MK-3.1.A
-  - MP4 · drills: k8-how-much-longer, ~k8-word-add100
-- ◐ **MK-3.3.F** (2.MD.B.6) Represent whole numbers as lengths from 0 on a number line with equally spaced points, and represent sums and differences within 100 on it.
+  - MP4 · drills: k8-how-much-longer, k2-length-difference, ~k8-word-add100
+- ● **MK-3.3.F** (2.MD.B.6) Represent whole numbers as lengths from 0 on a number line with equally spaced points, and represent sums and differences within 100 on it.
   - EK: A number on the line is a distance from 0.
   - Needs: MK-3.3.A, MK-3.2.E
-  - MP4 · MP5 · drills: ~k8-ruler-length
+  - MP4 · MP5 · drills: k2-number-line-length, ~k8-ruler-length
 - ● **MK-3.3.G** (2.MD.C.7) Tell and write time from analog and digital clocks to the nearest five minutes, using a.m. and p.m.
   - EK: Each numeral on the clock marks 5 minutes.
   - Needs: MK-2.3.C, MK-3.2.B
-  - MP6 · drills: k8-time-five
+  - MP6 · drills: k8-time-five, k2-elapsed-five
 - ● **MK-3.3.H** (2.MD.C.8) Solve word problems involving dollar bills, quarters, dimes, nickels and pennies, using $ and ¢ symbols.
   - EK: Coin values: 25¢, 10¢, 5¢, 1¢; count from the largest.
   - Needs: MK-3.1.A, MK-3.2.B
-  - MP4 · drills: k8-money
-- ◐ **MK-3.3.I** (2.MD.D.9) Generate length data by measuring several objects to the nearest whole unit and show it on a line plot.
+  - MP4 · drills: k8-money, k2-coins-total
+- ● **MK-3.3.I** (2.MD.D.9) Generate length data by measuring several objects to the nearest whole unit and show it on a line plot.
   - EK: A line plot puts one mark per measurement above a number line.
   - Needs: MK-3.3.A, MK-3.3.F
-  - MP4 · drills: ~k8-dot-plot
+  - MP4 · drills: k2-line-plot-read, ~k8-dot-plot
 - ● **MK-3.3.J** (2.MD.D.10) Draw a picture graph and a bar graph (single-unit scale) for up to four categories, and solve put-together, take-apart and compare problems from it.
   - EK: Bar height or picture count = category count.
   - Needs: MK-2.3.D
-  - MP4 · drills: k8-data-graph
+  - MP4 · drills: k8-data-graph, k2-bar-graph-more
 
 ### 3.4 Geometry
 
@@ -379,15 +379,15 @@ Big ideas: PV, OPS, MEAS, DATA
 - ● **MK-3.4.A** (2.G.A.1) Recognize and draw shapes with specified attributes (number of angles or faces); identify triangles, quadrilaterals, pentagons, hexagons and cubes.
   - EK: Polygons are named by their number of sides/angles.
   - Needs: MK-2.4.A
-  - MP6 · drills: k8-shape-attr
+  - MP6 · drills: k8-shape-attr, k2-shape-from-angles
 - ● **MK-3.4.B** (2.G.A.2) Partition a rectangle into rows and columns of same-size squares and count to find the total number of them.
   - EK: Rows × columns of squares foreshadows area and multiplication.
   - Needs: MK-3.1.D, MK-2.4.B
-  - MP7 · drills: k8-array
+  - MP7 · drills: k8-array, k2-rectangle-squares
 - ● **MK-3.4.C** (2.G.A.3) Partition circles and rectangles into two, three or four equal shares, described as halves, thirds, fourths; recognize equal shares need not have the same shape.
   - EK: Equal shares have equal size, not necessarily equal shape.
   - Needs: MK-2.4.C
-  - MP3 · MP6 · drills: k8-unit-share
+  - MP3 · MP6 · drills: k8-unit-share, k2-thirds-word
 
 ## Unit 4 · Grade 3 — multiplication and division within 100, unit fractions, area
 
