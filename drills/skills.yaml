@@ -43,6 +43,7 @@ domains:
   - { id: ptable, title: "The periodic table" }
   - { id: physics, title: "Physics" }
   - { id: gchem, title: "General chemistry" }
+  - { id: bio, title: "Biology" }
   - { id: md, title: "Molecular simulation" }
   - { id: compchem, title: "Computational chemistry" }
 
@@ -607,6 +608,18 @@ skills:
   - { id: ptable.d-block, domain: ptable, title: "The d block: positions, groups, triads and d-electron counts", short: "The d block" }
   - { id: ptable.f-block, domain: ptable, title: "The f block: lanthanoids, actinoids and f-electron counts", short: "The f block" }
   - { id: ptable.configurations, domain: ptable, title: "Ground-state electron configurations of the d and f blocks, with the exceptions", short: "Electron configurations", prereqs: [ptable.d-block, ptable.f-block] }
+  # ── biology (AP Biology, DAT) ────────────────────────────────────────────
+  - { id: bio.molecules, domain: bio, title: "Water and the macromolecules: structure, monomers, bonds, base pairing", short: "Biomolecules" }
+  - { id: bio.cells, domain: bio, title: "Cell structure, membranes, transport and water potential", short: "Cells and membranes", prereqs: [bio.molecules] }
+  - { id: bio.energetics, domain: bio, title: "Enzymes, photosynthesis and cellular respiration", short: "Cellular energetics", prereqs: [bio.cells] }
+  - { id: bio.signaling, domain: bio, title: "Cell signaling, feedback and the cell cycle", short: "Signaling and the cell cycle", prereqs: [bio.cells] }
+  - { id: bio.heredity, domain: bio, title: "Meiosis, Mendelian and non-Mendelian inheritance, chi-square, linkage", short: "Heredity", prereqs: [bio.signaling] }
+  - { id: bio.molecular-genetics, domain: bio, title: "Replication, transcription, translation, gene regulation, mutation, biotechnology", short: "Molecular genetics", prereqs: [bio.molecules] }
+  - { id: bio.evolution, domain: bio, title: "Natural selection, Hardy–Weinberg, phylogeny and speciation", short: "Evolution", prereqs: [bio.heredity] }
+  - { id: bio.ecology, domain: bio, title: "Behavior, energy flow, population growth and communities", short: "Ecology", prereqs: [bio.evolution] }
+  - { id: bio.physiology, domain: bio, title: "Animal systems: nerves, hormones, muscle, circulation, respiration, immunity, digestion, kidney, reproduction", short: "Physiology", prereqs: [bio.cells] }
+  - { id: bio.diversity, domain: bio, title: "Development, viruses, prokaryotes, protists, fungi, plants and animals", short: "Development and diversity", prereqs: [bio.evolution] }
+
   # ── general chemistry (AP Chemistry) ────────────────────────────────────────
   - { id: gchem.measurement, domain: gchem, title: "Matter and measurement: classification, units, significant figures, density, temperature", short: "Measurement" }
   - { id: gchem.composition, domain: gchem, title: "Atoms, ions, the mole, formulas and composition", short: "Composition", prereqs: [gchem.measurement] }

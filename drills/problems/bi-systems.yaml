@@ -1,0 +1,610 @@
+# Animal physiology, development and diversity for AP Biology and the DAT.
+
+# ── nervous and endocrine ──────────────────────────────────────────────────
+- template: bi-action-potential
+  skill: bio.physiology
+  pace: recall
+  cases:
+    - { q: 'What keeps the resting potential near −70 mV?', ans: 0 }
+    - { q: 'What causes the rising phase (depolarization)?', ans: 1 }
+    - { q: 'What causes repolarization?', ans: 2 }
+    - { q: 'Why does the impulse travel one way along the axon?', ans: 3 }
+    - { q: 'Why is conduction faster in myelinated axons?', ans: 4 }
+  prompt: '{{q}}'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["K⁺ leaking out through open channels, with the Na⁺/K⁺ pump keeping the gradients", "Voltage-gated Na⁺ channels open and Na⁺ rushes in", "Na⁺ channels inactivate and voltage-gated K⁺ channels let K⁺ out", "Na⁺ channels just behind the impulse are inactivated (refractory)", "The impulse jumps between nodes of Ranvier (saltatory conduction)"]
+      correct: ans
+      explain: 'Threshold opens voltage-gated Na⁺ channels (positive feedback), then they inactivate and K⁺ channels restore and briefly overshoot the resting potential. An action potential is all-or-none; stimulus strength is coded by frequency'
+  verify: { authored: true }
+
+- template: bi-synapse
+  skill: bio.physiology
+  pace: recall
+  cases:
+    - { q: 'What triggers neurotransmitter release at the axon terminal?', ans: 0 }
+    - { q: 'What happens when acetylcholine binds receptors on a muscle fibre?', ans: 1 }
+    - { q: 'What ends the signal at a cholinergic synapse?', ans: 2 }
+    - { q: 'Which division of the nervous system speeds the heart in an emergency?', ans: 3 }
+    - { q: 'Which division slows the heart and promotes digestion?', ans: 4 }
+  prompt: '{{q}}'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["Ca²⁺ entering through voltage-gated channels", "Ligand-gated Na⁺ channels open and the fibre depolarizes", "Acetylcholinesterase breaks it down", "Sympathetic", "Parasympathetic"]
+      correct: ans
+      explain: 'Chemical synapses convert an electrical signal into a chemical one and back. Excitatory transmitters depolarize the next cell, inhibitory ones hyperpolarize it, and the postsynaptic neuron sums them'
+  verify: { authored: true }
+
+- template: bi-sensory-receptor
+  skill: bio.physiology
+  pace: recall
+  cases:
+    - { q: 'Detecting dim light and motion', ans: 0 }
+    - { q: 'Color vision', ans: 1 }
+    - { q: 'Hearing: vibrations bending hair cells', ans: 2 }
+    - { q: 'Balance and head rotation', ans: 3 }
+    - { q: 'Taste and smell', ans: 4 }
+    - { q: 'Stretch of a muscle (proprioception)', ans: 5 }
+  prompt: 'Which receptor or structure handles: {{q}}?'
+  parts:
+    - ask: 'Structure'
+      label: a
+      choice: ["Rods in the retina", "Cones in the retina", "Organ of Corti in the cochlea", "Semicircular canals and vestibule", "Chemoreceptors", "Muscle spindles (mechanoreceptors)"]
+      correct: ans
+      explain: 'Each sense transduces one kind of stimulus into receptor potentials: photoreceptors (light), mechanoreceptors (sound, balance, touch, stretch), chemoreceptors (taste, smell, blood chemistry), thermoreceptors and nociceptors'
+  verify: { authored: true }
+
+- template: bi-hormone-action
+  skill: bio.physiology
+  pace: recall
+  cases:
+    - { q: 'Insulin', ans: 0 }
+    - { q: 'Cortisol', ans: 1 }
+    - { q: 'Epinephrine', ans: 0 }
+    - { q: 'Estrogen', ans: 1 }
+    - { q: 'ADH (vasopressin)', ans: 0 }
+    - { q: 'Aldosterone', ans: 1 }
+  prompt: 'How does {{q}} act on its target cells?'
+  parts:
+    - ask: 'Mechanism'
+      label: a
+      choice: ["Peptide or amine hormone: surface receptor and second messengers, fast", "Steroid hormone: crosses the membrane, binds an intracellular receptor, changes transcription, slower"]
+      correct: ans
+      explain: 'Water-soluble hormones (peptides, most amines) travel free in blood and use membrane receptors. Lipid-soluble steroids (and thyroid hormone) ride carrier proteins, enter cells and act as transcription factors'
+  verify: { authored: true }
+
+- template: bi-gland-hormone
+  skill: bio.physiology
+  pace: recall
+  cases:
+    - { q: 'TSH, ACTH, FSH, LH and growth hormone', ans: 0 }
+    - { q: 'ADH and oxytocin (stored and released)', ans: 1 }
+    - { q: 'T3 and T4, raising metabolic rate', ans: 2 }
+    - { q: 'PTH, raising blood Ca²⁺', ans: 3 }
+    - { q: 'Cortisol and aldosterone', ans: 4 }
+    - { q: 'Insulin and glucagon', ans: 5 }
+  prompt: 'Which gland secretes: {{q}}?'
+  parts:
+    - ask: 'Gland'
+      label: a
+      choice: ["Anterior pituitary", "Posterior pituitary", "Thyroid", "Parathyroid", "Adrenal cortex", "Pancreas (islets)"]
+      correct: ans
+      explain: 'The hypothalamus controls the anterior pituitary with releasing hormones and makes the posterior pituitary hormones itself. Most axes use negative feedback: high thyroid hormone suppresses TRH and TSH'
+  verify: { authored: true }
+
+- template: bi-hpa-feedback
+  skill: bio.physiology
+  pace: quick
+  cases:
+    - { q: 'A thyroid tumour makes too much T4. What happens to TSH?', ans: 1 }
+    - { q: 'Iodine deficiency lowers T4. What happens to TSH?', ans: 0 }
+    - { q: 'A patient takes high-dose cortisol pills. What happens to ACTH?', ans: 1 }
+    - { q: 'The adrenal glands are removed. What happens to ACTH?', ans: 0 }
+  prompt: '{{q}}'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["It rises", "It falls"]
+      correct: ans
+      explain: 'The end hormone feeds back on the hypothalamus and pituitary. Too much end hormone shuts down the pituitary signal; too little removes the brake, so the signal rises (and in iodine deficiency the high TSH enlarges the thyroid: a goitre)'
+  verify: { authored: true }
+
+# ── muscle, bone, skin ─────────────────────────────────────────────────────
+- template: bi-sliding-filament
+  skill: bio.physiology
+  pace: recall
+  cases:
+    - { q: 'What does Ca²⁺ released from the sarcoplasmic reticulum do?', ans: 0 }
+    - { q: 'What does ATP binding to myosin do?', ans: 1 }
+    - { q: 'What does ATP hydrolysis do?', ans: 2 }
+    - { q: 'What causes the power stroke?', ans: 3 }
+    - { q: 'Why do muscles lock in rigor mortis?', ans: 4 }
+  prompt: '{{q}}'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["Binds troponin, moving tropomyosin off actin's binding sites", "Detaches myosin from actin", "Cocks the myosin head into high-energy position", "Release of Pᵢ as myosin binds actin; the head pulls the thin filament", "Without ATP, myosin cannot detach from actin"]
+      correct: ans
+      explain: 'Thin (actin) filaments slide past thick (myosin) ones; the sarcomere shortens but the filaments do not. Each cross-bridge cycle needs one ATP, and contraction stops when Ca²⁺ is pumped back into the SR'
+  verify: { authored: true }
+
+- template: bi-calcium-bone
+  skill: bio.physiology
+  pace: recall
+  cases:
+    - { q: 'Blood Ca²⁺ falls. Which hormone rises?', ans: 0 }
+    - { q: 'What does PTH do to bone?', ans: 1 }
+    - { q: 'Blood Ca²⁺ rises. Which hormone is released?', ans: 2 }
+    - { q: 'What does calcitriol (active vitamin D) do?', ans: 3 }
+    - { q: 'Which cells build new bone matrix?', ans: 4 }
+  prompt: '{{q}}'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["Parathyroid hormone (PTH)", "Stimulates osteoclasts to resorb bone and release Ca²⁺", "Calcitonin (from the thyroid)", "Raises Ca²⁺ absorption in the intestine", "Osteoblasts"]
+      correct: ans
+      explain: 'PTH raises blood Ca²⁺ (bone resorption, kidney reabsorption, activating vitamin D); calcitonin lowers it. Bone is remodeled constantly by osteoclasts breaking down and osteoblasts building'
+  verify: { authored: true }
+
+- template: bi-skin
+  skill: bio.physiology
+  pace: recall
+  cases:
+    - { q: 'Outer layer of keratinized dead cells forming a waterproof barrier', ans: 0 }
+    - { q: 'Layer with blood vessels, nerves, hair follicles and sweat glands', ans: 1 }
+    - { q: 'Fat layer that insulates and stores energy', ans: 2 }
+    - { q: 'Cells that make melanin to absorb UV', ans: 3 }
+  prompt: 'Which part of the skin: {{q}}?'
+  parts:
+    - ask: 'Part'
+      label: a
+      choice: ["Epidermis (stratum corneum)", "Dermis", "Hypodermis (subcutaneous layer)", "Melanocytes in the epidermis"]
+      correct: ans
+      explain: 'Skin protects (barrier, UV), senses, and regulates temperature: sweat cools by evaporation, and dermal vessels dilate to lose heat or constrict to keep it'
+  verify: { authored: true }
+
+# ── circulation, respiration, immunity ─────────────────────────────────────
+- template: bi-blood-path
+  skill: bio.physiology
+  pace: recall
+  cases:
+    - { q: 'After the right ventricle, blood goes to', ans: 0 }
+    - { q: 'Blood returning from the lungs enters', ans: 1 }
+    - { q: 'After the left ventricle, blood goes to', ans: 2 }
+    - { q: 'Which vessels carry oxygenated blood?', ans: 3 }
+    - { q: 'Why are artery walls thick and elastic?', ans: 4 }
+  prompt: '{{q}} …'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["the pulmonary arteries and the lungs", "the left atrium, through the pulmonary veins", "the aorta and the body", "Pulmonary veins and systemic arteries", "To withstand and smooth out high pressure from the ventricles"]
+      correct: ans
+      explain: 'Body → venae cavae → right atrium → right ventricle → pulmonary arteries → lungs → pulmonary veins → left atrium → left ventricle → aorta. Arteries carry blood away from the heart, veins toward it, whatever its O₂ content; capillaries are one cell thick for exchange'
+  verify: { authored: true }
+
+- template: bi-oxygen-curve
+  skill: bio.physiology
+  pace: recall
+  cases:
+    - { q: 'Higher CO₂ in active muscle', ans: 0 }
+    - { q: 'Lower pH (more acid)', ans: 0 }
+    - { q: 'Higher temperature', ans: 0 }
+    - { q: 'Fetal hemoglobin compared with adult', ans: 1 }
+    - { q: 'Myoglobin compared with hemoglobin', ans: 1 }
+    - { q: 'Lower 2,3-BPG', ans: 1 }
+  prompt: 'Which way does this shift the oxygen–hemoglobin dissociation curve: {{q}}?'
+  parts:
+    - ask: 'Shift'
+      label: a
+      choice: ["Right: lower affinity, more O₂ unloaded to tissues", "Left: higher affinity, holds O₂ more tightly"]
+      correct: ans
+      explain: 'The Bohr effect: CO₂, acid, heat and 2,3-BPG (all signs of active tissue) lower hemoglobin''s affinity so it unloads O₂ where it is needed. Fetal hemoglobin and myoglobin sit left, so they take O₂ from maternal hemoglobin and from blood'
+  verify: { authored: true }
+
+- template: bi-ventilation
+  skill: bio.physiology
+  pace: recall
+  cases:
+    - { q: 'How does air enter the lungs?', ans: 0 }
+    - { q: 'How is most CO₂ carried in blood?', ans: 1 }
+    - { q: 'What mainly drives the urge to breathe?', ans: 2 }
+    - { q: 'Why do O₂ and CO₂ cross the alveolar wall?', ans: 3 }
+  prompt: '{{q}}'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["The diaphragm contracts, the chest expands and pressure falls below atmospheric", "As bicarbonate (HCO₃⁻), made by carbonic anhydrase in red cells", "Rising blood CO₂, sensed as falling pH in the medulla", "Diffusion down their partial-pressure gradients"]
+      correct: ans
+      explain: 'Breathing is negative-pressure ventilation. Gas exchange is passive diffusion across a thin, moist, huge surface; CO₂, not O₂, is the main stimulus to breathe'
+  verify: { authored: true }
+
+- template: bi-innate-adaptive
+  skill: bio.physiology
+  pace: recall
+  cases:
+    - { q: 'Skin, mucus and stomach acid', ans: 0 }
+    - { q: 'Neutrophils and macrophages engulfing any bacteria', ans: 0 }
+    - { q: 'Antibodies against one specific antigen', ans: 1 }
+    - { q: 'Inflammation and fever', ans: 0 }
+    - { q: 'Memory cells that respond faster to a second exposure', ans: 1 }
+    - { q: 'Natural killer cells attacking cells without MHC I', ans: 0 }
+  prompt: 'Innate or adaptive immunity: {{q}}?'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["Innate: fast, non-specific, no memory", "Adaptive: slower first time, specific, with memory"]
+      correct: ans
+      explain: 'Innate defenses recognise broad patterns shared by many pathogens. Adaptive responses by B and T cells recognise specific antigens, take days the first time and leave memory, which is how vaccines work'
+  verify: { authored: true }
+
+- template: bi-lymphocytes
+  skill: bio.physiology
+  pace: recall
+  cases:
+    - { q: 'Differentiate into plasma cells that secrete antibodies', ans: 0 }
+    - { q: 'Recognise antigen on MHC II and activate B cells and cytotoxic T cells', ans: 1 }
+    - { q: 'Kill infected or cancerous cells that show antigen on MHC I', ans: 2 }
+    - { q: 'Present antigen on MHC II to start the adaptive response', ans: 3 }
+    - { q: 'The cells HIV infects and destroys', ans: 1 }
+  prompt: 'Which cell: {{q}}?'
+  parts:
+    - ask: 'Cell'
+      label: a
+      choice: ["B cells", "Helper T cells (CD4+)", "Cytotoxic T cells (CD8+)", "Dendritic cells and macrophages"]
+      correct: ans
+      explain: 'Humoral immunity: B cells and antibodies, against pathogens in body fluids. Cell-mediated: cytotoxic T cells against infected cells. Helper T cells coordinate both, which is why losing them (AIDS) cripples the whole system'
+  verify: { authored: true }
+
+# ── digestion, kidney, reproduction ────────────────────────────────────────
+- template: bi-digestive-enzyme
+  skill: bio.physiology
+  pace: recall
+  cases:
+    - { q: 'Salivary amylase', ans: 0 }
+    - { q: 'Pepsin', ans: 1 }
+    - { q: 'Pancreatic lipase (with bile)', ans: 2 }
+    - { q: 'Trypsin', ans: 3 }
+    - { q: 'Lactase and other brush-border enzymes', ans: 4 }
+  prompt: 'Source, substrate and site of {{q}}?'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["Salivary glands; starch; mouth", "Stomach chief cells; proteins; stomach (pH 2)", "Pancreas; fats, emulsified by bile; small intestine", "Pancreas (as trypsinogen); proteins; small intestine", "Small intestine lining; disaccharides; small intestine"]
+      correct: ans
+      explain: 'Carbohydrates start in the mouth, proteins in the stomach, fats in the small intestine, and everything finishes in the small intestine. Monosaccharides and amino acids enter the blood; fats enter lacteals as chylomicrons. The large intestine absorbs water'
+  verify: { authored: true }
+
+- template: bi-nephron
+  skill: bio.physiology
+  pace: recall
+  cases:
+    - { q: 'Filtration of plasma under pressure', ans: 0 }
+    - { q: 'Reabsorption of most glucose, amino acids, Na⁺ and water', ans: 1 }
+    - { q: 'Builds the salty gradient in the medulla', ans: 2 }
+    - { q: 'Where ADH adds aquaporins to concentrate urine', ans: 3 }
+    - { q: 'Where aldosterone increases Na⁺ reabsorption', ans: 4 }
+  prompt: 'Which part of the nephron: {{q}}?'
+  parts:
+    - ask: 'Segment'
+      label: a
+      choice: ["Glomerulus and Bowman's capsule", "Proximal convoluted tubule", "Loop of Henle", "Collecting duct", "Distal tubule and collecting duct"]
+      correct: ans
+      explain: 'Filter, reabsorb, secrete, concentrate. Dehydration raises ADH (more water reabsorbed, less concentrated urine output); low blood pressure or Na⁺ raises aldosterone (more Na⁺, and so water, kept)'
+  verify: { authored: true }
+
+- template: bi-kidney-hormone
+  skill: bio.physiology
+  pace: recall
+  cases:
+    - { q: 'After heavy sweating, ADH rises. Urine becomes', ans: 0 }
+    - { q: 'After drinking a lot of water, ADH falls. Urine becomes', ans: 1 }
+    - { q: 'Alcohol blocks ADH release. Urine becomes', ans: 1 }
+    - { q: 'Low blood pressure raises aldosterone. Blood volume', ans: 2 }
+  prompt: '{{q}} …'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["smaller in volume and more concentrated", "larger in volume and more dilute", "rises as Na⁺ and water are retained"]
+      correct: ans
+      explain: 'ADH controls water permeability of the collecting duct; aldosterone (via the renin–angiotensin system) controls Na⁺ reabsorption, and water follows Na⁺'
+  verify: { authored: true }
+
+- template: bi-menstrual-cycle
+  skill: bio.physiology
+  pace: recall
+  cases:
+    - { q: 'FSH rises early in the cycle', ans: 0 }
+    - { q: 'A surge of LH', ans: 1 }
+    - { q: 'Rising estrogen from the growing follicle', ans: 2 }
+    - { q: 'Progesterone from the corpus luteum', ans: 3 }
+    - { q: 'The corpus luteum degenerates and progesterone falls', ans: 4 }
+  prompt: 'What does this do in the ovarian and menstrual cycle: {{q}}?'
+  parts:
+    - ask: 'Effect'
+      label: a
+      choice: ["Stimulates follicles to grow", "Triggers ovulation", "Thickens the endometrium and, at high levels, triggers the LH surge (positive feedback)", "Maintains the endometrium and inhibits FSH and LH", "Menstruation begins"]
+      correct: ans
+      explain: 'Follicular phase: FSH grows follicles, which make estrogen. Mid-cycle: high estrogen flips to positive feedback and the LH surge causes ovulation. Luteal phase: the corpus luteum makes progesterone; without pregnancy (hCG), it fades and the lining sheds'
+  verify: { authored: true }
+
+- template: bi-gametogenesis
+  skill: bio.physiology
+  pace: recall
+  cases:
+    - { q: 'Produces four functional gametes from each primary cell', ans: 0 }
+    - { q: 'Produces one functional gamete and polar bodies', ans: 1 }
+    - { q: 'Runs continuously from puberty', ans: 0 }
+    - { q: 'Begins before birth and pauses in prophase I', ans: 1 }
+    - { q: 'Meiosis II is completed only if fertilisation occurs', ans: 1 }
+  prompt: 'Spermatogenesis or oogenesis: {{q}}?'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["Spermatogenesis", "Oogenesis"]
+      correct: ans
+      explain: 'Oogenesis divides the cytoplasm unequally so one egg keeps nearly all of it, and pauses twice; spermatogenesis divides equally, all the time, giving four small motile sperm'
+  verify: { authored: true }
+
+# ── cell structure extras for the DAT ──────────────────────────────────────
+- template: bi-cytoskeleton
+  skill: bio.cells
+  pace: recall
+  cases:
+    - { q: 'Hollow tubes of tubulin forming spindles, cilia and flagella', ans: 0 }
+    - { q: 'Thin actin filaments for muscle contraction, cleavage furrows and microvilli', ans: 1 }
+    - { q: 'Rope-like fibres such as keratin that resist tension', ans: 2 }
+    - { q: 'Junctions that seal cells together so fluid cannot leak between them', ans: 3 }
+    - { q: 'Junctions that rivet cells together against stretching', ans: 4 }
+    - { q: 'Channels letting ions pass directly between neighbouring cells', ans: 5 }
+  prompt: 'Which structure: {{q}}?'
+  parts:
+    - ask: 'Structure'
+      label: a
+      choice: ["Microtubules", "Microfilaments", "Intermediate filaments", "Tight junctions", "Desmosomes", "Gap junctions"]
+      correct: ans
+      explain: 'The cytoskeleton gives shape and movement: microtubules (thickest; tracks and spindles), microfilaments (thinnest; actin), intermediate filaments (strength). Junctions link animal cells: tight (seal), desmosomes (anchor), gap (communicate)'
+  verify: { authored: true }
+
+- template: bi-cell-techniques
+  skill: bio.cells
+  pace: recall
+  cases:
+    - { q: 'See the 3-D surface of a cell in fine detail', ans: 0 }
+    - { q: 'See internal structure of organelles at high resolution', ans: 1 }
+    - { q: 'Separate organelles by size and density', ans: 2 }
+    - { q: 'Locate a specific protein inside living cells', ans: 3 }
+    - { q: 'Measure which proteins are present and their sizes', ans: 4 }
+  prompt: 'Which technique would you choose to {{q}}?'
+  parts:
+    - ask: 'Technique'
+      label: a
+      choice: ["Scanning electron microscopy", "Transmission electron microscopy", "Differential centrifugation (cell fractionation)", "Fluorescence microscopy with a tagged protein (GFP)", "Gel electrophoresis and Western blot"]
+      correct: ans
+      explain: 'Light microscopes view living cells up to about 0.2 μm resolution; electron microscopes resolve far finer detail but need fixed samples. Fractionation spins down nuclei first, then mitochondria, then smaller membranes and ribosomes'
+  verify: { authored: true }
+
+# ── development ────────────────────────────────────────────────────────────
+- template: bi-development-stage
+  skill: bio.diversity
+  pace: recall
+  cases:
+    - { q: 'Rapid divisions without growth, making many smaller cells', ans: 0 }
+    - { q: 'A hollow ball of cells around a fluid cavity forms', ans: 1 }
+    - { q: 'Cells move inward to form three germ layers', ans: 2 }
+    - { q: 'The neural tube forms from ectoderm above the notochord', ans: 3 }
+    - { q: 'Sperm and egg fuse; the egg blocks other sperm', ans: 4 }
+  prompt: 'Which stage of early development: {{q}}?'
+  parts:
+    - ask: 'Stage'
+      label: a
+      choice: ["Cleavage", "Blastulation", "Gastrulation", "Neurulation", "Fertilisation"]
+      correct: ans
+      explain: 'Order: fertilisation → cleavage → blastula → gastrula (three germ layers) → neurula (neural tube) → organogenesis'
+  verify: { authored: true }
+
+- template: bi-germ-layers
+  skill: bio.diversity
+  pace: recall
+  cases:
+    - { q: 'Brain, spinal cord and epidermis', ans: 0 }
+    - { q: 'Muscle, bone, heart, blood and kidneys', ans: 1 }
+    - { q: 'Lining of the gut, liver, pancreas and lungs', ans: 2 }
+    - { q: 'Tooth enamel', ans: 0 }
+    - { q: 'Dentin and dental pulp (via neural-crest mesenchyme)', ans: 0 }
+    - { q: 'Gonads and the dermis', ans: 1 }
+  prompt: 'Which germ layer forms: {{q}}?'
+  parts:
+    - ask: 'Germ layer'
+      label: a
+      choice: ["Ectoderm", "Mesoderm", "Endoderm"]
+      correct: ans
+      explain: 'Ectoderm: outer covering and nervous system (and enamel). Mesoderm: muscles, skeleton, circulation, kidneys, gonads. Endoderm: linings of the digestive and respiratory tracts and their glands. Neural crest, from ectoderm, gives much of the face and teeth'
+  verify: { authored: true }
+
+- template: bi-developmental-control
+  skill: bio.diversity
+  pace: recall
+  cases:
+    - { q: 'One group of cells signals neighbours to change fate', ans: 0 }
+    - { q: 'A cell''s fate is fixed before it looks different', ans: 1 }
+    - { q: 'A cell takes on its specialised structure and proteins', ans: 2 }
+    - { q: 'Genes that set body-segment identity; a mutation puts legs where antennae belong', ans: 3 }
+    - { q: 'Cells between fingers die during development', ans: 4 }
+  prompt: 'Which process: {{q}}?'
+  parts:
+    - ask: 'Process'
+      label: a
+      choice: ["Induction", "Determination", "Differentiation", "Homeotic (Hox) genes", "Apoptosis"]
+      correct: ans
+      explain: 'Development is differential gene expression in space and time: signals induce, cells become determined, then differentiate. Hox genes lay out the body plan, and programmed cell death sculpts structures'
+  verify: { authored: true }
+
+# ── diversity of life ──────────────────────────────────────────────────────
+- template: bi-virus-cycle
+  skill: bio.diversity
+  pace: recall
+  cases:
+    - { q: 'The virus takes over the cell at once, makes copies and bursts the cell', ans: 0 }
+    - { q: 'Viral DNA joins the host chromosome and is copied with it for generations', ans: 1 }
+    - { q: 'Reverse transcriptase makes DNA from the viral RNA, which integrates', ans: 2 }
+    - { q: 'What every virus has', ans: 3 }
+  prompt: '{{q}}: which description?'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["Lytic cycle", "Lysogenic cycle (prophage)", "Retrovirus (such as HIV)", "Nucleic acid (DNA or RNA) in a protein capsid; some also have an envelope"]
+      correct: ans
+      explain: 'Viruses are not cells: no ribosomes or metabolism, so they replicate only inside a host. A lysogenic virus can switch to lytic. Retroviruses mutate fast because reverse transcriptase does not proofread'
+  verify: { authored: true }
+
+- template: bi-bacteria-classify
+  skill: bio.diversity
+  pace: recall
+  cases:
+    - { q: 'Round cells in chains', ans: 0 }
+    - { q: 'Rod-shaped cells', ans: 1 }
+    - { q: 'Thick peptidoglycan wall that keeps crystal violet: stains purple', ans: 2 }
+    - { q: 'Thin wall plus an outer membrane: stains pink', ans: 3 }
+    - { q: 'Dies in the presence of O₂', ans: 4 }
+  prompt: 'What term fits: {{q}}?'
+  parts:
+    - ask: 'Term'
+      label: a
+      choice: ["Streptococci (cocci)", "Bacilli", "Gram-positive", "Gram-negative", "Obligate anaerobe"]
+      correct: ans
+      explain: 'Bacteria are classified by shape (cocci, bacilli, spirilla), Gram stain (wall structure) and oxygen use (obligate aerobes, obligate anaerobes, facultative anaerobes). They trade genes by transformation, transduction and conjugation'
+  verify: { authored: true }
+
+- template: bi-archaea
+  skill: bio.diversity
+  pace: recall
+  cases:
+    - { q: 'Membrane lipids with ether links and branched chains', ans: 0 }
+    - { q: 'Peptidoglycan in the cell wall', ans: 1 }
+    - { q: 'A nucleus and membrane-bound organelles', ans: 2 }
+    - { q: 'RNA polymerase and histones resembling those of eukaryotes, but no nucleus', ans: 0 }
+  prompt: 'Which domain: {{q}}?'
+  parts:
+    - ask: 'Domain'
+      label: a
+      choice: ["Archaea", "Bacteria", "Eukarya"]
+      correct: ans
+      explain: 'Archaea look like bacteria (prokaryotic, circular DNA) but share much of their genetic machinery with eukaryotes, and their ether-linked membranes suit extreme habitats. Bacteria have peptidoglycan and ester-linked lipids'
+  verify: { authored: true }
+
+- template: bi-binary-fission
+  skill: bio.diversity
+  pace: quick
+  given: { N0: { pick: [10, 100, 500] }, g: { pick: [20, 30] }, t: { pick: [120, 180, 240] } }
+  prompt: 'A culture of ${{N0}}$ bacteria divides every ${{g}}$ minutes. How many cells are there after ${{t}}$ minutes of unlimited growth?'
+  parts:
+    - { ask: 'Cells', label: r, value: N0*2^(t/g), tol: 0.0001, explain: '${{t}}/{{g}} = {{t/g}}$ generations, each doubling the population: $N = N_0 \cdot 2^{ {{t/g}} }$. Real cultures leave this exponential phase as nutrients run out' }
+  verify: { expect: { r: "N0*Integer(2)**Rational(t, g)" } }
+
+- template: bi-kingdom-traits
+  skill: bio.diversity
+  pace: recall
+  cases:
+    - { q: 'Chitin cell walls; absorb food after digesting it outside the body', ans: 0 }
+    - { q: 'Cellulose cell walls; photosynthetic; multicellular with alternation of generations', ans: 1 }
+    - { q: 'No cell wall; ingest food; multicellular with tissues', ans: 2 }
+    - { q: 'Mostly single-celled eukaryotes that are not plants, animals or fungi', ans: 3 }
+  prompt: 'Which group: {{q}}?'
+  parts:
+    - ask: 'Group'
+      label: a
+      choice: ["Fungi", "Plants", "Animals", "Protists"]
+      correct: ans
+      explain: 'Eukaryotes are told apart by wall, nutrition and life cycle. Protists are a catch-all group, not a clade: some are closer to plants, some to animals or fungi'
+  verify: { authored: true }
+
+- template: bi-fungi
+  skill: bio.diversity
+  pace: recall
+  cases:
+    - { q: 'What is a fungus''s body made of?', ans: 0 }
+    - { q: 'How do fungi get food?', ans: 1 }
+    - { q: 'What dominates most fungal life cycles?', ans: 2 }
+    - { q: 'What partnership do mycorrhizae form?', ans: 3 }
+  prompt: '{{q}}'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["A network of hyphae called a mycelium", "Absorption after secreting digestive enzymes", "A haploid stage; the diploid zygote is brief", "Fungi trade minerals and water for a plant root's sugars"]
+      correct: ans
+      explain: 'Fungi are heterotrophs with chitin walls, closer to animals than to plants. They are key decomposers and partners (mycorrhizae, lichens), and some are pathogens'
+  verify: { authored: true }
+
+- template: bi-protists
+  skill: bio.diversity
+  pace: recall
+  cases:
+    - { q: 'Plasmodium, which causes malaria', ans: 0 }
+    - { q: 'Diatoms with glass walls', ans: 1 }
+    - { q: 'Amoebas that move with pseudopodia', ans: 2 }
+    - { q: 'Euglena with a flagellum and chloroplasts', ans: 3 }
+    - { q: 'Why is Protista not a natural group?', ans: 4 }
+  prompt: '{{q}}'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["Apicomplexan (alveolate) parasite", "Stramenopile (photosynthetic)", "Amoebozoan or rhizarian", "Excavate (euglenozoan)", "Its members do not share a single common ancestor that excludes plants, animals and fungi"]
+      correct: ans
+      explain: 'Modern trees split protists among several supergroups, so "protist" is a grade, not a clade. Classify them by structure, movement and nutrition'
+  verify: { authored: true }
+
+- template: bi-plant-groups
+  skill: bio.diversity
+  pace: recall
+  cases:
+    - { q: 'Mosses: no vascular tissue; the dominant stage is', ans: 0 }
+    - { q: 'Ferns: vascular tissue but no seeds; the dominant stage is', ans: 1 }
+    - { q: 'Conifers added which innovation?', ans: 2 }
+    - { q: 'Flowering plants added which innovation?', ans: 3 }
+    - { q: 'In alternation of generations, the haploid multicellular stage is the', ans: 4 }
+  prompt: '{{q}}'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["the gametophyte (haploid)", "the sporophyte (diploid)", "Seeds and pollen", "Flowers and fruit", "gametophyte"]
+      correct: ans
+      explain: 'Plant evolution, in order of innovation: bryophytes (land), seedless vascular plants (vascular tissue), gymnosperms (seeds, pollen), angiosperms (flowers, fruit). Through that series the sporophyte grows to dominate'
+  verify: { authored: true }
+
+- template: bi-animal-body-plan
+  skill: bio.diversity
+  pace: recall
+  cases:
+    - { q: 'Sponges', ans: 0 }
+    - { q: 'Jellyfish', ans: 1 }
+    - { q: 'Flatworms', ans: 2 }
+    - { q: 'Earthworms and snails', ans: 3 }
+    - { q: 'Sea stars and vertebrates', ans: 4 }
+  prompt: 'How is the body plan of {{q}} classified?'
+  parts:
+    - ask: 'Body plan'
+      label: a
+      choice: ["No true tissues or symmetry", "Radial symmetry, two germ layers", "Bilateral, three germ layers, no body cavity (acoelomate)", "Bilateral, coelomate protostomes (mouth from the blastopore)", "Coelomate deuterostomes (anus from the blastopore)"]
+      correct: ans
+      explain: 'Animal phylogeny branches at tissues, symmetry, germ layers, body cavity, and protostome versus deuterostome development (spiral vs radial cleavage, mouth vs anus first). Echinoderms are deuterostomes, which is why they are our close invertebrate relatives'
+  verify: { authored: true }
+
+- template: bi-chordates
+  skill: bio.diversity
+  pace: recall
+  cases:
+    - { q: 'Features every chordate has at some stage', ans: 0 }
+    - { q: 'Amniotic egg', ans: 1 }
+    - { q: 'Hair and mammary glands', ans: 2 }
+    - { q: 'Feathers and hollow bones', ans: 3 }
+    - { q: 'Jaws and paired fins, but no lungs or limbs in most', ans: 4 }
+  prompt: 'Which group is defined by: {{q}}?'
+  parts:
+    - ask: 'Group'
+      label: a
+      choice: ["Chordates: notochord, dorsal hollow nerve cord, pharyngeal slits, post-anal tail", "Amniotes (reptiles, birds, mammals)", "Mammals", "Birds", "Fishes"]
+      correct: ans
+      explain: 'Vertebrate classes are nested by innovations: jaws, lungs and limbs (tetrapods, amphibians), the amniotic egg (reptiles including birds, and mammals), then feathers or hair and milk'
+  verify: { authored: true }

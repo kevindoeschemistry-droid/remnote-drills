@@ -1,0 +1,540 @@
+# AP Biology units 3 and 4: cellular energetics, cell communication and the cell cycle (also DAT biology).
+
+# ── enzymes ────────────────────────────────────────────────────────────────
+- template: bi-active-site
+  skill: bio.energetics
+  pace: recall
+  cases:
+    - { q: 'Why does an enzyme act on only one substrate or a few similar ones?', ans: 0 }
+    - { q: 'What happens to the active site when the enzyme binds substrate (induced fit)?', ans: 1 }
+    - { q: 'Why might a positively charged substrate bind poorly to a mutant enzyme whose active-site Asp became Asn?', ans: 2 }
+    - { q: 'What happens to the enzyme after the reaction?', ans: 3 }
+  prompt: '{{q}}'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["The active site's shape and charges match only that substrate", "It shifts shape to fit the substrate more snugly", "A charge that attracted the substrate is gone", "It is released unchanged and can act again"]
+      correct: ans
+      explain: 'Specificity comes from the 3-D shape and chemistry of the active site: its side chains bind the substrate by complementary shape, charge and H-bonding, then stabilise the transition state. The enzyme is a catalyst, so it is not consumed'
+  verify: { authored: true }
+
+- template: bi-enzyme-energy
+  skill: bio.energetics
+  pace: recall
+  cases:
+    - { q: 'What does an enzyme change on an energy diagram?', ans: 0 }
+    - { q: 'What does an enzyme leave unchanged?', ans: 1 }
+    - { q: 'Can an enzyme make a reaction with positive ΔG happen on its own?', ans: 2 }
+    - { q: 'How does an enzyme affect the reverse reaction?', ans: 3 }
+  prompt: '{{q}}'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["It lowers the activation energy (the peak)", "ΔG and the equilibrium, since reactant and product energies stay put", "No: it speeds only reactions that are already favorable, unless coupled", "It speeds it by the same factor as the forward reaction"]
+      correct: ans
+      explain: 'An enzyme provides an easier path over the hump. It does not move the start or end points, so ΔG and K are unchanged, and it speeds both directions'
+  verify: { authored: true }
+
+- template: bi-initial-rate
+  skill: bio.energetics
+  pace: quick
+  given: { t1: { pick: [1, 2] }, p1: { pick: [4, 6, 10] }, t2: { pick: [3, 4, 5] } }
+  prompt: 'In an enzyme assay, product reaches ${{p1}}$ μmol at ${{t1}}$ min and ${{p1*t2/t1}}$ μmol at ${{t2}}$ min, along the straight early part of the curve (0 μmol at 0 min). What is the initial rate, in μmol/min?'
+  parts:
+    - { ask: 'Rate (μmol/min)', label: r, value: p1/t1, tol: 0.001, explain: 'The initial rate is the slope of the linear early part: $\Delta P/\Delta t$. Later the curve flattens as substrate runs out, so measure early' }
+  verify: { expect: { r: "(p1*t2/t1 - p1)/(t2 - t1)" } }
+
+- template: bi-temperature-ph
+  skill: bio.energetics
+  pace: recall
+  cases:
+    - { q: 'Pepsin (optimum pH 2) is moved into the small intestine (pH 8).', ans: 1 }
+    - { q: 'A human enzyme is heated from 20 °C to 37 °C.', ans: 0 }
+    - { q: 'A human enzyme is heated from 37 °C to 60 °C.', ans: 1 }
+    - { q: 'An enzyme from a hot-spring bacterium is tested at 80 °C.', ans: 0 }
+    - { q: 'A refrigerated enzyme (4 °C) is warmed back to 37 °C.', ans: 2 }
+  prompt: '{{q}} What happens to its rate?'
+  parts:
+    - ask: 'Effect'
+      label: a
+      choice: ["It rises: faster collisions, shape intact", "It falls: the enzyme denatures or its charges change", "It recovers: cold slowed it without denaturing it"]
+      correct: ans
+      explain: 'Up to the optimum, heat speeds molecules and collisions. Past it, H-bonds and ionic bonds holding the fold break and the active site loses shape (denaturation, usually irreversible). pH away from the optimum changes the charges of active-site groups'
+  verify: { authored: true }
+
+- template: bi-inhibition
+  skill: bio.energetics
+  pace: recall
+  cases:
+    - { q: 'A competitive inhibitor is added. What happens to Km and Vmax?', ans: 0 }
+    - { q: 'A noncompetitive inhibitor is added. What happens to Km and Vmax?', ans: 1 }
+    - { q: 'Which inhibition can be overcome by adding much more substrate?', ans: 2 }
+    - { q: 'An inhibitor binds an allosteric site and changes the active site''s shape. More substrate', ans: 3 }
+  prompt: '{{q}}'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["Km rises, Vmax unchanged", "Vmax falls, Km unchanged", "Competitive inhibition", "does not restore full activity"]
+      correct: ans
+      explain: 'A competitive inhibitor fights the substrate for the active site, so flooding with substrate wins (same Vmax, higher apparent Km). A noncompetitive inhibitor binds elsewhere and disables some enzyme whatever the substrate level (lower Vmax)'
+  verify: { authored: true }
+
+- template: bi-rate-curve
+  skill: bio.energetics
+  pace: recall
+  cases:
+    - { q: 'The rate stops rising at high substrate concentration because', ans: 0 }
+    - { q: 'With a competitive inhibitor, the curve', ans: 1 }
+    - { q: 'With a noncompetitive inhibitor, the curve', ans: 2 }
+    - { q: 'Doubling the enzyme concentration makes the plateau', ans: 3 }
+  prompt: 'On a plot of rate against substrate concentration: {{q}} …'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["every active site is occupied (saturation)", "reaches the same plateau, but later", "levels off at a lower plateau", "twice as high"]
+      correct: ans
+      explain: 'Vmax is the plateau, set by how much working enzyme there is. Km is the substrate concentration at half Vmax: a measure of affinity, where lower means tighter binding'
+  verify: { authored: true }
+
+- template: bi-atp-coupling
+  skill: bio.energetics
+  pace: recall
+  cases:
+    - { q: 'How does ATP drive an endergonic reaction?', ans: 0 }
+    - { q: 'Why is ATP hydrolysis so exergonic?', ans: 1 }
+    - { q: 'Where does the cell get the energy to remake ATP from ADP?', ans: 2 }
+  prompt: '{{q}}'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["It transfers a phosphate to a reactant, making a more reactive intermediate", "Its three negatively charged phosphates repel, and the products are more stable", "From catabolism: respiration or photosynthesis"]
+      correct: ans
+      explain: 'Coupled reactions share an intermediate: phosphorylating a substrate or protein makes the overall ΔG negative. ATP is the cell''s rechargeable currency, rebuilt by respiration (and the light reactions in plants)'
+  verify: { authored: true }
+
+- template: bi-energy-input
+  skill: bio.energetics
+  pace: recall
+  cases:
+    - { q: 'Why must organisms take in energy continuously?', ans: 0 }
+    - { q: 'What happens to a cell whose ATP supply stops?', ans: 1 }
+    - { q: 'Why does energy flow through, rather than cycle in, an ecosystem?', ans: 2 }
+  prompt: '{{q}}'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["Staying organised lowers entropy locally, which takes a steady energy supply", "Pumps and synthesis stop, gradients collapse and the cell dies", "Every transfer loses some energy as heat"]
+      correct: ans
+      explain: 'Life is a highly ordered, far-from-equilibrium state. Holding it there costs energy, and every conversion releases heat, so the supply must keep coming from sunlight or food'
+  verify: { authored: true }
+
+# ── photosynthesis ─────────────────────────────────────────────────────────
+- template: bi-photosynthesis-overview
+  skill: bio.energetics
+  pace: recall
+  cases:
+    - { q: 'Where do the light reactions take place?', o1: 'Thylakoid membranes', o2: 'Stroma', o3: 'Cytosol', ans: 0 }
+    - { q: 'Where does the Calvin cycle take place?', o1: 'Thylakoid membranes', o2: 'Stroma', o3: 'Mitochondrial matrix', ans: 1 }
+    - { q: 'What do the light reactions send to the Calvin cycle?', o1: 'CO₂ and water', o2: 'Glucose', o3: 'ATP and NADPH', ans: 2 }
+    - { q: 'What does the Calvin cycle return to the light reactions?', o1: 'ADP, Pᵢ and NADP⁺', o2: 'O₂', o3: 'CO₂', ans: 0 }
+    - { q: 'Where does the O₂ released by photosynthesis come from?', o1: 'CO₂', o2: 'Water', o3: 'Glucose', ans: 1 }
+  prompt: '6 CO₂ + 6 H₂O → C₆H₁₂O₆ + 6 O₂. {{q}}'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["{{o1}}", "{{o2}}", "{{o3}}"]
+      correct: ans
+      explain: 'Light reactions (thylakoids): split water, release O₂, make ATP and NADPH. Calvin cycle (stroma): spend that ATP and NADPH to fix CO₂ into sugar, sending ADP and NADP⁺ back'
+  verify: { authored: true }
+
+- template: bi-light-reactions
+  skill: bio.energetics
+  pace: recall
+  cases:
+    - { q: 'Which photosystem splits water to replace its lost electrons?', o1: 'Photosystem II', o2: 'Photosystem I', o3: 'ATP synthase', ans: 0 }
+    - { q: 'Where is NADP⁺ reduced to NADPH?', o1: 'At photosystem II', o2: 'After photosystem I', o3: 'In the Calvin cycle', ans: 1 }
+    - { q: 'Where do protons accumulate?', o1: 'In the stroma', o2: 'In the cytosol', o3: 'In the thylakoid space', ans: 2 }
+    - { q: 'What does ATP synthase do in the thylakoid?', o1: 'Lets H⁺ flow back into the stroma and makes ATP', o2: 'Pumps H⁺ into the thylakoid space', o3: 'Splits water', ans: 0 }
+  prompt: '{{q}}'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["{{o1}}", "{{o2}}", "{{o3}}"]
+      correct: ans
+      explain: 'Path: H₂O → PSII → plastoquinone → cytochrome complex (pumps H⁺ in) → plastocyanin → PSI → ferredoxin → NADP⁺ reductase → NADPH. The H⁺ gradient (also from water splitting) drives ATP synthase: photophosphorylation'
+  verify: { authored: true }
+
+- template: bi-calvin-cost
+  skill: bio.energetics
+  pace: quick
+  cases:
+    - { w: 'CO₂ molecules fixed', k: 0 }
+    - { w: 'ATP molecules used', k: 1 }
+    - { w: 'NADPH molecules used', k: 2 }
+  given: { g: { pick: [1, 2, 4] } }
+  prompt: 'To export ${{g}}$ G3P molecule{{g == 1 ? "" : "s"}} from the Calvin cycle, how many {{w}}?'
+  parts:
+    - { ask: 'Count', label: r, value: 'g*3*(k == 0 ? 1 : (k == 1 ? 3 : 2))', tol: 0.0001, explain: 'Each CO₂ fixed costs 3 ATP and 2 NADPH, and one G3P (3 carbons) needs 3 CO₂: so 3 CO₂, 9 ATP, 6 NADPH per G3P, and twice that for one glucose' }
+  verify: { expect: { r: "g*3*[1, 3, 2][k]" } }
+
+- template: bi-action-spectrum
+  skill: bio.energetics
+  pace: recall
+  cases:
+    - { q: 'Which colors does chlorophyll a absorb most?', ans: 0 }
+    - { q: 'Why do leaves look green?', ans: 1 }
+    - { q: 'Why does the action spectrum of photosynthesis match the absorption spectra of the pigments?', ans: 2 }
+    - { q: 'On a paper chromatogram, which pigment travels farthest (highest Rf)?', ans: 3 }
+  prompt: '{{q}}'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["Blue-violet and red", "They reflect and transmit green", "Light can only drive photosynthesis if a pigment absorbs it", "Carotenes, the least polar pigments"]
+      correct: ans
+      explain: 'An absorption spectrum shows what a pigment absorbs; an action spectrum shows what wavelengths actually drive photosynthesis. Accessory pigments (chlorophyll b, carotenoids) widen the range. In chromatography the nonpolar carotenes move with the solvent front'
+  verify: { authored: true }
+
+# ── cellular respiration ───────────────────────────────────────────────────
+- template: bi-respiration-stages
+  skill: bio.energetics
+  pace: recall
+  cases:
+    - { q: 'Glycolysis', ans: 0 }
+    - { q: 'Pyruvate oxidation', ans: 1 }
+    - { q: 'The Krebs (citric acid) cycle', ans: 2 }
+    - { q: 'Oxidative phosphorylation', ans: 3 }
+  prompt: '{{q}}: where, and what does it make per glucose?'
+  parts:
+    - ask: 'Location and products'
+      label: a
+      choice: ["Cytosol: 2 pyruvate, net 2 ATP, 2 NADH", "Mitochondrial matrix: 2 acetyl-CoA, 2 CO₂, 2 NADH", "Mitochondrial matrix: 4 CO₂, 2 ATP, 6 NADH, 2 FADH₂", "Inner mitochondrial membrane: about 26 to 28 ATP and H₂O from O₂"]
+      correct: ans
+      explain: 'Glycolysis splits glucose without O₂. Pyruvate oxidation and the Krebs cycle strip off carbons as CO₂ and load NADH and FADH₂. The electron transport chain and chemiosmosis turn those carriers into most of the ATP, about 30 to 32 per glucose in all'
+  verify: { authored: true }
+
+- template: bi-chemiosmosis
+  skill: bio.energetics
+  pace: recall
+  cases:
+    - { q: 'What does the electron transport chain do with the energy of the electrons?', ans: 0 }
+    - { q: 'What is the final electron acceptor?', ans: 1 }
+    - { q: 'How does ATP synthase make ATP?', ans: 2 }
+    - { q: 'Why does respiration stop without O₂?', ans: 3 }
+  prompt: '{{q}}'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["Pumps H⁺ from the matrix into the intermembrane space", "O₂, which is reduced to water", "H⁺ flowing back into the matrix turns it", "The chain backs up, NADH cannot be oxidized and the gradient fails"]
+      correct: ans
+      explain: 'Chemiosmosis: redox energy is stored as a proton gradient, then spent through ATP synthase. O₂ pulls electrons off the end of the chain; without it everything upstream jams'
+  verify: { authored: true }
+
+- template: bi-etc-inhibitor
+  skill: bio.energetics
+  pace: quick
+  cases:
+    - { q: 'Cyanide blocks cytochrome c oxidase', ans: 0 }
+    - { q: 'DNP makes the inner membrane leaky to H⁺ (an uncoupler)', ans: 1 }
+    - { q: 'Oligomycin blocks ATP synthase', ans: 2 }
+    - { q: 'Rotenone blocks complex I', ans: 0 }
+  prompt: '{{q}}. What happens?'
+  parts:
+    - ask: 'Effect'
+      label: a
+      choice: ["O₂ use stops, the gradient collapses, ATP output falls", "O₂ use rises, the gradient collapses, ATP output falls and heat rises", "The gradient builds up, O₂ use falls, ATP output falls"]
+      correct: ans
+      explain: 'Block the chain: no pumping and no O₂ use. Uncouple: the chain runs flat out (more O₂ used) but protons leak back without making ATP, so energy leaves as heat. Block ATP synthase: the gradient gets so steep that pumping, and O₂ use, slow down'
+  verify: { authored: true }
+
+- template: bi-fermentation
+  skill: bio.energetics
+  pace: recall
+  cases:
+    - { q: 'What is the purpose of fermentation?', ans: 0 }
+    - { q: 'How much ATP does fermentation make per glucose?', ans: 1 }
+    - { q: 'What do yeast make by fermentation?', ans: 2 }
+    - { q: 'What do human muscle cells make by fermentation?', ans: 3 }
+  prompt: '{{q}}'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["To regenerate NAD⁺ so glycolysis can continue", "2 ATP, from glycolysis alone", "Ethanol and CO₂", "Lactate"]
+      correct: ans
+      explain: 'Without O₂, NADH has nowhere to dump electrons, so glycolysis would stop. Fermentation passes them to pyruvate (or acetaldehyde), regenerating NAD⁺. Aerobic respiration makes about 15 times more ATP per glucose'
+  verify: { authored: true }
+
+- template: bi-respirometer
+  skill: bio.energetics
+  pace: quick
+  given: { v1: { pick: [0.95, 0.90, 0.88] }, d: { pick: [0.15, 0.24, 0.32] }, c: { pick: [0.01, 0.02] }, t: { pick: [10, 15, 20] } }
+  prompt: 'In a respirometer with KOH absorbing CO₂, the pipette reading falls from ${{v1}}$ mL to ${{v1 - d}}$ mL in ${{t}}$ min. A glass-bead control falls by ${{c}}$ mL over the same time. What is the corrected rate of O₂ use, in mL/min?'
+  parts:
+    - { ask: 'Rate (mL/min)', label: r, value: (d - c)/t, tol: 0.002, explain: 'KOH removes the CO₂ made, so the volume drop is O₂ consumed. Subtract the control''s change (temperature and pressure drift), then divide by time: $({{d}} - {{c}})/{{t}}$' }
+  verify: { expect: { r: "((v1 - (v1 - d)) - c)/t" } }
+
+- template: bi-molecular-variation
+  skill: bio.energetics
+  pace: recall
+  cases:
+    - { q: 'Fetal hemoglobin binds O₂ more tightly than adult hemoglobin.', ans: 0 }
+    - { q: 'Fish living in cold water have more unsaturated fatty acids in their membranes.', ans: 1 }
+    - { q: 'Plants have chlorophyll a and b plus carotenoids.', ans: 2 }
+    - { q: 'Thermophilic bacteria have enzymes with extra ionic bonds and disulfides.', ans: 3 }
+  prompt: '{{q}} What does this variation allow?'
+  parts:
+    - ask: 'Advantage'
+      label: a
+      choice: ["The fetus can pull O₂ from the mother's blood", "Membranes stay fluid in the cold", "Absorbing a wider range of light wavelengths", "Proteins stay folded at high temperature"]
+      correct: ans
+      explain: 'Different versions of the same kind of molecule let organisms (or life stages) work in different conditions. This molecular variation is what selection acts on'
+  verify: { authored: true }
+
+# ── cell communication ─────────────────────────────────────────────────────
+- template: bi-contact-signal
+  skill: bio.signaling
+  pace: recall
+  cases:
+    - { q: 'Ions pass between adjacent heart cells through gap junctions.', ans: 0 }
+    - { q: 'An antigen-presenting cell shows an antigen to a T cell, membrane to membrane.', ans: 0 }
+    - { q: 'Plant cells exchange molecules through plasmodesmata.', ans: 0 }
+    - { q: 'Insulin travels in the blood to muscle cells.', ans: 1 }
+    - { q: 'A neuron releases acetylcholine across a synapse.', ans: 1 }
+  prompt: '{{q}} Is this direct contact or a secreted chemical signal?'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["Direct contact", "Secreted chemical signal"]
+      correct: ans
+      explain: 'Contact signaling uses channels between cytoplasms (gap junctions, plasmodesmata) or membrane molecules touching. Secreted signals diffuse or travel to receptors on other cells, near or far'
+  verify: { authored: true }
+
+- template: bi-signal-range
+  skill: bio.signaling
+  pace: recall
+  cases:
+    - { q: 'A T cell releases interleukin-2 that stimulates its own receptors.', ans: 0 }
+    - { q: 'A growth factor acts on nearby cells in the same tissue.', ans: 1 }
+    - { q: 'A neurotransmitter crosses a 20 nm gap to one target cell.', ans: 2 }
+    - { q: 'Thyroid hormone travels in the blood to cells all over the body.', ans: 3 }
+    - { q: 'Bacteria release autoinducers and switch on bioluminescence once they are numerous.', ans: 4 }
+  prompt: '{{q}} What kind of signaling?'
+  parts:
+    - ask: 'Type'
+      label: a
+      choice: ["Autocrine", "Paracrine", "Synaptic", "Endocrine", "Quorum sensing"]
+      correct: ans
+      explain: 'Classify by distance: the same cell (autocrine), neighbours (paracrine), across a synapse (synaptic), through the bloodstream (endocrine). Quorum sensing is bacteria measuring their own density by the concentration of a secreted signal'
+  verify: { authored: true }
+
+- template: bi-signal-stages
+  skill: bio.signaling
+  pace: recall
+  cases:
+    - { q: 'Epinephrine binds a receptor on a liver cell.', ans: 0 }
+    - { q: 'A G protein activates adenylyl cyclase, which makes cAMP.', ans: 1 }
+    - { q: 'Protein kinase A phosphorylates the next kinase in the chain.', ans: 1 }
+    - { q: 'Glycogen phosphorylase breaks down glycogen and glucose leaves the cell.', ans: 2 }
+    - { q: 'A transcription factor switches on a gene.', ans: 2 }
+  prompt: '{{q}} Which stage of signaling is this?'
+  parts:
+    - ask: 'Stage'
+      label: a
+      choice: ["Reception", "Transduction", "Response"]
+      correct: ans
+      explain: 'Reception: the ligand binds its receptor. Transduction: relay molecules (G proteins, second messengers, kinases) pass and amplify the message. Response: the cell''s activity changes, by enzyme activity or gene expression'
+  verify: { authored: true }
+
+- template: bi-receptor-type
+  skill: bio.signaling
+  pace: recall
+  cases:
+    - { q: 'Epinephrine', ans: 0 }
+    - { q: 'Insulin', ans: 1 }
+    - { q: 'Acetylcholine at a neuromuscular junction', ans: 2 }
+    - { q: 'Testosterone', ans: 3 }
+    - { q: 'Glucagon', ans: 0 }
+    - { q: 'Cortisol', ans: 3 }
+    - { q: 'Epidermal growth factor', ans: 1 }
+  prompt: 'What kind of receptor does {{q}} act through?'
+  parts:
+    - ask: 'Receptor'
+      label: a
+      choice: ["G protein-coupled receptor (second messengers such as cAMP)", "Receptor tyrosine kinase (dimerises and phosphorylates itself)", "Ligand-gated ion channel (opens to let ions in)", "Intracellular receptor that acts as a transcription factor"]
+      correct: ans
+      explain: 'Hydrophilic signals cannot cross the membrane, so they use surface receptors: GPCRs, RTKs or ion channels. Steroid and thyroid hormones are lipid-soluble, cross the membrane, and bind receptors inside that change transcription'
+  verify: { authored: true }
+
+- template: bi-signal-amplification
+  skill: bio.signaling
+  pace: quick
+  given: { a: { pick: [10, 20, 50] }, b: { pick: [10, 100] }, c: { pick: [10, 100, 1000] } }
+  prompt: 'One activated receptor activates ${{a}}$ G proteins; each leads to ${{b}}$ cAMP molecules, and each cAMP-activated kinase ultimately frees ${{c}}$ glucose molecules. How many glucose molecules come from one bound hormone?'
+  parts:
+    - { ask: 'Glucose molecules', label: r, value: a*b*c, tol: 0.0001, explain: 'Each step is catalytic, so the factors multiply: $ {{a}} \times {{b}} \times {{c}} $. That cascade is why tiny hormone concentrations produce large responses' }
+  verify: { expect: { r: "a*b*c" } }
+
+- template: bi-cell-response
+  skill: bio.signaling
+  pace: recall
+  cases:
+    - { q: 'A transcription factor enters the nucleus and switches genes on.', ans: 0 }
+    - { q: 'An enzyme already present is phosphorylated and becomes active.', ans: 1 }
+    - { q: 'Ion channels open and the membrane potential changes.', ans: 2 }
+    - { q: 'Cytoskeleton reorganizes and the cell moves toward the signal.', ans: 3 }
+  prompt: '{{q}} Which kind of response is this?'
+  parts:
+    - ask: 'Response'
+      label: a
+      choice: ["Change in gene expression (slow, lasting)", "Change in enzyme activity (fast)", "Change in membrane potential", "Change in cell shape or movement"]
+      correct: ans
+      explain: 'A pathway can end in the cytoplasm (activating enzymes, opening channels, moving the cytoskeleton) or in the nucleus (new proteins). Cell division, apoptosis and differentiation are responses too'
+  verify: { authored: true }
+
+- template: bi-pathway-mutation
+  skill: bio.signaling
+  pace: quick
+  cases:
+    - { q: 'Ras is mutated so it cannot hydrolyse GTP.', ans: 0 }
+    - { q: 'The receptor is missing from the cell surface.', ans: 1 }
+    - { q: 'A drug blocks the phosphatase that switches the kinase off.', ans: 0 }
+    - { q: 'Cholera toxin locks Gs in its active, GTP-bound state.', ans: 0 }
+    - { q: 'A drug blocks phosphodiesterase, which breaks down cAMP.', ans: 0 }
+    - { q: 'A competitive antagonist occupies the receptor''s binding site.', ans: 1 }
+  prompt: '{{q}} What happens to the response?'
+  parts:
+    - ask: 'Effect'
+      label: a
+      choice: ["Stuck on: the response continues without (or long after) the signal", "Blocked: no response even with the signal"]
+      correct: ans
+      explain: 'Every signaling step needs an off switch as well as an on switch. Break an activator, or block the receptor, and the signal cannot pass. Break an off switch (GTPase, phosphatase, phosphodiesterase) and the pathway stays on, as in many cancers'
+  verify: { authored: true }
+
+- template: bi-feedback-type
+  skill: bio.signaling
+  pace: recall
+  cases:
+    - { q: 'Body temperature rises, sweating increases, temperature falls.', ans: 0 }
+    - { q: 'Contractions push the baby against the cervix, more oxytocin is released, contractions strengthen.', ans: 1 }
+    - { q: 'Blood glucose rises, insulin is released, glucose falls.', ans: 0 }
+    - { q: 'Activated platelets release chemicals that activate more platelets.', ans: 1 }
+    - { q: 'High thyroid hormone suppresses TSH release.', ans: 0 }
+    - { q: 'A ripening fruit releases ethylene, which ripens neighbouring fruit.', ans: 1 }
+  prompt: '{{q}} Positive or negative feedback?'
+  parts:
+    - ask: 'Feedback'
+      label: a
+      choice: ["Negative feedback: reverses the change, holds a set point", "Positive feedback: amplifies the change toward an endpoint"]
+      correct: ans
+      explain: 'Negative feedback opposes the deviation (homeostasis). Positive feedback reinforces it, which only makes sense for a process that must finish quickly: birth, clotting, ripening, an action potential'
+  verify: { authored: true }
+
+- template: bi-negative-feedback
+  skill: bio.signaling
+  pace: recall
+  cases:
+    - { q: 'Blood glucose rises after a meal.', ans: 0 }
+    - { q: 'Blood glucose falls during fasting.', ans: 1 }
+    - { q: 'Body temperature rises during exercise.', ans: 2 }
+    - { q: 'Body temperature falls in cold air.', ans: 3 }
+  prompt: '{{q}} What does the body do?'
+  parts:
+    - ask: 'Response'
+      label: a
+      choice: ["β cells release insulin; cells take up glucose and the liver stores glycogen", "α cells release glucagon; the liver breaks down glycogen", "Sweating and vasodilation of skin vessels", "Shivering and vasoconstriction of skin vessels"]
+      correct: ans
+      explain: 'A sensor detects the deviation, a control center compares it with the set point, and effectors push the variable back. Insulin and glucagon are antagonistic hormones; heat loss and heat gain mechanisms are paired the same way'
+  verify: { authored: true }
+
+- template: bi-positive-feedback
+  skill: bio.signaling
+  pace: recall
+  cases:
+    - { q: 'oxytocin release during labor', ans: 0 }
+    - { q: 'blood clotting', ans: 1 }
+    - { q: 'the rising phase of an action potential', ans: 2 }
+    - { q: 'the LH surge before ovulation', ans: 3 }
+  prompt: 'What ends the positive feedback of {{q}}?'
+  parts:
+    - ask: 'What ends it'
+      label: a
+      choice: ["Birth removes the stretch on the cervix", "The wound is sealed and clotting factors are used up or inhibited", "Na⁺ channels inactivate and K⁺ channels open", "Ovulation; the corpus luteum's progesterone then restores negative feedback"]
+      correct: ans
+      explain: 'Positive feedback is self-amplifying, so it needs an outside event to stop it, usually the completion of the very process it drives'
+  verify: { authored: true }
+
+# ── the cell cycle ─────────────────────────────────────────────────────────
+- template: bi-cell-cycle-dna
+  skill: bio.signaling
+  pace: quick
+  cases:
+    - { q: 'in G1', f: 1 }
+    - { q: 'at the end of S phase', f: 2 }
+    - { q: 'in G2', f: 2 }
+    - { q: 'in each daughter cell after cytokinesis', f: 1 }
+    - { q: 'in prophase of mitosis', f: 2 }
+  given: { pg: { pick: [6, 8, 12] } }
+  prompt: 'A somatic cell has ${{pg}}$ pg of DNA in G1. How much does it have {{q}}?'
+  parts:
+    - { ask: 'DNA (pg)', label: r, value: f*pg, tol: 0.0001, explain: 'S phase copies the DNA, doubling the content until mitosis splits it between two cells. Chromosome number does not change in S: each chromosome just becomes two sister chromatids' }
+  verify: { expect: { r: "f*pg" } }
+
+- template: bi-mitosis-stage
+  skill: bio.signaling
+  pace: recall
+  cases:
+    - { q: 'Chromosomes condense, the spindle forms and the nuclear envelope breaks down.', ans: 0 }
+    - { q: 'Chromosomes line up at the cell''s equator.', ans: 1 }
+    - { q: 'Sister chromatids separate and move to opposite poles.', ans: 2 }
+    - { q: 'Nuclear envelopes re-form and chromosomes decondense.', ans: 3 }
+    - { q: 'Kinetochores attach to spindle microtubules from both poles.', ans: 0 }
+  prompt: '{{q}} Which stage of mitosis?'
+  parts:
+    - ask: 'Stage'
+      label: a
+      choice: ["Prophase / prometaphase", "Metaphase", "Anaphase", "Telophase"]
+      correct: ans
+      explain: 'PMAT: condense and attach, line up, pull apart, rebuild nuclei. Cytokinesis then divides the cytoplasm (a cleavage furrow in animals, a cell plate in plants)'
+  verify: { authored: true }
+
+- template: bi-phase-duration
+  skill: bio.signaling
+  pace: quick
+  given: { n: { pick: [10, 18, 25, 40] }, N: { pick: [200, 250, 400] }, T: { pick: [16, 20, 24] } }
+  prompt: 'In a root-tip squash, ${{n}}$ of ${{N}}$ cells are in mitosis. The whole cycle takes ${{T}}$ hours. About how long does mitosis last, in hours?'
+  parts:
+    - { ask: 'Time (h)', label: r, value: n/N*T, tol: 0.002, explain: 'In an unsynchronised population, the fraction of cells in a phase equals the fraction of the cycle spent there: $({{n}}/{{N}}) \times {{T}}$ h. Most cells are in interphase because it is most of the cycle' }
+  verify: { expect: { r: "Rational(n, N)*T" } }
+
+- template: bi-checkpoint
+  skill: bio.signaling
+  pace: recall
+  cases:
+    - { q: 'Is the DNA undamaged and is the cell big enough to commit to division?', ans: 0 }
+    - { q: 'Has all the DNA been replicated correctly?', ans: 1 }
+    - { q: 'Is every chromosome attached to the spindle from both poles?', ans: 2 }
+    - { q: 'What drives a cell past a checkpoint?', ans: 3 }
+  prompt: 'Which control: {{q}}'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["The G1 checkpoint", "The G2 checkpoint", "The M (spindle) checkpoint", "A cyclin binding and activating its CDK"]
+      correct: ans
+      explain: 'Cyclin levels rise and fall through the cycle; when a cyclin binds its CDK the kinase phosphorylates targets that move the cell on (MPF triggers mitosis). Checkpoints hold the cell until conditions are right; G0 is the exit for cells that stop dividing'
+  verify: { authored: true }
+
+- template: bi-checkpoint-failure
+  skill: bio.signaling
+  pace: recall
+  cases:
+    - { q: 'p53 is lost, so damaged DNA no longer halts the cycle.', ans: 0 }
+    - { q: 'A growth-factor receptor gene becomes permanently active (an oncogene).', ans: 0 }
+    - { q: 'A cell with badly damaged DNA and working p53.', ans: 1 }
+    - { q: 'Rb protein is inactivated.', ans: 0 }
+  prompt: '{{q}} Likely outcome?'
+  parts:
+    - ask: 'Outcome'
+      label: a
+      choice: ["Uncontrolled division: a step toward cancer", "Apoptosis (programmed cell death)"]
+      correct: ans
+      explain: 'Proto-oncogenes push division and tumour-suppressor genes (p53, Rb) brake it. Cancer usually needs several hits: an accelerator stuck on plus brakes lost. A healthy checkpoint either repairs the cell or kills it by apoptosis'
+  verify: { authored: true }

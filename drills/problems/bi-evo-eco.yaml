@@ -1,0 +1,705 @@
+# AP Biology units 7 and 8: natural selection and ecology (also DAT biology).
+
+# ── natural selection ──────────────────────────────────────────────────────
+- template: bi-selection-conditions
+  skill: bio.evolution
+  pace: recall
+  cases:
+    - { q: 'Beetles in a population differ in color.', ans: 0 }
+    - { q: 'Color is passed from parents to offspring.', ans: 1 }
+    - { q: 'More beetles hatch than the habitat can support.', ans: 2 }
+    - { q: 'Birds eat the beetles easiest to see, so camouflaged ones leave more offspring.', ans: 3 }
+  prompt: '{{q}} Which condition for natural selection is this?'
+  parts:
+    - ask: 'Condition'
+      label: a
+      choice: ["Variation in a trait", "Heritability of the trait", "Overproduction and competition", "Differential survival and reproduction"]
+      correct: ans
+      explain: 'Natural selection needs all four. Selection acts on individuals'' phenotypes, but only populations evolve, as allele frequencies change from one generation to the next'
+  verify: { authored: true }
+
+- template: bi-fitness
+  skill: bio.evolution
+  pace: recall
+  cases:
+    - { q: 'In evolutionary terms, the "fittest" individual is the one that', ans: 0 }
+    - { q: 'Selection acts directly on', ans: 1 }
+    - { q: 'What actually changes in an evolving population?', ans: 2 }
+    - { q: 'A strong lion that has no surviving cubs has a relative fitness of', ans: 3 }
+  prompt: '{{q}} …'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["leaves the most surviving, fertile offspring", "phenotypes", "allele frequencies in the gene pool", "zero"]
+      correct: ans
+      explain: 'Fitness is reproductive success relative to others, not strength or lifespan. Selection sees phenotypes; the alleles behind successful phenotypes become more common'
+  verify: { authored: true }
+
+- template: bi-selection-type
+  skill: bio.evolution
+  pace: recall
+  cases:
+    - { q: 'Average beak depth increases after a drought leaves only hard seeds.', ans: 0 }
+    - { q: 'Very small and very large human babies have lower survival; birth weights cluster near the mean.', ans: 1 }
+    - { q: 'Seed-cracker finches end up mostly with very small or very large beaks, few in between.', ans: 2 }
+    - { q: 'Peppered moths shift from mostly light to mostly dark as trees are blackened by soot.', ans: 0 }
+    - { q: 'Gall size in a fly is held near intermediate because wasps attack small galls and birds attack large ones.', ans: 1 }
+  prompt: '{{q}} What kind of selection?'
+  parts:
+    - ask: 'Selection'
+      label: a
+      choice: ["Directional: the mean shifts one way", "Stabilizing: extremes are removed, variance narrows", "Disruptive: the middle is removed, two peaks form"]
+      correct: ans
+      explain: 'Compare the before and after distributions: a shifted peak is directional, a narrower peak stabilizing, and a split into two peaks disruptive (which can start speciation)'
+  verify: { authored: true }
+
+- template: bi-artificial-selection
+  skill: bio.evolution
+  pace: recall
+  cases:
+    - { q: 'Breeding dogs for particular traits', ans: 0 }
+    - { q: 'Overuse of antibiotics', ans: 1 }
+    - { q: 'Planting a single high-yield crop variety everywhere', ans: 2 }
+    - { q: 'Trophy hunting of the largest-horned rams', ans: 1 }
+  prompt: '{{q}}: what does it do to the population?'
+  parts:
+    - ask: 'Effect'
+      label: a
+      choice: ["Artificial selection: chosen traits become more common, often quickly", "Humans impose selection that favours resistance or smaller size", "Genetic diversity falls, leaving the crop vulnerable to new disease"]
+      correct: ans
+      explain: 'Humans can act as the selective agent, deliberately (breeding) or not (antibiotics, pesticides, harvesting). Either way allele frequencies shift and diversity usually drops'
+  verify: { authored: true }
+
+- template: bi-convergent
+  skill: bio.evolution
+  pace: recall
+  cases:
+    - { q: 'Sharks, dolphins and ichthyosaurs all have streamlined bodies and fins.', ans: 0 }
+    - { q: 'Cacti in the Americas and euphorbs in Africa both have spines and fleshy stems.', ans: 0 }
+    - { q: 'Human arms and bat wings have the same set of bones.', ans: 1 }
+    - { q: 'Birds, bats and insects all have wings.', ans: 0 }
+  prompt: '{{q}} Convergent evolution or shared ancestry?'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["Convergent evolution: similar environments selected similar solutions", "Shared ancestry (homologous structures)"]
+      correct: ans
+      explain: 'Analogous traits look alike because of similar selective pressures, not common descent, and are built differently underneath. Homologous traits share an underlying plan from a common ancestor even when the functions differ'
+  verify: { authored: true }
+
+- template: bi-drift-flow
+  skill: bio.evolution
+  pace: recall
+  cases:
+    - { q: 'A storm kills 90 percent of a population at random, leaving allele frequencies very different.', ans: 0 }
+    - { q: 'A few birds colonise an island; one rare allele becomes common there.', ans: 1 }
+    - { q: 'Pollen blown from a neighbouring field brings new alleles into a population.', ans: 2 }
+    - { q: 'Allele frequencies in a small isolated population wander randomly from generation to generation.', ans: 3 }
+    - { q: 'The Amish population has a high frequency of a rare form of dwarfism.', ans: 1 }
+  prompt: '{{q}} Which process?'
+  parts:
+    - ask: 'Process'
+      label: a
+      choice: ["Bottleneck effect", "Founder effect", "Gene flow", "Genetic drift"]
+      correct: ans
+      explain: 'Drift is random change in allele frequency, strongest in small populations; bottlenecks and founder events are dramatic cases of it. Gene flow moves alleles between populations and makes them more alike'
+  verify: { authored: true }
+
+- template: bi-small-population
+  skill: bio.evolution
+  pace: recall
+  cases:
+    - { q: 'Why does drift change allele frequencies more in small populations?', ans: 0 }
+    - { q: 'Why can a harmful allele become common in a small population?', ans: 1 }
+    - { q: 'What happens to genetic diversity in a small isolated population over time?', ans: 2 }
+  prompt: '{{q}}'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["Chance events in a small sample swing frequencies more, as with few coin tosses", "Drift can outweigh selection when numbers are small", "It falls, as alleles are lost by chance"]
+      correct: ans
+      explain: 'Sampling error shrinks as sample size grows. In small populations alleles are fixed or lost by chance, diversity drains away, and selection is less effective'
+  verify: { authored: true }
+
+- template: bi-mutation-gene-flow
+  skill: bio.evolution
+  pace: recall
+  cases:
+    - { q: 'What is the only source of entirely new alleles?', ans: 0 }
+    - { q: 'Two populations exchange migrants every generation. Over time they become', ans: 1 }
+    - { q: 'A population cut off from all others will tend to', ans: 2 }
+  prompt: '{{q}}'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["Mutation", "more genetically similar", "diverge from them through mutation, drift and selection"]
+      correct: ans
+      explain: 'Mutation adds variation slowly but constantly; gene flow mixes it between populations; without gene flow, populations go their own way, the first step toward speciation'
+  verify: { authored: true }
+
+- template: bi-hardy-weinberg
+  skill: bio.evolution
+  pace: quick
+  cases:
+    - { w: 'the frequency of the recessive allele q', k: 0 }
+    - { w: 'the frequency of heterozygotes', k: 1 }
+    - { w: 'the frequency of homozygous dominant individuals', k: 2 }
+  given: { aa: { pick: [0.01, 0.04, 0.09, 0.16, 0.25, 0.36] } }
+  prompt: 'In a population in Hardy–Weinberg equilibrium, ${{100*aa}}$ percent of individuals show the recessive phenotype. What is {{w}}?'
+  parts:
+    - { ask: 'Frequency (as a decimal)', label: r, value: 'k == 0 ? sqrt(aa) : (k == 1 ? 2*sqrt(aa)*(1 - sqrt(aa)) : (1 - sqrt(aa))^2)', tol: 0.001, explain: 'Start from the recessive phenotype: $q^2 = {{aa}}$, so $q = {{sqrt(aa)}}$ and $p = 1 - q$. Then $2pq$ heterozygotes and $p^2$ homozygous dominant. You cannot start from the dominant phenotype, which mixes $p^2$ and $2pq$' }
+  verify: { expect: { r: "[sqrt(aa), 2*sqrt(aa)*(1 - sqrt(aa)), (1 - sqrt(aa))**2][k]" } }
+
+- template: bi-hw-conditions
+  skill: bio.evolution
+  pace: recall
+  cases:
+    - { q: 'A population''s allele frequencies change after heavy migration from a neighbour.', ans: 0 }
+    - { q: 'Peahens choose mates by tail size.', ans: 1 }
+    - { q: 'A population of 20 individuals.', ans: 2 }
+    - { q: 'A new allele keeps arising by mutation.', ans: 3 }
+    - { q: 'One genotype survives to reproduce less often.', ans: 4 }
+  prompt: '{{q}} Which Hardy–Weinberg condition fails?'
+  parts:
+    - ask: 'Condition'
+      label: a
+      choice: ["No gene flow (no migration)", "Random mating", "Very large population (no drift)", "No mutation", "No natural selection"]
+      correct: ans
+      explain: 'Allele frequencies stay constant only with no migration, random mating, a very large population, no mutation and no selection. Real populations break some of these, which is why comparing observed frequencies with $p^2 : 2pq : q^2$ detects evolution'
+  verify: { authored: true }
+
+- template: bi-hw-test
+  skill: bio.evolution
+  pace: quick
+  given: { N: { pick: [100, 200, 500] }, a: { pick: [0.36, 0.49, 0.64] }, h: { pick: [0.20, 0.30, 0.42, 0.48] } }
+  prompt: 'A population of ${{N}}$ has ${{N*a}}$ AA, ${{N*h}}$ Aa and ${{N - N*a - N*h}}$ aa individuals. What is the frequency of allele A (p)?'
+  require: ['1 - a - h > 0']
+  parts:
+    - { ask: 'p', label: r, value: a + h/2, tol: 0.001, explain: 'Count alleles: each AA has two A, each Aa one. $p = (2 \cdot AA + Aa)/(2N) = {{a}} + {{h}}/2$. Then compare the observed genotype frequencies with $p^2$, $2pq$, $q^2$; a mismatch means some condition is failing' }
+  verify: { expect: { r: "(2*N*a + N*h)/(2*N)" } }
+
+- template: bi-evolution-evidence
+  skill: bio.evolution
+  pace: recall
+  cases:
+    - { q: 'Fossil whales with progressively smaller hind limbs', ans: 0 }
+    - { q: 'Human and chimpanzee DNA differing by about 1 to 2 percent', ans: 1 }
+    - { q: 'Vertebrate embryos all having pharyngeal pouches and a tail', ans: 2 }
+    - { q: 'Marsupials concentrated in Australia', ans: 3 }
+    - { q: 'The human appendix and the pelvic bones of whales', ans: 4 }
+  prompt: 'What kind of evidence for evolution is this? {{q}}'
+  parts:
+    - ask: 'Evidence'
+      label: a
+      choice: ["Fossil record", "Molecular (DNA, protein) comparison", "Comparative embryology", "Biogeography", "Vestigial structures"]
+      correct: ans
+      explain: 'Independent lines of evidence (fossils, anatomy, embryology, biogeography, molecules) all point to the same tree of descent. Fossils are dated by radiometric half-lives and by position in the rock layers'
+  verify: { authored: true }
+
+- template: bi-radiometric-dating
+  skill: bio.evolution
+  pace: quick
+  cases:
+    - { iso: 'carbon-14', T: 5730 }
+    - { iso: 'potassium-40', T: 1.25e9 }
+  given: { n: { int: [1, 5] } }
+  prompt: 'A fossil retains $1/{{2^n}}$ of its original {{iso}} (half-life ${{T}}$ years). How old is it, in years?'
+  parts:
+    - { ask: 'Age (years)', label: r, value: n*T, tol: 0.0001, explain: 'Each half-life halves the remaining parent isotope, and $1/{{2^n}} = (1/2)^{ {{n}} }$, so ${{n}}$ half-lives have passed: $ {{n}} \times {{T}}$ years. Carbon-14 works up to about 50 000 years; older rock needs a longer-lived isotope' }
+  verify: { expect: { r: "log(Integer(2)**n, 2)*nsimplify(T)" } }
+
+- template: bi-structure-homology
+  skill: bio.evolution
+  pace: recall
+  cases:
+    - { q: 'The forelimbs of humans, cats, whales and bats', ans: 0 }
+    - { q: 'The wings of a butterfly and a bird', ans: 1 }
+    - { q: 'Eyes in snakes that live underground and are covered by scales', ans: 2 }
+    - { q: 'The spines of a cactus and the spines of a porcupine', ans: 1 }
+    - { q: 'The vestigial hind leg bones of a python', ans: 2 }
+  prompt: '{{q}}: what kind of structures?'
+  parts:
+    - ask: 'Kind'
+      label: a
+      choice: ["Homologous: same ancestral plan, may differ in use", "Analogous: same use, different origin", "Vestigial: reduced remnant of an ancestral structure"]
+      correct: ans
+      explain: 'Homology is evidence of shared ancestry; analogy of convergence. Vestigial structures make sense only as leftovers from ancestors in which they worked'
+  verify: { authored: true }
+
+- template: bi-universal-features
+  skill: bio.evolution
+  pace: recall
+  cases:
+    - { q: 'DNA as the genetic material', ans: 0 }
+    - { q: 'A nearly universal genetic code', ans: 0 }
+    - { q: 'Membrane-bound organelles and linear chromosomes', ans: 1 }
+    - { q: 'ATP as the energy currency', ans: 0 }
+    - { q: 'A cytoskeleton of microtubules and actin, and introns in genes', ans: 1 }
+    - { q: 'Ribosomes that translate mRNA', ans: 0 }
+  prompt: 'Is this shared by all living things, or only by eukaryotes? {{q}}'
+  parts:
+    - ask: 'Shared by'
+      label: a
+      choice: ["All living things (evidence for a universal common ancestor)", "All eukaryotes (evidence for their common ancestry)"]
+      correct: ans
+      explain: 'Features found in every cell (DNA, the code, ribosomes, ATP, core metabolism) trace to the last universal common ancestor. Features in every eukaryote but no prokaryote trace to the first eukaryote'
+  verify: { authored: true }
+
+- template: bi-ongoing-evolution
+  skill: bio.evolution
+  pace: recall
+  cases:
+    - { q: 'Bacteria evolving resistance to an antibiotic within years', ans: 0 }
+    - { q: 'Insects becoming resistant to a pesticide', ans: 0 }
+    - { q: 'HIV evolving resistance to a single drug in one patient', ans: 0 }
+    - { q: 'A giraffe stretching its neck and passing the longer neck to its calf', ans: 1 }
+  prompt: 'Is this an example of evolution happening now? {{q}}'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["Yes: selection on existing variation, observed directly", "No: acquired traits are not inherited (that is Lamarck)"]
+      correct: ans
+      explain: 'Short generation times and strong selection let us watch evolution: resistant variants already in the population survive treatment and multiply. Combination therapy works because a virus rarely carries resistance to several drugs at once'
+  verify: { authored: true }
+
+- template: bi-molecular-relatedness
+  skill: bio.evolution
+  pace: recall
+  cases:
+    - { q: 'Species A and B differ at 3 amino acids of cytochrome c; A and C differ at 15. Which is A''s closest relative?', ans: 0 }
+    - { q: 'Why are molecular data often preferred over morphology for relatedness?', ans: 1 }
+    - { q: 'Two species look alike because of similar habitats, but their DNA differs greatly. What does that suggest?', ans: 2 }
+  prompt: '{{q}}'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["B: fewer differences means a more recent common ancestor", "They are less affected by convergence and give many characters to compare", "Their resemblance is convergent, not shared ancestry"]
+      correct: ans
+      explain: 'Mutations accumulate over time, so the number of sequence differences tracks time since divergence (a molecular clock). Morphology can mislead when similar environments shape unrelated species alike'
+  verify: { authored: true }
+
+- template: bi-phylogeny-reading
+  skill: bio.evolution
+  pace: recall
+  cases:
+    - { q: 'On a tree, what does a node (branch point) represent?', ans: 0 }
+    - { q: 'Two taxa that share an immediate common ancestor not shared by any other group are', ans: 1 }
+    - { q: 'A trait shared by a group and its common ancestor but not by others is', ans: 2 }
+    - { q: 'How do you judge how closely two taxa are related on a tree?', ans: 3 }
+  prompt: '{{q}}'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["A common ancestor where lineages split", "sister taxa", "a shared derived character", "By how recent their most recent common ancestor is, not by how close their tips sit"]
+      correct: ans
+      explain: 'Read relatedness from the branching pattern: trace both taxa back to the node where they meet. Rotating branches around a node changes nothing. An outgroup roots the tree and shows which traits are ancestral'
+  verify: { authored: true }
+
+- template: bi-parsimony
+  skill: bio.evolution
+  pace: quick
+  cases:
+    - { q: 'Lamprey: jaws no, lungs no, fur no. Trout: jaws yes, lungs no, fur no. Frog: jaws yes, lungs yes, fur no. Mouse: jaws yes, lungs yes, fur yes. Which taxon branches off first after the outgroup lancelet (none of the traits)?', o1: 'Lamprey', o2: 'Trout', o3: 'Frog', o4: 'Mouse', ans: 0 }
+    - { q: 'Same table. Which two taxa are sister taxa at the tip of the tree?', o1: 'Lamprey and trout', o2: 'Trout and frog', o3: 'Frog and mouse', o4: 'Lamprey and mouse', ans: 2 }
+    - { q: 'Same table. How many trait changes does the most parsimonious tree need?', o1: '2', o2: '3', o3: '4', o4: '6', ans: 1 }
+    - { q: 'Same table. Which trait unites trout, frog and mouse?', o1: 'Fur', o2: 'Lungs', o3: 'Jaws', o4: 'None', ans: 2 }
+  prompt: '{{q}}'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["{{o1}}", "{{o2}}", "{{o3}}", "{{o4}}"]
+      correct: ans
+      explain: 'Parsimony picks the tree needing the fewest changes. Taxa with the fewest derived traits branch off first; each derived trait appears once, on the branch leading to the group that has it'
+  verify: { authored: true }
+
+- template: bi-speciation
+  skill: bio.evolution
+  pace: recall
+  cases:
+    - { q: 'A river splits a squirrel population and the two halves become separate species.', ans: 0 }
+    - { q: 'A polyploid plant arises in one generation and cannot breed with its parent species.', ans: 1 }
+    - { q: 'Insects in one area shift to a new host plant and stop breeding with those on the old host.', ans: 1 }
+    - { q: 'Finches on different islands of an archipelago diverge.', ans: 0 }
+    - { q: 'By the biological species concept, a species is', ans: 2 }
+  prompt: '{{q}}'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["Allopatric speciation (geographic isolation)", "Sympatric speciation (same area)", "A group that can interbreed and produce fertile offspring"]
+      correct: ans
+      explain: 'Speciation needs reproductive isolation. Physical separation (allopatric) is the usual route; sympatric speciation happens through polyploidy, habitat or host shifts, or sexual selection. The biological species concept does not work for asexual organisms or fossils'
+  verify: { authored: true }
+
+- template: bi-tempo-radiation
+  skill: bio.evolution
+  pace: recall
+  cases:
+    - { q: 'Long periods of little change broken by rapid bursts', ans: 0 }
+    - { q: 'Slow, steady change accumulating over long times', ans: 1 }
+    - { q: 'One ancestor rapidly gives rise to many species filling many niches', ans: 2 }
+    - { q: 'Mammals diversifying after the dinosaurs disappeared', ans: 2 }
+  prompt: 'Which term fits: {{q}}?'
+  parts:
+    - ask: 'Term'
+      label: a
+      choice: ["Punctuated equilibrium", "Gradualism", "Adaptive radiation"]
+      correct: ans
+      explain: 'The fossil record shows both tempos. Adaptive radiation tends to follow new opportunities: colonising islands, a key innovation, or a mass extinction that empties niches'
+  verify: { authored: true }
+
+- template: bi-reproductive-barrier
+  skill: bio.evolution
+  pace: recall
+  cases:
+    - { q: 'Two frog species breed in different seasons.', ans: 0 }
+    - { q: 'Two bird species have different courtship songs.', ans: 0 }
+    - { q: 'Snail shells coiling in opposite directions keep genitals from aligning.', ans: 0 }
+    - { q: 'Sperm of one sea urchin species cannot bind eggs of another.', ans: 0 }
+    - { q: 'A horse and a donkey produce a healthy but sterile mule.', ans: 1 }
+    - { q: 'Hybrid embryos of two salamanders die early.', ans: 1 }
+  prompt: '{{q}} Prezygotic or postzygotic barrier?'
+  parts:
+    - ask: 'Barrier'
+      label: a
+      choice: ["Prezygotic: prevents fertilisation (habitat, timing, behaviour, mechanical, gametic)", "Postzygotic: hybrid forms but fails (inviable, sterile, hybrid breakdown)"]
+      correct: ans
+      explain: 'Ask whether a zygote ever forms. Prezygotic barriers stop mating or fertilisation; postzygotic barriers act on the hybrid. Seasonal timing is temporal, songs behavioural, coiling mechanical, egg recognition gametic'
+  verify: { authored: true }
+
+- template: bi-extinction
+  skill: bio.evolution
+  pace: recall
+  cases:
+    - { q: 'Which factor most raises a population''s extinction risk?', ans: 0 }
+    - { q: 'Why does fast environmental change raise extinction risk more than slow change?', ans: 1 }
+    - { q: 'Why does a genetically diverse population survive a new disease better?', ans: 2 }
+    - { q: 'Biodiversity at any time reflects', ans: 3 }
+  prompt: '{{q}}'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["Small size, low genetic diversity and habitat loss together", "Adaptation needs generations; fast change outruns it", "Some individuals are more likely to carry alleles that resist it", "speciation rate minus extinction rate"]
+      correct: ans
+      explain: 'Extinction is normal, but human-driven habitat loss, invasive species and climate change are pushing it far above the background rate. Mass extinctions reset diversity and open niches for adaptive radiation'
+  verify: { authored: true }
+
+- template: bi-origin-of-life
+  skill: bio.evolution
+  pace: recall
+  cases:
+    - { q: 'Miller and Urey made amino acids from simple gases and sparks.', ans: 0 }
+    - { q: 'RNA can store information and catalyse reactions.', ans: 1 }
+    - { q: 'Lipids self-assemble into vesicles that can grow and divide.', ans: 2 }
+    - { q: 'Fossil stromatolites date to about 3.5 billion years ago.', ans: 3 }
+  prompt: '{{q}} Which idea about the origin of life does this support?'
+  parts:
+    - ask: 'Supports'
+      label: a
+      choice: ["Organic monomers can form abiotically", "An RNA world came before DNA and proteins", "Protocells could form spontaneously", "Life appeared early in Earth's history"]
+      correct: ans
+      explain: 'The proposed sequence: abiotic synthesis of monomers, joining into polymers (perhaps on clay or at vents), self-replicating RNA, and membrane-bound protocells. Each step has laboratory or fossil support'
+  verify: { authored: true }
+
+# ── ecology ────────────────────────────────────────────────────────────────
+- template: bi-behavior-response
+  skill: bio.ecology
+  pace: recall
+  cases:
+    - { q: 'A plant bends toward light', ans: 0 }
+    - { q: 'A pillbug moves randomly faster in dry areas and slows in moist ones', ans: 1 }
+    - { q: 'A moth flies directly toward a light', ans: 2 }
+    - { q: 'Deciduous trees drop leaves as days shorten', ans: 3 }
+  prompt: '{{q}}. What kind of response?'
+  parts:
+    - ask: 'Response'
+      label: a
+      choice: ["Phototropism (directional growth)", "Kinesis (random change in speed or turning)", "Taxis (directed movement)", "Photoperiodism"]
+      correct: ans
+      explain: 'Organisms sense cues (light, day length, moisture, chemicals) and respond by growth, movement or physiology. Responses that improve survival and reproduction are favored by selection'
+  verify: { authored: true }
+
+- template: bi-behavior-signal
+  skill: bio.ecology
+  pace: recall
+  cases:
+    - { q: 'A honeybee waggle dance', ans: 0 }
+    - { q: 'An ant laying a pheromone trail', ans: 0 }
+    - { q: 'A ground squirrel giving an alarm call that endangers itself', ans: 1 }
+    - { q: 'A worker bee that never reproduces but helps its queen sister', ans: 1 }
+  prompt: '{{q}}: what does it show?'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["Communication that changes others' behaviour", "Altruism favoured by kin selection"]
+      correct: ans
+      explain: 'Signals (visual, chemical, auditory, tactile) coordinate behaviour. Cooperation that costs the helper can still raise fitness when relatives share its alleles (inclusive fitness)'
+  verify: { authored: true }
+
+- template: bi-behavior-type
+  skill: bio.ecology
+  pace: recall
+  cases:
+    - { q: 'A stickleback attacks anything red-bellied, even a crude model.', ans: 0 }
+    - { q: 'Goslings follow the first moving object they see after hatching.', ans: 1 }
+    - { q: 'Birds stop flying off at a scarecrow that never moves.', ans: 2 }
+    - { q: 'A dog salivates at a bell that has rung before every meal.', ans: 3 }
+    - { q: 'A rat learns to press a lever for food.', ans: 4 }
+  prompt: '{{q}} Which kind of behaviour?'
+  parts:
+    - ask: 'Behaviour'
+      label: a
+      choice: ["Fixed action pattern", "Imprinting", "Habituation", "Classical conditioning", "Operant conditioning"]
+      correct: ans
+      explain: 'Innate: fixed action patterns triggered by a sign stimulus. Learned: imprinting (in a critical period), habituation (ignoring a harmless repeated stimulus), classical conditioning (pairing stimuli), operant conditioning (behaviour shaped by its consequences)'
+  verify: { authored: true }
+
+- template: bi-thermoregulation
+  skill: bio.ecology
+  pace: recall
+  cases:
+    - { q: 'Which animal needs more food per gram of body mass?', o1: 'A shrew', o2: 'An elephant', o3: 'Both the same', ans: 0 }
+    - { q: 'How does an endotherm keep its body temperature?', o1: 'Mostly by metabolic heat', o2: 'Mostly by basking in the sun', o3: 'It does not', ans: 0 }
+    - { q: 'Compared with an endotherm of the same size, an ectotherm needs', o1: 'more food', o2: 'much less food', o3: 'the same food', ans: 1 }
+    - { q: 'Why does a small endotherm have a higher metabolic rate per gram?', o1: 'Its cells are bigger', o2: 'It has a larger SA/V and loses heat faster', o3: 'It is more active', ans: 1 }
+  prompt: '{{q}}'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["{{o1}}", "{{o2}}", "{{o3}}"]
+      correct: ans
+      explain: 'Endotherms make their own heat at a high energy cost; ectotherms rely on the environment and need a fraction of the food. Smaller animals lose heat faster relative to their mass, so their metabolic rate per gram is higher'
+  verify: { authored: true }
+
+- template: bi-energy-availability
+  skill: bio.ecology
+  pace: recall
+  cases:
+    - { q: 'Producers in a lake are reduced by shading. What happens to fish populations?', ans: 0 }
+    - { q: 'Why are top predators few in number?', ans: 1 }
+    - { q: 'A drought cuts grass growth. What happens to the herbivores?', ans: 0 }
+  prompt: '{{q}}'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["They decline, because less energy enters the food web", "Little energy reaches the top of a food chain"]
+      correct: ans
+      explain: 'Energy enters through producers and about 90 percent is lost at each step, so a drop at the base ripples upward and top levels can support few individuals'
+  verify: { authored: true }
+
+- template: bi-trophic-energy
+  skill: bio.ecology
+  pace: quick
+  given: { E: { pick: [10000, 25000, 100000] }, n: { int: [1, 3] } }
+  prompt: 'Producers capture ${{E}}$ kJ/m²/yr as net primary productivity. Using the 10 percent rule, how much energy reaches trophic level {{n + 1}} (the {{n == 1 ? "primary" : (n == 2 ? "secondary" : "tertiary")}} consumers), in kJ/m²/yr?'
+  parts:
+    - { ask: 'Energy', label: r, value: E*0.1^n, tol: 0.0001, explain: 'About 10 percent passes up each level; the rest is used in respiration or lost as heat and waste. GPP is all the energy fixed; NPP = GPP − the producers'' own respiration, which is what consumers can eat' }
+  verify: { expect: { r: "E*Rational(1, 10)**n" } }
+
+- template: bi-biogeochemical
+  skill: bio.ecology
+  pace: recall
+  cases:
+    - { q: 'Bacteria convert N₂ into ammonia', ans: 0 }
+    - { q: 'Bacteria convert nitrate back into N₂', ans: 1 }
+    - { q: 'Phosphorus enters food webs mainly from', ans: 2 }
+    - { q: 'Carbon returns to the atmosphere from organisms mainly by', ans: 3 }
+    - { q: 'Water moves from leaves into the air by', ans: 4 }
+  prompt: '{{q}}: which process?'
+  parts:
+    - ask: 'Process'
+      label: a
+      choice: ["Nitrogen fixation", "Denitrification", "Weathering of rock (no atmospheric pool)", "Respiration and decomposition (and combustion)", "Transpiration"]
+      correct: ans
+      explain: 'Carbon cycles through photosynthesis, respiration and combustion; nitrogen through fixation, nitrification, assimilation, ammonification and denitrification; phosphorus mostly through rocks, soil and water; water through evaporation, transpiration and precipitation'
+  verify: { authored: true }
+
+- template: bi-population-rates
+  skill: bio.ecology
+  pace: quick
+  given: { N: { pick: [200, 500, 1000] }, b: { pick: [0.10, 0.25, 0.40] }, d: { pick: [0.05, 0.12, 0.20] } }
+  require: [b != d]
+  prompt: 'In one year a population of ${{N}}$ has ${{N*b}}$ births and ${{N*d}}$ deaths. What is its per-capita growth rate r?'
+  parts:
+    - { ask: 'r', label: r, value: b - d, tol: 0.001, explain: 'Per-capita birth rate $b = B/N$, death rate $d = D/N$, and $r = b - d$. A positive r means growth, negative decline' }
+  verify: { expect: { r: "(N*b - N*d)/N" } }
+
+- template: bi-exponential-growth
+  skill: bio.ecology
+  pace: quick
+  given: { r: { pick: [0.05, 0.1, 0.2, 0.5] }, N: { pick: [100, 400, 1500] } }
+  prompt: 'A population of ${{N}}$ grows exponentially with $r_\mathrm{max} = {{r}}$ per year. What is $dN/dt$ right now, in individuals per year?'
+  parts:
+    - { ask: 'dN/dt', label: g, value: r*N, tol: 0.0001, explain: '$dN/dt = r_\mathrm{max} N$: the larger the population, the faster it grows, giving a J-shaped curve. It happens when resources are unlimited, as in colonising a new habitat' }
+  verify: { expect: { g: "r*N" } }
+
+- template: bi-logistic-growth
+  skill: bio.ecology
+  pace: quick
+  given: { r: { pick: [0.2, 0.5, 1.0] }, K: { pick: [1000, 2000, 5000] }, f: { pick: [0.1, 0.25, 0.5, 0.75, 0.9] } }
+  prompt: 'A population with $r_\mathrm{max} = {{r}}$ and carrying capacity $K = {{K}}$ currently has $N = {{K*f}}$. What is $dN/dt$?'
+  parts:
+    - { ask: 'dN/dt', label: g, value: r*K*f*(1 - f), tol: 0.001, explain: '$dN/dt = r_\mathrm{max} N \frac{K - N}{K}$. Growth is fastest at $N = K/2$ and falls to zero as N approaches K, giving an S-shaped curve. r-strategists breed fast and early; K-strategists invest in few offspring near K' }
+  verify: { expect: { g: "r*(K*f)*(K - K*f)/K" } }
+
+- template: bi-limiting-factor
+  skill: bio.ecology
+  pace: recall
+  cases:
+    - { q: 'Disease spreading faster in a crowded population', ans: 0 }
+    - { q: 'A hurricane killing a fixed share of a population', ans: 1 }
+    - { q: 'Competition for nesting sites', ans: 0 }
+    - { q: 'A late frost killing seedlings', ans: 1 }
+    - { q: 'Predators focusing on the most abundant prey', ans: 0 }
+  prompt: '{{q}}: density-dependent or density-independent?'
+  parts:
+    - ask: 'Factor'
+      label: a
+      choice: ["Density-dependent", "Density-independent"]
+      correct: ans
+      explain: 'Density-dependent factors (competition, predation, disease, waste) bite harder as the population grows, which is what produces a carrying capacity. Density-independent factors (weather, fire, natural disasters) hit regardless of numbers'
+  verify: { authored: true }
+
+- template: bi-simpson-index
+  skill: bio.ecology
+  pace: quick
+  given: { a: { pick: [10, 20, 30] }, b: { pick: [5, 10, 15] }, c: { pick: [2, 5, 10] } }
+  prompt: 'A plot holds ${{a}}$ oaks, ${{b}}$ maples and ${{c}}$ pines. What is Simpson''s diversity index, $1 - \sum \frac{n(n-1)}{N(N-1)}$?'
+  parts:
+    - { ask: 'Index', label: r, value: 1 - (a*(a - 1) + b*(b - 1) + c*(c - 1))/((a + b + c)*(a + b + c - 1)), tol: 0.002, explain: 'N = total individuals; for each species add $n(n-1)$, divide by $N(N-1)$, subtract from 1. The index is the chance two random individuals are different species: higher means more diverse (more species, more even)' }
+  verify: { expect: { r: "1 - sum([n*(n - 1) for n in [a, b, c]])/((a + b + c)*(a + b + c - 1))" } }
+
+- template: bi-interaction-type
+  skill: bio.ecology
+  pace: recall
+  cases:
+    - { q: 'Bees pollinate flowers and get nectar', ans: 0 }
+    - { q: 'Barnacles ride on a whale, which is unaffected', ans: 1 }
+    - { q: 'A tapeworm lives in a human gut', ans: 2 }
+    - { q: 'Two plant species compete for the same water', ans: 3 }
+    - { q: 'A lynx eats a hare', ans: 2 }
+    - { q: 'Clownfish live among sea anemone tentacles and drive off anemone predators', ans: 0 }
+  prompt: '{{q}}. Which interaction?'
+  parts:
+    - ask: 'Interaction'
+      label: a
+      choice: ["Mutualism (+/+)", "Commensalism (+/0)", "Predation or parasitism (+/-)", "Competition (-/-)"]
+      correct: ans
+      explain: 'Classify by the effect on each partner. Parasites usually do not kill their host quickly; predators do. Competition harms both, which is why it drives resource partitioning'
+  verify: { authored: true }
+
+- template: bi-community-data
+  skill: bio.ecology
+  pace: recall
+  cases:
+    - { q: 'Hare and lynx numbers rise and fall in cycles, lynx peaks lagging hare peaks.', ans: 0 }
+    - { q: 'Two Paramecium species grown together: one always dies out.', ans: 1 }
+    - { q: 'Five warbler species feed in different parts of the same trees.', ans: 2 }
+    - { q: 'A barnacle species lives lower on rocks when a competitor is removed.', ans: 3 }
+  prompt: '{{q}} What does this show?'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["Predator–prey cycles", "Competitive exclusion", "Resource partitioning", "The realised niche is smaller than the fundamental niche"]
+      correct: ans
+      explain: 'Two species cannot share exactly the same niche for long: one wins (exclusion) or they divide resources (partitioning). Predators track prey with a lag because they respond to food supply'
+  verify: { authored: true }
+
+- template: bi-succession
+  skill: bio.ecology
+  pace: recall
+  cases:
+    - { q: 'Lichens colonise bare rock left by a retreating glacier.', ans: 0 }
+    - { q: 'Grasses and shrubs return to a farm field that was abandoned.', ans: 1 }
+    - { q: 'A forest regrows after a fire that left the soil intact.', ans: 1 }
+    - { q: 'Life appears on a new volcanic island.', ans: 0 }
+  prompt: '{{q}} Primary or secondary succession?'
+  parts:
+    - ask: 'Succession'
+      label: a
+      choice: ["Primary: no soil to start with", "Secondary: soil remains"]
+      correct: ans
+      explain: 'Pioneer species (lichens, mosses) build soil in primary succession; secondary succession is faster because soil and seeds remain. Each stage changes conditions and resources, favouring the next species'
+  verify: { authored: true }
+
+- template: bi-ecosystem-stability
+  skill: bio.ecology
+  pace: recall
+  cases:
+    - { q: 'Why does a diverse grassland recover from drought faster than a monoculture?', ans: 0 }
+    - { q: 'Sea otters are removed; urchins multiply and kelp forests collapse. Otters are a', ans: 1 }
+    - { q: 'Removing a producer from a simple food chain', ans: 2 }
+    - { q: 'An essential nutrient such as nitrogen runs out', ans: 3 }
+  prompt: '{{q}}'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["More species means some tolerate the stress and fill the gaps", "keystone species, with an effect far beyond their numbers", "starves every level above it", "productivity falls across the whole ecosystem"]
+      correct: ans
+      explain: 'Diversity adds redundancy and resilience. Keystone species, producers and essential abiotic factors are the parts whose loss cascades through a community'
+  verify: { authored: true }
+
+- template: bi-environment-selects
+  skill: bio.ecology
+  pace: recall
+  cases:
+    - { q: 'A new pesticide is sprayed and a few insects survive.', ans: 0 }
+    - { q: 'Did the pesticide cause the resistance mutation?', ans: 1 }
+    - { q: 'After a cold snap the surviving lizards are mostly cold-tolerant.', ans: 0 }
+  prompt: '{{q}}'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["The survivors carried variants that already existed, and they now increase", "No: the mutation existed before; the pesticide only selected it"]
+      correct: ans
+      explain: 'The environment does not create the variation it selects. It filters what is already there, so populations with more variation are more likely to have survivors'
+  verify: { authored: true }
+
+- template: bi-invasive
+  skill: bio.ecology
+  pace: recall
+  cases:
+    - { q: 'Why do invasive species often spread rapidly?', ans: 0 }
+    - { q: 'How do invasive species harm native communities?', ans: 1 }
+    - { q: 'Kudzu, zebra mussels and cane toads are examples of', ans: 2 }
+  prompt: '{{q}}'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["They escape their natural predators, parasites and competitors", "They outcompete, prey on or bring disease to native species", "invasive species introduced by humans"]
+      correct: ans
+      explain: 'Out of their home range, invasive species face no checks, so they grow nearly exponentially and reduce native biodiversity'
+  verify: { authored: true }
+
+- template: bi-human-impact
+  skill: bio.ecology
+  pace: recall
+  cases:
+    - { q: 'DDT reaches its highest concentration in eagles and falcons.', ans: 0 }
+    - { q: 'Fertiliser runoff causes algal blooms and dead zones.', ans: 1 }
+    - { q: 'Burning fossil fuels raises atmospheric CO₂ and global temperature.', ans: 2 }
+    - { q: 'Clearing forests for farms breaks up habitat.', ans: 3 }
+  prompt: '{{q}} What is this?'
+  parts:
+    - ask: 'Impact'
+      label: a
+      choice: ["Biomagnification", "Eutrophication", "Climate change", "Habitat loss and fragmentation"]
+      correct: ans
+      explain: 'Persistent toxins concentrate up food chains; excess nutrients feed algae whose decomposition uses up oxygen; added greenhouse gases warm the climate; habitat loss is the leading cause of extinction'
+  verify: { authored: true }
+
+- template: bi-natural-disturbance
+  skill: bio.ecology
+  pace: recall
+  cases:
+    - { q: 'An El Niño year warms surface waters and collapses anchovy fisheries.', ans: 0 }
+    - { q: 'A volcanic eruption buries a forest in ash.', ans: 1 }
+    - { q: 'Continental drift separates populations over millions of years.', ans: 2 }
+    - { q: 'A meteorite impact causes a mass extinction.', ans: 1 }
+  prompt: '{{q}} What kind of event is this?'
+  parts:
+    - ask: 'Event'
+      label: a
+      choice: ["Meteorological: shifts in climate and ocean patterns", "Geological catastrophe that resets communities", "Slow geological change that drives speciation"]
+      correct: ans
+      explain: 'Natural events change ecosystems on every timescale: weather cycles alter productivity, disasters restart succession, and plate movements isolate populations'
+  verify: { authored: true }

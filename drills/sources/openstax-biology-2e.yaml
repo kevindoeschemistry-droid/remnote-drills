@@ -1,9 +1,50 @@
 # OpenStax, Biology 2e (Clark, Douglas & Choi). Free; CC BY 4.0.
-# Mapped at chapter level only (section numbers not checked against the published TOC).
+# Chapter titles 1-47 checked on 2026-11-20 against the BCcampus Pressbooks copy of the book (its parts I-XLVII
+# are the book's chapters in order). Mapped at chapter level only.
 id: openstax-biology-2e
 title: "OpenStax — Biology"
 short: "Biology"
 edition: 2
 field: biology
 chapters:
-  - { n: 3, title: "Biological Macromolecules", skills: [biochem.amino-acids] }
+  - { n: 2, title: "The Chemical Foundation of Life", skills: [bio.molecules] }
+  - { n: 3, title: "Biological Macromolecules", skills: [biochem.amino-acids, bio.molecules] }
+  - { n: 4, title: "Cell Structure", skills: [bio.cells] }
+  - { n: 5, title: "Structure and Function of Plasma Membranes", skills: [bio.cells] }
+  - { n: 6, title: "Metabolism", skills: [bio.energetics] }
+  - { n: 7, title: "Cellular Respiration", skills: [bio.energetics] }
+  - { n: 8, title: "Photosynthesis", skills: [bio.energetics] }
+  - { n: 9, title: "Cell Communication", skills: [bio.signaling] }
+  - { n: 10, title: "Cell Reproduction", skills: [bio.signaling] }
+  - { n: 11, title: "Meiosis and Sexual Reproduction", skills: [bio.heredity] }
+  - { n: 12, title: "Mendel's Experiments and Heredity", skills: [bio.heredity] }
+  - { n: 13, title: "Modern Understandings of Inheritance", skills: [bio.heredity] }
+  - { n: 14, title: "DNA Structure and Function", skills: [bio.molecular-genetics] }
+  - { n: 15, title: "Genes and Proteins", skills: [bio.molecular-genetics] }
+  - { n: 16, title: "Gene Expression", skills: [bio.molecular-genetics] }
+  - { n: 17, title: "Biotechnology and Genomics", skills: [bio.molecular-genetics] }
+  - { n: 18, title: "Evolution and the Origin of Species", skills: [bio.evolution] }
+  - { n: 19, title: "The Evolution of Populations", skills: [bio.evolution] }
+  - { n: 20, title: "Phylogenies and the History of Life", skills: [bio.evolution] }
+  - { n: 21, title: "Viruses", skills: [bio.diversity] }
+  - { n: 22, title: "Prokaryotes: Bacteria and Archaea", skills: [bio.diversity] }
+  - { n: 23, title: "Protists", skills: [bio.diversity] }
+  - { n: 24, title: "Fungi", skills: [bio.diversity] }
+  - { n: 25, title: "Seedless Plants", skills: [bio.diversity] }
+  - { n: 26, title: "Seed Plants", skills: [bio.diversity] }
+  - { n: 27, title: "Introduction to Animal Diversity", skills: [bio.diversity] }
+  - { n: 29, title: "Vertebrates", skills: [bio.diversity] }
+  - { n: 33, title: "The Animal Body: Basic Form and Function", skills: [bio.physiology] }
+  - { n: 34, title: "Animal Nutrition and the Digestive System", skills: [bio.physiology] }
+  - { n: 35, title: "The Nervous System", skills: [bio.physiology] }
+  - { n: 36, title: "Sensory Systems", skills: [bio.physiology] }
+  - { n: 37, title: "The Endocrine System", skills: [bio.physiology] }
+  - { n: 38, title: "The Musculoskeletal System", skills: [bio.physiology] }
+  - { n: 39, title: "The Respiratory System", skills: [bio.physiology] }
+  - { n: 40, title: "The Circulatory System", skills: [bio.physiology] }
+  - { n: 41, title: "Osmotic Regulation and Excretion", skills: [bio.physiology] }
+  - { n: 42, title: "The Immune System", skills: [bio.physiology] }
+  - { n: 43, title: "Animal Reproduction and Development", skills: [bio.physiology, bio.diversity] }
+  - { n: 45, title: "Population and Community Ecology", skills: [bio.ecology] }
+  - { n: 46, title: "Ecosystems", skills: [bio.ecology] }
+  - { n: 47, title: "Conservation Biology and Biodiversity", skills: [bio.ecology] }
