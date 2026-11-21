@@ -119,10 +119,13 @@ Big ideas: MAIN
 ## Drills not yet placed on the map
 
 - k8-scatter-association (stats.bivariate)
+- g68-scatter-association (stats.bivariate)
+- g68-trend-line-judge (stats.bivariate)
 - stats-counting (stats.probability)
 - mm-subsets (stats.probability)
 - mm-two-dice (stats.probability)
 - mm-combinations (stats.probability)
+- g68-simulation-design (stats.probability)
 - hs-events-as-sets (stats.probability)
 - hs-independence-in-words (stats.probability)
 - hs-fair-decision (stats.probability)

@@ -2,7 +2,7 @@
 
 Generated from `drills/frameworks/math-k8.yaml` by `scripts/framework.mjs`. ● drilled · ◐ partly · ○ no drills yet.
 
-**258 learning objectives** in 9 units (258 core): 253 drilled, 5 partly, 0 with no drills. Core: 253 / 258 drilled.
+**258 learning objectives** in 9 units (258 core): 258 drilled, 0 partly, 0 with no drills. Core: 258 / 258 drilled.
 
 ## Big ideas
 
@@ -37,8 +37,8 @@ Generated from `drills/frameworks/math-k8.yaml` by `scripts/framework.mjs`. ● 
 | 5 · Grade 4 — multi-digit arithmetic, fraction equivalence and operations, angles | core | — | 32 | 32 | 0 | 0 |
 | 6 · Grade 5 — fraction addition and multiplication, decimals to thousandths, volume | core | — | 30 | 30 | 0 | 0 |
 | 7 · Grade 6 — ratios and rates, negative numbers, expressions and one-step equations, distributions | core | — | 36 | 36 | 0 | 0 |
-| 8 · Grade 7 — proportional relationships, rational-number arithmetic, linear equations, sampling and probability | core | — | 30 | 29 | 1 | 0 |
-| 9 · Grade 8 — irrationals and exponents, linear equations and systems, functions, transformations, Pythagoras | core | — | 31 | 27 | 4 | 0 |
+| 8 · Grade 7 — proportional relationships, rational-number arithmetic, linear equations, sampling and probability | core | — | 30 | 30 | 0 | 0 |
+| 9 · Grade 8 — irrationals and exponents, linear equations and systems, functions, transformations, Pythagoras | core | — | 31 | 31 | 0 | 0 |
 
 ## Unit 1 · Kindergarten — counting, adding and subtracting within 10, shapes
 
@@ -855,19 +855,19 @@ Big ideas: MULT, LINE, OPS, DATA
 - ● **MK-7.1.A** (6.RP.A.1) Use ratio language to describe a ratio relationship between two quantities ("for every 2 wings there was 1 beak").
   - EK: A ratio a:b compares two quantities multiplicatively.
   - Needs: MK-5.1.A, MK-6.3.F
-  - MP2 · MP6 · drills: k8-ratio-table
+  - MP2 · MP6 · drills: k8-ratio-table, g68-ratio-part-whole
 - ● **MK-7.1.B** (6.RP.A.2) Describe the unit rate a/b associated with a ratio a:b (b ≠ 0) using rate language ("$5 for 4 burgers is $1.25 per burger").
   - EK: Unit rate = amount of the first quantity per 1 of the second.
   - Needs: MK-7.1.A, MK-6.3.C
-  - MP2 · MP6 · drills: k8-unit-rate
+  - MP2 · MP6 · drills: k8-unit-rate, g68-better-buy
 - ● **MK-7.1.C** (6.RP.A.3a) Make tables of equivalent ratios with whole-number measurements, find missing values, plot the pairs on the coordinate plane, and use tables to compare ratios.
   - EK: Equivalent ratios scale both quantities by the same factor.
   - Needs: MK-7.1.A, MK-6.5.B, MK-6.1.C
-  - MP4 · MP7 · drills: k8-ratio-table
+  - MP4 · MP7 · drills: k8-ratio-table, g68-ratio-graph-point, mm-proportion
 - ● **MK-7.1.D** (6.RP.A.3b) Solve unit rate problems, including unit pricing and constant speed.
   - EK: At 7 lawns in 4 hours, 35 lawns take 35 ÷ (7/4) = 20 hours.
   - Needs: MK-7.1.B
-  - MP1 · MP4 · drills: k8-unit-rate
+  - MP1 · MP4 · drills: k8-unit-rate, g68-speed-time
 - ● **MK-7.1.E** (6.RP.A.3c) Find a percent of a quantity as a rate per 100 (30% of a quantity is 30/100 times it) and find the whole given a part and the percent.
   - EK: p% = p/100; whole = part ÷ (p/100).
   - Needs: MK-7.1.D, MK-5.3.I
@@ -875,7 +875,7 @@ Big ideas: MULT, LINE, OPS, DATA
 - ● **MK-7.1.F** (6.RP.A.3d) Use ratio reasoning to convert measurement units, multiplying or dividing quantities appropriately.
   - EK: Multiply by a conversion ratio equal to 1 (12 in / 1 ft).
   - Needs: MK-7.1.D, MK-6.4.A
-  - MP6 · drills: k8-convert
+  - MP6 · drills: k8-convert, g68-unit-convert-ratio
 
 ### 7.2 The Number System
 
@@ -884,15 +884,15 @@ Big ideas: MULT, LINE, OPS, DATA
 - ● **MK-7.2.A** (6.NS.A.1) Interpret and compute quotients of fractions and solve word problems involving division of fractions by fractions ((2/3) ÷ (3/4) = 8/9).
   - EK: a/b ÷ c/d = a/b × d/c, because (8/9) × (3/4) = 2/3.
   - Needs: MK-6.3.H, MK-6.3.D
-  - MP2 · MP4 · drills: k8-frac-div
+  - MP2 · MP4 · drills: k8-frac-div, g68-fraction-divide-check, mm-reciprocal-mixed
 - ● **MK-7.2.B** (6.NS.B.2) Fluently divide multi-digit numbers using the standard algorithm.
   - EK: Long division records place-value chunks.
   - Needs: MK-6.2.G
-  - MP6 · drills: k8-long-div
+  - MP6 · drills: k8-long-div, g68-long-division-estimate, mm-remainder-digits
 - ● **MK-7.2.C** (6.NS.B.3) Fluently add, subtract, multiply and divide multi-digit decimals using the standard algorithm for each operation.
   - EK: Scale the divisor to a whole number by a power of 10 and scale the dividend the same.
   - Needs: MK-6.2.H, MK-7.2.B
-  - MP6 · drills: k8-dec-std
+  - MP6 · drills: k8-dec-std, g68-decimal-product-place
 - ● **MK-7.2.D** (6.NS.B.4) Find the greatest common factor of two whole numbers ≤ 100 and the least common multiple of two whole numbers ≤ 12; use the distributive property to factor out a common factor (36 + 8 = 4(9 + 2)).
   - EK: GCF divides both; LCM is the smallest number both divide.
   - Needs: MK-5.1.D, MK-4.1.E
@@ -900,27 +900,27 @@ Big ideas: MULT, LINE, OPS, DATA
 - ● **MK-7.2.E** (6.NS.C.5) Use positive and negative numbers to represent quantities with opposite directions or values (temperature, elevation, credits/debits), explaining the meaning of 0 in context.
   - EK: Sign shows direction from a reference point 0.
   - Needs: MK-3.3.F
-  - MP2 · MP4 · drills: k8-signed-context, ~k8-opposite
+  - MP2 · MP4 · drills: k8-signed-context, g68-signed-meaning, ~k8-opposite
 - ● **MK-7.2.F** (6.NS.C.6a) Recognize a rational number as a point on the number line; opposite signs indicate locations on opposite sides of 0, and −(−3) = 3.
   - EK: The opposite of a number is its reflection across 0.
   - Needs: MK-7.2.E, MK-4.3.C
-  - MP6 · MP7 · drills: k8-opposite
+  - MP6 · MP7 · drills: k8-opposite, g68-opposite-of-opposite
 - ● **MK-7.2.G** (6.NS.C.6b, 6.NS.C.6c) Interpret signs of ordered pairs as quadrants and reflections across the axes; find and position integers and other rationals on number lines and the coordinate plane.
   - EK: (a, b) → (a, −b) reflects across the x-axis; (−a, b) across the y-axis.
   - Needs: MK-7.2.F, MK-6.5.A
-  - MP5 · MP7 · drills: k8-quadrant
+  - MP5 · MP7 · drills: k8-quadrant, g68-reflect-point
 - ● **MK-7.2.H** (6.NS.C.7a, 6.NS.C.7b) Interpret statements of inequality as relative position on a number line, and write and explain statements of order for rational numbers in context (−3 °C > −7 °C).
   - EK: Further right on the number line is greater, even for negatives.
   - Needs: MK-7.2.F
-  - MP2 · MP3 · drills: k8-cmp-rational
+  - MP2 · MP3 · drills: k8-cmp-rational, g68-order-negatives
 - ● **MK-7.2.I** (6.NS.C.7c, 6.NS.C.7d) Understand the absolute value of a rational number as its distance from 0, and distinguish comparisons of absolute value from statements about order (balance < −30 means debt > $30).
   - EK: |x| ≥ 0 is distance, not direction.
   - Needs: MK-7.2.H
-  - MP2 · MP6 · drills: k8-abs
+  - MP2 · MP6 · drills: k8-abs, g68-abs-meaning, mm-absolute-value
 - ● **MK-7.2.J** (6.NS.C.8) Solve problems by graphing points in all four quadrants, including distances between points that share a first or second coordinate, using absolute value.
   - EK: Distance between (a, y) and (b, y) is |a − b|.
   - Needs: MK-7.2.G, MK-7.2.I
-  - MP4 · MP5 · drills: k8-coord-dist
+  - MP4 · MP5 · drills: k8-coord-dist, g68-same-coordinate-distance
 
 ### 7.3 Expressions and Equations
 
@@ -929,43 +929,43 @@ Big ideas: MULT, LINE, OPS, DATA
 - ● **MK-7.3.A** (6.EE.A.1) Write and evaluate numerical expressions involving whole-number exponents.
   - EK: bⁿ = b multiplied by itself n times; exponents before × and ÷.
   - Needs: MK-6.2.B, MK-6.1.A
-  - MP6 · drills: k8-exponents
+  - MP6 · drills: k8-exponents, g68-exponent-meaning, mm-powers-of-2
 - ● **MK-7.3.B** (6.EE.A.2a, 6.EE.A.2b) Write expressions in which letters stand for numbers ("subtract y from 5" as 5 − y) and identify their parts using sum, term, product, factor, quotient, coefficient.
   - EK: 2(8 + 7) is a product of two factors; 8 + 7 is a sum.
   - Needs: MK-6.1.B
-  - MP6 · MP7 · drills: k8-coefficient
+  - MP6 · MP7 · drills: k8-coefficient, g68-parts-of-expression
 - ● **MK-7.3.C** (6.EE.A.2c) Evaluate expressions at specific values of their variables, including formulas (V = s³, A = 6s²), using the order of operations.
   - EK: Substitute, then follow the order of operations.
   - Needs: MK-7.3.B, MK-7.3.A
-  - MP6 · drills: k8-evaluate
+  - MP6 · drills: k8-evaluate, g68-formula-reverse, mm-substitution
 - ● **MK-7.3.D** (6.EE.A.3) Apply the properties of operations to generate equivalent expressions (3(2 + x) = 6 + 3x; 24x + 18y = 6(4x + 3y); y + y + y = 3y).
   - EK: The distributive property expands and factors.
   - Needs: MK-7.3.B, MK-7.2.D
-  - MP7 · drills: k8-equiv-form
+  - MP7 · drills: k8-equiv-form, g68-factor-gcf
 - ● **MK-7.3.E** (6.EE.A.4) Identify when two expressions are equivalent — they name the same number for every value substituted.
   - EK: Equivalent expressions agree for all values, not just one.
   - Needs: MK-7.3.D, MK-7.3.C
-  - MP3 · MP7 · drills: k8-equiv-check
+  - MP3 · MP7 · drills: k8-equiv-check, g68-equivalent-test
 - ● **MK-7.3.F** (6.EE.B.5) Understand solving an equation or inequality as finding which values from a set make it true, and use substitution to check.
   - EK: A solution is a value that makes the statement true.
   - Needs: MK-7.3.C
-  - MP6 · drills: k8-solution-check
+  - MP6 · drills: k8-solution-check, g68-solution-from-set
 - ● **MK-7.3.G** (6.EE.B.6) Use variables to represent numbers and write expressions when solving a real-world or mathematical problem.
   - EK: A variable stands for an unknown or for any number in a set.
   - Needs: MK-7.3.B
-  - MP2 · MP4 · drills: k8-write-expression
+  - MP2 · MP4 · drills: k8-write-expression, g68-words-to-expression
 - ● **MK-7.3.H** (6.EE.B.7) Write and solve equations of the form x + p = q and px = q for nonnegative rational x, p, q in real-world and mathematical problems.
   - EK: Undo the operation on x by its inverse on both sides.
   - Needs: MK-7.3.F, MK-7.3.G, MK-4.1.D, MK-7.2.A
-  - MP1 · MP4 · drills: k8-one-step
+  - MP1 · MP4 · drills: k8-one-step, g68-one-step-reverse
 - ● **MK-7.3.I** (6.EE.B.8) Write an inequality x > c or x < c for a constraint, recognize that it has infinitely many solutions, and show them on a number line.
   - EK: An open circle excludes c; a closed circle includes it.
   - Needs: MK-7.3.F, MK-7.2.H
-  - MP4 · MP6 · drills: k8-ineq-phrase
+  - MP4 · MP6 · drills: k8-ineq-phrase, g68-inequality-words
 - ● **MK-7.3.J** (6.EE.C.9) Use variables for two quantities that change together; write an equation expressing the dependent variable in terms of the independent one, and relate it to graphs and tables (d = 65t).
   - EK: The independent variable is chosen; the dependent one follows from it.
   - Needs: MK-7.1.C, MK-7.3.G
-  - MP4 · MP7 · drills: k8-dependent
+  - MP4 · MP7 · drills: k8-dependent, g68-dependent-table
 
 ### 7.4 Geometry
 
@@ -974,19 +974,19 @@ Big ideas: MULT, LINE, OPS, DATA
 - ● **MK-7.4.A** (6.G.A.1) Find the area of right triangles, other triangles, special quadrilaterals and polygons by composing into rectangles or decomposing into triangles and other shapes.
   - EK: A triangle is half of a parallelogram: A = ½bh.
   - Needs: MK-5.4.C, MK-6.3.E
-  - MP1 · MP7 · drills: k8-area-poly
+  - MP1 · MP7 · drills: k8-area-poly, g68-triangle-area-reverse
 - ● **MK-7.4.B** (6.G.A.2) Find the volume of a right rectangular prism with fractional edge lengths by packing it with unit cubes of unit-fraction edge, and show it matches V = lwh and V = bh.
   - EK: Packing with 1/n-unit cubes: n³ of them make one unit cube.
   - Needs: MK-6.4.E, MK-6.3.E
-  - MP4 · MP7 · drills: k8-volume-frac
+  - MP4 · MP7 · drills: k8-volume-frac, g68-fraction-volume-cubes
 - ● **MK-7.4.C** (6.G.A.3) Draw polygons in the coordinate plane given vertex coordinates, and use coordinates to find side lengths that share a first or second coordinate.
   - EK: Horizontal and vertical side lengths are differences of coordinates.
   - Needs: MK-7.2.J
-  - MP4 · MP5 · drills: k8-coord-dist
+  - MP4 · MP5 · drills: k8-coord-dist, g68-polygon-coordinates
 - ● **MK-7.4.D** (6.G.A.4) Represent three-dimensional figures using nets made of rectangles and triangles and use the nets to find surface area.
   - EK: Surface area = sum of the areas of the net's faces.
   - Needs: MK-7.4.A
-  - MP4 · MP5 · drills: k8-surface-area
+  - MP4 · MP5 · drills: k8-surface-area, g68-net-count
 
 ### 7.5 Statistics and Probability
 
@@ -995,19 +995,19 @@ Big ideas: MULT, LINE, OPS, DATA
 - ● **MK-7.5.A** (6.SP.A.1) Recognize a statistical question as one that anticipates variability in the data ("How old are the students in my school?").
   - EK: Statistical questions expect many different answers.
   - Needs: MK-4.4.C
-  - MP3 · MP6 · drills: k8-statistical-question
+  - MP3 · MP6 · drills: k8-statistical-question, g68-statistical-question
 - ● **MK-7.5.B** (6.SP.A.2) Understand that a distribution of data collected to answer a statistical question can be described by its center, spread and overall shape.
   - EK: Center, spread and shape summarize a distribution.
   - Needs: MK-7.5.A, MK-6.4.B
-  - MP7 · drills: k8-histogram-read, ~k8-dot-plot
+  - MP7 · drills: k8-histogram-read, g68-distribution-shape, ~k8-dot-plot
 - ● **MK-7.5.C** (6.SP.A.3) Recognize that a measure of center summarizes all values with one number, while a measure of variation describes how the values vary with one number.
   - EK: Center = typical value; variation = how far values spread from it.
   - Needs: MK-7.5.B
-  - MP6 · drills: k8-center-or-spread
+  - MP6 · drills: k8-center-or-spread, g68-mean-vs-median
 - ● **MK-7.5.D** (6.SP.B.4) Display numerical data in plots on a number line: dot plots, histograms and box plots.
   - EK: A box plot shows min, Q1, median, Q3, max.
   - Needs: MK-7.5.B, MK-6.4.B
-  - MP4 · MP5 · drills: k8-histogram-read, ~k8-dot-plot, ~k8-box-plot
+  - MP4 · MP5 · drills: k8-histogram-read, g68-box-plot-read, ~k8-dot-plot, ~k8-box-plot
 - ● **MK-7.5.E** (6.SP.B.5a, 6.SP.B.5b) Summarize a numerical data set by reporting the number of observations and describing the attribute under investigation, how it was measured and its units.
   - EK: Every data summary starts with n, the variable, and its units.
   - Needs: MK-7.5.D
@@ -1028,19 +1028,19 @@ Big ideas: MULT, LINE, OPS, SHAPE, DATA
 - ● **MK-8.1.A** (7.RP.A.1) Compute unit rates associated with ratios of fractions, including ratios of lengths, areas and other quantities in like or different units (1/2 mile per 1/4 hour = 2 miles per hour).
   - EK: Unit rate = (a/b) ÷ (c/d), a complex fraction.
   - Needs: MK-7.1.B, MK-7.2.A
-  - MP2 · MP6 · drills: k8-unit-rate-frac
+  - MP2 · MP6 · drills: k8-unit-rate-frac, g68-complex-unit-rate
 - ● **MK-8.1.B** (7.RP.A.2a) Decide whether two quantities are in a proportional relationship by testing for equivalent ratios in a table or a straight-line graph through the origin.
   - EK: Proportional ⇔ y/x is constant ⇔ a line through (0, 0).
   - Needs: MK-7.1.C, MK-8.1.A
-  - MP3 · MP7 · drills: k8-prop-test
+  - MP3 · MP7 · drills: k8-prop-test, g68-proportional-graph-test
 - ● **MK-8.1.C** (7.RP.A.2b) Identify the constant of proportionality (unit rate) in tables, graphs, equations, diagrams and verbal descriptions.
   - EK: k = y/x for any pair.
   - Needs: MK-8.1.B
-  - MP2 · MP7 · drills: k8-prop-k
+  - MP2 · MP7 · drills: k8-prop-k, g68-k-from-point
 - ● **MK-8.1.D** (7.RP.A.2c, 7.RP.A.2d) Represent proportional relationships by equations (t = pn) and explain what a point (x, y) on the graph means, especially (0, 0) and (1, r) where r is the unit rate.
   - EK: y = kx; the point (1, k) shows the unit rate.
   - Needs: MK-8.1.C, MK-7.3.J
-  - MP2 · MP4 · drills: k8-prop-k
+  - MP2 · MP4 · drills: k8-prop-k, g68-k-meaning
 - ● **MK-8.1.E** (7.RP.A.3) Use proportional relationships to solve multistep ratio and percent problems: simple interest, tax, markups and markdowns, gratuities, commissions, fees, percent increase and decrease, percent error.
   - EK: Percent change = (new − old)/old; a 20% increase multiplies by 1.20.
   - Needs: MK-7.1.E, MK-8.1.D
@@ -1053,7 +1053,7 @@ Big ideas: MULT, LINE, OPS, SHAPE, DATA
 - ● **MK-8.2.A** (7.NS.A.1a, 7.NS.A.1b) Add rational numbers on a number line: opposite quantities combine to 0, and p + q is |q| from p in the positive or negative direction depending on the sign of q.
   - EK: p + (−p) = 0 (additive inverses).
   - Needs: MK-7.2.F, MK-7.2.I
-  - MP4 · MP7 · drills: k8-int-add-sub
+  - MP4 · MP7 · drills: k8-int-add-sub, g68-add-number-line
 - ● **MK-8.2.B** (7.NS.A.1c, 7.NS.A.1d) Understand subtraction of rationals as adding the additive inverse (p − q = p + (−q)), show that the distance between two rationals is the absolute value of their difference, and apply properties to add and subtract.
   - EK: p − q = p + (−q); distance = |p − q|.
   - Needs: MK-8.2.A
@@ -1061,15 +1061,15 @@ Big ideas: MULT, LINE, OPS, SHAPE, DATA
 - ● **MK-8.2.C** (7.NS.A.2a, 7.NS.A.2b) Multiply and divide rational numbers by extending the properties of operations, giving (−1)(−1) = 1 and −(p/q) = (−p)/q = p/(−q).
   - EK: Sign rules follow from the distributive property, not from convention.
   - Needs: MK-8.2.B, MK-7.2.A
-  - MP3 · MP7 · drills: k8-int-mul-div
+  - MP3 · MP7 · drills: k8-int-mul-div, g68-sign-of-product
 - ● **MK-8.2.D** (7.NS.A.2c, 7.NS.A.2d) Apply properties of operations to multiply and divide rationals, and convert a rational number to a decimal by long division, knowing the decimal terminates or repeats.
   - EK: p/q terminates iff q (in lowest terms) has only prime factors 2 and 5; otherwise it repeats.
   - Needs: MK-8.2.C, MK-7.2.B, MK-6.3.C
-  - MP6 · MP7 · drills: k8-dec-convert
+  - MP6 · MP7 · drills: k8-dec-convert, g68-fraction-to-decimal-type
 - ● **MK-8.2.E** (7.NS.A.3) Solve real-world and mathematical problems involving the four operations with rational numbers.
   - EK: Track signs through each operation; estimate to check.
   - Needs: MK-8.2.D
-  - MP1 · MP4 · drills: k8-rational-ops
+  - MP1 · MP4 · drills: k8-rational-ops, g68-rational-word
 
 ### 8.3 Expressions and Equations
 
@@ -1078,11 +1078,11 @@ Big ideas: MULT, LINE, OPS, SHAPE, DATA
 - ● **MK-8.3.A** (7.EE.A.1) Apply properties of operations to add, subtract, factor and expand linear expressions with rational coefficients.
   - EK: Combine like terms; distribute signs with the coefficient.
   - Needs: MK-7.3.D, MK-8.2.C
-  - MP7 · drills: k8-equiv-form-rational
+  - MP7 · drills: k8-equiv-form-rational, g68-expand-factor, mm-difference-of-squares
 - ● **MK-8.3.B** (7.EE.A.2) Rewrite an expression in different forms to show how the quantities in it are related (a + 0.05a = 1.05a: "increase by 5%" means "multiply by 1.05").
   - EK: Equivalent forms reveal different meanings.
   - Needs: MK-8.3.A, MK-8.1.E
-  - MP2 · MP7 · drills: k8-percent-expr
+  - MP2 · MP7 · drills: k8-percent-expr, g68-percent-increase-form
 - ● **MK-8.3.C** (7.EE.B.3) Solve multi-step real-life problems with positive and negative rational numbers in any form, converting between forms, and assess reasonableness with mental computation and estimation.
   - EK: Fraction, decimal and percent are interchangeable forms of one number.
   - Needs: MK-8.2.E, MK-8.1.E
@@ -1090,11 +1090,11 @@ Big ideas: MULT, LINE, OPS, SHAPE, DATA
 - ● **MK-8.3.D** (7.EE.B.4a) Solve word problems leading to equations px + q = r and p(x + q) = r fluently, and compare the algebraic solution to an arithmetic one.
   - EK: Undo operations in reverse order: subtract q, then divide by p.
   - Needs: MK-7.3.H, MK-8.3.A
-  - MP1 · MP4 · drills: k8-two-step
+  - MP1 · MP4 · drills: k8-two-step, g68-two-step-arithmetic-vs-algebra
 - ● **MK-8.3.E** (7.EE.B.4b) Solve word problems leading to inequalities px + q > r or px + q < r, graph the solution set and interpret it in context.
   - EK: Multiplying or dividing by a negative reverses the inequality.
   - Needs: MK-8.3.D, MK-7.3.I
-  - MP2 · MP4 · drills: k8-two-step-ineq
+  - MP2 · MP4 · drills: k8-two-step-ineq, g68-inequality-flip
 
 ### 8.4 Geometry
 
@@ -1103,23 +1103,23 @@ Big ideas: MULT, LINE, OPS, SHAPE, DATA
 - ● **MK-8.4.A** (7.G.A.1) Solve problems involving scale drawings, including computing actual lengths and areas from a scale drawing and reproducing it at a different scale.
   - EK: Lengths scale by k; areas scale by k².
   - Needs: MK-8.1.C, MK-7.4.A
-  - MP4 · MP7 · drills: k8-scale-drawing
+  - MP4 · MP7 · drills: k8-scale-drawing, g68-scale-area
 - ● **MK-8.4.B** (7.G.A.2) Draw geometric shapes with given conditions (freehand, ruler and protractor, technology), especially triangles from three measures of angles or sides, noting when the conditions give a unique triangle, more than one, or none.
   - EK: Any two sides must sum to more than the third; angles must sum to 180°.
   - Needs: MK-5.4.F, MK-5.5.B
-  - MP5 · MP3 · drills: dr-triangle-sss, ~k8-triangle-possible, ~k8-third-angle
+  - MP5 · MP3 · drills: dr-triangle-sss, g68-triangle-exists, ~k8-triangle-possible, ~k8-third-angle
 - ● **MK-8.4.C** (7.G.A.3) Describe the two-dimensional figures that result from slicing three-dimensional figures, as in plane sections of right rectangular prisms and pyramids.
   - EK: A plane slice parallel to the base copies the base's shape.
   - Needs: MK-7.4.D
-  - MP7 · drills: k8-cross-section, ~geo-cross-section
+  - MP7 · drills: k8-cross-section, g68-slice-shape, ~geo-cross-section
 - ● **MK-8.4.D** (7.G.B.4) Know the formulas for the area and circumference of a circle, use them to solve problems, and give an informal derivation of the relationship between them.
   - EK: C = 2πr; A = πr² (unroll the circle into a near-parallelogram of base πr and height r).
   - Needs: MK-7.4.A, MK-8.1.C
-  - MP3 · MP7 · drills: k8-circle
+  - MP3 · MP7 · drills: k8-circle, g68-circle-reverse
 - ● **MK-8.4.E** (7.G.B.5) Use facts about supplementary, complementary, vertical and adjacent angles in multi-step problems to write and solve simple equations for an unknown angle.
   - EK: Supplementary sum to 180°, complementary to 90°; vertical angles are equal.
   - Needs: MK-5.4.G, MK-8.3.D
-  - MP2 · MP4 · drills: k8-angle-pairs
+  - MP2 · MP4 · drills: k8-angle-pairs, g68-angle-algebra
 - ● **MK-8.4.F** (7.G.B.6) Solve real-world problems involving area, volume and surface area of two- and three-dimensional objects composed of triangles, quadrilaterals, polygons, cubes and right prisms.
   - EK: Decompose the object; area and volume are additive.
   - Needs: MK-7.4.A, MK-7.4.B, MK-7.4.D
@@ -1132,39 +1132,39 @@ Big ideas: MULT, LINE, OPS, SHAPE, DATA
 - ● **MK-8.5.A** (7.SP.A.1) Understand that statistics gain information about a population by examining a sample, that generalizations are valid only if the sample is representative, and that random sampling tends to produce representative samples.
   - EK: Random samples support inference; convenience samples are biased.
   - Needs: MK-7.5.A
-  - MP3 · MP6 · drills: k8-sampling
+  - MP3 · MP6 · drills: k8-sampling, g68-random-sample
 - ● **MK-8.5.B** (7.SP.A.2) Use data from a random sample to draw inferences about a population with an unknown characteristic, and generate multiple samples to gauge the variation in estimates.
   - EK: Estimates vary from sample to sample; that spread is the margin of error.
   - Needs: MK-8.5.A, MK-7.5.F
-  - MP3 · MP5 · drills: k8-sample-infer
+  - MP3 · MP5 · drills: k8-sample-infer, g68-sample-scale-up
 - ● **MK-8.5.C** (7.SP.B.3) Informally assess the visual overlap of two numerical distributions with similar variabilities, measuring the difference between centers as a multiple of a measure of variability.
   - EK: Difference in means ÷ MAD says how separated two groups are.
   - Needs: MK-7.5.F, MK-7.5.D
-  - MP2 · MP3 · drills: k8-compare-two-samples
-- ◐ **MK-8.5.D** (7.SP.B.4) Use measures of center and variability for numerical data from random samples to draw informal comparative inferences about two populations.
+  - MP2 · MP3 · drills: k8-compare-two-samples, g68-overlap-mad
+- ● **MK-8.5.D** (7.SP.B.4) Use measures of center and variability for numerical data from random samples to draw informal comparative inferences about two populations.
   - EK: Compare centers relative to spread, not centers alone.
   - Needs: MK-8.5.C, MK-8.5.B
-  - MP3 · drills: ~k8-compare-two-samples
+  - MP3 · drills: g68-compare-centers, ~k8-compare-two-samples
 - ● **MK-8.5.E** (7.SP.C.5) Understand the probability of a chance event as a number between 0 and 1 expressing its likelihood: near 0 unlikely, 1/2 neither, near 1 likely.
   - EK: 0 ≤ P ≤ 1.
   - Needs: MK-7.1.A, MK-4.3.C
-  - MP6 · drills: k8-prob-likely
+  - MP6 · drills: k8-prob-likely, g68-likelihood-words
 - ● **MK-8.5.F** (7.SP.C.6) Approximate a probability by collecting data on a chance process and observing its long-run relative frequency, and predict the approximate relative frequency given the probability.
   - EK: Relative frequency approaches the probability over many trials.
   - Needs: MK-8.5.E, MK-7.1.E
-  - MP4 · MP5 · drills: k8-prob-predict
+  - MP4 · MP5 · drills: k8-prob-predict, g68-relative-frequency
 - ● **MK-8.5.G** (7.SP.C.7a, 7.SP.C.7b) Develop a probability model (uniform, or from observed frequencies), use it to find probabilities, and compare them to observed frequencies, explaining discrepancies.
   - EK: Uniform model: P(event) = favorable outcomes / total outcomes.
   - Needs: MK-8.5.F
-  - MP4 · MP3 · drills: k8-prob-simple
+  - MP4 · MP3 · drills: k8-prob-simple, g68-uniform-model
 - ● **MK-8.5.H** (7.SP.C.8a, 7.SP.C.8b) Find probabilities of compound events as the fraction of outcomes in the sample space, representing the sample space with organized lists, tables and tree diagrams.
   - EK: For independent stages, total outcomes = product of the counts at each stage.
   - Needs: MK-8.5.G, MK-6.3.D
-  - MP4 · MP7 · drills: k8-prob-compound
+  - MP4 · MP7 · drills: k8-prob-compound, g68-sample-space-count
 - ● **MK-8.5.I** (7.SP.C.8c) Design and use a simulation to generate frequencies for compound events.
   - EK: A simulation replaces each real trial with a random device of the same probabilities.
   - Needs: MK-8.5.H, MK-8.5.F
-  - MP4 · MP5 · drills: k8-simulation-estimate
+  - MP4 · MP5 · drills: k8-simulation-estimate, g68-simulation-design
 
 ## Unit 9 · Grade 8 — irrationals and exponents, linear equations and systems, functions, transformations, Pythagoras
 
@@ -1177,7 +1177,7 @@ Big ideas: LINE, OPS, MULT, SHAPE, DATA
 - ● **MK-9.1.A** (8.NS.A.1) Know that numbers that are not rational are irrational; every number has a decimal expansion; rational numbers' expansions eventually repeat; convert a repeating decimal into a rational number.
   - EK: x = 0.333… → 10x − x = 3 → x = 1/3.
   - Needs: MK-8.2.D
-  - MP7 · MP8 · drills: k8-repeating
+  - MP7 · MP8 · drills: k8-repeating, g68-rational-or-irrational, mm-repeating-decimal
 - ● **MK-9.1.B** (8.NS.A.2) Use rational approximations of irrational numbers to compare their size, locate them on a number line and estimate expressions (π²; √2 between 1.4 and 1.5).
   - EK: Squeeze an irrational between rationals by truncating its expansion.
   - Needs: MK-9.1.A, MK-7.2.H
@@ -1198,39 +1198,39 @@ Big ideas: LINE, OPS, MULT, SHAPE, DATA
 - ● **MK-9.2.C** (8.EE.A.3) Use numbers of the form (single digit) × 10ⁿ to estimate very large or very small quantities and to say how many times as much one is as another.
   - EK: 3 × 10⁸ vs 7 × 10⁹: the second is about 20 times larger.
   - Needs: MK-9.2.A, MK-6.2.B
-  - MP2 · MP6 · drills: k8-sci-notation
+  - MP2 · MP6 · drills: k8-sci-notation, g68-sci-compare
 - ● **MK-9.2.D** (8.EE.A.4) Perform operations with numbers in scientific notation, choose units of appropriate size, and interpret scientific notation generated by technology.
   - EK: (a × 10ᵐ)(b × 10ⁿ) = ab × 10ᵐ⁺ⁿ, then renormalize so 1 ≤ |ab| < 10.
   - Needs: MK-9.2.C
-  - MP5 · MP6 · drills: k8-sci-notation
+  - MP5 · MP6 · drills: k8-sci-notation, g68-sci-operation
 - ● **MK-9.2.E** (8.EE.B.5) Graph proportional relationships, interpreting the unit rate as the slope, and compare two proportional relationships represented in different ways.
   - EK: In y = kx, slope = unit rate = k.
   - Needs: MK-8.1.D
-  - MP2 · MP4 · drills: k8-proportional-graph, ~k8-slope
-- ◐ **MK-9.2.F** (8.EE.B.6) Use similar triangles to explain why the slope m is the same between any two distinct points on a non-vertical line, and derive y = mx and y = mx + b.
+  - MP2 · MP4 · drills: k8-proportional-graph, g68-compare-rates-forms, ~k8-slope
+- ● **MK-9.2.F** (8.EE.B.6) Use similar triangles to explain why the slope m is the same between any two distinct points on a non-vertical line, and derive y = mx and y = mx + b.
   - EK: Slope triangles on one line are similar, so rise/run is constant.
   - Needs: MK-9.2.E, MK-8.4.A
-  - MP3 · MP7 · drills: ~k8-slope, ~k8-proportional-graph
+  - MP3 · MP7 · drills: g68-slope-from-points, ~k8-slope, ~k8-proportional-graph
 - ● **MK-9.2.G** (8.EE.C.7a) Give examples of linear equations in one variable with one solution, infinitely many solutions, or no solutions, by transforming them to x = a, a = a, or a = b.
   - EK: a = a (identity) → all x; a = b with a ≠ b → none.
   - Needs: MK-8.3.D
-  - MP7 · drills: k8-eq-count
+  - MP7 · drills: k8-eq-count, g68-solutions-count
 - ● **MK-9.2.H** (8.EE.C.7b) Solve linear equations with rational coefficients, including ones that need the distributive property and collecting like terms.
   - EK: Do the same operation to both sides until x is alone.
   - Needs: MK-9.2.G, MK-8.3.A
-  - MP6 · MP7 · drills: k8-linear-eq
+  - MP6 · MP7 · drills: k8-linear-eq, g68-linear-equation-check
 - ● **MK-9.2.I** (8.EE.C.8a) Understand that solutions of a system of two linear equations in two variables correspond to the intersection points of their graphs.
   - EK: A solution satisfies both equations, so it lies on both lines.
   - Needs: MK-9.2.F, MK-9.2.H
-  - MP2 · MP4 · drills: k8-system
+  - MP2 · MP4 · drills: k8-system, g68-system-intersection
 - ● **MK-9.2.J** (8.EE.C.8b) Solve systems of two linear equations algebraically, estimate solutions by graphing, and solve simple cases by inspection (3x + 2y = 5 and 3x + 2y = 6 have no solution).
   - EK: Substitute or eliminate to get one equation in one variable; parallel lines → no solution.
   - Needs: MK-9.2.I
-  - MP6 · MP7 · drills: k8-system
+  - MP6 · MP7 · drills: k8-system, g68-system-substitution
 - ● **MK-9.2.K** (8.EE.C.8c) Solve real-world and mathematical problems leading to two linear equations in two variables.
   - EK: Two unknowns need two independent equations.
   - Needs: MK-9.2.J
-  - MP1 · MP4 · drills: k8-system-word
+  - MP1 · MP4 · drills: k8-system-word, g68-system-word-two
 
 ### 9.3 Functions
 
@@ -1239,64 +1239,64 @@ Big ideas: LINE, OPS, MULT, SHAPE, DATA
 - ● **MK-9.3.A** (8.F.A.1) Understand that a function is a rule assigning to each input exactly one output, and that its graph is the set of ordered pairs (input, corresponding output).
   - EK: One input → exactly one output.
   - Needs: MK-7.3.J
-  - MP6 · drills: k8-is-function
+  - MP6 · drills: k8-is-function, g68-function-from-table
 - ● **MK-9.3.B** (8.F.A.2) Compare properties of two functions each represented differently (algebraically, graphically, in a table, or verbally).
   - EK: Rate of change and initial value can be read off any representation.
   - Needs: MK-9.3.A, MK-9.2.E
-  - MP2 · MP7 · drills: k8-compare-fns
+  - MP2 · MP7 · drills: k8-compare-fns, g68-compare-functions
 - ● **MK-9.3.C** (8.F.A.3) Interpret y = mx + b as defining a linear function whose graph is a straight line, and give examples of functions that are not linear (A = s²).
   - EK: Linear ⇔ constant rate of change.
   - Needs: MK-9.3.A, MK-9.2.F
-  - MP7 · drills: k8-linear-or-not
+  - MP7 · drills: k8-linear-or-not, g68-linear-from-equation
 - ● **MK-9.3.D** (8.F.B.4) Construct a function to model a linear relationship, determine its rate of change and initial value from a description or two (x, y) values, and interpret them in context.
   - EK: m = (y₂ − y₁)/(x₂ − x₁); b = y − mx.
   - Needs: MK-9.3.C
-  - MP4 · drills: k8-rate-initial
+  - MP4 · drills: k8-rate-initial, g68-model-from-two-points
 - ● **MK-9.3.E** (8.F.B.5) Describe a functional relationship qualitatively from a graph (increasing, decreasing, linear, nonlinear) and sketch a graph from a verbal description.
   - EK: The shape of a graph tells a story about how the output changes.
   - Needs: MK-9.3.A
-  - MP2 · MP4 · drills: k8-graph-story, ~hs-parabola-features
+  - MP2 · MP4 · drills: k8-graph-story, g68-graph-shape-story, ~hs-parabola-features
 
 ### 9.4 Geometry
 
 
 
-- ◐ **MK-9.4.A** (8.G.A.1a, 8.G.A.1b, 8.G.A.1c) Verify experimentally the properties of rotations, reflections and translations: they take lines to lines, segments to equal segments, angles to equal angles, parallel lines to parallel lines.
+- ● **MK-9.4.A** (8.G.A.1a, 8.G.A.1b, 8.G.A.1c) Verify experimentally the properties of rotations, reflections and translations: they take lines to lines, segments to equal segments, angles to equal angles, parallel lines to parallel lines.
   - EK: Rigid motions preserve distance and angle.
   - Needs: MK-5.5.A, MK-8.4.B
-  - MP5 · MP7 · drills: ~hs-transformation-graph
+  - MP5 · MP7 · drills: g68-rigid-motion-preserves, ~hs-transformation-graph
 - ● **MK-9.4.B** (8.G.A.2) Understand that a figure is congruent to another if a sequence of rotations, reflections and translations maps one onto the other, and describe such a sequence.
   - EK: Congruent = related by a rigid motion.
   - Needs: MK-9.4.A
-  - MP3 · MP6 · drills: hs-transformation-graph
+  - MP3 · MP6 · drills: hs-transformation-graph, g68-rigid-motion-preserves
 - ● **MK-9.4.C** (8.G.A.3) Describe the effect of dilations, translations, rotations and reflections on two-dimensional figures using coordinates.
   - EK: Dilation by k from the origin: (x, y) → (kx, ky); reflection in the x-axis: (x, y) → (x, −y).
   - Needs: MK-9.4.A, MK-7.2.G, MK-8.4.A
-  - MP7 · drills: k8-transform
-- ◐ **MK-9.4.D** (8.G.A.4) Understand that a figure is similar to another if a sequence of rotations, reflections, translations and dilations maps one onto the other, and describe such a sequence.
+  - MP7 · drills: k8-transform, g68-transformation-coords
+- ● **MK-9.4.D** (8.G.A.4) Understand that a figure is similar to another if a sequence of rotations, reflections, translations and dilations maps one onto the other, and describe such a sequence.
   - EK: Similar = rigid motion plus dilation; angles kept, lengths scaled by k.
   - Needs: MK-9.4.B, MK-9.4.C
-  - MP3 · MP6 · drills: ~hs-transformation-graph
+  - MP3 · MP6 · drills: g68-similar-triangles, ~hs-transformation-graph
 - ● **MK-9.4.E** (8.G.A.5) Use informal arguments to establish the triangle angle sum and exterior angle facts, the angles formed when parallel lines are cut by a transversal, and the angle-angle criterion for similar triangles.
   - EK: Angle sum = 180°; alternate interior angles are equal; AA ⇒ similar.
   - Needs: MK-9.4.A, MK-8.4.E, MK-9.4.D
-  - MP3 · drills: k8-triangle-angles
-- ◐ **MK-9.4.F** (8.G.B.6) Explain a proof of the Pythagorean Theorem and its converse.
+  - MP3 · drills: k8-triangle-angles, g68-exterior-angle
+- ● **MK-9.4.F** (8.G.B.6) Explain a proof of the Pythagorean Theorem and its converse.
   - EK: a² + b² = c² ⇔ the triangle is right (rearrangement of four copies of the triangle).
   - Needs: MK-9.2.B, MK-7.4.A, MK-9.4.D
-  - MP3 · drills: ~k8-pythag-converse
+  - MP3 · drills: g68-pythag-converse-check, ~k8-pythag-converse
 - ● **MK-9.4.G** (8.G.B.7) Apply the Pythagorean Theorem to find unknown side lengths in right triangles in two and three dimensions.
   - EK: Box diagonal: d² = l² + w² + h².
   - Needs: MK-9.4.F
-  - MP1 · MP4 · drills: k8-pythag
+  - MP1 · MP4 · drills: k8-pythag, g68-pythag-3d
 - ● **MK-9.4.H** (8.G.B.8) Apply the Pythagorean Theorem to find the distance between two points in a coordinate system.
   - EK: d = √((x₂ − x₁)² + (y₂ − y₁)²).
   - Needs: MK-9.4.G, MK-7.2.J
-  - MP4 · MP7 · drills: k8-distance
+  - MP4 · MP7 · drills: k8-distance, g68-distance-axes
 - ● **MK-9.4.I** (8.G.C.9) Know the formulas for the volumes of cones, cylinders and spheres and use them to solve problems.
   - EK: V_cyl = πr²h; V_cone = ⅓πr²h; V_sphere = (4/3)πr³.
   - Needs: MK-8.4.D, MK-8.4.F, MK-9.2.B
-  - MP4 · drills: k8-volume-round
+  - MP4 · drills: k8-volume-round, g68-volume-compare
 
 ### 9.5 Statistics and Probability
 
@@ -1305,19 +1305,19 @@ Big ideas: LINE, OPS, MULT, SHAPE, DATA
 - ● **MK-9.5.A** (8.SP.A.1) Construct and interpret scatter plots for bivariate measurement data and describe patterns: clustering, outliers, positive or negative association, linear or nonlinear association.
   - EK: Association describes how one variable tends to change with the other.
   - Needs: MK-7.5.D, MK-7.2.J
-  - MP4 · MP5 · drills: k8-scatter-association
+  - MP4 · MP5 · drills: k8-scatter-association, g68-scatter-association
 - ● **MK-9.5.B** (8.SP.A.2) Know that straight lines model linear association between two quantitative variables; informally fit a line to a scatter plot and judge the fit by closeness of the points.
   - EK: A good line has points scattered evenly above and below it.
   - Needs: MK-9.5.A, MK-9.3.C
-  - MP4 · MP5 · drills: hs-trend-line
+  - MP4 · MP5 · drills: hs-trend-line, g68-trend-line-judge
 - ● **MK-9.5.C** (8.SP.A.3) Use the equation of a linear model to solve problems with bivariate measurement data, interpreting the slope and intercept.
   - EK: Slope = predicted change in y per unit x; intercept = predicted y at x = 0.
   - Needs: MK-9.5.B, MK-9.3.D
-  - MP2 · MP4 · drills: k8-line-predict
+  - MP2 · MP4 · drills: k8-line-predict, g68-slope-meaning
 - ● **MK-9.5.D** (8.SP.A.4) Understand patterns of association in bivariate categorical data from frequencies and relative frequencies in a two-way table, and use relative frequencies by row or column to describe possible association.
   - EK: Association shows when row (or column) relative frequencies differ.
   - Needs: MK-7.1.E
-  - MP2 · MP4 · drills: k8-two-way
+  - MP2 · MP4 · drills: k8-two-way, g68-two-way-relative
 
 ## Drills not yet placed on the map
 
@@ -1326,19 +1326,11 @@ Big ideas: LINE, OPS, MULT, SHAPE, DATA
 - mm-roman-numerals (k8.place-value)
 - mm-base-to-ten (k8.place-value)
 - mm-remainder-product (k8.mult-div)
-- mm-difference-of-squares (k8.mult-div)
-- mm-remainder-digits (k8.mult-div)
 - mm-remainder-11 (k8.mult-div)
 - mm-sum-divisors (k8.mult-div)
-- mm-reciprocal-mixed (k8.fractions)
-- mm-repeating-decimal (k8.decimals)
-- mm-proportion (k8.ratios)
-- mm-absolute-value (k8.integers)
 - mm-floor (k8.integers)
-- mm-substitution (k8.expressions)
 - mm-modular-power (k8.exponents)
 - mm-square-ending-5 (k8.exponents)
 - mm-square-near-50 (k8.exponents)
 - mm-square-near-100 (k8.exponents)
 - mm-square-two-digit (k8.exponents)
-- mm-powers-of-2 (k8.exponents)
