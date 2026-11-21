@@ -1,0 +1,365 @@
+# DAT items not covered elsewhere: general-chemistry lab practice, Quantitative Reasoning comparison
+# and word-problem types, and short Reading Comprehension passages (written for this deck).
+
+# ── general chemistry: lab, history, descriptive ───────────────────────────
+- template: ac-glassware
+  skill: gchem.measurement
+  pace: recall
+  cases:
+    - { q: 'Deliver exactly 25.00 mL of a solution', ans: 0 }
+    - { q: 'Add titrant in variable, precisely read amounts', ans: 1 }
+    - { q: 'Make exactly 250.0 mL of a standard solution', ans: 2 }
+    - { q: 'Measure about 40 mL of water for a rinse', ans: 3 }
+    - { q: 'Transfer a fixed aliquot for an analysis to four significant figures', ans: 0 }
+    - { q: 'Dilute a stock solution to an exact final volume', ans: 2 }
+  prompt: '{{q}}: which piece of glassware?'
+  parts:
+    - ask: 'Glassware'
+      label: a
+      choice: ["Volumetric pipet", "Buret", "Volumetric flask", "Graduated cylinder or beaker"]
+      correct: ans
+      explain: 'Volumetric glassware (pipet, flask) is calibrated for one volume to about ±0.02 mL, so it reports four significant figures. A buret delivers variable volumes read to ±0.01 mL. Graduated cylinders are good to about 1 percent and beakers only roughly. Read the bottom of the meniscus at eye level'
+  verify: { authored: true }
+
+- template: ac-error-type
+  skill: gchem.measurement
+  pace: recall
+  cases:
+    - { q: 'A balance that reads 0.05 g high on every weighing', ans: 1 }
+    - { q: 'Small scatter from estimating the last digit on a buret', ans: 0 }
+    - { q: 'Reading the meniscus from above every time', ans: 1 }
+    - { q: 'Fluctuations in room drafts affecting an analytical balance', ans: 0 }
+    - { q: 'A thermometer calibrated 1 °C low', ans: 1 }
+    - { q: 'Trial-to-trial variation in timing a color change by eye', ans: 0 }
+  prompt: '{{q}}: random or systematic error?'
+  parts:
+    - ask: 'Error type'
+      label: a
+      choice: ["Random: scatters results both ways, hurts precision", "Systematic: shifts every result the same way, hurts accuracy"]
+      correct: ans
+      explain: 'Averaging more trials reduces random error but does nothing to systematic error, which must be found by calibrating against a standard. High precision with poor accuracy is the signature of a systematic error'
+  verify: { authored: true }
+
+- template: ac-lab-safety
+  skill: gchem.measurement
+  pace: recall
+  cases:
+    - { q: 'Diluting concentrated sulfuric acid', o1: 'Add the acid slowly to water', o2: 'Add water slowly to the acid', o3: 'Mix equal volumes at once', ans: 0 }
+    - { q: 'Acid splashed in the eye', o1: 'Neutralise with dilute base', o2: 'Flush at the eyewash for at least 15 minutes', o3: 'Wipe with a dry towel', ans: 1 }
+    - { q: 'Smelling an unknown liquid', o1: 'Sniff directly from the bottle', o2: 'Taste a drop instead', o3: 'Waft the vapor toward you with your hand', ans: 2 }
+    - { q: 'A small fire in a beaker of solvent', o1: 'Cover it with a watch glass or use the extinguisher', o2: 'Pour water on it', o3: 'Carry it to the sink', ans: 0 }
+    - { q: 'Working with a volatile, toxic solvent', o1: 'Open bench with a window open', o2: 'In the fume hood', o3: 'Wearing a dust mask', ans: 1 }
+    - { q: 'Heating a test tube', o1: 'Point it at a lab partner so they can watch', o2: 'Heat only the bottom without moving it', o3: 'Point it away from people and move it through the flame', ans: 2 }
+  prompt: '{{q}}: what is the correct procedure?'
+  parts:
+    - ask: 'Procedure'
+      label: a
+      choice: ["{{o1}}", "{{o2}}", "{{o3}}"]
+      correct: ans
+      explain: 'Rules of thumb: always add acid to water (the large volume of water absorbs the heat), flush skin and eyes with water for 15 minutes, waft instead of sniff, smother small fires, use a fume hood for volatile or toxic materials, and never point a heated vessel at anyone'
+  verify: { authored: true }
+
+- template: ac-arrhenius-plot
+  skill: gchem.kinetics
+  pace: quick
+  given: { Ea: { pick: [40, 55, 75, 100] }, T1: { pick: [300, 310] }, T2: { pick: [340, 360] } }
+  prompt: 'Two points on a plot of $\ln k$ against $1/T$ are $(1/{{T1}}\ \mathrm{K^{-1}},\ 0)$ and $(1/{{T2}}\ \mathrm{K^{-1}},\ {{Ea*1000/8.314462618*(1/T1 - 1/T2)}})$. What is the activation energy, in kJ/mol? ($R = 8.314$ J/(mol·K))'
+  parts:
+    - { ask: 'Ea (kJ/mol)', label: r, value: Ea, tol: 0.003, explain: 'The Arrhenius plot is a line of slope $-E_a/R$. Slope = rise over run between the two points; multiply by $-R$ and divide by 1000. A steeper line means a reaction more sensitive to temperature' }
+  verify: { expect: { r: "-(Ea*1000/c_R*(Rational(1, T1) - Rational(1, T2)) - 0)/(Rational(1, T2) - Rational(1, T1))*c_R/1000" } }
+
+- template: ac-transition-properties
+  skill: gchem.structure
+  pace: recall
+  cases:
+    - { q: 'Why are many transition-metal ions colored?', ans: 0 }
+    - { q: 'Why does iron form both Fe²⁺ and Fe³⁺?', ans: 1 }
+    - { q: 'Why are Cu²⁺ and Fe³⁺ compounds attracted to a magnet?', ans: 2 }
+    - { q: 'Why is Zn²⁺ colorless?', ans: 3 }
+    - { q: 'Why is Sc³⁺ colorless?', ans: 3 }
+    - { q: 'Why can manganese show oxidation states from +2 to +7?', ans: 1 }
+  prompt: '{{q}}'
+  parts:
+    - ask: 'Reason'
+      label: a
+      choice: ["Light promotes a d electron across the split d orbitals", "The 4s and 3d electrons have similar energies, so different numbers can be lost", "They have unpaired d electrons (paramagnetic)", "Its d subshell is full or empty, so no d–d transition is possible"]
+      correct: ans
+      explain: 'Ligands split the d orbitals; absorbing a visible photon moves an electron between them and we see the complementary color. A d⁰ or d¹⁰ ion has nothing to promote. Unpaired d electrons make an ion paramagnetic, and the closeness of 4s and 3d energies gives many oxidation states'
+  verify: { authored: true }
+
+- template: ac-atomic-experiments
+  skill: gchem.structure
+  pace: recall
+  cases:
+    - { q: 'Rutherford''s gold-foil experiment', ans: 0 }
+    - { q: 'Thomson''s cathode-ray tube', ans: 1 }
+    - { q: 'Millikan''s oil-drop experiment', ans: 2 }
+    - { q: 'The line spectrum of hydrogen', ans: 3 }
+    - { q: 'The photoelectric effect', ans: 4 }
+  prompt: 'What did {{q}} establish?'
+  parts:
+    - ask: 'Finding'
+      label: a
+      choice: ["A small, dense, positive nucleus", "The electron and its charge-to-mass ratio", "The charge of the electron", "Quantized electron energy levels", "Light comes in photons of energy hf"]
+      correct: ans
+      explain: 'Most alpha particles passed straight through the foil but a few bounced back: a tiny massive nucleus. Cathode rays bent in fields: a light negative particle. Oil drops carried whole multiples of one charge. Sharp spectral lines need fixed energy levels, and the photoelectric threshold needs photons'
+  verify: { authored: true }
+
+- template: ac-third-law
+  skill: gchem.thermo
+  pace: recall
+  cases:
+    - { q: 'A perfect crystal at 0 K has zero entropy.', ans: 0 }
+    - { q: 'The standard molar entropy of an element in its standard state is zero.', ans: 1 }
+    - { q: 'Every substance has a positive absolute entropy above 0 K.', ans: 0 }
+    - { q: 'For one substance, S°(gas) > S°(liquid) > S°(solid).', ans: 0 }
+    - { q: 'The energy of an isolated system is conserved.', ans: 0 }
+    - { q: 'Work done by the system on the surroundings has a positive sign in ΔU = q + w.', ans: 1 }
+  prompt: 'True or false: {{q}}'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["True", "False"]
+      correct: ans
+      explain: 'The third law sets an absolute zero for entropy (a perfect crystal at 0 K), so tables give absolute S° values, all positive; it is ΔH_f° and ΔG_f° of elements that are zero. The first law is conservation of energy; in chemistry w is work done on the system'
+  verify: { authored: true }
+
+- template: ac-group-chemistry
+  skill: gchem.structure
+  pace: recall
+  cases:
+    - { q: 'reacts with water to give a hydroxide and H₂ gas, more violently down the group', ans: 0 }
+    - { q: 'forms 2+ ions; its oxides are basic and its carbonates are mostly insoluble', ans: 1 }
+    - { q: 'exists as diatomic molecules and becomes less reactive down the group', ans: 2 }
+    - { q: 'is monatomic and almost unreactive, though the heaviest members form a few fluorides', ans: 3 }
+    - { q: 'forms 1− ions and displaces the heavier members of its group from their salts', ans: 2 }
+    - { q: 'has one valence electron and the lowest first ionization energy in its period', ans: 0 }
+  prompt: 'Which family of elements {{q}}?'
+  parts:
+    - ask: 'Family'
+      label: a
+      choice: ["Alkali metals (group 1)", "Alkaline-earth metals (group 2)", "Halogens (group 17)", "Noble gases (group 18)"]
+      correct: ans
+      explain: 'Group behavior follows valence electrons: metals that lose one or two electrons become more reactive down the group (lower ionization energy); halogens that gain one become less reactive down the group (weaker pull on the incoming electron); noble gases have full shells'
+  verify: { authored: true }
+
+# ── quantitative reasoning ─────────────────────────────────────────────────
+- template: dt-quant-compare
+  skill: dat.qr-reasoning
+  pace: quick
+  cases:
+    - { A: '$0.25 \times 48$', B: '$48/4$', va: 'Rational(1, 4)*48', vb: 'Rational(48, 4)', nd: 0, ans: 2 }
+    - { A: '$2^{10}$', B: '$10^3$', va: '2**10', vb: '10**3', nd: 0, ans: 0 }
+    - { A: '$\sqrt{50}$', B: '$7$', va: 'sqrt(50)', vb: '7', nd: 0, ans: 0 }
+    - { A: '$3/7$', B: '$0.43$', va: 'Rational(3, 7)', vb: 'Rational(43, 100)', nd: 0, ans: 1 }
+    - { A: '$x^2$', B: '$x$ (x is a real number)', va: '0', vb: '0', nd: 1, ans: 3 }
+    - { A: '15 percent of 80', B: '80 percent of 15', va: 'Rational(15, 100)*80', vb: 'Rational(80, 100)*15', nd: 0, ans: 2 }
+    - { A: 'the area of a circle of radius 1', B: 'the area of a square of side 1.8', va: 'pi', vb: 'Rational(18, 10)**2', nd: 0, ans: 1 }
+    - { A: '$(x + 1)^2$ for $x > 0$', B: '$x^2 + 1$', va: '0', vb: '0', nd: 2, ans: 0 }
+    - { A: '$\tfrac{1}{0.2}$', B: '$5$', va: '1/Rational(2, 10)', vb: '5', nd: 0, ans: 2 }
+    - { A: '$99 \times 101$', B: '$100^2$', va: '99*101', vb: '100**2', nd: 0, ans: 1 }
+  prompt: 'Compare quantity A, {{A}}, with quantity B, {{B}}.'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["A is greater", "B is greater", "They are equal", "Cannot be determined"]
+      correct: ans
+      explain: 'Simplify both sides the same way before computing: rewrite as a common form, square both positive sides, or expand ($(x+1)^2 = x^2 + 2x + 1$, so A wins by $2x$). If a variable can make either side win (try 0, 1, a fraction, a negative), the answer is cannot be determined'
+  verify: { choices: { a: "3 if nd == 1 else (0 if nd == 2 else (0 if calc(va) > calc(vb) else (1 if calc(va) < calc(vb) else 2)))" } }
+
+- template: dt-data-sufficiency
+  skill: dat.qr-reasoning
+  pace: quick
+  cases:
+    - { q: 'What is x? (1) 3x + 2 = 11. (2) x² = 9.', ans: 0 }
+    - { q: 'Is n even? (1) n² is even. (2) n + 1 is odd.', ans: 3 }
+    - { q: 'What is the area of a rectangle? (1) Its perimeter is 20. (2) Its length is 6.', ans: 2 }
+    - { q: 'What is x + y? (1) x = 4. (2) y = 2x − 3.', ans: 2 }
+    - { q: 'Is x > y? (1) x > 0. (2) y < 5.', ans: 4 }
+    - { q: 'How many students are in the class? (1) There are 12 boys. (2) Girls are 60 percent of the class.', ans: 2 }
+    - { q: 'What is the radius of a circle? (1) Its area is 16π. (2) Its circumference is 8π.', ans: 3 }
+    - { q: 'What is the price of one pen? (1) 3 pens and 2 pencils cost 4 dollars. (2) A pencil costs 0.50 dollars.', ans: 2 }
+  prompt: '{{q}}'
+  parts:
+    - ask: 'Sufficiency'
+      label: a
+      choice: ["Statement 1 alone is sufficient", "Statement 2 alone is sufficient", "Both together are needed", "Each alone is sufficient", "Not sufficient even together"]
+      correct: ans
+      explain: 'Test each statement alone for one definite answer, without solving fully; only then combine. Watch for hidden second solutions (x² = 9 allows ±3) and remember a yes/no question is answered by a definite "no" too'
+  verify: { authored: true }
+
+- template: dt-weighted-average
+  skill: dat.qr-reasoning
+  pace: quick
+  given: { n1: { pick: [10, 15, 20, 25] }, m1: { pick: [70, 78, 84] }, n2: { pick: [5, 10, 30] }, m2: { pick: [62, 90, 95] } }
+  prompt: 'A class of ${{n1}}$ students averages ${{m1}}$ and another of ${{n2}}$ averages ${{m2}}$. What is the combined average?'
+  parts:
+    - { ask: 'Combined mean', label: r, value: (n1*m1 + n2*m2)/(n1 + n2), tol: 0.001, explain: 'Add the totals, not the averages: $({{n1}} \times {{m1}} + {{n2}} \times {{m2}})/({{n1}} + {{n2}})$. The result sits closer to the larger group''s mean' }
+  verify: { expect: { r: "solve(Eq(x*(n1 + n2), n1*m1 + n2*m2), x)[0]" } }
+
+- template: dt-mixture
+  skill: dat.qr-reasoning
+  pace: quick
+  given: { c1: { pick: [10, 20, 25] }, c2: { pick: [40, 50, 60] }, v: { pick: [10, 20, 30] }, ct: { pick: [30, 35] } }
+  require: [c1 < ct, ct < c2]
+  prompt: 'How many litres of a ${{c2}}$ percent solution must be added to ${{v}}$ L of a ${{c1}}$ percent solution to make a ${{ct}}$ percent solution?'
+  parts:
+    - { ask: 'Litres added', label: r, value: v*(ct - c1)/(c2 - ct), tol: 0.001, explain: 'Track the solute: ${{c1}}\%({{v}}) + {{c2}}\%(x) = {{ct}}\%({{v}} + x)$. Or by alligation: the volumes are in the inverse ratio of their distances from the target' }
+  verify: { expect: { r: "solve(Eq(c1*v + c2*x, ct*(v + x)), x)[0]" } }
+
+- template: dt-work-rate
+  skill: dat.qr-reasoning
+  pace: quick
+  given: { a: { pick: [2, 3, 4, 6] }, b: { pick: [3, 5, 6, 12] } }
+  require: [a != b]
+  prompt: 'One pump fills a tank in ${{a}}$ hours and another in ${{b}}$ hours. Working together, how many hours do they take?'
+  parts:
+    - { ask: 'Hours', label: r, value: a*b/(a + b), tol: 0.001, explain: 'Add rates, not times: $\tfrac{1}{ {{a}} } + \tfrac{1}{ {{b}} } = \tfrac{1}{t}$, so $t = \dfrac{ab}{a + b}$. Together must be faster than the faster pump alone' }
+  verify: { expect: { r: "solve(Eq(1/Integer(a) + 1/Integer(b), 1/x), x)[0]" } }
+
+- template: dt-rate-distance
+  skill: dat.qr-reasoning
+  pace: quick
+  given: { v1: { pick: [30, 40, 60] }, v2: { pick: [20, 50, 80] }, d: { pick: [120, 240, 360] } }
+  require: [v1 != v2]
+  prompt: 'A car drives ${{d}}$ km at ${{v1}}$ km/h and returns at ${{v2}}$ km/h. What is its average speed for the round trip, in km/h?'
+  parts:
+    - { ask: 'Average speed (km/h)', label: r, value: 2*d/(d/v1 + d/v2), tol: 0.001, explain: 'Average speed is total distance over total time: $2({{d}}) \div ({{d}}/{{v1}} + {{d}}/{{v2}})$. It is the harmonic mean, always below the simple average of the two speeds' }
+  verify: { expect: { r: "2*d/(Rational(d, v1) + Rational(d, v2))" } }
+
+- template: dt-consecutive
+  skill: dat.qr-reasoning
+  pace: quick
+  given: { s: { pick: [51, 75, 99, 123, 144] } }
+  prompt: 'Three consecutive integers add to ${{s}}$. What is the largest?'
+  parts:
+    - { ask: 'Largest', label: r, value: s/3 + 1, tol: 0.0001, explain: 'Call the middle one $n$: $(n - 1) + n + (n + 1) = 3n = {{s}}$, so $n = {{s/3}}$ and the largest is $n + 1$. Centering on the middle term makes the algebra one step' }
+  verify: { expect: { r: "solve(Eq(x + (x + 1) + (x + 2), s), x)[0] + 2" } }
+
+- template: dt-age-problem
+  skill: dat.qr-reasoning
+  pace: quick
+  given: { k: { pick: [3, 4, 5] }, y: { pick: [6, 8, 10, 12] } }
+  prompt: 'A mother is ${{k}}$ times as old as her son. In ${{y}}$ years she will be ${{k - 1}}$ times as old as he is then. How old is the son now?'
+  parts:
+    - { ask: 'Son''s age now', label: r, value: y*(k - 2), tol: 0.0001, explain: 'Let the son be $s$: ${{k}}s + {{y}} = {{k - 1}}(s + {{y}})$. Both people age by the same {{y}} years, which is the step people forget' }
+  verify: { expect: { r: "solve(Eq(k*x + y, (k - 1)*(x + y)), x)[0]" } }
+
+- template: dt-absolute-value
+  skill: dat.qr-reasoning
+  pace: quick
+  given: { a: { pick: [2, 3, 5] }, b: { pick: [1, 4, 7, -6] }, c: { pick: [5, 9, 13] } }
+  prompt: 'What is the sum of the solutions of $|{{a}}x + ({{b}})| = {{c}}$?'
+  parts:
+    - { ask: 'Sum of solutions', label: r, value: -2*b/a, tol: 0.0001, explain: 'Split into $ax + b = c$ and $ax + b = -c$: $x = (c - b)/a$ and $x = (-c - b)/a$, which add to $-2b/a$. If c were negative there would be no solution at all' }
+  require: ['b != 0']
+  verify: { expect: { r: "sum(solve(Eq(Abs(a*x + b), c), x))" } }
+
+# ── reading comprehension (short passages) ─────────────────────────────────
+- template: dt-rc-detail
+  skill: dat.reading
+  pace: quick
+  cases:
+    - { p: 'Enamel is the hardest tissue in the body, about 96 percent mineral by weight, mostly hydroxyapatite. Unlike bone, it contains no living cells once the tooth erupts, so it cannot repair itself. Dentin beneath it is softer and about 70 percent mineral.', q: 'Why can enamel not repair itself?', o1: 'It is mostly hydroxyapatite', o2: 'It contains no living cells after eruption', o3: 'Dentin beneath it is softer', o4: 'It is the hardest tissue in the body', ans: 1 }
+    - { p: 'Fluoride strengthens teeth chiefly by being built into the enamel surface as fluorapatite, which dissolves less readily in acid than hydroxyapatite. It also slows the bacteria that ferment sugar into acid. Its benefit is largely topical, from contact with the tooth surface, rather than from swallowing it.', q: 'According to the passage, fluorapatite differs from hydroxyapatite in that it', o1: 'is produced by bacteria', o2: 'is absorbed by swallowing', o3: 'dissolves less readily in acid', o4: 'ferments sugar', ans: 2 }
+  prompt: '{{p}} — {{q}}'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["{{o1}}", "{{o2}}", "{{o3}}", "{{o4}}"]
+      correct: ans
+      explain: 'Find the sentence that answers the question and pick the choice that restates it. Wrong choices are often true statements from the passage that answer a different question'
+  verify: { authored: true }
+
+- template: dt-rc-main-idea
+  skill: dat.reading
+  pace: quick
+  cases:
+    - { p: 'For decades, root canals were filled with gutta-percha, a natural latex. Newer bioceramic sealers bond to dentin and are slightly antibacterial. Long-term studies are still few, but early results suggest outcomes at least as good as the older materials.', o1: 'Gutta-percha is a natural latex', o2: 'Bioceramic sealers are a promising newer option for root canal fillings', o3: 'Root canals always fail without bioceramics', o4: 'Long-term dental studies are expensive', ans: 1 }
+    - { p: 'Saliva does more than moisten food. It buffers acids, carries calcium and phosphate that remineralise early enamel lesions, and contains antibacterial proteins. People with dry mouth, from medication or radiation, develop decay far faster.', o1: 'Saliva protects teeth in several ways', o2: 'Radiation causes dry mouth', o3: 'Saliva moistens food', o4: 'Antibacterial proteins kill all oral bacteria', ans: 0 }
+  prompt: '{{p}} — What is the main idea?'
+  parts:
+    - ask: 'Main idea'
+      label: a
+      choice: ["{{o1}}", "{{o2}}", "{{o3}}", "{{o4}}"]
+      correct: ans
+      explain: 'The main idea covers the whole passage, not one detail, and does not go beyond it. Eliminate choices that are too narrow (one supporting fact) and too broad or extreme ("always", "all")'
+  verify: { authored: true }
+
+- template: dt-rc-vocabulary
+  skill: dat.reading
+  pace: quick
+  cases:
+    - { p: 'The new composite showed little microleakage, the seepage of fluid and bacteria through the tiny gap between a filling and the tooth.', w: 'microleakage', o1: 'a crack inside the filling', o2: 'seepage through the gap between filling and tooth', o3: 'loss of filling color', o4: 'a leak in the dental chair''s water line', ans: 1 }
+    - { p: 'Because the infection was refractory to two courses of antibiotics, the surgeon drained the abscess.', w: 'refractory', o1: 'responsive', o2: 'contagious', o3: 'resistant', o4: 'painful', ans: 2 }
+    - { p: 'The patient was asymptomatic; only the radiograph revealed the lesion.', w: 'asymptomatic', o1: 'showing no symptoms', o2: 'in severe pain', o3: 'unconscious', o4: 'allergic', ans: 0 }
+  prompt: '{{p}} — As used here, "{{w}}" most nearly means:'
+  parts:
+    - ask: 'Meaning'
+      label: a
+      choice: ["{{o1}}", "{{o2}}", "{{o3}}", "{{o4}}"]
+      correct: ans
+      explain: 'Use the sentence: passages often define a term right after it (after a comma or dash) or give a contrast or consequence that pins it down (drained because antibiotics failed). Substitute your choice back into the sentence to check'
+  verify: { authored: true }
+
+- template: dt-rc-supported
+  skill: dat.reading
+  pace: quick
+  cases:
+    - { p: 'In the trial, 120 patients used an electric toothbrush and 118 a manual one for six months. Plaque scores fell 21 percent in the electric group and 11 percent in the manual group. Gum bleeding did not differ significantly.', s: 'Electric brushes reduced plaque more than manual brushes in this trial.', ans: 0 }
+    - { p: 'In the trial, 120 patients used an electric toothbrush and 118 a manual one for six months. Plaque scores fell 21 percent in the electric group and 11 percent in the manual group. Gum bleeding did not differ significantly.', s: 'Electric brushes reduced gum bleeding more than manual brushes.', ans: 1 }
+    - { p: 'In the trial, 120 patients used an electric toothbrush and 118 a manual one for six months. Plaque scores fell 21 percent in the electric group and 11 percent in the manual group. Gum bleeding did not differ significantly.', s: 'Electric brushes cost more than manual brushes.', ans: 2 }
+  prompt: '{{p}} — Statement: "{{s}}"'
+  parts:
+    - ask: 'The passage'
+      label: a
+      choice: ["Supports it", "Contradicts it", "Does not address it"]
+      correct: ans
+      explain: 'Judge only against the passage, not outside knowledge. A statement can be true in the world and still be "not addressed". Contradicted means the passage says the opposite'
+  verify: { authored: true }
+
+- template: dt-rc-inference
+  skill: dat.reading
+  pace: quick
+  cases:
+    - { p: 'Streptococcus mutans ferments sucrose into lactic acid and also uses it to build sticky glucans that anchor the bacteria to teeth. Xylitol cannot be fermented by S. mutans.', o1: 'Replacing sucrose with xylitol should reduce acid production by S. mutans', o2: 'Xylitol kills all oral bacteria', o3: 'Glucans are made from lactic acid', o4: 'Sucrose strengthens enamel', ans: 0 }
+    - { p: 'Amalgam fillings expand slightly as they set, sealing the cavity edge. Composite resins shrink as they cure. Dentists therefore place composites in thin layers, curing each one.', o1: 'Amalgam is no longer used', o2: 'Curing in layers limits the effect of shrinkage', o3: 'Composites expand as they cure', o4: 'Layering is required for amalgam', ans: 1 }
+  prompt: '{{p}} — Which conclusion follows from the passage?'
+  parts:
+    - ask: 'Inference'
+      label: a
+      choice: ["{{o1}}", "{{o2}}", "{{o3}}", "{{o4}}"]
+      correct: ans
+      explain: 'A good inference follows necessarily from stated facts with one short step. Reject choices that overreach (all, never), reverse a stated relation, or bring in information the passage never gives'
+  verify: { authored: true }
+
+- template: dt-rc-tone
+  skill: dat.reading
+  pace: quick
+  cases:
+    - { p: 'Proponents claim the laser removes decay painlessly, yet the three published trials were small, unblinded and funded by the manufacturer.', o1: 'Enthusiastic', o2: 'Skeptical', o3: 'Neutral and descriptive', o4: 'Hostile', ans: 1 }
+    - { p: 'The periodontal ligament contains fibers, blood vessels and nerves that anchor the tooth and sense the force of biting.', o1: 'Enthusiastic', o2: 'Skeptical', o3: 'Neutral and descriptive', o4: 'Hostile', ans: 2 }
+    - { p: 'Few advances have done as much for public health as community water fluoridation, which has cut tooth decay dramatically at very low cost.', o1: 'Approving', o2: 'Skeptical', o3: 'Neutral and descriptive', o4: 'Hostile', ans: 0 }
+  prompt: '{{p}} — What is the author''s attitude?'
+  parts:
+    - ask: 'Tone'
+      label: a
+      choice: ["{{o1}}", "{{o2}}", "{{o3}}", "{{o4}}"]
+      correct: ans
+      explain: 'Look for judgment words: "claim", "yet", "small, unblinded" signal doubt; "few advances have done as much" signals approval; plain facts with no evaluative words are neutral. DAT authors are rarely hostile'
+  verify: { authored: true }
+
+- template: dt-rc-sequence
+  skill: dat.reading
+  pace: quick
+  cases:
+    - { p: 'Caries begins when bacteria ferment sugars into acid. The acid dissolves mineral below the enamel surface, forming a white spot. If demineralisation continues, the surface collapses into a cavity, and bacteria then invade the dentin.', q: 'What happens immediately before the surface collapses into a cavity?', o1: 'Bacteria invade the dentin', o2: 'Demineralisation continues below a white spot', o3: 'Sugar is eaten', o4: 'The cavity is filled', ans: 1 }
+    - { p: 'During tooth development, ameloblasts lay down enamel matrix, which then mineralises. After the crown is complete, the ameloblasts are lost when the tooth erupts. Odontoblasts, by contrast, survive and keep making dentin throughout life.', q: 'Which cells continue working after eruption?', o1: 'Ameloblasts', o2: 'Odontoblasts', o3: 'Both', o4: 'Neither', ans: 1 }
+  prompt: '{{p}} — {{q}}'
+  parts:
+    - ask: 'Answer'
+      label: a
+      choice: ["{{o1}}", "{{o2}}", "{{o3}}", "{{o4}}"]
+      correct: ans
+      explain: 'Mark the signal words that order events (begins, then, if … continues, after, by contrast) and answer from that skeleton rather than from memory of the details'
+  verify: { authored: true }
