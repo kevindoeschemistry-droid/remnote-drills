@@ -60,7 +60,7 @@ Related reports: [standards and how much of each was read](../coverage/standards
 | Framework | Code | Objectives | Drilled | Partly | Open | Types | Anchored on |
 |---|---|---:|---:|---:|---:|---:|---|
 | [Applied Engineering Mathematics](engineering-math.md) | EM | 122 | 122 | 0 | 0 | 2.1 | Kreyszig, Advanced Engineering Mathematics, 10th ed. (textbook, read: full) |
-| [Calculus](calculus.md) | CA | 179 | 179 | 0 | 0 | 1.5 | AP Calculus AB and BC Course and Exam Description (standard, read: full) |
+| [Calculus](calculus.md) | CA | 179 | 179 | 0 | 0 | 1.8 | AP Calculus AB and BC Course and Exam Description (standard, read: full) |
 | [High School Mathematics (Common Core)](math-hs.md) | MH | 200 | 200 | 0 | 0 | 2.4 | CCSS Mathematics Appendix A: high school course pathways (standard, read: full) |
 | [Linear Algebra](linear-algebra.md) | LA | 10 | 10 | 0 | 0 | 1.9 | Lay, Lay & McDonald, Linear Algebra and Its Applications, 5th ed. (chapter list) (textbook, read: part) |
 | [Mathematics K–8 (Common Core)](math-k8.md) | MK | 258 | 258 | 0 | 0 | 2.3 | Common Core State Standards for Mathematics (2010) (standard, read: crosswalk) |

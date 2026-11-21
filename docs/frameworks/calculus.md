@@ -1236,7 +1236,7 @@ Book: stewart-8e §14.1, §14.2
 - ● **CA-12.1.B** (ST-14.2) Show a two-variable limit does not exist by approaching along two paths that give different values.
   - EK: Limit must be the same along every path to (a, b); try lines y = mx and curves like y = x².
   - Needs: CA-12.1.A, CA-1.2.B
-  - P3 · drills: ca-two-path-limit
+  - P3 · drills: ca-two-path-limit, mvd-two-path
 
 ### 12.2 Partial derivatives
 
@@ -1245,11 +1245,11 @@ Book: stewart-8e §14.3
 - ● **CA-12.2.A** (ST-14.3) Compute first partial derivatives and interpret each as a slope with the other variables held fixed.
   - EK: ∂f/∂x: differentiate in x, treat y as a constant; it is the slope of the trace y = b.
   - Needs: CA-12.1.A, CA-3.5.A
-  - P1 · P2 · drills: mv-partial
+  - P1 · P2 · drills: mv-partial, mvd-partial
 - ● **CA-12.2.B** (ST-14.3) Compute second and mixed partial derivatives and use Clairaut's theorem.
   - EK: f_xy = f_yx when the mixed partials are continuous.
   - Needs: CA-12.2.A
-  - P1 · drills: mv-mixed
+  - P1 · drills: mv-mixed, mvd-mixed
 
 ### 12.3 Tangent planes and linear approximation
 
@@ -1258,7 +1258,7 @@ Book: stewart-8e §14.4
 - ● **CA-12.3.A** (ST-14.4) Write the tangent plane to z = f(x, y), and estimate a change or a propagated error with the total differential.
   - EK: z − z₀ = f_x(a, b)(x − a) + f_y(a, b)(y − b); dz = f_x dx + f_y dy.
   - Needs: CA-12.2.A, CA-4.6.A
-  - P1 · P4 · drills: cm-tangent-plane
+  - P1 · P4 · drills: cm-tangent-plane, mvd-linearize
 
 ### 12.4 The multivariable chain rule
 
@@ -1267,11 +1267,11 @@ Book: stewart-8e §14.5
 - ● **CA-12.4.A** (ST-14.5) Apply the chain rule to a function of intermediate variables, drawing the dependency tree.
   - EK: z = f(x, y), x = x(s, t), y = y(s, t) ⇒ ∂z/∂s = f_x x_s + f_y y_s — one term per path in the tree.
   - Needs: CA-12.2.A, CA-3.1.A
-  - P1 · drills: cm-chain-rule
+  - P1 · drills: cm-chain-rule, mvd-chain-t, mvd-chain-partial
 - ● **CA-12.4.B** (ST-14.5) Find dy/dx or ∂z/∂x for an implicitly defined function with partial derivatives.
   - EK: F(x, y) = 0 ⇒ dy/dx = −F_x/F_y; F(x, y, z) = 0 ⇒ ∂z/∂x = −F_x/F_z.
   - Needs: CA-12.4.A, CA-3.2.A
-  - P1 · drills: mv-implicit
+  - P1 · drills: mv-implicit, mvd-implicit, mvd-implicit-3
 
 ### 12.5 Directional derivatives and the gradient
 
@@ -1280,11 +1280,11 @@ Book: stewart-8e §14.6
 - ● **CA-12.5.A** (ST-14.6) Compute the gradient and the directional derivative in a given direction.
   - EK: ∇f = ⟨f_x, f_y, f_z⟩; D_u f = ∇f·u with u a unit vector.
   - Needs: CA-12.2.A, CA-11.2.A
-  - P1 · drills: cm-gradient, ~mv-partial
+  - P1 · drills: cm-gradient, mvd-directional, ~mv-partial
 - ● **CA-12.5.B** (ST-14.6) Use the gradient to find the direction and rate of steepest ascent and the tangent plane to a level surface.
   - EK: Max rate |∇f| in direction ∇f; ∇F ⊥ the level surface F = k, so it is the plane's normal.
   - Needs: CA-12.5.A, CA-11.4.B
-  - P2 · P3 · drills: cm-gradient
+  - P2 · P3 · drills: cm-gradient, mvd-max-rate, mvd-tangent-plane-implicit, mvd-level-slope, mvd-gradient-facts
 
 ### 12.6 Maximum and minimum values
 
@@ -1293,7 +1293,7 @@ Book: stewart-8e §14.7
 - ● **CA-12.6.A** (ST-14.7) Find and classify the critical points of f(x, y) with the second derivatives test.
   - EK: ∇f = 0; D = f_xx f_yy − f_xy²: D > 0, f_xx > 0 min; D > 0, f_xx < 0 max; D < 0 saddle; D = 0 inconclusive.
   - Needs: CA-12.2.B, CA-5.7.A
-  - P1 · P3 · drills: cm-critical-point
+  - P1 · P3 · drills: cm-critical-point, mvd-classify, mvd-critical-count
 - ● **CA-12.6.B** (ST-14.7) Find absolute extrema of f on a closed bounded region by checking interior critical points and the boundary.
   - EK: Parametrise each boundary piece and reduce to one-variable problems; compare all candidates (EVT in 2-D).
   - Needs: CA-12.6.A, CA-5.5.A
@@ -1306,7 +1306,7 @@ Book: stewart-8e §14.8
 - ● **CA-12.7.A** (ST-14.8) Optimise f subject to a constraint g = k with Lagrange multipliers, and interpret λ.
   - EK: ∇f = λ∇g and g = k; λ = rate of change of the optimum with respect to k.
   - Needs: CA-12.5.B, CA-12.6.B
-  - P1 · P3 · drills: cm-lagrange-product, cm-lagrange-circle
+  - P1 · P3 · drills: cm-lagrange-product, cm-lagrange-circle, mvd-lagrange, mvd-lagrange-two
 
 ## Unit 13 · Multiple integrals (extension)
 
@@ -1328,11 +1328,11 @@ Book: stewart-8e §15.3
 - ● **CA-13.2.A** (ST-15.3) Set up a double integral over a region bounded by curves as type I or type II, and evaluate it.
   - EK: Type I: x from a to b, y from g₁(x) to g₂(x). Inner limits may depend on the outer variable, never the reverse.
   - Needs: CA-13.1.A, CA-8.4.A
-  - P1 · P2 · drills: cm-double-region
+  - P1 · P2 · drills: cm-double-region, mvd-region-setup, mvd-region-value
 - ● **CA-13.2.B** (ST-15.3) Reverse the order of integration by redrawing the region.
   - EK: Sketch the region, then read the new limits from the other direction; used when the inner integral has no elementary antiderivative.
   - Needs: CA-13.2.A, CA-8.5.A
-  - P2 · drills: cm-reverse-order
+  - P2 · drills: cm-reverse-order, mvd-reverse-setup
 
 ### 13.3 Double integrals in polar coordinates
 
@@ -1341,7 +1341,7 @@ Book: stewart-8e §15.4
 - ● **CA-13.3.A** (ST-15.4) Convert a double integral over a disc, annulus or polar region to polar coordinates and evaluate it.
   - EK: dA = r dr dθ — don't drop the r.
   - Needs: CA-13.2.A, CA-9.8.A
-  - P1 · drills: cm-double-polar, cm-gaussian-polar
+  - P1 · drills: cm-double-polar, cm-gaussian-polar, mvd-polar-setup, mvd-polar-value
 
 ### 13.4 Applications of double integrals
 
@@ -1350,7 +1350,7 @@ Book: stewart-8e §15.5
 - ● **CA-13.4.A** (ST-15.5) Compute the mass, centre of mass and moments of inertia of a lamina, and the average value of f over a region.
   - EK: m = ∬ρ dA; x̄ = ∬xρ dA/m; I_x = ∬y²ρ dA; f_avg = ∬f dA/area.
   - Needs: CA-13.2.A, CA-8.4.A
-  - P1 · P4 · drills: cm-center-of-mass
+  - P1 · P4 · drills: cm-center-of-mass, mvd-center-mass, mvd-average, mvd-inertia
 
 ### 13.5 Triple integrals
 
@@ -1359,7 +1359,7 @@ Book: stewart-8e §15.7
 - ● **CA-13.5.A** (ST-15.7) Set up and evaluate a triple integral over a solid bounded by surfaces, and use it for volume or mass.
   - EK: Project the solid onto a coordinate plane for the outer two limits; the inner limits are the bottom and top surfaces.
   - Needs: CA-13.2.A, CA-11.5.A
-  - P1 · P2 · drills: cm-tetrahedron
+  - P1 · P2 · drills: cm-tetrahedron, mvd-triple-setup, mvd-triple-value, mvd-coordinates, mvd-center-mass-solid, mvd-triple-order
 
 ### 13.6 Triple integrals in cylindrical coordinates
 
@@ -1368,7 +1368,7 @@ Book: stewart-8e §15.8
 - ● **CA-13.6.A** (ST-15.8) Evaluate a triple integral in cylindrical coordinates for solids with an axis of symmetry.
   - EK: x = r cos θ, y = r sin θ, z = z; dV = r dz dr dθ.
   - Needs: CA-13.5.A, CA-13.3.A
-  - P1 · drills: cm-cylindrical
+  - P1 · drills: cm-cylindrical, mvd-triple-setup, mvd-triple-value
 
 ### 13.7 Triple integrals in spherical coordinates
 
@@ -1377,7 +1377,7 @@ Book: stewart-8e §15.9
 - ● **CA-13.7.A** (ST-15.9) Evaluate a triple integral in spherical coordinates for balls, cones and shells.
   - EK: x = ρ sin φ cos θ, y = ρ sin φ sin θ, z = ρ cos φ; dV = ρ² sin φ dρ dφ dθ.
   - Needs: CA-13.6.A
-  - P1 · drills: cm-spherical
+  - P1 · drills: cm-spherical, mvd-triple-setup, mvd-triple-value
 
 ### 13.8 Change of variables and the Jacobian
 
@@ -1386,7 +1386,7 @@ Book: stewart-8e §15.10
 - ● **CA-13.8.A** (ST-15.10) Change variables in a double or triple integral with the Jacobian determinant.
   - EK: dx dy = |∂(x, y)/∂(u, v)| du dv; polar, cylindrical and spherical factors are special cases.
   - Needs: CA-13.7.A, CA-12.2.A
-  - P1 · P3 · drills: cm-jacobian
+  - P1 · P3 · drills: cm-jacobian, mvd-jacobian, mvd-change-variables
 
 ## Unit 14 · Vector calculus (extension)
 
@@ -1408,11 +1408,11 @@ Book: stewart-8e §16.2
 - ● **CA-14.2.A** (ST-16.2) Evaluate a scalar line integral ∫_C f ds along a parametrised curve.
   - EK: ds = |r′(t)|dt; independent of orientation.
   - Needs: CA-14.1.A, CA-11.6.B
-  - P1 · drills: cm-line-integral-scalar
+  - P1 · drills: cm-line-integral-scalar, mvd-scalar-line
 - ● **CA-14.2.B** (ST-16.2) Evaluate the work or circulation ∫_C F·dr along a curve.
   - EK: ∫F(r(t))·r′(t)dt = ∫P dx + Q dy + R dz; reversing the orientation flips the sign.
   - Needs: CA-14.2.A
-  - P1 · drills: cm-work-line
+  - P1 · drills: cm-work-line, mvd-work, mvd-work-space
 
 ### 14.3 The fundamental theorem for line integrals
 
@@ -1421,11 +1421,11 @@ Book: stewart-8e §16.3
 - ● **CA-14.3.A** (ST-16.3) Test whether a 2-D field P i + Q j (or a differential P dx + Q dy) is conservative.
   - EK: On a simply connected region, conservative ⇔ ∂P/∂y = ∂Q/∂x — the same test as an exact differential.
   - Needs: CA-14.1.A, CA-12.2.B
-  - P3 · drills: mv-exact-test
+  - P3 · drills: mv-exact-test, mvd-conservative
 - ● **CA-14.3.B** (ST-16.3) Find a potential function and evaluate a line integral of a conservative field from endpoint values.
   - EK: f_x = P: integrate in x, differentiate in y, match Q; ∫_C ∇f·dr = f(end) − f(start), path-independent, 0 around a closed loop.
   - Needs: CA-14.3.A, CA-14.2.B
-  - P1 · drills: cm-potential
+  - P1 · drills: cm-potential, mvd-potential-work
 
 ### 14.4 Green's theorem
 
@@ -1434,7 +1434,7 @@ Book: stewart-8e §16.4
 - ● **CA-14.4.A** (ST-16.4) Convert a line integral around a closed plane curve into a double integral with Green's theorem, or the reverse (including areas).
   - EK: ∮_C P dx + Q dy = ∬_D (Q_x − P_y)dA, C positively oriented (region on the left); area = ½∮x dy − y dx.
   - Needs: CA-14.2.B, CA-13.2.A
-  - P1 · P3 · drills: cm-green
+  - P1 · P3 · drills: cm-green, mvd-green, mvd-flux-plane, mvd-green-area
 
 ### 14.5 Curl and divergence
 
@@ -1443,11 +1443,11 @@ Book: stewart-8e §16.5
 - ● **CA-14.5.A** (ST-16.5) Compute the divergence, curl and Laplacian of a vector or scalar field.
   - EK: div F = ∇·F; curl F = ∇ × F; ∇²f = ∇·∇f; curl ∇f = 0 and div curl F = 0.
   - Needs: CA-14.1.A, CA-11.3.A, CA-12.2.B
-  - P1 · drills: cm-div-curl, cm-laplacian
+  - P1 · drills: cm-div-curl, cm-laplacian, mvd-div-curl, mvd-div-curl-facts
 - ● **CA-14.5.B** (ST-16.5) Interpret divergence as net outflow per volume and curl as local rotation, and use curl F = 0 to test a 3-D field for being conservative.
   - EK: div > 0 is a source; curl F = 0 on a simply connected domain ⇒ F = ∇f.
   - Needs: CA-14.5.A, CA-14.3.A
-  - P2 · P3 · drills: ca-curl-conservative
+  - P2 · P3 · drills: ca-curl-conservative, mvd-conservative
 
 ### 14.6 Parametric surfaces and surface area
 
@@ -1456,7 +1456,7 @@ Book: stewart-8e §16.6
 - ● **CA-14.6.A** (ST-16.6) Parametrise a surface (graph, cylinder, sphere, cone) and compute its area.
   - EK: r(u, v); dS = |r_u × r_v| du dv; for z = g(x, y), dS = √(1 + g_x² + g_y²)dA.
   - Needs: CA-11.5.A, CA-11.3.A, CA-13.3.A
-  - P1 · P2 · drills: cm-surface-area
+  - P1 · P2 · drills: cm-surface-area, mvd-surface-integral
 
 ### 14.7 Surface integrals and flux
 
@@ -1465,11 +1465,11 @@ Book: stewart-8e §16.7
 - ● **CA-14.7.A** (ST-16.7) Evaluate a surface integral ∬_S f dS of a scalar function.
   - EK: ∬f(r(u, v))|r_u × r_v| du dv.
   - Needs: CA-14.6.A
-  - P1 · drills: cm-surface-integral
+  - P1 · drills: cm-surface-integral, mvd-surface-integral
 - ● **CA-14.7.B** (ST-16.7) Compute the flux ∬_S F·n dS of a vector field through an oriented surface.
   - EK: ∬F·(r_u × r_v) du dv, with r_u × r_v pointing the chosen way (outward for closed surfaces).
   - Needs: CA-14.7.A
-  - P1 · P4 · drills: cm-flux-disc
+  - P1 · P4 · drills: cm-flux-disc, mvd-flux, mvd-orientation
 
 ### 14.8 Stokes' theorem
 
@@ -1478,7 +1478,7 @@ Book: stewart-8e §16.8
 - ● **CA-14.8.A** (ST-16.8) Use Stokes' theorem to trade a circulation around a closed curve for the flux of the curl through a surface it bounds, or the reverse.
   - EK: ∮_C F·dr = ∬_S (∇ × F)·n dS; orientation of C and n by the right-hand rule; any surface with the same boundary gives the same answer.
   - Needs: CA-14.7.B, CA-14.5.A, CA-14.4.A
-  - P1 · P3 · drills: cm-stokes
+  - P1 · P3 · drills: cm-stokes, mvd-stokes, mvd-which-theorem, mvd-stokes-surface
 
 ### 14.9 The divergence theorem
 
@@ -1487,7 +1487,7 @@ Book: stewart-8e §16.9
 - ● **CA-14.9.A** (ST-16.9) Use the divergence theorem to compute the outward flux through a closed surface as a volume integral, or the reverse.
   - EK: ∯_S F·n dS = ∭_E ∇·F dV, n outward.
   - Needs: CA-14.7.B, CA-14.5.A, CA-13.7.A
-  - P1 · P3 · drills: cm-divergence-theorem
+  - P1 · P3 · drills: cm-divergence-theorem, mvd-divergence-theorem, mvd-divergence-curved
 - ● **CA-14.9.B** (ST-16.9) Turn an integral balance on an arbitrary control volume into a differential conservation law with the divergence theorem.
   - EK: d/dt∭c dV = −∯N·n dS + ∭R dV for every volume ⇒ ∂c/∂t + ∇·N = R.
   - Needs: CA-14.9.A, CA-14.5.B

@@ -62,6 +62,8 @@ function negatives(p: Problem): (string | string[])[] {
       return out;
     }
     case "expression":
+      // a final answer must refuse the right value left as an expression
+      if (a.final) return [`(${a.ref})*3/3`, `${a.ref} + 0`, ...(a.rel ? [`(${a.ref})*1.03`] : [`${a.ref} + 0.01`])];
       // just outside the tolerance: 3% off for an ordinary answer, 1.5× the band for an estimate (UIL allows 5%)
       if (a.rel) return [`(${a.ref})*${Math.max(1.03, 1 + 1.5 * (a.tol ?? 0.01))}`, `(${a.ref})*10`, `-(${a.ref})`];
       return [(a.vars ?? ["x"]).length ? `${a.ref} + x/7` : `${a.ref} + 0.01`];

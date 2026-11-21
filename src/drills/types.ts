@@ -29,6 +29,8 @@ export type Answer =
   | { kind: "expression"; ref: string; vars?: string[]; upToConstant?: boolean; label?: string; tol?: number;
       /** tol is a fraction of the reference value (engineering numbers: 0.01 = within 1%) */
       rel?: boolean; unit?: string;
+      /** accept only one number (integer, decimal or a/b), not an expression: the arithmetic is the point */
+      final?: boolean;
       /** sample scopes to check at, instead of the default grid (integer n, both sides of a step, small t) */
       points?: Record<string, number>[] }
   /** two-term recurrence a_{m+gap} = f(m) a_m ; ref is f in the variable m */
