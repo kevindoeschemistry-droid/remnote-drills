@@ -1,0 +1,258 @@
+# Programming Foundations, Python (unit 7): predict what a short snippet prints. The code is drawn
+# from the case field `code`; every answer is checked by running it in a fresh python3
+# (tests/verify/progcode.py: py_out, py_pick). Multi-line output is written with " / " between lines.
+
+- template: pr-py-arith
+  skill: prog.python
+  pace: quick
+  figure: { type: code, src: code }
+  cases:
+    - { code: "print(7 / 2)", ans: 3.5 }
+    - { code: "print(7 // 2)", ans: 3 }
+    - { code: "print(-7 // 2)", ans: -4 }
+    - { code: "print(-7 % 3)", ans: 2 }
+    - { code: "print(2 ** 3 ** 2)", ans: 512 }
+    - { code: "print(10 - 2 * 3 ** 2)", ans: -8 }
+    - { code: "print(int(-3.7))", ans: -3 }
+    - { code: "print(round(2.675, 2) * 100 // 1)", ans: 267 }
+  prompt: 'What does this print?'
+  parts:
+    - { ask: 'Output', label: a, value: ans, tol: 0.0001, explain: 'In Python / always gives a float; // floors (toward −∞, so −7 // 2 is −4, unlike Java''s −3), and % takes the sign of the divisor. ** binds tightest and groups right to left. int() truncates toward zero. 2.675 is stored as 2.67499…, so it rounds down' }
+  verify: { expect: { a: "py_out(code)" } }
+
+- template: pr-py-truthy
+  skill: prog.python
+  pace: quick
+  figure: { type: code, src: code }
+  cases:
+    - { code: "print(bool([]), bool('0'))", o1: 'False True', o2: 'False False', o3: 'True True', o4: 'True False', ans: 0 }
+    - { code: "print(0 or 'x')", o1: '0', o2: 'x', o3: 'True', o4: 'False', ans: 1 }
+    - { code: "print(3 and 0)", o1: '3', o2: 'True', o3: '0', o4: 'False', ans: 2 }
+    - { code: "print(1 < 3 < 2)", o1: 'True', o2: 'An error', o3: '1', o4: 'False', ans: 3 }
+    - { code: "print(None or [] or 'end')", o1: 'end', o2: 'None', o3: '[]', o4: 'False', ans: 0 }
+  prompt: 'What does this print?'
+  parts:
+    - ask: 'Output'
+      label: a
+      choice: ["{{o1}}", "{{o2}}", "{{o3}}", "{{o4}}"]
+      correct: ans
+      explain: 'Empty containers, 0, 0.0, None and "" are falsy; everything else (even "0") is truthy. and / or return one of their operands, not True or False: or gives the first truthy one, and the first falsy one. 1 < 3 < 2 means 1 < 3 and 3 < 2'
+  verify: { choices: { a: "py_pick(code, [o1, o2, o3, o4])" } }
+
+- template: pr-py-range
+  skill: prog.python
+  pace: quick
+  figure: { type: code, src: code }
+  cases:
+    - { code: "print(list(range(2, 11, 3)))", o1: '[2, 5, 8]', o2: '[2, 5, 8, 11]', o3: '[3, 6, 9]', o4: '[2, 4, 6, 8, 10]', ans: 0 }
+    - { code: "print(list(range(10, 0, -4)))", o1: '[10, 6, 2, 0]', o2: '[10, 6, 2]', o3: '[]', o4: '[6, 2]', ans: 1 }
+    - { code: "print(list(range(5, 1)))", o1: '[5, 4, 3, 2]', o2: '[1, 2, 3, 4]', o3: '[]', o4: 'An error', ans: 2 }
+    - { code: "print(len(range(0, 100, 7)))", o1: '14', o2: '100', o3: '7', o4: '15', ans: 3 }
+  prompt: 'What does this print?'
+  parts:
+    - ask: 'Output'
+      label: a
+      choice: ["{{o1}}", "{{o2}}", "{{o3}}", "{{o4}}"]
+      correct: ans
+      explain: 'range(start, stop, step) starts at start and never reaches stop. A negative step counts down; a range that cannot move toward stop is empty. Its length is ⌈(stop − start) ÷ step⌉'
+  verify: { choices: { a: "py_pick(code, [o1, o2, o3, o4])" } }
+
+- template: pr-py-loops
+  skill: prog.python
+  pace: quick
+  figure: { type: code, src: code }
+  cases:
+    - code: |
+        total = 0
+        for i, ch in enumerate("abc"):
+            total += i
+        print(total)
+      ans: 3
+    - code: |
+        s = 0
+        for a, b in zip([1, 2, 3], [10, 20]):
+            s += a * b
+        print(s)
+      ans: 50
+    - code: |
+        n = 0
+        for x in range(10):
+            if x % 3 == 0:
+                continue
+            if x > 7:
+                break
+            n += x
+        print(n)
+      ans: 19
+    - code: |
+        k = 0
+        while True:
+            k += 2
+            if k * k > 50:
+                break
+        print(k)
+      ans: 8
+  prompt: 'What does this print?'
+  parts:
+    - { ask: 'Output', label: a, value: ans, tol: 0.0001, explain: 'enumerate gives (index, item) pairs; zip stops at the shorter list. continue skips to the next pass, break leaves the loop. Trace the variables pass by pass' }
+  verify: { expect: { a: "py_out(code)" } }
+
+- template: pr-py-slice
+  skill: prog.python
+  pace: quick
+  figure: { type: code, src: code }
+  cases:
+    - { code: "s = 'python'\nprint(s[1:4])", o1: 'yth', o2: 'ytho', o3: 'pyt', o4: 'th', ans: 0 }
+    - { code: "s = 'python'\nprint(s[-2:])", o1: 'py', o2: 'on', o3: 'n', o4: 'hon', ans: 1 }
+    - { code: "s = 'python'\nprint(s[::2])", o1: 'yhn', o2: 'pyt', o3: 'pto', o4: 'nhy', ans: 2 }
+    - { code: "s = 'python'\nprint(s[::-1])", o1: 'python', o2: 'nohtyp', o3: 'n', o4: 'nohty', ans: 1 }
+    - { code: "a = [10, 20, 30, 40, 50]\nprint(a[-3:-1])", o1: '[30, 40, 50]', o2: '[20, 30]', o3: '[40, 50]', o4: '[30, 40]', ans: 3 }
+  prompt: 'What does this print?'
+  parts:
+    - ask: 'Output'
+      label: a
+      choice: ["{{o1}}", "{{o2}}", "{{o3}}", "{{o4}}"]
+      correct: ans
+      explain: 'x[a:b] runs from a up to but not including b; negative indices count from the end (−1 is last); a step picks every k-th item, and a negative step walks backward. Out-of-range slice bounds are clipped, not errors'
+  verify: { choices: { a: "py_pick(code, [o1, o2, o3, o4])" } }
+
+- template: pr-py-list-ops
+  skill: prog.python
+  pace: quick
+  figure: { type: code, src: code }
+  cases:
+    - { code: "a = [3, 1, 2]\na.append([4, 5])\nprint(len(a))", o1: '4', o2: '5', o3: '3', o4: '6', ans: 0 }
+    - { code: "a = [3, 1, 2]\na.extend([4, 5])\nprint(len(a))", o1: '4', o2: '5', o3: '3', o4: '6', ans: 1 }
+    - { code: "a = [3, 1, 2]\nb = a.sort()\nprint(b)", o1: '[1, 2, 3]', o2: '[3, 1, 2]', o3: 'None', o4: 'An error', ans: 2 }
+    - { code: "a = [5, 7, 5, 9]\na.remove(5)\nprint(a)", o1: '[7, 9]', o2: '[5, 7, 9]', o3: '[5, 7, 5]', o4: '[7, 5, 9]', ans: 3 }
+    - { code: "a = [5, 7, 9]\nx = a.pop()\na.insert(0, x)\nprint(a)", o1: '[9, 5, 7]', o2: '[5, 7, 9]', o3: '[9, 7, 5]', o4: '[5, 9, 7]', ans: 0 }
+  prompt: 'What does this print?'
+  parts:
+    - ask: 'Output'
+      label: a
+      choice: ["{{o1}}", "{{o2}}", "{{o3}}", "{{o4}}"]
+      correct: ans
+      explain: 'append adds one item (even a whole list as one item); extend adds each item. Methods that change a list in place (sort, append, insert) return None; sorted(a) returns a new list. remove deletes the first match; pop() removes and returns the last item'
+  verify: { choices: { a: "py_pick(code, [o1, o2, o3, o4])" } }
+
+- template: pr-py-alias
+  skill: prog.python
+  pace: quick
+  figure: { type: code, src: code }
+  cases:
+    - { code: "a = [1, 2]\nb = a\nb.append(3)\nprint(a)", o1: '[1, 2, 3]', o2: '[1, 2]', o3: '[3]', o4: 'An error', ans: 0 }
+    - { code: "a = [1, 2]\nb = a[:]\nb.append(3)\nprint(a)", o1: '[1, 2, 3]', o2: '[1, 2]', o3: '[]', o4: '[3]', ans: 1 }
+    - { code: "g = [[0] * 2] * 2\ng[0][0] = 1\nprint(g)", o1: '[[1, 0], [0, 0]]', o2: '[[1, 1], [0, 0]]', o3: '[[1, 0], [1, 0]]', o4: '[[1, 1], [1, 1]]', ans: 2 }
+    - { code: "g = [[0] * 2 for _ in range(2)]\ng[0][0] = 1\nprint(g)", o1: '[[1, 0], [1, 0]]', o2: '[[1, 1], [0, 0]]', o3: '[[0, 0], [0, 0]]', o4: '[[1, 0], [0, 0]]', ans: 3 }
+  prompt: 'What does this print?'
+  parts:
+    - ask: 'Output'
+      label: a
+      choice: ["{{o1}}", "{{o2}}", "{{o3}}", "{{o4}}"]
+      correct: ans
+      explain: 'Assignment never copies: b = a names the same list. a[:] or list(a) makes a shallow copy. [row] * 2 repeats the same row object twice, so changing one "row" changes both; a comprehension builds a new row each time'
+  verify: { choices: { a: "py_pick(code, [o1, o2, o3, o4])" } }
+
+- template: pr-py-comprehension
+  skill: prog.python
+  pace: quick
+  figure: { type: code, src: code }
+  cases:
+    - { code: "print([x * x for x in range(5) if x % 2])", o1: '[1, 9]', o2: '[0, 4, 16]', o3: '[1, 3]', o4: '[0, 1, 4, 9, 16]', ans: 0 }
+    - { code: "print([c.upper() for c in 'abc' if c != 'b'])", o1: '[A, C]', o2: "['A', 'C']", o3: "['A', 'B', 'C']", o4: 'AC', ans: 1 }
+    - { code: "print(sum(len(w) for w in 'to be or not'.split()))", o1: '12', o2: '4', o3: '9', o4: '10', ans: 2 }
+    - { code: "print({k: k % 3 for k in range(4)})", o1: '{0, 1, 2, 0}', o2: '[0, 1, 2, 0]', o3: '{0: 0, 1: 1, 2: 2}', o4: '{0: 0, 1: 1, 2: 2, 3: 0}', ans: 3 }
+  prompt: 'What does this print?'
+  parts:
+    - ask: 'Output'
+      label: a
+      choice: ["{{o1}}", "{{o2}}", "{{o3}}", "{{o4}}"]
+      correct: ans
+      explain: '[expr for x in items if cond] keeps the items where cond is true and transforms each with expr. The same shape makes dicts ({k: v for …}) and, inside sum(), a generator with no list built at all'
+  verify: { choices: { a: "py_pick(code, [o1, o2, o3, o4])" } }
+
+- template: pr-py-dict-str
+  skill: prog.python
+  pace: quick
+  figure: { type: code, src: code }
+  cases:
+    - code: |
+        counts = {}
+        for w in "a b a c b a".split():
+            counts[w] = counts.get(w, 0) + 1
+        print(counts["a"] * 10 + len(counts))
+      ans: 33
+    - code: |
+        d = {"x": 1, "y": 2}
+        d["x"] = 5
+        d["z"] = 3
+        del d["y"]
+        print(sum(d.values()))
+      ans: 8
+    - code: |
+        s = "  12, 7 ,30 "
+        nums = [int(t.strip()) for t in s.split(",")]
+        print(sum(nums))
+      ans: 49
+    - code: |
+        print(float(f"{2/3:.3f}") * 1000)
+      ans: 667
+  prompt: 'What does this print?'
+  parts:
+    - { ask: 'Output', label: a, value: ans, tol: 0.0001, explain: 'd.get(k, 0) gives a default for a missing key, the standard way to count. Assigning to a new key adds it; del removes one. split(",") breaks on commas and strip() trims spaces before converting. In an f-string, :.3f rounds to 3 decimals' }
+  verify: { expect: { a: "py_out(code)" } }
+
+- template: pr-py-functions
+  skill: prog.python
+  pace: quick
+  figure: { type: code, src: code }
+  cases:
+    - code: |
+        def f(a, b=10, c=100):
+            return a + b + c
+        print(f(1, c=2))
+      o1: '13'
+      o2: '111'
+      o3: '103'
+      o4: 'An error'
+      ans: 0
+    - code: |
+        def g(x):
+            x * 2
+        print(g(4))
+      o1: '8'
+      o2: 'None'
+      o3: '4'
+      o4: 'An error'
+      ans: 1
+    - code: |
+        def h(items=[]):
+            items.append(1)
+            return len(items)
+        h()
+        print(h())
+      o1: '1'
+      o2: '0'
+      o3: '2'
+      o4: 'An error'
+      ans: 2
+    - code: |
+        def p(n):
+            try:
+                return 10 // n
+            except ZeroDivisionError:
+                return -1
+        print(p(0) + p(3))
+      o1: 'ZeroDivisionError'
+      o2: '3'
+      o3: '-1'
+      o4: '2'
+      ans: 3
+  prompt: 'What does this print?'
+  parts:
+    - ask: 'Output'
+      label: a
+      choice: ["{{o1}}", "{{o2}}", "{{o3}}", "{{o4}}"]
+      correct: ans
+      explain: 'Keyword arguments skip over defaults by name. A function with no return statement returns None. A mutable default ([]) is created once and shared by every call, so it remembers earlier calls: default to None instead. try/except catches the named exception and carries on'
+  verify: { choices: { a: "py_pick(code, [o1, o2, o3, o4])" } }

@@ -2,7 +2,7 @@
 
 Generated from `drills/frameworks/computer-science.yaml` by `scripts/framework.mjs`. ● drilled · ◐ partly · ○ no drills yet.
 
-**140 learning objectives** in 19 units (128 core): 1 drilled, 0 partly, 139 with no drills. Core: 1 / 128 drilled.
+**140 learning objectives** in 19 units (128 core): 55 drilled, 0 partly, 85 with no drills. Core: 54 / 128 drilled.
 
 ## Big ideas
 
@@ -28,25 +28,25 @@ Generated from `drills/frameworks/computer-science.yaml` by `scripts/framework.m
 
 | Unit | Scope | Est. weight | LOs | ● | ◐ | ○ |
 |---|---|---|---|---|---|---|
-| 1 · Discrete and probabilistic foundations | core | — | 8 | 0 | 0 | 8 |
-| 2 · Algorithm analysis | core | — | 8 | 0 | 0 | 8 |
-| 3 · Data structures | core | — | 10 | 0 | 0 | 10 |
-| 4 · Algorithm design and graph algorithms | core | — | 11 | 0 | 0 | 11 |
-| 5 · Models of computation and complexity classes | core | — | 6 | 0 | 0 | 6 |
-| 6 · Software engineering | core | — | 8 | 0 | 0 | 8 |
-| 7 · Databases and data management | core | — | 13 | 1 | 0 | 12 |
-| 8 · Computer architecture and systems performance | core | — | 9 | 0 | 0 | 9 |
-| 9 · Operating systems and systems programming | core | — | 11 | 0 | 0 | 11 |
-| 10 · Networking | core | — | 9 | 0 | 0 | 9 |
-| 11 · Security | core | — | 9 | 0 | 0 | 9 |
+| 1 · Discrete and probabilistic foundations | core | — | 8 | 4 | 0 | 4 |
+| 2 · Algorithm analysis | core | — | 8 | 4 | 0 | 4 |
+| 3 · Data structures | core | — | 10 | 6 | 0 | 4 |
+| 4 · Algorithm design and graph algorithms | core | — | 11 | 7 | 0 | 4 |
+| 5 · Models of computation and complexity classes | core | — | 6 | 2 | 0 | 4 |
+| 6 · Software engineering | core | — | 8 | 3 | 0 | 5 |
+| 7 · Databases and data management | core | — | 13 | 3 | 0 | 10 |
+| 8 · Computer architecture and systems performance | core | — | 9 | 7 | 0 | 2 |
+| 9 · Operating systems and systems programming | core | — | 11 | 5 | 0 | 6 |
+| 10 · Networking | core | — | 9 | 3 | 0 | 6 |
+| 11 · Security | core | — | 9 | 4 | 0 | 5 |
 | 12 · Programming languages | core | — | 7 | 0 | 0 | 7 |
-| 13 · Artificial intelligence and machine learning | core | — | 7 | 0 | 0 | 7 |
-| 14 · Parallel and distributed computing | core | — | 4 | 0 | 0 | 4 |
-| 15 · Human–computer interaction | core | — | 4 | 0 | 0 | 4 |
-| 16 · Society, ethics and the profession | core | — | 4 | 0 | 0 | 4 |
+| 13 · Artificial intelligence and machine learning | core | — | 7 | 3 | 0 | 4 |
+| 14 · Parallel and distributed computing | core | — | 4 | 1 | 0 | 3 |
+| 15 · Human–computer interaction | core | — | 4 | 1 | 0 | 3 |
+| 16 · Society, ethics and the profession | core | — | 4 | 1 | 0 | 3 |
 | 17 · Advanced algorithms | extension | — | 4 | 0 | 0 | 4 |
 | 18 · Distributed systems and cloud | extension | — | 5 | 0 | 0 | 5 |
-| 19 · Machine learning in depth | extension | — | 3 | 0 | 0 | 3 |
+| 19 · Machine learning in depth | extension | — | 3 | 1 | 0 | 2 |
 
 ## Unit 1 · Discrete and probabilistic foundations
 
@@ -67,12 +67,12 @@ Book: cs2023 §MSF-Discrete
 
 Book: cs2023 §MSF-Discrete
 
-- ○ **CS-1.2.A** Count arrangements or selections with the product rule, permutations, combinations and inclusion–exclusion, giving a number.
+- ● **CS-1.2.A** Count arrangements or selections with the product rule, permutations, combinations and inclusion–exclusion, giving a number.
   - EK: Order matters ⇒ P(n,k) = n!/(n−k)!; order ignored ⇒ C(n,k); |A ∪ B| = |A| + |B| − |A ∩ B|.
-  - P1 · P2
-- ○ **CS-1.2.B** Evaluate a summation or simple linear recurrence in closed form (e.g. T(n) = T(n−1) + n).
+  - P1 · P2 · drills: cs-counting
+- ● **CS-1.2.B** Evaluate a summation or simple linear recurrence in closed form (e.g. T(n) = T(n−1) + n).
   - EK: Σ i = n(n+1)/2; Σ 2^i = 2^(n+1) − 1; geometric series with ratio < 1 is bounded by its first term.
-  - P2
+  - P2 · drills: cs-recurrence
 
 ### 1.3 Relations and graphs
 
@@ -86,12 +86,12 @@ Book: cs2023 §MSF-Discrete
 
 Book: cs2023 §MSF-Probability, §MSF-Statistics
 
-- ○ **CS-1.4.A** Compute an expected count (collisions, comparisons, hits) using linearity of expectation over indicator variables.
+- ● **CS-1.4.A** Compute an expected count (collisions, comparisons, hits) using linearity of expectation over indicator variables.
   - EK: E[ΣX_i] = ΣE[X_i] even when the X_i are dependent; E[indicator] = P(event).
-  - P2
-- ○ **CS-1.4.B** Apply Bayes' rule to a detector or classifier scenario and find the probability an alert is real.
+  - P2 · drills: cs-expected-collisions
+- ● **CS-1.4.B** Apply Bayes' rule to a detector or classifier scenario and find the probability an alert is real.
   - EK: P(A|B) = P(B|A)P(A)/P(B); a low base rate makes most positives false even for an accurate test.
-  - P2 · P7
+  - P2 · P7 · drills: cs-bayes-alert
 - ○ **CS-1.4.C** Compute the mean, standard deviation and a confidence interval from repeated benchmark runs, and decide whether two configurations differ.
   - EK: CI ≈ x̄ ± t·s/√n; overlapping intervals do not prove no difference; report variance, not one run.
   - P2 · P6
@@ -104,13 +104,13 @@ Big ideas: COST, CORR
 
 Book: cs2023 §AL-Foundational, §AL-Complexity
 
-- ○ **CS-2.1.A** Rank a set of functions by growth rate (constant, log, polylog, polynomial, exponential, factorial).
+- ● **CS-2.1.A** Rank a set of functions by growth rate (constant, log, polylog, polynomial, exponential, factorial).
   - EK: log n ≪ n^ε ≪ n^k ≪ c^n ≪ n!; bases of logs differ by a constant factor.
-  - P2
-- ○ **CS-2.1.B** Compute the Big-O of described or shown code — nested loops, dependent bounds, index doubling or halving — as an auto-checked answer.
+  - P2 · drills: cs-growth-rank
+- ● **CS-2.1.B** Compute the Big-O of described or shown code — nested loops, dependent bounds, index doubling or halving — as an auto-checked answer.
   - EK: Nested independent loops multiply; i *= 2 runs log n times; Σ_{i=1..n} i = Θ(n²); sequential blocks add, the largest wins.
   - Needs: CS-1.2.B
-  - P2
+  - P2 · drills: cs-big-o-code
 
 ### 2.2 Recurrences and divide-and-conquer cost
 
@@ -119,10 +119,10 @@ Book: cs2023 §AL-Foundational, §AL-Strategies
 - ○ **CS-2.2.A** Write the running-time recurrence of a recursive function from its code.
   - EK: T(n) = a·T(n/b) + f(n): a recursive calls on size n/b plus non-recursive work f(n).
   - P1 · P2
-- ○ **CS-2.2.B** Solve a divide-and-conquer recurrence with the master theorem or a recursion tree, naming the case that applies.
+- ● **CS-2.2.B** Solve a divide-and-conquer recurrence with the master theorem or a recursion tree, naming the case that applies.
   - EK: Compare f(n) with n^(log_b a): smaller ⇒ Θ(n^(log_b a)); equal ⇒ ×log n; larger (regular) ⇒ Θ(f(n)).
   - Needs: CS-2.2.A
-  - P2
+  - P2 · drills: cs-master
 
 ### 2.3 Cases and amortization
 
@@ -131,9 +131,9 @@ Book: cs2023 §AL-Foundational, §AL-Complexity
 - ○ **CS-2.3.A** Identify the best-, worst- and average-case inputs of an algorithm and their costs (e.g. quicksort on sorted input).
   - EK: Worst case is a guarantee over all inputs of size n; average case needs an input distribution.
   - P2 · P6
-- ○ **CS-2.3.B** Compute the amortized cost per operation of a sequence (dynamic-array doubling, binary counter) by the aggregate or accounting method.
+- ● **CS-2.3.B** Compute the amortized cost per operation of a sequence (dynamic-array doubling, binary counter) by the aggregate or accounting method.
   - EK: Doubling capacity costs n total copies over n appends ⇒ O(1) amortized; growing by a constant is O(n) amortized.
-  - P2
+  - P2 · drills: cs-amortized
 
 ### 2.4 Correctness arguments
 
@@ -155,44 +155,44 @@ Big ideas: REP, COST
 
 Book: cs2023 §SDF-Data-Structures, §AL-Foundational
 
-- ○ **CS-3.1.A** State the cost of access, insert-at-front, append and delete for arrays, dynamic arrays, singly and doubly linked lists and deques.
+- ● **CS-3.1.A** State the cost of access, insert-at-front, append and delete for arrays, dynamic arrays, singly and doubly linked lists and deques.
   - EK: Arrays: O(1) index, O(n) front insert; linked lists: O(1) splice given the node, O(n) index; contiguous memory is cache-friendly.
-  - P2
+  - P2 · drills: cs-structure-cost
 
 ### 3.2 Hash tables
 
 Book: cs2023 §AL-Foundational, §SDF-Data-Structures
 
-- ○ **CS-3.2.A** Trace insertions into a hash table under chaining, linear probing or double hashing for a given hash function, giving the final table.
+- ● **CS-3.2.A** Trace insertions into a hash table under chaining, linear probing or double hashing for a given hash function, giving the final table.
   - EK: Linear probing tries h, h+1, h+2 … mod m; deletion under open addressing needs tombstones.
-  - P3
-- ○ **CS-3.2.B** Compute the load factor and expected probes for a hash table and decide when it must resize.
+  - P3 · drills: cs-hash-probe
+- ● **CS-3.2.B** Compute the load factor and expected probes for a hash table and decide when it must resize.
   - EK: α = n/m; chaining: expected chain length α; linear probing degrades sharply above α ≈ 0.7.
   - Needs: CS-1.4.A
-  - P2
+  - P2 · drills: cs-load-factor
 
 ### 3.3 Search trees
 
 Book: cs2023 §AL-Foundational, §SDF-Data-Structures
 
-- ○ **CS-3.3.A** Trace BST insertion and deletion and produce the in-, pre- and post-order traversals of the result.
+- ● **CS-3.3.A** Trace BST insertion and deletion and produce the in-, pre- and post-order traversals of the result.
   - EK: In-order of a BST is sorted; deleting a two-child node swaps in its successor; height ranges from log n to n.
-  - P3
+  - P3 · drills: cs-bst-traversal
 - ○ **CS-3.3.B** Trace the rotations an AVL or red-black tree performs after an insertion.
   - EK: AVL keeps |balance| ≤ 1 via single or double rotations; both guarantee O(log n) height.
   - Needs: CS-3.3.A
   - P3
-- ○ **CS-3.3.C** Compute the height of a B-tree or B+-tree of order m holding n keys and explain why databases use it.
+- ● **CS-3.3.C** Compute the height of a B-tree or B+-tree of order m holding n keys and explain why databases use it.
   - EK: Height ≈ log_m n; high fanout makes each level one disk page, so a lookup costs a few I/Os.
-  - P2 · P4
+  - P2 · P4 · drills: cs-btree-height
 
 ### 3.4 Heaps and priority queues
 
 Book: cs2023 §AL-Foundational, §SDF-Data-Structures
 
-- ○ **CS-3.4.A** Trace a binary heap's array after insert, extract-min and bottom-up heapify.
+- ● **CS-3.4.A** Trace a binary heap's array after insert, extract-min and bottom-up heapify.
   - EK: Children of i at 2i+1, 2i+2; sift-up/down are O(log n); bottom-up build is O(n).
-  - P3
+  - P3 · drills: cs-heap-trace
 
 ### 3.5 Graph representations and disjoint sets
 
@@ -223,9 +223,9 @@ Big ideas: COST, CORR, REP
 
 Book: cs2023 §AL-Foundational, §SDF-Algorithms
 
-- ○ **CS-4.1.A** Trace the array after k passes of insertion, selection or bubble sort, a quicksort partition, or a merge step.
+- ● **CS-4.1.A** Trace the array after k passes of insertion, selection or bubble sort, a quicksort partition, or a merge step.
   - EK: Insertion sort keeps a sorted prefix; selection places the k-th smallest at pass k; Lomuto/Hoare partitions differ in pivot placement.
-  - P3
+  - P3 · drills: pr-sort-pass
 - ○ **CS-4.1.B** Pick a sort for a scenario by worst-case time, stability, extra space and adaptivity, and explain when counting or radix sort beats Ω(n log n).
   - EK: Comparison sorts need Ω(n log n) comparisons; merge sort is stable, heapsort in-place, quicksort fast on average; radix sort is O(d(n + k)).
   - Needs: CS-2.3.A
@@ -238,17 +238,17 @@ Book: cs2023 §AL-Strategies
 - ○ **CS-4.2.A** Apply a greedy rule (interval scheduling by earliest finish, Huffman coding) and give its output; for coin change with non-canonical coins, produce the counterexample.
   - EK: Greedy is correct only with the greedy-choice property and optimal substructure, shown by an exchange argument.
   - P3 · P6
-- ○ **CS-4.2.B** Build a Huffman code for given symbol frequencies and compute the encoded length in bits.
+- ● **CS-4.2.B** Build a Huffman code for given symbol frequencies and compute the encoded length in bits.
   - EK: Repeatedly merge the two least-frequent nodes; total bits = Σ freq × depth.
-  - P3 · P2
+  - P3 · P2 · drills: cs-huffman
 
 ### 4.3 Dynamic programming
 
 Book: cs2023 §AL-Strategies
 
-- ○ **CS-4.3.A** Fill a DP table (LCS, edit distance, 0/1 knapsack, coin-change count) and read off the optimum and one optimal solution.
+- ● **CS-4.3.A** Fill a DP table (LCS, edit distance, 0/1 knapsack, coin-change count) and read off the optimum and one optimal solution.
   - EK: Each cell is a subproblem combined from already-filled cells; traceback through choices recovers the solution.
-  - P3
+  - P3 · drills: cs-dp, cs-knapsack-coins
 - ○ **CS-4.3.B** Write the state, recurrence and base cases for a described optimisation problem and give its time and space.
   - EK: Time ≈ (# states) × (work per state); overlapping subproblems + optimal substructure ⇒ DP.
   - P1 · P2
@@ -257,29 +257,29 @@ Book: cs2023 §AL-Strategies
 
 Book: cs2023 §AL-Foundational
 
-- ○ **CS-4.4.A** Trace BFS or DFS from a source (neighbours in given order) and give the visit order, BFS distances or DFS discovery/finish times.
+- ● **CS-4.4.A** Trace BFS or DFS from a source (neighbours in given order) and give the visit order, BFS distances or DFS discovery/finish times.
   - EK: BFS finds fewest-edge paths using a queue; DFS uses a stack/recursion; both are O(V + E).
   - Needs: CS-3.5.A
-  - P3
-- ○ **CS-4.4.B** Produce a topological order of a DAG, or report the cycle that prevents one.
+  - P3 · drills: cs-graph-search
+- ● **CS-4.4.B** Produce a topological order of a DAG, or report the cycle that prevents one.
   - EK: Kahn: repeatedly remove in-degree-0 vertices; DFS: reverse finish order; a back edge means a cycle.
-  - P3 · P6
+  - P3 · P6 · drills: cs-topo
 
 ### 4.5 Shortest paths and spanning trees
 
 Book: cs2023 §AL-Foundational
 
-- ○ **CS-4.5.A** Trace Dijkstra's distance array and settled set after k extractions.
+- ● **CS-4.5.A** Trace Dijkstra's distance array and settled set after k extractions.
   - EK: Greedily settle the closest unsettled vertex and relax its edges; O((V + E) log V) with a binary heap.
   - Needs: CS-3.4.A
-  - P3
+  - P3 · drills: cs-shortest-path
 - ○ **CS-4.5.B** Run Bellman–Ford to find distances or detect a negative cycle, and explain why Dijkstra fails with negative edges.
   - EK: V − 1 rounds of relaxing every edge; an improvement in round V means a negative cycle.
   - P3 · P6
-- ○ **CS-4.5.C** Compute an MST's weight with Kruskal or Prim and give the order in which edges are chosen.
+- ● **CS-4.5.C** Compute an MST's weight with Kruskal or Prim and give the order in which edges are chosen.
   - EK: Cut property: the lightest edge crossing any cut is safe; Kruskal uses union-find.
   - Needs: CS-3.5.B
-  - P3
+  - P3 · drills: cs-mst
 
 ## Unit 5 · Models of computation and complexity classes
 
@@ -289,9 +289,9 @@ Big ideas: CORR, COST
 
 Book: cs2023 §AL-Models
 
-- ○ **CS-5.1.A** Trace a DFA or NFA on an input string and decide whether it accepts.
+- ● **CS-5.1.A** Trace a DFA or NFA on an input string and decide whether it accepts.
   - EK: A DFA has exactly one transition per symbol; an NFA accepts if any path does; every NFA has an equivalent DFA.
-  - P3
+  - P3 · drills: cs-dfa
 - ○ **CS-5.1.B** Write a regular expression or DFA for a described language, or argue it is not regular.
   - EK: Regular languages cannot count unboundedly (e.g. aⁿbⁿ); pumping lemma gives the contradiction.
   - P1 · P5
@@ -306,9 +306,9 @@ Book: cs2023 §AL-Models, §AL-Complexity
 - ○ **CS-5.2.A** Show a described problem is undecidable by reducing the halting problem to it.
   - EK: If a decider for X would yield a decider for HALT, X is undecidable; Rice's theorem covers non-trivial semantic properties.
   - P6
-- ○ **CS-5.2.B** Classify a described problem as in P, NP-complete, or undecidable, and verify a given certificate in polynomial time.
+- ● **CS-5.2.B** Classify a described problem as in P, NP-complete, or undecidable, and verify a given certificate in polynomial time.
   - EK: NP = polynomially verifiable; NP-complete = in NP and every NP problem reduces to it; P = NP is open.
-  - P4 · P6
+  - P4 · P6 · drills: cs-complexity-class
 - ○ **CS-5.2.C** State the direction of a polynomial reduction needed to prove a new problem NP-hard, and carry out a small one (3-SAT → independent set, vertex cover ↔ independent set).
   - EK: Reduce a known NP-hard problem TO the new one; S is a vertex cover ⇔ V∖S is an independent set.
   - Needs: CS-5.2.B
@@ -330,12 +330,12 @@ Book: cs2023 §SE-Teamwork, §SE-Requirements
 
 Book: cs2023 §SE-Design, §FPL-OOP
 
-- ○ **CS-6.2.A** Identify which SOLID principle a code snippet violates and the refactoring that fixes it.
+- ● **CS-6.2.A** Identify which SOLID principle a code snippet violates and the refactoring that fixes it.
   - EK: SRP one reason to change; OCP extend without editing; LSP subtypes substitutable; ISP small interfaces; DIP depend on abstractions.
-  - P6
-- ○ **CS-6.2.B** Name the design pattern a snippet implements or needs (strategy, observer, factory, adapter, decorator, singleton, repository).
+  - P6 · drills: cs-design-pattern
+- ● **CS-6.2.B** Name the design pattern a snippet implements or needs (strategy, observer, factory, adapter, decorator, singleton, repository).
   - EK: Patterns are named solutions to recurring forces: vary an algorithm ⇒ strategy; notify dependents ⇒ observer; wrap an incompatible API ⇒ adapter.
-  - P4
+  - P4 · drills: cs-design-pattern
 
 ### 6.3 Tools and construction
 
@@ -360,9 +360,9 @@ Book: cs2023 §SE-Validation
 
 Book: cs2023 §SE-Reliability, §SE-Formal, §SF-Reliability
 
-- ○ **CS-6.5.A** Compute availability from MTBF and MTTR, and for components in series or redundant parallel; convert nines to downtime per year.
+- ● **CS-6.5.A** Compute availability from MTBF and MTTR, and for components in series or redundant parallel; convert nines to downtime per year.
   - EK: A = MTBF/(MTBF + MTTR); series multiply A; parallel 1 − Π(1 − A_i); 99.9% ≈ 8.8 h/yr down.
-  - P2
+  - P2 · drills: cs-availability
 - ○ **CS-6.5.B** Write pre- and postconditions for a function and decide whether a given Hoare triple holds.
   - EK: {P} S {Q}: if P holds before S and S terminates, Q holds after; assignment rule substitutes backward.
   - Needs: CS-2.4.A
@@ -403,9 +403,9 @@ Book: cs2023 §DM-Querying
 
 Book: cs2023 §DM-Relational, §DM-Modeling
 
-- ○ **CS-7.3.A** Compute an attribute closure from a set of FDs and find all candidate keys.
+- ● **CS-7.3.A** Compute an attribute closure from a set of FDs and find all candidate keys.
   - EK: X⁺ = everything X determines by repeatedly applying FDs; X is a superkey iff X⁺ = all attributes.
-  - P3
+  - P3 · drills: cs-candidate-keys
 - ○ **CS-7.3.B** Determine the highest normal form (1NF–BCNF) a relation satisfies under given FDs.
   - EK: 2NF: no partial dependency on a key; 3NF: every non-trivial FD has a superkey LHS or prime RHS; BCNF: superkey LHS always.
   - Needs: CS-7.3.A
@@ -419,9 +419,9 @@ Book: cs2023 §DM-Relational, §DM-Modeling
 
 Book: cs2023 §DM-Processing, §DM-Internals
 
-- ○ **CS-7.4.A** Name the anomaly (dirty read, non-repeatable read, phantom, lost update, write skew) in a described interleaving and the weakest isolation level that prevents it.
+- ● **CS-7.4.A** Name the anomaly (dirty read, non-repeatable read, phantom, lost update, write skew) in a described interleaving and the weakest isolation level that prevents it.
   - EK: READ COMMITTED stops dirty reads; REPEATABLE READ stops non-repeatable reads; SERIALIZABLE stops phantoms and write skew.
-  - P3 · P6
+  - P3 · P6 · drills: cs-isolation-anomaly
 - ○ **CS-7.4.B** Decide whether a schedule is conflict-serializable by drawing its precedence graph, and give an equivalent serial order.
   - EK: Conflicts: two ops on the same item, different transactions, at least one write; acyclic precedence graph ⇔ conflict-serializable.
   - Needs: CS-4.4.B
@@ -455,12 +455,12 @@ Big ideas: REP, COST, ABS
 
 Book: cs2023 §AR-Representation
 
-- ○ **CS-8.1.A** Convert integers between binary, hex and decimal, including n-bit two's complement, and detect overflow.
+- ● **CS-8.1.A** Convert integers between binary, hex and decimal, including n-bit two's complement, and detect overflow.
   - EK: Two's complement range −2^(n−1) … 2^(n−1) − 1; negate = invert + 1; overflow iff same-sign operands give opposite-sign result.
-  - P3
-- ○ **CS-8.1.B** Decode an IEEE 754 single-precision bit pattern and explain why 0.1 + 0.2 ≠ 0.3 in binary floating point.
+  - P3 · drills: cs-twos-complement
+- ● **CS-8.1.B** Decode an IEEE 754 single-precision bit pattern and explain why 0.1 + 0.2 ≠ 0.3 in binary floating point.
   - EK: (−1)^s × 1.f × 2^(e−127); most decimal fractions have no finite binary expansion, so they round.
-  - P3
+  - P3 · drills: pr-double-compare
 
 ### 8.2 Instruction execution
 
@@ -474,31 +474,31 @@ Book: cs2023 §AR-Assembly, §AR-Organization
 
 Book: cs2023 §AR-Memory, §SF-Performance
 
-- ○ **CS-8.3.A** Split an address into tag, index and offset bits for a given cache size, block size and associativity.
+- ● **CS-8.3.A** Split an address into tag, index and offset bits for a given cache size, block size and associativity.
   - EK: offset = log₂(block bytes); sets = size/(block × ways); index = log₂(sets); tag = rest.
   - Needs: CS-8.1.A
-  - P2
+  - P2 · drills: cs-cache-bits
 - ○ **CS-8.3.B** Simulate a direct-mapped or set-associative LRU cache on an address trace and compute the hit rate — auto-checked.
   - EK: Compulsory, capacity and conflict misses; higher associativity removes conflict misses only.
   - Needs: CS-8.3.A
   - P3
-- ○ **CS-8.3.C** Compute average memory access time for a multi-level hierarchy.
+- ● **CS-8.3.C** Compute average memory access time for a multi-level hierarchy.
   - EK: AMAT = hit time + miss rate × miss penalty, applied recursively per level.
-  - P2
+  - P2 · drills: cs-amat
 
 ### 8.4 Performance laws
 
 Book: cs2023 §AR-Performance-Energy, §SF-Performance, §SF-Evaluation
 
-- ○ **CS-8.4.A** Compute CPU time from instruction count, CPI and clock rate, and compare two designs.
+- ● **CS-8.4.A** Compute CPU time from instruction count, CPI and clock rate, and compare two designs.
   - EK: CPU time = IC × CPI / f; the 'iron law' — no single factor alone measures speed.
-  - P2
-- ○ **CS-8.4.B** Apply Amdahl's law to compute overall speedup, or the fraction that must be sped up to hit a target.
+  - P2 · drills: cs-cpu-time
+- ● **CS-8.4.B** Apply Amdahl's law to compute overall speedup, or the fraction that must be sped up to hit a target.
   - EK: S = 1 / ((1 − p) + p/s); the serial fraction caps speedup at 1/(1 − p).
-  - P2
-- ○ **CS-8.4.C** Apply Little's law and utilisation to relate throughput, latency and queue length in a service.
+  - P2 · drills: cs-amdahl
+- ● **CS-8.4.C** Apply Little's law and utilisation to relate throughput, latency and queue length in a service.
   - EK: L = λW; utilisation ρ = λ/μ; queueing delay explodes as ρ → 1.
-  - P2
+  - P2 · drills: cs-little
 
 ## Unit 9 · Operating systems and systems programming
 
@@ -508,17 +508,17 @@ Big ideas: ABS, CONC, COST
 
 Book: cs2023 §OS-Purpose, §OS-Process, §OS-Principles
 
-- ○ **CS-9.1.A** Predict the output and number of processes created by code that calls fork(), exec() and wait().
+- ● **CS-9.1.A** Predict the output and number of processes created by code that calls fork(), exec() and wait().
   - EK: fork returns 0 in the child and the child PID in the parent; n sequential forks make 2ⁿ processes; exec replaces the image.
-  - P3
+  - P3 · drills: cs-fork
 
 ### 9.2 CPU scheduling
 
 Book: cs2023 §OS-Scheduling
 
-- ○ **CS-9.2.A** Compute the schedule (Gantt order), average waiting and turnaround time under FCFS, SJF, SRTF, round-robin with quantum q, or priority — auto-checked.
+- ● **CS-9.2.A** Compute the schedule (Gantt order), average waiting and turnaround time under FCFS, SJF, SRTF, round-robin with quantum q, or priority — auto-checked.
   - EK: Turnaround = completion − arrival; waiting = turnaround − burst; SJF minimises average waiting time; RR trades it for response time.
-  - P3 · P2
+  - P3 · P2 · drills: cs-scheduling
 
 ### 9.3 Concurrency and synchronization
 
@@ -543,21 +543,21 @@ Book: cs2023 §OS-Memory
   - EK: VPN = high bits, offset = low log₂(page size) bits; each level indexes one table; PA = frame × page size + offset.
   - Needs: CS-8.1.A
   - P3
-- ○ **CS-9.4.B** Compute page-table size and effective access time with a TLB of given hit rate.
+- ● **CS-9.4.B** Compute page-table size and effective access time with a TLB of given hit rate.
   - EK: Entries = 2^(VA bits − offset bits); EAT = h·(t_TLB + t_mem) + (1 − h)·(t_TLB + (levels + 1)·t_mem).
   - Needs: CS-9.4.A
-  - P2
-- ○ **CS-9.4.C** Simulate FIFO, LRU and optimal page replacement on a reference string and count page faults.
+  - P2 · drills: cs-eat
+- ● **CS-9.4.C** Simulate FIFO, LRU and optimal page replacement on a reference string and count page faults.
   - EK: OPT evicts the page used farthest in future; LRU approximates it; FIFO can suffer Belady's anomaly.
-  - P3
+  - P3 · drills: cs-page-faults
 
 ### 9.5 Files, storage and protection
 
 Book: cs2023 §OS-Files, §OS-Devices, §OS-Protection
 
-- ○ **CS-9.5.A** Compute the maximum file size for an inode with given direct, single-, double- and triple-indirect pointers.
+- ● **CS-9.5.A** Compute the maximum file size for an inode with given direct, single-, double- and triple-indirect pointers.
   - EK: Pointers per block = block size / pointer size; max = (direct + p + p² + p³) × block size.
-  - P2
+  - P2 · drills: cs-inode-size
 - ○ **CS-9.5.B** Decide whether a user can read, write or execute a file from its Unix permission bits, owner and group (e.g. chmod 754).
   - EK: Three octal digits for owner/group/other; r = 4, w = 2, x = 1; the first matching class applies.
   - P3
@@ -578,9 +578,9 @@ Big ideas: ABS, COST, CONC
 
 Book: cs2023 §NC-Fundamentals
 
-- ○ **CS-10.1.A** Compute transmission, propagation and total delay of a transfer, and the bandwidth–delay product of a link.
+- ● **CS-10.1.A** Compute transmission, propagation and total delay of a transfer, and the bandwidth–delay product of a link.
   - EK: d_trans = L/R; d_prop = distance/speed; BDP = R × RTT is the data in flight needed to fill the pipe.
-  - P2
+  - P2 · drills: cs-delay
 
 ### 10.2 Application layer
 
@@ -609,14 +609,14 @@ Book: cs2023 §NC-Reliability
 
 Book: cs2023 §NC-Routing
 
-- ○ **CS-10.4.A** Compute the network address, broadcast address, usable host range and host count for an IPv4 CIDR block, or subnet it into k pieces — auto-checked.
+- ● **CS-10.4.A** Compute the network address, broadcast address, usable host range and host count for an IPv4 CIDR block, or subnet it into k pieces — auto-checked.
   - EK: Mask = prefix ones; network = IP AND mask; hosts = 2^(32 − prefix) − 2; borrowing b bits makes 2^b subnets.
   - Needs: CS-8.1.A
-  - P2
-- ○ **CS-10.4.B** Forward a packet by longest-prefix match against a routing table.
+  - P2 · drills: cs-cidr
+- ● **CS-10.4.B** Forward a packet by longest-prefix match against a routing table.
   - EK: Among matching prefixes, the longest (most specific) wins; 0.0.0.0/0 is the default route.
   - Needs: CS-10.4.A
-  - P3
+  - P3 · drills: cs-longest-prefix
 - ○ **CS-10.4.C** Compute a router's table after one round of distance-vector updates, or by link-state Dijkstra.
   - EK: DV: D_x(y) = min_v (c(x,v) + D_v(y)); link-state floods topology then runs Dijkstra locally.
   - Needs: CS-4.5.A
@@ -649,9 +649,9 @@ Book: cs2023 §SEC-Foundations, §SEC-Engineering
 
 Book: cs2023 §SEC-Coding, §DM-Security
 
-- ○ **CS-11.2.A** Identify the vulnerability class in a code snippet — SQL injection, XSS, CSRF, buffer overflow, path traversal, IDOR, TOCTOU race, insecure deserialization — and its CWE — auto-checked.
+- ● **CS-11.2.A** Identify the vulnerability class in a code snippet — SQL injection, XSS, CSRF, buffer overflow, path traversal, IDOR, TOCTOU race, insecure deserialization — and its CWE — auto-checked.
   - EK: Most classes are untrusted input reaching an interpreter or memory without validation; IDOR is a missing authorization check, not an input bug.
-  - P6 · P7
+  - P6 · P7 · drills: cs-vulnerability
 - ○ **CS-11.2.B** Give the specific fix for an identified vulnerability (parameterised query, context-aware output encoding, CSRF token/SameSite, bounds check, server-side authorization).
   - EK: Fix the sink, not the symptom: blocklists fail; parameterisation separates code from data.
   - Needs: CS-11.2.A
@@ -664,13 +664,13 @@ Book: cs2023 §SEC-Crypto
 - ○ **CS-11.3.A** Pick the primitive for a goal — confidentiality, integrity, authentication, non-repudiation — among symmetric cipher, hash, MAC, signature and key exchange.
   - EK: Hashes give integrity only against accidents; MACs need a shared key; signatures give non-repudiation; use AEAD for confidentiality + integrity.
   - P4
-- ○ **CS-11.3.B** Encrypt and decrypt with toy RSA (small primes): compute n, φ(n), d and c = m^e mod n.
+- ● **CS-11.3.B** Encrypt and decrypt with toy RSA (small primes): compute n, φ(n), d and c = m^e mod n.
   - EK: d = e⁻¹ mod φ(n); modular exponentiation by repeated squaring; security rests on factoring n.
   - Needs: CS-1.2.A
-  - P3
-- ○ **CS-11.3.C** Compute password entropy and brute-force time at a given guess rate, and state how passwords must be stored.
+  - P3 · drills: cs-rsa
+- ● **CS-11.3.C** Compute password entropy and brute-force time at a given guess rate, and state how passwords must be stored.
   - EK: Entropy = L·log₂(alphabet); time = 2^H / rate; store with a unique salt and a slow hash (bcrypt, scrypt, Argon2).
-  - P2 · P7
+  - P2 · P7 · drills: cs-password-entropy
 
 ### 11.4 Authentication, authorization and risk
 
@@ -679,9 +679,9 @@ Book: cs2023 §SEC-Engineering, §SEC-Governance
 - ○ **CS-11.4.A** Trace an OAuth 2.0 authorization-code flow with PKCE and identify the token mishandling in a described implementation.
   - EK: Authentication says who; authorization says what; access tokens are bearer credentials; the ID token (OIDC) identifies the user.
   - P3 · P7
-- ○ **CS-11.4.B** Compute annualised loss expectancy for a risk and decide whether a control is worth its cost.
+- ● **CS-11.4.B** Compute annualised loss expectancy for a risk and decide whether a control is worth its cost.
   - EK: SLE = asset value × exposure factor; ALE = SLE × ARO; a control is justified if ΔALE > its annual cost.
-  - P2 · P4
+  - P2 · P4 · drills: cs-ale
 
 ## Unit 12 · Programming languages
 
@@ -747,16 +747,16 @@ Book: cs2023 §AI-Search
 
 Book: cs2023 §AI-ML
 
-- ○ **CS-13.2.A** Compute accuracy, precision, recall and F1 from a confusion matrix and pick the metric a scenario needs.
+- ● **CS-13.2.A** Compute accuracy, precision, recall and F1 from a confusion matrix and pick the metric a scenario needs.
   - EK: Precision = TP/(TP + FP); recall = TP/(TP + FN); imbalanced classes make accuracy misleading.
-  - P2 · P4
+  - P2 · P4 · drills: cs-f1
 - ○ **CS-13.2.B** Diagnose under- or overfitting from training and validation curves and choose a remedy.
   - EK: High train and val error ⇒ bias; low train, high val ⇒ variance; regularise, add data or simplify for variance.
   - P6
-- ○ **CS-13.2.C** Compute one gradient-descent update for linear or logistic regression on a tiny dataset.
+- ● **CS-13.2.C** Compute one gradient-descent update for linear or logistic regression on a tiny dataset.
   - EK: w ← w − η∇L; for MSE ∇_w = (2/n)Xᵀ(Xw − y); too large η diverges.
   - Needs: CS-1.4.A
-  - P3
+  - P3 · drills: ab-gd-step
 - ○ **CS-13.2.D** Classify a point by k-NN, or compute the information gain or Gini decrease of a decision-tree split.
   - EK: Entropy H = −Σ p log₂ p; gain = H(parent) − weighted H(children); Gini = 1 − Σ p².
   - P3 · P2
@@ -765,9 +765,9 @@ Book: cs2023 §AI-ML
 
 Book: cs2023 §AI-NLP
 
-- ○ **CS-13.3.A** Compute cosine similarity between embedding vectors and the softmax attention weights for a tiny query–key set.
+- ● **CS-13.3.A** Compute cosine similarity between embedding vectors and the softmax attention weights for a tiny query–key set.
   - EK: cos = a·b/(|a||b|); attention = softmax(QKᵀ/√d)V; cost grows as n² in sequence length.
-  - P3 · P2
+  - P3 · P2 · drills: ab-cosine, ab-softmax
 
 ### 13.4 AI and society
 
@@ -786,10 +786,10 @@ Big ideas: CONC, COST
 
 Book: cs2023 §PDC-Programs, §PDC-Evaluation
 
-- ○ **CS-14.1.A** Compute work, span and parallelism of a task DAG and bound the runtime on p processors.
+- ● **CS-14.1.A** Compute work, span and parallelism of a task DAG and bound the runtime on p processors.
   - EK: T₁ = work, T∞ = span; parallelism = T₁/T∞; greedy scheduling gives T_p ≤ T₁/p + T∞.
   - Needs: CS-8.4.B
-  - P2
+  - P2 · drills: cs-work-span
 - ○ **CS-14.1.B** Compute strong- and weak-scaling efficiency from timings and explain the gap with Amdahl and Gustafson.
   - EK: Efficiency = S/p; Gustafson: scaled speedup = p − α(p − 1) when the problem grows with p.
   - P2
@@ -828,9 +828,9 @@ Book: cs2023 §HCI-User, §HCI-Design, §HCI-Evaluation
 
 Book: cs2023 §HCI-Accessibility
 
-- ○ **CS-15.2.A** Compute a colour-contrast ratio and identify the WCAG 2.x failure in a markup snippet (alt text, labels, focus, contrast).
+- ● **CS-15.2.A** Compute a colour-contrast ratio and identify the WCAG 2.x failure in a markup snippet (alt text, labels, focus, contrast).
   - EK: Ratio = (L₁ + 0.05)/(L₂ + 0.05); AA needs ≥ 4.5:1 for body text, 3:1 for large text; every control needs an accessible name.
-  - P2 · P7
+  - P2 · P7 · drills: cs-contrast
 
 ## Unit 16 · Society, ethics and the profession
 
@@ -854,9 +854,9 @@ Book: cs2023 §SEP-Ethical-Analysis, §SEP-Professional-Ethics, §SEP-IP, §SEP-
 
 Book: cs2023 §SEP-Sustainability
 
-- ○ **CS-16.2.A** Estimate the energy and carbon of a compute job from hardware power, utilisation, PUE and grid intensity.
+- ● **CS-16.2.A** Estimate the energy and carbon of a compute job from hardware power, utilisation, PUE and grid intensity.
   - EK: kWh = W × h × PUE / 1000; CO₂e = kWh × grid intensity (g/kWh); location and time shift matter.
-  - P2 · P7
+  - P2 · P7 · drills: cs-carbon
 
 ## Unit 17 · Advanced algorithms (extension)
 
@@ -930,9 +930,9 @@ Book: cs2023 §AI-ML
   - EK: Chain rule layer by layer: ∂L/∂w = δ_out · a_in; ReLU passes gradient only where its input > 0.
   - Needs: CS-13.2.C
   - P3
-- ○ **CS-19.1.B** Count the parameters and output shape of a convolutional or fully-connected layer.
+- ● **CS-19.1.B** Count the parameters and output shape of a convolutional or fully-connected layer.
   - EK: Conv params = (k_h·k_w·C_in + 1)·C_out; output = ⌊(n + 2p − k)/s⌋ + 1.
-  - P2
+  - P2 · drills: ab-params-layer
 
 ### 19.2 Unsupervised learning
 
