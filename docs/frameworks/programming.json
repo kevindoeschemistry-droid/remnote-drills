@@ -145,7 +145,9 @@
        "p": [
         "P4"
        ],
-       "drills": [],
+       "drills": [
+        "pr-error-kind"
+       ],
        "needs": [
         "PR-1.1.B"
        ]
@@ -190,7 +192,9 @@
        "p": [
         "P3"
        ],
-       "drills": []
+       "drills": [
+        "pr-binary"
+       ]
       },
       {
        "id": "B",
@@ -204,7 +208,9 @@
        "p": [
         "P3"
        ],
-       "drills": [],
+       "drills": [
+        "pr-bits"
+       ],
        "needs": [
         "PR-1.2.A"
        ]
@@ -271,7 +277,9 @@
        "p": [
         "P3"
        ],
-       "drills": [],
+       "drills": [
+        "pr-int-arith"
+       ],
        "needs": [
         "PR-1.3.B"
        ]
@@ -289,7 +297,9 @@
        "p": [
         "P3"
        ],
-       "drills": [],
+       "drills": [
+        "pr-print-concat"
+       ],
        "needs": [
         "PR-1.3.C"
        ]
@@ -322,7 +332,9 @@
        "p": [
         "P3"
        ],
-       "drills": [],
+       "drills": [
+        "pr-assign-trace"
+       ],
        "needs": [
         "PR-1.3.C"
        ]
@@ -339,7 +351,9 @@
        "p": [
         "P3"
        ],
-       "drills": [],
+       "drills": [
+        "pr-assign-trace"
+       ],
        "needs": [
         "PR-1.4.A"
        ]
@@ -370,7 +384,9 @@
        "p": [
         "P3"
        ],
-       "drills": [],
+       "drills": [
+        "pr-cast"
+       ],
        "needs": [
         "PR-1.3.C"
        ]
@@ -388,7 +404,9 @@
        "p": [
         "P3"
        ],
-       "drills": [],
+       "drills": [
+        "pr-overflow"
+       ],
        "needs": [
         "PR-1.2.B",
         "PR-1.3.C"
@@ -407,7 +425,9 @@
        "p": [
         "P6"
        ],
-       "drills": [],
+       "drills": [
+        "pr-double-compare"
+       ],
        "needs": [
         "PR-1.2.A",
         "PR-1.3.C"
@@ -498,7 +518,10 @@
        "p": [
         "P3"
        ],
-       "drills": [],
+       "drills": [
+        "pr-math-class",
+        "pr-random-range"
+       ],
        "needs": [
         "PR-1.6.C",
         "PR-1.5.A"
@@ -585,7 +608,9 @@
        "p": [
         "P3"
        ],
-       "drills": [],
+       "drills": [
+        "pr-null-pointer"
+       ],
        "needs": [
         "PR-1.7.B"
        ]
@@ -602,7 +627,9 @@
        "p": [
         "P3"
        ],
-       "drills": [],
+       "drills": [
+        "pr-alias"
+       ],
        "needs": [
         "PR-1.7.C"
        ]
@@ -634,7 +661,9 @@
        "p": [
         "P3"
        ],
-       "drills": [],
+       "drills": [
+        "pr-print-concat"
+       ],
        "needs": [
         "PR-1.3.D",
         "PR-1.7.B"
@@ -653,7 +682,9 @@
        "p": [
         "P3"
        ],
-       "drills": [],
+       "drills": [
+        "pr-string-methods"
+       ],
        "needs": [
         "PR-1.8.A"
        ]
@@ -670,7 +701,9 @@
        "p": [
         "P4"
        ],
-       "drills": [],
+       "drills": [
+        "pr-string-equals"
+       ],
        "needs": [
         "PR-1.8.B",
         "PR-1.7.D"
@@ -739,7 +772,9 @@
        "p": [
         "P3"
        ],
-       "drills": [],
+       "drills": [
+        "pr-if-chain"
+       ],
        "needs": [
         "PR-2.1.A"
        ]
@@ -758,7 +793,9 @@
         "P3",
         "P4"
        ],
-       "drills": [],
+       "drills": [
+        "pr-if-chain"
+       ],
        "needs": [
         "PR-2.1.B"
        ]
@@ -810,7 +847,9 @@
        "p": [
         "P3"
        ],
-       "drills": [],
+       "drills": [
+        "pr-short-circuit"
+       ],
        "needs": [
         "PR-2.1.A"
        ]
@@ -827,7 +866,9 @@
        "p": [
         "P3"
        ],
-       "drills": [],
+       "drills": [
+        "pr-demorgan"
+       ],
        "needs": [
         "PR-2.2.A"
        ]
@@ -877,7 +918,9 @@
        "p": [
         "P3"
        ],
-       "drills": [],
+       "drills": [
+        "pr-while-trace"
+       ],
        "needs": [
         "PR-2.1.B",
         "PR-1.4.B"
@@ -913,7 +956,9 @@
        "p": [
         "P2"
        ],
-       "drills": [],
+       "drills": [
+        "pr-while-trace"
+       ],
        "needs": [
         "PR-2.3.A"
        ]
@@ -945,7 +990,9 @@
        "p": [
         "P3"
        ],
-       "drills": [],
+       "drills": [
+        "pr-for-count"
+       ],
        "needs": [
         "PR-2.3.A"
        ]
@@ -979,7 +1026,9 @@
        "p": [
         "P4"
        ],
-       "drills": [],
+       "drills": [
+        "pr-off-by-one"
+       ],
        "needs": [
         "PR-2.4.B"
        ]
@@ -1012,7 +1061,9 @@
         "P2",
         "P3"
        ],
-       "drills": [],
+       "drills": [
+        "pr-accumulate"
+       ],
        "needs": [
         "PR-2.4.B"
        ]
@@ -1030,7 +1081,9 @@
         "P2",
         "P3"
        ],
-       "drills": [],
+       "drills": [
+        "pr-accumulate"
+       ],
        "needs": [
         "PR-2.5.A"
        ]
@@ -1048,7 +1101,10 @@
        "p": [
         "P2"
        ],
-       "drills": [],
+       "drills": [
+        "pr-while-trace",
+        "pr-accumulate"
+       ],
        "needs": [
         "PR-2.3.C",
         "PR-2.5.A"
@@ -1078,7 +1134,9 @@
         "P2",
         "P3"
        ],
-       "drills": [],
+       "drills": [
+        "pr-string-loop"
+       ],
        "needs": [
         "PR-1.8.B",
         "PR-2.4.C"
@@ -1097,7 +1155,9 @@
         "P2",
         "P3"
        ],
-       "drills": [],
+       "drills": [
+        "pr-string-loop"
+       ],
        "needs": [
         "PR-2.6.A"
        ]
@@ -1125,7 +1185,9 @@
        "p": [
         "P3"
        ],
-       "drills": [],
+       "drills": [
+        "pr-nested-count"
+       ],
        "needs": [
         "PR-2.4.A"
        ]
@@ -1142,7 +1204,9 @@
        "p": [
         "P3"
        ],
-       "drills": [],
+       "drills": [
+        "pr-nested-print"
+       ],
        "needs": [
         "PR-2.7.A",
         "PR-2.4.B"
@@ -1286,7 +1350,9 @@
        "p": [
         "P3"
        ],
-       "drills": [],
+       "drills": [
+        "pr-default-values"
+       ],
        "needs": [
         "PR-3.2.A"
        ]
@@ -1336,7 +1402,9 @@
        "p": [
         "P3"
        ],
-       "drills": [],
+       "drills": [
+        "pr-pass-by-value"
+       ],
        "needs": [
         "PR-3.3.A",
         "PR-1.7.D"
@@ -1355,7 +1423,9 @@
        "p": [
         "P3"
        ],
-       "drills": [],
+       "drills": [
+        "pr-class-trace"
+       ],
        "needs": [
         "PR-3.3.B"
        ]
@@ -1385,7 +1455,9 @@
        "p": [
         "P3"
        ],
-       "drills": [],
+       "drills": [
+        "pr-class-trace"
+       ],
        "needs": [
         "PR-3.2.A"
        ]
@@ -1404,7 +1476,9 @@
         "P3",
         "P4"
        ],
-       "drills": [],
+       "drills": [
+        "pr-class-trace"
+       ],
        "needs": [
         "PR-3.3.A"
        ]
@@ -1522,7 +1596,9 @@
        "p": [
         "P3"
        ],
-       "drills": [],
+       "drills": [
+        "pr-array-basics"
+       ],
        "needs": [
         "PR-1.7.B",
         "PR-3.2.B"
@@ -1540,7 +1616,9 @@
        "p": [
         "P4"
        ],
-       "drills": [],
+       "drills": [
+        "pr-array-basics"
+       ],
        "needs": [
         "PR-4.2.A"
        ]
@@ -1573,7 +1651,9 @@
         "P2",
         "P3"
        ],
-       "drills": [],
+       "drills": [
+        "pr-enhanced-for"
+       ],
        "needs": [
         "PR-4.2.A",
         "PR-2.4.B"
@@ -1591,7 +1671,9 @@
        "p": [
         "P3"
        ],
-       "drills": [],
+       "drills": [
+        "pr-enhanced-for"
+       ],
        "needs": [
         "PR-4.3.A",
         "PR-2.4.C"
@@ -1643,7 +1725,9 @@
         "P2",
         "P4"
        ],
-       "drills": [],
+       "drills": [
+        "pr-array-algorithms"
+       ],
        "needs": [
         "PR-4.4.A"
        ]
@@ -1661,7 +1745,9 @@
         "P2",
         "P3"
        ],
-       "drills": [],
+       "drills": [
+        "pr-array-algorithms"
+       ],
        "needs": [
         "PR-4.4.B",
         "PR-1.4.A"
@@ -1748,7 +1834,9 @@
        "p": [
         "P3"
        ],
-       "drills": [],
+       "drills": [
+        "pr-arraylist"
+       ],
        "needs": [
         "PR-4.5.B"
        ]
@@ -1765,7 +1853,9 @@
        "p": [
         "P4"
        ],
-       "drills": [],
+       "drills": [
+        "pr-arraylist"
+       ],
        "needs": [
         "PR-4.6.A",
         "PR-4.3.A"
@@ -1796,7 +1886,9 @@
        "p": [
         "P3"
        ],
-       "drills": [],
+       "drills": [
+        "pr-2d-array"
+       ],
        "needs": [
         "PR-4.2.A"
        ]
@@ -1813,7 +1905,9 @@
        "p": [
         "P3"
        ],
-       "drills": [],
+       "drills": [
+        "pr-2d-order"
+       ],
        "needs": [
         "PR-4.7.A",
         "PR-2.7.B"
@@ -1831,7 +1925,9 @@
        "p": [
         "P2"
        ],
-       "drills": [],
+       "drills": [
+        "pr-2d-array"
+       ],
        "needs": [
         "PR-4.7.B",
         "PR-4.4.A"
@@ -1883,7 +1979,9 @@
        "p": [
         "P3"
        ],
-       "drills": [],
+       "drills": [
+        "pr-search-count"
+       ],
        "needs": [
         "PR-4.8.A",
         "PR-2.8.A"
@@ -1912,7 +2010,9 @@
        "p": [
         "P3"
        ],
-       "drills": [],
+       "drills": [
+        "pr-sort-pass"
+       ],
        "needs": [
         "PR-4.4.C",
         "PR-2.7.A"
@@ -1930,7 +2030,9 @@
        "p": [
         "P3"
        ],
-       "drills": [],
+       "drills": [
+        "pr-sort-pass"
+       ],
        "needs": [
         "PR-4.9.A"
        ]
@@ -1959,7 +2061,9 @@
        "p": [
         "P3"
        ],
-       "drills": [],
+       "drills": [
+        "pr-recursion"
+       ],
        "needs": [
         "PR-3.3.A",
         "PR-2.1.B"
@@ -1977,7 +2081,9 @@
        "p": [
         "P3"
        ],
-       "drills": [],
+       "drills": [
+        "pr-recursion-calls"
+       ],
        "needs": [
         "PR-4.10.A"
        ]
@@ -2557,7 +2663,9 @@
        "p": [
         "P3"
        ],
-       "drills": [],
+       "drills": [
+        "pr-py-arith"
+       ],
        "needs": [
         "PR-7.1.A",
         "PR-1.3.C"
@@ -2575,7 +2683,9 @@
        "p": [
         "P3"
        ],
-       "drills": [],
+       "drills": [
+        "pr-py-truthy"
+       ],
        "needs": [
         "PR-7.1.A",
         "PR-2.2.A"
@@ -2599,7 +2709,9 @@
        "p": [
         "P3"
        ],
-       "drills": [],
+       "drills": [
+        "pr-py-range"
+       ],
        "needs": [
         "PR-2.4.A",
         "PR-7.1.A"
@@ -2617,7 +2729,9 @@
        "p": [
         "P3"
        ],
-       "drills": [],
+       "drills": [
+        "pr-py-loops"
+       ],
        "needs": [
         "PR-7.2.A"
        ]
@@ -2640,7 +2754,9 @@
        "p": [
         "P3"
        ],
-       "drills": [],
+       "drills": [
+        "pr-py-slice"
+       ],
        "needs": [
         "PR-7.2.A",
         "PR-4.2.A"
@@ -2658,7 +2774,9 @@
        "p": [
         "P3"
        ],
-       "drills": [],
+       "drills": [
+        "pr-py-list-ops"
+       ],
        "needs": [
         "PR-7.3.A"
        ]
@@ -2676,7 +2794,9 @@
         "P3",
         "P4"
        ],
-       "drills": [],
+       "drills": [
+        "pr-py-alias"
+       ],
        "needs": [
         "PR-7.3.B",
         "PR-1.7.D"
@@ -2695,7 +2815,9 @@
         "P2",
         "P3"
        ],
-       "drills": [],
+       "drills": [
+        "pr-py-comprehension"
+       ],
        "needs": [
         "PR-7.3.B",
         "PR-7.2.B"
@@ -2719,7 +2841,9 @@
        "p": [
         "P3"
        ],
-       "drills": [],
+       "drills": [
+        "pr-py-dict-str"
+       ],
        "needs": [
         "PR-7.3.B"
        ]
@@ -2736,7 +2860,9 @@
        "p": [
         "P3"
        ],
-       "drills": [],
+       "drills": [
+        "pr-py-dict-str"
+       ],
        "needs": [
         "PR-7.3.A"
        ]
@@ -2759,7 +2885,9 @@
        "p": [
         "P3"
        ],
-       "drills": [],
+       "drills": [
+        "pr-py-functions"
+       ],
        "needs": [
         "PR-7.1.A",
         "PR-3.3.A"
@@ -2794,7 +2922,9 @@
        "p": [
         "P4"
        ],
-       "drills": [],
+       "drills": [
+        "pr-py-functions"
+       ],
        "needs": [
         "PR-7.5.A",
         "PR-1.1.C"
@@ -3376,8 +3506,10 @@
    "code": "PR-1.1.C",
    "unit": 1,
    "topic": 1,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "pr-error-kind"
+   ],
    "partial": []
   },
   {
@@ -3392,16 +3524,20 @@
    "code": "PR-1.2.A",
    "unit": 1,
    "topic": 2,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "pr-binary"
+   ],
    "partial": []
   },
   {
    "code": "PR-1.2.B",
    "unit": 1,
    "topic": 2,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "pr-bits"
+   ],
    "partial": []
   },
   {
@@ -3424,56 +3560,70 @@
    "code": "PR-1.3.C",
    "unit": 1,
    "topic": 3,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "pr-int-arith"
+   ],
    "partial": []
   },
   {
    "code": "PR-1.3.D",
    "unit": 1,
    "topic": 3,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "pr-print-concat"
+   ],
    "partial": []
   },
   {
    "code": "PR-1.4.A",
    "unit": 1,
    "topic": 4,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "pr-assign-trace"
+   ],
    "partial": []
   },
   {
    "code": "PR-1.4.B",
    "unit": 1,
    "topic": 4,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "pr-assign-trace"
+   ],
    "partial": []
   },
   {
    "code": "PR-1.5.A",
    "unit": 1,
    "topic": 5,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "pr-cast"
+   ],
    "partial": []
   },
   {
    "code": "PR-1.5.B",
    "unit": 1,
    "topic": 5,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "pr-overflow"
+   ],
    "partial": []
   },
   {
    "code": "PR-1.5.C",
    "unit": 1,
    "topic": 5,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "pr-double-compare"
+   ],
    "partial": []
   },
   {
@@ -3504,8 +3654,11 @@
    "code": "PR-1.6.D",
    "unit": 1,
    "topic": 6,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "pr-math-class",
+    "pr-random-range"
+   ],
    "partial": []
   },
   {
@@ -3536,40 +3689,50 @@
    "code": "PR-1.7.C",
    "unit": 1,
    "topic": 7,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "pr-null-pointer"
+   ],
    "partial": []
   },
   {
    "code": "PR-1.7.D",
    "unit": 1,
    "topic": 7,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "pr-alias"
+   ],
    "partial": []
   },
   {
    "code": "PR-1.8.A",
    "unit": 1,
    "topic": 8,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "pr-print-concat"
+   ],
    "partial": []
   },
   {
    "code": "PR-1.8.B",
    "unit": 1,
    "topic": 8,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "pr-string-methods"
+   ],
    "partial": []
   },
   {
    "code": "PR-1.8.C",
    "unit": 1,
    "topic": 8,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "pr-string-equals"
+   ],
    "partial": []
   },
   {
@@ -3584,16 +3747,20 @@
    "code": "PR-2.1.B",
    "unit": 2,
    "topic": 1,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "pr-if-chain"
+   ],
    "partial": []
   },
   {
    "code": "PR-2.1.C",
    "unit": 2,
    "topic": 1,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "pr-if-chain"
+   ],
    "partial": []
   },
   {
@@ -3608,16 +3775,20 @@
    "code": "PR-2.2.A",
    "unit": 2,
    "topic": 2,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "pr-short-circuit"
+   ],
    "partial": []
   },
   {
    "code": "PR-2.2.B",
    "unit": 2,
    "topic": 2,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "pr-demorgan"
+   ],
    "partial": []
   },
   {
@@ -3632,8 +3803,10 @@
    "code": "PR-2.3.A",
    "unit": 2,
    "topic": 3,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "pr-while-trace"
+   ],
    "partial": []
   },
   {
@@ -3648,16 +3821,20 @@
    "code": "PR-2.3.C",
    "unit": 2,
    "topic": 3,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "pr-while-trace"
+   ],
    "partial": []
   },
   {
    "code": "PR-2.4.A",
    "unit": 2,
    "topic": 4,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "pr-for-count"
+   ],
    "partial": []
   },
   {
@@ -3672,64 +3849,81 @@
    "code": "PR-2.4.C",
    "unit": 2,
    "topic": 4,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "pr-off-by-one"
+   ],
    "partial": []
   },
   {
    "code": "PR-2.5.A",
    "unit": 2,
    "topic": 5,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "pr-accumulate"
+   ],
    "partial": []
   },
   {
    "code": "PR-2.5.B",
    "unit": 2,
    "topic": 5,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "pr-accumulate"
+   ],
    "partial": []
   },
   {
    "code": "PR-2.5.C",
    "unit": 2,
    "topic": 5,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "pr-while-trace",
+    "pr-accumulate"
+   ],
    "partial": []
   },
   {
    "code": "PR-2.6.A",
    "unit": 2,
    "topic": 6,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "pr-string-loop"
+   ],
    "partial": []
   },
   {
    "code": "PR-2.6.B",
    "unit": 2,
    "topic": 6,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "pr-string-loop"
+   ],
    "partial": []
   },
   {
    "code": "PR-2.7.A",
    "unit": 2,
    "topic": 7,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "pr-nested-count"
+   ],
    "partial": []
   },
   {
    "code": "PR-2.7.B",
    "unit": 2,
    "topic": 7,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "pr-nested-print"
+   ],
    "partial": []
   },
   {
@@ -3768,8 +3962,10 @@
    "code": "PR-3.2.B",
    "unit": 3,
    "topic": 2,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "pr-default-values"
+   ],
    "partial": []
   },
   {
@@ -3784,32 +3980,40 @@
    "code": "PR-3.3.B",
    "unit": 3,
    "topic": 3,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "pr-pass-by-value"
+   ],
    "partial": []
   },
   {
    "code": "PR-3.3.C",
    "unit": 3,
    "topic": 3,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "pr-class-trace"
+   ],
    "partial": []
   },
   {
    "code": "PR-3.4.A",
    "unit": 3,
    "topic": 4,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "pr-class-trace"
+   ],
    "partial": []
   },
   {
    "code": "PR-3.4.B",
    "unit": 3,
    "topic": 4,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "pr-class-trace"
+   ],
    "partial": []
   },
   {
@@ -3840,32 +4044,40 @@
    "code": "PR-4.2.A",
    "unit": 4,
    "topic": 2,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "pr-array-basics"
+   ],
    "partial": []
   },
   {
    "code": "PR-4.2.B",
    "unit": 4,
    "topic": 2,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "pr-array-basics"
+   ],
    "partial": []
   },
   {
    "code": "PR-4.3.A",
    "unit": 4,
    "topic": 3,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "pr-enhanced-for"
+   ],
    "partial": []
   },
   {
    "code": "PR-4.3.B",
    "unit": 4,
    "topic": 3,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "pr-enhanced-for"
+   ],
    "partial": []
   },
   {
@@ -3880,16 +4092,20 @@
    "code": "PR-4.4.B",
    "unit": 4,
    "topic": 4,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "pr-array-algorithms"
+   ],
    "partial": []
   },
   {
    "code": "PR-4.4.C",
    "unit": 4,
    "topic": 4,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "pr-array-algorithms"
+   ],
    "partial": []
   },
   {
@@ -3912,40 +4128,50 @@
    "code": "PR-4.6.A",
    "unit": 4,
    "topic": 6,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "pr-arraylist"
+   ],
    "partial": []
   },
   {
    "code": "PR-4.6.B",
    "unit": 4,
    "topic": 6,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "pr-arraylist"
+   ],
    "partial": []
   },
   {
    "code": "PR-4.7.A",
    "unit": 4,
    "topic": 7,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "pr-2d-array"
+   ],
    "partial": []
   },
   {
    "code": "PR-4.7.B",
    "unit": 4,
    "topic": 7,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "pr-2d-order"
+   ],
    "partial": []
   },
   {
    "code": "PR-4.7.C",
    "unit": 4,
    "topic": 7,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "pr-2d-array"
+   ],
    "partial": []
   },
   {
@@ -3960,40 +4186,50 @@
    "code": "PR-4.8.B",
    "unit": 4,
    "topic": 8,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "pr-search-count"
+   ],
    "partial": []
   },
   {
    "code": "PR-4.9.A",
    "unit": 4,
    "topic": 9,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "pr-sort-pass"
+   ],
    "partial": []
   },
   {
    "code": "PR-4.9.B",
    "unit": 4,
    "topic": 9,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "pr-sort-pass"
+   ],
    "partial": []
   },
   {
    "code": "PR-4.10.A",
    "unit": 4,
    "topic": 10,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "pr-recursion"
+   ],
    "partial": []
   },
   {
    "code": "PR-4.10.B",
    "unit": 4,
    "topic": 10,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "pr-recursion-calls"
+   ],
    "partial": []
   },
   {
@@ -4184,88 +4420,110 @@
    "code": "PR-7.1.B",
    "unit": 7,
    "topic": 1,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "pr-py-arith"
+   ],
    "partial": []
   },
   {
    "code": "PR-7.1.C",
    "unit": 7,
    "topic": 1,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "pr-py-truthy"
+   ],
    "partial": []
   },
   {
    "code": "PR-7.2.A",
    "unit": 7,
    "topic": 2,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "pr-py-range"
+   ],
    "partial": []
   },
   {
    "code": "PR-7.2.B",
    "unit": 7,
    "topic": 2,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "pr-py-loops"
+   ],
    "partial": []
   },
   {
    "code": "PR-7.3.A",
    "unit": 7,
    "topic": 3,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "pr-py-slice"
+   ],
    "partial": []
   },
   {
    "code": "PR-7.3.B",
    "unit": 7,
    "topic": 3,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "pr-py-list-ops"
+   ],
    "partial": []
   },
   {
    "code": "PR-7.3.C",
    "unit": 7,
    "topic": 3,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "pr-py-alias"
+   ],
    "partial": []
   },
   {
    "code": "PR-7.3.D",
    "unit": 7,
    "topic": 3,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "pr-py-comprehension"
+   ],
    "partial": []
   },
   {
    "code": "PR-7.4.A",
    "unit": 7,
    "topic": 4,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "pr-py-dict-str"
+   ],
    "partial": []
   },
   {
    "code": "PR-7.4.B",
    "unit": 7,
    "topic": 4,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "pr-py-dict-str"
+   ],
    "partial": []
   },
   {
    "code": "PR-7.5.A",
    "unit": 7,
    "topic": 5,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "pr-py-functions"
+   ],
    "partial": []
   },
   {
@@ -4280,8 +4538,10 @@
    "code": "PR-7.5.C",
    "unit": 7,
    "topic": 5,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "pr-py-functions"
+   ],
    "partial": []
   },
   {

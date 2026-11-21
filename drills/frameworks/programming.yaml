@@ -117,35 +117,35 @@ units:
         los:
           - { id: A, std: [CSA-1.1.A, AAP-2.A], do: "Write an everyday procedure as ordered, unambiguous steps and trace it on an input.", ek: ["An algorithm is a finite sequence of precise steps; sequence, selection and iteration are enough to express any algorithm."], p: [P1], drills: [] }
           - { id: B, std: [CSA-1.1.B], do: "Put the steps of writing, compiling and running a Java program in order and say which step catches which problem.", ek: ["javac turns .java source into .class bytecode; the JVM runs the bytecode; the compiler checks syntax and types before anything runs."], p: [P5], drills: [] }
-          - { id: C, std: [CSA-1.1.C, CRD-2.I], do: "Classify an error as syntax (compile-time), run-time (exception) or logic, given the code and its symptom.", ek: ["Syntax errors stop compilation; run-time errors throw during execution (int division by 0 throws ArithmeticException); logic errors run and give a wrong answer."], p: [P4], drills: [], needs: [PR-1.1.B] }
+          - { id: C, std: [CSA-1.1.C, CRD-2.I], do: "Classify an error as syntax (compile-time), run-time (exception) or logic, given the code and its symptom.", ek: ["Syntax errors stop compilation; run-time errors throw during execution (int division by 0 throws ArithmeticException); logic errors run and give a wrong answer."], p: [P4], drills: ["pr-error-kind"], needs: [PR-1.1.B] }
           - { id: D, std: [CRD-2.J], do: "Choose test inputs, including boundary cases, and state the output each should produce.", ek: ["Test typical, boundary (0, 1, empty, the limits) and invalid inputs; a test is useful only with a predicted answer."], p: [P6], drills: [], needs: [PR-1.1.A] }
       - n: 2
         title: Bits and binary numbers
         book: { csp-ced: ["2.1"] }
         los:
-          - { id: A, std: [DAT-1.C], do: "Convert a non-negative integer between decimal and binary.", ek: ["Place values are powers of 2: 1011₂ = 8 + 2 + 1 = 11."], p: [P3], drills: [] }
-          - { id: B, std: [DAT-1.A], do: "Count the distinct values n bits can represent, and the bits needed for N values.", ek: ["n bits give 2ⁿ patterns; N values need ⌈log₂ N⌉ bits."], p: [P3], drills: [], needs: [PR-1.2.A] }
+          - { id: A, std: [DAT-1.C], do: "Convert a non-negative integer between decimal and binary.", ek: ["Place values are powers of 2: 1011₂ = 8 + 2 + 1 = 11."], p: [P3], drills: ["pr-binary"] }
+          - { id: B, std: [DAT-1.A], do: "Count the distinct values n bits can represent, and the bits needed for N values.", ek: ["n bits give 2ⁿ patterns; N values need ⌈log₂ N⌉ bits."], p: [P3], drills: ["pr-bits"], needs: [PR-1.2.A] }
       - n: 3
         title: Variables, types, expressions and output
         book: { csa-ced: ["1.2", "1.3", "1.4"], csp-ced: ["3.1", "3.3"] }
         los:
           - { id: A, std: [CSA-1.2.A], do: "Choose a primitive type (int, double, boolean) or a reference type (String, an object) for a described quantity.", ek: ["A primitive variable holds the value itself; a reference variable holds the address of an object."], p: [P1], drills: [] }
           - { id: B, std: [CSA-1.2.B, AAP-1.A], do: "Declare and initialise variables of type int, double and boolean.", ek: ["type name = value; a variable is declared before use and keeps one type for its lifetime."], p: [P2], drills: [], needs: [PR-1.3.A] }
-          - { id: C, std: [CSA-1.3.C, AAP-2.C], do: "Evaluate an arithmetic expression with int and double operands, including integer division and %.", ek: ["int / int truncates toward zero (7 / 2 = 3, −7 / 2 = −3); % keeps the sign of the dividend (−7 % 2 = −1); one double operand makes the result double; * / % bind tighter than + −."], p: [P3], drills: [], needs: [PR-1.3.B] }
-          - { id: D, std: [CSA-1.3.A, CSA-1.3.B], do: "Predict exactly what print and println statements display, including string concatenation with numbers.", ek: ['+ runs left to right: "1" + 2 + 3 is "123" but 1 + 2 + "3" is "33"; println ends the line, print does not.'], p: [P3], drills: [], needs: [PR-1.3.C] }
+          - { id: C, std: [CSA-1.3.C, AAP-2.C], do: "Evaluate an arithmetic expression with int and double operands, including integer division and %.", ek: ["int / int truncates toward zero (7 / 2 = 3, −7 / 2 = −3); % keeps the sign of the dividend (−7 % 2 = −1); one double operand makes the result double; * / % bind tighter than + −."], p: [P3], drills: ["pr-int-arith"], needs: [PR-1.3.B] }
+          - { id: D, std: [CSA-1.3.A, CSA-1.3.B], do: "Predict exactly what print and println statements display, including string concatenation with numbers.", ek: ['+ runs left to right: "1" + 2 + 3 is "123" but 1 + 2 + "3" is "33"; println ends the line, print does not.'], p: [P3], drills: ["pr-print-concat"], needs: [PR-1.3.C] }
       - n: 4
         title: Assignment and compound assignment
         book: { csa-ced: ["1.4", "1.6"], csp-ced: ["3.1"] }
         los:
-          - { id: A, std: [CSA-1.4.A, AAP-1.B], do: "Trace a sequence of assignment statements and give each variable's final value.", ek: ["= evaluates the right side first, then overwrites the variable on the left; the old value is gone, so a swap needs a temporary."], p: [P3], drills: [], needs: [PR-1.3.C] }
-          - { id: B, std: [CSA-1.6.A], do: "Predict the value stored after compound assignment and ++ / −− operators.", ek: ["x += 3 means x = x + 3; x++ adds 1; for int x, x /= 2 truncates."], p: [P3], drills: [], needs: [PR-1.4.A] }
+          - { id: A, std: [CSA-1.4.A, AAP-1.B], do: "Trace a sequence of assignment statements and give each variable's final value.", ek: ["= evaluates the right side first, then overwrites the variable on the left; the old value is gone, so a swap needs a temporary."], p: [P3], drills: ["pr-assign-trace"], needs: [PR-1.3.C] }
+          - { id: B, std: [CSA-1.6.A], do: "Predict the value stored after compound assignment and ++ / −− operators.", ek: ["x += 3 means x = x + 3; x++ adds 1; for int x, x /= 2 truncates."], p: [P3], drills: ["pr-assign-trace"], needs: [PR-1.4.A] }
       - n: 5
         title: Casting, range and precision
         book: { csa-ced: ["1.5"], csp-ced: ["2.1"] }
         los:
-          - { id: A, std: [CSA-1.5.A], do: "Predict the result of casting between int and double, including rounding a positive double to the nearest int.", ek: ["(int) truncates toward zero; (int)(x + 0.5) rounds a non-negative x; the cast binds tighter than arithmetic: (double) 7 / 2 = 3.5 but (double)(7 / 2) = 3.0."], p: [P3], drills: [], needs: [PR-1.3.C] }
-          - { id: B, std: [CSA-1.5.B, DAT-1.B], do: "Predict when int arithmetic overflows and the value that results.", ek: ["int is 32-bit two's complement, −2³¹ to 2³¹ − 1 (Integer.MIN_VALUE to Integer.MAX_VALUE); MAX_VALUE + 1 wraps to MIN_VALUE."], p: [P3], drills: [], needs: [PR-1.2.B, PR-1.3.C] }
-          - { id: C, std: [CSA-1.5.C, DAT-1.B], do: "Explain why a double calculation is approximate, and compare doubles with a tolerance instead of ==.", ek: ["A double stores a binary fraction in 64 bits, so 0.1 is inexact and 0.1 + 0.2 == 0.3 is false; test Math.abs(a − b) < tol."], p: [P6], drills: [], needs: [PR-1.2.A, PR-1.3.C] }
+          - { id: A, std: [CSA-1.5.A], do: "Predict the result of casting between int and double, including rounding a positive double to the nearest int.", ek: ["(int) truncates toward zero; (int)(x + 0.5) rounds a non-negative x; the cast binds tighter than arithmetic: (double) 7 / 2 = 3.5 but (double)(7 / 2) = 3.0."], p: [P3], drills: ["pr-cast"], needs: [PR-1.3.C] }
+          - { id: B, std: [CSA-1.5.B, DAT-1.B], do: "Predict when int arithmetic overflows and the value that results.", ek: ["int is 32-bit two's complement, −2³¹ to 2³¹ − 1 (Integer.MIN_VALUE to Integer.MAX_VALUE); MAX_VALUE + 1 wraps to MIN_VALUE."], p: [P3], drills: ["pr-overflow"], needs: [PR-1.2.B, PR-1.3.C] }
+          - { id: C, std: [CSA-1.5.C, DAT-1.B], do: "Explain why a double calculation is approximate, and compare doubles with a tolerance instead of ==.", ek: ["A double stores a binary fraction in 64 bits, so 0.1 is inexact and 0.1 + 0.2 == 0.3 is false; test Math.abs(a − b) < tol."], p: [P6], drills: ["pr-double-compare"], needs: [PR-1.2.A, PR-1.3.C] }
       - n: 6
         title: APIs, method signatures and the Math class
         book: { csa-ced: ["1.7", "1.8", "1.9", "1.10", "1.11"], csp-ced: ["3.12", "3.14", "3.15"] }
@@ -153,7 +153,7 @@ units:
           - { id: A, std: [CSA-1.7.A, CSA-1.9.A, AAP-3.D], do: "Read API documentation to find what a class provides and which method to call.", ek: ["Documentation gives each method's signature (name, parameter types in order) and return type; a caller needs nothing more."], p: [P5], drills: [] }
           - { id: B, std: [CSA-1.9.B, AAP-3.A], do: "Write a call to a void or non-void method with arguments that match its signature, and pick which overload runs.", ek: ["Arguments match parameters by number, order and type; overloads share a name but differ in parameter list; a non-void result must be stored or used or it is lost."], p: [P2], drills: [], needs: [PR-1.6.A, PR-1.3.B] }
           - { id: C, std: [CSA-1.10.A], do: "Call a static (class) method as ClassName.method(...) and give the value it returns.", ek: ["Static methods belong to the class, not to an object; inside the same class the class name can be left off."], p: [P3], drills: [], needs: [PR-1.6.B] }
-          - { id: D, std: [CSA-1.11.A, AAP-3.E], do: "Evaluate expressions with Math.abs, Math.pow, Math.sqrt and Math.random, including mapping Math.random to an integer range.", ek: ["Math.random() is a double in [0.0, 1.0); (int)(Math.random() * n) + a is an int from a to a + n − 1; pow and sqrt return double."], p: [P3], drills: [], needs: [PR-1.6.C, PR-1.5.A] }
+          - { id: D, std: [CSA-1.11.A, AAP-3.E], do: "Evaluate expressions with Math.abs, Math.pow, Math.sqrt and Math.random, including mapping Math.random to an integer range.", ek: ["Math.random() is a double in [0.0, 1.0); (int)(Math.random() * n) + a is an int from a to a + n − 1; pow and sqrt return double."], p: [P3], drills: ["pr-math-class", "pr-random-range"], needs: [PR-1.6.C, PR-1.5.A] }
           - { id: E, std: [CSA-1.8.A, CRD-2.G], do: "Write a comment stating what a method does, its preconditions and its postconditions.", ek: ["A precondition must be true before the call (the caller's job); a postcondition is what the method guarantees afterwards."], p: [P5], drills: [], needs: [PR-1.6.B] }
       - n: 7
         title: Objects, constructors and instance methods
@@ -161,15 +161,15 @@ units:
         los:
           - { id: A, std: [CSA-1.12.A, CSA-1.12.B, CSA-1.13.B], do: "Explain how a class relates to its objects, and declare a reference variable that holds an object or null.", ek: ["A class is the blueprint; each object is an instance with its own state; a reference variable holds null or the address of an object."], p: [P5], drills: [], needs: [PR-1.3.A] }
           - { id: B, std: [CSA-1.13.A, CSA-1.13.C], do: "Create an object with new, choosing the constructor from its parameter list.", ek: ["new ClassName(args) allocates the object and runs the constructor whose parameters match the arguments."], p: [P2], drills: [], needs: [PR-1.7.A, PR-1.6.B] }
-          - { id: C, std: [CSA-1.14.A], do: "Call instance methods on an object, trace how its state changes, and predict a NullPointerException.", ek: ["obj.method() acts on that object's fields; calling a method through a null reference throws NullPointerException."], p: [P3], drills: [], needs: [PR-1.7.B] }
-          - { id: D, std: [CSA-1.12.B], do: "Predict the effect of aliasing — two references to one object — after a change through either reference.", ek: ["b = a copies the reference, not the object; a change made through b is seen through a."], p: [P3], drills: [], needs: [PR-1.7.C] }
+          - { id: C, std: [CSA-1.14.A], do: "Call instance methods on an object, trace how its state changes, and predict a NullPointerException.", ek: ["obj.method() acts on that object's fields; calling a method through a null reference throws NullPointerException."], p: [P3], drills: ["pr-null-pointer"], needs: [PR-1.7.B] }
+          - { id: D, std: [CSA-1.12.B], do: "Predict the effect of aliasing — two references to one object — after a change through either reference.", ek: ["b = a copies the reference, not the object; a change made through b is seen through a."], p: [P3], drills: ["pr-alias"], needs: [PR-1.7.C] }
       - n: 8
         title: Strings
         book: { csa-ced: ["1.15"], csp-ced: ["3.4"] }
         los:
-          - { id: A, std: [CSA-1.15.A, AAP-2.D], do: "Create and concatenate String objects and predict the result.", ek: ["Strings are immutable: concatenation and every String method build a new String, leaving the original unchanged."], p: [P3], drills: [], needs: [PR-1.3.D, PR-1.7.B] }
-          - { id: B, std: [CSA-1.15.B, AAP-2.D], do: "Evaluate length, substring, indexOf, equals and compareTo calls on strings.", ek: ["Indices run 0 to length() − 1; substring(a, b) is characters a to b − 1 (length b − a); indexOf returns −1 when absent; compareTo is negative, zero or positive in dictionary order."], p: [P3], drills: [], needs: [PR-1.8.A] }
-          - { id: C, std: [CSA-1.15.B], do: "Distinguish == from equals when comparing strings and other objects.", ek: ["== asks whether two references point to the same object; equals compares contents."], p: [P4], drills: [], needs: [PR-1.8.B, PR-1.7.D] }
+          - { id: A, std: [CSA-1.15.A, AAP-2.D], do: "Create and concatenate String objects and predict the result.", ek: ["Strings are immutable: concatenation and every String method build a new String, leaving the original unchanged."], p: [P3], drills: ["pr-print-concat"], needs: [PR-1.3.D, PR-1.7.B] }
+          - { id: B, std: [CSA-1.15.B, AAP-2.D], do: "Evaluate length, substring, indexOf, equals and compareTo calls on strings.", ek: ["Indices run 0 to length() − 1; substring(a, b) is characters a to b − 1 (length b − a); indexOf returns −1 when absent; compareTo is negative, zero or positive in dictionary order."], p: [P3], drills: ["pr-string-methods"], needs: [PR-1.8.A] }
+          - { id: C, std: [CSA-1.15.B], do: "Distinguish == from equals when comparing strings and other objects.", ek: ["== asks whether two references point to the same object; equals compares contents."], p: [P4], drills: ["pr-string-equals"], needs: [PR-1.8.B, PR-1.7.D] }
 
   # ── 2 ────────────────────────────────────────────────────────────────────
   - id: selection-iteration
@@ -184,49 +184,49 @@ units:
         book: { csa-ced: ["2.1", "2.2", "2.3", "2.4"], csp-ced: ["3.5", "3.6", "3.7"] }
         los:
           - { id: A, std: [CSA-2.2, AAP-2.E], do: "Evaluate relational expressions (==, !=, <, <=, >, >=) to true or false.", ek: ["Relational operators compare two values and produce a boolean; they bind looser than arithmetic, so a + 1 < b compares the sum."], p: [P3], drills: [], needs: [PR-1.3.C] }
-          - { id: B, std: [CSA-2.3, AAP-2.H], do: "Trace if, if–else and else-if chains and say which branch runs and what is printed.", ek: ["Exactly one branch of an if / else if / else chain runs — the first whose condition is true; a lone if may run zero times."], p: [P3], drills: [], needs: [PR-2.1.A] }
-          - { id: C, std: [CSA-2.4, AAP-2.I], do: "Trace nested if statements, matching each else to its if.", ek: ["Without braces an else attaches to the nearest unmatched if, whatever the indentation suggests."], p: [P3, P4], drills: [], needs: [PR-2.1.B] }
+          - { id: B, std: [CSA-2.3, AAP-2.H], do: "Trace if, if–else and else-if chains and say which branch runs and what is printed.", ek: ["Exactly one branch of an if / else if / else chain runs — the first whose condition is true; a lone if may run zero times."], p: [P3], drills: ["pr-if-chain"], needs: [PR-2.1.A] }
+          - { id: C, std: [CSA-2.4, AAP-2.I], do: "Trace nested if statements, matching each else to its if.", ek: ["Without braces an else attaches to the nearest unmatched if, whatever the indentation suggests."], p: [P3, P4], drills: ["pr-if-chain"], needs: [PR-2.1.B] }
           - { id: D, std: [CSA-2.1, AAP-2.G], do: "Write a selection algorithm from a stated rule, such as grade bands or the leap-year rule.", ek: ["Order else-if conditions so no earlier condition shadows a later one; leap year: divisible by 4 and (not by 100, or by 400)."], p: [P1, P2], drills: [], needs: [PR-2.1.C] }
       - n: 2
         title: Compound boolean expressions
         book: { csa-ced: ["2.5", "2.6"], csp-ced: ["3.5"] }
         los:
-          - { id: A, std: [CSA-2.5, AAP-2.F], do: "Evaluate expressions with &&, || and !, including short-circuit evaluation.", ek: ["! binds tightest, then &&, then ||; && skips its right side when the left is false, || when the left is true — so x != 0 && y / x > 1 never divides by zero."], p: [P3], drills: [], needs: [PR-2.1.A] }
-          - { id: B, std: [CSA-2.6], do: "Rewrite a negated compound condition with De Morgan's laws.", ek: ["!(a && b) ≡ !a || !b; !(a || b) ≡ !a && !b; !(x < y) ≡ x >= y."], p: [P3], drills: [], needs: [PR-2.2.A] }
+          - { id: A, std: [CSA-2.5, AAP-2.F], do: "Evaluate expressions with &&, || and !, including short-circuit evaluation.", ek: ["! binds tightest, then &&, then ||; && skips its right side when the left is false, || when the left is true — so x != 0 && y / x > 1 never divides by zero."], p: [P3], drills: ["pr-short-circuit"], needs: [PR-2.1.A] }
+          - { id: B, std: [CSA-2.6], do: "Rewrite a negated compound condition with De Morgan's laws.", ek: ["!(a && b) ≡ !a || !b; !(a || b) ≡ !a && !b; !(x < y) ≡ x >= y."], p: [P3], drills: ["pr-demorgan"], needs: [PR-2.2.A] }
           - { id: C, std: [CSA-2.6, AAP-2.L], do: "Decide whether two boolean expressions are equivalent with a truth table or one counterexample.", ek: ["n boolean inputs give 2ⁿ rows; one row where they differ proves they are not equivalent."], p: [P3], drills: [], needs: [PR-2.2.B] }
       - n: 3
         title: while loops
         book: { csa-ced: ["2.7"], csp-ced: ["3.8"] }
         los:
-          - { id: A, std: [CSA-2.7, AAP-2.K], do: "Trace a while loop and give the number of iterations and the final value of each variable.", ek: ["The condition is checked before every pass, so the body may run zero times; something in the body must move the condition toward false."], p: [P3], drills: [], needs: [PR-2.1.B, PR-1.4.B] }
+          - { id: A, std: [CSA-2.7, AAP-2.K], do: "Trace a while loop and give the number of iterations and the final value of each variable.", ek: ["The condition is checked before every pass, so the body may run zero times; something in the body must move the condition toward false."], p: [P3], drills: ["pr-while-trace"], needs: [PR-2.1.B, PR-1.4.B] }
           - { id: B, std: [CSA-2.7], do: "Identify a loop that never runs or never stops, and fix its initialisation, condition or update.", ek: ["Check three things: the start value, the stopping condition, and that the update moves toward it."], p: [P4], drills: [], needs: [PR-2.3.A] }
-          - { id: C, std: [CSA-2.7, AAP-2.J], do: "Write a condition-controlled loop for an unknown number of repetitions, such as peeling the digits off an int or halving until below a threshold.", ek: ["n % 10 is the last digit and n / 10 drops it; the loop ends when n reaches 0."], p: [P2], drills: [], needs: [PR-2.3.A] }
+          - { id: C, std: [CSA-2.7, AAP-2.J], do: "Write a condition-controlled loop for an unknown number of repetitions, such as peeling the digits off an int or halving until below a threshold.", ek: ["n % 10 is the last digit and n / 10 drops it; the loop ends when n reaches 0."], p: [P2], drills: ["pr-while-trace"], needs: [PR-2.3.A] }
       - n: 4
         title: for loops
         book: { csa-ced: ["2.8"], csp-ced: ["3.8"] }
         los:
-          - { id: A, std: [CSA-2.8, AAP-2.K], do: "Count the iterations of a for loop from its header, for any start, bound and step.", ek: ["for (int i = a; i < b; i++) runs b − a times; with i <= b, b − a + 1 times; with i += k, ⌈(b − a)/k⌉ times (zero if a ≥ b)."], p: [P3], drills: [], needs: [PR-2.3.A] }
+          - { id: A, std: [CSA-2.8, AAP-2.K], do: "Count the iterations of a for loop from its header, for any start, bound and step.", ek: ["for (int i = a; i < b; i++) runs b − a times; with i <= b, b − a + 1 times; with i += k, ⌈(b − a)/k⌉ times (zero if a ≥ b)."], p: [P3], drills: ["pr-for-count"], needs: [PR-2.3.A] }
           - { id: B, std: [CSA-2.8], do: "Trace a for loop and give its output or the final value of an accumulator.", ek: ["Order of one pass: test the condition, run the body, then the update; the loop variable is out of scope after the loop."], p: [P3], drills: [], needs: [PR-2.4.A] }
-          - { id: C, std: [CSA-2.8], do: "Find and fix an off-by-one error in a loop's start value or bound.", ek: ["Check the first and last pass by hand: indices 0 to n − 1 need i = 0 and i < n."], p: [P4], drills: [], needs: [PR-2.4.B] }
+          - { id: C, std: [CSA-2.8], do: "Find and fix an off-by-one error in a loop's start value or bound.", ek: ["Check the first and last pass by hand: indices 0 to n − 1 need i = 0 and i < n."], p: [P4], drills: ["pr-off-by-one"], needs: [PR-2.4.B] }
       - n: 5
         title: Standard loop algorithms
         book: { csa-ced: ["2.9"], csp-ced: ["3.9"] }
         los:
-          - { id: A, std: [CSA-2.9, AAP-2.M], do: "Implement and trace the accumulator patterns: sum, average, product and count of matches.", ek: ["Initialise before the loop (0 for sums and counts, 1 for products), update inside it, use the result after it; divide by a count as a double."], p: [P2, P3], drills: [], needs: [PR-2.4.B] }
-          - { id: B, std: [CSA-2.9], do: "Implement and trace a running minimum or maximum.", ek: ["Initialise to the first value, not 0, so all-negative data still works."], p: [P2, P3], drills: [], needs: [PR-2.5.A] }
-          - { id: C, std: [CSA-2.9, AAP-2.M], do: "Implement digit and divisibility algorithms: digit sum, factor list, primality test, gcd.", ek: ["Trial division up to √n settles primality; Euclid: gcd(a, b) = gcd(b, a % b) until b = 0."], p: [P2], drills: [], needs: [PR-2.3.C, PR-2.5.A] }
+          - { id: A, std: [CSA-2.9, AAP-2.M], do: "Implement and trace the accumulator patterns: sum, average, product and count of matches.", ek: ["Initialise before the loop (0 for sums and counts, 1 for products), update inside it, use the result after it; divide by a count as a double."], p: [P2, P3], drills: ["pr-accumulate"], needs: [PR-2.4.B] }
+          - { id: B, std: [CSA-2.9], do: "Implement and trace a running minimum or maximum.", ek: ["Initialise to the first value, not 0, so all-negative data still works."], p: [P2, P3], drills: ["pr-accumulate"], needs: [PR-2.5.A] }
+          - { id: C, std: [CSA-2.9, AAP-2.M], do: "Implement digit and divisibility algorithms: digit sum, factor list, primality test, gcd.", ek: ["Trial division up to √n settles primality; Euclid: gcd(a, b) = gcd(b, a % b) until b = 0."], p: [P2], drills: ["pr-while-trace", "pr-accumulate"], needs: [PR-2.3.C, PR-2.5.A] }
       - n: 6
         title: String algorithms
         book: { csa-ced: ["2.10"] }
         los:
-          - { id: A, std: [CSA-2.10], do: "Traverse a string with substring or charAt to count or locate characters or substrings.", ek: ["s.substring(i, i + 1) for i from 0 to s.length() − 1; a window of length k needs i <= s.length() − k."], p: [P2, P3], drills: [], needs: [PR-1.8.B, PR-2.4.C] }
-          - { id: B, std: [CSA-2.10], do: "Build a new string in a loop: reverse it, remove a character, or test for a palindrome.", ek: ["Start from an empty string and concatenate; reversing prepends each character, or appends while counting down from the end."], p: [P2, P3], drills: [], needs: [PR-2.6.A] }
+          - { id: A, std: [CSA-2.10], do: "Traverse a string with substring or charAt to count or locate characters or substrings.", ek: ["s.substring(i, i + 1) for i from 0 to s.length() − 1; a window of length k needs i <= s.length() − k."], p: [P2, P3], drills: ["pr-string-loop"], needs: [PR-1.8.B, PR-2.4.C] }
+          - { id: B, std: [CSA-2.10], do: "Build a new string in a loop: reverse it, remove a character, or test for a palindrome.", ek: ["Start from an empty string and concatenate; reversing prepends each character, or appends while counting down from the end."], p: [P2, P3], drills: ["pr-string-loop"], needs: [PR-2.6.A] }
       - n: 7
         title: Nested iteration
         book: { csa-ced: ["2.11"] }
         los:
-          - { id: A, std: [CSA-2.11], do: "Count how many times an inner-loop statement runs in nested loops, including triangular bounds.", ek: ["Independent bounds multiply (n·m); an inner j from i + 1 to n − 1 over i = 0 … n − 1 gives n(n − 1)/2."], p: [P3], drills: [], needs: [PR-2.4.A] }
-          - { id: B, std: [CSA-2.11], do: "Trace nested loops that print a pattern and give the exact output.", ek: ["The inner loop runs to completion for each pass of the outer loop; println placement decides the line breaks."], p: [P3], drills: [], needs: [PR-2.7.A, PR-2.4.B] }
+          - { id: A, std: [CSA-2.11], do: "Count how many times an inner-loop statement runs in nested loops, including triangular bounds.", ek: ["Independent bounds multiply (n·m); an inner j from i + 1 to n − 1 over i = 0 … n − 1 gives n(n − 1)/2."], p: [P3], drills: ["pr-nested-count"], needs: [PR-2.4.A] }
+          - { id: B, std: [CSA-2.11], do: "Trace nested loops that print a pattern and give the exact output.", ek: ["The inner loop runs to completion for each pass of the outer loop; println placement decides the line breaks."], p: [P3], drills: ["pr-nested-print"], needs: [PR-2.7.A, PR-2.4.B] }
       - n: 8
         title: Informal run-time analysis
         book: { csa-ced: ["2.12"], csp-ced: ["3.17"] }
@@ -252,20 +252,20 @@ units:
         book: { csa-ced: ["3.4"] }
         los:
           - { id: A, std: [CSA-3.4], do: "Write a constructor that sets every instance variable from its parameters.", ek: ["A constructor has the class name and no return type; it runs once, when new creates the object."], p: [P2], drills: [], needs: [PR-3.1.B, PR-1.7.B] }
-          - { id: B, std: [CSA-3.4], do: "Predict the default values of instance variables a constructor leaves unset.", ek: ["Unset fields are 0 (int), 0.0 (double), false (boolean) and null (references); a class with no constructor written gets a no-argument default."], p: [P3], drills: [], needs: [PR-3.2.A] }
+          - { id: B, std: [CSA-3.4], do: "Predict the default values of instance variables a constructor leaves unset.", ek: ["Unset fields are 0 (int), 0.0 (double), false (boolean) and null (references); a class with no constructor written gets a no-argument default."], p: [P3], drills: ["pr-default-values"], needs: [PR-3.2.A] }
       - n: 3
         title: Writing methods and passing references
         book: { csa-ced: ["3.5", "3.6"], csp-ced: ["3.13"] }
         los:
           - { id: A, std: [CSA-3.5, AAP-3.C], do: "Write accessor and mutator methods with the correct return types.", ek: ["An accessor returns a value without changing state; a mutator, usually void, changes it; a non-void method must return on every path."], p: [P2], drills: [], needs: [PR-3.2.A] }
-          - { id: B, std: [CSA-3.6], do: "Predict whether a method call changes the caller's variable, for primitive and for reference arguments.", ek: ["Java passes copies of values: reassigning a parameter never affects the caller, but changing the object a reference parameter points to does."], p: [P3], drills: [], needs: [PR-3.3.A, PR-1.7.D] }
-          - { id: C, std: [CSA-3.5, CRD-2.B], do: "Trace a sequence of calls on objects of a user-written class and give every object's final state.", ek: ["Each object has its own copy of the instance variables; track them in a table, one column per object."], p: [P3], drills: [], needs: [PR-3.3.B] }
+          - { id: B, std: [CSA-3.6], do: "Predict whether a method call changes the caller's variable, for primitive and for reference arguments.", ek: ["Java passes copies of values: reassigning a parameter never affects the caller, but changing the object a reference parameter points to does."], p: [P3], drills: ["pr-pass-by-value"], needs: [PR-3.3.A, PR-1.7.D] }
+          - { id: C, std: [CSA-3.5, CRD-2.B], do: "Trace a sequence of calls on objects of a user-written class and give every object's final state.", ek: ["Each object has its own copy of the instance variables; track them in a table, one column per object."], p: [P3], drills: ["pr-class-trace"], needs: [PR-3.3.B] }
       - n: 4
         title: Class members, scope and this
         book: { csa-ced: ["3.7", "3.8", "3.9"] }
         los:
-          - { id: A, std: [CSA-3.7], do: "Predict the value of a static variable shared by all instances, such as an instance counter.", ek: ["A static variable has one copy per class, shared by every object; static methods cannot use instance variables or this."], p: [P3], drills: [], needs: [PR-3.2.A] }
-          - { id: B, std: [CSA-3.8, CSA-3.9], do: "Decide which variable a name refers to when a parameter or local shadows a field, and resolve it with this.", ek: ["A local exists only inside its block; the innermost declaration wins; this.x always names the field."], p: [P3, P4], drills: [], needs: [PR-3.3.A] }
+          - { id: A, std: [CSA-3.7], do: "Predict the value of a static variable shared by all instances, such as an instance counter.", ek: ["A static variable has one copy per class, shared by every object; static methods cannot use instance variables or this."], p: [P3], drills: ["pr-class-trace"], needs: [PR-3.2.A] }
+          - { id: B, std: [CSA-3.8, CSA-3.9], do: "Decide which variable a name refers to when a parameter or local shadows a field, and resolve it with this.", ek: ["A local exists only inside its block; the innermost declaration wins; this.x always names the field."], p: [P3, P4], drills: ["pr-class-trace"], needs: [PR-3.3.A] }
           - { id: C, std: [CSA-3.2, IOC-1.F], do: "Identify who a program's design affects and the legal or ethical constraints on it, such as licences on reused code and privacy of stored data.", ek: ["Code taken from elsewhere must be credited and used under its licence; a design decides what data is kept, and for how long."], p: [P5], drills: [], needs: [PR-3.1.A] }
 
   # ── 4 ────────────────────────────────────────────────────────────────────
@@ -286,21 +286,21 @@ units:
         title: Arrays
         book: { csa-ced: ["4.3"], csp-ced: ["3.2", "3.10"] }
         los:
-          - { id: A, std: [CSA-4.3, AAP-1.C], do: "Create an array, give its length and default element values, and access an element by index.", ek: ["new int[n] has indices 0 to n − 1, filled with 0 (0.0, false, null for other types); arr.length is a field, no parentheses; an initialiser list {…} fixes the length."], p: [P3], drills: [], needs: [PR-1.7.B, PR-3.2.B] }
-          - { id: B, std: [CSA-4.3], do: "Predict an ArrayIndexOutOfBoundsException from an index expression.", ek: ["Valid indices satisfy 0 ≤ i < arr.length; arr[arr.length] is always out of bounds."], p: [P4], drills: [], needs: [PR-4.2.A] }
+          - { id: A, std: [CSA-4.3, AAP-1.C], do: "Create an array, give its length and default element values, and access an element by index.", ek: ["new int[n] has indices 0 to n − 1, filled with 0 (0.0, false, null for other types); arr.length is a field, no parentheses; an initialiser list {…} fixes the length."], p: [P3], drills: ["pr-array-basics"], needs: [PR-1.7.B, PR-3.2.B] }
+          - { id: B, std: [CSA-4.3], do: "Predict an ArrayIndexOutOfBoundsException from an index expression.", ek: ["Valid indices satisfy 0 ≤ i < arr.length; arr[arr.length] is always out of bounds."], p: [P4], drills: ["pr-array-basics"], needs: [PR-4.2.A] }
       - n: 3
         title: Array traversals
         book: { csa-ced: ["4.4"], csp-ced: ["3.10"] }
         los:
-          - { id: A, std: [CSA-4.4, AAP-2.O], do: "Traverse an array with an indexed for loop and with an enhanced for loop, and say which one can change the array.", ek: ["for (int x : arr) hands out copies of the elements, so assigning x leaves arr unchanged; modifying needs an index."], p: [P2, P3], drills: [], needs: [PR-4.2.A, PR-2.4.B] }
-          - { id: B, std: [CSA-4.4], do: "Trace a traversal that steps by 2, skips elements or runs backwards, and list the indices it visits.", ek: ["Backwards: for (int i = arr.length − 1; i >= 0; i−−); the first and last index visited settle off-by-one questions."], p: [P3], drills: [], needs: [PR-4.3.A, PR-2.4.C] }
+          - { id: A, std: [CSA-4.4, AAP-2.O], do: "Traverse an array with an indexed for loop and with an enhanced for loop, and say which one can change the array.", ek: ["for (int x : arr) hands out copies of the elements, so assigning x leaves arr unchanged; modifying needs an index."], p: [P2, P3], drills: ["pr-enhanced-for"], needs: [PR-4.2.A, PR-2.4.B] }
+          - { id: B, std: [CSA-4.4], do: "Trace a traversal that steps by 2, skips elements or runs backwards, and list the indices it visits.", ek: ["Backwards: for (int i = arr.length − 1; i >= 0; i−−); the first and last index visited settle off-by-one questions."], p: [P3], drills: ["pr-enhanced-for"], needs: [PR-4.3.A, PR-2.4.C] }
       - n: 4
         title: Array algorithms
         book: { csa-ced: ["4.5"], csp-ced: ["3.10"] }
         los:
           - { id: A, std: [CSA-4.5, AAP-2.N], do: "Implement sum, mean, minimum, maximum and count-matching over an array.", ek: ["The Unit 2 accumulator patterns, with arr[i] as the value at each pass."], p: [P2], drills: [], needs: [PR-4.3.A, PR-2.5.B] }
-          - { id: B, std: [CSA-4.5], do: "Implement algorithms over adjacent pairs: detect a repeat, check that the array is sorted, count increases.", ek: ["Comparing arr[i] with arr[i + 1] needs i < arr.length − 1."], p: [P2, P4], drills: [], needs: [PR-4.4.A] }
-          - { id: C, std: [CSA-4.5], do: "Reverse, shift or rotate an array in place and give its contents afterwards.", ek: ["Reverse by swapping i with length − 1 − i for i < length / 2; a rotation must save the element it is about to overwrite."], p: [P2, P3], drills: [], needs: [PR-4.4.B, PR-1.4.A] }
+          - { id: B, std: [CSA-4.5], do: "Implement algorithms over adjacent pairs: detect a repeat, check that the array is sorted, count increases.", ek: ["Comparing arr[i] with arr[i + 1] needs i < arr.length − 1."], p: [P2, P4], drills: ["pr-array-algorithms"], needs: [PR-4.4.A] }
+          - { id: C, std: [CSA-4.5], do: "Reverse, shift or rotate an array in place and give its contents afterwards.", ek: ["Reverse by swapping i with length − 1 − i for i < length / 2; a rotation must save the element it is about to overwrite."], p: [P2, P3], drills: ["pr-array-algorithms"], needs: [PR-4.4.B, PR-1.4.A] }
       - n: 5
         title: Text files and wrapper classes
         book: { csa-ced: ["4.6", "4.7"], csp-ced: ["2.4"] }
@@ -311,33 +311,33 @@ units:
         title: ArrayList
         book: { csa-ced: ["4.8", "4.9", "4.10"], csp-ced: ["3.10"] }
         los:
-          - { id: A, std: [CSA-4.8, AAP-2.N], do: "Predict the contents and size of an ArrayList after add, add(i, x), set, remove and get.", ek: ["add(i, x) shifts later elements right; remove(i) shifts them left and returns the removed element; size(), not length."], p: [P3], drills: [], needs: [PR-4.5.B] }
-          - { id: B, std: [CSA-4.9], do: "Find and fix the skipped-element bug when removing from an ArrayList inside a forward indexed loop.", ek: ["After remove(i) the next element slides into index i: don't increment that pass, or loop backwards; removing inside an enhanced for throws ConcurrentModificationException."], p: [P4], drills: [], needs: [PR-4.6.A, PR-4.3.A] }
+          - { id: A, std: [CSA-4.8, AAP-2.N], do: "Predict the contents and size of an ArrayList after add, add(i, x), set, remove and get.", ek: ["add(i, x) shifts later elements right; remove(i) shifts them left and returns the removed element; size(), not length."], p: [P3], drills: ["pr-arraylist"], needs: [PR-4.5.B] }
+          - { id: B, std: [CSA-4.9], do: "Find and fix the skipped-element bug when removing from an ArrayList inside a forward indexed loop.", ek: ["After remove(i) the next element slides into index i: don't increment that pass, or loop backwards; removing inside an enhanced for throws ConcurrentModificationException."], p: [P4], drills: ["pr-arraylist"], needs: [PR-4.6.A, PR-4.3.A] }
       - n: 7
         title: 2D arrays
         book: { csa-ced: ["4.11", "4.12", "4.13"] }
         los:
-          - { id: A, std: [CSA-4.11], do: "Create a 2D array and give its number of rows, number of columns and the element at [r][c].", ek: ["int[][] g = new int[R][C]; g.length = R; g[0].length = C; g[r][c] is row r, column c (row-major)."], p: [P3], drills: [], needs: [PR-4.2.A] }
-          - { id: B, std: [CSA-4.12], do: "Trace row-major and column-major nested traversals and give the visiting order or output.", ek: ["Row-major: outer loop over rows, inner over columns; swap the loops for column-major."], p: [P3], drills: [], needs: [PR-4.7.A, PR-2.7.B] }
-          - { id: C, std: [CSA-4.13], do: "Implement 2D algorithms: row sums, column sums, the main diagonal and in-bounds neighbours.", ek: ["The main diagonal is g[i][i]; neighbour (r + dr, c + dc) exists only if 0 ≤ r + dr < R and 0 ≤ c + dc < C."], p: [P2], drills: [], needs: [PR-4.7.B, PR-4.4.A] }
+          - { id: A, std: [CSA-4.11], do: "Create a 2D array and give its number of rows, number of columns and the element at [r][c].", ek: ["int[][] g = new int[R][C]; g.length = R; g[0].length = C; g[r][c] is row r, column c (row-major)."], p: [P3], drills: ["pr-2d-array"], needs: [PR-4.2.A] }
+          - { id: B, std: [CSA-4.12], do: "Trace row-major and column-major nested traversals and give the visiting order or output.", ek: ["Row-major: outer loop over rows, inner over columns; swap the loops for column-major."], p: [P3], drills: ["pr-2d-order"], needs: [PR-4.7.A, PR-2.7.B] }
+          - { id: C, std: [CSA-4.13], do: "Implement 2D algorithms: row sums, column sums, the main diagonal and in-bounds neighbours.", ek: ["The main diagonal is g[i][i]; neighbour (r + dr, c + dc) exists only if 0 ≤ r + dr < R and 0 ≤ c + dc < C."], p: [P2], drills: ["pr-2d-array"], needs: [PR-4.7.B, PR-4.4.A] }
       - n: 8
         title: Searching
         book: { csa-ced: ["4.14", "4.17"], csp-ced: ["3.11"] }
         los:
           - { id: A, std: [CSA-4.14, AAP-2.O], do: "Trace a linear search and count its comparisons in the best and worst case.", ek: ["Best case 1 comparison (first element), worst case n (last or absent)."], p: [P3], drills: [], needs: [PR-4.3.A] }
-          - { id: B, std: [CSA-4.14, AAP-2.P], do: "Trace an iterative binary search on a sorted array: list the midpoints examined and count the iterations.", ek: ["mid = (low + high) / 2, then discard the half that cannot hold the target; needs sorted data; at most ⌊log₂ n⌋ + 1 iterations."], p: [P3], drills: [], needs: [PR-4.8.A, PR-2.8.A] }
+          - { id: B, std: [CSA-4.14, AAP-2.P], do: "Trace an iterative binary search on a sorted array: list the midpoints examined and count the iterations.", ek: ["mid = (low + high) / 2, then discard the half that cannot hold the target; needs sorted data; at most ⌊log₂ n⌋ + 1 iterations."], p: [P3], drills: ["pr-search-count"], needs: [PR-4.8.A, PR-2.8.A] }
       - n: 9
         title: Sorting
         book: { csa-ced: ["4.15"] }
         los:
-          - { id: A, std: [CSA-4.15], do: "Trace selection sort and give the array after k passes.", ek: ["Pass k swaps the smallest remaining element into index k; always n(n − 1)/2 comparisons, whatever the input."], p: [P3], drills: [], needs: [PR-4.4.C, PR-2.7.A] }
-          - { id: B, std: [CSA-4.15], do: "Trace insertion sort, give the array after k passes, and count comparisons in the best and worst case.", ek: ["Pass k inserts element k into the sorted prefix; already sorted: n − 1 comparisons; reverse sorted: n(n − 1)/2."], p: [P3], drills: [], needs: [PR-4.9.A] }
+          - { id: A, std: [CSA-4.15], do: "Trace selection sort and give the array after k passes.", ek: ["Pass k swaps the smallest remaining element into index k; always n(n − 1)/2 comparisons, whatever the input."], p: [P3], drills: ["pr-sort-pass"], needs: [PR-4.4.C, PR-2.7.A] }
+          - { id: B, std: [CSA-4.15], do: "Trace insertion sort, give the array after k passes, and count comparisons in the best and worst case.", ek: ["Pass k inserts element k into the sorted prefix; already sorted: n − 1 comparisons; reverse sorted: n(n − 1)/2."], p: [P3], drills: ["pr-sort-pass"], needs: [PR-4.9.A] }
       - n: 10
         title: Recursion, recursive search and merge sort
         book: { csa-ced: ["4.16", "4.17"] }
         los:
-          - { id: A, std: [CSA-4.16], do: "Trace a recursive method and give its return value (factorial, digit sum, power).", ek: ["Each call gets its own parameters; the base case stops the descent; results combine as the calls return, last called first finished."], p: [P3], drills: [], needs: [PR-3.3.A, PR-2.1.B] }
-          - { id: B, std: [CSA-4.16], do: "Count the calls a recursive method makes, including two-branch recursion such as naive Fibonacci.", ek: ["One recursive call per level: n + 1 calls; naive fib(n) with base cases 0 and 1 makes 2·fib(n + 1) − 1 calls — exponential."], p: [P3], drills: [], needs: [PR-4.10.A] }
+          - { id: A, std: [CSA-4.16], do: "Trace a recursive method and give its return value (factorial, digit sum, power).", ek: ["Each call gets its own parameters; the base case stops the descent; results combine as the calls return, last called first finished."], p: [P3], drills: ["pr-recursion"], needs: [PR-3.3.A, PR-2.1.B] }
+          - { id: B, std: [CSA-4.16], do: "Count the calls a recursive method makes, including two-branch recursion such as naive Fibonacci.", ek: ["One recursive call per level: n + 1 calls; naive fib(n) with base cases 0 and 1 makes 2·fib(n + 1) − 1 calls — exponential."], p: [P3], drills: ["pr-recursion-calls"], needs: [PR-4.10.A] }
           - { id: C, std: [CSA-4.16], do: "Find and fix a missing or unreachable base case that causes a StackOverflowError.", ek: ["Every recursive call must move the argument toward a base case that is actually tested."], p: [P4], drills: [], needs: [PR-4.10.A] }
           - { id: D, std: [CSA-4.17], do: "Trace recursive binary search and merge sort, giving the subarrays at each level of recursion.", ek: ["Merge sort halves down to single elements, then merges sorted halves: about n log₂ n comparisons, recursion depth ⌈log₂ n⌉."], p: [P3], drills: [], needs: [PR-4.10.B, PR-4.8.B, PR-4.9.B] }
 
@@ -431,31 +431,31 @@ units:
         title: From Java to Python
         los:
           - { id: A, std: [PY-1], do: "Translate a short Java method into Python: indentation for blocks, no type declarations, print().", ek: ["A colon plus indentation marks a block; names are bound by assignment and carry no declared type; # starts a comment."], p: [P2], drills: [], needs: [PR-2.4.B, PR-3.3.A] }
-          - { id: B, std: [PY-1], do: "Evaluate Python arithmetic with /, //, %, ** and mixed int/float, and say where it differs from Java.", ek: ["7 / 2 = 3.5 always; 7 // 2 = 3 but −7 // 2 = −4 (floor, where Java truncates to −3); −7 % 2 = 1; ints never overflow; 2 ** 10 = 1024."], p: [P3], drills: [], needs: [PR-7.1.A, PR-1.3.C] }
-          - { id: C, std: [PY-1], do: "Predict the truthiness of values and the result of and, or, not and chained comparisons.", ek: ["0, 0.0, '', [], {} and None are falsy; and / or return one of their operands, not just True or False; 1 < x < 5 chains."], p: [P3], drills: [], needs: [PR-7.1.A, PR-2.2.A] }
+          - { id: B, std: [PY-1], do: "Evaluate Python arithmetic with /, //, %, ** and mixed int/float, and say where it differs from Java.", ek: ["7 / 2 = 3.5 always; 7 // 2 = 3 but −7 // 2 = −4 (floor, where Java truncates to −3); −7 % 2 = 1; ints never overflow; 2 ** 10 = 1024."], p: [P3], drills: ["pr-py-arith"], needs: [PR-7.1.A, PR-1.3.C] }
+          - { id: C, std: [PY-1], do: "Predict the truthiness of values and the result of and, or, not and chained comparisons.", ek: ["0, 0.0, '', [], {} and None are falsy; and / or return one of their operands, not just True or False; 1 < x < 5 chains."], p: [P3], drills: ["pr-py-truthy"], needs: [PR-7.1.A, PR-2.2.A] }
       - n: 2
         title: Loops and range
         los:
-          - { id: A, std: [PY-2], do: "List the values range(start, stop, step) produces and count them, including negative steps.", ek: ["range stops before stop: range(2, 10, 3) → 2, 5, 8; len(range(a, b)) = b − a; range(5, 0, −1) → 5, 4, 3, 2, 1."], p: [P3], drills: [], needs: [PR-2.4.A, PR-7.1.A] }
-          - { id: B, std: [PY-2], do: "Trace for loops over lists, strings, enumerate and zip, and while loops with break and continue.", ek: ["for x in seq yields elements, not indices; enumerate yields (i, x); zip stops at the shorter sequence; break leaves the loop, continue skips to the next pass."], p: [P3], drills: [], needs: [PR-7.2.A] }
+          - { id: A, std: [PY-2], do: "List the values range(start, stop, step) produces and count them, including negative steps.", ek: ["range stops before stop: range(2, 10, 3) → 2, 5, 8; len(range(a, b)) = b − a; range(5, 0, −1) → 5, 4, 3, 2, 1."], p: [P3], drills: ["pr-py-range"], needs: [PR-2.4.A, PR-7.1.A] }
+          - { id: B, std: [PY-2], do: "Trace for loops over lists, strings, enumerate and zip, and while loops with break and continue.", ek: ["for x in seq yields elements, not indices; enumerate yields (i, x); zip stops at the shorter sequence; break leaves the loop, continue skips to the next pass."], p: [P3], drills: ["pr-py-loops"], needs: [PR-7.2.A] }
       - n: 3
         title: Lists, slicing and comprehensions
         los:
-          - { id: A, std: [PY-3], do: "Evaluate indexing and slicing with negative indices and steps on lists and strings.", ek: ["s[−1] is the last element; s[a:b] runs a to b − 1; s[::−1] reverses; a slice out of range is empty, never an IndexError."], p: [P3], drills: [], needs: [PR-7.2.A, PR-4.2.A] }
-          - { id: B, std: [PY-3], do: "Predict a list after append, extend, insert, pop and remove, and tell sort() from sorted().", ek: ["List methods change the list in place and return None (so a = a.sort() loses it); sorted() returns a new list."], p: [P3], drills: [], needs: [PR-7.3.A] }
-          - { id: C, std: [PY-3], do: "Predict the effect of aliasing versus copying lists, including lists of lists.", ek: ["b = a aliases; a[:] or list(a) is a shallow copy; [[0] * 3] * 2 repeats one inner list, so changing one row changes both."], p: [P3, P4], drills: [], needs: [PR-7.3.B, PR-1.7.D] }
-          - { id: D, std: [PY-3], do: "Write and evaluate a list comprehension with a condition.", ek: ["[f(x) for x in seq if test(x)] filters, then maps, in one expression."], p: [P2, P3], drills: [], needs: [PR-7.3.B, PR-7.2.B] }
+          - { id: A, std: [PY-3], do: "Evaluate indexing and slicing with negative indices and steps on lists and strings.", ek: ["s[−1] is the last element; s[a:b] runs a to b − 1; s[::−1] reverses; a slice out of range is empty, never an IndexError."], p: [P3], drills: ["pr-py-slice"], needs: [PR-7.2.A, PR-4.2.A] }
+          - { id: B, std: [PY-3], do: "Predict a list after append, extend, insert, pop and remove, and tell sort() from sorted().", ek: ["List methods change the list in place and return None (so a = a.sort() loses it); sorted() returns a new list."], p: [P3], drills: ["pr-py-list-ops"], needs: [PR-7.3.A] }
+          - { id: C, std: [PY-3], do: "Predict the effect of aliasing versus copying lists, including lists of lists.", ek: ["b = a aliases; a[:] or list(a) is a shallow copy; [[0] * 3] * 2 repeats one inner list, so changing one row changes both."], p: [P3, P4], drills: ["pr-py-alias"], needs: [PR-7.3.B, PR-1.7.D] }
+          - { id: D, std: [PY-3], do: "Write and evaluate a list comprehension with a condition.", ek: ["[f(x) for x in seq if test(x)] filters, then maps, in one expression."], p: [P2, P3], drills: ["pr-py-comprehension"], needs: [PR-7.3.B, PR-7.2.B] }
       - n: 4
         title: Dictionaries and strings
         los:
-          - { id: A, std: [PY-4], do: "Predict a dictionary after insertions, updates and deletions, and count items with one.", ek: ["Keys are unique; d[k] raises KeyError when k is missing, d.get(k, 0) does not; d[k] = d.get(k, 0) + 1 counts occurrences."], p: [P3], drills: [], needs: [PR-7.3.B] }
-          - { id: B, std: [PY-4], do: "Evaluate string methods (split, strip, join, replace) and f-string formatting with a set precision.", ek: ["f'{x:.3f}' prints 3 decimals, f'{x:.2e}' scientific notation; split() with no argument splits on any run of whitespace."], p: [P3], drills: [], needs: [PR-7.3.A] }
+          - { id: A, std: [PY-4], do: "Predict a dictionary after insertions, updates and deletions, and count items with one.", ek: ["Keys are unique; d[k] raises KeyError when k is missing, d.get(k, 0) does not; d[k] = d.get(k, 0) + 1 counts occurrences."], p: [P3], drills: ["pr-py-dict-str"], needs: [PR-7.3.B] }
+          - { id: B, std: [PY-4], do: "Evaluate string methods (split, strip, join, replace) and f-string formatting with a set precision.", ek: ["f'{x:.3f}' prints 3 decimals, f'{x:.2e}' scientific notation; split() with no argument splits on any run of whitespace."], p: [P3], drills: ["pr-py-dict-str"], needs: [PR-7.3.A] }
       - n: 5
         title: Functions, modules and errors
         los:
-          - { id: A, std: [PY-5], do: "Trace a function with default and keyword arguments and give its return value, including an implicit None.", ek: ["A function that reaches its end without return gives None; a default value is evaluated once, when the function is defined."], p: [P3], drills: [], needs: [PR-7.1.A, PR-3.3.A] }
+          - { id: A, std: [PY-5], do: "Trace a function with default and keyword arguments and give its return value, including an implicit None.", ek: ["A function that reaches its end without return gives None; a default value is evaluated once, when the function is defined."], p: [P3], drills: ["pr-py-functions"], needs: [PR-7.1.A, PR-3.3.A] }
           - { id: B, std: [PY-5], do: "Import names from a module and guard script code with if __name__ == '__main__'.", ek: ["import numpy as np binds a module name; code under the guard runs when the file is executed, not when it is imported."], p: [P2], drills: [], needs: [PR-7.5.A] }
-          - { id: C, std: [PY-5], do: "Read a traceback to find the failing line and the exception type, and handle an expected error with try / except.", ek: ["Read a traceback bottom up: the last line names the exception, the frame just above it the line that raised it; catch only the exception you expect."], p: [P4], drills: [], needs: [PR-7.5.A, PR-1.1.C] }
+          - { id: C, std: [PY-5], do: "Read a traceback to find the failing line and the exception type, and handle an expected error with try / except.", ek: ["Read a traceback bottom up: the last line names the exception, the frame just above it the line that raised it; catch only the exception you expect."], p: [P4], drills: ["pr-py-functions"], needs: [PR-7.5.A, PR-1.1.C] }
       - n: 6
         title: Reading and writing files
         los:
