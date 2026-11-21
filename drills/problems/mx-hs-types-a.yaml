@@ -24,13 +24,18 @@
   pace: recall
   cases:
     - { q: 'A gym charges 25 dollars plus 10 dollars per class: C = 25 + 10n. What does n stand for?', ans: 0 }
-    - { q: 'In C = 25 + 10n, what does 25 stand for?', ans: 1 }
-    - { q: 'In C = 25 + 10n, what does 10 stand for?', ans: 2 }
+    - { q: 'In C = 25 + 10n (gym), what does 25 stand for?', ans: 1 }
+    - { q: 'In C = 25 + 10n (gym), what does 10 stand for?', ans: 2 }
+    - { q: 'A taxi fare is F = 3.50 + 2.25m for m miles. What does 2.25 stand for?', ans: 2 }
+    - { q: 'In F = 3.50 + 2.25m (taxi), what does 3.50 stand for?', ans: 1 }
+    - { q: 'A candle''s height is H = 30 − 2t after t hours. What does t stand for?', ans: 0 }
+    - { q: 'In H = 30 − 2t (candle), what does −2 stand for?', ans: 2 }
+    - { q: 'In H = 30 − 2t (candle), what does 30 stand for?', ans: 1 }
   prompt: '{{q}}'
   parts:
     - ask: 'Meaning'
       label: a
-      choice: ["The number of classes", "The fixed joining fee", "The cost per class"]
+      choice: ["The input quantity (what is counted or measured)", "The fixed starting amount", "The rate: change per unit of input"]
       correct: ans
       explain: 'Name every variable with its unit before writing an equation; constants then have clear meanings (start-up cost, rate)'
   verify: { authored: true }
@@ -39,14 +44,17 @@
   skill: alg.linear
   pace: recall
   cases:
-    - { q: 'A room measured as 3.2 m by 4.15 m has area', ans: 0 }
-    - { q: 'Dividing 10 dollars among 3 people gives each', ans: 1 }
-    - { q: 'A survey of 87 people, 29 said yes, gives a yes-rate of', ans: 2 }
-  prompt: '{{q}} …'
+    - { q: 'A room measured as 3.2 m by 4.15 m: how should its area be reported?', ans: 0 }
+    - { q: 'Dividing 10 dollars among 3 people: how should each share be reported?', ans: 1 }
+    - { q: '29 of 87 people surveyed said yes: how should the yes-rate be reported?', ans: 2 }
+    - { q: 'A table measured as 2.5 m by 1.8 m: how should its area be reported?', ans: 0 }
+    - { q: 'A 47 dollar bill split 4 ways: how should each share be reported?', ans: 1 }
+    - { q: '13 of 40 students were absent: how should the absence rate be reported?', ans: 2 }
+  prompt: '{{q}}'
   parts:
     - ask: 'Best report'
       label: a
-      choice: ["about 13 m² (the measurement supports two significant figures)", "3.33 dollars (money to the cent)", "about 33 percent"]
+      choice: ["Two significant figures, matching the measurements", "To the cent", "A rounded percent"]
       correct: ans
       explain: 'Report to the precision the inputs and the context support: a calculator''s full display claims accuracy the data does not have'
   verify: { authored: true }
@@ -57,12 +65,16 @@
   cases:
     - { q: 'In A = P(1 + r)ⁿ, what does (1 + r) represent?', ans: 0 }
     - { q: 'In A = P(1 + r)ⁿ, what does P represent?', ans: 1 }
-    - { q: 'In the profit expression p(1 − 0.2), what does 0.2 represent?', ans: 2 }
+    - { q: 'In the sale price p(1 − 0.2), what does 0.2 represent?', ans: 2 }
+    - { q: 'A car''s value is V = 20000(0.85)ᵗ. What does 0.85 represent?', ans: 0 }
+    - { q: 'In V = 20000(0.85)ᵗ, what does 20000 represent?', ans: 1 }
+    - { q: 'A balance grows as B = 1000(1.07)ᵗ. What does 0.07 represent?', ans: 2 }
+    - { q: 'A drug level is D = 80(1/2)^(t/6). What does 1/2 represent?', ans: 0 }
   prompt: '{{q}}'
   parts:
     - ask: 'Meaning'
       label: a
-      choice: ["The growth factor per period", "The starting amount", "A 20 percent reduction"]
+      choice: ["A growth or decay factor per period", "The starting amount", "A rate of change as a decimal"]
       correct: ans
       explain: 'See groups of symbols as single quantities: a factor, a base amount, a rate. That reading tells you how the expression behaves'
   verify: { authored: true }
@@ -216,11 +228,15 @@
     - { q: 'C(n), the cost of n concert tickets', ans: 0 }
     - { q: 'h(t), the height of a ball from launch until it lands at t = 4', ans: 1 }
     - { q: 'A(r), the area of a circle of radius r', ans: 2 }
+    - { q: 'B(k), the number of buses needed for k students', ans: 0 }
+    - { q: 'T(t), the temperature during one day, t hours after midnight', ans: 1 }
+    - { q: 'P(s), the perimeter of a square of side s', ans: 2 }
+    - { q: 'W(d), the water in a 50 L tank draining for d minutes until empty at d = 10', ans: 1 }
   prompt: 'What is a sensible domain for {{q}}?'
   parts:
     - ask: 'Domain'
       label: a
-      choice: ["Whole numbers 0, 1, 2, …", "0 ≤ t ≤ 4", "r > 0"]
+      choice: ["Whole numbers 0, 1, 2, …", "A closed interval the situation sets", "All positive real numbers"]
       correct: ans
       explain: 'The context limits the domain: counts are whole numbers, time runs only while the event lasts, lengths are positive'
   verify: { authored: true }
@@ -331,14 +347,17 @@
   skill: alg.linear
   pace: recall
   cases:
-    - { q: 'Why may you replace one equation by the sum of the two equations?', ans: 0 }
+    - { q: 'Why may you replace one equation by the sum of the two?', ans: 0 }
     - { q: 'Why may you multiply an equation by a nonzero number?', ans: 1 }
-    - { q: 'Adding x + y = 7 and x − y = 1 gives', ans: 2 }
+    - { q: 'Adding x + y = 7 and x − y = 1 gives 2x = 8. Why does that help?', ans: 2 }
+    - { q: 'Why are 2x + 3y = 12 and 4x + 6y = 24 the same line?', ans: 1 }
+    - { q: 'Why does the new system after elimination have the same solution set?', ans: 0 }
+    - { q: 'Adding 3x + 2y = 10 and x − 2y = 2 gives 4x = 12. Why does that help?', ans: 2 }
   prompt: '{{q}}'
   parts:
     - ask: 'Answer'
       label: a
-      choice: ["Any (x, y) solving both equations also solves their sum, and vice versa, so the solutions are unchanged", "It describes the same line, so the solutions are unchanged", "2x = 8, so x = 4"]
+      choice: ["Any solution of both equations also solves their sum, and the reverse", "Multiplying by a nonzero number describes the same line", "Adding the equations cancels a variable"]
       correct: ans
       explain: 'Elimination produces an equivalent system: the new system has exactly the same solutions as the original'
   verify: { authored: true }
@@ -347,14 +366,17 @@
   skill: alg.linear
   pace: recall
   cases:
-    - { q: 'The graphs of y = f(x) and y = g(x) cross at x = 3. What does 3 solve?', ans: 0 }
-    - { q: 'y = 2x and y = x + 1 cross at (1, 2). Which equation has solution x = 1?', ans: 1 }
-    - { q: 'Graphs of f and g never meet. How many solutions does f(x) = g(x) have?', ans: 2 }
+    - { q: 'The graphs of y = f(x) and y = g(x) cross at x = 3. Which equation does 3 solve?', ans: 0 }
+    - { q: 'The graph of y = f(x) crosses the x-axis at x = 2. Which equation does 2 solve?', ans: 1 }
+    - { q: 'The graphs of f and g never meet. What about f(x) = g(x)?', ans: 2 }
+    - { q: 'y = 2x and y = x + 1 cross at (1, 2). Which equation has solution x = 1, with f(x) = 2x and g(x) = x + 1?', ans: 0 }
+    - { q: 'The parabola y = f(x) touches the x-axis only at x = −1. Which equation does −1 solve?', ans: 1 }
+    - { q: 'y = f(x) and y = g(x) are parallel lines. What about f(x) = g(x)?', ans: 2 }
   prompt: '{{q}}'
   parts:
     - ask: 'Answer'
       label: a
-      choice: ["The equation f(x) = g(x)", "2x = x + 1", "None"]
+      choice: ["f(x) = g(x)", "f(x) = 0", "It has no solution"]
       correct: ans
       explain: 'At an intersection both functions give the same y for the same x, which is exactly what f(x) = g(x) asks'
   verify: { authored: true }
@@ -424,6 +446,9 @@
     - { q: 'Residuals scatter randomly around 0 with no pattern', ans: 0 }
     - { q: 'Residuals form a U shape', ans: 1 }
     - { q: 'Residuals fan out wider as x grows', ans: 2 }
+    - { q: 'Residuals are negative at both ends and positive in the middle', ans: 1 }
+    - { q: 'Residuals are small, with signs mixed in no order', ans: 0 }
+    - { q: 'Residuals are tiny for small x and large for large x', ans: 2 }
   prompt: '{{q}}. What does it say about a linear fit?'
   parts:
     - ask: 'Conclusion'
@@ -449,6 +474,9 @@
     - { q: 'Ice-cream sales and drownings are strongly correlated. Does ice cream cause drowning?', ans: 1 }
     - { q: 'In a randomised experiment, the group given a drug recovered faster. Can we conclude the drug helps?', ans: 0 }
     - { q: 'Countries with more TVs per person have longer life expectancy. Do TVs extend life?', ans: 1 }
+    - { q: 'Students who own more books score higher on reading tests. Do books raise scores?', ans: 1 }
+    - { q: 'Plots randomly assigned a fertilizer grew taller corn than control plots. Did the fertilizer help?', ans: 0 }
+    - { q: 'Cities with more police have more crime. Do police cause crime?', ans: 1 }
   prompt: '{{q}}'
   parts:
     - ask: 'Answer'
@@ -636,6 +664,9 @@
     - { q: 'Every point moves the same distance in the same direction', ans: 0 }
     - { q: 'Every point moves along a circle centered at a fixed point through the same angle', ans: 1 }
     - { q: 'The mirror line is the perpendicular bisector of each segment joining a point to its image', ans: 2 }
+    - { q: 'Segments joining points to their images are all parallel and congruent', ans: 0 }
+    - { q: 'One point stays fixed and every other point keeps its distance from it while turning', ans: 1 }
+    - { q: 'Orientation reverses: clockwise vertex order becomes counterclockwise', ans: 2 }
   prompt: 'Which transformation is defined by: {{q}}?'
   parts:
     - ask: 'Transformation'
@@ -770,6 +801,9 @@
     - { q: 'A line not through the center of dilation becomes', ans: 0 }
     - { q: 'A line through the center of dilation becomes', ans: 1 }
     - { q: 'An angle''s measure after dilation is', ans: 2 }
+    - { q: 'The line y = 2x + 1, dilated by 3 from the origin, becomes', ans: 0 }
+    - { q: 'The line y = 2x, dilated by 3 from the origin, becomes', ans: 1 }
+    - { q: 'The ratio of two side lengths of a figure after dilation is', ans: 2 }
   prompt: '{{q}} …'
   parts:
     - ask: 'Answer'
@@ -801,14 +835,18 @@
   skill: geo.similarity
   pace: recall
   cases:
-    - { q: 'Why are two angles enough to prove triangles similar?', ans: 0 }
-    - { q: 'Two right triangles share an acute angle. Are they similar?', ans: 1 }
-    - { q: 'Two isosceles triangles have congruent vertex angles. Are they similar?', ans: 1 }
+    - { q: 'Why are two pairs of matching angles enough to prove triangles similar?', ans: 0 }
+    - { q: 'Two right triangles share a 35° acute angle. Similar?', ans: 1 }
+    - { q: 'Two isosceles triangles have congruent vertex angles. Similar?', ans: 1 }
+    - { q: 'Two triangles each have one 50° angle, and nothing else is known. Similar?', ans: 2 }
+    - { q: 'Triangle 1 has angles 40° and 60°; triangle 2 has angles 60° and 80°. Similar?', ans: 1 }
+    - { q: 'Two right triangles, nothing else known. Similar?', ans: 2 }
+    - { q: 'Any two equilateral triangles?', ans: 1 }
   prompt: '{{q}}'
   parts:
     - ask: 'Answer'
       label: a
-      choice: ["The third angles must then match too (sum 180°), and a dilation plus a rigid motion maps one onto the other", "Yes, by AA"]
+      choice: ["The third angles then match too (sum 180°), so a dilation and a rigid motion map one onto the other", "Similar, by AA", "Not necessarily similar"]
       correct: ans
       explain: 'Similarity transformations preserve angles, so matching two angles pins the shape; only size can differ'
   verify: { authored: true }
@@ -988,14 +1026,18 @@
   skill: geo.circles
   pace: recall
   cases:
-    - { q: 'the center of the circle through all three vertices', ans: 0 }
-    - { q: 'the center of the circle tangent to all three sides', ans: 1 }
-    - { q: 'Opposite angles of a quadrilateral inscribed in a circle are', ans: 2 }
-  prompt: '{{q}} …'
+    - { q: 'Which center is the center of the circle through all three vertices?', ans: 0 }
+    - { q: 'Which center is the center of the circle tangent to all three sides?', ans: 1 }
+    - { q: 'Which center is the balance point of a triangle cut from cardboard?', ans: 2 }
+    - { q: 'Which center is where the three altitudes cross?', ans: 3 }
+    - { q: 'Which point is the same distance from all three vertices?', ans: 0 }
+    - { q: 'Which point is the same distance from all three sides?', ans: 1 }
+    - { q: 'Which center divides each median 2 : 1 from the vertex?', ans: 2 }
+  prompt: '{{q}}'
   parts:
     - ask: 'Answer'
       label: a
-      choice: ["the circumcenter: where the perpendicular bisectors meet", "the incenter: where the angle bisectors meet", "supplementary"]
+      choice: ["The circumcenter: where the perpendicular bisectors meet", "The incenter: where the angle bisectors meet", "The centroid: where the medians meet", "The orthocenter: where the altitudes meet"]
       correct: ans
       explain: 'Points on a perpendicular bisector are equidistant from two vertices; points on an angle bisector are equidistant from two sides'
   verify: { authored: true }
@@ -1062,14 +1104,17 @@
   skill: stats.probability
   pace: recall
   cases:
-    - { q: 'The chance a smoker gets lung cancer', ans: 0 }
-    - { q: 'The chance a lung-cancer patient is a smoker', ans: 1 }
-    - { q: 'Knowing it rained does not change the chance of a traffic delay', ans: 2 }
-  prompt: '{{q}} is written:'
+    - { q: 'A = lung cancer, B = smoker. The chance a smoker gets lung cancer:', ans: 0 }
+    - { q: 'A = lung cancer, B = smoker. The chance a lung-cancer patient is a smoker:', ans: 1 }
+    - { q: 'A = delay, B = rain. Knowing it rained does not change the chance of a delay:', ans: 3 }
+    - { q: 'A = passes the test, B = studied. The chance a student both studied and passed:', ans: 2 }
+    - { q: 'A = passes the test, B = studied. Among students who studied, the chance of passing:', ans: 0 }
+    - { q: 'A = rain, B = cloudy. Among rainy days, the fraction that were cloudy:', ans: 1 }
+  prompt: '{{q}}'
   parts:
     - ask: 'Notation'
       label: a
-      choice: ["P(cancer | smoker)", "P(smoker | cancer)", "P(delay | rain) = P(delay): independence"]
+      choice: ["P(A | B)", "P(B | A)", "P(A and B)", "P(A | B) = P(A): A and B are independent"]
       correct: ans
       explain: 'The condition goes after the bar. Swapping it gives a different, often very different, probability'
   verify: { authored: true }
@@ -1087,14 +1132,17 @@
   skill: stats.probability
   pace: recall
   cases:
-    - { q: 'Three friends must pick one to drive. Which is fair?', ans: 0 }
-    - { q: 'Toss two coins: HH means Ana, TT means Ben, mixed means Cy. Is it fair?', ans: 1 }
-    - { q: 'Roll a die: 1–2 Ana, 3–4 Ben, 5–6 Cy. Is it fair?', ans: 0 }
+    - { q: 'Toss two coins: HH means Ana, TT means Ben, mixed means Cy. Fair?', ans: 1 }
+    - { q: 'Roll a die: 1–2 Ana, 3–4 Ben, 5–6 Cy. Fair?', ans: 0 }
+    - { q: 'Draw a card from a standard deck: red means Ana, black means Ben. Fair?', ans: 0 }
+    - { q: 'Roll two dice: a sum of 7 means Ana, a sum of 2 means Ben, re-roll otherwise. Fair?', ans: 1 }
+    - { q: 'Spin a spinner with three equal sectors, one per person. Fair?', ans: 0 }
+    - { q: 'Roll two dice: doubles means Ana, otherwise Ben. Fair?', ans: 1 }
   prompt: '{{q}}'
   parts:
     - ask: 'Answer'
       label: a
-      choice: ["Fair: each has probability 1/3", "Not fair: mixed has probability 1/2"]
+      choice: ["Fair: each has the same probability", "Not fair"]
       correct: ans
       explain: 'A fair decision gives each option equal probability; list the sample space to check'
   verify: { authored: true }

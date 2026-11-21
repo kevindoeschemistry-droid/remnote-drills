@@ -443,7 +443,7 @@
   pace: recall
   cases:
     - { q: 'two squares side by side', ans: 0 }
-    - { q: 'two identical right triangles joined along their long sides', ans: 0 }
+    - { q: 'two identical right triangles joined along their long sides, one turned half a turn', ans: 0 }
     - { q: 'a square with a triangle on top', ans: 1 }
     - { q: 'two half-circles joined along their straight edges', ans: 2 }
   prompt: 'What shape do you get from {{q}}?'
@@ -461,6 +461,7 @@
   cases:
     - { q: 'halves', n: 2 }
     - { q: 'fourths (quarters)', n: 4 }
+    - { q: 'thirds', n: 3 }
   prompt: 'A pizza is cut into equal {{q}}. How many pieces make the whole pizza?'
   parts:
     - { ask: 'Pieces', label: r, value: n, tol: 0.0001, explain: 'Two halves or four fourths make one whole. More equal shares means smaller shares' }

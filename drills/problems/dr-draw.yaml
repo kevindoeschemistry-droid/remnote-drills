@@ -51,6 +51,8 @@
     - { B: 1, ptex: '\pi', atex: '\pm\tfrac{\pi}{2}' }
     - { B: 2, ptex: '\tfrac{\pi}{2}', atex: '\pm\tfrac{\pi}{4}' }
     - { B: 0.5, ptex: '2\pi', atex: '\pm\pi' }
+    - { B: 3, ptex: '\tfrac{\pi}{3}', atex: '\pm\tfrac{\pi}{6}' }
+    - { B: 4, ptex: '\tfrac{\pi}{4}', atex: '\pm\tfrac{\pi}{8}' }
   let: { P: pi/B }
   prompt: 'Sketch $y = {{=tan(B*x)}}$ for the one period centred on the origin. Mark the two asymptotes and the points where $y = \pm 1$.'
   parts:

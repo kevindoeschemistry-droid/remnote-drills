@@ -135,6 +135,9 @@
     - { sn: 3, sd: 4, cn: 5, cd: 4 }
     - { sn: 4, sd: 3, cn: 5, cd: 3 }
     - { sn: 5, sd: 12, cn: 13, cd: 12 }
+    - { sn: 8, sd: 15, cn: 17, cd: 15 }
+    - { sn: 7, sd: 24, cn: 25, cd: 24 }
+    - { sn: 12, sd: 5, cn: 13, cd: 5 }
   prompt: 'If $\sinh x = \tfrac{ {{sn}} }{ {{sd}} }$ and $\cosh x = \tfrac{ {{cn}} }{ {{cd}} }$, what is $\sinh 2x$?'
   parts:
     - { ask: '$\sinh 2x$', label: r, tex: '\sinh 2x', value: 2*sn/sd*cn/cd, tol: 0.0005, explain: '$\sinh 2x = 2\sinh x\cosh x$, the same as for sine. And $\cosh 2x = \cosh^2x + \sinh^2x$, with a plus' }
