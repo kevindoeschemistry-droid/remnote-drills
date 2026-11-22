@@ -913,7 +913,7 @@ Big ideas: TRA, SPQ
 - ● **CH-7.3.B** (TRA-7.A) Calculate Q from given concentrations or pressures and compare it with K to predict the direction of shift.
   - EK: Q < K ⇒ forward; Q > K ⇒ reverse; Q = K ⇒ at equilibrium.
   - Needs: CH-7.3.A, CH-7.2.A
-  - P5 · P6 · drills: ac-q-vs-k
+  - P5 · P6 · drills: ac-q-vs-k, ac2-q-direction
 
 ### 7.4 Calculating the equilibrium constant
 
@@ -930,7 +930,7 @@ Big ideas: TRA, SPQ
 - ● **CH-7.4.C** (TRA-7.B) Convert between K_c and K_p.
   - EK: K_p = K_c(RT)^Δn with R = 0.08206 and Δn = moles gas products − reactants.
   - Needs: CH-7.4.A, CH-3.4.A
-  - P5 · drills: ac-kc-kp
+  - P5 · drills: ac-kc-kp, ac2-kc-from-kp
 
 ### 7.5 Magnitude of the equilibrium constant
 
@@ -948,7 +948,7 @@ Big ideas: TRA, SPQ
 - ● **CH-7.6.A** (TRA-7.D) Find K for a reversed, scaled or summed reaction.
   - EK: Reverse ⇒ 1/K; multiply by n ⇒ Kⁿ; add reactions ⇒ multiply their K's.
   - Needs: CH-7.3.A
-  - P5 · drills: ac-k-manipulate
+  - P5 · drills: ac-k-manipulate, ac2-k-powers
 
 ### 7.7 Calculating equilibrium concentrations
 
@@ -979,7 +979,7 @@ Big ideas: TRA, SPQ
 - ● **CH-7.9.A** (TRA-8.A) Predict the shift caused by adding or removing a species, changing volume or pressure, changing temperature, adding an inert gas, or adding a catalyst.
   - EK: The system shifts to counteract the stress; smaller volume favors fewer gas moles; heat acts as a reactant (endothermic) or product (exothermic); inert gas at constant V and catalysts cause no shift.
   - Needs: CH-7.3.B, CH-6.1.A
-  - P6 · drills: ac-le-chatelier
+  - P6 · drills: ac-le-chatelier, ac2-volume-shift
 
 ### 7.10 Reaction quotient and Le Châtelier's principle
 
@@ -1001,7 +1001,7 @@ Big ideas: TRA, SPQ
 - ● **CH-7.11.B** (SPQ-5.A) Calculate molar solubility in g/L or mol/L from K_sp, and compare solubilities of salts with different ion ratios.
   - EK: Compare K_sp directly only for salts with the same ion ratio; otherwise compare s.
   - Needs: CH-7.11.A
-  - P5 · drills: ac-solubility-from-ksp
+  - P5 · drills: ac-solubility-from-ksp, ac2-more-soluble
 - ● **CH-7.11.C** (SPQ-5.A) Predict whether a precipitate forms on mixing solutions by comparing Q_sp with K_sp.
   - EK: Use concentrations after mixing (diluted); Q_sp > K_sp ⇒ precipitate forms.
   - Needs: CH-7.11.A, CH-3.7.B
@@ -1014,7 +1014,7 @@ Big ideas: TRA, SPQ
 - ● **CH-7.12.A** (SPQ-5.B) Calculate the solubility of a salt in a solution that already contains one of its ions.
   - EK: Put the common ion's concentration into the ICE table; solubility falls (Le Châtelier).
   - Needs: CH-7.11.B, CH-7.9.A
-  - P5 · drills: ac-common-ion
+  - P5 · drills: ac-common-ion, ac2-common-ion-s
 
 ## Unit 8 · Acids and bases
 
@@ -1027,7 +1027,7 @@ Big ideas: SAP, TRA, SPQ
 - ● **CH-8.1.A** (SAP-9.A) Convert among pH, pOH, [H₃O⁺] and [OH⁻] at 25 °C.
   - EK: pH = −log[H₃O⁺]; K_w = [H₃O⁺][OH⁻] = 1.0 × 10⁻¹⁴; pH + pOH = 14.
   - Needs: CH-4.8.A, CH-7.3.A
-  - P5 · drills: ac-ph-poh
+  - P5 · drills: ac-ph-poh, ac2-h-from-ph
 
 ### 8.2 pH and pOH of strong acids and bases
 
@@ -1036,7 +1036,7 @@ Big ideas: SAP, TRA, SPQ
 - ● **CH-8.2.A** (SAP-9.B) Identify the strong acids and bases, and calculate the pH of their solutions.
   - EK: Strong acids: HCl, HBr, HI, HNO₃, H₂SO₄ (first H), HClO₄; strong bases: Group 1 and heavy Group 2 hydroxides; they ionize completely.
   - Needs: CH-8.1.A, CH-3.7.C
-  - P5 · drills: ac-strong-acid-ph
+  - P5 · drills: ac-strong-acid-ph, ac2-strong-dilution-ph
 
 ### 8.3 Weak acid and base equilibria
 
@@ -1045,7 +1045,7 @@ Big ideas: SAP, TRA, SPQ
 - ● **CH-8.3.A** (SAP-9.C) Calculate the pH and percent ionization of a weak acid from K_a and its concentration.
   - EK: [H₃O⁺] ≈ √(K_a·C) when ionization < 5%; % ionization = [H₃O⁺]/C × 100, and it rises on dilution.
   - Needs: CH-8.1.A, CH-7.7.A
-  - P5 · drills: ac-weak-acid-ph
+  - P5 · drills: ac-weak-acid-ph, ac2-percent-ionization
 - ● **CH-8.3.B** (SAP-9.C) Calculate the pH of a weak base solution from K_b.
   - EK: [OH⁻] ≈ √(K_b·C); then pOH → pH.
   - Needs: CH-8.3.A
@@ -1057,7 +1057,7 @@ Big ideas: SAP, TRA, SPQ
 - ● **CH-8.3.D** (SAP-9.C) Convert between K_a of an acid and K_b of its conjugate base.
   - EK: K_a·K_b = K_w; pK_a + pK_b = 14 at 25 °C; stronger acid ⇒ weaker conjugate base.
   - Needs: CH-8.3.B
-  - P5 · drills: ac-ka-kb
+  - P5 · drills: ac-ka-kb, ac2-strongest-conj-base
 
 ### 8.4 Acid–base reactions and buffers
 
@@ -1074,7 +1074,7 @@ Big ideas: SAP, TRA, SPQ
 - ● **CH-8.4.C** (SAP-9.D) Predict whether a salt solution is acidic, basic or neutral and calculate its pH.
   - EK: Conjugate bases of weak acids raise pH; conjugates of weak bases (NH₄⁺) lower it; ions of strong acids and bases are neutral.
   - Needs: CH-8.3.D
-  - P5 · P6 · drills: ac-salt-ph
+  - P5 · P6 · drills: ac-salt-ph, ac2-salt-ph-kind
 
 ### 8.5 Acid–base titrations
 
@@ -1087,7 +1087,7 @@ Big ideas: SAP, TRA, SPQ
 - ● **CH-8.5.B** (SAP-9.E) Read a titration curve to find the equivalence volume, pK_a and the analyte's strength, and choose a suitable indicator.
   - EK: Weak acid–strong base equivalence pH > 7; pick an indicator whose pK_a (color change) brackets the equivalence pH.
   - Needs: CH-8.5.A
-  - P4 · drills: ac-indicator-choice
+  - P4 · drills: ac-indicator-choice, ac2-ka-half-equivalence
 - ● **CH-8.5.C** (SAP-9.E) Interpret the titration curve of a polyprotic acid.
   - EK: One equivalence point per acidic proton (if K_a's differ enough); pK_a1 and pK_a2 at the half-equivalence points.
   - Needs: CH-8.5.B
@@ -1113,7 +1113,7 @@ Big ideas: SAP, TRA, SPQ
 - ● **CH-8.7.A** (SAP-10.A) Predict the predominant protonation form of an acid at a given pH from its pK_a.
   - EK: pH < pK_a ⇒ protonated form dominates; pH > pK_a ⇒ deprotonated; pH = pK_a ⇒ 1:1.
   - Needs: CH-8.3.D
-  - P6 · drills: ac-predominant-form
+  - P6 · drills: ac-predominant-form, ac2-predominant-pick
 
 ### 8.8 Properties of buffers
 
@@ -1139,7 +1139,7 @@ Big ideas: SAP, TRA, SPQ
 - ● **CH-8.9.C** (SAP-10.C) Design a buffer: choose a conjugate pair and the base-to-acid ratio for a target pH.
   - EK: Pick pK_a within ±1 of the target pH; ratio = 10^(pH − pK_a).
   - Needs: CH-8.9.A
-  - P2 · P5 · drills: ac-buffer-design
+  - P2 · P5 · drills: ac-buffer-design, ac2-buffer-ratio
 
 ### 8.10 Buffer capacity
 

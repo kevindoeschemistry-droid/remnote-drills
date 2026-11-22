@@ -639,7 +639,7 @@ units:
         dat: [Chemical Equilibria]
         los:
           - { id: A, std: [TRA-7.A], do: "Write the K_c and K_p expressions for a reaction, including heterogeneous ones.", ek: ["Products over reactants, each raised to its coefficient; pure solids and liquids are left out."], p: [P3], drills: [ac-k-expression], needs: [CH-7.1.A] }
-          - { id: B, std: [TRA-7.A], do: "Calculate Q from given concentrations or pressures and compare it with K to predict the direction of shift.", ek: ["Q < K ⇒ forward; Q > K ⇒ reverse; Q = K ⇒ at equilibrium."], p: [P5, P6], drills: [ac-q-vs-k], needs: [CH-7.3.A, CH-7.2.A] }
+          - { id: B, std: [TRA-7.A], do: "Calculate Q from given concentrations or pressures and compare it with K to predict the direction of shift.", ek: ["Q < K ⇒ forward; Q > K ⇒ reverse; Q = K ⇒ at equilibrium."], p: [P5, P6], drills: ["ac-q-vs-k", "ac2-q-direction"], needs: [CH-7.3.A, CH-7.2.A] }
       - n: 4
         title: Calculating the equilibrium constant
         ced: "7.4"
@@ -647,7 +647,7 @@ units:
         los:
           - { id: A, std: [TRA-7.B], do: "Calculate K from equilibrium concentrations or partial pressures.", ek: ["Substitute equilibrium (not initial) values into the K expression."], p: [P5], drills: [ac-k-from-concentrations], needs: [CH-7.3.A] }
           - { id: B, std: [TRA-7.B], do: "Use an ICE table with initial amounts and one equilibrium amount to find K.", ek: ["Changes follow the coefficients: −ax, −bx, +cx; one known equilibrium value fixes x."], p: [P5], drills: [ac-ice-k], needs: [CH-7.4.A] }
-          - { id: C, std: [TRA-7.B], do: "Convert between K_c and K_p.", ek: ["K_p = K_c(RT)^Δn with R = 0.08206 and Δn = moles gas products − reactants."], p: [P5], drills: [ac-kc-kp], needs: [CH-7.4.A, CH-3.4.A] }
+          - { id: C, std: [TRA-7.B], do: "Convert between K_c and K_p.", ek: ["K_p = K_c(RT)^Δn with R = 0.08206 and Δn = moles gas products − reactants."], p: [P5], drills: ["ac-kc-kp", "ac2-kc-from-kp"], needs: [CH-7.4.A, CH-3.4.A] }
       - n: 5
         title: Magnitude of the equilibrium constant
         ced: "7.5"
@@ -659,7 +659,7 @@ units:
         ced: "7.6"
         dat: [Chemical Equilibria]
         los:
-          - { id: A, std: [TRA-7.D], do: "Find K for a reversed, scaled or summed reaction.", ek: ["Reverse ⇒ 1/K; multiply by n ⇒ Kⁿ; add reactions ⇒ multiply their K's."], p: [P5], drills: [ac-k-manipulate], needs: [CH-7.3.A] }
+          - { id: A, std: [TRA-7.D], do: "Find K for a reversed, scaled or summed reaction.", ek: ["Reverse ⇒ 1/K; multiply by n ⇒ Kⁿ; add reactions ⇒ multiply their K's."], p: [P5], drills: ["ac-k-manipulate", "ac2-k-powers"], needs: [CH-7.3.A] }
       - n: 7
         title: Calculating equilibrium concentrations
         ced: "7.7"
@@ -677,7 +677,7 @@ units:
         ced: "7.9"
         dat: [Chemical Equilibria]
         los:
-          - { id: A, std: [TRA-8.A], do: "Predict the shift caused by adding or removing a species, changing volume or pressure, changing temperature, adding an inert gas, or adding a catalyst.", ek: ["The system shifts to counteract the stress; smaller volume favors fewer gas moles; heat acts as a reactant (endothermic) or product (exothermic); inert gas at constant V and catalysts cause no shift."], p: [P6], drills: [ac-le-chatelier], needs: [CH-7.3.B, CH-6.1.A] }
+          - { id: A, std: [TRA-8.A], do: "Predict the shift caused by adding or removing a species, changing volume or pressure, changing temperature, adding an inert gas, or adding a catalyst.", ek: ["The system shifts to counteract the stress; smaller volume favors fewer gas moles; heat acts as a reactant (endothermic) or product (exothermic); inert gas at constant V and catalysts cause no shift."], p: [P6], drills: ["ac-le-chatelier", "ac2-volume-shift"], needs: [CH-7.3.B, CH-6.1.A] }
       - n: 10
         title: Reaction quotient and Le Châtelier's principle
         ced: "7.10"
@@ -690,14 +690,14 @@ units:
         dat: [Chemical Equilibria]
         los:
           - { id: A, std: [SPQ-5.A], do: "Write a K_sp expression and calculate K_sp from molar solubility.", ek: ["MₐXᵦ(s) ⇌ aM + bX: K_sp = (as)ᵃ(bs)ᵇ; for AB₂, K_sp = 4s³."], p: [P5], drills: [ac-ksp-from-solubility], needs: [CH-7.3.A] }
-          - { id: B, std: [SPQ-5.A], do: "Calculate molar solubility in g/L or mol/L from K_sp, and compare solubilities of salts with different ion ratios.", ek: ["Compare K_sp directly only for salts with the same ion ratio; otherwise compare s."], p: [P5], drills: [ac-solubility-from-ksp], needs: [CH-7.11.A] }
+          - { id: B, std: [SPQ-5.A], do: "Calculate molar solubility in g/L or mol/L from K_sp, and compare solubilities of salts with different ion ratios.", ek: ["Compare K_sp directly only for salts with the same ion ratio; otherwise compare s."], p: [P5], drills: ["ac-solubility-from-ksp", "ac2-more-soluble"], needs: [CH-7.11.A] }
           - { id: C, std: [SPQ-5.A], do: "Predict whether a precipitate forms on mixing solutions by comparing Q_sp with K_sp.", ek: ["Use concentrations after mixing (diluted); Q_sp > K_sp ⇒ precipitate forms."], p: [P5, P6], drills: [ac-precipitation-qsp], needs: [CH-7.11.A, CH-3.7.B] }
       - n: 12
         title: Common-ion effect
         ced: "7.12"
         dat: [Chemical Equilibria]
         los:
-          - { id: A, std: [SPQ-5.B], do: "Calculate the solubility of a salt in a solution that already contains one of its ions.", ek: ["Put the common ion's concentration into the ICE table; solubility falls (Le Châtelier)."], p: [P5], drills: [ac-common-ion], needs: [CH-7.11.B, CH-7.9.A] }
+          - { id: A, std: [SPQ-5.B], do: "Calculate the solubility of a salt in a solution that already contains one of its ions.", ek: ["Put the common ion's concentration into the ICE table; solubility falls (Le Châtelier)."], p: [P5], drills: ["ac-common-ion", "ac2-common-ion-s"], needs: [CH-7.11.B, CH-7.9.A] }
 
   # ── 8 ────────────────────────────────────────────────────────────────────
   - id: acidbase
@@ -712,22 +712,22 @@ units:
         ced: "8.1"
         dat: [Acids and Bases]
         los:
-          - { id: A, std: [SAP-9.A], do: "Convert among pH, pOH, [H₃O⁺] and [OH⁻] at 25 °C.", ek: ["pH = −log[H₃O⁺]; K_w = [H₃O⁺][OH⁻] = 1.0 × 10⁻¹⁴; pH + pOH = 14."], p: [P5], drills: [ac-ph-poh], needs: [CH-4.8.A, CH-7.3.A] }
+          - { id: A, std: [SAP-9.A], do: "Convert among pH, pOH, [H₃O⁺] and [OH⁻] at 25 °C.", ek: ["pH = −log[H₃O⁺]; K_w = [H₃O⁺][OH⁻] = 1.0 × 10⁻¹⁴; pH + pOH = 14."], p: [P5], drills: ["ac-ph-poh", "ac2-h-from-ph"], needs: [CH-4.8.A, CH-7.3.A] }
       - n: 2
         title: pH and pOH of strong acids and bases
         ced: "8.2"
         dat: [Acids and Bases]
         los:
-          - { id: A, std: [SAP-9.B], do: "Identify the strong acids and bases, and calculate the pH of their solutions.", ek: ["Strong acids: HCl, HBr, HI, HNO₃, H₂SO₄ (first H), HClO₄; strong bases: Group 1 and heavy Group 2 hydroxides; they ionize completely."], p: [P5], drills: [ac-strong-acid-ph], needs: [CH-8.1.A, CH-3.7.C] }
+          - { id: A, std: [SAP-9.B], do: "Identify the strong acids and bases, and calculate the pH of their solutions.", ek: ["Strong acids: HCl, HBr, HI, HNO₃, H₂SO₄ (first H), HClO₄; strong bases: Group 1 and heavy Group 2 hydroxides; they ionize completely."], p: [P5], drills: ["ac-strong-acid-ph", "ac2-strong-dilution-ph"], needs: [CH-8.1.A, CH-3.7.C] }
       - n: 3
         title: Weak acid and base equilibria
         ced: "8.3"
         dat: [Acids and Bases]
         los:
-          - { id: A, std: [SAP-9.C], do: "Calculate the pH and percent ionization of a weak acid from K_a and its concentration.", ek: ["[H₃O⁺] ≈ √(K_a·C) when ionization < 5%; % ionization = [H₃O⁺]/C × 100, and it rises on dilution."], p: [P5], drills: [ac-weak-acid-ph], needs: [CH-8.1.A, CH-7.7.A] }
+          - { id: A, std: [SAP-9.C], do: "Calculate the pH and percent ionization of a weak acid from K_a and its concentration.", ek: ["[H₃O⁺] ≈ √(K_a·C) when ionization < 5%; % ionization = [H₃O⁺]/C × 100, and it rises on dilution."], p: [P5], drills: ["ac-weak-acid-ph", "ac2-percent-ionization"], needs: [CH-8.1.A, CH-7.7.A] }
           - { id: B, std: [SAP-9.C], do: "Calculate the pH of a weak base solution from K_b.", ek: ["[OH⁻] ≈ √(K_b·C); then pOH → pH."], p: [P5], drills: [ac-weak-base-ph], needs: [CH-8.3.A] }
           - { id: C, std: [SAP-9.C], do: "Find K_a or K_b from a measured pH and the initial concentration.", ek: ["[H₃O⁺] = 10^(−pH) is x in the ICE table; K_a = x²/(C − x)."], p: [P5], drills: [ac-ka-from-ph], needs: [CH-8.3.A] }
-          - { id: D, std: [SAP-9.C], do: "Convert between K_a of an acid and K_b of its conjugate base.", ek: ["K_a·K_b = K_w; pK_a + pK_b = 14 at 25 °C; stronger acid ⇒ weaker conjugate base."], p: [P5], drills: [ac-ka-kb], needs: [CH-8.3.B] }
+          - { id: D, std: [SAP-9.C], do: "Convert between K_a of an acid and K_b of its conjugate base.", ek: ["K_a·K_b = K_w; pK_a + pK_b = 14 at 25 °C; stronger acid ⇒ weaker conjugate base."], p: [P5], drills: ["ac-ka-kb", "ac2-strongest-conj-base"], needs: [CH-8.3.B] }
       - n: 4
         title: Acid–base reactions and buffers
         ced: "8.4"
@@ -735,14 +735,14 @@ units:
         los:
           - { id: A, std: [SAP-9.D], do: "Calculate the pH after mixing a strong acid with a strong base.", ek: ["Neutralize mole for mole; the excess, divided by total volume, sets the pH."], p: [P5], drills: [ac-strong-mixing], needs: [CH-8.2.A, CH-4.5.D] }
           - { id: B, std: [SAP-9.D], do: "Identify what remains after mixing a weak acid or base with a strong one, and classify the result as a buffer, a salt solution or excess strong reagent.", ek: ["React to completion first; weak acid + its conjugate base both present ⇒ buffer."], p: [P6], drills: [ac-mixture-kind], needs: [CH-8.4.A, CH-8.3.A] }
-          - { id: C, std: [SAP-9.D], do: "Predict whether a salt solution is acidic, basic or neutral and calculate its pH.", ek: ["Conjugate bases of weak acids raise pH; conjugates of weak bases (NH₄⁺) lower it; ions of strong acids and bases are neutral."], p: [P5, P6], drills: [ac-salt-ph], needs: [CH-8.3.D] }
+          - { id: C, std: [SAP-9.D], do: "Predict whether a salt solution is acidic, basic or neutral and calculate its pH.", ek: ["Conjugate bases of weak acids raise pH; conjugates of weak bases (NH₄⁺) lower it; ions of strong acids and bases are neutral."], p: [P5, P6], drills: ["ac-salt-ph", "ac2-salt-ph-kind"], needs: [CH-8.3.D] }
       - n: 5
         title: Acid–base titrations
         ced: "8.5"
         dat: [Acids and Bases]
         los:
           - { id: A, std: [SAP-9.E], do: "Calculate the pH at the start, before, at and past the equivalence point of a weak acid–strong base (or weak base–strong acid) titration.", ek: ["Start: weak acid; before: buffer; half-equivalence: pH = pK_a; equivalence: conjugate base only; after: excess strong base."], p: [P5], drills: [ac-equivalence-ph], needs: [CH-8.4.C, CH-4.6.A] }
-          - { id: B, std: [SAP-9.E], do: "Read a titration curve to find the equivalence volume, pK_a and the analyte's strength, and choose a suitable indicator.", ek: ["Weak acid–strong base equivalence pH > 7; pick an indicator whose pK_a (color change) brackets the equivalence pH."], p: [P4], drills: [ac-indicator-choice], needs: [CH-8.5.A] }
+          - { id: B, std: [SAP-9.E], do: "Read a titration curve to find the equivalence volume, pK_a and the analyte's strength, and choose a suitable indicator.", ek: ["Weak acid–strong base equivalence pH > 7; pick an indicator whose pK_a (color change) brackets the equivalence pH."], p: [P4], drills: ["ac-indicator-choice", "ac2-ka-half-equivalence"], needs: [CH-8.5.A] }
           - { id: C, std: [SAP-9.E], do: "Interpret the titration curve of a polyprotic acid.", ek: ["One equivalence point per acidic proton (if K_a's differ enough); pK_a1 and pK_a2 at the half-equivalence points."], p: [P4], drills: [ac-polyprotic], needs: [CH-8.5.B] }
       - n: 6
         title: Molecular structure of acids and bases
@@ -756,7 +756,7 @@ units:
         ced: "8.7"
         dat: [Acids and Bases]
         los:
-          - { id: A, std: [SAP-10.A], do: "Predict the predominant protonation form of an acid at a given pH from its pK_a.", ek: ["pH < pK_a ⇒ protonated form dominates; pH > pK_a ⇒ deprotonated; pH = pK_a ⇒ 1:1."], p: [P6], drills: [ac-predominant-form], needs: [CH-8.3.D] }
+          - { id: A, std: [SAP-10.A], do: "Predict the predominant protonation form of an acid at a given pH from its pK_a.", ek: ["pH < pK_a ⇒ protonated form dominates; pH > pK_a ⇒ deprotonated; pH = pK_a ⇒ 1:1."], p: [P6], drills: ["ac-predominant-form", "ac2-predominant-pick"], needs: [CH-8.3.D] }
       - n: 8
         title: Properties of buffers
         ced: "8.8"
@@ -770,7 +770,7 @@ units:
         los:
           - { id: A, std: [SAP-10.C], do: "Calculate a buffer's pH with the Henderson–Hasselbalch equation.", ek: ["pH = pK_a + log([A⁻]/[HA]); mole ratio works as well as concentration ratio."], p: [P5], drills: [ac-henderson], needs: [CH-8.8.A, CH-8.7.A] }
           - { id: B, std: [SAP-10.C], do: "Calculate a buffer's new pH after adding a strong acid or base.", ek: ["Do the stoichiometry in moles first (HA ↔ A⁻), then apply Henderson–Hasselbalch."], p: [P5], drills: [ac-buffer-addition], needs: [CH-8.9.A, CH-8.4.A] }
-          - { id: C, std: [SAP-10.C], do: "Design a buffer: choose a conjugate pair and the base-to-acid ratio for a target pH.", ek: ["Pick pK_a within ±1 of the target pH; ratio = 10^(pH − pK_a)."], p: [P2, P5], drills: [ac-buffer-design], needs: [CH-8.9.A] }
+          - { id: C, std: [SAP-10.C], do: "Design a buffer: choose a conjugate pair and the base-to-acid ratio for a target pH.", ek: ["Pick pK_a within ±1 of the target pH; ratio = 10^(pH − pK_a)."], p: [P2, P5], drills: ["ac-buffer-design", "ac2-buffer-ratio"], needs: [CH-8.9.A] }
       - n: 10
         title: Buffer capacity
         ced: "8.10"
