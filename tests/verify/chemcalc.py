@@ -158,3 +158,8 @@ def ox_pick(formulas, charges, el, target):
 
 FUNCS = {f.__name__: f for f in [balanced, balanced_pick, oxnum, ox_pick, empirical_sub, formal_charge, counts, molar_mass, atoms_per_unit, mass_pct, argmax, argmin, most_atoms, closest_metal,
                                  electrons, iso_pick, most_polar, lone_pairs, hybrid]}
+
+
+def check(p, H):
+    """helpers only: used through verify expressions in data.py"""
+    return None
