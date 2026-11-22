@@ -1,0 +1,197 @@
+# Second question types for AP Chemistry units 5–6 (framework chemistry, CH): kinetics and
+# thermochemistry asked in reverse (solve for the input the first card gives).
+
+- template: ac2-rate-ratio
+  skill: gchem.kinetics
+  pace: quick
+  given: { r: { pick: [0.012, 0.030, 0.045, 0.060, 0.090] } }
+  cases:
+    - { eq: "N₂ + 3 H₂ → 2 NH₃", P: "NH₃", R: "H₂", cp: 2, cr: 3 }
+    - { eq: "2 N₂O₅ → 4 NO₂ + O₂", P: "NO₂", R: "N₂O₅", cp: 4, cr: 2 }
+    - { eq: "2 NO + O₂ → 2 NO₂", P: "NO₂", R: "O₂", cp: 2, cr: 1 }
+    - { eq: "4 PH₃ → P₄ + 6 H₂", P: "H₂", R: "PH₃", cp: 6, cr: 4 }
+  prompt: 'For {{eq}}, {{P}} forms at ${{r}}$ M/s. How fast (M/s) is {{R}} being used up?'
+  parts:
+    - { ask: 'Rate (M/s)', label: v, value: r*cr/cp, tol: 0.0001, explain: 'Rates scale with the coefficients: $-\dfrac{1}{ {{cr}} }\dfrac{d[\text{ {{R}} }]}{dt} = \dfrac{1}{ {{cp}} }\dfrac{d[\text{ {{P}} }]}{dt}$, so ${{r}} \times {{cr}}/{{cp}} = {{r*cr/cp|4}}$ M/s' }
+  verify: { expect: { v: "nsimplify(r)*Rational(cr, cp)" } }
+
+- template: ac2-order-from-ratio
+  skill: gchem.kinetics
+  pace: quick
+  cases:
+    - { f: 2, g: 4 }
+    - { f: 3, g: 9 }
+    - { f: 2, g: 2 }
+    - { f: 3, g: 3 }
+    - { f: 2, g: 8 }
+    - { f: 4, g: 2 }
+  prompt: 'Multiplying [A] by ${{f}}$ (others fixed) multiplies the initial rate by ${{g}}$. What is the order in A?'
+  parts:
+    - { ask: 'Order', label: n, value: log(g)/log(f), tol: 0.0001, final: true, explain: 'rate ∝ [A]ⁿ, so ${{f}}^n = {{g}}$ and $n = \ln {{g}}/\ln {{f}} = {{log(g)/log(f)|3}}$. A half order (rate up √f times) happens too' }
+  verify: { expect: { n: "log(g)/log(f)" } }
+
+- template: ac2-half-life-from-fraction
+  skill: gchem.kinetics
+  pace: quick
+  cases:
+    - { pct: 25, t: 30, unit: "min" }
+    - { pct: 12.5, t: 45, unit: "min" }
+    - { pct: 50, t: 8, unit: "days" }
+    - { pct: 6.25, t: 20, unit: "h" }
+    - { pct: 25, t: 11460, unit: "years" }
+  prompt: 'After ${{t}}$ {{unit}}, ${{pct}}$% of a first-order reactant remains. What is its half-life ({{unit}})?'
+  parts:
+    - { ask: 'Half-life', label: h, value: t*log(2)/log(100/pct), tol: 0.0001, explain: 'Each half-life halves what is left: ${{pct}}\% = (1/2)^{n}$ with $n = {{log(100/pct)/log(2)|3}}$ half-lives, so $t_{1/2} = {{t}}/{{log(100/pct)/log(2)|3}} = {{t*log(2)/log(100/pct)|4}}$ {{unit}}' }
+  verify: { expect: { h: "nsimplify(t)*log(2)/log(100/nsimplify(pct))" } }
+
+- template: ac2-elementary-order
+  skill: gchem.kinetics
+  pace: recall
+  cases:
+    - { step: "2 NO₂ → NO₃ + NO", a: 2, b: 0 }
+    - { step: "NO + O₃ → NO₂ + O₂", a: 1, b: 1 }
+    - { step: "2 NO + Cl₂ → 2 NOCl", a: 2, b: 1 }
+    - { step: "O₃ → O₂ + O", a: 1, b: 0 }
+    - { step: "H₂ + 2 ICl → I₂ + 2 HCl", a: 1, b: 2 }
+  prompt: 'What is the overall order of the rate law for the elementary step {{step}}?'
+  parts:
+    - { ask: 'Overall order', label: n, value: a + b, tol: 0.000001, final: true, explain: 'For an elementary step only, the rate law comes straight from the molecularity: each reactant''s exponent is its coefficient. For an overall reaction it must be measured' }
+  verify: { expect: { n: "a + b" } }
+
+- template: ac2-k-units-order
+  skill: gchem.kinetics
+  pace: recall
+  cases:
+    - { u: "M s⁻¹", ans: 0 }
+    - { u: "s⁻¹", ans: 1 }
+    - { u: "M⁻¹ s⁻¹", ans: 2 }
+    - { u: "min⁻¹", ans: 1 }
+    - { u: "M⁻² s⁻¹", ans: 3 }
+  prompt: 'A rate constant has units of {{u}}. What is the overall order?'
+  parts:
+    - { ask: 'Order', label: a, choice: ["Zero", "First", "Second", "Third"], correct: ans, explain: 'Rate is always M/s, so k carries M^(1−n) s⁻¹: zero order M s⁻¹, first s⁻¹, second M⁻¹ s⁻¹, third M⁻² s⁻¹' }
+  verify: { authored: true }
+
+- template: ac2-reverse-ea
+  skill: gchem.kinetics
+  pace: quick
+  cases:
+    - { Ea: 120, dH: -45 }
+    - { Ea: 85, dH: 30 }
+    - { Ea: 200, dH: -110 }
+    - { Ea: 64, dH: 18 }
+    - { Ea: 150, dH: -92 }
+  prompt: 'A reaction has a forward activation energy of ${{Ea}}$ kJ/mol and ΔH = ${{dH}}$ kJ/mol. What is the activation energy of the reverse reaction?'
+  parts:
+    - { ask: 'Reverse Eₐ (kJ/mol)', label: e, value: Ea - dH, tol: 0.000001, final: true, explain: 'On the energy profile, $E_{a,\text{rev}} = E_{a,\text{fwd}} - \Delta H = {{Ea}} - ({{dH}}) = {{Ea - dH}}$ kJ/mol. Exothermic reactions have the larger barrier going back' }
+  verify: { expect: { e: "Ea - dH" } }
+
+- template: ac2-arrhenius-k2
+  skill: gchem.kinetics
+  pace: quick
+  cases:
+    - { k1: 0.0025, Ea: 50, T1: 298, T2: 318 }
+    - { k1: 1.2, Ea: 75, T1: 300, T2: 320 }
+    - { k1: 0.040, Ea: 30, T1: 290, T2: 330 }
+    - { k1: 3.5e-4, Ea: 100, T1: 310, T2: 330 }
+  prompt: 'k = ${{k1}}$ s⁻¹ at ${{T1}}$ K and Eₐ = ${{Ea}}$ kJ/mol. What is k at ${{T2}}$ K? (R = 8.314 J/mol·K)'
+  parts:
+    - { ask: 'k₂ (s⁻¹)', label: k, value: 'k1*exp(Ea*1000/8.314462618*(1/T1 - 1/T2))', tol: 0.002, explain: '$\ln(k_2/k_1) = \dfrac{E_a}{R}\left(\dfrac{1}{T_1} - \dfrac{1}{T_2}\right) = {{Ea*1000/8.314462618*(1/T1 - 1/T2)|3}}$, so $k_2 = {{k1*exp(Ea*1000/8.314462618*(1/T1 - 1/T2))|3}}$ s⁻¹' }
+  verify: { expect: { k: "nsimplify(k1)*exp(Ea*1000/c_R*(Rational(1, T1) - Rational(1, T2)))" } }
+
+- template: ac2-catalyst-changes
+  skill: gchem.kinetics
+  pace: recall
+  cases:
+    - { s: "the activation energy", ans: 0 }
+    - { s: "ΔH of the reaction", ans: 1 }
+    - { s: "the equilibrium constant", ans: 1 }
+    - { s: "the rate of the reverse reaction", ans: 0 }
+    - { s: "the time to reach equilibrium", ans: 0 }
+    - { s: "the equilibrium yield of product", ans: 1 }
+  prompt: 'Does adding a catalyst change {{s}}?'
+  parts:
+    - { ask: 'Changes?', label: a, choice: ["Yes", "No"], correct: ans, explain: 'A catalyst offers a lower-barrier path for both directions, so both rates rise and equilibrium is reached sooner; the start and end energies, ΔH and K, are untouched' }
+  verify: { authored: true }
+
+- template: ac2-mixing-temperature
+  skill: gchem.thermochem
+  pace: quick
+  given: { m1: { pick: [50, 100, 150, 200] }, T1: { pick: [20, 25, 10] }, m2: { pick: [50, 100, 250] }, T2: { pick: [60, 80, 90] } }
+  prompt: '${{m1}}$ g of water at ${{T1}}$ °C is mixed with ${{m2}}$ g of water at ${{T2}}$ °C. What is the final temperature (°C), ignoring heat loss?'
+  parts:
+    - { ask: 'Final temperature (°C)', label: t, value: (m1*T1 + m2*T2)/(m1 + m2), tol: 0.0001, explain: 'Heat lost by the hot water = heat gained by the cold: ${{m1}}(T - {{T1}}) = {{m2}}({{T2}} - T)$, so $T$ is the mass-weighted average, ${{(m1*T1 + m2*T2)/(m1 + m2)|4}}$ °C' }
+  verify: { expect: { t: "solve(Eq(m1*(Symbol('T') - T1), m2*(T2 - Symbol('T'))), Symbol('T'))[0]" } }
+
+- template: ac2-mass-melted
+  skill: gchem.thermochem
+  pace: quick
+  given: { q: { pick: [3.0, 6.01, 12.0, 20.0, 30.05] } }
+  prompt: 'ΔH_fus of ice is 6.01 kJ/mol (H₂O 18.015 g/mol). How many grams of ice at 0 °C does ${{q}}$ kJ melt?'
+  parts:
+    - { ask: 'Mass (g)', label: m, value: q/6.01*18.015, tol: 0.0005, explain: 'Moles $= {{q}}/6.01 = {{q/6.01|3}}$ mol, × 18.015 g/mol $= {{q/6.01*18.015|4}}$ g. During melting the temperature stays at 0 °C' }
+  verify: { expect: { m: "nsimplify(q)/Rational('6.01')*molar_mass('H2O')" } }
+
+- template: ac2-mass-from-heat
+  skill: gchem.thermochem
+  pace: quick
+  given: { q: { pick: [445, 890, 1335, 2225, 4450] } }
+  prompt: 'CH₄ + 2 O₂ → CO₂ + 2 H₂O, ΔH = −890 kJ. What mass of CH₄ (16.043 g/mol) must burn to release ${{q}}$ kJ?'
+  parts:
+    - { ask: 'Mass (g)', label: m, value: q/890*16.043, tol: 0.0005, explain: '${{q}}/890 = {{q/890|3}}$ mol CH₄, × 16.043 $= {{q/890*16.043|4}}$ g. ΔH is per mole of reaction as written, here per mole of CH₄' }
+  verify: { expect: { m: "Rational(q, 890)*molar_mass('CH4')" } }
+
+- template: ac2-hess-scale
+  skill: gchem.thermochem
+  pace: quick
+  given: { dH: { pick: [-571.6, -393.5, 180.6, -92.2, 66.4] } }
+  cases:
+    - { how: "reversed", k: -1 }
+    - { how: "doubled", k: 2 }
+    - { how: "reversed and doubled", k: -2 }
+    - { how: "halved", k: 0.5 }
+    - { how: "reversed and halved", k: -0.5 }
+  prompt: 'A reaction has ΔH = ${{dH}}$ kJ. What is ΔH for the same reaction {{how}}?'
+  parts:
+    - { ask: 'ΔH (kJ)', label: h, value: k*dH, tol: 0.000001, final: true, explain: 'ΔH is extensive: scale it with the coefficients, and flip its sign when the reaction is reversed. ${{k}} \times ({{dH}}) = {{k*dH}}$ kJ' }
+  verify: { expect: { h: "nsimplify(k)*nsimplify(dH)" } }
+
+- template: ac2-work-from-du
+  skill: gchem.thermochem
+  pace: quick
+  cases:
+    - { dU: -150, q: -200 }
+    - { dU: 120, q: 80 }
+    - { dU: -50, q: 30 }
+    - { dU: 300, q: 450 }
+    - { dU: 0.5, q: 2.5 }
+  prompt: 'A system''s internal energy changes by ${{dU}}$ kJ while it absorbs $q = {{q}}$ kJ of heat. What is the work w (kJ), chemistry sign convention?'
+  parts:
+    - { ask: 'w (kJ)', label: w, value: dU - q, tol: 0.000001, final: true, explain: 'ΔU = q + w, so w = ΔU − q = {{dU}} − ({{q}}) = {{dU - q}} kJ. Negative w means the system did work on the surroundings (expanded)' }
+  verify: { expect: { w: "nsimplify(dU) - nsimplify(q)" } }
+
+- template: ac2-du-from-dh
+  skill: gchem.thermochem
+  pace: quick
+  cases:
+    - { eq: "N₂(g) + 3 H₂(g) → 2 NH₃(g)", dH: -92.2, dn: -2, T: 298.15 }
+    - { eq: "CaCO₃(s) → CaO(s) + CO₂(g)", dH: 178.3, dn: 1, T: 298.15 }
+    - { eq: "2 H₂(g) + O₂(g) → 2 H₂O(l)", dH: -571.6, dn: -3, T: 298.15 }
+    - { eq: "C(s) + H₂O(g) → CO(g) + H₂(g)", dH: 131.3, dn: 1, T: 298.15 }
+  prompt: 'For {{eq}}, ΔH = ${{dH}}$ kJ at ${{T}}$ K. What is ΔU (kJ)? (R = 8.314 J/mol·K)'
+  parts:
+    - { ask: 'ΔU (kJ)', label: u, value: dH - dn*8.314462618*T/1000, tol: 0.0001, explain: 'ΔH = ΔU + Δn_gas RT, so ΔU = ${{dH}} - ({{dn}})(8.314)({{T}})/1000 = {{dH - dn*8.314462618*T/1000|5}}$ kJ. Only gas moles count: Δn here is {{dn}}' }
+  verify: { expect: { u: "nsimplify(dH) - dn*c_R*nsimplify(T)/1000" } }
+
+- template: ac2-dissolving-sign
+  skill: gchem.thermochem
+  pace: recall
+  cases:
+    - { salt: "NH₄NO₃", d: "falls", s: 0 }
+    - { salt: "CaCl₂", d: "rises", s: 1 }
+    - { salt: "NaOH", d: "rises", s: 1 }
+    - { salt: "KNO₃", d: "falls", s: 0 }
+  prompt: 'When {{salt}} dissolves in water in a coffee-cup calorimeter, the temperature {{d}}. What is the sign of ΔH for dissolving?'
+  parts:
+    - { ask: 'ΔH', label: a, choice: ["Positive (endothermic)", "Negative (exothermic)"], correct: s, explain: 'The water is the surroundings. If it cools, the system took heat from it (ΔH > 0, a cold pack); if it warms, the system gave heat to it (ΔH < 0, a hot pack)' }
+  verify: { choices: { a: "1 if d == 'rises' else 0" } }

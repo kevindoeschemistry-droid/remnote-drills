@@ -1,0 +1,180 @@
+# Second question types for AP Chemistry units 7–8 (framework chemistry, CH): equilibrium and acids
+# and bases asked by inspection, in reverse, or as a comparison.
+
+- template: ac2-q-direction
+  skill: gchem.equilibrium
+  pace: recall
+  cases:
+    - { Q: 2.5, K: 0.80 }
+    - { Q: 0.010, K: 4.5 }
+    - { Q: 1.0e-5, K: 1.0e-3 }
+    - { Q: 36, K: 6 }
+    - { Q: 0.25, K: 0.050 }
+    - { Q: 3.0e-4, K: 7.2e-2 }
+  prompt: 'For a reaction mixture, Q = ${{Q}}$ and K = ${{K}}$. Which way does it shift to reach equilibrium?'
+  parts:
+    - { ask: 'Shift', label: a, choice: ["Toward products (right)", "Toward reactants (left)"], correct: 'Q < K ? 0 : 1', explain: 'Q < K: too few products, so the forward reaction runs. Q > K: too many products, so the reverse runs. Q = K: at equilibrium' }
+  verify: { choices: { a: "0 if nsimplify(Q) < nsimplify(K) else 1" } }
+
+- template: ac2-kc-from-kp
+  skill: gchem.equilibrium
+  pace: quick
+  cases:
+    - { eq: "N₂O₄(g) ⇌ 2 NO₂(g)", Kp: 0.15, dn: 1, T: 298 }
+    - { eq: "N₂(g) + 3 H₂(g) ⇌ 2 NH₃(g)", Kp: 1.45e-5, dn: -2, T: 773 }
+    - { eq: "PCl₅(g) ⇌ PCl₃(g) + Cl₂(g)", Kp: 1.8, dn: 1, T: 523 }
+    - { eq: "2 SO₂(g) + O₂(g) ⇌ 2 SO₃(g)", Kp: 3.4, dn: -1, T: 1000 }
+  prompt: 'For {{eq}}, Kp = ${{Kp}}$ at ${{T}}$ K. What is Kc? (R = 0.08206 L·atm/mol·K)'
+  parts:
+    - { ask: 'Kc', label: k, value: 'Kp/(0.082057366*T)^dn', tol: 0.002, explain: '$K_p = K_c(RT)^{\Delta n}$ with Δn = gas moles of products − reactants = {{dn}}, so $K_c = K_p/(RT)^{ {{dn}} } = {{Kp/(0.082057366*T)^dn|3}}$' }
+  verify: { expect: { k: "nsimplify(Kp)/(c_R/c_atm*1000*T)**dn" } }
+
+- template: ac2-k-powers
+  skill: gchem.equilibrium
+  pace: recall
+  given: { K: { pick: [4.0, 25, 0.50, 1.0e-4, 0.20] } }
+  cases:
+    - { how: "reversed", p: -1 }
+    - { how: "doubled", p: 2 }
+    - { how: "halved", p: 0.5 }
+    - { how: "reversed and doubled", p: -2 }
+  prompt: 'A reaction has K = ${{K}}$. What is K for the reaction {{how}}?'
+  parts:
+    - { ask: 'K', label: k, value: K^p, tol: 0.0001, explain: 'Reversing inverts K; multiplying the coefficients by n raises K to the n. So $K^{ {{p}} } = {{K^p|4}}$. (Adding reactions multiplies their Ks)' }
+  verify: { expect: { k: "nsimplify(K)**nsimplify(p)" } }
+
+- template: ac2-more-soluble
+  skill: gchem.equilibrium
+  pace: quick
+  cases:
+    - { o1: "AgCl (Ksp 1.8 × 10⁻¹⁰)", o2: "Ag₂CrO₄ (Ksp 1.1 × 10⁻¹²)", k1: 1.8e-10, a1: 1, b1: 1, k2: 1.1e-12, a2: 2, b2: 1 }
+    - { o1: "BaSO₄ (Ksp 1.1 × 10⁻¹⁰)", o2: "CaF₂ (Ksp 3.9 × 10⁻¹¹)", k1: 1.1e-10, a1: 1, b1: 1, k2: 3.9e-11, a2: 1, b2: 2 }
+    - { o1: "PbI₂ (Ksp 9.8 × 10⁻⁹)", o2: "AgBr (Ksp 5.4 × 10⁻¹³)", k1: 9.8e-9, a1: 1, b1: 2, k2: 5.4e-13, a2: 1, b2: 1 }
+    - { o1: "Mg(OH)₂ (Ksp 5.6 × 10⁻¹²)", o2: "CuS (Ksp 6 × 10⁻³⁷)", k1: 5.6e-12, a1: 1, b1: 2, k2: 6e-37, a2: 1, b2: 1 }
+  prompt: 'Which has the higher molar solubility in pure water?'
+  parts:
+    - { ask: 'More soluble', label: a, choice: ["{{o1}}", "{{o2}}"], correct: '(k1/(a1^a1*b1^b1))^(1/(a1 + b1)) > (k2/(a2^a2*b2^b2))^(1/(a2 + b2)) ? 0 : 1', explain: 'Compare molar solubilities, not Ksp values, when the formulas differ: for MₐXᵦ, $K_{sp} = a^a b^b s^{a+b}$. Ag₂CrO₄ has the smaller Ksp but the larger s, because s enters cubed' }
+  verify: { choices: { a: "0 if (nsimplify(k1)/(a1**a1*b1**b1))**Rational(1, a1 + b1) > (nsimplify(k2)/(a2**a2*b2**b2))**Rational(1, a2 + b2) else 1" } }
+
+- template: ac2-common-ion-s
+  skill: gchem.equilibrium
+  pace: quick
+  given: { c: { pick: [0.010, 0.050, 0.10, 0.20] } }
+  cases:
+    - { salt: "AgCl", ion: "NaCl", Ksp: 1.8e-10 }
+    - { salt: "BaSO₄", ion: "Na₂SO₄", Ksp: 1.1e-10 }
+    - { salt: "AgBr", ion: "KBr", Ksp: 5.4e-13 }
+  prompt: 'Ksp of {{salt}} is ${{Ksp}}$. What is its molar solubility in ${{c}}$ M {{ion}}?'
+  parts:
+    - { ask: 'Solubility (M)', label: s, value: Ksp/c, tol: 0.001, explain: 'The common ion fixes one concentration at about {{c}} M: $s = K_{sp}/{{c}} = {{Ksp/c|3}}$ M, far below its solubility in pure water' }
+  verify: { expect: { s: "nsimplify(Ksp)/nsimplify(c)" } }
+
+- template: ac2-volume-shift
+  skill: gchem.equilibrium
+  pace: recall
+  cases:
+    - { eq: "N₂(g) + 3 H₂(g) ⇌ 2 NH₃(g)", dn: -2 }
+    - { eq: "N₂O₄(g) ⇌ 2 NO₂(g)", dn: 1 }
+    - { eq: "H₂(g) + I₂(g) ⇌ 2 HI(g)", dn: 0 }
+    - { eq: "CaCO₃(s) ⇌ CaO(s) + CO₂(g)", dn: 1 }
+    - { eq: "2 SO₂(g) + O₂(g) ⇌ 2 SO₃(g)", dn: -1 }
+  prompt: 'The container of {{eq}} is compressed to half its volume. Which way does the equilibrium shift?'
+  parts:
+    - { ask: 'Shift', label: a, choice: ["Toward products", "Toward reactants", "No shift"], correct: 'dn < 0 ? 0 : (dn > 0 ? 1 : 2)', explain: 'Higher pressure favors the side with fewer moles of gas (count only gases); equal moles means no shift. K itself does not change; only temperature changes K' }
+  verify: { choices: { a: "0 if dn < 0 else (1 if dn > 0 else 2)" } }
+
+- template: ac2-h-from-ph
+  skill: gchem.acidbase
+  pace: quick
+  given: { pH: { pick: [1.30, 2.70, 3.50, 4.25, 8.60, 11.40] } }
+  prompt: 'A solution has pH ${{pH}}$. What is [H₃O⁺] (M)?'
+  parts:
+    - { ask: '[H₃O⁺] (M)', label: h, value: 10^(-pH), tol: 0.001, explain: '$[\text{H}_3\text{O}^+] = 10^{-\text{pH}} = 10^{-{{pH}}} = {{10^(-pH)|3}}$ M. Each pH unit is a factor of 10' }
+  verify: { expect: { h: "10**(-nsimplify(pH))" } }
+
+- template: ac2-strong-dilution-ph
+  skill: gchem.acidbase
+  pace: recall
+  given: { c: { pick: [0.10, 0.010, 0.050, 0.0010] }, f: { pick: [10, 100] } }
+  prompt: 'A ${{c}}$ M HCl solution is diluted ${{f}}$-fold. What is the new pH?'
+  parts:
+    - { ask: 'pH', label: p, value: -log10(c/f), tol: 0.0001, explain: 'Strong acid: [H₃O⁺] = concentration = ${{c/f}}$ M, so pH $= -\log({{c/f}}) = {{-log10(c/f)|3}}$. Each tenfold dilution raises pH by 1, until it nears 7' }
+  verify: { expect: { p: "-log(nsimplify(c)/f, 10)" } }
+
+- template: ac2-strongest-conj-base
+  skill: gchem.acidbase
+  pace: recall
+  cases:
+    - { o1: "F⁻ (HF, Ka 6.8 × 10⁻⁴)", o2: "CH₃COO⁻ (CH₃COOH, Ka 1.8 × 10⁻⁵)", o3: "CN⁻ (HCN, Ka 6.2 × 10⁻¹⁰)", o4: "NO₂⁻ (HNO₂, Ka 4.5 × 10⁻⁴)", k1: 6.8e-4, k2: 1.8e-5, k3: 6.2e-10, k4: 4.5e-4, ans: 2 }
+    - { o1: "HCOO⁻ (Ka 1.8 × 10⁻⁴)", o2: "ClO⁻ (Ka 3.0 × 10⁻⁸)", o3: "C₆H₅COO⁻ (Ka 6.3 × 10⁻⁵)", o4: "SO₄²⁻ (HSO₄⁻, Ka 1.2 × 10⁻²)", k1: 1.8e-4, k2: 3.0e-8, k3: 6.3e-5, k4: 1.2e-2, ans: 1 }
+  prompt: 'Which is the strongest base?'
+  parts:
+    - { ask: 'Strongest base', label: a, choice: ["{{o1}}", "{{o2}}", "{{o3}}", "{{o4}}"], correct: ans, explain: '$K_aK_b = K_w$: the weakest acid (smallest Ka) has the strongest conjugate base' }
+  verify: { choices: { a: "argmin([nsimplify(k1), nsimplify(k2), nsimplify(k3), nsimplify(k4)])" } }
+
+- template: ac2-percent-ionization
+  skill: gchem.acidbase
+  pace: quick
+  given: { c: { pick: [0.10, 0.50, 1.0, 0.050] } }
+  cases:
+    - { acid: "acetic acid", Ka: 1.8e-5 }
+    - { acid: "HCN", Ka: 6.2e-10 }
+    - { acid: "hypochlorous acid", Ka: 3.0e-8 }
+  prompt: 'Using the small-x approximation, what is the percent ionization of ${{c}}$ M {{acid}} (Ka ${{Ka}}$)?'
+  parts:
+    - { ask: 'Percent ionized', label: p, value: sqrt(Ka/c)*100, tol: 0.001, explain: '$x \approx \sqrt{K_a C}$, so percent $= x/C \times 100 = \sqrt{K_a/C} \times 100 = {{sqrt(Ka/c)*100|3}}\%$. Diluting a weak acid raises its percent ionization' }
+  verify: { expect: { p: "sqrt(nsimplify(Ka)/nsimplify(c))*100" } }
+
+- template: ac2-salt-ph-kind
+  skill: gchem.acidbase
+  pace: recall
+  cases:
+    - { salt: "NH₄Cl", ans: 0 }
+    - { salt: "NaF", ans: 1 }
+    - { salt: "KNO₃", ans: 2 }
+    - { salt: "NaCH₃COO", ans: 1 }
+    - { salt: "AlCl₃", ans: 0 }
+    - { salt: "NaCl", ans: 2 }
+    - { salt: "K₂CO₃", ans: 1 }
+  prompt: 'Is a solution of {{salt}} acidic, basic or neutral?'
+  parts:
+    - { ask: 'Solution', label: a, choice: ["Acidic", "Basic", "Neutral"], correct: ans, explain: 'Ask what each ion came from. A weak acid''s anion (F⁻, acetate, carbonate) is basic; a weak base''s cation (NH₄⁺) or a small highly charged metal ion (Al³⁺) is acidic; ions of strong acids and bases are spectators' }
+  verify: { authored: true }
+
+- template: ac2-predominant-pick
+  skill: gchem.acidbase
+  pace: recall
+  cases:
+    - { acid: "acetic acid", pKa: 4.74, pH: 7.4 }
+    - { acid: "acetic acid", pKa: 4.74, pH: 2.0 }
+    - { acid: "ammonium", pKa: 9.25, pH: 7.4 }
+    - { acid: "ammonium", pKa: 9.25, pH: 11.0 }
+    - { acid: "HCN", pKa: 9.21, pH: 7.0 }
+    - { acid: "the histidine side chain", pKa: 6.0, pH: 7.4 }
+  prompt: 'The pKa of {{acid}} is ${{pKa}}$. At pH ${{pH}}$, which form predominates?'
+  parts:
+    - { ask: 'Predominant form', label: a, choice: ["The protonated form (acid)", "The deprotonated form (conjugate base)"], correct: 'pH < pKa ? 0 : 1', explain: 'Below the pKa protons are plentiful, so the acid form wins; above it, the base form. At pH = pKa they are equal, and each pH unit away is a factor of 10' }
+  verify: { choices: { a: "0 if nsimplify(pH) < nsimplify(pKa) else 1" } }
+
+- template: ac2-buffer-ratio
+  skill: gchem.acidbase
+  pace: quick
+  cases:
+    - { pair: "acetic acid/acetate", pKa: 4.74, pH: 5.04 }
+    - { pair: "acetic acid/acetate", pKa: 4.74, pH: 4.44 }
+    - { pair: "H₂PO₄⁻/HPO₄²⁻", pKa: 7.21, pH: 7.40 }
+    - { pair: "NH₄⁺/NH₃", pKa: 9.25, pH: 9.55 }
+    - { pair: "H₂CO₃/HCO₃⁻", pKa: 6.35, pH: 7.40 }
+  prompt: 'What base-to-acid ratio [A⁻]/[HA] gives a {{pair}} buffer (pKa ${{pKa}}$) a pH of ${{pH}}$?'
+  parts:
+    - { ask: '[A⁻]/[HA]', label: r, value: 10^(pH - pKa), tol: 0.001, explain: 'Henderson–Hasselbalch: $\text{pH} = \text{p}K_a + \log([\text{A}^-]/[\text{HA}])$, so the ratio is $10^{ {{pH}} - {{pKa}} } = {{10^(pH - pKa)|3}}$. Blood (bicarbonate) runs about 11 to 1' }
+  verify: { expect: { r: "10**(nsimplify(pH) - nsimplify(pKa))" } }
+
+- template: ac2-ka-half-equivalence
+  skill: gchem.acidbase
+  pace: quick
+  given: { pH: { pick: [3.20, 4.74, 5.60, 6.85, 9.30] } }
+  prompt: 'In a titration of a weak acid with NaOH, the pH at the half-equivalence point is ${{pH}}$. What is Ka?'
+  parts:
+    - { ask: 'Ka', label: k, value: 10^(-pH), tol: 0.001, explain: 'Halfway to equivalence, half the acid has become its conjugate base, so [HA] = [A⁻] and pH = pKa: $K_a = 10^{-{{pH}}} = {{10^(-pH)|3}}$' }
+  verify: { expect: { k: "10**(-nsimplify(pH))" } }

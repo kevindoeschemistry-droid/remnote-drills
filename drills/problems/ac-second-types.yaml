@@ -1,0 +1,269 @@
+# Second question types for AP Chemistry units 0–2 (framework chemistry, CH): the same objective asked
+# in reverse, as a comparison or by inspection, so a card is not just the algorithm on new numbers.
+# Comparisons and formula readings are recomputed in tests/verify/chemcalc.py, which parses each
+# formula with its own atomic weights; the display strings on the cards are not what it reads.
+
+- template: ac2-largest-length
+  skill: gchem.measurement
+  pace: recall
+  cases:
+    - { o1: "3 mm", o2: "4000 μm", o3: "0.5 cm", o4: "2 × 10⁶ nm", v1: 0.003, v2: 0.004, v3: 0.005, v4: 0.002, ans: 2 }
+    - { o1: "250 mL", o2: "0.3 L", o3: "2 × 10⁵ μL", o4: "28 cL", v1: 0.25, v2: 0.3, v3: 0.2, v4: 0.28, ans: 1 }
+    - { o1: "1.5 kg", o2: "1600 g", o3: "1.2 × 10⁶ mg", o4: "0.0014 Mg", v1: 1.5, v2: 1.6, v3: 1.2, v4: 1.4, ans: 1 }
+    - { o1: "45 ms", o2: "0.04 s", o3: "5 × 10⁴ μs", o4: "4.2 cs", v1: 0.045, v2: 0.04, v3: 0.05, v4: 0.042, ans: 2 }
+  prompt: 'Which is the largest?'
+  parts:
+    - { ask: 'Largest', label: a, choice: ["{{o1}}", "{{o2}}", "{{o3}}", "{{o4}}"], correct: ans, explain: 'Put them in one unit first. m = 10⁻³, μ = 10⁻⁶, n = 10⁻⁹, c = 10⁻², k = 10³, M = 10⁶' }
+  verify: { choices: { a: "argmax([nsimplify(v1), nsimplify(v2), nsimplify(v3), nsimplify(v4)])" } }
+
+- template: ac2-percent-error-reverse
+  skill: gchem.measurement
+  pace: quick
+  given: { t: { pick: [2.50, 8.00, 12.0, 25.0, 40.0, 100.0] }, pe: { pick: [2, 4, 5, 8, 10] } }
+  prompt: 'The accepted value is ${{t}}$. A student''s result was high, with a percent error of ${{pe}}$%. What did the student measure?'
+  parts:
+    - { ask: 'Measured value', label: m, value: t*(1 + pe/100), tol: 0.0001, explain: 'Percent error $= |\text{measured} - \text{accepted}|/\text{accepted} \times 100$, so a high result is ${{t}} \times (1 + {{pe/100}}) = {{t*(1 + pe/100)|4}}$' }
+  verify: { expect: { m: "nsimplify(t)*(1 + Rational(pe, 100))" } }
+
+- template: ac2-hotter
+  skill: gchem.measurement
+  pace: quick
+  cases:
+    - { f: 212, k: 380 }
+    - { f: 98.6, k: 300 }
+    - { f: 32, k: 270 }
+    - { f: -40, k: 235 }
+    - { f: 451, k: 500 }
+    - { f: 70, k: 290 }
+  prompt: 'Which is hotter: ${{f}}$ °F or ${{k}}$ K?'
+  parts:
+    - { ask: 'Hotter', label: a, choice: ["{{f}} °F", "{{k}} K"], correct: '(f - 32)*5/9 + 273.15 > k ? 0 : 1', explain: '${{f}}$ °F is ${{(f - 32)*5/9|4}}$ °C, which is ${{(f - 32)*5/9 + 273.15|5}}$ K' }
+  verify: { choices: { a: "0 if (nsimplify(f) - 32)*Rational(5, 9) + Rational(27315, 100) > k else 1" } }
+
+- template: ac2-density-units
+  skill: gchem.measurement
+  pace: recall
+  given: { d: { pick: [0.79, 1.00, 1.26, 2.70, 7.87, 13.6, 19.3] } }
+  prompt: 'A substance has a density of ${{d}}$ g/cm³. What is that in kg/m³?'
+  parts:
+    - { ask: 'Density (kg/m³)', label: r, value: d*1000, tol: 0.000001, final: true, explain: '$1\ \text{g/cm}^3 = \dfrac{10^{-3}\ \text{kg}}{10^{-6}\ \text{m}^3} = 1000\ \text{kg/m}^3$: cube the length conversion. So ${{d}} \to {{d*1000}}$ kg/m³' }
+  verify: { expect: { r: "nsimplify(d)*1000" } }
+
+- template: ac2-atoms-in-formula
+  skill: gchem.composition
+  pace: recall
+  cases:
+    - { show: "Al₂(SO₄)₃", f: "Al2(SO4)3", el: "O", n: 12 }
+    - { show: "Ca(NO₃)₂", f: "Ca(NO3)2", el: "O", n: 6 }
+    - { show: "(NH₄)₂SO₄", f: "(NH4)2SO4", el: "H", n: 8 }
+    - { show: "Mg₃(PO₄)₂", f: "Mg3(PO4)2", el: "O", n: 8 }
+    - { show: "CuSO₄·5H₂O", f: "CuSO4.5H2O", el: "O", n: 9 }
+    - { show: "Fe₂(CO₃)₃", f: "Fe2(CO3)3", el: "O", n: 9 }
+    - { show: "(NH₄)₃PO₄", f: "(NH4)3PO4", el: "H", n: 12 }
+  prompt: 'How many {{el}} atoms are in one formula unit of {{show}}?'
+  parts:
+    - { ask: 'Atoms', label: r, value: n, tol: 0.000001, final: true, explain: 'A subscript after a parenthesis multiplies everything inside it, and a hydrate''s water count multiplies each water' }
+  verify: { expect: { r: "counts(f)[el]" } }
+
+- template: ac2-identify-metal
+  skill: gchem.composition
+  pace: quick
+  cases:
+    - { M: 110.98, o1: "Ca", o2: "K", o3: "Mg", o4: "Fe", ans: 0 }
+    - { M: 95.21, o1: "Na", o2: "Mg", o3: "Al", o4: "Ca", ans: 1 }
+    - { M: 208.23, o1: "Sr", o2: "Pb", o3: "Ba", o4: "Sn", ans: 2 }
+    - { M: 158.53, o1: "Zn", o2: "Cu", o3: "Ba", o4: "Sr", ans: 3 }
+    - { M: 136.29, o1: "Zn", o2: "Ni", o3: "Fe", o4: "Ca", ans: 0 }
+    - { M: 134.45, o1: "Co", o2: "Cu", o3: "Zn", o4: "Mn", ans: 1 }
+  prompt: 'A metal chloride XCl₂ has a molar mass of ${{M}}$ g/mol (Cl = 35.45). Which metal is X?'
+  parts:
+    - { ask: 'Metal', label: a, choice: ["{{o1}}", "{{o2}}", "{{o3}}", "{{o4}}"], correct: ans, explain: 'Subtract the chlorine: ${{M}} - 2(35.45) = {{M - 70.9|4}}$ g/mol, then find that atomic weight on the table. Working backward from a molar mass is how unknowns are identified' }
+  verify: { choices: { a: "closest_metal(nsimplify(M) - 2*c_M['Cl'], [o1, o2, o3, o4])" } }
+
+- template: ac2-most-atoms
+  skill: gchem.stoichiometry
+  pace: quick
+  cases:
+    - { o1: "H₂", o2: "He", o3: "CH₄", o4: "H₂O", f1: "H2", f2: "He", f3: "CH4", f4: "H2O", ans: 0 }
+    - { o1: "NH₃", o2: "CH₄", o3: "H₂O", o4: "HF", f1: "NH3", f2: "CH4", f3: "H2O", f4: "HF", ans: 1 }
+    - { o1: "Al", o2: "Fe", o3: "C", o4: "Pb", f1: "Al", f2: "Fe", f3: "C", f4: "Pb", ans: 2 }
+    - { o1: "Na", o2: "K", o3: "Ca", o4: "Li", f1: "Na", f2: "K", f3: "Ca", f4: "Li", ans: 3 }
+    - { o1: "NaCl", o2: "KCl", o3: "LiF", o4: "CaO", f1: "NaCl", f2: "KCl", f3: "LiF", f4: "CaO", ans: 2 }
+  prompt: 'Which 10.0 g sample contains the most atoms?'
+  parts:
+    - { ask: 'Most atoms', label: a, choice: ["{{o1}}", "{{o2}}", "{{o3}}", "{{o4}}"], correct: ans, explain: 'Atoms = (mass ÷ molar mass) × atoms per formula unit. Light formulas with many atoms win; equal masses never mean equal counts' }
+  verify: { choices: { a: "most_atoms([f1, f2, f3, f4], [10, 10, 10, 10])" } }
+
+- template: ac2-abundant-isotope
+  skill: gchem.composition
+  pace: recall
+  cases:
+    - { el: "Chlorine", avg: 35.45, a: "Cl-35", ma: 34.969, b: "Cl-37", mb: 36.966 }
+    - { el: "Boron", avg: 10.81, a: "B-10", ma: 10.013, b: "B-11", mb: 11.009 }
+    - { el: "Copper", avg: 63.546, a: "Cu-63", ma: 62.930, b: "Cu-65", mb: 64.928 }
+    - { el: "Lithium", avg: 6.94, a: "Li-6", ma: 6.015, b: "Li-7", mb: 7.016 }
+    - { el: "Silver", avg: 107.87, a: "Ag-107", ma: 106.905, b: "Ag-109", mb: 108.905 }
+  prompt: '{{el}}''s average atomic mass is ${{avg}}$ u, from {{a}} (${{ma}}$ u) and {{b}} (${{mb}}$ u). Which isotope is more abundant?'
+  parts:
+    - { ask: 'More abundant', label: a, choice: ["{{a}}", "{{b}}"], correct: 'abs(avg - ma) < abs(avg - mb) ? 0 : 1', explain: 'The average sits closer to the more abundant isotope, without calculating. Silver is nearly 52 : 48, so the average is almost halfway' }
+  verify: { choices: { a: "0 if Abs(nsimplify(avg) - nsimplify(ma)) < Abs(nsimplify(avg) - nsimplify(mb)) else 1" } }
+
+- template: ac2-highest-percent
+  skill: gchem.composition
+  pace: quick
+  cases:
+    - { el: "N", o1: "NH₃", o2: "NH₄NO₃", o3: "CO(NH₂)₂", o4: "N₂O", f1: "NH3", f2: "NH4NO3", f3: "CO(NH2)2", f4: "N2O", ans: 0 }
+    - { el: "Fe", o1: "Fe₂O₃", o2: "FeO", o3: "Fe₃O₄", o4: "FeS", f1: "Fe2O3", f2: "FeO", f3: "Fe3O4", f4: "FeS", ans: 1 }
+    - { el: "H", o1: "H₂O", o2: "NH₃", o3: "CH₄", o4: "H₂O₂", f1: "H2O", f2: "NH3", f3: "CH4", f4: "H2O2", ans: 2 }
+    - { el: "O", o1: "CO", o2: "NO", o3: "SO₂", o4: "CO₂", f1: "CO", f2: "NO", f3: "SO2", f4: "CO2", ans: 3 }
+  prompt: 'Which has the highest mass percent {{el}}?'
+  parts:
+    - { ask: 'Highest', label: a, choice: ["{{o1}}", "{{o2}}", "{{o3}}", "{{o4}}"], correct: ans, explain: 'Mass percent = (atoms of the element × its atomic weight) ÷ molar mass. Estimate before calculating: few heavy partners means a high percentage' }
+  verify: { choices: { a: "argmax([mass_pct(f1, el), mass_pct(f2, el), mass_pct(f3, el), mass_pct(f4, el)])" } }
+
+- template: ac2-empirical-subscript
+  skill: gchem.composition
+  pace: recall
+  cases:
+    - { show: "glucose, C₆H₁₂O₆", f: "C6H12O6", el: "H", n: 2 }
+    - { show: "acetic acid, C₂H₄O₂", f: "C2H4O2", el: "O", n: 1 }
+    - { show: "benzene, C₆H₆", f: "C6H6", el: "C", n: 1 }
+    - { show: "hydrogen peroxide, H₂O₂", f: "H2O2", el: "O", n: 1 }
+    - { show: "butane, C₄H₁₀", f: "C4H10", el: "H", n: 5 }
+    - { show: "naphthalene, C₁₀H₈", f: "C10H8", el: "C", n: 5 }
+    - { show: "dinitrogen tetroxide, N₂O₄", f: "N2O4", el: "O", n: 2 }
+  prompt: 'What is the subscript on {{el}} in the empirical formula of {{show}}?'
+  parts:
+    - { ask: 'Subscript', label: r, value: n, tol: 0.000001, final: true, explain: 'Divide every subscript by their greatest common factor. Glucose becomes CH₂O, butane C₂H₅, naphthalene C₅H₄' }
+  verify: { expect: { r: "empirical_sub(f, el)" } }
+
+- template: ac2-carbon-from-co2
+  skill: gchem.composition
+  pace: quick
+  given: { g: { pick: [2.20, 4.40, 6.60, 8.80, 11.0, 13.2] } }
+  prompt: 'Burning a sample of a hydrocarbon gives ${{g}}$ g of CO₂ (C 12.011, O 15.999). How many grams of carbon did the sample contain?'
+  parts:
+    - { ask: 'Carbon (g)', label: r, value: g*12.011/(12.011 + 2*15.999), tol: 0.0001, explain: 'All the carbon ends up in CO₂, and carbon is $12.011/44.009 = 27.3\%$ of CO₂ by mass: ${{g}} \times 0.2729 = {{g*12.011/(12.011 + 2*15.999)|4}}$ g. The hydrogen comes the same way from the water' }
+  verify: { expect: { r: "nsimplify(g)*c_M['C']/molar_mass('CO2')" } }
+
+- template: ac2-isoelectronic-pick
+  skill: gchem.structure
+  pace: recall
+  cases:
+    - { tex: "Ne", ts: "Ne", tq: 0, o1: "Na⁺", o2: "K⁺", o3: "Cl⁻", o4: "Ca²⁺", s1: "Na", q1: 1, s2: "K", q2: 1, s3: "Cl", q3: -1, s4: "Ca", q4: 2, ans: 0 }
+    - { tex: "Ar", ts: "Ar", tq: 0, o1: "F⁻", o2: "Na⁺", o3: "S²⁻", o4: "Mg²⁺", s1: "F", q1: -1, s2: "Na", q2: 1, s3: "S", q3: -2, s4: "Mg", q4: 2, ans: 2 }
+    - { tex: "O²⁻", ts: "O", tq: -2, o1: "S²⁻", o2: "Mg²⁺", o3: "Cl⁻", o4: "K⁺", s1: "S", q1: -2, s2: "Mg", q2: 2, s3: "Cl", q3: -1, s4: "K", q4: 1, ans: 1 }
+    - { tex: "Kr", ts: "Kr", tq: 0, o1: "Cl⁻", o2: "K⁺", o3: "Ca²⁺", o4: "Br⁻", s1: "Cl", q1: -1, s2: "K", q2: 1, s3: "Ca", q3: 2, s4: "Br", q4: -1, ans: 3 }
+    - { tex: "K⁺", ts: "K", tq: 1, o1: "Na⁺", o2: "Cl⁻", o3: "F⁻", o4: "Mg²⁺", s1: "Na", q1: 1, s2: "Cl", q2: -1, s3: "F", q3: -1, s4: "Mg", q4: 2, ans: 1 }
+  prompt: 'Which species is isoelectronic with {{tex}}?'
+  parts:
+    - { ask: 'Isoelectronic', label: a, choice: ["{{o1}}", "{{o2}}", "{{o3}}", "{{o4}}"], correct: ans, explain: 'Electrons = atomic number − charge. Isoelectronic species have the same count; among them, more protons pull the same electrons in tighter, so the radius falls as nuclear charge rises' }
+  verify: { choices: { a: "iso_pick(ts, tq, [s1, s2, s3, s4], [q1, q2, q3, q4])" } }
+
+- template: ac2-charge-from-formula
+  skill: gchem.composition
+  pace: recall
+  cases:
+    - { show: "Fe₂O₃", nm: 2, na: 3, qa: -2, q: 3 }
+    - { show: "Cu₂O", nm: 2, na: 1, qa: -2, q: 1 }
+    - { show: "MnO₂", nm: 1, na: 2, qa: -2, q: 4 }
+    - { show: "CrCl₃", nm: 1, na: 3, qa: -1, q: 3 }
+    - { show: "V₂O₅", nm: 2, na: 5, qa: -2, q: 5 }
+    - { show: "FeSO₄", nm: 1, na: 1, qa: -2, q: 2 }
+    - { show: "Co₃(PO₄)₂", nm: 3, na: 2, qa: -3, q: 2 }
+  prompt: 'What is the charge on the metal ion in {{show}}?'
+  parts:
+    - { ask: 'Charge', label: r, value: q, tol: 0.000001, final: true, explain: 'The anions'' total charge is ${{na}} \times ({{qa}}) = {{na*qa}}$; shared among {{nm}} metal ions that is +{{q}} each. That is the Roman numeral in the name' }
+  verify: { expect: { r: "-na*qa/nm" } }
+
+- template: ac2-most-polar
+  skill: gchem.bonding
+  pace: recall
+  cases:
+    - { o1: "H–F", o2: "H–Cl", o3: "H–Br", o4: "H–I", p1: "H-F", p2: "H-Cl", p3: "H-Br", p4: "H-I", ans: 0 }
+    - { o1: "C–H", o2: "O–H", o3: "N–H", o4: "S–H", p1: "C-H", p2: "O-H", p3: "N-H", p4: "S-H", ans: 1 }
+    - { o1: "C–C", o2: "C–N", o3: "C–F", o4: "C–O", p1: "C-C", p2: "C-N", p3: "C-F", p4: "C-O", ans: 2 }
+    - { o1: "P–Cl", o2: "S–Cl", o3: "Si–Cl", o4: "Na–Cl", p1: "P-Cl", p2: "S-Cl", p3: "Si-Cl", p4: "Na-Cl", ans: 3 }
+  prompt: 'Which bond is the most polar?'
+  parts:
+    - { ask: 'Most polar', label: a, choice: ["{{o1}}", "{{o2}}", "{{o3}}", "{{o4}}"], correct: ans, explain: 'Polarity follows the electronegativity difference: F > O > N ≈ Cl > Br > C ≈ S > H. Across a row EN rises; down a group it falls. A large enough difference (Na–Cl) is ionic' }
+  verify: { choices: { a: "most_polar([p1, p2, p3, p4])" } }
+
+- template: ac2-lone-pairs
+  skill: gchem.bonding
+  pace: quick
+  cases:
+    - { show: "NH₃", c: "N", n: 3, q: 0, lp: 1 }
+    - { show: "H₂O", c: "O", n: 2, q: 0, lp: 2 }
+    - { show: "SF₄", c: "S", n: 4, q: 0, lp: 1 }
+    - { show: "XeF₄", c: "Xe", n: 4, q: 0, lp: 2 }
+    - { show: "ClF₃", c: "Cl", n: 3, q: 0, lp: 2 }
+    - { show: "I₃⁻", c: "I", n: 2, q: -1, lp: 3 }
+    - { show: "XeF₂", c: "Xe", n: 2, q: 0, lp: 3 }
+    - { show: "BrF₅", c: "Br", n: 5, q: 0, lp: 1 }
+  prompt: 'How many lone pairs are on the central atom of {{show}}?'
+  parts:
+    - { ask: 'Lone pairs', label: r, value: lp, tol: 0.000001, final: true, explain: 'Central valence electrons, minus one for each single bond, plus one for each negative charge, divided by 2. {{c}}: that leaves {{lp}} pair(s); lone pairs take the equatorial positions in a trigonal bipyramid' }
+  verify: { expect: { r: "lone_pairs(c, n, q)" } }
+
+- template: ac2-hybridization
+  skill: gchem.bonding
+  pace: quick
+  cases:
+    - { show: "CH₄", c: "C", n: 4, q: 0, h: 2 }
+    - { show: "BF₃", c: "B", n: 3, q: 0, h: 1 }
+    - { show: "BeCl₂", c: "Be", n: 2, q: 0, h: 0 }
+    - { show: "PCl₅", c: "P", n: 5, q: 0, h: 3 }
+    - { show: "SF₆", c: "S", n: 6, q: 0, h: 4 }
+    - { show: "NH₃", c: "N", n: 3, q: 0, h: 2 }
+    - { show: "XeF₄", c: "Xe", n: 4, q: 0, h: 4 }
+    - { show: "ClF₃", c: "Cl", n: 3, q: 0, h: 3 }
+    - { show: "I₃⁻", c: "I", n: 2, q: -1, h: 3 }
+  prompt: 'What is the hybridization of the central atom in {{show}}?'
+  parts:
+    - { ask: 'Hybridization', label: a, choice: ["sp", "sp²", "sp³", "sp³d", "sp³d²"], correct: h, explain: 'Count electron domains (bonded atoms plus lone pairs): 2 sp, 3 sp², 4 sp³, 5 sp³d, 6 sp³d². Lone pairs count as domains, so NH₃ is sp³ and I₃⁻ is sp³d' }
+  verify: { choices: { a: "hybrid(c, n, q)" } }
+
+- template: ac2-formal-charge
+  skill: gchem.bonding
+  pace: quick
+  cases:
+    - { at: "N", sp: "NH₄⁺", st: "", nb: 0, b: 4, fc: 1 }
+    - { at: "O", sp: "H₃O⁺", st: " (three O–H bonds, one lone pair)", nb: 2, b: 3, fc: 1 }
+    - { at: "C", sp: "CO", st: " (triple bond, one lone pair on each atom)", nb: 2, b: 3, fc: -1 }
+    - { at: "O", sp: "CO", st: " (triple bond, one lone pair on each atom)", nb: 2, b: 3, fc: 1 }
+    - { at: "B", sp: "BH₄⁻", st: "", nb: 0, b: 4, fc: -1 }
+    - { at: "S", sp: "SO₄²⁻", st: " drawn with four S–O single bonds", nb: 0, b: 4, fc: 2 }
+    - { at: "N", sp: "the nitrate ion", st: " (one N=O, two N–O)", nb: 0, b: 4, fc: 1 }
+  prompt: 'What is the formal charge on {{at}} in {{sp}}{{st}}?'
+  parts:
+    - { ask: 'Formal charge', label: r, value: fc, tol: 0.000001, final: true, explain: 'Formal charge = valence electrons − nonbonding electrons − bonds. The best structure keeps formal charges small and puts negative ones on the more electronegative atom' }
+  verify: { expect: { r: "formal_charge(at, nb, b)" } }
+
+- template: ac2-lattice-pick
+  skill: gchem.bonding
+  pace: recall
+  cases:
+    - { o1: "MgO", o2: "NaCl", ans: 0 }
+    - { o1: "NaI", o2: "NaF", ans: 1 }
+    - { o1: "CaO", o2: "KCl", ans: 0 }
+    - { o1: "CsI", o2: "LiF", ans: 1 }
+    - { o1: "Al₂O₃", o2: "MgO", ans: 0 }
+    - { o1: "KBr", o2: "KCl", ans: 1 }
+  prompt: 'Which has the larger lattice energy?'
+  parts:
+    - { ask: 'Larger', label: a, choice: ["{{o1}}", "{{o2}}"], correct: ans, explain: 'Coulomb''s law: lattice energy grows with the product of the ion charges and shrinks with the distance between them. Charge wins first (MgO, 2+ and 2−, beats NaCl); among equal charges, smaller ions win (NaF beats NaI)' }
+  verify: { authored: true }
+
+- template: ac2-nonpolar-pick
+  skill: gchem.bonding
+  pace: recall
+  cases:
+    - { o1: "CO₂", o2: "H₂O", o3: "NH₃", o4: "SO₂", ans: 0 }
+    - { o1: "CH₂Cl₂", o2: "CCl₄", o3: "CHCl₃", o4: "CH₃Cl", ans: 1 }
+    - { o1: "SF₄", o2: "PCl₃", o3: "BF₃", o4: "ClF₃", ans: 2 }
+    - { o1: "NF₃", o2: "H₂S", o3: "HCN", o4: "XeF₄", ans: 3 }
+  prompt: 'Which molecule is nonpolar?'
+  parts:
+    - { ask: 'Nonpolar', label: a, choice: ["{{o1}}", "{{o2}}", "{{o3}}", "{{o4}}"], correct: ans, explain: 'Polar bonds cancel only in a symmetric shape with identical outer atoms and no lone pair breaking the symmetry: linear CO₂, tetrahedral CCl₄, trigonal planar BF₃, square planar XeF₄. A lone pair on the central atom (NH₃, SF₄) usually leaves a dipole' }
+  verify: { authored: true }

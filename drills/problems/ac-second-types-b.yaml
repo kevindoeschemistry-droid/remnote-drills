@@ -1,0 +1,183 @@
+# Second question types for AP Chemistry units 3–4 (framework chemistry, CH). Reversals and
+# comparisons recomputed in tests/verify (chemcalc.py parses formulas and equations on its own).
+
+- template: ac2-highest-vp
+  skill: gchem.imf
+  pace: recall
+  cases:
+    - { o1: "water", o2: "methanol", o3: "ethanol", o4: "dimethyl ether", b1: 100, b2: 64.7, b3: 78.4, b4: -24, ans: 3 }
+    - { o1: "methane", o2: "ethane", o3: "propane", o4: "butane", b1: -161.5, b2: -88.6, b3: -42.1, b4: -0.5, ans: 0 }
+    - { o1: "HF", o2: "HCl", o3: "HBr", o4: "HI", b1: 19.5, b2: -85.1, b3: -66.8, b4: -35.4, ans: 1 }
+    - { o1: "pentane", o2: "1-butanol", o3: "diethyl ether", o4: "water", b1: 36.1, b2: 117.7, b3: 34.6, b4: 100, ans: 2 }
+  prompt: 'At 25 °C, which liquid has the highest vapor pressure?'
+  parts:
+    - { ask: 'Highest vapor pressure', label: a, choice: ["{{o1}}", "{{o2}}", "{{o3}}", "{{o4}}"], correct: ans, explain: 'Weakest intermolecular forces escape most easily: highest vapor pressure and lowest boiling point go together. Hydrogen bonding (water, alcohols, HF) holds molecules back; HCl, with no H-bonding and the fewest electrons of the HX, is the most volatile' }
+  verify: { choices: { a: "argmin([nsimplify(b1), nsimplify(b2), nsimplify(b3), nsimplify(b4)])" } }
+
+- template: ac2-mole-fraction-from-pressure
+  skill: gchem.gases
+  pace: quick
+  given: { p: { pick: [120, 190, 250, 300, 380] }, P: { pick: [760, 1000, 1200] } }
+  prompt: 'In a gas mixture at ${{P}}$ torr, the partial pressure of O₂ is ${{p}}$ torr. What is the mole fraction of O₂?'
+  parts:
+    - { ask: 'Mole fraction', label: r, value: p/P, tol: 0.0001, explain: 'Dalton: $P_i = \chi_i P_{\text{total}}$, so $\chi = {{p}}/{{P}} = {{p/P|3}}$. Mole fraction and pressure fraction are the same thing for ideal gases' }
+  verify: { expect: { r: "Rational(p, P)" } }
+
+- template: ac2-graham-identify
+  skill: gchem.gases
+  pace: quick
+  cases:
+    - { known: "O₂", M1: 31.998, ratio: 2, M2: 7.9995 }
+    - { known: "He", M1: 4.0026, ratio: 0.5, M2: 16.0104 }
+    - { known: "CH₄", M1: 16.043, ratio: 0.5, M2: 64.172 }
+    - { known: "N₂", M1: 28.014, ratio: 0.8, M2: 43.771875 }
+    - { known: "H₂", M1: 2.016, ratio: 0.25, M2: 32.256 }
+  prompt: 'An unknown gas effuses ${{ratio}}$ times as fast as {{known}} ($M = {{M1}}$ g/mol). What is its molar mass?'
+  parts:
+    - { ask: 'Molar mass (g/mol)', label: r, value: M1/ratio^2, tol: 0.0005, explain: 'Graham: $r_x/r_k = \sqrt{M_k/M_x}$, so $M_x = M_k/(r_x/r_k)^2 = {{M1}}/{{ratio}}^2 = {{M1/ratio^2|4}}$ g/mol. Faster means lighter, by the square' }
+  verify: { expect: { r: "nsimplify(M1)/nsimplify(ratio)**2" } }
+
+- template: ac2-dilution-volume
+  skill: gchem.solutions
+  pace: quick
+  given: { C1: { pick: [6.0, 12.0, 2.0, 18.0] }, C2: { pick: [0.10, 0.25, 0.50, 1.0] }, V2: { pick: [100, 250, 500, 1000] } }
+  prompt: 'What volume (mL) of ${{C1}}$ M stock is needed to make ${{V2}}$ mL of ${{C2}}$ M solution?'
+  parts:
+    - { ask: 'Stock volume (mL)', label: r, value: C2*V2/C1, tol: 0.0001, explain: 'Moles of solute stay the same: $C_1V_1 = C_2V_2$, so $V_1 = {{C2}} \times {{V2}} / {{C1}} = {{C2*V2/C1|4}}$ mL, then dilute to {{V2}} mL (acid into water)' }
+  verify: { expect: { r: "nsimplify(C2)*V2/nsimplify(C1)" } }
+
+- template: ac2-most-ions
+  skill: gchem.solutions
+  pace: recall
+  cases:
+    - { o1: "NaCl", o2: "CaCl₂", o3: "Al(NO₃)₃", o4: "C₆H₁₂O₆ (glucose)", i1: 2, i2: 3, i3: 4, i4: 1, ans: 2 }
+    - { o1: "KBr", o2: "MgSO₄", o3: "Na₃PO₄", o4: "CH₃OH", i1: 2, i2: 2, i3: 4, i4: 1, ans: 2 }
+    - { o1: "Ba(OH)₂", o2: "HCl", o3: "KNO₃", o4: "sucrose", i1: 3, i2: 2, i3: 2, i4: 1, ans: 0 }
+  prompt: 'Equal 0.10 M solutions: which has the highest total concentration of dissolved particles?'
+  parts:
+    - { ask: 'Most particles', label: a, choice: ["{{o1}}", "{{o2}}", "{{o3}}", "{{o4}}"], correct: ans, explain: 'Count the ions per formula unit of a strong electrolyte; a nonelectrolyte stays as one molecule. Most particles means the lowest freezing point and highest boiling point and osmotic pressure' }
+  verify: { choices: { a: "argmax([i1, i2, i3, i4])" } }
+
+- template: ac2-rf-distance
+  skill: gchem.solutions
+  pace: recall
+  given: { rf: { pick: [0.25, 0.40, 0.55, 0.60, 0.75] }, front: { pick: [6.0, 8.0, 10.0, 12.0] } }
+  prompt: 'The solvent front moves ${{front}}$ cm. How far does a spot with $R_f = {{rf}}$ travel?'
+  parts:
+    - { ask: 'Distance (cm)', label: r, value: rf*front, tol: 0.0001, final: true, explain: '$R_f$ = spot distance ÷ solvent distance, so ${{rf}} \times {{front}} = {{rf*front}}$ cm. A higher $R_f$ means the compound prefers the mobile phase' }
+  verify: { expect: { r: "nsimplify(rf)*nsimplify(front)" } }
+
+- template: ac2-henry-scaling
+  skill: gchem.solutions
+  pace: quick
+  given: { S: { pick: [0.8, 1.2, 1.5, 3.4] }, P1: { pick: [1, 2] }, P2: { pick: [3, 4, 5] } }
+  prompt: 'At ${{P1}}$ atm a gas''s solubility is ${{S}}$ g/L. At the same temperature, what is it at ${{P2}}$ atm?'
+  parts:
+    - { ask: 'Solubility (g/L)', label: r, value: S*P2/P1, tol: 0.0001, explain: 'Henry''s law: solubility ∝ partial pressure, so ${{S}} \times {{P2}}/{{P1}} = {{S*P2/P1|4}}$ g/L. (Opening a soda drops the CO₂ pressure, and it fizzes)' }
+  verify: { expect: { r: "nsimplify(S)*Rational(P2, P1)" } }
+
+- template: ac2-balanced-pick
+  skill: gchem.reactions
+  pace: quick
+  cases:
+    - { o1: "C₃H₈ + 5 O₂ → 3 CO₂ + 4 H₂O", o2: "C₃H₈ + 3 O₂ → 3 CO₂ + 4 H₂O", o3: "C₃H₈ + 5 O₂ → 3 CO₂ + 2 H₂O", o4: "C₃H₈ + 4 O₂ → 3 CO₂ + 4 H₂O", e1: "C3H8 + 5 O2 -> 3 CO2 + 4 H2O", e2: "C3H8 + 3 O2 -> 3 CO2 + 4 H2O", e3: "C3H8 + 5 O2 -> 3 CO2 + 2 H2O", e4: "C3H8 + 4 O2 -> 3 CO2 + 4 H2O", ans: 0 }
+    - { o1: "Fe + O₂ → Fe₂O₃", o2: "4 Fe + 3 O₂ → 2 Fe₂O₃", o3: "2 Fe + 3 O₂ → Fe₂O₃", o4: "4 Fe + 2 O₂ → 2 Fe₂O₃", e1: "Fe + O2 -> Fe2O3", e2: "4 Fe + 3 O2 -> 2 Fe2O3", e3: "2 Fe + 3 O2 -> Fe2O3", e4: "4 Fe + 2 O2 -> 2 Fe2O3", ans: 1 }
+    - { o1: "Al + HCl → AlCl₃ + H₂", o2: "2 Al + 3 HCl → 2 AlCl₃ + 3 H₂", o3: "2 Al + 6 HCl → 2 AlCl₃ + 3 H₂", o4: "Al + 3 HCl → AlCl₃ + 3 H₂", e1: "Al + HCl -> AlCl3 + H2", e2: "2 Al + 3 HCl -> 2 AlCl3 + 3 H2", e3: "2 Al + 6 HCl -> 2 AlCl3 + 3 H2", e4: "Al + 3 HCl -> AlCl3 + 3 H2", ans: 2 }
+    - { o1: "N₂ + H₂ → NH₃", o2: "N₂ + 2 H₂ → 2 NH₃", o3: "2 N₂ + 3 H₂ → 2 NH₃", o4: "N₂ + 3 H₂ → 2 NH₃", e1: "N2 + H2 -> NH3", e2: "N2 + 2 H2 -> 2 NH3", e3: "2 N2 + 3 H2 -> 2 NH3", e4: "N2 + 3 H2 -> 2 NH3", ans: 3 }
+  prompt: 'Which equation is balanced?'
+  parts:
+    - { ask: 'Balanced', label: a, choice: ["{{o1}}", "{{o2}}", "{{o3}}", "{{o4}}"], correct: ans, explain: 'Count every element on both sides, coefficient times subscript. Balance elements that appear once on each side first, and O and H last in combustions' }
+  verify: { choices: { a: "balanced_pick([e1, e2, e3, e4])" } }
+
+- template: ac2-reactant-needed
+  skill: gchem.stoichiometry
+  pace: quick
+  given: { g: { pick: [5.0, 10.0, 18.0, 36.0] } }
+  cases:
+    - { prod: "water", pf: "H2O", reac: "H₂", rf: "H2", Mp: 18.015, Mr: 2.016, rn: 1, rd: 1, eq: "2 H₂ + O₂ → 2 H₂O" }
+    - { prod: "water", pf: "H2O", reac: "O₂", rf: "O2", Mp: 18.015, Mr: 31.998, rn: 1, rd: 2, eq: "2 H₂ + O₂ → 2 H₂O" }
+    - { prod: "ammonia", pf: "NH3", reac: "N₂", rf: "N2", Mp: 17.031, Mr: 28.014, rn: 1, rd: 2, eq: "N₂ + 3 H₂ → 2 NH₃" }
+    - { prod: "carbon dioxide", pf: "CO2", reac: "C₃H₈", rf: "C3H8", Mp: 44.009, Mr: 44.097, rn: 1, rd: 3, eq: "C₃H₈ + 5 O₂ → 3 CO₂ + 4 H₂O" }
+  prompt: 'From {{eq}}: how many grams of {{reac}} are needed to make ${{g}}$ g of {{prod}}? ({{prod}} ${{Mp}}$, {{reac}} ${{Mr}}$ g/mol)'
+  parts:
+    - { ask: 'Mass (g)', label: r, value: 'g/Mp*rn/rd*Mr', tol: 0.001, explain: 'Grams of product → moles (÷ molar mass) → moles of reactant (mole ratio from the coefficients) → grams (× molar mass)' }
+  verify: { expect: { r: "nsimplify(g)/molar_mass(pf)*Rational(rn, rd)*molar_mass(rf)" } }
+
+- template: ac2-limiting-pick
+  skill: gchem.stoichiometry
+  pace: quick
+  cases:
+    - { eq: "2 H₂ + O₂ → 2 H₂O", A: "H₂", B: "O₂", nA: 2, nB: 2, cA: 2, cB: 1 }
+    - { eq: "2 H₂ + O₂ → 2 H₂O", A: "H₂", B: "O₂", nA: 5, nB: 2, cA: 2, cB: 1 }
+    - { eq: "N₂ + 3 H₂ → 2 NH₃", A: "N₂", B: "H₂", nA: 2, nB: 5, cA: 1, cB: 3 }
+    - { eq: "N₂ + 3 H₂ → 2 NH₃", A: "N₂", B: "H₂", nA: 1, nB: 4, cA: 1, cB: 3 }
+    - { eq: "4 Fe + 3 O₂ → 2 Fe₂O₃", A: "Fe", B: "O₂", nA: 4, nB: 4, cA: 4, cB: 3 }
+    - { eq: "4 Fe + 3 O₂ → 2 Fe₂O₃", A: "Fe", B: "O₂", nA: 6, nB: 3, cA: 4, cB: 3 }
+  prompt: 'For {{eq}}, you start with ${{nA}}$ mol {{A}} and ${{nB}}$ mol {{B}}. Which is limiting?'
+  parts:
+    - { ask: 'Limiting reactant', label: a, choice: ["{{A}}", "{{B}}"], correct: 'nA/cA < nB/cB ? 0 : 1', explain: 'Divide each amount by its coefficient: ${{nA}}/{{cA}} = {{nA/cA|3}}$ vs ${{nB}}/{{cB}} = {{nB/cB|3}}$. The smaller runs out first. The reactant with fewer moles is not always limiting' }
+  verify: { choices: { a: "0 if Rational(nA, cA) < Rational(nB, cB) else 1" } }
+
+- template: ac2-actual-yield
+  skill: gchem.stoichiometry
+  pace: recall
+  given: { th: { pick: [12.0, 25.0, 40.0, 50.0, 80.0] }, py: { pick: [60, 75, 80, 85, 90] } }
+  prompt: 'The theoretical yield is ${{th}}$ g and the percent yield is ${{py}}$%. What mass was actually collected?'
+  parts:
+    - { ask: 'Actual yield (g)', label: r, value: th*py/100, tol: 0.0001, explain: 'Actual = percent ÷ 100 × theoretical = ${{py/100}} \times {{th}} = {{th*py/100}}$ g' }
+  verify: { expect: { r: "nsimplify(th)*Rational(py, 100)" } }
+
+- template: ac2-titrant-volume
+  skill: gchem.stoichiometry
+  pace: quick
+  given: { Va: { pick: [10.0, 20.0, 25.0, 50.0] }, Ca: { pick: [0.100, 0.150, 0.200] }, Cb: { pick: [0.100, 0.125, 0.250] } }
+  cases:
+    - { acid: "HCl", base: "NaOH", k: 1 }
+    - { acid: "H₂SO₄", base: "NaOH", k: 2 }
+    - { acid: "HCl", base: "Ba(OH)₂", k: 0.5 }
+    - { acid: "H₃PO₄ (to the third equivalence point)", base: "NaOH", k: 3 }
+  prompt: 'What volume (mL) of ${{Cb}}$ M {{base}} reaches the equivalence point with ${{Va}}$ mL of ${{Ca}}$ M {{acid}}?'
+  parts:
+    - { ask: 'Volume (mL)', label: r, value: Va*Ca*k/Cb, tol: 0.0001, explain: 'Moles of acid ${{Va*Ca|3}}$ mmol; the mole ratio makes it ${{Va*Ca*k|3}}$ mmol of base; ÷ ${{Cb}}$ M $= {{Va*Ca*k/Cb|4}}$ mL. Count the H⁺ each acid gives and the OH⁻ each base takes' }
+  verify: { expect: { r: "nsimplify(Va)*nsimplify(Ca)*nsimplify(k)/nsimplify(Cb)" } }
+
+- template: ac2-oxidation-pick
+  skill: gchem.reactions
+  pace: quick
+  cases:
+    - { el: "S", t: 6, o1: "SO₄²⁻", o2: "SO₃²⁻", o3: "H₂S", o4: "S₂O₃²⁻", f1: "SO4", f2: "SO3", f3: "H2S", f4: "S2O3", q1: -2, q2: -2, q3: 0, q4: -2, ans: 0 }
+    - { el: "Mn", t: 7, o1: "MnO₂", o2: "MnO₄⁻", o3: "MnO₄²⁻", o4: "MnCl₂", f1: "MnO2", f2: "MnO4", f3: "MnO4", f4: "MnCl2", q1: 0, q2: -1, q3: -2, q4: 0, ans: 1 }
+    - { el: "N", t: 5, o1: "NO₂⁻", o2: "NH₄⁺", o3: "NO₃⁻", o4: "N₂O", f1: "NO2", f2: "NH4", f3: "NO3", f4: "N2O", q1: -1, q2: 1, q3: -1, q4: 0, ans: 2 }
+    - { el: "Cr", t: 6, o1: "Cr₂O₃", o2: "CrO₂", o3: "Cr(OH)₃", o4: "Cr₂O₇²⁻", f1: "Cr2O3", f2: "CrO2", f3: "Cr(OH)3", f4: "Cr2O7", q1: 0, q2: 0, q3: 0, q4: -2, ans: 3 }
+    - { el: "C", t: -4, o1: "CH₄", o2: "CO", o3: "CO₂", o4: "CH₂O", f1: "CH4", f2: "CO", f3: "CO2", f4: "CH2O", q1: 0, q2: 0, q3: 0, q4: 0, ans: 0 }
+  prompt: 'In which species does {{el}} have an oxidation number of ${{t}}$?'
+  parts:
+    - { ask: 'Species', label: a, choice: ["{{o1}}", "{{o2}}", "{{o3}}", "{{o4}}"], correct: ans, explain: 'O is −2 (except peroxides), H is +1 with nonmetals, F is −1; the oxidation numbers sum to the charge. So in an ion, solve for the one unknown' }
+  verify: { choices: { a: "ox_pick([f1, f2, f3, f4], [q1, q2, q3, q4], el, t)" } }
+
+- template: ac2-precipitating-ion
+  skill: gchem.reactions
+  pace: recall
+  cases:
+    - { ion: "Cl⁻", o1: "Ag⁺", o2: "Na⁺", o3: "NH₄⁺", o4: "K⁺", ans: 0 }
+    - { ion: "SO₄²⁻", o1: "Na⁺", o2: "Ba²⁺", o3: "K⁺", o4: "Mg²⁺", ans: 1 }
+    - { ion: "CO₃²⁻", o1: "K⁺", o2: "NH₄⁺", o3: "Ca²⁺", o4: "Na⁺", ans: 2 }
+    - { ion: "OH⁻", o1: "Na⁺", o2: "K⁺", o3: "Ba²⁺", o4: "Fe³⁺", ans: 3 }
+  prompt: 'Which cation, added as its nitrate, forms a precipitate with {{ion}}?'
+  parts:
+    - { ask: 'Cation', label: a, choice: ["{{o1}}", "{{o2}}", "{{o3}}", "{{o4}}"], correct: ans, explain: 'Group 1 and ammonium salts and all nitrates are soluble. Chlorides are soluble except Ag⁺, Pb²⁺, Hg₂²⁺; sulfates except Ba²⁺, Pb²⁺, Ca²⁺ (slightly) and Sr²⁺; carbonates and hydroxides are insoluble except group 1 and NH₄⁺ (Ba(OH)₂ dissolves)' }
+  verify: { authored: true }
+
+- template: ac2-conjugate-pick
+  skill: gchem.acidbase
+  pace: recall
+  cases:
+    - { sp: "H₂PO₄⁻", what: "conjugate base", o1: "HPO₄²⁻", o2: "H₃PO₄", o3: "PO₄³⁻", o4: "H₂O", ans: 0 }
+    - { sp: "H₂PO₄⁻", what: "conjugate acid", o1: "HPO₄²⁻", o2: "H₃PO₄", o3: "PO₄³⁻", o4: "H₃O⁺", ans: 1 }
+    - { sp: "NH₃", what: "conjugate acid", o1: "NH₂⁻", o2: "N₂", o3: "NH₄⁺", o4: "H₂O", ans: 2 }
+    - { sp: "HCO₃⁻", what: "conjugate base", o1: "H₂CO₃", o2: "CO₂", o3: "OH⁻", o4: "CO₃²⁻", ans: 3 }
+    - { sp: "H₂O", what: "conjugate base", o1: "OH⁻", o2: "H₃O⁺", o3: "O²⁻", o4: "H₂", ans: 0 }
+  prompt: 'What is the {{what}} of {{sp}}?'
+  parts:
+    - { ask: 'Species', label: a, choice: ["{{o1}}", "{{o2}}", "{{o3}}", "{{o4}}"], correct: ans, explain: 'A conjugate pair differs by exactly one H⁺: remove one for the base (charge drops by 1), add one for the acid (charge rises by 1). Amphiprotic species like H₂PO₄⁻, HCO₃⁻ and water have both' }
+  verify: { authored: true }
