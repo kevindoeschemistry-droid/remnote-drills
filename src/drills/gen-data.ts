@@ -22,6 +22,7 @@ import graph from "./skills.generated.json";
 import { math } from "./check";
 import { fmt, u } from "./gen-heat";
 import { require_ } from "./reject";
+import { shuffle } from "./school";
 import type { Rng } from "./rng";
 import type { Answer, Draft, Part } from "./types";
 import { symbolic } from "./sym";
@@ -119,8 +120,11 @@ export function buildData(t: DataTemplate, r: Rng): Draft {
       const idx = num(p.correct ?? 0, scope, `${t.template} › ${p.label}`);
       require_(idx >= 0 && idx < options.length && new Set(options).size === options.length);
       const correct = options[idx];
-      values[p.label] = idx;
-      return { ask, answer: { kind: "choice", options, correct } as Answer, answerTex: `\\text{${correct.replace(/[{}$\\]/g, "").replace(/[_%&#]/g, (m) => "\\" + m).replace(/\^/g, "\\textasciicircum{}").replace(/~/g, "\\textasciitilde{}")}}`, explain };
+      values[p.label] = idx; // the template's index, which the verifier checks
+      // options drawn from case fields ({{o1}}…) are an unordered list: shuffle them so the right answer
+      // is not always where the author wrote it. Literal lists (Low / Normal / High, Stage I–III) keep their order.
+      const shown = p.choice.every((o) => /^\{\{\s*o\d+\s*\}\}$/.test(o)) ? shuffle(options, () => r.next()) : options;
+      return { ask, answer: { kind: "choice", options: shown, correct } as Answer, answerTex: `\\text{${correct.replace(/[{}$\\]/g, "").replace(/[_%&#]/g, (m) => "\\" + m).replace(/\^/g, "\\textasciicircum{}").replace(/~/g, "\\textasciitilde{}")}}`, explain };
     }
     if (p.ode && p.sol) {
       const rhs = symbolic(p.ode, scope), sol = symbolic(p.sol, scope);

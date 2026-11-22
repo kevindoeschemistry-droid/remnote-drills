@@ -47,6 +47,8 @@ domains:
   - { id: sql, title: "SQL" }
   - { id: aib, title: "AI basics" }
   - { id: acct, title: "Financial accounting" }
+  - { id: nurs, title: "Nursing (NCLEX-RN)" }
+  - { id: dent, title: "Dentistry (INBDE)" }
   - { id: prog, title: "Programming" }
   - { id: csci, title: "Computer science" }
   - { id: md, title: "Molecular simulation" }
@@ -714,3 +716,16 @@ skills:
   - { id: md.lambda, domain: md, title: "λ dynamics, MSλD and ALF in practice", short: "λ dynamics and ALF", prereqs: [md.free-energy] }
   - { id: md.workflow, domain: md, title: "Engines, clusters, scripts and reproducibility", short: "Workflow" }
   - { id: compchem.methods, domain: compchem, title: "Electronic structure in practice: basis sets, cost, units, choosing a method", short: "Electronic-structure methods", prereqs: [quantum.bonding] }
+  - { id: nurs.management, domain: nurs, title: "Management of care: priorities, delegation, legal and ethical practice", short: "Management of care" }
+  - { id: nurs.safety, domain: nurs, title: "Safety and infection prevention: precautions, PPE, restraints, error prevention", short: "Safety and infection control" }
+  - { id: nurs.health-promotion, domain: nurs, title: "Health promotion: development, pregnancy and newborn, assessment", short: "Health promotion" }
+  - { id: nurs.psychosocial, domain: nurs, title: "Psychosocial integrity: therapeutic communication, coping", short: "Psychosocial integrity" }
+  - { id: nurs.basic-care, domain: nurs, title: "Basic care and comfort: nutrition, intake and output, positioning", short: "Basic care and comfort" }
+  - { id: nurs.dosage, domain: nurs, title: "Dosage calculation and IV infusion rates", short: "Dosage calculation", prereqs: [k8.mult-div] }
+  - { id: nurs.pharm, domain: nurs, title: "Pharmacological and parenteral therapies: drug classes, antidotes, insulin, IV and blood", short: "Pharmacology", prereqs: [nurs.dosage] }
+  - { id: nurs.risk-reduction, domain: nurs, title: "Reduction of risk potential: lab values, ABGs, vital signs, system assessments", short: "Reduction of risk" }
+  - { id: nurs.physiological, domain: nurs, title: "Physiological adaptation: fluids, burns, respiratory support, emergencies", short: "Physiological adaptation", prereqs: [nurs.risk-reduction] }
+  - { id: dent.diagnosis, domain: dent, title: "Diagnosis and treatment planning: notation, pulp and periodontal diagnosis, radiographs, eruption", short: "Diagnosis and planning" }
+  - { id: dent.management, domain: dent, title: "Oral health management: emergencies, local anesthesia, prophylaxis, fluoride", short: "Oral health management" }
+  - { id: dent.practice, domain: dent, title: "Practice and profession: infection control, evaluating diagnostic tests", short: "Practice and profession" }
+  - { id: dent.materials, domain: dent, title: "Dental materials: mechanical and thermal properties, resins, cements, ceramics, alloys, gypsum, impressions", short: "Dental materials" }

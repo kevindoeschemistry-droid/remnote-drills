@@ -1,0 +1,298 @@
+# INBDE calculations (framework inbde, DN): tooth notation, local anesthetic and epinephrine limits,
+# periodontal measurements, diagnostic-test statistics, fluoride, and dental materials (FK3) by the
+# test methods behind the standards. Recomputed by tests/verify (tooth notation from a list of teeth
+# in tests/verify/dental.py, not from the arithmetic here).
+
+# ── tooth notation ────────────────────────────────────────────────────────────
+- template: dn-universal-fdi
+  skill: dent.diagnosis
+  pace: recall
+  given: { u: { int: [1, 32] } }
+  prompt: 'Universal tooth #{{u}} is which tooth in FDI (ISO 3950) notation?'
+  parts:
+    - { ask: 'FDI number', label: f, value: 'u <= 8 ? 10 + (9 - u) : (u <= 16 ? 20 + (u - 8) : (u <= 24 ? 30 + (25 - u) : 40 + (u - 24)))', tol: 0.000001, final: true, explain: 'Universal runs 1–16 across the maxilla from the right third molar, then 17–32 back along the mandible from the left third molar. FDI is quadrant (1 upper right, 2 upper left, 3 lower left, 4 lower right) then position from the midline (1 central incisor … 8 third molar)' }
+  verify: { expect: { f: "fdi(u)" } }
+
+- template: dn-primary-fdi
+  skill: dent.diagnosis
+  pace: recall
+  cases:
+    - { L: "A", k: 0 }
+    - { L: "B", k: 1 }
+    - { L: "C", k: 2 }
+    - { L: "D", k: 3 }
+    - { L: "E", k: 4 }
+    - { L: "F", k: 5 }
+    - { L: "G", k: 6 }
+    - { L: "H", k: 7 }
+    - { L: "I", k: 8 }
+    - { L: "J", k: 9 }
+    - { L: "K", k: 10 }
+    - { L: "L", k: 11 }
+    - { L: "M", k: 12 }
+    - { L: "N", k: 13 }
+    - { L: "O", k: 14 }
+    - { L: "P", k: 15 }
+    - { L: "Q", k: 16 }
+    - { L: "R", k: 17 }
+    - { L: "S", k: 18 }
+    - { L: "T", k: 19 }
+  prompt: 'Primary tooth {{L}} (Universal) is which tooth in FDI notation?'
+  parts:
+    - { ask: 'FDI number', label: f, value: 'k < 5 ? 50 + (5 - k) : (k < 10 ? 60 + (k - 4) : (k < 15 ? 70 + (15 - k) : 80 + (k - 14)))', tol: 0.000001, final: true, explain: 'Primary letters A–J run across the maxilla from the right second molar, K–T back along the mandible from the left second molar. FDI primary quadrants are 5–8, positions 1 (central incisor) to 5 (second molar). A = 55, J = 65, K = 75, T = 85' }
+  verify: { expect: { f: "fdi_primary(k)" } }
+
+# ── local anesthesia ──────────────────────────────────────────────────────────
+- template: dn-la-max
+  skill: dent.management
+  pace: quick
+  given: { w: { pick: [15, 20, 25, 30, 50, 70, 90] } }
+  cases:
+    - { drug: "2% lidocaine with 1:100,000 epinephrine", pct: 2, perkg: 7.0, cap: 500 }
+    - { drug: "3% mepivacaine plain", pct: 3, perkg: 6.6, cap: 400 }
+    - { drug: "4% articaine with 1:100,000 epinephrine", pct: 4, perkg: 7.0, cap: 500 }
+    - { drug: "4% prilocaine plain", pct: 4, perkg: 8.0, cap: 600 }
+    - { drug: "0.5% bupivacaine with 1:200,000 epinephrine", pct: 0.5, perkg: 1.3, cap: 90 }
+  prompt: 'Maximum recommended dose of {{drug}}: ${{perkg}}$ mg/kg, never more than ${{cap}}$ mg. How many 1.8 mL cartridges for a ${{w}}$ kg patient?'
+  parts:
+    - { ask: 'Cartridges', label: c, value: 'min(perkg*w, cap)/(pct*18)', tol: 0.01, explain: 'A {{pct}}% solution is ${{pct*10}}$ mg/mL, so a 1.8 mL cartridge holds ${{pct*18}}$ mg. Limit $\min({{perkg}} \times {{w}},\ {{cap}}) = {{min(perkg*w, cap)}}$ mg, so ${{min(perkg*w, cap)}} \div {{pct*18}} = {{min(perkg*w, cap)/(pct*18)|3}}$ cartridges. Round down; children reach the per-kg limit long before the cap' }
+  verify: { expect: { c: "Min(nsimplify(perkg)*w, cap)/(nsimplify(pct)*10*Rational(18, 10))" } }
+
+- template: dn-epi-limit
+  skill: dent.management
+  pace: quick
+  cases:
+    - { ratio: "1:100,000", r: 100000, lim: 0.04, who: "a patient with significant cardiovascular disease (0.04 mg)" }
+    - { ratio: "1:50,000", r: 50000, lim: 0.04, who: "a patient with significant cardiovascular disease (0.04 mg)" }
+    - { ratio: "1:200,000", r: 200000, lim: 0.04, who: "a patient with significant cardiovascular disease (0.04 mg)" }
+    - { ratio: "1:100,000", r: 100000, lim: 0.2, who: "a healthy adult (0.2 mg)" }
+  prompt: 'How many 1.8 mL cartridges of anesthetic with {{ratio}} epinephrine stay within the epinephrine limit for {{who}}?'
+  parts:
+    - { ask: 'Cartridges', label: c, value: 'lim/(1000/r*1.8)', tol: 0.01, explain: '{{ratio}} is 1 g in ${{r}}$ mL, or ${{1000/r}}$ mg/mL, so ${{1000/r*1.8|3}}$ mg per cartridge; ${{lim}} \div {{1000/r*1.8|3}} = {{lim/(1000/r*1.8)|3}}$ cartridges' }
+  verify: { expect: { c: "nsimplify(lim)/(Rational(1000, r)*Rational(18, 10))" } }
+
+# ── periodontics ──────────────────────────────────────────────────────────────
+- template: dn-cal
+  skill: dent.diagnosis
+  pace: quick
+  cases:
+    - { pd: 5, r: 2, s: 1, where: "2 mm apical to the CEJ (recession)" }
+    - { pd: 4, r: 3, s: 1, where: "3 mm apical to the CEJ (recession)" }
+    - { pd: 6, r: 2, s: -1, where: "2 mm coronal to the CEJ (enlarged gingiva)" }
+    - { pd: 3, r: 0, s: 1, where: "at the CEJ" }
+    - { pd: 7, r: 1, s: 1, where: "1 mm apical to the CEJ" }
+    - { pd: 5, r: 3, s: -1, where: "3 mm coronal to the CEJ" }
+  prompt: 'The probing depth is ${{pd}}$ mm and the gingival margin is {{where}}. What is the clinical attachment level?'
+  parts:
+    - { ask: 'CAL (mm)', label: cal, value: pd + s*r, tol: 0.000001, final: true, explain: 'CAL is measured from the CEJ, the fixed landmark. With recession add it to the probing depth; with the margin coronal to the CEJ subtract. CAL, not pocket depth, measures periodontitis' }
+  verify: { expect: { cal: "pd + s*r" } }
+
+- template: dn-perio-stage
+  skill: dent.diagnosis
+  pace: recall
+  given: { cal: { int: [1, 8] } }
+  prompt: 'The worst interdental clinical attachment loss is ${{cal}}$ mm. Which stage of periodontitis does that alone indicate (2017 AAP/EFP classification)?'
+  parts:
+    - { ask: 'Stage', label: a, choice: ["Stage I", "Stage II", "Stage III or IV (complexity decides)"], correct: 'cal <= 2 ? 0 : (cal <= 4 ? 1 : 2)', explain: 'Interdental CAL 1–2 mm stage I, 3–4 mm stage II, 5 mm or more stage III or IV; tooth loss, complexity and bite collapse separate III from IV. Grade (A–C) is the rate of progression, a separate axis' }
+  verify: { choices: { a: "perio_stage(cal)" } }
+
+# ── diagnostic tests (FK10) ───────────────────────────────────────────────────
+- template: dn-test-stats
+  skill: dent.practice
+  pace: quick
+  given: { tp: { pick: [40, 45, 80, 90] }, fn: { pick: [5, 10, 20] }, fp: { pick: [10, 15, 30] }, tn: { pick: [100, 150, 270] } }
+  cases:
+    - { q: "sensitivity", k: 0 }
+    - { q: "specificity", k: 1 }
+    - { q: "positive predictive value", k: 2 }
+    - { q: "negative predictive value", k: 3 }
+  prompt: 'A caries detector finds ${{tp}}$ true positives, ${{fp}}$ false positives, ${{fn}}$ false negatives and ${{tn}}$ true negatives. What is its {{q}} (as a decimal)?'
+  parts:
+    - { ask: 'Value', label: v, value: '[tp/(tp + fn), tn/(tn + fp), tp/(tp + fp), tn/(tn + fn)][k + 1]', tol: 0.001, explain: 'Sensitivity TP/(TP+FN), specificity TN/(TN+FP): properties of the test. PPV TP/(TP+FP), NPV TN/(TN+FN): they change with prevalence. SnNout, SpPin' }
+  verify: { expect: { v: "test_stat(tp, fp, fn, tn, k)" } }
+
+# ── fluoride ──────────────────────────────────────────────────────────────────
+- template: dn-fluoride-ppm
+  skill: dent.management
+  pace: quick
+  cases:
+    - { prod: "a toothpaste with 0.243% sodium fluoride", pct: 0.243 }
+    - { prod: "a gel with 1.1% sodium fluoride", pct: 1.1 }
+    - { prod: "a rinse with 0.05% sodium fluoride", pct: 0.05 }
+    - { prod: "a varnish with 5% sodium fluoride", pct: 5 }
+    - { prod: "a rinse with 0.2% sodium fluoride", pct: 0.2 }
+  prompt: 'About how many ppm fluoride ion is in {{prod}}? (Na 22.99, F 19.00)'
+  parts:
+    - { ask: 'Fluoride (ppm)', label: ppm, value: 'pct*10000*18.998/(18.998 + 22.990)', tol: 0.01, explain: 'Fluoride is 19.00/41.99 = 45% of NaF by mass, and 1% = 10,000 ppm: ${{pct}}\% \times 10{,}000 \times 0.452 = {{pct*10000*18.998/(18.998 + 22.990)|3}}$ ppm. So 1.1% NaF gel is 5,000 ppm, 5% varnish about 22,600 ppm' }
+  verify: { expect: { ppm: "nsimplify(pct)*10000*Rational('18.998')/(Rational('18.998') + Rational('22.990'))" } }
+
+- template: dn-fluoride-ptd
+  skill: dent.management
+  pace: quick
+  given: { w: { pick: [10, 12, 15, 18, 20, 25] } }
+  cases:
+    - { prod: "1,100 ppm toothpaste", ppm: 1100 }
+    - { prod: "1,450 ppm toothpaste", ppm: 1450 }
+    - { prod: "5,000 ppm prescription toothpaste", ppm: 5000 }
+  prompt: 'The probably toxic dose of fluoride is 5 mg/kg. How many grams of {{prod}} would a ${{w}}$ kg child have to swallow to reach it?'
+  parts:
+    - { ask: 'Grams', label: g, value: '5*w/(ppm/1000)', tol: 0.01, explain: 'ppm is mg per kg, so ${{ppm}}$ ppm is ${{ppm/1000}}$ mg of fluoride per gram. Toxic dose $5 \times {{w}} = {{5*w}}$ mg, so ${{5*w}} \div {{ppm/1000}} = {{5*w*1000/ppm|3}}$ g. Above it: give milk or calcium and get help' }
+  verify: { expect: { g: "Rational(5*w*1000, ppm)" } }
+
+# ── dental materials (FK3) ────────────────────────────────────────────────────
+- template: dn-flexural-strength
+  skill: dent.materials
+  pace: quick
+  given: { F: { pick: [18, 22, 25, 28, 32, 36] } }
+  cases:
+    - { L: 20, b: 2, h: 2 }
+    - { L: 20, b: 2, h: 2 }
+    - { L: 10, b: 2, h: 1 }
+  prompt: 'A three-point bend test (as in ISO 4049): span ${{L}}$ mm, specimen ${{b}}$ mm wide and ${{h}}$ mm high, fractures at ${{F}}$ N. What is the flexural strength in MPa?'
+  parts:
+    - { ask: 'Flexural strength (MPa)', label: s, value: 3*F*L/(2*b*h^2), tol: 0.001, explain: '$\sigma = \dfrac{3FL}{2bh^2} = \dfrac{3 \times {{F}} \times {{L}}}{2 \times {{b}} \times {{h}}^2} = {{3*F*L/(2*b*h^2)|4}}$ MPa (N/mm²). The height is squared, so a thin specimen is very sensitive to its measurement' }
+  verify: { expect: { s: "Rational(3*F*L, 2*b*h**2)" } }
+
+- template: dn-radiant-exposure
+  skill: dent.materials
+  pace: recall
+  given: { I: { pick: [600, 800, 1000, 1200, 1500] }, t: { pick: [10, 20, 40] } }
+  prompt: 'A curing light delivers ${{I}}$ mW/cm² for ${{t}}$ s. What radiant exposure reaches the surface (J/cm²)?'
+  parts:
+    - { ask: 'Radiant exposure (J/cm²)', label: H, value: I*t/1000, tol: 0.000001, final: true, explain: 'Energy = power × time: ${{I}}\ \text{mW/cm}^2 \times {{t}}\ \text{s} = {{I*t}}$ mJ/cm² $= {{I*t/1000}}$ J/cm². Intensity falls with distance from the tip, so the floor of a deep box gets less' }
+  verify: { expect: { H: "Rational(I*t, 1000)" } }
+
+- template: dn-shrinkage
+  skill: dent.materials
+  pace: quick
+  cases:
+    - { ru: 1.95, rc: 2.00, what: "a composite" }
+    - { ru: 2.10, rc: 2.16, what: "a composite" }
+    - { ru: 1.15, rc: 1.22, what: "an unfilled resin" }
+    - { ru: 2.20, rc: 2.25, what: "a highly filled composite" }
+    - { ru: 1.80, rc: 1.86, what: "a flowable composite" }
+  prompt: 'The density of {{what}} is ${{ru}}$ g/cm³ before curing and ${{rc}}$ g/cm³ after. What is the volumetric polymerization shrinkage (%)?'
+  parts:
+    - { ask: 'Shrinkage (%)', label: s, value: (1 - ru/rc)*100, tol: 0.001, explain: 'Mass is unchanged, so $V \propto 1/\rho$: shrinkage $= 1 - \rho_{\text{uncured}}/\rho_{\text{cured}} = 1 - {{ru}}/{{rc}} = {{(1 - ru/rc)*100|3}}\%$. More filler means less resin to shrink' }
+  verify: { expect: { s: "(1 - nsimplify(ru)/nsimplify(rc))*100" } }
+
+- template: dn-c-factor
+  skill: dent.materials
+  pace: recall
+  cases:
+    - { prep: "a Class I occlusal box", b: 5, u: 1 }
+    - { prep: "a Class II MO box", b: 4, u: 2 }
+    - { prep: "a Class II MOD", b: 3, u: 3 }
+    - { prep: "a direct veneer on a flat facial surface", b: 1, u: 5 }
+    - { prep: "a Class IV incisal angle", b: 2, u: 4 }
+  prompt: 'Treating the restoration as a box, {{prep}} has ${{b}}$ bonded and ${{u}}$ free surfaces. What is its configuration factor?'
+  parts:
+    - { ask: 'C-factor', label: c, value: b/u, tol: 0.001, explain: 'C = bonded ÷ unbonded surfaces = ${{b}}/{{u}} = {{b/u|3}}$. Free surfaces can flow to relieve shrinkage stress; a high C-factor (a deep Class I) stresses the bond most, which is why it is filled in increments' }
+  verify: { expect: { c: "Rational(b, u)" } }
+
+- template: dn-depth-of-cure
+  skill: dent.materials
+  pace: recall
+  given: { L: { pick: [3.2, 4.0, 4.6, 5.4, 6.8] } }
+  prompt: 'In the ISO 4049 depth-of-cure test the uncured paste is scraped away, leaving a ${{L}}$ mm cylinder. What depth of cure is reported?'
+  parts:
+    - { ask: 'Depth of cure (mm)', label: d, value: L/2, tol: 0.000001, final: true, explain: 'The scraped length is divided by 2: ${{L}} \div 2 = {{L/2}}$ mm. Halving allows for the poorly cured layer near the bottom' }
+  verify: { expect: { d: "nsimplify(L)/2" } }
+
+- template: dn-water-sorption
+  skill: dent.materials
+  pace: quick
+  cases:
+    - { m2: 290.50, m3: 286.10 }
+    - { m2: 301.25, m3: 297.80 }
+    - { m2: 275.40, m3: 272.15 }
+    - { m2: 310.00, m3: 304.70 }
+  prompt: 'A 15 mm × 1 mm disc of resin (volume $\pi \cdot 7.5^2 \cdot 1$ mm³) weighs ${{m2}}$ mg after 7 days in water and ${{m3}}$ mg after drying again. What is its water sorption in µg/mm³?'
+  parts:
+    - { ask: 'Water sorption (µg/mm³)', label: w, value: (m2 - m3)*1000/(pi*7.5^2), tol: 0.001, explain: '$W_{sp} = (m_2 - m_3)/V = {{(m2 - m3)*1000|4}}\ \mu\text{g} \div {{pi*7.5^2|4}}\ \text{mm}^3 = {{(m2 - m3)*1000/(pi*7.5^2)|3}}$ µg/mm³. Using the reconditioned mass $m_3$ keeps soluble loss out of the sorption figure' }
+  verify: { expect: { w: "(nsimplify(m2) - nsimplify(m3))*1000/(pi*Rational(15, 2)**2)" } }
+
+- template: dn-thermal-gap
+  skill: dent.materials
+  pace: quick
+  given: { L: { pick: [4, 6, 8] }, dT: { pick: [30, 40, 50] } }
+  cases:
+    - { mat: "amalgam", a1: 25 }
+    - { mat: "a composite", a1: 35 }
+    - { mat: "an unfilled resin", a1: 80 }
+    - { mat: "a gold alloy", a1: 14 }
+  prompt: 'Tooth structure expands about 11.4 ppm/°C; {{mat}} about ${{a1}}$ ppm/°C. Across a ${{L}}$ mm restoration, how many micrometres more does the restoration change length for a ${{dT}}$ °C swing?'
+  parts:
+    - { ask: 'Mismatch (µm)', label: g, value: (a1 - 11.4)*L*dT/1000, tol: 0.001, explain: '$\Delta L = \Delta\alpha \cdot L \cdot \Delta T = ({{a1}} - 11.4) \times 10^{-6} \times {{L*1000}}\ \mu\text{m} \times {{dT}} = {{(a1 - 11.4)*L*dT/1000|3}}$ µm: the margin opens and closes with every hot or cold drink (percolation)' }
+  verify: { expect: { g: "(a1 - Rational(114, 10))*L*dT/1000" } }
+
+- template: dn-stress
+  skill: dent.materials
+  pace: recall
+  cases:
+    - { F: 500, A: 4 }
+    - { F: 300, A: 2 }
+    - { F: 700, A: 10 }
+    - { F: 150, A: 0.5 }
+    - { F: 900, A: 6 }
+  prompt: 'A ${{F}}$ N bite force is carried on ${{A}}$ mm² of contact. What is the stress in MPa?'
+  parts:
+    - { ask: 'Stress (MPa)', label: s, value: F/A, tol: 0.001, final: true, explain: '$\sigma = F/A$, and 1 N/mm² = 1 MPa: ${{F}} \div {{A}} = {{F/A|4}}$ MPa. A small contact area (a cusp tip) concentrates stress' }
+  verify: { expect: { s: "nsimplify(F)/nsimplify(A)" } }
+
+- template: dn-modulus
+  skill: dent.materials
+  pace: quick
+  cases:
+    - { mat: "enamel", s: 84, e: 0.1 }
+    - { mat: "dentin", s: 36, e: 0.2 }
+    - { mat: "a composite", s: 30, e: 0.2 }
+    - { mat: "a cobalt-chromium alloy", s: 220, e: 0.1 }
+    - { mat: "zirconia", s: 105, e: 0.05 }
+  prompt: 'A specimen of {{mat}} reaches ${{s}}$ MPa at ${{e}}$% strain, still elastic. What is its elastic modulus in GPa?'
+  parts:
+    - { ask: 'Modulus (GPa)', label: E, value: s/(e/100)/1000, tol: 0.001, explain: '$E = \sigma/\varepsilon = {{s}}\ \text{MPa} \div {{e/100}} = {{s/(e/100)}}$ MPa $= {{s/(e/100)/1000}}$ GPa. Enamel is about 80–90 GPa, dentin about 18; a restoration stiffer than the tooth concentrates stress at the interface' }
+  verify: { expect: { E: "nsimplify(s)/(nsimplify(e)/100)/1000" } }
+
+- template: dn-vickers
+  skill: dent.materials
+  pace: quick
+  cases:
+    - { F: 0.3, d: 0.040 }
+    - { F: 0.5, d: 0.120 }
+    - { F: 0.2, d: 0.080 }
+    - { F: 1.0, d: 0.075 }
+  prompt: 'A Vickers indenter under ${{F}}$ kgf leaves a mean diagonal of ${{d}}$ mm. What is the Vickers hardness (HV)?'
+  parts:
+    - { ask: 'HV', label: hv, value: 1.8544*F/d^2, tol: 0.01, explain: '$HV = 1.8544\,F/d^2 = 1.8544 \times {{F}} \div {{d}}^2 = {{1.8544*F/d^2|3}}$. Enamel is around 300–400 HV, dentin around 60–70: a restorative much harder than enamel wears the opposing teeth' }
+  verify: { expect: { hv: "Rational('1.8544')*nsimplify(F)/nsimplify(d)**2" } }
+
+- template: dn-gypsum-water
+  skill: dent.materials
+  pace: recall
+  given: { P: { pick: [50, 100, 150, 200] } }
+  cases:
+    - { g: "plaster (Type II)", wp: 0.50 }
+    - { g: "dental stone (Type III)", wp: 0.30 }
+    - { g: "high-strength die stone (Type IV)", wp: 0.24 }
+  prompt: 'How many mL of water do you add to ${{P}}$ g of {{g}} at a water/powder ratio of ${{wp}}$?'
+  parts:
+    - { ask: 'Water (mL)', label: w, value: wp*P, tol: 0.000001, final: true, explain: 'Water = W/P × powder = ${{wp}} \times {{P}} = {{wp*P}}$ mL. Lower W/P (die stone) means denser, stronger, harder casts; extra water weakens any gypsum' }
+  verify: { expect: { w: "nsimplify(wp)*P" } }
+
+- template: dn-noble-class
+  skill: dent.materials
+  pace: quick
+  cases:
+    - { comp: "Au 75%, Pd 3%, Ag 10%, Cu 12%", au: 75, pd: 3, pt: 0 }
+    - { comp: "Pd 60%, Ag 30%, Sn and others 10%", au: 0, pd: 60, pt: 0 }
+    - { comp: "Au 50%, Pd 30%, Ag 10%, others 10%", au: 50, pd: 30, pt: 0 }
+    - { comp: "Ni 70%, Cr 20%, Mo 8%, others 2%", au: 0, pd: 0, pt: 0 }
+    - { comp: "Au 2%, Pd 25%, Ag 60%, Cu 13%", au: 2, pd: 25, pt: 0 }
+    - { comp: "Ag 70%, Pd 20%, Cu and others 10%", au: 0, pd: 20, pt: 0 }
+    - { comp: "Au 45%, Pd 5%, Ag 40%, Cu 10%", au: 45, pd: 5, pt: 0 }
+    - { comp: "Au 85%, Pt 10%, Pd 3%, others 2%", au: 85, pd: 3, pt: 10 }
+  prompt: 'An alloy is {{comp}}. How does the ADA classify it?'
+  parts:
+    - { ask: 'Class', label: a, choice: ["High noble", "Noble", "Predominantly base metal"], correct: 'au + pd + pt >= 60 ? (au >= 40 ? 0 : 1) : (au + pd + pt >= 25 ? 1 : 2)', explain: 'Noble metals are gold and the platinum group (Pt, Pd, Rh, Ru, Ir, Os); silver is not noble. High noble: at least 60% noble with at least 40% gold. Noble: at least 25% noble. Below that, predominantly base' }
+  verify: { choices: { a: "0 if (au + pd + pt >= 60 and au >= 40) else (1 if au + pd + pt >= 25 else 2)" } }
