@@ -59,7 +59,7 @@ Big ideas: CHA, LIM, FUN
 - ● **CA-1.2.B** (LIM-1.B) Decide whether a limit exists by comparing the two one-sided limits.
   - EK: lim_(x→c) f(x) exists ⇔ both one-sided limits exist and are equal; unbounded or oscillating behaviour means no limit.
   - Needs: CA-1.2.A
-  - P3 · drills: ca-lim-onesided
+  - P3 · drills: ca-lim-onesided, ca2-onesided-exists
 
 ### 1.3 Estimating limits from graphs
 
@@ -98,7 +98,7 @@ Big ideas: CHA, LIM, FUN
 - ● **CA-1.6.B** (LIM-1.E) Evaluate trig limits by rewriting them in terms of sin x / x → 1 and (1 − cos x)/x → 0.
   - EK: lim_(x→0) sin(kx)/(kx) = 1; multiply and divide by k to set it up.
   - Needs: CA-1.5.A
-  - P1 · drills: ca-lim-trig
+  - P1 · drills: ca-lim-trig, ca2-trig-limit
 
 ### 1.7 Selecting procedures for limits
 
@@ -170,7 +170,7 @@ Big ideas: CHA, LIM, FUN
 - ● **CA-1.14.A** (LIM-2.D) Find vertical asymptotes and the sign of the infinite one-sided limits at each.
   - EK: Nonzero/0 at x = c ⇒ x = c is a vertical asymptote; the sign of numerator and denominator on each side gives +∞ or −∞.
   - Needs: CA-1.10.A
-  - P1 · P2 · drills: ca-vert-asymptote
+  - P1 · P2 · drills: ca-vert-asymptote, ca2-asymptote-count
 
 ### 1.15 Limits at infinity and horizontal asymptotes
 
@@ -216,7 +216,7 @@ Big ideas: CHA, LIM, FUN
 - ● **CA-2.2.B** (CHA-2.C) Write the equation of the tangent line at a point, using f′, dy/dx or d/dx notation correctly.
   - EK: y − f(a) = f′(a)(x − a).
   - Needs: CA-2.2.A
-  - P4 · drills: ca-tangent-line
+  - P4 · drills: ca-tangent-line, ca2-tangent-slope-where
 
 ### 2.3 Estimating derivatives at a point
 
@@ -252,7 +252,7 @@ Big ideas: CHA, LIM, FUN
 - ● **CA-2.6.A** (FUN-3.A) Differentiate polynomials and sums of power terms term by term.
   - EK: Derivative is linear: (af + bg)′ = af′ + bg′; constants differentiate to 0.
   - Needs: CA-2.5.A
-  - P1 · drills: ca-poly-derivative
+  - P1 · drills: ca-poly-derivative, ca2-higher-derivative
 
 ### 2.7 Derivatives of sin x, cos x, e^x and ln x
 
@@ -376,7 +376,7 @@ Big ideas: CHA, LIM
 - ● **CA-4.2.A** (CHA-3.B) Find velocity, acceleration and speed from position, and decide when the particle moves left/right or speeds up/slows down.
   - EK: v = x′, a = v′ = x″; speed = |v|; speeding up ⇔ v and a have the same sign.
   - Needs: CA-3.6.A
-  - P1 · P3 · drills: ca-motion
+  - P1 · P3 · drills: ca-motion, ca2-speeding-up
 
 ### 4.3 Rates of change in other contexts
 
@@ -394,7 +394,7 @@ Big ideas: CHA, LIM
 - ● **CA-4.4.A** (CHA-3.D) Differentiate an equation linking several quantities with respect to time to relate their rates.
   - EK: Implicit differentiation in t: every changing quantity gets its own d/dt.
   - Needs: CA-3.2.A
-  - P1 · drills: ca-related-sphere
+  - P1 · drills: ca-related-sphere, ca2-related-circle-radius
 
 ### 4.5 Solving related rates problems
 
@@ -429,7 +429,7 @@ Big ideas: CHA, LIM
 - ● **CA-4.7.B** (LIM-4.A) Rewrite 0·∞, ∞ − ∞, 1^∞, 0⁰ and ∞⁰ forms as a quotient (or take a log) and apply L'Hospital's rule.
   - EK: 0·∞: f/(1/g); powers: L = e^(lim g ln f). Beyond the CED, standard in college calculus.
   - Needs: CA-4.7.A
-  - P1 · drills: ca-lhospital-power
+  - P1 · drills: ca-lhospital-power, ca2-one-to-infinity
 
 ## Unit 5 · Analytical applications of differentiation
 
@@ -442,7 +442,7 @@ Big ideas: FUN
 - ● **CA-5.1.A** (FUN-1.B) Verify the MVT hypotheses and find or justify a point where the instantaneous rate equals the average rate.
   - EK: f continuous on [a, b], differentiable on (a, b) ⇒ f′(c) = (f(b) − f(a))/(b − a) for some c in (a, b).
   - Needs: CA-2.4.A, CA-2.1.A
-  - P3 · drills: ca-mvt
+  - P3 · drills: ca-mvt, ca2-mvt-c
 
 ### 5.2 Extreme Value Theorem and critical points
 
@@ -496,7 +496,7 @@ Big ideas: FUN
 - ● **CA-5.7.A** (FUN-4.A) Classify a critical point with f′(c) = 0 using the sign of f″(c), and say when the test fails.
   - EK: f″(c) > 0 ⇒ min, < 0 ⇒ max, = 0 ⇒ inconclusive (go back to the first derivative test).
   - Needs: CA-5.6.A, CA-5.4.A
-  - P3 · drills: ca-second-derivative-test
+  - P3 · drills: ca-second-derivative-test, ca2-second-test
 
 ### 5.8 Sketching graphs of functions and their derivatives
 
@@ -571,7 +571,7 @@ Big ideas: CHA, LIM, FUN
 - ● **CA-6.2.B** (LIM-5.A) Decide whether a Riemann or trapezoidal sum over- or under-estimates from monotonicity or concavity.
   - EK: Increasing f: left sum under, right sum over. Concave up: trapezoid over, midpoint under.
   - Needs: CA-6.2.A, CA-5.6.A
-  - P3 · drills: ca-riemann-over-under, ~ca-riemann-sums
+  - P3 · drills: ca-riemann-over-under, ca2-riemann-direction, ~ca-riemann-sums
 
 ### 6.3 Riemann sums, summation notation and the definite integral
 
@@ -607,7 +607,7 @@ Big ideas: CHA, LIM, FUN
 - ● **CA-6.6.A** (FUN-6.A) Evaluate definite integrals from geometry (areas of triangles, rectangles, circles) and the properties of integrals.
   - EK: ∫_a^b = ∫_a^c + ∫_c^b; ∫_b^a = −∫_a^b; ∫(kf + g) = k∫f + ∫g; ∫_a^a = 0.
   - Needs: CA-6.1.A
-  - P1 · P2 · drills: ca-integral-properties
+  - P1 · P2 · drills: ca-integral-properties, ca2-integral-properties
 
 ### 6.7 The Fundamental Theorem and definite integrals
 
@@ -709,7 +709,7 @@ Big ideas: CHA, FUN
 - ● **CA-7.2.A** (FUN-7.B) Verify that a function solves a differential equation by substituting it and its derivatives.
   - EK: A solution makes the equation an identity for all t in an interval, not just at one point.
   - Needs: CA-3.6.A, CA-7.1.A
-  - P3 · drills: ca-verify-solution
+  - P3 · drills: ca-verify-solution, ca2-exponential-solution-k
 
 ### 7.3 Sketching slope fields
 
@@ -772,7 +772,7 @@ Big ideas: CHA, FUN
 - ● **CA-7.9.A** (FUN-7.H) Find the carrying capacity, the long-run limit and the population at which growth is fastest from a logistic differential equation.
   - EK: dy/dt = ky(1 − y/L): y → L for y₀ > 0; growth is fastest at y = L/2, where the solution inflects.
   - Needs: CA-7.8.A, CA-5.6.A
-  - P2 · P3 · drills: ca-logistic
+  - P2 · P3 · drills: ca-logistic, ca2-logistic-k
 
 ## Unit 8 · Applications of integration
 
@@ -794,7 +794,7 @@ Big ideas: CHA, LIM
 - ● **CA-8.2.A** (CHA-4.C) Find displacement, total distance and position at a time from a velocity function.
   - EK: Displacement = ∫v dt; distance = ∫|v| dt (split at sign changes); x(t) = x(0) + ∫_0^t v.
   - Needs: CA-6.7.A, CA-4.2.A
-  - P1 · P3 · drills: ca-distance
+  - P1 · P3 · drills: ca-distance, ca2-turn-time
 
 ### 8.3 Accumulation in applied contexts
 
@@ -812,7 +812,7 @@ Big ideas: CHA, LIM
 - ● **CA-8.4.A** (CHA-5.A) Find the area between two curves y = f(x), y = g(x), finding the limits from their intersections.
   - EK: A = ∫(top − bottom)dx.
   - Needs: CA-6.7.A
-  - P1 · drills: ca-area-between
+  - P1 · drills: ca-area-between, ca2-area-reverse
 
 ### 8.5 Area between curves (functions of y)
 
@@ -857,7 +857,7 @@ Big ideas: CHA, LIM
 - ● **CA-8.9.A** (CHA-5.C) Find the volume of a solid of revolution about a coordinate axis by discs.
   - EK: V = π∫R(x)²dx, R = distance from axis to curve.
   - Needs: CA-8.7.A
-  - P1 · drills: ca-volume-disc
+  - P1 · drills: ca-volume-disc, ca2-shell-volume
 
 ### 8.10 Disc method about other axes
 
@@ -1039,7 +1039,7 @@ Big ideas: LIM, FUN
 - ● **CA-10.5.A** (LIM-7.A) Decide convergence of a p-series and recognise the harmonic series.
   - EK: Σ1/n^p converges ⇔ p > 1; Σ1/n diverges.
   - Needs: CA-10.4.A
-  - P3 · drills: ca-p-series
+  - P3 · drills: ca-p-series, ca2-p-series-pick
 
 ### 10.6 Comparison tests
 
@@ -1066,7 +1066,7 @@ Big ideas: LIM, FUN
 - ● **CA-10.8.A** (LIM-7.A) Apply the ratio test, especially to series with factorials or exponentials.
   - EK: L = lim|a_(n+1)/a_n|: L < 1 converges absolutely, L > 1 diverges, L = 1 inconclusive.
   - Needs: CA-10.2.A
-  - P1 · P3 · drills: ca-ratio-test
+  - P1 · P3 · drills: ca-ratio-test, ca2-ratio-limit
 
 ### 10.9 Absolute and conditional convergence
 
@@ -1120,7 +1120,7 @@ Big ideas: LIM, FUN
 - ● **CA-10.14.A** (LIM-8.E) Write the Taylor or Maclaurin series of a function in sigma notation with its general term.
   - EK: Σ f^(n)(a)(x − a)^n/n!; e^x = Σx^n/n!, sin x = Σ(−1)^n x^(2n+1)/(2n+1)!, cos x = Σ(−1)^n x^(2n)/(2n)!, 1/(1 − x) = Σx^n.
   - Needs: CA-10.11.A, CA-10.13.A
-  - P1 · P4 · drills: ca-series-general-term
+  - P1 · P4 · drills: ca-series-general-term, ca2-maclaurin-coefficient
 - ● **CA-10.14.B** (LIM-8.F) Interpret a Taylor series: use it to evaluate a limit, a derivative value or a sum.
   - EK: Inside its interval of convergence the series equals the function; e.g. Σ1/n! = e.
   - Needs: CA-10.14.A

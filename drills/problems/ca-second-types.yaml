@@ -1,0 +1,315 @@
+# Second question types for Calculus units 1–10 (framework calculus, CA): the same objective asked
+# in reverse, by inspection, or with the other method. Verified with sympy from the expression strings
+# (SE in tests/verify/mvcalc.py); the ans fields were computed the same way by a one-off script.
+
+- template: ca2-onesided-exists
+  skill: calc.limits
+  pace: quick
+  cases:
+  - {ftex: '\begin{cases} x^2 + 1 & x < 2 \\ 3x - 1 & x \ge 2 \end{cases}', L: x**2 + 1, R: 3*x - 1, c: 2, ans: 0}
+  - {ftex: '\begin{cases} 2x & x < 1 \\ x + 2 & x \ge 1 \end{cases}', L: 2*x, R: x + 2, c: 1, ans: 1}
+  - {ftex: '\begin{cases} \sqrt{x + 5} & x < 4 \\ x - 1 & x \ge 4 \end{cases}', L: sqrt(x + 5), R: x - 1, c: 4, ans: 0}
+  - {ftex: '\begin{cases} x^3 & x < -1 \\ x & x \ge -1 \end{cases}', L: x**3, R: x, c: -1, ans: 0}
+  - {ftex: '\begin{cases} e^{x} & x < 0 \\ 2 - x & x \ge 0 \end{cases}', L: exp(x), R: 2 - x, c: 0, ans: 1}
+  prompt: For $f(x) = {{ftex}}$, does $\displaystyle\lim_{x \to {{c}}} f(x)$ exist?
+  parts:
+  - ask: Limit
+    label: a
+    choice: ['Yes', 'No']
+    correct: ans
+    explain: Compute both one-sided limits from the pieces that apply on each side; the limit exists only when they agree (what f does at the point itself does not matter)
+  verify:
+    choices: {a: '0 if limit(SE(L), SE(''x''), c, ''-'') == limit(SE(R), SE(''x''), c, ''+'') else 1'}
+- template: ca2-trig-limit
+  skill: calc.limits
+  pace: quick
+  cases:
+  - {ftex: '\dfrac{\sin(3x)}{2x}', f: sin(3*x)/(2*x), a: 3, b: 2}
+  - {ftex: '\dfrac{\sin(5x)}{4x}', f: sin(5*x)/(4*x), a: 5, b: 4}
+  - {ftex: '\dfrac{\tan(2x)}{3x}', f: tan(2*x)/(3*x), a: 2, b: 3}
+  - {ftex: '\dfrac{\tan(7x)}{2x}', f: tan(7*x)/(2*x), a: 7, b: 2}
+  - {ftex: '\dfrac{\sin(2x)}{\sin(6x)}', f: sin(2*x)/sin(6*x), a: 2, b: 6}
+  - {ftex: '\dfrac{\sin(5x)}{\sin(3x)}', f: sin(5*x)/sin(3*x), a: 5, b: 3}
+  prompt: Evaluate $\displaystyle\lim_{x \to 0} {{ftex}}$.
+  parts:
+  - {ask: Limit, label: r, value: a/b, tol: 0.0001, explain: 'Make each sine look like $\sin u/u$ with the same $u$: the limit of $\sin(ax)/(bx)$ is $a/b$. Here that gives ${{a}}/{{b}}$. tan works the same way, since $\tan u/u \to 1$'}
+  verify:
+    expect: {r: 'limit(SE(f), SE(''x''), 0)'}
+- template: ca2-asymptote-count
+  skill: calc.limits
+  pace: quick
+  cases:
+  - {ftex: '\dfrac{x + 1}{x^2 - 1}', f: (x + 1)/(x**2 - 1), n: 1}
+  - {ftex: '\dfrac{x^2 - 4}{x^2 - 5x + 6}', f: (x**2 - 4)/(x**2 - 5*x + 6), n: 1}
+  - {ftex: '\dfrac{3}{x^2 - 9}', f: 3/(x**2 - 9), n: 2}
+  - {ftex: '\dfrac{x^2 - x}{x^3 - x}', f: (x**2 - x)/(x**3 - x), n: 1}
+  - {ftex: '\dfrac{2x + 1}{x(x - 3)(x + 2)}', f: (2*x + 1)/(x*(x - 3)*(x + 2)), n: 3}
+  prompt: How many vertical asymptotes does $f(x) = {{ftex}}$ have?
+  parts:
+  - {ask: Vertical asymptotes, label: r, value: n, tol: 1.0e-06, explain: 'Factor and cancel first: a zero of the denominator that cancels with the numerator is a hole, not an asymptote. Only the zeros left in the denominator give vertical asymptotes'}
+  verify:
+    expect: {r: 'len([z for z in solve(denom(cancel(SE(f))), SE(''x'')) if z.is_real])'}
+- template: ca2-tangent-slope-where
+  skill: calc.derivative-rules
+  pace: quick
+  cases:
+  - {ftex: x^2 - 6x + 2, f: x**2 - 6*x + 2, m: 0, ans: 3.0}
+  - {ftex: x^2 + 4x, f: x**2 + 4*x, m: 6, ans: 1.0}
+  - {ftex: 'e^{x}', f: exp(x), m: 3, ans: 1.0986122886681098}
+  - {ftex: \ln x, f: log(x), m: 4, ans: 0.25}
+  - {ftex: '\sqrt{x}', f: sqrt(x), m: 0.25, ans: 4.0}
+  - {ftex: x^3, f: x**3, m: 12, ans: 2.0}
+  prompt: At what positive $x$ does the tangent to $y = {{ftex}}$ have slope ${{m}}$?
+  parts:
+  - {ask: x, label: r, value: ans, tol: 0.0001, explain: Set the derivative equal to the slope and solve. A horizontal tangent is slope 0}
+  verify:
+    expect: {r: 'Max(*[s for s in solve(Eq(diff(SE(f), SE(''x'')), nsimplify(m)), SE(''x'')) if s.is_real and s > 0])'}
+- template: ca2-higher-derivative
+  skill: calc.derivative-rules
+  pace: quick
+  cases:
+  - {ftex: x^5 - 3x^3 + x, f: x**5 - 3*x**3 + x, k: 3, a: 1, ans: 42.0}
+  - {ftex: \sin(2x), f: sin(2*x), k: 4, a: 0.5, ans: 13.463535756926344}
+  - {ftex: 'e^{3x}', f: exp(3*x), k: 3, a: 0, ans: 27.0}
+  - {ftex: x^4, f: x**4, k: 4, a: 7, ans: 24.0}
+  - {ftex: \ln x, f: log(x), k: 3, a: 2, ans: 0.25}
+  - {ftex: \cos x, f: cos(x), k: 102, a: 0, ans: -1.0}
+  prompt: For $f(x) = {{ftex}}$, what is $f^{({{k}})}({{a}})$?
+  parts:
+  - {ask: Value, label: r, value: ans, tol: 0.0001, explain: 'Differentiate repeatedly and look for the pattern: polynomials run out, exponentials pick up a constant each time, sines and cosines cycle every four derivatives'}
+  verify:
+    expect: {r: 'diff(SE(f), SE(''x''), k).subs(SE(''x''), nsimplify(a))'}
+- template: ca2-speeding-up
+  skill: calc.rates
+  pace: quick
+  cases:
+  - {stex: t^3 - 6t^2 + 9t, s: x**3 - 6*x**2 + 9*x, t0: 2, ans: 1}
+  - {stex: t^3 - 6t^2 + 9t, s: x**3 - 6*x**2 + 9*x, t0: 4, ans: 0}
+  - {stex: t^3 - 6t^2 + 9t, s: x**3 - 6*x**2 + 9*x, t0: 0.5, ans: 1}
+  - {stex: \sin t, s: sin(x), t0: 2, ans: 0}
+  - {stex: t^2 - 4t, s: x**2 - 4*x, t0: 1, ans: 1}
+  - {stex: 'e^{-t}', s: exp(-x), t0: 1, ans: 1}
+  prompt: A particle's position is $s(t) = {{stex}}$. At $t = {{t0}}$, is it speeding up or slowing down?
+  parts:
+  - ask: Motion
+    label: a
+    choice: [Speeding up, Slowing down]
+    correct: ans
+    explain: Speeding up when velocity and acceleration have the same sign, slowing down when they differ. Negative acceleration alone does not mean slowing down
+  verify:
+    choices: {a: '0 if diff(SE(s), SE(''x'')).subs(SE(''x''), nsimplify(t0))*diff(SE(s), SE(''x''), 2).subs(SE(''x''), nsimplify(t0)) > 0 else 1'}
+- template: ca2-related-circle-radius
+  skill: calc.rates
+  pace: quick
+  given:
+    dA:
+      pick: [6, 10, 12, 20, 30]
+    r:
+      pick: [2, 3, 5, 8]
+  prompt: A circle's area grows at ${{dA}}$ cm²/s. How fast (cm/s) is the radius growing when it is ${{r}}$ cm?
+  parts:
+  - {ask: dr/dt (cm/s), label: v, value: dA/(2*pi*r), tol: 0.0001, explain: '$A = \pi r^2 \Rightarrow \dfrac{dA}{dt} = 2\pi r\dfrac{dr}{dt}$, so $\dfrac{dr}{dt} = \dfrac{ {{dA}} }{2\pi({{r}})} = {{dA/(2*pi*r)|3}}$. Substitute the instant''s values only after differentiating'}
+  verify:
+    expect: {v: 'solve(Eq(dA, diff(pi*Symbol(''R'')**2, Symbol(''R''))*Symbol(''v'')).subs(Symbol(''R''), r), Symbol(''v''))[0]'}
+- template: ca2-one-to-infinity
+  skill: calc.limits
+  pace: quick
+  cases:
+  - {ftex: '\left(1 + \dfrac{2}{x}\right)^{x}', f: (1 + 2/x)**x, a: 2}
+  - {ftex: '\left(1 + \dfrac{3}{x}\right)^{x}', f: (1 + 3/x)**x, a: 3}
+  - {ftex: '\left(1 - \dfrac{1}{x}\right)^{x}', f: (1 - 1/x)**x, a: -1}
+  - {ftex: '\left(1 + \dfrac{1}{x}\right)^{2x}', f: (1 + 1/x)**(2*x), a: 2}
+  - {ftex: '\left(1 + \dfrac{1}{2x}\right)^{x}', f: (1 + 1/(2*x))**x, a: 0.5}
+  prompt: Evaluate $\displaystyle\lim_{x \to \infty} {{ftex}}$.
+  parts:
+  - {ask: Limit, label: r, value: exp(a), tol: 0.0001, explain: 'A $1^\infty$ form: take the log, the exponent times $\ln(1 + \dots)$ tends to {{a}} ($\ln(1+u) \approx u$), then exponentiate: $e^{ {{a}} } = {{exp(a)|4}}$'}
+  verify:
+    expect: {r: 'limit(SE(f), SE(''x''), oo)'}
+- template: ca2-mvt-c
+  skill: calc.extrema
+  pace: quick
+  cases:
+  - {ftex: x^2, f: x**2, a: 1, b: 5, ans: 3.0}
+  - {ftex: x^3, f: x**3, a: 0, b: 3, ans: 1.7320508075688772}
+  - {ftex: '\sqrt{x}', f: sqrt(x), a: 1, b: 9, ans: 4.0}
+  - {ftex: '\dfrac{1}{x}', f: 1/x, a: 1, b: 4, ans: 2.0}
+  - {ftex: x^2 - 3x, f: x**2 - 3*x, a: 0, b: 6, ans: 3.0}
+  prompt: Find the value of $c$ in $({{a}}, {{b}})$ that the Mean Value Theorem guarantees for $f(x) = {{ftex}}$.
+  parts:
+  - {ask: c, label: r, value: ans, tol: 0.0001, explain: 'Set $f''(c)$ equal to the secant slope $\dfrac{f(b) - f(a)}{b - a}$ and keep the solution inside the interval'}
+  verify:
+    expect: {r: '[s for s in solve(Eq(diff(SE(f), SE(''x'')), (SE(f).subs(SE(''x''), b) - SE(f).subs(SE(''x''), a))/(b - a)), SE(''x'')) if s.is_real and a < s < b][0]'}
+- template: ca2-second-test
+  skill: calc.extrema
+  pace: quick
+  cases:
+  - {ftex: x^3 - 3x, f: x**3 - 3*x, c: 1, ans: 0}
+  - {ftex: x^3 - 3x, f: x**3 - 3*x, c: -1, ans: 1}
+  - {ftex: 'x e^{-x}', f: x*exp(-x), c: 1, ans: 1}
+  - {ftex: x^4 - 2x^2, f: x**4 - 2*x**2, c: 0, ans: 1}
+  - {ftex: x^4 - 2x^2, f: x**4 - 2*x**2, c: 1, ans: 0}
+  - {ftex: x^4, f: x**4, c: 0, ans: 2}
+  prompt: $f(x) = {{ftex}}$ has a critical point at $x = {{c}}$. What does the second derivative test say?
+  parts:
+  - ask: Result
+    label: a
+    choice: [Relative minimum, Relative maximum, Inconclusive (f″ = 0)]
+    correct: ans
+    explain: 'f″(c) > 0: concave up, a minimum; f″(c) < 0: a maximum; f″(c) = 0: no conclusion (x⁴ has a minimum at 0 anyway): fall back on the first derivative test'
+  verify:
+    choices: {a: '0 if diff(SE(f), SE(''x''), 2).subs(SE(''x''), c) > 0 else (1 if diff(SE(f), SE(''x''), 2).subs(SE(''x''), c) < 0 else 2)'}
+- template: ca2-riemann-direction
+  skill: calc.riemann-ftc
+  pace: recall
+  cases:
+  - {sum: a left Riemann sum, f: increasing, ans: 1}
+  - {sum: a right Riemann sum, f: increasing, ans: 0}
+  - {sum: a left Riemann sum, f: decreasing, ans: 0}
+  - {sum: a right Riemann sum, f: decreasing, ans: 1}
+  - {sum: the trapezoidal rule, f: concave up, ans: 0}
+  - {sum: the trapezoidal rule, f: concave down, ans: 1}
+  - {sum: a midpoint sum, f: concave up, ans: 1}
+  prompt: For a function that is {{f}} on the interval, does {{sum}} over- or under-estimate the integral?
+  parts:
+  - ask: Estimate
+    label: a
+    choice: [Overestimate, Underestimate]
+    correct: ans
+    explain: 'Left and right sums depend on monotonicity: for an increasing function the left heights are the lowest. Trapezoids and midpoints depend on concavity: chords lie above a concave-up curve; the midpoint tangent lies below it'
+  verify: {authored: true}
+- template: ca2-integral-properties
+  skill: calc.riemann-ftc
+  pace: quick
+  given:
+    A:
+      pick: [3, 5, 7, -2]
+    B:
+      pick: [4, 6, -3]
+  cases:
+  - {q: '\int_5^2 f(x)\,dx', k: 0}
+  - {q: '\int_2^9 f(x)\,dx', k: 1}
+  - {q: '\int_2^5 3f(x)\,dx', k: 2}
+  - {q: '\int_5^9 \big(f(x) + 2\big)\,dx', k: 3}
+  prompt: Given $\int_2^5 f(x)\,dx = {{A}}$ and $\int_5^9 f(x)\,dx = {{B}}$, find ${{q}}$.
+  parts:
+  - {ask: Value, label: r, value: '[-A, A + B, 3*A, B + 8][k + 1]', tol: 1.0e-06, final: true, explain: Swapping the limits changes the sign; adjacent intervals add; constants factor out; ∫ of a constant c over an interval of length L is cL (here 2 × 4 = 8)}
+  verify:
+    expect: {r: '[-A, A + B, 3*A, B + 2*(9 - 5)][k]'}
+- template: ca2-exponential-solution-k
+  skill: calc.diffeq
+  pace: quick
+  cases:
+  - {de: y'' - y' - 6y = 0, p: k**2 - k - 6, ans: 3.0}
+  - {de: y'' - 5y' + 4y = 0, p: k**2 - 5*k + 4, ans: 4.0}
+  - {de: y'' + y' - 12y = 0, p: k**2 + k - 12, ans: 3.0}
+  - {de: y'' - 9y = 0, p: k**2 - 9, ans: 3.0}
+  - {de: y'' - 3y' = 0, p: k**2 - 3*k, ans: 3.0}
+  prompt: For which positive $k$ does $y = e^{kx}$ solve ${{de}}$?
+  parts:
+  - {ask: k, label: r, value: ans, tol: 0.0001, explain: 'Substitute: $y'' = ke^{kx}$, $y'''' = k^2e^{kx}$; divide out $e^{kx}$ and solve the quadratic in k'}
+  verify:
+    expect: {r: 'Max(*[s for s in solve(SE(p.replace(''k'', ''x'')), SE(''x'')) if s > 0])'}
+- template: ca2-logistic-k
+  skill: calc.diffeq
+  pace: quick
+  cases:
+  - {r: 0.2, b: 0.001}
+  - {r: 0.5, b: 0.0025}
+  - {r: 0.03, b: 1.0e-05}
+  - {r: 1.2, b: 0.004}
+  prompt: A population follows $\dfrac{dP}{dt} = {{r}}P - {{b}}P^2$. What is the carrying capacity?
+  parts:
+  - {ask: Carrying capacity, label: K, value: r/b, tol: 0.0001, explain: 'Factor: ${{r}}P\left(1 - \dfrac{P}{ {{r/b}} }\right)$. Growth stops when $P = {{r}}/{{b}} = {{r/b}}$; growth is fastest at half that, {{r/(2*b)}}'}
+  verify:
+    expect: {K: '[s for s in solve(nsimplify(r)*Symbol(''P'') - nsimplify(b)*Symbol(''P'')**2, Symbol(''P'')) if s != 0][0]'}
+- template: ca2-turn-time
+  skill: calc.integration-apps
+  pace: quick
+  cases:
+  - {vtex: t^2 - 4t + 3, v: x**2 - 4*x + 3, lo: 2, ans: 3.0}
+  - {vtex: 6 - 2t, v: 6 - 2*x, lo: 0, ans: 3.0}
+  - {vtex: t^2 - 9, v: x**2 - 9, lo: 0, ans: 3.0}
+  - {vtex: \cos t, v: cos(x), lo: 0, ans: 1.5707963267948966}
+  - {vtex: 'e^{t} - 4', v: exp(x) - 4, lo: 0, ans: 1.3862943611198906}
+  prompt: A particle moves with $v(t) = {{vtex}}$. After $t = {{lo}}$, at what time does it first change direction?
+  parts:
+  - {ask: t, label: r, value: ans, tol: 0.0001, explain: 'It changes direction where v changes sign: solve v(t) = 0 and check that the sign flips there (a double root touches zero without turning back)'}
+  verify:
+    expect: {r: 'Min(*[s for s in solve(SE(v), SE(''x'')) if s.is_real and s > lo])'}
+- template: ca2-area-reverse
+  skill: calc.integration-apps
+  pace: quick
+  cases:
+  - {A: 36, ftex: x^2, f: x**2, ans: 9.0}
+  - {A: 4, ftex: x^2, f: x**2, ans: 2.080083823051904}
+  - {A: 32, ftex: 4x^2, f: 4*x**2, ans: 13.207708995578507}
+  - {A: 288, ftex: x^2, f: x**2, ans: 36.0}
+  prompt: The region between $y = {{ftex}}$ and the line $y = k$ has area ${{A}}$. What is $k$?
+  parts:
+  - {ask: k, label: r, value: ans, tol: 0.0001, explain: 'Write the area as a function of k (the curves meet at $\pm$ the root of ${{ftex}} = k$), set it equal to {{A}} and solve. For $y = x^2$: area $= \tfrac43 k^{3/2}$'}
+  verify:
+    expect: {r: '[s for s in solve(Eq(2*integrate(Symbol(''k'', positive=True) - SE(f), (SE(''x''), 0, sqrt(Symbol(''k'', positive=True)/(SE(f).subs(SE(''x''), 1))))), A), Symbol(''k'', positive=True))][0]'}
+- template: ca2-shell-volume
+  skill: calc.integration-apps
+  pace: quick
+  cases:
+  - {rtex: under $y = x^2$ for $0 \le x \le 2$, f: x**2, a: 0, bs: sqrt(pi), ans: 15.50313834014991}
+  - {rtex: 'under $y = \sqrt{x}$ for $0 \le x \le 4$', f: sqrt(x), a: 0, bs: sqrt(pi), ans: 10.511802692712182}
+  - {rtex: under $y = 4 - x^2$ for $0 \le x \le 2$, f: 4 - x**2, a: 0, bs: sqrt(pi), ans: 23.975279264207526}
+  - {rtex: 'under $y = e^{-x^2}$ for $0 \le x \le 1$', f: exp(-x**2), a: 0, bs: '1', ans: 1.9858653037988716}
+  - {rtex: 'under $y = \sin(x^2)$ for $0 \le x \le \sqrt{\pi}$', f: sin(x**2), a: 0, bs: sqrt(pi), ans: 6.283185307179586}
+  prompt: The region {{rtex}} is revolved about the $y$-axis. Use shells to find the volume.
+  parts:
+  - {ask: Volume, label: r, value: ans, tol: 0.0001, explain: 'Shells: $V = 2\pi\int_a^b x\,f(x)\,dx$ (radius x, height f(x)). Here shells beat discs, which would need x as a function of y; for $e^{-x^2}$ and $\sin(x^2)$ the x in front makes the integral elementary'}
+  verify:
+    expect: {r: '2*pi*integrate(SE(''x'')*SE(f), (SE(''x''), a, SE(bs)))'}
+- template: ca2-p-series-pick
+  skill: calc.series
+  pace: recall
+  cases:
+  - {stex: '\dfrac{1}{n^{2}}', p: 2}
+  - {stex: '\dfrac{1}{\sqrt{n}}', p: 0.5}
+  - {stex: '\dfrac{1}{n}', p: 1}
+  - {stex: '\dfrac{1}{n^{1.01}}', p: 1.01}
+  - {stex: '\dfrac{1}{n\sqrt[3]{n}}', p: 1.3333333}
+  - {stex: '\dfrac{n}{n^{3}}', p: 2}
+  - {stex: '\dfrac{1}{\sqrt[4]{n^3}}', p: 0.75}
+  prompt: Does $\displaystyle\sum_{n=1}^{\infty} {{stex}}$ converge?
+  parts:
+  - ask: Series
+    label: a
+    choice: [Converges, Diverges]
+    correct: 'p > 1 ? 0 : 1'
+    explain: 'Rewrite as $1/n^p$: a p-series converges exactly when p > 1. The harmonic series (p = 1) diverges, however slowly'
+  verify:
+    choices: {a: 0 if nsimplify(p) > 1 else 1}
+- template: ca2-ratio-limit
+  skill: calc.series
+  pace: quick
+  cases:
+  - {atex: '\dfrac{4^n}{n^3}', a: 4**x/x**3, ans: 4.0}
+  - {atex: '\dfrac{n}{3^n}', a: x/3**x, ans: 0.3333333333333333}
+  - {atex: '\dfrac{n^2}{2^n}', a: x**2/2**x, ans: 0.5}
+  - {atex: '\dfrac{5^n}{4^n}', a: 5**x/4**x, ans: 1.25}
+  - {atex: '\dfrac{n!}{n^n}', a: factorial(x)/x**x, ans: 0.36787944117144233}
+  - {atex: '\dfrac{3^n}{n \cdot 2^n}', a: 3**x/(x*2**x), ans: 1.5}
+  prompt: For $\displaystyle\sum {{atex}}$, what is $L = \lim_{n\to\infty} \left|a_{n+1}/a_n\right|$?
+  parts:
+  - {ask: L, label: r, value: ans, tol: 0.0001, explain: 'Cancel what you can before taking the limit: factorials leave a factor of n+1, exponentials leave their base, powers of n tend to 1. L < 1 converges, L > 1 diverges, L = 1 tells nothing'}
+  verify:
+    expect: {r: 'limit(simplify(combsimp(SE(a).subs(SE(''x''), SE(''x'') + 1)/SE(a))), SE(''x''), oo)'}
+- template: ca2-maclaurin-coefficient
+  skill: calc.taylor
+  pace: quick
+  cases:
+  - {ftex: 'e^{2x}', f: exp(2*x), k: 3, ans: 1.3333333333333333}
+  - {ftex: \cos x, f: cos(x), k: 4, ans: 0.041666666666666664}
+  - {ftex: '\dfrac{1}{1 - 3x}', f: 1/(1 - 3*x), k: 2, ans: 9.0}
+  - {ftex: \sin(x^2), f: sin(x**2), k: 6, ans: -0.16666666666666666}
+  - {ftex: \ln(1 + x), f: log(1 + x), k: 3, ans: 0.3333333333333333}
+  - {ftex: 'x e^{x}', f: x*exp(x), k: 4, ans: 0.16666666666666666}
+  prompt: What is the coefficient of $x^{ {{k}} }$ in the Maclaurin series of ${{ftex}}$?
+  parts:
+  - {ask: Coefficient, label: r, value: ans, tol: 0.0001, explain: 'Build from a known series by substitution or multiplication rather than differentiating k times: $e^u$, $\sin u$, $\cos u$, $1/(1-u)$, $\ln(1+u)$ with $u = 2x$, $x^2$, $3x$… The coefficient is $f^{(k)}(0)/k!$'}
+  verify:
+    expect: {r: 'series(SE(f), SE(''x''), 0, k + 1).removeO().coeff(SE(''x''), k)'}

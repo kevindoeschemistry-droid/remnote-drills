@@ -197,7 +197,7 @@ def mv_eval(expr, P, Q, R):
 
 
 FUNCS["mv_eval"] = mv_eval
-FUNCS.update({"quad": quad, "SE": S, "mv_at": at, "mv_d": d})
+FUNCS.update({"denom": sp.denom, "cancel": sp.cancel, "combsimp": sp.combsimp, "quad": quad, "SE": S, "mv_at": at, "mv_d": d})
 
 
 def check(p, H):
