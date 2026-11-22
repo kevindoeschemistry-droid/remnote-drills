@@ -1,0 +1,815 @@
+# Builds drills/problems/mvd-depth.yaml: multivariable calculus in depth (CA units 12-14, MIT 18.02
+# units 2-4). Run: python3 scripts/mvd_cases.py
+# 
+# Each template carries many cases (different functions, regions, curves, surfaces), not one problem
+# with new numbers. Answers are computed here with sympy along the route the card teaches (Green,
+# Stokes, the divergence theorem, polar or spherical coordinates...); tests/verify/mvcalc.py checks
+# them along a different route (the line or surface integral itself, the original coordinates).
+# Setup cards show four integrals (A-D) in the prompt; exactly one equals the target, which the
+# generator asserts and the verifier re-checks.
+# GENERATED: edit scripts/mvd_cases.py, not this file.
+
+- template: mvd-partial
+  skill: calc.multivariable
+  pace: quick
+  cases:
+  - {ftex: x^2 y^3 + 4xy, f: x**2*y**3 + 4*x*y, w: x, px: 1, py: 2, ans: 24.0}
+  - {ftex: x^2 y^3 + 4xy, f: x**2*y**3 + 4*x*y, w: y, px: 1, py: 2, ans: 16.0}
+  - {ftex: 'e^{xy}', f: exp(x*y), w: y, px: 1, py: 0, ans: 1.0}
+  - {ftex: \ln(x^2 + y^2), f: log(x**2 + y**2), w: x, px: 1, py: 2, ans: 0.4}
+  - {ftex: \ln(x^2 + y^2), f: log(x**2 + y**2), w: y, px: 1, py: 2, ans: 0.8}
+  - {ftex: \sin(x y^2), f: sin(x*y**2), w: x, px: 0, py: 3, ans: 9.0}
+  - {ftex: '\dfrac{x}{y}', f: x/y, w: x, px: 3, py: 2, ans: 0.5}
+  - {ftex: '\dfrac{x}{y}', f: x/y, w: y, px: 3, py: 2, ans: -0.75}
+  - {ftex: 'x\sqrt{y}', f: x*sqrt(y), w: x, px: 2, py: 4, ans: 2.0}
+  - {ftex: 'x\sqrt{y}', f: x*sqrt(y), w: y, px: 2, py: 4, ans: 0.5}
+  - {ftex: x^3 - 5xy + y^2, f: x**3 - 5*x*y + y**2, w: x, px: 2, py: -1, ans: 17.0}
+  - {ftex: x^3 - 5xy + y^2, f: x**3 - 5*x*y + y**2, w: y, px: 2, py: -1, ans: -12.0}
+  - {ftex: \arctan(y/x), f: atan(y/x), w: x, px: 1, py: 1, ans: -0.5}
+  - {ftex: \arctan(y/x), f: atan(y/x), w: y, px: 1, py: 1, ans: 0.5}
+  prompt: For $f(x, y) = {{ftex}}$, what is $f_{ {{w}} }({{px}}, {{py}})$?
+  parts:
+  - {ask: Partial derivative, label: a, value: ans, tol: 0.0001, explain: 'Differentiate in that variable alone, treating the other as a constant, then substitute the point. $f_x$ is the slope of the surface in the $x$ direction'}
+  verify:
+    expect: {a: 'mv_at(mv_d(f, w), px, py)'}
+- template: mvd-mixed
+  skill: calc.multivariable
+  pace: quick
+  cases:
+  - {ftex: x^3 y^2, f: x**3*y**2, px: 1, py: 2, ans: 12.0}
+  - {ftex: 'e^{2x}\sin y', f: exp(2*x)*sin(y), px: 0, py: 0, ans: 2.0}
+  - {ftex: 'x^2 e^{y}', f: x**2*exp(y), px: 1, py: 0, ans: 2.0}
+  - {ftex: 'y^2 \sqrt{x}', f: y**2*sqrt(x), px: 4, py: 1, ans: 0.5}
+  prompt: For $f(x, y) = {{ftex}}$, what is $f_{xy}({{px}}, {{py}})$?
+  parts:
+  - {ask: Mixed partial, label: a, value: ans, tol: 0.0001, explain: 'Differentiate in $x$, then in $y$ (or the other order: by Clairaut''s theorem the mixed partials agree when they are continuous)'}
+  verify:
+    expect: {a: 'mv_at(mv_d(f, ''y'', ''x''), px, py)'}
+- template: mvd-directional
+  skill: calc.partials-apps
+  pace: quick
+  cases:
+  - {ftex: x^2 + 3xy, f: x**2 + 3*x*y, px: 1, py: 1, va: 3, vb: 4, ans: 5.4}
+  - {ftex: 'x e^{y}', f: x*exp(y), px: 2, py: 0, va: 1, vb: 1, ans: 2.1213203435596424}
+  - {ftex: \sin(x) + \cos(y), f: sin(x) + cos(y), px: 0, py: 0, va: 1, vb: 2, ans: 0.4472135954999579}
+  - {ftex: x^2 y, f: x**2*y, px: 1, py: 2, va: -1, vb: 1, ans: -2.1213203435596424}
+  - {ftex: \ln(x^2 + y^2), f: log(x**2 + y**2), px: 1, py: 1, va: 1, vb: 0, ans: 1.0}
+  - {ftex: xy^2, f: x*y**2, px: 2, py: 1, va: 0, vb: -1, ans: -4.0}
+  - {ftex: 4 - x^2 - y^2, f: 4 - x**2 - y**2, px: 1, py: 1, va: 1, vb: 1, ans: -2.8284271247461903}
+  prompt: What is the directional derivative of $f(x, y) = {{ftex}}$ at $({{px}}, {{py}})$ in the direction of $\langle {{va}}, {{vb}} \rangle$?
+  parts:
+  - {ask: Directional derivative, label: a, value: ans, tol: 0.0001, explain: '$D_{\mathbf u}f = \nabla f\cdot\mathbf u$ with $\mathbf u$ a unit vector: divide the given direction by its length first. Forgetting to normalise is the usual error'}
+  verify:
+    expect: {a: '(mv_at(mv_d(f, ''x''), px, py)*va + mv_at(mv_d(f, ''y''), px, py)*vb)/sqrt(va**2 + vb**2)'}
+- template: mvd-max-rate
+  skill: calc.partials-apps
+  pace: quick
+  cases:
+  - {ftex: x^2 + 3xy, f: x**2 + 3*x*y, px: 1, py: 1, ans: 5.830951894845301}
+  - {ftex: 'x e^{y}', f: x*exp(y), px: 2, py: 0, ans: 2.23606797749979}
+  - {ftex: x^2 y, f: x**2*y, px: 1, py: 2, ans: 4.123105625617661}
+  - {ftex: \ln(x^2 + y^2), f: log(x**2 + y**2), px: 1, py: 2, ans: 0.8944271909999159}
+  - {ftex: 4 - x^2 - 2y^2, f: 4 - x**2 - 2*y**2, px: 1, py: 1, ans: 4.47213595499958}
+  - {ftex: xy^2, f: x*y**2, px: 2, py: 1, ans: 4.123105625617661}
+  prompt: At $({{px}}, {{py}})$, what is the greatest rate of increase of $f(x, y) = {{ftex}}$?
+  parts:
+  - {ask: Maximum rate, label: a, value: ans, tol: 0.0001, explain: '$f$ increases fastest in the direction of $\nabla f$, at the rate $|\nabla f|$; it decreases fastest in the opposite direction, and does not change along the level curve (perpendicular to $\nabla f$)'}
+  verify:
+    expect: {a: 'sqrt(mv_at(mv_d(f, ''x''), px, py)**2 + mv_at(mv_d(f, ''y''), px, py)**2)'}
+- template: mvd-level-slope
+  skill: calc.partials-apps
+  pace: quick
+  cases:
+  - {ftex: x^2 + 4y^2, f: x**2 + 4*y**2, px: 2, py: 1, ans: -0.5}
+  - {ftex: xy, f: x*y, px: 2, py: 3, ans: -1.5}
+  - {ftex: x^2 - y^2, f: x**2 - y**2, px: 3, py: 1, ans: 3.0}
+  - {ftex: x^3 + y^3, f: x**3 + y**3, px: 1, py: 2, ans: -0.25}
+  - {ftex: 'y e^{x}', f: y*exp(x), px: 0, py: 2, ans: -2.0}
+  - {ftex: x^2 + xy + y^2, f: x**2 + x*y + y**2, px: 1, py: 1, ans: -1.0}
+  prompt: What is the slope of the level curve of $f(x, y) = {{ftex}}$ through $({{px}}, {{py}})$, at that point?
+  parts:
+  - {ask: Slope, label: a, value: ans, tol: 0.0001, explain: 'Along a level curve $f$ is constant, so $f_x\,dx + f_y\,dy = 0$ and $dy/dx = -f_x/f_y$. Equivalently, the tangent is perpendicular to $\nabla f$'}
+  verify:
+    expect: {a: '-mv_at(mv_d(f, ''x''), px, py)/mv_at(mv_d(f, ''y''), px, py)'}
+- template: mvd-linearize
+  skill: calc.partials-apps
+  pace: quick
+  cases:
+  - {ftex: x^2 y, f: x**2*y, px: 2, py: 1, dx: 0.1, dy: -0.1, ans: 4.0}
+  - {ftex: '\sqrt{x^2 + y^2}', f: sqrt(x**2 + y**2), px: 3, py: 4, dx: 0.1, dy: 0.2, ans: 5.22}
+  - {ftex: 'e^{x}\cos y', f: exp(x)*cos(y), px: 0, py: 0, dx: 0.1, dy: 0.2, ans: 1.1}
+  - {ftex: \ln(x + 2y), f: log(x + 2*y), px: 1, py: 0, dx: 0.2, dy: 0.1, ans: 0.4}
+  - {ftex: xy^2, f: x*y**2, px: 1, py: 2, dx: 0.05, dy: 0.1, ans: 4.6}
+  - {ftex: x^3 + y^3, f: x**3 + y**3, px: 1, py: 1, dx: -0.1, dy: 0.1, ans: 2.0}
+  prompt: Use the tangent plane to $f(x, y) = {{ftex}}$ at $({{px}}, {{py}})$ to estimate $f({{px + dx}}, {{py + dy}})$.
+  parts:
+  - {ask: Estimate, label: a, value: ans, tol: 0.0001, explain: '$L = f(a, b) + f_x(a, b)\,\Delta x + f_y(a, b)\,\Delta y$: the tangent plane, good for small steps. The error grows with the square of the step'}
+  verify:
+    expect: {a: 'mv_at(f, px, py) + mv_at(mv_d(f, ''x''), px, py)*nsimplify(dx) + mv_at(mv_d(f, ''y''), px, py)*nsimplify(dy)'}
+- template: mvd-tangent-plane-implicit
+  skill: calc.partials-apps
+  pace: quick
+  cases:
+  - {stex: x^2 + y^2 + z^2 = 14, F: x**2 + y**2 + z**2 - 14, px: 1, py: 2, pz: 3, na: 1, nb: 2, nc: 3, ans: 14.0}
+  - {stex: x^2 + 2y^2 + 3z^2 = 6, F: x**2 + 2*y**2 + 3*z**2 - 6, px: 1, py: 1, pz: 1, na: 1, nb: 2, nc: 3, ans: 6.0}
+  - {stex: xyz = 6, F: x*y*z - 6, px: 1, py: 2, pz: 3, na: 6, nb: 3, nc: 2, ans: 18.0}
+  - {stex: z = x^2 + y^2, F: x**2 + y**2 - z, px: 1, py: 2, pz: 5, na: 2, nb: 4, nc: -1, ans: 5.0}
+  - {stex: x^2 + y^2 - z^2 = 4, F: x**2 + y**2 - z**2 - 4, px: 2, py: 1, pz: 1, na: 2, nb: 1, nc: -1, ans: 4.0}
+  - {stex: z = xy, F: x*y - z, px: 2, py: 3, pz: 6, na: 3, nb: 2, nc: -1, ans: 6.0}
+  prompt: The tangent plane to the surface ${{stex}}$ at $({{px}}, {{py}}, {{pz}})$ can be written ${{na}}x + {{nb}}y + {{nc}}z = d$. What is $d$?
+  parts:
+  - {ask: d, label: a, value: ans, tol: 0.0001, explain: 'For a level surface $F(x, y, z) = c$ the normal is $\nabla F$. The plane is $\nabla F\cdot(\mathbf r - \mathbf r_0) = 0$, so $d = \mathbf n\cdot\mathbf r_0$. Write $z = f(x, y)$ as $f - z = 0$ first'}
+  verify:
+    expect: {a: na*px + nb*py + nc*pz}
+- template: mvd-chain-t
+  skill: calc.multivariable
+  pace: quick
+  cases:
+  - {ztex: x^2 y, f: x**2*y, xtx: t^2, xt: t**2, ytx: 3t, yt: 3*t, t0: 1, ans: 15.0}
+  - {ztex: 'e^{x} \sin y', f: exp(x)*sin(y), xtx: \ln t, xt: log(t), ytx: \pi t, yt: pi*t, t0: 1, ans: -3.141592653589793}
+  - {ztex: xy + y^2, f: x*y + y**2, xtx: \cos t, xt: cos(t), ytx: \sin t, yt: sin(t), t0: 0, ans: 1.0}
+  - {ztex: '\sqrt{x^2 + y^2}', f: sqrt(x**2 + y**2), xtx: 3t, xt: 3*t, ytx: 4t^2, yt: 4*t**2, t0: 1, ans: 8.2}
+  - {ztex: x/y, f: x/y, xtx: t^3, xt: t**3, ytx: t + 1, yt: t + 1, t0: 1, ans: 1.25}
+  - {ztex: \ln(x + y), f: log(x + y), xtx: 'e^{t}', xt: exp(t), ytx: t^2, yt: t**2, t0: 0, ans: 1.0}
+  prompt: $z = {{ztex}}$ with $x = {{xtx}}$ and $y = {{ytx}}$. What is $dz/dt$ at $t = {{t0}}$?
+  parts:
+  - {ask: dz/dt, label: a, value: ans, tol: 0.0001, explain: '$\dfrac{dz}{dt} = z_x\dfrac{dx}{dt} + z_y\dfrac{dy}{dt}$: one term per path through the dependency tree, each evaluated at the point $(x(t_0), y(t_0))$'}
+  verify:
+    expect: {a: 'diff(SE(f).subs({SE(''x''): SE(xt), SE(''y''): SE(yt)}, simultaneous=True), SE(''t'')).subs(SE(''t''), t0)'}
+- template: mvd-chain-partial
+  skill: calc.multivariable
+  pace: quick
+  cases:
+  - {ztex: x^2 + y^2, f: x**2 + y**2, xstx: s + t, xs: u + v, ystx: s - t, ys: u - v, s0: 1, t0: 2, ans: 4.0}
+  - {ztex: xy, f: x*y, xstx: s^2 t, xs: u**2*v, ystx: s t^2, ys: u*v**2, s0: 1, t0: 1, ans: 3.0}
+  - {ztex: 'e^{x + y}', f: exp(x + y), xstx: st, xs: u*v, ystx: s^2, ys: u**2, s0: 1, t0: 0, ans: 5.43656365691809}
+  - {ztex: \ln(xy), f: log(x*y), xstx: s + 2t, xs: u + 2*v, ystx: 3s, ys: 3*u, s0: 1, t0: 1, ans: 1.3333333333333333}
+  prompt: $z = {{ztex}}$ with $x = {{xstx}}$ and $y = {{ystx}}$. What is $\partial z/\partial s$ at $(s, t) = ({{s0}}, {{t0}})$?
+  parts:
+  - {ask: ∂z/∂s, label: a, value: ans, tol: 0.0001, explain: '$\dfrac{\partial z}{\partial s} = z_x\dfrac{\partial x}{\partial s} + z_y\dfrac{\partial y}{\partial s}$, holding $t$ fixed'}
+  verify:
+    expect: {a: 'diff(SE(f).subs({SE(''x''): SE(xs), SE(''y''): SE(ys)}, simultaneous=True), SE(''u'')).subs({SE(''u''): s0, SE(''v''): t0})'}
+- template: mvd-implicit
+  skill: calc.multivariable
+  pace: quick
+  cases:
+  - {etex: x^2 + xy + y^3 = 7, F: x**2 + x*y + y**3 - 7, px: 2, py: 1, ans: -1.0}
+  - {etex: x^3 + y^3 = 6xy, F: x**3 + y**3 - 6*x*y, px: 3, py: 3, ans: -1.0}
+  - {etex: x \sin y + y = 1, F: x*sin(y) + y - 1, px: 0, py: 1, ans: -0.8414709848078965}
+  - {etex: x^2 y^2 + y = 6, F: x**2*y**2 + y - 6, px: 1, py: 2, ans: -1.6}
+  prompt: The curve ${{etex}}$ passes through $({{px}}, {{py}})$. What is $dy/dx$ there?
+  parts:
+  - {ask: dy/dx, label: a, value: ans, tol: 0.0001, explain: 'With $F(x, y) = 0$: $dy/dx = -F_x/F_y$ (move everything to one side first). It is the slope of the level curve $F = 0$'}
+  verify:
+    expect: {a: '-mv_at(mv_d(F, ''x''), px, py)/mv_at(mv_d(F, ''y''), px, py)'}
+- template: mvd-classify
+  skill: calc.partials-apps
+  pace: quick
+  cases:
+  - {ftex: x^3 - 3x + y^2, f: x**3 - 3*x + y**2, px: 1, py: 0, ans: 0}
+  - {ftex: x^3 - 3x + y^2, f: x**3 - 3*x + y**2, px: -1, py: 0, ans: 2}
+  - {ftex: x^2 + xy + y^2 - 3x, f: x**2 + x*y + y**2 - 3*x, px: 2, py: -1, ans: 0}
+  - {ftex: x^3 + y^3 - 3xy, f: x**3 + y**3 - 3*x*y, px: 0, py: 0, ans: 2}
+  - {ftex: x^3 + y^3 - 3xy, f: x**3 + y**3 - 3*x*y, px: 1, py: 1, ans: 0}
+  - {ftex: 4xy - x^4 - y^4, f: 4*x*y - x**4 - y**4, px: 1, py: 1, ans: 1}
+  - {ftex: 4xy - x^4 - y^4, f: 4*x*y - x**4 - y**4, px: 0, py: 0, ans: 2}
+  - {ftex: x^4 + y^4, f: x**4 + y**4, px: 0, py: 0, ans: 3}
+  - {ftex: 2 - x^2 - y^2 + 2x, f: 2 - x**2 - y**2 + 2*x, px: 1, py: 0, ans: 1}
+  - {ftex: 'e^{-(x^2 + y^2)}', f: exp(-(x**2 + y**2)), px: 0, py: 0, ans: 1}
+  prompt: $({{px}}, {{py}})$ is a critical point of $f(x, y) = {{ftex}}$. What does the second derivatives test say?
+  parts:
+  - ask: Classification
+    label: a
+    choice: [Local minimum, Local maximum, Saddle point, The test is inconclusive (D = 0)]
+    correct: ans
+    explain: '$D = f_{xx}f_{yy} - f_{xy}^2$ at the point. $D > 0$: an extremum, a minimum if $f_{xx} > 0$ and a maximum if $f_{xx} < 0$. $D < 0$: a saddle. $D = 0$: no conclusion ($x^4 + y^4$ has a minimum there anyway)'
+  verify:
+    choices: {a: 'crit_class(f, px, py)'}
+- template: mvd-critical-count
+  skill: calc.partials-apps
+  pace: quick
+  cases:
+  - {ftex: x^3 - 3x + y^2, f: x**3 - 3*x + y**2, ans: 2}
+  - {ftex: x^3 + y^3 - 3xy, f: x**3 + y**3 - 3*x*y, ans: 2}
+  - {ftex: 4xy - x^4 - y^4, f: 4*x*y - x**4 - y**4, ans: 3}
+  - {ftex: x^2 + y^2 - 2x + 4y, f: x**2 + y**2 - 2*x + 4*y, ans: 1}
+  - {ftex: x^3 - 12x + y^3 - 3y, f: x**3 - 12*x + y**3 - 3*y, ans: 4}
+  - {ftex: x^2 y - x^2 - y^2, f: x**2*y - x**2 - y**2, ans: 3}
+  prompt: How many critical points does $f(x, y) = {{ftex}}$ have?
+  parts:
+  - {ask: Critical points, label: a, value: ans, tol: 0.0001, explain: Solve $f_x = 0$ and $f_y = 0$ together. Factor and split into cases; a product equal to zero gives a separate branch for each factor}
+  verify:
+    expect: {a: n_critical(f)}
+- template: mvd-lagrange
+  skill: calc.partials-apps
+  pace: quick
+  cases:
+  - {ftex: x + y, f: x + y, gtex: x^2 + y^2 = 2, g: x**2 + y**2 - 2, kind: 1, three: 0, ans: 2.0}
+  - {ftex: xy, f: x*y, gtex: x + y = 10, g: x + y - 10, kind: 1, three: 0, ans: 25.0}
+  - {ftex: x^2 + y^2, f: x**2 + y**2, gtex: x + 2y = 5, g: x + 2*y - 5, kind: 0, three: 0, ans: 5.0}
+  - {ftex: x + 2y + 2z, f: x + 2*y + 2*z, gtex: x^2 + y^2 + z^2 = 9, g: x**2 + y**2 + z**2 - 9, kind: 1, three: 1, ans: 9.0}
+  - {ftex: xyz, f: x*y*z, gtex: x + y + z = 12, g: x + y + z - 12, kind: 1, three: 1, ans: 64.0}
+  - {ftex: 3x + 4y, f: 3*x + 4*y, gtex: x^2 + y^2 = 25, g: x**2 + y**2 - 25, kind: 0, three: 0, ans: -25.0}
+  - {ftex: x^2 + y^2 + z^2, f: x**2 + y**2 + z**2, gtex: x + y + z = 3, g: x + y + z - 3, kind: 0, three: 1, ans: 3.0}
+  - {ftex: x^2 y, f: x**2*y, gtex: x^2 + y^2 = 3, g: x**2 + y**2 - 3, kind: 1, three: 0, ans: 2.0}
+  prompt: 'What is the {{kind == 1 ? "maximum" : "minimum"}} of ${{ftex}}$ subject to ${{gtex}}$?'
+  parts:
+  - {ask: Extreme value, label: a, value: ans, tol: 0.0001, explain: 'Solve $\nabla f = \lambda\nabla g$ with $g = 0$, list every candidate, and compare the values of $f$. At the answer the level curve of $f$ is tangent to the constraint'}
+  verify:
+    expect: {a: 'lagrange(f, g, kind, three == 1)'}
+- template: mvd-two-path
+  skill: calc.multivariable
+  pace: quick
+  cases:
+  - {ltex: '\dfrac{xy}{x^2 + y^2}', ans: 1}
+  - {ltex: '\dfrac{x^2 y}{x^4 + y^2}', ans: 1}
+  - {ltex: '\dfrac{x^2 y}{x^2 + y^2}', ans: 0}
+  - {ltex: '\dfrac{x^2 - y^2}{x^2 + y^2}', ans: 1}
+  - {ltex: '\dfrac{\sin(x^2 + y^2)}{x^2 + y^2}', ans: 0}
+  - {ltex: '\dfrac{xy^2}{x^2 + y^2}', ans: 0}
+  - {ltex: '\dfrac{x y^2}{x^2 + y^4}', ans: 1}
+  - {ltex: '\dfrac{3x^2 y}{x^2 + y^2}', ans: 0}
+  prompt: Does $\displaystyle\lim_{(x, y)\to(0, 0)} {{ltex}}$ exist?
+  parts:
+  - ask: Limit
+    label: a
+    choice: [It exists, It does not exist]
+    correct: ans
+    explain: 'Try paths: along $y = mx$ and along $y = x^2$. Different answers on two paths prove there is no limit; to prove a limit exists, bound the expression (often with polar coordinates: if it is $r$ times something bounded, the limit is 0)'
+  verify: {authored: true}
+- template: mvd-gradient-facts
+  skill: calc.partials-apps
+  pace: recall
+  cases:
+  - {s: The gradient of f at a point is perpendicular to the level curve of f through that point., ans: 0}
+  - {s: The directional derivative in the direction of the gradient equals the length of the gradient., ans: 0}
+  - {s: The directional derivative along a level curve is zero., ans: 0}
+  - {s: At a saddle point the gradient is nonzero., ans: 1}
+  - {s: 'The gradient of f(x, y) is a vector in three-dimensional space.', ans: 1}
+  - {s: 'If f_x and f_y exist at a point, f must be differentiable there.', ans: 1}
+  - {s: A local maximum of a differentiable f has gradient zero., ans: 0}
+  - {s: Moving opposite to the gradient decreases f fastest., ans: 0}
+  prompt: 'True or false: {{s}}'
+  parts:
+  - ask: Answer
+    label: a
+    choice: ['True', 'False']
+    correct: ans
+    explain: The gradient points in the direction of fastest increase, has length equal to that rate, and is perpendicular to the level curve or surface through the point. Critical points are where it vanishes (or fails to exist)
+  verify: {authored: true}
+- template: mvd-region-setup
+  skill: calc.multiple-integrals
+  pace: quick
+  cases:
+  - {rtex: the region between $y = x^2$ and $y = x$, ftex: xy, target: 'Integral(x*y, (y, x**2, x), (x, 0, 1))', tA: '\int_0^1\!\int_{x^2}^{x} xy\,dy\,dx', eA: 'Integral(x*y, (y, x**2, x), (x, 0, 1))', tB: '\int_0^1\!\int_{x}^{x^2} xy\,dy\,dx', eB: 'Integral(x*y, (y, x, x**2), (x, 0, 1))', tC: '\int_0^1\!\int_{0}^{\sqrt{y}} xy\,dx\,dy', eC: 'Integral(x*y, (x, 0, sqrt(y)), (y, 0, 1))', tD: '\int_0^1\!\int_{0}^{x} xy\,dy\,dx', eD: 'Integral(x*y, (y, 0, x), (x, 0, 1))', ans: 0}
+  - {rtex: 'the triangle with vertices $(0, 0)$, $(2, 0)$ and $(2, 1)$', ftex: y, target: 'Integral(y, (y, 0, x/2), (x, 0, 2))', tA: '\int_0^2\!\int_0^{2x} y\,dy\,dx', eA: 'Integral(y, (y, 0, 2*x), (x, 0, 2))', tB: '\int_0^1\!\int_{2y}^{2} y\,dx\,dy', eB: 'Integral(y, (x, 2*y, 2), (y, 0, 1))', tC: '\int_0^1\!\int_0^{2y} y\,dx\,dy', eC: 'Integral(y, (x, 0, 2*y), (y, 0, 1))', tD: '\int_0^2\!\int_0^{1} y\,dy\,dx', eD: 'Integral(y, (y, 0, 1), (x, 0, 2))', ans: 1}
+  - {rtex: the region in the first quadrant inside $x^2 + y^2 = 4$, ftex: x, target: 'Integral(x, (y, 0, sqrt(4 - x**2)), (x, 0, 2))', tA: '\int_0^2\!\int_0^{4 - x^2} x\,dy\,dx', eA: 'Integral(x, (y, 0, 4 - x**2), (x, 0, 2))', tB: '\int_0^2\!\int_0^{2} x\,dy\,dx', eB: 'Integral(x, (y, 0, 2), (x, 0, 2))', tC: '\int_0^2\!\int_0^{\sqrt{4 - y^2}} x\,dx\,dy', eC: 'Integral(x, (x, 0, sqrt(4 - y**2)), (y, 0, 2))', tD: '\int_{-2}^2\!\int_0^{\sqrt{4 - x^2}} x\,dy\,dx', eD: 'Integral(x, (y, 0, sqrt(4 - x**2)), (x, -2, 2))', ans: 2}
+  - {rtex: 'the region bounded by $y = \sqrt{x}$, $y = 0$ and $x = 4$', ftex: '1', target: 'Integral(1, (y, 0, sqrt(x)), (x, 0, 4))', tA: '\int_0^2\!\int_{0}^{y^2} dx\,dy', eA: 'Integral(1, (x, 0, y**2), (y, 0, 2))', tB: '\int_0^4\!\int_{0}^{x^2} dy\,dx', eB: 'Integral(1, (y, 0, x**2), (x, 0, 4))', tC: '\int_0^2\!\int_{y^2}^{4} dx\,dy', eC: 'Integral(1, (x, y**2, 4), (y, 0, 2))', tD: '\int_0^4\!\int_{\sqrt{x}}^{2} dy\,dx', eD: 'Integral(1, (y, sqrt(x), 2), (x, 0, 4))', ans: 2}
+  - {rtex: the region between $y = x^2$ and $y = 2x$, ftex: x, target: 'Integral(x, (y, x**2, 2*x), (x, 0, 2))', tA: '\int_0^4\!\int_{y/2}^{\sqrt{y}} x\,dx\,dy', eA: 'Integral(x, (x, y/2, sqrt(y)), (y, 0, 4))', tB: '\int_0^4\!\int_{\sqrt{y}}^{y/2} x\,dx\,dy', eB: 'Integral(x, (x, sqrt(y), y/2), (y, 0, 4))', tC: '\int_0^2\!\int_{2x}^{x^2} x\,dy\,dx', eC: 'Integral(x, (y, 2*x, x**2), (x, 0, 2))', tD: '\int_0^4\!\int_{x^2}^{2x} x\,dy\,dx', eD: 'Integral(x, (y, x**2, 2*x), (x, 0, 4))', ans: 0}
+  prompt: Which integral equals $\displaystyle\iint_D {{ftex}}\,dA$ for $D$ = {{rtex}}? (A) ${{tA}}$ (B) ${{tB}}$ (C) ${{tC}}$ (D) ${{tD}}$
+  parts:
+  - ask: Setup
+    label: a
+    choice: &id001 [A, B, C, D]
+    correct: ans
+    explain: Sketch $D$. For $dy\,dx$, the inner limits are the bottom and top curves as functions of $x$, the outer limits the extreme $x$ values; for $dx\,dy$, left and right curves as functions of $y$. The outer limits are always constants
+  verify: &id002
+    choices: {a: 'vpick(target, [eA, eB, eC, eD])'}
+- template: mvd-reverse-setup
+  skill: calc.multiple-integrals
+  pace: quick
+  cases:
+  - {itex: '\int_0^1\!\int_{x}^{1} f\,dy\,dx', target: 'Integral(x**2*y, (y, x, 1), (x, 0, 1))', tA: '\int_0^1\!\int_0^{y} f\,dx\,dy', eA: 'Integral(x**2*y, (x, 0, y), (y, 0, 1))', tB: '\int_0^1\!\int_y^{1} f\,dx\,dy', eB: 'Integral(x**2*y, (x, y, 1), (y, 0, 1))', tC: '\int_0^1\!\int_0^{1} f\,dx\,dy', eC: 'Integral(x**2*y, (x, 0, 1), (y, 0, 1))', tD: '\int_0^1\!\int_0^{x} f\,dx\,dy', eD: 'Integral(x**2*y, (x, 0, 1 - y), (y, 0, 1))', ans: 0}
+  - {itex: '\int_0^4\!\int_{\sqrt{x}}^{2} f\,dy\,dx', target: 'Integral(x**2*y, (y, sqrt(x), 2), (x, 0, 4))', tA: '\int_0^2\!\int_{y^2}^{4} f\,dx\,dy', eA: 'Integral(x**2*y, (x, y**2, 4), (y, 0, 2))', tB: '\int_0^2\!\int_0^{y^2} f\,dx\,dy', eB: 'Integral(x**2*y, (x, 0, y**2), (y, 0, 2))', tC: '\int_0^4\!\int_0^{y^2} f\,dx\,dy', eC: 'Integral(x**2*y, (x, 0, y**2), (y, 0, 4))', tD: '\int_0^2\!\int_{0}^{\sqrt{y}} f\,dx\,dy', eD: 'Integral(x**2*y, (x, 0, sqrt(y)), (y, 0, 2))', ans: 1}
+  - {itex: '\int_0^2\!\int_0^{2y} f\,dx\,dy', target: 'Integral(x**2*y, (x, 0, 2*y), (y, 0, 2))', tA: '\int_0^4\!\int_0^{x/2} f\,dy\,dx', eA: 'Integral(x**2*y, (y, 0, x/2), (x, 0, 4))', tB: '\int_0^4\!\int_{x/2}^{2} f\,dy\,dx', eB: 'Integral(x**2*y, (y, x/2, 2), (x, 0, 4))', tC: '\int_0^2\!\int_{x/2}^{2} f\,dy\,dx', eC: 'Integral(x**2*y, (y, x/2, 2), (x, 0, 2))', tD: '\int_0^4\!\int_{2x}^{2} f\,dy\,dx', eD: 'Integral(x**2*y, (y, 2*x, 2), (x, 0, 1))', ans: 1}
+  - {itex: '\int_0^1\!\int_{y^2}^{y} f\,dx\,dy', target: 'Integral(x**2*y, (x, y**2, y), (y, 0, 1))', tA: '\int_0^1\!\int_{x^2}^{x} f\,dy\,dx', eA: 'Integral(x**2*y, (y, x**2, x), (x, 0, 1))', tB: '\int_0^1\!\int_{x}^{\sqrt{x}} f\,dy\,dx', eB: 'Integral(x**2*y, (y, x, sqrt(x)), (x, 0, 1))', tC: '\int_0^1\!\int_{\sqrt{x}}^{x} f\,dy\,dx', eC: 'Integral(x**2*y, (y, sqrt(x), x), (x, 0, 1))', tD: '\int_0^1\!\int_{0}^{\sqrt{x}} f\,dy\,dx', eD: 'Integral(x**2*y, (y, 0, sqrt(x)), (x, 0, 1))', ans: 1}
+  - {itex: '\int_0^{1}\!\int_{e^{x}}^{e} f\,dy\,dx', target: 'Integral(x**2*y, (y, exp(x), E), (x, 0, 1))', tA: '\int_1^{e}\!\int_{0}^{\ln y} f\,dx\,dy', eA: 'Integral(x**2*y, (x, 0, log(y)), (y, 1, E))', tB: '\int_0^{e}\!\int_{0}^{\ln y} f\,dx\,dy', eB: 'Integral(x**2*y, (x, 0, log(y)), (y, 1, E)) + 1', tC: '\int_1^{e}\!\int_{\ln y}^{1} f\,dx\,dy', eC: 'Integral(x**2*y, (x, log(y), 1), (y, 1, E))', tD: '\int_1^{e}\!\int_{0}^{e^{y}} f\,dx\,dy', eD: 'Integral(x**2*y, (x, 0, 1), (y, 1, E))', ans: 0}
+  prompt: Reverse the order of integration in ${{itex}}$, where $f = x^2 y$. Which integral is it? (A) ${{tA}}$ (B) ${{tB}}$ (C) ${{tC}}$ (D) ${{tD}}$
+  parts:
+  - ask: Reversed
+    label: a
+    choice: *id001
+    correct: ans
+    explain: 'Draw the region from the given limits, then slice the other way: the new outer limits are the extreme values of the other variable, and the inner limits are the curves solved for the inner variable'
+  verify: *id002
+- template: mvd-region-value
+  skill: calc.multiple-integrals
+  pace: quick
+  cases:
+  - {rtex: between $y = x^2$ and $y = 2x$, f: x*y, ftex: xy, lims: 'Integral(x*y, (y, x**2, 2*x), (x, 0, 2))', ans: 2.6666666666666665}
+  - {rtex: 'between $y = x$ and $y = \sqrt{x}$', f: x, ftex: x, lims: 'Integral(x, (y, x, sqrt(x)), (x, 0, 1))', ans: 0.06666666666666667}
+  - {rtex: 'the triangle with vertices $(0, 0)$, $(1, 0)$, $(0, 2)$', f: x + y, ftex: x + y, lims: 'Integral(x + y, (y, 0, 2 - 2*x), (x, 0, 1))', ans: 1.0}
+  - {rtex: under $y = \sin x$ for $0 \le x \le \pi$, f: y, ftex: y, lims: 'Integral(y, (y, 0, sin(x)), (x, 0, pi))', ans: 0.7853981633974483}
+  - {rtex: between $x = y^2$ and $x = 4$, f: x, ftex: x, lims: 'Integral(x, (x, y**2, 4), (y, -2, 2))', ans: 25.6}
+  - {rtex: 'bounded by $y = e^{x}$, $y = 1$ and $x = 1$', f: '1', ftex: '1', lims: 'Integral(1, (y, 1, exp(x)), (x, 0, 1))', ans: 0.7182818284590452}
+  prompt: Evaluate $\displaystyle\iint_D {{ftex}}\,dA$, where $D$ is the region {{rtex}}.
+  parts:
+  - {ask: Value, label: a, value: ans, tol: 0.0001, explain: 'Sketch the region, choose the order that gives single curves as limits, do the inner integral with the outer variable held fixed'}
+  verify:
+    expect: {a: quad(lims)}
+- template: mvd-polar-setup
+  skill: calc.multiple-integrals
+  pace: quick
+  cases:
+  - {rtex: the disc $x^2 + y^2 \le 9$, ftex: x^2 + y^2, target: 'Integral((x**2 + y**2), (y, -sqrt(9 - x**2), sqrt(9 - x**2)), (x, -3, 3))', tA: '\int_0^{2\pi}\!\int_0^3 r^3\,dr\,d\theta', eA: 'Integral(r**3, (r, 0, 3), (theta, 0, 2*pi))', tB: '\int_0^{2\pi}\!\int_0^3 r^2\,dr\,d\theta', eB: 'Integral(r**2, (r, 0, 3), (theta, 0, 2*pi))', tC: '\int_0^{\pi}\!\int_0^3 r^3\,dr\,d\theta', eC: 'Integral(r**3, (r, 0, 3), (theta, 0, pi))', tD: '\int_0^{2\pi}\!\int_0^9 r^3\,dr\,d\theta', eD: 'Integral(r**3, (r, 0, 9), (theta, 0, 2*pi))', ans: 0}
+  - {rtex: the upper half of the disc $x^2 + y^2 \le 4$, ftex: y, target: 'Integral(y, (y, 0, sqrt(4 - x**2)), (x, -2, 2))', tA: '\int_0^{2\pi}\!\int_0^2 r^2\sin\theta\,dr\,d\theta', eA: 'Integral(r**2*sin(theta), (r, 0, 2), (theta, 0, 2*pi))', tB: '\int_0^{\pi}\!\int_0^2 r\sin\theta\,dr\,d\theta', eB: 'Integral(r*sin(theta), (r, 0, 2), (theta, 0, pi))', tC: '\int_0^{\pi}\!\int_0^2 r^2\sin\theta\,dr\,d\theta', eC: 'Integral(r**2*sin(theta), (r, 0, 2), (theta, 0, pi))', tD: '\int_0^{\pi/2}\!\int_0^2 r^2\sin\theta\,dr\,d\theta', eD: 'Integral(r**2*sin(theta), (r, 0, 2), (theta, 0, pi/2))', ans: 2}
+  - {rtex: the annulus $1 \le x^2 + y^2 \le 4$, ftex: '1', target: pi*4 - pi*1, tA: '\int_0^{2\pi}\!\int_1^2 r\,dr\,d\theta', eA: 'Integral(r, (r, 1, 2), (theta, 0, 2*pi))', tB: '\int_0^{2\pi}\!\int_1^4 r\,dr\,d\theta', eB: 'Integral(r, (r, 1, 4), (theta, 0, 2*pi))', tC: '\int_0^{2\pi}\!\int_1^2 dr\,d\theta', eC: 'Integral(1, (r, 1, 2), (theta, 0, 2*pi))', tD: '\int_0^{\pi}\!\int_1^2 r\,dr\,d\theta', eD: 'Integral(r, (r, 1, 2), (theta, 0, pi))', ans: 0}
+  - {rtex: the disc inside $r = 2\cos\theta$ (the circle $(x - 1)^2 + y^2 = 1$), ftex: '1', target: pi, tA: '\int_0^{2\pi}\!\int_0^{2\cos\theta} r\,dr\,d\theta', eA: 'Integral(r, (r, 0, 2*cos(theta)), (theta, 0, 2*pi))', tB: '\int_{-\pi/2}^{\pi/2}\!\int_0^{2\cos\theta} r\,dr\,d\theta', eB: 'Integral(r, (r, 0, 2*cos(theta)), (theta, -pi/2, pi/2))', tC: '\int_{-\pi/2}^{\pi/2}\!\int_0^{2\cos\theta} dr\,d\theta', eC: 'Integral(1, (r, 0, 2*cos(theta)), (theta, -pi/2, pi/2))', tD: '\int_0^{\pi/2}\!\int_0^{2\cos\theta} r\,dr\,d\theta', eD: 'Integral(r, (r, 0, 2*cos(theta)), (theta, 0, pi/2))', ans: 1}
+  - {rtex: the first-quadrant part of the disc $x^2 + y^2 \le 1$, ftex: 'e^{x^2 + y^2}', target: 'Integral(exp(x**2 + y**2), (y, 0, sqrt(1 - x**2)), (x, 0, 1))', tA: '\int_0^{\pi/2}\!\int_0^1 e^{r^2}\,dr\,d\theta', eA: 'Integral(exp(r**2), (r, 0, 1), (theta, 0, pi/2))', tB: '\int_0^{2\pi}\!\int_0^1 r e^{r^2}\,dr\,d\theta', eB: 'Integral(r*exp(r**2), (r, 0, 1), (theta, 0, 2*pi))', tC: '\int_0^{\pi/2}\!\int_0^1 r e^{r^2}\,dr\,d\theta', eC: 'Integral(r*exp(r**2), (r, 0, 1), (theta, 0, pi/2))', tD: '\int_0^{\pi}\!\int_0^1 r e^{r^2}\,dr\,d\theta', eD: 'Integral(r*exp(r**2), (r, 0, 1), (theta, 0, pi))', ans: 2}
+  prompt: Which polar integral equals $\displaystyle\iint_D {{ftex}}\,dA$ for $D$ = {{rtex}}? (A) ${{tA}}$ (B) ${{tB}}$ (C) ${{tC}}$ (D) ${{tD}}$
+  parts:
+  - ask: Setup
+    label: a
+    choice: *id001
+    correct: ans
+    explain: 'Use $x = r\cos\theta$, $y = r\sin\theta$, $x^2 + y^2 = r^2$ and $dA = r\,dr\,d\theta$. The θ range covers the region once: a full disc is $0$ to $2\pi$, the circle $r = 2\cos\theta$ is traced once for $-\pi/2 \le \theta \le \pi/2$'
+  verify: *id002
+- template: mvd-polar-value
+  skill: calc.multiple-integrals
+  pace: quick
+  cases:
+  - {rtex: the disc $x^2 + y^2 \le 4$, ftex: 'e^{-(x^2 + y^2)}', cart: 'Integral(exp(-(x**2 + y**2)), (y, -sqrt(4 - x**2), sqrt(4 - x**2)), (x, -2, 2))', ans: 3.0840523770111425}
+  - {rtex: the annulus $1 \le x^2 + y^2 \le 9$, ftex: '\dfrac{1}{x^2 + y^2}', cart: 2*pi*log(3), ans: 6.902784590446405}
+  - {rtex: the upper half of $x^2 + y^2 \le 9$, ftex: '\sqrt{x^2 + y^2}', cart: 'Integral(sqrt(x**2 + y**2), (y, 0, sqrt(9 - x**2)), (x, -3, 3))', ans: 28.274333882308138}
+  - {rtex: the first-quadrant part of $x^2 + y^2 \le 4$, ftex: xy, cart: 'Integral(x*y, (y, 0, sqrt(4 - x**2)), (x, 0, 2))', ans: 2.0}
+  - {rtex: the disc inside $r = 2\cos\theta$, ftex: x, cart: 'Integral(x, (y, -sqrt(1 - (x - 1)**2), sqrt(1 - (x - 1)**2)), (x, 0, 2))', ans: 3.141592653589793}
+  - {rtex: the region inside the cardioid $r = 1 + \cos\theta$, ftex: '1', cart: 3*pi/2, ans: 4.71238898038469}
+  prompt: Evaluate $\displaystyle\iint_D {{ftex}}\,dA$ over {{rtex}}.
+  parts:
+  - {ask: Value, label: a, value: ans, tol: 0.0001, explain: 'Switch to polar: $dA = r\,dr\,d\theta$, and $x^2 + y^2 = r^2$. The extra factor of $r$ is what makes $e^{-r^2}$ integrable'}
+  verify:
+    expect: {a: quad(cart)}
+- template: mvd-coordinates
+  skill: calc.multiple-integrals
+  pace: recall
+  cases:
+  - {s: 'the volume of the box 0 ≤ x ≤ 2, 0 ≤ y ≤ 3, 0 ≤ z ≤ 1', ans: 0}
+  - {s: the mass of a solid ball with density depending on distance from the center, ans: 2}
+  - {s: the volume under z = 4 − x² − y² and above z = 0, ans: 1}
+  - {s: the volume inside the cylinder x² + y² = 1 between z = 0 and z = 2, ans: 1}
+  - {s: the volume of the ice-cream cone inside x² + y² + z² = 4 and above z = √(x² + y²), ans: 2}
+  - {s: the volume of the tetrahedron x + y + z ≤ 1 in the first octant, ans: 0}
+  - {s: the integral of z over the spherical shell 1 ≤ ρ ≤ 2, ans: 2}
+  - {s: the volume between the paraboloids z = x² + y² and z = 8 − x² − y², ans: 1}
+  prompt: 'Which coordinates make this integral easiest: {{s}}?'
+  parts:
+  - ask: Coordinates
+    label: a
+    choice: ['Rectangular (x, y, z)', 'Cylindrical (r, θ, z)', 'Spherical (ρ, φ, θ)']
+    correct: ans
+    explain: 'Match the coordinates to the boundary: planes and boxes, rectangular; anything with x² + y² (cylinders, paraboloids, discs extruded upward), cylindrical; anything with x² + y² + z² or a cone from the origin (balls, shells, ice-cream cones), spherical'
+  verify: {authored: true}
+- template: mvd-jacobian
+  skill: calc.multiple-integrals
+  pace: quick
+  cases:
+  - {xtex: 'x = \tfrac{u + v}{2}', ytex: 'y = \tfrac{u - v}{2}', xs: (u + v)/2, ys: (u - v)/2, ans: 0.5}
+  - {xtex: x = 2u, ytex: y = 3v, xs: 2*u, ys: 3*v, ans: 6.0}
+  - {xtex: x = u\cos v, ytex: y = u\sin v, xs: u*cos(v), ys: u*sin(v), ans: 2.0}
+  - {xtex: x = u + v, ytex: y = v, xs: u + v, ys: v, ans: 1.0}
+  - {xtex: x = u/v, ytex: y = v, xs: u/v, ys: v, ans: 1.0}
+  - {xtex: x = 2u - v, ytex: y = u + 3v, xs: 2*u - v, ys: u + 3*v, ans: 7.0}
+  prompt: For the change of variables ${{xtex}}$, ${{ytex}}$, what is the area factor $\left|\partial(x, y)/\partial(u, v)\right|$ at $(u, v) = (2, 1)$?
+  parts:
+  - {ask: Jacobian, label: a, value: ans, tol: 0.0001, explain: '$dA = |J|\,du\,dv$ with $J = x_u y_v - x_v y_u$. For $x = u\cos v$, $y = u\sin v$ it is $u$: polar coordinates'' extra $r$. A linear map scales every area by the same $|\det|$'}
+  verify:
+    expect: {a: 'jac(xs, ys).subs({SE(''u''): 2, SE(''v''): 1})'}
+- template: mvd-triple-setup
+  skill: calc.multiple-integrals
+  pace: quick
+  cases:
+  - {stex: 'the tetrahedron $x, y, z \ge 0$, $x + y + z \le 1$', target: 'Rational(1, 6)', tA: '\int_0^1\!\int_0^{1-x}\!\int_0^{1-x-y} dz\,dy\,dx', eA: 'Integral(1, (z, 0, 1 - x - y), (y, 0, 1 - x), (x, 0, 1))', tB: '\int_0^1\!\int_0^{1}\!\int_0^{1-x-y} dz\,dy\,dx', eB: 'Integral(1, (z, 0, Max(0, 1 - x - y)), (y, 0, 1), (x, 0, 1)) + 1/10', tC: '\int_0^1\!\int_0^{1-x}\!\int_0^{1} dz\,dy\,dx', eC: 'Integral(1, (z, 0, 1), (y, 0, 1 - x), (x, 0, 1))', tD: '\int_0^1\!\int_0^{1}\!\int_0^{1} dz\,dy\,dx', eD: '1', ans: 0}
+  - {stex: the solid under $z = 4 - x^2 - y^2$ and above $z = 0$, target: 8*pi, tA: '\int_0^{2\pi}\!\int_0^2\!\int_0^{4 - r^2} r\,dz\,dr\,d\theta', eA: 'Integral(x, (z, 0, 4 - x**2), (x, 0, 2), (u, 0, 2*pi))', tB: '\int_0^{2\pi}\!\int_0^2\!\int_0^{4 - r^2} dz\,dr\,d\theta', eB: 'Integral(1, (z, 0, 4 - x**2), (x, 0, 2), (u, 0, 2*pi))', tC: '\int_0^{2\pi}\!\int_0^4\!\int_0^{4 - r^2} r\,dz\,dr\,d\theta', eC: 'Integral(x, (z, 0, 4 - x**2), (x, 0, 4), (u, 0, 2*pi))', tD: '\int_0^{\pi}\!\int_0^2\!\int_0^{4 - r^2} r\,dz\,dr\,d\theta', eD: 'Integral(x, (z, 0, 4 - x**2), (x, 0, 2), (u, 0, pi))', ans: 0}
+  - {stex: the ball $x^2 + y^2 + z^2 \le 9$, target: 4*pi*27/3, tA: '\int_0^{2\pi}\!\int_0^{\pi}\!\int_0^3 \rho^2\sin\varphi\,d\rho\,d\varphi\,d\theta', eA: 'Integral(t**2*sin(v), (t, 0, 3), (v, 0, pi), (u, 0, 2*pi))', tB: '\int_0^{2\pi}\!\int_0^{2\pi}\!\int_0^3 \rho^2\sin\varphi\,d\rho\,d\varphi\,d\theta', eB: 'Integral(t**2*Abs(sin(v)), (t, 0, 3), (v, 0, 2*pi), (u, 0, 2*pi))', tC: '\int_0^{2\pi}\!\int_0^{\pi}\!\int_0^3 \rho\sin\varphi\,d\rho\,d\varphi\,d\theta', eC: 'Integral(t*sin(v), (t, 0, 3), (v, 0, pi), (u, 0, 2*pi))', tD: '\int_0^{2\pi}\!\int_0^{\pi}\!\int_0^3 \rho^2\,d\rho\,d\varphi\,d\theta', eD: 'Integral(t**2, (t, 0, 3), (v, 0, pi), (u, 0, 2*pi))', ans: 0}
+  - {stex: the ice-cream cone inside $\rho = 2$ and above the cone $\varphi = \pi/4$, target: 'Integral(t**2*sin(v), (t, 0, 2), (v, 0, pi/4), (u, 0, 2*pi))', tA: '\int_0^{2\pi}\!\int_{\pi/4}^{\pi}\!\int_0^2 \rho^2\sin\varphi\,d\rho\,d\varphi\,d\theta', eA: 'Integral(t**2*sin(v), (t, 0, 2), (v, pi/4, pi), (u, 0, 2*pi))', tB: '\int_0^{2\pi}\!\int_0^{\pi/4}\!\int_0^2 \rho^2\sin\varphi\,d\rho\,d\varphi\,d\theta', eB: 'Integral(t**2*sin(v), (t, 0, 2), (v, 0, pi/4), (u, 0, 2*pi))', tC: '\int_0^{\pi/4}\!\int_0^{2\pi}\!\int_0^2 \rho^2\sin\varphi\,d\rho\,d\varphi\,d\theta', eC: 'Integral(t**2*Abs(sin(v)), (t, 0, 2), (v, 0, 2*pi), (u, 0, pi/4))', tD: '\int_0^{2\pi}\!\int_0^{\pi/4}\!\int_0^2 \rho\,d\rho\,d\varphi\,d\theta', eD: 'Integral(t, (t, 0, 2), (v, 0, pi/4), (u, 0, 2*pi))', ans: 1}
+  - {stex: 'the cylinder $x^2 + y^2 \le 9$, $0 \le z \le 3$, with density $z$', target: 'Integral(z, (z, 0, 3), (y, -sqrt(9 - x**2), sqrt(9 - x**2)), (x, -3, 3))', tA: '\int_0^{2\pi}\!\int_0^3\!\int_0^3 z\,dz\,dr\,d\theta', eA: 'Integral(z, (z, 0, 3), (x, 0, 3), (u, 0, 2*pi))', tB: '\int_0^{2\pi}\!\int_0^3\!\int_0^3 zr\,dz\,dr\,d\theta', eB: 'Integral(z*x, (z, 0, 3), (x, 0, 3), (u, 0, 2*pi))', tC: '\int_0^{2\pi}\!\int_0^9\!\int_0^3 zr\,dz\,dr\,d\theta', eC: 'Integral(z*x, (z, 0, 3), (x, 0, 9), (u, 0, 2*pi))', tD: '\int_0^{\pi}\!\int_0^3\!\int_0^3 zr\,dz\,dr\,d\theta', eD: 'Integral(z*x, (z, 0, 3), (x, 0, 3), (u, 0, pi))', ans: 1}
+  prompt: Which integral gives the volume (or the mass, where a density is given) of {{stex}}? (A) ${{tA}}$ (B) ${{tB}}$ (C) ${{tC}}$ (D) ${{tD}}$
+  parts:
+  - ask: Setup
+    label: a
+    choice: *id001
+    correct: ans
+    explain: 'Cylindrical: $dV = r\,dz\,dr\,d\theta$. Spherical: $dV = \rho^2\sin\varphi\,d\rho\,d\varphi\,d\theta$ with $0 \le \varphi \le \pi$ measured down from the $+z$ axis. Rectangular: inner limits are surfaces, middle limits curves, outer limits numbers'
+  verify: *id002
+- template: mvd-triple-value
+  skill: calc.multiple-integrals
+  pace: quick
+  cases:
+  - {stex: the solid under $z = 4 - x^2 - y^2$ and above the $xy$-plane, check: 'Integral(4 - x**2 - y**2, (y, -sqrt(4 - x**2), sqrt(4 - x**2)), (x, -2, 2))', ans: 25.132741228718345}
+  - {stex: 'the ice-cream cone inside $x^2 + y^2 + z^2 = 4$ and above $z = \sqrt{x^2 + y^2}$', check: 'Integral(2*pi*x*(sqrt(4 - x**2) - x), (x, 0, sqrt(2)))', ans: 4.907472984056588}
+  - {stex: the region between $z = x^2 + y^2$ and $z = 8 - x^2 - y^2$, check: 'Integral(8 - 2*x**2 - 2*y**2, (y, -sqrt(4 - x**2), sqrt(4 - x**2)), (x, -2, 2))', ans: 50.26548245743669}
+  - {stex: the spherical shell $1 \le x^2 + y^2 + z^2 \le 4$, check: 4*pi*(8 - 1)/3, ans: 29.321531433504738}
+  - {stex: the solid inside $x^2 + y^2 = 1$ between $z = 0$ and $z = 2 - x$, check: 'Integral(2 - x, (y, -sqrt(1 - x**2), sqrt(1 - x**2)), (x, -1, 1))', ans: 6.283185307179586}
+  - {stex: the tetrahedron bounded by the coordinate planes and $2x + 3y + z = 6$, check: '6', ans: 6.0}
+  - {stex: 'the solid inside the cone $z = \sqrt{x^2 + y^2}$ below $z = 3$', check: pi*9*3/3, ans: 28.274333882308138}
+  prompt: Find the volume of {{stex}}.
+  parts:
+  - {ask: Volume, label: a, value: ans, tol: 0.0001, explain: 'Choose the coordinates that match the boundaries, find where the surfaces meet (that sets the outer region), and include the volume factor ($r$ or $\rho^2\sin\varphi$)'}
+  verify:
+    expect: {a: quad(check)}
+- template: mvd-center-mass
+  skill: calc.multiple-integrals
+  pace: quick
+  cases:
+  - {ltex: 'the upper half disc $x^2 + y^2 \le 9$, $y \ge 0$, uniform density', ans: 1.2732395447351628, check: 'Integral(y, (y, 0, sqrt(9 - x**2)), (x, -3, 3))/Integral(1, (y, 0, sqrt(9 - x**2)), (x, -3, 3))', ck: 1}
+  - {ltex: 'the triangle with vertices $(0, 0)$, $(3, 0)$, $(0, 3)$, uniform density', ans: 1.0, check: 'Integral(x, (y, 0, 3 - x), (x, 0, 3))/Integral(1, (y, 0, 3 - x), (x, 0, 3))', ck: 0}
+  - {ltex: 'the square $0 \le x \le 2$, $0 \le y \le 2$ with density $x$', ans: 1.3333333333333333, check: 'Integral(x*x, (y, 0, 2), (x, 0, 2))/Integral(x, (y, 0, 2), (x, 0, 2))', ck: 0}
+  - {ltex: 'the region under $y = x^2$ for $0 \le x \le 1$, uniform density', ans: 0.75, check: 'Integral(x, (y, 0, x**2), (x, 0, 1))/Integral(1, (y, 0, x**2), (x, 0, 1))', ck: 0}
+  - {ltex: 'the region under $y = x^2$ for $0 \le x \le 1$, uniform density', ans: 0.3, check: 'Integral(y, (y, 0, x**2), (x, 0, 1))/Integral(1, (y, 0, x**2), (x, 0, 1))', ck: 1}
+  - {ltex: 'the quarter disc $x^2 + y^2 \le 4$ in the first quadrant, uniform density', ans: 0.8488263631567752, check: 'Integral(x, (y, 0, sqrt(4 - x**2)), (x, 0, 2))/Integral(1, (y, 0, sqrt(4 - x**2)), (x, 0, 2))', ck: 0}
+  prompt: 'Find {{ck == 0 ? "x̄" : "ȳ"}}, the center-of-mass coordinate, for {{ltex}}.'
+  parts:
+  - {ask: Coordinate, label: a, value: ans, tol: 0.0001, explain: '$\bar x = \dfrac{1}{M}\iint x\,\delta\,dA$, $\bar y = \dfrac{1}{M}\iint y\,\delta\,dA$, $M = \iint\delta\,dA$. Use symmetry first: a coordinate on an axis of symmetry is known without integrating'}
+  verify:
+    expect: {a: quad(check)}
+- template: mvd-conservative
+  skill: calc.vector-calculus
+  pace: quick
+  cases:
+  - {Ftex: '\langle 2xy,\ x^2 \rangle', P: 2*x*y, Q: x**2, R: '0', ans: 0}
+  - {Ftex: '\langle y,\ -x \rangle', P: y, Q: -x, R: '0', ans: 1}
+  - {Ftex: '\langle e^{x}\cos y,\ -e^{x}\sin y \rangle', P: exp(x)*cos(y), Q: -exp(x)*sin(y), R: '0', ans: 0}
+  - {Ftex: '\langle x + y,\ x - y \rangle', P: x + y, Q: x - y, R: '0', ans: 0}
+  - {Ftex: '\langle y^2,\ xy \rangle', P: y**2, Q: x*y, R: '0', ans: 1}
+  - {Ftex: '\langle 3x^2 y,\ x^3 + 2y \rangle', P: 3*x**2*y, Q: x**3 + 2*y, R: '0', ans: 0}
+  - {Ftex: '\langle yz,\ xz,\ xy \rangle', P: y*z, Q: x*z, R: x*y, ans: 0}
+  - {Ftex: '\langle y,\ z,\ x \rangle', P: y, Q: z, R: x, ans: 1}
+  - {Ftex: '\langle 2x,\ 2y,\ 2z \rangle', P: 2*x, Q: 2*y, R: 2*z, ans: 0}
+  - {Ftex: '\langle y,\ x + z,\ y \rangle', P: y, Q: x + z, R: y, ans: 0}
+  - {Ftex: '\langle z,\ 0,\ -x \rangle', P: z, Q: '0', R: -x, ans: 1}
+  prompt: Is $\mathbf F = {{Ftex}}$ conservative (on all of space)?
+  parts:
+  - ask: Conservative?
+    label: a
+    choice: ['Yes: curl F = 0 on a simply connected domain', 'No']
+    correct: ans
+    explain: In the plane, test $\partial Q/\partial x = \partial P/\partial y$; in space, test curl F = 0. On a simply connected domain that is enough for a potential to exist
+  verify:
+    choices: {a: 'is_conservative(P, Q, R)'}
+- template: mvd-potential-work
+  skill: calc.vector-calculus
+  pace: quick
+  cases:
+  - {Ftex: '\langle 2xy,\ x^2 \rangle', P: 2*x*y, Q: x**2, R: '0', A: '(0, 0)', B: '(2, 3)', rx: 2*t, ry: 3*t, rz: '0', ans: 12.0}
+  - {Ftex: '\langle e^{x}\cos y,\ -e^{x}\sin y \rangle', P: exp(x)*cos(y), Q: -exp(x)*sin(y), R: '0', A: '(0, 0)', B: '(1, \pi)', rx: t, ry: pi*t, rz: '0', ans: -3.718281828459045}
+  - {Ftex: '\langle 3x^2 y,\ x^3 + 2y \rangle', P: 3*x**2*y, Q: x**3 + 2*y, R: '0', A: '(1, 1)', B: '(2, 3)', rx: 1 + t, ry: 1 + 2*t, rz: '0', ans: 31.0}
+  - {Ftex: '\langle yz,\ xz,\ xy \rangle', P: y*z, Q: x*z, R: x*y, A: '(0, 0, 0)', B: '(1, 2, 3)', rx: t, ry: 2*t, rz: 3*t, ans: 6.0}
+  - {Ftex: '\langle 2x,\ 2y,\ 2z \rangle', P: 2*x, Q: 2*y, R: 2*z, A: '(1, 0, 0)', B: '(0, 2, 2)', rx: 1 - t, ry: 2*t, rz: 2*t, ans: 7.0}
+  - {Ftex: '\langle y,\ x + z,\ y \rangle', P: y, Q: x + z, R: y, A: '(0, 0, 0)', B: '(1, 1, 1)', rx: t, ry: t, rz: t, ans: 2.0}
+  prompt: $\mathbf F = {{Ftex}}$ is conservative. What is $\displaystyle\int_C \mathbf F\cdot d\mathbf r$ along any path from ${{A}}$ to ${{B}}$?
+  parts:
+  - {ask: Work, label: a, value: ans, tol: 0.0001, explain: 'Find a potential $f$ with $\nabla f = \mathbf F$ (integrate $P$ in $x$, then fix the constant with $Q$ and $R$). Then the work is $f(B) - f(A)$, whatever the path'}
+  verify:
+    expect: {a: 'line_work(P, Q, R, rx, ry, rz, 0, 1)'}
+- template: mvd-work
+  skill: calc.vector-calculus
+  pace: quick
+  cases:
+  - {Ftex: '\langle -y,\ x \rangle', P: -y, Q: x, ctex: 'the quarter circle $x^2 + y^2 = 4$ from $(2, 0)$ to $(0, 2)$, counterclockwise', rx: 2*cos(t), ry: 2*sin(t), t0: '0', t1: pi/2, ans: 6.283185307179586}
+  - {Ftex: '\langle y,\ x^2 \rangle', P: y, Q: x**2, ctex: 'the parabola $y = x^2$ from $(0, 0)$ to $(1, 1)$', rx: t, ry: t**2, t0: '0', t1: '1', ans: 0.8333333333333334}
+  - {Ftex: '\langle y,\ x^2 \rangle', P: y, Q: x**2, ctex: 'the straight segment from $(0, 0)$ to $(1, 1)$', rx: t, ry: t, t0: '0', t1: '1', ans: 0.8333333333333334}
+  - {Ftex: '\langle xy,\ y^2 \rangle', P: x*y, Q: y**2, ctex: 'the segment from $(0, 0)$ to $(2, 1)$', rx: 2*t, ry: t, t0: '0', t1: '1', ans: 1.6666666666666667}
+  - {Ftex: '\langle y^2,\ x \rangle', P: y**2, Q: x, ctex: 'the upper half of the unit circle from $(1, 0)$ to $(-1, 0)$', rx: cos(t), ry: sin(t), t0: '0', t1: pi, ans: 0.2374629934615633}
+  - {Ftex: '\langle x - y,\ x + y \rangle', P: x - y, Q: x + y, ctex: 'the full circle $x^2 + y^2 = 9$, counterclockwise', rx: 3*cos(t), ry: 3*sin(t), t0: '0', t1: 2*pi, ans: 56.548667764616276}
+  prompt: Compute $\displaystyle\int_C \mathbf F\cdot d\mathbf r$ for $\mathbf F = {{Ftex}}$ along {{ctex}}.
+  parts:
+  - {ask: Work, label: a, value: ans, tol: 0.0001, explain: 'Parametrise $C$ as $\mathbf r(t)$, then integrate $\mathbf F(\mathbf r(t))\cdot\mathbf r''(t)\,dt$. For a field that is not conservative, different paths between the same points give different answers (compare the parabola and the segment)'}
+  verify:
+    expect: {a: 'line_work(P, Q, ''0'', rx, ry, ''0'', t0, t1)'}
+- template: mvd-scalar-line
+  skill: calc.vector-calculus
+  pace: quick
+  cases:
+  - {ftex: x + y, f: x + y, ctex: 'the segment from $(0, 0)$ to $(3, 4)$', rx: 3*t, ry: 4*t, rz: '0', t0: '0', t1: '1', ans: 17.5}
+  - {ftex: x^2 + y^2, f: x**2 + y**2, ctex: the circle of radius 2 about the origin, rx: 2*cos(t), ry: 2*sin(t), rz: '0', t0: '0', t1: 2*pi, ans: 50.26548245743669}
+  - {ftex: z, f: z, ctex: 'the helix $\langle\cos t, \sin t, t\rangle$, $0 \le t \le 2\pi$', rx: cos(t), ry: sin(t), rz: t, t0: '0', t1: 2*pi, ans: 27.915456798555518}
+  - {ftex: y, f: y, ctex: the upper half of the unit circle, rx: cos(t), ry: sin(t), rz: '0', t0: '0', t1: pi, ans: 2.0}
+  - {ftex: xy, f: x*y, ctex: the quarter circle of radius 3 in the first quadrant, rx: 3*cos(t), ry: 3*sin(t), rz: '0', t0: '0', t1: pi/2, ans: 13.5}
+  - {ftex: '1', f: '1', ctex: 'the curve $\langle t^2, t^3 \rangle$, $0 \le t \le 1$ (its length)', rx: t**2, ry: t**3, rz: '0', t0: '0', t1: '1', ans: 1.4397098733715503}
+  prompt: Compute $\displaystyle\int_C {{ftex}}\,ds$ along {{ctex}}.
+  parts:
+  - {ask: Integral, label: a, value: ans, tol: 0.0001, explain: '$ds = |\mathbf r''(t)|\,dt$: the speed, not $dt$. A scalar line integral does not depend on direction; $\int_C ds$ is the length'}
+  verify:
+    expect: {a: 'line_scalar(f, rx, ry, rz, t0, t1)'}
+- template: mvd-green
+  skill: calc.vector-calculus
+  pace: quick
+  cases:
+  - {Ftex: '\langle -y,\ x \rangle', P: -y, Q: x, ctex: 'the circle of radius 3, counterclockwise', pieces: 3*cos(t)|3*sin(t)|0|2*pi, ans: 56.548667764616276}
+  - {Ftex: '\langle xy,\ x^2 \rangle', P: x*y, Q: x**2, ctex: 'the boundary of the square $[0, 1]\times[0, 1]$, counterclockwise', pieces: t|0|0|1;1|t|0|1;1 - t|1|0|1;0|1 - t|0|1, ans: 0.5}
+  - {Ftex: '\langle y^2,\ 3xy \rangle', P: y**2, Q: 3*x*y, ctex: 'the boundary of the triangle $(0, 0)$, $(1, 0)$, $(0, 1)$, counterclockwise', pieces: t|0|0|1;1 - t|t|0|1;0|1 - t|0|1, ans: 0.16666666666666666}
+  - {Ftex: '\langle x - y,\ x + y \rangle', P: x - y, Q: x + y, ctex: 'the circle of radius 2, counterclockwise', pieces: 2*cos(t)|2*sin(t)|0|2*pi, ans: 25.132741228718345}
+  - {Ftex: '\langle -y^3,\ x^3 \rangle', P: -y**3, Q: x**3, ctex: 'the unit circle, counterclockwise', pieces: cos(t)|sin(t)|0|2*pi, ans: 4.71238898038469}
+  - {Ftex: '\langle e^{x} - y,\ \cos y + 2x \rangle', P: exp(x) - y, Q: cos(y) + 2*x, ctex: 'the ellipse $x^2/4 + y^2 = 1$, counterclockwise', pieces: 2*cos(t)|sin(t)|0|2*pi, ans: 18.84955592153876}
+  - {Ftex: '\langle -y,\ x \rangle', P: -y, Q: x, ctex: 'the circle of radius 3, clockwise', pieces: 3*cos(t)|-3*sin(t)|0|2*pi, ans: -56.548667764616276}
+  prompt: Use Green's theorem to find $\displaystyle\oint_C \mathbf F\cdot d\mathbf r$ for $\mathbf F = {{Ftex}}$ around {{ctex}}.
+  parts:
+  - {ask: Circulation, label: a, value: ans, tol: 0.0001, explain: '$\oint_C P\,dx + Q\,dy = \iint_D (Q_x - P_y)\,dA$ for $C$ counterclockwise (the region on the left); clockwise flips the sign. When $Q_x - P_y$ is constant, the answer is that constant times the area'}
+  verify:
+    expect: {a: 'closed_work(P, Q, pieces)'}
+- template: mvd-flux-plane
+  skill: calc.vector-calculus
+  pace: quick
+  cases:
+  - {Ftex: '\langle x,\ y \rangle', P: x, Q: y, ctex: the circle of radius 2, pieces: 2*cos(t)|2*sin(t)|0|2*pi, ans: 25.132741228718345}
+  - {Ftex: '\langle x^2,\ y^2 \rangle', P: x**2, Q: y**2, ctex: 'the boundary of the square $[0, 1]\times[0, 1]$', pieces: t|0|0|1;1|t|0|1;1 - t|1|0|1;0|1 - t|0|1, ans: 2.0}
+  - {Ftex: '\langle 3x,\ -y \rangle', P: 3*x, Q: -y, ctex: the circle of radius 3, pieces: 3*cos(t)|3*sin(t)|0|2*pi, ans: 56.548667764616276}
+  - {Ftex: '\langle xy,\ y \rangle', P: x*y, Q: y, ctex: 'the boundary of the triangle $(0, 0)$, $(2, 0)$, $(0, 2)$', pieces: 2*t|0|0|1;2 - 2*t|2*t|0|1;0|2 - 2*t|0|1, ans: 3.3333333333333335}
+  - {Ftex: '\langle x^3,\ y^3 \rangle', P: x**3, Q: y**3, ctex: the unit circle, pieces: cos(t)|sin(t)|0|2*pi, ans: 4.71238898038469}
+  prompt: Find the outward flux of $\mathbf F = {{Ftex}}$ across {{ctex}}.
+  parts:
+  - {ask: Flux, label: a, value: ans, tol: 0.0001, explain: 'Green''s theorem in flux form: $\oint_C \mathbf F\cdot\mathbf n\,ds = \oint_C P\,dy - Q\,dx = \iint_D (P_x + Q_y)\,dA$, the divergence summed over the inside'}
+  verify:
+    expect: {a: 'closed_flux2(P, Q, pieces)'}
+- template: mvd-div-curl
+  skill: calc.vector-calculus
+  pace: quick
+  cases:
+  - {Ftex: '\langle x^2 y,\ yz,\ xz^2 \rangle', P: x**2*y, Q: y*z, R: x*z**2, px: 1, py: 2, pz: 1, ck: 0, ans: 7.0}
+  - {Ftex: '\langle e^{x},\ \sin y,\ z^3 \rangle', P: exp(x), Q: sin(y), R: z**3, px: 0, py: 0, pz: 1, ck: 0, ans: 5.0}
+  - {Ftex: '\langle xy,\ y^2,\ yz \rangle', P: x*y, Q: y**2, R: y*z, px: 1, py: 1, pz: 1, ck: 0, ans: 4.0}
+  - {Ftex: '\langle -y,\ x,\ 0 \rangle', P: -y, Q: x, R: '0', px: 3, py: 1, pz: 0, ck: 1, ans: 2.0}
+  - {Ftex: '\langle y^2,\ xz,\ x \rangle', P: y**2, Q: x*z, R: x, px: 1, py: 2, pz: 3, ck: 1, ans: -1.0}
+  - {Ftex: '\langle z,\ x,\ y \rangle', P: z, Q: x, R: y, px: 0, py: 0, pz: 0, ck: 2, ans: 1.0}
+  - {Ftex: '\langle xyz,\ x^2,\ y \rangle', P: x*y*z, Q: x**2, R: y, px: 1, py: 1, pz: 1, ck: 2, ans: 1.0}
+  prompt: 'For $\mathbf F = {{Ftex}}$, what is {{ck == 0 ? "div F" : (ck == 1 ? "the z-component of curl F" : "the x-component of curl F")}} at $({{px}}, {{py}}, {{pz}})$?'
+  parts:
+  - {ask: Value, label: a, value: ans, tol: 0.0001, explain: 'div F $= P_x + Q_y + R_z$ (a scalar: net outflow per volume). curl F $= \langle R_y - Q_z,\ P_z - R_x,\ Q_x - P_y\rangle$ (a vector: twice the local rotation rate)'}
+  verify:
+    expect: {a: '[mv_at(mv_d(P, ''x'') + mv_d(Q, ''y'') + mv_d(R, ''z''), px, py, pz), mv_at(mv_d(Q, ''x'') - mv_d(P, ''y''), px, py, pz), mv_at(mv_d(R, ''y'') - mv_d(Q, ''z''), px, py, pz)][ck]'}
+- template: mvd-div-curl-facts
+  skill: calc.vector-calculus
+  pace: recall
+  cases:
+  - {s: curl(∇f) for a smooth scalar function f is…, ans: 0}
+  - {s: div(curl F) for a smooth vector field F is…, ans: 0}
+  - {s: 'div(∇f), the Laplacian of f, is…', ans: 1}
+  - {s: curl(div F) is…, ans: 2}
+  - {s: '∇(div F), the gradient of the divergence, is…', ans: 1}
+  - {s: div(f) for a scalar function f is…, ans: 2}
+  - {s: curl(curl F) is…, ans: 1}
+  prompt: '{{s}}'
+  parts:
+  - ask: Answer
+    label: a
+    choice: [Always zero, Not always zero, 'Meaningless: wrong kind of input']
+    correct: ans
+    explain: 'curl(grad f) = 0 and div(curl F) = 0 for smooth fields: the two identities behind conservative fields and vector potentials. grad takes a scalar, div and curl take vector fields; div produces a scalar, curl a vector'
+  verify: {authored: true}
+- template: mvd-surface-integral
+  skill: calc.vector-calculus
+  pace: quick
+  cases:
+  - {stex: the sphere of radius 3, f: '1', sx: 3*sin(u)*cos(v), sy: 3*sin(u)*sin(v), sz: 3*cos(u), u0: '0', u1: pi, v0: '0', v1: 2*pi, ans: 113.09733552923255}
+  - {stex: 'the part of the plane $z = 2 + x + y$ above the square $[0, 1]\times[0, 1]$', f: '1', sx: u, sy: v, sz: 2 + u + v, u0: '0', u1: '1', v0: '0', v1: '1', ans: 1.7320508075688772}
+  - {stex: the paraboloid $z = x^2 + y^2$ below $z = 1$, f: '1', sx: u*cos(v), sy: u*sin(v), sz: u**2, u0: '0', u1: '1', v0: '0', v1: 2*pi, ans: 5.330413500268973}
+  - {stex: 'the cone $z = \sqrt{x^2 + y^2}$ for $0 \le z \le 2$', f: '1', sx: u*cos(v), sy: u*sin(v), sz: u, u0: '0', u1: '2', v0: '0', v1: 2*pi, ans: 17.771531752633464}
+  - {stex: the cylinder $x^2 + y^2 = 4$ for $0 \le z \le 5$, f: '1', sx: 2*cos(v), sy: 2*sin(v), sz: u, u0: '0', u1: '5', v0: '0', v1: 2*pi, ans: 62.83185307179586}
+  - {stex: 'the upper hemisphere of radius 2, with $f = z$', f: z, sx: 2*sin(u)*cos(v), sy: 2*sin(u)*sin(v), sz: 2*cos(u), u0: '0', u1: pi/2, v0: '0', v1: 2*pi, ans: 25.132741228718345}
+  prompt: Compute $\displaystyle\iint_S f\,dS$ for {{stex}} (with $f = 1$ unless stated, which gives the area).
+  parts:
+  - {ask: Value, label: a, value: ans, tol: 0.0001, explain: 'Parametrise $S$ by $\mathbf r(u, v)$; then $dS = |\mathbf r_u\times\mathbf r_v|\,du\,dv$. Sphere of radius $a$: $a^2\sin\varphi$. Graph $z = g(x, y)$: $\sqrt{1 + g_x^2 + g_y^2}$. Cylinder of radius $a$: $a$'}
+  verify:
+    expect: {a: 'surface_scalar(f, sx, sy, sz, u0, u1, v0, v1)'}
+- template: mvd-flux
+  skill: calc.vector-calculus
+  pace: quick
+  cases:
+  - {Ftex: '\langle x, y, z\rangle', P: x, Q: y, R: z, stex: 'the sphere of radius 2, outward', sx: 2*sin(u)*cos(v), sy: 2*sin(u)*sin(v), sz: 2*cos(u), u0: '0', u1: pi, v0: '0', v1: 2*pi, sgn: 1, ans: 100.53096491487338}
+  - {Ftex: '\langle 0, 0, z\rangle', P: '0', Q: '0', R: z, stex: 'the upper hemisphere of radius 1, outward (upward)', sx: sin(u)*cos(v), sy: sin(u)*sin(v), sz: cos(u), u0: '0', u1: pi/2, v0: '0', v1: 2*pi, sgn: 1, ans: 2.0943951023931957}
+  - {Ftex: '\langle x, y, 0\rangle', P: x, Q: y, R: '0', stex: 'the cylinder $x^2 + y^2 = 1$, $0 \le z \le 3$, outward', sx: cos(v), sy: sin(v), sz: u, u0: '0', u1: '3', v0: '0', v1: 2*pi, sgn: -1, ans: 18.84955592153876}
+  - {Ftex: '\langle 0, 0, 3\rangle', P: '0', Q: '0', R: '3', stex: 'the disc $x^2 + y^2 \le 4$ in the plane $z = 1$, upward', sx: u*cos(v), sy: u*sin(v), sz: '1', u0: '0', u1: '2', v0: '0', v1: 2*pi, sgn: 1, ans: 37.69911184307752}
+  - {Ftex: '\langle y, -x, z\rangle', P: y, Q: -x, R: z, stex: 'the paraboloid $z = 4 - x^2 - y^2$, $z \ge 0$, upward', sx: u*cos(v), sy: u*sin(v), sz: 4 - u**2, u0: '0', u1: '2', v0: '0', v1: 2*pi, sgn: 1, ans: 25.132741228718345}
+  - {Ftex: '\langle x, 0, 0\rangle', P: x, Q: '0', R: '0', stex: 'the plane $x + y + z = 1$ in the first octant, upward', sx: u, sy: v*(1 - u), sz: 1 - u - v*(1 - u), u0: '0', u1: '1', v0: '0', v1: '1', sgn: 1, ans: 0.16666666666666666}
+  prompt: Find the flux $\displaystyle\iint_S \mathbf F\cdot\mathbf n\,dS$ of $\mathbf F = {{Ftex}}$ through {{stex}}.
+  parts:
+  - {ask: Flux, label: a, value: ans, tol: 0.0001, explain: '$\iint_S \mathbf F\cdot\mathbf n\,dS = \iint_D \mathbf F(\mathbf r(u, v))\cdot(\mathbf r_u\times\mathbf r_v)\,du\,dv$, with the cross product pointing the way the orientation asks (flip the sign if not). For a graph $z = g$, upward: $\iint(-Pg_x - Qg_y + R)\,dA$'}
+  verify:
+    expect: {a: 'surface_flux(P, Q, R, sx, sy, sz, u0, u1, v0, v1, sgn)'}
+- template: mvd-divergence-theorem
+  skill: calc.vector-calculus
+  pace: quick
+  cases:
+  - {Ftex: '\langle x, y, z\rangle', P: x, Q: y, R: z, side: 2, ans: 24.0}
+  - {Ftex: '\langle x^2, y^2, z^2\rangle', P: x**2, Q: y**2, R: z**2, side: 1, ans: 3.0}
+  - {Ftex: '\langle xy, yz, zx\rangle', P: x*y, Q: y*z, R: z*x, side: 2, ans: 24.0}
+  - {Ftex: '\langle 2x, -y, 3z\rangle', P: 2*x, Q: -y, R: 3*z, side: 3, ans: 108.0}
+  - {Ftex: '\langle x^3, 0, 0\rangle', P: x**3, Q: '0', R: '0', side: 1, ans: 1.0}
+  - {Ftex: '\langle e^{x}, 0, z\rangle', P: exp(x), Q: '0', R: z, side: 1, ans: 2.718281828459045}
+  prompt: Use the divergence theorem to find the outward flux of $\mathbf F = {{Ftex}}$ through the surface of the cube $[0, {{side}}]^3$.
+  parts:
+  - {ask: Flux, label: a, value: ans, tol: 0.0001, explain: 'Outward flux through a closed surface $= \iiint_E \operatorname{div}\mathbf F\,dV$. When div F is constant the answer is that constant times the volume'}
+  verify:
+    expect: {a: 'box_flux(P, Q, R, side)'}
+- template: mvd-stokes
+  skill: calc.vector-calculus
+  pace: quick
+  cases:
+  - {Ftex: '\langle -y,\ x,\ z \rangle', P: -y, Q: x, R: z, ctex: 'the circle $x^2 + y^2 = 4$ in the plane $z = 3$, counterclockwise seen from above', rx: 2*cos(t), ry: 2*sin(t), rz: '3', ans: 25.132741228718345}
+  - {Ftex: '\langle y,\ z,\ x \rangle', P: y, Q: z, R: x, ctex: 'the unit circle in the $xy$-plane, counterclockwise seen from above', rx: cos(t), ry: sin(t), rz: '0', ans: -3.141592653589793}
+  - {Ftex: '\langle z,\ x,\ y \rangle', P: z, Q: x, R: y, ctex: 'the unit circle in the plane $z = 2$, counterclockwise seen from above', rx: cos(t), ry: sin(t), rz: '2', ans: 3.141592653589793}
+  - {Ftex: '\langle -y^3,\ x^3,\ 0 \rangle', P: -y**3, Q: x**3, R: '0', ctex: 'the unit circle in the plane $z = 5$, counterclockwise seen from above', rx: cos(t), ry: sin(t), rz: '5', ans: 4.71238898038469}
+  - {Ftex: '\langle -y,\ x,\ z \rangle', P: -y, Q: x, R: z, ctex: 'the circle $x^2 + y^2 = 4$ in the plane $z = 3$, clockwise seen from above', rx: 2*cos(t), ry: -2*sin(t), rz: '3', ans: -25.132741228718345}
+  prompt: Use Stokes' theorem to find $\displaystyle\oint_C \mathbf F\cdot d\mathbf r$ for $\mathbf F = {{Ftex}}$ around {{ctex}}.
+  parts:
+  - {ask: Circulation, label: a, value: ans, tol: 0.0001, explain: '$\oint_C \mathbf F\cdot d\mathbf r = \iint_S (\nabla\times\mathbf F)\cdot\mathbf n\,dS$ for any surface $S$ with boundary $C$; the right-hand rule ties the direction of $C$ to $\mathbf n$. Pick the flattest $S$ (here the disc), where $\mathbf n = \pm\mathbf k$'}
+  verify:
+    expect: {a: 'line_work(P, Q, R, rx, ry, rz, 0, 2*pi)'}
+- template: mvd-orientation
+  skill: calc.vector-calculus
+  pace: recall
+  cases:
+  - {s: 'Which way must C run for Green''s theorem as usually written?', ans: 0}
+  - {s: 'Which normal does the divergence theorem use?', ans: 1}
+  - {s: 'In Stokes'' theorem, how are the direction of C and the normal n linked?', ans: 2}
+  - {s: 'You parametrise a closed curve clockwise instead. What happens to a circulation?', ans: 3}
+  - {s: 'Your r_u × r_v points into a closed surface. What happens to the flux if you use it?', ans: 3}
+  - {s: 'For a region with a hole, which way must its inner boundary run in Green''s theorem?', ans: 0}
+  prompt: '{{s}}'
+  parts:
+  - ask: Answer
+    label: a
+    choice: [Region kept on the left (counterclockwise for an outer boundary), Outward normal, 'By the right-hand rule: fingers along C, thumb along n', The sign of the answer flips]
+    correct: ans
+    explain: 'Every big theorem comes with an orientation: Green''s needs C counterclockwise, the divergence theorem the outward normal, Stokes'' a curve and normal matched by the right-hand rule. Reversing the orientation reverses the sign'
+  verify: {authored: true}
+- template: mvd-which-theorem
+  skill: calc.vector-calculus
+  pace: recall
+  cases:
+  - {s: ∫_C ∇f · dr along a curve from A to B, ans: 0}
+  - {s: 'The circulation of a field around a closed curve in the xy-plane, as a double integral', ans: 1}
+  - {s: The outward flux through the surface of a solid, ans: 3}
+  - {s: 'The circulation around a closed curve in space, as a flux of curl F', ans: 2}
+  - {s: 'The flux of curl F through a hemisphere, traded for a line integral', ans: 2}
+  - {s: The area of a region from a line integral around its boundary, ans: 1}
+  - {s: The total charge inside a closed surface from the flux of E, ans: 3}
+  - {s: The work of a conservative force between two points, ans: 0}
+  prompt: '{{s}}'
+  parts:
+  - ask: Tool
+    label: a
+    choice: [The fundamental theorem for line integrals (potential), Green's theorem, Stokes' theorem, The divergence theorem]
+    correct: ans
+    explain: 'Match the integral to the theorem: a line integral of a gradient field → potential; a closed plane curve → Green; a closed space curve, or the flux of a curl → Stokes; flux through a closed surface → divergence'
+  verify: {authored: true}
+- template: mvd-implicit-3
+  skill: calc.multivariable
+  pace: quick
+  cases:
+  - {stex: x^2 + y^2 + z^2 = 14, F: x**2 + y**2 + z**2 - 14, px: 1, py: 2, pz: 3, w: x, ans: -0.3333333333333333}
+  - {stex: x^2 + y^2 + z^2 = 14, F: x**2 + y**2 + z**2 - 14, px: 1, py: 2, pz: 3, w: y, ans: -0.6666666666666666}
+  - {stex: xyz + z^3 = 10, F: x*y*z + z**3 - 10, px: 1, py: 1, pz: 2, w: x, ans: -0.15384615384615385}
+  - {stex: xyz + z^3 = 10, F: x*y*z + z**3 - 10, px: 1, py: 1, pz: 2, w: y, ans: -0.15384615384615385}
+  - {stex: x^2 z + y z^2 = 5, F: x**2*z + y*z**2 - 5, px: 2, py: 1, pz: 1, w: x, ans: -0.6666666666666666}
+  - {stex: x^2 z + y z^2 = 5, F: x**2*z + y*z**2 - 5, px: 2, py: 1, pz: 1, w: y, ans: -0.16666666666666666}
+  - {stex: 'e^{xz} + y z = 3', F: exp(x*z) + y*z - 3, px: 0, py: 2, pz: 1, w: x, ans: -0.5}
+  - {stex: 'e^{xz} + y z = 3', F: exp(x*z) + y*z - 3, px: 0, py: 2, pz: 1, w: y, ans: -0.5}
+  - {stex: x + y^2 + z^2 - xz = 4, F: x + y**2 + z**2 - x*z - 4, px: 1, py: 1, pz: 2, w: x, ans: 0.3333333333333333}
+  - {stex: x + y^2 + z^2 - xz = 4, F: x + y**2 + z**2 - x*z - 4, px: 1, py: 1, pz: 2, w: y, ans: -0.6666666666666666}
+  prompt: The surface ${{stex}}$ defines $z$ as a function of $x$ and $y$ near $({{px}}, {{py}}, {{pz}})$. What is $\partial z/\partial {{w}}$ there?
+  parts:
+  - {ask: Partial, label: a, value: ans, tol: 0.0001, explain: 'Differentiate $F(x, y, z(x, y)) = 0$ in that variable: $F_x + F_z z_x = 0$, so $z_x = -F_x/F_z$ (and $z_y = -F_y/F_z$). The minus sign is the usual slip'}
+  verify:
+    expect: {a: '-mv_at(mv_d(F, w), px, py, pz)/mv_at(mv_d(F, ''z''), px, py, pz)'}
+- template: mvd-lagrange-two
+  skill: calc.partials-apps
+  pace: quick
+  cases:
+  - {ftex: z, f: z, gtex: x + y + z = 1, g: x + y + z - 1, htex: x^2 + y^2 = 1, h: x**2 + y**2 - 1, kind: 1, ans: 2.414213562373095}
+  - {ftex: x + 2y + 3z, f: x + 2*y + 3*z, gtex: x - y + z = 1, g: x - y + z - 1, htex: x^2 + y^2 = 1, h: x**2 + y**2 - 1, kind: 1, ans: 8.385164807134505}
+  - {ftex: x^2 + y^2 + z^2, f: x**2 + y**2 + z**2, gtex: x + y = 1, g: x + y - 1, htex: y + z = 2, h: y + z - 2, kind: 0, ans: 2.0}
+  - {ftex: z, f: z, gtex: x + y + z = 1, g: x + y + z - 1, htex: x^2 + y^2 = 1, h: x**2 + y**2 - 1, kind: 0, ans: -0.41421356237309503}
+  - {ftex: x + y + z, f: x + y + z, gtex: x^2 + y^2 = 2, g: x**2 + y**2 - 2, htex: x + z = 1, h: x + z - 1, kind: 1, ans: 2.414213562373095}
+  prompt: 'What is the {{kind == 1 ? "maximum" : "minimum"}} of ${{ftex}}$ on the curve where ${{gtex}}$ meets ${{htex}}$?'
+  parts:
+  - {ask: Extreme value, label: a, value: ans, tol: 0.0001, explain: 'With two constraints, $\nabla f = \lambda\nabla g + \mu\nabla h$ plus both constraints: five equations in $x, y, z, \lambda, \mu$. Often quicker: parametrise the curve of intersection (here the cylinder gives $x = \cos t$, $y = \sin t$) and maximise in one variable'}
+  verify:
+    expect: {a: 'lagrange2(f, g, h, kind)'}
+- template: mvd-change-variables
+  skill: calc.multiple-integrals
+  pace: quick
+  cases:
+  - {rtex: 'the parallelogram bounded by $y = x$, $y = x + 2$, $y = -x$ and $y = -x + 4$', ftex: x + y, utex: 'u = x + y,\ v = y - x', check: 'Integral(x + y, (y, -x, x + 2), (x, -1, 0)) + Integral(x + y, (y, x, x + 2), (x, 0, 1)) + Integral(x + y, (y, x, 4 - x), (x, 1, 2))', ans: 8.0}
+  - {rtex: 'the ellipse $\dfrac{x^2}{9} + \dfrac{y^2}{4} \le 1$', ftex: '1', utex: 'x = 3u,\ y = 2v', check: 'Integral(1, (y, -2*sqrt(1 - x**2/9), 2*sqrt(1 - x**2/9)), (x, -3, 3))', ans: 18.84955592153876}
+  - {rtex: 'the ellipse $\dfrac{x^2}{4} + y^2 \le 1$', ftex: x^2, utex: 'x = 2u,\ y = v', check: 'Integral(x**2, (y, -sqrt(1 - x**2/4), sqrt(1 - x**2/4)), (x, -2, 2))', ans: 6.283185307179586}
+  - {rtex: 'the square with vertices $(0, 0)$, $(1, 1)$, $(2, 0)$, $(1, -1)$', ftex: (x + y)^2, utex: 'u = x + y,\ v = x - y', check: 'Integral((x + y)**2, (y, -x, x), (x, 0, 1)) + Integral((x + y)**2, (y, x - 2, 2 - x), (x, 1, 2))', ans: 2.6666666666666665}
+  - {rtex: 'the region $1 \le xy \le 3$, $1 \le y/x \le 4$ in the first quadrant', ftex: '1', utex: 'u = xy,\ v = y/x', check: 'Integral(1, (y, 1/x, 4*x), (x, Rational(1, 2), sqrt(3)/2)) + Integral(1, (y, 1/x, 3/x), (x, sqrt(3)/2, 1)) + Integral(1, (y, x, 3/x), (x, 1, sqrt(3)))', ans: 1.3862943611198906}
+  prompt: Use ${{utex}}$ to evaluate $\displaystyle\iint_R {{ftex}}\,dA$ over {{rtex}}.
+  parts:
+  - {ask: Value, label: a, value: ans, tol: 0.0001, explain: 'Map the boundary curves to the $uv$-plane (they should become a rectangle), find $|\partial(x, y)/\partial(u, v)|$, which is $1/|\partial(u, v)/\partial(x, y)|$ when $u, v$ are given in terms of $x, y$, then integrate $f\,|J|\,du\,dv$'}
+  verify:
+    expect: {a: quad(check)}
+- template: mvd-triple-order
+  skill: calc.multiple-integrals
+  pace: quick
+  cases:
+  - {stex: 'the tetrahedron $x, y, z \ge 0$, $x + y + z \le 1$, integrating $f = x$ in the order $dx\,dz\,dy$', target: 'Integral(x, (z, 0, 1 - x - y), (y, 0, 1 - x), (x, 0, 1))', tA: '\int_0^1\!\int_0^{1-y}\!\int_0^{1-y-z} x\,dx\,dz\,dy', eA: 'Integral(x, (x, 0, 1 - y - z), (z, 0, 1 - y), (y, 0, 1))', tB: '\int_0^1\!\int_0^{1}\!\int_0^{1-y-z} x\,dx\,dz\,dy', eB: 'Integral(x, (x, 0, 1 - y - z), (z, 0, 1), (y, 0, 1))', tC: '\int_0^1\!\int_0^{1-y}\!\int_0^{1-y} x\,dx\,dz\,dy', eC: 'Integral(x, (x, 0, 1 - y), (z, 0, 1 - y), (y, 0, 1))', tD: '\int_0^1\!\int_0^{1-z}\!\int_0^{1-y-z} x\,dx\,dz\,dy', eD: 'Integral(x, (x, 0, 1 - y - z), (z, 0, 1 - y), (y, 0, 1)) + 1', ans: 0}
+  - {stex: 'the solid under $z = 1 - y^2$ above $0 \le x \le 2$, $-1 \le y \le 1$, integrating $f = z$ in the order $dy\,dz\,dx$', target: 'Integral(z, (z, 0, 1 - y**2), (y, -1, 1), (x, 0, 2))', tA: '\int_0^2\!\int_0^1\!\int_{-\sqrt{1-z}}^{\sqrt{1-z}} z\,dy\,dz\,dx', eA: 'Integral(z, (y, -sqrt(1 - z), sqrt(1 - z)), (z, 0, 1), (x, 0, 2))', tB: '\int_0^2\!\int_0^1\!\int_{0}^{\sqrt{1-z}} z\,dy\,dz\,dx', eB: 'Integral(z, (y, 0, sqrt(1 - z)), (z, 0, 1), (x, 0, 2))', tC: '\int_0^2\!\int_0^1\!\int_{-1}^{1} z\,dy\,dz\,dx', eC: 'Integral(z, (y, -1, 1), (z, 0, 1), (x, 0, 2))', tD: '\int_0^2\!\int_0^1\!\int_{-(1-z)}^{1-z} z\,dy\,dz\,dx', eD: 'Integral(z, (y, z - 1, 1 - z), (z, 0, 1), (x, 0, 2))', ans: 0}
+  - {stex: 'the solid $0 \le z \le x$, $0 \le x \le 1$, $0 \le y \le 2$, integrating $f = y$ in the order $dx\,dy\,dz$', target: 'Integral(y, (z, 0, x), (y, 0, 2), (x, 0, 1))', tA: '\int_0^1\!\int_0^2\!\int_z^{1} y\,dx\,dy\,dz', eA: 'Integral(y, (x, z, 1), (y, 0, 2), (z, 0, 1))', tB: '\int_0^1\!\int_0^2\!\int_0^{z} y\,dx\,dy\,dz', eB: 'Integral(y, (x, 0, z), (y, 0, 2), (z, 0, 1)) + Rational(1, 7)', tC: '\int_0^1\!\int_0^2\!\int_0^{1} y\,dx\,dy\,dz', eC: 'Integral(y, (x, 0, 1), (y, 0, 2), (z, 0, 1))', tD: '\int_0^2\!\int_0^2\!\int_z^{1} y\,dx\,dy\,dz', eD: 'Integral(y, (x, z, 1), (y, 0, 2), (z, 0, 2))', ans: 0}
+  - {stex: 'the region inside the cylinder $y^2 + z^2 \le 4$ for $0 \le x \le 3$, integrating $f = x$ in the order $dz\,dy\,dx$', target: 18*pi, tA: '\int_0^3\!\int_{-2}^{2}\!\int_{-\sqrt{4-y^2}}^{\sqrt{4-y^2}} x\,dz\,dy\,dx', eA: 'Integral(x, (z, -sqrt(4 - y**2), sqrt(4 - y**2)), (y, -2, 2), (x, 0, 3))', tB: '\int_0^3\!\int_{-2}^{2}\!\int_{0}^{\sqrt{4-y^2}} x\,dz\,dy\,dx', eB: 'Integral(x, (z, 0, sqrt(4 - y**2)), (y, -2, 2), (x, 0, 3))', tC: '\int_0^3\!\int_{-2}^{2}\!\int_{-2}^{2} x\,dz\,dy\,dx', eC: 'Integral(x, (z, -2, 2), (y, -2, 2), (x, 0, 3))', tD: '\int_0^3\!\int_{-4}^{4}\!\int_{-\sqrt{4-y^2}}^{\sqrt{4-y^2}} x\,dz\,dy\,dx', eD: 'Integral(x, (z, -sqrt(Max(0, 4 - y**2)), sqrt(Max(0, 4 - y**2))), (y, -4, 4), (x, 0, 3)) + 1', ans: 0}
+  prompt: Which integral gives $\iiint_E f\,dV$ for {{stex}}? (A) ${{tA}}$ (B) ${{tB}}$ (C) ${{tC}}$ (D) ${{tD}}$
+  parts:
+  - ask: Setup
+    label: a
+    choice: *id001
+    correct: ans
+    explain: Project the solid onto the plane of the two outer variables; that shadow sets the middle and outer limits. The inner limits are the two surfaces that bound the solid in the innermost direction, solved for that variable
+  verify: *id002
+- template: mvd-average
+  skill: calc.multiple-integrals
+  pace: quick
+  cases:
+  - {rtex: 'the square $[0, 2]\times[0, 2]$', ftex: xy, check: 'Integral(x*y, (y, 0, 2), (x, 0, 2))/4', ans: 1.0}
+  - {rtex: the disc $x^2 + y^2 \le 4$, ftex: x^2 + y^2, check: 'Integral(x**2 + y**2, (y, -sqrt(4 - x**2), sqrt(4 - x**2)), (x, -2, 2))/(4*pi)', ans: 2.0}
+  - {rtex: 'the triangle with vertices $(0, 0)$, $(1, 0)$, $(0, 1)$', ftex: x, check: 'Integral(x, (y, 0, 1 - x), (x, 0, 1))/Integral(1, (y, 0, 1 - x), (x, 0, 1))', ans: 0.3333333333333333}
+  - {rtex: the unit ball, ftex: x^2 + y^2 + z^2, check: 'Integral(x**2 + y**2 + z**2, (z, -sqrt(1 - x**2 - y**2), sqrt(1 - x**2 - y**2)), (y, -sqrt(1 - x**2), sqrt(1 - x**2)), (x, -1, 1))/(4*pi/3)', ans: 0.6}
+  - {rtex: 'the cube $[0, 1]^3$', ftex: x + y + z, check: 'Integral(x + y + z, (z, 0, 1), (y, 0, 1), (x, 0, 1))', ans: 1.5}
+  - {rtex: 'the cylinder $x^2 + y^2 \le 1$, $0 \le z \le 2$', ftex: z, check: 'Integral(z, (z, 0, 2), (y, -sqrt(1 - x**2), sqrt(1 - x**2)), (x, -1, 1))/(2*pi)', ans: 1.0}
+  prompt: What is the average value of $f = {{ftex}}$ over {{rtex}}?
+  parts:
+  - {ask: Average, label: a, value: ans, tol: 0.0001, explain: '$f_{\text{avg}} = \dfrac{1}{\text{area}}\iint_D f\,dA$ (or $\dfrac{1}{\text{volume}}\iiint_E f\,dV$). Use the coordinates that suit the region for both integrals'}
+  verify:
+    expect: {a: quad(check)}
+- template: mvd-center-mass-solid
+  skill: calc.multiple-integrals
+  pace: quick
+  cases:
+  - {ltex: the solid upper hemisphere of radius 2 (uniform density); find $\bar z$, check: 'Integral(z, (z, 0, sqrt(4 - x**2 - y**2)), (y, -sqrt(4 - x**2), sqrt(4 - x**2)), (x, -2, 2))/Integral(1, (z, 0, sqrt(4 - x**2 - y**2)), (y, -sqrt(4 - x**2), sqrt(4 - x**2)), (x, -2, 2))', ans: 0.75}
+  - {ltex: 'the solid cone $\sqrt{x^2 + y^2} \le z \le 3$ (uniform density); find $\bar z$', check: 'Integral(z*pi*z**2, (z, 0, 3))/Integral(pi*z**2, (z, 0, 3))', ans: 2.25}
+  - {ltex: the solid paraboloid $x^2 + y^2 \le z \le 4$ (uniform density); find $\bar z$, check: 'Integral(z*pi*z, (z, 0, 4))/Integral(pi*z, (z, 0, 4))', ans: 2.6666666666666665}
+  - {ltex: 'the cube $[0, 1]^3$ with density $\delta = z$; find $\bar z$', check: 'Integral(z*z, (z, 0, 1))/Integral(z, (z, 0, 1))', ans: 0.6666666666666666}
+  - {ltex: 'the tetrahedron $x, y, z \ge 0$, $x + y + z \le 1$ (uniform density); find $\bar x$', check: 'Integral(x, (z, 0, 1 - x - y), (y, 0, 1 - x), (x, 0, 1))/Integral(1, (z, 0, 1 - x - y), (y, 0, 1 - x), (x, 0, 1))', ans: 0.25}
+  prompt: Centre of mass of {{ltex}}.
+  parts:
+  - {ask: Coordinate, label: a, value: ans, tol: 0.0001, explain: '$\bar z = \dfrac{1}{M}\iiint z\,\delta\,dV$. Symmetry gives $\bar x = \bar y = 0$ for solids of revolution about the $z$-axis; slicing by $z$ (disc area times $dz$) is often quickest. Hemisphere: $3a/8$; cone from its tip: $3h/4$'}
+  verify:
+    expect: {a: quad(check)}
+- template: mvd-inertia
+  skill: calc.multiple-integrals
+  pace: quick
+  cases:
+  - {ltex: 'the disc of radius 2 (density 1) about its centre, $I_0 = \iint (x^2 + y^2)\,dA$', check: 'Integral(x**2 + y**2, (y, -sqrt(4 - x**2), sqrt(4 - x**2)), (x, -2, 2))', ans: 25.132741228718345}
+  - {ltex: 'the square $[0, 1]\times[0, 1]$ (density 1) about the $x$-axis, $I_x = \iint y^2\,dA$', check: 'Integral(y**2, (y, 0, 1), (x, 0, 1))', ans: 0.3333333333333333}
+  - {ltex: 'the rectangle $[0, 3]\times[0, 2]$ (density 1) about the $y$-axis, $I_y = \iint x^2\,dA$', check: 'Integral(x**2, (y, 0, 2), (x, 0, 3))', ans: 18.0}
+  - {ltex: 'the triangle $(0, 0)$, $(1, 0)$, $(0, 1)$ with density $x$, about the $x$-axis', check: 'Integral(x*y**2, (y, 0, 1 - x), (x, 0, 1))', ans: 0.016666666666666666}
+  - {ltex: the annulus $1 \le r \le 2$ (density 1) about its centre, check: 'Integral(x**2 + y**2, (y, -sqrt(4 - x**2), sqrt(4 - x**2)), (x, -2, 2)) - Integral(x**2 + y**2, (y, -sqrt(1 - x**2), sqrt(1 - x**2)), (x, -1, 1))', ans: 23.56194490192345}
+  prompt: Find the moment of inertia of {{ltex}}.
+  parts:
+  - {ask: Moment of inertia, label: a, value: ans, tol: 0.0001, explain: '$I_x = \iint y^2\delta\,dA$ (distance to the $x$-axis is $|y|$), $I_y = \iint x^2\delta\,dA$, $I_0 = I_x + I_y$. A disc of mass $M$, radius $a$: $I_0 = Ma^2/2$'}
+  verify:
+    expect: {a: quad(check)}
+- template: mvd-work-space
+  skill: calc.vector-calculus
+  pace: quick
+  cases:
+  - {Ftex: '\langle -y,\ x,\ z \rangle', P: -y, Q: x, R: z, ctex: 'the helix $\langle\cos t, \sin t, t\rangle$, $0 \le t \le 2\pi$', rx: cos(t), ry: sin(t), rz: t, t1: 2*pi, ans: 26.022394109358302}
+  - {Ftex: '\langle z,\ x,\ y \rangle', P: z, Q: x, R: y, ctex: 'the helix $\langle\cos t, \sin t, t\rangle$, $0 \le t \le \pi$', rx: cos(t), ry: sin(t), rz: t, t1: pi, ans: 0.4292036732051034}
+  - {Ftex: '\langle y,\ z,\ x \rangle', P: y, Q: z, R: x, ctex: 'the curve $\langle t, t^2, t^3\rangle$, $0 \le t \le 1$', rx: t, ry: t**2, rz: t**3, t1: '1', ans: 1.4833333333333334}
+  - {Ftex: '\langle xy,\ yz,\ zx \rangle', P: x*y, Q: y*z, R: z*x, ctex: 'the curve $\langle t, t^2, t^3\rangle$, $0 \le t \le 1$', rx: t, ry: t**2, rz: t**3, t1: '1', ans: 0.9642857142857143}
+  - {Ftex: '\langle y^2,\ x,\ z^2 \rangle', P: y**2, Q: x, R: z**2, ctex: 'the segment from $(0, 0, 0)$ to $(1, 2, 3)$', rx: t, ry: 2*t, rz: 3*t, t1: '1', ans: 11.333333333333334}
+  prompt: Compute $\displaystyle\int_C \mathbf F\cdot d\mathbf r$ for $\mathbf F = {{Ftex}}$ along {{ctex}}.
+  parts:
+  - {ask: Work, label: a, value: ans, tol: 0.0001, explain: 'Substitute $x(t), y(t), z(t)$ into all three components, dot with $\mathbf r''(t) = \langle x'', y'', z''\rangle$, integrate in $t$. These fields are not conservative, so there is no shortcut'}
+  verify:
+    expect: {a: 'line_work(P, Q, R, rx, ry, rz, 0, t1)'}
+- template: mvd-green-area
+  skill: calc.vector-calculus
+  pace: quick
+  cases:
+  - {ctex: 'the ellipse $x = 3\cos t$, $y = 2\sin t$', pieces: 3*cos(t)|2*sin(t)|0|2*pi, ans: 18.84955592153876}
+  - {ctex: 'the astroid $x = \cos^3 t$, $y = \sin^3 t$', pieces: cos(t)**3|sin(t)**3|0|2*pi, ans: 1.1780972450961724}
+  - {ctex: 'the triangle $(0, 0)$, $(4, 0)$, $(0, 3)$', pieces: 4*t|0|0|1;4 - 4*t|3*t|0|1;0|3 - 3*t|0|1, ans: 6.0}
+  - {ctex: 'the cardioid-like loop $x = \cos t + \cos^2 t$, $y = \sin t + \sin t\cos t$', pieces: cos(t) + cos(t)**2|sin(t) + sin(t)*cos(t)|0|2*pi, ans: 4.71238898038469}
+  - {ctex: the region between $y = x^2$ and $y = x$ (boundary run counterclockwise), pieces: t|t**2|0|1;1 - t|1 - t|0|1, ans: 0.16666666666666666}
+  prompt: Use a line integral to find the area enclosed by {{ctex}}.
+  parts:
+  - {ask: Area, label: a, value: ans, tol: 0.0001, explain: 'Green''s theorem with $Q_x - P_y = 1$: area $= \oint_C x\,dy = -\oint_C y\,dx = \tfrac12\oint_C (x\,dy - y\,dx)$, with $C$ counterclockwise. Useful when the boundary is a parametrised curve'}
+  verify:
+    expect: {a: 'closed_work(''-y/2'', ''x/2'', pieces)'}
+- template: mvd-divergence-curved
+  skill: calc.vector-calculus
+  pace: quick
+  cases:
+  - {Ftex: '\langle x^3,\ y^3,\ z^3 \rangle', P: x**3, Q: y**3, R: z**3, stex: the sphere of radius 1, ans: 7.5398223686155035, vexp: 'surface_flux(P, Q, R, ''sin(u)*cos(v)'', ''sin(u)*sin(v)'', ''cos(u)'', 0, pi, 0, 2*pi, 1)'}
+  - {Ftex: '\langle x,\ y,\ z \rangle', P: x, Q: y, R: z, stex: the sphere of radius 3, ans: 339.29200658769764, vexp: 'surface_flux(P, Q, R, ''3*sin(u)*cos(v)'', ''3*sin(u)*sin(v)'', ''3*cos(u)'', 0, pi, 0, 2*pi, 1)'}
+  - {Ftex: '\langle x,\ y,\ z^2 \rangle', P: x, Q: y, R: z**2, stex: 'the closed cylinder $x^2 + y^2 \le 1$, $0 \le z \le 2$ (side, top and bottom)', ans: 25.132741228718345, vexp: 'surface_flux(P, Q, R, ''cos(v)'', ''sin(v)'', ''u'', 0, 2, 0, 2*pi, -1) + surface_flux(P, Q, R, ''u*cos(v)'', ''u*sin(v)'', ''2'', 0, 1, 0, 2*pi, 1) + surface_flux(P, Q, R, ''u*cos(v)'', ''u*sin(v)'', ''0'', 0, 1, 0, 2*pi, -1)'}
+  - {Ftex: '\langle xz,\ yz,\ 1 \rangle', P: x*z, Q: y*z, R: '1', stex: 'the closed cylinder $x^2 + y^2 \le 4$, $0 \le z \le 1$', ans: 12.566370614359172, vexp: 'surface_flux(P, Q, R, ''2*cos(v)'', ''2*sin(v)'', ''u'', 0, 1, 0, 2*pi, -1) + surface_flux(P, Q, R, ''u*cos(v)'', ''u*sin(v)'', ''1'', 0, 2, 0, 2*pi, 1) + surface_flux(P, Q, R, ''u*cos(v)'', ''u*sin(v)'', ''0'', 0, 2, 0, 2*pi, -1)'}
+  - {Ftex: '\langle 0,\ 0,\ z \rangle', P: '0', Q: '0', R: z, stex: the closed upper half ball of radius 2 (dome and flat base), ans: 16.755160819145566, vexp: 'surface_flux(P, Q, R, ''2*sin(u)*cos(v)'', ''2*sin(u)*sin(v)'', ''2*cos(u)'', 0, pi/2, 0, 2*pi, 1) + surface_flux(P, Q, R, ''u*cos(v)'', ''u*sin(v)'', ''0'', 0, 2, 0, 2*pi, -1)'}
+  prompt: Use the divergence theorem to find the outward flux of $\mathbf F = {{Ftex}}$ through {{stex}}.
+  parts:
+  - {ask: Flux, label: a, value: ans, tol: 0.0001, explain: 'Flux out $= \iiint_E \operatorname{div}\mathbf F\,dV$ in the coordinates of the solid: spherical for a ball, cylindrical for a cylinder. The theorem needs the whole closed surface: for an open one, add a lid and subtract its flux'}
+  verify:
+    expect: {a: 'mv_eval(vexp, P, Q, R)'}
+- template: mvd-stokes-surface
+  skill: calc.vector-calculus
+  pace: quick
+  cases:
+  - {Ftex: '\langle -y,\ x,\ z \rangle', P: -y, Q: x, R: z, stex: 'the upper hemisphere $x^2 + y^2 + z^2 = 4$, $z \ge 0$, oriented upward', rx: 2*cos(t), ry: 2*sin(t), rz: '0', ans: 25.132741228718345}
+  - {Ftex: '\langle y,\ z,\ x \rangle', P: y, Q: z, R: x, stex: 'the paraboloid $z = 1 - x^2 - y^2$, $z \ge 0$, oriented upward', rx: cos(t), ry: sin(t), rz: '0', ans: -3.141592653589793}
+  - {Ftex: '\langle -y^3,\ x^3,\ z \rangle', P: -y**3, Q: x**3, R: z, stex: 'the paraboloid $z = 4 - x^2 - y^2$, $z \ge 0$, oriented upward', rx: 2*cos(t), ry: 2*sin(t), rz: '0', ans: 75.39822368615503}
+  prompt: Find $\displaystyle\iint_S (\nabla\times\mathbf F)\cdot\mathbf n\,dS$ for $\mathbf F = {{Ftex}}$ and $S$ = {{stex}}.
+  parts:
+  - {ask: Flux of the curl, label: a, value: ans, tol: 0.0001, explain: 'By Stokes'' theorem this equals $\oint_C \mathbf F\cdot d\mathbf r$ around the boundary circle (counterclockwise from above for an upward normal), and equally the flux of the curl through the flat disc with the same boundary. Either is easier than the curved surface'}
+  verify:
+    expect: {a: 'line_work(P, Q, R, rx, ry, rz, 0, 2*pi)'}

@@ -104,8 +104,8 @@ Big ideas: EQUIV, MODEL
 
 - ● **MH-1.4.A** (A-CED.A.1) Write and solve a one-variable linear equation or inequality that represents a word problem.
   - EK: Name the unknown, translate each sentence into a relation, solve, then check the answer in the words.
-  - Needs: MH-1.1.B, MH-1.3.C
-  - MP4 · MP2 · drills: alg-word-linear, hs2-word-inequality
+  - Needs: MH-1.1.B, MH-1.3.C, MM-1.5.F
+  - MP4 · MP2 · drills: alg-word-linear, hs2-word-inequality, hs2-word-linear-steps
 - ● **MH-1.4.B** (A-CED.A.2) Write an equation in two variables that relates two quantities and graph it on coordinate axes with labels and scales.
   - EK: Each variable is one quantity with a unit; the axes carry those units.
   - Needs: MH-1.4.A

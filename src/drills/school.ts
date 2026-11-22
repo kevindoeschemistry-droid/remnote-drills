@@ -23,9 +23,9 @@ export const qref = (q: Q) => (q.d === 1 ? `${q.n}` : `${q.n}/${q.d}`);
 export const qpy = (q: Q) => (q.d === 1 ? `${q.n}` : `(${q.n})/(${q.d})`);
 
 /** an exact number: integer or fraction, checked to 1e-6 */
-export function exact(v: number | Q, label = "answer"): Answer {
+export function exact(v: number | Q, label = "answer", final = false): Answer {
   // tight tolerance: 999,999 + 0.01 must still be wrong
-  return { kind: "expression", ref: typeof v === "number" ? `${v}` : qref(v), vars: [], label, tol: 1e-10 };
+  return { kind: "expression", ref: typeof v === "number" ? `${v}` : qref(v), vars: [], label, tol: 1e-10, ...(final ? { final } : {}) };
 }
 /** a rounded number (decimals, π answers): within `tol` (fraction of the value) */
 export function approx(v: number | string, tol = 0.002, label = "answer"): Answer {

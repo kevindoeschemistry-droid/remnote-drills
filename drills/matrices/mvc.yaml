@@ -1,0 +1,76 @@
+# The grid for multivariable calculus (Calculus units 12-14; MIT 18.02 units 2-4; Stewart 14-16).
+# Written before the mvd-depth pass (Nov 2026): the older cm-* items were one problem shape each
+# (every double integral was the region between y = x^2 and y = x), so a review from them covered one
+# cell per row. Rows are methods; cells are the shapes, coordinates and orientations an exam can pick.
+id: mvc
+title: "Multivariable calculus: every method against every shape it is asked on"
+why: "One drilled shape per method is recall of that shape. The exam picks the region, curve or surface."
+cells:
+  # unit 12 · partial derivatives
+  - { cell: "First partials · polynomial, exponential, log, trig, quotient", drills: [mvd-partial] }
+  - { cell: "Second and mixed partials", drills: [mvd-mixed] }
+  - { cell: "Limits · no limit, by two paths (lines and parabolas)", drills: [mvd-two-path, ca-two-path-limit] }
+  - { cell: "Limits · a limit that exists (bound it, polar)", drills: [mvd-two-path] }
+  - { cell: "Linear approximation · estimate a nearby value", drills: [mvd-linearize, cm-tangent-plane] }
+  - { cell: "Tangent plane · graph z = f(x, y)", drills: [cm-tangent-plane, mvd-tangent-plane-implicit] }
+  - { cell: "Tangent plane · level surface F(x, y, z) = c", drills: [mvd-tangent-plane-implicit] }
+  - { cell: "Chain rule · one parameter t", drills: [mvd-chain-t] }
+  - { cell: "Chain rule · two parameters s, t", drills: [mvd-chain-partial, cm-chain-rule] }
+  - { cell: "Implicit differentiation · F(x, y) = 0", drills: [mvd-implicit] }
+  - { cell: "Implicit differentiation · ∂z/∂x from F(x, y, z) = 0", drills: [mvd-implicit-3] }
+  - { cell: "Gradient · directional derivative (normalise the direction)", drills: [mvd-directional, cm-gradient] }
+  - { cell: "Gradient · fastest increase and its rate", drills: [mvd-max-rate, cm-gradient] }
+  - { cell: "Gradient · perpendicular to level curves (slope of a level curve)", drills: [mvd-level-slope, mvd-gradient-facts] }
+  - { cell: "Critical points · classify min, max, saddle, D = 0", drills: [mvd-classify, cm-critical-point] }
+  - { cell: "Critical points · find them all (factor into cases)", drills: [mvd-critical-count] }
+  - { cell: "Absolute extrema on a closed region (boundary pieces)", drills: [ca-extrema-region] }
+  - { cell: "Lagrange · two variables, one constraint", drills: [mvd-lagrange, cm-lagrange-circle, cm-lagrange-product] }
+  - { cell: "Lagrange · three variables", drills: [mvd-lagrange] }
+  - { cell: "Lagrange · two constraints", drills: [mvd-lagrange-two] }
+  # unit 13 · multiple integrals
+  - { cell: "Double integral · rectangle", drills: [cm-double-rect] }
+  - { cell: "Double integral · type I region, set up (pick the right limits)", drills: [mvd-region-setup] }
+  - { cell: "Double integral · type II region (dx dy)", drills: [mvd-region-setup, mvd-region-value] }
+  - { cell: "Double integral · evaluate over curves, triangles, under sin x", drills: [mvd-region-value, cm-double-region] }
+  - { cell: "Reverse the order of integration", drills: [mvd-reverse-setup, cm-reverse-order] }
+  - { cell: "Polar · full disc and annulus", drills: [mvd-polar-setup, mvd-polar-value, cm-double-polar] }
+  - { cell: "Polar · half disc, quarter disc", drills: [mvd-polar-setup, mvd-polar-value] }
+  - { cell: "Polar · off-centre circle r = 2cos θ, cardioid", drills: [mvd-polar-setup, mvd-polar-value] }
+  - { cell: "Polar · the Gaussian", drills: [cm-gaussian-polar, mvd-polar-value] }
+  - { cell: "Change of variables · the Jacobian factor (linear, polar, other)", drills: [mvd-jacobian, cm-jacobian] }
+  - { cell: "Change of variables · evaluate a whole integral over a transformed region", drills: [mvd-change-variables] }
+  - { cell: "Triple integral · rectangular (tetrahedron, plane cap)", drills: [mvd-triple-setup, mvd-triple-value, cm-tetrahedron] }
+  - { cell: "Triple integral · cylindrical (paraboloid, cylinder, cone, two paraboloids)", drills: [mvd-triple-setup, mvd-triple-value, cm-cylindrical] }
+  - { cell: "Triple integral · spherical (ball, shell, ice-cream cone)", drills: [mvd-triple-setup, mvd-triple-value, cm-spherical] }
+  - { cell: "Triple integral · which coordinates", drills: [mvd-coordinates] }
+  - { cell: "Triple integral · an order other than dz dy dx", drills: [mvd-triple-order] }
+  - { cell: "Applications · centre of mass of a lamina (symmetry first)", drills: [mvd-center-mass, cm-center-of-mass] }
+  - { cell: "Applications · moment of inertia", drills: [mvd-inertia, cm-center-of-mass] }
+  - { cell: "Applications · average value over a region or solid", drills: [mvd-average] }
+  - { cell: "Applications · centre of mass of a solid", drills: [mvd-center-mass-solid] }
+  # unit 14 · vector calculus
+  - { cell: "Conservative? · plane field (Q_x = P_y)", drills: [mvd-conservative] }
+  - { cell: "Conservative? · space field (curl F = 0)", drills: [mvd-conservative, ca-curl-conservative] }
+  - { cell: "Potential · endpoint values, 2-D and 3-D", drills: [mvd-potential-work, cm-potential] }
+  - { cell: "Work · segment, parabola, arc, full circle", drills: [mvd-work, cm-work-line] }
+  - { cell: "Work · same endpoints, different paths (not conservative)", drills: [mvd-work] }
+  - { cell: "Work · a space curve (helix)", drills: [mvd-work-space] }
+  - { cell: "Scalar line integral and arc length", drills: [mvd-scalar-line, cm-line-integral-scalar] }
+  - { cell: "Green · circulation on circle, square, triangle, ellipse", drills: [mvd-green, cm-green] }
+  - { cell: "Green · clockwise curve (sign flip)", drills: [mvd-green, mvd-orientation] }
+  - { cell: "Green · flux (normal) form", drills: [mvd-flux-plane] }
+  - { cell: "Green · area by a line integral", drills: [mvd-green-area] }
+  - { cell: "Green · region with a hole", drills: [mvd-orientation], note: "orientation only, no computed item" }
+  - { cell: "Divergence and curl · values", drills: [mvd-div-curl, cm-div-curl] }
+  - { cell: "Divergence and curl · identities and meaningless combinations", drills: [mvd-div-curl-facts, cm-laplacian] }
+  - { cell: "Surface area · sphere, plane, paraboloid, cone, cylinder", drills: [mvd-surface-integral, cm-surface-area] }
+  - { cell: "Scalar surface integral", drills: [mvd-surface-integral, cm-surface-integral] }
+  - { cell: "Flux · sphere and hemisphere", drills: [mvd-flux] }
+  - { cell: "Flux · cylinder (outward is the sign to watch)", drills: [mvd-flux] }
+  - { cell: "Flux · disc, plane, paraboloid (graph, upward)", drills: [mvd-flux, cm-flux-disc] }
+  - { cell: "Divergence theorem · cube", drills: [mvd-divergence-theorem, cm-divergence-theorem] }
+  - { cell: "Divergence theorem · sphere, cylinder, or a surface with a lid removed", drills: [mvd-divergence-curved] }
+  - { cell: "Stokes · flat disc bounded by a circle, either direction", drills: [mvd-stokes, cm-stokes] }
+  - { cell: "Stokes · swap a curved surface (hemisphere) for its boundary or a flat cap", drills: [mvd-stokes-surface] }
+  - { cell: "Orientation · which way each theorem needs", drills: [mvd-orientation] }
+  - { cell: "Choosing the theorem", drills: [mvd-which-theorem] }

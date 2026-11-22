@@ -124,7 +124,7 @@
   given: { f: { pick: [15, 20, 25] }, p: { pick: [3, 4, 6] }, B: { pick: [80, 100, 120] } }
   prompt: 'A taxi charges ${{f}}$ dollars plus ${{p}}$ dollars per mile. You have ${{B}}$ dollars. What is the greatest whole number of miles you can ride?'
   parts:
-    - { ask: 'Miles', label: r, value: 'floor((B - f)/p)', tol: 0.0001, explain: 'Solve ${{f}} + {{p}}m \le {{B}}$: m ≤ {{(B - f)/p}}. Round down, because a whole mile more would cost too much' }
+    - { ask: 'Miles', label: r, value: 'floor((B - f)/p)', tol: 0.0001, final: true, explain: 'Solve ${{f}} + {{p}}m \le {{B}}$: m ≤ {{(B - f)/p}}. Round down, because a whole mile more would cost too much' }
   verify: { expect: { r: "floor(Rational(B - f, p))" } }
 
 - template: hs2-two-var-intercepts

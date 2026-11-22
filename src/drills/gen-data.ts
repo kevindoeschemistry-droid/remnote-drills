@@ -33,6 +33,8 @@ interface DataPart {
   label: string;
   tex?: string;
   value?: string | number;
+  /** only a single number counts as an answer (mental arithmetic); mm-* templates are always final */
+  final?: boolean;
   expr?: string;
   ode?: string;
   sol?: string;
@@ -137,7 +139,8 @@ export function buildData(t: DataTemplate, r: Rng): Draft {
     scope[p.label] = v;
     // the tolerance may be an expression, so a drawn case can carry its own band (an anchor known as a range)
     const tol = p.tol === undefined ? 0.01 : num(p.tol, scope, `${t.template} › ${p.label} tol`);
-    const answer: Answer = { kind: "expression", ref: `${v}`, vars: [], tol, rel: true, label: p.label, unit: p.unit };
+    const final = p.final ?? t.template.startsWith("mm-");
+    const answer: Answer = { kind: "expression", ref: `${v}`, vars: [], tol, rel: true, label: p.label, unit: p.unit, ...(final ? { final } : {}) };
     return { ask, answer, answerTex: `${tex} = ${fmt(v, tol < 0.01 ? 6 : 3)}${p.unit ? u(p.unit) : ""}`, explain };
   });
   const last = parts[parts.length - 1];

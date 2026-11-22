@@ -1,0 +1,110 @@
+# Division in the head: the moves behind word problems like "a $37 flat fee plus $0.35 a minute, the
+# bill was $159.40". Each card is one move; hs2-word-linear-steps puts them together. House list (the
+# UIL chart has no division strategies); mm-* cards are final, so only a single number is accepted.
+
+- template: mm-money-subtract
+  skill: k8.mult-div
+  pace: quick
+  given: { Tc: { int: [6000, 29000] }, Fc: { pick: [1525, 2275, 3540, 3715, 4480, 2695, 1850, 4935] } }
+  prompt: 'In your head: ${{Tc/100}} - {{Fc/100}}$ (dollars)'
+  parts:
+    - ask: 'Difference'
+      label: v
+      value: (Tc - Fc)/100
+      tol: 0.000001
+      explain: 'Slide both by the same amount so the one taken away is whole dollars: add {{mod(-Fc, 100)}} cents to each, giving ${{(Tc + mod(-Fc, 100))/100}} - {{(Fc + mod(-Fc, 100))/100}}$, which is one subtraction. Or count up from {{Fc/100}} to the next dollar, then to {{Tc/100}}'
+  verify: { expect: { v: "Rational(Tc - Fc, 100)" } }
+
+- template: mm-div-5
+  skill: k8.mult-div
+  pace: recall
+  given: { q: { int: [21, 399] } }
+  prompt: 'In your head: ${{5*q}} \div 5$'
+  parts:
+    - ask: 'Quotient'
+      label: v
+      value: q
+      tol: 0.000001
+      explain: 'Dividing by 5 is multiplying by 2 and dividing by 10: $2 \times {{5*q}} = {{10*q}}$, drop a zero: {{q}}'
+  verify: { expect: { v: "Rational(5*q, 5)" } }
+
+- template: mm-div-25
+  skill: k8.mult-div
+  pace: recall
+  given: { q: { int: [13, 160] } }
+  prompt: 'In your head: ${{25*q}} \div 25$'
+  parts:
+    - ask: 'Quotient'
+      label: v
+      value: q
+      tol: 0.000001
+      explain: 'Dividing by 25 is multiplying by 4 and dividing by 100: $4 \times {{25*q}} = {{100*q}}$, drop two zeros: {{q}}. (Or count quarters: four in every hundred)'
+  verify: { expect: { v: "Rational(25*q, 25)" } }
+
+- template: mm-div-stages
+  skill: k8.mult-div
+  pace: quick
+  given: { q: { int: [12, 89] } }
+  cases:
+    - { c: 15, f1: 5, f2: 3 }
+    - { c: 35, f1: 5, f2: 7 }
+    - { c: 45, f1: 5, f2: 9 }
+    - { c: 12, f1: 4, f2: 3 }
+    - { c: 24, f1: 8, f2: 3 }
+    - { c: 14, f1: 2, f2: 7 }
+    - { c: 18, f1: 2, f2: 9 }
+    - { c: 25, f1: 5, f2: 5 }
+  prompt: 'In your head: ${{c*q}} \div {{c}}$'
+  parts:
+    - ask: 'Quotient'
+      label: v
+      value: q
+      tol: 0.000001
+      explain: 'Split the divisor: ${{c}} = {{f1}} \times {{f2}}$. ${{c*q}} \div {{f1}} = {{c*q/f1}}$, then ${{c*q/f1}} \div {{f2}} = {{q}}$. Check: ${{q}} \times {{c}}$ should give back {{c*q}}'
+  verify: { expect: { v: "Rational(c*q, c)" } }
+
+- template: mm-div-shift
+  skill: k8.mult-div
+  pace: quick
+  given: { q: { int: [24, 480] } }
+  cases:
+    - { c: 15, k: 3 }
+    - { c: 20, k: 4 }
+    - { c: 25, k: 5 }
+    - { c: 30, k: 6 }
+    - { c: 35, k: 7 }
+    - { c: 40, k: 8 }
+    - { c: 45, k: 9 }
+  prompt: 'In your head: ${{q*c/100}} \div 0.{{c}}$'
+  parts:
+    - ask: 'Quotient'
+      label: v
+      value: q
+      tol: 0.000001
+      explain: 'Move both decimal points two places so the divisor is whole (dollars to cents): ${{q*c}} \div {{c}}$. Then ÷5 (double, drop a zero) gives {{q*c/5}}, and ÷{{k}} gives {{q}}'
+  verify: { expect: { v: "Rational(q*c, 100)/Rational(c, 100)" } }
+
+- template: hs2-word-linear-steps
+  skill: alg.linear
+  pace: quick
+  given: { q: { int: [8, 48] }, F: { pick: [15, 20, 25, 30, 35, 40, 45] } }
+  cases:
+    - { c: 15, k: 3 }
+    - { c: 25, k: 5 }
+    - { c: 35, k: 7 }
+    - { c: 45, k: 9 }
+  prompt: 'A phone plan costs ${{F}}$ dollars a month plus ${{c}}$ cents a minute. The bill was ${{F + 10*q*c/100}}$ dollars. Do it in your head, in two moves.'
+  parts:
+    - ask: 'Dollars spent on minutes'
+      label: a
+      value: 10*q*c/100
+      tol: 0.000001
+      final: true
+      explain: 'Take the flat fee off: ${{F + 10*q*c/100}} - {{F}} = {{10*q*c/100}}$'
+    - ask: 'Minutes used'
+      label: m
+      value: 10*q
+      tol: 0.000001
+      final: true
+      explain: 'In cents: {{10*q*c}} ÷ {{c}}. Split {{c}} = 5 × {{k}}: ÷5 is double and drop a zero ({{10*q*c/5}}), then ÷{{k}} gives {{10*q}}. Check by multiplying back: ${{10*q}} \times {{c}}$ cents $=$ {{10*q*c/100}} dollars'
+  verify: { expect: { a: "Rational(10*q*c, 100)", m: "10*q" } }

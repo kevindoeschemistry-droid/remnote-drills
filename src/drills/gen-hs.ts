@@ -86,12 +86,17 @@ const linearIneq: Gen = (r) => {
     [`Collect: ${m(`${cx(a - c, "x")}`)} vs ${m(d.sub(b).tex())}; divide by ${a - c}${flip ? " (negative: flip the inequality)" : ""}.`], { mx: "ineq", l: `${a}*x + ${b}`, r: `${c}*x + ${qpy(d)}`, rel });
 };
 const wordLinear: Gen = (r) => {
-  const fixed = r.int(10, 60), rate = q(r.int(5, 40), r.pick([10, 100])), u = r.int(20, 600);
+  // rates in whole cents of 5 and totals that subtract cleanly, so the arithmetic can be done in the head
+  const fixed = r.pick([15, 20, 25, 30, 35, 40, 45, 50]), cents = 5 * r.int(1, 8), rate = q(cents, 100), u = 10 * r.int(2, 60);
   const tot = rate.mul(u).add(fixed);
   require_([1, 2, 4, 5, 10, 20, 25, 50, 100].includes(tot.d));
   const T = Number(tot.value().toFixed(2));
-  return draft(`A phone plan costs a flat ${m(`\\text{\\textdollar}${fixed}`)} plus ${m(`\\text{\\textdollar}${rate.value()}`)} per minute. One month's bill was ${m(`\\text{\\textdollar}${T}`)}. How many minutes were used?`, exact(u), `${u}`,
-    [`${m(`${fixed} + ${rate.value()}m = ${T}`)}, so ${m(`m = (${T} - ${fixed}) / ${rate.value()} = ${u}`)}.`], { mx: "solve", eq: `${fixed} + ${qpy(rate)}*x - ${qpy(tot)}` });
+  return draft(`A phone plan costs a flat ${m(`\\text{\\textdollar}${fixed}`)} plus ${m(`\\text{\\textdollar}${rate.value()}`)} per minute. One month's bill was ${m(`\\text{\\textdollar}${T}`)}. How many minutes were used?`, exact(u, "answer", true), `${u}`,
+    [`${m(`${fixed} + ${rate.value()}m = ${T}`)}, so ${m(`m = (${T} - ${fixed}) / ${rate.value()}`)}.`,
+     `In your head: take off the fee, ${m(`${T} - ${fixed} = ${Number((T - fixed).toFixed(2))}`)} dollars, which is ${Number(((T - fixed) * 100).toFixed(0))} cents. ` +
+       `Split ${cents} cents as ${cents === 5 ? "5" : `5 × ${cents / 5}`}: ÷5 is double and drop a zero (${Number(((T - fixed) * 20).toFixed(0))})` +
+       (cents === 5 ? `` : `, then ÷${cents / 5} gives ${u}`) + `. Check: ${u} × ${cents}¢ = ${Number((T - fixed).toFixed(2))} dollars.`],
+    { mx: "solve", eq: `${fixed} + ${qpy(rate)}*x - ${qpy(tot)}` });
 };
 
 // ── functions ────────────────────────────────────────────────────────────────

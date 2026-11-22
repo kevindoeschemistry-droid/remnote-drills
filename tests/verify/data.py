@@ -592,6 +592,8 @@ from progcode import FUNCS as _CODE  # noqa: E402
 BASE.update(_CODE)
 from csalgo import FUNCS as _CSA  # noqa: E402
 BASE.update(_CSA)
+from mvcalc import FUNCS as _MV  # noqa: E402
+BASE.update(_MV)
 _bad = _sql_tables(TEMPLATES)
 if _bad:
     raise SystemExit(f"SQL figures differ from tests/verify/sql.py TABLES: {_bad}")

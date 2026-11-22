@@ -61,6 +61,7 @@ type ExprAnswer = Extract<Answer, { kind: "expression" }>;
 function checkExpression(a: ExprAnswer, raw: string): CheckResult {
   if (!raw.trim()) return EMPTY;
   const vars = a.vars ?? ["x"];
+  if (a.final && !isOneNumber(plainNumber(rhsOnly(raw)))) return syntax("Do the arithmetic: type one number, not an expression.");
   const mine = compile(a.rel ? plainNumber(rhsOnly(raw)) : rhsOnly(raw));
   const ref = compile(a.ref, false);
   if (!mine || !ref) return syntax("Couldn't read that.");
@@ -101,6 +102,9 @@ function checkExpression(a: ExprAnswer, raw: string): CheckResult {
   }
   return ok >= Math.min(3, points.length) ? OK : wrong();
 }
+
+/** one number: an integer, a decimal, or a fraction p/q, with an optional sign (commas already removed) */
+export const isOneNumber = (s: string) => /^\s*[-+−]?\s*(\d+\.?\d*|\.\d+)([eE][-+]?\d+)?(\s*\/\s*\d+)?\s*$/.test(s);
 
 /** Engineering-number input: "25,000", "2.5 x 10^4", "25000 W/m^2" -> mathjs-friendly */
 function plainNumber(s: string): string {

@@ -2,7 +2,7 @@
 
 Generated from `drills/frameworks/mental-math.yaml` by `scripts/framework.mjs`. ● drilled · ◐ partly · ○ no drills yet.
 
-**82 learning objectives** in 6 units (82 core): 82 drilled, 0 partly, 0 with no drills. Core: 82 / 82 drilled.
+**84 learning objectives** in 6 units (84 core): 84 drilled, 0 partly, 0 with no drills. Core: 84 / 84 drilled.
 
 ## Big ideas
 
@@ -20,7 +20,7 @@ Generated from `drills/frameworks/mental-math.yaml` by `scripts/framework.mjs`. 
 
 | Unit | Scope | Est. weight | LOs | ● | ◐ | ○ |
 |---|---|---|---|---|---|---|
-| 1 · Arithmetic at speed (problems 1–20) | core | — | 22 | 22 | 0 | 0 |
+| 1 · Arithmetic at speed (problems 1–20) | core | — | 24 | 24 | 0 | 0 |
 | 2 · Algebra and number (problems 21–40) | core | — | 16 | 16 | 0 | 0 |
 | 3 · Advanced algebra and geometry (problems 41–60) | core | — | 17 | 17 | 0 | 0 |
 | 4 · Precalculus (problems 61–70) | core | — | 10 | 10 | 0 | 0 |
@@ -38,7 +38,7 @@ Big ideas: SEE, KNOW, EST
 - ● **MM-1.1.A** (H1.1) Add and subtract multi-digit numbers left to right, and subtract from a power of ten by complements.
   - EK: Say the large part of the answer first; 1000 − n is nines-and-a-ten on the digits.
   - EK: Slide both numbers so the one taken away is round (541 − 229 = 542 − 230); count up when the two are close.
-  - P1 · P2 · drills: mm-add-left-to-right, mm-subtract-from-1000, mm-sub-same-change, mm-sub-round-repay, mm-sub-count-up, mm-add-compensate
+  - P1 · P2 · drills: mm-add-left-to-right, mm-subtract-from-1000, mm-sub-same-change, mm-sub-round-repay, mm-sub-count-up, mm-add-compensate, mm-money-subtract
 - ● **MM-1.1.B** (H1.1) Take a fraction of a whole number by dividing first.
   - EK: p/q of n: divide by q, then multiply by p.
   - P1 · P2 · drills: mm-fraction-of
@@ -67,7 +67,7 @@ Big ideas: SEE, KNOW, EST
   - EK: a/b > c/d exactly when ad > bc (positive denominators).
   - P1 · P2 · drills: mm-compare-fractions
 
-### 1.5 Multiplication short-cuts
+### 1.5 Multiplication and division short-cuts
 
 
 
@@ -83,6 +83,13 @@ Big ideas: SEE, KNOW, EST
 - ● **MM-1.5.D** (H1.5) Double one factor and halve the other to make a round number.
   - EK: ab = (a/2)(2b); a factor ending in 5 doubles to a multiple of 10.
   - P1 · P2 · drills: mm-double-and-halve
+- ● **MM-1.5.E** Divide by 5 and 25 by rewriting the divisor, and by a two-digit number in stages.
+  - EK: ÷5 = ×2 ÷10; ÷25 = ×4 ÷100; ÷35 = ÷5 then ÷7. Multiply back to check.
+  - P1 · P2 · drills: mm-div-5, mm-div-25, mm-div-stages
+- ● **MM-1.5.F** Divide by a decimal by moving both decimal points until the divisor is whole.
+  - EK: 12.6 ÷ 0.35 = 1260 ÷ 35: dollars ÷ dollars per minute becomes cents ÷ cents per minute.
+  - Needs: MM-1.5.E
+  - P1 · P2 · drills: mm-div-shift
 
 ### 1.6 Squaring numbers
 
