@@ -75,3 +75,8 @@ def holliday(w):
 
 
 FUNCS = {f.__name__: f for f in [abg_primary, abg_comp, abo_ok, gcs, apgar, nines, holliday]}
+
+
+def check(p, H):
+    """helpers only: data.py runs these through verify expressions; no problem belongs here directly"""
+    return None
