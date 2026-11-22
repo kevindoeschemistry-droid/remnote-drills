@@ -81,7 +81,7 @@ Related reports: [standards and how much of each was read](../coverage/standards
 |---|---|---:|---:|---:|---:|---:|---|
 | [Anchor Quantities](anchor-quantities.md) | AQ | 14 | 14 | 0 | 0 | 1.1 | CODATA Recommended Values of the Fundamental Physical Constants: 2022 (NIST SP 961) (reference, read: part) |
 | [Biology (AP)](biology.md) | BI | 179 | 179 | 0 | 0 | 1.3 | AP Biology Course and Exam Description (2019) (standard, read: crosswalk) |
-| [Chemistry (AP)](chemistry.md) | CH | 179 | 179 | 0 | 0 | 1.4 | AP Chemistry Course and Exam Description (Fall 2024) (standard, read: part) |
+| [Chemistry (AP)](chemistry.md) | CH | 179 | 179 | 0 | 0 | 1.5 | AP Chemistry Course and Exam Description (Fall 2024) (standard, read: part) |
 | [Nuclear Science and Reactor Theory](nuclear.md) | NU | 19 | 19 | 0 | 0 | 1.7 | NRC Generic Fundamentals Examination, reactor theory topics (PWR catalog 192001-192008) (exam-spec, read: part) |
 | [Organic Reactions: Predict the Product](organic-reactions.md) | OR | 25 | 25 | 0 | 0 | 4.7 | Bruice, Organic Chemistry, 8th edition (table of contents) (textbook, read: part) |
 | [Particle Physics](particle-physics.md) | PP | 13 | 13 | 0 | 0 | 1.4 | AQA AS and A-level Physics (7407/7408), section 3.2 Particles and radiation (standard, read: part) |

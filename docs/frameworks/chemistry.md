@@ -646,7 +646,7 @@ Big ideas: TRA, ENE
 - ● **CH-5.1.A** (TRA-3.A) Express a reaction's rate from the rate of change of any reactant or product, using the coefficients.
   - EK: rate = −(1/a)d[A]/dt = (1/c)d[C]/dt for aA → cC.
   - Needs: CH-4.1.A
-  - P5 · drills: ac-rate-coefficients
+  - P5 · drills: ac-rate-coefficients, ac2-rate-ratio
 
 ### 5.2 Introduction to rate law
 
@@ -659,7 +659,7 @@ Big ideas: TRA, ENE
 - ● **CH-5.2.C** (TRA-3.B) Predict the change in rate when one or more concentrations change.
   - EK: Second order in A: doubling [A] quadruples the rate; zero order: no change.
   - Needs: CH-5.2.A
-  - P5 · drills: ac-rate-change
+  - P5 · drills: ac-rate-change, ac2-order-from-ratio
 
 ### 5.3 Concentration changes over time
 
@@ -672,11 +672,11 @@ Big ideas: TRA, ENE
 - ● **CH-5.3.B** (TRA-3.C) Identify reaction order from which plot ([A], ln[A] or 1/[A] vs t) is linear, and read k from its slope.
   - EK: Linear [A] ⇒ zero; linear ln[A] ⇒ first (slope −k); linear 1/[A] ⇒ second (slope +k).
   - Needs: CH-5.3.A
-  - P3 · P4 · drills: ac-linear-plot
+  - P3 · P4 · drills: ac-linear-plot, ac2-k-units-order
 - ● **CH-5.3.C** (TRA-3.C) Calculate a half-life, and use the constancy of first-order half-life to solve decay problems.
   - EK: First order t½ = 0.693/k, independent of [A]₀; radioactive decay is first order.
   - Needs: CH-5.3.A, CH-1.10.C
-  - P5 · drills: ac-first-order-half-life
+  - P5 · drills: ac-first-order-half-life, ac2-half-life-from-fraction
 
 ### 5.4 Elementary reactions
 
@@ -685,7 +685,7 @@ Big ideas: TRA, ENE
 - ● **CH-5.4.A** (TRA-4.A) Write the rate law of an elementary step directly from its molecularity.
   - EK: Only for elementary steps do the exponents equal the coefficients: A + B → products ⇒ rate = k[A][B].
   - Needs: CH-5.2.A
-  - P3 · drills: ac-elementary-rate-law
+  - P3 · drills: ac-elementary-rate-law, ac2-elementary-order
 
 ### 5.5 Collision model
 
@@ -703,11 +703,11 @@ Big ideas: TRA, ENE
 - ● **CH-5.6.A** (TRA-4.C) Label a reaction energy profile with the transition state, forward and reverse E_a, and ΔH.
   - EK: E_a,rev = E_a,fwd − ΔH; the transition state is the maximum, not an isolable species.
   - Needs: CH-5.5.A
-  - P1 · P4 · drills: ac-energy-profile
+  - P1 · P4 · drills: ac-energy-profile, ac2-reverse-ea
 - ● **CH-5.6.B** (TRA-4.C, DAT-GC Chemical Kinetics (activation energy)) Find the activation energy from rate constants at two temperatures (Arrhenius).
   - EK: ln(k₂/k₁) = −(E_a/R)(1/T₂ − 1/T₁).
   - Needs: CH-5.6.A
-  - P5 · drills: sm-rate-ea
+  - P5 · drills: sm-rate-ea, ac2-arrhenius-k2
 - ● **CH-5.6.C** (TRA-4.C, DAT-GC Chemical Kinetics (activation energy)) Predict a rate constant at a new temperature, or the factor a rate rises by, from E_a.
   - EK: k₂ = k₁ exp[−(E_a/R)(1/T₂ − 1/T₁)]; bigger E_a ⇒ more temperature-sensitive.
   - Needs: CH-5.6.B
@@ -756,7 +756,7 @@ Big ideas: TRA, ENE
 - ● **CH-5.11.A** (ENE-1.A) Explain how a catalyst (homogeneous, heterogeneous or enzyme) speeds a reaction, and what it leaves unchanged.
   - EK: It provides a new mechanism with lower E_a; ΔH, ΔG and K are unchanged, and forward and reverse rates rise together.
   - Needs: CH-5.10.A
-  - P6 · drills: ac-catalyst-effect
+  - P6 · drills: ac-catalyst-effect, ac2-catalyst-changes
 
 ## Unit 6 · Thermochemistry
 
@@ -769,7 +769,7 @@ Big ideas: ENE
 - ● **CH-6.1.A** (ENE-2.A) Classify a process as endothermic or exothermic from the temperature change of its surroundings, and give q its sign.
   - EK: Surroundings warm ⇒ the system released heat ⇒ exothermic, q < 0, ΔH < 0.
   - Needs: CH-0.1.B
-  - P6 · drills: ac-endo-exo
+  - P6 · drills: ac-endo-exo, ac2-dissolving-sign
 
 ### 6.2 Energy diagrams
 
@@ -795,7 +795,7 @@ Big ideas: ENE
 
 - ● **CH-6.4.A** (ENE-2.D) Calculate heat, mass, specific heat or temperature change with q = mcΔT.
   - EK: Water's c = 4.18 J/(g·°C); ΔT in °C equals ΔT in K.
-  - P5 · drills: ac-q-mcdt
+  - P5 · drills: ac-q-mcdt, ac2-mixing-temperature
 - ● **CH-6.4.B** (ENE-2.D) Find the final temperature when two bodies at different temperatures reach equilibrium.
   - EK: Isolated system: q_lost + q_gained = 0, so m₁c₁(T_f − T₁) + m₂c₂(T_f − T₂) = 0.
   - Needs: CH-6.4.A, CH-6.3.A
@@ -812,7 +812,7 @@ Big ideas: ENE
 - ● **CH-6.5.A** (ENE-2.E) Calculate the heat for a phase change at constant temperature.
   - EK: q = n·ΔH_fus or n·ΔH_vap; temperature stays constant while the phase changes; ΔH_vap ≫ ΔH_fus.
   - Needs: CH-6.4.A, CH-3.1.B
-  - P5 · drills: ac-phase-change-heat
+  - P5 · drills: ac-phase-change-heat, ac2-mass-melted
 - ● **CH-6.5.B** (ENE-2.E) Calculate the total heat along a heating curve that crosses one or more phase changes.
   - EK: Sum the sloped segments (mcΔT, each phase's own c) and the flat segments (nΔH).
   - Needs: CH-6.5.A
@@ -825,7 +825,7 @@ Big ideas: ENE
 - ● **CH-6.6.A** (ENE-2.F) Scale a reaction's ΔH to a given amount of reactant or product, and change its sign for the reverse reaction.
   - EK: ΔH is per mole of reaction as written: heat = ΔH × (mol / coefficient).
   - Needs: CH-6.2.A, CH-4.5.A
-  - P5 · drills: ac-scale-dh
+  - P5 · drills: ac-scale-dh, ac2-mass-from-heat
 
 ### 6.7 Bond enthalpies
 
@@ -856,7 +856,7 @@ Big ideas: ENE
 - ● **CH-6.9.A** (ENE-3.C, ENE-3.D) Combine given reactions (reversing and scaling them) to find ΔH of a target reaction.
   - EK: Enthalpy is a state function: reverse ⇒ −ΔH, multiply by n ⇒ nΔH, add reactions ⇒ add ΔH.
   - Needs: CH-6.6.A
-  - P5 · drills: ac-hess-combine
+  - P5 · drills: ac-hess-combine, ac2-hess-scale
 
 ### 6.10 The first law, work and internal energy
 
@@ -865,11 +865,11 @@ Big ideas: ENE
 - ● **CH-6.10.A** (DAT-GC Thermodynamics and Thermochemistry (laws of thermodynamics)) Calculate ΔU from heat and work with correct sign conventions, including pressure–volume work.
   - EK: ΔU = q + w; w = −P_ext ΔV (work done on the system is positive); 1 L·atm = 101.3 J.
   - Needs: CH-6.4.A, CH-3.4.A
-  - P5 · drills: ac-first-law
+  - P5 · drills: ac-first-law, ac2-work-from-du
 - ● **CH-6.10.B** (DAT-GC Thermodynamics and Thermochemistry (laws of thermodynamics)) Convert between ΔH and ΔU for a reaction that changes the moles of gas.
   - EK: ΔH = ΔU + Δn_gas RT; equal only when Δn_gas = 0.
   - Needs: CH-6.10.A
-  - P5 · drills: pc-dh-du
+  - P5 · drills: pc-dh-du, ac2-du-from-dh
 
 ### 6.11 Vapor pressure and temperature
 

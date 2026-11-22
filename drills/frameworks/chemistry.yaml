@@ -470,27 +470,27 @@ units:
         ced: "5.1"
         dat: [Chemical Kinetics]
         los:
-          - { id: A, std: [TRA-3.A], do: "Express a reaction's rate from the rate of change of any reactant or product, using the coefficients.", ek: ["rate = −(1/a)d[A]/dt = (1/c)d[C]/dt for aA → cC."], p: [P5], drills: [ac-rate-coefficients], needs: [CH-4.1.A] }
+          - { id: A, std: [TRA-3.A], do: "Express a reaction's rate from the rate of change of any reactant or product, using the coefficients.", ek: ["rate = −(1/a)d[A]/dt = (1/c)d[C]/dt for aA → cC."], p: [P5], drills: ["ac-rate-coefficients", "ac2-rate-ratio"], needs: [CH-4.1.A] }
       - n: 2
         title: Introduction to rate law
         ced: "5.2"
         dat: [Chemical Kinetics]
         los:
           - { id: A, std: [TRA-3.B], do: "Determine reaction orders and the rate constant, with its units, from initial-rates data.", ek: ["Compare two runs where only one concentration changes: rate ratio = (conc ratio)^order; k has units M^(1−n)·s⁻¹ for overall order n."], p: [P4, P5], drills: [pc-initial-rates, ac-rate-constant-units], needs: [CH-5.1.A] }
-          - { id: C, std: [TRA-3.B], do: "Predict the change in rate when one or more concentrations change.", ek: ["Second order in A: doubling [A] quadruples the rate; zero order: no change."], p: [P5], drills: [ac-rate-change], needs: [CH-5.2.A] }
+          - { id: C, std: [TRA-3.B], do: "Predict the change in rate when one or more concentrations change.", ek: ["Second order in A: doubling [A] quadruples the rate; zero order: no change."], p: [P5], drills: ["ac-rate-change", "ac2-order-from-ratio"], needs: [CH-5.2.A] }
       - n: 3
         title: Concentration changes over time
         ced: "5.3"
         dat: [Chemical Kinetics]
         los:
           - { id: A, std: [TRA-3.C], do: "Use the zero-, first- or second-order integrated rate law to find a concentration at time t, or the time to reach one.", ek: ["[A] = [A]₀ − kt; ln[A] = ln[A]₀ − kt; 1/[A] = 1/[A]₀ + kt."], p: [P5], drills: [ac-zero-order, pc-first-order, pc-second-order], needs: [CH-5.2.A] }
-          - { id: B, std: [TRA-3.C], do: "Identify reaction order from which plot ([A], ln[A] or 1/[A] vs t) is linear, and read k from its slope.", ek: ["Linear [A] ⇒ zero; linear ln[A] ⇒ first (slope −k); linear 1/[A] ⇒ second (slope +k)."], p: [P3, P4], drills: [ac-linear-plot], needs: [CH-5.3.A] }
-          - { id: C, std: [TRA-3.C], do: "Calculate a half-life, and use the constancy of first-order half-life to solve decay problems.", ek: ["First order t½ = 0.693/k, independent of [A]₀; radioactive decay is first order."], p: [P5], drills: [ac-first-order-half-life], needs: [CH-5.3.A, CH-1.10.C] }
+          - { id: B, std: [TRA-3.C], do: "Identify reaction order from which plot ([A], ln[A] or 1/[A] vs t) is linear, and read k from its slope.", ek: ["Linear [A] ⇒ zero; linear ln[A] ⇒ first (slope −k); linear 1/[A] ⇒ second (slope +k)."], p: [P3, P4], drills: ["ac-linear-plot", "ac2-k-units-order"], needs: [CH-5.3.A] }
+          - { id: C, std: [TRA-3.C], do: "Calculate a half-life, and use the constancy of first-order half-life to solve decay problems.", ek: ["First order t½ = 0.693/k, independent of [A]₀; radioactive decay is first order."], p: [P5], drills: ["ac-first-order-half-life", "ac2-half-life-from-fraction"], needs: [CH-5.3.A, CH-1.10.C] }
       - n: 4
         title: Elementary reactions
         ced: "5.4"
         los:
-          - { id: A, std: [TRA-4.A], do: "Write the rate law of an elementary step directly from its molecularity.", ek: ["Only for elementary steps do the exponents equal the coefficients: A + B → products ⇒ rate = k[A][B]."], p: [P3], drills: [ac-elementary-rate-law], needs: [CH-5.2.A] }
+          - { id: A, std: [TRA-4.A], do: "Write the rate law of an elementary step directly from its molecularity.", ek: ["Only for elementary steps do the exponents equal the coefficients: A + B → products ⇒ rate = k[A][B]."], p: [P3], drills: ["ac-elementary-rate-law", "ac2-elementary-order"], needs: [CH-5.2.A] }
       - n: 5
         title: Collision model
         ced: "5.5"
@@ -502,8 +502,8 @@ units:
         ced: "5.6"
         dat: [Chemical Kinetics]
         los:
-          - { id: A, std: [TRA-4.C], do: "Label a reaction energy profile with the transition state, forward and reverse E_a, and ΔH.", ek: ["E_a,rev = E_a,fwd − ΔH; the transition state is the maximum, not an isolable species."], p: [P1, P4], drills: [ac-energy-profile], needs: [CH-5.5.A] }
-          - { id: B, std: [TRA-4.C, "DAT-GC Chemical Kinetics (activation energy)"], do: "Find the activation energy from rate constants at two temperatures (Arrhenius).", ek: ["ln(k₂/k₁) = −(E_a/R)(1/T₂ − 1/T₁)."], p: [P5], drills: [sm-rate-ea], needs: [CH-5.6.A] }
+          - { id: A, std: [TRA-4.C], do: "Label a reaction energy profile with the transition state, forward and reverse E_a, and ΔH.", ek: ["E_a,rev = E_a,fwd − ΔH; the transition state is the maximum, not an isolable species."], p: [P1, P4], drills: ["ac-energy-profile", "ac2-reverse-ea"], needs: [CH-5.5.A] }
+          - { id: B, std: [TRA-4.C, "DAT-GC Chemical Kinetics (activation energy)"], do: "Find the activation energy from rate constants at two temperatures (Arrhenius).", ek: ["ln(k₂/k₁) = −(E_a/R)(1/T₂ − 1/T₁)."], p: [P5], drills: ["sm-rate-ea", "ac2-arrhenius-k2"], needs: [CH-5.6.A] }
           - { id: C, std: [TRA-4.C, "DAT-GC Chemical Kinetics (activation energy)"], do: "Predict a rate constant at a new temperature, or the factor a rate rises by, from E_a.", ek: ["k₂ = k₁ exp[−(E_a/R)(1/T₂ − 1/T₁)]; bigger E_a ⇒ more temperature-sensitive."], p: [P5], drills: [sm-rate-k2, sm-rate-factor], needs: [CH-5.6.B] }
       - n: 7
         title: Introduction to reaction mechanisms
@@ -530,7 +530,7 @@ units:
         ced: "5.11"
         dat: [Chemical Kinetics]
         los:
-          - { id: A, std: [ENE-1.A], do: "Explain how a catalyst (homogeneous, heterogeneous or enzyme) speeds a reaction, and what it leaves unchanged.", ek: ["It provides a new mechanism with lower E_a; ΔH, ΔG and K are unchanged, and forward and reverse rates rise together."], p: [P6], drills: [ac-catalyst-effect], needs: [CH-5.10.A] }
+          - { id: A, std: [ENE-1.A], do: "Explain how a catalyst (homogeneous, heterogeneous or enzyme) speeds a reaction, and what it leaves unchanged.", ek: ["It provides a new mechanism with lower E_a; ΔH, ΔG and K are unchanged, and forward and reverse rates rise together."], p: [P6], drills: ["ac-catalyst-effect", "ac2-catalyst-changes"], needs: [CH-5.10.A] }
 
   # ── 6 ────────────────────────────────────────────────────────────────────
   - id: thermochem
@@ -545,7 +545,7 @@ units:
         ced: "6.1"
         dat: [Thermodynamics and Thermochemistry]
         los:
-          - { id: A, std: [ENE-2.A], do: "Classify a process as endothermic or exothermic from the temperature change of its surroundings, and give q its sign.", ek: ["Surroundings warm ⇒ the system released heat ⇒ exothermic, q < 0, ΔH < 0."], p: [P6], drills: [ac-endo-exo], needs: [CH-0.1.B] }
+          - { id: A, std: [ENE-2.A], do: "Classify a process as endothermic or exothermic from the temperature change of its surroundings, and give q its sign.", ek: ["Surroundings warm ⇒ the system released heat ⇒ exothermic, q < 0, ΔH < 0."], p: [P6], drills: ["ac-endo-exo", "ac2-dissolving-sign"], needs: [CH-0.1.B] }
       - n: 2
         title: Energy diagrams
         ced: "6.2"
@@ -562,7 +562,7 @@ units:
         ced: "6.4"
         dat: [Thermodynamics and Thermochemistry, Laboratory]
         los:
-          - { id: A, std: [ENE-2.D], do: "Calculate heat, mass, specific heat or temperature change with q = mcΔT.", ek: ["Water's c = 4.18 J/(g·°C); ΔT in °C equals ΔT in K."], p: [P5], drills: [ac-q-mcdt] }
+          - { id: A, std: [ENE-2.D], do: "Calculate heat, mass, specific heat or temperature change with q = mcΔT.", ek: ["Water's c = 4.18 J/(g·°C); ΔT in °C equals ΔT in K."], p: [P5], drills: ["ac-q-mcdt", "ac2-mixing-temperature"] }
           - { id: B, std: [ENE-2.D], do: "Find the final temperature when two bodies at different temperatures reach equilibrium.", ek: ["Isolated system: q_lost + q_gained = 0, so m₁c₁(T_f − T₁) + m₂c₂(T_f − T₂) = 0."], p: [P5], drills: [ac-mixing-temperature, ph-calorimetry], needs: [CH-6.4.A, CH-6.3.A] }
           - { id: C, std: [ENE-2.D], do: "Calculate ΔH per mole of reaction from coffee-cup calorimetry data.", ek: ["q_rxn = −q_solution; ΔH = q_rxn / mol of limiting reactant."], p: [P5], drills: [ac-coffee-cup], needs: [CH-6.4.A, CH-4.5.B] }
       - n: 5
@@ -570,14 +570,14 @@ units:
         ced: "6.5"
         dat: [Liquids and Solids, Thermodynamics and Thermochemistry]
         los:
-          - { id: A, std: [ENE-2.E], do: "Calculate the heat for a phase change at constant temperature.", ek: ["q = n·ΔH_fus or n·ΔH_vap; temperature stays constant while the phase changes; ΔH_vap ≫ ΔH_fus."], p: [P5], drills: [ac-phase-change-heat], needs: [CH-6.4.A, CH-3.1.B] }
+          - { id: A, std: [ENE-2.E], do: "Calculate the heat for a phase change at constant temperature.", ek: ["q = n·ΔH_fus or n·ΔH_vap; temperature stays constant while the phase changes; ΔH_vap ≫ ΔH_fus."], p: [P5], drills: ["ac-phase-change-heat", "ac2-mass-melted"], needs: [CH-6.4.A, CH-3.1.B] }
           - { id: B, std: [ENE-2.E], do: "Calculate the total heat along a heating curve that crosses one or more phase changes.", ek: ["Sum the sloped segments (mcΔT, each phase's own c) and the flat segments (nΔH)."], p: [P5], drills: [ac-heating-curve], needs: [CH-6.5.A] }
       - n: 6
         title: Introduction to enthalpy of reaction
         ced: "6.6"
         dat: [Thermodynamics and Thermochemistry]
         los:
-          - { id: A, std: [ENE-2.F], do: "Scale a reaction's ΔH to a given amount of reactant or product, and change its sign for the reverse reaction.", ek: ["ΔH is per mole of reaction as written: heat = ΔH × (mol / coefficient)."], p: [P5], drills: [ac-scale-dh], needs: [CH-6.2.A, CH-4.5.A] }
+          - { id: A, std: [ENE-2.F], do: "Scale a reaction's ΔH to a given amount of reactant or product, and change its sign for the reverse reaction.", ek: ["ΔH is per mole of reaction as written: heat = ΔH × (mol / coefficient)."], p: [P5], drills: ["ac-scale-dh", "ac2-mass-from-heat"], needs: [CH-6.2.A, CH-4.5.A] }
       - n: 7
         title: Bond enthalpies
         ced: "6.7"
@@ -596,15 +596,15 @@ units:
         ced: "6.9"
         dat: [Thermodynamics and Thermochemistry]
         los:
-          - { id: A, std: [ENE-3.C, ENE-3.D], do: "Combine given reactions (reversing and scaling them) to find ΔH of a target reaction.", ek: ["Enthalpy is a state function: reverse ⇒ −ΔH, multiply by n ⇒ nΔH, add reactions ⇒ add ΔH."], p: [P5], drills: [ac-hess-combine], needs: [CH-6.6.A] }
+          - { id: A, std: [ENE-3.C, ENE-3.D], do: "Combine given reactions (reversing and scaling them) to find ΔH of a target reaction.", ek: ["Enthalpy is a state function: reverse ⇒ −ΔH, multiply by n ⇒ nΔH, add reactions ⇒ add ΔH."], p: [P5], drills: ["ac-hess-combine", "ac2-hess-scale"], needs: [CH-6.6.A] }
       - n: 10
         title: The first law, work and internal energy
         ced: ext
         scope: extension
         dat: [Thermodynamics and Thermochemistry]
         los:
-          - { id: A, std: ["DAT-GC Thermodynamics and Thermochemistry (laws of thermodynamics)"], do: "Calculate ΔU from heat and work with correct sign conventions, including pressure–volume work.", ek: ["ΔU = q + w; w = −P_ext ΔV (work done on the system is positive); 1 L·atm = 101.3 J."], p: [P5], drills: [ac-first-law], needs: [CH-6.4.A, CH-3.4.A] }
-          - { id: B, std: ["DAT-GC Thermodynamics and Thermochemistry (laws of thermodynamics)"], do: "Convert between ΔH and ΔU for a reaction that changes the moles of gas.", ek: ["ΔH = ΔU + Δn_gas RT; equal only when Δn_gas = 0."], p: [P5], drills: [pc-dh-du], needs: [CH-6.10.A] }
+          - { id: A, std: ["DAT-GC Thermodynamics and Thermochemistry (laws of thermodynamics)"], do: "Calculate ΔU from heat and work with correct sign conventions, including pressure–volume work.", ek: ["ΔU = q + w; w = −P_ext ΔV (work done on the system is positive); 1 L·atm = 101.3 J."], p: [P5], drills: ["ac-first-law", "ac2-work-from-du"], needs: [CH-6.4.A, CH-3.4.A] }
+          - { id: B, std: ["DAT-GC Thermodynamics and Thermochemistry (laws of thermodynamics)"], do: "Convert between ΔH and ΔU for a reaction that changes the moles of gas.", ek: ["ΔH = ΔU + Δn_gas RT; equal only when Δn_gas = 0."], p: [P5], drills: ["pc-dh-du", "ac2-du-from-dh"], needs: [CH-6.10.A] }
       - n: 11
         title: Vapor pressure and temperature
         ced: ext
