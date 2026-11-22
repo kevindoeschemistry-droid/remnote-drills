@@ -295,7 +295,7 @@ units:
         dat: [Liquids and Solids, Solutions]
         los:
           - { id: A, std: [SAP-5.A], do: "Identify every intermolecular force present between particles: London dispersion, dipole–dipole, hydrogen bonding, ion–dipole.", ek: ["All molecules have dispersion; polar ⇒ dipole–dipole; H on N, O or F next to a lone pair on N, O or F ⇒ hydrogen bond."], p: [P1], drills: [ac-imf-identify], needs: [CH-2.7.B] }
-          - { id: B, std: [SAP-5.A], do: "Rank substances by boiling point, vapor pressure, viscosity or surface tension from their intermolecular forces.", ek: ["Stronger IMF ⇒ higher bp, lower vapor pressure; dispersion grows with electron count and contact area and can outweigh dipoles."], p: [P6], drills: [ac-boiling-rank], needs: [CH-3.1.A] }
+          - { id: B, std: [SAP-5.A], do: "Rank substances by boiling point, vapor pressure, viscosity or surface tension from their intermolecular forces.", ek: ["Stronger IMF ⇒ higher bp, lower vapor pressure; dispersion grows with electron count and contact area and can outweigh dipoles."], p: [P6], drills: ["ac-boiling-rank", "ac2-highest-vp"], needs: [CH-3.1.A] }
       - n: 2
         title: Properties of solids
         ced: "3.2"
@@ -317,14 +317,14 @@ units:
           - { id: A, std: [SAP-7.A], do: "Solve PV = nRT for any variable with consistent units and the matching value of R.", ek: ["R = 0.08206 L·atm/(mol·K) = 8.314 J/(mol·K); T in kelvin; 1 atm = 760 torr = 101.325 kPa."], p: [P5], drills: [ac-ideal-gas-solve, pc-ideal-gas], needs: [CH-0.2.E] }
           - { id: B, std: [SAP-7.A], do: "Predict a new P, V, T or n when conditions change, using the combined gas law and Boyle's, Charles's, Gay-Lussac's and Avogadro's laws.", ek: ["P₁V₁/(n₁T₁) = P₂V₂/(n₂T₂); cancel whatever is held constant."], p: [P5], drills: [ac-combined-gas, ph-ideal-gas-change], needs: [CH-3.4.A] }
           - { id: C, std: [SAP-7.A], do: "Calculate a gas's density or molar mass from P, V, T and mass.", ek: ["M = ρRT/P; at STP one mole occupies 22.4 L."], p: [P5], drills: [ac-gas-molar-mass, sc-ideal-gas-density], needs: [CH-3.4.A, CH-1.1.A] }
-          - { id: D, std: [SAP-7.A], do: "Calculate partial pressures and mole fractions with Dalton's law, including a gas collected over water.", ek: ["P_total = Σ P_i; P_i = χ_i P_total; subtract water's vapor pressure from the collected gas pressure."], p: [P5], drills: [ac-dalton-over-water], needs: [CH-3.4.A] }
+          - { id: D, std: [SAP-7.A], do: "Calculate partial pressures and mole fractions with Dalton's law, including a gas collected over water.", ek: ["P_total = Σ P_i; P_i = χ_i P_total; subtract water's vapor pressure from the collected gas pressure."], p: [P5], drills: ["ac-dalton-over-water", "ac2-mole-fraction-from-pressure"], needs: [CH-3.4.A] }
       - n: 5
         title: Kinetic molecular theory
         ced: "3.5"
         dat: [Gases]
         los:
           - { id: A, std: [SAP-7.B], do: "State the postulates of kinetic molecular theory and interpret Maxwell–Boltzmann speed distributions at different temperatures and molar masses.", ek: ["Average KE ∝ T only; higher T or lower M spreads the curve to higher speeds."], p: [P4], drills: [ac-kmt-statement, kt-maxwell-compare], needs: [CH-3.4.A] }
-          - { id: B, std: [SAP-7.B], do: "Compare rms speeds and rates of effusion of two gases with Graham's law.", ek: ["u_rms = √(3RT/M); rate₁/rate₂ = √(M₂/M₁)."], p: [P5], drills: [pc-effusion], needs: [CH-3.5.A] }
+          - { id: B, std: [SAP-7.B], do: "Compare rms speeds and rates of effusion of two gases with Graham's law.", ek: ["u_rms = √(3RT/M); rate₁/rate₂ = √(M₂/M₁)."], p: [P5], drills: ["pc-effusion", "ac2-graham-identify"], needs: [CH-3.5.A] }
       - n: 6
         title: Deviation from the ideal gas law
         ced: "3.6"
@@ -336,9 +336,9 @@ units:
         ced: "3.7"
         dat: [Solutions]
         los:
-          - { id: A, std: [SPQ-3.A], do: "Calculate molarity, moles of solute or solution volume from the other two.", ek: ["M = mol solute / L solution."], p: [P5], drills: [ac-molarity], needs: [CH-1.1.A] }
+          - { id: A, std: [SPQ-3.A], do: "Calculate molarity, moles of solute or solution volume from the other two.", ek: ["M = mol solute / L solution."], p: [P5], drills: ["ac-molarity", "ac2-dilution-volume"], needs: [CH-1.1.A] }
           - { id: B, std: [SPQ-3.A], do: "Calculate the result of a dilution and describe how to prepare a solution of given concentration.", ek: ["Moles of solute are unchanged by adding solvent: M₁V₁ = M₂V₂; dissolve, then fill to the mark in a volumetric flask."], p: [P2, P5], drills: [ac-dilution, sc-dilution], needs: [CH-3.7.A] }
-          - { id: C, std: [SPQ-3.A], do: "Calculate each ion's concentration in a solution of a strong electrolyte.", ek: ["0.10 M CaCl₂ ⇒ 0.10 M Ca²⁺ and 0.20 M Cl⁻."], p: [P5], drills: [ac-ion-concentration], needs: [CH-3.7.A, CH-0.4.C] }
+          - { id: C, std: [SPQ-3.A], do: "Calculate each ion's concentration in a solution of a strong electrolyte.", ek: ["0.10 M CaCl₂ ⇒ 0.10 M Ca²⁺ and 0.20 M Cl⁻."], p: [P5], drills: ["ac-ion-concentration", "ac2-most-ions"], needs: [CH-3.7.A, CH-0.4.C] }
           - { id: D, std: [SPQ-3.A], do: "Convert among molarity, molality, mass percent, mole fraction and ppm.", ek: ["m = mol solute / kg solvent; converting molarity ↔ molality needs the solution's density."], p: [P5], drills: [ac-molality-convert], needs: [CH-3.7.A, CH-0.2.D] }
       - n: 8
         title: Representations of solutions
@@ -351,14 +351,14 @@ units:
         ced: "3.9"
         dat: [Solutions, Laboratory]
         los:
-          - { id: A, std: [SPQ-3.C], do: "Explain a chromatography or distillation separation, and compute R_f, from differences in intermolecular forces.", ek: ["A component that interacts more with the stationary phase travels less (lower R_f); distillation separates by volatility."], p: [P4, P6], drills: [ac-rf-value], needs: [CH-3.1.B] }
+          - { id: A, std: [SPQ-3.C], do: "Explain a chromatography or distillation separation, and compute R_f, from differences in intermolecular forces.", ek: ["A component that interacts more with the stationary phase travels less (lower R_f); distillation separates by volatility."], p: [P4, P6], drills: ["ac-rf-value", "ac2-rf-distance"], needs: [CH-3.1.B] }
       - n: 10
         title: Solubility
         ced: "3.10"
         dat: [Solutions]
         los:
           - { id: A, std: [SPQ-3.C], do: "Predict relative solubility in polar and nonpolar solvents from solute–solvent interactions.", ek: ["'Like dissolves like': dissolving is favored when solute–solvent attractions rival solute–solute and solvent–solvent ones."], p: [P6], drills: [ac-solubility-polar], needs: [CH-3.1.A] }
-          - { id: B, std: [SPQ-3.C, "DAT-GC Solutions"], do: "Predict how temperature and pressure change solubility, and use Henry's law for a dissolved gas.", ek: ["Gas solubility falls as T rises and rises with its partial pressure: C = k_H P; most solids dissolve better when hot."], p: [P5, P6], drills: [ac-henry-law], needs: [CH-3.10.A, CH-3.4.D] }
+          - { id: B, std: [SPQ-3.C, "DAT-GC Solutions"], do: "Predict how temperature and pressure change solubility, and use Henry's law for a dissolved gas.", ek: ["Gas solubility falls as T rises and rises with its partial pressure: C = k_H P; most solids dissolve better when hot."], p: [P5, P6], drills: ["ac-henry-law", "ac2-henry-scaling"], needs: [CH-3.10.A, CH-3.4.D] }
       - n: 11
         title: Spectroscopy and the electromagnetic spectrum
         ced: "3.11"
@@ -400,13 +400,13 @@ units:
         ced: "4.1"
         dat: [Stoichiometry and General Concepts]
         los:
-          - { id: A, std: [TRA-1.A], do: "Identify evidence of a chemical reaction and balance a chemical equation by inspection.", ek: ["Gas, precipitate, color or temperature change can signal reaction; balance atoms with coefficients, never by changing subscripts."], p: [P3], drills: [ac-balance-coefficient], needs: [CH-0.1.B, CH-0.4.C] }
+          - { id: A, std: [TRA-1.A], do: "Identify evidence of a chemical reaction and balance a chemical equation by inspection.", ek: ["Gas, precipitate, color or temperature change can signal reaction; balance atoms with coefficients, never by changing subscripts."], p: [P3], drills: ["ac-balance-coefficient", "ac2-balanced-pick"], needs: [CH-0.1.B, CH-0.4.C] }
       - n: 2
         title: Net ionic equations
         ced: "4.2"
         dat: [Solutions, Chemical Equilibria]
         los:
-          - { id: A, std: [TRA-1.B], do: "Predict whether a precipitate forms on mixing two ionic solutions, using solubility rules.", ek: ["Always soluble: Group 1, NH₄⁺, NO₃⁻ (AP's minimum); DAT adds halides (except Ag⁺, Pb²⁺, Hg₂²⁺), sulfates (except Ba, Sr, Pb, Ca), mostly insoluble carbonates, phosphates, hydroxides."], p: [P6], drills: [ac-precipitate-forms], needs: [CH-4.1.A] }
+          - { id: A, std: [TRA-1.B], do: "Predict whether a precipitate forms on mixing two ionic solutions, using solubility rules.", ek: ["Always soluble: Group 1, NH₄⁺, NO₃⁻ (AP's minimum); DAT adds halides (except Ag⁺, Pb²⁺, Hg₂²⁺), sulfates (except Ba, Sr, Pb, Ca), mostly insoluble carbonates, phosphates, hydroxides."], p: [P6], drills: ["ac-precipitate-forms", "ac2-precipitating-ion"], needs: [CH-4.1.A] }
           - { id: B, std: [TRA-1.B], do: "Write the molecular, complete ionic and net ionic equations for a reaction in solution.", ek: ["Split only strong electrolytes in solution; cancel spectator ions; keep solids, liquids, gases and weak electrolytes whole."], p: [P3], drills: [ac-spectator-ions], needs: [CH-4.2.A, CH-3.7.C] }
       - n: 3
         title: Representations of reactions
@@ -423,9 +423,9 @@ units:
         ced: "4.5"
         dat: [Stoichiometry and General Concepts]
         los:
-          - { id: A, std: [SPQ-4.A], do: "Calculate the mass of a product or reactant from the mass of another, through the mole ratio.", ek: ["grams A → mol A → (coefficient ratio) → mol B → grams B."], p: [P5], drills: [ac-mass-mass], needs: [CH-4.1.A, CH-1.1.A] }
-          - { id: B, std: [SPQ-4.A], do: "Identify the limiting reactant, the theoretical yield and the amount of excess reactant left.", ek: ["The limiting reactant is the one that makes less product; leftover = initial − consumed."], p: [P5], drills: [ac-limiting-reactant], needs: [CH-4.5.A] }
-          - { id: C, std: [SPQ-4.A], do: "Calculate percent yield from actual and theoretical yield.", ek: ["% yield = actual/theoretical × 100; it can't exceed 100% for a dry, pure product."], p: [P5], drills: [ac-percent-yield], needs: [CH-4.5.B] }
+          - { id: A, std: [SPQ-4.A], do: "Calculate the mass of a product or reactant from the mass of another, through the mole ratio.", ek: ["grams A → mol A → (coefficient ratio) → mol B → grams B."], p: [P5], drills: ["ac-mass-mass", "ac2-reactant-needed"], needs: [CH-4.1.A, CH-1.1.A] }
+          - { id: B, std: [SPQ-4.A], do: "Identify the limiting reactant, the theoretical yield and the amount of excess reactant left.", ek: ["The limiting reactant is the one that makes less product; leftover = initial − consumed."], p: [P5], drills: ["ac-limiting-reactant", "ac2-limiting-pick"], needs: [CH-4.5.A] }
+          - { id: C, std: [SPQ-4.A], do: "Calculate percent yield from actual and theoretical yield.", ek: ["% yield = actual/theoretical × 100; it can't exceed 100% for a dry, pure product."], p: [P5], drills: ["ac-percent-yield", "ac2-actual-yield"], needs: [CH-4.5.B] }
           - { id: D, std: [SPQ-4.A], do: "Solve solution stoichiometry: volumes and molarities in, mass or concentration out.", ek: ["mol = M·V for each solution; mix volumes add for the final concentration."], p: [P5], drills: [ac-solution-stoich], needs: [CH-4.5.A, CH-3.7.A] }
           - { id: E, std: [SPQ-4.A], do: "Solve gas stoichiometry with the ideal gas law or molar volume.", ek: ["Convert gas P, V, T to moles with n = PV/RT, then use the mole ratio; equal volumes of gases at the same T, P ⇒ equal moles."], p: [P5], drills: [ac-gas-stoich], needs: [CH-4.5.A, CH-3.4.A] }
       - n: 6
@@ -433,7 +433,7 @@ units:
         ced: "4.6"
         dat: [Acids and Bases, Laboratory]
         los:
-          - { id: A, std: [SPQ-4.B], do: "Calculate an unknown concentration or sample purity from titration data at the equivalence point.", ek: ["At equivalence, moles titrant × (ratio) = moles analyte; endpoint is where the indicator changes."], p: [P5], drills: [ac-titration-concentration], needs: [CH-4.5.D] }
+          - { id: A, std: [SPQ-4.B], do: "Calculate an unknown concentration or sample purity from titration data at the equivalence point.", ek: ["At equivalence, moles titrant × (ratio) = moles analyte; endpoint is where the indicator changes."], p: [P5], drills: ["ac-titration-concentration", "ac2-titrant-volume"], needs: [CH-4.5.D] }
       - n: 7
         title: Types of chemical reactions
         ced: "4.7"
@@ -446,13 +446,13 @@ units:
         ced: "4.8"
         dat: [Acids and Bases]
         los:
-          - { id: A, std: [TRA-2.B], do: "Identify Brønsted–Lowry acids, bases and conjugate pairs, and write the proton-transfer equation.", ek: ["Acid donates H⁺, base accepts it; conjugates differ by exactly one H⁺; water is amphoteric."], p: [P3], drills: [ac-conjugate], needs: [CH-4.7.A] }
+          - { id: A, std: [TRA-2.B], do: "Identify Brønsted–Lowry acids, bases and conjugate pairs, and write the proton-transfer equation.", ek: ["Acid donates H⁺, base accepts it; conjugates differ by exactly one H⁺; water is amphoteric."], p: [P3], drills: ["ac-conjugate", "ac2-conjugate-pick"], needs: [CH-4.7.A] }
       - n: 9
         title: Oxidation–reduction (redox) reactions
         ced: "4.9"
         dat: [Oxidation–Reduction Reactions]
         los:
-          - { id: A, std: [TRA-2.C], do: "Assign oxidation numbers to every atom in a species.", ek: ["Elements 0; monatomic ions = charge; O usually −2, H +1 (−1 in hydrides), F −1; sum = overall charge."], p: [P1], drills: [ac-oxidation-number], needs: [CH-0.4.C] }
+          - { id: A, std: [TRA-2.C], do: "Assign oxidation numbers to every atom in a species.", ek: ["Elements 0; monatomic ions = charge; O usually −2, H +1 (−1 in hydrides), F −1; sum = overall charge."], p: [P1], drills: ["ac-oxidation-number", "ac2-oxidation-pick"], needs: [CH-0.4.C] }
           - { id: B, std: [TRA-2.C], do: "Identify the species oxidized and reduced and the oxidizing and reducing agents.", ek: ["Oxidation = loss of e⁻ (number rises); the oxidizing agent is the species reduced."], p: [P6], drills: [ac-oxidizing-agent], needs: [CH-4.9.A] }
           - { id: C, std: [TRA-2.C], do: "Balance a redox equation by half-reactions in acidic or basic solution.", ek: ["Balance atoms, O with H₂O, H with H⁺, charge with e⁻; equalize electrons; in base add OH⁻ to neutralize H⁺."], p: [P3], drills: [ac-electrons-transferred], needs: [CH-4.9.B] }
           - { id: D, std: [TRA-2.C, "DAT-GC Oxidation–Reduction Reactions"], do: "Predict whether a single-replacement reaction occurs from an activity series.", ek: ["A metal displaces ions of any metal below it; metals above H displace H₂ from acids."], p: [P6], drills: [ac-activity-series], needs: [CH-4.9.B] }

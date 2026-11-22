@@ -117,5 +117,44 @@ def formal_charge(sym, nonbonding, bonds):
     return VALENCE[sym] - nonbonding - bonds
 
 
-FUNCS = {f.__name__: f for f in [empirical_sub, formal_charge, counts, molar_mass, atoms_per_unit, mass_pct, argmax, argmin, most_atoms, closest_metal,
+def _side(text):
+    tot = {}
+    for term in text.split("+"):
+        term = term.strip()
+        m = re.match(r"^(\d*)\s*(.*)$", term)
+        k = int(m.group(1)) if m.group(1) else 1
+        for el, n in counts(m.group(2)).items():
+            tot[el] = tot.get(el, 0) + k * n
+    return tot
+
+
+def balanced(eq):
+    """'2 H2 + O2 -> 2 H2O' -> True when every element balances"""
+    left, right = eq.split("->")
+    return _side(left) == _side(right)
+
+
+def balanced_pick(eqs):
+    hits = [i for i, e in enumerate(eqs) if balanced(e)]
+    assert len(hits) == 1, (eqs, hits)
+    return hits[0]
+
+
+FIXED = {"O": -2, "H": 1, "F": -1, "Cl": -1, "Li": 1, "Na": 1, "K": 1, "Mg": 2, "Ca": 2, "Ba": 2}
+
+
+def oxnum(formula, el, charge=0):
+    """oxidation number of el, all other atoms at their usual values (O -2, H +1, F -1, groups 1-2)"""
+    c = counts(formula)
+    rest = sum(FIXED[k] * n for k, n in c.items() if k != el)
+    return sp.Rational(charge - rest, c[el])
+
+
+def ox_pick(formulas, charges, el, target):
+    hits = [i for i, (f, q) in enumerate(zip(formulas, charges)) if oxnum(f, el, q) == target]
+    assert len(hits) == 1, hits
+    return hits[0]
+
+
+FUNCS = {f.__name__: f for f in [balanced, balanced_pick, oxnum, ox_pick, empirical_sub, formal_charge, counts, molar_mass, atoms_per_unit, mass_pct, argmax, argmin, most_atoms, closest_metal,
                                  electrons, iso_pick, most_polar, lone_pairs, hybrid]}

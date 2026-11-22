@@ -347,7 +347,7 @@ Big ideas: SAP, SPQ
 - ● **CH-3.1.B** (SAP-5.A) Rank substances by boiling point, vapor pressure, viscosity or surface tension from their intermolecular forces.
   - EK: Stronger IMF ⇒ higher bp, lower vapor pressure; dispersion grows with electron count and contact area and can outweigh dipoles.
   - Needs: CH-3.1.A
-  - P6 · drills: ac-boiling-rank
+  - P6 · drills: ac-boiling-rank, ac2-highest-vp
 
 ### 3.2 Properties of solids
 
@@ -390,7 +390,7 @@ Big ideas: SAP, SPQ
 - ● **CH-3.4.D** (SAP-7.A) Calculate partial pressures and mole fractions with Dalton's law, including a gas collected over water.
   - EK: P_total = Σ P_i; P_i = χ_i P_total; subtract water's vapor pressure from the collected gas pressure.
   - Needs: CH-3.4.A
-  - P5 · drills: ac-dalton-over-water
+  - P5 · drills: ac-dalton-over-water, ac2-mole-fraction-from-pressure
 
 ### 3.5 Kinetic molecular theory
 
@@ -403,7 +403,7 @@ Big ideas: SAP, SPQ
 - ● **CH-3.5.B** (SAP-7.B) Compare rms speeds and rates of effusion of two gases with Graham's law.
   - EK: u_rms = √(3RT/M); rate₁/rate₂ = √(M₂/M₁).
   - Needs: CH-3.5.A
-  - P5 · drills: pc-effusion
+  - P5 · drills: pc-effusion, ac2-graham-identify
 
 ### 3.6 Deviation from the ideal gas law
 
@@ -421,7 +421,7 @@ Big ideas: SAP, SPQ
 - ● **CH-3.7.A** (SPQ-3.A) Calculate molarity, moles of solute or solution volume from the other two.
   - EK: M = mol solute / L solution.
   - Needs: CH-1.1.A
-  - P5 · drills: ac-molarity
+  - P5 · drills: ac-molarity, ac2-dilution-volume
 - ● **CH-3.7.B** (SPQ-3.A) Calculate the result of a dilution and describe how to prepare a solution of given concentration.
   - EK: Moles of solute are unchanged by adding solvent: M₁V₁ = M₂V₂; dissolve, then fill to the mark in a volumetric flask.
   - Needs: CH-3.7.A
@@ -429,7 +429,7 @@ Big ideas: SAP, SPQ
 - ● **CH-3.7.C** (SPQ-3.A) Calculate each ion's concentration in a solution of a strong electrolyte.
   - EK: 0.10 M CaCl₂ ⇒ 0.10 M Ca²⁺ and 0.20 M Cl⁻.
   - Needs: CH-3.7.A, CH-0.4.C
-  - P5 · drills: ac-ion-concentration
+  - P5 · drills: ac-ion-concentration, ac2-most-ions
 - ● **CH-3.7.D** (SPQ-3.A) Convert among molarity, molality, mass percent, mole fraction and ppm.
   - EK: m = mol solute / kg solvent; converting molarity ↔ molality needs the solution's density.
   - Needs: CH-3.7.A, CH-0.2.D
@@ -451,7 +451,7 @@ Big ideas: SAP, SPQ
 - ● **CH-3.9.A** (SPQ-3.C) Explain a chromatography or distillation separation, and compute R_f, from differences in intermolecular forces.
   - EK: A component that interacts more with the stationary phase travels less (lower R_f); distillation separates by volatility.
   - Needs: CH-3.1.B
-  - P4 · P6 · drills: ac-rf-value
+  - P4 · P6 · drills: ac-rf-value, ac2-rf-distance
 
 ### 3.10 Solubility
 
@@ -464,7 +464,7 @@ Big ideas: SAP, SPQ
 - ● **CH-3.10.B** (SPQ-3.C, DAT-GC Solutions) Predict how temperature and pressure change solubility, and use Henry's law for a dissolved gas.
   - EK: Gas solubility falls as T rises and rises with its partial pressure: C = k_H P; most solids dissolve better when hot.
   - Needs: CH-3.10.A, CH-3.4.D
-  - P5 · P6 · drills: ac-henry-law
+  - P5 · P6 · drills: ac-henry-law, ac2-henry-scaling
 
 ### 3.11 Spectroscopy and the electromagnetic spectrum
 
@@ -525,7 +525,7 @@ Big ideas: TRA, SPQ
 - ● **CH-4.1.A** (TRA-1.A) Identify evidence of a chemical reaction and balance a chemical equation by inspection.
   - EK: Gas, precipitate, color or temperature change can signal reaction; balance atoms with coefficients, never by changing subscripts.
   - Needs: CH-0.1.B, CH-0.4.C
-  - P3 · drills: ac-balance-coefficient
+  - P3 · drills: ac-balance-coefficient, ac2-balanced-pick
 
 ### 4.2 Net ionic equations
 
@@ -534,7 +534,7 @@ Big ideas: TRA, SPQ
 - ● **CH-4.2.A** (TRA-1.B) Predict whether a precipitate forms on mixing two ionic solutions, using solubility rules.
   - EK: Always soluble: Group 1, NH₄⁺, NO₃⁻ (AP's minimum); DAT adds halides (except Ag⁺, Pb²⁺, Hg₂²⁺), sulfates (except Ba, Sr, Pb, Ca), mostly insoluble carbonates, phosphates, hydroxides.
   - Needs: CH-4.1.A
-  - P6 · drills: ac-precipitate-forms
+  - P6 · drills: ac-precipitate-forms, ac2-precipitating-ion
 - ● **CH-4.2.B** (TRA-1.B) Write the molecular, complete ionic and net ionic equations for a reaction in solution.
   - EK: Split only strong electrolytes in solution; cancel spectator ions; keep solids, liquids, gases and weak electrolytes whole.
   - Needs: CH-4.2.A, CH-3.7.C
@@ -565,15 +565,15 @@ Big ideas: TRA, SPQ
 - ● **CH-4.5.A** (SPQ-4.A) Calculate the mass of a product or reactant from the mass of another, through the mole ratio.
   - EK: grams A → mol A → (coefficient ratio) → mol B → grams B.
   - Needs: CH-4.1.A, CH-1.1.A
-  - P5 · drills: ac-mass-mass
+  - P5 · drills: ac-mass-mass, ac2-reactant-needed
 - ● **CH-4.5.B** (SPQ-4.A) Identify the limiting reactant, the theoretical yield and the amount of excess reactant left.
   - EK: The limiting reactant is the one that makes less product; leftover = initial − consumed.
   - Needs: CH-4.5.A
-  - P5 · drills: ac-limiting-reactant
+  - P5 · drills: ac-limiting-reactant, ac2-limiting-pick
 - ● **CH-4.5.C** (SPQ-4.A) Calculate percent yield from actual and theoretical yield.
   - EK: % yield = actual/theoretical × 100; it can't exceed 100% for a dry, pure product.
   - Needs: CH-4.5.B
-  - P5 · drills: ac-percent-yield
+  - P5 · drills: ac-percent-yield, ac2-actual-yield
 - ● **CH-4.5.D** (SPQ-4.A) Solve solution stoichiometry: volumes and molarities in, mass or concentration out.
   - EK: mol = M·V for each solution; mix volumes add for the final concentration.
   - Needs: CH-4.5.A, CH-3.7.A
@@ -590,7 +590,7 @@ Big ideas: TRA, SPQ
 - ● **CH-4.6.A** (SPQ-4.B) Calculate an unknown concentration or sample purity from titration data at the equivalence point.
   - EK: At equivalence, moles titrant × (ratio) = moles analyte; endpoint is where the indicator changes.
   - Needs: CH-4.5.D
-  - P5 · drills: ac-titration-concentration
+  - P5 · drills: ac-titration-concentration, ac2-titrant-volume
 
 ### 4.7 Types of chemical reactions
 
@@ -612,7 +612,7 @@ Big ideas: TRA, SPQ
 - ● **CH-4.8.A** (TRA-2.B) Identify Brønsted–Lowry acids, bases and conjugate pairs, and write the proton-transfer equation.
   - EK: Acid donates H⁺, base accepts it; conjugates differ by exactly one H⁺; water is amphoteric.
   - Needs: CH-4.7.A
-  - P3 · drills: ac-conjugate
+  - P3 · drills: ac-conjugate, ac2-conjugate-pick
 
 ### 4.9 Oxidation–reduction (redox) reactions
 
@@ -621,7 +621,7 @@ Big ideas: TRA, SPQ
 - ● **CH-4.9.A** (TRA-2.C) Assign oxidation numbers to every atom in a species.
   - EK: Elements 0; monatomic ions = charge; O usually −2, H +1 (−1 in hydrides), F −1; sum = overall charge.
   - Needs: CH-0.4.C
-  - P1 · drills: ac-oxidation-number
+  - P1 · drills: ac-oxidation-number, ac2-oxidation-pick
 - ● **CH-4.9.B** (TRA-2.C) Identify the species oxidized and reduced and the oxidizing and reducing agents.
   - EK: Oxidation = loss of e⁻ (number rises); the oxidizing agent is the species reduced.
   - Needs: CH-4.9.A
