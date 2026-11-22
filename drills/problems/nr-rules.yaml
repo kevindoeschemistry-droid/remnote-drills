@@ -1,0 +1,382 @@
+# NCLEX-RN rules, priorities and facts (framework nclex-rn, NR). Authored: nothing recomputes them, so
+# each case is a standard textbook answer with one defensible option. Where practice varies by
+# facility (hold parameters, lab ranges) the card says "usual" and the explanation says so.
+
+# ── management of care ────────────────────────────────────────────────────────
+- template: nr-priority
+  skill: nurs.management
+  pace: quick
+  cases:
+    - { o1: "A client with chest pain who is pale and diaphoretic", o2: "A client 2 days after surgery asking for pain medicine (pain 5/10)", o3: "A client with diabetes due for a scheduled insulin dose in 30 minutes", o4: "A client asking about discharge instructions", ans: 0 }
+    - { o1: "A client with a cast who wants a bath", o2: "A client after thyroidectomy with a hoarse voice and noisy breathing", o3: "A client with COPD at SpO₂ 90% on 2 L/min", o4: "A client with a urinary catheter draining 50 mL/h", ans: 1 }
+    - { o1: "A client with pneumonia and a temperature of 38.2 °C", o2: "A client with a new fracture whose foot is cold and pale with no pedal pulse", o3: "A client with heart failure who gained 0.5 kg since yesterday", o4: "A client with a stage 2 pressure injury", ans: 1 }
+    - { o1: "A client with a sickle cell crisis rating pain 8/10", o2: "A client with asthma who is quiet, with no wheezing heard and SpO₂ 86%", o3: "A client with a blood glucose of 250 mg/dL", o4: "A client receiving IV antibiotics with a red, tender site", ans: 1 }
+    - { o1: "A client after abdominal surgery with serous drainage on the dressing", o2: "A client with a potassium of 3.4 mEq/L", o3: "A client receiving blood who reports low back pain and chills", o4: "A client who has not had a bowel movement in 2 days", ans: 2 }
+    - { o1: "A client with a head injury whose GCS fell from 14 to 10", o2: "A client with a new colostomy that is pink and moist", o3: "A client with osteoarthritis wanting help to walk", o4: "A client on bedrest asking for the TV remote", ans: 0 }
+  prompt: 'Which client should the nurse see first?'
+  parts:
+    - { ask: 'First', label: a, choice: ["{{o1}}", "{{o2}}", "{{o3}}", "{{o4}}"], correct: ans, explain: 'Airway, breathing, circulation first; then an acute change over a chronic or expected finding; unstable before stable. A silent chest in asthma means air is not moving; a cold, pulseless limb is circulation; a transfusion reaction, airway noise after neck surgery and a falling GCS are acute and life-threatening' }
+  verify: { authored: true }
+
+- template: nr-delegation
+  skill: nurs.management
+  pace: recall
+  cases:
+    - { task: "Taking vital signs on a stable client after surgery", ans: 2 }
+    - { task: "Doing the admission assessment of a new client", ans: 0 }
+    - { task: "Giving a scheduled oral medication to a stable client", ans: 1 }
+    - { task: "Teaching a newly diagnosed client to self-inject insulin", ans: 0 }
+    - { task: "Helping a stable client walk in the hall", ans: 2 }
+    - { task: "Reinforcing discharge teaching the RN already gave", ans: 1 }
+    - { task: "Evaluating whether a client's pain medicine worked", ans: 0 }
+    - { task: "Measuring and recording intake and output", ans: 2 }
+    - { task: "Caring for a client whose condition is unstable", ans: 0 }
+    - { task: "Giving a subcutaneous injection to a stable client", ans: 1 }
+  prompt: 'Who is the least-qualified team member who can do this: {{task}}?'
+  parts:
+    - { ask: 'Assign to', label: a, choice: ["The RN", "The LPN/LVN", "Assistive personnel (UAP)"], correct: ans, explain: 'The RN keeps assessment, initial teaching, care planning, evaluation and unstable clients. LPNs give most medications, reinforce teaching and care for stable clients. Assistive personnel do routine tasks on stable clients: vitals, hygiene, walking, I&O. The RN stays accountable for what is delegated' }
+  verify: { authored: true }
+
+- template: nr-legal
+  skill: nurs.management
+  pace: quick
+  cases:
+    - { s: "Before surgery the client asks what the procedure involves and its risks. Whose job is it to explain them?", o1: "The surgeon (the provider doing the procedure)", o2: "The nurse witnessing the signature", o3: "The charge nurse", o4: "The client's family", ans: 0 }
+    - { s: "What does the nurse's signature as witness on a consent form confirm?", o1: "That the client understands every risk", o2: "That the signature is the client's and was given voluntarily", o3: "That the procedure is the right choice", o4: "That the surgeon explained the alternatives", ans: 1 }
+    - { s: "A client given a sedative 30 minutes ago is asked to sign a surgical consent. What should the nurse do?", o1: "Have the client sign while still alert", o2: "Have a family member sign instead", o3: "Not obtain the signature and tell the provider", o4: "Sign on the client's behalf", ans: 2 }
+    - { s: "A competent adult refuses a blood transfusion for religious reasons. What does the nurse do?", o1: "Give it, because it is life-saving", o2: "Respect the refusal, document it and notify the provider", o3: "Ask the family to persuade the client", o4: "Get a court order first", ans: 1 }
+    - { s: "A nurse sees another nurse's medication error. What is the right action?", o1: "Ignore it if no harm occurred", o2: "Assess the client, notify the provider and file an incident report", o3: "Chart the incident report in the client's record", o4: "Tell the client's family first", ans: 1 }
+    - { s: "Which describes an advance directive?", o1: "A provider's order for the next shift", o2: "A client's written wishes about future care if they cannot decide", o3: "A form that can only be changed by a lawyer", o4: "An order that applies only during surgery", ans: 1 }
+  prompt: '{{s}}'
+  parts:
+    - { ask: 'Answer', label: a, choice: ["{{o1}}", "{{o2}}", "{{o3}}", "{{o4}}"], correct: ans, explain: 'The provider informs; the nurse witnesses and advocates. Consent needs a competent, unsedated adult acting voluntarily, and a competent adult may refuse. Incident reports are quality tools: never mentioned or filed in the chart' }
+  verify: { authored: true }
+
+# ── safety and infection control ──────────────────────────────────────────────
+- template: nr-precautions
+  skill: nurs.safety
+  pace: recall
+  cases:
+    - { dz: "pulmonary tuberculosis", ans: 2 }
+    - { dz: "measles (rubeola)", ans: 2 }
+    - { dz: "influenza", ans: 1 }
+    - { dz: "pertussis", ans: 1 }
+    - { dz: "bacterial meningitis (Neisseria meningitidis)", ans: 1 }
+    - { dz: "Clostridioides difficile diarrhea", ans: 0 }
+    - { dz: "an MRSA wound infection", ans: 0 }
+    - { dz: "scabies", ans: 0 }
+    - { dz: "mumps", ans: 1 }
+  prompt: 'Which transmission-based precautions does a client with {{dz}} need (on top of standard precautions)?'
+  parts:
+    - { ask: 'Precautions', label: a, choice: ["Contact", "Droplet", "Airborne"], correct: ans, explain: 'Airborne (negative-pressure room, N95): TB, measles, chickenpox. Droplet (surgical mask within about 3 feet): influenza, pertussis, mumps, rubella, meningococcal meningitis. Contact (gown and gloves): C. difficile (wash with soap and water; alcohol does not kill spores), MRSA, VRE, scabies, lice' }
+  verify: { authored: true }
+
+- template: nr-ppe-order
+  skill: nurs.safety
+  pace: recall
+  cases:
+    - { s: "Putting PPE on: what goes on first?", o1: "Gown", o2: "Gloves", o3: "Goggles", o4: "Mask", ans: 0 }
+    - { s: "Putting PPE on: what goes on last?", o1: "Gown", o2: "Gloves", o3: "Goggles", o4: "Mask", ans: 1 }
+    - { s: "Taking PPE off: what comes off first?", o1: "Gown", o2: "Gloves", o3: "Goggles", o4: "Mask", ans: 1 }
+    - { s: "Taking PPE off: what comes off last?", o1: "Gown", o2: "Gloves", o3: "Goggles", o4: "Mask", ans: 3 }
+  prompt: '{{s}}'
+  parts:
+    - { ask: 'Item', label: a, choice: ["{{o1}}", "{{o2}}", "{{o3}}", "{{o4}}"], correct: ans, explain: 'On: gown, mask, goggles, gloves. Off: gloves, goggles, gown, mask (the most contaminated first, the mask last, outside the room for airborne precautions), then hand hygiene' }
+  verify: { authored: true }
+
+- template: nr-safety-rules
+  skill: nurs.safety
+  pace: quick
+  cases:
+    - { s: "How many identifiers must be checked before giving a medication?", o1: "One: the room number", o2: "Two, such as name and date of birth", o3: "Three, including the bed number", o4: "None if the nurse knows the client", ans: 1 }
+    - { s: "In a fire, what does the R in RACE stand for?", o1: "Report", o2: "Rescue clients in immediate danger", o3: "Restrain", o4: "Retreat", ans: 1 }
+    - { s: "Using an extinguisher (PASS), what is the first step?", o1: "Pull the pin", o2: "Aim at the base", o3: "Squeeze the handle", o4: "Sweep side to side", ans: 0 }
+    - { s: "Where should a restraint be tied on a bed?", o1: "To the side rail", o2: "To the bed frame, with a quick-release knot", o3: "To the headboard with a square knot", o4: "To the mattress", ans: 1 }
+    - { s: "How often is a restrained client released for range of motion and skin checks, at least?", o1: "Every 2 hours", o2: "Every 8 hours", o3: "Once a shift", o4: "Only when the order is renewed", ans: 0 }
+    - { s: "A client is found on the floor. What does the nurse do first?", o1: "Help the client back to bed", o2: "Assess the client for injury before moving them", o3: "Fill in the incident report", o4: "Call the family", ans: 1 }
+  prompt: '{{s}}'
+  parts:
+    - { ask: 'Answer', label: a, choice: ["{{o1}}", "{{o2}}", "{{o3}}", "{{o4}}"], correct: ans, explain: 'Two identifiers, never the room number. RACE: rescue, alarm, contain, extinguish; PASS: pull, aim, squeeze, sweep. Restraints are a last resort, tied to the frame with a quick-release knot, released and checked at least every 2 hours. Assess before you move' }
+  verify: { authored: true }
+
+# ── health promotion ──────────────────────────────────────────────────────────
+- template: nr-erikson
+  skill: nurs.health-promotion
+  pace: recall
+  cases:
+    - { age: "an infant (birth to 1 year)", ans: 0 }
+    - { age: "a toddler (1 to 3 years)", ans: 1 }
+    - { age: "a preschooler (3 to 6 years)", ans: 2 }
+    - { age: "a school-age child (6 to 12 years)", ans: 3 }
+    - { age: "an adolescent", ans: 4 }
+    - { age: "an older adult", ans: 5 }
+  prompt: "What is Erikson's developmental task for {{age}}?"
+  parts:
+    - { ask: 'Stage', label: a, choice: ["Trust vs. mistrust", "Autonomy vs. shame and doubt", "Initiative vs. guilt", "Industry vs. inferiority", "Identity vs. role confusion", "Integrity vs. despair"], correct: ans, explain: 'Then young adult intimacy vs. isolation and middle adult generativity vs. stagnation. Use it for care: let a toddler choose (autonomy), give a school-age child tasks to finish (industry), protect an adolescent''s privacy (identity)' }
+  verify: { authored: true }
+
+- template: nr-milestones
+  skill: nurs.health-promotion
+  pace: recall
+  cases:
+    - { s: "By what age does an infant's birth weight usually double?", o1: "2 months", o2: "5 to 6 months", o3: "12 months", o4: "18 months", ans: 1 }
+    - { s: "By what age does an infant's birth weight usually triple?", o1: "6 months", o2: "9 months", o3: "12 months", o4: "24 months", ans: 2 }
+    - { s: "When does the posterior fontanel usually close?", o1: "2 to 3 months", o2: "6 months", o3: "12 to 18 months", o4: "3 years", ans: 0 }
+    - { s: "When does the anterior fontanel usually close?", o1: "2 to 3 months", o2: "6 months", o3: "12 to 18 months", o4: "3 years", ans: 2 }
+    - { s: "At about what age do most infants sit without support?", o1: "2 months", o2: "6 to 8 months", o3: "12 months", o4: "15 months", ans: 1 }
+    - { s: "At about what age do most children walk alone?", o1: "6 months", o2: "9 months", o3: "12 to 15 months", o4: "24 months", ans: 2 }
+  prompt: '{{s}}'
+  parts:
+    - { ask: 'Age', label: a, choice: ["{{o1}}", "{{o2}}", "{{o3}}", "{{o4}}"], correct: ans, explain: 'Weight doubles by 5–6 months and triples by 1 year. Posterior fontanel closes by 2–3 months, anterior by 12–18 months. Sits about 6–8 months, walks about 12–15 months' }
+  verify: { authored: true }
+
+- template: nr-gtpal
+  skill: nurs.health-promotion
+  pace: quick
+  cases:
+    - { hist: "is pregnant now; she has a 4-year-old born at 39 weeks and had a miscarriage at 10 weeks", cur: 1, t: 1, p: 0, a: 1, l: 1, k: 0, ask: "G (gravida)" }
+    - { hist: "is pregnant now; she has a 4-year-old born at 39 weeks and had a miscarriage at 10 weeks", cur: 1, t: 1, p: 0, a: 1, l: 1, k: 1, ask: "T (term births)" }
+    - { hist: "is pregnant now; she has twins born at 34 weeks, both living, and a child born at 40 weeks", cur: 1, t: 1, p: 1, a: 0, l: 3, k: 2, ask: "P (preterm births)" }
+    - { hist: "is pregnant now; she has twins born at 34 weeks, both living, and a child born at 40 weeks", cur: 1, t: 1, p: 1, a: 0, l: 3, k: 4, ask: "L (living children)" }
+    - { hist: "is pregnant now; she has twins born at 34 weeks, both living, and a child born at 40 weeks", cur: 1, t: 1, p: 1, a: 0, l: 3, k: 0, ask: "G (gravida)" }
+    - { hist: "is not pregnant; she has had two miscarriages at 8 and 12 weeks and one child born at 38 weeks", cur: 0, t: 1, p: 0, a: 2, l: 1, k: 3, ask: "A (abortions and miscarriages before 20 weeks)" }
+    - { hist: "is not pregnant; she has had two miscarriages at 8 and 12 weeks and one child born at 38 weeks", cur: 0, t: 1, p: 0, a: 2, l: 1, k: 0, ask: "G (gravida)" }
+  prompt: 'A client {{hist}}. What is her {{ask}}?'
+  parts:
+    - { ask: 'Count', label: n, value: '[cur + t + p + a, t, p, a, l][k + 1]', tol: 0.000001, final: true, explain: 'G counts pregnancies, including the current one. T births at 37 weeks or later, P births from 20 to 36 weeks, A losses before 20 weeks, L living children. Twins are one pregnancy and one birth, but two living children. Here: G {{cur + t + p + a}}, T {{t}}, P {{p}}, A {{a}}, L {{l}}' }
+  verify: { expect: { n: "[cur + t + p + a, t, p, a, l][k]" } }
+
+- template: nr-fundus
+  skill: nurs.health-promotion
+  pace: recall
+  cases:
+    - { s: "At about how many weeks is the fundus at the umbilicus?", o1: "12 weeks", o2: "20 weeks", o3: "28 weeks", o4: "36 weeks", ans: 1 }
+    - { s: "Between 20 and 36 weeks, the fundal height in cm is about…", o1: "Half the weeks of gestation", o2: "The weeks of gestation", o3: "Twice the weeks of gestation", o4: "Unrelated to gestation", ans: 1 }
+    - { s: "The day after birth the fundus is boggy. What does the nurse do first?", o1: "Massage the fundus", o2: "Call the provider", o3: "Give an oral fluid bolus", o4: "Document and recheck in 4 hours", ans: 0 }
+    - { s: "After birth the fundus is firm but above the umbilicus and pushed to the right. What is the likely cause?", o1: "Retained placenta", o2: "A full bladder", o3: "Normal involution", o4: "Uterine rupture", ans: 1 }
+    - { s: "After birth, how fast does the fundus usually descend?", o1: "About 1 cm (one fingerbreadth) a day", o2: "About 5 cm a day", o3: "It stays at the umbilicus for 2 weeks", o4: "It is not palpable after 24 hours", ans: 0 }
+  prompt: '{{s}}'
+  parts:
+    - { ask: 'Answer', label: a, choice: ["{{o1}}", "{{o2}}", "{{o3}}", "{{o4}}"], correct: ans, explain: 'Umbilicus at about 20 weeks; fundal height in cm ≈ weeks from 20 to 36. After birth: firm and midline, descending about 1 cm a day. Boggy: massage. Displaced to one side: have her void' }
+  verify: { authored: true }
+
+# ── psychosocial integrity ───────────────────────────────────────────────────
+- template: nr-therapeutic-comm
+  skill: nurs.psychosocial
+  pace: quick
+  cases:
+    - { s: "A client says, \"I'm scared about my surgery tomorrow.\"", o1: "\"Don't worry, your surgeon is the best.\"", o2: "\"Why are you scared?\"", o3: "\"Tell me more about what is scaring you.\"", o4: "\"Let's talk about something more pleasant.\"", ans: 2 }
+    - { s: "A client crying after a cancer diagnosis says, \"I don't know what to do.\"", o1: "\"You seem overwhelmed by this news.\"", o2: "\"Everything will be fine.\"", o3: "\"If I were you, I would get a second opinion.\"", o4: "\"Many people survive cancer now.\"", ans: 0 }
+    - { s: "A client says, \"Nobody here cares about me.\"", o1: "\"That's not true, we all care.\"", o2: "\"You feel that nobody cares about you?\"", o3: "\"Why would you say that?\"", o4: "\"You should talk to your family about that.\"", ans: 1 }
+    - { s: "A client asks the nurse, \"Should I have the surgery?\"", o1: "\"Yes, I would if I were you.\"", o2: "\"What have you thought about so far as you decide?\"", o3: "\"Your doctor knows best.\"", o4: "\"Most people choose surgery.\"", ans: 1 }
+    - { s: "A client with schizophrenia says, \"The TV is sending me messages.\"", o1: "\"What messages are you getting?\"", o2: "\"That must be frightening. I don't hear any messages from the TV.\"", o3: "\"The TV can't send messages, that's silly.\"", o4: "\"Let me turn up the volume so we can listen.\"", ans: 1 }
+  prompt: '{{s}} Which response is most therapeutic?'
+  parts:
+    - { ask: 'Response', label: a, choice: ["{{o1}}", "{{o2}}", "{{o3}}", "{{o4}}"], correct: ans, explain: 'Therapeutic: open-ended questions, reflecting feelings, restating, offering self. Non-therapeutic: false reassurance, "why" questions, advice, changing the subject. With hallucinations or delusions, acknowledge the feeling and present reality without arguing or exploring the content' }
+  verify: { authored: true }
+
+- template: nr-defense
+  skill: nurs.psychosocial
+  pace: recall
+  cases:
+    - { ex: "After being criticized by a supervisor, a man comes home and yells at his dog.", ans: 0 }
+    - { ex: "A client who dislikes a coworker insists that the coworker hates him.", ans: 1 }
+    - { ex: "A client told of a serious diagnosis says, \"The lab must have mixed up my results.\"", ans: 2 }
+    - { ex: "A student who failed an exam says the questions were unfair anyway.", ans: 3 }
+    - { ex: "A toilet-trained 4-year-old starts wetting the bed after a new baby arrives.", ans: 4 }
+    - { ex: "A person with strong aggressive urges becomes a successful boxer.", ans: 5 }
+  prompt: 'Name the defense mechanism: {{ex}}'
+  parts:
+    - { ask: 'Mechanism', label: a, choice: ["Displacement", "Projection", "Denial", "Rationalization", "Regression", "Sublimation"], correct: ans, explain: 'Displacement moves feelings to a safer target; projection puts your own feelings on someone else; denial refuses to accept reality; rationalization gives an acceptable excuse; regression returns to earlier behavior; sublimation channels an urge into something acceptable' }
+  verify: { authored: true }
+
+# ── basic care and comfort ────────────────────────────────────────────────────
+- template: nr-diet
+  skill: nurs.basic-care
+  pace: recall
+  cases:
+    - { s: "A client with celiac disease should avoid…", o1: "Rice and corn", o2: "Wheat, barley and rye", o3: "Dairy products", o4: "Red meat", ans: 1 }
+    - { s: "A client taking an MAOI must avoid foods high in…", o1: "Tyramine (aged cheese, cured meats)", o2: "Vitamin K", o3: "Potassium", o4: "Calcium", ans: 0 }
+    - { s: "A client taking warfarin should keep which nutrient steady from day to day?", o1: "Sodium", o2: "Vitamin K (leafy greens)", o3: "Protein", o4: "Iron", ans: 1 }
+    - { s: "A client taking lithium should keep which intake consistent?", o1: "Sodium and fluids", o2: "Potassium", o3: "Fiber", o4: "Caffeine only", ans: 0 }
+    - { s: "A client with gout should limit foods high in…", o1: "Purines (organ meats, some seafood)", o2: "Fiber", o3: "Calcium", o4: "Vitamin C", ans: 0 }
+    - { s: "A client with heart failure is most often taught to limit…", o1: "Protein", o2: "Sodium", o3: "Fiber", o4: "Calcium", ans: 1 }
+    - { s: "A client with chronic kidney disease not yet on dialysis usually limits…", o1: "Potassium, phosphorus and sodium", o2: "Carbohydrates only", o3: "Water-soluble vitamins", o4: "Nothing, until dialysis begins", ans: 0 }
+  prompt: '{{s}}'
+  parts:
+    - { ask: 'Answer', label: a, choice: ["{{o1}}", "{{o2}}", "{{o3}}", "{{o4}}"], correct: ans, explain: 'Diet follows the mechanism: gluten injures the gut in celiac disease; tyramine with an MAOI causes a hypertensive crisis; vitamin K reverses warfarin, so keep it steady; low sodium raises lithium levels; purines become uric acid; sodium holds fluid in heart failure; failing kidneys cannot clear potassium and phosphorus' }
+  verify: { authored: true }
+
+- template: nr-positioning
+  skill: nurs.basic-care
+  pace: recall
+  cases:
+    - { s: "A client with increased intracranial pressure", o1: "Flat, with the head turned to the side", o2: "Head of bed about 30 degrees, head midline", o3: "Trendelenburg", o4: "Prone", ans: 1 }
+    - { s: "A client after a liver biopsy", o1: "On the right side", o2: "On the left side", o3: "High Fowler's", o4: "Prone", ans: 0 }
+    - { s: "A client receiving an enema", o1: "Right side-lying", o2: "Left Sims' position", o3: "Supine", o4: "High Fowler's", ans: 1 }
+    - { s: "A client with autonomic dysreflexia", o1: "Supine with legs raised", o2: "Sitting upright", o3: "Left lateral", o4: "Prone", ans: 1 }
+    - { s: "A client with a prolapsed umbilical cord", o1: "Knee-chest (or Trendelenburg)", o2: "High Fowler's", o3: "Left side with legs straight", o4: "Sitting upright", ans: 0 }
+    - { s: "A client with suspected air embolism from a central line", o1: "High Fowler's", o2: "Left side, head down (Trendelenburg)", o3: "Right side, head up", o4: "Prone", ans: 1 }
+    - { s: "A client with acute pulmonary edema and dyspnea", o1: "High Fowler's with legs dependent", o2: "Flat", o3: "Trendelenburg", o4: "Prone", ans: 0 }
+  prompt: 'How should the nurse position {{s}}?'
+  parts:
+    - { ask: 'Position', label: a, choice: ["{{o1}}", "{{o2}}", "{{o3}}", "{{o4}}"], correct: ans, explain: 'Each position has a reason: venous drainage from the head (ICP), pressure on the puncture site (liver biopsy), the sigmoid colon''s course (enema), lowering blood pressure (dysreflexia), taking weight off the cord (prolapse), trapping air in the right atrium (embolism), pooling fluid in the legs (pulmonary edema)' }
+  verify: { authored: true }
+
+# ── pharmacology ──────────────────────────────────────────────────────────────
+- template: nr-drug-suffix
+  skill: nurs.pharm
+  pace: recall
+  cases:
+    - { sfx: "-olol (metoprolol)", o1: "Beta blocker", o2: "ACE inhibitor", o3: "Calcium channel blocker", o4: "Statin", ans: 0 }
+    - { sfx: "-pril (lisinopril)", o1: "Beta blocker", o2: "ACE inhibitor", o3: "ARB", o4: "Diuretic", ans: 1 }
+    - { sfx: "-sartan (losartan)", o1: "ACE inhibitor", o2: "Beta blocker", o3: "Angiotensin II receptor blocker", o4: "Statin", ans: 2 }
+    - { sfx: "-statin (atorvastatin)", o1: "Anticoagulant", o2: "HMG-CoA reductase inhibitor", o3: "Proton pump inhibitor", o4: "Antiplatelet", ans: 1 }
+    - { sfx: "-prazole (omeprazole)", o1: "H2 blocker", o2: "Antacid", o3: "Proton pump inhibitor", o4: "Antiemetic", ans: 2 }
+    - { sfx: "-tidine (famotidine)", o1: "H2 receptor blocker", o2: "Proton pump inhibitor", o3: "Antihistamine for allergy", o4: "Laxative", ans: 0 }
+    - { sfx: "-azepam / -azolam (lorazepam, midazolam)", o1: "Opioid", o2: "Benzodiazepine", o3: "SSRI", o4: "Barbiturate", ans: 1 }
+    - { sfx: "-dipine (amlodipine)", o1: "Calcium channel blocker", o2: "Beta blocker", o3: "Nitrate", o4: "Loop diuretic", ans: 0 }
+    - { sfx: "-floxacin (ciprofloxacin)", o1: "Penicillin", o2: "Fluoroquinolone", o3: "Cephalosporin", o4: "Antifungal", ans: 1 }
+    - { sfx: "-setron (ondansetron)", o1: "5-HT₃ antagonist antiemetic", o2: "Antihistamine", o3: "Dopamine agonist", o4: "Laxative", ans: 0 }
+    - { sfx: "-gliflozin (empagliflozin)", o1: "Sulfonylurea", o2: "SGLT2 inhibitor", o3: "DPP-4 inhibitor", o4: "Insulin", ans: 1 }
+    - { sfx: "-terol (albuterol)", o1: "Corticosteroid", o2: "Beta₂ agonist bronchodilator", o3: "Anticholinergic", o4: "Leukotriene blocker", ans: 1 }
+  prompt: 'What class is a drug ending in {{sfx}}?'
+  parts:
+    - { ask: 'Class', label: a, choice: ["{{o1}}", "{{o2}}", "{{o3}}", "{{o4}}"], correct: ans, explain: 'The suffix names the class, and the class carries the nursing checks: hold a beta blocker for a slow pulse or low blood pressure, watch for a dry cough and angioedema with ACE inhibitors, give a statin in the evening if it is short-acting' }
+  verify: { authored: true }
+
+- template: nr-antidote
+  skill: nurs.pharm
+  pace: recall
+  cases:
+    - { drug: "acetaminophen", o1: "Acetylcysteine", o2: "Naloxone", o3: "Flumazenil", o4: "Protamine sulfate", ans: 0 }
+    - { drug: "an opioid (morphine)", o1: "Flumazenil", o2: "Naloxone", o3: "Atropine", o4: "Vitamin K", ans: 1 }
+    - { drug: "a benzodiazepine", o1: "Naloxone", o2: "Glucagon", o3: "Flumazenil", o4: "Acetylcysteine", ans: 2 }
+    - { drug: "heparin", o1: "Vitamin K", o2: "Protamine sulfate", o3: "Calcium gluconate", o4: "Naloxone", ans: 1 }
+    - { drug: "warfarin", o1: "Protamine sulfate", o2: "Vitamin K (phytonadione)", o3: "Flumazenil", o4: "Atropine", ans: 1 }
+    - { drug: "digoxin", o1: "Digoxin immune fab", o2: "Calcium gluconate", o3: "Naloxone", o4: "Glucagon", ans: 0 }
+    - { drug: "magnesium sulfate", o1: "Potassium chloride", o2: "Protamine sulfate", o3: "Calcium gluconate", o4: "Vitamin K", ans: 2 }
+    - { drug: "an organophosphate insecticide", o1: "Atropine (with pralidoxime)", o2: "Naloxone", o3: "Flumazenil", o4: "Acetylcysteine", ans: 0 }
+  prompt: 'What is the antidote for toxicity from {{drug}}?'
+  parts:
+    - { ask: 'Antidote', label: a, choice: ["{{o1}}", "{{o2}}", "{{o3}}", "{{o4}}"], correct: ans, explain: 'Acetaminophen: acetylcysteine. Opioids: naloxone (watch for the opioid to outlast it). Benzodiazepines: flumazenil. Heparin: protamine. Warfarin: vitamin K. Digoxin: digoxin immune fab. Magnesium: calcium gluconate. Organophosphates: atropine' }
+  verify: { authored: true }
+
+- template: nr-insulin
+  skill: nurs.pharm
+  pace: recall
+  cases:
+    - { s: "Which insulin has no pronounced peak?", o1: "Lispro", o2: "Regular", o3: "NPH", o4: "Glargine", ans: 3 }
+    - { s: "Which insulin can be given IV?", o1: "Regular", o2: "NPH", o3: "Glargine", o4: "Detemir", ans: 0 }
+    - { s: "Mixing regular and NPH in one syringe, which is drawn up first?", o1: "NPH (cloudy)", o2: "Regular (clear)", o3: "Either", o4: "They must never be mixed", ans: 1 }
+    - { s: "Rapid-acting insulin (lispro, aspart) is given…", o1: "At bedtime only", o2: "Within about 15 minutes of a meal", o3: "One hour after eating", o4: "Once a day regardless of meals", ans: 1 }
+    - { s: "Which insulin is cloudy and must be rolled gently before drawing it up?", o1: "Regular", o2: "Lispro", o3: "NPH", o4: "Glargine", ans: 2 }
+    - { s: "Which insulin must not be mixed with any other insulin?", o1: "Glargine", o2: "Regular", o3: "NPH", o4: "Lispro", ans: 0 }
+  prompt: '{{s}}'
+  parts:
+    - { ask: 'Answer', label: a, choice: ["{{o1}}", "{{o2}}", "{{o3}}", "{{o4}}"], correct: ans, explain: 'Rapid (lispro, aspart): onset about 15 min, give with meals. Short (regular): the only IV insulin. Intermediate (NPH): cloudy, peaks 4–12 h, so watch for hypoglycemia then. Long (glargine): no peak, never mixed. Clear before cloudy' }
+  verify: { authored: true }
+
+- template: nr-hold-levels
+  skill: nurs.pharm
+  pace: recall
+  cases:
+    - { s: "Usual therapeutic serum digoxin level", o1: "0.5–2.0 ng/mL", o2: "10–20 mcg/mL", o3: "0.6–1.2 mEq/L", o4: "2–3 (INR)", ans: 0 }
+    - { s: "Usual therapeutic serum lithium level", o1: "0.5–2.0 ng/mL", o2: "10–20 mcg/mL", o3: "0.6–1.2 mEq/L", o4: "1.5–2.5 × control", ans: 2 }
+    - { s: "Usual therapeutic phenytoin level", o1: "0.5–2.0 ng/mL", o2: "10–20 mcg/mL", o3: "0.6–1.2 mEq/L", o4: "2–3 (INR)", ans: 1 }
+    - { s: "Usual INR goal on warfarin (most indications)", o1: "0.8–1.1", o2: "2–3", o3: "4–5", o4: "1.5–2.5 × control", ans: 1 }
+    - { s: "Usual aPTT goal on a heparin infusion", o1: "Equal to control", o2: "1.5–2.5 × control", o3: "4–5 × control", o4: "INR 2–3", ans: 1 }
+    - { s: "Usual reason to hold digoxin in an adult", o1: "Apical pulse below 60", o2: "Blood pressure above 140/90", o3: "Respirations below 16", o4: "Potassium above 4.0", ans: 0 }
+  prompt: '{{s}}?'
+  parts:
+    - { ask: 'Answer', label: a, choice: ["{{o1}}", "{{o2}}", "{{o3}}", "{{o4}}"], correct: ans, explain: 'Digoxin 0.5–2.0 ng/mL (count the apical pulse a full minute; hold below 60 in an adult, and low potassium raises toxicity). Lithium 0.6–1.2 mEq/L. Phenytoin 10–20 mcg/mL. Warfarin INR 2–3, heparin aPTT 1.5–2.5 × control. Targets vary by facility and indication' }
+  verify: { authored: true }
+
+- template: nr-iv-complication
+  skill: nurs.pharm
+  pace: recall
+  cases:
+    - { signs: "the site is cool, pale and swollen, and the flow has slowed", ans: 0 }
+    - { signs: "the vein is red, warm and tender, with a red streak up the arm", ans: 1 }
+    - { signs: "the client has crackles, distended neck veins, dyspnea and a bounding pulse", ans: 2 }
+    - { signs: "sudden dyspnea, chest pain and hypotension during a central line change", ans: 3 }
+  prompt: 'During IV therapy, {{signs}}. What is the likely complication?'
+  parts:
+    - { ask: 'Complication', label: a, choice: ["Infiltration", "Phlebitis", "Fluid volume overload", "Air embolism"], correct: ans, explain: 'Infiltration: stop, remove, elevate. Phlebitis: stop, remove, warm compress, restart elsewhere. Overload: slow the infusion, raise the head of the bed, notify. Air embolism: clamp, left side head down, oxygen, notify' }
+  verify: { authored: true }
+
+- template: nr-transfusion
+  skill: nurs.pharm
+  pace: recall
+  cases:
+    - { s: "During a transfusion the client develops chills, back pain and a fever. What is the first action?", o1: "Slow the transfusion", o2: "Stop the transfusion and keep the IV open with normal saline", o3: "Give acetaminophen", o4: "Call the blood bank", ans: 1 }
+    - { s: "Which IV fluid may run with blood?", o1: "0.9% sodium chloride", o2: "5% dextrose in water", o3: "Lactated Ringer's", o4: "Any compatible crystalloid", ans: 0 }
+    - { s: "Within what time should a unit of packed red cells finish?", o1: "1 hour", o2: "4 hours", o3: "8 hours", o4: "12 hours", ans: 1 }
+    - { s: "When is a transfusion reaction most likely?", o1: "In the first 15 minutes", o2: "In the last hour", o3: "The next day", o4: "Only after a second unit", ans: 0 }
+  prompt: '{{s}}'
+  parts:
+    - { ask: 'Answer', label: a, choice: ["{{o1}}", "{{o2}}", "{{o3}}", "{{o4}}"], correct: ans, explain: 'Stay with the client for the first 15 minutes. Only normal saline runs with blood (dextrose lyses cells). Finish within 4 hours. Any reaction: stop it, keep the line open with saline on new tubing, assess, notify the provider and blood bank' }
+  verify: { authored: true }
+
+# ── reduction of risk potential ───────────────────────────────────────────────
+- template: nr-lab-range
+  skill: nurs.risk-reduction
+  pace: recall
+  cases:
+    - { lab: "serum potassium", o1: "3.5–5.0 mEq/L", o2: "135–145 mEq/L", o3: "9.0–10.5 mg/dL", o4: "1.3–2.1 mEq/L", ans: 0 }
+    - { lab: "serum sodium", o1: "3.5–5.0 mEq/L", o2: "135–145 mEq/L", o3: "98–106 mEq/L", o4: "22–26 mEq/L", ans: 1 }
+    - { lab: "total serum calcium", o1: "3.5–5.0 mg/dL", o2: "1.3–2.1 mg/dL", o3: "9.0–10.5 mg/dL", o4: "70–110 mg/dL", ans: 2 }
+    - { lab: "serum magnesium", o1: "1.3–2.1 mEq/L", o2: "3.5–5.0 mEq/L", o3: "9.0–10.5 mEq/L", o4: "22–26 mEq/L", ans: 0 }
+    - { lab: "platelet count", o1: "5,000–10,000/mm³", o2: "150,000–400,000/mm³", o3: "1–2 million/mm³", o4: "40,000–80,000/mm³", ans: 1 }
+    - { lab: "white blood cell count", o1: "5,000–10,000/mm³", o2: "150,000–400,000/mm³", o3: "500–1,000/mm³", o4: "20,000–30,000/mm³", ans: 0 }
+    - { lab: "BUN", o1: "0.6–1.2 mg/dL", o2: "10–20 mg/dL", o3: "70–110 mg/dL", o4: "35–45 mg/dL", ans: 1 }
+    - { lab: "serum creatinine", o1: "0.6–1.2 mg/dL", o2: "10–20 mg/dL", o3: "3.5–5.0 mg/dL", o4: "9.0–10.5 mg/dL", ans: 0 }
+    - { lab: "arterial pH", o1: "7.25–7.35", o2: "7.35–7.45", o3: "7.45–7.55", o4: "6.8–7.0", ans: 1 }
+    - { lab: "PaCO₂", o1: "22–26 mm Hg", o2: "35–45 mm Hg", o3: "80–100 mm Hg", o4: "50–60 mm Hg", ans: 1 }
+    - { lab: "HCO₃⁻", o1: "22–26 mEq/L", o2: "35–45 mEq/L", o3: "10–20 mEq/L", o4: "3.5–5.0 mEq/L", ans: 0 }
+  prompt: 'What is the usual adult reference range for {{lab}}?'
+  parts:
+    - { ask: 'Range', label: a, choice: ["{{o1}}", "{{o2}}", "{{o3}}", "{{o4}}"], correct: ans, explain: 'Typical review-book ranges; each lab publishes its own, and the question gives a range when it matters. Potassium is the narrowest and the most dangerous to miss' }
+  verify: { authored: true }
+
+- template: nr-electrolyte-signs
+  skill: nurs.risk-reduction
+  pace: recall
+  cases:
+    - { sign: "Tall, peaked T waves on the ECG", ans: 1 }
+    - { sign: "Flattened T waves and U waves on the ECG", ans: 0 }
+    - { sign: "Positive Chvostek's and Trousseau's signs", ans: 2 }
+    - { sign: "A shortened QT interval, kidney stones and bone pain", ans: 3 }
+    - { sign: "Muscle weakness with leg cramps, in a client on furosemide", ans: 0 }
+    - { sign: "Muscle twitching and tetany after a thyroidectomy", ans: 2 }
+  prompt: 'Which imbalance does this suggest: {{sign}}?'
+  parts:
+    - { ask: 'Imbalance', label: a, choice: ["Hypokalemia", "Hyperkalemia", "Hypocalcemia", "Hypercalcemia"], correct: ans, explain: 'Potassium shows on the ECG: peaked T when high, flat T and U waves when low (loop diuretics waste it). Low calcium makes nerves irritable (Chvostek, Trousseau, tetany; the parathyroids can be injured in thyroid surgery); high calcium sedates nerves, shortens QT and forms stones' }
+  verify: { authored: true }
+
+# ── physiological adaptation ─────────────────────────────────────────────────
+- template: nr-chest-tube
+  skill: nurs.physiological
+  pace: recall
+  cases:
+    - { s: "Continuous bubbling in the water-seal chamber", o1: "Expected", o2: "An air leak: find it and notify the provider", o3: "The tube is clotted", o4: "The lung has fully re-expanded", ans: 1 }
+    - { s: "Water level in the water-seal chamber rises and falls with breathing (tidaling)", o1: "Expected while the lung is still re-expanding", o2: "An air leak", o3: "Clamp the tube", o4: "Increase the suction", ans: 0 }
+    - { s: "The tube pulls out of the client's chest", o1: "Reinsert it", o2: "Cover the site with a sterile dressing taped on three sides and notify the provider", o3: "Clamp the drainage system", o4: "Place the client flat", ans: 1 }
+    - { s: "The tubing disconnects from the drainage unit", o1: "Put the tube end in sterile water while reconnecting", o2: "Pull the tube out", o3: "Leave it open to air", o4: "Strip the tubing", ans: 0 }
+  prompt: 'Chest tube: {{s}}. What does it mean or what do you do?'
+  parts:
+    - { ask: 'Answer', label: a, choice: ["{{o1}}", "{{o2}}", "{{o3}}", "{{o4}}"], correct: ans, explain: 'Gentle bubbling in a wet suction chamber is normal; continuous bubbling in the water seal is an air leak. Tidaling is expected and stops when the lung re-expands (or the tube kinks). Keep the system below the chest, and never clamp it without an order' }
+  verify: { authored: true }
+
+- template: nr-oxygen
+  skill: nurs.physiological
+  pace: recall
+  cases:
+    - { s: "Usual flow range for a nasal cannula", o1: "1–6 L/min", o2: "8–10 L/min", o3: "10–15 L/min", o4: "15–20 L/min", ans: 0 }
+    - { s: "The device that delivers the most precise FiO₂", o1: "Nasal cannula", o2: "Simple face mask", o3: "Venturi mask", o4: "Non-rebreather mask", ans: 2 }
+    - { s: "The usual SpO₂ target for a client with COPD who retains CO₂", o1: "100%", o2: "95–100%", o3: "88–92%", o4: "80–85%", ans: 2 }
+    - { s: "The device for the highest oxygen concentration without intubation in an emergency", o1: "Nasal cannula at 2 L/min", o2: "Non-rebreather mask at 10–15 L/min", o3: "Venturi mask at 24%", o4: "Simple mask at 5 L/min", ans: 1 }
+  prompt: '{{s}}?'
+  parts:
+    - { ask: 'Answer', label: a, choice: ["{{o1}}", "{{o2}}", "{{o3}}", "{{o4}}"], correct: ans, explain: 'Nasal cannula 1–6 L/min (about 24–44%); simple mask at least 5 L/min to wash out CO₂; non-rebreather 10–15 L/min with the bag kept inflated; Venturi for a set FiO₂. In CO₂ retainers aim for 88–92%' }
+  verify: { authored: true }

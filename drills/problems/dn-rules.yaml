@@ -1,0 +1,191 @@
+# INBDE rules and facts (framework inbde, DN). Authored from standard entry-level content; nothing
+# recomputes them. Dental materials facts are the FK3 part of the Domain of Dentistry.
+
+# ── diagnosis ─────────────────────────────────────────────────────────────────
+- template: dn-black-class
+  skill: dent.diagnosis
+  pace: recall
+  cases:
+    - { loc: "pits and fissures on the occlusal surface of a molar", ans: 0 }
+    - { loc: "the proximal surface of a premolar", ans: 1 }
+    - { loc: "the proximal surface of a canine, not involving the incisal angle", ans: 2 }
+    - { loc: "the proximal surface of an incisor, including the incisal angle", ans: 3 }
+    - { loc: "the cervical third of the facial surface of a premolar", ans: 4 }
+    - { loc: "the cusp tip of a molar", ans: 5 }
+  prompt: 'In G. V. Black''s classification, a lesion on {{loc}} is which class?'
+  parts:
+    - { ask: 'Class', label: a, choice: ["Class I", "Class II", "Class III", "Class IV", "Class V", "Class VI"], correct: ans, explain: 'I pits and fissures (and lingual pits of anterior teeth); II proximal posterior; III proximal anterior without the incisal angle; IV with it; V cervical third, facial or lingual; VI incisal edges and cusp tips' }
+  verify: { authored: true }
+
+- template: dn-pulp-dx
+  skill: dent.diagnosis
+  pace: quick
+  cases:
+    - { find: "Sharp pain to cold that stops within a few seconds of removing the stimulus; normal to percussion", ans: 0 }
+    - { find: "Pain to cold that lingers for a minute or more, and spontaneous pain at night", ans: 1 }
+    - { find: "No response to cold or to the electric pulp test", ans: 2 }
+    - { find: "Normal response to cold, no lingering, normal to percussion", ans: 3 }
+  prompt: 'Pulp testing: {{find}}. What is the pulpal diagnosis?'
+  parts:
+    - { ask: 'Pulpal diagnosis', label: a, choice: ["Reversible pulpitis", "Symptomatic irreversible pulpitis", "Pulp necrosis", "Normal pulp"], correct: ans, explain: 'Short, sharp, gone when the stimulus goes: reversible (remove the cause). Lingering or spontaneous pain: irreversible (root canal or extraction). No response: necrosis. Pain on biting or percussion is a separate, apical diagnosis' }
+  verify: { authored: true }
+
+- template: dn-radiography
+  skill: dent.diagnosis
+  pace: recall
+  cases:
+    - { s: "In the SLOB rule, an object that moves in the same direction as the tube shift is…", o1: "Lingual (palatal)", o2: "Buccal", o3: "On the same plane as the teeth", o4: "Outside the mouth", ans: 0 }
+    - { s: "Too little vertical angulation makes the teeth look…", o1: "Elongated", o2: "Foreshortened", o3: "Overlapped", o4: "Cone-cut", ans: 0 }
+    - { s: "Too much vertical angulation makes the teeth look…", o1: "Elongated", o2: "Foreshortened", o3: "Overlapped", o4: "Cone-cut", ans: 1 }
+    - { s: "Overlapping contacts on a bitewing come from an error in…", o1: "Vertical angulation", o2: "Horizontal angulation", o3: "Exposure time", o4: "Film processing", ans: 1 }
+    - { s: "Which technique gives the least distortion?", o1: "Bisecting angle", o2: "Paralleling with a long cone", o3: "Occlusal", o4: "Panoramic", ans: 1 }
+  prompt: '{{s}}'
+  parts:
+    - { ask: 'Answer', label: a, choice: ["{{o1}}", "{{o2}}", "{{o3}}", "{{o4}}"], correct: ans, explain: 'SLOB: Same Lingual, Opposite Buccal. Vertical angulation errors stretch or shorten the image; horizontal ones overlap contacts. Paralleling with a long source-to-receptor distance distorts least; keep doses as low as reasonably achievable' }
+  verify: { authored: true }
+
+- template: dn-eruption
+  skill: dent.diagnosis
+  pace: recall
+  cases:
+    - { s: "How many teeth are in the primary dentition?", o1: "20", o2: "24", o3: "28", o4: "32", ans: 0 }
+    - { s: "Usually the first permanent tooth to erupt, at about age 6", o1: "Maxillary central incisor", o2: "Mandibular first molar", o3: "Maxillary canine", o4: "Mandibular second premolar", ans: 1 }
+    - { s: "By about what age is the primary dentition complete?", o1: "1 year", o2: "2½–3 years", o3: "5 years", o4: "6 years", ans: 1 }
+    - { s: "Roughly when do maxillary permanent canines erupt?", o1: "6–7 years", o2: "8–9 years", o3: "11–12 years", o4: "17–21 years", ans: 2 }
+    - { s: "Roughly when do second permanent molars erupt?", o1: "6–7 years", o2: "11–13 years", o3: "15–16 years", o4: "17–21 years", ans: 1 }
+  prompt: '{{s}}'
+  parts:
+    - { ask: 'Answer', label: a, choice: ["{{o1}}", "{{o2}}", "{{o3}}", "{{o4}}"], correct: ans, explain: 'Primary: 20 teeth, complete by about 2½–3 years. Permanent: first molars and lower incisors about 6, canines and premolars 9–12 (upper canines about 11–12), second molars 11–13 ("12-year molars"), thirds 17–21' }
+  verify: { authored: true }
+
+# ── oral health management ────────────────────────────────────────────────────
+- template: dn-emergency
+  skill: dent.management
+  pace: quick
+  cases:
+    - { s: "A patient feels faint, pale and sweaty in the chair, then loses consciousness", o1: "Supine with legs raised; check airway and breathing", o2: "Sit the patient upright", o3: "Give nitroglycerin", o4: "Give epinephrine IM", ans: 0 }
+    - { s: "Chest pain in a patient with known angina", o1: "Oral glucose", o2: "Nitroglycerin 0.4 mg sublingual", o3: "Albuterol", o4: "Diphenhydramine", ans: 1 }
+    - { s: "Hives, wheezing and hypotension minutes after an antibiotic", o1: "Epinephrine 0.3 mg IM (1 mg/mL)", o2: "Oral diphenhydramine only", o3: "Nitroglycerin", o4: "Oral glucose", ans: 0 }
+    - { s: "A conscious patient with diabetes becomes shaky, sweaty and confused", o1: "Insulin", o2: "Oral glucose (juice or gel)", o3: "Epinephrine", o4: "Aspirin", ans: 1 }
+    - { s: "An acute asthma attack", o1: "Albuterol inhaler", o2: "Nitroglycerin", o3: "Atropine", o4: "Flumazenil", ans: 0 }
+    - { s: "Crushing chest pain not relieved by nitroglycerin; EMS called", o1: "Aspirin 162–325 mg chewed", o2: "Epinephrine IM", o3: "Oral glucose", o4: "Diazepam", ans: 0 }
+  prompt: '{{s}}. What is the first drug or action?'
+  parts:
+    - { ask: 'First', label: a, choice: ["{{o1}}", "{{o2}}", "{{o3}}", "{{o4}}"], correct: ans, explain: 'Syncope is the commonest office emergency: lay the patient flat with legs raised. Angina: nitroglycerin. Anaphylaxis: IM epinephrine first. Conscious hypoglycemia: oral sugar. Asthma: albuterol. Suspected MI: activate EMS, chewed aspirin, oxygen if hypoxic' }
+  verify: { authored: true }
+
+- template: dn-la-facts
+  skill: dent.management
+  pace: recall
+  cases:
+    - { s: "Which amide local anesthetic is largely broken down in the blood by plasma esterases, giving it a short half-life?", o1: "Lidocaine", o2: "Articaine", o3: "Bupivacaine", o4: "Mepivacaine", ans: 1 }
+    - { s: "Which local anesthetic is most associated with methemoglobinemia at high doses?", o1: "Prilocaine", o2: "Lidocaine", o3: "Bupivacaine", o4: "Mepivacaine", ans: 0 }
+    - { s: "Which local anesthetic gives the longest soft-tissue anesthesia, useful after surgery?", o1: "Mepivacaine", o2: "Lidocaine", o3: "Bupivacaine", o4: "Prilocaine", ans: 2 }
+    - { s: "Why add epinephrine to a local anesthetic?", o1: "To speed the onset", o2: "To constrict vessels: longer, deeper anesthesia, less bleeding and lower blood levels", o3: "To reduce allergy", o4: "To raise the pH", ans: 1 }
+    - { s: "Why is anesthesia poor in an infected (acidic) area?", o1: "More of the drug is ionized and cannot cross the nerve membrane", o2: "The drug is metabolized faster", o3: "Infection blocks sodium channels", o4: "Epinephrine is inactivated", ans: 0 }
+  prompt: '{{s}}'
+  parts:
+    - { ask: 'Answer', label: a, choice: ["{{o1}}", "{{o2}}", "{{o3}}", "{{o4}}"], correct: ans, explain: 'Local anesthetics block sodium channels from inside the nerve, which they reach in their uncharged base form; low tissue pH traps them as cations. Amides are cleared by the liver, except articaine, whose ester side chain is cleaved in plasma. Prilocaine''s metabolite oxidizes hemoglobin' }
+  verify: { authored: true }
+
+- template: dn-prophylaxis
+  skill: dent.management
+  pace: quick
+  cases:
+    - { s: "a patient with a prosthetic heart valve, having an extraction", ans: 0 }
+    - { s: "a patient with a previous episode of infective endocarditis, having scaling", ans: 0 }
+    - { s: "a patient with mitral valve prolapse, having an extraction", ans: 1 }
+    - { s: "a patient with a pacemaker, having root planing", ans: 1 }
+    - { s: "a patient with a hip replacement two years ago, having an extraction", ans: 1 }
+    - { s: "a heart transplant recipient with valve disease, having an extraction", ans: 0 }
+  prompt: 'Under the AHA (2021) guideline, does {{s}} need antibiotic prophylaxis against infective endocarditis?'
+  parts:
+    - { ask: 'Prophylaxis', label: a, choice: ["Yes", "No, not routinely"], correct: ans, explain: 'Only the highest-risk hearts: prosthetic valves or valve repair material, previous endocarditis, certain congenital heart disease, and cardiac transplants with valvulopathy, for procedures that manipulate gingiva or perforate mucosa. Regimen: amoxicillin 2 g orally 30–60 minutes before; clindamycin is no longer recommended. Joint replacements generally need none (ADA)' }
+  verify: { authored: true }
+
+# ── practice and profession ───────────────────────────────────────────────────
+- template: dn-spaulding
+  skill: dent.practice
+  pace: recall
+  cases:
+    - { item: "a periodontal scaler", ans: 0 }
+    - { item: "surgical forceps", ans: 0 }
+    - { item: "a mouth mirror", ans: 1 }
+    - { item: "an impression tray (reusable)", ans: 1 }
+    - { item: "a blood pressure cuff", ans: 2 }
+    - { item: "the x-ray tube head", ans: 2 }
+    - { item: "a surgical bur", ans: 0 }
+  prompt: 'In the Spaulding classification, {{item}} is which category?'
+  parts:
+    - { ask: 'Category', label: a, choice: ["Critical: sterilize", "Semicritical: sterilize (or high-level disinfect if heat-sensitive)", "Noncritical: clean and disinfect"], correct: ans, explain: 'Critical items penetrate soft tissue or bone; semicritical touch mucosa or broken skin (handpieces are heat-sterilized); noncritical touch only intact skin. Most clinical-contact surfaces are barrier-protected or disinfected between patients' }
+  verify: { authored: true }
+
+- template: dn-sterilization
+  skill: dent.practice
+  pace: recall
+  cases:
+    - { s: "Typical gravity-displacement steam autoclave cycle for wrapped instruments", o1: "121 °C for about 30 minutes", o2: "100 °C for 10 minutes", o3: "160 °C for 2 hours", o4: "60 °C overnight", ans: 0 }
+    - { s: "How often does the CDC recommend biological (spore) monitoring of a sterilizer?", o1: "Weekly", o2: "Monthly", o3: "Yearly", o4: "Only after repairs", ans: 0 }
+    - { s: "Which organism's spores test a steam autoclave?", o1: "Geobacillus stearothermophilus", o2: "Escherichia coli", o3: "Staphylococcus aureus", o4: "Candida albicans", ans: 0 }
+    - { s: "Which method suits heat-sensitive items that cannot be autoclaved?", o1: "High-level chemical disinfection or sterilization by immersion", o2: "Wiping with alcohol", o3: "Rinsing in hot water", o4: "UV light in a drawer", ans: 0 }
+  prompt: '{{s}}?'
+  parts:
+    - { ask: 'Answer', label: a, choice: ["{{o1}}", "{{o2}}", "{{o3}}", "{{o4}}"], correct: ans, explain: 'Steam: 121 °C (250 °F) for about 30 minutes gravity, or 132 °C (270 °F) for a few minutes pre-vacuum. Chemical indicators each load, spore tests weekly (G. stearothermophilus for steam). Heat-sensitive semicritical items: high-level disinfectant' }
+  verify: { authored: true }
+
+# ── dental materials (FK3) ────────────────────────────────────────────────────
+- template: dn-impression
+  skill: dent.materials
+  pace: recall
+  cases:
+    - { s: "Which impression material should be poured within minutes because it loses and gains water (syneresis and imbibition)?", o1: "Alginate (irreversible hydrocolloid)", o2: "Polyvinyl siloxane", o3: "Polyether", o4: "Impression compound", ans: 0 }
+    - { s: "Which elastomer is the most dimensionally stable and can be poured days later?", o1: "Polysulfide", o2: "Condensation silicone", o3: "Polyvinyl siloxane (addition silicone)", o4: "Alginate", ans: 2 }
+    - { s: "Which can inhibit the set of polyvinyl siloxane?", o1: "Sulfur compounds such as some latex gloves", o2: "Cold water", o3: "Nitrile gloves", o4: "Saliva", ans: 0 }
+    - { s: "Which elastomer is stiff and hydrophilic, and can be hard to remove from undercuts?", o1: "Polyether", o2: "Polysulfide", o3: "Alginate", o4: "Agar", ans: 0 }
+    - { s: "Why does condensation silicone shrink more on standing than addition silicone?", o1: "It releases a by-product (ethanol) as it sets", o2: "It absorbs water", o3: "It has no filler", o4: "It is a hydrocolloid", ans: 0 }
+  prompt: '{{s}}'
+  parts:
+    - { ask: 'Answer', label: a, choice: ["{{o1}}", "{{o2}}", "{{o3}}", "{{o4}}"], correct: ans, explain: 'Hydrocolloids exchange water with the air, so pour alginate at once. Addition silicones set without a by-product and are the most stable; condensation silicones and polysulfides give off ethanol or water and shrink. Sulfur poisons the platinum catalyst of PVS' }
+  verify: { authored: true }
+
+- template: dn-restoratives
+  skill: dent.materials
+  pace: recall
+  cases:
+    - { s: "In conventional amalgam, which phase is the weakest and most corrosion-prone, eliminated by high-copper alloys?", o1: "γ₂ (Sn–Hg)", o2: "γ₁ (Ag–Hg)", o3: "γ (Ag₃Sn)", o4: "η′ (Cu₆Sn₅)", ans: 0 }
+    - { s: "Why is zinc oxide–eugenol avoided under a composite?", o1: "Eugenol inhibits resin polymerization", o2: "It is too radiopaque", o3: "It releases fluoride", o4: "It is acidic enough to etch", ans: 0 }
+    - { s: "How does a glass ionomer set?", o1: "An acid–base reaction between polyacrylic acid and fluoroaluminosilicate glass", o2: "Free-radical polymerization only", o3: "Crystallization of gypsum", o4: "Amalgamation with mercury", ans: 0 }
+    - { s: "Which cement is mixed on a cool slab in small increments to control its exothermic set?", o1: "Zinc phosphate", o2: "Glass ionomer", o3: "Resin cement", o4: "Zinc oxide–eugenol", ans: 0 }
+    - { s: "Which material chemically bonds to tooth structure and releases fluoride?", o1: "Glass ionomer", o2: "Amalgam", o3: "Unfilled resin", o4: "Gold foil", ans: 0 }
+    - { s: "Total-etch: what etches enamel before bonding?", o1: "30–40% phosphoric acid for about 15 seconds", o2: "Hydrofluoric acid", o3: "Hydrogen peroxide", o4: "EDTA for 2 minutes", ans: 0 }
+  prompt: '{{s}}'
+  parts:
+    - { ask: 'Answer', label: a, choice: ["{{o1}}", "{{o2}}", "{{o3}}", "{{o4}}"], correct: ans, explain: 'High-copper amalgams form Cu₆Sn₅ instead of γ₂. Eugenol is a free-radical scavenger. Glass ionomers set by acid–base reaction, chelate calcium in tooth and release fluoride. Zinc phosphate is exothermic. Phosphoric acid etches enamel; hydrofluoric acid is for glass ceramics' }
+  verify: { authored: true }
+
+- template: dn-ceramic-bonding
+  skill: dent.materials
+  pace: recall
+  cases:
+    - { mat: "lithium disilicate", ans: 0 }
+    - { mat: "feldspathic porcelain", ans: 0 }
+    - { mat: "zirconia", ans: 1 }
+    - { mat: "leucite-reinforced glass ceramic", ans: 0 }
+  prompt: 'How is the intaglio surface of a {{mat}} restoration usually treated before adhesive cementation?'
+  parts:
+    - { ask: 'Treatment', label: a, choice: ["Hydrofluoric acid etch, then silane", "Air abrasion, then an MDP-containing primer", "Phosphoric acid etch only", "No treatment: cement directly"], correct: ans, explain: 'Glass-matrix ceramics (feldspathic, leucite, lithium disilicate) etch with HF, which dissolves glass, and silane couples resin to silica. Zirconia has no glass phase, so HF does nothing: roughen it by air abrasion and use a phosphate monomer (MDP)' }
+  verify: { authored: true }
+
+- template: dn-composite-types
+  skill: dent.materials
+  pace: recall
+  cases:
+    - { s: "Which composite polishes best but is weaker, from very small filler?", o1: "Microfilled", o2: "Macrofilled", o3: "Hybrid", o4: "Packable", ans: 0 }
+    - { s: "What does silane do in a composite?", o1: "Couples the filler to the resin matrix", o2: "Initiates polymerization", o3: "Adds color", o4: "Releases fluoride", ans: 0 }
+    - { s: "What does camphorquinone do?", o1: "Absorbs blue light (about 470 nm) and starts polymerization", o2: "Couples filler to resin", o3: "Raises the viscosity", o4: "Inhibits polymerization", ans: 0 }
+    - { s: "Why does the air-exposed surface of a cured composite stay tacky?", o1: "Oxygen inhibits free-radical polymerization", o2: "Water sorption", o3: "Too much filler", o4: "Thermal expansion", ans: 0 }
+    - { s: "How does more filler change a composite?", o1: "Less shrinkage and expansion, higher modulus and strength", o2: "More shrinkage", o3: "Lower modulus", o4: "Higher water sorption", ans: 0 }
+  prompt: '{{s}}'
+  parts:
+    - { ask: 'Answer', label: a, choice: ["{{o1}}", "{{o2}}", "{{o3}}", "{{o4}}"], correct: ans, explain: 'Composite = resin matrix (Bis-GMA, UDMA, TEGDMA) + filler + silane coupling agent + photoinitiator (camphorquinone and an amine). Filler carries load and replaces shrinking resin; oxygen leaves an uncured surface layer' }
+  verify: { authored: true }

@@ -21,6 +21,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 | Applied Engineering Mathematics | Kreyszig, Advanced Engineering Mathematics, 10th ed. | textbook | read in full | fe-chemical | — | 122 | 83 | 39 |
 | Fluid Mechanics | NCEES FE Chemical CBT Exam Specifications (effective July 2020) | exam-spec | read in full | — | — | 15 | 15 | 0 |
 | Heat Transfer | NCEES FE Chemical CBT Exam Specifications (effective July 2020) | exam-spec | read in full | fe-mechanical | — | 98 | 53 | 45 |
+| INBDE (Dentistry) | JCNDE, Domain of Dentistry (INBDE content domain), July 2018 | exam-spec | read in part | — | — | 22 | 22 | 0 |
 | Information Systems | MSIS 2016 Global Competency Model | standard | read in full | — | — | 53 | 0 | 53 |
 | Linear Algebra | Lay, Lay & McDonald, Linear Algebra and Its Applications, 5th ed. (chapter list) | textbook | read in part | — | — | 10 | 10 | 0 |
 | Material and Energy Balances | NCEES FE Chemical CBT Exam Specifications (effective July 2020) | exam-spec | read in full | — | — | 16 | 14 | 2 |
@@ -28,6 +29,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 | Mathematics K–8 (Common Core) | Common Core State Standards for Mathematics (2010) | standard | read through a crosswalk | — | — | 258 | 258 | 0 |
 | Mental Math | UIL Number Sense Problem Sequencing Charts (High School; A+ Junior High and Elementary, rev. 2016-17) with the Number Sense Handbook rules | exam-spec | read in full | sta-mtc, mit-18-03-coverup, mit-integration-bee | — | 84 | 81 | 3 |
 | Molecular Simulation | LiveCoMS best-practice papers for molecular simulation | course | read in part | — | — | 102 | 0 | 102 |
+| NCLEX-RN | NCLEX-RN Test Plan, effective April 2026 | exam-spec | read in part | — | — | 39 | 39 | 0 |
 | Nuclear Science and Reactor Theory | NRC Generic Fundamentals Examination, reactor theory topics (PWR catalog 192001-192008) | exam-spec | read in part | doe-hdbk-1019 | — | 19 | 19 | 0 |
 | Organic Reactions: Predict the Product | Bruice, Organic Chemistry, 8th edition (table of contents) | textbook | read in part | — | aamc-mcat-outline | 25 | 3 | 22 |
 | Particle Physics | AQA AS and A-level Physics (7407/7408), section 3.2 Particles and radiation | standard | read in part | openstax-university-physics | — | 13 | 12 | 1 |
@@ -56,11 +58,13 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 - **Applied Engineering Mathematics**: UCI CBE 200 publishes no syllabus. The undergraduate part is anchored to fe-chemical; series, Sturm–Liouville, PDEs and transforms are past any exam spec and stand on the book.
 - **Fluid Mechanics**: Topics from FE Chemical area 6, read in full. Objectives and their order are ours; statics is assumed by the spec rather than listed. The framework stops at what a one-question drill can carry: no Moody chart, pump curves or differential analysis yet.
 - **Heat Transfer**: Also crosswalked to the FE Mechanical spec and UCI MAE 120.
+- **INBDE (Dentistry)**: Units are the Domain of Dentistry's three clinical sections plus Foundation Knowledge area 3 (materials); objectives cite the clinical content area or FK they serve and are ours.
 - **Linear Algebra**: Units follow the chapters of Lay's Linear Algebra and Its Applications (a textbook, not a standard). A published curriculum standard has not been looked for yet.
 - **Material and Energy Balances**: Topics from FE Chemical area 8, read in full. Objectives and their order are ours and follow the usual textbook sequence; unit 1 is assumed by the spec rather than listed.
 - **Mathematics K–8 (Common Core)**: Codes and wording checked against a state reprint; the CCSS site was blocked.
 - **Mental Math**: Topic list and order from the UIL high-school chart. The short-cut techniques and the estimation topic are a house list. Unit 6 goes past the chart: the cover-up items follow an MIT 18.03 course note and the one-a-minute integration pace follows the MIT Integration Bee qualifier; which results belong in unit 6 is a house list. Pace comes from the UIL rules (7.5 s a problem) and the English multiplication tables check (6 s a fact).
 - **Molecular Simulation**: No standard exists for this subject; triangulated from best-practice papers, textbooks and the Hayes group tutorial.
+- **NCLEX-RN**: Units are the test plan's eight Client Needs subcategories (with their weights); topics group its related-content items; the objectives are ours.
 - **Nuclear Science and Reactor Theory**: Reactor-theory units follow the NRC Generic Fundamentals Examination topic list (read in part). Nuclear physics and shielding follow the DOE fundamentals handbook's first module (read in part). Health-physics standards for the radiation-protection unit have not been looked at.
 - **Organic Reactions: Predict the Product**: Families follow the reaction chapters of Bruice's Organic Chemistry (a textbook, not a standard; chapter titles 2-17 from memory). The reactions and substrates in each are a house list. Every product is mass-balanced against its reactant by the generator; regiochemistry and stereochemistry were checked by eye.
 - **Particle Physics**: Objectives follow AQA A-level Physics section 3.2 (Particles and radiation), read in this session. The Lorentz-factor items go beyond it and rest on a university textbook chapter.
@@ -86,9 +90,11 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 - **Biology (AP)**: standard, read through a crosswalk
 - **Chemistry (AP)**: standard, read in part
 - **Applied Engineering Mathematics**: textbook, read in full
+- **INBDE (Dentistry)**: exam-spec, read in part
 - **Linear Algebra**: textbook, read in part
 - **Mathematics K–8 (Common Core)**: standard, read through a crosswalk
 - **Molecular Simulation**: course, read in part
+- **NCLEX-RN**: exam-spec, read in part
 - **Nuclear Science and Reactor Theory**: exam-spec, read in part
 - **Organic Reactions: Predict the Product**: textbook, read in part; should move to AAMC, What's on the MCAT Exam? content outline (categories 1A, 1D, 5D)
 - **Particle Physics**: standard, read in part
@@ -662,3 +668,57 @@ https://dlcp.dc.gov/sites/default/files/dc/sites/DLCP/publication/attachments/Un
 | **III.G** | **Subsequent events** (undefined questions) | | | |
 
 **Areas with nothing answering to them:** I.A General-purpose financial reporting: for-profit business entities; I.B General-purpose financial reporting: nongovernmental not-for-profit entities; I.C State and local government concepts; I.D Public company reporting topics; I.E Special purpose frameworks; I.F Financial statement ratios and performance metrics; II.A Cash and cash equivalents; II.B Trade receivables; II.C Inventory; II.D Property, plant and equipment; II.E Investments; II.F Intangible assets; II.G Payables and accrued liabilities; II.H Debt (financial liabilities); II.I Equity; III.A Accounting changes and error corrections; III.B Contingencies and commitments; III.C Revenue recognition; III.D Accounting for income taxes; III.E Fair value measurements; III.F Lessee accounting; III.G Subsequent events.
+
+## NCLEX-RN Test Plan, effective April 2026
+
+https://nclex.com/files/2026_RN_Test%20Plan_English-F.pdf
+
+0 of 0 items have at least one objective answering to them.
+
+| Item | Topic | Objectives | With a drill | Where |
+|---|---|---|---|---|
+| **MOC** | **Management of Care (15-21%)** (undefined questions) | | | |
+| **SIPC** | **Safety and Infection Prevention and Control (10-16%)** (undefined questions) | | | |
+| **HPM** | **Health Promotion and Maintenance (6-12%)** (undefined questions) | | | |
+| **PSY** | **Psychosocial Integrity (6-12%)** (undefined questions) | | | |
+| **BCC** | **Basic Care and Comfort (6-12%)** (undefined questions) | | | |
+| **PPT** | **Pharmacological and Parenteral Therapies (13-19%)** (undefined questions) | | | |
+| **RRP** | **Reduction of Risk Potential (9-15%)** (undefined questions) | | | |
+| **PA** | **Physiological Adaptation (11-17%)** (undefined questions) | | | |
+
+**Areas with nothing answering to them:** MOC Management of Care (15-21%); SIPC Safety and Infection Prevention and Control (10-16%); HPM Health Promotion and Maintenance (6-12%); PSY Psychosocial Integrity (6-12%); BCC Basic Care and Comfort (6-12%); PPT Pharmacological and Parenteral Therapies (13-19%); RRP Reduction of Risk Potential (9-15%); PA Physiological Adaptation (11-17%).
+
+## JCNDE, Domain of Dentistry (INBDE content domain), July 2018
+
+https://jcnde.ada.org/-/media/project/ada-organization/ada/jcnde/files/domain_of_dentistry_july2018.pdf
+
+0 of 0 items have at least one objective answering to them.
+
+| Item | Topic | Objectives | With a drill | Where |
+|---|---|---|---|---|
+| **FK1** | **Molecular, biochemical, cellular and systems-level development, structure and function** (undefined questions) | | | |
+| **FK2** | **Physics and chemistry of normal biology and pathobiology** (undefined questions) | | | |
+| **FK3** | **Physics and chemistry of technologies and materials (8.0%)** (undefined questions) | | | |
+| **FK4** | **Genetic, congenital and developmental diseases** (undefined questions) | | | |
+| **FK5** | **Host defense mechanisms** (undefined questions) | | | |
+| **FK6** | **General and disease-specific pathology** (undefined questions) | | | |
+| **FK7** | **Biology of microorganisms** (undefined questions) | | | |
+| **FK8** | **Pharmacology** (undefined questions) | | | |
+| **FK9** | **Behavioral sciences, ethics and jurisprudence** (undefined questions) | | | |
+| **FK10** | **Research methodology, analysis and informatics** (undefined questions) | | | |
+| **CC4** | **Diagnosing and prognosing dental abnormalities and pathology** (undefined questions) | | | |
+| **CC7** | **Interpreting diagnostic results** (undefined questions) | | | |
+| **CC10** | **Selecting diagnostic tools** (undefined questions) | | | |
+| **CC16** | **Medical emergencies** (undefined questions) | | | |
+| **CC19** | **Pain control during treatment** (undefined questions) | | | |
+| **CC20** | **Pulpal and periradicular diseases** (undefined questions) | | | |
+| **CC21** | **Managing caries** (undefined questions) | | | |
+| **CC22** | **Periodontal diseases** (undefined questions) | | | |
+| **CC26** | **Pharmacological agents** (undefined questions) | | | |
+| **CC30** | **Restoring tooth function, structure and esthetics** (undefined questions) | | | |
+| **CC31** | **Prosthetic and implant procedures** (undefined questions) | | | |
+| **CC41** | **Evaluating scientific literature** (undefined questions) | | | |
+| **CC51** | **Standard infection control** (undefined questions) | | | |
+| **CC56** | **Communicating case design to laboratories** (undefined questions) | | | |
+
+**Areas with nothing answering to them:** FK1 Molecular, biochemical, cellular and systems-level development, structure and function; FK2 Physics and chemistry of normal biology and pathobiology; FK3 Physics and chemistry of technologies and materials (8.0%); FK4 Genetic, congenital and developmental diseases; FK5 Host defense mechanisms; FK6 General and disease-specific pathology; FK7 Biology of microorganisms; FK8 Pharmacology; FK9 Behavioral sciences, ethics and jurisprudence; FK10 Research methodology, analysis and informatics; CC4 Diagnosing and prognosing dental abnormalities and pathology; CC7 Interpreting diagnostic results; CC10 Selecting diagnostic tools; CC16 Medical emergencies; CC19 Pain control during treatment; CC20 Pulpal and periradicular diseases; CC21 Managing caries; CC22 Periodontal diseases; CC26 Pharmacological agents; CC30 Restoring tooth function, structure and esthetics; CC31 Prosthetic and implant procedures; CC41 Evaluating scientific literature; CC51 Standard infection control; CC56 Communicating case design to laboratories.

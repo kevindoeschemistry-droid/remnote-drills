@@ -594,6 +594,10 @@ from csalgo import FUNCS as _CSA  # noqa: E402
 BASE.update(_CSA)
 from mvcalc import FUNCS as _MV  # noqa: E402
 BASE.update(_MV)
+from nursing import FUNCS as _NR  # noqa: E402
+BASE.update(_NR)
+from dental import FUNCS as _DN  # noqa: E402
+BASE.update(_DN)
 _bad = _sql_tables(TEMPLATES)
 if _bad:
     raise SystemExit(f"SQL figures differ from tests/verify/sql.py TABLES: {_bad}")
