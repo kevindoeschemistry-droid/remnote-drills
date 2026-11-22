@@ -43,3 +43,8 @@ def test_stat(tp, fp, fn, tn, k):
 
 
 FUNCS = {f.__name__: f for f in [fdi, fdi_primary, perio_stage, test_stat]}
+
+
+def check(p, H):
+    """helpers only: data.py runs these through verify expressions; no problem belongs here directly"""
+    return None
