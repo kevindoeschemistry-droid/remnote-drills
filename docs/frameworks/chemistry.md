@@ -56,19 +56,19 @@ Big ideas: SPQ
 
 - ● **CH-0.2.A** (8.EE.A.3, 8.EE.A.4, N-Q.A.1) Write quantities in scientific notation and convert between SI prefixes (p, n, μ, m, c, k, M, G).
   - EK: Each prefix is a power of ten; moving the decimal changes the exponent by the same count.
-  - P5 · drills: ac-si-prefix
+  - P5 · drills: ac-si-prefix, ac2-largest-length
 - ● **CH-0.2.B** (N-Q.A.3) Count significant figures in a measurement and round a calculated result correctly for × ÷ and for + −.
   - EK: × ÷: keep the fewest significant figures; + −: keep the fewest decimal places; exact counts and defined constants don't limit.
   - P5 · drills: ac-sig-figs, ac-sig-figs-product
 - ● **CH-0.2.C** (N-Q.A.3) Distinguish accuracy from precision and calculate percent error.
   - EK: Accuracy = closeness to the true value; precision = agreement among repeats; % error = |measured − true|/true × 100.
-  - P2 · P4 · drills: ac-percent-error
+  - P2 · P4 · drills: ac-percent-error, ac2-percent-error-reverse
 - ● **CH-0.2.D** (N-Q.A.1, A-CED.A.4) Calculate density, mass or volume from the other two, including volume by water displacement.
   - EK: ρ = m/V; 1 mL = 1 cm³; water ≈ 1.00 g/mL near room temperature.
   - P5 · drills: ac-density-displacement, ph-density
 - ● **CH-0.2.E** (N-Q.A.1) Convert temperatures among °C, K and °F.
   - EK: K = °C + 273.15; °F = 1.8·°C + 32; gas laws and thermodynamics need kelvin.
-  - P5 · drills: ac-temperature-convert
+  - P5 · drills: ac-temperature-convert, ac2-hotter
 
 ### 0.3 Dimensional analysis
 
@@ -77,7 +77,7 @@ Big ideas: SPQ
 - ● **CH-0.3.A** (N-Q.A.1, 6.RP.A.3.D) Convert a quantity through a chain of conversion factors, including squared and cubed units.
   - EK: Multiply by factors equal to one, arranged so unwanted units cancel; cube the factor for volume (1 m³ = 10⁶ cm³).
   - Needs: CH-0.2.A
-  - P5 · drills: ac-unit-chain-cubed
+  - P5 · drills: ac-unit-chain-cubed, ac2-density-units
 
 ### 0.4 Atoms, ions, the periodic table and naming
 
@@ -88,7 +88,7 @@ Big ideas: SPQ
   - P1 · drills: ac-nuclide-count, nu-neutron-number
 - ● **CH-0.4.C** (SAP-2.B) Use periodic-table position (group, metal or nonmetal) to name, and write formulas for, binary ionic, polyatomic ionic, binary molecular compounds and common acids.
   - EK: Metals left of the staircase form cations, nonmetals anions. Ionic: cation then anion, charges balance, Roman numeral for variable-charge metals; molecular: Greek prefixes; -ate → -ic acid, -ite → -ous acid.
-  - P1 · drills: ac-ionic-formula
+  - P1 · drills: ac-ionic-formula, ac2-atoms-in-formula
 
 ### 0.5 The mole as a counting unit
 
@@ -97,7 +97,7 @@ Big ideas: SPQ
 - ● **CH-0.5.A** (SPQ-1.A) Explain the mole as a count of particles and compute a compound's molar mass from its formula.
   - EK: 1 mol = 6.022 × 10²³ particles; molar mass in g/mol = sum of atomic masses × subscripts.
   - Needs: CH-0.4.C
-  - P5 · drills: ac-molar-mass
+  - P5 · drills: ac-molar-mass, ac2-identify-metal
 
 ## Unit 1 · Atomic structure and properties
 
@@ -110,7 +110,7 @@ Big ideas: SPQ, SAP
 - ● **CH-1.1.A** (SPQ-1.A) Convert among mass, moles and number of particles of a compound or of one element inside it.
   - EK: n = m/M; N = n·N_A; route every conversion through moles; subscripts are mole ratios (1 mol Fe₂O₃ holds 2 mol Fe).
   - Needs: CH-0.5.A, CH-0.3.A
-  - P5 · drills: ac-moles-of-element
+  - P5 · drills: ac-moles-of-element, ac2-most-atoms
 
 ### 1.2 Mass spectra of elements
 
@@ -119,7 +119,7 @@ Big ideas: SPQ, SAP
 - ● **CH-1.2.A** (SPQ-1.B) Calculate an element's average atomic mass from its isotopes' masses and abundances.
   - EK: Average mass = Σ (fractional abundance × isotope mass).
   - Needs: CH-0.4.A
-  - P5 · drills: ac-average-atomic-mass
+  - P5 · drills: ac-average-atomic-mass, ac2-abundant-isotope
 - ● **CH-1.2.B** (SPQ-1.B) Read isotopes and relative abundances off a mass spectrum, or find two isotopes' abundances from the average mass.
   - EK: Peak position = isotope mass; peak height ∝ abundance; with two isotopes, x·m₁ + (1 − x)·m₂ = average.
   - Needs: CH-1.2.A
@@ -132,11 +132,11 @@ Big ideas: SPQ, SAP
 - ● **CH-1.3.A** (SPQ-2.A) Calculate the mass percent of each element in a compound from its formula.
   - EK: % X = (subscript × M_X)/M_compound × 100.
   - Needs: CH-0.5.A
-  - P5 · drills: ac-mass-percent
+  - P5 · drills: ac-mass-percent, ac2-highest-percent
 - ● **CH-1.3.B** (SPQ-2.A) Determine an empirical formula from mass-percent or mass data.
   - EK: Assume 100 g, convert each to moles, divide by the smallest, clear fractions to whole numbers.
   - Needs: CH-1.1.A, CH-1.3.A
-  - P5 · drills: ac-empirical-formula
+  - P5 · drills: ac-empirical-formula, ac2-empirical-subscript
 - ● **CH-1.3.C** (SPQ-2.A) Find a molecular formula from the empirical formula and the molar mass.
   - EK: Molecular formula = (empirical formula)ₙ with n = M/M_empirical.
   - Needs: CH-1.3.B
@@ -144,7 +144,7 @@ Big ideas: SPQ, SAP
 - ● **CH-1.3.D** (SPQ-2.A) Find an empirical formula from combustion-analysis masses of CO₂ and H₂O.
   - EK: All C ends in CO₂ and all H in H₂O; O is found by difference from the sample mass.
   - Needs: CH-1.3.B
-  - P5 · drills: ac-combustion-analysis
+  - P5 · drills: ac-combustion-analysis, ac2-carbon-from-co2
 
 ### 1.4 Composition of mixtures
 
@@ -196,7 +196,7 @@ Big ideas: SPQ, SAP
 - ● **CH-1.7.D** (SAP-2.A) Compare ion sizes with their parent atoms and rank an isoelectronic series.
   - EK: Cations shrink, anions grow; in an isoelectronic series, more protons ⇒ smaller.
   - Needs: CH-1.7.A
-  - P6 · drills: ac-isoelectronic-rank
+  - P6 · drills: ac-isoelectronic-rank, ac2-isoelectronic-pick
 
 ### 1.8 Valence electrons and ionic compounds
 
@@ -205,7 +205,7 @@ Big ideas: SPQ, SAP
 - ● **CH-1.8.A** (SAP-2.B) Predict an element's common ion charge and the formula of the ionic compound two elements form.
   - EK: Main-group atoms gain or lose electrons to reach a noble-gas configuration; total charge sums to zero.
   - Needs: CH-1.5.A, CH-0.4.C
-  - P1 · drills: ac-ion-charge-formula
+  - P1 · drills: ac-ion-charge-formula, ac2-charge-from-formula
 - ● **CH-1.8.B** (SAP-2.B) Predict the formula or reactivity of an unfamiliar compound from an analogous compound of a same-group element.
   - EK: Same group ⇒ same valence configuration ⇒ analogous formulas (Na₂O → K₂O); reactivity trends follow IE and EN.
   - Needs: CH-1.8.A, CH-1.7.A
@@ -248,7 +248,7 @@ Big ideas: SAP
 - ● **CH-2.1.A** (SAP-3.A) Classify a bond as nonpolar covalent, polar covalent, ionic or metallic from the elements and their electronegativity difference, and mark partial charges.
   - EK: Metal + nonmetal ⇒ ionic; nonmetals ⇒ covalent; ΔEN ≈ 0 nonpolar, larger ΔEN more polar; metals ⇒ metallic.
   - Needs: CH-1.7.A
-  - P1 · drills: ac-bond-type
+  - P1 · drills: ac-bond-type, ac2-most-polar
 
 ### 2.2 Intramolecular force and potential energy
 
@@ -260,7 +260,7 @@ Big ideas: SAP
 - ● **CH-2.2.B** (SAP-3.B) Rank ionic compounds by lattice energy using Coulomb's law.
   - EK: Lattice energy ∝ q₁q₂/(r₁ + r₂): charge dominates, then ion size.
   - Needs: CH-1.5.C, CH-1.7.D
-  - P6 · drills: ac-lattice-energy-rank
+  - P6 · drills: ac-lattice-energy-rank, ac2-lattice-pick
 
 ### 2.3 Structure of ionic solids
 
@@ -287,7 +287,7 @@ Big ideas: SAP
 - ● **CH-2.5.A** (SAP-4.A) Draw the Lewis structure of a molecule or polyatomic ion that obeys the octet rule.
   - EK: Count valence electrons (adjust for charge), connect atoms, complete outer octets, move lone pairs into multiple bonds if the centre is short.
   - Needs: CH-1.8.A
-  - P1 · drills: ac-valence-electrons
+  - P1 · drills: ac-valence-electrons, ac2-lone-pairs
 - ● **CH-2.5.B** (SAP-4.A) Draw Lewis structures for octet exceptions: incomplete octets, expanded octets and odd-electron species.
   - EK: B and Be can be electron-deficient; period-3+ central atoms can exceed eight; an odd electron count leaves a radical.
   - Needs: CH-2.5.A
@@ -300,7 +300,7 @@ Big ideas: SAP
 - ● **CH-2.6.A** (SAP-4.B) Calculate formal charges and use them to pick the best of several Lewis structures.
   - EK: FC = valence e⁻ − lone-pair e⁻ − ½ bonding e⁻; prefer FCs near zero, with negatives on more electronegative atoms.
   - Needs: CH-2.5.A
-  - P1 · P6 · drills: ac-formal-charge
+  - P1 · P6 · drills: ac-formal-charge, ac2-formal-charge
 - ● **CH-2.6.B** (SAP-4.B) Draw all resonance structures of a species and calculate the average bond order.
   - EK: Resonance forms differ only in electron placement; the real structure is the average, e.g. bond order 4/3 in NO₃⁻; higher bond order ⇒ shorter, stronger bond.
   - Needs: CH-2.5.A
@@ -313,11 +313,11 @@ Big ideas: SAP
 - ● **CH-2.7.A** (SAP-4.C) Predict electron-domain geometry, molecular shape and approximate bond angles with VSEPR.
   - EK: 2–6 domains ⇒ linear, trigonal planar, tetrahedral, trigonal bipyramidal, octahedral; lone pairs squeeze angles (109.5° → 107° → 104.5°).
   - Needs: CH-2.5.B
-  - P1 · drills: ac-vsepr-shape
+  - P1 · drills: ac-vsepr-shape, ac2-hybridization
 - ● **CH-2.7.B** (SAP-4.C) Decide whether a molecule is polar from its shape and bond dipoles.
   - EK: Polar bonds in a symmetric shape cancel (CO₂, CCl₄); lone pairs or unlike atoms usually break the symmetry.
   - Needs: CH-2.7.A, CH-2.1.A
-  - P6 · drills: ac-polarity
+  - P6 · drills: ac-polarity, ac2-nonpolar-pick
 - ● **CH-2.7.C** (SAP-4.C) Assign the hybridization of a central atom and count σ and π bonds.
   - EK: 2, 3, 4, 5, 6 domains ⇒ sp, sp², sp³, sp³d, sp³d²; a single bond is σ, a double σ + π, a triple σ + 2π.
   - Needs: CH-2.7.A

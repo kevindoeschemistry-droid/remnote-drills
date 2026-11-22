@@ -598,6 +598,8 @@ from nursing import FUNCS as _NR  # noqa: E402
 BASE.update(_NR)
 from dental import FUNCS as _DN  # noqa: E402
 BASE.update(_DN)
+from chemcalc import FUNCS as _CC  # noqa: E402
+BASE.update(_CC)
 _bad = _sql_tables(TEMPLATES)
 if _bad:
     raise SystemExit(f"SQL figures differ from tests/verify/sql.py TABLES: {_bad}")

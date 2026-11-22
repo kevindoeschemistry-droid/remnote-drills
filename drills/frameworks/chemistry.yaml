@@ -112,30 +112,30 @@ units:
         ced: pre
         dat: [Stoichiometry and General Concepts, Laboratory]
         los:
-          - { id: A, std: [8.EE.A.3, 8.EE.A.4, N-Q.A.1], do: "Write quantities in scientific notation and convert between SI prefixes (p, n, μ, m, c, k, M, G).", ek: ["Each prefix is a power of ten; moving the decimal changes the exponent by the same count."], p: [P5], drills: [ac-si-prefix] }
+          - { id: A, std: [8.EE.A.3, 8.EE.A.4, N-Q.A.1], do: "Write quantities in scientific notation and convert between SI prefixes (p, n, μ, m, c, k, M, G).", ek: ["Each prefix is a power of ten; moving the decimal changes the exponent by the same count."], p: [P5], drills: ["ac-si-prefix", "ac2-largest-length"] }
           - { id: B, std: [N-Q.A.3], do: "Count significant figures in a measurement and round a calculated result correctly for × ÷ and for + −.", ek: ["× ÷: keep the fewest significant figures; + −: keep the fewest decimal places; exact counts and defined constants don't limit."], p: [P5], drills: [ac-sig-figs, ac-sig-figs-product] }
-          - { id: C, std: [N-Q.A.3], do: "Distinguish accuracy from precision and calculate percent error.", ek: ["Accuracy = closeness to the true value; precision = agreement among repeats; % error = |measured − true|/true × 100."], p: [P2, P4], drills: [ac-percent-error] }
+          - { id: C, std: [N-Q.A.3], do: "Distinguish accuracy from precision and calculate percent error.", ek: ["Accuracy = closeness to the true value; precision = agreement among repeats; % error = |measured − true|/true × 100."], p: [P2, P4], drills: ["ac-percent-error", "ac2-percent-error-reverse"] }
           - { id: D, std: [N-Q.A.1, A-CED.A.4], do: "Calculate density, mass or volume from the other two, including volume by water displacement.", ek: ["ρ = m/V; 1 mL = 1 cm³; water ≈ 1.00 g/mL near room temperature."], p: [P5], drills: [ac-density-displacement, ph-density] }
-          - { id: E, std: [N-Q.A.1], do: "Convert temperatures among °C, K and °F.", ek: ["K = °C + 273.15; °F = 1.8·°C + 32; gas laws and thermodynamics need kelvin."], p: [P5], drills: [ac-temperature-convert] }
+          - { id: E, std: [N-Q.A.1], do: "Convert temperatures among °C, K and °F.", ek: ["K = °C + 273.15; °F = 1.8·°C + 32; gas laws and thermodynamics need kelvin."], p: [P5], drills: ["ac-temperature-convert", "ac2-hotter"] }
       - n: 3
         title: Dimensional analysis
         ced: pre
         dat: [Stoichiometry and General Concepts]
         los:
-          - { id: A, std: [N-Q.A.1, 6.RP.A.3.D], do: "Convert a quantity through a chain of conversion factors, including squared and cubed units.", ek: ["Multiply by factors equal to one, arranged so unwanted units cancel; cube the factor for volume (1 m³ = 10⁶ cm³)."], p: [P5], drills: [ac-unit-chain-cubed], needs: [CH-0.2.A] }
+          - { id: A, std: [N-Q.A.1, 6.RP.A.3.D], do: "Convert a quantity through a chain of conversion factors, including squared and cubed units.", ek: ["Multiply by factors equal to one, arranged so unwanted units cancel; cube the factor for volume (1 m³ = 10⁶ cm³)."], p: [P5], drills: ["ac-unit-chain-cubed", "ac2-density-units"], needs: [CH-0.2.A] }
       - n: 4
         title: Atoms, ions, the periodic table and naming
         ced: "pre-1.5, 1.8"
         dat: [Atomic and Molecular Structure, Periodic Properties]
         los:
           - { id: A, std: [SAP-1.A], do: "Count protons, neutrons and electrons from a nuclide symbol for an atom or ion.", ek: ["Z = protons; A = protons + neutrons; electrons = Z − charge."], p: [P1], drills: [ac-nuclide-count, nu-neutron-number] }
-          - { id: C, std: [SAP-2.B], do: "Use periodic-table position (group, metal or nonmetal) to name, and write formulas for, binary ionic, polyatomic ionic, binary molecular compounds and common acids.", ek: ["Metals left of the staircase form cations, nonmetals anions. Ionic: cation then anion, charges balance, Roman numeral for variable-charge metals; molecular: Greek prefixes; -ate → -ic acid, -ite → -ous acid."], p: [P1], drills: [ac-ionic-formula] }
+          - { id: C, std: [SAP-2.B], do: "Use periodic-table position (group, metal or nonmetal) to name, and write formulas for, binary ionic, polyatomic ionic, binary molecular compounds and common acids.", ek: ["Metals left of the staircase form cations, nonmetals anions. Ionic: cation then anion, charges balance, Roman numeral for variable-charge metals; molecular: Greek prefixes; -ate → -ic acid, -ite → -ous acid."], p: [P1], drills: ["ac-ionic-formula", "ac2-atoms-in-formula"] }
       - n: 5
         title: The mole as a counting unit
         ced: "pre-1.1"
         dat: [Stoichiometry and General Concepts]
         los:
-          - { id: A, std: [SPQ-1.A], do: "Explain the mole as a count of particles and compute a compound's molar mass from its formula.", ek: ["1 mol = 6.022 × 10²³ particles; molar mass in g/mol = sum of atomic masses × subscripts."], p: [P5], drills: [ac-molar-mass], needs: [CH-0.4.C] }
+          - { id: A, std: [SPQ-1.A], do: "Explain the mole as a count of particles and compute a compound's molar mass from its formula.", ek: ["1 mol = 6.022 × 10²³ particles; molar mass in g/mol = sum of atomic masses × subscripts."], p: [P5], drills: ["ac-molar-mass", "ac2-identify-metal"], needs: [CH-0.4.C] }
 
   # ── 1 ────────────────────────────────────────────────────────────────────
   - id: atoms
@@ -150,23 +150,23 @@ units:
         ced: "1.1"
         dat: [Stoichiometry and General Concepts]
         los:
-          - { id: A, std: [SPQ-1.A], do: "Convert among mass, moles and number of particles of a compound or of one element inside it.", ek: ["n = m/M; N = n·N_A; route every conversion through moles; subscripts are mole ratios (1 mol Fe₂O₃ holds 2 mol Fe)."], p: [P5], drills: [ac-moles-of-element], needs: [CH-0.5.A, CH-0.3.A] }
+          - { id: A, std: [SPQ-1.A], do: "Convert among mass, moles and number of particles of a compound or of one element inside it.", ek: ["n = m/M; N = n·N_A; route every conversion through moles; subscripts are mole ratios (1 mol Fe₂O₃ holds 2 mol Fe)."], p: [P5], drills: ["ac-moles-of-element", "ac2-most-atoms"], needs: [CH-0.5.A, CH-0.3.A] }
       - n: 2
         title: Mass spectra of elements
         ced: "1.2"
         dat: [Atomic and Molecular Structure]
         los:
-          - { id: A, std: [SPQ-1.B], do: "Calculate an element's average atomic mass from its isotopes' masses and abundances.", ek: ["Average mass = Σ (fractional abundance × isotope mass)."], p: [P5], drills: [ac-average-atomic-mass], needs: [CH-0.4.A] }
+          - { id: A, std: [SPQ-1.B], do: "Calculate an element's average atomic mass from its isotopes' masses and abundances.", ek: ["Average mass = Σ (fractional abundance × isotope mass)."], p: [P5], drills: ["ac-average-atomic-mass", "ac2-abundant-isotope"], needs: [CH-0.4.A] }
           - { id: B, std: [SPQ-1.B], do: "Read isotopes and relative abundances off a mass spectrum, or find two isotopes' abundances from the average mass.", ek: ["Peak position = isotope mass; peak height ∝ abundance; with two isotopes, x·m₁ + (1 − x)·m₂ = average."], p: [P4, P5], drills: [ac-isotope-abundance], needs: [CH-1.2.A] }
       - n: 3
         title: Elemental composition of pure substances
         ced: "1.3"
         dat: [Stoichiometry and General Concepts]
         los:
-          - { id: A, std: [SPQ-2.A], do: "Calculate the mass percent of each element in a compound from its formula.", ek: ["% X = (subscript × M_X)/M_compound × 100."], p: [P5], drills: [ac-mass-percent], needs: [CH-0.5.A] }
-          - { id: B, std: [SPQ-2.A], do: "Determine an empirical formula from mass-percent or mass data.", ek: ["Assume 100 g, convert each to moles, divide by the smallest, clear fractions to whole numbers."], p: [P5], drills: [ac-empirical-formula], needs: [CH-1.1.A, CH-1.3.A] }
+          - { id: A, std: [SPQ-2.A], do: "Calculate the mass percent of each element in a compound from its formula.", ek: ["% X = (subscript × M_X)/M_compound × 100."], p: [P5], drills: ["ac-mass-percent", "ac2-highest-percent"], needs: [CH-0.5.A] }
+          - { id: B, std: [SPQ-2.A], do: "Determine an empirical formula from mass-percent or mass data.", ek: ["Assume 100 g, convert each to moles, divide by the smallest, clear fractions to whole numbers."], p: [P5], drills: ["ac-empirical-formula", "ac2-empirical-subscript"], needs: [CH-1.1.A, CH-1.3.A] }
           - { id: C, std: [SPQ-2.A], do: "Find a molecular formula from the empirical formula and the molar mass.", ek: ["Molecular formula = (empirical formula)ₙ with n = M/M_empirical."], p: [P5], drills: [ac-molecular-formula], needs: [CH-1.3.B] }
-          - { id: D, std: [SPQ-2.A], do: "Find an empirical formula from combustion-analysis masses of CO₂ and H₂O.", ek: ["All C ends in CO₂ and all H in H₂O; O is found by difference from the sample mass."], p: [P5], drills: [ac-combustion-analysis], needs: [CH-1.3.B] }
+          - { id: D, std: [SPQ-2.A], do: "Find an empirical formula from combustion-analysis masses of CO₂ and H₂O.", ek: ["All C ends in CO₂ and all H in H₂O; O is found by difference from the sample mass."], p: [P5], drills: ["ac-combustion-analysis", "ac2-carbon-from-co2"], needs: [CH-1.3.B] }
       - n: 4
         title: Composition of mixtures
         ced: "1.4"
@@ -194,13 +194,13 @@ units:
         los:
           - { id: A, std: [SAP-2.A], do: "Rank atoms by radius, first ionization energy, electron affinity and electronegativity, and justify with Z_eff and shell number.", ek: ["Across a period Z_eff rises (smaller, higher IE, higher EN); down a group n rises (larger, lower IE, lower EN); IE dips at groups 13 and 16 (p electron, first p pairing)."], p: [P6], drills: [ac-periodic-trend], needs: [CH-1.5.C] }
           - { id: C, std: [SAP-2.A], do: "Identify an element's group from a jump in successive ionization energies.", ek: ["The big jump comes after the valence electrons are gone, when a core electron is removed."], p: [P4], drills: [ac-successive-ie], needs: [CH-1.7.A] }
-          - { id: D, std: [SAP-2.A], do: "Compare ion sizes with their parent atoms and rank an isoelectronic series.", ek: ["Cations shrink, anions grow; in an isoelectronic series, more protons ⇒ smaller."], p: [P6], drills: [ac-isoelectronic-rank], needs: [CH-1.7.A] }
+          - { id: D, std: [SAP-2.A], do: "Compare ion sizes with their parent atoms and rank an isoelectronic series.", ek: ["Cations shrink, anions grow; in an isoelectronic series, more protons ⇒ smaller."], p: [P6], drills: ["ac-isoelectronic-rank", "ac2-isoelectronic-pick"], needs: [CH-1.7.A] }
       - n: 8
         title: Valence electrons and ionic compounds
         ced: "1.8"
         dat: [Periodic Properties]
         los:
-          - { id: A, std: [SAP-2.B], do: "Predict an element's common ion charge and the formula of the ionic compound two elements form.", ek: ["Main-group atoms gain or lose electrons to reach a noble-gas configuration; total charge sums to zero."], p: [P1], drills: [ac-ion-charge-formula], needs: [CH-1.5.A, CH-0.4.C] }
+          - { id: A, std: [SAP-2.B], do: "Predict an element's common ion charge and the formula of the ionic compound two elements form.", ek: ["Main-group atoms gain or lose electrons to reach a noble-gas configuration; total charge sums to zero."], p: [P1], drills: ["ac-ion-charge-formula", "ac2-charge-from-formula"], needs: [CH-1.5.A, CH-0.4.C] }
           - { id: B, std: [SAP-2.B], do: "Predict the formula or reactivity of an unfamiliar compound from an analogous compound of a same-group element.", ek: ["Same group ⇒ same valence configuration ⇒ analogous formulas (Na₂O → K₂O); reactivity trends follow IE and EN."], p: [P6], drills: [ac-analogous-compound], needs: [CH-1.8.A, CH-1.7.A] }
       - n: 9
         title: Quantum numbers and orbitals
@@ -232,13 +232,13 @@ units:
         ced: "2.1"
         dat: [Atomic and Molecular Structure]
         los:
-          - { id: A, std: [SAP-3.A], do: "Classify a bond as nonpolar covalent, polar covalent, ionic or metallic from the elements and their electronegativity difference, and mark partial charges.", ek: ["Metal + nonmetal ⇒ ionic; nonmetals ⇒ covalent; ΔEN ≈ 0 nonpolar, larger ΔEN more polar; metals ⇒ metallic."], p: [P1], drills: [ac-bond-type], needs: [CH-1.7.A] }
+          - { id: A, std: [SAP-3.A], do: "Classify a bond as nonpolar covalent, polar covalent, ionic or metallic from the elements and their electronegativity difference, and mark partial charges.", ek: ["Metal + nonmetal ⇒ ionic; nonmetals ⇒ covalent; ΔEN ≈ 0 nonpolar, larger ΔEN more polar; metals ⇒ metallic."], p: [P1], drills: ["ac-bond-type", "ac2-most-polar"], needs: [CH-1.7.A] }
       - n: 2
         title: Intramolecular force and potential energy
         ced: "2.2"
         los:
           - { id: A, std: [SAP-3.B], do: "Read bond length and bond energy from a potential-energy vs internuclear-distance curve, and compare curves for different bonds.", ek: ["The well's minimum gives bond length (x) and bond energy (depth); higher bond order and smaller atoms ⇒ deeper, shorter well."], p: [P4], drills: [ac-pe-curve] }
-          - { id: B, std: [SAP-3.B], do: "Rank ionic compounds by lattice energy using Coulomb's law.", ek: ["Lattice energy ∝ q₁q₂/(r₁ + r₂): charge dominates, then ion size."], p: [P6], drills: [ac-lattice-energy-rank], needs: [CH-1.5.C, CH-1.7.D] }
+          - { id: B, std: [SAP-3.B], do: "Rank ionic compounds by lattice energy using Coulomb's law.", ek: ["Lattice energy ∝ q₁q₂/(r₁ + r₂): charge dominates, then ion size."], p: [P6], drills: ["ac-lattice-energy-rank", "ac2-lattice-pick"], needs: [CH-1.5.C, CH-1.7.D] }
       - n: 3
         title: Structure of ionic solids
         ced: "2.3"
@@ -256,22 +256,22 @@ units:
         ced: "2.5"
         dat: [Atomic and Molecular Structure]
         los:
-          - { id: A, std: [SAP-4.A], do: "Draw the Lewis structure of a molecule or polyatomic ion that obeys the octet rule.", ek: ["Count valence electrons (adjust for charge), connect atoms, complete outer octets, move lone pairs into multiple bonds if the centre is short."], p: [P1], drills: [ac-valence-electrons], needs: [CH-1.8.A] }
+          - { id: A, std: [SAP-4.A], do: "Draw the Lewis structure of a molecule or polyatomic ion that obeys the octet rule.", ek: ["Count valence electrons (adjust for charge), connect atoms, complete outer octets, move lone pairs into multiple bonds if the centre is short."], p: [P1], drills: ["ac-valence-electrons", "ac2-lone-pairs"], needs: [CH-1.8.A] }
           - { id: B, std: [SAP-4.A], do: "Draw Lewis structures for octet exceptions: incomplete octets, expanded octets and odd-electron species.", ek: ["B and Be can be electron-deficient; period-3+ central atoms can exceed eight; an odd electron count leaves a radical."], p: [P1], drills: [ac-octet-exception], needs: [CH-2.5.A] }
       - n: 6
         title: Resonance and formal charge
         ced: "2.6"
         dat: [Atomic and Molecular Structure]
         los:
-          - { id: A, std: [SAP-4.B], do: "Calculate formal charges and use them to pick the best of several Lewis structures.", ek: ["FC = valence e⁻ − lone-pair e⁻ − ½ bonding e⁻; prefer FCs near zero, with negatives on more electronegative atoms."], p: [P1, P6], drills: [ac-formal-charge], needs: [CH-2.5.A] }
+          - { id: A, std: [SAP-4.B], do: "Calculate formal charges and use them to pick the best of several Lewis structures.", ek: ["FC = valence e⁻ − lone-pair e⁻ − ½ bonding e⁻; prefer FCs near zero, with negatives on more electronegative atoms."], p: [P1, P6], drills: ["ac-formal-charge", "ac2-formal-charge"], needs: [CH-2.5.A] }
           - { id: B, std: [SAP-4.B], do: "Draw all resonance structures of a species and calculate the average bond order.", ek: ["Resonance forms differ only in electron placement; the real structure is the average, e.g. bond order 4/3 in NO₃⁻; higher bond order ⇒ shorter, stronger bond."], p: [P1], drills: [ac-resonance-bond-order], needs: [CH-2.5.A] }
       - n: 7
         title: VSEPR and bond hybridization
         ced: "2.7"
         dat: [Atomic and Molecular Structure]
         los:
-          - { id: A, std: [SAP-4.C], do: "Predict electron-domain geometry, molecular shape and approximate bond angles with VSEPR.", ek: ["2–6 domains ⇒ linear, trigonal planar, tetrahedral, trigonal bipyramidal, octahedral; lone pairs squeeze angles (109.5° → 107° → 104.5°)."], p: [P1], drills: [ac-vsepr-shape], needs: [CH-2.5.B] }
-          - { id: B, std: [SAP-4.C], do: "Decide whether a molecule is polar from its shape and bond dipoles.", ek: ["Polar bonds in a symmetric shape cancel (CO₂, CCl₄); lone pairs or unlike atoms usually break the symmetry."], p: [P6], drills: [ac-polarity], needs: [CH-2.7.A, CH-2.1.A] }
+          - { id: A, std: [SAP-4.C], do: "Predict electron-domain geometry, molecular shape and approximate bond angles with VSEPR.", ek: ["2–6 domains ⇒ linear, trigonal planar, tetrahedral, trigonal bipyramidal, octahedral; lone pairs squeeze angles (109.5° → 107° → 104.5°)."], p: [P1], drills: ["ac-vsepr-shape", "ac2-hybridization"], needs: [CH-2.5.B] }
+          - { id: B, std: [SAP-4.C], do: "Decide whether a molecule is polar from its shape and bond dipoles.", ek: ["Polar bonds in a symmetric shape cancel (CO₂, CCl₄); lone pairs or unlike atoms usually break the symmetry."], p: [P6], drills: ["ac-polarity", "ac2-nonpolar-pick"], needs: [CH-2.7.A, CH-2.1.A] }
           - { id: C, std: [SAP-4.C], do: "Assign the hybridization of a central atom and count σ and π bonds.", ek: ["2, 3, 4, 5, 6 domains ⇒ sp, sp², sp³, sp³d, sp³d²; a single bond is σ, a double σ + π, a triple σ + 2π."], p: [P1], drills: [ac-sigma-pi, qm-hybridisation], needs: [CH-2.7.A] }
       - n: 8
         title: Molecular orbital theory for diatomics
