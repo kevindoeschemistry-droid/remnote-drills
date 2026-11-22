@@ -797,7 +797,7 @@ units:
         ced: "9.1"
         dat: [Thermodynamics and Thermochemistry]
         los:
-          - { id: A, std: [ENE-4.A], do: "Predict the sign of ΔS for a process from changes in phase, moles of gas, mixing, dissolution and temperature.", ek: ["Energy and matter more dispersed ⇒ ΔS > 0: s → l → g, more gas moles, mixing, heating."], p: [P6], drills: [ac-entropy-sign], needs: [CH-3.1.B] }
+          - { id: A, std: [ENE-4.A], do: "Predict the sign of ΔS for a process from changes in phase, moles of gas, mixing, dissolution and temperature.", ek: ["Energy and matter more dispersed ⇒ ΔS > 0: s → l → g, more gas moles, mixing, heating."], p: [P6], drills: ["ac-entropy-sign", "ac2-highest-entropy"], needs: [CH-3.1.B] }
       - n: 2
         title: Absolute entropy and entropy change
         ced: "9.2"
@@ -810,7 +810,7 @@ units:
         dat: [Thermodynamics and Thermochemistry]
         los:
           - { id: A, std: [ENE-4.C], do: "Calculate ΔG° from ΔH° and ΔS°, or from standard free energies of formation.", ek: ["ΔG° = ΔH° − TΔS° (convert ΔS° to kJ); ΔG° = Σ n ΔG_f°(products) − Σ n ΔG_f°(reactants)."], p: [P5], drills: [ac-dg-from-dh-ds, pc-dg], needs: [CH-9.2.A, CH-6.8.B] }
-          - { id: B, std: [ENE-4.C], do: "Decide from the signs of ΔH and ΔS at which temperatures a process is favorable, and find the crossover temperature.", ek: ["−ΔH, +ΔS always; +ΔH, −ΔS never; mixed signs switch at T = ΔH/ΔS."], p: [P5, P6], drills: [ac-crossover-temperature], needs: [CH-9.3.A] }
+          - { id: B, std: [ENE-4.C], do: "Decide from the signs of ΔH and ΔS at which temperatures a process is favorable, and find the crossover temperature.", ek: ["−ΔH, +ΔS always; +ΔH, −ΔS never; mixed signs switch at T = ΔH/ΔS."], p: [P5, P6], drills: ["ac-crossover-temperature", "ac2-crossover-t"], needs: [CH-9.3.A] }
       - n: 4
         title: Thermodynamic and kinetic control
         ced: "9.4"
@@ -821,7 +821,7 @@ units:
         ced: "9.5"
         dat: [Thermodynamics and Thermochemistry, Chemical Equilibria]
         los:
-          - { id: A, std: [ENE-5.A], do: "Calculate K from ΔG°.", ek: ["K = exp(−ΔG°/RT); ΔG° < 0 ⇔ K > 1."], p: [P5], drills: [th-ce-k], needs: [CH-9.3.A, CH-7.5.A] }
+          - { id: A, std: [ENE-5.A], do: "Calculate K from ΔG°.", ek: ["K = exp(−ΔG°/RT); ΔG° < 0 ⇔ K > 1."], p: [P5], drills: ["th-ce-k", "ac2-dg-sign-from-k"], needs: [CH-9.3.A, CH-7.5.A] }
           - { id: B, std: [ENE-5.A], do: "Calculate ΔG° from K.", ek: ["ΔG° = −RT ln K, with R = 8.314 J/(mol·K)."], p: [P5], drills: [th-ce-dg], needs: [CH-9.5.A] }
           - { id: C, std: [ENE-5.A], do: "Calculate ΔG under nonstandard conditions and predict the direction of reaction.", ek: ["ΔG = ΔG° + RT ln Q = RT ln(Q/K); ΔG < 0 ⇒ forward."], p: [P5, P6], drills: [th-ce-direction], needs: [CH-9.5.B, CH-7.3.B] }
       - n: 6
@@ -834,14 +834,14 @@ units:
         title: Coupled reactions
         ced: "9.7"
         los:
-          - { id: A, std: [ENE-5.B], do: "Calculate ΔG° for coupled reactions and explain how a favorable reaction drives an unfavorable one.", ek: ["Add the reactions and their ΔG°'s; a shared intermediate links them (ATP hydrolysis in biology); light or current can also supply the free energy."], p: [P5, P6], drills: [ac-coupled-reactions], needs: [CH-9.3.A, CH-6.9.A] }
+          - { id: A, std: [ENE-5.B], do: "Calculate ΔG° for coupled reactions and explain how a favorable reaction drives an unfavorable one.", ek: ["Add the reactions and their ΔG°'s; a shared intermediate links them (ATP hydrolysis in biology); light or current can also supply the free energy."], p: [P5, P6], drills: ["ac-coupled-reactions", "ac2-coupled-dg"], needs: [CH-9.3.A, CH-6.9.A] }
       - n: 8
         title: Galvanic (voltaic) and electrolytic cells
         ced: "9.8"
         dat: [Oxidation–Reduction Reactions]
         los:
-          - { id: A, std: [ENE-6.A], do: "Label a galvanic cell's anode and cathode, electron and ion flow, salt bridge, and write its cell notation.", ek: ["Oxidation at the anode, reduction at the cathode; electrons flow anode → cathode through the wire; anode ‖ cathode in notation."], p: [P1], drills: [ac-galvanic-parts], needs: [CH-4.9.C] }
-          - { id: B, std: [ENE-6.A], do: "Distinguish galvanic from electrolytic cells by the sign of ΔG and the electrode charges.", ek: ["Galvanic: spontaneous, anode (−); electrolytic: driven by an external source, anode (+); oxidation is always at the anode."], p: [P6], drills: [ac-galvanic-electrolytic], needs: [CH-9.8.A, CH-9.3.A] }
+          - { id: A, std: [ENE-6.A], do: "Label a galvanic cell's anode and cathode, electron and ion flow, salt bridge, and write its cell notation.", ek: ["Oxidation at the anode, reduction at the cathode; electrons flow anode → cathode through the wire; anode ‖ cathode in notation."], p: [P1], drills: ["ac-galvanic-parts", "ac2-cell-potential"], needs: [CH-4.9.C] }
+          - { id: B, std: [ENE-6.A], do: "Distinguish galvanic from electrolytic cells by the sign of ΔG and the electrode charges.", ek: ["Galvanic: spontaneous, anode (−); electrolytic: driven by an external source, anode (+); oxidation is always at the anode."], p: [P6], drills: ["ac-galvanic-electrolytic", "ac2-dg-from-e"], needs: [CH-9.8.A, CH-9.3.A] }
       - n: 9
         title: Cell potential and free energy
         ced: "9.9"
@@ -854,14 +854,14 @@ units:
         ced: "9.10"
         dat: [Oxidation–Reduction Reactions]
         los:
-          - { id: A, std: [ENE-6.C], do: "Predict qualitatively whether changing concentrations raises or lowers the cell potential, and why a battery dies.", ek: ["Q < 1 ⇒ E > E°; as the cell runs Q → K and E → 0."], p: [P6], drills: [ac-concentration-effect], needs: [CH-9.9.B, CH-7.3.B] }
+          - { id: A, std: [ENE-6.C], do: "Predict qualitatively whether changing concentrations raises or lowers the cell potential, and why a battery dies.", ek: ["Q < 1 ⇒ E > E°; as the cell runs Q → K and E → 0."], p: [P6], drills: ["ac-concentration-effect", "ac2-nernst"], needs: [CH-9.9.B, CH-7.3.B] }
           - { id: B, std: [ENE-6.C, "DAT-GC Oxidation–Reduction Reactions (electrochemical calculations)"], do: "Calculate a cell potential with the Nernst equation, including a concentration cell.", ek: ["E = E° − (RT/nF) ln Q = E° − (0.0592/n) log Q at 25 °C; a concentration cell has E° = 0."], p: [P5], drills: [ac-concentration-cell, pc-nernst], needs: [CH-9.10.A] }
       - n: 11
         title: Electrolysis and Faraday's law
         ced: "9.11"
         dat: [Oxidation–Reduction Reactions]
         los:
-          - { id: A, std: [ENE-6.D], do: "Calculate the mass deposited, current or time in electrolysis with Faraday's law.", ek: ["charge = I·t; mol e⁻ = charge/F; half-reaction gives mol e⁻ per mol product."], p: [P5], drills: [ac-faraday], needs: [CH-9.8.B, CH-1.1.A] }
+          - { id: A, std: [ENE-6.D], do: "Calculate the mass deposited, current or time in electrolysis with Faraday's law.", ek: ["charge = I·t; mol e⁻ = charge/F; half-reaction gives mol e⁻ per mol product."], p: [P5], drills: ["ac-faraday", "ac2-faraday-time"], needs: [CH-9.8.B, CH-1.1.A] }
       - n: 12
         title: Temperature dependence of K
         ced: ext

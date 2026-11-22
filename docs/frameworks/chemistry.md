@@ -1170,7 +1170,7 @@ Big ideas: ENE, TRA
 - ● **CH-9.1.A** (ENE-4.A) Predict the sign of ΔS for a process from changes in phase, moles of gas, mixing, dissolution and temperature.
   - EK: Energy and matter more dispersed ⇒ ΔS > 0: s → l → g, more gas moles, mixing, heating.
   - Needs: CH-3.1.B
-  - P6 · drills: ac-entropy-sign
+  - P6 · drills: ac-entropy-sign, ac2-highest-entropy
 
 ### 9.2 Absolute entropy and entropy change
 
@@ -1192,7 +1192,7 @@ Big ideas: ENE, TRA
 - ● **CH-9.3.B** (ENE-4.C) Decide from the signs of ΔH and ΔS at which temperatures a process is favorable, and find the crossover temperature.
   - EK: −ΔH, +ΔS always; +ΔH, −ΔS never; mixed signs switch at T = ΔH/ΔS.
   - Needs: CH-9.3.A
-  - P5 · P6 · drills: ac-crossover-temperature
+  - P5 · P6 · drills: ac-crossover-temperature, ac2-crossover-t
 
 ### 9.4 Thermodynamic and kinetic control
 
@@ -1210,7 +1210,7 @@ Big ideas: ENE, TRA
 - ● **CH-9.5.A** (ENE-5.A) Calculate K from ΔG°.
   - EK: K = exp(−ΔG°/RT); ΔG° < 0 ⇔ K > 1.
   - Needs: CH-9.3.A, CH-7.5.A
-  - P5 · drills: th-ce-k
+  - P5 · drills: th-ce-k, ac2-dg-sign-from-k
 - ● **CH-9.5.B** (ENE-5.A) Calculate ΔG° from K.
   - EK: ΔG° = −RT ln K, with R = 8.314 J/(mol·K).
   - Needs: CH-9.5.A
@@ -1236,7 +1236,7 @@ Big ideas: ENE, TRA
 - ● **CH-9.7.A** (ENE-5.B) Calculate ΔG° for coupled reactions and explain how a favorable reaction drives an unfavorable one.
   - EK: Add the reactions and their ΔG°'s; a shared intermediate links them (ATP hydrolysis in biology); light or current can also supply the free energy.
   - Needs: CH-9.3.A, CH-6.9.A
-  - P5 · P6 · drills: ac-coupled-reactions
+  - P5 · P6 · drills: ac-coupled-reactions, ac2-coupled-dg
 
 ### 9.8 Galvanic (voltaic) and electrolytic cells
 
@@ -1245,11 +1245,11 @@ Big ideas: ENE, TRA
 - ● **CH-9.8.A** (ENE-6.A) Label a galvanic cell's anode and cathode, electron and ion flow, salt bridge, and write its cell notation.
   - EK: Oxidation at the anode, reduction at the cathode; electrons flow anode → cathode through the wire; anode ‖ cathode in notation.
   - Needs: CH-4.9.C
-  - P1 · drills: ac-galvanic-parts
+  - P1 · drills: ac-galvanic-parts, ac2-cell-potential
 - ● **CH-9.8.B** (ENE-6.A) Distinguish galvanic from electrolytic cells by the sign of ΔG and the electrode charges.
   - EK: Galvanic: spontaneous, anode (−); electrolytic: driven by an external source, anode (+); oxidation is always at the anode.
   - Needs: CH-9.8.A, CH-9.3.A
-  - P6 · drills: ac-galvanic-electrolytic
+  - P6 · drills: ac-galvanic-electrolytic, ac2-dg-from-e
 
 ### 9.9 Cell potential and free energy
 
@@ -1271,7 +1271,7 @@ Big ideas: ENE, TRA
 - ● **CH-9.10.A** (ENE-6.C) Predict qualitatively whether changing concentrations raises or lowers the cell potential, and why a battery dies.
   - EK: Q < 1 ⇒ E > E°; as the cell runs Q → K and E → 0.
   - Needs: CH-9.9.B, CH-7.3.B
-  - P6 · drills: ac-concentration-effect
+  - P6 · drills: ac-concentration-effect, ac2-nernst
 - ● **CH-9.10.B** (ENE-6.C, DAT-GC Oxidation–Reduction Reactions (electrochemical calculations)) Calculate a cell potential with the Nernst equation, including a concentration cell.
   - EK: E = E° − (RT/nF) ln Q = E° − (0.0592/n) log Q at 25 °C; a concentration cell has E° = 0.
   - Needs: CH-9.10.A
@@ -1284,7 +1284,7 @@ Big ideas: ENE, TRA
 - ● **CH-9.11.A** (ENE-6.D) Calculate the mass deposited, current or time in electrolysis with Faraday's law.
   - EK: charge = I·t; mol e⁻ = charge/F; half-reaction gives mol e⁻ per mol product.
   - Needs: CH-9.8.B, CH-1.1.A
-  - P5 · drills: ac-faraday
+  - P5 · drills: ac-faraday, ac2-faraday-time
 
 ### 9.12 Temperature dependence of K
 

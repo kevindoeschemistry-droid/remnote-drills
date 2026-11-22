@@ -1,0 +1,109 @@
+# Second question types for AP Chemistry unit 9 (framework chemistry, CH): thermodynamics and
+# electrochemistry by comparison, by inspection and in reverse.
+
+- template: ac2-highest-entropy
+  skill: gchem.thermo
+  pace: recall
+  cases:
+    - { o1: "He(g)", o2: "CH₄(g)", o3: "C₂H₆(g)", o4: "C₃H₈(g)", s1: 126.2, s2: 186.3, s3: 229.6, s4: 270.3, ans: 3 }
+    - { o1: "H₂O(s)", o2: "H₂O(l)", o3: "H₂O(g)", o4: "H₂(g)", s1: 41.0, s2: 69.9, s3: 188.8, s4: 130.7, ans: 2 }
+    - { o1: "C(diamond)", o2: "C(graphite)", o3: "CO(g)", o4: "CO₂(g)", s1: 2.4, s2: 5.7, s3: 197.7, s4: 213.8, ans: 3 }
+    - { o1: "NaCl(s)", o2: "Na(s)", o3: "Cl₂(g)", o4: "I₂(s)", s1: 72.1, s2: 51.3, s3: 223.1, s4: 116.1, ans: 2 }
+  prompt: 'Which has the highest standard molar entropy at 25 °C?'
+  parts:
+    - { ask: 'Highest S°', label: a, choice: ["{{o1}}", "{{o2}}", "{{o3}}", "{{o4}}"], correct: ans, explain: 'Gas ≫ liquid > solid; then more atoms and heavier, floppier molecules have more ways to store energy. Rigid diamond has almost none' }
+  verify: { choices: { a: "argmax([nsimplify(s1), nsimplify(s2), nsimplify(s3), nsimplify(s4)])" } }
+
+- template: ac2-crossover-t
+  skill: gchem.thermo
+  pace: quick
+  cases:
+    - { dH: 178.3, dS: 160.5, what: "CaCO₃ decomposition" }
+    - { dH: 44.0, dS: 118.9, what: "vaporizing water" }
+    - { dH: -92.2, dS: -198.7, what: "ammonia synthesis" }
+    - { dH: 131.3, dS: 133.6, what: "C(s) + H₂O(g) → CO + H₂" }
+  prompt: 'For {{what}}, ΔH° = ${{dH}}$ kJ/mol and ΔS° = ${{dS}}$ J/mol·K. At what temperature (K) does ΔG° change sign?'
+  parts:
+    - { ask: 'Temperature (K)', label: t, value: dH*1000/dS, tol: 0.0005, explain: 'ΔG° = ΔH° − TΔS° = 0 at $T = \Delta H°/\Delta S° = {{dH*1000}}/{{dS}} = {{dH*1000/dS|4}}$ K (convert kJ to J). Same signs for ΔH and ΔS mean favorable only above (both +) or below (both −) this temperature' }
+  verify: { expect: { t: "nsimplify(dH)*1000/nsimplify(dS)" } }
+
+- template: ac2-dg-sign-from-k
+  skill: gchem.thermo
+  pace: recall
+  cases:
+    - { K: 4.5e3 }
+    - { K: 2.0e-5 }
+    - { K: 1.6e12 }
+    - { K: 0.35 }
+    - { K: 8.0 }
+  prompt: 'A reaction has K = ${{K}}$ at 298 K. What is the sign of ΔG°?'
+  parts:
+    - { ask: 'ΔG°', label: a, choice: ["Negative (products favored)", "Positive (reactants favored)"], correct: 'K > 1 ? 0 : 1', explain: 'ΔG° = −RT ln K: K > 1 gives ln K > 0 and ΔG° < 0; K < 1 gives ΔG° > 0; K = 1 gives 0' }
+  verify: { choices: { a: "0 if nsimplify(K) > 1 else 1" } }
+
+- template: ac2-cell-potential
+  skill: gchem.electro
+  pace: quick
+  cases:
+    - { A: "Zn²⁺/Zn", eA: -0.76, B: "Cu²⁺/Cu", eB: 0.34 }
+    - { A: "Ag⁺/Ag", eA: 0.80, B: "Cu²⁺/Cu", eB: 0.34 }
+    - { A: "Mg²⁺/Mg", eA: -2.37, B: "Ag⁺/Ag", eB: 0.80 }
+    - { A: "Fe²⁺/Fe", eA: -0.44, B: "Ni²⁺/Ni", eB: -0.25 }
+    - { A: "Al³⁺/Al", eA: -1.66, B: "Cl₂/Cl⁻", eB: 1.36 }
+  prompt: 'A galvanic cell is built from {{A}} (E° = ${{eA}}$ V) and {{B}} (E° = ${{eB}}$ V). What is E°cell (V)?'
+  parts:
+    - { ask: 'E°cell (V)', label: e, value: abs(eA - eB), tol: 0.0001, explain: 'The higher reduction potential is the cathode; the other is oxidized at the anode. E°cell = E°cathode − E°anode, always positive for a galvanic cell. Do not multiply E° by coefficients' }
+  verify: { expect: { e: "Max(nsimplify(eA), nsimplify(eB)) - Min(nsimplify(eA), nsimplify(eB))" } }
+
+- template: ac2-dg-from-e
+  skill: gchem.electro
+  pace: quick
+  cases:
+    - { n: 2, E: 1.10 }
+    - { n: 1, E: 0.46 }
+    - { n: 2, E: 3.17 }
+    - { n: 6, E: 3.02 }
+    - { n: 3, E: 0.19 }
+  prompt: 'A cell reaction transfers ${{n}}$ mol of electrons with E° = ${{E}}$ V. What is ΔG° (kJ)? (F = 96,485 C/mol)'
+  parts:
+    - { ask: 'ΔG° (kJ)', label: g, value: -n*96485.33212*E/1000, tol: 0.0001, explain: 'ΔG° = −nFE° = −({{n}})(96,485)({{E}}) J = ${{-n*96485.33212*E/1000|4}}$ kJ. Positive E° means negative ΔG°: the cell runs on its own' }
+  verify: { expect: { g: "-n*c_e*c_NA*nsimplify(E)/1000" } }
+
+- template: ac2-faraday-time
+  skill: gchem.electro
+  pace: quick
+  given: { I: { pick: [2.0, 5.0, 10.0, 15.0] } }
+  cases:
+    - { metal: "copper", ion: "Cu²⁺", n: 2, M: 63.546, m: 5.00 }
+    - { metal: "silver", ion: "Ag⁺", n: 1, M: 107.87, m: 10.0 }
+    - { metal: "aluminum", ion: "Al³⁺", n: 3, M: 26.982, m: 2.70 }
+    - { metal: "nickel", ion: "Ni²⁺", n: 2, M: 58.693, m: 3.00 }
+  prompt: 'How many minutes at ${{I}}$ A does it take to plate ${{m}}$ g of {{metal}} from {{ion}} ({{M}} g/mol)?'
+  parts:
+    - { ask: 'Time (min)', label: t, value: m/M*n*96485.33212/I/60, tol: 0.0005, explain: 'Moles of metal ${{m}}/{{M}}$, × {{n}} electrons each, × 96,485 C/mol = charge; ÷ {{I}} A = seconds; ÷ 60. Answer ${{m/M*n*96485.33212/I/60|4}}$ min' }
+  verify: { expect: { t: "nsimplify(m)/nsimplify(M)*n*c_e*c_NA/nsimplify(I)/60" } }
+
+- template: ac2-nernst
+  skill: gchem.electro
+  pace: quick
+  cases:
+    - { E0: 1.10, n: 2, Q: 0.010, cell: "Zn | Zn²⁺ ‖ Cu²⁺ | Cu with [Zn²⁺]/[Cu²⁺] = 0.010" }
+    - { E0: 1.10, n: 2, Q: 100, cell: "Zn | Zn²⁺ ‖ Cu²⁺ | Cu with [Zn²⁺]/[Cu²⁺] = 100" }
+    - { E0: 0.46, n: 2, Q: 10, cell: "Cu | Cu²⁺ ‖ Ag⁺ | Ag with Q = 10" }
+    - { E0: 0.32, n: 1, Q: 0.10, cell: "a cell with n = 1 and Q = 0.10" }
+  prompt: 'E° = ${{E0}}$ V for {{cell}}. What is E at 25 °C (V)?'
+  parts:
+    - { ask: 'E (V)', label: e, value: E0 - 0.05916/n*log10(Q), tol: 0.0005, explain: 'Nernst at 25 °C: $E = E° - \dfrac{0.0592}{n}\log Q = {{E0}} - \dfrac{0.0592}{ {{n}} }\log {{Q}} = {{E0 - 0.05916/n*log10(Q)|4}}$ V. Q < 1 raises E; Q > 1 lowers it; at equilibrium E = 0' }
+  verify: { expect: { e: "nsimplify(E0) - Rational('0.05916')/n*log(nsimplify(Q), 10)" } }
+
+- template: ac2-coupled-dg
+  skill: gchem.thermo
+  pace: quick
+  cases:
+    - { r1: "glucose + phosphate → glucose-6-phosphate", g1: 13.8, g2: -30.5 }
+    - { r1: "glutamate + NH₃ → glutamine", g1: 14.2, g2: -30.5 }
+    - { r1: "fructose-6-phosphate + phosphate → fructose-1,6-bisphosphate", g1: 16.3, g2: -30.5 }
+  prompt: 'The reaction {{r1}} has ΔG°′ = ${{g1}}$ kJ/mol. Coupled to ATP hydrolysis (ΔG°′ = ${{g2}}$ kJ/mol), what is the overall ΔG°′ (kJ/mol)?'
+  parts:
+    - { ask: 'Overall ΔG°′ (kJ/mol)', label: g, value: g1 + g2, tol: 0.000001, final: true, explain: 'Free energies of coupled reactions add: ${{g1}} + ({{g2}}) = {{g1 + g2}}$ kJ/mol. Negative overall, so the unfavorable step is pulled along' }
+  verify: { expect: { g: "nsimplify(g1) + nsimplify(g2)" } }
