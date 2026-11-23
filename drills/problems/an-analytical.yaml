@@ -35,7 +35,7 @@
     explain: HCl added − HCl left = HCl used by the carbonate; CaCO₃ + 2HCl, so mol CaCO₃ is half of that. Back titration suits a sample that dissolves slowly or has no sharp end point of its own
   verify:
     expect:
-      y: 100*(nsimplify(ch)*nsimplify(vh)/1000 - nsimplify(cn)*nsimplify(vn)/1000)/2*molar_mass('CaCO3')/nsimplify(m)
+      y: 100*(nsimplify(ch)*nsimplify(vh)/1000 - nsimplify(cn)*nsimplify(vn)/1000)/2*in_mass('CaCO3')/nsimplify(m)
 - template: an-permanganate
   skill: anal.titration
   pace: quick
@@ -77,8 +77,8 @@
     explain: 'Electrons decide the ratio: MnO₄⁻ takes 5, Fe²⁺ gives 1, C₂O₄²⁻ gives 2. Permanganate is its own indicator: the first lasting pink is the end point'
   verify:
     expect:
-      y: '[100*nsimplify(c)*nsimplify(v)/1000*half_electrons(''MnO4'', -1, ''Mn'', 2, ''Mn'')/half_electrons(''Fe'', 2, ''Fe'', 3, ''Fe'')*molar_mass(''Fe'')/nsimplify(m), 100*nsimplify(c)*nsimplify(v)/1000*half_electrons(''MnO4'',
-        -1, ''Mn'', 2, ''Mn'')/half_electrons(''C2O4'', -2, ''CO2'', 0, ''C'')*molar_mass(''Ca'')/nsimplify(m)][kind]'
+      y: '[100*nsimplify(c)*nsimplify(v)/1000*half_electrons(''MnO4'', -1, ''Mn'', 2, ''Mn'')/half_electrons(''Fe'', 2, ''Fe'', 3, ''Fe'')*in_mass(''Fe'')/nsimplify(m), 100*nsimplify(c)*nsimplify(v)/1000*half_electrons(''MnO4'',
+        -1, ''Mn'', 2, ''Mn'')/half_electrons(''C2O4'', -2, ''CO2'', 0, ''C'')*in_mass(''Ca'')/nsimplify(m)][kind]'
 - template: an-edta-hardness
   skill: anal.titration
   pace: quick
@@ -108,7 +108,7 @@
     explain: EDTA binds every metal ion 1:1, so mol (Ca + Mg) = mol EDTA; hardness is reported as if it were all CaCO₃ (100.09 g/mol), in mg per litre of sample
   verify:
     expect:
-      y: nsimplify(ce)*nsimplify(ve)/1000*molar_mass('CaCO3')*1000/(nsimplify(vs)/1000)
+      y: nsimplify(ce)*nsimplify(ve)/1000*in_mass('CaCO3')*1000/(nsimplify(vs)/1000)
 - template: an-mohr
   skill: anal.titration
   pace: quick
@@ -139,7 +139,7 @@
       base Ag₂O forms'
   verify:
     expect:
-      y: 100*nsimplify(c)*nsimplify(v)/1000*molar_mass('Cl')/nsimplify(m)
+      y: 100*nsimplify(c)*nsimplify(v)/1000*in_mass('Cl')/nsimplify(m)
 - template: an-kjeldahl
   skill: anal.titration
   pace: quick
@@ -182,7 +182,7 @@
     explain: Digestion turns organic N into NH₄⁺, which is distilled as NH₃ into a known excess of acid. mol N = acid added − acid left; % protein = % N × the factor (6.25 for typical protein at 16% N)
   verify:
     expect:
-      y: nsimplify(f)*100*(nsimplify(ca)*nsimplify(va) - nsimplify(cb)*nsimplify(vb))/1000*molar_mass('N')/nsimplify(m)
+      y: nsimplify(f)*100*(nsimplify(ca)*nsimplify(va) - nsimplify(cb)*nsimplify(vb))/1000*in_mass('N')/nsimplify(m)
 - template: an-titration-ph
   skill: anal.titration
   pace: workout

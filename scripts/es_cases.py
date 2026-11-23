@@ -186,7 +186,7 @@ for kind, a, b, c, text, ans in [("atwood", 3, 2, 0, "An Atwood machine holds 3 
     cases.append({"kind": kind, "a": a, "b": b, "c": c, "text": text, "ans": R(ans)})
 val("ph", "ph-lagrangian", "physics.lagrangian", "Use g = 9.81 m/s². {{text}}", "Answer",
     "Write L = T − V in one generalised coordinate, apply d/dt(∂L/∂q̇) = ∂L/∂q, and read off q̈ (or, linearised, ω² = −∂q̈/∂q). Constraint forces never appear, which is the point",
-    cases, "lagrange(kind, a, b, c)")
+    cases, "lagr_eom(kind, a, b, c)")
 
 # ════ polymers and materials ════════════════════════════════════════════════
 cases = []

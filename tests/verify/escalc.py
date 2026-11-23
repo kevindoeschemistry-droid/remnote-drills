@@ -154,7 +154,7 @@ def rel_doppler(f, beta):
 
 
 # ── Lagrangian mechanics by sympy's Euler–Lagrange equations ─────────────────
-def lagrange(kind, a=0, b=0, c=0):
+def lagr_eom(kind, a=0, b=0, c=0):
     t = sp.Symbol("t")
     q = sp.Function("q")(t)
     g = sp.Rational("981", 100)
@@ -224,7 +224,7 @@ def band_gap_wavelength(Eg):
 
 FUNCS = {f.__name__: f for f in [orbit_period, escape_speed, wien_peak, luminosity, star_life, hubble, fusion_energy, decay_age, eq_temp,
                                  one_layer, co2_warming, ppm_to_gtc, doubling_time, dilation, contraction, velocity_add, rel_energy,
-                                 rel_doppler, lagrange, mol_avg, carothers, band_gap_wavelength]}
+                                 rel_doppler, lagr_eom, mol_avg, carothers, band_gap_wavelength]}
 
 # ── facts, typed a second time (index into the card's literal option list) ──
 ES_FACTS = {

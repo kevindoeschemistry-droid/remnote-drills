@@ -225,4 +225,4 @@
     explain: Write L = T − V in one generalised coordinate, apply d/dt(∂L/∂q̇) = ∂L/∂q, and read off q̈ (or, linearised, ω² = −∂q̈/∂q). Constraint forces never appear, which is the point
   verify:
     expect:
-      y: lagrange(kind, a, b, c)
+      y: lagr_eom(kind, a, b, c)

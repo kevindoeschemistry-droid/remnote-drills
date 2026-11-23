@@ -417,7 +417,8 @@ def rel_unc(kind, a, sa, b, sb):
     return s if str(kind) == "sum" else s / f.subs(vals)
 
 
-FUNCS = {f.__name__: f for f in [molar_mass, ox_state, disprop_ratio, half_electrons, d_count, unpaired, spin_only, cfse, stereoisomers,
+FUNCS = {f.__name__: f for f in [ox_state, disprop_ratio, half_electrons, d_count, unpaired, spin_only, cfse, stereoisomers,
                                  cell_count, coordination, packing, density, bragg, radius_ratio_cn, fact_pick, fact_lit, amph_pick, field_pick,
                                  to_reduced, mass_percent_from_ppt, ksp_common, complex_solubility, weak_acid_ph, indicator_pick, extraction_left,
                                  two_component, std_addition, calib_unknown, q_test, rel_unc]}
+FUNCS["in_mass"] = molar_mass

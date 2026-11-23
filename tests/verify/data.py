@@ -584,38 +584,46 @@ def fa_inventory(method, layers, sold):
 
 
 import sys as _sys  # noqa: E402
+_CLASH = []
+def _merge(funcs, alias):
+    """add a verifier module's functions; a name another module already defined is a clash (lagrange, PR 64)"""
+    for k, v in funcs.items():
+        if k in BASE and BASE[k] is not v and getattr(BASE[k], "__module__", "") not in ("", getattr(v, "__module__", "")) and callable(v) and getattr(BASE[k], "__module__", "").split(".")[0] not in ("sympy", "mpmath", "builtins", "math"):
+            _CLASH.append(f"{alias}: {k} (already from {BASE[k].__module__})")
+    BASE.update(funcs)
+
 _sys.path.insert(0, str(Path(__file__).parent))
 from sql import FUNCS as _SQL, check_tables as _sql_tables  # noqa: E402
-BASE.update(_SQL)
+_merge(_SQL, "_SQL")
 BASE["fa_inventory"] = fa_inventory
 from progcode import FUNCS as _CODE  # noqa: E402
-BASE.update(_CODE)
+_merge(_CODE, "_CODE")
 from csalgo import FUNCS as _CSA  # noqa: E402
-BASE.update(_CSA)
+_merge(_CSA, "_CSA")
 from mvcalc import FUNCS as _MV  # noqa: E402
-BASE.update(_MV)
+_merge(_MV, "_MV")
 from nursing import FUNCS as _NR  # noqa: E402
-BASE.update(_NR)
+_merge(_NR, "_NR")
 from dental import FUNCS as _DN  # noqa: E402
-BASE.update(_DN)
+_merge(_DN, "_DN")
 from chemcalc import FUNCS as _CC  # noqa: E402
-BASE.update(_CC)
+_merge(_CC, "_CC")
 from htcalc import FUNCS as _HT  # noqa: E402
-BASE.update(_HT)
+_merge(_HT, "_HT")
 from pdecalc import FUNCS as _PD  # noqa: E402
-BASE.update(_PD)
+_merge(_PD, "_PD")
 from tdcalc import FUNCS as _TD  # noqa: E402
-BASE.update(_TD)
+_merge(_TD, "_TD")
 from recalc import FUNCS as _RE  # noqa: E402
-BASE.update(_RE)
+_merge(_RE, "_RE")
 from incalc import FUNCS as _IN  # noqa: E402
-BASE.update(_IN)
+_merge(_IN, "_IN")
 from escalc import FUNCS as _ES  # noqa: E402
-BASE.update(_ES)
+_merge(_ES, "_ES")
 from sepcalc import FUNCS as _SP  # noqa: E402
-BASE.update(_SP)
+_merge(_SP, "_SP")
 from olycalc import FUNCS as _OLY  # noqa: E402
-BASE.update(_OLY)
+_merge(_OLY, "_OLY")
 _bad = _sql_tables(TEMPLATES)
 if _bad:
     raise SystemExit(f"SQL figures differ from tests/verify/sql.py TABLES: {_bad}")
@@ -709,3 +717,7 @@ def check(p, H):
     # every numeric part was checked by something above (the build enforces it; make sure here too)
     used = json.dumps([v.get("ode"), v.get("bcs"), v.get("residuals"), list((v.get("expect") or {}).keys())])
     return all(lab in used for lab in claimed)
+
+# keep last: every module merged above is checked
+if _CLASH:
+    raise SystemExit("verifier modules define the same name: " + "; ".join(_CLASH))

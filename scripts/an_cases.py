@@ -52,7 +52,7 @@ for m, c_hcl, v_hcl, c_naoh, v_naoh in [(0.2500, 0.1000, 50.00, 0.1000, 12.40), 
     cases.append({"m": m, "ch": c_hcl, "vh": v_hcl, "cn": c_naoh, "vn": v_naoh, "ans": R(pct)})
 val("an-back-titration", "anal.titration", "A {{m}} g limestone sample is dissolved in {{vh}} mL of {{ch}} M HCl (excess). The leftover acid takes {{vn}} mL of {{cn}} M NaOH. What is the mass percent of CaCO₃?", "% CaCO₃",
     "HCl added − HCl left = HCl used by the carbonate; CaCO₃ + 2HCl, so mol CaCO₃ is half of that. Back titration suits a sample that dissolves slowly or has no sharp end point of its own",
-    cases, "100*(nsimplify(ch)*nsimplify(vh)/1000 - nsimplify(cn)*nsimplify(vn)/1000)/2*molar_mass('CaCO3')/nsimplify(m)")
+    cases, "100*(nsimplify(ch)*nsimplify(vh)/1000 - nsimplify(cn)*nsimplify(vn)/1000)/2*in_mass('CaCO3')/nsimplify(m)")
 
 cases = []
 for kind, m, c, v in [(0, 0.4000, 0.02000, 28.45), (0, 0.6500, 0.02150, 31.20), (1, 0.2500, 0.02000, 24.60), (1, 0.3100, 0.01850, 30.15)]:
@@ -64,8 +64,8 @@ for kind, m, c, v in [(0, 0.4000, 0.02000, 28.45), (0, 0.6500, 0.02150, 31.20), 
         cases.append({"kind": 1, "m": m, "c": c, "v": v, "what": "calcium (precipitated as CaC₂O₄, then the oxalate titrated)", "rx": "2MnO₄⁻ + 5C₂O₄²⁻ + 16H⁺ → 2Mn²⁺ + 10CO₂ + 8H₂O", "ans": R(ans)})
 val("an-permanganate", "anal.titration", "A {{m}} g sample is analysed for {{what}} with {{v}} mL of {{c}} M KMnO₄ ({{rx}}). What is the mass percent?", "Mass %",
     "Electrons decide the ratio: MnO₄⁻ takes 5, Fe²⁺ gives 1, C₂O₄²⁻ gives 2. Permanganate is its own indicator: the first lasting pink is the end point",
-    cases, "[100*nsimplify(c)*nsimplify(v)/1000*half_electrons('MnO4', -1, 'Mn', 2, 'Mn')/half_electrons('Fe', 2, 'Fe', 3, 'Fe')*molar_mass('Fe')/nsimplify(m), "
-           "100*nsimplify(c)*nsimplify(v)/1000*half_electrons('MnO4', -1, 'Mn', 2, 'Mn')/half_electrons('C2O4', -2, 'CO2', 0, 'C')*molar_mass('Ca')/nsimplify(m)][kind]")
+    cases, "[100*nsimplify(c)*nsimplify(v)/1000*half_electrons('MnO4', -1, 'Mn', 2, 'Mn')/half_electrons('Fe', 2, 'Fe', 3, 'Fe')*in_mass('Fe')/nsimplify(m), "
+           "100*nsimplify(c)*nsimplify(v)/1000*half_electrons('MnO4', -1, 'Mn', 2, 'Mn')/half_electrons('C2O4', -2, 'CO2', 0, 'C')*in_mass('Ca')/nsimplify(m)][kind]")
 
 cases = []
 for vs, ce, ve in [(100.0, 0.01000, 18.35), (50.00, 0.01000, 12.10), (100.0, 0.005000, 31.60), (25.00, 0.01000, 6.45)]:
@@ -73,14 +73,14 @@ for vs, ce, ve in [(100.0, 0.01000, 18.35), (50.00, 0.01000, 12.10), (100.0, 0.0
     cases.append({"vs": vs, "ce": ce, "ve": ve, "ans": R(ppm)})
 val("an-edta-hardness", "anal.titration", "A {{vs}} mL water sample at pH 10 takes {{ve}} mL of {{ce}} M EDTA to the Eriochrome Black T end point. What is the hardness, as mg CaCO₃ per litre (ppm)?", "Hardness (ppm CaCO₃)",
     "EDTA binds every metal ion 1:1, so mol (Ca + Mg) = mol EDTA; hardness is reported as if it were all CaCO₃ (100.09 g/mol), in mg per litre of sample",
-    cases, "nsimplify(ce)*nsimplify(ve)/1000*molar_mass('CaCO3')*1000/(nsimplify(vs)/1000)")
+    cases, "nsimplify(ce)*nsimplify(ve)/1000*in_mass('CaCO3')*1000/(nsimplify(vs)/1000)")
 
 cases = []
 for m, c, v in [(0.2000, 0.1000, 21.40), (0.5000, 0.1000, 30.25), (0.3000, 0.0500, 40.10), (0.1500, 0.0800, 20.75)]:
     cases.append({"m": m, "c": c, "v": v, "ans": R(c * v / 1000 * M["Cl"] / m * 100)})
 val("an-mohr", "anal.titration", "A {{m}} g sample is titrated with {{v}} mL of {{c}} M AgNO₃ to the Mohr end point (brick-red Ag₂CrO₄). What is the mass percent of chloride?", "% Cl",
     "Ag⁺ + Cl⁻ → AgCl, 1:1. The chromate indicator only precipitates once Cl⁻ is used up, because Ag₂CrO₄ is more soluble than AgCl. Work near neutral pH: in acid chromate becomes dichromate, in base Ag₂O forms",
-    cases, "100*nsimplify(c)*nsimplify(v)/1000*molar_mass('Cl')/nsimplify(m)")
+    cases, "100*nsimplify(c)*nsimplify(v)/1000*in_mass('Cl')/nsimplify(m)")
 
 cases = []
 for m, ca, va, cb, vb, f in [(0.5000, 0.1000, 50.00, 0.1000, 22.15, 6.25), (0.8000, 0.1000, 50.00, 0.1000, 16.80, 6.25), (0.6000, 0.0500, 50.00, 0.0500, 9.40, 6.38), (0.2500, 0.1000, 25.00, 0.1000, 11.35, 5.70)]:
@@ -89,7 +89,7 @@ for m, ca, va, cb, vb, f in [(0.5000, 0.1000, 50.00, 0.1000, 22.15, 6.25), (0.80
     cases.append({"m": m, "ca": ca, "va": va, "cb": cb, "vb": vb, "f": f, "ans": R(pctN * f)})
 val("an-kjeldahl", "anal.titration", "Kjeldahl: the NH₃ from {{m}} g of food is distilled into {{va}} mL of {{ca}} M HCl; the excess acid takes {{vb}} mL of {{cb}} M NaOH. With a nitrogen-to-protein factor of {{f}}, what is the percent protein?", "% protein",
     "Digestion turns organic N into NH₄⁺, which is distilled as NH₃ into a known excess of acid. mol N = acid added − acid left; % protein = % N × the factor (6.25 for typical protein at 16% N)",
-    cases, "nsimplify(f)*100*(nsimplify(ca)*nsimplify(va) - nsimplify(cb)*nsimplify(vb))/1000*molar_mass('N')/nsimplify(m)")
+    cases, "nsimplify(f)*100*(nsimplify(ca)*nsimplify(va) - nsimplify(cb)*nsimplify(vb))/1000*in_mass('N')/nsimplify(m)")
 
 
 def ha_ph(Ca, Va, Ka, Cb, Vb):
