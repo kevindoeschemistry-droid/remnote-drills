@@ -37,7 +37,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 | Physical Chemistry | Engel & Reid, Physical Chemistry, 3rd ed. (through the wiki's drill pages) | textbook | read in part | fe-chemical | acs-accm-pchem | 141 | 59 | 82 |
 | Physics (AP) | AP Physics 1, 2 and C Course and Exam Descriptions | standard | read in part | — | — | 201 | 201 | 0 |
 | Programming Foundations | AP Computer Science A Course and Exam Description (Fall 2025) | standard | read in full | — | — | 140 | 140 | 0 |
-| Chemical Reaction Engineering | NCEES FE Chemical CBT Exam Specifications (effective July 2020) | exam-spec | read in full | — | — | 9 | 9 | 0 |
+| Chemical Reaction Engineering | NCEES FE Chemical CBT Exam Specifications (effective July 2020) | exam-spec | read in full | — | — | 46 | 26 | 20 |
 | Speaking and Articulation | Competent Speaker Speech Evaluation Form, 2nd ed. | rubric | read in full | toastmasters-pathways | — | 69 | 0 | 69 |
 | SQL | Oracle Database SQL, exam 1Z0-071: exam topics | exam-spec | read through a crosswalk | — | — | 40 | 37 | 3 |
 | Statistics | AP Statistics revised course framework (2026-27) | standard | read in part | — | — | 13 | 13 | 0 |
@@ -71,7 +71,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 - **The Periodic Table from Memory**: Content from the IUPAC table (release note read; element list cross-checked in the verifier). Which parts to know by heart is a house decision from Kevin's organometallics course.
 - **Physical Chemistry**: Textbook-shaped until the ACS content map is read. Thermodynamics and kinetics units are anchored to fe-chemical; quantum and spectroscopy have no outside anchor yet.
 - **Physics (AP)**: Objective codes read for a few units only.
-- **Chemical Reaction Engineering**: Topics from FE Chemical area 12, read in full. Objectives and their order are ours. Limited so far to isothermal, constant-density reactions; the gaps are listed in the file header.
+- **Chemical Reaction Engineering**: Topics from FE Chemical area 12, read in full. Objectives and their order are ours. Units 5–8 and the later letters of units 1–4 go beyond the FE spec on Fogler 5e's chapter order (a house list); the gaps are in the file header.
 - **Speaking and Articulation**: A scoring rubric plus Toastmasters' competency list; unit order is ours.
 - **SQL**: Units 1–7 follow the sixteen topic groups of Oracle's 1Z0-071 exam, read through a restatement rather than Oracle's page. Unit 8 is a house list: no standard for analytic SQL was found.
 - **Statistics**: Units follow the revised AP Statistics course (2026-27), of which only the unit list was read. The objectives under each unit are a house list.
@@ -189,12 +189,12 @@ https://ncees.org/wp-content/uploads/2022/09/FE-Che-CBT-specs.pdf
 | 11.B | Processing (crushing, grinding, crystallization) | — | — | **nothing yet** |
 | 11.C | Transport and storage | — | — | **nothing yet** |
 | **12** | **Chemical Reaction Engineering** (7–11 questions) | | | |
-| 12.A | Reaction rates and order | 18 | 17 | physical-chemistry (13), reaction-engineering (5) |
-| 12.B | Rate constants (Arrhenius) | 23 | 22 | physical-chemistry (13), reaction-engineering (4), thermodynamics (6) |
-| 12.C | Conversion, yield, selectivity | 7 | 7 | reaction-engineering (7) |
-| 12.D | Reaction types (series, parallel, homogeneous, heterogeneous, biological) | 17 | 16 | physical-chemistry (13), reaction-engineering (4) |
-| 12.E | Reactor types (batch, CSTR, PFR, semibatch) | 6 | 6 | reaction-engineering (6) |
-| 12.F | Catalysis | 15 | 14 | physical-chemistry (13), reaction-engineering (2) |
+| 12.A | Reaction rates and order | 25 | 24 | physical-chemistry (13), reaction-engineering (12) |
+| 12.B | Rate constants (Arrhenius) | 30 | 29 | physical-chemistry (13), reaction-engineering (11), thermodynamics (6) |
+| 12.C | Conversion, yield, selectivity | 15 | 15 | reaction-engineering (15) |
+| 12.D | Reaction types (series, parallel, homogeneous, heterogeneous, biological) | 20 | 19 | physical-chemistry (13), reaction-engineering (7) |
+| 12.E | Reactor types (batch, CSTR, PFR, semibatch) | 11 | 11 | reaction-engineering (11) |
+| 12.F | Catalysis | 17 | 16 | physical-chemistry (13), reaction-engineering (4) |
 | **13** | **Economics** (4–6 questions) | | | |
 | 13.A | Time value of money | — | — | **nothing yet** |
 | 13.B | Economic analyses | — | — | **nothing yet** |

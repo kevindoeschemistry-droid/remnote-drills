@@ -1,0 +1,48 @@
+# The grid for chemical reaction engineering (Fogler 5e chapters 1–18; framework RE). Written Nov 23
+# with no course or exam named yet, so the rows follow Fogler's chapters and the cells are the
+# conditions a reactor-design exam usually varies: phase and change in moles, order, reversibility,
+# pressure drop, heat effects, transport limits and mixing. Every cell names Library drills or a gap.
+id: reaction-engineering
+title: "Reaction engineering: every reactor method against every condition"
+why: "Homework shows one reactor under one condition. A final can pair any design equation with any rate law, phase or heat effect."
+cells:
+  # rates and data
+  - { cell: "Rate law · order, units of k, half-life, Arrhenius", drills: [cre-rate-from-law, cre-order-from-doubling, cre-rate-constant-units, cre-half-life, cre-arrhenius-ratio, cre-activation-energy] }
+  - { cell: "Rate law · reversible, equilibrium conversion", drills: [re-equil-conversion] }
+  - { cell: "Stoichiometry · relative rates, ε, gas-phase C_A with T and P", drills: [re-relative-rates, re-epsilon, re-gas-conc] }
+  - { cell: "Rate data · integral method, half-life method, initial rates", drills: [re-integral-plot, re-half-life-order, re-initial-rates] }
+  # isothermal design
+  - { cell: "Batch · first and second order, liquid", drills: [cre-batch-first-order-time, cre-batch-second-order-time] }
+  - { cell: "Batch · reversible reaction (time to a conversion short of X_e)", gap: "not built: needs the integrated reversible rate law" }
+  - { cell: "CSTR · first order, tanks in series", drills: [cre-cstr-volume, cre-cstr-conversion, cre-cstrs-in-series] }
+  - { cell: "CSTR · second order (quadratic in X)", drills: [re-cstr-second-order] }
+  - { cell: "CSTR · start-up transient", drills: [re-cstr-startup] }
+  - { cell: "PFR · liquid, first order; PFR vs CSTR", drills: [cre-pfr-volume, cre-reactor-comparison] }
+  - { cell: "PFR · gas with change in moles, first and second order", drills: [re-pfr-gas-eps] }
+  - { cell: "Reactors in series · CSTR then PFR (Levenspiel)", drills: [re-cstr-then-pfr] }
+  - { cell: "Packed bed · pressure drop, conversion (ε = 0)", drills: [re-pbr-pressure-drop] }
+  - { cell: "Packed bed · pressure drop with ε ≠ 0 (coupled ODEs)", gap: "not built: needs a numerical ODE answer" }
+  - { cell: "Semibatch and membrane reactors", gap: "not built" }
+  # multiple reactions
+  - { cell: "Series · batch: time and height of the intermediate peak", drills: [cre-series-optimum-time, re-series-bmax] }
+  - { cell: "Series · CSTR: optimum τ and its yield", drills: [re-cstr-series-opt] }
+  - { cell: "Parallel · selectivity, reactor choice, product made in a CSTR or PFR", drills: [cre-parallel-selectivity, cre-selectivity-strategy, re-parallel-overall] }
+  # mechanisms, catalysis, bio
+  - { cell: "Mechanisms · PSSH rate law and its limiting orders", drills: [re-lindemann, re-lindemann-order] }
+  - { cell: "Catalysis · Langmuir coverage, L–H rate single and dual site, rate-limiting step", drills: [cre-langmuir-coverage, re-lh-rate, re-rls-pick] }
+  - { cell: "Catalysis · deactivation", gap: "not built" }
+  - { cell: "Enzymes · Michaelis–Menten from steps, fit, inhibition", drills: [re-mm-steps, re-mm-fit, re-inhibition-type] }
+  - { cell: "Bioreactors · chemostat steady state and washout", drills: [re-chemostat] }
+  # energy
+  - { cell: "Energy balance · adiabatic T–X line, exo and endothermic", drills: [re-adiabatic-T] }
+  - { cell: "Energy balance · adiabatic equilibrium conversion", drills: [re-adiabatic-xe] }
+  - { cell: "Energy balance · adiabatic CSTR: steady-state count and temperature", drills: [re-mss-count, re-cstr-adiabatic-T] }
+  - { cell: "Energy balance · PFR or CSTR with heat exchange (Ta, UA)", gap: "not built: needs coupled X–T integration" }
+  - { cell: "Energy balance · unsteady batch and runaway", gap: "not built" }
+  # transport
+  - { cell: "External mass transfer · series resistance, limited bed", drills: [re-ext-mt, re-mt-bed] }
+  - { cell: "Internal diffusion · Thiele, η slab and sphere, Weisz–Prater, overall rate", drills: [re-effectiveness, re-weisz-prater, re-overall-eff] }
+  # nonideal
+  - { cell: "RTD · moments from pulse data, F(t) of ideal tanks", drills: [re-rtd-moments, re-tanks-F] }
+  - { cell: "Nonideal · segregation, tanks in series, dispersion", drills: [re-segregation, re-tis-model, re-dispersion] }
+  - { cell: "Nonideal · maximum mixedness for non-first-order kinetics", gap: "not built" }

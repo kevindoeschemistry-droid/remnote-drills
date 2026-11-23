@@ -1,6 +1,6 @@
 # The path — start to finish
 
-Every framework in `requires` order; inside each, units and objectives in order, except that 152 objectives move up to sit just after the prerequisites they need. 3148 objectives in 37 frameworks.
+Every framework in `requires` order; inside each, units and objectives in order, except that 155 objectives move up to sit just after the prerequisites they need. 3185 objectives in 37 frameworks.
 
 | # | Framework | Track | Requires | LOs | Path position |
 |---|---|---|---|---|---|
@@ -31,16 +31,16 @@ Every framework in `requires` order; inside each, units and objectives in order,
 | 25 | Molecular Simulation | engineering | thermodynamics, programming | 106 | 2296–2401 |
 | 26 | Fluid Mechanics | engineering | engineering-math, physics | 15 | 2402–2416 |
 | 27 | Material and Energy Balances | engineering | chemistry | 16 | 2417–2432 |
-| 28 | Chemical Reaction Engineering | engineering | material-balances | 9 | 2433–2441 |
-| 29 | Financial Accounting (CPA FAR) | business | — | 26 | 2442–2467 |
-| 30 | Dental Admission Test | health | biology, chemistry | 183 | 2468–2650 |
-| 31 | INBDE (Dentistry) | health | — | 22 | 2651–2672 |
-| 32 | NCLEX-RN | health | — | 39 | 2673–2711 |
-| 33 | AI Safety | safety | programming, calculus | 104 | 2712–2815 |
-| 34 | Speaking and Articulation | communication | — | 69 | 2816–2884 |
-| 35 | Basketball | athletics | — | 88 | 2885–2972 |
-| 36 | Swimming | athletics | — | 88 | 2973–3060 |
-| 37 | Wushu | athletics | — | 88 | 3061–3148 |
+| 28 | Chemical Reaction Engineering | engineering | material-balances | 46 | 2433–2478 |
+| 29 | Financial Accounting (CPA FAR) | business | — | 26 | 2479–2504 |
+| 30 | Dental Admission Test | health | biology, chemistry | 183 | 2505–2687 |
+| 31 | INBDE (Dentistry) | health | — | 22 | 2688–2709 |
+| 32 | NCLEX-RN | health | — | 39 | 2710–2748 |
+| 33 | AI Safety | safety | programming, calculus | 104 | 2749–2852 |
+| 34 | Speaking and Articulation | communication | — | 69 | 2853–2921 |
+| 35 | Basketball | athletics | — | 88 | 2922–3009 |
+| 36 | Swimming | athletics | — | 88 | 3010–3097 |
+| 37 | Wushu | athletics | — | 88 | 3098–3185 |
 
 ## Order problems (a prerequisite comes after the objective)
 

@@ -1,5 +1,5 @@
 # Fogler, Elements of Chemical Reaction Engineering, 5th edition (Pearson).
-# Chapter titles from memory, not checked against the published contents. Mapped at chapter level only.
+# Chapter titles checked against the book site's table of contents (umich.edu/~elements/5e/toc, Nov 2026). Mapped at chapter level only.
 id: fogler-5e
 title: "Fogler — Elements of Chemical Reaction Engineering"
 short: "Fogler"
@@ -9,6 +9,18 @@ chapters:
   - { n: 1, title: "Mole Balances", skills: [cre.batch, cre.cstr, cre.pfr] }
   - { n: 2, title: "Conversion and Reactor Sizing", skills: [cre.cstr, cre.pfr] }
   - { n: 3, title: "Rate Laws", skills: [cre.rate-laws, cre.arrhenius] }
-  - { n: 5, title: "Isothermal Reactor Design: Conversion", skills: [cre.batch, cre.cstr, cre.pfr] }
+  - { n: 4, title: "Stoichiometry", skills: [cre.stoichiometry] }
+  - { n: 5, title: "Isothermal Reactor Design: Conversion", skills: [cre.batch, cre.cstr, cre.pfr, cre.pbr] }
+  - { n: 6, title: "Isothermal Reactor Design: Molar Flow Rates", skills: [cre.cstr, cre.pfr] }
+  - { n: 7, title: "Collection and Analysis of Rate Data", skills: [cre.rate-data] }
   - { n: 8, title: "Multiple Reactions", skills: [cre.multiple] }
+  - { n: 9, title: "Reaction Mechanisms, Pathways, Bioreactions and Bioreactors", skills: [cre.mechanisms, cre.bio] }
   - { n: 10, title: "Catalysis and Catalytic Reactors", skills: [cre.catalysis] }
+  - { n: 11, title: "Nonisothermal Reactor Design: The Steady-State Energy Balance", skills: [cre.nonisothermal] }
+  - { n: 12, title: "Steady-State Nonisothermal Reactor Design: Flow Reactors with Heat Exchange", skills: [cre.nonisothermal] }
+  - { n: 13, title: "Unsteady-State Nonisothermal Reactor Design", skills: [cre.nonisothermal] }
+  - { n: 14, title: "External Diffusion Effects on Heterogeneous Reactions", skills: [cre.diffusion] }
+  - { n: 15, title: "Diffusion and Reaction in Porous Catalysts", skills: [cre.diffusion] }
+  - { n: 16, title: "Distributions of Residence Times for Chemical Reactors", skills: [cre.rtd] }
+  - { n: 17, title: "Predicting Conversion Directly From the Residence Time Distribution", skills: [cre.rtd] }
+  - { n: 18, title: "Models for Nonideal Reactors", skills: [cre.rtd] }
