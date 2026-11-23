@@ -1,0 +1,1585 @@
+- template: in-flame-colour
+  skill: inorg.s-block
+  pace: recall
+  cases:
+  - k: Li
+    o1: orange-red
+    o2: yellow-orange
+    o3: apple green
+    o4: crimson
+    ans: 3
+  - k: Na
+    o1: crimson
+    o2: blue-green
+    o3: orange-red
+    o4: yellow-orange
+    ans: 3
+  - k: K
+    o1: blue-violet
+    o2: orange-red
+    o3: yellow-orange
+    o4: lilac
+    ans: 3
+  - k: Ca
+    o1: crimson
+    o2: yellow-orange
+    o3: blue-violet
+    o4: orange-red
+    ans: 3
+  - k: Sr
+    o1: yellow-orange
+    o2: lilac
+    o3: apple green
+    o4: crimson
+    ans: 3
+  - k: Ba
+    o1: yellow-orange
+    o2: crimson
+    o3: apple green
+    o4: lilac
+    ans: 2
+  - k: Cu
+    o1: blue-green
+    o2: lilac
+    o3: yellow-orange
+    o4: crimson
+    ans: 0
+  - k: Cs
+    o1: apple green
+    o2: lilac
+    o3: orange-red
+    o4: blue-violet
+    ans: 3
+  prompt: What colour does {{k}} give in a flame test?
+  parts:
+  - ask: Answer
+    label: y
+    choice: &id001
+    - '{{o1}}'
+    - '{{o2}}'
+    - '{{o3}}'
+    - '{{o4}}'
+    correct: ans
+    explain: Heat promotes an electron; it falls back with a photon whose energy is fixed by the element. Li and Sr are both red (Li crimson, Sr crimson-red; tell them apart with a spectroscope), Na's yellow
+      swamps the rest, so view K's lilac through blue cobalt glass
+  verify:
+    choices:
+      y: fact_pick("flame", k, o1, o2, o3, o4)
+- template: in-s-block-oxygen
+  skill: inorg.s-block
+  pace: recall
+  cases:
+  - k: Li
+    o1: Li2O
+    o2: LiO2
+    o3: Li2O2
+    o4: Li3N
+    ans: 0
+  - k: Na
+    o1: Na2O
+    o2: Na2O2
+    o3: NaOH
+    o4: NaO2
+    ans: 1
+  - k: K
+    o1: KOH
+    o2: K2O
+    o3: K2O2
+    o4: KO2
+    ans: 3
+  - k: Rb
+    o1: Rb2O2
+    o2: RbO2
+    o3: RbOH
+    o4: Rb2O
+    ans: 1
+  - k: Mg
+    o1: Mg(OH)2
+    o2: MgO
+    o3: MgO2
+    o4: Mg2O
+    ans: 1
+  - k: Ca
+    o1: Ca2O
+    o2: CaO2
+    o3: Ca(OH)2
+    o4: CaO
+    ans: 3
+  prompt: What is the main product when {{k}} burns in excess oxygen?
+  parts:
+  - ask: Answer
+    label: y
+    choice: *id001
+    correct: ans
+    explain: 'Down group 1 the cation grows, and a big cation stabilises a big anion: Li gives the oxide O²⁻, Na the peroxide O₂²⁻, K, Rb and Cs the superoxide O₂⁻. Group 2 metals give the oxide MO'
+  verify:
+    choices:
+      y: fact_pick("burn", k, o1, o2, o3, o4)
+- template: in-ox-state
+  skill: inorg.p-block
+  pace: recall
+  cases:
+  - fm: Cr2O7
+    q: -2
+    el: Cr
+    show: Cr₂O₇²⁻
+    ans: 6.0
+  - fm: MnO4
+    q: -1
+    el: Mn
+    show: MnO₄⁻
+    ans: 7.0
+  - fm: S2O3
+    q: -2
+    el: S
+    show: S₂O₃²⁻ (average)
+    ans: 2.0
+  - fm: S4O6
+    q: -2
+    el: S
+    show: S₄O₆²⁻ (average)
+    ans: 2.5
+  - fm: NH4
+    q: 1
+    el: N
+    show: NH₄⁺
+    ans: -3.0
+  - fm: N2O5
+    q: 0
+    el: N
+    show: N₂O₅
+    ans: 5.0
+  - fm: ClO4
+    q: -1
+    el: Cl
+    show: ClO₄⁻
+    ans: 7.0
+  - fm: H2PO2
+    q: -1
+    el: P
+    show: H₂PO₂⁻
+    ans: 1.0
+  - fm: Fe3O4
+    q: 0
+    el: Fe
+    show: Fe₃O₄ (average)
+    ans: 2.6666666666666665
+  - fm: XeOF4
+    q: 0
+    el: Xe
+    show: XeOF₄
+    ans: 6.0
+  - fm: IO3
+    q: -1
+    el: I
+    show: IO₃⁻
+    ans: 5.0
+  - fm: H2O2
+    q: 0
+    el: O
+    show: H₂O₂
+    ans: -1.0
+  - fm: OF2
+    q: 0
+    el: O
+    show: OF₂
+    ans: 2.0
+  - fm: POCl3
+    q: 0
+    el: P
+    show: POCl₃
+    ans: 5.0
+  - fm: NaH
+    q: 0
+    el: H
+    show: NaH
+    ans: -1.0
+  - fm: KO2
+    q: 0
+    el: O
+    show: KO₂ (average)
+    ans: -0.5
+  - fm: HN3
+    q: 0
+    el: N
+    show: HN₃ (average)
+    ans: -0.3333333333333333
+  - fm: CaC2
+    q: 0
+    el: C
+    show: CaC₂
+    ans: -1.0
+  prompt: What is the oxidation state of {{el}} in {{show}}?
+  parts:
+  - ask: Oxidation state
+    label: y
+    value: ans
+    tol: 0.0001
+    explain: Fix the elements with firm rules (F −1, group 1 +1, group 2 +2, H +1 with non-metals, O −2 unless bonded to F or in a peroxide or superoxide), then the charge balance gives the rest. A fractional
+      answer is an average over non-equivalent atoms
+  verify:
+    expect:
+      y: ox_state(fm, q, el)
+- template: in-oxoacid-name
+  skill: inorg.p-block
+  pace: recall
+  cases:
+  - fm: HClO
+    hal: 1
+    o1: hypochlorous acid
+    o2: chlorous acid
+    o3: perchloric acid
+    o4: chloric acid
+    ans: 0
+  - fm: HClO2
+    hal: 1
+    o1: chlorous acid
+    o2: hypochlorous acid
+    o3: chloric acid
+    o4: perchloric acid
+    ans: 0
+  - fm: HClO3
+    hal: 1
+    o1: perchloric acid
+    o2: chlorous acid
+    o3: hypochlorous acid
+    o4: chloric acid
+    ans: 3
+  - fm: HClO4
+    hal: 1
+    o1: chloric acid
+    o2: perchloric acid
+    o3: chlorous acid
+    o4: hydrochloric acid
+    ans: 1
+  - fm: H2SO3
+    hal: 0
+    o1: persulfuric acid
+    o2: sulfuric acid
+    o3: hyposulfurous acid
+    o4: sulfurous acid
+    ans: 3
+  - fm: HNO2
+    hal: 0
+    o1: nitrous acid
+    o2: hyponitrous acid
+    o3: nitric acid
+    o4: pernitric acid
+    ans: 0
+  - fm: HBrO3
+    hal: 1
+    o1: hypobromous acid
+    o2: bromous acid
+    o3: bromic acid
+    o4: perbromic acid
+    ans: 2
+  - fm: HIO4
+    hal: 1
+    o1: iodic acid
+    o2: hypoiodous acid
+    o3: periodic acid
+    o4: iodous acid
+    ans: 2
+  prompt: Name {{fm}}.
+  parts:
+  - ask: Answer
+    label: y
+    choice: *id001
+    correct: ans
+    explain: 'Within a family the suffix tracks the oxidation state: hypo-…-ous (lowest), -ous, -ic, per-…-ic (highest). For the halogens +1, +3, +5, +7; for S and N the -ic acid is the common one (H₂SO₄,
+      HNO₃) and the -ous acid has one O fewer'
+  verify:
+    authored: true
+- template: in-oxide-character
+  skill: inorg.p-block
+  pace: recall
+  cases:
+  - k: Na2O
+    lit: acidic|basic|amphoteric|neutral
+    ans: 1
+  - k: MgO
+    lit: acidic|basic|amphoteric|neutral
+    ans: 1
+  - k: CaO
+    lit: acidic|basic|amphoteric|neutral
+    ans: 1
+  - k: Al2O3
+    lit: acidic|basic|amphoteric|neutral
+    ans: 2
+  - k: ZnO
+    lit: acidic|basic|amphoteric|neutral
+    ans: 2
+  - k: BeO
+    lit: acidic|basic|amphoteric|neutral
+    ans: 2
+  - k: SiO2
+    lit: acidic|basic|amphoteric|neutral
+    ans: 0
+  - k: P4O10
+    lit: acidic|basic|amphoteric|neutral
+    ans: 0
+  - k: SO3
+    lit: acidic|basic|amphoteric|neutral
+    ans: 0
+  - k: Cl2O7
+    lit: acidic|basic|amphoteric|neutral
+    ans: 0
+  - k: CO2
+    lit: acidic|basic|amphoteric|neutral
+    ans: 0
+  - k: CO
+    lit: acidic|basic|amphoteric|neutral
+    ans: 3
+  - k: 'NO'
+    lit: acidic|basic|amphoteric|neutral
+    ans: 3
+  - k: N2O
+    lit: acidic|basic|amphoteric|neutral
+    ans: 3
+  - k: CrO3
+    lit: acidic|basic|amphoteric|neutral
+    ans: 0
+  prompt: How does {{k}} behave toward acids and bases?
+  parts:
+  - ask: Answer
+    label: y
+    choice:
+    - acidic
+    - basic
+    - amphoteric
+    - neutral
+    correct: ans
+    explain: 'Across a period oxides go from basic (ionic, metal) through amphoteric (Al, also Be and Zn) to acidic (covalent, non-metal). A metal in a high oxidation state gives an acidic oxide (CrO₃,
+      Mn₂O₇). CO, NO and N₂O are neutral: they form no acid with water'
+  verify:
+    choices:
+      y: fact_lit("oxide", k, lit)
+- template: in-disproportionation
+  skill: inorg.p-block
+  pace: quick
+  cases:
+  - f0: Cl2
+    q0: 0
+    fr: Cl
+    qr: -1
+    fo: ClO3
+    qo: -1
+    el: Cl
+    text: Cl₂ in hot NaOH gives Cl⁻ and ClO₃⁻
+    ans: 5.0
+  - f0: Cl2
+    q0: 0
+    fr: Cl
+    qr: -1
+    fo: ClO
+    qo: -1
+    el: Cl
+    text: Cl₂ in cold NaOH gives Cl⁻ and ClO⁻
+    ans: 1.0
+  - f0: Br2
+    q0: 0
+    fr: Br
+    qr: -1
+    fo: BrO3
+    qo: -1
+    el: Br
+    text: Br₂ in hot NaOH gives Br⁻ and BrO₃⁻
+    ans: 5.0
+  - f0: P4
+    q0: 0
+    fr: PH3
+    qr: 0
+    fo: H2PO2
+    qo: -1
+    el: P
+    text: P₄ in hot NaOH gives PH₃ and H₂PO₂⁻
+    ans: 0.3333333333333333
+  - f0: NO2
+    q0: 0
+    fr: NO2
+    qr: -1
+    fo: NO3
+    qo: -1
+    el: N
+    text: NO₂ in water gives NO₂⁻ (as HNO₂) and NO₃⁻
+    ans: 1.0
+  - f0: H2O2
+    q0: 0
+    fr: H2O
+    qr: 0
+    fo: O2
+    qo: 0
+    el: O
+    text: H₂O₂ decomposes to H₂O and O₂
+    ans: 1.0
+  - f0: MnO4
+    q0: -2
+    fr: MnO2
+    qr: 0
+    fo: MnO4
+    qo: -1
+    el: Mn
+    text: MnO₄²⁻ in acid gives MnO₂ and MnO₄⁻
+    ans: 0.5
+  prompt: '{{text}}. How many {{el}} atoms are reduced for each one oxidised?'
+  parts:
+  - ask: Ratio
+    label: y
+    value: ans
+    tol: 0.0001
+    explain: 'Electrons lost must equal electrons gained. Find each product''s oxidation state; atoms reduced per atom oxidised = (rise in the oxidised product) ÷ (fall in the reduced one). Cl₂ → Cl⁻ +
+      ClO₃⁻: up 5, down 1, so 5 Cl⁻ per ClO₃⁻'
+  verify:
+    expect:
+      y: disprop_ratio(f0, q0, fr, qr, fo, qo, el)
+- template: in-d-count
+  skill: inorg.coordination
+  pace: recall
+  cases:
+  - cx: '[Fe(CN)6]4-'
+    M: Fe
+    ligs: CN:6
+    q: -4
+    ans: 6
+  - cx: '[Fe(CN)6]3-'
+    M: Fe
+    ligs: CN:6
+    q: -3
+    ans: 5
+  - cx: '[Co(NH3)6]3+'
+    M: Co
+    ligs: NH3:6
+    q: 3
+    ans: 6
+  - cx: '[CoCl4]2-'
+    M: Co
+    ligs: Cl:4
+    q: -2
+    ans: 7
+  - cx: '[Ni(CO)4]'
+    M: Ni
+    ligs: CO:4
+    q: 0
+    ans: 10
+  - cx: '[Cr(H2O)6]3+'
+    M: Cr
+    ligs: H2O:6
+    q: 3
+    ans: 3
+  - cx: '[Cu(NH3)4(H2O)2]2+'
+    M: Cu
+    ligs: NH3:4,H2O:2
+    q: 2
+    ans: 9
+  - cx: '[PtCl2(NH3)2]'
+    M: Pt
+    ligs: Cl:2,NH3:2
+    q: 0
+    ans: 8
+  - cx: '[Mn(H2O)6]2+'
+    M: Mn
+    ligs: H2O:6
+    q: 2
+    ans: 5
+  - cx: '[Ti(H2O)6]3+'
+    M: Ti
+    ligs: H2O:6
+    q: 3
+    ans: 1
+  - cx: '[Fe(ox)3]3-'
+    M: Fe
+    ligs: ox:3
+    q: -3
+    ans: 5
+  - cx: '[Co(en)2Cl2]+'
+    M: Co
+    ligs: en:2,Cl:2
+    q: 1
+    ans: 6
+  - cx: '[Mo(CO)6]'
+    M: Mo
+    ligs: CO:6
+    q: 0
+    ans: 6
+  - cx: '[RhCl(PPh3)3]'
+    M: Rh
+    ligs: Cl:1,PPh3:3
+    q: 0
+    ans: 8
+  prompt: How many d electrons does the metal have in {{cx}}?
+  parts:
+  - ask: d electrons
+    label: y
+    value: ans
+    tol: 0.0001
+    explain: 'Oxidation state from the charges (ligand charges: CN⁻, Cl⁻ and ox²⁻ count; H₂O, NH₃, en, CO and PPh₃ are neutral), then dⁿ = group number − oxidation state. Fe(II) is d⁶, Co(III) d⁶, Cu(II)
+      d⁹, Ni(0) d¹⁰'
+  verify:
+    expect:
+      y: d_count(M, ligs, q)
+- template: in-spin-only
+  skill: inorg.coordination
+  pace: quick
+  cases:
+  - cx: '[Fe(H2O)6]2+'
+    d: 6
+    geom: oct
+    spin: high
+    gw: octahedral
+    ans: 4.898979485566
+  - cx: '[Fe(CN)6]4-'
+    d: 6
+    geom: oct
+    spin: low
+    gw: octahedral
+    ans: 0.0
+  - cx: '[Fe(CN)6]3-'
+    d: 5
+    geom: oct
+    spin: low
+    gw: octahedral
+    ans: 1.732050807569
+  - cx: '[Mn(H2O)6]2+'
+    d: 5
+    geom: oct
+    spin: high
+    gw: octahedral
+    ans: 5.9160797831
+  - cx: '[CoF6]3-'
+    d: 6
+    geom: oct
+    spin: high
+    gw: octahedral
+    ans: 4.898979485566
+  - cx: '[Co(NH3)6]3+'
+    d: 6
+    geom: oct
+    spin: low
+    gw: octahedral
+    ans: 0.0
+  - cx: '[Cr(H2O)6]3+'
+    d: 3
+    geom: oct
+    spin: high
+    gw: octahedral
+    ans: 3.872983346207
+  - cx: '[CoCl4]2-'
+    d: 7
+    geom: tet
+    spin: high
+    gw: tetrahedral
+    ans: 3.872983346207
+  - cx: '[Ni(H2O)6]2+'
+    d: 8
+    geom: oct
+    spin: high
+    gw: octahedral
+    ans: 2.828427124746
+  - cx: '[Cu(H2O)6]2+'
+    d: 9
+    geom: oct
+    spin: high
+    gw: octahedral
+    ans: 1.732050807569
+  - cx: '[Mn(CN)6]3-'
+    d: 4
+    geom: oct
+    spin: low
+    gw: octahedral
+    ans: 2.828427124746
+  - cx: '[Cr(H2O)6]2+'
+    d: 4
+    geom: oct
+    spin: high
+    gw: octahedral
+    ans: 4.898979485566
+  prompt: '{{cx}} is a {{spin}}-spin {{gw}} d{{d}} complex. What is its spin-only magnetic moment (μ_B)?'
+  parts:
+  - ask: μ (μ_B)
+    label: y
+    value: ans
+    tol: 0.001
+    explain: 'Count unpaired electrons: octahedral sets are t₂g (3) below e_g (2); high spin puts one electron in each of the five before pairing, low spin fills t₂g first. Then $\mu = \sqrt{n(n+2)}$: 1.73,
+      2.83, 3.87, 4.90, 5.92 for n = 1–5'
+  verify:
+    expect:
+      y: spin_only(d, geom, spin)
+- template: in-cfse
+  skill: inorg.coordination
+  pace: recall
+  cases:
+  - d: 4
+    spin: high
+    geom: oct
+    ans: -0.6
+  - d: 4
+    spin: low
+    geom: oct
+    ans: -1.6
+  - d: 5
+    spin: low
+    geom: oct
+    ans: -2.0
+  - d: 6
+    spin: low
+    geom: oct
+    ans: -2.4
+  - d: 6
+    spin: high
+    geom: oct
+    ans: -0.4
+  - d: 7
+    spin: low
+    geom: oct
+    ans: -1.8
+  - d: 3
+    spin: high
+    geom: oct
+    ans: -1.2
+  - d: 8
+    spin: high
+    geom: oct
+    ans: -1.2
+  - d: 9
+    spin: high
+    geom: oct
+    ans: -0.6
+  - d: 5
+    spin: high
+    geom: oct
+    ans: 0
+  prompt: What is the crystal-field stabilisation energy of a {{spin}}-spin octahedral d{{d}} ion, in units of Δ_o (ignore pairing energy)?
+  parts:
+  - ask: CFSE (Δ_o)
+    label: y
+    value: ans
+    tol: 0.0001
+    explain: Each t₂g electron is −0.4Δ_o and each e_g electron +0.6Δ_o. Low-spin d⁶ (t₂g⁶) is the maximum, −2.4Δ_o, which is why Co(III) and Fe(II) with strong-field ligands are so inert
+  verify:
+    expect:
+      y: cfse(d, geom, spin)
+- template: in-isomer-count
+  skill: inorg.coordination
+  pace: quick
+  cases:
+  - cx: MA₄B₂ (octahedral)
+    mono: A4B2
+    nch: 0
+    geom: oct
+    ans: 2
+  - cx: MA₃B₃ (octahedral)
+    mono: A3B3
+    nch: 0
+    geom: oct
+    ans: 2
+  - cx: MA₂B₂C₂ (octahedral)
+    mono: A2B2C2
+    nch: 0
+    geom: oct
+    ans: 6
+  - cx: M(AA)₃ (octahedral, AA a symmetric chelate)
+    mono: ''
+    nch: 3
+    geom: oct
+    ans: 2
+  - cx: M(AA)₂B₂ (octahedral)
+    mono: B2
+    nch: 2
+    geom: oct
+    ans: 3
+  - cx: MA₂B₂ (square planar)
+    mono: A2B2
+    nch: 0
+    geom: sq
+    ans: 2
+  - cx: MABCD (square planar)
+    mono: ABCD
+    nch: 0
+    geom: sq
+    ans: 3
+  - cx: MA₅B (octahedral)
+    mono: A5B
+    nch: 0
+    geom: oct
+    ans: 1
+  - cx: M(AA)B₄ (octahedral)
+    mono: B4
+    nch: 1
+    geom: oct
+    ans: 1
+  - cx: M(AA)₂BC (octahedral)
+    mono: BC
+    nch: 2
+    geom: oct
+    ans: 3
+  prompt: How many stereoisomers does {{cx}} have, counting each enantiomer separately?
+  parts:
+  - ask: Stereoisomers
+    label: y
+    value: ans
+    tol: 0.0001
+    explain: 'List geometric isomers by which ligands are trans, then check each for a mirror plane. MA₄B₂ and MA₃B₃: 2 (cis/trans, fac/mer). MA₂B₂C₂: 5 geometric, one of them chiral, so 6. M(AA)₃: Δ and
+      Λ. A planar complex is never chiral'
+  verify:
+    expect:
+      y: stereoisomers(mono, nch, geom)
+- template: in-ion-colour
+  skill: inorg.coordination
+  pace: recall
+  cases:
+  - k: '[Cu(H2O)6]2+'
+    o1: colourless
+    o2: yellow
+    o3: yellow-green
+    o4: pale blue
+    ans: 3
+  - k: '[Cu(NH3)4(H2O)2]2+'
+    o1: deep blue
+    o2: blood red
+    o3: pale blue
+    o4: blue
+    ans: 0
+  - k: '[CuCl4]2-'
+    o1: green
+    o2: yellow-green
+    o3: pale green
+    o4: yellow
+    ans: 1
+  - k: '[Co(H2O)6]2+'
+    o1: pink
+    o2: deep blue
+    o3: blood red
+    o4: pale green
+    ans: 0
+  - k: '[CoCl4]2-'
+    o1: deep blue
+    o2: blue
+    o3: orange
+    o4: pink
+    ans: 1
+  - k: '[Ni(H2O)6]2+'
+    o1: deep blue
+    o2: colourless
+    o3: yellow
+    o4: green
+    ans: 3
+  - k: '[Fe(H2O)6]2+'
+    o1: yellow-green
+    o2: pale green
+    o3: yellow
+    o4: blue
+    ans: 1
+  - k: MnO4-
+    o1: pale blue
+    o2: purple
+    o3: pale green
+    o4: yellow-green
+    ans: 1
+  - k: Cr2O7 2-
+    o1: blood red
+    o2: orange
+    o3: pale green
+    o4: deep blue
+    ans: 1
+  - k: CrO4 2-
+    o1: blue
+    o2: yellow
+    o3: purple
+    o4: orange
+    ans: 1
+  - k: '[Zn(H2O)6]2+'
+    o1: orange
+    o2: colourless
+    o3: green
+    o4: pale green
+    ans: 1
+  - k: '[Fe(SCN)(H2O)5]2+'
+    o1: green
+    o2: pale green
+    o3: blood red
+    o4: colourless
+    ans: 2
+  prompt: What colour is {{k}} in water?
+  parts:
+  - ask: Answer
+    label: y
+    choice: *id001
+    correct: ans
+    explain: Colour is the complement of what is absorbed. d⁰ and d¹⁰ ions (Sc³⁺, Zn²⁺) have no d–d transition and are colourless; MnO₄⁻ and Cr₂O₇²⁻ are d⁰ but coloured by charge transfer. Swapping water
+      for Cl⁻ or NH₃ shifts the colour (pink Co²⁺ to blue CoCl₄²⁻, pale blue Cu²⁺ to deep blue)
+  verify:
+    choices:
+      y: fact_pick("colour", k, o1, o2, o3, o4)
+- template: in-spectrochemical
+  skill: inorg.coordination
+  pace: recall
+  cases:
+  - o1: CO
+    o2: H2O
+    o3: Br-
+    o4: NH3
+    ans: 0
+  - o1: en
+    o2: NH3
+    o3: Br-
+    o4: Cl-
+    ans: 0
+  - o1: Cl-
+    o2: CO
+    o3: I-
+    o4: CN-
+    ans: 1
+  - o1: CN-
+    o2: en
+    o3: Cl-
+    o4: CO
+    ans: 3
+  - o1: CO
+    o2: H2O
+    o3: Cl-
+    o4: NO2-
+    ans: 0
+  - o1: I-
+    o2: CO
+    o3: Br-
+    o4: Cl-
+    ans: 1
+  - o1: NH3
+    o2: F-
+    o3: CN-
+    o4: I-
+    ans: 2
+  - o1: OH-
+    o2: F-
+    o3: CO
+    o4: CN-
+    ans: 2
+  prompt: Which ligand gives the largest Δ_o with the same metal ion?
+  parts:
+  - ask: Answer
+    label: y
+    choice: *id001
+    correct: ans
+    explain: 'Spectrochemical series: I⁻ < Br⁻ < Cl⁻ < F⁻ < OH⁻ < H₂O < NH₃ < en < NO₂⁻ < CN⁻ < CO. π-donors (halides) are weak, π-acceptors (CN⁻, CO) are strong'
+  verify:
+    choices:
+      y: field_pick(o1, o2, o3, o4)
+- template: in-half-electrons
+  skill: inorg.redox
+  pace: recall
+  cases:
+  - f: MnO4
+    q: -1
+    fto: Mn
+    qto: 2
+    el: Mn
+    nf: 1
+    text: MnO₄⁻ → Mn²⁺ (acid)
+    ans: 5
+  - f: Cr2O7
+    q: -2
+    fto: Cr
+    qto: 3
+    el: Cr
+    nf: 1
+    text: Cr₂O₇²⁻ → 2 Cr³⁺
+    ans: 6
+  - f: MnO4
+    q: -1
+    fto: MnO2
+    qto: 0
+    el: Mn
+    nf: 1
+    text: MnO₄⁻ → MnO₂ (base)
+    ans: 3
+  - f: C2O4
+    q: -2
+    fto: CO2
+    qto: 0
+    el: C
+    nf: 1
+    text: C₂O₄²⁻ → 2 CO₂
+    ans: 2
+  - f: NO3
+    q: -1
+    fto: 'NO'
+    qto: 0
+    el: N
+    nf: 1
+    text: NO₃⁻ → NO
+    ans: 3
+  - f: IO3
+    q: -1
+    fto: I2
+    qto: 0
+    el: I
+    nf: 2
+    text: 2 IO₃⁻ → I₂
+    ans: 10
+  - f: H2O2
+    q: 0
+    fto: O2
+    qto: 0
+    el: O
+    nf: 1
+    text: H₂O₂ → O₂
+    ans: 2
+  - f: S2O3
+    q: -2
+    fto: S4O6
+    qto: -2
+    el: S
+    nf: 2
+    text: 2 S₂O₃²⁻ → S₄O₆²⁻
+    ans: 2
+  prompt: How many electrons appear in the balanced half-equation {{text}}?
+  parts:
+  - ask: Electrons
+    label: y
+    value: ans
+    tol: 0.0001
+    explain: 'Change in oxidation state × number of atoms that change. Balance O with H₂O and H with H⁺ (or OH⁻ in base) only after the electrons are set: MnO₄⁻ + 8H⁺ + 5e⁻ → Mn²⁺ + 4H₂O'
+  verify:
+    expect:
+      y: half_electrons(f, q, fto, qto, el, nf)
+- template: in-iodometry
+  skill: inorg.redox
+  pace: quick
+  cases:
+  - what: Cu²⁺ (2Cu²⁺ + 4I⁻ → 2CuI + I₂)
+    f: Cu
+    q: 2
+    el: Cu
+    fe: Cu
+    qe: 1
+    vt: 18.4
+    ct: 0.1
+    va: 25.0
+    ans: 0.0736
+  - what: Cu²⁺ (2Cu²⁺ + 4I⁻ → 2CuI + I₂)
+    f: Cu
+    q: 2
+    el: Cu
+    fe: Cu
+    qe: 1
+    vt: 22.75
+    ct: 0.05
+    va: 20.0
+    ans: 0.056875
+  - what: Cu²⁺ (2Cu²⁺ + 4I⁻ → 2CuI + I₂)
+    f: Cu
+    q: 2
+    el: Cu
+    fe: Cu
+    qe: 1
+    vt: 12.3
+    ct: 0.08
+    va: 10.0
+    ans: 0.0984
+  - what: IO₃⁻ (IO₃⁻ + 5I⁻ + 6H⁺ → 3I₂ + 3H₂O)
+    f: IO3
+    q: -1
+    el: I
+    fe: I
+    qe: -1
+    vt: 18.4
+    ct: 0.1
+    va: 25.0
+    ans: 0.012266666667
+  - what: IO₃⁻ (IO₃⁻ + 5I⁻ + 6H⁺ → 3I₂ + 3H₂O)
+    f: IO3
+    q: -1
+    el: I
+    fe: I
+    qe: -1
+    vt: 22.75
+    ct: 0.05
+    va: 20.0
+    ans: 0.009479166667
+  - what: IO₃⁻ (IO₃⁻ + 5I⁻ + 6H⁺ → 3I₂ + 3H₂O)
+    f: IO3
+    q: -1
+    el: I
+    fe: I
+    qe: -1
+    vt: 12.3
+    ct: 0.08
+    va: 10.0
+    ans: 0.0164
+  - what: Cr₂O₇²⁻ (reduced to 2Cr³⁺)
+    f: Cr2O7
+    q: -2
+    el: Cr
+    fe: Cr
+    qe: 3
+    vt: 18.4
+    ct: 0.1
+    va: 25.0
+    ans: 0.012266666667
+  - what: Cr₂O₇²⁻ (reduced to 2Cr³⁺)
+    f: Cr2O7
+    q: -2
+    el: Cr
+    fe: Cr
+    qe: 3
+    vt: 22.75
+    ct: 0.05
+    va: 20.0
+    ans: 0.009479166667
+  - what: Cr₂O₇²⁻ (reduced to 2Cr³⁺)
+    f: Cr2O7
+    q: -2
+    el: Cr
+    fe: Cr
+    qe: 3
+    vt: 12.3
+    ct: 0.08
+    va: 10.0
+    ans: 0.0164
+  - what: ClO⁻ (ClO⁻ + 2I⁻ + 2H⁺ → Cl⁻ + I₂ + H₂O)
+    f: ClO
+    q: -1
+    el: Cl
+    fe: Cl
+    qe: -1
+    vt: 18.4
+    ct: 0.1
+    va: 25.0
+    ans: 0.0368
+  - what: ClO⁻ (ClO⁻ + 2I⁻ + 2H⁺ → Cl⁻ + I₂ + H₂O)
+    f: ClO
+    q: -1
+    el: Cl
+    fe: Cl
+    qe: -1
+    vt: 22.75
+    ct: 0.05
+    va: 20.0
+    ans: 0.0284375
+  - what: ClO⁻ (ClO⁻ + 2I⁻ + 2H⁺ → Cl⁻ + I₂ + H₂O)
+    f: ClO
+    q: -1
+    el: Cl
+    fe: Cl
+    qe: -1
+    vt: 12.3
+    ct: 0.08
+    va: 10.0
+    ans: 0.0492
+  prompt: '{{va}} mL of a solution of {{what}} is treated with excess KI; the I₂ formed takes {{vt}} mL of {{ct}} M thiosulfate (I₂ + 2S₂O₃²⁻ → 2I⁻ + S₄O₆²⁻). What is the oxidant''s concentration (M)?'
+  parts:
+  - ask: Concentration (M)
+    label: y
+    value: ans
+    tol: 0.0001
+    explain: 'Iodide is only a go-between: count electrons from the oxidant to its final reduced form, one thiosulfate per electron. Cu²⁺ → CuI takes 1; Cr₂O₇²⁻ → 2Cr³⁺ takes 6; IO₃⁻ → I⁻ takes 6 (its own
+      iodine ends as iodide too); ClO⁻ → Cl⁻ takes 2'
+  verify:
+    expect:
+      y: nsimplify(vt)*nsimplify(ct)/to_reduced(f, q, el, fe, qe)/nsimplify(va)
+- template: in-amphoteric
+  skill: inorg.qualitative
+  pace: recall
+  cases:
+  - o1: Mn
+    o2: Cu
+    o3: Al
+    o4: Ca
+    ans: 2
+  - o1: Ca
+    o2: Zn
+    o3: Cu
+    o4: Ni
+    ans: 1
+  - o1: Mn
+    o2: Mg
+    o3: Pb
+    o4: Fe
+    ans: 2
+  - o1: Mg
+    o2: Sn
+    o3: Ca
+    o4: Mn
+    ans: 1
+  - o1: Mn
+    o2: Fe
+    o3: Cr
+    o4: Cu
+    ans: 2
+  - o1: Ca
+    o2: Mg
+    o3: Cu
+    o4: Be
+    ans: 3
+  prompt: Each metal's hydroxide is precipitated with a little NaOH. Which one redissolves in excess NaOH?
+  parts:
+  - ask: Answer
+    label: y
+    choice: *id001
+    correct: ans
+    explain: 'Amphoteric hydroxides dissolve as hydroxo anions: Al(OH)₄⁻, Zn(OH)₄²⁻, Pb(OH)₄²⁻, Sn(OH)₄²⁻, Cr(OH)₆³⁻, Be(OH)₄²⁻. Fe, Mg, Cu, Ni and Mn hydroxides stay put (Cu, Ni and Zn dissolve in excess
+      NH₃ instead, as ammine complexes)'
+  verify:
+    choices:
+      y: amph_pick(o1, o2, o3, o4)
+- template: in-precipitate-colour
+  skill: inorg.qualitative
+  pace: recall
+  cases:
+  - k: AgCl
+    o1: white
+    o2: dirty green
+    o3: brick red
+    o4: green
+    ans: 0
+  - k: AgBr
+    o1: black
+    o2: red-brown
+    o3: cream
+    o4: white
+    ans: 2
+  - k: AgI
+    o1: green
+    o2: pale blue
+    o3: yellow
+    o4: red-brown
+    ans: 2
+  - k: PbI2
+    o1: white
+    o2: bright yellow
+    o3: green
+    o4: black
+    ans: 1
+  - k: BaSO4
+    o1: white
+    o2: red-brown
+    o3: brick red
+    o4: black
+    ans: 0
+  - k: Cu(OH)2
+    o1: pale blue
+    o2: red-brown
+    o3: white
+    o4: yellow
+    ans: 0
+  - k: Fe(OH)3
+    o1: bright yellow
+    o2: cream
+    o3: green
+    o4: red-brown
+    ans: 3
+  - k: Fe(OH)2
+    o1: black
+    o2: green
+    o3: dirty green
+    o4: brick red
+    ans: 2
+  - k: Ni(OH)2
+    o1: brick red
+    o2: dirty green
+    o3: green
+    o4: red-brown
+    ans: 2
+  - k: PbS
+    o1: white
+    o2: black
+    o3: yellow
+    o4: cream
+    ans: 1
+  - k: ZnS
+    o1: white
+    o2: green
+    o3: red-brown
+    o4: dirty green
+    ans: 0
+  - k: Ag2CrO4
+    o1: red-brown
+    o2: pale blue
+    o3: black
+    o4: brick red
+    ans: 3
+  - k: CdS
+    o1: dirty green
+    o2: yellow
+    o3: cream
+    o4: red-brown
+    ans: 1
+  prompt: What colour is the precipitate {{k}}?
+  parts:
+  - ask: Answer
+    label: y
+    choice: *id001
+    correct: ans
+    explain: 'Silver halides darken down the group (white, cream, yellow) and their solubility in NH₃ falls with them. Hydroxides take the ion''s colour: Cu blue, Fe(II) green turning brown in air, Fe(III)
+      red-brown. Most metal sulfides are black; ZnS is white and CdS yellow'
+  verify:
+    choices:
+      y: fact_pick("ppt", k, o1, o2, o3, o4)
+- template: in-ion-test
+  skill: inorg.qualitative
+  pace: recall
+  cases:
+  - k: NH4+
+    o1: 'acidified BaCl2: white precipitate'
+    o2: 'warm with NaOH: gas turns damp red litmus blue'
+    o3: 'dilute acid: gas turns limewater milky'
+    o4: 'acidified AgNO3: white precipitate, dissolves in dilute NH3'
+    ans: 1
+  - k: SO4 2-
+    o1: 'warm with NaOH: gas turns damp red litmus blue'
+    o2: 'acidified AgNO3: yellow precipitate, insoluble in conc. NH3'
+    o3: 'KSCN: blood-red solution'
+    o4: 'acidified BaCl2: white precipitate'
+    ans: 3
+  - k: Cl-
+    o1: 'Devarda''s alloy and NaOH: ammonia given off'
+    o2: 'acidified BaCl2: white precipitate'
+    o3: 'K3[Fe(CN)6]: dark blue precipitate'
+    o4: 'acidified AgNO3: white precipitate, dissolves in dilute NH3'
+    ans: 3
+  - k: CO3 2-
+    o1: 'KSCN: blood-red solution'
+    o2: 'acidified AgNO3: yellow precipitate, insoluble in conc. NH3'
+    o3: 'warm with NaOH: gas turns damp red litmus blue'
+    o4: 'dilute acid: gas turns limewater milky'
+    ans: 3
+  - k: Fe3+
+    o1: 'KSCN: blood-red solution'
+    o2: 'K3[Fe(CN)6]: dark blue precipitate'
+    o3: 'Devarda''s alloy and NaOH: ammonia given off'
+    o4: 'acidified AgNO3: yellow precipitate, insoluble in conc. NH3'
+    ans: 0
+  - k: Fe2+
+    o1: 'dilute acid: gas turns limewater milky'
+    o2: 'acidified AgNO3: yellow precipitate, insoluble in conc. NH3'
+    o3: 'KSCN: blood-red solution'
+    o4: 'K3[Fe(CN)6]: dark blue precipitate'
+    ans: 3
+  - k: I-
+    o1: 'KSCN: blood-red solution'
+    o2: 'Devarda''s alloy and NaOH: ammonia given off'
+    o3: 'K3[Fe(CN)6]: dark blue precipitate'
+    o4: 'acidified AgNO3: yellow precipitate, insoluble in conc. NH3'
+    ans: 3
+  - k: NO3-
+    o1: 'acidified AgNO3: yellow precipitate, insoluble in conc. NH3'
+    o2: 'Devarda''s alloy and NaOH: ammonia given off'
+    o3: 'acidified AgNO3: white precipitate, dissolves in dilute NH3'
+    o4: 'K3[Fe(CN)6]: dark blue precipitate'
+    ans: 1
+  prompt: Which test identifies {{k}}?
+  parts:
+  - ask: Answer
+    label: y
+    choice: *id001
+    correct: ans
+    explain: Acidify before BaCl₂ or AgNO₃ so carbonate cannot precipitate too. Halides are told apart by the colour of the silver salt and whether NH₃ dissolves it. Nitrate is reduced to NH₃ by Devarda's
+      alloy; ammonium itself gives NH₃ with warm NaOH
+  verify:
+    choices:
+      y: fact_pick("test", k, o1, o2, o3, o4)
+- template: in-cell-contents
+  skill: inorg.solids
+  pace: recall
+  cases:
+  - s: sc
+    sw: simple cubic
+    spc: X
+    who: atoms
+    ans: 1
+  - s: bcc
+    sw: body-centred cubic
+    spc: X
+    who: atoms
+    ans: 2
+  - s: fcc
+    sw: face-centred cubic
+    spc: X
+    who: atoms
+    ans: 4
+  - s: diamond
+    sw: diamond
+    spc: X
+    who: atoms
+    ans: 8
+  - s: NaCl
+    sw: rock-salt (NaCl)
+    spc: A
+    who: cations
+    ans: 4
+  - s: CsCl
+    sw: CsCl
+    spc: A
+    who: cations
+    ans: 1
+  - s: ZnS
+    sw: zinc blende (ZnS)
+    spc: A
+    who: cations
+    ans: 4
+  - s: CaF2
+    sw: fluorite (CaF₂)
+    spc: B
+    who: anions
+    ans: 8
+  prompt: In the {{sw}} structure, how many {{who}} does one cubic unit cell contain?
+  parts:
+  - ask: Per cell
+    label: y
+    value: ans
+    tol: 0.0001
+    explain: Corners count 1/8, edges 1/4, faces 1/2, the body 1. sc 1, bcc 2, fcc 4, diamond 8 atoms; NaCl and ZnS 4 formula units; CsCl 1; fluorite 4 Ca²⁺ and 8 F⁻
+  verify:
+    expect:
+      y: cell_count(s, spc)
+- template: in-coordination-number
+  skill: inorg.solids
+  pace: recall
+  cases:
+  - s: sc
+    c0: X
+    c1: X
+    sw: simple cubic metal
+    ans: 6
+  - s: bcc
+    c0: X
+    c1: X
+    sw: bcc metal
+    ans: 8
+  - s: fcc
+    c0: X
+    c1: X
+    sw: fcc (ccp) metal
+    ans: 12
+  - s: diamond
+    c0: X
+    c1: X
+    sw: diamond
+    ans: 4
+  - s: NaCl
+    c0: A
+    c1: B
+    sw: rock salt, Na⁺ surrounded by Cl⁻
+    ans: 6
+  - s: CsCl
+    c0: A
+    c1: B
+    sw: CsCl, Cs⁺ surrounded by Cl⁻
+    ans: 8
+  - s: ZnS
+    c0: A
+    c1: B
+    sw: zinc blende, Zn²⁺ surrounded by S²⁻
+    ans: 4
+  - s: CaF2
+    c0: A
+    c1: B
+    sw: fluorite, Ca²⁺ surrounded by F⁻
+    ans: 8
+  - s: CaF2
+    c0: B
+    c1: A
+    sw: fluorite, F⁻ surrounded by Ca²⁺
+    ans: 4
+  prompt: What is the coordination number in {{sw}}?
+  parts:
+  - ask: Coordination number
+    label: y
+    value: ans
+    tol: 0.0001
+    explain: 'Count nearest neighbours: sc 6, bcc 8, fcc 12, diamond 4. In ionic structures the cation sits in a hole of the anion lattice: octahedral (NaCl, 6), cubic (CsCl, 8), tetrahedral (ZnS, 4); fluorite
+      is 8:4'
+  verify:
+    expect:
+      y: coordination(s, c0, c1)
+- template: in-packing
+  skill: inorg.solids
+  pace: quick
+  cases:
+  - s: sc
+    sw: simple cubic
+    ans: 0.523598775598
+  - s: bcc
+    sw: body-centred cubic
+    ans: 0.680174761588
+  - s: fcc
+    sw: face-centred cubic
+    ans: 0.740480489693
+  - s: diamond
+    sw: diamond
+    ans: 0.340087380794
+  prompt: What fraction of space is filled by touching spheres in a {{sw}} lattice?
+  parts:
+  - ask: Packing fraction
+    label: y
+    value: ans
+    tol: 0.0001
+    explain: 'Find where spheres touch (sc along the edge, bcc the body diagonal, fcc the face diagonal), so r in terms of a, then Z·(4/3)πr³ / a³: 0.524, 0.680, 0.740, 0.340'
+  verify:
+    expect:
+      y: packing(s)
+- template: in-density
+  skill: inorg.solids
+  pace: quick
+  cases:
+  - s: fcc
+    f: Cu
+    a: 361.5
+    sw: copper (fcc)
+    ans: 8.9345442165
+  - s: bcc
+    f: Fe
+    a: 286.7
+    sw: α-iron (bcc)
+    ans: 7.8701010698
+  - s: fcc
+    f: Ag
+    a: 408.6
+    sw: silver (fcc)
+    ans: 10.5028370744
+  - s: NaCl
+    f: NaCl
+    a: 564.0
+    sw: NaCl (rock salt)
+    ans: 2.1636249667
+  - s: bcc
+    f: W
+    a: 316.5
+    sw: tungsten (bcc)
+    ans: 19.2574137563
+  - s: CsCl
+    f: CsCl
+    a: 412.3
+    sw: CsCl
+    ans: 3.9887343415
+  - s: CaF2
+    f: CaF2
+    a: 546.3
+    sw: CaF₂ (fluorite)
+    ans: 3.1806942058
+  prompt: '{{sw}} has a cubic cell edge of {{a}} pm. What is its density (g/cm³)?'
+  parts:
+  - ask: ρ (g/cm³)
+    label: y
+    value: ans
+    tol: 0.0002
+    explain: ρ = Z·M / (N_A·a³), with a in cm (1 pm = 10⁻¹⁰ cm) and Z the formula units per cell (fcc 4, bcc 2, rock salt 4, CsCl 1, fluorite 4)
+  verify:
+    expect:
+      y: density(s, f, a)
+- template: in-bragg
+  skill: inorg.solids
+  pace: quick
+  cases:
+  - w: 0
+    a: 361.5
+    h: 1
+    k: 1
+    l: 1
+    lam: 154.06
+    th: 0
+    task: 'cubic cell a = 361.5 pm: at what angle θ (degrees) does the (111) reflection appear with λ = 154.06 pm, first order?'
+    ans: 21.6584554596
+  - w: 0
+    a: 361.5
+    h: 2
+    k: 0
+    l: 0
+    lam: 154.06
+    th: 0
+    task: 'cubic cell a = 361.5 pm: at what angle θ (degrees) does the (200) reflection appear with λ = 154.06 pm, first order?'
+    ans: 25.2246633764
+  - w: 0
+    a: 564.0
+    h: 2
+    k: 0
+    l: 0
+    lam: 154.06
+    th: 0
+    task: 'cubic cell a = 564.0 pm: at what angle θ (degrees) does the (200) reflection appear with λ = 154.06 pm, first order?'
+    ans: 15.852155587
+  - w: 0
+    a: 404.9
+    h: 2
+    k: 2
+    l: 0
+    lam: 154.06
+    th: 0
+    task: 'cubic cell a = 404.9 pm: at what angle θ (degrees) does the (220) reflection appear with λ = 154.06 pm, first order?'
+    ans: 32.5538960275
+  - w: 1
+    a: 0
+    h: 0
+    k: 0
+    l: 0
+    lam: 154.06
+    th: 22.3
+    task: A first-order reflection of 154.06 pm X-rays appears at θ = 22.3°. What is the plane spacing d (pm)?
+    ans: 203.0010531272
+  - w: 1
+    a: 0
+    h: 0
+    k: 0
+    l: 0
+    lam: 71.07
+    th: 15.0
+    task: A first-order reflection of 71.07 pm X-rays appears at θ = 15.0°. What is the plane spacing d (pm)?
+    ans: 137.2966969487
+  - w: 1
+    a: 0
+    h: 0
+    k: 0
+    l: 0
+    lam: 154.06
+    th: 38.5
+    task: A first-order reflection of 154.06 pm X-rays appears at θ = 38.5°. What is the plane spacing d (pm)?
+    ans: 123.7400624282
+  prompt: Bragg diffraction. {{task}}
+  parts:
+  - ask: Answer
+    label: y
+    value: ans
+    tol: 0.0001
+    explain: $n\lambda = 2d\sin\theta$, and for a cubic cell $d_{hkl} = a/\sqrt{h^2 + k^2 + l^2}$. θ is half the angle between incident and diffracted beams (2θ is what a diffractometer reports)
+  verify:
+    expect:
+      y: bragg(w, a, h, k, l, lam, th)
+- template: in-radius-ratio
+  skill: inorg.solids
+  pace: recall
+  cases:
+  - pair: Na⁺/Cl⁻
+    r: 0.52
+    ans: 1
+  - pair: Cs⁺/Cl⁻
+    r: 0.93
+    ans: 2
+  - pair: Zn²⁺/S²⁻
+    r: 0.4
+    ans: 0
+  - pair: Mg²⁺/O²⁻
+    r: 0.51
+    ans: 1
+  - pair: Li⁺/I⁻
+    r: 0.35
+    ans: 0
+  - pair: K⁺/F⁻
+    r: 1.0
+    ans: 2
+  - pair: Be²⁺/O²⁻
+    r: 0.26
+    ans: 0
+  prompt: '{{pair}} has radius ratio r₊/r₋ = {{r}}. What coordination number does the radius-ratio rule predict for the cation?'
+  parts:
+  - ask: Answer
+    label: y
+    choice:
+    - 4 (tetrahedral)
+    - 6 (octahedral)
+    - 8 (cubic)
+    correct: ans
+    explain: 'The cation must touch its anions without the anions overlapping. The limits are 0.225 (tetrahedral), 0.414 (octahedral) and 0.732 (cubic): √(3/2) − 1, √2 − 1 and √3 − 1. Real structures often
+      break the rule (Li⁺/I⁻, ZnS), so treat it as a guide'
+  verify:
+    choices:
+      y: radius_ratio_cn(r)

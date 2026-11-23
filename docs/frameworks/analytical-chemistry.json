@@ -1,0 +1,613 @@
+{
+ "id": "analytical-chemistry",
+ "title": "Analytical Chemistry",
+ "code": "AN",
+ "draft": 1,
+ "track": "science",
+ "requires": [
+  "chemistry",
+  "inorganic-chemistry"
+ ],
+ "level": 4,
+ "domains": [
+  "anal"
+ ],
+ "basis": {
+  "primary": "icho-appendix-c",
+  "also": [
+   "gre-chemistry",
+   "aamc-mcat-outline",
+   "usnco"
+  ],
+  "wanted": [
+   "acs-accm"
+  ],
+  "note": "Topics named by IChO Appendix C (read in full), the GRE Chemistry analytical area and MCAT 5C. The ACS analytical content map was not read; objectives and their order are ours."
+ },
+ "big_ideas": [
+  {
+   "id": "MOLES",
+   "title": "Every analysis is a mole chain",
+   "text": "Volume × concentration or mass ÷ molar mass, through a ratio, to the analyte. Titration, gravimetry and calibration differ only in the first link."
+  },
+  {
+   "id": "EQ",
+   "title": "Equilibrium sets the limits",
+   "text": "Common ions, complexing agents and pH decide how much stays dissolved, how sharp an end point is and what precipitates first."
+  },
+  {
+   "id": "ERROR",
+   "title": "A number is not a result without its uncertainty",
+   "text": "Replicates, calibration and propagation say how far to trust it; matrix effects say whether to trust it at all."
+  }
+ ],
+ "practices": [
+  {
+   "id": "P1",
+   "title": "Compute",
+   "text": "Carry the stoichiometric or equilibrium calculation to a number with the right units."
+  },
+  {
+   "id": "P2",
+   "title": "Choose",
+   "text": "Pick the indicator, technique or test that fits."
+  },
+  {
+   "id": "P3",
+   "title": "Judge",
+   "text": "Decide whether data support a result."
+  }
+ ],
+ "units": [
+  {
+   "id": "titrimetry",
+   "n": 1,
+   "title": "Titrimetry",
+   "std": [
+    "icho-appendix-c:c14",
+    "icho-appendix-c:c15",
+    "gre-chemistry:AN",
+    "usnco:1"
+   ],
+   "scope": "core",
+   "ideas": [
+    "MOLES",
+    "EQ"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "Titration types",
+     "los": [
+      {
+       "id": "A",
+       "do": "Compute a result from a back titration.",
+       "ek": [
+        "Reagent added − reagent left = reagent used."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "an-back-titration"
+       ]
+      },
+      {
+       "id": "B",
+       "do": "Compute a result from a permanganate titration.",
+       "ek": [
+        "Ratio from electrons: MnO₄⁻ 5, Fe²⁺ 1, C₂O₄²⁻ 2."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "IN-4.1.A"
+       ],
+       "drills": [
+        "an-permanganate"
+       ]
+      },
+      {
+       "id": "C",
+       "do": "Compute water hardness from an EDTA titration.",
+       "ek": [
+        "EDTA binds metal ions 1:1; report as mg CaCO₃ per L."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "an-edta-hardness"
+       ]
+      },
+      {
+       "id": "D",
+       "do": "Compute chloride from a Mohr titration.",
+       "ek": [
+        "Ag⁺ + Cl⁻ 1:1; chromate end point at neutral pH."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "an-mohr"
+       ]
+      },
+      {
+       "id": "E",
+       "do": "Compute protein from a Kjeldahl determination.",
+       "ek": [
+        "mol N = acid added − acid left; × factor (6.25)."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "AN-1.1.A"
+       ],
+       "drills": [
+        "an-kjeldahl"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "title": "Titration curves",
+     "los": [
+      {
+       "id": "A",
+       "do": "Find the pH at any point of a weak-acid–strong-base titration.",
+       "ek": [
+        "Start, buffer, equivalence (hydrolysis), excess base."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "an-titration-ph"
+       ]
+      },
+      {
+       "id": "B",
+       "do": "Choose an indicator whose range brackets the equivalence pH.",
+       "ek": [
+        "Weak acid + strong base: phenolphthalein."
+       ],
+       "p": [
+        "P2"
+       ],
+       "needs": [
+        "AN-1.2.A"
+       ],
+       "drills": [
+        "an-indicator"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "gravimetry",
+   "n": 2,
+   "title": "Gravimetric analysis",
+   "std": [
+    "icho-appendix-c:a9",
+    "gre-chemistry:AN"
+   ],
+   "scope": "core",
+   "ideas": [
+    "MOLES"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "Gravimetric factors",
+     "los": [
+      {
+       "id": "A",
+       "do": "Compute a mass percent from the weight of a precipitate.",
+       "ek": [
+        "Gravimetric factor from molar masses and element counts."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "an-gravimetric"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "equilibria",
+   "n": 3,
+   "title": "Solubility equilibria in analysis",
+   "std": [
+    "icho-appendix-c:c9",
+    "icho-appendix-c:a7"
+   ],
+   "scope": "core",
+   "ideas": [
+    "EQ"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "Solubility",
+     "los": [
+      {
+       "id": "A",
+       "do": "Compute a solubility with a common ion present.",
+       "ek": [
+        "s(s + c) = K_sp."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "an-common-ion"
+       ]
+      },
+      {
+       "id": "B",
+       "do": "Compute a solubility raised by complex formation.",
+       "ek": [
+        "K = K_sp·β₂ for AgX + 2NH₃."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "AN-3.1.A"
+       ],
+       "drills": [
+        "an-complex-solubility"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "separations",
+   "n": 4,
+   "title": "Separations",
+   "std": [
+    "icho-appendix-c:a9",
+    "aamc-mcat-outline:5C"
+   ],
+   "scope": "core",
+   "ideas": [
+    "EQ"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "Extraction and chromatography",
+     "los": [
+      {
+       "id": "A",
+       "do": "Compute the fraction left after repeated extractions.",
+       "ek": [
+        "q = [V_aq/(V_aq + D V_org)]ⁿ."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "an-extraction"
+       ]
+      },
+      {
+       "id": "B",
+       "do": "Compute plate number, retention factor or resolution from a chromatogram.",
+       "ek": [
+        "N = 16(t_R/W)², k = (t_R − t_M)/t_M, R_s = 2Δt_R/(W₁+W₂)."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "an-chromatography"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "measurement",
+   "n": 5,
+   "title": "Measurement, calibration and data",
+   "std": [
+    "icho-appendix-c:c17",
+    "icho-appendix-c:c1",
+    "gre-chemistry:AN"
+   ],
+   "scope": "core",
+   "ideas": [
+    "ERROR"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "Spectrophotometry and calibration",
+     "los": [
+      {
+       "id": "A",
+       "do": "Resolve a two-component mixture by absorbance at two wavelengths.",
+       "ek": [
+        "Absorbances add; solve two equations."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "an-two-component"
+       ]
+      },
+      {
+       "id": "B",
+       "do": "Find a concentration by standard addition.",
+       "ek": [
+        "c = A_x c_s V_s / [V_x (A_sp − A_x)]."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "an-standard-addition"
+       ]
+      },
+      {
+       "id": "C",
+       "do": "Read an unknown off a least-squares calibration line.",
+       "ek": [
+        "Slope and intercept from the sums."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "an-calibration"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "title": "Data and method choice",
+     "los": [
+      {
+       "id": "A",
+       "do": "Apply Dixon's Q-test to a suspect replicate.",
+       "ek": [
+        "Q = gap/range vs Q_crit."
+       ],
+       "p": [
+        "P3"
+       ],
+       "drills": [
+        "an-q-test"
+       ]
+      },
+      {
+       "id": "B",
+       "do": "Propagate random uncertainty through a sum or a product.",
+       "ek": [
+        "Absolute in quadrature for sums, relative for products."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "an-uncertainty"
+       ]
+      },
+      {
+       "id": "C",
+       "do": "Choose an analytical technique for a stated question.",
+       "ek": [
+        "Trace metals ICP-MS, volatiles GC, non-volatiles HPLC, water Karl Fischer."
+       ],
+       "p": [
+        "P2"
+       ],
+       "drills": [
+        "an-instrument"
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "rows": [
+  {
+   "code": "AN-1.1.A",
+   "unit": 1,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "an-back-titration"
+   ],
+   "partial": []
+  },
+  {
+   "code": "AN-1.1.B",
+   "unit": 1,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "an-permanganate"
+   ],
+   "partial": []
+  },
+  {
+   "code": "AN-1.1.C",
+   "unit": 1,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "an-edta-hardness"
+   ],
+   "partial": []
+  },
+  {
+   "code": "AN-1.1.D",
+   "unit": 1,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "an-mohr"
+   ],
+   "partial": []
+  },
+  {
+   "code": "AN-1.1.E",
+   "unit": 1,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "an-kjeldahl"
+   ],
+   "partial": []
+  },
+  {
+   "code": "AN-1.2.A",
+   "unit": 1,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "an-titration-ph"
+   ],
+   "partial": []
+  },
+  {
+   "code": "AN-1.2.B",
+   "unit": 1,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "an-indicator"
+   ],
+   "partial": []
+  },
+  {
+   "code": "AN-2.1.A",
+   "unit": 2,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "an-gravimetric"
+   ],
+   "partial": []
+  },
+  {
+   "code": "AN-3.1.A",
+   "unit": 3,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "an-common-ion"
+   ],
+   "partial": []
+  },
+  {
+   "code": "AN-3.1.B",
+   "unit": 3,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "an-complex-solubility"
+   ],
+   "partial": []
+  },
+  {
+   "code": "AN-4.1.A",
+   "unit": 4,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "an-extraction"
+   ],
+   "partial": []
+  },
+  {
+   "code": "AN-4.1.B",
+   "unit": 4,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "an-chromatography"
+   ],
+   "partial": []
+  },
+  {
+   "code": "AN-5.1.A",
+   "unit": 5,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "an-two-component"
+   ],
+   "partial": []
+  },
+  {
+   "code": "AN-5.1.B",
+   "unit": 5,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "an-standard-addition"
+   ],
+   "partial": []
+  },
+  {
+   "code": "AN-5.1.C",
+   "unit": 5,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "an-calibration"
+   ],
+   "partial": []
+  },
+  {
+   "code": "AN-5.2.A",
+   "unit": 5,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "an-q-test"
+   ],
+   "partial": []
+  },
+  {
+   "code": "AN-5.2.B",
+   "unit": 5,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "an-uncertainty"
+   ],
+   "partial": []
+  },
+  {
+   "code": "AN-5.2.C",
+   "unit": 5,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "an-instrument"
+   ],
+   "partial": []
+  }
+ ],
+ "orphanTpl": []
+}

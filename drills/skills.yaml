@@ -41,6 +41,8 @@ domains:
   - { id: dat, title: "Dental Admission Test" }
   - { id: nuc, title: "Nuclear science" }
   - { id: ptable, title: "The periodic table" }
+  - { id: inorg, title: "Inorganic chemistry" }
+  - { id: anal, title: "Analytical chemistry" }
   - { id: physics, title: "Physics" }
   - { id: gchem, title: "General chemistry" }
   - { id: bio, title: "Biology" }
@@ -600,6 +602,19 @@ skills:
   - { id: cre.nonisothermal, domain: cre, title: "Energy balance: adiabatic reactors, equilibrium, multiple steady states", short: "Nonisothermal reactors", prereqs: [cre.cstr, cre.pfr, cre.arrhenius] }
   - { id: cre.diffusion, domain: cre, title: "External and internal diffusion with reaction", short: "Diffusion and reaction", prereqs: [cre.catalysis, cre.pfr] }
   - { id: cre.rtd, domain: cre, title: "Residence-time distributions and nonideal reactors", short: "RTD and nonideal", prereqs: [cre.cstr, cre.pfr] }
+
+  # ── inorganic and analytical chemistry ─────────────────────────────────
+  - { id: inorg.s-block, domain: inorg, title: "s-block chemistry: flame colours and oxides", short: "s block" }
+  - { id: inorg.p-block, domain: inorg, title: "p-block chemistry: oxidation states, oxoacids, oxides, disproportionation", short: "p block" }
+  - { id: inorg.coordination, domain: inorg, title: "Coordination chemistry: d counts, spin, CFSE, isomers, colour", short: "Coordination", prereqs: [inorg.p-block] }
+  - { id: inorg.redox, domain: inorg, title: "Redox half-equations and iodometry", short: "Redox", prereqs: [inorg.p-block] }
+  - { id: inorg.qualitative, domain: inorg, title: "Qualitative analysis: precipitates, amphoterism, ion tests", short: "Qualitative analysis", prereqs: [inorg.s-block] }
+  - { id: inorg.solids, domain: inorg, title: "Solid state: unit cells, packing, density, Bragg", short: "Solids" }
+  - { id: anal.titration, domain: anal, title: "Titrimetry: back, redox, EDTA, Mohr, Kjeldahl, titration curves", short: "Titrations", prereqs: [inorg.redox] }
+  - { id: anal.gravimetry, domain: anal, title: "Gravimetric analysis", short: "Gravimetry" }
+  - { id: anal.equilibria, domain: anal, title: "Solubility in analysis: common ions and complexes", short: "Solubility" }
+  - { id: anal.separations, domain: anal, title: "Extraction and chromatography", short: "Separations" }
+  - { id: anal.measurement, domain: anal, title: "Spectrophotometry, calibration, statistics and instrument choice", short: "Measurement" }
 
   # ── Dental Admission Test: perceptual ability ───────────────────────────
   - { id: dat.pat-angles, domain: dat, title: "PAT: angle ranking", short: "Angle ranking" }

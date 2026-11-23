@@ -11,6 +11,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 | Financial Accounting (CPA FAR) | Uniform CPA Examination Blueprints: Financial Accounting and Reporting (FAR) | exam-spec | read in part | — | — | 26 | 26 | 0 |
 | AI Basics | Harper Carroll, Academy: free AI course (10 modules, 90 lessons) | course | read in part | — | — | 19 | 19 | 0 |
 | AI Safety | BlueDot Impact course syllabi (Technical AI Safety, Governance, AGI Strategy) | course | read in full | — | — | 104 | 0 | 104 |
+| Analytical Chemistry | Regulations of the International Chemistry Olympiad, Appendices C and D (concepts, skills and factual knowledge) | exam-spec | read in full | gre-chemistry, aamc-mcat-outline, usnco | acs-accm | 18 | 18 | 0 |
 | Anchor Quantities | CODATA Recommended Values of the Fundamental Physical Constants: 2022 (NIST SP 961) | reference | read in part | snapshot-key-numbers, francl-take-a-number, cfr-21-101-9 | acs-accm-pchem | 14 | 3 | 11 |
 | Basketball | USA Basketball Player Development Curriculum | standard | read in part | — | — | 88 | 0 | 88 |
 | Biology (AP) | AP Biology Course and Exam Description (2019) | standard | read through a crosswalk | iupac-aa-1983, ngss-hs, ib-biology-2025, icho-appendix-c, icho-syllabus, aamc-mcat-outline | — | 179 | 179 | 0 |
@@ -23,6 +24,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 | Heat Transfer | NCEES FE Chemical CBT Exam Specifications (effective July 2020) | exam-spec | read in full | fe-mechanical, ib-physics-2025, pe-chemical | — | 101 | 63 | 38 |
 | INBDE (Dentistry) | JCNDE, Domain of Dentistry (INBDE content domain), July 2018 | exam-spec | read in part | — | — | 22 | 22 | 0 |
 | Information Systems | MSIS 2016 Global Competency Model | standard | read in full | — | — | 53 | 0 | 53 |
+| Inorganic Chemistry | Regulations of the International Chemistry Olympiad, Appendices C and D (concepts, skills and factual knowledge) | exam-spec | read in full | icho-syllabus, gre-chemistry, usnco, ib-chemistry-2025 | — | 23 | 23 | 0 |
 | Linear Algebra | Lay, Lay & McDonald, Linear Algebra and Its Applications, 5th ed. (chapter list) | textbook | read in part | — | — | 10 | 10 | 0 |
 | Material and Energy Balances | NCEES FE Chemical CBT Exam Specifications (effective July 2020) | exam-spec | read in full | pe-chemical | — | 16 | 14 | 2 |
 | High School Mathematics (Common Core) | CCSS Mathematics Appendix A: high school course pathways | standard | read in full | — | — | 200 | 200 | 0 |
@@ -51,6 +53,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 - **Financial Accounting (CPA FAR)**: Units are the FAR blueprint's three areas and topics are its groups; the objectives are ours, written against the group titles (the representative tasks were not read).
 - **AI Basics**: Units follow the ten modules of Harper Carroll's free Academy course. Only her module titles were readable, so the objectives under them are a house list.
 - **AI Safety**: No accredited standard exists; course syllabi and lab frameworks are the closest thing.
+- **Analytical Chemistry**: Topics named by IChO Appendix C (read in full), the GRE Chemistry analytical area and MCAT 5C. The ACS analytical content map was not read; objectives and their order are ours.
 - **Anchor Quantities**: Values from CODATA 2022, standard atomic weights and 21 CFR 101.9. Which values to carry is a house list for units 1–4 and the SnapShot Key Numbers in Biology sheet for units 5–6. No chemistry standard for this was found; the ACS content maps have not been opened to check.
 - **Basketball**: Introductory level read in full, higher levels in overview only.
 - **Biology (AP)**: Read through a publisher's correlation table.
@@ -59,6 +62,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 - **Fluid Mechanics**: Topics from FE Chemical area 6, read in full. Objectives and their order are ours; statics is assumed by the spec rather than listed. The framework stops at what a one-question drill can carry: no Moody chart, pump curves or differential analysis yet.
 - **Heat Transfer**: Also crosswalked to the FE Mechanical spec and UCI MAE 120.
 - **INBDE (Dentistry)**: Units are the Domain of Dentistry's three clinical sections plus Foundation Knowledge area 3 (materials); objectives cite the clinical content area or FK they serve and are ours.
+- **Inorganic Chemistry**: Units 1, 2 and 4 follow IChO Appendix D's factual-knowledge list (read in full); coordination and solids follow its preparation-only topics and the GRE inorganic area. Objectives and their order are ours.
 - **Linear Algebra**: Units follow the chapters of Lay's Linear Algebra and Its Applications (a textbook, not a standard). A published curriculum standard has not been looked for yet.
 - **Material and Energy Balances**: Topics from FE Chemical area 8, read in full. Objectives and their order are ours and follow the usual textbook sequence; unit 1 is assumed by the spec rather than listed.
 - **Mathematics K–8 (Common Core)**: Codes and wording checked against a state reprint; the CCSS site was blocked.
@@ -695,7 +699,7 @@ https://jcnde.ada.org/-/media/project/ada-organization/ada/jcnde/files/domain_of
 
 https://students-residents.aamc.org/mcatexam
 
-13 of 14 items have at least one objective answering to them.
+14 of 14 items have at least one objective answering to them.
 
 | Item | Topic | Objectives | With a drill | Where |
 |---|---|---|---|---|
@@ -710,7 +714,7 @@ https://students-residents.aamc.org/mcatexam
 | 4E | Atoms, nuclear decay, electronic structure | 24 | 24 | chemistry (21), nuclear (3) |
 | 5A | Water and solutions | 48 | 48 | chemistry (48) |
 | 5B | Molecules and intermolecular interactions | 27 | 27 | chemistry (27) |
-| 5C | Separation and purification | — | — | **nothing yet** |
+| 5C | Separation and purification | 2 | 2 | analytical-chemistry (2) |
 | 5D | Biologically relevant molecules | 14 | 14 | organic-reactions (7), structures (7) |
 | 5E | Chemical thermodynamics and kinetics | 32 | 32 | chemistry (32) |
 
@@ -821,7 +825,7 @@ https://www.ibo.org/globalassets/new-structure/recognition/pdfs/dp_sciences_chem
 | R2.2 | How fast? The rate of chemical change | 16 | 16 | chemistry (16) |
 | R2.3 | How far? The extent of chemical change | 18 | 18 | chemistry (18) |
 | R3.1 | Proton transfer reactions | 21 | 21 | chemistry (21) |
-| R3.2 | Electron transfer reactions | 18 | 18 | chemistry (18) |
+| R3.2 | Electron transfer reactions | 19 | 19 | chemistry (18), inorganic-chemistry (1) |
 | R3.3 | Electron sharing reactions | — | — | **nothing yet** |
 | R3.4 | Electron-pair sharing reactions | 12 | 12 | dat (8), organic-reactions (4) |
 
@@ -915,8 +919,8 @@ https://www.acs.org/education/olympiad/prepare-for-exams/exam-information.html
 
 | Item | Topic | Objectives | With a drill | Where |
 |---|---|---|---|---|
-| 1 | Stoichiometry and solutions (Q1-6) | 27 | 27 | chemistry (18), dat (9) |
-| 2 | Descriptive chemistry and laboratory (Q7-12) | 4 | 4 | dat (4) |
+| 1 | Stoichiometry and solutions (Q1-6) | 34 | 34 | analytical-chemistry (7), chemistry (18), dat (9) |
+| 2 | Descriptive chemistry and laboratory (Q7-12) | 9 | 9 | dat (4), inorganic-chemistry (5) |
 | 3 | States of matter (Q13-18) | 35 | 35 | chemistry (27), dat (8) |
 | 4 | Thermodynamics (Q19-24) | 40 | 40 | chemistry (34), dat (6) |
 | 5 | Kinetics (Q25-30) | 33 | 32 | chemistry (16), dat (4), physical-chemistry (13) |
@@ -929,11 +933,11 @@ https://www.acs.org/education/olympiad/prepare-for-exams/exam-information.html
 
 https://www.pianetachimica.it/olimpiadi/41icho/IChOsyllabus.pdf
 
-26 of 42 items have at least one objective answering to them.
+39 of 42 items have at least one objective answering to them.
 
 | Item | Topic | Objectives | With a drill | Where |
 |---|---|---|---|---|
-| c1 | Experimental error and significant figures | 11 | 11 | chemistry (11) |
+| c1 | Experimental error and significant figures | 17 | 17 | analytical-chemistry (6), chemistry (11) |
 | c2 | Nucleons, isotopes, decay and nuclear reactions | 6 | 6 | dat (3), nuclear (3) |
 | c3 | Quantum numbers, orbitals, configurations | 26 | 26 | chemistry (21), periodic-table (5) |
 | c4 | Periodic trends | 24 | 24 | chemistry (21), dat (3) |
@@ -941,46 +945,46 @@ https://www.pianetachimica.it/olimpiadi/41icho/IChOsyllabus.pdf
 | c6 | Stoichiometry, mole, concentration | 23 | 23 | chemistry (18), dat (5) |
 | c7 | Equilibrium and Le Chatelier | 18 | 18 | chemistry (18) |
 | c8 | Acid-base, pH, buffers, hydrolysis | 26 | 26 | chemistry (21), dat (5) |
-| c9 | Solubility constants and complexation | 18 | 18 | chemistry (18) |
+| c9 | Solubility constants and complexation | 20 | 20 | analytical-chemistry (2), chemistry (18) |
 | c10 | Electrochemistry: EMF, Nernst, electrolysis, Faraday | 22 | 22 | chemistry (18), physical-chemistry (4) |
 | c11 | Rates, rate laws, catalysis, energy profiles | 16 | 16 | chemistry (16) |
 | c12 | Thermodynamics: enthalpy, Hess, entropy, Gibbs | 34 | 34 | chemistry (34) |
 | c13 | Ideal gases and partial pressures | 31 | 31 | chemistry (27), dat (4) |
-| c14 | Titrations: direct, back, redox, complexometric, precipitation | 21 | 21 | chemistry (21) |
-| c15 | Acidimetry, alkalimetry, indicators | 21 | 21 | chemistry (21) |
-| c16 | Qualitative inorganic analysis and flame tests | — | — | **nothing yet** |
-| c17 | Lambert-Beer law | 27 | 27 | chemistry (27) |
+| c14 | Titrations: direct, back, redox, complexometric, precipitation | 28 | 28 | analytical-chemistry (7), chemistry (21) |
+| c15 | Acidimetry, alkalimetry, indicators | 28 | 28 | analytical-chemistry (7), chemistry (21) |
+| c16 | Qualitative inorganic analysis and flame tests | 6 | 6 | inorganic-chemistry (6) |
+| c17 | Lambert-Beer law | 33 | 33 | analytical-chemistry (6), chemistry (27) |
 | c18 | Organic structure, nomenclature, hybridization | 11 | 11 | organic-reactions (7), structures (4) |
 | c19 | Delocalization, resonance, aromaticity | 3 | 3 | organic-reactions (3) |
 | c20 | Isomerism and stereochemistry | 13 | 13 | dat (6), organic-reactions (7) |
 | c21 | Hydrophilic and hydrophobic groups, micelles | — | — | **nothing yet** |
 | c22 | Polymers: chain growth, polyaddition, polycondensation | — | — | **nothing yet** |
-| a1 | Prep only: advanced VSEPR, inorganic stereochemistry, solid state and Bragg | — | — | **nothing yet** |
+| a1 | Prep only: advanced VSEPR, inorganic stereochemistry, solid state and Bragg | 14 | 14 | inorganic-chemistry (14) |
 | a2 | Prep only: integrated rate laws, Arrhenius, steady state, collision theory | 19 | 18 | physical-chemistry (13), reaction-engineering (6) |
 | a3 | Prep only: phase diagrams and Clausius-Clapeyron | 9 | 9 | physical-chemistry (3), thermodynamics (6) |
 | a4 | Prep only: stereoselective reactions, conformations, advanced aromatic substitution | 3 | 3 | organic-reactions (3) |
 | a5 | Prep only: advanced polymers and supramolecular chemistry | — | — | **nothing yet** |
 | a6 | Prep only: biochemistry (amino acids, proteins, enzymes, carbohydrates, nucleic acids) | 23 | 23 | biology (16), structures (7) |
-| a7 | Prep only: complex solubility, Schrodinger equation, simple MO theory | 18 | 15 | physical-chemistry (18) |
+| a7 | Prep only: complex solubility, Schrodinger equation, simple MO theory | 20 | 17 | analytical-chemistry (2), physical-chemistry (18) |
 | a8 | Prep only: mass spectrometry and NMR | 5 | 5 | physical-chemistry (5) |
-| a9 | Prep only: advanced synthesis and analysis techniques | — | — | **nothing yet** |
-| d1 | Facts: s-block reactions and flame colours | — | — | **nothing yet** |
-| d2 | Facts: binary non-metal hydrides | — | — | **nothing yet** |
-| d3 | Facts: oxides of C, N and S | — | — | **nothing yet** |
-| d4 | Facts: p-block oxidation states and oxoacids | — | — | **nothing yet** |
-| d5 | Facts: halogens with water | — | — | **nothing yet** |
-| d6 | Facts: first-row transition-metal oxidation states and ion colours | — | — | **nothing yet** |
-| d7 | Facts: dissolving metals, amphoteric hydroxides | — | — | **nothing yet** |
-| d8 | Facts: permanganate, chromate, dichromate | — | — | **nothing yet** |
-| d9 | Facts: iodometry | — | — | **nothing yet** |
-| d10 | Facts: identifying ions | — | — | **nothing yet** |
+| a9 | Prep only: advanced synthesis and analysis techniques | 3 | 3 | analytical-chemistry (3) |
+| d1 | Facts: s-block reactions and flame colours | 4 | 4 | inorganic-chemistry (4) |
+| d2 | Facts: binary non-metal hydrides | 4 | 4 | inorganic-chemistry (4) |
+| d3 | Facts: oxides of C, N and S | 5 | 5 | inorganic-chemistry (5) |
+| d4 | Facts: p-block oxidation states and oxoacids | 5 | 5 | inorganic-chemistry (5) |
+| d5 | Facts: halogens with water | 5 | 5 | inorganic-chemistry (5) |
+| d6 | Facts: first-row transition-metal oxidation states and ion colours | 7 | 7 | inorganic-chemistry (7) |
+| d7 | Facts: dissolving metals, amphoteric hydroxides | 6 | 6 | inorganic-chemistry (6) |
+| d8 | Facts: permanganate, chromate, dichromate | 6 | 6 | inorganic-chemistry (6) |
+| d9 | Facts: iodometry | 6 | 6 | inorganic-chemistry (6) |
+| d10 | Facts: identifying ions | 7 | 7 | inorganic-chemistry (7) |
 | d11 | Facts: organic reaction types, Grignard, Fehling, Tollens, biomolecules | 10 | 10 | organic-reactions (10) |
 
 ## IChO syllabus, theoretical part (12 sections, levels 1-3)
 
 https://www.pw.live/olympiad/exams/icho-syllabus
 
-9 of 12 items have at least one objective answering to them.
+10 of 12 items have at least one objective answering to them.
 
 | Item | Topic | Objectives | With a drill | Where |
 |---|---|---|---|---|
@@ -988,7 +992,7 @@ https://www.pw.live/olympiad/exams/icho-syllabus
 | 2 | Chemical bonding | 13 | 13 | chemistry (13) |
 | 3 | Chemical calculations | 18 | 18 | chemistry (18) |
 | 4 | Periodic trends | 21 | 21 | chemistry (21) |
-| 5 | Inorganic chemistry | — | — | **nothing yet** |
+| 5 | Inorganic chemistry | 6 | 6 | inorganic-chemistry (6) |
 | 6 | Physical chemistry | 14 | 14 | physical-chemistry (7), thermodynamics (7) |
 | 7 | Chemical kinetics | 29 | 28 | chemistry (16), physical-chemistry (13) |
 | 8 | Spectroscopy | 13 | 10 | physical-chemistry (13) |
@@ -1072,11 +1076,11 @@ https://www.ets.org/gre/test-takers/subject-tests/about/content-structure.html
 
 https://www.ets.org/gre/score-users/subject-test-changes.html
 
-2 of 4 items have at least one objective answering to them.
+4 of 4 items have at least one objective answering to them.
 
 | Item | Topic | Objectives | With a drill | Where |
 |---|---|---|---|---|
-| AN | Analytical chemistry | — | — | **nothing yet** |
-| IN | Inorganic chemistry | — | — | **nothing yet** |
+| AN | Analytical chemistry | 14 | 14 | analytical-chemistry (14) |
+| IN | Inorganic chemistry | 14 | 14 | inorganic-chemistry (14) |
 | OR | Organic chemistry | 7 | 7 | organic-reactions (7) |
 | PH | Physical chemistry | 7 | 7 | physical-chemistry (7) |
