@@ -755,7 +755,7 @@ https://educate.iowa.gov/pk-12/standards/academics/science/high-school
 | PS3-1 | Energy change of one component from the others and the flows | 10 | 10 | physics (10) |
 | PS3-2 | Energy as motion of particles plus relative positions | 10 | 10 | physics (10) |
 | PS3-3 | Design a device that converts energy | — | — | **nothing yet** |
-| PS3-4 | Heat flow toward uniform energy (second law) | 12 | 10 | physics (12) |
+| PS3-4 | Heat flow toward uniform energy (second law) | 12 | 12 | physics (12) |
 | PS3-5 | Energy in electric and magnetic field interactions | 15 | 15 | physics (15) |
 | PS4-1 | Wave speed, frequency and wavelength | 13 | 13 | physics (13) |
 | PS4-2 | Advantages of digital transmission and storage | — | — | **nothing yet** |
@@ -854,12 +854,12 @@ https://ibo.org/globalassets/new-structure/recognition/pdfs/dp_sciences_physics_
 | A.3 | Work, energy and power | 10 | 10 | physics (10) |
 | A.4 | Rigid body mechanics (HL) | 16 | 16 | physics (16) |
 | A.5 | Galilean and special relativity (HL) | 5 | 5 | physics (5) |
-| B.1 | Thermal energy transfers | 19 | 16 | heat-transfer (7), physics (12) |
+| B.1 | Thermal energy transfers | 19 | 18 | heat-transfer (7), physics (12) |
 | B.2 | Greenhouse effect | 7 | 7 | earth-space (7) |
-| B.3 | Gas laws | 12 | 10 | physics (12) |
-| B.4 | Thermodynamics (HL) | 19 | 17 | physics (12), thermodynamics (7) |
+| B.3 | Gas laws | 12 | 12 | physics (12) |
+| B.4 | Thermodynamics (HL) | 19 | 19 | physics (12), thermodynamics (7) |
 | B.5 | Current and circuits | 12 | 12 | physics (12) |
-| C.1 | Simple harmonic motion | 5 | 4 | physics (5) |
+| C.1 | Simple harmonic motion | 5 | 5 | physics (5) |
 | C.2 | Wave model | 13 | 13 | physics (13) |
 | C.3 | Wave phenomena | 20 | 20 | physics (20) |
 | C.4 | Standing waves and resonance | 13 | 13 | physics (13) |
