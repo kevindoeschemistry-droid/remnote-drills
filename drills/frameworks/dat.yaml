@@ -44,6 +44,7 @@ domains: []
 
 basis:
   primary: ada-dat
+  also: [ngss-hs, ib-chemistry-2025, usnco, icho-appendix-c]
 
 big_ideas:
   - id: STRUCT
@@ -184,6 +185,7 @@ units:
     topics:
       - n: 1
         title: Stoichiometry and General Concepts
+        std: ["ib-chemistry-2025:S1.4", "usnco:1", "icho-appendix-c:c6"]
         outline: "Percent composition · empirical formulae · balancing equations · moles and molecular formulas · molar mass · density · calculations from balanced equations"
         los:
           - { id: A, do: "Calculate percent composition by mass from a formula.", ek: ["Mass % = (n × atomic mass of element) / molar mass × 100."], p: [P3], drills: ["ac-mass-percent"] }
@@ -193,6 +195,7 @@ units:
           - { id: E, do: "Find the limiting reagent, theoretical yield and percent yield from a balanced equation.", ek: ["Compare moles available ÷ coefficient; the smallest ratio limits; % yield = actual / theoretical × 100."], p: [P3], needs: [DAT-2.1.C, DAT-2.1.D], drills: ["ac-limiting-reactant", "ac-percent-yield"] }
       - n: 2
         title: Gases
+        std: ["ib-chemistry-2025:S1.5", "usnco:3", "icho-appendix-c:c13"]
         outline: "Kinetic molecular theory of gases · Dalton's, Boyle's and Charles's laws · ideal gas law"
         los:
           - { id: A, do: "Solve for an unknown P, V, n or T with the ideal gas law.", ek: ["PV = nRT with T in kelvin; R = 0.0821 L·atm/(mol·K); 1 mol at STP ≈ 22.4 L."], p: [P3], drills: ["ac-ideal-gas-solve", "pc-ideal-gas"] }
@@ -201,6 +204,7 @@ units:
           - { id: D, do: "Apply kinetic molecular theory to compare molecular speeds and effusion rates and predict deviations from ideality.", ek: ["Average KE ∝ T; rate₁/rate₂ = √(M₂/M₁); real gases deviate at high P and low T."], p: [P2, P3], drills: ["pc-effusion", "ac-kmt-statement", "ac-real-gas"] }
       - n: 3
         title: Liquids and Solids
+        std: ["usnco:3"]
         outline: "Intermolecular forces · phase changes · vapor pressure · structure · polarity · properties"
         los:
           - { id: A, do: "Rank substances by intermolecular force strength and predict boiling point, viscosity and surface tension.", ek: ["London < dipole–dipole < H-bonding (N, O, F–H) < ion–dipole; London grows with size and surface area."], p: [P2], drills: ["ac-imf-identify", "ac-boiling-rank"] }
@@ -209,6 +213,7 @@ units:
           - { id: D, do: "Classify a solid as ionic, molecular, covalent network or metallic and predict its properties.", ek: ["Network solids (diamond, SiO2) have the highest melting points; metals conduct as solids; ionic solids conduct only when molten or dissolved."], p: [P1, P2], drills: ["ac-solid-type"] }
       - n: 4
         title: Solutions
+        std: ["usnco:1"]
         outline: "Polarity · properties (colligative, noncolligative) · forces · concentration calculations"
         los:
           - { id: A, do: "Convert among molarity, molality, mole fraction, mass percent and ppm, and solve dilutions.", ek: ["M = mol/L solution; m = mol/kg solvent; M1V1 = M2V2."], p: [P3], drills: ["ac-molality-convert", "ac-dilution"] }
@@ -217,6 +222,7 @@ units:
           - { id: D, do: "Calculate vapor-pressure lowering with Raoult's law.", ek: ["P_solution = X_solvent × P°_solvent."], p: [P3], drills: ["ac-raoult"] }
       - n: 5
         title: Acids and Bases
+        std: ["usnco:6", "icho-appendix-c:c8"]
         outline: "pH · strength · Brønsted–Lowry reactions · calculations"
         los:
           - { id: A, do: "Identify Brønsted–Lowry acids, bases and conjugate pairs in a reaction.", ek: ["Acid donates H+, base accepts; a stronger acid has a weaker conjugate base."], p: [P1], drills: ["ac-conjugate"] }
@@ -226,6 +232,7 @@ units:
           - { id: E, do: "Read a titration curve to find the equivalence point, half-equivalence point and pKa.", ek: ["At half-equivalence pH = pKa; weak acid + strong base equivalence pH > 7; n_acid = n_base at equivalence."], p: [P5], needs: [DAT-2.5.D], drills: ["ac-indicator-choice", "ac-polyprotic", "ac-equivalence-ph"] }
       - n: 6
         title: Chemical Equilibria
+        std: ["usnco:6"]
         outline: "Molecular · acid/base · precipitation · calculations · Le Chatelier's principle"
         los:
           - { id: A, do: "Write an equilibrium expression and use Q vs K to predict the direction of shift.", ek: ["Products over reactants raised to coefficients; omit pure solids and liquids; Q < K shifts right."], p: [P1, P2], drills: ["ac-k-expression", "ac-q-vs-k"] }
@@ -234,6 +241,7 @@ units:
           - { id: D, do: "Solve for equilibrium concentrations with an ICE table and the small-x approximation.", ek: ["Initial – change – equilibrium; drop x when K is tiny relative to the starting concentration."], p: [P3], needs: [DAT-2.6.A], drills: ["ac-small-x", "ac-ice-k"] }
       - n: 7
         title: Thermodynamics and Thermochemistry
+        std: ["usnco:4"]
         outline: "Laws of thermodynamics · Hess's law · spontaneity · enthalpies and entropies · heat transfer"
         los:
           - { id: A, do: "Calculate ΔH_rxn from Hess's law, enthalpies of formation or bond energies.", ek: ["ΔH = ΣΔH_f(products) − ΣΔH_f(reactants); with bond energies, broken − formed; reverse a step, flip the sign."], p: [P3], drills: ["ac-hess-combine", "pc-hess", "ac-bond-enthalpy"] }
@@ -244,6 +252,7 @@ units:
           - { id: F, do: "Apply the first and third laws to a system: sign conventions for q and w, and absolute entropy.", ek: ["ΔU = q + w (work on the system positive); S = 0 for a perfect crystal at 0 K; state functions are path-independent."], p: [P1], drills: ["ac-first-law", "ac-third-law"] }
       - n: 8
         title: Chemical Kinetics
+        std: ["usnco:5"]
         outline: "Rate laws · activation energy · half-life"
         los:
           - { id: A, do: "Determine reaction orders and the rate constant from initial-rate data.", ek: ["Doubling [A] doubles rate → 1st order, quadruples → 2nd, no change → 0th; units of k depend on overall order."], p: [P3, P5], drills: ["pc-initial-rates", "ac-rate-change"] }
@@ -252,6 +261,7 @@ units:
           - { id: D, do: "Derive a rate law from a mechanism's rate-determining step and identify intermediates and catalysts.", ek: ["The slow step sets the rate law; intermediates are made then consumed, catalysts are consumed then regenerated."], p: [P2], drills: ["ac-slow-first-step", "ac-mechanism-species", "ac-pre-equilibrium-order"] }
       - n: 9
         title: Oxidation–Reduction Reactions
+        std: ["usnco:7"]
         outline: "Balancing equations · determination of oxidation numbers · electrochemical calculations · electrochemical concepts and terminology"
         los:
           - { id: A, do: "Assign oxidation numbers and identify the oxidizing and reducing agents.", ek: ["F always −1, O usually −2, H +1 with nonmetals; the species oxidized is the reducing agent."], p: [P1], drills: ["ac-oxidation-number", "ac-oxidizing-agent"] }
@@ -271,6 +281,7 @@ units:
           - { id: G, do: "Relate photon energy, frequency and wavelength to electron transitions and the experiments behind atomic theory.", ek: ["E = hν = hc/λ; emission when e− falls to a lower level; Thomson (electron), Rutherford (nucleus), Bohr (quantized levels)."], p: [P1, P3], drills: ["ac-photon-per-mole", "pc-bohr", "ac-atomic-experiments"] }
       - n: 11
         title: Periodic Properties
+        std: ["icho-appendix-c:c4"]
         outline: "Representative elements · transition elements · periodic trends · descriptive chemistry"
         los:
           - { id: A, do: "Rank elements by atomic radius, ionization energy, electronegativity and electron affinity.", ek: ["Across a period Z_eff rises: radius falls, IE and EN rise; down a group radius rises, IE falls; cations smaller, anions larger."], p: [P1, P2], drills: ["ac-periodic-trend"] }
@@ -278,6 +289,7 @@ units:
           - { id: C, do: "Explain characteristic properties of transition elements: multiple oxidation states, colored ions and paramagnetism.", ek: ["Partially filled d orbitals give variable charges, d–d color and unpaired electrons."], p: [P1], drills: ["ac-transition-properties", "ac-unpaired-electrons"] }
       - n: 12
         title: Nuclear Reactions
+        std: ["ngss-hs:PS1-8", "icho-appendix-c:c2"]
         outline: "Balancing equations · binding energy · decay processes · particles · terminology"
         los:
           - { id: A, do: "Balance a nuclear equation and identify the decay mode from the change in A and Z.", ek: ["α: A − 4, Z − 2; β−: Z + 1; β+ and electron capture: Z − 1; γ: no change; A and Z both conserved."], p: [P1], drills: ["ac-nuclear-equation"] }
@@ -285,6 +297,7 @@ units:
           - { id: C, do: "Calculate binding energy from mass defect and compare nuclear stability.", ek: ["E = Δm c²; 1 u ≈ 931.5 MeV; binding energy per nucleon peaks near Fe-56."], p: [P3], drills: ["nu-binding-energy"] }
       - n: 13
         title: Laboratory
+        std: ["usnco:2"]
         outline: "Basic techniques · equipment · error analysis · safety · data analysis"
         los:
           - { id: A, do: "Choose the glassware or equipment for a measurement and report the result to the right significant figures.", ek: ["Volumetric pipets and flasks are precise; beakers are not; read the meniscus at eye level, one estimated digit."], p: [P1], drills: ["ac-glassware", "ac-sig-figs-product"] }
@@ -302,6 +315,7 @@ units:
     topics:
       - n: 1
         title: Mechanisms
+        std: ["ib-chemistry-2025:R3.4"]
         outline: "Curved arrows (single mechanism: resonance, free radical, proton transfer, addition, elimination, substitution, rearrangements, other e.g. Diels–Alder; combined mechanisms) · reaction coordinate diagrams · general"
         los:
           - { id: A, do: "Predict the product of a step from its curved arrows, telling two-electron arrows from fishhooks.", ek: ["Double-headed arrows move electron pairs and fishhooks move single electrons, always from the electron source to the electron sink."], p: [P5], drills: ["st-mech-sn2-1", "st-mech-hbr-addition-1", "or-radical-halogenation"] }
@@ -336,6 +350,7 @@ units:
           - { id: D, do: "Rank nitrogen and oxygen bases by basicity, including resonance and steric effects on amines.", ek: ["Alkylamines > NH₃ > aniline > amide; lone pairs in resonance or in sp orbitals are less basic."], p: [P2], drills: ["or-amine-basicity"] }
       - n: 4
         title: Chemical and Physical Properties of Molecules
+        std: ["icho-appendix-c:c20"]
         outline: "Structure (polarity, intermolecular forces, solubility, melting/boiling point) · laboratory theory and techniques (chromatography, extractions, recrystallization, distillation) · spectroscopy (¹H NMR, ¹³C NMR, infrared, multi-spectra) · general"
         los:
           - { id: A, do: "Rank organic compounds by boiling point, melting point and water solubility.", ek: ["H-bonding and molar mass raise bp; branching lowers bp but symmetry raises mp; small alcohols and acids are water-soluble."], p: [P2], drills: ["or-boiling-solubility"] }
@@ -346,6 +361,7 @@ units:
           - { id: F, do: "Deduce a structure from a molecular formula and combined IR, ¹H and ¹³C NMR data.", ek: ["Degrees of unsaturation = (2C + 2 + N − H − X)/2; one ring or π bond each; a benzene ring counts 4."], p: [P5, P6], needs: [DAT-3.4.C, DAT-3.4.D, DAT-3.4.E], drills: ["or-structure-from-data", "or-degrees-of-unsaturation"] }
       - n: 5
         title: Structural Evaluation
+        std: ["ib-chemistry-2025:S3.2"]
         outline: "Nomenclature (functional groups, IUPAC rules) · stereochemistry (conformations, isomer relationships, chirality) · structure and bonding (aromaticity, hybridization, resonance, atomic/molecular orbitals, bond angles/lengths, relative stability/reactivity) · general"
         los:
           - { id: A, do: "Name a compound by IUPAC rules, or draw it from its name.", ek: ["Highest-priority group sets the suffix and lowest locant; longest chain containing it; substituents alphabetical; E/Z and R/S as prefixes."], p: [P1], needs: [DAT-3.5.B], drills: ["or-iupac-name"] }

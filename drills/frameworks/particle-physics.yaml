@@ -19,7 +19,7 @@ domains: []
 
 basis:
   primary: aqa-7408-particles
-  also: [openstax-university-physics]
+  also: [openstax-university-physics, gre-physics]
   note: "Objectives follow AQA A-level Physics section 3.2 (Particles and radiation), read in this session. The Lorentz-factor items go beyond it and rest on a university textbook chapter."
 
 big_ideas:
@@ -42,6 +42,7 @@ units:
   - id: particles
     n: 1
     title: "Particles and interactions"
+    std: ["gre-physics:9"]
     scope: core
     ideas: [ZOO]
     topics:

@@ -25,6 +25,7 @@ domains: [meb]
 
 basis:
   primary: fe-chemical
+  also: [pe-chemical]
   note: "Topics from FE Chemical area 8, read in full. Objectives and their order are ours and follow the usual textbook sequence; unit 1 is assumed by the spec rather than listed."
 
 big_ideas:
@@ -65,7 +66,7 @@ units:
     n: 2
     title: "Steady-state balances without reaction"
     scope: core
-    std: ["fe-chemical:8.A"]
+    std: ["fe-chemical:8.A", "pe-chemical:1.A"]
     ideas: [CONSERVE, BOUNDARY, BASIS]
     topics:
       - n: 1
@@ -81,7 +82,7 @@ units:
     n: 3
     title: "Balances with reaction"
     scope: core
-    std: ["fe-chemical:8.F"]
+    std: ["fe-chemical:8.F", "pe-chemical:1.A"]
     ideas: [CONSERVE]
     topics:
       - n: 1
@@ -99,7 +100,7 @@ units:
     n: 4
     title: "Energy balances"
     scope: core
-    std: ["fe-chemical:8.C"]
+    std: ["fe-chemical:8.C", "pe-chemical:1.B"]
     ideas: [CONSERVE]
     topics:
       - n: 1

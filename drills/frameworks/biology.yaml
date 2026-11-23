@@ -50,7 +50,7 @@ domains: []
 
 basis:
   primary: ap-biology
-  also: [iupac-aa-1983]
+  also: [iupac-aa-1983, ngss-hs, ib-biology-2025, icho-appendix-c, icho-syllabus, aamc-mcat-outline]
   note: "Read through a publisher's correlation table."
 
 big_ideas:
@@ -92,6 +92,7 @@ units:
   - id: chemistry-of-life
     n: 1
     title: Chemistry of Life
+    std: ["ngss-hs:LS1-6", "ib-biology-2025:A1.1", "ib-biology-2025:A1.2", "ib-biology-2025:B1.1", "ib-biology-2025:B1.2", "icho-appendix-c:a6", "icho-syllabus:11", "aamc-mcat-outline:1A"]
     scope: core
     ideas: [SYI, ENE, IST]
     weight_est: "8–11%"
@@ -135,6 +136,7 @@ units:
   - id: cell-structure
     n: 2
     title: Cell Structure and Function
+    std: ["ib-biology-2025:A2.2", "ib-biology-2025:B2.1", "ib-biology-2025:B2.2", "ib-biology-2025:D2.3"]
     scope: core
     ideas: [SYI, ENE, EVO]
     weight_est: "10–13%"
@@ -202,6 +204,7 @@ units:
   - id: cellular-energetics
     n: 3
     title: Cellular Energetics
+    std: ["ngss-hs:LS1-5", "ngss-hs:LS1-7", "ib-biology-2025:C1.1", "ib-biology-2025:C1.2", "ib-biology-2025:C1.3", "aamc-mcat-outline:1D"]
     scope: core
     ideas: [ENE, SYI]
     weight_est: "12–16%"
@@ -250,6 +253,7 @@ units:
   - id: cell-communication
     n: 4
     title: Cell Communication and Cell Cycle
+    std: ["ngss-hs:LS1-3", "ngss-hs:LS1-4", "ib-biology-2025:C2.1", "ib-biology-2025:D2.1"]
     scope: core
     ideas: [IST, ENE]
     weight_est: "10–15%"
@@ -295,6 +299,7 @@ units:
   - id: heredity
     n: 5
     title: Heredity
+    std: ["ngss-hs:LS3-1", "ngss-hs:LS3-2", "ngss-hs:LS3-3", "ib-biology-2025:D3.1", "ib-biology-2025:D3.2", "aamc-mcat-outline:1C"]
     scope: core
     ideas: [IST, EVO, SYI]
     weight_est: "8–11%"
@@ -337,6 +342,7 @@ units:
   - id: gene-expression
     n: 6
     title: Gene Expression and Regulation
+    std: ["ngss-hs:LS1-1", "ib-biology-2025:D1.1", "ib-biology-2025:D1.2", "ib-biology-2025:D1.3", "ib-biology-2025:D2.2", "aamc-mcat-outline:1B"]
     scope: core
     ideas: [IST]
     weight_est: "12–16%"
@@ -389,6 +395,7 @@ units:
   - id: natural-selection
     n: 7
     title: Natural Selection
+    std: ["ngss-hs:LS4-1", "ngss-hs:LS4-2", "ngss-hs:LS4-3", "ngss-hs:LS4-4", "ngss-hs:LS4-5", "ib-biology-2025:A3.1", "ib-biology-2025:A3.2", "ib-biology-2025:A4.1", "ib-biology-2025:B4.1", "ib-biology-2025:D4.1"]
     scope: core
     ideas: [EVO, SYI]
     weight_est: "13–20%"
@@ -464,6 +471,7 @@ units:
   - id: ecology
     n: 8
     title: Ecology
+    std: ["ngss-hs:LS2-1", "ngss-hs:LS2-2", "ngss-hs:LS2-3", "ngss-hs:LS2-4", "ngss-hs:LS2-5", "ngss-hs:LS2-6", "ngss-hs:LS2-8", "ib-biology-2025:A4.2", "ib-biology-2025:B4.2", "ib-biology-2025:C4.1", "ib-biology-2025:C4.2", "ib-biology-2025:D4.2"]
     scope: core
     ideas: [ENE, SYI, EVO, IST]
     weight_est: "10–15%"
@@ -514,6 +522,7 @@ units:
   - id: systems
     n: 9
     title: Anatomy and Physiology
+    std: ["ngss-hs:LS1-2", "ib-biology-2025:B3.1", "ib-biology-2025:B3.2", "ib-biology-2025:B3.3", "ib-biology-2025:C2.2", "ib-biology-2025:C3.1", "ib-biology-2025:C3.2", "ib-biology-2025:D3.3"]
     scope: extension
     ideas: [SYI, ENE, IST]
     weight_est: "DAT Biology: Structure and Function of Systems"
@@ -559,6 +568,7 @@ units:
   - id: development-diversity
     n: 10
     title: Developmental Biology and Microbiology
+    std: ["ib-biology-2025:A2.3", "ib-biology-2025:B2.3"]
     scope: extension
     ideas: [IST, EVO, SYI]
     weight_est: "DAT Biology: Genetics (developmental mechanisms) · Diversity of Life"

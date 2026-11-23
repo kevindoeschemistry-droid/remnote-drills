@@ -27,7 +27,8 @@ for (const s of Object.values(standards)) {
   if (!s.items) continue;
   items[s.id] = new Map();
   for (const it of s.items) {
-    items[s.id].set(it.code, { title: it.title, weight: it.weight, area: true });
+    // an item with parts is an area (its parts are what get cited); an item without parts is cited itself
+    items[s.id].set(it.code, { title: it.title, weight: it.weight, area: !!it.parts && Object.keys(it.parts).length > 0 });
     for (const [k, t] of Object.entries(it.parts ?? {})) items[s.id].set(`${it.code}.${k}`, { title: t, parent: it.code });
   }
 }
@@ -55,7 +56,13 @@ for (const fw of frameworks) {
     let outside = false;
     for (const c of cites) {
       const i = c.indexOf(":");
-      if (i < 0) { outside = true; continue; } // a bare code belongs to the primary standard
+      if (i < 0) {
+        // a bare code belongs to the primary standard; credit it there when that standard lists the item
+        outside = true;
+        const sid = fw.basis.primary;
+        if (items[sid]?.has(c)) ((cited[sid] ??= {})[c] ??= []).push({ fw: fw.id, code, drilled });
+        continue;
+      }
       const sid = c.slice(0, i), item = c.slice(i + 1);
       if (!standards[sid]) { errors.push(`${code}: cites unknown standard ${sid}`); continue; }
       if (items[sid] && !items[sid].has(item)) { errors.push(`${code}: ${sid} has no item ${item}`); continue; }
@@ -90,14 +97,14 @@ for (const [sid, map] of Object.entries(items)) {
   const covered = leaf.filter(([k, v]) => hit[k]?.length || hit[v.parent]?.length);
   md += `\n## ${s.name}\n\n${s.url ?? ""}\n\n${covered.length} of ${leaf.length} items have at least one objective answering to them.\n\n| Item | Topic | Objectives | With a drill | Where |\n|---|---|---|---|---|\n`;
   for (const [k, v] of map) {
-    if (v.area) { md += `| **${k}** | **${v.title}** (${v.weight} questions) | | | |\n`; continue; }
+    if (v.area) { md += `| **${k}** | **${v.title}**${v.weight ? ` (${v.weight} questions)` : ""} | | | |\n`; continue; }
     const h = hit[k] ?? [];
     const by = {};
     for (const x of h) by[x.fw] = (by[x.fw] ?? 0) + 1;
     md += `| ${k} | ${v.title} | ${h.length || "—"} | ${h.length ? h.filter((x) => x.drilled).length : "—"} | ${Object.entries(by).map(([f, n]) => `${f} (${n})`).join(", ") || "**nothing yet**"} |\n`;
   }
   const areas = [...map.entries()].filter(([, v]) => v.area).map(([k, v]) => ({ k, v, n: leaf.filter(([, x]) => x.parent === k).length, c: covered.filter(([, x]) => x.parent === k).length }));
-  md += `\n**Areas with nothing answering to them:** ${areas.filter((a) => a.c === 0).map((a) => `${a.k} ${a.v.title}`).join("; ") || "none"}.\n`;
+  if (areas.length) md += `\n**Areas with nothing answering to them:** ${areas.filter((a) => a.c === 0).map((a) => `${a.k} ${a.v.title}`).join("; ") || "none"}.\n`;
 }
 fs.mkdirSync(path.join(root, "docs/coverage"), { recursive: true });
 fs.writeFileSync(path.join(root, "docs/coverage/standards.md"), md);

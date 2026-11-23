@@ -55,6 +55,7 @@ domains: []
 
 basis:
   primary: ap-physics
+  also: [ngss-hs, ib-physics-2025, aamc-mcat-outline, gre-physics]
   note: "Objective codes read for a few units only."
 
 big_ideas:
@@ -114,6 +115,7 @@ units:
   - id: kinematics
     n: 1
     title: Kinematics
+    std: ["ib-physics-2025:A.1"]
     scope: core
     layer: algebra
     ced: "P1 Unit 1"
@@ -152,6 +154,7 @@ units:
   - id: dynamics
     n: 2
     title: Force and translational dynamics
+    std: ["ngss-hs:PS2-1", "ib-physics-2025:A.2", "ib-physics-2025:D.1", "aamc-mcat-outline:4A"]
     scope: core
     layer: algebra
     ced: "P1 Unit 2"
@@ -206,6 +209,7 @@ units:
   - id: energy
     n: 3
     title: Work, energy and power
+    std: ["ngss-hs:PS3-1", "ngss-hs:PS3-2", "ib-physics-2025:A.3", "aamc-mcat-outline:4A"]
     scope: core
     layer: algebra
     ced: "P1 Unit 3"
@@ -241,6 +245,7 @@ units:
   - id: momentum
     n: 4
     title: Linear momentum
+    std: ["ngss-hs:PS2-2", "ib-physics-2025:A.2"]
     scope: core
     layer: algebra
     ced: "P1 Unit 4"
@@ -271,6 +276,7 @@ units:
   - id: rotation
     n: 5
     title: Torque and rotational dynamics
+    std: ["ib-physics-2025:A.4"]
     scope: core
     layer: algebra
     ced: "P1 Unit 5"
@@ -307,6 +313,7 @@ units:
   - id: rotation-energy-momentum
     n: 6
     title: Energy and momentum of rotating systems
+    std: ["ib-physics-2025:A.4"]
     scope: core
     layer: algebra
     ced: "P1 Unit 6"
@@ -343,6 +350,7 @@ units:
   - id: oscillations
     n: 7
     title: Oscillations
+    std: ["ib-physics-2025:C.1"]
     scope: core
     layer: algebra
     ced: "P1 Unit 7"
@@ -370,6 +378,7 @@ units:
   - id: fluids
     n: 8
     title: Fluids
+    std: ["aamc-mcat-outline:4B"]
     scope: core
     layer: algebra
     ced: "P1 Unit 8"
@@ -399,6 +408,7 @@ units:
   - id: thermodynamics
     n: 9
     title: Thermodynamics
+    std: ["ngss-hs:PS3-4", "ib-physics-2025:B.1", "ib-physics-2025:B.3", "ib-physics-2025:B.4"]
     scope: core
     layer: algebra
     ced: "P2 Unit 9"
@@ -439,6 +449,7 @@ units:
   - id: electrostatics
     n: 10
     title: Electric force, field and potential
+    std: ["ngss-hs:PS2-4", "ngss-hs:PS3-5", "ib-physics-2025:D.2"]
     scope: core
     layer: algebra
     ced: "P2 Unit 10"
@@ -485,6 +496,7 @@ units:
   - id: circuits
     n: 11
     title: Electric circuits
+    std: ["ib-physics-2025:B.5", "aamc-mcat-outline:4C"]
     scope: core
     layer: algebra
     ced: "P2 Unit 11"
@@ -528,6 +540,7 @@ units:
   - id: magnetism
     n: 12
     title: Magnetism and electromagnetism
+    std: ["ngss-hs:PS2-5", "ib-physics-2025:D.2", "ib-physics-2025:D.3"]
     scope: core
     layer: algebra
     ced: "P2 Unit 12"
@@ -560,6 +573,7 @@ units:
   - id: geometric-optics
     n: 13
     title: Geometric optics
+    std: ["ib-physics-2025:C.3", "gre-physics:3", "aamc-mcat-outline:4D"]
     scope: core
     layer: algebra
     ced: "P2 Unit 13"
@@ -589,6 +603,7 @@ units:
   - id: waves
     n: 14
     title: Waves, sound and physical optics
+    std: ["ngss-hs:PS4-1", "ib-physics-2025:C.2", "ib-physics-2025:C.3", "ib-physics-2025:C.4", "ib-physics-2025:C.5", "gre-physics:3", "aamc-mcat-outline:4D"]
     scope: core
     layer: algebra
     ced: "P2 Unit 14"
@@ -639,6 +654,7 @@ units:
   - id: modern
     n: 15
     title: Modern physics
+    std: ["ngss-hs:PS4-3", "ib-physics-2025:E.1", "ib-physics-2025:E.2", "gre-physics:6"]
     scope: core
     layer: algebra
     ced: "P2 Unit 15"
@@ -684,6 +700,7 @@ units:
   - id: c-kinematics
     n: 16
     title: "Kinematics with calculus"
+    std: ["gre-physics:1"]
     scope: core
     layer: calculus
     ced: "CM Unit 1"
@@ -704,6 +721,7 @@ units:
   - id: c-dynamics
     n: 17
     title: "Dynamics with calculus"
+    std: ["gre-physics:1"]
     scope: core
     layer: calculus
     ced: "CM Unit 2"
@@ -826,6 +844,7 @@ units:
   - id: c-fields-gauss
     n: 23
     title: "Electric fields and Gauss's law"
+    std: ["gre-physics:2"]
     scope: core
     layer: calculus
     ced: "CEM Unit 8"
@@ -933,6 +952,7 @@ units:
   - id: c-induction
     n: 28
     title: Electromagnetic induction
+    std: ["ib-physics-2025:D.4", "gre-physics:2"]
     scope: core
     layer: calculus
     ced: "CEM Unit 13"

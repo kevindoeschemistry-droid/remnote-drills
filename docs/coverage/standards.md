@@ -13,37 +13,37 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 | AI Safety | BlueDot Impact course syllabi (Technical AI Safety, Governance, AGI Strategy) | course | read in full | — | — | 104 | 0 | 104 |
 | Anchor Quantities | CODATA Recommended Values of the Fundamental Physical Constants: 2022 (NIST SP 961) | reference | read in part | snapshot-key-numbers, francl-take-a-number, cfr-21-101-9 | acs-accm-pchem | 14 | 3 | 11 |
 | Basketball | USA Basketball Player Development Curriculum | standard | read in part | — | — | 88 | 0 | 88 |
-| Biology (AP) | AP Biology Course and Exam Description (2019) | standard | read through a crosswalk | iupac-aa-1983 | — | 179 | 179 | 0 |
+| Biology (AP) | AP Biology Course and Exam Description (2019) | standard | read through a crosswalk | iupac-aa-1983, ngss-hs, ib-biology-2025, icho-appendix-c, icho-syllabus, aamc-mcat-outline | — | 179 | 179 | 0 |
 | Calculus | AP Calculus AB and BC Course and Exam Description | standard | read in full | — | — | 179 | 179 | 0 |
-| Chemistry (AP) | AP Chemistry Course and Exam Description (Fall 2024) | standard | read in part | — | — | 179 | 179 | 0 |
+| Chemistry (AP) | AP Chemistry Course and Exam Description (Fall 2024) | standard | read in part | ngss-hs, ib-chemistry-2025, usnco, icho-appendix-c, icho-syllabus, acs-accm, aamc-mcat-outline | — | 179 | 179 | 0 |
 | Computer Science | Computer Science Curricula 2023, Body of Knowledge | standard | read in full | — | — | 140 | 0 | 140 |
-| Dental Admission Test | Dental Admission Test 2026 Candidate Guide | exam-spec | read in full | — | — | 183 | 0 | 183 |
+| Dental Admission Test | Dental Admission Test 2026 Candidate Guide | exam-spec | read in full | ngss-hs, ib-chemistry-2025, usnco, icho-appendix-c | — | 183 | 72 | 111 |
 | Applied Engineering Mathematics | Kreyszig, Advanced Engineering Mathematics, 10th ed. | textbook | read in full | fe-chemical | — | 136 | 83 | 53 |
-| Fluid Mechanics | NCEES FE Chemical CBT Exam Specifications (effective July 2020) | exam-spec | read in full | — | — | 15 | 15 | 0 |
-| Heat Transfer | NCEES FE Chemical CBT Exam Specifications (effective July 2020) | exam-spec | read in full | fe-mechanical | — | 101 | 54 | 47 |
+| Fluid Mechanics | NCEES FE Chemical CBT Exam Specifications (effective July 2020) | exam-spec | read in full | pe-chemical | — | 15 | 15 | 0 |
+| Heat Transfer | NCEES FE Chemical CBT Exam Specifications (effective July 2020) | exam-spec | read in full | fe-mechanical, ib-physics-2025, pe-chemical | — | 101 | 63 | 38 |
 | INBDE (Dentistry) | JCNDE, Domain of Dentistry (INBDE content domain), July 2018 | exam-spec | read in part | — | — | 22 | 22 | 0 |
 | Information Systems | MSIS 2016 Global Competency Model | standard | read in full | — | — | 53 | 0 | 53 |
 | Linear Algebra | Lay, Lay & McDonald, Linear Algebra and Its Applications, 5th ed. (chapter list) | textbook | read in part | — | — | 10 | 10 | 0 |
-| Material and Energy Balances | NCEES FE Chemical CBT Exam Specifications (effective July 2020) | exam-spec | read in full | — | — | 16 | 14 | 2 |
+| Material and Energy Balances | NCEES FE Chemical CBT Exam Specifications (effective July 2020) | exam-spec | read in full | pe-chemical | — | 16 | 14 | 2 |
 | High School Mathematics (Common Core) | CCSS Mathematics Appendix A: high school course pathways | standard | read in full | — | — | 200 | 200 | 0 |
 | Mathematics K–8 (Common Core) | Common Core State Standards for Mathematics (2010) | standard | read through a crosswalk | — | — | 258 | 258 | 0 |
 | Mental Math | UIL Number Sense Problem Sequencing Charts (High School; A+ Junior High and Elementary, rev. 2016-17) with the Number Sense Handbook rules | exam-spec | read in full | sta-mtc, mit-18-03-coverup, mit-integration-bee | — | 84 | 81 | 3 |
 | Molecular Simulation | LiveCoMS best-practice papers for molecular simulation | course | read in part | — | — | 106 | 0 | 106 |
 | NCLEX-RN | NCLEX-RN Test Plan, effective April 2026 | exam-spec | read in part | — | — | 39 | 39 | 0 |
-| Nuclear Science and Reactor Theory | NRC Generic Fundamentals Examination, reactor theory topics (PWR catalog 192001-192008) | exam-spec | read in part | doe-hdbk-1019 | — | 19 | 19 | 0 |
-| Organic Reactions: Predict the Product | Bruice, Organic Chemistry, 8th edition (table of contents) | textbook | read in part | — | aamc-mcat-outline | 25 | 3 | 22 |
-| Particle Physics | AQA AS and A-level Physics (7407/7408), section 3.2 Particles and radiation | standard | read in part | openstax-university-physics | — | 13 | 12 | 1 |
-| The Periodic Table from Memory | IUPAC Periodic Table of the Elements (release of 4 May 2022) | reference | read in part | — | — | 15 | 10 | 5 |
-| Physical Chemistry | Engel & Reid, Physical Chemistry, 3rd ed. (through the wiki's drill pages) | textbook | read in part | fe-chemical | acs-accm-pchem | 141 | 59 | 82 |
-| Physics (AP) | AP Physics 1, 2 and C Course and Exam Descriptions | standard | read in part | — | — | 201 | 201 | 0 |
+| Nuclear Science and Reactor Theory | NRC Generic Fundamentals Examination, reactor theory topics (PWR catalog 192001-192008) | exam-spec | read in part | doe-hdbk-1019, ngss-hs, ib-physics-2025, icho-appendix-c, aamc-mcat-outline, gre-physics | — | 19 | 19 | 0 |
+| Organic Reactions: Predict the Product | Bruice, Organic Chemistry, 8th edition (table of contents) | textbook | read in part | ib-chemistry-2025, icho-appendix-c, icho-syllabus, acs-accm, aamc-mcat-outline, gre-chemistry | — | 25 | 24 | 1 |
+| Particle Physics | AQA AS and A-level Physics (7407/7408), section 3.2 Particles and radiation | standard | read in part | openstax-university-physics, gre-physics | — | 13 | 12 | 1 |
+| The Periodic Table from Memory | IUPAC Periodic Table of the Elements (release of 4 May 2022) | reference | read in part | ngss-hs, ib-chemistry-2025, icho-appendix-c | — | 15 | 15 | 0 |
+| Physical Chemistry | Engel & Reid, Physical Chemistry, 3rd ed. (through the wiki's drill pages) | textbook | read in part | fe-chemical, usnco, icho-appendix-c, icho-syllabus, gre-physics, gre-chemistry | acs-accm-pchem | 141 | 111 | 30 |
+| Physics (AP) | AP Physics 1, 2 and C Course and Exam Descriptions | standard | read in part | ngss-hs, ib-physics-2025, aamc-mcat-outline, gre-physics | — | 201 | 201 | 0 |
 | Programming Foundations | AP Computer Science A Course and Exam Description (Fall 2025) | standard | read in full | — | — | 140 | 140 | 0 |
-| Chemical Reaction Engineering | NCEES FE Chemical CBT Exam Specifications (effective July 2020) | exam-spec | read in full | — | — | 46 | 26 | 20 |
+| Chemical Reaction Engineering | NCEES FE Chemical CBT Exam Specifications (effective July 2020) | exam-spec | read in full | icho-appendix-c, pe-chemical | — | 46 | 32 | 14 |
 | Speaking and Articulation | Competent Speaker Speech Evaluation Form, 2nd ed. | rubric | read in full | toastmasters-pathways | — | 69 | 0 | 69 |
 | SQL | Oracle Database SQL, exam 1Z0-071: exam topics | exam-spec | read through a crosswalk | — | — | 40 | 37 | 3 |
 | Statistics | AP Statistics revised course framework (2026-27) | standard | read in part | — | — | 13 | 13 | 0 |
-| Structures from Memory | Bruice, Organic Chemistry, 8th edition (table of contents) | textbook | read in part | iupac-aa-1983 | aamc-mcat-outline | 12 | 10 | 2 |
+| Structures from Memory | Bruice, Organic Chemistry, 8th edition (table of contents) | textbook | read in part | iupac-aa-1983, ib-chemistry-2025, ib-biology-2025, icho-appendix-c, icho-syllabus, acs-accm, aamc-mcat-outline | — | 12 | 12 | 0 |
 | Swimming | World Aquatics swimming rules (with USA Swimming and USMS stroke rules) | rulebook | read in full | — | asca-certification | 88 | 0 | 88 |
-| Thermodynamics and Statistical Mechanics | Dill & Bromberg, Molecular Driving Forces 2e; Shell, Thermodynamics and Statistical Mechanics | textbook | read in full | fe-chemical | — | 124 | 68 | 56 |
+| Thermodynamics and Statistical Mechanics | Dill & Bromberg, Molecular Driving Forces 2e; Shell, Thermodynamics and Statistical Mechanics | textbook | read in full | fe-chemical, ib-physics-2025, icho-appendix-c, icho-syllabus, pe-chemical, gre-physics | — | 124 | 76 | 48 |
 | Wushu | IWUF Wushu Taolu Competition Rules and Judging Methods (2024) | rulebook | read through a crosswalk | — | duanwei | 88 | 0 | 88 |
 
 ### Notes
@@ -96,7 +96,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 - **Molecular Simulation**: course, read in part
 - **NCLEX-RN**: exam-spec, read in part
 - **Nuclear Science and Reactor Theory**: exam-spec, read in part
-- **Organic Reactions: Predict the Product**: textbook, read in part; should move to AAMC, What's on the MCAT Exam? content outline (categories 1A, 1D, 5D)
+- **Organic Reactions: Predict the Product**: textbook, read in part
 - **Particle Physics**: standard, read in part
 - **The Periodic Table from Memory**: reference, read in part
 - **Physical Chemistry**: textbook, read in part; should move to ACS Exams Institute Anchoring Concepts Content Map IV: Physical Chemistry (J. Chem. Educ. 2018, 95, 238)
@@ -104,7 +104,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 - **Speaking and Articulation**: rubric, read in full
 - **SQL**: exam-spec, read through a crosswalk
 - **Statistics**: standard, read in part
-- **Structures from Memory**: textbook, read in part; should move to AAMC, What's on the MCAT Exam? content outline (categories 1A, 1D, 5D)
+- **Structures from Memory**: textbook, read in part
 - **Swimming**: rulebook, read in full; should move to ASCA coach certification curriculum
 - **Thermodynamics and Statistical Mechanics**: textbook, read in full
 - **Wushu**: rulebook, read through a crosswalk; should move to Chinese Wushu Duanwei grading system
@@ -229,83 +229,83 @@ https://ncees.org/wp-content/uploads/2022/09/FE-Che-CBT-specs.pdf
 
 https://www.uiltexas.org/academics/stem/number-sense
 
-0 of 158 items have at least one objective answering to them.
+67 of 158 items have at least one objective answering to them.
 
 | Item | Topic | Objectives | With a drill | Where |
 |---|---|---|---|---|
-| **H1** | **High school, problems 1–20** (undefined questions) | | | |
-| H1.1 | Four operations on integers, mixed numbers, fractions, decimals | — | — | **nothing yet** |
-| H1.2 | Order of operations | — | — | **nothing yet** |
-| H1.3 | Distributive property | — | — | **nothing yet** |
-| H1.4 | Comparing fractions and decimals | — | — | **nothing yet** |
-| H1.5 | Multiplication short-cuts | — | — | **nothing yet** |
-| H1.6 | Squaring numbers | — | — | **nothing yet** |
-| H1.7 | Conversions (percent/fraction, English/metric, Roman numerals, measurement units) | — | — | **nothing yet** |
-| H1.8 | GCD and LCM | — | — | **nothing yet** |
-| H1.9 | Percent problems | — | — | **nothing yet** |
-| H1.10 | Mean, median, mode | — | — | **nothing yet** |
-| H1.11 | Sums of integers | — | — | **nothing yet** |
-| H1.12 | Remainder problems | — | — | **nothing yet** |
-| H1.13 | Consumer problems | — | — | **nothing yet** |
-| H1.14 | Number theory (primes, divisors, sums of divisors) | — | — | **nothing yet** |
-| **H2** | **High school, problems 21–40** (undefined questions) | | | |
-| H2.1 | Powers of numbers | — | — | **nothing yet** |
-| H2.2 | Substitution | — | — | **nothing yet** |
-| H2.3 | Word problems | — | — | **nothing yet** |
-| H2.4 | Inverses | — | — | **nothing yet** |
-| H2.5 | Absolute value | — | — | **nothing yet** |
-| H2.6 | Ratio and proportion | — | — | **nothing yet** |
-| H2.7 | Square and cube roots | — | — | **nothing yet** |
-| H2.8 | Sets | — | — | **nothing yet** |
-| H2.9 | Base conversions | — | — | **nothing yet** |
-| H2.10 | Simple equations | — | — | **nothing yet** |
-| H2.11 | Systems of equations | — | — | **nothing yet** |
-| H2.12 | Repeating decimals to fractions | — | — | **nothing yet** |
-| H2.13 | More remainder problems | — | — | **nothing yet** |
-| H2.14 | Perimeter and area of polygons and circles | — | — | **nothing yet** |
-| H2.15 | Sequences | — | — | **nothing yet** |
-| H2.16 | Quadratic and cubic equations | — | — | **nothing yet** |
-| **H3** | **High school, problems 41–60** (undefined questions) | | | |
-| H3.1 | Laws of exponents | — | — | **nothing yet** |
-| H3.2 | Right triangles | — | — | **nothing yet** |
-| H3.3 | Coordinate geometry | — | — | **nothing yet** |
-| H3.4 | Regular polygons | — | — | **nothing yet** |
-| H3.5 | Inequalities | — | — | **nothing yet** |
-| H3.6 | Applications of geometry theorems | — | — | **nothing yet** |
-| H3.7 | Direct and inverse variation | — | — | **nothing yet** |
-| H3.8 | Sequences and series, finite and infinite | — | — | **nothing yet** |
-| H3.9 | Complex numbers | — | — | **nothing yet** |
-| H3.10 | Logarithms and logarithmic equations | — | — | **nothing yet** |
-| H3.11 | Factorials, permutations, combinations | — | — | **nothing yet** |
-| H3.12 | Probability and odds | — | — | **nothing yet** |
-| H3.13 | Conics | — | — | **nothing yet** |
-| H3.14 | Binomial theorem | — | — | **nothing yet** |
-| H3.15 | Operations in other bases | — | — | **nothing yet** |
-| H3.16 | Roots of equations | — | — | **nothing yet** |
-| H3.17 | Polygonal numbers | — | — | **nothing yet** |
-| **H4** | **High school, problems 61–70** (undefined questions) | | | |
-| H4.1 | Volume and surface area | — | — | **nothing yet** |
-| H4.2 | Greatest integer | — | — | **nothing yet** |
-| H4.3 | Remainder theorem | — | — | **nothing yet** |
-| H4.4 | Trigonometry | — | — | **nothing yet** |
-| H4.5 | Determinants | — | — | **nothing yet** |
-| H4.6 | Matrices | — | — | **nothing yet** |
-| H4.7 | Vectors | — | — | **nothing yet** |
-| H4.8 | Composite functions | — | — | **nothing yet** |
-| H4.9 | Bases with decimals or fractions | — | — | **nothing yet** |
-| H4.10 | Polar and rectangular coordinates | — | — | **nothing yet** |
-| **H5** | **High school, problems 71–80** (undefined questions) | | | |
-| H5.1 | Function domains and ranges | — | — | **nothing yet** |
-| H5.2 | Modular arithmetic | — | — | **nothing yet** |
-| H5.3 | Limits | — | — | **nothing yet** |
-| H5.4 | Derivatives | — | — | **nothing yet** |
-| H5.5 | Slopes of tangent lines | — | — | **nothing yet** |
-| H5.6 | Horizontal and vertical asymptotes | — | — | **nothing yet** |
-| H5.7 | Critical values | — | — | **nothing yet** |
-| H5.8 | Maximum and minimum problems | — | — | **nothing yet** |
-| H5.9 | Definite integration | — | — | **nothing yet** |
-| H5.10 | Inverse functions | — | — | **nothing yet** |
-| **J1** | **Junior high, problems 1–20** (undefined questions) | | | |
+| **H1** | **High school, problems 1–20** | | | |
+| H1.1 | Four operations on integers, mixed numbers, fractions, decimals | 2 | 2 | mental-math (2) |
+| H1.2 | Order of operations | 1 | 1 | mental-math (1) |
+| H1.3 | Distributive property | 1 | 1 | mental-math (1) |
+| H1.4 | Comparing fractions and decimals | 1 | 1 | mental-math (1) |
+| H1.5 | Multiplication short-cuts | 4 | 4 | mental-math (4) |
+| H1.6 | Squaring numbers | 2 | 2 | mental-math (2) |
+| H1.7 | Conversions (percent/fraction, English/metric, Roman numerals, measurement units) | 3 | 3 | mental-math (3) |
+| H1.8 | GCD and LCM | 1 | 1 | mental-math (1) |
+| H1.9 | Percent problems | 1 | 1 | mental-math (1) |
+| H1.10 | Mean, median, mode | 1 | 1 | mental-math (1) |
+| H1.11 | Sums of integers | 1 | 1 | mental-math (1) |
+| H1.12 | Remainder problems | 1 | 1 | mental-math (1) |
+| H1.13 | Consumer problems | 1 | 1 | mental-math (1) |
+| H1.14 | Number theory (primes, divisors, sums of divisors) | 1 | 1 | mental-math (1) |
+| **H2** | **High school, problems 21–40** | | | |
+| H2.1 | Powers of numbers | 1 | 1 | mental-math (1) |
+| H2.2 | Substitution | 1 | 1 | mental-math (1) |
+| H2.3 | Word problems | 1 | 1 | mental-math (1) |
+| H2.4 | Inverses | 1 | 1 | mental-math (1) |
+| H2.5 | Absolute value | 1 | 1 | mental-math (1) |
+| H2.6 | Ratio and proportion | 1 | 1 | mental-math (1) |
+| H2.7 | Square and cube roots | 1 | 1 | mental-math (1) |
+| H2.8 | Sets | 1 | 1 | mental-math (1) |
+| H2.9 | Base conversions | 1 | 1 | mental-math (1) |
+| H2.10 | Simple equations | 1 | 1 | mental-math (1) |
+| H2.11 | Systems of equations | 1 | 1 | mental-math (1) |
+| H2.12 | Repeating decimals to fractions | 1 | 1 | mental-math (1) |
+| H2.13 | More remainder problems | 1 | 1 | mental-math (1) |
+| H2.14 | Perimeter and area of polygons and circles | 1 | 1 | mental-math (1) |
+| H2.15 | Sequences | 1 | 1 | mental-math (1) |
+| H2.16 | Quadratic and cubic equations | 1 | 1 | mental-math (1) |
+| **H3** | **High school, problems 41–60** | | | |
+| H3.1 | Laws of exponents | 1 | 1 | mental-math (1) |
+| H3.2 | Right triangles | 1 | 1 | mental-math (1) |
+| H3.3 | Coordinate geometry | 1 | 1 | mental-math (1) |
+| H3.4 | Regular polygons | 1 | 1 | mental-math (1) |
+| H3.5 | Inequalities | 1 | 1 | mental-math (1) |
+| H3.6 | Applications of geometry theorems | 1 | 1 | mental-math (1) |
+| H3.7 | Direct and inverse variation | 1 | 1 | mental-math (1) |
+| H3.8 | Sequences and series, finite and infinite | 1 | 1 | mental-math (1) |
+| H3.9 | Complex numbers | 1 | 1 | mental-math (1) |
+| H3.10 | Logarithms and logarithmic equations | 1 | 1 | mental-math (1) |
+| H3.11 | Factorials, permutations, combinations | 1 | 1 | mental-math (1) |
+| H3.12 | Probability and odds | 1 | 1 | mental-math (1) |
+| H3.13 | Conics | 1 | 1 | mental-math (1) |
+| H3.14 | Binomial theorem | 1 | 1 | mental-math (1) |
+| H3.15 | Operations in other bases | 1 | 1 | mental-math (1) |
+| H3.16 | Roots of equations | 1 | 1 | mental-math (1) |
+| H3.17 | Polygonal numbers | 1 | 1 | mental-math (1) |
+| **H4** | **High school, problems 61–70** | | | |
+| H4.1 | Volume and surface area | 1 | 1 | mental-math (1) |
+| H4.2 | Greatest integer | 1 | 1 | mental-math (1) |
+| H4.3 | Remainder theorem | 1 | 1 | mental-math (1) |
+| H4.4 | Trigonometry | 1 | 1 | mental-math (1) |
+| H4.5 | Determinants | 1 | 1 | mental-math (1) |
+| H4.6 | Matrices | 1 | 1 | mental-math (1) |
+| H4.7 | Vectors | 1 | 1 | mental-math (1) |
+| H4.8 | Composite functions | 1 | 1 | mental-math (1) |
+| H4.9 | Bases with decimals or fractions | 1 | 1 | mental-math (1) |
+| H4.10 | Polar and rectangular coordinates | 1 | 1 | mental-math (1) |
+| **H5** | **High school, problems 71–80** | | | |
+| H5.1 | Function domains and ranges | 1 | 1 | mental-math (1) |
+| H5.2 | Modular arithmetic | 1 | 1 | mental-math (1) |
+| H5.3 | Limits | 1 | 1 | mental-math (1) |
+| H5.4 | Derivatives | 1 | 1 | mental-math (1) |
+| H5.5 | Slopes of tangent lines | 1 | 1 | mental-math (1) |
+| H5.6 | Horizontal and vertical asymptotes | 1 | 1 | mental-math (1) |
+| H5.7 | Critical values | 1 | 1 | mental-math (1) |
+| H5.8 | Maximum and minimum problems | 1 | 1 | mental-math (1) |
+| H5.9 | Definite integration | 1 | 1 | mental-math (1) |
+| H5.10 | Inverse functions | 1 | 1 | mental-math (1) |
+| **J1** | **Junior high, problems 1–20** | | | |
 | J1.1 | Four operations on whole numbers, fractions, decimals | — | — | **nothing yet** |
 | J1.2 | Order of operations | — | — | **nothing yet** |
 | J1.3 | Distributive property | — | — | **nothing yet** |
@@ -315,7 +315,7 @@ https://www.uiltexas.org/academics/stem/number-sense
 | J1.7 | Roman numerals | — | — | **nothing yet** |
 | J1.8 | Mean, median, mode | — | — | **nothing yet** |
 | J1.9 | Sums of a finite series of whole numbers | — | — | **nothing yet** |
-| **J2** | **Junior high, problems 21–40** (undefined questions) | | | |
+| **J2** | **Junior high, problems 21–40** | | | |
 | J2.1 | Four operations on mixed numbers and integers | — | — | **nothing yet** |
 | J2.2 | More multiplication short-cuts | — | — | **nothing yet** |
 | J2.3 | Percent problems | — | — | **nothing yet** |
@@ -330,7 +330,7 @@ https://www.uiltexas.org/academics/stem/number-sense
 | J2.12 | Ratio and proportion | — | — | **nothing yet** |
 | J2.13 | Inverses | — | — | **nothing yet** |
 | J2.14 | Multiplying by 101 and 111 | — | — | **nothing yet** |
-| **J3** | **Junior high, problems 41–60** (undefined questions) | | | |
+| **J3** | **Junior high, problems 41–60** | | | |
 | J3.1 | Sets | — | — | **nothing yet** |
 | J3.2 | Word problems | — | — | **nothing yet** |
 | J3.3 | Pythagorean theorem | — | — | **nothing yet** |
@@ -341,7 +341,7 @@ https://www.uiltexas.org/academics/stem/number-sense
 | J3.8 | Inequalities | — | — | **nothing yet** |
 | J3.9 | Basic geometry facts | — | — | **nothing yet** |
 | J3.10 | Remainder problems | — | — | **nothing yet** |
-| **J4** | **Junior high, problems 61–80** (undefined questions) | | | |
+| **J4** | **Junior high, problems 61–80** | | | |
 | J4.1 | Repeating decimals | — | — | **nothing yet** |
 | J4.2 | More number theory | — | — | **nothing yet** |
 | J4.3 | Powers of numbers | — | — | **nothing yet** |
@@ -353,7 +353,7 @@ https://www.uiltexas.org/academics/stem/number-sense
 | J4.9 | Advanced percent problems | — | — | **nothing yet** |
 | J4.10 | More remainder problems | — | — | **nothing yet** |
 | J4.11 | More multiplication short-cuts | — | — | **nothing yet** |
-| **E1** | **Elementary, problems 1–20** (undefined questions) | | | |
+| **E1** | **Elementary, problems 1–20** | | | |
 | E1.1 | Four operations on whole numbers | — | — | **nothing yet** |
 | E1.2 | Place value | — | — | **nothing yet** |
 | E1.3 | Rounding whole numbers | — | — | **nothing yet** |
@@ -364,7 +364,7 @@ https://www.uiltexas.org/academics/stem/number-sense
 | E1.8 | Sums with regrouping | — | — | **nothing yet** |
 | E1.9 | Differences with regrouping | — | — | **nothing yet** |
 | E1.10 | Roman numerals | — | — | **nothing yet** |
-| **E2** | **Elementary, problems 21–40** (undefined questions) | | | |
+| **E2** | **Elementary, problems 21–40** | | | |
 | E2.1 | Adding and subtracting fractions with common denominators | — | — | **nothing yet** |
 | E2.2 | Four operations on decimals | — | — | **nothing yet** |
 | E2.3 | Comparing decimals and fractions | — | — | **nothing yet** |
@@ -376,7 +376,7 @@ https://www.uiltexas.org/academics/stem/number-sense
 | E2.9 | Prime numbers | — | — | **nothing yet** |
 | E2.10 | GCD and LCM | — | — | **nothing yet** |
 | E2.11 | Conversions of length, measurement, time | — | — | **nothing yet** |
-| **E3** | **Elementary, problems 41–60** (undefined questions) | | | |
+| **E3** | **Elementary, problems 41–60** | | | |
 | E3.1 | Four operations on fractions and mixed numbers | — | — | **nothing yet** |
 | E3.2 | Substitution | — | — | **nothing yet** |
 | E3.3 | Perimeter and area of square, rectangle, triangle | — | — | **nothing yet** |
@@ -390,7 +390,7 @@ https://www.uiltexas.org/academics/stem/number-sense
 | E3.11 | Right triangles | — | — | **nothing yet** |
 | E3.12 | More multiplication short-cuts | — | — | **nothing yet** |
 | E3.13 | Base conversions | — | — | **nothing yet** |
-| **E4** | **Elementary, problems 61–80** (undefined questions) | | | |
+| **E4** | **Elementary, problems 61–80** | | | |
 | E4.1 | Four operations on integers | — | — | **nothing yet** |
 | E4.2 | Inverses | — | — | **nothing yet** |
 | E4.3 | Basic geometry facts | — | — | **nothing yet** |
@@ -405,320 +405,678 @@ https://www.uiltexas.org/academics/stem/number-sense
 | E4.12 | Number-line coordinate geometry | — | — | **nothing yet** |
 | E4.13 | More percent problems | — | — | **nothing yet** |
 
-**Areas with nothing answering to them:** H1 High school, problems 1–20; H2 High school, problems 21–40; H3 High school, problems 41–60; H4 High school, problems 61–70; H5 High school, problems 71–80; J1 Junior high, problems 1–20; J2 Junior high, problems 21–40; J3 Junior high, problems 41–60; J4 Junior high, problems 61–80; E1 Elementary, problems 1–20; E2 Elementary, problems 21–40; E3 Elementary, problems 41–60; E4 Elementary, problems 61–80.
+**Areas with nothing answering to them:** J1 Junior high, problems 1–20; J2 Junior high, problems 21–40; J3 Junior high, problems 41–60; J4 Junior high, problems 61–80; E1 Elementary, problems 1–20; E2 Elementary, problems 21–40; E3 Elementary, problems 41–60; E4 Elementary, problems 61–80.
 
 ## Moran, Phillips & Milo, SnapShot: Key Numbers in Biology (Cell 141, 2010)
 
 https://doi.org/10.1016/j.cell.2010.06.019
 
-0 of 0 items have at least one objective answering to them.
+7 of 8 items have at least one objective answering to them.
 
 | Item | Topic | Objectives | With a drill | Where |
 |---|---|---|---|---|
-| **sizes** | **Cell sizes** (undefined questions) | | | |
-| **lengths** | **Length scales inside cells** (undefined questions) | | | |
-| **rates** | **Rates and time scales** (undefined questions) | | | |
-| **concentrations** | **Concentrations** (undefined questions) | | | |
-| **energetics** | **Energetics** (undefined questions) | | | |
-| **diffusion** | **Diffusion and catalysis** (undefined questions) | | | |
-| **genomes** | **Genomes** (undefined questions) | | | |
-| **errors** | **Mutation and error rates** (undefined questions) | | | |
-
-**Areas with nothing answering to them:** sizes Cell sizes; lengths Length scales inside cells; rates Rates and time scales; concentrations Concentrations; energetics Energetics; diffusion Diffusion and catalysis; genomes Genomes; errors Mutation and error rates.
+| sizes | Cell sizes | 1 | 1 | anchor-quantities (1) |
+| lengths | Length scales inside cells | 1 | 1 | anchor-quantities (1) |
+| rates | Rates and time scales | 2 | 2 | anchor-quantities (2) |
+| concentrations | Concentrations | 2 | 2 | anchor-quantities (2) |
+| energetics | Energetics | 2 | 2 | anchor-quantities (2) |
+| diffusion | Diffusion and catalysis | 2 | 2 | anchor-quantities (2) |
+| genomes | Genomes | 2 | 2 | anchor-quantities (2) |
+| errors | Mutation and error rates | — | — | **nothing yet** |
 
 ## IUPAC-IUB JCBN, Nomenclature and Symbolism for Amino Acids and Peptides (Recommendations 1983)
 
 https://iupac.qmul.ac.uk/AminoAcid/AA1n2.html
 
-0 of 0 items have at least one objective answering to them.
+1 of 1 items have at least one objective answering to them.
 
 | Item | Topic | Objectives | With a drill | Where |
 |---|---|---|---|---|
-| **3AA-1** | **Names, symbols and formulas of the common amino acids (Table 1)** (undefined questions) | | | |
-
-**Areas with nothing answering to them:** 3AA-1 Names, symbols and formulas of the common amino acids (Table 1).
+| 3AA-1 | Names, symbols and formulas of the common amino acids (Table 1) | 2 | 2 | biology (1), structures (1) |
 
 ## Mattuck, Heaviside's Cover-up Method (MIT 18.03 supplementary notes, section H)
 
 https://math.mit.edu/~jorloff/suppnotes/suppnotes03/h.pdf
 
-0 of 0 items have at least one objective answering to them.
+3 of 3 items have at least one objective answering to them.
 
 | Item | Topic | Objectives | With a drill | Where |
 |---|---|---|---|---|
-| **distinct** | **Distinct linear factors** (undefined questions) | | | |
-| **repeated** | **Repeated linear factor: highest power only** (undefined questions) | | | |
-| **quadratic** | **Linear factor beside a quadratic factor** (undefined questions) | | | |
-
-**Areas with nothing answering to them:** distinct Distinct linear factors; repeated Repeated linear factor: highest power only; quadratic Linear factor beside a quadratic factor.
+| distinct | Distinct linear factors | 1 | 1 | mental-math (1) |
+| repeated | Repeated linear factor: highest power only | 1 | 1 | mental-math (1) |
+| quadratic | Linear factor beside a quadratic factor | 1 | 1 | mental-math (1) |
 
 ## MIT Integration Bee qualifying test (format as of 2026)
 
 https://math.mit.edu/~yyao1/integrationbee.html
 
-0 of 0 items have at least one objective answering to them.
+1 of 1 items have at least one objective answering to them.
 
 | Item | Topic | Objectives | With a drill | Where |
 |---|---|---|---|---|
-| **pace** | **Qualifier: 20 integrals in 20 minutes** (undefined questions) | | | |
-
-**Areas with nothing answering to them:** pace Qualifier: 20 integrals in 20 minutes.
+| pace | Qualifier: 20 integrals in 20 minutes | 2 | 2 | mental-math (2) |
 
 ## Bruice, Organic Chemistry, 8th edition (table of contents)
 
 https://www.pearson.com/en-us/subject-catalog/p/organic-chemistry/P200000006995/9780134066585
 
-0 of 0 items have at least one objective answering to them.
+9 of 9 items have at least one objective answering to them.
 
 | Item | Topic | Objectives | With a drill | Where |
 |---|---|---|---|---|
-| **18** | **Benzene and substituted benzenes** (undefined questions) | | | |
-| **19** | **Amines and heterocyclic compounds** (undefined questions) | | | |
-| **20** | **Carbohydrates** (undefined questions) | | | |
-| **21** | **Amino acids, peptides and proteins** (undefined questions) | | | |
-| **22** | **Catalysis in organic and enzymatic reactions** (undefined questions) | | | |
-| **23** | **Coenzymes** (undefined questions) | | | |
-| **24** | **Metabolic pathways** (undefined questions) | | | |
-| **25** | **Lipids** (undefined questions) | | | |
-| **26** | **Nucleic acids** (undefined questions) | | | |
-
-**Areas with nothing answering to them:** 18 Benzene and substituted benzenes; 19 Amines and heterocyclic compounds; 20 Carbohydrates; 21 Amino acids, peptides and proteins; 22 Catalysis in organic and enzymatic reactions; 23 Coenzymes; 24 Metabolic pathways; 25 Lipids; 26 Nucleic acids.
+| 18 | Benzene and substituted benzenes | 7 | 7 | organic-reactions (6), structures (1) |
+| 19 | Amines and heterocyclic compounds | 1 | 1 | structures (1) |
+| 20 | Carbohydrates | 1 | 1 | structures (1) |
+| 21 | Amino acids, peptides and proteins | 3 | 3 | structures (3) |
+| 22 | Catalysis in organic and enzymatic reactions | 1 | 1 | structures (1) |
+| 23 | Coenzymes | 2 | 2 | structures (2) |
+| 24 | Metabolic pathways | 1 | 1 | structures (1) |
+| 25 | Lipids | 1 | 1 | structures (1) |
+| 26 | Nucleic acids | 1 | 1 | structures (1) |
 
 ## NRC Generic Fundamentals Examination, reactor theory topics (PWR catalog 192001-192008)
 
 https://www.nrc.gov/reactors/operator-licensing/history-rulemaking-activities/generic-fundamentals-examinations/pwr/reactor-theory-pwr.html
 
-0 of 0 items have at least one objective answering to them.
+7 of 8 items have at least one objective answering to them.
 
 | Item | Topic | Objectives | With a drill | Where |
 |---|---|---|---|---|
-| **192001** | **Neutrons** (undefined questions) | | | |
-| **192002** | **Neutron life cycle** (undefined questions) | | | |
-| **192003** | **Reactor kinetics and neutron sources** (undefined questions) | | | |
-| **192004** | **Reactivity coefficients** (undefined questions) | | | |
-| **192005** | **Control rods** (undefined questions) | | | |
-| **192006** | **Fission product poisons** (undefined questions) | | | |
-| **192007** | **Fuel depletion and burnable poisons** (undefined questions) | | | |
-| **192008** | **Reactor operational physics** (undefined questions) | | | |
-
-**Areas with nothing answering to them:** 192001 Neutrons; 192002 Neutron life cycle; 192003 Reactor kinetics and neutron sources; 192004 Reactivity coefficients; 192005 Control rods; 192006 Fission product poisons; 192007 Fuel depletion and burnable poisons; 192008 Reactor operational physics.
+| 192001 | Neutrons | 3 | 3 | nuclear (3) |
+| 192002 | Neutron life cycle | 5 | 5 | nuclear (5) |
+| 192003 | Reactor kinetics and neutron sources | 6 | 6 | nuclear (6) |
+| 192004 | Reactivity coefficients | 4 | 4 | nuclear (4) |
+| 192005 | Control rods | 4 | 4 | nuclear (4) |
+| 192006 | Fission product poisons | 4 | 4 | nuclear (4) |
+| 192007 | Fuel depletion and burnable poisons | 4 | 4 | nuclear (4) |
+| 192008 | Reactor operational physics | — | — | **nothing yet** |
 
 ## DOE Fundamentals Handbook, Nuclear Physics and Reactor Theory (DOE-HDBK-1019/1-93, /2-93)
 
 https://www.standards.doe.gov/standards-documents/1000/1019-bhdbk-1993-v1
 
-0 of 0 items have at least one objective answering to them.
+4 of 4 items have at least one objective answering to them.
 
 | Item | Topic | Objectives | With a drill | Where |
 |---|---|---|---|---|
-| **1** | **Atomic and nuclear physics** (undefined questions) | | | |
-| **2** | **Reactor theory: neutron characteristics** (undefined questions) | | | |
-| **3** | **Reactor theory: nuclear parameters** (undefined questions) | | | |
-| **4** | **Reactor theory: reactor operations** (undefined questions) | | | |
-
-**Areas with nothing answering to them:** 1 Atomic and nuclear physics; 2 Reactor theory: neutron characteristics; 3 Reactor theory: nuclear parameters; 4 Reactor theory: reactor operations.
+| 1 | Atomic and nuclear physics | 19 | 19 | nuclear (19) |
+| 2 | Reactor theory: neutron characteristics | 3 | 3 | nuclear (3) |
+| 3 | Reactor theory: nuclear parameters | 3 | 3 | nuclear (3) |
+| 4 | Reactor theory: reactor operations | 1 | 1 | nuclear (1) |
 
 ## IUPAC Periodic Table of the Elements (release of 4 May 2022)
 
 https://iupac.org/what-we-do/periodic-table-of-elements/
 
-0 of 0 items have at least one objective answering to them.
+3 of 3 items have at least one objective answering to them.
 
 | Item | Topic | Objectives | With a drill | Where |
 |---|---|---|---|---|
-| **sp** | **s and p blocks** (undefined questions) | | | |
-| **d** | **d block, groups 3-12** (undefined questions) | | | |
-| **f** | **Lanthanoids and actinoids** (undefined questions) | | | |
-
-**Areas with nothing answering to them:** sp s and p blocks; d d block, groups 3-12; f Lanthanoids and actinoids.
+| sp | s and p blocks | 2 | 2 | periodic-table (2) |
+| d | d block, groups 3-12 | 5 | 5 | periodic-table (5) |
+| f | Lanthanoids and actinoids | 3 | 3 | periodic-table (3) |
 
 ## AP Statistics revised course framework (2026-27)
 
 https://apcentral.collegeboard.org/courses/ap-statistics
 
-0 of 0 items have at least one objective answering to them.
+5 of 5 items have at least one objective answering to them.
 
 | Item | Topic | Objectives | With a drill | Where |
 |---|---|---|---|---|
-| **1** | **Exploring One-Variable Data and Collecting Data** (undefined questions) | | | |
-| **2** | **Probability, Random Variables, and Probability Distributions** (undefined questions) | | | |
-| **3** | **Inference for Categorical Data: Proportions** (undefined questions) | | | |
-| **4** | **Inference for Quantitative Data: Means** (undefined questions) | | | |
-| **5** | **Regression Analysis** (undefined questions) | | | |
-
-**Areas with nothing answering to them:** 1 Exploring One-Variable Data and Collecting Data; 2 Probability, Random Variables, and Probability Distributions; 3 Inference for Categorical Data: Proportions; 4 Inference for Quantitative Data: Means; 5 Regression Analysis.
+| 1 | Exploring One-Variable Data and Collecting Data | 8 | 8 | statistics (8) |
+| 2 | Probability, Random Variables, and Probability Distributions | 8 | 8 | statistics (8) |
+| 3 | Inference for Categorical Data: Proportions | 6 | 6 | statistics (6) |
+| 4 | Inference for Quantitative Data: Means | 2 | 2 | statistics (2) |
+| 5 | Regression Analysis | 2 | 2 | statistics (2) |
 
 ## Lay, Lay & McDonald, Linear Algebra and Its Applications, 5th ed. (chapter list)
 
 
 
-0 of 0 items have at least one objective answering to them.
+7 of 7 items have at least one objective answering to them.
 
 | Item | Topic | Objectives | With a drill | Where |
 |---|---|---|---|---|
-| **1** | **Linear Equations in Linear Algebra** (undefined questions) | | | |
-| **2** | **Matrix Algebra** (undefined questions) | | | |
-| **3** | **Determinants** (undefined questions) | | | |
-| **4** | **Vector Spaces** (undefined questions) | | | |
-| **5** | **Eigenvalues and Eigenvectors** (undefined questions) | | | |
-| **6** | **Orthogonality and Least Squares** (undefined questions) | | | |
-| **7** | **Symmetric Matrices and Quadratic Forms** (undefined questions) | | | |
-
-**Areas with nothing answering to them:** 1 Linear Equations in Linear Algebra; 2 Matrix Algebra; 3 Determinants; 4 Vector Spaces; 5 Eigenvalues and Eigenvectors; 6 Orthogonality and Least Squares; 7 Symmetric Matrices and Quadratic Forms.
+| 1 | Linear Equations in Linear Algebra | 4 | 4 | linear-algebra (4) |
+| 2 | Matrix Algebra | 2 | 2 | linear-algebra (2) |
+| 3 | Determinants | 2 | 2 | linear-algebra (2) |
+| 4 | Vector Spaces | 2 | 2 | linear-algebra (2) |
+| 5 | Eigenvalues and Eigenvectors | 4 | 4 | linear-algebra (4) |
+| 6 | Orthogonality and Least Squares | 4 | 4 | linear-algebra (4) |
+| 7 | Symmetric Matrices and Quadratic Forms | 2 | 2 | linear-algebra (2) |
 
 ## AQA AS and A-level Physics (7407/7408), section 3.2 Particles and radiation
 
 https://www.aqa.org.uk/subjects/physics/a-level/physics-7408/specification/subject-content/particles-and-radiation
 
-0 of 0 items have at least one objective answering to them.
+10 of 11 items have at least one objective answering to them.
 
 | Item | Topic | Objectives | With a drill | Where |
 |---|---|---|---|---|
-| **3.2.1.1** | **Constituents of the atom** (undefined questions) | | | |
-| **3.2.1.2** | **Stable and unstable nuclei** (undefined questions) | | | |
-| **3.2.1.3** | **Particles, antiparticles and photons** (undefined questions) | | | |
-| **3.2.1.4** | **Particle interactions** (undefined questions) | | | |
-| **3.2.1.5** | **Classification of particles** (undefined questions) | | | |
-| **3.2.1.6** | **Quarks and antiquarks** (undefined questions) | | | |
-| **3.2.1.7** | **Applications of conservation laws** (undefined questions) | | | |
-| **3.2.2.1** | **The photoelectric effect** (undefined questions) | | | |
-| **3.2.2.2** | **Collisions of electrons with atoms** (undefined questions) | | | |
-| **3.2.2.3** | **Energy levels and photon emission** (undefined questions) | | | |
-| **3.2.2.4** | **Wave-particle duality** (undefined questions) | | | |
-
-**Areas with nothing answering to them:** 3.2.1.1 Constituents of the atom; 3.2.1.2 Stable and unstable nuclei; 3.2.1.3 Particles, antiparticles and photons; 3.2.1.4 Particle interactions; 3.2.1.5 Classification of particles; 3.2.1.6 Quarks and antiquarks; 3.2.1.7 Applications of conservation laws; 3.2.2.1 The photoelectric effect; 3.2.2.2 Collisions of electrons with atoms; 3.2.2.3 Energy levels and photon emission; 3.2.2.4 Wave-particle duality.
+| 3.2.1.1 | Constituents of the atom | 1 | 1 | particle-physics (1) |
+| 3.2.1.2 | Stable and unstable nuclei | — | — | **nothing yet** |
+| 3.2.1.3 | Particles, antiparticles and photons | 1 | 1 | particle-physics (1) |
+| 3.2.1.4 | Particle interactions | 1 | 1 | particle-physics (1) |
+| 3.2.1.5 | Classification of particles | 1 | 1 | particle-physics (1) |
+| 3.2.1.6 | Quarks and antiquarks | 2 | 2 | particle-physics (2) |
+| 3.2.1.7 | Applications of conservation laws | 2 | 2 | particle-physics (2) |
+| 3.2.2.1 | The photoelectric effect | 5 | 5 | particle-physics (5) |
+| 3.2.2.2 | Collisions of electrons with atoms | 1 | 1 | particle-physics (1) |
+| 3.2.2.3 | Energy levels and photon emission | 1 | 1 | particle-physics (1) |
+| 3.2.2.4 | Wave-particle duality | 1 | 1 | particle-physics (1) |
 
 ## Oracle Database SQL, exam 1Z0-071: exam topics
 
 https://www.examcert.app/blog/oracle-1z0-071-syllabus-2026/
 
-0 of 0 items have at least one objective answering to them.
+16 of 16 items have at least one objective answering to them.
 
 | Item | Topic | Objectives | With a drill | Where |
 |---|---|---|---|---|
-| **1** | **Relational database concepts** (undefined questions) | | | |
-| **2** | **Retrieving data with SELECT** (undefined questions) | | | |
-| **3** | **Restricting and sorting data** (undefined questions) | | | |
-| **4** | **Single-row functions** (undefined questions) | | | |
-| **5** | **Conversion functions and conditional expressions** (undefined questions) | | | |
-| **6** | **Group functions** (undefined questions) | | | |
-| **7** | **Displaying data from multiple tables** (undefined questions) | | | |
-| **8** | **Subqueries** (undefined questions) | | | |
-| **9** | **Set operators** (undefined questions) | | | |
-| **10** | **Managing tables with DML; transactions** (undefined questions) | | | |
-| **11** | **Indexes, synonyms and sequences** (undefined questions) | | | |
-| **12** | **DDL: tables, data types and constraints** (undefined questions) | | | |
-| **13** | **Views** (undefined questions) | | | |
-| **14** | **Controlling user access** (undefined questions) | | | |
-| **15** | **Data dictionary views** (undefined questions) | | | |
-| **16** | **Data in different time zones** (undefined questions) | | | |
-
-**Areas with nothing answering to them:** 1 Relational database concepts; 2 Retrieving data with SELECT; 3 Restricting and sorting data; 4 Single-row functions; 5 Conversion functions and conditional expressions; 6 Group functions; 7 Displaying data from multiple tables; 8 Subqueries; 9 Set operators; 10 Managing tables with DML; transactions; 11 Indexes, synonyms and sequences; 12 DDL: tables, data types and constraints; 13 Views; 14 Controlling user access; 15 Data dictionary views; 16 Data in different time zones.
+| 1 | Relational database concepts | 2 | 2 | sql (2) |
+| 2 | Retrieving data with SELECT | 3 | 3 | sql (3) |
+| 3 | Restricting and sorting data | 3 | 3 | sql (3) |
+| 4 | Single-row functions | 3 | 3 | sql (3) |
+| 5 | Conversion functions and conditional expressions | 3 | 3 | sql (3) |
+| 6 | Group functions | 3 | 3 | sql (3) |
+| 7 | Displaying data from multiple tables | 3 | 3 | sql (3) |
+| 8 | Subqueries | 3 | 3 | sql (3) |
+| 9 | Set operators | 2 | 2 | sql (2) |
+| 10 | Managing tables with DML; transactions | 3 | 3 | sql (3) |
+| 11 | Indexes, synonyms and sequences | 2 | 2 | sql (2) |
+| 12 | DDL: tables, data types and constraints | 2 | 2 | sql (2) |
+| 13 | Views | 1 | 1 | sql (1) |
+| 14 | Controlling user access | 1 | 1 | sql (1) |
+| 15 | Data dictionary views | 1 | 1 | sql (1) |
+| 16 | Data in different time zones | 2 | 2 | sql (2) |
 
 ## Harper Carroll, Academy: free AI course (10 modules, 90 lessons)
 
 https://harpercarroll.ai/academy
 
-0 of 0 items have at least one objective answering to them.
+10 of 10 items have at least one objective answering to them.
 
 | Item | Topic | Objectives | With a drill | Where |
 |---|---|---|---|---|
-| **1** | **Welcome: what AI is, and why it matters** (undefined questions) | | | |
-| **2** | **The big idea: AI turns the world into math** (undefined questions) | | | |
-| **3** | **Neural networks: the engine under the hood** (undefined questions) | | | |
-| **4** | **LLMs: key terms and basics** (undefined questions) | | | |
-| **5** | **Training: how AI actually learns (optional)** (undefined questions) | | | |
-| **6** | **Using AI wisely: limits, trust and better prompts** (undefined questions) | | | |
-| **7** | **AI and tools: what turns a chatbot into an agent** (undefined questions) | | | |
-| **8** | **The toolbox: choosing AI and building with it** (undefined questions) | | | |
-| **9** | **Staying safe: scams, deepfakes and AI content** (undefined questions) | | | |
-| **10** | **Big questions and the road ahead** (undefined questions) | | | |
-
-**Areas with nothing answering to them:** 1 Welcome: what AI is, and why it matters; 2 The big idea: AI turns the world into math; 3 Neural networks: the engine under the hood; 4 LLMs: key terms and basics; 5 Training: how AI actually learns (optional); 6 Using AI wisely: limits, trust and better prompts; 7 AI and tools: what turns a chatbot into an agent; 8 The toolbox: choosing AI and building with it; 9 Staying safe: scams, deepfakes and AI content; 10 Big questions and the road ahead.
+| 1 | Welcome: what AI is, and why it matters | 1 | 1 | ai-basics (1) |
+| 2 | The big idea: AI turns the world into math | 2 | 2 | ai-basics (2) |
+| 3 | Neural networks: the engine under the hood | 3 | 3 | ai-basics (3) |
+| 4 | LLMs: key terms and basics | 4 | 4 | ai-basics (4) |
+| 5 | Training: how AI actually learns (optional) | 3 | 3 | ai-basics (3) |
+| 6 | Using AI wisely: limits, trust and better prompts | 2 | 2 | ai-basics (2) |
+| 7 | AI and tools: what turns a chatbot into an agent | 1 | 1 | ai-basics (1) |
+| 8 | The toolbox: choosing AI and building with it | 1 | 1 | ai-basics (1) |
+| 9 | Staying safe: scams, deepfakes and AI content | 1 | 1 | ai-basics (1) |
+| 10 | Big questions and the road ahead | 1 | 1 | ai-basics (1) |
 
 ## Uniform CPA Examination Blueprints: Financial Accounting and Reporting (FAR)
 
 https://dlcp.dc.gov/sites/default/files/dc/sites/DLCP/publication/attachments/Uniform%20CPA%20Examination%20Blueprints%202.5.24.pdf
 
-0 of 0 items have at least one objective answering to them.
+22 of 22 items have at least one objective answering to them.
 
 | Item | Topic | Objectives | With a drill | Where |
 |---|---|---|---|---|
-| **I.A** | **General-purpose financial reporting: for-profit business entities** (undefined questions) | | | |
-| **I.B** | **General-purpose financial reporting: nongovernmental not-for-profit entities** (undefined questions) | | | |
-| **I.C** | **State and local government concepts** (undefined questions) | | | |
-| **I.D** | **Public company reporting topics** (undefined questions) | | | |
-| **I.E** | **Special purpose frameworks** (undefined questions) | | | |
-| **I.F** | **Financial statement ratios and performance metrics** (undefined questions) | | | |
-| **II.A** | **Cash and cash equivalents** (undefined questions) | | | |
-| **II.B** | **Trade receivables** (undefined questions) | | | |
-| **II.C** | **Inventory** (undefined questions) | | | |
-| **II.D** | **Property, plant and equipment** (undefined questions) | | | |
-| **II.E** | **Investments** (undefined questions) | | | |
-| **II.F** | **Intangible assets** (undefined questions) | | | |
-| **II.G** | **Payables and accrued liabilities** (undefined questions) | | | |
-| **II.H** | **Debt (financial liabilities)** (undefined questions) | | | |
-| **II.I** | **Equity** (undefined questions) | | | |
-| **III.A** | **Accounting changes and error corrections** (undefined questions) | | | |
-| **III.B** | **Contingencies and commitments** (undefined questions) | | | |
-| **III.C** | **Revenue recognition** (undefined questions) | | | |
-| **III.D** | **Accounting for income taxes** (undefined questions) | | | |
-| **III.E** | **Fair value measurements** (undefined questions) | | | |
-| **III.F** | **Lessee accounting** (undefined questions) | | | |
-| **III.G** | **Subsequent events** (undefined questions) | | | |
-
-**Areas with nothing answering to them:** I.A General-purpose financial reporting: for-profit business entities; I.B General-purpose financial reporting: nongovernmental not-for-profit entities; I.C State and local government concepts; I.D Public company reporting topics; I.E Special purpose frameworks; I.F Financial statement ratios and performance metrics; II.A Cash and cash equivalents; II.B Trade receivables; II.C Inventory; II.D Property, plant and equipment; II.E Investments; II.F Intangible assets; II.G Payables and accrued liabilities; II.H Debt (financial liabilities); II.I Equity; III.A Accounting changes and error corrections; III.B Contingencies and commitments; III.C Revenue recognition; III.D Accounting for income taxes; III.E Fair value measurements; III.F Lessee accounting; III.G Subsequent events.
+| I.A | General-purpose financial reporting: for-profit business entities | 4 | 4 | accounting-far (4) |
+| I.B | General-purpose financial reporting: nongovernmental not-for-profit entities | 1 | 1 | accounting-far (1) |
+| I.C | State and local government concepts | 1 | 1 | accounting-far (1) |
+| I.D | Public company reporting topics | 1 | 1 | accounting-far (1) |
+| I.E | Special purpose frameworks | 1 | 1 | accounting-far (1) |
+| I.F | Financial statement ratios and performance metrics | 2 | 2 | accounting-far (2) |
+| II.A | Cash and cash equivalents | 1 | 1 | accounting-far (1) |
+| II.B | Trade receivables | 1 | 1 | accounting-far (1) |
+| II.C | Inventory | 1 | 1 | accounting-far (1) |
+| II.D | Property, plant and equipment | 2 | 2 | accounting-far (2) |
+| II.E | Investments | 1 | 1 | accounting-far (1) |
+| II.F | Intangible assets | 1 | 1 | accounting-far (1) |
+| II.G | Payables and accrued liabilities | 1 | 1 | accounting-far (1) |
+| II.H | Debt (financial liabilities) | 1 | 1 | accounting-far (1) |
+| II.I | Equity | 1 | 1 | accounting-far (1) |
+| III.A | Accounting changes and error corrections | 1 | 1 | accounting-far (1) |
+| III.B | Contingencies and commitments | 1 | 1 | accounting-far (1) |
+| III.C | Revenue recognition | 1 | 1 | accounting-far (1) |
+| III.D | Accounting for income taxes | 1 | 1 | accounting-far (1) |
+| III.E | Fair value measurements | 1 | 1 | accounting-far (1) |
+| III.F | Lessee accounting | 1 | 1 | accounting-far (1) |
+| III.G | Subsequent events | 1 | 1 | accounting-far (1) |
 
 ## NCLEX-RN Test Plan, effective April 2026
 
 https://nclex.com/files/2026_RN_Test%20Plan_English-F.pdf
 
-0 of 0 items have at least one objective answering to them.
+8 of 8 items have at least one objective answering to them.
 
 | Item | Topic | Objectives | With a drill | Where |
 |---|---|---|---|---|
-| **MOC** | **Management of Care (15-21%)** (undefined questions) | | | |
-| **SIPC** | **Safety and Infection Prevention and Control (10-16%)** (undefined questions) | | | |
-| **HPM** | **Health Promotion and Maintenance (6-12%)** (undefined questions) | | | |
-| **PSY** | **Psychosocial Integrity (6-12%)** (undefined questions) | | | |
-| **BCC** | **Basic Care and Comfort (6-12%)** (undefined questions) | | | |
-| **PPT** | **Pharmacological and Parenteral Therapies (13-19%)** (undefined questions) | | | |
-| **RRP** | **Reduction of Risk Potential (9-15%)** (undefined questions) | | | |
-| **PA** | **Physiological Adaptation (11-17%)** (undefined questions) | | | |
-
-**Areas with nothing answering to them:** MOC Management of Care (15-21%); SIPC Safety and Infection Prevention and Control (10-16%); HPM Health Promotion and Maintenance (6-12%); PSY Psychosocial Integrity (6-12%); BCC Basic Care and Comfort (6-12%); PPT Pharmacological and Parenteral Therapies (13-19%); RRP Reduction of Risk Potential (9-15%); PA Physiological Adaptation (11-17%).
+| MOC | Management of Care (15-21%) | 3 | 3 | nclex-rn (3) |
+| SIPC | Safety and Infection Prevention and Control (10-16%) | 3 | 3 | nclex-rn (3) |
+| HPM | Health Promotion and Maintenance (6-12%) | 6 | 6 | nclex-rn (6) |
+| PSY | Psychosocial Integrity (6-12%) | 2 | 2 | nclex-rn (2) |
+| BCC | Basic Care and Comfort (6-12%) | 3 | 3 | nclex-rn (3) |
+| PPT | Pharmacological and Parenteral Therapies (13-19%) | 12 | 12 | nclex-rn (12) |
+| RRP | Reduction of Risk Potential (9-15%) | 6 | 6 | nclex-rn (6) |
+| PA | Physiological Adaptation (11-17%) | 4 | 4 | nclex-rn (4) |
 
 ## JCNDE, Domain of Dentistry (INBDE content domain), July 2018
 
 https://jcnde.ada.org/-/media/project/ada-organization/ada/jcnde/files/domain_of_dentistry_july2018.pdf
 
-0 of 0 items have at least one objective answering to them.
+19 of 24 items have at least one objective answering to them.
 
 | Item | Topic | Objectives | With a drill | Where |
 |---|---|---|---|---|
-| **FK1** | **Molecular, biochemical, cellular and systems-level development, structure and function** (undefined questions) | | | |
-| **FK2** | **Physics and chemistry of normal biology and pathobiology** (undefined questions) | | | |
-| **FK3** | **Physics and chemistry of technologies and materials (8.0%)** (undefined questions) | | | |
-| **FK4** | **Genetic, congenital and developmental diseases** (undefined questions) | | | |
-| **FK5** | **Host defense mechanisms** (undefined questions) | | | |
-| **FK6** | **General and disease-specific pathology** (undefined questions) | | | |
-| **FK7** | **Biology of microorganisms** (undefined questions) | | | |
-| **FK8** | **Pharmacology** (undefined questions) | | | |
-| **FK9** | **Behavioral sciences, ethics and jurisprudence** (undefined questions) | | | |
-| **FK10** | **Research methodology, analysis and informatics** (undefined questions) | | | |
-| **CC4** | **Diagnosing and prognosing dental abnormalities and pathology** (undefined questions) | | | |
-| **CC7** | **Interpreting diagnostic results** (undefined questions) | | | |
-| **CC10** | **Selecting diagnostic tools** (undefined questions) | | | |
-| **CC16** | **Medical emergencies** (undefined questions) | | | |
-| **CC19** | **Pain control during treatment** (undefined questions) | | | |
-| **CC20** | **Pulpal and periradicular diseases** (undefined questions) | | | |
-| **CC21** | **Managing caries** (undefined questions) | | | |
-| **CC22** | **Periodontal diseases** (undefined questions) | | | |
-| **CC26** | **Pharmacological agents** (undefined questions) | | | |
-| **CC30** | **Restoring tooth function, structure and esthetics** (undefined questions) | | | |
-| **CC31** | **Prosthetic and implant procedures** (undefined questions) | | | |
-| **CC41** | **Evaluating scientific literature** (undefined questions) | | | |
-| **CC51** | **Standard infection control** (undefined questions) | | | |
-| **CC56** | **Communicating case design to laboratories** (undefined questions) | | | |
+| FK1 | Molecular, biochemical, cellular and systems-level development, structure and function | 1 | 1 | inbde (1) |
+| FK2 | Physics and chemistry of normal biology and pathobiology | 1 | 1 | inbde (1) |
+| FK3 | Physics and chemistry of technologies and materials (8.0%) | 9 | 9 | inbde (9) |
+| FK4 | Genetic, congenital and developmental diseases | — | — | **nothing yet** |
+| FK5 | Host defense mechanisms | — | — | **nothing yet** |
+| FK6 | General and disease-specific pathology | — | — | **nothing yet** |
+| FK7 | Biology of microorganisms | — | — | **nothing yet** |
+| FK8 | Pharmacology | 1 | 1 | inbde (1) |
+| FK9 | Behavioral sciences, ethics and jurisprudence | — | — | **nothing yet** |
+| FK10 | Research methodology, analysis and informatics | 1 | 1 | inbde (1) |
+| CC4 | Diagnosing and prognosing dental abnormalities and pathology | 1 | 1 | inbde (1) |
+| CC7 | Interpreting diagnostic results | 1 | 1 | inbde (1) |
+| CC10 | Selecting diagnostic tools | 1 | 1 | inbde (1) |
+| CC16 | Medical emergencies | 1 | 1 | inbde (1) |
+| CC19 | Pain control during treatment | 2 | 2 | inbde (2) |
+| CC20 | Pulpal and periradicular diseases | 1 | 1 | inbde (1) |
+| CC21 | Managing caries | 2 | 2 | inbde (2) |
+| CC22 | Periodontal diseases | 1 | 1 | inbde (1) |
+| CC26 | Pharmacological agents | 1 | 1 | inbde (1) |
+| CC30 | Restoring tooth function, structure and esthetics | 3 | 3 | inbde (3) |
+| CC31 | Prosthetic and implant procedures | 2 | 2 | inbde (2) |
+| CC41 | Evaluating scientific literature | 1 | 1 | inbde (1) |
+| CC51 | Standard infection control | 1 | 1 | inbde (1) |
+| CC56 | Communicating case design to laboratories | 2 | 2 | inbde (2) |
 
-**Areas with nothing answering to them:** FK1 Molecular, biochemical, cellular and systems-level development, structure and function; FK2 Physics and chemistry of normal biology and pathobiology; FK3 Physics and chemistry of technologies and materials (8.0%); FK4 Genetic, congenital and developmental diseases; FK5 Host defense mechanisms; FK6 General and disease-specific pathology; FK7 Biology of microorganisms; FK8 Pharmacology; FK9 Behavioral sciences, ethics and jurisprudence; FK10 Research methodology, analysis and informatics; CC4 Diagnosing and prognosing dental abnormalities and pathology; CC7 Interpreting diagnostic results; CC10 Selecting diagnostic tools; CC16 Medical emergencies; CC19 Pain control during treatment; CC20 Pulpal and periradicular diseases; CC21 Managing caries; CC22 Periodontal diseases; CC26 Pharmacological agents; CC30 Restoring tooth function, structure and esthetics; CC31 Prosthetic and implant procedures; CC41 Evaluating scientific literature; CC51 Standard infection control; CC56 Communicating case design to laboratories.
+## AAMC, What's on the MCAT Exam? content outline
+
+https://students-residents.aamc.org/mcatexam
+
+13 of 14 items have at least one objective answering to them.
+
+| Item | Topic | Objectives | With a drill | Where |
+|---|---|---|---|---|
+| 1A | Proteins and amino acids | 23 | 23 | biology (16), structures (7) |
+| 1B | Gene to protein | 19 | 19 | biology (19) |
+| 1C | Heredity and genetic diversity | 15 | 15 | biology (15) |
+| 1D | Bioenergetics and fuel metabolism | 18 | 18 | biology (18) |
+| 4A | Motion, forces, work, energy, equilibrium | 27 | 27 | physics (27) |
+| 4B | Fluids in circulation and gas exchange | 7 | 7 | physics (7) |
+| 4C | Electrochemistry and circuits | 30 | 30 | chemistry (18), physics (12) |
+| 4D | Light and sound with matter | 20 | 20 | physics (20) |
+| 4E | Atoms, nuclear decay, electronic structure | 24 | 24 | chemistry (21), nuclear (3) |
+| 5A | Water and solutions | 48 | 48 | chemistry (48) |
+| 5B | Molecules and intermolecular interactions | 27 | 27 | chemistry (27) |
+| 5C | Separation and purification | — | — | **nothing yet** |
+| 5D | Biologically relevant molecules | 14 | 14 | organic-reactions (7), structures (7) |
+| 5E | Chemical thermodynamics and kinetics | 32 | 32 | chemistry (32) |
+
+## Next Generation Science Standards, high school performance expectations (2013)
+
+https://educate.iowa.gov/pk-12/standards/academics/science/high-school
+
+41 of 71 items have at least one objective answering to them.
+
+| Item | Topic | Objectives | With a drill | Where |
+|---|---|---|---|---|
+| PS1-1 | Periodic patterns of outer electrons predict properties | 23 | 23 | chemistry (21), periodic-table (2) |
+| PS1-2 | Reaction outcomes from outer electrons and periodic trends | 39 | 39 | chemistry (39) |
+| PS1-3 | Bulk properties infer strength of electrical forces between particles | 27 | 27 | chemistry (27) |
+| PS1-4 | Bond energy changes account for energy released or absorbed | 16 | 16 | chemistry (16) |
+| PS1-5 | Temperature and concentration effects on reaction rate | 16 | 16 | chemistry (16) |
+| PS1-6 | Changing conditions to shift equilibrium toward product | 18 | 18 | chemistry (18) |
+| PS1-7 | Conservation of atoms and mass in reactions (mathematical) | 18 | 18 | chemistry (18) |
+| PS1-8 | Fission, fusion and radioactive decay | 6 | 6 | dat (3), nuclear (3) |
+| PS2-1 | Newton's second law from data | 17 | 17 | physics (17) |
+| PS2-2 | Conservation of momentum | 8 | 8 | physics (8) |
+| PS2-3 | Design a device that reduces collision force | — | — | **nothing yet** |
+| PS2-4 | Newton's gravitation and Coulomb's law | 15 | 15 | physics (15) |
+| PS2-5 | Currents and magnetic fields produce each other | 10 | 10 | physics (10) |
+| PS2-6 | Molecular structure and the function of designed materials | — | — | **nothing yet** |
+| PS3-1 | Energy change of one component from the others and the flows | 10 | 10 | physics (10) |
+| PS3-2 | Energy as motion of particles plus relative positions | 10 | 10 | physics (10) |
+| PS3-3 | Design a device that converts energy | — | — | **nothing yet** |
+| PS3-4 | Heat flow toward uniform energy (second law) | 12 | 10 | physics (12) |
+| PS3-5 | Energy in electric and magnetic field interactions | 15 | 15 | physics (15) |
+| PS4-1 | Wave speed, frequency and wavelength | 13 | 13 | physics (13) |
+| PS4-2 | Advantages of digital transmission and storage | — | — | **nothing yet** |
+| PS4-3 | Wave and particle models of electromagnetic radiation | 11 | 11 | physics (11) |
+| PS4-4 | Effects of radiation frequency on matter | 3 | 3 | nuclear (3) |
+| PS4-5 | Devices that use waves to transmit and capture information | — | — | **nothing yet** |
+| LS1-1 | DNA structure determines protein structure and function | 19 | 19 | biology (19) |
+| LS1-2 | Hierarchical organisation of interacting body systems | 15 | 15 | biology (15) |
+| LS1-3 | Feedback mechanisms and homeostasis | 15 | 15 | biology (15) |
+| LS1-4 | Mitosis and differentiation | 15 | 15 | biology (15) |
+| LS1-5 | Photosynthesis converts light to chemical energy | 18 | 18 | biology (18) |
+| LS1-6 | Carbon, hydrogen and oxygen from sugars build large molecules | 16 | 16 | biology (16) |
+| LS1-7 | Cellular respiration as bond breaking and forming | 18 | 18 | biology (18) |
+| LS2-1 | Carrying capacity | 20 | 20 | biology (20) |
+| LS2-2 | Biodiversity and population size (mathematical) | 20 | 20 | biology (20) |
+| LS2-3 | Matter and energy in aerobic and anaerobic conditions | 20 | 20 | biology (20) |
+| LS2-4 | Matter and energy flow among organisms (mathematical) | 20 | 20 | biology (20) |
+| LS2-5 | Carbon cycling | 20 | 20 | biology (20) |
+| LS2-6 | Ecosystem stability and change | 20 | 20 | biology (20) |
+| LS2-7 | Reduce human impact on the environment and biodiversity | — | — | **nothing yet** |
+| LS2-8 | Group behaviour and survival | 20 | 20 | biology (20) |
+| LS3-1 | DNA and chromosomes code for traits | 15 | 15 | biology (15) |
+| LS3-2 | Sources of inheritable variation | 15 | 15 | biology (15) |
+| LS3-3 | Statistics of trait variation | 15 | 15 | biology (15) |
+| LS4-1 | Evidence for common ancestry | 27 | 27 | biology (27) |
+| LS4-2 | Four factors of evolution | 27 | 27 | biology (27) |
+| LS4-3 | Statistics of advantageous traits | 27 | 27 | biology (27) |
+| LS4-4 | Natural selection leads to adaptation | 27 | 27 | biology (27) |
+| LS4-5 | Environmental change and speciation or extinction | 27 | 27 | biology (27) |
+| LS4-6 | Simulate solutions to biodiversity threats | — | — | **nothing yet** |
+| ESS1-1 | The Sun's life span and fusion energy | — | — | **nothing yet** |
+| ESS1-2 | Big Bang evidence | — | — | **nothing yet** |
+| ESS1-3 | Stellar nucleosynthesis | — | — | **nothing yet** |
+| ESS1-4 | Orbital motion (Kepler, gravitation) | — | — | **nothing yet** |
+| ESS1-5 | Plate tectonics and the ages of rocks | — | — | **nothing yet** |
+| ESS1-6 | Early Earth history from ancient materials | — | — | **nothing yet** |
+| ESS2-1 | Internal and surface processes form landforms | — | — | **nothing yet** |
+| ESS2-2 | Feedbacks among Earth systems | — | — | **nothing yet** |
+| ESS2-3 | Thermal convection in the mantle | — | — | **nothing yet** |
+| ESS2-4 | Energy flow and climate change | — | — | **nothing yet** |
+| ESS2-5 | Properties of water and surface processes | — | — | **nothing yet** |
+| ESS2-6 | Carbon cycling among Earth systems (quantitative) | — | — | **nothing yet** |
+| ESS2-7 | Coevolution of Earth systems and life | — | — | **nothing yet** |
+| ESS3-1 | Resources, hazards and climate shape human activity | — | — | **nothing yet** |
+| ESS3-2 | Cost–benefit of energy and mineral resources | — | — | **nothing yet** |
+| ESS3-3 | Resource management, sustainability and biodiversity | — | — | **nothing yet** |
+| ESS3-4 | Technology that reduces human impact | — | — | **nothing yet** |
+| ESS3-5 | Forecasting climate change | — | — | **nothing yet** |
+| ESS3-6 | Humans alter Earth-system relationships (computational) | — | — | **nothing yet** |
+| ETS1-1 | Criteria and constraints for a global challenge | — | — | **nothing yet** |
+| ETS1-2 | Break a problem into smaller problems | — | — | **nothing yet** |
+| ETS1-3 | Evaluate solutions by prioritised criteria and trade-offs | — | — | **nothing yet** |
+| ETS1-4 | Simulate the impact of a solution | — | — | **nothing yet** |
+
+## IB Diploma Programme Chemistry guide, first assessment 2025 (topic list)
+
+https://www.ibo.org/globalassets/new-structure/recognition/pdfs/dp_sciences_chemistry_subject-brief_jan_2022_e.pdf
+
+19 of 22 items have at least one objective answering to them.
+
+| Item | Topic | Objectives | With a drill | Where |
+|---|---|---|---|---|
+| S1.1 | Particulate nature of matter | 11 | 11 | chemistry (11) |
+| S1.2 | The nuclear atom | 21 | 21 | chemistry (21) |
+| S1.3 | Electron configurations | 26 | 26 | chemistry (21), periodic-table (5) |
+| S1.4 | The mole | 26 | 26 | chemistry (21), dat (5) |
+| S1.5 | Ideal gases | 31 | 31 | chemistry (27), dat (4) |
+| S2.1 | The ionic model | 13 | 13 | chemistry (13) |
+| S2.2 | The covalent model | 13 | 13 | chemistry (13) |
+| S2.3 | The metallic model | 13 | 13 | chemistry (13) |
+| S2.4 | From models to materials | — | — | **nothing yet** |
+| S3.1 | The periodic table: classification of elements | 26 | 26 | chemistry (21), periodic-table (5) |
+| S3.2 | Functional groups: classification of organic compounds | 12 | 12 | dat (8), structures (4) |
+| R1.1 | Measuring enthalpy changes | 16 | 16 | chemistry (16) |
+| R1.2 | Energy cycles in reactions | 16 | 16 | chemistry (16) |
+| R1.3 | Energy from fuels | — | — | **nothing yet** |
+| R1.4 | Entropy and spontaneity (HL) | 18 | 18 | chemistry (18) |
+| R2.1 | How much? The amount of chemical change | 18 | 18 | chemistry (18) |
+| R2.2 | How fast? The rate of chemical change | 16 | 16 | chemistry (16) |
+| R2.3 | How far? The extent of chemical change | 18 | 18 | chemistry (18) |
+| R3.1 | Proton transfer reactions | 21 | 21 | chemistry (21) |
+| R3.2 | Electron transfer reactions | 18 | 18 | chemistry (18) |
+| R3.3 | Electron sharing reactions | — | — | **nothing yet** |
+| R3.4 | Electron-pair sharing reactions | 12 | 12 | dat (8), organic-reactions (4) |
+
+## IB Diploma Programme Physics, first assessment 2025 (subject brief topic list)
+
+https://ibo.org/globalassets/new-structure/recognition/pdfs/dp_sciences_physics_subject-brief_jan_2022_e.pdf
+
+21 of 24 items have at least one objective answering to them.
+
+| Item | Topic | Objectives | With a drill | Where |
+|---|---|---|---|---|
+| A.1 | Kinematics | 13 | 13 | physics (13) |
+| A.2 | Forces and momentum | 25 | 25 | physics (25) |
+| A.3 | Work, energy and power | 10 | 10 | physics (10) |
+| A.4 | Rigid body mechanics (HL) | 16 | 16 | physics (16) |
+| A.5 | Galilean and special relativity (HL) | — | — | **nothing yet** |
+| B.1 | Thermal energy transfers | 19 | 16 | heat-transfer (7), physics (12) |
+| B.2 | Greenhouse effect | — | — | **nothing yet** |
+| B.3 | Gas laws | 12 | 10 | physics (12) |
+| B.4 | Thermodynamics (HL) | 19 | 17 | physics (12), thermodynamics (7) |
+| B.5 | Current and circuits | 12 | 12 | physics (12) |
+| C.1 | Simple harmonic motion | 5 | 4 | physics (5) |
+| C.2 | Wave model | 13 | 13 | physics (13) |
+| C.3 | Wave phenomena | 20 | 20 | physics (20) |
+| C.4 | Standing waves and resonance | 13 | 13 | physics (13) |
+| C.5 | Doppler effect | 13 | 13 | physics (13) |
+| D.1 | Gravitational fields | 17 | 17 | physics (17) |
+| D.2 | Electric and magnetic fields | 25 | 25 | physics (25) |
+| D.3 | Motion in electromagnetic fields | 10 | 10 | physics (10) |
+| D.4 | Induction (HL) | 6 | 5 | physics (6) |
+| E.1 | Structure of the atom | 11 | 11 | physics (11) |
+| E.2 | Quantum physics (HL) | 11 | 11 | physics (11) |
+| E.3 | Radioactive decay | 3 | 3 | nuclear (3) |
+| E.4 | Fission | 5 | 5 | nuclear (5) |
+| E.5 | Fusion and stars | — | — | **nothing yet** |
+
+## IB Diploma Programme Biology, first assessment 2025 (subject brief topic list)
+
+https://www.ibo.org/globalassets/new-structure/recognition/pdfs/dp_sciences_biology_subject-brief_jan_2022_e.pdf
+
+38 of 40 items have at least one objective answering to them.
+
+| Item | Topic | Objectives | With a drill | Where |
+|---|---|---|---|---|
+| A1.1 | Water | 16 | 16 | biology (16) |
+| A1.2 | Nucleic acids | 16 | 16 | biology (16) |
+| A2.1 | Origins of cells (HL) | — | — | **nothing yet** |
+| A2.2 | Cell structure | 25 | 25 | biology (25) |
+| A2.3 | Viruses (HL) | 9 | 9 | biology (9) |
+| A3.1 | Diversity of organisms | 27 | 27 | biology (27) |
+| A3.2 | Classification and cladistics (HL) | 27 | 27 | biology (27) |
+| A4.1 | Evolution and speciation | 27 | 27 | biology (27) |
+| A4.2 | Conservation of biodiversity | 20 | 20 | biology (20) |
+| B1.1 | Carbohydrates and lipids | 16 | 16 | biology (16) |
+| B1.2 | Proteins | 23 | 23 | biology (16), structures (7) |
+| B2.1 | Membranes and membrane transport | 25 | 25 | biology (25) |
+| B2.2 | Organelles and compartmentalization | 25 | 25 | biology (25) |
+| B2.3 | Cell specialization | 9 | 9 | biology (9) |
+| B3.1 | Gas exchange | 15 | 15 | biology (15) |
+| B3.2 | Transport | 15 | 15 | biology (15) |
+| B3.3 | Muscle and motility (HL) | 15 | 15 | biology (15) |
+| B4.1 | Adaptation to environment | 27 | 27 | biology (27) |
+| B4.2 | Ecological niches | 20 | 20 | biology (20) |
+| C1.1 | Enzymes and metabolism | 18 | 18 | biology (18) |
+| C1.2 | Cell respiration | 18 | 18 | biology (18) |
+| C1.3 | Photosynthesis | 18 | 18 | biology (18) |
+| C2.1 | Chemical signalling (HL) | 15 | 15 | biology (15) |
+| C2.2 | Neural signalling | 15 | 15 | biology (15) |
+| C3.1 | Integration of body systems | 15 | 15 | biology (15) |
+| C3.2 | Defence against disease | 15 | 15 | biology (15) |
+| C4.1 | Populations and communities | 20 | 20 | biology (20) |
+| C4.2 | Transfer of energy and matter | 20 | 20 | biology (20) |
+| D1.1 | DNA replication | 19 | 19 | biology (19) |
+| D1.2 | Protein synthesis | 19 | 19 | biology (19) |
+| D1.3 | Mutations and gene editing | 19 | 19 | biology (19) |
+| D2.1 | Cell and nuclear division | 15 | 15 | biology (15) |
+| D2.2 | Gene expression (HL) | 19 | 19 | biology (19) |
+| D2.3 | Water potential | 25 | 25 | biology (25) |
+| D3.1 | Reproduction | 15 | 15 | biology (15) |
+| D3.2 | Inheritance | 15 | 15 | biology (15) |
+| D3.3 | Homeostasis | 15 | 15 | biology (15) |
+| D4.1 | Natural selection | 27 | 27 | biology (27) |
+| D4.2 | Sustainability and change | 20 | 20 | biology (20) |
+| D4.3 | Climate change | — | — | **nothing yet** |
+
+## U.S. National Chemistry Olympiad: local and national exam format and multiple-choice topics
+
+https://www.acs.org/education/olympiad/prepare-for-exams/exam-information.html
+
+7 of 9 items have at least one objective answering to them.
+
+| Item | Topic | Objectives | With a drill | Where |
+|---|---|---|---|---|
+| 1 | Stoichiometry and solutions (Q1-6) | 27 | 27 | chemistry (18), dat (9) |
+| 2 | Descriptive chemistry and laboratory (Q7-12) | 4 | 4 | dat (4) |
+| 3 | States of matter (Q13-18) | 35 | 35 | chemistry (27), dat (8) |
+| 4 | Thermodynamics (Q19-24) | 40 | 40 | chemistry (34), dat (6) |
+| 5 | Kinetics (Q25-30) | 33 | 32 | chemistry (16), dat (4), physical-chemistry (13) |
+| 6 | Equilibrium (Q31-36) | 48 | 48 | chemistry (39), dat (9) |
+| 7 | Oxidation-reduction (Q37-42) | 22 | 22 | chemistry (18), dat (4) |
+| P2 | National Part II: written problems | — | — | **nothing yet** |
+| P3 | National Part III: laboratory practical | — | — | **nothing yet** |
+
+## Regulations of the International Chemistry Olympiad, Appendices C and D (concepts, skills and factual knowledge)
+
+https://www.pianetachimica.it/olimpiadi/41icho/IChOsyllabus.pdf
+
+26 of 42 items have at least one objective answering to them.
+
+| Item | Topic | Objectives | With a drill | Where |
+|---|---|---|---|---|
+| c1 | Experimental error and significant figures | 11 | 11 | chemistry (11) |
+| c2 | Nucleons, isotopes, decay and nuclear reactions | 6 | 6 | dat (3), nuclear (3) |
+| c3 | Quantum numbers, orbitals, configurations | 26 | 26 | chemistry (21), periodic-table (5) |
+| c4 | Periodic trends | 24 | 24 | chemistry (21), dat (3) |
+| c5 | Bond types, intermolecular forces, simple VSEPR | 40 | 40 | chemistry (40) |
+| c6 | Stoichiometry, mole, concentration | 23 | 23 | chemistry (18), dat (5) |
+| c7 | Equilibrium and Le Chatelier | 18 | 18 | chemistry (18) |
+| c8 | Acid-base, pH, buffers, hydrolysis | 26 | 26 | chemistry (21), dat (5) |
+| c9 | Solubility constants and complexation | 18 | 18 | chemistry (18) |
+| c10 | Electrochemistry: EMF, Nernst, electrolysis, Faraday | 22 | 22 | chemistry (18), physical-chemistry (4) |
+| c11 | Rates, rate laws, catalysis, energy profiles | 16 | 16 | chemistry (16) |
+| c12 | Thermodynamics: enthalpy, Hess, entropy, Gibbs | 34 | 34 | chemistry (34) |
+| c13 | Ideal gases and partial pressures | 31 | 31 | chemistry (27), dat (4) |
+| c14 | Titrations: direct, back, redox, complexometric, precipitation | 21 | 21 | chemistry (21) |
+| c15 | Acidimetry, alkalimetry, indicators | 21 | 21 | chemistry (21) |
+| c16 | Qualitative inorganic analysis and flame tests | — | — | **nothing yet** |
+| c17 | Lambert-Beer law | 27 | 27 | chemistry (27) |
+| c18 | Organic structure, nomenclature, hybridization | 11 | 11 | organic-reactions (7), structures (4) |
+| c19 | Delocalization, resonance, aromaticity | 3 | 3 | organic-reactions (3) |
+| c20 | Isomerism and stereochemistry | 13 | 13 | dat (6), organic-reactions (7) |
+| c21 | Hydrophilic and hydrophobic groups, micelles | — | — | **nothing yet** |
+| c22 | Polymers: chain growth, polyaddition, polycondensation | — | — | **nothing yet** |
+| a1 | Prep only: advanced VSEPR, inorganic stereochemistry, solid state and Bragg | — | — | **nothing yet** |
+| a2 | Prep only: integrated rate laws, Arrhenius, steady state, collision theory | 19 | 18 | physical-chemistry (13), reaction-engineering (6) |
+| a3 | Prep only: phase diagrams and Clausius-Clapeyron | 9 | 9 | physical-chemistry (3), thermodynamics (6) |
+| a4 | Prep only: stereoselective reactions, conformations, advanced aromatic substitution | 3 | 3 | organic-reactions (3) |
+| a5 | Prep only: advanced polymers and supramolecular chemistry | — | — | **nothing yet** |
+| a6 | Prep only: biochemistry (amino acids, proteins, enzymes, carbohydrates, nucleic acids) | 23 | 23 | biology (16), structures (7) |
+| a7 | Prep only: complex solubility, Schrodinger equation, simple MO theory | 18 | 15 | physical-chemistry (18) |
+| a8 | Prep only: mass spectrometry and NMR | 5 | 5 | physical-chemistry (5) |
+| a9 | Prep only: advanced synthesis and analysis techniques | — | — | **nothing yet** |
+| d1 | Facts: s-block reactions and flame colours | — | — | **nothing yet** |
+| d2 | Facts: binary non-metal hydrides | — | — | **nothing yet** |
+| d3 | Facts: oxides of C, N and S | — | — | **nothing yet** |
+| d4 | Facts: p-block oxidation states and oxoacids | — | — | **nothing yet** |
+| d5 | Facts: halogens with water | — | — | **nothing yet** |
+| d6 | Facts: first-row transition-metal oxidation states and ion colours | — | — | **nothing yet** |
+| d7 | Facts: dissolving metals, amphoteric hydroxides | — | — | **nothing yet** |
+| d8 | Facts: permanganate, chromate, dichromate | — | — | **nothing yet** |
+| d9 | Facts: iodometry | — | — | **nothing yet** |
+| d10 | Facts: identifying ions | — | — | **nothing yet** |
+| d11 | Facts: organic reaction types, Grignard, Fehling, Tollens, biomolecules | 10 | 10 | organic-reactions (10) |
+
+## IChO syllabus, theoretical part (12 sections, levels 1-3)
+
+https://www.pw.live/olympiad/exams/icho-syllabus
+
+9 of 12 items have at least one objective answering to them.
+
+| Item | Topic | Objectives | With a drill | Where |
+|---|---|---|---|---|
+| 1 | The atom | 21 | 21 | chemistry (21) |
+| 2 | Chemical bonding | 13 | 13 | chemistry (13) |
+| 3 | Chemical calculations | 18 | 18 | chemistry (18) |
+| 4 | Periodic trends | 21 | 21 | chemistry (21) |
+| 5 | Inorganic chemistry | — | — | **nothing yet** |
+| 6 | Physical chemistry | 14 | 14 | physical-chemistry (7), thermodynamics (7) |
+| 7 | Chemical kinetics | 29 | 28 | chemistry (16), physical-chemistry (13) |
+| 8 | Spectroscopy | 13 | 10 | physical-chemistry (13) |
+| 9 | Organic chemistry | 11 | 11 | organic-reactions (11) |
+| 10 | Polymers | — | — | **nothing yet** |
+| 11 | Biochemistry | 23 | 23 | biology (16), structures (7) |
+| 12 | Analytical chemistry | — | — | **nothing yet** |
+
+## ACS Exams Institute Anchoring Concepts Content Map: the ten anchoring concepts (shared by the general, organic, inorganic, physical, analytical and biochemistry maps)
+
+https://curriculumalignment.ucf.edu/wp-content/uploads/sites/10/2017/08/2013_Organic_Chemistry_ACCM-ACS.pdf
+
+9 of 10 items have at least one objective answering to them.
+
+| Item | Topic | Objectives | With a drill | Where |
+|---|---|---|---|---|
+| I | Atoms | 21 | 21 | chemistry (21) |
+| II | Bonding | 13 | 13 | chemistry (13) |
+| III | Structure and function | 17 | 17 | chemistry (13), structures (4) |
+| IV | Intermolecular interactions | 27 | 27 | chemistry (27) |
+| V | Chemical reactions | 25 | 25 | chemistry (18), organic-reactions (7) |
+| VI | Energy and thermodynamics | 34 | 34 | chemistry (34) |
+| VII | Kinetics | 16 | 16 | chemistry (16) |
+| VIII | Equilibrium | 39 | 39 | chemistry (39) |
+| IX | Experiments, measurement and data | 11 | 11 | chemistry (11) |
+| X | Visualization | — | — | **nothing yet** |
+
+## NCEES PE Chemical CBT Exam Specifications (effective January 2020)
+
+https://ncees.org/wp-content/uploads/2022/09/PE-Che_Jan2020-1.pdf
+
+12 of 16 items have at least one objective answering to them.
+
+| Item | Topic | Objectives | With a drill | Where |
+|---|---|---|---|---|
+| **1** | **Mass and energy balances** (12–18 questions) | | | |
+| 1.A | Mass balances | 8 | 8 | material-balances (8) |
+| 1.B | Energy balances | 3 | 3 | material-balances (3) |
+| **2** | **Thermodynamics** (11–17 questions) | | | |
+| 2.A | Basic thermodynamics | 7 | 7 | thermodynamics (7) |
+| 2.B | Chemical equilibria | 7 | 7 | thermodynamics (7) |
+| 2.C | Phase equilibria | 18 | 18 | thermodynamics (18) |
+| **3** | **Heat transfer** (9–14 questions) | | | |
+| 3.A | Fundamentals | 9 | 8 | heat-transfer (9) |
+| 3.B | Applications | 7 | 6 | heat-transfer (7) |
+| **4** | **Chemical reaction engineering** (6–10 questions) | | | |
+| 4.A | Fundamentals | 10 | 10 | reaction-engineering (10) |
+| 4.B | Applications | 8 | 8 | reaction-engineering (8) |
+| **5** | **Fluids** (10–16 questions) | | | |
+| 5.A | Fundamentals | 5 | 5 | fluid-mechanics (5) |
+| 5.B | Applications | 3 | 3 | fluid-mechanics (3) |
+| **6** | **Mass transfer** (7–11 questions) | | | |
+| 6.A | Fundamentals | 6 | 6 | heat-transfer (6) |
+| 6.B | Applications | — | — | **nothing yet** |
+| **7** | **Plant design and operation** (15–23 questions) | | | |
+| 7.A | Safety, health and environment | — | — | **nothing yet** |
+| 7.B | Design | — | — | **nothing yet** |
+| 7.C | Operation and maintenance | — | — | **nothing yet** |
+
+**Areas with nothing answering to them:** 7 Plant design and operation.
+
+## GRE Physics Test content specifications
+
+https://www.ets.org/gre/test-takers/subject-tests/about/content-structure.html
+
+7 of 9 items have at least one objective answering to them.
+
+| Item | Topic | Objectives | With a drill | Where |
+|---|---|---|---|---|
+| 1 | Classical mechanics | 8 | 7 | physics (8) |
+| 2 | Electromagnetism | 10 | 9 | physics (10) |
+| 3 | Optics and wave phenomena | 20 | 20 | physics (20) |
+| 4 | Thermodynamics and statistical mechanics | 8 | 8 | thermodynamics (8) |
+| 5 | Quantum mechanics | 20 | 20 | physical-chemistry (20) |
+| 6 | Atomic physics | 20 | 19 | physical-chemistry (9), physics (11) |
+| 7 | Special relativity | — | — | **nothing yet** |
+| 8 | Laboratory methods | — | — | **nothing yet** |
+| 9 | Specialized topics | 6 | 6 | nuclear (3), particle-physics (3) |
+
+## GRE Chemistry Test (discontinued after April 2023): content areas
+
+https://www.ets.org/gre/score-users/subject-test-changes.html
+
+2 of 4 items have at least one objective answering to them.
+
+| Item | Topic | Objectives | With a drill | Where |
+|---|---|---|---|---|
+| AN | Analytical chemistry | — | — | **nothing yet** |
+| IN | Inorganic chemistry | — | — | **nothing yet** |
+| OR | Organic chemistry | 7 | 7 | organic-reactions (7) |
+| PH | Physical chemistry | 7 | 7 | physical-chemistry (7) |

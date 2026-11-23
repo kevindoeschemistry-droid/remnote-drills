@@ -22,6 +22,7 @@ domains: [fm]
 
 basis:
   primary: fe-chemical
+  also: [pe-chemical]
   note: "Topics from FE Chemical area 6, read in full. Objectives and their order are ours; statics is assumed by the spec rather than listed. The framework stops at what a one-question drill can carry: no Moody chart, pump curves or differential analysis yet."
 
 big_ideas:
@@ -51,7 +52,7 @@ units:
     n: 1
     title: "Properties and statics"
     scope: core
-    std: ["fe-chemical:6.A"]
+    std: ["fe-chemical:6.A", "pe-chemical:5.A"]
     ideas: [HEAD]
     topics:
       - n: 1
@@ -80,7 +81,7 @@ units:
     n: 3
     title: "Continuity and Bernoulli"
     scope: core
-    std: ["fe-chemical:6.D"]
+    std: ["fe-chemical:6.D", "pe-chemical:5.A"]
     ideas: [CONSERVE, HEAD]
     topics:
       - n: 1
@@ -92,7 +93,7 @@ units:
     n: 4
     title: "The mechanical energy balance"
     scope: core
-    std: ["fe-chemical:6.C", "fe-chemical:6.G"]
+    std: ["fe-chemical:6.C", "fe-chemical:6.G", "pe-chemical:5.B"]
     ideas: [HEAD]
     topics:
       - n: 1
