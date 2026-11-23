@@ -1,7 +1,7 @@
 // Library drill cards by framework, progress carried over from courses, and pausing the course
 // cards the Library duplicates. Runs against an in-memory stand-in for RemNote.
 import {
-  coveredCourseCards, DRILLED_FRAMEWORKS, ensureLibrary, LIBRARY, PATH_LOS, pauseCoveredCourseCards, pausedCourseCards, resumeCourseCards, setCardFrameworks,
+  coveredCourseCards, DEFAULT_CARD_FRAMEWORKS, DRILLED_FRAMEWORKS, ensureLibrary, getCardFrameworks, LIBRARY, libraryIsCurrent, PATH_LOS, pauseCoveredCourseCards, pausedCourseCards, resumeCourseCards, setCardFrameworks,
 } from "../src/drills/library-path";
 import { ALL_SKILLS } from "../src/drills/skills";
 import { LO_DRILLS } from "../src/drills/target";
@@ -95,6 +95,23 @@ const allCards = () => LIBRARY.frameworks.reduce((n, f) => n + cardsIn(f.id), 0)
   if ((await pausedCourseCards(plugin)) !== n) fail("paused count is wrong");
   const back = await resumeCourseCards(plugin);
   if (back !== n || Object.values(courseCards).some((id) => !rems.get(id).practice)) fail("resume did not turn every paused card back on");
+
+  // 6. a framework that got its first drills after the choice was saved gets cards anyway
+  //    (Kevin's DAT and structures, Nov 2026): first a choice saved before the plugin recorded what
+  //    was on offer, then one saved since, with a framework that was not on offer at the time
+  store["library.cardFrameworks"] = DEFAULT_CARD_FRAMEWORKS.filter((id) => id !== "dat");
+  delete store["library.cardFrameworksSeen"];
+  const legacy = (await getCardFrameworks(plugin))!;
+  if (!legacy.includes("dat")) fail("an old choice without dat did not turn dat on");
+  if (legacy.includes("math-k8") || legacy.includes("math-hs")) fail("an old choice turned school maths on");
+  if (await libraryIsCurrent(plugin)) fail("a changed card choice should make the Library out of date");
+  await ensureLibrary(plugin);
+  if (cardsIn("dat") !== want("dat")) fail(`dat has ${cardsIn("dat")} cards, expected ${want("dat")}`);
+  if (!(await libraryIsCurrent(plugin))) fail("the Library is not current after the update");
+  await setCardFrameworks(plugin, ["chemistry"]);
+  store["library.cardFrameworksSeen"] = store["library.cardFrameworksSeen"].filter((id: string) => id !== "structures");
+  const later = (await getCardFrameworks(plugin))!;
+  if (!later.includes("structures") || later.includes("physics")) fail(`a framework new since the choice should be on and an unticked one off: ${later.join(", ")}`);
 
   console.log(`library choice: ${want("heat-transfer")} + ${want("thermodynamics")} cards for two frameworks, ${sameSkill.length} objectives inherited "${clearedSkill}", ${dup.remIds.length} course cards found as duplicates (${n} paused and resumed)`);
   process.exit(process.exitCode ?? 0);

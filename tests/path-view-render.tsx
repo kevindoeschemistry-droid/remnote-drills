@@ -1,5 +1,5 @@
 // Mounts the Path tab in a stand-in browser with a fake RemNote and fails on any render error.
-// Three states: never built, built before framework choice existed, built with a saved choice.
+// States: never built, built before framework choice existed, built with a saved choice, and an old saved choice.
 import { JSDOM } from "jsdom";
 const dom = new JSDOM("<!doctype html><html><body><div id='root'></div></body></html>", { pretendToBeVisual: true });
 const g: any = globalThis;
@@ -28,6 +28,7 @@ Module._load = function (request: string, ...rest: any[]) {
 };
 
 const React = require("react");
+const { DRILLED_FRAMEWORKS, DEFAULT_CARD_FRAMEWORKS } = require("../src/drills/library-path");
 const ReactDOM = require("react-dom");
 const { act } = require("react-dom/test-utils");
 const { PathView } = require("../src/components/PathView");
@@ -66,7 +67,10 @@ async function mount(label: string, seed: Record<string, any>, expect: string[],
 (async () => {
   await mount("never built", {}, ["Build the Library", "Heat Transfer", "cards"]);
   await mount("built before the choice existed", { "library.root": "r1", "library.signature": "old" }, ["Update the Library", "Drill cards:"]);
-  await mount("built with a saved choice", { "library.root": "r1", "library.cardFrameworks": ["heat-transfer"] }, ["Drill cards: 1 of"]);
+  const drilledIds = DRILLED_FRAMEWORKS.map((f) => f.id);
+  await mount("built with a saved choice", { "library.root": "r1", "library.cardFrameworks": ["heat-transfer"], "library.cardFrameworksSeen": drilledIds }, ["Drill cards: 1 of"]);
+  // a choice saved before the plugin recorded what was on offer: frameworks other than school maths count as new and are on
+  await mount("an old saved choice", { "library.root": "r1", "library.cardFrameworks": ["heat-transfer"] }, [`Drill cards: ${DEFAULT_CARD_FRAMEWORKS.length} of`]);
   // objectives without drills are hidden until asked for: no empty tracks, no "no drills" dead end
   const firstUndrilledMath = PATH_LOS.find((l: any) => l.fw.track === "math" && !l.drills.length) ?? PATH_LOS.find((l: any) => !l.drills.length);
   const known0: Record<string, string> = {};
