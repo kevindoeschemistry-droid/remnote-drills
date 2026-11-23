@@ -1,0 +1,787 @@
+# Builds drills/problems/td-depth.yaml: the Thermodynamics and Statistical Mechanics objectives
+# (framework thermodynamics, TD) that had no drills. Run: python3 scripts/td_cases.py
+# 
+# Answers follow the textbook formula (equal-area construction, ln φ = BP/RT, the regular-solution
+# closed forms, λ₊ = e^βJ cosh βh + √(…), χ_c = ½(1 + 1/√N)²…); tests/verify/tdcalc.py checks by another
+# route (equal G, the ∫(Z−1)/P integral, Gibbs–Duhem integrated, transfer-matrix eigenvalues, the
+# critical point from derivatives).
+# GENERATED: edit scripts/td_cases.py, not this file.
+
+- template: td-stirling
+  skill: stat.multiplicity
+  pace: quick
+  cases:
+  - {N: 100, ans: 360.517018599}
+  - {N: 1000, ans: 5907.75527898}
+  - {N: 50, ans: 145.601150271}
+  - {N: 10000, ans: 82103.4037198}
+  - {N: 6.02e+23, ans: 3.23602357277e+25}
+  prompt: Use Stirling's approximation to estimate $\ln N!$ for $N = {{N}}$.
+  parts:
+  - {ask: ln N!, label: y, value: ans, tol: 0.0002, explain: '$\ln N! \approx N\ln N - N$, from $\ln N! = \sum\ln k \approx \int_1^N \ln x\,dx$. Already within 1% at N = 100; for a mole of particles it is exact for all purposes, which is why entropy formulas use it'}
+  verify:
+    expect: {y: nsimplify(N)*log(nsimplify(N)) - nsimplify(N)}
+- template: td-stirling-lnw
+  skill: stat.multiplicity
+  pace: quick
+  cases:
+  - {N: 100, n: 50, ans: 69.314718056}
+  - {N: 100, n: 20, ans: 50.0402423538}
+  - {N: 1000, n: 500, ans: 693.14718056}
+  - {N: 60, n: 15, ans: 33.7401086771}
+  prompt: With Stirling's approximation, what is $\ln W$ for $W = \binom{ {{N}} }{ {{n}} }$ (choosing {{n}} of {{N}} sites)?
+  parts:
+  - {ask: ln W, label: y, value: ans, tol: 0.0001, explain: '$\ln W \approx N\ln N - n\ln n - (N - n)\ln(N - n) = -N[x\ln x + (1 - x)\ln(1 - x)]$ with $x = n/N$: the mixing-entropy form'}
+  verify:
+    expect: {y: N*log(N) - n*log(n) - (N - n)*log(N - n)}
+- template: td-mean-variance
+  skill: stat.probability
+  pace: quick
+  cases:
+  - xs: 0, 1, 2
+    ps: 0.25, 0.5, 0.25
+    X: [0, 1, 2]
+    P: [0.25, 0.5, 0.25]
+    w: 0
+    wt: mean
+    ans: 1.0
+  - xs: 0, 1, 2
+    ps: 0.25, 0.5, 0.25
+    X: [0, 1, 2]
+    P: [0.25, 0.5, 0.25]
+    w: 1
+    wt: variance
+    ans: 0.5
+  - xs: 1, 2, 3, 4
+    ps: 0.1, 0.2, 0.3, 0.4
+    X: [1, 2, 3, 4]
+    P: [0.1, 0.2, 0.3, 0.4]
+    w: 0
+    wt: mean
+    ans: 3.0
+  - xs: 1, 2, 3, 4
+    ps: 0.1, 0.2, 0.3, 0.4
+    X: [1, 2, 3, 4]
+    P: [0.1, 0.2, 0.3, 0.4]
+    w: 1
+    wt: variance
+    ans: 1.0
+  - xs: -1, 1
+    ps: 0.3, 0.7
+    X: [-1, 1]
+    P: [0.3, 0.7]
+    w: 0
+    wt: mean
+    ans: 0.4
+  - xs: -1, 1
+    ps: 0.3, 0.7
+    X: [-1, 1]
+    P: [0.3, 0.7]
+    w: 1
+    wt: variance
+    ans: 0.84
+  - xs: 0, 1, 2, 3
+    ps: 0.4, 0.3, 0.2, 0.1
+    X: [0, 1, 2, 3]
+    P: [0.4, 0.3, 0.2, 0.1]
+    w: 0
+    wt: mean
+    ans: 1.0
+  - xs: 0, 1, 2, 3
+    ps: 0.4, 0.3, 0.2, 0.1
+    X: [0, 1, 2, 3]
+    P: [0.4, 0.3, 0.2, 0.1]
+    w: 1
+    wt: variance
+    ans: 1.0
+  prompt: A variable takes the values {{xs}} with probabilities {{ps}}. What is its {{wt}}?
+  parts:
+  - {ask: Value, label: y, value: ans, tol: 0.0001, explain: '$\langle x\rangle = \sum p_ix_i$; $\sigma^2 = \langle x^2\rangle - \langle x\rangle^2$. The variance is the mean-square fluctuation, the quantity behind heat capacities and compressibilities'}
+  verify:
+    expect: {y: '[wsum(P, X), wsum(P, X, 2) - wsum(P, X)**2][w]'}
+- template: td-max-entropy-equal
+  skill: thermo.fundamental-equation
+  pace: recall
+  cases:
+  - {what: 'energy only (rigid, impermeable wall)', ans: 0}
+  - {what: energy and volume (a movable piston), ans: 1}
+  - {what: energy and particles (a permeable wall), ans: 2}
+  prompt: Two subsystems can exchange {{what}}. Maximising the total entropy makes which quantity equal on both sides?
+  parts:
+  - ask: Answer
+    label: y
+    choice: [Temperature, Pressure (with T), Chemical potential (with T)]
+    correct: ans
+    explain: 'Set dS_total = 0 for the exchange: energy gives 1/T₁ = 1/T₂; volume gives P₁/T₁ = P₂/T₂; particles give μ₁/T₁ = μ₂/T₂. Each conserved quantity that can move pairs with an intensive variable that equalises'
+  verify: {authored: true}
+- template: td-max-s-min-u
+  skill: thermo.fundamental-equation
+  pace: recall
+  cases:
+  - {s: 'At fixed S, V and N, an equilibrium state minimises U.', ans: 0}
+  - {s: 'At fixed U, V and N, an equilibrium state minimises S.', ans: 1}
+  - {s: Maximum entropy at fixed energy and minimum energy at fixed entropy pick out the same state., ans: 0}
+  - {s: The energy minimum principle needs (∂S/∂U) to be negative., ans: 1}
+  prompt: '{{s}}'
+  parts:
+  - ask: Answer
+    label: y
+    choice: ['True', 'False']
+    correct: ans
+    explain: 'The entropy maximum principle at fixed U and the energy minimum principle at fixed S describe the same equilibrium: because (∂S/∂U) = 1/T > 0, a state that is not an energy minimum at fixed S can lower U and return the energy as heat, raising S at fixed U'
+  verify: {authored: true}
+- template: td-potential-choice
+  skill: thermo.legendre
+  pace: recall
+  cases:
+  - {c: 'T, V and N', ans: 2}
+  - {c: 'T, P and N', ans: 3}
+  - {c: 'S, V and N', ans: 0}
+  - {c: 'S, P and N', ans: 1}
+  - {c: 'T, V and μ', ans: 4}
+  prompt: A system is held at fixed {{c}}. Which function is minimised at equilibrium?
+  parts:
+  - ask: Answer
+    label: y
+    choice: [U (internal energy), H (enthalpy), A (Helmholtz), G (Gibbs), Ω = A − μN (grand potential)]
+    correct: ans
+    explain: 'Each potential is minimised when its natural variables are fixed: U(S,V,N), H(S,P,N), A(T,V,N), G(T,P,N), Ω(T,V,μ). A bath fixes T; a piston at constant external pressure fixes P; a reservoir of particles fixes μ'
+  verify: {authored: true}
+- template: td-phase-rule
+  skill: thermo.phase-equilibrium
+  pace: quick
+  cases:
+  - {C: 1, Pn: 1, sys: 'pure water, liquid only', ans: 2}
+  - {C: 1, Pn: 2, sys: pure water at its boiling point, ans: 1}
+  - {C: 2, Pn: 1, sys: a single-phase mixture of ethanol and water, ans: 3}
+  - {C: 2, Pn: 2, sys: a two-phase ethanol–water mixture, ans: 2}
+  - {C: 3, Pn: 2, sys: three components in two phases, ans: 3}
+  prompt: How many intensive variables can be changed independently in {{sys}}?
+  parts:
+  - {ask: Degrees of freedom, label: y, value: ans, tol: 1.0e-06, explain: 'Gibbs phase rule: $F = C - P + 2$ (C components, P phases, no reactions). A pure substance has F = 1 along a coexistence line (T fixes P) and 0 at the triple point'}
+  verify:
+    expect: {y: C - Pn + 2}
+- template: td-transition-order
+  skill: thermo.phase-equilibrium
+  pace: recall
+  cases:
+  - {s: 'Boiling water at 1 atm, with a latent heat', ans: 0}
+  - {s: 'A ferromagnet losing its magnetisation smoothly at the Curie point, with a diverging susceptibility', ans: 1}
+  - {s: 'Melting ice: the volume jumps', ans: 0}
+  - {s: A liquid–gas system exactly at its critical point, ans: 1}
+  - {s: 'Helium-4 at the lambda point (C_p diverges, no latent heat)', ans: 1}
+  prompt: '{{s}}'
+  parts:
+  - ask: Answer
+    label: y
+    choice: [First-order, Second-order (continuous)]
+    correct: ans
+    explain: 'First-order: a first derivative of G (S, V, magnetisation) jumps, so there is a latent heat. Continuous: the first derivatives are smooth and a second derivative (C_p, compressibility, susceptibility) diverges or jumps'
+  verify: {authored: true}
+- template: td-extensive
+  skill: thermo.fundamental-equation
+  pace: recall
+  cases:
+  - {stex: N\ln(UV/N^2), e: N*log(U*V/N**2), ans: 1}
+  - {stex: '(UVN)^{1/3}', e: (U*V*N)**(1/3), ans: 1}
+  - {stex: '(UV)^{1/2}', e: (U*V)**(1/2), ans: 1}
+  - {stex: N\ln(UV), e: N*log(U*V), ans: 0}
+  - {stex: U^2V/N^2, e: U**2*V/N**2, ans: 1}
+  - {stex: '(U^2V)^{1/3}', e: (U**2*V)**(1/3), ans: 1}
+  - {stex: UV, e: U*V, ans: 0}
+  prompt: Is $S = {{stex}}$ an acceptable (first-order homogeneous) fundamental equation?
+  parts:
+  - ask: Answer
+    label: y
+    choice: ['No', 'Yes']
+    correct: ans
+    explain: 'Scale every extensive variable by λ: S must become λS. Check the powers: a ratio like U/N or V/N is intensive, and a product of extensive variables must be raised to total power 1'
+  verify:
+    choices: {y: homogeneous(e)}
+- template: td-total-entropy
+  skill: thermo.first-law
+  pace: quick
+  cases:
+  - {m: 1, c: 4184, T1: 373.15, T2: 293.15, ans: 132.221821187}
+  - {m: 0.5, c: 900, T1: 500, T2: 300, ans: 70.1284693053}
+  - {m: 2, c: 385, T1: 300, T2: 400, ans: 29.0151957879}
+  - {m: 1, c: 4184, T1: 273.15, T2: 323.15, ans: 55.9342636461}
+  prompt: A ${{m}}$ kg block ($c = {{c}}$ J/kg·K) at ${{T1}}$ K is dropped into a large bath at ${{T2}}$ K and comes to equilibrium. What is the total entropy change of block plus bath (J/K)?
+  parts:
+  - {ask: ΔS_total, label: y, value: ans, tol: 0.0001, explain: 'Block: $mc\ln(T_2/T_1)$ along any reversible path. Bath at constant T: $-Q/T_2 = mc(T_1 - T_2)/T_2$. The sum is always positive for $T_1 \ne T_2$: heat flowing across a finite ΔT is irreversible'}
+  verify:
+    expect: {y: 'integrate(m*c/Symbol(''TT''), (Symbol(''TT''), nsimplify(T1), nsimplify(T2))) - m*c*(nsimplify(T2) - nsimplify(T1))/nsimplify(T2)'}
+- template: td-carnot
+  skill: thermo.first-law
+  pace: quick
+  cases:
+  - {kind: 0, Th: 600, Tc: 300, kt: the maximum efficiency of a heat engine, ans: 0.5}
+  - {kind: 0, Th: 800, Tc: 290, kt: the maximum efficiency of a heat engine, ans: 0.6375}
+  - {kind: 1, Th: 298, Tc: 273, kt: the maximum COP of a refrigerator, ans: 10.92}
+  - {kind: 1, Th: 295, Tc: 255, kt: the maximum COP of a refrigerator, ans: 6.375}
+  - {kind: 2, Th: 293, Tc: 273, kt: the maximum COP of a heat pump, ans: 14.65}
+  - {kind: 2, Th: 298, Tc: 268, kt: the maximum COP of a heat pump, ans: 9.93333333333}
+  prompt: Between reservoirs at ${{Th}}$ K and ${{Tc}}$ K, what is {{kt}}?
+  parts:
+  - {ask: Value, label: y, value: ans, tol: 0.0001, explain: 'Reversible limits: engine $1 - T_c/T_h$; refrigerator $T_c/(T_h - T_c)$; heat pump $T_h/(T_h - T_c)$. Small temperature lifts give large COPs'}
+  verify:
+    expect: {y: '[1 - Rational(Tc, Th), Rational(Tc, Th - Tc), Rational(Th, Th - Tc)][kind]'}
+- template: td-isentropic-outlet
+  skill: thermo.first-law
+  pace: quick
+  cases:
+  - {dev: turbine, T1: 1000, P1: 1000, P2: 100, cp: 29.1, ans: 517.940217845}
+  - {dev: compressor, T1: 300, P1: 100, P2: 800, cp: 29.1, ans: 543.441068306}
+  - {dev: nozzle, T1: 800, P1: 500, P2: 100, cp: 32.0, ans: 526.597433164}
+  - {dev: compressor, T1: 290, P1: 100, P2: 400, cp: 37.1, ans: 395.662931372}
+  prompt: An ideal gas with molar $c_p = {{cp}}$ J/mol·K (R = 8.314) enters a reversible adiabatic {{dev}} at ${{T1}}$ K and ${{P1}}$ kPa and leaves at ${{P2}}$ kPa. What is the outlet temperature?
+  parts:
+  - {ask: T₂ (K), label: y, value: ans, tol: 0.0001, explain: 'Reversible and adiabatic means isentropic: $c_p\ln(T_2/T_1) = R\ln(P_2/P_1)$, so $T_2 = T_1(P_2/P_1)^{R/c_p}$. The steady-flow energy balance then gives the shaft work, $\dot W = \dot m c_p(T_1 - T_2)$'}
+  verify:
+    expect: {y: 'isentropic_T2(T1, P1, P2, cp)'}
+- template: td-exact
+  skill: thermo.maxwell
+  pace: quick
+  cases:
+  - {M: 2xy, Nn: x^2, Mx: 2*x*y, Ny: x**2, ans: 1}
+  - {M: y, Nn: -x, Mx: y, Ny: -x, ans: 0}
+  - {M: y^2, Nn: 2xy, Mx: y**2, Ny: 2*x*y, ans: 1}
+  - {M: 'e^{x}y', Nn: 'e^{x}', Mx: exp(x)*y, Ny: exp(x), ans: 1}
+  - {M: x + y, Nn: x - y, Mx: x + y, Ny: x - y, ans: 1}
+  - {M: xy, Nn: xy, Mx: x*y, Ny: x*y, ans: 0}
+  prompt: Is $({{M}})\,dx + ({{Nn}})\,dy$ an exact differential?
+  parts:
+  - ask: Answer
+    label: y
+    choice: ['No', 'Yes']
+    correct: ans
+    explain: Exact (the change of a state function) exactly when $\partial M/\partial y = \partial N/\partial x$. Heat and work are not exact; δQ/T is
+  verify:
+    choices: {y: 'exact(Mx, Ny)'}
+- template: td-triple-product
+  skill: thermo.maxwell
+  pace: quick
+  cases:
+  - {a: 0.1382, b: 3.19e-05, T0: 300, V: 0.001, gas: a van der Waals gas, ans: 3.60097555212e-06}
+  - {a: 0.3658, b: 4.29e-05, T0: 350, V: 0.0005, gas: a van der Waals gas, ans: 2.25260555124e-06}
+  - {a: 0.0, b: 0.0, T0: 300, V: 0.0249, gas: an ideal gas, ans: 8.3e-05}
+  prompt: For {{gas}} ($a = {{a}}$ Pa·m⁶/mol², $b = {{b}}$ m³/mol) at $T = {{T0}}$ K, $V = {{V}}$ m³/mol, find $(\partial V/\partial T)_P$ (m³/mol·K) using the triple product rule.
+  parts:
+  - {ask: (∂V/∂T)_P, label: y, value: ans, tol: 0.0001, explain: '$(\partial V/\partial T)_P = -\dfrac{(\partial P/\partial T)_V}{(\partial P/\partial V)_T}$: both derivatives come straight from $P(T, V)$, so no need to solve the cubic for V'}
+  verify:
+    expect: {y: '(-diff(c_R*Symbol(''TT'')/(Symbol(''VV'') - nsimplify(b)) - nsimplify(a)/Symbol(''VV'')**2, Symbol(''TT''))/diff(c_R*Symbol(''TT'')/(Symbol(''VV'') - nsimplify(b)) - nsimplify(a)/Symbol(''VV'')**2, Symbol(''VV''))).subs({Symbol(''TT''): T0, Symbol(''VV''): nsimplify(V)})'}
+- template: td-cp-cv
+  skill: thermo.maxwell
+  pace: quick
+  cases:
+  - {sub: water at 25 °C, Tt: 298.15, Vm: 1.807e-05, al: 0.000257, kap: 4.52e-10, ans: 0.787264699014}
+  - {sub: copper at 25 °C, Tt: 298.15, Vm: 7.11e-06, al: 4.95e-05, kap: 7.3e-12, ans: 0.711527929675}
+  - {sub: ethanol at 20 °C, Tt: 293.15, Vm: 5.84e-05, al: 0.00112, kap: 1.11e-09, ans: 19.3470971387}
+  - {sub: mercury at 20 °C, Tt: 293.15, Vm: 1.48e-05, al: 0.000181, kap: 4.0e-11, ans: 3.5534382455}
+  prompt: 'For {{sub}}: $V_m = {{Vm}}$ m³/mol, $\alpha = {{al}}$ K⁻¹, $\kappa_T = {{kap}}$ Pa⁻¹. What is $C_{p,m} - C_{V,m}$ (J/mol·K)?'
+  parts:
+  - {ask: C_p − C_V, label: y, value: ans, tol: 0.0001, explain: '$C_p - C_V = TV\alpha^2/\kappa_T$, from Maxwell relations. For an ideal gas it gives R; for water near 4 °C (α = 0) it vanishes, and for solids it is small'}
+  verify:
+    expect: {y: nsimplify(Tt)*nsimplify(Vm)*nsimplify(al)**2/nsimplify(kap)}
+- template: td-vdw-derivatives
+  skill: thermo.maxwell
+  pace: quick
+  cases:
+  - {gas: N₂, a: 0.137, b: 3.87e-05, Tt: 300, Vm: 0.001, cp: 29.1, w: 1, wt: the low-pressure Joule–Thomson coefficient (K/Pa), ans: 2.44497425907e-06}
+  - {gas: CO₂, a: 0.364, b: 4.27e-05, Tt: 300, Vm: 0.0005, cp: 37.1, w: 1, wt: the low-pressure Joule–Thomson coefficient (K/Pa), ans: 6.71592762544e-06}
+  - {gas: N₂, a: 0.137, b: 3.87e-05, Tt: 300, Vm: 0.001, cp: 29.1, w: 0, wt: the internal pressure $(\partial U/\partial V)_T$ (Pa) at $V_m = 0.001$ m³/mol, ans: 137000.0}
+  - {gas: CO₂, a: 0.364, b: 4.27e-05, Tt: 300, Vm: 0.0005, cp: 37.1, w: 0, wt: the internal pressure $(\partial U/\partial V)_T$ (Pa) at $V_m = 0.0005$ m³/mol, ans: 1456000.0}
+  - {gas: He, a: 0.00346, b: 2.38e-05, Tt: 300, Vm: 0.001, cp: 20.8, w: 1, wt: the low-pressure Joule–Thomson coefficient (K/Pa), ans: -1.01085181139e-06}
+  prompt: For {{gas}} as a van der Waals gas ($a = {{a}}$ Pa·m⁶/mol², $b = {{b}}$ m³/mol, $C_{p,m} = {{cp}}$ J/mol·K) at ${{Tt}}$ K, find {{wt}}.
+  parts:
+  - {ask: Value, label: y, value: ans, tol: 0.0001, explain: 'Thermodynamic equation of state: $(\partial U/\partial V)_T = T(\partial P/\partial T)_V - P = a/V_m^2$ for vdW. Joule–Thomson at low pressure: $\mu_{JT} \approx (2a/RT - b)/C_p$; positive (cools on throttling) below the inversion temperature $2a/Rb$. Helium inverts far below room temperature'}
+  verify:
+    expect: {y: '[nsimplify(a)/nsimplify(Vm)**2, (2*nsimplify(a)/(c_R*Tt) - nsimplify(b))/nsimplify(cp)][w]'}
+- template: td-spinodal
+  skill: thermo.stability
+  pace: quick
+  cases:
+  - {Tr: 0.9, Vr: 1.0, ans: 1}
+  - {Tr: 0.9, Vr: 0.5, ans: 0}
+  - {Tr: 0.9, Vr: 3.0, ans: 0}
+  - {Tr: 0.85, Vr: 1.2, ans: 1}
+  - {Tr: 0.95, Vr: 0.8, ans: 1}
+  - {Tr: 1.1, Vr: 1.0, ans: 0}
+  - {Tr: 0.8, Vr: 0.6, ans: 0}
+  prompt: In reduced van der Waals units ($P_r = \dfrac{8T_r}{3V_r - 1} - \dfrac{3}{V_r^2}$), is the state $T_r = {{Tr}}$, $V_r = {{Vr}}$ mechanically unstable (inside the spinodal)?
+  parts:
+  - ask: Answer
+    label: y
+    choice: ['No: stable or metastable', 'Yes: unstable']
+    correct: ans
+    explain: Mechanical stability needs $(\partial P/\partial V)_T < 0$. Where the slope turns positive the state is inside the spinodal and splits at once; between spinodal and binodal it is metastable (superheated liquid, supercooled vapour). Above $T_r = 1$ nothing is unstable
+  verify:
+    choices: {y: 'vdw_reduced_unstable(Tr, Vr)'}
+- template: td-vdw-coexistence
+  skill: thermo.stability
+  pace: workout
+  cases:
+  - {Tr: 0.9, ans: 0.646998351872}
+  - {Tr: 0.85, ans: 0.504491649787}
+  - {Tr: 0.95, ans: 0.811879243364}
+  - {Tr: 0.8, ans: 0.383361623689}
+  prompt: Use Maxwell's equal-area construction on the reduced van der Waals isotherm $T_r = {{Tr}}$. What is the reduced vapour pressure $P_r$?
+  parts:
+  - {ask: 'P_r,sat', label: y, value: ans, tol: 0.0001, explain: 'The flat coexistence line cuts the loop so the two areas between it and the isotherm are equal, which is the same as equal molar Gibbs energy (equal μ) of liquid and vapour. Iterate on P until the areas match. At $T_r = 0.9$, $P_r ≈ 0.647$'}
+  verify:
+    expect: {y: vdw_psat(Tr)}
+- template: td-mu-ideal
+  skill: thermo.phase-equilibrium
+  pace: quick
+  cases:
+  - {Tt: 298.15, P1: 1, P2: 10, yy: 1, ans: 5.70800950254}
+  - {Tt: 298.15, P1: 1, P2: 0.1, yy: 1, ans: -5.70800950254}
+  - {Tt: 300, P1: 1, P2: 5, yy: 0.21, ans: 0.121699198836}
+  - {Tt: 350, P1: 2, P2: 2, yy: 0.5, ans: -2.01710121258}
+  prompt: An ideal gas at ${{Tt}}$ K goes from pure at ${{P1}}$ bar to mole fraction ${{yy}}$ in a mixture at ${{P2}}$ bar. What is Δμ (kJ/mol)?
+  parts:
+  - {ask: Δμ, label: y, value: ans, tol: 0.0001, explain: '$\mu_i = \mu_i^\circ + RT\ln(y_iP/P^\circ)$: pressure and dilution enter only through the partial pressure. Diluting always lowers μ, which is why gases mix spontaneously'}
+  verify:
+    expect: {y: c_R*nsimplify(Tt)*log(nsimplify(P2)*nsimplify(yy)/nsimplify(P1))/1000}
+- template: td-virial
+  skill: thermo.phase-equilibrium
+  pace: quick
+  cases:
+  - {gas: N₂, B: -4.5e-06, P: 1000000.0, Tt: 300, w: 0, wt: compressibility factor Z, ans: 0.998195914674}
+  - {gas: N₂, B: -4.5e-06, P: 1000000.0, Tt: 300, w: 1, wt: fugacity coefficient φ, ans: 0.998197541058}
+  - {gas: CO₂, B: -0.00012, P: 2000000.0, Tt: 300, w: 0, wt: compressibility factor Z, ans: 0.903782115966}
+  - {gas: CO₂, B: -0.00012, P: 2000000.0, Tt: 300, w: 1, wt: fugacity coefficient φ, ans: 0.908266097826}
+  - {gas: CH₄, B: -4.3e-05, P: 5000000.0, Tt: 300, w: 0, wt: compressibility factor Z, ans: 0.913804812219}
+  - {gas: CH₄, B: -4.3e-05, P: 5000000.0, Tt: 300, w: 1, wt: fugacity coefficient φ, ans: 0.917415145517}
+  - {gas: Ar, B: -1.6e-05, P: 10000000.0, Tt: 300, w: 0, wt: compressibility factor Z, ans: 0.935854743977}
+  - {gas: Ar, B: -1.6e-05, P: 10000000.0, Tt: 300, w: 1, wt: fugacity coefficient φ, ans: 0.93786875855}
+  - {gas: He, B: 1.2e-05, P: 10000000.0, Tt: 300, w: 0, wt: compressibility factor Z, ans: 1.04810894202}
+  - {gas: He, B: 1.2e-05, P: 10000000.0, Tt: 300, w: 1, wt: fugacity coefficient φ, ans: 1.04928496032}
+  prompt: With the truncated virial equation $Z = 1 + BP/RT$, $B = {{B}}$ m³/mol, find the {{wt}} of {{gas}} at ${{P}}$ Pa and ${{Tt}}$ K.
+  parts:
+  - {ask: Value, label: y, value: ans, tol: 0.0001, explain: '$Z = 1 + BP/RT$; then $\ln\varphi = \int_0^P (Z - 1)\,dP/P = BP/RT$. Negative B (attractions win) gives Z < 1 and φ < 1; helium''s positive B means repulsions win at room temperature'}
+  verify:
+    expect: {y: '[1 + nsimplify(B)*nsimplify(P)/(c_R*Tt), ln_phi_virial(B, P, Tt)][w]'}
+- template: td-b2-square-well
+  skill: thermo.phase-equilibrium
+  pace: quick
+  cases:
+  - {sig: 3.4e-10, lam: 1.5, e: 0.5, ans: -2.68048321896e-05}
+  - {sig: 3.4e-10, lam: 1.5, e: 1.5, ans: -0.000360347593112}
+  - {sig: 3.0e-10, lam: 1.0, e: 0.0, ans: 3.40544037069e-05}
+  - {sig: 3.7e-10, lam: 1.6, e: 1.0, ans: -0.000275980490847}
+  prompt: 'A square-well gas: hard core $\sigma = {{sig}}$ m, well out to ${{lam}}\sigma$ with depth $\varepsilon$, $\varepsilon/kT = {{e}}$. What is $B_2$ (m³/mol)?'
+  parts:
+  - {ask: B₂, label: y, value: ans, tol: 0.0001, explain: '$B_2 = -2\pi N_A\int_0^\infty (e^{-u/kT} - 1)r^2dr = \dfrac{2\pi N_A\sigma^3}{3}[1 - (\lambda^3 - 1)(e^{\varepsilon/kT} - 1)]$. The core gives a positive excluded volume (hard spheres: λ = 1); the well subtracts more as T falls. B₂ = 0 at the Boyle temperature'}
+  verify:
+    expect: {y: 'b2_square_well(sig, lam, e)'}
+- template: td-kay-rule
+  skill: thermo.phase-equilibrium
+  pace: quick
+  cases:
+  - comp: 70% CH₄, 30% C₂H₆
+    Y: [0.7, 0.3]
+    TC: [190.6, 305.3]
+    PC: [45.99, 48.72]
+    w: 0
+    wt: pseudocritical temperature (K)
+    tcs: 190.6, 305.3
+    pcs: 45.99, 48.72
+    ans: 225.01
+  - comp: 70% CH₄, 30% C₂H₆
+    Y: [0.7, 0.3]
+    TC: [190.6, 305.3]
+    PC: [45.99, 48.72]
+    w: 1
+    wt: pseudocritical pressure (bar)
+    tcs: 190.6, 305.3
+    pcs: 45.99, 48.72
+    ans: 46.809
+  - comp: 50% N₂, 50% CO₂
+    Y: [0.5, 0.5]
+    TC: [126.2, 304.2]
+    PC: [33.98, 73.83]
+    w: 0
+    wt: pseudocritical temperature (K)
+    tcs: 126.2, 304.2
+    pcs: 33.98, 73.83
+    ans: 215.2
+  - comp: 50% N₂, 50% CO₂
+    Y: [0.5, 0.5]
+    TC: [126.2, 304.2]
+    PC: [33.98, 73.83]
+    w: 1
+    wt: pseudocritical pressure (bar)
+    tcs: 126.2, 304.2
+    pcs: 33.98, 73.83
+    ans: 53.905
+  - comp: 80% H₂, 20% CH₄
+    Y: [0.8, 0.2]
+    TC: [33.2, 190.6]
+    PC: [13.0, 45.99]
+    w: 0
+    wt: pseudocritical temperature (K)
+    tcs: 33.2, 190.6
+    pcs: 13.0, 45.99
+    ans: 64.68
+  - comp: 80% H₂, 20% CH₄
+    Y: [0.8, 0.2]
+    TC: [33.2, 190.6]
+    PC: [13.0, 45.99]
+    w: 1
+    wt: pseudocritical pressure (bar)
+    tcs: 33.2, 190.6
+    pcs: 13.0, 45.99
+    ans: 19.598
+  prompt: 'By Kay''s rule, what is the {{wt}} of {{comp}} (critical T: {{tcs}} K; critical P: {{pcs}} bar)?'
+  parts:
+  - {ask: Value, label: y, value: ans, tol: 0.0001, explain: 'Kay''s rule: mole-fraction averages, $T_{pc} = \sum y_iT_{c,i}$, $P_{pc} = \sum y_iP_{c,i}$. Then the reduced conditions $T/T_{pc}$, $P/P_{pc}$ go into the generalised Z chart: corresponding states for a mixture'}
+  verify:
+    expect: {y: '[wsum(Y, TC), wsum(Y, PC)][w]'}
+- template: td-partial-molar
+  skill: thermo.solutions
+  pace: quick
+  cases:
+  - {Vtex: '1003 + 16.6n + 1.77n^{3/2} + 0.12n^2', Vexp: 1003 + 16.6*m + 1.77*m**(3/2) + 0.12*m**2, n: 0.5, ans: 18.5973685041}
+  - {Vtex: '1003 + 16.6n + 1.77n^{3/2} + 0.12n^2', Vexp: 1003 + 16.6*m + 1.77*m**(3/2) + 0.12*m**2, n: 1.0, ans: 19.495}
+  - {Vtex: 1000 + 20n + 3n^2, Vexp: 1000 + 20*m + 3*m**2, n: 2.0, ans: 32.0}
+  - {Vtex: 1000 + 35n - 2n^2, Vexp: 1000 + 35*m - 2*m**2, n: 1.5, ans: 29.0}
+  prompt: The volume (cm³) of a solution of $n$ mol of solute in 1 kg of water is $V = {{Vtex}}$. What is the solute's partial molar volume at $n = {{n}}$ (cm³/mol)?
+  parts:
+  - {ask: V̄, label: y, value: ans, tol: 0.0001, explain: '$\bar V_2 = (\partial V/\partial n_2)_{T,P,n_1}$: the slope of total V against moles of solute (the tangent-intercept idea). It can even be negative when the solute packs water tighter'}
+  verify:
+    expect: {y: 'diff(sympify(Vexp, locals={''m'': Symbol(''m'')}), Symbol(''m'')).subs(Symbol(''m''), nsimplify(n))'}
+- template: td-gibbs-duhem
+  skill: thermo.solutions
+  pace: quick
+  cases:
+  - {A: 1.2, x1: 0.3, ans: 1.11404774539}
+  - {A: 0.8, x1: 0.5, ans: 1.22140275816}
+  - {A: 2.0, x1: 0.7, ans: 2.66445624193}
+  - {A: -0.5, x1: 0.4, ans: 0.923116346387}
+  - {A: 1.5, x1: 0.9, ans: 3.37029406432}
+  prompt: A binary mixture has $\ln\gamma_1 = {{A}}x_2^2$. Use Gibbs–Duhem to find $\gamma_2$ at $x_1 = {{x1}}$.
+  parts:
+  - {ask: γ₂, label: y, value: ans, tol: 0.0001, explain: 'Gibbs–Duhem: $x_1\,d\ln\gamma_1 + x_2\,d\ln\gamma_2 = 0$. Integrating from pure 2 gives $\ln\gamma_2 = Ax_1^2$: the one-parameter Margules model is symmetric. Data that fail this test are thermodynamically inconsistent'}
+  verify:
+    expect: {y: 'gamma2_from_margules(A, x1)'}
+- template: td-bubble-dew
+  skill: thermo.solutions
+  pace: quick
+  cases:
+  - {kind: 0, x1: 0.4, P1: 100, P2: 40, kt: bubble-point pressure of a liquid with, ans: 64.0}
+  - {kind: 0, x1: 0.7, P1: 150, P2: 60, kt: bubble-point pressure of a liquid with, ans: 123.0}
+  - {kind: 1, x1: 0.4, P1: 100, P2: 40, kt: dew-point pressure of a vapour with, ans: 52.6315789474}
+  - {kind: 1, x1: 0.6, P1: 120, P2: 30, kt: dew-point pressure of a vapour with, ans: 54.5454545455}
+  prompt: By Raoult's law ($P_1^{sat} = {{P1}}$ kPa, $P_2^{sat} = {{P2}}$ kPa), what is the {{kt}} mole fraction ${{x1}}$ of component 1 (kPa)?
+  parts:
+  - {ask: P, label: y, value: ans, tol: 0.0001, explain: 'Bubble: $P = \sum x_iP_i^{sat}$ (first bubble of vapour). Dew: $1/P = \sum y_i/P_i^{sat}$ (first drop of liquid). Between them the mixture is two-phase'}
+  verify:
+    expect: {y: '[nsimplify(x1)*P1 + (1 - nsimplify(x1))*P2, 1/(nsimplify(x1)/P1 + (1 - nsimplify(x1))/P2)][kind]'}
+- template: td-flash
+  skill: thermo.solutions
+  pace: quick
+  cases:
+  - {z1: 0.5, K1: 2.0, K2: 0.5, ans: 0.5}
+  - {z1: 0.4, K1: 3.0, K2: 0.4, ans: 0.366666666667}
+  - {z1: 0.6, K1: 1.8, K2: 0.3, ans: 0.357142857143}
+  - {z1: 0.3, K1: 4.0, K2: 0.6, ans: 0.516666666667}
+  prompt: An isothermal flash of a binary feed with $z_1 = {{z1}}$ has $K_1 = {{K1}}$ and $K_2 = {{K2}}$. What fraction of the feed leaves as vapour?
+  parts:
+  - {ask: V/F, label: y, value: ans, tol: 0.0001, explain: 'Rachford–Rice: $\sum \dfrac{z_i(K_i - 1)}{1 + \psi(K_i - 1)} = 0$. For two components it solves in closed form; then $x_i = z_i/(1 + \psi(K_i - 1))$ and $y_i = K_ix_i$'}
+  verify:
+    expect: {y: 'flash_vf(z1, K1, K2)'}
+- template: td-regular-solution-tc
+  skill: thermo.solutions
+  pace: quick
+  cases:
+  - {A: 800, ans: 400.0}
+  - {A: 1200, ans: 600.0}
+  - {A: 900, ans: 450.0}
+  - {A: 500, ans: 250.0}
+  prompt: A regular solution has $\Delta G_{mix}/RT = x\ln x + (1 - x)\ln(1 - x) + \chi x(1 - x)$ with $\chi = {{A}}/T$. Below what temperature (K) does it split into two liquids?
+  parts:
+  - {ask: T_c, label: y, value: ans, tol: 0.0001, explain: 'The lattice model with nearest-neighbour exchange energy gives $\chi = zw/kT$. Phase separation begins where $\partial^2\Delta G/\partial x^2 = 0$ at $x = 1/2$: $\chi_c = 2$, so $T_c = {{A}}/2$'}
+  verify:
+    expect: {y: 'solve((1/Symbol(''q'') + 1/(1 - Symbol(''q'')) - 2*A/Symbol(''TT'')).subs(Symbol(''q''), Rational(1, 2)), Symbol(''TT''))[0]'}
+- template: td-azeotrope
+  skill: thermo.solutions
+  pace: quick
+  cases:
+  - {A: 1.5, P1: 100, P2: 80, ans: 0.574381183771}
+  - {A: 1.0, P1: 120, P2: 100, ans: 0.591160778397}
+  - {A: -1.2, P1: 100, P2: 80, ans: 0.407023520286}
+  - {A: 2.0, P1: 60, P2: 50, ans: 0.545580389198}
+  prompt: Modified Raoult's law with one-parameter Margules ($\ln\gamma_1 = {{A}}x_2^2$, $\ln\gamma_2 = {{A}}x_1^2$), $P_1^{sat} = {{P1}}$, $P_2^{sat} = {{P2}}$ kPa. At what $x_1$ is there an azeotrope?
+  parts:
+  - {ask: x₁, label: y, value: ans, tol: 0.0001, explain: 'At an azeotrope $y_1 = x_1$, so $\gamma_1P_1^{sat} = \gamma_2P_2^{sat}$: $\ln(P_1^{sat}/P_2^{sat}) = A(x_1^2 - x_2^2) = A(2x_1 - 1)$. Positive A gives a maximum-pressure azeotrope, negative A a minimum'}
+  verify:
+    expect: {y: 'azeotrope_x1(A, P1, P2)'}
+- template: td-colligative
+  skill: thermo.solutions
+  pace: quick
+  cases:
+  - {kind: 0, sol: 0.10 mol/kg NaCl in water, i: 2, conc: 0.1, K: 1.86, kt: freezing-point depression (K), ans: 0.372}
+  - {kind: 0, sol: 0.050 mol/kg CaCl₂ in water, i: 3, conc: 0.05, K: 1.86, kt: freezing-point depression (K), ans: 0.279}
+  - {kind: 1, sol: 0.20 mol/kg glucose in water, i: 1, conc: 0.2, K: 0.512, kt: boiling-point elevation (K), ans: 0.1024}
+  - {kind: 2, sol: 0.010 M glucose at 298 K, i: 1, conc: 0.01, K: 0, kt: osmotic pressure (bar), ans: 0.24789570296}
+  - {kind: 2, sol: 0.15 M NaCl (saline) at 310 K, i: 2, conc: 0.15, K: 0, kt: osmotic pressure (bar), ans: 7.73619174306}
+  prompt: For {{sol}} (ideal, van 't Hoff factor ${{i}}$; $K_f = 1.86$, $K_b = 0.512$ K·kg/mol), what is the {{kt}}?
+  parts:
+  - {ask: Value, label: y, value: ans, tol: 0.0001, explain: '$\Delta T_f = iK_fm$, $\Delta T_b = iK_bm$, $\Pi = icRT$: all come from lowering the solvent''s chemical potential by $RT\ln x_{solvent}$, so they count dissolved particles. Osmotic pressure is the biggest effect by far'}
+  verify:
+    expect: {y: '[nsimplify(i)*nsimplify(conc)*nsimplify(K), nsimplify(i)*nsimplify(conc)*nsimplify(K), nsimplify(i)*nsimplify(conc)*1000*c_R*(Rational(29815, 100) if conc < 0.1 else Rational(31015, 100))/100000][kind]'}
+- template: td-transfer
+  skill: thermo.solutions
+  pace: quick
+  cases:
+  - {logK: 2.0, Tt: 298.15, ans: -11.4160190051}
+  - {logK: 3.5, Tt: 298.15, ans: -19.9780332589}
+  - {logK: -1.0, Tt: 298.15, ans: 5.70800950254}
+  - {logK: 1.2, Tt: 310.15, ans: -7.12529591365}
+  prompt: A solute's octanol/water partition coefficient is $\log_{10}K = {{logK}}$ at ${{Tt}}$ K. What is the free energy of transfer from water to octanol (kJ/mol)?
+  parts:
+  - {ask: ΔG_transfer, label: y, value: ans, tol: 0.0001, explain: '$\Delta G_{w\to o} = -RT\ln K = -2.303RT\log K$. Each log unit is about 5.7 kJ/mol at room temperature: the hydrophobic driving force in drug partitioning and protein folding'}
+  verify:
+    expect: {y: -c_R*nsimplify(Tt)*nsimplify(logK)*log(10)/1000}
+- template: td-pressure-shift
+  skill: thermo.chemical-equilibrium
+  pace: quick
+  cases:
+  - {K: 1.0, P: 1, ans: 0.4472135955}
+  - {K: 1.0, P: 10, ans: 0.156173761889}
+  - {K: 0.5, P: 4, ans: 0.174077655956}
+  - {K: 4.0, P: 1, ans: 0.707106781187}
+  - {K: 0.1, P: 0.5, ans: 0.218217890236}
+  prompt: For the ideal-gas reaction A ⇌ 2B with $K_p = {{K}}$ (bar), starting from 1 mol of pure A at ${{P}}$ bar total, what is the extent of reaction at equilibrium?
+  parts:
+  - {ask: ξ, label: y, value: ans, tol: 0.0001, explain: '$K_p = \dfrac{y_B^2}{y_A}P$ with $y_A = \dfrac{1 - \xi}{1 + \xi}$, $y_B = \dfrac{2\xi}{1 + \xi}$, giving $\xi = \sqrt{K/(K + 4P)}$. Raising P favours fewer gas moles (lower ξ); adding inert at fixed P acts like lowering P'}
+  verify:
+    expect: {y: '[s for s in solve(Eq(4*Symbol(''xi'')**2/((1 - Symbol(''xi''))*(1 + Symbol(''xi'')))*nsimplify(P), nsimplify(K)), Symbol(''xi'')) if s > 0][0]'}
+- template: td-k-from-q
+  skill: stat.partition-function
+  pace: quick
+  cases:
+  - {qA: 1000.0, qB: 2000.0, dE: 0.0, ans: 2.0}
+  - {qA: 500.0, qB: 500.0, dE: 2.0, ans: 0.135335283237}
+  - {qA: 10000.0, qB: 3000.0, dE: -1.0, ans: 0.815484548538}
+  - {qA: 200.0, qB: 800.0, dE: 1.5, ans: 0.892520640594}
+  prompt: For the isomerisation A ⇌ B, the molecular partition functions (each from its own ground state) are $q_A = {{qA}}$ and $q_B = {{qB}}$, and B's ground state lies $\Delta\varepsilon_0 = {{dE}}\,kT$ above A's. What is K?
+  parts:
+  - {ask: K, label: y, value: ans, tol: 0.0001, explain: '$K = \dfrac{q_B}{q_A}e^{-\Delta\varepsilon_0/kT}$: an entropy factor (how many states each side can reach) times an energy factor. A floppier isomer can win even uphill'}
+  verify:
+    expect: {y: nsimplify(qB)/nsimplify(qA)*exp(-nsimplify(dE))}
+- template: td-big-q
+  skill: stat.partition-function
+  pace: quick
+  cases:
+  - {Nn: 100, q: 100000.0, ind: 1, it: indistinguishable (a gas), ans: 787.553170941}
+  - {Nn: 100, q: 100000.0, ind: 0, it: 'distinguishable (localized, like atoms in a crystal)', ans: 1151.2925465}
+  - {Nn: 1000, q: 100000000.0, ind: 1, it: indistinguishable (a gas), ans: 12508.5525655}
+  - {Nn: 50, q: 1000.0, ind: 0, it: 'distinguishable (localized, like atoms in a crystal)', ans: 345.387763949}
+  - {Nn: 50, q: 1000.0, ind: 1, it: indistinguishable (a gas), ans: 196.909996997}
+  prompt: What is $\ln Q$ for ${{Nn}}$ {{it}} particles, each with molecular partition function $q = {{q}}$?
+  parts:
+  - {ask: ln Q, label: y, value: ans, tol: 0.0001, explain: 'Distinguishable: $Q = q^N$. Indistinguishable: $Q = q^N/N!$, dividing out the N! relabelings (use Stirling for large N). Getting this factor wrong breaks the entropy of mixing (Gibbs'' paradox)'}
+  verify:
+    expect: {y: Nn*log(nsimplify(q)) - ind*log(factorial(Nn))}
+- template: td-sackur-tetrode
+  skill: stat.ideal-gas
+  pace: quick
+  cases:
+  - {gas: Ar, M: 0.039948, Tt: 298.15, P: 100000.0, ans: 154.845659739}
+  - {gas: He, M: 0.0040026, Tt: 298.15, P: 100000.0, ans: 126.152850935}
+  - {gas: Ne, M: 0.02018, Tt: 298.15, P: 100000.0, ans: 146.328907158}
+  - {gas: Ar, M: 0.039948, Tt: 500, P: 100000.0, ans: 165.592339279}
+  - {gas: Kr, M: 0.083798, Tt: 298.15, P: 100000.0, ans: 164.085071392}
+  prompt: Use the Sackur–Tetrode equation to find the molar entropy of {{gas}} ($M = {{M}}$ kg/mol) at ${{Tt}}$ K and ${{P}}$ Pa (J/mol·K).
+  parts:
+  - {ask: S_m, label: y, value: ans, tol: 0.0001, explain: '$S = R\left[\ln\dfrac{kT}{P\Lambda^3} + \dfrac52\right]$, $\Lambda = h/\sqrt{2\pi mkT}$, from $Q = q^N/N!$ with translational q. Argon at 298 K, 1 bar: 154.8 J/mol·K, matching calorimetry'}
+  verify:
+    expect: {y: 'c_R*(log(c_kB*nsimplify(Tt)/(nsimplify(P)*(c_h/sqrt(2*pi*nsimplify(M)/c_NA*c_kB*nsimplify(Tt)))**3)) + Rational(5, 2))'}
+- template: td-debye-t3
+  skill: stat.heat-capacity
+  pace: quick
+  cases:
+  - {sol: copper, Tt: 10, th: 343, ans: 0.0481684373486}
+  - {sol: diamond, Tt: 20, th: 2230, ans: 0.00140223342576}
+  - {sol: lead, Tt: 5, th: 105, ans: 0.20988772169}
+  - {sol: aluminium, Tt: 15, th: 428, ans: 0.0836733944386}
+  prompt: 'Debye temperature of {{sol}}: ${{th}}$ K. Use the Debye $T^3$ law for its molar heat capacity at ${{Tt}}$ K (J/mol·K).'
+  parts:
+  - {ask: C_V, label: y, value: ans, tol: 0.0001, explain: '$C_V = \dfrac{12\pi^4}{5}R\left(\dfrac{T}{\Theta_D}\right)^3$ for $T \ll \Theta_D$. Long-wavelength phonons can always be excited, so C_V falls as T³; Einstein''s single frequency gives an exponential fall, far too fast'}
+  verify:
+    expect: {y: 'Rational(12, 5)*pi**4*c_R*Rational(Tt, th)**3'}
+- template: td-maxwell-speeds
+  skill: stat.ideal-gas
+  pace: quick
+  cases:
+  - {gas: N₂, M: 0.028014, Tt: 298.15, w: 0, wt: most probable, ans: 420.68975424}
+  - {gas: N₂, M: 0.028014, Tt: 298.15, w: 1, wt: mean, ans: 474.697554495}
+  - {gas: N₂, M: 0.028014, Tt: 298.15, w: 2, wt: root-mean-square, ans: 515.237618953}
+  - {gas: He, M: 0.0040026, Tt: 298.15, w: 0, wt: most probable, ans: 1112.9570419}
+  - {gas: He, M: 0.0040026, Tt: 298.15, w: 1, wt: mean, ans: 1255.83753995}
+  - {gas: He, M: 0.0040026, Tt: 298.15, w: 2, wt: root-mean-square, ans: 1363.08842914}
+  - {gas: O₂, M: 0.031998, Tt: 500, w: 0, wt: most probable, ans: 509.748170195}
+  - {gas: O₂, M: 0.031998, Tt: 500, w: 1, wt: mean, ans: 575.189215713}
+  - {gas: O₂, M: 0.031998, Tt: 500, w: 2, wt: root-mean-square, ans: 624.311457148}
+  - {gas: CO₂, M: 0.04401, Tt: 300, w: 0, wt: most probable, ans: 336.67977901}
+  - {gas: CO₂, M: 0.04401, Tt: 300, w: 1, wt: mean, ans: 379.902448618}
+  - {gas: CO₂, M: 0.04401, Tt: 300, w: 2, wt: root-mean-square, ans: 412.346832644}
+  prompt: What is the {{wt}} speed of {{gas}} molecules ($M = {{M}}$ kg/mol) at ${{Tt}}$ K (m/s)?
+  parts:
+  - {ask: Speed, label: y, value: ans, tol: 0.0001, explain: 'From $f(v) \propto v^2e^{-Mv^2/2RT}$: $v_{mp} = \sqrt{2RT/M}$ (the peak), $\bar v = \sqrt{8RT/\pi M}$, $v_{rms} = \sqrt{3RT/M}$, in the ratio 1 : 1.128 : 1.225'}
+  verify:
+    expect: {y: 'maxwell_speed(M, Tt, w)'}
+- template: td-classical-q
+  skill: stat.partition-function
+  pace: quick
+  cases:
+  - {r: 1, ans: 1}
+  - {r: 2, ans: 2}
+  - {r: 5, ans: 5}
+  - {r: 10, ans: 10}
+  - {r: 0.5, ans: 0.5}
+  prompt: Classically, $q = \dfrac{1}{h}\iint e^{-\beta H}\,dx\,dp$. For a 1-D harmonic oscillator with $kT/\hbar\omega = {{r}}$, what is q?
+  parts:
+  - {ask: q, label: y, value: ans, tol: 0.0001, explain: 'Both integrals are Gaussian: $\int e^{-\beta p^2/2m}dp = \sqrt{2\pi m/\beta}$, $\int e^{-\beta m\omega^2x^2/2}dx = \sqrt{2\pi/\beta m\omega^2}$, so $q = kT/\hbar\omega$: equipartition gives kT of energy. The quantum $q$ approaches this when $kT \gg \hbar\omega$'}
+  verify:
+    expect: {y: ho_classical_q(r)}
+- template: td-third-law
+  skill: stat.heat-capacity
+  pace: quick
+  cases:
+  - {kind: 0, a: 1.0e-05, Tt: 15, W: 1, sub: a solid whose $C_p = aT^3$ with $a = $ 1e-5 J/mol·K⁴ below 15 K, ans: 0.01125}
+  - {kind: 0, a: 0.0002, Tt: 10, W: 1, sub: 'a solid with $C_p = aT^3$, a = 2e-4 J/mol·K⁴, up to 10 K', ans: 0.0666666666667}
+  - {kind: 1, a: 0, Tt: 0, W: 2, sub: crystalline CO (each molecule frozen in one of 2 orientations), ans: 5.76314632164}
+  - {kind: 1, a: 0, Tt: 0, W: 1.5, sub: 'ice (Pauling''s count, W = (3/2)^N)', ans: 3.37122448433}
+  prompt: What molar entropy (J/mol·K) does the third law assign to {{sub}}?
+  parts:
+  - {ask: S, label: y, value: ans, tol: 0.0001, explain: 'Absolute entropy: $S(T) = \int_0^T C_p/T\,dT$ (+ phase changes), and with $C_p = aT^3$ that is $aT^3/3$. A disordered crystal keeps a residual entropy $R\ln W$ per mole at 0 K: R ln 2 = 5.76 for CO, R ln 1.5 = 3.37 for ice'}
+  verify:
+    expect: {y: '[integrate(nsimplify(a)*Symbol(''TT'')**2, (Symbol(''TT''), 0, Tt)), c_R*log(nsimplify(W))][kind]'}
+- template: td-gibbs-entropy
+  skill: stat.ensembles
+  pace: quick
+  cases:
+  - pt: 0.5, 0.5
+    P: [0.5, 0.5]
+    ans: 0.69314718056
+  - pt: 0.25, 0.25, 0.25, 0.25
+    P: [0.25, 0.25, 0.25, 0.25]
+    ans: 1.38629436112
+  - pt: 0.7, 0.2, 0.1
+    P: [0.7, 0.2, 0.1]
+    ans: 0.801818552543
+  - pt: 0.9, 0.1
+    P: [0.9, 0.1]
+    ans: 0.325082973391
+  - pt: 0.5, 0.25, 0.25
+    P: [0.5, 0.25, 0.25]
+    ans: 1.03972077084
+  prompt: A system occupies microstates with probabilities {{pt}}. What is its entropy in units of k?
+  parts:
+  - {ask: S/k, label: y, value: ans, tol: 0.0001, explain: 'Gibbs: $S = -k\sum p_i\ln p_i$. For W equally likely states it is $k\ln W$ (Boltzmann); any bias lowers it. Maximising it with constraints gives each ensemble: fixed ⟨E⟩ gives the Boltzmann distribution'}
+  verify:
+    expect: {y: gibbs_S(P)}
+- template: td-ising-1d
+  skill: stat.binding
+  pace: quick
+  cases:
+  - {bJ: 0.5, bh: 0, ans: 0.813261687518}
+  - {bJ: 1.0, bh: 0, ans: 1.12692801104}
+  - {bJ: 0.2, bh: 0.3, ans: 0.777504441125}
+  - {bJ: 0.5, bh: 0.5, ans: 1.06843052496}
+  - {bJ: -0.5, bh: 0.2, ans: 0.820633770855}
+  prompt: 1-D Ising chain with $\beta J = {{bJ}}$ and $\beta h = {{bh}}$. With the transfer matrix, what is $-\beta f = \lim \frac{1}{N}\ln Z$?
+  parts:
+  - {ask: ln λ₊, label: y, value: ans, tol: 0.0001, explain: '$Z = \operatorname{Tr}T^N \approx \lambda_+^N$ with $T = \begin{pmatrix} e^{\beta(J+h)} & e^{-\beta J} \\ e^{-\beta J} & e^{\beta(J-h)}\end{pmatrix}$, $\lambda_+ = e^{\beta J}\cosh\beta h + \sqrt{e^{2\beta J}\sinh^2\beta h + e^{-2\beta J}}$. At h = 0, $\lambda_+ = 2\cosh\beta J$: no phase transition in 1-D'}
+  verify:
+    expect: {y: 'ising_ln_lambda(bJ, bh)'}
+- template: td-mean-field-tc
+  skill: stat.binding
+  pace: quick
+  cases:
+  - {z: 4, J: 1.0e-21, ans: 289.718820642}
+  - {z: 6, J: 2.0e-21, ans: 869.156461925}
+  - {z: 8, J: 5.0e-22, ans: 289.718820642}
+  - {z: 6, J: 1.5e-21, ans: 651.867346444}
+  prompt: In mean-field theory, what is the Curie temperature (K) of an Ising magnet with coordination number ${{z}}$ and coupling $J = {{J}}$ J?
+  parts:
+  - {ask: T_c, label: y, value: ans, tol: 0.0001, explain: 'Mean field replaces neighbours by their average: $m = \tanh(\beta zJm)$, which has a nonzero solution when $\beta zJ > 1$, so $kT_c = zJ$. It overestimates T_c (the 2-D square lattice exact value is about 0.57 zJ/k) and wrongly predicts a transition in 1-D'}
+  verify:
+    expect: {y: z*nsimplify(J)/c_kB}
+- template: td-detailed-balance
+  skill: stat.rates
+  pace: quick
+  cases:
+  - {kf: 1000.0, dG: -10, Tt: 298.15, ans: 17.7041791959}
+  - {kf: 500.0, dG: 5, Tt: 298.15, ans: 3757.78653552}
+  - {kf: 1000000.0, dG: -20, Tt: 310.15, ans: 428.271168064}
+  - {kf: 2.0, dG: 0.0, Tt: 298.15, ans: 2.0}
+  prompt: A reaction A ⇌ B has $k_f = {{kf}}$ s⁻¹ and $\Delta G^\circ = {{dG}}$ kJ/mol at ${{Tt}}$ K. What is $k_r$ (s⁻¹)?
+  parts:
+  - {ask: k_r, label: y, value: ans, tol: 0.0001, explain: 'At equilibrium the forward and reverse fluxes balance: $k_f/k_r = K = e^{-\Delta G^\circ/RT}$. On a free-energy profile the reverse barrier is higher by ΔG°, so $k_r = k_f/K$'}
+  verify:
+    expect: {y: nsimplify(kf)/exp(-nsimplify(dG)*1000/(c_R*nsimplify(Tt)))}
+- template: td-debye-huckel
+  skill: thermo.chemical-equilibrium
+  pace: quick
+  cases:
+  - sol: 0.010 m NaCl
+    C: [0.01, 0.01]
+    Zs: [1, -1]
+    zp: 1
+    zm: 1
+    ans: 0.889405887556
+  - sol: 0.005 m CaCl₂
+    C: [0.005, 0.01]
+    Zs: [2, -1]
+    zp: 2
+    zm: 1
+    ans: 0.750448635166
+  - sol: 0.001 m MgSO₄
+    C: [0.001, 0.001]
+    Zs: [2, -2]
+    zp: 2
+    zm: 2
+    ans: 0.743416256449
+  - sol: 0.002 m Na₂SO₄
+    C: [0.004, 0.002]
+    Zs: [1, -2]
+    zp: 1
+    zm: 2
+    ans: 0.83396160996
+  prompt: Use the Debye–Hückel limiting law ($\log_{10}\gamma_\pm = -0.509|z_+z_-|\sqrt I$ at 25 °C) for {{sol}}. What is $\gamma_\pm$?
+  parts:
+  - {ask: γ±, label: y, value: ans, tol: 0.0001, explain: 'Ionic strength $I = \tfrac12\sum c_iz_i^2$ (count every ion, including the 2 Cl⁻ of CaCl₂). Highly charged ions deviate fastest. Valid only below about 0.01 m'}
+  verify:
+    expect: {y: '10**(-Rational(''0.509'')*zp*zm*sqrt(ionic_strength(C, Zs)))'}
+- template: td-flory-huggins
+  skill: thermo.solutions
+  pace: quick
+  cases:
+  - {Nn: 1, ans: 2.0}
+  - {Nn: 100, ans: 0.605}
+  - {Nn: 1000, ans: 0.532122776602}
+  - {Nn: 10000, ans: 0.51005}
+  - {Nn: 50, ans: 0.651421356237}
+  prompt: In Flory–Huggins theory, what is the critical $\chi$ for a polymer of ${{Nn}}$ segments in a small-molecule solvent?
+  parts:
+  - {ask: χ_c, label: y, value: ans, tol: 0.0001, explain: '$\Delta G_{mix}/kT = \frac{\phi}{N}\ln\phi + (1 - \phi)\ln(1 - \phi) + \chi\phi(1 - \phi)$; the critical point (second and third derivatives zero) gives $\chi_c = \tfrac12(1 + 1/\sqrt N)^2$, at $\phi_c = 1/(1 + \sqrt N)$. Long chains demix at χ just above ½; N = 1 recovers the regular solution''s 2'}
+  verify:
+    expect: {y: fh_chi_c(Nn)}
+- template: td-metropolis
+  skill: stat.ensembles
+  pace: quick
+  cases:
+  - {dE: 0.5, ans: 0.606530659713}
+  - {dE: 1.0, ans: 0.367879441171}
+  - {dE: 2.0, ans: 0.135335283237}
+  - {dE: 3.0, ans: 0.0497870683679}
+  - {dE: 0.1, ans: 0.904837418036}
+  prompt: A Metropolis Monte Carlo move raises the energy by $\Delta E = {{dE}}\,kT$. With what probability is it accepted?
+  parts:
+  - {ask: Acceptance, label: y, value: ans, tol: 0.0001, explain: '$p_{acc} = \min(1, e^{-\beta\Delta E})$: downhill always, uphill with the Boltzmann factor. That rule satisfies detailed balance, so the chain samples the canonical ensemble; averages over the sampled states are ensemble averages'}
+  verify:
+    expect: {y: 'Min(1, exp(-nsimplify(dE)))'}

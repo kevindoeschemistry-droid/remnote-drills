@@ -164,3 +164,45 @@ A homework set shows one cell of each row. The exam can ask any cell.
 | Finite differences · nonzero or flux boundary nodes | `pde-fd-ghost`, `ht-fd-boundary-node` |  |
 | Finite differences · implicit and Crank–Nicolson | `pde-fd-implicit`, `mt-amplification` |  |
 
+## Reaction engineering: every reactor method against every condition
+
+Homework shows one reactor under one condition. A final can pair any design equation with any rate law, phase or heat effect.
+
+26 of 33 cells have drills; 7 are open.
+
+| Cell | Drills | Open |
+|---|---|---|
+| Rate law · order, units of k, half-life, Arrhenius | `cre-rate-from-law`, `cre-order-from-doubling`, `cre-rate-constant-units`, `cre-half-life`, `cre-arrhenius-ratio`, `cre-activation-energy` |  |
+| Rate law · reversible, equilibrium conversion | `re-equil-conversion` |  |
+| Stoichiometry · relative rates, ε, gas-phase C_A with T and P | `re-relative-rates`, `re-epsilon`, `re-gas-conc` |  |
+| Rate data · integral method, half-life method, initial rates | `re-integral-plot`, `re-half-life-order`, `re-initial-rates` |  |
+| Batch · first and second order, liquid | `cre-batch-first-order-time`, `cre-batch-second-order-time` |  |
+| Batch · reversible reaction (time to a conversion short of X_e) |  | not built: needs the integrated reversible rate law |
+| CSTR · first order, tanks in series | `cre-cstr-volume`, `cre-cstr-conversion`, `cre-cstrs-in-series` |  |
+| CSTR · second order (quadratic in X) | `re-cstr-second-order` |  |
+| CSTR · start-up transient | `re-cstr-startup` |  |
+| PFR · liquid, first order; PFR vs CSTR | `cre-pfr-volume`, `cre-reactor-comparison` |  |
+| PFR · gas with change in moles, first and second order | `re-pfr-gas-eps` |  |
+| Reactors in series · CSTR then PFR (Levenspiel) | `re-cstr-then-pfr` |  |
+| Packed bed · pressure drop, conversion (ε = 0) | `re-pbr-pressure-drop` |  |
+| Packed bed · pressure drop with ε ≠ 0 (coupled ODEs) |  | not built: needs a numerical ODE answer |
+| Semibatch and membrane reactors |  | not built |
+| Series · batch: time and height of the intermediate peak | `cre-series-optimum-time`, `re-series-bmax` |  |
+| Series · CSTR: optimum τ and its yield | `re-cstr-series-opt` |  |
+| Parallel · selectivity, reactor choice, product made in a CSTR or PFR | `cre-parallel-selectivity`, `cre-selectivity-strategy`, `re-parallel-overall` |  |
+| Mechanisms · PSSH rate law and its limiting orders | `re-lindemann`, `re-lindemann-order` |  |
+| Catalysis · Langmuir coverage, L–H rate single and dual site, rate-limiting step | `cre-langmuir-coverage`, `re-lh-rate`, `re-rls-pick` |  |
+| Catalysis · deactivation |  | not built |
+| Enzymes · Michaelis–Menten from steps, fit, inhibition | `re-mm-steps`, `re-mm-fit`, `re-inhibition-type` |  |
+| Bioreactors · chemostat steady state and washout | `re-chemostat` |  |
+| Energy balance · adiabatic T–X line, exo and endothermic | `re-adiabatic-T` |  |
+| Energy balance · adiabatic equilibrium conversion | `re-adiabatic-xe` |  |
+| Energy balance · adiabatic CSTR: steady-state count and temperature | `re-mss-count`, `re-cstr-adiabatic-T` |  |
+| Energy balance · PFR or CSTR with heat exchange (Ta, UA) |  | not built: needs coupled X–T integration |
+| Energy balance · unsteady batch and runaway |  | not built |
+| External mass transfer · series resistance, limited bed | `re-ext-mt`, `re-mt-bed` |  |
+| Internal diffusion · Thiele, η slab and sphere, Weisz–Prater, overall rate | `re-effectiveness`, `re-weisz-prater`, `re-overall-eff` |  |
+| RTD · moments from pulse data, F(t) of ideal tanks | `re-rtd-moments`, `re-tanks-F` |  |
+| Nonideal · segregation, tanks in series, dispersion | `re-segregation`, `re-tis-model`, `re-dispersion` |  |
+| Nonideal · maximum mixedness for non-first-order kinetics |  | not built |
+

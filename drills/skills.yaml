@@ -592,6 +592,14 @@ skills:
   - { id: cre.pfr, domain: cre, title: "Plug-flow reactor and reactor comparison", short: "PFR", prereqs: [cre.cstr] }
   - { id: cre.multiple, domain: cre, title: "Series and parallel reactions: selectivity", short: "Multiple reactions", prereqs: [cre.batch] }
   - { id: cre.catalysis, domain: cre, title: "Catalysis and the Langmuir isotherm", short: "Catalysis", prereqs: [cre.rate-laws] }
+  - { id: cre.stoichiometry, domain: cre, title: "Stoichiometric tables, relative rates and gas-phase ε", short: "Stoichiometry", prereqs: [cre.rate-laws] }
+  - { id: cre.rate-data, domain: cre, title: "Rate data: integral, half-life and initial-rate methods", short: "Rate data", prereqs: [cre.rate-laws, cre.batch] }
+  - { id: cre.pbr, domain: cre, title: "Packed beds with pressure drop", short: "Packed bed", prereqs: [cre.pfr, cre.stoichiometry] }
+  - { id: cre.mechanisms, domain: cre, title: "Mechanisms and the pseudo-steady-state hypothesis", short: "Mechanisms (PSSH)", prereqs: [cre.rate-laws] }
+  - { id: cre.bio, domain: cre, title: "Enzyme kinetics and chemostats", short: "Bioreactions", prereqs: [cre.mechanisms, cre.cstr] }
+  - { id: cre.nonisothermal, domain: cre, title: "Energy balance: adiabatic reactors, equilibrium, multiple steady states", short: "Nonisothermal reactors", prereqs: [cre.cstr, cre.pfr, cre.arrhenius] }
+  - { id: cre.diffusion, domain: cre, title: "External and internal diffusion with reaction", short: "Diffusion and reaction", prereqs: [cre.catalysis, cre.pfr] }
+  - { id: cre.rtd, domain: cre, title: "Residence-time distributions and nonideal reactors", short: "RTD and nonideal", prereqs: [cre.cstr, cre.pfr] }
 
   # ── Dental Admission Test: perceptual ability ───────────────────────────
   - { id: dat.pat-angles, domain: dat, title: "PAT: angle ranking", short: "Angle ranking" }
