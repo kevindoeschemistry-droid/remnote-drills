@@ -130,7 +130,8 @@
         "P4"
        ],
        "drills": [
-        "ht-cond"
+        "ht-cond",
+        "sc-conduction-thickness"
        ]
       },
       {
@@ -157,7 +158,8 @@
         "P4"
        ],
        "drills": [
-        "~ht-rad"
+        "~ht-rad",
+        "sc-radiation-temperature"
        ]
       }
      ]
@@ -790,7 +792,9 @@
        "drills": [
         "ht-fin-infinite",
         "ht-fin-adiabatic",
-        "ht-fin-tip"
+        "ht-fin-tip",
+        "ht-fin-conv-tip",
+        "ht-fin-fixed-tip"
        ]
       },
       {
@@ -832,7 +836,8 @@
        ],
        "drills": [
         "ht-fin-efficiency",
-        "~mae-concept"
+        "~mae-concept",
+        "ht-fin-effectiveness"
        ]
       }
      ]
@@ -967,7 +972,8 @@
        ],
        "drills": [
         "ht-fd",
-        "mae-fd"
+        "mae-fd",
+        "ht-fd-boundary-node"
        ]
       },
       {
@@ -1024,7 +1030,8 @@
         "P3"
        ],
        "drills": [
-        "ht-bi"
+        "ht-bi",
+        "sc-surface-to-volume"
        ]
       },
       {
@@ -1038,7 +1045,8 @@
        ],
        "drills": [
         "ht-lumped-time",
-        "ht-lumped-temp"
+        "ht-lumped-temp",
+        "sc-lumped-time-size"
        ]
       },
       {
@@ -1066,7 +1074,8 @@
        ],
        "drills": [
         "ht-lumped-gen",
-        "ht-lumped-flux"
+        "ht-lumped-flux",
+        "ht-lumped-radiation"
        ]
       }
      ]
@@ -1112,7 +1121,8 @@
        ],
        "drills": [
         "ht-ot-wall-surface",
-        "ht-ot-wall-time"
+        "ht-ot-wall-time",
+        "ht-ot-radial-more"
        ]
       },
       {
@@ -1125,7 +1135,8 @@
         "P4"
        ],
        "drills": [
-        "ht-ot-wall-energy"
+        "ht-ot-wall-energy",
+        "ht-ot-radial-more"
        ]
       }
      ]
@@ -1155,7 +1166,8 @@
        "drills": [
         "ht-erf-temp",
         "ht-erf-depth",
-        "ht-erf-time"
+        "ht-erf-time",
+        "sc-diffusion-time-length"
        ]
       },
       {
@@ -1171,6 +1183,23 @@
        "drills": [
         "ht-erf-flux",
         "ht-erf-contact"
+       ]
+      },
+      {
+       "id": "C",
+       "do": "Find the temperature in a semi-infinite solid with a constant surface heat flux or with convection at the surface.",
+       "ek": [
+        "Flux: T − T_i = (2q″√(αt/π)/k)e^(−x²/4αt) − (q″x/k)erfc(x/2√αt). Convection: erfc η − exp(hx/k + h²αt/k²)erfc(η + h√αt/k); h → ∞ recovers the fixed surface."
+       ],
+       "p": [
+        "P4"
+       ],
+       "drills": [
+        "ht-erf-const-flux",
+        "ht-erf-convection"
+       ],
+       "needs": [
+        "HT-7.3.A"
        ]
       }
      ]
@@ -1342,7 +1371,8 @@
         "P4"
        ],
        "drills": [
-        "ht-plate-lam"
+        "ht-plate-lam",
+        "ht-plate-special"
        ]
       },
       {
@@ -1505,6 +1535,24 @@
        "drills": [
         "ht-tm-ts"
        ]
+      },
+      {
+       "id": "C",
+       "do": "Find the outlet temperature when the tube exchanges heat with an external fluid through an overall coefficient U.",
+       "ek": [
+        "(T∞ − T_m,o)/(T∞ − T_m,i) = exp(−UA_s/ṁc_p): the constant-T_s result with T∞ and U."
+       ],
+       "p": [
+        "P3",
+        "P4"
+       ],
+       "drills": [
+        "ht-tube-external-fluid"
+       ],
+       "needs": [
+        "HT-9.2.B",
+        "HT-12.1.A"
+       ]
       }
      ]
     },
@@ -1547,7 +1595,8 @@
         "P4"
        ],
        "drills": [
-        "ht-dittus"
+        "ht-dittus",
+        "sc-turbulent-h-velocity"
        ]
       }
      ]
@@ -1619,7 +1668,8 @@
         "P4"
        ],
        "drills": [
-        "ht-ra"
+        "ht-ra",
+        "sc-ideal-gas-density"
        ]
       },
       {
@@ -1935,7 +1985,8 @@
        "drills": [
         "ht-hr-surface",
         "ht-sys-pipe",
-        "ht-sys-package"
+        "ht-sys-package",
+        "ht-surface-balance"
        ]
       }
      ]
@@ -1980,7 +2031,8 @@
         "P4"
        ],
        "drills": [
-        "ht-U-tube"
+        "ht-U-tube",
+        "ht-U-fouling"
        ]
       }
      ]
@@ -2277,6 +2329,23 @@
        "drills": [
         "ht3-reaction"
        ]
+      },
+      {
+       "id": "D",
+       "do": "Solve transient diffusion into a semi-infinite solid (carburizing, doping) with the error-function solution.",
+       "ek": [
+        "(C − C_s)/(C_i − C_s) = erf(x/2√(Dt)); depth scales with √(Dt)."
+       ],
+       "p": [
+        "P4"
+       ],
+       "drills": [
+        "ht-mass-erf-time"
+       ],
+       "needs": [
+        "HT-7.3.A",
+        "HT-14.1.A"
+       ]
       }
      ]
     },
@@ -2341,7 +2410,8 @@
    "topic": 1,
    "status": "ok",
    "full": [
-    "ht-cond"
+    "ht-cond",
+    "sc-conduction-thickness"
    ],
    "partial": []
   },
@@ -2359,8 +2429,10 @@
    "code": "HT-1.1.D",
    "unit": 1,
    "topic": 1,
-   "status": "partial",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "sc-radiation-temperature"
+   ],
    "partial": [
     "ht-rad"
    ]
@@ -2678,7 +2750,9 @@
    "full": [
     "ht-fin-infinite",
     "ht-fin-adiabatic",
-    "ht-fin-tip"
+    "ht-fin-tip",
+    "ht-fin-conv-tip",
+    "ht-fin-fixed-tip"
    ],
    "partial": []
   },
@@ -2698,7 +2772,8 @@
    "topic": 2,
    "status": "ok",
    "full": [
-    "ht-fin-efficiency"
+    "ht-fin-efficiency",
+    "ht-fin-effectiveness"
    ],
    "partial": [
     "mae-concept"
@@ -2752,7 +2827,8 @@
    "status": "ok",
    "full": [
     "ht-fd",
-    "mae-fd"
+    "mae-fd",
+    "ht-fd-boundary-node"
    ],
    "partial": []
   },
@@ -2772,7 +2848,8 @@
    "topic": 1,
    "status": "ok",
    "full": [
-    "ht-bi"
+    "ht-bi",
+    "sc-surface-to-volume"
    ],
    "partial": []
   },
@@ -2783,7 +2860,8 @@
    "status": "ok",
    "full": [
     "ht-lumped-time",
-    "ht-lumped-temp"
+    "ht-lumped-temp",
+    "sc-lumped-time-size"
    ],
    "partial": []
   },
@@ -2804,7 +2882,8 @@
    "status": "ok",
    "full": [
     "ht-lumped-gen",
-    "ht-lumped-flux"
+    "ht-lumped-flux",
+    "ht-lumped-radiation"
    ],
    "partial": []
   },
@@ -2827,7 +2906,8 @@
    "status": "ok",
    "full": [
     "ht-ot-wall-surface",
-    "ht-ot-wall-time"
+    "ht-ot-wall-time",
+    "ht-ot-radial-more"
    ],
    "partial": []
   },
@@ -2837,7 +2917,8 @@
    "topic": 2,
    "status": "ok",
    "full": [
-    "ht-ot-wall-energy"
+    "ht-ot-wall-energy",
+    "ht-ot-radial-more"
    ],
    "partial": []
   },
@@ -2849,7 +2930,8 @@
    "full": [
     "ht-erf-temp",
     "ht-erf-depth",
-    "ht-erf-time"
+    "ht-erf-time",
+    "sc-diffusion-time-length"
    ],
    "partial": []
   },
@@ -2861,6 +2943,17 @@
    "full": [
     "ht-erf-flux",
     "ht-erf-contact"
+   ],
+   "partial": []
+  },
+  {
+   "code": "HT-7.3.C",
+   "unit": 7,
+   "topic": 3,
+   "status": "ok",
+   "full": [
+    "ht-erf-const-flux",
+    "ht-erf-convection"
    ],
    "partial": []
   },
@@ -2931,7 +3024,8 @@
    "topic": 2,
    "status": "ok",
    "full": [
-    "ht-plate-lam"
+    "ht-plate-lam",
+    "ht-plate-special"
    ],
    "partial": []
   },
@@ -2999,6 +3093,16 @@
    "partial": []
   },
   {
+   "code": "HT-9.2.C",
+   "unit": 9,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "ht-tube-external-fluid"
+   ],
+   "partial": []
+  },
+  {
    "code": "HT-9.3.A",
    "unit": 9,
    "topic": 3,
@@ -3014,7 +3118,8 @@
    "topic": 3,
    "status": "ok",
    "full": [
-    "ht-dittus"
+    "ht-dittus",
+    "sc-turbulent-h-velocity"
    ],
    "partial": []
   },
@@ -3034,7 +3139,8 @@
    "topic": 1,
    "status": "ok",
    "full": [
-    "ht-ra"
+    "ht-ra",
+    "sc-ideal-gas-density"
    ],
    "partial": []
   },
@@ -3190,7 +3296,8 @@
    "full": [
     "ht-hr-surface",
     "ht-sys-pipe",
-    "ht-sys-package"
+    "ht-sys-package",
+    "ht-surface-balance"
    ],
    "partial": []
   },
@@ -3200,7 +3307,8 @@
    "topic": 1,
    "status": "ok",
    "full": [
-    "ht-U-tube"
+    "ht-U-tube",
+    "ht-U-fouling"
    ],
    "partial": []
   },
@@ -3331,6 +3439,16 @@
    "partial": []
   },
   {
+   "code": "HT-14.1.D",
+   "unit": 14,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ht-mass-erf-time"
+   ],
+   "partial": []
+  },
+  {
    "code": "HT-14.2.A",
    "unit": 14,
    "topic": 2,
@@ -3352,13 +3470,5 @@
    "partial": []
   }
  ],
- "orphanTpl": [
-  "sc-radiation-temperature",
-  "sc-conduction-thickness",
-  "sc-ideal-gas-density",
-  "sc-lumped-time-size",
-  "sc-surface-to-volume",
-  "sc-diffusion-time-length",
-  "sc-turbulent-h-velocity"
- ]
+ "orphanTpl": []
 }

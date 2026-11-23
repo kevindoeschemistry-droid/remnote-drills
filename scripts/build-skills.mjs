@@ -176,7 +176,8 @@ for (const x of library.extras ?? []) if (!(library.subjects ?? []).includes(x.s
 const matrixDir = path.join(root, "matrices");
 const matrices = [];
 if (fs.existsSync(matrixDir)) {
-  const known = new Set(problems.map((t) => t.template));
+  // data templates and coded generators alike: every template a skill lists in its levels
+  const known = new Set([...problems.map((t) => t.template), ...g.skills.flatMap((s) => Object.values(s.levels ?? {}).flat())]);
   for (const f of fs.readdirSync(matrixDir).filter((f) => f.endsWith(".yaml")).sort()) {
     const m = load(path.join(matrixDir, f));
     if (!m?.id || !m.title || !Array.isArray(m.cells)) { errors.push(`matrices/${f}: needs id, title and cells`); continue; }

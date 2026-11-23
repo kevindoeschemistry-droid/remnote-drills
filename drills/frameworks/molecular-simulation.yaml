@@ -486,3 +486,21 @@ units:
           - { id: A, do: "Correct a charge-changing perturbation: explain its PME finite-size errors and apply ALF's discrete solvent correction with the q key.", ek: ["Net-charge changes in a neutral PME box introduce artifacts; the discrete solvent correction is the largest computable term; alternatives include co-alchemical ions."], p: [P3, P5], drills: ["md-charge-change"] }
           - { id: B, do: "Explain when a site needs replica exchange (e.g. A42, A98, M102 in T4 lysozyme) and how biasing-potential replica exchange helps.", ek: ["Some sites have slow coupled conformational and alchemical barriers; replicas with offset biases exchange to cross them. Replica runs need nreps > 1 and working MPI on the cluster."], p: [P3], drills: ["md-replica-exchange"] }
           - { id: C, do: "Explain why proline and glycine mutations need a dedicated alchemical strategy.", ek: ["Proline bonds its side chain back to the backbone N and glycine lacks Cβ, so backbone terms (CMAP, ring closure) differ between substituents; Hayes & Brooks 2021 give the workaround."], p: [P2], drills: ["md-proline-glycine"] }
+
+  - id: electronic
+    n: 15
+    title: Electronic structure in practice
+    scope: core
+    ideas: [MODEL]
+    note: "House objectives: quantum-chemistry choices a simulator meets when parameterizing a force field or checking one. No published standard lists them."
+    topics:
+      - n: 1
+        title: Basis sets, cost and units
+        los:
+          - { id: A, do: "Count basis functions for a molecule in a named Pople basis.", ek: ["6-31G(d): 1 function per H, 15 per first-row atom (9 + 6 Cartesian d)."], p: [P1], drills: [cc-basis-function-count] }
+          - { id: B, do: "Scale the cost of a method with system size from its formal power law.", ek: ["HF ~N⁴, MP2 ~N⁵, CCSD(T) ~N⁷: doubling N costs 2^p."], p: [P1], drills: [cc-method-scaling] }
+          - { id: C, do: "Convert between hartree, kcal/mol, kJ/mol and cm⁻¹, and compute a vibrational zero-point energy.", ek: ["1 hartree = 627.51 kcal/mol; ZPE = ½hcν̃ per mode."], p: [P1], drills: [cc-energy-units, cc-zero-point-energy] }
+      - n: 2
+        title: Choosing a method
+        los:
+          - { id: A, do: "Place a density functional on Jacob's ladder and pick the first fix for a known failure such as missing dispersion.", ek: ["LDA → GGA → meta-GGA → hybrid → double hybrid; add a dispersion correction (D3) for stacking."], p: [P3], drills: [cc-functional-rung, cc-method-choice] }

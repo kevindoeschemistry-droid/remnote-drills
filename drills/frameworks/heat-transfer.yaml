@@ -90,9 +90,9 @@ units:
         fe: [me-A, me-B, me-C, che-A, che-B, che-C]
         los:
           - { id: A, do: "Identify which modes act in a described system and write the rate law for each.", ek: ["Conduction needs a medium; convection needs fluid motion; radiation needs neither."], p: [P1], drills: ["~mae-concept"] }
-          - { id: B, do: "Calculate a conduction flux or rate, or an unknown k, from Fourier's law across a plane layer.", ek: ["q'' = k ΔT / L; heat flows down the temperature gradient."], p: [P4], drills: [ht-cond] }
+          - { id: B, do: "Calculate a conduction flux or rate, or an unknown k, from Fourier's law across a plane layer.", ek: ["q'' = k ΔT / L; heat flows down the temperature gradient."], p: [P4], drills: ["ht-cond", "sc-conduction-thickness"] }
           - { id: C, do: "Calculate a convection rate from Newton's law of cooling and judge whether h is plausible.", ek: ["q = hA(T_s − T∞); h ~ 2–25 free gas, 25–250 forced gas, 50–20 000 forced liquid, 2 500–100 000 phase change (W/m²·K)."], p: [P4, P5], drills: [ht-conv] }
-          - { id: D, do: "Calculate net radiation between a small surface and large surroundings, and linearise it to a radiation coefficient h_r.", ek: ["q'' = εσ(T_s⁴ − T_sur⁴) in kelvin; h_r = εσ(T_s + T_sur)(T_s² + T_sur²)."], p: [P4], drills: ["~ht-rad"] }
+          - { id: D, do: "Calculate net radiation between a small surface and large surroundings, and linearise it to a radiation coefficient h_r.", ek: ["q'' = εσ(T_s⁴ − T_sur⁴) in kelvin; h_r = εσ(T_s + T_sur)(T_s² + T_sur²)."], p: [P4], drills: ["~ht-rad", "sc-radiation-temperature"] }
       - n: 2
         title: Energy balances on control volumes and surfaces
         book: { incropera-8e: ["1.3"] }
@@ -213,14 +213,14 @@ units:
         fe: [me-A]
         los:
           - { id: A, do: "Derive the fin equation from an energy balance on a fin element and compute m for a given geometry.", ek: ["d²θ/dx² − m²θ = 0, m² = hP/kA_c; θ = T − T∞."], p: [P1, P2], drills: [ht-fin-m] }
-          - { id: B, do: "Choose the tip condition (infinite, adiabatic, convective via corrected length) and compute fin heat rate and tip or local temperature.", ek: ["q_f = M tanh mL (adiabatic); M = √(hPkA_c)θ_b; L_c = L + D/4 for a pin."], p: [P2, P3], drills: [ht-fin-infinite, ht-fin-adiabatic, ht-fin-tip] }
+          - { id: B, do: "Choose the tip condition (infinite, adiabatic, convective via corrected length) and compute fin heat rate and tip or local temperature.", ek: ["q_f = M tanh mL (adiabatic); M = √(hPkA_c)θ_b; L_c = L + D/4 for a pin."], p: [P2, P3], drills: ["ht-fin-infinite", "ht-fin-adiabatic", "ht-fin-tip", "ht-fin-conv-tip", "ht-fin-fixed-tip"] }
           - { id: C, do: "Explain why fin temperature decays exponentially rather than linearly, and how to change the decay.", ek: ["Side convection removes heat along the length; larger m (low k, high h, thin) ⇒ faster decay."], p: [P6], drills: ["~mae-concept"] }
       - n: 2
         title: Fin performance
         book: { incropera-8e: ["3.6.4"] }
         fe: [me-A]
         los:
-          - { id: A, do: "Calculate fin efficiency and effectiveness and decide whether a fin is worthwhile.", ek: ["η_f = q_f/(hA_fθ_b); ε_f = q_f/(hA_c,bθ_b); fins pay off when ε_f ≳ 2, i.e. high k, low h."], p: [P3, P6], drills: [ht-fin-efficiency, "~mae-concept"] }
+          - { id: A, do: "Calculate fin efficiency and effectiveness and decide whether a fin is worthwhile.", ek: ["η_f = q_f/(hA_fθ_b); ε_f = q_f/(hA_c,bθ_b); fins pay off when ε_f ≳ 2, i.e. high k, low h."], p: [P3, P6], drills: ["ht-fin-efficiency", "~mae-concept", "ht-fin-effectiveness"] }
       - n: 3
         title: Fin arrays
         book: { incropera-8e: ["3.6.5"] }
@@ -254,7 +254,7 @@ units:
         book: { incropera-8e: ["4.4", "4.5"] }
         fe: []
         los:
-          - { id: A, do: "Write the finite-difference equation of an interior, surface or corner node by an energy balance on its cell, including Δx ≠ Δy, convection and radiation.", ek: ["Each face: conductance × (T_neighbour − T_m); boundary faces get h·ℓ or h_r·ℓ terms; half cells on edges."], p: [P1, P2], drills: [ht-fd, mae-fd] }
+          - { id: A, do: "Write the finite-difference equation of an interior, surface or corner node by an energy balance on its cell, including Δx ≠ Δy, convection and radiation.", ek: ["Each face: conductance × (T_neighbour − T_m); boundary faces get h·ℓ or h_r·ℓ terms; half cells on edges."], p: [P1, P2], drills: ["ht-fd", "mae-fd", "ht-fd-boundary-node"] }
           - { id: B, do: "Solve a small node system directly or by Gauss–Seidel iteration and check the energy balance.", ek: ["Iterate T_i = (Σa_jT_j + b)/a_i until changes are below tolerance."], p: [P4, P5], drills: [ht-fd-solve] }
 
   # ── 7 ────────────────────────────────────────────────────────────────────
@@ -270,25 +270,26 @@ units:
         book: { incropera-8e: ["5.1", "5.2", "5.3"] }
         fe: [me-D]
         los:
-          - { id: A, do: "Compute the Biot number with L_c = V/A_s and decide whether lumped capacitance applies.", ek: ["Bi = hL_c/k < 0.1 ⇒ internal gradients negligible; L_c = r/3 sphere, r/2 cylinder, half-thickness wall."], p: [P3], drills: [ht-bi] }
-          - { id: B, do: "Find temperature at a time, or the time to reach a temperature, for a lumped body.", ek: ["θ/θ_i = exp(−t/τ), τ = ρVc/hA_s."], p: [P4], drills: [ht-lumped-time, ht-lumped-temp] }
+          - { id: A, do: "Compute the Biot number with L_c = V/A_s and decide whether lumped capacitance applies.", ek: ["Bi = hL_c/k < 0.1 ⇒ internal gradients negligible; L_c = r/3 sphere, r/2 cylinder, half-thickness wall."], p: [P3], drills: ["ht-bi", "sc-surface-to-volume"] }
+          - { id: B, do: "Find temperature at a time, or the time to reach a temperature, for a lumped body.", ek: ["θ/θ_i = exp(−t/τ), τ = ρVc/hA_s."], p: [P4], drills: ["ht-lumped-time", "ht-lumped-temp", "sc-lumped-time-size"] }
           - { id: C, do: "Find the energy transferred over an interval.", ek: ["Q = ρVcθ_i[1 − exp(−t/τ)]."], p: [P4], drills: [ht-lumped-energy] }
-          - { id: D, do: "Set up and solve a general lumped balance with radiation, surface flux or generation.", ek: ["ρVc dT/dt = q''_sA − hA(T − T∞) − εσA(T⁴ − T_sur⁴) + Ė_g; solve or integrate numerically."], p: [P1, P2], drills: [ht-lumped-gen, ht-lumped-flux] }
+          - { id: D, do: "Set up and solve a general lumped balance with radiation, surface flux or generation.", ek: ["ρVc dT/dt = q''_sA − hA(T − T∞) − εσA(T⁴ − T_sur⁴) + Ė_g; solve or integrate numerically."], p: [P1, P2], drills: ["ht-lumped-gen", "ht-lumped-flux", "ht-lumped-radiation"] }
       - n: 2
         title: Spatial effects — one-term solutions
         book: { incropera-8e: ["5.4", "5.5", "5.6"] }
         fe: [me-D]
         los:
           - { id: A, do: "Compute Bi and Fo and find the centre temperature of a wall, cylinder or sphere with the one-term approximation.", ek: ["θ₀* = C₁exp(−ζ₁²Fo), valid for Fo > 0.2; ζ₁, C₁ from Bi (wall uses half-thickness)."], p: [P3, P4], drills: [ht-ot-wall-center, ht-ot-cyl-center, ht-ot-sphere-center] }
-          - { id: B, do: "Find the temperature at another position, or the time to reach a temperature.", ek: ["θ* = θ₀* cos(ζ₁x*) (wall), θ₀* J₀(ζ₁r*) (cylinder), θ₀* sin(ζ₁r*)/(ζ₁r*) (sphere)."], p: [P4], drills: [ht-ot-wall-surface, ht-ot-wall-time] }
-          - { id: C, do: "Find the fraction of the maximum energy transferred, Q/Q₀.", ek: ["Wall: Q/Q₀ = 1 − (sin ζ₁/ζ₁)θ₀*; cylinder and sphere have their own forms."], p: [P4], drills: [ht-ot-wall-energy] }
+          - { id: B, do: "Find the temperature at another position, or the time to reach a temperature.", ek: ["θ* = θ₀* cos(ζ₁x*) (wall), θ₀* J₀(ζ₁r*) (cylinder), θ₀* sin(ζ₁r*)/(ζ₁r*) (sphere)."], p: [P4], drills: ["ht-ot-wall-surface", "ht-ot-wall-time", "ht-ot-radial-more"] }
+          - { id: C, do: "Find the fraction of the maximum energy transferred, Q/Q₀.", ek: ["Wall: Q/Q₀ = 1 − (sin ζ₁/ζ₁)θ₀*; cylinder and sphere have their own forms."], p: [P4], drills: ["ht-ot-wall-energy", "ht-ot-radial-more"] }
       - n: 3
         title: The semi-infinite solid
         book: { incropera-8e: ["5.7"] }
         fe: [me-D]
         los:
-          - { id: A, do: "Find temperature at a depth and time, the depth reached, or the time needed, after a sudden surface temperature change.", ek: ["(T − T_s)/(T_i − T_s) = erf(x/2√(αt)); valid while the far side hasn't felt it."], p: [P3, P4], drills: [ht-erf-temp, ht-erf-depth, ht-erf-time] }
+          - { id: A, do: "Find temperature at a depth and time, the depth reached, or the time needed, after a sudden surface temperature change.", ek: ["(T − T_s)/(T_i − T_s) = erf(x/2√(αt)); valid while the far side hasn't felt it."], p: [P3, P4], drills: ["ht-erf-temp", "ht-erf-depth", "ht-erf-time", "sc-diffusion-time-length"] }
           - { id: B, do: "Find the surface heat flux, and the contact temperature when two semi-infinite solids touch.", ek: ["q''_s = k(T_s − T_i)/√(παt); T_s = (√(kρc)_A T_A + √(kρc)_B T_B)/(√(kρc)_A + √(kρc)_B)."], p: [P4, P6], drills: [ht-erf-flux, ht-erf-contact] }
+          - { id: C, do: "Find the temperature in a semi-infinite solid with a constant surface heat flux or with convection at the surface.", ek: ["Flux: T − T_i = (2q″√(αt/π)/k)e^(−x²/4αt) − (q″x/k)erfc(x/2√αt). Convection: erfc η − exp(hx/k + h²αt/k²)erfc(η + h√αt/k); h → ∞ recovers the fixed surface."], p: [P4], drills: [ht-erf-const-flux, ht-erf-convection], needs: [HT-7.3.A] }
       - n: 4
         title: Multidimensional transient effects
         book: { incropera-8e: ["5.8"] }
@@ -324,7 +325,7 @@ units:
         book: { incropera-8e: ["7.1", "7.2", "7.3"] }
         fe: [me-B, che-B]
         los:
-          - { id: A, do: "Calculate average h and q for laminar flow over a flat plate, with properties at the film temperature.", ek: ["Nu̅ = 0.664 Re_L^(1/2) Pr^(1/3); T_f = (T_s + T∞)/2."], p: [P3, P4], drills: [ht-plate-lam] }
+          - { id: A, do: "Calculate average h and q for laminar flow over a flat plate, with properties at the film temperature.", ek: ["Nu̅ = 0.664 Re_L^(1/2) Pr^(1/3); T_f = (T_s + T∞)/2."], p: [P3, P4], drills: ["ht-plate-lam", "ht-plate-special"] }
           - { id: B, do: "Calculate average h for a mixed laminar–turbulent boundary layer.", ek: ["Nu̅ = (0.037 Re_L^(4/5) − 871) Pr^(1/3) for Re_x,c = 5×10⁵."], p: [P3, P4], drills: [ht-plate-mixed] }
       - n: 3
         title: Cylinders and spheres in cross flow
@@ -360,13 +361,14 @@ units:
         los:
           - { id: A, do: "Find outlet temperature or required length with uniform wall heat flux.", ek: ["q = ṁc_p(T_m,o − T_m,i) = q''_s πDL; T_m rises linearly."], p: [P1, P4], drills: [ht-tm-flux] }
           - { id: B, do: "Find outlet temperature or heat rate with uniform wall temperature, using the log-mean temperature difference.", ek: ["ΔT_o/ΔT_i = exp(−PL h̄/ṁc_p); q = h̄A_s ΔT_lm."], p: [P1, P4], drills: [ht-tm-ts] }
+          - { id: C, do: "Find the outlet temperature when the tube exchanges heat with an external fluid through an overall coefficient U.", ek: ["(T∞ − T_m,o)/(T∞ − T_m,i) = exp(−UA_s/ṁc_p): the constant-T_s result with T∞ and U."], p: [P3, P4], drills: [ht-tube-external-fluid], needs: [HT-9.2.B, HT-12.1.A] }
       - n: 3
         title: Convection correlations for tubes
         book: { incropera-8e: ["8.4", "8.5"] }
         fe: [me-B, che-B, che-D]
         los:
           - { id: A, do: "Use the fully developed laminar results for constant flux or constant wall temperature.", ek: ["Nu_D = 4.36 (uniform q''_s), 3.66 (uniform T_s)."], p: [P3], drills: [ht-lam-fd] }
-          - { id: B, do: "Calculate h for turbulent flow with Dittus–Boelter (or Gnielinski), choosing the right exponent and property temperature.", ek: ["Nu_D = 0.023 Re^(4/5) Pr^n, n = 0.4 heating, 0.3 cooling; properties at mean T_m."], p: [P3, P4], drills: [ht-dittus] }
+          - { id: B, do: "Calculate h for turbulent flow with Dittus–Boelter (or Gnielinski), choosing the right exponent and property temperature.", ek: ["Nu_D = 0.023 Re^(4/5) Pr^n, n = 0.4 heating, 0.3 cooling; properties at mean T_m."], p: [P3, P4], drills: ["ht-dittus", "sc-turbulent-h-velocity"] }
       - n: 4
         title: Noncircular tubes and annuli
         book: { incropera-8e: ["8.6"] }
@@ -387,7 +389,7 @@ units:
         book: { incropera-8e: ["9.1", "9.2", "9.3", "9.4", "9.5"] }
         fe: [me-B, che-B]
         los:
-          - { id: A, do: "Compute Gr and Ra and identify laminar or turbulent free convection.", ek: ["Ra_L = gβΔT L³/(να); β = 1/T_f for an ideal gas; transition near Ra ≈ 10⁹ on a vertical plate."], p: [P3, P4], drills: [ht-ra] }
+          - { id: A, do: "Compute Gr and Ra and identify laminar or turbulent free convection.", ek: ["Ra_L = gβΔT L³/(να); β = 1/T_f for an ideal gas; transition near Ra ≈ 10⁹ on a vertical plate."], p: [P3, P4], drills: ["ht-ra", "sc-ideal-gas-density"] }
           - { id: B, do: "Decide whether free, forced or mixed convection governs.", ek: ["Gr/Re² ≪ 1 forced, ≫ 1 free, ~1 mixed."], p: [P3], drills: [ht-mixed-conv] }
       - n: 2
         title: Correlations for external free convection
@@ -441,7 +443,7 @@ units:
         book: { incropera-8e: ["13.4"] }
         fe: [me-C]
         los:
-          - { id: A, do: "Combine radiation exchange with conduction and convection at a surface or in an enclosure.", ek: ["Radiation and convection from one surface act in parallel; h_r lets radiation join the resistance network."], p: [P1, P3], drills: [ht-hr-surface, ht-sys-pipe, ht-sys-package] }
+          - { id: A, do: "Combine radiation exchange with conduction and convection at a surface or in an enclosure.", ek: ["Radiation and convection from one surface act in parallel; h_r lets radiation join the resistance network."], p: [P1, P3], drills: ["ht-hr-surface", "ht-sys-pipe", "ht-sys-package", "ht-surface-balance"] }
 
   # ── 12 ───────────────────────────────────────────────────────────────────
   - id: systems
@@ -456,7 +458,7 @@ units:
         book: { incropera-8e: ["11.1", "11.2"] }
         fe: [me-E, che-D, che-E]
         los:
-          - { id: A, do: "Calculate U for a tube wall including both films, fouling and finned surfaces.", ek: ["1/UA = 1/(η_o hA)_c + R''_f,c/(η_oA)_c + R_w + R''_f,h/(η_oA)_h + 1/(η_o hA)_h."], p: [P1, P4], drills: [ht-U-tube] }
+          - { id: A, do: "Calculate U for a tube wall including both films, fouling and finned surfaces.", ek: ["1/UA = 1/(η_o hA)_c + R''_f,c/(η_oA)_c + R_w + R''_f,h/(η_oA)_h + 1/(η_o hA)_h."], p: [P1, P4], drills: ["ht-U-tube", "ht-U-fouling"] }
       - n: 2
         title: The log-mean temperature difference method
         book: { incropera-8e: ["11.3"] }
@@ -514,6 +516,7 @@ units:
           - { id: A, do: "Calculate a diffusive flux in a stationary medium with Fick's law, including membranes and solubility.", ek: ["N_A = −D_AB dC_A/dx; at an interface C = S·p."], p: [P4], drills: [ht3-fick, ht3-membrane] }
           - { id: B, do: "Calculate evaporation through a stagnant gas column (Stefan flow).", ek: ["N_A = (CD_AB/L) ln[(1 − x_A,L)/(1 − x_A,0)]."], p: [P2, P4], drills: [ht3-stefan-flow] }
           - { id: C, do: "Solve diffusion with a homogeneous reaction.", ek: ["D d²C/dx² − k₁C = 0 ⇒ cosh/sinh profile, like a fin."], p: [P2], drills: [ht3-reaction] }
+          - { id: D, do: "Solve transient diffusion into a semi-infinite solid (carburizing, doping) with the error-function solution.", ek: ["(C − C_s)/(C_i − C_s) = erf(x/2√(Dt)); depth scales with √(Dt)."], p: [P4], drills: [ht-mass-erf-time], needs: [HT-7.3.A, HT-14.1.A] }
       - n: 2
         title: Convective mass transfer and the analogy
         book: { incropera-8e: ["6.7", "7.8"] }

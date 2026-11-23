@@ -2,7 +2,7 @@
 
 Generated from `drills/frameworks/molecular-simulation.yaml` by `scripts/framework.mjs`. ● drilled · ◐ partly · ○ no drills yet.
 
-**102 learning objectives** in 14 units (96 core): 100 drilled, 2 partly, 0 with no drills. Core: 94 / 96 drilled.
+**106 learning objectives** in 15 units (100 core): 104 drilled, 2 partly, 0 with no drills. Core: 98 / 100 drilled.
 
 ## Big ideas
 
@@ -41,6 +41,7 @@ Generated from `drills/frameworks/molecular-simulation.yaml` by `scripts/framewo
 | 12 · Trajectory analysis | core | — | 6 | 6 | 0 | 0 |
 | 13 · HPC, engines and reproducible workflow | core | — | 9 | 9 | 0 | 0 |
 | 14 · Advanced λ dynamics | extension | — | 6 | 6 | 0 | 0 |
+| 15 · Electronic structure in practice | core | — | 4 | 4 | 0 | 0 |
 
 ## Unit 1 · Statistical mechanics for simulation
 
@@ -620,3 +621,29 @@ Book: alf-readme §Best Practices; orientation §Tutorial 1, §Tutorial 3.3, §L
 - ● **MD-14.2.C** Explain why proline and glycine mutations need a dedicated alchemical strategy.
   - EK: Proline bonds its side chain back to the backbone N and glycine lacks Cβ, so backbone terms (CMAP, ring closure) differ between substituents; Hayes & Brooks 2021 give the workaround.
   - P2 · drills: md-proline-glycine
+
+## Unit 15 · Electronic structure in practice
+
+Big ideas: MODEL
+
+### 15.1 Basis sets, cost and units
+
+
+
+- ● **MD-15.1.A** Count basis functions for a molecule in a named Pople basis.
+  - EK: 6-31G(d): 1 function per H, 15 per first-row atom (9 + 6 Cartesian d).
+  - P1 · drills: cc-basis-function-count
+- ● **MD-15.1.B** Scale the cost of a method with system size from its formal power law.
+  - EK: HF ~N⁴, MP2 ~N⁵, CCSD(T) ~N⁷: doubling N costs 2^p.
+  - P1 · drills: cc-method-scaling
+- ● **MD-15.1.C** Convert between hartree, kcal/mol, kJ/mol and cm⁻¹, and compute a vibrational zero-point energy.
+  - EK: 1 hartree = 627.51 kcal/mol; ZPE = ½hcν̃ per mode.
+  - P1 · drills: cc-energy-units, cc-zero-point-energy
+
+### 15.2 Choosing a method
+
+
+
+- ● **MD-15.2.A** Place a density functional on Jacob's ladder and pick the first fix for a known failure such as missing dispersion.
+  - EK: LDA → GGA → meta-GGA → hybrid → double hybrid; add a dispersion correction (D3) for stacking.
+  - P3 · drills: cc-functional-rung, cc-method-choice

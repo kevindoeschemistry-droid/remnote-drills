@@ -97,7 +97,7 @@ units:
         book: { engel-reid-3e: ["2.8", "2.8", "2.5", "3.4", "2.11"] }
         los:
           - { id: A, do: "Calculate the work of an expansion or compression against a constant external pressure.", ek: ["w = −P_ext ΔV; work done on the system is positive, so expansion gives w < 0."], p: [P3], drills: ["pc-work-irrev"] }
-          - { id: B, do: "Calculate the work and heat of a reversible isothermal expansion of an ideal gas.", ek: ["w = −nRT ln(V₂/V₁); ΔU = 0 for an ideal gas at constant T, so q = −w."], p: [P3], drills: ["th-fl-isothermal"] }
+          - { id: B, do: "Calculate the work and heat of a reversible isothermal expansion of an ideal gas.", ek: ["w = −nRT ln(V₂/V₁); ΔU = 0 for an ideal gas at constant T, so q = −w."], p: [P3], drills: ["th-fl-isothermal", "sc-isothermal-work-ratio"] }
           - { id: C, do: "Calculate the heat and internal-energy change for heating at constant volume.", ek: ["q_V = ΔU = nC_V ΔT; no P–V work is done."], p: [P3], drills: ["th-fl-isochoric"] }
           - { id: D, do: "Calculate the heat and enthalpy change for heating at constant pressure.", ek: ["q_P = ΔH = nC_P ΔT; C_P − C_V = R for an ideal gas."], p: [P3], drills: ["th-fl-isobaric"] }
           - { id: E, do: "Calculate the final temperature and the work of a reversible adiabatic expansion.", ek: ["T₁V₁^(γ−1) = T₂V₂^(γ−1) with γ = C_P/C_V; q = 0, so w = ΔU = nC_V ΔT."], p: [P3], drills: ["th-fl-adiabatic"] }
@@ -164,7 +164,7 @@ units:
         book: { engel-reid-3e: ["6.7", "6.10"] }
         los:
           - { id: A, do: "Calculate an equilibrium constant from a standard reaction Gibbs energy, and the reverse.", ek: ["ΔG° = −RT ln K; a negative ΔG° gives K > 1."], p: [P3], drills: ["th-ce-k"] }
-          - { id: B, do: "Calculate how an equilibrium constant shifts with temperature using the van't Hoff equation.", ek: ["ln(K₂/K₁) = −(ΔH°/R)(1/T₂ − 1/T₁); K rises with T for an endothermic reaction."], p: [P3], drills: ["th-ce-vant-hoff"] }
+          - { id: B, do: "Calculate how an equilibrium constant shifts with temperature using the van't Hoff equation.", ek: ["ln(K₂/K₁) = −(ΔH°/R)(1/T₂ − 1/T₁); K rises with T for an endothermic reaction."], p: [P3], drills: ["th-ce-vant-hoff", "sc-equilibrium-constant-temperature"] }
 
   # ── 5 ────────────────────────────────────────────────────────────────────
   - id: real-gases
@@ -196,7 +196,7 @@ units:
         book: { engel-reid-3e: ["8.3", "8.6", "8.8"] }
         los:
           - { id: A, do: "Apply the Gibbs phase rule to count the degrees of freedom of a system.", ek: ["F = C − P + 2; a pure substance at its triple point has F = 0."], p: [P3], drills: ["pc-phase-rule"] }
-          - { id: B, do: "Calculate a vapour pressure, a boiling temperature or an enthalpy of vaporisation from the Clausius–Clapeyron equation.", ek: ["ln(P₂/P₁) = −(ΔH_vap/R)(1/T₂ − 1/T₁); assumes an ideal vapour and constant ΔH_vap."], p: [P3], drills: ["th-pe-cc-pressure", "th-pe-cc-enthalpy", "th-pe-cc-temperature"] }
+          - { id: B, do: "Calculate a vapour pressure, a boiling temperature or an enthalpy of vaporisation from the Clausius–Clapeyron equation.", ek: ["ln(P₂/P₁) = −(ΔH_vap/R)(1/T₂ − 1/T₁); assumes an ideal vapour and constant ΔH_vap."], p: [P3], drills: ["th-pe-cc-pressure", "th-pe-cc-enthalpy", "th-pe-cc-temperature", "sc-vapour-pressure-ten-degrees"] }
           - { id: C, do: "Calculate the pressure difference across a curved liquid surface.", ek: ["ΔP = 2γ/r for a droplet or a bubble in a liquid; smaller radius, larger excess pressure."], p: [P3], drills: ["pc-laplace-pressure"] }
 
   # ── 7 ────────────────────────────────────────────────────────────────────
