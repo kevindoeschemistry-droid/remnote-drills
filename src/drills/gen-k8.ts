@@ -1078,8 +1078,12 @@ const areaPoly: Gen = (r) => {
   const V: Pt[] = t === 0 ? [[0, 0], [b, 0], [sd, h]] : t === 1 ? [[0, 0], [b, 0], [0, h]] : t === 2 ? [[0, 0], [b, 0], [b + sd, h], [sd, h]] : [[0, 0], [b, 0], [sd + b2, h], [sd, h]], top = V[V.length - 1];
   const g = t === 1
     ? { polys: [{ pts: V, sides: [`${b} cm`, null, `${h} cm`], fill: true }], angles: [{ ...corner(V, 0), right: true }] }
-    : { polys: [{ pts: V, sides: [`${b} cm`, null, t === 3 ? `${b2} cm` : null, null], fill: true }],
-        segs: [{ a: [top[0], 0] as Pt, b: top, dash: true, label: `${h} cm`, side: (top[0] > b / 2 ? -1 : 1) as 1 | -1 }, ...(top[0] < 0 ? [{ a: [top[0], 0] as Pt, b: [0, 0] as Pt, dash: true }] : top[0] > b ? [{ a: [b, 0] as Pt, b: [top[0], 0] as Pt, dash: true }] : [])],
+    : b < 0.6 * h
+      // a narrow shape: the height goes beside it as a dimension line
+      ? { polys: [{ pts: V, sides: [`${b} cm`, null, t === 3 ? `${b2} cm` : null, null], fill: true }],
+          segs: [{ a: [Math.min(0, sd) - 0.25 * h, 0] as Pt, b: [Math.min(0, sd) - 0.25 * h, h] as Pt, dash: true, label: `${h} cm` }, { a: [Math.min(0, sd) - 0.32 * h, h] as Pt, b: [Math.min(0, sd) - 0.18 * h, h] as Pt }, { a: [Math.min(0, sd) - 0.32 * h, 0] as Pt, b: [Math.min(0, sd) - 0.18 * h, 0] as Pt }] }
+      : { polys: [{ pts: V, sides: [`${b} cm`, null, t === 3 ? `${b2} cm` : null, null], fill: true }],
+        segs: [{ a: [top[0], 0] as Pt, b: top, dash: true, label: `${h} cm`, side: (top[0] < 0 ? 1 : -1) as 1 | -1 }, ...(top[0] < 0 ? [{ a: [top[0], 0] as Pt, b: [0, 0] as Pt, dash: true }] : top[0] > b ? [{ a: [b, 0] as Pt, b: [top[0], 0] as Pt, dash: true }] : [])],
         angles: [{ at: [top[0], 0] as Pt, a1: top[0] > b / 2 ? 90 : 0, a2: top[0] > b / 2 ? 180 : 90, right: true }] };
   return withFig(draft(`Find the area of ${txt}, in cm².`, exact(v), `${qtex(v)}\\ \\text{cm}^2`, [[`Half the rectangle on the same base and height: ${m(`\\tfrac12 bh`)}.`, `${m(`\\tfrac12 \\times ${b} \\times ${h}`)}.`, `Cut off a triangle and slide it over: a ${b} × ${h} rectangle.`, `Two copies make a parallelogram with base ${b + b2}: ${m(`\\tfrac12(b_1 + b_2)h`)}.`][t], `${m(`= ${qtex(v)}`)}.`], { mx: "shoelace", verts }), geomSvg(g));
 };
