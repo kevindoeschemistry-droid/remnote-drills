@@ -108,3 +108,19 @@ What nothing answers to yet, grouped by what would have to be built:
 
 Smaller single items: IB R1.3 energy from fuels, R3.3 radical (electron-sharing) reactions, Biology A2.1
 origins of cells; ACCM X (visualization) as a concept of its own; IChO c21 (micelles).
+
+### Built since (0.81–0.84, Nov 2026)
+
+Groups 1–6 above now have frameworks: Inorganic Chemistry (IN) and Analytical Chemistry (AN) on IChO
+Appendices C–D; Polymers and Materials (MT); Earth and Space Science (ES) on NGSS ESS; physics units 29–30
+(special relativity, Lagrangian mechanics); Separations (SP) and Process Design, Economics and Safety
+(PD) on FE Chemical 10/13/15/16 and PE Chemical 6.B/7; and a Chemistry Olympiad layer (CO) that asks AP
+topics at USNCO-national and IChO depth. Coverage after that: IB Physics 24/24, PE Chemical 16/16, MCAT
+(categories read) 14/14, IB Biology 39/40, IChO Appendices 41/42, NGSS 56/71.
+
+Still open: the NGSS design and engineering expectations and USNCO Parts II–III (not drillable as
+cards, by decision); NGSS ESS2-5, ESS2-7, ESS3-2, ESS3-4; IB Chemistry R1.3 (fuels) and R3.3 (radical
+reactions); IB Biology A2.1 (origins of cells); IChO c21 (micelles); ACCM X (visualization); GRE Physics
+laboratory methods; and on FE Chemical the math and statistics items (1.A, 1.F, 2.B–2.F), dynamics and
+circuits (3.A–C), materials 4.B–C, the chemistry and biology of area 5, particle technology (11), and
+design, ethics and environment items (13.C–D, 14, 16.D–F, 17).

@@ -11,7 +11,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 | Financial Accounting (CPA FAR) | Uniform CPA Examination Blueprints: Financial Accounting and Reporting (FAR) | exam-spec | read in part | — | — | 26 | 26 | 0 |
 | AI Basics | Harper Carroll, Academy: free AI course (10 modules, 90 lessons) | course | read in part | — | — | 19 | 19 | 0 |
 | AI Safety | BlueDot Impact course syllabi (Technical AI Safety, Governance, AGI Strategy) | course | read in full | — | — | 104 | 0 | 104 |
-| Analytical Chemistry | Regulations of the International Chemistry Olympiad, Appendices C and D (concepts, skills and factual knowledge) | exam-spec | read in full | gre-chemistry, aamc-mcat-outline, usnco | acs-accm | 18 | 18 | 0 |
+| Analytical Chemistry | Regulations of the International Chemistry Olympiad, Appendices C and D (concepts, skills and factual knowledge) | exam-spec | read in full | gre-chemistry, aamc-mcat-outline, usnco, icho-syllabus | acs-accm | 18 | 18 | 0 |
 | Anchor Quantities | CODATA Recommended Values of the Fundamental Physical Constants: 2022 (NIST SP 961) | reference | read in part | snapshot-key-numbers, francl-take-a-number, cfr-21-101-9 | acs-accm-pchem | 14 | 3 | 11 |
 | Basketball | USA Basketball Player Development Curriculum | standard | read in part | — | — | 88 | 0 | 88 |
 | Biology (AP) | AP Biology Course and Exam Description (2019) | standard | read through a crosswalk | iupac-aa-1983, ngss-hs, ib-biology-2025, icho-appendix-c, icho-syllabus, aamc-mcat-outline | — | 179 | 179 | 0 |
@@ -29,7 +29,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 | Inorganic Chemistry | Regulations of the International Chemistry Olympiad, Appendices C and D (concepts, skills and factual knowledge) | exam-spec | read in full | icho-syllabus, gre-chemistry, usnco, ib-chemistry-2025 | — | 23 | 23 | 0 |
 | Linear Algebra | Lay, Lay & McDonald, Linear Algebra and Its Applications, 5th ed. (chapter list) | textbook | read in part | — | — | 10 | 10 | 0 |
 | Material and Energy Balances | NCEES FE Chemical CBT Exam Specifications (effective July 2020) | exam-spec | read in full | pe-chemical | — | 16 | 14 | 2 |
-| Polymers and Materials | Regulations of the International Chemistry Olympiad, Appendices C and D (concepts, skills and factual knowledge) | exam-spec | read in full | ib-chemistry-2025, fe-chemical | — | 6 | 6 | 0 |
+| Polymers and Materials | Regulations of the International Chemistry Olympiad, Appendices C and D (concepts, skills and factual knowledge) | exam-spec | read in full | ib-chemistry-2025, fe-chemical, icho-syllabus | — | 6 | 6 | 0 |
 | High School Mathematics (Common Core) | CCSS Mathematics Appendix A: high school course pathways | standard | read in full | — | — | 200 | 200 | 0 |
 | Mathematics K–8 (Common Core) | Common Core State Standards for Mathematics (2010) | standard | read through a crosswalk | — | — | 258 | 258 | 0 |
 | Mental Math | UIL Number Sense Problem Sequencing Charts (High School; A+ Junior High and Elementary, rev. 2016-17) with the Number Sense Handbook rules | exam-spec | read in full | sta-mtc, mit-18-03-coverup, mit-integration-bee | — | 84 | 81 | 3 |
@@ -996,7 +996,7 @@ https://www.pianetachimica.it/olimpiadi/41icho/IChOsyllabus.pdf
 
 https://www.pw.live/olympiad/exams/icho-syllabus
 
-10 of 12 items have at least one objective answering to them.
+12 of 12 items have at least one objective answering to them.
 
 | Item | Topic | Objectives | With a drill | Where |
 |---|---|---|---|---|
@@ -1009,9 +1009,9 @@ https://www.pw.live/olympiad/exams/icho-syllabus
 | 7 | Chemical kinetics | 29 | 28 | chemistry (16), physical-chemistry (13) |
 | 8 | Spectroscopy | 13 | 10 | physical-chemistry (13) |
 | 9 | Organic chemistry | 11 | 11 | organic-reactions (11) |
-| 10 | Polymers | — | — | **nothing yet** |
+| 10 | Polymers | 4 | 4 | materials (4) |
 | 11 | Biochemistry | 23 | 23 | biology (16), structures (7) |
-| 12 | Analytical chemistry | — | — | **nothing yet** |
+| 12 | Analytical chemistry | 7 | 7 | analytical-chemistry (7) |
 
 ## ACS Exams Institute Anchoring Concepts Content Map: the ten anchoring concepts (shared by the general, organic, inorganic, physical, analytical and biochemistry maps)
 
