@@ -2,7 +2,7 @@
 
 Generated from `drills/frameworks/thermodynamics.yaml` by `scripts/framework.mjs`. ● drilled · ◐ partly · ○ no drills yet.
 
-**124 learning objectives** in 17 units (108 core): 81 drilled, 5 partly, 38 with no drills. Core: 70 / 108 drilled.
+**124 learning objectives** in 17 units (108 core): 124 drilled, 0 partly, 0 with no drills. Core: 108 / 108 drilled.
 
 ## Big ideas
 
@@ -26,23 +26,23 @@ Generated from `drills/frameworks/thermodynamics.yaml` by `scripts/framework.mjs
 
 | Unit | Scope | Est. weight | LOs | ● | ◐ | ○ |
 |---|---|---|---|---|---|---|
-| 1 · Probability and counting states | core | 3–5% | 7 | 5 | 1 | 1 |
-| 2 · Entropy, equilibrium and the fundamental equation | core | 8–10% | 12 | 9 | 0 | 3 |
-| 3 · The first law and reversibility | core | 5–7% | 7 | 4 | 0 | 3 |
-| 4 · Legendre transforms and thermodynamic potentials | core | 8–10% | 7 | 4 | 2 | 1 |
-| 5 · Maxwell relations and measurable properties | core | 7–9% | 6 | 4 | 0 | 2 |
-| 6 · Stability and metastability | core | 6–8% | 7 | 5 | 1 | 1 |
-| 7 · Gases and equations of state | core | 7–9% | 5 | 0 | 1 | 4 |
-| 8 · Phase equilibrium of pure substances | core | 6–8% | 6 | 4 | 0 | 2 |
-| 9 · Solutions and mixtures | core | 12–14% | 12 | 5 | 0 | 7 |
-| 10 · Chemical reaction equilibria | core | 8–10% | 7 | 5 | 0 | 2 |
-| 11 · The Boltzmann distribution and the canonical ensemble | core | 8–10% | 8 | 7 | 0 | 1 |
-| 12 · Molecular models of gases and solids | core | 10–12% | 15 | 10 | 0 | 5 |
+| 1 · Probability and counting states | core | 3–5% | 7 | 7 | 0 | 0 |
+| 2 · Entropy, equilibrium and the fundamental equation | core | 8–10% | 12 | 12 | 0 | 0 |
+| 3 · The first law and reversibility | core | 5–7% | 7 | 7 | 0 | 0 |
+| 4 · Legendre transforms and thermodynamic potentials | core | 8–10% | 7 | 7 | 0 | 0 |
+| 5 · Maxwell relations and measurable properties | core | 7–9% | 6 | 6 | 0 | 0 |
+| 6 · Stability and metastability | core | 6–8% | 7 | 7 | 0 | 0 |
+| 7 · Gases and equations of state | core | 7–9% | 5 | 5 | 0 | 0 |
+| 8 · Phase equilibrium of pure substances | core | 6–8% | 6 | 6 | 0 | 0 |
+| 9 · Solutions and mixtures | core | 12–14% | 12 | 12 | 0 | 0 |
+| 10 · Chemical reaction equilibria | core | 8–10% | 7 | 7 | 0 | 0 |
+| 11 · The Boltzmann distribution and the canonical ensemble | core | 8–10% | 8 | 8 | 0 | 0 |
+| 12 · Molecular models of gases and solids | core | 10–12% | 15 | 15 | 0 | 0 |
 | 13 · Fluctuations | core | 4–6% | 4 | 4 | 0 | 0 |
-| 14 · Other ensembles | core | 5–7% | 5 | 4 | 0 | 1 |
-| 15 · Binding, adsorption and cooperativity | extension | — | 7 | 6 | 0 | 1 |
-| 16 · Reaction rates and transition states | extension | — | 6 | 5 | 0 | 1 |
-| 17 · Electrolytes, polymers and simulation | extension | — | 3 | 0 | 0 | 3 |
+| 14 · Other ensembles | core | 5–7% | 5 | 5 | 0 | 0 |
+| 15 · Binding, adsorption and cooperativity | extension | — | 7 | 7 | 0 | 0 |
+| 16 · Reaction rates and transition states | extension | — | 6 | 6 | 0 | 0 |
+| 17 · Electrolytes, polymers and simulation | extension | — | 3 | 3 | 0 | 0 |
 
 ## Unit 1 · Probability and counting states
 
@@ -61,9 +61,9 @@ Book: dill-bromberg-2e §1; shell-2015 §2.5
 - ● **TD-1.1.C** Count distinct sequences of a multiset (multinomial coefficient).
   - EK: N!/(n_A! n_B! …); identical units are not reordered.
   - P4 · drills: sm-anagram
-- ○ **TD-1.1.D** Apply Stirling's approximation to ln W for large N.
+- ● **TD-1.1.D** Apply Stirling's approximation to ln W for large N.
   - EK: ln N! ≈ N ln N − N; turns ln C(M, N) into −M Σ x ln x.
-  - P4 · P6
+  - P4 · P6 · drills: td-stirling, td-stirling-lnw
 
 ### 1.2 Probability distributions
 
@@ -75,9 +75,9 @@ Book: dill-bromberg-2e §1; shell-2015 §2.5, §4.1
 - ● **TD-1.2.B** Calculate an 'at least one' probability through the complement.
   - EK: P(≥ 1) = 1 − (1 − p)^N for independent events.
   - P4 · P6 · drills: sm-atleast
-- ◐ **TD-1.2.C** Calculate the mean and variance of a discrete distribution.
+- ● **TD-1.2.C** Calculate the mean and variance of a discrete distribution.
   - EK: ⟨x⟩ = Σ p_i x_i; σ² = ⟨x²⟩ − ⟨x⟩².
-  - P5 · drills: ~sm-fl-exact
+  - P5 · drills: td-mean-variance, ~sm-fl-exact
 
 ## Unit 2 · Entropy, equilibrium and the fundamental equation
 
@@ -108,12 +108,12 @@ Book: dill-bromberg-2e §2, §6; shell-2015 §4.4, §4.5, §4.6, §4.7
 - ● **TD-2.2.A** Calculate the probability of each energy split between two solids in thermal contact and identify the most probable one.
   - EK: P(q_A) ∝ W_A(q_A) W_B(q − q_A); the peak sharpens as N grows.
   - P1 · P4 · drills: sm-einstein-share
-- ○ **TD-2.2.B** Derive equality of T, P and μ by maximising total entropy over exchange of U, V and N.
+- ● **TD-2.2.B** Derive equality of T, P and μ by maximising total entropy over exchange of U, V and N.
   - EK: ∂S/∂U = 1/T, ∂S/∂V = P/T, ∂S/∂N = −μ/T must match across the wall.
-  - P1 · P3
-- ○ **TD-2.2.C** Show that maximum entropy at fixed U is equivalent to minimum energy at fixed S.
+  - P1 · P3 · drills: td-max-entropy-equal
+- ● **TD-2.2.C** Show that maximum entropy at fixed U is equivalent to minimum energy at fixed S.
   - EK: Internal constraints released ⇒ S rises (second law); the energy-minimum principle is its inverse.
-  - P3
+  - P3 · drills: td-max-s-min-u
 
 ### 2.3 The fundamental equation and its integrated forms
 
@@ -125,9 +125,9 @@ Book: dill-bromberg-2e §6, §7; shell-2015 §5.1, §5.2, §5.3
 - ● **TD-2.3.B** Find T, P or μ as derivatives of a given U(S, V, N).
   - EK: dU = T dS − P dV + μ dN.
   - P3 · drills: th-fe-energy-rep
-- ○ **TD-2.3.C** Check that a proposed fundamental equation is extensive (first-order homogeneous).
+- ● **TD-2.3.C** Check that a proposed fundamental equation is extensive (first-order homogeneous).
   - EK: S(λU, λV, λN) = λS(U, V, N); exponents of extensive variables sum to 1.
-  - P6
+  - P6 · drills: td-extensive
 - ● **TD-2.3.D** Calculate U, or any one term, from the Euler relation.
   - EK: U = TS − PV + μN; equivalently G = μN for one component.
   - P5 · drills: th-fe-euler
@@ -160,20 +160,20 @@ Book: dill-bromberg-2e §3; shell-2015 §6.1, §6.2, §6.3, §6.4
 
 Book: shell-2015 §6.5, §6.6, §6.7
 
-- ○ **TD-3.2.A** Calculate the total entropy change of system plus bath for an irreversible process and decide whether it can occur.
+- ● **TD-3.2.A** Calculate the total entropy change of system plus bath for an irreversible process and decide whether it can occur.
   - EK: ΔS_bath = −q/T_bath; ΔS_tot ≥ 0, equal only when reversible.
-  - P1 · P6
-- ○ **TD-3.2.B** Calculate the maximum efficiency or coefficient of performance of a cycle between two reservoirs.
+  - P1 · P6 · drills: td-total-entropy
+- ● **TD-3.2.B** Calculate the maximum efficiency or coefficient of performance of a cycle between two reservoirs.
   - EK: η_max = 1 − T_C/T_H from ΔS_tot = 0.
-  - P5
+  - P5 · drills: td-carnot
 
 ### 3.3 Open steady-flow systems
 
 Book: shell-2015 §6.8
 
-- ○ **TD-3.3.A** Apply steady-flow energy and entropy balances to a turbine, compressor, nozzle or throttle.
+- ● **TD-3.3.A** Apply steady-flow energy and entropy balances to a turbine, compressor, nozzle or throttle.
   - EK: Δh = q + w_s per unit mass; throttling is isenthalpic; Δs ≥ q/T.
-  - P1 · P5
+  - P1 · P5 · drills: td-isentropic-outlet
 
 ## Unit 4 · Legendre transforms and thermodynamic potentials
 
@@ -183,12 +183,12 @@ Big ideas: FUND, EQ
 
 Book: dill-bromberg-2e §4; shell-2015 §8.3
 
-- ○ **TD-4.1.A** Test whether a differential is exact (a state function) by equality of cross-derivatives.
+- ● **TD-4.1.A** Test whether a differential is exact (a state function) by equality of cross-derivatives.
   - EK: M dx + N dy exact ⇔ ∂M/∂y = ∂N/∂x; δq and δw are not exact.
-  - P3
-- ◐ **TD-4.1.B** Apply the triple-product and chain rules to rewrite a partial derivative.
+  - P3 · drills: td-exact
+- ● **TD-4.1.B** Apply the triple-product and chain rules to rewrite a partial derivative.
   - EK: (∂x/∂y)_z (∂y/∂z)_x (∂z/∂x)_y = −1.
-  - P3 · drills: ~th-mx-triple
+  - P3 · drills: td-triple-product, ~th-mx-triple
 
 ### 4.2 Potentials and natural variables
 
@@ -201,9 +201,9 @@ Book: dill-bromberg-2e §8; shell-2015 §7.1, §7.2, §7.3, §7.4, §7.5, §7.6,
 - ● **TD-4.2.B** State the natural variables and differential of any potential, including the grand potential.
   - EK: dF = −S dT − P dV + μ dN; dG = −S dT + V dP + μ dN; dΩ = −S dT − P dV − N dμ.
   - P2 · drills: th-lg-natural
-- ◐ **TD-4.2.C** Choose the potential minimised at equilibrium for given bath conditions.
+- ● **TD-4.2.C** Choose the potential minimised at equilibrium for given bath conditions.
   - EK: T, V, N → F; T, P, N → G; T, V, μ → Ω; S, P, N → H.
-  - P1 · P2 · drills: ~th-lg-natural
+  - P1 · P2 · drills: td-potential-choice, ~th-lg-natural
 
 ### 4.3 Derivative and integrated relations
 
@@ -242,12 +242,12 @@ Book: dill-bromberg-2e §9; shell-2015 §8.2, §8.3
 - ● **TD-5.2.B** Estimate the pressure rise when a liquid is heated at constant volume.
   - EK: ΔP ≈ (α/κ_T) ΔT — large for liquids (tens of bar per K).
   - P5 · P6 · drills: th-mx-triple
-- ○ **TD-5.2.C** Derive and evaluate c_p − c_v from α and κ_T.
+- ● **TD-5.2.C** Derive and evaluate c_p − c_v from α and κ_T.
   - EK: c_p − c_v = Tvα²/κ_T; = R for an ideal gas.
-  - P3 · P5
-- ○ **TD-5.2.D** Derive (∂U/∂V)_T or the Joule–Thomson coefficient for a real gas from its equation of state.
+  - P3 · P5 · drills: td-cp-cv
+- ● **TD-5.2.D** Derive (∂U/∂V)_T or the Joule–Thomson coefficient for a real gas from its equation of state.
   - EK: (∂U/∂V)_T = T(∂P/∂T)_V − P; μ_JT = (v/c_p)(Tα − 1).
-  - P3
+  - P3 · drills: td-vdw-derivatives
 
 ## Unit 6 · Stability and metastability
 
@@ -277,17 +277,17 @@ Book: dill-bromberg-2e §25; shell-2015 §11.1, §11.3
 - ● **TD-6.2.A** Find the critical constants of a cubic equation of state.
   - EK: (∂P/∂V)_T = (∂²P/∂V²)_T = 0; vdW: T_c = 8a/27Rb, V_c = 3b, P_c = a/27b².
   - P3 · P5 · drills: th-st-vdw-tc
-- ◐ **TD-6.2.B** Locate the spinodal and classify a state as stable, metastable or unstable.
+- ● **TD-6.2.B** Locate the spinodal and classify a state as stable, metastable or unstable.
   - EK: Spinodal: (∂P/∂V)_T = 0; between binodal and spinodal the state is metastable.
-  - P6 · drills: ~th-st-vdw-stable
+  - P6 · drills: td-spinodal, ~th-st-vdw-stable
 
 ### 6.3 Common-tangent and equal-area constructions
 
 Book: shell-2015 §11.2, §10.5
 
-- ○ **TD-6.3.A** Find coexisting states by a common tangent on G or F, or Maxwell's equal-area rule on a vdW isotherm.
+- ● **TD-6.3.A** Find coexisting states by a common tangent on G or F, or Maxwell's equal-area rule on a vdW isotherm.
   - EK: Equal μ and P in both phases ⇔ common tangent ⇔ ∫P dV over the loop = P_sat ΔV.
-  - P2 · P3
+  - P2 · P3 · drills: td-vdw-coexistence
 
 ## Unit 7 · Gases and equations of state
 
@@ -297,26 +297,26 @@ Big ideas: FUND, MU, MEAS
 
 Book: dill-bromberg-2e §11; shell-2015 §9.2, §9.3
 
-- ◐ **TD-7.1.A** Write μ(T, P) for a pure ideal gas and for a component of an ideal-gas mixture and calculate Δμ.
+- ● **TD-7.1.A** Write μ(T, P) for a pure ideal gas and for a component of an ideal-gas mixture and calculate Δμ.
   - EK: μ = μ°(T) + RT ln(P/P°); in a mixture replace P by p_i = y_iP.
-  - P5 · drills: ~th-fe-gibbs-duhem
+  - P5 · drills: td-mu-ideal, ~th-fe-gibbs-duhem
 
 ### 7.2 Nonideal gases
 
 Book: dill-bromberg-2e §24; shell-2015 §9.4, §9.5
 
-- ○ **TD-7.2.A** Calculate Z and residual (departure) properties from a virial or cubic equation of state.
+- ● **TD-7.2.A** Calculate Z and residual (departure) properties from a virial or cubic equation of state.
   - EK: Z = PV/RT = 1 + B/V + …; h − h^ig = ∫[T(∂P/∂T)_V − P]dV + RT(Z − 1).
-  - P3 · P5
-- ○ **TD-7.2.B** Calculate a fugacity coefficient from a virial or cubic equation of state.
+  - P3 · P5 · drills: td-virial
+- ● **TD-7.2.B** Calculate a fugacity coefficient from a virial or cubic equation of state.
   - EK: ln φ = ∫₀^P (Z − 1) dP/P; truncated virial: ln φ = BP/RT.
-  - P3 · P5
-- ○ **TD-7.2.C** Relate the second virial coefficient to the intermolecular pair potential.
+  - P3 · P5 · drills: td-virial
+- ● **TD-7.2.C** Relate the second virial coefficient to the intermolecular pair potential.
   - EK: B(T) = −2πN_A ∫(e^(−βu(r)) − 1) r² dr; B < 0 when attraction dominates.
-  - P4
-- ○ **TD-7.2.D** Estimate properties of a gas or gas mixture by corresponding states and mixing rules.
+  - P4 · drills: td-b2-square-well
+- ● **TD-7.2.D** Estimate properties of a gas or gas mixture by corresponding states and mixing rules.
   - EK: Z = f(T_r, P_r, ω); a_mix = ΣΣ y_iy_j √(a_ia_j)(1 − k_ij), b_mix = Σ y_ib_i.
-  - P3 · P5
+  - P3 · P5 · drills: td-kay-rule
 
 ## Unit 8 · Phase equilibrium of pure substances
 
@@ -326,9 +326,9 @@ Big ideas: MU, STAB, EQ
 
 Book: dill-bromberg-2e §14; shell-2015 §10.1, §10.2, §10.4
 
-- ○ **TD-8.1.A** State the conditions for phase coexistence and apply the Gibbs phase rule to a phase diagram.
+- ● **TD-8.1.A** State the conditions for phase coexistence and apply the Gibbs phase rule to a phase diagram.
   - EK: T, P, μ_i equal in every phase; F = C − π + 2.
-  - P1 · P2
+  - P1 · P2 · drills: td-phase-rule
 
 ### 8.2 The Clapeyron and Clausius–Clapeyron equations
 
@@ -351,9 +351,9 @@ Book: dill-bromberg-2e §14; shell-2015 §10.3
 
 Book: dill-bromberg-2e §25; shell-2015 §10.6
 
-- ○ **TD-8.3.A** Classify a transition as first- or second-order from which derivatives of G are discontinuous.
+- ● **TD-8.3.A** Classify a transition as first- or second-order from which derivatives of G are discontinuous.
   - EK: First order: jumps in S, V (latent heat); continuous: jumps or divergences in C_p, κ_T; the order parameter vanishes at T_c.
-  - P6
+  - P6 · drills: td-transition-order
 
 ## Unit 9 · Solutions and mixtures
 
@@ -375,13 +375,13 @@ Book: dill-bromberg-2e §15; shell-2015 §12.1
 
 Book: dill-bromberg-2e §9; shell-2015 §12.8, §12.9
 
-- ○ **TD-9.2.A** Calculate partial molar properties from a total property, e.g. by the tangent-intercept method.
+- ● **TD-9.2.A** Calculate partial molar properties from a total property, e.g. by the tangent-intercept method.
   - EK: v̄_i = (∂V/∂n_i)_{T,P,n_j}; V = Σ n_i v̄_i.
-  - P3
-- ○ **TD-9.2.B** Use Gibbs–Duhem to get one activity coefficient from the other or to test data for consistency.
+  - P3 · drills: td-partial-molar
+- ● **TD-9.2.B** Use Gibbs–Duhem to get one activity coefficient from the other or to test data for consistency.
   - EK: Σ x_i d ln γ_i = 0 at fixed T, P.
   - Needs: TD-2.3.E
-  - P3 · P6
+  - P3 · P6 · drills: td-gibbs-duhem
 
 ### 9.3 Vapor–liquid equilibrium
 
@@ -393,9 +393,9 @@ Book: dill-bromberg-2e §15, §16; shell-2015 §12.2, §13.1, §13.2, §13.3, §
 - ● **TD-9.3.B** Calculate the solubility of a dilute solute from Henry's law.
   - EK: p_i = x_iK_H,i for x_i → 0; K_H grows with T for most gases in water.
   - P5 · drills: th-so-henry
-- ○ **TD-9.3.C** Perform bubble-point, dew-point and isothermal flash calculations for a multicomponent mixture.
+- ● **TD-9.3.C** Perform bubble-point, dew-point and isothermal flash calculations for a multicomponent mixture.
   - EK: K_i = y_i/x_i; flash: Σ z_i(K_i − 1)/[1 + β(K_i − 1)] = 0 (Rachford–Rice).
-  - P2 · P5
+  - P2 · P5 · drills: td-bubble-dew, td-flash
 
 ### 9.4 Nonideal solutions and activity
 
@@ -404,29 +404,29 @@ Book: dill-bromberg-2e §15; shell-2015 §12.6, §12.7, §13.6, §13.7
 - ● **TD-9.4.A** Calculate activity coefficients from an excess-Gibbs-energy model (regular solution, Margules).
   - EK: G^ex/n = W x_Ax_B ⇒ RT ln γ_A = W x_B².
   - P3 · P5 · drills: th-so-activity
-- ○ **TD-9.4.B** Derive the regular-solution model from a lattice with nearest-neighbour interactions and predict when the mixture phase-separates.
+- ● **TD-9.4.B** Derive the regular-solution model from a lattice with nearest-neighbour interactions and predict when the mixture phase-separates.
   - EK: ΔG_mix/nRT = Σ x ln x + χ x_Ax_B; unstable for χ > 2 (upper critical point at χ = 2, x = ½).
   - Needs: TD-6.1.A
-  - P4 · P6
-- ○ **TD-9.4.C** Calculate VLE with modified Raoult's law and identify an azeotrope.
+  - P4 · P6 · drills: td-regular-solution-tc
+- ● **TD-9.4.C** Calculate VLE with modified Raoult's law and identify an azeotrope.
   - EK: y_iP = x_iγ_iP_i*; at an azeotrope x_i = y_i and γ_A P_A* = γ_B P_B*.
-  - P5 · P6
+  - P5 · P6 · drills: td-azeotrope
 
 ### 9.5 Colligative properties
 
 Book: dill-bromberg-2e §16; shell-2015 §12.3, §12.4, §12.5
 
-- ○ **TD-9.5.A** Calculate boiling-point elevation, freezing-point depression or osmotic pressure of a dilute solution.
+- ● **TD-9.5.A** Calculate boiling-point elevation, freezing-point depression or osmotic pressure of a dilute solution.
   - EK: ΔT_b = RT_b²x_B/Δh_vap; ΔT_f = RT_f²x_B/Δh_fus; Π = c_BRT (van 't Hoff).
-  - P5
+  - P5 · drills: td-colligative
 
 ### 9.6 Solvation and transfer between phases
 
 Book: dill-bromberg-2e §16
 
-- ○ **TD-9.6.A** Relate a partition coefficient to the free energy of transferring a solute between phases.
+- ● **TD-9.6.A** Relate a partition coefficient to the free energy of transferring a solute between phases.
   - EK: ΔG°_transfer = −RT ln K_partition; set by μ° differences in the two solvents.
-  - P2 · P5
+  - P2 · P5 · drills: td-transfer
 
 ## Unit 10 · Chemical reaction equilibria
 
@@ -453,9 +453,9 @@ Book: dill-bromberg-2e §13; shell-2015 §20.3, §20.4
 - ● **TD-10.2.A** Solve for the equilibrium extent of reaction and composition from K and the feed.
   - EK: n_i = n_i0 + ν_iξ; K = Π(y_iP/P°)^ν_i for ideal gases.
   - P2 · P5 · drills: th-ce-extent
-- ○ **TD-10.2.B** Predict how pressure, inerts or a nonideal phase shift an equilibrium.
+- ● **TD-10.2.B** Predict how pressure, inerts or a nonideal phase shift an equilibrium.
   - EK: K_y = K(P/P°)^(−Δν); raising P favours fewer gas moles; fugacity or activity replaces y_iP in real phases.
-  - P6
+  - P6 · drills: td-pressure-shift
 
 ### 10.3 Temperature dependence of K
 
@@ -469,10 +469,10 @@ Book: dill-bromberg-2e §13; shell-2015 §20.5
 
 Book: dill-bromberg-2e §13; shell-2015 §20.6, §20.7
 
-- ○ **TD-10.4.A** Calculate K for a gas-phase reaction from molecular partition functions.
+- ● **TD-10.4.A** Calculate K for a gas-phase reaction from molecular partition functions.
   - EK: K = Π(q_i/V)^ν_i e^(−ΔE₀/k_BT) (per standard volume); dissociation energies set ΔE₀.
   - Needs: TD-12.2.C
-  - P4 · P5
+  - P4 · P5 · drills: td-k-from-q
 
 ## Unit 11 · The Boltzmann distribution and the canonical ensemble
 
@@ -508,9 +508,9 @@ Book: dill-bromberg-2e §10; shell-2015 §16.1, §16.4, §16.5
 - ● **TD-11.2.D** Calculate the Helmholtz free energy from the partition function.
   - EK: F = −k_BT ln Q; localized independent molecules: Q = q^N.
   - P2 · P5 · drills: sm-pf-f
-- ○ **TD-11.2.E** Assemble the system partition function from molecular ones for distinguishable or indistinguishable particles.
+- ● **TD-11.2.E** Assemble the system partition function from molecular ones for distinguishable or indistinguishable particles.
   - EK: Q = q^N (localized) or q^N/N! (gas); independent modes multiply: q = q_t q_r q_v q_e.
-  - P4
+  - P4 · drills: td-big-q
 
 ## Unit 12 · Molecular models of gases and solids
 
@@ -526,10 +526,10 @@ Book: dill-bromberg-2e §11; shell-2015 §9.1, §18.1, §18.4
 - ● **TD-12.1.B** Calculate the translational partition function of a molecule in a box.
   - EK: q_trans = V/Λ³.
   - P5 · drills: sm-ig-qtrans
-- ○ **TD-12.1.C** Derive the ideal-gas law and the Sackur–Tetrode entropy from Q = q^N/N!.
+- ● **TD-12.1.C** Derive the ideal-gas law and the Sackur–Tetrode entropy from Q = q^N/N!.
   - EK: P = k_BT ∂ln Q/∂V = Nk_BT/V; S/Nk_B = ln(V/NΛ³) + 5/2.
   - Needs: TD-11.2.E
-  - P3 · P4
+  - P3 · P4 · drills: td-sackur-tetrode
 
 ### 12.2 Rotation and vibration
 
@@ -564,28 +564,28 @@ Book: dill-bromberg-2e §12; shell-2015 §14.4, §14.5, §14.6
 - ● **TD-12.3.E** Calculate the molar heat capacity of a crystal from the Einstein model.
   - EK: C_V,m = 3R x²eˣ/(eˣ − 1)², x = θ_E/T; Dulong–Petit 3R at high T.
   - P5 · drills: sm-cv-einstein
-- ○ **TD-12.3.F** Apply the Debye T³ law at low temperature and explain why Einstein fails there.
+- ● **TD-12.3.F** Apply the Debye T³ law at low temperature and explain why Einstein fails there.
   - EK: C_V ∝ (T/θ_D)³ at T ≪ θ_D: low-frequency acoustic modes stay active.
-  - P6
+  - P6 · drills: td-debye-t3
 
 ### 12.4 Classical continuous degrees of freedom
 
 Book: shell-2015 §18.1, §18.2, §18.3, §18.5
 
-- ○ **TD-12.4.A** Compute averages from the Maxwell–Boltzmann speed distribution.
+- ● **TD-12.4.A** Compute averages from the Maxwell–Boltzmann speed distribution.
   - EK: f(v) ∝ v² e^(−mv²/2k_BT); v_mp = √(2k_BT/m), ⟨v⟩ = √(8k_BT/πm), v_rms = √(3k_BT/m).
-  - P4 · P5
-- ○ **TD-12.4.B** Write the classical canonical partition function as a phase-space integral and reduce it to a configurational integral.
+  - P4 · P5 · drills: td-maxwell-speeds
+- ● **TD-12.4.B** Write the classical canonical partition function as a phase-space integral and reduce it to a configurational integral.
   - EK: Q = (1/N!h^(3N)) ∫e^(−βH) dp dr = Z/(N!Λ^(3N)).
-  - P4
+  - P4 · drills: td-classical-q
 
 ### 12.5 The third law
 
 Book: shell-2015 §15.1, §15.2, §15.3, §15.4
 
-- ○ **TD-12.5.A** Calculate an absolute entropy from heat-capacity data, including residual entropy of a disordered crystal.
+- ● **TD-12.5.A** Calculate an absolute entropy from heat-capacity data, including residual entropy of a disordered crystal.
   - EK: S(T) = ∫₀^T C_p/T dT + Σ Δh_trans/T_trans; residual S = R ln W per mole (CO: R ln 2).
-  - P5 · P6
+  - P5 · P6 · drills: td-third-law
 
 ## Unit 13 · Fluctuations
 
@@ -639,9 +639,9 @@ Book: shell-2015 §19.1
 
 Book: shell-2015 §19.3
 
-- ○ **TD-14.3.A** Calculate entropy from microstate probabilities with the Gibbs formula and match each ensemble to its potential.
+- ● **TD-14.3.A** Calculate entropy from microstate probabilities with the Gibbs formula and match each ensemble to its potential.
   - EK: S = −k_B Σ p_i ln p_i; NVE ↔ S, NVT ↔ F, NPT ↔ G, μVT ↔ Ω = −PV.
-  - P2
+  - P2 · drills: td-gibbs-entropy
 
 ## Unit 15 · Binding, adsorption and cooperativity (extension)
 
@@ -675,9 +675,9 @@ Book: dill-bromberg-2e §26, §28
 - ● **TD-15.2.C** Find the Hill coefficient from saturation at two concentrations.
   - EK: n_H = Δ ln[θ/(1 − θ)] / Δ ln c.
   - P5 · P6 · drills: sm-bind-hill-n
-- ○ **TD-15.2.D** Solve the Zimm–Bragg helix–coil or 1-D Ising model with a transfer matrix, or a mean-field Ising model for T_c.
+- ● **TD-15.2.D** Solve the Zimm–Bragg helix–coil or 1-D Ising model with a transfer matrix, or a mean-field Ising model for T_c.
   - EK: Q = λ₁^N for large N; mean field: k_BT_c = zJ.
-  - P4
+  - P4 · drills: td-ising-1d, td-mean-field-tc
 
 ## Unit 16 · Reaction rates and transition states (extension)
 
@@ -707,10 +707,10 @@ Book: dill-bromberg-2e §19; shell-2015 §21.1, §21.3, §21.4
 - ● **TD-16.2.B** Find the activation free energy from a measured rate constant.
   - EK: ΔG‡ = −RT ln(kh/k_BT).
   - P5 · drills: sm-rate-dg
-- ○ **TD-16.2.C** Relate forward and reverse rate constants to K by detailed balance and read rates off a free-energy profile along a reaction coordinate.
+- ● **TD-16.2.C** Relate forward and reverse rate constants to K by detailed balance and read rates off a free-energy profile along a reaction coordinate.
   - EK: k_f/k_r = K; barrier height on F(ξ) sets k; catalysts lower ΔG‡, not ΔG°.
   - Needs: TD-10.1.A
-  - P6
+  - P6 · drills: td-detailed-balance
 
 ## Unit 17 · Electrolytes, polymers and simulation (extension)
 
@@ -720,26 +720,26 @@ Big ideas: MU, MICRO
 
 Book: dill-bromberg-2e §22, §23; shell-2015 §13.9
 
-- ○ **TD-17.1.A** Calculate an equilibrium potential with the Nernst equation and a mean ionic activity coefficient with Debye–Hückel.
+- ● **TD-17.1.A** Calculate an equilibrium potential with the Nernst equation and a mean ionic activity coefficient with Debye–Hückel.
   - EK: E = E° − (RT/zF) ln Q; ln γ± = −A|z₊z₋|√I (dilute limit).
-  - P5
+  - P5 · drills: td-debye-huckel
 
 ### 17.2 Polymer solutions
 
 Book: dill-bromberg-2e §32; shell-2015 §13.8
 
-- ○ **TD-17.2.A** Calculate the Flory–Huggins free energy of mixing and the critical χ for a polymer solution.
+- ● **TD-17.2.A** Calculate the Flory–Huggins free energy of mixing and the critical χ for a polymer solution.
   - EK: ΔG_mix/k_BT = (φ/N) ln φ + (1 − φ) ln(1 − φ) + χφ(1 − φ); χ_c = ½(1 + 1/√N)².
   - Needs: TD-9.4.B
-  - P4 · P6
+  - P4 · P6 · drills: td-flory-huggins
 
 ### 17.3 Molecular simulation
 
 Book: shell-2015 §22.1, §22.2, §22.3, §22.4, §22.5
 
-- ○ **TD-17.3.A** Apply the Metropolis acceptance rule and compute an ensemble average from a sampled trajectory.
+- ● **TD-17.3.A** Apply the Metropolis acceptance rule and compute an ensemble average from a sampled trajectory.
   - EK: acc = min(1, e^(−βΔE)); ⟨A⟩ = time average over equilibrated, decorrelated samples.
-  - P2 · P4
+  - P2 · P4 · drills: td-metropolis
 
 ## Drills not yet placed on the map
 

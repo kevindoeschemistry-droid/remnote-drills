@@ -604,6 +604,8 @@ from htcalc import FUNCS as _HT  # noqa: E402
 BASE.update(_HT)
 from pdecalc import FUNCS as _PD  # noqa: E402
 BASE.update(_PD)
+from tdcalc import FUNCS as _TD  # noqa: E402
+BASE.update(_TD)
 _bad = _sql_tables(TEMPLATES)
 if _bad:
     raise SystemExit(f"SQL figures differ from tests/verify/sql.py TABLES: {_bad}")

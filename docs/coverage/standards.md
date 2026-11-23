@@ -125,7 +125,7 @@ https://ncees.org/wp-content/uploads/2022/09/FE-Che-CBT-specs.pdf
 | 1.E | Algebra, matrices, systems of equations | 11 | 11 | engineering-math (11) |
 | 1.F | Accuracy, precision, significant figures | — | — | **nothing yet** |
 | **2** | **Probability and Statistics** (4–6 questions) | | | |
-| 2.A | Probability distributions | 7 | 5 | thermodynamics (7) |
+| 2.A | Probability distributions | 7 | 7 | thermodynamics (7) |
 | 2.B | Expected value in decisions | — | — | **nothing yet** |
 | 2.C | Hypothesis testing and experimental design | — | — | **nothing yet** |
 | 2.D | Central tendency and dispersion | — | — | **nothing yet** |
@@ -156,14 +156,14 @@ https://ncees.org/wp-content/uploads/2022/09/FE-Che-CBT-specs.pdf
 | 6.G | Pumps, turbines, compressors, vacuum systems | 5 | 5 | fluid-mechanics (5) |
 | 6.H | Compressible flow and non-Newtonian fluids | 4 | 4 | fluid-mechanics (4) |
 | **7** | **Thermodynamics** (8–12 questions) | | | |
-| 7.A | Properties of pure components and mixtures | 15 | 8 | physical-chemistry (4), thermodynamics (11) |
-| 7.B | Property data and phase diagrams | 9 | 7 | physical-chemistry (3), thermodynamics (6) |
-| 7.C | First and second laws | 31 | 25 | physical-chemistry (12), thermodynamics (19) |
-| 7.D | Processes (isothermal, adiabatic, isentropic, phase change) | 14 | 11 | physical-chemistry (7), thermodynamics (7) |
+| 7.A | Properties of pure components and mixtures | 15 | 15 | physical-chemistry (4), thermodynamics (11) |
+| 7.B | Property data and phase diagrams | 9 | 9 | physical-chemistry (3), thermodynamics (6) |
+| 7.C | First and second laws | 31 | 31 | physical-chemistry (12), thermodynamics (19) |
+| 7.D | Processes (isothermal, adiabatic, isentropic, phase change) | 14 | 14 | physical-chemistry (7), thermodynamics (7) |
 | 7.E | Cycles and efficiencies | 5 | 5 | physical-chemistry (5) |
-| 7.F | Phase equilibrium (fugacity, activity, Raoult's law) | 28 | 17 | physical-chemistry (10), thermodynamics (18) |
-| 7.G | Chemical equilibrium | 11 | 9 | physical-chemistry (4), thermodynamics (7) |
-| 7.H | Heats of reaction and mixing | 23 | 13 | material-balances (1), physical-chemistry (3), thermodynamics (19) |
+| 7.F | Phase equilibrium (fugacity, activity, Raoult's law) | 28 | 26 | physical-chemistry (10), thermodynamics (18) |
+| 7.G | Chemical equilibrium | 11 | 11 | physical-chemistry (4), thermodynamics (7) |
+| 7.H | Heats of reaction and mixing | 23 | 22 | material-balances (1), physical-chemistry (3), thermodynamics (19) |
 | **8** | **Material/Energy Balances** (10–15 questions) | | | |
 | 8.A | Steady-state mass balance | 5 | 5 | material-balances (5) |
 | 8.B | Unsteady-state mass balance | 5 | 5 | material-balances (5) |
@@ -190,7 +190,7 @@ https://ncees.org/wp-content/uploads/2022/09/FE-Che-CBT-specs.pdf
 | 11.C | Transport and storage | — | — | **nothing yet** |
 | **12** | **Chemical Reaction Engineering** (7–11 questions) | | | |
 | 12.A | Reaction rates and order | 18 | 17 | physical-chemistry (13), reaction-engineering (5) |
-| 12.B | Rate constants (Arrhenius) | 23 | 21 | physical-chemistry (13), reaction-engineering (4), thermodynamics (6) |
+| 12.B | Rate constants (Arrhenius) | 23 | 22 | physical-chemistry (13), reaction-engineering (4), thermodynamics (6) |
 | 12.C | Conversion, yield, selectivity | 7 | 7 | reaction-engineering (7) |
 | 12.D | Reaction types (series, parallel, homogeneous, heterogeneous, biological) | 17 | 16 | physical-chemistry (13), reaction-engineering (4) |
 | 12.E | Reactor types (batch, CSTR, PFR, semibatch) | 6 | 6 | reaction-engineering (6) |
