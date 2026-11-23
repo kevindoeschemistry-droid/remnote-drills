@@ -2,7 +2,7 @@
 
 Generated from `drills/frameworks/heat-transfer.yaml` by `scripts/framework.mjs`. ● drilled · ◐ partly · ○ no drills yet.
 
-**98 learning objectives** in 14 units (90 core): 92 drilled, 6 partly, 0 with no drills. Core: 84 / 90 drilled.
+**101 learning objectives** in 14 units (92 core): 96 drilled, 5 partly, 0 with no drills. Core: 87 / 92 drilled.
 
 ## Big ideas
 
@@ -25,20 +25,20 @@ Generated from `drills/frameworks/heat-transfer.yaml` by `scripts/framework.mjs`
 
 | Unit | Scope | Est. weight | LOs | ● | ◐ | ○ |
 |---|---|---|---|---|---|---|
-| 1 · Modes and energy balances | core | 4–6% | 7 | 5 | 2 | 0 |
+| 1 · Modes and energy balances | core | 4–6% | 7 | 6 | 1 | 0 |
 | 2 · The heat equation and boundary conditions | core | 6–8% | 8 | 7 | 1 | 0 |
 | 3 · Steady 1-D conduction and resistance networks | core | 8–10% | 9 | 8 | 1 | 0 |
 | 4 · Conduction with thermal energy generation | core | 8–10% | 8 | 8 | 0 | 0 |
 | 5 · Extended surfaces | core | 6–8% | 5 | 4 | 1 | 0 |
 | 6 · Two-dimensional steady conduction | core | 6–8% | 5 | 5 | 0 | 0 |
-| 7 · Transient conduction | core | 10–12% | 11 | 11 | 0 | 0 |
+| 7 · Transient conduction | core | 10–12% | 12 | 12 | 0 | 0 |
 | 8 · Convection fundamentals and external flow | core | 10–12% | 8 | 8 | 0 | 0 |
-| 9 · Internal forced convection | core | 8–10% | 6 | 6 | 0 | 0 |
+| 9 · Internal forced convection | core | 8–10% | 7 | 7 | 0 | 0 |
 | 10 · Free convection | core | 6–8% | 5 | 5 | 0 | 0 |
 | 11 · Thermal radiation | core | 12–14% | 11 | 11 | 0 | 0 |
 | 12 · Heat exchangers and system-level thermal analysis | core | 10–12% | 7 | 6 | 1 | 0 |
 | 13 · Boiling and condensation | extension | — | 3 | 3 | 0 | 0 |
-| 14 · Mass transfer | extension | — | 5 | 5 | 0 | 0 |
+| 14 · Mass transfer | extension | — | 6 | 6 | 0 | 0 |
 
 ## Unit 1 · Modes and energy balances
 
@@ -53,13 +53,13 @@ Book: incropera-8e §1.1, §1.2 · FE: me-A, me-B, me-C, che-A, che-B, che-C
   - P1 · drills: ~mae-concept
 - ● **HT-1.1.B** Calculate a conduction flux or rate, or an unknown k, from Fourier's law across a plane layer.
   - EK: q'' = k ΔT / L; heat flows down the temperature gradient.
-  - P4 · drills: ht-cond
+  - P4 · drills: ht-cond, sc-conduction-thickness
 - ● **HT-1.1.C** Calculate a convection rate from Newton's law of cooling and judge whether h is plausible.
   - EK: q = hA(T_s − T∞); h ~ 2–25 free gas, 25–250 forced gas, 50–20 000 forced liquid, 2 500–100 000 phase change (W/m²·K).
   - P4 · P5 · drills: ht-conv
-- ◐ **HT-1.1.D** Calculate net radiation between a small surface and large surroundings, and linearise it to a radiation coefficient h_r.
+- ● **HT-1.1.D** Calculate net radiation between a small surface and large surroundings, and linearise it to a radiation coefficient h_r.
   - EK: q'' = εσ(T_s⁴ − T_sur⁴) in kelvin; h_r = εσ(T_s + T_sur)(T_s² + T_sur²).
-  - P4 · drills: ~ht-rad
+  - P4 · drills: sc-radiation-temperature, ~ht-rad
 
 ### 1.2 Energy balances on control volumes and surfaces
 
@@ -220,7 +220,7 @@ Book: incropera-8e §3.6.1, §3.6.2, §3.6.3 · FE: me-A
   - P1 · P2 · drills: ht-fin-m
 - ● **HT-5.1.B** Choose the tip condition (infinite, adiabatic, convective via corrected length) and compute fin heat rate and tip or local temperature.
   - EK: q_f = M tanh mL (adiabatic); M = √(hPkA_c)θ_b; L_c = L + D/4 for a pin.
-  - P2 · P3 · drills: ht-fin-infinite, ht-fin-adiabatic, ht-fin-tip
+  - P2 · P3 · drills: ht-fin-infinite, ht-fin-adiabatic, ht-fin-tip, ht-fin-conv-tip, ht-fin-fixed-tip
 - ◐ **HT-5.1.C** Explain why fin temperature decays exponentially rather than linearly, and how to change the decay.
   - EK: Side convection removes heat along the length; larger m (low k, high h, thin) ⇒ faster decay.
   - P6 · drills: ~mae-concept
@@ -231,7 +231,7 @@ Book: incropera-8e §3.6.4 · FE: me-A
 
 - ● **HT-5.2.A** Calculate fin efficiency and effectiveness and decide whether a fin is worthwhile.
   - EK: η_f = q_f/(hA_fθ_b); ε_f = q_f/(hA_c,bθ_b); fins pay off when ε_f ≳ 2, i.e. high k, low h.
-  - P3 · P6 · drills: ht-fin-efficiency, ~mae-concept
+  - P3 · P6 · drills: ht-fin-efficiency, ht-fin-effectiveness, ~mae-concept
 
 ### 5.3 Fin arrays
 
@@ -270,7 +270,7 @@ Book: incropera-8e §4.4, §4.5
 
 - ● **HT-6.3.A** Write the finite-difference equation of an interior, surface or corner node by an energy balance on its cell, including Δx ≠ Δy, convection and radiation.
   - EK: Each face: conductance × (T_neighbour − T_m); boundary faces get h·ℓ or h_r·ℓ terms; half cells on edges.
-  - P1 · P2 · drills: ht-fd, mae-fd
+  - P1 · P2 · drills: ht-fd, mae-fd, ht-fd-boundary-node
 - ● **HT-6.3.B** Solve a small node system directly or by Gauss–Seidel iteration and check the energy balance.
   - EK: Iterate T_i = (Σa_jT_j + b)/a_i until changes are below tolerance.
   - P4 · P5 · drills: ht-fd-solve
@@ -285,16 +285,16 @@ Book: incropera-8e §5.1, §5.2, §5.3 · FE: me-D
 
 - ● **HT-7.1.A** Compute the Biot number with L_c = V/A_s and decide whether lumped capacitance applies.
   - EK: Bi = hL_c/k < 0.1 ⇒ internal gradients negligible; L_c = r/3 sphere, r/2 cylinder, half-thickness wall.
-  - P3 · drills: ht-bi
+  - P3 · drills: ht-bi, sc-surface-to-volume
 - ● **HT-7.1.B** Find temperature at a time, or the time to reach a temperature, for a lumped body.
   - EK: θ/θ_i = exp(−t/τ), τ = ρVc/hA_s.
-  - P4 · drills: ht-lumped-time, ht-lumped-temp
+  - P4 · drills: ht-lumped-time, ht-lumped-temp, sc-lumped-time-size
 - ● **HT-7.1.C** Find the energy transferred over an interval.
   - EK: Q = ρVcθ_i[1 − exp(−t/τ)].
   - P4 · drills: ht-lumped-energy
 - ● **HT-7.1.D** Set up and solve a general lumped balance with radiation, surface flux or generation.
   - EK: ρVc dT/dt = q''_sA − hA(T − T∞) − εσA(T⁴ − T_sur⁴) + Ė_g; solve or integrate numerically.
-  - P1 · P2 · drills: ht-lumped-gen, ht-lumped-flux
+  - P1 · P2 · drills: ht-lumped-gen, ht-lumped-flux, ht-lumped-radiation
 
 ### 7.2 Spatial effects — one-term solutions
 
@@ -305,10 +305,10 @@ Book: incropera-8e §5.4, §5.5, §5.6 · FE: me-D
   - P3 · P4 · drills: ht-ot-wall-center, ht-ot-cyl-center, ht-ot-sphere-center
 - ● **HT-7.2.B** Find the temperature at another position, or the time to reach a temperature.
   - EK: θ* = θ₀* cos(ζ₁x*) (wall), θ₀* J₀(ζ₁r*) (cylinder), θ₀* sin(ζ₁r*)/(ζ₁r*) (sphere).
-  - P4 · drills: ht-ot-wall-surface, ht-ot-wall-time
+  - P4 · drills: ht-ot-wall-surface, ht-ot-wall-time, ht-ot-radial-more
 - ● **HT-7.2.C** Find the fraction of the maximum energy transferred, Q/Q₀.
   - EK: Wall: Q/Q₀ = 1 − (sin ζ₁/ζ₁)θ₀*; cylinder and sphere have their own forms.
-  - P4 · drills: ht-ot-wall-energy
+  - P4 · drills: ht-ot-wall-energy, ht-ot-radial-more
 
 ### 7.3 The semi-infinite solid
 
@@ -316,10 +316,14 @@ Book: incropera-8e §5.7 · FE: me-D
 
 - ● **HT-7.3.A** Find temperature at a depth and time, the depth reached, or the time needed, after a sudden surface temperature change.
   - EK: (T − T_s)/(T_i − T_s) = erf(x/2√(αt)); valid while the far side hasn't felt it.
-  - P3 · P4 · drills: ht-erf-temp, ht-erf-depth, ht-erf-time
+  - P3 · P4 · drills: ht-erf-temp, ht-erf-depth, ht-erf-time, sc-diffusion-time-length
 - ● **HT-7.3.B** Find the surface heat flux, and the contact temperature when two semi-infinite solids touch.
   - EK: q''_s = k(T_s − T_i)/√(παt); T_s = (√(kρc)_A T_A + √(kρc)_B T_B)/(√(kρc)_A + √(kρc)_B).
   - P4 · P6 · drills: ht-erf-flux, ht-erf-contact
+- ● **HT-7.3.C** Find the temperature in a semi-infinite solid with a constant surface heat flux or with convection at the surface.
+  - EK: Flux: T − T_i = (2q″√(αt/π)/k)e^(−x²/4αt) − (q″x/k)erfc(x/2√αt). Convection: erfc η − exp(hx/k + h²αt/k²)erfc(η + h√αt/k); h → ∞ recovers the fixed surface.
+  - Needs: HT-7.3.A
+  - P4 · drills: ht-erf-const-flux, ht-erf-convection
 
 ### 7.4 Multidimensional transient effects
 
@@ -364,7 +368,7 @@ Book: incropera-8e §7.1, §7.2, §7.3 · FE: me-B, che-B
 
 - ● **HT-8.2.A** Calculate average h and q for laminar flow over a flat plate, with properties at the film temperature.
   - EK: Nu̅ = 0.664 Re_L^(1/2) Pr^(1/3); T_f = (T_s + T∞)/2.
-  - P3 · P4 · drills: ht-plate-lam
+  - P3 · P4 · drills: ht-plate-lam, ht-plate-special
 - ● **HT-8.2.B** Calculate average h for a mixed laminar–turbulent boundary layer.
   - EK: Nu̅ = (0.037 Re_L^(4/5) − 871) Pr^(1/3) for Re_x,c = 5×10⁵.
   - P3 · P4 · drills: ht-plate-mixed
@@ -407,6 +411,10 @@ Book: incropera-8e §8.3 · FE: me-B, che-B
 - ● **HT-9.2.B** Find outlet temperature or heat rate with uniform wall temperature, using the log-mean temperature difference.
   - EK: ΔT_o/ΔT_i = exp(−PL h̄/ṁc_p); q = h̄A_s ΔT_lm.
   - P1 · P4 · drills: ht-tm-ts
+- ● **HT-9.2.C** Find the outlet temperature when the tube exchanges heat with an external fluid through an overall coefficient U.
+  - EK: (T∞ − T_m,o)/(T∞ − T_m,i) = exp(−UA_s/ṁc_p): the constant-T_s result with T∞ and U.
+  - Needs: HT-9.2.B, HT-12.1.A
+  - P3 · P4 · drills: ht-tube-external-fluid
 
 ### 9.3 Convection correlations for tubes
 
@@ -417,7 +425,7 @@ Book: incropera-8e §8.4, §8.5 · FE: me-B, che-B, che-D
   - P3 · drills: ht-lam-fd
 - ● **HT-9.3.B** Calculate h for turbulent flow with Dittus–Boelter (or Gnielinski), choosing the right exponent and property temperature.
   - EK: Nu_D = 0.023 Re^(4/5) Pr^n, n = 0.4 heating, 0.3 cooling; properties at mean T_m.
-  - P3 · P4 · drills: ht-dittus
+  - P3 · P4 · drills: ht-dittus, sc-turbulent-h-velocity
 
 ### 9.4 Noncircular tubes and annuli
 
@@ -437,7 +445,7 @@ Book: incropera-8e §9.1, §9.2, §9.3, §9.4, §9.5 · FE: me-B, che-B
 
 - ● **HT-10.1.A** Compute Gr and Ra and identify laminar or turbulent free convection.
   - EK: Ra_L = gβΔT L³/(να); β = 1/T_f for an ideal gas; transition near Ra ≈ 10⁹ on a vertical plate.
-  - P3 · P4 · drills: ht-ra
+  - P3 · P4 · drills: ht-ra, sc-ideal-gas-density
 - ● **HT-10.1.B** Decide whether free, forced or mixed convection governs.
   - EK: Gr/Re² ≪ 1 forced, ≫ 1 free, ~1 mixed.
   - P3 · drills: ht-mixed-conv
@@ -516,7 +524,7 @@ Book: incropera-8e §13.4 · FE: me-C
 
 - ● **HT-11.4.A** Combine radiation exchange with conduction and convection at a surface or in an enclosure.
   - EK: Radiation and convection from one surface act in parallel; h_r lets radiation join the resistance network.
-  - P1 · P3 · drills: ht-hr-surface, ht-sys-pipe, ht-sys-package
+  - P1 · P3 · drills: ht-hr-surface, ht-sys-pipe, ht-sys-package, ht-surface-balance
 
 ## Unit 12 · Heat exchangers and system-level thermal analysis
 
@@ -528,7 +536,7 @@ Book: incropera-8e §11.1, §11.2 · FE: me-E, che-D, che-E
 
 - ● **HT-12.1.A** Calculate U for a tube wall including both films, fouling and finned surfaces.
   - EK: 1/UA = 1/(η_o hA)_c + R''_f,c/(η_oA)_c + R_w + R''_f,h/(η_oA)_h + 1/(η_o hA)_h.
-  - P1 · P4 · drills: ht-U-tube
+  - P1 · P4 · drills: ht-U-tube, ht-U-fouling
 
 ### 12.2 The log-mean temperature difference method
 
@@ -603,6 +611,10 @@ Book: incropera-8e §14.1, §14.2, §14.3, §14.4, §14.5, §14.6
 - ● **HT-14.1.C** Solve diffusion with a homogeneous reaction.
   - EK: D d²C/dx² − k₁C = 0 ⇒ cosh/sinh profile, like a fin.
   - P2 · drills: ht3-reaction
+- ● **HT-14.1.D** Solve transient diffusion into a semi-infinite solid (carburizing, doping) with the error-function solution.
+  - EK: (C − C_s)/(C_i − C_s) = erf(x/2√(Dt)); depth scales with √(Dt).
+  - Needs: HT-7.3.A, HT-14.1.A
+  - P4 · drills: ht-mass-erf-time
 
 ### 14.2 Convective mass transfer and the analogy
 
@@ -614,13 +626,3 @@ Book: incropera-8e §6.7, §7.8
 - ● **HT-14.2.B** Solve a coupled heat and mass balance at an evaporating surface (wet bulb).
   - EK: h(T∞ − T_s) = h_m h_fg(ρ_A,s − ρ_A,∞).
   - P1 · P4 · drills: ht3-mc-evap
-
-## Drills not yet placed on the map
-
-- sc-radiation-temperature (ht.rate-equations)
-- sc-conduction-thickness (ht.rate-equations)
-- sc-ideal-gas-density (ht.rate-equations)
-- sc-lumped-time-size (ht.lumped)
-- sc-surface-to-volume (ht.lumped)
-- sc-diffusion-time-length (ht.transient-one-term)
-- sc-turbulent-h-velocity (ht.internal-flow)

@@ -1,0 +1,62 @@
+# The grid for heat and mass transfer (MAE 120 final, Dec 8 2026; Incropera/Bergman 8e chapters 1–9,
+# 11–14). Written Nov 23 before the final review. Rows are methods; cells are the geometries,
+# boundary conditions and limits an exam can pick. Every cell names Library drills (framework HT)
+# or states a gap.
+id: heat-transfer
+title: "Heat and mass transfer: every method against every condition"
+why: "A homework set shows one geometry and one boundary condition per method. The final can pick any."
+cells:
+  # conduction, steady
+  - { cell: "Rate equations · conduction, convection, radiation, and how each scales", drills: [ht-cond, ht-conv, ht-rad, sc-conduction-thickness, sc-radiation-temperature] }
+  - { cell: "Energy balance · control volume and surface", drills: [ht-eb-wire, ht-eb-surface, ht-eb-dTdt] }
+  - { cell: "Boundary conditions · fixed T, flux, convection, radiation, interface", drills: [ht-bc-flux-conv, ht-bc-radiation, ht-bc-interface] }
+  - { cell: "Plane wall · fixed T or convective faces; composite series and parallel; contact", drills: [mae-wall-point, ht-wall, mae-series-parallel, ht-contact] }
+  - { cell: "Varying area or k(T)", drills: [ht-var-cone, ht-var-kT] }
+  - { cell: "Cylinder and sphere shells; critical radius", drills: [ht-cyl, ht-sphere, ht-rcrit] }
+  - { cell: "Generation · plane wall: symmetric fixed, convective, unequal faces", drills: [ht-gen-wall-fixed, ht-gen-wall-conv, ht-gen-wall-asym] }
+  - { cell: "Generation · rod, wire, hollow tube, sphere", drills: [ht-gen-rod, ht-gen-wire, ht-gen-tube, ht-gen-sphere] }
+  - { cell: "Generation · generating layer beside non-generating layers; design limit", drills: [ht-gen-composite, ht-gen-qmax] }
+  # fins
+  - { cell: "Fins · infinite, adiabatic tip", drills: [ht-fin-infinite, ht-fin-adiabatic, ht-fin-tip] }
+  - { cell: "Fins · convective tip (exact) and prescribed tip temperature", drills: [ht-fin-conv-tip, ht-fin-fixed-tip] }
+  - { cell: "Fins · efficiency, effectiveness, arrays", drills: [ht-fin-efficiency, ht-fin-effectiveness, ht-fin-array] }
+  # 2-D
+  - { cell: "2-D · separation of variables, shape factors", drills: [ht-sep-rect, ht-shape, mae-rod-slab, mae-two-spheres] }
+  - { cell: "Finite differences · interior node (with generation, Δx ≠ Δy)", drills: [ht-fd, mae-fd] }
+  - { cell: "Finite differences · plane convective surface, corners, insulated surface", drills: [ht-fd-boundary-node, ht-fd] }
+  - { cell: "Finite differences · solve a node system", drills: [ht-fd-solve] }
+  # transient
+  - { cell: "Lumped · Bi check, T at a time, time to a T, energy", drills: [ht-bi, ht-lumped-temp, ht-lumped-time, ht-lumped-energy, sc-lumped-time-size, sc-surface-to-volume] }
+  - { cell: "Lumped · with surface flux or generation", drills: [ht-lumped-flux, ht-lumped-gen] }
+  - { cell: "Lumped · cooled by radiation", drills: [ht-lumped-radiation] }
+  - { cell: "One-term · plane wall: centre, surface, time, energy", drills: [ht-ot-wall-center, ht-ot-wall-surface, ht-ot-wall-time, ht-ot-wall-energy] }
+  - { cell: "One-term · cylinder and sphere: centre, off-centre, energy", drills: [ht-ot-cyl-center, ht-ot-sphere-center, ht-ot-radial-more] }
+  - { cell: "Multidimensional transient (product solutions)", drills: [ht-product-short-cyl] }
+  - { cell: "Semi-infinite · fixed surface temperature, surface flux, contact of two solids", drills: [ht-erf-temp, ht-erf-depth, ht-erf-time, ht-erf-flux, ht-erf-contact, sc-diffusion-time-length] }
+  - { cell: "Semi-infinite · constant surface heat flux, surface convection", drills: [ht-erf-const-flux, ht-erf-convection] }
+  - { cell: "Transient finite differences · explicit step and stability", drills: [ht-fd-explicit] }
+  # convection
+  - { cell: "Boundary layers · groups, transition, thickness, local vs average, Colburn", drills: [ht3-bl-groups, ht3-bl-transition, ht3-bl-thickness, ht3-bl-average, ht3-bl-colburn] }
+  - { cell: "Flat plate · laminar, mixed", drills: [ht-plate-lam, ht-plate-mixed] }
+  - { cell: "Flat plate · unheated starting length, uniform surface flux", drills: [ht-plate-special] }
+  - { cell: "Cylinder and sphere in cross flow; tube banks", drills: [ht-cyl-cb, ht-sphere-whitaker, ht3-tb-vmax, ht3-tb-zukauskas, ht3-tb-outlet] }
+  - { cell: "Internal flow · Re and entry, constant flux, constant wall T", drills: [ht-int-re, ht-tm-flux, ht-tm-ts] }
+  - { cell: "Internal flow · external fluid with an overall U", drills: [ht-tube-external-fluid] }
+  - { cell: "Internal flow · laminar fully developed, Dittus–Boelter, noncircular", drills: [ht-lam-fd, ht-dittus, ht-int-noncircular, sc-turbulent-h-velocity] }
+  - { cell: "Free convection · Ra, vertical plate, horizontal plates and cylinders", drills: [ht-ra, ht-chu-vertical, ht-free-horiz, ht-free-cyl] }
+  - { cell: "Free convection · enclosures, mixed convection", drills: [ht-enclosure-vertical, ht-mixed-conv] }
+  - { cell: "Boiling and condensation", drills: [ht3-boil-regime, ht3-rohsenow, ht3-chf, ht3-cond-plate, ht3-cond-tube] }
+  # radiation
+  - { cell: "Blackbody · Stefan–Boltzmann, Wien, band fractions", drills: [ht3-stefan, ht3-wien, ht3-band] }
+  - { cell: "Real surfaces · spectral to total, Kirchhoff, radiosity", drills: [ht3-spectral, ht3-rad-balance] }
+  - { cell: "View factors · reciprocity, summation, standard geometries", drills: [ht-vf-reciprocity, ht-vf-duct, ht-vf-cavity, ht-vf-concentric] }
+  - { cell: "Enclosures · black, two-surface gray, shields, reradiating", drills: [ht-black-disks, ht-two-surface, ht-shield, ht-reradiating] }
+  - { cell: "Multimode · surface balance with convection and radiation (incl. solar)", drills: [ht-hr-surface, ht-surface-balance, ht-sys-pipe, ht-sys-package] }
+  # heat exchangers
+  - { cell: "Heat exchangers · U with films, wall and fouling", drills: [ht-U-tube, ht-U-fouling] }
+  - { cell: "Heat exchangers · LMTD parallel, counter, correction factor", drills: [ht-lmtd-parallel, ht-lmtd-counter, ht-shell-tube] }
+  - { cell: "Heat exchangers · effectiveness–NTU: rate and outlet temperatures", drills: [ht-ntu-eff, ht-ntu-outlet] }
+  # mass transfer
+  - { cell: "Mass diffusion · Fick, membranes, Stefan flow, with reaction", drills: [ht3-fick, ht3-membrane, ht3-stefan-flow, ht3-reaction] }
+  - { cell: "Mass diffusion · transient (erf), semi-infinite", drills: [ht-mass-erf-time] }
+  - { cell: "Convective mass transfer · analogy, Sherwood, evaporation", drills: [ht3-mc-analogy, ht3-mc-sherwood, ht3-mc-evap] }

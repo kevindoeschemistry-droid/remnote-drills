@@ -1031,7 +1031,7 @@ Big ideas: WAVE
 - ● **PH-14.4.A** (P2 14.4) Place radiation in the electromagnetic spectrum and calculate its frequency or wavelength.
   - EK: All EM waves travel at c = 3.00 × 10⁸ m/s in vacuum, c = fλ; in a medium v = c/n and λ shrinks.
   - Needs: PH-14.2.A, PH-13.3.A
-  - 2B · drills: ph-em-spectrum
+  - 2B · drills: ph-em-spectrum, em-wave-fields
 
 ### 14.5 The Doppler effect
 
@@ -1391,7 +1391,7 @@ Big ideas: INT, CHG
 - ● **PH-23.5.A** (CEM 8.5) Calculate the electric flux through a flat or closed surface.
   - EK: Φ_E = ∫E · dA; uniform field through a flat area Φ = EA cos θ; field lines through a closed surface count net enclosed charge.
   - Needs: PH-10.3.D, PH-12.4.A
-  - 2B · drills: pc-flux-flat
+  - 2B · drills: pc-flux-flat, em-gauss-flux
 
 ### 23.6 Gauss's law
 
@@ -1526,7 +1526,7 @@ Big ideas: INT
 - ● **PH-27.4.A** (CEM 12.4) Apply Ampère's law to find B of a long wire (inside and out), a solenoid or a toroid.
   - EK: ∮B · dl = μ₀I_enc; solenoid B = μ₀nI inside, ~0 outside.
   - Needs: PH-12.3.A, PH-23.6.A
-  - 1A · 2A · drills: pc-ampere
+  - 1A · 2A · drills: pc-ampere, em-solenoid-field
 
 ## Unit 28 · Electromagnetic induction
 
@@ -1584,4 +1584,4 @@ Big ideas: CHG, CONS
 - ● **PH-28.6.A** (CEM 13.6) Show that an LC circuit oscillates and find its frequency and the energy exchange between C and L.
   - EK: L d²q/dt² + q/C = 0 ⇒ ω = 1/√(LC) — the mass–spring equation with L ↔ m, 1/C ↔ k.
   - Needs: PH-28.4.A, PH-25.3.B, PH-22.1.B
-  - 2A · 2B · drills: pc-lc-current
+  - 2A · 2B · drills: pc-lc-current, em-lc-frequency

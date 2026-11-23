@@ -2,7 +2,7 @@
 
 Generated from `drills/frameworks/engineering-math.yaml` by `scripts/framework.mjs`. ● drilled · ◐ partly · ○ no drills yet.
 
-**122 learning objectives** in 12 units (118 core): 122 drilled, 0 partly, 0 with no drills. Core: 118 / 118 drilled.
+**136 learning objectives** in 12 units (132 core): 136 drilled, 0 partly, 0 with no drills. Core: 132 / 132 drilled.
 
 ## Big ideas
 
@@ -34,7 +34,7 @@ Generated from `drills/frameworks/engineering-math.yaml` by `scripts/framework.m
 | 7 · Laplace transforms | core | 15% | 14 | 14 | 0 | 0 |
 | 8 · Linear algebra for ODEs | core | as needed | 11 | 11 | 0 | 0 |
 | 9 · Fourier series and Sturm–Liouville boundary-value problems | core | 10–15% | 11 | 11 | 0 | 0 |
-| 10 · Partial differential equations | core | — | 9 | 9 | 0 | 0 |
+| 10 · Partial differential equations | core | — | 23 | 23 | 0 | 0 |
 | 11 · Fourier integrals and transforms | extension | — | 2 | 2 | 0 | 0 |
 | 12 · Vector calculus for transport | extension | — | 2 | 2 | 0 | 0 |
 
@@ -665,13 +665,17 @@ Book: kreyszig-10e §11.5, §11.6
 
 Big ideas: EIG, TRANS, MODEL
 
-### 10.1 Basic concepts and classification
+### 10.1 Basic concepts, classification and separation
 
-Book: kreyszig-10e §12.1
+Book: kreyszig-10e §12.1, §12.3
 
 - ● **EM-10.1.A** Classify a second-order linear PDE as elliptic, parabolic or hyperbolic and verify a solution.
   - EK: Au_xx + 2Bu_xy + Cu_yy: AC − B² > 0 elliptic, = 0 parabolic, < 0 hyperbolic.
   - P2 · drills: pde-classify, pde-verify
+- ● **EM-10.1.B** Substitute u = X(x)T(t) (or X(x)Y(y)), split into two ODEs with a separation constant, and decide the constant's sign from the boundary conditions.
+  - EK: Only the sign that gives sines and cosines can meet two zero boundary conditions nontrivially.
+  - Needs: EM-3.1.A
+  - P2 · drills: mt-separate, mt-sign-of-constant, mt-ode-solution
 
 ### 10.2 Heat equation by separation of variables
 
@@ -679,16 +683,36 @@ Book: kreyszig-10e §12.5, §12.6
 
 - ● **EM-10.2.A** Separate u = F(x)G(t) in the heat equation and find each mode's decay rate.
   - EK: F″ + kF = 0 (an S–L problem), G′ + c²kG = 0 ⇒ G = e^(−c²λ_n t).
-  - Needs: EM-9.2.C
-  - P2 · P3 · drills: pde-rates
+  - Needs: EM-9.2.C, EM-10.1.B
+  - P2 · P3 · drills: pde-rates, mt-heat-time-constant
+- ● **EM-10.2.D** Find the eigenvalues and eigenfunctions for Dirichlet, Neumann, mixed and convective (Robin) ends.
+  - EK: Dirichlet sin(nπx/L); Neumann cos(nπx/L) with n = 0; mixed sin((2n−1)πx/2L); Robin: a transcendental condition such as λ tan λL = h.
+  - Needs: EM-10.1.B
+  - P2 · P3 · drills: mt-bc-eigenfunctions, mt-bc-kills, mt-eigenvalue, pde-eigen-condition
+- ● **EM-10.2.E** Compute the Fourier sine or cosine coefficients of the initial condition.
+  - EK: b_n = (2/L)∫ f sin(nπx/L) dx; a constant start has odd modes only, 4U/nπ.
+  - Needs: EM-9.1.C, EM-10.2.D
+  - P3 · drills: mt-coefficient-formula, mt-sine-coefficient-constant, mt-sine-coefficient-linear
 - ● **EM-10.2.B** Solve the heat equation on a finite rod with Dirichlet or insulated ends by Fourier series.
   - EK: Dirichlet ⇒ sine series; insulated ⇒ cosine series with a constant term (the mean).
-  - Needs: EM-10.2.A, EM-9.1.C
-  - P3 · P4 · drills: pde-heat, pde-neumann
-- ● **EM-10.2.C** Solve the heat equation with non-homogeneous Dirichlet ends by subtracting the steady state.
+  - Needs: EM-10.2.A, EM-10.2.E
+  - P3 · P4 · drills: pde-heat, pde-neumann, mt-solution-form, mt-read-coefficients, mt-insulated-steady-state
+- ● **EM-10.2.C** Solve the heat equation with nonzero fixed ends by subtracting the steady state.
   - EK: u = u_s(x) + v; u_s linear; v satisfies zero BCs with v(x, 0) = f − u_s.
   - Needs: EM-10.2.B
-  - P2 · P3 · drills: pde-steady
+  - P2 · P3 · drills: pde-steady, pde-shift-concepts, pde-steady-state-value, pde-shifted-initial-condition, pde-shifted-sine-coefficient
+- ● **EM-10.2.F** Find the steady state with a flux or insulated end, and handle a flux boundary in the transient problem.
+  - EK: −k u'(L) = q″ fixes the slope; with insulated ends the steady state is the initial mean.
+  - Needs: EM-10.2.C
+  - P2 · P3 · drills: pde-flux-end-steady-state
+- ● **EM-10.2.G** Shift a boundary value that changes in time (w = x g(t)/L) and identify the source term it leaves in the equation.
+  - EK: v = u − w has zero ends and v_t = k v_xx − w_t + k w_xx.
+  - Needs: EM-10.2.C
+  - P2 · drills: pde-time-bc-shift
+- ● **EM-10.2.H** Solve the heat equation with a source: steady state from k u_s″ = −Q, transient by expanding the source in the eigenfunctions.
+  - EK: Both ends zero: u_s = Qx(L − x)/2k; each mode obeys T_n′ + λ_n T_n = q_n.
+  - Needs: EM-10.2.C, EM-10.2.E
+  - P3 · drills: pde-source-steady, pde-source-mode
 
 ### 10.3 Wave equation
 
@@ -696,8 +720,8 @@ Book: kreyszig-10e §12.2, §12.3, §12.4
 
 - ● **EM-10.3.A** Solve the vibrating string by separation of variables and Fourier series.
   - EK: u = Σ(B_n cos λ_n t + B_n* sin λ_n t) sin(nπx/L), λ_n = cnπ/L.
-  - Needs: EM-9.1.C
-  - P3 · P4 · drills: pde-wave
+  - Needs: EM-9.1.C, EM-10.2.D
+  - P3 · P4 · drills: pde-wave, mt-string-frequency, mt-string-time-factor
 - ● **EM-10.3.B** Write d'Alembert's solution for an infinite string from initial displacement and velocity.
   - EK: u = ½[f(x + ct) + f(x − ct)] + (1/2c)∫ g.
   - P3 · drills: dalembert-displacement, dalembert-velocity
@@ -706,21 +730,59 @@ Book: kreyszig-10e §12.2, §12.3, §12.4
 
 Book: kreyszig-10e §12.6, §12.10, §12.11
 
-- ● **EM-10.4.A** Solve the steady 2-D Dirichlet problem on a rectangle by separation.
-  - EK: One direction gives sines, the other sinh; one non-zero side at a time, then superpose.
-  - P3 · drills: laplace-rect-modes, laplace-rect-coef
+- ● **EM-10.4.A** Solve the steady 2-D Dirichlet problem on a rectangle by separation, one nonzero side at a time.
+  - EK: The direction with two zero sides oscillates (sines); the other carries sinh or cosh; superpose one problem per nonzero side.
+  - Needs: EM-10.2.D
+  - P3 · drills: laplace-rect-modes, laplace-rect-coef, mt-which-variable-oscillates, mt-other-direction, pde-laplace-nonzero-sides
 - ● **EM-10.4.B** Separate a PDE in polar, cylindrical or spherical coordinates and identify the Bessel or Legendre equation that appears.
   - EK: Radial part in cylinders ⇒ Bessel; polar angle in spheres ⇒ Legendre in cos θ.
   - Needs: EM-6.4.A
   - P2 · drills: em-separation-coordinates, ~spec-identify
+- ● **EM-10.4.C** Solve transient conduction in a cylinder with Fourier–Bessel series, including a nonzero wall temperature by shifting.
+  - EK: u = ΣA_nJ₀(α_nr/a)e^(−k(α_n/a)²t); weight r; uniform start A_n = 2U/(α_nJ₁(α_n)).
+  - Needs: EM-10.4.B, EM-9.3.B
+  - P3 · drills: mt-bessel-condition, mt-bessel-weight, mt-bessel-decay-length, pde-cylinder-wall
+- ● **EM-10.4.D** Solve transient conduction in a sphere with v = r·u, which turns it into a rod.
+  - EK: v_t = kv_rr, v(0) = v(a) = 0; u = Σ B_n sin(nπr/a)e^(−k(nπ/a)²t)/r.
+  - Needs: EM-10.4.B, EM-10.2.B
+  - P3 · drills: pde-sphere
 
 ### 10.5 Transform methods for PDEs
 
 Book: kreyszig-10e §12.7, §12.12
 
 - ● **EM-10.5.A** Solve a PDE on a semi-infinite or infinite domain by Laplace or Fourier transform.
-  - EK: Transform out t (Laplace) or x (Fourier) to get an ODE in the other variable.
-  - P3 · drills: em-semi-infinite-heat
+  - EK: Transform out t (Laplace) or x (Fourier) to get an ODE in the other variable; bounded at infinity keeps e^(−√s x).
+  - Needs: EM-7.1.A
+  - P3 · drills: em-semi-infinite-heat, pde-lt-steps, pde-lt-decay-rate, pde-lt-erfc-value
+- ● **EM-10.5.B** Solve a finite rod by Laplace transform and invert by residues: the poles are the eigenvalues.
+  - EK: Residue at s = 0 is the steady state; s_n = −(nπ/L)² rebuild the Fourier series.
+  - Needs: EM-10.5.A, EM-10.2.B
+  - P3 · P4 · drills: pde-lt-finite-rod-amplitude, pde-lt-pole-is-eigenvalue, pde-lt-residues
+- ● **EM-10.5.C** Choose the method for a PDE problem: separation, shift, transform or numerics.
+  - EK: Finite domain with homogeneous BCs: separate. Nonzero BCs: shift first. Semi-infinite: transform. Messy geometry or data: finite differences.
+  - Needs: EM-10.5.B, EM-10.2.C
+  - P2 · drills: pde-method-choice
+
+### 10.6 Finite differences for PDEs
+
+Book: kreyszig-10e §21.4, §21.6
+
+- ● **EM-10.6.A** Write central-difference approximations and state their truncation order.
+  - EK: u_xx ≈ (u_{i+1} − 2u_i + u_{i−1})/h², O(h²); forward difference is O(h).
+  - P2 · drills: mt-central-second-difference, mt-truncation-order
+- ● **EM-10.6.B** Take an explicit time step and check stability.
+  - EK: u_i^{n+1} = u_i + r(u_{i+1} − 2u_i + u_{i−1}), stable for r = kΔt/h² ≤ ½.
+  - Needs: EM-10.6.A
+  - P3 · P5 · drills: mt-explicit-step, mt-explicit-stability, mt-amplification
+- ● **EM-10.6.C** Handle a flux or insulated boundary with a ghost node.
+  - EK: u_{−1} = u_1 − 2h g from the central difference of u_x(0) = g.
+  - Needs: EM-10.6.B
+  - P3 · drills: pde-fd-ghost
+- ● **EM-10.6.D** Take an implicit or Crank–Nicolson step by solving the tridiagonal system.
+  - EK: θ = 1 backward Euler, θ = ½ Crank–Nicolson; unconditionally stable; Thomas algorithm.
+  - Needs: EM-10.6.B, EM-8.1.A
+  - P3 · P4 · drills: pde-fd-implicit
 
 ## Unit 11 · Fourier integrals and transforms (extension)
 
@@ -770,44 +832,6 @@ Book: kreyszig-10e §9.7, §9.8, §9.9, §10.7, §10.9
 - mm-eigen-trace-det (la.eigenvalues)
 - mm-damping-class (ode2.characteristic)
 - mm-particular-form (ode2.undetermined)
-- pde-shift-concepts (pde.nonhomogeneous)
-- pde-steady-state-value (pde.nonhomogeneous)
-- pde-shifted-initial-condition (pde.nonhomogeneous)
-- pde-shifted-sine-coefficient (pde.nonhomogeneous)
-- pde-flux-end-steady-state (pde.nonhomogeneous)
-- pde-eigen-condition (pde.nonhomogeneous)
-- pde-laplace-nonzero-sides (pde.nonhomogeneous)
-- pde-lt-steps (pde.laplace-transform)
-- pde-lt-decay-rate (pde.laplace-transform)
-- pde-lt-erfc-value (pde.laplace-transform)
-- pde-lt-finite-rod-amplitude (pde.laplace-transform)
-- pde-lt-pole-is-eigenvalue (pde.laplace-transform)
-- pde-method-choice (pde.laplace-transform)
-- mt-bc-eigenfunctions (pde.review-1)
-- mt-separate (pde.review-1)
-- mt-ode-solution (pde.review-1)
-- mt-sign-of-constant (pde.review-1)
-- mt-bc-kills (pde.review-1)
-- mt-eigenvalue (pde.review-1)
-- mt-which-variable-oscillates (pde.review-2)
-- mt-other-direction (pde.review-2)
-- mt-read-coefficients (pde.review-2)
-- mt-insulated-steady-state (pde.review-2)
-- mt-string-time-factor (pde.review-2)
-- mt-solution-form (pde.review-2)
-- mt-coefficient-formula (pde.review-2)
-- mt-heat-time-constant (pde.review-3)
-- mt-sine-coefficient-constant (pde.review-3)
-- mt-sine-coefficient-linear (pde.review-3)
-- mt-string-frequency (pde.review-3)
-- mt-bessel-condition (pde.review-4)
-- mt-bessel-decay-length (pde.review-4)
-- mt-bessel-weight (pde.review-4)
-- mt-central-second-difference (pde.review-5)
-- mt-truncation-order (pde.review-5)
-- mt-explicit-step (pde.review-5)
-- mt-explicit-stability (pde.review-5)
-- mt-amplification (pde.review-5)
 - ca-lim-substitute (calc.limits)
 - ca-lim-quotient (calc.limits)
 - ca-lim-factor (calc.limits)

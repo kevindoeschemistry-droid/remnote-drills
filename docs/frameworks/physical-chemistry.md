@@ -69,7 +69,7 @@ Book: engel-reid-3e §2.8, §2.8, §2.5, §3.4, §2.11
   - P3 · drills: pc-work-irrev
 - ● **PC-1.2.B** Calculate the work and heat of a reversible isothermal expansion of an ideal gas.
   - EK: w = −nRT ln(V₂/V₁); ΔU = 0 for an ideal gas at constant T, so q = −w.
-  - P3 · drills: th-fl-isothermal
+  - P3 · drills: th-fl-isothermal, sc-isothermal-work-ratio
 - ● **PC-1.2.C** Calculate the heat and internal-energy change for heating at constant volume.
   - EK: q_V = ΔU = nC_V ΔT; no P–V work is done.
   - P3 · drills: th-fl-isochoric
@@ -159,7 +159,7 @@ Book: engel-reid-3e §6.7, §6.10
   - P3 · drills: th-ce-k
 - ● **PC-4.2.B** Calculate how an equilibrium constant shifts with temperature using the van't Hoff equation.
   - EK: ln(K₂/K₁) = −(ΔH°/R)(1/T₂ − 1/T₁); K rises with T for an endothermic reaction.
-  - P3 · drills: th-ce-vant-hoff
+  - P3 · drills: th-ce-vant-hoff, sc-equilibrium-constant-temperature
 
 ## Unit 5 · Real gases
 
@@ -195,7 +195,7 @@ Book: engel-reid-3e §8.3, §8.6, §8.8
   - P3 · drills: pc-phase-rule
 - ● **PC-6.1.B** Calculate a vapour pressure, a boiling temperature or an enthalpy of vaporisation from the Clausius–Clapeyron equation.
   - EK: ln(P₂/P₁) = −(ΔH_vap/R)(1/T₂ − 1/T₁); assumes an ideal vapour and constant ΔH_vap.
-  - P3 · drills: th-pe-cc-pressure, th-pe-cc-enthalpy, th-pe-cc-temperature
+  - P3 · drills: th-pe-cc-pressure, th-pe-cc-enthalpy, th-pe-cc-temperature, sc-vapour-pressure-ten-degrees
 - ● **PC-6.1.C** Calculate the pressure difference across a curved liquid surface.
   - EK: ΔP = 2γ/r for a droplet or a bubble in a liquid; smaller radius, larger excess pressure.
   - P3 · drills: pc-laplace-pressure
@@ -766,15 +766,12 @@ Book: engel-reid-3e §35:reversible, §35:parallel, §35:sequential, §34:steady
 
 ## Drills not yet placed on the map
 
-- sc-isothermal-work-ratio (pchem.first-law)
 - aq-atomic-mass (pchem.thermochemistry)
 - aq-molar-mass (pchem.thermochemistry)
 - sc-carnot-efficiency (pchem.entropy)
 - aq-factor-of-ten (pchem.gibbs)
 - aq-free-energy-to-K (pchem.gibbs)
-- sc-equilibrium-constant-temperature (pchem.gibbs)
 - aq-amounts (pchem.real-gases)
-- sc-vapour-pressure-ten-degrees (pchem.phases)
 - aq-energy-conversion (quantum.origins)
 - aq-photon-energy (quantum.origins)
 - aq-lengths (quantum.model-systems)

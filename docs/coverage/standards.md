@@ -18,9 +18,9 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 | Chemistry (AP) | AP Chemistry Course and Exam Description (Fall 2024) | standard | read in part | — | — | 179 | 179 | 0 |
 | Computer Science | Computer Science Curricula 2023, Body of Knowledge | standard | read in full | — | — | 140 | 0 | 140 |
 | Dental Admission Test | Dental Admission Test 2026 Candidate Guide | exam-spec | read in full | — | — | 183 | 0 | 183 |
-| Applied Engineering Mathematics | Kreyszig, Advanced Engineering Mathematics, 10th ed. | textbook | read in full | fe-chemical | — | 122 | 83 | 39 |
+| Applied Engineering Mathematics | Kreyszig, Advanced Engineering Mathematics, 10th ed. | textbook | read in full | fe-chemical | — | 136 | 83 | 53 |
 | Fluid Mechanics | NCEES FE Chemical CBT Exam Specifications (effective July 2020) | exam-spec | read in full | — | — | 15 | 15 | 0 |
-| Heat Transfer | NCEES FE Chemical CBT Exam Specifications (effective July 2020) | exam-spec | read in full | fe-mechanical | — | 98 | 53 | 45 |
+| Heat Transfer | NCEES FE Chemical CBT Exam Specifications (effective July 2020) | exam-spec | read in full | fe-mechanical | — | 101 | 54 | 47 |
 | INBDE (Dentistry) | JCNDE, Domain of Dentistry (INBDE content domain), July 2018 | exam-spec | read in part | — | — | 22 | 22 | 0 |
 | Information Systems | MSIS 2016 Global Competency Model | standard | read in full | — | — | 53 | 0 | 53 |
 | Linear Algebra | Lay, Lay & McDonald, Linear Algebra and Its Applications, 5th ed. (chapter list) | textbook | read in part | — | — | 10 | 10 | 0 |
@@ -28,7 +28,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 | High School Mathematics (Common Core) | CCSS Mathematics Appendix A: high school course pathways | standard | read in full | — | — | 200 | 200 | 0 |
 | Mathematics K–8 (Common Core) | Common Core State Standards for Mathematics (2010) | standard | read through a crosswalk | — | — | 258 | 258 | 0 |
 | Mental Math | UIL Number Sense Problem Sequencing Charts (High School; A+ Junior High and Elementary, rev. 2016-17) with the Number Sense Handbook rules | exam-spec | read in full | sta-mtc, mit-18-03-coverup, mit-integration-bee | — | 84 | 81 | 3 |
-| Molecular Simulation | LiveCoMS best-practice papers for molecular simulation | course | read in part | — | — | 102 | 0 | 102 |
+| Molecular Simulation | LiveCoMS best-practice papers for molecular simulation | course | read in part | — | — | 106 | 0 | 106 |
 | NCLEX-RN | NCLEX-RN Test Plan, effective April 2026 | exam-spec | read in part | — | — | 39 | 39 | 0 |
 | Nuclear Science and Reactor Theory | NRC Generic Fundamentals Examination, reactor theory topics (PWR catalog 192001-192008) | exam-spec | read in part | doe-hdbk-1019 | — | 19 | 19 | 0 |
 | Organic Reactions: Predict the Product | Bruice, Organic Chemistry, 8th edition (table of contents) | textbook | read in part | — | aamc-mcat-outline | 25 | 3 | 22 |
@@ -172,9 +172,9 @@ https://ncees.org/wp-content/uploads/2022/09/FE-Che-CBT-specs.pdf
 | 8.E | Recycle and bypass | 2 | 2 | material-balances (2) |
 | 8.F | Reactive systems (combustion) | 10 | 10 | material-balances (10) |
 | **9** | **Heat Transfer** (8–12 questions) | | | |
-| 9.A | Conductive | 17 | 14 | heat-transfer (17) |
-| 9.B | Convective (natural and forced) | 24 | 22 | heat-transfer (24) |
-| 9.C | Radiation | 14 | 12 | heat-transfer (14) |
+| 9.A | Conductive | 17 | 15 | heat-transfer (17) |
+| 9.B | Convective (natural and forced) | 25 | 24 | heat-transfer (25) |
+| 9.C | Radiation | 14 | 13 | heat-transfer (14) |
 | 9.D | Heat-transfer coefficients (overall, local, fouling) | 14 | 14 | heat-transfer (14) |
 | 9.E | Equipment design (double pipe, shell and tube, LMTD, NTU) | 6 | 6 | heat-transfer (6) |
 | **10** | **Mass Transfer and Separation** (8–12 questions) | | | |

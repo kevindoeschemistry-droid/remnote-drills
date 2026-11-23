@@ -473,36 +473,55 @@ units:
     title: Partial differential equations
     scope: core
     ideas: [EIG, TRANS, MODEL]
+    note: "Scaffolded to the CBE 200 final and the grid in drills/matrices/pde-1d.yaml: separate → eigenvalue problem by boundary type → coefficients → shifts and sources → other geometries → transforms → numerics."
     topics:
       - n: 1
-        title: Basic concepts and classification
-        book: { kreyszig-10e: ["12.1"] }
+        title: Basic concepts, classification and separation
+        book: { kreyszig-10e: ["12.1", "12.3"] }
         los:
           - { id: A, do: "Classify a second-order linear PDE as elliptic, parabolic or hyperbolic and verify a solution.", ek: ["Au_xx + 2Bu_xy + Cu_yy: AC − B² > 0 elliptic, = 0 parabolic, < 0 hyperbolic."], p: [P2], drills: [pde-classify, pde-verify] }
+          - { id: B, do: "Substitute u = X(x)T(t) (or X(x)Y(y)), split into two ODEs with a separation constant, and decide the constant's sign from the boundary conditions.", ek: ["Only the sign that gives sines and cosines can meet two zero boundary conditions nontrivially."], p: [P2], drills: [mt-separate, mt-sign-of-constant, mt-ode-solution], needs: [EM-3.1.A] }
       - n: 2
         title: Heat equation by separation of variables
         book: { kreyszig-10e: ["12.5", "12.6"] }
         los:
-          - { id: A, do: "Separate u = F(x)G(t) in the heat equation and find each mode's decay rate.", ek: ["F″ + kF = 0 (an S–L problem), G′ + c²kG = 0 ⇒ G = e^(−c²λ_n t)."], p: [P2, P3], drills: [pde-rates], needs: [EM-9.2.C] }
-          - { id: B, do: "Solve the heat equation on a finite rod with Dirichlet or insulated ends by Fourier series.", ek: ["Dirichlet ⇒ sine series; insulated ⇒ cosine series with a constant term (the mean)."], p: [P3, P4], drills: [pde-heat, pde-neumann], needs: [EM-10.2.A, EM-9.1.C] }
-          - { id: C, do: "Solve the heat equation with non-homogeneous Dirichlet ends by subtracting the steady state.", ek: ["u = u_s(x) + v; u_s linear; v satisfies zero BCs with v(x, 0) = f − u_s."], p: [P2, P3], drills: [pde-steady], needs: [EM-10.2.B] }
+          - { id: A, do: "Separate u = F(x)G(t) in the heat equation and find each mode's decay rate.", ek: ["F″ + kF = 0 (an S–L problem), G′ + c²kG = 0 ⇒ G = e^(−c²λ_n t)."], p: [P2, P3], drills: [pde-rates, mt-heat-time-constant], needs: [EM-9.2.C, EM-10.1.B] }
+          - { id: D, do: "Find the eigenvalues and eigenfunctions for Dirichlet, Neumann, mixed and convective (Robin) ends.", ek: ["Dirichlet sin(nπx/L); Neumann cos(nπx/L) with n = 0; mixed sin((2n−1)πx/2L); Robin: a transcendental condition such as λ tan λL = h."], p: [P2, P3], drills: [mt-bc-eigenfunctions, mt-bc-kills, mt-eigenvalue, pde-eigen-condition], needs: [EM-10.1.B] }
+          - { id: E, do: "Compute the Fourier sine or cosine coefficients of the initial condition.", ek: ["b_n = (2/L)∫ f sin(nπx/L) dx; a constant start has odd modes only, 4U/nπ."], p: [P3], drills: [mt-coefficient-formula, mt-sine-coefficient-constant, mt-sine-coefficient-linear], needs: [EM-9.1.C, EM-10.2.D] }
+          - { id: B, do: "Solve the heat equation on a finite rod with Dirichlet or insulated ends by Fourier series.", ek: ["Dirichlet ⇒ sine series; insulated ⇒ cosine series with a constant term (the mean)."], p: [P3, P4], drills: [pde-heat, pde-neumann, mt-solution-form, mt-read-coefficients, mt-insulated-steady-state], needs: [EM-10.2.A, EM-10.2.E] }
+          - { id: C, do: "Solve the heat equation with nonzero fixed ends by subtracting the steady state.", ek: ["u = u_s(x) + v; u_s linear; v satisfies zero BCs with v(x, 0) = f − u_s."], p: [P2, P3], drills: [pde-steady, pde-shift-concepts, pde-steady-state-value, pde-shifted-initial-condition, pde-shifted-sine-coefficient], needs: [EM-10.2.B] }
+          - { id: F, do: "Find the steady state with a flux or insulated end, and handle a flux boundary in the transient problem.", ek: ["−k u'(L) = q″ fixes the slope; with insulated ends the steady state is the initial mean."], p: [P2, P3], drills: [pde-flux-end-steady-state], needs: [EM-10.2.C] }
+          - { id: G, do: "Shift a boundary value that changes in time (w = x g(t)/L) and identify the source term it leaves in the equation.", ek: ["v = u − w has zero ends and v_t = k v_xx − w_t + k w_xx."], p: [P2], drills: [pde-time-bc-shift], needs: [EM-10.2.C] }
+          - { id: H, do: "Solve the heat equation with a source: steady state from k u_s″ = −Q, transient by expanding the source in the eigenfunctions.", ek: ["Both ends zero: u_s = Qx(L − x)/2k; each mode obeys T_n′ + λ_n T_n = q_n."], p: [P3], drills: [pde-source-steady, pde-source-mode], needs: [EM-10.2.C, EM-10.2.E] }
       - n: 3
         title: Wave equation
         book: { kreyszig-10e: ["12.2", "12.3", "12.4"] }
         los:
-          - { id: A, do: "Solve the vibrating string by separation of variables and Fourier series.", ek: ["u = Σ(B_n cos λ_n t + B_n* sin λ_n t) sin(nπx/L), λ_n = cnπ/L."], p: [P3, P4], drills: [pde-wave], needs: [EM-9.1.C] }
+          - { id: A, do: "Solve the vibrating string by separation of variables and Fourier series.", ek: ["u = Σ(B_n cos λ_n t + B_n* sin λ_n t) sin(nπx/L), λ_n = cnπ/L."], p: [P3, P4], drills: [pde-wave, mt-string-frequency, mt-string-time-factor], needs: [EM-9.1.C, EM-10.2.D] }
           - { id: B, do: "Write d'Alembert's solution for an infinite string from initial displacement and velocity.", ek: ["u = ½[f(x + ct) + f(x − ct)] + (1/2c)∫ g."], p: [P3], drills: [dalembert-displacement, dalembert-velocity] }
       - n: 4
         title: Laplace's equation and other geometries
         book: { kreyszig-10e: ["12.6", "12.10", "12.11"] }
         los:
-          - { id: A, do: "Solve the steady 2-D Dirichlet problem on a rectangle by separation.", ek: ["One direction gives sines, the other sinh; one non-zero side at a time, then superpose."], p: [P3], drills: [laplace-rect-modes, laplace-rect-coef] }
+          - { id: A, do: "Solve the steady 2-D Dirichlet problem on a rectangle by separation, one nonzero side at a time.", ek: ["The direction with two zero sides oscillates (sines); the other carries sinh or cosh; superpose one problem per nonzero side."], p: [P3], drills: [laplace-rect-modes, laplace-rect-coef, mt-which-variable-oscillates, mt-other-direction, pde-laplace-nonzero-sides], needs: [EM-10.2.D] }
           - { id: B, do: "Separate a PDE in polar, cylindrical or spherical coordinates and identify the Bessel or Legendre equation that appears.", ek: ["Radial part in cylinders ⇒ Bessel; polar angle in spheres ⇒ Legendre in cos θ."], p: [P2], drills: ["~spec-identify", em-separation-coordinates], needs: [EM-6.4.A] }
+          - { id: C, do: "Solve transient conduction in a cylinder with Fourier–Bessel series, including a nonzero wall temperature by shifting.", ek: ["u = ΣA_nJ₀(α_nr/a)e^(−k(α_n/a)²t); weight r; uniform start A_n = 2U/(α_nJ₁(α_n))."], p: [P3], drills: [mt-bessel-condition, mt-bessel-weight, mt-bessel-decay-length, pde-cylinder-wall], needs: [EM-10.4.B, EM-9.3.B] }
+          - { id: D, do: "Solve transient conduction in a sphere with v = r·u, which turns it into a rod.", ek: ["v_t = kv_rr, v(0) = v(a) = 0; u = Σ B_n sin(nπr/a)e^(−k(nπ/a)²t)/r."], p: [P3], drills: [pde-sphere], needs: [EM-10.4.B, EM-10.2.B] }
       - n: 5
         title: Transform methods for PDEs
         book: { kreyszig-10e: ["12.7", "12.12"] }
         los:
-          - { id: A, do: "Solve a PDE on a semi-infinite or infinite domain by Laplace or Fourier transform.", ek: ["Transform out t (Laplace) or x (Fourier) to get an ODE in the other variable."], p: [P3], drills: [em-semi-infinite-heat] }
+          - { id: A, do: "Solve a PDE on a semi-infinite or infinite domain by Laplace or Fourier transform.", ek: ["Transform out t (Laplace) or x (Fourier) to get an ODE in the other variable; bounded at infinity keeps e^(−√s x)."], p: [P3], drills: [em-semi-infinite-heat, pde-lt-steps, pde-lt-decay-rate, pde-lt-erfc-value], needs: [EM-7.1.A] }
+          - { id: B, do: "Solve a finite rod by Laplace transform and invert by residues: the poles are the eigenvalues.", ek: ["Residue at s = 0 is the steady state; s_n = −(nπ/L)² rebuild the Fourier series."], p: [P3, P4], drills: [pde-lt-finite-rod-amplitude, pde-lt-pole-is-eigenvalue, pde-lt-residues], needs: [EM-10.5.A, EM-10.2.B] }
+          - { id: C, do: "Choose the method for a PDE problem: separation, shift, transform or numerics.", ek: ["Finite domain with homogeneous BCs: separate. Nonzero BCs: shift first. Semi-infinite: transform. Messy geometry or data: finite differences."], p: [P2], drills: [pde-method-choice], needs: [EM-10.5.B, EM-10.2.C] }
+      - n: 6
+        title: Finite differences for PDEs
+        book: { kreyszig-10e: ["21.4", "21.6"] }
+        los:
+          - { id: A, do: "Write central-difference approximations and state their truncation order.", ek: ["u_xx ≈ (u_{i+1} − 2u_i + u_{i−1})/h², O(h²); forward difference is O(h)."], p: [P2], drills: [mt-central-second-difference, mt-truncation-order] }
+          - { id: B, do: "Take an explicit time step and check stability.", ek: ["u_i^{n+1} = u_i + r(u_{i+1} − 2u_i + u_{i−1}), stable for r = kΔt/h² ≤ ½."], p: [P3, P5], drills: [mt-explicit-step, mt-explicit-stability, mt-amplification], needs: [EM-10.6.A] }
+          - { id: C, do: "Handle a flux or insulated boundary with a ghost node.", ek: ["u_{−1} = u_1 − 2h g from the central difference of u_x(0) = g."], p: [P3], drills: [pde-fd-ghost], needs: [EM-10.6.B] }
+          - { id: D, do: "Take an implicit or Crank–Nicolson step by solving the tridiagonal system.", ek: ["θ = 1 backward Euler, θ = ½ Crank–Nicolson; unconditionally stable; Thomas algorithm."], p: [P3, P4], drills: [pde-fd-implicit], needs: [EM-10.6.B, EM-8.1.A] }
 
   - id: fourier-transforms
     n: 11

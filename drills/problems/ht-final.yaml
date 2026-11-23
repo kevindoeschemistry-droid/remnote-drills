@@ -1,0 +1,196 @@
+# Builds drills/problems/ht-final.yaml: the heat and mass transfer problem types the MAE 120 grid
+# (drills/matrices/heat-transfer.yaml) found open. Run: python3 scripts/ht_final_cases.py
+# 
+# Answers here follow the textbook route (Incropera Table 3.4 fin formulas, the one-term C1 formula,
+# the closed-form radiation-cooling time, the tabulated FD node equations). tests/verify/htcalc.py
+# checks each a different way (dsolve on the fin ODE, orthogonality integrals, numerical integration
+# of the cooling ODE, a control-volume balance per node).
+# GENERATED: edit scripts/ht_final_cases.py, not this file.
+
+- template: ht-fin-conv-tip
+  skill: ht.fins
+  pace: quick
+  cases:
+  - {mat: copper, k: 398, D: 5.0, L: 50.0, h: 100, Tb: 100, Ti: 25, w: 0, wt: the fin heat rate, ans: 5.160099582}
+  - {mat: copper, k: 398, D: 5.0, L: 50.0, h: 100, Tb: 100, Ti: 25, w: 1, wt: the tip temperature, ans: 83.79597767}
+  - {mat: aluminium, k: 180, D: 10.0, L: 80.0, h: 25, Tb: 80, Ti: 20, w: 0, wt: the fin heat rate, ans: 3.461994211}
+  - {mat: aluminium, k: 180, D: 10.0, L: 80.0, h: 25, Tb: 80, Ti: 20, w: 1, wt: the tip temperature, ans: 70.21385044}
+  - {mat: stainless steel, k: 15, D: 6.0, L: 40.0, h: 30, Tb: 120, Ti: 20, w: 0, wt: the fin heat rate, ans: 1.406012718}
+  - {mat: stainless steel, k: 15, D: 6.0, L: 40.0, h: 30, Tb: 120, Ti: 20, w: 1, wt: the tip temperature, ans: 61.98250741}
+  - {mat: brass, k: 110, D: 8.0, L: 100.0, h: 40, Tb: 90, Ti: 25, w: 0, wt: the fin heat rate, ans: 4.264159171}
+  - {mat: brass, k: 110, D: 8.0, L: 100.0, h: 40, Tb: 90, Ti: 25, w: 1, wt: the tip temperature, ans: 55.8952154}
+  - {mat: carbon steel, k: 60, D: 10.0, L: 50.0, h: 50, Tb: 150, Ti: 30, w: 0, wt: the fin heat rate, ans: 7.67745553}
+  - {mat: carbon steel, k: 60, D: 10.0, L: 50.0, h: 50, Tb: 150, Ti: 30, w: 1, wt: the tip temperature, ans: 110.3149766}
+  prompt: A {{D}}-mm-diameter {{mat}} pin fin ($k = {{k}}$ W/m·K), {{L}} mm long, has its base at ${{Tb}}$ °C in fluid at ${{Ti}}$ °C with $h = {{h}}$ W/m²·K. With convection from the tip (the exact case, not the corrected length), find {{wt}}.
+  parts:
+  - {ask: Answer (W or °C), label: y, value: ans, tol: 0.002, explain: 'Case A: $q_f = M\dfrac{\sinh mL + (h/mk)\cosh mL}{\cosh mL + (h/mk)\sinh mL}$, $\theta_L/\theta_b = 1/[\cosh mL + (h/mk)\sinh mL]$, with $m = \sqrt{hP/kA_c}$, $M = \sqrt{hPkA_c}\,\theta_b$, $P = \pi D$, $A_c = \pi D^2/4$. The corrected length $L_c = L + D/4$ in the adiabatic formula gives nearly the same heat rate'}
+  verify:
+    expect: {y: 'fin_q(0, h, k, D/1000, L/1000, Tb, Ti, 0, w)'}
+- template: ht-fin-fixed-tip
+  skill: ht.fins
+  pace: quick
+  cases:
+  - {mat: copper, k: 398, D: 5.0, L: 100.0, h: 100, Tb: 100, Ti: 25, TL: 40, ans: 8.490283541}
+  - {mat: aluminium, k: 180, D: 6.0, L: 150.0, h: 50, Tb: 120, Ti: 20, TL: 60, ans: 6.431501413}
+  - {mat: brass, k: 110, D: 5.0, L: 120.0, h: 30, Tb: 90, Ti: 20, TL: 50, ans: 2.031083251}
+  - {mat: carbon steel, k: 60, D: 8.0, L: 200.0, h: 40, Tb: 150, Ti: 25, TL: 80, ans: 6.734863445}
+  prompt: A {{D}}-mm {{mat}} rod ($k = {{k}}$ W/m·K), {{L}} mm long, spans between a wall at ${{Tb}}$ °C and a second wall that holds its far end at ${{TL}}$ °C. Air at ${{Ti}}$ °C, $h = {{h}}$ W/m²·K. What heat rate leaves the first wall into the rod?
+  parts:
+  - {ask: Heat rate (W), label: y, value: ans, tol: 0.002, explain: 'Case C (prescribed tip temperature): $q_f = M\dfrac{\cosh mL - \theta_L/\theta_b}{\sinh mL}$, with $\theta = T - T_\infty$. Check: as $L \to \infty$ it becomes $M$, the infinite fin'}
+  verify:
+    expect: {y: 'fin_q(1, h, k, D/1000, L/1000, Tb, Ti, TL, 0)'}
+- template: ht-fin-effectiveness
+  skill: ht.fins
+  pace: quick
+  cases:
+  - {mat: aluminium, k: 180, D: 5.0, L: 50.0, h: 30, ans: 36.80110552}
+  - {mat: stainless steel, k: 15, D: 5.0, L: 50.0, h: 30, ans: 19.34795356}
+  - {mat: copper, k: 398, D: 3.0, L: 30.0, h: 100, ans: 37.15705363}
+  - {mat: aluminium, k: 180, D: 10.0, L: 50.0, h: 500, ans: 11.29677097}
+  - {mat: plastic, k: 0.2, D: 5.0, L: 20.0, h: 30, ans: 2.309399323}
+  prompt: What is the effectiveness of a {{D}}-mm-diameter, {{L}}-mm {{mat}} pin fin ($k = {{k}}$ W/m·K) in a fluid with $h = {{h}}$ W/m²·K (tip convecting)?
+  parts:
+  - {ask: Effectiveness, label: y, value: ans, tol: 0.002, explain: '$\varepsilon_f = q_f/(hA_{c,b}\theta_b)$: the heat rate with the fin over the rate from the bare base. Fins pay off when $\varepsilon_f \ge 2$, which needs high $k$ and low $h$: a poor conductor or a boiling liquid makes a fin nearly useless'}
+  verify:
+    expect: {y: 'fin_q(0, h, k, D/1000, L/1000, 1, 0, 0, 2)'}
+- template: ht-ot-radial-more
+  skill: ht.transient-one-term
+  pace: quick
+  cases:
+  - {g: 1, gt: long cylinder, Bi: 1.0, Fo: 0.5, r: 1, w: 0, wt: the dimensionless temperature θ* = (T − T∞)/(Ti − T∞) at r/ro = 1, ans: 0.3527582518}
+  - {g: 1, gt: long cylinder, Bi: 2.0, Fo: 0.3, r: 1, w: 0, wt: the dimensionless temperature θ* = (T − T∞)/(Ti − T∞) at r/ro = 1, ans: 0.2831159065}
+  - {g: 1, gt: long cylinder, Bi: 0.5, Fo: 0.8, r: 1, w: 1, wt: 'the fraction of the maximum energy transferred, Q/Q₀', ans: 0.5096341175}
+  - {g: 1, gt: long cylinder, Bi: 5.0, Fo: 0.4, r: 1, w: 1, wt: 'the fraction of the maximum energy transferred, Q/Q₀', ans: 0.8210325733}
+  - {g: 1, gt: long cylinder, Bi: 1.0, Fo: 0.5, r: 0.5, w: 0, wt: the dimensionless temperature θ* = (T − T∞)/(Ti − T∞) at r/ro = 0.5, ans: 0.4958980458}
+  - {g: 2, gt: sphere, Bi: 1.0, Fo: 0.5, r: 1, w: 0, wt: the dimensionless temperature θ* = (T − T∞)/(Ti − T∞) at r/ro = 1, ans: 0.2360483127}
+  - {g: 2, gt: sphere, Bi: 2.0, Fo: 0.3, r: 1, w: 0, wt: the dimensionless temperature θ* = (T − T∞)/(Ti − T∞) at r/ro = 1, ans: 0.1902629382}
+  - {g: 2, gt: sphere, Bi: 0.5, Fo: 0.8, r: 1, w: 1, wt: 'the fraction of the maximum energy transferred, Q/Q₀', ans: 0.6640536994}
+  - {g: 2, gt: sphere, Bi: 5.0, Fo: 0.4, r: 1, w: 1, wt: 'the fraction of the maximum energy transferred, Q/Q₀', ans: 0.93928342}
+  - {g: 2, gt: sphere, Bi: 1.0, Fo: 0.5, r: 0.5, w: 0, wt: the dimensionless temperature θ* = (T − T∞)/(Ti − T∞) at r/ro = 0.5, ans: 0.3338227252}
+  prompt: A {{gt}} with Bi = $hr_o/k = {{Bi}}$ is plunged into a fluid. At Fo = $\alpha t/r_o^2 = {{Fo}}$, use the one-term approximation to find {{wt}}.
+  parts:
+  - {ask: Value, label: y, value: ans, tol: 0.002, explain: 'Find $\zeta_1$ and $C_1$ for the Bi (cylinder: $\zeta J_1(\zeta)/J_0(\zeta) = \text{Bi}$; sphere: $1 - \zeta\cot\zeta = \text{Bi}$), $\theta_0^* = C_1e^{-\zeta_1^2\text{Fo}}$. Off-centre: cylinder $\theta^* = \theta_0^*J_0(\zeta_1r^*)$, sphere $\theta_0^*\sin(\zeta_1r^*)/(\zeta_1r^*)$. Energy: cylinder $Q/Q_0 = 1 - \frac{2\theta_0^*}{\zeta_1}J_1(\zeta_1)$, sphere $1 - \frac{3\theta_0^*}{\zeta_1^3}[\sin\zeta_1 - \zeta_1\cos\zeta_1]$'}
+  verify:
+    expect: {y: 'one_term(g, Bi, Fo, r, w)'}
+- template: ht-erf-const-flux
+  skill: ht.semi-infinite
+  pace: quick
+  cases:
+  - {mat: steel, k: 60, al: 1.7e-05, q0: 20000.0, t: 600, xp: 10.0, Ti: 20, ans: 54.74663704}
+  - {mat: concrete, k: 1.4, al: 6.9e-07, q0: 1000, t: 3600, xp: 20.0, Ti: 15, ans: 42.49076678}
+  - {mat: soil, k: 0.52, al: 1.38e-07, q0: 500, t: 7200, xp: 50.0, Ti: 10, ans: 15.63532605}
+  - {mat: steel, k: 60, al: 1.7e-05, q0: 50000.0, t: 120, xp: 0.0, Ti: 25, ans: 67.47064894}
+  prompt: A thick {{mat}} block ($k = {{k}}$ W/m·K, $\alpha = {{al}}$ m²/s) at ${{Ti}}$ °C suddenly receives a constant surface heat flux of ${{q0}}$ W/m². What is the temperature {{xp}} mm below the surface after ${{t}}$ s?
+  parts:
+  - {ask: Temperature (°C), label: y, value: ans, tol: 0.002, explain: 'Case 2 (constant flux): $T - T_i = \dfrac{2q_0''''\sqrt{\alpha t/\pi}}{k}e^{-x^2/4\alpha t} - \dfrac{q_0''''x}{k}\operatorname{erfc}\dfrac{x}{2\sqrt{\alpha t}}$. At the surface only the first term survives, so $T_s$ grows like $\sqrt t$'}
+  verify:
+    expect: {y: 'semi_flux_T(q0, k, al, t, xp/1000, Ti)'}
+- template: ht-erf-convection
+  skill: ht.semi-infinite
+  pace: quick
+  cases:
+  - {mat: concrete, k: 1.4, al: 6.9e-07, h: 25, t: 3600, xp: 0.0, Ti: 20, Tinf: 80, ans: 52.42295301}
+  - {mat: concrete, k: 1.4, al: 6.9e-07, h: 25, t: 3600, xp: 20.0, Ti: 20, Tinf: 80, ans: 43.3106548}
+  - {mat: soil, k: 0.52, al: 1.38e-07, h: 50, t: 36000, xp: 50.0, Ti: 15, Tinf: -10, ans: 1.328635146}
+  - {mat: oak, k: 0.17, al: 1.31e-07, h: 10, t: 600, xp: 0.0, Ti: 20, Tinf: 400, ans: 170.1658695}
+  - {mat: steel, k: 60, al: 1.7e-05, h: 500, t: 60, xp: 5.0, Ti: 25, Tinf: 300, ans: 83.05095488}
+  prompt: A thick {{mat}} block ($k = {{k}}$ W/m·K, $\alpha = {{al}}$ m²/s) at ${{Ti}}$ °C is suddenly exposed to fluid at ${{Tinf}}$ °C with $h = {{h}}$ W/m²·K. What is the temperature {{xp}} mm below the surface after ${{t}}$ s?
+  parts:
+  - {ask: Temperature (°C), label: y, value: ans, tol: 0.002, explain: 'Case 3 (surface convection): $\dfrac{T - T_i}{T_\infty - T_i} = \operatorname{erfc}\eta - \exp\!\left(\dfrac{hx}{k} + \dfrac{h^2\alpha t}{k^2}\right)\operatorname{erfc}\!\left(\eta + \dfrac{h\sqrt{\alpha t}}{k}\right)$, $\eta = x/2\sqrt{\alpha t}$. As $h \to \infty$ it becomes the fixed-surface case'}
+  verify:
+    expect: {y: 'semi_conv_T(h, k, al, t, xp/1000, Ti, Tinf)'}
+- template: ht-lumped-radiation
+  skill: ht.lumped
+  pace: quick
+  cases:
+  - {what: a 2-mm aluminium sheet radiating from both faces in space, rho: 2700, c: 900, VA: 0.001, eps: 0.25, Ti: 500, Tf: 300, Ts: 0, ans: 1659.149697}
+  - {what: a 10-mm steel sphere in a vacuum furnace, rho: 7800, c: 470, VA: 0.0016666666666666668, eps: 0.8, Ti: 1100, Tf: 600, Ts: 300, ans: 179.8445152}
+  - {what: a thin copper plate (V/A = 0.5 mm) in a cold vacuum chamber, rho: 8900, c: 385, VA: 0.0005, eps: 0.6, Ti: 600, Tf: 400, Ts: 77, ans: 184.7091796}
+  - {what: a 4-mm steel plate cooling from both faces to cold surroundings, rho: 7800, c: 470, VA: 0.002, eps: 0.9, Ti: 900, Tf: 400, Ts: 300, ans: 810.4914663}
+  prompt: Find the time for {{what}} ($\rho = {{rho}}$ kg/m³, $c = {{c}}$ J/kg·K, $V/A_s = {{VA}}$ m, $\varepsilon = {{eps}}$) to cool from ${{Ti}}$ K to ${{Tf}}$ K by radiation alone, surroundings at ${{Ts}}$ K.
+  parts:
+  - {ask: Time (s), label: y, value: ans, tol: 0.002, explain: 'Lumped balance $\rho Vc\,dT/dt = -\varepsilon\sigma A_s(T^4 - T_{sur}^4)$, nonlinear. With $T_{sur} = 0$: $t = \dfrac{\rho Vc}{3\varepsilon A_s\sigma}\left(\dfrac{1}{T^3} - \dfrac{1}{T_i^3}\right)$; otherwise Incropera''s closed form with ln and arctan terms. Kelvin throughout'}
+  verify:
+    expect: {y: 'lumped_rad_time(rho, c, VA, eps, Ti, Tf, Ts)'}
+- template: ht-surface-balance
+  skill: ht.enclosures
+  pace: quick
+  cases:
+  - {what: 'a roof (solar absorptivity 0.6, ε = 0.9) under 800 W/m² of sun, sky at 260 K', qin: 480, h: 10, Tinf: 300, eps: 0.9, Tsur: 260, ans: 318.6837119}
+  - {what: 'a white-painted roof (solar absorptivity 0.2, ε = 0.9) under 800 W/m², sky at 260 K', qin: 160, h: 10, Tinf: 300, eps: 0.9, Tsur: 260, ans: 298.6973189}
+  - {what: an electronics panel dissipating 1000 W/m² from one face, qin: 1000, h: 15, Tinf: 298, eps: 0.8, Tsur: 298, ans: 345.4488674}
+  - {what: a heater plate supplying 2000 W/m² in still air, qin: 2000, h: 8, Tinf: 300, eps: 0.5, Tsur: 300, ans: 442.6478829}
+  - {what: a solar collector plate absorbing 600 W/m² with little convection, qin: 600, h: 3, Tinf: 290, eps: 0.1, Tsur: 280, ans: 434.345908}
+  prompt: 'Steady state: {{what}} absorbs ${{qin}}$ W/m² and loses heat by convection ($h = {{h}}$ W/m²·K to air at ${{Tinf}}$ K) and by radiation ($\varepsilon = {{eps}}$, surroundings at ${{Tsur}}$ K), back insulated. What is its temperature?'
+  parts:
+  - {ask: Temperature (K), label: y, value: ans, tol: 0.001, explain: 'Surface energy balance: $q''''_{in} = h(T - T_\infty) + \varepsilon\sigma(T^4 - T_{sur}^4)$, solved by iteration (guess, update, repeat). Solar gain uses the solar absorptivity $\alpha_S$; emission uses the long-wave $\varepsilon$, which is why white paint keeps a roof cool'}
+  verify:
+    expect: {y: 'surface_T(qin, h, Tinf, eps, Tsur)'}
+- template: ht-fd-boundary-node
+  skill: ht.finite-difference
+  pace: quick
+  cases:
+  - {kind: 0, a: 100, b: 80, c: 90, d: 0, Bi: 0.5, Tinf: 20, kt: 'on a plane surface exposed to convection; inside neighbour at 100 °C, neighbours along the surface at 80 and 90 °C', ans: 78.0}
+  - {kind: 0, a: 150, b: 140, c: 120, d: 0, Bi: 2, Tinf: 25, kt: 'on a plane surface exposed to convection; inside neighbour at 150 °C, neighbours along the surface at 140 and 120 °C', ans: 82.5}
+  - {kind: 1, a: 60, b: 80, c: 0, d: 0, Bi: 0.5, Tinf: 20, kt: at an external corner with convection on both faces; neighbours at 60 and 80 °C, ans: 53.33333333}
+  - {kind: 2, a: 100, b: 120, c: 70, d: 90, Bi: 1, Tinf: 30, kt: 'at an internal (re-entrant) corner with convection; full-cell neighbours at 100 and 120 °C, half-cell neighbours along the exposed faces at 70 and 90 °C', ans: 82.5}
+  - {kind: 3, a: 100, b: 80, c: 90, d: 0, Bi: 0, Tinf: 0, kt: 'on an insulated plane surface; inside neighbour at 100 °C, neighbours along the surface at 80 and 90 °C', ans: 92.5}
+  - {kind: 3, a: 50, b: 60, c: 40, d: 0, Bi: 0, Tinf: 0, kt: 'on an insulated plane surface; inside neighbour at 50 °C, neighbours along the surface at 60 and 40 °C', ans: 50.0}
+  prompt: Steady 2-D conduction, square grid, no generation, $h\Delta x/k = {{Bi}}$, fluid at ${{Tinf}}$ °C where there is convection. A node sits {{kt}}. What is its temperature?
+  parts:
+  - {ask: Temperature (°C), label: y, value: ans, tol: 0.0001, explain: 'Write the energy balance on the node''s own cell: full faces conduct $k\Delta y$, faces of a half cell $k\Delta y/2$, exposed faces convect $h\ell(T_\infty - T)$. Plane convective surface: $2T_{in} + T_a + T_b + 2\text{Bi}T_\infty - 2(\text{Bi} + 2)T = 0$; external corner: $T_a + T_b + 2\text{Bi}T_\infty - 2(\text{Bi} + 1)T = 0$; internal corner: $2(T_1 + T_2) + T_3 + T_4 + 2\text{Bi}T_\infty - 2(3 + \text{Bi})T = 0$; insulated: a mirror node'}
+  verify:
+    expect: {y: 'fd_node(kind, a, b, c, d, Bi, Tinf)'}
+- template: ht-tube-external-fluid
+  skill: ht.internal-flow
+  pace: quick
+  cases:
+  - {Tmi: 80, Tinf: 20, U: 25, D: 50.0, L: 10, md: 0.05, cp: 4180, ans: 69.72213791}
+  - {Tmi: 150, Tinf: 25, U: 10, D: 100.0, L: 30, md: 0.2, cp: 1010, ans: 103.3934651}
+  - {Tmi: 5, Tinf: 30, U: 50, D: 25.0, L: 5, md: 0.02, cp: 4180, ans: 10.23311717}
+  - {Tmi: 60, Tinf: 0, U: 15, D: 80.0, L: 20, md: 0.1, cp: 4180, ans: 50.09724601}
+  prompt: Fluid ($c_p = {{cp}}$ J/kg·K) enters a {{D}}-mm tube, {{L}} m long, at ${{Tmi}}$ °C and ${{md}}$ kg/s. The tube sits in surroundings at ${{Tinf}}$ °C with an overall coefficient $U = {{U}}$ W/m²·K (inside, wall and outside together). What is the outlet temperature?
+  parts:
+  - {ask: Outlet temperature (°C), label: y, value: ans, tol: 0.002, explain: 'With an external fluid instead of a fixed wall temperature: $\dfrac{T_\infty - T_{m,o}}{T_\infty - T_{m,i}} = \exp\!\left(-\dfrac{\bar UA_s}{\dot mc_p}\right)$, the constant-$T_s$ result with $T_\infty$ and $U$ in place of $T_s$ and $h$'}
+  verify:
+    expect: {y: nsimplify(Tinf) - (nsimplify(Tinf) - nsimplify(Tmi))*exp(-nsimplify(U)*pi*nsimplify(D)/1000*nsimplify(L)/(nsimplify(md)*nsimplify(cp)))}
+- template: ht-U-fouling
+  skill: ht.heat-exchangers
+  pace: quick
+  cases:
+  - {hi: 1000, ho: 500, Rfi: 0.0002, Rfo: 0.0001, Rw: 0.0, ans: 303.030303}
+  - {hi: 5000, ho: 2000, Rfi: 0.0001, Rfo: 0.0001, Rw: 1.0e-05, ans: 1098.901099}
+  - {hi: 200, ho: 50, Rfi: 0.0004, Rfo: 0.0, Rw: 0.0, ans: 39.37007874}
+  - {hi: 3000, ho: 3000, Rfi: 0.0002, Rfo: 0.0002, Rw: 2.0e-05, ans: 920.2453988}
+  prompt: 'A thin-walled exchanger tube: $h_i = {{hi}}$ and $h_o = {{ho}}$ W/m²·K, fouling factors $R''''_{f,i} = {{Rfi}}$ and $R''''_{f,o} = {{Rfo}}$ m²·K/W, wall resistance ${{Rw}}$ m²·K/W. What is the overall coefficient $U$?'
+  parts:
+  - {ask: U (W/m²·K), label: y, value: ans, tol: 0.002, explain: 'Thin wall, so areas are equal and resistances per area add in series: $1/U = 1/h_i + R''''_{f,i} + R''''_w + R''''_{f,o} + 1/h_o$. Fouling grows in service; design with it, and note it matters most when both h are large'}
+  verify:
+    expect: {y: 1/(1/nsimplify(hi) + nsimplify(Rfi) + nsimplify(Rw) + nsimplify(Rfo) + 1/nsimplify(ho))}
+- template: ht-mass-erf-time
+  skill: ht.mass-diffusion
+  pace: quick
+  cases:
+  - {what: 'carbon into steel (carburizing): surface held at 1.2 wt% C, initially 0.2 wt%; reach 0.8 wt%', Cs: 1.2, Ci: 0.2, C: 0.8, xp: 0.5, D: 2.0e-11, ans: 22727.61176}
+  - {what: 'carbon into steel: surface 1.0 wt%, initially 0.1 wt%; reach 0.45 wt%', Cs: 1.0, Ci: 0.1, C: 0.45, xp: 1.0, D: 4.0e-11, ans: 16836.98156}
+  - {what: 'a dopant into silicon: surface 1e20, initially 0 (per cm³); reach 1e19', Cs: 1.0, Ci: 0.0, C: 0.1, xp: 0.001, D: 1.0e-16, ans: 1848.057547}
+  - {what: 'hydrogen into a polymer sheet: surface 5, initially 0 (mol/m³); reach 2.5', Cs: 5, Ci: 0, C: 2.5, xp: 1.0, D: 1.0e-10, ans: 10990.54669}
+  prompt: Diffusion of {{what}} at a depth of {{xp}} mm, $D_{AB} = {{D}}$ m²/s. Treating the solid as semi-infinite, how long does it take?
+  parts:
+  - {ask: Time (s), label: y, value: ans, tol: 0.002, explain: 'The heat-conduction solution carries over: $\dfrac{C_A - C_{A,s}}{C_{A,i} - C_{A,s}} = \operatorname{erf}\dfrac{x}{2\sqrt{D_{AB}t}}$. Invert erf for $\eta$, then $t = (x/2\eta)^2/D_{AB}$. Doubling the depth takes four times as long'}
+  verify:
+    expect: {y: 'mass_erf_time(Cs, Ci, C, xp/1000, D)'}
+- template: ht-plate-special
+  skill: ht.external-flow
+  pace: quick
+  cases:
+  - {fl: air, u: 5, nu: 1.589e-05, k: 0.0263, Pr: 0.707, xp: 0.3, xi: 0.1, q: 0, Tinf: 0, kind: 0, wt: 'the local coefficient $h_x$ (W/m²·K) at $x = 0.3$ m, the plate being unheated for the first 0.1 m', ans: 9.657442881}
+  - {fl: air, u: 10, nu: 1.589e-05, k: 0.0263, Pr: 0.707, xp: 0.5, xi: 0.25, q: 0, Tinf: 0, kind: 0, wt: 'the local coefficient $h_x$ (W/m²·K) at $x = 0.5$ m, the plate being unheated for the first 0.25 m', ans: 11.79125527}
+  - {fl: water, u: 0.2, nu: 8.57e-07, k: 0.613, Pr: 5.83, xp: 0.2, xi: 0.05, q: 0, Tinf: 0, kind: 0, wt: 'the local coefficient $h_x$ (W/m²·K) at $x = 0.2$ m, the plate being unheated for the first 0.05 m', ans: 457.6008033}
+  - {fl: air, u: 4, nu: 1.589e-05, k: 0.0263, Pr: 0.707, xp: 0.4, xi: 0, q: 500, Tinf: 300, kind: 1, wt: the surface temperature (K) at $x = 0.4$ m when the whole plate supplies a uniform $500$ W/m² (free stream at 300 K), ans: 359.3842849}
+  - {fl: water, u: 0.3, nu: 8.57e-07, k: 0.613, Pr: 5.83, xp: 0.25, xi: 0, q: 5000, Tinf: 290, kind: 1, wt: the surface temperature (K) at $x = 0.25$ m when the whole plate supplies a uniform $5000$ W/m² (free stream at 290 K), ans: 298.4545065}
+  prompt: Laminar {{fl}} flow at ${{u}}$ m/s along a flat plate ($\nu = {{nu}}$ m²/s, $k = {{k}}$ W/m·K, Pr = {{Pr}}). Find {{wt}}.
+  parts:
+  - {ask: Answer, label: y, value: ans, tol: 0.002, explain: 'Unheated starting length ξ: $Nu_x = \dfrac{0.332\,Re_x^{1/2}Pr^{1/3}}{[1 - (\xi/x)^{3/4}]^{1/3}}$, larger than the fully heated value because the thermal layer is thinner. Uniform surface flux: $Nu_x = 0.453\,Re_x^{1/2}Pr^{1/3}$ (36% above 0.332), and $T_s(x) = T_\infty + q''''/h_x$ grows as $\sqrt x$'}
+  verify:
+    expect: {y: 'plate_local(kind, u, nu, k, Pr, xp, xi, q, Tinf)'}
