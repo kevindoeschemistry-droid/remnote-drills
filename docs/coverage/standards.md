@@ -16,6 +16,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 | Basketball | USA Basketball Player Development Curriculum | standard | read in part | — | — | 88 | 0 | 88 |
 | Biology (AP) | AP Biology Course and Exam Description (2019) | standard | read through a crosswalk | iupac-aa-1983, ngss-hs, ib-biology-2025, icho-appendix-c, icho-syllabus, aamc-mcat-outline | — | 179 | 179 | 0 |
 | Calculus | AP Calculus AB and BC Course and Exam Description | standard | read in full | — | — | 179 | 179 | 0 |
+| Chemistry Olympiad | U.S. National Chemistry Olympiad: local and national exam format and multiple-choice topics | exam-spec | read in part | icho-appendix-c, icho-syllabus | — | 14 | 14 | 0 |
 | Chemistry (AP) | AP Chemistry Course and Exam Description (Fall 2024) | standard | read in part | ngss-hs, ib-chemistry-2025, usnco, icho-appendix-c, icho-syllabus, acs-accm, aamc-mcat-outline | — | 179 | 179 | 0 |
 | Computer Science | Computer Science Curricula 2023, Body of Knowledge | standard | read in full | — | — | 140 | 0 | 140 |
 | Dental Admission Test | Dental Admission Test 2026 Candidate Guide | exam-spec | read in full | ngss-hs, ib-chemistry-2025, usnco, icho-appendix-c | — | 183 | 72 | 111 |
@@ -61,6 +62,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 - **Anchor Quantities**: Values from CODATA 2022, standard atomic weights and 21 CFR 101.9. Which values to carry is a house list for units 1–4 and the SnapShot Key Numbers in Biology sheet for units 5–6. No chemistry standard for this was found; the ACS content maps have not been opened to check.
 - **Basketball**: Introductory level read in full, higher levels in overview only.
 - **Biology (AP)**: Read through a publisher's correlation table.
+- **Chemistry Olympiad**: Topics from the USNCO bands (read in part) and IChO Appendix C (read in full), at national-exam depth; the items are a house list.
 - **Chemistry (AP)**: Objectives past Unit 2 are written from topic titles.
 - **Earth and Space Science**: Units follow the NGSS HS ESS disciplinary core ideas (ESS1 Earth's place in the universe, ESS2 Earth's systems, ESS3 Earth and human activity), read in part. Objectives and their order are ours.
 - **Applied Engineering Mathematics**: UCI CBE 200 publishes no syllabus. The undergraduate part is anchored to fe-chemical; series, Sturm–Liouville, PDEs and transforms are past any exam spec and stand on the book.
@@ -100,6 +102,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 - **Anchor Quantities**: reference, read in part; should move to ACS Exams Institute Anchoring Concepts Content Map IV: Physical Chemistry (J. Chem. Educ. 2018, 95, 238)
 - **Basketball**: standard, read in part
 - **Biology (AP)**: standard, read through a crosswalk
+- **Chemistry Olympiad**: exam-spec, read in part
 - **Chemistry (AP)**: standard, read in part
 - **Earth and Space Science**: standard, read in part
 - **Applied Engineering Mathematics**: textbook, read in full
@@ -928,13 +931,13 @@ https://www.acs.org/education/olympiad/prepare-for-exams/exam-information.html
 
 | Item | Topic | Objectives | With a drill | Where |
 |---|---|---|---|---|
-| 1 | Stoichiometry and solutions (Q1-6) | 34 | 34 | analytical-chemistry (7), chemistry (18), dat (9) |
+| 1 | Stoichiometry and solutions (Q1-6) | 39 | 39 | analytical-chemistry (7), chemistry-olympiad (5), chemistry (18), dat (9) |
 | 2 | Descriptive chemistry and laboratory (Q7-12) | 9 | 9 | dat (4), inorganic-chemistry (5) |
-| 3 | States of matter (Q13-18) | 35 | 35 | chemistry (27), dat (8) |
-| 4 | Thermodynamics (Q19-24) | 40 | 40 | chemistry (34), dat (6) |
-| 5 | Kinetics (Q25-30) | 33 | 32 | chemistry (16), dat (4), physical-chemistry (13) |
-| 6 | Equilibrium (Q31-36) | 48 | 48 | chemistry (39), dat (9) |
-| 7 | Oxidation-reduction (Q37-42) | 22 | 22 | chemistry (18), dat (4) |
+| 3 | States of matter (Q13-18) | 38 | 38 | chemistry-olympiad (3), chemistry (27), dat (8) |
+| 4 | Thermodynamics (Q19-24) | 44 | 44 | chemistry-olympiad (4), chemistry (34), dat (6) |
+| 5 | Kinetics (Q25-30) | 35 | 34 | chemistry-olympiad (2), chemistry (16), dat (4), physical-chemistry (13) |
+| 6 | Equilibrium (Q31-36) | 53 | 53 | chemistry-olympiad (5), chemistry (39), dat (9) |
+| 7 | Oxidation-reduction (Q37-42) | 26 | 26 | chemistry-olympiad (4), chemistry (18), dat (4) |
 | P2 | National Part II: written problems | — | — | **nothing yet** |
 | P3 | National Part III: laboratory practical | — | — | **nothing yet** |
 
@@ -947,17 +950,17 @@ https://www.pianetachimica.it/olimpiadi/41icho/IChOsyllabus.pdf
 | Item | Topic | Objectives | With a drill | Where |
 |---|---|---|---|---|
 | c1 | Experimental error and significant figures | 17 | 17 | analytical-chemistry (6), chemistry (11) |
-| c2 | Nucleons, isotopes, decay and nuclear reactions | 6 | 6 | dat (3), nuclear (3) |
+| c2 | Nucleons, isotopes, decay and nuclear reactions | 8 | 8 | chemistry-olympiad (2), dat (3), nuclear (3) |
 | c3 | Quantum numbers, orbitals, configurations | 26 | 26 | chemistry (21), periodic-table (5) |
 | c4 | Periodic trends | 24 | 24 | chemistry (21), dat (3) |
 | c5 | Bond types, intermolecular forces, simple VSEPR | 40 | 40 | chemistry (40) |
 | c6 | Stoichiometry, mole, concentration | 23 | 23 | chemistry (18), dat (5) |
-| c7 | Equilibrium and Le Chatelier | 18 | 18 | chemistry (18) |
-| c8 | Acid-base, pH, buffers, hydrolysis | 26 | 26 | chemistry (21), dat (5) |
-| c9 | Solubility constants and complexation | 20 | 20 | analytical-chemistry (2), chemistry (18) |
-| c10 | Electrochemistry: EMF, Nernst, electrolysis, Faraday | 22 | 22 | chemistry (18), physical-chemistry (4) |
+| c7 | Equilibrium and Le Chatelier | 23 | 23 | chemistry-olympiad (5), chemistry (18) |
+| c8 | Acid-base, pH, buffers, hydrolysis | 31 | 31 | chemistry-olympiad (5), chemistry (21), dat (5) |
+| c9 | Solubility constants and complexation | 25 | 25 | analytical-chemistry (2), chemistry-olympiad (5), chemistry (18) |
+| c10 | Electrochemistry: EMF, Nernst, electrolysis, Faraday | 26 | 26 | chemistry-olympiad (4), chemistry (18), physical-chemistry (4) |
 | c11 | Rates, rate laws, catalysis, energy profiles | 16 | 16 | chemistry (16) |
-| c12 | Thermodynamics: enthalpy, Hess, entropy, Gibbs | 34 | 34 | chemistry (34) |
+| c12 | Thermodynamics: enthalpy, Hess, entropy, Gibbs | 38 | 38 | chemistry-olympiad (4), chemistry (34) |
 | c13 | Ideal gases and partial pressures | 31 | 31 | chemistry (27), dat (4) |
 | c14 | Titrations: direct, back, redox, complexometric, precipitation | 28 | 28 | analytical-chemistry (7), chemistry (21) |
 | c15 | Acidimetry, alkalimetry, indicators | 28 | 28 | analytical-chemistry (7), chemistry (21) |
@@ -969,13 +972,13 @@ https://www.pianetachimica.it/olimpiadi/41icho/IChOsyllabus.pdf
 | c21 | Hydrophilic and hydrophobic groups, micelles | — | — | **nothing yet** |
 | c22 | Polymers: chain growth, polyaddition, polycondensation | 4 | 4 | materials (4) |
 | a1 | Prep only: advanced VSEPR, inorganic stereochemistry, solid state and Bragg | 14 | 14 | inorganic-chemistry (14) |
-| a2 | Prep only: integrated rate laws, Arrhenius, steady state, collision theory | 19 | 18 | physical-chemistry (13), reaction-engineering (6) |
+| a2 | Prep only: integrated rate laws, Arrhenius, steady state, collision theory | 21 | 20 | chemistry-olympiad (2), physical-chemistry (13), reaction-engineering (6) |
 | a3 | Prep only: phase diagrams and Clausius-Clapeyron | 9 | 9 | physical-chemistry (3), thermodynamics (6) |
 | a4 | Prep only: stereoselective reactions, conformations, advanced aromatic substitution | 3 | 3 | organic-reactions (3) |
 | a5 | Prep only: advanced polymers and supramolecular chemistry | 4 | 4 | materials (4) |
 | a6 | Prep only: biochemistry (amino acids, proteins, enzymes, carbohydrates, nucleic acids) | 23 | 23 | biology (16), structures (7) |
-| a7 | Prep only: complex solubility, Schrodinger equation, simple MO theory | 20 | 17 | analytical-chemistry (2), physical-chemistry (18) |
-| a8 | Prep only: mass spectrometry and NMR | 5 | 5 | physical-chemistry (5) |
+| a7 | Prep only: complex solubility, Schrodinger equation, simple MO theory | 25 | 22 | analytical-chemistry (2), chemistry-olympiad (5), physical-chemistry (18) |
+| a8 | Prep only: mass spectrometry and NMR | 8 | 8 | chemistry-olympiad (3), physical-chemistry (5) |
 | a9 | Prep only: advanced synthesis and analysis techniques | 3 | 3 | analytical-chemistry (3) |
 | d1 | Facts: s-block reactions and flame colours | 4 | 4 | inorganic-chemistry (4) |
 | d2 | Facts: binary non-metal hydrides | 4 | 4 | inorganic-chemistry (4) |

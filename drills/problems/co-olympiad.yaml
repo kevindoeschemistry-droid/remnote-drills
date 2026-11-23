@@ -1,0 +1,592 @@
+- template: co-polyprotic-ph
+  skill: olympiad.equilibria
+  pace: workout
+  cases:
+  - name: H₃PO₄
+    C: 0.1
+    na: 0
+    Kas: &id001
+    - 0.0071
+    - 6.3e-08
+    - 4.5e-13
+    kt: 0.0071, 6.3e-08, 4.5e-13
+    ans: 1.632060508965
+  - name: NaH₂PO₄
+    C: 0.1
+    na: 1
+    Kas: *id001
+    kt: 0.0071, 6.3e-08, 4.5e-13
+    ans: 4.689680725985
+  - name: Na₂HPO₄
+    C: 0.05
+    na: 2
+    Kas: *id001
+    kt: 0.0071, 6.3e-08, 4.5e-13
+    ans: 9.693510390298
+  - name: Na₃PO₄
+    C: 0.01
+    na: 3
+    Kas: *id001
+    kt: 0.0071, 6.3e-08, 4.5e-13
+    ans: 11.8739882535
+  - name: NaHCO₃
+    C: 0.1
+    na: 1
+    Kas: &id002
+    - 4.5e-07
+    - 4.7e-11
+    kt: 4.5e-07, 4.7e-11
+    ans: 8.336874863514
+  - name: Na₂CO₃
+    C: 0.05
+    na: 2
+    Kas: *id002
+    kt: 4.5e-07, 4.7e-11
+    ans: 11.49927651662
+  prompt: 'What is the pH of {{C}} M {{name}}? Acid constants of the parent acid: Kₐ = {{kt}}.'
+  parts:
+  - ask: pH
+    label: y
+    value: ans
+    tol: 0.003
+    explain: 'Write the charge balance with every species: [H⁺] + [Na⁺] = Σ (charge × fraction) C + [OH⁻]. Amphiprotic salts (H₂PO₄⁻, HPO₄²⁻, HCO₃⁻) sit near ½(pKₐₙ + pKₐₙ₊₁); fully deprotonated ones hydrolyse
+      as bases. The reference solves the balance exactly'
+  verify:
+    expect:
+      y: polyprotic_ph(C, na, Kas)
+- template: co-buffer-acid
+  skill: olympiad.equilibria
+  pace: quick
+  cases:
+  - Ca: 0.1
+    Cb: 0.1
+    Ka: 1.75e-05
+    nH: 0.001
+    V: 0.1
+    name: acetic acid/acetate
+    ans: 4.669999344522
+  - Ca: 0.05
+    Cb: 0.1
+    Ka: 1.75e-05
+    nH: 0.002
+    V: 0.2
+    name: acetic acid/acetate
+    ans: 4.933193902579
+  - Ca: 0.2
+    Cb: 0.15
+    Ka: 5.6e-10
+    nH: 0.005
+    V: 0.5
+    name: NH₄⁺/NH₃
+    ans: 9.075659176459
+  - Ca: 0.1
+    Cb: 0.1
+    Ka: 6.3e-08
+    nH: 0.003
+    V: 0.1
+    name: H₂PO₄⁻/HPO₄²⁻
+    ans: 6.931814439203
+  prompt: '{{V}} L of a {{name}} buffer holds {{Ca}} M acid and {{Cb}} M base (Kₐ = {{Ka}}). What is the pH after adding {{nH}} mol HCl (no volume change)?'
+  parts:
+  - ask: pH
+    label: y
+    value: ans
+    tol: 0.003
+    explain: 'Strong acid converts base to acid mole for mole: then Henderson–Hasselbalch on the new amounts. The reference solves the full charge balance; the two agree to a few thousandths whenever both
+      forms stay well above [H⁺]'
+  verify:
+    expect:
+      y: buffer_after(Ca, Cb, Ka, nH, V)
+- template: co-solubility-ph
+  skill: olympiad.equilibria
+  pace: quick
+  cases:
+  - pH: 7.0
+    Ksp: 3.9e-11
+    Ka: 0.00068
+    ans: 0.0002136538779769
+  - pH: 3.0
+    Ksp: 3.9e-11
+    Ka: 0.00068
+    ans: 0.0003904227515888
+  - pH: 2.0
+    Ksp: 3.9e-11
+    Ka: 0.00068
+    ans: 0.001339809640985
+  - pH: 4.0
+    Ksp: 3.9e-11
+    Ka: 0.00068
+    ans: 0.0002340949249629
+  - pH: 1.0
+    Ksp: 3.9e-11
+    Ka: 0.00068
+    ans: 0.005978942838023
+  prompt: What is the molar solubility of CaF₂ (K_sp = {{Ksp}}) in a solution buffered at pH {{pH}}? Kₐ(HF) = {{Ka}}.
+  parts:
+  - ask: s (M)
+    label: y
+    value: ans
+    tol: 0.001
+    explain: 'Total fluoride 2s splits into F⁻ and HF: [F⁻] = 2s·Kₐ/(Kₐ + [H⁺]). Then s(2s·α_F)² = K_sp gives s = [K_sp(1 + [H⁺]/Kₐ)²/4]^⅓. Salts of weak acids dissolve more in acid'
+  verify:
+    expect:
+      y: ksp_acid(Ksp, Ka, pH)
+- template: co-dissociation
+  skill: olympiad.equilibria
+  pace: quick
+  cases:
+  - Kp: 0.15
+    P: 1.0
+    ans: 0.1901172751573
+  - Kp: 0.15
+    P: 0.1
+    ans: 0.5222329678671
+  - Kp: 0.15
+    P: 10.0
+    ans: 0.0611227456628
+  - Kp: 1.0
+    P: 1.0
+    ans: 0.4472135955
+  - Kp: 0.05
+    P: 2.0
+    ans: 0.07881104062391
+  prompt: N₂O₄ ⇌ 2NO₂ has K_p = {{Kp}} (bar). Pure N₂O₄ is held at a total pressure of {{P}} bar. What fraction dissociates at equilibrium?
+  parts:
+  - ask: α
+    label: y
+    value: ans
+    tol: 0.0005
+    explain: 'Per mole N₂O₄: 1 − α and 2α, total 1 + α. Then K_p = 4α²P/(1 − α²), so α = √(K_p/(4P + K_p)). Lower pressure, more dissociation: Le Chatelier in numbers'
+  verify:
+    expect:
+      y: n2o4_alpha(Kp, P)
+- template: co-kp-kc
+  skill: olympiad.equilibria
+  pace: quick
+  cases:
+  - Kc: 0.5
+    Tt: 400
+    dn: -2
+    rx: N₂ + 3H₂ ⇌ 2NH₃
+    ans: 0.0004520449808768
+  - Kc: 0.0046
+    Tt: 298
+    dn: 1
+    rx: N₂O₄ ⇌ 2NO₂
+    ans: 0.1139746535675
+  - Kc: 0.0001
+    Tt: 1000
+    dn: 1
+    rx: PCl₅ ⇌ PCl₃ + Cl₂
+    ans: 0.008314462618
+  - Kc: 2.5
+    Tt: 500
+    dn: -1
+    rx: 2SO₂ + O₂ ⇌ 2SO₃
+    ans: 0.06013617752247
+  prompt: For {{rx}}, K_c = {{Kc}} at {{Tt}} K (concentrations in mol/L). What is K_p (pressures in bar)?
+  parts:
+  - ask: K_p
+    label: y
+    value: ans
+    tol: 0.0005
+    explain: p = cRT, so K_p = K_c(RT)^Δn with Δn = gas moles of products − reactants and R = 0.08314 L·bar/(mol·K). Δn = 0 makes them equal
+  verify:
+    expect:
+      y: kp_from_kc(Kc, Tt, dn)
+- template: co-e-from-ksp
+  skill: olympiad.electrochem
+  pace: quick
+  cases:
+  - name: AgCl(s) + e⁻ → Ag(s) + Cl⁻
+    E0: 0.7996
+    Ksp: 1.8e-10
+    n: 1
+    ans: 0.2231082585373
+  - name: AgBr(s) + e⁻ → Ag(s) + Br⁻
+    E0: 0.7996
+    Ksp: 5.0e-13
+    n: 1
+    ans: 0.07187906499197
+  - name: AgI(s) + e⁻ → Ag(s) + I⁻
+    E0: 0.7996
+    Ksp: 8.3e-17
+    n: 1
+    ans: -0.1517368824019
+  - name: Hg₂Cl₂(s) + 2e⁻ → 2Hg(l) + 2Cl⁻
+    E0: 0.7973
+    Ksp: 1.4e-18
+    n: 2
+    ans: 0.2691882726093
+  prompt: Find E° (V) for {{name}}, given E° of the metal-ion couple = {{E0}} V and K_sp = {{Ksp}} at 298 K.
+  parts:
+  - ask: E° (V)
+    label: y
+    value: ans
+    tol: 0.0005
+    explain: 'Add the reactions and their ΔG° = −nFE°: the new couple is the ion couple plus dissolution, so E° = E°(Mⁿ⁺/M) + (RT/nF) ln K_sp. Insoluble salts make the metal easier to oxidise'
+  verify:
+    expect:
+      y: e_from_ksp(E0, Ksp, n)
+- template: co-electrolysis
+  skill: olympiad.electrochem
+  pace: quick
+  cases:
+  - w: 0
+    I: 2.0
+    q: 3600
+    M: 63.546
+    n: 2
+    what: copper from Cu²⁺
+    task: How many grams are deposited by 2.0 A in 3600 s?
+    ans: 2.370988366558
+  - w: 0
+    I: 0.5
+    q: 1800
+    M: 107.868
+    n: 1
+    what: silver from Ag⁺
+    task: How many grams are deposited by 0.5 A in 1800 s?
+    ans: 1.006175735388
+  - w: 0
+    I: 10.0
+    q: 7200
+    M: 26.982
+    n: 3
+    what: aluminium from Al³⁺
+    task: How many grams are deposited by 10.0 A in 7200 s?
+    ans: 6.711569372997
+  - w: 1
+    I: 1.5
+    q: 5.0
+    M: 63.546
+    n: 2
+    what: copper from Cu²⁺
+    task: How many seconds does 1.5 A take to deposit 5.0 g?
+    ans: 10122.36092699
+  - w: 1
+    I: 3.0
+    q: 2.0
+    M: 58.693
+    n: 2
+    what: nickel from Ni²⁺
+    task: How many seconds does 3.0 A take to deposit 2.0 g?
+    ans: 2191.864608954
+  prompt: Electroplating {{what}} (M = {{M}} g/mol). {{task}}
+  parts:
+  - ask: Answer
+    label: y
+    value: ans
+    tol: 0.0005
+    explain: 'Charge Q = It; moles of electrons Q/F; moles of metal Q/(nF). Faraday''s laws are just electron bookkeeping: the same charge deposits more silver than copper'
+  verify:
+    expect:
+      y: electrolysis(w, I, q, M, n)
+- template: co-born-haber
+  skill: olympiad.thermochem
+  pace: quick
+  cases:
+  - salt: NaCl
+    sub: 107.3
+    ie:
+    - 495.8
+    hd: 121.7
+    ea:
+    - -348.6
+    form: -411.2
+    it: '495.8'
+    et: '-348.6'
+    ans: -787.4
+  - salt: KBr
+    sub: 89.0
+    ie:
+    - 418.8
+    hd: 111.9
+    ea:
+    - -324.5
+    form: -393.8
+    it: '418.8'
+    et: '-324.5'
+    ans: -689.0
+  - salt: MgO
+    sub: 147.1
+    ie:
+    - 737.7
+    - 1450.7
+    hd: 249.2
+    ea:
+    - -141.0
+    - 744.0
+    form: -601.6
+    it: 737.7 + 1450.7
+    et: -141.0 + 744.0
+    ans: -3789.3
+  - salt: CaCl₂ (2 Cl)
+    sub: 177.8
+    ie:
+    - 589.8
+    - 1145.4
+    hd: 243.4
+    ea:
+    - -697.2
+    form: -795.4
+    it: 589.8 + 1145.4
+    et: '-697.2'
+    ans: -2254.6
+  prompt: 'Born–Haber for {{salt}} (kJ/mol): ΔH_f = {{form}}, metal sublimation {{sub}}, ionisation {{it}}, non-metal atomisation {{hd}}, electron gain {{et}}. What is the lattice-formation enthalpy (gaseous
+    ions → solid)?'
+  parts:
+  - ask: ΔH_latt (kJ/mol)
+    label: y
+    value: ans
+    tol: 0.0005
+    explain: 'Hess around the cycle: ΔH_f = sublimation + ionisation + atomisation + electron gain + lattice. The second electron gain of O is endothermic (+744), so MgO''s huge lattice energy pays for
+      it'
+  verify:
+    expect:
+      y: born_haber(sub, ie, hd, ea, form)
+- template: co-bond-enthalpy
+  skill: olympiad.thermochem
+  pace: quick
+  cases:
+  - rx: CH₄ + 2O₂ → CO₂ + 2H₂O
+    br: C-H*4,O=O*2
+    fo: C=O*2,O-H*4
+    tab: C-H:413,O=O:498,C=O:799,O-H:463,C-C:348,C=C:614,H-H:436,N≡N:945,N-H:391,C-O:358,Cl-Cl:242,C-Cl:328,H-Cl:431
+    ans: -802.0
+  - rx: C₂H₄ + H₂ → C₂H₆
+    br: C=C*1,H-H*1
+    fo: C-C*1,C-H*2
+    tab: C-H:413,O=O:498,C=O:799,O-H:463,C-C:348,C=C:614,H-H:436,N≡N:945,N-H:391,C-O:358,Cl-Cl:242,C-Cl:328,H-Cl:431
+    ans: -124.0
+  - rx: N₂ + 3H₂ → 2NH₃
+    br: N≡N*1,H-H*3
+    fo: N-H*6
+    tab: C-H:413,O=O:498,C=O:799,O-H:463,C-C:348,C=C:614,H-H:436,N≡N:945,N-H:391,C-O:358,Cl-Cl:242,C-Cl:328,H-Cl:431
+    ans: -93.0
+  - rx: CH₄ + Cl₂ → CH₃Cl + HCl
+    br: C-H*1,Cl-Cl*1
+    fo: C-Cl*1,H-Cl*1
+    tab: C-H:413,O=O:498,C=O:799,O-H:463,C-C:348,C=C:614,H-H:436,N≡N:945,N-H:391,C-O:358,Cl-Cl:242,C-Cl:328,H-Cl:431
+    ans: -104.0
+  - rx: C₂H₅OH + 3O₂ → 2CO₂ + 3H₂O
+    br: C-H*5,C-C*1,C-O*1,O-H*1,O=O*3
+    fo: C=O*4,O-H*6
+    tab: C-H:413,O=O:498,C=O:799,O-H:463,C-C:348,C=C:614,H-H:436,N≡N:945,N-H:391,C-O:358,Cl-Cl:242,C-Cl:328,H-Cl:431
+    ans: -1246.0
+  prompt: 'Estimate ΔH (kJ/mol) for {{rx}} (gas phase) from mean bond enthalpies (kJ/mol): C–H 413, O=O 498, C=O 799 (in CO₂), O–H 463, C–C 348, C=C 614, H–H 436, N≡N 945, N–H 391, C–O 358, Cl–Cl 242, C–Cl
+    328, H–Cl 431.'
+  parts:
+  - ask: ΔH (kJ/mol)
+    label: y
+    value: ans
+    tol: 0.0005
+    explain: ΔH ≈ Σ(bonds broken) − Σ(bonds formed). Mean values are averages over many molecules, so expect errors of a few percent, and none at all for phase changes (it assumes gases)
+  verify:
+    expect:
+      y: bond_enthalpy(br, fo, tab)
+- template: co-integrated-rate
+  skill: olympiad.kinetics
+  pace: quick
+  cases:
+  - order: 0
+    k: 0.01
+    C0: 1.0
+    Cc: 0.25
+    ans: 75.0
+  - order: 1
+    k: 0.05
+    C0: 1.0
+    Cc: 0.1
+    ans: 46.05170185988
+  - order: 2
+    k: 0.5
+    C0: 0.2
+    Cc: 0.05
+    ans: 30.0
+  - order: 2
+    k: 0.02
+    C0: 1.0
+    Cc: 0.1
+    ans: 450.0
+  - order: 1
+    k: 0.0012
+    C0: 0.5
+    Cc: 0.4
+    ans: 185.9529594285
+  prompt: A reaction of order {{order}} in A has k = {{k}} (mol/L and s units). How long (s) does [A] take to fall from {{C0}} to {{Cc}} M?
+  parts:
+  - ask: t (s)
+    label: y
+    value: ans
+    tol: 0.0005
+    explain: 'Integrate: zero order [A]₀ − [A] = kt; first order ln([A]₀/[A]) = kt; second order 1/[A] − 1/[A]₀ = kt. Second-order half-lives double each time; first-order ones stay fixed'
+  verify:
+    expect:
+      y: rate_time(order, k, C0, Cc)
+- template: co-decay-chain
+  skill: olympiad.kinetics
+  pace: quick
+  cases:
+  - N0: 1000000.0
+    t1: 10.0
+    t2: 1.0
+    t: 5.0
+    name: parent t½ = 10 h, daughter t½ = 1 h
+    ans: 75095.19790962
+  - N0: 1000000.0
+    t1: 1.0
+    t2: 10.0
+    t: 2.0
+    name: parent t½ = 1 h, daughter t½ = 10 h
+    ans: 689500.6258846
+  - N0: 1000000000.0
+    t1: 12.7
+    t2: 2.24
+    t: 24.0
+    name: parent t½ = 12.7 h, daughter t½ = 2.24 h
+    ans: 57660944.63278
+  - N0: 500000.0
+    t1: 8.0
+    t2: 4.0
+    t: 8.0
+    name: parent t½ = 8 d, daughter t½ = 4 d
+    ans: 125000.0
+  prompt: A pure sample of {{N0}} parent atoms decays to a radioactive daughter ({{name}}), which decays to a stable product. How many daughter atoms are present after {{t}} (same time units)?
+  parts:
+  - ask: N_D
+    label: y
+    value: ans
+    tol: 0.0005
+    explain: 'Bateman: $N_D = N_0\dfrac{\lambda_1}{\lambda_2 - \lambda_1}(e^{-\lambda_1t} - e^{-\lambda_2t})$. A short-lived daughter of a long-lived parent settles into transient or secular equilibrium
+      (the basis of the ⁹⁹Mo/⁹⁹ᵐTc generator)'
+  verify:
+    expect:
+      y: daughter_atoms(N0, t1, t2, t)
+- template: co-vant-hoff
+  skill: olympiad.solutions
+  pace: quick
+  cases:
+  - dT: 0.2
+    Kf: 1.86
+    m: 0.1
+    nu: 2
+    name: a weak 1:1 acid HA
+    ans: 0.0752688172043
+  - dT: 0.0217
+    Kf: 1.86
+    m: 0.01
+    nu: 2
+    name: acetic acid
+    ans: 0.1666666666667
+  - dT: 0.5
+    Kf: 1.86
+    m: 0.1
+    nu: 3
+    name: a 1:2 salt MX₂
+    ans: 0.8440860215054
+  - dT: 0.335
+    Kf: 1.86
+    m: 0.1
+    nu: 2
+    name: a 1:1 salt
+    ans: 0.8010752688172
+  prompt: A {{m}} mol/kg aqueous solution of {{name}} (ν = {{nu}} ions per formula unit when fully dissociated) freezes {{dT}} K below pure water (K_f = {{Kf}} K kg/mol). What is the degree of dissociation
+    α?
+  parts:
+  - ask: α
+    label: y
+    value: ans
+    tol: 0.0005
+    explain: ΔT_f = iK_f m gives i; then i = 1 + α(ν − 1). Strong electrolytes still show α < 1 at moderate concentration because ions pair, not because they fail to dissociate
+  verify:
+    expect:
+      y: vant_hoff_alpha(dT, Kf, m, nu)
+- template: co-isotope-pattern
+  skill: olympiad.spectro
+  pace: quick
+  cases:
+  - el: Cl
+    n: 1
+    k: 1
+    pk: M+2
+    ans: 0.3199577613516
+  - el: Cl
+    n: 2
+    k: 1
+    pk: M+2
+    ans: 0.6399155227033
+  - el: Cl
+    n: 2
+    k: 2
+    pk: M+4
+    ans: 0.1023729690492
+  - el: Br
+    n: 1
+    k: 1
+    pk: M+2
+    ans: 0.9727756954034
+  - el: Br
+    n: 2
+    k: 1
+    pk: M+2
+    ans: 1.945551390807
+  - el: Cl
+    n: 3
+    k: 1
+    pk: M+2
+    ans: 0.9598732840549
+  prompt: A molecule contains {{n}} {{el}} atom(s) (³⁵Cl 75.76%, ³⁷Cl 24.24%; ⁷⁹Br 50.69%, ⁸¹Br 49.31%). What is the intensity of the {{pk}} peak relative to M?
+  parts:
+  - ask: Ratio
+    label: y
+    value: ans
+    tol: 0.0005
+    explain: 'Peaks follow the binomial expansion of (a + b)ⁿ: M+2k relative to M is C(n,k)(b/a)ᵏ. One Cl gives 3:1, one Br 1:1, two Br 1:2:1 — patterns that identify halogens at a glance'
+  verify:
+    expect:
+      y: isotope_ratio(el, n, k)
+- template: co-nmr-multiplicity
+  skill: olympiad.spectro
+  pace: recall
+  cases:
+  - n1: 3
+    n2: 0
+    eq: 0
+    text: a CH₂ next to a CH₃ only
+    ans: 4
+  - n1: 2
+    n2: 3
+    eq: 1
+    text: a CH₂ between a CH₂ and a CH₃, equal J
+    ans: 6
+  - n1: 2
+    n2: 3
+    eq: 0
+    text: a CH₂ between a CH₂ and a CH₃, different J
+    ans: 12
+  - n1: 6
+    n2: 0
+    eq: 0
+    text: the CH of an isopropyl group
+    ans: 7
+  - n1: 1
+    n2: 2
+    eq: 0
+    text: a vinyl H coupled to one H (J = 7) and two others (J = 3)
+    ans: 6
+  - n1: 2
+    n2: 2
+    eq: 1
+    text: a CH₂ between two CH₂ groups, equal J
+    ans: 5
+  prompt: How many lines (first-order ¹H NMR) does {{text}} show?
+  parts:
+  - ask: Lines
+    label: y
+    value: ans
+    tol: 0.0005
+    explain: n equivalent neighbours give n + 1 lines; two different sets give (n + 1)(m + 1) when their J differ, collapsing toward n + m + 1 when the J are equal
+  verify:
+    expect:
+      y: multiplet_lines(n1, n2, eq)
