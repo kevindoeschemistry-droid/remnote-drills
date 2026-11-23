@@ -272,6 +272,7 @@
   pace: recall
   given: { l: { int: [2, 6] }, w: { int: [2, 5] }, h: { int: [2, 5] } }
   prompt: 'A box is packed with unit cubes: each layer has ${{l}}$ rows of ${{w}}$ cubes, and there are ${{h}}$ layers. What is its volume in cubic units?'
+  figure: { type: solid, kind: box, dims: ['w', 'l', 'h'], labels: ['{{w}}', '{{l}} rows', '{{h}} layers'], units: true }
   parts:
     - { ask: 'Volume', label: v, tex: 'V', value: l*w*h, tol: 0.0001, explain: 'A solid packed with $n$ unit cubes, no gaps and no overlaps, has volume $n$. One layer is ${{l*w}}$ cubes; ${{h}}$ layers make ${{l*w*h}}$' }
   verify: { expect: { v: "sum([l*w for q in range(h)])" } }
@@ -330,6 +331,7 @@
   given: { a: { int: [25, 95] }, b: { int: [20, 70] } }
   require: ["a + b < 170"]
   prompt: 'Two angles of a triangle measure ${{a}}^\circ$ and ${{b}}^\circ$. What is the third?'
+  figure: { type: geom, polys: [{ angles: ['a', 'b'], fill: true }], angles: [{ corner: [0, 0], label: '{{a}}°' }, { corner: [0, 1], label: '{{b}}°' }, { corner: [0, 2], label: '?', hot: true }] }
   parts:
     - { ask: 'Third angle (degrees)', label: v, tex: 'x', value: 180 - a - b, tol: 0.0001, explain: 'The angles of a triangle add to 180°. Two angles fix the third, but not the size of the triangle: many similar triangles share them' }
   verify: { expect: { v: "solve(Eq(a + b + x, 180), x)[0]" } }

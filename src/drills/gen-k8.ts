@@ -6,6 +6,7 @@
 import { Rng } from "./rng";
 import type { Draft } from "./types";
 import { m } from "./tex";
+import { geomSvg, solidSvg, withFig, corner, triFromAngles, transversal, angExpr, type Pt } from "./geom";
 import { Q } from "./rational";
 import { require_ } from "./reject";
 import { approx, choice, cx, dec, decTex, draft, exact, gcd, int, intTxt, lcm, NAMES, par, poly, polyPy, qpy, qtex, sg, shuffle, tuple } from "./school";
@@ -634,26 +635,29 @@ const convert = (downOnly: boolean): Gen => (r) => {
   const v = q(y, f);
   return draft(`${m(`${int(y)}\\ \\text{${small}} = \\;?\\ \\text{${big}}`)} (a decimal or fraction)`, exact(v), `${decTexQ(v)}\\ \\text{${big}}`, [`${f} ${small} = 1 ${big}, so divide by ${f}.`], { mx: "convert", x: `${y}`, from: small, to: big });
 };
+const rectFig = (l: number, w: number, sl: string, sw: string) => { const pts: Pt[] = [[0, 0], [l, 0], [l, w], [0, w]]; return geomSvg({ polys: [{ pts, sides: [sl, sw, null, null], fill: true }], angles: [{ ...corner(pts, 0), right: true }] }); };
 const rectArea: Gen = (r) => {
   const l = r.int(2, 15), w = r.int(2, 12);
   return r.chance(0.6)
-    ? draft(`A rectangle is ${l} cm long and ${w} cm wide. What is its area in cm²?`, exact(l * w), `${l * w}\\ \\text{cm}^2`, [`Rows of unit squares: ${m(`${l} \\times ${w} = ${l * w}`)}.`], { mx: "rect", l, w, ask: "area" })
-    : draft(`A rectangle has area ${l * w} m² and length ${l} m. What is its width in m?`, exact(w), `${w}\\ \\text{m}`, [`${m(`${l} \\times w = ${l * w}`)}, so ${m(`w = ${w}`)}.`], { mx: "rect", l, A: l * w, ask: "width" });
+    ? withFig(draft(`A rectangle is ${l} cm long and ${w} cm wide. What is its area in cm²?`, exact(l * w), `${l * w}\\ \\text{cm}^2`, [`Rows of unit squares: ${m(`${l} \\times ${w} = ${l * w}`)}.`], { mx: "rect", l, w, ask: "area" }), rectFig(l, w, `${l} cm`, `${w} cm`))
+    : withFig(draft(`A rectangle has area ${l * w} m² and length ${l} m. What is its width in m?`, exact(w), `${w}\\ \\text{m}`, [`${m(`${l} \\times w = ${l * w}`)}, so ${m(`w = ${w}`)}.`], { mx: "rect", l, A: l * w, ask: "width" }), rectFig(l, w, `${l} m`, "?"));
 };
 const areaDistributive: Gen = (r) => {
   const a = r.int(2, 9), b = r.int(2, 9), c = r.int(2, 9);
-  return box(`A rectangle ${a} by ${b + c} is split into a ${a} × ${b} piece and another piece. Fill in the box: ${m(`${a} \\times ${b + c} = ${a} \\times ${b} + ${a} \\times \\square`)}`, `${a}*${b + c} == ${a}*${b} + ${a}*?`, c, [`The other piece is ${a} by ${b + c} − ${b} = ${c}.`]);
+  return withFig(box(`A rectangle ${a} by ${b + c} is split into a ${a} × ${b} piece and another piece. Fill in the box: ${m(`${a} \\times ${b + c} = ${a} \\times ${b} + ${a} \\times \\square`)}`, `${a}*${b + c} == ${a}*${b} + ${a}*?`, c, [`The other piece is ${a} by ${b + c} − ${b} = ${c}.`]),
+    geomSvg({ polys: [{ pts: [[0, 0], [b, 0], [b, a], [0, a]], sides: [`${b}`, null, null, `${a}`], fill: true }, { pts: [[b, 0], [b + c, 0], [b + c, a], [b, a]], sides: ["?", null, null, null] }], segs: [{ a: [0, a], b: [b + c, a], label: `${b + c}` }] }));
 };
 const rectilinear: Gen = (r) => {
   const W = r.int(6, 14), H = r.int(5, 12), w = r.int(2, W - 2), h = r.int(2, H - 2);
-  return draft(`An L-shaped room is a ${W} m by ${H} m rectangle with a ${w} m by ${h} m rectangle cut out of one corner. What is its area in m²?`, exact(W * H - w * h), `${W * H - w * h}\\ \\text{m}^2`,
-    [`Whole rectangle minus the missing corner: ${m(`${W}\\times${H} - ${w}\\times${h} = ${W * H} - ${w * h} = ${W * H - w * h}`)}.`, `Or split it into two rectangles and add.`], { mx: "lshape", W, H, w, h });
+  return withFig(draft(`An L-shaped room is a ${W} m by ${H} m rectangle with a ${w} m by ${h} m rectangle cut out of one corner. What is its area in m²?`, exact(W * H - w * h), `${W * H - w * h}\\ \\text{m}^2`,
+    [`Whole rectangle minus the missing corner: ${m(`${W}\\times${H} - ${w}\\times${h} = ${W * H} - ${w * h} = ${W * H - w * h}`)}.`, `Or split it into two rectangles and add.`], { mx: "lshape", W, H, w, h }),
+    geomSvg({ polys: [{ pts: [[0, 0], [W, 0], [W, H - h], [W - w, H - h], [W - w, H], [0, H]], sides: [`${W} m`, null, null, null, null, `${H} m`], fill: true }], segs: [{ a: [W - w, H], b: [W, H], dash: true, label: `${w} m` }, { a: [W, H - h], b: [W, H], dash: true, label: `${h} m`, side: -1 }] }));
 };
 const perimeter: Gen = (r) => {
   const l = r.int(2, 20), w = r.int(2, 15);
   return r.chance(0.5)
-    ? draft(`What is the perimeter of a ${l} ft by ${w} ft rectangle?`, exact(2 * (l + w)), `${2 * (l + w)}\\ \\text{ft}`, [`Add all four sides: ${m(`${l} + ${w} + ${l} + ${w} = ${2 * (l + w)}`)}.`], { mx: "eq", eq: `? == ${l} + ${w} + ${l} + ${w}` })
-    : box(`A rectangle has perimeter ${2 * (l + w)} ft and length ${l} ft. What is its width?`, `2*${l} + 2*? == ${2 * (l + w)}`, w, [`Two lengths use ${2 * l} ft; the two widths share ${2 * w} ft.`]);
+    ? withFig(draft(`What is the perimeter of a ${l} ft by ${w} ft rectangle?`, exact(2 * (l + w)), `${2 * (l + w)}\\ \\text{ft}`, [`Add all four sides: ${m(`${l} + ${w} + ${l} + ${w} = ${2 * (l + w)}`)}.`], { mx: "eq", eq: `? == ${l} + ${w} + ${l} + ${w}` }), rectFig(l, w, `${l} ft`, `${w} ft`))
+    : withFig(box(`A rectangle has perimeter ${2 * (l + w)} ft and length ${l} ft. What is its width?`, `2*${l} + 2*? == ${2 * (l + w)}`, w, [`Two lengths use ${2 * l} ft; the two widths share ${2 * w} ft.`]), rectFig(l, w, `${l} ft`, "?"));
 };
 const angleTurn: Gen = (r) => {
   const d = r.pick([2, 3, 4, 5, 6, 8, 9, 10, 12, 36]), n = r.int(1, d - 1);
@@ -663,7 +667,10 @@ const angleTurn: Gen = (r) => {
 };
 const angleAdd: Gen = (r) => {
   const whole = r.int(40, 175), a = r.int(10, whole - 10);
-  return box(`Angle ${m("ABC")} measures ${whole}°. Ray ${m("BD")} splits it into ${m("\\angle ABD")} = ${a}° and ${m("\\angle DBC")}. Find ${m("\\angle DBC")} in degrees.`, `${a} + ? == ${whole}`, whole - a, [`Angle measure is additive: ${m(`${whole} - ${a} = ${whole - a}`)}.`]);
+  const ray = (t: number): Pt => [10 * Math.cos((t * Math.PI) / 180), 10 * Math.sin((t * Math.PI) / 180)];
+  return withFig(box(`Angle ${m("ABC")} measures ${whole}°. Ray ${m("BD")} splits it into ${m("\\angle ABD")} = ${a}° and ${m("\\angle DBC")}. Find ${m("\\angle DBC")} in degrees.`, `${a} + ? == ${whole}`, whole - a, [`Angle measure is additive: ${m(`${whole} - ${a} = ${whole - a}`)}.`]),
+    geomSvg({ segs: [{ a: [0, 0], b: ray(0) }, { a: [0, 0], b: ray(a) }, { a: [0, 0], b: ray(whole) }], dots: [{ p: [0, 0], label: "B", dir: 270 }, { p: ray(0), label: "A", dir: 0 }, { p: ray(a), label: "D", dir: a }, { p: ray(whole), label: "C", dir: whole }],
+      angles: [{ at: [0, 0], a1: 0, a2: a, label: `${a}°` }, { at: [0, 0], a1: a, a2: whole, label: "?", hot: true }] }));
 };
 const angleType: Gen = (r) => {
   const a = r.chance(0.2) ? r.pick([90, 180]) : r.int(1, 179);
@@ -688,8 +695,10 @@ const volumePrism = (frac: boolean): Gen => (r) => {
   require_(!frac || !(l.isInt() && w.isInt() && h.isInt()));
   const v = l.mul(w).mul(h);
   const t = (x: Q) => qtex(x, true);
-  return draft(`A box (right rectangular prism) is ${m(t(l))} by ${m(t(w))} by ${m(t(h))} inches. What is its volume in cubic inches?${frac ? " (e.g. 45/8)" : ""}`, exact(v), `${v.tex()}\\ \\text{in}^3`,
-    [`${m("V = lwh")}${frac ? `: pack it with ${m(`\\frac1{${lcm(lcm(l.d, w.d), h.d)}}`)}-inch cubes and count` : ""}: ${m(`${t(l)} \\times ${t(w)} \\times ${t(h)} = ${v.tex()}`)}.`], { mx: "box", dims: [l, w, h].map((x) => `${x.n}/${x.d}`) });
+  const pl = (x: Q) => (x.isInt() ? `${x.n}` : `${x.n}/${x.d}`);
+  return withFig(draft(`A box (right rectangular prism) is ${m(t(l))} by ${m(t(w))} by ${m(t(h))} inches. What is its volume in cubic inches?${frac ? " (e.g. 45/8)" : ""}`, exact(v), `${v.tex()}\\ \\text{in}^3`,
+    [`${m("V = lwh")}${frac ? `: pack it with ${m(`\\frac1{${lcm(lcm(l.d, w.d), h.d)}}`)}-inch cubes and count` : ""}: ${m(`${t(l)} \\times ${t(w)} \\times ${t(h)} = ${v.tex()}`)}.`], { mx: "box", dims: [l, w, h].map((x) => `${x.n}/${x.d}`) }),
+    solidSvg({ kind: "box", dims: [l.value(), w.value(), h.value()], labels: [`${pl(l)} in`, `${pl(w)} in`, `${pl(h)} in`] }));
 };
 const volumeComposite: Gen = (r) => {
   const a = [r.int(2, 9), r.int(2, 9), r.int(2, 9)], b = [r.int(2, 9), r.int(2, 9), r.int(2, 9)];
@@ -1064,17 +1073,26 @@ const areaPoly: Gen = (r) => {
     [`a trapezoid with parallel sides ${b} cm and ${b2} cm and height ${h} cm`, [[0, 0], [b, 0], [s + b2, h], [s, h]], q((b + b2) * h, 2)],
   ];
   const [txt, verts, v] = shapes[t];
-  return draft(`Find the area of ${txt}, in cm².`, exact(v), `${qtex(v)}\\ \\text{cm}^2`, [[`Half the rectangle on the same base and height: ${m(`\\tfrac12 bh`)}.`, `${m(`\\tfrac12 \\times ${b} \\times ${h}`)}.`, `Cut off a triangle and slide it over: a ${b} × ${h} rectangle.`, `Two copies make a parallelogram with base ${b + b2}: ${m(`\\tfrac12(b_1 + b_2)h`)}.`][t], `${m(`= ${qtex(v)}`)}.`], { mx: "shoelace", verts });
+  // drawn with a gentler slant than the verifier's vertices: the prompt gives only base and height
+  const sd = Math.min(Math.max(s, t === 0 ? -0.3 * b : -0.35 * b), t === 0 ? 1.3 * b : 0.35 * b);
+  const V: Pt[] = t === 0 ? [[0, 0], [b, 0], [sd, h]] : t === 1 ? [[0, 0], [b, 0], [0, h]] : t === 2 ? [[0, 0], [b, 0], [b + sd, h], [sd, h]] : [[0, 0], [b, 0], [sd + b2, h], [sd, h]], top = V[V.length - 1];
+  const g = t === 1
+    ? { polys: [{ pts: V, sides: [`${b} cm`, null, `${h} cm`], fill: true }], angles: [{ ...corner(V, 0), right: true }] }
+    : { polys: [{ pts: V, sides: [`${b} cm`, null, t === 3 ? `${b2} cm` : null, null], fill: true }],
+        segs: [{ a: [top[0], 0] as Pt, b: top, dash: true, label: `${h} cm`, side: (top[0] > b / 2 ? -1 : 1) as 1 | -1 }, ...(top[0] < 0 ? [{ a: [top[0], 0] as Pt, b: [0, 0] as Pt, dash: true }] : top[0] > b ? [{ a: [b, 0] as Pt, b: [top[0], 0] as Pt, dash: true }] : [])],
+        angles: [{ at: [top[0], 0] as Pt, a1: top[0] > b / 2 ? 90 : 0, a2: top[0] > b / 2 ? 180 : 90, right: true }] };
+  return withFig(draft(`Find the area of ${txt}, in cm².`, exact(v), `${qtex(v)}\\ \\text{cm}^2`, [[`Half the rectangle on the same base and height: ${m(`\\tfrac12 bh`)}.`, `${m(`\\tfrac12 \\times ${b} \\times ${h}`)}.`, `Cut off a triangle and slide it over: a ${b} × ${h} rectangle.`, `Two copies make a parallelogram with base ${b + b2}: ${m(`\\tfrac12(b_1 + b_2)h`)}.`][t], `${m(`= ${qtex(v)}`)}.`], { mx: "shoelace", verts }), geomSvg(g));
 };
 const surfaceArea: Gen = (r) => {
   const l = r.int(1, 10), w = r.int(1, 10), h = r.int(1, 10);
-  return draft(`A net folds into a ${l} × ${w} × ${h} box. What is the surface area?`, exact(2 * (l * w + l * h + w * h)), `${2 * (l * w + l * h + w * h)}`, [`Six rectangles, in pairs: ${m(`2(${l * w} + ${l * h} + ${w * h})`)}.`], { mx: "box-sa", l, w, h });
+  return withFig(draft(`A net folds into a ${l} × ${w} × ${h} box. What is the surface area?`, exact(2 * (l * w + l * h + w * h)), `${2 * (l * w + l * h + w * h)}`, [`Six rectangles, in pairs: ${m(`2(${l * w} + ${l * h} + ${w * h})`)}.`], { mx: "box-sa", l, w, h }), solidSvg({ kind: "box", dims: [l, w, h], labels: [`${l}`, `${w}`, `${h}`] }));
 };
 const circle: Gen = (r) => {
   const rad = r.int(1, 15), useD = r.chance(0.4), area = r.chance(0.5);
   const v = area ? rad * rad : 2 * rad;
-  return draft(`A circle has ${useD ? `diameter ${2 * rad}` : `radius ${rad}`} cm. Find its ${area ? "area (cm²)" : "circumference (cm)"} — exact in terms of π (e.g. ${area ? "25pi" : "10pi"}) or to 2 decimals.`,
-    approx(`${v}*pi`, piTol(v * Math.PI)), `${v}\\pi`, [area ? `${m(`A = \\pi r^2 = \\pi(${rad})^2`)}.` : `${m(`C = 2\\pi r = \\pi d = ${2 * rad}\\pi`)}.`], { mx: "circle", rad, area });
+  const cf = geomSvg({ circles: [{ c: [0, 0], r: rad }], dots: [{ p: [0, 0] }], segs: [{ a: useD ? [-rad, 0] : [0, 0], b: [rad, 0], label: `${useD ? 2 * rad : rad} cm`, hot: true }], maxHeight: 180 });
+  return withFig(draft(`A circle has ${useD ? `diameter ${2 * rad}` : `radius ${rad}`} cm. Find its ${area ? "area (cm²)" : "circumference (cm)"} — exact in terms of π (e.g. ${area ? "25pi" : "10pi"}) or to 2 decimals.`,
+    approx(`${v}*pi`, piTol(v * Math.PI)), `${v}\\pi`, [area ? `${m(`A = \\pi r^2 = \\pi(${rad})^2`)}.` : `${m(`C = 2\\pi r = \\pi d = ${2 * rad}\\pi`)}.`], { mx: "circle", rad, area }), cf);
 };
 const anglePairs: Gen = (r) => {
   const t = r.int(0, 2), tot = [90, 180, 0][t];
@@ -1083,20 +1101,35 @@ const anglePairs: Gen = (r) => {
   require_(A > 5 && (t === 2 || A < tot - 5));
   const other = t === 2 ? A : tot - A;
   const name = ["complementary", "supplementary", "vertical"][t];
-  return draft(`Two angles are ${name}. One measures ${m(`(${cx(a, "x")}${sg(b)})^\\circ`)} and the other ${other}°. Find ${m("x")}.`, exact(x), `x = ${x}`,
-    [t === 2 ? `Vertical angles are equal: ${m(`${cx(a, "x")}${sg(b)} = ${other}`)}.` : `They add to ${tot}°: ${m(`${cx(a, "x")}${sg(b)} + ${other} = ${tot}`)}.`], { mx: "solve", eq: t === 2 ? `${a}*x + ${b} - ${other}` : `${a}*x + ${b} + ${other} - ${tot}` });
+  const ray = (d: number): Pt => [8 * Math.cos((d * Math.PI) / 180), 8 * Math.sin((d * Math.PI) / 180)];
+  // thin angles are drawn a little wider so the labels fit; the labels carry the measures
+  const ex = angExpr(a, b), O: Pt = [0, 0], oth = t === 0 ? Math.min(Math.max(other, 18), 72) : Math.min(Math.max(other, 25), 155), Ad = Math.min(Math.max(A, 30), 150);
+  const g = t === 0 ? { segs: [{ a: O, b: ray(0) }, { a: O, b: ray(oth) }, { a: O, b: ray(90) }], angles: [{ at: O, a1: 0, a2: oth, label: `${other}°` }, { at: O, a1: oth, a2: 90, label: ex, hot: true, thinSide: 2 as const }] }
+    : t === 1 ? { segs: [{ a: ray(180), b: ray(0) }, { a: O, b: ray(oth) }], angles: [{ at: O, a1: 0, a2: oth, label: `${other}°` }, { at: O, a1: oth, a2: 180, label: ex, hot: true, thinSide: 2 as const }] }
+    : { segs: [{ a: ray(180), b: ray(0), line: true }, { a: ray(180 + Ad), b: ray(Ad), line: true }], angles: [{ at: O, a1: 0, a2: Ad, label: ex, hot: true }, { at: O, a1: 180, a2: 180 + Ad, label: `${other}°` }] };
+  return withFig(draft(`Two angles are ${name}. One measures ${m(`(${cx(a, "x")}${sg(b)})^\\circ`)} and the other ${other}°. Find ${m("x")}.`, exact(x), `x = ${x}`,
+    [t === 2 ? `Vertical angles are equal: ${m(`${cx(a, "x")}${sg(b)} = ${other}`)}.` : `They add to ${tot}°: ${m(`${cx(a, "x")}${sg(b)} + ${other} = ${tot}`)}.`], { mx: "solve", eq: t === 2 ? `${a}*x + ${b} - ${other}` : `${a}*x + ${b} + ${other} - ${tot}` }), geomSvg({ ...g, dots: [{ p: O }] }));
 };
 const prismWord: Gen = (r) => {
   const b = r.int(2, 12), h = r.int(2, 10), L = r.int(3, 20);
   require_((b * h) % 2 === 0);
-  return draft(`A tent is a triangular prism: the triangle has base ${b} ft and height ${h} ft, and the tent is ${L} ft long. What is its volume in ft³?`, exact((b * h * L) / 2), `${(b * h * L) / 2}`, [`Base area ${m(`\\tfrac12(${b})(${h}) = ${(b * h) / 2}`)}, times length ${L}.`], { mx: "tri-prism", tri: [[0, 0], [b, 0], [b / 2, h]], L });
+  return withFig(draft(`A tent is a triangular prism: the triangle has base ${b} ft and height ${h} ft, and the tent is ${L} ft long. What is its volume in ft³?`, exact((b * h * L) / 2), `${(b * h * L) / 2}`, [`Base area ${m(`\\tfrac12(${b})(${h}) = ${(b * h) / 2}`)}, times length ${L}.`], { mx: "tri-prism", tri: [[0, 0], [b, 0], [b / 2, h]], L }), solidSvg({ kind: "tri-prism", dims: [b, h, L], labels: [`${b} ft`, `${h} ft`, `${L} ft`] }));
 };
 const triangleAngles: Gen = (r) => {
   const t = r.int(0, 2), a = r.int(20, 100), b = r.int(20, 150 - a);
-  if (t === 0) return box(`A triangle has angles ${a}° and ${b}°. What is the third angle?`, `${a} + ${b} + ? == 180`, 180 - a - b, [`Angles of a triangle add to 180°.`]);
-  if (t === 1) return box(`A triangle has interior angles ${a}° and ${b}°. What is the exterior angle at the third vertex?`, `? + (180 - ${a} - ${b}) == 180`, a + b, [`An exterior angle equals the sum of the two remote interior angles: ${a + b}°.`]);
+  if (t === 0) {
+    const T = triFromAngles(a, b);
+    return withFig(box(`A triangle has angles ${a}° and ${b}°. What is the third angle?`, `${a} + ${b} + ? == 180`, 180 - a - b, [`Angles of a triangle add to 180°.`]),
+      geomSvg({ polys: [{ pts: T, fill: true }], angles: [{ ...corner(T, 0), label: `${a}°` }, { ...corner(T, 1), label: `${b}°` }, { ...corner(T, 2), label: "?", hot: true }] }));
+  }
+  if (t === 1) {
+    // the remote interior angles at A and the apex; the exterior angle at B, off the extended base
+    const c3 = 180 - a - b, T = triFromAngles(a, c3), base = T[1][0];
+    return withFig(box(`A triangle has interior angles ${a}° and ${b}°. What is the exterior angle at the third vertex?`, `? + (180 - ${a} - ${b}) == 180`, a + b, [`An exterior angle equals the sum of the two remote interior angles: ${a + b}°.`]),
+      geomSvg({ polys: [{ pts: T, fill: true }], segs: [{ a: T[1], b: [base * 1.4, 0] }], angles: [{ ...corner(T, 0), label: `${a}°` }, { ...corner(T, 2), label: `${b}°` }, { at: T[1], a1: 0, a2: 180 - c3, label: "?", hot: true }] }));
+  }
   const ang = r.int(30, 150), x = r.int(5, 25), k = r.int(2, 5), c = ang - k * x;
-  return draft(`Parallel lines are cut by a transversal. Corresponding angles measure ${ang}° and ${m(`(${cx(k, "x")}${sg(c)})^\\circ`)}. Find ${m("x")}.`, exact(x), `x = ${x}`, [`Corresponding angles are equal: ${m(`${cx(k, "x")}${sg(c)} = ${ang}`)}.`], { mx: "solve", eq: `${k}*x + ${c} - ${ang}` });
+  return withFig(draft(`Parallel lines are cut by a transversal. Corresponding angles measure ${ang}° and ${m(`(${cx(k, "x")}${sg(c)})^\\circ`)}. Find ${m("x")}.`, exact(x), `x = ${x}`, [`Corresponding angles are equal: ${m(`${cx(k, "x")}${sg(c)} = ${ang}`)}.`], { mx: "solve", eq: `${k}*x + ${c} - ${ang}` }), geomSvg(transversal(ang, [[1, "UR", `${ang}°`], [0, "UR", angExpr(k, c)]])));
 };
 const TRANS = ["translate", "reflect-x", "reflect-y", "rot90", "rot180", "dilate"];
 const transform: Gen = (r) => {
@@ -1113,12 +1146,14 @@ const pythag: Gen = (r) => {
   if (t === 2) {
     const [p, qq, s] = [r.int(1, 8), r.int(1, 8), r.int(1, 8)];
     const d2 = p * p + qq * qq + s * s;
-    return draft(`A box is ${p} by ${qq} by ${s} inches. How long is the diagonal from one corner to the opposite corner? (exact, e.g. sqrt(29), or 2 decimals)`, approx(`sqrt(${d2})`, piTol(Math.sqrt(d2))), `\\sqrt{${d2}}`,
-      [`Floor diagonal² = ${p}² + ${qq}²; then add height²: ${m(`d = \\sqrt{${p}^2 + ${qq}^2 + ${s}^2} = \\sqrt{${d2}}`)}.`], { mx: "diag3", dims: [p, qq, s] });
+    return withFig(draft(`A box is ${p} by ${qq} by ${s} inches. How long is the diagonal from one corner to the opposite corner? (exact, e.g. sqrt(29), or 2 decimals)`, approx(`sqrt(${d2})`, piTol(Math.sqrt(d2))), `\\sqrt{${d2}}`,
+      [`Floor diagonal² = ${p}² + ${qq}²; then add height²: ${m(`d = \\sqrt{${p}^2 + ${qq}^2 + ${s}^2} = \\sqrt{${d2}}`)}.`], { mx: "diag3", dims: [p, qq, s] }), solidSvg({ kind: "box", dims: [p, qq, s], labels: [`${p} in`, `${qq} in`, `${s} in`], diagonal: true }));
   }
+  const RT: Pt[] = [[0, 0], [b * k, 0], [0, a * k]];
+  const rt = (sides: string[]) => geomSvg({ polys: [{ pts: RT, sides, fill: true }], angles: [{ ...corner(RT, 0), right: true }] });
   return t === 0
-    ? draft(`A right triangle has legs ${a * k} and ${b * k}. How long is the hypotenuse?`, exact(c * k), `${c * k}`, [`${m(`c = \\sqrt{${a * k}^2 + ${b * k}^2} = ${c * k}`)}.`], { mx: "eq", eq: `?**2 == ${a * k}**2 + ${b * k}**2 and ? > 0` })
-    : draft(`A right triangle has hypotenuse ${c * k} and one leg ${a * k}. How long is the other leg?`, exact(b * k), `${b * k}`, [`${m(`b = \\sqrt{${c * k}^2 - ${a * k}^2} = ${b * k}`)}.`], { mx: "eq", eq: `${a * k}**2 + ?**2 == ${c * k}**2 and ? > 0` });
+    ? withFig(draft(`A right triangle has legs ${a * k} and ${b * k}. How long is the hypotenuse?`, exact(c * k), `${c * k}`, [`${m(`c = \\sqrt{${a * k}^2 + ${b * k}^2} = ${c * k}`)}.`], { mx: "eq", eq: `?**2 == ${a * k}**2 + ${b * k}**2 and ? > 0` }), rt([`${b * k}`, "?", `${a * k}`]))
+    : withFig(draft(`A right triangle has hypotenuse ${c * k} and one leg ${a * k}. How long is the other leg?`, exact(b * k), `${b * k}`, [`${m(`b = \\sqrt{${c * k}^2 - ${a * k}^2} = ${b * k}`)}.`], { mx: "eq", eq: `${a * k}**2 + ?**2 == ${c * k}**2 and ? > 0` }), rt(["?", `${c * k}`, `${a * k}`]));
 };
 const pythagConverse: Gen = (r) => {
   const [a, b, c] = r.pick(TRIPLES), k = r.int(1, 3), right = r.chance(0.5);
@@ -1138,8 +1173,8 @@ const volumeRound: Gen = (r) => {
   const t = r.int(0, 2), rad = r.int(1, 9), h = r.int(1, 12);
   const v = [q(rad * rad * h), q(rad * rad * h, 3), q(4 * rad ** 3, 3)][t];
   const nm = ["cylinder", "cone", "sphere"][t];
-  return draft(`Find the volume of a ${nm} with radius ${rad}${t < 2 ? ` and height ${h}` : ""} — exact in terms of π (e.g. ${t === 1 ? "12pi" : "36pi"}) or to 2 decimals.`, approx(`(${v.n}/${v.d})*pi`, piTol(v.value() * Math.PI)), `${qtex(v)}\\pi`,
-    [[`${m("V = \\pi r^2 h")}`, `${m("V = \\tfrac13 \\pi r^2 h")}`, `${m("V = \\tfrac43 \\pi r^3")}`][t] + ` ${m(`= ${qtex(v)}\\pi`)}.`], { mx: "solid", t: nm, rad, h });
+  return withFig(draft(`Find the volume of a ${nm} with radius ${rad}${t < 2 ? ` and height ${h}` : ""} — exact in terms of π (e.g. ${t === 1 ? "12pi" : "36pi"}) or to 2 decimals.`, approx(`(${v.n}/${v.d})*pi`, piTol(v.value() * Math.PI)), `${qtex(v)}\\pi`,
+    [[`${m("V = \\pi r^2 h")}`, `${m("V = \\tfrac13 \\pi r^2 h")}`, `${m("V = \\tfrac43 \\pi r^3")}`][t] + ` ${m(`= ${qtex(v)}\\pi`)}.`], { mx: "solid", t: nm, rad, h }), solidSvg(t === 2 ? { kind: "sphere", dims: [rad], labels: [`${rad}`] } : { kind: t === 0 ? "cylinder" : "cone", dims: [rad, h], labels: [`${rad}`, `${h}`] }));
 };
 
 // ── statistics & probability ────────────────────────────────────────────────

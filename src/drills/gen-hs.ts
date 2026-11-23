@@ -6,6 +6,7 @@
 import { Rng } from "./rng";
 import type { Draft } from "./types";
 import { m } from "./tex";
+import { geomSvg, solidSvg, withFig, corner, triFromAngles, triFromSides, transversal, angExpr, sectorPts, onCirc, dirDeg, type Pt, type Spot } from "./geom";
 import { Q } from "./rational";
 import { require_ } from "./reject";
 import { approx, choice, cx, draft, exact, gcd, int, par, poly, polyJs, polyPy, qpy, qref, qtex, sg, shuffle, tuple } from "./school";
@@ -580,8 +581,16 @@ const congruence: Gen = (r) => {
   else if (sides.length === 1) ans = angs.every((a) => sides[0].includes(a)) ? "ASA" : "AAS";
   const map: Record<string, string> = { A: "D", B: "E", C: "F" };
   const tx = (f: string) => (f.length === 2 ? `\\overline{${f}} \\cong \\overline{${f.split("").map((c) => map[c]).join("")}}` : `\\angle ${f} \\cong \\angle ${map[f]}`);
-  return draft(`In triangles ${m("ABC")} and ${m("DEF")}: ${facts.map((f) => m(tx(f))).join(", ")}. Which criterion proves ${m("\\triangle ABC \\cong \\triangle DEF")}?`, choice(CRIT, ans), `\\text{${ans}}`,
-    [ans === "Not enough information" ? `${sides.length === 2 ? "The angle is not between the two sides (SSA)" : "Three angles fix only the shape (AAA)"}: not a congruence criterion.` : `The given parts form ${ans}.`], { mx: "congruence", facts });
+  const T1: Pt[] = [[0, 0], [7, 0], [2.2, 4.5]], T2 = T1.map(([x, y]): Pt => [x + 9.5, y]);
+  const sideI: Record<string, [number, number]> = { AB: [0, 1], BC: [1, 2], CA: [2, 0] }, angI: Record<string, number> = { A: 0, B: 1, C: 2 };
+  const marks = (T: Pt[]) => ({
+    ticks: sides.map((f, j) => ({ a: T[sideI[f][0]], b: T[sideI[f][1]], n: ["AB", "BC", "CA"].indexOf(f) + 1 })),
+    angles: angs.map((f) => ({ ...corner(T, angI[f]), arcs: angI[f] + 1 })),
+  });
+  const m1 = marks(T1), m2 = marks(T2);
+  const cfig = geomSvg({ polys: [{ pts: T1, names: ["A", "B", "C"] }, { pts: T2, names: ["D", "E", "F"] }], ticks: [...m1.ticks, ...m2.ticks], angles: [...m1.angles, ...m2.angles], width: 320 });
+  return withFig(draft(`In triangles ${m("ABC")} and ${m("DEF")}: ${facts.map((f) => m(tx(f))).join(", ")}. Which criterion proves ${m("\\triangle ABC \\cong \\triangle DEF")}?`, choice(CRIT, ans), `\\text{${ans}}`,
+    [ans === "Not enough information" ? `${sides.length === 2 ? "The angle is not between the two sides (SSA)" : "Three angles fix only the shape (AAA)"}: not a congruence criterion.` : `The given parts form ${ans}.`], { mx: "congruence", facts }), cfig);
 };
 const PAIRS: [string, boolean][] = [["corresponding", true], ["alternate interior", true], ["alternate exterior", true], ["same-side interior", false], ["vertical", true], ["a linear pair", false]];
 const anglesLines: Gen = (r) => {
@@ -589,34 +598,45 @@ const anglesLines: Gen = (r) => {
   const A = a * x + b;
   require_(A > 10 && A < 170 && a !== c);
   const B = eq ? A : 180 - A, d = B - c * x;
-  return draft(`${nm === "vertical" || nm === "a linear pair" ? "Two angles" : "Parallel lines are cut by a transversal; two angles"} are ${nm}${nm.startsWith("a ") ? "" : " angles"}: ${m(`(${cx(a, "x")}${sg(b)})^\\circ`)} and ${m(`(${cx(c, "x")}${sg(d)})^\\circ`)}. Find ${m("x")}.`, exact(x), `x = ${x}`,
-    [`${nm[0].toUpperCase() + nm.slice(1)} angles are ${eq ? "congruent" : "supplementary"}: ${m(eq ? `${cx(a, "x")}${sg(b)} = ${cx(c, "x")}${sg(d)}` : `${cx(a + c, "x")}${sg(b + d)} = 180`)}.`], { mx: "angle-pair", pair: nm, e1: `${a}*x + ${b}`, e2: `${c}*x + ${d}` });
+  const e1 = angExpr(a, b), e2 = angExpr(c, d);
+  const spots: Record<string, [0 | 1, Spot][]> = { corresponding: [[0, "UR"], [1, "UR"]], "alternate interior": [[0, "UR"], [1, "LL"]], "alternate exterior": [[0, "LL"], [1, "UR"]], "same-side interior": [[0, "UR"], [1, "LR"]], vertical: [[0, "UR"], [0, "LL"]], "a linear pair": [[0, "UR"], [0, "UL"]] };
+  const [s1, s2] = spots[nm], lone = nm === "vertical" || nm === "a linear pair";
+  const tf = transversal(A, [[s1[0], s1[1], e1], [s2[0], s2[1], e2]], !lone);
+  if (lone) tf.segs = tf.segs!.filter((_, i) => i !== 1);
+  return withFig(draft(`${nm === "vertical" || nm === "a linear pair" ? "Two angles" : "Parallel lines are cut by a transversal; two angles"} are ${nm}${nm.startsWith("a ") ? "" : " angles"}: ${m(`(${cx(a, "x")}${sg(b)})^\\circ`)} and ${m(`(${cx(c, "x")}${sg(d)})^\\circ`)}. Find ${m("x")}.`, exact(x), `x = ${x}`,
+    [`${nm[0].toUpperCase() + nm.slice(1)} angles are ${eq ? "congruent" : "supplementary"}: ${m(eq ? `${cx(a, "x")}${sg(b)} = ${cx(c, "x")}${sg(d)}` : `${cx(a + c, "x")}${sg(b + d)} = 180`)}.`], { mx: "angle-pair", pair: nm, e1: `${a}*x + ${b}`, e2: `${c}*x + ${d}` }), geomSvg(tf));
 };
 const triangleThm: Gen = (r) => {
   const t = r.int(0, 2);
   if (t === 0) {
-    const v = 2 * r.int(10, 80);
-    return draft(`An isosceles triangle has vertex angle ${deg(v)}. What is each base angle in degrees?`, exact((180 - v) / 2), `${(180 - v) / 2}^\\circ`, [`Base angles are congruent and the three add to 180°.`], { mx: "iso-base", v });
+    const v = 2 * r.int(10, 80), T = triFromAngles((180 - v) / 2, (180 - v) / 2);
+    return withFig(draft(`An isosceles triangle has vertex angle ${deg(v)}. What is each base angle in degrees?`, exact((180 - v) / 2), `${(180 - v) / 2}^\\circ`, [`Base angles are congruent and the three add to 180°.`], { mx: "iso-base", v }), geomSvg({ polys: [{ pts: T, fill: true }], ticks: [{ a: T[0], b: T[2], n: 1 }, { a: T[1], b: T[2], n: 1 }], angles: [{ ...corner(T, 2), label: `${v}°` }, { ...corner(T, 0), label: "?", hot: true }, { ...corner(T, 1), hot: true }] }));
   }
   if (t === 1) {
     const s = r.int(4, 30), x = r.int(-5, 5), y = r.int(2, 9);
-    return draft(`In triangle ${m("ABC")}, ${m("M")} and ${m("N")} are the midpoints of ${m("\\overline{AB}")} and ${m("\\overline{AC}")}, and ${m(`BC = ${s}`)}. Find ${m("MN")}.`, exact(q(s, 2)), q(s, 2).tex(), [`Midsegment theorem: ${m("MN \\parallel BC")} and ${m("MN = \\tfrac12 BC")}.`], { mx: "midsegment", s, apex: [x, y] });
+    const Bp: Pt = [0, 0], Cp: Pt = [10, 0], Ap: Pt = [5 + x * 0.8, 3 + y * 0.6], Mp: Pt = [(Ap[0] + Bp[0]) / 2, (Ap[1] + Bp[1]) / 2], Np: Pt = [(Ap[0] + Cp[0]) / 2, (Ap[1] + Cp[1]) / 2];
+    return withFig(draft(`In triangle ${m("ABC")}, ${m("M")} and ${m("N")} are the midpoints of ${m("\\overline{AB}")} and ${m("\\overline{AC}")}, and ${m(`BC = ${s}`)}. Find ${m("MN")}.`, exact(q(s, 2)), q(s, 2).tex(), [`Midsegment theorem: ${m("MN \\parallel BC")} and ${m("MN = \\tfrac12 BC")}.`], { mx: "midsegment", s, apex: [x, y] }), geomSvg({ polys: [{ pts: [Ap, Bp, Cp], names: ["A", "B", "C"], sides: [null, `${s}`, null], fill: true }], segs: [{ a: Mp, b: Np, label: "?", hot: true, side: -1 }], dots: [{ p: Mp, label: "M", dir: dirDeg(Np, Mp) }, { p: Np, label: "N", dir: dirDeg(Mp, Np) }], ticks: [{ a: Ap, b: Mp, n: 1 }, { a: Mp, b: Bp, n: 1 }, { a: Ap, b: Np, n: 2 }, { a: Np, b: Cp, n: 2 }] }));
   }
   const a = r.int(2, 5), b = r.int(-10, 20), c = r.int(1, 4), d = r.int(0, 30), x = r.int(5, 20);
   const third = 180 - (a * x + b) - (c * x + d);
   require_(a * x + b > 5 && c * x + d > 5 && third > 5);
-  return draft(`A triangle has angles ${m(`(${cx(a, "x")}${sg(b)})^\\circ`)}, ${m(`(${cx(c, "x")}${sg(d)})^\\circ`)} and ${deg(third)}. Find ${m("x")}.`, exact(x), `x = ${x}`, [`Angle sum: ${m(`${cx(a + c, "x")}${sg(b + d + third)} = 180`)}.`], { mx: "solve", eq: `${a}*x + ${b} + ${c}*x + ${d} + ${third} - 180` });
+  const T = triFromAngles(a * x + b, c * x + d);
+  return withFig(draft(`A triangle has angles ${m(`(${cx(a, "x")}${sg(b)})^\\circ`)}, ${m(`(${cx(c, "x")}${sg(d)})^\\circ`)} and ${deg(third)}. Find ${m("x")}.`, exact(x), `x = ${x}`, [`Angle sum: ${m(`${cx(a + c, "x")}${sg(b + d + third)} = 180`)}.`], { mx: "solve", eq: `${a}*x + ${b} + ${c}*x + ${d} + ${third} - 180` }), geomSvg({ polys: [{ pts: T, fill: true }], angles: [{ ...corner(T, 0), label: angExpr(a, b) }, { ...corner(T, 1), label: angExpr(c, d) }, { ...corner(T, 2), label: `${third}°` }] }));
 };
 const parallelogram: Gen = (r) => {
   const x = r.int(2, 15);
   if (r.chance(0.5)) {
     const a = r.int(2, 8), b = r.int(-10, 20), A = a * x + b;
     require_(A > 20 && A < 160);
-    return draft(`In parallelogram ${m("ABCD")}, ${m(`\\angle A = (${cx(a, "x")}${sg(b)})^\\circ`)} and ${m(`\\angle B = ${180 - A}^\\circ`)}. Find ${m("x")}.`, exact(x), `x = ${x}`, [`Consecutive angles are supplementary.`], { mx: "angle-pair", pair: "consecutive (parallelogram)", e1: `${a}*x + ${b}`, e2: `${180 - A}` });
+    const c_ = Math.cos((A * Math.PI) / 180) * 5, s_ = Math.sin((A * Math.PI) / 180) * 5, PG: Pt[] = [[0, 0], [8, 0], [8 + c_, s_], [c_, s_]];
+    return withFig(draft(`In parallelogram ${m("ABCD")}, ${m(`\\angle A = (${cx(a, "x")}${sg(b)})^\\circ`)} and ${m(`\\angle B = ${180 - A}^\\circ`)}. Find ${m("x")}.`, exact(x), `x = ${x}`, [`Consecutive angles are supplementary.`], { mx: "angle-pair", pair: "consecutive (parallelogram)", e1: `${a}*x + ${b}`, e2: `${180 - A}` }),
+      geomSvg({ polys: [{ pts: PG, names: ["A", "B", "C", "D"], fill: true }], angles: [{ ...corner(PG, 0), label: angExpr(a, b), hot: true }, { ...corner(PG, 1), label: `${180 - A}°` }] }));
   }
   const a = r.int(2, 6), b = r.int(-5, 10), c = r.int(1, 5), d = (a - c) * x + b;
   require_(a !== c && a * x + b > 0);
-  return draft(`The diagonals of parallelogram ${m("ABCD")} meet at ${m("E")}, with ${m(`AE = ${cx(a, "x")}${sg(b)}`)} and ${m(`EC = ${cx(c, "x")}${sg(d)}`)}. Find ${m("AC")}.`, exact(2 * (a * x + b)), `${2 * (a * x + b)}`, [`Diagonals bisect each other: ${m(`${cx(a, "x")}${sg(b)} = ${cx(c, "x")}${sg(d)}`)} ⇒ ${m(`x = ${x}`)}; ${m(`AC = 2\\,AE`)}.`], { mx: "diag-bisect", e1: `${a}*x + ${b}`, e2: `${c}*x + ${d}` });
+  const PG: Pt[] = [[0, 0], [8, 0], [10.5, 4.5], [2.5, 4.5]], E: Pt = [5.25, 2.25];
+  return withFig(draft(`The diagonals of parallelogram ${m("ABCD")} meet at ${m("E")}, with ${m(`AE = ${cx(a, "x")}${sg(b)}`)} and ${m(`EC = ${cx(c, "x")}${sg(d)}`)}. Find ${m("AC")}.`, exact(2 * (a * x + b)), `${2 * (a * x + b)}`, [`Diagonals bisect each other: ${m(`${cx(a, "x")}${sg(b)} = ${cx(c, "x")}${sg(d)}`)} ⇒ ${m(`x = ${x}`)}; ${m(`AC = 2\\,AE`)}.`], { mx: "diag-bisect", e1: `${a}*x + ${b}`, e2: `${c}*x + ${d}` }),
+    geomSvg({ polys: [{ pts: PG, names: ["A", "B", "C", "D"], fill: true }], segs: [{ a: PG[0], b: E, label: `${cx(a, "x")}${sg(b)}`.replace(" - ", " − "), side: -1 }, { a: E, b: PG[2], label: `${cx(c, "x")}${sg(d)}`.replace(" - ", " − "), side: -1 }, { a: PG[1], b: PG[3], dash: true }], dots: [{ p: E, label: "E", dir: 90 }] }));
 };
 const dilation: Gen = (r) => {
   const cx_ = r.int(-4, 4), cy = r.int(-4, 4), k = r.pick([2, 3, q(1, 2), q(3, 2), -1].map(Q.of)), dx = r.int(-6, 6) * 2, dy = r.int(-6, 6) * 2;
@@ -632,22 +652,33 @@ const similar: Gen = (r) => {
   const s = [r.int(3, 15), r.int(3, 15), r.int(3, 15)], k = q(r.int(2, 9), r.pick([1, 2, 3]));
   require_(s[0] + s[1] > s[2] && s[1] + s[2] > s[0] && s[0] + s[2] > s[1] && k.value() !== 1);
   const t = s.map((x) => k.mul(x));
-  return draft(`${m("\\triangle ABC \\sim \\triangle DEF")} with ${m(`AB = ${s[0]},\\ BC = ${s[1]},\\ CA = ${s[2]}`)} and ${m(`DE = ${t[0].tex()}`)}. Find ${m("EF")}.`, exact(t[1]), t[1].tex(), [`Scale factor ${m(`DE/AB = ${k.tex()}`)}; ${m(`EF = ${k.tex()} \\cdot ${s[1]}`)}.`], { mx: "similar", s, DE: qpy(t[0]) });
+  // the second triangle is drawn at most 2.5 times the first so both stay readable
+  // drawn not to scale: the first with its longest side 6, the second at most 1.8 times it, so both stay readable
+  const T0 = triFromSides(s[1], s[2], s[0]), sc = 6 / Math.max(...s), T1 = T0.map(([x, y]): Pt => [x * sc, y * sc]);
+  const kd = Math.min(Math.max(k.value(), 0.6), 1.8), w1 = Math.max(T1[1][0], T1[2][0]);
+  const T2 = T1.map(([x, y]): Pt => [x * kd + w1 + 2.5 - Math.min(0, T1[2][0] * kd), y * kd]);
+  return withFig(draft(`${m("\\triangle ABC \\sim \\triangle DEF")} with ${m(`AB = ${s[0]},\\ BC = ${s[1]},\\ CA = ${s[2]}`)} and ${m(`DE = ${t[0].tex()}`)}. Find ${m("EF")}.`, exact(t[1]), t[1].tex(), [`Scale factor ${m(`DE/AB = ${k.tex()}`)}; ${m(`EF = ${k.tex()} \\cdot ${s[1]}`)}.`], { mx: "similar", s, DE: qpy(t[0]) }),
+    geomSvg({ polys: [{ pts: T1, names: ["A", "B", "C"], sides: [`${s[0]}`, `${s[1]}`, `${s[2]}`] }, { pts: T2, names: ["D", "E", "F"], sides: [t[0].isInt() ? `${t[0].n}` : `${t[0].n}/${t[0].d}`, "?", null], fill: true }], width: 320, texts: [] }));
 };
 const sideSplitter: Gen = (r) => {
   const ad = r.int(2, 12), db = r.int(2, 12), ae = r.int(2, 15);
-  return draft(`In ${m("\\triangle ABC")}, ${m("D")} is on ${m("\\overline{AB}")} and ${m("E")} on ${m("\\overline{AC}")} with ${m("\\overline{DE} \\parallel \\overline{BC}")}. ${m(`AD = ${ad},\\ DB = ${db},\\ AE = ${ae}`)}. Find ${m("EC")}.`, exact(q(ae * db, ad)), q(ae * db, ad).tex(), [`Side-splitter theorem: ${m("\\frac{AD}{DB} = \\frac{AE}{EC}")}, so ${m(`EC = \\frac{${ae}\\cdot ${db}}{${ad}}`)}.`], { mx: "splitter", ad, db, ae });
+  const Ap: Pt = [4, 8], Bp: Pt = [0, 0], Cp: Pt = [11, 0], f = ad / (ad + db), Dp: Pt = [Ap[0] + (Bp[0] - Ap[0]) * f, Ap[1] + (Bp[1] - Ap[1]) * f], Ep: Pt = [Ap[0] + (Cp[0] - Ap[0]) * f, Ap[1] + (Cp[1] - Ap[1]) * f];
+  return withFig(draft(`In ${m("\\triangle ABC")}, ${m("D")} is on ${m("\\overline{AB}")} and ${m("E")} on ${m("\\overline{AC}")} with ${m("\\overline{DE} \\parallel \\overline{BC}")}. ${m(`AD = ${ad},\\ DB = ${db},\\ AE = ${ae}`)}. Find ${m("EC")}.`, exact(q(ae * db, ad)), q(ae * db, ad).tex(), [`Side-splitter theorem: ${m("\\frac{AD}{DB} = \\frac{AE}{EC}")}, so ${m(`EC = \\frac{${ae}\\cdot ${db}}{${ad}}`)}.`], { mx: "splitter", ad, db, ae }),
+    geomSvg({ polys: [{ pts: [Ap, Bp, Cp], names: ["A", "B", "C"], fill: true }], segs: [{ a: Dp, b: Ep }, { a: Dp, b: Ap, label: `${ad}`, side: -1 }, { a: Bp, b: Dp, label: `${db}`, side: -1 }, { a: Ap, b: Ep, label: `${ae}`, side: -1 }, { a: Ep, b: Cp, label: "?", side: -1, hot: true }],
+      dots: [{ p: Dp, label: "D", dir: 180 }, { p: Ep, label: "E", dir: 0 }], par: [{ a: Dp, b: Ep, n: 1 }, { a: Bp, b: Cp, n: 1 }] }));
 };
 const rightTrig: Gen = (r) => {
   const t = r.int(0, 1), A = r.int(15, 75), h = r.int(5, 40);
   if (t === 0) {
     const fn = r.pick(["opp", "adj"]);
     const v = fn === "opp" ? h * Math.sin(A * RAD) : h * Math.cos(A * RAD);
-    return draft(`A right triangle has hypotenuse ${h} and an acute angle of ${deg(A)}. Find the side ${fn === "opp" ? "opposite" : "adjacent to"} that angle (2 decimals).`, approx(v, tol2(v)), r2(v), [`${m(`${fn === "opp" ? "\\sin" : "\\cos"} ${A}^\\circ = \\frac{${fn === "opp" ? "\\text{opp}" : "\\text{adj}"}}{${h}}`)}.`], { mx: "right-side", h, A, fn });
+    const RT: Pt[] = [[0, 0], [h * Math.cos(A * RAD), 0], [h * Math.cos(A * RAD), h * Math.sin(A * RAD)]];
+    return withFig(draft(`A right triangle has hypotenuse ${h} and an acute angle of ${deg(A)}. Find the side ${fn === "opp" ? "opposite" : "adjacent to"} that angle (2 decimals).`, approx(v, tol2(v)), r2(v), [`${m(`${fn === "opp" ? "\\sin" : "\\cos"} ${A}^\\circ = \\frac{${fn === "opp" ? "\\text{opp}" : "\\text{adj}"}}{${h}}`)}.`], { mx: "right-side", h, A, fn }),
+      geomSvg({ polys: [{ pts: RT, sides: [fn === "adj" ? "?" : null, fn === "opp" ? "?" : null, `${h}`], fill: true }], angles: [{ ...corner(RT, 1), right: true }, { ...corner(RT, 0), label: `${A}°` }] }));
   }
   const a = r.int(3, 20), b = r.int(3, 20);
-  const v = Math.atan(a / b) / RAD;
-  return draft(`A ramp rises ${a} ft over a horizontal run of ${b} ft. What angle does it make with the ground, in degrees (2 decimals)?`, approx(v, tol2(v)), r2(v), [`${m(`\\tan\\theta = \\frac{${a}}{${b}}`)}, ${m(`\\theta = \\tan^{-1}(${a}/${b})`)}.`], { mx: "right-angle", a, b });
+  const v = Math.atan(a / b) / RAD, RP: Pt[] = [[0, 0], [b, 0], [b, a]];
+  return withFig(draft(`A ramp rises ${a} ft over a horizontal run of ${b} ft. What angle does it make with the ground, in degrees (2 decimals)?`, approx(v, tol2(v)), r2(v), [`${m(`\\tan\\theta = \\frac{${a}}{${b}}`)}, ${m(`\\theta = \\tan^{-1}(${a}/${b})`)}.`], { mx: "right-angle", a, b }), geomSvg({ polys: [{ pts: RP, sides: [`${b} ft`, `${a} ft`, null], fill: true }], angles: [{ ...corner(RP, 1), right: true }, { ...corner(RP, 0), label: "θ", hot: true }] }));
 };
 const trigRatio: Gen = (r) => {
   const [a, b, c] = r.pick(TRIPLES), fn = r.pick(["sin", "cos", "tan"]);
@@ -656,7 +687,8 @@ const trigRatio: Gen = (r) => {
     return draft(`In a right triangle, ${m(`\\sin ${th}^\\circ = \\cos x^\\circ`)} with ${m("0 < x < 90")}. Find ${m("x")}.`, exact(90 - th), `${90 - th}`, [`The acute angles of a right triangle are complementary, and the sine of one is the cosine of the other.`], { mx: "cofunction", th });
   }
   const v = fn === "sin" ? q(a, c) : fn === "cos" ? q(b, c) : q(a, b);
-  return draft(`A right triangle has legs ${a} and ${b} and hypotenuse ${c}. Angle ${m("\\theta")} is opposite the leg of length ${a}. Find ${m(`\\${fn}\\theta`)} as a fraction.`, exact(v), v.tex(), [`SOH-CAH-TOA: ${m(`\\${fn}\\theta = ${v.tex()}`)}.`], { mx: "trig-ratio", legs: [a, b], fn });
+  const TT: Pt[] = [[0, 0], [b, 0], [b, a]];
+  return withFig(draft(`A right triangle has legs ${a} and ${b} and hypotenuse ${c}. Angle ${m("\\theta")} is opposite the leg of length ${a}. Find ${m(`\\${fn}\\theta`)} as a fraction.`, exact(v), v.tex(), [`SOH-CAH-TOA: ${m(`\\${fn}\\theta = ${v.tex()}`)}.`], { mx: "trig-ratio", legs: [a, b], fn }), geomSvg({ polys: [{ pts: TT, sides: [`${b}`, `${a}`, `${c}`], fill: true }], angles: [{ ...corner(TT, 1), right: true }, { ...corner(TT, 0), label: "θ", hot: true }] }));
 };
 const density: Gen = (r) => {
   if (r.chance(0.5)) {
@@ -669,19 +701,19 @@ const density: Gen = (r) => {
 };
 const areaSin: Gen = (r) => {
   const a = r.int(3, 20), b = r.int(3, 20), C = r.pick([30, 45, 60, 90, 120, 135, 150, r.int(20, 160)]);
-  const v = 0.5 * a * b * Math.sin(C * RAD);
-  return draft(`Find the area of a triangle with sides ${a} and ${b} and included angle ${deg(C)} (exact or 2 decimals).`, approx(v, tol2(v)), r2(v), [`${m(`A = \\tfrac12 ab\\sin C = \\tfrac12(${a})(${b})\\sin ${C}^\\circ`)}.`], { mx: "area-sas", a, b, C });
+  const v = 0.5 * a * b * Math.sin(C * RAD), TS: Pt[] = [[0, 0], [a, 0], [b * Math.cos(C * RAD), b * Math.sin(C * RAD)]];
+  return withFig(draft(`Find the area of a triangle with sides ${a} and ${b} and included angle ${deg(C)} (exact or 2 decimals).`, approx(v, tol2(v)), r2(v), [`${m(`A = \\tfrac12 ab\\sin C = \\tfrac12(${a})(${b})\\sin ${C}^\\circ`)}.`], { mx: "area-sas", a, b, C }), geomSvg({ polys: [{ pts: TS, sides: [`${a}`, null, `${b}`], fill: true }], angles: [{ ...corner(TS, 0), label: `${C}°` }] }));
 };
 const lawSines: Gen = (r) => {
   const A = r.int(25, 80), B = r.int(25, 80), a = r.int(5, 30);
   require_(A + B < 160);
-  const b = (a * Math.sin(B * RAD)) / Math.sin(A * RAD);
-  return draft(`In ${m("\\triangle ABC")}, ${m(`A = ${A}^\\circ,\\ B = ${B}^\\circ,\\ a = ${a}`)}. Find ${m("b")} (2 decimals).`, approx(b, tol2(b)), r2(b), [`${m(`\\frac{a}{\\sin A} = \\frac{b}{\\sin B}`)} ⇒ ${m(`b = \\frac{${a}\\sin ${B}^\\circ}{\\sin ${A}^\\circ}`)}.`], { mx: "law-sines", A, B, a });
+  const b = (a * Math.sin(B * RAD)) / Math.sin(A * RAD), TL = triFromAngles(A, B);
+  return withFig(draft(`In ${m("\\triangle ABC")}, ${m(`A = ${A}^\\circ,\\ B = ${B}^\\circ,\\ a = ${a}`)}. Find ${m("b")} (2 decimals).`, approx(b, tol2(b)), r2(b), [`${m(`\\frac{a}{\\sin A} = \\frac{b}{\\sin B}`)} ⇒ ${m(`b = \\frac{${a}\\sin ${B}^\\circ}{\\sin ${A}^\\circ}`)}.`], { mx: "law-sines", A, B, a }), geomSvg({ polys: [{ pts: TL, names: ["A", "B", "C"], sides: [null, `a = ${a}`, "b = ?"], fill: true }], angles: [{ ...corner(TL, 0), label: `${A}°` }, { ...corner(TL, 1), label: `${B}°` }] }));
 };
 const lawCosines: Gen = (r) => {
   const b = r.int(3, 25), c = r.int(3, 25), A = r.int(20, 150);
-  const a = Math.sqrt(b * b + c * c - 2 * b * c * Math.cos(A * RAD));
-  return draft(`In ${m("\\triangle ABC")}, ${m(`b = ${b},\\ c = ${c},\\ A = ${A}^\\circ`)}. Find ${m("a")} (2 decimals).`, approx(a, tol2(a)), r2(a), [`${m(`a^2 = b^2 + c^2 - 2bc\\cos A`)}.`], { mx: "law-cosines", b, c, A });
+  const a = Math.sqrt(b * b + c * c - 2 * b * c * Math.cos(A * RAD)), TC: Pt[] = [[0, 0], [c, 0], [b * Math.cos(A * RAD), b * Math.sin(A * RAD)]];
+  return withFig(draft(`In ${m("\\triangle ABC")}, ${m(`b = ${b},\\ c = ${c},\\ A = ${A}^\\circ`)}. Find ${m("a")} (2 decimals).`, approx(a, tol2(a)), r2(a), [`${m(`a^2 = b^2 + c^2 - 2bc\\cos A`)}.`], { mx: "law-cosines", b, c, A }), geomSvg({ polys: [{ pts: TC, names: ["A", "B", "C"], sides: [`c = ${c}`, "a = ?", `b = ${b}`], fill: true }], angles: [{ ...corner(TC, 0), label: `${A}°` }] }));
 };
 const SOLIDS = ["cylinder", "cone", "sphere", "hemisphere", "square pyramid", "cone on a cylinder"];
 const volume: Gen = (r) => {
@@ -690,8 +722,10 @@ const volume: Gen = (r) => {
   const isPi = t !== 4;
   const desc = [`a cylinder with radius ${rad} and height ${h}`, `a cone with radius ${rad} and height ${h}`, `a sphere of radius ${rad}`, `a hemisphere of radius ${rad}`, `a square pyramid with base edge ${s} and height ${h}`, `a cone (radius ${rad}, height ${h}) sitting on a cylinder of the same radius and height`][t];
   const val = v.value() * (isPi ? Math.PI : 1);
-  return draft(`Find the volume of ${desc}${isPi ? " — exact in terms of π (e.g. 12pi) or 2 decimals" : ""}.`, isPi ? approx(`(${qref(v)})*pi`, tol2(val)) : exact(v), isPi ? `${qtex(v)}\\pi` : qtex(v),
-    [[`${m("V = \\pi r^2 h")}`, `${m("V = \\tfrac13\\pi r^2 h")}`, `${m("V = \\tfrac43\\pi r^3")}`, `Half a sphere: ${m("\\tfrac23\\pi r^3")}`, `${m("V = \\tfrac13 Bh")}`, `Add: ${m("\\pi r^2 h + \\tfrac13\\pi r^2 h")}`][t] + `.`], { mx: "volume", t: SOLIDS[t], rad, h, s });
+  const sf = t === 4 ? solidSvg({ kind: "pyramid", dims: [s, h], labels: [`${s}`, `${h}`] }) : t === 2 || t === 3 ? solidSvg({ kind: t === 2 ? "sphere" : "hemisphere", dims: [rad], labels: [`${rad}`] })
+    : solidSvg({ kind: (["cylinder", "cone", "", "", "", "cone-cylinder"] as const)[t] as "cylinder", dims: [rad, h], labels: [`${rad}`, `${h}`] });
+  return withFig(draft(`Find the volume of ${desc}${isPi ? " — exact in terms of π (e.g. 12pi) or 2 decimals" : ""}.`, isPi ? approx(`(${qref(v)})*pi`, tol2(val)) : exact(v), isPi ? `${qtex(v)}\\pi` : qtex(v),
+    [[`${m("V = \\pi r^2 h")}`, `${m("V = \\tfrac13\\pi r^2 h")}`, `${m("V = \\tfrac43\\pi r^3")}`, `Half a sphere: ${m("\\tfrac23\\pi r^3")}`, `${m("V = \\tfrac13 Bh")}`, `Add: ${m("\\pi r^2 h + \\tfrac13\\pi r^2 h")}`][t] + `.`], { mx: "volume", t: SOLIDS[t], rad, h, s }), sf);
 };
 const CROSS: [string, string, string][] = [
   ["a cylinder", "perpendicular to its axis", "Circle"], ["a cylinder", "parallel to its axis (through the axis)", "Rectangle"], ["a cone", "perpendicular to its axis", "Circle"], ["a cone", "through its apex, along the axis", "Triangle"],
@@ -746,20 +780,36 @@ const parabola: Gen = (r) => {
 };
 const inscribed: Gen = (r) => {
   const t = r.int(0, 2), arc = 2 * r.int(10, 170);
-  if (t === 0) return draft(`An inscribed angle intercepts an arc of ${deg(arc)}. What is the angle's measure?`, exact(arc / 2), `${arc / 2}^\\circ`, [`Inscribed angle = half the intercepted arc.`], { mx: "inscribed", arc, ask: "inscribed" });
-  if (t === 1) return draft(`A central angle measures ${deg(arc / 2)}. What does an inscribed angle intercepting the same arc measure?`, exact(arc / 4), `${arc / 4}^\\circ`, [`The central angle equals the arc; the inscribed angle is half of it.`], { mx: "inscribed", arc: arc / 2, ask: "inscribed" });
+  const O: Pt = [0, 0], R = 5;
+  // the arc runs from P to Q (counterclockwise, centred at the bottom); the inscribed vertex V sits on the far side
+  const inFig = (arc0: number, central: string | null, ins: string, arcLab: string | null) => {
+    const ar = Math.min(Math.max(arc0, 60), 300);
+    const P = onCirc(O, R, 270 - ar / 2), Qp = onCirc(O, R, 270 + ar / 2), V = onCirc(O, R, 90 + (ar > 200 ? 0 : 25));
+    return geomSvg({ circles: [{ c: O, r: R }], segs: [{ a: V, b: P }, { a: V, b: Qp }, ...(central ? [{ a: O, b: P, dash: true }, { a: O, b: Qp, dash: true }] : [])],
+      angles: [{ at: V, a1: dirDeg(V, P), a2: dirDeg(V, Qp), label: ins, hot: true }, ...(central ? [{ at: O, a1: dirDeg(O, P), a2: dirDeg(O, Qp), label: central }] : [])],
+      dots: [{ p: P }, { p: Qp }, { p: V }, ...(central ? [{ p: O }] : [])], texts: arcLab ? [{ p: onCirc(O, R + 1.1, 270), s: arcLab }] : [], maxHeight: 220 });
+  };
+  if (t === 0) return withFig(draft(`An inscribed angle intercepts an arc of ${deg(arc)}. What is the angle's measure?`, exact(arc / 2), `${arc / 2}^\\circ`, [`Inscribed angle = half the intercepted arc.`], { mx: "inscribed", arc, ask: "inscribed" }), inFig(arc, null, "?", `${arc}°`));
+  if (t === 1) return withFig(draft(`A central angle measures ${deg(arc / 2)}. What does an inscribed angle intercepting the same arc measure?`, exact(arc / 4), `${arc / 4}^\\circ`, [`The central angle equals the arc; the inscribed angle is half of it.`], { mx: "inscribed", arc: arc / 2, ask: "inscribed" }), inFig(arc / 2, `${arc / 2}°`, "?", null));
   const k = r.int(20, 80);
-  return draft(`${m("\\overline{AB}")} is a diameter and ${m("C")} is on the circle with ${m(`\\angle CAB = ${k}^\\circ`)}. Find ${m("\\angle CBA")}.`, exact(90 - k), `${90 - k}^\\circ`, [`An angle inscribed in a semicircle is a right angle (${m("\\angle ACB = 90^\\circ")}).`], { mx: "thales", k });
+  const Ap: Pt = [-R, 0], Bp: Pt = [R, 0], Cp = onCirc(O, R, 180 - 2 * k);
+  return withFig(draft(`${m("\\overline{AB}")} is a diameter and ${m("C")} is on the circle with ${m(`\\angle CAB = ${k}^\\circ`)}. Find ${m("\\angle CBA")}.`, exact(90 - k), `${90 - k}^\\circ`, [`An angle inscribed in a semicircle is a right angle (${m("\\angle ACB = 90^\\circ")}).`], { mx: "thales", k }), geomSvg({ circles: [{ c: O, r: R }], polys: [{ pts: [Ap, Bp, Cp], names: ["A", "B", "C"] }], dots: [{ p: O }], angles: [{ ...corner([Ap, Bp, Cp], 0), label: `${k}°` }, { ...corner([Ap, Bp, Cp], 1), label: "?", hot: true }], maxHeight: 220 }));
 };
 const cyclicQuad: Gen = (r) => {
   const A = r.int(40, 140), B = r.int(40, 140);
-  return draft(`Quadrilateral ${m("ABCD")} is inscribed in a circle with ${m(`\\angle A = ${A}^\\circ`)} and ${m(`\\angle B = ${B}^\\circ`)}. Find ${m("\\angle C")}.`, exact(180 - A), `${180 - A}^\\circ`, [`Opposite angles of an inscribed quadrilateral are supplementary.`], { mx: "cyclic", A, B });
+  // arcs AB, BC, CD, DA with A = (BC + CD)/2 and B = (CD + DA)/2
+  const g = (Math.max(0, 2 * A + 2 * B - 360) + Math.min(2 * A, 2 * B)) / 2, be = 2 * A - g, de = 2 * B - g, al = 360 - be - g - de;
+  const t0 = 200, Ap = onCirc([0, 0], 5, t0), Bp = onCirc([0, 0], 5, t0 + al), Cp = onCirc([0, 0], 5, t0 + al + be), Dp = onCirc([0, 0], 5, t0 + al + be + g), Q4 = [Ap, Bp, Cp, Dp];
+  return withFig(draft(`Quadrilateral ${m("ABCD")} is inscribed in a circle with ${m(`\\angle A = ${A}^\\circ`)} and ${m(`\\angle B = ${B}^\\circ`)}. Find ${m("\\angle C")}.`, exact(180 - A), `${180 - A}^\\circ`, [`Opposite angles of an inscribed quadrilateral are supplementary.`], { mx: "cyclic", A, B }), geomSvg({ circles: [{ c: [0, 0], r: 5 }], polys: [{ pts: Q4, names: ["A", "B", "C", "D"] }], angles: [{ ...corner(Q4, 0), label: `${A}°` }, { ...corner(Q4, 1), label: `${B}°` }, { ...corner(Q4, 2), label: "?", hot: true }], maxHeight: 220 }));
 };
 const arcSector: Gen = (r) => {
   const rad = r.int(2, 15), d = r.pick([30, 45, 60, 72, 90, 120, 135, 150, 210, 240, 270, 300]), sector = r.chance(0.5), inRad = r.chance(0.4);
   const v = sector ? q(d * rad * rad, 360) : q(2 * d * rad, 360);
-  return draft(`A circle has radius ${rad}. Find the ${sector ? "area of the sector" : "length of the arc"} cut off by a central angle of ${inRad ? m(radTex(d)) : deg(d)} — exact in terms of π, or 2 decimals.`, approx(`(${qref(v)})*pi`, tol2(v.value() * Math.PI)), `${qtex(v)}\\pi`,
-    [`${sector ? m("A = \\frac{\\theta}{360^\\circ}\\pi r^2 = \\tfrac12 r^2\\theta_{rad}") : m("s = \\frac{\\theta}{360^\\circ}2\\pi r = r\\theta_{rad}")}.`], { mx: "arc", rad, d, sector });
+  const O: Pt = [0, 0], from = 90 - d / 2;
+  const af = geomSvg({ circles: [{ c: O, r: rad }], polys: sector ? [{ pts: sectorPts(O, rad, from, from + d), fill: true }] : [], segs: [{ a: O, b: onCirc(O, rad, from) }, { a: O, b: onCirc(O, rad, from + d), label: `${rad}` }],
+    angles: [{ at: O, a1: from, a2: from + d, label: inRad ? (q(d, 180).n === 1 ? "π" : `${q(d, 180).n}π`) + (q(d, 180).d === 1 ? "" : `/${q(d, 180).d}`): `${d}°` }], dots: [{ p: O }], maxHeight: 220 });
+  return withFig(draft(`A circle has radius ${rad}. Find the ${sector ? "area of the sector" : "length of the arc"} cut off by a central angle of ${inRad ? m(radTex(d)) : deg(d)} — exact in terms of π, or 2 decimals.`, approx(`(${qref(v)})*pi`, tol2(v.value() * Math.PI)), `${qtex(v)}\\pi`,
+    [`${sector ? m("A = \\frac{\\theta}{360^\\circ}\\pi r^2 = \\tfrac12 r^2\\theta_{rad}") : m("s = \\frac{\\theta}{360^\\circ}2\\pi r = r\\theta_{rad}")}.`], { mx: "arc", rad, d, sector }), af);
 };
 const circleEq: Gen = (r) => {
   const h = r.int(-8, 8), k = r.int(-8, 8), rad = r.int(1, 9);

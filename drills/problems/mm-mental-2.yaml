@@ -113,6 +113,7 @@
   pace: recall
   given: { b1: { int: [4, 14] }, b2: { int: [3, 12] }, h: { pick: [4, 6, 8, 10, 12] } }
   prompt: 'Area of a trapezoid with bases ${{b1}}$ and ${{b2}}$ and height ${{h}}$?'
+  figure: { type: geom, polys: [{ pts: [[0, 0], ['b1', 0], ['(b1 - b2)/2 + b2', 'h'], ['(b1 - b2)/2', 'h']], sides: ['{{b1}}', null, '{{b2}}', null], fill: true }], segs: [{ a: ['(b1 - b2)/2', 0], b: ['(b1 - b2)/2', 'h'], dash: true, label: '{{h}}' }] }
   parts:
     - { ask: 'Area', label: v, tex: 'A', value: (b1 + b2)*h/2, tol: 0.0001, explain: 'The average of the bases times the height: halve the height, ${{h/2}}$, and multiply by ${{b1 + b2}}$' }
   verify: { expect: { v: "integrate(b1 + (b2 - b1)*x/h, (x, 0, h))" } }

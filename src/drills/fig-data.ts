@@ -22,10 +22,15 @@
 //   type: scheme      panels: [figure, …] stacked top to bottom with an arrow between; a panel may carry `caption`
 //   type: views       heights: as for cubes; show: [top, front, end]; outline: true for the silhouette only; mask: 0/1 grid drawn as an outline; labels: false
 //                     grids may be packed as 1abcdefghi; options: [grid, …] + view draws lettered candidate views; masks: [grid, …] lettered outlines
+//   type: geom        polys: [{ pts | angles: [A, B] | sides3: [a, b, c] | sector: { c, r, from, to }, names, sides, fill }] · segs: [{ a, b | side: [poly, i], label, dash, line, hot, flip }]
+//                     angles: [{ corner: [poly, vertex] | at, a1, a2, label, right, hot, arcs }] · ticks / par: [{ side: [poly, i] | a, b, n }]
+//                     circles: [{ c, r }] · dots: [{ p, label, dir }] · texts: [{ p, s }] · transversal: { angle, marks: [[0|1, UR|UL|LL|LR, label], …] }   (geom.ts)
+//   type: solid       kind: box | cylinder | cone | sphere | hemisphere | pyramid | cone-cylinder | tri-prism · dims · labels · diagonal
 //   type: prism       profile: hex 1v1v2… (digit = 4x + z), depth; view 0 top, 1 front, 2 end, 3 isometric (default); options: [profile, …] lettered outlines
 // Every number may be an expression in the template's givens and lets. A function (`f`, `field`, a
 // `vfield` component) may also be the name of a text field of the drawn case. Strokes use currentColor.
 import { math } from "./check";
+import { geomSvg, solidSvg, corner, triFromAngles, triFromSides, transversal, sectorPts, type GeomFig, type Pt } from "./geom";
 
 type Scope = Record<string, unknown>;
 const ACCENT = "#5b7cfa", HOT = "#e0654f";
@@ -469,6 +474,34 @@ function code(f: any, scope: Scope): string {
   return svg(w, h, s);
 }
 
+/** a geometry figure (geom.ts) from a template: numbers may be expressions, labels may hold {{fills}};
+ *  a polygon may be built from `angles: [A, B]` or `sides3: [a, b, c]` (a triangle), and an angle mark,
+ *  tick or segment may name a corner or side as `corner: [polygon, vertex]` / `side: [polygon, i]` */
+function geomData(f: any, scope: Scope): string {
+  const L = (v: unknown) => (v == null ? null : str(v, scope));
+  const P = (p: unknown): Pt => arr(p, scope) as Pt;
+  const base: GeomFig = f.transversal ? transversal(n(f.transversal.angle, scope), f.transversal.marks.map((m: any[]) => [m[0], m[1], str(m[2], scope)]), f.transversal.parallel !== false) : {};
+  const polys = (f.polys ?? []).map((pg: any) => {
+    const pts: Pt[] = pg.angles ? triFromAngles(n(pg.angles[0], scope), n(pg.angles[1], scope)) : pg.sides3 ? triFromSides(...(arr(pg.sides3, scope) as [number, number, number]))
+      : pg.sector ? sectorPts(P(pg.sector.c), n(pg.sector.r, scope), n(pg.sector.from, scope), n(pg.sector.to, scope)) : pg.pts.map(P);
+    return { pts, names: pg.names?.map(L), sides: pg.sides?.map(L), fill: !!pg.fill, dash: !!pg.dash };
+  });
+  const side = (ref: unknown[]): [Pt, Pt] => { const q = polys[n(ref[0], scope)].pts, i = n(ref[1], scope); return [q[i], q[(i + 1) % q.length]]; };
+  const ends = (x: any): [Pt, Pt] => (x.side ? side(x.side) : [P(x.a), P(x.b)]);
+  return geomSvg({
+    ...base,
+    polys: [...(base.polys ?? []), ...polys],
+    segs: [...(base.segs ?? []), ...(f.segs ?? []).map((g: any) => { const [a, b] = ends(g); return { a, b, label: L(g.label), dash: !!g.dash, line: !!g.line, hot: !!g.hot, side: g.flip ? -1 : 1 }; })],
+    angles: [...(base.angles ?? []), ...(f.angles ?? []).map((a: any) => ({ ...(a.corner ? corner(polys[n(a.corner[0], scope)].pts, n(a.corner[1], scope)) : { at: P(a.at), a1: n(a.a1, scope), a2: n(a.a2, scope) }), label: L(a.label), right: typeof a.right === "string" ? !!n(a.right, scope) : !!a.right, hot: !!a.hot, arcs: a.arcs }))],
+    ticks: (f.ticks ?? []).map((t: any) => { const [a, b] = ends(t); return { a, b, n: t.n ?? 1 }; }),
+    par: [...(base.par ?? []), ...(f.par ?? []).map((t: any) => { const [a, b] = ends(t); return { a, b, n: t.n ?? 1 }; })],
+    circles: (f.circles ?? []).map((c: any) => ({ c: P(c.c), r: n(c.r, scope), dash: !!c.dash })),
+    dots: (f.dots ?? []).map((d: any) => ({ p: P(d.p), label: L(d.label), dir: d.dir == null ? undefined : n(d.dir, scope) })),
+    texts: (f.texts ?? []).map((t: any) => ({ p: P(t.p), s: str(t.s, scope) })),
+    width: base.width,
+  });
+}
+
 export function renderFigure(f: any, scope: Scope): string {
   switch (f?.type) {
     case "plot": return plot(f, scope);
@@ -482,6 +515,8 @@ export function renderFigure(f: any, scope: Scope): string {
     case "views": return views(f, scope);
     case "prism": return prism(f, scope);
     case "code": return code(f, scope);
+    case "geom": return geomData(f, scope);
+    case "solid": return solidSvg({ kind: f.kind, dims: arr(f.dims, scope), labels: (f.labels ?? []).map((l: unknown) => (l == null ? null : str(l, scope))), diagonal: !!f.diagonal, units: !!f.units });
     default: throw new Error(`unknown figure type ${f?.type}`);
   }
 }

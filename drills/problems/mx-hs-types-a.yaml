@@ -747,6 +747,7 @@
   given: { v: { int: [20, 140] } }
   require: ['v % 2 == 0']
   prompt: 'An isosceles triangle has vertex angle ${{v}}$°. What is each base angle?'
+  figure: { type: geom, polys: [{ angles: ['(180 - v)/2', '(180 - v)/2'], fill: true }], ticks: [{ side: [0, 1] }, { side: [0, 2] }], angles: [{ corner: [0, 2], label: '{{v}}°' }, { corner: [0, 0], label: '?', hot: true }, { corner: [0, 1], hot: true }] }
   parts:
     - { ask: 'Degrees', label: r, value: (180 - v)/2, tol: 0.0001, explain: 'Base angles of an isosceles triangle are congruent and all three angles sum to 180°' }
   verify: { expect: { r: "solve(Eq(v + 2*x, 180), x)[0]" } }
@@ -756,6 +757,7 @@
   pace: recall
   given: { a: { int: [40, 85] }, w: { pick: [0, 1] } }
   prompt: 'One angle of a parallelogram is ${{a}}$°. What is the angle {{w == 0 ? "opposite it" : "next to it"}}?'
+  figure: { type: geom, polys: [{ pts: [[0, 0], [8, 0], ['8 + 5*cos(a*pi/180)', '5*sin(a*pi/180)'], ['5*cos(a*pi/180)', '5*sin(a*pi/180)']], fill: true }], angles: [{ corner: [0, 0], label: '{{a}}°' }, { corner: [0, 'w == 0 ? 2 : 1'], label: '?', hot: true }] }
   parts:
     - { ask: 'Degrees', label: r, value: 'w == 0 ? a : 180 - a', tol: 0.0001, explain: 'Opposite angles of a parallelogram are congruent; consecutive angles are supplementary (they are same-side interior angles)' }
   verify: { expect: { r: "a if w == 0 else 180 - a" } }
@@ -856,6 +858,7 @@
   pace: quick
   given: { a: { int: [2, 8] }, b: { int: [3, 9] }, c: { int: [2, 8] } }
   prompt: 'A line parallel to BC cuts AB at D and AC at E. AD = {{a}}, DB = {{b}}, AE = {{c}}. What is EC?'
+  figure: { type: geom, polys: [{ pts: [[4, 8], [0, 0], [11, 0]], names: [A, B, C], fill: true }], segs: [{ a: ['4 - 4*a/(a+b)', '8 - 8*a/(a+b)'], b: ['4 + 7*a/(a+b)', '8 - 8*a/(a+b)'] }, { a: ['4 - 4*a/(a+b)', '8 - 8*a/(a+b)'], b: [4, 8], label: '{{a}}', flip: true }, { a: [0, 0], b: ['4 - 4*a/(a+b)', '8 - 8*a/(a+b)'], label: '{{b}}', flip: true }, { a: [4, 8], b: ['4 + 7*a/(a+b)', '8 - 8*a/(a+b)'], label: '{{c}}', flip: true }, { a: ['4 + 7*a/(a+b)', '8 - 8*a/(a+b)'], b: [11, 0], label: '?', flip: true, hot: true }], dots: [{ p: ['4 - 4*a/(a+b)', '8 - 8*a/(a+b)'], label: D, dir: 180 }, { p: ['4 + 7*a/(a+b)', '8 - 8*a/(a+b)'], label: E, dir: 0 }], par: [{ a: ['4 - 4*a/(a+b)', '8 - 8*a/(a+b)'], b: ['4 + 7*a/(a+b)', '8 - 8*a/(a+b)'] }, { a: [0, 0], b: [11, 0] }] }
   parts:
     - { ask: 'EC', label: r, value: b*c/a, tol: 0.001, explain: 'A parallel line splits the sides proportionally: AD/DB = AE/EC' }
   verify: { expect: { r: "solve(Eq(Rational(a, b), c/x), x)[0]" } }
@@ -870,6 +873,7 @@
     - { p: 1, q: 16, h: 4 }
     - { p: 9, q: 16, h: 12 }
   prompt: 'The altitude to the hypotenuse of a right triangle splits the hypotenuse into ${{p}}$ and ${{q}}$. How long is the altitude?'
+  figure: { type: geom, polys: [{ pts: [[0, 0], ['p + q', 0], ['p', 'h']], fill: true }], segs: [{ a: ['p', 0], b: ['p', 'h'], dash: true, label: '?', hot: true }, { a: [0, 0], b: ['p', 0], label: '{{p}}', flip: true }, { a: ['p', 0], b: ['p + q', 0], label: '{{q}}', flip: true }], angles: [{ corner: [0, 2], right: true }, { at: ['p', 0], a1: 0, a2: 90, right: true }] }
   parts:
     - { ask: 'Altitude', label: r, value: h, tol: 0.0001, explain: 'The altitude makes two triangles similar to each other, so p/h = h/q: h = √(pq), the geometric mean' }
   verify: { expect: { r: "sqrt(p*q)" } }
@@ -884,6 +888,7 @@
     - { a: 7, b: 24, c: 25 }
   given: { w: { pick: [0, 1, 2] } }
   prompt: 'A right triangle has legs {{a}} and {{b}} and hypotenuse {{c}}. For the angle opposite the side {{a}}, what is its {{w == 0 ? "sine" : (w == 1 ? "cosine" : "tangent")}}?'
+  figure: { type: geom, polys: [{ pts: [[0, 0], ['b', 0], ['b', 'a']], sides: ['{{b}}', '{{a}}', '{{c}}'], fill: true }], angles: [{ corner: [0, 1], right: true }, { corner: [0, 0], label: 'θ', hot: true }] }
   parts:
     - { ask: 'Ratio', label: r, value: 'w == 0 ? a/c : (w == 1 ? b/c : a/b)', tol: 0.0001, explain: 'SOH CAH TOA. The ratio depends only on the angle: any similar triangle gives the same value' }
   verify: { expect: { r: "[Rational(a, c), Rational(b, c), Rational(a, b)][w]" } }
@@ -949,6 +954,7 @@
     - { C: 150, s: 0.5 }
   given: { a: { int: [4, 12] }, b: { int: [4, 12] } }
   prompt: 'Two sides of a triangle are ${{a}}$ and ${{b}}$ with included angle ${{C}}$°. What is its area?'
+  figure: { type: geom, polys: [{ pts: [[0, 0], ['a', 0], ['b*cos(C*pi/180)', 'b*sin(C*pi/180)']], sides: ['{{a}}', null, '{{b}}'], fill: true }], angles: [{ corner: [0, 0], label: '{{C}}°', right: 'C == 90' }] }
   parts:
     - { ask: 'Area', label: r, value: a*b*s/2, tol: 0.0001, explain: 'Drop an altitude: its length is ${{b}} \sin {{C}}° $, so A = ½·{{a}}·{{b}}·sin {{C}}°' }
   verify: { expect: { r: "Rational(1, 2)*a*b*sin(C*pi/180)" } }
@@ -962,6 +968,7 @@
     - { A: 90, B: 30, a: 12, b: 6 }
     - { A: 30, B: 45, a: 6, b: 8.48528137423857 }
   prompt: 'In triangle ABC, A = {{A}}°, B = {{B}}° and a = {{a}}. Find b with the Law of Sines.'
+  figure: { type: geom, polys: [{ angles: ['A', 'B'], names: [A, B, C], sides: [null, 'a = {{a}}', 'b = ?'], fill: true }], angles: [{ corner: [0, 0], label: '{{A}}°' }, { corner: [0, 1], label: '{{B}}°' }] }
   parts:
     - { ask: 'b', label: r, value: b, tol: 0.001, explain: 'a/sin A = b/sin B, so b = a·sin B / sin A. The Law of Cosines, c² = a² + b² − 2ab cos C, handles SAS and SSS' }
   verify: { expect: { r: "a*sin(B*pi/180)/sin(A*pi/180)" } }
@@ -1051,6 +1058,7 @@
     - { r: 8, d: 17, t: 15 }
     - { r: 6, d: 10, t: 8 }
   prompt: 'A point is ${{d}}$ from the center of a circle of radius ${{r}}$. How long is a tangent segment from the point to the circle?'
+  figure: { type: geom, circles: [{ c: [0, 0], r: 'r' }], polys: [{ pts: [[0, 0], ['d', 0], ['r*r/d', 'r*t/d']], sides: ['{{d}}', '?', '{{r}}'] }], angles: [{ corner: [0, 2], right: true }], dots: [{ p: [0, 0] }, { p: ['d', 0], label: P, dir: 0 }] }
   parts:
     - { ask: 'Tangent length', label: r2, value: t, tol: 0.0001, explain: 'A tangent is perpendicular to the radius at the point of tangency, making a right triangle with hypotenuse {{d}}. Constructing one uses that right angle (Thales'' circle on the segment to the center)' }
   verify: { expect: { r2: "sqrt(d**2 - r**2)" } }
@@ -1060,6 +1068,7 @@
   pace: quick
   given: { r: { int: [2, 12] }, t: { pick: [30, 45, 60, 90, 120] } }
   prompt: 'An arc subtends ${{t}}$° in a circle of radius ${{r}}$. What is its length, divided by π?'
+  figure: { type: geom, circles: [{ c: [0, 0], r: 'r' }], polys: [{ sector: { c: [0, 0], r: 'r', from: '90 - t/2', to: '90 + t/2' }, fill: true }], segs: [{ a: [0, 0], b: ['r*cos((90 + t/2)*pi/180)', 'r*sin((90 + t/2)*pi/180)'], label: '{{r}}' }], angles: [{ at: [0, 0], a1: '90 - t/2', a2: '90 + t/2', label: '{{t}}°' }], dots: [{ p: [0, 0] }] }
   parts:
     - { ask: 'Length ÷ π', label: s, value: 2*r*t/360, tol: 0.0001, explain: 'An arc is the same fraction of the circumference as its angle is of 360°: ({{t}}/360)·2π({{r}}). In radians that is just rθ' }
   verify: { expect: { s: "(Rational(t, 360)*2*pi*r)/pi" } }
