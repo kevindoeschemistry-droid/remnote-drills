@@ -52,9 +52,29 @@ export const DRILLED_FRAMEWORKS: { id: string; title: string; cards: number }[] 
 /** school maths is in the outline but off for cards until you turn it on */
 export const DEFAULT_CARD_FRAMEWORKS: string[] = DRILLED_FRAMEWORKS.filter((f) => f.id !== "math-k8" && f.id !== "math-hs").map((f) => f.id);
 
-/** undefined when no choice has ever been saved (RemNote answers null for a key never set) */
-export const getCardFrameworks = async (plugin: RNPlugin): Promise<string[] | undefined> => (await plugin.storage.getSynced<string[] | null>(CARD_FWS_KEY)) ?? undefined;
-export const setCardFrameworks = (plugin: RNPlugin, ids: string[]) => plugin.storage.setSynced(CARD_FWS_KEY, ids);
+// The frameworks that existed (with drills) when the choice was saved. A framework that gets its
+// first drills later was never offered, so it is on by default rather than silently left out.
+const SEEN_KEY = "library.cardFrameworksSeen";
+
+/** the saved choice as stored (undefined when none was ever saved: RemNote answers null for a key never set) */
+const savedCardFrameworks = async (plugin: RNPlugin): Promise<string[] | undefined> => (await plugin.storage.getSynced<string[] | null>(CARD_FWS_KEY)) ?? undefined;
+
+/**
+ * The frameworks that get cards: the saved choice plus every drilled framework added since it was
+ * saved. A choice saved before the plugin recorded what was on offer counts only the school-maths
+ * frameworks as deliberately off, which is the default the picker started from.
+ */
+export const getCardFrameworks = async (plugin: RNPlugin): Promise<string[] | undefined> => {
+  const chosen = await savedCardFrameworks(plugin);
+  if (chosen === undefined) return undefined;
+  const seen = (await plugin.storage.getSynced<string[] | null>(SEEN_KEY)) ?? DEFAULT_CARD_FRAMEWORKS.filter((id) => chosen.includes(id)).concat(["math-k8", "math-hs"]);
+  const added = DRILLED_FRAMEWORKS.map((f) => f.id).filter((id) => !seen.includes(id) && !chosen.includes(id));
+  return [...chosen, ...added];
+};
+export const setCardFrameworks = async (plugin: RNPlugin, ids: string[]) => {
+  await plugin.storage.setSynced(CARD_FWS_KEY, ids);
+  await plugin.storage.setSynced(SEEN_KEY, DRILLED_FRAMEWORKS.map((f) => f.id));
+};
 
 /**
  * A new Library card for an objective whose skill you already cleared in a course starts cleared.
@@ -173,8 +193,13 @@ export function librarySignature(): string {
 export async function libraryIsBuilt(plugin: RNPlugin) {
   return !!(await plugin.storage.getSynced<string>(ROOT_KEY));
 }
+/** the curriculum's signature plus the frameworks that get cards, so a change to either re-syncs */
+async function syncSignature(plugin: RNPlugin) {
+  const cards = await getCardFrameworks(plugin);
+  return `${librarySignature()}:${cards ? [...cards].sort().join(",") : "all"}`;
+}
 export async function libraryIsCurrent(plugin: RNPlugin) {
-  return (await plugin.storage.getSynced<string>(SIG_KEY)) === librarySignature();
+  return (await plugin.storage.getSynced<string>(SIG_KEY)) === (await syncSignature(plugin));
 }
 
 /**
@@ -294,5 +319,5 @@ export async function ensureLibrary(plugin: RNPlugin, onProgress?: (done: number
     done += fw.units.reduce((s, u) => s + u.topics.reduce((x, t) => x + t.los.length, 0), 0);
     onProgress?.(done, total, `${fw.title} · links`);
   }
-  await plugin.storage.setSynced(SIG_KEY, librarySignature());
+  await plugin.storage.setSynced(SIG_KEY, await syncSignature(plugin));
 }
