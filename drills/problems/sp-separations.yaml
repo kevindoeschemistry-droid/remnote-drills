@@ -1,0 +1,206 @@
+- template: sp-vle-alpha
+  skill: sep.vle
+  pace: quick
+  cases:
+  - PA: 101.3
+    PB: 40.0
+    xa: 0.4
+    ans: 0.6280223186609
+  - PA: 180.0
+    PB: 75.0
+    xa: 0.25
+    ans: 0.4444444444444
+  - PA: 95.0
+    PB: 31.0
+    xa: 0.6
+    ans: 0.821325648415
+  - PA: 150.0
+    PB: 100.0
+    xa: 0.5
+    ans: 0.6
+  prompt: An ideal binary liquid holds mole fraction {{xa}} of A. Pure-component vapour pressures are {{PA}} kPa (A) and {{PB}} kPa (B). What is A's mole fraction in the vapour?
+  parts:
+  - ask: y_A
+    label: y
+    value: ans
+    tol: 0.0005
+    explain: Relative volatility α = P_A*/P_B*, and $y = \dfrac{\alpha x}{1 + (\alpha - 1)x}$. The larger α, the easier the split; α near 1 means many stages
+  verify:
+    expect:
+      y: y_from_raoult(PA, PB, xa)
+- template: sp-fenske
+  skill: sep.distillation
+  pace: quick
+  cases:
+  - alpha: 2.5
+    xD: 0.95
+    xB: 0.05
+    ans: 6.426866226496
+  - alpha: 2.0
+    xD: 0.99
+    xB: 0.01
+    ans: 13.25871324016
+  - alpha: 1.5
+    xD: 0.95
+    xB: 0.05
+    ans: 14.52376009815
+  - alpha: 3.0
+    xD: 0.98
+    xB: 0.02
+    ans: 7.084974996646
+  - alpha: 1.2
+    xD: 0.9
+    xB: 0.1
+    ans: 24.10274041066
+  prompt: A binary column with constant relative volatility α = {{alpha}} must make x_D = {{xD}} and x_B = {{xB}}. What is the minimum number of equilibrium stages (total reflux)?
+  parts:
+  - ask: N_min
+    label: y
+    value: ans
+    tol: 0.0005
+    explain: 'Fenske: $N_{\min} = \dfrac{\ln[(x_D/(1-x_D))((1-x_B)/x_B)]}{\ln\alpha}$, counting the reboiler as a stage. Halving α − 1 roughly doubles the stages'
+  verify:
+    expect:
+      y: fenske_steps(alpha, xD, xB)
+- template: sp-rmin
+  skill: sep.distillation
+  pace: quick
+  cases:
+  - alpha: 2.5
+    xD: 0.95
+    xF: 0.4
+    ans: 1.444444444444
+  - alpha: 2.0
+    xD: 0.99
+    xF: 0.5
+    ans: 1.94
+  - alpha: 3.0
+    xD: 0.95
+    xF: 0.3
+    ans: 1.47619047619
+  - alpha: 1.8
+    xD: 0.9
+    xF: 0.45
+    ans: 2.090909090909
+  prompt: A saturated-liquid feed with x_F = {{xF}} goes to a binary column (α = {{alpha}}) making x_D = {{xD}}. What is the minimum reflux ratio?
+  parts:
+  - ask: R_min
+    label: y
+    value: ans
+    tol: 0.0005
+    explain: For a saturated-liquid feed, Underwood reduces to $R_{\min} = \dfrac{1}{\alpha - 1}\left[\dfrac{x_D}{x_F} - \dfrac{\alpha(1 - x_D)}{1 - x_F}\right]$. Graphically, the top operating line pinches
+      the equilibrium curve on the q-line. Columns usually run at 1.2–1.5 R_min
+  verify:
+    expect:
+      y: rmin_pinch(alpha, xD, xF)
+- template: sp-kremser
+  skill: sep.absorption
+  pace: quick
+  cases:
+  - A: 1.4
+    f: 0.95
+    pct: 95.0
+    ans: 5.530180912994
+  - A: 2.0
+    f: 0.99
+    pct: 99.0
+    ans: 5.658211482752
+  - A: 1.2
+    f: 0.9
+    pct: 90.0
+    ans: 5.025685102665
+  - A: 1.5
+    f: 0.98
+    pct: 98.0
+    ans: 7.035454772479
+  - A: 3.0
+    f: 0.999
+    pct: 99.9
+    ans: 5.919094582311
+  prompt: An absorber with absorption factor A = L/(mV) = {{A}} and solute-free solvent must remove {{pct}}% of the solute. How many equilibrium stages?
+  parts:
+  - ask: N
+    label: y
+    value: ans
+    tol: 0.0005
+    explain: 'Kremser: fraction absorbed $= \dfrac{A^{N+1} - A}{A^{N+1} - 1}$, so $N = \dfrac{\ln[(A - f)/(1 - f)]}{\ln A} - 1$. With A < 1 the recovery is capped at A however many stages'
+  verify:
+    expect:
+      y: kremser_stages(A, f)
+- template: sp-humidity
+  skill: sep.humidification
+  pace: quick
+  cases:
+  - RH: 0.5
+    pc: 50.0
+    ps: 3.17
+    P: 101.325
+    ans: 0.009882018757918
+  - RH: 0.8
+    pc: 80.0
+    ps: 4.25
+    P: 101.325
+    ans: 0.02159091800353
+  - RH: 0.3
+    pc: 30.0
+    ps: 7.38
+    P: 101.325
+    ans: 0.01389125647336
+  - RH: 1.0
+    pc: 100.0
+    ps: 2.34
+    P: 101.325
+    ans: 0.01470050456385
+  - RH: 0.6
+    pc: 60.0
+    ps: 3.17
+    P: 85.0
+    ans: 0.01423330358249
+  prompt: Air at {{P}} kPa has {{pc}}% relative humidity where water's vapour pressure is {{ps}} kPa. What is the absolute humidity (kg water per kg dry air)?
+  parts:
+  - ask: H (kg/kg)
+    label: y
+    value: ans
+    tol: 0.0005
+    explain: p_w = RH × p*, then $H = \dfrac{p_w}{P - p_w}\dfrac{M_w}{M_{air}} = 0.622\dfrac{p_w}{P - p_w}$. Saturation is RH = 100%; cooling air at constant H raises RH until dew forms
+  verify:
+    expect:
+      y: abs_humidity(RH, ps, P)
+- template: sp-evaporator
+  skill: sep.humidification
+  pace: quick
+  cases:
+  - F: 1000
+    x0: 0.05
+    x1: 0.25
+    p0: 5.0
+    p1: 25.0
+    ans: 800.0
+  - F: 5000
+    x0: 0.1
+    x1: 0.5
+    p0: 10.0
+    p1: 50.0
+    ans: 4000.0
+  - F: 2000
+    x0: 0.12
+    x1: 0.4
+    p0: 12.0
+    p1: 40.0
+    ans: 1400.0
+  - F: 800
+    x0: 0.08
+    x1: 0.6
+    p0: 8.0
+    p1: 60.0
+    ans: 693.3333333333
+  prompt: An evaporator concentrates {{F}} kg/h of a solution from {{p0}}% to {{p1}}% solids. How much water is evaporated (kg/h)?
+  parts:
+  - ask: V (kg/h)
+    label: y
+    value: ans
+    tol: 0.0005
+    explain: 'Solids pass through unchanged: F x₀ = L x₁, so L = F x₀/x₁ and V = F − L. A balance on the non-volatile component always comes first'
+  verify:
+    expect:
+      y: evaporated(F, x0, x1)

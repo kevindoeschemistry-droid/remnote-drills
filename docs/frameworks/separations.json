@@ -1,0 +1,240 @@
+{
+ "id": "separations",
+ "title": "Separations",
+ "code": "SP",
+ "draft": 1,
+ "track": "engineering",
+ "requires": [
+  "material-balances",
+  "thermodynamics"
+ ],
+ "level": 4,
+ "domains": [
+  "sep"
+ ],
+ "basis": {
+  "primary": "fe-chemical",
+  "also": [
+   "pe-chemical"
+  ],
+  "note": "Topics from FE Chemical area 10 and PE Chemical 6.B (both read in full); objectives and their order are ours."
+ },
+ "big_ideas": [
+  {
+   "id": "STAGE",
+   "title": "A stage is an equilibrium plus a balance",
+   "text": "Every separation is equilibrium relations (α, m, solubility) chained by mass balances; the number of stages measures how hard the split is."
+  },
+  {
+   "id": "DRIVE",
+   "title": "Separation needs a driving difference",
+   "text": "Volatility, solubility or vapour pressure must differ, and the closer to 1 the ratio, the more stages or reflux it costs."
+  }
+ ],
+ "practices": [
+  {
+   "id": "P1",
+   "title": "Compute",
+   "text": "Carry the stage or balance calculation to a number."
+  }
+ ],
+ "units": [
+  {
+   "id": "equilibrium-stages",
+   "n": 1,
+   "title": "Equilibrium-stage separations",
+   "std": [
+    "fe-chemical:10.C",
+    "fe-chemical:10.D",
+    "pe-chemical:6.B"
+   ],
+   "scope": "core",
+   "ideas": [
+    "STAGE",
+    "DRIVE"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "Distillation",
+     "los": [
+      {
+       "id": "A",
+       "do": "Compute a vapour composition from relative volatility.",
+       "ek": [
+        "y = αx/(1 + (α − 1)x)."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "sp-vle-alpha"
+       ]
+      },
+      {
+       "id": "B",
+       "do": "Compute the minimum number of stages with Fenske.",
+       "ek": [
+        "N_min = ln[(x_D/(1−x_D))((1−x_B)/x_B)]/ln α."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "SP-1.1.A"
+       ],
+       "drills": [
+        "sp-fenske"
+       ]
+      },
+      {
+       "id": "C",
+       "do": "Compute the minimum reflux ratio for a saturated-liquid feed.",
+       "ek": [
+        "Pinch on the q-line; Underwood for a binary."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "SP-1.1.A"
+       ],
+       "drills": [
+        "sp-rmin"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "title": "Absorption",
+     "los": [
+      {
+       "id": "A",
+       "do": "Compute the stages for an absorber with the Kremser equation.",
+       "ek": [
+        "N = ln[(A − f)/(1 − f)]/ln A − 1."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "sp-kremser"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "humidity",
+   "n": 2,
+   "title": "Humidification and evaporation",
+   "std": [
+    "fe-chemical:10.F",
+    "pe-chemical:6.B"
+   ],
+   "scope": "core",
+   "ideas": [
+    "STAGE"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "Humid air and evaporators",
+     "los": [
+      {
+       "id": "A",
+       "do": "Compute absolute humidity from relative humidity.",
+       "ek": [
+        "H = 0.622 p_w/(P − p_w)."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "sp-humidity"
+       ]
+      },
+      {
+       "id": "B",
+       "do": "Compute the water removed by an evaporator.",
+       "ek": [
+        "Solids balance first."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "sp-evaporator"
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "rows": [
+  {
+   "code": "SP-1.1.A",
+   "unit": 1,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "sp-vle-alpha"
+   ],
+   "partial": []
+  },
+  {
+   "code": "SP-1.1.B",
+   "unit": 1,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "sp-fenske"
+   ],
+   "partial": []
+  },
+  {
+   "code": "SP-1.1.C",
+   "unit": 1,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "sp-rmin"
+   ],
+   "partial": []
+  },
+  {
+   "code": "SP-1.2.A",
+   "unit": 1,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "sp-kremser"
+   ],
+   "partial": []
+  },
+  {
+   "code": "SP-2.1.A",
+   "unit": 2,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "sp-humidity"
+   ],
+   "partial": []
+  },
+  {
+   "code": "SP-2.1.B",
+   "unit": 2,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "sp-evaporator"
+   ],
+   "partial": []
+  }
+ ],
+ "orphanTpl": []
+}

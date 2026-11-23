@@ -40,8 +40,10 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 | The Periodic Table from Memory | IUPAC Periodic Table of the Elements (release of 4 May 2022) | reference | read in part | ngss-hs, ib-chemistry-2025, icho-appendix-c | — | 15 | 15 | 0 |
 | Physical Chemistry | Engel & Reid, Physical Chemistry, 3rd ed. (through the wiki's drill pages) | textbook | read in part | fe-chemical, usnco, icho-appendix-c, icho-syllabus, gre-physics, gre-chemistry | acs-accm-pchem | 141 | 111 | 30 |
 | Physics (AP) | AP Physics 1, 2 and C Course and Exam Descriptions | standard | read in part | ngss-hs, ib-physics-2025, aamc-mcat-outline, gre-physics | — | 207 | 207 | 0 |
+| Process Design, Economics and Safety | NCEES FE Chemical CBT Exam Specifications (effective July 2020) | exam-spec | read in full | pe-chemical | — | 9 | 9 | 0 |
 | Programming Foundations | AP Computer Science A Course and Exam Description (Fall 2025) | standard | read in full | — | — | 140 | 140 | 0 |
 | Chemical Reaction Engineering | NCEES FE Chemical CBT Exam Specifications (effective July 2020) | exam-spec | read in full | icho-appendix-c, pe-chemical | — | 46 | 32 | 14 |
+| Separations | NCEES FE Chemical CBT Exam Specifications (effective July 2020) | exam-spec | read in full | pe-chemical | — | 6 | 6 | 0 |
 | Speaking and Articulation | Competent Speaker Speech Evaluation Form, 2nd ed. | rubric | read in full | toastmasters-pathways | — | 69 | 0 | 69 |
 | SQL | Oracle Database SQL, exam 1Z0-071: exam topics | exam-spec | read through a crosswalk | — | — | 40 | 37 | 3 |
 | Statistics | AP Statistics revised course framework (2026-27) | standard | read in part | — | — | 13 | 13 | 0 |
@@ -79,7 +81,9 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 - **The Periodic Table from Memory**: Content from the IUPAC table (release note read; element list cross-checked in the verifier). Which parts to know by heart is a house decision from Kevin's organometallics course.
 - **Physical Chemistry**: Textbook-shaped until the ACS content map is read. Thermodynamics and kinetics units are anchored to fe-chemical; quantum and spectroscopy have no outside anchor yet.
 - **Physics (AP)**: Objective codes read for a few units only.
+- **Process Design, Economics and Safety**: Topics from FE Chemical areas 13, 15, 16 and PE Chemical area 7 (read in full); objectives and their order are ours.
 - **Chemical Reaction Engineering**: Topics from FE Chemical area 12, read in full. Objectives and their order are ours. Units 5–8 and the later letters of units 1–4 go beyond the FE spec on Fogler 5e's chapter order (a house list); the gaps are in the file header.
+- **Separations**: Topics from FE Chemical area 10 and PE Chemical 6.B (both read in full); objectives and their order are ours.
 - **Speaking and Articulation**: A scoring rubric plus Toastmasters' competency list; unit order is ours.
 - **SQL**: Units 1–7 follow the sixteen topic groups of Oracle's 1Z0-071 exam, read through a restatement rather than Oracle's page. Unit 8 is a house list: no standard for analytic SQL was found.
 - **Statistics**: Units follow the revised AP Statistics course (2026-27), of which only the unit list was read. The objectives under each unit are a house list.
@@ -122,7 +126,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 
 https://ncees.org/wp-content/uploads/2022/09/FE-Che-CBT-specs.pdf
 
-43 of 88 items have at least one objective answering to them.
+52 of 88 items have at least one objective answering to them.
 
 | Item | Topic | Objectives | With a drill | Where |
 |---|---|---|---|---|
@@ -189,10 +193,10 @@ https://ncees.org/wp-content/uploads/2022/09/FE-Che-CBT-specs.pdf
 | **10** | **Mass Transfer and Separation** (8–12 questions) | | | |
 | 10.A | Molecular diffusion | 9 | 8 | physical-chemistry (9) |
 | 10.B | Convective mass transfer | — | — | **nothing yet** |
-| 10.C | Separation systems | — | — | **nothing yet** |
-| 10.D | Equilibrium stage methods | — | — | **nothing yet** |
+| 10.C | Separation systems | 4 | 4 | separations (4) |
+| 10.D | Equilibrium stage methods | 4 | 4 | separations (4) |
 | 10.E | Continuous contact methods | — | — | **nothing yet** |
-| 10.F | Humidification, drying, evaporation | — | — | **nothing yet** |
+| 10.F | Humidification, drying, evaporation | 2 | 2 | separations (2) |
 | **11** | **Solids Handling** (3–5 questions) | | | |
 | 11.A | Particle properties | — | — | **nothing yet** |
 | 11.B | Processing (crushing, grinding, crystallization) | — | — | **nothing yet** |
@@ -205,24 +209,24 @@ https://ncees.org/wp-content/uploads/2022/09/FE-Che-CBT-specs.pdf
 | 12.E | Reactor types (batch, CSTR, PFR, semibatch) | 11 | 11 | reaction-engineering (11) |
 | 12.F | Catalysis | 17 | 16 | physical-chemistry (13), reaction-engineering (4) |
 | **13** | **Economics** (4–6 questions) | | | |
-| 13.A | Time value of money | — | — | **nothing yet** |
-| 13.B | Economic analyses | — | — | **nothing yet** |
+| 13.A | Time value of money | 5 | 5 | process-design (5) |
+| 13.B | Economic analyses | 5 | 5 | process-design (5) |
 | 13.C | Uncertainty | — | — | **nothing yet** |
 | 13.D | Project selection | — | — | **nothing yet** |
 | **14** | **Process Design** (7–11 questions) | | | |
 | 14.A | PFDs and P&IDs | — | — | **nothing yet** |
 | 14.B | Equipment selection, sizing, scale-up | — | — | **nothing yet** |
-| 14.C | Cost estimation | — | — | **nothing yet** |
+| 14.C | Cost estimation | 5 | 5 | process-design (5) |
 | 14.D | Design and optimization | — | — | **nothing yet** |
 | 14.E | Design standards | — | — | **nothing yet** |
 | **15** | **Process Control** (4–6 questions) | | | |
-| 15.A | Dynamics (first and second order, time constants, stability) | 45 | 45 | engineering-math (45) |
+| 15.A | Dynamics (first and second order, time constants, stability) | 46 | 46 | engineering-math (45), process-design (1) |
 | 15.B | Control strategies | — | — | **nothing yet** |
 | 15.C | Loop design and hardware | — | — | **nothing yet** |
 | **16** | **Safety, Health, and Environment** (5–8 questions) | | | |
-| 16.A | Hazardous material properties | — | — | **nothing yet** |
-| 16.B | Industrial hygiene | — | — | **nothing yet** |
-| 16.C | Process safety and risk | — | — | **nothing yet** |
+| 16.A | Hazardous material properties | 4 | 4 | process-design (4) |
+| 16.B | Industrial hygiene | 4 | 4 | process-design (4) |
+| 16.C | Process safety and risk | 4 | 4 | process-design (4) |
 | 16.D | Over- and underpressure protection | — | — | **nothing yet** |
 | 16.E | Waste minimization, treatment, regulation | — | — | **nothing yet** |
 | 16.F | Reactivity hazards | — | — | **nothing yet** |
@@ -232,7 +236,7 @@ https://ncees.org/wp-content/uploads/2022/09/FE-Che-CBT-specs.pdf
 | 17.C | Public health, safety, and welfare | — | — | **nothing yet** |
 | 17.D | Intellectual property | — | — | **nothing yet** |
 
-**Areas with nothing answering to them:** 3 Engineering Sciences; 11 Solids Handling; 13 Economics; 14 Process Design; 16 Safety, Health, and Environment; 17 Ethics and Professional Practice.
+**Areas with nothing answering to them:** 3 Engineering Sciences; 11 Solids Handling; 17 Ethics and Professional Practice.
 
 ## UIL Number Sense Problem Sequencing Charts (High School; A+ Junior High and Elementary, rev. 2016-17) with the Number Sense Handbook rules
 
@@ -1029,7 +1033,7 @@ https://curriculumalignment.ucf.edu/wp-content/uploads/sites/10/2017/08/2013_Org
 
 https://ncees.org/wp-content/uploads/2022/09/PE-Che_Jan2020-1.pdf
 
-12 of 16 items have at least one objective answering to them.
+16 of 16 items have at least one objective answering to them.
 
 | Item | Topic | Objectives | With a drill | Where |
 |---|---|---|---|---|
@@ -1051,13 +1055,13 @@ https://ncees.org/wp-content/uploads/2022/09/PE-Che_Jan2020-1.pdf
 | 5.B | Applications | 3 | 3 | fluid-mechanics (3) |
 | **6** | **Mass transfer** (7–11 questions) | | | |
 | 6.A | Fundamentals | 6 | 6 | heat-transfer (6) |
-| 6.B | Applications | — | — | **nothing yet** |
+| 6.B | Applications | 6 | 6 | separations (6) |
 | **7** | **Plant design and operation** (15–23 questions) | | | |
-| 7.A | Safety, health and environment | — | — | **nothing yet** |
-| 7.B | Design | — | — | **nothing yet** |
-| 7.C | Operation and maintenance | — | — | **nothing yet** |
+| 7.A | Safety, health and environment | 3 | 3 | process-design (3) |
+| 7.B | Design | 5 | 5 | process-design (5) |
+| 7.C | Operation and maintenance | 1 | 1 | process-design (1) |
 
-**Areas with nothing answering to them:** 7 Plant design and operation.
+**Areas with nothing answering to them:** none.
 
 ## GRE Physics Test content specifications
 

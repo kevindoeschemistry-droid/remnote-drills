@@ -46,6 +46,8 @@ domains:
   - { id: space, title: "Space science" }
   - { id: earth, title: "Earth science" }
   - { id: materials, title: "Polymers and materials" }
+  - { id: sep, title: "Separation processes" }
+  - { id: design, title: "Process design, economics and safety" }
   - { id: physics, title: "Physics" }
   - { id: gchem, title: "General chemistry" }
   - { id: bio, title: "Biology" }
@@ -631,6 +633,15 @@ skills:
   - { id: physics.lagrangian, domain: physics, title: "Lagrangian mechanics", short: "Lagrangian mechanics" }
   - { id: materials.polymers, domain: materials, title: "Polymers: molar masses, step and chain growth, thermal behaviour", short: "Polymers" }
   - { id: materials.solids, domain: materials, title: "Mechanical and electronic properties of solids", short: "Materials properties" }
+
+  # ── separations and process design ──────────────────────────────────────
+  - { id: sep.vle, domain: sep, title: "Vapour–liquid equilibrium and relative volatility", short: "VLE" }
+  - { id: sep.distillation, domain: sep, title: "Binary distillation: Fenske and minimum reflux", short: "Distillation", prereqs: [sep.vle] }
+  - { id: sep.absorption, domain: sep, title: "Absorption: the Kremser equation", short: "Absorption", prereqs: [sep.vle] }
+  - { id: sep.humidification, domain: sep, title: "Humidity and evaporation", short: "Humidity and evaporation" }
+  - { id: design.economics, domain: design, title: "Engineering economics: NPV, payback, scaling, depreciation, interest", short: "Economics" }
+  - { id: design.safety, domain: design, title: "Process safety: flammability, exposure, HAZOP", short: "Safety" }
+  - { id: design.control, domain: design, title: "Process dynamics: first-order response", short: "Dynamics" }
 
   # ── Dental Admission Test: perceptual ability ───────────────────────────
   - { id: dat.pat-angles, domain: dat, title: "PAT: angle ranking", short: "Angle ranking" }

@@ -1,6 +1,6 @@
 # The path — start to finish
 
-Every framework in `requires` order; inside each, units and objectives in order, except that 155 objectives move up to sit just after the prerequisites they need. 3256 objectives in 41 frameworks.
+Every framework in `requires` order; inside each, units and objectives in order, except that 155 objectives move up to sit just after the prerequisites they need. 3271 objectives in 43 frameworks.
 
 | # | Framework | Track | Requires | LOs | Path position |
 |---|---|---|---|---|---|
@@ -35,17 +35,20 @@ Every framework in `requires` order; inside each, units and objectives in order,
 | 29 | Molecular Simulation | engineering | thermodynamics, programming | 106 | 2367–2472 |
 | 30 | Fluid Mechanics | engineering | engineering-math, physics | 15 | 2473–2487 |
 | 31 | Material and Energy Balances | engineering | chemistry | 16 | 2488–2503 |
-| 32 | Chemical Reaction Engineering | engineering | material-balances | 46 | 2504–2549 |
-| 33 | Financial Accounting (CPA FAR) | business | — | 26 | 2550–2575 |
-| 34 | Dental Admission Test | health | biology, chemistry | 183 | 2576–2758 |
-| 35 | INBDE (Dentistry) | health | — | 22 | 2759–2780 |
-| 36 | NCLEX-RN | health | — | 39 | 2781–2819 |
-| 37 | AI Safety | safety | programming, calculus | 104 | 2820–2923 |
-| 38 | Speaking and Articulation | communication | — | 69 | 2924–2992 |
-| 39 | Basketball | athletics | — | 88 | 2993–3080 |
-| 40 | Swimming | athletics | — | 88 | 3081–3168 |
-| 41 | Wushu | athletics | — | 88 | 3169–3256 |
+| 32 | Process Design, Economics and Safety | engineering | material-balances | 9 | 2504–2512 |
+| 33 | Chemical Reaction Engineering | engineering | material-balances | 46 | 2513–2558 |
+| 34 | Separations | engineering | material-balances, thermodynamics | 6 | 2939–2946 |
+| 35 | Financial Accounting (CPA FAR) | business | — | 26 | 2565–2590 |
+| 36 | Dental Admission Test | health | biology, chemistry | 183 | 2591–2773 |
+| 37 | INBDE (Dentistry) | health | — | 22 | 2774–2795 |
+| 38 | NCLEX-RN | health | — | 39 | 2796–2834 |
+| 39 | AI Safety | safety | programming, calculus | 104 | 2835–2938 |
+| 40 | Speaking and Articulation | communication | — | 69 | 2939–3007 |
+| 41 | Basketball | athletics | — | 88 | 3008–3095 |
+| 42 | Swimming | athletics | — | 88 | 3096–3183 |
+| 43 | Wushu | athletics | — | 88 | 3184–3271 |
 
 ## Order problems (a prerequisite comes after the objective)
 
 - MH-1.4.A needs MM-1.5.F, which comes later
+- SP-1.1.C needs SP-1.1.A, which comes later

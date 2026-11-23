@@ -612,6 +612,8 @@ from incalc import FUNCS as _IN  # noqa: E402
 BASE.update(_IN)
 from escalc import FUNCS as _ES  # noqa: E402
 BASE.update(_ES)
+from sepcalc import FUNCS as _SP  # noqa: E402
+BASE.update(_SP)
 _bad = _sql_tables(TEMPLATES)
 if _bad:
     raise SystemExit(f"SQL figures differ from tests/verify/sql.py TABLES: {_bad}")
