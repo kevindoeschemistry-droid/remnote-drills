@@ -28,8 +28,7 @@ domains: []
 
 basis:
   primary: bruice-8e
-  also: [iupac-aa-1983]
-  wanted: [aamc-mcat-outline]
+  also: [iupac-aa-1983, ib-chemistry-2025, ib-biology-2025, icho-appendix-c, icho-syllabus, acs-accm, aamc-mcat-outline]
   note: "Units follow the chapter list of Bruice's Organic Chemistry (a textbook, not a standard). The amino acids follow IUPAC-IUB 1983 Table 1. Which compounds to carry in each unit is a house list; the MCAT content outline names the same families and has not been opened."
 
 big_ideas:
@@ -52,6 +51,7 @@ units:
   - id: organic
     n: 1
     title: "Organic parents and common compounds"
+    std: ["ib-chemistry-2025:S3.2", "icho-appendix-c:c18", "acs-accm:III"]
     scope: core
     ideas: [COLD, FAMILY]
     topics:
@@ -74,6 +74,7 @@ units:
   - id: biomolecules
     n: 2
     title: "Biomolecules"
+    std: ["ib-biology-2025:B1.2", "icho-appendix-c:a6", "icho-syllabus:11", "aamc-mcat-outline:1A", "aamc-mcat-outline:5D"]
     scope: core
     ideas: [COLD, FAMILY]
     topics:

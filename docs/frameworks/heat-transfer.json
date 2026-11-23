@@ -14,7 +14,9 @@
  "basis": {
   "primary": "fe-chemical",
   "also": [
-   "fe-mechanical"
+   "fe-mechanical",
+   "ib-physics-2025",
+   "pe-chemical"
   ],
   "note": "Also crosswalked to the FE Mechanical spec and UCI MAE 120."
  },
@@ -82,6 +84,9 @@
    "id": "modes",
    "n": 1,
    "title": "Modes and energy balances",
+   "std": [
+    "ib-physics-2025:B.1"
+   ],
    "scope": "core",
    "ideas": [
     "ENG",
@@ -395,6 +400,9 @@
    "id": "steady1d",
    "n": 3,
    "title": "Steady 1-D conduction and resistance networks",
+   "std": [
+    "pe-chemical:3.A"
+   ],
    "scope": "core",
    "ideas": [
     "RATE",
@@ -1997,6 +2005,9 @@
    "id": "systems",
    "n": 12,
    "title": "Heat exchangers and system-level thermal analysis",
+   "std": [
+    "pe-chemical:3.B"
+   ],
    "scope": "core",
    "ideas": [
     "SYS",
@@ -2268,6 +2279,9 @@
    "id": "mass",
    "n": 14,
    "title": "Mass transfer",
+   "std": [
+    "pe-chemical:6.A"
+   ],
    "scope": "extension",
    "ideas": [
     "RATE",

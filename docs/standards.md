@@ -70,3 +70,57 @@ Looked for in November 2026, for mental calculation, estimation and anchor quant
   `anchor-quantities` framework uses the SnapShot for its biology units; its chemistry units are a house list and are
   labelled as one. The ACS anchoring-concepts content maps have still not been opened.
 
+
+## Science breadth: school, olympiad, ACS, board and graduate standards (Nov 2026)
+
+Registered in `drills/standards.yaml` and cited at unit level (DAT at topic level): NGSS high school
+(`ngss-hs`), IB Chemistry, Physics and Biology for first assessment 2025, USNCO, IChO (Appendices C and
+D of the regulations, plus the 12-section syllabus), the ACS Exams anchoring concepts (`acs-accm`), PE
+Chemical, the GRE Physics Test and the discontinued GRE Chemistry Test, and the MCAT categories read so
+far. Each standard's `read` and `note` say exactly how much of its own text was read; several could
+only be read in part (the IB guides are sold to schools, ACS's USNCO page stops after seven topic bands,
+the official IChO syllabus PDF was not reachable).
+
+A unit citation measures **breadth**: some objective in that unit answers to the item. It does not
+measure depth. AP-level units are cited against USNCO and IChO items, but olympiad problems ask the same
+topics much harder; that gap is not visible in the report and is the reason for an olympiad layer.
+
+What nothing answers to yet, grouped by what would have to be built:
+
+1. **Descriptive inorganic chemistry.** IChO Appendix D (s-block, hydrides, oxides of C/N/S, p-block
+   oxoacids, halogens, first-row transition-metal ions and colours, amphoterism, permanganate and
+   dichromate, iodometry, identifying ions) and c16 (qualitative analysis); IChO syllabus section 5;
+   USNCO band 2 is only covered through DAT's laboratory topic; GRE Chemistry inorganic (25%). The
+   largest single gap and the one olympiads lean on most.
+2. **Analytical chemistry.** GRE Chemistry analytical (15%), IChO syllabus section 12 and a9, MCAT 5C
+   (separation and purification). Titration arithmetic exists in AP units; separations,
+   gravimetry, complexometry and instrument choice do not.
+3. **Polymers and materials.** IChO c22 and a5, IChO syllabus section 10, IB S2.4.
+4. **Earth and space science.** 18 NGSS ESS expectations, IB B.2 (greenhouse effect), E.5 (fusion and
+   stars) and Biology D4.3 (climate change). Needs a new framework; nothing in the Library touches it.
+5. **Physics past AP:** special relativity (IB A.5, GRE 7) and laboratory methods (GRE 8); GRE
+   classical mechanics also asks Lagrangian and Hamiltonian mechanics, which no physics unit has.
+6. **PE Chemical:** mass-transfer applications (separations: distillation, absorption, extraction),
+   and plant design, operation and safety (15–23 questions).
+7. **Not drillable as cards:** NGSS design and engineering expectations (PS2-3, PS3-3, PS4-2, PS4-5,
+   LS2-7, LS4-6, ETS1), USNCO Part III and IChO's practical skills. These are a house decision to leave
+   out; written problems (USNCO Part II) are covered only as far as their single steps are.
+
+Smaller single items: IB R1.3 energy from fuels, R3.3 radical (electron-sharing) reactions, Biology A2.1
+origins of cells; ACCM X (visualization) as a concept of its own; IChO c21 (micelles).
+
+### Built since (0.81–0.84, Nov 2026)
+
+Groups 1–6 above now have frameworks: Inorganic Chemistry (IN) and Analytical Chemistry (AN) on IChO
+Appendices C–D; Polymers and Materials (MT); Earth and Space Science (ES) on NGSS ESS; physics units 29–30
+(special relativity, Lagrangian mechanics); Separations (SP) and Process Design, Economics and Safety
+(PD) on FE Chemical 10/13/15/16 and PE Chemical 6.B/7; and a Chemistry Olympiad layer (CO) that asks AP
+topics at USNCO-national and IChO depth. Coverage after that: IB Physics 24/24, PE Chemical 16/16, MCAT
+(categories read) 14/14, IB Biology 39/40, IChO Appendices 41/42, NGSS 56/71.
+
+Still open: the NGSS design and engineering expectations and USNCO Parts II–III (not drillable as
+cards, by decision); NGSS ESS2-5, ESS2-7, ESS3-2, ESS3-4; IB Chemistry R1.3 (fuels) and R3.3 (radical
+reactions); IB Biology A2.1 (origins of cells); IChO c21 (micelles); ACCM X (visualization); GRE Physics
+laboratory methods; and on FE Chemical the math and statistics items (1.A, 1.F, 2.B–2.F), dynamics and
+circuits (3.A–C), materials 4.B–C, the chemistry and biology of area 5, particle technology (11), and
+design, ethics and environment items (13.C–D, 14, 16.D–F, 17).

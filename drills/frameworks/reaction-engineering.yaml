@@ -27,6 +27,7 @@ domains: [cre]
 
 basis:
   primary: fe-chemical
+  also: [icho-appendix-c, pe-chemical]
   note: "Topics from FE Chemical area 12, read in full. Objectives and their order are ours. Units 5–8 and the later letters of units 1–4 go beyond the FE spec on Fogler 5e's chapter order (a house list); the gaps are in the file header."
 
 big_ideas:
@@ -53,7 +54,7 @@ units:
     n: 1
     title: "Rates"
     scope: core
-    std: ["fe-chemical:12.A", "fe-chemical:12.B"]
+    std: ["fe-chemical:12.A", "fe-chemical:12.B", "pe-chemical:4.A"]
     ideas: [CONCENTRATION]
     topics:
       - n: 1
@@ -82,7 +83,7 @@ units:
     n: 2
     title: "Ideal reactors"
     scope: core
-    std: ["fe-chemical:12.C", "fe-chemical:12.E"]
+    std: ["fe-chemical:12.C", "fe-chemical:12.E", "pe-chemical:4.B"]
     ideas: [BALANCE, CONCENTRATION, TIME]
     topics:
       - n: 1
@@ -136,6 +137,7 @@ units:
   - id: mechanisms
     n: 5
     title: "Mechanisms and bioreactions"
+    std: ["icho-appendix-c:a2"]
     scope: core
     ideas: [CONCENTRATION]
     topics:

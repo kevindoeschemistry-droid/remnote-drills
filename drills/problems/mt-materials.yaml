@@ -1,0 +1,296 @@
+- template: mt-molar-mass-averages
+  skill: materials.polymers
+  pace: quick
+  cases:
+  - w: 0
+    ns:
+    - 10
+    - 20
+    - 5
+    Ms:
+    - 10000.0
+    - 20000.0
+    - 50000.0
+    nt: 10, 20, 5
+    mt: 10000, 20000, 50000
+    wt: M_n
+    ans: 21428.57142857
+  - w: 0
+    ns:
+    - 1
+    - 1
+    Ms:
+    - 10000.0
+    - 100000.0
+    nt: 1, 1
+    mt: 10000, 100000
+    wt: M_n
+    ans: 55000.0
+  - w: 0
+    ns:
+    - 50
+    - 30
+    - 20
+    Ms:
+    - 20000.0
+    - 40000.0
+    - 80000.0
+    nt: 50, 30, 20
+    mt: 20000, 40000, 80000
+    wt: M_n
+    ans: 38000.0
+  - w: 1
+    ns:
+    - 10
+    - 20
+    - 5
+    Ms:
+    - 10000.0
+    - 20000.0
+    - 50000.0
+    nt: 10, 20, 5
+    mt: 10000, 20000, 50000
+    wt: M_w
+    ans: 28666.66666667
+  - w: 1
+    ns:
+    - 1
+    - 1
+    Ms:
+    - 10000.0
+    - 100000.0
+    nt: 1, 1
+    mt: 10000, 100000
+    wt: M_w
+    ans: 91818.18181818
+  - w: 1
+    ns:
+    - 50
+    - 30
+    - 20
+    Ms:
+    - 20000.0
+    - 40000.0
+    - 80000.0
+    nt: 50, 30, 20
+    mt: 20000, 40000, 80000
+    wt: M_w
+    ans: 51578.94736842
+  - w: 2
+    ns:
+    - 10
+    - 20
+    - 5
+    Ms:
+    - 10000.0
+    - 20000.0
+    - 50000.0
+    nt: 10, 20, 5
+    mt: 10000, 20000, 50000
+    wt: the dispersity Đ = M_w/M_n
+    ans: 1.337777777778
+  - w: 2
+    ns:
+    - 1
+    - 1
+    Ms:
+    - 10000.0
+    - 100000.0
+    nt: 1, 1
+    mt: 10000, 100000
+    wt: the dispersity Đ = M_w/M_n
+    ans: 1.669421487603
+  - w: 2
+    ns:
+    - 50
+    - 30
+    - 20
+    Ms:
+    - 20000.0
+    - 40000.0
+    - 80000.0
+    nt: 50, 30, 20
+    mt: 20000, 40000, 80000
+    wt: the dispersity Đ = M_w/M_n
+    ans: 1.357340720222
+  prompt: A polymer sample holds {{nt}} moles of chains with molar masses {{mt}} g/mol. What is {{wt}}?
+  parts:
+  - ask: Answer
+    label: y
+    value: ans
+    tol: 0.0002
+    explain: M_n = ΣnᵢMᵢ/Σnᵢ (counts chains; colligative properties). M_w = ΣnᵢMᵢ²/ΣnᵢMᵢ (weights by mass; light scattering, viscosity). Đ ≥ 1, and equals 1 only for a single chain length
+  verify:
+    expect:
+      y: mol_avg(w, ns, Ms)
+- template: mt-carothers
+  skill: materials.polymers
+  pace: quick
+  cases:
+  - p: 0.99
+    r: 1
+    ans: 100.0
+  - p: 0.995
+    r: 1
+    ans: 200.0
+  - p: 0.9
+    r: 1
+    ans: 10.0
+  - p: 0.99
+    r: 0.98
+    ans: 50.0
+  - p: 0.999
+    r: 0.99
+    ans: 166.1101836394
+  - p: 0.98
+    r: 1
+    ans: 50.0
+  prompt: A step-growth (condensation) polymerisation reaches extent p = {{p}} with stoichiometric ratio r = {{r}}. What is the number-average degree of polymerisation?
+  parts:
+  - ask: X_n
+    label: y
+    value: ans
+    tol: 0.0002
+    explain: 'Carothers: $X_n = \dfrac{1 + r}{1 + r - 2rp}$, which is 1/(1 − p) at r = 1. High polymer needs p > 0.99 and near-perfect stoichiometry, unlike chain growth where long chains form from the
+      start'
+  verify:
+    expect:
+      y: carothers(p, r)
+- template: mt-growth-type
+  skill: materials.polymers
+  pace: recall
+  cases:
+  - k: polyethylene
+    tb: growth
+    ans: 0
+  - k: PVC
+    tb: growth
+    ans: 0
+  - k: nylon-6,6
+    tb: growth
+    ans: 1
+  - k: PET
+    tb: growth
+    ans: 1
+  - k: polystyrene
+    tb: growth
+    ans: 0
+  - k: a polyurethane
+    tb: growth
+    ans: 1
+  - k: polycarbonate
+    tb: growth
+    ans: 1
+  - k: PMMA
+    tb: growth
+    ans: 0
+  prompt: Is {{k}} made by chain growth or step growth?
+  parts:
+  - ask: Answer
+    label: y
+    choice:
+    - chain-growth (addition)
+    - step-growth (condensation)
+    correct: ans
+    explain: 'Chain growth adds monomers one at a time to an active end (radical, ionic, coordination) with no by-product: vinyl polymers. Step growth joins any two species with complementary groups, often
+      losing water or HCl: polyesters, polyamides, polycarbonates, polyurethanes'
+  verify:
+    choices:
+      y: es_fact(tb, k)
+- template: mt-thermoset
+  skill: materials.polymers
+  pace: recall
+  cases:
+  - k: polyethylene
+    tb: thermal
+    ans: 0
+  - k: vulcanised rubber
+    tb: thermal
+    ans: 1
+  - k: epoxy resin
+    tb: thermal
+    ans: 1
+  - k: PET
+    tb: thermal
+    ans: 0
+  - k: Bakelite
+    tb: thermal
+    ans: 1
+  - k: nylon
+    tb: thermal
+    ans: 0
+  prompt: Is {{k}} a thermoplastic or a thermoset?
+  parts:
+  - ask: Answer
+    label: y
+    choice:
+    - thermoplastic
+    - thermoset
+    correct: ans
+    explain: Thermoplastics are separate chains that soften and flow when heated and can be remoulded. Thermosets are cross-linked networks that char instead of melting
+  verify:
+    choices:
+      y: es_fact(tb, k)
+- template: mt-band-gap
+  skill: materials.solids
+  pace: quick
+  cases:
+  - mat: silicon
+    Eg: 1.12
+    ans: 1107.001771725
+  - mat: GaAs
+    Eg: 1.42
+    ans: 873.1281579803
+  - mat: GaN
+    Eg: 3.4
+    ans: 364.6594071565
+  - mat: CdSe
+    Eg: 1.74
+    ans: 712.5528645586
+  - mat: germanium
+    Eg: 0.66
+    ans: 1878.548461109
+  prompt: '{{mat}} has a band gap of {{Eg}} eV. What is the longest wavelength (nm) it absorbs, or the wavelength an LED of it emits?'
+  parts:
+  - ask: λ (nm)
+    label: y
+    value: ans
+    tol: 0.0002
+    explain: λ = hc/E_g ≈ 1239.84/E_g(eV) nm. Wide gaps (GaN) give blue LEDs; narrow gaps absorb into the infrared, which is why silicon solar cells use most of sunlight
+  verify:
+    expect:
+      y: band_gap_wavelength(Eg)
+- template: mt-youngs-modulus
+  skill: materials.solids
+  pace: quick
+  cases:
+  - F: 1000
+    A: 1.0e-05
+    L0: 2.0
+    dL: 0.001
+    ans: 200.0
+  - F: 5000
+    A: 2.0e-05
+    L0: 1.0
+    dL: 0.0035
+    ans: 71.42857142857
+  - F: 200
+    A: 1.0e-06
+    L0: 0.5
+    dL: 0.0005
+    ans: 200.0
+  - F: 20000.0
+    A: 0.0001
+    L0: 3.0
+    dL: 0.003
+    ans: 200.0
+  prompt: A wire of cross-section {{A}} m² and length {{L0}} m stretches {{dL}} m under {{F}} N. What is Young's modulus (GPa)?
+  parts:
+  - ask: E (GPa)
+    label: y
+    value: ans
+    tol: 0.0002
+    explain: E = stress/strain = (F/A)/(ΔL/L₀), valid in the linear elastic region. Steel ~200 GPa, aluminium ~70, glass ~70, polymers 0.01–4
+  verify:
+    expect:
+      y: nsimplify(F)/nsimplify(A)/(nsimplify(dL)/nsimplify(L0))/10**9

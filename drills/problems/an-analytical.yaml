@@ -1,0 +1,932 @@
+- template: an-back-titration
+  skill: anal.titration
+  pace: quick
+  cases:
+  - m: 0.25
+    ch: 0.1
+    vh: 50.0
+    cn: 0.1
+    vn: 12.4
+    ans: 75.264672
+  - m: 0.5
+    ch: 0.2
+    vh: 50.0
+    cn: 0.15
+    vn: 21.3
+    ans: 68.108523
+  - m: 0.3
+    ch: 0.15
+    vh: 40.0
+    cn: 0.1
+    vn: 15.85
+    ans: 73.646615
+  - m: 0.18
+    ch: 0.1
+    vh: 50.0
+    cn: 0.095
+    vn: 17.2
+    ans: 93.58041
+  prompt: A {{m}} g limestone sample is dissolved in {{vh}} mL of {{ch}} M HCl (excess). The leftover acid takes {{vn}} mL of {{cn}} M NaOH. What is the mass percent of CaCO₃?
+  parts:
+  - ask: '% CaCO₃'
+    label: y
+    value: ans
+    tol: 0.0002
+    explain: HCl added − HCl left = HCl used by the carbonate; CaCO₃ + 2HCl, so mol CaCO₃ is half of that. Back titration suits a sample that dissolves slowly or has no sharp end point of its own
+  verify:
+    expect:
+      y: 100*(nsimplify(ch)*nsimplify(vh)/1000 - nsimplify(cn)*nsimplify(vn)/1000)/2*in_mass('CaCO3')/nsimplify(m)
+- template: an-permanganate
+  skill: anal.titration
+  pace: quick
+  cases:
+  - kind: 0
+    m: 0.4
+    c: 0.02
+    v: 28.45
+    what: iron (titrated as Fe²⁺)
+    rx: MnO₄⁻ + 5Fe²⁺ + 8H⁺ → Mn²⁺ + 5Fe³⁺ + 4H₂O
+    ans: 39.71975625
+  - kind: 0
+    m: 0.65
+    c: 0.0215
+    v: 31.2
+    what: iron (titrated as Fe²⁺)
+    rx: MnO₄⁻ + 5Fe²⁺ + 8H⁺ → Mn²⁺ + 5Fe³⁺ + 4H₂O
+    ans: 28.81602
+  - kind: 1
+    m: 0.25
+    c: 0.02
+    v: 24.6
+    what: calcium (precipitated as CaC₂O₄, then the oxalate titrated)
+    rx: 2MnO₄⁻ + 5C₂O₄²⁻ + 16H⁺ → 2Mn²⁺ + 10CO₂ + 8H₂O
+    ans: 19.718376
+  - kind: 1
+    m: 0.31
+    c: 0.0185
+    v: 30.15
+    what: calcium (precipitated as CaC₂O₄, then the oxalate titrated)
+    rx: 2MnO₄⁻ + 5C₂O₄²⁻ + 16H⁺ → 2Mn²⁺ + 10CO₂ + 8H₂O
+    ans: 18.027827782258
+  prompt: A {{m}} g sample is analysed for {{what}} with {{v}} mL of {{c}} M KMnO₄ ({{rx}}). What is the mass percent?
+  parts:
+  - ask: Mass %
+    label: y
+    value: ans
+    tol: 0.0002
+    explain: 'Electrons decide the ratio: MnO₄⁻ takes 5, Fe²⁺ gives 1, C₂O₄²⁻ gives 2. Permanganate is its own indicator: the first lasting pink is the end point'
+  verify:
+    expect:
+      y: '[100*nsimplify(c)*nsimplify(v)/1000*half_electrons(''MnO4'', -1, ''Mn'', 2, ''Mn'')/half_electrons(''Fe'', 2, ''Fe'', 3, ''Fe'')*in_mass(''Fe'')/nsimplify(m), 100*nsimplify(c)*nsimplify(v)/1000*half_electrons(''MnO4'',
+        -1, ''Mn'', 2, ''Mn'')/half_electrons(''C2O4'', -2, ''CO2'', 0, ''C'')*in_mass(''Ca'')/nsimplify(m)][kind]'
+- template: an-edta-hardness
+  skill: anal.titration
+  pace: quick
+  cases:
+  - vs: 100.0
+    ce: 0.01
+    ve: 18.35
+    ans: 183.65781
+  - vs: 50.0
+    ce: 0.01
+    ve: 12.1
+    ans: 242.20812
+  - vs: 100.0
+    ce: 0.005
+    ve: 31.6
+    ans: 158.13588
+  - vs: 25.0
+    ce: 0.01
+    ve: 6.45
+    ans: 258.22188
+  prompt: A {{vs}} mL water sample at pH 10 takes {{ve}} mL of {{ce}} M EDTA to the Eriochrome Black T end point. What is the hardness, as mg CaCO₃ per litre (ppm)?
+  parts:
+  - ask: Hardness (ppm CaCO₃)
+    label: y
+    value: ans
+    tol: 0.0002
+    explain: EDTA binds every metal ion 1:1, so mol (Ca + Mg) = mol EDTA; hardness is reported as if it were all CaCO₃ (100.09 g/mol), in mg per litre of sample
+  verify:
+    expect:
+      y: nsimplify(ce)*nsimplify(ve)/1000*in_mass('CaCO3')*1000/(nsimplify(vs)/1000)
+- template: an-mohr
+  skill: anal.titration
+  pace: quick
+  cases:
+  - m: 0.2
+    c: 0.1
+    v: 21.4
+    ans: 37.9315
+  - m: 0.5
+    c: 0.1
+    v: 30.25
+    ans: 21.44725
+  - m: 0.3
+    c: 0.05
+    v: 40.1
+    ans: 23.692416666667
+  - m: 0.15
+    c: 0.08
+    v: 20.75
+    ans: 39.231333333333
+  prompt: A {{m}} g sample is titrated with {{v}} mL of {{c}} M AgNO₃ to the Mohr end point (brick-red Ag₂CrO₄). What is the mass percent of chloride?
+  parts:
+  - ask: '% Cl'
+    label: y
+    value: ans
+    tol: 0.0002
+    explain: 'Ag⁺ + Cl⁻ → AgCl, 1:1. The chromate indicator only precipitates once Cl⁻ is used up, because Ag₂CrO₄ is more soluble than AgCl. Work near neutral pH: in acid chromate becomes dichromate, in
+      base Ag₂O forms'
+  verify:
+    expect:
+      y: 100*nsimplify(c)*nsimplify(v)/1000*in_mass('Cl')/nsimplify(m)
+- template: an-kjeldahl
+  skill: anal.titration
+  pace: quick
+  cases:
+  - m: 0.5
+    ca: 0.1
+    va: 50.0
+    cb: 0.1
+    vb: 22.15
+    f: 6.25
+    ans: 48.76186875
+  - m: 0.8
+    ca: 0.1
+    va: 50.0
+    cb: 0.1
+    vb: 16.8
+    f: 6.25
+    ans: 36.33065625
+  - m: 0.6
+    ca: 0.05
+    va: 50.0
+    cb: 0.05
+    vb: 9.4
+    f: 6.38
+    ans: 30.2350433
+  - m: 0.25
+    ca: 0.1
+    va: 25.0
+    cb: 0.1
+    vb: 11.35
+    f: 5.7
+    ans: 43.5925854
+  prompt: 'Kjeldahl: the NH₃ from {{m}} g of food is distilled into {{va}} mL of {{ca}} M HCl; the excess acid takes {{vb}} mL of {{cb}} M NaOH. With a nitrogen-to-protein factor of {{f}}, what is the percent
+    protein?'
+  parts:
+  - ask: '% protein'
+    label: y
+    value: ans
+    tol: 0.0002
+    explain: Digestion turns organic N into NH₄⁺, which is distilled as NH₃ into a known excess of acid. mol N = acid added − acid left; % protein = % N × the factor (6.25 for typical protein at 16% N)
+  verify:
+    expect:
+      y: nsimplify(f)*100*(nsimplify(ca)*nsimplify(va) - nsimplify(cb)*nsimplify(vb))/1000*in_mass('N')/nsimplify(m)
+- template: an-titration-ph
+  skill: anal.titration
+  pace: workout
+  cases:
+  - Ka: 1.75e-05
+    name: acetic acid
+    Ca: 0.1
+    Va: 25.0
+    Cb: 0.1
+    Vb: 0.0
+    ans: 2.8813535414328
+  - Ka: 1.75e-05
+    name: acetic acid
+    Ca: 0.1
+    Va: 25.0
+    Cb: 0.1
+    Vb: 12.5
+    ans: 4.7574174676144
+  - Ka: 1.75e-05
+    name: acetic acid
+    Ca: 0.1
+    Va: 25.0
+    Cb: 0.1
+    Vb: 25.0
+    ans: 8.7280187642284
+  - Ka: 1.75e-05
+    name: acetic acid
+    Ca: 0.1
+    Va: 25.0
+    Cb: 0.1
+    Vb: 30.0
+    ans: 11.958607451387
+  - Ka: 6.3e-05
+    name: benzoic acid
+    Ca: 0.1
+    Va: 25.0
+    Cb: 0.1
+    Vb: 0.0
+    ans: 2.605779934345
+  - Ka: 6.3e-05
+    name: benzoic acid
+    Ca: 0.1
+    Va: 25.0
+    Cb: 0.1
+    Vb: 12.5
+    ans: 4.2022949110538
+  - Ka: 6.3e-05
+    name: benzoic acid
+    Ca: 0.1
+    Va: 25.0
+    Cb: 0.1
+    Vb: 25.0
+    ans: 8.4500759489654
+  - Ka: 6.3e-05
+    name: benzoic acid
+    Ca: 0.1
+    Va: 25.0
+    Cb: 0.1
+    Vb: 30.0
+    ans: 11.958607352809
+  - Ka: 0.00018
+    name: formic acid
+    Ca: 0.1
+    Va: 25.0
+    Cb: 0.1
+    Vb: 0.0
+    ans: 2.381575833697
+  - Ka: 0.00018
+    name: formic acid
+    Ca: 0.1
+    Va: 25.0
+    Cb: 0.1
+    Vb: 12.5
+    ans: 3.7493680666293
+  - Ka: 0.00018
+    name: formic acid
+    Ca: 0.1
+    Va: 25.0
+    Cb: 0.1
+    Vb: 25.0
+    ans: 8.2226218766085
+  - Ka: 0.00018
+    name: formic acid
+    Ca: 0.1
+    Va: 25.0
+    Cb: 0.1
+    Vb: 30.0
+    ans: 11.958607328164
+  prompt: '{{Va}} mL of {{Ca}} M {{name}} (Kₐ = {{Ka}}) is titrated with {{Cb}} M NaOH. What is the pH after {{Vb}} mL of base?'
+  parts:
+  - ask: pH
+    label: y
+    value: ans
+    tol: 0.01
+    explain: 'Before any base: the weak-acid equilibrium. In the buffer region: Henderson–Hasselbalch (at halfway, pH = pKₐ). At equivalence: the conjugate base hydrolyses, so pH > 7. Past it: excess OH⁻
+      sets the pH. The reference answer solves the full charge balance; the usual approximations land within a few hundredths'
+  verify:
+    expect:
+      y: weak_acid_ph(Ca, Va, Ka, Cb, Vb)
+- template: an-indicator
+  skill: anal.titration
+  pace: recall
+  cases:
+  - Ka: 1.75e-05
+    name: 0.1 M acetic acid with 0.1 M NaOH
+    ans: 3
+  - Ka: 6.3e-05
+    name: 0.1 M benzoic acid with 0.1 M NaOH
+    ans: 3
+  - Ka: 0.00018
+    name: 0.1 M formic acid with 0.1 M NaOH
+    ans: 3
+  - Ka: 10.0
+    name: 0.1 M HCl with 0.1 M NaOH
+    ans: 2
+  prompt: Which indicator suits the titration of {{name}}?
+  parts:
+  - ask: Answer
+    label: y
+    choice:
+    - methyl orange (3.1–4.4)
+    - methyl red (4.4–6.2)
+    - bromothymol blue (6.0–7.6)
+    - phenolphthalein (8.2–10.0)
+    correct: ans
+    explain: Choose an indicator whose colour change brackets the equivalence-point pH. A weak acid with strong base ends above 7 (conjugate base), so phenolphthalein; strong acid with strong base ends
+      at 7, where the curve is so steep that bromothymol blue (and in practice phenolphthalein or methyl red) all work
+  verify:
+    choices:
+      y: indicator_pick(nsimplify('0.1'), 25, Ka, nsimplify('0.1'), 25)
+- template: an-gravimetric
+  skill: anal.gravimetry
+  pace: quick
+  cases:
+  - an: Cl
+    ppt: AgCl
+    el: Cl
+    ms: 0.35
+    mp: 0.612
+    what: chloride, weighed as AgCl
+    ans: 43.251271398469
+  - an: SO4
+    ppt: BaSO4
+    el: S
+    ms: 0.5
+    mp: 0.734
+    what: sulfate, weighed as BaSO₄
+    ans: 60.420085438957
+  - an: Fe
+    ppt: Fe2O3
+    el: Fe
+    ms: 0.8
+    mp: 0.286
+    what: iron, weighed as Fe₂O₃
+    ans: 25.004649721017
+  - an: Ni
+    ppt: Ni(C4H7N2O2)2
+    el: Ni
+    ms: 0.45
+    mp: 0.184
+    what: nickel, weighed as Ni(DMG)₂
+    ans: 8.30650863589
+  - an: MgO
+    ppt: Mg2P2O7
+    el: Mg
+    ms: 0.6
+    mp: 0.312
+    what: magnesium as MgO, weighed as Mg₂P₂O₇
+    ans: 18.83440649559
+  - an: Al
+    ppt: Al2O3
+    el: Al
+    ms: 0.9
+    mp: 0.155
+    what: aluminium, weighed as Al₂O₃
+    ans: 9.115053795079
+  prompt: A {{ms}} g sample is analysed for {{what}}; the dried precipitate weighs {{mp}} g. What is the mass percent?
+  parts:
+  - ask: Mass %
+    label: y
+    value: ans
+    tol: 0.0002
+    explain: 'Gravimetric factor = (M of analyte × atoms of the element in the precipitate) ÷ (M of precipitate × atoms of it in the analyte): Fe in Fe₂O₃ is 2 × 55.845 / 159.69. Then % = factor × m(ppt)
+      / m(sample) × 100'
+  verify:
+    expect:
+      y: mass_percent_from_ppt(an, ppt, el, mp, ms)
+- template: an-common-ion
+  skill: anal.equilibria
+  pace: quick
+  cases:
+  - salt: AgCl
+    Ksp: 1.8e-10
+    ion: NaCl
+    c: 0.01
+    ans: 1.7999967599769e-08
+  - salt: AgCl
+    Ksp: 1.8e-10
+    ion: NaCl
+    c: 1.0e-05
+    ans: 9.3178210632764e-06
+  - salt: BaSO4
+    Ksp: 1.1e-10
+    ion: Na₂SO₄
+    c: 0.001
+    ans: 1.0998790266124e-07
+  - salt: AgBr
+    Ksp: 5.0e-13
+    ion: KBr
+    c: 1.0e-06
+    ans: 3.6602540378444e-07
+  prompt: What is the molar solubility of {{salt}} (K_sp = {{Ksp}}) in {{c}} M {{ion}}?
+  parts:
+  - ask: s (M)
+    label: y
+    value: ans
+    tol: 0.001
+    explain: s(s + c) = K_sp. When c ≫ s the shortcut s ≈ K_sp/c is fine; at trace levels of the common ion keep the quadratic, s = [−c + √(c² + 4K_sp)]/2
+  verify:
+    expect:
+      y: ksp_common(Ksp, c)
+- template: an-complex-solubility
+  skill: anal.equilibria
+  pace: quick
+  cases:
+  - Ksp: 1.8e-10
+    Kf: 17000000.0
+    L: 1.0
+    salt: AgCl
+    ans: 0.049806905226386
+  - Ksp: 1.8e-10
+    Kf: 17000000.0
+    L: 0.1
+    salt: AgCl
+    ans: 0.0049807101936753
+  - Ksp: 5.0e-13
+    Kf: 17000000.0
+    L: 1.0
+    salt: AgBr
+    ans: 0.0028985745857049
+  - Ksp: 5.0e-13
+    Kf: 17000000.0
+    L: 3.0
+    salt: AgBr
+    ans: 0.0086957235257833
+  prompt: What is the molar solubility of {{salt}} (K_sp = {{Ksp}}) in {{L}} M NH₃ (β₂ for Ag(NH₃)₂⁺ = {{Kf}})?
+  parts:
+  - ask: s (M)
+    label: y
+    value: ans
+    tol: 0.001
+    explain: 'Combine the equilibria: AgX + 2NH₃ ⇌ Ag(NH₃)₂⁺ + X⁻ with K = K_sp·β₂. Then s²/(L − 2s)² = K. This is why AgCl dissolves in dilute ammonia and AgBr barely does'
+  verify:
+    expect:
+      y: complex_solubility(Ksp, Kf, L)
+- template: an-extraction
+  skill: anal.separations
+  pace: quick
+  cases:
+  - Vaq: 100
+    Vorg: 50
+    D: 3.0
+    n: 1
+    ans: 0.4
+  - Vaq: 100
+    Vorg: 25
+    D: 3.0
+    n: 2
+    ans: 0.326530612245
+  - Vaq: 100
+    Vorg: 10
+    D: 5.0
+    n: 5
+    ans: 0.131687242798
+  - Vaq: 50
+    Vorg: 50
+    D: 1.5
+    n: 3
+    ans: 0.064
+  - Vaq: 100
+    Vorg: 100
+    D: 4.0
+    n: 1
+    ans: 0.2
+  - Vaq: 100
+    Vorg: 20
+    D: 4.0
+    n: 5
+    ans: 0.052922149401
+  prompt: A solute with distribution ratio D = {{D}} (organic/aqueous) is extracted from {{Vaq}} mL of water with {{n}} portion(s) of {{Vorg}} mL organic solvent. What fraction stays in the water?
+  parts:
+  - ask: Fraction left
+    label: y
+    value: ans
+    tol: 0.0002
+    explain: 'Each extraction leaves the fraction V_aq/(V_aq + D·V_org); n extractions multiply it: q = [V_aq/(V_aq + D V_org)]ⁿ. Several small portions beat one large one with the same total volume'
+  verify:
+    expect:
+      y: extraction_left(Vaq, Vorg, D, n)
+- template: an-chromatography
+  skill: anal.separations
+  pace: quick
+  cases:
+  - w: 0
+    tr: 8.4
+    wb: 0.42
+    tm: 1
+    tr2: 9
+    wb2: 1
+    task: A peak elutes at 8.4 min with a baseline width of 0.42 min. How many theoretical plates N does the column have?
+    ans: 6400.0
+  - w: 0
+    tr: 12.6
+    wb: 0.5
+    tm: 1
+    tr2: 13
+    wb2: 1
+    task: A peak elutes at 12.6 min with a baseline width of 0.5 min. How many theoretical plates N does the column have?
+    ans: 10160.64
+  - w: 1
+    tr: 8.4
+    wb: 0.42
+    tm: 1.1
+    tr2: 9
+    wb2: 1
+    task: A peak elutes at 8.4 min; an unretained marker comes out at 1.1 min. What is the retention factor k?
+    ans: 6.636363636364
+  - w: 1
+    tr: 5.25
+    wb: 0.3
+    tm: 0.8
+    tr2: 6
+    wb2: 1
+    task: A peak elutes at 5.25 min; an unretained marker comes out at 0.8 min. What is the retention factor k?
+    ans: 5.5625
+  - w: 2
+    tr: 8.4
+    wb: 0.42
+    tm: 1
+    tr2: 9.1
+    wb2: 0.46
+    task: Two peaks elute at 8.4 and 9.1 min with baseline widths 0.42 and 0.46 min. What is the resolution R_s?
+    ans: 1.590909090909
+  - w: 2
+    tr: 4.1
+    wb: 0.2
+    tm: 1
+    tr2: 4.45
+    wb2: 0.24
+    task: Two peaks elute at 4.1 and 4.45 min with baseline widths 0.2 and 0.24 min. What is the resolution R_s?
+    ans: 1.590909090909
+  prompt: Chromatography. {{task}}
+  parts:
+  - ask: Answer
+    label: y
+    value: ans
+    tol: 0.0002
+    explain: N = 16(t_R/W)² from the baseline width (5.54(t_R/W½)² from the half-height width); k = (t_R − t_M)/t_M; R_s = 2Δt_R/(W₁ + W₂), and R_s ≥ 1.5 is baseline separation
+  verify:
+    expect:
+      y: '[16*(nsimplify(tr)/nsimplify(wb))**2, (nsimplify(tr) - nsimplify(tm))/nsimplify(tm), 2*(nsimplify(tr2) - nsimplify(tr))/(nsimplify(wb) + nsimplify(wb2))][w]'
+- template: an-two-component
+  skill: anal.measurement
+  pace: quick
+  cases:
+  - w: 0
+    wt: X
+    e1x: 5000
+    e1y: 1200
+    e2x: 800
+    e2y: 4000
+    A1: 0.62
+    A2: 0.48
+    ans: 0.0001
+  - w: 1
+    wt: Y
+    e1x: 5000
+    e1y: 1200
+    e2x: 800
+    e2y: 4000
+    A1: 0.62
+    A2: 0.48
+    ans: 0.0001
+  - w: 0
+    wt: X
+    e1x: 9000
+    e1y: 300
+    e2x: 1500
+    e2y: 6000
+    A1: 0.455
+    A2: 0.7
+    ans: 4.7058823529412e-05
+  - w: 1
+    wt: Y
+    e1x: 9000
+    e1y: 300
+    e2x: 1500
+    e2y: 6000
+    A1: 0.455
+    A2: 0.7
+    ans: 0.00010490196078431
+  - w: 0
+    wt: X
+    e1x: 3500
+    e1y: 2500
+    e2x: 600
+    e2y: 5100
+    A1: 0.41
+    A2: 0.38
+    ans: 6.9785932721713e-05
+  prompt: 'A mixture of X and Y in a 1.00 cm cell reads A = {{A1}} at λ₁ and {{A2}} at λ₂. Molar absorptivities (L mol⁻¹ cm⁻¹): X {{e1x}} and Y {{e1y}} at λ₁; X {{e2x}} and Y {{e2y}} at λ₂. What is [{{wt}}]
+    (M)?'
+  parts:
+  - ask: Concentration (M)
+    label: y
+    value: ans
+    tol: 0.001
+    explain: 'Absorbances add: A₁ = ε₁ₓb[X] + ε₁ᵧb[Y], A₂ = ε₂ₓb[X] + ε₂ᵧb[Y]. Two equations, two unknowns; pick wavelengths where each component dominates one of them'
+  verify:
+    expect:
+      y: two_component(e1x, e1y, e2x, e2y, A1, A2, w)
+- template: an-standard-addition
+  skill: anal.measurement
+  pace: quick
+  cases:
+  - Ax: 0.235
+    Vx: 10.0
+    cs: 50.0
+    Vs: 1.0
+    Asp: 0.412
+    Vt: 50.0
+    ans: 6.638418079096
+  - Ax: 0.18
+    Vx: 20.0
+    cs: 100.0
+    Vs: 0.5
+    Asp: 0.305
+    Vt: 50.0
+    ans: 3.6
+  - Ax: 0.42
+    Vx: 5.0
+    cs: 25.0
+    Vs: 2.0
+    Asp: 0.655
+    Vt: 25.0
+    ans: 17.872340425532
+  - Ax: 0.09
+    Vx: 25.0
+    cs: 10.0
+    Vs: 5.0
+    Asp: 0.215
+    Vt: 100.0
+    ans: 1.44
+  prompt: '{{Vx}} mL of sample is diluted to {{Vt}} mL and reads {{Ax}}. A second {{Vx}} mL portion plus {{Vs}} mL of a {{cs}} ppm standard, also diluted to {{Vt}} mL, reads {{Asp}}. What is the analyte
+    concentration in the original sample (ppm)?'
+  parts:
+  - ask: c (ppm)
+    label: y
+    value: ans
+    tol: 0.0002
+    explain: 'Both flasks share the same matrix and volume, so signal ∝ analyte in the flask: A_x/A_spiked = c V_x/(c V_x + c_s V_s). Solve: c = A_x c_s V_s / [V_x (A_spiked − A_x)]. Standard addition cancels
+      matrix effects that would bias an external calibration'
+  verify:
+    expect:
+      y: std_addition(Ax, Vx, cs, Vs, Asp, Vt)
+- template: an-calibration
+  skill: anal.measurement
+  pace: workout
+  cases:
+  - xs:
+    - 0
+    - 2
+    - 4
+    - 6
+    - 8
+    ys:
+    - 0.002
+    - 0.164
+    - 0.318
+    - 0.487
+    - 0.641
+    xt: 0, 2, 4, 6, 8
+    yt: 0.002, 0.164, 0.318, 0.487, 0.641
+    y0: 0.402
+    ans: 4.9943785134291
+  - xs:
+    - 1
+    - 2
+    - 3
+    - 4
+    ys:
+    - 0.11
+    - 0.205
+    - 0.318
+    - 0.402
+    xt: 1, 2, 3, 4
+    yt: 0.11, 0.205, 0.318, 0.402
+    y0: 0.26
+    ans: 2.5126390293225
+  - xs:
+    - 0
+    - 5
+    - 10
+    - 15
+    - 20
+    ys:
+    - 0.01
+    - 0.25
+    - 0.505
+    - 0.74
+    - 0.99
+    xt: 0, 5, 10, 15, 20
+    yt: 0.01, 0.25, 0.505, 0.74, 0.99
+    y0: 0.61
+    ans: 12.265306122449
+  - xs:
+    - 2
+    - 4
+    - 6
+    - 8
+    - 10
+    ys:
+    - 0.15
+    - 0.31
+    - 0.44
+    - 0.62
+    - 0.76
+    xt: 2, 4, 6, 8, 10
+    yt: 0.15, 0.31, 0.44, 0.62, 0.76
+    y0: 0.53
+    ans: 6.9673202614379
+  prompt: Standards at {{xt}} ppm read {{yt}}. An unknown reads {{y0}}. Using the least-squares line, what is the unknown's concentration (ppm)?
+  parts:
+  - ask: c (ppm)
+    label: y
+    value: ans
+    tol: 0.001
+    explain: Slope m = (nΣxy − ΣxΣy)/(nΣx² − (Σx)²), intercept b = (Σy − mΣx)/n, then x = (y − b)/m. Read unknowns inside the calibrated range only
+  verify:
+    expect:
+      y: calib_unknown(xs, ys, y0)
+- template: an-q-test
+  skill: anal.measurement
+  pace: quick
+  cases:
+  - vals:
+    - 10.11
+    - 10.15
+    - 10.13
+    - 10.4
+    vt: 10.11, 10.15, 10.13, 10.4
+    n: 4
+    qc: 0.829
+    ans: 1
+  - vals:
+    - 5.02
+    - 5.04
+    - 5.06
+    - 5.2
+    vt: 5.02, 5.04, 5.06, 5.2
+    n: 4
+    qc: 0.829
+    ans: 0
+  - vals:
+    - 0.402
+    - 0.41
+    - 0.405
+    - 0.408
+    - 0.392
+    vt: 0.402, 0.41, 0.405, 0.408, 0.392
+    n: 5
+    qc: 0.71
+    ans: 0
+  - vals:
+    - 12.47
+    - 12.51
+    - 12.49
+    - 12.62
+    - 12.5
+    vt: 12.47, 12.51, 12.49, 12.62, 12.5
+    n: 5
+    qc: 0.71
+    ans: 1
+  - vals:
+    - 3.12
+    - 3.15
+    - 3.13
+    - 3.14
+    - 3.11
+    - 3.32
+    vt: 3.12, 3.15, 3.13, 3.14, 3.11, 3.32
+    n: 6
+    qc: 0.625
+    ans: 1
+  - vals:
+    - 20.1
+    - 20.3
+    - 19.9
+    - 20.2
+    - 21.0
+    vt: 20.1, 20.3, 19.9, 20.2, 21.0
+    n: 5
+    qc: 0.71
+    ans: 0
+  - vals:
+    - 7.3
+    - 7.32
+    - 7.28
+    - 7.45
+    vt: 7.3, 7.32, 7.28, 7.45
+    n: 4
+    qc: 0.829
+    ans: 0
+  prompt: 'Replicates: {{vt}}. Dixon''s Q-test at 95% confidence (Q_crit = {{qc}} for n = {{n}}): keep or reject the most extreme value?'
+  parts:
+  - ask: Answer
+    label: y
+    choice:
+    - Keep
+    - Reject
+    correct: ans
+    explain: 'Q = gap / range, where the gap is between the suspect value and its nearest neighbour. Reject only if Q > Q_crit, and only once: the test is for one outlier'
+  verify:
+    choices:
+      y: q_test(vals)
+- template: an-uncertainty
+  skill: anal.measurement
+  pace: quick
+  cases:
+  - kind: prod
+    a: 2.5
+    sa: 0.02
+    b: 4.1
+    sb: 0.03
+    text: y = a × b
+    ask: relative uncertainty in y (as a fraction)
+    ans: 0.010841566298
+  - kind: quot
+    a: 0.452
+    sa: 0.0003
+    b: 25.0
+    sb: 0.03
+    text: y = a / b
+    ask: relative uncertainty in y (as a fraction)
+    ans: 0.001371320535
+  - kind: sum
+    a: 12.35
+    sa: 0.02
+    b: 4.18
+    sb: 0.01
+    text: y = a + b
+    ask: absolute uncertainty in y
+    ans: 0.022360679775
+  - kind: quot
+    a: 18.24
+    sa: 0.02
+    b: 0.1022
+    sb: 0.0002
+    text: y = a / b
+    ask: relative uncertainty in y (as a fraction)
+    ans: 0.002243197541
+  - kind: sum
+    a: 50.0
+    sa: 0.05
+    b: 25.0
+    sb: 0.03
+    text: y = a − b
+    ask: absolute uncertainty in y
+    ans: 0.058309518948
+  prompt: a = {{a}} ± {{sa}} and b = {{b}} ± {{sb}} (independent random errors). For {{text}}, what is the {{ask}}?
+  parts:
+  - ask: Uncertainty
+    label: y
+    value: ans
+    tol: 0.001
+    explain: Sums and differences add absolute uncertainties in quadrature; products and quotients add relative uncertainties in quadrature. Both are the general rule σ_y² = Σ(∂y/∂xᵢ)²σᵢ² applied to the
+      two cases
+  verify:
+    expect:
+      y: rel_unc(kind, a, sa, b, sb)
+- template: an-instrument
+  skill: anal.measurement
+  pace: recall
+  cases:
+  - k: trace lead in drinking water
+    o1: ICP-MS
+    o2: Karl Fischer titration
+    o3: GC
+    o4: HPLC
+    ans: 0
+  - k: residual solvents in a drug
+    o1: atomic emission (flame photometry)
+    o2: Karl Fischer titration
+    o3: GC
+    o4: IR spectroscopy
+    ans: 2
+  - k: a non-volatile drug and its impurities
+    o1: atomic emission (flame photometry)
+    o2: ICP-MS
+    o3: Karl Fischer titration
+    o4: HPLC
+    ans: 3
+  - k: water content of an oil
+    o1: IR spectroscopy
+    o2: Karl Fischer titration
+    o3: HPLC
+    o4: mass spectrometry
+    ans: 1
+  - k: functional groups of an unknown
+    o1: IR spectroscopy
+    o2: mass spectrometry
+    o3: atomic emission (flame photometry)
+    o4: ICP-MS
+    ans: 0
+  - k: connectivity of an organic unknown
+    o1: atomic emission (flame photometry)
+    o2: GC
+    o3: NMR spectroscopy
+    o4: mass spectrometry
+    ans: 2
+  - k: molar mass of a protein
+    o1: atomic emission (flame photometry)
+    o2: HPLC
+    o3: GC
+    o4: mass spectrometry
+    ans: 3
+  - k: sodium in serum
+    o1: IR spectroscopy
+    o2: HPLC
+    o3: atomic emission (flame photometry)
+    o4: NMR spectroscopy
+    ans: 2
+  prompt: 'Which technique fits best: {{k}}?'
+  parts:
+  - ask: Answer
+    label: y
+    choice:
+    - '{{o1}}'
+    - '{{o2}}'
+    - '{{o3}}'
+    - '{{o4}}'
+    correct: ans
+    explain: 'Match the question to the property measured: elements at trace level by atomic spectrometry (ICP-MS lowest), volatile organics by GC, non-volatile or thermally fragile ones by HPLC, structure
+      by NMR and IR, mass by MS, water specifically by Karl Fischer'
+  verify:
+    choices:
+      y: fact_pick("instrument", k, o1, o2, o3, o4)

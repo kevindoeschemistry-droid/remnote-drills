@@ -1,0 +1,239 @@
+{
+ "id": "materials",
+ "title": "Polymers and Materials",
+ "code": "MT",
+ "draft": 1,
+ "track": "science",
+ "requires": [
+  "chemistry",
+  "physics"
+ ],
+ "level": 4,
+ "domains": [
+  "materials"
+ ],
+ "basis": {
+  "primary": "icho-appendix-c",
+  "also": [
+   "ib-chemistry-2025",
+   "fe-chemical",
+   "icho-syllabus"
+  ],
+  "note": "Polymer topics from IChO Appendix C (c22, a5), IB S2.4 and FE Chemical 4.D; a house list on those items."
+ },
+ "big_ideas": [
+  {
+   "id": "CHAINS",
+   "title": "Polymers are distributions, not molecules",
+   "text": "A sample holds many chain lengths; averages and dispersity, not one molar mass, describe it."
+  },
+  {
+   "id": "PROPS",
+   "title": "Structure sets properties",
+   "text": "Cross-links, band gaps and bond stiffness decide whether a material flows, conducts or stretches."
+  }
+ ],
+ "practices": [
+  {
+   "id": "P1",
+   "title": "Compute",
+   "text": "Carry the calculation to a number with units."
+  },
+  {
+   "id": "P2",
+   "title": "Classify",
+   "text": "Place a material in its family from its chemistry."
+  }
+ ],
+ "units": [
+  {
+   "id": "polymers",
+   "n": 1,
+   "title": "Polymers",
+   "std": [
+    "icho-appendix-c:c22",
+    "icho-appendix-c:a5",
+    "icho-syllabus:10",
+    "ib-chemistry-2025:S2.4",
+    "fe-chemical:4.D"
+   ],
+   "scope": "core",
+   "ideas": [
+    "CHAINS"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "Molar mass and growth",
+     "los": [
+      {
+       "id": "A",
+       "do": "Compute M_n, M_w and dispersity from a chain distribution.",
+       "ek": [
+        "M_n = ΣnM/Σn; M_w = ΣnM²/ΣnM."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "mt-molar-mass-averages"
+       ]
+      },
+      {
+       "id": "B",
+       "do": "Compute the degree of polymerisation of a step-growth polymer.",
+       "ek": [
+        "X_n = (1 + r)/(1 + r − 2rp)."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "MT-1.1.A"
+       ],
+       "drills": [
+        "mt-carothers"
+       ]
+      },
+      {
+       "id": "C",
+       "do": "Classify a polymer as chain-growth or step-growth.",
+       "ek": [
+        "Vinyl polymers chain; polyesters, polyamides step."
+       ],
+       "p": [
+        "P2"
+       ],
+       "drills": [
+        "mt-growth-type"
+       ]
+      },
+      {
+       "id": "D",
+       "do": "Classify a polymer as thermoplastic or thermoset.",
+       "ek": [
+        "Cross-linked networks do not melt."
+       ],
+       "p": [
+        "P2"
+       ],
+       "drills": [
+        "mt-thermoset"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "solids",
+   "n": 2,
+   "title": "Properties of solids",
+   "std": [
+    "fe-chemical:4.A",
+    "ib-chemistry-2025:S2.4"
+   ],
+   "scope": "core",
+   "ideas": [
+    "PROPS"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "Mechanical and electronic",
+     "los": [
+      {
+       "id": "A",
+       "do": "Compute Young's modulus from a tensile test.",
+       "ek": [
+        "E = (F/A)/(ΔL/L₀)."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "mt-youngs-modulus"
+       ]
+      },
+      {
+       "id": "B",
+       "do": "Relate a semiconductor's band gap to the wavelength it absorbs or emits.",
+       "ek": [
+        "λ = hc/E_g."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "mt-band-gap"
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "rows": [
+  {
+   "code": "MT-1.1.A",
+   "unit": 1,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "mt-molar-mass-averages"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MT-1.1.B",
+   "unit": 1,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "mt-carothers"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MT-1.1.C",
+   "unit": 1,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "mt-growth-type"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MT-1.1.D",
+   "unit": 1,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "mt-thermoset"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MT-2.1.A",
+   "unit": 2,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "mt-youngs-modulus"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MT-2.1.B",
+   "unit": 2,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "mt-band-gap"
+   ],
+   "partial": []
+  }
+ ],
+ "orphanTpl": []
+}

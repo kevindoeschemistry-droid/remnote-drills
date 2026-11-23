@@ -1,0 +1,428 @@
+- template: pd-npv
+  skill: design.economics
+  pace: quick
+  cases:
+  - I: 1000000.0
+    A: 250000
+    n: 6
+    i: 0.1
+    S: 0
+    pi: 10.0
+    ans: 88815.17486556
+  - I: 500000.0
+    A: 120000
+    n: 5
+    i: 0.08
+    S: 50000
+    pi: 8.0
+    ans: 13154.36430106
+  - I: 2000000.0
+    A: 400000
+    n: 8
+    i: 0.12
+    S: 200000
+    pi: 12.0
+    ans: 67832.55233131
+  - I: 300000.0
+    A: 60000
+    n: 10
+    i: 0.07
+    S: 0
+    pi: 7.0
+    ans: 121414.892456
+  prompt: A project costs {{I}} dollars now and returns {{A}} dollars a year for {{n}} years, plus a {{S}} dollar salvage value at the end. At {{pi}}% interest, what is its net present value (dollars)?
+  parts:
+  - ask: NPV
+    label: y
+    value: ans
+    tol: 0.0002
+    explain: NPV = −I + A·(P/A, i, n) + S(1 + i)⁻ⁿ, with the annuity factor (P/A) = [1 − (1 + i)⁻ⁿ]/i. Accept projects with NPV > 0 at the company's minimum rate
+  verify:
+    expect:
+      y: npv(I, A, n, i, S)
+- template: pd-payback
+  skill: design.economics
+  pace: quick
+  cases:
+  - I: 100000
+    flows:
+    - 30000
+    - 30000
+    - 30000
+    - 30000
+    - 30000
+    ft: 30000, 30000, 30000, 30000, 30000
+    ans: 3.333333333333
+  - I: 250000
+    flows:
+    - 40000
+    - 70000
+    - 90000
+    - 100000
+    - 100000
+    ft: 40000, 70000, 90000, 100000, 100000
+    ans: 3.5
+  - I: 60000
+    flows:
+    - 10000
+    - 20000
+    - 30000
+    - 40000
+    ft: 10000, 20000, 30000, 40000
+    ans: 3.0
+  - I: 500000
+    flows:
+    - 150000
+    - 150000
+    - 150000
+    - 150000
+    ft: 150000, 150000, 150000, 150000
+    ans: 3.333333333333
+  prompt: An investment of {{I}} dollars returns {{ft}} dollars in successive years. What is the simple payback period (years)?
+  parts:
+  - ask: Years
+    label: y
+    value: ans
+    tol: 0.0005
+    explain: Add the yearly cash flows until they cover the investment, interpolating within the final year. Payback ignores the time value of money and everything after the payback year
+  verify:
+    expect:
+      y: payback(I, flows)
+- template: pd-cost-scaling
+  skill: design.economics
+  pace: quick
+  cases:
+  - C1: 1000000.0
+    S1: 100
+    S2: 200
+    n: 0.6
+    I1: 500
+    I2: 600
+    ans: 1818859.879812
+  - C1: 250000.0
+    S1: 50
+    S2: 150
+    n: 0.6
+    I1: 550
+    I2: 800
+    ans: 702975.2890661
+  - C1: 4000000.0
+    S1: 1000
+    S2: 500
+    n: 0.7
+    I1: 700
+    I2: 700
+    ans: 2462288.82669
+  - C1: 800000.0
+    S1: 20
+    S2: 60
+    n: 0.6
+    I1: 600
+    I2: 815
+    ans: 2100724.488826
+  prompt: Equipment of capacity {{S1}} cost {{C1}} dollars when the cost index was {{I1}}. Estimate a {{S2}}-capacity unit now (index {{I2}}) with a scaling exponent of {{n}}.
+  parts:
+  - ask: Cost (dollars)
+    label: y
+    value: ans
+    tol: 0.0005
+    explain: 'Capacity: C₂ = C₁(S₂/S₁)ⁿ with n ≈ 0.6 (the six-tenths rule), reflecting economies of scale. Time: multiply by the ratio of cost indices (CEPCI) between the two dates'
+  verify:
+    expect:
+      y: scaled_cost(C1, S1, S2, n, I1, I2)
+- template: pd-depreciation
+  skill: design.economics
+  pace: quick
+  cases:
+  - kind: sl
+    kw: straight-line
+    P: 100000
+    S: 10000
+    n: 10
+    k: 3
+    ans: 73000.0
+  - kind: sl
+    kw: straight-line
+    P: 50000
+    S: 5000
+    n: 5
+    k: 2
+    ans: 32000.0
+  - kind: ddb
+    kw: double-declining-balance
+    P: 100000
+    S: 0
+    n: 10
+    k: 3
+    ans: 51200.0
+  - kind: ddb
+    kw: double-declining-balance
+    P: 80000
+    S: 0
+    n: 5
+    k: 2
+    ans: 28800.0
+  - kind: ddb
+    kw: double-declining-balance
+    P: 40000
+    S: 0
+    n: 8
+    k: 4
+    ans: 12656.25
+  prompt: Equipment costs {{P}} dollars, has a {{n}}-year life and a salvage value of {{S}} dollars. What is its book value after {{k}} years of {{kw}} depreciation (dollars)?
+  parts:
+  - ask: Book value
+    label: y
+    value: ans
+    tol: 0.0005
+    explain: 'Straight line takes (P − S)/n each year. Double-declining balance takes 2/n of the current book value each year (salvage ignored until the book value reaches it): faster write-off, earlier
+      tax savings'
+  verify:
+    expect:
+      y: book_value(kind, P, S, n, k)
+- template: pd-effective-rate
+  skill: design.economics
+  pace: quick
+  cases:
+  - r: 0.12
+    pr: 12.0
+    m: 12
+    ans: 0.126825030132
+  - r: 0.1
+    pr: 10.0
+    m: 4
+    ans: 0.103812890625
+  - r: 0.08
+    pr: 8.0
+    m: 365
+    ans: 0.08327757179283
+  - r: 0.06
+    pr: 6.0
+    m: 2
+    ans: 0.0609
+  - r: 0.18
+    pr: 18.0
+    m: 12
+    ans: 0.1956181714615
+  prompt: A loan charges a nominal {{pr}}% a year compounded {{m}} times a year. What is the effective annual rate (as a fraction)?
+  parts:
+  - ask: i_eff
+    label: y
+    value: ans
+    tol: 0.0005
+    explain: $i_{eff} = (1 + r/m)^m - 1$; continuous compounding gives e^r − 1. Compare loans by effective rates, never nominal ones
+  verify:
+    expect:
+      y: effective_rate(r, m)
+- template: pd-lfl-mixture
+  skill: design.safety
+  pace: quick
+  cases:
+  - mix: 80% methane, 20% ethane
+    lt: methane 5.0%, ethane 3.0%
+    ys:
+    - 0.8
+    - 0.2
+    lfls:
+    - 5.0
+    - 3.0
+    ans: 4.411764705882
+  - mix: 50% methane, 30% propane, 20% butane
+    lt: methane 5.0%, propane 2.1%, butane 1.8%
+    ys:
+    - 0.5
+    - 0.3
+    - 0.2
+    lfls:
+    - 5.0
+    - 2.1
+    - 1.8
+    ans: 2.825112107623
+  - mix: 40% hydrogen, 60% methane
+    lt: hydrogen 4.0%, methane 5.0%
+    ys:
+    - 0.4
+    - 0.6
+    lfls:
+    - 4.0
+    - 5.0
+    ans: 4.545454545455
+  - mix: 60% propane, 40% butane
+    lt: propane 2.1%, butane 1.8%
+    ys:
+    - 0.6
+    - 0.4
+    lfls:
+    - 2.1
+    - 1.8
+    ans: 1.96875
+  prompt: 'A fuel gas is {{mix}} (fuel basis). Lower flammable limits in air: {{lt}}. What is the mixture''s LFL (vol % fuel in air)?'
+  parts:
+  - ask: LFL (%)
+    label: y
+    value: ans
+    tol: 0.0005
+    explain: 'Le Chatelier: $LFL_{mix} = 1/\sum (y_i/LFL_i)$, with yᵢ fractions of the fuel only. Keep a vessel below about 25% of the LFL (or inert it) to stay safe'
+  verify:
+    expect:
+      y: lfl_mix(ys, lfls)
+- template: pd-tlv-mixture
+  skill: design.safety
+  pace: quick
+  cases:
+  - cs:
+    - 20
+    - 30
+    tlvs:
+    - 50
+    - 100
+    names: toluene 20 ppm (TLV 50), xylene 30 ppm (TLV 100)
+    ans: 0
+  - cs:
+    - 40
+    - 60
+    tlvs:
+    - 50
+    - 100
+    names: toluene 40 ppm (TLV 50), xylene 60 ppm (TLV 100)
+    ans: 1
+  - cs:
+    - 100
+    - 150
+    - 50
+    tlvs:
+    - 500
+    - 400
+    - 200
+    names: acetone 100 (TLV 500), MEK 150 (TLV 400)... with ethyl acetate 50 ppm (TLV 200)
+    ans: 0
+  - cs:
+    - 2
+    - 0.5
+    tlvs:
+    - 5
+    - 1
+    names: chemical A 2 ppm (TLV 5), chemical B 0.5 ppm (TLV 1)
+    ans: 0
+  prompt: Workers breathe {{names}}, all acting on the same organ. Is the combined exposure within the limit?
+  parts:
+  - ask: Answer
+    label: y
+    choice:
+    - Within the limit
+    - Over the limit
+    correct: ans
+    explain: 'For additive effects, sum Cᵢ/TLVᵢ: the mixture exceeds its limit if the sum is above 1, even when each component alone is below its own TLV'
+  verify:
+    choices:
+      y: exposure_over(cs, tlvs)
+- template: pd-hazop
+  skill: design.safety
+  pace: recall
+  cases:
+  - k: 'NO'
+    o1: a quantitative decrease
+    o2: a quantitative increase
+    o3: none of the design intent happens
+    o4: something extra happens besides the intent
+    ans: 2
+  - k: MORE
+    o1: something extra happens besides the intent
+    o2: a quantitative increase
+    o3: only some of the intent happens
+    o4: something completely different happens
+    ans: 1
+  - k: LESS
+    o1: something extra happens besides the intent
+    o2: a quantitative decrease
+    o3: something completely different happens
+    o4: the logical opposite of the intent
+    ans: 1
+  - k: REVERSE
+    o1: something completely different happens
+    o2: only some of the intent happens
+    o3: the logical opposite of the intent
+    o4: a quantitative decrease
+    ans: 2
+  - k: AS WELL AS
+    o1: something completely different happens
+    o2: something extra happens besides the intent
+    o3: the logical opposite of the intent
+    o4: a quantitative decrease
+    ans: 1
+  - k: PART OF
+    o1: none of the design intent happens
+    o2: only some of the intent happens
+    o3: the logical opposite of the intent
+    o4: a quantitative decrease
+    ans: 1
+  - k: OTHER THAN
+    o1: none of the design intent happens
+    o2: something extra happens besides the intent
+    o3: only some of the intent happens
+    o4: something completely different happens
+    ans: 3
+  prompt: In a HAZOP study, what does the guide word {{k}} mean?
+  parts:
+  - ask: Answer
+    label: y
+    choice:
+    - '{{o1}}'
+    - '{{o2}}'
+    - '{{o3}}'
+    - '{{o4}}'
+    correct: ans
+    explain: Guide words are applied to each process parameter at each node (NO flow, MORE pressure, REVERSE flow…) to generate deviations; the team then lists causes, consequences and safeguards for each
+  verify:
+    choices:
+      y: hazop_pick(k, o1, o2, o3, o4)
+- template: pd-first-order
+  skill: design.control
+  pace: quick
+  cases:
+  - w: 0
+    tau: 5
+    f: 0.632
+    t: 0
+    task: How long (min) until the output reaches 63.2% of its final change?
+    ans: 4.998361704066
+  - w: 0
+    tau: 2
+    f: 0.95
+    t: 0
+    task: How long (min) until the output reaches 95% of its final change?
+    ans: 5.991464547108
+  - w: 0
+    tau: 10
+    f: 0.99
+    t: 0
+    task: How long (min) until the output reaches 99% of its final change?
+    ans: 46.05170185988
+  - w: 1
+    tau: 4
+    f: 0
+    t: 4
+    task: What fraction of the final change has occurred after 4 min?
+    ans: 0.6321205588286
+  - w: 1
+    tau: 3
+    f: 0
+    t: 9
+    task: What fraction of the final change has occurred after 9 min?
+    ans: 0.9502129316321
+  - w: 1
+    tau: 20
+    f: 0
+    t: 5
+    task: What fraction of the final change has occurred after 5 min?
+    ans: 0.2211992169286
+  prompt: A first-order process (time constant {{tau}} min, no dead time) gets a step in its input. {{task}}
+  parts:
+  - ask: Answer
+    label: y
+    value: ans
+    tol: 0.0005
+    explain: 'τ dy/dt + y = K·Δu gives y = KΔu(1 − e^(−t/τ)): 63.2% at t = τ, 95% at 3τ, 99% at 4.6τ. The time constant is read off a step test at 63.2%'
+  verify:
+    expect:
+      y: first_order(w, tau, f, t)

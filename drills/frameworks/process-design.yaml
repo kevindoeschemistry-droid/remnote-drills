@@ -1,0 +1,82 @@
+# Process Design, Economics and Safety — curriculum framework (draft 1, for Kevin's markup)
+#
+# Basis: NCEES FE Chemical areas 13 (engineering economics), 15 (process control) and 16 (safety,
+# health and environment), read in full; PE Chemical area 7 (plant design and operation). Objectives
+# and their order are ours. Not here yet: equipment sizing and selection, P&IDs, second-order and
+# dead-time dynamics, PID tuning, relief sizing, dispersion modelling, environmental regulation.
+id: process-design
+title: Process Design, Economics and Safety
+code: PD
+draft: 1
+track: engineering
+requires: [material-balances]
+level: 4
+domains: [design]
+
+basis:
+  primary: fe-chemical
+  also: [pe-chemical]
+  note: "Topics from FE Chemical areas 13, 15, 16 and PE Chemical area 7 (read in full); objectives and their order are ours."
+
+big_ideas:
+  - id: MONEY
+    title: Money has a time value
+    text: A dollar later is worth less than a dollar now; every economic comparison discounts to one date.
+  - id: LAYERS
+    title: Safety is layers
+    text: Keep fuel out of its flammable range, exposures under their limits, and find deviations before they happen.
+  - id: DYN
+    title: Processes respond with a lag
+    text: A first-order process reaches 63% of a step change in one time constant; control design starts there.
+
+practices:
+  - id: P1
+    title: Compute
+    text: Carry the calculation to a number.
+  - id: P2
+    title: Judge
+    text: Decide whether a design or exposure is acceptable.
+
+units:
+  - id: economics
+    n: 1
+    title: "Engineering economics"
+    std: ["fe-chemical:13.A", "fe-chemical:13.B", "fe-chemical:14.C", "pe-chemical:7.B"]
+    scope: core
+    ideas: [MONEY]
+    topics:
+      - n: 1
+        title: "Time value of money"
+        los:
+          - { id: A, do: "Convert a nominal rate to an effective annual rate.", ek: ["(1 + r/m)^m − 1."], p: [P1], drills: [pd-effective-rate] }
+          - { id: B, do: "Compute a project's net present value.", ek: ["NPV = −I + A(P/A,i,n) + S(1+i)⁻ⁿ."], p: [P1], needs: [PD-1.1.A], drills: [pd-npv] }
+          - { id: C, do: "Compute a simple payback period.", ek: ["Cumulative cash flow covers the investment."], p: [P1], drills: [pd-payback] }
+      - n: 2
+        title: "Costs"
+        los:
+          - { id: A, do: "Scale an equipment cost by capacity and cost index.", ek: ["C₂ = C₁(S₂/S₁)^0.6 × I₂/I₁."], p: [P1], drills: [pd-cost-scaling] }
+          - { id: B, do: "Compute book value under straight-line or declining-balance depreciation.", ek: ["SL (P − S)/n; DDB 2/n of book value."], p: [P1], drills: [pd-depreciation] }
+  - id: safety
+    n: 2
+    title: "Process safety"
+    std: ["fe-chemical:16.A", "fe-chemical:16.B", "fe-chemical:16.C", "pe-chemical:7.A"]
+    scope: core
+    ideas: [LAYERS]
+    topics:
+      - n: 1
+        title: "Hazards"
+        los:
+          - { id: A, std: ["fe-chemical:16.A"], do: "Compute the lower flammable limit of a fuel mixture.", ek: ["Le Chatelier: 1/Σ(yᵢ/LFLᵢ)."], p: [P1], drills: [pd-lfl-mixture] }
+          - { id: B, std: ["fe-chemical:16.B"], do: "Judge a mixed exposure against its limits.", ek: ["Σ Cᵢ/TLVᵢ ≤ 1."], p: [P2], drills: [pd-tlv-mixture] }
+          - { id: C, std: ["fe-chemical:16.C"], do: "State what a HAZOP guide word means.", ek: ["NO, MORE, LESS, REVERSE, AS WELL AS, PART OF, OTHER THAN."], p: [P2], drills: [pd-hazop] }
+  - id: control
+    n: 3
+    title: "Process dynamics"
+    std: ["fe-chemical:15.A", "pe-chemical:7.C"]
+    scope: core
+    ideas: [DYN]
+    topics:
+      - n: 1
+        title: "First-order systems"
+        los:
+          - { id: A, do: "Compute the step response of a first-order process.", ek: ["y = KΔu(1 − e^(−t/τ))."], p: [P1], drills: [pd-first-order] }

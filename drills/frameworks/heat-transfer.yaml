@@ -35,7 +35,7 @@ domains: [ht]
 
 basis:
   primary: fe-chemical
-  also: [fe-mechanical]
+  also: [fe-mechanical, ib-physics-2025, pe-chemical]
   note: "Also crosswalked to the FE Mechanical spec and UCI MAE 120."
 
 big_ideas:
@@ -80,6 +80,7 @@ units:
   - id: modes
     n: 1
     title: Modes and energy balances
+    std: ["ib-physics-2025:B.1"]
     scope: core
     ideas: [ENG, RATE]
     weight_est: "4–6%"
@@ -138,6 +139,7 @@ units:
   - id: steady1d
     n: 3
     title: Steady 1-D conduction and resistance networks
+    std: ["pe-chemical:3.A"]
     scope: core
     ideas: [RATE, FIELD, SYS]
     weight_est: "8–10%"
@@ -449,6 +451,7 @@ units:
   - id: systems
     n: 12
     title: Heat exchangers and system-level thermal analysis
+    std: ["pe-chemical:3.B"]
     scope: core
     ideas: [SYS, ENG, RATE]
     weight_est: "10–12%"
@@ -505,6 +508,7 @@ units:
   - id: mass
     n: 14
     title: Mass transfer
+    std: ["pe-chemical:6.A"]
     scope: extension
     ideas: [RATE, SCALE]
     topics:

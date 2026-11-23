@@ -42,7 +42,7 @@ domains: [thermo, stat]
 
 basis:
   primary: dill-bromberg-shell
-  also: [fe-chemical]
+  also: [fe-chemical, ib-physics-2025, icho-appendix-c, icho-syllabus, pe-chemical, gre-physics]
   note: "UCI CBE 240 publishes no syllabus. Classical units are anchored to fe-chemical; the statistical-mechanics units stand on the books."
 
 big_ideas:
@@ -150,7 +150,7 @@ units:
     n: 3
     title: The first law and reversibility
     scope: core
-    std: ["fe-chemical:7.C", "fe-chemical:7.D"]
+    std: ["fe-chemical:7.C", "fe-chemical:7.D", "ib-physics-2025:B.4", "pe-chemical:2.A"]
     ideas: [EQ, FUND]
     weight_est: "5–7%"
     topics:
@@ -282,7 +282,7 @@ units:
     n: 8
     title: Phase equilibrium of pure substances
     scope: core
-    std: ["fe-chemical:7.B", "fe-chemical:7.F"]
+    std: ["fe-chemical:7.B", "fe-chemical:7.F", "icho-appendix-c:a3", "pe-chemical:2.C"]
     ideas: [MU, STAB, EQ]
     weight_est: "6–8%"
     topics:
@@ -310,7 +310,7 @@ units:
     n: 9
     title: Solutions and mixtures
     scope: core
-    std: ["fe-chemical:7.F", "fe-chemical:7.H"]
+    std: ["fe-chemical:7.F", "fe-chemical:7.H", "pe-chemical:2.C"]
     ideas: [MU, EQ, STAB]
     weight_est: "12–14%"
     topics:
@@ -356,7 +356,7 @@ units:
     n: 10
     title: Chemical reaction equilibria
     scope: core
-    std: ["fe-chemical:7.G", "fe-chemical:7.H"]
+    std: ["fe-chemical:7.G", "fe-chemical:7.H", "icho-syllabus:6", "pe-chemical:2.B"]
     ideas: [MU, EQ, MICRO]
     weight_est: "8–10%"
     topics:
@@ -388,6 +388,7 @@ units:
   - id: boltzmann
     n: 11
     title: The Boltzmann distribution and the canonical ensemble
+    std: ["gre-physics:4"]
     scope: core
     ideas: [MICRO, EQ]
     weight_est: "8–10%"

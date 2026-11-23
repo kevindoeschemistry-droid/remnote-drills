@@ -725,6 +725,7 @@
   pace: recall
   given: { l: { int: [2, 6] }, w: { int: [2, 6] }, h: { int: [2, 5] } }
   prompt: 'Each layer of a box holds ${{l}}$ by ${{w}}$ unit cubes, and there are ${{h}}$ layers. How many cubic units is its volume?'
+  figure: { type: solid, kind: box, dims: ['l', 'w', 'h'], labels: ['{{l}}', '{{w}}', '{{h}} layers'], units: true }
   parts:
     - { ask: 'Volume', label: v, value: l*w*h, tol: 0.0001, explain: 'One layer has ${{l*w}}$ cubes (the base area); ${{h}}$ layers make ${{l*w*h}}$' }
   verify: { expect: { v: "l*w*h" } }
@@ -734,6 +735,7 @@
   pace: quick
   given: { l: { int: [2, 8] }, w: { int: [2, 6] }, h: { int: [2, 9] } }
   prompt: 'A box has volume ${{l*w*h}}$ cm³, length ${{l}}$ cm and width ${{w}}$ cm. How tall is it?'
+  figure: { type: solid, kind: box, dims: ['l', 'w', 'h'], labels: ['{{l}} cm', '{{w}} cm', '?'] }
   parts:
     - { ask: 'Height (cm)', label: s, value: h, tol: 0.0001, explain: '$V = lwh$, so $h = V/(lw) = {{l*w*h}} \div {{l*w}}$' }
   verify: { expect: { s: "solve(Eq(l*w*x, l*w*h), x)[0]" } }

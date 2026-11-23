@@ -264,6 +264,7 @@
   pace: quick
   given: { b: { int: [4, 16] }, h: { int: [3, 12] } }
   prompt: 'A triangle has area ${{b*h/2}}$ cm² and base ${{b}}$ cm. What is its height?'
+  figure: { type: geom, polys: [{ pts: [[0, 0], ['b', 0], ['0.35*b', 'h']], sides: ['{{b}} cm', null, null], fill: true }], segs: [{ a: ['0.35*b', 0], b: ['0.35*b', 'h'], dash: true, label: '?', hot: true }], angles: [{ at: ['0.35*b', 0], a1: 0, a2: 90, right: true }], texts: [{ p: ['0.62*b', '0.28*h'], s: 'A = {{b*h/2}} cm²' }] }
   parts:
     - { ask: 'Height (cm)', label: s, value: h, tol: 0.0001, explain: '$A = \tfrac12 bh$, so $h = 2A/b$. A triangle is half of a parallelogram with the same base and height' }
   verify: { expect: { s: "solve(Eq(Rational(1, 2)*b*x, Rational(b*h, 2)), x)[0]" } }
@@ -903,6 +904,7 @@
   pace: recall
   given: { a: { int: [25, 80] }, b: { int: [25, 80] } }
   prompt: 'Two interior angles of a triangle are ${{a}}$° and ${{b}}$°. What is the exterior angle at the third vertex?'
+  figure: { type: geom, polys: [{ angles: ['a', '180 - a - b'], fill: true }], segs: [{ a: [10, 0], b: [14, 0] }], angles: [{ corner: [0, 0], label: '{{a}}°' }, { corner: [0, 2], label: '{{b}}°' }, { at: [10, 0], a1: 0, a2: 'a + b', label: '?', hot: true }] }
   parts:
     - { ask: 'Exterior angle', label: r, value: a + b, tol: 0.0001, explain: 'The exterior angle equals the sum of the two remote interior angles, ${{a}} + {{b}}$, because it and the third angle both make 180° with the same angle' }
   verify: { expect: { r: "180 - (180 - a - b)" } }
@@ -931,6 +933,7 @@
     - { l: 2, w: 6, h: 9, d: 11 }
     - { l: 4, w: 4, h: 7, d: 9 }
   prompt: 'What is the length of the space diagonal of a ${{l}} \times {{w}} \times {{h}}$ box?'
+  figure: { type: solid, kind: box, dims: ['l', 'w', 'h'], labels: ['{{l}}', '{{w}}', '{{h}}'], diagonal: true }
   parts:
     - { ask: 'Diagonal', label: r, value: d, tol: 0.0001, explain: 'Use the theorem twice: the floor diagonal is $\sqrt{ {{l}}^2 + {{w}}^2 }$, then $d = \sqrt{ {{l}}^2 + {{w}}^2 + {{h}}^2 }$' }
   verify: { expect: { r: "sqrt(l**2 + w**2 + h**2)" } }

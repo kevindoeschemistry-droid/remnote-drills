@@ -2,7 +2,7 @@
 
 Generated from `drills/frameworks/physics.yaml` by `scripts/framework.mjs`. ● drilled · ◐ partly · ○ no drills yet.
 
-**201 learning objectives** in 28 units (201 core): 193 drilled, 8 partly, 0 with no drills. Core: 193 / 201 drilled.
+**207 learning objectives** in 30 units (201 core): 199 drilled, 8 partly, 0 with no drills. Core: 193 / 201 drilled.
 
 ## Big ideas
 
@@ -58,6 +58,8 @@ Generated from `drills/frameworks/physics.yaml` by `scripts/framework.mjs`. ● 
 | 26 · Circuits with calculus | core | — | 3 | 1 | 2 | 0 |
 | 27 · Magnetic fields with calculus | core | — | 3 | 3 | 0 | 0 |
 | 28 · Electromagnetic induction | core | — | 6 | 5 | 1 | 0 |
+| 29 · Special relativity | extension | — | 5 | 5 | 0 | 0 |
+| 30 · Lagrangian mechanics | extension | — | 1 | 1 | 0 | 0 |
 
 ## Unit 1 · Kinematics
 
@@ -1585,3 +1587,49 @@ Big ideas: CHG, CONS
   - EK: L d²q/dt² + q/C = 0 ⇒ ω = 1/√(LC) — the mass–spring equation with L ↔ m, 1/C ↔ k.
   - Needs: PH-28.4.A, PH-25.3.B, PH-22.1.B
   - 2A · 2B · drills: pc-lc-current, em-lc-frequency
+
+## Unit 29 · Special relativity (extension)
+
+Big ideas: CONS
+
+### 29.1 Kinematics of relativity
+
+
+
+- ● **PH-29.1.A** Compute the time measured in the lab for a moving clock.
+  - EK: Δt = γΔτ, γ = 1/√(1 − β²).
+  - 2A · drills: ph-time-dilation
+- ● **PH-29.1.B** Compute the length of a moving object along its motion.
+  - EK: L = L₀/γ.
+  - Needs: PH-29.1.A
+  - 2A · drills: ph-length-contraction
+- ● **PH-29.1.C** Add velocities relativistically.
+  - EK: w = (u + v)/(1 + uv/c²); rapidities add.
+  - Needs: PH-29.1.A
+  - 2A · drills: ph-velocity-addition
+- ● **PH-29.1.D** Compute the frequency received from a moving source.
+  - EK: f = f₀√((1+β)/(1−β)) approaching.
+  - Needs: PH-29.1.A
+  - 2A · drills: ph-rel-doppler
+
+### 29.2 Dynamics of relativity
+
+
+
+- ● **PH-29.2.A** Compute relativistic kinetic energy and momentum.
+  - EK: K = (γ − 1)mc², p = γmv, E² = (pc)² + (mc²)².
+  - Needs: PH-29.1.A
+  - 2A · drills: ph-rel-energy
+
+## Unit 30 · Lagrangian mechanics (extension)
+
+Big ideas: CONS, SYS
+
+### 30.1 Euler–Lagrange equations
+
+
+
+- ● **PH-30.1.A** Find an acceleration or small-oscillation frequency from L = T − V.
+  - EK: d/dt(∂L/∂q̇) = ∂L/∂q; constraint forces never appear.
+  - Needs: PH-6.1.A
+  - 2A · 1C · drills: ph-lagrangian

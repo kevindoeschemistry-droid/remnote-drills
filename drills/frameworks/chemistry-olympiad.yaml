@@ -1,0 +1,103 @@
+# Chemistry Olympiad — curriculum framework (draft 1, for Kevin's markup)
+#
+# Basis: the USNCO exam format and topic bands (drills/standards.yaml › usnco, read in part) and the
+# IChO regulations, Appendix C (read in full). Every objective here sits on an AP Chemistry topic and
+# asks it at national-exam depth: exact equilibria instead of the 5% rule, cycles closed by Hess,
+# kinetics integrated, spectra counted. A house list; no published olympiad item bank was used.
+#
+# Not here yet: written-explanation items like USNCO Part II, descriptive reaction prediction past
+# inorganic unit 4, coordination-equilibrium titrations, quantitative MO theory, the lab practical.
+id: chemistry-olympiad
+title: Chemistry Olympiad
+code: CO
+draft: 1
+track: science
+requires: [chemistry, inorganic-chemistry]
+level: 5
+domains: [olympiad]
+
+basis:
+  primary: usnco
+  also: [icho-appendix-c, icho-syllabus]
+  note: "Topics from the USNCO bands (read in part) and IChO Appendix C (read in full), at national-exam depth; the items are a house list."
+
+big_ideas:
+  - id: EXACT
+    title: Solve the balance, not the shortcut
+    text: Charge and mass balances solved exactly show when the approximations hold and fix them when they fail.
+  - id: CYCLE
+    title: Energies add around cycles
+    text: Hess's law, Born–Haber cycles and adding ΔG = −nFE° are the same move.
+  - id: COUNT
+    title: Count the possibilities
+    text: Isotope peaks and NMR lines are combinatorics of independent choices.
+
+practices:
+  - id: P1
+    title: Compute
+    text: Carry a multi-step problem to a number.
+  - id: P2
+    title: Count
+    text: Enumerate outcomes systematically.
+
+units:
+  - id: equilibria
+    n: 1
+    title: "Equilibria in depth"
+    std: ["usnco:6", "usnco:1", "icho-appendix-c:c7", "icho-appendix-c:c8", "icho-appendix-c:c9", "icho-appendix-c:a7"]
+    scope: core
+    ideas: [EXACT]
+    topics:
+      - n: 1
+        title: "Acid–base and solubility"
+        los:
+          - { id: A, do: "Compute the pH of a polyprotic acid or one of its salts from the full charge balance.", ek: ["Amphiprotic salts sit near ½(pKₐₙ + pKₐₙ₊₁)."], p: [P1], drills: [co-polyprotic-ph] }
+          - { id: B, do: "Compute a buffer's pH after strong acid is added.", ek: ["Convert base to acid mole for mole, then the equilibrium."], p: [P1], drills: [co-buffer-acid] }
+          - { id: C, do: "Compute the solubility of a salt of a weak acid at fixed pH.", ek: ["s = [K_sp(1 + [H⁺]/Kₐ)²/4]^⅓ for CaF₂."], p: [P1], needs: [CO-1.1.A], drills: [co-solubility-ph] }
+      - n: 2
+        title: "Gas equilibria"
+        los:
+          - { id: A, do: "Convert K_c to K_p.", ek: ["K_p = K_c(RT)^Δn."], p: [P1], drills: [co-kp-kc] }
+          - { id: B, do: "Compute the degree of dissociation at a given total pressure.", ek: ["α = √(K_p/(4P + K_p)) for N₂O₄."], p: [P1], needs: [CO-1.2.A], drills: [co-dissociation] }
+  - id: energy
+    n: 2
+    title: "Electrochemistry and thermochemistry in depth"
+    std: ["usnco:4", "usnco:7", "icho-appendix-c:c10", "icho-appendix-c:c12"]
+    scope: core
+    ideas: [CYCLE]
+    topics:
+      - n: 1
+        title: "Electrochemistry"
+        los:
+          - { id: A, do: "Compute E° of an insoluble-salt electrode from K_sp.", ek: ["E° = E°(Mⁿ⁺/M) + (RT/nF) ln K_sp."], p: [P1], drills: [co-e-from-ksp] }
+          - { id: B, do: "Compute the mass deposited or the time needed in electrolysis.", ek: ["n = It/(zF)."], p: [P1], drills: [co-electrolysis] }
+      - n: 2
+        title: "Thermochemistry"
+        los:
+          - { id: A, do: "Close a Born–Haber cycle for the lattice enthalpy.", ek: ["ΔH_f = sublimation + IE + atomisation + EA + lattice."], p: [P1], drills: [co-born-haber] }
+          - { id: B, do: "Estimate a reaction enthalpy from bond enthalpies.", ek: ["Σ broken − Σ formed."], p: [P1], drills: [co-bond-enthalpy] }
+  - id: rates
+    n: 3
+    title: "Kinetics in depth"
+    std: ["usnco:5", "icho-appendix-c:a2", "icho-appendix-c:c2"]
+    scope: core
+    ideas: [EXACT]
+    topics:
+      - n: 1
+        title: "Integrated laws and decay chains"
+        los:
+          - { id: A, do: "Compute the time to reach a concentration for zero-, first- or second-order kinetics.", ek: ["Integrated rate laws."], p: [P1], drills: [co-integrated-rate] }
+          - { id: B, do: "Compute the daughter population in a two-step decay chain.", ek: ["Bateman equation."], p: [P1], needs: [CO-3.1.A], drills: [co-decay-chain] }
+  - id: spectra
+    n: 4
+    title: "Solutions and spectra in depth"
+    std: ["usnco:3", "icho-appendix-c:a8"]
+    scope: core
+    ideas: [COUNT]
+    topics:
+      - n: 1
+        title: "Colligative and spectroscopic counting"
+        los:
+          - { id: A, do: "Find the degree of dissociation from a freezing-point depression.", ek: ["i = 1 + α(ν − 1)."], p: [P1], drills: [co-vant-hoff] }
+          - { id: B, do: "Predict relative isotope-peak intensities for Cl and Br compounds.", ek: ["Binomial in the isotope fractions."], p: [P2], drills: [co-isotope-pattern] }
+          - { id: C, do: "Count the lines of a first-order NMR multiplet.", ek: ["(n + 1)(m + 1), collapsing when J are equal."], p: [P2], drills: [co-nmr-multiplicity] }

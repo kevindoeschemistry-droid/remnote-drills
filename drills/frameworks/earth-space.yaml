@@ -1,0 +1,116 @@
+# Earth and Space Science — curriculum framework (draft 1, for Kevin's markup)
+#
+# Basis: NGSS high-school Earth and Space Sciences performance expectations (drills/standards.yaml ›
+# ngss-hs, all 59 HS expectations read through Iowa's adoption), with IB Physics B.2 and E.5 and
+# Biology D4.3. NGSS fuses practices with content; these objectives drill the quantitative and
+# factual content under each expectation, not the modelling and argument practices themselves.
+#
+# Not here yet: weather and the water cycle in depth, rock and mineral identification, plate-motion
+# mechanics beyond boundary types, ocean circulation, natural hazards, stellar evolution diagrams.
+id: earth-space
+title: Earth and Space Science
+code: ES
+draft: 1
+track: science
+requires: [physics, chemistry]
+level: 3
+domains: [space, earth]
+
+basis:
+  primary: ngss-hs
+  also: [ib-physics-2025, ib-biology-2025, gre-physics]
+  note: "Units follow the NGSS HS ESS disciplinary core ideas (ESS1 Earth's place in the universe, ESS2 Earth's systems, ESS3 Earth and human activity), read in part. Objectives and their order are ours."
+
+big_ideas:
+  - id: GRAV
+    title: Gravity shapes the sky
+    text: One law gives orbital periods, escape speeds and the motion of every planet and satellite.
+  - id: LIGHT
+    title: Light carries the information
+    text: A star's colour gives its temperature, its brightness and size its power, its spectrum its composition and motion.
+  - id: BALANCE
+    title: Energy in equals energy out
+    text: A planet's temperature is set where absorbed sunlight balances emitted infrared; the greenhouse effect and feedbacks move that balance.
+  - id: CLOCKS
+    title: Decay is a clock
+    text: Radioactive decay dates rocks and fossils; the choice of isotope sets the range of ages it can measure.
+
+practices:
+  - id: P1
+    title: Compute
+    text: Carry a physical model to a number with sensible units and magnitude.
+  - id: P2
+    title: Explain
+    text: Name the process, boundary or feedback behind an observation.
+
+units:
+  - id: space
+    n: 1
+    title: "Earth's place in the universe"
+    std: ["ngss-hs:ESS1-1", "ngss-hs:ESS1-2", "ngss-hs:ESS1-3", "ngss-hs:ESS1-4", "ib-physics-2025:E.5"]
+    scope: core
+    ideas: [GRAV, LIGHT]
+    topics:
+      - n: 1
+        title: "Orbits"
+        los:
+          - { id: A, std: ["ngss-hs:ESS1-4"], do: "Compute an orbital period from the central mass and radius.", ek: ["T = 2π√(a³/GM)."], p: [P1], drills: [es-kepler] }
+          - { id: B, std: ["ngss-hs:ESS1-4"], do: "Compute an escape speed.", ek: ["v = √(2GM/R)."], p: [P1], needs: [ES-1.1.A], drills: [es-escape] }
+      - n: 2
+        title: "Stars"
+        los:
+          - { id: A, std: ["ngss-hs:ESS1-1"], do: "Find a star's peak wavelength from its temperature.", ek: ["λ_max = b/T."], p: [P1], drills: [es-wien] }
+          - { id: B, std: ["ngss-hs:ESS1-1"], do: "Compute a star's luminosity from its radius and temperature.", ek: ["L = 4πR²σT⁴."], p: [P1], needs: [ES-1.2.A], drills: [es-luminosity] }
+          - { id: C, std: ["ngss-hs:ESS1-1"], do: "Scale a main-sequence lifetime with mass.", ek: ["t ∝ M/L ∝ M⁻²·⁵."], p: [P1], needs: [ES-1.2.B], drills: [es-star-life] }
+          - { id: D, std: ["ngss-hs:ESS1-1", "ngss-hs:ESS1-3"], do: "Compute the energy released by a fusion step.", ek: ["Q = Δm c², 931.5 MeV per u."], p: [P1], drills: [es-fusion-energy] }
+      - n: 3
+        title: "Cosmology"
+        los:
+          - { id: A, std: ["ngss-hs:ESS1-2"], do: "Apply Hubble's law and estimate the Hubble time.", ek: ["v = H₀d; t ≈ 1/H₀."], p: [P1], drills: [es-hubble] }
+          - { id: B, std: ["ngss-hs:ESS1-3"], do: "Say where an element was made.", ek: ["Big Bang, stellar fusion, neutron capture, spallation."], p: [P2], needs: [ES-1.2.D], drills: [es-element-origin] }
+  - id: interior
+    n: 2
+    title: "Earth's interior and history"
+    std: ["ngss-hs:ESS1-5", "ngss-hs:ESS1-6", "ngss-hs:ESS2-1", "ngss-hs:ESS2-3"]
+    scope: core
+    ideas: [CLOCKS]
+    topics:
+      - n: 1
+        title: "Plates and the interior"
+        los:
+          - { id: A, std: ["ngss-hs:ESS2-1", "ngss-hs:ESS1-5"], do: "Classify a plate boundary.", ek: ["Divergent, convergent, transform."], p: [P2], drills: [es-plate-boundary] }
+          - { id: B, std: ["ngss-hs:ESS2-3"], do: "Say which seismic waves cross a region of the interior.", ek: ["S waves cannot cross liquid: the outer-core shadow."], p: [P2], drills: [es-seismic] }
+      - n: 2
+        title: "Dating"
+        los:
+          - { id: A, std: ["ngss-hs:ESS1-5", "ngss-hs:ESS1-6"], do: "Compute an age from a daughter-to-parent ratio.", ek: ["t = (t½/ln 2) ln(1 + D/P)."], p: [P1], drills: [es-radiometric] }
+          - { id: B, std: ["ngss-hs:ESS1-6"], do: "Choose a dating method for a sample.", ek: ["¹⁴C to 50 ky; K–Ar volcanic; U–Pb oldest."], p: [P2], needs: [ES-2.2.A], drills: [es-dating-method] }
+  - id: climate
+    n: 3
+    title: "Earth's systems and climate"
+    std: ["ngss-hs:ESS2-2", "ngss-hs:ESS2-4", "ngss-hs:ESS2-6", "ngss-hs:ESS3-5", "ngss-hs:ESS3-6", "ib-physics-2025:B.2", "ib-biology-2025:D4.3"]
+    scope: core
+    ideas: [BALANCE]
+    topics:
+      - n: 1
+        title: "Energy balance"
+        los:
+          - { id: A, std: ["ngss-hs:ESS2-4", "ib-physics-2025:B.2"], do: "Compute a planet's radiative-equilibrium temperature.", ek: ["T_e = [S(1 − α)/4σ]^¼."], p: [P1], drills: [es-equilibrium-temp] }
+          - { id: B, std: ["ib-physics-2025:B.2"], do: "Compute the surface temperature under one absorbing layer.", ek: ["T_s = 2^¼ T_e."], p: [P1], needs: [ES-3.1.A], drills: [es-one-layer] }
+          - { id: C, std: ["ngss-hs:ESS3-5", "ib-biology-2025:D4.3"], do: "Estimate equilibrium warming from a CO₂ change.", ek: ["ΔF = 5.35 ln(C/C₀); ΔT = λΔF."], p: [P1], needs: [ES-3.1.A], drills: [es-co2-forcing] }
+          - { id: D, std: ["ngss-hs:ESS2-2"], do: "Say whether a climate feedback amplifies or damps warming.", ek: ["Ice-albedo and water vapour positive; Planck and weathering negative."], p: [P2], drills: [es-feedback] }
+      - n: 2
+        title: "Carbon cycle"
+        los:
+          - { id: A, std: ["ngss-hs:ESS2-6", "ngss-hs:ESS3-6"], do: "Convert between ppm CO₂ and gigatonnes of carbon.", ek: ["≈ 2.13 GtC per ppm."], p: [P1], drills: [es-carbon-mass] }
+  - id: resources
+    n: 4
+    title: "Earth and human activity"
+    std: ["ngss-hs:ESS3-1", "ngss-hs:ESS3-3"]
+    scope: core
+    ideas: [BALANCE]
+    topics:
+      - n: 1
+        title: "Growth"
+        los:
+          - { id: A, std: ["ngss-hs:ESS3-3"], do: "Compute a doubling time from a growth rate.", ek: ["t = ln 2/ln(1 + r) ≈ 70/%."], p: [P1], drills: [es-doubling] }

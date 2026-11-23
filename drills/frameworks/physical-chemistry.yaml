@@ -37,7 +37,7 @@ domains: [pchem, quantum, kinetics]
 
 basis:
   primary: engel-reid-3e
-  also: [fe-chemical]
+  also: [fe-chemical, usnco, icho-appendix-c, icho-syllabus, gre-physics, gre-chemistry]
   wanted: [acs-accm-pchem]
   note: "Textbook-shaped until the ACS content map is read. Thermodynamics and kinetics units are anchored to fe-chemical; quantum and spectroscopy have no outside anchor yet."
 
@@ -84,7 +84,7 @@ units:
     n: 1
     title: "Gases, work, heat and the first law"
     scope: core
-    std: ["fe-chemical:7.C", "fe-chemical:7.D"]
+    std: ["fe-chemical:7.C", "fe-chemical:7.D", "icho-syllabus:6", "gre-chemistry:PH"]
     ideas: [ENERGY]
     topics:
       - n: 1
@@ -188,7 +188,7 @@ units:
     n: 6
     title: "Phase equilibria of pure substances"
     scope: core
-    std: ["fe-chemical:7.B", "fe-chemical:7.F"]
+    std: ["fe-chemical:7.B", "fe-chemical:7.F", "icho-appendix-c:a3"]
     ideas: [SPONT]
     topics:
       - n: 1
@@ -248,7 +248,7 @@ units:
     n: 9
     title: "Electrochemical cells"
     scope: core
-    std: ["fe-chemical:5.A"]
+    std: ["fe-chemical:5.A", "icho-appendix-c:c10"]
     ideas: [SPONT]
     topics:
       - n: 1
@@ -280,6 +280,7 @@ units:
   - id: postulates
     n: 11
     title: "The Schrödinger equation and the postulates"
+    std: ["icho-appendix-c:a7", "gre-physics:5"]
     scope: core
     ideas: [QUANT]
     topics:
@@ -308,6 +309,7 @@ units:
   - id: model-systems
     n: 12
     title: "Model systems: box, oscillator and rotor"
+    std: ["gre-physics:5"]
     scope: core
     ideas: [QUANT]
     topics:
@@ -340,6 +342,7 @@ units:
   - id: rovib-spectroscopy
     n: 13
     title: "Vibrational and rotational spectroscopy"
+    std: ["icho-syllabus:8"]
     scope: core
     ideas: [SPEC]
     topics:
@@ -356,6 +359,7 @@ units:
   - id: atoms
     n: 14
     title: "The hydrogen atom and many-electron atoms"
+    std: ["gre-physics:6"]
     scope: core
     ideas: [QUANT]
     topics:
@@ -385,6 +389,7 @@ units:
   - id: bonding
     n: 15
     title: "Chemical bonding and computational chemistry"
+    std: ["icho-appendix-c:a7"]
     scope: core
     ideas: [QUANT]
     topics:
@@ -415,6 +420,7 @@ units:
   - id: electronic-spectroscopy
     n: 16
     title: "Electronic spectroscopy"
+    std: ["icho-syllabus:8"]
     scope: core
     ideas: [SPEC]
     topics:
@@ -448,6 +454,7 @@ units:
   - id: nmr
     n: 18
     title: "Nuclear magnetic resonance"
+    std: ["icho-appendix-c:a8", "icho-syllabus:8"]
     scope: core
     ideas: [SPEC]
     topics:
@@ -541,7 +548,7 @@ units:
     n: 22
     title: "Chemical kinetics"
     scope: core
-    std: ["fe-chemical:12.A", "fe-chemical:12.B", "fe-chemical:12.D", "fe-chemical:12.F"]
+    std: ["fe-chemical:12.A", "fe-chemical:12.B", "fe-chemical:12.D", "fe-chemical:12.F", "usnco:5", "icho-appendix-c:a2", "icho-syllabus:7"]
     ideas: [RATE]
     topics:
       - n: 1
