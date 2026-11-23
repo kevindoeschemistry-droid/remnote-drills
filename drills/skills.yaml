@@ -43,6 +43,9 @@ domains:
   - { id: ptable, title: "The periodic table" }
   - { id: inorg, title: "Inorganic chemistry" }
   - { id: anal, title: "Analytical chemistry" }
+  - { id: space, title: "Space science" }
+  - { id: earth, title: "Earth science" }
+  - { id: materials, title: "Polymers and materials" }
   - { id: physics, title: "Physics" }
   - { id: gchem, title: "General chemistry" }
   - { id: bio, title: "Biology" }
@@ -615,6 +618,19 @@ skills:
   - { id: anal.equilibria, domain: anal, title: "Solubility in analysis: common ions and complexes", short: "Solubility" }
   - { id: anal.separations, domain: anal, title: "Extraction and chromatography", short: "Separations" }
   - { id: anal.measurement, domain: anal, title: "Spectrophotometry, calibration, statistics and instrument choice", short: "Measurement" }
+
+  # ── earth and space, relativity and Lagrangian mechanics, materials ─────
+  - { id: space.orbits, domain: space, title: "Orbits and escape speed", short: "Orbits" }
+  - { id: space.stars, domain: space, title: "Stars: spectra, luminosity, lifetimes, fusion", short: "Stars", prereqs: [space.orbits] }
+  - { id: space.cosmology, domain: space, title: "Expansion and the origin of the elements", short: "Cosmology", prereqs: [space.stars] }
+  - { id: earth.interior, domain: earth, title: "Plate tectonics and Earth's interior", short: "Earth's interior" }
+  - { id: earth.history, domain: earth, title: "Radiometric dating and Earth history", short: "Earth history" }
+  - { id: earth.climate, domain: earth, title: "Energy balance, greenhouse effect, carbon cycle and feedbacks", short: "Climate" }
+  - { id: earth.resources, domain: earth, title: "Growth, resources and sustainability", short: "Resources" }
+  - { id: physics.relativity, domain: physics, title: "Special relativity", short: "Relativity" }
+  - { id: physics.lagrangian, domain: physics, title: "Lagrangian mechanics", short: "Lagrangian mechanics" }
+  - { id: materials.polymers, domain: materials, title: "Polymers: molar masses, step and chain growth, thermal behaviour", short: "Polymers" }
+  - { id: materials.solids, domain: materials, title: "Mechanical and electronic properties of solids", short: "Materials properties" }
 
   # ── Dental Admission Test: perceptual ability ───────────────────────────
   - { id: dat.pat-angles, domain: dat, title: "PAT: angle ranking", short: "Angle ranking" }

@@ -982,3 +982,35 @@ units:
         title: LC circuits
         los:
           - { id: A, std: ["CEM 13.6"], do: "Show that an LC circuit oscillates and find its frequency and the energy exchange between C and L.", ek: ["L d²q/dt² + q/C = 0 ⇒ ω = 1/√(LC) — the mass–spring equation with L ↔ m, 1/C ↔ k."], p: [2A, 2B], drills: ["pc-lc-current", "em-lc-frequency"], needs: [PH-28.4.A, PH-25.3.B, PH-22.1.B] }
+  # ── 29–30 · beyond AP (IB HL, GRE Physics) ──────────────────────────────
+  - id: relativity
+    n: 29
+    title: Special relativity
+    std: ["ib-physics-2025:A.5", "gre-physics:7"]
+    scope: extension
+    layer: calculus
+    ideas: [CONS]
+    topics:
+      - n: 1
+        title: Kinematics of relativity
+        los:
+          - { id: A, do: "Compute the time measured in the lab for a moving clock.", ek: ["Δt = γΔτ, γ = 1/√(1 − β²)."], p: [2A], drills: [ph-time-dilation] }
+          - { id: B, do: "Compute the length of a moving object along its motion.", ek: ["L = L₀/γ."], p: [2A], needs: [PH-29.1.A], drills: [ph-length-contraction] }
+          - { id: C, do: "Add velocities relativistically.", ek: ["w = (u + v)/(1 + uv/c²); rapidities add."], p: [2A], needs: [PH-29.1.A], drills: [ph-velocity-addition] }
+          - { id: D, do: "Compute the frequency received from a moving source.", ek: ["f = f₀√((1+β)/(1−β)) approaching."], p: [2A], needs: [PH-29.1.A], drills: [ph-rel-doppler] }
+      - n: 2
+        title: Dynamics of relativity
+        los:
+          - { id: A, do: "Compute relativistic kinetic energy and momentum.", ek: ["K = (γ − 1)mc², p = γmv, E² = (pc)² + (mc²)²."], p: [2A], needs: [PH-29.1.A], drills: [ph-rel-energy] }
+  - id: lagrangian
+    n: 30
+    title: Lagrangian mechanics
+    std: ["gre-physics:1"]
+    scope: extension
+    layer: calculus
+    ideas: [CONS, SYS]
+    topics:
+      - n: 1
+        title: Euler–Lagrange equations
+        los:
+          - { id: A, do: "Find an acceleration or small-oscillation frequency from L = T − V.", ek: ["d/dt(∂L/∂q̇) = ∂L/∂q; constraint forces never appear."], p: [2A, 1C], needs: [PH-6.1.A], drills: [ph-lagrangian] }

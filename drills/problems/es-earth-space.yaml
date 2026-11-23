@@ -1,0 +1,583 @@
+- template: es-kepler
+  skill: space.orbits
+  pace: quick
+  cases:
+  - body: Earth around the Sun
+    M: 1.989e+30
+    a: 149600000000.0
+    unit: days
+    div: 86400
+    ans: 365.2105063381
+  - body: Mars around the Sun
+    M: 1.989e+30
+    a: 227900000000.0
+    unit: days
+    div: 86400
+    ans: 686.6925888108
+  - body: the Moon around Earth
+    M: 5.972e+24
+    a: 384400000.0
+    unit: days
+    div: 86400
+    ans: 27.45228083334
+  - body: a satellite at 7000 km from Earth's centre
+    M: 5.972e+24
+    a: 7000000.0
+    unit: minutes
+    div: 60
+    ans: 97.14331433371
+  - body: Jupiter around the Sun
+    M: 1.989e+30
+    a: 778500000000.0
+    unit: years
+    div: 31557600.0
+    ans: 11.86980469713
+  prompt: 'Find the orbital period of {{body}}: central mass {{M}} kg, orbit radius {{a}} m (circular), G = 6.674×10⁻¹¹. Answer in {{unit}}.'
+  parts:
+  - ask: T
+    label: y
+    value: ans
+    tol: 0.0002
+    explain: 'Kepler''s third law from gravity: $T = 2\pi\sqrt{a^3/GM}$. The orbiting mass drops out, so a satellite and the Moon at the same radius would share a period'
+  verify:
+    expect:
+      y: orbit_period(M, a)/nsimplify(div)
+- template: es-escape
+  skill: space.orbits
+  pace: quick
+  cases:
+  - body: Earth
+    M: 5.972e+24
+    r: 6371000.0
+    ans: 11.18597789185
+  - body: the Moon
+    M: 7.342e+22
+    r: 1737000.0
+    ans: 2.375336490419
+  - body: Mars
+    M: 6.417e+23
+    r: 3390000.0
+    ans: 5.026712308972
+  - body: Jupiter
+    M: 1.898e+27
+    r: 69910000.0
+    ans: 60.19997524106
+  prompt: What is the escape speed from the surface of {{body}} (M = {{M}} kg, R = {{r}} m), in km/s?
+  parts:
+  - ask: v (km/s)
+    label: y
+    value: ans
+    tol: 0.0002
+    explain: 'Kinetic energy must cover the gravitational well: ½v² = GM/R, so $v = \sqrt{2GM/R}$, √2 times the speed of a circular orbit at the surface'
+  verify:
+    expect:
+      y: escape_speed(M, r)/1000
+- template: es-wien
+  skill: space.stars
+  pace: quick
+  cases:
+  - star: the Sun
+    T: 5772
+    ans: 502.0394932753
+  - star: Betelgeuse
+    T: 3600
+    ans: 804.9366542181
+  - star: Sirius A
+    T: 9940
+    ans: 291.5263536404
+  - star: Rigel
+    T: 12100
+    ans: 239.4852855525
+  - star: a red dwarf
+    T: 3000
+    ans: 965.9239850617
+  prompt: '{{star}} has a surface temperature of about {{T}} K. At what wavelength (nm) does its spectrum peak?'
+  parts:
+  - ask: λ_max (nm)
+    label: y
+    value: ans
+    tol: 0.0002
+    explain: 'Wien''s law: $\lambda_{\max} = b/T$ with $b = 2.898\times10^{-3}$ m·K. Hot stars peak in the blue or UV, cool ones in the red or IR, which is how colour gives temperature'
+  verify:
+    expect:
+      y: wien_peak(T)
+- template: es-luminosity
+  skill: space.stars
+  pace: quick
+  cases:
+  - star: the Sun
+    Rs: 695700000.0
+    T: 5772
+    ans: 0.9999976236356
+  - star: Sirius A
+    Rs: 1190000000.0
+    T: 9940
+    ans: 25.73292367864
+  - star: a red dwarf
+    Rs: 210000000.0
+    T: 3000
+    ans: 0.006649259460986
+  - star: a white dwarf
+    Rs: 5800000.0
+    T: 25000
+    ans: 0.02446052045142
+  prompt: Find the luminosity of {{star}} (radius {{Rs}} m, T = {{T}} K) in units of the Sun's, L☉ = 3.828×10²⁶ W.
+  parts:
+  - ask: L/L☉
+    label: y
+    value: ans
+    tol: 0.0002
+    explain: 'Stefan–Boltzmann over the whole surface: $L = 4\pi R^2\sigma T^4$. Temperature enters to the fourth power, so a small hot star can outshine a big cool one'
+  verify:
+    expect:
+      y: luminosity(Rs, T)/nsimplify('3.828e26')
+- template: es-star-life
+  skill: space.stars
+  pace: recall
+  cases:
+  - M: 2
+    ans: 0.1767766952966
+  - M: 5
+    ans: 0.01788854382
+  - M: 10
+    ans: 0.003162277660168
+  - M: 0.5
+    ans: 5.656854249492
+  - M: 20
+    ans: 0.0005590169943749
+  prompt: If luminosity scales as M³·⁵, how long does a {{M}} M☉ star live on the main sequence, relative to the Sun?
+  parts:
+  - ask: t/t☉
+    label: y
+    value: ans
+    tol: 0.0002
+    explain: Lifetime ∝ fuel ÷ burn rate ∝ M/L ∝ M/M³·⁵ = M⁻²·⁵. Massive stars live millions of years, not billions; red dwarfs outlast the present age of the universe
+  verify:
+    expect:
+      y: star_life(M)
+- template: es-hubble
+  skill: space.cosmology
+  pace: quick
+  cases:
+  - w: 0
+    H0: 70
+    d: 100
+    task: How fast does a galaxy 100 Mpc away recede (km/s), with H₀ = 70 km/s/Mpc?
+    ans: 7000.0
+  - w: 0
+    H0: 70
+    d: 450
+    task: How fast does a galaxy 450 Mpc away recede (km/s), with H₀ = 70 km/s/Mpc?
+    ans: 31500.0
+  - w: 0
+    H0: 67.4
+    d: 1000
+    task: How fast does a galaxy 1000 Mpc away recede (km/s), with H₀ = 67.4 km/s/Mpc?
+    ans: 67400.0
+  - w: 1
+    H0: 70
+    d: 0
+    task: What is the Hubble time 1/H₀ (Gyr) for H₀ = 70 km/s/Mpc?
+    ans: 13.96846030973
+  - w: 1
+    H0: 67.4
+    d: 0
+    task: What is the Hubble time 1/H₀ (Gyr) for H₀ = 67.4 km/s/Mpc?
+    ans: 14.5073029923
+  - w: 1
+    H0: 73
+    d: 0
+    task: What is the Hubble time 1/H₀ (Gyr) for H₀ = 73 km/s/Mpc?
+    ans: 13.39441399563
+  prompt: '{{task}}'
+  parts:
+  - ask: Answer
+    label: y
+    value: ans
+    tol: 0.0002
+    explain: Hubble's law v = H₀d is the evidence for expansion (with the cosmic microwave background and light-element abundances). 1/H₀ ≈ 14 Gyr is a first estimate of the age of the universe
+  verify:
+    expect:
+      y: hubble(w, H0, d)
+- template: es-fusion-energy
+  skill: space.stars
+  pace: quick
+  cases:
+  - proc: 4 ¹H → ⁴He (pp chain, atomic masses)
+    n: 4
+    mi: 1.00782503207
+    mo: 4.00260325413
+    ans: 26.73096902861
+  - proc: 3 ⁴He → ¹²C (triple-alpha)
+    n: 3
+    mi: 4.00260325413
+    mo: 12.0
+    ans: 7.274747607586
+  - proc: 2 ¹²C → ²⁴Mg
+    n: 2
+    mi: 12.0
+    mo: 23.985041697
+    ans: 13.93357102671
+  prompt: 'How much energy (MeV) is released in {{proc}}? Atomic masses (u): reactant {{mi}}, product {{mo}}; 1 u = 931.494 MeV/c².'
+  parts:
+  - ask: Q (MeV)
+    label: y
+    value: ans
+    tol: 0.001
+    explain: Q = (mass in − mass out) c². Fusion releases energy up to iron-56, where binding energy per nucleon peaks; heavier elements need neutron capture (s- and r-process) in AGB stars, supernovae
+      and neutron-star mergers
+  verify:
+    expect:
+      y: fusion_energy(n, mi, mo)
+- template: es-element-origin
+  skill: space.cosmology
+  pace: recall
+  cases:
+  - k: most helium-4
+    tb: origin
+    ans: 0
+  - k: deuterium
+    tb: origin
+    ans: 0
+  - k: carbon and oxygen
+    tb: origin
+    ans: 1
+  - k: iron and nickel
+    tb: origin
+    ans: 1
+  - k: gold and uranium
+    tb: origin
+    ans: 2
+  - k: barium and lead (s-process)
+    tb: origin
+    ans: 2
+  - k: lithium-6, beryllium and boron
+    tb: origin
+    ans: 3
+  prompt: Where were {{k}} made?
+  parts:
+  - ask: Answer
+    label: y
+    choice:
+    - Big Bang nucleosynthesis
+    - fusion in stellar cores
+    - neutron capture in AGB stars, supernovae and mergers
+    - cosmic-ray spallation
+    correct: ans
+    explain: 'Big Bang: H, He, a little Li. Stars fuse up to Fe. Beyond iron, neutron capture: slow (s) in AGB stars, rapid (r) in supernovae and neutron-star mergers. Li, Be and B are mostly from cosmic
+      rays splitting heavier nuclei'
+  verify:
+    choices:
+      y: es_fact(tb, k)
+- template: es-plate-boundary
+  skill: earth.interior
+  pace: recall
+  cases:
+  - k: the Mid-Atlantic Ridge
+    tb: boundary
+    ans: 0
+  - k: the East African Rift
+    tb: boundary
+    ans: 0
+  - k: the Andes
+    tb: boundary
+    ans: 1
+  - k: the Himalaya
+    tb: boundary
+    ans: 1
+  - k: the Mariana Trench
+    tb: boundary
+    ans: 1
+  - k: the San Andreas Fault
+    tb: boundary
+    ans: 2
+  - k: Iceland
+    tb: boundary
+    ans: 0
+  prompt: What kind of plate boundary is {{k}}?
+  parts:
+  - ask: Answer
+    label: y
+    choice:
+    - divergent
+    - convergent
+    - transform
+    correct: ans
+    explain: 'Divergent: plates part, new crust (ridges, rifts). Convergent: subduction (trenches, volcanic arcs) or collision (mountain belts). Transform: plates slide past (strike-slip faults, earthquakes
+      but little volcanism)'
+  verify:
+    choices:
+      y: es_fact(tb, k)
+- template: es-feedback
+  skill: earth.climate
+  pace: recall
+  cases:
+  - k: melting sea ice lowers albedo
+    tb: feedback
+    ans: 0
+  - k: warmer air holds more water vapour
+    tb: feedback
+    ans: 0
+  - k: a warmer surface radiates more (Planck response)
+    tb: feedback
+    ans: 1
+  - k: thawing permafrost releases CH₄ and CO₂
+    tb: feedback
+    ans: 0
+  - k: faster rock weathering draws down CO₂ over ~100 kyr
+    tb: feedback
+    ans: 1
+  prompt: 'Feedback: {{k}}. Does it amplify or damp warming?'
+  parts:
+  - ask: Answer
+    label: y
+    choice:
+    - amplifies warming (positive)
+    - damps warming (negative)
+    correct: ans
+    explain: A positive feedback loops the change back on itself (ice-albedo, water vapour, permafrost carbon); a negative one opposes it (more radiation from a warmer surface; slow silicate weathering,
+      the long-term thermostat)
+  verify:
+    choices:
+      y: es_fact(tb, k)
+- template: es-seismic
+  skill: earth.interior
+  pace: recall
+  cases:
+  - k: through the liquid outer core
+    tb: seismic
+    ans: 0
+  - k: through the mantle
+    tb: seismic
+    ans: 1
+  - k: through the solid inner core (as P)
+    tb: seismic
+    ans: 0
+  prompt: Which body waves travel {{k}}?
+  parts:
+  - ask: Answer
+    label: y
+    choice:
+    - P waves only
+    - both P and S waves
+    - neither
+    correct: ans
+    explain: S waves are shear waves and cannot cross a liquid, so the outer core casts an S-wave shadow beyond 104°; P waves bend in it and leave a shadow from 104° to 140°. This is how the core was found
+      to be liquid
+  verify:
+    choices:
+      y: es_fact(tb, k)
+- template: es-dating-method
+  skill: earth.history
+  pace: recall
+  cases:
+  - k: a 5000-year-old wooden tool
+    tb: dating
+    ans: 0
+  - k: a 2-million-year-old volcanic ash layer
+    tb: dating
+    ans: 1
+  - k: a 4.4-billion-year-old zircon
+    tb: dating
+    ans: 2
+  - k: bone collagen 20 000 years old
+    tb: dating
+    ans: 0
+  - k: the age of a meteorite
+    tb: dating
+    ans: 2
+  prompt: Which dating method fits {{k}}?
+  parts:
+  - ask: Answer
+    label: y
+    choice:
+    - radiocarbon (¹⁴C)
+    - potassium–argon or argon–argon
+    - uranium–lead
+    correct: ans
+    explain: 'Pick a clock whose half-life suits the age: ¹⁴C (5730 y) for organic material to ~50 000 years; K–Ar (1.25 Gy) for volcanic rocks; U–Pb (0.7 and 4.5 Gy) in zircons and meteorites for the oldest
+      ages'
+  verify:
+    choices:
+      y: es_fact(tb, k)
+- template: es-radiometric
+  skill: earth.history
+  pace: quick
+  cases:
+  - iso: ⁴⁰K → ⁴⁰Ar (t½ = 1.25 Gy)
+    th: 1250000000.0
+    ratio: 0.1
+    ans: 171879404.6874
+  - iso: ²³⁸U → ²⁰⁶Pb (t½ = 4.468 Gy)
+    th: 4468000000.0
+    ratio: 0.8
+    ans: 3788850178.488
+  - iso: ⁸⁷Rb → ⁸⁷Sr (t½ = 48.8 Gy)
+    th: 48800000000.0
+    ratio: 0.065
+    ans: 4433647406.014
+  - iso: ¹⁴C → ¹⁴N (t½ = 5730 y)
+    th: 5730
+    ratio: 3.0
+    ans: 11460.0
+  - iso: ²³⁵U → ²⁰⁷Pb (t½ = 0.704 Gy)
+    th: 704000000.0
+    ratio: 1.0
+    ans: 704000000.0
+  prompt: A mineral holds radiogenic daughter and parent in the ratio D/P = {{ratio}} for {{iso}}, with no daughter at the start. How old is it (years)?
+  parts:
+  - ask: Age (y)
+    label: y
+    value: ans
+    tol: 0.0005
+    explain: N = N₀e^(−λt) and D = N₀ − N, so $t = \dfrac{t_{1/2}}{\ln 2}\ln(1 + D/P)$. D/P = 1 means one half-life; D/P = 3 two half-lives
+  verify:
+    expect:
+      y: decay_age(th, ratio)
+- template: es-equilibrium-temp
+  skill: earth.climate
+  pace: quick
+  cases:
+  - planet: Earth
+    S: 1361
+    alb: 0.3
+    ans: 254.5781401145
+  - planet: Venus
+    S: 2601
+    alb: 0.76
+    ans: 229.0445521461
+  - planet: Mars
+    S: 586
+    alb: 0.25
+    ans: 209.8078763241
+  - planet: Earth with albedo 0.35
+    S: 1361
+    alb: 0.35
+    ans: 249.9049960094
+  - planet: the Moon
+    S: 1361
+    alb: 0.11
+    ans: 270.3299107153
+  prompt: 'What is the radiative-equilibrium temperature (K) of {{planet}}: solar constant {{S}} W/m², albedo {{alb}}, no greenhouse effect?'
+  parts:
+  - ask: T_e (K)
+    label: y
+    value: ans
+    tol: 0.0002
+    explain: Absorbed S(1 − α)πR² equals emitted 4πR²σT⁴, so $T_e = [S(1-\alpha)/4\sigma]^{1/4}$. Earth's 255 K against an actual 288 K is the 33 K greenhouse effect; Venus's 230 K against 735 K is a runaway
+      one
+  verify:
+    expect:
+      y: eq_temp(S, alb)
+- template: es-one-layer
+  skill: earth.climate
+  pace: quick
+  cases:
+  - planet: Earth
+    S: 1361
+    alb: 0.3
+    ans: 302.7461355483
+  - planet: Mars
+    S: 586
+    alb: 0.25
+    ans: 249.5050193083
+  - planet: Earth with albedo 0.35
+    S: 1361
+    alb: 0.35
+    ans: 297.1887993291
+  prompt: Model {{planet}} (S = {{S}} W/m², albedo {{alb}}) with one atmospheric layer that absorbs all infrared and is transparent to sunlight. What is the surface temperature (K)?
+  parts:
+  - ask: T_s (K)
+    label: y
+    value: ans
+    tol: 0.0002
+    explain: The layer radiates σT_a⁴ both up and down; balancing the top gives T_a = T_e, balancing the layer gives σT_s⁴ = 2σT_a⁴, so $T_s = 2^{1/4}T_e$. Too warm for Earth (303 K), because the real atmosphere
+      absorbs only part of the infrared
+  verify:
+    expect:
+      y: one_layer(S, alb)
+- template: es-co2-forcing
+  skill: earth.climate
+  pace: quick
+  cases:
+  - C1: 560
+    C0: 280
+    lam: 0.8
+    ans: 2.966669932797
+  - C1: 420
+    C0: 280
+    lam: 0.8
+    ans: 1.735390662703
+  - C1: 420
+    C0: 280
+    lam: 0.5
+    ans: 1.084619164189
+  - C1: 800
+    C0: 280
+    lam: 0.8
+    ans: 4.493238692854
+  - C1: 350
+    C0: 280
+    lam: 1.0
+    ans: 1.193817999531
+  prompt: With radiative forcing ΔF = 5.35 ln(C/C₀) W/m² and climate sensitivity λ = {{lam}} K per W/m², how much warming (K) does CO₂ at {{C1}} ppm give relative to {{C0}} ppm, at equilibrium?
+  parts:
+  - ask: ΔT (K)
+    label: y
+    value: ans
+    tol: 0.0002
+    explain: Forcing grows with the logarithm of concentration, so each doubling adds the same 3.7 W/m². ΔT = λΔF; λ ≈ 0.8 gives about 3 K per doubling, the middle of the IPCC range
+  verify:
+    expect:
+      y: co2_warming(C1, C0, lam)
+- template: es-carbon-mass
+  skill: earth.climate
+  pace: quick
+  cases:
+  - ppm: 1
+    ans: 2.134367552641
+  - ppm: 2.4
+    ans: 5.122482126338
+  - ppm: 140
+    ans: 298.8114573697
+  - ppm: 10
+    ans: 21.34367552641
+  prompt: How many gigatonnes of carbon correspond to {{ppm}} ppm of CO₂ in the atmosphere (air mass 5.148×10¹⁸ kg, 28.97 g/mol)?
+  parts:
+  - ask: GtC
+    label: y
+    value: ans
+    tol: 0.0002
+    explain: 'Moles of air × mole fraction × 12.011 g/mol: about 2.13 GtC per ppm. Fossil emissions of ~10 GtC per year would add ~4.7 ppm if it all stayed; about half does'
+  verify:
+    expect:
+      y: ppm_to_gtc(ppm)
+- template: es-doubling
+  skill: earth.resources
+  pace: quick
+  cases:
+  - r: 0.01
+    pct: 1.0
+    ans: 69.66071689357
+  - r: 0.02
+    pct: 2.0
+    ans: 35.00278878115
+  - r: 0.035
+    pct: 3.5
+    ans: 20.148791684
+  - r: 0.07
+    pct: 7.0
+    ans: 10.24476835106
+  - r: 0.005
+    pct: 0.5
+    ans: 138.9757216107
+  prompt: A population or a resource demand grows {{pct}}% a year. How many years does it take to double?
+  parts:
+  - ask: Years
+    label: y
+    value: ans
+    tol: 0.0002
+    explain: '(1 + r)ᵗ = 2, so t = ln 2 / ln(1 + r) ≈ 70/(percent growth): the rule of 70. Steady growth means each doubling consumes as much as all the history before it'
+  verify:
+    expect:
+      y: doubling_time(r)

@@ -1,0 +1,228 @@
+- template: ph-time-dilation
+  skill: physics.relativity
+  pace: quick
+  cases:
+  - beta: 0.6
+    tau: 1.0
+    ans: 1.25
+  - beta: 0.8
+    tau: 2.2
+    ans: 3.666666666667
+  - beta: 0.995
+    tau: 2.2
+    ans: 22.02755167016
+  - beta: 0.99
+    tau: 1.0
+    ans: 7.088812050083
+  - beta: 0.5
+    tau: 10.0
+    ans: 11.54700538379
+  prompt: A clock moves at {{beta}}c. It ticks every {{tau}} μs in its own frame. How long between ticks in the lab (μs)?
+  parts:
+  - ask: Δt (μs)
+    label: y
+    value: ans
+    tol: 0.0002
+    explain: Δt = γΔτ, γ = 1/√(1 − β²). Muons with a 2.2 μs proper lifetime reach the ground because the lab sees them live ten times longer (and they see the atmosphere contracted)
+  verify:
+    expect:
+      y: dilation(beta, tau)
+- template: ph-length-contraction
+  skill: physics.relativity
+  pace: quick
+  cases:
+  - beta: 0.6
+    L0: 10
+    ans: 8.0
+  - beta: 0.8
+    L0: 100
+    ans: 60.0
+  - beta: 0.99
+    L0: 1
+    ans: 0.1410673597967
+  - beta: 0.5
+    L0: 4
+    ans: 3.464101615138
+  prompt: A rod of rest length {{L0}} m moves along its length at {{beta}}c. How long is it in the lab (m)?
+  parts:
+  - ask: L (m)
+    label: y
+    value: ans
+    tol: 0.0002
+    explain: L = L₀/γ, only along the motion. Both ends must be marked at the same lab time, which is why contraction and dilation come together
+  verify:
+    expect:
+      y: contraction(beta, L0)
+- template: ph-velocity-addition
+  skill: physics.relativity
+  pace: quick
+  cases:
+  - u: 0.5
+    v: 0.5
+    ans: 0.8
+  - u: 0.9
+    v: 0.9
+    ans: 0.9944751381215
+  - u: 0.6
+    v: 0.3
+    ans: 0.7627118644068
+  - u: 0.99
+    v: 0.5
+    ans: 0.9966555183946
+  - u: 0.8
+    v: -0.5
+    ans: 0.5
+  prompt: A ship moving at {{u}}c fires a probe forward at {{v}}c relative to the ship. How fast is the probe in the original frame (in units of c)?
+  parts:
+  - ask: Speed (c)
+    label: y
+    value: ans
+    tol: 0.0002
+    explain: $w = \dfrac{u + v}{1 + uv/c^2}$; it never exceeds c. Rapidities (artanh β) simply add, which is the same rule
+  verify:
+    expect:
+      y: velocity_add(u, v)
+- template: ph-rel-energy
+  skill: physics.relativity
+  pace: quick
+  cases:
+  - w: 0
+    name: a proton
+    m: 938.272
+    beta: 0.6
+    wt: kinetic energy (MeV)
+    ans: 234.568
+  - w: 0
+    name: an electron
+    m: 0.51099895
+    beta: 0.99
+    wt: kinetic energy (MeV)
+    ans: 3.11137656434
+  - w: 0
+    name: a proton
+    m: 938.272
+    beta: 0.9
+    wt: kinetic energy (MeV)
+    ans: 1214.271594502
+  - w: 1
+    name: a proton
+    m: 938.272
+    beta: 0.6
+    wt: momentum (MeV/c)
+    ans: 703.704
+  - w: 1
+    name: an electron
+    m: 0.51099895
+    beta: 0.99
+    wt: momentum (MeV/c)
+    ans: 3.586151759197
+  - w: 1
+    name: a proton
+    m: 938.272
+    beta: 0.9
+    wt: momentum (MeV/c)
+    ans: 1937.289235052
+  prompt: '{{name}} (mc² = {{m}} MeV) moves at {{beta}}c. What is its {{wt}}?'
+  parts:
+  - ask: Answer
+    label: y
+    value: ans
+    tol: 0.0002
+    explain: E = γmc², K = (γ − 1)mc², p = γmv; check with E² = (pc)² + (mc²)². ½mv² underestimates K badly above ~0.3c
+  verify:
+    expect:
+      y: rel_energy(w, m, beta)
+- template: ph-rel-doppler
+  skill: physics.relativity
+  pace: quick
+  cases:
+  - f: 100
+    beta: 0.6
+    ans: 200.0
+  - f: 500
+    beta: 0.1
+    ans: 552.7707983926
+  - f: 500000000000000.0
+    beta: 0.2
+    ans: 612372435695800.0
+  - f: 1000
+    beta: 0.8
+    ans: 3000.0
+  prompt: A source emitting at {{f}} Hz approaches at {{beta}}c. What frequency is received?
+  parts:
+  - ask: f (Hz)
+    label: y
+    value: ans
+    tol: 0.0002
+    explain: $f = f_0\sqrt{\dfrac{1+\beta}{1-\beta}}$ approaching (swap signs receding). Unlike sound, only the relative speed matters
+  verify:
+    expect:
+      y: rel_doppler(f, beta)
+- template: ph-lagrangian
+  skill: physics.lagrangian
+  pace: quick
+  cases:
+  - kind: atwood
+    a: 3
+    b: 2
+    c: 0
+    text: An Atwood machine holds 3 kg and 2 kg on a massless pulley. Find the acceleration (m/s²).
+    ans: 1.962
+  - kind: atwood
+    a: 5
+    b: 1
+    c: 0
+    text: An Atwood machine holds 5 kg and 1 kg. Find the acceleration (m/s²).
+    ans: 6.54
+  - kind: roll
+    a: 0.5
+    b: 30
+    c: 0
+    text: A solid cylinder (I = ½mr²) rolls without slipping down a 30° incline. Find its acceleration (m/s²).
+    ans: 3.27
+  - kind: roll
+    a: 0.4
+    b: 20
+    c: 0
+    text: A solid sphere (I = ⅖mr²) rolls without slipping down a 20° incline. Find its acceleration (m/s²).
+    ans: 2.396584004303
+  - kind: roll
+    a: 1.0
+    b: 15
+    c: 0
+    text: A thin hoop (I = mr²) rolls without slipping down a 15° incline. Find its acceleration (m/s²).
+    ans: 1.269507416228
+  - kind: pendulum
+    a: 2.0
+    b: 0
+    c: 0
+    text: A simple pendulum is 2.0 m long. Find its small-oscillation angular frequency (rad/s).
+    ans: 2.214723459035
+  - kind: rod
+    a: 1.5
+    b: 0
+    c: 0
+    text: A uniform rod 1.5 m long swings from one end. Find its small-oscillation angular frequency (rad/s).
+    ans: 3.132091952673
+  - kind: springs
+    a: 2
+    b: 10
+    c: 30
+    text: A 2 kg mass sits between two springs (10 and 30 N/m) fixed to opposite walls. Find ω (rad/s).
+    ans: 4.472135955
+  - kind: series
+    a: 2
+    b: 10
+    c: 30
+    text: A 2 kg mass hangs on springs of 10 and 30 N/m joined end to end. Find ω (rad/s).
+    ans: 1.936491673104
+  prompt: Use g = 9.81 m/s². {{text}}
+  parts:
+  - ask: Answer
+    label: y
+    value: ans
+    tol: 0.0002
+    explain: Write L = T − V in one generalised coordinate, apply d/dt(∂L/∂q̇) = ∂L/∂q, and read off q̈ (or, linearised, ω² = −∂q̈/∂q). Constraint forces never appear, which is the point
+  verify:
+    expect:
+      y: lagrange(kind, a, b, c)

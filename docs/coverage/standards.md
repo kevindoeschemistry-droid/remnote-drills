@@ -19,6 +19,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 | Chemistry (AP) | AP Chemistry Course and Exam Description (Fall 2024) | standard | read in part | ngss-hs, ib-chemistry-2025, usnco, icho-appendix-c, icho-syllabus, acs-accm, aamc-mcat-outline | — | 179 | 179 | 0 |
 | Computer Science | Computer Science Curricula 2023, Body of Knowledge | standard | read in full | — | — | 140 | 0 | 140 |
 | Dental Admission Test | Dental Admission Test 2026 Candidate Guide | exam-spec | read in full | ngss-hs, ib-chemistry-2025, usnco, icho-appendix-c | — | 183 | 72 | 111 |
+| Earth and Space Science | Next Generation Science Standards, high school performance expectations (2013) | standard | read in part | ib-physics-2025, ib-biology-2025, gre-physics | — | 18 | 18 | 0 |
 | Applied Engineering Mathematics | Kreyszig, Advanced Engineering Mathematics, 10th ed. | textbook | read in full | fe-chemical | — | 136 | 83 | 53 |
 | Fluid Mechanics | NCEES FE Chemical CBT Exam Specifications (effective July 2020) | exam-spec | read in full | pe-chemical | — | 15 | 15 | 0 |
 | Heat Transfer | NCEES FE Chemical CBT Exam Specifications (effective July 2020) | exam-spec | read in full | fe-mechanical, ib-physics-2025, pe-chemical | — | 101 | 63 | 38 |
@@ -27,6 +28,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 | Inorganic Chemistry | Regulations of the International Chemistry Olympiad, Appendices C and D (concepts, skills and factual knowledge) | exam-spec | read in full | icho-syllabus, gre-chemistry, usnco, ib-chemistry-2025 | — | 23 | 23 | 0 |
 | Linear Algebra | Lay, Lay & McDonald, Linear Algebra and Its Applications, 5th ed. (chapter list) | textbook | read in part | — | — | 10 | 10 | 0 |
 | Material and Energy Balances | NCEES FE Chemical CBT Exam Specifications (effective July 2020) | exam-spec | read in full | pe-chemical | — | 16 | 14 | 2 |
+| Polymers and Materials | Regulations of the International Chemistry Olympiad, Appendices C and D (concepts, skills and factual knowledge) | exam-spec | read in full | ib-chemistry-2025, fe-chemical | — | 6 | 6 | 0 |
 | High School Mathematics (Common Core) | CCSS Mathematics Appendix A: high school course pathways | standard | read in full | — | — | 200 | 200 | 0 |
 | Mathematics K–8 (Common Core) | Common Core State Standards for Mathematics (2010) | standard | read through a crosswalk | — | — | 258 | 258 | 0 |
 | Mental Math | UIL Number Sense Problem Sequencing Charts (High School; A+ Junior High and Elementary, rev. 2016-17) with the Number Sense Handbook rules | exam-spec | read in full | sta-mtc, mit-18-03-coverup, mit-integration-bee | — | 84 | 81 | 3 |
@@ -37,7 +39,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 | Particle Physics | AQA AS and A-level Physics (7407/7408), section 3.2 Particles and radiation | standard | read in part | openstax-university-physics, gre-physics | — | 13 | 12 | 1 |
 | The Periodic Table from Memory | IUPAC Periodic Table of the Elements (release of 4 May 2022) | reference | read in part | ngss-hs, ib-chemistry-2025, icho-appendix-c | — | 15 | 15 | 0 |
 | Physical Chemistry | Engel & Reid, Physical Chemistry, 3rd ed. (through the wiki's drill pages) | textbook | read in part | fe-chemical, usnco, icho-appendix-c, icho-syllabus, gre-physics, gre-chemistry | acs-accm-pchem | 141 | 111 | 30 |
-| Physics (AP) | AP Physics 1, 2 and C Course and Exam Descriptions | standard | read in part | ngss-hs, ib-physics-2025, aamc-mcat-outline, gre-physics | — | 201 | 201 | 0 |
+| Physics (AP) | AP Physics 1, 2 and C Course and Exam Descriptions | standard | read in part | ngss-hs, ib-physics-2025, aamc-mcat-outline, gre-physics | — | 207 | 207 | 0 |
 | Programming Foundations | AP Computer Science A Course and Exam Description (Fall 2025) | standard | read in full | — | — | 140 | 140 | 0 |
 | Chemical Reaction Engineering | NCEES FE Chemical CBT Exam Specifications (effective July 2020) | exam-spec | read in full | icho-appendix-c, pe-chemical | — | 46 | 32 | 14 |
 | Speaking and Articulation | Competent Speaker Speech Evaluation Form, 2nd ed. | rubric | read in full | toastmasters-pathways | — | 69 | 0 | 69 |
@@ -58,6 +60,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 - **Basketball**: Introductory level read in full, higher levels in overview only.
 - **Biology (AP)**: Read through a publisher's correlation table.
 - **Chemistry (AP)**: Objectives past Unit 2 are written from topic titles.
+- **Earth and Space Science**: Units follow the NGSS HS ESS disciplinary core ideas (ESS1 Earth's place in the universe, ESS2 Earth's systems, ESS3 Earth and human activity), read in part. Objectives and their order are ours.
 - **Applied Engineering Mathematics**: UCI CBE 200 publishes no syllabus. The undergraduate part is anchored to fe-chemical; series, Sturm–Liouville, PDEs and transforms are past any exam spec and stand on the book.
 - **Fluid Mechanics**: Topics from FE Chemical area 6, read in full. Objectives and their order are ours; statics is assumed by the spec rather than listed. The framework stops at what a one-question drill can carry: no Moody chart, pump curves or differential analysis yet.
 - **Heat Transfer**: Also crosswalked to the FE Mechanical spec and UCI MAE 120.
@@ -65,6 +68,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 - **Inorganic Chemistry**: Units 1, 2 and 4 follow IChO Appendix D's factual-knowledge list (read in full); coordination and solids follow its preparation-only topics and the GRE inorganic area. Objectives and their order are ours.
 - **Linear Algebra**: Units follow the chapters of Lay's Linear Algebra and Its Applications (a textbook, not a standard). A published curriculum standard has not been looked for yet.
 - **Material and Energy Balances**: Topics from FE Chemical area 8, read in full. Objectives and their order are ours and follow the usual textbook sequence; unit 1 is assumed by the spec rather than listed.
+- **Polymers and Materials**: Polymer topics from IChO Appendix C (c22, a5), IB S2.4 and FE Chemical 4.D; a house list on those items.
 - **Mathematics K–8 (Common Core)**: Codes and wording checked against a state reprint; the CCSS site was blocked.
 - **Mental Math**: Topic list and order from the UIL high-school chart. The short-cut techniques and the estimation topic are a house list. Unit 6 goes past the chart: the cover-up items follow an MIT 18.03 course note and the one-a-minute integration pace follows the MIT Integration Bee qualifier; which results belong in unit 6 is a house list. Pace comes from the UIL rules (7.5 s a problem) and the English multiplication tables check (6 s a fact).
 - **Molecular Simulation**: No standard exists for this subject; triangulated from best-practice papers, textbooks and the Hayes group tutorial.
@@ -93,6 +97,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 - **Basketball**: standard, read in part
 - **Biology (AP)**: standard, read through a crosswalk
 - **Chemistry (AP)**: standard, read in part
+- **Earth and Space Science**: standard, read in part
 - **Applied Engineering Mathematics**: textbook, read in full
 - **INBDE (Dentistry)**: exam-spec, read in part
 - **Linear Algebra**: textbook, read in part
@@ -117,7 +122,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 
 https://ncees.org/wp-content/uploads/2022/09/FE-Che-CBT-specs.pdf
 
-41 of 88 items have at least one objective answering to them.
+43 of 88 items have at least one objective answering to them.
 
 | Item | Topic | Objectives | With a drill | Where |
 |---|---|---|---|---|
@@ -140,10 +145,10 @@ https://ncees.org/wp-content/uploads/2022/09/FE-Che-CBT-specs.pdf
 | 3.B | Work, energy, power | — | — | **nothing yet** |
 | 3.C | Electricity and circuit laws | — | — | **nothing yet** |
 | **4** | **Materials Science** (4–6 questions) | | | |
-| 4.A | Chemical, mechanical and physical properties | — | — | **nothing yet** |
+| 4.A | Chemical, mechanical and physical properties | 2 | 2 | materials (2) |
 | 4.B | Material types and compatibility | — | — | **nothing yet** |
 | 4.C | Corrosion mechanisms and control | — | — | **nothing yet** |
-| 4.D | Polymers, ceramics, composites | — | — | **nothing yet** |
+| 4.D | Polymers, ceramics, composites | 4 | 4 | materials (4) |
 | **5** | **Chemistry and Biology** (7–11 questions) | | | |
 | 5.A | Inorganic chemistry (acids and bases, redox, pH, electrochemistry) | 4 | 4 | physical-chemistry (4) |
 | 5.B | Organic chemistry | — | — | **nothing yet** |
@@ -227,7 +232,7 @@ https://ncees.org/wp-content/uploads/2022/09/FE-Che-CBT-specs.pdf
 | 17.C | Public health, safety, and welfare | — | — | **nothing yet** |
 | 17.D | Intellectual property | — | — | **nothing yet** |
 
-**Areas with nothing answering to them:** 3 Engineering Sciences; 4 Materials Science; 11 Solids Handling; 13 Economics; 14 Process Design; 16 Safety, Health, and Environment; 17 Ethics and Professional Practice.
+**Areas with nothing answering to them:** 3 Engineering Sciences; 11 Solids Handling; 13 Economics; 14 Process Design; 16 Safety, Health, and Environment; 17 Ethics and Professional Practice.
 
 ## UIL Number Sense Problem Sequencing Charts (High School; A+ Junior High and Elementary, rev. 2016-17) with the Number Sense Handbook rules
 
@@ -722,7 +727,7 @@ https://students-residents.aamc.org/mcatexam
 
 https://educate.iowa.gov/pk-12/standards/academics/science/high-school
 
-41 of 71 items have at least one objective answering to them.
+56 of 71 items have at least one objective answering to them.
 
 | Item | Topic | Objectives | With a drill | Where |
 |---|---|---|---|---|
@@ -774,25 +779,25 @@ https://educate.iowa.gov/pk-12/standards/academics/science/high-school
 | LS4-4 | Natural selection leads to adaptation | 27 | 27 | biology (27) |
 | LS4-5 | Environmental change and speciation or extinction | 27 | 27 | biology (27) |
 | LS4-6 | Simulate solutions to biodiversity threats | — | — | **nothing yet** |
-| ESS1-1 | The Sun's life span and fusion energy | — | — | **nothing yet** |
-| ESS1-2 | Big Bang evidence | — | — | **nothing yet** |
-| ESS1-3 | Stellar nucleosynthesis | — | — | **nothing yet** |
-| ESS1-4 | Orbital motion (Kepler, gravitation) | — | — | **nothing yet** |
-| ESS1-5 | Plate tectonics and the ages of rocks | — | — | **nothing yet** |
-| ESS1-6 | Early Earth history from ancient materials | — | — | **nothing yet** |
-| ESS2-1 | Internal and surface processes form landforms | — | — | **nothing yet** |
-| ESS2-2 | Feedbacks among Earth systems | — | — | **nothing yet** |
-| ESS2-3 | Thermal convection in the mantle | — | — | **nothing yet** |
-| ESS2-4 | Energy flow and climate change | — | — | **nothing yet** |
+| ESS1-1 | The Sun's life span and fusion energy | 12 | 12 | earth-space (12) |
+| ESS1-2 | Big Bang evidence | 9 | 9 | earth-space (9) |
+| ESS1-3 | Stellar nucleosynthesis | 10 | 10 | earth-space (10) |
+| ESS1-4 | Orbital motion (Kepler, gravitation) | 10 | 10 | earth-space (10) |
+| ESS1-5 | Plate tectonics and the ages of rocks | 6 | 6 | earth-space (6) |
+| ESS1-6 | Early Earth history from ancient materials | 6 | 6 | earth-space (6) |
+| ESS2-1 | Internal and surface processes form landforms | 5 | 5 | earth-space (5) |
+| ESS2-2 | Feedbacks among Earth systems | 6 | 6 | earth-space (6) |
+| ESS2-3 | Thermal convection in the mantle | 5 | 5 | earth-space (5) |
+| ESS2-4 | Energy flow and climate change | 6 | 6 | earth-space (6) |
 | ESS2-5 | Properties of water and surface processes | — | — | **nothing yet** |
-| ESS2-6 | Carbon cycling among Earth systems (quantitative) | — | — | **nothing yet** |
+| ESS2-6 | Carbon cycling among Earth systems (quantitative) | 6 | 6 | earth-space (6) |
 | ESS2-7 | Coevolution of Earth systems and life | — | — | **nothing yet** |
-| ESS3-1 | Resources, hazards and climate shape human activity | — | — | **nothing yet** |
+| ESS3-1 | Resources, hazards and climate shape human activity | 1 | 1 | earth-space (1) |
 | ESS3-2 | Cost–benefit of energy and mineral resources | — | — | **nothing yet** |
-| ESS3-3 | Resource management, sustainability and biodiversity | — | — | **nothing yet** |
+| ESS3-3 | Resource management, sustainability and biodiversity | 2 | 2 | earth-space (2) |
 | ESS3-4 | Technology that reduces human impact | — | — | **nothing yet** |
-| ESS3-5 | Forecasting climate change | — | — | **nothing yet** |
-| ESS3-6 | Humans alter Earth-system relationships (computational) | — | — | **nothing yet** |
+| ESS3-5 | Forecasting climate change | 6 | 6 | earth-space (6) |
+| ESS3-6 | Humans alter Earth-system relationships (computational) | 6 | 6 | earth-space (6) |
 | ETS1-1 | Criteria and constraints for a global challenge | — | — | **nothing yet** |
 | ETS1-2 | Break a problem into smaller problems | — | — | **nothing yet** |
 | ETS1-3 | Evaluate solutions by prioritised criteria and trade-offs | — | — | **nothing yet** |
@@ -802,7 +807,7 @@ https://educate.iowa.gov/pk-12/standards/academics/science/high-school
 
 https://www.ibo.org/globalassets/new-structure/recognition/pdfs/dp_sciences_chemistry_subject-brief_jan_2022_e.pdf
 
-19 of 22 items have at least one objective answering to them.
+20 of 22 items have at least one objective answering to them.
 
 | Item | Topic | Objectives | With a drill | Where |
 |---|---|---|---|---|
@@ -814,7 +819,7 @@ https://www.ibo.org/globalassets/new-structure/recognition/pdfs/dp_sciences_chem
 | S2.1 | The ionic model | 13 | 13 | chemistry (13) |
 | S2.2 | The covalent model | 13 | 13 | chemistry (13) |
 | S2.3 | The metallic model | 13 | 13 | chemistry (13) |
-| S2.4 | From models to materials | — | — | **nothing yet** |
+| S2.4 | From models to materials | 6 | 6 | materials (6) |
 | S3.1 | The periodic table: classification of elements | 26 | 26 | chemistry (21), periodic-table (5) |
 | S3.2 | Functional groups: classification of organic compounds | 12 | 12 | dat (8), structures (4) |
 | R1.1 | Measuring enthalpy changes | 16 | 16 | chemistry (16) |
@@ -833,7 +838,7 @@ https://www.ibo.org/globalassets/new-structure/recognition/pdfs/dp_sciences_chem
 
 https://ibo.org/globalassets/new-structure/recognition/pdfs/dp_sciences_physics_subject-brief_jan_2022_e.pdf
 
-21 of 24 items have at least one objective answering to them.
+24 of 24 items have at least one objective answering to them.
 
 | Item | Topic | Objectives | With a drill | Where |
 |---|---|---|---|---|
@@ -841,9 +846,9 @@ https://ibo.org/globalassets/new-structure/recognition/pdfs/dp_sciences_physics_
 | A.2 | Forces and momentum | 25 | 25 | physics (25) |
 | A.3 | Work, energy and power | 10 | 10 | physics (10) |
 | A.4 | Rigid body mechanics (HL) | 16 | 16 | physics (16) |
-| A.5 | Galilean and special relativity (HL) | — | — | **nothing yet** |
+| A.5 | Galilean and special relativity (HL) | 5 | 5 | physics (5) |
 | B.1 | Thermal energy transfers | 19 | 16 | heat-transfer (7), physics (12) |
-| B.2 | Greenhouse effect | — | — | **nothing yet** |
+| B.2 | Greenhouse effect | 7 | 7 | earth-space (7) |
 | B.3 | Gas laws | 12 | 10 | physics (12) |
 | B.4 | Thermodynamics (HL) | 19 | 17 | physics (12), thermodynamics (7) |
 | B.5 | Current and circuits | 12 | 12 | physics (12) |
@@ -860,13 +865,13 @@ https://ibo.org/globalassets/new-structure/recognition/pdfs/dp_sciences_physics_
 | E.2 | Quantum physics (HL) | 11 | 11 | physics (11) |
 | E.3 | Radioactive decay | 3 | 3 | nuclear (3) |
 | E.4 | Fission | 5 | 5 | nuclear (5) |
-| E.5 | Fusion and stars | — | — | **nothing yet** |
+| E.5 | Fusion and stars | 8 | 8 | earth-space (8) |
 
 ## IB Diploma Programme Biology, first assessment 2025 (subject brief topic list)
 
 https://www.ibo.org/globalassets/new-structure/recognition/pdfs/dp_sciences_biology_subject-brief_jan_2022_e.pdf
 
-38 of 40 items have at least one objective answering to them.
+39 of 40 items have at least one objective answering to them.
 
 | Item | Topic | Objectives | With a drill | Where |
 |---|---|---|---|---|
@@ -909,7 +914,7 @@ https://www.ibo.org/globalassets/new-structure/recognition/pdfs/dp_sciences_biol
 | D3.3 | Homeostasis | 15 | 15 | biology (15) |
 | D4.1 | Natural selection | 27 | 27 | biology (27) |
 | D4.2 | Sustainability and change | 20 | 20 | biology (20) |
-| D4.3 | Climate change | — | — | **nothing yet** |
+| D4.3 | Climate change | 6 | 6 | earth-space (6) |
 
 ## U.S. National Chemistry Olympiad: local and national exam format and multiple-choice topics
 
@@ -933,7 +938,7 @@ https://www.acs.org/education/olympiad/prepare-for-exams/exam-information.html
 
 https://www.pianetachimica.it/olimpiadi/41icho/IChOsyllabus.pdf
 
-39 of 42 items have at least one objective answering to them.
+41 of 42 items have at least one objective answering to them.
 
 | Item | Topic | Objectives | With a drill | Where |
 |---|---|---|---|---|
@@ -958,12 +963,12 @@ https://www.pianetachimica.it/olimpiadi/41icho/IChOsyllabus.pdf
 | c19 | Delocalization, resonance, aromaticity | 3 | 3 | organic-reactions (3) |
 | c20 | Isomerism and stereochemistry | 13 | 13 | dat (6), organic-reactions (7) |
 | c21 | Hydrophilic and hydrophobic groups, micelles | — | — | **nothing yet** |
-| c22 | Polymers: chain growth, polyaddition, polycondensation | — | — | **nothing yet** |
+| c22 | Polymers: chain growth, polyaddition, polycondensation | 4 | 4 | materials (4) |
 | a1 | Prep only: advanced VSEPR, inorganic stereochemistry, solid state and Bragg | 14 | 14 | inorganic-chemistry (14) |
 | a2 | Prep only: integrated rate laws, Arrhenius, steady state, collision theory | 19 | 18 | physical-chemistry (13), reaction-engineering (6) |
 | a3 | Prep only: phase diagrams and Clausius-Clapeyron | 9 | 9 | physical-chemistry (3), thermodynamics (6) |
 | a4 | Prep only: stereoselective reactions, conformations, advanced aromatic substitution | 3 | 3 | organic-reactions (3) |
-| a5 | Prep only: advanced polymers and supramolecular chemistry | — | — | **nothing yet** |
+| a5 | Prep only: advanced polymers and supramolecular chemistry | 4 | 4 | materials (4) |
 | a6 | Prep only: biochemistry (amino acids, proteins, enzymes, carbohydrates, nucleic acids) | 23 | 23 | biology (16), structures (7) |
 | a7 | Prep only: complex solubility, Schrodinger equation, simple MO theory | 20 | 17 | analytical-chemistry (2), physical-chemistry (18) |
 | a8 | Prep only: mass spectrometry and NMR | 5 | 5 | physical-chemistry (5) |
@@ -1058,17 +1063,17 @@ https://ncees.org/wp-content/uploads/2022/09/PE-Che_Jan2020-1.pdf
 
 https://www.ets.org/gre/test-takers/subject-tests/about/content-structure.html
 
-7 of 9 items have at least one objective answering to them.
+8 of 9 items have at least one objective answering to them.
 
 | Item | Topic | Objectives | With a drill | Where |
 |---|---|---|---|---|
-| 1 | Classical mechanics | 8 | 7 | physics (8) |
+| 1 | Classical mechanics | 9 | 8 | physics (9) |
 | 2 | Electromagnetism | 10 | 9 | physics (10) |
 | 3 | Optics and wave phenomena | 20 | 20 | physics (20) |
 | 4 | Thermodynamics and statistical mechanics | 8 | 8 | thermodynamics (8) |
 | 5 | Quantum mechanics | 20 | 20 | physical-chemistry (20) |
 | 6 | Atomic physics | 20 | 19 | physical-chemistry (9), physics (11) |
-| 7 | Special relativity | — | — | **nothing yet** |
+| 7 | Special relativity | 5 | 5 | physics (5) |
 | 8 | Laboratory methods | — | — | **nothing yet** |
 | 9 | Specialized topics | 6 | 6 | nuclear (3), particle-physics (3) |
 

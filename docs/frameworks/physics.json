@@ -5430,6 +5430,150 @@
      ]
     }
    ]
+  },
+  {
+   "id": "relativity",
+   "n": 29,
+   "title": "Special relativity",
+   "std": [
+    "ib-physics-2025:A.5",
+    "gre-physics:7"
+   ],
+   "scope": "extension",
+   "layer": "calculus",
+   "ideas": [
+    "CONS"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "Kinematics of relativity",
+     "los": [
+      {
+       "id": "A",
+       "do": "Compute the time measured in the lab for a moving clock.",
+       "ek": [
+        "Δt = γΔτ, γ = 1/√(1 − β²)."
+       ],
+       "p": [
+        "2A"
+       ],
+       "drills": [
+        "ph-time-dilation"
+       ]
+      },
+      {
+       "id": "B",
+       "do": "Compute the length of a moving object along its motion.",
+       "ek": [
+        "L = L₀/γ."
+       ],
+       "p": [
+        "2A"
+       ],
+       "needs": [
+        "PH-29.1.A"
+       ],
+       "drills": [
+        "ph-length-contraction"
+       ]
+      },
+      {
+       "id": "C",
+       "do": "Add velocities relativistically.",
+       "ek": [
+        "w = (u + v)/(1 + uv/c²); rapidities add."
+       ],
+       "p": [
+        "2A"
+       ],
+       "needs": [
+        "PH-29.1.A"
+       ],
+       "drills": [
+        "ph-velocity-addition"
+       ]
+      },
+      {
+       "id": "D",
+       "do": "Compute the frequency received from a moving source.",
+       "ek": [
+        "f = f₀√((1+β)/(1−β)) approaching."
+       ],
+       "p": [
+        "2A"
+       ],
+       "needs": [
+        "PH-29.1.A"
+       ],
+       "drills": [
+        "ph-rel-doppler"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "title": "Dynamics of relativity",
+     "los": [
+      {
+       "id": "A",
+       "do": "Compute relativistic kinetic energy and momentum.",
+       "ek": [
+        "K = (γ − 1)mc², p = γmv, E² = (pc)² + (mc²)²."
+       ],
+       "p": [
+        "2A"
+       ],
+       "needs": [
+        "PH-29.1.A"
+       ],
+       "drills": [
+        "ph-rel-energy"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "lagrangian",
+   "n": 30,
+   "title": "Lagrangian mechanics",
+   "std": [
+    "gre-physics:1"
+   ],
+   "scope": "extension",
+   "layer": "calculus",
+   "ideas": [
+    "CONS",
+    "SYS"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "Euler–Lagrange equations",
+     "los": [
+      {
+       "id": "A",
+       "do": "Find an acceleration or small-oscillation frequency from L = T − V.",
+       "ek": [
+        "d/dt(∂L/∂q̇) = ∂L/∂q; constraint forces never appear."
+       ],
+       "p": [
+        "2A",
+        "1C"
+       ],
+       "needs": [
+        "PH-6.1.A"
+       ],
+       "drills": [
+        "ph-lagrangian"
+       ]
+      }
+     ]
+    }
+   ]
   }
  ],
  "rows": [
@@ -7454,6 +7598,66 @@
    "full": [
     "pc-lc-current",
     "em-lc-frequency"
+   ],
+   "partial": []
+  },
+  {
+   "code": "PH-29.1.A",
+   "unit": 29,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ph-time-dilation"
+   ],
+   "partial": []
+  },
+  {
+   "code": "PH-29.1.B",
+   "unit": 29,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ph-length-contraction"
+   ],
+   "partial": []
+  },
+  {
+   "code": "PH-29.1.C",
+   "unit": 29,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ph-velocity-addition"
+   ],
+   "partial": []
+  },
+  {
+   "code": "PH-29.1.D",
+   "unit": 29,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ph-rel-doppler"
+   ],
+   "partial": []
+  },
+  {
+   "code": "PH-29.2.A",
+   "unit": 29,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "ph-rel-energy"
+   ],
+   "partial": []
+  },
+  {
+   "code": "PH-30.1.A",
+   "unit": 30,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ph-lagrangian"
    ],
    "partial": []
   }
