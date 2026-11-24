@@ -2,7 +2,7 @@
 
 Generated from `drills/frameworks/linear-algebra.yaml` by `scripts/framework.mjs`. ● drilled · ◐ partly · ○ no drills yet.
 
-**54 learning objectives** in 9 units (54 core): 54 drilled, 0 partly, 0 with no drills. Core: 54 / 54 drilled.
+**57 learning objectives** in 9 units (57 core): 57 drilled, 0 partly, 0 with no drills. Core: 57 / 57 drilled.
 
 ## Big ideas
 
@@ -22,8 +22,8 @@ Generated from `drills/frameworks/linear-algebra.yaml` by `scripts/framework.mjs
 | 4 · Rank and the null space | core | — | 5 | 5 | 0 | 0 |
 | 5 · Eigenvalues and eigenvectors | core | — | 5 | 5 | 0 | 0 |
 | 6 · Orthogonality and least squares | core | — | 5 | 5 | 0 | 0 |
-| 7 · Symmetric matrices and singular values | core | — | 5 | 5 | 0 | 0 |
-| 8 · Linear transformations | core | — | 5 | 5 | 0 | 0 |
+| 7 · Symmetric matrices and singular values | core | — | 7 | 7 | 0 | 0 |
+| 8 · Linear transformations | core | — | 6 | 6 | 0 | 0 |
 | 9 · Abstract vector spaces and special matrices | core | — | 12 | 12 | 0 | 0 |
 
 ## Unit 1 · Linear systems and independence
@@ -91,7 +91,7 @@ Big ideas: MAIN
 
 
 
-- ● **LA-2.3.A** (cupm-2015-la:1, lay-5e:2, webwork-opl:LA3.2) Factor a matrix as LU.
+- ● **LA-2.3.A** (lacsg-2:S2, cupm-2015-la:1, lay-5e:2, webwork-opl:LA3.2) Factor a matrix as LU.
   - EK: The multipliers of row reduction go below the diagonal of L; U is the echelon form.
   - P1 · drills: la-lu-pivot, la-det-from-lu
 - ● **LA-2.3.B** (cupm-2015-la:1, lay-5e:2, webwork-opl:LA3.2) Solve with LU by forward and back substitution.
@@ -169,7 +169,7 @@ Big ideas: MAIN
 - ● **LA-5.1.A** (lay-5e:5, webwork-opl:LA7.1) Find the eigenvalues and eigenvectors of a 2 × 2 matrix.
   - EK: Sum of eigenvalues = trace, product = determinant.
   - P1 · drills: la-eigenvalues, la-eigenvector, mm-eigen-trace-det, la-eigen-triangular
-- ● **LA-5.1.B** (lay-5e:5, webwork-opl:LA3.1, webwork-opl:LA7.2) Decide whether a matrix is diagonalisable and use the diagonal form.
+- ● **LA-5.1.B** (lacsg-2:F3, lay-5e:5, webwork-opl:LA3.1, webwork-opl:LA7.2) Decide whether a matrix is diagonalisable and use the diagonal form.
   - EK: n independent eigenvectors; powers act on the eigenvalues.
   - P1 · drills: la-diagonalizable-facts, la-trace-of-power, em-diagonalise
 
@@ -212,7 +212,7 @@ Big ideas: MAIN
 - ● **LA-6.2.B** (cupm-2015-la:6, lay-5e:6, webwork-opl:LA8.4) Find vectors in an orthogonal complement.
   - EK: W⊥ is everything orthogonal to a spanning set of W.
   - P1 · drills: la-orthogonal-complement, la-perp-h
-- ● **LA-6.2.C** (cupm-2015-la:6, lay-5e:6, webwork-opl:LA3.3) Find an entry of the QR factorisation.
+- ● **LA-6.2.C** (lacsg-2:S2, cupm-2015-la:6, lay-5e:6, webwork-opl:LA3.3) Find an entry of the QR factorisation.
   - EK: r_ii = length after removing earlier directions; r_ij = q_i · a_j.
   - P1 · drills: la-qr-entry, la-qr-r11
 
@@ -224,10 +224,10 @@ Big ideas: MAIN
 
 
 
-- ● **LA-7.1.A** (lay-5e:7, webwork-opl:LA3.4) Find a singular value of a small matrix.
+- ● **LA-7.1.A** (lacsg-2:F4, lay-5e:7, webwork-opl:LA3.4) Find a singular value of a small matrix.
   - EK: Singular values are the square roots of the eigenvalues of AᵀA.
   - P1 · drills: la-singular-value, la-rank-one-singular-value
-- ● **LA-7.1.B** (cupm-2015-la:second, lay-5e:7, webwork-opl:LA7.2) Use orthogonality of a symmetric matrix's eigenvectors.
+- ● **LA-7.1.B** (lacsg-2:S4, cupm-2015-la:second, lay-5e:7, webwork-opl:LA7.2) Use orthogonality of a symmetric matrix's eigenvectors.
   - EK: Different eigenvalues, orthogonal eigenvectors.
   - P1 · drills: la-symmetric-eigenvector, la-symmetric-larger-eig
 
@@ -246,9 +246,15 @@ Big ideas: MAIN
 
 
 
-- ● **LA-7.3.A** (cupm-2015-la:second, lay-5e:7, webwork-opl:LA3.4) Find the condition number from the singular values.
+- ● **LA-7.3.A** (lacsg-2:F4, cupm-2015-la:second, lay-5e:7, webwork-opl:LA3.4) Find the condition number from the singular values.
   - EK: κ = σ_max / σ_min.
   - P1 · drills: la-condition-number, la-cond-diag
+- ● **LA-7.3.B** (lacsg-2:F4) Find the error of the best low-rank approximation from the singular values.
+  - EK: Eckart–Young: the best rank-k approximation drops σ_(k+1), …; its 2-norm error is σ_(k+1), its Frobenius error √(σ_(k+1)² + …).
+  - P1 · drills: la-rank1-error, la-frob-error
+- ● **LA-7.3.C** (lacsg-2:S5, lacsg-2:F4) Use the pseudo-inverse to get the least-squares solution of a full-column-rank system.
+  - EK: A⁺ = (AᵀA)⁻¹Aᵀ when the columns are independent; x = A⁺b solves the normal equations; A⁺ inverts each nonzero singular value.
+  - P1 · drills: la-pinv-entry, la-pinv-diag
 
 ## Unit 8 · Linear transformations
 
@@ -258,10 +264,10 @@ Big ideas: MAIN
 
 
 
-- ● **LA-8.1.A** (cupm-2015-la:4, lay-5e:1, webwork-opl:LA9.1, webwork-opl:LA9.2) Build a map from the images of the basis vectors.
+- ● **LA-8.1.A** (lacsg-2:F1, cupm-2015-la:4, lay-5e:1, webwork-opl:LA9.1, webwork-opl:LA9.2) Build a map from the images of the basis vectors.
   - EK: The columns of the standard matrix are T(e1), …, T(en).
   - P1 · drills: la-map-from-basis-images, la-rotate-point
-- ● **LA-8.1.B** (cupm-2015-la:4, lay-5e:2, webwork-opl:LA9.3) Compose linear maps as matrix products.
+- ● **LA-8.1.B** (lacsg-2:F2, lacsg-2:F1, cupm-2015-la:4, lay-5e:2, webwork-opl:LA9.3) Compose linear maps as matrix products.
   - EK: S ∘ T has matrix ST: the first map stands on the right.
   - P1 · drills: la-composition, la-composition-order
 - ● **LA-8.1.C** (cupm-2015-la:4, lay-5e:1, webwork-opl:LA9.4) Decide whether a map is one-to-one or onto from its rank.
@@ -275,9 +281,12 @@ Big ideas: MAIN
 - ● **LA-8.2.A** (cupm-2015-la:4, lay-5e:4, webwork-opl:LA6.6, webwork-opl:LA9.5) Find the dimensions of the kernel and range of a map on a function space.
   - EK: Rank–nullity holds for any linear map on a finite-dimensional space.
   - P1 · drills: la-kernel-dimension, la-derivative-range
-- ● **LA-8.2.B** (cupm-2015-la:4, lay-5e:4, webwork-opl:LA6.7, webwork-opl:LA9.3) Write the matrix of a map relative to a basis.
+- ● **LA-8.2.B** (lacsg-2:F1, cupm-2015-la:4, lay-5e:4, webwork-opl:LA6.7, webwork-opl:LA9.3) Write the matrix of a map relative to a basis.
   - EK: Columns are the coordinates of T(b1), …, T(bn).
   - P1 · drills: la-matrix-relative-to-basis, la-shift-matrix-entry
+- ● **LA-8.2.C** (lacsg-2:S6, lacsg-2:F1) Find the eigenvalues and eigenvectors of a linear operator on a function space.
+  - EK: Apply the operator to a basis (monomials, exponentials): T(p) = λp makes p an eigenvector; the matrix of D on polynomials is nilpotent, so its only eigenvalue is 0.
+  - P1 · drills: la-operator-eigen, la-derivative-nilpotent
 
 ## Unit 9 · Abstract vector spaces and special matrices
 
@@ -287,7 +296,7 @@ Big ideas: MAIN
 
 
 
-- ● **LA-9.1.A** (webwork-opl:LA6.1, webwork-opl:LA6.5) Decide whether a set with its operations is a vector space.
+- ● **LA-9.1.A** (webwork-opl:LA6.1, webwork-opl:LA6.5, lacsg-2:S1) Decide whether a set with its operations is a vector space.
   - EK: Check the zero vector, closure under addition and under scaling; the rest of the axioms usually come free.
   - P1 · drills: la-is-vector-space, la-axiom-fails
 - ● **LA-9.1.B** (webwork-opl:LA6.2) Write a polynomial as a combination of other polynomials.
@@ -302,7 +311,7 @@ Big ideas: MAIN
 - ● **LA-9.1.E** (webwork-opl:LA6.8) Find the dimension of a standard space of matrices or polynomials.
   - EK: Count the free entries: symmetric n(n+1)/2, skew n(n−1)/2, trace zero n² − 1, P_n has n + 1.
   - P1 · drills: la-space-dimension, la-special-dim
-- ● **LA-9.1.F** (webwork-opl:LA8.2) Compute an inner product of functions.
+- ● **LA-9.1.F** (webwork-opl:LA8.2, lacsg-2:S3) Compute an inner product of functions.
   - EK: ⟨f, g⟩ = ∫ f g dx is an inner product on continuous functions.
   - P1 · drills: la-function-inner-product, la-orthogonal-shift
 
@@ -319,13 +328,13 @@ Big ideas: MAIN
 - ● **LA-9.2.C** (webwork-opl:LA2.8) Compute with complex matrix entries.
   - EK: Arithmetic is ordinary arithmetic with i² = −1; conjugates pair up into real numbers.
   - P1 · drills: la-complex-det, la-complex-det-modulus
-- ● **LA-9.2.D** (webwork-opl:LA3.5) Compute a power of a Jordan block.
+- ● **LA-9.2.D** (webwork-opl:LA3.5, lacsg-2:S7) Compute a power of a Jordan block.
   - EK: [[λ, 1], [0, λ]]ᵏ = [[λᵏ, kλᵏ⁻¹], [0, λᵏ]].
   - P1 · drills: la-jordan-power, la-jordan-exp
 - ● **LA-9.2.E** (webwork-opl:LA8.6) Use the properties of an orthogonal matrix.
   - EK: Qᵀ Q = I, so Q⁻¹ = Qᵀ and lengths and angles are preserved.
   - P1 · drills: la-orthogonal-inverse, la-orthogonal-norm
-- ● **LA-9.2.F** (webwork-opl:LA9.6) Invert a linear transformation.
+- ● **LA-9.2.F** (webwork-opl:LA9.6, lacsg-2:F2) Invert a linear transformation.
   - EK: T is invertible exactly when its matrix is; T⁻¹ has the inverse matrix.
   - P1 · drills: la-map-inverse, la-poly-map-inverse
 

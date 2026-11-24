@@ -75,3 +75,12 @@ UNITS = [U(9, "abstract", "Abstract vector spaces and special matrices", [
               explain="Solving $T(x, y) = ({{p}}, {{q}})$ is applying $T^{-1}$: $x = \\dfrac{dp - bq}{ad - bc}$. If $ad - bc = 0$ the map squashes the plane onto a line and has no inverse")]),
     ]),
 ])]
+
+# LACSG 2.0 citations (read through the AMS Notices survey, 2022): objective id within each topic -> items
+_LACSG = {("Abstract vector spaces", "A"): ["lacsg-2:S1"], ("Abstract vector spaces", "F"): ["lacsg-2:S3"],
+          ("Special matrices and applications", "D"): ["lacsg-2:S7"], ("Special matrices and applications", "F"): ["lacsg-2:F2"]}
+for _u in UNITS:
+    for _t, _los in _u.topics:
+        for _lo in _los:
+            _lo.std = list(_lo.std) + [s for s in _LACSG.get((_t, _lo.id), []) if s not in _lo.std]
+UNITS[0].std = ["webwork-opl:LA1.7", "webwork-opl:LA2.7", "webwork-opl:LA2.8"]  # keep the unit citation as before

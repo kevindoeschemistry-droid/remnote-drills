@@ -92,7 +92,7 @@ for c in d_cases:
             cfg(c["core"], dl, c["dn"] + c["sn"], sl, 0) if c["dn"] + c["sn"] <= 10 else None,
             cfg(c["core"], dl, max(c["dn"] - 2, 0), sl, 2) + "*",
             cfg(c["core"], dl, c["dn"] + 1, sl, c["sn"]) + "*"} - {None, right}
-    alts = [a.rstrip("*") for a in alts if a.rstrip("*") != right][:3]
+    alts = list(dict.fromkeys(a.rstrip("*") for a in sorted(alts) if a.rstrip("*") != right))[:3]
     if len(alts) == 3:
         rows.append({"nm": c["nm"], "sy": c["sy"], "o1": right, "o2": alts[0], "o3": alts[1], "o4": alts[2]})
 ADD.append(("PT-4.1.C", Q("pt-config-pick-d", "ptable.configurations", "Which is the ground-state configuration of {{nm}} ({{sy}})?", pace="quick",

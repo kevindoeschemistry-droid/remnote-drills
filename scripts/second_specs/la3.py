@@ -1,0 +1,39 @@
+"""Linear algebra on LACSG 2.0 (Nov 2026): items for the emphases and second-course topics the AMS Notices survey
+(Andrews-Larson, Siefken & Simha 2022) reports from LACSG 2.0 that the framework lacked: low-rank approximation,
+the pseudo-inverse and linear operators. Two types per new objective, each recomputed by sympy on the matrix."""
+from opl_dsl import Q
+
+FILE, FRAMEWORK = "la-lacsg", "linear-algebra"
+SVD, LS, TR = "la.svd", "la.least-squares", "la.transformations"
+
+ADD = [
+    ("LA-7.3.B", Q("la-rank1-error", SVD, "A matrix has singular values {{s1}}, {{s2}} and {{s3}}. What is the 2-norm error of its best rank-{{kk}} approximation?",
+        cases=[{"s1": 9, "s2": 4, "s3": 1, "kk": 1}, {"s1": 12, "s2": 5, "s3": 2, "kk": 2}, {"s1": 7, "s2": 3, "s3": 0.5, "kk": 1}, {"s1": 20, "s2": 8, "s3": 3, "kk": 2}],
+        value="kk == 1 ? s2 : s3", tex="\\|A - A_k\\|_2",
+        verify="(Matrix.diag(nsimplify(s1), nsimplify(s2), nsimplify(s3)) - Matrix.diag(*([nsimplify(s1), nsimplify(s2), nsimplify(s3)][:kk] + [0]*(3 - kk)))).singular_values()[0]",
+        explain="Eckart–Young: truncating the SVD after k terms is best, and the leftover's largest singular value is σ_(k+1)")),
+    ("LA-7.3.B", Q("la-frob-error", SVD, "A matrix has singular values {{s1}}, {{s2}}, {{s3}}. What fraction of its squared Frobenius norm does the best rank-1 approximation keep?",
+        cases=[{"s1": 4, "s2": 2, "s3": 1}, {"s1": 6, "s2": 3, "s3": 2}, {"s1": 10, "s2": 1, "s3": 1}, {"s1": 3, "s2": 3, "s3": 1}],
+        value="s1^2/(s1^2 + s2^2 + s3^2)", tex="f",
+        verify="Matrix.diag(s1, 0, 0).norm()**2/Matrix.diag(s1, s2, s3).norm()**2",
+        explain="‖A‖_F² = Σσᵢ², and the rank-1 truncation keeps σ₁²: the 'energy' a principal component captures")),
+    ("LA-7.3.C", Q("la-pinv-entry", LS, "Let A = [[1, 0], [0, 1], [{{a}}, {{b}}]] and b = (1, 2, {{c}}). Using x = A⁺b with A⁺ = (AᵀA)⁻¹Aᵀ, find x₁.",
+        given={"a": {"pick": [1, 2]}, "b": {"pick": [1, -1]}, "c": {"pick": [0, 3, 5]}},
+        value="((1 + b^2)*(1 + a*c) - a*b*(2 + b*c))/((1 + a^2)*(1 + b^2) - a^2*b^2)", tex="x_1",
+        verify="(Matrix([[1, 0], [0, 1], [a, b]]).pinv()*Matrix([1, 2, c]))[0]",
+        explain="With independent columns the pseudo-inverse gives the least-squares solution of Ax = b")),
+    ("LA-7.3.C", Q("la-pinv-diag", LS, "A 3 × 2 matrix has SVD with singular values {{s1}} and {{s2}}. What are the singular values of A⁺? Give the larger one.",
+        given={"s1": {"pick": [2, 4, 5]}, "s2": {"pick": [0.5, 0.25, 0.1]}}, value="1/s2", tex="\\sigma_{\\max}(A^+)",
+        verify="Max(*Matrix([[nsimplify(s1), 0], [0, nsimplify(s2)], [0, 0]]).pinv().singular_values())",
+        explain="A⁺ = VΣ⁺Uᵀ inverts each nonzero σ, so the smallest singular value of A becomes the largest of A⁺")),
+    ("LA-8.2.C", Q("la-operator-eigen", TR, "T acts on polynomials by T(p) = {{op}}. What is the eigenvalue for the eigenvector p(x) = x^{{k}}?",
+        cases=[{"op": "x p′(x)", "m": 0, "k": 3}, {"op": "p(x) + x p′(x)", "m": 1, "k": 2}, {"op": "2x p′(x) − p(x)", "m": 2, "k": 4}, {"op": "x p′(x)", "m": 0, "k": 5}, {"op": "p(x) + x p′(x)", "m": 1, "k": 4}],
+        value="m == 0 ? k : (m == 1 ? 1 + k : 2*k - 1)", tex="\\lambda", final=True,
+        verify="simplify([x*diff(x**k, x), x**k + x*diff(x**k, x), 2*x*diff(x**k, x) - x**k][m]/x**k)",
+        explain="Apply T to the monomial and read off the multiple: x·d/dx counts the degree")),
+    ("LA-8.2.C", Q("la-derivative-nilpotent", TR, "D = d/dx acts on polynomials of degree at most {{n}}. What is the {{what}} of D?",
+        cases=[{"n": 3, "what": "rank", "w": 0}, {"n": 4, "what": "smallest k with Dᵏ = 0", "w": 1}, {"n": 2, "what": "rank", "w": 0}, {"n": 5, "what": "smallest k with Dᵏ = 0", "w": 1}],
+        value="w == 0 ? n : n + 1", tex="N", final=True,
+        verify="[Matrix(n + 1, n + 1, lambda i, j: j if j == i + 1 else 0).rank(), n + 1][w]",
+        explain="On P_n, D lowers degree by one: its matrix is nilpotent with rank n, and D^(n+1) kills every polynomial, so 0 is its only eigenvalue")),
+]
