@@ -193,9 +193,9 @@ https://ncees.org/wp-content/uploads/2022/09/FE-Che-CBT-specs.pdf
 | 7.C | First and second laws | 31 | 31 | physical-chemistry (12), thermodynamics (19) |
 | 7.D | Processes (isothermal, adiabatic, isentropic, phase change) | 14 | 14 | physical-chemistry (7), thermodynamics (7) |
 | 7.E | Cycles and efficiencies | 5 | 5 | physical-chemistry (5) |
-| 7.F | Phase equilibrium (fugacity, activity, Raoult's law) | 28 | 26 | physical-chemistry (10), thermodynamics (18) |
+| 7.F | Phase equilibrium (fugacity, activity, Raoult's law) | 28 | 28 | physical-chemistry (10), thermodynamics (18) |
 | 7.G | Chemical equilibrium | 11 | 11 | physical-chemistry (4), thermodynamics (7) |
-| 7.H | Heats of reaction and mixing | 23 | 22 | material-balances (1), physical-chemistry (3), thermodynamics (19) |
+| 7.H | Heats of reaction and mixing | 23 | 23 | material-balances (1), physical-chemistry (3), thermodynamics (19) |
 | **8** | **Material/Energy Balances** (10–15 questions) | | | |
 | 8.A | Steady-state mass balance | 5 | 5 | material-balances (5) |
 | 8.B | Unsteady-state mass balance | 5 | 5 | material-balances (5) |
@@ -210,7 +210,7 @@ https://ncees.org/wp-content/uploads/2022/09/FE-Che-CBT-specs.pdf
 | 9.D | Heat-transfer coefficients (overall, local, fouling) | 14 | 14 | heat-transfer (14) |
 | 9.E | Equipment design (double pipe, shell and tube, LMTD, NTU) | 6 | 6 | heat-transfer (6) |
 | **10** | **Mass Transfer and Separation** (8–12 questions) | | | |
-| 10.A | Molecular diffusion | 9 | 8 | physical-chemistry (9) |
+| 10.A | Molecular diffusion | 9 | 9 | physical-chemistry (9) |
 | 10.B | Convective mass transfer | — | — | **nothing yet** |
 | 10.C | Separation systems | 4 | 4 | separations (4) |
 | 10.D | Equilibrium stage methods | 4 | 4 | separations (4) |
@@ -221,12 +221,12 @@ https://ncees.org/wp-content/uploads/2022/09/FE-Che-CBT-specs.pdf
 | 11.B | Processing (crushing, grinding, crystallization) | — | — | **nothing yet** |
 | 11.C | Transport and storage | — | — | **nothing yet** |
 | **12** | **Chemical Reaction Engineering** (7–11 questions) | | | |
-| 12.A | Reaction rates and order | 25 | 24 | physical-chemistry (13), reaction-engineering (12) |
-| 12.B | Rate constants (Arrhenius) | 30 | 29 | physical-chemistry (13), reaction-engineering (11), thermodynamics (6) |
+| 12.A | Reaction rates and order | 25 | 25 | physical-chemistry (13), reaction-engineering (12) |
+| 12.B | Rate constants (Arrhenius) | 30 | 30 | physical-chemistry (13), reaction-engineering (11), thermodynamics (6) |
 | 12.C | Conversion, yield, selectivity | 15 | 15 | reaction-engineering (15) |
-| 12.D | Reaction types (series, parallel, homogeneous, heterogeneous, biological) | 20 | 19 | physical-chemistry (13), reaction-engineering (7) |
+| 12.D | Reaction types (series, parallel, homogeneous, heterogeneous, biological) | 20 | 20 | physical-chemistry (13), reaction-engineering (7) |
 | 12.E | Reactor types (batch, CSTR, PFR, semibatch) | 11 | 11 | reaction-engineering (11) |
-| 12.F | Catalysis | 17 | 16 | physical-chemistry (13), reaction-engineering (4) |
+| 12.F | Catalysis | 17 | 17 | physical-chemistry (13), reaction-engineering (4) |
 | **13** | **Economics** (4–6 questions) | | | |
 | 13.A | Time value of money | 5 | 5 | process-design (5) |
 | 13.B | Economic analyses | 5 | 5 | process-design (5) |
@@ -1191,7 +1191,7 @@ https://github.com/openwebwork/webwork-open-problem-library/blob/main/OpenProble
 | TH13.2 | Equilibrium constant | 2 | 2 | physical-chemistry (1), thermodynamics (1) |
 | TH13.3 | Heats of reaction | 2 | 2 | material-balances (1), physical-chemistry (1) |
 | TH13.4 | Heats of formation | 2 | 2 | material-balances (1), physical-chemistry (1) |
-| TH13.5 | Heats of combustion and heating value | 1 | 0 | physical-chemistry (1) |
+| TH13.5 | Heats of combustion and heating value | 1 | 1 | physical-chemistry (1) |
 | TH13.6 | Incomplete combustion | 1 | 1 | material-balances (1) |
 | TH13.7 | Adiabatic flame temperature | 1 | 1 | thermodynamics (1) |
 | TH13.8 | Explosion limits | 1 | 1 | thermodynamics (1) |
@@ -1215,7 +1215,7 @@ https://github.com/openwebwork/webwork-open-problem-library/blob/main/OpenProble
 | TH15.6 | Generalized correlations for gases | 2 | 2 | physical-chemistry (1), thermodynamics (1) |
 | TH15.7 | Generalized correlations for liquids | 1 | 1 | thermodynamics (1) |
 | TH15.8 | Maxwell relations | 2 | 2 | thermodynamics (2) |
-| TH15.9 | Gibbs-Duhem equation | 2 | 1 | physical-chemistry (1), thermodynamics (1) |
+| TH15.9 | Gibbs-Duhem equation | 2 | 2 | physical-chemistry (1), thermodynamics (1) |
 | TH15.10 | Fugacity and the fugacity coefficient | 2 | 2 | physical-chemistry (1), thermodynamics (1) |
 | TH15.11 | Calculating gas fugacity | 1 | 1 | thermodynamics (1) |
 | TH15.12 | Calculating liquid fugacity | 1 | 1 | thermodynamics (1) |
@@ -1832,7 +1832,7 @@ https://www.acs.org/education/olympiad/prepare-for-exams/exam-information.html
 | 2 | Descriptive chemistry and laboratory (Q7-12) | 21 | 21 | chemistry-olympiad (12), dat (4), inorganic-chemistry (5) |
 | 3 | States of matter (Q13-18) | 55 | 55 | chemistry-olympiad (20), chemistry (27), dat (8) |
 | 4 | Thermodynamics (Q19-24) | 61 | 61 | chemistry-olympiad (21), chemistry (34), dat (6) |
-| 5 | Kinetics (Q25-30) | 45 | 44 | chemistry-olympiad (12), chemistry (16), dat (4), physical-chemistry (13) |
+| 5 | Kinetics (Q25-30) | 45 | 45 | chemistry-olympiad (12), chemistry (16), dat (4), physical-chemistry (13) |
 | 6 | Equilibrium (Q31-36) | 64 | 64 | chemistry-olympiad (16), chemistry (39), dat (9) |
 | 7 | Oxidation-reduction (Q37-42) | 37 | 37 | chemistry-olympiad (15), chemistry (18), dat (4) |
 | 8 | Atomic structure and periodicity (Q43-48; from the 2025 national exam) | 13 | 13 | chemistry-olympiad (13) |
@@ -1872,12 +1872,12 @@ https://www.pianetachimica.it/olimpiadi/41icho/IChOsyllabus.pdf
 | c21 | Hydrophilic and hydrophobic groups, micelles | — | — | **nothing yet** |
 | c22 | Polymers: chain growth, polyaddition, polycondensation | 4 | 4 | materials (4) |
 | a1 | Prep only: advanced VSEPR, inorganic stereochemistry, solid state and Bragg | 14 | 14 | inorganic-chemistry (14) |
-| a2 | Prep only: integrated rate laws, Arrhenius, steady state, collision theory | 21 | 20 | chemistry-olympiad (2), physical-chemistry (13), reaction-engineering (6) |
+| a2 | Prep only: integrated rate laws, Arrhenius, steady state, collision theory | 21 | 21 | chemistry-olympiad (2), physical-chemistry (13), reaction-engineering (6) |
 | a3 | Prep only: phase diagrams and Clausius-Clapeyron | 9 | 9 | physical-chemistry (3), thermodynamics (6) |
 | a4 | Prep only: stereoselective reactions, conformations, advanced aromatic substitution | 3 | 3 | organic-reactions (3) |
 | a5 | Prep only: advanced polymers and supramolecular chemistry | 4 | 4 | materials (4) |
 | a6 | Prep only: biochemistry (amino acids, proteins, enzymes, carbohydrates, nucleic acids) | 23 | 23 | biology (16), structures (7) |
-| a7 | Prep only: complex solubility, Schrodinger equation, simple MO theory | 25 | 22 | analytical-chemistry (2), chemistry-olympiad (5), physical-chemistry (18) |
+| a7 | Prep only: complex solubility, Schrodinger equation, simple MO theory | 25 | 24 | analytical-chemistry (2), chemistry-olympiad (5), physical-chemistry (18) |
 | a8 | Prep only: mass spectrometry and NMR | 8 | 8 | chemistry-olympiad (3), physical-chemistry (5) |
 | a9 | Prep only: advanced synthesis and analysis techniques | 3 | 3 | analytical-chemistry (3) |
 | d1 | Facts: s-block reactions and flame colours | 4 | 4 | inorganic-chemistry (4) |
@@ -1906,8 +1906,8 @@ https://www.pw.live/olympiad/exams/icho-syllabus
 | 4 | Periodic trends | 21 | 21 | chemistry (21) |
 | 5 | Inorganic chemistry | 6 | 6 | inorganic-chemistry (6) |
 | 6 | Physical chemistry | 14 | 14 | physical-chemistry (7), thermodynamics (7) |
-| 7 | Chemical kinetics | 29 | 28 | chemistry (16), physical-chemistry (13) |
-| 8 | Spectroscopy | 13 | 10 | physical-chemistry (13) |
+| 7 | Chemical kinetics | 29 | 29 | chemistry (16), physical-chemistry (13) |
+| 8 | Spectroscopy | 13 | 13 | physical-chemistry (13) |
 | 9 | Organic chemistry | 11 | 11 | organic-reactions (11) |
 | 10 | Polymers | 4 | 4 | materials (4) |
 | 11 | Biochemistry | 23 | 23 | biology (16), structures (7) |
