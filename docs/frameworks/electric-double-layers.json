@@ -1,0 +1,1678 @@
+{
+ "id": "electric-double-layers",
+ "title": "Electric Double Layers",
+ "code": "EL",
+ "draft": 1,
+ "track": "engineering",
+ "requires": [
+  "materials",
+  "thermodynamics"
+ ],
+ "level": 6,
+ "domains": [
+  "edl"
+ ],
+ "basis": {
+  "primary": "petsev-edl",
+  "note": "A course textbook, not a curriculum standard: the units follow its chapters and the objectives are ours. Colloids and DLVO at the undergraduate level live in Polymers and Materials unit 3 (Israelachvili)."
+ },
+ "big_ideas": [
+  {
+   "id": "PB",
+   "title": "Continuum theory is the baseline the molecular theory corrects",
+   "text": "Poisson–Boltzmann gives the screening length, Grahame's charge–potential law, double-layer forces and electrokinetics; it fails where ion size, solvent structure and specific interactions matter."
+  },
+  {
+   "id": "STRUCT",
+   "title": "The solvent and surface chemistry set the double layer",
+   "text": "The surface charge is regulated by a reaction whose reactants' local densities depend on every species near the wall, so structure and charge must be solved together."
+  }
+ ],
+ "practices": [
+  {
+   "id": "P1",
+   "title": "Compute",
+   "text": "Carry a screening length, charge, pressure, free energy or rate to a number."
+  },
+  {
+   "id": "P2",
+   "title": "Interpret",
+   "text": "Say which model, closure, limit or mechanism applies and what changes when a parameter does."
+  }
+ ],
+ "units": [
+  {
+   "id": "el-foundations",
+   "n": 1,
+   "title": "Foundations: fields, the double layer and the origin of surface charge (ch. 1–2)",
+   "scope": "core",
+   "std": [
+    "petsev-edl:1",
+    "petsev-edl:2"
+   ],
+   "ideas": [
+    "PB"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "Charges, fields and the double-layer concept",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "petsev-edl:1"
+       ],
+       "do": "Compute the Coulomb force between ions in a dielectric.",
+       "ek": [
+        "F = z₁z₂e²/(4πεε₀r²); water's ε ≈ 78 cuts it about 80-fold."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "el-coulomb-force"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "petsev-edl:1"
+       ],
+       "do": "Relate surface charge to the field at the surface and treat the Helmholtz layer as a capacitor.",
+       "ek": [
+        "Gauss: E = σ/(εε₀) at a charged wall; Helmholtz: C = εε₀/d."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "el-helmholtz-capacitance",
+        "el-surface-field"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "petsev-edl:1"
+       ],
+       "do": "Use the Schulze–Hardy rule.",
+       "ek": [
+        "Critical coagulation concentration ∝ z⁻⁶ for highly charged particles, ∝ z⁻² at low potential."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "el-schulze-hardy"
+       ]
+      },
+      {
+       "id": "D",
+       "std": [
+        "petsev-edl:1"
+       ],
+       "do": "Place electrolyte models in the book's hierarchy.",
+       "ek": [
+        "Primitive: ions in a dielectric continuum. Semi-primitive: explicit neutral solvent spheres. Civilized: explicit dipolar solvent."
+       ],
+       "p": [
+        "P2"
+       ],
+       "drills": [
+        "el-model-hierarchy"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "title": "Charge regulation and adsorption",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "petsev-edl:2"
+       ],
+       "do": "Compute the Nernst potential of a charge-regulating surface.",
+       "ek": [
+        "ψ_N = (ln 10 kT/e)(pI − pH_b): about 59.2 mV per pH unit at 25 °C."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "el-nernst-potential"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "petsev-edl:2"
+       ],
+       "do": "Use the low-potential charge-regulation law.",
+       "ek": [
+        "For δ ≪ 1: σ = e²Γδ(ψ_N − ψ_s)/kT."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "el-regulation-linear"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "petsev-edl:2"
+       ],
+       "do": "Compute Stern-layer occupancy from a modified Langmuir isotherm.",
+       "ek": [
+        "θ = K/(1 + K), K = v₀ρ exp[(−φ − zeψ_St)/kT]."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "el-stern-langmuir"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "el-continuum",
+   "n": 2,
+   "title": "Continuum theory: Poisson–Boltzmann, interactions and electrokinetics (ch. 3)",
+   "scope": "core",
+   "std": [
+    "petsev-edl:3"
+   ],
+   "ideas": [
+    "PB"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "The single flat double layer",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "petsev-edl:3"
+       ],
+       "do": "Compute the Debye screening length.",
+       "ek": [
+        "κ² = 2ρ₀q²/(εε₀kT); κ⁻¹ ≈ 0.304/√c nm for 1:1 salt in water at 25 °C."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "el-debye-length"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "petsev-edl:3"
+       ],
+       "do": "Relate surface charge to surface potential with the Grahame equation.",
+       "ek": [
+        "σ̃ = 2 sinh(ψ̃_s/2), i.e. σ = √(8εε₀ρ₀kT) sinh(eψ_s/2kT) for 1:1."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "el-grahame"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "petsev-edl:3"
+       ],
+       "do": "Evaluate the Gouy–Chapman potential profile.",
+       "ek": [
+        "ψ̃(z) = 4 artanh[γ e^{−κz}], γ = tanh(ψ̃_s/4)."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "el-gouy-chapman-profile"
+       ]
+      },
+      {
+       "id": "D",
+       "std": [
+        "petsev-edl:3"
+       ],
+       "do": "Judge the error of the linearised (Debye–Hückel) profile.",
+       "ek": [
+        "Linear: ψ̃ = ψ̃_s e^{−κz}; error = (exact − linear)/exact."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "el-linear-error"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "title": "Interacting and curved double layers",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "petsev-edl:3"
+       ],
+       "do": "Find the double-layer pressure from the midplane potential.",
+       "ek": [
+        "Π = 2ρ₀kT[cosh ψ̃_m − 1] for a symmetric 1:1 gap."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "el-midplane-pressure"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "petsev-edl:3"
+       ],
+       "do": "Use the weak-overlap approximation.",
+       "ek": [
+        "Π ≈ 64ρ₀kT γ² e^{−κh}: superpose the two isolated profiles at the midplane."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "el-weak-overlap"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "petsev-edl:3"
+       ],
+       "do": "Track the charge of plates held at constant potential as they approach.",
+       "ek": [
+        "Linear PB: σ̃ = ψ̃_s tanh(κh/2) per plate."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "el-constant-potential-charge"
+       ]
+      },
+      {
+       "id": "D",
+       "std": [
+        "petsev-edl:3"
+       ],
+       "do": "Compute the charge on a weakly charged sphere.",
+       "ek": [
+        "Debye–Hückel sphere: σ = εε₀ψ_s(1 + κR)/R."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "el-sphere-charge"
+       ]
+      },
+      {
+       "id": "E",
+       "std": [
+        "petsev-edl:3"
+       ],
+       "do": "Convert plate interactions to sphere interactions with the Derjaguin approximation.",
+       "ek": [
+        "F(h) = 2π[R₁R₂/(R₁ + R₂)] f(h): πR f for equal spheres."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "el-derjaguin-force"
+       ]
+      },
+      {
+       "id": "F",
+       "std": [
+        "petsev-edl:3"
+       ],
+       "do": "Combine van der Waals and double-layer terms in DLVO.",
+       "ek": [
+        "Sphere–sphere van der Waals at short range: Φ = −A R₁R₂/[6h(R₁ + R₂)]."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "el-vdw-spheres"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 3,
+     "title": "Beyond Boltzmann and electrokinetics",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "petsev-edl:3"
+       ],
+       "do": "Compute electroosmotic and electrophoretic speeds.",
+       "ek": [
+        "Smoluchowski: v = εε₀ζE/η (κR ≫ 1). Hückel: v = 2εε₀ζE/(3η) (κR ≪ 1)."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "el-electrophoresis"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "petsev-edl:3"
+       ],
+       "do": "Choose the right electrokinetic limit.",
+       "ek": [
+        "κR ≫ 1: Smoluchowski. κR ≪ 1: Hückel. In between: Henry; with strong polarisation (large ζ, thin layers): the full electrokinetic equations."
+       ],
+       "p": [
+        "P2"
+       ],
+       "drills": [
+        "el-ek-limit"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "petsev-edl:3"
+       ],
+       "do": "Know when Boltzmann statistics fail for charge carriers.",
+       "ek": [
+        "Degenerate carriers follow Fermi–Dirac; the crossover is the Fermi temperature T_F = ħ²(3π²N)^{2/3}/(2m*k_B)."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "el-fermi-temperature"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "el-liquid-state",
+   "n": 3,
+   "title": "Liquid-state theory: correlation functions, closures and perturbation theory (ch. 4–5)",
+   "scope": "core",
+   "std": [
+    "petsev-edl:4",
+    "petsev-edl:5"
+   ],
+   "ideas": [
+    "PB"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "Integral equations",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "petsev-edl:4"
+       ],
+       "do": "Use the Ornstein–Zernike equation in Fourier space.",
+       "ek": [
+        "ĥ = ĉ/(1 − ρĉ); S(0) = 1/(1 − ρĉ(0)) is the reduced compressibility."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "el-oz-structure-factor"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "petsev-edl:4"
+       ],
+       "do": "Compare the hard-sphere equations of state.",
+       "ek": [
+        "PY virial (1 + 2η + 3η²)/(1 − η)²; PY compressibility (1 + η + η²)/(1 − η)³; Carnahan–Starling (1 + η + η² − η³)/(1 − η)³."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "el-hs-pressure"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "petsev-edl:4"
+       ],
+       "do": "Recognise the common closures.",
+       "ek": [
+        "PY: c = g(1 − e^{βφ}). HNC: c = h − ln y (i.e. g − 1 − ln y). MSA: g = 0 inside the core, c = −βφ outside."
+       ],
+       "p": [
+        "P2"
+       ],
+       "drills": [
+        "el-closures"
+       ]
+      },
+      {
+       "id": "D",
+       "std": [
+        "petsev-edl:4"
+       ],
+       "do": "Compute packing fraction from number density and diameter.",
+       "ek": [
+        "η = πρd³/6; ξ₃ for mixtures."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "el-packing-fraction"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "title": "Virial, perturbation and mean-field theory",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "petsev-edl:5"
+       ],
+       "do": "Compute second virial coefficients.",
+       "ek": [
+        "B₂ = −2π∫(e^{−βφ} − 1)r²dr: 2πd³/3 for hard spheres; square well B₂ = B₂^hs[1 − (λ³ − 1)(e^{βε} − 1)]."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "el-b2-square-well"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "petsev-edl:5"
+       ],
+       "do": "Use the van der Waals equation in reduced form.",
+       "ek": [
+        "p̃ = 8ρ̃T̃/(3 − ρ̃) − 3ρ̃²."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "el-vdw-reduced"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "petsev-edl:5"
+       ],
+       "do": "Solve the mean-field (Weiss) equation of the Ising model.",
+       "ek": [
+        "m = tanh(βJqm): a nonzero root exists below kT_c = Jq."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "el-mean-field-m"
+       ]
+      },
+      {
+       "id": "D",
+       "std": [
+        "petsev-edl:5"
+       ],
+       "do": "Use scaled-particle results for hard spheres.",
+       "ek": [
+        "Probability of an empty cavity of radius σ/2: p₀ = 1 − η, so βW = −ln(1 − η); G(σ/2) = 1/(1 − η)."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "el-spt-cavity"
+       ]
+      },
+      {
+       "id": "E",
+       "std": [
+        "petsev-edl:5"
+       ],
+       "do": "Use the exact one-dimensional hard-rod fluid.",
+       "ek": [
+        "Tonks: βp/ρ = 1/(1 − ρσ)."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "el-tonks"
+       ]
+      },
+      {
+       "id": "F",
+       "std": [
+        "petsev-edl:5"
+       ],
+       "do": "Split a pair potential for perturbation theory.",
+       "ek": [
+        "WCA: split at the LJ minimum r_min = 2^{1/6}σ; Barker–Henderson: split at σ and use d = ∫₀^σ(1 − e^{−βφ})dr."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "el-wca-split"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "el-dft",
+   "n": 4,
+   "title": "Density functional theory for electrolytes (ch. 6–7)",
+   "scope": "core",
+   "std": [
+    "petsev-edl:6",
+    "petsev-edl:7"
+   ],
+   "ideas": [
+    "PB"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "DFT fundamentals",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "petsev-edl:6"
+       ],
+       "do": "Minimise the ideal-gas functional in an external field.",
+       "ek": [
+        "δΩ/δρ = 0 with F_id = kT∫ρ[ln(Λ³ρ) − 1] gives ρ(r) = ρ_b e^{−βV_ext(r)}."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "el-ideal-functional"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "petsev-edl:6"
+       ],
+       "do": "Compute a surface excess adsorption.",
+       "ek": [
+        "Γ^ex = ∫[ρ(r) − ρ_b]dr; for ρ = ρ_b(1 + A e^{−z/λ}), Γ^ex = ρ_bAλ."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "el-surface-excess"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "petsev-edl:6"
+       ],
+       "do": "Convert a pair correlation to a potential of mean force.",
+       "ek": [
+        "W(r) = −kT ln g(r)."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "el-pmf"
+       ]
+      },
+      {
+       "id": "D",
+       "std": [
+        "petsev-edl:6"
+       ],
+       "do": "Relate wetting to interfacial free energies.",
+       "ek": [
+        "Young: cos θ = (Ω^ex_WV − Ω^ex_WL)/γ_LV."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "el-contact-angle"
+       ]
+      },
+      {
+       "id": "E",
+       "std": [
+        "petsev-edl:6"
+       ],
+       "do": "Scale the Thomas–Fermi kinetic energy.",
+       "ek": [
+        "T_TF ∝ ∫ρ^{5/3}dr."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "el-thomas-fermi-scaling"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "title": "Classical DFT for electrolytes",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "petsev-edl:7"
+       ],
+       "do": "Compute the Bjerrum length and Debye length from it.",
+       "ek": [
+        "λ_B = e²/(4πεε₀kT) ≈ 0.71 nm in water; κ² = 4πλ_BΣz_i²ρ_i."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "el-bjerrum",
+        "el-debye-from-bjerrum"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "petsev-edl:7"
+       ],
+       "do": "Apply the contact theorem at a charged wall.",
+       "ek": [
+        "kTΣρ_i(0) = p_b + σ²/(2εε₀); for an ideal 1:1 bulk p_b = 2ρ₀kT."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "el-contact-theorem"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "petsev-edl:7"
+       ],
+       "do": "Evaluate the Carnahan–Starling hard-sphere free energy.",
+       "ek": [
+        "βf_ex = η(4 − 3η)/(1 − η)² per particle."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "el-cs-free-energy"
+       ]
+      },
+      {
+       "id": "D",
+       "std": [
+        "petsev-edl:7"
+       ],
+       "do": "Know what fundamental-measure theory weights.",
+       "ek": [
+        "n₃ is the local packing fraction (volume weight θ(R − |r|)), n₂ the surface weight δ(R − |r|), n₁ and n₀ scaled versions, plus vector weights."
+       ],
+       "p": [
+        "P2"
+       ],
+       "drills": [
+        "el-fmt-weights"
+       ]
+      },
+      {
+       "id": "E",
+       "std": [
+        "petsev-edl:7"
+       ],
+       "do": "Compute the MSA screening parameter.",
+       "ek": [
+        "Restricted primitive model: 2Γd = √(1 + 2κd) − 1; Γ → κ/2 at low density."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "el-msa-gamma"
+       ]
+      },
+      {
+       "id": "F",
+       "std": [
+        "petsev-edl:7"
+       ],
+       "do": "Model a charge-regulating surface with Langmuir site equilibria.",
+       "ek": [
+        "Fraction of sites bound: θ = ρ_F(r_s)/(ρ_F(r_s) + K)."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "el-site-binding"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "el-molecular",
+   "n": 5,
+   "title": "Molecular structure of the double layer (ch. 8–13)",
+   "scope": "core",
+   "std": [
+    "petsev-edl:10",
+    "petsev-edl:11",
+    "petsev-edl:12"
+   ],
+   "ideas": [
+    "PB"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "Solvent, solvation and surface interactions",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "petsev-edl:8"
+       ],
+       "do": "Explain the solvent's role in a single double layer.",
+       "ek": [
+        "The solvent is far denser than the ions, so it sets the structure; the surface reaction involves only the PDIs, but their local density depends on every species."
+       ],
+       "p": [
+        "P2"
+       ],
+       "drills": [
+        "el-solvent-structure"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "petsev-edl:9"
+       ],
+       "do": "Predict how solvation of each ion changes the surface charge.",
+       "ek": [
+        "Poorly solvated PDIs crowd the wall and neutralise it; strongly solvated PDIs stay away and the negative charge grows."
+       ],
+       "p": [
+        "P2"
+       ],
+       "drills": [
+        "el-solvation-effects"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "petsev-edl:10"
+       ],
+       "do": "Predict effects of non-Coulombic surface interactions.",
+       "ek": [
+        "Solvophilic walls attract solvent strongly; PDIs compete with other species for the finite space at the wall; ion–surface attraction feeds the Stern layer."
+       ],
+       "p": [
+        "P2"
+       ],
+       "drills": [
+        "el-surface-interactions"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "title": "Potential, valency and ion size",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "petsev-edl:11"
+       ],
+       "do": "Interpret the classical double-layer planes molecularly.",
+       "ek": [
+        "With c-DFT charge profiles in Poisson's equation, the Helmholtz planes, Stern and Grahame layers and the shear plane get molecular meanings."
+       ],
+       "p": [
+        "P2"
+       ],
+       "drills": [
+        "el-planes"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "petsev-edl:12"
+       ],
+       "do": "Predict the effect of multivalent ions.",
+       "ek": [
+        "Valency changes Coulomb strength and its balance with non-Coulombic forces; multivalent counterions screen far more strongly, as in the Schulze–Hardy rule."
+       ],
+       "p": [
+        "P2"
+       ],
+       "drills": [
+        "el-multivalent"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "petsev-edl:13"
+       ],
+       "do": "Predict the effect of ion size.",
+       "ek": [
+        "The main effects are excluded volume and packing at the charged wall, which change the local PDI density and so the surface reaction."
+       ],
+       "p": [
+        "P2"
+       ],
+       "drills": [
+        "el-ion-size"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "el-simulation",
+   "n": 6,
+   "title": "Simulation and numerical methods (ch. 14–16, appendix A)",
+   "scope": "core",
+   "std": [
+    "petsev-edl:14",
+    "petsev-edl:15",
+    "petsev-edl:16"
+   ],
+   "ideas": [
+    "PB"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "Molecular simulation",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "petsev-edl:14"
+       ],
+       "do": "Apply the Metropolis acceptance rule.",
+       "ek": [
+        "Accept a move with probability min(1, e^{−βΔU})."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "el-metropolis"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "petsev-edl:14"
+       ],
+       "do": "Compute an excess chemical potential by Widom insertion.",
+       "ek": [
+        "βμ_ex = −ln⟨e^{−βΔU}⟩ over random test insertions."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "el-widom"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "petsev-edl:14"
+       ],
+       "do": "Find the collision time of two hard spheres.",
+       "ek": [
+        "Solve |r_ij + v_ij t| = σ_ij for the smallest positive t."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "el-collision-time"
+       ]
+      },
+      {
+       "id": "D",
+       "std": [
+        "petsev-edl:15"
+       ],
+       "do": "Compute the coupling parameter of a one-component plasma.",
+       "ek": [
+        "Γ = (Ze)²/(4πε₀akT), a the Wigner–Seitz radius."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "el-ocp-gamma"
+       ]
+      },
+      {
+       "id": "E",
+       "std": [
+        "petsev-edl:15"
+       ],
+       "do": "Use the Debye–Hückel limiting law.",
+       "ek": [
+        "log₁₀γ± = −0.509|z₊z₋|√I in water at 25 °C."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "el-dh-limiting"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "title": "Numerical methods for c-DFT and transport",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "petsev-edl:16"
+       ],
+       "do": "Take a damped Picard step.",
+       "ek": [
+        "x^{k+1} = (1 − α)x^k + αg(x^k)."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "el-picard"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "petsev-edl:16"
+       ],
+       "do": "Take a Newton step on a nonlinear residual.",
+       "ek": [
+        "J Δx = −R."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "el-newton-pb"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "petsev-edl:16"
+       ],
+       "do": "Reduce a block system with the Schur complement.",
+       "ek": [
+        "S = A₂₂ − A₂₁A₁₁⁻¹A₁₂, then Sx₂ = b₂ − A₂₁A₁₁⁻¹b₁."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "el-schur"
+       ]
+      },
+      {
+       "id": "D",
+       "std": [
+        "petsev-edl:16",
+        "petsev-edl:A"
+       ],
+       "do": "Compute a Nernst–Planck flux.",
+       "ek": [
+        "J = −D(dc/dx + zc dψ̃/dx): diffusion plus migration."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "el-nernst-planck"
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "rows": [
+  {
+   "code": "EL-1.1.A",
+   "unit": 1,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "el-coulomb-force"
+   ],
+   "partial": []
+  },
+  {
+   "code": "EL-1.1.B",
+   "unit": 1,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "el-helmholtz-capacitance",
+    "el-surface-field"
+   ],
+   "partial": []
+  },
+  {
+   "code": "EL-1.1.C",
+   "unit": 1,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "el-schulze-hardy"
+   ],
+   "partial": []
+  },
+  {
+   "code": "EL-1.1.D",
+   "unit": 1,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "el-model-hierarchy"
+   ],
+   "partial": []
+  },
+  {
+   "code": "EL-1.2.A",
+   "unit": 1,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "el-nernst-potential"
+   ],
+   "partial": []
+  },
+  {
+   "code": "EL-1.2.B",
+   "unit": 1,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "el-regulation-linear"
+   ],
+   "partial": []
+  },
+  {
+   "code": "EL-1.2.C",
+   "unit": 1,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "el-stern-langmuir"
+   ],
+   "partial": []
+  },
+  {
+   "code": "EL-2.1.A",
+   "unit": 2,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "el-debye-length"
+   ],
+   "partial": []
+  },
+  {
+   "code": "EL-2.1.B",
+   "unit": 2,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "el-grahame"
+   ],
+   "partial": []
+  },
+  {
+   "code": "EL-2.1.C",
+   "unit": 2,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "el-gouy-chapman-profile"
+   ],
+   "partial": []
+  },
+  {
+   "code": "EL-2.1.D",
+   "unit": 2,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "el-linear-error"
+   ],
+   "partial": []
+  },
+  {
+   "code": "EL-2.2.A",
+   "unit": 2,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "el-midplane-pressure"
+   ],
+   "partial": []
+  },
+  {
+   "code": "EL-2.2.B",
+   "unit": 2,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "el-weak-overlap"
+   ],
+   "partial": []
+  },
+  {
+   "code": "EL-2.2.C",
+   "unit": 2,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "el-constant-potential-charge"
+   ],
+   "partial": []
+  },
+  {
+   "code": "EL-2.2.D",
+   "unit": 2,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "el-sphere-charge"
+   ],
+   "partial": []
+  },
+  {
+   "code": "EL-2.2.E",
+   "unit": 2,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "el-derjaguin-force"
+   ],
+   "partial": []
+  },
+  {
+   "code": "EL-2.2.F",
+   "unit": 2,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "el-vdw-spheres"
+   ],
+   "partial": []
+  },
+  {
+   "code": "EL-2.3.A",
+   "unit": 2,
+   "topic": 3,
+   "status": "ok",
+   "full": [
+    "el-electrophoresis"
+   ],
+   "partial": []
+  },
+  {
+   "code": "EL-2.3.B",
+   "unit": 2,
+   "topic": 3,
+   "status": "ok",
+   "full": [
+    "el-ek-limit"
+   ],
+   "partial": []
+  },
+  {
+   "code": "EL-2.3.C",
+   "unit": 2,
+   "topic": 3,
+   "status": "ok",
+   "full": [
+    "el-fermi-temperature"
+   ],
+   "partial": []
+  },
+  {
+   "code": "EL-3.1.A",
+   "unit": 3,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "el-oz-structure-factor"
+   ],
+   "partial": []
+  },
+  {
+   "code": "EL-3.1.B",
+   "unit": 3,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "el-hs-pressure"
+   ],
+   "partial": []
+  },
+  {
+   "code": "EL-3.1.C",
+   "unit": 3,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "el-closures"
+   ],
+   "partial": []
+  },
+  {
+   "code": "EL-3.1.D",
+   "unit": 3,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "el-packing-fraction"
+   ],
+   "partial": []
+  },
+  {
+   "code": "EL-3.2.A",
+   "unit": 3,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "el-b2-square-well"
+   ],
+   "partial": []
+  },
+  {
+   "code": "EL-3.2.B",
+   "unit": 3,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "el-vdw-reduced"
+   ],
+   "partial": []
+  },
+  {
+   "code": "EL-3.2.C",
+   "unit": 3,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "el-mean-field-m"
+   ],
+   "partial": []
+  },
+  {
+   "code": "EL-3.2.D",
+   "unit": 3,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "el-spt-cavity"
+   ],
+   "partial": []
+  },
+  {
+   "code": "EL-3.2.E",
+   "unit": 3,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "el-tonks"
+   ],
+   "partial": []
+  },
+  {
+   "code": "EL-3.2.F",
+   "unit": 3,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "el-wca-split"
+   ],
+   "partial": []
+  },
+  {
+   "code": "EL-4.1.A",
+   "unit": 4,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "el-ideal-functional"
+   ],
+   "partial": []
+  },
+  {
+   "code": "EL-4.1.B",
+   "unit": 4,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "el-surface-excess"
+   ],
+   "partial": []
+  },
+  {
+   "code": "EL-4.1.C",
+   "unit": 4,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "el-pmf"
+   ],
+   "partial": []
+  },
+  {
+   "code": "EL-4.1.D",
+   "unit": 4,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "el-contact-angle"
+   ],
+   "partial": []
+  },
+  {
+   "code": "EL-4.1.E",
+   "unit": 4,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "el-thomas-fermi-scaling"
+   ],
+   "partial": []
+  },
+  {
+   "code": "EL-4.2.A",
+   "unit": 4,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "el-bjerrum",
+    "el-debye-from-bjerrum"
+   ],
+   "partial": []
+  },
+  {
+   "code": "EL-4.2.B",
+   "unit": 4,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "el-contact-theorem"
+   ],
+   "partial": []
+  },
+  {
+   "code": "EL-4.2.C",
+   "unit": 4,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "el-cs-free-energy"
+   ],
+   "partial": []
+  },
+  {
+   "code": "EL-4.2.D",
+   "unit": 4,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "el-fmt-weights"
+   ],
+   "partial": []
+  },
+  {
+   "code": "EL-4.2.E",
+   "unit": 4,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "el-msa-gamma"
+   ],
+   "partial": []
+  },
+  {
+   "code": "EL-4.2.F",
+   "unit": 4,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "el-site-binding"
+   ],
+   "partial": []
+  },
+  {
+   "code": "EL-5.1.A",
+   "unit": 5,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "el-solvent-structure"
+   ],
+   "partial": []
+  },
+  {
+   "code": "EL-5.1.B",
+   "unit": 5,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "el-solvation-effects"
+   ],
+   "partial": []
+  },
+  {
+   "code": "EL-5.1.C",
+   "unit": 5,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "el-surface-interactions"
+   ],
+   "partial": []
+  },
+  {
+   "code": "EL-5.2.A",
+   "unit": 5,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "el-planes"
+   ],
+   "partial": []
+  },
+  {
+   "code": "EL-5.2.B",
+   "unit": 5,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "el-multivalent"
+   ],
+   "partial": []
+  },
+  {
+   "code": "EL-5.2.C",
+   "unit": 5,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "el-ion-size"
+   ],
+   "partial": []
+  },
+  {
+   "code": "EL-6.1.A",
+   "unit": 6,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "el-metropolis"
+   ],
+   "partial": []
+  },
+  {
+   "code": "EL-6.1.B",
+   "unit": 6,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "el-widom"
+   ],
+   "partial": []
+  },
+  {
+   "code": "EL-6.1.C",
+   "unit": 6,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "el-collision-time"
+   ],
+   "partial": []
+  },
+  {
+   "code": "EL-6.1.D",
+   "unit": 6,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "el-ocp-gamma"
+   ],
+   "partial": []
+  },
+  {
+   "code": "EL-6.1.E",
+   "unit": 6,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "el-dh-limiting"
+   ],
+   "partial": []
+  },
+  {
+   "code": "EL-6.2.A",
+   "unit": 6,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "el-picard"
+   ],
+   "partial": []
+  },
+  {
+   "code": "EL-6.2.B",
+   "unit": 6,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "el-newton-pb"
+   ],
+   "partial": []
+  },
+  {
+   "code": "EL-6.2.C",
+   "unit": 6,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "el-schur"
+   ],
+   "partial": []
+  },
+  {
+   "code": "EL-6.2.D",
+   "unit": 6,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "el-nernst-planck"
+   ],
+   "partial": []
+  }
+ ],
+ "orphanTpl": []
+}

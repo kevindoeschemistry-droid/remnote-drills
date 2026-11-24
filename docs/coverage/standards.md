@@ -21,6 +21,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 | Computer Science | Computer Science Curricula 2023, Body of Knowledge | standard | read in full | — | — | 140 | 1 | 139 |
 | Dental Admission Test | Dental Admission Test 2026 Candidate Guide | exam-spec | read in full | ngss-hs, ib-chemistry-2025, usnco, icho-appendix-c | — | 183 | 72 | 111 |
 | Earth and Space Science | Next Generation Science Standards, high school performance expectations (2013) | standard | read in part | ib-physics-2025, ib-biology-2025, gre-physics | — | 18 | 18 | 0 |
+| Electric Double Layers | Petsev, van Swol and Frink, Molecular Theory of Electric Double Layers (IOP Publishing, 2021) | textbook | read in part | — | — | 56 | 56 | 0 |
 | Applied Engineering Mathematics | Kreyszig, Advanced Engineering Mathematics, 10th ed. | textbook | read in full | fe-chemical, webwork-opl | — | 155 | 128 | 27 |
 | Fluid Mechanics | NCEES FE Chemical CBT Exam Specifications (effective July 2020) | exam-spec | read in full | pe-chemical, webwork-opl | — | 64 | 64 | 0 |
 | Graduate Chemical Engineering Core | UC Irvine Chemical and Biomolecular Engineering graduate core: CBE 200, 210, 220A, 220B and 240 (catalogue descriptions, 2025-26) | course | read in part | pe-chemical | — | 38 | 38 | 0 |
@@ -70,6 +71,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 - **Chemistry Olympiad**: Topics from the USNCO bands (read in part) and IChO Appendix C (read in full), at national-exam depth; the items are a house list.
 - **Chemistry (AP)**: Objectives past Unit 2 are written from topic titles.
 - **Earth and Space Science**: Units follow the NGSS HS ESS disciplinary core ideas (ESS1 Earth's place in the universe, ESS2 Earth's systems, ESS3 Earth and human activity), read in part. Objectives and their order are ours.
+- **Electric Double Layers**: A course textbook, not a curriculum standard: the units follow its chapters and the objectives are ours. Colloids and DLVO at the undergraduate level live in Polymers and Materials unit 3 (Israelachvili).
 - **Applied Engineering Mathematics**: UCI CBE 200 publishes no syllabus. The undergraduate part is anchored to fe-chemical; series, Sturm–Liouville, PDEs and transforms are past any exam spec and stand on the book.
 - **Fluid Mechanics**: Topics from FE Chemical area 6, read in full; units 7–10 extend past it on the WeBWorK OPL fluid-mechanics sections (read in full). Objectives and their order are ours; statics is assumed by the spec rather than listed.
 - **Graduate Chemical Engineering Core**: UCI's graduate core courses by catalogue description (read in part); no syllabus or past comprehensive exam was read, so the objectives are ours. PE Chemical is the nearest published exam and stops below this level.
@@ -115,6 +117,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 - **Chemistry Olympiad**: exam-spec, read in part
 - **Chemistry (AP)**: standard, read in part
 - **Earth and Space Science**: standard, read in part
+- **Electric Double Layers**: textbook, read in part
 - **Applied Engineering Mathematics**: textbook, read in full
 - **Graduate Chemical Engineering Core**: course, read in part
 - **INBDE (Dentistry)**: exam-spec, read in part
@@ -1776,6 +1779,32 @@ https://www.ibo.org/globalassets/new-structure/recognition/pdfs/dp_sciences_biol
 | D4.1 | Natural selection | 27 | 27 | biology (27) |
 | D4.2 | Sustainability and change | 20 | 20 | biology (20) |
 | D4.3 | Climate change | 6 | 6 | earth-space (6) |
+
+## Petsev, van Swol and Frink, Molecular Theory of Electric Double Layers (IOP Publishing, 2021)
+
+https://doi.org/10.1088/978-0-7503-2276-8
+
+17 of 17 items have at least one objective answering to them.
+
+| Item | Topic | Objectives | With a drill | Where |
+|---|---|---|---|---|
+| 1 | Introduction: a historical overview | 11 | 11 | electric-double-layers (11) |
+| 2 | The origin of charge at interfaces involving electrolyte solutions | 10 | 10 | electric-double-layers (10) |
+| 3 | Continuum models of the electric double layers | 26 | 26 | electric-double-layers (26) |
+| 4 | Integral equation theory | 14 | 14 | electric-double-layers (14) |
+| 5 | Perturbation and mean field theory | 16 | 16 | electric-double-layers (16) |
+| 6 | Density functional theory | 16 | 16 | electric-double-layers (16) |
+| 7 | Classical-DFT for electrolyte interfaces | 17 | 17 | electric-double-layers (17) |
+| 8 | Molecular properties of a single electric double layer | 1 | 1 | electric-double-layers (1) |
+| 9 | Ionic solvation effects and solvent-solvent interactions | 1 | 1 | electric-double-layers (1) |
+| 10 | Surface solvation and non-Coulombic ion-surface interactions | 7 | 7 | electric-double-layers (7) |
+| 11 | The potential distribution in the EDL and its relationship to the fluid charge | 7 | 7 | electric-double-layers (7) |
+| 12 | Electric double layers containing multivalent ions | 7 | 7 | electric-double-layers (7) |
+| 13 | Ionic size effects | 1 | 1 | electric-double-layers (1) |
+| 14 | Molecular simulation: methods | 12 | 12 | electric-double-layers (12) |
+| 15 | Molecular simulation: applications | 11 | 11 | electric-double-layers (11) |
+| 16 | Numerical methods for classical-DFT | 13 | 13 | electric-double-layers (13) |
+| A | Appendix: Poisson-Nernst-Planck | 1 | 1 | electric-double-layers (1) |
 
 ## UC Irvine Chemical and Biomolecular Engineering graduate core: CBE 200, 210, 220A, 220B and 240 (catalogue descriptions, 2025-26)
 
