@@ -147,7 +147,7 @@ ADD = [
         given={"l": {"pick": [10, 50, 100]}}, value=f"({H}/(l*1e-12))^2/(2*{ME}*{EC})", tex="V",
         verify=f"solve(Eq({H_}/sqrt(2*{ME_}*{EC_}*x), {n('l')}/10**12), x)[0]", explain="λ = h/√(2meV): about 150 V gives 100 pm, the size of atoms, which is why electron diffraction sees crystals")),
     ("PC-10.1.D", Q("pc-series-limit", "quantum.origins", "What is the shortest wavelength, in nm, of the hydrogen series that ends on n = {{nl}}? (R_H = 109 677 cm⁻¹)",
-        given={"nl": {"pick": [1, 2, 3]}}, value="nl^2/109677*1e7", tex="\\lambda_{limit}", verify="1/limit(109677*(Rational(1, nl**2) - Rational(1, x**2)), x, oo)*10**7",
+        given={"nl": {"pick": [1, 2, 3]}}, value="nl^2/109677*1e7", tex="\\lambda_{limit}", verify="1/limit(109677*(1/Integer(nl)**2 - 1/x**2), x, oo)*10**7",
         explain="The series limit is the transition from the ionisation threshold: 91 nm (Lyman), 365 nm (Balmer)")),
     # ── 11 postulates ────────────────────────────────────────────────────
     ("PC-11.1.A", Q("pc-second-derivative-eigen", "quantum.postulates", "f(x) = {{fn}}(kx) with k = {{k}} nm⁻¹. What is its eigenvalue under d²/dx², in nm⁻²?",

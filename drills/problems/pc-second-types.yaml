@@ -942,7 +942,7 @@
     explain: 'The series limit is the transition from the ionisation threshold: 91 nm (Lyman), 365 nm (Balmer)'
   verify:
     expect:
-      v: 1/limit(109677*(Rational(1, nl**2) - Rational(1, x**2)), x, oo)*10**7
+      v: 1/limit(109677*(1/Integer(nl)**2 - 1/x**2), x, oo)*10**7
 - template: pc-second-derivative-eigen
   skill: quantum.postulates
   pace: quick
