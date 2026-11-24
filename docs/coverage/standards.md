@@ -28,7 +28,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 | Information Systems | MSIS 2016 Global Competency Model | standard | read in full | — | — | 53 | 0 | 53 |
 | Advanced Inorganic Chemistry (Cotton & Wilkinson) | Cotton, Wilkinson, Murillo & Bochmann, Advanced Inorganic Chemistry, 6th ed. (1999): table of contents | textbook | read in part | icho-appendix-c, gre-chemistry | — | 55 | 0 | 55 |
 | Inorganic Chemistry | Regulations of the International Chemistry Olympiad, Appendices C and D (concepts, skills and factual knowledge) | exam-spec | read in full | icho-syllabus, gre-chemistry, usnco, ib-chemistry-2025 | — | 23 | 23 | 0 |
-| Linear Algebra | Lay, Lay & McDonald, Linear Algebra and Its Applications, 5th ed. (chapter list) | textbook | read in part | — | — | 10 | 10 | 0 |
+| Linear Algebra | MAA CUPM Curriculum Guide 2015, Linear Algebra course report: core topics of a first course | standard | read in part | lay-5e | lacsg-2 | 42 | 42 | 0 |
 | Material and Energy Balances | NCEES FE Chemical CBT Exam Specifications (effective July 2020) | exam-spec | read in full | pe-chemical | — | 16 | 14 | 2 |
 | Polymers and Materials | Regulations of the International Chemistry Olympiad, Appendices C and D (concepts, skills and factual knowledge) | exam-spec | read in full | ib-chemistry-2025, fe-chemical, icho-syllabus | — | 17 | 6 | 11 |
 | High School Mathematics (Common Core) | CCSS Mathematics Appendix A: high school course pathways | standard | read in full | — | — | 200 | 200 | 0 |
@@ -72,7 +72,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 - **INBDE (Dentistry)**: Units are the Domain of Dentistry's three clinical sections plus Foundation Knowledge area 3 (materials); objectives cite the clinical content area or FK they serve and are ours.
 - **Advanced Inorganic Chemistry (Cotton & Wilkinson)**: Units follow the chapters of Cotton & Wilkinson 6e (table of contents read); the objectives are a house list on those chapters.
 - **Inorganic Chemistry**: Units 1, 2 and 4 follow IChO Appendix D's factual-knowledge list (read in full); coordination and solids follow its preparation-only topics and the GRE inorganic area. Objectives and their order are ours.
-- **Linear Algebra**: Units follow the chapters of Lay's Linear Algebra and Its Applications (a textbook, not a standard). A published curriculum standard has not been looked for yet.
+- **Linear Algebra**: Units cover the six core-topic groups of the 2015 CUPM guide's first course in linear algebra (read through a summary, not the report's own pages), ordered by Lay's chapters. Unit 7 is second-course material by the guide's split. LACSG 2.0 is the newer standard and has not been read.
 - **Material and Energy Balances**: Topics from FE Chemical area 8, read in full. Objectives and their order are ours and follow the usual textbook sequence; unit 1 is assumed by the spec rather than listed.
 - **Polymers and Materials**: Polymer topics from IChO Appendix C (c22, a5), IB S2.4 and FE Chemical 4.D; a house list on those items.
 - **Mathematics K–8 (Common Core)**: Codes and wording checked against a state reprint; the CCSS site was blocked.
@@ -110,7 +110,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 - **Applied Engineering Mathematics**: textbook, read in full
 - **INBDE (Dentistry)**: exam-spec, read in part
 - **Advanced Inorganic Chemistry (Cotton & Wilkinson)**: textbook, read in part
-- **Linear Algebra**: textbook, read in part
+- **Linear Algebra**: standard, read in part; should move to Linear Algebra Curriculum Study Group 2.0 recommendations (Stewart, Axler, Beezer et al.)
 - **Mathematics K–8 (Common Core)**: standard, read through a crosswalk
 - **Molecular Simulation**: course, read in part
 - **NCLEX-RN**: exam-spec, read in part
@@ -549,6 +549,22 @@ https://apcentral.collegeboard.org/courses/ap-statistics
 | 4 | Inference for Quantitative Data: Means | 2 | 2 | statistics (2) |
 | 5 | Regression Analysis | 2 | 2 | statistics (2) |
 
+## MAA CUPM Curriculum Guide 2015, Linear Algebra course report: core topics of a first course
+
+https://www.amstat.org/docs/default-source/amstat-documents/cupmguide_print.pdf
+
+7 of 7 items have at least one objective answering to them.
+
+| Item | Topic | Objectives | With a drill | Where |
+|---|---|---|---|---|
+| 1 | Matrices and linear systems (operations, echelon form, inverses, LU) | 23 | 23 | linear-algebra (23) |
+| 2 | Determinants (properties, geometric meaning) | 7 | 7 | linear-algebra (7) |
+| 3 | Vector spaces (subspaces, independence, basis, dimension, rank-nullity) | 7 | 7 | linear-algebra (7) |
+| 4 | Linear transformations (matrix representation, change of basis, kernel and range) | 12 | 12 | linear-algebra (12) |
+| 5 | Eigenvalues and eigenvectors (computation, diagonalization) | 8 | 8 | linear-algebra (8) |
+| 6 | Inner products (norms, orthogonality, orthogonal bases, Gram-Schmidt) | 8 | 8 | linear-algebra (8) |
+| second | Second course: spectral theorem, SVD, quadratic and bilinear forms | 9 | 9 | linear-algebra (9) |
+
 ## Lay, Lay & McDonald, Linear Algebra and Its Applications, 5th ed. (chapter list)
 
 
@@ -557,13 +573,13 @@ https://apcentral.collegeboard.org/courses/ap-statistics
 
 | Item | Topic | Objectives | With a drill | Where |
 |---|---|---|---|---|
-| 1 | Linear Equations in Linear Algebra | 4 | 4 | linear-algebra (4) |
-| 2 | Matrix Algebra | 2 | 2 | linear-algebra (2) |
-| 3 | Determinants | 2 | 2 | linear-algebra (2) |
-| 4 | Vector Spaces | 2 | 2 | linear-algebra (2) |
-| 5 | Eigenvalues and Eigenvectors | 4 | 4 | linear-algebra (4) |
-| 6 | Orthogonality and Least Squares | 4 | 4 | linear-algebra (4) |
-| 7 | Symmetric Matrices and Quadratic Forms | 2 | 2 | linear-algebra (2) |
+| 1 | Linear Equations in Linear Algebra | 17 | 17 | linear-algebra (17) |
+| 2 | Matrix Algebra | 14 | 14 | linear-algebra (14) |
+| 3 | Determinants | 8 | 8 | linear-algebra (8) |
+| 4 | Vector Spaces | 17 | 17 | linear-algebra (17) |
+| 5 | Eigenvalues and Eigenvectors | 10 | 10 | linear-algebra (10) |
+| 6 | Orthogonality and Least Squares | 10 | 10 | linear-algebra (10) |
+| 7 | Symmetric Matrices and Quadratic Forms | 10 | 10 | linear-algebra (10) |
 
 ## AQA AS and A-level Physics (7407/7408), section 3.2 Particles and radiation
 

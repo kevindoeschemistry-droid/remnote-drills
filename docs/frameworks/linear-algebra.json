@@ -2,7 +2,7 @@
  "id": "linear-algebra",
  "title": "Linear Algebra",
  "code": "LA",
- "draft": 1,
+ "draft": 2,
  "track": "math",
  "requires": [
   "math-hs"
@@ -12,8 +12,14 @@
   "la"
  ],
  "basis": {
-  "primary": "lay-5e",
-  "note": "Units follow the chapters of Lay's Linear Algebra and Its Applications (a textbook, not a standard). A published curriculum standard has not been looked for yet."
+  "primary": "cupm-2015-la",
+  "also": [
+   "lay-5e"
+  ],
+  "wanted": [
+   "lacsg-2"
+  ],
+  "note": "Units cover the six core-topic groups of the 2015 CUPM guide's first course in linear algebra (read through a summary, not the report's own pages), ordered by Lay's chapters. Unit 7 is second-course material by the guide's split. LACSG 2.0 is the newer standard and has not been read."
  },
  "big_ideas": [
   {
@@ -36,7 +42,8 @@
    "title": "Linear systems and independence",
    "scope": "core",
    "std": [
-    "lay-5e:1"
+    "lay-5e:1",
+    "cupm-2015-la:1"
    ],
    "ideas": [
     "MAIN"
@@ -59,7 +66,8 @@
         "P1"
        ],
        "drills": [
-        "la-system"
+        "la-system",
+        "la-is-solution"
        ]
       },
       {
@@ -75,7 +83,80 @@
         "P1"
        ],
        "drills": [
-        "la-independence"
+        "la-independence",
+        "la-independence-parameter"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "cupm-2015-la:1"
+       ],
+       "do": "Read the number of solutions off an echelon form.",
+       "ek": [
+        "A pivot in every variable column: one; a free variable: infinitely many; a row 0 = c: none."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "la-solution-type"
+       ]
+      },
+      {
+       "id": "D",
+       "std": [
+        "cupm-2015-la:1"
+       ],
+       "do": "Count the free variables of a consistent system.",
+       "ek": [
+        "Free variables are the non-pivot columns."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "la-free-variables"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "title": "Vector equations and span",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "cupm-2015-la:1",
+        "lay-5e:1"
+       ],
+       "do": "Decide whether a vector is in the span of others.",
+       "ek": [
+        "b is in the span exactly when [v1 … vk | b] has no pivot in the last column."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "la-span-membership"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "cupm-2015-la:1",
+        "lay-5e:1"
+       ],
+       "do": "Describe the solution set of Ax = b as a shifted null space.",
+       "ek": [
+        "Every solution is a particular solution plus a solution of Ax = 0."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "la-solution-set-shape"
        ]
       }
      ]
@@ -88,7 +169,8 @@
    "title": "Matrix algebra",
    "scope": "core",
    "std": [
-    "lay-5e:2"
+    "lay-5e:2",
+    "cupm-2015-la:1"
    ],
    "ideas": [
     "MAIN"
@@ -111,7 +193,121 @@
         "P1"
        ],
        "drills": [
-        "la-inverse"
+        "la-inverse",
+        "la-inverse-check"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "cupm-2015-la:1"
+       ],
+       "do": "Solve Ax = b with a known inverse.",
+       "ek": [
+        "x = A⁻¹b; row i of A⁻¹ dotted with b gives x_i."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "la-solve-with-inverse"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "cupm-2015-la:1",
+        "lay-5e:2"
+       ],
+       "do": "Use the invertible matrix theorem.",
+       "ek": [
+        "For a square matrix, invertible, n pivots, independent columns, det ≠ 0 and 0 not an eigenvalue stand or fall together."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "la-invertible-matrix-theorem"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "title": "Matrix operations",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "cupm-2015-la:1",
+        "lay-5e:2"
+       ],
+       "do": "Compute one entry of a product without computing the rest.",
+       "ek": [
+        "(AB)_ij is row i of A dotted with column j of B."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "la-product-entry"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "cupm-2015-la:1",
+        "lay-5e:2"
+       ],
+       "do": "Track sizes through products and transposes.",
+       "ek": [
+        "(AB)ᵀ = BᵀAᵀ; an m × n times an n × p is m × p."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "la-product-size"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 3,
+     "title": "LU factorisation",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "cupm-2015-la:1",
+        "lay-5e:2"
+       ],
+       "do": "Factor a matrix as LU.",
+       "ek": [
+        "The multipliers of row reduction go below the diagonal of L; U is the echelon form."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "la-lu-pivot"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "cupm-2015-la:1",
+        "lay-5e:2"
+       ],
+       "do": "Solve with LU by forward and back substitution.",
+       "ek": [
+        "Ly = b, then Ux = y."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "la-lu-forward"
        ]
       }
      ]
@@ -124,7 +320,8 @@
    "title": "Determinants",
    "scope": "core",
    "std": [
-    "lay-5e:3"
+    "lay-5e:3",
+    "cupm-2015-la:2"
    ],
    "ideas": [
     "MAIN"
@@ -148,7 +345,65 @@
        ],
        "drills": [
         "la-det",
-        "mm-determinant"
+        "mm-determinant",
+        "la-det-triangular"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "title": "Properties of determinants",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "cupm-2015-la:2",
+        "lay-5e:3"
+       ],
+       "do": "Use det(AB) = det A det B, det Aᵀ = det A and det(kA) = kⁿ det A.",
+       "ek": [
+        "A scalar multiplies every row, so it comes out to the nth power."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "la-det-properties"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "cupm-2015-la:2",
+        "lay-5e:3"
+       ],
+       "do": "Track the determinant through row operations.",
+       "ek": [
+        "Swap: sign flips; scale a row: scales; add a multiple of a row: no change."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "la-det-row-ops"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "cupm-2015-la:2",
+        "lay-5e:3"
+       ],
+       "do": "Read |det A| as the factor by which A scales area or volume.",
+       "ek": [
+        "Area of the image = |det A| × area."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "la-det-area"
        ]
       }
      ]
@@ -161,7 +416,8 @@
    "title": "Rank and the null space",
    "scope": "core",
    "std": [
-    "lay-5e:4"
+    "lay-5e:4",
+    "cupm-2015-la:3"
    ],
    "ideas": [
     "MAIN"
@@ -185,7 +441,88 @@
        ],
        "drills": [
         "la-rank-3x3",
-        "la-rank-nullity"
+        "la-rank-nullity",
+        "la-row-space-reverse"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "title": "Subspaces, bases and dimension",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "cupm-2015-la:3",
+        "lay-5e:4"
+       ],
+       "do": "Decide whether a set is a subspace.",
+       "ek": [
+        "Contains 0, closed under addition and scaling."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "la-subspace-test"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "cupm-2015-la:3",
+        "lay-5e:4"
+       ],
+       "do": "Find the dimension of a span.",
+       "ek": [
+        "Dimension = the number of independent vectors = rank."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "la-span-dimension"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 3,
+     "title": "Coordinates and change of basis",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "cupm-2015-la:4",
+        "lay-5e:4"
+       ],
+       "do": "Find the coordinates of a vector in a basis.",
+       "ek": [
+        "Solve P_B [x]_B = x."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "la-coordinates"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "cupm-2015-la:4",
+        "lay-5e:4"
+       ],
+       "do": "Convert coordinates back to the standard basis.",
+       "ek": [
+        "x = P_B [x]_B, with the basis vectors as columns."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "la-change-of-basis"
        ]
       }
      ]
@@ -198,7 +535,8 @@
    "title": "Eigenvalues and eigenvectors",
    "scope": "core",
    "std": [
-    "lay-5e:5"
+    "lay-5e:5",
+    "cupm-2015-la:5"
    ],
    "ideas": [
     "MAIN"
@@ -223,7 +561,8 @@
        "drills": [
         "la-eigenvalues",
         "la-eigenvector",
-        "mm-eigen-trace-det"
+        "mm-eigen-trace-det",
+        "la-eigen-triangular"
        ]
       },
       {
@@ -245,6 +584,63 @@
        ]
       }
      ]
+    },
+    {
+     "n": 2,
+     "title": "Eigenvectors at work",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "cupm-2015-la:5",
+        "lay-5e:5"
+       ],
+       "do": "Compute Aᵏx by expanding x in eigenvectors.",
+       "ek": [
+        "Each eigenvector component is multiplied by λᵏ."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "la-power-by-eigenvectors"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "cupm-2015-la:5",
+        "lay-5e:5"
+       ],
+       "do": "Find the steady state of a Markov chain.",
+       "ek": [
+        "The eigenvector for λ = 1, scaled to sum to 1."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "la-markov-steady-state"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "cupm-2015-la:5",
+        "lay-5e:5"
+       ],
+       "do": "Read a complex eigenvalue as a rotation and a scaling.",
+       "ek": [
+        "[[a, −b], [b, a]] rotates by arg λ and scales by |λ| = √(a² + b²)."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "la-complex-eigen-modulus"
+       ]
+      }
+     ]
     }
    ]
   },
@@ -254,7 +650,8 @@
    "title": "Orthogonality and least squares",
    "scope": "core",
    "std": [
-    "lay-5e:6"
+    "lay-5e:6",
+    "cupm-2015-la:6"
    ],
    "ideas": [
     "MAIN"
@@ -300,6 +697,63 @@
        ]
       }
      ]
+    },
+    {
+     "n": 2,
+     "title": "Length, complements and QR",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "cupm-2015-la:6",
+        "lay-5e:6"
+       ],
+       "do": "Find lengths and distances.",
+       "ek": [
+        "‖u − v‖ = √((u − v)·(u − v))."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "la-distance"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "cupm-2015-la:6",
+        "lay-5e:6"
+       ],
+       "do": "Find vectors in an orthogonal complement.",
+       "ek": [
+        "W⊥ is everything orthogonal to a spanning set of W."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "la-orthogonal-complement"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "cupm-2015-la:6",
+        "lay-5e:6"
+       ],
+       "do": "Find an entry of the QR factorisation.",
+       "ek": [
+        "r_ii = length after removing earlier directions; r_ij = q_i · a_j."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "la-qr-entry"
+       ]
+      }
+     ]
     }
    ]
   },
@@ -309,7 +763,8 @@
    "title": "Symmetric matrices and singular values",
    "scope": "core",
    "std": [
-    "lay-5e:7"
+    "lay-5e:7",
+    "cupm-2015-la:second"
    ],
    "ideas": [
     "MAIN"
@@ -332,7 +787,201 @@
         "P1"
        ],
        "drills": [
-        "la-singular-value"
+        "la-singular-value",
+        "la-rank-one-singular-value"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "cupm-2015-la:second",
+        "lay-5e:7"
+       ],
+       "do": "Use orthogonality of a symmetric matrix's eigenvectors.",
+       "ek": [
+        "Different eigenvalues, orthogonal eigenvectors."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "la-symmetric-eigenvector"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "title": "Quadratic forms",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "cupm-2015-la:second",
+        "lay-5e:7"
+       ],
+       "do": "Classify a quadratic form.",
+       "ek": [
+        "The signs of the eigenvalues of its symmetric matrix decide."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "la-quadratic-form-classify"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "cupm-2015-la:second",
+        "lay-5e:7"
+       ],
+       "do": "Find the extreme values of a quadratic form on the unit sphere.",
+       "ek": [
+        "The largest and smallest eigenvalues, at their eigenvectors."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "la-quadratic-form-max"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 3,
+     "title": "The singular value decomposition",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "cupm-2015-la:second",
+        "lay-5e:7"
+       ],
+       "do": "Find the condition number from the singular values.",
+       "ek": [
+        "κ = σ_max / σ_min."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "la-condition-number"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "transformations",
+   "n": 8,
+   "title": "Linear transformations",
+   "scope": "core",
+   "std": [
+    "cupm-2015-la:4",
+    "lay-5e:1",
+    "lay-5e:4"
+   ],
+   "ideas": [
+    "MAIN"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "The matrix of a linear map",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "cupm-2015-la:4",
+        "lay-5e:1"
+       ],
+       "do": "Build a map from the images of the basis vectors.",
+       "ek": [
+        "The columns of the standard matrix are T(e1), …, T(en)."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "la-map-from-basis-images"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "cupm-2015-la:4",
+        "lay-5e:2"
+       ],
+       "do": "Compose linear maps as matrix products.",
+       "ek": [
+        "S ∘ T has matrix ST: the first map stands on the right."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "la-composition"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "cupm-2015-la:4",
+        "lay-5e:1"
+       ],
+       "do": "Decide whether a map is one-to-one or onto from its rank.",
+       "ek": [
+        "One-to-one: rank = number of columns; onto: rank = number of rows."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "la-one-to-one-onto"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "title": "Kernel, range and other bases",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "cupm-2015-la:4",
+        "lay-5e:4"
+       ],
+       "do": "Find the dimensions of the kernel and range of a map on a function space.",
+       "ek": [
+        "Rank–nullity holds for any linear map on a finite-dimensional space."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "la-kernel-dimension"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "cupm-2015-la:4",
+        "lay-5e:4"
+       ],
+       "do": "Write the matrix of a map relative to a basis.",
+       "ek": [
+        "Columns are the coordinates of T(b1), …, T(bn)."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "la-matrix-relative-to-basis"
        ]
       }
      ]
@@ -347,7 +996,8 @@
    "topic": 1,
    "status": "ok",
    "full": [
-    "la-system"
+    "la-system",
+    "la-is-solution"
    ],
    "partial": []
   },
@@ -357,7 +1007,48 @@
    "topic": 1,
    "status": "ok",
    "full": [
-    "la-independence"
+    "la-independence",
+    "la-independence-parameter"
+   ],
+   "partial": []
+  },
+  {
+   "code": "LA-1.1.C",
+   "unit": 1,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "la-solution-type"
+   ],
+   "partial": []
+  },
+  {
+   "code": "LA-1.1.D",
+   "unit": 1,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "la-free-variables"
+   ],
+   "partial": []
+  },
+  {
+   "code": "LA-1.2.A",
+   "unit": 1,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "la-span-membership"
+   ],
+   "partial": []
+  },
+  {
+   "code": "LA-1.2.B",
+   "unit": 1,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "la-solution-set-shape"
    ],
    "partial": []
   },
@@ -367,7 +1058,68 @@
    "topic": 1,
    "status": "ok",
    "full": [
-    "la-inverse"
+    "la-inverse",
+    "la-inverse-check"
+   ],
+   "partial": []
+  },
+  {
+   "code": "LA-2.1.B",
+   "unit": 2,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "la-solve-with-inverse"
+   ],
+   "partial": []
+  },
+  {
+   "code": "LA-2.1.C",
+   "unit": 2,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "la-invertible-matrix-theorem"
+   ],
+   "partial": []
+  },
+  {
+   "code": "LA-2.2.A",
+   "unit": 2,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "la-product-entry"
+   ],
+   "partial": []
+  },
+  {
+   "code": "LA-2.2.B",
+   "unit": 2,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "la-product-size"
+   ],
+   "partial": []
+  },
+  {
+   "code": "LA-2.3.A",
+   "unit": 2,
+   "topic": 3,
+   "status": "ok",
+   "full": [
+    "la-lu-pivot"
+   ],
+   "partial": []
+  },
+  {
+   "code": "LA-2.3.B",
+   "unit": 2,
+   "topic": 3,
+   "status": "ok",
+   "full": [
+    "la-lu-forward"
    ],
    "partial": []
   },
@@ -378,7 +1130,38 @@
    "status": "ok",
    "full": [
     "la-det",
-    "mm-determinant"
+    "mm-determinant",
+    "la-det-triangular"
+   ],
+   "partial": []
+  },
+  {
+   "code": "LA-3.2.A",
+   "unit": 3,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "la-det-properties"
+   ],
+   "partial": []
+  },
+  {
+   "code": "LA-3.2.B",
+   "unit": 3,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "la-det-row-ops"
+   ],
+   "partial": []
+  },
+  {
+   "code": "LA-3.2.C",
+   "unit": 3,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "la-det-area"
    ],
    "partial": []
   },
@@ -389,7 +1172,48 @@
    "status": "ok",
    "full": [
     "la-rank-3x3",
-    "la-rank-nullity"
+    "la-rank-nullity",
+    "la-row-space-reverse"
+   ],
+   "partial": []
+  },
+  {
+   "code": "LA-4.2.A",
+   "unit": 4,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "la-subspace-test"
+   ],
+   "partial": []
+  },
+  {
+   "code": "LA-4.2.B",
+   "unit": 4,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "la-span-dimension"
+   ],
+   "partial": []
+  },
+  {
+   "code": "LA-4.3.A",
+   "unit": 4,
+   "topic": 3,
+   "status": "ok",
+   "full": [
+    "la-coordinates"
+   ],
+   "partial": []
+  },
+  {
+   "code": "LA-4.3.B",
+   "unit": 4,
+   "topic": 3,
+   "status": "ok",
+   "full": [
+    "la-change-of-basis"
    ],
    "partial": []
   },
@@ -401,7 +1225,8 @@
    "full": [
     "la-eigenvalues",
     "la-eigenvector",
-    "mm-eigen-trace-det"
+    "mm-eigen-trace-det",
+    "la-eigen-triangular"
    ],
    "partial": []
   },
@@ -414,6 +1239,36 @@
     "la-diagonalizable-facts",
     "la-trace-of-power",
     "em-diagonalise"
+   ],
+   "partial": []
+  },
+  {
+   "code": "LA-5.2.A",
+   "unit": 5,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "la-power-by-eigenvectors"
+   ],
+   "partial": []
+  },
+  {
+   "code": "LA-5.2.B",
+   "unit": 5,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "la-markov-steady-state"
+   ],
+   "partial": []
+  },
+  {
+   "code": "LA-5.2.C",
+   "unit": 5,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "la-complex-eigen-modulus"
    ],
    "partial": []
   },
@@ -441,12 +1296,133 @@
    "partial": []
   },
   {
+   "code": "LA-6.2.A",
+   "unit": 6,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "la-distance"
+   ],
+   "partial": []
+  },
+  {
+   "code": "LA-6.2.B",
+   "unit": 6,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "la-orthogonal-complement"
+   ],
+   "partial": []
+  },
+  {
+   "code": "LA-6.2.C",
+   "unit": 6,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "la-qr-entry"
+   ],
+   "partial": []
+  },
+  {
    "code": "LA-7.1.A",
    "unit": 7,
    "topic": 1,
    "status": "ok",
    "full": [
-    "la-singular-value"
+    "la-singular-value",
+    "la-rank-one-singular-value"
+   ],
+   "partial": []
+  },
+  {
+   "code": "LA-7.1.B",
+   "unit": 7,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "la-symmetric-eigenvector"
+   ],
+   "partial": []
+  },
+  {
+   "code": "LA-7.2.A",
+   "unit": 7,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "la-quadratic-form-classify"
+   ],
+   "partial": []
+  },
+  {
+   "code": "LA-7.2.B",
+   "unit": 7,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "la-quadratic-form-max"
+   ],
+   "partial": []
+  },
+  {
+   "code": "LA-7.3.A",
+   "unit": 7,
+   "topic": 3,
+   "status": "ok",
+   "full": [
+    "la-condition-number"
+   ],
+   "partial": []
+  },
+  {
+   "code": "LA-8.1.A",
+   "unit": 8,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "la-map-from-basis-images"
+   ],
+   "partial": []
+  },
+  {
+   "code": "LA-8.1.B",
+   "unit": 8,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "la-composition"
+   ],
+   "partial": []
+  },
+  {
+   "code": "LA-8.1.C",
+   "unit": 8,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "la-one-to-one-onto"
+   ],
+   "partial": []
+  },
+  {
+   "code": "LA-8.2.A",
+   "unit": 8,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "la-kernel-dimension"
+   ],
+   "partial": []
+  },
+  {
+   "code": "LA-8.2.B",
+   "unit": 8,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "la-matrix-relative-to-basis"
    ],
    "partial": []
   }

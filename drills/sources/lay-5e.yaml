@@ -15,17 +15,18 @@ chapters:
       - { ref: "1.1", title: "Systems of Linear Equations" }
       - { ref: "1.2", title: "Row Reduction and Echelon Forms", skills: [la.row-reduction],
           wiki: textbooks/lay-linear-algebra-applications/ch01-row-reduction }
-      - { ref: "1.3", title: "Vector Equations" }
+      - { ref: "1.3", title: "Vector Equations", skills: [la.span] }
       - { ref: "1.4", title: "The Matrix Equation Ax = b" }
-      - { ref: "1.5", title: "Solution Sets of Linear Systems" }
+      - { ref: "1.5", title: "Solution Sets of Linear Systems", skills: [la.span] }
       - { ref: "1.7", title: "Linear Independence", skills: [la.independence] }
       - { ref: "1.8", title: "Introduction to Linear Transformations" }
-      - { ref: "1.9", title: "The Matrix of a Linear Transformation" }
+      - { ref: "1.9", title: "The Matrix of a Linear Transformation", skills: [la.transformations] }
   - n: 2
     title: "Matrix Algebra"
     wiki: textbooks/lay-linear-algebra-applications/ch02
     sections:
-      - { ref: "2.1", title: "Matrix Operations" }
+      - { ref: "2.1", title: "Matrix Operations", skills: [la.matrix-ops] }
+      - { ref: "2.5", title: "Matrix Factorizations", skills: [la.lu] }   # 2.5, 5.5, 5.6: from memory
       - { ref: "2.2", title: "The Inverse of a Matrix", skills: [la.inverse],
           wiki: textbooks/lay-linear-algebra-applications/ch02-matrix-inverse }
       - { ref: "2.3", title: "Characterizations of Invertible Matrices" }
@@ -35,12 +36,12 @@ chapters:
     sections:
       - { ref: "3.1", title: "Introduction to Determinants", skills: [la.determinant],
           wiki: textbooks/lay-linear-algebra-applications/ch03-determinant }
-      - { ref: "3.2", title: "Properties of Determinants" }
-      - { ref: "3.3", title: "Cramer's Rule, Volume, and Linear Transformations" }
+      - { ref: "3.2", title: "Properties of Determinants", skills: [la.det-properties] }
+      - { ref: "3.3", title: "Cramer's Rule, Volume, and Linear Transformations", skills: [la.det-properties] }
   # chapters 4, 6 and 7: titles from memory, not checked against the published contents
   - n: 4
     title: "Vector Spaces"
-    skills: [la.rank]
+    skills: [la.rank, la.subspaces, la.coordinates, la.transformations]
   - n: 5
     title: "Eigenvalues and Eigenvectors"
     wiki: textbooks/lay-linear-algebra-applications/ch05
@@ -49,9 +50,11 @@ chapters:
       - { ref: "5.2", title: "The Characteristic Equation", skills: [la.eigenvalues],
           wiki: textbooks/lay-linear-algebra-applications/ch05-eigenvalue }
       - { ref: "5.3", title: "Diagonalization", skills: [la.diagonalization] }
+      - { ref: "5.5", title: "Complex Eigenvalues", skills: [la.eigen-applications] }
+      - { ref: "5.6", title: "Discrete Dynamical Systems", skills: [la.eigen-applications] }
   - n: 6
     title: "Orthogonality and Least Squares"
     skills: [la.orthogonality, la.least-squares]
   - n: 7
     title: "Symmetric Matrices and Quadratic Forms"
-    skills: [la.diagonalization]
+    skills: [la.diagonalization, la.quadratic-forms, la.svd]
