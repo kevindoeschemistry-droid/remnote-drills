@@ -343,6 +343,1178 @@
      ]
     }
    ]
+  },
+  {
+   "id": "usnco-stoich",
+   "n": 5,
+   "title": "USNCO band 1: stoichiometry and solutions",
+   "scope": "core",
+   "std": [
+    "usnco:1"
+   ],
+   "ideas": [
+    "EXACT"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "Stoichiometry and solutions",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "usnco:1"
+       ],
+       "do": "Find a C:H ratio from combustion analysis.",
+       "ek": [
+        "All C ends in CO₂ and all H in H₂O; compare moles."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "co-combustion-ratio"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "usnco:1"
+       ],
+       "do": "Find the water of crystallisation of a hydrate.",
+       "ek": [
+        "n = (mass of water / 18.015) / (mass of anhydrous salt / M)."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "co-hydrate-n"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "usnco:1"
+       ],
+       "do": "Prepare a solution of given molality.",
+       "ek": [
+        "Molality is moles of solute per kilogram of solvent."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "co-molality-mass"
+       ]
+      },
+      {
+       "id": "D",
+       "std": [
+        "usnco:1"
+       ],
+       "do": "Find a product yield from a limiting reagent.",
+       "ek": [
+        "Convert both reactants to moles of product; the smaller wins."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "co-limiting-yield"
+       ]
+      },
+      {
+       "id": "E",
+       "std": [
+        "usnco:1"
+       ],
+       "do": "Work a back titration.",
+       "ek": [
+        "Excess reagent is titrated; what reacted is total minus excess."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "co-back-titration"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "usnco-lab",
+   "n": 6,
+   "title": "USNCO band 2: descriptive chemistry and the laboratory",
+   "scope": "core",
+   "std": [
+    "usnco:2"
+   ],
+   "ideas": [
+    "EXACT"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "Descriptive and laboratory chemistry",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "usnco:2"
+       ],
+       "do": "Know flame-test colours.",
+       "ek": [
+        "Li crimson, Na yellow, K lilac, Ca orange-red, Sr red, Ba pale green, Cu blue-green."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "co-flame-test"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "usnco:2"
+       ],
+       "do": "Choose a reagent that tells two salts apart.",
+       "ek": [
+        "Pick a reagent that gives a precipitate, gas or colour with one and not the other."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "co-distinguish-salts"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "usnco:2"
+       ],
+       "do": "Recall the colours of common precipitates and ions.",
+       "ek": [
+        "AgCl white, AgBr cream, AgI yellow, PbI₂ bright yellow, Cu(OH)₂ blue, Fe(OH)₃ rust-brown, Fe(OH)₂ green, CuS and PbS black."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "co-precipitate-colour"
+       ]
+      },
+      {
+       "id": "D",
+       "std": [
+        "usnco:2"
+       ],
+       "do": "Choose a colorimeter wavelength.",
+       "ek": [
+        "Measure at the colour the solution absorbs: the complement of the colour you see."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "co-colorimeter-led"
+       ]
+      },
+      {
+       "id": "E",
+       "std": [
+        "usnco:2"
+       ],
+       "do": "Predict the direction of a laboratory error.",
+       "ek": [
+        "Follow the error through the calculation: which measured quantity is too big or too small?"
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "co-lab-error"
+       ]
+      },
+      {
+       "id": "F",
+       "std": [
+        "usnco:2"
+       ],
+       "do": "Correct a gas collected over water.",
+       "ek": [
+        "p_gas = P_total − p_water; then n = pV/RT."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "co-gas-over-water"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "usnco-states",
+   "n": 7,
+   "title": "USNCO band 3: states of matter",
+   "scope": "core",
+   "std": [
+    "usnco:3"
+   ],
+   "ideas": [
+    "EXACT"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "Gases, liquids and solids",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "usnco:3"
+       ],
+       "do": "Find a density from a cubic unit cell.",
+       "ek": [
+        "ρ = Z M / (N_A a³); Z = 1, 2, 4 for sc, bcc, fcc."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "co-unit-cell-density"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "usnco:3"
+       ],
+       "do": "Give coordination numbers in common ionic structures.",
+       "ek": [
+        "Rock salt 6:6; CsCl 8:8; zinc blende 4:4; fluorite Ca 8, F 4; rutile Ti 6, O 3."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "co-coordination-structure"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "usnco:3"
+       ],
+       "do": "Find how much liquid remains when some evaporates into a closed flask.",
+       "ek": [
+        "Vapour moles = P_vap V/RT; if less than the total, the rest stays liquid."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "co-liquid-remaining"
+       ]
+      },
+      {
+       "id": "D",
+       "std": [
+        "usnco:3"
+       ],
+       "do": "Use Graham's law.",
+       "ek": [
+        "Effusion rate ∝ 1/√M."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "co-graham"
+       ]
+      },
+      {
+       "id": "E",
+       "std": [
+        "usnco:3"
+       ],
+       "do": "Rank substances by boiling or melting point.",
+       "ek": [
+        "Ionic and network solids first; then hydrogen bonding; then dispersion, which grows with size and surface area."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "co-boiling-rank"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "usnco-thermo",
+   "n": 8,
+   "title": "USNCO band 4: thermodynamics",
+   "scope": "core",
+   "std": [
+    "usnco:4"
+   ],
+   "ideas": [
+    "EXACT"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "Thermodynamics",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "usnco:4"
+       ],
+       "do": "Find K from ΔH° and ΔS° at a temperature.",
+       "ek": [
+        "ΔG° = ΔH° − TΔS°; K = e^{−ΔG°/RT}."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "co-k-from-dh-ds"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "usnco:4"
+       ],
+       "do": "Find the temperature at which a reaction becomes spontaneous.",
+       "ek": [
+        "T = ΔH°/ΔS° when both have the same sign."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "co-crossover-temperature"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "usnco:4"
+       ],
+       "do": "Find an enthalpy of solution from calorimetry.",
+       "ek": [
+        "q = m c ΔT absorbed by the solution; ΔH_soln = −q/n."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "co-enthalpy-solution"
+       ]
+      },
+      {
+       "id": "D",
+       "std": [
+        "usnco:4"
+       ],
+       "do": "Predict the sign of ΔS.",
+       "ek": [
+        "More moles of gas, dissolving a solid, melting and mixing raise entropy; forming fewer, more ordered particles lowers it."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "co-entropy-sign"
+       ]
+      },
+      {
+       "id": "E",
+       "std": [
+        "usnco:4"
+       ],
+       "do": "Close a Hess's-law cycle.",
+       "ek": [
+        "Reverse and scale the given reactions until they add to the target; do the same to their ΔH."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "co-hess-cycle"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "usnco-kinetics",
+   "n": 9,
+   "title": "USNCO band 5: kinetics",
+   "scope": "core",
+   "std": [
+    "usnco:5"
+   ],
+   "ideas": [
+    "EXACT"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "Kinetics",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "usnco:5"
+       ],
+       "do": "Find a reaction order from initial-rate data.",
+       "ek": [
+        "Order = log(rate ratio)/log(concentration ratio)."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "co-order-from-rates"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "usnco:5"
+       ],
+       "do": "Find the rate law from a mechanism with a fast pre-equilibrium.",
+       "ek": [
+        "Rate = k₂K₁[...]: substitute the intermediate from the equilibrium."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "co-preequilibrium-order"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "usnco:5"
+       ],
+       "do": "Find product fractions for parallel first-order reactions.",
+       "ek": [
+        "Fraction of B = k_B/(k_B + k_C); with Arrhenius, the higher-Eₐ path grows with T."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "co-parallel-arrhenius"
+       ]
+      },
+      {
+       "id": "D",
+       "std": [
+        "usnco:5"
+       ],
+       "do": "Use a kinetic isotope effect.",
+       "ek": [
+        "C–D bonds have lower zero-point energy than C–H, so breaking them in the rate-determining step is slower (k_H/k_D ≈ 2–7)."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "co-isotope-effect"
+       ]
+      },
+      {
+       "id": "E",
+       "std": [
+        "usnco:5"
+       ],
+       "do": "Find the activity of a daughter after a decay chain reaches secular equilibrium.",
+       "ek": [
+        "When the parent lives much longer, daughter activity equals parent activity."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "co-secular-equilibrium"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "usnco-equilibrium",
+   "n": 10,
+   "title": "USNCO band 6: equilibrium",
+   "scope": "core",
+   "std": [
+    "usnco:6"
+   ],
+   "ideas": [
+    "EXACT"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "Equilibrium",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "usnco:6"
+       ],
+       "do": "Combine equilibrium constants.",
+       "ek": [
+        "Reverse: 1/K; multiply by n: Kⁿ; add reactions: multiply K's."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "co-combine-k"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "usnco:6"
+       ],
+       "do": "Find pKa from a percent ionisation.",
+       "ek": [
+        "Ka = c α²/(1 − α)."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "co-pka-from-ionisation"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "usnco:6"
+       ],
+       "do": "Find a solubility enhanced by complex formation.",
+       "ek": [
+        "AgCl + 2NH₃ ⇌ Ag(NH₃)₂⁺ + Cl⁻ with K = K_sp K_f; s ≈ √K [NH₃]."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "co-complex-solubility"
+       ]
+      },
+      {
+       "id": "D",
+       "std": [
+        "usnco:6"
+       ],
+       "do": "Write and use K for a heterogeneous equilibrium.",
+       "ek": [
+        "Pure solids and liquids are left out of K."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "co-heterogeneous-kp"
+       ]
+      },
+      {
+       "id": "E",
+       "std": [
+        "usnco:6"
+       ],
+       "do": "Find the pH at points of a diprotic titration.",
+       "ek": [
+        "First half-equivalence: pH = pKa₁; first equivalence: (pKa₁ + pKa₂)/2; second half-equivalence: pKa₂."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "co-diprotic-points"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "usnco-redox",
+   "n": 11,
+   "title": "USNCO band 7: oxidation–reduction and electrochemistry",
+   "scope": "core",
+   "std": [
+    "usnco:7"
+   ],
+   "ideas": [
+    "EXACT"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "Redox and electrochemistry",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "usnco:7"
+       ],
+       "do": "Find an average oxidation state.",
+       "ek": [
+        "Charge balance with the usual values for the other atoms."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "co-average-ox-state"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "usnco:7"
+       ],
+       "do": "Combine half-reaction potentials.",
+       "ek": [
+        "Potentials do not add; ΔG = −nFE does: E₃ = (n₁E₁ + n₂E₂)/(n₁ + n₂)."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "co-combine-potentials"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "usnco:7"
+       ],
+       "do": "Use the Nernst equation.",
+       "ek": [
+        "E = E° − (RT/nF) ln Q."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "co-nernst"
+       ]
+      },
+      {
+       "id": "D",
+       "std": [
+        "usnco:7"
+       ],
+       "do": "Find K from a standard cell potential.",
+       "ek": [
+        "ln K = nFE°/RT."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "co-k-from-e"
+       ]
+      },
+      {
+       "id": "E",
+       "std": [
+        "usnco:7"
+       ],
+       "do": "Count electrons in a redox half-reaction.",
+       "ek": [
+        "Change in oxidation state × atoms changed."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "co-half-electrons"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "usnco-atomic",
+   "n": 12,
+   "title": "USNCO band 8: atomic structure and periodicity",
+   "scope": "core",
+   "std": [
+    "usnco:8"
+   ],
+   "ideas": [
+    "EXACT"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "Atomic structure",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "usnco:8"
+       ],
+       "do": "Identify a group from successive ionisation energies.",
+       "ek": [
+        "The big jump comes after the last valence electron."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "co-ionisation-jump"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "usnco:8"
+       ],
+       "do": "Count electrons with given quantum numbers.",
+       "ek": [
+        "Each orbital holds 2; there are 2l + 1 orbitals per subshell and n² per shell."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "co-quantum-count"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "usnco:8"
+       ],
+       "do": "Explain anomalies in periodic trends.",
+       "ek": [
+        "Half-filled and filled subshells resist adding or removing electrons."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "co-trend-anomaly"
+       ]
+      },
+      {
+       "id": "D",
+       "std": [
+        "usnco:8"
+       ],
+       "do": "Find the wavelength of a hydrogen transition.",
+       "ek": [
+        "1/λ = R_H(1/n₁² − 1/n₂²), R_H = 1.097×10⁷ m⁻¹."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "co-hydrogen-line"
+       ]
+      },
+      {
+       "id": "E",
+       "std": [
+        "usnco:8"
+       ],
+       "do": "Count unpaired electrons in a transition-metal ion.",
+       "ek": [
+        "Remove s electrons first, then put the d electrons into five orbitals by Hund's rule (free ion)."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "co-unpaired-ion"
+       ]
+      },
+      {
+       "id": "F",
+       "std": [
+        "usnco:8"
+       ],
+       "do": "Predict a radioactive decay mode.",
+       "ek": [
+        "Neutron-rich nuclides β⁻ decay; proton-rich ones β⁺ or capture electrons; very heavy ones α decay."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "co-decay-mode"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "usnco-bonding",
+   "n": 13,
+   "title": "USNCO band 9: bonding and molecular structure",
+   "scope": "core",
+   "std": [
+    "usnco:9"
+   ],
+   "ideas": [
+    "EXACT"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "Bonding and structure",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "usnco:9"
+       ],
+       "do": "Predict a VSEPR shape including lone pairs.",
+       "ek": [
+        "Count electron domains, then name the shape from the atoms only."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "co-vsepr-shape"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "usnco:9"
+       ],
+       "do": "Count the stereoisomers of an octahedral complex.",
+       "ek": [
+        "Enumerate arrangements up to rotation; mirror images count separately."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "co-octahedral-isomers"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "usnco:9"
+       ],
+       "do": "Find a bond order from a molecular-orbital diagram.",
+       "ek": [
+        "Bond order = (bonding − antibonding)/2."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "co-mo-bond-order"
+       ]
+      },
+      {
+       "id": "D",
+       "std": [
+        "usnco:9"
+       ],
+       "do": "Choose the most stable resonance arrangement or isomer by formal charge.",
+       "ek": [
+        "Prefer formal charges near zero, with negative charge on the more electronegative atom."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "co-formal-charge"
+       ]
+      },
+      {
+       "id": "E",
+       "std": [
+        "usnco:9"
+       ],
+       "do": "Find a fractional bond order from resonance.",
+       "ek": [
+        "Spread the π bonds over the equivalent positions: bond order = total bonds / positions."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "co-resonance-bond-order"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "usnco-organic",
+   "n": 14,
+   "title": "USNCO band 10: organic chemistry, biochemistry and spectroscopy",
+   "scope": "core",
+   "std": [
+    "usnco:10"
+   ],
+   "ideas": [
+    "EXACT"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "Organic and biochemistry",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "usnco:10"
+       ],
+       "do": "Count structural isomers.",
+       "ek": [
+        "Enumerate chains, then branches; include rings when the formula allows."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "co-isomer-count"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "usnco:10"
+       ],
+       "do": "Find the degree of unsaturation.",
+       "ek": [
+        "DoU = (2C + 2 + N − H − X)/2: rings plus π bonds."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "co-unsaturation"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "usnco:10"
+       ],
+       "do": "Assign an infrared band.",
+       "ek": [
+        "O–H broad 3200–3550; C=O sharp near 1700; C≡N near 2250; C–H just below 3000 (sp³) or above (sp²)."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "co-ir-band"
+       ]
+      },
+      {
+       "id": "D",
+       "std": [
+        "usnco:10"
+       ],
+       "do": "Count ¹H NMR environments.",
+       "ek": [
+        "Equivalent hydrogens (by symmetry) give one signal."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "co-nmr-environments"
+       ]
+      },
+      {
+       "id": "E",
+       "std": [
+        "usnco:10"
+       ],
+       "do": "Identify the monomer of a polymer.",
+       "ek": [
+        "Addition polymers repeat the alkene's carbons; condensation polymers lose a small molecule at each link."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "co-monomer"
+       ]
+      },
+      {
+       "id": "F",
+       "std": [
+        "usnco:10"
+       ],
+       "do": "Find an amino acid's isoelectric point.",
+       "ek": [
+        "pI is the average of the two pKa values on either side of the neutral form."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "co-isoelectric"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "usnco-part2",
+   "n": 15,
+   "title": "USNCO Part II: multi-step problems",
+   "scope": "core",
+   "std": [
+    "usnco:1",
+    "usnco:3",
+    "usnco:4"
+   ],
+   "ideas": [
+    "EXACT"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "Linked problems",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "usnco:P2",
+        "usnco:6"
+       ],
+       "do": "Find a molar solubility with a common ion, then compare it with pure water.",
+       "ek": [
+        "Ksp = s(s + c) ≈ s c when c ≫ s."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "co-p2-common-ion"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "usnco:P2",
+        "usnco:7"
+       ],
+       "do": "Get ΔS° of a cell reaction from the temperature dependence of E°.",
+       "ek": [
+        "ΔS° = nF(dE°/dT); ΔH° = ΔG° + TΔS°."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "co-p2-cell-entropy"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "usnco:P2",
+        "usnco:4"
+       ],
+       "do": "Find ΔS° from ΔG° and calorimetric ΔH°.",
+       "ek": [
+        "ΔG° = −RT ln K; ΔS° = (ΔH° − ΔG°)/T."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "co-p2-entropy-from-k"
+       ]
+      },
+      {
+       "id": "D",
+       "std": [
+        "usnco:P2",
+        "usnco:1"
+       ],
+       "do": "Find a hydrate's water count from an iodometric titration.",
+       "ek": [
+        "Cu²⁺ + I⁻ → CuI + ½I₂; I₂ + 2 S₂O₃²⁻: one thiosulfate per Cu."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "co-p2-iodometric"
+       ]
+      },
+      {
+       "id": "E",
+       "std": [
+        "usnco:P2",
+        "usnco:3"
+       ],
+       "do": "Find a density and an oxidation state from a perovskite unit cell.",
+       "ek": [
+        "ABO₃: A at the corners (1), B at the centre (1), O at the face centres (3)."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "co-p2-perovskite"
+       ]
+      },
+      {
+       "id": "F",
+       "std": [
+        "usnco:P2",
+        "usnco:8"
+       ],
+       "do": "Find a photon energy per mole for bond breaking.",
+       "ek": [
+        "E = N_A hc/λ."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "co-p2-photon-kj"
+       ]
+      }
+     ]
+    }
+   ]
   }
  ],
  "rows": [
@@ -483,6 +1655,596 @@
    "status": "ok",
    "full": [
     "co-nmr-multiplicity"
+   ],
+   "partial": []
+  },
+  {
+   "code": "CO-5.1.A",
+   "unit": 5,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "co-combustion-ratio"
+   ],
+   "partial": []
+  },
+  {
+   "code": "CO-5.1.B",
+   "unit": 5,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "co-hydrate-n"
+   ],
+   "partial": []
+  },
+  {
+   "code": "CO-5.1.C",
+   "unit": 5,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "co-molality-mass"
+   ],
+   "partial": []
+  },
+  {
+   "code": "CO-5.1.D",
+   "unit": 5,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "co-limiting-yield"
+   ],
+   "partial": []
+  },
+  {
+   "code": "CO-5.1.E",
+   "unit": 5,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "co-back-titration"
+   ],
+   "partial": []
+  },
+  {
+   "code": "CO-6.1.A",
+   "unit": 6,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "co-flame-test"
+   ],
+   "partial": []
+  },
+  {
+   "code": "CO-6.1.B",
+   "unit": 6,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "co-distinguish-salts"
+   ],
+   "partial": []
+  },
+  {
+   "code": "CO-6.1.C",
+   "unit": 6,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "co-precipitate-colour"
+   ],
+   "partial": []
+  },
+  {
+   "code": "CO-6.1.D",
+   "unit": 6,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "co-colorimeter-led"
+   ],
+   "partial": []
+  },
+  {
+   "code": "CO-6.1.E",
+   "unit": 6,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "co-lab-error"
+   ],
+   "partial": []
+  },
+  {
+   "code": "CO-6.1.F",
+   "unit": 6,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "co-gas-over-water"
+   ],
+   "partial": []
+  },
+  {
+   "code": "CO-7.1.A",
+   "unit": 7,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "co-unit-cell-density"
+   ],
+   "partial": []
+  },
+  {
+   "code": "CO-7.1.B",
+   "unit": 7,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "co-coordination-structure"
+   ],
+   "partial": []
+  },
+  {
+   "code": "CO-7.1.C",
+   "unit": 7,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "co-liquid-remaining"
+   ],
+   "partial": []
+  },
+  {
+   "code": "CO-7.1.D",
+   "unit": 7,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "co-graham"
+   ],
+   "partial": []
+  },
+  {
+   "code": "CO-7.1.E",
+   "unit": 7,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "co-boiling-rank"
+   ],
+   "partial": []
+  },
+  {
+   "code": "CO-8.1.A",
+   "unit": 8,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "co-k-from-dh-ds"
+   ],
+   "partial": []
+  },
+  {
+   "code": "CO-8.1.B",
+   "unit": 8,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "co-crossover-temperature"
+   ],
+   "partial": []
+  },
+  {
+   "code": "CO-8.1.C",
+   "unit": 8,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "co-enthalpy-solution"
+   ],
+   "partial": []
+  },
+  {
+   "code": "CO-8.1.D",
+   "unit": 8,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "co-entropy-sign"
+   ],
+   "partial": []
+  },
+  {
+   "code": "CO-8.1.E",
+   "unit": 8,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "co-hess-cycle"
+   ],
+   "partial": []
+  },
+  {
+   "code": "CO-9.1.A",
+   "unit": 9,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "co-order-from-rates"
+   ],
+   "partial": []
+  },
+  {
+   "code": "CO-9.1.B",
+   "unit": 9,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "co-preequilibrium-order"
+   ],
+   "partial": []
+  },
+  {
+   "code": "CO-9.1.C",
+   "unit": 9,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "co-parallel-arrhenius"
+   ],
+   "partial": []
+  },
+  {
+   "code": "CO-9.1.D",
+   "unit": 9,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "co-isotope-effect"
+   ],
+   "partial": []
+  },
+  {
+   "code": "CO-9.1.E",
+   "unit": 9,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "co-secular-equilibrium"
+   ],
+   "partial": []
+  },
+  {
+   "code": "CO-10.1.A",
+   "unit": 10,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "co-combine-k"
+   ],
+   "partial": []
+  },
+  {
+   "code": "CO-10.1.B",
+   "unit": 10,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "co-pka-from-ionisation"
+   ],
+   "partial": []
+  },
+  {
+   "code": "CO-10.1.C",
+   "unit": 10,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "co-complex-solubility"
+   ],
+   "partial": []
+  },
+  {
+   "code": "CO-10.1.D",
+   "unit": 10,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "co-heterogeneous-kp"
+   ],
+   "partial": []
+  },
+  {
+   "code": "CO-10.1.E",
+   "unit": 10,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "co-diprotic-points"
+   ],
+   "partial": []
+  },
+  {
+   "code": "CO-11.1.A",
+   "unit": 11,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "co-average-ox-state"
+   ],
+   "partial": []
+  },
+  {
+   "code": "CO-11.1.B",
+   "unit": 11,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "co-combine-potentials"
+   ],
+   "partial": []
+  },
+  {
+   "code": "CO-11.1.C",
+   "unit": 11,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "co-nernst"
+   ],
+   "partial": []
+  },
+  {
+   "code": "CO-11.1.D",
+   "unit": 11,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "co-k-from-e"
+   ],
+   "partial": []
+  },
+  {
+   "code": "CO-11.1.E",
+   "unit": 11,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "co-half-electrons"
+   ],
+   "partial": []
+  },
+  {
+   "code": "CO-12.1.A",
+   "unit": 12,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "co-ionisation-jump"
+   ],
+   "partial": []
+  },
+  {
+   "code": "CO-12.1.B",
+   "unit": 12,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "co-quantum-count"
+   ],
+   "partial": []
+  },
+  {
+   "code": "CO-12.1.C",
+   "unit": 12,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "co-trend-anomaly"
+   ],
+   "partial": []
+  },
+  {
+   "code": "CO-12.1.D",
+   "unit": 12,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "co-hydrogen-line"
+   ],
+   "partial": []
+  },
+  {
+   "code": "CO-12.1.E",
+   "unit": 12,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "co-unpaired-ion"
+   ],
+   "partial": []
+  },
+  {
+   "code": "CO-12.1.F",
+   "unit": 12,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "co-decay-mode"
+   ],
+   "partial": []
+  },
+  {
+   "code": "CO-13.1.A",
+   "unit": 13,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "co-vsepr-shape"
+   ],
+   "partial": []
+  },
+  {
+   "code": "CO-13.1.B",
+   "unit": 13,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "co-octahedral-isomers"
+   ],
+   "partial": []
+  },
+  {
+   "code": "CO-13.1.C",
+   "unit": 13,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "co-mo-bond-order"
+   ],
+   "partial": []
+  },
+  {
+   "code": "CO-13.1.D",
+   "unit": 13,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "co-formal-charge"
+   ],
+   "partial": []
+  },
+  {
+   "code": "CO-13.1.E",
+   "unit": 13,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "co-resonance-bond-order"
+   ],
+   "partial": []
+  },
+  {
+   "code": "CO-14.1.A",
+   "unit": 14,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "co-isomer-count"
+   ],
+   "partial": []
+  },
+  {
+   "code": "CO-14.1.B",
+   "unit": 14,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "co-unsaturation"
+   ],
+   "partial": []
+  },
+  {
+   "code": "CO-14.1.C",
+   "unit": 14,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "co-ir-band"
+   ],
+   "partial": []
+  },
+  {
+   "code": "CO-14.1.D",
+   "unit": 14,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "co-nmr-environments"
+   ],
+   "partial": []
+  },
+  {
+   "code": "CO-14.1.E",
+   "unit": 14,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "co-monomer"
+   ],
+   "partial": []
+  },
+  {
+   "code": "CO-14.1.F",
+   "unit": 14,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "co-isoelectric"
+   ],
+   "partial": []
+  },
+  {
+   "code": "CO-15.1.A",
+   "unit": 15,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "co-p2-common-ion"
+   ],
+   "partial": []
+  },
+  {
+   "code": "CO-15.1.B",
+   "unit": 15,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "co-p2-cell-entropy"
+   ],
+   "partial": []
+  },
+  {
+   "code": "CO-15.1.C",
+   "unit": 15,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "co-p2-entropy-from-k"
+   ],
+   "partial": []
+  },
+  {
+   "code": "CO-15.1.D",
+   "unit": 15,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "co-p2-iodometric"
+   ],
+   "partial": []
+  },
+  {
+   "code": "CO-15.1.E",
+   "unit": 15,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "co-p2-perovskite"
+   ],
+   "partial": []
+  },
+  {
+   "code": "CO-15.1.F",
+   "unit": 15,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "co-p2-photon-kj"
    ],
    "partial": []
   }

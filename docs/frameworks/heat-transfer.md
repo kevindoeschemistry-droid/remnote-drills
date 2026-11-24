@@ -626,3 +626,10 @@ Book: incropera-8e §6.7, §7.8
 - ● **HT-14.2.B** Solve a coupled heat and mass balance at an evaporating surface (wet bulb).
   - EK: h(T∞ − T_s) = h_m h_fg(ρ_A,s − ρ_A,∞).
   - P1 · P4 · drills: ht3-mc-evap
+
+## Drills not yet placed on the map
+
+- gc-brinkman (ht.heat-equation)
+- gc-brinkman-adiabatic (ht.heat-equation)
+- gc-stefan-freeze (ht.semi-infinite)
+- gc-stefan-thickness (ht.semi-infinite)

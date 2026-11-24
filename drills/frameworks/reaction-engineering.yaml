@@ -61,8 +61,8 @@ units:
         title: "Rate laws and order"
         los:
           - { id: A, std: ["fe-chemical:12.A"], do: "Evaluate a power-law rate, find the order from how the rate responds to concentration, and read the order from the units of k.", ek: ["Doubling C multiplies an nth-order rate by 2ⁿ; k carries (mol/L)^(1−n) per time."], p: [P1], drills: [cre-rate-from-law, cre-order-from-doubling, cre-rate-constant-units] }
-          - { id: B, std: ["fe-chemical:12.A"], do: "Compute a first-order half-life.", ek: ["t½ = ln 2 / k, independent of the starting concentration."], p: [P1], drills: [cre-half-life] }
-          - { id: C, do: "Find the equilibrium conversion of a reversible reaction from K_C.", ek: ["A ⇌ B: X_e = K/(1 + K). A + B ⇌ C, equimolar: K C_A0 (1 − X)² = X."], p: [P1], needs: [RE-1.1.A], drills: [re-equil-conversion] }
+          - { id: B, std: ["fe-chemical:12.A"], do: "Compute a first-order half-life.", ek: ["t½ = ln 2 / k, independent of the starting concentration."], p: [P1], drills: [cre-half-life, re-k-from-fraction] }
+          - { id: C, do: "Find the equilibrium conversion of a reversible reaction from K_C.", ek: ["A ⇌ B: X_e = K/(1 + K). A + B ⇌ C, equimolar: K C_A0 (1 − X)² = X."], p: [P1], needs: [RE-1.1.A], drills: [re-equil-conversion, re-kc-from-conversion] }
       - n: 2
         title: "Temperature dependence"
         los:
@@ -70,15 +70,15 @@ units:
       - n: 3
         title: "Stoichiometry"
         los:
-          - { id: A, do: "Convert a rate for one species into the rate for another.", ek: ["−r_A/a = −r_B/b = r_C/c."], p: [P1], drills: [re-relative-rates] }
-          - { id: B, do: "Compute ε for a gas-phase feed, with inerts.", ek: ["ε = y_A0 δ, δ = change in gas moles per mole of A."], p: [P1], needs: [RE-1.3.A], drills: [re-epsilon] }
-          - { id: C, do: "Write C_A in a gas-phase flow reactor with a change in moles, temperature and pressure.", ek: ["C_A = C_A0 (1 − X)/(1 + εX) · (P/P₀)(T₀/T)."], p: [P1], needs: [RE-1.3.B], drills: [re-gas-conc] }
+          - { id: A, do: "Convert a rate for one species into the rate for another.", ek: ["−r_A/a = −r_B/b = r_C/c."], p: [P1], drills: [re-relative-rates, re-net-rate] }
+          - { id: B, do: "Compute ε for a gas-phase feed, with inerts.", ek: ["ε = y_A0 δ, δ = change in gas moles per mole of A."], p: [P1], needs: [RE-1.3.A], drills: [re-epsilon, re-inert-from-epsilon] }
+          - { id: C, do: "Write C_A in a gas-phase flow reactor with a change in moles, temperature and pressure.", ek: ["C_A = C_A0 (1 − X)/(1 + εX) · (P/P₀)(T₀/T)."], p: [P1], needs: [RE-1.3.B], drills: [re-gas-conc, re-exit-flow] }
       - n: 4
         title: "Rate data"
         los:
-          - { id: A, do: "Pick the order whose integrated rate law linearises a batch data set.", ek: ["Zero: C vs t; first: ln C vs t; second: 1/C vs t."], p: [P2], needs: [RE-2.1.A], drills: [re-integral-plot] }
-          - { id: B, do: "Find the order from how the half-life depends on C_A0.", ek: ["t½ ∝ C_A0^(1 − n)."], p: [P1], needs: [RE-1.1.B], drills: [re-half-life-order] }
-          - { id: C, do: "Find an order from initial rates when two concentrations change at once.", ek: ["Divide the rate laws; remove the known factor first."], p: [P1], needs: [RE-1.1.A], drills: [re-initial-rates] }
+          - { id: A, do: "Pick the order whose integrated rate law linearises a batch data set.", ek: ["Zero: C vs t; first: ln C vs t; second: 1/C vs t."], p: [P2], needs: [RE-2.1.A], drills: [re-integral-plot, re-k-two-points] }
+          - { id: B, do: "Find the order from how the half-life depends on C_A0.", ek: ["t½ ∝ C_A0^(1 − n)."], p: [P1], needs: [RE-1.1.B], drills: [re-half-life-order, re-half-life-predict] }
+          - { id: C, do: "Find an order from initial rates when two concentrations change at once.", ek: ["Divide the rate laws; remove the known factor first."], p: [P1], needs: [RE-1.1.A], drills: [re-initial-rates, re-rate-predict] }
   - id: reactors
     n: 2
     title: "Ideal reactors"
@@ -94,18 +94,18 @@ units:
         title: "CSTR"
         los:
           - { id: A, std: ["fe-chemical:12.E"], do: "Size a CSTR for a conversion, find the conversion from the space time, and treat tanks in series.", ek: ["V = v₀X / [k(1 − X)]; X = kτ/(1 + kτ); n equal tanks give C/C₀ = 1/(1 + kτ)ⁿ."], p: [P1], drills: [cre-cstr-volume, cre-cstr-conversion, cre-cstrs-in-series, sc-cstr-volume-conversion] }
-          - { id: B, do: "Find the conversion of a second-order reaction in a CSTR.", ek: ["τkC_A0 = X/(1 − X)²; take the root below 1."], p: [P1], needs: [RE-2.2.A], drills: [re-cstr-second-order] }
-          - { id: C, do: "Find how long a CSTR takes to approach steady state after start-up.", ek: ["t = τ ln[1/(1 − f)]/(1 + τk); 99% ≈ 4.6τ/(1 + τk)."], p: [P1], needs: [RE-2.2.A], drills: [re-cstr-startup] }
+          - { id: B, do: "Find the conversion of a second-order reaction in a CSTR.", ek: ["τkC_A0 = X/(1 − X)²; take the root below 1."], p: [P1], needs: [RE-2.2.A], drills: [re-cstr-second-order, re-cstr2-volume] }
+          - { id: C, do: "Find how long a CSTR takes to approach steady state after start-up.", ek: ["t = τ ln[1/(1 − f)]/(1 + τk); 99% ≈ 4.6τ/(1 + τk)."], p: [P1], needs: [RE-2.2.A], drills: [re-cstr-startup, re-cstr-approach] }
       - n: 3
         title: "PFR"
         los:
           - { id: A, std: ["fe-chemical:12.E"], do: "Size a plug-flow reactor and compare it with a CSTR.", ek: ["V = (v₀/k) ln[1/(1 − X)]; for positive order a PFR is always smaller."], p: [P1, P2], drills: [cre-pfr-volume, cre-reactor-comparison] }
-          - { id: B, do: "Size a PFR for a gas-phase reaction with a change in moles, first or second order.", ek: ["C_A = C_A0(1 − X)/(1 + εX) inside the design integral."], p: [P1], needs: [RE-2.3.A, RE-1.3.C], drills: [re-pfr-gas-eps] }
-          - { id: C, do: "Size reactors in series (CSTR then PFR) from the Levenspiel plot.", ek: ["Rectangle for the CSTR, area under F_A0/(−r_A) for the PFR."], p: [P1, P2], needs: [RE-2.3.A], drills: [re-cstr-then-pfr] }
+          - { id: B, do: "Size a PFR for a gas-phase reaction with a change in moles, first or second order.", ek: ["C_A = C_A0(1 − X)/(1 + εX) inside the design integral."], p: [P1], needs: [RE-2.3.A, RE-1.3.C], drills: [re-pfr-gas-eps, re-epsilon-volume-ratio] }
+          - { id: C, do: "Size reactors in series (CSTR then PFR) from the Levenspiel plot.", ek: ["Rectangle for the CSTR, area under F_A0/(−r_A) for the PFR."], p: [P1, P2], needs: [RE-2.3.A], drills: [re-cstr-then-pfr, re-pfr-then-cstr] }
       - n: 4
         title: "Packed beds"
         los:
-          - { id: A, do: "Find the pressure ratio and conversion in an isothermal packed bed with pressure drop (ε = 0).", ek: ["y = (1 − αW)^½; ln[1/(1 − X)] = (k′/v₀)(2/3α)[1 − (1 − αW)^(3/2)]."], p: [P1], needs: [RE-2.3.A], drills: [re-pbr-pressure-drop] }
+          - { id: A, do: "Find the pressure ratio and conversion in an isothermal packed bed with pressure drop (ε = 0).", ek: ["y = (1 − αW)^½; ln[1/(1 − X)] = (k′/v₀)(2/3α)[1 − (1 − αW)^(3/2)]."], p: [P1], needs: [RE-2.3.A], drills: [re-pbr-pressure-drop, re-pbr-pressure] }
   - id: multiple
     n: 3
     title: "Multiple reactions"
@@ -116,11 +116,11 @@ units:
       - n: 1
         title: "Series and parallel"
         los:
-          - { id: A, std: ["fe-chemical:12.D"], do: "Find when the intermediate of a series reaction peaks.", ek: ["t_max = ln(k₁/k₂)/(k₁ − k₂)."], p: [P1], drills: [cre-series-optimum-time] }
+          - { id: A, std: ["fe-chemical:12.D"], do: "Find when the intermediate of a series reaction peaks.", ek: ["t_max = ln(k₁/k₂)/(k₁ − k₂)."], p: [P1], drills: [cre-series-optimum-time, re-series-cc] }
           - { id: B, std: ["fe-chemical:12.C", "fe-chemical:12.D"], do: "Compute the instantaneous selectivity of parallel reactions and choose the reactor that favours the desired one.", ek: ["S goes as C_A^(a_D − a_U): high concentration if the desired path has the higher order, low if the lower."], p: [P1, P2], drills: [cre-parallel-selectivity, cre-selectivity-strategy] }
-          - { id: C, do: "Find the highest intermediate concentration in a batch series reaction.", ek: ["C_B,max/C_A0 = (k₁/k₂)^(k₂/(k₂ − k₁))."], p: [P1], needs: [RE-3.1.A], drills: [re-series-bmax] }
-          - { id: D, do: "Find the space time that maximises the intermediate in a CSTR, and that maximum.", ek: ["τ_opt = 1/√(k₁k₂)."], p: [P1, P2], needs: [RE-3.1.C, RE-2.2.A], drills: [re-cstr-series-opt] }
-          - { id: E, do: "Compute the product made by parallel reactions in a CSTR or a PFR to a given conversion.", ek: ["CSTR: C_D = (C_A0 − C_A)φ(C_A). PFR: C_D = ∫φ dC_A."], p: [P1, P2], needs: [RE-3.1.B], drills: [re-parallel-overall] }
+          - { id: C, do: "Find the highest intermediate concentration in a batch series reaction.", ek: ["C_B,max/C_A0 = (k₁/k₂)^(k₂/(k₂ − k₁))."], p: [P1], needs: [RE-3.1.A], drills: [re-series-bmax, re-series-equal-k] }
+          - { id: D, do: "Find the space time that maximises the intermediate in a CSTR, and that maximum.", ek: ["τ_opt = 1/√(k₁k₂)."], p: [P1, P2], needs: [RE-3.1.C, RE-2.2.A], drills: [re-cstr-series-opt, re-cstr-series-yield] }
+          - { id: E, do: "Compute the product made by parallel reactions in a CSTR or a PFR to a given conversion.", ek: ["CSTR: C_D = (C_A0 − C_A)φ(C_A). PFR: C_D = ∫φ dC_A."], p: [P1, P2], needs: [RE-3.1.B], drills: [re-parallel-overall, re-instant-selectivity] }
   - id: catalysis
     n: 4
     title: "Catalysis"
@@ -132,8 +132,8 @@ units:
         title: "Surfaces"
         los:
           - { id: A, std: ["fe-chemical:12.F"], do: "Compute Langmuir coverage and state what a catalyst does and does not change.", ek: ["θ = KP/(1 + KP); a catalyst lowers the activation energy and leaves equilibrium alone."], p: [P1, P2], drills: [cre-langmuir-coverage, cre-catalysis-facts] }
-          - { id: B, do: "Evaluate a Langmuir–Hinshelwood rate law, single or dual site.", ek: ["θ_v = 1/(1 + K_AP_A + K_BP_B); dual site squares it."], p: [P1], needs: [RE-4.1.A], drills: [re-lh-rate] }
-          - { id: C, do: "Identify the rate-limiting step from the form of a catalytic rate law.", ek: ["The denominator lists the species whose adsorption is in equilibrium."], p: [P2], needs: [RE-4.1.B], drills: [re-rls-pick] }
+          - { id: B, do: "Evaluate a Langmuir–Hinshelwood rate law, single or dual site.", ek: ["θ_v = 1/(1 + K_AP_A + K_BP_B); dual site squares it."], p: [P1], needs: [RE-4.1.A], drills: [re-lh-rate, re-lh-max] }
+          - { id: C, do: "Identify the rate-limiting step from the form of a catalytic rate law.", ek: ["The denominator lists the species whose adsorption is in equilibrium."], p: [P2], needs: [RE-4.1.B], drills: [re-rls-pick, re-langmuir-coverage] }
   - id: mechanisms
     n: 5
     title: "Mechanisms and bioreactions"
@@ -144,15 +144,15 @@ units:
       - n: 1
         title: "Pseudo-steady state"
         los:
-          - { id: A, do: "Derive a rate law from a mechanism with the PSSH and evaluate it.", ek: ["Set the net rate of each active intermediate to zero; Lindemann: r = k₁k₃C²/(k₂C + k₃)."], p: [P1], needs: [RE-1.1.A], drills: [re-lindemann] }
-          - { id: B, do: "Read the apparent order of a PSSH rate law in its high and low limits.", ek: ["High C: first order; low C: second order."], p: [P2], needs: [RE-5.1.A], drills: [re-lindemann-order] }
+          - { id: A, do: "Derive a rate law from a mechanism with the PSSH and evaluate it.", ek: ["Set the net rate of each active intermediate to zero; Lindemann: r = k₁k₃C²/(k₂C + k₃)."], p: [P1], needs: [RE-1.1.A], drills: [re-lindemann, re-lindemann-falloff] }
+          - { id: B, do: "Read the apparent order of a PSSH rate law in its high and low limits.", ek: ["High C: first order; low C: second order."], p: [P2], needs: [RE-5.1.A], drills: [re-lindemann-order, re-apparent-order] }
       - n: 2
         title: "Enzymes and cells"
         los:
-          - { id: A, do: "Compute an enzyme rate from elementary steps (Michaelis–Menten).", ek: ["V_max = k₂E_t; K_m = (k₋₁ + k₂)/k₁."], p: [P1], needs: [RE-5.1.A], drills: [re-mm-steps] }
-          - { id: B, do: "Find V_max and K_m from rate data.", ek: ["1/r = (K_m/V_max)(1/S) + 1/V_max."], p: [P1], needs: [RE-5.2.A], drills: [re-mm-fit] }
-          - { id: C, do: "Classify an inhibitor from how it changes K_m and V_max.", ek: ["Competitive: K_m up. Uncompetitive: both down. Noncompetitive: V_max down."], p: [P2], needs: [RE-5.2.B], drills: [re-inhibition-type] }
-          - { id: D, do: "Find the steady state and washout of a chemostat with Monod growth.", ek: ["μ = D ⇒ S = K_sD/(μ_max − D); D_max = μ_max S₀/(K_s + S₀)."], p: [P1], needs: [RE-5.2.A, RE-2.2.A], drills: [re-chemostat] }
+          - { id: A, do: "Compute an enzyme rate from elementary steps (Michaelis–Menten).", ek: ["V_max = k₂E_t; K_m = (k₋₁ + k₂)/k₁."], p: [P1], needs: [RE-5.1.A], drills: [re-mm-steps, re-enzyme-bound-fraction] }
+          - { id: B, do: "Find V_max and K_m from rate data.", ek: ["1/r = (K_m/V_max)(1/S) + 1/V_max."], p: [P1], needs: [RE-5.2.A], drills: [re-mm-fit, re-substrate-for-rate] }
+          - { id: C, do: "Classify an inhibitor from how it changes K_m and V_max.", ek: ["Competitive: K_m up. Uncompetitive: both down. Noncompetitive: V_max down."], p: [P2], needs: [RE-5.2.B], drills: [re-inhibition-type, re-competitive-rate] }
+          - { id: D, do: "Find the steady state and washout of a chemostat with Monod growth.", ek: ["μ = D ⇒ S = K_sD/(μ_max − D); D_max = μ_max S₀/(K_s + S₀)."], p: [P1], needs: [RE-5.2.A, RE-2.2.A], drills: [re-chemostat, re-chemostat-productivity] }
   - id: energy
     n: 6
     title: "Nonisothermal reactors"
@@ -162,13 +162,13 @@ units:
       - n: 1
         title: "Adiabatic operation"
         los:
-          - { id: A, std: ["webwork-opl:TH13.9"], do: "Relate temperature and conversion in an adiabatic reactor.", ek: ["T = T₀ + (−ΔH)X/ΣΘC_p."], p: [P1], needs: [RE-2.3.A], drills: [re-adiabatic-T] }
-          - { id: B, do: "Find the adiabatic equilibrium conversion of a reversible exothermic reaction.", ek: ["Intersect X_EB(T) with X_e(T) = K/(1 + K), K from van 't Hoff."], p: [P1], needs: [RE-6.1.A, RE-1.1.C], drills: [re-adiabatic-xe] }
+          - { id: A, std: ["webwork-opl:TH13.9"], do: "Relate temperature and conversion in an adiabatic reactor.", ek: ["T = T₀ + (−ΔH)X/ΣΘC_p."], p: [P1], needs: [RE-2.3.A], drills: [re-adiabatic-T, re-adiabatic-X] }
+          - { id: B, do: "Find the adiabatic equilibrium conversion of a reversible exothermic reaction.", ek: ["Intersect X_EB(T) with X_e(T) = K/(1 + K), K from van 't Hoff."], p: [P1], needs: [RE-6.1.A, RE-1.1.C], drills: [re-adiabatic-xe, re-equilibrium-X-T] }
       - n: 2
         title: "CSTR steady states"
         los:
-          - { id: A, do: "Count the steady states of an adiabatic CSTR from G(T) and R(T).", ek: ["Sigmoid generation meets a straight removal line once or three times; the middle state is unstable."], p: [P2], needs: [RE-6.1.A, RE-1.2.A], drills: [re-mss-count] }
-          - { id: B, do: "Find the temperature of an adiabatic CSTR with a single steady state.", ek: ["Solve X_MB(T) = X_EB(T)."], p: [P1], needs: [RE-6.2.A], drills: [re-cstr-adiabatic-T] }
+          - { id: A, do: "Count the steady states of an adiabatic CSTR from G(T) and R(T).", ek: ["Sigmoid generation meets a straight removal line once or three times; the middle state is unstable."], p: [P2], needs: [RE-6.1.A, RE-1.2.A], drills: [re-mss-count, re-removal-line, gc-cstr-slope] }
+          - { id: B, do: "Find the temperature of an adiabatic CSTR with a single steady state.", ek: ["Solve X_MB(T) = X_EB(T)."], p: [P1], needs: [RE-6.2.A], drills: [re-cstr-adiabatic-T, re-cstr-X-at-T] }
   - id: diffusion
     n: 7
     title: "Diffusion and reaction"
@@ -178,14 +178,14 @@ units:
       - n: 1
         title: "External mass transfer"
         los:
-          - { id: A, do: "Combine film mass transfer and a first-order surface rate in series.", ek: ["−r″ = C_b/(1/k_c + 1/k_r)."], p: [P1], needs: [RE-4.1.A], drills: [re-ext-mt] }
-          - { id: B, do: "Find the conversion of a mass-transfer-limited packed bed.", ek: ["X = 1 − exp(−k_c a_c L/U)."], p: [P1], needs: [RE-7.1.A], drills: [re-mt-bed] }
+          - { id: A, do: "Combine film mass transfer and a first-order surface rate in series.", ek: ["−r″ = C_b/(1/k_c + 1/k_r)."], p: [P1], needs: [RE-4.1.A], drills: [re-ext-mt, re-which-limits] }
+          - { id: B, do: "Find the conversion of a mass-transfer-limited packed bed.", ek: ["X = 1 − exp(−k_c a_c L/U)."], p: [P1], needs: [RE-7.1.A], drills: [re-mt-bed, re-mt-bed-length] }
       - n: 2
         title: "Internal diffusion"
         los:
-          - { id: A, do: "Compute the Thiele modulus and internal effectiveness factor of a slab or sphere.", ek: ["Slab η = tanh φ/φ; sphere η = (3/φ²)(φ coth φ − 1)."], p: [P1], needs: [RE-7.1.A], drills: [re-effectiveness] }
-          - { id: B, do: "Judge internal diffusion limitation with the Weisz–Prater parameter.", ek: ["C_WP = ηφ² for first order; ≫ 1 means limited."], p: [P1, P2], needs: [RE-7.2.A], drills: [re-weisz-prater] }
-          - { id: C, do: "Combine external and internal resistances into an overall rate.", ek: ["Rate = C_b/[1/(k_ca_c) + 1/(ηk)]."], p: [P1], needs: [RE-7.2.A, RE-7.1.A], drills: [re-overall-eff] }
+          - { id: A, do: "Compute the Thiele modulus and internal effectiveness factor of a slab or sphere.", ek: ["Slab η = tanh φ/φ; sphere η = (3/φ²)(φ coth φ − 1)."], p: [P1], needs: [RE-7.1.A], drills: [re-effectiveness, re-deff-from-rate] }
+          - { id: B, do: "Judge internal diffusion limitation with the Weisz–Prater parameter.", ek: ["C_WP = ηφ² for first order; ≫ 1 means limited."], p: [P1, P2], needs: [RE-7.2.A], drills: [re-weisz-prater, re-wp-max-radius] }
+          - { id: C, do: "Combine external and internal resistances into an overall rate.", ek: ["Rate = C_b/[1/(k_ca_c) + 1/(ηk)]."], p: [P1], needs: [RE-7.2.A, RE-7.1.A], drills: [re-overall-eff, gc-overall-effectiveness] }
   - id: nonideal
     n: 8
     title: "Residence times and nonideal reactors"
@@ -195,12 +195,12 @@ units:
       - n: 1
         title: "Residence-time distributions"
         los:
-          - { id: A, do: "Compute the mean residence time and variance from pulse-tracer data.", ek: ["t_m = ∫tE dt, σ² = ∫(t − t_m)²E dt."], p: [P1], needs: [RE-2.2.A], drills: [re-rtd-moments] }
-          - { id: B, do: "Find the fraction of fluid leaving before or after a time for one or more ideal tanks.", ek: ["F = 1 − e^(−nθ) Σ (nθ)^i/i!."], p: [P1], needs: [RE-8.1.A], drills: [re-tanks-F] }
+          - { id: A, do: "Compute the mean residence time and variance from pulse-tracer data.", ek: ["t_m = ∫tE dt, σ² = ∫(t − t_m)²E dt."], p: [P1], needs: [RE-2.2.A], drills: [re-rtd-moments, re-tanks-from-variance] }
+          - { id: B, do: "Find the fraction of fluid leaving before or after a time for one or more ideal tanks.", ek: ["F = 1 − e^(−nθ) Σ (nθ)^i/i!."], p: [P1], needs: [RE-8.1.A], drills: [re-tanks-F, re-tanks-E] }
       - n: 2
         title: "Conversion from the RTD"
         los:
-          - { id: A, do: "Predict conversion with the segregation model.", ek: ["X̄ = ∫X_batch(t)E(t) dt; linear kinetics ignore mixing."], p: [P1], needs: [RE-8.1.B, RE-2.1.A], drills: [re-segregation] }
-          - { id: B, do: "Fit a tanks-in-series model to an RTD and predict a first-order conversion.", ek: ["n = t_m²/σ²; X = 1 − (1 + kt_m/n)^(−n)."], p: [P1], needs: [RE-8.1.A, RE-2.2.A], drills: [re-tis-model] }
-          - { id: C, do: "Predict a first-order conversion with the dispersion model.", ek: ["Danckwerts closed–closed: q = √(1 + 4Da/Pe)."], p: [P1], needs: [RE-8.2.B], drills: [re-dispersion] }
+          - { id: A, do: "Predict conversion with the segregation model.", ek: ["X̄ = ∫X_batch(t)E(t) dt; linear kinetics ignore mixing."], p: [P1], needs: [RE-8.1.B, RE-2.1.A], drills: [re-segregation, re-segregation-zero-order] }
+          - { id: B, do: "Fit a tanks-in-series model to an RTD and predict a first-order conversion.", ek: ["n = t_m²/σ²; X = 1 − (1 + kt_m/n)^(−n)."], p: [P1], needs: [RE-8.1.A, RE-2.2.A], drills: [re-tis-model, re-tis-design] }
+          - { id: C, do: "Predict a first-order conversion with the dispersion model.", ek: ["Danckwerts closed–closed: q = √(1 + 4Da/Pe)."], p: [P1], needs: [RE-8.2.B], drills: [re-dispersion, re-dispersion-variance] }
 

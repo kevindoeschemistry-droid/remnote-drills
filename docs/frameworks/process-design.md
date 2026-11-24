@@ -33,14 +33,14 @@ Big ideas: MONEY
 
 - ● **PD-1.1.A** Convert a nominal rate to an effective annual rate.
   - EK: (1 + r/m)^m − 1.
-  - P1 · drills: pd-effective-rate
+  - P1 · drills: pd-effective-rate, pd-nominal-from-effective
 - ● **PD-1.1.B** Compute a project's net present value.
   - EK: NPV = −I + A(P/A,i,n) + S(1+i)⁻ⁿ.
   - Needs: PD-1.1.A
-  - P1 · drills: pd-npv
+  - P1 · drills: pd-npv, pd-capital-recovery
 - ● **PD-1.1.C** Compute a simple payback period.
   - EK: Cumulative cash flow covers the investment.
-  - P1 · drills: pd-payback
+  - P1 · drills: pd-payback, pd-roi
 
 ### 1.2 Costs
 
@@ -48,10 +48,10 @@ Big ideas: MONEY
 
 - ● **PD-1.2.A** Scale an equipment cost by capacity and cost index.
   - EK: C₂ = C₁(S₂/S₁)^0.6 × I₂/I₁.
-  - P1 · drills: pd-cost-scaling
+  - P1 · drills: pd-cost-scaling, pd-capacity-from-budget
 - ● **PD-1.2.B** Compute book value under straight-line or declining-balance depreciation.
   - EK: SL (P − S)/n; DDB 2/n of book value.
-  - P1 · drills: pd-depreciation
+  - P1 · drills: pd-depreciation, pd-soyd
 
 ## Unit 2 · Process safety
 
@@ -63,13 +63,13 @@ Big ideas: LAYERS
 
 - ● **PD-2.1.A** (fe-chemical:16.A) Compute the lower flammable limit of a fuel mixture.
   - EK: Le Chatelier: 1/Σ(yᵢ/LFLᵢ).
-  - P1 · drills: pd-lfl-mixture
+  - P1 · drills: pd-lfl-mixture, pd-flammable-check
 - ● **PD-2.1.B** (fe-chemical:16.B) Judge a mixed exposure against its limits.
   - EK: Σ Cᵢ/TLVᵢ ≤ 1.
-  - P2 · drills: pd-tlv-mixture
+  - P2 · drills: pd-tlv-mixture, pd-tlv-allowance
 - ● **PD-2.1.C** (fe-chemical:16.C) State what a HAZOP guide word means.
   - EK: NO, MORE, LESS, REVERSE, AS WELL AS, PART OF, OTHER THAN.
-  - P2 · drills: pd-hazop
+  - P2 · drills: pd-hazop, pd-hazop-word
 
 ## Unit 3 · Process dynamics
 
@@ -81,4 +81,21 @@ Big ideas: DYN
 
 - ● **PD-3.1.A** Compute the step response of a first-order process.
   - EK: y = KΔu(1 − e^(−t/τ)).
-  - P1 · drills: pd-first-order
+  - P1 · drills: pd-first-order, pd-time-constant-from-data
+
+## Drills not yet placed on the map
+
+- gc-first-order-time (design.control)
+- gc-ramp-lag (design.control)
+- gc-overshoot (design.control)
+- gc-zeta-from-overshoot (design.control)
+- gc-p-offset (design.control)
+- gc-kc-for-offset (design.control)
+- gc-ultimate-gain (design.control)
+- gc-stability-check (design.control)
+- gc-ultimate-period (design.control)
+- gc-zn-reset (design.control)
+- gc-amplitude-ratio (design.control)
+- gc-phase-lag (design.control)
+- gc-fopdt-crossover (design.control)
+- gc-fopdt-ultimate-gain (design.control)

@@ -1,0 +1,2782 @@
+{
+ "id": "ngss",
+ "title": "NGSS High School Science",
+ "code": "NG",
+ "draft": 1,
+ "track": "science",
+ "requires": [
+  "chemistry",
+  "physics",
+  "biology",
+  "earth-space",
+  "nuclear",
+  "dat"
+ ],
+ "level": 4,
+ "domains": [
+  "ngss"
+ ],
+ "basis": {
+  "primary": "ngss-hs",
+  "note": "One objective per high-school performance expectation. The PE statements were read; the evidence statements were not. Drills for PEs taught elsewhere are drawn from the subject frameworks; the engineering and design PEs have their own items."
+ },
+ "big_ideas": [
+  {
+   "id": "PE",
+   "title": "Performance expectations are practices applied to core ideas",
+   "text": "Each PE pairs a science or engineering practice with a disciplinary core idea and a crosscutting concept. A drill isolates the reasoning step; the full practice (designing, investigating, arguing) happens away from the card."
+  }
+ ],
+ "practices": [
+  {
+   "id": "P1",
+   "title": "Use mathematics and computational thinking",
+   "text": "Carry a model to a number and judge it."
+  },
+  {
+   "id": "P2",
+   "title": "Design and evaluate solutions",
+   "text": "Apply criteria, constraints and trade-offs to a design choice."
+  }
+ ],
+ "units": [
+  {
+   "id": "ps1",
+   "n": 1,
+   "title": "PS1 · Matter and its interactions",
+   "scope": "core",
+   "std": [
+    "ngss-hs:PS1-1",
+    "ngss-hs:PS1-2",
+    "ngss-hs:PS1-3"
+   ],
+   "ideas": [
+    "PE"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "Matter and its interactions",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "ngss-hs:PS1-1"
+       ],
+       "do": "PS1-1: Periodic patterns of outer electrons predict properties.",
+       "ek": [
+        "Practised through: CH-1.5.B, CH-1.8.A, CH-1.8.B, CH-1.9.A."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "ac-unpaired-electrons",
+        "ac-ion-charge-formula",
+        "ac-analogous-compound",
+        "ac-quantum-numbers-allowed"
+       ],
+       "needs": [
+        "CH-1.5.B",
+        "CH-1.8.A",
+        "CH-1.8.B",
+        "CH-1.9.A"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "ngss-hs:PS1-2"
+       ],
+       "do": "PS1-2: Reaction outcomes from outer electrons and periodic trends.",
+       "ek": [
+        "Practised through: CH-1.5.B, CH-1.9.A, CH-4.1.A, CH-4.2.B."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "ac-unpaired-electrons",
+        "ac-quantum-numbers-allowed",
+        "ac-balance-coefficient",
+        "ac-spectator-ions"
+       ],
+       "needs": [
+        "CH-1.5.B",
+        "CH-1.9.A",
+        "CH-4.1.A",
+        "CH-4.2.B"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "ngss-hs:PS1-3"
+       ],
+       "do": "PS1-3: Bulk properties infer strength of electrical forces between particles.",
+       "ek": [
+        "Practised through: CH-3.1.A, CH-3.1.B, CH-3.9.A, CH-3.10.A."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "ac-imf-identify",
+        "ac-boiling-rank",
+        "ac-rf-value",
+        "ac-solubility-polar"
+       ],
+       "needs": [
+        "CH-3.1.A",
+        "CH-3.1.B",
+        "CH-3.9.A",
+        "CH-3.10.A"
+       ]
+      },
+      {
+       "id": "D",
+       "std": [
+        "ngss-hs:PS1-4"
+       ],
+       "do": "PS1-4: Bond energy changes account for energy released or absorbed.",
+       "ek": [
+        "Practised through: CH-6.10.B, CH-6.2.A, CH-6.5.B, CH-6.7.A."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "pc-dh-du",
+        "ac-energy-diagram",
+        "ac-heating-curve",
+        "ac-bond-enthalpy"
+       ],
+       "needs": [
+        "CH-6.10.B",
+        "CH-6.2.A",
+        "CH-6.5.B",
+        "CH-6.7.A"
+       ]
+      },
+      {
+       "id": "E",
+       "std": [
+        "ngss-hs:PS1-5"
+       ],
+       "do": "PS1-5: Temperature and concentration effects on reaction rate.",
+       "ek": [
+        "Practised through: CH-5.1.A, CH-5.2.A, CH-5.3.A, CH-5.6.C."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "ac-rate-coefficients",
+        "pc-initial-rates",
+        "ac-zero-order",
+        "sm-rate-k2"
+       ],
+       "needs": [
+        "CH-5.1.A",
+        "CH-5.2.A",
+        "CH-5.3.A",
+        "CH-5.6.C"
+       ]
+      },
+      {
+       "id": "F",
+       "std": [
+        "ngss-hs:PS1-6"
+       ],
+       "do": "PS1-6: Changing conditions to shift equilibrium toward product.",
+       "ek": [
+        "Practised through: CH-7.9.A, CH-7.1.A, CH-7.10.A, CH-7.3.B."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "ac-le-chatelier",
+        "ac-dynamic-equilibrium",
+        "ac-le-chatelier-k",
+        "ac-q-vs-k"
+       ],
+       "needs": [
+        "CH-7.9.A",
+        "CH-7.1.A",
+        "CH-7.10.A",
+        "CH-7.3.B"
+       ]
+      },
+      {
+       "id": "G",
+       "std": [
+        "ngss-hs:PS1-7"
+       ],
+       "do": "PS1-7: Conservation of atoms and mass in reactions (mathematical).",
+       "ek": [
+        "Practised through: CH-4.5.A, CH-4.5.D, CH-4.7.B, CH-4.9.C."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "ac-mass-mass",
+        "ac-solution-stoich",
+        "ac-predict-products",
+        "ac-electrons-transferred"
+       ],
+       "needs": [
+        "CH-4.5.A",
+        "CH-4.5.D",
+        "CH-4.7.B",
+        "CH-4.9.C"
+       ]
+      },
+      {
+       "id": "H",
+       "std": [
+        "ngss-hs:PS1-8"
+       ],
+       "do": "PS1-8: Fission, fusion and radioactive decay.",
+       "ek": [
+        "Practised through: DAT-2.12.B, DAT-2.12.A, DAT-2.12.C, NU-1.1.A."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "nu-fraction-remaining",
+        "ac-nuclear-equation",
+        "nu-binding-energy",
+        "nu-neutron-number"
+       ],
+       "needs": [
+        "DAT-2.12.B",
+        "DAT-2.12.A",
+        "DAT-2.12.C",
+        "NU-1.1.A"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ps2",
+   "n": 2,
+   "title": "PS2 · Motion and stability: forces and interactions",
+   "scope": "core",
+   "std": [
+    "ngss-hs:PS2-1",
+    "ngss-hs:PS2-2",
+    "ngss-hs:PS2-3"
+   ],
+   "ideas": [
+    "PE"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "Motion and stability: forces and interactions",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "ngss-hs:PS2-1"
+       ],
+       "do": "PS2-1: Newton's second law from data.",
+       "ek": [
+        "Practised through: PH-2.5.A, PH-2.5.B, PH-2.7.A, PH-1.3.B."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "ph-newton-second",
+        "ph-atwood",
+        "ph-kinetic-friction",
+        "ph-suvat-speed"
+       ],
+       "needs": [
+        "PH-2.5.A",
+        "PH-2.5.B",
+        "PH-2.7.A",
+        "PH-1.3.B"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "ngss-hs:PS2-2"
+       ],
+       "do": "PS2-2: Conservation of momentum.",
+       "ek": [
+        "Practised through: PH-4.3.A, PH-4.3.B, PH-4.1.A, PH-4.2.A."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "ph-recoil",
+        "ph-momentum-2d",
+        "ph-system-momentum",
+        "ph-impulse-velocity"
+       ],
+       "needs": [
+        "PH-4.3.A",
+        "PH-4.3.B",
+        "PH-4.1.A",
+        "PH-4.2.A"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "ngss-hs:PS2-3"
+       ],
+       "do": "PS2-3: Design a device that reduces collision force.",
+       "ek": [
+        "Practised here; no subject framework reaches it yet."
+       ],
+       "p": [
+        "P2"
+       ],
+       "drills": [
+        "ng-collision-force"
+       ]
+      },
+      {
+       "id": "D",
+       "std": [
+        "ngss-hs:PS2-4"
+       ],
+       "do": "PS2-4: Newton's gravitation and Coulomb's law.",
+       "ek": [
+        "Practised through: PH-10.1.A, PH-10.1.B, PH-10.1.C, PH-10.1.D."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "em-coulomb-force",
+        "ph-charge-levitation",
+        "ph-coulomb-in-medium",
+        "ph-force-superposition"
+       ],
+       "needs": [
+        "PH-10.1.A",
+        "PH-10.1.B",
+        "PH-10.1.C",
+        "PH-10.1.D"
+       ]
+      },
+      {
+       "id": "E",
+       "std": [
+        "ngss-hs:PS2-5"
+       ],
+       "do": "PS2-5: Currents and magnetic fields produce each other.",
+       "ek": [
+        "Practised through: PH-12.1.A, PH-12.2.A, PH-12.2.B, PH-12.3.A."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "ph-magnetic-dipole",
+        "em-magnetic-force",
+        "em-cyclotron-radius",
+        "em-field-of-wire"
+       ],
+       "needs": [
+        "PH-12.1.A",
+        "PH-12.2.A",
+        "PH-12.2.B",
+        "PH-12.3.A"
+       ]
+      },
+      {
+       "id": "F",
+       "std": [
+        "ngss-hs:PS2-6"
+       ],
+       "do": "PS2-6: Molecular structure and the function of designed materials.",
+       "ek": [
+        "Practised here; no subject framework reaches it yet."
+       ],
+       "p": [
+        "P2"
+       ],
+       "drills": [
+        "ng-designed-materials"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ps3",
+   "n": 3,
+   "title": "PS3 · Energy",
+   "scope": "core",
+   "std": [
+    "ngss-hs:PS3-1",
+    "ngss-hs:PS3-2",
+    "ngss-hs:PS3-3"
+   ],
+   "ideas": [
+    "PE"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "Energy",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "ngss-hs:PS3-1"
+       ],
+       "do": "PS3-1: Energy change of one component from the others and the flows.",
+       "ek": [
+        "Practised through: PH-3.1.A, PH-3.2.C, PH-3.3.A, PH-3.3.B."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "ph-ke-scaling",
+        "ph-work-energy-theorem",
+        "ph-gravitational-pe",
+        "ph-gravitational-pe-far"
+       ],
+       "needs": [
+        "PH-3.1.A",
+        "PH-3.2.C",
+        "PH-3.3.A",
+        "PH-3.3.B"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "ngss-hs:PS3-2"
+       ],
+       "do": "PS3-2: Energy as motion of particles plus relative positions.",
+       "ek": [
+        "Practised through: PH-3.3.A, PH-9.1.B, PH-9.4.A, PH-10.4.A."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "ph-gravitational-pe",
+        "ph-rms-speed",
+        "ph-internal-energy",
+        "ph-potential-energy-pair"
+       ],
+       "needs": [
+        "PH-3.3.A",
+        "PH-9.1.B",
+        "PH-9.4.A",
+        "PH-10.4.A"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "ngss-hs:PS3-3"
+       ],
+       "do": "PS3-3: Design a device that converts energy.",
+       "ek": [
+        "Practised here; no subject framework reaches it yet."
+       ],
+       "p": [
+        "P2"
+       ],
+       "drills": [
+        "ng-device-efficiency"
+       ]
+      },
+      {
+       "id": "D",
+       "std": [
+        "ngss-hs:PS3-4"
+       ],
+       "do": "PS3-4: Heat flow toward uniform energy (second law).",
+       "ek": [
+        "Practised through: PH-9.1.B, PH-9.2.A, PH-9.3.A, PH-9.4.A."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "ph-rms-speed",
+        "ph-ideal-gas-change",
+        "ph-thermal-equilibrium",
+        "ph-internal-energy"
+       ],
+       "needs": [
+        "PH-9.1.B",
+        "PH-9.2.A",
+        "PH-9.3.A",
+        "PH-9.4.A"
+       ]
+      },
+      {
+       "id": "E",
+       "std": [
+        "ngss-hs:PS3-5"
+       ],
+       "do": "PS3-5: Energy in electric and magnetic field interactions.",
+       "ek": [
+        "Practised through: PH-10.3.A, PH-10.3.D, PH-10.4.A, PH-10.1.A."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "em-field-point-charge",
+        "ph-field-lines",
+        "ph-potential-energy-pair",
+        "em-coulomb-force"
+       ],
+       "needs": [
+        "PH-10.3.A",
+        "PH-10.3.D",
+        "PH-10.4.A",
+        "PH-10.1.A"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ps4",
+   "n": 4,
+   "title": "PS4 · Waves and their applications in technologies for information transfer",
+   "scope": "core",
+   "std": [
+    "ngss-hs:PS4-1",
+    "ngss-hs:PS4-2",
+    "ngss-hs:PS4-3"
+   ],
+   "ideas": [
+    "PE"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "Waves and their applications in technologies for information transfer",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "ngss-hs:PS4-1"
+       ],
+       "do": "PS4-1: Wave speed, frequency and wavelength.",
+       "ek": [
+        "Practised through: PH-14.2.A, PH-14.2.B, PH-14.4.A, PH-14.1.A."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "ph-wave-equation",
+        "ph-string-wave-speed",
+        "ph-em-spectrum",
+        "ph-wave-type"
+       ],
+       "needs": [
+        "PH-14.2.A",
+        "PH-14.2.B",
+        "PH-14.4.A",
+        "PH-14.1.A"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "ngss-hs:PS4-2"
+       ],
+       "do": "PS4-2: Advantages of digital transmission and storage.",
+       "ek": [
+        "Practised here; no subject framework reaches it yet."
+       ],
+       "p": [
+        "P2"
+       ],
+       "drills": [
+        "ng-digital-storage"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "ngss-hs:PS4-3"
+       ],
+       "do": "PS4-3: Wave and particle models of electromagnetic radiation.",
+       "ek": [
+        "Practised through: PH-15.1.B, PH-15.1.A, PH-15.2.A, PH-15.3.A."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "ph-de-broglie",
+        "ph-photon-energy",
+        "ph-bohr-level",
+        "ph-hydrogen-line"
+       ],
+       "needs": [
+        "PH-15.1.B",
+        "PH-15.1.A",
+        "PH-15.2.A",
+        "PH-15.3.A"
+       ]
+      },
+      {
+       "id": "D",
+       "std": [
+        "ngss-hs:PS4-4"
+       ],
+       "do": "PS4-4: Effects of radiation frequency on matter.",
+       "ek": [
+        "Practised through: NU-2.1.B, NU-2.1.A, NU-2.2.A."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "nu-half-value-layers",
+        "nu-inverse-square",
+        "nu-equivalent-dose"
+       ],
+       "needs": [
+        "NU-2.1.B",
+        "NU-2.1.A",
+        "NU-2.2.A"
+       ]
+      },
+      {
+       "id": "E",
+       "std": [
+        "ngss-hs:PS4-5"
+       ],
+       "do": "PS4-5: Devices that use waves to transmit and capture information.",
+       "ek": [
+        "Practised here; no subject framework reaches it yet."
+       ],
+       "p": [
+        "P2"
+       ],
+       "drills": [
+        "ng-wave-device"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ls1",
+   "n": 5,
+   "title": "LS1 · From molecules to organisms: structures and processes",
+   "scope": "core",
+   "std": [
+    "ngss-hs:LS1-1",
+    "ngss-hs:LS1-2",
+    "ngss-hs:LS1-3"
+   ],
+   "ideas": [
+    "PE"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "From molecules to organisms: structures and processes",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "ngss-hs:LS1-1"
+       ],
+       "do": "LS1-1: DNA structure determines protein structure and function.",
+       "ek": [
+        "Practised through: BI-6.1.B, BI-6.2.A, BI-6.5.A, BI-6.7.A."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "bi-dna-evidence",
+        "bi-replication-enzyme",
+        "bi-eukaryote-regulation",
+        "bi-mutation-type"
+       ],
+       "needs": [
+        "BI-6.1.B",
+        "BI-6.2.A",
+        "BI-6.5.A",
+        "BI-6.7.A"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "ngss-hs:LS1-2"
+       ],
+       "do": "LS1-2: Hierarchical organisation of interacting body systems.",
+       "ek": [
+        "Practised through: BI-9.4.A, BI-9.1.A, BI-9.1.B, BI-9.2.A."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "bi-blood-path",
+        "bi-action-potential",
+        "bi-synapse",
+        "bi-hormone-action"
+       ],
+       "needs": [
+        "BI-9.4.A",
+        "BI-9.1.A",
+        "BI-9.1.B",
+        "BI-9.2.A"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "ngss-hs:LS1-3"
+       ],
+       "do": "LS1-3: Feedback mechanisms and homeostasis.",
+       "ek": [
+        "Practised through: BI-4.5.A, BI-4.5.B, BI-4.5.C, BI-4.1.A."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "bi-feedback-type",
+        "bi-negative-feedback",
+        "bi-positive-feedback",
+        "bi-contact-signal"
+       ],
+       "needs": [
+        "BI-4.5.A",
+        "BI-4.5.B",
+        "BI-4.5.C",
+        "BI-4.1.A"
+       ]
+      },
+      {
+       "id": "D",
+       "std": [
+        "ngss-hs:LS1-4"
+       ],
+       "do": "LS1-4: Mitosis and differentiation.",
+       "ek": [
+        "Practised through: BI-4.6.B, BI-4.1.A, BI-4.1.B, BI-4.2.A."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "bi-mitosis-stage",
+        "bi-contact-signal",
+        "bi-signal-range",
+        "bi-signal-stages"
+       ],
+       "needs": [
+        "BI-4.6.B",
+        "BI-4.1.A",
+        "BI-4.1.B",
+        "BI-4.2.A"
+       ]
+      },
+      {
+       "id": "E",
+       "std": [
+        "ngss-hs:LS1-5"
+       ],
+       "do": "LS1-5: Photosynthesis converts light to chemical energy.",
+       "ek": [
+        "Practised through: BI-3.5.A, BI-3.2.A, BI-3.4.B, BI-3.1.A."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "bi-photosynthesis-overview",
+        "bi-enzyme-energy",
+        "bi-energy-input",
+        "bi-active-site"
+       ],
+       "needs": [
+        "BI-3.5.A",
+        "BI-3.2.A",
+        "BI-3.4.B",
+        "BI-3.1.A"
+       ]
+      },
+      {
+       "id": "F",
+       "std": [
+        "ngss-hs:LS1-6"
+       ],
+       "do": "LS1-6: Carbon, hydrogen and oxygen from sugars build large molecules.",
+       "ek": [
+        "Practised through: BI-1.1.A, BI-1.1.B, BI-1.2.A, BI-1.3.A."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "bi-water-interaction",
+        "bi-water-property",
+        "bi-macromolecule-elements",
+        "bi-dehydration-hydrolysis"
+       ],
+       "needs": [
+        "BI-1.1.A",
+        "BI-1.1.B",
+        "BI-1.2.A",
+        "BI-1.3.A"
+       ]
+      },
+      {
+       "id": "G",
+       "std": [
+        "ngss-hs:LS1-7"
+       ],
+       "do": "LS1-7: Cellular respiration as bond breaking and forming.",
+       "ek": [
+        "Practised through: BI-3.6.D, BI-3.6.E, BI-3.1.A, BI-3.2.A."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "bi-fermentation",
+        "bi-respirometer",
+        "bi-active-site",
+        "bi-enzyme-energy"
+       ],
+       "needs": [
+        "BI-3.6.D",
+        "BI-3.6.E",
+        "BI-3.1.A",
+        "BI-3.2.A"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ls2",
+   "n": 6,
+   "title": "LS2 · Ecosystems: interactions, energy and dynamics",
+   "scope": "core",
+   "std": [
+    "ngss-hs:LS2-1",
+    "ngss-hs:LS2-2",
+    "ngss-hs:LS2-3"
+   ],
+   "ideas": [
+    "PE"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "Ecosystems: interactions, energy and dynamics",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "ngss-hs:LS2-1"
+       ],
+       "do": "LS2-1: Carrying capacity.",
+       "ek": [
+        "Practised through: BI-8.4.A, BI-8.3.A, BI-8.2.B."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "bi-logistic-growth",
+        "bi-population-rates",
+        "bi-energy-availability"
+       ],
+       "needs": [
+        "BI-8.4.A",
+        "BI-8.3.A",
+        "BI-8.2.B"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "ngss-hs:LS2-2"
+       ],
+       "do": "LS2-2: Biodiversity and population size (mathematical).",
+       "ek": [
+        "Practised through: BI-8.5.A, BI-8.3.A, BI-8.4.A, BI-8.2.B."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "bi-simpson-index",
+        "bi-population-rates",
+        "bi-logistic-growth",
+        "bi-energy-availability"
+       ],
+       "needs": [
+        "BI-8.5.A",
+        "BI-8.3.A",
+        "BI-8.4.A",
+        "BI-8.2.B"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "ngss-hs:LS2-3"
+       ],
+       "do": "LS2-3: Matter and energy in aerobic and anaerobic conditions.",
+       "ek": [
+        "Practised through: BI-8.2.B, BI-8.2.C, BI-8.1.A, BI-8.1.B."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "bi-energy-availability",
+        "bi-trophic-energy",
+        "bi-behavior-response",
+        "bi-behavior-signal"
+       ],
+       "needs": [
+        "BI-8.2.B",
+        "BI-8.2.C",
+        "BI-8.1.A",
+        "BI-8.1.B"
+       ]
+      },
+      {
+       "id": "D",
+       "std": [
+        "ngss-hs:LS2-4"
+       ],
+       "do": "LS2-4: Matter and energy flow among organisms (mathematical).",
+       "ek": [
+        "Practised through: BI-8.1.A, BI-8.1.B, BI-8.2.B, BI-8.2.C."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "bi-behavior-response",
+        "bi-behavior-signal",
+        "bi-energy-availability",
+        "bi-trophic-energy"
+       ],
+       "needs": [
+        "BI-8.1.A",
+        "BI-8.1.B",
+        "BI-8.2.B",
+        "BI-8.2.C"
+       ]
+      },
+      {
+       "id": "E",
+       "std": [
+        "ngss-hs:LS2-5"
+       ],
+       "do": "LS2-5: Carbon cycling.",
+       "ek": [
+        "Practised through: BI-8.2.D, BI-8.1.A, BI-8.1.B, BI-8.2.A."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "bi-biogeochemical",
+        "bi-behavior-response",
+        "bi-behavior-signal",
+        "bi-thermoregulation"
+       ],
+       "needs": [
+        "BI-8.2.D",
+        "BI-8.1.A",
+        "BI-8.1.B",
+        "BI-8.2.A"
+       ]
+      },
+      {
+       "id": "F",
+       "std": [
+        "ngss-hs:LS2-6"
+       ],
+       "do": "LS2-6: Ecosystem stability and change.",
+       "ek": [
+        "Practised through: BI-8.6.A, BI-8.6.B, BI-8.5.D, BI-8.5.C."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "bi-ecosystem-stability",
+        "bi-succession",
+        "bi-community-data"
+       ],
+       "needs": [
+        "BI-8.6.A",
+        "BI-8.6.B",
+        "BI-8.5.D",
+        "BI-8.5.C"
+       ]
+      },
+      {
+       "id": "G",
+       "std": [
+        "ngss-hs:LS2-7"
+       ],
+       "do": "LS2-7: Reduce human impact on the environment and biodiversity.",
+       "ek": [
+        "Practised here; no subject framework reaches it yet."
+       ],
+       "p": [
+        "P2"
+       ],
+       "drills": [
+        "ng-species-area"
+       ]
+      },
+      {
+       "id": "H",
+       "std": [
+        "ngss-hs:LS2-8"
+       ],
+       "do": "LS2-8: Group behaviour and survival.",
+       "ek": [
+        "Practised through: BI-8.1.B, BI-8.1.A."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "bi-behavior-signal",
+        "bi-behavior-response"
+       ],
+       "needs": [
+        "BI-8.1.B",
+        "BI-8.1.A"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ls3",
+   "n": 7,
+   "title": "LS3 · Heredity: inheritance and variation of traits",
+   "scope": "core",
+   "std": [
+    "ngss-hs:LS3-1",
+    "ngss-hs:LS3-2",
+    "ngss-hs:LS3-3"
+   ],
+   "ideas": [
+    "PE"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "Heredity: inheritance and variation of traits",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "ngss-hs:LS3-1"
+       ],
+       "do": "LS3-1: DNA and chromosomes code for traits.",
+       "ek": [
+        "Practised through: BI-5.4.B, BI-5.4.D, BI-5.1.A, BI-5.1.B."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "bi-x-linked",
+        "bi-maternal-polygenic",
+        "bi-meiosis-count",
+        "bi-mitosis-vs-meiosis"
+       ],
+       "needs": [
+        "BI-5.4.B",
+        "BI-5.4.D",
+        "BI-5.1.A",
+        "BI-5.1.B"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "ngss-hs:LS3-2"
+       ],
+       "do": "LS3-2: Sources of inheritable variation.",
+       "ek": [
+        "Practised through: BI-5.2.A, BI-5.4.D, BI-5.1.A, BI-5.1.B."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "bi-gamete-combinations",
+        "bi-maternal-polygenic",
+        "bi-meiosis-count",
+        "bi-mitosis-vs-meiosis"
+       ],
+       "needs": [
+        "BI-5.2.A",
+        "BI-5.4.D",
+        "BI-5.1.A",
+        "BI-5.1.B"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "ngss-hs:LS3-3"
+       ],
+       "do": "LS3-3: Statistics of trait variation.",
+       "ek": [
+        "Practised through: BI-5.3.B, BI-5.3.D, BI-5.3.E, BI-5.4.B."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "bi-monohybrid",
+        "bi-pedigree-pattern",
+        "bi-chi-square",
+        "bi-x-linked"
+       ],
+       "needs": [
+        "BI-5.3.B",
+        "BI-5.3.D",
+        "BI-5.3.E",
+        "BI-5.4.B"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ls4",
+   "n": 8,
+   "title": "LS4 · Biological evolution: unity and diversity",
+   "scope": "core",
+   "std": [
+    "ngss-hs:LS4-1",
+    "ngss-hs:LS4-2",
+    "ngss-hs:LS4-3"
+   ],
+   "ideas": [
+    "PE"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "Biological evolution: unity and diversity",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "ngss-hs:LS4-1"
+       ],
+       "do": "LS4-1: Evidence for common ancestry.",
+       "ek": [
+        "Practised through: BI-7.7.B, BI-7.7.A, BI-7.13.A, BI-7.9.A."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "bi-universal-features",
+        "bi-origin-of-life",
+        "bi-molecular-relatedness"
+       ],
+       "needs": [
+        "BI-7.7.B",
+        "BI-7.7.A",
+        "BI-7.13.A",
+        "BI-7.9.A"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "ngss-hs:LS4-2"
+       ],
+       "do": "LS4-2: Four factors of evolution.",
+       "ek": [
+        "Practised through: BI-7.11.A, BI-7.3.B, BI-7.6.A, BI-7.8.A."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "bi-extinction",
+        "bi-convergent",
+        "bi-evolution-evidence",
+        "bi-ongoing-evolution"
+       ],
+       "needs": [
+        "BI-7.11.A",
+        "BI-7.3.B",
+        "BI-7.6.A",
+        "BI-7.8.A"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "ngss-hs:LS4-3"
+       ],
+       "do": "LS4-3: Statistics of advantageous traits.",
+       "ek": [
+        "Practised through: BI-7.5.A, BI-7.1.B, BI-7.5.C, BI-7.2.A."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "bi-hardy-weinberg",
+        "bi-fitness",
+        "bi-hw-test",
+        "bi-selection-type"
+       ],
+       "needs": [
+        "BI-7.5.A",
+        "BI-7.1.B",
+        "BI-7.5.C",
+        "BI-7.2.A"
+       ]
+      },
+      {
+       "id": "D",
+       "std": [
+        "ngss-hs:LS4-4"
+       ],
+       "do": "LS4-4: Natural selection leads to adaptation.",
+       "ek": [
+        "Practised through: BI-7.1.A, BI-7.1.B, BI-7.2.A, BI-7.3.B."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "bi-selection-conditions",
+        "bi-fitness",
+        "bi-selection-type",
+        "bi-convergent"
+       ],
+       "needs": [
+        "BI-7.1.A",
+        "BI-7.1.B",
+        "BI-7.2.A",
+        "BI-7.3.B"
+       ]
+      },
+      {
+       "id": "E",
+       "std": [
+        "ngss-hs:LS4-5"
+       ],
+       "do": "LS4-5: Environmental change and speciation or extinction.",
+       "ek": [
+        "Practised through: BI-7.11.B, BI-7.11.C, BI-7.10.A, BI-7.11.A."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "bi-extinction",
+        "bi-speciation"
+       ],
+       "needs": [
+        "BI-7.11.B",
+        "BI-7.11.C",
+        "BI-7.10.A",
+        "BI-7.11.A"
+       ]
+      },
+      {
+       "id": "F",
+       "std": [
+        "ngss-hs:LS4-6"
+       ],
+       "do": "LS4-6: Simulate solutions to biodiversity threats.",
+       "ek": [
+        "Practised here; no subject framework reaches it yet."
+       ],
+       "p": [
+        "P2"
+       ],
+       "drills": [
+        "ng-harvest-simulation"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ess1",
+   "n": 9,
+   "title": "ESS1 · Earth's place in the universe",
+   "scope": "core",
+   "std": [
+    "ngss-hs:ESS1-1",
+    "ngss-hs:ESS1-2",
+    "ngss-hs:ESS1-3"
+   ],
+   "ideas": [
+    "PE"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "Earth's place in the universe",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "ngss-hs:ESS1-1"
+       ],
+       "do": "ESS1-1: The Sun's life span and fusion energy.",
+       "ek": [
+        "Practised through: ES-1.2.D, ES-1.2.A, ES-1.2.B, ES-1.2.C."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "es-fusion-energy",
+        "es-wien",
+        "es-luminosity",
+        "es-star-life"
+       ],
+       "needs": [
+        "ES-1.2.D",
+        "ES-1.2.A",
+        "ES-1.2.B",
+        "ES-1.2.C"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "ngss-hs:ESS1-2"
+       ],
+       "do": "ESS1-2: Big Bang evidence.",
+       "ek": [
+        "Practised through: ES-1.3.A, ES-1.3.B, ES-1.2.A."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "es-hubble",
+        "es-element-origin",
+        "es-wien"
+       ],
+       "needs": [
+        "ES-1.3.A",
+        "ES-1.3.B",
+        "ES-1.2.A"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "ngss-hs:ESS1-3"
+       ],
+       "do": "ESS1-3: Stellar nucleosynthesis.",
+       "ek": [
+        "Practised through: ES-1.2.D, ES-1.3.B, ES-1.1.A, ES-1.1.B."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "es-fusion-energy",
+        "es-element-origin",
+        "es-kepler",
+        "es-escape"
+       ],
+       "needs": [
+        "ES-1.2.D",
+        "ES-1.3.B",
+        "ES-1.1.A",
+        "ES-1.1.B"
+       ]
+      },
+      {
+       "id": "D",
+       "std": [
+        "ngss-hs:ESS1-4"
+       ],
+       "do": "ESS1-4: Orbital motion (Kepler, gravitation).",
+       "ek": [
+        "Practised through: ES-1.1.A, ES-1.1.B, ES-1.2.A, ES-1.2.B."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "es-kepler",
+        "es-escape",
+        "es-wien",
+        "es-luminosity"
+       ],
+       "needs": [
+        "ES-1.1.A",
+        "ES-1.1.B",
+        "ES-1.2.A",
+        "ES-1.2.B"
+       ]
+      },
+      {
+       "id": "E",
+       "std": [
+        "ngss-hs:ESS1-5"
+       ],
+       "do": "ESS1-5: Plate tectonics and the ages of rocks.",
+       "ek": [
+        "Practised through: ES-2.1.A, ES-2.2.A, ES-2.1.B, ES-2.2.B."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "es-plate-boundary",
+        "es-radiometric",
+        "es-seismic",
+        "es-dating-method"
+       ],
+       "needs": [
+        "ES-2.1.A",
+        "ES-2.2.A",
+        "ES-2.1.B",
+        "ES-2.2.B"
+       ]
+      },
+      {
+       "id": "F",
+       "std": [
+        "ngss-hs:ESS1-6"
+       ],
+       "do": "ESS1-6: Early Earth history from ancient materials.",
+       "ek": [
+        "Practised through: ES-2.2.A, ES-2.2.B, ES-2.1.A, ES-2.1.B."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "es-radiometric",
+        "es-dating-method",
+        "es-plate-boundary",
+        "es-seismic"
+       ],
+       "needs": [
+        "ES-2.2.A",
+        "ES-2.2.B",
+        "ES-2.1.A",
+        "ES-2.1.B"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ess2",
+   "n": 10,
+   "title": "ESS2 · Earth's systems",
+   "scope": "core",
+   "std": [
+    "ngss-hs:ESS2-1",
+    "ngss-hs:ESS2-2",
+    "ngss-hs:ESS2-3"
+   ],
+   "ideas": [
+    "PE"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "Earth's systems",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "ngss-hs:ESS2-1"
+       ],
+       "do": "ESS2-1: Internal and surface processes form landforms.",
+       "ek": [
+        "Practised through: ES-2.1.A, ES-2.1.B, ES-2.2.A, ES-2.2.B."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "es-plate-boundary",
+        "es-seismic",
+        "es-radiometric",
+        "es-dating-method"
+       ],
+       "needs": [
+        "ES-2.1.A",
+        "ES-2.1.B",
+        "ES-2.2.A",
+        "ES-2.2.B"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "ngss-hs:ESS2-2"
+       ],
+       "do": "ESS2-2: Feedbacks among Earth systems.",
+       "ek": [
+        "Practised through: ES-3.1.D, ES-3.1.A, ES-3.1.B, ES-3.1.C."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "es-feedback",
+        "es-equilibrium-temp",
+        "es-one-layer",
+        "es-co2-forcing"
+       ],
+       "needs": [
+        "ES-3.1.D",
+        "ES-3.1.A",
+        "ES-3.1.B",
+        "ES-3.1.C"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "ngss-hs:ESS2-3"
+       ],
+       "do": "ESS2-3: Thermal convection in the mantle.",
+       "ek": [
+        "Practised through: ES-2.1.B, ES-2.1.A."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "es-seismic",
+        "es-plate-boundary"
+       ],
+       "needs": [
+        "ES-2.1.B",
+        "ES-2.1.A"
+       ]
+      },
+      {
+       "id": "D",
+       "std": [
+        "ngss-hs:ESS2-4"
+       ],
+       "do": "ESS2-4: Energy flow and climate change.",
+       "ek": [
+        "Practised through: ES-3.1.A, ES-3.1.C, ES-3.1.D, ES-3.1.B."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "es-equilibrium-temp",
+        "es-co2-forcing",
+        "es-feedback",
+        "es-one-layer"
+       ],
+       "needs": [
+        "ES-3.1.A",
+        "ES-3.1.C",
+        "ES-3.1.D",
+        "ES-3.1.B"
+       ]
+      },
+      {
+       "id": "E",
+       "std": [
+        "ngss-hs:ESS2-5"
+       ],
+       "do": "ESS2-5: Properties of water and surface processes.",
+       "ek": [
+        "Practised here; no subject framework reaches it yet."
+       ],
+       "p": [
+        "P2"
+       ],
+       "drills": [
+        "ng-ice-expansion"
+       ]
+      },
+      {
+       "id": "F",
+       "std": [
+        "ngss-hs:ESS2-6"
+       ],
+       "do": "ESS2-6: Carbon cycling among Earth systems (quantitative).",
+       "ek": [
+        "Practised through: ES-3.2.A, ES-3.1.A, ES-3.1.B, ES-3.1.C."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "es-carbon-mass",
+        "es-equilibrium-temp",
+        "es-one-layer",
+        "es-co2-forcing"
+       ],
+       "needs": [
+        "ES-3.2.A",
+        "ES-3.1.A",
+        "ES-3.1.B",
+        "ES-3.1.C"
+       ]
+      },
+      {
+       "id": "G",
+       "std": [
+        "ngss-hs:ESS2-7"
+       ],
+       "do": "ESS2-7: Coevolution of Earth systems and life.",
+       "ek": [
+        "Practised here; no subject framework reaches it yet."
+       ],
+       "p": [
+        "P2"
+       ],
+       "drills": [
+        "ng-coevolution"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ess3",
+   "n": 11,
+   "title": "ESS3 · Earth and human activity",
+   "scope": "core",
+   "std": [
+    "ngss-hs:ESS3-1",
+    "ngss-hs:ESS3-2",
+    "ngss-hs:ESS3-3"
+   ],
+   "ideas": [
+    "PE"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "Earth and human activity",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "ngss-hs:ESS3-1"
+       ],
+       "do": "ESS3-1: Resources, hazards and climate shape human activity.",
+       "ek": [
+        "Practised through: ES-4.1.A."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "es-doubling"
+       ],
+       "needs": [
+        "ES-4.1.A"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "ngss-hs:ESS3-2"
+       ],
+       "do": "ESS3-2: Cost–benefit of energy and mineral resources.",
+       "ek": [
+        "Practised here; no subject framework reaches it yet."
+       ],
+       "p": [
+        "P2"
+       ],
+       "drills": [
+        "ng-energy-return"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "ngss-hs:ESS3-3"
+       ],
+       "do": "ESS3-3: Resource management, sustainability and biodiversity.",
+       "ek": [
+        "Practised through: ES-4.1.A."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "es-doubling"
+       ],
+       "needs": [
+        "ES-4.1.A"
+       ]
+      },
+      {
+       "id": "D",
+       "std": [
+        "ngss-hs:ESS3-4"
+       ],
+       "do": "ESS3-4: Technology that reduces human impact.",
+       "ek": [
+        "Practised here; no subject framework reaches it yet."
+       ],
+       "p": [
+        "P2"
+       ],
+       "drills": [
+        "ng-scrubber"
+       ]
+      },
+      {
+       "id": "E",
+       "std": [
+        "ngss-hs:ESS3-5"
+       ],
+       "do": "ESS3-5: Forecasting climate change.",
+       "ek": [
+        "Practised through: ES-3.1.C, ES-3.1.D, ES-3.1.A, ES-3.1.B."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "es-co2-forcing",
+        "es-feedback",
+        "es-equilibrium-temp",
+        "es-one-layer"
+       ],
+       "needs": [
+        "ES-3.1.C",
+        "ES-3.1.D",
+        "ES-3.1.A",
+        "ES-3.1.B"
+       ]
+      },
+      {
+       "id": "F",
+       "std": [
+        "ngss-hs:ESS3-6"
+       ],
+       "do": "ESS3-6: Humans alter Earth-system relationships (computational).",
+       "ek": [
+        "Practised through: ES-3.2.A, ES-3.1.A, ES-3.1.B, ES-3.1.C."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "es-carbon-mass",
+        "es-equilibrium-temp",
+        "es-one-layer",
+        "es-co2-forcing"
+       ],
+       "needs": [
+        "ES-3.2.A",
+        "ES-3.1.A",
+        "ES-3.1.B",
+        "ES-3.1.C"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ets1",
+   "n": 12,
+   "title": "ETS1 · Engineering design",
+   "scope": "core",
+   "std": [
+    "ngss-hs:ETS1-1",
+    "ngss-hs:ETS1-2",
+    "ngss-hs:ETS1-3"
+   ],
+   "ideas": [
+    "PE"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "Engineering design",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "ngss-hs:ETS1-1"
+       ],
+       "do": "ETS1-1: Criteria and constraints for a global challenge.",
+       "ek": [
+        "Practised here; no subject framework reaches it yet."
+       ],
+       "p": [
+        "P2"
+       ],
+       "drills": [
+        "ng-criteria-constraints"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "ngss-hs:ETS1-2"
+       ],
+       "do": "ETS1-2: Break a problem into smaller problems.",
+       "ek": [
+        "Practised here; no subject framework reaches it yet."
+       ],
+       "p": [
+        "P2"
+       ],
+       "drills": [
+        "ng-subsystem-reliability"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "ngss-hs:ETS1-3"
+       ],
+       "do": "ETS1-3: Evaluate solutions by prioritised criteria and trade-offs.",
+       "ek": [
+        "Practised here; no subject framework reaches it yet."
+       ],
+       "p": [
+        "P2"
+       ],
+       "drills": [
+        "ng-decision-matrix"
+       ]
+      },
+      {
+       "id": "D",
+       "std": [
+        "ngss-hs:ETS1-4"
+       ],
+       "do": "ETS1-4: Simulate the impact of a solution.",
+       "ek": [
+        "Practised here; no subject framework reaches it yet."
+       ],
+       "p": [
+        "P2"
+       ],
+       "drills": [
+        "ng-impact-simulation"
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "rows": [
+  {
+   "code": "NG-1.1.A",
+   "unit": 1,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ac-unpaired-electrons",
+    "ac-ion-charge-formula",
+    "ac-analogous-compound",
+    "ac-quantum-numbers-allowed"
+   ],
+   "partial": []
+  },
+  {
+   "code": "NG-1.1.B",
+   "unit": 1,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ac-unpaired-electrons",
+    "ac-quantum-numbers-allowed",
+    "ac-balance-coefficient",
+    "ac-spectator-ions"
+   ],
+   "partial": []
+  },
+  {
+   "code": "NG-1.1.C",
+   "unit": 1,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ac-imf-identify",
+    "ac-boiling-rank",
+    "ac-rf-value",
+    "ac-solubility-polar"
+   ],
+   "partial": []
+  },
+  {
+   "code": "NG-1.1.D",
+   "unit": 1,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "pc-dh-du",
+    "ac-energy-diagram",
+    "ac-heating-curve",
+    "ac-bond-enthalpy"
+   ],
+   "partial": []
+  },
+  {
+   "code": "NG-1.1.E",
+   "unit": 1,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ac-rate-coefficients",
+    "pc-initial-rates",
+    "ac-zero-order",
+    "sm-rate-k2"
+   ],
+   "partial": []
+  },
+  {
+   "code": "NG-1.1.F",
+   "unit": 1,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ac-le-chatelier",
+    "ac-dynamic-equilibrium",
+    "ac-le-chatelier-k",
+    "ac-q-vs-k"
+   ],
+   "partial": []
+  },
+  {
+   "code": "NG-1.1.G",
+   "unit": 1,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ac-mass-mass",
+    "ac-solution-stoich",
+    "ac-predict-products",
+    "ac-electrons-transferred"
+   ],
+   "partial": []
+  },
+  {
+   "code": "NG-1.1.H",
+   "unit": 1,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "nu-fraction-remaining",
+    "ac-nuclear-equation",
+    "nu-binding-energy",
+    "nu-neutron-number"
+   ],
+   "partial": []
+  },
+  {
+   "code": "NG-2.1.A",
+   "unit": 2,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ph-newton-second",
+    "ph-atwood",
+    "ph-kinetic-friction",
+    "ph-suvat-speed"
+   ],
+   "partial": []
+  },
+  {
+   "code": "NG-2.1.B",
+   "unit": 2,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ph-recoil",
+    "ph-momentum-2d",
+    "ph-system-momentum",
+    "ph-impulse-velocity"
+   ],
+   "partial": []
+  },
+  {
+   "code": "NG-2.1.C",
+   "unit": 2,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ng-collision-force"
+   ],
+   "partial": []
+  },
+  {
+   "code": "NG-2.1.D",
+   "unit": 2,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "em-coulomb-force",
+    "ph-charge-levitation",
+    "ph-coulomb-in-medium",
+    "ph-force-superposition"
+   ],
+   "partial": []
+  },
+  {
+   "code": "NG-2.1.E",
+   "unit": 2,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ph-magnetic-dipole",
+    "em-magnetic-force",
+    "em-cyclotron-radius",
+    "em-field-of-wire"
+   ],
+   "partial": []
+  },
+  {
+   "code": "NG-2.1.F",
+   "unit": 2,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ng-designed-materials"
+   ],
+   "partial": []
+  },
+  {
+   "code": "NG-3.1.A",
+   "unit": 3,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ph-ke-scaling",
+    "ph-work-energy-theorem",
+    "ph-gravitational-pe",
+    "ph-gravitational-pe-far"
+   ],
+   "partial": []
+  },
+  {
+   "code": "NG-3.1.B",
+   "unit": 3,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ph-gravitational-pe",
+    "ph-rms-speed",
+    "ph-internal-energy",
+    "ph-potential-energy-pair"
+   ],
+   "partial": []
+  },
+  {
+   "code": "NG-3.1.C",
+   "unit": 3,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ng-device-efficiency"
+   ],
+   "partial": []
+  },
+  {
+   "code": "NG-3.1.D",
+   "unit": 3,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ph-rms-speed",
+    "ph-ideal-gas-change",
+    "ph-thermal-equilibrium",
+    "ph-internal-energy"
+   ],
+   "partial": []
+  },
+  {
+   "code": "NG-3.1.E",
+   "unit": 3,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "em-field-point-charge",
+    "ph-field-lines",
+    "ph-potential-energy-pair",
+    "em-coulomb-force"
+   ],
+   "partial": []
+  },
+  {
+   "code": "NG-4.1.A",
+   "unit": 4,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ph-wave-equation",
+    "ph-string-wave-speed",
+    "ph-em-spectrum",
+    "ph-wave-type"
+   ],
+   "partial": []
+  },
+  {
+   "code": "NG-4.1.B",
+   "unit": 4,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ng-digital-storage"
+   ],
+   "partial": []
+  },
+  {
+   "code": "NG-4.1.C",
+   "unit": 4,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ph-de-broglie",
+    "ph-photon-energy",
+    "ph-bohr-level",
+    "ph-hydrogen-line"
+   ],
+   "partial": []
+  },
+  {
+   "code": "NG-4.1.D",
+   "unit": 4,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "nu-half-value-layers",
+    "nu-inverse-square",
+    "nu-equivalent-dose"
+   ],
+   "partial": []
+  },
+  {
+   "code": "NG-4.1.E",
+   "unit": 4,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ng-wave-device"
+   ],
+   "partial": []
+  },
+  {
+   "code": "NG-5.1.A",
+   "unit": 5,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "bi-dna-evidence",
+    "bi-replication-enzyme",
+    "bi-eukaryote-regulation",
+    "bi-mutation-type"
+   ],
+   "partial": []
+  },
+  {
+   "code": "NG-5.1.B",
+   "unit": 5,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "bi-blood-path",
+    "bi-action-potential",
+    "bi-synapse",
+    "bi-hormone-action"
+   ],
+   "partial": []
+  },
+  {
+   "code": "NG-5.1.C",
+   "unit": 5,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "bi-feedback-type",
+    "bi-negative-feedback",
+    "bi-positive-feedback",
+    "bi-contact-signal"
+   ],
+   "partial": []
+  },
+  {
+   "code": "NG-5.1.D",
+   "unit": 5,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "bi-mitosis-stage",
+    "bi-contact-signal",
+    "bi-signal-range",
+    "bi-signal-stages"
+   ],
+   "partial": []
+  },
+  {
+   "code": "NG-5.1.E",
+   "unit": 5,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "bi-photosynthesis-overview",
+    "bi-enzyme-energy",
+    "bi-energy-input",
+    "bi-active-site"
+   ],
+   "partial": []
+  },
+  {
+   "code": "NG-5.1.F",
+   "unit": 5,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "bi-water-interaction",
+    "bi-water-property",
+    "bi-macromolecule-elements",
+    "bi-dehydration-hydrolysis"
+   ],
+   "partial": []
+  },
+  {
+   "code": "NG-5.1.G",
+   "unit": 5,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "bi-fermentation",
+    "bi-respirometer",
+    "bi-active-site",
+    "bi-enzyme-energy"
+   ],
+   "partial": []
+  },
+  {
+   "code": "NG-6.1.A",
+   "unit": 6,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "bi-logistic-growth",
+    "bi-population-rates",
+    "bi-energy-availability"
+   ],
+   "partial": []
+  },
+  {
+   "code": "NG-6.1.B",
+   "unit": 6,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "bi-simpson-index",
+    "bi-population-rates",
+    "bi-logistic-growth",
+    "bi-energy-availability"
+   ],
+   "partial": []
+  },
+  {
+   "code": "NG-6.1.C",
+   "unit": 6,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "bi-energy-availability",
+    "bi-trophic-energy",
+    "bi-behavior-response",
+    "bi-behavior-signal"
+   ],
+   "partial": []
+  },
+  {
+   "code": "NG-6.1.D",
+   "unit": 6,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "bi-behavior-response",
+    "bi-behavior-signal",
+    "bi-energy-availability",
+    "bi-trophic-energy"
+   ],
+   "partial": []
+  },
+  {
+   "code": "NG-6.1.E",
+   "unit": 6,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "bi-biogeochemical",
+    "bi-behavior-response",
+    "bi-behavior-signal",
+    "bi-thermoregulation"
+   ],
+   "partial": []
+  },
+  {
+   "code": "NG-6.1.F",
+   "unit": 6,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "bi-ecosystem-stability",
+    "bi-succession",
+    "bi-community-data"
+   ],
+   "partial": []
+  },
+  {
+   "code": "NG-6.1.G",
+   "unit": 6,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ng-species-area"
+   ],
+   "partial": []
+  },
+  {
+   "code": "NG-6.1.H",
+   "unit": 6,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "bi-behavior-signal",
+    "bi-behavior-response"
+   ],
+   "partial": []
+  },
+  {
+   "code": "NG-7.1.A",
+   "unit": 7,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "bi-x-linked",
+    "bi-maternal-polygenic",
+    "bi-meiosis-count",
+    "bi-mitosis-vs-meiosis"
+   ],
+   "partial": []
+  },
+  {
+   "code": "NG-7.1.B",
+   "unit": 7,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "bi-gamete-combinations",
+    "bi-maternal-polygenic",
+    "bi-meiosis-count",
+    "bi-mitosis-vs-meiosis"
+   ],
+   "partial": []
+  },
+  {
+   "code": "NG-7.1.C",
+   "unit": 7,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "bi-monohybrid",
+    "bi-pedigree-pattern",
+    "bi-chi-square",
+    "bi-x-linked"
+   ],
+   "partial": []
+  },
+  {
+   "code": "NG-8.1.A",
+   "unit": 8,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "bi-universal-features",
+    "bi-origin-of-life",
+    "bi-molecular-relatedness"
+   ],
+   "partial": []
+  },
+  {
+   "code": "NG-8.1.B",
+   "unit": 8,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "bi-extinction",
+    "bi-convergent",
+    "bi-evolution-evidence",
+    "bi-ongoing-evolution"
+   ],
+   "partial": []
+  },
+  {
+   "code": "NG-8.1.C",
+   "unit": 8,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "bi-hardy-weinberg",
+    "bi-fitness",
+    "bi-hw-test",
+    "bi-selection-type"
+   ],
+   "partial": []
+  },
+  {
+   "code": "NG-8.1.D",
+   "unit": 8,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "bi-selection-conditions",
+    "bi-fitness",
+    "bi-selection-type",
+    "bi-convergent"
+   ],
+   "partial": []
+  },
+  {
+   "code": "NG-8.1.E",
+   "unit": 8,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "bi-extinction",
+    "bi-speciation"
+   ],
+   "partial": []
+  },
+  {
+   "code": "NG-8.1.F",
+   "unit": 8,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ng-harvest-simulation"
+   ],
+   "partial": []
+  },
+  {
+   "code": "NG-9.1.A",
+   "unit": 9,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "es-fusion-energy",
+    "es-wien",
+    "es-luminosity",
+    "es-star-life"
+   ],
+   "partial": []
+  },
+  {
+   "code": "NG-9.1.B",
+   "unit": 9,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "es-hubble",
+    "es-element-origin",
+    "es-wien"
+   ],
+   "partial": []
+  },
+  {
+   "code": "NG-9.1.C",
+   "unit": 9,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "es-fusion-energy",
+    "es-element-origin",
+    "es-kepler",
+    "es-escape"
+   ],
+   "partial": []
+  },
+  {
+   "code": "NG-9.1.D",
+   "unit": 9,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "es-kepler",
+    "es-escape",
+    "es-wien",
+    "es-luminosity"
+   ],
+   "partial": []
+  },
+  {
+   "code": "NG-9.1.E",
+   "unit": 9,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "es-plate-boundary",
+    "es-radiometric",
+    "es-seismic",
+    "es-dating-method"
+   ],
+   "partial": []
+  },
+  {
+   "code": "NG-9.1.F",
+   "unit": 9,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "es-radiometric",
+    "es-dating-method",
+    "es-plate-boundary",
+    "es-seismic"
+   ],
+   "partial": []
+  },
+  {
+   "code": "NG-10.1.A",
+   "unit": 10,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "es-plate-boundary",
+    "es-seismic",
+    "es-radiometric",
+    "es-dating-method"
+   ],
+   "partial": []
+  },
+  {
+   "code": "NG-10.1.B",
+   "unit": 10,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "es-feedback",
+    "es-equilibrium-temp",
+    "es-one-layer",
+    "es-co2-forcing"
+   ],
+   "partial": []
+  },
+  {
+   "code": "NG-10.1.C",
+   "unit": 10,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "es-seismic",
+    "es-plate-boundary"
+   ],
+   "partial": []
+  },
+  {
+   "code": "NG-10.1.D",
+   "unit": 10,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "es-equilibrium-temp",
+    "es-co2-forcing",
+    "es-feedback",
+    "es-one-layer"
+   ],
+   "partial": []
+  },
+  {
+   "code": "NG-10.1.E",
+   "unit": 10,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ng-ice-expansion"
+   ],
+   "partial": []
+  },
+  {
+   "code": "NG-10.1.F",
+   "unit": 10,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "es-carbon-mass",
+    "es-equilibrium-temp",
+    "es-one-layer",
+    "es-co2-forcing"
+   ],
+   "partial": []
+  },
+  {
+   "code": "NG-10.1.G",
+   "unit": 10,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ng-coevolution"
+   ],
+   "partial": []
+  },
+  {
+   "code": "NG-11.1.A",
+   "unit": 11,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "es-doubling"
+   ],
+   "partial": []
+  },
+  {
+   "code": "NG-11.1.B",
+   "unit": 11,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ng-energy-return"
+   ],
+   "partial": []
+  },
+  {
+   "code": "NG-11.1.C",
+   "unit": 11,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "es-doubling"
+   ],
+   "partial": []
+  },
+  {
+   "code": "NG-11.1.D",
+   "unit": 11,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ng-scrubber"
+   ],
+   "partial": []
+  },
+  {
+   "code": "NG-11.1.E",
+   "unit": 11,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "es-co2-forcing",
+    "es-feedback",
+    "es-equilibrium-temp",
+    "es-one-layer"
+   ],
+   "partial": []
+  },
+  {
+   "code": "NG-11.1.F",
+   "unit": 11,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "es-carbon-mass",
+    "es-equilibrium-temp",
+    "es-one-layer",
+    "es-co2-forcing"
+   ],
+   "partial": []
+  },
+  {
+   "code": "NG-12.1.A",
+   "unit": 12,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ng-criteria-constraints"
+   ],
+   "partial": []
+  },
+  {
+   "code": "NG-12.1.B",
+   "unit": 12,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ng-subsystem-reliability"
+   ],
+   "partial": []
+  },
+  {
+   "code": "NG-12.1.C",
+   "unit": 12,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ng-decision-matrix"
+   ],
+   "partial": []
+  },
+  {
+   "code": "NG-12.1.D",
+   "unit": 12,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ng-impact-simulation"
+   ],
+   "partial": []
+  }
+ ],
+ "orphanTpl": []
+}

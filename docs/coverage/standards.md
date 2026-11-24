@@ -16,15 +16,16 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 | Basketball | USA Basketball Player Development Curriculum | standard | read in part | — | — | 88 | 0 | 88 |
 | Biology (AP) | AP Biology Course and Exam Description (2019) | standard | read through a crosswalk | iupac-aa-1983, ngss-hs, ib-biology-2025, icho-appendix-c, icho-syllabus, aamc-mcat-outline | — | 179 | 179 | 0 |
 | Calculus | AP Calculus AB and BC Course and Exam Description | standard | read in full | webwork-opl | — | 203 | 203 | 0 |
-| Chemistry Olympiad | U.S. National Chemistry Olympiad: local and national exam format and multiple-choice topics | exam-spec | read in part | icho-appendix-c, icho-syllabus | — | 14 | 14 | 0 |
+| Chemistry Olympiad | U.S. National Chemistry Olympiad: local and national exam format, multiple-choice topic bands and Part II | exam-spec | read in part | icho-appendix-c, icho-syllabus | — | 73 | 73 | 0 |
 | Chemistry (AP) | AP Chemistry Course and Exam Description (Fall 2024) | standard | read in part | ngss-hs, ib-chemistry-2025, usnco, icho-appendix-c, icho-syllabus, acs-accm, aamc-mcat-outline | — | 179 | 179 | 0 |
 | Computer Science | Computer Science Curricula 2023, Body of Knowledge | standard | read in full | — | — | 140 | 1 | 139 |
 | Dental Admission Test | Dental Admission Test 2026 Candidate Guide | exam-spec | read in full | ngss-hs, ib-chemistry-2025, usnco, icho-appendix-c | — | 183 | 72 | 111 |
 | Earth and Space Science | Next Generation Science Standards, high school performance expectations (2013) | standard | read in part | ib-physics-2025, ib-biology-2025, gre-physics | — | 18 | 18 | 0 |
 | Applied Engineering Mathematics | Kreyszig, Advanced Engineering Mathematics, 10th ed. | textbook | read in full | fe-chemical, webwork-opl | — | 155 | 128 | 27 |
 | Fluid Mechanics | NCEES FE Chemical CBT Exam Specifications (effective July 2020) | exam-spec | read in full | pe-chemical, webwork-opl | — | 64 | 64 | 0 |
+| Graduate Chemical Engineering Core | UC Irvine Chemical and Biomolecular Engineering graduate core: CBE 200, 210, 220A, 220B and 240 (catalogue descriptions, 2025-26) | course | read in part | pe-chemical | — | 38 | 38 | 0 |
 | Heat Transfer | NCEES FE Chemical CBT Exam Specifications (effective July 2020) | exam-spec | read in full | fe-mechanical, ib-physics-2025, pe-chemical | — | 101 | 63 | 38 |
-| INBDE (Dentistry) | JCNDE, Domain of Dentistry (INBDE content domain), July 2018 | exam-spec | read in part | — | — | 22 | 22 | 0 |
+| INBDE (Dentistry) | JCNDE, Domain of Dentistry (INBDE content domain), July 2018 | exam-spec | read in part | — | — | 57 | 57 | 0 |
 | Information Systems | MSIS 2016 Global Competency Model | standard | read in full | — | — | 53 | 0 | 53 |
 | Advanced Inorganic Chemistry (Cotton & Wilkinson) | Cotton, Wilkinson, Murillo & Bochmann, Advanced Inorganic Chemistry, 6th ed. (1999): table of contents | textbook | read in part | icho-appendix-c, gre-chemistry | — | 55 | 0 | 55 |
 | Inorganic Chemistry | Regulations of the International Chemistry Olympiad, Appendices C and D (concepts, skills and factual knowledge) | exam-spec | read in full | icho-syllabus, gre-chemistry, usnco, ib-chemistry-2025 | — | 23 | 23 | 0 |
@@ -37,6 +38,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 | Mental Math | UIL Number Sense Problem Sequencing Charts (High School; A+ Junior High and Elementary, rev. 2016-17) with the Number Sense Handbook rules | exam-spec | read in full | sta-mtc, mit-18-03-coverup, mit-integration-bee | — | 84 | 81 | 3 |
 | Molecular Simulation | LiveCoMS best-practice papers for molecular simulation | course | read in part | — | — | 106 | 0 | 106 |
 | NCLEX-RN | NCLEX-RN Test Plan, effective April 2026 | exam-spec | read in part | — | — | 39 | 39 | 0 |
+| NGSS High School Science | Next Generation Science Standards, high school performance expectations (2013) | standard | read in part | — | — | 71 | 71 | 0 |
 | Nuclear Science and Reactor Theory | NRC Generic Fundamentals Examination, reactor theory topics (PWR catalog 192001-192008) | exam-spec | read in part | doe-hdbk-1019, ngss-hs, ib-physics-2025, icho-appendix-c, aamc-mcat-outline, gre-physics | — | 19 | 19 | 0 |
 | Numerical Methods | NCEES FE Chemical CBT Exam Specifications (effective July 2020) | exam-spec | read in full | webwork-opl | — | 17 | 17 | 0 |
 | Organic Reactions: Predict the Product | Bruice, Organic Chemistry, 8th edition (table of contents) | textbook | read in part | ib-chemistry-2025, icho-appendix-c, icho-syllabus, acs-accm, aamc-mcat-outline, gre-chemistry | — | 25 | 24 | 1 |
@@ -70,6 +72,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 - **Earth and Space Science**: Units follow the NGSS HS ESS disciplinary core ideas (ESS1 Earth's place in the universe, ESS2 Earth's systems, ESS3 Earth and human activity), read in part. Objectives and their order are ours.
 - **Applied Engineering Mathematics**: UCI CBE 200 publishes no syllabus. The undergraduate part is anchored to fe-chemical; series, Sturm–Liouville, PDEs and transforms are past any exam spec and stand on the book.
 - **Fluid Mechanics**: Topics from FE Chemical area 6, read in full; units 7–10 extend past it on the WeBWorK OPL fluid-mechanics sections (read in full). Objectives and their order are ours; statics is assumed by the spec rather than listed.
+- **Graduate Chemical Engineering Core**: UCI's graduate core courses by catalogue description (read in part); no syllabus or past comprehensive exam was read, so the objectives are ours. PE Chemical is the nearest published exam and stops below this level.
 - **Heat Transfer**: Also crosswalked to the FE Mechanical spec and UCI MAE 120.
 - **INBDE (Dentistry)**: Units are the Domain of Dentistry's three clinical sections plus Foundation Knowledge area 3 (materials); objectives cite the clinical content area or FK they serve and are ours.
 - **Advanced Inorganic Chemistry (Cotton & Wilkinson)**: Units follow the chapters of Cotton & Wilkinson 6e (table of contents read); the objectives are a house list on those chapters.
@@ -82,6 +85,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 - **Mental Math**: Topic list and order from the UIL high-school chart. The short-cut techniques and the estimation topic are a house list. Unit 6 goes past the chart: the cover-up items follow an MIT 18.03 course note and the one-a-minute integration pace follows the MIT Integration Bee qualifier; which results belong in unit 6 is a house list. Pace comes from the UIL rules (7.5 s a problem) and the English multiplication tables check (6 s a fact).
 - **Molecular Simulation**: No standard exists for this subject; triangulated from best-practice papers, textbooks and the Hayes group tutorial.
 - **NCLEX-RN**: Units are the test plan's eight Client Needs subcategories (with their weights); topics group its related-content items; the objectives are ours.
+- **NGSS High School Science**: One objective per high-school performance expectation. The PE statements were read; the evidence statements were not. Drills for PEs taught elsewhere are drawn from the subject frameworks; the engineering and design PEs have their own items.
 - **Nuclear Science and Reactor Theory**: Reactor-theory units follow the NRC Generic Fundamentals Examination topic list (read in part). Nuclear physics and shielding follow the DOE fundamentals handbook's first module (read in part). Health-physics standards for the radiation-protection unit have not been looked at.
 - **Numerical Methods**: FE Chemical names numerical methods as one item (1.D) and the WeBWorK OPL names a few methods; no published standard lists a numerical-methods course, so the objectives are a house list on Chapra & Canale's part order.
 - **Organic Reactions: Predict the Product**: Families follow the reaction chapters of Bruice's Organic Chemistry (a textbook, not a standard; chapter titles 2-17 from memory). The reactions and substrates in each are a house list. Every product is mass-balanced against its reactant by the generator; regiochemistry and stereochemistry were checked by eye.
@@ -112,12 +116,14 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 - **Chemistry (AP)**: standard, read in part
 - **Earth and Space Science**: standard, read in part
 - **Applied Engineering Mathematics**: textbook, read in full
+- **Graduate Chemical Engineering Core**: course, read in part
 - **INBDE (Dentistry)**: exam-spec, read in part
 - **Advanced Inorganic Chemistry (Cotton & Wilkinson)**: textbook, read in part
 - **Linear Algebra**: standard, read in part; should move to Linear Algebra Curriculum Study Group 2.0 recommendations (Stewart, Axler, Beezer et al.)
 - **Mathematics K–8 (Common Core)**: standard, read through a crosswalk
 - **Molecular Simulation**: course, read in part
 - **NCLEX-RN**: exam-spec, read in part
+- **NGSS High School Science**: standard, read in part
 - **Nuclear Science and Reactor Theory**: exam-spec, read in part
 - **Organic Reactions: Predict the Product**: textbook, read in part
 - **Particle Physics**: standard, read in part
@@ -1484,33 +1490,75 @@ https://nclex.com/files/2026_RN_Test%20Plan_English-F.pdf
 
 https://jcnde.ada.org/-/media/project/ada-organization/ada/jcnde/files/domain_of_dentistry_july2018.pdf
 
-19 of 24 items have at least one objective answering to them.
+42 of 66 items have at least one objective answering to them.
 
 | Item | Topic | Objectives | With a drill | Where |
 |---|---|---|---|---|
-| FK1 | Molecular, biochemical, cellular and systems-level development, structure and function | 1 | 1 | inbde (1) |
+| FK1 | Molecular, biochemical, cellular and systems-level development, structure and function | 11 | 11 | inbde (11) |
 | FK2 | Physics and chemistry of normal biology and pathobiology | 1 | 1 | inbde (1) |
 | FK3 | Physics and chemistry of technologies and materials (8.0%) | 9 | 9 | inbde (9) |
-| FK4 | Genetic, congenital and developmental diseases | — | — | **nothing yet** |
-| FK5 | Host defense mechanisms | — | — | **nothing yet** |
-| FK6 | General and disease-specific pathology | — | — | **nothing yet** |
-| FK7 | Biology of microorganisms | — | — | **nothing yet** |
-| FK8 | Pharmacology | 1 | 1 | inbde (1) |
-| FK9 | Behavioral sciences, ethics and jurisprudence | — | — | **nothing yet** |
-| FK10 | Research methodology, analysis and informatics | 1 | 1 | inbde (1) |
+| FK4 | Genetic, congenital and developmental diseases | 5 | 5 | inbde (5) |
+| FK5 | Host defense mechanisms | 2 | 2 | inbde (2) |
+| FK6 | General and disease-specific pathology | 4 | 4 | inbde (4) |
+| FK7 | Biology of microorganisms | 2 | 2 | inbde (2) |
+| FK8 | Pharmacology | 7 | 7 | inbde (7) |
+| FK9 | Behavioral sciences, ethics and jurisprudence | 2 | 2 | inbde (2) |
+| FK10 | Research methodology, analysis and informatics | 3 | 3 | inbde (3) |
+| CC1 | Patient history and medical data | 4 | 4 | inbde (4) |
+| CC2 | Chief complaint and contributing factors | — | — | **nothing yet** |
+| CC3 | Head, neck and intraoral examination | — | — | **nothing yet** |
 | CC4 | Diagnosing and prognosing dental abnormalities and pathology | 1 | 1 | inbde (1) |
-| CC7 | Interpreting diagnostic results | 1 | 1 | inbde (1) |
+| CC5 | Normal findings versus those needing monitoring or treatment | 9 | 9 | inbde (9) |
+| CC6 | Predicting the most likely diagnostic result | — | — | **nothing yet** |
+| CC7 | Interpreting diagnostic results | 10 | 10 | inbde (10) |
+| CC8 | Systemic disease and its effect on dental care | 9 | 9 | inbde (9) |
+| CC9 | Oral and systemic health | — | — | **nothing yet** |
 | CC10 | Selecting diagnostic tools | 1 | 1 | inbde (1) |
-| CC16 | Medical emergencies | 1 | 1 | inbde (1) |
-| CC19 | Pain control during treatment | 2 | 2 | inbde (2) |
-| CC20 | Pulpal and periradicular diseases | 1 | 1 | inbde (1) |
-| CC21 | Managing caries | 2 | 2 | inbde (2) |
-| CC22 | Periodontal diseases | 1 | 1 | inbde (1) |
-| CC26 | Pharmacological agents | 1 | 1 | inbde (1) |
+| CC11 | Gathering information from varied sources | — | — | **nothing yet** |
+| CC12 | Comprehensive diagnosis and treatment plan | — | — | **nothing yet** |
+| CC13 | Explaining etiology, options and prognosis | — | — | **nothing yet** |
+| CC14 | Patient attributes, background and values across life stages | — | — | **nothing yet** |
+| CC15 | Communicating with patients (psychological, social, behavioural) | — | — | **nothing yet** |
+| CC16 | Medical emergencies | 5 | 5 | inbde (5) |
+| CC17 | Dental emergencies | 5 | 5 | inbde (5) |
+| CC18 | Acute pain, bleeding, trauma and infection of the orofacial complex | 5 | 5 | inbde (5) |
+| CC19 | Pain control during treatment | 8 | 8 | inbde (8) |
+| CC20 | Pulpal and periradicular diseases | 7 | 7 | inbde (7) |
+| CC21 | Managing caries | 12 | 12 | inbde (12) |
+| CC22 | Periodontal diseases | 5 | 5 | inbde (5) |
+| CC23 | Oral mucosal and osseous diseases | 8 | 8 | inbde (8) |
+| CC24 | Abuse and neglect | 6 | 6 | inbde (6) |
+| CC25 | Substance abuse | — | — | **nothing yet** |
+| CC26 | Pharmacological agents | 9 | 9 | inbde (9) |
+| CC27 | Complications of therapeutic agents | 7 | 7 | inbde (7) |
+| CC28 | Endodontic diagnosis and procedures | 10 | 10 | inbde (10) |
+| CC29 | Edentulous and partially edentulous patients | 1 | 1 | inbde (1) |
 | CC30 | Restoring tooth function, structure and esthetics | 3 | 3 | inbde (3) |
-| CC31 | Prosthetic and implant procedures | 2 | 2 | inbde (2) |
-| CC41 | Evaluating scientific literature | 1 | 1 | inbde (1) |
-| CC51 | Standard infection control | 1 | 1 | inbde (1) |
+| CC31 | Prosthetic and implant procedures | 8 | 8 | inbde (8) |
+| CC32 | Oral surgical needs | 1 | 1 | inbde (1) |
+| CC33 | Oral surgical procedures | 1 | 1 | inbde (1) |
+| CC34 | Developmental or acquired occlusal problems | 6 | 6 | inbde (6) |
+| CC35 | Temporomandibular disorders | 5 | 5 | inbde (5) |
+| CC36 | Modifying oral tissues for form, function and esthetics | — | — | **nothing yet** |
+| CC37 | Evaluating outcomes of comprehensive care | — | — | **nothing yet** |
+| CC38 | Oral esthetic needs | — | — | **nothing yet** |
+| CC39 | Emerging trends in health care | — | — | **nothing yet** |
+| CC40 | Social and economic trends in oral health care | — | — | **nothing yet** |
+| CC41 | Evaluating scientific literature | 8 | 8 | inbde (8) |
+| CC42 | Scope of practice, consultation and referral | — | — | **nothing yet** |
+| CC43 | Resources for care, management and development | — | — | **nothing yet** |
+| CC44 | Risk management, jurisprudence and ethics | 1 | 1 | inbde (1) |
+| CC45 | Ethical and jurisprudence issues | 1 | 1 | inbde (1) |
+| CC46 | Patient records | 1 | 1 | inbde (1) |
+| CC47 | Business and financial operations | — | — | **nothing yet** |
+| CC48 | Catastrophe preparedness | — | — | **nothing yet** |
+| CC49 | Managing allied dental personnel | — | — | **nothing yet** |
+| CC50 | Self-assessment | — | — | **nothing yet** |
+| CC51 | Standard infection control | 5 | 5 | inbde (5) |
+| CC52 | Prevention, intervention and education | 2 | 2 | inbde (2) |
+| CC53 | Collaboration for community health | — | — | **nothing yet** |
+| CC54 | Oral health care delivery for populations | — | — | **nothing yet** |
+| CC55 | Quality assurance and improvement | — | — | **nothing yet** |
 | CC56 | Communicating case design to laboratories | 2 | 2 | inbde (2) |
 
 ## AAMC, What's on the MCAT Exam? content outline
@@ -1540,81 +1588,81 @@ https://students-residents.aamc.org/mcatexam
 
 https://educate.iowa.gov/pk-12/standards/academics/science/high-school
 
-56 of 71 items have at least one objective answering to them.
+71 of 71 items have at least one objective answering to them.
 
 | Item | Topic | Objectives | With a drill | Where |
 |---|---|---|---|---|
-| PS1-1 | Periodic patterns of outer electrons predict properties | 23 | 23 | chemistry (21), periodic-table (2) |
-| PS1-2 | Reaction outcomes from outer electrons and periodic trends | 39 | 39 | chemistry (39) |
-| PS1-3 | Bulk properties infer strength of electrical forces between particles | 27 | 27 | chemistry (27) |
-| PS1-4 | Bond energy changes account for energy released or absorbed | 16 | 16 | chemistry (16) |
-| PS1-5 | Temperature and concentration effects on reaction rate | 16 | 16 | chemistry (16) |
-| PS1-6 | Changing conditions to shift equilibrium toward product | 18 | 18 | chemistry (18) |
-| PS1-7 | Conservation of atoms and mass in reactions (mathematical) | 18 | 18 | chemistry (18) |
-| PS1-8 | Fission, fusion and radioactive decay | 6 | 6 | dat (3), nuclear (3) |
-| PS2-1 | Newton's second law from data | 17 | 17 | physics (17) |
-| PS2-2 | Conservation of momentum | 8 | 8 | physics (8) |
-| PS2-3 | Design a device that reduces collision force | — | — | **nothing yet** |
-| PS2-4 | Newton's gravitation and Coulomb's law | 15 | 15 | physics (15) |
-| PS2-5 | Currents and magnetic fields produce each other | 10 | 10 | physics (10) |
-| PS2-6 | Molecular structure and the function of designed materials | — | — | **nothing yet** |
-| PS3-1 | Energy change of one component from the others and the flows | 10 | 10 | physics (10) |
-| PS3-2 | Energy as motion of particles plus relative positions | 10 | 10 | physics (10) |
-| PS3-3 | Design a device that converts energy | — | — | **nothing yet** |
-| PS3-4 | Heat flow toward uniform energy (second law) | 12 | 12 | physics (12) |
-| PS3-5 | Energy in electric and magnetic field interactions | 15 | 15 | physics (15) |
-| PS4-1 | Wave speed, frequency and wavelength | 13 | 13 | physics (13) |
-| PS4-2 | Advantages of digital transmission and storage | — | — | **nothing yet** |
-| PS4-3 | Wave and particle models of electromagnetic radiation | 11 | 11 | physics (11) |
-| PS4-4 | Effects of radiation frequency on matter | 3 | 3 | nuclear (3) |
-| PS4-5 | Devices that use waves to transmit and capture information | — | — | **nothing yet** |
-| LS1-1 | DNA structure determines protein structure and function | 19 | 19 | biology (19) |
-| LS1-2 | Hierarchical organisation of interacting body systems | 15 | 15 | biology (15) |
-| LS1-3 | Feedback mechanisms and homeostasis | 15 | 15 | biology (15) |
-| LS1-4 | Mitosis and differentiation | 15 | 15 | biology (15) |
-| LS1-5 | Photosynthesis converts light to chemical energy | 18 | 18 | biology (18) |
-| LS1-6 | Carbon, hydrogen and oxygen from sugars build large molecules | 16 | 16 | biology (16) |
-| LS1-7 | Cellular respiration as bond breaking and forming | 18 | 18 | biology (18) |
-| LS2-1 | Carrying capacity | 20 | 20 | biology (20) |
-| LS2-2 | Biodiversity and population size (mathematical) | 20 | 20 | biology (20) |
-| LS2-3 | Matter and energy in aerobic and anaerobic conditions | 20 | 20 | biology (20) |
-| LS2-4 | Matter and energy flow among organisms (mathematical) | 20 | 20 | biology (20) |
-| LS2-5 | Carbon cycling | 20 | 20 | biology (20) |
-| LS2-6 | Ecosystem stability and change | 20 | 20 | biology (20) |
-| LS2-7 | Reduce human impact on the environment and biodiversity | — | — | **nothing yet** |
-| LS2-8 | Group behaviour and survival | 20 | 20 | biology (20) |
-| LS3-1 | DNA and chromosomes code for traits | 15 | 15 | biology (15) |
-| LS3-2 | Sources of inheritable variation | 15 | 15 | biology (15) |
-| LS3-3 | Statistics of trait variation | 15 | 15 | biology (15) |
-| LS4-1 | Evidence for common ancestry | 27 | 27 | biology (27) |
-| LS4-2 | Four factors of evolution | 27 | 27 | biology (27) |
-| LS4-3 | Statistics of advantageous traits | 27 | 27 | biology (27) |
-| LS4-4 | Natural selection leads to adaptation | 27 | 27 | biology (27) |
-| LS4-5 | Environmental change and speciation or extinction | 27 | 27 | biology (27) |
-| LS4-6 | Simulate solutions to biodiversity threats | — | — | **nothing yet** |
-| ESS1-1 | The Sun's life span and fusion energy | 12 | 12 | earth-space (12) |
-| ESS1-2 | Big Bang evidence | 9 | 9 | earth-space (9) |
-| ESS1-3 | Stellar nucleosynthesis | 10 | 10 | earth-space (10) |
-| ESS1-4 | Orbital motion (Kepler, gravitation) | 10 | 10 | earth-space (10) |
-| ESS1-5 | Plate tectonics and the ages of rocks | 6 | 6 | earth-space (6) |
-| ESS1-6 | Early Earth history from ancient materials | 6 | 6 | earth-space (6) |
-| ESS2-1 | Internal and surface processes form landforms | 5 | 5 | earth-space (5) |
-| ESS2-2 | Feedbacks among Earth systems | 6 | 6 | earth-space (6) |
-| ESS2-3 | Thermal convection in the mantle | 5 | 5 | earth-space (5) |
-| ESS2-4 | Energy flow and climate change | 6 | 6 | earth-space (6) |
-| ESS2-5 | Properties of water and surface processes | — | — | **nothing yet** |
-| ESS2-6 | Carbon cycling among Earth systems (quantitative) | 6 | 6 | earth-space (6) |
-| ESS2-7 | Coevolution of Earth systems and life | — | — | **nothing yet** |
-| ESS3-1 | Resources, hazards and climate shape human activity | 1 | 1 | earth-space (1) |
-| ESS3-2 | Cost–benefit of energy and mineral resources | — | — | **nothing yet** |
-| ESS3-3 | Resource management, sustainability and biodiversity | 2 | 2 | earth-space (2) |
-| ESS3-4 | Technology that reduces human impact | — | — | **nothing yet** |
-| ESS3-5 | Forecasting climate change | 6 | 6 | earth-space (6) |
-| ESS3-6 | Humans alter Earth-system relationships (computational) | 6 | 6 | earth-space (6) |
-| ETS1-1 | Criteria and constraints for a global challenge | — | — | **nothing yet** |
-| ETS1-2 | Break a problem into smaller problems | — | — | **nothing yet** |
-| ETS1-3 | Evaluate solutions by prioritised criteria and trade-offs | — | — | **nothing yet** |
-| ETS1-4 | Simulate the impact of a solution | — | — | **nothing yet** |
+| PS1-1 | Periodic patterns of outer electrons predict properties | 32 | 32 | chemistry (21), ngss (9), periodic-table (2) |
+| PS1-2 | Reaction outcomes from outer electrons and periodic trends | 48 | 48 | chemistry (39), ngss (9) |
+| PS1-3 | Bulk properties infer strength of electrical forces between particles | 36 | 36 | chemistry (27), ngss (9) |
+| PS1-4 | Bond energy changes account for energy released or absorbed | 17 | 17 | chemistry (16), ngss (1) |
+| PS1-5 | Temperature and concentration effects on reaction rate | 17 | 17 | chemistry (16), ngss (1) |
+| PS1-6 | Changing conditions to shift equilibrium toward product | 19 | 19 | chemistry (18), ngss (1) |
+| PS1-7 | Conservation of atoms and mass in reactions (mathematical) | 19 | 19 | chemistry (18), ngss (1) |
+| PS1-8 | Fission, fusion and radioactive decay | 7 | 7 | dat (3), ngss (1), nuclear (3) |
+| PS2-1 | Newton's second law from data | 24 | 24 | ngss (7), physics (17) |
+| PS2-2 | Conservation of momentum | 15 | 15 | ngss (7), physics (8) |
+| PS2-3 | Design a device that reduces collision force | 7 | 7 | ngss (7) |
+| PS2-4 | Newton's gravitation and Coulomb's law | 16 | 16 | ngss (1), physics (15) |
+| PS2-5 | Currents and magnetic fields produce each other | 11 | 11 | ngss (1), physics (10) |
+| PS2-6 | Molecular structure and the function of designed materials | 1 | 1 | ngss (1) |
+| PS3-1 | Energy change of one component from the others and the flows | 16 | 16 | ngss (6), physics (10) |
+| PS3-2 | Energy as motion of particles plus relative positions | 16 | 16 | ngss (6), physics (10) |
+| PS3-3 | Design a device that converts energy | 6 | 6 | ngss (6) |
+| PS3-4 | Heat flow toward uniform energy (second law) | 13 | 13 | ngss (1), physics (12) |
+| PS3-5 | Energy in electric and magnetic field interactions | 16 | 16 | ngss (1), physics (15) |
+| PS4-1 | Wave speed, frequency and wavelength | 19 | 19 | ngss (6), physics (13) |
+| PS4-2 | Advantages of digital transmission and storage | 6 | 6 | ngss (6) |
+| PS4-3 | Wave and particle models of electromagnetic radiation | 17 | 17 | ngss (6), physics (11) |
+| PS4-4 | Effects of radiation frequency on matter | 4 | 4 | ngss (1), nuclear (3) |
+| PS4-5 | Devices that use waves to transmit and capture information | 1 | 1 | ngss (1) |
+| LS1-1 | DNA structure determines protein structure and function | 27 | 27 | biology (19), ngss (8) |
+| LS1-2 | Hierarchical organisation of interacting body systems | 23 | 23 | biology (15), ngss (8) |
+| LS1-3 | Feedback mechanisms and homeostasis | 23 | 23 | biology (15), ngss (8) |
+| LS1-4 | Mitosis and differentiation | 16 | 16 | biology (15), ngss (1) |
+| LS1-5 | Photosynthesis converts light to chemical energy | 19 | 19 | biology (18), ngss (1) |
+| LS1-6 | Carbon, hydrogen and oxygen from sugars build large molecules | 17 | 17 | biology (16), ngss (1) |
+| LS1-7 | Cellular respiration as bond breaking and forming | 19 | 19 | biology (18), ngss (1) |
+| LS2-1 | Carrying capacity | 29 | 29 | biology (20), ngss (9) |
+| LS2-2 | Biodiversity and population size (mathematical) | 29 | 29 | biology (20), ngss (9) |
+| LS2-3 | Matter and energy in aerobic and anaerobic conditions | 29 | 29 | biology (20), ngss (9) |
+| LS2-4 | Matter and energy flow among organisms (mathematical) | 21 | 21 | biology (20), ngss (1) |
+| LS2-5 | Carbon cycling | 21 | 21 | biology (20), ngss (1) |
+| LS2-6 | Ecosystem stability and change | 21 | 21 | biology (20), ngss (1) |
+| LS2-7 | Reduce human impact on the environment and biodiversity | 1 | 1 | ngss (1) |
+| LS2-8 | Group behaviour and survival | 21 | 21 | biology (20), ngss (1) |
+| LS3-1 | DNA and chromosomes code for traits | 19 | 19 | biology (15), ngss (4) |
+| LS3-2 | Sources of inheritable variation | 19 | 19 | biology (15), ngss (4) |
+| LS3-3 | Statistics of trait variation | 19 | 19 | biology (15), ngss (4) |
+| LS4-1 | Evidence for common ancestry | 34 | 34 | biology (27), ngss (7) |
+| LS4-2 | Four factors of evolution | 34 | 34 | biology (27), ngss (7) |
+| LS4-3 | Statistics of advantageous traits | 34 | 34 | biology (27), ngss (7) |
+| LS4-4 | Natural selection leads to adaptation | 28 | 28 | biology (27), ngss (1) |
+| LS4-5 | Environmental change and speciation or extinction | 28 | 28 | biology (27), ngss (1) |
+| LS4-6 | Simulate solutions to biodiversity threats | 1 | 1 | ngss (1) |
+| ESS1-1 | The Sun's life span and fusion energy | 19 | 19 | earth-space (12), ngss (7) |
+| ESS1-2 | Big Bang evidence | 16 | 16 | earth-space (9), ngss (7) |
+| ESS1-3 | Stellar nucleosynthesis | 17 | 17 | earth-space (10), ngss (7) |
+| ESS1-4 | Orbital motion (Kepler, gravitation) | 11 | 11 | earth-space (10), ngss (1) |
+| ESS1-5 | Plate tectonics and the ages of rocks | 7 | 7 | earth-space (6), ngss (1) |
+| ESS1-6 | Early Earth history from ancient materials | 7 | 7 | earth-space (6), ngss (1) |
+| ESS2-1 | Internal and surface processes form landforms | 13 | 13 | earth-space (5), ngss (8) |
+| ESS2-2 | Feedbacks among Earth systems | 14 | 14 | earth-space (6), ngss (8) |
+| ESS2-3 | Thermal convection in the mantle | 13 | 13 | earth-space (5), ngss (8) |
+| ESS2-4 | Energy flow and climate change | 7 | 7 | earth-space (6), ngss (1) |
+| ESS2-5 | Properties of water and surface processes | 1 | 1 | ngss (1) |
+| ESS2-6 | Carbon cycling among Earth systems (quantitative) | 7 | 7 | earth-space (6), ngss (1) |
+| ESS2-7 | Coevolution of Earth systems and life | 1 | 1 | ngss (1) |
+| ESS3-1 | Resources, hazards and climate shape human activity | 8 | 8 | earth-space (1), ngss (7) |
+| ESS3-2 | Cost–benefit of energy and mineral resources | 7 | 7 | ngss (7) |
+| ESS3-3 | Resource management, sustainability and biodiversity | 9 | 9 | earth-space (2), ngss (7) |
+| ESS3-4 | Technology that reduces human impact | 1 | 1 | ngss (1) |
+| ESS3-5 | Forecasting climate change | 7 | 7 | earth-space (6), ngss (1) |
+| ESS3-6 | Humans alter Earth-system relationships (computational) | 7 | 7 | earth-space (6), ngss (1) |
+| ETS1-1 | Criteria and constraints for a global challenge | 5 | 5 | ngss (5) |
+| ETS1-2 | Break a problem into smaller problems | 5 | 5 | ngss (5) |
+| ETS1-3 | Evaluate solutions by prioritised criteria and trade-offs | 5 | 5 | ngss (5) |
+| ETS1-4 | Simulate the impact of a solution | 1 | 1 | ngss (1) |
 
 ## IB Diploma Programme Chemistry guide, first assessment 2025 (topic list)
 
@@ -1729,22 +1777,39 @@ https://www.ibo.org/globalassets/new-structure/recognition/pdfs/dp_sciences_biol
 | D4.2 | Sustainability and change | 20 | 20 | biology (20) |
 | D4.3 | Climate change | 6 | 6 | earth-space (6) |
 
-## U.S. National Chemistry Olympiad: local and national exam format and multiple-choice topics
+## UC Irvine Chemical and Biomolecular Engineering graduate core: CBE 200, 210, 220A, 220B and 240 (catalogue descriptions, 2025-26)
 
-https://www.acs.org/education/olympiad/prepare-for-exams/exam-information.html
+https://catalogue.uci.edu/allcourses/cbe/
 
-7 of 9 items have at least one objective answering to them.
+5 of 5 items have at least one objective answering to them.
 
 | Item | Topic | Objectives | With a drill | Where |
 |---|---|---|---|---|
-| 1 | Stoichiometry and solutions (Q1-6) | 39 | 39 | analytical-chemistry (7), chemistry-olympiad (5), chemistry (18), dat (9) |
-| 2 | Descriptive chemistry and laboratory (Q7-12) | 9 | 9 | dat (4), inorganic-chemistry (5) |
-| 3 | States of matter (Q13-18) | 38 | 38 | chemistry-olympiad (3), chemistry (27), dat (8) |
-| 4 | Thermodynamics (Q19-24) | 44 | 44 | chemistry-olympiad (4), chemistry (34), dat (6) |
-| 5 | Kinetics (Q25-30) | 35 | 34 | chemistry-olympiad (2), chemistry (16), dat (4), physical-chemistry (13) |
-| 6 | Equilibrium (Q31-36) | 53 | 53 | chemistry-olympiad (5), chemistry (39), dat (9) |
-| 7 | Oxidation-reduction (Q37-42) | 26 | 26 | chemistry-olympiad (4), chemistry (18), dat (4) |
-| P2 | National Part II: written problems | — | — | **nothing yet** |
+| 200 | Applied Engineering Mathematics I: analytical methods for transport, process dynamics and control, thermodynamics | 14 | 14 | graduate-chemical-engineering (14) |
+| 210 | Reaction Engineering: reactor stability, diffusion in heterogeneous catalysis, energy balances, optimal operation, dispersed-phase reactors | 12 | 12 | graduate-chemical-engineering (12) |
+| 220A | Transport Phenomena I: heat and mass transfer, scaling, time and length scales, steady and unsteady, convective transport | 12 | 12 | graduate-chemical-engineering (12) |
+| 220B | Transport Phenomena II: creeping and laminar flow, viscous and inviscid flow, Navier-Stokes, lubrication, boundary layers | 18 | 18 | graduate-chemical-engineering (18) |
+| 240 | Advanced Engineering Thermodynamics: equilibrium and stability, equations of state, real mixtures, phase and chemical equilibrium | 14 | 14 | graduate-chemical-engineering (14) |
+
+## U.S. National Chemistry Olympiad: local and national exam format, multiple-choice topic bands and Part II
+
+https://www.acs.org/education/olympiad/prepare-for-exams/exam-information.html
+
+11 of 12 items have at least one objective answering to them.
+
+| Item | Topic | Objectives | With a drill | Where |
+|---|---|---|---|---|
+| 1 | Stoichiometry and solutions (Q1-6) | 56 | 56 | analytical-chemistry (7), chemistry-olympiad (22), chemistry (18), dat (9) |
+| 2 | Descriptive chemistry and laboratory (Q7-12) | 21 | 21 | chemistry-olympiad (12), dat (4), inorganic-chemistry (5) |
+| 3 | States of matter (Q13-18) | 55 | 55 | chemistry-olympiad (20), chemistry (27), dat (8) |
+| 4 | Thermodynamics (Q19-24) | 61 | 61 | chemistry-olympiad (21), chemistry (34), dat (6) |
+| 5 | Kinetics (Q25-30) | 45 | 44 | chemistry-olympiad (12), chemistry (16), dat (4), physical-chemistry (13) |
+| 6 | Equilibrium (Q31-36) | 64 | 64 | chemistry-olympiad (16), chemistry (39), dat (9) |
+| 7 | Oxidation-reduction (Q37-42) | 37 | 37 | chemistry-olympiad (15), chemistry (18), dat (4) |
+| 8 | Atomic structure and periodicity (Q43-48; from the 2025 national exam) | 13 | 13 | chemistry-olympiad (13) |
+| 9 | Bonding and molecular structure (Q49-54; from the 2025 national exam) | 10 | 10 | chemistry-olympiad (10) |
+| 10 | Organic chemistry, biochemistry and spectroscopy (Q55-60; from the 2025 national exam) | 12 | 12 | chemistry-olympiad (12) |
+| P2 | National Part II: eight written multi-part problems | 6 | 6 | chemistry-olympiad (6) |
 | P3 | National Part III: laboratory practical | — | — | **nothing yet** |
 
 ## Regulations of the International Chemistry Olympiad, Appendices C and D (concepts, skills and factual knowledge)
@@ -1864,7 +1929,7 @@ https://ncees.org/wp-content/uploads/2022/09/PE-Che_Jan2020-1.pdf
 | 5.B | Applications | 3 | 3 | fluid-mechanics (3) |
 | **6** | **Mass transfer** (7–11 questions) | | | |
 | 6.A | Fundamentals | 36 | 36 | heat-transfer (6), mass-transfer (30) |
-| 6.B | Applications | 25 | 25 | mass-transfer (19), separations (6) |
+| 6.B | Applications | 31 | 31 | graduate-chemical-engineering (6), mass-transfer (19), separations (6) |
 | **7** | **Plant design and operation** (15–23 questions) | | | |
 | 7.A | Safety, health and environment | 3 | 3 | process-design (3) |
 | 7.B | Design | 5 | 5 | process-design (5) |

@@ -77,7 +77,8 @@
         "P1"
        ],
        "drills": [
-        "pd-effective-rate"
+        "pd-effective-rate",
+        "pd-nominal-from-effective"
        ]
       },
       {
@@ -93,7 +94,8 @@
         "PD-1.1.A"
        ],
        "drills": [
-        "pd-npv"
+        "pd-npv",
+        "pd-capital-recovery"
        ]
       },
       {
@@ -106,7 +108,8 @@
         "P1"
        ],
        "drills": [
-        "pd-payback"
+        "pd-payback",
+        "pd-roi"
        ]
       }
      ]
@@ -125,7 +128,8 @@
         "P1"
        ],
        "drills": [
-        "pd-cost-scaling"
+        "pd-cost-scaling",
+        "pd-capacity-from-budget"
        ]
       },
       {
@@ -138,7 +142,8 @@
         "P1"
        ],
        "drills": [
-        "pd-depreciation"
+        "pd-depreciation",
+        "pd-soyd"
        ]
       }
      ]
@@ -177,7 +182,8 @@
         "P1"
        ],
        "drills": [
-        "pd-lfl-mixture"
+        "pd-lfl-mixture",
+        "pd-flammable-check"
        ]
       },
       {
@@ -193,7 +199,8 @@
         "P2"
        ],
        "drills": [
-        "pd-tlv-mixture"
+        "pd-tlv-mixture",
+        "pd-tlv-allowance"
        ]
       },
       {
@@ -209,7 +216,8 @@
         "P2"
        ],
        "drills": [
-        "pd-hazop"
+        "pd-hazop",
+        "pd-hazop-word"
        ]
       }
      ]
@@ -243,7 +251,8 @@
         "P1"
        ],
        "drills": [
-        "pd-first-order"
+        "pd-first-order",
+        "pd-time-constant-from-data"
        ]
       }
      ]
@@ -258,7 +267,8 @@
    "topic": 1,
    "status": "ok",
    "full": [
-    "pd-effective-rate"
+    "pd-effective-rate",
+    "pd-nominal-from-effective"
    ],
    "partial": []
   },
@@ -268,7 +278,8 @@
    "topic": 1,
    "status": "ok",
    "full": [
-    "pd-npv"
+    "pd-npv",
+    "pd-capital-recovery"
    ],
    "partial": []
   },
@@ -278,7 +289,8 @@
    "topic": 1,
    "status": "ok",
    "full": [
-    "pd-payback"
+    "pd-payback",
+    "pd-roi"
    ],
    "partial": []
   },
@@ -288,7 +300,8 @@
    "topic": 2,
    "status": "ok",
    "full": [
-    "pd-cost-scaling"
+    "pd-cost-scaling",
+    "pd-capacity-from-budget"
    ],
    "partial": []
   },
@@ -298,7 +311,8 @@
    "topic": 2,
    "status": "ok",
    "full": [
-    "pd-depreciation"
+    "pd-depreciation",
+    "pd-soyd"
    ],
    "partial": []
   },
@@ -308,7 +322,8 @@
    "topic": 1,
    "status": "ok",
    "full": [
-    "pd-lfl-mixture"
+    "pd-lfl-mixture",
+    "pd-flammable-check"
    ],
    "partial": []
   },
@@ -318,7 +333,8 @@
    "topic": 1,
    "status": "ok",
    "full": [
-    "pd-tlv-mixture"
+    "pd-tlv-mixture",
+    "pd-tlv-allowance"
    ],
    "partial": []
   },
@@ -328,7 +344,8 @@
    "topic": 1,
    "status": "ok",
    "full": [
-    "pd-hazop"
+    "pd-hazop",
+    "pd-hazop-word"
    ],
    "partial": []
   },
@@ -338,10 +355,26 @@
    "topic": 1,
    "status": "ok",
    "full": [
-    "pd-first-order"
+    "pd-first-order",
+    "pd-time-constant-from-data"
    ],
    "partial": []
   }
  ],
- "orphanTpl": []
+ "orphanTpl": [
+  "gc-first-order-time",
+  "gc-ramp-lag",
+  "gc-overshoot",
+  "gc-zeta-from-overshoot",
+  "gc-p-offset",
+  "gc-kc-for-offset",
+  "gc-ultimate-gain",
+  "gc-stability-check",
+  "gc-ultimate-period",
+  "gc-zn-reset",
+  "gc-amplitude-ratio",
+  "gc-phase-lag",
+  "gc-fopdt-crossover",
+  "gc-fopdt-ultimate-gain"
+ ]
 }

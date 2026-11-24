@@ -39,8 +39,9 @@ class Q:
 
 
 class L:
-    def __init__(self, id, do, ek, opl, qs, p="P1", std=None):
+    def __init__(self, id, do, ek, opl, qs, p="P1", std=None, drills=None, needs=None):
         self.id, self.do, self.ek, self.opl, self.qs, self.p, self.std = id, do, ek, opl, qs, p, std or []
+        self.drills, self.needs = drills or [], needs or []  # existing templates and objectives to point at
 
 
 class U:

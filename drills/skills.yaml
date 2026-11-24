@@ -39,6 +39,7 @@ domains:
   - { id: fm, title: "Fluid mechanics" }
   - { id: nm, title: "Numerical methods" }
   - { id: mass, title: "Mass transfer" }
+  - { id: ngss, title: "NGSS high school science" }
   - { id: cre, title: "Chemical reaction engineering" }
   - { id: dat, title: "Dental Admission Test" }
   - { id: nuc, title: "Nuclear science" }
@@ -611,6 +612,11 @@ skills:
   - { id: fm.similarity, domain: fm, title: "Dimensional analysis and similarity", short: "Dimensional analysis", prereqs: [fm.regimes] }
   - { id: fm.external, domain: fm, title: "External flow: drag and terminal velocity", short: "Drag", prereqs: [fm.similarity] }
   - { id: fm.piping, domain: fm, title: "Piping systems and pumps: parallel pipes, affinity laws, operating point", short: "Piping and pumps", prereqs: [fm.energy] }
+  # ── NGSS performance expectations not covered by a subject framework ─────
+  - { id: ngss.physical-design, domain: ngss, title: "NGSS physical science: designing devices and materials", short: "PS design" }
+  - { id: ngss.life-impact, domain: ngss, title: "NGSS life science: human impact and biodiversity solutions", short: "LS impact" }
+  - { id: ngss.earth-resources, domain: ngss, title: "NGSS earth science: water, coevolution, resources and impact", short: "ESS resources" }
+  - { id: ngss.engineering, domain: ngss, title: "NGSS engineering design: criteria, decomposition, trade-offs, simulation", short: "Engineering design" }
   # ── mass transfer (graduate) ────────────────────────────────────────────
   - { id: mass.diffusivity, domain: mass, title: "Diffusivities: gases, liquids, Knudsen, porous solids, mixtures", short: "Diffusivities" }
   - { id: mass.steady, domain: mass, title: "Steady diffusion: stagnant films, reaction, spheres, droplets, membranes", short: "Steady diffusion", prereqs: [mass.diffusivity] }
@@ -689,6 +695,12 @@ skills:
   - { id: olympiad.kinetics, domain: olympiad, title: "Olympiad kinetics: integrated laws, decay chains", short: "Olympiad kinetics", prereqs: [gchem.kinetics] }
   - { id: olympiad.solutions, domain: olympiad, title: "Olympiad solutions: van 't Hoff factor", short: "Olympiad solutions", prereqs: [gchem.solutions] }
   - { id: olympiad.spectro, domain: olympiad, title: "Olympiad spectra: isotope patterns, NMR multiplicity", short: "Olympiad spectra" }
+  - { id: olympiad.stoichiometry, domain: olympiad, title: "Olympiad stoichiometry: combustion analysis, hydrates, back titrations", short: "Olympiad stoichiometry", prereqs: [gchem.stoichiometry] }
+  - { id: olympiad.lab, domain: olympiad, title: "Olympiad descriptive and lab chemistry: tests, colours, error direction", short: "Olympiad lab", prereqs: [gchem.reactions] }
+  - { id: olympiad.states, domain: olympiad, title: "Olympiad states of matter: unit cells, vapour pressure, effusion", short: "Olympiad states of matter", prereqs: [gchem.imf, gchem.gases] }
+  - { id: olympiad.atomic, domain: olympiad, title: "Olympiad atomic structure: ionisation energies, quantum numbers, spectra", short: "Olympiad atomic structure", prereqs: [gchem.structure] }
+  - { id: olympiad.bonding, domain: olympiad, title: "Olympiad bonding: VSEPR, MO bond order, isomers of complexes", short: "Olympiad bonding", prereqs: [gchem.bonding] }
+  - { id: olympiad.organic, domain: olympiad, title: "Olympiad organic and biochemistry: isomers, spectra, polymers, pI", short: "Olympiad organic", prereqs: [orgo.structure] }
 
   # ── Dental Admission Test: perceptual ability ───────────────────────────
   - { id: dat.pat-angles, domain: dat, title: "PAT: angle ranking", short: "Angle ranking" }
@@ -826,3 +838,8 @@ skills:
   - { id: dent.management, domain: dent, title: "Oral health management: emergencies, local anesthesia, prophylaxis, fluoride", short: "Oral health management" }
   - { id: dent.practice, domain: dent, title: "Practice and profession: infection control, evaluating diagnostic tests", short: "Practice and profession" }
   - { id: dent.materials, domain: dent, title: "Dental materials: mechanical and thermal properties, resins, cements, ceramics, alloys, gypsum, impressions", short: "Dental materials" }
+  - { id: dent.anatomy, domain: dent, title: "Dental and head-and-neck anatomy, histology and occlusion", short: "Dental anatomy" }
+  - { id: dent.biomed, domain: dent, title: "Biomedical science for dentistry: anomalies, microbes, immunity and oral pathology", short: "Oral pathology and biomedicine" }
+  - { id: dent.pharm, domain: dent, title: "Pharmacology for dentistry: analgesics, antibiotics, interactions, dosing", short: "Dental pharmacology" }
+  - { id: dent.clinical, domain: dent, title: "Clinical disciplines: prosthodontics, pediatrics, oral surgery, endodontic diagnosis", short: "Clinical disciplines" }
+  - { id: dent.behavior, domain: dent, title: "Ethics, jurisprudence, research design and evidence", short: "Ethics and evidence" }

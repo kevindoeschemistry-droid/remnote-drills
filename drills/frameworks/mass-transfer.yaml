@@ -50,15 +50,15 @@ units:
       - n: 1
         title: "Estimating diffusivities"
         los:
-          - { id: A, std: ["pe-chemical:6.A"], do: "Scale a gas diffusivity with temperature and pressure.", ek: ["Chapman–Enskog: D_AB ∝ T^{3/2}/(P σ² Ω_D); ignoring the collision integral, D ∝ T^{3/2}/P."], p: [P1], drills: [ms-gas-diffusivity-scaling] }
-          - { id: B, std: ["pe-chemical:6.A"], do: "Scale a liquid diffusivity with temperature and viscosity.", ek: ["Stokes–Einstein: D = kT/(6πμa), so D μ/T is constant."], p: [P1], drills: [ms-liquid-diffusivity-scaling] }
-          - { id: C, std: ["pe-chemical:6.A"], do: "Estimate a Knudsen diffusivity and decide the regime.", ek: ["D_K = (d/3)√(8RT/πM); Knudsen diffusion takes over when the pore is smaller than the mean free path."], p: [P1], drills: [ms-knudsen] }
-          - { id: D, std: ["pe-chemical:6.A"], do: "Find an effective diffusivity in a porous solid.", ek: ["D_eff = D ε/τ."], p: [P1], drills: [ms-effective-diffusivity] }
+          - { id: A, std: ["pe-chemical:6.A"], do: "Scale a gas diffusivity with temperature and pressure.", ek: ["Chapman–Enskog: D_AB ∝ T^{3/2}/(P σ² Ω_D); ignoring the collision integral, D ∝ T^{3/2}/P."], p: [P1], drills: [ms-gas-diffusivity-scaling, ms-diffusivity-temperature-reverse] }
+          - { id: B, std: ["pe-chemical:6.A"], do: "Scale a liquid diffusivity with temperature and viscosity.", ek: ["Stokes–Einstein: D = kT/(6πμa), so D μ/T is constant."], p: [P1], drills: [ms-liquid-diffusivity-scaling, ms-stokes-einstein-radius] }
+          - { id: C, std: ["pe-chemical:6.A"], do: "Estimate a Knudsen diffusivity and decide the regime.", ek: ["D_K = (d/3)√(8RT/πM); Knudsen diffusion takes over when the pore is smaller than the mean free path."], p: [P1], drills: [ms-knudsen, ms-knudsen-crossover] }
+          - { id: D, std: ["pe-chemical:6.A"], do: "Find an effective diffusivity in a porous solid.", ek: ["D_eff = D ε/τ."], p: [P1], drills: [ms-effective-diffusivity, ms-tortuosity-from-deff] }
       - n: 2
         title: "Fluxes and reference frames"
         los:
-          - { id: A, std: ["pe-chemical:6.A"], do: "Find the flux for diffusion through a stagnant gas.", ek: ["N_A = (cD/L) ln[(1 − x_A2)/(1 − x_A1)] (Stefan tube)."], p: [P1], drills: [ms-stagnant-film] }
-          - { id: B, std: ["pe-chemical:6.A"], do: "Compare stagnant-film and equimolar fluxes.", ek: ["N_stagnant/N_equimolar = 1/x_B,lm."], p: [P1], drills: [ms-bulk-flow-factor] }
+          - { id: A, std: ["pe-chemical:6.A"], do: "Find the flux for diffusion through a stagnant gas.", ek: ["N_A = (cD/L) ln[(1 − x_A2)/(1 − x_A1)] (Stefan tube)."], p: [P1], drills: [ms-stagnant-film, ms-stefan-tube-time] }
+          - { id: B, std: ["pe-chemical:6.A"], do: "Compare stagnant-film and equimolar fluxes.", ek: ["N_stagnant/N_equimolar = 1/x_B,lm."], p: [P1], drills: [ms-bulk-flow-factor, ms-log-mean-xb] }
   - id: steady
     n: 2
     title: "Steady diffusion with reaction and geometry"
@@ -69,11 +69,11 @@ units:
       - n: 1
         title: "Shell balances"
         los:
-          - { id: A, std: ["pe-chemical:6.A"], do: "Find the effectiveness factor of a catalyst slab.", ek: ["η = tanh φ / φ with φ = L√(k/D_eff)."], p: [P1], drills: [ms-effectiveness-slab] }
-          - { id: B, std: ["pe-chemical:6.A"], do: "Find the effectiveness factor of a spherical pellet.", ek: ["η = (3/φ²)(φ coth φ − 1) with φ = R√(k/D_eff)."], p: [P1], drills: [ms-effectiveness-sphere] }
-          - { id: C, std: ["pe-chemical:6.A"], do: "Find steady diffusion through a spherical shell.", ek: ["Ẇ = 4πD(c₁ − c₂)/(1/r₁ − 1/r₂)."], p: [P1], drills: [ms-spherical-shell] }
-          - { id: D, std: ["pe-chemical:6.A"], do: "Find the lifetime of an evaporating droplet.", ek: ["Quasi-steady, Sh = 2: d(d²)/dt is constant (the d² law)."], p: [P1], drills: [ms-droplet-lifetime] }
-          - { id: E, std: ["pe-chemical:6.B"], do: "Find the absorption coefficient into a falling film.", ek: ["Penetration theory: k̄ = 2√(D/πt) with contact time t = L/v_max."], p: [P1], drills: [ms-film-absorption] }
+          - { id: A, std: ["pe-chemical:6.A"], do: "Find the effectiveness factor of a catalyst slab.", ek: ["η = tanh φ / φ with φ = L√(k/D_eff)."], p: [P1], drills: [ms-effectiveness-slab, ms-slab-size-effect] }
+          - { id: B, std: ["pe-chemical:6.A"], do: "Find the effectiveness factor of a spherical pellet.", ek: ["η = (3/φ²)(φ coth φ − 1) with φ = R√(k/D_eff)."], p: [P1], drills: [ms-effectiveness-sphere, ms-sphere-observed-rate] }
+          - { id: C, std: ["pe-chemical:6.A"], do: "Find steady diffusion through a spherical shell.", ek: ["Ẇ = 4πD(c₁ − c₂)/(1/r₁ − 1/r₂)."], p: [P1], drills: [ms-spherical-shell, ms-shell-vs-slab] }
+          - { id: D, std: ["pe-chemical:6.A"], do: "Find the lifetime of an evaporating droplet.", ek: ["Quasi-steady, Sh = 2: d(d²)/dt is constant (the d² law)."], p: [P1], drills: [ms-droplet-lifetime, ms-droplet-fraction-time] }
+          - { id: E, std: ["pe-chemical:6.B"], do: "Find the absorption coefficient into a falling film.", ek: ["Penetration theory: k̄ = 2√(D/πt) with contact time t = L/v_max."], p: [P1], drills: [ms-film-absorption, ms-penetration-scaling] }
   - id: unsteady
     n: 3
     title: "Unsteady diffusion"
@@ -84,9 +84,9 @@ units:
       - n: 1
         title: "Time scales and transients"
         los:
-          - { id: A, std: ["pe-chemical:6.A"], do: "Estimate a diffusion time from L²/D.", ek: ["t ~ L²/D; penetration depth ~ √(4Dt)."], p: [P1], drills: [ms-diffusion-time] }
-          - { id: B, std: ["pe-chemical:6.A"], do: "Find the amount absorbed by a semi-infinite medium.", ek: ["M/A = 2c₀√(Dt/π)."], p: [P1], drills: [ms-semi-infinite-uptake] }
-          - { id: C, std: ["pe-chemical:6.A"], do: "Find the slowest decay time of a slab.", ek: ["Long-time behaviour: c ∝ exp(−π²Dt/(4L²)) for half-thickness L with fixed surfaces."], p: [P1], drills: [ms-slab-time-constant] }
+          - { id: A, std: ["pe-chemical:6.A"], do: "Estimate a diffusion time from L²/D.", ek: ["t ~ L²/D; penetration depth ~ √(4Dt)."], p: [P1], drills: [ms-diffusion-time, ms-diffusion-distance] }
+          - { id: B, std: ["pe-chemical:6.A"], do: "Find the amount absorbed by a semi-infinite medium.", ek: ["M/A = 2c₀√(Dt/π)."], p: [P1], drills: [ms-semi-infinite-uptake, ms-uptake-time] }
+          - { id: C, std: ["pe-chemical:6.A"], do: "Find the slowest decay time of a slab.", ek: ["Long-time behaviour: c ∝ exp(−π²Dt/(4L²)) for half-thickness L with fixed surfaces."], p: [P1], drills: [ms-slab-time-constant, ms-slab-time-scaling] }
   - id: interphase
     n: 4
     title: "Interphase mass transfer"
@@ -97,11 +97,11 @@ units:
       - n: 1
         title: "Coefficients and resistances"
         los:
-          - { id: A, std: ["pe-chemical:6.B"], do: "Combine film coefficients into an overall coefficient.", ek: ["1/K_y = 1/k_y + m/k_x."], p: [P1], drills: [ms-overall-coefficient] }
-          - { id: B, std: ["pe-chemical:6.B"], do: "Find the fraction of the resistance in the gas film.", ek: ["Gas share = (1/k_y)/(1/k_y + m/k_x)."], p: [P1], drills: [ms-resistance-fraction] }
-          - { id: C, std: ["pe-chemical:6.B"], do: "Use a sphere mass-transfer correlation.", ek: ["Ranz–Marshall: Sh = 2 + 0.6 Re^{1/2} Sc^{1/3}."], p: [P1], drills: [ms-ranz-marshall] }
-          - { id: D, std: ["pe-chemical:6.B"], do: "Predict how k depends on D under each model.", ek: ["Film theory: k ∝ D; penetration and surface renewal: k ∝ D^{1/2}; boundary layers: k ∝ D^{2/3}."], p: [P1], drills: [ms-model-scaling] }
-          - { id: E, std: ["pe-chemical:6.B"], do: "Find a packed-height from HTU and NTU.", ek: ["Z = H_OG N_OG; for dilute systems with straight lines, N_OG = (y₁ − y₂)/Δy_lm."], p: [P1], drills: [ms-htu-ntu] }
+          - { id: A, std: ["pe-chemical:6.B"], do: "Combine film coefficients into an overall coefficient.", ek: ["1/K_y = 1/k_y + m/k_x."], p: [P1], drills: [ms-overall-coefficient, ms-liquid-coefficient-reverse] }
+          - { id: B, std: ["pe-chemical:6.B"], do: "Find the fraction of the resistance in the gas film.", ek: ["Gas share = (1/k_y)/(1/k_y + m/k_x)."], p: [P1], drills: [ms-resistance-fraction, ms-controlling-film] }
+          - { id: C, std: ["pe-chemical:6.B"], do: "Use a sphere mass-transfer correlation.", ek: ["Ranz–Marshall: Sh = 2 + 0.6 Re^{1/2} Sc^{1/3}."], p: [P1], drills: [ms-ranz-marshall, ms-stagnant-sphere] }
+          - { id: D, std: ["pe-chemical:6.B"], do: "Predict how k depends on D under each model.", ek: ["Film theory: k ∝ D; penetration and surface renewal: k ∝ D^{1/2}; boundary layers: k ∝ D^{2/3}."], p: [P1], drills: [ms-model-scaling, ms-model-exponent] }
+          - { id: E, std: ["pe-chemical:6.B"], do: "Find a packed-height from HTU and NTU.", ek: ["Z = H_OG N_OG; for dilute systems with straight lines, N_OG = (y₁ − y₂)/Δy_lm."], p: [P1], drills: [ms-htu-ntu, ms-colburn-ntu] }
   - id: multicomponent
     n: 5
     title: "Multicomponent diffusion and membranes"
@@ -112,6 +112,6 @@ units:
       - n: 1
         title: "Mixtures and membranes"
         los:
-          - { id: A, std: ["pe-chemical:6.A"], do: "Find an effective diffusivity of A in a stagnant mixture.", ek: ["D_Am = (1 − x_A)/Σ_{j≠A}(x_j/D_Aj) (Wilke)."], p: [P1], drills: [ms-wilke-mixture] }
-          - { id: B, std: ["pe-chemical:6.B"], do: "Find a membrane flux and selectivity.", ek: ["N = P Δp / ℓ; ideal selectivity = P_A/P_B."], p: [P1], drills: [ms-membrane-flux] }
+          - { id: A, std: ["pe-chemical:6.A"], do: "Find an effective diffusivity of A in a stagnant mixture.", ek: ["D_Am = (1 − x_A)/Σ_{j≠A}(x_j/D_Aj) (Wilke)."], p: [P1], drills: [ms-wilke-mixture, ms-trace-mixture-d] }
+          - { id: B, std: ["pe-chemical:6.B"], do: "Find a membrane flux and selectivity.", ek: ["N = P Δp / ℓ; ideal selectivity = P_A/P_B."], p: [P1], drills: [ms-membrane-flux, ms-membrane-permeate] }
   # <<< opl-fill:ms-mass-transfer
