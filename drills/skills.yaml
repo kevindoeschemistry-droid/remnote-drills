@@ -52,6 +52,7 @@ domains:
   - { id: sep, title: "Separation processes" }
   - { id: design, title: "Process design, economics and safety" }
   - { id: olympiad, title: "Chemistry olympiad" }
+  - { id: edl, title: "Electric double layers" }
   - { id: physics, title: "Physics" }
   - { id: gchem, title: "General chemistry" }
   - { id: bio, title: "Biology" }
@@ -843,3 +844,9 @@ skills:
   - { id: dent.pharm, domain: dent, title: "Pharmacology for dentistry: analgesics, antibiotics, interactions, dosing", short: "Dental pharmacology" }
   - { id: dent.clinical, domain: dent, title: "Clinical disciplines: prosthodontics, pediatrics, oral surgery, endodontic diagnosis", short: "Clinical disciplines" }
   - { id: dent.behavior, domain: dent, title: "Ethics, jurisprudence, research design and evidence", short: "Ethics and evidence" }
+  - { id: edl.foundations, domain: edl, title: "EDL foundations: Coulomb and Poisson, the double-layer concept, charge regulation", short: "EDL foundations" }
+  - { id: edl.continuum, domain: edl, title: "Poisson–Boltzmann: Gouy–Chapman, Grahame, double-layer forces, curved layers, electrokinetics", short: "Poisson–Boltzmann and electrokinetics", prereqs: [edl.foundations] }
+  - { id: edl.liquid-state, domain: edl, title: "Liquid-state theory: Ornstein–Zernike closures, virial and perturbation theory, mean field, scaled particles", short: "Liquid-state theory" }
+  - { id: edl.dft, domain: edl, title: "Classical density functional theory for electrolytes: functionals, contact theorem, FMT, MSA, charge regulation", short: "Classical DFT", prereqs: [edl.liquid-state, edl.continuum] }
+  - { id: edl.molecular, domain: edl, title: "Molecular structure of the double layer: solvent, solvation, surface interactions, valency and ion size", short: "Molecular EDL structure", prereqs: [edl.dft] }
+  - { id: edl.simulation, domain: edl, title: "Simulation and numerics: Monte Carlo, Widom insertion, plasmas, Picard and Newton solvers, Nernst–Planck", short: "Simulation and numerics" }

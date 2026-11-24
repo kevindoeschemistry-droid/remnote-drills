@@ -26,6 +26,31 @@
   verify:
     expect:
       v: integrate(9810*w*(R - sqrt(R**2 - x**2)), (x, 0, R))/1000
+- template: fm-curved-horizontal
+  skill: fm.statics
+  pace: quick
+  given:
+    R:
+      pick:
+      - 1
+      - 2
+      - 3
+    w:
+      pick:
+      - 1
+      - 2
+      - 4
+  prompt: A quarter-circle gate of radius {{R}} m and width {{w}} m has its top at the water surface. What horizontal force does the water exert on it, in kN?
+  parts:
+  - ask: Answer
+    label: v
+    tex: F_H
+    value: 1000*9.81*R^2/2*w/1000
+    tol: 0.005
+    explain: 'The horizontal force equals that on the vertical projection of the curve: a rectangle R by w'
+  verify:
+    expect:
+      v: integrate(1000*Rational(981, 100)*Symbol('yy')*w, (Symbol('yy'), 0, R))/1000
 - template: fm-layered-pressure
   skill: fm.statics
   pace: quick
@@ -56,6 +81,26 @@
   verify:
     expect:
       v: (integrate(Rational(981, 100)*1000*nsimplify(s1), (x, 0, nsimplify(h1))) + integrate(Rational(981, 100)*1000, (x, nsimplify(h1), nsimplify(h1) + h2)))/1000
+- template: fm-manometer-reading
+  skill: fm.statics
+  pace: quick
+  given:
+    h:
+      pick:
+      - 50
+      - 120
+      - 250
+  prompt: A mercury manometer (SG 13.6) across an orifice in a water line shows a {{h}} mm difference in levels. What is the pressure difference, in kPa?
+  parts:
+  - ask: Answer
+    label: v
+    tex: \Delta p
+    value: (13.6 - 1)*1000*9.81*h/1000/1000
+    tol: 0.005
+    explain: The water above the mercury on both sides cancels except over the reading, so only (ρ_m − ρ)gh remains
+  verify:
+    expect:
+      v: (Rational(136, 10) - 1)*1000*Rational(981, 100)*Rational(h, 1000)/1000
 - template: fm-rotating-tank
   skill: fm.statics
   pace: quick
@@ -81,6 +126,31 @@
   verify:
     expect:
       v: integrate(w**2*x/Rational(981, 100), (x, 0, nsimplify(R)))
+- template: fm-rotating-touch-bottom
+  skill: fm.statics
+  pace: quick
+  given:
+    R:
+      pick:
+      - 5
+      - 10
+      - 15
+    h0:
+      pick:
+      - 5
+      - 10
+      - 20
+  prompt: An open cylinder of radius {{R}} cm holds water {{h0}} cm deep at rest. At what spin rate, in rad/s, does the free surface just touch the bottom at the centre? (g = 9.81)
+  parts:
+  - ask: Answer
+    label: v
+    tex: \omega
+    value: 2*sqrt(9.81*h0/100)/(R/100)
+    tol: 0.005
+    explain: The paraboloid drops ω²R²/(4g) at the centre and rises as much at the wall, keeping the volume
+  verify:
+    expect:
+      v: Max(*solve(Eq(x**2*(Rational(R, 100))**2/(4*Rational(981, 100)), Rational(h0, 100)), x))
 - template: fm-streamline
   skill: fm.viscous
   pace: quick
@@ -115,6 +185,34 @@
   verify:
     expect:
       v: solve(Eq(log(x/y0), -log(Rational(x1, x0))), x)[0]
+- template: fm-travel-time
+  skill: fm.viscous
+  pace: quick
+  given:
+    a:
+      pick:
+      - 0.5
+      - 1
+      - 2
+    x0:
+      pick:
+      - 0.1
+      - 0.5
+    x1:
+      pick:
+      - 1
+      - 2
+  prompt: In the stagnation flow u = {{a}}x, v = −{{a}}y (s⁻¹, m), how long does a particle take to move from x = {{x0}} to {{x1}} m along a streamline?
+  parts:
+  - ask: Answer
+    label: v
+    tex: t
+    value: log(x1/x0)/a
+    tol: 0.005
+    explain: 'dx/dt = ax gives exponential motion: particles near the stagnation point take forever to leave'
+  verify:
+    expect:
+      v: integrate(1/(nsimplify(a)*Symbol('xx')), (Symbol('xx'), nsimplify(x0), x1))
 - template: fm-convective-acceleration
   skill: fm.viscous
   pace: quick
@@ -144,6 +242,34 @@
   verify:
     expect:
       v: (U*(1 + Symbol('X')/nsimplify(Lz))*diff(U*(1 + Symbol('X')/nsimplify(Lz)), Symbol('X'))).subs(Symbol('X'), nsimplify(xp))
+- template: fm-acceleration-magnitude
+  skill: fm.viscous
+  pace: quick
+  given:
+    a:
+      pick:
+      - 1
+      - 2
+      - 3
+    px:
+      pick:
+      - 1
+      - 2
+    py:
+      pick:
+      - 1
+      - 3
+  prompt: For the steady flow u = {{a}}x, v = −{{a}}y, what is the magnitude of the fluid acceleration at ({{px}} m, {{py}} m), in m/s²?
+  parts:
+  - ask: Answer
+    label: v
+    tex: '|a|'
+    value: a^2*sqrt(px^2 + py^2)
+    tol: 0.005
+    explain: 'Steady flow can still accelerate particles: (u·∇)u is nonzero wherever speed changes along the path'
+  verify:
+    expect:
+      v: sqrt((a*px*a)**2 + ((-a*py)*(-a))**2)
 - template: fm-stream-function
   skill: fm.viscous
   pace: quick
@@ -178,6 +304,40 @@
   verify:
     expect:
       v: '-diff(a*x**2*Symbol(''Y'') - b*Symbol(''Y'')**3, x).subs({x: x0, Symbol(''Y''): y0})'
+- template: fm-flow-between-streamlines
+  skill: fm.viscous
+  pace: quick
+  given:
+    a:
+      pick:
+      - 1
+      - 2
+    x1:
+      pick:
+      - 1
+    y1:
+      pick:
+      - 1
+      - 2
+    x2:
+      pick:
+      - 2
+      - 3
+    y2:
+      pick:
+      - 2
+      - 3
+  prompt: A flow has stream function ψ = {{a}}xy (m²/s). What volume flow per metre depth passes between the points ({{x1}}, {{y1}}) and ({{x2}}, {{y2}})?
+  parts:
+  - ask: Answer
+    label: v
+    tex: q
+    value: abs(a*x2*y2 - a*x1*y1)
+    tol: 0.005
+    explain: The difference in ψ between two streamlines is the flow between them, whatever path connects the points
+  verify:
+    expect:
+      v: Abs(a*x2*y2 - a*x1*y1)
 - template: fm-vorticity
   skill: fm.viscous
   pace: quick
@@ -208,6 +368,31 @@
   verify:
     expect:
       v: diff(b*x, x) - diff(a*Symbol('Y'), Symbol('Y'))
+- template: fm-circulation-rotation
+  skill: fm.viscous
+  pace: quick
+  given:
+    Om:
+      pick:
+      - 1
+      - 2
+      - 5
+    R:
+      pick:
+      - 0.1
+      - 0.5
+      - 1
+  prompt: Fluid rotates as a solid body at {{Om}} rad/s. What is the circulation around a circle of radius {{R}} m centred on the axis, in m²/s?
+  parts:
+  - ask: Answer
+    label: v
+    tex: \Gamma
+    value: 2*pi*R^2*Om
+    tol: 0.005
+    explain: 'Stokes'' theorem: circulation = vorticity (2Ω) × enclosed area'
+  verify:
+    expect:
+      v: integrate(nsimplify(Om)*nsimplify(R)*nsimplify(R), (Symbol('th'), 0, 2*pi))
 - template: fm-velocity-potential
   skill: fm.viscous
   pace: quick
@@ -234,6 +419,34 @@
   verify:
     expect:
       v: diff(nsimplify(a)*(x**2 - Symbol('Y')**2), x).subs(x, x0)
+- template: fm-potential-pressure
+  skill: fm.bernoulli
+  pace: quick
+  given:
+    a:
+      pick:
+      - 0.5
+      - 1
+      - 2
+    px:
+      pick:
+      - 1
+      - 2
+    py:
+      pick:
+      - 0
+      - 1
+  prompt: Water flows with velocity potential φ = {{a}}(x² − y²). What is p(0, 0) − p({{px}}, {{py}}), in kPa? (ρ = 1000 kg/m³, steady, same height)
+  parts:
+  - ask: Answer
+    label: v
+    tex: \Delta p
+    value: 0.5*1000*(4*a^2*(px^2 + py^2))/1000
+    tol: 0.005
+    explain: 'Irrotational flow: Bernoulli holds between any two points, and the stagnation point carries the highest pressure'
+  verify:
+    expect:
+      v: 'Rational(1, 2)*1000*(diff(a*(Symbol(''xx'')**2 - Symbol(''yy'')**2), Symbol(''xx''))**2 + diff(a*(Symbol(''xx'')**2 - Symbol(''yy'')**2), Symbol(''yy''))**2).subs({Symbol(''xx''): px, Symbol(''yy''): py})/1000'
 - template: fm-viscous-dissipation
   skill: fm.viscous
   pace: quick
@@ -264,6 +477,30 @@
   verify:
     expect:
       v: nsimplify(mu)*diff(U*x/(nsimplify(h)/1000), x)**2/1000
+- template: fm-poiseuille-dissipation
+  skill: fm.viscous
+  pace: quick
+  given:
+    Q:
+      pick:
+      - 1
+      - 5
+      - 10
+    D:
+      pick:
+      - 2
+      - 4
+  prompt: Water ($\mu$ = 1.0 mPa·s) flows at {{Q}} mL/s through a {{D}} mm tube in laminar flow. What power per metre of length is dissipated, in mW/m?
+  parts:
+  - ask: Answer
+    label: v
+    tex: P/L
+    value: 128*1e-3*(Q*1e-6)^2/(pi*(D/1000)^4)*1000
+    tol: 0.005
+    explain: 'Integrated dissipation equals Q·ΔP/L: all the pumping work becomes heat'
+  verify:
+    expect:
+      v: integrate(Rational(1, 1000)*diff(2*(Q/10**6)/(pi*(Rational(D, 2000))**2)*(1 - Symbol('rr')**2/(Rational(D, 2000))**2), Symbol('rr'))**2*2*pi*Symbol('rr'), (Symbol('rr'), 0, Rational(D, 2000)))*1000
 - template: fm-froude
   skill: fm.similarity
   pace: quick
@@ -289,6 +526,27 @@
   verify:
     expect:
       v: V/sqrt(Rational(981, 100)*L)
+- template: fm-critical-froude-depth
+  skill: fm.energy
+  pace: quick
+  given:
+    V:
+      pick:
+      - 1
+      - 2
+      - 3
+      - 5
+  prompt: Water in a channel moves at {{V}} m/s. At what depth, in m, would the flow be critical (Fr = 1)?
+  parts:
+  - ask: Answer
+    label: v
+    tex: y_c
+    value: V^2/9.81
+    tol: 0.005
+    explain: 'Shallower than this the flow is supercritical: disturbances cannot travel upstream'
+  verify:
+    expect:
+      v: solve(Eq(V/sqrt(Rational(981, 100)*x), 1), x)[0]
 - template: fm-sprinkler-torque
   skill: fm.momentum
   pace: quick
@@ -319,6 +577,30 @@
   verify:
     expect:
       v: 2*nsimplify(m)*Matrix([nsimplify(r), 0, 0]).cross(Matrix([0, V, 0]))[2]
+- template: fm-sprinkler-free-spin
+  skill: fm.momentum
+  pace: quick
+  given:
+    R:
+      pick:
+      - 10
+      - 15
+      - 20
+    V:
+      pick:
+      - 5
+      - 10
+  prompt: A frictionless lawn sprinkler has arms of radius {{R}} cm with tangential nozzles ejecting water at {{V}} m/s relative to the arm. At what steady spin rate, in rad/s, is the torque zero?
+  parts:
+  - ask: Answer
+    label: v
+    tex: \omega
+    value: V/(R/100)
+    tol: 0.005
+    explain: With no friction it spins up until the jets leave with no absolute tangential velocity, so they carry away no angular momentum
+  verify:
+    expect:
+      v: solve(Eq(V - x*Rational(R, 100), 0), x)[0]
 - template: fm-diffuser
   skill: fm.bernoulli
   pace: quick
@@ -340,6 +622,31 @@
   verify:
     expect:
       v: 1 - (1/nsimplify(ar))**2
+- template: fm-diffuser-pressure-rise
+  skill: fm.bernoulli
+  pace: quick
+  given:
+    V:
+      pick:
+      - 20
+      - 40
+      - 60
+    r:
+      pick:
+      - 1.5
+      - 2
+      - 3
+  prompt: Air (1.2 kg/m³) enters an ideal diffuser at {{V}} m/s with area ratio A₂/A₁ = {{r}}. What static pressure rise, in Pa, does Bernoulli give?
+  parts:
+  - ask: Answer
+    label: v
+    tex: \Delta p
+    value: 0.5*1.2*V^2*(1 - 1/r^2)
+    tol: 0.005
+    explain: Slowing the flow converts dynamic pressure into static; real diffusers recover 60–80% of this before the boundary layer separates
+  verify:
+    expect:
+      v: Rational(1, 2)*Rational(12, 10)*(V**2 - (V/nsimplify(r))**2)
 - template: fm-boundary-thickness
   skill: fm.external
   pace: quick
@@ -365,6 +672,30 @@
   verify:
     expect:
       v: 5*sqrt(nsimplify(xp)*Rational(15, 1000000)/U)*1000
+- template: fm-turbulent-bl-thickness
+  skill: fm.external
+  pace: quick
+  given:
+    U:
+      pick:
+      - 20
+      - 40
+    xx:
+      pick:
+      - 0.5
+      - 1
+      - 2
+  prompt: Air ($\nu = 1.5\times10^{-5}$ m²/s) at {{U}} m/s flows over a plate with a turbulent boundary layer from the leading edge. Estimate δ at x = {{xx}} m with δ = 0.37x/Re_x^{1/5}, in mm.
+  parts:
+  - ask: Answer
+    label: v
+    tex: \delta
+    value: 0.37*xx/(U*xx/1.5e-5)^(1/5)*1000
+    tol: 0.005
+    explain: Turbulent layers grow as x^{4/5}, much faster than laminar x^{1/2}, because eddies carry momentum across them
+  verify:
+    expect:
+      v: Rational(37, 100)*nsimplify(xx)/(U*nsimplify(xx)/Rational(15, 10**6))**Rational(1, 5)*1000
 - template: fm-pressure-gradient
   skill: fm.external
   pace: recall
@@ -387,6 +718,32 @@
     explain: The near-wall fluid has little momentum; pushing against rising pressure stops it first. Separation is why bluff bodies have large pressure drag
   verify:
     authored: true
+- template: fm-gradient-sign
+  skill: fm.external
+  pace: quick
+  given:
+    a:
+      pick:
+      - 5
+      - 10
+    b:
+      pick:
+      - -2
+      - -1
+      - 1
+      - 3
+  prompt: Outside a boundary layer the speed varies as U(x) = {{a}} + {{b}}x. Is the pressure gradient along the wall favourable or adverse?
+  parts:
+  - ask: Answer
+    label: v
+    choice:
+    - 'Favourable (dp/dx < 0): the layer stays attached'
+    - 'Adverse (dp/dx > 0): it may separate'
+    correct: 'b > 0 ? 0 : 1'
+    explain: 'Euler at the edge: dp/dx = −ρU dU/dx. Decelerating outer flow raises pressure downstream and slows the near-wall fluid'
+  verify:
+    choices:
+      v: 0 if (-(a + b*Symbol('xx'))*diff(a + b*Symbol('xx'), Symbol('xx'))).subs(Symbol('xx'), 0) < 0 else 1
 - template: fm-source-velocity
   skill: fm.external
   pace: quick
@@ -412,6 +769,31 @@
   verify:
     expect:
       v: solve(Eq(2*pi*nsimplify(r)*x, m), x)[0]
+- template: fm-source-strength
+  skill: fm.external
+  pace: quick
+  given:
+    V:
+      pick:
+      - 1
+      - 2
+      - 5
+    r:
+      pick:
+      - 0.5
+      - 1
+      - 2
+  prompt: A 2-D source produces a radial speed of {{V}} m/s at r = {{r}} m. What is its strength (volume flow per unit depth), in m²/s?
+  parts:
+  - ask: Answer
+    label: v
+    tex: q
+    value: 2*pi*r*V
+    tol: 0.005
+    explain: All the flow crosses every circle around the source
+  verify:
+    expect:
+      v: integrate(nsimplify(V)*nsimplify(r), (Symbol('th'), 0, 2*pi))
 - template: fm-rankine-stagnation
   skill: fm.external
   pace: quick
@@ -438,6 +820,31 @@
   verify:
     expect:
       v: -solve(Eq(U + m/(2*pi*x), 0), x)[0]
+- template: fm-half-body-width
+  skill: fm.external
+  pace: quick
+  given:
+    U:
+      pick:
+      - 1
+      - 2
+      - 5
+    q:
+      pick:
+      - 1
+      - 2
+      - 4
+  prompt: A uniform stream of {{U}} m/s meets a 2-D source of strength {{q}} m²/s. How wide, in m, does the Rankine half-body become far downstream?
+  parts:
+  - ask: Answer
+    label: v
+    tex: w
+    value: q/U
+    tol: 0.005
+    explain: Far downstream the source's whole output travels at U inside the body's outline, so q = U × width
+  verify:
+    expect:
+      v: solve(Eq(nsimplify(U)*x, q), x)[0]
 - template: fm-cylinder-cp
   skill: fm.external
   pace: quick
@@ -459,6 +866,31 @@
   verify:
     expect:
       v: 1 - (2*sin(t*pi/180))**2
+- template: fm-kutta-lift
+  skill: fm.external
+  pace: quick
+  given:
+    U:
+      pick:
+      - 5
+      - 10
+      - 20
+    G:
+      pick:
+      - 1
+      - 2
+      - 5
+  prompt: A rotating cylinder in a {{U}} m/s air stream (1.2 kg/m³) carries circulation {{G}} m²/s. What lift per metre span, in N/m?
+  parts:
+  - ask: Answer
+    label: v
+    tex: L'
+    value: 1.2*U*G
+    tol: 0.005
+    explain: 'Kutta–Joukowski: lift per span = ρUΓ, whatever the body''s shape'
+  verify:
+    expect:
+      v: Rational(12, 10)*U*G
 - template: fm-joukowski
   skill: fm.external
   pace: quick
@@ -480,6 +912,26 @@
   verify:
     expect:
       v: 2*re(nsimplify(a) + nsimplify(a)**2/nsimplify(a))
+- template: fm-joukowski-plate
+  skill: fm.external
+  pace: quick
+  given:
+    c:
+      pick:
+      - 0.25
+      - 0.5
+      - 1
+  prompt: The Joukowski map ζ = z + c²/z takes the circle |z| = c to a flat plate. With c = {{c}} m, how long is the plate, in m?
+  parts:
+  - ask: Answer
+    label: v
+    tex: \ell
+    value: 4*c
+    tol: 0.005
+    explain: 'Points on the circle map to ζ = 2c cos θ: the circle collapses onto a segment from −2c to 2c'
+  verify:
+    expect:
+      v: (nsimplify(c) + nsimplify(c)**2/nsimplify(c)) - (-nsimplify(c) - nsimplify(c)**2/nsimplify(c))
 - template: fm-thin-airfoil
   skill: fm.external
   pace: quick
@@ -501,6 +953,27 @@
   verify:
     expect:
       v: 2*pi*a*pi/180
+- template: fm-thin-airfoil-alpha
+  skill: fm.external
+  pace: quick
+  given:
+    cl:
+      pick:
+      - 0.2
+      - 0.5
+      - 0.8
+      - 1.0
+  prompt: By thin-airfoil theory, what angle of attack, in degrees, gives a symmetric airfoil a lift coefficient of {{cl}}?
+  parts:
+  - ask: Answer
+    label: v
+    tex: \alpha
+    value: cl/(2*pi)*180/pi
+    tol: 0.005
+    explain: 'C_L = 2πα in radians: about 0.11 per degree, until stall'
+  verify:
+    expect:
+      v: solve(Eq(2*pi*x*pi/180, nsimplify(cl)), x)[0]
 - template: fm-sphere-speed
   skill: fm.external
   pace: quick
@@ -522,6 +995,27 @@
   verify:
     expect:
       v: Rational(3, 2)*U*sin(pi/2)
+- template: fm-sphere-cp
+  skill: fm.external
+  pace: quick
+  given:
+    th:
+      pick:
+      - 30
+      - 45
+      - 60
+      - 90
+  prompt: In potential flow past a sphere, what is the pressure coefficient at {{th}}° from the front stagnation point?
+  parts:
+  - ask: Answer
+    label: v
+    tex: C_p
+    value: 1 - 9/4*sin(th*pi/180)^2
+    tol: 0.005
+    explain: The surface speed is 1.5U sinθ, less than the cylinder's 2U because flow can pass on all sides
+  verify:
+    expect:
+      v: 1 - (Rational(3, 2)*sin(th*pi/180))**2
 - template: fm-stagnation-temperature
   skill: fm.compressible
   pace: quick
@@ -548,6 +1042,30 @@
   verify:
     expect:
       v: T + (nsimplify(M)*sqrt(Rational(7, 5)*287*T))**2/(2*1004.5)
+- template: fm-mach-from-stagnation
+  skill: fm.compressible
+  pace: quick
+  given:
+    T0:
+      pick:
+      - 400
+      - 500
+    T:
+      pick:
+      - 250
+      - 300
+      - 350
+  prompt: Air (γ = 1.4) has stagnation temperature {{T0}} K and static temperature {{T}} K. What is its Mach number?
+  parts:
+  - ask: Answer
+    label: v
+    tex: M
+    value: sqrt(2/0.4*(T0/T - 1))
+    tol: 0.005
+    explain: 'T₀/T = 1 + (γ − 1)M²/2: kinetic energy shows up as the gap between the two temperatures'
+  verify:
+    expect:
+      v: Max(*solve(Eq(nsimplify(T0)/T, 1 + Rational(2, 10)*x**2), x))
 - template: fm-area-mach
   skill: fm.compressible
   pace: quick
@@ -569,6 +1087,35 @@
   verify:
     expect:
       v: (1/nsimplify(M))*(Rational(5, 6)*(1 + nsimplify(M)**2/5))**3
+- template: fm-throat-area
+  skill: fm.compressible
+  pace: quick
+  given:
+    p0:
+      pick:
+      - 200
+      - 500
+      - 1000
+    T0:
+      pick:
+      - 300
+      - 500
+    m:
+      pick:
+      - 0.5
+      - 1
+      - 2
+  prompt: Air (γ = 1.4, R = 287 J/(kg·K)) flows from a reservoir at {{p0}} kPa and {{T0}} K. What throat area, in cm², passes {{m}} kg/s when choked?
+  parts:
+  - ask: Answer
+    label: v
+    tex: A^*
+    value: m/(p0*1000/sqrt(T0)*sqrt(1.4/287)*(2/2.4)^(2.4/0.8))*1e4
+    tol: 0.005
+    explain: Choked mass flux depends only on stagnation conditions; to pass more mass, raise p₀ or the throat area
+  verify:
+    expect:
+      v: solve(Eq(nsimplify(m), x/10**4*p0*1000/sqrt(T0)*sqrt(Rational(14, 10)/287)*Rational(5, 6)**3), x)[0]
 - template: fm-critical-pressure
   skill: fm.compressible
   pace: quick
@@ -590,6 +1137,33 @@
   verify:
     expect:
       v: P0*(1/(1 + Rational(1, 5)))**Rational(7, 2)
+- template: fm-choked-check
+  skill: fm.compressible
+  pace: quick
+  given:
+    p0:
+      pick:
+      - 150
+      - 200
+      - 300
+    pb:
+      pick:
+      - 100
+      - 120
+  require:
+  - abs(pb/p0 - 0.5283) > 0.02
+  prompt: Air (γ = 1.4) at {{p0}} kPa stagnation discharges through a converging nozzle into {{pb}} kPa. Is the nozzle choked?
+  parts:
+  - ask: Answer
+    label: v
+    choice:
+    - 'Yes: p_b/p₀ is below the critical 0.528'
+    - 'No: subsonic at the exit'
+    correct: 'pb/p0 < (2/2.4)^(1.4/0.4) ? 0 : 1'
+    explain: Once choked, lowering the back pressure further does not raise the flow
+  verify:
+    choices:
+      v: 0 if Rational(pb, p0) < Rational(5, 6)**Rational(7, 2) else 1
 - template: fm-normal-shock
   skill: fm.compressible
   pace: quick
@@ -611,6 +1185,26 @@
   verify:
     expect:
       v: sqrt((1 + nsimplify(M)**2/5)/(Rational(7, 5)*nsimplify(M)**2 - Rational(1, 5)))
+- template: fm-shock-pressure-ratio
+  skill: fm.compressible
+  pace: quick
+  given:
+    M:
+      pick:
+      - 1.5
+      - 2
+      - 3
+  prompt: A normal shock stands in air (γ = 1.4) with upstream Mach {{M}}. What is the static pressure ratio p₂/p₁?
+  parts:
+  - ask: Answer
+    label: v
+    tex: p_2/p_1
+    value: 1 + 2*1.4/2.4*(M^2 - 1)
+    tol: 0.005
+    explain: Momentum across the shock gives p₂/p₁ = (1 + γM₁²)/(1 + γM₂²); with the M₂ relation it simplifies to the familiar form
+  verify:
+    expect:
+      v: (1 + Rational(14, 10)*nsimplify(M)**2)/(1 + Rational(14, 10)*((1 + Rational(2, 10)*nsimplify(M)**2)/(Rational(14, 10)*nsimplify(M)**2 - Rational(2, 10))))
 - template: fm-mach-angle
   skill: fm.compressible
   pace: quick
@@ -632,6 +1226,27 @@
   verify:
     expect:
       v: asin(1/nsimplify(M))*180/pi
+- template: fm-mach-from-angle
+  skill: fm.compressible
+  pace: quick
+  given:
+    mu:
+      pick:
+      - 20
+      - 30
+      - 45
+      - 60
+  prompt: A Mach wave makes {{mu}}° with the flow direction. What is the Mach number?
+  parts:
+  - ask: Answer
+    label: v
+    tex: M
+    value: 1/sin(mu*pi/180)
+    tol: 0.005
+    explain: 'sin μ = 1/M: the faster the flow, the narrower the Mach cone'
+  verify:
+    expect:
+      v: solve(Eq(sin(mu*pi/180)*x, 1), x)[0]
 - template: fm-prandtl-meyer
   skill: fm.compressible
   pace: quick
@@ -653,6 +1268,29 @@
   verify:
     expect:
       v: (sqrt(6)*atan(sqrt((nsimplify(M)**2 - 1)/6)) - atan(sqrt(nsimplify(M)**2 - 1)))*180/pi
+- template: fm-pm-turn
+  skill: fm.compressible
+  pace: quick
+  given:
+    M1:
+      pick:
+      - 1.5
+      - 2
+    M2:
+      pick:
+      - 2.5
+      - 3
+  prompt: Supersonic air (γ = 1.4) expands from M = {{M1}} to M = {{M2}}. Through what angle, in degrees, does it turn?
+  parts:
+  - ask: Answer
+    label: v
+    tex: \Delta\theta
+    value: (sqrt(6)*atan(sqrt((M2^2 - 1)/6)) - atan(sqrt(M2^2 - 1)) - (sqrt(6)*atan(sqrt((M1^2 - 1)/6)) - atan(sqrt(M1^2 - 1))))*180/pi
+    tol: 0.005
+    explain: ν(M) is the integral of √(M² − 1)/(1 + (γ − 1)M²/2) dM/M; the turn is the difference between end values
+  verify:
+    expect:
+      v: integrate(sqrt(Symbol('mm')**2 - 1)/(1 + Rational(2, 10)*Symbol('mm')**2)/Symbol('mm'), (Symbol('mm'), nsimplify(M1), nsimplify(M2)))*180/pi
 - template: fm-fanno
   skill: fm.compressible
   pace: quick
@@ -674,6 +1312,27 @@
   verify:
     expect:
       v: (1 - nsimplify(M)**2)/(Rational(7, 5)*nsimplify(M)**2) + Rational(6, 7)*log(Rational(12, 5)*nsimplify(M)**2/(2 + Rational(2, 5)*nsimplify(M)**2))
+- template: fm-fanno-temperature
+  skill: fm.compressible
+  pace: quick
+  given:
+    M:
+      pick:
+      - 0.3
+      - 0.5
+      - 2
+      - 3
+  prompt: In Fanno flow of air (γ = 1.4), what is T/T* at Mach {{M}}?
+  parts:
+  - ask: Answer
+    label: v
+    tex: T/T^*
+    value: 2.4/(2 + 0.4*M^2)
+    tol: 0.005
+    explain: Fanno flow is adiabatic, so T₀ is fixed and T follows from T₀/T at each Mach number
+  verify:
+    expect:
+      v: (1 + Rational(2, 10))/(1 + Rational(2, 10)*nsimplify(M)**2)
 - template: fm-rayleigh
   skill: fm.compressible
   pace: quick
@@ -695,6 +1354,27 @@
   verify:
     expect:
       v: Rational(24, 5)*nsimplify(M)**2*(1 + nsimplify(M)**2/5)/(1 + Rational(7, 5)*nsimplify(M)**2)**2
+- template: fm-rayleigh-pressure
+  skill: fm.compressible
+  pace: quick
+  given:
+    M:
+      pick:
+      - 0.3
+      - 0.5
+      - 2
+      - 3
+  prompt: In Rayleigh flow of air (γ = 1.4), what is p/p* at Mach {{M}}?
+  parts:
+  - ask: Answer
+    label: v
+    tex: p/p^*
+    value: 2.4/(1 + 1.4*M^2)
+    tol: 0.005
+    explain: Frictionless constant-area flow keeps p + ρV² = p(1 + γM²) fixed
+  verify:
+    expect:
+      v: solve(Eq(x*(1 + Rational(14, 10)*nsimplify(M)**2), 1 + Rational(14, 10)), x)[0]
 - template: fm-critical-depth
   skill: fm.energy
   pace: quick
@@ -716,6 +1396,27 @@
   verify:
     expect:
       v: solve(Eq(diff(x + q**2/(2*Rational(981, 100)*x**2), x), 0), x)[0]
+- template: fm-minimum-specific-energy
+  skill: fm.energy
+  pace: quick
+  given:
+    q:
+      pick:
+      - 0.5
+      - 1
+      - 2
+      - 5
+  prompt: A rectangular channel carries {{q}} m²/s per metre width. What is the minimum specific energy, in m? (g = 9.81)
+  parts:
+  - ask: Answer
+    label: v
+    tex: E_{min}
+    value: 1.5*(q^2/9.81)^(1/3)
+    tol: 0.005
+    explain: Minimising E = y + q²/(2gy²) gives critical depth, where E = 1.5y_c
+  verify:
+    expect:
+      v: (Symbol('yp', positive=True) + nsimplify(q)**2/(2*Rational(981, 100)*Symbol('yp', positive=True)**2)).subs(Symbol('yp', positive=True), solve(diff(Symbol('yp', positive=True) + nsimplify(q)**2/(2*Rational(981, 100)*Symbol('yp', positive=True)**2), Symbol('yp', positive=True)), Symbol('yp', positive=True))[0])
 - template: fm-manning
   skill: fm.energy
   pace: quick
@@ -741,6 +1442,31 @@
   verify:
     expect:
       v: nsimplify(R)**Rational(2, 3)*sqrt(nsimplify(S))/Rational(13, 1000)
+- template: fm-manning-slope
+  skill: fm.energy
+  pace: quick
+  given:
+    Rh:
+      pick:
+      - 0.3
+      - 0.5
+      - 1
+    V:
+      pick:
+      - 1
+      - 2
+      - 3
+  prompt: A concrete channel (n = 0.013) with hydraulic radius {{Rh}} m must carry water at {{V}} m/s in uniform flow. What bed slope is needed?
+  parts:
+  - ask: Answer
+    label: v
+    tex: S_0
+    value: (V*0.013/Rh^(2/3))^2
+    tol: 0.005
+    explain: Velocity goes as √S, so doubling speed needs four times the slope
+  verify:
+    expect:
+      v: solve(Eq(nsimplify(V), 1/Rational(13, 1000)*nsimplify(Rh)**Rational(2, 3)*sqrt(x)), x)[0]
 - template: fm-best-section
   skill: fm.energy
   pace: quick
@@ -762,6 +1488,27 @@
   verify:
     expect:
       v: Max(*solve(diff(nsimplify(A)/x + 2*x, x), x))
+- template: fm-best-rectangle-radius
+  skill: fm.energy
+  pace: quick
+  given:
+    A:
+      pick:
+      - 1
+      - 2
+      - 4
+      - 8
+  prompt: The most efficient rectangular section for a flow area of {{A}} m² has width twice its depth. What is its hydraulic radius, in m?
+  parts:
+  - ask: Answer
+    label: v
+    tex: R_h
+    value: sqrt(A/2)/2
+    tol: 0.005
+    explain: Minimising the wetted perimeter at fixed area gives b = 2y and R_h = y/2
+  verify:
+    expect:
+      v: (nsimplify(A)/(2*Symbol('yy') + nsimplify(A)/Symbol('yy'))).subs(Symbol('yy'), Max(*solve(diff(2*Symbol('yy') + nsimplify(A)/Symbol('yy'), Symbol('yy')), Symbol('yy'))))
 - template: fm-gradually-varied
   skill: fm.energy
   pace: quick
@@ -791,6 +1538,36 @@
   verify:
     expect:
       v: (nsimplify(S0) - nsimplify(Sf))/(1 - nsimplify(Fr)**2)
+- template: fm-profile-class
+  skill: fm.energy
+  pace: quick
+  given:
+    yn:
+      pick:
+      - 1.5
+      - 2
+    yc:
+      pick:
+      - 0.6
+      - 0.8
+    y:
+      pick:
+      - 0.4
+      - 1.2
+      - 2.5
+  prompt: On a mild slope (normal depth {{yn}} m, critical depth {{yc}} m) the flow depth is {{y}} m. Which profile type?
+  parts:
+  - ask: Answer
+    label: v
+    choice:
+    - M1 (above normal depth)
+    - M2 (between normal and critical)
+    - M3 (below critical)
+    correct: 'y > yn ? 0 : (y > yc ? 1 : 2)'
+    explain: Zones are set by where y sits relative to y_n and y_c; M1 backwater curves form behind dams
+  verify:
+    choices:
+      v: 0 if nsimplify(y) > nsimplify(yn) else (1 if nsimplify(y) > nsimplify(yc) else 2)
 - template: fm-hydraulic-jump
   skill: fm.momentum
   pace: quick
@@ -817,6 +1594,31 @@
   verify:
     expect:
       v: Max(*solve(Eq(x**2 + nsimplify(y1)*x - 2*nsimplify(y1)**2*nsimplify(Fr)**2, 0), x))
+- template: fm-jump-head-loss
+  skill: fm.energy
+  pace: quick
+  given:
+    y1:
+      pick:
+      - 0.2
+      - 0.3
+      - 0.5
+    y2:
+      pick:
+      - 1
+      - 1.5
+      - 2
+  prompt: A hydraulic jump goes from {{y1}} m to {{y2}} m depth. How much head does it dissipate, in m?
+  parts:
+  - ask: Answer
+    label: v
+    tex: h_L
+    value: (y2 - y1)^3/(4*y1*y2)
+    tol: 0.005
+    explain: Specific energies before and after, with q² from the momentum balance (q²/g = y₁y₂(y₁ + y₂)/2), differ by (y₂ − y₁)³/(4y₁y₂)
+  verify:
+    expect:
+      v: nsimplify(y1) - nsimplify(y2) + nsimplify(y1)*nsimplify(y2)*(nsimplify(y1) + nsimplify(y2))/4*(1/nsimplify(y1)**2 - 1/nsimplify(y2)**2)
 - template: fm-turbine-power
   skill: fm.energy
   pace: quick
@@ -846,3 +1648,33 @@
   verify:
     expect:
       v: integrate(nsimplify(eta)*9810*Q, (x, 0, H))/1000000
+- template: fm-turbine-head
+  skill: fm.energy
+  pace: quick
+  given:
+    P:
+      pick:
+      - 5
+      - 20
+      - 100
+    Q:
+      pick:
+      - 10
+      - 25
+      - 80
+    eta:
+      pick:
+      - 85
+      - 90
+      - 93
+  prompt: A turbine produces {{P}} MW from {{Q}} m³/s of water with efficiency {{eta}}%. What net head, in m, is it working with?
+  parts:
+  - ask: Answer
+    label: v
+    tex: H
+    value: P*1e6/(1000*9.81*Q*eta/100)
+    tol: 0.005
+    explain: Shaft power = η ρgQH; turbines lose to the efficiency, pumps divide by it
+  verify:
+    expect:
+      v: solve(Eq(nsimplify(P)*10**6, 1000*Rational(981, 100)*Q*x*Rational(eta, 100)), x)[0]

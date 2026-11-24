@@ -122,7 +122,8 @@
         "P1"
        ],
        "drills": [
-        "~mae-concept"
+        "~mae-concept",
+        "ht-radiation-loss"
        ]
       },
       {
@@ -150,7 +151,8 @@
         "P5"
        ],
        "drills": [
-        "ht-conv"
+        "ht-conv",
+        "ht-h-from-data"
        ]
       },
       {
@@ -192,7 +194,8 @@
         "P1"
        ],
        "drills": [
-        "ht-eb-wire"
+        "ht-eb-wire",
+        "ht-wire-temperature"
        ]
       },
       {
@@ -205,7 +208,8 @@
         "P1"
        ],
        "drills": [
-        "ht-eb-surface"
+        "ht-eb-surface",
+        "ht-surface-from-flux"
        ]
       },
       {
@@ -219,7 +223,8 @@
         "P4"
        ],
        "drills": [
-        "ht-eb-dTdt"
+        "ht-eb-dTdt",
+        "ht-heater-power"
        ]
       }
      ]
@@ -261,7 +266,8 @@
         "P4"
        ],
        "drills": [
-        "ht-he-flux"
+        "ht-he-flux",
+        "ht-drop-across-wall"
        ]
       },
       {
@@ -274,7 +280,8 @@
         "P6"
        ],
        "drills": [
-        "ht-diffusivity"
+        "ht-diffusivity",
+        "ht-penetration-time"
        ]
       }
      ]
@@ -331,7 +338,8 @@
         "P5"
        ],
        "drills": [
-        "mae-laplace"
+        "mae-laplace",
+        "ht-implied-generation"
        ]
       }
      ]
@@ -389,7 +397,8 @@
         "P6"
        ],
        "drills": [
-        "~mae-wall-compare"
+        "~mae-wall-compare",
+        "ht-k-ratio-from-slopes"
        ]
       }
      ]
@@ -435,7 +444,8 @@
         "P2"
        ],
        "drills": [
-        "mae-wall-point"
+        "mae-wall-point",
+        "ht-insulation-thickness"
        ]
       },
       {
@@ -464,7 +474,8 @@
         "P5"
        ],
        "drills": [
-        "ht-contact"
+        "ht-contact",
+        "ht-contact-drop"
        ]
       },
       {
@@ -535,7 +546,8 @@
         "P4"
        ],
        "drills": [
-        "ht-cyl"
+        "ht-cyl",
+        "ht-pipe-insulation-radius"
        ]
       },
       {
@@ -548,7 +560,8 @@
         "P4"
        ],
        "drills": [
-        "ht-sphere"
+        "ht-sphere",
+        "ht-sphere-vs-slab"
        ]
       },
       {
@@ -562,7 +575,8 @@
         "P6"
        ],
        "drills": [
-        "ht-rcrit"
+        "ht-rcrit",
+        "ht-h-for-critical-radius"
        ]
       },
       {
@@ -575,7 +589,8 @@
         "P5"
        ],
        "drills": [
-        "~mae-concept"
+        "~mae-concept",
+        "ht-radial-flux"
        ]
       }
      ]
@@ -615,7 +630,8 @@
         "P1"
        ],
        "drills": [
-        "ht-gen-wall-conv"
+        "ht-gen-wall-conv",
+        "ht-gen-centre"
        ]
       },
       {
@@ -643,7 +659,8 @@
         "P5"
        ],
        "drills": [
-        "ht-gen-wall-asym"
+        "ht-gen-wall-asym",
+        "ht-gen-max-location"
        ]
       },
       {
@@ -657,7 +674,8 @@
         "P2"
        ],
        "drills": [
-        "ht-gen-composite"
+        "ht-gen-composite",
+        "ht-gen-face-flux"
        ]
       }
      ]
@@ -700,7 +718,8 @@
         "P4"
        ],
        "drills": [
-        "ht-gen-sphere"
+        "ht-gen-sphere",
+        "ht-sphere-gen-h"
        ]
       },
       {
@@ -713,7 +732,8 @@
         "P2"
        ],
        "drills": [
-        "ht-gen-tube"
+        "ht-gen-tube",
+        "ht-tube-gen-heat"
        ]
       }
      ]
@@ -740,7 +760,8 @@
         "P6"
        ],
        "drills": [
-        "ht-gen-qmax"
+        "ht-gen-qmax",
+        "ht-max-thickness"
        ]
       }
      ]
@@ -784,7 +805,8 @@
         "P2"
        ],
        "drills": [
-        "ht-fin-m"
+        "ht-fin-m",
+        "ht-fin-efficiency-adiabatic"
        ]
       },
       {
@@ -815,7 +837,8 @@
         "P6"
        ],
        "drills": [
-        "~mae-concept"
+        "~mae-concept",
+        "ht-infinite-fin-temp"
        ]
       }
      ]
@@ -872,7 +895,8 @@
         "P4"
        ],
        "drills": [
-        "ht-fin-array"
+        "ht-fin-array",
+        "ht-overall-surface-eff"
        ]
       }
      ]
@@ -910,7 +934,8 @@
         "P2"
        ],
        "drills": [
-        "ht-sep-rect"
+        "ht-sep-rect",
+        "ht-square-centre"
        ]
       }
      ]
@@ -952,7 +977,8 @@
         "P3"
        ],
        "drills": [
-        "mae-two-spheres"
+        "mae-two-spheres",
+        "ht-sphere-infinite-medium"
        ]
       }
      ]
@@ -995,7 +1021,8 @@
         "P5"
        ],
        "drills": [
-        "ht-fd-solve"
+        "ht-fd-solve",
+        "ht-rod-nodes"
        ]
       }
      ]
@@ -1067,7 +1094,8 @@
         "P4"
        ],
        "drills": [
-        "ht-lumped-energy"
+        "ht-lumped-energy",
+        "ht-lumped-approach-time"
        ]
       },
       {
@@ -1233,7 +1261,8 @@
         "P3"
        ],
        "drills": [
-        "ht-product-short-cyl"
+        "ht-product-short-cyl",
+        "ht-product-short-cylinder"
        ]
       }
      ]
@@ -1259,7 +1288,8 @@
         "P5"
        ],
        "drills": [
-        "ht-fd-explicit"
+        "ht-fd-explicit",
+        "ht-explicit-timestep"
        ]
       }
      ]
@@ -1321,7 +1351,8 @@
         "P4"
        ],
        "drills": [
-        "ht3-bl-average"
+        "ht3-bl-average",
+        "ht-average-from-local"
        ]
       },
       {
@@ -1335,7 +1366,8 @@
         "P6"
        ],
        "drills": [
-        "ht3-bl-thickness"
+        "ht3-bl-thickness",
+        "ht-thermal-bl"
        ]
       },
       {
@@ -1348,7 +1380,8 @@
         "P3"
        ],
        "drills": [
-        "ht3-bl-colburn"
+        "ht3-bl-colburn",
+        "ht-friction-from-h"
        ]
       }
      ]
@@ -1401,7 +1434,8 @@
         "P4"
        ],
        "drills": [
-        "ht-plate-mixed"
+        "ht-plate-mixed",
+        "ht-transition-location"
        ]
       }
      ]
@@ -1505,7 +1539,8 @@
         "P4"
        ],
        "drills": [
-        "ht-int-re"
+        "ht-int-re",
+        "ht-max-laminar-flow"
        ]
       }
      ]
@@ -1534,7 +1569,8 @@
         "P4"
        ],
        "drills": [
-        "ht-tm-flux"
+        "ht-tm-flux",
+        "ht-flux-tube-length"
        ]
       },
       {
@@ -1548,7 +1584,8 @@
         "P4"
        ],
        "drills": [
-        "ht-tm-ts"
+        "ht-tm-ts",
+        "ht-lmtd-tube"
        ]
       },
       {
@@ -1562,7 +1599,8 @@
         "P4"
        ],
        "drills": [
-        "ht-tube-external-fluid"
+        "ht-tube-external-fluid",
+        "ht-ua-needed"
        ],
        "needs": [
         "HT-9.2.B",
@@ -1596,7 +1634,8 @@
         "P3"
        ],
        "drills": [
-        "ht-lam-fd"
+        "ht-lam-fd",
+        "ht-laminar-h-scaling"
        ]
       },
       {
@@ -1638,7 +1677,8 @@
         "P3"
        ],
        "drills": [
-        "ht-int-noncircular"
+        "ht-int-noncircular",
+        "ht-hydraulic-diameter-rect"
        ]
       }
      ]
@@ -1697,7 +1737,8 @@
         "P3"
        ],
        "drills": [
-        "ht-mixed-conv"
+        "ht-mixed-conv",
+        "ht-mixed-convection-pick"
        ]
       }
      ]
@@ -1726,7 +1767,8 @@
         "P4"
        ],
        "drills": [
-        "ht-chu-vertical"
+        "ht-chu-vertical",
+        "ht-rayleigh-number"
        ]
       },
       {
@@ -1768,7 +1810,8 @@
         "P4"
        ],
        "drills": [
-        "ht-enclosure-vertical"
+        "ht-enclosure-vertical",
+        "ht-enclosure-keff"
        ]
       }
      ]
@@ -1831,7 +1874,8 @@
         "P4"
        ],
        "drills": [
-        "ht3-band"
+        "ht3-band",
+        "ht-wien-peak"
        ]
       },
       {
@@ -1844,7 +1888,8 @@
         "P3"
        ],
        "drills": [
-        "ht3-spectral"
+        "ht3-spectral",
+        "ht-gray-net-flux"
        ]
       },
       {
@@ -1857,7 +1902,8 @@
         "P1"
        ],
        "drills": [
-        "ht3-rad-balance"
+        "ht3-rad-balance",
+        "ht-solar-equilibrium"
        ]
       }
      ]
@@ -1900,7 +1946,8 @@
         "P3"
        ],
        "drills": [
-        "ht-vf-concentric"
+        "ht-vf-concentric",
+        "ht-reciprocity"
        ]
       }
      ]
@@ -1929,7 +1976,8 @@
         "P4"
        ],
        "drills": [
-        "ht-black-disks"
+        "ht-black-disks",
+        "ht-black-exchange"
        ]
       },
       {
@@ -1943,7 +1991,8 @@
         "P4"
        ],
        "drills": [
-        "ht-two-surface"
+        "ht-two-surface",
+        "ht-small-object"
        ]
       },
       {
@@ -1956,7 +2005,8 @@
         "P6"
        ],
        "drills": [
-        "ht-shield"
+        "ht-shield",
+        "ht-shields-needed"
        ]
       },
       {
@@ -1970,7 +2020,8 @@
         "P4"
        ],
        "drills": [
-        "ht-reradiating"
+        "ht-reradiating",
+        "ht-reradiating-radiosity"
        ]
       }
      ]
@@ -2096,7 +2147,8 @@
         "P3"
        ],
        "drills": [
-        "ht-shell-tube"
+        "ht-shell-tube",
+        "ht-area-with-F"
        ]
       }
      ]
@@ -2126,7 +2178,8 @@
         "P4"
        ],
        "drills": [
-        "ht-ntu-eff"
+        "ht-ntu-eff",
+        "ht-ntu-condenser"
        ]
       },
       {
@@ -2140,7 +2193,8 @@
         "P4"
        ],
        "drills": [
-        "ht-ntu-outlet"
+        "ht-ntu-outlet",
+        "ht-balanced-counterflow"
        ]
       }
      ]
@@ -2231,7 +2285,8 @@
         "P3"
        ],
        "drills": [
-        "ht3-boil-regime"
+        "ht3-boil-regime",
+        "ht-boiling-regime-pick"
        ]
       },
       {
@@ -2338,7 +2393,8 @@
         "P4"
        ],
        "drills": [
-        "ht3-stefan-flow"
+        "ht3-stefan-flow",
+        "ht-bulk-flow-ratio"
        ]
       },
       {
@@ -2351,7 +2407,8 @@
         "P2"
        ],
        "drills": [
-        "ht3-reaction"
+        "ht3-reaction",
+        "ht-reaction-penetration"
        ]
       },
       {
@@ -2364,7 +2421,8 @@
         "P4"
        ],
        "drills": [
-        "ht-mass-erf-time"
+        "ht-mass-erf-time",
+        "ht-erf-concentration"
        ],
        "needs": [
         "HT-7.3.A",
@@ -2409,7 +2467,8 @@
         "P4"
        ],
        "drills": [
-        "ht3-mc-evap"
+        "ht3-mc-evap",
+        "ht-lewis-hm"
        ]
       }
      ]
@@ -2422,8 +2481,10 @@
    "code": "HT-1.1.A",
    "unit": 1,
    "topic": 1,
-   "status": "partial",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ht-radiation-loss"
+   ],
    "partial": [
     "mae-concept"
    ]
@@ -2445,7 +2506,8 @@
    "topic": 1,
    "status": "ok",
    "full": [
-    "ht-conv"
+    "ht-conv",
+    "ht-h-from-data"
    ],
    "partial": []
   },
@@ -2467,7 +2529,8 @@
    "topic": 2,
    "status": "ok",
    "full": [
-    "ht-eb-wire"
+    "ht-eb-wire",
+    "ht-wire-temperature"
    ],
    "partial": []
   },
@@ -2477,7 +2540,8 @@
    "topic": 2,
    "status": "ok",
    "full": [
-    "ht-eb-surface"
+    "ht-eb-surface",
+    "ht-surface-from-flux"
    ],
    "partial": []
   },
@@ -2487,7 +2551,8 @@
    "topic": 2,
    "status": "ok",
    "full": [
-    "ht-eb-dTdt"
+    "ht-eb-dTdt",
+    "ht-heater-power"
    ],
    "partial": []
   },
@@ -2497,7 +2562,8 @@
    "topic": 1,
    "status": "ok",
    "full": [
-    "ht-he-flux"
+    "ht-he-flux",
+    "ht-drop-across-wall"
    ],
    "partial": []
   },
@@ -2507,7 +2573,8 @@
    "topic": 1,
    "status": "ok",
    "full": [
-    "ht-diffusivity"
+    "ht-diffusivity",
+    "ht-penetration-time"
    ],
    "partial": []
   },
@@ -2540,7 +2607,8 @@
    "topic": 2,
    "status": "ok",
    "full": [
-    "mae-laplace"
+    "mae-laplace",
+    "ht-implied-generation"
    ],
    "partial": []
   },
@@ -2573,8 +2641,10 @@
    "code": "HT-2.3.C",
    "unit": 2,
    "topic": 3,
-   "status": "partial",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ht-k-ratio-from-slopes"
+   ],
    "partial": [
     "mae-wall-compare"
    ]
@@ -2585,7 +2655,8 @@
    "topic": 1,
    "status": "ok",
    "full": [
-    "mae-wall-point"
+    "mae-wall-point",
+    "ht-insulation-thickness"
    ],
    "partial": []
   },
@@ -2606,7 +2677,8 @@
    "topic": 1,
    "status": "ok",
    "full": [
-    "ht-contact"
+    "ht-contact",
+    "ht-contact-drop"
    ],
    "partial": []
   },
@@ -2639,7 +2711,8 @@
    "topic": 3,
    "status": "ok",
    "full": [
-    "ht-cyl"
+    "ht-cyl",
+    "ht-pipe-insulation-radius"
    ],
    "partial": []
   },
@@ -2649,7 +2722,8 @@
    "topic": 3,
    "status": "ok",
    "full": [
-    "ht-sphere"
+    "ht-sphere",
+    "ht-sphere-vs-slab"
    ],
    "partial": []
   },
@@ -2659,7 +2733,8 @@
    "topic": 3,
    "status": "ok",
    "full": [
-    "ht-rcrit"
+    "ht-rcrit",
+    "ht-h-for-critical-radius"
    ],
    "partial": []
   },
@@ -2667,8 +2742,10 @@
    "code": "HT-3.3.D",
    "unit": 3,
    "topic": 3,
-   "status": "partial",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ht-radial-flux"
+   ],
    "partial": [
     "mae-concept"
    ]
@@ -2679,7 +2756,8 @@
    "topic": 1,
    "status": "ok",
    "full": [
-    "ht-gen-wall-conv"
+    "ht-gen-wall-conv",
+    "ht-gen-centre"
    ],
    "partial": []
   },
@@ -2700,7 +2778,8 @@
    "topic": 1,
    "status": "ok",
    "full": [
-    "ht-gen-wall-asym"
+    "ht-gen-wall-asym",
+    "ht-gen-max-location"
    ],
    "partial": []
   },
@@ -2710,7 +2789,8 @@
    "topic": 1,
    "status": "ok",
    "full": [
-    "ht-gen-composite"
+    "ht-gen-composite",
+    "ht-gen-face-flux"
    ],
    "partial": []
   },
@@ -2732,7 +2812,8 @@
    "topic": 2,
    "status": "ok",
    "full": [
-    "ht-gen-sphere"
+    "ht-gen-sphere",
+    "ht-sphere-gen-h"
    ],
    "partial": []
   },
@@ -2742,7 +2823,8 @@
    "topic": 2,
    "status": "ok",
    "full": [
-    "ht-gen-tube"
+    "ht-gen-tube",
+    "ht-tube-gen-heat"
    ],
    "partial": []
   },
@@ -2752,7 +2834,8 @@
    "topic": 3,
    "status": "ok",
    "full": [
-    "ht-gen-qmax"
+    "ht-gen-qmax",
+    "ht-max-thickness"
    ],
    "partial": []
   },
@@ -2762,7 +2845,8 @@
    "topic": 1,
    "status": "ok",
    "full": [
-    "ht-fin-m"
+    "ht-fin-m",
+    "ht-fin-efficiency-adiabatic"
    ],
    "partial": []
   },
@@ -2784,8 +2868,10 @@
    "code": "HT-5.1.C",
    "unit": 5,
    "topic": 1,
-   "status": "partial",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ht-infinite-fin-temp"
+   ],
    "partial": [
     "mae-concept"
    ]
@@ -2809,7 +2895,8 @@
    "topic": 3,
    "status": "ok",
    "full": [
-    "ht-fin-array"
+    "ht-fin-array",
+    "ht-overall-surface-eff"
    ],
    "partial": []
   },
@@ -2819,7 +2906,8 @@
    "topic": 1,
    "status": "ok",
    "full": [
-    "ht-sep-rect"
+    "ht-sep-rect",
+    "ht-square-centre"
    ],
    "partial": []
   },
@@ -2840,7 +2928,8 @@
    "topic": 2,
    "status": "ok",
    "full": [
-    "mae-two-spheres"
+    "mae-two-spheres",
+    "ht-sphere-infinite-medium"
    ],
    "partial": []
   },
@@ -2862,7 +2951,8 @@
    "topic": 3,
    "status": "ok",
    "full": [
-    "ht-fd-solve"
+    "ht-fd-solve",
+    "ht-rod-nodes"
    ],
    "partial": []
   },
@@ -2895,7 +2985,8 @@
    "topic": 1,
    "status": "ok",
    "full": [
-    "ht-lumped-energy"
+    "ht-lumped-energy",
+    "ht-lumped-approach-time"
    ],
    "partial": []
   },
@@ -2987,7 +3078,8 @@
    "topic": 4,
    "status": "ok",
    "full": [
-    "ht-product-short-cyl"
+    "ht-product-short-cyl",
+    "ht-product-short-cylinder"
    ],
    "partial": []
   },
@@ -2997,7 +3089,8 @@
    "topic": 5,
    "status": "ok",
    "full": [
-    "ht-fd-explicit"
+    "ht-fd-explicit",
+    "ht-explicit-timestep"
    ],
    "partial": []
   },
@@ -3018,7 +3111,8 @@
    "topic": 1,
    "status": "ok",
    "full": [
-    "ht3-bl-average"
+    "ht3-bl-average",
+    "ht-average-from-local"
    ],
    "partial": []
   },
@@ -3028,7 +3122,8 @@
    "topic": 1,
    "status": "ok",
    "full": [
-    "ht3-bl-thickness"
+    "ht3-bl-thickness",
+    "ht-thermal-bl"
    ],
    "partial": []
   },
@@ -3038,7 +3133,8 @@
    "topic": 1,
    "status": "ok",
    "full": [
-    "ht3-bl-colburn"
+    "ht3-bl-colburn",
+    "ht-friction-from-h"
    ],
    "partial": []
   },
@@ -3059,7 +3155,8 @@
    "topic": 2,
    "status": "ok",
    "full": [
-    "ht-plate-mixed"
+    "ht-plate-mixed",
+    "ht-transition-location"
    ],
    "partial": []
   },
@@ -3092,7 +3189,8 @@
    "topic": 1,
    "status": "ok",
    "full": [
-    "ht-int-re"
+    "ht-int-re",
+    "ht-max-laminar-flow"
    ],
    "partial": []
   },
@@ -3102,7 +3200,8 @@
    "topic": 2,
    "status": "ok",
    "full": [
-    "ht-tm-flux"
+    "ht-tm-flux",
+    "ht-flux-tube-length"
    ],
    "partial": []
   },
@@ -3112,7 +3211,8 @@
    "topic": 2,
    "status": "ok",
    "full": [
-    "ht-tm-ts"
+    "ht-tm-ts",
+    "ht-lmtd-tube"
    ],
    "partial": []
   },
@@ -3122,7 +3222,8 @@
    "topic": 2,
    "status": "ok",
    "full": [
-    "ht-tube-external-fluid"
+    "ht-tube-external-fluid",
+    "ht-ua-needed"
    ],
    "partial": []
   },
@@ -3132,7 +3233,8 @@
    "topic": 3,
    "status": "ok",
    "full": [
-    "ht-lam-fd"
+    "ht-lam-fd",
+    "ht-laminar-h-scaling"
    ],
    "partial": []
   },
@@ -3153,7 +3255,8 @@
    "topic": 4,
    "status": "ok",
    "full": [
-    "ht-int-noncircular"
+    "ht-int-noncircular",
+    "ht-hydraulic-diameter-rect"
    ],
    "partial": []
   },
@@ -3174,7 +3277,8 @@
    "topic": 1,
    "status": "ok",
    "full": [
-    "ht-mixed-conv"
+    "ht-mixed-conv",
+    "ht-mixed-convection-pick"
    ],
    "partial": []
   },
@@ -3184,7 +3288,8 @@
    "topic": 2,
    "status": "ok",
    "full": [
-    "ht-chu-vertical"
+    "ht-chu-vertical",
+    "ht-rayleigh-number"
    ],
    "partial": []
   },
@@ -3205,7 +3310,8 @@
    "topic": 3,
    "status": "ok",
    "full": [
-    "ht-enclosure-vertical"
+    "ht-enclosure-vertical",
+    "ht-enclosure-keff"
    ],
    "partial": []
   },
@@ -3226,7 +3332,8 @@
    "topic": 1,
    "status": "ok",
    "full": [
-    "ht3-band"
+    "ht3-band",
+    "ht-wien-peak"
    ],
    "partial": []
   },
@@ -3236,7 +3343,8 @@
    "topic": 1,
    "status": "ok",
    "full": [
-    "ht3-spectral"
+    "ht3-spectral",
+    "ht-gray-net-flux"
    ],
    "partial": []
   },
@@ -3246,7 +3354,8 @@
    "topic": 1,
    "status": "ok",
    "full": [
-    "ht3-rad-balance"
+    "ht3-rad-balance",
+    "ht-solar-equilibrium"
    ],
    "partial": []
   },
@@ -3268,7 +3377,8 @@
    "topic": 2,
    "status": "ok",
    "full": [
-    "ht-vf-concentric"
+    "ht-vf-concentric",
+    "ht-reciprocity"
    ],
    "partial": []
   },
@@ -3278,7 +3388,8 @@
    "topic": 3,
    "status": "ok",
    "full": [
-    "ht-black-disks"
+    "ht-black-disks",
+    "ht-black-exchange"
    ],
    "partial": []
   },
@@ -3288,7 +3399,8 @@
    "topic": 3,
    "status": "ok",
    "full": [
-    "ht-two-surface"
+    "ht-two-surface",
+    "ht-small-object"
    ],
    "partial": []
   },
@@ -3298,7 +3410,8 @@
    "topic": 3,
    "status": "ok",
    "full": [
-    "ht-shield"
+    "ht-shield",
+    "ht-shields-needed"
    ],
    "partial": []
   },
@@ -3308,7 +3421,8 @@
    "topic": 3,
    "status": "ok",
    "full": [
-    "ht-reradiating"
+    "ht-reradiating",
+    "ht-reradiating-radiosity"
    ],
    "partial": []
   },
@@ -3353,7 +3467,8 @@
    "topic": 2,
    "status": "ok",
    "full": [
-    "ht-shell-tube"
+    "ht-shell-tube",
+    "ht-area-with-F"
    ],
    "partial": []
   },
@@ -3363,7 +3478,8 @@
    "topic": 3,
    "status": "ok",
    "full": [
-    "ht-ntu-eff"
+    "ht-ntu-eff",
+    "ht-ntu-condenser"
    ],
    "partial": []
   },
@@ -3373,7 +3489,8 @@
    "topic": 3,
    "status": "ok",
    "full": [
-    "ht-ntu-outlet"
+    "ht-ntu-outlet",
+    "ht-balanced-counterflow"
    ],
    "partial": []
   },
@@ -3405,7 +3522,8 @@
    "topic": 1,
    "status": "ok",
    "full": [
-    "ht3-boil-regime"
+    "ht3-boil-regime",
+    "ht-boiling-regime-pick"
    ],
    "partial": []
   },
@@ -3448,7 +3566,8 @@
    "topic": 1,
    "status": "ok",
    "full": [
-    "ht3-stefan-flow"
+    "ht3-stefan-flow",
+    "ht-bulk-flow-ratio"
    ],
    "partial": []
   },
@@ -3458,7 +3577,8 @@
    "topic": 1,
    "status": "ok",
    "full": [
-    "ht3-reaction"
+    "ht3-reaction",
+    "ht-reaction-penetration"
    ],
    "partial": []
   },
@@ -3468,7 +3588,8 @@
    "topic": 1,
    "status": "ok",
    "full": [
-    "ht-mass-erf-time"
+    "ht-mass-erf-time",
+    "ht-erf-concentration"
    ],
    "partial": []
   },
@@ -3489,7 +3610,8 @@
    "topic": 2,
    "status": "ok",
    "full": [
-    "ht3-mc-evap"
+    "ht3-mc-evap",
+    "ht-lewis-hm"
    ],
    "partial": []
   }

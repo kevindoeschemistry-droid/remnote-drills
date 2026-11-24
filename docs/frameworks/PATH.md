@@ -1,6 +1,6 @@
 # The path — start to finish
 
-Every framework in `requires` order; inside each, units and objectives in order, except that 155 objectives move up to sit just after the prerequisites they need. 3866 objectives in 49 frameworks.
+Every framework in `requires` order; inside each, units and objectives in order, except that 155 objectives move up to sit just after the prerequisites they need. 3922 objectives in 50 frameworks.
 
 | # | Framework | Track | Requires | LOs | Path position |
 |---|---|---|---|---|---|
@@ -40,19 +40,20 @@ Every framework in `requires` order; inside each, units and objectives in order,
 | 34 | Numerical Methods | engineering | calculus, linear-algebra | 17 | 2917–2933 |
 | 35 | Process Design, Economics and Safety | engineering | material-balances | 9 | 2934–2942 |
 | 36 | Chemical Reaction Engineering | engineering | material-balances | 46 | 2943–2988 |
-| 37 | Separations | engineering | material-balances, thermodynamics | 6 | 3534–3541 |
+| 37 | Separations | engineering | material-balances, thermodynamics | 6 | 3590–3597 |
 | 38 | Mass Transfer | engineering | heat-transfer, engineering-math | 21 | 2995–3015 |
-| 39 | Graduate Chemical Engineering Core | engineering | fluid-mechanics, heat-transfer, mass-transfer, thermodynamics, reaction-engineering, process-design, engineering-math | 38 | 3016–3053 |
-| 40 | Financial Accounting (CPA FAR) | business | — | 26 | 3054–3079 |
-| 41 | Dental Admission Test | health | biology, chemistry | 183 | 3080–3262 |
-| 42 | NGSS High School Science | science | chemistry, physics, biology, earth-space, nuclear, dat | 71 | 3263–3333 |
-| 43 | INBDE (Dentistry) | health | — | 57 | 3334–3390 |
-| 44 | NCLEX-RN | health | — | 39 | 3391–3429 |
-| 45 | AI Safety | safety | programming, calculus | 104 | 3430–3533 |
-| 46 | Speaking and Articulation | communication | — | 69 | 3534–3602 |
-| 47 | Basketball | athletics | — | 88 | 3603–3690 |
-| 48 | Swimming | athletics | — | 88 | 3691–3778 |
-| 49 | Wushu | athletics | — | 88 | 3779–3866 |
+| 39 | Electric Double Layers | engineering | materials, thermodynamics | 56 | 3016–3071 |
+| 40 | Graduate Chemical Engineering Core | engineering | fluid-mechanics, heat-transfer, mass-transfer, thermodynamics, reaction-engineering, process-design, engineering-math | 38 | 3072–3109 |
+| 41 | Financial Accounting (CPA FAR) | business | — | 26 | 3110–3135 |
+| 42 | Dental Admission Test | health | biology, chemistry | 183 | 3136–3318 |
+| 43 | NGSS High School Science | science | chemistry, physics, biology, earth-space, nuclear, dat | 71 | 3319–3389 |
+| 44 | INBDE (Dentistry) | health | — | 57 | 3390–3446 |
+| 45 | NCLEX-RN | health | — | 39 | 3447–3485 |
+| 46 | AI Safety | safety | programming, calculus | 104 | 3486–3589 |
+| 47 | Speaking and Articulation | communication | — | 69 | 3590–3658 |
+| 48 | Basketball | athletics | — | 88 | 3659–3746 |
+| 49 | Swimming | athletics | — | 88 | 3747–3834 |
+| 50 | Wushu | athletics | — | 88 | 3835–3922 |
 
 ## Order problems (a prerequisite comes after the objective)
 
