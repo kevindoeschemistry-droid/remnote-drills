@@ -392,17 +392,17 @@ units:
         title: Pressure
         los:
           - { id: A, std: ["P1 8.2"], do: "Calculate pressure from force and area, and convert between absolute and gauge pressure.", ek: ["P = F⊥/A; P_abs = P_gauge + P_atm, P_atm ≈ 1.01 × 10⁵ Pa."], p: [2B], drills: ["ph-pressure-gauge", "ph-heel-pressure"], needs: [PH-2.2.B] }
-          - { id: B, std: ["P1 8.2"], do: "Calculate the pressure at a depth in a static fluid.", ek: ["P = P₀ + ρgh; depends on depth only, not on the container's shape."], p: [2B, 2D], drills: ["ph-pressure-at-depth", "ph-depth-for-pressure"], needs: [PH-8.2.A, PH-8.1.A] }
+          - { id: B, std: ["P1 8.2", "webwork-opl:FM2.1"], do: "Calculate the pressure at a depth in a static fluid.", ek: ["P = P₀ + ρgh; depends on depth only, not on the container's shape."], p: [2B, 2D], drills: ["ph-pressure-at-depth", "ph-depth-for-pressure"], needs: [PH-8.2.A, PH-8.1.A] }
       - n: 3
         title: Fluids and Newton's laws
         los:
-          - { id: A, std: ["P1 8.3"], do: "Calculate the buoyant force on an object and decide whether it floats, and how deep.", ek: ["F_b = ρ_fluid V_displaced g (Archimedes); a floating object displaces its own weight, fraction submerged = ρ_obj/ρ_fluid."], p: [1A, 2A, 2B], drills: ["ph-floating-fraction", "ph-apparent-weight"], needs: [PH-8.2.B, PH-2.4.A] }
+          - { id: A, std: ["P1 8.3", "webwork-opl:FM2.6"], do: "Calculate the buoyant force on an object and decide whether it floats, and how deep.", ek: ["F_b = ρ_fluid V_displaced g (Archimedes); a floating object displaces its own weight, fraction submerged = ρ_obj/ρ_fluid."], p: [1A, 2A, 2B], drills: ["ph-floating-fraction", "ph-apparent-weight"], needs: [PH-8.2.B, PH-2.4.A] }
           - { id: B, std: ["P1 8.3"], do: "Calculate the force multiplication of a hydraulic lift.", ek: ["Pascal: a pressure change spreads undiminished, F₁/A₁ = F₂/A₂ (work in = work out)."], p: [2B, 2D], drills: ["ph-hydraulic-lift", "ph-hydraulic-travel"], needs: [PH-8.2.B] }
       - n: 4
         title: Fluids and conservation laws
         los:
           - { id: A, std: ["P1 8.4"], do: "Apply the continuity equation to find a flow speed or volume flow rate.", ek: ["Incompressible flow: A₁v₁ = A₂v₂ = volume flow rate; narrower pipe ⇒ faster flow."], p: [2B, 2D], drills: ["ph-continuity", "ph-nozzle-speed-scaling"] }
-          - { id: B, std: ["P1 8.4"], do: "Apply Bernoulli's equation to find a pressure or speed, including efflux from a tank.", ek: ["P + ½ρv² + ρgy is constant along a streamline (energy per volume); open tank drain v = √(2gh)."], p: [2A, 2B], drills: ["ph-bernoulli", "sc-torricelli-head"], needs: [PH-8.4.A, PH-8.2.B, PH-3.4.A] }
+          - { id: B, std: ["P1 8.4", "webwork-opl:FM3.4"], do: "Apply Bernoulli's equation to find a pressure or speed, including efflux from a tank.", ek: ["P + ½ρv² + ρgy is constant along a streamline (energy per volume); open tank drain v = √(2gh)."], p: [2A, 2B], drills: ["ph-bernoulli", "sc-torricelli-head"], needs: [PH-8.4.A, PH-8.2.B, PH-3.4.A] }
 
   # ── 9 · P2 Unit 9 ────────────────────────────────────────────────────────
   - id: thermodynamics
@@ -432,7 +432,7 @@ units:
         los:
           - { id: A, std: ["P2 9.4.A"], do: "Calculate the internal energy of a monatomic ideal gas and its change.", ek: ["U = (3/2)nRT for a monatomic ideal gas; ΔU depends only on ΔT."], p: [2B], drills: ["ph-internal-energy", "ph-internal-energy-scaling"], needs: [PH-9.1.B, PH-9.2.A] }
           - { id: B, std: ["P2 9.4.B"], do: "Calculate the work done on a gas from the area under a P–V curve, and identify isobaric, isochoric, isothermal and adiabatic paths.", ek: ["W_on = −∫P dV = −(area under P–V) for expansion; isobaric W = −PΔV, isochoric W = 0."], p: [1C, 2B], drills: ["~th-fl-isobaric", "ph-isobaric-work"], needs: [PH-9.2.A, PH-3.2.B] }
-          - { id: C, std: ["P2 9.4.B"], do: "Apply the first law to find Q, W or ΔU for each type of process.", ek: ["ΔU = Q + W (W on the gas); isothermal ΔU = 0, adiabatic Q = 0, isochoric W = 0."], p: [2A, 2B], drills: ["~th-fl-isochoric", "~th-fl-isobaric", "ph-first-law-heat"], needs: [PH-9.4.A, PH-9.4.B, PH-9.3.A] }
+          - { id: C, std: ["P2 9.4.B", "webwork-opl:TH1.2", "webwork-opl:TH1.8", "webwork-opl:TH3.1"], do: "Apply the first law to find Q, W or ΔU for each type of process.", ek: ["ΔU = Q + W (W on the gas); isothermal ΔU = 0, adiabatic Q = 0, isochoric W = 0."], p: [2A, 2B], drills: ["~th-fl-isochoric", "~th-fl-isobaric", "ph-first-law-heat"], needs: [PH-9.4.A, PH-9.4.B, PH-9.3.A] }
           - { id: D, std: ["P2 9.4.B"], do: "Analyze a cyclic process on a P–V diagram for net work and net heat.", ek: ["Over a cycle ΔU = 0, so Q_net = −W_net = enclosed area (clockwise = net work done by the gas)."], p: [1C, 2B], drills: ["ph-pv-cycle-work", "ph-cycle-efficiency"], needs: [PH-9.4.C] }
       - n: 5
         title: Specific heat and thermal conductivity
@@ -443,7 +443,7 @@ units:
         title: Entropy and the second law
         los:
           - { id: A, std: ["P2 9.6.A"], do: "Predict whether the entropy of a system and its surroundings increases, decreases or stays the same in a process.", ek: ["The total entropy of an isolated system never decreases; spontaneous heat flow and mixing raise it."], p: [3B, 3C], drills: ["ph-entropy-direction", "ph-entropy-of-transfer"], needs: [PH-9.3.A] }
-          - { id: B, std: ["P2 9.6"], do: "Calculate the efficiency of a heat engine and compare it with the Carnot limit.", ek: ["e = W/Q_H = 1 − Q_C/Q_H ≤ 1 − T_C/T_H (kelvin); bridge to engineering thermodynamics — check against the current CED."], p: [2B, 2C], drills: ["ph-engine-efficiency", "sc-carnot-efficiency"], needs: [PH-9.6.A, PH-9.4.D] }
+          - { id: B, std: ["P2 9.6", "webwork-opl:TH6.1"], do: "Calculate the efficiency of a heat engine and compare it with the Carnot limit.", ek: ["e = W/Q_H = 1 − Q_C/Q_H ≤ 1 − T_C/T_H (kelvin); bridge to engineering thermodynamics — check against the current CED."], p: [2B, 2C], drills: ["ph-engine-efficiency", "sc-carnot-efficiency"], needs: [PH-9.6.A, PH-9.4.D] }
 
   # ── 10 · P2 Unit 10 ──────────────────────────────────────────────────────
   - id: electrostatics

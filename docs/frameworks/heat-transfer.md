@@ -366,10 +366,10 @@ Book: incropera-8e §6.1, §6.2, §6.3, §6.5, §6.6, §6.7 · FE: me-B, che-B, 
 
 Book: incropera-8e §7.1, §7.2, §7.3 · FE: me-B, che-B
 
-- ● **HT-8.2.A** Calculate average h and q for laminar flow over a flat plate, with properties at the film temperature.
+- ● **HT-8.2.A** (webwork-opl:FM7.2, webwork-opl:FM7.3) Calculate average h and q for laminar flow over a flat plate, with properties at the film temperature.
   - EK: Nu̅ = 0.664 Re_L^(1/2) Pr^(1/3); T_f = (T_s + T∞)/2.
   - P3 · P4 · drills: ht-plate-lam, ht-plate-special
-- ● **HT-8.2.B** Calculate average h for a mixed laminar–turbulent boundary layer.
+- ● **HT-8.2.B** (webwork-opl:FM7.3) Calculate average h for a mixed laminar–turbulent boundary layer.
   - EK: Nu̅ = (0.037 Re_L^(4/5) − 871) Pr^(1/3) for Re_x,c = 5×10⁵.
   - P3 · P4 · drills: ht-plate-mixed
 
@@ -534,7 +534,7 @@ Big ideas: SYS, ENG, RATE
 
 Book: incropera-8e §11.1, §11.2 · FE: me-E, che-D, che-E
 
-- ● **HT-12.1.A** Calculate U for a tube wall including both films, fouling and finned surfaces.
+- ● **HT-12.1.A** (webwork-opl:TH5.7) Calculate U for a tube wall including both films, fouling and finned surfaces.
   - EK: 1/UA = 1/(η_o hA)_c + R''_f,c/(η_oA)_c + R_w + R''_f,h/(η_oA)_h + 1/(η_o hA)_h.
   - P1 · P4 · drills: ht-U-tube, ht-U-fouling
 

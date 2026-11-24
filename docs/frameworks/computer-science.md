@@ -89,7 +89,7 @@ Book: cs2023 §MSF-Probability, §MSF-Statistics
 - ● **CS-1.4.A** Compute an expected count (collisions, comparisons, hits) using linearity of expectation over indicator variables.
   - EK: E[ΣX_i] = ΣE[X_i] even when the X_i are dependent; E[indicator] = P(event).
   - P2 · drills: cs-expected-collisions
-- ● **CS-1.4.B** Apply Bayes' rule to a detector or classifier scenario and find the probability an alert is real.
+- ● **CS-1.4.B** (webwork-opl:PB1.5) Apply Bayes' rule to a detector or classifier scenario and find the probability an alert is real.
   - EK: P(A|B) = P(B|A)P(A)/P(B); a low base rate makes most positives false even for an accurate test.
   - P2 · P7 · drills: cs-bayes-alert
 - ○ **CS-1.4.C** Compute the mean, standard deviation and a confidence interval from repeated benchmark runs, and decide whether two configurations differ.

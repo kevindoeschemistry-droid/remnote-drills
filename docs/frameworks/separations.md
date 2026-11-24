@@ -28,7 +28,7 @@ Big ideas: STAGE, DRIVE
 
 
 
-- ● **SP-1.1.A** Compute a vapour composition from relative volatility.
+- ● **SP-1.1.A** (webwork-opl:TH16.4) Compute a vapour composition from relative volatility.
   - EK: y = αx/(1 + (α − 1)x).
   - P1 · drills: sp-vle-alpha
 - ● **SP-1.1.B** Compute the minimum number of stages with Fenske.
@@ -56,7 +56,7 @@ Big ideas: STAGE
 
 
 
-- ● **SP-2.1.A** Compute absolute humidity from relative humidity.
+- ● **SP-2.1.A** (webwork-opl:TH12.5) Compute absolute humidity from relative humidity.
   - EK: H = 0.622 p_w/(P − p_w).
   - P1 · drills: sp-humidity
 - ● **SP-2.1.B** Compute the water removed by an evaporator.

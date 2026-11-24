@@ -33,16 +33,16 @@ Big ideas: MAIN
 
 
 
-- ● **LA-1.1.A** (lay-5e:1) Solve a linear system by row reduction.
+- ● **LA-1.1.A** (lay-5e:1, webwork-opl:LA1.1, webwork-opl:LA1.2, webwork-opl:LA2.2) Solve a linear system by row reduction.
   - EK: Pivots give the basic variables; a row 0 = c means no solution.
   - P1 · drills: la-system, la-is-solution
-- ● **LA-1.1.B** (lay-5e:1) Decide whether a set of vectors is linearly independent.
+- ● **LA-1.1.B** (lay-5e:1, webwork-opl:LA4.4) Decide whether a set of vectors is linearly independent.
   - EK: Independent exactly when the only solution of Ax = 0 is zero.
   - P1 · drills: la-independence, la-independence-parameter
-- ● **LA-1.1.C** (cupm-2015-la:1) Read the number of solutions off an echelon form.
+- ● **LA-1.1.C** (cupm-2015-la:1, webwork-opl:LA1.6, webwork-opl:LA2.3) Read the number of solutions off an echelon form.
   - EK: A pivot in every variable column: one; a free variable: infinitely many; a row 0 = c: none.
   - P1 · drills: la-solution-type
-- ● **LA-1.1.D** (cupm-2015-la:1) Count the free variables of a consistent system.
+- ● **LA-1.1.D** (cupm-2015-la:1, webwork-opl:LA1.3) Count the free variables of a consistent system.
   - EK: Free variables are the non-pivot columns.
   - P1 · drills: la-free-variables
 
@@ -50,7 +50,7 @@ Big ideas: MAIN
 
 
 
-- ● **LA-1.2.A** (cupm-2015-la:1, lay-5e:1) Decide whether a vector is in the span of others.
+- ● **LA-1.2.A** (cupm-2015-la:1, lay-5e:1, webwork-opl:LA1.5, webwork-opl:LA4.2, webwork-opl:LA4.3) Decide whether a vector is in the span of others.
   - EK: b is in the span exactly when [v1 … vk | b] has no pivot in the last column.
   - P1 · drills: la-span-membership
 - ● **LA-1.2.B** (cupm-2015-la:1, lay-5e:1) Describe the solution set of Ax = b as a shifted null space.
@@ -65,13 +65,13 @@ Big ideas: MAIN
 
 
 
-- ● **LA-2.1.A** (lay-5e:2) Find the inverse of a 2 × 2 matrix.
+- ● **LA-2.1.A** (lay-5e:2, webwork-opl:LA2.6) Find the inverse of a 2 × 2 matrix.
   - EK: Swap the diagonal, negate the off-diagonal, divide by the determinant.
   - P1 · drills: la-inverse, la-inverse-check
-- ● **LA-2.1.B** (cupm-2015-la:1) Solve Ax = b with a known inverse.
+- ● **LA-2.1.B** (cupm-2015-la:1, webwork-opl:LA1.4) Solve Ax = b with a known inverse.
   - EK: x = A⁻¹b; row i of A⁻¹ dotted with b gives x_i.
   - P1 · drills: la-solve-with-inverse
-- ● **LA-2.1.C** (cupm-2015-la:1, lay-5e:2) Use the invertible matrix theorem.
+- ● **LA-2.1.C** (cupm-2015-la:1, lay-5e:2, webwork-opl:LA2.6) Use the invertible matrix theorem.
   - EK: For a square matrix, invertible, n pivots, independent columns, det ≠ 0 and 0 not an eigenvalue stand or fall together.
   - P1 · drills: la-invertible-matrix-theorem
 
@@ -79,10 +79,10 @@ Big ideas: MAIN
 
 
 
-- ● **LA-2.2.A** (cupm-2015-la:1, lay-5e:2) Compute one entry of a product without computing the rest.
+- ● **LA-2.2.A** (cupm-2015-la:1, lay-5e:2, webwork-opl:LA2.1) Compute one entry of a product without computing the rest.
   - EK: (AB)_ij is row i of A dotted with column j of B.
   - P1 · drills: la-product-entry
-- ● **LA-2.2.B** (cupm-2015-la:1, lay-5e:2) Track sizes through products and transposes.
+- ● **LA-2.2.B** (cupm-2015-la:1, lay-5e:2, webwork-opl:LA2.1, webwork-opl:LA2.5) Track sizes through products and transposes.
   - EK: (AB)ᵀ = BᵀAᵀ; an m × n times an n × p is m × p.
   - P1 · drills: la-product-size
 
@@ -90,10 +90,10 @@ Big ideas: MAIN
 
 
 
-- ● **LA-2.3.A** (cupm-2015-la:1, lay-5e:2) Factor a matrix as LU.
+- ● **LA-2.3.A** (cupm-2015-la:1, lay-5e:2, webwork-opl:LA3.2) Factor a matrix as LU.
   - EK: The multipliers of row reduction go below the diagonal of L; U is the echelon form.
   - P1 · drills: la-lu-pivot
-- ● **LA-2.3.B** (cupm-2015-la:1, lay-5e:2) Solve with LU by forward and back substitution.
+- ● **LA-2.3.B** (cupm-2015-la:1, lay-5e:2, webwork-opl:LA3.2) Solve with LU by forward and back substitution.
   - EK: Ly = b, then Ux = y.
   - P1 · drills: la-lu-forward
 
@@ -105,7 +105,7 @@ Big ideas: MAIN
 
 
 
-- ● **LA-3.1.A** (lay-5e:3) Compute a 3 × 3 determinant.
+- ● **LA-3.1.A** (lay-5e:3, webwork-opl:LA10.1) Compute a 3 × 3 determinant.
   - EK: Expand along the row or column with the most zeros.
   - P1 · drills: la-det, mm-determinant, la-det-triangular
 
@@ -113,13 +113,13 @@ Big ideas: MAIN
 
 
 
-- ● **LA-3.2.A** (cupm-2015-la:2, lay-5e:3) Use det(AB) = det A det B, det Aᵀ = det A and det(kA) = kⁿ det A.
+- ● **LA-3.2.A** (cupm-2015-la:2, lay-5e:3, webwork-opl:LA10.2) Use det(AB) = det A det B, det Aᵀ = det A and det(kA) = kⁿ det A.
   - EK: A scalar multiplies every row, so it comes out to the nth power.
   - P1 · drills: la-det-properties
-- ● **LA-3.2.B** (cupm-2015-la:2, lay-5e:3) Track the determinant through row operations.
+- ● **LA-3.2.B** (cupm-2015-la:2, lay-5e:3, webwork-opl:LA2.2, webwork-opl:LA10.2) Track the determinant through row operations.
   - EK: Swap: sign flips; scale a row: scales; add a multiple of a row: no change.
   - P1 · drills: la-det-row-ops
-- ● **LA-3.2.C** (cupm-2015-la:2, lay-5e:3) Read |det A| as the factor by which A scales area or volume.
+- ● **LA-3.2.C** (cupm-2015-la:2, lay-5e:3, webwork-opl:LA10.3) Read |det A| as the factor by which A scales area or volume.
   - EK: Area of the image = |det A| × area.
   - P1 · drills: la-det-area
 
@@ -131,7 +131,7 @@ Big ideas: MAIN
 
 
 
-- ● **LA-4.1.A** (lay-5e:4) Find the rank of a matrix and use the rank theorem.
+- ● **LA-4.1.A** (lay-5e:4, webwork-opl:LA2.4, webwork-opl:LA4.7) Find the rank of a matrix and use the rank theorem.
   - EK: rank + dim Nul = number of columns.
   - P1 · drills: la-rank-3x3, la-rank-nullity, la-row-space-reverse
 
@@ -139,10 +139,10 @@ Big ideas: MAIN
 
 
 
-- ● **LA-4.2.A** (cupm-2015-la:3, lay-5e:4) Decide whether a set is a subspace.
+- ● **LA-4.2.A** (cupm-2015-la:3, lay-5e:4, webwork-opl:LA4.5) Decide whether a set is a subspace.
   - EK: Contains 0, closed under addition and scaling.
   - P1 · drills: la-subspace-test
-- ● **LA-4.2.B** (cupm-2015-la:3, lay-5e:4) Find the dimension of a span.
+- ● **LA-4.2.B** (cupm-2015-la:3, lay-5e:4, webwork-opl:LA4.6) Find the dimension of a span.
   - EK: Dimension = the number of independent vectors = rank.
   - P1 · drills: la-span-dimension
 
@@ -150,10 +150,10 @@ Big ideas: MAIN
 
 
 
-- ● **LA-4.3.A** (cupm-2015-la:4, lay-5e:4) Find the coordinates of a vector in a basis.
+- ● **LA-4.3.A** (cupm-2015-la:4, lay-5e:4, webwork-opl:LA4.8) Find the coordinates of a vector in a basis.
   - EK: Solve P_B [x]_B = x.
   - P1 · drills: la-coordinates
-- ● **LA-4.3.B** (cupm-2015-la:4, lay-5e:4) Convert coordinates back to the standard basis.
+- ● **LA-4.3.B** (cupm-2015-la:4, lay-5e:4, webwork-opl:LA4.8) Convert coordinates back to the standard basis.
   - EK: x = P_B [x]_B, with the basis vectors as columns.
   - P1 · drills: la-change-of-basis
 
@@ -165,10 +165,10 @@ Big ideas: MAIN
 
 
 
-- ● **LA-5.1.A** (lay-5e:5) Find the eigenvalues and eigenvectors of a 2 × 2 matrix.
+- ● **LA-5.1.A** (lay-5e:5, webwork-opl:LA7.1) Find the eigenvalues and eigenvectors of a 2 × 2 matrix.
   - EK: Sum of eigenvalues = trace, product = determinant.
   - P1 · drills: la-eigenvalues, la-eigenvector, mm-eigen-trace-det, la-eigen-triangular
-- ● **LA-5.1.B** (lay-5e:5) Decide whether a matrix is diagonalisable and use the diagonal form.
+- ● **LA-5.1.B** (lay-5e:5, webwork-opl:LA3.1, webwork-opl:LA7.2) Decide whether a matrix is diagonalisable and use the diagonal form.
   - EK: n independent eigenvectors; powers act on the eigenvalues.
   - P1 · drills: la-diagonalizable-facts, la-trace-of-power, em-diagonalise
 
@@ -176,13 +176,13 @@ Big ideas: MAIN
 
 
 
-- ● **LA-5.2.A** (cupm-2015-la:5, lay-5e:5) Compute Aᵏx by expanding x in eigenvectors.
+- ● **LA-5.2.A** (cupm-2015-la:5, lay-5e:5, webwork-opl:LA7.5) Compute Aᵏx by expanding x in eigenvectors.
   - EK: Each eigenvector component is multiplied by λᵏ.
   - P1 · drills: la-power-by-eigenvectors
-- ● **LA-5.2.B** (cupm-2015-la:5, lay-5e:5) Find the steady state of a Markov chain.
+- ● **LA-5.2.B** (cupm-2015-la:5, lay-5e:5, webwork-opl:LA2.9, webwork-opl:PB7.1) Find the steady state of a Markov chain.
   - EK: The eigenvector for λ = 1, scaled to sum to 1.
   - P1 · drills: la-markov-steady-state
-- ● **LA-5.2.C** (cupm-2015-la:5, lay-5e:5) Read a complex eigenvalue as a rotation and a scaling.
+- ● **LA-5.2.C** (cupm-2015-la:5, lay-5e:5, webwork-opl:LA7.3) Read a complex eigenvalue as a rotation and a scaling.
   - EK: [[a, −b], [b, a]] rotates by arg λ and scales by |λ| = √(a² + b²).
   - P1 · drills: la-complex-eigen-modulus
 
@@ -194,10 +194,10 @@ Big ideas: MAIN
 
 
 
-- ● **LA-6.1.A** (lay-5e:6) Test orthogonality, project one vector on another and take a Gram–Schmidt step.
+- ● **LA-6.1.A** (lay-5e:6, webwork-opl:LA8.1, webwork-opl:LA8.3, webwork-opl:LA8.4, webwork-opl:LA8.5) Test orthogonality, project one vector on another and take a Gram–Schmidt step.
   - EK: proj = (u·v / v·v) v.
   - P1 · drills: la-orthogonal-check, la-projection-scalar, la-gram-schmidt-step
-- ● **LA-6.1.B** (lay-5e:6) Set up and solve a least-squares problem.
+- ● **LA-6.1.B** (lay-5e:6, webwork-opl:LA8.4, webwork-opl:LA8.7) Set up and solve a least-squares problem.
   - EK: AᵀAx = Aᵀb.
   - P1 · drills: la-least-squares-slope, la-least-squares-facts
 
@@ -205,13 +205,13 @@ Big ideas: MAIN
 
 
 
-- ● **LA-6.2.A** (cupm-2015-la:6, lay-5e:6) Find lengths and distances.
+- ● **LA-6.2.A** (cupm-2015-la:6, lay-5e:6, webwork-opl:LA4.1, webwork-opl:LA8.4) Find lengths and distances.
   - EK: ‖u − v‖ = √((u − v)·(u − v)).
   - P1 · drills: la-distance
-- ● **LA-6.2.B** (cupm-2015-la:6, lay-5e:6) Find vectors in an orthogonal complement.
+- ● **LA-6.2.B** (cupm-2015-la:6, lay-5e:6, webwork-opl:LA8.4) Find vectors in an orthogonal complement.
   - EK: W⊥ is everything orthogonal to a spanning set of W.
   - P1 · drills: la-orthogonal-complement
-- ● **LA-6.2.C** (cupm-2015-la:6, lay-5e:6) Find an entry of the QR factorisation.
+- ● **LA-6.2.C** (cupm-2015-la:6, lay-5e:6, webwork-opl:LA3.3) Find an entry of the QR factorisation.
   - EK: r_ii = length after removing earlier directions; r_ij = q_i · a_j.
   - P1 · drills: la-qr-entry
 
@@ -223,10 +223,10 @@ Big ideas: MAIN
 
 
 
-- ● **LA-7.1.A** (lay-5e:7) Find a singular value of a small matrix.
+- ● **LA-7.1.A** (lay-5e:7, webwork-opl:LA3.4) Find a singular value of a small matrix.
   - EK: Singular values are the square roots of the eigenvalues of AᵀA.
   - P1 · drills: la-singular-value, la-rank-one-singular-value
-- ● **LA-7.1.B** (cupm-2015-la:second, lay-5e:7) Use orthogonality of a symmetric matrix's eigenvectors.
+- ● **LA-7.1.B** (cupm-2015-la:second, lay-5e:7, webwork-opl:LA7.2) Use orthogonality of a symmetric matrix's eigenvectors.
   - EK: Different eigenvalues, orthogonal eigenvectors.
   - P1 · drills: la-symmetric-eigenvector
 
@@ -234,10 +234,10 @@ Big ideas: MAIN
 
 
 
-- ● **LA-7.2.A** (cupm-2015-la:second, lay-5e:7) Classify a quadratic form.
+- ● **LA-7.2.A** (cupm-2015-la:second, lay-5e:7, webwork-opl:LA7.4) Classify a quadratic form.
   - EK: The signs of the eigenvalues of its symmetric matrix decide.
   - P1 · drills: la-quadratic-form-classify
-- ● **LA-7.2.B** (cupm-2015-la:second, lay-5e:7) Find the extreme values of a quadratic form on the unit sphere.
+- ● **LA-7.2.B** (cupm-2015-la:second, lay-5e:7, webwork-opl:LA7.4) Find the extreme values of a quadratic form on the unit sphere.
   - EK: The largest and smallest eigenvalues, at their eigenvectors.
   - P1 · drills: la-quadratic-form-max
 
@@ -245,7 +245,7 @@ Big ideas: MAIN
 
 
 
-- ● **LA-7.3.A** (cupm-2015-la:second, lay-5e:7) Find the condition number from the singular values.
+- ● **LA-7.3.A** (cupm-2015-la:second, lay-5e:7, webwork-opl:LA3.4) Find the condition number from the singular values.
   - EK: κ = σ_max / σ_min.
   - P1 · drills: la-condition-number
 
@@ -257,13 +257,13 @@ Big ideas: MAIN
 
 
 
-- ● **LA-8.1.A** (cupm-2015-la:4, lay-5e:1) Build a map from the images of the basis vectors.
+- ● **LA-8.1.A** (cupm-2015-la:4, lay-5e:1, webwork-opl:LA9.1, webwork-opl:LA9.2) Build a map from the images of the basis vectors.
   - EK: The columns of the standard matrix are T(e1), …, T(en).
   - P1 · drills: la-map-from-basis-images
-- ● **LA-8.1.B** (cupm-2015-la:4, lay-5e:2) Compose linear maps as matrix products.
+- ● **LA-8.1.B** (cupm-2015-la:4, lay-5e:2, webwork-opl:LA9.3) Compose linear maps as matrix products.
   - EK: S ∘ T has matrix ST: the first map stands on the right.
   - P1 · drills: la-composition
-- ● **LA-8.1.C** (cupm-2015-la:4, lay-5e:1) Decide whether a map is one-to-one or onto from its rank.
+- ● **LA-8.1.C** (cupm-2015-la:4, lay-5e:1, webwork-opl:LA9.4) Decide whether a map is one-to-one or onto from its rank.
   - EK: One-to-one: rank = number of columns; onto: rank = number of rows.
   - P1 · drills: la-one-to-one-onto
 
@@ -271,10 +271,10 @@ Big ideas: MAIN
 
 
 
-- ● **LA-8.2.A** (cupm-2015-la:4, lay-5e:4) Find the dimensions of the kernel and range of a map on a function space.
+- ● **LA-8.2.A** (cupm-2015-la:4, lay-5e:4, webwork-opl:LA6.6, webwork-opl:LA9.5) Find the dimensions of the kernel and range of a map on a function space.
   - EK: Rank–nullity holds for any linear map on a finite-dimensional space.
   - P1 · drills: la-kernel-dimension
-- ● **LA-8.2.B** (cupm-2015-la:4, lay-5e:4) Write the matrix of a map relative to a basis.
+- ● **LA-8.2.B** (cupm-2015-la:4, lay-5e:4, webwork-opl:LA6.7, webwork-opl:LA9.3) Write the matrix of a map relative to a basis.
   - EK: Columns are the coordinates of T(b1), …, T(bn).
   - P1 · drills: la-matrix-relative-to-basis
 

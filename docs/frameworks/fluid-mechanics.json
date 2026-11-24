@@ -15,7 +15,8 @@
  "basis": {
   "primary": "fe-chemical",
   "also": [
-   "pe-chemical"
+   "pe-chemical",
+   "webwork-opl"
   ],
   "note": "Topics from FE Chemical area 6, read in full. Objectives and their order are ours; statics is assumed by the spec rather than listed. The framework stops at what a one-question drill can carry: no Moody chart, pump curves or differential analysis yet."
  },
@@ -74,7 +75,10 @@
       {
        "id": "A",
        "std": [
-        "fe-chemical:6.A"
+        "fe-chemical:6.A",
+        "webwork-opl:TH1.6",
+        "webwork-opl:FM1.2",
+        "webwork-opl:FM1.3"
        ],
        "do": "Relate dynamic and kinematic viscosity, density and specific gravity.",
        "ek": [
@@ -96,7 +100,9 @@
       {
        "id": "A",
        "std": [
-        "fe-chemical:6.A"
+        "fe-chemical:6.A",
+        "webwork-opl:FM2.1",
+        "webwork-opl:FM2.2"
        ],
        "do": "Compute hydrostatic pressure and read a U-tube manometer.",
        "ek": [
@@ -113,6 +119,9 @@
       },
       {
        "id": "B",
+       "std": [
+        "webwork-opl:FM2.6"
+       ],
        "do": "Apply Archimedes' principle to a floating body.",
        "ek": [
         "Submerged fraction = body density over fluid density."
@@ -148,7 +157,8 @@
       {
        "id": "A",
        "std": [
-        "fe-chemical:6.B"
+        "fe-chemical:6.B",
+        "webwork-opl:FM6.9"
        ],
        "do": "Compute a Reynolds number and a hydraulic diameter, and say what each common dimensionless group compares.",
        "ek": [
@@ -169,7 +179,8 @@
       {
        "id": "B",
        "std": [
-        "fe-chemical:6.E"
+        "fe-chemical:6.E",
+        "webwork-opl:FM6.3"
        ],
        "do": "Classify pipe flow as laminar, transitional or turbulent.",
        "ek": [
@@ -185,7 +196,8 @@
       {
        "id": "C",
        "std": [
-        "fe-chemical:6.E"
+        "fe-chemical:6.E",
+        "webwork-opl:FM6.2"
        ],
        "do": "Find the pressure drop of laminar pipe flow.",
        "ek": [
@@ -224,7 +236,9 @@
       {
        "id": "A",
        "std": [
-        "fe-chemical:6.D"
+        "fe-chemical:6.D",
+        "webwork-opl:FM3.2",
+        "webwork-opl:FM3.4"
        ],
        "do": "Use continuity to find a velocity change and Bernoulli to find the pressure change that goes with it.",
        "ek": [
@@ -242,7 +256,8 @@
       {
        "id": "B",
        "std": [
-        "fe-chemical:6.D"
+        "fe-chemical:6.D",
+        "webwork-opl:FM3.4"
        ],
        "do": "Find the efflux velocity from a tank.",
        "ek": [
@@ -282,7 +297,10 @@
       {
        "id": "A",
        "std": [
-        "fe-chemical:6.C"
+        "fe-chemical:6.C",
+        "webwork-opl:FM6.4",
+        "webwork-opl:FM6.5",
+        "webwork-opl:FM6.6"
        ],
        "do": "Compute friction head loss in a pipe and in a fitting.",
        "ek": [
@@ -307,7 +325,12 @@
        "id": "A",
        "std": [
         "fe-chemical:6.C",
-        "fe-chemical:6.G"
+        "fe-chemical:6.G",
+        "webwork-opl:TH5.6",
+        "webwork-opl:FM3.6",
+        "webwork-opl:FM6.7",
+        "webwork-opl:FM6.8",
+        "webwork-opl:FM11.1"
        ],
        "do": "Find the head a pump must supply and the power it draws.",
        "ek": [
@@ -326,7 +349,9 @@
       {
        "id": "B",
        "std": [
-        "fe-chemical:6.G"
+        "fe-chemical:6.G",
+        "webwork-opl:FM6.8",
+        "webwork-opl:FM11.2"
        ],
        "do": "Explain cavitation and NPSH, and what pumps in series and in parallel do.",
        "ek": [
@@ -362,7 +387,8 @@
       {
        "id": "A",
        "std": [
-        "fe-chemical:6.F"
+        "fe-chemical:6.F",
+        "webwork-opl:FM10.6"
        ],
        "do": "Compute a velocity from a pitot reading and a flow from a venturi reading.",
        "ek": [
@@ -415,7 +441,8 @@
       {
        "id": "A",
        "std": [
-        "fe-chemical:6.H"
+        "fe-chemical:6.H",
+        "webwork-opl:FM9.1"
        ],
        "do": "Compute the speed of sound in an ideal gas and use the Mach number to decide how to treat a flow.",
        "ek": [
@@ -439,7 +466,8 @@
       {
        "id": "A",
        "std": [
-        "fe-chemical:6.H"
+        "fe-chemical:6.H",
+        "webwork-opl:FM1.3"
        ],
        "do": "Classify a fluid as Newtonian, shear-thinning, shear-thickening or Bingham, and compute a power-law apparent viscosity.",
        "ek": [

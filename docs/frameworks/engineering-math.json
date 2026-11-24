@@ -21,7 +21,8 @@
  "basis": {
   "primary": "kreyszig-10e",
   "also": [
-   "fe-chemical"
+   "fe-chemical",
+   "webwork-opl"
   ],
   "note": "UCI CBE 200 publishes no syllabus. The undergraduate part is anchored to fe-chemical; series, Sturm–Liouville, PDEs and transforms are past any exam spec and stand on the book."
  },
@@ -112,6 +113,9 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "webwork-opl:CA5.1"
+       ],
        "do": "Evaluate an integral by u-substitution, choosing u so its derivative appears in the integrand.",
        "ek": [
         "∫f(g(x))g′(x)dx = ∫f(u)du; a missing constant factor is fine, a missing x is not."
@@ -130,6 +134,9 @@
       },
       {
        "id": "B",
+       "std": [
+        "webwork-opl:CA5.3"
+       ],
        "do": "Evaluate an integral by parts, including tabular and cyclic (e^ax·trig) cases.",
        "ek": [
         "∫u dv = uv − ∫v du; LIATE picks u; cyclic integrals return to themselves and are solved algebraically."
@@ -148,6 +155,9 @@
       },
       {
        "id": "C",
+       "std": [
+        "webwork-opl:CA5.7"
+       ],
        "do": "Decompose a rational function into partial fractions (distinct, repeated, irreducible quadratic, improper) and integrate it.",
        "ek": [
         "Divide first if improper; repeated factor (x−a)^k needs k terms; irreducible quadratic gets (Ax+B)."
@@ -180,6 +190,16 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "webwork-opl:CX1.1",
+        "webwork-opl:CX1.2",
+        "webwork-opl:CX1.3",
+        "webwork-opl:CX1.4",
+        "webwork-opl:CX1.5",
+        "webwork-opl:CX1.6",
+        "webwork-opl:CX1.7",
+        "webwork-opl:CX1.8"
+       ],
        "do": "Convert complex numbers between rectangular, polar and exponential form.",
        "ek": [
         "e^(iθ) = cos θ + i sin θ; z = re^(iθ), r = |z|, θ = arg z."
@@ -195,6 +215,9 @@
       },
       {
        "id": "B",
+       "std": [
+        "webwork-opl:CX1.9"
+       ],
        "do": "Compute powers and roots of a complex number with De Moivre's formula.",
        "ek": [
         "(re^(iθ))^n = r^n e^(inθ); n distinct n-th roots spaced 2π/n apart."
@@ -208,6 +231,9 @@
       },
       {
        "id": "C",
+       "std": [
+        "webwork-opl:CX2.2"
+       ],
        "do": "Find the complex roots α ± βi of a real quadratic.",
        "ek": [
         "Complex roots of real polynomials come in conjugate pairs; α = −b/2a, β = √(4ac − b²)/2a."
@@ -291,6 +317,9 @@
       },
       {
        "id": "C",
+       "std": [
+        "webwork-opl:DE2.2"
+       ],
        "do": "Test whether M dx + N dy is an exact differential.",
        "ek": [
         "Exact on a simply connected domain ⇔ ∂M/∂y = ∂N/∂x."
@@ -334,6 +363,10 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "webwork-opl:DE1.1",
+        "webwork-opl:DE1.2"
+       ],
        "do": "Classify an ODE by order and linearity, and verify that a given function solves it.",
        "ek": [
         "Order = highest derivative; linear ⇔ y and its derivatives appear to first power with coefficients in x only."
@@ -349,6 +382,9 @@
       },
       {
        "id": "B",
+       "std": [
+        "webwork-opl:DE2.12"
+       ],
        "do": "Sketch a direction field and solution curves from isoclines of y′ = f(x, y).",
        "ek": [
         "Isocline f(x, y) = k has slope k everywhere; solution curves are tangent to the field."
@@ -363,6 +399,9 @@
       },
       {
        "id": "C",
+       "std": [
+        "webwork-opl:DE6.1"
+       ],
        "do": "Approximate an IVP solution with a few steps of Euler's method and estimate the error trend.",
        "ek": [
         "y_(n+1) = y_n + h f(x_n, y_n); global error is O(h)."
@@ -388,6 +427,9 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "webwork-opl:DE2.3"
+       ],
        "do": "Solve a separable ODE explicitly where possible, including the IVP constant.",
        "ek": [
         "g(y)dy = f(x)dx, integrate both sides; check for lost equilibrium solutions when dividing by g."
@@ -410,6 +452,9 @@
       },
       {
        "id": "B",
+       "std": [
+        "webwork-opl:DE2.4"
+       ],
        "do": "Reduce an ODE to separable form with u = y/x or u = ax + by + c, and solve it.",
        "ek": [
         "y′ = f(y/x): y = ux ⇒ u + xu′ = f(u); y′ = f(ax + by + c): u′ = a + bf(u)."
@@ -442,6 +487,9 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "webwork-opl:DE2.2"
+       ],
        "do": "Solve an exact ODE by finding the potential u(x, y) = c, and fit an IVP.",
        "ek": [
         "u_x = M, u_y = N; integrate one, differentiate, match the other."
@@ -462,6 +510,9 @@
       },
       {
        "id": "B",
+       "std": [
+        "webwork-opl:DE2.13"
+       ],
        "do": "Decide whether an integrating factor depending only on x or only on y exists.",
        "ek": [
         "R = (M_y − N_x)/N a function of x alone ⇒ F(x) = exp∫R dx; R* = (N_x − M_y)/M of y alone ⇒ F(y)."
@@ -475,6 +526,9 @@
       },
       {
        "id": "C",
+       "std": [
+        "webwork-opl:DE2.13"
+       ],
        "do": "Find the integrating factor and solve the resulting exact equation.",
        "ek": [
         "Multiply by F, re-check exactness, then solve as exact."
@@ -505,6 +559,9 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "webwork-opl:DE2.1"
+       ],
        "do": "Solve a linear first-order ODE with an integrating factor, including IVPs and forcing that matches e^(−∫p).",
        "ek": [
         "y′ + py = r ⇒ y = e^(−h)[∫e^h r dx + c], h = ∫p dx."
@@ -527,6 +584,9 @@
       },
       {
        "id": "B",
+       "std": [
+        "webwork-opl:DE2.1"
+       ],
        "do": "Solve a linear ODE whose integrating-factor integral needs integration by parts.",
        "ek": [
         "∫e^h r dx often pairs a polynomial or trig with an exponential."
@@ -549,6 +609,9 @@
       },
       {
        "id": "C",
+       "std": [
+        "webwork-opl:DE2.4"
+       ],
        "do": "Reduce a Bernoulli equation to a linear one with u = y^(1−a) and solve it.",
        "ek": [
         "y′ + py = g y^a ⇒ u′ + (1−a)p u = (1−a)g."
@@ -610,6 +673,10 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "webwork-opl:DE2.8",
+        "webwork-opl:MB5.2"
+       ],
        "do": "Set up and solve a mixing-tank balance for concentration or mass of solute.",
        "ek": [
         "dm/dt = (rate in) − (rate out), rate out = (m/V)·Q_out."
@@ -624,6 +691,10 @@
       },
       {
        "id": "B",
+       "std": [
+        "webwork-opl:DE2.6",
+        "webwork-opl:DE2.10"
+       ],
        "do": "Model Newton's cooling and first-order decay, and extract a time constant, half-life or time to reach a value.",
        "ek": [
         "dT/dt = −k(T − T_a); y = y_0 e^(−kt), t_1/2 = ln 2/k."
@@ -639,6 +710,9 @@
       },
       {
        "id": "C",
+       "std": [
+        "webwork-opl:DE2.7"
+       ],
        "do": "Solve the logistic equation and find its equilibria and carrying capacity.",
        "ek": [
         "y′ = ky(1 − y/K) is separable and Bernoulli; y → K for y_0 > 0."
@@ -653,6 +727,9 @@
       },
       {
        "id": "D",
+       "std": [
+        "webwork-opl:DE2.5"
+       ],
        "do": "Find and classify the equilibria of an autonomous ODE y′ = f(y) from a phase line.",
        "ek": [
         "f(y*) = 0; stable if f′(y*) < 0."
@@ -677,6 +754,9 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "webwork-opl:DE2.15"
+       ],
        "do": "Decide whether an IVP has a unique solution near the initial point from the continuity of f and ∂f/∂y.",
        "ek": [
         "f and f_y continuous on a rectangle around (x_0, y_0) ⇒ unique solution on some |x − x_0| < α."
@@ -734,6 +814,9 @@
       },
       {
        "id": "B",
+       "std": [
+        "webwork-opl:DE3.1"
+       ],
        "do": "Find a second solution from a known one by reduction of order.",
        "ek": [
         "y_2 = u y_1, u′ = U = e^(−∫p dx)/y_1² (standard form y″ + py′ + qy = 0)."
@@ -751,6 +834,9 @@
       },
       {
        "id": "C",
+       "std": [
+        "webwork-opl:DE3.11"
+       ],
        "do": "Compute the Wronskian of two or three functions and use it to decide linear independence.",
        "ek": [
         "W = det of the functions and their derivatives; W ≠ 0 somewhere ⇒ independent; for ODE solutions W ≡ 0 or never 0 (Abel)."
@@ -783,6 +869,12 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "webwork-opl:DE3.3",
+        "webwork-opl:DE3.4",
+        "webwork-opl:DE3.5",
+        "webwork-opl:DE3.6"
+       ],
        "do": "Write the general solution of ay″ + by′ + cy = 0 for each of the three root cases of the characteristic equation.",
        "ek": [
         "Distinct real: e^(λ₁x), e^(λ₂x); double: e^(λx), xe^(λx); complex α ± iβ: e^(αx)cos βx, e^(αx)sin βx."
@@ -802,6 +894,9 @@
       },
       {
        "id": "B",
+       "std": [
+        "webwork-opl:DE3.6"
+       ],
        "do": "Solve a constant-coefficient IVP.",
        "ek": [
         "Two conditions y(x_0), y′(x_0) fix c_1, c_2."
@@ -829,6 +924,9 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "webwork-opl:DE3.7"
+       ],
        "do": "Find the roots of the auxiliary equation of an Euler–Cauchy ODE.",
        "ek": [
         "x²y″ + axy′ + by = 0 with y = x^m ⇒ m² + (a − 1)m + b = 0."
@@ -842,6 +940,9 @@
       },
       {
        "id": "B",
+       "std": [
+        "webwork-opl:DE3.7"
+       ],
        "do": "Write the general solution of an Euler–Cauchy ODE for each root case and fit an IVP.",
        "ek": [
         "Distinct: x^(m₁), x^(m₂); double: x^m, x^m ln x; complex: x^μ cos(ν ln x), x^μ sin(ν ln x)."
@@ -873,6 +974,9 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "webwork-opl:DE3.2"
+       ],
        "do": "Find the natural frequency, period, amplitude and phase of an undamped mass–spring system.",
        "ek": [
         "my″ + ky = 0 ⇒ ω₀ = √(k/m); A cos ω₀t + B sin ω₀t = C cos(ω₀t − δ), C = √(A² + B²)."
@@ -915,6 +1019,9 @@
       },
       {
        "id": "D",
+       "std": [
+        "webwork-opl:DE3.2"
+       ],
        "do": "Solve a damped oscillator IVP in each damping regime.",
        "ek": [
         "Same three root cases as 3.2.A, with α = −c/2m < 0 so every solution decays."
@@ -946,6 +1053,9 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "webwork-opl:DE3.8"
+       ],
        "do": "Find a particular solution by undetermined coefficients, including the modification rule.",
        "ek": [
         "Guess the form of r(x) (poly, e^(γx), cos/sin); multiply by x (or x²) when the guess solves the homogeneous ODE."
@@ -980,6 +1090,9 @@
       },
       {
        "id": "C",
+       "std": [
+        "webwork-opl:DE3.9"
+       ],
        "do": "Find a particular solution by variation of parameters when r(x) is not of undetermined-coefficient form or coefficients vary.",
        "ek": [
         "y_p = −y₁∫y₂r/W dx + y₂∫y₁r/W dx, ODE in standard form."
@@ -1052,6 +1165,9 @@
       },
       {
        "id": "D",
+       "std": [
+        "webwork-opl:DE3.2"
+       ],
        "do": "Model an RLC circuit as a second-order ODE and map it onto the mass–spring analogy.",
        "ek": [
         "LI″ + RI′ + I/C = E′(t): L ↔ m, R ↔ c, 1/C ↔ k."
@@ -1093,6 +1209,9 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "webwork-opl:DE3.11"
+       ],
        "do": "Test n functions for linear independence with the n×n Wronskian.",
        "ek": [
         "Rows are f, f′, …, f^(n−1); expand by cofactors."
@@ -1123,6 +1242,9 @@
       },
       {
        "id": "C",
+       "std": [
+        "webwork-opl:DE3.3"
+       ],
        "do": "Write the general solution of an n-th order constant-coefficient ODE with distinct, repeated and complex roots, and fit an IVP.",
        "ek": [
         "A root of multiplicity k gives e^(λx), xe^(λx), …, x^(k−1)e^(λx)."
@@ -1154,6 +1276,9 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "webwork-opl:DE3.8"
+       ],
        "do": "Find a particular solution of an n-th order ODE by undetermined coefficients or variation of parameters.",
        "ek": [
         "Same modification rule; variation of parameters uses Cramer's rule with W_k/W."
@@ -1202,6 +1327,10 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "webwork-opl:DE5.1",
+        "webwork-opl:DE5.7"
+       ],
        "do": "Convert an n-th order ODE into a first-order system.",
        "ek": [
         "y₁ = y, y₂ = y′, …; the companion matrix's eigenvalues are the characteristic roots."
@@ -1216,6 +1345,9 @@
       },
       {
        "id": "B",
+       "std": [
+        "webwork-opl:DE5.1"
+       ],
        "do": "Write the rate matrix for series first-order kinetics A → B → C.",
        "ek": [
         "d[A]/dt = −k₁[A], d[B]/dt = k₁[A] − k₂[B]; C follows from mass conservation."
@@ -1240,6 +1372,9 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "webwork-opl:DE5.4"
+       ],
        "do": "Find the eigenvalues and eigenvectors that give the basis solutions of y′ = Ay.",
        "ek": [
         "y = x e^(λt) with (A − λI)x = 0."
@@ -1257,6 +1392,9 @@
       },
       {
        "id": "B",
+       "std": [
+        "webwork-opl:DE5.4"
+       ],
        "do": "Write the general solution of a 2×2 system with real distinct eigenvalues and fit an IVP.",
        "ek": [
         "y = c₁x⁽¹⁾e^(λ₁t) + c₂x⁽²⁾e^(λ₂t)."
@@ -1275,6 +1413,9 @@
       },
       {
        "id": "C",
+       "std": [
+        "webwork-opl:DE5.5"
+       ],
        "do": "Write real solutions of a 2×2 system with complex eigenvalues and fit an IVP.",
        "ek": [
         "Take real and imaginary parts of x e^((α+iβ)t)."
@@ -1294,6 +1435,9 @@
       },
       {
        "id": "D",
+       "std": [
+        "webwork-opl:DE5.6"
+       ],
        "do": "Solve a 2×2 system with a repeated eigenvalue using a generalised eigenvector.",
        "ek": [
         "Second solution x t e^(λt) + u e^(λt), (A − λI)u = x."
@@ -1307,6 +1451,9 @@
       },
       {
        "id": "E",
+       "std": [
+        "webwork-opl:DE5.3"
+       ],
        "do": "Solve series kinetics A → B → C and find the time of maximum intermediate.",
        "ek": [
         "Eigenvalues −k₁, −k₂; [B] = k₁A₀(e^(−k₁t) − e^(−k₂t))/(k₂ − k₁); t_max = ln(k₁/k₂)/(k₁ − k₂), = 1/k when k₁ = k₂."
@@ -1339,6 +1486,9 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "webwork-opl:DE5.9"
+       ],
        "do": "Classify the critical point of a linear 2×2 system (node, saddle, centre, spiral) from its eigenvalues or from trace and determinant.",
        "ek": [
         "p = tr A, q = det A, Δ = p² − 4q: q < 0 saddle; q > 0, Δ ≥ 0 node; Δ < 0 spiral (p ≠ 0) or centre (p = 0)."
@@ -1355,6 +1505,9 @@
       },
       {
        "id": "B",
+       "std": [
+        "webwork-opl:DE5.9"
+       ],
        "do": "Decide whether a critical point is stable, asymptotically stable or unstable.",
        "ek": [
         "Asymptotically stable ⇔ p < 0, q > 0; centre is stable, not asymptotically."
@@ -1368,6 +1521,9 @@
       },
       {
        "id": "C",
+       "std": [
+        "webwork-opl:DE5.9"
+       ],
        "do": "Sketch a phase portrait with eigenvector directions and trajectory orientation.",
        "ek": [
         "Trajectories leave along the fast-growing eigenvector and approach along the slow-decaying one."
@@ -1392,6 +1548,9 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "webwork-opl:DE5.10"
+       ],
        "do": "Find the critical points of a nonlinear autonomous system and linearise at each with the Jacobian.",
        "ek": [
         "Set f = g = 0; J = [[f_x, f_y], [g_x, g_y]] at the point."
@@ -1405,6 +1564,9 @@
       },
       {
        "id": "B",
+       "std": [
+        "webwork-opl:DE5.10"
+       ],
        "do": "Classify each critical point of a nonlinear system from its linearisation, noting when linearisation is inconclusive.",
        "ek": [
         "Hyperbolic points keep their type; a linear centre may be a spiral in the nonlinear system."
@@ -1433,6 +1595,9 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "webwork-opl:DE5.8"
+       ],
        "do": "Find a particular solution of y′ = Ay + g by undetermined coefficients, diagonalisation or variation of parameters.",
        "ek": [
         "Fundamental matrix Y: y_p = Y∫Y⁻¹g dt."
@@ -1471,6 +1636,9 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "webwork-opl:DE7.2"
+       ],
        "do": "Classify a point as ordinary, regular singular or irregular singular.",
        "ek": [
         "Standard form y″ + py′ + qy = 0: ordinary if p, q analytic; regular singular if (x − x₀)p and (x − x₀)²q are analytic."
@@ -1484,6 +1652,9 @@
       },
       {
        "id": "B",
+       "std": [
+        "webwork-opl:DE7.1"
+       ],
        "do": "Give the guaranteed radius of convergence of a power-series solution about an ordinary point.",
        "ek": [
         "At least the distance to the nearest singular point in the complex plane."
@@ -1511,6 +1682,9 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "webwork-opl:DE7.1"
+       ],
        "do": "Derive the recurrence relation for the coefficients of a power-series solution.",
        "ek": [
         "Substitute Σa_m x^m, shift indices to a common power, set each coefficient to zero."
@@ -1528,6 +1702,9 @@
       },
       {
        "id": "B",
+       "std": [
+        "webwork-opl:DE7.1"
+       ],
        "do": "Generate the first terms of the series solution from the recurrence and initial values.",
        "ek": [
         "a₀ = y(0), a₁ = y′(0); even and odd coefficients often split into two basis series."
@@ -1557,6 +1734,9 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "webwork-opl:DE7.2"
+       ],
        "do": "Find the indicial equation and its roots at a regular singular point.",
        "ek": [
         "r(r − 1) + b₀r + c₀ = 0, b₀ = lim xp, c₀ = lim x²q."
@@ -1573,6 +1753,9 @@
       },
       {
        "id": "B",
+       "std": [
+        "webwork-opl:DE7.2"
+       ],
        "do": "Decide which Frobenius case applies and what form the second solution takes.",
        "ek": [
         "Roots not differing by an integer: two x^r series; double root: second has ln x; differ by an integer: second may have ln x."
@@ -1589,6 +1772,9 @@
       },
       {
        "id": "C",
+       "std": [
+        "webwork-opl:DE7.2"
+       ],
        "do": "Construct the first Frobenius series solution from the larger indicial root.",
        "ek": [
         "y = x^r Σa_m x^m; same index-shifting as the power series method."
@@ -1634,6 +1820,9 @@
       },
       {
        "id": "B",
+       "std": [
+        "webwork-opl:DE7.3"
+       ],
        "do": "Solve a scaled Bessel equation x²y″ + xy′ + (λ²x² − ν²)y = 0 with J_ν(λx), Y_ν(λx).",
        "ek": [
         "Substitute z = λx."
@@ -1648,6 +1837,9 @@
       },
       {
        "id": "C",
+       "std": [
+        "webwork-opl:DE7.3"
+       ],
        "do": "Write the general solution of Bessel's equation, choosing J₋ν or Y_ν as the second solution.",
        "ek": [
         "J_ν, J₋ν independent unless ν is an integer, where J₋ₙ = (−1)ⁿJₙ; then use Y_ν."
@@ -1704,6 +1896,9 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "webwork-opl:DE4.2"
+       ],
        "do": "Find the Laplace transform of a combination of elementary functions from the table, using identities where needed.",
        "ek": [
         "L{tⁿ} = n!/s^(n+1); L{e^(at)} = 1/(s − a); L{cos ωt} = s/(s² + ω²); sin² = (1 − cos 2t)/2."
@@ -1721,6 +1916,9 @@
       },
       {
        "id": "B",
+       "std": [
+        "webwork-opl:DE4.7"
+       ],
        "do": "Apply the first shifting theorem forwards and in reverse.",
        "ek": [
         "L{e^(at)f(t)} = F(s − a); complete the square to expose s − a."
@@ -1747,6 +1945,9 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "webwork-opl:DE4.3"
+       ],
        "do": "Invert a rational F(s) by partial fractions with distinct, repeated or complex poles.",
        "ek": [
         "Repeated pole ⇒ tⁿe^(at)/n!; complex pole pair ⇒ e^(at)(cos, sin)."
@@ -1778,6 +1979,9 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "webwork-opl:DE4.1"
+       ],
        "do": "Solve a constant-coefficient IVP by transforming, solving the subsidiary equation and inverting.",
        "ek": [
         "L{y′} = sY − y(0); L{y″} = s²Y − sy(0) − y′(0); initial conditions enter automatically."
@@ -1825,6 +2029,9 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "webwork-opl:DE4.6"
+       ],
        "do": "Write a piecewise function with unit step functions and transform it.",
        "ek": [
         "f = f₁ + (f₂ − f₁)u(t − a) + …; L{f(t − a)u(t − a)} = e^(−as)F(s)."
@@ -1840,6 +2047,9 @@
       },
       {
        "id": "B",
+       "std": [
+        "webwork-opl:DE4.7"
+       ],
        "do": "Invert a transform containing e^(−as).",
        "ek": [
         "e^(−as)F(s) ↦ f(t − a)u(t − a)."
@@ -1853,6 +2063,9 @@
       },
       {
        "id": "C",
+       "std": [
+        "webwork-opl:DE4.6"
+       ],
        "do": "Solve an IVP with switched or piecewise forcing.",
        "ek": [
         "Transform the step-written forcing; the solution is piecewise with continuous y and y′."
@@ -1883,6 +2096,9 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "webwork-opl:DE4.5"
+       ],
        "do": "Model a sudden impulse with δ(t − a) and solve the resulting IVP, including the impulse response.",
        "ek": [
         "L{δ(t − a)} = e^(−as); impulse response = L⁻¹{transfer function}."
@@ -1909,6 +2125,9 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "webwork-opl:DE4.4"
+       ],
        "do": "Compute a convolution integral directly.",
        "ek": [
         "(f * g)(t) = ∫₀ᵗ f(τ)g(t − τ)dτ."
@@ -1922,6 +2141,9 @@
       },
       {
        "id": "B",
+       "std": [
+        "webwork-opl:DE4.4"
+       ],
        "do": "Invert a product of transforms or transform an integral using the convolution theorem.",
        "ek": [
         "L{f * g} = FG; L{∫₀ᵗ f dτ} = F/s."
@@ -1936,6 +2158,9 @@
       },
       {
        "id": "C",
+       "std": [
+        "webwork-opl:DE4.4"
+       ],
        "do": "Solve a Volterra integral equation of convolution type.",
        "ek": [
         "Transform, solve for Y algebraically, invert."
@@ -1978,6 +2203,9 @@
       },
       {
        "id": "B",
+       "std": [
+        "webwork-opl:DE4.1"
+       ],
        "do": "Solve a linear system of ODEs by Laplace transform.",
        "ek": [
         "Transform each equation, solve the algebraic system (Cramer), invert each component."
@@ -2261,6 +2489,10 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "webwork-opl:CA7.20",
+        "webwork-opl:DE8.7"
+       ],
        "do": "Compute the Fourier coefficients of a 2π-periodic function given on one period.",
        "ek": [
         "a₀ = (1/2π)∫f, a_n = (1/π)∫f cos nx, b_n = (1/π)∫f sin nx over (−π, π)."
@@ -2280,6 +2512,10 @@
       },
       {
        "id": "B",
+       "std": [
+        "webwork-opl:CA7.20",
+        "webwork-opl:DE8.7"
+       ],
        "do": "Compute the Fourier series of a function of period 2L, using even/odd symmetry to skip coefficients.",
        "ek": [
         "Replace nx by nπx/L and 1/π by 1/L; even ⇒ cosine series, odd ⇒ sine series."
@@ -2294,6 +2530,9 @@
       },
       {
        "id": "C",
+       "std": [
+        "webwork-opl:CA7.20"
+       ],
        "do": "Write the half-range sine or cosine expansion of a function on (0, L).",
        "ek": [
         "Odd extension ⇒ sine series; even extension ⇒ cosine series; b_n = (2/L)∫₀ᴸ f sin(nπx/L)."
@@ -2365,6 +2604,9 @@
       },
       {
        "id": "C",
+       "std": [
+        "webwork-opl:DE3.10"
+       ],
        "do": "Find the eigenvalues of y″ + λy = 0 under Dirichlet, Neumann or mixed boundary conditions.",
        "ek": [
         "Check λ < 0, = 0, > 0 separately; Dirichlet on [0, L]: λ = (nπ/L)², n ≥ 1."
@@ -2481,6 +2723,11 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "webwork-opl:DE1.2",
+        "webwork-opl:DE8.1",
+        "webwork-opl:DE8.2"
+       ],
        "do": "Classify a second-order linear PDE as elliptic, parabolic or hyperbolic and verify a solution.",
        "ek": [
         "Au_xx + 2Bu_xy + Cu_yy: AC − B² > 0 elliptic, = 0 parabolic, < 0 hyperbolic."
@@ -2583,6 +2830,9 @@
       },
       {
        "id": "B",
+       "std": [
+        "webwork-opl:DE8.3"
+       ],
        "do": "Solve the heat equation on a finite rod with Dirichlet or insulated ends by Fourier series.",
        "ek": [
         "Dirichlet ⇒ sine series; insulated ⇒ cosine series with a constant term (the mean)."
@@ -2605,6 +2855,9 @@
       },
       {
        "id": "C",
+       "std": [
+        "webwork-opl:DE8.3"
+       ],
        "do": "Solve the heat equation with nonzero fixed ends by subtracting the steady state.",
        "ek": [
         "u = u_s(x) + v; u_s linear; v satisfies zero BCs with v(x, 0) = f − u_s."
@@ -2659,6 +2912,9 @@
       },
       {
        "id": "H",
+       "std": [
+        "webwork-opl:DE8.8"
+       ],
        "do": "Solve the heat equation with a source: steady state from k u_s″ = −Q, transient by expanding the source in the eigenfunctions.",
        "ek": [
         "Both ends zero: u_s = Qx(L − x)/2k; each mode obeys T_n′ + λ_n T_n = q_n."
@@ -2690,6 +2946,9 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "webwork-opl:DE8.4"
+       ],
        "do": "Solve the vibrating string by separation of variables and Fourier series.",
        "ek": [
         "u = Σ(B_n cos λ_n t + B_n* sin λ_n t) sin(nπx/L), λ_n = cnπ/L."
@@ -2710,6 +2969,9 @@
       },
       {
        "id": "B",
+       "std": [
+        "webwork-opl:DE8.4"
+       ],
        "do": "Write d'Alembert's solution for an infinite string from initial displacement and velocity.",
        "ek": [
         "u = ½[f(x + ct) + f(x − ct)] + (1/2c)∫ g."
@@ -2737,6 +2999,9 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "webwork-opl:DE8.5"
+       ],
        "do": "Solve the steady 2-D Dirichlet problem on a rectangle by separation, one nonzero side at a time.",
        "ek": [
         "The direction with two zero sides oscillates (sines); the other carries sinh or cosh; superpose one problem per nonzero side."
@@ -2757,6 +3022,9 @@
       },
       {
        "id": "B",
+       "std": [
+        "webwork-opl:DE8.6"
+       ],
        "do": "Separate a PDE in polar, cylindrical or spherical coordinates and identify the Bessel or Legendre equation that appears.",
        "ek": [
         "Radial part in cylinders ⇒ Bessel; polar angle in spheres ⇒ Legendre in cos θ."
@@ -2842,6 +3110,9 @@
       },
       {
        "id": "B",
+       "std": [
+        "webwork-opl:CX8.5"
+       ],
        "do": "Solve a finite rod by Laplace transform and invert by residues: the poles are the eigenvalues.",
        "ek": [
         "Residue at s = 0 is the steady state; s_n = −(nπ/L)² rebuild the Fourier series."
@@ -3051,6 +3322,9 @@
       },
       {
        "id": "B",
+       "std": [
+        "webwork-opl:FM4.2"
+       ],
        "do": "Derive a differential conservation equation from an integral balance with the divergence theorem.",
        "ek": [
         "∭∇·F dV = ∯F·n dA ⇒ ∂c/∂t + ∇·N = R."

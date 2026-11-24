@@ -43,7 +43,7 @@ units:
       - n: 1
         title: "Distillation"
         los:
-          - { id: A, do: "Compute a vapour composition from relative volatility.", ek: ["y = αx/(1 + (α − 1)x)."], p: [P1], drills: [sp-vle-alpha] }
+          - { id: A, std: ["webwork-opl:TH16.4"], do: "Compute a vapour composition from relative volatility.", ek: ["y = αx/(1 + (α − 1)x)."], p: [P1], drills: [sp-vle-alpha] }
           - { id: B, do: "Compute the minimum number of stages with Fenske.", ek: ["N_min = ln[(x_D/(1−x_D))((1−x_B)/x_B)]/ln α."], p: [P1], needs: [SP-1.1.A], drills: [sp-fenske] }
           - { id: C, do: "Compute the minimum reflux ratio for a saturated-liquid feed.", ek: ["Pinch on the q-line; Underwood for a binary."], p: [P1], needs: [SP-1.1.A], drills: [sp-rmin] }
       - n: 2
@@ -60,5 +60,5 @@ units:
       - n: 1
         title: "Humid air and evaporators"
         los:
-          - { id: A, do: "Compute absolute humidity from relative humidity.", ek: ["H = 0.622 p_w/(P − p_w)."], p: [P1], drills: [sp-humidity] }
+          - { id: A, std: ["webwork-opl:TH12.5"], do: "Compute absolute humidity from relative humidity.", ek: ["H = 0.622 p_w/(P − p_w)."], p: [P1], drills: [sp-humidity] }
           - { id: B, do: "Compute the water removed by an evaporator.", ek: ["Solids balance first."], p: [P1], drills: [sp-evaporator] }

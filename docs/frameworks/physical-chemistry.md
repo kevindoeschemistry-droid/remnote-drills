@@ -56,7 +56,7 @@ Big ideas: ENERGY
 
 Book: engel-reid-3e §1.4
 
-- ● **PC-1.1.A** Calculate the pressure, volume, amount or temperature of an ideal gas from the other three.
+- ● **PC-1.1.A** (webwork-opl:TH2.12, webwork-opl:TH12.2) Calculate the pressure, volume, amount or temperature of an ideal gas from the other three.
   - EK: PV = nRT with T in kelvin; R = 8.314 J/mol·K = 0.08314 L·bar/mol·K.
   - P3 · drills: pc-ideal-gas
 
@@ -64,19 +64,19 @@ Book: engel-reid-3e §1.4
 
 Book: engel-reid-3e §2.8, §2.8, §2.5, §3.4, §2.11
 
-- ● **PC-1.2.A** Calculate the work of an expansion or compression against a constant external pressure.
+- ● **PC-1.2.A** (webwork-opl:TH1.11, webwork-opl:TH1.12) Calculate the work of an expansion or compression against a constant external pressure.
   - EK: w = −P_ext ΔV; work done on the system is positive, so expansion gives w < 0.
   - P3 · drills: pc-work-irrev
-- ● **PC-1.2.B** Calculate the work and heat of a reversible isothermal expansion of an ideal gas.
+- ● **PC-1.2.B** (webwork-opl:TH1.12) Calculate the work and heat of a reversible isothermal expansion of an ideal gas.
   - EK: w = −nRT ln(V₂/V₁); ΔU = 0 for an ideal gas at constant T, so q = −w.
   - P3 · drills: th-fl-isothermal, sc-isothermal-work-ratio
-- ● **PC-1.2.C** Calculate the heat and internal-energy change for heating at constant volume.
+- ● **PC-1.2.C** (webwork-opl:TH1.9, webwork-opl:TH2.10) Calculate the heat and internal-energy change for heating at constant volume.
   - EK: q_V = ΔU = nC_V ΔT; no P–V work is done.
   - P3 · drills: th-fl-isochoric
-- ● **PC-1.2.D** Calculate the heat and enthalpy change for heating at constant pressure.
+- ● **PC-1.2.D** (webwork-opl:TH1.10, webwork-opl:TH2.11, webwork-opl:TH2.14) Calculate the heat and enthalpy change for heating at constant pressure.
   - EK: q_P = ΔH = nC_P ΔT; C_P − C_V = R for an ideal gas.
   - P3 · drills: th-fl-isobaric
-- ● **PC-1.2.E** Calculate the final temperature and the work of a reversible adiabatic expansion.
+- ● **PC-1.2.E** (webwork-opl:TH7.16) Calculate the final temperature and the work of a reversible adiabatic expansion.
   - EK: T₁V₁^(γ−1) = T₂V₂^(γ−1) with γ = C_P/C_V; q = 0, so w = ΔU = nC_V ΔT.
   - P3 · drills: th-fl-adiabatic
 
@@ -84,7 +84,7 @@ Book: engel-reid-3e §2.8, §2.8, §2.5, §3.4, §2.11
 
 Book: engel-reid-3e §2.9
 
-- ● **PC-1.3.A** Convert between ΔH and ΔU for a process that changes the moles of gas.
+- ● **PC-1.3.A** (webwork-opl:TH1.10) Convert between ΔH and ΔU for a process that changes the moles of gas.
   - EK: ΔH = ΔU + Δn_gas RT; condensed phases contribute almost nothing to Δ(PV).
   - P3 · drills: pc-dh-du
 
@@ -96,10 +96,10 @@ Big ideas: ENERGY
 
 Book: engel-reid-3e §4.2, §4.3, §4.4
 
-- ◐ **PC-2.1.A** Convert a constant-volume (bomb calorimeter) reaction energy into a reaction enthalpy.
+- ◐ **PC-2.1.A** (webwork-opl:TH13.5) Convert a constant-volume (bomb calorimeter) reaction energy into a reaction enthalpy.
   - EK: A bomb measures q_V = ΔU; ΔH = ΔU + Δn_gas RT, with Δn counted from the balanced equation.
   - P3 · drills: ~pc-dh-du
-- ● **PC-2.1.B** Calculate a standard reaction enthalpy from standard enthalpies of formation.
+- ● **PC-2.1.B** (webwork-opl:TH13.3, webwork-opl:TH13.4) Calculate a standard reaction enthalpy from standard enthalpies of formation.
   - EK: ΔH°_rxn = Σ ν ΔH°_f(products) − Σ ν ΔH°_f(reactants); elements in their standard states are zero.
   - P3 · drills: pc-hess
 - ● **PC-2.1.C** Correct a reaction enthalpy to a different temperature with Kirchhoff's law.
@@ -114,7 +114,7 @@ Big ideas: SPONT
 
 Book: engel-reid-3e §5.2
 
-- ● **PC-3.1.A** Calculate the efficiency of a Carnot engine and the work it delivers from a given heat input.
+- ● **PC-3.1.A** (webwork-opl:TH6.6) Calculate the efficiency of a Carnot engine and the work it delivers from a given heat input.
   - EK: η = 1 − T_C/T_H = w/q_H, temperatures in kelvin; no engine between the same reservoirs does better.
   - P3 · drills: pc-carnot
 
@@ -122,16 +122,16 @@ Book: engel-reid-3e §5.2
 
 Book: engel-reid-3e §5.4, §5.4, §5.4, §5.10
 
-- ● **PC-3.2.A** Calculate the entropy change of an ideal gas that expands isothermally.
+- ● **PC-3.2.A** (webwork-opl:TH7.10) Calculate the entropy change of an ideal gas that expands isothermally.
   - EK: ΔS = nR ln(V₂/V₁) = nR ln(P₁/P₂); a state function, so the path need not be reversible.
   - P3 · drills: pc-ds-expansion
-- ● **PC-3.2.B** Calculate the entropy change for heating at constant pressure.
+- ● **PC-3.2.B** (webwork-opl:TH7.10) Calculate the entropy change for heating at constant pressure.
   - EK: ΔS = nC_P ln(T₂/T₁) for constant C_P; kelvin inside the logarithm.
   - P3 · drills: pc-ds-heating
-- ● **PC-3.2.C** Calculate the entropy change of a phase transition at its transition temperature.
+- ● **PC-3.2.C** (webwork-opl:TH7.8) Calculate the entropy change of a phase transition at its transition temperature.
   - EK: ΔS_tr = ΔH_tr/T_tr; Trouton's rule puts ΔS_vap near 85–88 J/mol·K for many liquids.
   - P3 · drills: pc-ds-phase
-- ● **PC-3.2.D** Calculate a standard reaction entropy from absolute molar entropies.
+- ● **PC-3.2.D** (webwork-opl:TH13.12) Calculate a standard reaction entropy from absolute molar entropies.
   - EK: ΔS°_rxn = Σ ν S°(products) − Σ ν S°(reactants); the third law fixes S° on an absolute scale.
   - P2 · P5 · drills: pc-reaction-entropy
 
@@ -143,7 +143,7 @@ Big ideas: SPONT
 
 Book: engel-reid-3e §6.1, §6.3
 
-- ● **PC-4.1.A** Calculate ΔG from ΔH and ΔS and decide whether a process is spontaneous at a given temperature.
+- ● **PC-4.1.A** (webwork-opl:TH13.15) Calculate ΔG from ΔH and ΔS and decide whether a process is spontaneous at a given temperature.
   - EK: ΔG = ΔH − TΔS; spontaneous at constant T and P when ΔG < 0; the sign flips at T = ΔH/ΔS.
   - P3 · drills: pc-dg
 - ● **PC-4.1.B** Calculate the change in Gibbs energy of an ideal gas with pressure.
@@ -154,7 +154,7 @@ Book: engel-reid-3e §6.1, §6.3
 
 Book: engel-reid-3e §6.7, §6.10
 
-- ● **PC-4.2.A** Calculate an equilibrium constant from a standard reaction Gibbs energy, and the reverse.
+- ● **PC-4.2.A** (webwork-opl:TH13.2) Calculate an equilibrium constant from a standard reaction Gibbs energy, and the reverse.
   - EK: ΔG° = −RT ln K; a negative ΔG° gives K > 1.
   - P3 · drills: th-ce-k
 - ● **PC-4.2.B** Calculate how an equilibrium constant shifts with temperature using the van't Hoff equation.
@@ -169,16 +169,16 @@ Big ideas: ENERGY
 
 Book: engel-reid-3e §7.3, §7.2, §7.4, §7.5
 
-- ● **PC-5.1.A** Calculate the compression factor of a gas and say whether attraction or repulsion dominates.
+- ● **PC-5.1.A** (webwork-opl:TH2.15) Calculate the compression factor of a gas and say whether attraction or repulsion dominates.
   - EK: Z = PV_m/RT; Z < 1 means attractions dominate, Z > 1 repulsions.
   - P3 · drills: pc-compression-z
-- ● **PC-5.1.B** Calculate the pressure of a gas from the van der Waals equation.
+- ● **PC-5.1.B** (webwork-opl:TH15.5) Calculate the pressure of a gas from the van der Waals equation.
   - EK: P = RT/(V_m − b) − a/V_m²; b is excluded volume, a measures attraction.
   - P3 · drills: pc-vdw
-- ● **PC-5.1.C** Calculate reduced variables and use corresponding states to compare gases.
+- ● **PC-5.1.C** (webwork-opl:TH15.6) Calculate reduced variables and use corresponding states to compare gases.
   - EK: T_r = T/T_c, P_r = P/P_c; gases at the same reduced state have about the same Z.
   - P2 · P5 · drills: pc-reduced-temperature
-- ● **PC-5.1.D** Calculate a fugacity from a fugacity coefficient and relate it to chemical potential.
+- ● **PC-5.1.D** (webwork-opl:TH15.10) Calculate a fugacity from a fugacity coefficient and relate it to chemical potential.
   - EK: f = φP; μ = μ° + RT ln(f/P°); φ → 1 as P → 0.
   - P2 · P5 · drills: pc-fugacity-potential
 
@@ -190,10 +190,10 @@ Big ideas: SPONT
 
 Book: engel-reid-3e §8.3, §8.6, §8.8
 
-- ● **PC-6.1.A** Apply the Gibbs phase rule to count the degrees of freedom of a system.
+- ● **PC-6.1.A** (webwork-opl:TH2.1) Apply the Gibbs phase rule to count the degrees of freedom of a system.
   - EK: F = C − P + 2; a pure substance at its triple point has F = 0.
   - P3 · drills: pc-phase-rule
-- ● **PC-6.1.B** Calculate a vapour pressure, a boiling temperature or an enthalpy of vaporisation from the Clausius–Clapeyron equation.
+- ● **PC-6.1.B** (webwork-opl:TH15.3) Calculate a vapour pressure, a boiling temperature or an enthalpy of vaporisation from the Clausius–Clapeyron equation.
   - EK: ln(P₂/P₁) = −(ΔH_vap/R)(1/T₂ − 1/T₁); assumes an ideal vapour and constant ΔH_vap.
   - P3 · drills: th-pe-cc-pressure, th-pe-cc-enthalpy, th-pe-cc-temperature, sc-vapour-pressure-ten-degrees
 - ● **PC-6.1.C** Calculate the pressure difference across a curved liquid surface.
@@ -214,7 +214,7 @@ Book: engel-reid-3e §9.3, §9.4, §9.5
 - ● **PC-7.1.B** Apply the lever rule to find the amounts of two phases in a two-phase region.
   - EK: n_α(z − z_α) = n_β(z_β − z); the phase nearer the overall composition is the larger one.
   - P2 · P5 · drills: pc-lever-rule
-- ◐ **PC-7.1.C** Use the Gibbs–Duhem equation to relate changes in the chemical potentials of two components.
+- ◐ **PC-7.1.C** (webwork-opl:TH15.9) Use the Gibbs–Duhem equation to relate changes in the chemical potentials of two components.
   - EK: x₁ dμ₁ + x₂ dμ₂ = 0 at constant T and P.
   - P3 · drills: ~th-fe-gibbs-duhem
 
@@ -222,10 +222,10 @@ Book: engel-reid-3e §9.3, §9.4, §9.5
 
 Book: engel-reid-3e §9.7, §9.8
 
-- ● **PC-7.2.A** Calculate a boiling-point elevation or freezing-point depression from molality.
+- ● **PC-7.2.A** (webwork-opl:TH18.1) Calculate a boiling-point elevation or freezing-point depression from molality.
   - EK: ΔT_b = K_b m and ΔT_f = K_f m; depends on the amount of solute, not what it is.
   - P3 · drills: pc-colligative
-- ● **PC-7.2.B** Calculate an osmotic pressure, or a molar mass from a measured osmotic pressure.
+- ● **PC-7.2.B** (webwork-opl:TH18.1) Calculate an osmotic pressure, or a molar mass from a measured osmotic pressure.
   - EK: Π = cRT with c in mol/m³ (or mol/L with R = 0.08314 L·bar/mol·K).
   - P3 · drills: pc-osmotic
 
@@ -248,13 +248,13 @@ Big ideas: SPONT
 
 Book: engel-reid-3e §10.1, §10.3, §10.4, §10.5
 
-- ● **PC-8.1.A** Calculate the ionic strength of an electrolyte solution.
+- ● **PC-8.1.A** (webwork-opl:TH18.2) Calculate the ionic strength of an electrolyte solution.
   - EK: I = ½ Σ m_i z_i²; a 1:1 salt gives I = m, a 2:1 salt I = 3m.
   - P3 · drills: pc-ionic-strength
 - ● **PC-8.1.B** Calculate a mean ionic molality and a mean ionic activity.
   - EK: m_± = (m₊^ν₊ m₋^ν₋)^(1/ν); a_± = γ_± m_±/m°.
   - P2 · P5 · drills: pc-mean-ionic-molality
-- ● **PC-8.1.C** Estimate a mean activity coefficient with the Debye–Hückel limiting law.
+- ● **PC-8.1.C** (webwork-opl:TH18.2) Estimate a mean activity coefficient with the Debye–Hückel limiting law.
   - EK: log₁₀ γ_± = −A|z₊z₋|√I with A = 0.509 in water at 298 K; valid only at low I.
   - P3 · drills: pc-debye-huckel
 - ● **PC-8.1.D** Calculate the solubility of a sparingly soluble salt, with and without activity corrections.
@@ -275,7 +275,7 @@ Book: engel-reid-3e §11.5, §11.6, §11.4, §11.7
 - ● **PC-9.1.B** Calculate the standard reaction Gibbs energy from a standard cell potential.
   - EK: ΔG° = −nFE°; a positive E° means a spontaneous cell reaction.
   - P3 · drills: pc-cell-potential
-- ● **PC-9.1.C** Calculate a cell potential away from standard conditions with the Nernst equation.
+- ● **PC-9.1.C** (webwork-opl:TH18.3) Calculate a cell potential away from standard conditions with the Nernst equation.
   - EK: E = E° − (RT/nF) ln Q; at 298 K, RT/F = 0.02569 V.
   - P3 · drills: pc-nernst
 - ● **PC-9.1.D** Calculate an equilibrium constant from a standard cell potential.
@@ -702,7 +702,7 @@ Book: engel-reid-3e §34:ficks-first, §34:ficks-second, §34:thermal-conduction
 - ◐ **PC-21.2.C** Calculate a conductive heat flux from a temperature gradient.
   - EK: J_q = −κ dT/dx.
   - P3 · drills: ~ht-cond
-- ● **PC-21.2.D** Calculate a shear stress from a viscosity and a velocity gradient.
+- ● **PC-21.2.D** (webwork-opl:FM1.3) Calculate a shear stress from a viscosity and a velocity gradient.
   - EK: τ = η du/dz; for a gas η = ⅓ρv̄λ, which rises with temperature.
   - P2 · P5 · drills: tr-shear-stress
 

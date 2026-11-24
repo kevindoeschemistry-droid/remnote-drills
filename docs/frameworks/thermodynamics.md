@@ -108,7 +108,7 @@ Book: dill-bromberg-2e §2, §6; shell-2015 §4.4, §4.5, §4.6, §4.7
 - ● **TD-2.2.A** Calculate the probability of each energy split between two solids in thermal contact and identify the most probable one.
   - EK: P(q_A) ∝ W_A(q_A) W_B(q − q_A); the peak sharpens as N grows.
   - P1 · P4 · drills: sm-einstein-share
-- ● **TD-2.2.B** Derive equality of T, P and μ by maximising total entropy over exchange of U, V and N.
+- ● **TD-2.2.B** (webwork-opl:TH1.7) Derive equality of T, P and μ by maximising total entropy over exchange of U, V and N.
   - EK: ∂S/∂U = 1/T, ∂S/∂V = P/T, ∂S/∂N = −μ/T must match across the wall.
   - P1 · P3 · drills: td-max-entropy-equal
 - ● **TD-2.2.C** Show that maximum entropy at fixed U is equivalent to minimum energy at fixed S.
@@ -131,7 +131,7 @@ Book: dill-bromberg-2e §6, §7; shell-2015 §5.1, §5.2, §5.3
 - ● **TD-2.3.D** Calculate U, or any one term, from the Euler relation.
   - EK: U = TS − PV + μN; equivalently G = μN for one component.
   - P5 · drills: th-fe-euler
-- ● **TD-2.3.E** Apply the Gibbs–Duhem equation to relate changes in the intensive variables.
+- ● **TD-2.3.E** (webwork-opl:TH15.9) Apply the Gibbs–Duhem equation to relate changes in the intensive variables.
   - EK: S dT − V dP + N dμ = 0; at fixed T, dμ = v dP.
   - P3 · P5 · drills: th-fe-gibbs-duhem
 
@@ -143,16 +143,16 @@ Big ideas: EQ, FUND
 
 Book: dill-bromberg-2e §3; shell-2015 §6.1, §6.2, §6.3, §6.4
 
-- ● **TD-3.1.A** Calculate q, w and ΔU for a reversible isothermal ideal-gas process.
+- ● **TD-3.1.A** (webwork-opl:TH1.12, webwork-opl:TH3.1) Calculate q, w and ΔU for a reversible isothermal ideal-gas process.
   - EK: ΔU = 0; w = −nRT ln(V₂/V₁) = −q.
   - P5 · drills: th-fl-isothermal
-- ● **TD-3.1.B** Calculate q, w and ΔU for a reversible isobaric ideal-gas process.
+- ● **TD-3.1.B** (webwork-opl:TH3.1) Calculate q, w and ΔU for a reversible isobaric ideal-gas process.
   - EK: w = −PΔV = −nRΔT; q = nC_pΔT.
   - P5 · drills: th-fl-isobaric
-- ● **TD-3.1.C** Calculate q, w and ΔU for a constant-volume ideal-gas process.
+- ● **TD-3.1.C** (webwork-opl:TH2.13, webwork-opl:TH3.1) Calculate q, w and ΔU for a constant-volume ideal-gas process.
   - EK: w = 0; q = ΔU = nC_vΔT.
   - P5 · drills: th-fl-isochoric
-- ● **TD-3.1.D** Find the final state of a reversible adiabatic ideal-gas process.
+- ● **TD-3.1.D** (webwork-opl:TH3.1, webwork-opl:TH7.12, webwork-opl:TH7.16) Find the final state of a reversible adiabatic ideal-gas process.
   - EK: TV^(γ−1) constant; C_v = 3R/2 monatomic, 5R/2 diatomic (no vibration).
   - P5 · drills: th-fl-adiabatic
 
@@ -160,10 +160,10 @@ Book: dill-bromberg-2e §3; shell-2015 §6.1, §6.2, §6.3, §6.4
 
 Book: shell-2015 §6.5, §6.6, §6.7
 
-- ● **TD-3.2.A** Calculate the total entropy change of system plus bath for an irreversible process and decide whether it can occur.
+- ● **TD-3.2.A** (webwork-opl:TH6.4, webwork-opl:TH7.13, webwork-opl:TH7.14) Calculate the total entropy change of system plus bath for an irreversible process and decide whether it can occur.
   - EK: ΔS_bath = −q/T_bath; ΔS_tot ≥ 0, equal only when reversible.
   - P1 · P6 · drills: td-total-entropy
-- ● **TD-3.2.B** Calculate the maximum efficiency or coefficient of performance of a cycle between two reservoirs.
+- ● **TD-3.2.B** (webwork-opl:TH6.1, webwork-opl:TH6.5, webwork-opl:TH6.6, webwork-opl:TH6.7) Calculate the maximum efficiency or coefficient of performance of a cycle between two reservoirs.
   - EK: η_max = 1 − T_C/T_H from ΔS_tot = 0.
   - P5 · drills: td-carnot
 
@@ -171,7 +171,7 @@ Book: shell-2015 §6.5, §6.6, §6.7
 
 Book: shell-2015 §6.8
 
-- ● **TD-3.3.A** Apply steady-flow energy and entropy balances to a turbine, compressor, nozzle or throttle.
+- ● **TD-3.3.A** (webwork-opl:TH1.13, webwork-opl:TH5.2, webwork-opl:TH5.4, webwork-opl:TH5.5, webwork-opl:TH5.6, webwork-opl:TH5.8, webwork-opl:TH7.15) Apply steady-flow energy and entropy balances to a turbine, compressor, nozzle or throttle.
   - EK: Δh = q + w_s per unit mass; throttling is isenthalpic; Δs ≥ q/T.
   - P1 · P5 · drills: td-isentropic-outlet
 
@@ -209,7 +209,7 @@ Book: dill-bromberg-2e §8; shell-2015 §7.1, §7.2, §7.3, §7.4, §7.5, §7.6,
 
 Book: dill-bromberg-2e §8; shell-2015 §7.10, §7.11
 
-- ● **TD-4.3.A** Derive P, S, μ or U from a given F(T, V, N) or G(T, P, N).
+- ● **TD-4.3.A** (webwork-opl:TH13.14) Derive P, S, μ or U from a given F(T, V, N) or G(T, P, N).
   - EK: P = −(∂F/∂V)_T, S = −(∂F/∂T)_V, μ = (∂F/∂N)_{T,V}.
   - P3 · drills: th-lg-derive
 - ● **TD-4.3.B** Use the Gibbs–Helmholtz relation to get S or H from G(T).
@@ -224,11 +224,11 @@ Big ideas: MEAS, FUND
 
 Book: dill-bromberg-2e §9; shell-2015 §8.1
 
-- ● **TD-5.1.A** Identify the Maxwell relation that equals a given partial derivative.
+- ● **TD-5.1.A** (webwork-opl:TH15.8) Identify the Maxwell relation that equals a given partial derivative.
   - EK: Cross-derivatives of the potential whose natural variables are the two held fixed: (∂S/∂V)_T = (∂P/∂T)_V from F.
   - Needs: TD-4.2.B
   - P3 · drills: th-mx-pick
-- ● **TD-5.1.B** Evaluate an entropy derivative from an equation of state through a Maxwell relation.
+- ● **TD-5.1.B** (webwork-opl:TH7.9, webwork-opl:TH15.8) Evaluate an entropy derivative from an equation of state through a Maxwell relation.
   - EK: (∂S/∂V)_T = (∂P/∂T)_V; (∂S/∂P)_T = −(∂V/∂T)_P.
   - P3 · drills: th-mx-eos
 
@@ -263,7 +263,7 @@ Book: dill-bromberg-2e §25; shell-2015 §11.4
 - ● **TD-6.1.B** Derive C_V from a fundamental equation and check that it is positive.
   - EK: C_V = (∂U/∂T)_V = −(∂S/∂U)²/(∂²S/∂U²) > 0 for stability.
   - P3 · drills: th-st-cv
-- ● **TD-6.1.C** Test whether a homogeneous van der Waals state is mechanically stable.
+- ● **TD-6.1.C** (webwork-opl:TH15.1) Test whether a homogeneous van der Waals state is mechanically stable.
   - EK: Stable ⇔ (∂P/∂V)_T < 0 ⇔ κ_T > 0.
   - P5 · P6 · drills: th-st-vdw-stable
 - ● **TD-6.1.D** Calculate κ_T of a fluid from its equation of state.
@@ -274,7 +274,7 @@ Book: dill-bromberg-2e §25; shell-2015 §11.4
 
 Book: dill-bromberg-2e §25; shell-2015 §11.1, §11.3
 
-- ● **TD-6.2.A** Find the critical constants of a cubic equation of state.
+- ● **TD-6.2.A** (webwork-opl:TH15.1, webwork-opl:TH15.5) Find the critical constants of a cubic equation of state.
   - EK: (∂P/∂V)_T = (∂²P/∂V²)_T = 0; vdW: T_c = 8a/27Rb, V_c = 3b, P_c = a/27b².
   - P3 · P5 · drills: th-st-vdw-tc
 - ● **TD-6.2.B** Locate the spinodal and classify a state as stable, metastable or unstable.
@@ -305,16 +305,16 @@ Book: dill-bromberg-2e §11; shell-2015 §9.2, §9.3
 
 Book: dill-bromberg-2e §24; shell-2015 §9.4, §9.5
 
-- ● **TD-7.2.A** Calculate Z and residual (departure) properties from a virial or cubic equation of state.
+- ● **TD-7.2.A** (webwork-opl:TH2.15, webwork-opl:TH14.1, webwork-opl:TH14.2, webwork-opl:TH14.3, webwork-opl:TH15.4) Calculate Z and residual (departure) properties from a virial or cubic equation of state.
   - EK: Z = PV/RT = 1 + B/V + …; h − h^ig = ∫[T(∂P/∂T)_V − P]dV + RT(Z − 1).
   - P3 · P5 · drills: td-virial
-- ● **TD-7.2.B** Calculate a fugacity coefficient from a virial or cubic equation of state.
+- ● **TD-7.2.B** (webwork-opl:TH15.10, webwork-opl:TH15.11) Calculate a fugacity coefficient from a virial or cubic equation of state.
   - EK: ln φ = ∫₀^P (Z − 1) dP/P; truncated virial: ln φ = BP/RT.
   - P3 · P5 · drills: td-virial
-- ● **TD-7.2.C** Relate the second virial coefficient to the intermolecular pair potential.
+- ● **TD-7.2.C** (webwork-opl:TH15.4) Relate the second virial coefficient to the intermolecular pair potential.
   - EK: B(T) = −2πN_A ∫(e^(−βu(r)) − 1) r² dr; B < 0 when attraction dominates.
   - P4 · drills: td-b2-square-well
-- ● **TD-7.2.D** Estimate properties of a gas or gas mixture by corresponding states and mixing rules.
+- ● **TD-7.2.D** (webwork-opl:TH15.6) Estimate properties of a gas or gas mixture by corresponding states and mixing rules.
   - EK: Z = f(T_r, P_r, ω); a_mix = ΣΣ y_iy_j √(a_ia_j)(1 − k_ij), b_mix = Σ y_ib_i.
   - P3 · P5 · drills: td-kay-rule
 
@@ -326,7 +326,7 @@ Big ideas: MU, STAB, EQ
 
 Book: dill-bromberg-2e §14; shell-2015 §10.1, §10.2, §10.4
 
-- ● **TD-8.1.A** State the conditions for phase coexistence and apply the Gibbs phase rule to a phase diagram.
+- ● **TD-8.1.A** (webwork-opl:TH2.1, webwork-opl:TH2.2) State the conditions for phase coexistence and apply the Gibbs phase rule to a phase diagram.
   - EK: T, P, μ_i equal in every phase; F = C − π + 2.
   - P1 · P2 · drills: td-phase-rule
 
@@ -334,10 +334,10 @@ Book: dill-bromberg-2e §14; shell-2015 §10.1, §10.2, §10.4
 
 Book: dill-bromberg-2e §14; shell-2015 §10.3
 
-- ● **TD-8.2.A** Calculate the slope of a coexistence curve from the Clapeyron equation.
+- ● **TD-8.2.A** (webwork-opl:TH15.2) Calculate the slope of a coexistence curve from the Clapeyron equation.
   - EK: dP/dT = Δh/(TΔv).
   - P5 · drills: th-pe-clapeyron
-- ● **TD-8.2.B** Estimate a vapor pressure at a new temperature with the integrated Clausius–Clapeyron equation.
+- ● **TD-8.2.B** (webwork-opl:TH15.2, webwork-opl:TH15.3) Estimate a vapor pressure at a new temperature with the integrated Clausius–Clapeyron equation.
   - EK: ln(P₂/P₁) = −(Δh_vap/R)(1/T₂ − 1/T₁); ideal vapor, v_liq ≪ v_vap, constant Δh.
   - P5 · drills: th-pe-cc-pressure
 - ● **TD-8.2.C** Find Δh_vap from vapor pressures at two temperatures.
@@ -363,11 +363,11 @@ Big ideas: MU, EQ, STAB
 
 Book: dill-bromberg-2e §15; shell-2015 §12.1
 
-- ● **TD-9.1.A** Calculate the entropy of ideal mixing.
+- ● **TD-9.1.A** (webwork-opl:TH7.18, webwork-opl:TH12.3) Calculate the entropy of ideal mixing.
   - EK: ΔS_mix = −nR Σ x_i ln x_i (from lattice counting).
   - Needs: TD-1.1.D
   - P5 · drills: th-so-mix-entropy
-- ● **TD-9.1.B** Calculate the Gibbs energy of ideal mixing.
+- ● **TD-9.1.B** (webwork-opl:TH16.1) Calculate the Gibbs energy of ideal mixing.
   - EK: ΔG_mix = nRT Σ x_i ln x_i; ΔH_mix = ΔV_mix = 0.
   - P5 · drills: th-so-mix-gibbs
 
@@ -375,7 +375,7 @@ Book: dill-bromberg-2e §15; shell-2015 §12.1
 
 Book: dill-bromberg-2e §9; shell-2015 §12.8, §12.9
 
-- ● **TD-9.2.A** Calculate partial molar properties from a total property, e.g. by the tangent-intercept method.
+- ● **TD-9.2.A** (webwork-opl:TH17.3) Calculate partial molar properties from a total property, e.g. by the tangent-intercept method.
   - EK: v̄_i = (∂V/∂n_i)_{T,P,n_j}; V = Σ n_i v̄_i.
   - P3 · drills: td-partial-molar
 - ● **TD-9.2.B** Use Gibbs–Duhem to get one activity coefficient from the other or to test data for consistency.
@@ -387,13 +387,13 @@ Book: dill-bromberg-2e §9; shell-2015 §12.8, §12.9
 
 Book: dill-bromberg-2e §15, §16; shell-2015 §12.2, §13.1, §13.2, §13.3, §13.4, §13.5
 
-- ● **TD-9.3.A** Calculate total pressure and vapor composition of an ideal solution with Raoult's law.
+- ● **TD-9.3.A** (webwork-opl:TH16.2) Calculate total pressure and vapor composition of an ideal solution with Raoult's law.
   - EK: p_i = x_iP_i*; P = Σ x_iP_i*; y_i = p_i/P.
   - P5 · drills: th-so-raoult
 - ● **TD-9.3.B** Calculate the solubility of a dilute solute from Henry's law.
   - EK: p_i = x_iK_H,i for x_i → 0; K_H grows with T for most gases in water.
   - P5 · drills: th-so-henry
-- ● **TD-9.3.C** Perform bubble-point, dew-point and isothermal flash calculations for a multicomponent mixture.
+- ● **TD-9.3.C** (webwork-opl:TH16.3, webwork-opl:TH16.4) Perform bubble-point, dew-point and isothermal flash calculations for a multicomponent mixture.
   - EK: K_i = y_i/x_i; flash: Σ z_i(K_i − 1)/[1 + β(K_i − 1)] = 0 (Rachford–Rice).
   - P2 · P5 · drills: td-bubble-dew, td-flash
 
@@ -401,14 +401,14 @@ Book: dill-bromberg-2e §15, §16; shell-2015 §12.2, §13.1, §13.2, §13.3, §
 
 Book: dill-bromberg-2e §15; shell-2015 §12.6, §12.7, §13.6, §13.7
 
-- ● **TD-9.4.A** Calculate activity coefficients from an excess-Gibbs-energy model (regular solution, Margules).
+- ● **TD-9.4.A** (webwork-opl:TH17.1, webwork-opl:TH17.2) Calculate activity coefficients from an excess-Gibbs-energy model (regular solution, Margules).
   - EK: G^ex/n = W x_Ax_B ⇒ RT ln γ_A = W x_B².
   - P3 · P5 · drills: th-so-activity
 - ● **TD-9.4.B** Derive the regular-solution model from a lattice with nearest-neighbour interactions and predict when the mixture phase-separates.
   - EK: ΔG_mix/nRT = Σ x ln x + χ x_Ax_B; unstable for χ > 2 (upper critical point at χ = 2, x = ½).
   - Needs: TD-6.1.A
   - P4 · P6 · drills: td-regular-solution-tc
-- ● **TD-9.4.C** Calculate VLE with modified Raoult's law and identify an azeotrope.
+- ● **TD-9.4.C** (webwork-opl:TH16.2) Calculate VLE with modified Raoult's law and identify an azeotrope.
   - EK: y_iP = x_iγ_iP_i*; at an azeotrope x_i = y_i and γ_A P_A* = γ_B P_B*.
   - P5 · P6 · drills: td-azeotrope
 
@@ -416,7 +416,7 @@ Book: dill-bromberg-2e §15; shell-2015 §12.6, §12.7, §13.6, §13.7
 
 Book: dill-bromberg-2e §16; shell-2015 §12.3, §12.4, §12.5
 
-- ● **TD-9.5.A** Calculate boiling-point elevation, freezing-point depression or osmotic pressure of a dilute solution.
+- ● **TD-9.5.A** (webwork-opl:TH18.1) Calculate boiling-point elevation, freezing-point depression or osmotic pressure of a dilute solution.
   - EK: ΔT_b = RT_b²x_B/Δh_vap; ΔT_f = RT_f²x_B/Δh_fus; Π = c_BRT (van 't Hoff).
   - P5 · drills: td-colligative
 
@@ -436,10 +436,10 @@ Big ideas: MU, EQ, MICRO
 
 Book: dill-bromberg-2e §13; shell-2015 §20.1, §20.2, §20.3, §20.4
 
-- ● **TD-10.1.A** Calculate K from ΔG°.
+- ● **TD-10.1.A** (webwork-opl:TH13.2) Calculate K from ΔG°.
   - EK: K = exp(−ΔG°/RT); standard state fixes the units of each activity.
   - P5 · drills: th-ce-k
-- ● **TD-10.1.B** Calculate ΔG° from K.
+- ● **TD-10.1.B** (webwork-opl:TH13.15) Calculate ΔG° from K.
   - EK: ΔG° = −RT ln K.
   - P5 · drills: th-ce-dg
 - ● **TD-10.1.C** Predict the direction of reaction from Q versus K.
@@ -552,7 +552,7 @@ Book: dill-bromberg-2e §12; shell-2015 §14.4, §14.5, §14.6
 - ● **TD-12.3.A** Calculate the classical heat capacity of a gas by equipartition.
   - EK: ½k_B per quadratic term: 3 translational, 2 or 3 rotational, 2 per vibration (3N − 5 or 3N − 6 modes).
   - P4 · P6 · drills: sm-cv-equipartition
-- ● **TD-12.3.B** Calculate C_V of a diatomic gas with classical translation and rotation and quantum vibration.
+- ● **TD-12.3.B** (webwork-opl:TH2.10) Calculate C_V of a diatomic gas with classical translation and rotation and quantum vibration.
   - EK: C_V,m = 5R/2 + R x²eˣ/(eˣ − 1)², x = θ_vib/T.
   - P4 · P5 · drills: sm-cv-diatomic
 - ● **TD-12.3.C** Derive the heat capacity of a two-level (Schottky) system.
@@ -655,7 +655,7 @@ Book: dill-bromberg-2e §27
   - EK: θ = c/(K_d + c).
   - Needs: TD-14.1.A
   - P5 · drills: sm-bind-langmuir
-- ● **TD-15.1.B** Find the gas pressure that gives a target Langmuir coverage.
+- ● **TD-15.1.B** (webwork-opl:TH16.8) Find the gas pressure that gives a target Langmuir coverage.
   - EK: θ = KP/(1 + KP) ⇒ P = θ/[K(1 − θ)].
   - P5 · drills: sm-bind-pressure
 - ● **TD-15.1.C** Calculate the standard binding free energy from K_d.
@@ -720,7 +720,7 @@ Big ideas: MU, MICRO
 
 Book: dill-bromberg-2e §22, §23; shell-2015 §13.9
 
-- ● **TD-17.1.A** Calculate an equilibrium potential with the Nernst equation and a mean ionic activity coefficient with Debye–Hückel.
+- ● **TD-17.1.A** (webwork-opl:TH18.3) Calculate an equilibrium potential with the Nernst equation and a mean ionic activity coefficient with Debye–Hückel.
   - EK: E = E° − (RT/zF) ln Q; ln γ± = −A|z₊z₋|√I (dilute limit).
   - P5 · drills: td-debye-huckel
 
@@ -728,7 +728,7 @@ Book: dill-bromberg-2e §22, §23; shell-2015 §13.9
 
 Book: dill-bromberg-2e §32; shell-2015 §13.8
 
-- ● **TD-17.2.A** Calculate the Flory–Huggins free energy of mixing and the critical χ for a polymer solution.
+- ● **TD-17.2.A** (webwork-opl:TH16.6, webwork-opl:TH17.6) Calculate the Flory–Huggins free energy of mixing and the critical χ for a polymer solution.
   - EK: ΔG_mix/k_BT = (φ/N) ln φ + (1 − φ) ln(1 − φ) + χφ(1 − φ); χ_c = ½(1 + 1/√N)².
   - Needs: TD-9.4.B
   - P4 · P6 · drills: td-flory-huggins

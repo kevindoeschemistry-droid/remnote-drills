@@ -22,7 +22,7 @@ domains: [fm]
 
 basis:
   primary: fe-chemical
-  also: [pe-chemical]
+  also: [pe-chemical, webwork-opl]
   note: "Topics from FE Chemical area 6, read in full. Objectives and their order are ours; statics is assumed by the spec rather than listed. The framework stops at what a one-question drill can carry: no Moody chart, pump curves or differential analysis yet."
 
 big_ideas:
@@ -58,12 +58,12 @@ units:
       - n: 1
         title: "Properties"
         los:
-          - { id: A, std: ["fe-chemical:6.A"], do: "Relate dynamic and kinematic viscosity, density and specific gravity.", ek: ["ν = μ/ρ. Water is about 1 mm²/s, air about 15."], p: [P1], drills: [fm-kinematic-viscosity] }
+          - { id: A, std: ["fe-chemical:6.A", "webwork-opl:TH1.6", "webwork-opl:FM1.2", "webwork-opl:FM1.3"], do: "Relate dynamic and kinematic viscosity, density and specific gravity.", ek: ["ν = μ/ρ. Water is about 1 mm²/s, air about 15."], p: [P1], drills: [fm-kinematic-viscosity] }
       - n: 2
         title: "Statics"
         los:
-          - { id: A, std: ["fe-chemical:6.A"], do: "Compute hydrostatic pressure and read a U-tube manometer.", ek: ["P = ρgh; across a manometer only the density difference counts."], p: [P1, P3], drills: [fm-hydrostatic-pressure, fm-manometer] }
-          - { id: B, do: "Apply Archimedes' principle to a floating body.", ek: ["Submerged fraction = body density over fluid density."], p: [P1], drills: [fm-floating-fraction] }
+          - { id: A, std: ["fe-chemical:6.A", "webwork-opl:FM2.1", "webwork-opl:FM2.2"], do: "Compute hydrostatic pressure and read a U-tube manometer.", ek: ["P = ρgh; across a manometer only the density difference counts."], p: [P1, P3], drills: [fm-hydrostatic-pressure, fm-manometer] }
+          - { id: B, std: ["webwork-opl:FM2.6"], do: "Apply Archimedes' principle to a floating body.", ek: ["Submerged fraction = body density over fluid density."], p: [P1], drills: [fm-floating-fraction] }
   - id: regimes
     n: 2
     title: "Dimensionless numbers and flow regime"
@@ -74,9 +74,9 @@ units:
       - n: 1
         title: "Reynolds number"
         los:
-          - { id: A, std: ["fe-chemical:6.B"], do: "Compute a Reynolds number and a hydraulic diameter, and say what each common dimensionless group compares.", ek: ["Re = ρvD/μ; D_h = 4A/P; Re, Fr, We, Ma, Eu each compare two forces or speeds."], p: [P1, P2], drills: [fm-reynolds-number, fm-hydraulic-diameter, fm-dimensionless-groups, sc-reynolds-diameter, sc-stokes-settling] }
-          - { id: B, std: ["fe-chemical:6.E"], do: "Classify pipe flow as laminar, transitional or turbulent.", ek: ["Laminar below about 2100, turbulent above about 4000."], p: [P2], drills: [fm-flow-regime] }
-          - { id: C, std: ["fe-chemical:6.E"], do: "Find the pressure drop of laminar pipe flow.", ek: ["Hagen–Poiseuille: ΔP = 32μLv/D², the same as f = 64/Re."], p: [P1], drills: [fm-laminar-pressure-drop, sc-laminar-pressure-drop-diameter] }
+          - { id: A, std: ["fe-chemical:6.B", "webwork-opl:FM6.9"], do: "Compute a Reynolds number and a hydraulic diameter, and say what each common dimensionless group compares.", ek: ["Re = ρvD/μ; D_h = 4A/P; Re, Fr, We, Ma, Eu each compare two forces or speeds."], p: [P1, P2], drills: [fm-reynolds-number, fm-hydraulic-diameter, fm-dimensionless-groups, sc-reynolds-diameter, sc-stokes-settling] }
+          - { id: B, std: ["fe-chemical:6.E", "webwork-opl:FM6.3"], do: "Classify pipe flow as laminar, transitional or turbulent.", ek: ["Laminar below about 2100, turbulent above about 4000."], p: [P2], drills: [fm-flow-regime] }
+          - { id: C, std: ["fe-chemical:6.E", "webwork-opl:FM6.2"], do: "Find the pressure drop of laminar pipe flow.", ek: ["Hagen–Poiseuille: ΔP = 32μLv/D², the same as f = 64/Re."], p: [P1], drills: [fm-laminar-pressure-drop, sc-laminar-pressure-drop-diameter] }
   - id: bernoulli
     n: 3
     title: "Continuity and Bernoulli"
@@ -87,8 +87,8 @@ units:
       - n: 1
         title: "Frictionless flow"
         los:
-          - { id: A, std: ["fe-chemical:6.D"], do: "Use continuity to find a velocity change and Bernoulli to find the pressure change that goes with it.", ek: ["A1v1 = A2v2; P + ½ρv² + ρgz is constant along a streamline without friction."], p: [P1, P3], drills: [fm-continuity, fm-bernoulli-pressure] }
-          - { id: B, std: ["fe-chemical:6.D"], do: "Find the efflux velocity from a tank.", ek: ["Torricelli: v = √(2gh)."], p: [P1, P3], drills: [fm-torricelli, sc-torricelli-head] }
+          - { id: A, std: ["fe-chemical:6.D", "webwork-opl:FM3.2", "webwork-opl:FM3.4"], do: "Use continuity to find a velocity change and Bernoulli to find the pressure change that goes with it.", ek: ["A1v1 = A2v2; P + ½ρv² + ρgz is constant along a streamline without friction."], p: [P1, P3], drills: [fm-continuity, fm-bernoulli-pressure] }
+          - { id: B, std: ["fe-chemical:6.D", "webwork-opl:FM3.4"], do: "Find the efflux velocity from a tank.", ek: ["Torricelli: v = √(2gh)."], p: [P1, P3], drills: [fm-torricelli, sc-torricelli-head] }
   - id: energy
     n: 4
     title: "The mechanical energy balance"
@@ -99,12 +99,12 @@ units:
       - n: 1
         title: "Friction"
         los:
-          - { id: A, std: ["fe-chemical:6.C"], do: "Compute friction head loss in a pipe and in a fitting.", ek: ["h_f = f(L/D)v²/2g; h_L = K v²/2g."], p: [P1], drills: [fm-friction-head-loss, fm-minor-loss, sc-turbulent-pressure-drop-flow] }
+          - { id: A, std: ["fe-chemical:6.C", "webwork-opl:FM6.4", "webwork-opl:FM6.5", "webwork-opl:FM6.6"], do: "Compute friction head loss in a pipe and in a fitting.", ek: ["h_f = f(L/D)v²/2g; h_L = K v²/2g."], p: [P1], drills: [fm-friction-head-loss, fm-minor-loss, sc-turbulent-pressure-drop-flow] }
       - n: 2
         title: "Pumps"
         los:
-          - { id: A, std: ["fe-chemical:6.C", "fe-chemical:6.G"], do: "Find the head a pump must supply and the power it draws.", ek: ["Pump head = lift + losses (+ pressure and velocity changes); shaft power = ρgQH/η."], p: [P1, P3], drills: [fm-pump-head, fm-pump-power, sc-pump-power-flow] }
-          - { id: B, std: ["fe-chemical:6.G"], do: "Explain cavitation and NPSH, and what pumps in series and in parallel do.", ek: ["Available NPSH must exceed required; series adds head, parallel adds flow."], p: [P2], drills: [fm-pump-concepts] }
+          - { id: A, std: ["fe-chemical:6.C", "fe-chemical:6.G", "webwork-opl:TH5.6", "webwork-opl:FM3.6", "webwork-opl:FM6.7", "webwork-opl:FM6.8", "webwork-opl:FM11.1"], do: "Find the head a pump must supply and the power it draws.", ek: ["Pump head = lift + losses (+ pressure and velocity changes); shaft power = ρgQH/η."], p: [P1, P3], drills: [fm-pump-head, fm-pump-power, sc-pump-power-flow] }
+          - { id: B, std: ["fe-chemical:6.G", "webwork-opl:FM6.8", "webwork-opl:FM11.2"], do: "Explain cavitation and NPSH, and what pumps in series and in parallel do.", ek: ["Available NPSH must exceed required; series adds head, parallel adds flow."], p: [P2], drills: [fm-pump-concepts] }
   - id: measurement
     n: 5
     title: "Flow measurement"
@@ -115,7 +115,7 @@ units:
       - n: 1
         title: "Meters"
         los:
-          - { id: A, std: ["fe-chemical:6.F"], do: "Compute a velocity from a pitot reading and a flow from a venturi reading.", ek: ["Pitot: ΔP = ½ρv². Venturi: continuity plus Bernoulli, times a discharge coefficient."], p: [P1], drills: [fm-pitot, fm-venturi] }
+          - { id: A, std: ["fe-chemical:6.F", "webwork-opl:FM10.6"], do: "Compute a velocity from a pitot reading and a flow from a venturi reading.", ek: ["Pitot: ΔP = ½ρv². Venturi: continuity plus Bernoulli, times a discharge coefficient."], p: [P1], drills: [fm-pitot, fm-venturi] }
           - { id: B, std: ["fe-chemical:6.F"], do: "Choose between pitot, orifice, venturi and rotameter.", ek: ["Orifice is cheap with high permanent loss; venturi recovers pressure; rotameter is variable-area."], p: [P2], drills: [fm-meter-choice] }
   - id: compressible
     n: 6
@@ -127,8 +127,8 @@ units:
       - n: 1
         title: "Compressible flow"
         los:
-          - { id: A, std: ["fe-chemical:6.H"], do: "Compute the speed of sound in an ideal gas and use the Mach number to decide how to treat a flow.", ek: ["a = √(γRT/M); below Ma ≈ 0.3 a gas flow can be treated as incompressible."], p: [P1, P2], drills: [fm-speed-of-sound, fm-mach-regime] }
+          - { id: A, std: ["fe-chemical:6.H", "webwork-opl:FM9.1"], do: "Compute the speed of sound in an ideal gas and use the Mach number to decide how to treat a flow.", ek: ["a = √(γRT/M); below Ma ≈ 0.3 a gas flow can be treated as incompressible."], p: [P1, P2], drills: [fm-speed-of-sound, fm-mach-regime] }
       - n: 2
         title: "Non-Newtonian fluids"
         los:
-          - { id: A, std: ["fe-chemical:6.H"], do: "Classify a fluid as Newtonian, shear-thinning, shear-thickening or Bingham, and compute a power-law apparent viscosity.", ek: ["τ = Kγ̇ⁿ; apparent viscosity Kγ̇ⁿ⁻¹; a Bingham plastic has a yield stress."], p: [P1, P2], drills: [fm-non-newtonian-type, fm-apparent-viscosity] }
+          - { id: A, std: ["fe-chemical:6.H", "webwork-opl:FM1.3"], do: "Classify a fluid as Newtonian, shear-thinning, shear-thickening or Bingham, and compute a power-law apparent viscosity.", ek: ["τ = Kγ̇ⁿ; apparent viscosity Kγ̇ⁿ⁻¹; a Bingham plastic has a yield stress."], p: [P1, P2], drills: [fm-non-newtonian-type, fm-apparent-viscosity] }

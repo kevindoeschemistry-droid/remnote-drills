@@ -35,7 +35,7 @@ Big ideas: HEAD
 
 
 
-- ● **FM-1.1.A** (fe-chemical:6.A) Relate dynamic and kinematic viscosity, density and specific gravity.
+- ● **FM-1.1.A** (fe-chemical:6.A, webwork-opl:TH1.6, webwork-opl:FM1.2, webwork-opl:FM1.3) Relate dynamic and kinematic viscosity, density and specific gravity.
   - EK: ν = μ/ρ. Water is about 1 mm²/s, air about 15.
   - P1 · drills: fm-kinematic-viscosity
 
@@ -43,10 +43,10 @@ Big ideas: HEAD
 
 
 
-- ● **FM-1.2.A** (fe-chemical:6.A) Compute hydrostatic pressure and read a U-tube manometer.
+- ● **FM-1.2.A** (fe-chemical:6.A, webwork-opl:FM2.1, webwork-opl:FM2.2) Compute hydrostatic pressure and read a U-tube manometer.
   - EK: P = ρgh; across a manometer only the density difference counts.
   - P1 · P3 · drills: fm-hydrostatic-pressure, fm-manometer
-- ● **FM-1.2.B** Apply Archimedes' principle to a floating body.
+- ● **FM-1.2.B** (webwork-opl:FM2.6) Apply Archimedes' principle to a floating body.
   - EK: Submerged fraction = body density over fluid density.
   - P1 · drills: fm-floating-fraction
 
@@ -58,13 +58,13 @@ Big ideas: REGIME
 
 
 
-- ● **FM-2.1.A** (fe-chemical:6.B) Compute a Reynolds number and a hydraulic diameter, and say what each common dimensionless group compares.
+- ● **FM-2.1.A** (fe-chemical:6.B, webwork-opl:FM6.9) Compute a Reynolds number and a hydraulic diameter, and say what each common dimensionless group compares.
   - EK: Re = ρvD/μ; D_h = 4A/P; Re, Fr, We, Ma, Eu each compare two forces or speeds.
   - P1 · P2 · drills: fm-reynolds-number, fm-hydraulic-diameter, fm-dimensionless-groups, sc-reynolds-diameter, sc-stokes-settling
-- ● **FM-2.1.B** (fe-chemical:6.E) Classify pipe flow as laminar, transitional or turbulent.
+- ● **FM-2.1.B** (fe-chemical:6.E, webwork-opl:FM6.3) Classify pipe flow as laminar, transitional or turbulent.
   - EK: Laminar below about 2100, turbulent above about 4000.
   - P2 · drills: fm-flow-regime
-- ● **FM-2.1.C** (fe-chemical:6.E) Find the pressure drop of laminar pipe flow.
+- ● **FM-2.1.C** (fe-chemical:6.E, webwork-opl:FM6.2) Find the pressure drop of laminar pipe flow.
   - EK: Hagen–Poiseuille: ΔP = 32μLv/D², the same as f = 64/Re.
   - P1 · drills: fm-laminar-pressure-drop, sc-laminar-pressure-drop-diameter
 
@@ -76,10 +76,10 @@ Big ideas: CONSERVE, HEAD
 
 
 
-- ● **FM-3.1.A** (fe-chemical:6.D) Use continuity to find a velocity change and Bernoulli to find the pressure change that goes with it.
+- ● **FM-3.1.A** (fe-chemical:6.D, webwork-opl:FM3.2, webwork-opl:FM3.4) Use continuity to find a velocity change and Bernoulli to find the pressure change that goes with it.
   - EK: A1v1 = A2v2; P + ½ρv² + ρgz is constant along a streamline without friction.
   - P1 · P3 · drills: fm-continuity, fm-bernoulli-pressure
-- ● **FM-3.1.B** (fe-chemical:6.D) Find the efflux velocity from a tank.
+- ● **FM-3.1.B** (fe-chemical:6.D, webwork-opl:FM3.4) Find the efflux velocity from a tank.
   - EK: Torricelli: v = √(2gh).
   - P1 · P3 · drills: fm-torricelli, sc-torricelli-head
 
@@ -91,7 +91,7 @@ Big ideas: HEAD
 
 
 
-- ● **FM-4.1.A** (fe-chemical:6.C) Compute friction head loss in a pipe and in a fitting.
+- ● **FM-4.1.A** (fe-chemical:6.C, webwork-opl:FM6.4, webwork-opl:FM6.5, webwork-opl:FM6.6) Compute friction head loss in a pipe and in a fitting.
   - EK: h_f = f(L/D)v²/2g; h_L = K v²/2g.
   - P1 · drills: fm-friction-head-loss, fm-minor-loss, sc-turbulent-pressure-drop-flow
 
@@ -99,10 +99,10 @@ Big ideas: HEAD
 
 
 
-- ● **FM-4.2.A** (fe-chemical:6.C, fe-chemical:6.G) Find the head a pump must supply and the power it draws.
+- ● **FM-4.2.A** (fe-chemical:6.C, fe-chemical:6.G, webwork-opl:TH5.6, webwork-opl:FM3.6, webwork-opl:FM6.7, webwork-opl:FM6.8, webwork-opl:FM11.1) Find the head a pump must supply and the power it draws.
   - EK: Pump head = lift + losses (+ pressure and velocity changes); shaft power = ρgQH/η.
   - P1 · P3 · drills: fm-pump-head, fm-pump-power, sc-pump-power-flow
-- ● **FM-4.2.B** (fe-chemical:6.G) Explain cavitation and NPSH, and what pumps in series and in parallel do.
+- ● **FM-4.2.B** (fe-chemical:6.G, webwork-opl:FM6.8, webwork-opl:FM11.2) Explain cavitation and NPSH, and what pumps in series and in parallel do.
   - EK: Available NPSH must exceed required; series adds head, parallel adds flow.
   - P2 · drills: fm-pump-concepts
 
@@ -114,7 +114,7 @@ Big ideas: CONSERVE
 
 
 
-- ● **FM-5.1.A** (fe-chemical:6.F) Compute a velocity from a pitot reading and a flow from a venturi reading.
+- ● **FM-5.1.A** (fe-chemical:6.F, webwork-opl:FM10.6) Compute a velocity from a pitot reading and a flow from a venturi reading.
   - EK: Pitot: ΔP = ½ρv². Venturi: continuity plus Bernoulli, times a discharge coefficient.
   - P1 · drills: fm-pitot, fm-venturi
 - ● **FM-5.1.B** (fe-chemical:6.F) Choose between pitot, orifice, venturi and rotameter.
@@ -129,7 +129,7 @@ Big ideas: REGIME
 
 
 
-- ● **FM-6.1.A** (fe-chemical:6.H) Compute the speed of sound in an ideal gas and use the Mach number to decide how to treat a flow.
+- ● **FM-6.1.A** (fe-chemical:6.H, webwork-opl:FM9.1) Compute the speed of sound in an ideal gas and use the Mach number to decide how to treat a flow.
   - EK: a = √(γRT/M); below Ma ≈ 0.3 a gas flow can be treated as incompressible.
   - P1 · P2 · drills: fm-speed-of-sound, fm-mach-regime
 
@@ -137,6 +137,6 @@ Big ideas: REGIME
 
 
 
-- ● **FM-6.2.A** (fe-chemical:6.H) Classify a fluid as Newtonian, shear-thinning, shear-thickening or Bingham, and compute a power-law apparent viscosity.
+- ● **FM-6.2.A** (fe-chemical:6.H, webwork-opl:FM1.3) Classify a fluid as Newtonian, shear-thinning, shear-thickening or Bingham, and compute a power-law apparent viscosity.
   - EK: τ = Kγ̇ⁿ; apparent viscosity Kγ̇ⁿ⁻¹; a Bingham plastic has a yield stress.
   - P1 · P2 · drills: fm-non-newtonian-type, fm-apparent-viscosity

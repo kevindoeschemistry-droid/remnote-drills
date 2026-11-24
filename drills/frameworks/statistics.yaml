@@ -18,6 +18,7 @@ domains: [stats]
 
 basis:
   primary: ap-statistics-2026
+  also: [webwork-opl]
   note: "Units follow the revised AP Statistics course (2026-27), of which only the unit list was read. The objectives under each unit are a house list."
 
 big_ideas:
@@ -41,13 +42,13 @@ units:
       - n: 1
         title: "Describing distributions"
         los:
-          - { id: A, std: ["ap-statistics-2026:1"], do: "Find and compare measures of centre and spread, and flag outliers.", ek: ["Mean and SD are pulled by extremes; median and IQR are not."], p: [P1], drills: ["stats-center", "stats-outlier", "mm-mean-focus", "mm-median"] }
-          - { id: B, std: ["ap-statistics-2026:1"], do: "Standardise a value and use the normal model.", ek: ["z = (x − μ)/σ; 68-95-99.7."], p: [P1], drills: ["sx-z-score", "sx-empirical-rule", "stats-normal"] }
+          - { id: A, std: ["ap-statistics-2026:1", "webwork-opl:ST3.2"], do: "Find and compare measures of centre and spread, and flag outliers.", ek: ["Mean and SD are pulled by extremes; median and IQR are not."], p: [P1], drills: ["stats-center", "stats-outlier", "mm-mean-focus", "mm-median"] }
+          - { id: B, std: ["ap-statistics-2026:1", "webwork-opl:PB4.3", "webwork-opl:PB4.4"], do: "Standardise a value and use the normal model.", ek: ["z = (x − μ)/σ; 68-95-99.7."], p: [P1], drills: ["sx-z-score", "sx-empirical-rule", "stats-normal"] }
       - n: 2
         title: "Collecting data"
         los:
-          - { id: A, std: ["ap-statistics-2026:1"], do: "Identify the source of bias in a sampling method.", ek: ["Undercoverage, voluntary response, nonresponse, convenience, wording."], p: [P1], drills: ["sx-sampling-bias", "hs-study-type"] }
-          - { id: B, std: ["ap-statistics-2026:1"], do: "Explain the purpose of random assignment, control, blinding and blocking.", ek: ["Random sampling generalises; random assignment supports cause."], p: [P1], drills: ["sx-experiment-design", "hs-evaluate-report"] }
+          - { id: A, std: ["ap-statistics-2026:1", "webwork-opl:ST2.6", "webwork-opl:ST2.8"], do: "Identify the source of bias in a sampling method.", ek: ["Undercoverage, voluntary response, nonresponse, convenience, wording."], p: [P1], drills: ["sx-sampling-bias", "hs-study-type"] }
+          - { id: B, std: ["ap-statistics-2026:1", "webwork-opl:ST1.1"], do: "Explain the purpose of random assignment, control, blinding and blocking.", ek: ["Random sampling generalises; random assignment supports cause."], p: [P1], drills: ["sx-experiment-design", "hs-evaluate-report"] }
   - id: probability
     n: 2
     title: "Probability, random variables and distributions"
@@ -58,13 +59,13 @@ units:
       - n: 1
         title: "Probability rules"
         los:
-          - { id: A, std: ["ap-statistics-2026:2"], do: "Apply the addition and multiplication rules, conditional probability and independence.", ek: ["P(A or B) = P(A) + P(B) − P(A and B); P(A and B) = P(A)P(B|A)."], p: [P1], drills: ["stats-addition", "stats-mult-rule", "stats-conditional", "stats-independence", "stats-bayes", "stats-two-way"] }
+          - { id: A, std: ["ap-statistics-2026:2", "webwork-opl:PB1.2", "webwork-opl:PB1.3", "webwork-opl:PB1.4"], do: "Apply the addition and multiplication rules, conditional probability and independence.", ek: ["P(A or B) = P(A) + P(B) − P(A and B); P(A and B) = P(A)P(B|A)."], p: [P1], drills: ["stats-addition", "stats-mult-rule", "stats-conditional", "stats-independence", "stats-bayes", "stats-two-way"] }
       - n: 2
         title: "Random variables"
         los:
-          - { id: A, std: ["ap-statistics-2026:2"], do: "Find the mean of a discrete random variable and of a linear transformation, and the spread of a sum.", ek: ["Means add; variances of independent variables add."], p: [P1], drills: ["stats-expected", "stats-insurance", "sx-linear-transform", "sx-sum-of-independent"] }
-          - { id: B, std: ["ap-statistics-2026:2"], do: "Use the binomial and geometric distributions.", ek: ["Binomial: mean np, SD √(np(1−p)); geometric wait 1/p."], p: [P1], drills: ["sx-binomial-probability", "sx-binomial-spread", "sx-geometric-wait"] }
-          - { id: C, std: ["ap-statistics-2026:2"], do: "Find the standard deviation of a sample mean and of a sample proportion.", ek: ["σ/√n and √(p(1−p)/n)."], p: [P1], drills: ["sx-standard-error-mean", "sx-standard-error-proportion", "sx-margin-and-sample-size"] }
+          - { id: A, std: ["ap-statistics-2026:2", "webwork-opl:PB2.1", "webwork-opl:PB2.2"], do: "Find the mean of a discrete random variable and of a linear transformation, and the spread of a sum.", ek: ["Means add; variances of independent variables add."], p: [P1], drills: ["stats-expected", "stats-insurance", "sx-linear-transform", "sx-sum-of-independent"] }
+          - { id: B, std: ["ap-statistics-2026:2", "webwork-opl:PB3.1", "webwork-opl:PB3.2", "webwork-opl:PB3.4"], do: "Use the binomial and geometric distributions.", ek: ["Binomial: mean np, SD √(np(1−p)); geometric wait 1/p."], p: [P1], drills: ["sx-binomial-probability", "sx-binomial-spread", "sx-geometric-wait"] }
+          - { id: C, std: ["ap-statistics-2026:2", "webwork-opl:PB5.3", "webwork-opl:ST4.1", "webwork-opl:ST4.2"], do: "Find the standard deviation of a sample mean and of a sample proportion.", ek: ["σ/√n and √(p(1−p)/n)."], p: [P1], drills: ["sx-standard-error-mean", "sx-standard-error-proportion", "sx-margin-and-sample-size"] }
   - id: proportions
     n: 3
     title: "Inference for categorical data: proportions"
@@ -75,9 +76,9 @@ units:
       - n: 1
         title: "Intervals and tests for a proportion"
         los:
-          - { id: A, std: ["ap-statistics-2026:3"], do: "Build and interpret a confidence interval for a proportion and choose a sample size.", ek: ["p̂ ± z*√(p̂(1−p̂)/n)."], p: [P1], drills: ["sx-proportion-margin", "sx-sample-size-needed", "sx-confidence-meaning", "stats-margin"] }
-          - { id: B, std: ["ap-statistics-2026:3"], do: "Carry out a z test for a proportion and state the conclusion.", ek: ["Use p₀ in the standard error; reject when p < α."], p: [P1], drills: ["sx-proportion-z-statistic", "sx-p-value-decision", "sx-error-types"] }
-          - { id: C, std: ["ap-statistics-2026:3"], do: "Compute expected counts and the chi-square statistic for a table.", ek: ["E = row × column / total; χ² = Σ(O − E)²/E."], p: [P1], drills: ["sx-chi-square-expected", "sx-chi-square-term", "sx-degrees-of-freedom"] }
+          - { id: A, std: ["ap-statistics-2026:3", "webwork-opl:ST2.9", "webwork-opl:ST5.1", "webwork-opl:ST5.4"], do: "Build and interpret a confidence interval for a proportion and choose a sample size.", ek: ["p̂ ± z*√(p̂(1−p̂)/n)."], p: [P1], drills: ["sx-proportion-margin", "sx-sample-size-needed", "sx-confidence-meaning", "stats-margin"] }
+          - { id: B, std: ["ap-statistics-2026:3", "webwork-opl:ST6.1", "webwork-opl:ST6.4"], do: "Carry out a z test for a proportion and state the conclusion.", ek: ["Use p₀ in the standard error; reject when p < α."], p: [P1], drills: ["sx-proportion-z-statistic", "sx-p-value-decision", "sx-error-types"] }
+          - { id: C, std: ["ap-statistics-2026:3", "webwork-opl:ST6.11", "webwork-opl:ST6.12"], do: "Compute expected counts and the chi-square statistic for a table.", ek: ["E = row × column / total; χ² = Σ(O − E)²/E."], p: [P1], drills: ["sx-chi-square-expected", "sx-chi-square-term", "sx-degrees-of-freedom"] }
   - id: means
     n: 4
     title: "Inference for quantitative data: means"
@@ -88,7 +89,7 @@ units:
       - n: 1
         title: "t procedures"
         los:
-          - { id: A, std: ["ap-statistics-2026:4"], do: "Compute a t statistic and its degrees of freedom.", ek: ["t = (x̄ − μ₀)/(s/√n), df = n − 1."], p: [P1], drills: ["sx-t-statistic", "sx-degrees-of-freedom"] }
+          - { id: A, std: ["ap-statistics-2026:4", "webwork-opl:ST5.3", "webwork-opl:ST6.3"], do: "Compute a t statistic and its degrees of freedom.", ek: ["t = (x̄ − μ₀)/(s/√n), df = n − 1."], p: [P1], drills: ["sx-t-statistic", "sx-degrees-of-freedom"] }
   - id: regression
     n: 5
     title: "Regression analysis"
@@ -99,4 +100,4 @@ units:
       - n: 1
         title: "Least-squares lines"
         los:
-          - { id: A, std: ["ap-statistics-2026:5"], do: "Find and interpret a correlation, a regression line, a residual and r².", ek: ["b = r·s_y/s_x; r² is the share of variation explained."], p: [P1], drills: ["stats-correlation", "stats-regression", "stats-residual", "sx-r-squared", "sx-slope-from-correlation", "hs-trend-line"] }
+          - { id: A, std: ["ap-statistics-2026:5", "webwork-opl:ST7.1", "webwork-opl:ST7.2", "webwork-opl:ST7.3", "webwork-opl:ST7.4"], do: "Find and interpret a correlation, a regression line, a residual and r².", ek: ["b = r·s_y/s_x; r² is the share of variation explained."], p: [P1], drills: ["stats-correlation", "stats-regression", "stats-residual", "sx-r-squared", "sx-slope-from-correlation", "hs-trend-line"] }

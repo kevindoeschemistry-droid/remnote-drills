@@ -1370,6 +1370,10 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "webwork-opl:FM7.2",
+        "webwork-opl:FM7.3"
+       ],
        "do": "Calculate average h and q for laminar flow over a flat plate, with properties at the film temperature.",
        "ek": [
         "Nu̅ = 0.664 Re_L^(1/2) Pr^(1/3); T_f = (T_s + T∞)/2."
@@ -1385,6 +1389,9 @@
       },
       {
        "id": "B",
+       "std": [
+        "webwork-opl:FM7.3"
+       ],
        "do": "Calculate average h for a mixed laminar–turbulent boundary layer.",
        "ek": [
         "Nu̅ = (0.037 Re_L^(4/5) − 871) Pr^(1/3) for Re_x,c = 5×10⁵."
@@ -2033,6 +2040,9 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "webwork-opl:TH5.7"
+       ],
        "do": "Calculate U for a tube wall including both films, fouling and finned surfaces.",
        "ek": [
         "1/UA = 1/(η_o hA)_c + R''_f,c/(η_oA)_c + R_w + R''_f,h/(η_oA)_h + 1/(η_o hA)_h."
