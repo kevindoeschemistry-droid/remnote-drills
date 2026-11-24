@@ -22,7 +22,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 | Dental Admission Test | Dental Admission Test 2026 Candidate Guide | exam-spec | read in full | ngss-hs, ib-chemistry-2025, usnco, icho-appendix-c | — | 183 | 72 | 111 |
 | Earth and Space Science | Next Generation Science Standards, high school performance expectations (2013) | standard | read in part | ib-physics-2025, ib-biology-2025, gre-physics | — | 18 | 18 | 0 |
 | Applied Engineering Mathematics | Kreyszig, Advanced Engineering Mathematics, 10th ed. | textbook | read in full | fe-chemical, webwork-opl | — | 136 | 109 | 27 |
-| Fluid Mechanics | NCEES FE Chemical CBT Exam Specifications (effective July 2020) | exam-spec | read in full | pe-chemical, webwork-opl | — | 15 | 15 | 0 |
+| Fluid Mechanics | NCEES FE Chemical CBT Exam Specifications (effective July 2020) | exam-spec | read in full | pe-chemical, webwork-opl | — | 30 | 30 | 0 |
 | Heat Transfer | NCEES FE Chemical CBT Exam Specifications (effective July 2020) | exam-spec | read in full | fe-mechanical, ib-physics-2025, pe-chemical | — | 101 | 63 | 38 |
 | INBDE (Dentistry) | JCNDE, Domain of Dentistry (INBDE content domain), July 2018 | exam-spec | read in part | — | — | 22 | 22 | 0 |
 | Information Systems | MSIS 2016 Global Competency Model | standard | read in full | — | — | 53 | 0 | 53 |
@@ -37,6 +37,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 | Molecular Simulation | LiveCoMS best-practice papers for molecular simulation | course | read in part | — | — | 106 | 0 | 106 |
 | NCLEX-RN | NCLEX-RN Test Plan, effective April 2026 | exam-spec | read in part | — | — | 39 | 39 | 0 |
 | Nuclear Science and Reactor Theory | NRC Generic Fundamentals Examination, reactor theory topics (PWR catalog 192001-192008) | exam-spec | read in part | doe-hdbk-1019, ngss-hs, ib-physics-2025, icho-appendix-c, aamc-mcat-outline, gre-physics | — | 19 | 19 | 0 |
+| Numerical Methods | NCEES FE Chemical CBT Exam Specifications (effective July 2020) | exam-spec | read in full | webwork-opl | — | 17 | 17 | 0 |
 | Organic Reactions: Predict the Product | Bruice, Organic Chemistry, 8th edition (table of contents) | textbook | read in part | ib-chemistry-2025, icho-appendix-c, icho-syllabus, acs-accm, aamc-mcat-outline, gre-chemistry | — | 25 | 24 | 1 |
 | Particle Physics | AQA AS and A-level Physics (7407/7408), section 3.2 Particles and radiation | standard | read in part | openstax-university-physics, gre-physics | — | 13 | 12 | 1 |
 | The Periodic Table from Memory | IUPAC Periodic Table of the Elements (release of 4 May 2022) | reference | read in part | ngss-hs, ib-chemistry-2025, icho-appendix-c | — | 15 | 15 | 0 |
@@ -67,7 +68,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 - **Chemistry (AP)**: Objectives past Unit 2 are written from topic titles.
 - **Earth and Space Science**: Units follow the NGSS HS ESS disciplinary core ideas (ESS1 Earth's place in the universe, ESS2 Earth's systems, ESS3 Earth and human activity), read in part. Objectives and their order are ours.
 - **Applied Engineering Mathematics**: UCI CBE 200 publishes no syllabus. The undergraduate part is anchored to fe-chemical; series, Sturm–Liouville, PDEs and transforms are past any exam spec and stand on the book.
-- **Fluid Mechanics**: Topics from FE Chemical area 6, read in full. Objectives and their order are ours; statics is assumed by the spec rather than listed. The framework stops at what a one-question drill can carry: no Moody chart, pump curves or differential analysis yet.
+- **Fluid Mechanics**: Topics from FE Chemical area 6, read in full; units 7–10 extend past it on the WeBWorK OPL fluid-mechanics sections (read in full). Objectives and their order are ours; statics is assumed by the spec rather than listed.
 - **Heat Transfer**: Also crosswalked to the FE Mechanical spec and UCI MAE 120.
 - **INBDE (Dentistry)**: Units are the Domain of Dentistry's three clinical sections plus Foundation Knowledge area 3 (materials); objectives cite the clinical content area or FK they serve and are ours.
 - **Advanced Inorganic Chemistry (Cotton & Wilkinson)**: Units follow the chapters of Cotton & Wilkinson 6e (table of contents read); the objectives are a house list on those chapters.
@@ -80,6 +81,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 - **Molecular Simulation**: No standard exists for this subject; triangulated from best-practice papers, textbooks and the Hayes group tutorial.
 - **NCLEX-RN**: Units are the test plan's eight Client Needs subcategories (with their weights); topics group its related-content items; the objectives are ours.
 - **Nuclear Science and Reactor Theory**: Reactor-theory units follow the NRC Generic Fundamentals Examination topic list (read in part). Nuclear physics and shielding follow the DOE fundamentals handbook's first module (read in part). Health-physics standards for the radiation-protection unit have not been looked at.
+- **Numerical Methods**: FE Chemical names numerical methods as one item (1.D) and the WeBWorK OPL names a few methods; no published standard lists a numerical-methods course, so the objectives are a house list on Chapra & Canale's part order.
 - **Organic Reactions: Predict the Product**: Families follow the reaction chapters of Bruice's Organic Chemistry (a textbook, not a standard; chapter titles 2-17 from memory). The reactions and substrates in each are a house list. Every product is mass-balanced against its reactant by the generator; regiochemistry and stereochemistry were checked by eye.
 - **Particle Physics**: Objectives follow AQA A-level Physics section 3.2 (Particles and radiation), read in this session. The Lorentz-factor items go beyond it and rest on a university textbook chapter.
 - **The Periodic Table from Memory**: Content from the IUPAC table (release note read; element list cross-checked in the verifier). Which parts to know by heart is a house decision from Kevin's organometallics course.
@@ -140,8 +142,8 @@ https://ncees.org/wp-content/uploads/2022/09/FE-Che-CBT-specs.pdf
 | 1.A | Analytic geometry, logarithms, trigonometry | — | — | **nothing yet** |
 | 1.B | Calculus | 6 | 6 | engineering-math (6) |
 | 1.C | Differential equations | 66 | 66 | engineering-math (66) |
-| 1.D | Numerical methods | 17 | 17 | engineering-math (17) |
-| 1.E | Algebra, matrices, systems of equations | 11 | 11 | engineering-math (11) |
+| 1.D | Numerical methods | 34 | 34 | engineering-math (17), numerical-methods (17) |
+| 1.E | Algebra, matrices, systems of equations | 17 | 17 | engineering-math (11), numerical-methods (6) |
 | 1.F | Accuracy, precision, significant figures | — | — | **nothing yet** |
 | **2** | **Probability and Statistics** (4–6 questions) | | | |
 | 2.A | Probability distributions | 7 | 7 | thermodynamics (7) |
@@ -172,7 +174,7 @@ https://ncees.org/wp-content/uploads/2022/09/FE-Che-CBT-specs.pdf
 | 6.D | Bernoulli equation | 4 | 4 | fluid-mechanics (4) |
 | 6.E | Laminar and turbulent flow | 5 | 5 | fluid-mechanics (5) |
 | 6.F | Flow measurement | 4 | 4 | fluid-mechanics (4) |
-| 6.G | Pumps, turbines, compressors, vacuum systems | 5 | 5 | fluid-mechanics (5) |
+| 6.G | Pumps, turbines, compressors, vacuum systems | 9 | 9 | fluid-mechanics (9) |
 | 6.H | Compressible flow and non-Newtonian fluids | 4 | 4 | fluid-mechanics (4) |
 | **7** | **Thermodynamics** (8–12 questions) | | | |
 | 7.A | Properties of pure components and mixtures | 15 | 15 | physical-chemistry (4), thermodynamics (11) |
@@ -553,7 +555,7 @@ https://apcentral.collegeboard.org/courses/ap-statistics
 
 https://github.com/openwebwork/webwork-open-problem-library/blob/main/OpenProblemLibrary/Taxonomy2
 
-421 of 678 items have at least one objective answering to them.
+433 of 678 items have at least one objective answering to them.
 
 | Item | Topic | Objectives | With a drill | Where |
 |---|---|---|---|---|
@@ -618,7 +620,7 @@ https://github.com/openwebwork/webwork-open-problem-library/blob/main/OpenProble
 | CA3.14 | Linear approximation and differentials | 2 | 2 | calculus (2) |
 | CA3.15 | Related rates | 2 | 2 | calculus (2) |
 | CA3.16 | Indeterminate forms and L'Hopital's rule | 2 | 2 | calculus (2) |
-| CA3.17 | Newton's method | — | — | **nothing yet** |
+| CA3.17 | Newton's method | 5 | 5 | numerical-methods (5) |
 | CA3.18 | Elasticity of demand | — | — | **nothing yet** |
 | **CA4** | **Calculus - single variable: Integrals** | | | |
 | CA4.1 | Conceptual understanding of integration | 1 | 1 | calculus (1) |
@@ -644,7 +646,7 @@ https://github.com/openwebwork/webwork-open-problem-library/blob/main/OpenProble
 | CA5.10 | Computer algebra system | — | — | **nothing yet** |
 | CA5.11 | Mixed techniques | 1 | 1 | calculus (1) |
 | CA5.12 | Challenging integrals | 1 | 1 | calculus (1) |
-| CA5.13 | Approximation | 1 | 1 | calculus (1) |
+| CA5.13 | Approximation | 10 | 10 | calculus (1), numerical-methods (9) |
 | **CA6** | **Calculus - single variable: Applications of integration** | | | |
 | CA6.1 | Average value of a function | 1 | 1 | calculus (1) |
 | CA6.2 | Areas between curves | 3 | 3 | calculus (3) |
@@ -799,9 +801,9 @@ https://github.com/openwebwork/webwork-open-problem-library/blob/main/OpenProble
 | DE5.9 | Phase planes | 3 | 3 | engineering-math (3) |
 | DE5.10 | Nonlinear systems | 2 | 2 | engineering-math (2) |
 | **DE6** | **Differential equations: Numerical methods** | | | |
-| DE6.1 | Euler | 2 | 2 | calculus (1), engineering-math (1) |
-| DE6.2 | Runge-Kutta | — | — | **nothing yet** |
-| DE6.3 | Systems | — | — | **nothing yet** |
+| DE6.1 | Euler | 7 | 7 | calculus (1), engineering-math (1), numerical-methods (5) |
+| DE6.2 | Runge-Kutta | 6 | 6 | numerical-methods (6) |
+| DE6.3 | Systems | 5 | 5 | numerical-methods (5) |
 | **DE7** | **Differential equations: Series solutions** | | | |
 | DE7.1 | Ordinary point | 3 | 3 | engineering-math (3) |
 | DE7.2 | Singular point | 4 | 4 | engineering-math (4) |
@@ -1241,7 +1243,7 @@ https://github.com/openwebwork/webwork-open-problem-library/blob/main/OpenProble
 | **FM2** | **Fluid mechanics: Pressure distributions** | | | |
 | FM2.1 | Hydrostatic pressure | 2 | 2 | fluid-mechanics (1), physics (1) |
 | FM2.2 | Manometers | 1 | 1 | fluid-mechanics (1) |
-| FM2.3 | Hydrostatic forces: plane surfaces | — | — | **nothing yet** |
+| FM2.3 | Hydrostatic forces: plane surfaces | 1 | 1 | fluid-mechanics (1) |
 | FM2.4 | Hydrostatic forces: curved surfaces | — | — | **nothing yet** |
 | FM2.5 | Hydrostatic forces: layered fluids | — | — | **nothing yet** |
 | FM2.6 | Buoyancy and stability | 2 | 2 | fluid-mechanics (1), physics (1) |
@@ -1249,40 +1251,40 @@ https://github.com/openwebwork/webwork-open-problem-library/blob/main/OpenProble
 | **FM3** | **Fluid mechanics: Integral relations for a control volume** | | | |
 | FM3.1 | Reynolds transport theorem | 1 | 1 | calculus (1) |
 | FM3.2 | Continuity | 1 | 1 | fluid-mechanics (1) |
-| FM3.3 | Linear momentum | — | — | **nothing yet** |
+| FM3.3 | Linear momentum | 4 | 4 | fluid-mechanics (4) |
 | FM3.4 | Bernoulli's equation | 3 | 3 | fluid-mechanics (2), physics (1) |
 | FM3.5 | Angular momentum | — | — | **nothing yet** |
 | FM3.6 | Energy | 1 | 1 | fluid-mechanics (1) |
 | **FM4** | **Fluid mechanics: Differential relations for fluid flow** | | | |
 | FM4.1 | Acceleration field | — | — | **nothing yet** |
-| FM4.2 | Continuity | 1 | 1 | engineering-math (1) |
-| FM4.3 | Linear momentum | — | — | **nothing yet** |
+| FM4.2 | Continuity | 2 | 2 | engineering-math (1), fluid-mechanics (1) |
+| FM4.3 | Linear momentum | 7 | 7 | fluid-mechanics (7) |
 | FM4.4 | Energy | — | — | **nothing yet** |
 | FM4.5 | Stream function | — | — | **nothing yet** |
 | FM4.6 | Vorticity | — | — | **nothing yet** |
 | FM4.7 | Velocity potential | — | — | **nothing yet** |
 | **FM5** | **Fluid mechanics: Dimensional analysis and similarity** | | | |
-| FM5.1 | Buckingham Pi theorem | — | — | **nothing yet** |
+| FM5.1 | Buckingham Pi theorem | 5 | 5 | fluid-mechanics (5) |
 | FM5.2 | Nondimensionalization of the fluid flow equations | — | — | **nothing yet** |
-| FM5.3 | Scaling and similarity | — | — | **nothing yet** |
+| FM5.3 | Scaling and similarity | 1 | 1 | fluid-mechanics (1) |
 | **FM6** | **Fluid mechanics: Viscous flow in ducts** | | | |
-| FM6.1 | Entry length | — | — | **nothing yet** |
-| FM6.2 | Laminar fully developed pipe flow | 1 | 1 | fluid-mechanics (1) |
+| FM6.1 | Entry length | 1 | 1 | fluid-mechanics (1) |
+| FM6.2 | Laminar fully developed pipe flow | 7 | 7 | fluid-mechanics (7) |
 | FM6.3 | Turbulent pipe flow | 1 | 1 | fluid-mechanics (1) |
 | FM6.4 | Pressure head loss: major loss and friction factor | 1 | 1 | fluid-mechanics (1) |
 | FM6.5 | Pressure head loss: minor losses | 1 | 1 | fluid-mechanics (1) |
 | FM6.6 | Moody chart | 1 | 1 | fluid-mechanics (1) |
 | FM6.7 | Energy equation | 1 | 1 | fluid-mechanics (1) |
-| FM6.8 | Pumps and fans | 2 | 2 | fluid-mechanics (2) |
+| FM6.8 | Pumps and fans | 3 | 3 | fluid-mechanics (3) |
 | FM6.9 | Noncircular ducts | 1 | 1 | fluid-mechanics (1) |
-| FM6.10 | Multiple-pipe systems | — | — | **nothing yet** |
+| FM6.10 | Multiple-pipe systems | 5 | 5 | fluid-mechanics (5) |
 | FM6.11 | Diffuser performance | — | — | **nothing yet** |
 | **FM7** | **Fluid mechanics: Flow past immersed bodies** | | | |
 | FM7.1 | Momentum integral estimates | — | — | **nothing yet** |
 | FM7.2 | Boundary layers | 1 | 1 | heat-transfer (1) |
 | FM7.3 | Flat plate boundary layer | 2 | 2 | heat-transfer (2) |
 | FM7.4 | Boundary layers with pressure gradients | — | — | **nothing yet** |
-| FM7.5 | Forces on objects immersed in a flow | — | — | **nothing yet** |
+| FM7.5 | Forces on objects immersed in a flow | 6 | 6 | fluid-mechanics (6) |
 | **FM8** | **Fluid mechanics: Potential flow** | | | |
 | FM8.1 | Elementary solutions | — | — | **nothing yet** |
 | FM8.2 | Superposition | — | — | **nothing yet** |
@@ -1310,7 +1312,7 @@ https://github.com/openwebwork/webwork-open-problem-library/blob/main/OpenProble
 | **FM11** | **Fluid mechanics: Turbomachinery** | | | |
 | FM11.1 | Pumps | 1 | 1 | fluid-mechanics (1) |
 | FM11.2 | Pumps: performance curves | 1 | 1 | fluid-mechanics (1) |
-| FM11.3 | Pumps: scaling laws and specific speed | — | — | **nothing yet** |
+| FM11.3 | Pumps: scaling laws and specific speed | 5 | 5 | fluid-mechanics (5) |
 | FM11.4 | Turbines | — | — | **nothing yet** |
 | **MB2** | **Material and energy balances: Material balances on non-reactive processes** | | | |
 | MB2.1 | Degree of freedom analysis | 1 | 1 | material-balances (1) |
@@ -1330,7 +1332,7 @@ https://github.com/openwebwork/webwork-open-problem-library/blob/main/OpenProble
 | MB5.2 | Transient reactive material balances | 1 | 1 | engineering-math (1) |
 | MB5.5 | Transient coupled material and energy balances | 1 | 1 | material-balances (1) |
 
-**Areas with nothing answering to them:** PB6 Probability: Several variables; ST9 Statistics: Bayesian inference; ST10 Statistics: Time series; ST11 Statistics: Point estimation; ST12 Statistics: Multiple regression; ST13 Statistics: Generalized linear methods; CX3 Complex analysis: Complex plane; CX4 Complex analysis: Complex functions; CX5 Complex analysis: Analytic functions; CX7 Complex analysis: Integration in the complex plane; TH8 Thermodynamics: Exergy; TH9 Thermodynamics: Vapour power cycles; TH10 Thermodynamics: Gas power cycles; TH11 Thermodynamics: Refrigeration and heat pump cycles; FM5 Fluid mechanics: Dimensional analysis and similarity; FM8 Fluid mechanics: Potential flow.
+**Areas with nothing answering to them:** PB6 Probability: Several variables; ST9 Statistics: Bayesian inference; ST10 Statistics: Time series; ST11 Statistics: Point estimation; ST12 Statistics: Multiple regression; ST13 Statistics: Generalized linear methods; CX3 Complex analysis: Complex plane; CX4 Complex analysis: Complex functions; CX5 Complex analysis: Analytic functions; CX7 Complex analysis: Integration in the complex plane; TH8 Thermodynamics: Exergy; TH9 Thermodynamics: Vapour power cycles; TH10 Thermodynamics: Gas power cycles; TH11 Thermodynamics: Refrigeration and heat pump cycles; FM8 Fluid mechanics: Potential flow.
 
 ## MAA CUPM Curriculum Guide 2015, Linear Algebra course report: core topics of a first course
 
@@ -1856,7 +1858,7 @@ https://ncees.org/wp-content/uploads/2022/09/PE-Che_Jan2020-1.pdf
 | 4.A | Fundamentals | 10 | 10 | reaction-engineering (10) |
 | 4.B | Applications | 8 | 8 | reaction-engineering (8) |
 | **5** | **Fluids** (10–16 questions) | | | |
-| 5.A | Fundamentals | 5 | 5 | fluid-mechanics (5) |
+| 5.A | Fundamentals | 7 | 7 | fluid-mechanics (7) |
 | 5.B | Applications | 3 | 3 | fluid-mechanics (3) |
 | **6** | **Mass transfer** (7–11 questions) | | | |
 | 6.A | Fundamentals | 6 | 6 | heat-transfer (6) |

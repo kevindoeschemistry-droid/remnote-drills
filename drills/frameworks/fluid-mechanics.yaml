@@ -8,9 +8,13 @@
 # The spec names topics, not objectives: the objectives and their order are ours, following the usual
 # textbook sequence. Statics is not named by the spec but is assumed by it (manometers, head).
 #
-# Not here yet: the Moody chart and friction-factor correlations (f is given), pipe networks, pump
-# curves and system curves, turbines and compressors, open-channel flow, drag and boundary layers,
-# packed and fluidised beds, and the Navier–Stokes equations.
+# Units 7–10 go past the FE spec on the WeBWorK OPL fluid-mechanics sections (read in full): control-volume
+# momentum, viscous flows solved from the Navier–Stokes equations, dimensional analysis and drag, piping
+# systems and pumps, forces on submerged surfaces.
+#
+# Not here yet: the Moody chart and friction-factor correlations (f is given), angular momentum,
+# boundary-layer integrals, potential flow, compressible nozzles and shocks, open-channel flow, turbines,
+# and packed and fluidised beds.
 id: fluid-mechanics
 title: Fluid Mechanics
 code: FM
@@ -23,7 +27,7 @@ domains: [fm]
 basis:
   primary: fe-chemical
   also: [pe-chemical, webwork-opl]
-  note: "Topics from FE Chemical area 6, read in full. Objectives and their order are ours; statics is assumed by the spec rather than listed. The framework stops at what a one-question drill can carry: no Moody chart, pump curves or differential analysis yet."
+  note: "Topics from FE Chemical area 6, read in full; units 7–10 extend past it on the WeBWorK OPL fluid-mechanics sections (read in full). Objectives and their order are ours; statics is assumed by the spec rather than listed."
 
 big_ideas:
   - id: HEAD
@@ -132,3 +136,64 @@ units:
         title: "Non-Newtonian fluids"
         los:
           - { id: A, std: ["fe-chemical:6.H", "webwork-opl:FM1.3"], do: "Classify a fluid as Newtonian, shear-thinning, shear-thickening or Bingham, and compute a power-law apparent viscosity.", ek: ["τ = Kγ̇ⁿ; apparent viscosity Kγ̇ⁿ⁻¹; a Bingham plastic has a yield stress."], p: [P1, P2], drills: [fm-non-newtonian-type, fm-apparent-viscosity] }
+  - id: momentum
+    n: 7
+    title: "Momentum balances on a control volume"
+    scope: core
+    std: ["webwork-opl:FM3.3", "pe-chemical:5.A"]
+    ideas: [CONSERVE]
+    topics:
+      - n: 1
+        title: "Jets, vanes and bends"
+        los:
+          - { id: A, std: ["webwork-opl:FM3.3"], do: "Find the force a jet exerts on a flat plate.", ek: ["F = ṁv = ρAv² for a jet stopped in its own direction."], p: [P1], drills: [fm-jet-plate] }
+          - { id: B, std: ["webwork-opl:FM3.3"], do: "Find the force on a vane that turns a jet through an angle.", ek: ["F_x = ṁv(1 − cos θ); a 180° turn doubles the flat-plate force."], p: [P1], drills: [fm-vane-force] }
+  - id: viscous
+    n: 8
+    title: "Viscous flow and differential analysis"
+    scope: core
+    std: ["webwork-opl:FM4.3", "webwork-opl:FM6.2"]
+    ideas: [REGIME]
+    topics:
+      - n: 1
+        title: "Exact solutions of the Navier–Stokes equations"
+        los:
+          - { id: A, std: ["webwork-opl:FM4.3"], do: "Find the shear force in Couette flow.", ek: ["Linear profile: τ = μU/h everywhere in the gap."], p: [P1], drills: [fm-couette-force] }
+          - { id: B, std: ["webwork-opl:FM6.2"], do: "Find the flow rate of laminar pipe flow from the pressure drop.", ek: ["Q = πR⁴ΔP/8μL; the profile is a parabola."], p: [P1], drills: [fm-poiseuille-flow, fm-poiseuille-max-velocity] }
+          - { id: C, std: ["webwork-opl:FM4.3"], do: "Find the mean velocity of a falling film.", ek: ["ū = ρgδ²/3μ; zero shear at the free surface."], p: [P1], drills: [fm-falling-film] }
+          - { id: D, std: ["webwork-opl:FM4.2"], do: "Use continuity to find a missing velocity component.", ek: ["∂u/∂x + ∂v/∂y = 0 for incompressible flow."], p: [P1], drills: [fm-continuity-2d] }
+          - { id: E, std: ["webwork-opl:FM6.1"], do: "Estimate the laminar entry length.", ek: ["L_e ≈ 0.05 Re D."], p: [P1], drills: [fm-entry-length] }
+  - id: similarity
+    n: 9
+    title: "Dimensional analysis and drag"
+    scope: core
+    std: ["webwork-opl:FM5.1", "webwork-opl:FM7.5"]
+    ideas: [REGIME]
+    topics:
+      - n: 1
+        title: "Dimensional analysis"
+        los:
+          - { id: A, std: ["webwork-opl:FM5.1"], do: "Count the dimensionless groups with the Buckingham pi theorem.", ek: ["Groups = variables − independent dimensions."], p: [P1], drills: [fm-pi-count] }
+          - { id: B, std: ["webwork-opl:FM5.3"], do: "Find the model speed that matches the Reynolds number.", ek: ["V_m = V_p (L_p/L_m)(ν_m/ν_p)."], p: [P1], drills: [fm-model-similarity] }
+      - n: 2
+        title: "Drag"
+        los:
+          - { id: A, std: ["webwork-opl:FM7.5"], do: "Compute a drag force from a drag coefficient.", ek: ["F_D = C_D · ½ρV² · A."], p: [P1], drills: [fm-drag-force] }
+          - { id: B, std: ["webwork-opl:FM7.5"], do: "Find a Stokes terminal velocity.", ek: ["v_t = (ρ_p − ρ)gd²/18μ, valid for Re < 1."], p: [P1], drills: [fm-stokes-terminal] }
+  - id: piping
+    n: 10
+    title: "Piping systems, pumps and submerged surfaces"
+    scope: core
+    std: ["webwork-opl:FM6.10", "webwork-opl:FM11.3", "fe-chemical:6.G"]
+    ideas: [HEAD]
+    topics:
+      - n: 1
+        title: "Networks and pumps"
+        los:
+          - { id: A, std: ["webwork-opl:FM6.10"], do: "Split flow between parallel pipes.", ek: ["Parallel pipes share the head loss; Q ∝ D^(5/2)/√L at equal f."], p: [P1], drills: [fm-parallel-pipes] }
+          - { id: B, std: ["webwork-opl:FM11.3"], do: "Scale a pump with the affinity laws.", ek: ["Q ∝ N, H ∝ N², P ∝ N³."], p: [P1], drills: [fm-pump-affinity] }
+          - { id: C, std: ["webwork-opl:FM6.8"], do: "Find the operating point of a pump and a system.", ek: ["Pump head = system head."], p: [P1], drills: [fm-operating-point] }
+      - n: 2
+        title: "Submerged surfaces"
+        los:
+          - { id: A, std: ["webwork-opl:FM2.3"], do: "Find the hydrostatic force on a vertical plane gate.", ek: ["F = ρg h_c A, acting below the centroid."], p: [P1], drills: [fm-gate-force] }

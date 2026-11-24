@@ -1,6 +1,6 @@
 # The path — start to finish
 
-Every framework in `requires` order; inside each, units and objectives in order, except that 155 objectives move up to sit just after the prerequisites they need. 3383 objectives in 45 frameworks.
+Every framework in `requires` order; inside each, units and objectives in order, except that 155 objectives move up to sit just after the prerequisites they need. 3415 objectives in 46 frameworks.
 
 | # | Framework | Track | Requires | LOs | Path position |
 |---|---|---|---|---|---|
@@ -35,20 +35,21 @@ Every framework in `requires` order; inside each, units and objectives in order,
 | 29 | Heat Transfer | engineering | engineering-math, physics | 101 | 2254–2354 |
 | 30 | Thermodynamics and Statistical Mechanics | engineering | engineering-math, chemistry, physics | 124 | 2355–2478 |
 | 31 | Molecular Simulation | engineering | thermodynamics, programming | 106 | 2479–2584 |
-| 32 | Fluid Mechanics | engineering | engineering-math, physics | 15 | 2585–2599 |
-| 33 | Material and Energy Balances | engineering | chemistry | 16 | 2600–2615 |
-| 34 | Process Design, Economics and Safety | engineering | material-balances | 9 | 2616–2624 |
-| 35 | Chemical Reaction Engineering | engineering | material-balances | 46 | 2625–2670 |
-| 36 | Separations | engineering | material-balances, thermodynamics | 6 | 3051–3058 |
-| 37 | Financial Accounting (CPA FAR) | business | — | 26 | 2677–2702 |
-| 38 | Dental Admission Test | health | biology, chemistry | 183 | 2703–2885 |
-| 39 | INBDE (Dentistry) | health | — | 22 | 2886–2907 |
-| 40 | NCLEX-RN | health | — | 39 | 2908–2946 |
-| 41 | AI Safety | safety | programming, calculus | 104 | 2947–3050 |
-| 42 | Speaking and Articulation | communication | — | 69 | 3051–3119 |
-| 43 | Basketball | athletics | — | 88 | 3120–3207 |
-| 44 | Swimming | athletics | — | 88 | 3208–3295 |
-| 45 | Wushu | athletics | — | 88 | 3296–3383 |
+| 32 | Fluid Mechanics | engineering | engineering-math, physics | 30 | 2585–2614 |
+| 33 | Material and Energy Balances | engineering | chemistry | 16 | 2615–2630 |
+| 34 | Numerical Methods | engineering | calculus, linear-algebra | 17 | 2631–2647 |
+| 35 | Process Design, Economics and Safety | engineering | material-balances | 9 | 2648–2656 |
+| 36 | Chemical Reaction Engineering | engineering | material-balances | 46 | 2657–2702 |
+| 37 | Separations | engineering | material-balances, thermodynamics | 6 | 3083–3090 |
+| 38 | Financial Accounting (CPA FAR) | business | — | 26 | 2709–2734 |
+| 39 | Dental Admission Test | health | biology, chemistry | 183 | 2735–2917 |
+| 40 | INBDE (Dentistry) | health | — | 22 | 2918–2939 |
+| 41 | NCLEX-RN | health | — | 39 | 2940–2978 |
+| 42 | AI Safety | safety | programming, calculus | 104 | 2979–3082 |
+| 43 | Speaking and Articulation | communication | — | 69 | 3083–3151 |
+| 44 | Basketball | athletics | — | 88 | 3152–3239 |
+| 45 | Swimming | athletics | — | 88 | 3240–3327 |
+| 46 | Wushu | athletics | — | 88 | 3328–3415 |
 
 ## Order problems (a prerequisite comes after the objective)
 

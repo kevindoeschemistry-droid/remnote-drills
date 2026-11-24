@@ -2,7 +2,7 @@
 
 Generated from `drills/frameworks/fluid-mechanics.yaml` by `scripts/framework.mjs`. ● drilled · ◐ partly · ○ no drills yet.
 
-**15 learning objectives** in 6 units (15 core): 15 drilled, 0 partly, 0 with no drills. Core: 15 / 15 drilled.
+**30 learning objectives** in 10 units (30 core): 30 drilled, 0 partly, 0 with no drills. Core: 30 / 30 drilled.
 
 ## Big ideas
 
@@ -26,6 +26,10 @@ Generated from `drills/frameworks/fluid-mechanics.yaml` by `scripts/framework.mj
 | 4 · The mechanical energy balance | core | — | 3 | 3 | 0 | 0 |
 | 5 · Flow measurement | core | — | 2 | 2 | 0 | 0 |
 | 6 · Compressible flow and non-Newtonian fluids | core | — | 2 | 2 | 0 | 0 |
+| 7 · Momentum balances on a control volume | core | — | 2 | 2 | 0 | 0 |
+| 8 · Viscous flow and differential analysis | core | — | 5 | 5 | 0 | 0 |
+| 9 · Dimensional analysis and drag | core | — | 4 | 4 | 0 | 0 |
+| 10 · Piping systems, pumps and submerged surfaces | core | — | 4 | 4 | 0 | 0 |
 
 ## Unit 1 · Properties and statics
 
@@ -140,3 +144,94 @@ Big ideas: REGIME
 - ● **FM-6.2.A** (fe-chemical:6.H, webwork-opl:FM1.3) Classify a fluid as Newtonian, shear-thinning, shear-thickening or Bingham, and compute a power-law apparent viscosity.
   - EK: τ = Kγ̇ⁿ; apparent viscosity Kγ̇ⁿ⁻¹; a Bingham plastic has a yield stress.
   - P1 · P2 · drills: fm-non-newtonian-type, fm-apparent-viscosity
+
+## Unit 7 · Momentum balances on a control volume
+
+Big ideas: CONSERVE
+
+### 7.1 Jets, vanes and bends
+
+
+
+- ● **FM-7.1.A** (webwork-opl:FM3.3) Find the force a jet exerts on a flat plate.
+  - EK: F = ṁv = ρAv² for a jet stopped in its own direction.
+  - P1 · drills: fm-jet-plate
+- ● **FM-7.1.B** (webwork-opl:FM3.3) Find the force on a vane that turns a jet through an angle.
+  - EK: F_x = ṁv(1 − cos θ); a 180° turn doubles the flat-plate force.
+  - P1 · drills: fm-vane-force
+
+## Unit 8 · Viscous flow and differential analysis
+
+Big ideas: REGIME
+
+### 8.1 Exact solutions of the Navier–Stokes equations
+
+
+
+- ● **FM-8.1.A** (webwork-opl:FM4.3) Find the shear force in Couette flow.
+  - EK: Linear profile: τ = μU/h everywhere in the gap.
+  - P1 · drills: fm-couette-force
+- ● **FM-8.1.B** (webwork-opl:FM6.2) Find the flow rate of laminar pipe flow from the pressure drop.
+  - EK: Q = πR⁴ΔP/8μL; the profile is a parabola.
+  - P1 · drills: fm-poiseuille-flow, fm-poiseuille-max-velocity
+- ● **FM-8.1.C** (webwork-opl:FM4.3) Find the mean velocity of a falling film.
+  - EK: ū = ρgδ²/3μ; zero shear at the free surface.
+  - P1 · drills: fm-falling-film
+- ● **FM-8.1.D** (webwork-opl:FM4.2) Use continuity to find a missing velocity component.
+  - EK: ∂u/∂x + ∂v/∂y = 0 for incompressible flow.
+  - P1 · drills: fm-continuity-2d
+- ● **FM-8.1.E** (webwork-opl:FM6.1) Estimate the laminar entry length.
+  - EK: L_e ≈ 0.05 Re D.
+  - P1 · drills: fm-entry-length
+
+## Unit 9 · Dimensional analysis and drag
+
+Big ideas: REGIME
+
+### 9.1 Dimensional analysis
+
+
+
+- ● **FM-9.1.A** (webwork-opl:FM5.1) Count the dimensionless groups with the Buckingham pi theorem.
+  - EK: Groups = variables − independent dimensions.
+  - P1 · drills: fm-pi-count
+- ● **FM-9.1.B** (webwork-opl:FM5.3) Find the model speed that matches the Reynolds number.
+  - EK: V_m = V_p (L_p/L_m)(ν_m/ν_p).
+  - P1 · drills: fm-model-similarity
+
+### 9.2 Drag
+
+
+
+- ● **FM-9.2.A** (webwork-opl:FM7.5) Compute a drag force from a drag coefficient.
+  - EK: F_D = C_D · ½ρV² · A.
+  - P1 · drills: fm-drag-force
+- ● **FM-9.2.B** (webwork-opl:FM7.5) Find a Stokes terminal velocity.
+  - EK: v_t = (ρ_p − ρ)gd²/18μ, valid for Re < 1.
+  - P1 · drills: fm-stokes-terminal
+
+## Unit 10 · Piping systems, pumps and submerged surfaces
+
+Big ideas: HEAD
+
+### 10.1 Networks and pumps
+
+
+
+- ● **FM-10.1.A** (webwork-opl:FM6.10) Split flow between parallel pipes.
+  - EK: Parallel pipes share the head loss; Q ∝ D^(5/2)/√L at equal f.
+  - P1 · drills: fm-parallel-pipes
+- ● **FM-10.1.B** (webwork-opl:FM11.3) Scale a pump with the affinity laws.
+  - EK: Q ∝ N, H ∝ N², P ∝ N³.
+  - P1 · drills: fm-pump-affinity
+- ● **FM-10.1.C** (webwork-opl:FM6.8) Find the operating point of a pump and a system.
+  - EK: Pump head = system head.
+  - P1 · drills: fm-operating-point
+
+### 10.2 Submerged surfaces
+
+
+
+- ● **FM-10.2.A** (webwork-opl:FM2.3) Find the hydrostatic force on a vertical plane gate.
+  - EK: F = ρg h_c A, acting below the centroid.
+  - P1 · drills: fm-gate-force
