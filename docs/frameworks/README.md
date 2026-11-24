@@ -43,7 +43,7 @@ Related reports: [standards and how much of each was read](../coverage/standards
 | Framework | Code | Objectives | Drilled | Partly | Open | Types | Anchored on |
 |---|---|---:|---:|---:|---:|---:|---|
 | [Chemical Reaction Engineering](reaction-engineering.md) | RE | 46 | 46 | 0 | 0 | 2.2 | NCEES FE Chemical CBT Exam Specifications (effective July 2020) (exam-spec, read: full) |
-| [Fluid Mechanics](fluid-mechanics.md) | FM | 64 | 64 | 0 | 0 | 1.3 | NCEES FE Chemical CBT Exam Specifications (effective July 2020) (exam-spec, read: full) |
+| [Fluid Mechanics](fluid-mechanics.md) | FM | 64 | 64 | 0 | 0 | 2.1 | NCEES FE Chemical CBT Exam Specifications (effective July 2020) (exam-spec, read: full) |
 | [Graduate Chemical Engineering Core](graduate-chemical-engineering.md) | GC | 38 | 38 | 0 | 0 | 2.0 | UC Irvine Chemical and Biomolecular Engineering graduate core: CBE 200, 210, 220A, 220B and 240 (catalogue descriptions, 2025-26) (course, read: part) |
 | [Mass Transfer](mass-transfer.md) | MS | 21 | 21 | 0 | 0 | 2.0 | NCEES PE Chemical CBT Exam Specifications (effective January 2020) (exam-spec, read: full) |
 | [Material and Energy Balances](material-balances.md) | MB | 18 | 18 | 0 | 0 | 2.2 | NCEES FE Chemical CBT Exam Specifications (effective July 2020) (exam-spec, read: full) |

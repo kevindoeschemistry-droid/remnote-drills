@@ -41,6 +41,15 @@ for f in glob.glob(os.path.join(ROOT, "drills/frameworks/*.yaml")):
     m = re.search(r"^code: *(\S+)", open(f).read(), re.M)
     if m: FWFILE[m.group(1)] = f
 
+# second types written as (objective code, Q) in scripts/second_specs/*.py: those whose objective sits in a
+# generated block are added here (scripts/second_types.py handles the hand-written lines)
+EXTRA = {}
+for f in sorted(glob.glob(os.path.join(ROOT, "scripts/second_specs/*.py"))):
+    n = "second_" + os.path.basename(f)[:-3]
+    sp2 = importlib.util.spec_from_file_location(n, f); m2 = importlib.util.module_from_spec(sp2); sp2.loader.exec_module(m2)
+    for code, qq in m2.ADD:
+        EXTRA.setdefault(code, []).append(qq)
+
 mapf = os.path.join(ROOT, "drills/standards/opl-map.yaml")
 maptext = open(mapf).read()
 total_q = total_lo = 0
@@ -49,6 +58,12 @@ for spec in sorted(glob.glob(os.path.join(ROOT, "scripts/opl_specs/*.py"))):
     sp = importlib.util.spec_from_file_location(name, spec); mod = importlib.util.module_from_spec(sp)
     sys.modules[name] = mod; sp.loader.exec_module(mod)
     fwf = FWFILE[mod.FW]
+    for u in mod.UNITS:
+        for tn, (_, los) in enumerate(u.topics, 1):
+            for lo in los:
+                for qq in EXTRA.get(f"{mod.FW}-{u.n}.{tn}.{lo.id}", []):
+                    if qq.name not in {x.name for x in lo.qs}:
+                        lo.qs.append(qq)
     # problems
     qs = [x for u in mod.UNITS for _, los in u.topics for lo in los for x in lo.qs]
     names = [x.name for x in qs]
