@@ -51,6 +51,39 @@
   verify:
     expect:
       v: (nsimplify(mco2)/Rational(44009, 1000))/(2*nsimplify(mh2o)/Rational(18015, 1000))
+- template: co-co2-mass
+  skill: olympiad.stoichiometry
+  pace: quick
+  given:
+    m:
+      pick:
+      - 0.25
+      - 1
+      - 2.5
+  cases:
+  - c: benzene, C₆H₆
+    M: 78.11
+    k: 6
+  - c: hexane, C₆H₁₄
+    M: 86.18
+    k: 6
+  - c: ethanol, C₂H₆O
+    M: 46.07
+    k: 2
+  - c: glucose, C₆H₁₂O₆
+    M: 180.16
+    k: 6
+  prompt: What mass of CO₂, in g, does complete combustion of {{m}} g of {{c}} (M = {{M}} g/mol) give? (CO₂ 44.009 g/mol)
+  parts:
+  - ask: Answer
+    label: v
+    tex: m
+    value: m/M*k*44.009
+    tol: 0.005
+    explain: Every carbon atom ends in one CO₂
+  verify:
+    expect:
+      v: solve(Eq(x/Rational(44009, 1000), nsimplify(m)/nsimplify(M)*k), x)[0]
 - template: co-hydrate-n
   skill: olympiad.stoichiometry
   pace: quick
@@ -90,6 +123,33 @@
   verify:
     expect:
       v: ((nsimplify(m1) - nsimplify(m1)*nsimplify(M)/(nsimplify(M) + n*Rational(18015, 1000)))/Rational(18015, 1000))/(nsimplify(m1)/(nsimplify(M) + n*Rational(18015, 1000)))
+- template: co-hydrate-percent
+  skill: olympiad.stoichiometry
+  pace: quick
+  cases:
+  - s: CuSO₄
+    k: 5
+    M: 159.61
+  - s: MgSO₄
+    k: 7
+    M: 120.37
+  - s: Na₂CO₃
+    k: 10
+    M: 105.99
+  - s: CaCl₂
+    k: 2
+    M: 110.98
+  prompt: What mass percentage of {{s}}·{{k}}H₂O is lost as water on complete drying? (anhydrous {{M}} g/mol, H₂O 18.015)
+  parts:
+  - ask: Answer
+    label: v
+    tex: \%
+    value: 100*k*18.015/(M + k*18.015)
+    tol: 0.005
+    explain: Water's share of the hydrate's molar mass
+  verify:
+    expect:
+      v: 100 - 100*nsimplify(M)/(nsimplify(M) + k*Rational(18015, 1000))
 - template: co-molality-mass
   skill: olympiad.stoichiometry
   pace: quick
@@ -122,6 +182,33 @@
   verify:
     expect:
       v: solve(Eq((x/nsimplify(M))/(Rational(w, 1000)), nsimplify(b)), x)[0]
+- template: co-molality-from-percent
+  skill: olympiad.stoichiometry
+  pace: quick
+  given:
+    w:
+      pick:
+      - 5
+      - 10
+      - 20
+  cases:
+  - s: NaCl
+    M: 58.44
+  - s: glucose
+    M: 180.16
+  - s: urea
+    M: 60.06
+  prompt: A solution is {{w}}% {{s}} by mass (M = {{M}} g/mol). What is its molality?
+  parts:
+  - ask: Answer
+    label: v
+    tex: b
+    value: w/M/((100 - w)/1000)
+    tol: 0.005
+    explain: In 100 g, w g of solute and (100 − w) g of solvent
+  verify:
+    expect:
+      v: solve(Eq(x*(100 - nsimplify(w))/1000, nsimplify(w)/nsimplify(M)), x)[0]
 - template: co-limiting-yield
   skill: olympiad.stoichiometry
   pace: quick
@@ -148,6 +235,30 @@
   verify:
     expect:
       v: Rational(13334, 100)*Min(nsimplify(ma)/Rational(26982, 1000), Rational(2, 3)*nsimplify(mb)/Rational(709, 10))
+- template: co-percent-yield
+  skill: olympiad.stoichiometry
+  pace: quick
+  given:
+    m1:
+      pick:
+      - 2
+      - 3.5
+      - 5
+    m2:
+      pick:
+      - 1.9
+      - 2.4
+  prompt: '{{m1}} g of salicylic acid (138.12 g/mol) gives {{m2}} g of aspirin (180.16 g/mol). What is the percentage yield?'
+  parts:
+  - ask: Answer
+    label: v
+    tex: \%
+    value: 100*m2/(m1/138.12*180.16)
+    tol: 0.005
+    explain: Compare moles of product with moles of the limiting reagent
+  verify:
+    expect:
+      v: 100*(nsimplify(m2)/Rational(18016, 100))/(nsimplify(m1)/Rational(13812, 100))
 - template: co-back-titration
   skill: olympiad.stoichiometry
   pace: quick
@@ -182,6 +293,37 @@
   verify:
     expect:
       v: (Rational(V1, 1000)*nsimplify(c1) - Rational(V2, 1000)*nsimplify(c2))/2*Rational(10009, 100)/nsimplify(m)*100
+- template: co-antacid-naoh
+  skill: olympiad.stoichiometry
+  pace: quick
+  given:
+    mg:
+      pick:
+      - 200
+      - 300
+      - 400
+    V1:
+      pick:
+      - 50
+    c1:
+      pick:
+      - 0.4
+      - 0.5
+    c2:
+      pick:
+      - 0.1
+      - 0.2
+  prompt: A tablet containing {{mg}} mg Mg(OH)₂ (58.32 g/mol) is dissolved in {{V1}} mL of {{c1}} M HCl. What volume of {{c2}} M NaOH, in mL, neutralises the excess acid?
+  parts:
+  - ask: Answer
+    label: v
+    tex: V
+    value: (V1*c1 - 2*mg/58.32)/c2
+    tol: 0.005
+    explain: mmol HCl = 2 × mmol Mg(OH)₂ + mmol NaOH
+  verify:
+    expect:
+      v: solve(Eq(nsimplify(c2)*x + 2*nsimplify(mg)/Rational(5832, 100), nsimplify(V1)*nsimplify(c1)), x)[0]
 - template: co-flame-test
   skill: olympiad.lab
   pace: recall
@@ -229,6 +371,38 @@
     explain: Electrons excited in the flame fall back and emit at element-specific wavelengths. Sodium's yellow is so strong it masks potassium unless viewed through cobalt glass
   verify:
     authored: true
+- template: co-flame-confusion
+  skill: olympiad.lab
+  pace: recall
+  cases:
+  - q: Which two ions give flames that are hard to tell apart by eye?
+    o1: Li⁺ and Sr²⁺ (both crimson)
+    o2: Na⁺ and Ba²⁺
+    o3: K⁺ and Cu²⁺
+    o4: Ca²⁺ and Ba²⁺
+  - q: Why does a trace of sodium spoil many flame tests?
+    o1: Its intense yellow masks other colours
+    o2: It quenches the flame
+    o3: It reacts with the wire
+    o4: It turns everything green
+  - q: Which cation gives an orange-red flame?
+    o1: Ca²⁺
+    o2: Ba²⁺
+    o3: K⁺
+    o4: Cu²⁺
+  prompt: '{{q}}'
+  parts:
+  - ask: Answer
+    label: v
+    choice: &id002
+    - '{{o1}}'
+    - '{{o2}}'
+    - '{{o3}}'
+    - '{{o4}}'
+    correct: '0'
+    explain: Flame colours come from electrons dropping between levels; each element emits its own lines
+  verify:
+    authored: true
 - template: co-distinguish-salts
   skill: olympiad.lab
   pace: recall
@@ -265,6 +439,34 @@
     choice: *id001
     correct: '0'
     explain: 'A distinguishing test needs a difference: Ag⁺ precipitates only halides, Ba²⁺ precipitates sulfate (also carbonate, which acid then dissolves), Zn(OH)₂ is amphoteric and Mg(OH)₂ is not, NH₄⁺ releases NH₃ with base'
+  verify:
+    authored: true
+- template: co-tell-apart
+  skill: olympiad.lab
+  pace: recall
+  cases:
+  - q: Which single reagent tells Na₂CO₃ from Na₂SO₄?
+    o1: Dilute HCl (fizzing with carbonate)
+    o2: BaCl₂
+    o3: Phenolphthalein only
+    o4: Water
+  - q: Which reagent tells ZnSO₄ from MgSO₄?
+    o1: Excess NaOH (Zn(OH)₂ redissolves)
+    o2: BaCl₂
+    o3: Dilute HCl
+    o4: AgNO₃
+  - q: Which reagent tells KCl from KI?
+    o1: AgNO₃ then NH₃ (AgCl dissolves, AgI does not)
+    o2: NaOH
+    o3: BaCl₂
+    o4: Dilute HCl
+  prompt: '{{q}}'
+  parts:
+  - ask: Answer
+    label: v
+    choice: *id002
+    correct: '0'
+    explain: Look for a reagent that gives a different visible result with each salt
   verify:
     authored: true
 - template: co-precipitate-colour
@@ -315,6 +517,39 @@
     explain: 'Descriptive questions lean on these: halide precipitates darken from Cl to I; transition-metal hydroxides carry the ion''s colour; most sulfides are black'
   verify:
     authored: true
+- template: co-ppt-identify
+  skill: olympiad.lab
+  pace: recall
+  cases:
+  - q: Pb²⁺ and I⁻ give a precipitate of which colour?
+    o1: Bright yellow
+    o2: White
+    o3: Black
+    o4: Blue
+  - q: Ag⁺ and CrO₄²⁻ give a precipitate of which colour?
+    o1: Brick red
+    o2: White
+    o3: Yellow
+    o4: Green
+  - q: Cu²⁺ and H₂S give a precipitate of which colour?
+    o1: Black
+    o2: Yellow
+    o3: White
+    o4: Pink
+  - q: Fe³⁺ and [Fe(CN)₆]⁴⁻ give which?
+    o1: A deep blue precipitate (Prussian blue)
+    o2: A red solution
+    o3: A white precipitate
+    o4: No change
+  prompt: '{{q}}'
+  parts:
+  - ask: Answer
+    label: v
+    choice: *id002
+    correct: '0'
+    explain: 'Learn the strongly coloured ones: they are the ones asked'
+  verify:
+    authored: true
 - template: co-colorimeter-led
   skill: olympiad.lab
   pace: recall
@@ -346,6 +581,34 @@
     choice: *id001
     correct: '0'
     explain: A solution looks the colour it lets through; it absorbs the complementary colour, which is where Beer's law has the biggest slope
+  verify:
+    authored: true
+- template: co-colour-complement
+  skill: olympiad.lab
+  pace: recall
+  cases:
+  - q: A solution looks blue. Which LED colour should a colorimeter use?
+    o1: Orange (around 600 nm)
+    o2: Blue
+    o3: Violet
+    o4: Green
+  - q: A solution looks red. Which LED colour suits it?
+    o1: Green (around 500 nm)
+    o2: Red
+    o3: Orange
+    o4: Yellow
+  - q: A solution looks yellow. Which LED colour suits it?
+    o1: Violet or blue (around 430 nm)
+    o2: Yellow
+    o3: Red
+    o4: Orange
+  prompt: '{{q}}'
+  parts:
+  - ask: Answer
+    label: v
+    choice: *id002
+    correct: '0'
+    explain: A solution's colour is what it lets through; measure at the complementary colour, which it absorbs
   verify:
     authored: true
 - template: co-lab-error
@@ -381,6 +644,34 @@
     explain: 'Trace the faulty reading into the formula: less mass lost means less water; extra burette volume reads as more titrant; extra absorbance reads as more solute; total pressure overstates the gas'
   verify:
     authored: true
+- template: co-error-direction
+  skill: olympiad.lab
+  pace: recall
+  cases:
+  - q: A burette tip has an air bubble that is expelled during the titration. The calculated analyte concentration will be…
+    o1: Too high
+    o2: Too low
+    o3: Unaffected
+    o4: Unpredictable
+  - q: A precipitate is weighed while still damp. The calculated percentage of analyte will be…
+    o1: Too high
+    o2: Too low
+    o3: Unaffected
+    o4: Zero
+  - q: Some gas escapes before collection in a molar-mass-by-gas-volume experiment. The molar mass will come out…
+    o1: Too high
+    o2: Too low
+    o3: Unaffected
+    o4: Negative
+  prompt: '{{q}}'
+  parts:
+  - ask: Answer
+    label: v
+    choice: *id002
+    correct: '0'
+    explain: 'Trace the error through the formula: what is too big or too small, and is it in the numerator or the denominator?'
+  verify:
+    authored: true
 - template: co-gas-over-water
   skill: olympiad.lab
   pace: quick
@@ -413,6 +704,35 @@
   verify:
     expect:
       v: solve(Eq((nsimplify(P) - nsimplify(pw))*Rational(V, 1000), x/1000*Rational(8314, 1000)*(T + Rational(27315, 100))), x)[0]
+- template: co-wet-gas-volume
+  skill: olympiad.lab
+  pace: quick
+  given:
+    nn:
+      pick:
+      - 2
+      - 4.5
+      - 8
+    P:
+      pick:
+      - 99.5
+      - 101.3
+  cases:
+  - T: 293.15
+    pw: 2.34
+  - T: 298.15
+    pw: 3.17
+  prompt: '{{nn}} mmol of H₂ is collected over water at {{T}} K and {{P}} kPa total pressure. Water''s vapour pressure is {{pw}} kPa. What volume of wet gas, in mL, is collected? (R = 8.314 J/mol·K)'
+  parts:
+  - ask: Answer
+    label: v
+    tex: V
+    value: nn/1000*8.314462618*T/((P - pw)*1000)*1e6
+    tol: 0.005
+    explain: The H₂ supplies only P − p(water) of the pressure
+  verify:
+    expect:
+      v: solve(Eq((nsimplify(P) - nsimplify(pw))*1000*x/10**6, nsimplify(nn)/1000*Rational('8.314462618')*nsimplify(T)), x)[0]
 - template: co-unit-cell-density
   skill: olympiad.states
   pace: quick
@@ -453,6 +773,33 @@
   verify:
     expect:
       v: Z*nsimplify(M)/(Rational(6022, 1000)*10**23*(nsimplify(a)/10**10)**3)
+- template: co-molar-mass-from-cell
+  skill: olympiad.states
+  pace: quick
+  cases:
+  - lat: fcc
+    Z: 4
+    a: 408.6
+    rho: 10.49
+  - lat: bcc
+    Z: 2
+    a: 316.5
+    rho: 19.25
+  - lat: fcc
+    Z: 4
+    a: 361.5
+    rho: 8.96
+  prompt: A metal is {{lat}} (Z = {{Z}}) with edge {{a}} pm and density {{rho}} g/cm³. What is its molar mass, in g/mol? (N_A = 6.022 × 10²³)
+  parts:
+  - ask: Answer
+    label: v
+    tex: M
+    value: rho*(a*1e-10)^3*6.02214076e23/Z
+    tol: 0.005
+    explain: ρ = ZM/(N_A a³), with a in cm; the answer names the metal (Ag, W, Cu)
+  verify:
+    expect:
+      v: solve(Eq(Z*x/(Rational('6.02214076e23')*(nsimplify(a)/10**10)**3), nsimplify(rho)), x)[0]
 - template: co-coordination-structure
   skill: olympiad.states
   pace: recall
@@ -502,6 +849,34 @@
     explain: 'Coordination numbers must balance the formula: in CaF₂ there are twice as many F⁻, so each F⁻ has half Ca''s count'
   verify:
     authored: true
+- template: co-structure-cn
+  skill: olympiad.states
+  pace: recall
+  cases:
+  - q: In the perovskite CaTiO₃, what is the coordination number of Ti?
+    o1: 6 (octahedral O)
+    o2: '4'
+    o3: '8'
+    o4: '12'
+  - q: In rutile, TiO₂, what are the coordination numbers of Ti and O?
+    o1: 6 and 3
+    o2: 4 and 2
+    o3: 8 and 4
+    o4: 6 and 6
+  - q: In the antifluorite Na₂O, what is the coordination number of O²⁻?
+    o1: '8'
+    o2: '4'
+    o3: '6'
+    o4: '12'
+  prompt: '{{q}}'
+  parts:
+  - ask: Answer
+    label: v
+    choice: *id002
+    correct: '0'
+    explain: In AₓBᵧ, CN(A)·x = CN(B)·y
+  verify:
+    authored: true
 - template: co-liquid-remaining
   skill: olympiad.states
   pace: quick
@@ -536,6 +911,41 @@
   verify:
     expect:
       v: m - nsimplify(p)*V/(Rational(8314, 1000)*(T + Rational(27315, 100)))*Rational(1802, 100)
+- template: co-vapour-pressure-evap
+  skill: olympiad.states
+  pace: quick
+  cases:
+  - l: water
+    M: 18.015
+    m: 23
+    V: 1
+    T: 298.15
+  - l: water
+    M: 18.015
+    m: 46
+    V: 2
+    T: 298.15
+  - l: ethanol
+    M: 46.07
+    m: 146
+    V: 1
+    T: 298.15
+  - l: ethanol
+    M: 46.07
+    m: 290
+    V: 2
+    T: 298.15
+  prompt: '{{m}} mg of {{l}} (M = {{M}} g/mol) evaporates into an evacuated {{V}} L flask at {{T}} K, and liquid remains. What is its vapour pressure, in kPa?'
+  parts:
+  - ask: Answer
+    label: v
+    tex: p
+    value: m/1000/M*8.314462618*T/(V/1000)/1000
+    tol: 0.005
+    explain: 'With liquid left, the vapour is saturated: p = nRT/V'
+  verify:
+    expect:
+      v: solve(Eq(x*1000*nsimplify(V)/1000, nsimplify(m)/1000/nsimplify(M)*Rational('8.314462618')*nsimplify(T)), x)[0]
 - template: co-graham
   skill: olympiad.states
   pace: quick
@@ -558,6 +968,30 @@
   verify:
     expect:
       v: solve(Eq(nsimplify(r), sqrt(32/x)), x)[0]
+- template: co-graham-mass
+  skill: olympiad.states
+  pace: quick
+  given:
+    t1:
+      pick:
+      - 30
+      - 40
+    t2:
+      pick:
+      - 21.2
+      - 45
+      - 60
+  prompt: Equal volumes of O₂ (32.00 g/mol) and an unknown gas effuse through the same hole in {{t1}} s and {{t2}} s. What is the unknown's molar mass?
+  parts:
+  - ask: Answer
+    label: v
+    tex: M
+    value: 32*(t2/t1)^2
+    tol: 0.005
+    explain: Time ∝ 1/rate ∝ √M
+  verify:
+    expect:
+      v: solve(Eq(sqrt(x/32), nsimplify(t2)/nsimplify(t1)), x)[0]
 - template: co-boiling-rank
   skill: olympiad.states
   pace: recall
@@ -595,6 +1029,34 @@
     explain: 'Strongest forces win: network and ionic bonding, then hydrogen bonding, then dispersion (more electrons, more surface). Branching lowers the boiling point at the same formula'
   verify:
     authored: true
+- template: co-mp-rank
+  skill: olympiad.states
+  pace: recall
+  cases:
+  - q: Which has the highest melting point?
+    o1: SiO₂
+    o2: CO₂
+    o3: H₂O
+    o4: NaCl
+  - q: Which noble gas boils highest?
+    o1: Xe
+    o2: He
+    o3: Ne
+    o4: Ar
+  - q: 'Which boils higher, and why: H₂O or H₂S?'
+    o1: H₂O, because of hydrogen bonding
+    o2: H₂S, because it is heavier
+    o3: Equal
+    o4: H₂S, because of dipoles
+  prompt: '{{q}}'
+  parts:
+  - ask: Answer
+    label: v
+    choice: *id002
+    correct: '0'
+    explain: Network solids > ionic > hydrogen bonded > dispersion only; dispersion grows with size
+  verify:
+    authored: true
 - template: co-k-from-dh-ds
   skill: olympiad.thermochem
   pace: quick
@@ -629,6 +1091,31 @@
   verify:
     expect:
       v: exp(-(dH*1000 - T*dS)/(Rational(8314, 1000)*T))
+- template: co-dg-from-k
+  skill: olympiad.thermochem
+  pace: quick
+  given:
+    K:
+      pick:
+      - 2.5e-05
+      - 0.4
+      - 3000.0
+      - 1000000000000.0
+    T:
+      pick:
+      - 298.15
+      - 500
+  prompt: A reaction has K = {{K}} at {{T}} K. What is ΔG°, in kJ/mol?
+  parts:
+  - ask: Answer
+    label: v
+    tex: \Delta G^\circ
+    value: -8.314462618*T*log(K)/1000
+    tol: 0.005
+    explain: 'ΔG° = −RT ln K: K > 1 means ΔG° < 0'
+  verify:
+    expect:
+      v: -Rational('8.314462618')*nsimplify(T)*log(nsimplify(K))/1000
 - template: co-crossover-temperature
   skill: olympiad.thermochem
   pace: quick
@@ -654,6 +1141,31 @@
   verify:
     expect:
       v: solve(Eq(dH*1000 - x*dS, 0), x)[0]
+- template: co-ds-from-crossover
+  skill: olympiad.thermochem
+  pace: quick
+  given:
+    dH:
+      pick:
+      - 42
+      - 87.5
+      - 178
+    T:
+      pick:
+      - 350
+      - 840
+      - 1110
+  prompt: A reaction with ΔH° = {{dH}} kJ/mol becomes spontaneous above {{T}} K. What is ΔS°, in J/(mol·K)?
+  parts:
+  - ask: Answer
+    label: v
+    tex: \Delta S^\circ
+    value: dH*1000/T
+    tol: 0.005
+    explain: At the crossover ΔG° = 0, so ΔS° = ΔH°/T
+  verify:
+    expect:
+      v: solve(Eq(nsimplify(dH)*1000 - nsimplify(T)*x, 0), x)[0]
 - template: co-enthalpy-solution
   skill: olympiad.thermochem
   pace: quick
@@ -688,6 +1200,39 @@
   verify:
     expect:
       v: -(g + w)*Rational(4184, 1000)*nsimplify(dT)/1000/(g/nsimplify(M))
+- template: co-temp-change-solution
+  skill: olympiad.thermochem
+  pace: quick
+  given:
+    g:
+      pick:
+      - 2
+      - 5
+    w:
+      pick:
+      - 50
+      - 100
+  cases:
+  - s: NH₄NO₃
+    M: 80.04
+    dH: 25.7
+  - s: NaOH
+    M: 40.0
+    dH: -44.5
+  - s: CaCl₂
+    M: 110.98
+    dH: -81.3
+  prompt: '{{g}} g of {{s}} (M = {{M}}, ΔH_soln = {{dH}} kJ/mol) dissolves in {{w}} g of water. What is the temperature change, in K? (c = 4.18 J/g·K, mass of solution used)'
+  parts:
+  - ask: Answer
+    label: v
+    tex: \Delta T
+    value: -g/M*dH*1000/((g + w)*4.18)
+    tol: 0.005
+    explain: 'Heat released by dissolving warms the solution: q = mcΔT = −nΔH'
+  verify:
+    expect:
+      v: solve(Eq((nsimplify(g) + nsimplify(w))*Rational(418, 100)*x, -nsimplify(g)/nsimplify(M)*nsimplify(dH)*1000), x)[0]
 - template: co-entropy-sign
   skill: olympiad.thermochem
   pace: recall
@@ -715,6 +1260,34 @@
     explain: Count gas moles first; they dominate. Ions in water are partly ordered by hydration, so precipitation can still raise or lower entropy, but losing aqueous ions to a solid usually lowers it
   verify:
     authored: true
+- template: co-ds-sign-2
+  skill: olympiad.thermochem
+  pace: recall
+  cases:
+  - q: What is the sign of ΔS for 2H₂S(g) + 3O₂(g) → 2SO₂(g) + 2H₂O(l)?
+    o1: Negative
+    o2: Positive
+    o3: Zero
+    o4: Cannot tell
+  - q: What is the sign of ΔS when NaCl dissolves in water?
+    o1: Positive
+    o2: Negative
+    o3: Zero
+    o4: Cannot tell
+  - q: What is the sign of ΔS for N₂O₄(g) → 2NO₂(g)?
+    o1: Positive
+    o2: Negative
+    o3: Zero
+    o4: Cannot tell
+  prompt: '{{q}}'
+  parts:
+  - ask: Answer
+    label: v
+    choice: *id002
+    correct: '0'
+    explain: Count moles of gas first; dissolving a crystal usually increases entropy
+  verify:
+    authored: true
 - template: co-hess-cycle
   skill: olympiad.thermochem
   pace: quick
@@ -736,6 +1309,37 @@
   verify:
     expect:
       v: solve(Eq(x + nsimplify(b), nsimplify(a)), x)[0]
+- template: co-hf-from-hc
+  skill: olympiad.thermochem
+  pace: quick
+  cases:
+  - c: CH₄(g)
+    a: 1
+    b: 2
+    Hc: -890.3
+  - c: C₂H₆(g)
+    a: 2
+    b: 3
+    Hc: -1560.7
+  - c: C₂H₅OH(l)
+    a: 2
+    b: 3
+    Hc: -1366.8
+  - c: C₆H₆(l)
+    a: 6
+    b: 3
+    Hc: -3267.6
+  prompt: ΔH_c of C(graphite) is −393.5, of H₂ is −285.8 and of {{c}} is {{Hc}} kJ/mol. What is ΔH_f of {{c}}, in kJ/mol?
+  parts:
+  - ask: Answer
+    label: v
+    tex: \Delta H_f
+    value: a*(-393.5) + b*(-285.8) - Hc
+    tol: 0.005
+    explain: 'Formation then combustion equals burning the elements: ΔH_f = ΣΔH_c(elements) − ΔH_c(compound)'
+  verify:
+    expect:
+      v: solve(Eq(x + nsimplify(Hc), a*Rational(-3935, 10) + b*Rational(-2858, 10)), x)[0]
 - template: co-order-from-rates
   skill: olympiad.kinetics
   pace: quick
@@ -772,6 +1376,39 @@
   verify:
     expect:
       v: log((nsimplify(r1)*f**n)/nsimplify(r1))/log((nsimplify(c1)*f)/nsimplify(c1))
+- template: co-rate-predict
+  skill: olympiad.kinetics
+  pace: quick
+  given:
+    m:
+      pick:
+      - 1
+      - 2
+    nb:
+      pick:
+      - 0
+      - 1
+      - 2
+    fa:
+      pick:
+      - 2
+      - 3
+    fb:
+      pick:
+      - 0.5
+      - 2
+      - 3
+  prompt: Rate = k[A]^{{m}}[B]^{{nb}}. [A] is multiplied by {{fa}} and [B] by {{fb}}. By what factor does the rate change?
+  parts:
+  - ask: Answer
+    label: v
+    tex: r'/r
+    value: fa^m*fb^nb
+    tol: 0.005
+    explain: Each concentration's factor is raised to its order
+  verify:
+    expect:
+      v: nsimplify(fa)**m*nsimplify(fb)**nb
 - template: co-preequilibrium-order
   skill: olympiad.kinetics
   pace: quick
@@ -794,6 +1431,34 @@
   verify:
     expect:
       v: 2 + 1
+- template: co-mechanism-rate-law
+  skill: olympiad.kinetics
+  pace: recall
+  cases:
+  - q: 'Mechanism: 2NO ⇌ N₂O₂ (fast), N₂O₂ + O₂ → 2NO₂ (slow). What is the rate law?'
+    o1: rate = k[NO]²[O₂]
+    o2: rate = k[NO][O₂]
+    o3: rate = k[N₂O₂][O₂]
+    o4: rate = k[NO]²
+  - q: A rate law contains [H⁺]⁻¹. What does that suggest?
+    o1: A proton is released in a fast step before the slow step
+    o2: H⁺ is a catalyst in the slow step
+    o3: The reaction is zero order
+    o4: H⁺ is the product
+  - q: With a fast pre-equilibrium of constant K, the observed rate constant is…
+    o1: K × k of the slow step
+    o2: k of the fast step
+    o3: k_slow / K
+    o4: Independent of K
+  prompt: '{{q}}'
+  parts:
+  - ask: Answer
+    label: v
+    choice: *id002
+    correct: '0'
+    explain: 'Replace intermediates using the pre-equilibrium: [I] = K[reactants]'
+  verify:
+    authored: true
 - template: co-parallel-arrhenius
   skill: olympiad.kinetics
   pace: quick
@@ -822,6 +1487,36 @@
   verify:
     expect:
       v: 1/(1 + exp(-e2*1000/(Rational(8314, 1000)*T))/exp(-e2*1000/(Rational(8314, 1000)*300))/(exp(-e1*1000/(Rational(8314, 1000)*T))/exp(-e1*1000/(Rational(8314, 1000)*300))))
+- template: co-equal-rate-temp
+  skill: olympiad.kinetics
+  pace: quick
+  given:
+    A1:
+      pick:
+      - 10000000000000.0
+    E1:
+      pick:
+      - 120
+      - 140
+    A2:
+      pick:
+      - 10000000000.0
+      - 100000000000.0
+    E2:
+      pick:
+      - 80
+      - 95
+  prompt: Two parallel first-order paths have A₁ = {{A1}} s⁻¹, Ea₁ = {{E1}} kJ/mol and A₂ = {{A2}} s⁻¹, Ea₂ = {{E2}} kJ/mol. At what temperature, in K, are their rates equal?
+  parts:
+  - ask: Answer
+    label: v
+    tex: T
+    value: (E1 - E2)*1000/(8.314462618*log(A1/A2))
+    tol: 0.005
+    explain: 'Set A₁e^(−E₁/RT) = A₂e^(−E₂/RT): the high-Ea path wins above that temperature'
+  verify:
+    expect:
+      v: (nsimplify(E1) - nsimplify(E2))*1000/(Rational('8.314462618')*(log(nsimplify(A1)) - log(nsimplify(A2))))
 - template: co-isotope-effect
   skill: olympiad.kinetics
   pace: recall
@@ -844,6 +1539,33 @@
     explain: A primary kinetic isotope effect points to the bond being broken in the slow step; a ratio near 1 means it is broken in a fast step or not at all
   verify:
     authored: true
+- template: co-kie-from-freq
+  skill: olympiad.kinetics
+  pace: quick
+  given:
+    nh:
+      pick:
+      - 2900
+      - 3000
+    nd:
+      pick:
+      - 2100
+      - 2200
+    T:
+      pick:
+      - 298.15
+      - 350
+  prompt: A C–H stretch at {{nh}} cm⁻¹ becomes C–D at {{nd}} cm⁻¹. If the whole zero-point difference is lost at the transition state, what is k_H/k_D at {{T}} K?
+  parts:
+  - ask: Answer
+    label: v
+    tex: k_H/k_D
+    value: exp(6.62607015e-34*299792458*100*(nh - nd)/(2*1.380649e-23*T))
+    tol: 0.005
+    explain: ΔE = ½hc(ν̃_H − ν̃_D); the ratio is about 7 at room temperature
+  verify:
+    expect:
+      v: exp(Rational('6.62607015e-34')*Integer(299792458)*100*(nsimplify(nh) - nsimplify(nd))/(2*Rational('1.380649e-23')*nsimplify(T)))
 - template: co-secular-equilibrium
   skill: olympiad.kinetics
   pace: quick
@@ -873,6 +1595,31 @@
   verify:
     expect:
       v: A*(log(2)/(nsimplify(td)/Rational(36525, 100)))/(log(2)/(nsimplify(td)/Rational(36525, 100)) - log(2)/tp)
+- template: co-daughter-halflife
+  skill: olympiad.kinetics
+  pace: quick
+  given:
+    r:
+      pick:
+      - 2.0e-06
+      - 3.5e-07
+      - 0.0001
+    Tp:
+      pick:
+      - 1600
+      - 4500000000.0
+      - 704000000.0
+  prompt: In secular equilibrium, a sample holds {{r}} daughter atoms per parent atom. The parent's half-life is {{Tp}} years. What is the daughter's half-life, in years?
+  parts:
+  - ask: Answer
+    label: v
+    tex: T_D
+    value: r*Tp
+    tol: 0.005
+    explain: 'Equal activities: N_D/T_D = N_P/T_P'
+  verify:
+    expect:
+      v: solve(Eq(x/nsimplify(Tp), nsimplify(r)), x)[0]
 - template: co-combine-k
   skill: olympiad.equilibria
   pace: quick
@@ -898,6 +1645,35 @@
   verify:
     expect:
       v: nsimplify(k2)**2*(1/nsimplify(k1))
+- template: co-k-reverse-scale
+  skill: olympiad.equilibria
+  pace: quick
+  given:
+    K:
+      pick:
+      - 4
+      - 0.25
+      - 1600.0
+  cases:
+  - how: written in reverse
+    f: -1
+  - how: with every coefficient halved
+    f: 0.5
+  - how: with every coefficient doubled
+    f: 2
+  - how: reversed and halved
+    f: -0.5
+  prompt: A reaction has K = {{K}}. What is K for the reaction {{how}}?
+  parts:
+  - ask: Answer
+    label: v
+    tex: K'
+    value: K^f
+    tol: 0.005
+    explain: Reversing inverts K; multiplying coefficients by n raises K to the n
+  verify:
+    expect:
+      v: nsimplify(K)**nsimplify(f)
 - template: co-pka-from-ionisation
   skill: olympiad.equilibria
   pace: quick
@@ -924,6 +1700,30 @@
   verify:
     expect:
       v: -log(nsimplify(c)*(nsimplify(p)/100)**2/(1 - nsimplify(p)/100))/log(10)
+- template: co-ionisation-from-pka
+  skill: olympiad.equilibria
+  pace: quick
+  given:
+    c:
+      pick:
+      - 0.001
+      - 0.01
+      - 0.1
+    pk:
+      pick:
+      - 3.2
+      - 4.76
+  prompt: What percentage of a {{c}} M weak acid with pKa {{pk}} is ionised? (Solve the quadratic.)
+  parts:
+  - ask: Answer
+    label: v
+    tex: \%
+    value: 100*(-10^(-pk) + sqrt(10^(-2*pk) + 4*10^(-pk)*c))/(2*c)
+    tol: 0.005
+    explain: Dilution raises the fraction ionised
+  verify:
+    expect:
+      v: 100*Max(*solve(Eq(x**2, 10**(-nsimplify(pk))*(nsimplify(c) - x)), x))/nsimplify(c)
 - template: co-complex-solubility
   skill: olympiad.equilibria
   pace: quick
@@ -945,6 +1745,27 @@
   verify:
     expect:
       v: Max(*solve(Eq(x**2/nsimplify(a)**2, Rational(18, 10**11)*16*10**6), x))
+- template: co-agcl-in-ammonia
+  skill: olympiad.equilibria
+  pace: quick
+  given:
+    L:
+      pick:
+      - 0.5
+      - 1
+      - 2
+      - 6
+  prompt: What is the molar solubility of AgCl in {{L}} M NH₃? (K_sp = 1.8 × 10⁻¹⁰, β₂[Ag(NH₃)₂⁺] = 1.6 × 10⁷; Ag⁺ is mostly complexed)
+  parts:
+  - ask: Answer
+    label: v
+    tex: s
+    value: sqrt(1.8e-10*1.6e7)*L/(1 + 2*sqrt(1.8e-10*1.6e7))
+    tol: 0.005
+    explain: K = K_sp·β₂ = s²/[NH₃]², with [NH₃] = L − 2s
+  verify:
+    expect:
+      v: solve(Eq(x, sqrt(Rational(18, 10**11)*16*10**6)*(nsimplify(L) - 2*x)), x)[0]
 - template: co-heterogeneous-kp
   skill: olympiad.equilibria
   pace: quick
@@ -969,6 +1790,33 @@
   verify:
     expect:
       v: nsimplify(K)
+- template: co-carbonate-decomposed
+  skill: olympiad.equilibria
+  pace: quick
+  given:
+    Kp:
+      pick:
+      - 0.22
+      - 1.04
+    T:
+      pick:
+      - 1073
+      - 1173
+    V:
+      pick:
+      - 1
+      - 5
+  prompt: For CaCO₃(s) ⇌ CaO(s) + CO₂(g), K_p = {{Kp}} atm at {{T}} K. Excess CaCO₃ is heated in a sealed, evacuated {{V}} L vessel. How many mmol of CaCO₃ decompose? (R = 0.082057 L·atm/mol·K)
+  parts:
+  - ask: Answer
+    label: v
+    tex: n
+    value: Kp*V/(0.082057*T)*1000
+    tol: 0.005
+    explain: 'Solids drop out of K: K_p is just the CO₂ pressure, whatever solid remains'
+  verify:
+    expect:
+      v: solve(Eq(x/1000*Rational('0.082057')*nsimplify(T), nsimplify(Kp)*nsimplify(V)), x)[0]
 - template: co-diprotic-points
   skill: olympiad.equilibria
   pace: quick
@@ -1001,6 +1849,33 @@
   verify:
     expect:
       v: nsimplify(k1) if w == 0 else ((nsimplify(k1) + nsimplify(k2))/2 if w == 1 else nsimplify(k2))
+- template: co-first-equivalence-ph
+  skill: olympiad.equilibria
+  pace: quick
+  cases:
+  - a: Carbonic acid
+    p1: 6.35
+    p2: 10.33
+  - a: Phosphoric acid
+    p1: 2.15
+    p2: 7.2
+  - a: Succinic acid
+    p1: 4.21
+    p2: 5.64
+  - a: Malonic acid
+    p1: 2.83
+    p2: 5.69
+  prompt: '{{a}} (pKa₁ {{p1}}, pKa₂ {{p2}}) is titrated with NaOH. Estimate the pH at the first equivalence point.'
+  parts:
+  - ask: Answer
+    label: v
+    tex: \mathrm{pH}
+    value: (p1 + p2)/2
+    tol: 0.005
+    explain: The amphiprotic HA⁻ sits at [H⁺] ≈ √(K₁K₂)
+  verify:
+    expect:
+      v: -log(sqrt(10**(-nsimplify(p1))*10**(-nsimplify(p2))))/log(10)
 - template: co-average-ox-state
   skill: olympiad.electrochem
   pace: quick
@@ -1052,6 +1927,49 @@
   verify:
     expect:
       v: ox_state(f, q, t)
+- template: co-mixed-valence-fraction
+  skill: olympiad.electrochem
+  pace: quick
+  cases:
+  - f: Fe₃O₄
+    fm: Fe3O4
+    M: Fe
+    lo: II
+    hi: III
+    a: 2
+    b: 3
+  - f: Mn₃O₄
+    fm: Mn3O4
+    M: Mn
+    lo: II
+    hi: III
+    a: 2
+    b: 3
+  - f: Pb₃O₄
+    fm: Pb3O4
+    M: Pb
+    lo: II
+    hi: IV
+    a: 2
+    b: 4
+  - f: Co₃O₄
+    fm: Co3O4
+    M: Co
+    lo: II
+    hi: III
+    a: 2
+    b: 3
+  prompt: In {{f}}, {{M}} occurs as {{M}}({{lo}}) and {{M}}({{hi}}). What fraction of the {{M}} atoms is {{M}}({{hi}})?
+  parts:
+  - ask: Answer
+    label: v
+    tex: ''
+    value: 'b == 4 ? 1/3 : 2/3'
+    tol: 0.005
+    explain: 'Average state = weighted mean of the two: Fe₃O₄ is FeO·Fe₂O₃, Pb₃O₄ is 2PbO·PbO₂'
+  verify:
+    expect:
+      v: (ox_state(fm, 0, M) - a)/(b - a)
 - template: co-combine-potentials
   skill: olympiad.electrochem
   pace: quick
@@ -1073,6 +1991,41 @@
   verify:
     expect:
       v: cw_latimer(1, e1, 2, e2)
+- template: co-disprop-potential
+  skill: olympiad.electrochem
+  pace: quick
+  cases:
+  - hi: Cu²⁺
+    mid: Cu⁺
+    lo: Cu
+    e1: 0.153
+    e2: 0.521
+  - hi: Au³⁺
+    mid: Au⁺
+    lo: Au
+    e1: 1.401
+    e2: 1.692
+  - hi: Hg²⁺
+    mid: Hg₂²⁺
+    lo: Hg
+    e1: 0.92
+    e2: 0.797
+  - hi: Fe³⁺
+    mid: Fe²⁺
+    lo: Fe
+    e1: 0.771
+    e2: -0.447
+  prompt: E°({{hi}}/{{mid}}) = {{e1}} V and E°({{mid}}/{{lo}}) = {{e2}} V. What is E° for the disproportionation of {{mid}}? (Positive means it disproportionates.)
+  parts:
+  - ask: Answer
+    label: v
+    tex: E^\circ
+    value: e2 - e1
+    tol: 0.005
+    explain: 'The species is reduced by the couple below it and oxidised by the couple above: E° = E°(right) − E°(left) on a Latimer diagram'
+  verify:
+    expect:
+      v: nsimplify(e2) - nsimplify(e1)
 - template: co-nernst
   skill: olympiad.electrochem
   pace: quick
@@ -1099,6 +2052,34 @@
   verify:
     expect:
       v: Rational(11, 10) - Rational(8314, 1000)*298/(2*96485)*log(nsimplify(a)/nsimplify(b))
+- template: co-ratio-from-emf
+  skill: olympiad.electrochem
+  pace: quick
+  given:
+    E0:
+      pick:
+      - 1.1
+      - 0.46
+    nn:
+      pick:
+      - 1
+      - 2
+    E:
+      pick:
+      - 1.05
+      - 0.4
+      - 0.5
+  prompt: A cell with E° = {{E0}} V and n = {{nn}} reads {{E}} V at 25 °C. What is the reaction quotient Q?
+  parts:
+  - ask: Answer
+    label: v
+    tex: Q
+    value: exp((E0 - E)*nn*96485.33212/(8.314462618*298.15))
+    tol: 0.005
+    explain: E = E° − (RT/nF) ln Q, so Q = exp(nF(E° − E)/RT)
+  verify:
+    expect:
+      v: 10**((nsimplify(E0) - nsimplify(E))*nn/(Rational('8.314462618')*Rational(29815, 100)*log(10)/Rational('96485.33212')))
 - template: co-k-from-e
   skill: olympiad.electrochem
   pace: quick
@@ -1124,6 +2105,31 @@
   verify:
     expect:
       v: n*96485*nsimplify(Ec)/(Rational(8314, 1000)*298*log(10))
+- template: co-e-from-k
+  skill: olympiad.electrochem
+  pace: quick
+  given:
+    nn:
+      pick:
+      - 1
+      - 2
+      - 6
+    K:
+      pick:
+      - 1.0e-05
+      - 420000000.0
+      - 1.5e+37
+  prompt: A redox reaction transferring {{nn}} electrons has K = {{K}} at 25 °C. What is E°, in V?
+  parts:
+  - ask: Answer
+    label: v
+    tex: E^\circ
+    value: 8.314462618*298.15*log(K)/(nn*96485.33212)
+    tol: 0.005
+    explain: 'nFE° = RT ln K: a modest E° gives an enormous K'
+  verify:
+    expect:
+      v: solve(Eq(nn*Rational('96485.33212')*x, Rational('8.314462618')*Rational(29815, 100)*log(nsimplify(K))), x)[0]
 - template: co-half-electrons
   skill: olympiad.electrochem
   pace: quick
@@ -1180,6 +2186,42 @@
   verify:
     expect:
       v: half_electrons(ff, qf, ft, qt, el)
+- template: co-protons-in-half
+  skill: olympiad.electrochem
+  pace: quick
+  cases:
+  - hr: MnO₄⁻ → Mn²⁺
+    ox1: 4
+    ox2: 0
+    m: 1
+  - hr: Cr₂O₇²⁻ → 2Cr³⁺
+    ox1: 7
+    ox2: 0
+    m: 1
+  - hr: NO₃⁻ → NO
+    ox1: 3
+    ox2: 1
+    m: 1
+  - hr: SO₄²⁻ → SO₂
+    ox1: 4
+    ox2: 2
+    m: 1
+  - hr: ClO₃⁻ → Cl⁻
+    ox1: 3
+    ox2: 0
+    m: 1
+  prompt: Balance {{hr}} in acid. How many H⁺ appear on the left?
+  parts:
+  - ask: Answer
+    label: v
+    tex: ''
+    value: 2*(ox1 - ox2)
+    final: true
+    tol: 0.0001
+    explain: Each oxygen removed becomes one H₂O, which takes two H⁺
+  verify:
+    expect:
+      v: 2*(ox1 - ox2)*m
 - template: co-ionisation-jump
   skill: olympiad.atomic
   pace: quick
@@ -1224,6 +2266,40 @@
   verify:
     expect:
       v: 1 if Rational(i2, i1) == Max(Rational(i2, i1), Rational(i3, i2), Rational(i4, i3), Rational(i5, i4)) else (2 if Rational(i3, i2) == Max(Rational(i3, i2), Rational(i4, i3), Rational(i5, i4)) else (13 if Rational(i4, i3) > Rational(i5, i4) else 14))
+- template: co-jump-position
+  skill: olympiad.atomic
+  pace: quick
+  cases:
+  - el: sodium
+    Z: 11
+    k: 1
+  - el: magnesium
+    Z: 12
+    k: 2
+  - el: aluminium
+    Z: 13
+    k: 3
+  - el: silicon
+    Z: 14
+    k: 4
+  - el: phosphorus
+    Z: 15
+    k: 5
+  - el: calcium
+    Z: 20
+    k: 2
+  prompt: For {{el}}, after which ionisation energy (the k-th) comes the largest jump to the next one? Give k.
+  parts:
+  - ask: Answer
+    label: v
+    tex: k
+    value: k
+    final: true
+    tol: 0.0001
+    explain: The jump comes once the valence electrons are gone and a core shell is opened
+  verify:
+    expect:
+      v: pt_group(Z) if pt_group(Z) <= 2 else pt_group(Z) - 10
 - template: co-quantum-count
   skill: olympiad.atomic
   pace: quick
@@ -1253,6 +2329,52 @@
   verify:
     expect:
       v: 2*summation(Symbol('j'), (Symbol('j'), 1, n)) if k == 0 else (6*(n - 1) if k == 1 else (summation(Symbol('j')**2, (Symbol('j'), 1, n)) if k == 2 else 2*summation(Symbol('j') - 1, (Symbol('j'), 1, n))))
+- template: co-max-electrons
+  skill: olympiad.atomic
+  pace: quick
+  cases:
+  - cond: n = 3
+    kd: 1
+    nq: 3
+    l: 0
+    ml: 0
+  - cond: n = 4
+    kd: 1
+    nq: 4
+    l: 0
+    ml: 0
+  - cond: n = 4, l = 2
+    kd: 2
+    nq: 4
+    l: 2
+    ml: 0
+  - cond: l = 3 in one shell
+    kd: 2
+    nq: 4
+    l: 3
+    ml: 0
+  - cond: n = 3, m_l = −1
+    kd: 3
+    nq: 3
+    l: 0
+    ml: -1
+  - cond: n = 5, l = 1, m_s = +½
+    kd: 4
+    nq: 5
+    l: 1
+    ml: 0
+  prompt: What is the largest number of electrons an atom can hold with {{cond}}?
+  parts:
+  - ask: Answer
+    label: v
+    tex: N
+    value: 'kd == 1 ? 2*nq^2 : (kd == 2 ? 2*(2*l + 1) : (kd == 3 ? 2*(nq - abs(ml)) : 2*l + 1))'
+    final: true
+    tol: 0.0001
+    explain: 2n² per shell, 2(2l + 1) per subshell, 2 per orbital
+  verify:
+    expect:
+      v: 2*nq**2 if kd == 1 else (2*(2*l + 1) if kd == 2 else (2*(nq - Abs(ml)) if kd == 3 else 2*l + 1))
 - template: co-trend-anomaly
   skill: olympiad.atomic
   pace: recall
@@ -1281,6 +2403,34 @@
     explain: Most of a trend follows effective nuclear charge; the dips come from subshell energies (s below p) and pairing repulsion
   verify:
     authored: true
+- template: co-anomaly-explain
+  skill: olympiad.atomic
+  pace: recall
+  cases:
+  - q: Why is the first ionisation energy of O lower than that of N?
+    o1: O's fourth p electron is paired, and the repulsion makes it easier to remove
+    o2: O is larger
+    o3: N has a full shell
+    o4: O has fewer protons
+  - q: Why is the first ionisation energy of Al lower than that of Mg?
+    o1: Al's electron is removed from a 3p orbital, higher in energy than 3s
+    o2: Al has more protons
+    o3: Mg is larger
+    o4: Al has a half-filled shell
+  - q: Why are Zr and Hf almost the same size?
+    o1: The lanthanide contraction offsets the extra shell
+    o2: They have the same number of protons
+    o3: Hf has fewer electrons
+    o4: Both are noble gases
+  prompt: '{{q}}'
+  parts:
+  - ask: Answer
+    label: v
+    choice: *id002
+    correct: '0'
+    explain: Anomalies come from subshell energies, electron pairing and poor shielding by f electrons
+  verify:
+    authored: true
 - template: co-hydrogen-line
   skill: olympiad.atomic
   pace: quick
@@ -1306,6 +2456,29 @@
   verify:
     expect:
       v: 10**9/(Rational(1097, 100)*10**6*(Rational(1, n1**2) - Rational(1, n2**2)))
+- template: co-series-limit
+  skill: olympiad.atomic
+  pace: quick
+  cases:
+  - s: Lyman
+    n1: 1
+  - s: Balmer
+    n1: 2
+  - s: Paschen
+    n1: 3
+  - s: Brackett
+    n1: 4
+  prompt: What is the shortest wavelength, in nm, in the {{s}} series of hydrogen? (R_H = 1.0968 × 10⁷ m⁻¹)
+  parts:
+  - ask: Answer
+    label: v
+    tex: \lambda
+    value: n1^2/1.0968e7*1e9
+    tol: 0.005
+    explain: 'The series limit is the jump from infinity: 1/λ = R_H/n₁²'
+  verify:
+    expect:
+      v: solve(Eq(Integer(10968)*10**3*x/(10**9*Integer(n1)**2), 1), x)[0]
 - template: co-unpaired-ion
   skill: olympiad.atomic
   pace: quick
@@ -1338,6 +2511,45 @@
   verify:
     expect:
       v: Min(d, 10 - d)
+- template: co-ion-moment
+  skill: olympiad.atomic
+  pace: quick
+  cases:
+  - ion: Fe³⁺
+    Zm: 26
+    q: 3
+    u: 5
+  - ion: Cr³⁺
+    Zm: 24
+    q: 3
+    u: 3
+  - ion: Ni²⁺
+    Zm: 28
+    q: 2
+    u: 2
+  - ion: Cu²⁺
+    Zm: 29
+    q: 2
+    u: 1
+  - ion: Mn²⁺
+    Zm: 25
+    q: 2
+    u: 5
+  - ion: Ti³⁺
+    Zm: 22
+    q: 3
+    u: 1
+  prompt: What is the spin-only magnetic moment, in μ_B, of a free {{ion}} ion?
+  parts:
+  - ask: Answer
+    label: v
+    tex: \mu
+    value: sqrt(u*(u + 2))
+    tol: 0.005
+    explain: Remove the 4s electrons first, count unpaired d electrons by Hund's rule, then μ = √(n(n + 2))
+  verify:
+    expect:
+      v: spin_only(pt_group(Zm) - q, 'oct', 'high')
 - template: co-decay-mode
   skill: olympiad.atomic
   pace: recall
@@ -1371,6 +2583,46 @@
     explain: 'Decay moves a nuclide toward the band of stability: β⁻ turns a neutron into a proton, β⁺ or capture does the reverse, α sheds mass from the heaviest'
   verify:
     authored: true
+- template: co-daughter-z
+  skill: olympiad.atomic
+  pace: quick
+  cases:
+  - p: ²³⁸U
+    Z: 92
+    mode: α decay
+    dz: -2
+  - p: ¹⁴C
+    Z: 6
+    mode: β⁻ decay
+    dz: 1
+  - p: ¹¹C
+    Z: 6
+    mode: β⁺ decay
+    dz: -1
+  - p: ⁴⁰K
+    Z: 19
+    mode: electron capture
+    dz: -1
+  - p: ²²⁶Ra
+    Z: 88
+    mode: α decay
+    dz: -2
+  - p: ⁹⁰Sr
+    Z: 38
+    mode: β⁻ decay
+    dz: 1
+  prompt: '{{p}} (Z = {{Z}}) undergoes {{mode}}. What is the atomic number of the product?'
+  parts:
+  - ask: Answer
+    label: v
+    tex: Z'
+    value: Z + dz
+    final: true
+    tol: 0.0001
+    explain: 'α: Z − 2; β⁻: Z + 1; β⁺ and electron capture: Z − 1'
+  verify:
+    expect:
+      v: Z + dz
 - template: co-vsepr-shape
   skill: olympiad.bonding
   pace: recall
@@ -1433,6 +2685,50 @@
   verify:
     choices:
       v: cw_shape_pick(cen, lig, ch, o1, o2, o3, o4)
+- template: co-lone-pairs-centre
+  skill: olympiad.bonding
+  pace: quick
+  cases:
+  - f: XeF₄
+    V: 8
+    L: 4
+    q: 0
+  - f: SF₄
+    V: 6
+    L: 4
+    q: 0
+  - f: ClF₃
+    V: 7
+    L: 3
+    q: 0
+  - f: I₃⁻
+    V: 7
+    L: 2
+    q: -1
+  - f: BrF₅
+    V: 7
+    L: 5
+    q: 0
+  - f: XeF₂
+    V: 8
+    L: 2
+    q: 0
+  - f: ICl₄⁻
+    V: 7
+    L: 4
+    q: -1
+  prompt: How many lone pairs sit on the central atom of {{f}}?
+  parts:
+  - ask: Answer
+    label: v
+    tex: ''
+    value: (V - q - L)/2
+    final: true
+    tol: 0.0001
+    explain: Valence electrons (plus any negative charge) minus one per single bond, halved
+  verify:
+    expect:
+      v: Rational(V - q - L, 2)
 - template: co-octahedral-isomers
   skill: olympiad.bonding
   pace: quick
@@ -1473,6 +2769,34 @@
   verify:
     expect:
       v: stereoisomers(mono, nch, 'oct')
+- template: co-square-planar-isomers
+  skill: olympiad.bonding
+  pace: quick
+  cases:
+  - f: A₂B₂
+    mono: A2B2
+    v: 2
+  - f: ABCD
+    mono: ABCD
+    v: 3
+  - f: A₃B
+    mono: A3B
+    v: 1
+  - f: A₂BC
+    mono: A2BC
+    v: 2
+  prompt: How many stereoisomers does a square-planar complex [M{{f}}] have?
+  parts:
+  - ask: Answer
+    label: r
+    tex: ''
+    value: v
+    final: true
+    tol: 0.0001
+    explain: A square plane is never chiral by itself; count distinct cis/trans arrangements
+  verify:
+    expect:
+      r: stereoisomers(mono, '', 'sq')
 - template: co-mo-bond-order
   skill: olympiad.bonding
   pace: quick
@@ -1523,6 +2847,52 @@
   verify:
     expect:
       v: cw_bond_order(a, b, q)
+- template: co-mo-unpaired
+  skill: olympiad.bonding
+  pace: quick
+  cases:
+  - sp: O₂
+    a: O
+    b: O
+    q: 0
+    v: 2
+  - sp: O₂⁻
+    a: O
+    b: O
+    q: -1
+    v: 1
+  - sp: B₂
+    a: B
+    b: B
+    q: 0
+    v: 2
+  - sp: C₂
+    a: C
+    b: C
+    q: 0
+    v: 0
+  - sp: N₂⁺
+    a: N
+    b: N
+    q: 1
+    v: 1
+  - sp: O₂²⁻
+    a: O
+    b: O
+    q: -2
+    v: 0
+  prompt: How many unpaired electrons does {{sp}} have, by MO theory?
+  parts:
+  - ask: Answer
+    label: r
+    tex: ''
+    value: v
+    final: true
+    tol: 0.0001
+    explain: Fill the ladder (π below σ2p up to N₂); Hund's rule spreads electrons over the degenerate π pair
+  verify:
+    expect:
+      r: cw_unpaired_mo(a, b, q)
 - template: co-formal-charge
   skill: olympiad.bonding
   pace: recall
@@ -1551,6 +2921,52 @@
     explain: 'Fulminate forces a positive charge on N and a negative charge on C: unstable (hence explosive salts). The least electronegative atom usually sits in the middle'
   verify:
     authored: true
+- template: co-formal-charge-atom
+  skill: olympiad.bonding
+  pace: quick
+  cases:
+  - d: NH₄⁺
+    at: N
+    V: 5
+    nb: 0
+    b: 4
+  - d: ozone, O=O–O
+    at: the central O
+    V: 6
+    nb: 2
+    b: 3
+  - d: CO, with a triple bond
+    at: C
+    V: 4
+    nb: 2
+    b: 3
+  - d: nitrate with one N=O
+    at: N
+    V: 5
+    nb: 0
+    b: 4
+  - d: the cyanide ion, C≡N⁻
+    at: C
+    V: 4
+    nb: 2
+    b: 3
+  - d: BF₄⁻
+    at: B
+    V: 3
+    nb: 0
+    b: 4
+  prompt: In the Lewis structure shown by {{d}}, what is the formal charge on {{at}}?
+  parts:
+  - ask: Answer
+    label: v
+    tex: ''
+    value: V - nb - b
+    final: true
+    tol: 0.0001
+    explain: Formal charge = valence electrons − nonbonding electrons − bonds
+  verify:
+    expect:
+      v: V - nb - b
 - template: co-resonance-bond-order
   skill: olympiad.bonding
   pace: quick
@@ -1578,6 +2994,34 @@
   verify:
     expect:
       v: Rational(b, p)
+- template: co-bond-length-rank
+  skill: olympiad.bonding
+  pace: recall
+  cases:
+  - q: Which has the shortest C–O bond?
+    o1: CO
+    o2: CO₂
+    o3: CO₃²⁻
+    o4: CH₃OH
+  - q: Which has the longest N–O bond?
+    o1: NO₃⁻
+    o2: NO₂⁻
+    o3: NO⁺
+    o4: 'NO'
+  - q: Rank the C–C bond in benzene against single and double bonds.
+    o1: Between them (order 1.5)
+    o2: Shorter than a double bond
+    o3: Longer than a single bond
+    o4: Equal to a double bond
+  prompt: '{{q}}'
+  parts:
+  - ask: Answer
+    label: v
+    choice: *id002
+    correct: '0'
+    explain: Bond order = bonds shared ÷ positions; higher order, shorter bond
+  verify:
+    authored: true
 - template: co-isomer-count
   skill: olympiad.organic
   pace: quick
@@ -1627,6 +3071,44 @@
     explain: 'Work systematically: longest chain first, then move a branch or group one position at a time, and check each for a duplicate under a different name'
   verify:
     authored: true
+- template: co-isomer-count-2
+  skill: olympiad.organic
+  pace: quick
+  cases:
+  - f: C₄H₉Cl
+    o1: '4'
+    o2: '3'
+    o3: '2'
+    o4: '5'
+  - f: C₅H₁₂
+    o1: '3'
+    o2: '2'
+    o3: '4'
+    o4: '5'
+  - f: C₃H₈O
+    o1: 3 (two alcohols, one ether)
+    o2: '2'
+    o3: '4'
+    o4: '1'
+  - f: C₆H₁₄
+    o1: '5'
+    o2: '4'
+    o3: '6'
+    o4: '3'
+  - f: C₂H₄Cl₂
+    o1: '2'
+    o2: '1'
+    o3: '3'
+    o4: '4'
+  prompt: How many structural isomers does {{f}} have?
+  parts:
+  - ask: Answer
+    label: v
+    choice: *id002
+    correct: '0'
+    explain: Draw carbon skeletons systematically, longest chain first
+  verify:
+    authored: true
 - template: co-unsaturation
   skill: olympiad.organic
   pace: quick
@@ -1663,6 +3145,40 @@
   verify:
     expect:
       v: (2*c + 2 + nn - (2*c + 2 + nn - 2*k))/2
+- template: co-h-from-dou
+  skill: olympiad.organic
+  pace: quick
+  given:
+    c:
+      int:
+      - 5
+      - 10
+    nn:
+      pick:
+      - 0
+      - 1
+      - 2
+    X:
+      pick:
+      - 0
+      - 1
+    d:
+      pick:
+      - 1
+      - 2
+      - 4
+  prompt: A compound has {{c}} C, {{nn}} N and {{X}} halogen atoms and {{d}} degrees of unsaturation. How many H atoms does it have?
+  parts:
+  - ask: Answer
+    label: v
+    tex: H
+    value: 2*c + 2 + nn - X - 2*d
+    final: true
+    tol: 0.0001
+    explain: DoU = (2C + 2 + N − H − X)/2, solved for H
+  verify:
+    expect:
+      v: solve(Eq((2*c + 2 + nn - X - x)/2, d), x)[0]
 - template: co-ir-band
   skill: olympiad.organic
   pace: recall
@@ -1694,6 +3210,34 @@
     choice: *id001
     correct: '0'
     explain: 'Lighter atoms and stronger bonds vibrate faster: triple bonds near 2200, double near 1700, X–H stretches above 2800; hydrogen bonding broadens O–H'
+  verify:
+    authored: true
+- template: co-ir-tell
+  skill: olympiad.spectro
+  pace: recall
+  cases:
+  - q: An IR spectrum shows 1735 cm⁻¹ but no broad O–H. Which group?
+    o1: An ester
+    o2: A carboxylic acid
+    o3: An alcohol
+    o4: An amine
+  - q: Strong bands at 3300 (sharp) and 2120 cm⁻¹. Which group?
+    o1: A terminal alkyne
+    o2: A nitrile
+    o3: An alcohol
+    o4: An aldehyde
+  - q: Two weak bands near 2720 and 2820 cm⁻¹ beside 1725 cm⁻¹. Which group?
+    o1: An aldehyde
+    o2: A ketone
+    o3: An ester
+    o4: An acid chloride
+  prompt: '{{q}}'
+  parts:
+  - ask: Answer
+    label: v
+    choice: *id002
+    correct: '0'
+    explain: Pair the carbonyl band with what else is or is not present
   verify:
     authored: true
 - template: co-nmr-environments
@@ -1749,6 +3293,44 @@
     explain: Ask which hydrogens swap places under a symmetry operation or fast rotation; OH counts as its own signal
   verify:
     authored: true
+- template: co-nmr-env-2
+  skill: olympiad.spectro
+  pace: quick
+  cases:
+  - m: ethyl acetate
+    o1: '3'
+    o2: '2'
+    o3: '4'
+    o4: '8'
+  - m: p-xylene
+    o1: '2'
+    o2: '3'
+    o3: '4'
+    o4: '1'
+  - m: propan-2-ol
+    o1: '3'
+    o2: '2'
+    o3: '4'
+    o4: '8'
+  - m: toluene
+    o1: '4'
+    o2: '2'
+    o3: '3'
+    o4: '5'
+  - m: 2,2-dimethylpropane
+    o1: '1'
+    o2: '2'
+    o3: '4'
+    o4: '12'
+  prompt: How many ¹H NMR environments does {{m}} have?
+  parts:
+  - ask: Answer
+    label: v
+    choice: *id002
+    correct: '0'
+    explain: Protons related by symmetry share an environment
+  verify:
+    authored: true
 - template: co-monomer
   skill: olympiad.organic
   pace: recall
@@ -1787,6 +3369,34 @@
     explain: 'Find the repeat unit and undo the linking reaction: break the polymer''s backbone C–C into a C=C, or add water back across each ester or amide'
   verify:
     authored: true
+- template: co-polymer-from-monomer
+  skill: olympiad.organic
+  pace: recall
+  cases:
+  - q: Ethylene glycol and terephthalic acid give which polymer?
+    o1: A polyester (PET), by condensation
+    o2: Nylon-6,6
+    o3: Polystyrene
+    o4: PVC
+  - q: Hexamethylenediamine and adipic acid give which polymer?
+    o1: Nylon-6,6, by condensation
+    o2: PET
+    o3: Polyethylene
+    o4: Teflon
+  - q: CF₂=CF₂ gives which polymer?
+    o1: PTFE (Teflon), by addition
+    o2: PVC
+    o3: Nylon
+    o4: A polyester
+  prompt: '{{q}}'
+  parts:
+  - ask: Answer
+    label: v
+    choice: *id002
+    correct: '0'
+    explain: Addition polymers keep every atom; condensation polymers lose a small molecule per link
+  verify:
+    authored: true
 - template: co-isoelectric
   skill: olympiad.organic
   pace: quick
@@ -1822,6 +3432,29 @@
   verify:
     expect:
       v: nsimplify(pi_)
+- template: co-glycine-charge
+  skill: olympiad.organic
+  pace: quick
+  given:
+    pH:
+      pick:
+      - 1.5
+      - 2.34
+      - 4.0
+      - 7.4
+      - 9.6
+      - 11
+  prompt: Glycine has pKa₁ 2.34 (COOH) and pKa₂ 9.60 (NH₃⁺). What is its average net charge at pH {{pH}}?
+  parts:
+  - ask: Answer
+    label: v
+    tex: q
+    value: 1/(1 + 10^(pH - 2.34)) - 1/(1 + 10^(9.60 - pH))
+    tol: 0.005
+    explain: Each group contributes its fraction protonated (+1 for NH₃⁺) or deprotonated (−1 for COO⁻)
+  verify:
+    expect:
+      v: 10**(Rational(234, 100) - nsimplify(pH))/(1 + 10**(Rational(234, 100) - nsimplify(pH))) - 10**(nsimplify(pH) - Rational(96, 10))/(1 + 10**(nsimplify(pH) - Rational(96, 10)))
 - template: co-p2-common-ion
   skill: olympiad.equilibria
   pace: workout
@@ -1842,6 +3475,30 @@
   verify:
     expect:
       v: sqrt(Rational(23, 10**10))/Max(*solve(Eq(x*(x + nsimplify(c)), Rational(23, 10**10)), x))
+- template: co-ksp-from-common-ion
+  skill: olympiad.equilibria
+  pace: quick
+  given:
+    c:
+      pick:
+      - 0.001
+      - 0.005
+    s:
+      pick:
+      - 1.8e-07
+      - 5.0e-06
+      - 4.0e-05
+  prompt: The solubility of AgX in {{c}} M NaX is measured as {{s}} M. What is K_sp? (Do not neglect s.)
+  parts:
+  - ask: Answer
+    label: v
+    tex: K_{sp}
+    value: s*(s + c)
+    tol: 0.005
+    explain: K_sp = [Ag⁺][X⁻] = s(c + s)
+  verify:
+    expect:
+      v: nsimplify(s)**2 + nsimplify(s)*nsimplify(c)
 - template: co-p2-cell-entropy
   skill: olympiad.electrochem
   pace: workout
@@ -1867,6 +3524,30 @@
   verify:
     expect:
       v: (-2*96485*nsimplify(Ec) + 298*2*96485*nsimplify(d)/1000)/1000
+- template: co-dedt-from-ds
+  skill: olympiad.electrochem
+  pace: quick
+  given:
+    nn:
+      pick:
+      - 1
+      - 2
+    dS:
+      pick:
+      - -21.5
+      - 12.3
+      - -96
+  prompt: A cell reaction with n = {{nn}} has ΔS° = {{dS}} J/(mol·K). What is dE°/dT, in mV/K?
+  parts:
+  - ask: Answer
+    label: v
+    tex: dE^\circ/dT
+    value: dS/(nn*96485.33212)*1000
+    tol: 0.005
+    explain: 'ΔS° = nF(dE°/dT): a cell with negative ΔS° loses voltage as it warms'
+  verify:
+    expect:
+      v: solve(Eq(nn*Rational('96485.33212')*x/1000, nsimplify(dS)), x)[0]
 - template: co-p2-entropy-from-k
   skill: olympiad.thermochem
   pace: workout
@@ -1892,6 +3573,36 @@
   verify:
     expect:
       v: (dH*1000 - (-Rational(8314, 1000)*298*log(nsimplify(K))))/298
+- template: co-vant-hoff-k
+  skill: olympiad.thermochem
+  pace: quick
+  given:
+    K1:
+      pick:
+      - 0.0015
+      - 4.8
+    T1:
+      pick:
+      - 298.15
+    dH:
+      pick:
+      - -92.2
+      - 57.2
+    T2:
+      pick:
+      - 350
+      - 400
+  prompt: K = {{K1}} at {{T1}} K and ΔH° = {{dH}} kJ/mol (constant). What is K at {{T2}} K?
+  parts:
+  - ask: Answer
+    label: v
+    tex: K_2
+    value: K1*exp(-dH*1000/8.314462618*(1/T2 - 1/T1))
+    tol: 0.005
+    explain: 'ln(K₂/K₁) = −(ΔH°/R)(1/T₂ − 1/T₁): heating favours the endothermic direction'
+  verify:
+    expect:
+      v: nsimplify(K1)*exp(nsimplify(dH)*1000/Rational('8.314462618')*(1/nsimplify(T1) - 1/nsimplify(T2)))
 - template: co-p2-iodometric
   skill: olympiad.stoichiometry
   pace: workout
@@ -1924,6 +3635,34 @@
   verify:
     expect:
       v: solve(Eq(nsimplify(m)/(Rational(15961, 100) + x*Rational(18015, 1000)), nsimplify(m)/(Rational(15961, 100) + n*Rational(18015, 1000))), x)[0]
+- template: co-iodometric-copper
+  skill: olympiad.electrochem
+  pace: quick
+  given:
+    m:
+      pick:
+      - 0.25
+      - 0.4
+    V:
+      pick:
+      - 18.5
+      - 24.0
+      - 31.2
+    c:
+      pick:
+      - 0.05
+      - 0.1
+  prompt: A {{m}} g sample containing copper(II) is treated with excess KI; the iodine released needs {{V}} mL of {{c}} M thiosulfate. What is the mass percentage of Cu? (63.546 g/mol)
+  parts:
+  - ask: Answer
+    label: v
+    tex: \%
+    value: V/1000*c*63.546/m*100
+    tol: 0.005
+    explain: '2Cu²⁺ + 4I⁻ → 2CuI + I₂, and I₂ takes 2 S₂O₃²⁻: one thiosulfate per copper'
+  verify:
+    expect:
+      v: 100*solve(Eq(x/Rational(63546, 1000), nsimplify(V)/1000*nsimplify(c)), x)[0]/nsimplify(m)
 - template: co-p2-perovskite
   skill: olympiad.states
   pace: workout
@@ -1948,6 +3687,29 @@
   verify:
     expect:
       v: nsimplify(M)/(Rational(6022, 1000)*10**23*(nsimplify(a)/10**10)**3)
+- template: co-tolerance-factor
+  skill: olympiad.states
+  pace: quick
+  cases:
+  - rA: 144
+    rB: 60.5
+  - rA: 134
+    rB: 60.5
+  - rA: 161
+    rB: 60.5
+  - rA: 136
+    rB: 64.5
+  prompt: Goldschmidt's tolerance factor for perovskite ABO₃ is t = (r_A + r_O)/(√2 (r_B + r_O)). With r_A = {{rA}} pm, r_B = {{rB}} pm and r_O = 140 pm, what is t?
+  parts:
+  - ask: Answer
+    label: v
+    tex: t
+    value: (rA + 140)/(sqrt(2)*(rB + 140))
+    tol: 0.005
+    explain: t near 1 gives the cubic perovskite; t < 1 tilts the octahedra, t > 1 favours hexagonal stacking
+  verify:
+    expect:
+      v: (nsimplify(rA) + 140)*sqrt(2)/(2*(nsimplify(rB) + 140))
 - template: co-p2-photon-kj
   skill: olympiad.atomic
   pace: workout
@@ -1975,3 +3737,28 @@
   verify:
     expect:
       v: Rational(6022, 1000)*10**23*Rational(6626, 1000)*10**-34*Rational(2998, 1000)*10**8/(l*Rational(1, 10**9))/1000
+- template: co-threshold-wavelength
+  skill: olympiad.atomic
+  pace: quick
+  cases:
+  - b: Cl–Cl
+    D: 243
+  - b: O=O
+    D: 498
+  - b: Br–Br
+    D: 193
+  - b: N≡N
+    D: 945
+  - b: I–I
+    D: 151
+  prompt: The {{b}} bond enthalpy is {{D}} kJ/mol. What is the longest wavelength, in nm, of a photon that can break one bond?
+  parts:
+  - ask: Answer
+    label: v
+    tex: \lambda
+    value: 6.62607015e-34*299792458*6.02214076e23/(D*1000)*1e9
+    tol: 0.005
+    explain: Per bond, E = D/N_A; λ = hc/E. Cl₂ splits in the near UV, which drives chlorination by light
+  verify:
+    expect:
+      v: solve(Eq(Rational('6.62607015e-34')*Integer(299792458)/(x/10**9)*Rational('6.02214076e23'), nsimplify(D)*1000), x)[0]

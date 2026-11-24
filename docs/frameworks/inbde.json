@@ -401,6 +401,20 @@
         "dn-flexural-strength",
         "dn-flexural-load"
        ]
+      },
+      {
+       "id": "C",
+       "do": "Compute a probability of failure from Weibull statistics and read the Weibull modulus.",
+       "ek": [
+        "P_f = 1 − exp(−(σ/σ₀)^m); a higher m means more reliable, less scattered strength."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "dn-weibull-failure",
+        "dn-weibull-design-stress"
+       ]
       }
      ]
     },
@@ -440,6 +454,51 @@
        "drills": [
         "dn-composite-types",
         "dn-composite-choice"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "jcnde-domain:CC30"
+       ],
+       "do": "Compute degree of conversion from FTIR peak ratios.",
+       "ek": [
+        "DC = 1 − (A₁₆₃₈/A₁₆₀₈)cured ÷ (A₁₆₃₈/A₁₆₀₈)uncured; the aromatic band is the internal standard."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "dn-degree-conversion",
+        "dn-ratio-for-dc"
+       ]
+      },
+      {
+       "id": "D",
+       "do": "Convert filler loading between weight and volume fractions.",
+       "ek": [
+        "φ_v = (w/ρ_f) ÷ (w/ρ_f + (1 − w)/ρ_r)."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "dn-filler-volume",
+        "dn-filler-weight"
+       ]
+      },
+      {
+       "id": "E",
+       "do": "Compute water solubility as ISO 4049 defines it and judge sorption and solubility against the limits.",
+       "ek": [
+        "Solubility = (m₁ − m₃)/V; limits 40 µg/mm³ sorption and 7.5 µg/mm³ solubility."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "dn-solubility",
+        "dn-max-mass-loss"
        ]
       }
      ]
@@ -500,6 +559,56 @@
        "drills": [
         "dn-ceramic-bonding",
         "dn-ceramic-why"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "jcnde-domain:CC30"
+       ],
+       "do": "Classify adhesive systems and choose one for a situation.",
+       "ek": [
+        "Etch-and-rinse (3- or 2-step), self-etch (2- or 1-step), universal; the hybrid layer; 10-MDP bonds chemically to hydroxyapatite and zirconia."
+       ],
+       "p": [
+        "P2",
+        "P3"
+       ],
+       "drills": [
+        "dn-adhesive-class",
+        "dn-adhesive-scenario"
+       ]
+      },
+      {
+       "id": "D",
+       "do": "Compute bond strength from a shear or microtensile test.",
+       "ek": [
+        "σ = F/A; microtensile beams are about 1 mm²."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "dn-bond-strength",
+        "dn-load-for-strength"
+       ]
+      },
+      {
+       "id": "E",
+       "std": [
+        "jcnde-domain:CC31"
+       ],
+       "do": "Compare zirconia and glass-ceramic classes by strength, translucency and bonding.",
+       "ek": [
+        "3Y-TZP strongest and most opaque; 5Y more translucent, weaker; lithium disilicate is etchable with HF."
+       ],
+       "p": [
+        "P2",
+        "P3"
+       ],
+       "drills": [
+        "dn-ceramic-class",
+        "dn-ceramic-scenario"
        ]
       }
      ]
@@ -1549,6 +1658,17 @@
    "partial": []
   },
   {
+   "code": "DN-4.1.C",
+   "unit": 4,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "dn-weibull-failure",
+    "dn-weibull-design-stress"
+   ],
+   "partial": []
+  },
+  {
    "code": "DN-4.2.A",
    "unit": 4,
    "topic": 2,
@@ -1570,6 +1690,39 @@
    "full": [
     "dn-composite-types",
     "dn-composite-choice"
+   ],
+   "partial": []
+  },
+  {
+   "code": "DN-4.2.C",
+   "unit": 4,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "dn-degree-conversion",
+    "dn-ratio-for-dc"
+   ],
+   "partial": []
+  },
+  {
+   "code": "DN-4.2.D",
+   "unit": 4,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "dn-filler-volume",
+    "dn-filler-weight"
+   ],
+   "partial": []
+  },
+  {
+   "code": "DN-4.2.E",
+   "unit": 4,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "dn-solubility",
+    "dn-max-mass-loss"
    ],
    "partial": []
   },
@@ -1603,6 +1756,39 @@
    "full": [
     "dn-ceramic-bonding",
     "dn-ceramic-why"
+   ],
+   "partial": []
+  },
+  {
+   "code": "DN-4.4.C",
+   "unit": 4,
+   "topic": 4,
+   "status": "ok",
+   "full": [
+    "dn-adhesive-class",
+    "dn-adhesive-scenario"
+   ],
+   "partial": []
+  },
+  {
+   "code": "DN-4.4.D",
+   "unit": 4,
+   "topic": 4,
+   "status": "ok",
+   "full": [
+    "dn-bond-strength",
+    "dn-load-for-strength"
+   ],
+   "partial": []
+  },
+  {
+   "code": "DN-4.4.E",
+   "unit": 4,
+   "topic": 4,
+   "status": "ok",
+   "full": [
+    "dn-ceramic-class",
+    "dn-ceramic-scenario"
    ],
    "partial": []
   },

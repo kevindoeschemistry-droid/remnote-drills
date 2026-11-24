@@ -48,9 +48,9 @@ units:
       - n: 1
         title: "Acids, bases and redox diagrams"
         los:
-          - { id: A, do: "Classify acids and bases as hard, soft or borderline and predict which pairs bind.", ek: ["Hard prefers hard, soft prefers soft."], p: [P2, P3], drills: [cw-hsab-class] }
-          - { id: B, do: "Combine Latimer-diagram steps through free energies.", ek: ["E = Σ nE / Σ n."], p: [P1], drills: [cw-latimer-skip] }
-          - { id: C, do: "Decide from a Latimer diagram whether a species disproportionates.", ek: ["E_right > E_left: it disproportionates."], p: [P1, P3], needs: [IA-1.1.B], drills: [cw-disproportionation] }
+          - { id: A, do: "Classify acids and bases as hard, soft or borderline and predict which pairs bind.", ek: ["Hard prefers hard, soft prefers soft."], p: [P2, P3], drills: [cw-hsab-class, cw-hsab-predict] }
+          - { id: B, do: "Combine Latimer-diagram steps through free energies.", ek: ["E = Σ nE / Σ n."], p: [P1], drills: [cw-latimer-skip, cw-latimer-missing] }
+          - { id: C, do: "Decide from a Latimer diagram whether a species disproportionates.", ek: ["E_right > E_left: it disproportionates."], p: [P1, P3], needs: [IA-1.1.B], drills: [cw-disproportionation, cw-disprop-cases] }
   - id: hydrogen
     n: 2
     title: "Hydrogen (ch. 2)"
@@ -60,8 +60,8 @@ units:
       - n: 1
         title: "Hydrides and isotopes"
         los:
-          - { id: A, do: "Classify a hydride as saline, molecular or metallic.", ek: ["s-block saline; p-block molecular; many d-block interstitial."], p: [P2], drills: [cw-hydride-type] }
-          - { id: B, do: "Predict the shift of a vibration on deuteration from reduced masses.", ek: ["ν ∝ 1/√μ; X–D ≈ 0.73 × X–H."], p: [P1], drills: [cw-isotope-shift] }
+          - { id: A, do: "Classify a hydride as saline, molecular or metallic.", ek: ["s-block saline; p-block molecular; many d-block interstitial."], p: [P2], drills: [cw-hydride-type, cw-hydride-identify] }
+          - { id: B, do: "Predict the shift of a vibration on deuteration from reduced masses.", ek: ["ν ∝ 1/√μ; X–D ≈ 0.73 × X–H."], p: [P1], drills: [cw-isotope-shift, cw-heavy-atom-shift] }
   - id: s-block
     n: 3
     title: "Groups 1 and 2 (ch. 3–4)"
@@ -72,8 +72,8 @@ units:
         title: "Alkali and alkaline-earth metals"
         los:
           - { id: A, do: "Give the product of burning an alkali metal, and the oxidation state in oxides, peroxides and superoxides.", ek: ["Li₂O, Na₂O₂, KO₂; O −2, −1, −½."], p: [P1, P2], drills: [cw-alkali-burn, cw-dioxygen-anion-ox] }
-          - { id: B, do: "Rank the thermal stability of group 2 carbonates.", ek: ["Rises down the group as cations grow less polarising."], p: [P3], drills: [cw-carbonate-stability] }
-          - { id: C, do: "Use the diagonal relationship.", ek: ["Li–Mg, Be–Al, B–Si."], p: [P2], drills: [cw-diagonal] }
+          - { id: B, do: "Rank the thermal stability of group 2 carbonates.", ek: ["Rises down the group as cations grow less polarising."], p: [P3], drills: [cw-carbonate-stability, cw-group2-thermal] }
+          - { id: C, do: "Use the diagonal relationship.", ek: ["Li–Mg, Be–Al, B–Si."], p: [P2], drills: [cw-diagonal, cw-diagonal-cases] }
   - id: group-13
     n: 4
     title: "Boron and group 13 (ch. 5–6)"
@@ -83,8 +83,8 @@ units:
       - n: 1
         title: "Boranes and group 13 compounds"
         los:
-          - { id: A, do: "Classify a borane as closo, nido or arachno with Wade's rules.", ek: ["n+1, n+2, n+3 skeletal pairs."], p: [P1, P3], drills: [cw-wade] }
-          - { id: B, do: "Rank boron trihalide Lewis acidity and explain it by π donation.", ek: ["BF₃ < BCl₃ < BBr₃."], p: [P3], drills: [cw-bx3-acid] }
+          - { id: A, do: "Classify a borane as closo, nido or arachno with Wade's rules.", ek: ["n+1, n+2, n+3 skeletal pairs."], p: [P1, P3], drills: [cw-wade, cw-skeletal-pairs] }
+          - { id: B, do: "Rank boron trihalide Lewis acidity and explain it by π donation.", ek: ["BF₃ < BCl₃ < BBr₃."], p: [P3], drills: [cw-bx3-acid, cw-bx3-consequence] }
           - { id: C, do: "Use the inert-pair effect, and find average oxidation states in mixed-valence group 13 compounds.", ek: ["Tl(I), Pb(II), Bi(III); GaCl₂ = Ga⁺[GaCl₄]⁻."], p: [P1, P2], drills: [cw-inert-pair, cw-group13-ox] }
   - id: group-14
     n: 5
@@ -96,7 +96,7 @@ units:
         title: "Carbon, silicon and their compounds"
         los:
           - { id: A, do: "Classify carbides and count fullerene rings.", ek: ["Acetylides, methanides, covalent, interstitial; 12 pentagons always."], p: [P1, P2], drills: [cw-carbide-type, cw-fullerene-rings] }
-          - { id: B, do: "Give bond orders of species isoelectronic with N₂.", ek: ["CO, CN⁻, NO⁺, C₂²⁻: 3."], p: [P1], drills: [cw-isoelectronic-bond-order] }
+          - { id: B, do: "Give bond orders of species isoelectronic with N₂.", ek: ["CO, CN⁻, NO⁺, C₂²⁻: 3."], p: [P1], drills: [cw-isoelectronic-bond-order, cw-odd-electron-bond-order] }
           - { id: C, do: "Relate silicate structure to O:Si ratio, and predict group 14 shapes.", ek: ["O/Si = 4 − s/2; Sn(II) has a lone pair."], p: [P1, P3], drills: [cw-silicate-ratio, cw-group14-shape] }
   - id: group-15
     n: 6
@@ -108,8 +108,8 @@ units:
         title: "Nitrogen and phosphorus chemistry"
         los:
           - { id: A, do: "Give oxidation states of nitrogen across its oxides and hydrides, and bond orders of NO and its ions.", ek: ["−3 to +5; NO 2.5, NO⁺ 3."], p: [P1], drills: [cw-nitrogen-ox, cw-no-family] }
-          - { id: B, do: "Give the basicity of phosphorus oxoacids.", ek: ["Only O–H is acidic: 1, 2, 3."], p: [P2], drills: [cw-p-oxoacid] }
-          - { id: C, do: "Predict shapes of group 15 halides and their ions.", ek: ["PCl₅ = [PCl₄]⁺[PCl₆]⁻."], p: [P3], drills: [cw-group15-shape] }
+          - { id: B, do: "Give the basicity of phosphorus oxoacids.", ek: ["Only O–H is acidic: 1, 2, 3."], p: [P2], drills: [cw-p-oxoacid, cw-ph-bonds] }
+          - { id: C, do: "Predict shapes of group 15 halides and their ions.", ek: ["PCl₅ = [PCl₄]⁺[PCl₆]⁻."], p: [P3], drills: [cw-group15-shape, cw-group15-lone-pairs] }
   - id: group-16
     n: 7
     title: "Oxygen and group 16 (ch. 11–12)"
@@ -130,7 +130,7 @@ units:
       - n: 1
         title: "Interhalogens, oxoacids and xenon compounds"
         los:
-          - { id: A, do: "Predict interhalogen and polyhalide shapes.", ek: ["ClF₃ T-shaped, I₃⁻ linear, ICl₄⁻ square planar."], p: [P3], drills: [cw-interhalogen-shape] }
+          - { id: A, do: "Predict interhalogen and polyhalide shapes.", ek: ["ClF₃ T-shaped, I₃⁻ linear, ICl₄⁻ square planar."], p: [P3], drills: [cw-interhalogen-shape, cw-interhalogen-sn] }
           - { id: B, do: "Give halogen oxidation states in oxoanions and rank oxoacid strength.", ek: ["+1 to +7; HClO₄ strongest."], p: [P1, P3], drills: [cw-halogen-ox, cw-oxoacid-strength] }
           - { id: C, do: "Predict shapes and oxidation states of xenon compounds.", ek: ["XeF₂ linear, XeF₄ square planar; even states +2 to +8."], p: [P1, P3], drills: [cw-xenon-shape, cw-xenon-ox] }
   - id: group-12
@@ -155,7 +155,7 @@ units:
           - { id: A, do: "Find the d count and the number of unpaired electrons of a complex.", ek: ["dⁿ = group − oxidation state; fill t₂g/e_g by spin."], p: [P1], drills: [cw-d-count, cw-complex-unpaired] }
           - { id: B, do: "Compute spin-only moments and CFSE.", ek: ["μ = √(n(n+2)); CFSE = −0.4 t₂g + 0.6 e_g."], p: [P1], needs: [IA-10.1.A], drills: [cw-spin-only-moment, cw-cfse] }
           - { id: C, do: "Use the spectrochemical series and predict Jahn–Teller distortions.", ek: ["I⁻ < … < CN⁻ < CO; uneven e_g distorts."], p: [P3], needs: [IA-10.1.A], drills: [cw-spectrochemical, cw-jahn-teller] }
-          - { id: D, do: "Predict whether a complex is labile or inert.", ek: ["d³ and low-spin d⁶ are inert."], p: [P3], needs: [IA-10.1.B], drills: [cw-labile-inert] }
+          - { id: D, do: "Predict whether a complex is labile or inert.", ek: ["d³ and low-spin d⁶ are inert."], p: [P3], needs: [IA-10.1.B], drills: [cw-labile-inert, cw-lability-why] }
   - id: first-series
     n: 11
     title: "The first transition series (ch. 17)"
@@ -166,19 +166,19 @@ units:
         title: "Ti to Cu"
         los:
           - { id: A, do: "Give the products of permanganate by pH and the chromate–dichromate equilibrium.", ek: ["Mn²⁺, MnO₂, MnO₄²⁻; acid orange, base yellow."], p: [P2], drills: [cw-permanganate-product, cw-chromate-ph] }
-          - { id: B, do: "Give oxidation states in first-row oxides and oxo ions, including mixed valence.", ek: ["Fe₃O₄ +8/3; VO²⁺ V(IV)."], p: [P1], drills: [cw-first-row-ox] }
+          - { id: B, do: "Give oxidation states in first-row oxides and oxo ions, including mixed valence.", ek: ["Fe₃O₄ +8/3; VO²⁺ V(IV)."], p: [P1], drills: [cw-first-row-ox, cw-oxo-d-count] }
       - n: 2
         title: "Ti to Cu, metal by metal"
         los:
-          - { id: A, do: "Recall the characteristic chemistry of titanium: production, key compounds and colours, uses and biological roles.", ek: ["Cotton & Wilkinson's section on titanium."], p: [P2], drills: [cw-ti-chemistry] }
-          - { id: B, do: "Recall the characteristic chemistry of vanadium: production, key compounds and colours, uses and biological roles.", ek: ["Cotton & Wilkinson's section on vanadium."], p: [P2], drills: [cw-v-chemistry] }
-          - { id: C, do: "Recall the characteristic chemistry of chromium: production, key compounds and colours, uses and biological roles.", ek: ["Cotton & Wilkinson's section on chromium."], p: [P2], drills: [cw-cr-chemistry] }
-          - { id: D, do: "Recall the characteristic chemistry of manganese: production, key compounds and colours, uses and biological roles.", ek: ["Cotton & Wilkinson's section on manganese."], p: [P2], drills: [cw-mn-chemistry] }
-          - { id: E, do: "Recall the characteristic chemistry of iron: production, key compounds and colours, uses and biological roles.", ek: ["Cotton & Wilkinson's section on iron."], p: [P2], drills: [cw-fe-chemistry] }
-          - { id: F, do: "Recall the characteristic chemistry of cobalt: production, key compounds and colours, uses and biological roles.", ek: ["Cotton & Wilkinson's section on cobalt."], p: [P2], drills: [cw-co-chemistry] }
-          - { id: G, do: "Recall the characteristic chemistry of nickel: production, key compounds and colours, uses and biological roles.", ek: ["Cotton & Wilkinson's section on nickel."], p: [P2], drills: [cw-ni-chemistry] }
-          - { id: H, do: "Recall the characteristic chemistry of copper: production, key compounds and colours, uses and biological roles.", ek: ["Cotton & Wilkinson's section on copper."], p: [P2], drills: [cw-cu-chemistry] }
-          - { id: I, do: "Give oxidation states in the series' high-valent oxides, oxoanions and fluorides.", ek: ["High states stabilise down a group."], p: [P1], drills: [cw-first-row-ox-2] }
+          - { id: A, do: "Recall the characteristic chemistry of titanium: production, key compounds and colours, uses and biological roles.", ek: ["Cotton & Wilkinson's section on titanium."], p: [P2], drills: [cw-ti-chemistry, cw-ti-identify] }
+          - { id: B, do: "Recall the characteristic chemistry of vanadium: production, key compounds and colours, uses and biological roles.", ek: ["Cotton & Wilkinson's section on vanadium."], p: [P2], drills: [cw-v-chemistry, cw-v-identify] }
+          - { id: C, do: "Recall the characteristic chemistry of chromium: production, key compounds and colours, uses and biological roles.", ek: ["Cotton & Wilkinson's section on chromium."], p: [P2], drills: [cw-cr-chemistry, cw-cr-identify] }
+          - { id: D, do: "Recall the characteristic chemistry of manganese: production, key compounds and colours, uses and biological roles.", ek: ["Cotton & Wilkinson's section on manganese."], p: [P2], drills: [cw-mn-chemistry, cw-mn-identify] }
+          - { id: E, do: "Recall the characteristic chemistry of iron: production, key compounds and colours, uses and biological roles.", ek: ["Cotton & Wilkinson's section on iron."], p: [P2], drills: [cw-fe-chemistry, cw-fe-identify] }
+          - { id: F, do: "Recall the characteristic chemistry of cobalt: production, key compounds and colours, uses and biological roles.", ek: ["Cotton & Wilkinson's section on cobalt."], p: [P2], drills: [cw-co-chemistry, cw-co-identify] }
+          - { id: G, do: "Recall the characteristic chemistry of nickel: production, key compounds and colours, uses and biological roles.", ek: ["Cotton & Wilkinson's section on nickel."], p: [P2], drills: [cw-ni-chemistry, cw-ni-identify] }
+          - { id: H, do: "Recall the characteristic chemistry of copper: production, key compounds and colours, uses and biological roles.", ek: ["Cotton & Wilkinson's section on copper."], p: [P2], drills: [cw-cu-chemistry, cw-cu-identify] }
+          - { id: I, do: "Give oxidation states in the series' high-valent oxides, oxoanions and fluorides.", ek: ["High states stabilise down a group."], p: [P1], drills: [cw-first-row-ox-2, cw-high-valent-d] }
   - id: heavy-series
     n: 12
     title: "The second and third transition series (ch. 18)"
@@ -188,20 +188,20 @@ units:
       - n: 1
         title: "Heavier metals"
         los:
-          - { id: A, do: "Find metal–metal bond orders from d counts.", ek: ["σ²π⁴δ² is a quadruple bond."], p: [P1], drills: [cw-metal-metal-bond] }
-          - { id: B, do: "Explain the lanthanide contraction, low spin in 4d/5d, and the trans effect.", ek: ["Zr ≈ Hf; heavy complexes low spin; cisplatin route."], p: [P2, P3], drills: [cw-heavy-tm-facts] }
+          - { id: A, do: "Find metal–metal bond orders from d counts.", ek: ["σ²π⁴δ² is a quadruple bond."], p: [P1], drills: [cw-metal-metal-bond, cw-mm-after-redox] }
+          - { id: B, do: "Explain the lanthanide contraction, low spin in 4d/5d, and the trans effect.", ek: ["Zr ≈ Hf; heavy complexes low spin; cisplatin route."], p: [P2, P3], drills: [cw-heavy-tm-facts, cw-heavy-tm-why] }
       - n: 2
         title: "Zr to Au, pair by pair"
         los:
-          - { id: A, do: "Recall the characteristic chemistry of zirconium and hafnium: production, key compounds and colours, uses and biological roles.", ek: ["Cotton & Wilkinson's section on zirconium and hafnium."], p: [P2], drills: [cw-zrhf-chemistry] }
-          - { id: B, do: "Recall the characteristic chemistry of niobium and tantalum: production, key compounds and colours, uses and biological roles.", ek: ["Cotton & Wilkinson's section on niobium and tantalum."], p: [P2], drills: [cw-nbta-chemistry] }
-          - { id: C, do: "Recall the characteristic chemistry of molybdenum and tungsten: production, key compounds and colours, uses and biological roles.", ek: ["Cotton & Wilkinson's section on molybdenum and tungsten."], p: [P2], drills: [cw-mow-chemistry] }
-          - { id: D, do: "Recall the characteristic chemistry of technetium and rhenium: production, key compounds and colours, uses and biological roles.", ek: ["Cotton & Wilkinson's section on technetium and rhenium."], p: [P2], drills: [cw-tcre-chemistry] }
-          - { id: E, do: "Recall the characteristic chemistry of ruthenium and osmium: production, key compounds and colours, uses and biological roles.", ek: ["Cotton & Wilkinson's section on ruthenium and osmium."], p: [P2], drills: [cw-ruos-chemistry] }
-          - { id: F, do: "Recall the characteristic chemistry of rhodium and iridium: production, key compounds and colours, uses and biological roles.", ek: ["Cotton & Wilkinson's section on rhodium and iridium."], p: [P2], drills: [cw-rhir-chemistry] }
-          - { id: G, do: "Recall the characteristic chemistry of palladium and platinum: production, key compounds and colours, uses and biological roles.", ek: ["Cotton & Wilkinson's section on palladium and platinum."], p: [P2], drills: [cw-pdpt-chemistry] }
-          - { id: H, do: "Recall the characteristic chemistry of silver and gold: production, key compounds and colours, uses and biological roles.", ek: ["Cotton & Wilkinson's section on silver and gold."], p: [P2], drills: [cw-agau-chemistry] }
-          - { id: I, do: "Give oxidation states in the series' high-valent oxides, oxoanions and fluorides.", ek: ["High states stabilise down a group."], p: [P1], drills: [cw-heavy-metal-ox] }
+          - { id: A, do: "Recall the characteristic chemistry of zirconium and hafnium: production, key compounds and colours, uses and biological roles.", ek: ["Cotton & Wilkinson's section on zirconium and hafnium."], p: [P2], drills: [cw-zrhf-chemistry, cw-zrhf-identify] }
+          - { id: B, do: "Recall the characteristic chemistry of niobium and tantalum: production, key compounds and colours, uses and biological roles.", ek: ["Cotton & Wilkinson's section on niobium and tantalum."], p: [P2], drills: [cw-nbta-chemistry, cw-nbta-identify] }
+          - { id: C, do: "Recall the characteristic chemistry of molybdenum and tungsten: production, key compounds and colours, uses and biological roles.", ek: ["Cotton & Wilkinson's section on molybdenum and tungsten."], p: [P2], drills: [cw-mow-chemistry, cw-mow-identify] }
+          - { id: D, do: "Recall the characteristic chemistry of technetium and rhenium: production, key compounds and colours, uses and biological roles.", ek: ["Cotton & Wilkinson's section on technetium and rhenium."], p: [P2], drills: [cw-tcre-chemistry, cw-tcre-identify] }
+          - { id: E, do: "Recall the characteristic chemistry of ruthenium and osmium: production, key compounds and colours, uses and biological roles.", ek: ["Cotton & Wilkinson's section on ruthenium and osmium."], p: [P2], drills: [cw-ruos-chemistry, cw-ruos-identify] }
+          - { id: F, do: "Recall the characteristic chemistry of rhodium and iridium: production, key compounds and colours, uses and biological roles.", ek: ["Cotton & Wilkinson's section on rhodium and iridium."], p: [P2], drills: [cw-rhir-chemistry, cw-rhir-identify] }
+          - { id: G, do: "Recall the characteristic chemistry of palladium and platinum: production, key compounds and colours, uses and biological roles.", ek: ["Cotton & Wilkinson's section on palladium and platinum."], p: [P2], drills: [cw-pdpt-chemistry, cw-pdpt-identify] }
+          - { id: H, do: "Recall the characteristic chemistry of silver and gold: production, key compounds and colours, uses and biological roles.", ek: ["Cotton & Wilkinson's section on silver and gold."], p: [P2], drills: [cw-agau-chemistry, cw-agau-identify] }
+          - { id: I, do: "Give oxidation states in the series' high-valent oxides, oxoanions and fluorides.", ek: ["High states stabilise down a group."], p: [P1], drills: [cw-heavy-metal-ox, cw-heavy-high-valent-d] }
   - id: lanthanides-actinides
     n: 13
     title: "Group 3, the lanthanides and the actinides (ch. 19–20)"
@@ -211,8 +211,8 @@ units:
       - n: 1
         title: "f-block chemistry"
         los:
-          - { id: A, do: "Count f electrons in lanthanide and actinide ions.", ek: ["Ln³⁺ 4fⁿ, n = Z − 57."], p: [P1], drills: [cw-f-count] }
-          - { id: B, do: "Compute a lanthanide ion's magnetic moment from its ground term.", ek: ["μ = g_J√(J(J+1))."], p: [P1], needs: [IA-13.1.A], drills: [cw-ln-moment] }
+          - { id: A, do: "Count f electrons in lanthanide and actinide ions.", ek: ["Ln³⁺ 4fⁿ, n = Z − 57."], p: [P1], drills: [cw-f-count, cw-ox-from-f] }
+          - { id: B, do: "Compute a lanthanide ion's magnetic moment from its ground term.", ek: ["μ = g_J√(J(J+1))."], p: [P1], needs: [IA-13.1.A], drills: [cw-ln-moment, cw-lande-g] }
           - { id: C, do: "Give characteristic oxidation states of lanthanides and actinides, and states in actinyl ions.", ek: ["Ce⁴⁺, Eu²⁺; U +6 as UO₂²⁺."], p: [P1, P2], drills: [cw-fblock-ox, cw-actinyl-ox] }
   - id: organometallic
     n: 14
@@ -223,7 +223,7 @@ units:
       - n: 1
         title: "Electron counting and elementary steps"
         los:
-          - { id: A, do: "Count valence electrons in organometallic complexes.", ek: ["18 for carbonyls; 16 for square-planar d⁸."], p: [P1], drills: [cw-electron-count] }
+          - { id: A, do: "Count valence electrons in organometallic complexes.", ek: ["18 for carbonyls; 16 for square-planar d⁸."], p: [P1], drills: [cw-electron-count, cw-carbonyl-n] }
           - { id: B, do: "Follow electron count and oxidation state through oxidative addition and the other elementary steps.", ek: ["OA: +2 ox, +2 CN, +2 e."], p: [P1, P2], needs: [IA-14.1.A], drills: [cw-oxidative-addition, cw-reaction-step, cw-beta-hydride] }
       - n: 2
         title: "Catalytic cycles"

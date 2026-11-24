@@ -63,39 +63,39 @@ units:
         title: "Operations on integers, fractions and decimals"
         los:
           - { id: A, std: ["H1.1"], do: "Add and subtract multi-digit numbers left to right, and subtract from a power of ten by complements.", ek: ["Say the large part of the answer first; 1000 − n is nines-and-a-ten on the digits.", "Slide both numbers so the one taken away is round (541 − 229 = 542 − 230); count up when the two are close."], p: [P1, P2], drills: [mm-add-left-to-right, mm-subtract-from-1000, mm-sub-same-change, mm-sub-round-repay, mm-sub-count-up, mm-add-compensate, mm-money-subtract] }
-          - { id: B, std: ["H1.1"], do: "Take a fraction of a whole number by dividing first.", ek: ["p/q of n: divide by q, then multiply by p."], p: [P1, P2], drills: [mm-fraction-of] }
+          - { id: B, std: ["H1.1"], do: "Take a fraction of a whole number by dividing first.", ek: ["p/q of n: divide by q, then multiply by p."], p: [P1, P2], drills: [mm-fraction-of, mm-whole-from-fraction] }
       - n: 2
         title: "Order of operations"
         los:
-          - { id: A, std: ["H1.2"], do: "Evaluate a short expression with mixed operations in the right order.", ek: ["Products and quotients before sums and differences, then left to right."], p: [P1, P2], drills: [mm-order-of-operations] }
+          - { id: A, std: ["H1.2"], do: "Evaluate a short expression with mixed operations in the right order.", ek: ["Products and quotients before sums and differences, then left to right."], p: [P1, P2], drills: [mm-order-of-operations, mm-order-power] }
       - n: 3
         title: "Distributive property"
         los:
-          - { id: A, std: ["H1.3"], do: "Spot a common factor and add before multiplying.", ek: ["ab + ac = a(b + c); look for sums that make 10, 50 or 100."], p: [P1, P2], drills: [mm-distributive] }
+          - { id: A, std: ["H1.3"], do: "Spot a common factor and add before multiplying.", ek: ["ab + ac = a(b + c); look for sums that make 10, 50 or 100."], p: [P1, P2], drills: [mm-distributive, mm-distributive-subtract] }
       - n: 4
         title: "Comparing fractions and decimals"
         los:
-          - { id: A, std: ["H1.4"], do: "Compare two fractions by cross-multiplying.", ek: ["a/b > c/d exactly when ad > bc (positive denominators)."], p: [P1, P2], drills: [mm-compare-fractions] }
+          - { id: A, std: ["H1.4"], do: "Compare two fractions by cross-multiplying.", ek: ["a/b > c/d exactly when ad > bc (positive denominators)."], p: [P1, P2], drills: [mm-compare-fractions, mm-fraction-midpoint] }
       - n: 5
         title: "Multiplication and division short-cuts"
         los:
           - { id: A, std: ["H1.5"], do: "Multiply by 11, 25, 5, 99 and 101 by rewriting the multiplier.", ek: ["11 = 10 + 1; 25 = 100/4; 5 = 10/2; 99 = 100 − 1; 101 = 100 + 1."], p: [P1, P2], drills: [mm-times-11, mm-times-25, mm-times-5, mm-times-99-101] }
-          - { id: B, std: ["H1.5"], do: "Multiply two numbers just under 100 from their shortfalls.", ek: ["(100 − a)(100 − b) = 100(100 − a − b) + ab."], p: [P1, P2], drills: [mm-near-100] }
+          - { id: B, std: ["H1.5"], do: "Multiply two numbers just under 100 from their shortfalls.", ek: ["(100 − a)(100 − b) = 100(100 − a − b) + ab."], p: [P1, P2], drills: [mm-near-100, mm-above-100] }
           - { id: C, std: ["H1.5"], do: "Multiply two-digit numbers that share a tens digit and whose ones digits sum to 10, or that sit evenly around a round number.", ek: ["(10t + u)(10t + 10 − u) = 100t(t + 1) + u(10 − u); (m − d)(m + d) = m² − d²."], p: [P1, P2], drills: [mm-same-tens, mm-difference-of-squares] }
-          - { id: D, std: ["H1.5"], do: "Double one factor and halve the other to make a round number.", ek: ["ab = (a/2)(2b); a factor ending in 5 doubles to a multiple of 10."], p: [P1, P2], drills: [mm-double-and-halve] }
+          - { id: D, std: ["H1.5"], do: "Double one factor and halve the other to make a round number.", ek: ["ab = (a/2)(2b); a factor ending in 5 doubles to a multiple of 10."], p: [P1, P2], drills: [mm-double-and-halve, mm-times-25] }
           - { id: E, do: "Divide by 5 and 25 by rewriting the divisor, and by a two-digit number in stages.", ek: ["÷5 = ×2 ÷10; ÷25 = ×4 ÷100; ÷35 = ÷5 then ÷7. Multiply back to check."], p: [P1, P2], drills: [mm-div-5, mm-div-25, mm-div-stages] }
-          - { id: F, do: "Divide by a decimal by moving both decimal points until the divisor is whole.", ek: ["12.6 ÷ 0.35 = 1260 ÷ 35: dollars ÷ dollars per minute becomes cents ÷ cents per minute."], p: [P1, P2], drills: [mm-div-shift], needs: [MM-1.5.E] }
+          - { id: F, do: "Divide by a decimal by moving both decimal points until the divisor is whole.", ek: ["12.6 ÷ 0.35 = 1260 ÷ 35: dollars ÷ dollars per minute becomes cents ÷ cents per minute."], p: [P1, P2], drills: [mm-div-shift, mm-decimal-product], needs: [MM-1.5.E] }
       - n: 6
         title: "Squaring numbers"
         los:
           - { id: A, std: ["H1.6"], do: "Square a number ending in 5, or near 50 or 100, from its pattern.", ek: ["(10t + 5)² = 100t(t + 1) + 25; (50 ± d)² = 100(25 ± d) + d²; (100 ± d)² = 100(100 ± 2d) + d²."], p: [P1, P2], drills: [mm-square-ending-5, mm-square-near-50, mm-square-near-100] }
-          - { id: B, std: ["H1.6"], do: "Square any two-digit number by sliding to a multiple of ten.", ek: ["n² = (n − d)(n + d) + d²."], p: [P1, P2], drills: [mm-square-two-digit] }
+          - { id: B, std: ["H1.6"], do: "Square any two-digit number by sliding to a multiple of ten.", ek: ["n² = (n − d)(n + d) + d²."], p: [P1, P2], drills: [mm-square-two-digit, mm-difference-of-squares] }
       - n: 7
         title: "Conversions"
         los:
           - { id: A, std: ["H1.7"], do: "Recall the percent form of the common fractions, and use it to take a percent of a number.", ek: ["Eighths step by 12.5%; 1/6 = 16⅔%; 1/7 ≈ 14.3%; 1/9 ≈ 11.1%; 1/11 ≈ 9.09%; 1/12 = 8⅓%; 1/16 = 6.25%."], p: [P1, P2], drills: [mm-fraction-to-percent, mm-percent-as-fraction] }
-          - { id: B, std: ["H1.7"], do: "Convert between common units of length, capacity, weight and time, including square and cubic units.", ek: ["12 in/ft, 3 ft/yd, 5280 ft/mi, 4 qt/gal, 2 pt/qt, 16 oz/lb; area factors are squared, volume factors cubed."], p: [P1, P2], drills: [mm-unit-conversion] }
-          - { id: C, std: ["H1.7"], do: "Read a Roman numeral.", ek: ["I V X L C D M = 1 5 10 50 100 500 1000; a smaller symbol before a larger one is subtracted."], p: [P1, P2], drills: [mm-roman-numerals] }
+          - { id: B, std: ["H1.7"], do: "Convert between common units of length, capacity, weight and time, including square and cubic units.", ek: ["12 in/ft, 3 ft/yd, 5280 ft/mi, 4 qt/gal, 2 pt/qt, 16 oz/lb; area factors are squared, volume factors cubed."], p: [P1, P2], drills: [mm-unit-conversion, mm-area-volume-units] }
+          - { id: C, std: ["H1.7"], do: "Read a Roman numeral.", ek: ["I V X L C D M = 1 5 10 50 100 500 1000; a smaller symbol before a larger one is subtracted."], p: [P1, P2], drills: [mm-roman-numerals, mm-roman-sum] }
       - n: 8
         title: "GCD and LCM"
         los:
@@ -119,7 +119,7 @@ units:
       - n: 13
         title: "Consumer problems"
         los:
-          - { id: A, std: ["H1.13"], do: "Find a sale price or similar everyday percent amount.", ek: ["Pay (100 − p)% of the price; build from 10%."], p: [P1, P2], drills: [mm-sale-price] }
+          - { id: A, std: ["H1.13"], do: "Find a sale price or similar everyday percent amount.", ek: ["Pay (100 − p)% of the price; build from 10%."], p: [P1, P2], drills: [mm-sale-price, mm-original-price] }
       - n: 14
         title: "Number theory: primes and divisors"
         los:
@@ -142,51 +142,51 @@ units:
       - n: 2
         title: "Substitution"
         los:
-          - { id: A, std: ["H2.2"], do: "Evaluate an expression at given values without writing it out.", ek: ["Substitute, then use the order of operations."], p: [P1, P2], drills: [mm-substitution] }
+          - { id: A, std: ["H2.2"], do: "Evaluate an expression at given values without writing it out.", ek: ["Substitute, then use the order of operations."], p: [P1, P2], drills: [mm-substitution, mm-two-variable-sub] }
       - n: 3
         title: "Word problems"
         los:
-          - { id: A, std: ["H2.3"], do: "Solve a one-step word problem (ages, rates, coins) mentally.", ek: ["Name the unknown and undo one operation."], p: [P1, P2], drills: [mm-sum-and-difference] }
+          - { id: A, std: ["H2.3"], do: "Solve a one-step word problem (ages, rates, coins) mentally.", ek: ["Name the unknown and undo one operation."], p: [P1, P2], drills: [mm-sum-and-difference, mm-coin-count] }
       - n: 4
         title: "Inverses"
         los:
-          - { id: A, std: ["H2.4"], do: "Give the additive or multiplicative inverse of an integer, fraction or mixed number.", ek: ["Additive inverses sum to 0; multiplicative inverses multiply to 1."], p: [P1, P2], drills: [mm-reciprocal-mixed] }
+          - { id: A, std: ["H2.4"], do: "Give the additive or multiplicative inverse of an integer, fraction or mixed number.", ek: ["Additive inverses sum to 0; multiplicative inverses multiply to 1."], p: [P1, P2], drills: [mm-reciprocal-mixed, mm-decimal-reciprocal] }
       - n: 5
         title: "Absolute value"
         los:
-          - { id: A, std: ["H2.5"], do: "Evaluate an expression with absolute values.", ek: ["|x| is the distance from 0."], p: [P1, P2], drills: [mm-absolute-value] }
+          - { id: A, std: ["H2.5"], do: "Evaluate an expression with absolute values.", ek: ["|x| is the distance from 0."], p: [P1, P2], drills: [mm-absolute-value, mm-abs-combo] }
       - n: 6
         title: "Ratio and proportion"
         los:
-          - { id: A, std: ["H2.6"], do: "Solve a proportion by scaling or cross-multiplying.", ek: ["a/b = c/d means ad = bc."], p: [P1, P2], drills: [mm-proportion] }
+          - { id: A, std: ["H2.6"], do: "Solve a proportion by scaling or cross-multiplying.", ek: ["a/b = c/d means ad = bc."], p: [P1, P2], drills: [mm-proportion, mm-unit-rate] }
       - n: 7
         title: "Square roots and cube roots"
         los:
-          - { id: A, std: ["H2.7"], do: "Find the root of a perfect square or cube from its size and last digit.", ek: ["Bracket between squares of tens; the last digit narrows the ones digit."], p: [P1, P2], drills: [mm-perfect-square-root] }
+          - { id: A, std: ["H2.7"], do: "Find the root of a perfect square or cube from its size and last digit.", ek: ["Bracket between squares of tens; the last digit narrows the ones digit."], p: [P1, P2], drills: [mm-perfect-square-root, mm-cube-root] }
       - n: 8
         title: "Sets"
         los:
-          - { id: A, std: ["H2.8"], do: "Count subsets, and elements of unions and intersections.", ek: ["A set of n elements has 2ⁿ subsets; |A ∪ B| = |A| + |B| − |A ∩ B|."], p: [P1, P2], drills: [mm-subsets] }
+          - { id: A, std: ["H2.8"], do: "Count subsets, and elements of unions and intersections.", ek: ["A set of n elements has 2ⁿ subsets; |A ∪ B| = |A| + |B| − |A ∩ B|."], p: [P1, P2], drills: [mm-subsets, mm-proper-subsets] }
       - n: 9
         title: "Base conversions"
         los:
-          - { id: A, std: ["H2.9"], do: "Convert a short numeral from another base to base 10.", ek: ["Multiply by the base and add the next digit, left to right."], p: [P1, P2], drills: [mm-base-to-ten] }
+          - { id: A, std: ["H2.9"], do: "Convert a short numeral from another base to base 10.", ek: ["Multiply by the base and add the next digit, left to right."], p: [P1, P2], drills: [mm-base-to-ten, mm-ten-to-base5] }
       - n: 10
         title: "Simple equations"
         los:
-          - { id: A, std: ["H2.10"], do: "Solve a one- or two-step linear equation mentally.", ek: ["Undo operations in reverse order."], p: [P1, P2], drills: [mm-linear-equation] }
+          - { id: A, std: ["H2.10"], do: "Solve a one- or two-step linear equation mentally.", ek: ["Undo operations in reverse order."], p: [P1, P2], drills: [mm-linear-equation, mm-both-sides] }
       - n: 11
         title: "Systems of equations"
         los:
-          - { id: A, std: ["H2.11"], do: "Find x + y or x − y from a 2 × 2 system by adding or subtracting the equations.", ek: ["Often the combination asked for falls out without solving for each variable."], p: [P1, P2], drills: [mm-system-sum] }
+          - { id: A, std: ["H2.11"], do: "Find x + y or x − y from a 2 × 2 system by adding or subtracting the equations.", ek: ["Often the combination asked for falls out without solving for each variable."], p: [P1, P2], drills: [mm-system-sum, mm-system-x] }
       - n: 12
         title: "Repeating decimals to fractions"
         los:
-          - { id: A, std: ["H2.12"], do: "Write a repeating decimal as a fraction.", ek: ["A repeating block of k digits sits over k nines."], p: [P1, P2], drills: [mm-repeating-decimal] }
+          - { id: A, std: ["H2.12"], do: "Write a repeating decimal as a fraction.", ek: ["A repeating block of k digits sits over k nines."], p: [P1, P2], drills: [mm-repeating-decimal, mm-mixed-repeating] }
       - n: 13
         title: "More remainder problems"
         los:
-          - { id: A, std: ["H2.13"], do: "Find the remainder of a sum or product from the remainders of its parts.", ek: ["Remainders add and multiply (mod m)."], p: [P1, P2], drills: [mm-remainder-product] }
+          - { id: A, std: ["H2.13"], do: "Find the remainder of a sum or product from the remainders of its parts.", ek: ["Remainders add and multiply (mod m)."], p: [P1, P2], drills: [mm-remainder-product, mm-remainder-sum] }
       - n: 14
         title: "Perimeter and area of polygons and circles"
         los:
@@ -194,11 +194,11 @@ units:
       - n: 15
         title: "Sequences"
         los:
-          - { id: A, std: ["H2.15"], do: "Find the next or the n-th term of an arithmetic or geometric sequence.", ek: ["aₙ = a₁ + (n − 1)d; aₙ = a₁rⁿ⁻¹."], p: [P1, P2], drills: [mm-nth-term] }
+          - { id: A, std: ["H2.15"], do: "Find the next or the n-th term of an arithmetic or geometric sequence.", ek: ["aₙ = a₁ + (n − 1)d; aₙ = a₁rⁿ⁻¹."], p: [P1, P2], drills: [mm-nth-term, mm-arithmetic-sum] }
       - n: 16
         title: "Quadratic and cubic equations"
         los:
-          - { id: A, std: ["H2.16"], do: "Give the sum or product of the roots of a quadratic or cubic from its coefficients.", ek: ["For ax² + bx + c: sum −b/a, product c/a."], p: [P1, P2], drills: [mm-vieta] }
+          - { id: A, std: ["H2.16"], do: "Give the sum or product of the roots of a quadratic or cubic from its coefficients.", ek: ["For ax² + bx + c: sum −b/a, product c/a."], p: [P1, P2], drills: [mm-vieta, mm-other-root] }
   - id: advanced
     n: 3
     title: "Advanced algebra and geometry (problems 41–60)"
@@ -209,71 +209,71 @@ units:
       - n: 1
         title: "Laws of exponents"
         los:
-          - { id: A, std: ["H3.1"], do: "Simplify a product or quotient of powers by moving to a common base.", ek: ["aᵐaⁿ = aᵐ⁺ⁿ; (aᵐ)ⁿ = aᵐⁿ; 4 = 2², 8 = 2³."], p: [P1, P2], drills: [mm-exponent-laws] }
+          - { id: A, std: ["H3.1"], do: "Simplify a product or quotient of powers by moving to a common base.", ek: ["aᵐaⁿ = aᵐ⁺ⁿ; (aᵐ)ⁿ = aᵐⁿ; 4 = 2², 8 = 2³."], p: [P1, P2], drills: [mm-exponent-laws, mm-exponent-solve] }
       - n: 2
         title: "Right triangles"
         los:
-          - { id: A, std: ["H3.2"], do: "Complete a Pythagorean triple or a 30-60-90 or 45-45-90 triangle.", ek: ["3-4-5, 5-12-13, 8-15-17, 7-24-25 and their multiples."], p: [P1, P2], drills: [mm-pythagorean-triple] }
+          - { id: A, std: ["H3.2"], do: "Complete a Pythagorean triple or a 30-60-90 or 45-45-90 triangle.", ek: ["3-4-5, 5-12-13, 8-15-17, 7-24-25 and their multiples."], p: [P1, P2], drills: [mm-pythagorean-triple, mm-right-triangle-area] }
       - n: 3
         title: "Coordinate geometry"
         los:
-          - { id: A, std: ["H3.3"], do: "Find a slope, midpoint, distance or intercept from two points or an equation.", ek: ["m = Δy/Δx; midpoint averages the coordinates."], p: [P1, P2], drills: [mm-slope] }
+          - { id: A, std: ["H3.3"], do: "Find a slope, midpoint, distance or intercept from two points or an equation.", ek: ["m = Δy/Δx; midpoint averages the coordinates."], p: [P1, P2], drills: [mm-slope, mm-intercept-two-points] }
       - n: 4
         title: "Regular polygons"
         los:
-          - { id: A, std: ["H3.4"], do: "Find an interior or exterior angle, or the number of diagonals, of a regular polygon.", ek: ["Exterior angle 360°/n; diagonals n(n − 3)/2."], p: [P1, P2], drills: [mm-regular-polygon] }
+          - { id: A, std: ["H3.4"], do: "Find an interior or exterior angle, or the number of diagonals, of a regular polygon.", ek: ["Exterior angle 360°/n; diagonals n(n − 3)/2."], p: [P1, P2], drills: [mm-regular-polygon, mm-sides-from-angle] }
       - n: 5
         title: "Inequalities"
         los:
-          - { id: A, std: ["H3.5"], do: "Solve a linear inequality or count its integer solutions.", ek: ["Multiplying by a negative reverses the inequality."], p: [P1, P2], drills: [mm-inequality-count] }
+          - { id: A, std: ["H3.5"], do: "Solve a linear inequality or count its integer solutions.", ek: ["Multiplying by a negative reverses the inequality."], p: [P1, P2], drills: [mm-inequality-count, mm-abs-inequality-count] }
       - n: 6
         title: "Applications of geometry theorems"
         los:
-          - { id: A, std: ["H3.6"], do: "Use an angle, chord, tangent or similarity fact to find a length or angle.", ek: ["Inscribed angle = half the arc; similar figures scale areas by k²."], p: [P1, P2], drills: [mm-circle-angles] }
+          - { id: A, std: ["H3.6"], do: "Use an angle, chord, tangent or similarity fact to find a length or angle.", ek: ["Inscribed angle = half the arc; similar figures scale areas by k²."], p: [P1, P2], drills: [mm-circle-angles, mm-chord-segments] }
       - n: 7
         title: "Direct and inverse variation"
         los:
-          - { id: A, std: ["H3.7"], do: "Find a value from a direct or inverse variation.", ek: ["y = kx or y = k/x; find k first, or scale."], p: [P1, P2], drills: [mm-variation] }
+          - { id: A, std: ["H3.7"], do: "Find a value from a direct or inverse variation.", ek: ["y = kx or y = k/x; find k first, or scale."], p: [P1, P2], drills: [mm-variation, mm-inverse-square] }
       - n: 8
         title: "Sequences and series, finite and infinite"
         los:
-          - { id: A, std: ["H3.8"], do: "Sum an infinite geometric series.", ek: ["S = a/(1 − r) for |r| < 1."], p: [P1, P2], drills: [mm-geometric-sum] }
+          - { id: A, std: ["H3.8"], do: "Sum an infinite geometric series.", ek: ["S = a/(1 − r) for |r| < 1."], p: [P1, P2], drills: [mm-geometric-sum, mm-ratio-from-sum] }
       - n: 9
         title: "Complex numbers"
         los:
-          - { id: A, std: ["H3.9"], do: "Multiply two complex numbers or find a modulus or a power of i.", ek: ["i² = −1; |a + bi|² = a² + b²."], p: [P1, P2], drills: [mm-complex-product] }
+          - { id: A, std: ["H3.9"], do: "Multiply two complex numbers or find a modulus or a power of i.", ek: ["i² = −1; |a + bi|² = a² + b²."], p: [P1, P2], drills: [mm-complex-product, mm-product-modulus] }
       - n: 10
         title: "Logarithms and logarithmic equations"
         los:
-          - { id: A, std: ["H3.10"], do: "Evaluate a logarithm of an exact power.", ek: ["log_b(bᵏ) = k."], p: [P1, P2], drills: [mm-log-exact] }
+          - { id: A, std: ["H3.10"], do: "Evaluate a logarithm of an exact power.", ek: ["log_b(bᵏ) = k."], p: [P1, P2], drills: [mm-log-exact, mm-log-fraction] }
       - n: 11
         title: "Factorials, permutations and combinations"
         los:
-          - { id: A, std: ["H3.11"], do: "Evaluate a small combination, permutation or factorial ratio.", ek: ["C(n, r) = n(n − 1)…(n − r + 1)/r!."], p: [P1, P2], drills: [mm-combinations] }
+          - { id: A, std: ["H3.11"], do: "Evaluate a small combination, permutation or factorial ratio.", ek: ["C(n, r) = n(n − 1)…(n − r + 1)/r!."], p: [P1, P2], drills: [mm-combinations, mm-permutations] }
       - n: 12
         title: "Probability and odds"
         los:
-          - { id: A, std: ["H3.12"], do: "Give the probability or odds of a simple event with dice, coins or cards.", ek: ["Odds in favour = successes : failures."], p: [P1, P2], drills: [mm-two-dice] }
+          - { id: A, std: ["H3.12"], do: "Give the probability or odds of a simple event with dice, coins or cards.", ek: ["Odds in favour = successes : failures."], p: [P1, P2], drills: [mm-two-dice, mm-dice-sum-prob] }
       - n: 13
         title: "Conics"
         los:
-          - { id: A, std: ["H3.13"], do: "Read a centre, vertex, focus or axis length from a conic in standard form.", ek: ["Circle (x − h)² + (y − k)² = r²; ellipse axes 2a and 2b."], p: [P1, P2], drills: [mm-circle-radius] }
+          - { id: A, std: ["H3.13"], do: "Read a centre, vertex, focus or axis length from a conic in standard form.", ek: ["Circle (x − h)² + (y − k)² = r²; ellipse axes 2a and 2b."], p: [P1, P2], drills: [mm-circle-radius, mm-radius-general-form] }
       - n: 14
         title: "Binomial theorem"
         los:
-          - { id: A, std: ["H3.14"], do: "Give a coefficient or the sum of coefficients of a binomial expansion.", ek: ["Coefficients are C(n, k); their sum is the expansion at x = y = 1."], p: [P1, P2], drills: [mm-binomial-coefficient] }
+          - { id: A, std: ["H3.14"], do: "Give a coefficient or the sum of coefficients of a binomial expansion.", ek: ["Coefficients are C(n, k); their sum is the expansion at x = y = 1."], p: [P1, P2], drills: [mm-binomial-coefficient, mm-coefficient-2x] }
       - n: 15
         title: "Operations in other bases"
         los:
-          - { id: A, std: ["H3.15"], do: "Add, subtract or multiply two short numerals in another base.", ek: ["Carry at the base instead of at ten."], p: [P1, P2], drills: [mm-base-addition] }
+          - { id: A, std: ["H3.15"], do: "Add, subtract or multiply two short numerals in another base.", ek: ["Carry at the base instead of at ten."], p: [P1, P2], drills: [mm-base-addition, mm-largest-base-numeral] }
       - n: 16
         title: "Roots of equations"
         los:
-          - { id: A, std: ["H3.16"], do: "Use Vieta's relations to find symmetric expressions in the roots.", ek: ["r₁² + r₂² = (r₁ + r₂)² − 2r₁r₂."], p: [P1, P2], drills: [mm-sum-of-squares-of-roots] }
+          - { id: A, std: ["H3.16"], do: "Use Vieta's relations to find symmetric expressions in the roots.", ek: ["r₁² + r₂² = (r₁ + r₂)² − 2r₁r₂."], p: [P1, P2], drills: [mm-sum-of-squares-of-roots, mm-reciprocal-roots] }
       - n: 17
         title: "Polygonal numbers"
         los:
-          - { id: A, std: ["H3.17"], do: "Find the n-th triangular, pentagonal or hexagonal number.", ek: ["Triangular n(n + 1)/2; pentagonal n(3n − 1)/2; hexagonal n(2n − 1)."], p: [P1, P2], drills: [mm-polygonal-number] }
+          - { id: A, std: ["H3.17"], do: "Find the n-th triangular, pentagonal or hexagonal number.", ek: ["Triangular n(n + 1)/2; pentagonal n(3n − 1)/2; hexagonal n(2n − 1)."], p: [P1, P2], drills: [mm-polygonal-number, mm-triangular-index] }
   - id: precalculus
     n: 4
     title: "Precalculus (problems 61–70)"
@@ -288,39 +288,39 @@ units:
       - n: 2
         title: "Greatest integer"
         los:
-          - { id: A, std: ["H4.2"], do: "Evaluate a floor expression, including of negative numbers.", ek: ["⌊x⌋ is the greatest integer not above x; ⌊−2.3⌋ = −3."], p: [P1, P2], drills: [mm-floor] }
+          - { id: A, std: ["H4.2"], do: "Evaluate a floor expression, including of negative numbers.", ek: ["⌊x⌋ is the greatest integer not above x; ⌊−2.3⌋ = −3."], p: [P1, P2], drills: [mm-floor, mm-ceiling-negative] }
       - n: 3
         title: "Remainder theorem"
         los:
-          - { id: A, std: ["H4.3"], do: "Find the remainder of a polynomial on division by x − a.", ek: ["The remainder is p(a)."], p: [P1, P2], drills: [mm-remainder-theorem] }
+          - { id: A, std: ["H4.3"], do: "Find the remainder of a polynomial on division by x − a.", ek: ["The remainder is p(a)."], p: [P1, P2], drills: [mm-remainder-theorem, mm-factor-k] }
       - n: 4
         title: "Trigonometry"
         los:
-          - { id: A, std: ["H4.4"], do: "Recall exact trig values at the special angles and use basic identities.", ek: ["sin and cos of 0°, 30°, 45°, 60°, 90° and their reflections; sin² + cos² = 1."], p: [P1, P2], drills: [mm-trig-exact] }
+          - { id: A, std: ["H4.4"], do: "Recall exact trig values at the special angles and use basic identities.", ek: ["sin and cos of 0°, 30°, 45°, 60°, 90° and their reflections; sin² + cos² = 1."], p: [P1, P2], drills: [mm-trig-exact, mm-cos-from-sin] }
       - n: 5
         title: "Determinants"
         los:
-          - { id: A, std: ["H4.5"], do: "Evaluate a 2 × 2 or simple 3 × 3 determinant.", ek: ["ad − bc."], p: [P1, P2], drills: [mm-determinant] }
+          - { id: A, std: ["H4.5"], do: "Evaluate a 2 × 2 or simple 3 × 3 determinant.", ek: ["ad − bc."], p: [P1, P2], drills: [mm-determinant, mm-det-zero-x] }
       - n: 6
         title: "Matrices"
         los:
-          - { id: A, std: ["H4.6"], do: "Find an entry of a matrix sum, product or inverse.", ek: ["Row times column."], p: [P1, P2], drills: [mm-matrix-entry] }
+          - { id: A, std: ["H4.6"], do: "Find an entry of a matrix sum, product or inverse.", ek: ["Row times column."], p: [P1, P2], drills: [mm-matrix-entry, mm-inverse-entry] }
       - n: 7
         title: "Vectors"
         los:
-          - { id: A, std: ["H4.7"], do: "Find a dot product or a magnitude.", ek: ["u·v = u₁v₁ + u₂v₂."], p: [P1, P2], drills: [mm-dot-product] }
+          - { id: A, std: ["H4.7"], do: "Find a dot product or a magnitude.", ek: ["u·v = u₁v₁ + u₂v₂."], p: [P1, P2], drills: [mm-dot-product, mm-3d-magnitude] }
       - n: 8
         title: "Composite functions"
         los:
-          - { id: A, std: ["H4.8"], do: "Evaluate f(g(a)) for simple f and g.", ek: ["Work from the inside out."], p: [P1, P2], drills: [mm-composite] }
+          - { id: A, std: ["H4.8"], do: "Evaluate f(g(a)) for simple f and g.", ek: ["Work from the inside out."], p: [P1, P2], drills: [mm-composite, mm-composite-reverse] }
       - n: 9
         title: "Bases with decimals or fractions"
         los:
-          - { id: A, std: ["H4.9"], do: "Convert a fraction to or from a numeral with digits after the point in another base.", ek: ["Places after the point are negative powers of the base."], p: [P1, P2], drills: [mm-base-fraction] }
+          - { id: A, std: ["H4.9"], do: "Convert a fraction to or from a numeral with digits after the point in another base.", ek: ["Places after the point are negative powers of the base."], p: [P1, P2], drills: [mm-base-fraction, mm-base-point-value] }
       - n: 10
         title: "Polar and rectangular coordinates"
         los:
-          - { id: A, std: ["H4.10"], do: "Convert a point between polar and rectangular form at a special angle.", ek: ["x = r cos θ, y = r sin θ."], p: [P1, P2], drills: [mm-polar-to-rectangular] }
+          - { id: A, std: ["H4.10"], do: "Convert a point between polar and rectangular form at a special angle.", ek: ["x = r cos θ, y = r sin θ."], p: [P1, P2], drills: [mm-polar-to-rectangular, mm-rect-to-r] }
   - id: calculus
     n: 5
     title: "Calculus (problems 71–80)"
@@ -335,39 +335,39 @@ units:
       - n: 2
         title: "Modular arithmetic"
         los:
-          - { id: A, std: ["H5.2"], do: "Evaluate a sum, product or power modulo m.", ek: ["Reduce before multiplying; powers cycle."], p: [P1, P2], drills: [mm-modular-power] }
+          - { id: A, std: ["H5.2"], do: "Evaluate a sum, product or power modulo m.", ek: ["Reduce before multiplying; powers cycle."], p: [P1, P2], drills: [mm-modular-power, mm-last-digit-power] }
       - n: 3
         title: "Limits"
         los:
-          - { id: A, std: ["H5.3"], do: "Evaluate a limit of a rational function at a point or at infinity by inspection.", ek: ["At infinity compare leading terms; at a 0/0 point cancel the common factor."], p: [P1, P2], drills: [mm-limit-at-infinity] }
+          - { id: A, std: ["H5.3"], do: "Evaluate a limit of a rational function at a point or at infinity by inspection.", ek: ["At infinity compare leading terms; at a 0/0 point cancel the common factor."], p: [P1, P2], drills: [mm-limit-at-infinity, mm-removable-limit] }
       - n: 4
         title: "Derivatives"
         los:
-          - { id: A, std: ["H5.4"], do: "Evaluate the derivative of a polynomial or basic function at a point.", ek: ["Power rule term by term."], p: [P1, P2], drills: [mm-derivative-at-a-point] }
+          - { id: A, std: ["H5.4"], do: "Evaluate the derivative of a polynomial or basic function at a point.", ek: ["Power rule term by term."], p: [P1, P2], drills: [mm-derivative-at-a-point, mm-product-derivative] }
       - n: 5
         title: "Slopes of tangent lines"
         los:
-          - { id: A, std: ["H5.5"], do: "Give the slope of the tangent to a curve at a point.", ek: ["It is f′ at that x."], p: [P1, P2], drills: [mm-tangent-slope] }
+          - { id: A, std: ["H5.5"], do: "Give the slope of the tangent to a curve at a point.", ek: ["It is f′ at that x."], p: [P1, P2], drills: [mm-tangent-slope, mm-tangent-intercept] }
       - n: 6
         title: "Horizontal and vertical asymptotes"
         los:
-          - { id: A, std: ["H5.6"], do: "Read the asymptotes of a rational function from its formula.", ek: ["Vertical where the reduced denominator is 0; horizontal from the leading terms."], p: [P1, P2], drills: [mm-asymptote] }
+          - { id: A, std: ["H5.6"], do: "Read the asymptotes of a rational function from its formula.", ek: ["Vertical where the reduced denominator is 0; horizontal from the leading terms."], p: [P1, P2], drills: [mm-asymptote, mm-horizontal-asymptote] }
       - n: 7
         title: "Critical values"
         los:
-          - { id: A, std: ["H5.7"], do: "Find where a polynomial's derivative is zero.", ek: ["Set f′ = 0 and factor."], p: [P1, P2], drills: [mm-critical-value] }
+          - { id: A, std: ["H5.7"], do: "Find where a polynomial's derivative is zero.", ek: ["Set f′ = 0 and factor."], p: [P1, P2], drills: [mm-critical-value, mm-inflection] }
       - n: 8
         title: "Maximum and minimum problems"
         los:
-          - { id: A, std: ["H5.8"], do: "Find the maximum or minimum value of a quadratic or a simple cubic on an interval.", ek: ["A quadratic's extreme is at x = −b/(2a)."], p: [P1, P2], drills: [mm-quadratic-maximum] }
+          - { id: A, std: ["H5.8"], do: "Find the maximum or minimum value of a quadratic or a simple cubic on an interval.", ek: ["A quadratic's extreme is at x = −b/(2a)."], p: [P1, P2], drills: [mm-quadratic-maximum, mm-max-product] }
       - n: 9
         title: "Definite integration"
         los:
-          - { id: A, std: ["H5.9"], do: "Evaluate a definite integral of a polynomial with easy limits.", ek: ["Antidifferentiate term by term; use symmetry for odd and even integrands."], p: [P1, P2], drills: [mm-definite-integral] }
+          - { id: A, std: ["H5.9"], do: "Evaluate a definite integral of a polynomial with easy limits.", ek: ["Antidifferentiate term by term; use symmetry for odd and even integrands."], p: [P1, P2], drills: [mm-definite-integral, mm-average-value] }
       - n: 10
         title: "Inverse functions"
         los:
-          - { id: A, std: ["H5.10"], do: "Evaluate f⁻¹(a) for a linear or simple rational f without finding the inverse formula.", ek: ["Solve f(x) = a."], p: [P1, P2], drills: [mm-inverse-function-value] }
+          - { id: A, std: ["H5.10"], do: "Evaluate f⁻¹(a) for a linear or simple rational f without finding the inverse formula.", ek: ["Solve f(x) = a."], p: [P1, P2], drills: [mm-inverse-function-value, mm-inverse-derivative] }
   # Beyond the UIL chart: university-level results written down without working. The chart stops at
   # first-semester calculus, so this unit rests on two other published things (see standards.yaml)
   # and the choice of items is a house list.
@@ -394,6 +394,6 @@ units:
       - n: 4
         title: "Matrices and ODEs on sight"
         los:
-          - { id: A, do: "Find the eigenvalues of a 2 × 2 matrix from its trace and determinant.", ek: ["Sum = trace, product = determinant."], p: [P1, P2], drills: [mm-eigen-trace-det] }
+          - { id: A, do: "Find the eigenvalues of a 2 × 2 matrix from its trace and determinant.", ek: ["Sum = trace, product = determinant."], p: [P1, P2], drills: [mm-eigen-trace-det, mm-trace-of-square] }
           - { id: B, do: "Classify y″ + by′ + cy = 0 by comparing b² with 4c, and choose the trial form for an exponential forcing term.", ek: ["b² > 4c overdamped, = critical, < underdamped; multiply the trial by x once per time the exponent is a characteristic root."], p: [P1, P2], drills: [mm-damping-class, mm-particular-form] }
 

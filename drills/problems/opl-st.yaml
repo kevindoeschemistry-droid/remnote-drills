@@ -24,6 +24,29 @@
   verify:
     expect:
       v: solve(Eq(x/(1 + x), nsimplify(p)), x)[0]
+- template: st-odds-against
+  skill: stats.probability
+  pace: quick
+  given:
+    a:
+      int:
+      - 2
+      - 9
+    b:
+      int:
+      - 1
+      - 5
+  prompt: The odds against an event are {{a}} to {{b}}. What is the probability of the event?
+  parts:
+  - ask: Answer
+    label: v
+    tex: P
+    value: b/(a + b)
+    tol: 0.005
+    explain: Odds against a:b means a failures for every b successes
+  verify:
+    expect:
+      v: solve(Eq(x/(1 - x), Rational(b, a)), x)[0]
 - template: st-median-exponential
   skill: stats.distributions
   pace: quick
@@ -45,6 +68,32 @@
   verify:
     expect:
       v: solve(Eq(integrate(nsimplify(l)*exp(-nsimplify(l)*Symbol('s')), (Symbol('s'), 0, x)), Rational(1, 2)), x)[0]
+- template: st-exp-percentile
+  skill: stats.distributions
+  pace: quick
+  given:
+    m:
+      pick:
+      - 50
+      - 200
+      - 1000
+    pc:
+      pick:
+      - 10
+      - 25
+      - 90
+      - 95
+  prompt: A lifetime is exponential with mean {{m}} h. What is its {{pc}}th percentile, in h?
+  parts:
+  - ask: Answer
+    label: v
+    tex: t_p
+    value: -m*log(1 - pc/100)
+    tol: 0.005
+    explain: Set the CDF 1 − e^(−t/m) equal to p
+  verify:
+    expect:
+      v: solve(Eq(integrate(exp(-Symbol('t')/m)/m, (Symbol('t'), 0, x)), Rational(pc, 100)), x)[0]
 - template: st-pdf-interval
   skill: stats.distributions
   pace: quick
@@ -72,6 +121,30 @@
   verify:
     expect:
       v: integrate(3*x**2, (x, nsimplify(a), nsimplify(b)))
+- template: st-normalising-constant
+  skill: stats.distributions
+  pace: quick
+  given:
+    k:
+      int:
+      - 1
+      - 4
+    L:
+      pick:
+      - 1
+      - 2
+      - 3
+  prompt: $f(x) = c\,x^{ {{k}} }$ on $[0, {{L}}]$ is a density. What is $c$?
+  parts:
+  - ask: Answer
+    label: v
+    tex: c
+    value: (k + 1)/L^(k + 1)
+    tol: 0.005
+    explain: A density integrates to 1
+  verify:
+    expect:
+      v: 1/integrate(Symbol('t')**k, (Symbol('t'), 0, L))
 - template: st-mgf-mean
   skill: stats.expected-value
   pace: quick
@@ -97,6 +170,30 @@
   verify:
     expect:
       v: diff((1 - nsimplify(p) + nsimplify(p)*exp(x))**n, x).subs(x, 0)
+- template: st-mgf-variance
+  skill: stats.expected-value
+  pace: quick
+  given:
+    a:
+      int:
+      - 1
+      - 5
+    b:
+      pick:
+      - 0.5
+      - 2
+      - 3
+  prompt: $X$ has moment generating function $M(t) = (1 - {{b}}t)^{-{{a}}}$. What is $\operatorname{Var}(X)$?
+  parts:
+  - ask: Answer
+    label: v
+    tex: \operatorname{Var}
+    value: a*b^2
+    tol: 0.005
+    explain: Var = M''(0) − M'(0)²; this is a gamma with shape a and scale b
+  verify:
+    expect:
+      v: (diff((1 - nsimplify(b)*Symbol('t'))**(-a), Symbol('t'), 2) - diff((1 - nsimplify(b)*Symbol('t'))**(-a), Symbol('t'))**2).subs(Symbol('t'), 0)
 - template: st-chebyshev
   skill: stats.probability
   pace: recall
@@ -119,6 +216,27 @@
   verify:
     expect:
       v: 1/nsimplify(k)**2
+- template: st-chebyshev-k
+  skill: stats.expected-value
+  pace: quick
+  given:
+    q:
+      pick:
+      - 75
+      - 84
+      - 89
+      - 96
+  prompt: By Chebyshev's inequality, within how many standard deviations of the mean must at least {{q}}% of any distribution lie?
+  parts:
+  - ask: Answer
+    label: v
+    tex: k
+    value: 1/sqrt(1 - q/100)
+    tol: 0.005
+    explain: At least 1 − 1/k² lies within k standard deviations
+  verify:
+    expect:
+      v: Max(*solve(Eq(1 - 1/x**2, Rational(q, 100)), x))
 - template: st-lln-sample-size
   skill: stats.sampling
   pace: quick
@@ -148,6 +266,37 @@
   verify:
     expect:
       v: solve(Eq(s**2/(x*nsimplify(e)**2), nsimplify(d)), x)[0]
+- template: st-lln-bound
+  skill: stats.expected-value
+  pace: quick
+  given:
+    nn:
+      pick:
+      - 100
+      - 400
+      - 1000
+    s:
+      pick:
+      - 2
+      - 5
+      - 10
+    e:
+      pick:
+      - 1
+      - 2
+  require:
+  - s^2/(nn*e^2) < 1
+  prompt: A mean of {{nn}} independent draws with σ = {{s}} estimates μ. What upper bound does Chebyshev give for $P(|\bar X - \mu| \ge {{e}})$?
+  parts:
+  - ask: Answer
+    label: v
+    tex: P
+    value: s^2/(nn*e^2)
+    tol: 0.005
+    explain: Var(X̄) = σ²/n; the bound falls like 1/n
+  verify:
+    expect:
+      v: (s**2/nn)/e**2
 - template: st-joint-missing
   skill: stats.probability
   pace: quick
@@ -175,6 +324,35 @@
   verify:
     expect:
       v: Rational(c, 100) + (1 - Rational(a + b + c, 100))
+- template: st-conditional-from-table
+  skill: stats.probability
+  pace: quick
+  given:
+    p11:
+      pick:
+      - 0.1
+      - 0.2
+      - 0.3
+    p12:
+      pick:
+      - 0.15
+      - 0.25
+    p21:
+      pick:
+      - 0.1
+      - 0.2
+      - 0.35
+  prompt: A joint table has P(A, B) = {{p11}}, P(A, not B) = {{p12}}, P(not A, B) = {{p21}}. What is P(A | B)?
+  parts:
+  - ask: Answer
+    label: v
+    tex: P(A\mid B)
+    value: p11/(p11 + p21)
+    tol: 0.005
+    explain: 'Condition on the B column: its total is P(B) = 1 − P(not B)'
+  verify:
+    expect:
+      v: nsimplify(p11)/(1 - nsimplify(p12) - (1 - nsimplify(p11) - nsimplify(p12) - nsimplify(p21)))
 - template: st-covariance-table
   skill: stats.expected-value
   pace: quick
@@ -206,6 +384,37 @@
   verify:
     expect:
       v: Rational(d, 100)*1*1 - Rational(px, 100)*Rational(py, 100)
+- template: st-correlation-from-cov
+  skill: stats.expected-value
+  pace: quick
+  given:
+    vx:
+      pick:
+      - 4
+      - 9
+      - 16
+    vy:
+      pick:
+      - 1
+      - 4
+      - 25
+    c:
+      pick:
+      - -3
+      - -1
+      - 1.5
+      - 2
+  prompt: Var X = {{vx}}, Var Y = {{vy}} and Cov(X, Y) = {{c}}. What is the correlation?
+  parts:
+  - ask: Answer
+    label: v
+    tex: \rho
+    value: c/sqrt(vx*vy)
+    tol: 0.005
+    explain: 'ρ = Cov/(σ_X σ_Y): covariance in units of both standard deviations'
+  verify:
+    expect:
+      v: nsimplify(c)/(sqrt(vx)*sqrt(vy))
 - template: st-normal-approx
   skill: stats.distributions
   pace: quick
@@ -237,6 +446,34 @@
   verify:
     expect:
       v: solve(Eq(nsimplify(k) + Rational(1, 2), n*nsimplify(p) + x*sqrt(n*nsimplify(p)*(1 - nsimplify(p)))), x)[0]
+- template: st-normal-approx-upper
+  skill: stats.distributions
+  pace: quick
+  given:
+    nn:
+      pick:
+      - 100
+      - 200
+    p:
+      pick:
+      - 0.3
+      - 0.5
+    k:
+      pick:
+      - 35
+      - 55
+      - 70
+  prompt: X ~ Bin({{nn}}, {{p}}). Using the normal approximation with continuity correction, estimate P(X ≥ {{k}}).
+  parts:
+  - ask: Answer
+    label: v
+    tex: P
+    value: 1 - (1 + erf((k - 0.5 - nn*p)/sqrt(nn*p*(1 - p))/sqrt(2)))/2
+    tol: 0.005
+    explain: X ≥ k is X > k − ½ on the continuous scale
+  verify:
+    expect:
+      v: erfc((k - Rational(1, 2) - nn*nsimplify(p))/sqrt(2*nn*nsimplify(p)*(1 - nsimplify(p))))/2
 - template: st-negative-binomial
   skill: stats.distributions
   pace: quick
@@ -265,6 +502,30 @@
   verify:
     expect:
       v: binomial(n - 1, r - 1)*nsimplify(p)**r*(1 - nsimplify(p))**(n - r)
+- template: st-negbin-variance
+  skill: stats.distributions
+  pace: quick
+  given:
+    p:
+      pick:
+      - 0.2
+      - 0.25
+      - 0.5
+    r:
+      int:
+      - 1
+      - 6
+  prompt: Trials succeed with probability {{p}}. What is the variance of the number of trials needed to get {{r}} successes?
+  parts:
+  - ask: Answer
+    label: v
+    tex: \operatorname{Var}
+    value: r*(1 - p)/p^2
+    tol: 0.005
+    explain: r independent geometric waits, each with variance (1 − p)/p²
+  verify:
+    expect:
+      v: r*(1/nsimplify(p)**2 - 1/nsimplify(p))
 - template: st-poisson
   skill: stats.distributions
   pace: quick
@@ -290,6 +551,27 @@
   verify:
     expect:
       v: diff(exp(nsimplify(l)*(x - 1)), x, k).subs(x, 0)/factorial(k)
+- template: st-poisson-rate-from-zero
+  skill: stats.distributions
+  pace: quick
+  given:
+    q:
+      pick:
+      - 0.1
+      - 0.25
+      - 0.5
+      - 0.8
+  prompt: In a Poisson process, the probability of no events in an hour is {{q}}. What is the rate per hour?
+  parts:
+  - ask: Answer
+    label: v
+    tex: \lambda
+    value: -log(q)
+    tol: 0.005
+    explain: P(0) = e^(−λ)
+  verify:
+    expect:
+      v: log(1/nsimplify(q))
 - template: st-hypergeometric
   skill: stats.distributions
   pace: quick
@@ -324,6 +606,35 @@
   verify:
     expect:
       v: binomial(K, k)*binomial(N - K, n - k)/binomial(N, n)
+- template: st-hypergeom-mean
+  skill: stats.distributions
+  pace: quick
+  given:
+    N:
+      pick:
+      - 20
+      - 50
+      - 100
+    K:
+      pick:
+      - 4
+      - 5
+      - 10
+    nn:
+      pick:
+      - 5
+      - 10
+  prompt: A lot of {{N}} items holds {{K}} defectives; {{nn}} are drawn without replacement. What is the expected number of defectives drawn?
+  parts:
+  - ask: Answer
+    label: v
+    tex: E
+    value: nn*K/N
+    tol: 0.005
+    explain: Each draw is defective with probability K/N, with or without replacement
+  verify:
+    expect:
+      v: Rational(nn*K, N)
 - template: st-multinomial
   skill: stats.distributions
   pace: quick
@@ -351,6 +662,34 @@
   verify:
     expect:
       v: binomial(a + b + c, a)*binomial(b + c, b)*Rational(1, 2)**a*Rational(3, 10)**b*Rational(1, 5)**c
+- template: st-multinomial-cov
+  skill: stats.distributions
+  pace: quick
+  given:
+    nn:
+      pick:
+      - 10
+      - 20
+      - 50
+    p1:
+      pick:
+      - 0.2
+      - 0.3
+    p2:
+      pick:
+      - 0.1
+      - 0.4
+  prompt: '{{nn}} trials fall into categories with probabilities {{p1}}, {{p2}} and the rest. What is Cov(N₁, N₂)?'
+  parts:
+  - ask: Answer
+    label: v
+    tex: \operatorname{Cov}
+    value: -nn*p1*p2
+    tol: 0.005
+    explain: Var(N₁ + N₂) = Var N₁ + Var N₂ + 2Cov, and N₁ + N₂ is itself binomial
+  verify:
+    expect:
+      v: (nn*(nsimplify(p1) + nsimplify(p2))*(1 - nsimplify(p1) - nsimplify(p2)) - nn*nsimplify(p1)*(1 - nsimplify(p1)) - nn*nsimplify(p2)*(1 - nsimplify(p2)))/2
 - template: st-mm1-wait
   skill: stats.expected-value
   pace: quick
@@ -376,6 +715,30 @@
   verify:
     expect:
       v: 60*(nsimplify(l)/(m - nsimplify(l)))/nsimplify(l)
+- template: st-mm1-number
+  skill: stats.distributions
+  pace: quick
+  given:
+    lam:
+      pick:
+      - 4
+      - 6
+      - 8
+    mu:
+      pick:
+      - 10
+      - 12
+  prompt: An M/M/1 queue has arrival rate {{lam}} per hour and service rate {{mu}} per hour. What is the mean number in the system?
+  parts:
+  - ask: Answer
+    label: v
+    tex: L
+    value: (lam/mu)/(1 - lam/mu)
+    tol: 0.005
+    explain: L = ρ/(1 − ρ), which Little's law confirms as λ times the mean time 1/(μ − λ)
+  verify:
+    expect:
+      v: lam/(mu - lam)
 - template: st-uniform-variance
   skill: stats.distributions
   pace: quick
@@ -399,6 +762,34 @@
   verify:
     expect:
       v: integrate(x**2/(b - a), (x, a, b)) - integrate(x/(b - a), (x, a, b))**2
+- template: st-uniform-tail
+  skill: stats.distributions
+  pace: quick
+  given:
+    a:
+      pick:
+      - 0
+      - 2
+    b:
+      pick:
+      - 10
+      - 12
+    c:
+      pick:
+      - 3
+      - 5
+      - 8
+  prompt: X is uniform on [{{a}}, {{b}}]. What is P(X > {{c}})?
+  parts:
+  - ask: Answer
+    label: v
+    tex: P
+    value: (b - c)/(b - a)
+    tol: 0.005
+    explain: Probability is length over length
+  verify:
+    expect:
+      v: integrate(1/(b - a), (Symbol('t'), c, b))
 - template: st-exponential-survival
   skill: stats.distributions
   pace: quick
@@ -425,6 +816,34 @@
   verify:
     expect:
       v: integrate(exp(-x/m)/m, (x, t, oo))
+- template: st-memoryless
+  skill: stats.distributions
+  pace: quick
+  given:
+    m:
+      pick:
+      - 100
+      - 500
+    s:
+      pick:
+      - 50
+      - 200
+    t:
+      pick:
+      - 50
+      - 100
+      - 300
+  prompt: A component's life is exponential with mean {{m}} h. It has already lasted {{s}} h. What is the probability it lasts at least {{t}} h more?
+  parts:
+  - ask: Answer
+    label: v
+    tex: P
+    value: exp(-t/m)
+    tol: 0.005
+    explain: 'Memorylessness: the age does not matter'
+  verify:
+    expect:
+      v: exp(-Rational(s + t, m))/exp(-Rational(s, m))
 - template: st-weibull
   skill: stats.distributions
   pace: quick
@@ -456,6 +875,36 @@
   verify:
     expect:
       v: exp(-integrate(nsimplify(bt)/eta*(x/eta)**(nsimplify(bt) - 1), (x, 0, t)))
+- template: st-weibull-hazard
+  skill: stats.distributions
+  pace: quick
+  given:
+    k:
+      pick:
+      - 0.5
+      - 1.5
+      - 2
+      - 3
+    lam:
+      pick:
+      - 100
+      - 1000
+    t:
+      pick:
+      - 50
+      - 200
+      - 500
+  prompt: A Weibull life has shape {{k}} and scale {{lam}} h. What is the hazard rate at {{t}} h, per hour?
+  parts:
+  - ask: Answer
+    label: v
+    tex: h(t)
+    value: k/lam*(t/lam)^(k - 1)
+    tol: 0.005
+    explain: h = −d ln R/dt; k > 1 means wear-out, k < 1 infant mortality
+  verify:
+    expect:
+      v: (-diff(-(Symbol('t')/lam)**nsimplify(k), Symbol('t'))).subs(Symbol('t'), t)
 - template: st-gamma-variance
   skill: stats.distributions
   pace: quick
@@ -479,6 +928,30 @@
   verify:
     expect:
       v: integrate(x**2*x**(k - 1)*exp(-x/th)/(factorial(k - 1)*th**k), (x, 0, oo)) - integrate(x*x**(k - 1)*exp(-x/th)/(factorial(k - 1)*th**k), (x, 0, oo))**2
+- template: st-gamma-mode
+  skill: stats.distributions
+  pace: quick
+  given:
+    a:
+      int:
+      - 2
+      - 6
+    b:
+      pick:
+      - 0.5
+      - 2
+      - 3
+  prompt: X has a gamma density with shape {{a}} and scale {{b}}. Where is its mode?
+  parts:
+  - ask: Answer
+    label: v
+    tex: x_{mode}
+    value: (a - 1)*b
+    tol: 0.005
+    explain: d/dx of (a − 1)ln x − x/b is zero there
+  verify:
+    expect:
+      v: solve(Eq(a - 1 - x/nsimplify(b), 0), x)[0]
 - template: st-beta-mean
   skill: stats.distributions
   pace: quick
@@ -502,6 +975,29 @@
   verify:
     expect:
       v: integrate(x*x**(a - 1)*(1 - x)**(b - 1), (x, 0, 1))/integrate(x**(a - 1)*(1 - x)**(b - 1), (x, 0, 1))
+- template: st-beta-variance
+  skill: stats.distributions
+  pace: quick
+  given:
+    a:
+      int:
+      - 1
+      - 6
+    b:
+      int:
+      - 1
+      - 6
+  prompt: X ~ Beta({{a}}, {{b}}). What is Var X?
+  parts:
+  - ask: Answer
+    label: v
+    tex: \operatorname{Var}
+    value: a*b/((a + b)^2*(a + b + 1))
+    tol: 0.005
+    explain: E[X²] − (E X)², with E[X²] = a(a + 1)/((a + b)(a + b + 1))
+  verify:
+    expect:
+      v: Rational(a*(a + 1), (a + b)*(a + b + 1)) - Rational(a, a + b)**2
 - template: st-ratio-estimator
   skill: stats.sampling
   pace: quick
@@ -532,6 +1028,35 @@
   verify:
     expect:
       v: solve(Eq(x/X, nsimplify(yb)/nsimplify(xb)), x)[0]
+- template: st-ratio-mean
+  skill: stats.sampling
+  pace: quick
+  given:
+    yb:
+      pick:
+      - 42
+      - 55
+      - 60
+    xb:
+      pick:
+      - 20
+      - 25
+    mx:
+      pick:
+      - 22
+      - 24
+      - 30
+  prompt: A sample has ȳ = {{yb}} and x̄ = {{xb}}. The population mean of x is {{mx}}. What is the ratio estimate of the mean of y?
+  parts:
+  - ask: Answer
+    label: v
+    tex: \hat\mu_y
+    value: yb/xb*mx
+    tol: 0.005
+    explain: 'Assume y is proportional to x: scale ȳ by μ_x/x̄'
+  verify:
+    expect:
+      v: solve(Eq(x/mx, Rational(yb, xb)), x)[0]
 - template: st-regression-estimator
   skill: stats.sampling
   pace: quick
@@ -566,6 +1091,36 @@
   verify:
     expect:
       v: yb + nsimplify(b)*(XB - xb)
+- template: st-regression-slope-back
+  skill: stats.sampling
+  pace: quick
+  given:
+    yr:
+      pick:
+      - 52
+      - 58
+    yb:
+      pick:
+      - 50
+      - 55
+    xb:
+      pick:
+      - 20
+    mx:
+      pick:
+      - 22
+      - 24
+  prompt: A regression estimate of a mean is {{yr}}, with ȳ = {{yb}}, x̄ = {{xb}} and μ_x = {{mx}}. What slope b was used?
+  parts:
+  - ask: Answer
+    label: v
+    tex: b
+    value: (yr - yb)/(mx - xb)
+    tol: 0.005
+    explain: ȳ_reg = ȳ + b(μ_x − x̄)
+  verify:
+    expect:
+      v: solve(Eq(yb + x*(mx - xb), yr), x)[0]
 - template: st-stratified-mean
   skill: stats.sampling
   pace: quick
@@ -599,6 +1154,35 @@
   verify:
     expect:
       v: Rational(N1, N1 + N2)*y1 + Rational(N2, N1 + N2)*y2
+- template: st-proportional-allocation
+  skill: stats.sampling
+  pace: quick
+  given:
+    N:
+      pick:
+      - 1000
+      - 2000
+      - 5000
+    Nh:
+      pick:
+      - 200
+      - 400
+      - 500
+    nn:
+      pick:
+      - 100
+      - 200
+  prompt: A population of {{N}} has a stratum of {{Nh}}. With proportional allocation of a sample of {{nn}}, how many come from that stratum?
+  parts:
+  - ask: Answer
+    label: v
+    tex: n_h
+    value: nn*Nh/N
+    tol: 0.005
+    explain: Each stratum's share of the sample equals its share of the population
+  verify:
+    expect:
+      v: Rational(nn*Nh, N)
 - template: st-cluster-total
   skill: stats.sampling
   pace: quick
@@ -629,6 +1213,37 @@
   verify:
     expect:
       v: Rational(N, n)*T
+- template: st-cluster-per-element
+  skill: stats.sampling
+  pace: quick
+  given:
+    m:
+      pick:
+      - 5
+      - 10
+    M:
+      pick:
+      - 50
+      - 80
+    tb:
+      pick:
+      - 120
+      - 250
+    Ne:
+      pick:
+      - 2000
+      - 4000
+  prompt: '{{m}} of {{M}} clusters are sampled; their totals average {{tb}}. The population has {{Ne}} elements. Estimate the mean per element.'
+  parts:
+  - ask: Answer
+    label: v
+    tex: \hat\mu
+    value: M*tb/Ne
+    tol: 0.005
+    explain: Estimate the total as M·t̄, then divide by the number of elements
+  verify:
+    expect:
+      v: Rational(M, 1)*tb/Ne
 - template: st-capture-recapture
   skill: stats.sampling
   pace: quick
@@ -660,6 +1275,35 @@
   verify:
     expect:
       v: solve(Eq(Rational(R, C), M/x), x)[0]
+- template: st-recapture-expected
+  skill: stats.sampling
+  pace: quick
+  given:
+    N:
+      pick:
+      - 500
+      - 1200
+      - 2000
+    n1:
+      pick:
+      - 50
+      - 100
+    n2:
+      pick:
+      - 60
+      - 80
+      - 150
+  prompt: A lake holds about {{N}} fish; {{n1}} are tagged and released. A second catch of {{n2}} is taken. How many tagged fish are expected in it?
+  parts:
+  - ask: Answer
+    label: v
+    tex: E
+    value: n2*n1/N
+    tol: 0.005
+    explain: The tagged fraction in the catch should match the tagged fraction in the lake
+  verify:
+    expect:
+      v: solve(Eq(N, n1*n2/x), x)[0]
 - template: st-z-interval
   skill: stats.inference
   pace: quick
@@ -692,6 +1336,39 @@
   verify:
     expect:
       v: xb + Rational(196, 100)*s/sqrt(n)
+- template: st-n-for-margin
+  skill: stats.inference
+  pace: quick
+  given:
+    s:
+      pick:
+      - 5
+      - 12
+      - 20
+    E:
+      pick:
+      - 1
+      - 2
+      - 3
+  cases:
+  - cl: 90
+    z: 1.645
+  - cl: 95
+    z: 1.96
+  - cl: 99
+    z: 2.576
+  prompt: σ = {{s}}. How large a sample gives a {{cl}}% margin of error of at most {{E}} (z* = {{z}})?
+  parts:
+  - ask: Answer
+    label: v
+    tex: n
+    value: ceil((z*s/E)^2)
+    final: true
+    tol: 0.0001
+    explain: Solve z*σ/√n ≤ E for n and round up
+  verify:
+    expect:
+      v: ceiling((nsimplify(z)*s/E)**2)
 - template: st-two-prop-margin
   skill: stats.inference
   pace: quick
@@ -723,6 +1400,32 @@
   verify:
     expect:
       v: Rational(196, 100)*sqrt(Rational(x1, n1)*(1 - Rational(x1, n1))/n1 + Rational(x2, n2)*(1 - Rational(x2, n2))/n2)
+- template: st-n-two-prop
+  skill: stats.inference
+  pace: quick
+  given:
+    E:
+      pick:
+      - 0.03
+      - 0.05
+      - 0.1
+  cases:
+  - cl: 90
+    z: 1.645
+  - cl: 95
+    z: 1.96
+  prompt: With no prior estimates (use p = 0.5), how many per group give a {{cl}}% margin of {{E}} for p₁ − p₂ (z* = {{z}})?
+  parts:
+  - ask: Answer
+    label: v
+    tex: n
+    value: ceil(z^2*0.5/E^2)
+    final: true
+    tol: 0.0001
+    explain: SE² = p₁q₁/n + p₂q₂/n ≤ ½/n
+  verify:
+    expect:
+      v: ceiling(nsimplify(z)**2*(Rational(1, 4) + Rational(1, 4))/nsimplify(E)**2)
 - template: st-paired-margin
   skill: stats.inference
   pace: quick
@@ -757,6 +1460,36 @@
   verify:
     expect:
       v: nsimplify(ts)*nsimplify(sd)/sqrt(n)
+- template: st-sd-from-paired-margin
+  skill: stats.inference
+  pace: quick
+  given:
+    E:
+      pick:
+      - 1.5
+      - 2.4
+      - 3
+  cases:
+  - cl: 95
+    nn: 10
+    t: 2.262
+  - cl: 95
+    nn: 16
+    t: 2.131
+  - cl: 90
+    nn: 12
+    t: 1.796
+  prompt: A paired-data {{cl}}% interval from {{nn}} pairs has margin {{E}} (t* = {{t}}). What was the standard deviation of the differences?
+  parts:
+  - ask: Answer
+    label: v
+    tex: s_d
+    value: E*sqrt(nn)/t
+    tol: 0.005
+    explain: Margin = t*·s_d/√n
+  verify:
+    expect:
+      v: solve(Eq(nsimplify(t)*x/sqrt(nn), nsimplify(E)), x)[0]
 - template: st-two-z-margin
   skill: stats.inference
   pace: quick
@@ -792,6 +1525,36 @@
   verify:
     expect:
       v: Rational(196, 100)*sqrt(Rational(s1**2, n1) + Rational(s2**2, n2))
+- template: st-n-two-means
+  skill: stats.inference
+  pace: quick
+  given:
+    s1:
+      pick:
+      - 4
+      - 6
+      - 10
+    s2:
+      pick:
+      - 5
+      - 8
+    E:
+      pick:
+      - 1
+      - 2
+      - 3
+  prompt: σ₁ = {{s1}}, σ₂ = {{s2}}, equal group sizes. How many per group give a 95% margin of {{E}} for μ₁ − μ₂ (z* = 1.96)?
+  parts:
+  - ask: Answer
+    label: v
+    tex: n
+    value: ceil(1.96^2*(s1^2 + s2^2)/E^2)
+    final: true
+    tol: 0.0001
+    explain: Margin = z*√(σ₁²/n + σ₂²/n)
+  verify:
+    expect:
+      v: ceiling(Rational(196, 100)**2*(s1**2 + s2**2)/E**2)
 - template: st-welch-t
   skill: stats.inference
   pace: quick
@@ -837,6 +1600,38 @@
   verify:
     expect:
       v: (m1 - m2)/sqrt(Rational(s1**2, n1) + Rational(s2**2, n2))
+- template: st-welch-df
+  skill: stats.inference
+  pace: quick
+  given:
+    s1:
+      pick:
+      - 3
+      - 5
+      - 8
+    n1:
+      pick:
+      - 10
+      - 15
+    s2:
+      pick:
+      - 4
+      - 9
+    n2:
+      pick:
+      - 12
+      - 20
+  prompt: 'Two samples: s₁ = {{s1}}, n₁ = {{n1}}; s₂ = {{s2}}, n₂ = {{n2}}. What are the Welch degrees of freedom?'
+  parts:
+  - ask: Answer
+    label: v
+    tex: \nu
+    value: (s1^2/n1 + s2^2/n2)^2/((s1^2/n1)^2/(n1 - 1) + (s2^2/n2)^2/(n2 - 1))
+    tol: 0.005
+    explain: 'Welch–Satterthwaite: between min(n₁, n₂) − 1 and n₁ + n₂ − 2'
+  verify:
+    expect:
+      v: 1/((Rational(s1**2, n1)/(Rational(s1**2, n1) + Rational(s2**2, n2)))**2/(n1 - 1) + (Rational(s2**2, n2)/(Rational(s1**2, n1) + Rational(s2**2, n2)))**2/(n2 - 1))
 - template: st-variance-interval
   skill: stats.inference
   pace: quick
@@ -871,6 +1666,33 @@
   verify:
     expect:
       r: (n - 1)*nsimplify(v)/nsimplify(cu)
+- template: st-sd-upper-bound
+  skill: stats.inference
+  pace: quick
+  given:
+    s:
+      pick:
+      - 2
+      - 3.5
+      - 5
+  cases:
+  - nn: 10
+    cl: 2.7
+  - nn: 16
+    cl: 6.262
+  - nn: 21
+    cl: 9.591
+  prompt: A sample of {{nn}} has s = {{s}}. With χ²₀.₀₂₅ (lower) = {{cl}}, what is the upper end of the 95% interval for σ?
+  parts:
+  - ask: Answer
+    label: v
+    tex: \sigma_{up}
+    value: sqrt((nn - 1)*s^2/cl)
+    tol: 0.005
+    explain: Take square roots of the variance interval; the small χ² gives the upper end
+  verify:
+    expect:
+      v: Max(*solve(Eq((nn - 1)*nsimplify(s)**2/x**2, nsimplify(cl)), x))
 - template: st-z-test
   skill: stats.inference
   pace: quick
@@ -907,6 +1729,28 @@
   verify:
     expect:
       v: (xb - m0)*sqrt(n)/s
+- template: st-p-from-z
+  skill: stats.inference
+  pace: quick
+  given:
+    z:
+      pick:
+      - -2.4
+      - -1.5
+      - 1.2
+      - 1.96
+      - 2.8
+  prompt: A two-sided z test gives z = {{z}}. What is the p-value?
+  parts:
+  - ask: Answer
+    label: v
+    tex: p
+    value: 2*(1 - (1 + erf(abs(z)/sqrt(2)))/2)
+    tol: 0.005
+    explain: Double the tail beyond |z|
+  verify:
+    expect:
+      v: erfc(Abs(nsimplify(z))/sqrt(2))
 - template: st-two-prop-z
   skill: stats.inference
   pace: quick
@@ -940,6 +1784,37 @@
   verify:
     expect:
       v: (Rational(x1, n1) - Rational(x2, n2))/sqrt(Rational(x1 + x2, n1 + n2)*(1 - Rational(x1 + x2, n1 + n2))*(Rational(1, n1) + Rational(1, n2)))
+- template: st-pooled-prop
+  skill: stats.inference
+  pace: quick
+  given:
+    x1:
+      pick:
+      - 30
+      - 45
+    n1:
+      pick:
+      - 100
+      - 120
+    x2:
+      pick:
+      - 25
+      - 60
+    n2:
+      pick:
+      - 90
+      - 150
+  prompt: 'Group 1: {{x1}} of {{n1}}; group 2: {{x2}} of {{n2}}. What is the pooled proportion used in the two-proportion z test?'
+  parts:
+  - ask: Answer
+    label: v
+    tex: \hat p
+    value: (x1 + x2)/(n1 + n2)
+    tol: 0.005
+    explain: Under H₀ the two proportions are equal, so pool the successes
+  verify:
+    expect:
+      v: Rational(x1 + x2, n1 + n2)
 - template: st-paired-t
   skill: stats.inference
   pace: quick
@@ -970,6 +1845,36 @@
   verify:
     expect:
       v: nsimplify(db)*sqrt(n)/nsimplify(sd)
+- template: st-paired-dbar-needed
+  skill: stats.inference
+  pace: quick
+  given:
+    nn:
+      pick:
+      - 9
+      - 16
+      - 25
+    sd:
+      pick:
+      - 2
+      - 4
+      - 6
+    t:
+      pick:
+      - 2.1
+      - 2.5
+      - 3
+  prompt: '{{nn}} pairs have s_d = {{sd}}. What mean difference gives t = {{t}}?'
+  parts:
+  - ask: Answer
+    label: v
+    tex: \bar d
+    value: t*sd/sqrt(nn)
+    tol: 0.005
+    explain: t = d̄/(s_d/√n)
+  verify:
+    expect:
+      v: solve(Eq(x/(nsimplify(sd)/sqrt(nn)), nsimplify(t)), x)[0]
 - template: st-two-z
   skill: stats.inference
   pace: quick
@@ -1013,6 +1918,37 @@
   verify:
     expect:
       v: (m1 - m2)/sqrt(Rational(s1**2, n1) + Rational(s2**2, n2))
+- template: st-diff-for-z
+  skill: stats.inference
+  pace: quick
+  given:
+    s1:
+      pick:
+      - 4
+      - 6
+    n1:
+      pick:
+      - 25
+      - 36
+    s2:
+      pick:
+      - 5
+      - 8
+    n2:
+      pick:
+      - 30
+      - 50
+  prompt: σ₁ = {{s1}}, n₁ = {{n1}}; σ₂ = {{s2}}, n₂ = {{n2}}. How large must x̄₁ − x̄₂ be for z = 1.96?
+  parts:
+  - ask: Answer
+    label: v
+    tex: \Delta
+    value: 1.96*sqrt(s1^2/n1 + s2^2/n2)
+    tol: 0.005
+    explain: z = Δ/SE
+  verify:
+    expect:
+      v: Max(*solve(Eq(x**2/(Rational(s1**2, n1) + Rational(s2**2, n2)), Rational(196, 100)**2), x))
 - template: st-power
   skill: stats.inference
   pace: quick
@@ -1043,6 +1979,32 @@
   verify:
     expect:
       v: Rational(1, 2)*(1 + erf((nsimplify(d)*sqrt(n)/s - Rational(1645, 1000))/sqrt(2)))
+- template: st-n-for-power
+  skill: stats.inference
+  pace: quick
+  given:
+    d:
+      pick:
+      - 1
+      - 2
+      - 3
+    s:
+      pick:
+      - 5
+      - 8
+      - 10
+  prompt: A one-sided z test at α = 0.05 (z = 1.645) should have 80% power (z = 0.8416) against a shift of {{d}} with σ = {{s}}. What n is needed?
+  parts:
+  - ask: Answer
+    label: v
+    tex: n
+    value: ceil(((1.645 + 0.8416)*s/d)^2)
+    final: true
+    tol: 0.0001
+    explain: δ√n/σ must cover z_α + z_β
+  verify:
+    expect:
+      v: ceiling(((Rational(1645, 1000) + Rational(8416, 10000))*s/d)**2)
 - template: st-chi-variance
   skill: stats.inference
   pace: quick
@@ -1074,6 +2036,36 @@
   verify:
     expect:
       r: (n - 1)*nsimplify(v)/v0
+- template: st-s2-for-chi
+  skill: stats.inference
+  pace: quick
+  given:
+    v0:
+      pick:
+      - 4
+      - 9
+      - 25
+    nn:
+      pick:
+      - 10
+      - 16
+      - 25
+    c:
+      pick:
+      - 12.5
+      - 20
+      - 30
+  prompt: Testing σ₀² = {{v0}} with n = {{nn}}, what sample variance gives χ² = {{c}}?
+  parts:
+  - ask: Answer
+    label: v
+    tex: s^2
+    value: c*v0/(nn - 1)
+    tol: 0.005
+    explain: χ² = (n − 1)s²/σ₀²
+  verify:
+    expect:
+      v: solve(Eq((nn - 1)*x/v0, nsimplify(c)), x)[0]
 - template: st-fisher-table
   skill: stats.inference
   pace: quick
@@ -1111,6 +2103,35 @@
   verify:
     expect:
       v: binomial(r1, a)*binomial(r2, c1 - a)/binomial(r1 + r2, c1)
+- template: st-fisher-mean
+  skill: stats.inference
+  pace: quick
+  given:
+    r1:
+      pick:
+      - 5
+      - 8
+      - 12
+    r2:
+      pick:
+      - 6
+      - 10
+    c1:
+      pick:
+      - 4
+      - 7
+      - 9
+  prompt: A 2 × 2 table has row totals {{r1}} and {{r2}} and first-column total {{c1}}. Under independence with fixed margins, what is the expected top-left count?
+  parts:
+  - ask: Answer
+    label: v
+    tex: E
+    value: r1*c1/(r1 + r2)
+    tol: 0.005
+    explain: 'Row total × column total ÷ grand total: the hypergeometric mean'
+  verify:
+    expect:
+      v: Rational(r1*c1, r1 + r2)
 - template: st-f-variances
   skill: stats.inference
   pace: quick
@@ -1144,6 +2165,26 @@
   verify:
     expect:
       v: (nsimplify(s1)/nsimplify(s2))**2
+- template: st-sd-ratio-for-f
+  skill: stats.inference
+  pace: quick
+  given:
+    Fc:
+      pick:
+      - 2.4
+      - 3.18
+      - 4.03
+  prompt: For a two-sided F test of equal variances, the upper critical value is {{Fc}}. How many times larger must s₁ be than s₂ to reject?
+  parts:
+  - ask: Answer
+    label: v
+    tex: s_1/s_2
+    value: sqrt(Fc)
+    tol: 0.005
+    explain: F compares variances, so the SD ratio is its square root
+  verify:
+    expect:
+      v: Max(*solve(Eq(x**2, nsimplify(Fc)), x))
 - template: st-anova-f
   skill: stats.inference
   pace: quick
@@ -1183,6 +2224,37 @@
   verify:
     expect:
       v: (n*(Matrix([a, b, c]) - Matrix([1, 1, 1])*(a + b + c)/3).dot(Matrix([a, b, c]) - Matrix([1, 1, 1])*(a + b + c)/3)/2)/nsimplify(w)
+- template: st-f-from-ss
+  skill: stats.inference
+  pace: quick
+  given:
+    k:
+      pick:
+      - 3
+      - 4
+    N:
+      pick:
+      - 20
+      - 30
+    sst:
+      pick:
+      - 500
+      - 800
+    sse:
+      pick:
+      - 300
+      - 420
+  prompt: A one-way ANOVA with {{k}} groups and N = {{N}} has SST = {{sst}} and SSE = {{sse}}. What is F?
+  parts:
+  - ask: Answer
+    label: v
+    tex: F
+    value: ((sst - sse)/(k - 1))/(sse/(N - k))
+    tol: 0.005
+    explain: SS between = SST − SSE; divide each by its degrees of freedom
+  verify:
+    expect:
+      v: Rational(sst - sse, k - 1)*Rational(N - k, sse)
 - template: st-twoway-df
   skill: stats.inference
   pace: recall
@@ -1215,6 +2287,34 @@
   verify:
     expect:
       v: (a - 1)*(b - 1) if k == 0 else a*b*n - 1 - (a - 1) - (b - 1) - (a - 1)*(b - 1)
+- template: st-twoway-error-df
+  skill: stats.inference
+  pace: quick
+  given:
+    a:
+      int:
+      - 2
+      - 5
+    b:
+      int:
+      - 2
+      - 4
+    nn:
+      int:
+      - 2
+      - 5
+  prompt: A two-way ANOVA has factors with {{a}} and {{b}} levels and {{nn}} replicates per cell. What are the error degrees of freedom?
+  parts:
+  - ask: Answer
+    label: v
+    tex: \nu_E
+    value: a*b*(nn - 1)
+    final: true
+    tol: 0.0001
+    explain: Total N − 1 minus the main effects and the interaction
+  verify:
+    expect:
+      v: a*b*nn - 1 - (a - 1) - (b - 1) - (a - 1)*(b - 1)
 - template: st-slope-t
   skill: stats.inference
   pace: quick
@@ -1246,6 +2346,31 @@
   verify:
     expect:
       v: nsimplify(b)/nsimplify(se)
+- template: st-t-from-r
+  skill: stats.bivariate
+  pace: quick
+  given:
+    nn:
+      pick:
+      - 12
+      - 20
+      - 30
+    r:
+      pick:
+      - 0.3
+      - 0.5
+      - -0.6
+  prompt: A sample of {{nn}} pairs has r = {{r}}. What is the t statistic for the slope?
+  parts:
+  - ask: Answer
+    label: v
+    tex: t
+    value: r*sqrt(nn - 2)/sqrt(1 - r^2)
+    tol: 0.005
+    explain: r² = t²/(t² + n − 2)
+  verify:
+    expect:
+      v: Min(*solve(Eq(x**2/(x**2 + nn - 2), nsimplify(r)**2), x)) if r < 0 else Max(*solve(Eq(x**2/(x**2 + nn - 2), nsimplify(r)**2), x))
 - template: st-slope-interval
   skill: stats.inference
   pace: quick
@@ -1277,6 +2402,33 @@
   verify:
     expect:
       v: nsimplify(b) - nsimplify(ts)*nsimplify(se)
+- template: st-se-from-interval
+  skill: stats.bivariate
+  pace: quick
+  given:
+    lo:
+      pick:
+      - 0.8
+      - 1.2
+    hi:
+      pick:
+      - 2.4
+      - 3.0
+    t:
+      pick:
+      - 2.048
+      - 2.101
+  prompt: A 95% interval for a slope is ({{lo}}, {{hi}}) with t* = {{t}}. What is the standard error of the slope?
+  parts:
+  - ask: Answer
+    label: v
+    tex: SE
+    value: (hi - lo)/(2*t)
+    tol: 0.005
+    explain: The interval is b ± t*·SE, so its width is 2t*·SE
+  verify:
+    expect:
+      v: solve(Eq(nsimplify(lo) + 2*nsimplify(t)*x, nsimplify(hi)), x)[0]
 - template: st-residual-diagnostics
   skill: stats.bivariate
   pace: recall
@@ -1300,6 +2452,38 @@
     - 'An outlier or influential point: check it'
     correct: ans
     explain: Residuals carry what the line missed. Curvature, changing spread and lone points are the three things to look for
+  verify:
+    authored: true
+- template: st-residual-pattern
+  skill: stats.bivariate
+  pace: recall
+  cases:
+  - q: Residuals fan out as the fitted value grows. What does that show?
+    o1: Non-constant variance (heteroscedasticity)
+    o2: A curved relationship
+    o3: Independence
+    o4: A perfect fit
+  - q: Residuals form a U shape against x. What does that show?
+    o1: The relationship is curved; a straight line is wrong
+    o2: The variance is constant
+    o3: An outlier only
+    o4: Nothing
+  - q: Residuals in time order alternate in long runs above and below zero. What does that show?
+    o1: Autocorrelated errors
+    o2: Constant variance
+    o3: A good model
+    o4: A nonlinear x
+  prompt: '{{q}}'
+  parts:
+  - ask: Answer
+    label: v
+    choice: &id001
+    - '{{o1}}'
+    - '{{o2}}'
+    - '{{o3}}'
+    - '{{o4}}'
+    correct: '0'
+    explain: A good residual plot is a shapeless band around zero
   verify:
     authored: true
 - template: st-linearised-fit
@@ -1328,6 +2512,27 @@
   verify:
     expect:
       v: solve(Eq(log(x), nsimplify(c)), x)[0]
+- template: st-growth-percent
+  skill: stats.bivariate
+  pace: quick
+  given:
+    b:
+      pick:
+      - 0.05
+      - 0.12
+      - -0.08
+      - 0.3
+  prompt: A fit of ln y on x has slope {{b}}. By what percentage does the fitted y change per unit increase in x?
+  parts:
+  - ask: Answer
+    label: v
+    tex: \%
+    value: 100*(exp(b) - 1)
+    tol: 0.005
+    explain: 'y = Ae^(bx): each unit of x multiplies y by e^b'
+  verify:
+    expect:
+      v: 100*(exp(nsimplify(b)) - 1)
 - template: st-indicator
   skill: stats.bivariate
   pace: quick
@@ -1359,6 +2564,38 @@
     value: b0 + b1*x0 + b2
     tol: 0.005
     explain: 'The dummy''s coefficient is the gap between groups at the same $x$: here ${{b2}}$'
+  verify:
+    expect:
+      v: nsimplify(b0) + nsimplify(b1)*x0 + nsimplify(b2)*1
+- template: st-indicator-predict
+  skill: stats.bivariate
+  pace: quick
+  given:
+    b0:
+      pick:
+      - 10
+      - 25
+    b1:
+      pick:
+      - 1.5
+      - 2
+    b2:
+      pick:
+      - -4
+      - 3
+      - 6
+    x0:
+      pick:
+      - 4
+      - 10
+  prompt: ŷ = {{b0}} + {{b1}}x + {{b2}}D, where D = 1 for group B. What is ŷ for a group B case with x = {{x0}}?
+  parts:
+  - ask: Answer
+    label: v
+    tex: \hat y
+    value: b0 + b1*x0 + b2
+    tol: 0.005
+    explain: The indicator shifts the intercept for group B
   verify:
     expect:
       v: nsimplify(b0) + nsimplify(b1)*x0 + nsimplify(b2)*1
@@ -1400,6 +2637,47 @@
   verify:
     expect:
       v: Matrix([1, u, w]).dot(Matrix([nsimplify(b0), nsimplify(b1), nsimplify(b2)]))
+- template: st-residual-multiple
+  skill: stats.bivariate
+  pace: quick
+  given:
+    b0:
+      pick:
+      - 5
+      - 12
+    b1:
+      pick:
+      - 2
+      - 0.5
+    b2:
+      pick:
+      - -1
+      - 3
+    x1:
+      pick:
+      - 4
+      - 8
+    x2:
+      pick:
+      - 2
+      - 5
+    y:
+      pick:
+      - 20
+      - 25
+  require:
+  - y - (b0 + b1*x1 + b2*x2) != 0
+  prompt: ŷ = {{b0}} + {{b1}}x₁ + {{b2}}x₂. A case has x₁ = {{x1}}, x₂ = {{x2}} and y = {{y}}. What is its residual?
+  parts:
+  - ask: Answer
+    label: v
+    tex: e
+    value: y - (b0 + b1*x1 + b2*x2)
+    tol: 0.005
+    explain: Residual = observed − predicted
+  verify:
+    expect:
+      v: solve(Eq(nsimplify(b0) + nsimplify(b1)*x1 + nsimplify(b2)*x2 + x, y), x)[0]
 - template: st-adjusted-r2
   skill: stats.bivariate
   pace: quick
@@ -1429,6 +2707,35 @@
   verify:
     expect:
       v: 1 - (1 - nsimplify(r2))*(n - 1)/(n - k - 1)
+- template: st-r2-from-adjusted
+  skill: stats.bivariate
+  pace: quick
+  given:
+    k:
+      pick:
+      - 2
+      - 3
+      - 5
+    nn:
+      pick:
+      - 30
+      - 50
+    ra:
+      pick:
+      - 0.6
+      - 0.72
+      - 0.85
+  prompt: A model with {{k}} predictors on n = {{nn}} has adjusted R² = {{ra}}. What is R²?
+  parts:
+  - ask: Answer
+    label: v
+    tex: R^2
+    value: 1 - (1 - ra)*(nn - k - 1)/(nn - 1)
+    tol: 0.005
+    explain: Adjusted R² = 1 − (1 − R²)(n − 1)/(n − k − 1)
+  verify:
+    expect:
+      v: solve(Eq(1 - (1 - x)*(nn - 1)/(nn - k - 1), nsimplify(ra)), x)[0]
 - template: st-aic
   skill: stats.bivariate
   pace: quick
@@ -1459,6 +2766,34 @@
   verify:
     expect:
       v: n*log(nsimplify(sse)/n) + 2*k
+- template: st-bic
+  skill: stats.bivariate
+  pace: quick
+  given:
+    k:
+      pick:
+      - 2
+      - 3
+      - 5
+    nn:
+      pick:
+      - 50
+      - 100
+    ll:
+      pick:
+      - -120.5
+      - -88.2
+  prompt: A model with {{k}} parameters fitted to n = {{nn}} has log-likelihood {{ll}}. What is its BIC?
+  parts:
+  - ask: Answer
+    label: v
+    tex: \mathrm{BIC}
+    value: k*log(nn) - 2*ll
+    tol: 0.005
+    explain: BIC = k ln n − 2 ln L penalises parameters more than AIC once n > 7
+  verify:
+    expect:
+      v: log(nn**k) - 2*nsimplify(ll)
 - template: st-overall-f
   skill: stats.inference
   pace: quick
@@ -1488,6 +2823,35 @@
   verify:
     expect:
       v: (nsimplify(r2)/k)/((1 - nsimplify(r2))/(n - k - 1))
+- template: st-r2-from-f
+  skill: stats.bivariate
+  pace: quick
+  given:
+    k:
+      pick:
+      - 2
+      - 3
+      - 4
+    nn:
+      pick:
+      - 25
+      - 40
+    F:
+      pick:
+      - 5
+      - 12
+      - 20
+  prompt: An overall F test with {{k}} predictors and n = {{nn}} gives F = {{F}}. What is R²?
+  parts:
+  - ask: Answer
+    label: v
+    tex: R^2
+    value: F*k/(F*k + nn - k - 1)
+    tol: 0.005
+    explain: F = (R²/k)/((1 − R²)/(n − k − 1))
+  verify:
+    expect:
+      v: solve(Eq((x/k)/((1 - x)/(nn - k - 1)), nsimplify(F)), x)[0]
 - template: st-logistic
   skill: stats.bivariate
   pace: quick
@@ -1517,6 +2881,31 @@
   verify:
     expect:
       v: solve(Eq(log(x/(1 - x)), nsimplify(b0) + nsimplify(b1)*x0), x)[0]
+- template: st-logistic-odds-ratio
+  skill: stats.bivariate
+  pace: quick
+  given:
+    b:
+      pick:
+      - 0.2
+      - 0.5
+      - -0.3
+    dx:
+      pick:
+      - 1
+      - 2
+      - 5
+  prompt: A logistic model has slope {{b}} per unit of x. By what factor do the odds change when x rises by {{dx}}?
+  parts:
+  - ask: Answer
+    label: v
+    tex: OR
+    value: exp(b*dx)
+    tol: 0.005
+    explain: The log odds rise by b per unit, so the odds multiply by e^b each unit
+  verify:
+    expect:
+      v: exp(nsimplify(b))**dx
 - template: st-loglinear-expected
   skill: stats.inference
   pace: quick
@@ -1547,6 +2936,40 @@
   verify:
     expect:
       v: exp(log(r) + log(c) - log(N))
+- template: st-chi-contribution
+  skill: stats.bivariate
+  pace: quick
+  given:
+    r:
+      pick:
+      - 40
+      - 60
+    c:
+      pick:
+      - 30
+      - 50
+    N:
+      pick:
+      - 100
+      - 200
+    o:
+      pick:
+      - 8
+      - 15
+      - 25
+  require:
+  - o != r*c/N
+  prompt: A cell has row total {{r}}, column total {{c}}, grand total {{N}} and observed count {{o}}. What is its contribution to the χ² statistic?
+  parts:
+  - ask: Answer
+    label: v
+    tex: \chi^2_{cell}
+    value: (o - r*c/N)^2/(r*c/N)
+    tol: 0.005
+    explain: Expected = row × column ÷ total under independence
+  verify:
+    expect:
+      v: (o - Rational(r*c, N))**2/Rational(r*c, N)
 - template: st-ordinal
   skill: stats.bivariate
   pace: quick
@@ -1576,6 +2999,37 @@
   verify:
     expect:
       v: solve(Eq(log(x/(1 - x)), nsimplify(t1) - nsimplify(b)*x0), x)[0]
+- template: st-ordinal-middle
+  skill: stats.bivariate
+  pace: quick
+  given:
+    t1:
+      pick:
+      - -1
+      - 0
+    t2:
+      pick:
+      - 1.5
+      - 2
+    b:
+      pick:
+      - 0.3
+      - 0.6
+    x0:
+      int:
+      - 0
+      - 4
+  prompt: A proportional-odds model has logit P(Y ≤ 1) = {{t1}} − {{b}}x and logit P(Y ≤ 2) = {{t2}} − {{b}}x. What is P(Y = 2) at x = {{x0}}?
+  parts:
+  - ask: Answer
+    label: v
+    tex: P
+    value: 1/(1 + exp(-(t2 - b*x0))) - 1/(1 + exp(-(t1 - b*x0)))
+    tol: 0.005
+    explain: Category probabilities are differences of neighbouring cumulative probabilities
+  verify:
+    expect:
+      v: exp(nsimplify(t2) - nsimplify(b)*x0)/(1 + exp(nsimplify(t2) - nsimplify(b)*x0)) - exp(nsimplify(t1) - nsimplify(b)*x0)/(1 + exp(nsimplify(t1) - nsimplify(b)*x0))
 - template: st-sign-test
   skill: stats.inference
   pace: quick
@@ -1669,6 +3123,34 @@
   verify:
     expect:
       v: summation(binomial(n, Symbol('k')), (Symbol('k'), k, n))/2**n
+- template: st-sign-z
+  skill: stats.inference
+  pace: quick
+  given:
+    nn:
+      pick:
+      - 30
+      - 40
+      - 50
+    k:
+      pick:
+      - 22
+      - 26
+      - 31
+  require:
+  - k < nn
+  - 2*k != nn
+  prompt: Of {{nn}} nonzero differences, {{k}} are positive. What is the large-sample z for the sign test (no continuity correction)?
+  parts:
+  - ask: Answer
+    label: v
+    tex: z
+    value: (k - nn/2)/(sqrt(nn)/2)
+    tol: 0.005
+    explain: Under H₀ the count of + signs is Bin(n, ½)
+  verify:
+    expect:
+      v: (k - Rational(nn, 2))/sqrt(nn*Rational(1, 4))
 - template: st-rank-sum-mean
   skill: stats.inference
   pace: recall
@@ -1692,6 +3174,29 @@
   verify:
     expect:
       v: n1*summation(Symbol('k'), (Symbol('k'), 1, n1 + n2))/(n1 + n2)
+- template: st-rank-sum-var
+  skill: stats.inference
+  pace: quick
+  given:
+    n1:
+      int:
+      - 4
+      - 12
+    n2:
+      int:
+      - 4
+      - 12
+  prompt: Samples of {{n1}} and {{n2}} are ranked together. What is the variance of the rank sum of sample 1 under H₀?
+  parts:
+  - ask: Answer
+    label: v
+    tex: \operatorname{Var}
+    value: n1*n2*(n1 + n2 + 1)/12
+    tol: 0.005
+    explain: Sampling n₁ ranks without replacement from 1…N
+  verify:
+    expect:
+      v: Rational(n1*n2*(n1 + n2 + 1), 12)
 - template: st-signed-rank-mean
   skill: stats.inference
   pace: recall
@@ -1711,6 +3216,25 @@
   verify:
     expect:
       v: summation(Symbol('k'), (Symbol('k'), 1, n))/2
+- template: st-signed-rank-var
+  skill: stats.inference
+  pace: quick
+  given:
+    nn:
+      int:
+      - 6
+      - 30
+  prompt: What is the variance of the Wilcoxon signed-rank statistic for n = {{nn}} pairs under H₀?
+  parts:
+  - ask: Answer
+    label: v
+    tex: \operatorname{Var}
+    value: nn*(nn + 1)*(2*nn + 1)/24
+    tol: 0.005
+    explain: 'Each rank i enters with probability ½: variance Σi²/4'
+  verify:
+    expect:
+      v: Rational(nn*(nn + 1)*(2*nn + 1), 6)/4
 - template: st-runs-mean
   skill: stats.inference
   pace: quick
@@ -1734,6 +3258,30 @@
   verify:
     expect:
       v: 1 + (n1 + n2 - 1)*2*Rational(n1, n1 + n2)*Rational(n2, n1 + n2 - 1)
+- template: st-max-runs
+  skill: stats.inference
+  pace: quick
+  given:
+    n1:
+      int:
+      - 3
+      - 12
+    n2:
+      int:
+      - 3
+      - 12
+  prompt: A sequence has {{n1}} of one symbol and {{n2}} of the other. What is the largest possible number of runs?
+  parts:
+  - ask: Answer
+    label: v
+    tex: R_{max}
+    value: 'n1 == n2 ? 2*n1 : 2*min(n1, n2) + 1'
+    final: true
+    tol: 0.0001
+    explain: Alternate as long as the smaller group lasts
+  verify:
+    expect:
+      v: 2*Min(n1, n2) + (0 if n1 == n2 else 1)
 - template: st-kruskal-wallis
   skill: stats.inference
   pace: quick
@@ -1764,6 +3312,31 @@
   verify:
     expect:
       v: Rational(12, 3*n*(3*n + 1))*Matrix([r1, r2, Rational(3*n*(3*n + 1), 2) - r1 - r2]).dot(Matrix([r1, r2, Rational(3*n*(3*n + 1), 2) - r1 - r2]))/n - 3*(3*n + 1)
+- template: st-kw-expected-rank-sum
+  skill: stats.inference
+  pace: quick
+  given:
+    N:
+      pick:
+      - 15
+      - 18
+      - 24
+    ni:
+      pick:
+      - 4
+      - 5
+      - 6
+  prompt: '{{N}} observations in groups are ranked together. Under H₀, what is the expected rank sum of a group of {{ni}}?'
+  parts:
+  - ask: Answer
+    label: v
+    tex: E[R_i]
+    value: ni*(N + 1)/2
+    tol: 0.005
+    explain: Each group's share of the total rank sum N(N + 1)/2
+  verify:
+    expect:
+      v: Rational(ni, N)*Rational(N*(N + 1), 2)
 - template: st-ks-statistic
   skill: stats.inference
   pace: quick
@@ -1809,6 +3382,27 @@
   verify:
     expect:
       v: Max(Abs(nsimplify(a1) - nsimplify(b1)), Abs(nsimplify(a2) - nsimplify(b2)), Abs(nsimplify(a3) - nsimplify(b3)))
+- template: st-ks-critical
+  skill: stats.inference
+  pace: quick
+  given:
+    nn:
+      pick:
+      - 40
+      - 50
+      - 100
+      - 200
+  prompt: Approximately, what is the 5% critical value of the one-sample Kolmogorov–Smirnov D for n = {{nn}} (D ≈ 1.36/√n)?
+  parts:
+  - ask: Answer
+    label: v
+    tex: D_{crit}
+    value: 1.36/sqrt(nn)
+    tol: 0.005
+    explain: The critical distance shrinks like 1/√n
+  verify:
+    expect:
+      v: Rational(136, 100)/sqrt(nn)
 - template: st-median-interval
   skill: stats.inference
   pace: quick
@@ -1896,6 +3490,25 @@
   verify:
     expect:
       v: 1 - 2*summation(binomial(n, Symbol('k')), (Symbol('k'), 0, k - 1))/2**n
+- template: st-median-beyond-max
+  skill: stats.inference
+  pace: quick
+  given:
+    nn:
+      int:
+      - 3
+      - 10
+  prompt: For a continuous distribution, what is the probability that all {{nn}} observations fall below the median?
+  parts:
+  - ask: Answer
+    label: v
+    tex: P
+    value: 0.5^nn
+    tol: 0.005
+    explain: Each is below the median with probability ½, independently
+  verify:
+    expect:
+      v: Rational(1, 2)**nn
 - template: st-relative-efficiency
   skill: stats.inference
   pace: recall
@@ -1915,6 +3528,34 @@
   verify:
     expect:
       v: 100/are
+- template: st-efficiency-facts
+  skill: stats.inference
+  pace: recall
+  cases:
+  - q: For normal data, what is the asymptotic relative efficiency of the Wilcoxon rank-sum test against the t test?
+    o1: About 0.955 (3/π)
+    o2: About 0.64
+    o3: Exactly 1
+    o4: About 0.5
+  - q: For normal data, what is the asymptotic relative efficiency of the sign test against the t test?
+    o1: About 0.64 (2/π)
+    o2: About 0.955
+    o3: Exactly 1
+    o4: About 0.3
+  - q: For heavy-tailed data, how do rank tests compare with the t test?
+    o1: They can be far more efficient
+    o2: Always less efficient
+    o3: Exactly equal
+    o4: Not applicable
+  prompt: '{{q}}'
+  parts:
+  - ask: Answer
+    label: v
+    choice: *id001
+    correct: '0'
+    explain: Rank tests give up little under normality and can gain a lot under heavy tails
+  verify:
+    authored: true
 - template: st-conjugate-prior
   skill: stats.probability
   pace: recall
@@ -1937,6 +3578,34 @@
     - Normal
     correct: ans
     explain: A conjugate prior gives a posterior of the same family, so updating is arithmetic on its parameters
+  verify:
+    authored: true
+- template: st-conjugate-which
+  skill: stats.inference
+  pace: recall
+  cases:
+  - q: Which prior is conjugate to a Poisson likelihood?
+    o1: Gamma
+    o2: Beta
+    o3: Normal
+    o4: Dirichlet
+  - q: Which prior is conjugate to a multinomial likelihood?
+    o1: Dirichlet
+    o2: Gamma
+    o3: Beta
+    o4: Inverse gamma
+  - q: Which prior is conjugate for the mean of a normal with known variance?
+    o1: Normal
+    o2: Gamma
+    o3: Beta
+    o4: Uniform
+  prompt: '{{q}}'
+  parts:
+  - ask: Answer
+    label: v
+    choice: *id001
+    correct: '0'
+    explain: A conjugate prior returns a posterior of the same family
   verify:
     authored: true
 - template: st-improper-prior
@@ -1962,6 +3631,31 @@
   verify:
     expect:
       v: integrate(x**s*(1 - x)**(n - s - 1), (x, 0, 1))/integrate(x**(s - 1)*(1 - x)**(n - s - 1), (x, 0, 1))
+- template: st-flat-poisson-posterior
+  skill: stats.inference
+  pace: quick
+  given:
+    nn:
+      pick:
+      - 4
+      - 6
+      - 10
+    S:
+      pick:
+      - 12
+      - 25
+      - 40
+  prompt: Counts from {{nn}} independent Poisson periods sum to {{S}}. With a flat prior on λ, what is the posterior mean?
+  parts:
+  - ask: Answer
+    label: v
+    tex: E[\lambda]
+    value: (S + 1)/nn
+    tol: 0.005
+    explain: The posterior is gamma with shape S + 1 and rate n
+  verify:
+    expect:
+      v: integrate(Symbol('t')**(S + 1)*exp(-nn*Symbol('t')), (Symbol('t'), 0, oo))/integrate(Symbol('t')**S*exp(-nn*Symbol('t')), (Symbol('t'), 0, oo))
 - template: st-beta-posterior
   skill: stats.probability
   pace: quick
@@ -1995,6 +3689,37 @@
   verify:
     expect:
       v: integrate(x**(a + s)*(1 - x)**(b + n - s - 1), (x, 0, 1))/integrate(x**(a + s - 1)*(1 - x)**(b + n - s - 1), (x, 0, 1))
+- template: st-beta-posterior-mode
+  skill: stats.inference
+  pace: quick
+  given:
+    a:
+      int:
+      - 1
+      - 5
+    b:
+      int:
+      - 1
+      - 5
+    k:
+      int:
+      - 2
+      - 8
+    nn:
+      pick:
+      - 10
+      - 12
+  prompt: A Beta({{a}}, {{b}}) prior is updated with {{k}} successes in {{nn}} trials. What is the posterior mode?
+  parts:
+  - ask: Answer
+    label: v
+    tex: \hat p
+    value: (a + k - 1)/(a + b + nn - 2)
+    tol: 0.005
+    explain: Posterior Beta(a + k, b + n − k); its mode is (α − 1)/(α + β − 2)
+  verify:
+    expect:
+      v: solve(Eq((a + k - 1)/x - (b + nn - k - 1)/(1 - x), 0), x)[0]
 - template: st-normal-posterior
   skill: stats.probability
   pace: quick
@@ -2032,6 +3757,35 @@
   verify:
     expect:
       v: solve(Eq(x*(1/Integer(t)**2 + n/Integer(s)**2), m0/Integer(t)**2 + n*xb/Integer(s)**2), x)[0]
+- template: st-normal-posterior-sd
+  skill: stats.inference
+  pace: quick
+  given:
+    tau:
+      pick:
+      - 2
+      - 5
+      - 10
+    nn:
+      pick:
+      - 4
+      - 16
+      - 25
+    s:
+      pick:
+      - 3
+      - 6
+  prompt: A normal prior with SD {{tau}} is combined with {{nn}} observations of known SD {{s}}. What is the posterior SD of the mean?
+  parts:
+  - ask: Answer
+    label: v
+    tex: \sigma_{post}
+    value: 1/sqrt(1/tau^2 + nn/s^2)
+    tol: 0.005
+    explain: 'Precisions add: 1/τ² + n/σ²'
+  verify:
+    expect:
+      v: sqrt(tau**2*s**2/(s**2 + nn*tau**2))
 - template: st-bayes-factor
   skill: stats.probability
   pace: quick
@@ -2057,6 +3811,31 @@
   verify:
     expect:
       v: solve(Eq(x/(1 - x), nsimplify(p)/(1 - nsimplify(p))*B), x)[0]
+- template: st-bf-from-probs
+  skill: stats.inference
+  pace: quick
+  given:
+    p0:
+      pick:
+      - 0.1
+      - 0.25
+      - 0.5
+    p1:
+      pick:
+      - 0.4
+      - 0.6
+      - 0.9
+  prompt: H₁ had prior probability {{p0}} and has posterior probability {{p1}}. What Bayes factor in favour of H₁ did the data give?
+  parts:
+  - ask: Answer
+    label: v
+    tex: BF
+    value: (p1/(1 - p1))/(p0/(1 - p0))
+    tol: 0.005
+    explain: Posterior odds = Bayes factor × prior odds
+  verify:
+    expect:
+      v: solve(Eq(x*nsimplify(p0)/(1 - nsimplify(p0)), nsimplify(p1)/(1 - nsimplify(p1))), x)[0]
 - template: st-variance-bias
   skill: stats.expected-value
   pace: quick
@@ -2082,6 +3861,31 @@
   verify:
     expect:
       r: (n - 1)*Rational(v, n) - v
+- template: st-bias-mean-square
+  skill: stats.inference
+  pace: quick
+  given:
+    nn:
+      pick:
+      - 5
+      - 10
+      - 25
+    v:
+      pick:
+      - 4
+      - 9
+      - 16
+  prompt: X̄ from n = {{nn}} draws with variance σ² = {{v}} estimates μ². What is the bias of X̄²?
+  parts:
+  - ask: Answer
+    label: r
+    tex: \text{bias}
+    value: v/nn
+    tol: 0.005
+    explain: E[X̄²] = Var X̄ + (E X̄)² = σ²/n + μ²
+  verify:
+    expect:
+      r: Rational(v, nn)
 - template: st-mse
   skill: stats.expected-value
   pace: quick
@@ -2110,6 +3914,37 @@
   verify:
     expect:
       r: (Rational(c, n))**2 + Rational(v, n)
+- template: st-mse-shrunk
+  skill: stats.inference
+  pace: quick
+  given:
+    nn:
+      pick:
+      - 10
+      - 25
+    s:
+      pick:
+      - 4
+      - 10
+    mu:
+      pick:
+      - 2
+      - 5
+    c:
+      pick:
+      - 0.8
+      - 0.9
+  prompt: The estimator cX̄ (n = {{nn}}, σ = {{s}}) estimates μ = {{mu}} with c = {{c}}. What is its MSE?
+  parts:
+  - ask: Answer
+    label: v
+    tex: MSE
+    value: c^2*s^2/nn + (c - 1)^2*mu^2
+    tol: 0.005
+    explain: 'MSE = variance + bias²: shrinking adds bias but cuts variance'
+  verify:
+    expect:
+      v: nsimplify(c)**2*s**2/nn + (nsimplify(c)*mu - mu)**2
 - template: st-sufficient
   skill: stats.expected-value
   pace: recall
@@ -2132,6 +3967,34 @@
     - The sample median
     correct: ans
     explain: Write the likelihood and see what it depends on. For the uniform on [0, θ] it is $\theta^{-n}$ when $\theta \ge \max x_i$, so only the maximum matters
+  verify:
+    authored: true
+- template: st-sufficient-which
+  skill: stats.inference
+  pace: recall
+  cases:
+  - q: For a Poisson sample, which statistic is sufficient for λ?
+    o1: ΣXᵢ
+    o2: The median
+    o3: The range
+    o4: X₁ alone
+  - q: For a Uniform(0, θ) sample, which statistic is sufficient for θ?
+    o1: The maximum
+    o2: The mean
+    o3: The minimum
+    o4: ΣXᵢ²
+  - q: For a normal sample with both parameters unknown, which pair is sufficient?
+    o1: (ΣXᵢ, ΣXᵢ²)
+    o2: (median, range)
+    o3: (X₁, Xₙ)
+    o4: (max, min)
+  prompt: '{{q}}'
+  parts:
+  - ask: Answer
+    label: v
+    choice: *id001
+    correct: '0'
+    explain: 'Factorisation: the likelihood depends on the data only through the sufficient statistic'
   verify:
     authored: true
 - template: st-mle-exponential
@@ -2158,6 +4021,31 @@
   verify:
     expect:
       v: solve(diff(n*log(x) - x*S, x), x)[0]
+- template: st-mle-geometric
+  skill: stats.inference
+  pace: quick
+  given:
+    nn:
+      pick:
+      - 5
+      - 8
+      - 10
+    S:
+      pick:
+      - 20
+      - 32
+      - 50
+  prompt: '{{nn}} independent geometric counts (trials to first success) sum to {{S}}. What is the MLE of p?'
+  parts:
+  - ask: Answer
+    label: v
+    tex: \hat p
+    value: nn/S
+    tol: 0.005
+    explain: 'Maximise n ln p + (S − n) ln(1 − p): p̂ = 1/x̄'
+  verify:
+    expect:
+      v: solve(Eq(nn/x - (S - nn)/(1 - x), 0), x)[0]
 - template: st-moving-average
   skill: stats.descriptive
   pace: quick
@@ -2185,6 +4073,41 @@
   verify:
     expect:
       v: Rational(a + b + c, 3)
+- template: st-centred-ma
+  skill: stats.descriptive
+  pace: quick
+  given:
+    y1:
+      pick:
+      - 10
+      - 14
+    y2:
+      pick:
+      - 20
+      - 18
+    y3:
+      pick:
+      - 15
+      - 17
+    y4:
+      pick:
+      - 12
+      - 9
+    y5:
+      pick:
+      - 11
+      - 16
+  prompt: Quarterly values are {{y1}}, {{y2}}, {{y3}}, {{y4}}, {{y5}}. What is the centred 2×4 moving average at the third value?
+  parts:
+  - ask: Answer
+    label: v
+    tex: \bar y
+    value: (y1/2 + y2 + y3 + y4 + y5/2)/4
+    tol: 0.005
+    explain: Average two neighbouring 4-term averages so the result lines up with a quarter
+  verify:
+    expect:
+      v: ((y1 + y2 + y3 + y4)/Integer(4) + (y2 + y3 + y4 + y5)/Integer(4))/2
 - template: st-ar1-acf
   skill: stats.descriptive
   pace: quick
@@ -2210,6 +4133,30 @@
   verify:
     expect:
       v: nsimplify(phi)**k
+- template: st-phi-from-acf
+  skill: stats.descriptive
+  pace: quick
+  given:
+    k:
+      pick:
+      - 2
+      - 3
+    rho:
+      pick:
+      - 0.36
+      - 0.49
+      - 0.64
+  prompt: An AR(1) process has lag-{{k}} autocorrelation {{rho}}. What is φ (take φ > 0)?
+  parts:
+  - ask: Answer
+    label: v
+    tex: \varphi
+    value: rho^(1/k)
+    tol: 0.005
+    explain: ρ(k) = φᵏ
+  verify:
+    expect:
+      v: Max(*[r for r in solve(Eq(x**k, nsimplify(rho)), x) if r.is_real])
 - template: st-runs-variance
   skill: stats.descriptive
   pace: quick
@@ -2233,6 +4180,25 @@
   verify:
     expect:
       v: Rational(2*n1*n2*(2*n1*n2 - n1 - n2), (n1 + n2)**2*(n1 + n2 - 1))
+- template: st-runs-var-equal
+  skill: stats.descriptive
+  pace: quick
+  given:
+    m:
+      int:
+      - 5
+      - 20
+  prompt: A sequence has {{m}} of each of two symbols. What is the variance of the number of runs under randomness?
+  parts:
+  - ask: Answer
+    label: v
+    tex: \operatorname{Var}
+    value: m*(m - 1)/(2*m - 1)
+    tol: 0.005
+    explain: The general formula 2n₁n₂(2n₁n₂ − N)/(N²(N − 1)) with n₁ = n₂ = m
+  verify:
+    expect:
+      v: Rational(2*m*m*(2*m*m - 2*m), (2*m)**2*(2*m - 1))
 - template: st-seasonal-index
   skill: stats.descriptive
   pace: quick
@@ -2268,6 +4234,31 @@
   verify:
     expect:
       v: Matrix([q1, q2, q3, q4])[j - 1]*4/(q1 + q2 + q3 + q4)
+- template: st-deseasonalise
+  skill: stats.descriptive
+  pace: quick
+  given:
+    S:
+      pick:
+      - 0.85
+      - 1.12
+      - 1.25
+    y:
+      pick:
+      - 340
+      - 512
+      - 880
+  prompt: A quarter's seasonal index is {{S}}. Its observed value is {{y}}. What is the seasonally adjusted value?
+  parts:
+  - ask: Answer
+    label: v
+    tex: y^*
+    value: y/S
+    tol: 0.005
+    explain: 'Divide by the index: a quarter running 25% above average is scaled down'
+  verify:
+    expect:
+      v: solve(Eq(x*nsimplify(S), y), x)[0]
 - template: st-ar1-variance
   skill: stats.descriptive
   pace: quick
@@ -2294,6 +4285,31 @@
   verify:
     expect:
       r: v*summation(nsimplify(phi)**(2*Symbol('k')), (Symbol('k'), 0, oo))
+- template: st-ar1-noise
+  skill: stats.descriptive
+  pace: quick
+  given:
+    phi:
+      pick:
+      - 0.3
+      - 0.6
+      - 0.9
+    v:
+      pick:
+      - 4
+      - 10
+      - 25
+  prompt: An AR(1) process with φ = {{phi}} has variance {{v}}. What is the noise variance σ_ε²?
+  parts:
+  - ask: Answer
+    label: r
+    tex: \sigma_\varepsilon^2
+    value: v*(1 - phi^2)
+    tol: 0.005
+    explain: Var = σ_ε²/(1 − φ²)
+  verify:
+    expect:
+      r: solve(Eq(x/(1 - nsimplify(phi)**2), v), x)[0]
 - template: st-exp-smoothing
   skill: stats.descriptive
   pace: quick
@@ -2325,6 +4341,30 @@
   verify:
     expect:
       v: F + nsimplify(a)*(y - F)
+- template: st-ses-weight
+  skill: stats.descriptive
+  pace: quick
+  given:
+    a:
+      pick:
+      - 0.2
+      - 0.3
+      - 0.5
+    k:
+      int:
+      - 0
+      - 4
+  prompt: In simple exponential smoothing with α = {{a}}, what weight does the observation from {{k}} periods ago get in the current forecast?
+  parts:
+  - ask: Answer
+    label: v
+    tex: w_k
+    value: a*(1 - a)^k
+    tol: 0.005
+    explain: Unrolling F = αy + (1 − α)F gives geometric weights
+  verify:
+    expect:
+      v: nsimplify(a)*(1 - nsimplify(a))**k
 - template: st-periodogram
   skill: stats.descriptive
   pace: recall
@@ -2351,3 +4391,23 @@
   verify:
     expect:
       v: solve(Eq(x*k, N), x)[0]
+- template: st-angular-frequency
+  skill: stats.descriptive
+  pace: quick
+  given:
+    P:
+      pick:
+      - 4
+      - 12
+      - 52
+  prompt: A cycle repeats every {{P}} time units. What is its angular frequency, in radians per unit?
+  parts:
+  - ask: Answer
+    label: v
+    tex: \omega
+    value: 2*pi/P
+    tol: 0.005
+    explain: One full cycle is 2π radians
+  verify:
+    expect:
+      v: solve(Eq(x*P, 2*pi), x)[0]
