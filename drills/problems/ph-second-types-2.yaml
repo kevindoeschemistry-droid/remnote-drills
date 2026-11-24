@@ -1,0 +1,685 @@
+# AP Physics units 9–15 (thermal, electricity and magnetism, optics, waves, modern): a second question
+# type for every objective, and full drills for the three that were only partly covered (P–V work,
+# the first law, half-life). Same conventions as ph-second-types.yaml: one question, a different angle
+# on the model (scaling, reverse, comparison), verified by sympy along another route.
+
+# ── 9 · thermodynamics ───────────────────────────────────────────────────
+- template: ph-rms-speed-scaling
+  skill: physics.thermal
+  pace: quick
+  given: { f: { pick: [4, 9, 2] } }
+  prompt: 'The absolute temperature of a gas is multiplied by ${{f}}$. By what factor does the rms speed of its molecules change?'
+  parts:
+    - { ask: 'Factor', label: y, tex: 'k', value: sqrt(f), tol: 0.005, explain: '$\tfrac12mv_{rms}^2 = \tfrac32k_BT$, so $v_{rms} \propto \sqrt T$. Quadrupling the temperature only doubles the speed' }
+  verify: { expect: { y: "sqrt(3*Symbol('k', positive=True)*f*Symbol('T', positive=True)/Symbol('m', positive=True))/sqrt(3*Symbol('k', positive=True)*Symbol('T', positive=True)/Symbol('m', positive=True))" } }
+
+- template: ph-ideal-gas-moles
+  skill: physics.thermal
+  pace: quick
+  given: { P: { pick: [100, 200, 500] }, V: { pick: [10, 24, 50] }, T: { pick: [273, 300, 400] } }
+  prompt: 'A tank holds ${{V}}$ L of gas at ${{P}}$ kPa and ${{T}}$ K. How many moles does it contain? ($R = 8.314$ J/(mol·K).)'
+  parts:
+    - { ask: 'Moles', label: y, tex: 'n', value: P*1000*V/1000/(8.314*T), tol: 0.002, explain: '$n = \dfrac{PV}{RT}$ in SI units: kPa × L is J, conveniently, since $10^3 \times 10^{-3} = 1$' }
+  verify: { expect: { y: "solve(Eq(P*1000*V/1000, x*Rational(8314, 1000)*T), x)[0]" } }
+
+- template: ph-equilibrium-temperature
+  skill: physics.thermal
+  pace: quick
+  given: { m1: { pick: [100, 200, 300] }, T1: { pick: [80, 90, 60] }, m2: { pick: [100, 300, 400] }, T2: { pick: [10, 20, 15] } }
+  prompt: 'You mix ${{m1}}$ g of water at ${{T1}}$ °C with ${{m2}}$ g of water at ${{T2}}$ °C in an insulated cup. What is the final temperature, in °C?'
+  parts:
+    - { ask: 'Temperature (°C)', label: y, tex: 'T_f', value: (m1*T1 + m2*T2)/(m1 + m2), tol: 0.002, explain: 'Heat lost by the hot water equals heat gained by the cold: $m_1c(T_1 - T_f) = m_2c(T_f - T_2)$. With one substance, $c$ cancels and $T_f$ is the mass-weighted average' }
+  verify: { expect: { y: "solve(Eq(m1*(T1 - x), m2*(x - T2)), x)[0]" } }
+
+- template: ph-internal-energy-scaling
+  skill: physics.thermal
+  pace: quick
+  given: { fn: { pick: [2, 3, 1] }, fT: { pick: [2, 1.5, 3] } }
+  prompt: 'A sample of monatomic ideal gas is replaced by ${{fn}}$ times as many moles at ${{fT}}$ times the absolute temperature. By what factor does its internal energy change?'
+  parts:
+    - { ask: 'Factor', label: y, tex: 'k', value: fn*fT, tol: 0.005, explain: '$U = \tfrac32nRT$: proportional to both the amount and the absolute temperature, and nothing else' }
+  verify: { expect: { y: "(Rational(3, 2)*fn*Symbol('n')*Symbol('R')*fT*Symbol('T'))/(Rational(3, 2)*Symbol('n')*Symbol('R')*Symbol('T'))" } }
+
+- template: ph-isobaric-work
+  skill: physics.thermal
+  pace: quick
+  given: { P: { pick: [100, 150, 200] }, V1: { pick: [2, 5, 10] }, dV: { pick: [3, 4, 6, -1] } }
+  prompt: 'A gas at a constant ${{P}}$ kPa changes volume from ${{V1}}$ L to ${{V1 + dV}}$ L. How much work does the gas do on its surroundings, in J?'
+  parts:
+    - { ask: 'Work by gas (J)', label: y, tex: 'W', value: P*dV, tol: 0.002, explain: 'At constant pressure the area under the P–V line is a rectangle: $W = P\Delta V$ (kPa × L = J). A gas that is compressed does negative work; the surroundings do work on it' }
+  verify: { expect: { y: "integrate(P*1000/1000, (Symbol('v'), V1, V1 + dV))" } }
+
+- template: ph-first-law-heat
+  skill: physics.thermal
+  pace: quick
+  given: { dU: { pick: [200, 500, -300] }, W: { pick: [100, 300, -150] } }
+  prompt: 'A gas does ${{W}}$ J of work on its surroundings while its internal energy changes by ${{dU}}$ J. How much heat flowed into it, in J (negative if heat left)?'
+  parts:
+    - { ask: 'Heat in (J)', label: y, tex: 'Q', value: dU + W, tol: 0.002, explain: 'First law with $W$ as work done by the gas: $\Delta U = Q - W$, so $Q = \Delta U + W$. Check the sign convention your course uses: AP Physics writes $\Delta U = Q + W$ with $W$ done on the gas' }
+  verify: { expect: { y: "solve(Eq(dU, x - W), x)[0]" } }
+
+- template: ph-cycle-efficiency
+  skill: physics.thermal
+  pace: quick
+  given: { Qh: { pick: [1000, 2000, 5000] }, Qc: { pick: [600, 700, 400] } }
+  prompt: 'In each cycle an engine takes in ${{Qh}}$ J of heat and rejects ${{Qc}}$ J. What is its efficiency, as a fraction?'
+  parts:
+    - { ask: 'Efficiency', label: y, tex: 'e', value: (Qh - Qc)/Qh, tol: 0.002, explain: 'Over a cycle $\Delta U = 0$, so the net work is $Q_h - Q_c$, the area enclosed on the P–V diagram. Efficiency is work out over heat in' }
+  verify: { expect: { y: "1 - Qc/Qh" } }
+
+- template: ph-specific-heat-reverse
+  skill: physics.thermal
+  pace: quick
+  given: { m: { pick: [100, 200, 500] }, Q: { pick: [1800, 4500, 9000] }, dT: { pick: [10, 20, 25] } }
+  prompt: 'It takes ${{Q}}$ J to warm ${{m}}$ g of a metal by ${{dT}}$ K. What is its specific heat, in J/(g·K)?'
+  parts:
+    - { ask: 'c (J/(g·K))', label: y, tex: 'c', value: Q/(m*dT), tol: 0.002, explain: '$Q = mc\Delta T$, so $c = Q/(m\Delta T)$. Water''s 4.18 is unusually high; most metals are under 1' }
+  verify: { expect: { y: "solve(Eq(m*x*dT, Q), x)[0]" } }
+
+- template: ph-conduction-scaling
+  skill: physics.thermal
+  pace: quick
+  given: { fA: { pick: [2, 1, 3] }, fL: { pick: [2, 0.5, 3] } }
+  prompt: 'A wall''s area is multiplied by ${{fA}}$ and its thickness by ${{fL}}$, same material and same temperatures. By what factor does the rate of heat conduction change?'
+  parts:
+    - { ask: 'Factor', label: y, tex: 'k', value: fA/fL, tol: 0.005, explain: '$\dfrac{Q}{t} = \dfrac{kA\Delta T}{L}$: more area, more flow; thicker, less. Doubling insulation thickness halves the loss' }
+  verify: { expect: { y: "(Symbol('k')*fA*Symbol('A')*Symbol('d')/(fL*Symbol('L')))/(Symbol('k')*Symbol('A')*Symbol('d')/Symbol('L'))" } }
+
+- template: ph-entropy-of-transfer
+  skill: physics.thermal
+  pace: quick
+  given: { Q: { pick: [600, 1200, 3000] }, Th: { pick: [400, 500, 600] }, Tc: { pick: [300, 200, 250] } }
+  prompt: '${{Q}}$ J of heat flows from a reservoir at ${{Th}}$ K to one at ${{Tc}}$ K. What is the total entropy change of the two reservoirs, in J/K?'
+  parts:
+    - { ask: 'ΔS total (J/K)', label: y, tex: '\Delta S', value: Q/Tc - Q/Th, tol: 0.002, explain: 'The hot reservoir loses $Q/T_h$, the cold one gains the larger $Q/T_c$. The total is positive whenever heat flows from hot to cold, the second law' }
+  verify: { expect: { y: "-Q/Th + Q/Tc" } }
+
+# ── 10 · electrostatics ──────────────────────────────────────────────────
+- template: ph-coulomb-scaling
+  skill: physics.electrostatics
+  pace: quick
+  given: { fq: { pick: [2, 3, 0.5] }, fr: { pick: [2, 3, 0.5] } }
+  prompt: 'Each of two charges is multiplied by ${{fq}}$ and their separation by ${{fr}}$. By what factor does the force between them change?'
+  parts:
+    - { ask: 'Factor', label: y, tex: 'k', value: fq^2/fr^2, tol: 0.005, explain: '$F = kq_1q_2/r^2$: both charges scale, so $f_q^2$; the distance enters squared in the denominator' }
+  verify: { expect: { y: "(Symbol('k')*(fq*Symbol('q'))**2/(fr*x)**2)/(Symbol('k')*Symbol('q')**2/x**2)" } }
+
+- template: ph-levitation-charge-count
+  skill: physics.electrostatics
+  pace: quick
+  given: { m: { pick: [1.6, 3.2, 4.8] }, E: { pick: [49, 98] } }
+  prompt: 'An oil drop of mass ${{m}} \times 10^{-15}$ kg hangs still in an upward field of ${{E}}$ kV/m. How many extra electrons does it carry? ($e = 1.60 \times 10^{-19}$ C.)'
+  parts:
+    - { ask: 'Electrons', label: y, tex: 'n', value: m*1e-15*9.8/(E*1000*1.6e-19), tol: 0.002, explain: 'Balance: $neE = mg$, so $n = \dfrac{mg}{eE}$. Millikan found the charges always came in whole multiples of $e$' }
+  verify: { expect: { y: "solve(Eq(x*Rational(16, 10)*10**-19*E*1000, m*10**-15*Rational(98, 10)), x)[0]" } }
+
+- template: ph-dielectric-separation
+  skill: physics.electrostatics
+  pace: quick
+  given: { k: { pick: [4, 9, 16] } }
+  prompt: 'Two charges are moved from vacuum into a liquid of dielectric constant ${{k}}$. By what factor must their separation change to keep the force the same?'
+  parts:
+    - { ask: 'Factor', label: y, tex: 'f', value: 1/sqrt(k), tol: 0.005, explain: 'In the medium $F = \dfrac{q_1q_2}{4\pi\kappa\varepsilon_0r^2}$. To undo the factor $\kappa$, $r^2$ must shrink by $\kappa$, so $r$ by $\sqrt\kappa$' }
+  verify: { expect: { y: "Max(*solve(Eq(1/(k*x**2), 1), x))" } }
+
+- template: ph-null-point
+  skill: physics.electrostatics
+  pace: quick
+  given: { q1: { pick: [1, 4, 9] }, q2: { pick: [4, 1, 16] }, d: { pick: [1, 2, 3] } }
+  prompt: 'Positive charges of ${{q1}}$ µC and ${{q2}}$ µC are ${{d}}$ m apart. How far from the ${{q1}}$ µC charge, on the line between them, is the net field zero, in m?'
+  parts:
+    - { ask: 'Distance (m)', label: y, tex: 'x', value: d*sqrt(q1)/(sqrt(q1) + sqrt(q2)), tol: 0.002, explain: 'Between two like charges their fields point opposite ways; they cancel where $q_1/x^2 = q_2/(d - x)^2$, nearer the smaller charge' }
+  verify: { expect: { y: "Max(*solve(Eq(q1*(d - x)**2, q2*x**2), x)) if q1 < q2 else Min(*solve(Eq(q1*(d - x)**2, q2*x**2), x))" } }
+
+- template: ph-touching-spheres-force
+  skill: physics.electrostatics
+  pace: quick
+  given: { q1: { pick: [6, 10, 8] }, q2: { pick: [-2, 2, -4] } }
+  prompt: 'Identical metal spheres with ${{q1}}$ nC and ${{q2}}$ nC are touched, then returned to their original separation. By what factor does the magnitude of the force between them change?'
+  parts:
+    - { ask: 'Factor', label: y, tex: 'k', value: ((q1 + q2)/2)^2/abs(q1*q2), tol: 0.005, explain: 'Touching shares the total charge equally: each gets $(q_1 + q_2)/2$. The force goes from $|q_1q_2|$ to $\left(\frac{q_1 + q_2}{2}\right)^2$, always repulsive afterwards' }
+  verify: { expect: { y: "Abs(((q1 + q2)/2)**2)/Abs(q1*q2)" } }
+
+- template: ph-field-scaling
+  skill: physics.electrostatics
+  pace: quick
+  given: { fq: { pick: [2, 3, 4] }, fr: { pick: [2, 3, 0.5] } }
+  prompt: 'A point charge is multiplied by ${{fq}}$ and you move to ${{fr}}$ times the distance from it. By what factor does the electric field change?'
+  parts:
+    - { ask: 'Factor', label: y, tex: 'k', value: fq/fr^2, tol: 0.005, explain: '$E = kq/r^2$: linear in charge, inverse square in distance' }
+  verify: { expect: { y: "(Symbol('k')*fq*Symbol('q')/(fr*x)**2)/(Symbol('k')*Symbol('q')/x**2)" } }
+
+- template: ph-proton-in-field-speed
+  skill: physics.electrostatics
+  pace: quick
+  given: { E: { pick: [1000, 2000, 5000] }, d: { pick: [0.01, 0.02, 0.05] } }
+  prompt: 'A proton starts from rest in a uniform ${{E}}$ N/C field and moves ${{d}}$ m along it. How fast is it then moving, in km/s? ($e = 1.60 \times 10^{-19}$ C, $m_p = 1.67 \times 10^{-27}$ kg.)'
+  parts:
+    - { ask: 'Speed (km/s)', label: y, tex: 'v', value: sqrt(2*1.6e-19*E*d/1.67e-27)/1000, tol: 0.002, explain: 'Constant force $eE$, so constant acceleration $eE/m$, and $v^2 = 2ad$. Equivalently the work $eEd$ becomes kinetic energy' }
+  verify: { expect: { y: "Max(*solve(Eq(Rational(1, 2)*Rational(167, 100)*10**-27*(1000*x)**2, Rational(16, 10)*10**-19*E*d), x))" } }
+
+- template: ph-shell-field-inside
+  skill: physics.electrostatics
+  pace: quick
+  given: { Q: { pick: [2, 5, 10] }, R: { pick: [0.1, 0.2] }, k2: { pick: [1.5, 2, 3] } }
+  prompt: 'A thin metal shell of radius ${{R}}$ m carries ${{Q}}$ nC. What is the field at ${{k2}}$ times its radius from the centre, in N/C? (Inside the shell it would be zero. $k = 8.99 \times 10^9$.)'
+  parts:
+    - { ask: 'Field (N/C)', label: y, tex: 'E', value: 8.99e9*Q*1e-9/(k2*R)^2, tol: 0.002, explain: 'Outside a charged shell the field is that of a point charge at the centre, $kQ/r^2$; inside it is zero, because the charge sits on the surface and its pulls cancel (Gauss''s law)' }
+  verify: { expect: { y: "Rational(899, 100)*10**9*Q*10**-9/(k2*R)**2" } }
+
+- template: ph-field-line-density
+  skill: physics.electrostatics
+  pace: recall
+  prompt: 'On a field-line drawing, the lines are twice as close together at point A as at point B. How do the fields compare?'
+  parts:
+    - ask: 'Field at A'
+      label: a
+      choice: ["Stronger at A", "Weaker at A", "The same: line spacing shows only direction"]
+      correct: 0
+      explain: 'Line density shows field strength; the tangent shows direction. Lines never cross, start on positive charges and end on negative ones'
+  verify: { authored: true }
+
+- template: ph-pe-work-to-assemble
+  skill: physics.electrostatics
+  pace: quick
+  given: { q: { pick: [1, 2, 3] }, a: { pick: [0.1, 0.2, 0.3] } }
+  prompt: 'How much work does it take to bring three ${{q}}$ µC charges from far apart to the corners of an equilateral triangle of side ${{a}}$ m, in J? ($k = 8.99 \times 10^9$.)'
+  parts:
+    - { ask: 'Work (J)', label: y, tex: 'W', value: 3*8.99e9*(q*1e-6)^2/a, tol: 0.002, explain: 'Add the energy of every pair once: three pairs, each $kq^2/a$. The first charge is free; the second costs one pair; the third costs two' }
+  verify: { expect: { y: "0 + Rational(899, 100)*10**9*(q*10**-6)**2/a + 2*Rational(899, 100)*10**9*(q*10**-6)**2/a" } }
+
+- template: ph-potential-two-charges
+  skill: physics.electrostatics
+  pace: quick
+  given: { q1: { pick: [2, 5, 4] }, q2: { pick: [-2, -1, 3] }, d: { pick: [0.2, 0.4] } }
+  prompt: 'Charges of ${{q1}}$ nC and ${{q2}}$ nC are ${{d}}$ m apart. What is the electric potential at the midpoint between them, in V? ($k = 8.99 \times 10^9$.)'
+  parts:
+    - { ask: 'Potential (V)', label: y, tex: 'V', value: 8.99e9*(q1 + q2)*1e-9/(d/2), tol: 0.002, explain: 'Potential is a scalar: add $kq/r$ with signs, no components. Equal and opposite charges give zero potential at the midpoint, though the field there is not zero' }
+  require: ['q1 + q2 != 0']
+  verify: { expect: { y: "Rational(899, 100)*10**9*q1*10**-9/(d/2) + Rational(899, 100)*10**9*q2*10**-9/(d/2)" } }
+
+- template: ph-plate-gap-for-field
+  skill: physics.electrostatics
+  pace: quick
+  given: { V: { pick: [100, 500, 1500] }, E: { pick: [10000, 50000, 100000] } }
+  prompt: 'Plates are held at ${{V}}$ V apart. How close must they be for a field of ${{E}}$ V/m between them, in mm?'
+  parts:
+    - { ask: 'Gap (mm)', label: y, tex: 'd', value: V/E*1000, tol: 0.002, explain: 'In a uniform field $\Delta V = Ed$. Air breaks down at about $3 \times 10^6$ V/m, which limits how close high-voltage plates can be' }
+  verify: { expect: { y: "solve(Eq(E*x/1000, V), x)[0]" } }
+
+- template: ph-capacitance-scaling
+  skill: physics.electrostatics
+  pace: quick
+  given: { fA: { pick: [2, 1, 3] }, fd: { pick: [2, 0.5, 3] }, k: { pick: [1, 2, 5] } }
+  prompt: 'A parallel-plate capacitor''s plate area is multiplied by ${{fA}}$, its gap by ${{fd}}$, and the gap is filled with a dielectric of constant ${{k}}$ (it was air). By what factor does its capacitance change?'
+  parts:
+    - { ask: 'Factor', label: y, tex: 'f', value: k*fA/fd, tol: 0.005, explain: '$C = \kappa\varepsilon_0A/d$: up with area and dielectric, down with gap' }
+  verify: { expect: { y: "(k*Symbol('e')*fA*Symbol('A')/(fd*Symbol('d')))/(Symbol('e')*Symbol('A')/Symbol('d'))" } }
+
+- template: ph-capacitor-energy-isolated
+  skill: physics.electrostatics
+  pace: quick
+  given: { f: { pick: [2, 3, 0.5] } }
+  prompt: 'A charged capacitor is disconnected from its battery, then its plate gap is multiplied by ${{f}}$. By what factor does its stored energy change?'
+  parts:
+    - { ask: 'Factor', label: y, tex: 'k', value: f, tol: 0.005, explain: 'Disconnected, the charge is fixed. $C \propto 1/d$ and $U = Q^2/2C$, so $U \propto d$. Pulling the plates apart takes work, which is where the extra energy comes from' }
+  verify: { expect: { y: "(Symbol('Q')**2/(2*Symbol('e')*Symbol('A')/(f*Symbol('d'))))/(Symbol('Q')**2/(2*Symbol('e')*Symbol('A')/Symbol('d')))" } }
+
+- template: ph-alpha-vs-proton-speed
+  skill: physics.electrostatics
+  pace: quick
+  prompt: 'A proton and an alpha particle (twice the charge, four times the mass) are accelerated from rest through the same potential difference. What is the ratio of the alpha''s final speed to the proton''s?'
+  parts:
+    - { ask: 'v_alpha / v_p', label: y, tex: '\dfrac{v_\alpha}{v_p}', value: 1/sqrt(2), tol: 0.002, explain: '$qV = \tfrac12mv^2$, so $v \propto \sqrt{q/m}$: the alpha has $\sqrt{2/4}$ of the proton''s speed, though twice its kinetic energy' }
+  verify: { expect: { y: "sqrt(2*2*Symbol('e')*Symbol('V')/(4*Symbol('m')))/sqrt(2*Symbol('e')*Symbol('V')/Symbol('m'))" } }
+
+# ── 11 · circuits ────────────────────────────────────────────────────────
+- template: ph-charge-from-current
+  skill: physics.circuits
+  pace: quick
+  given: { I: { pick: [0.5, 2, 5] }, t: { pick: [10, 60, 3600] } }
+  prompt: 'A steady ${{I}}$ A current flows for ${{t}}$ s. How much charge passes, in C?'
+  parts:
+    - { ask: 'Charge (C)', label: y, tex: 'Q', value: I*t, tol: 0.002, explain: 'Current is charge per time, $I = \Delta Q/\Delta t$. One amp-hour is 3600 C, the unit on phone batteries' }
+  verify: { expect: { y: "integrate(I, (Symbol('s'), 0, t))" } }
+
+- template: ph-wire-resistance-scaling
+  skill: physics.circuits
+  pace: quick
+  given: { fL: { pick: [2, 3, 0.5] }, fd: { pick: [2, 0.5, 3] } }
+  prompt: 'A wire''s length is multiplied by ${{fL}}$ and its diameter by ${{fd}}$, same metal. By what factor does its resistance change?'
+  parts:
+    - { ask: 'Factor', label: y, tex: 'k', value: fL/fd^2, tol: 0.005, explain: '$R = \rho L/A$ and $A \propto d^2$. Stretching a wire to twice the length also thins it, which is a different problem: then $R$ goes up by four' }
+  verify: { expect: { y: "(Symbol('p')*fL*Symbol('L')/(pi*(fd*x)**2/4))/(Symbol('p')*Symbol('L')/(pi*x**2/4))" } }
+
+- template: ph-ohm-graph-resistance
+  skill: physics.circuits
+  pace: quick
+  given: { V: { pick: [3, 6, 12] }, I: { pick: [0.2, 0.5, 1.5] } }
+  prompt: 'On a current–voltage graph for a resistor, the straight line passes through the origin and through ${{V}}$ V, ${{I}}$ A. What is the resistance, in Ω?'
+  parts:
+    - { ask: 'Resistance (Ω)', label: y, tex: 'R', value: V/I, tol: 0.002, explain: 'An ohmic resistor gives a straight line through the origin. With $V$ on the x-axis and $I$ on the y-axis, the slope is $1/R$; read off one point and divide' }
+  verify: { expect: { y: "solve(Eq(I*x, V), x)[0]" } }
+
+- template: ph-bulbs-series-brightness
+  skill: physics.circuits
+  pace: quick
+  given: { R1: { pick: [2, 4, 6] }, R2: { pick: [4, 8, 12] } }
+  prompt: 'Bulbs of ${{R1}}$ Ω and ${{R2}}$ Ω are in series across a battery. What is the ratio of the power of the ${{R2}}$ Ω bulb to that of the ${{R1}}$ Ω bulb?'
+  parts:
+    - { ask: 'P2 / P1', label: y, tex: '\dfrac{P_2}{P_1}', value: R2/R1, tol: 0.002, explain: 'In series the current is the same, so $P = I^2R \propto R$: the higher resistance glows brighter. In parallel the voltage is the same and $P = V^2/R$ reverses it' }
+  verify: { expect: { y: "(Symbol('I')**2*R2)/(Symbol('I')**2*R1)" } }
+
+- template: ph-three-parallel
+  skill: physics.circuits
+  pace: quick
+  given: { R: { pick: [6, 12, 30] }, n: { pick: [2, 3, 4] } }
+  prompt: '${{n}}$ identical ${{R}}$ Ω resistors are connected in parallel. What is the equivalent resistance, in Ω?'
+  parts:
+    - { ask: 'R_eq (Ω)', label: y, tex: 'R_{eq}', value: R/n, tol: 0.002, explain: '$n$ equal paths in parallel: $\dfrac1{R_{eq}} = \dfrac{n}{R}$. Adding a branch always lowers the total, because it gives current another way through' }
+  verify: { expect: { y: "solve(Eq(1/x, n/R), x)[0]" } }
+
+- template: ph-capacitor-series-charge
+  skill: physics.circuits
+  pace: quick
+  given: { C1: { pick: [2, 3, 6] }, C2: { pick: [3, 6, 4] }, V: { pick: [6, 12, 24] } }
+  prompt: 'Capacitors of ${{C1}}$ µF and ${{C2}}$ µF in series are connected across ${{V}}$ V. What charge does each hold, in µC?'
+  parts:
+    - { ask: 'Charge (µC)', label: y, tex: 'Q', value: V*C1*C2/(C1 + C2), tol: 0.002, explain: 'In series every capacitor holds the same charge; the voltages, $Q/C$, add to the battery''s: $Q/C_1 + Q/C_2 = V$' }
+  verify: { expect: { y: "solve(Eq(x/C1 + x/C2, V), x)[0]" } }
+
+- template: ph-internal-resistance-from-load
+  skill: physics.circuits
+  pace: quick
+  given: { em: { pick: [9, 12] }, R: { pick: [4, 10, 20] }, Vt: { pick: [8, 7.5] } }
+  prompt: 'A battery of emf ${{em}}$ V shows ${{Vt}}$ V across its terminals while driving a ${{R}}$ Ω load. What is its internal resistance, in Ω?'
+  parts:
+    - { ask: 'r (Ω)', label: y, tex: 'r', value: (em - Vt)*R/Vt, tol: 0.002, explain: 'The current is $V_t/R$; the missing $\varepsilon - V_t$ is dropped inside the battery across $r$, so $r = \dfrac{\varepsilon - V_t}{I}$' }
+  require: ['em > Vt']
+  verify: { expect: { y: "solve(Eq(em, Vt + (Vt/R)*x), x)[0]" } }
+
+- template: ph-divider-ratio
+  skill: physics.circuits
+  pace: quick
+  given: { V: { pick: [12, 9, 24] }, Vout: { pick: [3, 4, 6] }, R1: { pick: [10, 20, 50] } }
+  prompt: 'A ${{V}}$ V supply drives ${{R1}}$ kΩ in series with a second resistor. What must the second resistor be for ${{Vout}}$ V across it, in kΩ?'
+  parts:
+    - { ask: 'R2 (kΩ)', label: y, tex: 'R_2', value: R1*Vout/(V - Vout), tol: 0.002, explain: 'Same current through both, so voltages split in proportion to resistance: $\dfrac{V_{out}}{V} = \dfrac{R_2}{R_1 + R_2}$' }
+  verify: { expect: { y: "solve(Eq(V*x/(R1 + x), Vout), x)[0]" } }
+
+- template: ph-junction-node-voltage
+  skill: physics.circuits
+  pace: quick
+  given: { I: { pick: [3, 6, 9] }, R1: { pick: [2, 3, 6] }, R2: { pick: [4, 6, 3] } }
+  prompt: 'A total current of ${{I}}$ A splits between ${{R1}}$ Ω and ${{R2}}$ Ω resistors in parallel. How much goes through the ${{R1}}$ Ω resistor, in A?'
+  parts:
+    - { ask: 'Current (A)', label: y, tex: 'I_1', value: I*R2/(R1 + R2), tol: 0.002, explain: 'Same voltage across both, so currents split inversely to resistance: $I_1 = I\dfrac{R_2}{R_1 + R_2}$. More current takes the easier path' }
+  verify: { expect: { y: "solve([Eq(x + Symbol('b'), I), Eq(x*R1, Symbol('b')*R2)], [x, Symbol('b')])[x]" } }
+
+- template: ph-two-loop-terminal
+  skill: physics.circuits
+  pace: quick
+  given: { e1: { pick: [12, 9] }, e2: { pick: [6, 3] }, R1: { pick: [2, 3] }, R2: { pick: [4, 6] } }
+  prompt: 'A ${{e1}}$ V battery with ${{R1}}$ Ω in series is connected, positive to positive, to a ${{e2}}$ V battery with ${{R2}}$ Ω in series, forming one loop. What current flows, in A?'
+  parts:
+    - { ask: 'Current (A)', label: y, tex: 'I', value: (e1 - e2)/(R1 + R2), tol: 0.002, explain: 'Going round the loop the emfs oppose: $\varepsilon_1 - IR_1 - IR_2 - \varepsilon_2 = 0$. The stronger battery charges the weaker one' }
+  verify: { expect: { y: "solve(Eq(e1 - x*R1 - x*R2 - e2, 0), x)[0]" } }
+
+- template: ph-rc-time-constant
+  skill: physics.circuits
+  pace: quick
+  given: { R: { pick: [10, 47, 100] }, C: { pick: [10, 100, 470] }, f: { pick: [0.5, 0.9, 0.99] } }
+  prompt: 'A ${{C}}$ µF capacitor charges through ${{R}}$ kΩ from a battery. How long until it reaches ${{f}}$ of the battery voltage, in s?'
+  parts:
+    - { ask: 'Time (s)', label: y, tex: 't', value: -R*1000*C*1e-6*log(1 - f), tol: 0.002, explain: '$V = \varepsilon(1 - e^{-t/RC})$, so $t = -RC\ln(1 - f)$. Half charge takes $0.69RC$; 99% takes $4.6RC$' }
+  verify: { expect: { y: "solve(Eq(1 - exp(-x/(R*1000*C/10**6)), f), x)[0]" } }
+
+# ── 12 · magnetism ───────────────────────────────────────────────────────
+- template: ph-compass-near-wire
+  skill: physics.magnetism
+  pace: recall
+  prompt: 'A long wire runs north–south above a compass and carries current toward the north. Which way does the compass''s north pole swing, viewed from above?'
+  parts:
+    - ask: 'Deflection'
+      label: a
+      choice: ["Toward the west", "Toward the east", "It does not move"]
+      correct: 0
+      explain: 'Right-hand rule: thumb north, fingers curl down past the wire''s underside toward the west. The compass sits below the wire, so the field there points west (Ørsted''s 1820 experiment)'
+  verify: { authored: true }
+
+- template: ph-magnetic-force-max-angle
+  skill: physics.magnetism
+  pace: quick
+  given: { f: { pick: [0.5, 0.25, 0.866] } }
+  prompt: 'A charge moving through a uniform field feels ${{f}}$ of the largest magnetic force it could feel at that speed. What angle does its velocity make with the field, in degrees (between 0 and 90)?'
+  parts:
+    - { ask: 'Angle (°)', label: y, tex: '\theta', value: asin(f)*180/pi, tol: 0.002, explain: '$F = qvB\sin\theta$ is largest at 90° and zero along the field. Only the perpendicular part of the velocity counts' }
+  verify: { expect: { y: "Min(*solve(Eq(sin(x), f), x))*180/pi" } }
+
+- template: ph-cyclotron-period
+  skill: physics.magnetism
+  pace: quick
+  given: { B: { pick: [0.5, 1, 1.5] } }
+  prompt: 'A proton circles in a ${{B}}$ T field. How long does one revolution take, in ns? ($e = 1.60 \times 10^{-19}$ C, $m_p = 1.67 \times 10^{-27}$ kg.)'
+  parts:
+    - { ask: 'Period (ns)', label: y, tex: 'T', value: 2*pi*1.67e-27/(1.6e-19*B)*1e9, tol: 0.002, explain: '$r = mv/qB$, so the time round, $2\pi r/v = 2\pi m/qB$, does not depend on speed. A cyclotron uses that: one fixed frequency keeps up as the particles speed up' }
+  verify: { expect: { y: "2*pi*(Rational(167, 100)*10**-27*Symbol('v')/(Rational(16, 10)*10**-19*B))/Symbol('v')*10**9" } }
+
+- template: ph-velocity-selector-field
+  skill: physics.magnetism
+  pace: quick
+  given: { v: { pick: [100, 200, 500] }, B: { pick: [0.1, 0.2, 0.5] } }
+  prompt: 'A velocity selector must pass ions at ${{v}}$ km/s with a ${{B}}$ T magnetic field. What electric field does it need, in kV/m?'
+  parts:
+    - { ask: 'E (kV/m)', label: y, tex: 'E', value: v*B, tol: 0.002, explain: 'Undeflected means $qE = qvB$, so $E = vB$; the charge and mass cancel. Faster ions are bent one way, slower ones the other' }
+  verify: { expect: { y: "solve(Eq(Symbol('q')*x*1000, Symbol('q')*v*1000*B), x)[0]" } }
+
+- template: ph-wire-field-distance
+  skill: physics.magnetism
+  pace: quick
+  given: { I: { pick: [10, 20, 50] }, B: { pick: [20, 40, 100] } }
+  prompt: 'At what distance from a long straight wire carrying ${{I}}$ A is the magnetic field ${{B}}$ µT, in cm? ($\mu_0 = 4\pi \times 10^{-7}$ T·m/A.)'
+  parts:
+    - { ask: 'Distance (cm)', label: y, tex: 'r', value: 2e-7*I/(B*1e-6)*100, tol: 0.002, explain: '$B = \dfrac{\mu_0I}{2\pi r}$, falling as $1/r$ (not $1/r^2$: the wire is a line, not a point)' }
+  verify: { expect: { y: "solve(Eq(4*pi*10**-7*I/(2*pi*x/100), B*10**-6), x)[0]" } }
+
+- template: ph-wire-in-field-force
+  skill: physics.magnetism
+  pace: quick
+  given: { I: { pick: [2, 5, 10] }, L: { pick: [0.2, 0.5, 1] }, B: { pick: [0.1, 0.3, 0.5] }, th: { pick: [90, 30, 60] } }
+  prompt: 'A ${{L}}$ m length of wire carrying ${{I}}$ A lies at ${{th}}^\circ$ to a ${{B}}$ T field. What force acts on it, in N?'
+  parts:
+    - { ask: 'Force (N)', label: y, tex: 'F', value: I*L*B*sin(th*pi/180), tol: 0.002, explain: '$F = ILB\sin\theta$: the force on all the moving charges in the wire. Along the field there is none' }
+  verify: { expect: { y: "I*L*B*cos(pi/2 - pi*th/180)" } }
+
+- template: ph-flux-change-rotate
+  skill: physics.magnetism
+  pace: quick
+  given: { B: { pick: [0.2, 0.5, 1] }, A: { pick: [100, 200, 400] } }
+  prompt: 'A ${{A}}$ cm² loop starts face-on to a ${{B}}$ T field and is turned a quarter turn so the field lies in its plane. By how much does the flux through it change, in mWb?'
+  parts:
+    - { ask: 'Change (mWb)', label: y, tex: '|\Delta\Phi|', value: B*A*1e-4*1000, tol: 0.002, explain: '$\Phi = BA\cos\theta$ with $\theta$ measured from the loop''s normal: from $BA$ at 0° to zero at 90°' }
+  verify: { expect: { y: "Abs(B*A/10**4*cos(pi/2) - B*A/10**4*cos(0))*1000" } }
+
+- template: ph-faraday-scaling
+  skill: physics.magnetism
+  pace: quick
+  given: { fN: { pick: [2, 3, 1] }, ft: { pick: [0.5, 2, 0.25] } }
+  prompt: 'A coil''s number of turns is multiplied by ${{fN}}$ and the same change in field happens in ${{ft}}$ times the time. By what factor does the average emf change?'
+  parts:
+    - { ask: 'Factor', label: y, tex: 'k', value: fN/ft, tol: 0.005, explain: '$\varepsilon = N\dfrac{\Delta\Phi}{\Delta t}$: more turns or a faster change both raise it' }
+  verify: { expect: { y: "(fN*Symbol('N')*Symbol('P')/(ft*Symbol('t')))/(Symbol('N')*Symbol('P')/Symbol('t'))" } }
+
+- template: ph-magnet-into-coil
+  skill: physics.magnetism
+  pace: recall
+  cases:
+    - { q: 'the north pole of a magnet is pushed toward the coil', ans: 0 }
+    - { q: 'the north pole of a magnet is pulled away from the coil', ans: 1 }
+    - { q: 'a magnet is held still inside the coil', ans: 2 }
+  prompt: 'Viewed from the magnet''s side, the coil''s face behaves like a magnetic pole when {{q}}. Which?'
+  parts:
+    - { ask: 'Near face', label: a, choice: ["A north pole, repelling the approach", "A south pole, attracting it back", "No pole: no current flows"], correct: ans, explain: 'Lenz: the induced current opposes the change in flux. An approaching north is repelled by a north face; a retreating one is held back by a south. No change, no current' }
+  verify: { authored: true }
+
+- template: ph-rail-rod-force
+  skill: physics.magnetism
+  pace: quick
+  given: { L: { pick: [0.5, 1] }, v: { pick: [2, 4, 5] }, B: { pick: [0.5, 1] }, R: { pick: [1, 2, 5] } }
+  prompt: 'A ${{L}}$ m rod slides at ${{v}}$ m/s on rails through a ${{B}}$ T field, closing a ${{R}}$ Ω circuit. What force must push it to keep its speed constant, in N?'
+  parts:
+    - { ask: 'Force (N)', label: y, tex: 'F', value: (B*L)^2*v/R, tol: 0.002, explain: 'The emf $BLv$ drives $I = BLv/R$, and the field pushes back on that current with $ILB$. Pushing faster costs more: $F \propto v$, and the power $Fv$ appears as heat in $R$' }
+  verify: { expect: { y: "(B*L*v/R)*L*B" } }
+
+# ── 13 · optics ──────────────────────────────────────────────────────────
+- template: ph-mirror-height-needed
+  skill: physics.optics
+  pace: quick
+  given: { h: { pick: [1.6, 1.8, 2] } }
+  prompt: 'How tall must a flat wall mirror be for a ${{h}}$ m person to see their whole body in it, in m?'
+  parts:
+    - { ask: 'Mirror height (m)', label: y, tex: 'H', value: h/2, tol: 0.002, explain: 'Rays from your feet reflect halfway up to your eyes, and from the top of your head halfway down. The mirror needs half your height, whatever your distance from it' }
+  verify: { expect: { y: "solve(Eq(2*x, h), x)[0]" } }
+
+- template: ph-convex-mirror-image
+  skill: physics.optics
+  pace: quick
+  given: { o: { pick: [10, 20, 30] }, f: { pick: [10, 15, 20] } }
+  prompt: 'An object is ${{o}}$ cm in front of a convex mirror with a focal length of ${{f}}$ cm (that is, $f = -{{f}}$ cm). Where is the image, in cm (negative behind the mirror)?'
+  parts:
+    - { ask: 'Image (cm)', label: y, tex: 'd_i', value: 1/(-1/f - 1/o), tol: 0.002, explain: '$\dfrac1{d_o} + \dfrac1{d_i} = \dfrac1f$ with $f < 0$ always gives $d_i < 0$: a virtual, upright, smaller image behind the mirror. That is why shop and car mirrors are convex' }
+  verify: { expect: { y: "solve(Eq(1/o + 1/x, -1/f), x)[0]" } }
+
+- template: ph-concave-image-kind
+  skill: physics.optics
+  pace: quick
+  given: { f: { pick: [10, 20] }, k: { pick: [0.5, 1.5, 3] } }
+  prompt: 'An object is ${{k}}$ focal lengths from a concave mirror with $f = {{f}}$ cm. What is the magnification?'
+  parts:
+    - { ask: 'Magnification', label: y, tex: 'm', value: -(f/(k*f - f)), tol: 0.002, explain: '$m = -d_i/d_o$. Beyond $2f$ the image is real, inverted and smaller; between $f$ and $2f$, real, inverted and larger; inside $f$, virtual, upright and larger' }
+  verify: { expect: { y: "-solve(Eq(1/(k*f) + 1/x, 1/f), x)[0]/(k*f)" } }
+
+- template: ph-index-from-speed
+  skill: physics.optics
+  pace: quick
+  given: { v: { pick: [2.25, 2, 1.24] } }
+  prompt: 'Light travels at ${{v}} \times 10^8$ m/s in a material. What is its index of refraction? ($c = 3.00 \times 10^8$ m/s.)'
+  parts:
+    - { ask: 'n', label: y, tex: 'n', value: 3/v, tol: 0.002, explain: '$n = c/v$, always at least 1. Light bends toward the normal going into the slower medium' }
+  verify: { expect: { y: "solve(Eq(x*v, 3), x)[0]" } }
+
+- template: ph-fiber-tir
+  skill: physics.optics
+  pace: quick
+  given: { n1: { pick: [1.5, 1.6] }, n2: { pick: [1.33, 1.4, 1.45] } }
+  prompt: 'Light in glass ($n = {{n1}}$) meets a boundary with a material of $n = {{n2}}$. What is the critical angle, in degrees?'
+  parts:
+    - { ask: 'Critical angle (°)', label: y, tex: '\theta_c', value: asin(n2/n1)*180/pi, tol: 0.002, explain: 'Snell with 90° refraction: $n_1\sin\theta_c = n_2$. The closer the indices, the larger the critical angle; optical fibre cladding is chosen to keep it workable' }
+  verify: { expect: { y: "Min(*solve(Eq(n1*sin(x), n2*sin(pi/2)), x))*180/pi" } }
+
+- template: ph-magnifier-image
+  skill: physics.optics
+  pace: quick
+  given: { f: { pick: [5, 10, 20] }, k: { pick: [0.5, 0.75, 0.8] } }
+  prompt: 'An object is held ${{k}}$ of a focal length from a converging lens with $f = {{f}}$ cm. Where is the image, in cm (negative on the object''s side)?'
+  parts:
+    - { ask: 'Image (cm)', label: y, tex: 'd_i', value: 1/(1/f - 1/(k*f)), tol: 0.002, explain: 'Inside the focal length a converging lens cannot form a real image: $d_i < 0$, a virtual, upright, enlarged image on the object''s side. That is a magnifying glass' }
+  verify: { expect: { y: "solve(Eq(1/(k*f) + 1/x, 1/f), x)[0]" } }
+
+- template: ph-lens-image-distance
+  skill: physics.optics
+  pace: quick
+  given: { o: { pick: [30, 40, 60] }, f: { pick: [10, 15, 20] } }
+  prompt: 'An object is ${{o}}$ cm from a converging lens of focal length ${{f}}$ cm. How far from the lens does the image form, in cm?'
+  parts:
+    - { ask: 'Image distance (cm)', label: y, tex: 'd_i', value: 1/(1/f - 1/o), tol: 0.002, explain: '$\dfrac1{d_o} + \dfrac1{d_i} = \dfrac1f$. A real image forms on the far side; at $d_o = 2f$ it is also at $2f$ and the same size' }
+  verify: { expect: { y: "solve(Eq(1/o + 1/x, 1/f), x)[0]" } }
+
+# ── 14 · waves ───────────────────────────────────────────────────────────
+- template: ph-wave-what-moves
+  skill: physics.waves
+  pace: recall
+  prompt: 'A wave passes along a rope. What does the wave carry from one end to the other?'
+  parts:
+    - ask: 'Carried'
+      label: a
+      choice: ["Energy, but not the rope itself", "The rope's material, moving along with the wave", "Nothing: a wave is only a pattern"]
+      correct: 0
+      explain: 'Each bit of rope moves up and down about its own rest position and stays put on average. The disturbance, and the energy with it, travels'
+  verify: { authored: true }
+
+- template: ph-frequency-change-medium
+  skill: physics.waves
+  pace: quick
+  given: { f: { pick: [440, 1000, 256] }, v1: { pick: [343] }, v2: { pick: [1480, 5000] } }
+  prompt: 'A ${{f}}$ Hz sound passes from air (${{v1}}$ m/s) into a medium where sound moves at ${{v2}}$ m/s. What is its wavelength there, in m?'
+  parts:
+    - { ask: 'Wavelength (m)', label: y, tex: '\lambda', value: v2/f, tol: 0.002, explain: 'The frequency is set by the source and does not change at a boundary; the speed does, so the wavelength changes in proportion' }
+  verify: { expect: { y: "solve(Eq(f*x, v2), x)[0]" } }
+
+- template: ph-string-tension-scaling
+  skill: physics.waves
+  pace: quick
+  given: { f: { pick: [4, 9, 2] } }
+  prompt: 'The tension in a guitar string is multiplied by ${{f}}$. By what factor does the wave speed on it change?'
+  parts:
+    - { ask: 'Factor', label: y, tex: 'k', value: sqrt(f), tol: 0.005, explain: '$v = \sqrt{T/\mu}$. Tightening a string raises its pitch, but four times the tension only doubles the speed and the frequency' }
+  verify: { expect: { y: "sqrt(f*Symbol('T', positive=True)/Symbol('u', positive=True))/sqrt(Symbol('T', positive=True)/Symbol('u', positive=True))" } }
+
+- template: ph-reflection-inverts
+  skill: physics.waves
+  pace: recall
+  cases:
+    - { q: 'a fixed end', ans: 0 }
+    - { q: 'a free end', ans: 1 }
+    - { q: 'a heavier rope joined to it', ans: 0 }
+    - { q: 'a lighter rope joined to it', ans: 1 }
+  prompt: 'An upward pulse on a rope reaches {{q}}. Is the reflected pulse upright or inverted?'
+  parts:
+    - { ask: 'Reflected pulse', label: a, choice: ["Inverted", "Upright"], correct: ans, explain: 'Reflection off something harder to move (a fixed end, a denser medium) inverts the pulse; off something easier to move (a free end, a lighter medium) keeps it upright. The transmitted pulse is always upright' }
+  verify: { authored: true }
+
+- template: ph-malus-angle
+  skill: physics.waves
+  pace: quick
+  given: { f: { pick: [0.25, 0.375, 0.125] } }
+  prompt: 'Unpolarised light passes through two polarisers and ${{f}}$ of it gets through. What angle is there between their axes, in degrees?'
+  parts:
+    - { ask: 'Angle (°)', label: y, tex: '\theta', value: acos(sqrt(2*f))*180/pi, tol: 0.002, explain: 'The first polariser passes half; the second passes $\cos^2\theta$ of that: $f = \tfrac12\cos^2\theta$' }
+  verify: { expect: { y: "acos(Max(*solve(Eq(Rational(1, 2)*x**2, f), x)))*180/pi" } }
+
+- template: ph-doppler-observer
+  skill: physics.waves
+  pace: quick
+  given: { f: { pick: [500, 1000] }, vo: { pick: [10, 20, 30] }, dir: { pick: [1, -1] } }
+  prompt: 'You drive {{dir == 1 ? "toward" : "away from"}} a stationary ${{f}}$ Hz siren at ${{vo}}$ m/s. What frequency do you hear, in Hz? (Sound at 343 m/s.)'
+  parts:
+    - { ask: 'Frequency (Hz)', label: y, tex: "f'", value: f*(343 + dir*vo)/343, tol: 0.002, explain: 'A moving observer meets wavefronts at $v \pm v_o$; the wavelength is unchanged. $f'' = f\dfrac{v \pm v_o}{v}$. A moving source instead squeezes the wavelength: $f\dfrac{v}{v \mp v_s}$' }
+  verify: { expect: { y: "(343 + dir*vo)/(343/f)" } }
+
+- template: ph-path-difference-for-dark
+  skill: physics.waves
+  pace: quick
+  given: { f: { pick: [343, 686, 1715] } }
+  prompt: 'Two speakers play the same ${{f}}$ Hz tone in phase. What is the smallest path difference that gives a quiet spot, in m? (Sound at 343 m/s.)'
+  parts:
+    - { ask: 'Path difference (m)', label: y, tex: '\Delta', value: 343/f/2, tol: 0.002, explain: 'Destructive when the paths differ by half a wavelength (or 3/2, 5/2, …); constructive at whole wavelengths' }
+  verify: { expect: { y: "solve(Eq(2*x*f, 343), x)[0]" } }
+
+- template: ph-closed-pipe-length
+  skill: physics.waves
+  pace: quick
+  given: { f: { pick: [256, 440, 110] } }
+  prompt: 'How long must a pipe closed at one end be for its fundamental to be ${{f}}$ Hz, in cm? (Sound at 343 m/s.)'
+  parts:
+    - { ask: 'Length (cm)', label: y, tex: 'L', value: 343/(4*f)*100, tol: 0.002, explain: 'A closed pipe has a node at the closed end and an antinode at the open end: a quarter wavelength fits, $f_1 = v/4L$. It plays only odd harmonics' }
+  verify: { expect: { y: "solve(Eq(343/(4*x/100), f), x)[0]" } }
+
+- template: ph-tuning-from-beats
+  skill: physics.waves
+  pace: quick
+  given: { f0: { pick: [440, 262] }, b: { pick: [2, 3, 4] } }
+  prompt: 'A string and a ${{f0}}$ Hz tuning fork give ${{b}}$ beats per second. Tightening the string slightly makes the beats faster. What was the string''s frequency, in Hz?'
+  parts:
+    - { ask: 'Frequency (Hz)', label: y, tex: 'f', value: f0 + b, tol: 0.002, explain: 'Beats give only the difference, $|f - f_0|$, so the string is $f_0 \pm b$. Tightening raises $f$; if that widens the gap, $f$ was already above $f_0$' }
+  verify: { expect: { y: "Max(f0 + b, f0 - b)" } }
+
+- template: ph-single-slit-width
+  skill: physics.waves
+  pace: quick
+  given: { lam: { pick: [500, 600, 633] }, th: { pick: [5, 10, 20] } }
+  prompt: 'The first dark fringe of ${{lam}}$ nm light through a single slit is at ${{th}}^\circ$. How wide is the slit, in µm?'
+  parts:
+    - { ask: 'Width (µm)', label: y, tex: 'a', value: lam*1e-3/sin(th*pi/180), tol: 0.002, explain: 'First minimum: $a\sin\theta = \lambda$. A narrower slit spreads the light more' }
+  verify: { expect: { y: "solve(Eq(x*sin(pi*th/180), lam/1000), x)[0]" } }
+
+- template: ph-grating-angle
+  skill: physics.waves
+  pace: quick
+  given: { N: { pick: [300, 500, 600] }, lam: { pick: [450, 550, 650] }, m: { pick: [1, 2] } }
+  prompt: 'Light of ${{lam}}$ nm falls on a grating with ${{N}}$ lines per mm. At what angle is the order-${{m}}$ bright line, in degrees?'
+  parts:
+    - { ask: 'Angle (°)', label: y, tex: '\theta', value: asin(m*lam*1e-9*N*1000)*180/pi, tol: 0.002, explain: 'Line spacing $d = 1/N$; bright where $d\sin\theta = m\lambda$. More lines per mm spread the colours farther' }
+  require: ['m*lam*1e-9*N*1000 < 0.98']
+  verify: { expect: { y: "Min(*solve(Eq(sin(x)/(N*1000), m*lam/10**9), x))*180/pi" } }
+
+- template: ph-thin-film-dark
+  skill: physics.waves
+  pace: quick
+  given: { lam: { pick: [480, 540, 600] }, n: { pick: [1.25, 1.38] } }
+  prompt: 'A non-reflective coating ($n = {{n}}$) on glass ($n = 1.5$) is designed to cancel reflected ${{lam}}$ nm light. What is its smallest thickness, in nm?'
+  parts:
+    - { ask: 'Thickness (nm)', label: y, tex: 't', value: lam/(4*n), tol: 0.002, explain: 'Both reflections (air to coating, coating to glass) flip phase, so they cancel; the round trip must add half a wavelength in the film: $2t = \lambda/2n$. A quarter-wave coating' }
+  verify: { expect: { y: "solve(Eq(2*x, lam/(2*n)), x)[0]" } }
+
+# ── 15 · modern physics ──────────────────────────────────────────────────
+- template: ph-photon-wavelength-from-energy
+  skill: physics.modern
+  pace: quick
+  given: { E: { pick: [1.8, 2.5, 3.1, 10.2] } }
+  prompt: 'A photon carries ${{E}}$ eV. What is its wavelength, in nm? ($hc = 1240$ eV·nm.)'
+  parts:
+    - { ask: 'Wavelength (nm)', label: y, tex: '\lambda', value: 1240/E, tol: 0.002, explain: '$E = hc/\lambda$ with $hc \approx 1240$ eV·nm: visible light runs from about 1.8 eV (red) to 3.1 eV (violet)' }
+  verify: { expect: { y: "solve(Eq(E*x, 1240), x)[0]" } }
+
+- template: ph-de-broglie-scaling
+  skill: physics.modern
+  pace: quick
+  given: { f: { pick: [4, 9, 100] } }
+  prompt: 'An electron''s kinetic energy is multiplied by ${{f}}$ (non-relativistic). By what factor does its de Broglie wavelength change?'
+  parts:
+    - { ask: 'Factor', label: y, tex: 'k', value: 1/sqrt(f), tol: 0.005, explain: '$\lambda = h/p$ and $p = \sqrt{2mK}$, so $\lambda \propto 1/\sqrt K$. Electron microscopes use high voltages to get short wavelengths' }
+  verify: { expect: { y: "(Symbol('h')/sqrt(2*Symbol('m', positive=True)*f*Symbol('K', positive=True)))/(Symbol('h')/sqrt(2*Symbol('m', positive=True)*Symbol('K', positive=True)))" } }
+
+- template: ph-ionisation-from-level
+  skill: physics.modern
+  pace: quick
+  given: { n: { pick: [1, 2, 3, 4] } }
+  prompt: 'How much energy does it take to ionise a hydrogen atom from its $n = {{n}}$ level, in eV?'
+  parts:
+    - { ask: 'Energy (eV)', label: y, tex: 'E', value: 13.6/n^2, tol: 0.002, explain: '$E_n = -13.6/n^2$ eV and ionised means $E = 0$, so it takes $13.6/n^2$ eV. Excited atoms are much easier to ionise' }
+  verify: { expect: { y: "0 - (-Rational(136, 10)/n**2)" } }
+
+- template: ph-line-series-pick
+  skill: physics.modern
+  pace: quick
+  given: { hi: { pick: [3, 4, 5] }, lo: { pick: [1, 2] } }
+  prompt: 'A hydrogen atom drops from $n = {{hi}}$ to $n = {{lo}}$. What energy does the emitted photon carry, in eV?'
+  parts:
+    - { ask: 'Energy (eV)', label: y, tex: 'E', value: 13.6*(1/lo^2 - 1/hi^2), tol: 0.002, explain: 'The photon carries the difference of the levels. Drops to $n = 1$ (Lyman) are ultraviolet; drops to $n = 2$ (Balmer) are visible' }
+  verify: { expect: { y: "-Rational(136, 10)/hi**2 + Rational(136, 10)/lo**2" } }
+
+- template: ph-wien-scaling
+  skill: physics.modern
+  pace: quick
+  given: { f: { pick: [2, 3, 0.5] } }
+  prompt: 'A star''s surface temperature is multiplied by ${{f}}$. By what factor does its total radiated power per unit area change?'
+  parts:
+    - { ask: 'Factor', label: y, tex: 'k', value: f^4, tol: 0.005, explain: 'Stefan–Boltzmann: $P/A = \sigma T^4$. Twice as hot, sixteen times the power, and the peak shifts to half the wavelength (Wien)' }
+  verify: { expect: { y: "(Symbol('s')*(f*x)**4)/(Symbol('s')*x**4)" } }
+
+- template: ph-threshold-wavelength
+  skill: physics.modern
+  pace: quick
+  given: { phi: { pick: [2.3, 4.3, 5.1] } }
+  prompt: 'A metal has a work function of ${{phi}}$ eV. What is the longest wavelength that can eject electrons from it, in nm? ($hc = 1240$ eV·nm.)'
+  parts:
+    - { ask: 'Wavelength (nm)', label: y, tex: '\lambda_0', value: 1240/phi, tol: 0.002, explain: 'At threshold the photon has just enough energy: $hc/\lambda_0 = \phi$. Longer wavelengths eject nothing however bright the light, the clue that light comes in photons' }
+  verify: { expect: { y: "solve(Eq(1240/x, phi), x)[0]" } }
+
+- template: ph-compton-max
+  skill: physics.modern
+  pace: quick
+  prompt: 'What is the largest possible Compton shift in wavelength for a photon scattered by a free electron, in pm? ($h/m_ec = 2.426$ pm.)'
+  parts:
+    - { ask: 'Shift (pm)', label: y, tex: '\Delta\lambda', value: 2*2.426, tol: 0.002, explain: '$\Delta\lambda = \dfrac{h}{m_ec}(1 - \cos\theta)$ is largest at $\theta = 180°$: twice the Compton wavelength' }
+  verify: { expect: { y: "Rational(2426, 1000)*(1 - cos(pi))" } }
+
+- template: ph-half-life-remaining
+  skill: physics.modern
+  pace: quick
+  given: { N0: { pick: [800, 1000, 6400] }, th: { pick: [5, 8, 12] }, k: { pick: [2, 3, 4] } }
+  prompt: 'A sample has ${{N0}}$ undecayed nuclei with a half-life of ${{th}}$ days. How many are left after ${{k*th}}$ days?'
+  parts:
+    - { ask: 'Remaining', label: y, tex: 'N', value: N0/2^k, tol: 0.002, explain: 'Each half-life halves what is left: $N = N_0(1/2)^{t/t_{1/2}}$. After $k$ half-lives, $N_0/2^k$' }
+  verify: { expect: { y: "N0*exp(-log(2)/th*k*th)" } }

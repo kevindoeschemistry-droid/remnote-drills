@@ -2,7 +2,7 @@
 
 Generated from `drills/frameworks/materials.yaml` by `scripts/framework.mjs`. ● drilled · ◐ partly · ○ no drills yet.
 
-**6 learning objectives** in 2 units (6 core): 6 drilled, 0 partly, 0 with no drills. Core: 6 / 6 drilled.
+**17 learning objectives** in 3 units (6 core): 17 drilled, 0 partly, 0 with no drills. Core: 6 / 6 drilled.
 
 ## Big ideas
 
@@ -20,6 +20,7 @@ Generated from `drills/frameworks/materials.yaml` by `scripts/framework.mjs`. �
 |---|---|---|---|---|---|---|
 | 1 · Polymers | core | — | 4 | 4 | 0 | 0 |
 | 2 · Properties of solids | core | — | 2 | 2 | 0 | 0 |
+| 3 · Colloids and DLVO theory | extension | — | 11 | 11 | 0 | 0 |
 
 ## Unit 1 · Polymers
 
@@ -57,3 +58,68 @@ Big ideas: PROPS
 - ● **MT-2.1.B** Relate a semiconductor's band gap to the wavelength it absorbs or emits.
   - EK: λ = hc/E_g.
   - P1 · drills: mt-band-gap
+
+## Unit 3 · Colloids and DLVO theory (extension)
+
+Big ideas: PROPS
+
+### 3.1 The electrical double layer
+
+
+
+- ● **MT-3.1.A** Compute the Debye length from the ionic strength, and say how salt and valence change it.
+  - EK: κ⁻¹ = √(εkT/2N_Ae²I); 0.304/√I nm for 1:1 salt at 25 °C.
+  - P1 · drills: col-debye-length, col-debye-scaling, col-debye-valence
+- ● **MT-3.1.B** Relate surface charge to surface potential with the Grahame equation.
+  - EK: σ = √(8εkTn∞) sinh(eψ₀/2kT); σ ≈ εκψ₀ at low potential.
+  - Needs: MT-3.1.A
+  - P1 · drills: col-grahame
+- ● **MT-3.1.C** Find a zeta potential from electrophoretic mobility and judge stability from it.
+  - EK: Smoluchowski μ = εζ/η (κa ≫ 1); Hückel μ = 2εζ/3η (κa ≪ 1); |ζ| > 30 mV usually stable.
+  - Needs: MT-3.1.A
+  - P1 · P2 · drills: col-zeta-from-mobility, col-huckel-or-smoluchowski, col-zeta-stability
+
+### 3.2 Van der Waals forces between bodies
+
+
+
+- ● **MT-3.2.A** Compute the van der Waals energy of spheres and plates from the Hamaker constant, and state its distance law.
+  - EK: Spheres −AR/12D; sphere–wall −AR/6D; plates −A/12πD² per area (Derjaguin).
+  - P1 · drills: col-vdw-spheres, col-vdw-distance-law
+- ● **MT-3.2.B** Estimate a Hamaker constant across a medium with the combining rule.
+  - EK: A₁₃₁ ≈ (√A₁₁ − √A₃₃)².
+  - Needs: MT-3.2.A
+  - P1 · drills: col-hamaker-combining
+
+### 3.3 DLVO theory
+
+
+
+- ● **MT-3.3.A** Compute the double-layer repulsion between spheres in the weak-overlap, low-potential limit.
+  - EK: W = 2πεRψ₀²e^(−κD) for equal spheres.
+  - Needs: MT-3.1.A
+  - P1 · drills: col-edl-repulsion
+- ● **MT-3.3.B** Add attraction and repulsion into the DLVO curve, find the barrier, and read its minima.
+  - EK: Primary minimum, barrier, secondary minimum; barriers above ~15–20 kT give stability.
+  - Needs: MT-3.3.A, MT-3.2.A
+  - P1 · P2 · drills: col-dlvo-total, col-dlvo-barrier, col-secondary-minimum
+- ● **MT-3.3.C** Predict how salt, valence, surface potential and Hamaker constant change stability, including the Schulze–Hardy rule.
+  - EK: CCC where W = 0 and dW/dD = 0; c_ccc ∝ z⁻⁶ at high potential.
+  - Needs: MT-3.3.B
+  - P2 · drills: col-salt-effect, col-schulze-hardy, col-ccc-condition
+
+### 3.4 Kinetics of aggregation and forces beyond DLVO
+
+
+
+- ● **MT-3.4.A** Compute a Brownian diffusion coefficient with Stokes–Einstein.
+  - EK: D = kT/6πηa.
+  - P1 · drills: col-stokes-einstein
+- ● **MT-3.4.B** Compute the half-life of rapid (barrierless) coagulation.
+  - EK: k_f = 4kT/3η; t½ = 3η/4kTN₀.
+  - Needs: MT-3.4.A
+  - P1 · drills: col-fast-coagulation
+- ● **MT-3.4.C** Recognise steric, depletion, bridging and hydration forces that DLVO leaves out.
+  - EK: Polymers and solvent structure add terms DLVO lacks.
+  - Needs: MT-3.3.B
+  - P2 · drills: col-beyond-dlvo

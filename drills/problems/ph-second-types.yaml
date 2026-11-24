@@ -1,0 +1,721 @@
+# AP Physics mechanics (units 1–8): a second question type for every objective. The first drill of
+# each objective computes the quantity forward; these ask it another way: by what factor it scales, in
+# reverse, as a comparison, from a graph, or a different quantity of the same model. One question
+# each, g = 9.8 m/s². Verified by sympy along another route (solving the governing equation, a ratio
+# of the law before and after the change, an energy sum instead of a closed form).
+
+# ── 1 · kinematics ────────────────────────────────────────────────────────
+- template: ph-vector-sum-range
+  skill: physics.kinematics
+  pace: quick
+  given: { a: { pick: [3, 5, 6, 8] }, b: { pick: [4, 12, 2, 7] }, k: { pick: [0, 1] } }
+  prompt: 'Two forces of ${{a}}$ N and ${{b}}$ N act on one object, in directions you may choose. What is the {{k == 0 ? "largest" : "smallest"}} possible magnitude of their sum, in N?'
+  parts:
+    - { ask: 'Magnitude (N)', label: y, tex: 'F', value: 'k == 0 ? a + b : abs(a - b)', tol: 0.002, explain: 'Vectors add by direction: parallel gives the sum of the sizes, opposite gives the difference, and every angle in between gives something between. A scalar sum would always be $a + b$' }
+  verify: { expect: { y: "sqrt(a**2 + b**2 + 2*a*b*cos(pi*k))" } }
+
+- template: ph-collinear-unknown
+  skill: physics.kinematics
+  pace: quick
+  given: { a: { pick: [12, 20, 35] }, b: { pick: [8, 30, 15] }, c: { pick: [5, 10, -6] } }
+  prompt: 'Three forces act along one line: ${{a}}$ N to the right, ${{b}}$ N to the left, and an unknown third. The net force is ${{c}}$ N (positive to the right). What is the third force, in N (positive to the right)?'
+  parts:
+    - { ask: 'Third force (N)', label: y, tex: 'F_3', value: c - a + b, tol: 0.002, explain: 'Pick right as positive: $a - b + F_3 = F_{net}$, so $F_3 = F_{net} - a + b$. A negative answer points left' }
+  verify: { expect: { y: "solve(Eq(a - b + x, c), x)[0]" } }
+
+- template: ph-round-trip-velocity
+  skill: physics.kinematics
+  pace: quick
+  given: { d1: { pick: [300, 500, 800] }, d2: { pick: [100, 200, 500] }, t: { pick: [100, 200, 250] } }
+  prompt: 'A dog runs ${{d1}}$ m east, then ${{d2}}$ m west, taking ${{t}}$ s in all. What is the magnitude of its average velocity, in m/s?'
+  parts:
+    - { ask: 'Average velocity (m/s)', label: y, tex: '|\bar v|', value: abs(d1 - d2)/t, tol: 0.002, explain: 'Average velocity is displacement over time: only the net $|d_1 - d_2|$ counts. Average speed would use the whole path, $(d_1 + d_2)/t$' }
+  verify: { expect: { y: "Abs(d1 - d2)/t" } }
+
+- template: ph-two-leg-average-speed
+  skill: physics.kinematics
+  pace: quick
+  given: { v1: { pick: [30, 40, 60] }, v2: { pick: [60, 90, 20] } }
+  prompt: 'A car covers the first half of a trip''s distance at ${{v1}}$ km/h and the second half at ${{v2}}$ km/h. What is its average speed for the trip, in km/h?'
+  parts:
+    - { ask: 'Average speed (km/h)', label: y, tex: '\bar v', value: 2*v1*v2/(v1 + v2), tol: 0.002, explain: 'Equal distances, not equal times: $\bar v = \dfrac{2D}{D/v_1 + D/v_2} = \dfrac{2v_1v_2}{v_1 + v_2}$, the harmonic mean. It is below the plain average because the slow half takes longer' }
+  verify: { expect: { y: "(2*Symbol('D'))/(Symbol('D')/v1 + Symbol('D')/v2)" } }
+
+- template: ph-xt-slope
+  skill: physics.kinematics
+  pace: quick
+  given: { x0: { pick: [2, 10, -4] }, x1: { pick: [14, -6, 20] }, t: { pick: [4, 5, 8] } }
+  prompt: 'On a position–time graph, an object''s line runs straight from ${{x0}}$ m at $t = 0$ to ${{x1}}$ m at $t = {{t}}$ s. What is its velocity, in m/s?'
+  parts:
+    - { ask: 'Velocity (m/s)', label: y, tex: 'v', value: (x1 - x0)/t, tol: 0.002, explain: 'Velocity is the slope of $x$ against $t$: rise over run. A line sloping down means motion in the negative direction; the area under an $x$–$t$ graph means nothing' }
+  verify: { expect: { y: "solve(Eq(x0 + x*t, x1), x)[0]" } }
+
+- template: ph-stopping-distance-scaling
+  skill: physics.kinematics
+  pace: quick
+  given: { f: { pick: [2, 3, 1.5] } }
+  prompt: 'A car''s speed is multiplied by ${{f}}$, and it brakes with the same constant deceleration. By what factor does its stopping distance change?'
+  parts:
+    - { ask: 'Factor', label: y, tex: 'k', value: f^2, tol: 0.005, explain: '$v^2 = 2ad$ gives $d = v^2/2a \propto v^2$. Twice the speed takes four times the distance, the reason speed limits near schools are low' }
+  verify: { expect: { y: "((f*x)**2/(2*Symbol('a')))/(x**2/(2*Symbol('a')))" } }
+
+- template: ph-drop-height-from-time
+  skill: physics.kinematics
+  pace: quick
+  given: { t: { pick: [1.5, 2, 2.5, 3] } }
+  prompt: 'A stone dropped from rest off a bridge hits the water ${{t}}$ s later. How high is the bridge, in m? (No air resistance.)'
+  parts:
+    - { ask: 'Height (m)', label: y, tex: 'h', value: 9.8*t^2/2, tol: 0.002, explain: 'From rest, $h = \tfrac12gt^2$. The distance grows with the square of the time: the stone falls 4.9 m in the first second and 14.7 m in the next' }
+  verify: { expect: { y: "integrate(Rational(98, 10)*Symbol('s'), (Symbol('s'), 0, t))" } }
+
+- template: ph-top-of-flight
+  skill: physics.kinematics
+  pace: recall
+  prompt: 'A ball is thrown straight up. At the very top of its path, what are its velocity and acceleration?'
+  parts:
+    - ask: 'At the top'
+      label: a
+      choice: ["Velocity zero, acceleration zero", "Velocity zero, acceleration g downward", "Velocity g downward, acceleration zero", "Velocity and acceleration both upward"]
+      correct: 1
+      explain: 'Velocity is zero for an instant as it changes sign, but it is still changing, so the acceleration is $g$ downward the whole flight. On a $v$–$t$ graph the line crosses zero with the same slope'
+  verify: { authored: true }
+
+- template: ph-closing-time
+  skill: physics.kinematics
+  pace: quick
+  given: { D: { pick: [600, 900, 1500] }, v1: { pick: [10, 15, 20] }, v2: { pick: [20, 25, 30] } }
+  prompt: 'Two cyclists ${{D}}$ m apart ride straight toward each other at ${{v1}}$ m/s and ${{v2}}$ m/s. How long until they meet, in s?'
+  parts:
+    - { ask: 'Time (s)', label: y, tex: 't', value: D/(v1 + v2), tol: 0.002, explain: 'In one rider''s frame the other approaches at $v_1 + v_2$, so $t = D/(v_1 + v_2)$. Riding the same way, the gap closes at $v_1 - v_2$' }
+  verify: { expect: { y: "solve(Eq(v1*x + v2*x, D), x)[0]" } }
+
+- template: ph-components-to-angle
+  skill: physics.kinematics
+  pace: quick
+  given: { a: { pick: [3, 5, 8, 12] }, b: { pick: [4, 12, 6, 5] } }
+  prompt: 'A displacement has components ${{a}}$ m east and ${{b}}$ m north. At what angle north of east does it point, in degrees?'
+  parts:
+    - { ask: 'Angle (°)', label: y, tex: '\theta', value: atan(b/a)*180/pi, tol: 0.002, explain: '$\tan\theta = \dfrac{\text{north}}{\text{east}}$; the magnitude is $\sqrt{a^2 + b^2}$. Check the quadrant: atan alone cannot tell (3, 4) from (−3, −4)' }
+  verify: { expect: { y: "atan2(b, a)*180/pi" } }
+
+- template: ph-launch-height-scaling
+  skill: physics.kinematics
+  pace: quick
+  given: { f: { pick: [4, 9, 2] } }
+  prompt: 'A ball rolls off a table at a fixed speed. The table is made ${{f}}$ times as high. By what factor does the horizontal distance to landing change?'
+  parts:
+    - { ask: 'Factor', label: y, tex: 'k', value: sqrt(f), tol: 0.005, explain: 'Fall time is $\sqrt{2h/g}$ and the horizontal distance is $v\,t$, so $x \propto \sqrt h$. Four times the height only doubles the distance' }
+  verify: { expect: { y: "(Symbol('v')*sqrt(2*f*Symbol('h', positive=True)/Symbol('g', positive=True)))/(Symbol('v')*sqrt(2*Symbol('h', positive=True)/Symbol('g', positive=True)))" } }
+
+- template: ph-projectile-max-height
+  skill: physics.kinematics
+  pace: quick
+  given: { v: { pick: [10, 20, 25] }, th: { pick: [30, 45, 60] } }
+  prompt: 'A ball is launched at ${{v}}$ m/s, ${{th}}^\circ$ above the horizontal. How high does it rise above the launch point, in m?'
+  parts:
+    - { ask: 'Height (m)', label: y, tex: 'H', value: (v*sin(th*pi/180))^2/(2*9.8), tol: 0.002, explain: 'Only the vertical component $v\sin\theta$ fights gravity: $H = \dfrac{(v\sin\theta)^2}{2g}$. The horizontal component carries on unchanged and does not help it climb' }
+  verify: { expect: { y: "solve(Eq(Rational(1, 2)*(v*sin(pi*th/180))**2, Rational(98, 10)*x), x)[0]" } }
+
+- template: ph-river-heading
+  skill: physics.kinematics
+  pace: quick
+  given: { vb: { pick: [4, 5, 6] }, vc: { pick: [1, 2, 3] } }
+  prompt: 'A boat moves at ${{vb}}$ m/s relative to the water, in a river flowing at ${{vc}}$ m/s. At what angle upstream of straight across must it head to land directly opposite, in degrees?'
+  parts:
+    - { ask: 'Angle (°)', label: y, tex: '\theta', value: asin(vc/vb)*180/pi, tol: 0.002, explain: 'The upstream part of the boat''s velocity must cancel the current: $v_b\sin\theta = v_c$. If the current were faster than the boat, no heading would work' }
+  verify: { expect: { y: "Min(*solve(Eq(vb*sin(x), vc), x))*180/pi" } }
+
+# ── 2 · forces ───────────────────────────────────────────────────────────
+- template: ph-system-net-force
+  skill: physics.dynamics
+  pace: quick
+  given: { F: { pick: [100, 200, 300] }, Pf: { pick: [150, 250, 400] } }
+  prompt: 'The driver of a stalled car pushes forward on the dashboard with ${{F}}$ N, while a friend outside pushes the car forward with ${{Pf}}$ N. Taking the car and driver as the system, what is the net external horizontal force, in N? (Ignore friction.)'
+  parts:
+    - { ask: 'Net external force (N)', label: y, tex: 'F_{ext}', value: Pf, tol: 0.002, explain: 'The driver''s push on the dashboard and the dashboard''s push back on the driver are both inside the system and cancel. Only the friend is outside: you cannot push your own car from the inside' }
+  verify: { expect: { y: "Pf + F - F" } }
+
+- template: ph-com-place-mass
+  skill: physics.dynamics
+  pace: quick
+  given: { m1: { pick: [2, 3, 6] }, m2: { pick: [1, 4, 2] }, xc: { pick: [1, 2, 3] } }
+  prompt: 'A ${{m1}}$ kg mass sits at $x = 0$. Where must a ${{m2}}$ kg mass go so the centre of mass is at $x = {{xc}}$ m?'
+  parts:
+    - { ask: 'Position (m)', label: y, tex: 'x_2', value: xc*(m1 + m2)/m2, tol: 0.002, explain: '$x_{cm} = \dfrac{m_1x_1 + m_2x_2}{m_1 + m_2}$; solve for $x_2$. A light mass has to go far out to pull the centre toward it' }
+  verify: { expect: { y: "solve(Eq((m2*x)/(m1 + m2), xc), x)[0]" } }
+
+- template: ph-force-agent-pick
+  skill: physics.dynamics
+  pace: recall
+  cases:
+    - { f: 'the normal force on a book resting on a table', o1: 'The table', o2: 'The Earth', o3: 'The book itself', o4: 'The air', ans: 0 }
+    - { f: 'the weight of an apple', o1: 'The Earth', o2: 'The branch', o3: 'The air', o4: 'The apple itself', ans: 0 }
+    - { f: 'the friction on a box sliding across a floor', o1: 'The floor', o2: 'The Earth', o3: 'The box''s motion', o4: 'The air', ans: 0 }
+    - { f: 'the buoyant force on a floating boat', o1: 'The water', o2: 'The Earth', o3: 'The boat''s engine', o4: 'The air above', ans: 0 }
+    - { f: 'the drag on a falling skydiver', o1: 'The air', o2: 'The Earth', o3: 'The parachute''s weight', o4: 'The skydiver''s speed', ans: 0 }
+    - { f: 'the tension pulling a sled forward', o1: 'The rope', o2: 'The snow', o3: 'The Earth', o4: 'The sled''s momentum', ans: 0 }
+  prompt: 'What object exerts {{f}}?'
+  parts:
+    - { ask: 'Agent', label: a, choice: ["{{o1}}", "{{o2}}", "{{o3}}", "{{o4}}"], correct: ans, explain: 'Every force is a push or pull by one named object on another. If you cannot name the agent (motion, speed, momentum, "inertia"), it is not a force' }
+  verify: { authored: true }
+
+- template: ph-net-force-list
+  skill: physics.dynamics
+  pace: quick
+  given: { a: { pick: [20, 30, 45] }, b: { pick: [5, 12, 30] }, W: { pick: [50, 80] }, N: { pick: [50, 80, 60] } }
+  prompt: 'A crate has four forces on it: ${{a}}$ N right, ${{b}}$ N left, its ${{W}}$ N weight down, and a ${{N}}$ N push up from the floor. What is the magnitude of the net force, in N?'
+  parts:
+    - { ask: 'Net force (N)', label: y, tex: '|F_{net}|', value: sqrt((a - b)^2 + (N - W)^2), tol: 0.002, explain: 'Add by components: $F_x = a - b$, $F_y = N - W$, then $|F| = \sqrt{F_x^2 + F_y^2}$. If the floor pushes less than the weight, the crate presses into it no less: that only happens when something else holds it up' }
+  verify: { expect: { y: "Max(*solve(Eq(x**2, (a - b)**2 + (N - W)**2), x))" } }
+
+- template: ph-third-law-accelerations
+  skill: physics.dynamics
+  pace: quick
+  given: { M: { pick: [2000, 6000, 12000] }, m: { pick: [1000, 1500] } }
+  prompt: 'A ${{M}}$ kg truck and a ${{m}}$ kg car collide. What is the ratio of the car''s acceleration to the truck''s during the collision?'
+  parts:
+    - { ask: 'a_car / a_truck', label: y, tex: '\dfrac{a_c}{a_t}', value: M/m, tol: 0.002, explain: 'The forces are a third-law pair: equal in size. With equal forces, $a = F/m$, so the lighter car accelerates $M/m$ times as much. The forces are equal; the damage is not' }
+  verify: { expect: { y: "(Symbol('F')/m)/(Symbol('F')/M)" } }
+
+- template: ph-incline-rope-tension
+  skill: physics.dynamics
+  pace: quick
+  given: { m: { pick: [5, 10, 20] }, th: { pick: [20, 30, 45] } }
+  prompt: 'A ${{m}}$ kg block is held at rest on a frictionless ${{th}}^\circ$ incline by a rope parallel to the slope. What is the tension, in N?'
+  parts:
+    - { ask: 'Tension (N)', label: y, tex: 'T', value: m*9.8*sin(th*pi/180), tol: 0.002, explain: 'Along the slope only the component $mg\sin\theta$ pulls the block down; the rope balances it. The normal force takes $mg\cos\theta$ across the slope' }
+  verify: { expect: { y: "solve(Eq(x, m*Rational(98, 10)*cos(pi/2 - pi*th/180)), x)[0]" } }
+
+- template: ph-newton-scaling
+  skill: physics.dynamics
+  pace: quick
+  given: { fF: { pick: [2, 3, 0.5] }, fm: { pick: [2, 4, 3] } }
+  prompt: 'The net force on an object is multiplied by ${{fF}}$ and its mass by ${{fm}}$. By what factor does its acceleration change?'
+  parts:
+    - { ask: 'Factor', label: y, tex: 'k', value: fF/fm, tol: 0.005, explain: '$a = F_{net}/m$: proportional to force, inversely proportional to mass' }
+  verify: { expect: { y: "((fF*Symbol('F'))/(fm*Symbol('m')))/(Symbol('F')/Symbol('m'))" } }
+
+- template: ph-table-pulley
+  skill: physics.dynamics
+  pace: quick
+  given: { m1: { pick: [2, 4, 6] }, m2: { pick: [1, 2, 3] } }
+  prompt: 'A ${{m1}}$ kg block on a frictionless table is tied over a light pulley at the edge to a hanging ${{m2}}$ kg mass. What is their acceleration, in m/s²?'
+  parts:
+    - { ask: 'Acceleration (m/s²)', label: y, tex: 'a', value: m2*9.8/(m1 + m2), tol: 0.002, explain: 'Only the hanging weight $m_2g$ drives the system, but it accelerates both masses: $a = \dfrac{m_2g}{m_1 + m_2}$. The tension, $m_1a$, is less than $m_2g$' }
+  verify: { expect: { y: "solve([Eq(Symbol('T'), m1*x), Eq(m2*Rational(98, 10) - Symbol('T'), m2*x)], [x, Symbol('T')])[x]" } }
+
+- template: ph-incline-angle-from-accel
+  skill: physics.dynamics
+  pace: quick
+  given: { a: { pick: [2.45, 4.9, 6.93] } }
+  prompt: 'A block slides down a frictionless incline with acceleration ${{a}}$ m/s². What is the angle of the incline, in degrees?'
+  parts:
+    - { ask: 'Angle (°)', label: y, tex: '\theta', value: asin(a/9.8)*180/pi, tol: 0.002, explain: 'Without friction $a = g\sin\theta$, independent of mass. So $\theta = \sin^{-1}(a/g)$' }
+  verify: { expect: { y: "Min(*solve(Eq(Rational(98, 10)*sin(x), a), x))*180/pi" } }
+
+- template: ph-gravity-distance-scaling
+  skill: physics.dynamics
+  pace: quick
+  given: { f: { pick: [2, 3, 0.5, 10] } }
+  prompt: 'The distance between two moons'' centres is multiplied by ${{f}}$. By what factor does the gravitational force between them change?'
+  parts:
+    - { ask: 'Factor', label: y, tex: 'k', value: 1/f^2, tol: 0.005, explain: 'Inverse square: $F = Gm_1m_2/r^2$. Twice as far, a quarter of the force' }
+  verify: { expect: { y: "(Symbol('G')*Symbol('M')/(f*x)**2)/(Symbol('G')*Symbol('M')/x**2)" } }
+
+- template: ph-g-planet-scaling
+  skill: physics.dynamics
+  pace: quick
+  given: { fM: { pick: [2, 8, 0.5] }, fR: { pick: [2, 4, 0.5] } }
+  prompt: 'A planet has ${{fM}}$ times the Earth''s mass and ${{fR}}$ times its radius. What is $g$ at its surface as a multiple of Earth''s?'
+  parts:
+    - { ask: 'Multiple of g', label: y, tex: 'k', value: fM/fR^2, tol: 0.005, explain: '$g = GM/R^2$: up with mass, down with the square of the radius. A planet twice as wide and eight times as massive has twice our gravity' }
+  verify: { expect: { y: "(Symbol('G')*fM*Symbol('M')/(fR*x)**2)/(Symbol('G')*Symbol('M')/x**2)" } }
+
+- template: ph-friction-stopping-distance
+  skill: physics.dynamics
+  pace: quick
+  given: { v: { pick: [10, 15, 20, 25] }, mu: { pick: [0.4, 0.6, 0.8] } }
+  prompt: 'A car at ${{v}}$ m/s locks its brakes and skids to a stop on a road with $\mu_k = {{mu}}$. How far does it skid, in m?'
+  parts:
+    - { ask: 'Distance (m)', label: y, tex: 'd', value: v^2/(2*mu*9.8), tol: 0.002, explain: 'Friction $\mu mg$ gives deceleration $\mu g$, so $d = \dfrac{v^2}{2\mu g}$. The mass cancels: a loaded truck skids no farther than an empty one on the same tyres' }
+  verify: { expect: { y: "solve(Eq(mu*Rational(98, 10)*x, v**2/2), x)[0]" } }
+
+- template: ph-slip-angle
+  skill: physics.dynamics
+  pace: quick
+  given: { mu: { pick: [0.3, 0.5, 0.7, 1] } }
+  prompt: 'A board is tilted slowly with a block on it. The coefficient of static friction is ${{mu}}$. At what angle does the block start to slide, in degrees?'
+  parts:
+    - { ask: 'Angle (°)', label: y, tex: '\theta', value: atan(mu)*180/pi, tol: 0.002, explain: 'It slips when $mg\sin\theta$ exceeds the maximum $\mu_s mg\cos\theta$: $\tan\theta = \mu_s$. Measuring this angle is a quick way to find $\mu_s$' }
+  verify: { expect: { y: "solve(Eq(sin(x), mu*cos(x)), x)[0]*180/pi" } }
+
+- template: ph-springs-combined
+  skill: physics.dynamics
+  pace: quick
+  given: { k: { pick: [100, 200, 300] }, kind: { pick: [0, 1] } }
+  prompt: 'Two identical springs, each with $k = {{k}}$ N/m, are joined {{kind == 0 ? "end to end (in series)" : "side by side (in parallel)"}}. What is the spring constant of the pair, in N/m?'
+  parts:
+    - { ask: 'k of the pair (N/m)', label: y, tex: 'k_{eff}', value: 'kind == 0 ? k/2 : 2*k', tol: 0.002, explain: 'In series each spring carries the whole force and stretches the full amount, so the total stretch doubles: $k/2$. In parallel they share the force: $2k$. The rules are the reverse of resistors' }
+  verify: { expect: { y: "solve(Eq(1/x, 1/k + 1/k), x)[0] if kind == 0 else k + k" } }
+
+- template: ph-centripetal-scaling
+  skill: physics.dynamics
+  pace: quick
+  given: { fv: { pick: [2, 3, 0.5] }, fr: { pick: [2, 0.5, 4] } }
+  prompt: 'A car''s speed around a curve is multiplied by ${{fv}}$ and the radius by ${{fr}}$. By what factor does the centripetal acceleration change?'
+  parts:
+    - { ask: 'Factor', label: y, tex: 'k', value: fv^2/fr, tol: 0.005, explain: '$a_c = v^2/r$. Doubling speed on the same curve needs four times the grip' }
+  verify: { expect: { y: "((fv*Symbol('v'))**2/(fr*Symbol('r')))/(Symbol('v')**2/Symbol('r'))" } }
+
+- template: ph-banked-curve
+  skill: physics.dynamics
+  pace: quick
+  given: { r: { pick: [50, 100, 200] }, th: { pick: [10, 15, 20] } }
+  prompt: 'A curve of radius ${{r}}$ m is banked at ${{th}}^\circ$. At what speed can a car take it with no friction needed, in m/s?'
+  parts:
+    - { ask: 'Speed (m/s)', label: y, tex: 'v', value: sqrt(r*9.8*tan(th*pi/180)), tol: 0.002, explain: 'Vertically $N\cos\theta = mg$; horizontally $N\sin\theta = mv^2/r$. Dividing, $\tan\theta = \dfrac{v^2}{rg}$. Slower and friction must hold the car up the bank; faster and it must hold it down' }
+  verify: { expect: { y: "Max(*solve(Eq(x**2/(r*Rational(98, 10)), sin(pi*th/180)/cos(pi*th/180)), x))" } }
+
+- template: ph-kepler-scaling
+  skill: physics.dynamics
+  pace: quick
+  given: { f: { pick: [4, 9, 2] } }
+  prompt: 'A satellite''s circular orbit radius is multiplied by ${{f}}$. By what factor does its period change?'
+  parts:
+    - { ask: 'Factor', label: y, tex: 'k', value: f^1.5, tol: 0.005, explain: 'Gravity supplies the centripetal force: $GM/r^2 = 4\pi^2r/T^2$, so $T^2 \propto r^3$ (Kepler''s third law). Four times the radius, eight times the period' }
+  verify: { expect: { y: "sqrt(4*pi**2*(f*x)**3/Symbol('GM', positive=True))/sqrt(4*pi**2*x**3/Symbol('GM', positive=True))" } }
+
+# ── 3 · energy ────────────────────────────────────────────────────────────
+- template: ph-speed-from-ke
+  skill: physics.energy
+  pace: quick
+  given: { m: { pick: [2, 5, 80] }, K: { pick: [100, 400, 900] } }
+  prompt: 'A ${{m}}$ kg object has ${{K}}$ J of kinetic energy. How fast is it moving, in m/s?'
+  parts:
+    - { ask: 'Speed (m/s)', label: y, tex: 'v', value: sqrt(2*K/m), tol: 0.002, explain: '$K = \tfrac12mv^2$, so $v = \sqrt{2K/m}$' }
+  verify: { expect: { y: "Max(*solve(Eq(Rational(1, 2)*m*x**2, K), x))" } }
+
+- template: ph-gravity-work-incline
+  skill: physics.energy
+  pace: quick
+  given: { m: { pick: [2, 5, 10] }, L: { pick: [3, 5, 8] }, th: { pick: [20, 30, 40] } }
+  prompt: 'A ${{m}}$ kg box slides ${{L}}$ m down a ${{th}}^\circ$ incline. How much work does gravity do on it, in J?'
+  parts:
+    - { ask: 'Work (J)', label: y, tex: 'W_g', value: m*9.8*L*sin(th*pi/180), tol: 0.002, explain: 'Only the drop in height matters: $W_g = mgh = mgL\sin\theta$. Equivalently, the component $mg\sin\theta$ along the slope times $L$' }
+  verify: { expect: { y: "m*Rational(98, 10)*L*cos(pi/2 - pi*th/180)" } }
+
+- template: ph-spring-work-between
+  skill: physics.energy
+  pace: quick
+  given: { k: { pick: [100, 200, 500] }, x1: { pick: [0.1, 0.2] }, x2: { pick: [0.3, 0.4, 0.5] } }
+  prompt: 'A spring with $k = {{k}}$ N/m is already stretched ${{x1}}$ m. How much work does it take to stretch it to ${{x2}}$ m, in J?'
+  parts:
+    - { ask: 'Work (J)', label: y, tex: 'W', value: k*(x2^2 - x1^2)/2, tol: 0.002, explain: 'The area under $F = kx$ between the two stretches: $\tfrac12k(x_2^2 - x_1^2)$, not $\tfrac12k(x_2 - x_1)^2$. The second centimetre costs more than the first' }
+  verify: { expect: { y: "integrate(k*Symbol('s'), (Symbol('s'), x1, x2))" } }
+
+- template: ph-braking-force
+  skill: physics.energy
+  pace: quick
+  given: { m: { pick: [1000, 1500, 2000] }, v: { pick: [15, 20, 25] }, d: { pick: [20, 30, 50] } }
+  prompt: 'A ${{m}}$ kg car at ${{v}}$ m/s stops in ${{d}}$ m. What average braking force acted, in N?'
+  parts:
+    - { ask: 'Force (N)', label: y, tex: 'F', value: m*v^2/(2*d), tol: 0.002, explain: 'Work–energy: the brakes remove all the kinetic energy, $Fd = \tfrac12mv^2$' }
+  verify: { expect: { y: "solve(Eq(x*d, Rational(1, 2)*m*v**2), x)[0]" } }
+
+- template: ph-spring-pe-scaling
+  skill: physics.energy
+  pace: quick
+  given: { f: { pick: [2, 3, 0.5] } }
+  prompt: 'A spring''s compression is multiplied by ${{f}}$. By what factor does its stored energy change?'
+  parts:
+    - { ask: 'Factor', label: y, tex: 'k', value: f^2, tol: 0.005, explain: '$U = \tfrac12kx^2$. Twice the compression stores four times the energy' }
+  verify: { expect: { y: "(Symbol('k')*(f*x)**2/2)/(Symbol('k')*x**2/2)" } }
+
+- template: ph-lift-to-orbit-height
+  skill: physics.energy
+  pace: quick
+  given: { m: { pick: [100, 500, 1000] }, k: { pick: [1, 2, 3] } }
+  prompt: 'How much work does it take to lift a ${{m}}$ kg probe from the Earth''s surface to a height of ${{k}}$ Earth radii (ignoring any speed it is given), in GJ? ($GM_E = 3.986 \times 10^{14}$ m³/s², $R_E = 6.371 \times 10^6$ m.)'
+  parts:
+    - { ask: 'Work (GJ)', label: y, tex: 'W', value: 3.986e14*m*(1/6.371e6 - 1/((k + 1)*6.371e6))/1e9, tol: 0.002, explain: 'Far from the surface use $U = -GMm/r$: $W = GMm\left(\dfrac1{R} - \dfrac1{(k+1)R}\right)$. Using $mgh$ here overestimates, because $g$ weakens with height' }
+  verify: { expect: { y: "integrate(Rational(3986, 10)*10**12*m/Symbol('s')**2, (Symbol('s'), Rational(6371, 1000)*10**6, (k + 1)*Rational(6371, 1000)*10**6))/10**9" } }
+
+- template: ph-pendulum-bottom-speed
+  skill: physics.energy
+  pace: quick
+  given: { L: { pick: [0.5, 1, 2] }, th: { pick: [30, 45, 60, 90] } }
+  prompt: 'A pendulum ${{L}}$ m long is released from rest at ${{th}}^\circ$ from vertical. How fast is the bob moving at the bottom, in m/s?'
+  parts:
+    - { ask: 'Speed (m/s)', label: y, tex: 'v', value: sqrt(2*9.8*L*(1 - cos(th*pi/180))), tol: 0.002, explain: 'The bob drops $h = L(1 - \cos\theta)$; the string does no work, so $v = \sqrt{2gh}$' }
+  verify: { expect: { y: "Max(*solve(Eq(x**2/2, Rational(98, 10)*(L - L*cos(pi*th/180))), x))" } }
+
+- template: ph-ramp-speed-with-friction
+  skill: physics.energy
+  pace: quick
+  given: { L: { pick: [4, 6, 10] }, th: { pick: [30, 40] }, mu: { pick: [0.1, 0.2, 0.3] } }
+  prompt: 'A box slides from rest ${{L}}$ m down a ${{th}}^\circ$ ramp with $\mu_k = {{mu}}$. How fast is it moving at the bottom, in m/s?'
+  parts:
+    - { ask: 'Speed (m/s)', label: y, tex: 'v', value: sqrt(2*9.8*L*(sin(th*pi/180) - mu*cos(th*pi/180))), tol: 0.002, explain: 'Energy in: $mgL\sin\theta$. Energy to friction: $\mu mg\cos\theta\cdot L$. What is left is $\tfrac12mv^2$; the mass cancels' }
+  verify: { expect: { y: "Max(*solve(Eq(Rational(1, 2)*x**2, Rational(98, 10)*L*sin(pi*th/180) - mu*Rational(98, 10)*cos(pi*th/180)*L), x))" } }
+
+- template: ph-escape-speed-scaling
+  skill: physics.energy
+  pace: quick
+  given: { f: { pick: [2, 3, 0.5] } }
+  prompt: 'A planet has the Earth''s density but ${{f}}$ times its radius. What is its escape speed as a multiple of Earth''s?'
+  parts:
+    - { ask: 'Multiple', label: y, tex: 'k', value: f, tol: 0.005, explain: '$v_{esc} = \sqrt{2GM/R}$ and at fixed density $M \propto R^3$, so $v_{esc} \propto R$' }
+  verify: { expect: { y: "sqrt(2*Symbol('G', positive=True)*Symbol('p', positive=True)*Rational(4, 3)*pi*(f*x)**3/(f*x))/sqrt(2*Symbol('G', positive=True)*Symbol('p', positive=True)*Rational(4, 3)*pi*x**3/x)" } }
+
+- template: ph-power-cruise-speed
+  skill: physics.energy
+  pace: quick
+  given: { P: { pick: [15000, 30000, 60000] }, F: { pick: [500, 1000, 1500] } }
+  prompt: 'A car''s engine delivers ${{P}}$ W to the wheels against a total resistive force of ${{F}}$ N. How fast does it cruise, in m/s?'
+  parts:
+    - { ask: 'Speed (m/s)', label: y, tex: 'v', value: P/F, tol: 0.002, explain: 'At constant speed the drive force equals the resistance, and power is force times velocity: $P = Fv$' }
+  verify: { expect: { y: "solve(Eq(F*x, P), x)[0]" } }
+
+# ── 4 · momentum ──────────────────────────────────────────────────────────
+- template: ph-com-velocity
+  skill: physics.momentum
+  pace: quick
+  given: { m1: { pick: [2, 3, 5] }, v1: { pick: [4, 6, 10] }, m2: { pick: [1, 2, 3] }, v2: { pick: [-2, 0, -5] } }
+  prompt: 'A ${{m1}}$ kg cart moves at ${{v1}}$ m/s and a ${{m2}}$ kg cart at ${{v2}}$ m/s along the same track. What is the velocity of their centre of mass, in m/s?'
+  parts:
+    - { ask: 'v_cm (m/s)', label: y, tex: 'v_{cm}', value: (m1*v1 + m2*v2)/(m1 + m2), tol: 0.002, explain: 'Total momentum over total mass. It is the one velocity a collision between them cannot change' }
+  verify: { expect: { y: "solve(Eq((m1 + m2)*x, m1*v1 + m2*v2), x)[0]" } }
+
+- template: ph-impulse-triangle
+  skill: physics.momentum
+  pace: quick
+  given: { F: { pick: [400, 900, 1500] }, t: { pick: [0.01, 0.02, 0.05] } }
+  prompt: 'A kick''s force rises steadily from zero to ${{F}}$ N and falls back to zero, a triangle lasting ${{t}}$ s on a force–time graph. What impulse does it deliver, in N·s?'
+  parts:
+    - { ask: 'Impulse (N·s)', label: y, tex: 'J', value: F*t/2, tol: 0.002, explain: 'Impulse is the area under $F$–$t$: a triangle, $\tfrac12F_{max}\Delta t$. The average force is half the peak' }
+  verify: { expect: { y: "integrate(2*F*Symbol('s')/t, (Symbol('s'), 0, t/2)) + integrate(2*F*(t - Symbol('s'))/t, (Symbol('s'), t/2, t))" } }
+
+- template: ph-explosion-ke-ratio
+  skill: physics.momentum
+  pace: quick
+  given: { m1: { pick: [1, 2, 3] }, m2: { pick: [4, 6, 9] } }
+  prompt: 'A shell at rest bursts into two pieces of ${{m1}}$ kg and ${{m2}}$ kg. What is the ratio of the lighter piece''s kinetic energy to the heavier one''s?'
+  parts:
+    - { ask: 'K_light / K_heavy', label: y, tex: '\dfrac{K_1}{K_2}', value: m2/m1, tol: 0.002, explain: 'Equal and opposite momenta: $K = p^2/2m$, so with the same $p$ the lighter piece gets the larger share, in the ratio $m_2/m_1$. A rifle''s bullet carries nearly all the energy' }
+  verify: { expect: { y: "(Symbol('p')**2/(2*m1))/(Symbol('p')**2/(2*m2))" } }
+
+- template: ph-2d-stick-angle
+  skill: physics.momentum
+  pace: quick
+  given: { m1: { pick: [1000, 1500] }, v1: { pick: [10, 20] }, m2: { pick: [2000, 1200] }, v2: { pick: [8, 15] } }
+  prompt: 'A ${{m1}}$ kg car heading east at ${{v1}}$ m/s collides with a ${{m2}}$ kg car heading north at ${{v2}}$ m/s, and they stick. In what direction does the wreck move, in degrees north of east?'
+  parts:
+    - { ask: 'Angle (°)', label: y, tex: '\theta', value: atan(m2*v2/(m1*v1))*180/pi, tol: 0.002, explain: 'Momentum is conserved in each direction separately: east $m_1v_1$, north $m_2v_2$. The wreck moves along the total, at $\tan\theta = \dfrac{m_2v_2}{m_1v_1}$; the shared mass cancels' }
+  verify: { expect: { y: "atan2(m2*v2/(m1 + m2), m1*v1/(m1 + m2))*180/pi" } }
+
+- template: ph-stick-ke-fraction
+  skill: physics.momentum
+  pace: quick
+  given: { m1: { pick: [1, 2, 3] }, m2: { pick: [1, 2, 4, 6] } }
+  prompt: 'A ${{m1}}$ kg cart hits a ${{m2}}$ kg cart at rest and they stick. What fraction of the original kinetic energy is lost?'
+  parts:
+    - { ask: 'Fraction lost', label: y, tex: 'f', value: m2/(m1 + m2), tol: 0.002, explain: 'The final speed is $\dfrac{m_1v}{m_1 + m_2}$, which leaves $\dfrac{m_1}{m_1 + m_2}$ of the kinetic energy; the rest, $\dfrac{m_2}{m_1 + m_2}$, goes to heat and deformation. Equal masses lose half' }
+  verify: { expect: { y: "1 - (Rational(1, 2)*(m1 + m2)*(m1*Symbol('v')/(m1 + m2))**2)/(Rational(1, 2)*m1*Symbol('v')**2)" } }
+
+- template: ph-inelastic-initial-speed
+  skill: physics.momentum
+  pace: quick
+  given: { m1: { pick: [2, 3, 5] }, m2: { pick: [1, 4, 6] }, vf: { pick: [2, 3, 4] } }
+  prompt: 'A ${{m1}}$ kg cart hits a ${{m2}}$ kg cart at rest; they stick and move off at ${{vf}}$ m/s. How fast was the first cart moving, in m/s?'
+  parts:
+    - { ask: 'Initial speed (m/s)', label: y, tex: 'v', value: vf*(m1 + m2)/m1, tol: 0.002, explain: 'Momentum: $m_1v = (m_1 + m_2)v_f$. Kinetic energy is not conserved, so it cannot be used here' }
+  verify: { expect: { y: "solve(Eq(m1*x, (m1 + m2)*vf), x)[0]" } }
+
+- template: ph-elastic-energy-transfer
+  skill: physics.momentum
+  pace: quick
+  given: { m1: { pick: [1, 2, 3] }, m2: { pick: [1, 4, 9, 2] } }
+  prompt: 'A ${{m1}}$ kg ball collides elastically head-on with a ${{m2}}$ kg ball at rest. What fraction of its kinetic energy does it hand over?'
+  parts:
+    - { ask: 'Fraction', label: y, tex: 'f', value: 4*m1*m2/(m1 + m2)^2, tol: 0.002, explain: 'The target leaves at $\dfrac{2m_1}{m_1 + m_2}v$, carrying $\dfrac{4m_1m_2}{(m_1 + m_2)^2}$ of the energy. Equal masses transfer all of it, which is why reactor moderators use light nuclei' }
+  verify: { expect: { y: "(Rational(1, 2)*m2*solve([Eq(m1*Symbol('v'), m1*Symbol('a') + m2*x), Eq(x - Symbol('a'), Symbol('v'))], [Symbol('a'), x])[x]**2)/(Rational(1, 2)*m1*Symbol('v')**2)" } }
+
+- template: ph-ballistic-bullet-speed
+  skill: physics.momentum
+  pace: quick
+  given: { m: { pick: [0.01, 0.02] }, M: { pick: [1, 2, 4] }, h: { pick: [5, 10, 20] } }
+  prompt: 'A ${{m}}$ kg bullet embeds in a ${{M}}$ kg block hanging on a string, and the block swings up ${{h}}$ cm. How fast was the bullet moving, in m/s?'
+  parts:
+    - { ask: 'Bullet speed (m/s)', label: y, tex: 'v', value: (m + M)/m*sqrt(2*9.8*h/100), tol: 0.002, explain: 'Work backward: the swing gives the speed just after impact, $V = \sqrt{2gh}$ (energy). The collision conserves momentum, not energy: $mv = (m + M)V$' }
+  verify: { expect: { y: "solve(Eq(m*x, (m + M)*sqrt(2*Rational(98, 10)*h/100)), x)[0]" } }
+
+# ── 5 · rotation ──────────────────────────────────────────────────────────
+- template: ph-spin-down-revs
+  skill: physics.rotation
+  pace: quick
+  given: { w: { pick: [10, 20, 30] }, t: { pick: [4, 6, 10] } }
+  prompt: 'A wheel spinning at ${{w}}$ rad/s slows steadily to rest in ${{t}}$ s. How many revolutions does it make while stopping?'
+  parts:
+    - { ask: 'Revolutions', label: y, tex: 'N', value: w*t/2/(2*pi), tol: 0.002, explain: 'Average angular speed is $\omega_0/2$, so $\Delta\theta = \tfrac12\omega_0t$ radians; divide by $2\pi$ per revolution' }
+  verify: { expect: { y: "integrate(w - w*Symbol('s')/t, (Symbol('s'), 0, t))/(2*pi)" } }
+
+- template: ph-wheel-rpm-from-speed
+  skill: physics.rotation
+  pace: quick
+  given: { v: { pick: [5, 8, 12] }, r: { pick: [0.3, 0.35, 0.5] } }
+  prompt: 'A bicycle moves at ${{v}}$ m/s on wheels of radius ${{r}}$ m without slipping. How many revolutions per minute do the wheels turn?'
+  parts:
+    - { ask: 'rpm', label: y, tex: 'N', value: v/r*60/(2*pi), tol: 0.002, explain: 'Rolling without slipping means $v = \omega r$. Then $\omega$ in rad/s × 60 / $2\pi$ gives rpm' }
+  verify: { expect: { y: "solve(Eq(2*pi*x/60*r, v), x)[0]" } }
+
+- template: ph-force-for-torque
+  skill: physics.rotation
+  pace: quick
+  given: { tau: { pick: [20, 40, 60] }, L: { pick: [0.25, 0.3, 0.4] }, th: { pick: [90, 60, 45] } }
+  prompt: 'A bolt needs ${{tau}}$ N·m of torque. You push on a wrench ${{L}}$ m from the bolt at ${{th}}^\circ$ to the handle. What force do you need, in N?'
+  parts:
+    - { ask: 'Force (N)', label: y, tex: 'F', value: tau/(L*sin(th*pi/180)), tol: 0.002, explain: '$\tau = rF\sin\theta$: only the part of the force perpendicular to the handle turns it. Pushing at 90° and at the end of the handle takes the least force' }
+  verify: { expect: { y: "solve(Eq(L*x*sin(pi*th/180), tau), x)[0]" } }
+
+- template: ph-inertia-radius-scaling
+  skill: physics.rotation
+  pace: quick
+  given: { fm: { pick: [1, 2, 0.5] }, fr: { pick: [2, 3, 0.5] } }
+  prompt: 'A flywheel is rebuilt with ${{fm}}$ times the mass and ${{fr}}$ times the radius, same shape. By what factor does its rotational inertia change?'
+  parts:
+    - { ask: 'Factor', label: y, tex: 'k', value: fm*fr^2, tol: 0.005, explain: '$I = cMR^2$ for any fixed shape: linear in mass, square in size. Mass far from the axis counts most' }
+  verify: { expect: { y: "(Symbol('c')*fm*Symbol('M')*(fr*x)**2)/(Symbol('c')*Symbol('M')*x**2)" } }
+
+- template: ph-disk-rim-axis
+  skill: physics.rotation
+  pace: quick
+  given: { M: { pick: [2, 4, 10] }, R: { pick: [0.1, 0.2, 0.5] } }
+  prompt: 'A uniform disk (${{M}}$ kg, radius ${{R}}$ m) spins about an axis perpendicular to it through a point on its rim. What is its rotational inertia, in kg·m²?'
+  parts:
+    - { ask: 'I (kg·m²)', label: y, tex: 'I', value: 1.5*M*R^2, tol: 0.002, explain: 'Parallel axis: $I = I_{cm} + Md^2 = \tfrac12MR^2 + MR^2 = \tfrac32MR^2$' }
+  verify: { expect: { y: "integrate(2*pi*Symbol('s')*M/(pi*R**2)*Symbol('s')**2, (Symbol('s'), 0, R)) + M*R**2" } }
+
+- template: ph-seesaw-position
+  skill: physics.rotation
+  pace: quick
+  given: { m1: { pick: [20, 30, 40] }, d1: { pick: [1.5, 2] }, m2: { pick: [25, 50, 60] } }
+  prompt: 'A ${{m1}}$ kg child sits ${{d1}}$ m from a seesaw''s pivot. How far on the other side must a ${{m2}}$ kg child sit to balance it, in m?'
+  parts:
+    - { ask: 'Distance (m)', label: y, tex: 'd_2', value: m1*d1/m2, tol: 0.002, explain: 'Balance means the torques cancel: $m_1gd_1 = m_2gd_2$. The heavier child sits closer' }
+  verify: { expect: { y: "solve(Eq(m1*d1, m2*x), x)[0]" } }
+
+- template: ph-disk-alpha-scaling
+  skill: physics.rotation
+  pace: quick
+  given: { f: { pick: [2, 3, 0.5] } }
+  prompt: 'The same torque is applied to a uniform disk and then to one of the same mass but ${{f}}$ times the radius. By what factor does the angular acceleration change?'
+  parts:
+    - { ask: 'Factor', label: y, tex: 'k', value: 1/f^2, tol: 0.005, explain: '$\alpha = \tau/I$ and $I = \tfrac12MR^2$, so $\alpha \propto 1/R^2$' }
+  verify: { expect: { y: "(Symbol('t')/(Rational(1, 2)*Symbol('M')*(f*x)**2))/(Symbol('t')/(Rational(1, 2)*Symbol('M')*x**2))" } }
+
+- template: ph-massive-pulley-tension
+  skill: physics.rotation
+  pace: quick
+  given: { m: { pick: [1, 2, 4] }, M: { pick: [2, 4, 6] } }
+  prompt: 'A ${{m}}$ kg mass hangs from a rope wrapped around a uniform disk pulley of mass ${{M}}$ kg free to turn. What is the tension in the rope, in N?'
+  parts:
+    - { ask: 'Tension (N)', label: y, tex: 'T', value: m*9.8*M/(2*m + M), tol: 0.002, explain: 'For the mass: $mg - T = ma$. For the disk: $TR = \tfrac12MR^2\,(a/R)$, so $T = \tfrac12Ma$. Together $T = \dfrac{mgM}{2m + M}$, less than $mg$ because the mass accelerates' }
+  verify: { expect: { y: "solve([Eq(m*Rational(98, 10) - x, m*Symbol('a')), Eq(x, M*Symbol('a')/2)], [x, Symbol('a')])[x]" } }
+
+# ── 6 · rotational energy and angular momentum ──────────────────────────
+- template: ph-rolling-ke-fraction
+  skill: physics.rotation
+  pace: quick
+  cases:
+    - { shape: 'A hoop', c: 1 }
+    - { shape: 'A solid cylinder', c: 0.5 }
+    - { shape: 'A solid sphere', c: 0.4 }
+    - { shape: 'A hollow sphere', c: 0.6666666666666666 }
+  prompt: '{{shape}} rolls without slipping ($I = c\,MR^2$, $c = {{c|4}}$). What fraction of its kinetic energy is rotational?'
+  parts:
+    - { ask: 'Fraction', label: y, tex: 'f', value: c/(1 + c), tol: 0.002, explain: 'With $\omega = v/R$, $K_{rot} = \tfrac12cMv^2$ and $K_{tr} = \tfrac12Mv^2$, so the rotational share is $\dfrac{c}{1 + c}$. A hoop splits evenly; a sphere keeps most in translation, which is why it wins the race' }
+  verify: { expect: { y: "(Rational(1, 2)*c*Symbol('M')*Symbol('R')**2*(Symbol('v')/Symbol('R'))**2)/(Rational(1, 2)*Symbol('M')*Symbol('v')**2 + Rational(1, 2)*c*Symbol('M')*Symbol('R')**2*(Symbol('v')/Symbol('R'))**2)" } }
+
+- template: ph-flywheel-spin-up
+  skill: physics.rotation
+  pace: quick
+  given: { tau: { pick: [5, 10, 20] }, n: { pick: [2, 5, 10] }, Iw: { pick: [0.5, 1, 2] } }
+  prompt: 'A constant ${{tau}}$ N·m torque turns a flywheel ($I = {{Iw}}$ kg·m²) from rest through ${{n}}$ revolutions. How fast is it then spinning, in rad/s?'
+  parts:
+    - { ask: 'ω (rad/s)', label: y, tex: '\omega', value: sqrt(2*tau*2*pi*n/Iw), tol: 0.002, explain: 'Rotational work–energy: $W = \tau\,\Delta\theta = \tfrac12I\omega^2$, with $\Delta\theta = 2\pi n$ radians' }
+  verify: { expect: { y: "Max(*solve(Eq(Rational(1, 2)*Iw*x**2, tau*2*pi*n), x))" } }
+
+- template: ph-disk-angular-momentum
+  skill: physics.rotation
+  pace: quick
+  given: { M: { pick: [2, 5, 10] }, R: { pick: [0.2, 0.3, 0.5] }, w: { pick: [5, 10, 20] } }
+  prompt: 'A uniform disk (${{M}}$ kg, radius ${{R}}$ m) spins at ${{w}}$ rad/s about its axis. What is its angular momentum, in kg·m²/s?'
+  parts:
+    - { ask: 'L (kg·m²/s)', label: y, tex: 'L', value: 0.5*M*R^2*w, tol: 0.002, explain: '$L = I\omega$ with $I = \tfrac12MR^2$ for a disk about its axis' }
+  verify: { expect: { y: "integrate(2*pi*Symbol('s')*M/(pi*R**2)*Symbol('s')*(w*Symbol('s')), (Symbol('s'), 0, R))" } }
+
+- template: ph-angular-impulse-time
+  skill: physics.rotation
+  pace: quick
+  given: { Iw: { pick: [0.5, 2, 5] }, w: { pick: [10, 20, 40] }, tau: { pick: [2, 5, 10] } }
+  prompt: 'A ${{tau}}$ N·m braking torque acts on a wheel ($I = {{Iw}}$ kg·m²) spinning at ${{w}}$ rad/s. How long until it stops, in s?'
+  parts:
+    - { ask: 'Time (s)', label: y, tex: 't', value: Iw*w/tau, tol: 0.002, explain: 'Angular impulse equals the change in angular momentum: $\tau\,\Delta t = I\omega$' }
+  verify: { expect: { y: "solve(Eq(tau*x, Iw*w), x)[0]" } }
+
+- template: ph-skater-ke-ratio
+  skill: physics.rotation
+  pace: quick
+  given: { k: { pick: [2, 3, 4] } }
+  prompt: 'A spinning skater pulls in her arms, cutting her rotational inertia to $1/{{k}}$ of its value. By what factor does her rotational kinetic energy change?'
+  parts:
+    - { ask: 'Factor', label: y, tex: 'f', value: k, tol: 0.005, explain: '$L$ is conserved, so $\omega$ goes up by $k$; $K = \dfrac{L^2}{2I}$ goes up by $k$ too. The extra energy is the work her arms do pulling inward' }
+  verify: { expect: { y: "(Symbol('L')**2/(2*Symbol('I')/k))/(Symbol('L')**2/(2*Symbol('I')))" } }
+
+- template: ph-rolling-vs-sliding
+  skill: physics.rotation
+  pace: quick
+  cases:
+    - { shape: 'A hoop', c: 1 }
+    - { shape: 'A solid cylinder', c: 0.5 }
+    - { shape: 'A solid sphere', c: 0.4 }
+  prompt: '{{shape}} ($c = {{c}}$ in $I = cMR^2$) rolls from rest down a ramp; a block slides down an identical frictionless ramp. What is the ratio of the rolling object''s speed at the bottom to the block''s?'
+  parts:
+    - { ask: 'v_roll / v_slide', label: y, tex: '\dfrac{v_r}{v_s}', value: sqrt(1/(1 + c)), tol: 0.002, explain: 'The same $mgh$ must also pay for spin: $mgh = \tfrac12(1 + c)mv^2$ against $\tfrac12mv^2$. The ratio is $1/\sqrt{1 + c}$, whatever the height' }
+  verify: { expect: { y: "Max(*solve(Eq(Rational(1, 2)*(1 + c)*x**2, Symbol('g')*Symbol('h')), x))/sqrt(2*Symbol('g')*Symbol('h'))" } }
+
+- template: ph-kepler-au-years
+  skill: physics.rotation
+  pace: quick
+  given: { a: { pick: [4, 9, 1.52, 5.2] } }
+  prompt: 'A body orbits the Sun with a semi-major axis of ${{a}}$ AU. What is its period, in years?'
+  parts:
+    - { ask: 'Period (years)', label: y, tex: 'T', value: a^1.5, tol: 0.002, explain: 'Kepler''s third law in solar units: $T^2 = a^3$ with $T$ in years and $a$ in AU, because the Earth gives 1 = 1' }
+  verify: { expect: { y: "Max(*solve(Eq(x**2, a**3), x))" } }
+
+- template: ph-orbit-energy-scaling
+  skill: physics.rotation
+  pace: quick
+  given: { f: { pick: [2, 4, 0.5] } }
+  prompt: 'A satellite moves to a circular orbit ${{f}}$ times the radius. By what factor does its kinetic energy change?'
+  parts:
+    - { ask: 'Factor', label: y, tex: 'k', value: 1/f, tol: 0.005, explain: '$\dfrac{mv^2}{r} = \dfrac{GMm}{r^2}$ gives $K = \dfrac{GMm}{2r} \propto 1/r$. Higher orbits are slower, though their total energy is greater' }
+  verify: { expect: { y: "(Symbol('GM')*Symbol('m')/(2*f*x))/(Symbol('GM')*Symbol('m')/(2*x))" } }
+
+# ── 7 · oscillations ──────────────────────────────────────────────────────
+- template: ph-shm-force-law
+  skill: physics.oscillations
+  pace: recall
+  cases:
+    - { law: 'F = −kx', ans: 0 }
+    - { law: 'F = −k x³', ans: 1 }
+    - { law: 'F = −k (a constant, always toward the centre)', ans: 1 }
+    - { law: 'F = −m g sin θ for a pendulum at large angles', ans: 1 }
+    - { law: 'F = −m g θ for a pendulum at small angles', ans: 0 }
+  prompt: 'Does a restoring force {{law}} produce simple harmonic motion?'
+  parts:
+    - { ask: 'SHM?', label: a, choice: ["Yes: the force is proportional to the displacement", "No: the period would depend on the amplitude"], correct: ans, explain: 'Simple harmonic means $F \propto -x$ exactly; then the period is the same for every amplitude. Any other force law still oscillates, but the period changes with amplitude' }
+  verify: { authored: true }
+
+- template: ph-spring-period
+  skill: physics.oscillations
+  pace: quick
+  given: { m: { pick: [0.2, 0.5, 1, 2] }, k: { pick: [20, 50, 100, 200] } }
+  prompt: 'A ${{m}}$ kg mass oscillates on a spring with $k = {{k}}$ N/m. What is the period, in s?'
+  parts:
+    - { ask: 'Period (s)', label: y, tex: 'T', value: 2*pi*sqrt(m/k), tol: 0.002, explain: '$T = 2\pi\sqrt{m/k}$: heavier is slower, stiffer is faster. The amplitude and $g$ do not appear' }
+  verify: { expect: { y: "2*pi/Max(*solve(Eq(m*x**2, k), x))" } }
+
+- template: ph-spring-period-scaling
+  skill: physics.oscillations
+  pace: quick
+  given: { fm: { pick: [4, 2, 9] }, fk: { pick: [1, 2, 4] } }
+  prompt: 'The mass on a spring is multiplied by ${{fm}}$ and the spring constant by ${{fk}}$. By what factor does the period change?'
+  parts:
+    - { ask: 'Factor', label: y, tex: 'f', value: sqrt(fm/fk), tol: 0.005, explain: '$T \propto \sqrt{m/k}$. Four times the mass on the same spring doubles the period' }
+  verify: { expect: { y: "(2*pi*sqrt(fm*Symbol('m', positive=True)/(fk*Symbol('k', positive=True))))/(2*pi*sqrt(Symbol('m', positive=True)/Symbol('k', positive=True)))" } }
+
+- template: ph-pendulum-g-scaling
+  skill: physics.oscillations
+  pace: quick
+  given: { f: { pick: [6, 4, 0.25] } }
+  prompt: 'A pendulum clock is taken where $g$ is $1/{{f}}$ of Earth''s. By what factor does its period change?'
+  parts:
+    - { ask: 'Factor', label: y, tex: 'k', value: sqrt(f), tol: 0.005, explain: '$T = 2\pi\sqrt{L/g}$. Weaker gravity, slower swing: on the Moon ($g/6$) the period is $\sqrt6 \approx 2.45$ times longer' }
+  verify: { expect: { y: "sqrt(Symbol('L', positive=True)/(Symbol('g', positive=True)/f))/sqrt(Symbol('L', positive=True)/Symbol('g', positive=True))" } }
+
+- template: ph-shm-max-accel
+  skill: physics.oscillations
+  pace: quick
+  given: { A: { pick: [0.02, 0.05, 0.1] }, T: { pick: [0.5, 1, 2] } }
+  prompt: 'An oscillator has amplitude ${{A}}$ m and period ${{T}}$ s. What is its maximum acceleration, in m/s²?'
+  parts:
+    - { ask: 'a_max (m/s²)', label: y, tex: 'a_{max}', value: A*(2*pi/T)^2, tol: 0.002, explain: '$a = -\omega^2x$ is largest at the turning points: $a_{max} = A\omega^2$ with $\omega = 2\pi/T$. Speed is zero there' }
+  verify: { expect: { y: "Abs(diff(A*cos(2*pi*Symbol('s')/T), Symbol('s'), 2).subs(Symbol('s'), 0))" } }
+
+- template: ph-shm-ke-fraction
+  skill: physics.oscillations
+  pace: quick
+  given: { r: { pick: [0.5, 0.25, 0.8, 0.6] } }
+  prompt: 'An oscillator is at ${{r}}$ of its amplitude from equilibrium. What fraction of its energy is kinetic?'
+  parts:
+    - { ask: 'Fraction', label: y, tex: 'K/E', value: 1 - r^2, tol: 0.002, explain: 'Total energy is $\tfrac12kA^2$ and potential is $\tfrac12kx^2$, so $K/E = 1 - (x/A)^2$. At half amplitude three quarters of the energy is kinetic' }
+  verify: { expect: { y: "(Rational(1, 2)*Symbol('k')*Symbol('A')**2 - Rational(1, 2)*Symbol('k')*(r*Symbol('A'))**2)/(Rational(1, 2)*Symbol('k')*Symbol('A')**2)" } }
+
+# ── 8 · fluids ────────────────────────────────────────────────────────────
+- template: ph-cube-mass-scaling
+  skill: physics.fluids
+  pace: quick
+  given: { f: { pick: [2, 3, 0.5] } }
+  prompt: 'A solid cube is replaced by one of the same material with ${{f}}$ times the edge length. By what factor does its mass change?'
+  parts:
+    - { ask: 'Factor', label: y, tex: 'k', value: f^3, tol: 0.005, explain: 'Same density, so mass goes with volume, $s^3$. Twice the size, eight times the mass, but only four times the area' }
+  verify: { expect: { y: "(Symbol('p')*(f*x)**3)/(Symbol('p')*x**3)" } }
+
+- template: ph-heel-pressure
+  skill: physics.fluids
+  pace: quick
+  given: { m: { pick: [50, 60, 70] }, A: { pick: [1, 2, 4] } }
+  prompt: 'A ${{m}}$ kg person stands with all her weight on one heel of area ${{A}}$ cm². What pressure does the heel exert on the floor, in MPa?'
+  parts:
+    - { ask: 'Pressure (MPa)', label: y, tex: 'P', value: m*9.8/(A*1e-4)/1e6, tol: 0.002, explain: '$P = F/A$ with $A$ in m² (1 cm² = $10^{-4}$ m²). A stiletto heel presses harder than an elephant''s foot' }
+  verify: { expect: { y: "solve(Eq(x*10**6*A/10**4, m*Rational(98, 10)), x)[0]" } }
+
+- template: ph-depth-for-pressure
+  skill: physics.fluids
+  pace: quick
+  cases:
+    - { fl: 'fresh water', rho: 1000 }
+    - { fl: 'seawater', rho: 1025 }
+    - { fl: 'mercury', rho: 13600 }
+  prompt: 'At what depth in {{fl}} (${{rho}}$ kg/m³) does the gauge pressure reach one atmosphere (101.3 kPa), in m?'
+  parts:
+    - { ask: 'Depth (m)', label: y, tex: 'h', value: 101300/(rho*9.8), tol: 0.002, explain: '$P_{gauge} = \rho gh$. About 10 m of water equals one atmosphere; the same pressure takes only 0.76 m of mercury, which is why barometers use it' }
+  verify: { expect: { y: "solve(Eq(rho*Rational(98, 10)*x, 101300), x)[0]" } }
+
+- template: ph-apparent-weight
+  skill: physics.fluids
+  pace: quick
+  given: { V: { pick: [100, 200, 500] }, rho: { pick: [2700, 7800, 8900] } }
+  prompt: 'A ${{V}}$ cm³ metal block (${{rho}}$ kg/m³) hangs from a spring scale, fully under water. What does the scale read, in N?'
+  parts:
+    - { ask: 'Reading (N)', label: y, tex: 'W_{app}', value: (rho - 1000)*V*1e-6*9.8, tol: 0.002, explain: 'Weight minus buoyancy: $(\rho - \rho_w)Vg$. The water pushes up with the weight of the water the block displaces' }
+  verify: { expect: { y: "rho*V/10**6*Rational(98, 10) - 1000*V/10**6*Rational(98, 10)" } }
+
+- template: ph-hydraulic-travel
+  skill: physics.fluids
+  pace: quick
+  given: { d1: { pick: [10, 20, 30] }, A1: { pick: [2, 5] }, A2: { pick: [50, 100, 200] } }
+  prompt: 'The small piston (${{A1}}$ cm²) of a hydraulic lift is pushed down ${{d1}}$ cm. How far does the large piston (${{A2}}$ cm²) rise, in cm?'
+  parts:
+    - { ask: 'Rise (cm)', label: y, tex: 'd_2', value: d1*A1/A2, tol: 0.002, explain: 'The liquid''s volume is fixed: $A_1d_1 = A_2d_2$. The force is multiplied by $A_2/A_1$ and the distance divided by it, so the work is the same: no free energy' }
+  verify: { expect: { y: "solve(Eq(A1*d1, A2*x), x)[0]" } }
+
+- template: ph-nozzle-speed-scaling
+  skill: physics.fluids
+  pace: quick
+  given: { f: { pick: [2, 3, 4] } }
+  prompt: 'A hose nozzle narrows the outlet to $1/{{f}}$ of the hose''s diameter. By what factor is the water faster at the outlet?'
+  parts:
+    - { ask: 'Factor', label: y, tex: 'k', value: f^2, tol: 0.005, explain: 'Continuity: $A_1v_1 = A_2v_2$, and area goes as diameter squared. A third of the diameter, nine times the speed' }
+  verify: { expect: { y: "solve(Eq(pi*x**2/4*Symbol('v'), pi*(x/f)**2/4*Symbol('u')), Symbol('u'))[0]/Symbol('v')" } }

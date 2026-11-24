@@ -26,10 +26,11 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 | Heat Transfer | NCEES FE Chemical CBT Exam Specifications (effective July 2020) | exam-spec | read in full | fe-mechanical, ib-physics-2025, pe-chemical | — | 101 | 63 | 38 |
 | INBDE (Dentistry) | JCNDE, Domain of Dentistry (INBDE content domain), July 2018 | exam-spec | read in part | — | — | 22 | 22 | 0 |
 | Information Systems | MSIS 2016 Global Competency Model | standard | read in full | — | — | 53 | 0 | 53 |
+| Advanced Inorganic Chemistry (Cotton & Wilkinson) | Cotton, Wilkinson, Murillo & Bochmann, Advanced Inorganic Chemistry, 6th ed. (1999): table of contents | textbook | read in part | icho-appendix-c, gre-chemistry | — | 37 | 0 | 37 |
 | Inorganic Chemistry | Regulations of the International Chemistry Olympiad, Appendices C and D (concepts, skills and factual knowledge) | exam-spec | read in full | icho-syllabus, gre-chemistry, usnco, ib-chemistry-2025 | — | 23 | 23 | 0 |
 | Linear Algebra | Lay, Lay & McDonald, Linear Algebra and Its Applications, 5th ed. (chapter list) | textbook | read in part | — | — | 10 | 10 | 0 |
 | Material and Energy Balances | NCEES FE Chemical CBT Exam Specifications (effective July 2020) | exam-spec | read in full | pe-chemical | — | 16 | 14 | 2 |
-| Polymers and Materials | Regulations of the International Chemistry Olympiad, Appendices C and D (concepts, skills and factual knowledge) | exam-spec | read in full | ib-chemistry-2025, fe-chemical, icho-syllabus | — | 6 | 6 | 0 |
+| Polymers and Materials | Regulations of the International Chemistry Olympiad, Appendices C and D (concepts, skills and factual knowledge) | exam-spec | read in full | ib-chemistry-2025, fe-chemical, icho-syllabus | — | 17 | 6 | 11 |
 | High School Mathematics (Common Core) | CCSS Mathematics Appendix A: high school course pathways | standard | read in full | — | — | 200 | 200 | 0 |
 | Mathematics K–8 (Common Core) | Common Core State Standards for Mathematics (2010) | standard | read through a crosswalk | — | — | 258 | 258 | 0 |
 | Mental Math | UIL Number Sense Problem Sequencing Charts (High School; A+ Junior High and Elementary, rev. 2016-17) with the Number Sense Handbook rules | exam-spec | read in full | sta-mtc, mit-18-03-coverup, mit-integration-bee | — | 84 | 81 | 3 |
@@ -69,6 +70,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 - **Fluid Mechanics**: Topics from FE Chemical area 6, read in full. Objectives and their order are ours; statics is assumed by the spec rather than listed. The framework stops at what a one-question drill can carry: no Moody chart, pump curves or differential analysis yet.
 - **Heat Transfer**: Also crosswalked to the FE Mechanical spec and UCI MAE 120.
 - **INBDE (Dentistry)**: Units are the Domain of Dentistry's three clinical sections plus Foundation Knowledge area 3 (materials); objectives cite the clinical content area or FK they serve and are ours.
+- **Advanced Inorganic Chemistry (Cotton & Wilkinson)**: Units follow the chapters of Cotton & Wilkinson 6e (table of contents read); the objectives are a house list on those chapters.
 - **Inorganic Chemistry**: Units 1, 2 and 4 follow IChO Appendix D's factual-knowledge list (read in full); coordination and solids follow its preparation-only topics and the GRE inorganic area. Objectives and their order are ours.
 - **Linear Algebra**: Units follow the chapters of Lay's Linear Algebra and Its Applications (a textbook, not a standard). A published curriculum standard has not been looked for yet.
 - **Material and Energy Balances**: Topics from FE Chemical area 8, read in full. Objectives and their order are ours and follow the usual textbook sequence; unit 1 is assumed by the spec rather than listed.
@@ -107,6 +109,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 - **Earth and Space Science**: standard, read in part
 - **Applied Engineering Mathematics**: textbook, read in full
 - **INBDE (Dentistry)**: exam-spec, read in part
+- **Advanced Inorganic Chemistry (Cotton & Wilkinson)**: textbook, read in part
 - **Linear Algebra**: textbook, read in part
 - **Mathematics K–8 (Common Core)**: standard, read through a crosswalk
 - **Molecular Simulation**: course, read in part
@@ -755,7 +758,7 @@ https://educate.iowa.gov/pk-12/standards/academics/science/high-school
 | PS3-1 | Energy change of one component from the others and the flows | 10 | 10 | physics (10) |
 | PS3-2 | Energy as motion of particles plus relative positions | 10 | 10 | physics (10) |
 | PS3-3 | Design a device that converts energy | — | — | **nothing yet** |
-| PS3-4 | Heat flow toward uniform energy (second law) | 12 | 10 | physics (12) |
+| PS3-4 | Heat flow toward uniform energy (second law) | 12 | 12 | physics (12) |
 | PS3-5 | Energy in electric and magnetic field interactions | 15 | 15 | physics (15) |
 | PS4-1 | Wave speed, frequency and wavelength | 13 | 13 | physics (13) |
 | PS4-2 | Advantages of digital transmission and storage | — | — | **nothing yet** |
@@ -854,12 +857,12 @@ https://ibo.org/globalassets/new-structure/recognition/pdfs/dp_sciences_physics_
 | A.3 | Work, energy and power | 10 | 10 | physics (10) |
 | A.4 | Rigid body mechanics (HL) | 16 | 16 | physics (16) |
 | A.5 | Galilean and special relativity (HL) | 5 | 5 | physics (5) |
-| B.1 | Thermal energy transfers | 19 | 16 | heat-transfer (7), physics (12) |
+| B.1 | Thermal energy transfers | 19 | 18 | heat-transfer (7), physics (12) |
 | B.2 | Greenhouse effect | 7 | 7 | earth-space (7) |
-| B.3 | Gas laws | 12 | 10 | physics (12) |
-| B.4 | Thermodynamics (HL) | 19 | 17 | physics (12), thermodynamics (7) |
+| B.3 | Gas laws | 12 | 12 | physics (12) |
+| B.4 | Thermodynamics (HL) | 19 | 19 | physics (12), thermodynamics (7) |
 | B.5 | Current and circuits | 12 | 12 | physics (12) |
-| C.1 | Simple harmonic motion | 5 | 4 | physics (5) |
+| C.1 | Simple harmonic motion | 5 | 5 | physics (5) |
 | C.2 | Wave model | 13 | 13 | physics (13) |
 | C.3 | Wave phenomena | 20 | 20 | physics (20) |
 | C.4 | Standing waves and resonance | 13 | 13 | physics (13) |

@@ -616,6 +616,11 @@ skills:
   - { id: inorg.redox, domain: inorg, title: "Redox half-equations and iodometry", short: "Redox", prereqs: [inorg.p-block] }
   - { id: inorg.qualitative, domain: inorg, title: "Qualitative analysis: precipitates, amphoterism, ion tests", short: "Qualitative analysis", prereqs: [inorg.s-block] }
   - { id: inorg.solids, domain: inorg, title: "Solid state: unit cells, packing, density, Bragg", short: "Solids" }
+  - { id: inorg.cross-cutting, domain: inorg, title: "Cross-cutting inorganic topics: HSAB, Latimer and Frost diagrams, disproportionation", short: "Acids, bases and redox diagrams", prereqs: [inorg.redox] }
+  - { id: inorg.main-group, domain: inorg, title: "Main-group chemistry group by group: hydrides, oxides, clusters, shapes, oxidation states, periodic anomalies", short: "Main-group chemistry", prereqs: [inorg.p-block, inorg.s-block] }
+  - { id: inorg.transition, domain: inorg, title: "Transition elements: d counts, spin, CFSE, Jahn–Teller, lability, first-row redox, metal–metal bonds", short: "Transition elements", prereqs: [inorg.coordination] }
+  - { id: inorg.f-block, domain: inorg, title: "Lanthanides and actinides: f counts, magnetism from J, oxidation states, actinyl ions", short: "Lanthanides and actinides", prereqs: [inorg.transition] }
+  - { id: inorg.organometallic, domain: inorg, title: "Organometallic steps and catalysis: 18-electron rule, oxidative addition, insertion, β-elimination, industrial cycles", short: "Organometallics and catalysis", prereqs: [inorg.transition] }
   - { id: anal.titration, domain: anal, title: "Titrimetry: back, redox, EDTA, Mohr, Kjeldahl, titration curves", short: "Titrations", prereqs: [inorg.redox] }
   - { id: anal.gravimetry, domain: anal, title: "Gravimetric analysis", short: "Gravimetry" }
   - { id: anal.equilibria, domain: anal, title: "Solubility in analysis: common ions and complexes", short: "Solubility" }
@@ -634,6 +639,7 @@ skills:
   - { id: physics.lagrangian, domain: physics, title: "Lagrangian mechanics", short: "Lagrangian mechanics" }
   - { id: materials.polymers, domain: materials, title: "Polymers: molar masses, step and chain growth, thermal behaviour", short: "Polymers" }
   - { id: materials.solids, domain: materials, title: "Mechanical and electronic properties of solids", short: "Materials properties" }
+  - { id: materials.colloids, domain: materials, title: "Colloids and interfaces: double layers, van der Waals forces, DLVO stability, coagulation", short: "Colloids and DLVO" }
 
   # ── separations and process design ──────────────────────────────────────
   - { id: sep.vle, domain: sep, title: "Vapour–liquid equilibrium and relative volatility", short: "VLE" }

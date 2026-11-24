@@ -1,0 +1,788 @@
+# Calculus (AP AB/BC, vectors, a little multivariable): a second question type for the 79 objectives
+# that had one. Reverse problems, interpretation, comparison and a different representation of the same
+# idea. Numbers are checked by sympy along another route (limit or integral instead of the shortcut,
+# a derivative computed rather than quoted); classifications whose answer is a fact are authored.
+
+# ── 1 · limits and continuity ────────────────────────────────────────────
+- template: ca-secant-to-tangent
+  skill: calc.limits
+  pace: quick
+  given: { a: { pick: [1, 2, 3] }, h: { pick: [0.1, 0.01, 0.5] } }
+  prompt: 'For $f(x) = x^2$, the secant slope over $[{{a}}, {{a}} + h]$ is $2({{a}}) + h$. What is it when $h = {{h}}$?'
+  parts:
+    - { ask: 'Secant slope', label: y, tex: 'm', value: 2*a + h, tol: 0.0001, explain: 'Average rate $\dfrac{(a+h)^2 - a^2}{h} = 2a + h$. As $h \to 0$ it closes in on the tangent slope $2a$; no single $h$ gives it exactly, which is why the derivative is a limit' }
+  verify: { expect: { y: "((a + h)**2 - a**2)/h" } }
+
+- template: ca-limit-from-formula
+  skill: calc.limits
+  pace: quick
+  given: { c: { pick: [1, 2, 3, -2] }, k: { pick: [1, 2, 5] } }
+  prompt: 'Find $\displaystyle\lim_{x\to {{c}}}\frac{x^2 - ({{c^2}})}{ {{k}}(x - ({{c}})) }$.'
+  parts:
+    - { ask: 'Limit', label: y, tex: 'L', value: 2*c/k, tol: 0.002, explain: 'Factor: $x^2 - c^2 = (x - c)(x + c)$. Cancel the common factor (allowed, since $x \ne c$ near the limit) and substitute: $\dfrac{2c}{k}$. A graph would show a hole there' }
+  verify: { expect: { y: "limit((x**2 - c**2)/(k*(x - c)), x, c)" } }
+
+- template: ca-limit-table-reverse
+  skill: calc.limits
+  pace: recall
+  cases:
+    - { q: '$f(1.9) = 3.9$, $f(1.99) = 3.99$, $f(2.01) = 4.01$, $f(2.1) = 4.1$', o1: '4', o2: '3.99', o3: 'Does not exist', ans: 0 }
+    - { q: '$f(1.9) = 1.0$, $f(1.99) = 1.0$, $f(2.01) = 3.0$, $f(2.1) = 3.0$', o1: 'Does not exist', o2: '2', o3: '3', ans: 0 }
+    - { q: '$f(1.9) = 10$, $f(1.99) = 100$, $f(2.01) = 100$, $f(2.1) = 10$', o1: 'Does not exist (grows without bound)', o2: '100', o3: '0', ans: 0 }
+  prompt: 'A table gives {{q}}. What is $\lim_{x\to2}f(x)$?'
+  parts:
+    - { ask: 'Limit', label: a, choice: ["{{o1}}", "{{o2}}", "{{o3}}"], correct: ans, explain: 'Read both sides. They must head to the same finite number; if they disagree, or blow up, the two-sided limit does not exist' }
+  verify: { authored: true }
+
+- template: ca-squeeze-bounds
+  skill: calc.limits
+  pace: recall
+  prompt: 'You know $-x^2 \le f(x) \le x^2$ for all $x$ near 0. What can you say about $\lim_{x\to0}f(x)$?'
+  parts:
+    - ask: 'Conclusion'
+      label: a
+      choice: ["It is 0, by the squeeze theorem", "It may not exist", "It equals f(0), whatever that is"]
+      correct: 0
+      explain: 'Both bounds go to 0, and $f$ is trapped between them, so it must too. That is how $x^2\cos(1/x) \to 0$ even though $\cos(1/x)$ itself has no limit'
+  verify: { authored: true }
+
+- template: ca-discontinuity-formula
+  skill: calc.continuity
+  pace: recall
+  cases:
+    - { q: '$\dfrac{x^2 - 4}{x - 2}$ at $x = 2$', o1: 'Removable', o2: 'Jump', o3: 'Infinite', ans: 0 }
+    - { q: '$\dfrac{1}{(x - 3)^2}$ at $x = 3$', o1: 'Infinite', o2: 'Removable', o3: 'Jump', ans: 0 }
+    - { q: '$\dfrac{|x|}{x}$ at $x = 0$', o1: 'Jump', o2: 'Removable', o3: 'Infinite', ans: 0 }
+    - { q: '$\dfrac{\sin x}{x}$ at $x = 0$', o1: 'Removable', o2: 'Jump', o3: 'Infinite', ans: 0 }
+  prompt: 'What kind of discontinuity does {{q}} have?'
+  parts:
+    - { ask: 'Kind', label: a, choice: ["{{o1}}", "{{o2}}", "{{o3}}"], correct: ans, explain: 'Removable: the limit exists but is not the value (a hole). Jump: the one-sided limits are finite and differ. Infinite: a vertical asymptote' }
+  verify: { authored: true }
+
+- template: ca-piecewise-continuous-check
+  skill: calc.continuity
+  pace: quick
+  given: { c: { pick: [1, 2, 3] }, m: { pick: [2, 3, 4] } }
+  prompt: '$f(x) = {{m}}x + b$ for $x < {{c}}$ and $f(x) = x^2$ for $x \ge {{c}}$. What value of $b$ makes $f$ continuous?'
+  parts:
+    - { ask: 'b', label: y, tex: 'b', value: c^2 - m*c, tol: 0.002, explain: 'Continuity at the break means the two pieces meet: $mc + b = c^2$' }
+  require: ['c^2 - m*c != 0']
+  verify: { expect: { y: "solve(Eq(limit(m*x + Symbol('b'), x, c), limit(x**2, x, c)), Symbol('b'))[0]" } }
+
+- template: ca-removable-value
+  skill: calc.continuity
+  pace: quick
+  given: { a: { pick: [1, 2, 3, 4] }, k: { pick: [1, 3, 5] } }
+  prompt: '$f(x) = \dfrac{x^2 + ({{k - a}})x - ({{a*k}})}{x - {{a}}}$ is undefined at $x = {{a}}$. What value should $f({{a}})$ be given to make $f$ continuous?'
+  parts:
+    - { ask: 'f(a)', label: y, tex: 'f(a)', value: a + k, tol: 0.002, explain: 'The numerator factors as $(x - a)(x + k)$, so away from $a$ the function is $x + k$. Plug the hole with its limit, $a + k$' }
+  verify: { expect: { y: "limit((x**2 + (k - a)*x - a*k)/(x - a), x, a)" } }
+
+- template: ca-ivt-applies
+  skill: calc.continuity
+  pace: recall
+  cases:
+    - { q: '$f$ is continuous on [0, 2] with $f(0) = -1$ and $f(2) = 3$. Must $f(c) = 0$ for some $c$ in (0, 2)?', o1: 'Yes, by the IVT', o2: 'No', o3: 'Only if f is differentiable', ans: 0 }
+    - { q: '$f(x) = 1/x$ has $f(-1) = -1$ and $f(1) = 1$. Must $f(c) = 0$ for some $c$ in (−1, 1)?', o1: 'No: f is not continuous on [−1, 1]', o2: 'Yes, by the IVT', o3: 'Yes, at c = 0', ans: 0 }
+    - { q: '$f$ is continuous on [1, 4] with $f(1) = 5$ and $f(4) = 8$. Must $f(c) = 2$ for some $c$ in (1, 4)?', o1: 'No: 2 is not between 5 and 8', o2: 'Yes, by the IVT', o3: 'Yes, by the Mean Value Theorem', ans: 0 }
+  prompt: '{{q}}'
+  parts:
+    - { ask: 'Answer', label: a, choice: ["{{o1}}", "{{o2}}", "{{o3}}"], correct: ans, explain: 'The IVT needs continuity on the closed interval and a target value between $f(a)$ and $f(b)$; then it guarantees at least one $c$. It says nothing outside those conditions' }
+  verify: { authored: true }
+
+# ── 2 · derivatives ──────────────────────────────────────────────────────
+- template: ca-avg-rate-table
+  skill: calc.derivative-basics
+  pace: quick
+  given: { t1: { pick: [0, 2, 5] }, dt: { pick: [2, 4, 5] }, P1: { pick: [120, 300] }, dP: { pick: [-40, 60, 90] } }
+  prompt: 'A population is ${{P1}}$ at $t = {{t1}}$ h and ${{P1 + dP}}$ at $t = {{t1 + dt}}$ h. What is its average rate of change, in per hour?'
+  parts:
+    - { ask: 'Rate (per h)', label: y, tex: '\bar r', value: dP/dt, tol: 0.002, explain: 'Slope of the secant line: $\dfrac{\Delta P}{\Delta t}$, with units of output over input' }
+  verify: { expect: { y: "solve(Eq(P1 + x*dt, P1 + dP), x)[0]" } }
+
+- template: ca-recognize-limit-derivative
+  skill: calc.derivative-basics
+  pace: quick
+  given: { a: { pick: [1, 2, 3] }, n: { pick: [2, 3, 4] } }
+  prompt: '$\displaystyle\lim_{h\to0}\frac{({{a}} + h)^{ {{n}} } - {{a^n}}}{h}$ is the derivative of which function at which point? Evaluate it.'
+  parts:
+    - { ask: 'Value', label: y, tex: 'L', value: n*a^(n - 1), tol: 0.002, explain: 'It is the definition of $f''(a)$ for $f(x) = x^n$, so it equals $na^{n-1}$; no need to expand' }
+  verify: { expect: { y: "limit(((a + x)**n - a**n)/x, x, 0)" } }
+
+- template: ca-tangent-line-value
+  skill: calc.derivative-basics
+  pace: quick
+  given: { a: { pick: [1, 2, 3] }, fa: { pick: [4, -1, 5] }, m: { pick: [2, -3, 0.5] }, d: { pick: [0.1, 0.2, -0.1] } }
+  prompt: '$f({{a}}) = {{fa}}$ and $f''({{a}}) = {{m}}$. Use the tangent line to estimate $f({{a + d}})$.'
+  parts:
+    - { ask: 'Estimate', label: y, tex: 'f', value: fa + m*d, tol: 0.002, explain: 'Near $a$, $f(x) \approx f(a) + f''(a)(x - a)$: start at the known value and move along the tangent' }
+  verify: { expect: { y: "fa + m*((a + d) - a)" } }
+
+- template: ca-corner-cusp-pick
+  skill: calc.derivative-basics
+  pace: recall
+  cases:
+    - { q: '$|x - 2|$ at $x = 2$', o1: 'A corner', o2: 'A cusp', o3: 'A vertical tangent', o4: 'It is differentiable there', ans: 0 }
+    - { q: '$x^{2/3}$ at $x = 0$', o1: 'A cusp', o2: 'A corner', o3: 'A vertical tangent', o4: 'It is differentiable there', ans: 0 }
+    - { q: '$x^{1/3}$ at $x = 0$', o1: 'A vertical tangent', o2: 'A corner', o3: 'A cusp', o4: 'It is differentiable there', ans: 0 }
+    - { q: '$x|x|$ at $x = 0$', o1: 'It is differentiable there', o2: 'A corner', o3: 'A cusp', o4: 'A vertical tangent', ans: 0 }
+  prompt: 'What does {{q}} have?'
+  parts:
+    - { ask: 'Feature', label: a, choice: ["{{o1}}", "{{o2}}", "{{o3}}", "{{o4}}"], correct: ans, explain: 'Differentiable needs the one-sided slopes to agree and be finite. Corner: two different finite slopes. Cusp: slopes go to ±∞ in opposite directions. Vertical tangent: both go to the same infinity' }
+  verify: { authored: true }
+
+- template: ca-derivative-at-point
+  skill: calc.derivative-rules
+  pace: quick
+  given: { a: { pick: [2, 3] }, b: { pick: [1, -2] }, c: { pick: [1, 2] } }
+  prompt: 'Let $f(x) = {{a}}\sin x + ({{b}})e^x + {{c}}\ln x$. Find $f''(1)$.'
+  parts:
+    - { ask: "f'(1)", label: y, tex: "f'(1)", value: a*cos(1) + b*exp(1) + c, tol: 0.002, explain: '$f''(x) = a\cos x + be^x + c/x$, then substitute $x = 1$ (radians)' }
+  verify: { expect: { y: "diff(a*sin(x) + b*exp(x) + c*log(x), x).subs(x, 1)" } }
+
+- template: ca-sin-limit-value
+  skill: calc.derivative-rules
+  pace: quick
+  given: { k: { pick: [2, 3, 5] }, m: { pick: [1, 2, 4] } }
+  prompt: 'Find $\displaystyle\lim_{x\to0}\frac{\sin({{k}}x)}{ {{m}}x}$.'
+  parts:
+    - { ask: 'Limit', label: y, tex: 'L', value: k/m, tol: 0.002, explain: 'Rewrite as $\dfrac{k}{m}\cdot\dfrac{\sin kx}{kx}$, and $\dfrac{\sin u}{u} \to 1$, the limit behind $\dfrac{d}{dx}\sin x = \cos x$' }
+  verify: { expect: { y: "limit(sin(k*x)/(m*x), x, 0)" } }
+
+- template: ca-trig-derivative-value
+  skill: calc.derivative-rules
+  pace: quick
+  given: { a: { pick: [1, 2, 3] } }
+  prompt: 'Find the slope of $y = {{a}}\tan x$ at $x = \pi/4$.'
+  parts:
+    - { ask: 'Slope', label: y, tex: 'm', value: 2*a, tol: 0.002, explain: '$\dfrac{d}{dx}\tan x = \sec^2x$, and $\sec^2(\pi/4) = 2$' }
+  verify: { expect: { y: "diff(a*tan(x), x).subs(x, pi/4)" } }
+
+- template: ca-inverse-derivative-table
+  skill: calc.implicit-inverse
+  pace: quick
+  given: { fa: { pick: [5, 7, 10] }, d: { pick: [2, 4, 0.5] } }
+  prompt: '$f(3) = {{fa}}$ and $f''(3) = {{d}}$. If $g = f^{-1}$, what is $g''({{fa}})$?'
+  parts:
+    - { ask: "g'", label: y, tex: "g'", value: 1/d, tol: 0.002, explain: 'Inverse slopes are reciprocals at matching points: $g''(f(a)) = 1/f''(a)$. Swap the roles of $x$ and $y$, and rise over run flips' }
+  verify: { expect: { y: "solve(Eq(x*d, 1), x)[0]" } }
+
+- template: ca-chain-at-point
+  skill: calc.chain-rule
+  pace: quick
+  given: { g2: { pick: [3, 4, 5] }, gp: { pick: [2, -1, 3] }, fp: { pick: [5, 2, -4] } }
+  prompt: '$g(2) = {{g2}}$, $g''(2) = {{gp}}$ and $f''({{g2}}) = {{fp}}$. Find $(f \circ g)''(2)$.'
+  parts:
+    - { ask: "(f∘g)'(2)", label: y, tex: "h'(2)", value: fp*gp, tol: 0.002, explain: 'Chain rule: $(f\circ g)''(x) = f''(g(x))\,g''(x)$. Evaluate $f''$ at $g(2)$, not at 2' }
+  require: ['fp*gp != 0']
+  verify: { expect: { y: "diff(fp*(g2 + gp*(x - 2)), x)" } }
+
+- template: ca-exp-base-derivative
+  skill: calc.chain-rule
+  pace: quick
+  given: { b: { pick: [2, 3, 10] }, k: { pick: [1, 2, 3] } }
+  prompt: 'Find the derivative of $y = {{b}}^x$ at $x = {{k}}$.'
+  parts:
+    - { ask: "y'", label: y, tex: "y'", value: b^k*log(b), tol: 0.002, explain: 'Write $b^x = e^{x\ln b}$; the chain rule gives $b^x\ln b$. Only for $b = e$ is the derivative the function itself' }
+  verify: { expect: { y: "diff(exp(x*log(b)), x).subs(x, k)" } }
+
+- template: ca-rate-interpret
+  skill: calc.rates
+  pace: recall
+  prompt: '$V(t)$ is the volume of water in a tank, in litres, $t$ minutes after noon, and $V''(10) = -3$. What does that mean?'
+  parts:
+    - ask: 'Meaning'
+      label: a
+      choice: ["At 12:10 the volume is falling at 3 litres per minute", "At 12:10 the tank holds 3 litres less than at noon", "The volume falls 3 litres in the first 10 minutes"]
+      correct: 0
+      explain: 'A derivative is an instantaneous rate, in output units per input unit, at one input. Totals over time come from integrals, not derivatives'
+  verify: { authored: true }
+
+- template: ca-linearization-value
+  skill: calc.rates
+  pace: quick
+  given: { n: { pick: [4, 9, 16, 25] }, d: { pick: [0.1, 0.2, -0.1] } }
+  prompt: 'Use the tangent line to $\sqrt x$ at $x = {{n}}$ to estimate $\sqrt{ {{n + d}} }$.'
+  parts:
+    - { ask: 'Estimate', label: y, tex: '\approx', value: sqrt(n) + d/(2*sqrt(n)), tol: 0.0001, explain: '$L(x) = \sqrt a + \dfrac{1}{2\sqrt a}(x - a)$. The curve bends down ($f'''' < 0$), so the tangent line overestimates' }
+  verify: { expect: { y: "sqrt(n) + diff(sqrt(x), x).subs(x, n)*d" } }
+
+# ── 5 · extrema and curve sketching ──────────────────────────────────────
+- template: ca-evt-guarantee
+  skill: calc.extrema
+  pace: recall
+  cases:
+    - { q: '$f(x) = x^2$ on $(0, 1)$', o1: 'No: the interval is open', o2: 'Yes, both', o3: 'Only a maximum', ans: 0 }
+    - { q: '$f(x) = x^3 - x$ on $[-2, 2]$', o1: 'Yes, both', o2: 'No: the interval is open', o3: 'No: f is not monotonic', ans: 0 }
+    - { q: '$f(x) = 1/x$ on $[-1, 1]$', o1: 'No: f is not continuous there', o2: 'Yes, both', o3: 'Only a minimum', ans: 0 }
+  prompt: 'Does the Extreme Value Theorem guarantee an absolute maximum and minimum for {{q}}?'
+  parts:
+    - { ask: 'Guaranteed?', label: a, choice: ["{{o1}}", "{{o2}}", "{{o3}}"], correct: ans, explain: 'The EVT needs a continuous function on a closed, bounded interval. Without either condition extrema can still exist, but nothing promises them' }
+  verify: { authored: true }
+
+- template: ca-second-deriv-at-critical
+  skill: calc.extrema
+  pace: quick
+  given: { a: { pick: [1, 2, 3] }, b: { pick: [1, 2] } }
+  prompt: '$f(x) = x^3 - {{3*a^2}}x + {{b}}$. Find $f''''$ at the critical point with $x > 0$.'
+  parts:
+    - { ask: "f''", label: y, tex: "f''", value: 6*a, tol: 0.002, explain: '$f''(x) = 3x^2 - 3a^2 = 0$ at $x = \pm a$; $f'''' = 6x$. At $x = a$ it is positive, so that point is a relative minimum' }
+  verify: { expect: { y: "diff(x**3 - 3*a**2*x + b, x, 2).subs(x, Max(*solve(diff(x**3 - 3*a**2*x + b, x), x)))" } }
+
+- template: ca-abs-max-value
+  skill: calc.extrema
+  pace: quick
+  given: { p: { pick: [0, 1] }, q: { pick: [3, 4] } }
+  prompt: 'What is the absolute maximum of $f(x) = x^3 - 6x^2 + 9x$ on $[{{p}}, {{q}}]$?'
+  parts:
+    - { ask: 'Max', label: y, tex: 'f_{max}', value: 'max(4, p^3 - 6*p^2 + 9*p, q^3 - 6*q^2 + 9*q)', tol: 0.002, explain: 'Candidates: endpoints and critical points ($f'' = 3(x - 1)(x - 3) = 0$ at 1 and 3) in the interval. The largest value wins' }
+  verify: { expect: { y: "Max((x**3 - 6*x**2 + 9*x).subs(x, p), (x**3 - 6*x**2 + 9*x).subs(x, q), (x**3 - 6*x**2 + 9*x).subs(x, 1), (x**3 - 6*x**2 + 9*x).subs(x, 3))" } }
+
+- template: ca-concavity-from-fpp
+  skill: calc.extrema
+  pace: recall
+  cases:
+    - { q: '$f''$ is increasing', o1: 'Concave up', o2: 'Concave down', o3: 'Increasing', ans: 0 }
+    - { q: '$f''''(x) < 0$', o1: 'Concave down', o2: 'Concave up', o3: 'Decreasing', ans: 0 }
+    - { q: '$f''$ changes from positive to negative', o1: 'A relative maximum', o2: 'A relative minimum', o3: 'An inflection point', ans: 0 }
+    - { q: '$f''$ has a relative maximum', o1: 'An inflection point', o2: 'A relative maximum', o3: 'A relative minimum', ans: 0 }
+  prompt: 'Where {{q}}, the graph of $f$ has…'
+  parts:
+    - { ask: 'Feature', label: a, choice: ["{{o1}}", "{{o2}}", "{{o3}}"], correct: ans, explain: 'The sign of $f''$ gives rising or falling; the sign of $f''''$ (whether $f''$ rises or falls) gives concavity; where $f''$ peaks or dips, concavity flips' }
+  verify: { authored: true }
+
+- template: ca-implicit-slope-point
+  skill: calc.implicit-inverse
+  pace: quick
+  given: { r: { pick: [5, 10, 13] } }
+  prompt: 'Find $dy/dx$ on the circle $x^2 + y^2 = {{r^2}}$ at the point $({{r == 5 ? 3 : (r == 10 ? 6 : 5)}}, {{r == 5 ? 4 : (r == 10 ? 8 : 12)}})$.'
+  parts:
+    - { ask: 'dy/dx', label: y, tex: "y'", value: '-(r == 5 ? 3 : (r == 10 ? 6 : 5))/(r == 5 ? 4 : (r == 10 ? 8 : 12))', tol: 0.002, explain: 'Differentiate both sides: $2x + 2yy'' = 0$, so $y'' = -x/y$. The tangent is perpendicular to the radius' }
+  verify: { expect: { y: "diff(sqrt(r**2 - x**2), x).subs(x, 3 if r == 5 else (6 if r == 10 else 5))" } }
+
+- template: ca-implicit-concavity
+  skill: calc.implicit-inverse
+  pace: recall
+  prompt: 'At the top point of the circle $x^2 + y^2 = 25$, is the curve concave up or down?'
+  parts:
+    - ask: 'Concavity'
+      label: a
+      choice: ["Concave down: y'' = −25/y³ < 0 for y > 0", "Concave up", "Neither: y'' = 0 there"]
+      correct: 0
+      explain: 'Differentiate $y'' = -x/y$ again and substitute $y'' $: $y'''' = -\dfrac{x^2 + y^2}{y^3} = -\dfrac{25}{y^3}$, negative on the upper half'
+  verify: { authored: true }
+
+# ── 6 · integration ──────────────────────────────────────────────────────
+- template: ca-net-change-rate
+  skill: calc.riemann-ftc
+  pace: quick
+  given: { a: { pick: [2, 3, 4] }, b: { pick: [1, 6, 10] }, T: { pick: [2, 4, 5] } }
+  prompt: 'Water flows into a tank at $r(t) = {{a}}t + {{b}}$ L/min. How much flows in over the first ${{T}}$ minutes, in L?'
+  parts:
+    - { ask: 'Litres', label: y, tex: 'V', value: a*T^2/2 + b*T, tol: 0.002, explain: 'The integral of a rate is the net change: $\int_0^T r(t)\,dt$, the area under the rate graph' }
+  verify: { expect: { y: "integrate(a*Symbol('t') + b, (Symbol('t'), 0, T))" } }
+
+- template: ca-riemann-left-right
+  skill: calc.riemann-ftc
+  pace: quick
+  given: { n: { pick: [2, 4] }, b: { pick: [2, 4] } }
+  prompt: 'Estimate $\int_0^{ {{b}} } x^2\,dx$ with a right Riemann sum of ${{n}}$ equal subintervals.'
+  parts:
+    - { ask: 'Right sum', label: y, tex: 'R_n', value: (b/n)^3*n*(n + 1)*(2*n + 1)/6, tol: 0.002, explain: 'Width $\Delta x = b/n$; heights at the right ends $x_k = k\Delta x$. For an increasing function the right sum overestimates' }
+  verify: { expect: { y: "summation((Symbol('k')*b/n)**2*b/n, (Symbol('k'), 1, n))" } }
+
+- template: ca-ftc-g-prime
+  skill: calc.extrema
+  pace: quick
+  given: { a: { pick: [1, 2] }, x0: { pick: [1, 2, 3] } }
+  prompt: '$g(x) = \displaystyle\int_{ {{a}} }^{x}(t^2 - 4)\,dt$. Find $g''({{x0}})$.'
+  parts:
+    - { ask: "g'", label: y, tex: "g'", value: x0^2 - 4, tol: 0.002, explain: 'FTC part 1: $g''(x) = f(x)$, the integrand at the upper limit. $g$ rises where the integrand is positive' }
+  require: ['x0^2 - 4 != 0']
+  verify: { expect: { y: "diff(integrate(Symbol('t')**2 - 4, (Symbol('t'), a, x)), x).subs(x, x0)" } }
+
+- template: ca-u-sub-value
+  skill: calc.antiderivatives
+  pace: quick
+  given: { k: { pick: [2, 3, 4] }, b: { pick: [1, 2] } }
+  prompt: 'Evaluate $\displaystyle\int_0^{ {{b}} } 2x(x^2 + 1)^{ {{k}} }\,dx$.'
+  parts:
+    - { ask: 'Value', label: y, tex: 'I', value: ((b^2 + 1)^(k + 1) - 1)/(k + 1), tol: 0.002, explain: '$u = x^2 + 1$, $du = 2x\,dx$; change the limits to $u = 1$ and $u = b^2 + 1$' }
+  verify: { expect: { y: "integrate(2*x*(x**2 + 1)**k, (x, 0, b))" } }
+
+# ── 7 · differential equations ───────────────────────────────────────────
+- template: ca-de-verify-solution
+  skill: calc.diffeq
+  pace: quick
+  given: { k: { pick: [2, 3, -1] }, Cc: { pick: [1, 4, 5] } }
+  prompt: '$y = {{Cc}}e^{ {{k}}x}$ solves $y'' = ky$. Evaluate $y''$ at $x = 0$.'
+  parts:
+    - { ask: "y'(0)", label: y, tex: "y'(0)", value: k*Cc, tol: 0.002, explain: 'Exponential growth or decay: the rate is $k$ times the amount, so at $x = 0$ it is $k\cdot y(0)$' }
+  verify: { expect: { y: "diff(Cc*exp(k*x), x).subs(x, 0)" } }
+
+- template: ca-slope-field-equilibrium
+  skill: calc.diffeq
+  pace: quick
+  given: { a: { pick: [2, 3, 5] }, b: { pick: [4, 6, 10] } }
+  prompt: 'For $\dfrac{dy}{dx} = y({{a}} - y)\cdot{{b}}$, at what positive $y$ are the slope-field segments horizontal?'
+  parts:
+    - { ask: 'y', label: y, tex: 'y', value: a, tol: 0.002, explain: 'Horizontal segments mark $dy/dx = 0$: $y = 0$ and $y = a$. Those are equilibrium solutions; the logistic curve levels off at $a$' }
+  verify: { expect: { y: "Max(*solve(x*(a - x)*b, x))" } }
+
+- template: ca-slope-field-feature
+  skill: calc.diffeq
+  pace: recall
+  cases:
+    - { q: 'slopes depend only on x (same along every vertical line)', o1: 'dy/dx = f(x)', o2: 'dy/dx = g(y)', o3: 'dy/dx = x + y', ans: 0 }
+    - { q: 'slopes depend only on y (same along every horizontal line)', o1: 'dy/dx = g(y)', o2: 'dy/dx = f(x)', o3: 'dy/dx = xy', ans: 0 }
+    - { q: 'slopes are zero all along the line y = −x', o1: 'dy/dx = x + y', o2: 'dy/dx = x − y', o3: 'dy/dx = xy', ans: 0 }
+  prompt: 'A slope field''s {{q}}. Which kind of equation is it?'
+  parts:
+    - { ask: 'Equation', label: a, choice: ["{{o1}}", "{{o2}}", "{{o3}}"], correct: ans, explain: 'Look along lines: if slopes match down columns, $y$ does not appear; along rows, $x$ does not appear. Zero-slope lines (isoclines) give the equation directly' }
+  verify: { authored: true }
+
+- template: ca-euler-vs-exact
+  skill: calc.diffeq
+  pace: quick
+  given: { h: { pick: [0.5, 0.25] } }
+  prompt: 'For $y'' = y$, $y(0) = 1$, one Euler step of size ${{h}}$ gives $1 + {{h}}$. By how much does it fall short of the exact $y({{h}})$?'
+  parts:
+    - { ask: 'Shortfall', label: y, tex: '\Delta', value: exp(h) - 1 - h, tol: 0.002, explain: 'The exact solution is $e^x$, concave up, so the tangent-line step underestimates. Smaller steps shrink the error' }
+  verify: { expect: { y: "exp(h) - (1 + h*1)" } }
+
+- template: ca-separable-constant
+  skill: calc.diffeq
+  pace: quick
+  given: { k: { pick: [2, 3] }, y0: { pick: [3, 5, 10] }, x1: { pick: [1, 2] } }
+  prompt: 'Solve $\dfrac{dy}{dx} = {{k}}y$ with $y(0) = {{y0}}$. What is $y({{x1}})$?'
+  parts:
+    - { ask: 'y', label: y, tex: 'y', value: y0*exp(k*x1), tol: 0.002, explain: 'Separate: $\int dy/y = \int k\,dx$ gives $y = Ce^{kx}$; the initial value fixes $C = y_0$' }
+  verify: { expect: { y: "y0*exp(integrate(k, (x, 0, x1)))" } }
+
+- template: ca-ivp-domain
+  skill: calc.diffeq
+  pace: quick
+  given: { a: { pick: [1, 2] }, y0: { pick: [2, 3, 4] } }
+  prompt: 'The solution of $\dfrac{dy}{dx} = \dfrac{-{{a}}x}{y}$, $y(0) = {{y0}}$ is $y = \sqrt{ {{y0^2}} - {{a}}x^2}$. On what interval $(-L, L)$ does it exist? Give $L$.'
+  parts:
+    - { ask: 'L', label: y, tex: 'L', value: y0/sqrt(a), tol: 0.002, explain: 'The solution must stay real and the equation needs $y \ne 0$: $y_0^2 - ax^2 > 0$. A particular solution''s domain is the interval containing the initial point' }
+  verify: { expect: { y: "Max(*solve(y0**2 - a*x**2, x))" } }
+
+# ── 8 · applications of integration ─────────────────────────────────────
+- template: ca-net-vs-total
+  skill: calc.integration-apps
+  pace: quick
+  given: { T: { pick: [3, 4, 6] } }
+  prompt: 'A particle moves with $v(t) = t - 2$ m/s. How far does it travel (total distance) from $t = 0$ to $t = {{T}}$, in m?'
+  parts:
+    - { ask: 'Distance (m)', label: y, tex: 'd', value: 2 + (T - 2)^2/2, tol: 0.002, explain: 'Total distance integrates $|v|$: split where $v$ changes sign ($t = 2$). Displacement, $\int v\,dt$, would let backward motion cancel forward' }
+  verify: { expect: { y: "integrate(Abs(Symbol('t') - 2), (Symbol('t'), 0, T))" } }
+
+- template: ca-area-x-vs-y
+  skill: calc.integration-apps
+  pace: quick
+  given: { c: { pick: [1, 2, 3] } }
+  prompt: 'Find the area between $y = \sqrt x$, the $y$-axis and the line $y = {{c}}$, by integrating in $x$ or in $y$.'
+  parts:
+    - { ask: 'Area', label: y, tex: 'A', value: c^3/3, tol: 0.002, explain: 'In $y$: $\int_0^c y^2\,dy = c^3/3$. In $x$: the rectangle $c \cdot c^2$ minus $\int_0^{c^2}\sqrt x\,dx$. Choose the variable that needs fewer integrals' }
+  verify: { expect: { y: "c*c**2 - integrate(sqrt(x), (x, 0, c**2))" } }
+
+- template: ca-area-two-curves
+  skill: calc.integration-apps
+  pace: quick
+  given: { a: { pick: [1, 2, 3] } }
+  prompt: 'Find the area between $y = x^2$ and $y = {{a}}x$.'
+  parts:
+    - { ask: 'Area', label: y, tex: 'A', value: a^3/6, tol: 0.002, explain: 'They meet at 0 and $a$; on that interval the line is on top. $\int_0^a(ax - x^2)\,dx = a^3/6$' }
+  verify: { expect: { y: "integrate(Abs(a*x - x**2), (x, 0, a))" } }
+
+- template: ca-cross-section-triangles
+  skill: calc.integration-apps
+  pace: quick
+  given: { b: { pick: [2, 3, 4] } }
+  prompt: 'The base of a solid is the region between $y = x$ and the $x$-axis for $0 \le x \le {{b}}$. Cross-sections perpendicular to the $x$-axis are isosceles right triangles with a leg on the base. Find the volume.'
+  parts:
+    - { ask: 'Volume', label: y, tex: 'V', value: b^3/6, tol: 0.002, explain: 'Each slice is a triangle with legs $s = x$: area $s^2/2$. Integrate the area along $x$' }
+  verify: { expect: { y: "integrate(x**2/2, (x, 0, b))" } }
+
+- template: ca-cross-section-squares-y
+  skill: calc.integration-apps
+  pace: quick
+  given: { r: { pick: [1, 2, 3] } }
+  prompt: 'The base of a solid is the disc $x^2 + y^2 \le {{r^2}}$. Cross-sections perpendicular to the $x$-axis are squares. Find the volume.'
+  parts:
+    - { ask: 'Volume', label: y, tex: 'V', value: 16*r^3/3, tol: 0.002, explain: 'At $x$ the chord is $2\sqrt{r^2 - x^2}$, so the square has area $4(r^2 - x^2)$. Integrate from $-r$ to $r$' }
+  verify: { expect: { y: "integrate((2*sqrt(r**2 - x**2))**2, (x, -r, r))" } }
+
+- template: ca-disc-about-axis
+  skill: calc.integration-apps
+  pace: quick
+  given: { b: { pick: [1, 2, 3] } }
+  prompt: 'The region under $y = \sqrt x$ from 0 to ${{b}}$ is revolved about the $x$-axis. Find the volume.'
+  parts:
+    - { ask: 'Volume', label: y, tex: 'V', value: pi*b^2/2, tol: 0.002, explain: 'Disc radius is the height $\sqrt x$: $V = \pi\int_0^b x\,dx$' }
+  verify: { expect: { y: "integrate(2*pi*Symbol('s')*(b - Symbol('s')**2), (Symbol('s'), 0, sqrt(b)))" } }
+
+- template: ca-washer-setup
+  skill: calc.integration-apps
+  pace: recall
+  prompt: 'The region between $y = x$ and $y = x^2$ is revolved about the $x$-axis. Which integral gives the volume?'
+  parts:
+    - ask: 'Integral'
+      label: a
+      choice: ["pi times the integral of (x² − x⁴) from 0 to 1", "pi times the integral of (x − x²)² from 0 to 1", "2 pi times the integral of (x − x²) from 0 to 1", "pi times the integral of (x⁴ − x²) from 0 to 1"]
+      correct: 0
+      explain: 'Washers: outer radius squared minus inner radius squared, $\pi(R^2 - r^2)$, not the square of the difference. Here $R = x$ (top), $r = x^2$'
+  verify: { authored: true }
+
+- template: ca-washer-about-line-above
+  skill: calc.integration-apps
+  pace: quick
+  given: { k: { pick: [1, 2] } }
+  prompt: 'The region between $y = x$ and $y = x^2$ is revolved about the line $y = {{k + 1}}$. Find the volume.'
+  parts:
+    - { ask: 'Volume', label: y, tex: 'V', value: pi*((k + 1)/3 - 2/15), tol: 0.002, explain: 'Measure radii from the axis: outer $= (k + 1) - x^2$ (the lower curve is now farther away), inner $= (k + 1) - x$' }
+  verify: { expect: { y: "pi*integrate(((k + 1) - x**2)**2 - ((k + 1) - x)**2, (x, 0, 1))" } }
+
+- template: ca-arc-length-line
+  skill: calc.integration-apps
+  pace: quick
+  given: { m: { pick: [3, 4, 0.75] }, b: { pick: [4, 3, 8] } }
+  prompt: 'Use the arc-length integral to find the length of $y = {{m}}x$ from $x = 0$ to $x = {{b}}$.'
+  parts:
+    - { ask: 'Length', label: y, tex: 'L', value: b*sqrt(1 + m^2), tol: 0.002, explain: '$L = \int\sqrt{1 + (y'')^2}\,dx$ with $y'' = m$ constant: $b\sqrt{1 + m^2}$, which agrees with Pythagoras' }
+  verify: { expect: { y: "sqrt(b**2 + (m*b)**2)" } }
+
+- template: ca-pumping-work
+  skill: calc.integration-apps
+  pace: quick
+  given: { h: { pick: [2, 3, 4] }, A: { pick: [1, 2] } }
+  prompt: 'A tank with a flat ${{A}}$ m² base holds water ${{h}}$ m deep, filled to the top. How much work pumps it all out over the top, in kJ? (ρg = 9.8 kN/m³.)'
+  parts:
+    - { ask: 'Work (kJ)', label: y, tex: 'W', value: 9.8*A*h^2/2, tol: 0.002, explain: 'A slice at depth $y$ below the top weighs $\rho gA\,dy$ and rises $y$: $W = \int_0^h \rho gAy\,dy$' }
+  verify: { expect: { y: "integrate(Rational(98, 10)*A*Symbol('s'), (Symbol('s'), 0, h))" } }
+
+# ── 9 · parametric, vector, polar ────────────────────────────────────────
+- template: ca-parametric-horizontal
+  skill: calc.parametric-polar
+  pace: quick
+  given: { a: { pick: [3, 12, 27] } }
+  prompt: 'A curve is $x = t^2$, $y = t^3 - {{a}}t$. At what positive $t$ is its tangent horizontal?'
+  parts:
+    - { ask: 't', label: y, tex: 't', value: sqrt(a/3), tol: 0.002, explain: 'Horizontal where $dy/dt = 0$ and $dx/dt \ne 0$: $3t^2 - a = 0$' }
+  verify: { expect: { y: "Max(*solve(diff(x**3 - a*x, x), x))" } }
+
+- template: ca-parametric-concavity
+  skill: calc.parametric-polar
+  pace: quick
+  given: { t0: { pick: [1, 2] } }
+  prompt: 'A curve is $x = t^2$, $y = t^3$. Find $d^2y/dx^2$ at $t = {{t0}}$.'
+  parts:
+    - { ask: "d²y/dx²", label: y, tex: "y''", value: 3/(4*t0), tol: 0.002, explain: '$dy/dx = \dfrac{3t^2}{2t} = \tfrac32t$, then $\dfrac{d^2y}{dx^2} = \dfrac{d(dy/dx)/dt}{dx/dt} = \dfrac{3/2}{2t}$. Do not just differentiate $dy/dx$ with respect to $t$' }
+  verify: { expect: { y: "diff(Rational(3, 2)*sqrt(x), x).subs(x, t0**2)" } }
+
+- template: ca-speed-parametric
+  skill: calc.parametric-polar
+  pace: quick
+  given: { a: { pick: [3, 6] }, b: { pick: [4, 8] }, t0: { pick: [1, 2] } }
+  prompt: 'A particle moves with $x = {{a}}t$, $y = {{b}}t^2/2$. What is its speed at $t = {{t0}}$?'
+  parts:
+    - { ask: 'Speed', label: y, tex: '|v|', value: sqrt(a^2 + (b*t0)^2), tol: 0.002, explain: 'Speed is the length of the velocity vector, $\sqrt{(dx/dt)^2 + (dy/dt)^2}$; arc length integrates it' }
+  verify: { expect: { y: "sqrt(diff(a*x, x)**2 + diff(b*x**2/2, x)**2).subs(x, t0)" } }
+
+- template: ca-vector-acceleration
+  skill: calc.parametric-polar
+  pace: quick
+  given: { a: { pick: [1, 2] }, b: { pick: [1, 3] }, t0: { pick: [1, 2] } }
+  prompt: 'A particle has $\mathbf r(t) = \langle {{a}}t^3, {{b}}t^2 \rangle$. What is the magnitude of its acceleration at $t = {{t0}}$?'
+  parts:
+    - { ask: '|a|', label: y, tex: '|\mathbf a|', value: sqrt((6*a*t0)^2 + (2*b)^2), tol: 0.002, explain: 'Differentiate each component twice: $\mathbf a = \langle 6at, 2b\rangle$' }
+  verify: { expect: { y: "sqrt(diff(a*x**3, x, 2)**2 + diff(b*x**2, x, 2)**2).subs(x, t0)" } }
+
+- template: ca-displacement-vector
+  skill: calc.parametric-polar
+  pace: quick
+  given: { p: { pick: [2, 3] }, q: { pick: [1, 4] }, T: { pick: [1, 2] } }
+  prompt: 'A particle has velocity $\mathbf v(t) = \langle {{p}}, {{q}}t\rangle$. How far is it from where it started at $t = {{T}}$?'
+  parts:
+    - { ask: 'Distance from start', label: y, tex: '|\Delta\mathbf r|', value: sqrt((p*T)^2 + (q*T^2/2)^2), tol: 0.002, explain: 'Integrate each component for the displacement, then take its length. Distance travelled would integrate the speed instead' }
+  verify: { expect: { y: "sqrt(integrate(p, (x, 0, T))**2 + integrate(q*x, (x, 0, T))**2)" } }
+
+- template: ca-rect-to-polar
+  skill: calc.parametric-polar
+  pace: quick
+  given: { a: { pick: [1, 3, -1] }, b: { pick: [1, -3, 3] } }
+  prompt: 'Convert $({{a}}, {{b}})$ to polar form with $r > 0$. What is $r$?'
+  parts:
+    - { ask: 'r', label: y, tex: 'r', value: sqrt(a^2 + b^2), tol: 0.002, explain: '$r = \sqrt{x^2 + y^2}$ and $\tan\theta = y/x$, with the quadrant checked from the signs' }
+  verify: { expect: { y: "Abs(a + I*b)" } }
+
+- template: ca-polar-area-petal
+  skill: calc.parametric-polar
+  pace: quick
+  given: { a: { pick: [1, 2, 3] } }
+  prompt: 'Find the area enclosed by the circle $r = {{2*a}}\cos\theta$.'
+  parts:
+    - { ask: 'Area', label: y, tex: 'A', value: pi*a^2, tol: 0.002, explain: '$A = \tfrac12\int r^2\,d\theta$ over $-\pi/2 \le \theta \le \pi/2$, which traces the circle once. It is a circle of radius $a$, so $\pi a^2$' }
+  verify: { expect: { y: "integrate((2*a*cos(x))**2/2, (x, -pi/2, pi/2))" } }
+
+- template: ca-polar-slope-reason
+  skill: calc.parametric-polar
+  pace: recall
+  prompt: 'For a polar curve $r(\theta)$, what does $dr/d\theta > 0$ tell you?'
+  parts:
+    - ask: 'Meaning'
+      label: a
+      choice: ["The curve moves away from the origin as θ increases", "The curve rises (dy/dx > 0)", "The curve is concave up"]
+      correct: 0
+      explain: '$dr/d\theta$ is the rate of change of distance from the origin. The slope $dy/dx$ needs $x = r\cos\theta$, $y = r\sin\theta$ and the quotient of their derivatives'
+  verify: { authored: true }
+
+# ── 10 · series ──────────────────────────────────────────────────────────
+- template: ca-telescoping-sum
+  skill: calc.series
+  pace: quick
+  given: { a: { pick: [1, 2, 3] } }
+  prompt: 'Find $\displaystyle\sum_{n=1}^{\infty}\left(\frac{ {{a}} }{n} - \frac{ {{a}} }{n + 1}\right)$.'
+  parts:
+    - { ask: 'Sum', label: y, tex: 'S', value: a, tol: 0.002, explain: 'Partial sums telescope: $s_N = a - \dfrac{a}{N + 1} \to a$. The sum is the limit of the partial sums' }
+  verify: { expect: { y: "limit(a - a/(x + 1), x, oo)" } }
+
+- template: ca-geometric-sum
+  skill: calc.series
+  pace: quick
+  given: { a: { pick: [2, 3, 6] }, r: { pick: [0.5, -0.5, 0.25] } }
+  prompt: 'Find $\displaystyle\sum_{n=0}^{\infty}{{a}}({{r}})^n$.'
+  parts:
+    - { ask: 'Sum', label: y, tex: 'S', value: a/(1 - r), tol: 0.002, explain: 'Geometric with $|r| < 1$: $S = \dfrac{a}{1 - r}$. With $|r| \ge 1$ the terms do not shrink to 0 and the nth-term test says it diverges' }
+  verify: { expect: { y: "summation(a*r**Symbol('k'), (Symbol('k'), 0, oo))" } }
+
+- template: ca-p-series-pick
+  skill: calc.series
+  pace: recall
+  cases:
+    - { q: '$\sum 1/n^2$', o1: 'Converges (p-series, p = 2 > 1)', o2: 'Diverges', ans: 0 }
+    - { q: '$\sum 1/\sqrt n$', o1: 'Diverges (p-series, p = 1/2 ≤ 1)', o2: 'Converges', ans: 0 }
+    - { q: '$\sum 1/n$', o1: 'Diverges (the harmonic series)', o2: 'Converges', ans: 0 }
+    - { q: '$\sum 1/n^{1.01}$', o1: 'Converges (p-series, p > 1)', o2: 'Diverges', ans: 0 }
+  prompt: 'Does {{q}} converge?'
+  parts:
+    - { ask: 'Behaviour', label: a, choice: ["{{o1}}", "{{o2}}"], correct: ans, explain: '$\sum 1/n^p$ converges exactly when $p > 1$, which the integral test shows by comparing with $\int_1^\infty x^{-p}\,dx$' }
+  verify: { authored: true }
+
+- template: ca-limit-comparison-ratio
+  skill: calc.series
+  pace: quick
+  given: { a: { pick: [2, 3, 5] }, b: { pick: [1, 4, 7] } }
+  prompt: 'To compare $\sum\dfrac{ {{a}}n + {{b}}}{n^3}$ with $\sum\dfrac1{n^2}$, find $\displaystyle\lim_{n\to\infty}\frac{a_n}{b_n}$.'
+  parts:
+    - { ask: 'Limit', label: y, tex: 'L', value: a, tol: 0.002, explain: 'The ratio tends to a positive finite number, so both series behave alike: since $\sum 1/n^2$ converges, so does this one' }
+  verify: { expect: { y: "limit(((a*x + b)/x**3)/(1/x**2), x, oo)" } }
+
+- template: ca-alternating-converge-pick
+  skill: calc.series
+  pace: recall
+  cases:
+    - { q: '$\sum (-1)^n/n$', o1: 'Conditionally convergent', o2: 'Absolutely convergent', o3: 'Divergent', ans: 0 }
+    - { q: '$\sum (-1)^n/n^2$', o1: 'Absolutely convergent', o2: 'Conditionally convergent', o3: 'Divergent', ans: 0 }
+    - { q: '$\sum (-1)^n n/(n + 1)$', o1: 'Divergent', o2: 'Conditionally convergent', o3: 'Absolutely convergent', ans: 0 }
+  prompt: 'Classify {{q}}.'
+  parts:
+    - { ask: 'Class', label: a, choice: ["{{o1}}", "{{o2}}", "{{o3}}"], correct: ans, explain: 'Test the absolute values first. If they converge, absolutely. If not, but the alternating series test works (terms decrease to 0), conditionally. Terms that do not go to 0 mean divergence' }
+  verify: { authored: true }
+
+- template: ca-alternating-terms-needed
+  skill: calc.series
+  pace: quick
+  given: { k: { pick: [2, 3] } }
+  prompt: 'How many terms of $\displaystyle\sum_{n=1}^{\infty}\frac{(-1)^{n+1}}{n}$ guarantee an error below $10^{-{{k}}}$ by the alternating series bound?'
+  parts:
+    - { ask: 'Terms', label: y, tex: 'N', value: 10^k, tol: 0.002, explain: 'The error after $N$ terms is at most the next term, $\dfrac1{N + 1}$. Need $\dfrac1{N + 1} < 10^{-k}$, so $N = 10^k$: this series converges very slowly' }
+  verify: { expect: { y: "solve(Eq(1/(x + 1), 10**(-k)), x)[0] + 1" } }
+
+- template: ca-lagrange-degree
+  skill: calc.taylor
+  pace: quick
+  given: { d: { pick: [0.1, 0.2, 0.5] }, n: { pick: [2, 3, 4] } }
+  prompt: 'The degree-${{n}}$ Maclaurin polynomial of $e^x$ is used at $x = {{d}}$. Using $|f^{(n+1)}| \le e^{ {{d}} } < 3$, what is the Lagrange bound on the error, times $10^5$?'
+  parts:
+    - { ask: 'Bound × 10⁵', label: y, tex: 'R \times 10^5', value: 3*d^(n + 1)/factorial(n + 1)*1e5, tol: 0.002, explain: '$|R_n| \le \dfrac{M|x|^{n+1}}{(n + 1)!}$. Factorials beat powers fast, so a few terms are enough near the centre' }
+  verify: { expect: { y: "3*d**(n + 1)/factorial(n + 1)*10**5" } }
+
+- template: ca-radius-ratio
+  skill: calc.taylor
+  pace: quick
+  given: { b: { pick: [2, 3, 5] } }
+  prompt: 'What is the radius of convergence of $\displaystyle\sum_{n=0}^{\infty}\frac{n\,x^n}{ {{b}}^n}$?'
+  parts:
+    - { ask: 'Radius', label: y, tex: 'R', value: b, tol: 0.002, explain: 'Ratio test: $\left|\dfrac{a_{n+1}}{a_n}\right| \to \dfrac{|x|}{b}$; need it below 1. The factor $n$ does not change the radius, only what happens at the endpoints' }
+  verify: { expect: { y: "1/limit(((x + 1)/b**(x + 1))/(x/b**x), x, oo)" } }
+
+- template: ca-series-coefficient
+  skill: calc.taylor
+  pace: quick
+  given: { k: { pick: [2, 3, 4] }, a: { pick: [2, 3] } }
+  prompt: 'In the Maclaurin series of $e^{ {{a}}x}$, what is the coefficient of $x^{ {{k}} }$?'
+  parts:
+    - { ask: 'Coefficient', label: y, tex: 'c_k', value: a^k/factorial(k), tol: 0.002, explain: 'Substitute $u = ax$ into $e^u = \sum u^k/k!$; or use $c_k = f^{(k)}(0)/k!$ with $f^{(k)}(0) = a^k$' }
+  verify: { expect: { y: "diff(exp(a*x), x, k).subs(x, 0)/factorial(k)" } }
+
+- template: ca-complex-modulus-power
+  skill: calc.complex-euler
+  pace: quick
+  given: { a: { pick: [1, 3] }, b: { pick: [1, 4] }, n: { pick: [2, 3, 4] } }
+  prompt: 'What is the modulus of $({{a}} + {{b}}i)^{ {{n}} }$?'
+  parts:
+    - { ask: 'Modulus', label: y, tex: '|z^n|', value: (a^2 + b^2)^(n/2), tol: 0.002, explain: 'De Moivre: raising to the $n$th power raises the modulus to the $n$th and multiplies the angle by $n$' }
+  verify: { expect: { y: "Abs(expand((a + I*b)**n))" } }
+
+- template: ca-complex-root-real-part
+  skill: calc.complex-euler
+  pace: quick
+  given: { p: { pick: [2, 4, 6] }, q: { pick: [5, 13, 25] } }
+  prompt: 'The roots of $r^2 + {{p}}r + {{q}} = 0$ are $\alpha \pm \beta i$. Find $\beta$.'
+  parts:
+    - { ask: 'β', label: y, tex: '\beta', value: sqrt(q - p^2/4), tol: 0.002, explain: 'Complete the square: $(r + p/2)^2 = p^2/4 - q < 0$, so $\alpha = -p/2$ and $\beta = \sqrt{q - p^2/4}$. Solutions of the ODE oscillate at angular frequency $\beta$' }
+  require: ['q - p^2/4 > 0']
+  verify: { expect: { y: "Abs(im(solve(Symbol('z')**2 + p*Symbol('z') + q, Symbol('z'))[0]))" } }
+
+# ── 11 · vectors in 3-D ──────────────────────────────────────────────────
+- template: cm-unit-vector-component
+  skill: calc.vectors-3d
+  pace: quick
+  given: { a: { pick: [1, 2, 3] }, b: { pick: [2, 6] }, c: { pick: [2, 6] } }
+  prompt: 'Find the $x$-component of the unit vector in the direction of $\langle {{a}}, {{b}}, {{c}}\rangle$.'
+  parts:
+    - { ask: 'x-component', label: y, tex: 'u_x', value: a/sqrt(a^2 + b^2 + c^2), tol: 0.002, explain: 'Divide every component by the length, $\sqrt{a^2 + b^2 + c^2}$' }
+  verify: { expect: { y: "(Matrix([a, b, c])/Matrix([a, b, c]).norm())[0]" } }
+
+- template: cm-projection-length
+  skill: calc.vectors-3d
+  pace: quick
+  given: { a1: { pick: [1, 2] }, a2: { pick: [2, 3] }, b1: { pick: [3, 4] }, b2: { pick: [4, 0] } }
+  prompt: 'Find the scalar projection of $\mathbf u = \langle {{a1}}, {{a2}}, 0\rangle$ onto $\mathbf v = \langle {{b1}}, {{b2}}, 0\rangle$.'
+  parts:
+    - { ask: 'comp', label: y, tex: '\mathrm{comp}', value: (a1*b1 + a2*b2)/sqrt(b1^2 + b2^2), tol: 0.002, explain: '$\mathrm{comp}_{\mathbf v}\mathbf u = \dfrac{\mathbf u\cdot\mathbf v}{|\mathbf v|}$: the length of $\mathbf u$''s shadow along $\mathbf v$' }
+  verify: { expect: { y: "Matrix([a1, a2, 0]).dot(Matrix([b1, b2, 0]))/Matrix([b1, b2, 0]).norm()" } }
+
+- template: cm-triangle-area
+  skill: calc.vectors-3d
+  pace: quick
+  given: { p: { pick: [2, 3] }, q: { pick: [1, 4] }, r: { pick: [2, 5] } }
+  prompt: 'Find the area of the triangle with vertices $(0,0,0)$, $({{p}}, 0, 0)$ and $(0, {{q}}, {{r}})$.'
+  parts:
+    - { ask: 'Area', label: y, tex: 'A', value: p*sqrt(q^2 + r^2)/2, tol: 0.002, explain: 'Half the length of the cross product of two edge vectors: $\tfrac12|\mathbf u \times \mathbf v|$' }
+  verify: { expect: { y: "Matrix([p, 0, 0]).cross(Matrix([0, q, r])).norm()/2" } }
+
+- template: cm-line-distance-point
+  skill: calc.vectors-3d
+  pace: quick
+  given: { t0: { pick: [1, 2, 3] }, d: { pick: [1, 2] } }
+  prompt: 'The line $\langle 1, 0, {{d}}\rangle + t\langle 1, 2, 2\rangle$ passes through which point at $t = {{t0}}$? Give its $z$-coordinate.'
+  parts:
+    - { ask: 'z', label: y, tex: 'z', value: d + 2*t0, tol: 0.002, explain: 'Plug the parameter in: point plus $t$ times direction, component by component' }
+  verify: { expect: { y: "(Matrix([1, 0, d]) + t0*Matrix([1, 2, 2]))[2]" } }
+
+- template: cm-plane-distance
+  skill: calc.vectors-3d
+  pace: quick
+  given: { d: { pick: [3, 6, 9] }, z0: { pick: [1, 4] } }
+  prompt: 'How far is the point $(1, 1, {{z0}})$ from the plane $x + 2y + 2z = {{d}}$?'
+  parts:
+    - { ask: 'Distance', label: y, tex: 'D', value: abs(1 + 2 + 2*z0 - d)/3, tol: 0.002, explain: '$D = \dfrac{|ax_0 + by_0 + cz_0 - d|}{\sqrt{a^2 + b^2 + c^2}}$: project onto the unit normal' }
+  require: ['3 + 2*z0 != d']
+  verify: { expect: { y: "Abs(Matrix([1, 2, 2]).dot(Matrix([1, 1, z0])) - d)/Matrix([1, 2, 2]).norm()" } }
+
+- template: ca-quadric-traces
+  skill: calc.vectors-3d
+  pace: recall
+  cases:
+    - { q: 'z = x² + y²', o1: 'Circles (an elliptic paraboloid)', o2: 'Hyperbolas', o3: 'Lines', ans: 0 }
+    - { q: 'z = x² − y²', o1: 'Hyperbolas (a saddle)', o2: 'Circles', o3: 'Ellipses', ans: 0 }
+    - { q: 'x² + y² − z² = 1', o1: 'Circles (a hyperboloid of one sheet)', o2: 'Parabolas', o3: 'Nothing for some heights', ans: 0 }
+    - { q: 'z² = x² + y²', o1: 'Circles (a cone)', o2: 'Hyperbolas', o3: 'Parabolas', ans: 0 }
+  prompt: 'What are the horizontal traces (z = constant ≠ 0) of {{q}}?'
+  parts:
+    - { ask: 'Traces', label: a, choice: ["{{o1}}", "{{o2}}", "{{o3}}"], correct: ans, explain: 'Fix one variable and look at the curve left over; two or three families of traces pin down the surface' }
+  verify: { authored: true }
+
+- template: cm-curve-speed
+  skill: calc.vectors-3d
+  pace: quick
+  given: { a: { pick: [1, 2] }, t0: { pick: [1, 2] } }
+  prompt: 'Find the speed of $\mathbf r(t) = \langle {{a}}t, t^2, \tfrac23t^3\rangle$ at $t = {{t0}}$.'
+  parts:
+    - { ask: 'Speed', label: y, tex: '|\mathbf r''|', value: sqrt(a^2 + 4*t0^2 + 4*t0^4), tol: 0.002, explain: 'Differentiate each component and take the length of $\mathbf r''$' }
+  verify: { expect: { y: "Matrix([diff(a*x, x), diff(x**2, x), diff(Rational(2, 3)*x**3, x)]).subs(x, t0).norm()" } }
+
+- template: cm-circle-curvature
+  skill: calc.vectors-3d
+  pace: quick
+  given: { R: { pick: [2, 4, 5] } }
+  prompt: 'What is the curvature of a circle of radius ${{R}}$?'
+  parts:
+    - { ask: 'κ', label: y, tex: '\kappa', value: 1/R, tol: 0.002, explain: 'Curvature is $|d\mathbf T/ds|$, the turning per unit length: a full turn of $2\pi$ over $2\pi R$ gives $1/R$. A bigger circle bends less' }
+  verify: { expect: { y: "Matrix([0, R, 0]).cross(Matrix([-R, 0, 0])).norm()/Matrix([0, R, 0]).norm()**3" } }
+
+# ── 12–15 · multivariable and hyperbolic ────────────────────────────────
+- template: ca-critical-point-classify
+  skill: calc.partials-apps
+  pace: recall
+  cases:
+    - { q: 'x² + y²', o1: 'A minimum', o2: 'A maximum', o3: 'A saddle point', ans: 0 }
+    - { q: 'x² − y²', o1: 'A saddle point', o2: 'A minimum', o3: 'A maximum', ans: 0 }
+    - { q: '4 − x² − y²', o1: 'A maximum', o2: 'A minimum', o3: 'A saddle point', ans: 0 }
+    - { q: 'xy', o1: 'A saddle point', o2: 'A minimum', o3: 'A maximum', ans: 0 }
+  prompt: 'What is the critical point of $f(x, y) = {{q}}$ at the origin?'
+  parts:
+    - { ask: 'Type', label: a, choice: ["{{o1}}", "{{o2}}", "{{o3}}"], correct: ans, explain: 'Second-derivative test: $D = f_{xx}f_{yy} - f_{xy}^2$. $D > 0$ with $f_{xx} > 0$ is a minimum, with $f_{xx} < 0$ a maximum; $D < 0$ is a saddle' }
+  verify: { authored: true }
+
+- template: cm-double-integral-order
+  skill: calc.multiple-integrals
+  pace: quick
+  given: { a: { pick: [1, 2] } }
+  prompt: 'Evaluate $\displaystyle\int_0^{ {{a}} }\!\int_y^{ {{a}} } 6x\,dx\,dy$ (switch the order if that helps).'
+  parts:
+    - { ask: 'Value', label: y, tex: 'I', value: 2*a^3, tol: 0.002, explain: 'The region is $0 \le y \le x \le a$. In the other order: $\int_0^a\int_0^x 6x\,dy\,dx = \int_0^a 6x^2\,dx$' }
+  verify: { expect: { y: "integrate(integrate(6*x, (Symbol('s'), 0, x)), (x, 0, a))" } }
+
+- template: ca-gradient-field-check
+  skill: calc.vector-calculus
+  pace: quick
+  given: { a: { pick: [2, 3] }, b: { pick: [1, 4] } }
+  prompt: 'Is $\mathbf F = \langle {{a}}y, {{b}}x\rangle$ a gradient field? Give $\partial Q/\partial x - \partial P/\partial y$.'
+  parts:
+    - { ask: 'Curl', label: y, tex: 'Q_x - P_y', value: b - a, tol: 0.002, explain: 'A 2-D field is a gradient (on a simply connected region) exactly when $Q_x = P_y$. Only $a = b$ works here: $\nabla(axy)$' }
+  require: ['b != a']
+  verify: { expect: { y: "diff(b*x, x) - diff(a*Symbol('s'), Symbol('s'))" } }
+
+- template: ca-continuity-1d
+  skill: calc.vector-calculus
+  pace: recall
+  prompt: 'A pollutant with concentration $c(x, t)$ moves along a pipe with flux $J(x, t)$ and no sources. Which equation follows from conservation on every short segment?'
+  parts:
+    - ask: 'Equation'
+      label: a
+      choice: ["∂c/∂t + ∂J/∂x = 0", "∂c/∂t = J", "∂c/∂x + ∂J/∂t = 0"]
+      correct: 0
+      explain: 'Amount in a segment changes by flux in minus flux out: $\frac{d}{dt}\int c\,dx = J(a) - J(b) = -\int\partial_xJ\,dx$. Holding for every segment gives the local law'
+  verify: { authored: true }
+
+- template: hy-cosh-value
+  skill: trig.hyperbolic
+  pace: quick
+  given: { a: { pick: [1, 2] } }
+  prompt: 'Compute $\cosh^2({{a}}) - \sinh^2({{a}})$.'
+  parts:
+    - { ask: 'Value', label: y, tex: 'v', value: 1, tol: 0.002, explain: 'From the definitions $\cosh x = (e^x + e^{-x})/2$, $\sinh x = (e^x - e^{-x})/2$: the difference of squares is always 1, the hyperbolic Pythagorean identity' }
+  verify: { expect: { y: "simplify(((exp(a) + exp(-a))/2)**2 - ((exp(a) - exp(-a))/2)**2)" } }
+
+- template: hy-arcsinh-value
+  skill: trig.hyperbolic
+  pace: quick
+  given: { s: { pick: [0.75, 1.5, 2.4] } }
+  prompt: 'Find $x$ with $\sinh x = {{s}}$.'
+  parts:
+    - { ask: 'x', label: y, tex: 'x', value: log(s + sqrt(s^2 + 1)), tol: 0.002, explain: '$\sinh^{-1}s = \ln(s + \sqrt{s^2 + 1})$, from solving $e^{2x} - 2se^x - 1 = 0$ for $e^x$' }
+  verify: { expect: { y: "log(Max(*solve(Eq(Symbol('u') - 1/Symbol('u'), 2*s), Symbol('u'))))" } }

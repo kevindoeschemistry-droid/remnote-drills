@@ -1269,6 +1269,8 @@ Big ideas: DATA, MODEL
 - g68-similar-triangles (geo.congruence)
 - g68-slice-shape (geo.measurement)
 - k8-volume-by-layers (geo.measurement)
+- hy-cosh-value (trig.hyperbolic)
+- hy-arcsinh-value (trig.hyperbolic)
 - hy-which-definition (trig.hyperbolic)
 - hy-value-at-log (trig.hyperbolic)
 - hy-pythagorean (trig.hyperbolic)

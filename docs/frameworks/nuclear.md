@@ -172,3 +172,7 @@ Big ideas: EXPONENTIAL
 - ● **NU-7.1.D** (doe-hdbk-1019:1) Calculate a Q-value from a mass difference and describe secular equilibrium.
   - EK: 931.5 MeV per u; at equilibrium parent and daughter activities are equal.
   - P1 · P2 · drills: ra-q-value, ra-secular-equilibrium
+
+## Drills not yet placed on the map
+
+- ac-mass-energy (nuc.decay)
