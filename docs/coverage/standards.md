@@ -20,7 +20,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 | Chemistry Olympiad | U.S. National Chemistry Olympiad: local and national exam format, multiple-choice topic bands and Part II | exam-spec | read in part | icho-appendix-c, icho-syllabus | — | 73 | 73 | 0 |
 | Chemistry (AP) | AP Chemistry Course and Exam Description (Fall 2024) | standard | read in part | ngss-hs, ib-chemistry-2025, usnco, icho-appendix-c, icho-syllabus, acs-accm, aamc-mcat-outline | — | 179 | 179 | 0 |
 | Computer Science | Computer Science Curricula 2023, Body of Knowledge | standard | read in full | — | — | 140 | 1 | 139 |
-| Dental Admission Test | Dental Admission Test 2026 Candidate Guide | exam-spec | read in full | ngss-hs, ib-chemistry-2025, usnco, icho-appendix-c | — | 183 | 72 | 111 |
+| Dental Admission Test | Dental Admission Test 2026 Candidate Guide | exam-spec | read in full | ngss-hs, ib-chemistry-2025, usnco, icho-appendix-c | — | 183 | 183 | 0 |
 | Earth and Space Science | Next Generation Science Standards, high school performance expectations (2013) | standard | read in part | ib-physics-2025, ib-biology-2025, gre-physics | — | 18 | 18 | 0 |
 | Electric Double Layers | Petsev, van Swol and Frink, Molecular Theory of Electric Double Layers (IOP Publishing, 2021) | textbook | read in part | — | — | 56 | 56 | 0 |
 | Applied Engineering Mathematics | Kreyszig, Advanced Engineering Mathematics, 10th ed. | textbook | read in full | fe-chemical, webwork-opl | — | 155 | 128 | 27 |
@@ -466,6 +466,148 @@ https://apcentral.collegeboard.org/media/pdf/ap-biology-course-and-exam-descript
 | 8.7.B | Explain how invasive species affect ecosystem dynamics | 4 | 4 | biology (4) |
 | 8.7.C | Describe human activities that change ecosystem structure and dynamics | 4 | 4 | biology (4) |
 | 8.7.D | Explain how geological and meteorological activity changes ecosystem structure and dynamics | 4 | 4 | biology (4) |
+
+## Dental Admission Test 2026 Candidate Guide
+
+
+
+133 of 133 items have at least one objective answering to them.
+
+| Item | Topic | Objectives | With a drill | Where |
+|---|---|---|---|---|
+| 1.1.a | Biology · Cell and Molecular Biology: Metabolism (photosynthesis, enzymology) | 3 | 3 | dat (3) |
+| 1.1.b | Biology · Cell and Molecular Biology: cellular processes (membrane transport, signal transduction) | 2 | 2 | dat (2) |
+| 1.1.c | Biology · Cell and Molecular Biology: thermodynamics | 1 | 1 | dat (1) |
+| 1.1.d | Biology · Cell and Molecular Biology: mitosis/meiosis | 2 | 2 | dat (2) |
+| 1.1.e | Biology · Cell and Molecular Biology: cell structure and function | 2 | 2 | dat (2) |
+| 1.1.f | Biology · Cell and Molecular Biology: experimental cell biology | 1 | 1 | dat (1) |
+| 1.1.g | Biology · Cell and Molecular Biology: biomolecules | 1 | 1 | dat (1) |
+| 1.2.a | Biology · Diversity of Life: Viruses | 1 | 1 | dat (1) |
+| 1.2.b | Biology · Diversity of Life: Archaebacteria | 1 | 1 | dat (1) |
+| 1.2.c | Biology · Diversity of Life: Eubacteria | 2 | 2 | dat (2) |
+| 1.2.d | Biology · Diversity of Life: Fungi | 1 | 1 | dat (1) |
+| 1.2.e | Biology · Diversity of Life: Protista | 1 | 1 | dat (1) |
+| 1.2.f | Biology · Diversity of Life: Plantae | 1 | 1 | dat (1) |
+| 1.2.g | Biology · Diversity of Life: Animalia | 2 | 2 | dat (2) |
+| 1.3.a | Biology · Structure and Function of Systems: Integumentary | 1 | 1 | dat (1) |
+| 1.3.b | Biology · Structure and Function of Systems: skeletal | 1 | 1 | dat (1) |
+| 1.3.c | Biology · Structure and Function of Systems: muscular | 1 | 1 | dat (1) |
+| 1.3.d | Biology · Structure and Function of Systems: circulatory | 2 | 2 | dat (2) |
+| 1.3.e | Biology · Structure and Function of Systems: immunological/lymphatic | 1 | 1 | dat (1) |
+| 1.3.f | Biology · Structure and Function of Systems: digestive | 1 | 1 | dat (1) |
+| 1.3.g | Biology · Structure and Function of Systems: respiratory | 2 | 2 | dat (2) |
+| 1.3.h | Biology · Structure and Function of Systems: urinary | 1 | 1 | dat (1) |
+| 1.3.i | Biology · Structure and Function of Systems: nervous/sensory | 2 | 2 | dat (2) |
+| 1.3.j | Biology · Structure and Function of Systems: endocrine | 2 | 2 | dat (2) |
+| 1.3.k | Biology · Structure and Function of Systems: reproductive | 1 | 1 | dat (1) |
+| 1.4.a | Biology · Genetics: Molecular | 3 | 3 | dat (3) |
+| 1.4.b | Biology · Genetics: human | 1 | 1 | dat (1) |
+| 1.4.c | Biology · Genetics: classical | 2 | 2 | dat (2) |
+| 1.4.d | Biology · Genetics: chromosomal | 1 | 1 | dat (1) |
+| 1.4.e | Biology · Genetics: genetic technology | 1 | 1 | dat (1) |
+| 1.4.f | Biology · Genetics: developmental mechanisms | 1 | 1 | dat (1) |
+| 1.4.g | Biology · Genetics: genomics | 1 | 1 | dat (1) |
+| 1.4.h | Biology · Genetics: gene expression | 2 | 2 | dat (2) |
+| 1.4.i | Biology · Genetics: epigenetics | 1 | 1 | dat (1) |
+| 1.5.a | Biology · Evolution and Ecology: Natural selection | 2 | 2 | dat (2) |
+| 1.5.b | Biology · Evolution and Ecology: population genetics/speciation | 2 | 2 | dat (2) |
+| 1.5.c | Biology · Evolution and Ecology: animal behavior | 1 | 1 | dat (1) |
+| 1.5.d | Biology · Evolution and Ecology: population, community and ecosystem ecology | 3 | 3 | dat (3) |
+| 2.1.a | General Chemistry · Stoichiometry and General Concepts: Percent composition | 1 | 1 | dat (1) |
+| 2.1.b | General Chemistry · Stoichiometry and General Concepts: empirical formulae | 1 | 1 | dat (1) |
+| 2.1.c | General Chemistry · Stoichiometry and General Concepts: balancing equations | 1 | 1 | dat (1) |
+| 2.1.d | General Chemistry · Stoichiometry and General Concepts: moles and molecular formulas | 2 | 2 | dat (2) |
+| 2.1.e | General Chemistry · Stoichiometry and General Concepts: molar mass | 1 | 1 | dat (1) |
+| 2.1.f | General Chemistry · Stoichiometry and General Concepts: density | 1 | 1 | dat (1) |
+| 2.1.g | General Chemistry · Stoichiometry and General Concepts: calculations from balanced equations | 1 | 1 | dat (1) |
+| 2.2.a | General Chemistry · Gases: Kinetic molecular theory of gases | 1 | 1 | dat (1) |
+| 2.2.b | General Chemistry · Gases: Dalton's, Boyle's and Charles's laws | 2 | 2 | dat (2) |
+| 2.2.c | General Chemistry · Gases: ideal gas law | 1 | 1 | dat (1) |
+| 2.3.a | General Chemistry · Liquids and Solids: Intermolecular forces | 1 | 1 | dat (1) |
+| 2.3.b | General Chemistry · Liquids and Solids: phase changes | 1 | 1 | dat (1) |
+| 2.3.c | General Chemistry · Liquids and Solids: vapor pressure | 1 | 1 | dat (1) |
+| 2.3.d | General Chemistry · Liquids and Solids: structure | 1 | 1 | dat (1) |
+| 2.3.e | General Chemistry · Liquids and Solids: polarity | 1 | 1 | dat (1) |
+| 2.3.f | General Chemistry · Liquids and Solids: properties | 2 | 2 | dat (2) |
+| 2.4.a | General Chemistry · Solutions: Polarity | 1 | 1 | dat (1) |
+| 2.4.b | General Chemistry · Solutions: properties (colligative, noncolligative) | 2 | 2 | dat (2) |
+| 2.4.c | General Chemistry · Solutions: forces | 1 | 1 | dat (1) |
+| 2.4.d | General Chemistry · Solutions: concentration calculations | 1 | 1 | dat (1) |
+| 2.5.a | General Chemistry · Acids and Bases: pH | 2 | 2 | dat (2) |
+| 2.5.b | General Chemistry · Acids and Bases: strength | 1 | 1 | dat (1) |
+| 2.5.c | General Chemistry · Acids and Bases: Brønsted–Lowry reactions | 1 | 1 | dat (1) |
+| 2.5.d | General Chemistry · Acids and Bases: calculations | 4 | 4 | dat (4) |
+| 2.6.a | General Chemistry · Chemical Equilibria: Molecular | 2 | 2 | dat (2) |
+| 2.6.b | General Chemistry · Chemical Equilibria: acid/base | 2 | 2 | dat (2) |
+| 2.6.c | General Chemistry · Chemical Equilibria: precipitation | 1 | 1 | dat (1) |
+| 2.6.d | General Chemistry · Chemical Equilibria: calculations | 2 | 2 | dat (2) |
+| 2.6.e | General Chemistry · Chemical Equilibria: Le Chatelier's principle | 1 | 1 | dat (1) |
+| 2.7.a | General Chemistry · Thermodynamics and Thermochemistry: Laws of thermodynamics | 1 | 1 | dat (1) |
+| 2.7.b | General Chemistry · Thermodynamics and Thermochemistry: Hess's law | 1 | 1 | dat (1) |
+| 2.7.c | General Chemistry · Thermodynamics and Thermochemistry: spontaneity | 2 | 2 | dat (2) |
+| 2.7.d | General Chemistry · Thermodynamics and Thermochemistry: enthalpies and entropies | 2 | 2 | dat (2) |
+| 2.7.e | General Chemistry · Thermodynamics and Thermochemistry: heat transfer | 1 | 1 | dat (1) |
+| 2.8.a | General Chemistry · Chemical Kinetics: Rate laws | 2 | 2 | dat (2) |
+| 2.8.b | General Chemistry · Chemical Kinetics: activation energy | 1 | 1 | dat (1) |
+| 2.8.c | General Chemistry · Chemical Kinetics: half-life | 1 | 1 | dat (1) |
+| 2.9.a | General Chemistry · Oxidation–Reduction Reactions: Balancing equations | 1 | 1 | dat (1) |
+| 2.9.b | General Chemistry · Oxidation–Reduction Reactions: determination of oxidation numbers | 1 | 1 | dat (1) |
+| 2.9.c | General Chemistry · Oxidation–Reduction Reactions: electrochemical calculations | 2 | 2 | dat (2) |
+| 2.9.d | General Chemistry · Oxidation–Reduction Reactions: electrochemical concepts and terminology | 1 | 1 | dat (1) |
+| 2.10.a | General Chemistry · Atomic and Molecular Structure: Electron configuration | 1 | 1 | dat (1) |
+| 2.10.b | General Chemistry · Atomic and Molecular Structure: orbital types | 1 | 1 | dat (1) |
+| 2.10.c | General Chemistry · Atomic and Molecular Structure: Lewis–dot diagrams | 1 | 1 | dat (1) |
+| 2.10.d | General Chemistry · Atomic and Molecular Structure: atomic theory | 2 | 2 | dat (2) |
+| 2.10.e | General Chemistry · Atomic and Molecular Structure: quantum theory | 2 | 2 | dat (2) |
+| 2.10.f | General Chemistry · Atomic and Molecular Structure: molecular geometry | 1 | 1 | dat (1) |
+| 2.10.g | General Chemistry · Atomic and Molecular Structure: bond types | 1 | 1 | dat (1) |
+| 2.10.h | General Chemistry · Atomic and Molecular Structure: subatomic particles | 1 | 1 | dat (1) |
+| 2.11.a | General Chemistry · Periodic Properties: Representative elements | 1 | 1 | dat (1) |
+| 2.11.b | General Chemistry · Periodic Properties: transition elements | 1 | 1 | dat (1) |
+| 2.11.c | General Chemistry · Periodic Properties: periodic trends | 1 | 1 | dat (1) |
+| 2.11.d | General Chemistry · Periodic Properties: descriptive chemistry | 2 | 2 | dat (2) |
+| 2.12.a | General Chemistry · Nuclear Reactions: Balancing equations | 1 | 1 | dat (1) |
+| 2.12.b | General Chemistry · Nuclear Reactions: binding energy | 1 | 1 | dat (1) |
+| 2.12.c | General Chemistry · Nuclear Reactions: decay processes | 2 | 2 | dat (2) |
+| 2.12.d | General Chemistry · Nuclear Reactions: particles | 1 | 1 | dat (1) |
+| 2.12.e | General Chemistry · Nuclear Reactions: terminology | 1 | 1 | dat (1) |
+| 2.13.a | General Chemistry · Laboratory: Basic techniques | 1 | 1 | dat (1) |
+| 2.13.b | General Chemistry · Laboratory: equipment | 1 | 1 | dat (1) |
+| 2.13.c | General Chemistry · Laboratory: error analysis | 1 | 1 | dat (1) |
+| 2.13.d | General Chemistry · Laboratory: safety | 1 | 1 | dat (1) |
+| 2.13.e | General Chemistry · Laboratory: data analysis | 1 | 1 | dat (1) |
+| 3.1.a | Organic Chemistry · Mechanisms: Curved arrows (single mechanism: resonance, free radical, proton transfer, addition, elimination, substitution, rearrangements, other e.g. Diels–Alder; combined mechanisms) | 7 | 7 | dat (7) |
+| 3.1.b | Organic Chemistry · Mechanisms: reaction coordinate diagrams | 1 | 1 | dat (1) |
+| 3.2.a | Organic Chemistry · Chemical Synthesis: One-step (SN1/SN2, E1/E2, alkenes/alkynes, alcohols, ethers incl. epoxides, radical, aromatics, carboxylic acids/derivatives, ketones and aldehydes, alpha-carbonyl compounds, other) | 8 | 8 | dat (8) |
+| 3.2.b | Organic Chemistry · Chemical Synthesis: two-step | 1 | 1 | dat (1) |
+| 3.2.c | Organic Chemistry · Chemical Synthesis: multi-step | 1 | 1 | dat (1) |
+| 3.2.d | Organic Chemistry · Chemical Synthesis: reactivity across multiple functional groups | 1 | 1 | dat (1) |
+| 3.3.a | Organic Chemistry · Acid–Base Chemistry: Ranking acidity/basicity across functional groups | 2 | 2 | dat (2) |
+| 3.3.b | Organic Chemistry · Acid–Base Chemistry: structure analysis within functional groups (charge, size, electronegativity, resonance, inductive effect, hybridization, sterics) | 2 | 2 | dat (2) |
+| 3.3.c | Organic Chemistry · Acid–Base Chemistry: prediction of products and equilibria | 1 | 1 | dat (1) |
+| 3.4.a | Organic Chemistry · Chemical and Physical Properties of Molecules: Structure (polarity, intermolecular forces, solubility, melting/boiling point) | 1 | 1 | dat (1) |
+| 3.4.b | Organic Chemistry · Chemical and Physical Properties of Molecules: laboratory theory and techniques (chromatography, extractions, recrystallization, distillation) | 1 | 1 | dat (1) |
+| 3.4.c | Organic Chemistry · Chemical and Physical Properties of Molecules: spectroscopy (¹H NMR, ¹³C NMR, infrared, multi-spectra) | 4 | 4 | dat (4) |
+| 3.5.a | Organic Chemistry · Structural Evaluation: Nomenclature (functional groups, IUPAC rules) | 2 | 2 | dat (2) |
+| 3.5.b | Organic Chemistry · Structural Evaluation: stereochemistry (conformations, isomer relationships, chirality) | 3 | 3 | dat (3) |
+| 3.5.c | Organic Chemistry · Structural Evaluation: structure and bonding (aromaticity, hybridization, resonance, atomic/molecular orbitals, bond angles/lengths, relative stability/reactivity) | 3 | 3 | dat (3) |
+| 4.1 | Perceptual Ability · Apertures: Determine whether a 3-D object can pass through an opening (keyhole) | 2 | 2 | dat (2) |
+| 4.2 | Perceptual Ability · View Recognition: Visualize the object from different angles (top, front, end views) | 2 | 2 | dat (2) |
+| 4.3 | Perceptual Ability · Angle Discrimination: Rank angles from smallest to largest | 1 | 1 | dat (1) |
+| 4.4 | Perceptual Ability · Paper Folding: Mentally unfold a folded and hole-punched sheet of paper | 2 | 2 | dat (2) |
+| 4.5 | Perceptual Ability · Cube Counting: Determine how much of each cube in a stack is exposed | 2 | 2 | dat (2) |
+| 4.6 | Perceptual Ability · 3-D Form Development: Spatial relations: identify the 3-D shape a flat pattern forms when folded | 2 | 2 | dat (2) |
+| 5 | Reading Comprehension: read, comprehend and analyze basic scientific information (3 passages, 50 items, 60 min) | 8 | 8 | dat (8) |
+| 6.1.a | Quantitative Reasoning · Algebra: Equations and expressions | 1 | 1 | dat (1) |
+| 6.1.b | Quantitative Reasoning · Algebra: inequalities | 1 | 1 | dat (1) |
+| 6.1.c | Quantitative Reasoning · Algebra: exponential notation | 1 | 1 | dat (1) |
+| 6.1.d | Quantitative Reasoning · Algebra: absolute value | 1 | 1 | dat (1) |
+| 6.1.e | Quantitative Reasoning · Algebra: ratios and proportions | 1 | 1 | dat (1) |
+| 6.1.f | Quantitative Reasoning · Algebra: graphical analysis | 1 | 1 | dat (1) |
+| 6.2 | Quantitative Reasoning · Data Analysis, Interpretation and Sufficiency | 2 | 2 | dat (2) |
+| 6.3 | Quantitative Reasoning · Quantitative Comparison | 2 | 2 | dat (2) |
+| 6.4 | Quantitative Reasoning · Probability and Statistics | 4 | 4 | dat (4) |
+| 6.5 | Quantitative Reasoning · Applied Mathematics (Word) Problems | 4 | 4 | dat (4) |
 
 ## UIL Number Sense Problem Sequencing Charts (High School; A+ Junior High and Elementary, rev. 2016-17) with the Number Sense Handbook rules
 
