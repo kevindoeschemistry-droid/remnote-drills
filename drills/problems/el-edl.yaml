@@ -37,6 +37,37 @@
   verify:
     expect:
       v: Abs(z1*z2)*Rational('1.602176634e-19')**2/(4*pi*nsimplify(er)*Rational('8.8541878128e-12')*(nsimplify(r)/10**9)**2)*10**12
+- template: el-coulomb-kt-distance
+  skill: edl.foundations
+  pace: quick
+  given:
+    z1:
+      pick:
+      - 1
+      - 2
+    z2:
+      pick:
+      - 1
+      - 2
+      - 3
+  cases:
+  - med: water
+    er: 78.4
+  - med: methanol
+    er: 32.7
+  - med: hexane
+    er: 1.89
+  prompt: At what separation, in nm, does the Coulomb energy between ions of charge numbers {{z1}} and {{z2}} in {{med}} (ε = {{er}}) equal k_BT at 25 °C? (e = 1.602 × 10⁻¹⁹ C, k_B = 1.381 × 10⁻²³ J/K, ε₀ = 8.854 × 10⁻¹² F/m, N_A = 6.022 × 10²³)
+  parts:
+  - ask: Answer
+    label: v
+    tex: r
+    value: z1*z2*1.602176634e-19^2/(4*pi*er*8.8541878128e-12*(1.380649e-23*298.15))*1e9
+    tol: 0.005
+    explain: 'Inside this distance electrostatics beats thermal motion: under a nanometre in water, tens of nanometres in oil, which is why ions dissociate in water and pair up in oil'
+  verify:
+    expect:
+      v: solve(Eq(z1*z2*Rational('1.602176634e-19')**2/(4*pi*nsimplify(er)*Rational('8.8541878128e-12')*x/10**9), (Rational('1.380649e-23')*Rational('298.15'))), x)[0]
 - template: el-helmholtz-capacitance
   skill: edl.foundations
   pace: quick
@@ -108,6 +139,30 @@
   verify:
     expect:
       v: z**n
+- template: el-ccc-predict
+  skill: edl.foundations
+  pace: quick
+  given:
+    c1:
+      pick:
+      - 25
+      - 50
+      - 100
+    z:
+      pick:
+      - 2
+      - 3
+  prompt: A sol coagulates at {{c1}} mM of a monovalent counterion. Under the z⁻⁶ Schulze–Hardy law, what concentration, in mM, of a counterion of valence {{z}} does the same?
+  parts:
+  - ask: Answer
+    label: v
+    tex: CCC_z
+    value: c1/z^6
+    tol: 0.005
+    explain: 'Trivalent ions coagulate at about 1/729 of the monovalent dose: alum (Al³⁺) clears water at micromolar levels'
+  verify:
+    expect:
+      v: solve(Eq(c1/x, nsimplify(z)**6), x)[0]
 - template: el-model-hierarchy
   skill: edl.foundations
   pace: recall
@@ -150,6 +205,43 @@
     explain: 'The book''s argument is that the solvent, usually far denser than the ions, sets the structure near the wall: only semi-primitive and civilized models can show it'
   verify:
     authored: true
+- template: el-model-capabilities
+  skill: edl.foundations
+  pace: recall
+  cases:
+  - q: What is the simplest model class that can show solvent layering (density oscillations) next to a wall?
+    o1: Semi-primitive
+    o2: Primitive
+    o3: Gouy–Chapman
+    o4: Helmholtz
+  - q: Which model class is needed for the solvent near the wall to orient (polarise) in the field?
+    o1: Civilized
+    o2: Semi-primitive
+    o3: Primitive
+    o4: Restricted primitive
+  - q: In the primitive model, what stands in for the solvent?
+    o1: A uniform dielectric constant
+    o2: Hard neutral spheres
+    o3: Point dipoles
+    o4: 'Nothing: the ions are in vacuum'
+  - q: What makes a primitive model 'restricted'?
+    o1: All ions have the same diameter
+    o2: Only one salt is present
+    o3: The wall is uncharged
+    o4: Ions are point charges
+  prompt: '{{q}}'
+  parts:
+  - ask: Answer
+    label: v
+    choice: &id002
+    - '{{o1}}'
+    - '{{o2}}'
+    - '{{o3}}'
+    - '{{o4}}'
+    correct: '0'
+    explain: 'Each step up the hierarchy adds a feature the simpler model cannot show: packing (semi-primitive), then orientation (civilized)'
+  verify:
+    authored: true
 - template: el-nernst-potential
   skill: edl.foundations
   pace: quick
@@ -179,6 +271,31 @@
   verify:
     expect:
       v: log(10)*(Rational('1.380649e-23')*Rational('298.15'))/Rational('1.602176634e-19')*(nsimplify(pI) - nsimplify(pH))*1000
+- template: el-nernst-ph
+  skill: edl.foundations
+  pace: quick
+  given:
+    pI:
+      pick:
+      - 3
+      - 5
+      - 9
+    psi:
+      pick:
+      - -150
+      - -60
+      - 60
+  prompt: A charge-regulating surface with pI = {{pI}} sits at Nernst potential ψ_N = {{psi}} mV at 25 °C. What is the bulk pH? (e = 1.602 × 10⁻¹⁹ C, k_B = 1.381 × 10⁻²³ J/K, ε₀ = 8.854 × 10⁻¹² F/m, N_A = 6.022 × 10²³)
+  parts:
+  - ask: Answer
+    label: v
+    tex: pH
+    value: pI - psi/1000/(log(10)*(1.380649e-23*298.15)/1.602176634e-19)
+    tol: 0.005
+    explain: About 59 mV per pH unit at 25 °C; a negative potential means the pH lies above the isoelectric point
+  verify:
+    expect:
+      v: pI + (-psi)*Rational('1.602176634e-19')/(1000*log(10)*(Rational('1.380649e-23')*Rational('298.15')))
 - template: el-regulation-linear
   skill: edl.foundations
   pace: quick
@@ -210,6 +327,34 @@
   verify:
     expect:
       v: Rational('1.602176634e-19')*nsimplify(G)*10**18*nsimplify(d)*diff(sinh(Symbol('u')), Symbol('u')).subs(Symbol('u'), 0)*Rational('1.602176634e-19')*nsimplify(dp)/1000/(Rational('1.380649e-23')*Rational('298.15'))*100
+- template: el-regulation-reverse
+  skill: edl.foundations
+  pace: quick
+  given:
+    G:
+      pick:
+      - 1
+      - 5
+    d:
+      pick:
+      - 0.01
+      - 0.1
+    s:
+      pick:
+      - 0.5
+      - 1
+      - 2
+  prompt: A regulating surface has Γ = {{G}} sites/nm² and δ = {{d}}. What potential drop ψ_N − ψ_s, in mV, gives σ = {{s}} μC/cm² under the linear regulation law? (e = 1.602 × 10⁻¹⁹ C, k_B = 1.381 × 10⁻²³ J/K, ε₀ = 8.854 × 10⁻¹² F/m, N_A = 6.022 × 10²³)
+  parts:
+  - ask: Answer
+    label: v
+    tex: \psi_N - \psi_s
+    value: s/100*(1.380649e-23*298.15)/(1.602176634e-19^2*G*1e18*d)*1000
+    tol: 0.005
+    explain: 'σ = (e²Γδ/kT)(ψ_N − ψ_s): a small δ (few, strongly bound sites) keeps the surface close to its Nernst value'
+  verify:
+    expect:
+      v: solve(Eq(Rational('1.602176634e-19')**2*G*10**18*nsimplify(d)*x/1000/(Rational('1.380649e-23')*Rational('298.15'))*100, s), x)[0]
 - template: el-stern-langmuir
   skill: edl.foundations
   pace: quick
@@ -245,6 +390,39 @@
   verify:
     expect:
       v: solve(Eq(x/(1 - x), nsimplify(vr)*exp(-phi - z*Rational('1.602176634e-19')*nsimplify(psi)/1000/(Rational('1.380649e-23')*Rational('298.15')))), x)[0]
+- template: el-stern-potential
+  skill: edl.foundations
+  pace: quick
+  given:
+    z:
+      pick:
+      - 1
+      - -1
+      - 2
+    th:
+      pick:
+      - 0.1
+      - 0.3
+      - 0.6
+    phi:
+      pick:
+      - -3
+      - -1
+    vr:
+      pick:
+      - 0.01
+      - 0.05
+  prompt: A single ion species of charge number {{z}} occupies a fraction θ = {{th}} of Stern sites, with adsorption energy {{phi}} kT and v₀ρ = {{vr}}. What is the Stern-plane potential, in mV (25 °C)? (e = 1.602 × 10⁻¹⁹ C, k_B = 1.381 × 10⁻²³ J/K, ε₀ = 8.854 × 10⁻¹² F/m, N_A = 6.022 × 10²³)
+  parts:
+  - ask: Answer
+    label: v
+    tex: \psi_\delta
+    value: -(1.380649e-23*298.15)/(z*1.602176634e-19)*(log(th/((1 - th)*vr)) + phi)*1000
+    tol: 0.005
+    explain: 'Invert the modified Langmuir isotherm: θ/(1 − θ) = v₀ρ e^{−φ − zeψ/kT}'
+  verify:
+    expect:
+      v: ((Rational('1.380649e-23')*Rational('298.15'))/(z*Rational('1.602176634e-19')))*(log(nsimplify(vr)) - phi - log(nsimplify(th)) + log(1 - nsimplify(th)))*1000
 - template: el-debye-length
   skill: edl.continuum
   pace: quick
@@ -269,6 +447,31 @@
   verify:
     expect:
       v: 1/sqrt(2*Rational('6.02214076e23')*nsimplify(c)*1000*(z*Rational('1.602176634e-19'))**2/(Rational(784, 10)*Rational('8.8541878128e-12')*(Rational('1.380649e-23')*Rational('298.15'))))*10**9
+- template: el-debye-scaling
+  skill: edl.continuum
+  pace: quick
+  given:
+    f:
+      pick:
+      - 4
+      - 10
+      - 100
+    z:
+      pick:
+      - 1
+      - 2
+      - 3
+  prompt: A 1:1 salt solution is concentrated by a factor {{f}} and its salt replaced by a {{z}}:{{z}} salt at the same molarity. By what factor does the Debye length change?
+  parts:
+  - ask: Answer
+    label: v
+    tex: \kappa_2^{-1}/\kappa_1^{-1}
+    value: 1/(z*sqrt(f))
+    tol: 0.005
+    explain: 'κ⁻¹ ∝ 1/(z√c): a hundredfold concentration shrinks the double layer tenfold'
+  verify:
+    expect:
+      v: sqrt(Symbol('er')*Rational('8.8541878128e-12')*(Rational('1.380649e-23')*Rational('298.15'))/(2*Rational('6.02214076e23')*f*Symbol('c')*z**2*Rational('1.602176634e-19')**2))/sqrt(Symbol('er')*Rational('8.8541878128e-12')*(Rational('1.380649e-23')*Rational('298.15'))/(2*Rational('6.02214076e23')*Symbol('c')*Rational('1.602176634e-19')**2))
 - template: el-grahame
   skill: edl.continuum
   pace: quick
@@ -295,6 +498,32 @@
   verify:
     expect:
       v: Rational(784, 10)*Rational('8.8541878128e-12')*((Rational('1.380649e-23')*Rational('298.15'))/Rational('1.602176634e-19'))*sqrt(2*Rational('6.02214076e23')*nsimplify(c)*1000*Rational('1.602176634e-19')**2/(Rational(784, 10)*Rational('8.8541878128e-12')*(Rational('1.380649e-23')*Rational('298.15'))))*sqrt(2*(cosh(Rational('1.602176634e-19')*nsimplify(psi)/1000/(Rational('1.380649e-23')*Rational('298.15'))) - 1))*100
+- template: el-grahame-reverse
+  skill: edl.continuum
+  pace: quick
+  given:
+    s:
+      pick:
+      - 0.5
+      - 2
+      - 5
+      - 10
+    c:
+      pick:
+      - 0.001
+      - 0.01
+      - 0.1
+  prompt: A flat surface carries σ = {{s}} μC/cm² in {{c}} M 1:1 salt (ε = 78.4, 25 °C). What surface potential does Gouy–Chapman give, in mV? (e = 1.602 × 10⁻¹⁹ C, k_B = 1.381 × 10⁻²³ J/K, ε₀ = 8.854 × 10⁻¹² F/m, N_A = 6.022 × 10²³)
+  parts:
+  - ask: Answer
+    label: v
+    tex: \psi_s
+    value: 2*(1.380649e-23*298.15)/1.602176634e-19*asinh(s/100/sqrt(8*78.4*8.8541878128e-12*c*1000*6.02214076e23*(1.380649e-23*298.15)))*1000
+    tol: 0.005
+    explain: 'Grahame inverted: the potential grows only logarithmically with charge once eψ/kT ≫ 1, and adding salt lowers it at fixed charge'
+  verify:
+    expect:
+      v: ((Rational('1.380649e-23')*Rational('298.15'))/Rational('1.602176634e-19'))*log(Symbol('u') + sqrt(Symbol('u')**2 - 1)).subs(Symbol('u'), 1 + (nsimplify(s)/100)**2/(4*Rational(784, 10)*Rational('8.8541878128e-12')*nsimplify(c)*1000*Rational('6.02214076e23')*(Rational('1.380649e-23')*Rational('298.15'))))*1000
 - template: el-gouy-chapman-profile
   skill: edl.continuum
   pace: quick
@@ -322,6 +551,27 @@
   verify:
     expect:
       v: edl_gc_psi(ps, kz)
+- template: el-gc-half-distance
+  skill: edl.continuum
+  pace: quick
+  given:
+    ps:
+      pick:
+      - 0.5
+      - 2
+      - 4
+      - 8
+  prompt: A Gouy–Chapman double layer has ψ̃_s = {{ps}}. At what κz has the reduced potential fallen to half its surface value?
+  parts:
+  - ask: Answer
+    label: v
+    tex: \kappa z
+    value: log(tanh(ps/4)/tanh(ps/8))
+    tol: 0.005
+    explain: 'Near a highly charged wall the potential drops much faster than e^{−κz}: half of it is gone well within one Debye length'
+  verify:
+    expect:
+      v: integrate(1/(2*sinh(Symbol('q')/2)), (Symbol('q'), nsimplify(ps)/2, nsimplify(ps)))
 - template: el-linear-error
   skill: edl.continuum
   pace: quick
@@ -348,6 +598,27 @@
   verify:
     expect:
       v: (edl_gc_psi(ps, kz) - ps*exp(-kz))/edl_gc_psi(ps, kz)*100
+- template: el-far-field-potential
+  skill: edl.continuum
+  pace: quick
+  given:
+    ps:
+      pick:
+      - 0.5
+      - 2
+      - 4
+      - 10
+  prompt: Far from a wall at ψ̃_s = {{ps}}, the Gouy–Chapman profile looks like ψ̃_eff e^{−κz}. What is ψ̃_eff?
+  parts:
+  - ask: Answer
+    label: v
+    tex: \tilde\psi_{eff}
+    value: 4*tanh(ps/4)
+    tol: 0.005
+    explain: 'The effective potential saturates at 4 (about 100 mV): beyond that, extra surface charge is invisible from far away'
+  verify:
+    expect:
+      v: edl_gc_psi(ps, 15)*exp(15)
 - template: el-midplane-pressure
   skill: edl.continuum
   pace: quick
@@ -374,6 +645,31 @@
   verify:
     expect:
       v: integrate(2*nsimplify(c)*1000*Rational('6.02214076e23')*(Rational('1.380649e-23')*Rational('298.15'))*sinh(Symbol('pp')), (Symbol('pp'), 0, nsimplify(pm)))/1000
+- template: el-midplane-from-pressure
+  skill: edl.continuum
+  pace: quick
+  given:
+    c:
+      pick:
+      - 0.001
+      - 0.01
+      - 0.1
+    P:
+      pick:
+      - 0.1
+      - 1
+      - 10
+  prompt: Two plates in {{c}} M 1:1 salt at 25 °C repel with a disjoining pressure of {{P}} kPa. What is the reduced midplane potential ψ̃_m? (e = 1.602 × 10⁻¹⁹ C, k_B = 1.381 × 10⁻²³ J/K, ε₀ = 8.854 × 10⁻¹² F/m, N_A = 6.022 × 10²³)
+  parts:
+  - ask: Answer
+    label: v
+    tex: \tilde\psi_m
+    value: acosh(1 + P*1000/(2*c*1000*6.02214076e23*(1.380649e-23*298.15)))
+    tol: 0.005
+    explain: 'Π = 2ρ₀kT(cosh ψ̃_m − 1): the midplane is a free-standing reservoir excess osmotic pressure'
+  verify:
+    expect:
+      v: log(Symbol('u') + sqrt(Symbol('u')**2 - 1)).subs(Symbol('u'), 1 + P*1000/(2*nsimplify(c)*1000*Rational('6.02214076e23')*(Rational('1.380649e-23')*Rational('298.15'))))
 - template: el-weak-overlap
   skill: edl.continuum
   pace: quick
@@ -400,6 +696,34 @@
   verify:
     expect:
       v: (2*4*tanh(nsimplify(ps)/4)*exp(-nsimplify(kh)/2))**2
+- template: el-weak-overlap-ratio
+  skill: edl.continuum
+  pace: quick
+  given:
+    p1:
+      pick:
+      - 1
+      - 2
+    p2:
+      pick:
+      - 4
+      - 8
+    n:
+      pick:
+      - 1
+      - 2
+      - 3
+  prompt: In the weak-overlap limit, by what factor does the double-layer pressure change when the plates' potential goes from ψ̃_s = {{p1}} to {{p2}} and the gap widens by {{n}} Debye lengths?
+  parts:
+  - ask: Answer
+    label: v
+    tex: \Pi_2/\Pi_1
+    value: (tanh(p2/4)/tanh(p1/4))^2*exp(-n)
+    tol: 0.005
+    explain: 'Π ≈ 64ρ₀kT γ² e^{−κh}: a fourfold potential rise gains less than the factor e lost per Debye length'
+  verify:
+    expect:
+      v: (64*tanh(nsimplify(p2)/4)**2*exp(-(Symbol('h') + n)))/(64*tanh(nsimplify(p1)/4)**2*exp(-Symbol('h')))
 - template: el-constant-potential-charge
   skill: edl.continuum
   pace: quick
@@ -421,6 +745,27 @@
   verify:
     expect:
       v: (-diff(cosh(Symbol('zz') - nsimplify(kh)/2)/cosh(nsimplify(kh)/2), Symbol('zz')).subs(Symbol('zz'), 0))
+- template: el-constant-charge-potential
+  skill: edl.continuum
+  pace: quick
+  given:
+    kh:
+      pick:
+      - 0.5
+      - 1
+      - 2
+      - 4
+  prompt: Two plates with fixed (low) surface charge approach to κh = {{kh}}. By what factor has each plate's surface potential risen over its isolated value (linear PB)?
+  parts:
+  - ask: Answer
+    label: v
+    tex: \psi_s(h)/\psi_s(\infty)
+    value: 1/tanh(kh/2)
+    tol: 0.005
+    explain: At constant charge the potential climbs as coth(κh/2); at constant potential the charge falls as tanh(κh/2). Real surfaces regulate between the two
+  verify:
+    expect:
+      v: (exp(kh) + 1)/(exp(kh) - 1)
 - template: el-sphere-charge
   skill: edl.continuum
   pace: quick
@@ -450,6 +795,31 @@
   verify:
     expect:
       v: -Rational(784, 10)*Rational('8.8541878128e-12')*diff(nsimplify(psi)/1000*Rational(R, 10**9)/Symbol('rr')*exp(-(Symbol('rr') - Rational(R, 10**9))/(nsimplify(kd)/10**9)), Symbol('rr')).subs(Symbol('rr'), Rational(R, 10**9))*100
+- template: el-sphere-flat-ratio
+  skill: edl.continuum
+  pace: quick
+  given:
+    R:
+      pick:
+      - 2
+      - 10
+      - 100
+    kd:
+      pick:
+      - 1
+      - 3
+      - 10
+  prompt: A sphere of radius {{R}} nm and a flat plate sit at the same low potential in salt with κ⁻¹ = {{kd}} nm. How many times more charge per area does the sphere carry?
+  parts:
+  - ask: Answer
+    label: v
+    tex: \sigma_{sph}/\sigma_{flat}
+    value: 1 + kd/R
+    tol: 0.005
+    explain: 'The Yukawa field of a sphere has an extra 1/r term: small particles need more charge for the same potential'
+  verify:
+    expect:
+      v: (-diff(nsimplify(R)*exp(-(Symbol('r') - nsimplify(R))/nsimplify(kd))/Symbol('r'), Symbol('r')).subs(Symbol('r'), nsimplify(R)))/(1/nsimplify(kd))
 - template: el-derjaguin-force
   skill: edl.continuum
   pace: quick
@@ -480,6 +850,31 @@
   verify:
     expect:
       v: 2*pi*(1/(1/nsimplify(R1) + 1/nsimplify(R2)))/10**6*nsimplify(f)/1000*10**9
+- template: el-derjaguin-reverse
+  skill: edl.continuum
+  pace: quick
+  given:
+    R:
+      pick:
+      - 1
+      - 5
+      - 10
+    F:
+      pick:
+      - 0.5
+      - 2
+      - 10
+  prompt: Two identical spheres of radius {{R}} μm feel a force of {{F}} nN at closest separation h. What interaction energy per area, in mJ/m², do two flat plates have at the same h?
+  parts:
+  - ask: Answer
+    label: v
+    tex: W
+    value: F*1e-9/(pi*R*1e-6)*1000
+    tol: 0.005
+    explain: 'F = 2πR_eff W with R_eff = R₁R₂/(R₁ + R₂) = R/2 for equal spheres: the surface-force apparatus reads W this way'
+  verify:
+    expect:
+      v: solve(Eq(2*pi*(nsimplify(R)/10**6)**2/(2*nsimplify(R)/10**6)*x/1000, nsimplify(F)/10**9), x)[0]
 - template: el-vdw-spheres
   skill: edl.continuum
   pace: quick
@@ -510,6 +905,31 @@
   verify:
     expect:
       v: 2*pi*(nsimplify(R)/2)*integrate(-nsimplify(A)/10**20/(12*pi*Symbol('zz')**2), (Symbol('zz'), nsimplify(h), oo))/(Rational('1.380649e-23')*Rational('298.15'))
+- template: el-vdw-kt-separation
+  skill: edl.continuum
+  pace: quick
+  given:
+    R:
+      pick:
+      - 50
+      - 100
+      - 500
+    A:
+      pick:
+      - 0.5
+      - 1
+      - 4
+  prompt: Two spheres of radius {{R}} nm have Hamaker constant {{A}} × 10⁻²⁰ J. At what separation, in nm, does their van der Waals energy reach −k_BT at 25 °C (h ≪ R)? (e = 1.602 × 10⁻¹⁹ C, k_B = 1.381 × 10⁻²³ J/K, ε₀ = 8.854 × 10⁻¹² F/m, N_A = 6.022 × 10²³)
+  parts:
+  - ask: Answer
+    label: v
+    tex: h
+    value: A*1e-20*R/(12*(1.380649e-23*298.15))
+    tol: 0.005
+    explain: 'V = −AR/12h for equal spheres: large colloids feel attraction worth kT from tens of nanometres, so the double layer must hold them off'
+  verify:
+    expect:
+      v: solve(Eq(nsimplify(A)/10**20*R/(12*x), (Rational('1.380649e-23')*Rational('298.15'))), x)[0]
 - template: el-electrophoresis
   skill: edl.continuum
   pace: quick
@@ -540,6 +960,27 @@
   verify:
     expect:
       v: nsimplify(f, tolerance=1e-12)*Rational(784, 10)*Rational('8.8541878128e-12')*Abs(z)/1000*E*100/Rational(89, 10**5)*10**6
+- template: el-zeta-from-mobility
+  skill: edl.continuum
+  pace: quick
+  given:
+    u:
+      pick:
+      - -4
+      - -2
+      - 1
+      - 3
+  prompt: A large particle (κa ≫ 1) in water (ε = 78.4, η = 0.89 mPa·s) has electrophoretic mobility {{u}} μm·cm/(V·s). What is its zeta potential, in mV (Smoluchowski)? (e = 1.602 × 10⁻¹⁹ C, k_B = 1.381 × 10⁻²³ J/K, ε₀ = 8.854 × 10⁻¹² F/m, N_A = 6.022 × 10²³)
+  parts:
+  - ask: Answer
+    label: v
+    tex: \zeta
+    value: 0.89e-3*u*1e-8/(78.4*8.8541878128e-12)*1000
+    tol: 0.005
+    explain: 'μ = εε₀ζ/η: 1 μm·cm/(V·s) is about 12.8 mV in water at 25 °C'
+  verify:
+    expect:
+      v: solve(Eq(Rational(784, 10)*Rational('8.8541878128e-12')*x/1000/Rational(89, 100000), nsimplify(u)/10**8), x)[0]
 - template: el-ek-limit
   skill: edl.continuum
   pace: quick
@@ -569,6 +1010,35 @@
   verify:
     choices:
       v: 0 if Rational(R, 1)/kd > 1 else 1
+- template: el-ka-limit
+  skill: edl.continuum
+  pace: quick
+  given:
+    a:
+      pick:
+      - 1
+      - 5
+      - 1000
+      - 5000
+    kd:
+      pick:
+      - 0.3
+      - 10
+      - 30
+  require:
+  - a/kd < 0.2 or a/kd > 100
+  prompt: A particle of radius {{a}} nm sits in salt with κ⁻¹ = {{kd}} nm. Which electrophoresis formula applies?
+  parts:
+  - ask: Answer
+    label: v
+    choice:
+    - Hückel (κa ≪ 1), μ = 2εε₀ζ/3η
+    - Smoluchowski (κa ≫ 1), μ = εε₀ζ/η
+    correct: 'a/kd < 1 ? 0 : 1'
+    explain: 'Compute κa first: thin double layers give Smoluchowski, thick ones Hückel, and Henry''s function bridges them'
+  verify:
+    choices:
+      v: 0 if nsimplify(a)/nsimplify(kd) < 1 else 1
 - template: el-fermi-temperature
   skill: edl.continuum
   pace: quick
@@ -594,6 +1064,30 @@
   verify:
     expect:
       v: Rational('1.054571817e-34')**2*(3*pi**2*nsimplify(N)*10**24)**Rational(2, 3)/(2*nsimplify(mr)*Rational('9.1093837e-31')*Rational('1.380649e-23'))
+- template: el-degenerate-density
+  skill: edl.continuum
+  pace: quick
+  given:
+    mr:
+      pick:
+      - 0.067
+      - 0.26
+      - 1
+    TF:
+      pick:
+      - 300
+      - 1000
+  prompt: Above what carrier density, in 10²⁴ m⁻³, does the Fermi temperature of carriers with effective mass {{mr}} m_e exceed {{TF}} K? (ħ = 1.0546 × 10⁻³⁴ J·s, m_e = 9.109 × 10⁻³¹ kg, k_B = 1.381 × 10⁻²³ J/K)
+  parts:
+  - ask: Answer
+    label: v
+    tex: n
+    value: (2*mr*9.1093837e-31*1.380649e-23*TF/(1.054571817e-34)^2)^1.5/(3*pi^2)/1e24
+    tol: 0.005
+    explain: 'k_F = (3π²n)^{1/3}: once T_F ≫ T, Boltzmann statistics (and so PB) no longer describe the carriers'
+  verify:
+    expect:
+      v: (sqrt(2*nsimplify(mr)*Rational('9.1093837e-31')*Rational('1.380649e-23')*TF)/Rational('1.054571817e-34'))**3/(3*pi**2)/10**24
 - template: el-oz-structure-factor
   skill: edl.liquid-state
   pace: quick
@@ -615,6 +1109,27 @@
   verify:
     expect:
       v: 1 + nsimplify(rc)/(1 - nsimplify(rc))
+- template: el-direct-correlation-from-s
+  skill: edl.liquid-state
+  pace: quick
+  given:
+    S0:
+      pick:
+      - 0.02
+      - 0.1
+      - 1
+      - 5
+  prompt: A fluid has structure factor S(0) = {{S0}}. What is ρĉ(k = 0)?
+  parts:
+  - ask: Answer
+    label: v
+    tex: \rho\hat c(0)
+    value: 1 - 1/S0
+    tol: 0.005
+    explain: 'OZ in Fourier space: S = 1/(1 − ρĉ). Dense liquids have S(0) ≪ 1 and large negative ρĉ(0); near a critical point S(0) blows up'
+  verify:
+    expect:
+      v: solve(Eq(1/(1 - x), nsimplify(S0)), x)[0]
 - template: el-hs-pressure
   skill: edl.liquid-state
   pace: quick
@@ -642,6 +1157,26 @@
   verify:
     expect:
       v: 1 + 4*nsimplify(eta)*(1 + nsimplify(eta)/2)/(1 - nsimplify(eta))**2 if w == 0 else ((1 + nsimplify(eta) + nsimplify(eta)**2)/(1 - nsimplify(eta))**3 if w == 1 else (1 + nsimplify(eta) + nsimplify(eta)**2 - nsimplify(eta)**3)/(1 - nsimplify(eta))**3)
+- template: el-cs-vs-py-virial
+  skill: edl.liquid-state
+  pace: quick
+  given:
+    eta:
+      pick:
+      - 0.1
+      - 0.3
+      - 0.45
+  prompt: At packing fraction η = {{eta}}, by how much does the Carnahan–Starling βp/ρ exceed the Percus–Yevick virial-route value?
+  parts:
+  - ask: Answer
+    label: v
+    tex: \Delta(\beta p/\rho)
+    value: (1 + eta + eta^2 - eta^3)/(1 - eta)^3 - (1 + 2*eta + 3*eta^2)/(1 - eta)^2
+    tol: 0.005
+    explain: CS sums the virial series with coefficients n² + 3n and lies between the PY virial (below) and compressibility (above) routes
+  verify:
+    expect:
+      v: 1 + summation((Symbol('n')**2 + 3*Symbol('n'))*nsimplify(eta)**Symbol('n'), (Symbol('n'), 1, oo)) - (1 + 2*nsimplify(eta) + 3*nsimplify(eta)**2)/(1 - nsimplify(eta))**2
 - template: el-closures
   skill: edl.liquid-state
   pace: recall
@@ -675,6 +1210,39 @@
     explain: For electrolytes, HNC handles the long-range Coulomb tail best; MSA gives analytic thermodynamics used later in DFT (section 7.4)
   verify:
     authored: true
+- template: el-closure-forms
+  skill: edl.liquid-state
+  pace: recall
+  cases:
+  - q: Which closure sets c(r) = −βu(r) outside the hard core?
+    o1: Mean spherical approximation (MSA)
+    o2: Percus–Yevick
+    o3: Hypernetted chain
+    o4: Debye–Hückel
+  - q: 'Which closure neglects the bridge function entirely: g = exp(−βu + h − c)?'
+    o1: Hypernetted chain (HNC)
+    o2: Percus–Yevick
+    o3: MSA
+    o4: Random phase approximation
+  - q: Which closure gives an analytic solution for hard spheres (Wertheim, Thiele)?
+    o1: Percus–Yevick
+    o2: HNC
+    o3: Kirkwood superposition
+    o4: Born–Green
+  - q: Why does the Ornstein–Zernike equation need a closure?
+    o1: It is one equation for two unknown functions, h and c
+    o2: It is nonlinear
+    o3: It has no Fourier transform
+    o4: It applies only to ideal gases
+  prompt: '{{q}}'
+  parts:
+  - ask: Answer
+    label: v
+    choice: *id002
+    correct: '0'
+    explain: OZ defines c; a closure ties c back to u and h. Charged systems usually take HNC or MSA, hard cores PY
+  verify:
+    authored: true
 - template: el-packing-fraction
   skill: edl.liquid-state
   pace: quick
@@ -702,6 +1270,30 @@
   verify:
     expect:
       v: integrate(4*pi*Symbol('rr')**2, (Symbol('rr'), 0, nsimplify(d)/2))*nsimplify(rho)
+- template: el-diameter-from-packing
+  skill: edl.liquid-state
+  pace: quick
+  given:
+    eta:
+      pick:
+      - 0.35
+      - 0.4
+      - 0.45
+    rho:
+      pick:
+      - 10
+      - 33.4
+  prompt: A hard-sphere solvent model must have packing fraction η = {{eta}} at number density {{rho}} nm⁻³. What diameter, in nm?
+  parts:
+  - ask: Answer
+    label: v
+    tex: d
+    value: (6*eta/(pi*rho))^(1/3)
+    tol: 0.005
+    explain: Water at 33.4 nm⁻³ with η ≈ 0.4 gives d ≈ 0.28 nm, close to its real size
+  verify:
+    expect:
+      v: solve(Eq(pi*nsimplify(rho)*x**3/6, nsimplify(eta)), x)[0]
 - template: el-b2-square-well
   skill: edl.liquid-state
   pace: quick
@@ -727,6 +1319,26 @@
   verify:
     expect:
       v: (-2*pi*(integrate(-Symbol('rr')**2, (Symbol('rr'), 0, 1)) + integrate((exp(nsimplify(be)) - 1)*Symbol('rr')**2, (Symbol('rr'), 1, nsimplify(lam)))))/(2*pi/3)
+- template: el-boyle-square-well
+  skill: edl.liquid-state
+  pace: quick
+  given:
+    lam:
+      pick:
+      - 1.25
+      - 1.5
+      - 2
+  prompt: A square-well fluid has well width λ = {{lam}}. At what reduced temperature kT/ε does B₂ vanish (the Boyle temperature)?
+  parts:
+  - ask: Answer
+    label: v
+    tex: kT_B/\varepsilon
+    value: 1/log(lam^3/(lam^3 - 1))
+    tol: 0.005
+    explain: Below T_B attraction wins (B₂ < 0); wider wells raise the Boyle temperature
+  verify:
+    expect:
+      v: 1/log(1 + 1/(nsimplify(lam)**3 - 1))
 - template: el-vdw-reduced
   skill: edl.liquid-state
   pace: quick
@@ -754,6 +1366,32 @@
   verify:
     expect:
       v: (Symbol('rh')/(1 - Rational(1, 3)*Symbol('rh'))*Rational(8, 3)*nsimplify(t) - 3*Symbol('rh')**2).subs(Symbol('rh'), nsimplify(r))
+- template: el-vdw-z-reduced
+  skill: edl.liquid-state
+  pace: quick
+  given:
+    r:
+      pick:
+      - 0.2
+      - 0.5
+      - 1
+      - 2
+    t:
+      pick:
+      - 0.9
+      - 1
+      - 1.5
+  prompt: In reduced van der Waals units, what is the compressibility factor Z = pv/RT at ρ̃ = {{r}} and T̃ = {{t}}?
+  parts:
+  - ask: Answer
+    label: v
+    tex: Z
+    value: 3/8*(8*r*t/(3 - r) - 3*r^2)/(r*t)
+    tol: 0.005
+    explain: 'Z = 1/(1 − bρ) − aρ/RT, with bρ = ρ̃/3 and aρ/RT = 9ρ̃/8T̃: Z_c = 3/8 at the critical point'
+  verify:
+    expect:
+      v: 1/(1 - nsimplify(r)/3) - 9*nsimplify(r)/(8*nsimplify(t))
 - template: el-mean-field-m
   skill: edl.liquid-state
   pace: quick
@@ -777,6 +1415,29 @@
   verify:
     expect:
       v: edl_mf_m(t)
+- template: el-mf-susceptibility
+  skill: edl.liquid-state
+  pace: quick
+  given:
+    t1:
+      pick:
+      - 1.01
+      - 1.1
+    t2:
+      pick:
+      - 1.5
+      - 2
+  prompt: Above T_c the mean-field Ising susceptibility follows χ ∝ 1/(T − T_c). By what factor does χ fall when T/T_c rises from {{t1}} to {{t2}}?
+  parts:
+  - ask: Answer
+    label: v
+    tex: \chi_1/\chi_2
+    value: (t2 - 1)/(t1 - 1)
+    tol: 0.005
+    explain: 'Linearise m = tanh((m + h)/t) at small h: m = h/(t − 1). The Curie–Weiss divergence is mean field''s γ = 1'
+  verify:
+    expect:
+      v: solve(Eq(x, (x + Symbol('h'))/nsimplify(t1)), x)[0]/solve(Eq(x, (x + Symbol('h'))/nsimplify(t2)), x)[0]
 - template: el-spt-cavity
   skill: edl.liquid-state
   pace: quick
@@ -797,6 +1458,26 @@
   verify:
     expect:
       v: integrate(4*pi*Symbol('ll')**2*Symbol('rh')/(1 - Rational(4, 3)*pi*Symbol('rh')*Symbol('ll')**3), (Symbol('ll'), 0, Rational(1, 2))).subs(Symbol('rh'), 6*nsimplify(eta)/pi)
+- template: el-spt-pressure
+  skill: edl.liquid-state
+  pace: quick
+  given:
+    eta:
+      pick:
+      - 0.1
+      - 0.3
+      - 0.45
+  prompt: What βp/ρ does scaled-particle theory give for hard spheres at η = {{eta}}?
+  parts:
+  - ask: Answer
+    label: v
+    tex: \beta p/\rho
+    value: (1 + eta + eta^2)/(1 - eta)^3
+    tol: 0.005
+    explain: SPT reproduces the PY compressibility equation of state; Z = 1 + η ∂(βf_ex)/∂η from the SPT free energy
+  verify:
+    expect:
+      v: 1 + nsimplify(eta)*diff(-log(1 - Symbol('y')) + 3*Symbol('y')*(2 - Symbol('y'))/(2*(1 - Symbol('y'))**2), Symbol('y')).subs(Symbol('y'), nsimplify(eta))
 - template: el-tonks
   skill: edl.liquid-state
   pace: quick
@@ -818,6 +1499,27 @@
   verify:
     expect:
       v: 1 + nsimplify(rs)*(1/(1 - nsimplify(rs)))
+- template: el-tonks-free-energy
+  skill: edl.liquid-state
+  pace: quick
+  given:
+    rs:
+      pick:
+      - 0.2
+      - 0.5
+      - 0.8
+      - 0.9
+  prompt: 'Hard rods at linear density ρσ = {{rs}}: what is their excess free energy per rod, in kT?'
+  parts:
+  - ask: Answer
+    label: v
+    tex: \beta f_{ex}
+    value: -log(1 - rs)
+    tol: 0.005
+    explain: 'βf_ex = ∫₀^ρ (Z − 1) dρ''/ρ'': each rod loses a fraction ρσ of the line, so the free length is L(1 − ρσ)'
+  verify:
+    expect:
+      v: integrate((1/(1 - Symbol('r')) - 1)/Symbol('r'), (Symbol('r'), 0, nsimplify(rs)))
 - template: el-wca-split
   skill: edl.liquid-state
   pace: quick
@@ -838,6 +1540,27 @@
   verify:
     expect:
       v: Max(*[q for q in solve(diff((nsimplify(s)/x)**12 - (nsimplify(s)/x)**6, x), x) if q.is_positive])
+- template: el-wca-repulsive
+  skill: edl.liquid-state
+  pace: quick
+  given:
+    f:
+      pick:
+      - 0.95
+      - 1
+      - 1.05
+      - 1.1
+  prompt: In the WCA split of a Lennard-Jones potential, what is the repulsive reference u₀(r), in units of ε, at r = {{f}}σ?
+  parts:
+  - ask: Answer
+    label: v
+    tex: u_0/\varepsilon
+    value: 4*(f^-12 - f^-6) + 1
+    tol: 0.005
+    explain: 'u₀ = u_LJ − u_LJ(r_min) inside r_min = 2^{1/6}σ and zero beyond: purely repulsive, continuous, and close to hard spheres'
+  verify:
+    expect:
+      v: 4*((1/nsimplify(f))**12 - (1/nsimplify(f))**6) - 4*((1/2**Rational(1, 6))**12 - (1/2**Rational(1, 6))**6)
 - template: el-ideal-functional
   skill: edl.dft
   pace: quick
@@ -859,6 +1582,34 @@
   verify:
     expect:
       v: solve(Eq(log(x) + nsimplify(V), 0), x)[0]
+- template: el-ideal-well-excess
+  skill: edl.dft
+  pace: quick
+  given:
+    rb:
+      pick:
+      - 0.01
+      - 0.1
+    w:
+      pick:
+      - 0.5
+      - 1
+      - 3
+    d:
+      pick:
+      - 0.2
+      - 0.5
+  prompt: An ideal gas at bulk density {{rb}} nm⁻³ meets a wall with a square attractive well of depth {{w}} kT and width {{d}} nm. What is the surface excess, in nm⁻²?
+  parts:
+  - ask: Answer
+    label: v
+    tex: \Gamma
+    value: rb*d*(exp(w) - 1)
+    tol: 0.005
+    explain: Minimising the ideal functional gives ρ = ρ_b e^{−βV}; the excess is the integral of the enhancement
+  verify:
+    expect:
+      v: integrate(nsimplify(rb)*(exp(nsimplify(w)) - 1), (Symbol('z'), 0, nsimplify(d)))
 - template: el-surface-excess
   skill: edl.dft
   pace: quick
@@ -889,6 +1640,35 @@
   verify:
     expect:
       v: integrate(nsimplify(rb)*nsimplify(A)*exp(-Symbol('zz')/nsimplify(lam)), (Symbol('zz'), 0, oo))
+- template: el-excess-gaussian
+  skill: edl.dft
+  pace: quick
+  given:
+    A:
+      pick:
+      - -1
+      - 0.5
+      - 2
+    rb:
+      pick:
+      - 1
+      - 10
+      - 33.4
+    lam:
+      pick:
+      - 0.2
+      - 0.5
+  prompt: A species near a wall follows ρ(z) = ρ_b(1 + {{A}}e^{−(z/λ)²}) with ρ_b = {{rb}} nm⁻³ and λ = {{lam}} nm. What is its surface excess, in nm⁻²?
+  parts:
+  - ask: Answer
+    label: v
+    tex: \Gamma
+    value: rb*A*lam*sqrt(pi)/2
+    tol: 0.005
+    explain: 'Γ = ∫(ρ − ρ_b)dz: a depleted layer (A < 0) gives negative adsorption, as for ions at an air–water surface'
+  verify:
+    expect:
+      v: integrate(nsimplify(rb)*nsimplify(A)*exp(-(Symbol('z')/nsimplify(lam))**2), (Symbol('z'), 0, oo))
 - template: el-pmf
   skill: edl.dft
   pace: quick
@@ -910,6 +1690,27 @@
   verify:
     expect:
       v: -Rational(8314, 1000)*Rational(29815, 100)*log(nsimplify(g))/1000
+- template: el-g-from-pmf
+  skill: edl.dft
+  pace: quick
+  given:
+    w:
+      pick:
+      - -5
+      - -2
+      - 1
+      - 4
+  prompt: Two ions have a potential of mean force of {{w}} kJ/mol at some separation, at 25 °C. What is g(r) there? (R = 8.314 J/mol·K)
+  parts:
+  - ask: Answer
+    label: v
+    tex: g
+    value: exp(-w*1000/(8.314*298.15))
+    tol: 0.005
+    explain: 'g = e^{−βw}: a 5.7 kJ/mol well makes contact pairs ten times more likely than in the bulk'
+  verify:
+    expect:
+      v: 1/exp(w*1000/(Rational(8314, 1000)*Rational(29815, 100)))
 - template: el-contact-angle
   skill: edl.dft
   pace: quick
@@ -940,6 +1741,32 @@
   verify:
     expect:
       v: Min(*[q for q in solve(Eq(cos(x*pi/180)*g, wv - wl), x) if q.is_positive])
+- template: el-work-of-adhesion
+  skill: edl.dft
+  pace: quick
+  given:
+    g:
+      pick:
+      - 20
+      - 72
+      - 485
+    th:
+      pick:
+      - 0
+      - 30
+      - 90
+      - 140
+  prompt: A liquid with surface tension {{g}} mJ/m² wets a wall at contact angle {{th}}°. What is the work of adhesion, in mJ/m²?
+  parts:
+  - ask: Answer
+    label: v
+    tex: W_{adh}
+    value: g*(1 + cos(th*pi/180))
+    tol: 0.005
+    explain: 'Young–Dupré: W = γ_lv(1 + cos θ). Mercury on glass (θ ≈ 140°) adheres weakly'
+  verify:
+    expect:
+      v: nsimplify(g) + nsimplify(g)*sin(pi/2 - th*pi/180)
 - template: el-thomas-fermi-scaling
   skill: edl.dft
   pace: quick
@@ -960,6 +1787,26 @@
   verify:
     expect:
       v: nsimplify(f)**Rational(5, 3)
+- template: el-tf-compression
+  skill: edl.dft
+  pace: quick
+  given:
+    f:
+      pick:
+      - 2
+      - 8
+      - 27
+  prompt: A fixed number of electrons is compressed into a volume {{f}} times smaller, at uniform density. By what factor does the Thomas–Fermi kinetic energy rise?
+  parts:
+  - ask: Answer
+    label: v
+    tex: T_2/T_1
+    value: f^(2/3)
+    tol: 0.005
+    explain: 'T ∝ ∫ρ^{5/3}dV = N^{5/3}/V^{2/3}: the degeneracy pressure that resists compression'
+  verify:
+    expect:
+      v: ((Symbol('N')*nsimplify(f)/Symbol('V'))**Rational(5, 3)*Symbol('V')/nsimplify(f))/((Symbol('N')/Symbol('V'))**Rational(5, 3)*Symbol('V'))
 - template: el-bjerrum
   skill: edl.dft
   pace: quick
@@ -1029,6 +1876,30 @@
   verify:
     expect:
       v: 2*nsimplify(c)*cosh(2*log((nsimplify(s)/100)/sqrt(8*Rational(784, 10)*Rational('8.8541878128e-12')*nsimplify(c)*1000*Rational('6.02214076e23')*(Rational('1.380649e-23')*Rational('298.15'))) + sqrt(((nsimplify(s)/100)/sqrt(8*Rational(784, 10)*Rational('8.8541878128e-12')*nsimplify(c)*1000*Rational('6.02214076e23')*(Rational('1.380649e-23')*Rational('298.15'))))**2 + 1)))
+- template: el-contact-theorem-sigma
+  skill: edl.dft
+  pace: quick
+  given:
+    c:
+      pick:
+      - 0.01
+      - 0.1
+    rc:
+      pick:
+      - 0.5
+      - 1
+      - 3
+  prompt: At a charged wall in {{c}} M 1:1 point-ion salt (ε = 78.4, 25 °C), the total ion density at contact is {{rc}} M. What is |σ|, in μC/cm²? (e = 1.602 × 10⁻¹⁹ C, k_B = 1.381 × 10⁻²³ J/K, ε₀ = 8.854 × 10⁻¹² F/m, N_A = 6.022 × 10²³)
+  parts:
+  - ask: Answer
+    label: v
+    tex: '|\sigma|'
+    value: sqrt(2*78.4*8.8541878128e-12*(1.380649e-23*298.15)*(rc - 2*c)*1000*6.02214076e23)*100
+    tol: 0.005
+    explain: 'kTρ(0) = p_bulk + σ²/2εε₀: the contact density is a direct read-out of the surface charge'
+  verify:
+    expect:
+      v: Max(*solve(Eq((2*nsimplify(c)*1000*Rational('6.02214076e23')*(Rational('1.380649e-23')*Rational('298.15')) + x**2/10**4/(2*Rational(784, 10)*Rational('8.8541878128e-12')))/(Rational('1.380649e-23')*Rational('298.15'))/Rational('6.02214076e23')/1000, nsimplify(rc)), x))
 - template: el-cs-free-energy
   skill: edl.dft
   pace: quick
@@ -1050,6 +1921,26 @@
   verify:
     expect:
       v: integrate(((1 + Symbol('ee') + Symbol('ee')**2 - Symbol('ee')**3)/(1 - Symbol('ee'))**3 - 1)/Symbol('ee'), (Symbol('ee'), 0, nsimplify(eta)))
+- template: el-cs-chemical-potential
+  skill: edl.dft
+  pace: quick
+  given:
+    eta:
+      pick:
+      - 0.1
+      - 0.3
+      - 0.45
+  prompt: What is the Carnahan–Starling excess chemical potential βμ_ex at packing fraction η = {{eta}}?
+  parts:
+  - ask: Answer
+    label: v
+    tex: \beta\mu_{ex}
+    value: (8*eta - 9*eta^2 + 3*eta^3)/(1 - eta)^3
+    tol: 0.005
+    explain: 'μ_ex = f_ex + p_ex/ρ: at η = 0.45 inserting a solvent sphere costs about 11 kT, which is why ions crowd where solvent packs loosely'
+  verify:
+    expect:
+      v: nsimplify(eta)*(4 - 3*nsimplify(eta))/(1 - nsimplify(eta))**2 + (4*nsimplify(eta) - 2*nsimplify(eta)**2)/(1 - nsimplify(eta))**3
 - template: el-fmt-weights
   skill: edl.dft
   pace: recall
@@ -1083,6 +1974,39 @@
     explain: FMT builds the excess free energy from a few geometric averages of the density, which is why it handles layering next to walls, the solvent structure chapters 8–13 rely on
   verify:
     authored: true
+- template: el-fmt-measures
+  skill: edl.dft
+  pace: recall
+  cases:
+  - q: Which Rosenfeld weighted density is the local packing fraction?
+    o1: n₃ (the volume weight)
+    o2: n₂ (the surface weight)
+    o3: n₀
+    o4: the vector weight n_V2
+  - q: Which FMT weight is a delta function on the sphere's surface?
+    o1: n₂
+    o2: n₃
+    o3: n₁
+    o4: None of them
+  - q: For a uniform fluid, Rosenfeld's original FMT reproduces which hard-sphere equation of state?
+    o1: Percus–Yevick compressibility (scaled-particle)
+    o2: Carnahan–Starling
+    o3: Van der Waals
+    o4: Percus–Yevick virial
+  - q: The White Bear versions of FMT were built to reproduce which equation of state?
+    o1: Carnahan–Starling
+    o2: Percus–Yevick virial
+    o3: Ideal gas
+    o4: Tonks
+  prompt: '{{q}}'
+  parts:
+  - ask: Answer
+    label: v
+    choice: *id002
+    correct: '0'
+    explain: 'FMT builds the hard-sphere free energy from the geometric measures of a sphere: volume, surface, mean curvature and Euler characteristic'
+  verify:
+    authored: true
 - template: el-msa-gamma
   skill: edl.dft
   pace: quick
@@ -1104,6 +2028,27 @@
   verify:
     expect:
       v: Max(*solve(Eq(4*x**2 + 4*x - 2*nsimplify(kd), 0), x))
+- template: el-msa-ratio
+  skill: edl.dft
+  pace: quick
+  given:
+    kd:
+      pick:
+      - 0.1
+      - 1
+      - 3
+      - 10
+  prompt: In the restricted primitive model at κd = {{kd}}, what is the ratio of the MSA screening parameter Γ to its Debye–Hückel limit κ/2?
+  parts:
+  - ask: Answer
+    label: v
+    tex: 2\Gamma/\kappa
+    value: (sqrt(1 + 2*kd) - 1)/kd
+    tol: 0.005
+    explain: Γ → κ/2 at low concentration; at high κd the finite ion size makes screening weaker than Debye–Hückel predicts
+  verify:
+    expect:
+      v: 2/(1 + sqrt(1 + 2*nsimplify(kd)))
 - template: el-site-binding
   skill: edl.dft
   pace: quick
@@ -1129,6 +2074,31 @@
   verify:
     expect:
       v: solve(Eq(nsimplify(K)*x, nsimplify(rs)*(1 - x)), x)[0]
+- template: el-site-binding-k
+  skill: edl.dft
+  pace: quick
+  given:
+    th:
+      pick:
+      - 0.1
+      - 0.5
+      - 0.9
+    rs:
+      pick:
+      - 1
+      - 10
+      - 100
+  prompt: A fraction {{th}} of surface sites is bound when the cation density at the surface plane is {{rs}} mM. What is the dissociation constant, in mM?
+  parts:
+  - ask: Answer
+    label: v
+    tex: K
+    value: rs*(1 - th)/th
+    tol: 0.005
+    explain: Half occupancy at ρ_s = K; the surface density, not the bulk one, enters the law
+  verify:
+    expect:
+      v: solve(Eq(nsimplify(rs)/(nsimplify(rs) + x), nsimplify(th)), x)[0]
 - template: el-solvent-structure
   skill: edl.molecular
   pace: recall
@@ -1157,6 +2127,27 @@
     explain: 'Chapter 8''s conclusion: an accurate surface chemistry and an accurate near-wall solution structure are both needed'
   verify:
     authored: true
+- template: el-solvent-per-ion
+  skill: edl.molecular
+  pace: quick
+  given:
+    c:
+      pick:
+      - 0.001
+      - 0.01
+      - 0.1
+      - 1
+  prompt: 'How many water molecules are there per ion in {{c}} M 1:1 salt? (Water: 997 g/L, 18.02 g/mol)'
+  parts:
+  - ask: Answer
+    label: v
+    tex: N_w/N_{ion}
+    value: 997/18.015/(2*c)
+    tol: 0.005
+    explain: 'Even at 1 M there are about 28 water molecules per ion: the solvent sets the packing that the ions must fit into'
+  verify:
+    expect:
+      v: solve(Eq(2*nsimplify(c)*x, Rational(997, 1)/Rational(18015, 1000)), x)[0]
 - template: el-solvation-effects
   skill: edl.molecular
   pace: recall
@@ -1195,6 +2186,35 @@
     explain: 'Chapter 9: solvation shifts local densities, and the mass-action law at the surface turns that into a change of charge'
   verify:
     authored: true
+- template: el-contact-enhanced-binding
+  skill: edl.molecular
+  pace: quick
+  given:
+    rb:
+      pick:
+      - 0.01
+      - 0.1
+      - 1
+    K:
+      pick:
+      - 0.1
+      - 1
+    g:
+      pick:
+      - 0.3
+      - 1
+      - 5
+  prompt: PDIs are at {{rb}} mM in the bulk and bind surface sites with K = {{K}} mM. Packing raises their contact density by a factor g = {{g}}. What fraction of sites is bound?
+  parts:
+  - ask: Answer
+    label: v
+    tex: \theta
+    value: g*rb/(g*rb + K)
+    tol: 0.005
+    explain: Poorly solvated PDIs pack at the wall (g > 1) and neutralise more of it; well-solvated ones (g < 1) leave the charge high
+  verify:
+    expect:
+      v: 1 - nsimplify(K)/(nsimplify(g)*nsimplify(rb) + nsimplify(K))
 - template: el-surface-interactions
   skill: edl.molecular
   pace: recall
@@ -1223,6 +2243,32 @@
     explain: 'Chapter 10: the wall–liquid interaction energy is a material property that also sets wetting and contact angles'
   verify:
     authored: true
+- template: el-spreading-coefficient
+  skill: edl.molecular
+  pace: quick
+  given:
+    g:
+      pick:
+      - 50
+      - 72
+    W:
+      pick:
+      - 80
+      - 100
+      - 130
+  require:
+  - W < 2*g
+  prompt: A liquid has γ_lv = {{g}} mJ/m² and wets a wall with W_adh = {{W}} mJ/m². What contact angle results, in degrees?
+  parts:
+  - ask: Answer
+    label: v
+    tex: \theta
+    value: acos(W/g - 1)*180/pi
+    tol: 0.005
+    explain: Stronger wall–liquid attraction raises W and lowers θ; W ≥ 2γ means complete wetting, as for a solvophilic wall
+  verify:
+    expect:
+      v: Min(*solve(Eq(nsimplify(g)*(1 + cos(Symbol('th'))), W), Symbol('th')))*180/pi
 - template: el-planes
   skill: edl.molecular
   pace: recall
@@ -1251,6 +2297,31 @@
     explain: 'Chapter 11: once the charge density is known in molecular detail, Poisson''s equation alone gives the potential; no Boltzmann closure is needed'
   verify:
     authored: true
+- template: el-series-capacitance
+  skill: edl.molecular
+  pace: quick
+  given:
+    CH:
+      pick:
+      - 10
+      - 20
+      - 40
+    c:
+      pick:
+      - 0.001
+      - 0.01
+      - 0.1
+  prompt: A Stern layer of {{CH}} μF/cm² sits in series with a diffuse layer in {{c}} M 1:1 salt at low potential (ε = 78.4, 25 °C). What is the total capacitance, in μF/cm²? (e = 1.602 × 10⁻¹⁹ C, k_B = 1.381 × 10⁻²³ J/K, ε₀ = 8.854 × 10⁻¹² F/m, N_A = 6.022 × 10²³)
+  parts:
+  - ask: Answer
+    label: v
+    tex: C
+    value: 1/(1/CH + 1/(78.4*8.8541878128e-12*sqrt(2*c*1000*6.02214076e23*1.602176634e-19^2/(78.4*8.8541878128e-12*(1.380649e-23*298.15)))*100))
+    tol: 0.005
+    explain: 'Capacitors in series: the smaller one dominates. At low salt the diffuse layer limits; at high salt the Stern (Helmholtz) layer does'
+  verify:
+    expect:
+      v: solve(Eq(1/x, 1/nsimplify(CH) + 1/(Rational(784, 10)*Rational('8.8541878128e-12')/sqrt(Rational(784, 10)*Rational('8.8541878128e-12')*(Rational('1.380649e-23')*Rational('298.15'))/(2*Rational('6.02214076e23')*nsimplify(c)*1000*Rational('1.602176634e-19')**2))*100)), x)[0]
 - template: el-multivalent
   skill: edl.molecular
   pace: recall
@@ -1279,6 +2350,30 @@
     explain: 'Chapter 12: valence sets Coulomb interaction strength, and its interplay with excluded volume and solvation shapes the profiles'
   verify:
     authored: true
+- template: el-valence-contact-ratio
+  skill: edl.molecular
+  pace: quick
+  given:
+    ps:
+      pick:
+      - 1
+      - 2
+      - 4
+    z:
+      pick:
+      - 2
+      - 3
+  prompt: At a wall with reduced potential |ψ̃_s| = {{ps}}, by what factor is a {{z}}-valent counterion more enriched at contact than a monovalent one at the same bulk concentration (Boltzmann)?
+  parts:
+  - ask: Answer
+    label: v
+    tex: (c_z/c_b)/(c_1/c_b)
+    value: exp((z - 1)*ps)
+    tol: 0.005
+    explain: 'Enrichment e^{z|ψ̃|} rises steeply with valence: multivalent counterions take over the wall even when they are minor in the bulk'
+  verify:
+    expect:
+      v: exp(z*nsimplify(ps))/exp(nsimplify(ps))
 - template: el-ion-size
   skill: edl.molecular
   pace: recall
@@ -1307,6 +2402,34 @@
     explain: 'Chapter 13: size is another non-Coulombic effect, and it couples to the charge regulation reaction through packing'
   verify:
     authored: true
+- template: el-pb-overpacking
+  skill: edl.molecular
+  pace: quick
+  given:
+    c:
+      pick:
+      - 0.01
+      - 0.1
+    ps:
+      pick:
+      - 4
+      - 6
+      - 8
+    d:
+      pick:
+      - 0.3
+      - 0.5
+  prompt: PB puts counterions at c_b e^{ψ̃} at a wall. For c_b = {{c}} M and |ψ̃_s| = {{ps}}, how many times the simple-cubic close-packed concentration of {{d}} nm ions is that?
+  parts:
+  - ask: Answer
+    label: v
+    tex: c_0/c_{max}
+    value: c*exp(ps)/(1/(6.02214076e23*(d*1e-9)^3)/1000)
+    tol: 0.005
+    explain: 'Values above 1 are impossible: point-ion PB overfills the wall, which is what excluded-volume theories correct'
+  verify:
+    expect:
+      v: nsimplify(c)*1000*Rational('6.02214076e23')*exp(nsimplify(ps))*(nsimplify(d)/10**9)**3
 - template: el-metropolis
   skill: edl.simulation
   pace: quick
@@ -1329,6 +2452,26 @@
   verify:
     expect:
       v: Min(1, exp(-nsimplify(dU)))
+- template: el-metropolis-mean-acceptance
+  skill: edl.simulation
+  pace: quick
+  given:
+    a:
+      pick:
+      - 0.5
+      - 1
+      - 3
+  prompt: Half of the trial moves raise the energy by {{a}} kT and half lower it by {{a}} kT. What is the average Metropolis acceptance rate?
+  parts:
+  - ask: Answer
+    label: v
+    tex: \bar P_{acc}
+    value: (1 + exp(-a))/2
+    tol: 0.005
+    explain: Downhill moves always pass; uphill ones pass with e^{−βΔU}. Step sizes are tuned for a rate near 30–50%
+  verify:
+    expect:
+      v: (Min(1, exp(-nsimplify(a))) + Min(1, exp(nsimplify(a))))/2
 - template: el-widom
   skill: edl.simulation
   pace: quick
@@ -1350,6 +2493,26 @@
   verify:
     expect:
       v: solve(Eq(exp(-x), nsimplify(w)), x)[0]
+- template: el-widom-point
+  skill: edl.simulation
+  pace: quick
+  given:
+    eta:
+      pick:
+      - 0.1
+      - 0.3
+      - 0.45
+  prompt: A point test particle (zero size) is inserted into a hard-sphere fluid at η = {{eta}}. What is its βμ_ex?
+  parts:
+  - ask: Answer
+    label: v
+    tex: \beta\mu_{ex}
+    value: -log(1 - eta)
+    tol: 0.005
+    explain: '⟨e^{−βΔU}⟩ is just the free-volume fraction 1 − η: the Widom estimate fails at high density because almost every insertion overlaps'
+  verify:
+    expect:
+      v: log(1/(1 - nsimplify(eta)))
 - template: el-collision-time
   skill: edl.simulation
   pace: quick
@@ -1378,6 +2541,38 @@
   verify:
     expect:
       y: Min(*[t for t in solve(Eq((nsimplify(r) - nsimplify(v)*x)**2, s**2), x) if t > 0])
+- template: el-collision-offset
+  skill: edl.simulation
+  pace: quick
+  given:
+    s:
+      pick:
+      - 1
+    dx:
+      pick:
+      - 3
+      - 5
+    dy:
+      pick:
+      - 0.3
+      - 0.6
+      - 0.9
+    v:
+      pick:
+      - 0.5
+      - 1
+      - 2
+  prompt: Two hard spheres with contact distance σ = {{s}} are {{dx}} apart along x and {{dy}} along y. They approach along x with relative speed {{v}}. When do they collide?
+  parts:
+  - ask: Answer
+    label: r
+    tex: t_c
+    value: (dx - sqrt(s^2 - dy^2))/v
+    tol: 0.005
+    explain: Solve |r + vt| = σ for the smaller root; an impact parameter above σ means they miss
+  verify:
+    expect:
+      r: Min(*solve(Eq((dx - v*x)**2 + nsimplify(dy)**2, nsimplify(s)**2), x))
 - template: el-ocp-gamma
   skill: edl.simulation
   pace: quick
@@ -1408,6 +2603,31 @@
   verify:
     expect:
       v: (Z*Rational('1.602176634e-19'))**2/(4*pi*Rational('8.8541878128e-12')*nsimplify(a)/10**9*Rational('1.380649e-23')*T)
+- template: el-ocp-gamma-density
+  skill: edl.simulation
+  pace: quick
+  given:
+    n:
+      pick:
+      - 0.001
+      - 0.1
+      - 10
+    T:
+      pick:
+      - 300
+      - 3000
+      - 30000
+  prompt: A one-component plasma of charge Z = 1 has number density {{n}} nm⁻³ at {{T}} K (vacuum). What is its coupling parameter Γ? (e = 1.602 × 10⁻¹⁹ C, k_B = 1.381 × 10⁻²³ J/K, ε₀ = 8.854 × 10⁻¹² F/m, N_A = 6.022 × 10²³)
+  parts:
+  - ask: Answer
+    label: v
+    tex: \Gamma
+    value: 1.602176634e-19^2/(4*pi*8.8541878128e-12*(3/(4*pi*n))^(1/3)*1e-9*1.380649e-23*T)
+    tol: 0.005
+    explain: 'Γ = l_B/a with a the Wigner–Seitz radius: Γ ≫ 1 means strongly coupled, where mean-field (PB) theory fails'
+  verify:
+    expect:
+      v: (Rational('1.602176634e-19')**2/(4*pi*Rational('8.8541878128e-12')*Rational('1.380649e-23')*T))/((3/(4*pi*nsimplify(n)))**Rational(1, 3)/10**9)
 - template: el-dh-limiting
   skill: edl.simulation
   pace: quick
@@ -1436,6 +2656,52 @@
   verify:
     expect:
       v: exp(-Rational(509, 1000)*zp*zm*sqrt(nsimplify(I))*log(10))
+- template: el-ionic-strength
+  skill: edl.simulation
+  pace: quick
+  given:
+    c:
+      pick:
+      - 0.001
+      - 0.01
+      - 0.1
+  cases:
+  - salt: NaCl
+    np: 1
+    zp: 1
+    nm: 1
+    zm: 1
+  - salt: CaCl₂
+    np: 1
+    zp: 2
+    nm: 2
+    zm: 1
+  - salt: MgSO₄
+    np: 1
+    zp: 2
+    nm: 1
+    zm: 2
+  - salt: Na₂SO₄
+    np: 2
+    zp: 1
+    nm: 1
+    zm: 2
+  - salt: AlCl₃
+    np: 1
+    zp: 3
+    nm: 3
+    zm: 1
+  prompt: What is the ionic strength, in M, of a {{c}} M solution of {{salt}}?
+  parts:
+  - ask: Answer
+    label: v
+    tex: I
+    value: 0.5*c*(np*zp^2 + nm*zm^2)
+    tol: 0.005
+    explain: 'I = ½Σc_iz_i²: a 2:2 salt has four times the ionic strength of a 1:1 salt at the same molarity'
+  verify:
+    expect:
+      v: Rational(1, 2)*nsimplify(c)*np*zp**2 + Rational(1, 2)*nsimplify(c)*nm*zm**2
 - template: el-picard
   skill: edl.simulation
   pace: quick
@@ -1465,6 +2731,30 @@
   verify:
     expect:
       v: nsimplify(xk) + nsimplify(a)*(nsimplify(g) - nsimplify(xk))
+- template: el-picard-alpha
+  skill: edl.simulation
+  pace: quick
+  given:
+    s:
+      pick:
+      - -3
+      - -1
+      - 0.5
+    b:
+      pick:
+      - 1
+      - 2
+  prompt: A Picard map is linear, g(x) = {{s}}x + {{b}}. What mixing parameter α makes the damped iteration x ← (1 − α)x + αg(x) converge in one step?
+  parts:
+  - ask: Answer
+    label: v
+    tex: \alpha
+    value: 1/(1 - s)
+    tol: 0.005
+    explain: The error shrinks by |1 − α + αs| per step; strongly negative slopes (oscillating maps) need small α
+  verify:
+    expect:
+      v: solve(Eq(1 - x + x*nsimplify(s), 0), x)[0]
 - template: el-newton-pb
   skill: edl.simulation
   pace: quick
@@ -1489,6 +2779,26 @@
   verify:
     expect:
       v: nsimplify(p0) - (2*sinh(Symbol('pp')/2) - s).subs(Symbol('pp'), nsimplify(p0))/diff(2*sinh(Symbol('pp')/2) - s, Symbol('pp')).subs(Symbol('pp'), nsimplify(p0))
+- template: el-grahame-exact-root
+  skill: edl.simulation
+  pace: quick
+  given:
+    s:
+      pick:
+      - 1
+      - 3
+      - 10
+  prompt: Newton's method solves 2 sinh(ψ̃/2) = {{s}}. What root does it converge to?
+  parts:
+  - ask: Answer
+    label: v
+    tex: \tilde\psi
+    value: 2*asinh(s/2)
+    tol: 0.005
+    explain: 'ψ̃ = 2 asinh(s/2): a closed form exists here, which is how a Newton solver is tested before it meets a problem without one'
+  verify:
+    expect:
+      v: 2*log(nsimplify(s)/2 + sqrt(nsimplify(s)**2/4 + 1))
 - template: el-schur
   skill: edl.simulation
   pace: quick
@@ -1528,6 +2838,45 @@
   verify:
     expect:
       v: Matrix([[a, b], [c, d]]).solve(Matrix([p, q]))[1]
+- template: el-schur-x1
+  skill: edl.simulation
+  pace: quick
+  given:
+    a:
+      pick:
+      - 2
+      - 4
+    b:
+      pick:
+      - 1
+      - -1
+    c:
+      pick:
+      - 1
+      - 3
+    d:
+      pick:
+      - 5
+      - 6
+    p:
+      pick:
+      - 1
+      - 7
+    q:
+      pick:
+      - 2
+      - 4
+  prompt: For [[{{a}}, {{b}}], [{{c}}, {{d}}]]·[x₁, x₂] = [{{p}}, {{q}}], after finding x₂ from the Schur complement, back-substitute. What is x₁?
+  parts:
+  - ask: Answer
+    label: v
+    tex: x_1
+    value: (p - b*(q - c*p/a)/(d - c*b/a))/a
+    tol: 0.005
+    explain: 'x₁ = (p − b x₂)/a: in coupled DFT solvers the Poisson block is eliminated the same way'
+  verify:
+    expect:
+      v: Matrix([[a, b], [c, d]]).solve(Matrix([p, q]))[0]
 - template: el-nernst-planck
   skill: edl.simulation
   pace: quick
@@ -1564,3 +2913,33 @@
   verify:
     expect:
       v: -nsimplify(D)/10**9*nsimplify(c)*diff(log(Symbol('cc')) + z*Symbol('pp'), Symbol('cc')).subs(Symbol('cc'), nsimplify(c))*nsimplify(dc)*10**6 - nsimplify(D)/10**9*nsimplify(c)*z*nsimplify(dp)*10**6
+- template: el-zero-flux-gradient
+  skill: edl.simulation
+  pace: quick
+  given:
+    z:
+      pick:
+      - 1
+      - -1
+      - 2
+    c:
+      pick:
+      - 1
+      - 10
+      - 100
+    dp:
+      pick:
+      - -1000000.0
+      - 100000.0
+      - 1000000.0
+  prompt: An ion of charge number {{z}} at {{c}} mol/m³ sits where dψ̃/dx = {{dp}} m⁻¹. What concentration gradient, in mol/m⁴, makes its Nernst–Planck flux zero?
+  parts:
+  - ask: Answer
+    label: v
+    tex: dc/dx
+    value: -z*c*dp
+    tol: 0.005
+    explain: 'Zero flux means diffusion balances migration: the Boltzmann profile c ∝ e^{−zψ̃}, the equilibrium PB assumes'
+  verify:
+    expect:
+      v: diff(nsimplify(c)*exp(-z*nsimplify(dp)*Symbol('xx')), Symbol('xx')).subs(Symbol('xx'), 0)
