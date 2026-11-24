@@ -1,0 +1,908 @@
+# General chemistry (AP Chemistry framework): a second question type for every objective that had one.
+# The first drill computes or classifies forward; these ask in reverse, by comparison, by scaling, from
+# a particle picture, or by a different quantity of the same model. Numbers are verified by sympy along
+# another route; classifications whose answer is a fact are authored and say so.
+
+# ── 0–1 · matter and atoms ───────────────────────────────────────────────
+- template: ac-separate-mixture
+  skill: gchem.measurement
+  pace: recall
+  cases:
+    - { q: 'sand from salt water', o1: 'Filtration, then evaporation', o2: 'Distillation alone', o3: 'A magnet', o4: 'Chromatography', ans: 0 }
+    - { q: 'ethanol from water', o1: 'Distillation', o2: 'Filtration', o3: 'A magnet', o4: 'Decanting', ans: 0 }
+    - { q: 'iron filings from sulfur powder', o1: 'A magnet', o2: 'Distillation', o3: 'Evaporation', o4: 'Chromatography', ans: 0 }
+    - { q: 'the dyes in black ink', o1: 'Chromatography', o2: 'Filtration', o3: 'A magnet', o4: 'Decanting', ans: 0 }
+    - { q: 'oil floating on water', o1: 'A separatory funnel (decanting)', o2: 'Filtration', o3: 'A magnet', o4: 'Evaporation', ans: 0 }
+  prompt: 'Which method separates {{q}}?'
+  parts:
+    - { ask: 'Method', label: a, choice: ["{{o1}}", "{{o2}}", "{{o3}}", "{{o4}}"], correct: ans, explain: 'Mixtures separate by a physical difference between their parts: particle size (filtration), boiling point (distillation), magnetism, density (decanting) or how strongly each sticks to a surface (chromatography). Compounds need a chemical change' }
+  verify: { authored: true }
+
+- template: ac-change-evidence
+  skill: gchem.measurement
+  pace: recall
+  cases:
+    - { q: 'Bubbles form when an antacid tablet drops into water.', ans: 0 }
+    - { q: 'Bubbles form when water is heated to 100 °C.', ans: 1 }
+    - { q: 'A solid appears when two clear solutions are mixed.', ans: 0 }
+    - { q: 'Sugar disappears into tea.', ans: 1 }
+    - { q: 'An iron nail turns reddish-brown in damp air.', ans: 0 }
+    - { q: 'Butter melts in a pan.', ans: 1 }
+  prompt: 'What does this observation show? {{q}}'
+  parts:
+    - { ask: 'Change', label: a, choice: ["A new substance formed: chemical", "Same substance, new form: physical"], correct: ans, explain: 'Gas, a precipitate or a colour change point to a chemical change only when a new substance forms. Boiling water also bubbles, but the gas is still water' }
+  verify: { authored: true }
+
+- template: ac-atomic-mass-weighted
+  skill: gchem.composition
+  pace: quick
+  cases:
+    - { el: 'Chlorine', a: 'Cl-35', ma: 34.969, b: 'Cl-37', mb: 36.966, p: 75.78 }
+    - { el: 'Boron', a: 'B-10', ma: 10.013, b: 'B-11', mb: 11.009, p: 19.9 }
+    - { el: 'Copper', a: 'Cu-63', ma: 62.930, b: 'Cu-65', mb: 64.928, p: 69.15 }
+    - { el: 'Bromine', a: 'Br-79', ma: 78.918, b: 'Br-81', mb: 80.916, p: 50.69 }
+    - { el: 'Gallium', a: 'Ga-69', ma: 68.926, b: 'Ga-71', mb: 70.925, p: 60.11 }
+  prompt: '{{el}} is ${{p}}$ percent {{a}} (${{ma}}$ u) and the rest {{b}} (${{mb}}$ u). What is its average atomic mass, in u?'
+  parts:
+    - { ask: 'Average mass (u)', label: y, tex: '\bar m', value: p/100*ma + (1 - p/100)*mb, tol: 0.0005, explain: 'A weighted average: each isotope''s mass times its fraction. The average sits nearer the more abundant isotope' }
+  verify: { expect: { y: "(p*ma + (100 - p)*mb)/100" } }
+
+- template: ac-empirical-from-percent
+  skill: gchem.composition
+  pace: quick
+  cases:
+    - { c: 40.0, h: 6.71, o: 53.29, ans: 1, f: 'CH₂O' }
+    - { c: 85.63, h: 14.37, o: 0, ans: 2, f: 'CH₂' }
+    - { c: 92.26, h: 7.74, o: 0, ans: 1, f: 'CH' }
+    - { c: 52.14, h: 13.13, o: 34.73, ans: 2, f: 'C₂H₆O' }
+  prompt: 'A compound is ${{c}}$ percent C, ${{h}}$ percent H and ${{o}}$ percent O by mass. In its empirical formula, how many H atoms are there per C atom?'
+  parts:
+    - { ask: 'H per C', label: y, tex: 'H/C', value: round(h/1.008/(c/12.011)), tol: 0.002, explain: 'Assume 100 g, so percents become grams; divide by molar mass for moles; divide by the smallest to get the ratio. CH₂O: 3.33 mol C, 6.66 mol H, 3.33 mol O, so 1 : 2 : 1' }
+  verify: { expect: { y: "floor((h/Rational(1008, 1000))/(c/Rational(12011, 1000)) + Rational(1, 2))" } }
+
+- template: ac-mass-percent-element
+  skill: gchem.composition
+  pace: quick
+  cases:
+    - { f: 'H₂O', n: 2, el: 'H', m: 1.008, M: 18.015 }
+    - { f: 'CO₂', n: 1, el: 'C', m: 12.011, M: 44.009 }
+    - { f: 'NaCl', n: 1, el: 'Na', m: 22.990, M: 58.443 }
+    - { f: 'Fe₂O₃', n: 2, el: 'Fe', m: 55.845, M: 159.687 }
+    - { f: 'CaCO₃', n: 1, el: 'Ca', m: 40.078, M: 100.086 }
+    - { f: 'NH₄NO₃', n: 2, el: 'N', m: 14.007, M: 80.043 }
+  prompt: 'What is the mass percent of {{el}} in {{f}} ($M = {{M}}$ g/mol; {{el}} = ${{m}}$ g/mol)?'
+  parts:
+    - { ask: 'Mass percent', label: y, tex: '\%', value: 100*n*m/M, tol: 0.002, explain: 'Count the atoms of the element in one formula unit, times its molar mass, over the formula''s molar mass' }
+  verify: { expect: { y: "solve(Eq(x*M, 100*n*m), x)[0]" } }
+
+- template: ac-purity-from-precipitate
+  skill: gchem.composition
+  pace: quick
+  given: { ms: { pick: [2.0, 2.5, 5.0] }, pur: { pick: [60, 75, 90] } }
+  prompt: 'A ${{ms}}$ g sample containing some NaCl (58.44 g/mol) is dissolved and all its chloride precipitated as ${{ms*pur/100/58.44*143.32}}$ g of AgCl (143.32 g/mol). What percent of the sample is NaCl?'
+  parts:
+    - { ask: 'Percent NaCl', label: y, tex: '\%', value: pur, tol: 0.002, explain: 'One Cl per formula: mol AgCl = mol NaCl. Convert the precipitate to moles, then to grams of NaCl, then divide by the sample mass' }
+  verify: { expect: { y: "100*(ms*pur/100/Rational(5844, 100)*Rational(14332, 100))/Rational(14332, 100)*Rational(5844, 100)/ms" } }
+
+- template: ac-paramagnetic-pick
+  skill: gchem.structure
+  pace: quick
+  cases:
+    - { o1: 'O', o2: 'Ne', o3: 'Mg', o4: 'Zn', ans: 0 }
+    - { o1: 'Fe³⁺', o2: 'Zn²⁺', o3: 'Ca²⁺', o4: 'Ar', ans: 0 }
+    - { o1: 'N', o2: 'He', o3: 'Be', o4: 'Cd', ans: 0 }
+    - { o1: 'Cu²⁺', o2: 'Cu⁺', o3: 'Na⁺', o4: 'Kr', ans: 0 }
+  prompt: 'Which of these is paramagnetic in its ground state?'
+  parts:
+    - { ask: 'Paramagnetic', label: a, choice: ["{{o1}}", "{{o2}}", "{{o3}}", "{{o4}}"], correct: ans, explain: 'Paramagnetism needs at least one unpaired electron. Filled subshells (noble gases, s², d¹⁰ ions like Zn²⁺ and Cu⁺) are diamagnetic; transition ions with partly filled d (Fe³⁺ d⁵, Cu²⁺ d⁹) are not' }
+  verify: { authored: true }
+
+- template: ac-pes-binding-order
+  skill: gchem.structure
+  pace: recall
+  cases:
+    - { q: 'the 1s peak of Na or the 1s peak of Mg', o1: 'Mg', o2: 'Na', ans: 0 }
+    - { q: 'the 2p peak or the 3s peak of Na', o1: 'The 2p peak', o2: 'The 3s peak', ans: 0 }
+    - { q: 'the 1s peak of O or the 1s peak of N', o1: 'O', o2: 'N', ans: 0 }
+    - { q: 'the 3s peak or the 3p peak of Cl', o1: 'The 3s peak', o2: 'The 3p peak', ans: 0 }
+  prompt: 'In photoelectron spectra, which sits at higher binding energy: {{q}}?'
+  parts:
+    - { ask: 'Higher binding energy', label: a, choice: ["{{o1}}", "{{o2}}"], correct: ans, explain: 'Electrons closer to the nucleus, and in atoms with more protons, are held harder. The same subshell shifts to higher energy across a period as the nuclear charge grows' }
+  verify: { authored: true }
+
+- template: ac-trend-explain
+  skill: gchem.structure
+  pace: recall
+  cases:
+    - { q: 'Atomic radius shrinks from Na to Cl', o1: 'More protons pull the same shell closer (Coulomb''s law)', o2: 'Electrons repel each other less', o3: 'Each atom has more shells', ans: 0 }
+    - { q: 'Atomic radius grows from Li to Cs', o1: 'Each step down adds an occupied shell farther out', o2: 'The nuclear charge falls', o3: 'Electrons are lighter in larger atoms', ans: 0 }
+    - { q: 'First ionization energy drops from N to O', o1: 'O''s fourth 2p electron is paired, and the pair repels', o2: 'O has fewer protons', o3: 'O''s electron is in a new shell', ans: 0 }
+    - { q: 'First ionization energy drops from Be to B', o1: 'B''s outer electron is in 2p, higher in energy than 2s', o2: 'B has fewer protons', o3: 'B''s electrons are all paired', ans: 0 }
+  prompt: 'Why? {{q}}.'
+  parts:
+    - { ask: 'Reason', label: a, choice: ["{{o1}}", "{{o2}}", "{{o3}}"], correct: ans, explain: 'Periodic trends come from Coulomb''s law: more protons pull harder, more distance pulls weaker, and inner electrons shield. The two dips in ionization energy come from subshell energy and electron pairing' }
+  verify: { authored: true }
+
+- template: ac-ion-charge-from-ie
+  skill: gchem.structure
+  pace: quick
+  cases:
+    - { el: 'Mg', g: 2 }
+    - { el: 'Al', g: 3 }
+    - { el: 'Na', g: 1 }
+    - { el: 'Ca', g: 2 }
+    - { el: 'K', g: 1 }
+  prompt: 'Successive ionization energies of {{el}} jump sharply after a certain electron. What charge does {{el}} usually carry in its ionic compounds?'
+  parts:
+    - { ask: 'Charge', label: y, tex: 'q', value: g, tol: 0.002, explain: 'The big jump comes when a core electron has to be removed. The electrons before it are the valence electrons, which is the charge of the usual cation' }
+  verify: { expect: { y: "pt_group(pt_Z(el)) - 10 if pt_group(pt_Z(el)) > 10 else pt_group(pt_Z(el))" } }
+
+- template: ac-analogous-property
+  skill: gchem.structure
+  pace: recall
+  cases:
+    - { q: 'Sodium reacts with water to give NaOH and H₂. What does potassium give?', o1: 'KOH and H₂, faster', o2: 'K₂O and O₂', o3: 'No reaction', o4: 'KH and O₂', ans: 0 }
+    - { q: 'Carbon forms CO₂. What does silicon form with oxygen?', o1: 'SiO₂', o2: 'SiO₄', o3: 'Si₂O', o4: 'SiO₃', ans: 0 }
+    - { q: 'Calcium forms CaCl₂. What does strontium form with chlorine?', o1: 'SrCl₂', o2: 'SrCl', o3: 'Sr₂Cl', o4: 'SrCl₃', ans: 0 }
+    - { q: 'Oxygen forms H₂O. What does sulfur form with hydrogen?', o1: 'H₂S', o2: 'HS', o3: 'H₃S', o4: 'HS₂', ans: 0 }
+  prompt: '{{q}}'
+  parts:
+    - { ask: 'Prediction', label: a, choice: ["{{o1}}", "{{o2}}", "{{o3}}", "{{o4}}"], correct: ans, explain: 'Elements in a group have the same valence configuration, so they form the same kinds of compounds; reactivity changes steadily down the group' }
+  verify: { authored: true }
+
+- template: ac-mass-energy
+  skill: nuc.decay
+  pace: quick
+  given: { dm: { pick: [0.001, 0.01, 0.0304] } }
+  prompt: 'A nuclear reaction converts ${{dm}}$ u of mass into energy. How much energy is released, in MeV? (1 u = 931.5 MeV.)'
+  parts:
+    - { ask: 'Energy (MeV)', label: y, tex: 'E', value: dm*931.5, tol: 0.002, explain: '$E = \Delta m\,c^2$, and one atomic mass unit is worth 931.5 MeV. Chemical reactions change mass by about a billionth as much' }
+  verify: { expect: { y: "solve(Eq(x/Rational(9315, 10), dm), x)[0]" } }
+
+# ── 2 · bonding ──────────────────────────────────────────────────────────
+- template: ac-bond-length-compare
+  skill: gchem.bonding
+  pace: recall
+  cases:
+    - { q: 'C–C, C=C or C≡C', o1: 'C≡C', o2: 'C=C', o3: 'C–C', ans: 0 }
+    - { q: 'H–F, H–Cl or H–Br', o1: 'H–F', o2: 'H–Cl', o3: 'H–Br', ans: 0 }
+    - { q: 'N≡N, N=N or N–N', o1: 'N≡N', o2: 'N=N', o3: 'N–N', ans: 0 }
+  prompt: 'Which is the strongest bond: {{q}}?'
+  parts:
+    - { ask: 'Strongest', label: a, choice: ["{{o1}}", "{{o2}}", "{{o3}}"], correct: ans, explain: 'On the potential-energy curve, a deeper well (stronger bond) usually comes with a shorter equilibrium distance: more shared electrons, or smaller atoms, pull the nuclei closer' }
+  verify: { authored: true }
+
+- template: ac-ionic-melting-rank
+  skill: gchem.bonding
+  pace: recall
+  cases:
+    - { o1: 'MgO', o2: 'NaCl', o3: 'KBr', ans: 0 }
+    - { o1: 'CaO', o2: 'KCl', o3: 'CsI', ans: 0 }
+    - { o1: 'LiF', o2: 'NaCl', o3: 'KI', ans: 0 }
+    - { o1: 'Al₂O₃', o2: 'MgCl₂', o3: 'NaBr', ans: 0 }
+  prompt: 'Which has the highest melting point?'
+  parts:
+    - { ask: 'Highest', label: a, choice: ["{{o1}}", "{{o2}}", "{{o3}}"], correct: ans, explain: 'Lattice energy goes as $q_1q_2/r$: higher ion charges and smaller ions hold the lattice together harder. Charge matters most: MgO (2+, 2−) melts near 2850 °C, NaCl at 801 °C' }
+  verify: { authored: true }
+
+- template: ac-metal-vs-ionic
+  skill: gchem.bonding
+  pace: recall
+  cases:
+    - { q: 'conducts electricity as a solid', o1: 'Copper', o2: 'Sodium chloride', ans: 0 }
+    - { q: 'can be hammered into thin sheets', o1: 'Gold', o2: 'Calcium oxide', ans: 0 }
+    - { q: 'conducts electricity only when molten or dissolved', o1: 'Sodium chloride', o2: 'Copper', ans: 0 }
+    - { q: 'shatters when struck', o1: 'Sodium chloride', o2: 'Aluminium', ans: 0 }
+  prompt: 'Which {{q}}?'
+  parts:
+    - { ask: 'Substance', label: a, choice: ["{{o1}}", "{{o2}}"], correct: ans, explain: 'Metals keep a sea of mobile electrons: they conduct, and layers slide without breaking bonds. Ionic lattices hold ions in place: no conduction until melted, and a shifted layer puts like charges together, so it cracks' }
+  verify: { authored: true }
+
+- template: ac-formal-charge-count
+  skill: gchem.bonding
+  pace: quick
+  cases:
+    - { q: 'the N in NH₄⁺', V: 5, L: 0, B: 4 }
+    - { q: 'the O in H₃O⁺', V: 6, L: 2, B: 3 }
+    - { q: 'the singly bonded O in NO₃⁻ (one of the two)', V: 6, L: 6, B: 1 }
+    - { q: 'the C in CO (triple bond, one lone pair on each atom)', V: 4, L: 2, B: 3 }
+    - { q: 'the S in SO₄²⁻ drawn with four single bonds', V: 6, L: 0, B: 4 }
+    - { q: 'the B in BF₄⁻', V: 3, L: 0, B: 4 }
+  prompt: 'What is the formal charge on {{q}}? It has ${{L}}$ nonbonding electrons and ${{B}}$ bonds.'
+  parts:
+    - { ask: 'Formal charge', label: y, tex: 'FC', value: V - L - B, tol: 0.002, explain: 'Formal charge = valence electrons − nonbonding electrons − bonds (half the bonding electrons). The best structure keeps formal charges small and puts negative ones on the more electronegative atoms' }
+  require: ['V - L - B != 0']
+  verify: { expect: { y: "V - (L + 2*B/2)" } }
+
+- template: ac-resonance-count
+  skill: gchem.bonding
+  pace: quick
+  cases:
+    - { q: 'NO₃⁻', n: 3 }
+    - { q: 'CO₃²⁻', n: 3 }
+    - { q: 'O₃', n: 2 }
+    - { q: 'NO₂⁻', n: 2 }
+    - { q: 'benzene (Kekulé structures)', n: 2 }
+    - { q: 'SO₃ (octet structures)', n: 3 }
+  prompt: 'How many equivalent resonance structures does {{q}} have?'
+  parts:
+    - { ask: 'Structures', label: a, choice: ["1", "2", "3", "4"], correct: n - 1, explain: 'Count the places the double bond can go among equivalent atoms. The real species is one average of them all, which is why the bonds are all the same length' }
+  verify: { authored: true }
+
+# ── 3 · intermolecular forces and solutions ─────────────────────────────
+- template: ac-boiling-point-rank
+  skill: gchem.imf
+  pace: recall
+  cases:
+    - { o1: 'Water (H₂O)', o2: 'Hydrogen sulfide (H₂S)', o3: 'Methane (CH₄)', ans: 0 }
+    - { o1: 'Octane', o2: 'Pentane', o3: 'Propane', ans: 0 }
+    - { o1: 'Ethanol', o2: 'Dimethyl ether', o3: 'Propane', ans: 0 }
+    - { o1: 'I₂', o2: 'Br₂', o3: 'Cl₂', ans: 0 }
+  prompt: 'Which has the highest boiling point?'
+  parts:
+    - { ask: 'Highest', label: a, choice: ["{{o1}}", "{{o2}}", "{{o3}}"], correct: ans, explain: 'Stronger attractions need more energy to separate the molecules. Hydrogen bonding beats dipole forces of similar size molecules; among similar nonpolar molecules, bigger electron clouds give larger London forces' }
+  verify: { authored: true }
+
+- template: ac-solid-from-properties
+  skill: gchem.imf
+  pace: recall
+  cases:
+    - { q: 'melts at 1700 °C, very hard, does not conduct even when molten', o1: 'Covalent network', o2: 'Ionic', o3: 'Metallic', o4: 'Molecular', ans: 0 }
+    - { q: 'melts at 800 °C, brittle, conducts only when molten', o1: 'Ionic', o2: 'Covalent network', o3: 'Metallic', o4: 'Molecular', ans: 0 }
+    - { q: 'melts at 80 °C, soft, does not conduct', o1: 'Molecular', o2: 'Ionic', o3: 'Metallic', o4: 'Covalent network', ans: 0 }
+    - { q: 'conducts as a solid, malleable, shiny', o1: 'Metallic', o2: 'Ionic', o3: 'Molecular', o4: 'Covalent network', ans: 0 }
+  prompt: 'A solid {{q}}. What kind of solid is it?'
+  parts:
+    - { ask: 'Kind', label: a, choice: ["{{o1}}", "{{o2}}", "{{o3}}", "{{o4}}"], correct: ans, explain: 'Melting point tracks what holds the particles together: covalent bonds throughout (network) > ions > metallic bonds (wide range) > intermolecular forces (molecular). Conduction needs mobile charge' }
+  verify: { authored: true }
+
+- template: ac-vapor-pressure-rank
+  skill: gchem.imf
+  pace: recall
+  cases:
+    - { o1: 'Diethyl ether', o2: 'Ethanol', o3: 'Water', ans: 0 }
+    - { o1: 'Pentane', o2: 'Hexane', o3: 'Octane', ans: 0 }
+    - { o1: 'Acetone', o2: 'Water', o3: 'Glycerol', ans: 0 }
+  prompt: 'At 25 °C, which liquid has the highest vapor pressure?'
+  parts:
+    - { ask: 'Highest', label: a, choice: ["{{o1}}", "{{o2}}", "{{o3}}"], correct: ans, explain: 'Weaker intermolecular forces let more molecules escape at a given temperature: higher vapor pressure, lower boiling point. A liquid boils when its vapor pressure reaches the outside pressure' }
+  verify: { authored: true }
+
+- template: ac-phase-at-condition
+  skill: gchem.imf
+  pace: recall
+  cases:
+    - { q: 'Raising the pressure on ice at 0 °C', o1: 'It melts: water''s solid–liquid line leans left', o2: 'It sublimes', o3: 'Nothing: pressure does not affect melting', ans: 0 }
+    - { q: 'Warming CO₂ at 1 atm from −100 °C', o1: 'It sublimes: 1 atm is below CO₂''s triple point', o2: 'It melts, then boils', o3: 'It stays solid', ans: 0 }
+    - { q: 'Heating a substance above its critical point', o1: 'Liquid and gas can no longer be told apart', o2: 'It always becomes solid', o3: 'It boils more violently', ans: 0 }
+  prompt: '{{q}}: what happens?'
+  parts:
+    - { ask: 'Result', label: a, choice: ["{{o1}}", "{{o2}}", "{{o3}}"], correct: ans, explain: 'Read a phase diagram along a horizontal (heating) or vertical (compression) line. Below the triple-point pressure there is no liquid; above the critical point there is one fluid phase' }
+  verify: { authored: true }
+
+- template: ac-mole-fraction
+  skill: gchem.solutions
+  pace: quick
+  cases:
+    - { f: 'ethanol', M: 46.07, w: 20 }
+    - { f: 'glucose', M: 180.16, w: 10 }
+    - { f: 'NaCl (count formula units)', M: 58.44, w: 5 }
+    - { f: 'methanol', M: 32.04, w: 30 }
+  prompt: 'An aqueous solution is ${{w}}$ percent {{f}} by mass ($M = {{M}}$ g/mol; water 18.015 g/mol). What is the mole fraction of {{f}}?'
+  parts:
+    - { ask: 'Mole fraction', label: y, tex: '\chi', value: (w/M)/(w/M + (100 - w)/18.015), tol: 0.002, explain: 'Take 100 g of solution: $w$ g solute and $100 - w$ g water. Convert each to moles; the mole fraction is solute moles over total moles' }
+  verify: { expect: { y: "solve(Eq(x*(w/M + (100 - w)/Rational(18015, 1000)), w/M), x)[0]" } }
+
+- template: ac-dissolving-ion-dipole
+  skill: gchem.solutions
+  pace: recall
+  cases:
+    - { q: 'NaCl dissolving in water', o1: 'Ion–dipole', o2: 'Hydrogen bonding only', o3: 'London dispersion only', ans: 0 }
+    - { q: 'ethanol mixing with water', o1: 'Hydrogen bonding', o2: 'Ion–dipole', o3: 'London dispersion only', ans: 0 }
+    - { q: 'iodine dissolving in hexane', o1: 'London dispersion', o2: 'Ion–dipole', o3: 'Hydrogen bonding', ans: 0 }
+  prompt: 'What attraction between solute and solvent particles matters most in {{q}}?'
+  parts:
+    - { ask: 'Attraction', label: a, choice: ["{{o1}}", "{{o2}}", "{{o3}}"], correct: ans, explain: 'Like dissolves like: a solute dissolves when its attraction to the solvent can replace the attractions each had within itself' }
+  verify: { authored: true }
+
+- template: ac-miscible-pick
+  skill: gchem.solutions
+  pace: recall
+  cases:
+    - { o1: 'Methanol', o2: 'Hexane', o3: 'Octane', ans: 0 }
+    - { o1: 'Acetic acid', o2: 'Benzene', o3: 'Carbon tetrachloride', ans: 0 }
+    - { o1: 'Ammonia', o2: 'Methane', o3: 'Nitrogen', ans: 0 }
+  prompt: 'Which is most soluble in water?'
+  parts:
+    - { ask: 'Most soluble', label: a, choice: ["{{o1}}", "{{o2}}", "{{o3}}"], correct: ans, explain: 'Molecules that can hydrogen bond with water (O–H, N–H, or lone pairs on O or N) mix well; hydrocarbons and other nonpolar molecules do not' }
+  verify: { authored: true }
+
+- template: ac-photon-energy-transition
+  skill: gchem.solutions
+  pace: quick
+  given: { lam: { pick: [250, 400, 550, 3000] } }
+  prompt: 'What is the energy carried by one mole of ${{lam}}$ nm photons, in kJ/mol? ($h = 6.626 \times 10^{-34}$ J·s, $c = 2.998 \times 10^8$ m/s, $N_A = 6.022 \times 10^{23}$.)'
+  parts:
+    - { ask: 'Energy (kJ/mol)', label: y, tex: 'E', value: 6.626e-34*2.998e8/(lam*1e-9)*6.022e23/1000, tol: 0.002, explain: '$E = hc/\lambda$ per photon, times Avogadro''s number. UV (about 300–500 kJ/mol) matches bond energies, which is why it breaks bonds; infrared only stirs vibrations' }
+  verify: { expect: { y: "Rational(6626, 1000)*10**-34*Rational(2998, 1000)*10**8*Rational(6022, 1000)*10**23/(lam*10**-9)/1000" } }
+
+# ── 4 · reactions ────────────────────────────────────────────────────────
+- template: ac-net-ionic-pick
+  skill: gchem.reactions
+  pace: recall
+  cases:
+    - { q: 'AgNO₃(aq) + NaCl(aq)', o1: 'Ag⁺ + Cl⁻ → AgCl(s)', o2: 'Na⁺ + NO₃⁻ → NaNO₃', o3: 'AgNO₃ + Cl⁻ → AgCl + NO₃⁻', ans: 0 }
+    - { q: 'HCl(aq) + NaOH(aq)', o1: 'H⁺ + OH⁻ → H₂O', o2: 'Na⁺ + Cl⁻ → NaCl', o3: 'HCl + OH⁻ → Cl⁻ + H₂O', ans: 0 }
+    - { q: 'BaCl₂(aq) + Na₂SO₄(aq)', o1: 'Ba²⁺ + SO₄²⁻ → BaSO₄(s)', o2: 'Na⁺ + Cl⁻ → NaCl(s)', o3: 'BaCl₂ + SO₄²⁻ → BaSO₄ + 2 Cl⁻', ans: 0 }
+    - { q: 'HC₂H₃O₂(aq) + NaOH(aq)', o1: 'HC₂H₃O₂ + OH⁻ → C₂H₃O₂⁻ + H₂O', o2: 'H⁺ + OH⁻ → H₂O', o3: 'Na⁺ + C₂H₃O₂⁻ → NaC₂H₃O₂', ans: 0 }
+  prompt: 'What is the net ionic equation for {{q}}?'
+  parts:
+    - { ask: 'Net ionic', label: a, choice: ["{{o1}}", "{{o2}}", "{{o3}}"], correct: ans, explain: 'Split only strong electrolytes into ions; keep solids, water, gases and weak acids whole; cancel what appears unchanged on both sides' }
+  verify: { authored: true }
+
+- template: ac-limiting-reactant-mass
+  skill: gchem.stoichiometry
+  pace: quick
+  given: { mH: { pick: [2, 4, 6] }, mO: { pick: [16, 24, 48] } }
+  prompt: '${{mH}}$ g of H₂ (2.016 g/mol) and ${{mO}}$ g of O₂ (32.00 g/mol) react to form water (18.015 g/mol). What mass of water forms, in g?'
+  parts:
+    - { ask: 'Water (g)', label: y, tex: 'm', value: 'min(mH/2.016, 2*mO/32)*18.015', tol: 0.002, explain: '2 H₂ + O₂ → 2 H₂O. Work out how much water each reactant could make; the smaller amount is the yield, and that reactant is limiting' }
+  verify: { expect: { y: "Min(mH/Rational(2016, 1000), 2*mO/32)*Rational(18015, 1000)" } }
+
+- template: ac-dissolving-vs-reacting
+  skill: gchem.reactions
+  pace: recall
+  cases:
+    - { q: 'HCl gas dissolving in water', o1: 'Chemical: H–Cl bonds break and H₃O⁺ forms', o2: 'Physical: only intermolecular forces change', ans: 0 }
+    - { q: 'Sugar dissolving in water', o1: 'Physical: only intermolecular forces change', o2: 'Chemical: covalent bonds break', ans: 0 }
+    - { q: 'NaCl dissolving in water', o1: 'Treated as physical: ions separate, no new substance', o2: 'Chemical: new covalent bonds form', ans: 0 }
+    - { q: 'Iodine subliming', o1: 'Physical: only intermolecular forces change', o2: 'Chemical: I–I bonds break', ans: 0 }
+  prompt: 'What kind of change is {{q}}?'
+  parts:
+    - { ask: 'Kind', label: a, choice: ["{{o1}}", "{{o2}}"], correct: ans, explain: 'Ask whether covalent bonds within particles break or form. Ionising an acid does; dissolving sugar, melting and subliming do not' }
+  verify: { authored: true }
+
+- template: ac-dilution-volume
+  skill: gchem.stoichiometry
+  pace: quick
+  given: { C1: { pick: [6, 12, 18] }, C2: { pick: [0.5, 1, 2] }, V2: { pick: [250, 500, 1000] } }
+  prompt: 'How many mL of ${{C1}}$ M stock acid do you need to make ${{V2}}$ mL of ${{C2}}$ M solution?'
+  parts:
+    - { ask: 'Stock (mL)', label: y, tex: 'V_1', value: C2*V2/C1, tol: 0.002, explain: 'Dilution keeps the moles of solute: $C_1V_1 = C_2V_2$. Add the acid to the water, not the water to the acid' }
+  verify: { expect: { y: "solve(Eq(C1*x, C2*V2), x)[0]" } }
+
+- template: ac-gas-volume-stp
+  skill: gchem.stoichiometry
+  pace: quick
+  given: { m: { pick: [2.43, 4.86, 12.15] } }
+  prompt: '${{m}}$ g of magnesium (24.305 g/mol) reacts with excess HCl: Mg + 2 HCl → MgCl₂ + H₂. What volume of H₂ forms at 273.15 K and 1 atm, in L? ($R = 0.08206$ L·atm/(mol·K).)'
+  parts:
+    - { ask: 'Volume (L)', label: y, tex: 'V', value: m/24.305*0.08206*273.15, tol: 0.002, explain: 'One mol H₂ per mol Mg, and $V = nRT/P$: at 0 °C and 1 atm that is 22.4 L per mole' }
+  verify: { expect: { y: "(m/Rational(24305, 1000))*Rational(8206, 100000)*Rational(27315, 100)/1" } }
+
+- template: ac-redox-or-not
+  skill: gchem.reactions
+  pace: recall
+  cases:
+    - { q: 'Zn + CuSO₄ → ZnSO₄ + Cu', ans: 0 }
+    - { q: 'NaOH + HCl → NaCl + H₂O', ans: 1 }
+    - { q: '2 H₂ + O₂ → 2 H₂O', ans: 0 }
+    - { q: 'AgNO₃ + NaCl → AgCl + NaNO₃', ans: 1 }
+    - { q: 'CaCO₃ → CaO + CO₂', ans: 1 }
+    - { q: '2 KClO₃ → 2 KCl + 3 O₂', ans: 0 }
+  prompt: 'Is {{q}} a redox reaction?'
+  parts:
+    - { ask: 'Redox?', label: a, choice: ["Yes: oxidation numbers change", "No: every oxidation number stays the same"], correct: ans, explain: 'Assign oxidation numbers and look for any that change. Any reaction with a free element on one side only is redox; precipitation and neutralisation are not' }
+  verify: { authored: true }
+
+- template: ac-combustion-o2
+  skill: gchem.stoichiometry
+  pace: quick
+  cases:
+    - { f: 'CH₄', c: 1, h: 4 }
+    - { f: 'C₃H₈', c: 3, h: 8 }
+    - { f: 'C₈H₁₈', c: 8, h: 18 }
+    - { f: 'C₂H₆', c: 2, h: 6 }
+    - { f: 'C₆H₆', c: 6, h: 6 }
+  prompt: 'How many moles of O₂ does complete combustion of one mole of {{f}} need?'
+  parts:
+    - { ask: 'mol O₂', label: y, tex: 'n', value: c + h/4, tol: 0.002, explain: 'Every C becomes CO₂ (one O₂ each) and every 4 H become 2 H₂O (one O₂). So $n = c + h/4$; balance with fractions, then double if you need whole numbers' }
+  verify: { expect: { y: "solve(Eq(2*x, 2*c + h/2), x)[0]" } }
+
+- template: ac-ox-number-of
+  skill: gchem.reactions
+  pace: quick
+  cases:
+    - { q: 'Mn in MnO₄⁻', n: 7, fm: 'MnO4', ch: -1, tg: 'Mn' }
+    - { q: 'Cr in Cr₂O₇²⁻', n: 6, fm: 'Cr2O7', ch: -2, tg: 'Cr' }
+    - { q: 'S in SO₄²⁻', n: 6, fm: 'SO4', ch: -2, tg: 'S' }
+    - { q: 'N in NO₃⁻', n: 5, fm: 'NO3', ch: -1, tg: 'N' }
+    - { q: 'N in NH₃', n: -3, fm: 'NH3', ch: 0, tg: 'N' }
+    - { q: 'C in CO₂', n: 4, fm: 'CO2', ch: 0, tg: 'C' }
+    - { q: 'Cl in ClO⁻', n: 1, fm: 'ClO', ch: -1, tg: 'Cl' }
+    - { q: 'O in H₂O₂', n: -1, fm: 'H2O2', ch: 0, tg: 'O' }
+  prompt: 'What is the oxidation number of {{q}}?'
+  parts:
+    - { ask: 'Oxidation number', label: y, tex: 'ox', value: n, tol: 0.002, explain: 'Fix the easy ones (O is −2 except in peroxides, H is +1 with nonmetals), then make the total equal the charge on the species' }
+  verify: { expect: { y: "ox_state(fm, ch, tg)" } }
+
+- template: ac-half-reaction-electrons
+  skill: gchem.reactions
+  pace: quick
+  cases:
+    - { q: 'MnO₄⁻ → Mn²⁺', n: 5, f1: 'MnO4', q1: -1, f2: 'Mn', q2: 2, el: 'Mn' }
+    - { q: 'Cr₂O₇²⁻ → 2 Cr³⁺', n: 6, f1: 'Cr2O7', q1: -2, f2: 'Cr', q2: 3, el: 'Cr' }
+    - { q: 'Fe²⁺ → Fe³⁺', n: 1, f1: 'Fe', q1: 2, f2: 'Fe', q2: 3, el: 'Fe' }
+    - { q: 'NO₃⁻ → NO', n: 3, f1: 'NO3', q1: -1, f2: 'NO', q2: 0, el: 'N' }
+    - { q: 'H₂O₂ → 2 H₂O', n: 2, f1: 'H2O2', q1: 0, f2: 'H2O', q2: 0, el: 'O' }
+    - { q: 'SO₃²⁻ → SO₄²⁻', n: 2, f1: 'SO3', q1: -2, f2: 'SO4', q2: -2, el: 'S' }
+  prompt: 'How many electrons appear in the balanced half-reaction {{q}} (acidic solution)?'
+  parts:
+    - { ask: 'Electrons', label: y, tex: 'n', value: n, tol: 0.002, explain: 'The electrons equal the total change in oxidation number of the element that changes. Then balance O with water, H with H⁺, and check the charge' }
+  verify: { expect: { y: "half_electrons(f1, q1, f2, q2, el)" } }
+
+- template: ac-activity-strongest
+  skill: gchem.reactions
+  pace: recall
+  cases:
+    - { o1: 'Mg', o2: 'Zn', o3: 'Cu', ans: 0 }
+    - { o1: 'Na', o2: 'Fe', o3: 'Ag', ans: 0 }
+    - { o1: 'Al', o2: 'Pb', o3: 'Au', ans: 0 }
+  prompt: 'Which metal is the strongest reducing agent?'
+  parts:
+    - { ask: 'Strongest', label: a, choice: ["{{o1}}", "{{o2}}", "{{o3}}"], correct: ans, explain: 'The higher a metal sits in the activity series, the more easily it gives up electrons: it is the stronger reducing agent and displaces the ions of metals below it' }
+  verify: { authored: true }
+
+# ── 5 · kinetics ─────────────────────────────────────────────────────────
+- template: ac-arrhenius-fraction
+  skill: gchem.kinetics
+  pace: quick
+  given: { Ea: { pick: [50, 75, 100] }, T1: { pick: [298] }, T2: { pick: [308, 318, 348] } }
+  prompt: 'A reaction has $E_a = {{Ea}}$ kJ/mol. By what factor does the rate constant grow from ${{T1}}$ K to ${{T2}}$ K? ($R = 8.314$ J/(mol·K).)'
+  parts:
+    - { ask: 'Factor', label: y, tex: 'k_2/k_1', value: exp(Ea*1000/8.314*(1/T1 - 1/T2)), tol: 0.002, explain: 'Arrhenius: $\ln\dfrac{k_2}{k_1} = \dfrac{E_a}{R}\left(\dfrac1{T_1} - \dfrac1{T_2}\right)$. A modest warming raises the fraction of collisions over the barrier a lot' }
+  verify: { expect: { y: "(exp(-Ea*1000/(Rational(8314, 1000)*T2)))/(exp(-Ea*1000/(Rational(8314, 1000)*T1)))" } }
+
+- template: ac-intermediate-vs-catalyst
+  skill: gchem.kinetics
+  pace: recall
+  cases:
+    - { q: 'is made in one step and used up in a later one', o1: 'An intermediate', o2: 'A catalyst', ans: 0 }
+    - { q: 'is used up in one step and made again in a later one', o1: 'A catalyst', o2: 'An intermediate', ans: 0 }
+  prompt: 'In a mechanism, a species that {{q}} is…'
+  parts:
+    - { ask: 'Role', label: a, choice: ["{{o1}}", "{{o2}}"], correct: ans, explain: 'Neither appears in the overall equation. An intermediate is produced then consumed; a catalyst is there at the start and at the end' }
+  verify: { authored: true }
+
+- template: ac-rate-law-order-scaling
+  skill: gchem.kinetics
+  pace: quick
+  given: { m: { pick: [1, 2] }, n: { pick: [0, 1, 2] }, fA: { pick: [2, 3] }, fB: { pick: [2, 3] } }
+  prompt: 'A reaction has rate $= k[\mathrm{A}]^{ {{m}} }[\mathrm{B}]^{ {{n}} }$. [A] is multiplied by ${{fA}}$ and [B] by ${{fB}}$. By what factor does the rate change?'
+  parts:
+    - { ask: 'Factor', label: y, tex: 'f', value: fA^m*fB^n, tol: 0.005, explain: 'Each concentration enters raised to its order. Zero order means that reactant does not affect the rate at all' }
+  verify: { expect: { y: "(Symbol('k')*(fA*Symbol('a'))**m*(fB*Symbol('b'))**n)/(Symbol('k')*Symbol('a')**m*Symbol('b')**n)" } }
+
+- template: ac-rate-law-from-data
+  skill: gchem.kinetics
+  pace: quick
+  given: { n: { pick: [1, 2, 3] }, f: { pick: [2, 3] } }
+  prompt: 'When [A] is multiplied by ${{f}}$ (everything else fixed), the initial rate is multiplied by ${{f^n}}$. What is the order in A?'
+  parts:
+    - { ask: 'Order', label: y, tex: 'n', value: n, tol: 0.002, explain: 'Rate ratio $= f^n$, so $n = \dfrac{\ln(\text{rate ratio})}{\ln f}$. Unchanged rate means zero order' }
+  verify: { expect: { y: "log(f**n)/log(f)" } }
+
+- template: ac-ea-from-profile
+  skill: gchem.kinetics
+  pace: quick
+  given: { R: { pick: [20, 50] }, T: { pick: [120, 150, 180] }, P: { pick: [-30, 10, 60] } }
+  prompt: 'On an energy profile the reactants are at ${{R}}$ kJ/mol, the transition state at ${{T}}$ kJ/mol and the products at ${{P}}$ kJ/mol. What is the activation energy of the reverse reaction, in kJ/mol?'
+  parts:
+    - { ask: 'E_a reverse (kJ/mol)', label: y, tex: "E_a'", value: T - P, tol: 0.002, explain: 'Each direction climbs from its own starting level to the same peak. $E_{a,rev} = E_{a,fwd} - \Delta H$' }
+  verify: { expect: { y: "(T - R) - (P - R)" } }
+
+# ── 6 · thermochemistry ──────────────────────────────────────────────────
+- template: ac-endo-exo-sign
+  skill: gchem.thermochem
+  pace: recall
+  cases:
+    - { q: 'An ice pack gets cold when the salt inside dissolves.', o1: 'Endothermic: ΔH > 0', o2: 'Exothermic: ΔH < 0', ans: 0 }
+    - { q: 'A hand warmer gets hot as iron rusts inside it.', o1: 'Exothermic: ΔH < 0', o2: 'Endothermic: ΔH > 0', ans: 0 }
+    - { q: 'Water freezes on a cold night.', o1: 'Exothermic: ΔH < 0', o2: 'Endothermic: ΔH > 0', ans: 0 }
+    - { q: 'Sweat evaporates from skin.', o1: 'Endothermic: ΔH > 0', o2: 'Exothermic: ΔH < 0', ans: 0 }
+  prompt: '{{q}} What is the sign of ΔH for the process?'
+  parts:
+    - { ask: 'Sign', label: a, choice: ["{{o1}}", "{{o2}}"], correct: ans, explain: 'ΔH belongs to the system. If the surroundings (your hand, the room) get colder, heat went into the system: endothermic' }
+  verify: { authored: true }
+
+- template: ac-heat-direction-pick
+  skill: gchem.thermochem
+  pace: quick
+  given: { m1: { pick: [50, 100] }, c1: { pick: [0.45, 0.90] }, T1: { pick: [90, 100] }, m2: { pick: [100, 200] }, T2: { pick: [20, 25] } }
+  prompt: 'A ${{m1}}$ g metal block ($c = {{c1}}$ J/(g·K)) at ${{T1}}$ °C is dropped into ${{m2}}$ g of water ($c = 4.184$) at ${{T2}}$ °C. How much heat does the water gain before they reach the same temperature, in J?'
+  parts:
+    - { ask: 'Heat (J)', label: y, tex: 'q', value: m2*4.184*((m1*c1*T1 + m2*4.184*T2)/(m1*c1 + m2*4.184) - T2), tol: 0.002, explain: 'Find the common final temperature from heat lost = heat gained, then $q = mc\Delta T$ for the water. Particles of the hotter block, moving faster, pass energy to the water in collisions' }
+  verify: { expect: { y: "m2*Rational(4184, 1000)*(solve(Eq(m1*c1*(T1 - x), m2*Rational(4184, 1000)*(x - T2)), x)[0] - T2)" } }
+
+- template: ac-calorimeter-temp-rise
+  skill: gchem.thermochem
+  pace: quick
+  given: { n: { pick: [0.025, 0.05, 0.1] }, dH: { pick: [-57] }, V: { pick: [100, 200] } }
+  prompt: 'A neutralisation releases 57 kJ per mole of water formed. If ${{n}}$ mol of water forms in ${{V}}$ g of solution ($c = 4.184$ J/(g·K)), by how many degrees does it warm?'
+  parts:
+    - { ask: 'ΔT (K)', label: y, tex: '\Delta T', value: n*57000/(V*4.184), tol: 0.002, explain: 'Heat released by the reaction warms the solution: $q = n\,|\Delta H| = mc\Delta T$' }
+  verify: { expect: { y: "solve(Eq(V*Rational(4184, 1000)*x, n*57000), x)[0]" } }
+
+- template: ac-heat-to-boil
+  skill: gchem.thermochem
+  pace: quick
+  given: { m: { pick: [18, 36, 90] } }
+  prompt: 'How much heat turns ${{m}}$ g of liquid water at 100 °C into steam at 100 °C, in kJ? ($\Delta H_{vap} = 40.7$ kJ/mol, 18.015 g/mol.)'
+  parts:
+    - { ask: 'Heat (kJ)', label: y, tex: 'q', value: m/18.015*40.7, tol: 0.002, explain: 'On the flat part of a heating curve all the heat goes into the phase change: $q = n\Delta H_{vap}$. Boiling takes almost seven times as much heat as melting' }
+  verify: { expect: { y: "integrate(Rational(407, 10)/Rational(18015, 1000), (Symbol('g'), 0, m))" } }
+
+- template: ac-bond-enthalpy-sign
+  skill: gchem.thermochem
+  pace: recall
+  cases:
+    - { q: 'the bonds broken are stronger than the bonds formed', o1: 'Endothermic', o2: 'Exothermic', ans: 0 }
+    - { q: 'the bonds formed are stronger than the bonds broken', o1: 'Exothermic', o2: 'Endothermic', ans: 0 }
+  prompt: 'If {{q}}, is the reaction endothermic or exothermic?'
+  parts:
+    - { ask: 'Kind', label: a, choice: ["{{o1}}", "{{o2}}"], correct: ans, explain: 'Breaking bonds costs energy; forming them releases it. $\Delta H \approx \sum(\text{broken}) - \sum(\text{formed})$' }
+  verify: { authored: true }
+
+- template: ac-hess-scale-combine
+  skill: gchem.thermochem
+  pace: quick
+  given: { a: { pick: [-394, -110] }, b: { pick: [-283, -572] }, k: { pick: [1, 2] } }
+  prompt: 'Reaction 1 has ΔH = ${{a}}$ kJ and reaction 2 has ΔH = ${{b}}$ kJ. A target reaction is reaction 1 minus ${{k}}$ times reaction 2. What is its ΔH, in kJ?'
+  parts:
+    - { ask: 'ΔH (kJ)', label: y, tex: '\Delta H', value: a - k*b, tol: 0.002, explain: 'Hess''s law: reversing a reaction flips the sign of ΔH; multiplying it multiplies ΔH. Add the adjusted steps' }
+  verify: { expect: { y: "a + (-k*b)" } }
+
+- template: ac-formation-from-combustion
+  skill: gchem.thermochem
+  pace: quick
+  given: { Hc: { pick: [-890, -1560, -2220] } }
+  prompt: 'The enthalpy of combustion of a hydrocarbon is ${{Hc}}$ kJ/mol. {{Hc == -890 ? "CH₄ + 2 O₂ → CO₂ + 2 H₂O" : (Hc == -1560 ? "C₂H₆ + 3.5 O₂ → 2 CO₂ + 3 H₂O" : "C₃H₈ + 5 O₂ → 3 CO₂ + 4 H₂O")}}, with ΔH°f of CO₂ = −393.5 and H₂O(l) = −285.8 kJ/mol. What is ΔH°f of the hydrocarbon, in kJ/mol?'
+  parts:
+    - { ask: 'ΔH°f (kJ/mol)', label: y, tex: '\Delta H_f^\circ', value: '(Hc == -890 ? 1 : (Hc == -1560 ? 2 : 3))*(-393.5) + (Hc == -890 ? 2 : (Hc == -1560 ? 3 : 4))*(-285.8) - Hc', tol: 0.002, explain: '$\Delta H_c = \sum\Delta H_f(\text{products}) - \Delta H_f(\text{fuel})$ (O₂ is zero). Solve for the fuel''s formation enthalpy' }
+  verify: { expect: { y: "solve(Eq(Hc, (1 if Hc == -890 else (2 if Hc == -1560 else 3))*Rational(-3935, 10) + (2 if Hc == -890 else (3 if Hc == -1560 else 4))*Rational(-2858, 10) - x), x)[0]" } }
+
+# ── 7 · equilibrium ──────────────────────────────────────────────────────
+- template: ac-equilibrium-graph-read
+  skill: gchem.equilibrium
+  pace: recall
+  cases:
+    - { q: 'the concentrations stop changing', o1: 'Equilibrium: forward and reverse rates are equal', o2: 'The reaction has stopped', o3: 'The concentrations of reactants and products are equal', ans: 0 }
+    - { q: 'the reactant and product lines cross', o1: 'Nothing special: equal concentrations do not mean equilibrium', o2: 'Equilibrium is reached', o3: 'K equals 1 there', ans: 0 }
+  prompt: 'On a concentration–time graph, what does it mean where {{q}}?'
+  parts:
+    - { ask: 'Meaning', label: a, choice: ["{{o1}}", "{{o2}}", "{{o3}}"], correct: ans, explain: 'Equilibrium is dynamic: molecules still react both ways at equal rates, so the concentrations hold steady, not equal' }
+  verify: { authored: true }
+
+- template: ac-q-vs-k-direction
+  skill: gchem.equilibrium
+  pace: quick
+  given: { K: { pick: [0.5, 4, 50] }, a: { pick: [0.1, 0.5, 1] }, b: { pick: [0.2, 1, 2] }, c: { pick: [0.1, 0.4, 1.5] } }
+  prompt: 'For A + B ⇌ C, $K = {{K}}$. A mixture has [A] = ${{a}}$, [B] = ${{b}}$ and [C] = ${{c}}$ M. Which way does the reaction run?'
+  parts:
+    - ask: 'Direction'
+      label: a
+      choice: ["Forward, toward C (Q < K)", "Backward, toward A and B (Q > K)"]
+      correct: 'c/(a*b) < K ? 0 : 1'
+      explain: 'Compare $Q = \dfrac{[\mathrm C]}{[\mathrm A][\mathrm B]}$ with K. Too few products (Q < K) and the forward rate wins until Q reaches K'
+  require: ['abs(c/(a*b) - K) > 0.05*K']
+  verify: { choices: { a: "0 if c/(a*b) < K else 1" } }
+
+- template: ac-kp-from-kc
+  skill: gchem.equilibrium
+  pace: quick
+  given: { Kc: { pick: [0.5, 2, 10] }, T: { pick: [300, 500, 700] }, dn: { pick: [-1, 1, 2] } }
+  prompt: 'A gas reaction has $K_c = {{Kc}}$ at ${{T}}$ K, and the moles of gas change by ${{dn}}$ from reactants to products. What is $K_p$? ($R = 0.08206$ L·atm/(mol·K).)'
+  parts:
+    - { ask: 'K_p', label: y, tex: 'K_p', value: Kc*(0.08206*T)^dn, tol: 0.002, explain: '$K_p = K_c(RT)^{\Delta n}$, from $P = cRT$ for each gas. With no change in gas moles they are equal' }
+  verify: { expect: { y: "Kc*(Rational(8206, 100000)*T)**dn" } }
+
+- template: ac-k-reverse-multiply
+  skill: gchem.equilibrium
+  pace: quick
+  given: { K: { pick: [4, 25, 0.01] }, m: { pick: [2, -1, 0.5] } }
+  prompt: 'A reaction has $K = {{K}}$. What is K for the reaction {{m == -1 ? "written in reverse" : (m == 2 ? "with every coefficient doubled" : "with every coefficient halved")}}?'
+  parts:
+    - { ask: 'New K', label: y, tex: "K'", value: K^m, tol: 0.002, explain: 'Reversing inverts K; multiplying the equation by $n$ raises K to the $n$th power. Adding reactions multiplies their Ks' }
+  verify: { expect: { y: "K**m" } }
+
+- template: ac-ice-equilibrium-amount
+  skill: gchem.equilibrium
+  pace: quick
+  given: { c: { pick: [1, 2] }, K: { pick: [4, 9, 16] } }
+  prompt: 'For A + B ⇌ C + D with $K = {{K}}$, you start with ${{c}}$ M each of A and B and nothing else. What is [C] at equilibrium, in M?'
+  parts:
+    - { ask: '[C] (M)', label: y, tex: '[\mathrm C]', value: c*sqrt(K)/(1 + sqrt(K)), tol: 0.002, explain: 'ICE: $\dfrac{x^2}{(c - x)^2} = K$, so take square roots: $\dfrac{x}{c - x} = \sqrt K$. No quadratic needed when the expression is a perfect square' }
+  verify: { expect: { y: "solve(Eq(x, sqrt(K)*(c - x)), x)[0]" } }
+
+- template: ac-k-size-percent
+  skill: gchem.equilibrium
+  pace: recall
+  cases:
+    - { e: 10, o1: 'Almost all products', o2: 'Almost all reactants', o3: 'Comparable amounts of both', ans: 0 }
+    - { e: -10, o1: 'Almost all reactants', o2: 'Almost all products', o3: 'Comparable amounts of both', ans: 0 }
+    - { e: 0, o1: 'Comparable amounts of both', o2: 'Almost all products', o3: 'Almost all reactants', ans: 0 }
+  prompt: 'Starting from reactants only, a reaction with $K \approx 10^{ {{e}} }$ comes to equilibrium. What is in the flask?'
+  parts:
+    - { ask: 'Mixture', label: a, choice: ["{{o1}}", "{{o2}}", "{{o3}}"], correct: ans, explain: 'K is products over reactants at equilibrium. Huge K: the reaction goes essentially to completion; tiny K: hardly at all; near 1: a real mixture' }
+  verify: { authored: true }
+
+- template: ac-small-x-check
+  skill: gchem.equilibrium
+  pace: quick
+  given: { c: { pick: [0.1, 0.5, 1] }, K: { pick: [1e-6, 1e-5, 1e-4] } }
+  prompt: 'For A ⇌ B + C with $K = {{K}}$ and ${{c}}$ M A at the start, the small-x approximation gives x. What percent of A is that?'
+  parts:
+    - { ask: 'Percent', label: y, tex: '\%', value: 100*sqrt(K*c)/c, tol: 0.002, explain: 'Small x: $x \approx \sqrt{Kc}$. The approximation is accepted when x is under about 5 percent of the starting amount' }
+  verify: { expect: { y: "100*Max(*solve(Eq(x**2, K*c), x))/c" } }
+
+- template: ac-quadratic-percent
+  skill: gchem.equilibrium
+  pace: quick
+  given: { c: { pick: [0.01, 0.02, 0.05] }, K: { pick: [0.01, 0.005, 0.002] } }
+  prompt: 'For A ⇌ B + C with $K = {{K}}$ and ${{c}}$ M A at the start, what percent of A has reacted at equilibrium?'
+  parts:
+    - { ask: 'Percent', label: y, tex: '\%', value: 100*(-K + sqrt(K^2 + 4*K*c))/2/c, tol: 0.002, explain: '$\dfrac{x^2}{c - x} = K$ gives $x^2 + Kx - Kc = 0$. Take the positive root. Dilute solutions react a larger fraction' }
+  verify: { expect: { y: "100*Max(*solve(Eq(x**2, K*(c - x)), x))/c" } }
+
+- template: ac-particle-q
+  skill: gchem.equilibrium
+  pace: quick
+  given: { a: { pick: [2, 3, 4] }, b: { pick: [2, 3, 6] }, ab: { pick: [4, 6, 8] }, K: { pick: [4] } }
+  prompt: 'A box shows ${{a}}$ A₂, ${{b}}$ B₂ and ${{ab}}$ AB molecules for A₂ + B₂ ⇌ 2 AB, whose K = 4 (taking each molecule as one unit of concentration). What is Q?'
+  parts:
+    - { ask: 'Q', label: y, tex: 'Q', value: ab^2/(a*b), tol: 0.002, explain: 'Count particles as concentrations (the volume cancels when moles of gas do not change). If Q differs from K, the box is not at equilibrium yet' }
+  verify: { expect: { y: "(ab/Symbol('V'))**2/((a/Symbol('V'))*(b/Symbol('V')))" } }
+
+- template: ac-le-chatelier-shift
+  skill: gchem.equilibrium
+  pace: recall
+  cases:
+    - { q: 'For N₂ + 3 H₂ ⇌ 2 NH₃, the volume is halved.', o1: 'Toward NH₃ (fewer gas moles)', o2: 'Toward N₂ and H₂', o3: 'No shift', ans: 0 }
+    - { q: 'For H₂ + I₂ ⇌ 2 HI, the volume is halved.', o1: 'No shift: equal gas moles each side', o2: 'Toward HI', o3: 'Toward H₂ and I₂', ans: 0 }
+    - { q: 'For an exothermic reaction, the temperature is raised.', o1: 'Toward reactants, and K falls', o2: 'Toward products, and K rises', o3: 'No shift, K unchanged', ans: 0 }
+    - { q: 'An inert gas is added at constant volume.', o1: 'No shift: partial pressures are unchanged', o2: 'Toward fewer gas moles', o3: 'Toward more gas moles', ans: 0 }
+    - { q: 'A catalyst is added.', o1: 'No shift: equilibrium is reached faster', o2: 'Toward products', o3: 'Toward reactants', ans: 0 }
+  prompt: '{{q}} Which way does the equilibrium shift?'
+  parts:
+    - { ask: 'Shift', label: a, choice: ["{{o1}}", "{{o2}}", "{{o3}}"], correct: ans, explain: 'Only temperature changes K. Concentration and pressure changes move Q away from K, and the reaction runs to bring it back' }
+  verify: { authored: true }
+
+- template: ac-ksp-to-solubility
+  skill: gchem.equilibrium
+  pace: quick
+  cases:
+    - { f: 'AgCl', Ksp: 1.8e-10, k: 1 }
+    - { f: 'PbI₂', Ksp: 7.1e-9, k: 2 }
+    - { f: 'CaF₂', Ksp: 3.9e-11, k: 2 }
+    - { f: 'BaSO₄', Ksp: 1.1e-10, k: 1 }
+    - { f: 'Mg(OH)₂', Ksp: 5.6e-12, k: 2 }
+  prompt: 'What is the molar solubility of {{f}} in pure water ($K_{sp} = {{Ksp}}$), in M?'
+  parts:
+    - { ask: 's (M)', label: y, tex: 's', value: 'k == 1 ? sqrt(Ksp) : (Ksp/4)^(1/3)', tol: 0.002, explain: 'For MX, $K_{sp} = s^2$; for MX₂, $K_{sp} = s(2s)^2 = 4s^3$. Compare solubilities of different formula types by s, not by $K_{sp}$' }
+  verify: { expect: { y: "(Ksp/k**k)**Rational(1, k + 1)" } }
+
+- template: ac-common-ion-solubility
+  skill: gchem.equilibrium
+  pace: quick
+  given: { c: { pick: [0.01, 0.1, 0.5] } }
+  prompt: 'What is the molar solubility of AgCl ($K_{sp} = 1.8 \times 10^{-10}$) in ${{c}}$ M NaCl, in units of $10^{-9}$ M?'
+  parts:
+    - { ask: 's (10⁻⁹ M)', label: y, tex: 's', value: 2*1.8e-10/(c + sqrt(c^2 + 4*1.8e-10))*1e9, tol: 0.002, explain: 'The chloride already there pushes the equilibrium back: $K_{sp} = s(c + s) \approx sc$. Solubility falls far below the $1.3 \times 10^{-5}$ M in pure water' }
+  verify: { expect: { y: "Max(*solve(Eq(x*(c + x), Rational(18, 10)*10**-10), x))*10**9" } }
+
+# ── 8 · acids and bases ──────────────────────────────────────────────────
+- template: ac-kb-from-ka
+  skill: gchem.acidbase
+  pace: quick
+  cases:
+    - { a: 'acetic acid', Ka: 1.8e-5, b: 'acetate' }
+    - { a: 'HF', Ka: 6.8e-4, b: 'fluoride' }
+    - { a: 'NH₄⁺', Ka: 5.6e-10, b: 'ammonia' }
+    - { a: 'HCN', Ka: 4.9e-10, b: 'cyanide' }
+  prompt: '{{a}} has $K_a = {{Ka}}$. What is p$K_b$ of {{b}}, its conjugate base, at 25 °C?'
+  parts:
+    - { ask: 'pK_b', label: y, tex: 'pK_b', value: 14 + log10(Ka), tol: 0.002, explain: '$K_aK_b = K_w = 10^{-14}$, so p$K_a$ + p$K_b$ = 14. The weaker the acid, the stronger its conjugate base' }
+  verify: { expect: { y: "-log(10**-14/Ka, 10)" } }
+
+- template: ac-ph-from-percent-ionized
+  skill: gchem.acidbase
+  pace: quick
+  given: { c: { pick: [0.1, 0.05, 0.2] }, p: { pick: [1, 2, 5] } }
+  prompt: 'A ${{c}}$ M weak acid is ${{p}}$ percent ionised. What is its $K_a$, in units of $10^{-5}$?'
+  parts:
+    - { ask: 'K_a (×10⁻⁵)', label: y, tex: 'K_a', value: (c*p/100)^2/(c - c*p/100)*1e5, tol: 0.002, explain: '[H⁺] = [A⁻] = fraction × c, and [HA] = c minus that. $K_a = \dfrac{x^2}{c - x}$' }
+  verify: { expect: { y: "solve(Eq(x/10**5*(c - c*p/100), (c*p/100)**2), x)[0]" } }
+
+- template: ac-strong-dilution-ph
+  skill: gchem.acidbase
+  pace: quick
+  given: { c: { pick: [0.1, 0.01] }, f: { pick: [10, 100] } }
+  prompt: 'A ${{c}}$ M HCl solution is diluted ${{f}}$-fold. What is the new pH?'
+  parts:
+    - { ask: 'pH', label: y, tex: 'pH', value: -log10(c/f), tol: 0.002, explain: 'A strong acid is fully ionised, so [H⁺] = its concentration. Each tenfold dilution raises pH by 1, until it nears 7, where water''s own ions matter' }
+  verify: { expect: { y: "-log(c/f, 10)" } }
+
+- template: ac-half-equivalence
+  skill: gchem.acidbase
+  pace: quick
+  given: { Ka: { pick: [1.8e-5, 6.8e-4, 4.9e-10, 1.3e-5] } }
+  prompt: 'A weak acid with $K_a = {{Ka}}$ is titrated with NaOH. What is the pH at the half-equivalence point?'
+  parts:
+    - { ask: 'pH', label: y, tex: 'pH', value: -log10(Ka), tol: 0.002, explain: 'Halfway to equivalence, half the acid has become its conjugate base: [HA] = [A⁻], so pH = p$K_a$. That is how p$K_a$ is read off a titration curve' }
+  verify: { expect: { y: "-log(Ka*Symbol('h')/Symbol('h'), 10)" } }
+
+- template: ac-salt-ph-kind
+  skill: gchem.acidbase
+  pace: recall
+  cases:
+    - { f: 'NH₄Cl', o1: 'Acidic', o2: 'Neutral', o3: 'Basic', ans: 0 }
+    - { f: 'NaC₂H₃O₂', o1: 'Basic', o2: 'Neutral', o3: 'Acidic', ans: 0 }
+    - { f: 'KNO₃', o1: 'Neutral', o2: 'Acidic', o3: 'Basic', ans: 0 }
+    - { f: 'Na₂CO₃', o1: 'Basic', o2: 'Neutral', o3: 'Acidic', ans: 0 }
+    - { f: 'FeCl₃', o1: 'Acidic', o2: 'Neutral', o3: 'Basic', ans: 0 }
+  prompt: 'Is a solution of {{f}} acidic, neutral or basic?'
+  parts:
+    - { ask: 'Solution', label: a, choice: ["{{o1}}", "{{o2}}", "{{o3}}"], correct: ans, explain: 'Ions from strong acids and bases (Na⁺, K⁺, Cl⁻, NO₃⁻) do nothing. The conjugate of a weak acid is a base; the conjugate of a weak base (NH₄⁺) and small highly charged metal ions are acids' }
+  verify: { authored: true }
+
+- template: ac-equivalence-volume
+  skill: gchem.acidbase
+  pace: quick
+  given: { Va: { pick: [20, 25, 50] }, Ca: { pick: [0.1, 0.2] }, Cb: { pick: [0.1, 0.15, 0.25] }, n: { pick: [1, 2] } }
+  prompt: '${{Va}}$ mL of ${{Ca}}$ M {{n == 1 ? "acetic acid" : "sulfuric acid (both protons)"}} is titrated with ${{Cb}}$ M NaOH. What volume of base reaches the equivalence point, in mL?'
+  parts:
+    - { ask: 'Volume (mL)', label: y, tex: 'V_b', value: n*Ca*Va/Cb, tol: 0.002, explain: 'At equivalence, moles OH⁻ = moles of acidic protons. The strength of the acid does not change the volume, only the pH there' }
+  verify: { expect: { y: "solve(Eq(Cb*x, n*Ca*Va), x)[0]" } }
+
+- template: ac-polyprotic-species
+  skill: gchem.acidbase
+  pace: recall
+  cases:
+    - { q: 'pH = pKa1', o1: 'Equal amounts of H₂A and HA⁻', o2: 'Mostly A²⁻', o3: 'Equal amounts of HA⁻ and A²⁻', ans: 0 }
+    - { q: 'the first equivalence point', o1: 'Mostly HA⁻', o2: 'Mostly H₂A', o3: 'Mostly A²⁻', ans: 0 }
+    - { q: 'pH = pKa2', o1: 'Equal amounts of HA⁻ and A²⁻', o2: 'Equal amounts of H₂A and HA⁻', o3: 'Mostly H₂A', ans: 0 }
+  prompt: 'During the titration of a diprotic acid H₂A with NaOH, what is in solution at {{q}}?'
+  parts:
+    - { ask: 'Species', label: a, choice: ["{{o1}}", "{{o2}}", "{{o3}}"], correct: ans, explain: 'Each proton comes off in its own buffer region: at each pKa the two neighbouring forms are equal, and at each equivalence point one form dominates' }
+  verify: { authored: true }
+
+- template: ac-lewis-base-pick
+  skill: gchem.acidbase
+  pace: recall
+  cases:
+    - { o1: 'NH₃', o2: 'BF₃', o3: 'Al³⁺', ans: 0 }
+    - { o1: 'H₂O', o2: 'Fe³⁺', o3: 'AlCl₃', ans: 0 }
+    - { o1: 'CN⁻', o2: 'Cu²⁺', o3: 'BH₃', ans: 0 }
+  prompt: 'Which can act as a Lewis base?'
+  parts:
+    - { ask: 'Lewis base', label: a, choice: ["{{o1}}", "{{o2}}", "{{o3}}"], correct: ans, explain: 'A Lewis base donates a lone pair; a Lewis acid accepts one (metal cations, molecules with an empty orbital like BF₃)' }
+  verify: { authored: true }
+
+- template: ac-buffer-ratio-for-ph
+  skill: gchem.acidbase
+  pace: quick
+  given: { pKa: { pick: [4.74, 7.21, 9.25] }, d: { pick: [-0.5, 0.3, 1] } }
+  prompt: 'A buffer is made from a weak acid with p$K_a$ = ${{pKa}}$ and its conjugate base. What base-to-acid ratio gives pH ${{pKa + d}}$?'
+  parts:
+    - { ask: '[A⁻]/[HA]', label: y, tex: '\frac{[A^-]}{[HA]}', value: 10^d, tol: 0.002, explain: 'pH = p$K_a$ + log([A⁻]/[HA]), so the ratio is $10^{\mathrm{pH} - \mathrm{p}K_a}$. A buffer works best within one pH unit of its p$K_a$' }
+  verify: { expect: { y: "solve(Eq(log(x, 10), d), x)[0]" } }
+
+- template: ac-henderson-reverse
+  skill: gchem.acidbase
+  pace: quick
+  given: { pH: { pick: [4.44, 5.04, 4.74] }, a: { pick: [0.1, 0.2] } }
+  prompt: 'An acetic acid/acetate buffer (p$K_a$ = 4.74) with ${{a}}$ M acetic acid has pH ${{pH}}$. What is the acetate concentration, in M?'
+  parts:
+    - { ask: '[A⁻] (M)', label: y, tex: '[A^-]', value: a*10^(pH - 4.74), tol: 0.002, explain: 'Henderson–Hasselbalch backwards: the ratio is $10^{\mathrm{pH} - \mathrm{p}K_a}$; multiply by [HA]' }
+  verify: { expect: { y: "solve(Eq(pH, Rational(474, 100) + log(x/a, 10)), x)[0]" } }
+
+- template: ac-buffer-ph-change
+  skill: gchem.acidbase
+  pace: quick
+  given: { n: { pick: [0.1, 0.2, 0.5] }, ad: { pick: [0.01, 0.02, 0.05] } }
+  prompt: 'A buffer holds ${{n}}$ mol each of acetic acid and acetate. By how much does its pH rise when ${{ad}}$ mol NaOH is added?'
+  parts:
+    - { ask: 'ΔpH', label: y, tex: '\Delta pH', value: log10((n + ad)/(n - ad)), tol: 0.002, explain: 'OH⁻ turns acid into acetate. The pH changes only by log of the new ratio. The same base in pure water would raise the pH by several units' }
+  verify: { expect: { y: "log((n + ad)/(n - ad), 10) - log(n/n, 10)" } }
+
+- template: ac-buffer-capacity-moles
+  skill: gchem.acidbase
+  pace: quick
+  given: { a: { pick: [0.1, 0.2, 0.5] }, b: { pick: [0.1, 0.3, 0.5] } }
+  prompt: 'A buffer contains ${{a}}$ mol HA and ${{b}}$ mol A⁻. How many moles of strong acid can it take before all the A⁻ is used up?'
+  parts:
+    - { ask: 'Moles', label: y, tex: 'n', value: b, tol: 0.002, explain: 'Added H⁺ reacts with A⁻ mole for mole. Capacity against acid is set by the base, and against base by the acid; more of both means more capacity' }
+  verify: { expect: { y: "b + a - a" } }
+
+- template: ac-ph-solubility-pick
+  skill: gchem.acidbase
+  pace: recall
+  cases:
+    - { o1: 'CaCO₃', o2: 'AgCl', o3: 'PbBr₂', ans: 0 }
+    - { o1: 'Mg(OH)₂', o2: 'BaSO₄', o3: 'AgI', ans: 0 }
+    - { o1: 'CaF₂', o2: 'AgBr', o3: 'PbCl₂', ans: 0 }
+  prompt: 'Which salt becomes noticeably more soluble when acid is added?'
+  parts:
+    - { ask: 'Salt', label: a, choice: ["{{o1}}", "{{o2}}", "{{o3}}"], correct: ans, explain: 'Acid removes anions that are weak bases (CO₃²⁻, OH⁻, F⁻) by protonating them, pulling the dissolution forward. Anions of strong acids (Cl⁻, Br⁻, I⁻, SO₄²⁻ mostly) are unaffected' }
+  verify: { authored: true }
+
+# ── 9 · thermodynamics and electrochemistry ─────────────────────────────
+- template: ac-entropy-sign-pick
+  skill: gchem.thermo
+  pace: recall
+  cases:
+    - { q: '2 H₂(g) + O₂(g) → 2 H₂O(l)', o1: 'Decreases', o2: 'Increases', ans: 0 }
+    - { q: 'CaCO₃(s) → CaO(s) + CO₂(g)', o1: 'Increases', o2: 'Decreases', ans: 0 }
+    - { q: 'N₂(g) + 3 H₂(g) → 2 NH₃(g)', o1: 'Decreases', o2: 'Increases', ans: 0 }
+    - { q: 'H₂O(s) → H₂O(l)', o1: 'Increases', o2: 'Decreases', ans: 0 }
+  prompt: 'Does the entropy of the system increase or decrease in {{q}}?'
+  parts:
+    - { ask: 'Entropy', label: a, choice: ["{{o1}}", "{{o2}}"], correct: ans, explain: 'Count moles of gas first: more gas, more entropy. Then solid → liquid → gas, and more particles, all raise it' }
+  verify: { authored: true }
+
+- template: ac-favorable-above-t
+  skill: gchem.thermo
+  pace: quick
+  given: { dH: { pick: [90, 178, 44] }, dS: { pick: [120, 160, 118] } }
+  prompt: 'A reaction has ΔH° = +${{dH}}$ kJ/mol and ΔS° = +${{dS}}$ J/(mol·K). Above what temperature is it thermodynamically favorable, in K?'
+  parts:
+    - { ask: 'T (K)', label: y, tex: 'T', value: dH*1000/dS, tol: 0.002, explain: 'ΔG = ΔH − TΔS turns negative once $T > \Delta H/\Delta S$ (mind the kJ vs J). Endothermic, entropy-driven reactions need heat to go' }
+  verify: { expect: { y: "solve(Eq(dH*1000 - x*dS, 0), x)[0]" } }
+
+- template: ac-k-from-dg
+  skill: gchem.thermo
+  pace: quick
+  given: { dG: { pick: [-10, -20, 5, 15] }, T: { pick: [298] } }
+  prompt: 'A reaction has ΔG° = ${{dG}}$ kJ/mol at 298 K. What is K? ($R = 8.314$ J/(mol·K).)'
+  parts:
+    - { ask: 'K', label: y, tex: 'K', value: exp(-dG*1000/(8.314*298)), tol: 0.002, explain: '$\Delta G^\circ = -RT\ln K$. Negative ΔG° means K > 1; each 5.7 kJ/mol at room temperature is a factor of ten' }
+  verify: { expect: { y: "solve(Eq(-Rational(8314, 1000)*298*log(x), dG*1000), x)[0]" } }
+
+- template: ac-q-direction-dg
+  skill: gchem.thermo
+  pace: quick
+  given: { dG0: { pick: [-10, 5, 10] }, Q: { pick: [0.01, 10, 1000] } }
+  prompt: 'A reaction has ΔG° = ${{dG0}}$ kJ/mol at 298 K and the mixture has Q = ${{Q}}$. What is ΔG, in kJ/mol?'
+  parts:
+    - { ask: 'ΔG (kJ/mol)', label: y, tex: '\Delta G', value: dG0 + 8.314*298*log(Q)/1000, tol: 0.002, explain: '$\Delta G = \Delta G^\circ + RT\ln Q$. A negative ΔG means the reaction runs forward from this mixture, whatever the sign of ΔG°' }
+  verify: { expect: { y: "dG0 + Rational(8314, 1000)*298*log(Q)/1000" } }
+
+- template: ac-hydration-vs-lattice
+  skill: gchem.thermo
+  pace: quick
+  given: { U: { pick: [787, 910, 2526] }, d: { pick: [-20, 4, 17] } }
+  prompt: 'A salt has lattice energy ${{U}}$ kJ/mol, and hydrating its ions releases ${{U - d}}$ kJ/mol. What is its enthalpy of solution, in kJ/mol?'
+  parts:
+    - { ask: 'ΔH_soln (kJ/mol)', label: y, tex: '\Delta H_{soln}', value: d, tol: 0.002, explain: 'Pull the lattice apart (costs $U$), then hydrate the ions (releases the hydration enthalpy). A small positive ΔH_soln can still dissolve if entropy rises enough' }
+  verify: { expect: { y: "U + (-(U - d))" } }
+
+- template: ac-vant-hoff-direction
+  skill: gchem.thermo
+  pace: quick
+  given: { dH: { pick: [-50, -92, 40, 58] }, T1: { pick: [298] }, T2: { pick: [350, 400] } }
+  prompt: 'A reaction has ΔH° = ${{dH}}$ kJ/mol. By what factor does K change from ${{T1}}$ K to ${{T2}}$ K? ($R = 8.314$ J/(mol·K); assume ΔH° is constant.)'
+  parts:
+    - { ask: 'K₂/K₁', label: y, tex: 'K_2/K_1', value: exp(-dH*1000/8.314*(1/T2 - 1/T1)), tol: 0.002, explain: 'van ''t Hoff: $\ln\dfrac{K_2}{K_1} = -\dfrac{\Delta H^\circ}{R}\left(\dfrac1{T_2} - \dfrac1{T_1}\right)$. Heating lowers K for exothermic reactions and raises it for endothermic ones' }
+  verify: { expect: { y: "exp(integrate(dH*1000/(Rational(8314, 1000)*Symbol('s')**2), (Symbol('s'), T1, T2)))" } }
+
+- template: ac-kinetic-vs-thermo-pick
+  skill: gchem.thermo
+  pace: recall
+  cases:
+    - { q: 'Diamond turning into graphite at room temperature', o1: 'Favorable but far too slow to see', o2: 'Unfavorable', o3: 'At equilibrium', ans: 0 }
+    - { q: 'A mixture of H₂ and O₂ sitting unreacted for years', o1: 'Favorable but far too slow to see', o2: 'Unfavorable', o3: 'At equilibrium', ans: 0 }
+    - { q: 'Water decomposing into H₂ and O₂ at room temperature', o1: 'Unfavorable', o2: 'Favorable but far too slow to see', o3: 'At equilibrium', ans: 0 }
+  prompt: '{{q}}: how would you describe it?'
+  parts:
+    - { ask: 'Description', label: a, choice: ["{{o1}}", "{{o2}}", "{{o3}}"], correct: ans, explain: 'ΔG says whether a process can go; the activation energy says how fast. A favorable reaction with a high barrier is under kinetic control: it waits for a spark or a catalyst' }
+  verify: { authored: true }

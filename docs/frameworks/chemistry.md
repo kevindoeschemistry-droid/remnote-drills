@@ -45,10 +45,10 @@ Big ideas: SPQ
 
 - ● **CH-0.1.A** (SPQ-2.B) Classify a sample as an element, compound, homogeneous mixture or heterogeneous mixture from a description or particle diagram.
   - EK: A pure substance has fixed composition; a mixture's composition can vary and it can be separated by physical means.
-  - P1 · drills: ac-classify-matter
+  - P1 · drills: ac-classify-matter, ac-separate-mixture
 - ● **CH-0.1.B** (TRA-1.D) Sort properties and changes into physical and chemical.
   - EK: A chemical change makes new substances (bonds broken and formed); a physical change alters state or form only.
-  - P6 · drills: ac-physical-chemical
+  - P6 · drills: ac-physical-chemical, ac-change-evidence
 
 ### 0.2 Measurement, significant figures and error
 
@@ -123,7 +123,7 @@ Big ideas: SPQ, SAP
 - ● **CH-1.2.B** (SPQ-1.B) Read isotopes and relative abundances off a mass spectrum, or find two isotopes' abundances from the average mass.
   - EK: Peak position = isotope mass; peak height ∝ abundance; with two isotopes, x·m₁ + (1 − x)·m₂ = average.
   - Needs: CH-1.2.A
-  - P4 · P5 · drills: ac-isotope-abundance
+  - P4 · P5 · drills: ac-isotope-abundance, ac-average-atomic-mass
 
 ### 1.3 Elemental composition of pure substances
 
@@ -140,7 +140,7 @@ Big ideas: SPQ, SAP
 - ● **CH-1.3.C** (SPQ-2.A) Find a molecular formula from the empirical formula and the molar mass.
   - EK: Molecular formula = (empirical formula)ₙ with n = M/M_empirical.
   - Needs: CH-1.3.B
-  - P5 · drills: ac-molecular-formula
+  - P5 · drills: ac-molecular-formula, ac-empirical-from-percent
 - ● **CH-1.3.D** (SPQ-2.A) Find an empirical formula from combustion-analysis masses of CO₂ and H₂O.
   - EK: All C ends in CO₂ and all H in H₂O; O is found by difference from the sample mass.
   - Needs: CH-1.3.B
@@ -153,7 +153,7 @@ Big ideas: SPQ, SAP
 - ● **CH-1.4.A** (SPQ-2.B) Calculate the mass percent of a component in an impure sample or mixture from elemental analysis.
   - EK: Mass of analyte element → mass of the compound containing it → percent of the sample.
   - Needs: CH-1.3.A
-  - P5 · drills: ac-impure-sample
+  - P5 · drills: ac-impure-sample, ac-purity-from-precipitate, ac-mass-percent-element
 
 ### 1.5 Atomic structure and electron configuration
 
@@ -166,7 +166,7 @@ Big ideas: SPQ, SAP
 - ● **CH-1.5.B** (SAP-1.A) Draw an orbital (box) diagram, count unpaired electrons, and predict paramagnetism or diamagnetism.
   - EK: Hund: fill degenerate orbitals singly with parallel spins first; any unpaired electron ⇒ paramagnetic.
   - Needs: CH-1.5.A
-  - P1 · drills: ac-unpaired-electrons
+  - P1 · drills: ac-unpaired-electrons, ac-paramagnetic-pick
 - ● **CH-1.5.C** (SAP-1.A) Compare the attraction of an electron to the nucleus using Coulomb's law with nuclear charge, shielding and distance.
   - EK: F ∝ q₁q₂/r²; Z_eff ≈ Z − core electrons; outer, well-shielded electrons are held least tightly.
   - Needs: CH-1.5.A
@@ -179,7 +179,7 @@ Big ideas: SPQ, SAP
 - ● **CH-1.6.A** (SAP-1.B) Assign each peak of a photoelectron spectrum to a subshell, read its electron count, and identify the element.
   - EK: Position = binding energy (core electrons far left/high); relative peak height = number of electrons in that subshell.
   - Needs: CH-1.5.A
-  - P4 · drills: ac-pes-identify
+  - P4 · drills: ac-pes-identify, ac-pes-binding-order
 
 ### 1.7 Periodic trends
 
@@ -188,11 +188,11 @@ Big ideas: SPQ, SAP
 - ● **CH-1.7.A** (SAP-2.A) Rank atoms by radius, first ionization energy, electron affinity and electronegativity, and justify with Z_eff and shell number.
   - EK: Across a period Z_eff rises (smaller, higher IE, higher EN); down a group n rises (larger, lower IE, lower EN); IE dips at groups 13 and 16 (p electron, first p pairing).
   - Needs: CH-1.5.C
-  - P6 · drills: ac-periodic-trend
+  - P6 · drills: ac-periodic-trend, ac-trend-explain
 - ● **CH-1.7.C** (SAP-2.A) Identify an element's group from a jump in successive ionization energies.
   - EK: The big jump comes after the valence electrons are gone, when a core electron is removed.
   - Needs: CH-1.7.A
-  - P4 · drills: ac-successive-ie
+  - P4 · drills: ac-successive-ie, ac-ion-charge-from-ie
 - ● **CH-1.7.D** (SAP-2.A) Compare ion sizes with their parent atoms and rank an isoelectronic series.
   - EK: Cations shrink, anions grow; in an isoelectronic series, more protons ⇒ smaller.
   - Needs: CH-1.7.A
@@ -209,7 +209,7 @@ Big ideas: SPQ, SAP
 - ● **CH-1.8.B** (SAP-2.B) Predict the formula or reactivity of an unfamiliar compound from an analogous compound of a same-group element.
   - EK: Same group ⇒ same valence configuration ⇒ analogous formulas (Na₂O → K₂O); reactivity trends follow IE and EN.
   - Needs: CH-1.8.A, CH-1.7.A
-  - P6 · drills: ac-analogous-compound
+  - P6 · drills: ac-analogous-compound, ac-analogous-property
 
 ### 1.9 Quantum numbers and orbitals
 
@@ -235,7 +235,7 @@ Big ideas: SPQ, SAP
 - ● **CH-1.10.D** (DAT-GC Nuclear Reactions) Calculate a nucleus's mass defect and binding energy per nucleon.
   - EK: Δm = (mass of separate nucleons) − (nucleus mass); E = Δm c², 1 u ↔ 931.5 MeV.
   - Needs: CH-1.10.A
-  - P5 · drills: nu-binding-energy
+  - P5 · drills: nu-binding-energy, ac-mass-energy
 
 ## Unit 2 · Molecular and ionic compound structure and properties
 
@@ -256,7 +256,7 @@ Big ideas: SAP
 
 - ● **CH-2.2.A** (SAP-3.B) Read bond length and bond energy from a potential-energy vs internuclear-distance curve, and compare curves for different bonds.
   - EK: The well's minimum gives bond length (x) and bond energy (depth); higher bond order and smaller atoms ⇒ deeper, shorter well.
-  - P4 · drills: ac-pe-curve
+  - P4 · drills: ac-pe-curve, ac-bond-length-compare
 - ● **CH-2.2.B** (SAP-3.B) Rank ionic compounds by lattice energy using Coulomb's law.
   - EK: Lattice energy ∝ q₁q₂/(r₁ + r₂): charge dominates, then ion size.
   - Needs: CH-1.5.C, CH-1.7.D
@@ -269,7 +269,7 @@ Big ideas: SAP
 - ● **CH-2.3.A** (SAP-3.C) Represent an ionic solid as a lattice and use it to explain high melting point, brittleness and conductivity only when molten or dissolved.
   - EK: Alternating ions maximise attraction; shifting a layer brings like charges together and it shatters; ions must be mobile to conduct.
   - Needs: CH-2.2.B
-  - P1 · P6 · drills: ac-ionic-properties
+  - P1 · P6 · drills: ac-ionic-properties, ac-lattice-energy-rank
 
 ### 2.4 Structure of metals and alloys
 
@@ -278,7 +278,7 @@ Big ideas: SAP
 - ● **CH-2.4.A** (SAP-3.D) Explain metallic conductivity, malleability and luster with the electron-sea model, and classify an alloy as interstitial or substitutional from atomic radii.
   - EK: Delocalised valence electrons move freely; similar radii ⇒ substitutional (brass), much smaller atom ⇒ interstitial (steel), which is stiffer.
   - Needs: CH-2.1.A
-  - P1 · drills: ac-alloy-type
+  - P1 · drills: ac-alloy-type, ac-metal-vs-ionic
 
 ### 2.5 Lewis diagrams
 
@@ -291,7 +291,7 @@ Big ideas: SAP
 - ● **CH-2.5.B** (SAP-4.A) Draw Lewis structures for octet exceptions: incomplete octets, expanded octets and odd-electron species.
   - EK: B and Be can be electron-deficient; period-3+ central atoms can exceed eight; an odd electron count leaves a radical.
   - Needs: CH-2.5.A
-  - P1 · drills: ac-octet-exception
+  - P1 · drills: ac-octet-exception, ac-formal-charge
 
 ### 2.6 Resonance and formal charge
 
@@ -304,7 +304,7 @@ Big ideas: SAP
 - ● **CH-2.6.B** (SAP-4.B) Draw all resonance structures of a species and calculate the average bond order.
   - EK: Resonance forms differ only in electron placement; the real structure is the average, e.g. bond order 4/3 in NO₃⁻; higher bond order ⇒ shorter, stronger bond.
   - Needs: CH-2.5.A
-  - P1 · drills: ac-resonance-bond-order
+  - P1 · drills: ac-resonance-bond-order, ac-resonance-count
 
 ### 2.7 VSEPR and bond hybridization
 
@@ -343,7 +343,7 @@ Big ideas: SAP, SPQ
 - ● **CH-3.1.A** (SAP-5.A) Identify every intermolecular force present between particles: London dispersion, dipole–dipole, hydrogen bonding, ion–dipole.
   - EK: All molecules have dispersion; polar ⇒ dipole–dipole; H on N, O or F next to a lone pair on N, O or F ⇒ hydrogen bond.
   - Needs: CH-2.7.B
-  - P1 · drills: ac-imf-identify
+  - P1 · drills: ac-imf-identify, ac-boiling-point-rank
 - ● **CH-3.1.B** (SAP-5.A) Rank substances by boiling point, vapor pressure, viscosity or surface tension from their intermolecular forces.
   - EK: Stronger IMF ⇒ higher bp, lower vapor pressure; dispersion grows with electron count and contact area and can outweigh dipoles.
   - Needs: CH-3.1.A
@@ -356,7 +356,7 @@ Big ideas: SAP, SPQ
 - ● **CH-3.2.A** (SAP-5.B) Classify a solid as ionic, molecular, covalent-network or metallic and predict its melting point, hardness and conductivity.
   - EK: Network (diamond, SiO₂) highest mp and non-conducting; molecular low mp; metallic conducts as a solid; ionic conducts only molten or dissolved.
   - Needs: CH-3.1.A, CH-2.3.A, CH-2.4.A
-  - P6 · drills: ac-solid-type
+  - P6 · drills: ac-solid-type, ac-solid-from-properties
 
 ### 3.3 Solids, liquids and gases
 
@@ -365,11 +365,11 @@ Big ideas: SAP, SPQ
 - ● **CH-3.3.B** (SAP-6.A) Explain vapor pressure and boiling as an IMF-versus-kinetic-energy balance, and why boiling point changes with external pressure.
   - EK: Boiling occurs when vapor pressure = external pressure; normal bp is at 1 atm.
   - Needs: CH-3.1.B
-  - P6 · drills: ac-boiling-pressure
+  - P6 · drills: ac-boiling-pressure, ac-vapor-pressure-rank
 - ● **CH-3.3.C** (SAP-6.A) Read a phase diagram: identify phases, the triple point, the critical point and normal melting and boiling points, and trace a path.
   - EK: Lines are coexistence curves; water's solid–liquid line slopes left because ice is less dense than liquid water.
   - Needs: CH-3.3.B
-  - P4 · drills: ac-phase-diagram
+  - P4 · drills: ac-phase-diagram, ac-phase-at-condition
 
 ### 3.4 Ideal gas law
 
@@ -433,7 +433,7 @@ Big ideas: SAP, SPQ
 - ● **CH-3.7.D** (SPQ-3.A) Convert among molarity, molality, mass percent, mole fraction and ppm.
   - EK: m = mol solute / kg solvent; converting molarity ↔ molality needs the solution's density.
   - Needs: CH-3.7.A, CH-0.2.D
-  - P5 · drills: ac-molality-convert
+  - P5 · drills: ac-molality-convert, ac-mole-fraction
 
 ### 3.8 Representations of solutions
 
@@ -442,7 +442,7 @@ Big ideas: SAP, SPQ
 - ● **CH-3.8.A** (SPQ-3.B) Draw a particle diagram of a solution with correct solute ratios and solvent orientation around ions.
   - EK: Water's O (δ⁻) faces cations; its H (δ⁺) faces anions; ion counts follow the formula.
   - Needs: CH-3.7.C, CH-3.1.A
-  - P1 · drills: ac-hydration-orientation
+  - P1 · drills: ac-hydration-orientation, ac-dissolving-ion-dipole
 
 ### 3.9 Separation of solutions and mixtures
 
@@ -460,7 +460,7 @@ Big ideas: SAP, SPQ
 - ● **CH-3.10.A** (SPQ-3.C) Predict relative solubility in polar and nonpolar solvents from solute–solvent interactions.
   - EK: 'Like dissolves like': dissolving is favored when solute–solvent attractions rival solute–solute and solvent–solvent ones.
   - Needs: CH-3.1.A
-  - P6 · drills: ac-solubility-polar
+  - P6 · drills: ac-solubility-polar, ac-miscible-pick
 - ● **CH-3.10.B** (SPQ-3.C, DAT-GC Solutions) Predict how temperature and pressure change solubility, and use Henry's law for a dissolved gas.
   - EK: Gas solubility falls as T rises and rises with its partial pressure: C = k_H P; most solids dissolve better when hot.
   - Needs: CH-3.10.A, CH-3.4.D
@@ -473,7 +473,7 @@ Big ideas: SAP, SPQ
 - ● **CH-3.11.A** (SAP-8.A) Match a region of the electromagnetic spectrum to the molecular or electronic transition it causes.
   - EK: Microwave → rotation; infrared → vibration; UV–visible → electronic transitions.
   - Needs: CH-2.2.A
-  - P4 · drills: ac-em-transition
+  - P4 · drills: ac-em-transition, ac-photon-energy-transition
 
 ### 3.12 Properties of photons
 
@@ -538,7 +538,7 @@ Big ideas: TRA, SPQ
 - ● **CH-4.2.B** (TRA-1.B) Write the molecular, complete ionic and net ionic equations for a reaction in solution.
   - EK: Split only strong electrolytes in solution; cancel spectator ions; keep solids, liquids, gases and weak electrolytes whole.
   - Needs: CH-4.2.A, CH-3.7.C
-  - P3 · drills: ac-spectator-ions
+  - P3 · drills: ac-spectator-ions, ac-net-ionic-pick
 
 ### 4.3 Representations of reactions
 
@@ -547,7 +547,7 @@ Big ideas: TRA, SPQ
 - ● **CH-4.3.A** (TRA-1.C) Translate between a particle diagram of a reaction and its balanced equation, including which reactant is left over.
   - EK: Count particles before and after; the coefficient ratio is the ratio of particles that react.
   - Needs: CH-4.1.A
-  - P1 · P3 · drills: ac-particle-leftover
+  - P1 · P3 · drills: ac-particle-leftover, ac-limiting-reactant-mass
 
 ### 4.4 Physical and chemical changes
 
@@ -556,7 +556,7 @@ Big ideas: TRA, SPQ
 - ● **CH-4.4.A** (TRA-1.D) Classify a process (dissolving, melting, ionization, combustion) as physical or chemical from whether bonds or interparticle forces change.
   - EK: Breaking only IMFs is physical; breaking and forming intramolecular bonds is chemical; dissolving an ionic salt is a borderline case.
   - Needs: CH-0.1.B, CH-3.1.A
-  - P6 · drills: ac-physical-chemical-process
+  - P6 · drills: ac-physical-chemical-process, ac-dissolving-vs-reacting
 
 ### 4.5 Stoichiometry
 
@@ -577,11 +577,11 @@ Big ideas: TRA, SPQ
 - ● **CH-4.5.D** (SPQ-4.A) Solve solution stoichiometry: volumes and molarities in, mass or concentration out.
   - EK: mol = M·V for each solution; mix volumes add for the final concentration.
   - Needs: CH-4.5.A, CH-3.7.A
-  - P5 · drills: ac-solution-stoich
+  - P5 · drills: ac-solution-stoich, ac-dilution-volume
 - ● **CH-4.5.E** (SPQ-4.A) Solve gas stoichiometry with the ideal gas law or molar volume.
   - EK: Convert gas P, V, T to moles with n = PV/RT, then use the mole ratio; equal volumes of gases at the same T, P ⇒ equal moles.
   - Needs: CH-4.5.A, CH-3.4.A
-  - P5 · drills: ac-gas-stoich
+  - P5 · drills: ac-gas-stoich, ac-gas-volume-stp
 
 ### 4.6 Introduction to titration
 
@@ -599,11 +599,11 @@ Big ideas: TRA, SPQ
 - ● **CH-4.7.A** (TRA-2.A) Classify a reaction as precipitation, acid–base or redox (including synthesis, decomposition, combustion, single and double replacement).
   - EK: Electron transfer ⇒ redox; proton transfer ⇒ acid–base; insoluble product from ions ⇒ precipitation.
   - Needs: CH-4.2.B
-  - P6 · drills: ac-reaction-class
+  - P6 · drills: ac-reaction-class, ac-redox-or-not
 - ● **CH-4.7.B** (TRA-2.A) Predict the products of combustion, synthesis, decomposition and double-replacement reactions.
   - EK: Hydrocarbon + O₂ → CO₂ + H₂O; double replacement swaps partners; metal carbonates decompose to oxide + CO₂.
   - Needs: CH-4.7.A
-  - P3 · drills: ac-predict-products
+  - P3 · drills: ac-predict-products, ac-combustion-o2
 
 ### 4.8 Introduction to acid–base reactions
 
@@ -625,15 +625,15 @@ Big ideas: TRA, SPQ
 - ● **CH-4.9.B** (TRA-2.C) Identify the species oxidized and reduced and the oxidizing and reducing agents.
   - EK: Oxidation = loss of e⁻ (number rises); the oxidizing agent is the species reduced.
   - Needs: CH-4.9.A
-  - P6 · drills: ac-oxidizing-agent
+  - P6 · drills: ac-oxidizing-agent, ac-oxidation-number
 - ● **CH-4.9.C** (TRA-2.C) Balance a redox equation by half-reactions in acidic or basic solution.
   - EK: Balance atoms, O with H₂O, H with H⁺, charge with e⁻; equalize electrons; in base add OH⁻ to neutralize H⁺.
   - Needs: CH-4.9.B
-  - P3 · drills: ac-electrons-transferred
+  - P3 · drills: ac-electrons-transferred, ac-half-reaction-electrons
 - ● **CH-4.9.D** (TRA-2.C, DAT-GC Oxidation–Reduction Reactions) Predict whether a single-replacement reaction occurs from an activity series.
   - EK: A metal displaces ions of any metal below it; metals above H displace H₂ from acids.
   - Needs: CH-4.9.B
-  - P6 · drills: ac-activity-series
+  - P6 · drills: ac-activity-series, ac-activity-strongest
 
 ## Unit 5 · Kinetics
 
@@ -694,7 +694,7 @@ Big ideas: TRA, ENE
 - ● **CH-5.5.A** (TRA-4.B) Explain rate in terms of collision frequency, orientation and the fraction of collisions with energy above E_a.
   - EK: Raising T shifts the Maxwell–Boltzmann tail past E_a, so a small T rise greatly increases the effective collisions.
   - Needs: CH-3.5.A, CH-5.1.A
-  - P6 · drills: ac-collision-factor
+  - P6 · drills: ac-collision-factor, ac-arrhenius-fraction
 
 ### 5.6 Reaction energy profile
 
@@ -720,7 +720,7 @@ Big ideas: TRA, ENE
 - ● **CH-5.7.A** (TRA-5.A) Check that a proposed mechanism sums to the overall equation, and identify intermediates and catalysts in it.
   - EK: Intermediates are made then used up; catalysts are used up then remade.
   - Needs: CH-5.4.A
-  - P4 · drills: ac-mechanism-species
+  - P4 · drills: ac-mechanism-species, ac-intermediate-vs-catalyst
 
 ### 5.8 Reaction mechanism and rate law
 
@@ -729,7 +729,7 @@ Big ideas: TRA, ENE
 - ● **CH-5.8.A** (TRA-5.B) Derive the rate law predicted by a mechanism whose first step is slow, and test it against an observed rate law.
   - EK: The slow (rate-determining) step's rate law is the overall rate law when it contains no intermediates.
   - Needs: CH-5.7.A
-  - P4 · P6 · drills: ac-slow-first-step
+  - P4 · P6 · drills: ac-slow-first-step, ac-rate-law-order-scaling, ac-rate-law-from-data
 
 ### 5.9 Pre-equilibrium approximation
 
@@ -747,7 +747,7 @@ Big ideas: TRA, ENE
 - ● **CH-5.10.A** (TRA-5.D) Read a multistep energy profile: count steps, locate intermediates, and pick the rate-determining step.
   - EK: Each hump is a transition state, each valley between them an intermediate; the highest barrier controls the rate.
   - Needs: CH-5.6.A, CH-5.7.A
-  - P4 · drills: ac-multistep-profile
+  - P4 · drills: ac-multistep-profile, ac-ea-from-profile
 
 ### 5.11 Catalysis
 
@@ -778,7 +778,7 @@ Big ideas: ENE
 - ● **CH-6.2.A** (ENE-2.B) Draw and read an energy diagram that shows reactants and products relative to each other and ΔH.
   - EK: Products below reactants ⇒ exothermic; the vertical gap is ΔH.
   - Needs: CH-6.1.A
-  - P1 · drills: ac-energy-diagram
+  - P1 · drills: ac-energy-diagram, ac-endo-exo-sign
 
 ### 6.3 Heat transfer and thermal equilibrium
 
@@ -787,7 +787,7 @@ Big ideas: ENE
 - ● **CH-6.3.A** (ENE-2.C) Explain heat flow between objects at the particle level until thermal equilibrium.
   - EK: Collisions pass kinetic energy from hotter to colder particles until average KE (T) is equal.
   - Needs: CH-6.1.A, CH-3.5.A
-  - P6 · drills: ac-heat-flow-particles
+  - P6 · drills: ac-heat-flow-particles, ac-heat-direction-pick
 
 ### 6.4 Heat capacity and calorimetry
 
@@ -803,7 +803,7 @@ Big ideas: ENE
 - ● **CH-6.4.C** (ENE-2.D) Calculate ΔH per mole of reaction from coffee-cup calorimetry data.
   - EK: q_rxn = −q_solution; ΔH = q_rxn / mol of limiting reactant.
   - Needs: CH-6.4.A, CH-4.5.B
-  - P5 · drills: ac-coffee-cup
+  - P5 · drills: ac-coffee-cup, ac-calorimeter-temp-rise
 
 ### 6.5 Energy of phase changes
 
@@ -816,7 +816,7 @@ Big ideas: ENE
 - ● **CH-6.5.B** (ENE-2.E) Calculate the total heat along a heating curve that crosses one or more phase changes.
   - EK: Sum the sloped segments (mcΔT, each phase's own c) and the flat segments (nΔH).
   - Needs: CH-6.5.A
-  - P5 · drills: ac-heating-curve
+  - P5 · drills: ac-heating-curve, ac-heat-to-boil
 
 ### 6.6 Introduction to enthalpy of reaction
 
@@ -834,7 +834,7 @@ Big ideas: ENE
 - ● **CH-6.7.A** (ENE-3.A) Estimate ΔH of reaction from average bond enthalpies.
   - EK: ΔH ≈ Σ(bonds broken) − Σ(bonds formed); breaking costs energy, forming releases it.
   - Needs: CH-6.6.A, CH-2.5.A
-  - P5 · drills: ac-bond-enthalpy
+  - P5 · drills: ac-bond-enthalpy, ac-bond-enthalpy-sign
 
 ### 6.8 Enthalpy of formation
 
@@ -843,11 +843,11 @@ Big ideas: ENE
 - ● **CH-6.8.A** (ENE-3.B) Write the formation reaction of a compound from its elements in their standard states.
   - EK: One mole of product from elements in standard states (O₂(g), C(graphite), Br₂(l)); ΔH_f° of an element in its standard state is 0.
   - Needs: CH-6.6.A
-  - P3 · drills: ac-formation-reaction
+  - P3 · drills: ac-formation-reaction, ac-formation-from-combustion
 - ● **CH-6.8.B** (ENE-3.B) Calculate ΔH°_rxn from standard enthalpies of formation.
   - EK: ΔH°_rxn = Σ n ΔH_f°(products) − Σ n ΔH_f°(reactants).
   - Needs: CH-6.8.A
-  - P5 · drills: pc-hess
+  - P5 · drills: pc-hess, ac-hess-combine
 
 ### 6.9 Hess's law
 
@@ -891,7 +891,7 @@ Big ideas: TRA, SPQ
 - ● **CH-7.1.A** (TRA-6.A) Explain dynamic equilibrium and identify when it is reached on a concentration-vs-time graph.
   - EK: At equilibrium forward rate = reverse rate; concentrations stop changing but need not be equal.
   - Needs: CH-5.1.A
-  - P4 · drills: ac-dynamic-equilibrium
+  - P4 · drills: ac-dynamic-equilibrium, ac-equilibrium-graph-read
 
 ### 7.2 Direction of reversible reactions
 
@@ -900,7 +900,7 @@ Big ideas: TRA, SPQ
 - ● **CH-7.2.A** (TRA-6.B) Predict the direction of net change from the relative forward and reverse rates.
   - EK: Forward rate > reverse rate ⇒ net reaction to the right, until the rates equalize.
   - Needs: CH-7.1.A
-  - P6 · drills: ac-rate-direction
+  - P6 · drills: ac-rate-direction, ac-q-vs-k-direction
 
 ### 7.3 Reaction quotient and equilibrium constant
 
@@ -909,7 +909,7 @@ Big ideas: TRA, SPQ
 - ● **CH-7.3.A** (TRA-7.A) Write the K_c and K_p expressions for a reaction, including heterogeneous ones.
   - EK: Products over reactants, each raised to its coefficient; pure solids and liquids are left out.
   - Needs: CH-7.1.A
-  - P3 · drills: ac-k-expression
+  - P3 · drills: ac-k-expression, ac-kp-from-kc
 - ● **CH-7.3.B** (TRA-7.A) Calculate Q from given concentrations or pressures and compare it with K to predict the direction of shift.
   - EK: Q < K ⇒ forward; Q > K ⇒ reverse; Q = K ⇒ at equilibrium.
   - Needs: CH-7.3.A, CH-7.2.A
@@ -922,11 +922,11 @@ Big ideas: TRA, SPQ
 - ● **CH-7.4.A** (TRA-7.B) Calculate K from equilibrium concentrations or partial pressures.
   - EK: Substitute equilibrium (not initial) values into the K expression.
   - Needs: CH-7.3.A
-  - P5 · drills: ac-k-from-concentrations
+  - P5 · drills: ac-k-from-concentrations, ac-k-reverse-multiply
 - ● **CH-7.4.B** (TRA-7.B) Use an ICE table with initial amounts and one equilibrium amount to find K.
   - EK: Changes follow the coefficients: −ax, −bx, +cx; one known equilibrium value fixes x.
   - Needs: CH-7.4.A
-  - P5 · drills: ac-ice-k
+  - P5 · drills: ac-ice-k, ac-ice-equilibrium-amount
 - ● **CH-7.4.C** (TRA-7.B) Convert between K_c and K_p.
   - EK: K_p = K_c(RT)^Δn with R = 0.08206 and Δn = moles gas products − reactants.
   - Needs: CH-7.4.A, CH-3.4.A
@@ -939,7 +939,7 @@ Big ideas: TRA, SPQ
 - ● **CH-7.5.A** (TRA-7.C) Judge from the size of K whether reactants or products are favored at equilibrium.
   - EK: K ≫ 1 ⇒ products favored; K ≪ 1 ⇒ reactants favored.
   - Needs: CH-7.4.A
-  - P6 · drills: ac-size-of-k
+  - P6 · drills: ac-size-of-k, ac-k-size-percent
 
 ### 7.6 Properties of the equilibrium constant
 
@@ -957,11 +957,11 @@ Big ideas: TRA, SPQ
 - ● **CH-7.7.A** (TRA-7.E) Find equilibrium concentrations from K and initial amounts with an ICE table and the small-x approximation, and check the approximation.
   - EK: If K is small, x ≪ initial: drop x where it is subtracted; valid if x is under 5% of the initial value.
   - Needs: CH-7.4.B
-  - P5 · drills: ac-small-x
+  - P5 · drills: ac-small-x, ac-small-x-check
 - ● **CH-7.7.B** (TRA-7.E) Solve for equilibrium concentrations with the quadratic formula when the small-x approximation fails.
   - EK: Rearrange to ax² + bx + c = 0 and keep the physically meaningful root (no negative concentrations).
   - Needs: CH-7.7.A
-  - P5 · drills: ac-quadratic-equilibrium
+  - P5 · drills: ac-quadratic-equilibrium, ac-quadratic-percent
 
 ### 7.8 Representations of equilibrium
 
@@ -970,7 +970,7 @@ Big ideas: TRA, SPQ
 - ● **CH-7.8.A** (TRA-7.F) Draw or interpret a particle diagram of an equilibrium mixture consistent with a given K.
   - EK: Particle counts stand in for concentrations; plug them into the K expression to check.
   - Needs: CH-7.4.A
-  - P1 · drills: ac-equilibrium-particles
+  - P1 · drills: ac-equilibrium-particles, ac-particle-q
 
 ### 7.9 Introduction to Le Châtelier's principle
 
@@ -988,7 +988,7 @@ Big ideas: TRA, SPQ
 - ● **CH-7.10.A** (TRA-8.B) Explain a Le Châtelier shift by how the stress changes Q relative to K, and identify temperature as the only stress that changes K.
   - EK: Concentration and pressure changes move Q away from an unchanged K; temperature changes K itself.
   - Needs: CH-7.9.A
-  - P6 · drills: ac-le-chatelier-k
+  - P6 · drills: ac-le-chatelier-k, ac-le-chatelier-shift
 
 ### 7.11 Introduction to solubility equilibria
 
@@ -997,7 +997,7 @@ Big ideas: TRA, SPQ
 - ● **CH-7.11.A** (SPQ-5.A) Write a K_sp expression and calculate K_sp from molar solubility.
   - EK: MₐXᵦ(s) ⇌ aM + bX: K_sp = (as)ᵃ(bs)ᵇ; for AB₂, K_sp = 4s³.
   - Needs: CH-7.3.A
-  - P5 · drills: ac-ksp-from-solubility
+  - P5 · drills: ac-ksp-from-solubility, ac-solubility-from-ksp
 - ● **CH-7.11.B** (SPQ-5.A) Calculate molar solubility in g/L or mol/L from K_sp, and compare solubilities of salts with different ion ratios.
   - EK: Compare K_sp directly only for salts with the same ion ratio; otherwise compare s.
   - Needs: CH-7.11.A
@@ -1005,7 +1005,7 @@ Big ideas: TRA, SPQ
 - ● **CH-7.11.C** (SPQ-5.A) Predict whether a precipitate forms on mixing solutions by comparing Q_sp with K_sp.
   - EK: Use concentrations after mixing (diluted); Q_sp > K_sp ⇒ precipitate forms.
   - Needs: CH-7.11.A, CH-3.7.B
-  - P5 · P6 · drills: ac-precipitation-qsp
+  - P5 · P6 · drills: ac-precipitation-qsp, ac-common-ion
 
 ### 7.12 Common-ion effect
 
@@ -1049,11 +1049,11 @@ Big ideas: SAP, TRA, SPQ
 - ● **CH-8.3.B** (SAP-9.C) Calculate the pH of a weak base solution from K_b.
   - EK: [OH⁻] ≈ √(K_b·C); then pOH → pH.
   - Needs: CH-8.3.A
-  - P5 · drills: ac-weak-base-ph
+  - P5 · drills: ac-weak-base-ph, ac-kb-from-ka
 - ● **CH-8.3.C** (SAP-9.C) Find K_a or K_b from a measured pH and the initial concentration.
   - EK: [H₃O⁺] = 10^(−pH) is x in the ICE table; K_a = x²/(C − x).
   - Needs: CH-8.3.A
-  - P5 · drills: ac-ka-from-ph
+  - P5 · drills: ac-ka-from-ph, ac-ph-from-percent-ionized
 - ● **CH-8.3.D** (SAP-9.C) Convert between K_a of an acid and K_b of its conjugate base.
   - EK: K_a·K_b = K_w; pK_a + pK_b = 14 at 25 °C; stronger acid ⇒ weaker conjugate base.
   - Needs: CH-8.3.B
@@ -1066,11 +1066,11 @@ Big ideas: SAP, TRA, SPQ
 - ● **CH-8.4.A** (SAP-9.D) Calculate the pH after mixing a strong acid with a strong base.
   - EK: Neutralize mole for mole; the excess, divided by total volume, sets the pH.
   - Needs: CH-8.2.A, CH-4.5.D
-  - P5 · drills: ac-strong-mixing
+  - P5 · drills: ac-strong-mixing, ac-strong-dilution-ph
 - ● **CH-8.4.B** (SAP-9.D) Identify what remains after mixing a weak acid or base with a strong one, and classify the result as a buffer, a salt solution or excess strong reagent.
   - EK: React to completion first; weak acid + its conjugate base both present ⇒ buffer.
   - Needs: CH-8.4.A, CH-8.3.A
-  - P6 · drills: ac-mixture-kind
+  - P6 · drills: ac-mixture-kind, ac-salt-ph-kind
 - ● **CH-8.4.C** (SAP-9.D) Predict whether a salt solution is acidic, basic or neutral and calculate its pH.
   - EK: Conjugate bases of weak acids raise pH; conjugates of weak bases (NH₄⁺) lower it; ions of strong acids and bases are neutral.
   - Needs: CH-8.3.D
@@ -1083,7 +1083,7 @@ Big ideas: SAP, TRA, SPQ
 - ● **CH-8.5.A** (SAP-9.E) Calculate the pH at the start, before, at and past the equivalence point of a weak acid–strong base (or weak base–strong acid) titration.
   - EK: Start: weak acid; before: buffer; half-equivalence: pH = pK_a; equivalence: conjugate base only; after: excess strong base.
   - Needs: CH-8.4.C, CH-4.6.A
-  - P5 · drills: ac-equivalence-ph
+  - P5 · drills: ac-equivalence-ph, ac-half-equivalence, ac-equivalence-volume
 - ● **CH-8.5.B** (SAP-9.E) Read a titration curve to find the equivalence volume, pK_a and the analyte's strength, and choose a suitable indicator.
   - EK: Weak acid–strong base equivalence pH > 7; pick an indicator whose pK_a (color change) brackets the equivalence pH.
   - Needs: CH-8.5.A
@@ -1091,7 +1091,7 @@ Big ideas: SAP, TRA, SPQ
 - ● **CH-8.5.C** (SAP-9.E) Interpret the titration curve of a polyprotic acid.
   - EK: One equivalence point per acidic proton (if K_a's differ enough); pK_a1 and pK_a2 at the half-equivalence points.
   - Needs: CH-8.5.B
-  - P4 · drills: ac-polyprotic
+  - P4 · drills: ac-polyprotic, ac-polyprotic-species
 
 ### 8.6 Molecular structure of acids and bases
 
@@ -1104,7 +1104,7 @@ Big ideas: SAP, TRA, SPQ
 - ● **CH-8.6.B** (SAP-9.F, DAT-GC Acids and Bases (strength)) Identify Lewis acids and bases, including metal ions and electron-deficient molecules.
   - EK: Lewis acid accepts an electron pair (BF₃, Al³⁺); Lewis base donates one (NH₃, OH⁻).
   - Needs: CH-2.5.B, CH-4.8.A
-  - P1 · drills: ac-lewis-acid
+  - P1 · drills: ac-lewis-acid, ac-lewis-base-pick
 
 ### 8.7 pH and pKa
 
@@ -1122,7 +1122,7 @@ Big ideas: SAP, TRA, SPQ
 - ● **CH-8.8.A** (SAP-10.B) Explain how a buffer resists pH change, writing the net ionic reaction with an added strong acid or base.
   - EK: Added H₃O⁺ is consumed by A⁻; added OH⁻ is consumed by HA; the ratio [A⁻]/[HA] barely changes.
   - Needs: CH-8.4.B
-  - P3 · P6 · drills: ac-buffer-reaction
+  - P3 · P6 · drills: ac-buffer-reaction, ac-buffer-ph-change
 
 ### 8.9 Henderson–Hasselbalch equation
 
@@ -1131,11 +1131,11 @@ Big ideas: SAP, TRA, SPQ
 - ● **CH-8.9.A** (SAP-10.C) Calculate a buffer's pH with the Henderson–Hasselbalch equation.
   - EK: pH = pK_a + log([A⁻]/[HA]); mole ratio works as well as concentration ratio.
   - Needs: CH-8.8.A, CH-8.7.A
-  - P5 · drills: ac-henderson
+  - P5 · drills: ac-henderson, ac-henderson-reverse
 - ● **CH-8.9.B** (SAP-10.C) Calculate a buffer's new pH after adding a strong acid or base.
   - EK: Do the stoichiometry in moles first (HA ↔ A⁻), then apply Henderson–Hasselbalch.
   - Needs: CH-8.9.A, CH-8.4.A
-  - P5 · drills: ac-buffer-addition
+  - P5 · drills: ac-buffer-addition, ac-buffer-ratio-for-ph
 - ● **CH-8.9.C** (SAP-10.C) Design a buffer: choose a conjugate pair and the base-to-acid ratio for a target pH.
   - EK: Pick pK_a within ±1 of the target pH; ratio = 10^(pH − pK_a).
   - Needs: CH-8.9.A
@@ -1148,7 +1148,7 @@ Big ideas: SAP, TRA, SPQ
 - ● **CH-8.10.A** (SAP-10.D) Compare buffer capacities from component amounts and ratio.
   - EK: More moles of HA and A⁻ ⇒ more capacity; capacity against acid depends on A⁻, against base on HA; best at a 1:1 ratio.
   - Needs: CH-8.9.B
-  - P6 · drills: ac-buffer-capacity
+  - P6 · drills: ac-buffer-capacity, ac-buffer-capacity-moles
 
 ### 8.11 pH and solubility
 
@@ -1157,7 +1157,7 @@ Big ideas: SAP, TRA, SPQ
 - ● **CH-8.11.A** (SPQ-5.C) Predict how pH changes the solubility of a salt whose anion is a weak base (or whose cation forms a hydroxide).
   - EK: Acid removes basic anions (F⁻, CO₃²⁻, OH⁻) and pulls the dissolution forward; salts of strong-acid anions (Cl⁻) are unaffected.
   - Needs: CH-7.12.A, CH-8.7.A
-  - P6 · drills: ac-ph-solubility
+  - P6 · drills: ac-ph-solubility, ac-ph-solubility-pick
 
 ## Unit 9 · Thermodynamics and electrochemistry
 
@@ -1179,7 +1179,7 @@ Big ideas: ENE, TRA
 - ● **CH-9.2.A** (ENE-4.B) Calculate ΔS°_rxn from standard molar entropies.
   - EK: ΔS° = Σ n S°(products) − Σ n S°(reactants); S° of an element is not zero (third law: S = 0 only for a perfect crystal at 0 K).
   - Needs: CH-9.1.A, CH-6.8.B
-  - P5 · drills: pc-reaction-entropy
+  - P5 · drills: pc-reaction-entropy, ac-entropy-sign-pick, ac-crossover-temperature
 
 ### 9.3 Gibbs free energy and thermodynamic favorability
 
@@ -1201,7 +1201,7 @@ Big ideas: ENE, TRA
 - ● **CH-9.4.A** (ENE-4.D) Explain why a thermodynamically favorable process can be too slow to observe.
   - EK: ΔG < 0 says it can go; a large E_a can keep it from going at a measurable rate (diamond → graphite).
   - Needs: CH-9.3.B, CH-5.6.A
-  - P6 · drills: ac-kinetic-control
+  - P6 · drills: ac-kinetic-control, ac-kinetic-vs-thermo-pick
 
 ### 9.5 Free energy and equilibrium
 
@@ -1214,11 +1214,11 @@ Big ideas: ENE, TRA
 - ● **CH-9.5.B** (ENE-5.A) Calculate ΔG° from K.
   - EK: ΔG° = −RT ln K, with R = 8.314 J/(mol·K).
   - Needs: CH-9.5.A
-  - P5 · drills: th-ce-dg
+  - P5 · drills: th-ce-dg, ac-k-from-dg
 - ● **CH-9.5.C** (ENE-5.A) Calculate ΔG under nonstandard conditions and predict the direction of reaction.
   - EK: ΔG = ΔG° + RT ln Q = RT ln(Q/K); ΔG < 0 ⇒ forward.
   - Needs: CH-9.5.B, CH-7.3.B
-  - P5 · P6 · drills: th-ce-direction
+  - P5 · P6 · drills: th-ce-direction, ac-q-direction-dg
 
 ### 9.6 Free energy of dissolution
 
@@ -1227,7 +1227,7 @@ Big ideas: ENE, TRA
 - ● **CH-9.6.A** (SPQ-5.D) Explain whether a salt dissolves from the enthalpy (lattice vs hydration) and entropy changes of dissolution.
   - EK: ΔH_soln = lattice breaking (+) + hydration (−); ordering of water around small, highly charged ions can make ΔS_soln negative.
   - Needs: CH-9.3.B, CH-2.2.B, CH-7.11.A
-  - P6 · drills: ac-dissolution-thermo
+  - P6 · drills: ac-dissolution-thermo, ac-hydration-vs-lattice
 
 ### 9.7 Coupled reactions
 
@@ -1293,4 +1293,4 @@ Big ideas: ENE, TRA
 - ● **CH-9.12.A** (graduate thermodynamics bridge (van 't Hoff)) Find ΔH° from K at two temperatures, or K at a new temperature, with the van 't Hoff equation.
   - EK: ln(K₂/K₁) = −(ΔH°/R)(1/T₂ − 1/T₁): endothermic ⇒ K rises with T.
   - Needs: CH-9.5.A, CH-7.10.A
-  - P5 · drills: th-ce-vant-hoff
+  - P5 · drills: th-ce-vant-hoff, ac-vant-hoff-direction

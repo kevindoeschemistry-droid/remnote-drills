@@ -84,7 +84,7 @@ Related reports: [standards and how much of each was read](../coverage/standards
 | [Analytical Chemistry](analytical-chemistry.md) | AN | 18 | 18 | 0 | 0 | 1.0 | Regulations of the International Chemistry Olympiad, Appendices C and D (concepts, skills and factual knowledge) (exam-spec, read: full) |
 | [Anchor Quantities](anchor-quantities.md) | AQ | 14 | 14 | 0 | 0 | 1.1 | CODATA Recommended Values of the Fundamental Physical Constants: 2022 (NIST SP 961) (reference, read: part) |
 | [Biology (AP)](biology.md) | BI | 179 | 179 | 0 | 0 | 1.3 | AP Biology Course and Exam Description (2019) (standard, read: crosswalk) |
-| [Chemistry (AP)](chemistry.md) | CH | 179 | 179 | 0 | 0 | 1.6 | AP Chemistry Course and Exam Description (Fall 2024) (standard, read: part) |
+| [Chemistry (AP)](chemistry.md) | CH | 179 | 179 | 0 | 0 | 2.0 | AP Chemistry Course and Exam Description (Fall 2024) (standard, read: part) |
 | [Chemistry Olympiad](chemistry-olympiad.md) | CO | 14 | 14 | 0 | 0 | 1.0 | U.S. National Chemistry Olympiad: local and national exam format and multiple-choice topics (exam-spec, read: part) |
 | [Earth and Space Science](earth-space.md) | ES | 18 | 18 | 0 | 0 | 1.0 | Next Generation Science Standards, high school performance expectations (2013) (standard, read: part) |
 | [Inorganic Chemistry](inorganic-chemistry.md) | IN | 23 | 23 | 0 | 0 | 1.0 | Regulations of the International Chemistry Olympiad, Appendices C and D (concepts, skills and factual knowledge) (exam-spec, read: full) |
