@@ -37,6 +37,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 | Mental Math | UIL Number Sense Problem Sequencing Charts (High School; A+ Junior High and Elementary, rev. 2016-17) with the Number Sense Handbook rules | exam-spec | read in full | sta-mtc, mit-18-03-coverup, mit-integration-bee | — | 84 | 81 | 3 |
 | Molecular Simulation | LiveCoMS best-practice papers for molecular simulation | course | read in part | — | — | 106 | 0 | 106 |
 | NCLEX-RN | NCLEX-RN Test Plan, effective April 2026 | exam-spec | read in part | — | — | 39 | 39 | 0 |
+| NGSS High School Science | Next Generation Science Standards, high school performance expectations (2013) | standard | read in part | — | — | 71 | 71 | 0 |
 | Nuclear Science and Reactor Theory | NRC Generic Fundamentals Examination, reactor theory topics (PWR catalog 192001-192008) | exam-spec | read in part | doe-hdbk-1019, ngss-hs, ib-physics-2025, icho-appendix-c, aamc-mcat-outline, gre-physics | — | 19 | 19 | 0 |
 | Numerical Methods | NCEES FE Chemical CBT Exam Specifications (effective July 2020) | exam-spec | read in full | webwork-opl | — | 17 | 17 | 0 |
 | Organic Reactions: Predict the Product | Bruice, Organic Chemistry, 8th edition (table of contents) | textbook | read in part | ib-chemistry-2025, icho-appendix-c, icho-syllabus, acs-accm, aamc-mcat-outline, gre-chemistry | — | 25 | 24 | 1 |
@@ -82,6 +83,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 - **Mental Math**: Topic list and order from the UIL high-school chart. The short-cut techniques and the estimation topic are a house list. Unit 6 goes past the chart: the cover-up items follow an MIT 18.03 course note and the one-a-minute integration pace follows the MIT Integration Bee qualifier; which results belong in unit 6 is a house list. Pace comes from the UIL rules (7.5 s a problem) and the English multiplication tables check (6 s a fact).
 - **Molecular Simulation**: No standard exists for this subject; triangulated from best-practice papers, textbooks and the Hayes group tutorial.
 - **NCLEX-RN**: Units are the test plan's eight Client Needs subcategories (with their weights); topics group its related-content items; the objectives are ours.
+- **NGSS High School Science**: One objective per high-school performance expectation. The PE statements were read; the evidence statements were not. Drills for PEs taught elsewhere are drawn from the subject frameworks; the engineering and design PEs have their own items.
 - **Nuclear Science and Reactor Theory**: Reactor-theory units follow the NRC Generic Fundamentals Examination topic list (read in part). Nuclear physics and shielding follow the DOE fundamentals handbook's first module (read in part). Health-physics standards for the radiation-protection unit have not been looked at.
 - **Numerical Methods**: FE Chemical names numerical methods as one item (1.D) and the WeBWorK OPL names a few methods; no published standard lists a numerical-methods course, so the objectives are a house list on Chapra & Canale's part order.
 - **Organic Reactions: Predict the Product**: Families follow the reaction chapters of Bruice's Organic Chemistry (a textbook, not a standard; chapter titles 2-17 from memory). The reactions and substrates in each are a house list. Every product is mass-balanced against its reactant by the generator; regiochemistry and stereochemistry were checked by eye.
@@ -118,6 +120,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 - **Mathematics K–8 (Common Core)**: standard, read through a crosswalk
 - **Molecular Simulation**: course, read in part
 - **NCLEX-RN**: exam-spec, read in part
+- **NGSS High School Science**: standard, read in part
 - **Nuclear Science and Reactor Theory**: exam-spec, read in part
 - **Organic Reactions: Predict the Product**: textbook, read in part
 - **Particle Physics**: standard, read in part
@@ -1540,81 +1543,81 @@ https://students-residents.aamc.org/mcatexam
 
 https://educate.iowa.gov/pk-12/standards/academics/science/high-school
 
-56 of 71 items have at least one objective answering to them.
+71 of 71 items have at least one objective answering to them.
 
 | Item | Topic | Objectives | With a drill | Where |
 |---|---|---|---|---|
-| PS1-1 | Periodic patterns of outer electrons predict properties | 23 | 23 | chemistry (21), periodic-table (2) |
-| PS1-2 | Reaction outcomes from outer electrons and periodic trends | 39 | 39 | chemistry (39) |
-| PS1-3 | Bulk properties infer strength of electrical forces between particles | 27 | 27 | chemistry (27) |
-| PS1-4 | Bond energy changes account for energy released or absorbed | 16 | 16 | chemistry (16) |
-| PS1-5 | Temperature and concentration effects on reaction rate | 16 | 16 | chemistry (16) |
-| PS1-6 | Changing conditions to shift equilibrium toward product | 18 | 18 | chemistry (18) |
-| PS1-7 | Conservation of atoms and mass in reactions (mathematical) | 18 | 18 | chemistry (18) |
-| PS1-8 | Fission, fusion and radioactive decay | 6 | 6 | dat (3), nuclear (3) |
-| PS2-1 | Newton's second law from data | 17 | 17 | physics (17) |
-| PS2-2 | Conservation of momentum | 8 | 8 | physics (8) |
-| PS2-3 | Design a device that reduces collision force | — | — | **nothing yet** |
-| PS2-4 | Newton's gravitation and Coulomb's law | 15 | 15 | physics (15) |
-| PS2-5 | Currents and magnetic fields produce each other | 10 | 10 | physics (10) |
-| PS2-6 | Molecular structure and the function of designed materials | — | — | **nothing yet** |
-| PS3-1 | Energy change of one component from the others and the flows | 10 | 10 | physics (10) |
-| PS3-2 | Energy as motion of particles plus relative positions | 10 | 10 | physics (10) |
-| PS3-3 | Design a device that converts energy | — | — | **nothing yet** |
-| PS3-4 | Heat flow toward uniform energy (second law) | 12 | 12 | physics (12) |
-| PS3-5 | Energy in electric and magnetic field interactions | 15 | 15 | physics (15) |
-| PS4-1 | Wave speed, frequency and wavelength | 13 | 13 | physics (13) |
-| PS4-2 | Advantages of digital transmission and storage | — | — | **nothing yet** |
-| PS4-3 | Wave and particle models of electromagnetic radiation | 11 | 11 | physics (11) |
-| PS4-4 | Effects of radiation frequency on matter | 3 | 3 | nuclear (3) |
-| PS4-5 | Devices that use waves to transmit and capture information | — | — | **nothing yet** |
-| LS1-1 | DNA structure determines protein structure and function | 19 | 19 | biology (19) |
-| LS1-2 | Hierarchical organisation of interacting body systems | 15 | 15 | biology (15) |
-| LS1-3 | Feedback mechanisms and homeostasis | 15 | 15 | biology (15) |
-| LS1-4 | Mitosis and differentiation | 15 | 15 | biology (15) |
-| LS1-5 | Photosynthesis converts light to chemical energy | 18 | 18 | biology (18) |
-| LS1-6 | Carbon, hydrogen and oxygen from sugars build large molecules | 16 | 16 | biology (16) |
-| LS1-7 | Cellular respiration as bond breaking and forming | 18 | 18 | biology (18) |
-| LS2-1 | Carrying capacity | 20 | 20 | biology (20) |
-| LS2-2 | Biodiversity and population size (mathematical) | 20 | 20 | biology (20) |
-| LS2-3 | Matter and energy in aerobic and anaerobic conditions | 20 | 20 | biology (20) |
-| LS2-4 | Matter and energy flow among organisms (mathematical) | 20 | 20 | biology (20) |
-| LS2-5 | Carbon cycling | 20 | 20 | biology (20) |
-| LS2-6 | Ecosystem stability and change | 20 | 20 | biology (20) |
-| LS2-7 | Reduce human impact on the environment and biodiversity | — | — | **nothing yet** |
-| LS2-8 | Group behaviour and survival | 20 | 20 | biology (20) |
-| LS3-1 | DNA and chromosomes code for traits | 15 | 15 | biology (15) |
-| LS3-2 | Sources of inheritable variation | 15 | 15 | biology (15) |
-| LS3-3 | Statistics of trait variation | 15 | 15 | biology (15) |
-| LS4-1 | Evidence for common ancestry | 27 | 27 | biology (27) |
-| LS4-2 | Four factors of evolution | 27 | 27 | biology (27) |
-| LS4-3 | Statistics of advantageous traits | 27 | 27 | biology (27) |
-| LS4-4 | Natural selection leads to adaptation | 27 | 27 | biology (27) |
-| LS4-5 | Environmental change and speciation or extinction | 27 | 27 | biology (27) |
-| LS4-6 | Simulate solutions to biodiversity threats | — | — | **nothing yet** |
-| ESS1-1 | The Sun's life span and fusion energy | 12 | 12 | earth-space (12) |
-| ESS1-2 | Big Bang evidence | 9 | 9 | earth-space (9) |
-| ESS1-3 | Stellar nucleosynthesis | 10 | 10 | earth-space (10) |
-| ESS1-4 | Orbital motion (Kepler, gravitation) | 10 | 10 | earth-space (10) |
-| ESS1-5 | Plate tectonics and the ages of rocks | 6 | 6 | earth-space (6) |
-| ESS1-6 | Early Earth history from ancient materials | 6 | 6 | earth-space (6) |
-| ESS2-1 | Internal and surface processes form landforms | 5 | 5 | earth-space (5) |
-| ESS2-2 | Feedbacks among Earth systems | 6 | 6 | earth-space (6) |
-| ESS2-3 | Thermal convection in the mantle | 5 | 5 | earth-space (5) |
-| ESS2-4 | Energy flow and climate change | 6 | 6 | earth-space (6) |
-| ESS2-5 | Properties of water and surface processes | — | — | **nothing yet** |
-| ESS2-6 | Carbon cycling among Earth systems (quantitative) | 6 | 6 | earth-space (6) |
-| ESS2-7 | Coevolution of Earth systems and life | — | — | **nothing yet** |
-| ESS3-1 | Resources, hazards and climate shape human activity | 1 | 1 | earth-space (1) |
-| ESS3-2 | Cost–benefit of energy and mineral resources | — | — | **nothing yet** |
-| ESS3-3 | Resource management, sustainability and biodiversity | 2 | 2 | earth-space (2) |
-| ESS3-4 | Technology that reduces human impact | — | — | **nothing yet** |
-| ESS3-5 | Forecasting climate change | 6 | 6 | earth-space (6) |
-| ESS3-6 | Humans alter Earth-system relationships (computational) | 6 | 6 | earth-space (6) |
-| ETS1-1 | Criteria and constraints for a global challenge | — | — | **nothing yet** |
-| ETS1-2 | Break a problem into smaller problems | — | — | **nothing yet** |
-| ETS1-3 | Evaluate solutions by prioritised criteria and trade-offs | — | — | **nothing yet** |
-| ETS1-4 | Simulate the impact of a solution | — | — | **nothing yet** |
+| PS1-1 | Periodic patterns of outer electrons predict properties | 32 | 32 | chemistry (21), ngss (9), periodic-table (2) |
+| PS1-2 | Reaction outcomes from outer electrons and periodic trends | 48 | 48 | chemistry (39), ngss (9) |
+| PS1-3 | Bulk properties infer strength of electrical forces between particles | 36 | 36 | chemistry (27), ngss (9) |
+| PS1-4 | Bond energy changes account for energy released or absorbed | 17 | 17 | chemistry (16), ngss (1) |
+| PS1-5 | Temperature and concentration effects on reaction rate | 17 | 17 | chemistry (16), ngss (1) |
+| PS1-6 | Changing conditions to shift equilibrium toward product | 19 | 19 | chemistry (18), ngss (1) |
+| PS1-7 | Conservation of atoms and mass in reactions (mathematical) | 19 | 19 | chemistry (18), ngss (1) |
+| PS1-8 | Fission, fusion and radioactive decay | 7 | 7 | dat (3), ngss (1), nuclear (3) |
+| PS2-1 | Newton's second law from data | 24 | 24 | ngss (7), physics (17) |
+| PS2-2 | Conservation of momentum | 15 | 15 | ngss (7), physics (8) |
+| PS2-3 | Design a device that reduces collision force | 7 | 7 | ngss (7) |
+| PS2-4 | Newton's gravitation and Coulomb's law | 16 | 16 | ngss (1), physics (15) |
+| PS2-5 | Currents and magnetic fields produce each other | 11 | 11 | ngss (1), physics (10) |
+| PS2-6 | Molecular structure and the function of designed materials | 1 | 1 | ngss (1) |
+| PS3-1 | Energy change of one component from the others and the flows | 16 | 16 | ngss (6), physics (10) |
+| PS3-2 | Energy as motion of particles plus relative positions | 16 | 16 | ngss (6), physics (10) |
+| PS3-3 | Design a device that converts energy | 6 | 6 | ngss (6) |
+| PS3-4 | Heat flow toward uniform energy (second law) | 13 | 13 | ngss (1), physics (12) |
+| PS3-5 | Energy in electric and magnetic field interactions | 16 | 16 | ngss (1), physics (15) |
+| PS4-1 | Wave speed, frequency and wavelength | 19 | 19 | ngss (6), physics (13) |
+| PS4-2 | Advantages of digital transmission and storage | 6 | 6 | ngss (6) |
+| PS4-3 | Wave and particle models of electromagnetic radiation | 17 | 17 | ngss (6), physics (11) |
+| PS4-4 | Effects of radiation frequency on matter | 4 | 4 | ngss (1), nuclear (3) |
+| PS4-5 | Devices that use waves to transmit and capture information | 1 | 1 | ngss (1) |
+| LS1-1 | DNA structure determines protein structure and function | 27 | 27 | biology (19), ngss (8) |
+| LS1-2 | Hierarchical organisation of interacting body systems | 23 | 23 | biology (15), ngss (8) |
+| LS1-3 | Feedback mechanisms and homeostasis | 23 | 23 | biology (15), ngss (8) |
+| LS1-4 | Mitosis and differentiation | 16 | 16 | biology (15), ngss (1) |
+| LS1-5 | Photosynthesis converts light to chemical energy | 19 | 19 | biology (18), ngss (1) |
+| LS1-6 | Carbon, hydrogen and oxygen from sugars build large molecules | 17 | 17 | biology (16), ngss (1) |
+| LS1-7 | Cellular respiration as bond breaking and forming | 19 | 19 | biology (18), ngss (1) |
+| LS2-1 | Carrying capacity | 29 | 29 | biology (20), ngss (9) |
+| LS2-2 | Biodiversity and population size (mathematical) | 29 | 29 | biology (20), ngss (9) |
+| LS2-3 | Matter and energy in aerobic and anaerobic conditions | 29 | 29 | biology (20), ngss (9) |
+| LS2-4 | Matter and energy flow among organisms (mathematical) | 21 | 21 | biology (20), ngss (1) |
+| LS2-5 | Carbon cycling | 21 | 21 | biology (20), ngss (1) |
+| LS2-6 | Ecosystem stability and change | 21 | 21 | biology (20), ngss (1) |
+| LS2-7 | Reduce human impact on the environment and biodiversity | 1 | 1 | ngss (1) |
+| LS2-8 | Group behaviour and survival | 21 | 21 | biology (20), ngss (1) |
+| LS3-1 | DNA and chromosomes code for traits | 19 | 19 | biology (15), ngss (4) |
+| LS3-2 | Sources of inheritable variation | 19 | 19 | biology (15), ngss (4) |
+| LS3-3 | Statistics of trait variation | 19 | 19 | biology (15), ngss (4) |
+| LS4-1 | Evidence for common ancestry | 34 | 34 | biology (27), ngss (7) |
+| LS4-2 | Four factors of evolution | 34 | 34 | biology (27), ngss (7) |
+| LS4-3 | Statistics of advantageous traits | 34 | 34 | biology (27), ngss (7) |
+| LS4-4 | Natural selection leads to adaptation | 28 | 28 | biology (27), ngss (1) |
+| LS4-5 | Environmental change and speciation or extinction | 28 | 28 | biology (27), ngss (1) |
+| LS4-6 | Simulate solutions to biodiversity threats | 1 | 1 | ngss (1) |
+| ESS1-1 | The Sun's life span and fusion energy | 19 | 19 | earth-space (12), ngss (7) |
+| ESS1-2 | Big Bang evidence | 16 | 16 | earth-space (9), ngss (7) |
+| ESS1-3 | Stellar nucleosynthesis | 17 | 17 | earth-space (10), ngss (7) |
+| ESS1-4 | Orbital motion (Kepler, gravitation) | 11 | 11 | earth-space (10), ngss (1) |
+| ESS1-5 | Plate tectonics and the ages of rocks | 7 | 7 | earth-space (6), ngss (1) |
+| ESS1-6 | Early Earth history from ancient materials | 7 | 7 | earth-space (6), ngss (1) |
+| ESS2-1 | Internal and surface processes form landforms | 13 | 13 | earth-space (5), ngss (8) |
+| ESS2-2 | Feedbacks among Earth systems | 14 | 14 | earth-space (6), ngss (8) |
+| ESS2-3 | Thermal convection in the mantle | 13 | 13 | earth-space (5), ngss (8) |
+| ESS2-4 | Energy flow and climate change | 7 | 7 | earth-space (6), ngss (1) |
+| ESS2-5 | Properties of water and surface processes | 1 | 1 | ngss (1) |
+| ESS2-6 | Carbon cycling among Earth systems (quantitative) | 7 | 7 | earth-space (6), ngss (1) |
+| ESS2-7 | Coevolution of Earth systems and life | 1 | 1 | ngss (1) |
+| ESS3-1 | Resources, hazards and climate shape human activity | 8 | 8 | earth-space (1), ngss (7) |
+| ESS3-2 | Cost–benefit of energy and mineral resources | 7 | 7 | ngss (7) |
+| ESS3-3 | Resource management, sustainability and biodiversity | 9 | 9 | earth-space (2), ngss (7) |
+| ESS3-4 | Technology that reduces human impact | 1 | 1 | ngss (1) |
+| ESS3-5 | Forecasting climate change | 7 | 7 | earth-space (6), ngss (1) |
+| ESS3-6 | Humans alter Earth-system relationships (computational) | 7 | 7 | earth-space (6), ngss (1) |
+| ETS1-1 | Criteria and constraints for a global challenge | 5 | 5 | ngss (5) |
+| ETS1-2 | Break a problem into smaller problems | 5 | 5 | ngss (5) |
+| ETS1-3 | Evaluate solutions by prioritised criteria and trade-offs | 5 | 5 | ngss (5) |
+| ETS1-4 | Simulate the impact of a solution | 1 | 1 | ngss (1) |
 
 ## IB Diploma Programme Chemistry guide, first assessment 2025 (topic list)
 

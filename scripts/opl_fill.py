@@ -30,8 +30,9 @@ def unit_text(u, fw, idea):
         out += [f"      - n: {tn}", f"        title: {q(tt)}", "        los:"]
         for lo in los:
             std = ", ".join([q(f"webwork-opl:{s}") for s in lo.opl] + [q(s) for s in lo.std])
-            dr = ", ".join(x.name for x in lo.qs)
-            out.append(f"          - {{ id: {lo.id}, std: [{std}], do: {q(lo.do)}, ek: [{q(lo.ek)}], p: [{lo.p}], drills: [{dr}] }}")
+            dr = ", ".join([x.name for x in lo.qs] + [d for d in lo.drills if d not in {x.name for x in lo.qs}])
+            nd = f", needs: [{', '.join(lo.needs)}]" if lo.needs else ""
+            out.append(f"          - {{ id: {lo.id}, std: [{std}], do: {q(lo.do)}, ek: [{q(lo.ek)}], p: [{lo.p}], drills: [{dr}]{nd} }}")
     return "\n".join(out)
 
 

@@ -39,6 +39,7 @@ domains:
   - { id: fm, title: "Fluid mechanics" }
   - { id: nm, title: "Numerical methods" }
   - { id: mass, title: "Mass transfer" }
+  - { id: ngss, title: "NGSS high school science" }
   - { id: cre, title: "Chemical reaction engineering" }
   - { id: dat, title: "Dental Admission Test" }
   - { id: nuc, title: "Nuclear science" }
@@ -611,6 +612,11 @@ skills:
   - { id: fm.similarity, domain: fm, title: "Dimensional analysis and similarity", short: "Dimensional analysis", prereqs: [fm.regimes] }
   - { id: fm.external, domain: fm, title: "External flow: drag and terminal velocity", short: "Drag", prereqs: [fm.similarity] }
   - { id: fm.piping, domain: fm, title: "Piping systems and pumps: parallel pipes, affinity laws, operating point", short: "Piping and pumps", prereqs: [fm.energy] }
+  # ── NGSS performance expectations not covered by a subject framework ─────
+  - { id: ngss.physical-design, domain: ngss, title: "NGSS physical science: designing devices and materials", short: "PS design" }
+  - { id: ngss.life-impact, domain: ngss, title: "NGSS life science: human impact and biodiversity solutions", short: "LS impact" }
+  - { id: ngss.earth-resources, domain: ngss, title: "NGSS earth science: water, coevolution, resources and impact", short: "ESS resources" }
+  - { id: ngss.engineering, domain: ngss, title: "NGSS engineering design: criteria, decomposition, trade-offs, simulation", short: "Engineering design" }
   # ── mass transfer (graduate) ────────────────────────────────────────────
   - { id: mass.diffusivity, domain: mass, title: "Diffusivities: gases, liquids, Knudsen, porous solids, mixtures", short: "Diffusivities" }
   - { id: mass.steady, domain: mass, title: "Steady diffusion: stagnant films, reaction, spheres, droplets, membranes", short: "Steady diffusion", prereqs: [mass.diffusivity] }
