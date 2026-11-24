@@ -732,7 +732,7 @@ Big ideas: DATA
 
 - ● **DAT-5.3.A** Complete one passage and its questions in about 20 minutes with every item answered.
   - EK: 60 min / 3 passages ≈ 20 min each, ≈ 72 s per item; mark slow items and return; a blank scores the same as a wrong answer.
-  - P8 · drills: dt-rc-full-passage
+  - P8 · drills: dt-rc-full-passage, dt-rc-paragraph-roles
 
 ## Unit 6 · Quantitative Reasoning
 

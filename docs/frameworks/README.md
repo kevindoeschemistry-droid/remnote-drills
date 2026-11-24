@@ -96,7 +96,7 @@ Related reports: [standards and how much of each was read](../coverage/standards
 | [Inorganic Chemistry](inorganic-chemistry.md) | IN | 23 | 23 | 0 | 0 | 2.0 | Regulations of the International Chemistry Olympiad, Appendices C and D (concepts, skills and factual knowledge) (exam-spec, read: full) |
 | [NGSS High School Science](ngss.md) | NG | 71 | 71 | 0 | 0 | 3.1 | Next Generation Science Standards, high school performance expectations (2013) (standard, read: part) |
 | [Nuclear Science and Reactor Theory](nuclear.md) | NU | 19 | 19 | 0 | 0 | 1.7 | NRC Generic Fundamentals Examination, reactor theory topics (PWR catalog 192001-192008) (exam-spec, read: part) |
-| [Organic Reactions: Predict the Product](organic-reactions.md) | OR | 25 | 25 | 0 | 0 | 4.7 | Bruice, Organic Chemistry, 8th edition (table of contents) (textbook, read: part) |
+| [Organic Reactions: Predict the Product](organic-reactions.md) | OR | 25 | 25 | 0 | 0 | 5.0 | Bruice, Organic Chemistry, 8th edition (table of contents) (textbook, read: part) |
 | [Particle Physics](particle-physics.md) | PP | 13 | 13 | 0 | 0 | 1.4 | AQA AS and A-level Physics (7407/7408), section 3.2 Particles and radiation (standard, read: part) |
 | [Physics (AP)](physics.md) | PH | 207 | 207 | 0 | 0 | 2.0 | AP Physics 1, 2 and C Course and Exam Descriptions (standard, read: part) |
 | [Polymers and Materials](materials.md) | MT | 17 | 17 | 0 | 0 | 1.5 | Regulations of the International Chemistry Olympiad, Appendices C and D (concepts, skills and factual knowledge) (exam-spec, read: full) |
