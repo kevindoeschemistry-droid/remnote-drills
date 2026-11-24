@@ -2,7 +2,7 @@
 
 Generated from `drills/frameworks/biosecurity.yaml` by `scripts/framework.mjs`. ● drilled · ◐ partly · ○ no drills yet.
 
-**27 learning objectives** in 6 units (27 core): 27 drilled, 0 partly, 0 with no drills. Core: 27 / 27 drilled.
+**42 learning objectives** in 7 units (42 core): 42 drilled, 0 partly, 0 with no drills. Core: 42 / 42 drilled.
 
 ## Big ideas
 
@@ -21,10 +21,11 @@ Generated from `drills/frameworks/biosecurity.yaml` by `scripts/framework.mjs`. 
 | Unit | Scope | Est. weight | LOs | ● | ◐ | ○ |
 |---|---|---|---|---|---|---|
 | 1 · Building a pandemic-proof world | core | — | 5 | 5 | 0 | 0 |
-| 2 · Preventing engineered pandemics (Prevent) | core | — | 7 | 7 | 0 | 0 |
-| 3 · Detecting early infections (Detect) | core | — | 4 | 4 | 0 | 0 |
-| 4 · Blocking transmission (Withstand) | core | — | 4 | 4 | 0 | 0 |
-| 5 · Exiting the pandemic (Combat) | core | — | 5 | 5 | 0 | 0 |
+| 7 · Applied epidemiology foundations | core | — | 10 | 10 | 0 | 0 |
+| 2 · Preventing engineered pandemics (Prevent) | core | — | 9 | 9 | 0 | 0 |
+| 3 · Detecting early infections (Detect) | core | — | 5 | 5 | 0 | 0 |
+| 4 · Blocking transmission (Withstand) | core | — | 5 | 5 | 0 | 0 |
+| 5 · Exiting the pandemic (Combat) | core | — | 6 | 6 | 0 | 0 |
 | 6 · Contributing to biosecurity | core | — | 2 | 2 | 0 | 0 |
 
 ## Unit 1 · Building a pandemic-proof world
@@ -55,6 +56,60 @@ Big ideas: GROWTH, LAYERS
 - ● **BS-1.2.B** Distinguish natural, accidental and deliberate biological risks and say what makes a risk catastrophic.
   - EK: Spillover, lab accident, misuse; transmissibility, severity and our ability to respond set the scale.
   - P2 · P3 · drills: bs-risk-source, bs-gcbr-features
+
+## Unit 7 · Applied epidemiology foundations
+
+Big ideas: GROWTH
+
+### 7.1 Disease occurrence
+
+
+
+- ● **BS-7.1.A** (cdc-ss1978:L1) Name the links in the chain of infection and the stages of natural history, and say which measure breaks which link.
+  - EK: Reservoir, portal of exit, transmission, portal of entry, susceptible host; incubation, latent and infectious periods.
+  - P2 · P3 · drills: bs-chain-link, bs-natural-history
+- ● **BS-7.1.B** (cdc-ss1978:L1, cdc-ss1978:L4) Read an epidemic curve: point source, continuous or propagated, and the likely exposure time.
+  - EK: Point source: one peak about one incubation period wide; exposure ≈ peak − median incubation.
+  - P1 · P2 · drills: bs-exposure-from-peak, bs-epicurve-shape
+
+### 7.2 Measures of risk
+
+
+
+- ● **BS-7.2.A** (cdc-ss1978:L3) Compute attack rates and secondary attack rates.
+  - EK: Attack rate = cases ÷ population at risk; secondary attack rate counts contacts of primary cases only.
+  - P1 · drills: bs-attack-rate, bs-secondary-attack
+- ● **BS-7.2.B** (cdc-ss1978:L3) Distinguish incidence from prevalence and relate them through duration.
+  - EK: Prevalence ≈ incidence rate × mean duration (steady state).
+  - P1 · P2 · drills: bs-prevalence-from-incidence, bs-incidence-or-prevalence
+- ● **BS-7.2.C** (cdc-ss1978:L3) Compute a risk ratio or an odds ratio from a 2 × 2 table and say which design gives which.
+  - EK: Cohort: RR = (a/(a+b))/(c/(c+d)); case-control: OR = ad/bc.
+  - P1 · drills: bs-risk-ratio, bs-odds-ratio
+- ● **BS-7.2.D** (cdc-ss1978:L3) Compute attributable risk and the population attributable fraction.
+  - EK: AR% among exposed = (RR − 1)/RR; PAF = p(RR − 1)/(1 + p(RR − 1)).
+  - P1 · drills: bs-attributable-fraction-exposed, bs-paf
+
+### 7.3 Surveillance and outbreak investigation
+
+
+
+- ● **BS-7.3.A** (cdc-ss1978:L6) Order the steps of an outbreak investigation and apply case definitions.
+  - EK: Prepare, confirm the outbreak, verify the diagnosis, define and find cases, describe by time, place and person, hypothesise, test, control, communicate.
+  - P2 · P3 · drills: bs-investigation-steps, bs-case-definition
+- ● **BS-7.3.B** (cdc-ss1978:L5) Evaluate a surveillance system by sensitivity, predictive value and timeliness.
+  - EK: Sensitivity = cases detected ÷ true cases; PVP = true cases ÷ cases reported.
+  - P1 · P2 · drills: bs-surveillance-sensitivity, bs-surveillance-pvp
+
+### 7.4 Transmission dynamics
+
+
+
+- ● **BS-7.4.A** Compute the final size of an epidemic and the effective reproduction number as susceptibles fall.
+  - EK: Final size z solves z = 1 − e^{−R₀z}; R_eff = R₀ × susceptible fraction.
+  - P1 · drills: bs-final-size, bs-reff-susceptibles
+- ● **BS-7.4.B** Explain superspreading with the dispersion parameter and compute the chance a case transmits to no one.
+  - EK: Negative binomial offspring: P(0) = (1 + R/k)^{−k}; small k means most cases infect no one and a few infect many.
+  - P1 · P2 · drills: bs-zero-offspring, bs-superspreading
 
 ## Unit 2 · Preventing engineered pandemics (Prevent)
 
@@ -95,6 +150,17 @@ Big ideas: NORMS, LAYERS
 - ● **BS-2.3.B** (who-lbm4:3, who-lbm4:4) Choose primary containment (biosafety cabinet class) and compute filter penetration.
   - EK: Class I protects worker and environment, II also the sample, III is gas-tight; HEPA ≥ 99.97% at the most penetrating size.
   - P1 · P3 · drills: bs-bsc-class, bs-hepa-series
+- ● **BS-2.3.C** (who-lbm4:3) Compute decontamination by log reduction and D-values.
+  - EK: N = N₀·10^{−t/D}; a 6-log kill takes six D-values.
+  - P1 · drills: bs-autoclave-time, bs-log-reduction
+
+### 2.4 National health security capacities
+
+
+
+- ● **BS-2.4.A** (who-jee3:P7, who-jee3:D2, who-jee3:R2) Place a national capacity in its JEE technical area and pillar.
+  - EK: Prevent P1–P8, Detect D1–D3, Respond R1–R5, plus points of entry, chemical and radiation events.
+  - P2 · drills: bs-jee-area, bs-jee-pillar
 
 ## Unit 3 · Detecting early infections (Detect)
 
@@ -113,6 +179,9 @@ Big ideas: GROWTH
 - ● **BS-3.1.C** Compute the sequencing depth needed to see a target at a given relative abundance.
   - EK: Expected target reads = total reads × relative abundance.
   - P1 · drills: bs-reads-needed, bs-abundance-growth
+- ● **BS-3.1.D** Compute the probability that sequencing sees at least one target read.
+  - EK: Reads are Poisson: P(≥ 1) = 1 − e^{−λ}; 95% needs λ ≈ 3.
+  - P1 · drills: bs-detect-prob, bs-depth-for-confidence
 
 ### 3.2 Diagnostics
 
@@ -136,6 +205,9 @@ Big ideas: LAYERS, GROWTH
 - ● **BS-4.1.B** Explain far-UVC, filtration and ventilation and compute clearance times.
   - EK: 222 nm barely penetrates the skin's dead layer; 99% removal takes ln 100 / ACH hours.
   - P1 · P2 · drills: bs-clearance-time, bs-far-uvc
+- ● **BS-4.1.C** (ashrae-241:5) Check a room against an equivalent clean airflow per person target.
+  - EK: Total clean air = outdoor air + filtered recirculation × efficiency + air cleaners; ECA per person = total ÷ occupants.
+  - P1 · drills: bs-eca-per-person, bs-occupancy-limit
 
 ### 4.2 PPE and social measures
 
@@ -165,6 +237,9 @@ Big ideas: GROWTH, LAYERS
 - ● **BS-5.1.C** Describe rapid countermeasure programmes: platforms, the 100 Days Mission, financing and trials.
   - EK: CEPI's goal: vaccines within 100 days of a threat; platform technologies; advance commitments.
   - P2 · drills: bs-mcm-facts, bs-mcm-scenario
+- ● **BS-5.1.D** Compute the number needed to vaccinate and the expected cases averted.
+  - EK: NNV = 1/(AR_unvaccinated × VE).
+  - P1 · drills: bs-nnv, bs-cases-averted
 
 ### 5.2 Scale-up and governance
 

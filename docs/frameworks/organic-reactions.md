@@ -39,13 +39,13 @@ Big ideas: RULES
 
 - ● **OR-1.1.A** Find the degrees of unsaturation from a molecular formula.
   - EK: U = ½(2C + 2 + N − H − X); each is a ring or a π bond.
-  - P3 · drills: or-degrees-of-unsaturation
+  - P3 · drills: or-degrees-of-unsaturation, co-h-from-dou
 - ● **OR-1.1.B** Give the maximum number of stereoisomers from the number of stereocentres.
   - EK: 2ⁿ, fewer when there is a meso form.
-  - P3 · drills: or-stereoisomer-maximum
+  - P3 · drills: or-stereoisomer-maximum, or-centres-from-max
 - ● **OR-1.1.C** Assign the oxidation state of a carbon and say whether a step is an oxidation or a reduction.
   - EK: Bonds to H count −1, bonds to O, N or halogen +1, bonds to C zero.
-  - P3 · drills: or-oxidation-level
+  - P3 · drills: or-oxidation-level, or-carbon-ox-group
 
 ### 1.2 Direction and site
 
@@ -56,13 +56,13 @@ Big ideas: RULES
   - P3 · drills: or-acid-base-direction, or-acid-base-log-k
 - ● **OR-1.2.B** Decide whether a ring is aromatic, antiaromatic or neither.
   - EK: Cyclic, planar, a p orbital on every atom, then 4n + 2 or 4n π electrons.
-  - P3 · drills: or-aromaticity
+  - P3 · drills: or-aromaticity, dat-pi-electron-count
 - ● **OR-1.2.C** Choose between SN2, E2 and SN1/E1 from the substrate and the reagent.
   - EK: Strong or weak reagent first, then how hindered the carbon is, then how bulky the base.
-  - P3 · drills: or-substitution-or-elimination
+  - P3 · drills: or-substitution-or-elimination, dat-rate-doubling
 - ● **OR-1.2.D** Say where a substituent directs the next electrophile on a benzene ring and whether it speeds or slows the ring.
   - EK: Donors direct ortho/para and activate; acceptors direct meta and deactivate; halogens direct ortho/para but deactivate.
-  - P3 · drills: or-directing-effect
+  - P3 · drills: or-directing-effect, or-activator-rank
 
 ## Unit 2 · Alkenes and alkynes
 
@@ -175,10 +175,10 @@ Big ideas: RULES
 
 - ● **OR-8.1.A** Draw the SN2 mechanism: both arrows and the products.
   - EK: Backside attack and loss of the leaving group in one step; inversion.
-  - P1 · drills: st-mech-sn2-1
+  - P1 · drills: st-mech-sn2-1, or-sn2-requirements
 - ● **OR-8.1.B** Draw the E2 mechanism: three arrows and the products.
   - EK: Base to H, C–H electrons to the π bond, leaving group out; anti-periplanar.
-  - P1 · drills: st-mech-e2-1
+  - P1 · drills: st-mech-e2-1, or-e2-requirements
 - ● **OR-8.1.C** Draw the two steps of electrophilic addition of HX to an alkene, with the carbocation.
   - EK: The π bond takes the proton to give the more stable cation; the halide then adds.
   - P1 · drills: st-mech-hbr-addition-1, st-mech-hbr-addition-2

@@ -1345,6 +1345,8 @@ Big ideas: LINE, OPS, MULT, SHAPE, DATA
 - mm-decimal-reciprocal (k8.fractions)
 - mm-mixed-repeating (k8.fractions)
 - mm-decimal-product (k8.decimals)
+- aq-kitchen-ratio (k8.measurement)
+- aq-spoons-per-mole (k8.measurement)
 - mm-area-volume-units (k8.measurement)
 - mm-original-price (k8.ratios)
 - mm-unit-rate (k8.ratios)

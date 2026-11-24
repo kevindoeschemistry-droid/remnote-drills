@@ -113,6 +113,9 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "ada-dat:1.1.g"
+       ],
        "do": "Classify a biomolecule as carbohydrate, lipid, protein or nucleic acid from its monomer and linking bond.",
        "ek": [
         "Glycosidic, ester, peptide and phosphodiester bonds; all formed by dehydration, broken by hydrolysis."
@@ -128,6 +131,9 @@
       },
       {
        "id": "B",
+       "std": [
+        "ada-dat:1.1.a"
+       ],
        "do": "Predict how an inhibitor type changes Km and Vmax of an enzyme.",
        "ek": [
         "Competitive: Km up, Vmax same; noncompetitive: Vmax down, Km same; uncompetitive: both down."
@@ -143,6 +149,9 @@
       },
       {
        "id": "C",
+       "std": [
+        "ada-dat:1.1.a"
+       ],
        "do": "Locate each stage of cellular respiration and state its inputs, outputs and ATP yield.",
        "ek": [
         "Glycolysis (cytosol, 2 ATP net) → pyruvate oxidation + Krebs (matrix) → ETC (inner membrane, O2 final acceptor); ~30–32 ATP per glucose."
@@ -157,6 +166,9 @@
       },
       {
        "id": "D",
+       "std": [
+        "ada-dat:1.1.a"
+       ],
        "do": "Distinguish the light reactions from the Calvin cycle by location, inputs and products.",
        "ek": [
         "Thylakoid: H2O split, O2 released, ATP + NADPH made; stroma: rubisco fixes CO2 using ATP and NADPH."
@@ -172,6 +184,9 @@
       },
       {
        "id": "E",
+       "std": [
+        "ada-dat:1.1.b"
+       ],
        "do": "Predict the direction and energy requirement of a membrane transport process.",
        "ek": [
         "Passive goes down the gradient; active uses ATP or a coupled gradient; water moves toward higher solute concentration."
@@ -186,6 +201,9 @@
       },
       {
        "id": "F",
+       "std": [
+        "ada-dat:1.1.b"
+       ],
        "do": "Trace a signal from ligand to response for a GPCR, receptor tyrosine kinase or intracellular receptor.",
        "ek": [
         "Hydrophilic ligands bind surface receptors and use second messengers (cAMP, Ca2+, IP3/DAG); steroids cross the membrane and act on genes."
@@ -201,6 +219,9 @@
       },
       {
        "id": "G",
+       "std": [
+        "ada-dat:1.1.c"
+       ],
        "do": "Decide whether a cellular reaction is spontaneous and how coupling or an enzyme changes it.",
        "ek": [
         "ΔG < 0 is spontaneous; ATP hydrolysis drives endergonic steps by coupling; enzymes lower Ea, never ΔG."
@@ -215,6 +236,9 @@
       },
       {
        "id": "H",
+       "std": [
+        "ada-dat:1.1.d"
+       ],
        "do": "Order the cell-cycle phases and mitotic stages and name the checkpoint controls.",
        "ek": [
         "G1 → S → G2 → M (prophase, metaphase, anaphase, telophase); cyclin–CDK complexes and p53 gate the transitions."
@@ -229,6 +253,9 @@
       },
       {
        "id": "I",
+       "std": [
+        "ada-dat:1.1.d"
+       ],
        "do": "Compare mitosis and meiosis by ploidy, crossing over and products.",
        "ek": [
         "Meiosis I separates homologs (2n → n) with crossing over in prophase I; meiosis II separates sister chromatids."
@@ -247,6 +274,9 @@
       },
       {
        "id": "J",
+       "std": [
+        "ada-dat:1.1.e"
+       ],
        "do": "Match an organelle to its function and tell prokaryotic from eukaryotic cells.",
        "ek": [
         "RER makes secreted/membrane proteins; Golgi modifies and sorts; lysosome digests; peroxisome breaks H2O2 and fatty acids; mitochondria and chloroplasts carry their own DNA."
@@ -261,6 +291,9 @@
       },
       {
        "id": "K",
+       "std": [
+        "ada-dat:1.1.e"
+       ],
        "do": "Identify cytoskeletal elements and cell junctions by structure and role.",
        "ek": [
         "Microtubules (tubulin: spindle, cilia), microfilaments (actin: contraction, cleavage), intermediate filaments (keratin: strength); tight, gap and desmosome junctions."
@@ -275,6 +308,9 @@
       },
       {
        "id": "L",
+       "std": [
+        "ada-dat:1.1.f"
+       ],
        "do": "Choose the experimental technique that answers a cell-biology question and interpret its result.",
        "ek": [
         "Differential centrifugation separates by size/density; SDS-PAGE by mass; fluorescent tags localize; radiolabel pulse-chase follows a pathway."
@@ -287,6 +323,60 @@
         "bi-cell-techniques",
         "dat-technique-result"
        ]
+      },
+      {
+       "id": "M",
+       "std": [
+        "ada-dat:1.1.c"
+       ],
+       "do": "Add free energies of coupled reactions and use ΔG = ΔG°′ + RT ln Q to decide whether a cellular step runs.",
+       "ek": [
+        "ΔG values of coupled reactions add; ATP hydrolysis gives about −30.5 kJ/mol under standard conditions; a reaction with ΔG°′ > 0 can still run when Q is small."
+       ],
+       "p": [
+        "P1",
+        "P2"
+       ],
+       "drills": [
+        "dat-coupled-dg",
+        "dat-dg-q"
+       ]
+      },
+      {
+       "id": "N",
+       "std": [
+        "ada-dat:1.1.f"
+       ],
+       "do": "Choose a microscope or stain for a cell-biology question and compute magnification and cell size.",
+       "ek": [
+        "Total magnification = objective × eyepiece; light microscopes resolve about 0.2 µm, electron microscopes about 1 nm; cell size ≈ field diameter ÷ cells across it."
+       ],
+       "p": [
+        "P1",
+        "P2"
+       ],
+       "drills": [
+        "dat-cell-size",
+        "dat-scope-pick"
+       ]
+      },
+      {
+       "id": "O",
+       "std": [
+        "ada-dat:1.1.g"
+       ],
+       "do": "Identify a biomolecule from a chemical test and count the waters released when monomers polymerize.",
+       "ek": [
+        "Benedict's: reducing sugars; biuret: peptide bonds; iodine: starch; Sudan/emulsion: lipids; n monomers joined by dehydration release n − 1 waters."
+       ],
+       "p": [
+        "P1",
+        "P2"
+       ],
+       "drills": [
+        "dat-dehydration-waters",
+        "dat-biomolecule-test"
+       ]
       }
      ]
     },
@@ -297,6 +387,9 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "ada-dat:1.2.a"
+       ],
        "do": "Describe virus structure and distinguish lytic, lysogenic and retroviral life cycles.",
        "ek": [
         "Capsid around DNA or RNA, no metabolism; lysogenic phage integrates as a prophage; retroviruses use reverse transcriptase."
@@ -311,6 +404,10 @@
       },
       {
        "id": "B",
+       "std": [
+        "ada-dat:1.2.b",
+        "ada-dat:1.2.c"
+       ],
        "do": "Distinguish Archaea from Bacteria and Eukarya by membrane, wall and genetic machinery.",
        "ek": [
         "Archaea: ether-linked lipids, no peptidoglycan, histones and eukaryote-like RNA polymerase."
@@ -325,6 +422,9 @@
       },
       {
        "id": "C",
+       "std": [
+        "ada-dat:1.2.c"
+       ],
        "do": "Classify a bacterium by shape, Gram stain and metabolism, and name its modes of gene transfer.",
        "ek": [
         "Gram+ thick peptidoglycan, Gram− thin wall plus outer LPS membrane; binary fission; transformation, transduction, conjugation."
@@ -340,6 +440,9 @@
       },
       {
        "id": "D",
+       "std": [
+        "ada-dat:1.2.d"
+       ],
        "do": "Identify the defining features and life cycle of fungi.",
        "ek": [
         "Chitin walls, absorptive heterotrophs, hyphae/mycelium; haploid-dominant life cycle."
@@ -354,6 +457,9 @@
       },
       {
        "id": "E",
+       "std": [
+        "ada-dat:1.2.e"
+       ],
        "do": "Place a described protist in its group and explain why Protista is not a natural clade.",
        "ek": [
         "Eukaryotes that are not plants, animals or fungi (algae, amoebae, ciliates, Plasmodium); paraphyletic."
@@ -369,6 +475,9 @@
       },
       {
        "id": "F",
+       "std": [
+        "ada-dat:1.2.f"
+       ],
        "do": "Order plant groups by key innovation and identify the dominant generation in each.",
        "ek": [
         "Mosses (gametophyte-dominant, no vasculature) → ferns (vascular, sporophyte-dominant) → gymnosperms (seeds, pollen) → angiosperms (flowers, fruit, double fertilization)."
@@ -383,6 +492,9 @@
       },
       {
        "id": "G",
+       "std": [
+        "ada-dat:1.2.g"
+       ],
        "do": "Classify an animal by symmetry, germ layers, body cavity and protostome/deuterostome development.",
        "ek": [
         "Deuterostomes (echinoderms, chordates): blastopore becomes the anus, radial cleavage; protostomes: mouth, spiral cleavage."
@@ -398,6 +510,9 @@
       },
       {
        "id": "H",
+       "std": [
+        "ada-dat:1.2.g"
+       ],
        "do": "Identify the four chordate features and the traits that separate vertebrate classes.",
        "ek": [
         "Notochord, dorsal hollow nerve cord, pharyngeal slits, post-anal tail; amniotic egg separates reptiles, birds and mammals from amphibians."
@@ -409,6 +524,96 @@
         "bi-chordates",
         "dat-vertebrate-class"
        ]
+      },
+      {
+       "id": "I",
+       "std": [
+        "ada-dat:1.2.a"
+       ],
+       "do": "Distinguish viruses, viroids and prions and compute a phage titer from a plaque count.",
+       "ek": [
+        "Viroids are naked RNA, prions misfolded protein; titer (PFU/mL) = plaques ÷ (dilution × volume plated)."
+       ],
+       "p": [
+        "P1",
+        "P2"
+       ],
+       "drills": [
+        "dat-phage-titer",
+        "dat-acellular-agents"
+       ]
+      },
+      {
+       "id": "J",
+       "std": [
+        "ada-dat:1.2.b"
+       ],
+       "do": "Match prokaryotic growth and habitats to Archaea or Bacteria and compute exponential growth from generation time.",
+       "ek": [
+        "Extreme halophiles, methanogens and many thermophiles are archaea; N = N₀ · 2^(t/g) during log phase."
+       ],
+       "p": [
+        "P1",
+        "P2"
+       ],
+       "drills": [
+        "dat-bacterial-growth",
+        "dat-prokaryote-habitat"
+       ]
+      },
+      {
+       "id": "K",
+       "std": [
+        "ada-dat:1.2.d"
+       ],
+       "do": "Place a fungus in its phylum and predict the effect of drugs or partnerships that act on fungal biology.",
+       "ek": [
+        "Zygomycetes (bread mold), ascomycetes (yeast, sac), basidiomycetes (mushrooms, club); ergosterol in the membrane is the antifungal target; mycorrhizae and lichens are mutualisms."
+       ],
+       "p": [
+        "P1",
+        "P2"
+       ],
+       "drills": [
+        "dat-fungal-phylum",
+        "dat-fungal-scenario"
+       ]
+      },
+      {
+       "id": "L",
+       "std": [
+        "ada-dat:1.2.e"
+       ],
+       "do": "Identify a protist by its locomotion, covering or disease and predict its physiology from its habitat.",
+       "ek": [
+        "Amoebae: pseudopodia; Paramecium: cilia and a contractile vacuole; Euglena: flagellum and chloroplasts; diatoms: silica; Plasmodium (apicomplexan) causes malaria."
+       ],
+       "p": [
+        "P1",
+        "P2"
+       ],
+       "drills": [
+        "dat-protist-id",
+        "dat-protist-scenario"
+       ]
+      },
+      {
+       "id": "M",
+       "std": [
+        "ada-dat:1.2.f"
+       ],
+       "do": "Relate plant tissues, transport and hormones to function and predict a plant's response to a stimulus.",
+       "ek": [
+        "Xylem carries water up by transpiration pull; phloem moves sugar source to sink; auxin drives phototropism, gibberellin stem growth, abscisic acid stomatal closure, ethylene ripening; C4 and CAM limit photorespiration."
+       ],
+       "p": [
+        "P1",
+        "P2"
+       ],
+       "drills": [
+        "dat-plant-hormone",
+        "dat-plant-transport"
+       ]
       }
      ]
     },
@@ -419,6 +624,9 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "ada-dat:1.3.a"
+       ],
        "do": "Describe the layers of the skin and their roles in protection and thermoregulation.",
        "ek": [
         "Avascular epidermis (keratinocytes, melanocytes); dermis holds vessels, glands and receptors; sweat and vasodilation dump heat."
@@ -433,6 +641,10 @@
       },
       {
        "id": "B",
+       "std": [
+        "ada-dat:1.3.b",
+        "ada-dat:1.3.j"
+       ],
        "do": "Predict how bone remodeling and blood Ca2+ respond to PTH, calcitonin and vitamin D.",
        "ek": [
         "Osteoblasts build, osteoclasts resorb; PTH and calcitriol raise blood Ca2+, calcitonin lowers it."
@@ -447,6 +659,9 @@
       },
       {
        "id": "C",
+       "std": [
+        "ada-dat:1.3.c"
+       ],
        "do": "Explain each step of the sliding-filament cycle and its dependence on Ca2+ and ATP.",
        "ek": [
         "Ca2+ binds troponin, tropomyosin uncovers actin sites, myosin power stroke; ATP binding releases the head."
@@ -462,6 +677,9 @@
       },
       {
        "id": "D",
+       "std": [
+        "ada-dat:1.3.d"
+       ],
        "do": "Trace blood through the heart and vessels and identify which vessels carry oxygenated blood.",
        "ek": [
         "RA → RV → pulmonary artery → lungs → pulmonary veins → LA → LV → aorta; arteries leave the heart regardless of O2 content."
@@ -476,6 +694,10 @@
       },
       {
        "id": "E",
+       "std": [
+        "ada-dat:1.3.d",
+        "ada-dat:1.3.g"
+       ],
        "do": "Predict the direction a condition shifts the oxygen–hemoglobin dissociation curve.",
        "ek": [
         "Right shift (lower affinity): ↑CO2, ↑H+, ↑temperature, ↑2,3-BPG; fetal Hb and CO shift left."
@@ -491,6 +713,9 @@
       },
       {
        "id": "F",
+       "std": [
+        "ada-dat:1.3.e"
+       ],
        "do": "Distinguish innate from adaptive immunity and match B, CD4+ and CD8+ cells to their actions.",
        "ek": [
         "B cells make antibodies (humoral); CD8+ kill cells presenting on MHC I; CD4+ helpers recognize MHC II on APCs."
@@ -506,6 +731,9 @@
       },
       {
        "id": "G",
+       "std": [
+        "ada-dat:1.3.f"
+       ],
        "do": "Match a digestive enzyme to its source, substrate and site of action.",
        "ek": [
         "Salivary amylase (mouth), pepsin (stomach), pancreatic trypsin, lipase and amylase (duodenum); bile emulsifies; absorption is in the small intestine."
@@ -520,6 +748,9 @@
       },
       {
        "id": "H",
+       "std": [
+        "ada-dat:1.3.g"
+       ],
        "do": "Explain ventilation mechanics and how O2 and CO2 are exchanged and carried.",
        "ek": [
         "Diaphragm contracts → thoracic volume up, pressure down → air in; exchange by diffusion in alveoli; most CO2 travels as HCO3−."
@@ -535,6 +766,9 @@
       },
       {
        "id": "I",
+       "std": [
+        "ada-dat:1.3.h"
+       ],
        "do": "Assign filtration, reabsorption and concentration to nephron segments and predict the effect of ADH and aldosterone.",
        "ek": [
         "Glomerulus filters; PCT reabsorbs most solute; loop of Henle builds the gradient; ADH inserts aquaporins in the collecting duct; aldosterone retains Na+."
@@ -549,6 +783,9 @@
       },
       {
        "id": "J",
+       "std": [
+        "ada-dat:1.3.i"
+       ],
        "do": "Explain the ion movements behind the resting potential, action potential and synaptic transmission.",
        "ek": [
         "Na+ in depolarizes, K+ out repolarizes; Na+/K+-ATPase pumps 3 Na+ out, 2 K+ in; myelin enables saltatory conduction; Ca2+ triggers vesicle release."
@@ -564,6 +801,9 @@
       },
       {
        "id": "K",
+       "std": [
+        "ada-dat:1.3.i"
+       ],
        "do": "Identify the receptor and structure responsible for a sensory function.",
        "ek": [
         "Rods: dim light; cones: color; cochlear hair cells: hearing; semicircular canals and vestibule: balance."
@@ -578,6 +818,9 @@
       },
       {
        "id": "L",
+       "std": [
+        "ada-dat:1.3.j"
+       ],
        "do": "Match a hormone to its gland and target action and predict a negative-feedback response.",
        "ek": [
         "Peptide hormones use surface receptors, steroids act in the nucleus; hypothalamus → anterior pituitary → gland axes are damped by negative feedback."
@@ -593,6 +836,9 @@
       },
       {
        "id": "M",
+       "std": [
+        "ada-dat:1.3.k"
+       ],
        "do": "Sequence the menstrual cycle's hormone changes and compare spermatogenesis with oogenesis.",
        "ek": [
         "Estrogen peak → LH surge → ovulation; corpus luteum makes progesterone; one oocyte plus polar bodies vs four sperm per meiosis."
@@ -605,6 +851,132 @@
         "bi-menstrual-cycle",
         "bi-gametogenesis"
        ]
+      },
+      {
+       "id": "N",
+       "std": [
+        "ada-dat:1.3.a"
+       ],
+       "do": "Identify skin cells, glands and layers and predict how skin responds to heat, cold and injury.",
+       "ek": [
+        "Stratum basale divides; melanocytes make melanin; sebaceous glands oil hair, eccrine glands cool by sweat; vasodilation dumps heat, vasoconstriction keeps it."
+       ],
+       "p": [
+        "P1",
+        "P2"
+       ],
+       "drills": [
+        "dat-skin-cells",
+        "dat-skin-thermo"
+       ]
+      },
+      {
+       "id": "O",
+       "std": [
+        "ada-dat:1.3.b"
+       ],
+       "do": "Match bone and cartilage cells, tissue and joints to their roles.",
+       "ek": [
+        "Osteocytes sit in lacunae of osteons (Haversian systems); red marrow makes blood cells; hyaline cartilage covers joints, fibrocartilage in discs, elastic in the ear; synovial joints move freely."
+       ],
+       "p": [
+        "P1",
+        "P2"
+       ],
+       "drills": [
+        "dat-bone-tissue",
+        "dat-cartilage-joint"
+       ]
+      },
+      {
+       "id": "P",
+       "std": [
+        "ada-dat:1.3.c"
+       ],
+       "do": "Compare skeletal, cardiac and smooth muscle and predict force from motor-unit recruitment and summation.",
+       "ek": [
+        "Skeletal: striated, voluntary, multinucleate; cardiac: striated, intercalated discs, autorhythmic; smooth: unstriated, calmodulin; force rises by recruiting motor units and by summation to tetanus."
+       ],
+       "p": [
+        "P1",
+        "P2"
+       ],
+       "drills": [
+        "dat-muscle-types",
+        "dat-muscle-force"
+       ]
+      },
+      {
+       "id": "Q",
+       "std": [
+        "ada-dat:1.3.e"
+       ],
+       "do": "Match antibody classes, antigen presentation and immunization type to the immune response they give.",
+       "ek": [
+        "IgM first, IgG most abundant and crosses the placenta, IgA in secretions, IgE allergy; MHC I shows to CD8, MHC II to CD4; vaccines give active immunity, antibodies passed on give passive."
+       ],
+       "p": [
+        "P1",
+        "P2"
+       ],
+       "drills": [
+        "dat-antibody-class",
+        "dat-immunity-type"
+       ]
+      },
+      {
+       "id": "R",
+       "std": [
+        "ada-dat:1.3.f"
+       ],
+       "do": "Match gut hormones and absorption sites to their actions and follow fat digestion and absorption.",
+       "ek": [
+        "Gastrin raises acid; secretin brings bicarbonate; CCK releases bile and enzymes; most absorption in the small intestine, water and electrolytes also in the colon; fats leave as chylomicrons into lacteals."
+       ],
+       "p": [
+        "P1",
+        "P2"
+       ],
+       "drills": [
+        "dat-gut-hormone",
+        "dat-absorption-site"
+       ]
+      },
+      {
+       "id": "S",
+       "std": [
+        "ada-dat:1.3.h"
+       ],
+       "do": "Compute renal clearance from urine and plasma data and trace the renin–angiotensin–aldosterone response.",
+       "ek": [
+        "Clearance = U × V̇ ÷ P; inulin clearance equals GFR; low pressure → renin → angiotensin II → aldosterone and vasoconstriction."
+       ],
+       "p": [
+        "P1",
+        "P2"
+       ],
+       "drills": [
+        "dat-clearance",
+        "dat-raas"
+       ]
+      },
+      {
+       "id": "T",
+       "std": [
+        "ada-dat:1.3.k"
+       ],
+       "do": "Trace gametes through the reproductive tracts and match pregnancy hormones to their roles.",
+       "ek": [
+        "Sperm: seminiferous tubules → epididymis → vas deferens; fertilization in the oviduct; hCG keeps the corpus luteum; progesterone holds the endometrium; oxytocin drives labor."
+       ],
+       "p": [
+        "P1",
+        "P2"
+       ],
+       "drills": [
+        "dat-gamete-path",
+        "dat-pregnancy-hormone"
+       ]
       }
      ]
     },
@@ -615,6 +987,9 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "ada-dat:1.4.a"
+       ],
        "do": "Assign each DNA replication enzyme its role and explain leading vs lagging strand synthesis.",
        "ek": [
         "Helicase unwinds, primase lays RNA primer, DNA pol III extends 5′→3′, pol I replaces primers, ligase seals Okazaki fragments."
@@ -629,6 +1004,10 @@
       },
       {
        "id": "B",
+       "std": [
+        "ada-dat:1.4.a",
+        "ada-dat:1.4.h"
+       ],
        "do": "Transcribe and translate a sequence and name the eukaryotic RNA-processing steps.",
        "ek": [
         "mRNA is antiparallel to the template, read 5′→3′ from AUG; 5′ cap, poly-A tail and splicing happen in the nucleus."
@@ -645,6 +1024,9 @@
       },
       {
        "id": "C",
+       "std": [
+        "ada-dat:1.4.a"
+       ],
        "do": "Predict the protein-level effect of a silent, missense, nonsense or frameshift mutation.",
        "ek": [
         "Insertions or deletions not in multiples of 3 shift the reading frame; nonsense creates an early stop codon."
@@ -662,6 +1044,9 @@
       },
       {
        "id": "D",
+       "std": [
+        "ada-dat:1.4.c"
+       ],
        "do": "Solve monohybrid, dihybrid and test crosses for genotype and phenotype ratios.",
        "ek": [
         "Heterozygote cross 3:1; dihybrid 9:3:3:1; test cross with a heterozygote 1:1; multiply probabilities for independent genes."
@@ -676,6 +1061,9 @@
       },
       {
        "id": "E",
+       "std": [
+        "ada-dat:1.4.c"
+       ],
        "do": "Recognize incomplete dominance, codominance, epistasis and linkage from offspring ratios, and convert recombination frequency to map distance.",
        "ek": [
         "1% recombinant offspring = 1 map unit; linked genes give excess parental types; 9:3:4 signals recessive epistasis."
@@ -694,6 +1082,9 @@
       },
       {
        "id": "F",
+       "std": [
+        "ada-dat:1.4.b"
+       ],
        "do": "Determine the inheritance pattern of a trait from a pedigree.",
        "ek": [
         "Autosomal recessive skips generations; X-linked recessive mostly affects males with no father-to-son transmission; dominant appears every generation."
@@ -708,6 +1099,9 @@
       },
       {
        "id": "G",
+       "std": [
+        "ada-dat:1.4.d"
+       ],
        "do": "Explain how nondisjunction causes aneuploidy and predict gametes from a meiosis I vs II error.",
        "ek": [
         "An error in meiosis I gives all abnormal gametes; in meiosis II, half are normal; trisomy 21, XXY and XO are common results."
@@ -725,6 +1119,9 @@
       },
       {
        "id": "H",
+       "std": [
+        "ada-dat:1.4.h"
+       ],
        "do": "Predict lac and trp operon expression under given nutrient conditions.",
        "ek": [
         "Lac is inducible: lactose inactivates the repressor, low glucose raises cAMP–CAP; trp is repressible: tryptophan activates the repressor."
@@ -739,6 +1136,9 @@
       },
       {
        "id": "I",
+       "std": [
+        "ada-dat:1.4.i"
+       ],
        "do": "Explain how chromatin modification and DNA methylation regulate eukaryotic genes heritably.",
        "ek": [
         "Histone acetylation opens chromatin (on); DNA methylation of promoters silences; changes persist without altering sequence."
@@ -754,6 +1154,9 @@
       },
       {
        "id": "J",
+       "std": [
+        "ada-dat:1.4.e"
+       ],
        "do": "Choose and interpret a genetic technology: PCR, restriction digest, gel electrophoresis, cloning, CRISPR or sequencing.",
        "ek": [
         "PCR cycles denature–anneal–extend, doubling copies (2^n); smaller fragments run farther on a gel; Cas9 cuts where its guide RNA matches."
@@ -770,6 +1173,9 @@
       },
       {
        "id": "K",
+       "std": [
+        "ada-dat:1.4.g"
+       ],
        "do": "Relate genome size to gene number and interpret genomic comparisons between species.",
        "ek": [
         "Most eukaryotic DNA is noncoding; genome size does not track complexity; shared sequence measures relatedness."
@@ -784,6 +1190,9 @@
       },
       {
        "id": "L",
+       "std": [
+        "ada-dat:1.4.f"
+       ],
        "do": "Trace early development from fertilization through gastrulation and match germ layers to the tissues they form.",
        "ek": [
         "Ectoderm: nervous system, epidermis; mesoderm: muscle, bone, blood, kidney; endoderm: gut and lung lining; Hox genes set the body axis."
@@ -795,6 +1204,114 @@
         "bi-development-stage",
         "bi-germ-layers"
        ]
+      },
+      {
+       "id": "M",
+       "std": [
+        "ada-dat:1.4.b"
+       ],
+       "do": "Compute the risk that a child inherits a human single-gene disorder and match disorders to inheritance modes.",
+       "ek": [
+        "Two carriers of an autosomal recessive: 1/4 affected, 2/3 of unaffected children are carriers; carrier mother of an X-linked recessive: 1/2 of sons affected."
+       ],
+       "p": [
+        "P1",
+        "P2"
+       ],
+       "drills": [
+        "dat-human-risk",
+        "dat-disorder-mode"
+       ]
+      },
+      {
+       "id": "N",
+       "std": [
+        "ada-dat:1.4.d"
+       ],
+       "do": "Name the karyotype of common aneuploidies and count chromosomes and chromatids through the cell cycle.",
+       "ek": [
+        "Down 47,+21; Turner 45,X; Klinefelter 47,XXY; a 2n cell has 2n chromosomes and 4n chromatids after S phase, n chromosomes with 2n chromatids after meiosis I."
+       ],
+       "p": [
+        "P1",
+        "P2"
+       ],
+       "drills": [
+        "dat-chromatid-count",
+        "dat-karyotype"
+       ]
+      },
+      {
+       "id": "O",
+       "std": [
+        "ada-dat:1.4.f"
+       ],
+       "do": "Order early development and predict the outcome of a change in induction, Hox genes or apoptosis.",
+       "ek": [
+        "Zygote → cleavage → morula → blastula (blastocyst) → gastrula; induction signals fate; Hox genes set body-axis identity; apoptosis sculpts digits."
+       ],
+       "p": [
+        "P1",
+        "P2"
+       ],
+       "drills": [
+        "dat-dev-order",
+        "dat-dev-scenario"
+       ]
+      },
+      {
+       "id": "P",
+       "std": [
+        "ada-dat:1.4.g"
+       ],
+       "do": "Estimate how often a sequence occurs by chance in a genome and compare genome features across organisms.",
+       "ek": [
+        "A specific n-base site appears about once every 4^n bases; prokaryotic genomes are compact with operons; eukaryotic genomes carry introns, repeats and much noncoding DNA."
+       ],
+       "p": [
+        "P1",
+        "P2"
+       ],
+       "drills": [
+        "dat-site-frequency",
+        "dat-genome-features"
+       ]
+      },
+      {
+       "id": "Q",
+       "std": [
+        "ada-dat:1.4.i"
+       ],
+       "do": "Predict Barr bodies and imprinted expression from a karyotype or parent of origin.",
+       "ek": [
+        "Barr bodies = number of X chromosomes − 1; imprinted genes are expressed from one parent's copy only (Prader–Willi paternal loss, Angelman maternal loss of 15q11–13)."
+       ],
+       "p": [
+        "P1",
+        "P2"
+       ],
+       "drills": [
+        "dat-barr-bodies",
+        "dat-imprinting"
+       ]
+      },
+      {
+       "id": "R",
+       "std": [
+        "ada-dat:1.4.e"
+       ],
+       "do": "Compute PCR amplification and choose the blot or library that detects DNA, RNA or protein.",
+       "ek": [
+        "Each ideal PCR cycle doubles the target: N = N₀ · 2ⁿ; Southern blots detect DNA, Northern RNA, Western protein; a cDNA library holds only expressed genes, without introns."
+       ],
+       "p": [
+        "P1",
+        "P2"
+       ],
+       "drills": [
+        "dat-pcr-copies",
+        "dat-blot-pick"
+       ]
       }
      ]
     },
@@ -805,6 +1322,9 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "ada-dat:1.5.a"
+       ],
        "do": "Identify the type of selection from a change in a trait distribution.",
        "ek": [
         "Directional shifts the mean; stabilizing narrows it; disruptive favors both extremes; selection acts on phenotype."
@@ -820,6 +1340,9 @@
       },
       {
        "id": "B",
+       "std": [
+        "ada-dat:1.5.b"
+       ],
        "do": "Calculate allele and genotype frequencies with Hardy–Weinberg and state its assumptions.",
        "ek": [
         "p + q = 1; p² + 2pq + q² = 1; no selection, mutation, migration or drift, random mating, large population."
@@ -837,6 +1360,9 @@
       },
       {
        "id": "C",
+       "std": [
+        "ada-dat:1.5.b"
+       ],
        "do": "Classify a reproductive barrier and a speciation mode from a scenario.",
        "ek": [
         "Prezygotic (habitat, temporal, behavioral, mechanical, gametic) vs postzygotic (hybrid inviability, sterility); allopatric needs a geographic barrier."
@@ -851,6 +1377,9 @@
       },
       {
        "id": "D",
+       "std": [
+        "ada-dat:1.5.a"
+       ],
        "do": "Distinguish homologous, analogous and vestigial structures and read relatedness from a phylogenetic tree.",
        "ek": [
         "Homology reflects common ancestry; analogy reflects convergence; the most recent shared node marks the closest relatives."
@@ -865,6 +1394,9 @@
       },
       {
        "id": "E",
+       "std": [
+        "ada-dat:1.5.c"
+       ],
        "do": "Classify an animal behavior as fixed action pattern, imprinting, habituation, classical or operant conditioning, or altruism.",
        "ek": [
         "Innate behaviors need no learning; kin selection explains altruism toward relatives sharing genes."
@@ -880,6 +1412,9 @@
       },
       {
        "id": "F",
+       "std": [
+        "ada-dat:1.5.d"
+       ],
        "do": "Predict population growth under exponential and logistic models and contrast r- and K-strategists.",
        "ek": [
         "dN/dt = rN(K − N)/K; growth is fastest at N = K/2; r-selected: many offspring, little care."
@@ -895,6 +1430,9 @@
       },
       {
        "id": "G",
+       "std": [
+        "ada-dat:1.5.d"
+       ],
        "do": "Classify species interactions by their effect on each partner and order the stages of succession.",
        "ek": [
         "Mutualism +/+, commensalism +/0, parasitism and predation +/−, competition −/−; primary succession starts on bare substrate."
@@ -909,6 +1447,9 @@
       },
       {
        "id": "H",
+       "std": [
+        "ada-dat:1.5.d"
+       ],
        "do": "Calculate energy transfer across trophic levels and trace carbon and nitrogen through an ecosystem.",
        "ek": [
         "About 10% of energy passes to each higher level; N2 fixation → nitrification → assimilation → denitrification."
@@ -920,6 +1461,24 @@
        "drills": [
         "bi-trophic-energy",
         "bi-biogeochemical"
+       ]
+      },
+      {
+       "id": "I",
+       "std": [
+        "ada-dat:1.5.c"
+       ],
+       "do": "Apply Hamilton's rule and classify social behaviors and communication signals.",
+       "ek": [
+        "An altruistic gene spreads when r · B > C; full siblings r = 1/2, half siblings 1/4, cousins 1/8; pheromones, the honeybee waggle dance and territorial displays are signals."
+       ],
+       "p": [
+        "P1",
+        "P2"
+       ],
+       "drills": [
+        "dat-hamilton",
+        "dat-social-behavior"
        ]
       }
      ]
@@ -950,6 +1509,9 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "ada-dat:2.1.a"
+       ],
        "do": "Calculate percent composition by mass from a formula.",
        "ek": [
         "Mass % = (n × atomic mass of element) / molar mass × 100."
@@ -964,6 +1526,10 @@
       },
       {
        "id": "B",
+       "std": [
+        "ada-dat:2.1.b",
+        "ada-dat:2.1.d"
+       ],
        "do": "Determine an empirical formula from mass data, then the molecular formula from molar mass.",
        "ek": [
         "Convert to moles, divide by the smallest, clear fractions; molecular = empirical × (M / M_empirical)."
@@ -978,6 +1544,9 @@
       },
       {
        "id": "C",
+       "std": [
+        "ada-dat:2.1.c"
+       ],
        "do": "Balance a chemical equation by inspection.",
        "ek": [
         "Atoms of each element and total charge are conserved; balance pure elements last."
@@ -992,6 +1561,11 @@
       },
       {
        "id": "D",
+       "std": [
+        "ada-dat:2.1.d",
+        "ada-dat:2.1.e",
+        "ada-dat:2.1.f"
+       ],
        "do": "Convert among mass, moles, particles and volume using molar mass, Avogadro's number and density.",
        "ek": [
         "n = m / M; N = n × 6.02 × 10²³; ρ = m / V."
@@ -1006,6 +1580,9 @@
       },
       {
        "id": "E",
+       "std": [
+        "ada-dat:2.1.g"
+       ],
        "do": "Find the limiting reagent, theoretical yield and percent yield from a balanced equation.",
        "ek": [
         "Compare moles available ÷ coefficient; the smallest ratio limits; % yield = actual / theoretical × 100."
@@ -1036,6 +1613,9 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "ada-dat:2.2.c"
+       ],
        "do": "Solve for an unknown P, V, n or T with the ideal gas law.",
        "ek": [
         "PV = nRT with T in kelvin; R = 0.0821 L·atm/(mol·K); 1 mol at STP ≈ 22.4 L."
@@ -1050,6 +1630,9 @@
       },
       {
        "id": "B",
+       "std": [
+        "ada-dat:2.2.b"
+       ],
        "do": "Predict a new state with Boyle's, Charles's or the combined gas law.",
        "ek": [
         "P1V1/T1 = P2V2/T2; hold the constant variables fixed and cancel them."
@@ -1067,6 +1650,9 @@
       },
       {
        "id": "C",
+       "std": [
+        "ada-dat:2.2.b"
+       ],
        "do": "Calculate partial pressures from mole fractions using Dalton's law.",
        "ek": [
         "P_total = ΣP_i; P_i = X_i P_total."
@@ -1081,6 +1667,9 @@
       },
       {
        "id": "D",
+       "std": [
+        "ada-dat:2.2.a"
+       ],
        "do": "Apply kinetic molecular theory to compare molecular speeds and effusion rates and predict deviations from ideality.",
        "ek": [
         "Average KE ∝ T; rate₁/rate₂ = √(M₂/M₁); real gases deviate at high P and low T."
@@ -1107,6 +1696,11 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "ada-dat:2.3.a",
+        "ada-dat:2.3.e",
+        "ada-dat:2.3.f"
+       ],
        "do": "Rank substances by intermolecular force strength and predict boiling point, viscosity and surface tension.",
        "ek": [
         "London < dipole–dipole < H-bonding (N, O, F–H) < ion–dipole; London grows with size and surface area."
@@ -1121,6 +1715,9 @@
       },
       {
        "id": "B",
+       "std": [
+        "ada-dat:2.3.b"
+       ],
        "do": "Read a phase diagram or heating curve and calculate the heat for each segment.",
        "ek": [
         "Sloped segments: q = mcΔT; flat segments: q = nΔH_phase; the triple point and critical point bound the liquid."
@@ -1136,6 +1733,9 @@
       },
       {
        "id": "C",
+       "std": [
+        "ada-dat:2.3.c"
+       ],
        "do": "Predict how temperature and IMF strength change vapor pressure and normal boiling point.",
        "ek": [
         "Vapor pressure rises with T and falls with stronger IMFs; boiling occurs when vapor pressure equals external pressure."
@@ -1150,6 +1750,10 @@
       },
       {
        "id": "D",
+       "std": [
+        "ada-dat:2.3.d",
+        "ada-dat:2.3.f"
+       ],
        "do": "Classify a solid as ionic, molecular, covalent network or metallic and predict its properties.",
        "ek": [
         "Network solids (diamond, SiO2) have the highest melting points; metals conduct as solids; ionic solids conduct only when molten or dissolved."
@@ -1175,6 +1779,9 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "ada-dat:2.4.d"
+       ],
        "do": "Convert among molarity, molality, mole fraction, mass percent and ppm, and solve dilutions.",
        "ek": [
         "M = mol/L solution; m = mol/kg solvent; M1V1 = M2V2."
@@ -1189,6 +1796,9 @@
       },
       {
        "id": "B",
+       "std": [
+        "ada-dat:2.4.b"
+       ],
        "do": "Calculate boiling-point elevation, freezing-point depression and osmotic pressure.",
        "ek": [
         "ΔT = iKm; π = iMRT; i is the number of particles per formula unit (NaCl ≈ 2)."
@@ -1206,6 +1816,10 @@
       },
       {
        "id": "C",
+       "std": [
+        "ada-dat:2.4.a",
+        "ada-dat:2.4.c"
+       ],
        "do": "Predict solubility from polarity and how temperature and pressure change it.",
        "ek": [
         "Like dissolves like; gas solubility falls with T and rises with partial pressure (Henry's law); most solids dissolve better hot."
@@ -1220,6 +1834,9 @@
       },
       {
        "id": "D",
+       "std": [
+        "ada-dat:2.4.b"
+       ],
        "do": "Calculate vapor-pressure lowering with Raoult's law.",
        "ek": [
         "P_solution = X_solvent × P°_solvent."
@@ -1245,6 +1862,9 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "ada-dat:2.5.c"
+       ],
        "do": "Identify Brønsted–Lowry acids, bases and conjugate pairs in a reaction.",
        "ek": [
         "Acid donates H+, base accepts; a stronger acid has a weaker conjugate base."
@@ -1259,6 +1879,10 @@
       },
       {
        "id": "B",
+       "std": [
+        "ada-dat:2.5.a",
+        "ada-dat:2.5.d"
+       ],
        "do": "Calculate pH, pOH, [H+] and [OH−] for strong acids and bases without a calculator.",
        "ek": [
         "pH = −log[H+]; pH + pOH = 14 at 25 °C; for [H+] = a × 10⁻ⁿ, pH is between n − 1 and n."
@@ -1273,6 +1897,12 @@
       },
       {
        "id": "C",
+       "std": [
+        "ada-dat:2.5.a",
+        "ada-dat:2.5.b",
+        "ada-dat:2.5.d",
+        "ada-dat:2.6.b"
+       ],
        "do": "Estimate the pH of a weak acid or base from Ka or Kb.",
        "ek": [
         "[H+] ≈ √(Ka C) when ionization is small; Ka × Kb = Kw."
@@ -1290,6 +1920,10 @@
       },
       {
        "id": "D",
+       "std": [
+        "ada-dat:2.5.d",
+        "ada-dat:2.6.b"
+       ],
        "do": "Calculate buffer pH with Henderson–Hasselbalch and choose a buffer for a target pH.",
        "ek": [
         "pH = pKa + log([A−]/[HA]); a buffer works best within pKa ± 1."
@@ -1305,6 +1939,9 @@
       },
       {
        "id": "E",
+       "std": [
+        "ada-dat:2.5.d"
+       ],
        "do": "Read a titration curve to find the equivalence point, half-equivalence point and pKa.",
        "ek": [
         "At half-equivalence pH = pKa; weak acid + strong base equivalence pH > 7; n_acid = n_base at equivalence."
@@ -1333,6 +1970,9 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "ada-dat:2.6.a"
+       ],
        "do": "Write an equilibrium expression and use Q vs K to predict the direction of shift.",
        "ek": [
         "Products over reactants raised to coefficients; omit pure solids and liquids; Q < K shifts right."
@@ -1348,6 +1988,9 @@
       },
       {
        "id": "B",
+       "std": [
+        "ada-dat:2.6.e"
+       ],
        "do": "Predict the effect of a concentration, pressure or temperature change with Le Chatelier's principle.",
        "ek": [
         "Only temperature changes K; added pressure favors fewer gas moles; heat acts as a product in exothermic reactions."
@@ -1362,6 +2005,10 @@
       },
       {
        "id": "C",
+       "std": [
+        "ada-dat:2.6.c",
+        "ada-dat:2.6.d"
+       ],
        "do": "Calculate molar solubility from Ksp, including the common-ion effect.",
        "ek": [
         "For AB2: Ksp = 4s³; a common ion lowers solubility; precipitation occurs when Q > Ksp."
@@ -1376,6 +2023,10 @@
       },
       {
        "id": "D",
+       "std": [
+        "ada-dat:2.6.a",
+        "ada-dat:2.6.d"
+       ],
        "do": "Solve for equilibrium concentrations with an ICE table and the small-x approximation.",
        "ek": [
         "Initial – change – equilibrium; drop x when K is tiny relative to the starting concentration."
@@ -1403,6 +2054,10 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "ada-dat:2.7.b",
+        "ada-dat:2.7.d"
+       ],
        "do": "Calculate ΔH_rxn from Hess's law, enthalpies of formation or bond energies.",
        "ek": [
         "ΔH = ΣΔH_f(products) − ΣΔH_f(reactants); with bond energies, broken − formed; reverse a step, flip the sign."
@@ -1418,6 +2073,9 @@
       },
       {
        "id": "B",
+       "std": [
+        "ada-dat:2.7.d"
+       ],
        "do": "Predict the sign of ΔS for a process.",
        "ek": [
         "Entropy rises with more gas moles, solid → liquid → gas, dissolving, and higher T."
@@ -1432,6 +2090,9 @@
       },
       {
        "id": "C",
+       "std": [
+        "ada-dat:2.7.c"
+       ],
        "do": "Determine spontaneity and the crossover temperature from ΔH and ΔS.",
        "ek": [
         "ΔG = ΔH − TΔS; − ΔH, + ΔS always spontaneous; T_cross = ΔH/ΔS."
@@ -1450,6 +2111,9 @@
       },
       {
        "id": "D",
+       "std": [
+        "ada-dat:2.7.c"
+       ],
        "do": "Relate ΔG° to K and to E°cell.",
        "ek": [
         "ΔG° = −RT ln K = −nFE°; K > 1 ⇔ ΔG° < 0 ⇔ E° > 0."
@@ -1464,6 +2128,9 @@
       },
       {
        "id": "E",
+       "std": [
+        "ada-dat:2.7.e"
+       ],
        "do": "Calculate heat exchanged in calorimetry and final temperatures of mixtures.",
        "ek": [
         "q = mcΔT; heat lost by the hot body = heat gained by the cold one; c_water = 4.18 J/(g·°C)."
@@ -1479,6 +2146,9 @@
       },
       {
        "id": "F",
+       "std": [
+        "ada-dat:2.7.a"
+       ],
        "do": "Apply the first and third laws to a system: sign conventions for q and w, and absolute entropy.",
        "ek": [
         "ΔU = q + w (work on the system positive); S = 0 for a perfect crystal at 0 K; state functions are path-independent."
@@ -1503,6 +2173,9 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "ada-dat:2.8.a"
+       ],
        "do": "Determine reaction orders and the rate constant from initial-rate data.",
        "ek": [
         "Doubling [A] doubles rate → 1st order, quadruples → 2nd, no change → 0th; units of k depend on overall order."
@@ -1518,6 +2191,9 @@
       },
       {
        "id": "B",
+       "std": [
+        "ada-dat:2.8.c"
+       ],
        "do": "Calculate the remaining amount or time from a first-order half-life.",
        "ek": [
         "t½ = 0.693/k, independent of concentration; after n half-lives (½)ⁿ remains."
@@ -1532,6 +2208,9 @@
       },
       {
        "id": "C",
+       "std": [
+        "ada-dat:2.8.b"
+       ],
        "do": "Read Ea, ΔH and the effect of a catalyst from a reaction energy diagram, and predict how T changes the rate.",
        "ek": [
         "k = A e^(−Ea/RT); catalysts lower Ea for both directions without changing ΔH or K."
@@ -1548,6 +2227,9 @@
       },
       {
        "id": "D",
+       "std": [
+        "ada-dat:2.8.a"
+       ],
        "do": "Derive a rate law from a mechanism's rate-determining step and identify intermediates and catalysts.",
        "ek": [
         "The slow step sets the rate law; intermediates are made then consumed, catalysts are consumed then regenerated."
@@ -1573,6 +2255,9 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "ada-dat:2.9.b"
+       ],
        "do": "Assign oxidation numbers and identify the oxidizing and reducing agents.",
        "ek": [
         "F always −1, O usually −2, H +1 with nonmetals; the species oxidized is the reducing agent."
@@ -1587,6 +2272,9 @@
       },
       {
        "id": "B",
+       "std": [
+        "ada-dat:2.9.a"
+       ],
        "do": "Balance a redox equation in acidic or basic solution by half-reactions.",
        "ek": [
         "Balance atoms, O with H2O, H with H+, charge with e−; in base add OH− to both sides to cancel H+."
@@ -1604,6 +2292,10 @@
       },
       {
        "id": "C",
+       "std": [
+        "ada-dat:2.9.c",
+        "ada-dat:2.9.d"
+       ],
        "do": "Calculate E°cell from reduction potentials and identify anode, cathode and electron flow in galvanic and electrolytic cells.",
        "ek": [
         "E°cell = E°cathode − E°anode; oxidation at the anode; electrons flow anode → cathode; galvanic E° > 0, electrolytic needs input."
@@ -1620,6 +2312,9 @@
       },
       {
        "id": "D",
+       "std": [
+        "ada-dat:2.9.c"
+       ],
        "do": "Calculate the mass plated or the current/time needed in electrolysis.",
        "ek": [
         "n_e = It/F with F = 96 485 C/mol; moles metal = n_e / (electrons per ion)."
@@ -1641,6 +2336,9 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "ada-dat:2.10.a"
+       ],
        "do": "Write the electron configuration of an atom or ion, including Cr/Cu exceptions and transition-metal cations.",
        "ek": [
         "Aufbau, Pauli, Hund; transition metals lose 4s before 3d; half- and fully filled d subshells are favored."
@@ -1656,6 +2354,10 @@
       },
       {
        "id": "B",
+       "std": [
+        "ada-dat:2.10.b",
+        "ada-dat:2.10.e"
+       ],
        "do": "Assign or validate a set of quantum numbers for an electron.",
        "ek": [
         "n ≥ 1; ℓ = 0 … n − 1; m_ℓ = −ℓ … +ℓ; m_s = ±½."
@@ -1670,6 +2372,9 @@
       },
       {
        "id": "C",
+       "std": [
+        "ada-dat:2.10.c"
+       ],
        "do": "Draw a Lewis structure and use formal charge to choose the best one.",
        "ek": [
         "FC = valence − nonbonding e− − ½ bonding e−; the best structure minimizes formal charges and puts negatives on electronegative atoms."
@@ -1685,6 +2390,9 @@
       },
       {
        "id": "D",
+       "std": [
+        "ada-dat:2.10.f"
+       ],
        "do": "Predict molecular geometry, bond angle and polarity with VSEPR.",
        "ek": [
         "Electron domains set the shape (4 → tetrahedral 109.5°, lone pairs compress angles); symmetric shapes cancel bond dipoles."
@@ -1703,6 +2411,9 @@
       },
       {
        "id": "E",
+       "std": [
+        "ada-dat:2.10.g"
+       ],
        "do": "Identify hybridization and count σ and π bonds; classify a bond as ionic, polar or nonpolar covalent.",
        "ek": [
         "Domains 2/3/4 → sp/sp²/sp³; single = 1σ, double = 1σ + 1π, triple = 1σ + 2π; ΔEN > ~1.7 is ionic."
@@ -1718,6 +2429,10 @@
       },
       {
        "id": "F",
+       "std": [
+        "ada-dat:2.10.d",
+        "ada-dat:2.10.h"
+       ],
        "do": "Count protons, neutrons and electrons in an isotope or ion and compute average atomic mass.",
        "ek": [
         "Z = protons, A = protons + neutrons; average mass = Σ(fraction × isotope mass)."
@@ -1732,6 +2447,10 @@
       },
       {
        "id": "G",
+       "std": [
+        "ada-dat:2.10.d",
+        "ada-dat:2.10.e"
+       ],
        "do": "Relate photon energy, frequency and wavelength to electron transitions and the experiments behind atomic theory.",
        "ek": [
         "E = hν = hc/λ; emission when e− falls to a lower level; Thomson (electron), Rutherford (nucleus), Bohr (quantized levels)."
@@ -1758,6 +2477,9 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "ada-dat:2.11.c"
+       ],
        "do": "Rank elements by atomic radius, ionization energy, electronegativity and electron affinity.",
        "ek": [
         "Across a period Z_eff rises: radius falls, IE and EN rise; down a group radius rises, IE falls; cations smaller, anions larger."
@@ -1773,6 +2495,10 @@
       },
       {
        "id": "B",
+       "std": [
+        "ada-dat:2.11.a",
+        "ada-dat:2.11.d"
+       ],
        "do": "Predict the typical ions, reactivity and compounds of alkali metals, alkaline-earth metals, halogens and noble gases.",
        "ek": [
         "Group 1 forms +1 and reacts with water to give H2 and hydroxide; halogens form −1, reactivity falls down the group; noble gases are inert."
@@ -1787,6 +2513,10 @@
       },
       {
        "id": "C",
+       "std": [
+        "ada-dat:2.11.b",
+        "ada-dat:2.11.d"
+       ],
        "do": "Explain characteristic properties of transition elements: multiple oxidation states, colored ions and paramagnetism.",
        "ek": [
         "Partially filled d orbitals give variable charges, d–d color and unpaired electrons."
@@ -1812,6 +2542,12 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "ada-dat:2.12.a",
+        "ada-dat:2.12.c",
+        "ada-dat:2.12.d",
+        "ada-dat:2.12.e"
+       ],
        "do": "Balance a nuclear equation and identify the decay mode from the change in A and Z.",
        "ek": [
         "α: A − 4, Z − 2; β−: Z + 1; β+ and electron capture: Z − 1; γ: no change; A and Z both conserved."
@@ -1826,6 +2562,9 @@
       },
       {
        "id": "B",
+       "std": [
+        "ada-dat:2.12.c"
+       ],
        "do": "Calculate the remaining fraction or the elapsed time for radioactive decay.",
        "ek": [
         "N = N₀(½)^(t/t½); decay is first order."
@@ -1840,6 +2579,9 @@
       },
       {
        "id": "C",
+       "std": [
+        "ada-dat:2.12.b"
+       ],
        "do": "Calculate binding energy from mass defect and compare nuclear stability.",
        "ek": [
         "E = Δm c²; 1 u ≈ 931.5 MeV; binding energy per nucleon peaks near Fe-56."
@@ -1864,6 +2606,10 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "ada-dat:2.13.a",
+        "ada-dat:2.13.b"
+       ],
        "do": "Choose the glassware or equipment for a measurement and report the result to the right significant figures.",
        "ek": [
         "Volumetric pipets and flasks are precise; beakers are not; read the meniscus at eye level, one estimated digit."
@@ -1878,6 +2624,9 @@
       },
       {
        "id": "B",
+       "std": [
+        "ada-dat:2.13.c"
+       ],
        "do": "Distinguish accuracy from precision, classify an error as random or systematic, and compute percent error.",
        "ek": [
         "% error = |measured − true| / true × 100; systematic error shifts every reading the same way."
@@ -1893,6 +2642,9 @@
       },
       {
        "id": "C",
+       "std": [
+        "ada-dat:2.13.d"
+       ],
        "do": "Identify the correct safety procedure for a lab hazard.",
        "ek": [
         "Add acid to water; work with volatiles in the fume hood; flush skin or eye exposure for 15 minutes."
@@ -1907,6 +2659,9 @@
       },
       {
        "id": "D",
+       "std": [
+        "ada-dat:2.13.e"
+       ],
        "do": "Extract a quantity from a plotted data set, such as a slope, intercept or best-fit value.",
        "ek": [
         "Linearize first (ln[A] vs t for 1st order; 1/T vs ln k for Ea); the slope carries the physical constant."
@@ -1945,6 +2700,9 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "ada-dat:3.1.a"
+       ],
        "do": "Predict the product of a step from its curved arrows, telling two-electron arrows from fishhooks.",
        "ek": [
         "Double-headed arrows move electron pairs and fishhooks move single electrons, always from the electron source to the electron sink."
@@ -1960,6 +2718,9 @@
       },
       {
        "id": "B",
+       "std": [
+        "ada-dat:3.1.a"
+       ],
        "do": "Draw the curved arrows that convert given reactants into given products.",
        "ek": [
         "Start arrows at lone pairs or bonds, end at an atom or bond; count formal charges before and after."
@@ -1977,6 +2738,9 @@
       },
       {
        "id": "C",
+       "std": [
+        "ada-dat:3.1.a"
+       ],
        "do": "Draw resonance structures and pick the major contributor.",
        "ek": [
         "Move only π and lone-pair electrons; the best contributor has full octets, fewest charges, and negative charge on the most electronegative atom."
@@ -1992,6 +2756,9 @@
       },
       {
        "id": "D",
+       "std": [
+        "ada-dat:3.1.a"
+       ],
        "do": "Predict the steps and selectivity of a free-radical halogenation.",
        "ek": [
         "Initiation, propagation, termination; Br₂ is highly selective for the 3° hydrogen, Cl₂ much less so; radical stability 3° > 2° > 1°."
@@ -2006,6 +2773,9 @@
       },
       {
        "id": "E",
+       "std": [
+        "ada-dat:3.1.a"
+       ],
        "do": "Predict the product of an electrophilic addition, including Markovnikov regiochemistry and carbocation rearrangements.",
        "ek": [
         "H adds to the carbon with more H; a carbocation shifts H or CH₃ to become more substituted or resonance-stabilized."
@@ -2021,6 +2791,9 @@
       },
       {
        "id": "F",
+       "std": [
+        "ada-dat:3.1.a"
+       ],
        "do": "Decide whether SN1, SN2, E1 or E2 operates from substrate, nucleophile/base, solvent and temperature.",
        "ek": [
         "SN2: 1°, strong nucleophile, polar aprotic, inversion; SN1/E1: 3°, weak nucleophile, polar protic; E2: strong bulky base, anti-periplanar H; heat favors elimination."
@@ -2036,6 +2809,9 @@
       },
       {
        "id": "G",
+       "std": [
+        "ada-dat:3.1.a"
+       ],
        "do": "Predict the product of a Diels–Alder reaction, including stereochemistry.",
        "ek": [
         "s-cis diene + dienophile → cyclohexene in one concerted step; dienophile substituents keep their cis/trans relationship; endo is favored."
@@ -2051,6 +2827,9 @@
       },
       {
        "id": "H",
+       "std": [
+        "ada-dat:3.1.b"
+       ],
        "do": "Read a reaction coordinate diagram: count steps, locate intermediates and transition states, and find the rate-determining step.",
        "ek": [
         "Peaks are transition states, valleys are intermediates; the highest barrier is rate-determining; Hammond: a TS resembles the species nearer in energy."
@@ -2072,6 +2851,9 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "ada-dat:3.2.a"
+       ],
        "do": "Predict the substitution or elimination product, including stereochemistry and Zaitsev vs Hofmann regiochemistry.",
        "ek": [
         "SN2 inverts, SN1 racemizes; small bases give the more substituted alkene, bulky bases (t-BuO⁻) the less substituted one."
@@ -2090,6 +2872,9 @@
       },
       {
        "id": "B",
+       "std": [
+        "ada-dat:3.2.a"
+       ],
        "do": "Predict the product of an alkene or alkyne reaction: HX, hydration, hydroboration–oxidation, halogenation, hydrogenation, ozonolysis.",
        "ek": [
         "Hydroboration is anti-Markovnikov and syn; X₂ adds anti; Lindlar gives cis alkene, Na/NH₃ trans; ozonolysis cleaves C=C to carbonyls."
@@ -2107,6 +2892,9 @@
       },
       {
        "id": "C",
+       "std": [
+        "ada-dat:3.2.a"
+       ],
        "do": "Predict the product of an alcohol reaction: oxidation, conversion to a halide or sulfonate, dehydration.",
        "ek": [
         "PCC stops 1° alcohols at the aldehyde, chromic acid goes to the acid; 3° alcohols resist oxidation; SOCl₂/PBr₃ give halides with inversion."
@@ -2124,6 +2912,9 @@
       },
       {
        "id": "D",
+       "std": [
+        "ada-dat:3.2.a"
+       ],
        "do": "Predict the regiochemistry and stereochemistry of ether cleavage and epoxide opening under acid and base.",
        "ek": [
         "Base or strong nucleophile attacks the less hindered epoxide carbon; acid directs attack to the more substituted carbon; opening is anti."
@@ -2138,6 +2929,9 @@
       },
       {
        "id": "E",
+       "std": [
+        "ada-dat:3.2.a"
+       ],
        "do": "Predict the product of an electrophilic aromatic substitution from substituent directing effects.",
        "ek": [
         "Activators (−OH, −NH₂, −R) and halogens direct ortho/para; deactivators (−NO₂, −C=O, −CN, −SO₃H) direct meta; halogens deactivate."
@@ -2154,6 +2948,9 @@
       },
       {
        "id": "F",
+       "std": [
+        "ada-dat:3.2.a"
+       ],
        "do": "Rank carboxylic acid derivatives by reactivity and predict nucleophilic acyl substitution products.",
        "ek": [
         "Acid chloride > anhydride > ester ≈ acid > amide; a derivative converts only to less reactive ones."
@@ -2170,6 +2967,9 @@
       },
       {
        "id": "G",
+       "std": [
+        "ada-dat:3.2.a"
+       ],
        "do": "Predict the product of nucleophilic addition to an aldehyde or ketone: hydride, Grignard, acetal, imine/enamine, Wittig.",
        "ek": [
         "Aldehydes are more reactive than ketones; Grignard adds carbon then protonates to an alcohol; 1° amines give imines, 2° give enamines."
@@ -2187,6 +2987,9 @@
       },
       {
        "id": "H",
+       "std": [
+        "ada-dat:3.2.a"
+       ],
        "do": "Predict the product of an alpha-carbonyl reaction: enolate alkylation, aldol, Claisen, haloform.",
        "ek": [
         "LDA at low T forms the kinetic (less substituted) enolate; aldol makes a β-hydroxy carbonyl that dehydrates to an enone with heat."
@@ -2202,6 +3005,10 @@
       },
       {
        "id": "I",
+       "std": [
+        "ada-dat:3.2.b",
+        "ada-dat:3.2.c"
+       ],
        "do": "Plan a two-step or multi-step synthesis by working backward from the target.",
        "ek": [
         "Disconnect the bond formed last; track carbon count and functional-group changes; reject routes with wrong regio- or stereochemistry."
@@ -2223,6 +3030,9 @@
       },
       {
        "id": "J",
+       "std": [
+        "ada-dat:3.2.d"
+       ],
        "do": "Predict which functional group reacts when a molecule carries several.",
        "ek": [
         "NaBH₄ reduces aldehydes and ketones only; LiAlH₄ also reduces esters, acids and amides; protect an alcohol or carbonyl to spare it."
@@ -2245,6 +3055,9 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "ada-dat:3.3.a"
+       ],
        "do": "Rank compounds from different functional groups by acidity using pKa landmarks.",
        "ek": [
         "≈ pKa: HCl −7, RCOOH 5, phenol 10, H₂O 15.7, ROH 16–18, terminal alkyne 25, NH₃ 38, alkane 50."
@@ -2259,6 +3072,9 @@
       },
       {
        "id": "B",
+       "std": [
+        "ada-dat:3.3.b"
+       ],
        "do": "Rank acids within a functional group by charge, atom size, electronegativity, resonance, induction, hybridization and sterics.",
        "ek": [
         "A more stable conjugate base means a stronger acid: larger atom > more electronegative > resonance > induction (falls off with distance) > more s character."
@@ -2273,6 +3089,9 @@
       },
       {
        "id": "C",
+       "std": [
+        "ada-dat:3.3.c"
+       ],
        "do": "Predict the products and direction of an acid–base equilibrium.",
        "ek": [
         "The equilibrium favors the side with the weaker acid (higher pKa); K ≈ 10^(pKa product acid − pKa reactant acid)."
@@ -2290,6 +3109,10 @@
       },
       {
        "id": "D",
+       "std": [
+        "ada-dat:3.3.a",
+        "ada-dat:3.3.b"
+       ],
        "do": "Rank nitrogen and oxygen bases by basicity, including resonance and steric effects on amines.",
        "ek": [
         "Alkylamines > NH₃ > aniline > amide; lone pairs in resonance or in sp orbitals are less basic."
@@ -2314,6 +3137,9 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "ada-dat:3.4.a"
+       ],
        "do": "Rank organic compounds by boiling point, melting point and water solubility.",
        "ek": [
         "H-bonding and molar mass raise bp; branching lowers bp but symmetry raises mp; small alcohols and acids are water-soluble."
@@ -2328,6 +3154,9 @@
       },
       {
        "id": "B",
+       "std": [
+        "ada-dat:3.4.b"
+       ],
        "do": "Choose and interpret a separation technique: TLC/column chromatography, acid–base extraction, recrystallization, distillation.",
        "ek": [
         "On silica, polar compounds have lower Rf; acids move to aqueous NaHCO₃/NaOH as salts, amines to aqueous HCl; distill when bp differ by > 25 °C, otherwise fractional."
@@ -2343,6 +3172,9 @@
       },
       {
        "id": "C",
+       "std": [
+        "ada-dat:3.4.c"
+       ],
        "do": "Identify functional groups from characteristic IR absorptions.",
        "ek": [
         "Broad O–H 3200–3550; acid O–H 2500–3300; C=O ~1700 (strong, sharp); N–H 3300–3500; C≡N/C≡C ~2100–2250."
@@ -2358,6 +3190,9 @@
       },
       {
        "id": "D",
+       "std": [
+        "ada-dat:3.4.c"
+       ],
        "do": "Interpret a ¹H NMR spectrum from chemical shift, integration and splitting.",
        "ek": [
         "Shifts: alkyl 0.9–2, next to C=O 2–2.5, next to O 3.3–4, vinyl 4.5–6.5, aromatic 6.5–8, aldehyde 9–10, acid 10–12; n + 1 rule."
@@ -2373,6 +3208,9 @@
       },
       {
        "id": "E",
+       "std": [
+        "ada-dat:3.4.c"
+       ],
        "do": "Count ¹³C NMR signals from molecular symmetry and assign shift regions.",
        "ek": [
         "One signal per unique carbon environment; C=O 160–220, aromatic/alkene 100–150, C–O 50–90, alkyl 0–50."
@@ -2388,6 +3226,9 @@
       },
       {
        "id": "F",
+       "std": [
+        "ada-dat:3.4.c"
+       ],
        "do": "Deduce a structure from a molecular formula and combined IR, ¹H and ¹³C NMR data.",
        "ek": [
         "Degrees of unsaturation = (2C + 2 + N − H − X)/2; one ring or π bond each; a benzene ring counts 4."
@@ -2418,6 +3259,9 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "ada-dat:3.5.a"
+       ],
        "do": "Name a compound by IUPAC rules, or draw it from its name.",
        "ek": [
         "Highest-priority group sets the suffix and lowest locant; longest chain containing it; substituents alphabetical; E/Z and R/S as prefixes."
@@ -2435,6 +3279,9 @@
       },
       {
        "id": "B",
+       "std": [
+        "ada-dat:3.5.a"
+       ],
        "do": "Identify every functional group in a structure.",
        "ek": [
         "Know alcohol, ether, aldehyde, ketone, acid, ester, amide, amine, nitrile, acid chloride, anhydride, epoxide, phenol, thiol, imine, enamine."
@@ -2451,6 +3298,9 @@
       },
       {
        "id": "C",
+       "std": [
+        "ada-dat:3.5.b"
+       ],
        "do": "Assign R/S configuration to a stereocenter and identify chiral molecules.",
        "ek": [
         "Rank by atomic number (CIP), lowest priority to the back, trace 1→2→3; if the lowest points forward, reverse the answer."
@@ -2466,6 +3316,9 @@
       },
       {
        "id": "D",
+       "std": [
+        "ada-dat:3.5.b"
+       ],
        "do": "Classify a pair of structures as identical, enantiomers, diastereomers, meso or constitutional isomers.",
        "ek": [
         "Enantiomers invert every stereocenter, diastereomers some; meso has stereocenters and an internal mirror plane; max 2ⁿ stereoisomers."
@@ -2484,6 +3337,9 @@
       },
       {
        "id": "E",
+       "std": [
+        "ada-dat:3.5.b"
+       ],
        "do": "Pick the most stable Newman or chair conformation.",
        "ek": [
         "Anti < gauche < eclipsed in energy; bulky chair substituents go equatorial; a ring flip swaps axial and equatorial."
@@ -2498,6 +3354,9 @@
       },
       {
        "id": "F",
+       "std": [
+        "ada-dat:3.5.c"
+       ],
        "do": "Classify a ring as aromatic, antiaromatic or nonaromatic.",
        "ek": [
         "Cyclic, planar, fully conjugated with 4n + 2 π electrons is aromatic; 4n is antiaromatic; count lone pairs only if they sit in the p system."
@@ -2512,6 +3371,9 @@
       },
       {
        "id": "G",
+       "std": [
+        "ada-dat:3.5.c"
+       ],
        "do": "Compare bond lengths, bond angles and hybridization across a structure.",
        "ek": [
         "More s character means shorter, stronger C–H bonds: sp 180°, sp² 120°, sp³ 109.5°; triple < double < single in length."
@@ -2526,6 +3388,9 @@
       },
       {
        "id": "H",
+       "std": [
+        "ada-dat:3.5.c"
+       ],
        "do": "Rank carbocations, radicals, carbanions and alkenes by stability.",
        "ek": [
         "Carbocations and radicals: allylic/benzylic ≈ 3° > 2° > 1° > methyl (hyperconjugation, resonance); carbanions the reverse; more substituted and trans alkenes are more stable."
@@ -2555,6 +3420,9 @@
     {
      "n": 1,
      "title": "Apertures",
+     "std": [
+      "ada-dat:4.1"
+     ],
      "outline": "Determine whether a 3-D object can pass through an opening (keyhole)",
      "los": [
       {
@@ -2592,6 +3460,9 @@
     {
      "n": 2,
      "title": "View Recognition",
+     "std": [
+      "ada-dat:4.2"
+     ],
      "outline": "Visualize the object from different angles (top, front, end views)",
      "los": [
       {
@@ -2635,6 +3506,9 @@
     {
      "n": 3,
      "title": "Angle Discrimination",
+     "std": [
+      "ada-dat:4.3"
+     ],
      "outline": "Rank angles from smallest to largest",
      "los": [
       {
@@ -2648,7 +3522,8 @@
         "P8"
        ],
        "drills": [
-        "pat-angle-ranking"
+        "pat-angle-ranking",
+        "pat-angle-largest"
        ]
       }
      ]
@@ -2656,6 +3531,9 @@
     {
      "n": 4,
      "title": "Paper Folding",
+     "std": [
+      "ada-dat:4.4"
+     ],
      "outline": "Mentally unfold a folded and hole-punched sheet of paper",
      "los": [
       {
@@ -2668,7 +3546,8 @@
         "P7"
        ],
        "drills": [
-        "~pat-hole-punching"
+        "~pat-hole-punching",
+        "pat-punch-half"
        ]
       },
       {
@@ -2685,7 +3564,8 @@
         "DAT-4.4.A"
        ],
        "drills": [
-        "pat-hole-punching"
+        "pat-hole-punching",
+        "pat-punch-half"
        ]
       }
      ]
@@ -2693,6 +3573,9 @@
     {
      "n": 5,
      "title": "Cube Counting",
+     "std": [
+      "ada-dat:4.5"
+     ],
      "outline": "Determine how much of each cube in a stack is exposed",
      "los": [
       {
@@ -2705,7 +3588,8 @@
         "P7"
        ],
        "drills": [
-        "pat-cube-counting"
+        "pat-cube-counting",
+        "pat-cube-total"
        ]
       },
       {
@@ -2721,7 +3605,8 @@
         "DAT-4.5.A"
        ],
        "drills": [
-        "pat-cube-counting"
+        "pat-cube-counting",
+        "pat-cube-total"
        ]
       }
      ]
@@ -2729,6 +3614,9 @@
     {
      "n": 6,
      "title": "3-D Form Development",
+     "std": [
+      "ada-dat:4.6"
+     ],
      "outline": "Spatial relations: identify the 3-D shape a flat pattern forms when folded",
      "los": [
       {
@@ -2741,7 +3629,8 @@
         "P7"
        ],
        "drills": [
-        "~pat-cube-net-opposite"
+        "~pat-cube-net-opposite",
+        "pat-net-adjacent"
        ]
       },
       {
@@ -2758,7 +3647,8 @@
         "DAT-4.6.A"
        ],
        "drills": [
-        "~pat-cube-net-opposite"
+        "~pat-cube-net-opposite",
+        "pat-net-adjacent"
        ]
       }
      ]
@@ -2769,6 +3659,9 @@
    "id": "rc",
    "n": 5,
    "title": "Reading Comprehension",
+   "std": [
+    "ada-dat:5"
+   ],
    "scope": "core",
    "ideas": [
     "DATA"
@@ -2906,7 +3799,10 @@
        "p": [
         "P8"
        ],
-       "drills": []
+       "drills": [
+        "dt-rc-full-passage",
+        "dt-rc-paragraph-roles"
+       ]
       }
      ]
     }
@@ -2929,6 +3825,9 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "ada-dat:6.1.a"
+       ],
        "do": "Solve linear, quadratic and systems of equations and simplify algebraic expressions.",
        "ek": [
         "Factor or use x = (−b ± √(b² − 4ac))/2a; eliminate or substitute for systems; check that the answer fits the original."
@@ -2944,6 +3843,9 @@
       },
       {
        "id": "B",
+       "std": [
+        "ada-dat:6.1.b"
+       ],
        "do": "Solve a linear or compound inequality and express its solution set.",
        "ek": [
         "Multiplying or dividing by a negative flips the inequality sign."
@@ -2958,6 +3860,9 @@
       },
       {
        "id": "C",
+       "std": [
+        "ada-dat:6.1.c"
+       ],
        "do": "Simplify and evaluate expressions with exponents, roots and scientific notation.",
        "ek": [
         "a^m a^n = a^(m+n); (a^m)^n = a^(mn); a^(−n) = 1/a^n; a^(1/n) = ⁿ√a."
@@ -2974,6 +3879,9 @@
       },
       {
        "id": "D",
+       "std": [
+        "ada-dat:6.1.d"
+       ],
        "do": "Solve equations and inequalities with absolute value.",
        "ek": [
         "|x| = a gives x = ±a; |x| < a gives −a < x < a; |x| > a gives x < −a or x > a."
@@ -2988,6 +3896,9 @@
       },
       {
        "id": "E",
+       "std": [
+        "ada-dat:6.1.e"
+       ],
        "do": "Set up and solve a ratio or proportion, including direct and inverse variation.",
        "ek": [
         "a/b = c/d ⇒ ad = bc; direct y = kx, inverse y = k/x; part-to-part vs part-to-whole ratios differ."
@@ -3004,6 +3915,9 @@
       },
       {
        "id": "F",
+       "std": [
+        "ada-dat:6.1.f"
+       ],
        "do": "Read and interpret graphs of lines and functions: slope, intercepts, intersections, transformations.",
        "ek": [
         "Slope = Δy/Δx; y = mx + b; parallel lines share slope, perpendicular slopes multiply to −1."
@@ -3022,6 +3936,9 @@
     {
      "n": 2,
      "title": "Data Analysis, Interpretation and Sufficiency",
+     "std": [
+      "ada-dat:6.2"
+     ],
      "outline": "Data analysis, interpretation and sufficiency",
      "los": [
       {
@@ -3059,6 +3976,9 @@
     {
      "n": 3,
      "title": "Quantitative Comparison",
+     "std": [
+      "ada-dat:6.3"
+     ],
      "outline": "Quantitative comparison",
      "los": [
       {
@@ -3098,6 +4018,9 @@
     {
      "n": 4,
      "title": "Probability and Statistics",
+     "std": [
+      "ada-dat:6.4"
+     ],
      "outline": "Probability and statistics",
      "los": [
       {
@@ -3163,6 +4086,9 @@
     {
      "n": 5,
      "title": "Applied Mathematics (Word) Problems",
+     "std": [
+      "ada-dat:6.5"
+     ],
      "outline": "Applied mathematics (word) problems",
      "los": [
       {
@@ -3365,6 +4291,39 @@
    "partial": []
   },
   {
+   "code": "DAT-1.1.M",
+   "unit": 1,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "dat-coupled-dg",
+    "dat-dg-q"
+   ],
+   "partial": []
+  },
+  {
+   "code": "DAT-1.1.N",
+   "unit": 1,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "dat-cell-size",
+    "dat-scope-pick"
+   ],
+   "partial": []
+  },
+  {
+   "code": "DAT-1.1.O",
+   "unit": 1,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "dat-dehydration-waters",
+    "dat-biomolecule-test"
+   ],
+   "partial": []
+  },
+  {
    "code": "DAT-1.2.A",
    "unit": 1,
    "topic": 2,
@@ -3449,6 +4408,61 @@
    "full": [
     "bi-chordates",
     "dat-vertebrate-class"
+   ],
+   "partial": []
+  },
+  {
+   "code": "DAT-1.2.I",
+   "unit": 1,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "dat-phage-titer",
+    "dat-acellular-agents"
+   ],
+   "partial": []
+  },
+  {
+   "code": "DAT-1.2.J",
+   "unit": 1,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "dat-bacterial-growth",
+    "dat-prokaryote-habitat"
+   ],
+   "partial": []
+  },
+  {
+   "code": "DAT-1.2.K",
+   "unit": 1,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "dat-fungal-phylum",
+    "dat-fungal-scenario"
+   ],
+   "partial": []
+  },
+  {
+   "code": "DAT-1.2.L",
+   "unit": 1,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "dat-protist-id",
+    "dat-protist-scenario"
+   ],
+   "partial": []
+  },
+  {
+   "code": "DAT-1.2.M",
+   "unit": 1,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "dat-plant-hormone",
+    "dat-plant-transport"
    ],
    "partial": []
   },
@@ -3596,6 +4610,83 @@
    "partial": []
   },
   {
+   "code": "DAT-1.3.N",
+   "unit": 1,
+   "topic": 3,
+   "status": "ok",
+   "full": [
+    "dat-skin-cells",
+    "dat-skin-thermo"
+   ],
+   "partial": []
+  },
+  {
+   "code": "DAT-1.3.O",
+   "unit": 1,
+   "topic": 3,
+   "status": "ok",
+   "full": [
+    "dat-bone-tissue",
+    "dat-cartilage-joint"
+   ],
+   "partial": []
+  },
+  {
+   "code": "DAT-1.3.P",
+   "unit": 1,
+   "topic": 3,
+   "status": "ok",
+   "full": [
+    "dat-muscle-types",
+    "dat-muscle-force"
+   ],
+   "partial": []
+  },
+  {
+   "code": "DAT-1.3.Q",
+   "unit": 1,
+   "topic": 3,
+   "status": "ok",
+   "full": [
+    "dat-antibody-class",
+    "dat-immunity-type"
+   ],
+   "partial": []
+  },
+  {
+   "code": "DAT-1.3.R",
+   "unit": 1,
+   "topic": 3,
+   "status": "ok",
+   "full": [
+    "dat-gut-hormone",
+    "dat-absorption-site"
+   ],
+   "partial": []
+  },
+  {
+   "code": "DAT-1.3.S",
+   "unit": 1,
+   "topic": 3,
+   "status": "ok",
+   "full": [
+    "dat-clearance",
+    "dat-raas"
+   ],
+   "partial": []
+  },
+  {
+   "code": "DAT-1.3.T",
+   "unit": 1,
+   "topic": 3,
+   "status": "ok",
+   "full": [
+    "dat-gamete-path",
+    "dat-pregnancy-hormone"
+   ],
+   "partial": []
+  },
+  {
    "code": "DAT-1.4.A",
    "unit": 1,
    "topic": 4,
@@ -3731,6 +4822,72 @@
    "partial": []
   },
   {
+   "code": "DAT-1.4.M",
+   "unit": 1,
+   "topic": 4,
+   "status": "ok",
+   "full": [
+    "dat-human-risk",
+    "dat-disorder-mode"
+   ],
+   "partial": []
+  },
+  {
+   "code": "DAT-1.4.N",
+   "unit": 1,
+   "topic": 4,
+   "status": "ok",
+   "full": [
+    "dat-chromatid-count",
+    "dat-karyotype"
+   ],
+   "partial": []
+  },
+  {
+   "code": "DAT-1.4.O",
+   "unit": 1,
+   "topic": 4,
+   "status": "ok",
+   "full": [
+    "dat-dev-order",
+    "dat-dev-scenario"
+   ],
+   "partial": []
+  },
+  {
+   "code": "DAT-1.4.P",
+   "unit": 1,
+   "topic": 4,
+   "status": "ok",
+   "full": [
+    "dat-site-frequency",
+    "dat-genome-features"
+   ],
+   "partial": []
+  },
+  {
+   "code": "DAT-1.4.Q",
+   "unit": 1,
+   "topic": 4,
+   "status": "ok",
+   "full": [
+    "dat-barr-bodies",
+    "dat-imprinting"
+   ],
+   "partial": []
+  },
+  {
+   "code": "DAT-1.4.R",
+   "unit": 1,
+   "topic": 4,
+   "status": "ok",
+   "full": [
+    "dat-pcr-copies",
+    "dat-blot-pick"
+   ],
+   "partial": []
+  },
+  {
    "code": "DAT-1.5.A",
    "unit": 1,
    "topic": 5,
@@ -3815,6 +4972,17 @@
    "full": [
     "bi-trophic-energy",
     "bi-biogeochemical"
+   ],
+   "partial": []
+  },
+  {
+   "code": "DAT-1.5.I",
+   "unit": 1,
+   "topic": 5,
+   "status": "ok",
+   "full": [
+    "dat-hamilton",
+    "dat-social-behavior"
    ],
    "partial": []
   },
@@ -4924,7 +6092,8 @@
    "topic": 3,
    "status": "ok",
    "full": [
-    "pat-angle-ranking"
+    "pat-angle-ranking",
+    "pat-angle-largest"
    ],
    "partial": []
   },
@@ -4932,8 +6101,10 @@
    "code": "DAT-4.4.A",
    "unit": 4,
    "topic": 4,
-   "status": "partial",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "pat-punch-half"
+   ],
    "partial": [
     "pat-hole-punching"
    ]
@@ -4944,7 +6115,8 @@
    "topic": 4,
    "status": "ok",
    "full": [
-    "pat-hole-punching"
+    "pat-hole-punching",
+    "pat-punch-half"
    ],
    "partial": []
   },
@@ -4954,7 +6126,8 @@
    "topic": 5,
    "status": "ok",
    "full": [
-    "pat-cube-counting"
+    "pat-cube-counting",
+    "pat-cube-total"
    ],
    "partial": []
   },
@@ -4964,7 +6137,8 @@
    "topic": 5,
    "status": "ok",
    "full": [
-    "pat-cube-counting"
+    "pat-cube-counting",
+    "pat-cube-total"
    ],
    "partial": []
   },
@@ -4972,8 +6146,10 @@
    "code": "DAT-4.6.A",
    "unit": 4,
    "topic": 6,
-   "status": "partial",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "pat-net-adjacent"
+   ],
    "partial": [
     "pat-cube-net-opposite"
    ]
@@ -4982,8 +6158,10 @@
    "code": "DAT-4.6.B",
    "unit": 4,
    "topic": 6,
-   "status": "partial",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "pat-net-adjacent"
+   ],
    "partial": [
     "pat-cube-net-opposite"
    ]
@@ -5069,8 +6247,11 @@
    "code": "DAT-5.3.A",
    "unit": 5,
    "topic": 3,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "dt-rc-full-passage",
+    "dt-rc-paragraph-roles"
+   ],
    "partial": []
   },
   {
