@@ -1,0 +1,924 @@
+{
+ "id": "biosecurity",
+ "title": "Biosecurity",
+ "code": "BS",
+ "draft": 1,
+ "track": "safety",
+ "requires": [
+  "biology",
+  "statistics"
+ ],
+ "level": 3,
+ "domains": [
+  "biosec"
+ ],
+ "basis": {
+  "primary": "bluedot-biosecurity",
+  "also": [
+   "who-lbm4",
+   "bwc"
+  ],
+  "note": "Units follow the six units of BlueDot Impact's Biosecurity course (outline read Nov 2026); laboratory biosafety follows the WHO Laboratory Biosafety Manual's risk-based structure and the treaty items follow the BWC's articles. No curriculum standard for biosecurity exists; the objectives are a house list."
+ },
+ "big_ideas": [
+  {
+   "id": "LAYERS",
+   "title": "Defence in depth",
+   "text": "Prevent, detect, withstand and combat are layers; each fails sometimes, and risk falls by stacking layers whose failures are not correlated."
+  },
+  {
+   "id": "GROWTH",
+   "title": "Epidemics are exponential, so time is the currency",
+   "text": "Doubling times turn days of delay into multiples of cases; every layer is judged by how much time it buys."
+  },
+  {
+   "id": "NORMS",
+   "title": "Norms, rules and safeguards shape what capability becomes",
+   "text": "Treaties, export controls, screening, oversight and model safeguards narrow who can misuse biology without closing the science."
+  }
+ ],
+ "practices": [
+  {
+   "id": "P1",
+   "title": "Compute",
+   "text": "Carry an epidemic, testing, ventilation or countermeasure calculation to a number."
+  },
+  {
+   "id": "P2",
+   "title": "Explain",
+   "text": "Name the institution, rule or mechanism behind a measure."
+  },
+  {
+   "id": "P3",
+   "title": "Judge",
+   "text": "Choose the right measure, layer or response for a scenario, and say what it buys."
+  }
+ ],
+ "units": [
+  {
+   "id": "pandemic-proof",
+   "n": 1,
+   "title": "Building a pandemic-proof world",
+   "scope": "core",
+   "ideas": [
+    "GROWTH",
+    "LAYERS"
+   ],
+   "std": [
+    "bluedot-biosecurity:1"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "Epidemic arithmetic",
+     "los": [
+      {
+       "id": "A",
+       "do": "Relate the reproduction number, growth rate, generation interval and doubling time.",
+       "ek": [
+        "T_d = ln 2 / r; with a fixed generation interval T_g, R = e^{rT_g}."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "bs-doubling-time",
+        "bs-r-from-doubling"
+       ]
+      },
+      {
+       "id": "B",
+       "do": "Compute the herd-immunity threshold from R₀, and R₀ from it.",
+       "ek": [
+        "Threshold = 1 − 1/R₀."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "bs-herd-threshold",
+        "bs-r0-from-threshold"
+       ]
+      },
+      {
+       "id": "C",
+       "do": "Distinguish case and infection fatality ratios and correct for under-ascertainment.",
+       "ek": [
+        "CFR = deaths/confirmed cases; IFR = deaths/infections; infections ≈ cases ÷ ascertainment."
+       ],
+       "p": [
+        "P1",
+        "P2"
+       ],
+       "drills": [
+        "bs-ifr-from-cfr",
+        "bs-fatality-bias"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "title": "Threat landscape and history",
+     "los": [
+      {
+       "id": "A",
+       "do": "Place landmark events in the history of pandemics and biological weapons.",
+       "ek": [
+        "1918 influenza; smallpox eradication certified 1980; BWC 1972; Sverdlovsk 1979; the 2001 anthrax letters."
+       ],
+       "p": [
+        "P2"
+       ],
+       "drills": [
+        "bs-history-facts",
+        "bs-history-order"
+       ]
+      },
+      {
+       "id": "B",
+       "do": "Distinguish natural, accidental and deliberate biological risks and say what makes a risk catastrophic.",
+       "ek": [
+        "Spillover, lab accident, misuse; transmissibility, severity and our ability to respond set the scale."
+       ],
+       "p": [
+        "P2",
+        "P3"
+       ],
+       "drills": [
+        "bs-risk-source",
+        "bs-gcbr-features"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "prevent",
+   "n": 2,
+   "title": "Preventing engineered pandemics (Prevent)",
+   "scope": "core",
+   "ideas": [
+    "NORMS",
+    "LAYERS"
+   ],
+   "std": [
+    "bluedot-biosecurity:2"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "Treaties and export controls",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "bwc:I",
+        "bwc:IV",
+        "bwc:XII"
+       ],
+       "do": "State what the BWC prohibits, how it is implemented and reviewed, and what it lacks.",
+       "ek": [
+        "Article I: never develop, produce, stockpile or acquire; no verification regime; confidence-building measures; a small Implementation Support Unit."
+       ],
+       "p": [
+        "P2"
+       ],
+       "drills": [
+        "bs-bwc-facts",
+        "bs-bwc-scenario"
+       ]
+      },
+      {
+       "id": "B",
+       "do": "Match export controls and other regimes (Australia Group, UNSCR 1540) to what they do.",
+       "ek": [
+        "Australia Group harmonises national export lists; UNSCR 1540 obliges states to keep WMD from non-state actors."
+       ],
+       "p": [
+        "P2"
+       ],
+       "drills": [
+        "bs-export-controls",
+        "bs-regime-match"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "title": "Safeguarding research and its tools",
+     "los": [
+      {
+       "id": "A",
+       "do": "Explain DNA synthesis screening: what is screened and why both sequence and customer matter.",
+       "ek": [
+        "Screen orders against sequences of concern and verify customers; benchtop synthesisers move the checkpoint."
+       ],
+       "p": [
+        "P2",
+        "P3"
+       ],
+       "drills": [
+        "bs-synthesis-screening",
+        "bs-screening-scenario"
+       ]
+      },
+      {
+       "id": "B",
+       "do": "Recognise dual-use research of concern and the oversight and publication choices around it.",
+       "ek": [
+        "Research reasonably expected to give knowledge or products that could be misapplied; review before funding and before publishing."
+       ],
+       "p": [
+        "P2",
+        "P3"
+       ],
+       "drills": [
+        "bs-durc-facts",
+        "bs-durc-scenario"
+       ]
+      },
+      {
+       "id": "C",
+       "do": "Describe layered AI model safeguards and compute the residual risk through independent layers.",
+       "ek": [
+        "Refusal training, input/output classifiers, evaluations, access controls; residual = product of each layer's miss rate."
+       ],
+       "p": [
+        "P1",
+        "P2"
+       ],
+       "drills": [
+        "bs-layered-miss",
+        "bs-ai-safeguards"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 3,
+     "title": "Laboratory biosafety and biosecurity",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "who-lbm4:2",
+        "who-lbm4:3",
+        "who-lbm4:4",
+        "who-lbm4:5"
+       ],
+       "do": "Use the WHO risk-based approach: inherent versus residual risk, core requirements, heightened control and maximum containment.",
+       "ek": [
+        "Risk assessment decides the controls; core requirements apply everywhere."
+       ],
+       "p": [
+        "P2",
+        "P3"
+       ],
+       "drills": [
+        "bs-lbm4-levels",
+        "bs-lbm4-scenario"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "who-lbm4:3",
+        "who-lbm4:4"
+       ],
+       "do": "Choose primary containment (biosafety cabinet class) and compute filter penetration.",
+       "ek": [
+        "Class I protects worker and environment, II also the sample, III is gas-tight; HEPA ≥ 99.97% at the most penetrating size."
+       ],
+       "p": [
+        "P1",
+        "P3"
+       ],
+       "drills": [
+        "bs-bsc-class",
+        "bs-hepa-series"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "detect",
+   "n": 3,
+   "title": "Detecting early infections (Detect)",
+   "scope": "core",
+   "ideas": [
+    "GROWTH"
+   ],
+   "std": [
+    "bluedot-biosecurity:3"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "Surveillance",
+     "los": [
+      {
+       "id": "A",
+       "do": "Match surveillance systems to what they see and name the IHR's notification duties.",
+       "ek": [
+        "Syndromic, wastewater, metagenomic, clinical; IHR (2005) PHEIC and, since 2025, the pandemic emergency."
+       ],
+       "p": [
+        "P2"
+       ],
+       "drills": [
+        "bs-surveillance-match",
+        "bs-ihr-facts"
+       ]
+      },
+      {
+       "id": "B",
+       "do": "Compute how detection delay translates into cases.",
+       "ek": [
+        "Cases at time t = initial × 2^{t/T_d}."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "bs-detection-delay",
+        "bs-days-to-threshold"
+       ]
+      },
+      {
+       "id": "C",
+       "do": "Compute the sequencing depth needed to see a target at a given relative abundance.",
+       "ek": [
+        "Expected target reads = total reads × relative abundance."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "bs-reads-needed",
+        "bs-abundance-growth"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "title": "Diagnostics",
+     "los": [
+      {
+       "id": "A",
+       "do": "Compute predictive values of a test from sensitivity, specificity and prevalence.",
+       "ek": [
+        "PPV falls as prevalence falls; a second independent positive raises it."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "bs-ppv",
+        "bs-ppv-two-tests"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "withstand",
+   "n": 4,
+   "title": "Blocking transmission (Withstand)",
+   "scope": "core",
+   "ideas": [
+    "LAYERS",
+    "GROWTH"
+   ],
+   "std": [
+    "bluedot-biosecurity:4"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "Clean air",
+     "los": [
+      {
+       "id": "A",
+       "do": "Estimate airborne infection risk with the Wells–Riley model and combine air-cleaning rates.",
+       "ek": [
+        "P = 1 − exp(−Iqpt/Q); equivalent air changes add."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "bs-wells-riley",
+        "bs-each-sum"
+       ]
+      },
+      {
+       "id": "B",
+       "do": "Explain far-UVC, filtration and ventilation and compute clearance times.",
+       "ek": [
+        "222 nm barely penetrates the skin's dead layer; 99% removal takes ln 100 / ACH hours."
+       ],
+       "p": [
+        "P1",
+        "P2"
+       ],
+       "drills": [
+        "bs-clearance-time",
+        "bs-far-uvc"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "title": "PPE and social measures",
+     "los": [
+      {
+       "id": "A",
+       "do": "Compare respirator classes by filtration and assigned protection factor, and compute the effect of masking on R.",
+       "ek": [
+        "N95 filters ≥ 95%; APF 10 half-mask, 50 full-face, 25 loose PAPR; R_eff = R(1 − ce)."
+       ],
+       "p": [
+        "P1",
+        "P2"
+       ],
+       "drills": [
+        "bs-respirator-facts",
+        "bs-mask-reff"
+       ]
+      },
+      {
+       "id": "B",
+       "do": "Compute the effect of testing, isolation and contact tracing on R, and match measures to transmission routes.",
+       "ek": [
+        "Removing a fraction f of onward transmission multiplies R by 1 − f."
+       ],
+       "p": [
+        "P1",
+        "P3"
+       ],
+       "drills": [
+        "bs-isolation-reff",
+        "bs-npi-match"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "combat",
+   "n": 5,
+   "title": "Exiting the pandemic (Combat)",
+   "scope": "core",
+   "ideas": [
+    "GROWTH",
+    "LAYERS"
+   ],
+   "std": [
+    "bluedot-biosecurity:5"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "Countermeasures",
+     "los": [
+      {
+       "id": "A",
+       "do": "Compute the vaccination coverage needed for herd protection given vaccine efficacy.",
+       "ek": [
+        "V_c = (1 − 1/R₀)/E; above 100% means vaccination alone cannot stop spread."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "bs-vaccine-coverage",
+        "bs-efficacy-needed"
+       ]
+      },
+      {
+       "id": "B",
+       "do": "Compute vaccine efficacy from trial attack rates.",
+       "ek": [
+        "VE = 1 − AR_vaccinated / AR_unvaccinated."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "bs-ve-trial",
+        "bs-ve-expected-cases"
+       ]
+      },
+      {
+       "id": "C",
+       "do": "Describe rapid countermeasure programmes: platforms, the 100 Days Mission, financing and trials.",
+       "ek": [
+        "CEPI's goal: vaccines within 100 days of a threat; platform technologies; advance commitments."
+       ],
+       "p": [
+        "P2"
+       ],
+       "drills": [
+        "bs-mcm-facts",
+        "bs-mcm-scenario"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "title": "Scale-up and governance",
+     "los": [
+      {
+       "id": "A",
+       "do": "Compute manufacturing and delivery rates needed to cover a population in time.",
+       "ek": [
+        "Doses per day = population × doses per person ÷ days."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "bs-doses-per-day",
+        "bs-campaign-days"
+       ]
+      },
+      {
+       "id": "B",
+       "do": "Name the global health governance instruments and who decides what.",
+       "ek": [
+        "IHR (2005) and its 2024 amendments; the WHO Pandemic Agreement (2025); the Director-General declares a PHEIC on Emergency Committee advice."
+       ],
+       "p": [
+        "P2"
+       ],
+       "drills": [
+        "bs-governance-facts",
+        "bs-who-decides"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "contributing",
+   "n": 6,
+   "title": "Contributing to biosecurity",
+   "scope": "core",
+   "ideas": [
+    "LAYERS",
+    "NORMS"
+   ],
+   "std": [
+    "bluedot-biosecurity:6"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "Working responsibly and choosing a focus",
+     "los": [
+      {
+       "id": "A",
+       "do": "Apply information-hazard norms in discussion and writing.",
+       "ek": [
+        "Don't brainstorm new ways to cause harm; discuss defences, not attack details; ask before sharing."
+       ],
+       "p": [
+        "P3"
+       ],
+       "drills": [
+        "bs-infohazard",
+        "bs-infohazard-scenario"
+       ]
+      },
+      {
+       "id": "B",
+       "do": "Map an intervention to its layer and compute the combined protection of independent layers.",
+       "ek": [
+        "P(all layers fail) = product of each layer's failure probability."
+       ],
+       "p": [
+        "P1",
+        "P3"
+       ],
+       "drills": [
+        "bs-defence-layers",
+        "bs-layer-match"
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "rows": [
+  {
+   "code": "BS-1.1.A",
+   "unit": 1,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "bs-doubling-time",
+    "bs-r-from-doubling"
+   ],
+   "partial": []
+  },
+  {
+   "code": "BS-1.1.B",
+   "unit": 1,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "bs-herd-threshold",
+    "bs-r0-from-threshold"
+   ],
+   "partial": []
+  },
+  {
+   "code": "BS-1.1.C",
+   "unit": 1,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "bs-ifr-from-cfr",
+    "bs-fatality-bias"
+   ],
+   "partial": []
+  },
+  {
+   "code": "BS-1.2.A",
+   "unit": 1,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "bs-history-facts",
+    "bs-history-order"
+   ],
+   "partial": []
+  },
+  {
+   "code": "BS-1.2.B",
+   "unit": 1,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "bs-risk-source",
+    "bs-gcbr-features"
+   ],
+   "partial": []
+  },
+  {
+   "code": "BS-2.1.A",
+   "unit": 2,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "bs-bwc-facts",
+    "bs-bwc-scenario"
+   ],
+   "partial": []
+  },
+  {
+   "code": "BS-2.1.B",
+   "unit": 2,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "bs-export-controls",
+    "bs-regime-match"
+   ],
+   "partial": []
+  },
+  {
+   "code": "BS-2.2.A",
+   "unit": 2,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "bs-synthesis-screening",
+    "bs-screening-scenario"
+   ],
+   "partial": []
+  },
+  {
+   "code": "BS-2.2.B",
+   "unit": 2,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "bs-durc-facts",
+    "bs-durc-scenario"
+   ],
+   "partial": []
+  },
+  {
+   "code": "BS-2.2.C",
+   "unit": 2,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "bs-layered-miss",
+    "bs-ai-safeguards"
+   ],
+   "partial": []
+  },
+  {
+   "code": "BS-2.3.A",
+   "unit": 2,
+   "topic": 3,
+   "status": "ok",
+   "full": [
+    "bs-lbm4-levels",
+    "bs-lbm4-scenario"
+   ],
+   "partial": []
+  },
+  {
+   "code": "BS-2.3.B",
+   "unit": 2,
+   "topic": 3,
+   "status": "ok",
+   "full": [
+    "bs-bsc-class",
+    "bs-hepa-series"
+   ],
+   "partial": []
+  },
+  {
+   "code": "BS-3.1.A",
+   "unit": 3,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "bs-surveillance-match",
+    "bs-ihr-facts"
+   ],
+   "partial": []
+  },
+  {
+   "code": "BS-3.1.B",
+   "unit": 3,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "bs-detection-delay",
+    "bs-days-to-threshold"
+   ],
+   "partial": []
+  },
+  {
+   "code": "BS-3.1.C",
+   "unit": 3,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "bs-reads-needed",
+    "bs-abundance-growth"
+   ],
+   "partial": []
+  },
+  {
+   "code": "BS-3.2.A",
+   "unit": 3,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "bs-ppv",
+    "bs-ppv-two-tests"
+   ],
+   "partial": []
+  },
+  {
+   "code": "BS-4.1.A",
+   "unit": 4,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "bs-wells-riley",
+    "bs-each-sum"
+   ],
+   "partial": []
+  },
+  {
+   "code": "BS-4.1.B",
+   "unit": 4,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "bs-clearance-time",
+    "bs-far-uvc"
+   ],
+   "partial": []
+  },
+  {
+   "code": "BS-4.2.A",
+   "unit": 4,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "bs-respirator-facts",
+    "bs-mask-reff"
+   ],
+   "partial": []
+  },
+  {
+   "code": "BS-4.2.B",
+   "unit": 4,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "bs-isolation-reff",
+    "bs-npi-match"
+   ],
+   "partial": []
+  },
+  {
+   "code": "BS-5.1.A",
+   "unit": 5,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "bs-vaccine-coverage",
+    "bs-efficacy-needed"
+   ],
+   "partial": []
+  },
+  {
+   "code": "BS-5.1.B",
+   "unit": 5,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "bs-ve-trial",
+    "bs-ve-expected-cases"
+   ],
+   "partial": []
+  },
+  {
+   "code": "BS-5.1.C",
+   "unit": 5,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "bs-mcm-facts",
+    "bs-mcm-scenario"
+   ],
+   "partial": []
+  },
+  {
+   "code": "BS-5.2.A",
+   "unit": 5,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "bs-doses-per-day",
+    "bs-campaign-days"
+   ],
+   "partial": []
+  },
+  {
+   "code": "BS-5.2.B",
+   "unit": 5,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "bs-governance-facts",
+    "bs-who-decides"
+   ],
+   "partial": []
+  },
+  {
+   "code": "BS-6.1.A",
+   "unit": 6,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "bs-infohazard",
+    "bs-infohazard-scenario"
+   ],
+   "partial": []
+  },
+  {
+   "code": "BS-6.1.B",
+   "unit": 6,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "bs-defence-layers",
+    "bs-layer-match"
+   ],
+   "partial": []
+  }
+ ],
+ "orphanTpl": []
+}

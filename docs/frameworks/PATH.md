@@ -1,6 +1,6 @@
 # The path — start to finish
 
-Every framework in `requires` order; inside each, units and objectives in order, except that 155 objectives move up to sit just after the prerequisites they need. 3922 objectives in 50 frameworks.
+Every framework in `requires` order; inside each, units and objectives in order, except that 155 objectives move up to sit just after the prerequisites they need. 3949 objectives in 51 frameworks.
 
 | # | Framework | Track | Requires | LOs | Path position |
 |---|---|---|---|---|---|
@@ -40,7 +40,7 @@ Every framework in `requires` order; inside each, units and objectives in order,
 | 34 | Numerical Methods | engineering | calculus, linear-algebra | 17 | 2917–2933 |
 | 35 | Process Design, Economics and Safety | engineering | material-balances | 9 | 2934–2942 |
 | 36 | Chemical Reaction Engineering | engineering | material-balances | 46 | 2943–2988 |
-| 37 | Separations | engineering | material-balances, thermodynamics | 6 | 3590–3597 |
+| 37 | Separations | engineering | material-balances, thermodynamics | 6 | 3617–3624 |
 | 38 | Mass Transfer | engineering | heat-transfer, engineering-math | 21 | 2995–3015 |
 | 39 | Electric Double Layers | engineering | materials, thermodynamics | 56 | 3016–3071 |
 | 40 | Graduate Chemical Engineering Core | engineering | fluid-mechanics, heat-transfer, mass-transfer, thermodynamics, reaction-engineering, process-design, engineering-math | 38 | 3072–3109 |
@@ -50,10 +50,11 @@ Every framework in `requires` order; inside each, units and objectives in order,
 | 44 | INBDE (Dentistry) | health | — | 57 | 3390–3446 |
 | 45 | NCLEX-RN | health | — | 39 | 3447–3485 |
 | 46 | AI Safety | safety | programming, calculus | 104 | 3486–3589 |
-| 47 | Speaking and Articulation | communication | — | 69 | 3590–3658 |
-| 48 | Basketball | athletics | — | 88 | 3659–3746 |
-| 49 | Swimming | athletics | — | 88 | 3747–3834 |
-| 50 | Wushu | athletics | — | 88 | 3835–3922 |
+| 47 | Biosecurity | safety | biology, statistics | 27 | 3590–3616 |
+| 48 | Speaking and Articulation | communication | — | 69 | 3617–3685 |
+| 49 | Basketball | athletics | — | 88 | 3686–3773 |
+| 50 | Swimming | athletics | — | 88 | 3774–3861 |
+| 51 | Wushu | athletics | — | 88 | 3862–3949 |
 
 ## Order problems (a prerequisite comes after the objective)
 

@@ -15,6 +15,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 | Anchor Quantities | CODATA Recommended Values of the Fundamental Physical Constants: 2022 (NIST SP 961) | reference | read in part | snapshot-key-numbers, francl-take-a-number, cfr-21-101-9 | acs-accm-pchem | 14 | 3 | 11 |
 | Basketball | USA Basketball Player Development Curriculum | standard | read in part | — | — | 88 | 0 | 88 |
 | Biology (AP) | AP Biology Course and Exam Description (2019) | standard | read through a crosswalk | iupac-aa-1983, ngss-hs, ib-biology-2025, icho-appendix-c, icho-syllabus, aamc-mcat-outline | — | 179 | 179 | 0 |
+| Biosecurity | BlueDot Impact, Biosecurity course (six units) | course | read in part | who-lbm4, bwc | — | 27 | 27 | 0 |
 | Calculus | AP Calculus AB and BC Course and Exam Description | standard | read in full | webwork-opl | — | 203 | 203 | 0 |
 | Chemistry Olympiad | U.S. National Chemistry Olympiad: local and national exam format, multiple-choice topic bands and Part II | exam-spec | read in part | icho-appendix-c, icho-syllabus | — | 73 | 73 | 0 |
 | Chemistry (AP) | AP Chemistry Course and Exam Description (Fall 2024) | standard | read in part | ngss-hs, ib-chemistry-2025, usnco, icho-appendix-c, icho-syllabus, acs-accm, aamc-mcat-outline | — | 179 | 179 | 0 |
@@ -68,6 +69,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 - **Anchor Quantities**: Values from CODATA 2022, standard atomic weights and 21 CFR 101.9. Which values to carry is a house list for units 1–4 and the SnapShot Key Numbers in Biology sheet for units 5–6. No chemistry standard for this was found; the ACS content maps have not been opened to check.
 - **Basketball**: Introductory level read in full, higher levels in overview only.
 - **Biology (AP)**: Read through a publisher's correlation table.
+- **Biosecurity**: Units follow the six units of BlueDot Impact's Biosecurity course (outline read Nov 2026); laboratory biosafety follows the WHO Laboratory Biosafety Manual's risk-based structure and the treaty items follow the BWC's articles. No curriculum standard for biosecurity exists; the objectives are a house list.
 - **Chemistry Olympiad**: Topics from the USNCO bands (read in part) and IChO Appendix C (read in full), at national-exam depth; the items are a house list.
 - **Chemistry (AP)**: Objectives past Unit 2 are written from topic titles.
 - **Earth and Space Science**: Units follow the NGSS HS ESS disciplinary core ideas (ESS1 Earth's place in the universe, ESS2 Earth's systems, ESS3 Earth and human activity), read in part. Objectives and their order are ours.
@@ -114,6 +116,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 - **Anchor Quantities**: reference, read in part; should move to ACS Exams Institute Anchoring Concepts Content Map IV: Physical Chemistry (J. Chem. Educ. 2018, 95, 238)
 - **Basketball**: standard, read in part
 - **Biology (AP)**: standard, read through a crosswalk
+- **Biosecurity**: course, read in part
 - **Chemistry Olympiad**: exam-spec, read in part
 - **Chemistry (AP)**: standard, read in part
 - **Earth and Space Science**: standard, read in part
@@ -1563,6 +1566,53 @@ https://jcnde.ada.org/-/media/project/ada-organization/ada/jcnde/files/domain_of
 | CC54 | Oral health care delivery for populations | — | — | **nothing yet** |
 | CC55 | Quality assurance and improvement | — | — | **nothing yet** |
 | CC56 | Communicating case design to laboratories | 2 | 2 | inbde (2) |
+
+## BlueDot Impact, Biosecurity course (six units)
+
+https://bluedot.org/courses/biosecurity
+
+6 of 6 items have at least one objective answering to them.
+
+| Item | Topic | Objectives | With a drill | Where |
+|---|---|---|---|---|
+| 1 | Building a pandemic-proof world | 5 | 5 | biosecurity (5) |
+| 2 | Preventing engineered pandemics (Prevent) | 7 | 7 | biosecurity (7) |
+| 3 | Detecting early infections (Detect) | 4 | 4 | biosecurity (4) |
+| 4 | Blocking transmission (Withstand) | 4 | 4 | biosecurity (4) |
+| 5 | Exiting the pandemic (Combat) | 5 | 5 | biosecurity (5) |
+| 6 | Contributing to biosecurity | 2 | 2 | biosecurity (2) |
+
+## WHO Laboratory Biosafety Manual, 4th edition (2020)
+
+https://www.who.int/publications/i/item/9789240011311
+
+4 of 5 items have at least one objective answering to them.
+
+| Item | Topic | Objectives | With a drill | Where |
+|---|---|---|---|---|
+| 2 | Risk assessment | 1 | 1 | biosecurity (1) |
+| 3 | Core requirements | 2 | 2 | biosecurity (2) |
+| 4 | Heightened control measures | 2 | 2 | biosecurity (2) |
+| 5 | Maximum containment measures | 1 | 1 | biosecurity (1) |
+| 6 | Transfer and transportation | — | — | **nothing yet** |
+
+## Convention on the Prohibition of the Development, Production and Stockpiling of Bacteriological (Biological) and Toxin Weapons and on their Destruction (1972)
+
+https://www.unoda.org/en/our-work/weapons-mass-destruction/biological-weapons/biological-weapons-convention
+
+3 of 9 items have at least one objective answering to them.
+
+| Item | Topic | Objectives | With a drill | Where |
+|---|---|---|---|---|
+| I | Never develop, produce, stockpile, acquire or retain biological agents, toxins or their means of delivery for hostile purposes | 1 | 1 | biosecurity (1) |
+| II | Destroy or divert existing stocks | — | — | **nothing yet** |
+| III | No transfer or assistance | — | — | **nothing yet** |
+| IV | National implementation measures | 1 | 1 | biosecurity (1) |
+| V | Consultation and cooperation | — | — | **nothing yet** |
+| VI | Complaints to the Security Council | — | — | **nothing yet** |
+| VII | Assistance to a Party exposed to danger | — | — | **nothing yet** |
+| X | Peaceful use and exchange | — | — | **nothing yet** |
+| XII | Review conferences | 1 | 1 | biosecurity (1) |
 
 ## AAMC, What's on the MCAT Exam? content outline
 
