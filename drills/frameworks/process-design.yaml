@@ -48,14 +48,14 @@ units:
       - n: 1
         title: "Time value of money"
         los:
-          - { id: A, do: "Convert a nominal rate to an effective annual rate.", ek: ["(1 + r/m)^m − 1."], p: [P1], drills: [pd-effective-rate] }
-          - { id: B, do: "Compute a project's net present value.", ek: ["NPV = −I + A(P/A,i,n) + S(1+i)⁻ⁿ."], p: [P1], needs: [PD-1.1.A], drills: [pd-npv] }
-          - { id: C, do: "Compute a simple payback period.", ek: ["Cumulative cash flow covers the investment."], p: [P1], drills: [pd-payback] }
+          - { id: A, do: "Convert a nominal rate to an effective annual rate.", ek: ["(1 + r/m)^m − 1."], p: [P1], drills: [pd-effective-rate, pd-nominal-from-effective] }
+          - { id: B, do: "Compute a project's net present value.", ek: ["NPV = −I + A(P/A,i,n) + S(1+i)⁻ⁿ."], p: [P1], needs: [PD-1.1.A], drills: [pd-npv, pd-capital-recovery] }
+          - { id: C, do: "Compute a simple payback period.", ek: ["Cumulative cash flow covers the investment."], p: [P1], drills: [pd-payback, pd-roi] }
       - n: 2
         title: "Costs"
         los:
-          - { id: A, do: "Scale an equipment cost by capacity and cost index.", ek: ["C₂ = C₁(S₂/S₁)^0.6 × I₂/I₁."], p: [P1], drills: [pd-cost-scaling] }
-          - { id: B, do: "Compute book value under straight-line or declining-balance depreciation.", ek: ["SL (P − S)/n; DDB 2/n of book value."], p: [P1], drills: [pd-depreciation] }
+          - { id: A, do: "Scale an equipment cost by capacity and cost index.", ek: ["C₂ = C₁(S₂/S₁)^0.6 × I₂/I₁."], p: [P1], drills: [pd-cost-scaling, pd-capacity-from-budget] }
+          - { id: B, do: "Compute book value under straight-line or declining-balance depreciation.", ek: ["SL (P − S)/n; DDB 2/n of book value."], p: [P1], drills: [pd-depreciation, pd-soyd] }
   - id: safety
     n: 2
     title: "Process safety"
@@ -66,9 +66,9 @@ units:
       - n: 1
         title: "Hazards"
         los:
-          - { id: A, std: ["fe-chemical:16.A"], do: "Compute the lower flammable limit of a fuel mixture.", ek: ["Le Chatelier: 1/Σ(yᵢ/LFLᵢ)."], p: [P1], drills: [pd-lfl-mixture] }
-          - { id: B, std: ["fe-chemical:16.B"], do: "Judge a mixed exposure against its limits.", ek: ["Σ Cᵢ/TLVᵢ ≤ 1."], p: [P2], drills: [pd-tlv-mixture] }
-          - { id: C, std: ["fe-chemical:16.C"], do: "State what a HAZOP guide word means.", ek: ["NO, MORE, LESS, REVERSE, AS WELL AS, PART OF, OTHER THAN."], p: [P2], drills: [pd-hazop] }
+          - { id: A, std: ["fe-chemical:16.A"], do: "Compute the lower flammable limit of a fuel mixture.", ek: ["Le Chatelier: 1/Σ(yᵢ/LFLᵢ)."], p: [P1], drills: [pd-lfl-mixture, pd-flammable-check] }
+          - { id: B, std: ["fe-chemical:16.B"], do: "Judge a mixed exposure against its limits.", ek: ["Σ Cᵢ/TLVᵢ ≤ 1."], p: [P2], drills: [pd-tlv-mixture, pd-tlv-allowance] }
+          - { id: C, std: ["fe-chemical:16.C"], do: "State what a HAZOP guide word means.", ek: ["NO, MORE, LESS, REVERSE, AS WELL AS, PART OF, OTHER THAN."], p: [P2], drills: [pd-hazop, pd-hazop-word] }
   - id: control
     n: 3
     title: "Process dynamics"
@@ -79,4 +79,4 @@ units:
       - n: 1
         title: "First-order systems"
         los:
-          - { id: A, do: "Compute the step response of a first-order process.", ek: ["y = KΔu(1 − e^(−t/τ))."], p: [P1], drills: [pd-first-order] }
+          - { id: A, do: "Compute the step response of a first-order process.", ek: ["y = KΔu(1 − e^(−t/τ))."], p: [P1], drills: [pd-first-order, pd-time-constant-from-data] }

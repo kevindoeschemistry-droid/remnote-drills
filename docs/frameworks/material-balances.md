@@ -55,7 +55,7 @@ Big ideas: CONSERVE, BOUNDARY, BASIS
   - P1 · P2 · drills: mb-mixer, mb-distillation-split, mb-evaporator, mb-dilution
 - ● **MB-2.1.B** (fe-chemical:8.A, webwork-opl:MB2.1, webwork-opl:MB3.2) Count degrees of freedom and say whether a balance problem is specified.
   - EK: Unknowns minus independent equations: zero is solvable, positive is underspecified, negative overspecified.
-  - P1 · P3 · drills: mb-degrees-of-freedom
+  - P1 · P3 · drills: mb-degrees-of-freedom, mb-dof-mixer
 
 ### 2.2 Recycle, bypass and purge
 
@@ -81,10 +81,10 @@ Big ideas: CONSERVE
   - P2 · drills: mb-conversion-outlet, mb-extent-of-reaction
 - ● **MB-3.1.C** (fe-chemical:8.F, webwork-opl:MB3.3) Apply selectivity and yield to parallel reactions.
   - EK: Conversion says how much reacted; selectivity says where it went.
-  - P2 · drills: mb-yield-with-side-reaction
+  - P2 · drills: mb-yield-with-side-reaction, mb-selectivity-from-yield
 - ● **MB-3.1.D** (fe-chemical:8.E, fe-chemical:8.F, webwork-opl:MB3.4) Relate single-pass conversion, overall conversion and recycle flow for a reactor with recycle.
   - EK: With complete recycle of unreacted feed the reactor feed is the fresh feed divided by the single-pass conversion.
-  - P1 · P2 · drills: mb-recycle-reactor
+  - P1 · P2 · drills: mb-recycle-reactor, mb-recycle-flow
 
 ### 3.2 Combustion
 
@@ -107,7 +107,7 @@ Big ideas: CONSERVE
   - P2 · drills: mb-sensible-heat, mb-heat-and-vaporize, mb-steam-requirement
 - ● **MB-4.1.B** (fe-chemical:8.C, webwork-opl:TH5.9, webwork-opl:MB4.5) Find the outlet temperature of an adiabatic mixer.
   - EK: Enthalpy in equals enthalpy out; with one cp the outlet is the mass-weighted mean temperature.
-  - P2 · drills: mb-adiabatic-mixing
+  - P2 · drills: mb-adiabatic-mixing, mb-mixer-flow-needed
 
 ### 4.2 With reaction
 
@@ -115,7 +115,7 @@ Big ideas: CONSERVE
 
 - ● **MB-4.2.A** (fe-chemical:8.C, fe-chemical:7.H, webwork-opl:TH13.3, webwork-opl:TH13.4) Compute a standard heat of reaction from heats of formation.
   - EK: Σ ν ΔHf, products positive and reactants negative; elements are zero; the phase of water matters.
-  - P2 · drills: mb-heat-of-reaction
+  - P2 · drills: mb-heat-of-reaction, mb-heat-of-reaction-T
 
 ## Unit 5 · Unsteady balances
 
@@ -127,7 +127,7 @@ Big ideas: CONSERVE
 
 - ● **MB-5.1.A** (fe-chemical:8.B, webwork-opl:TH4.3, webwork-opl:MB5.1) Find the time to fill or drain a tank at constant flows.
   - EK: dV/dt = in − out; with constant flows the level changes linearly.
-  - P2 · drills: mb-tank-fill-time
+  - P2 · drills: mb-tank-fill-time, mb-drain-time
 - ● **MB-5.1.B** (fe-chemical:8.B, webwork-opl:MB5.1) Model the washout of a stirred tank and use its time constant.
   - EK: V dC/dt = −qC gives C = C0 e^(−t/τ), τ = V/q: 37% after one τ, 5% after three.
   - P2 · P3 · drills: mb-washout-time, mb-residence-time-decay
@@ -138,7 +138,7 @@ Big ideas: CONSERVE
 
 - ● **MB-5.2.A** (fe-chemical:8.D, webwork-opl:TH5.3, webwork-opl:MB5.5) Find the time to heat a batch at a constant heating rate.
   - EK: m cp dT/dt = Q; with no losses the temperature rises linearly.
-  - P2 · drills: mb-tank-heating-time
+  - P2 · drills: mb-tank-heating-time, mb-heating-coil-time
 
 ## Unit 6 · Multiunit balances and degrees of freedom
 
@@ -150,10 +150,10 @@ Big ideas: CONSERVE
 
 - ● **MB-6.1.A** (webwork-opl:MB2.3) Solve a two-unit separation train.
   - EK: Balance each unit in turn; a component's recovery multiplies through units in series.
-  - P1 · drills: mb-two-column
+  - P1 · drills: mb-two-column, mb-single-column-split
 - ● **MB-6.1.B** (webwork-opl:MB4.1) Count degrees of freedom for an energy balance.
   - EK: DOF = unknowns − independent equations; the energy balance adds one equation and usually one unknown (Q or a temperature).
-  - P1 · drills: mb-energy-dof
+  - P1 · drills: mb-energy-dof, mb-energy-dof-heater
 
 ## Drills not yet placed on the map
 

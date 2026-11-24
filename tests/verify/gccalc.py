@@ -219,3 +219,39 @@ def gc_rayleigh(alpha, x0, x1):
 FUNCS = {f.__name__: f for f in [gc_annulus_Q, gc_couette_torque, gc_squeeze, gc_blasius_drag, gc_cylinder_cp, gc_power_law_Q,
                                  gc_brinkman, gc_vdw_tc, gc_pr_z, gc_overall_eff, gc_enhancement, gc_topt, gc_overshoot,
                                  gc_ultimate, gc_ultimate_period, gc_fopdt_wu, gc_rayleigh]}
+
+def gc_couette_shear(Om, kap):
+    """shear rate magnitude r d(v/r)/dr at the inner cylinder of circular Couette flow (R = 1)"""
+    Om, kap = N_(Om), N_(kap)
+    A, B = sp.symbols("A B")
+    v = A * r_ + B / r_
+    sol = sp.solve([v.subs(r_, kap) - Om * kap, v.subs(r_, 1)], [A, B], dict=True)[0]
+    return sp.N(sp.Abs((r_ * sp.diff(v.subs(sol) / r_, r_)).subs(r_, kap)), 30)
+
+
+def gc_teq(A1, E1, A2, E2, X):
+    """temperature at which X is the equilibrium conversion of A <-> B: k1(1-X) = k2 X, by bisection"""
+    R = mp.mpf("8.314")
+    A1, E1, A2, E2, X = (mp.mpf(str(v)) for v in (A1, E1, A2, E2, X))
+    r = lambda T: A1 * mp.exp(-E1 / (R * T)) * (1 - X) - A2 * mp.exp(-E2 / (R * T)) * X
+    with mp.workdps(40):
+        lo, hi = mp.mpf(100), mp.mpf(5000)
+        for _ in range(300):
+            m = (lo + hi) / 2
+            if r(m) > 0:
+                lo = m
+            else:
+                hi = m
+    return sp.Float(str((lo + hi) / 2), 30)
+
+
+def gc_surface_ratio(phi, Bi):
+    """C_s/C_b for a first-order sphere with an external film, from the solved ODE"""
+    phi, Bi = N_(phi), N_(Bi)
+    A = sp.Symbol("A")
+    C = A * sp.sinh(phi * r_) / r_
+    Av = sp.solve(sp.Eq(sp.diff(C, r_).subs(r_, 1), Bi * (1 - C.subs(r_, 1))), A)[0]
+    return sp.N(C.subs(r_, 1).subs(A, Av), 30)
+
+
+FUNCS.update({f.__name__: f for f in [gc_couette_shear, gc_teq, gc_surface_ratio]})

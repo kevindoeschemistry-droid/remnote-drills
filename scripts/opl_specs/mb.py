@@ -18,3 +18,22 @@ U(6, "multiunit", "Multiunit balances and degrees of freedom", [
     ]),
 ]),
 ]
+
+# second question types (Nov 2026), keyed (unit, topic, LO)
+SECOND = {
+    (6, 1, "A"): Q("mb-single-column-split", "meb.nonreactive", "A column splits {{F}} kmol/h of feed at z = {{z}} into a distillate at {{xd}} and bottoms at {{xb}} (light-key mole fractions). What is the distillate flow, in kmol/h?",
+                   given={"F": {"pick": [100, 250]}, "z": {"pick": [0.3, 0.5]}, "xd": {"pick": [0.9, 0.95]}, "xb": {"pick": [0.02, 0.05]}}, value="F*(z - xb)/(xd - xb)", tex="D",
+                   verify="solve([Eq(Symbol('dd') + Symbol('bb'), F), Eq(Symbol('dd')*nsimplify(xd) + Symbol('bb')*nsimplify(xb), F*nsimplify(z))], [Symbol('dd'), Symbol('bb')])[Symbol('dd')]",
+                   explain="Total and component balances, two equations in two unknowns: the lever rule on composition"),
+    (6, 1, "B"): Q("mb-energy-dof-heater", "meb.energy", "A heater takes a single-component stream from a known inlet to an outlet whose flow equals the inlet. Inlet flow, T and P are given; the outlet P is given. Unknowns: outlet T and the heat duty Q. With {{spec}}, how many degrees of freedom remain?",
+                   cases=[{"spec": "Q given", "n": 0}, {"spec": "nothing else given", "n": 1}, {"spec": "both Q and outlet T given", "n": -1}],
+                   value="n", tex="DOF", final=True, verify="2 - 1 - (1 if n == 0 else (0 if n == 1 else 2))",
+                   explain="The energy balance is one more equation; each specified quantity removes an unknown. −1 means the given values may contradict each other"),
+}
+for u in UNITS:
+    for tn, (_, los) in enumerate(u.topics, 1):
+        for lo in los:
+            q = SECOND.get((u.n, tn, lo.id))
+            if q is not None:
+                lo.qs.append(q)
+

@@ -34,6 +34,37 @@
   verify:
     expect:
       v: solve(Eq(x + nsimplify(F)*nsimplify(z)*(1 - nsimplify(r1))*(1 - nsimplify(r2)), nsimplify(F)*nsimplify(z)), x)[0]
+- template: mb-single-column-split
+  skill: meb.nonreactive
+  pace: quick
+  given:
+    F:
+      pick:
+      - 100
+      - 250
+    z:
+      pick:
+      - 0.3
+      - 0.5
+    xd:
+      pick:
+      - 0.9
+      - 0.95
+    xb:
+      pick:
+      - 0.02
+      - 0.05
+  prompt: A column splits {{F}} kmol/h of feed at z = {{z}} into a distillate at {{xd}} and bottoms at {{xb}} (light-key mole fractions). What is the distillate flow, in kmol/h?
+  parts:
+  - ask: Answer
+    label: v
+    tex: D
+    value: F*(z - xb)/(xd - xb)
+    tol: 0.005
+    explain: 'Total and component balances, two equations in two unknowns: the lever rule on composition'
+  verify:
+    expect:
+      v: solve([Eq(Symbol('dd') + Symbol('bb'), F), Eq(Symbol('dd')*nsimplify(xd) + Symbol('bb')*nsimplify(xb), F*nsimplify(z))], [Symbol('dd'), Symbol('bb')])[Symbol('dd')]
 - template: mb-energy-dof
   skill: meb.energy
   pace: quick
@@ -60,3 +91,25 @@
   verify:
     expect:
       v: (u + 1) - (e + 1)
+- template: mb-energy-dof-heater
+  skill: meb.energy
+  pace: quick
+  cases:
+  - spec: Q given
+    n: 0
+  - spec: nothing else given
+    n: 1
+  - spec: both Q and outlet T given
+    n: -1
+  prompt: 'A heater takes a single-component stream from a known inlet to an outlet whose flow equals the inlet. Inlet flow, T and P are given; the outlet P is given. Unknowns: outlet T and the heat duty Q. With {{spec}}, how many degrees of freedom remain?'
+  parts:
+  - ask: Answer
+    label: v
+    tex: DOF
+    value: n
+    final: true
+    tol: 0.0001
+    explain: The energy balance is one more equation; each specified quantity removes an unknown. −1 means the given values may contradict each other
+  verify:
+    expect:
+      v: 2 - 1 - (1 if n == 0 else (0 if n == 1 else 2))

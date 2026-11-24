@@ -630,4 +630,6 @@ Book: incropera-8e §6.7, §7.8
 ## Drills not yet placed on the map
 
 - gc-brinkman (ht.heat-equation)
+- gc-brinkman-adiabatic (ht.heat-equation)
 - gc-stefan-freeze (ht.semi-infinite)
+- gc-stefan-thickness (ht.semi-infinite)
