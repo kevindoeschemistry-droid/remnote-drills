@@ -695,6 +695,12 @@ skills:
   - { id: olympiad.kinetics, domain: olympiad, title: "Olympiad kinetics: integrated laws, decay chains", short: "Olympiad kinetics", prereqs: [gchem.kinetics] }
   - { id: olympiad.solutions, domain: olympiad, title: "Olympiad solutions: van 't Hoff factor", short: "Olympiad solutions", prereqs: [gchem.solutions] }
   - { id: olympiad.spectro, domain: olympiad, title: "Olympiad spectra: isotope patterns, NMR multiplicity", short: "Olympiad spectra" }
+  - { id: olympiad.stoichiometry, domain: olympiad, title: "Olympiad stoichiometry: combustion analysis, hydrates, back titrations", short: "Olympiad stoichiometry", prereqs: [gchem.stoichiometry] }
+  - { id: olympiad.lab, domain: olympiad, title: "Olympiad descriptive and lab chemistry: tests, colours, error direction", short: "Olympiad lab", prereqs: [gchem.reactions] }
+  - { id: olympiad.states, domain: olympiad, title: "Olympiad states of matter: unit cells, vapour pressure, effusion", short: "Olympiad states of matter", prereqs: [gchem.imf, gchem.gases] }
+  - { id: olympiad.atomic, domain: olympiad, title: "Olympiad atomic structure: ionisation energies, quantum numbers, spectra", short: "Olympiad atomic structure", prereqs: [gchem.structure] }
+  - { id: olympiad.bonding, domain: olympiad, title: "Olympiad bonding: VSEPR, MO bond order, isomers of complexes", short: "Olympiad bonding", prereqs: [gchem.bonding] }
+  - { id: olympiad.organic, domain: olympiad, title: "Olympiad organic and biochemistry: isomers, spectra, polymers, pI", short: "Olympiad organic", prereqs: [orgo.structure] }
 
   # ── Dental Admission Test: perceptual ability ───────────────────────────
   - { id: dat.pat-angles, domain: dat, title: "PAT: angle ranking", short: "Angle ranking" }
