@@ -48,6 +48,38 @@
     explain: 'Canal anatomy drives endodontic access: missed MB2 canals are a leading cause of failed root canal treatment on maxillary molars'
   verify:
     authored: true
+- template: dn-canal-counts
+  skill: dent.anatomy
+  pace: recall
+  cases:
+  - q: How many canals does a mandibular first molar most often have?
+    o1: 3 (mesiobuccal, mesiolingual, distal), sometimes 4
+    o2: '1'
+    o3: '2'
+    o4: '5'
+  - q: Which root of the maxillary first molar often hides a second canal (MB2)?
+    o1: Mesiobuccal
+    o2: Distobuccal
+    o3: Palatal
+    o4: None
+  - q: Which tooth usually has two canals in one or two roots?
+    o1: Maxillary first premolar
+    o2: Maxillary central incisor
+    o3: Maxillary canine
+    o4: Mandibular second premolar
+  prompt: '{{q}}'
+  parts:
+  - ask: Answer
+    label: v
+    choice: &id002
+    - '{{o1}}'
+    - '{{o2}}'
+    - '{{o3}}'
+    - '{{o4}}'
+    correct: '0'
+    explain: Missed canals (MB2, a second distal or a second mandibular incisor canal) are a common cause of failure
+  verify:
+    authored: true
 - template: dn-crown-features
   skill: dent.anatomy
   pace: recall
@@ -86,6 +118,34 @@
     explain: Crown features name a tooth from a photo or a radiograph; the oblique ridge is unique to maxillary molars
   verify:
     authored: true
+- template: dn-identify-tooth
+  skill: dent.anatomy
+  pace: recall
+  cases:
+  - q: A premolar crown has a mesial concavity and a mesial marginal groove. Which tooth?
+    o1: Maxillary first premolar
+    o2: Mandibular first premolar
+    o3: Maxillary second premolar
+    o4: Mandibular second premolar
+  - q: A premolar has a large buccal cusp, a tiny lingual cusp and a mesiolingual groove. Which tooth?
+    o1: Mandibular first premolar
+    o2: Maxillary first premolar
+    o3: Mandibular second premolar
+    o4: Maxillary second premolar
+  - q: Which tooth most often has a lingual pit and may be peg-shaped?
+    o1: Maxillary lateral incisor
+    o2: Mandibular central incisor
+    o3: Maxillary canine
+    o4: Mandibular lateral incisor
+  prompt: '{{q}}'
+  parts:
+  - ask: Answer
+    label: v
+    choice: *id002
+    correct: '0'
+    explain: Small features (grooves, concavities, cusp proportions) separate teeth that look alike
+  verify:
+    authored: true
 - template: dn-angle-class
   skill: dent.anatomy
   pace: recall
@@ -119,6 +179,34 @@
     explain: Angle classifies the anteroposterior molar relationship only; crowding, crossbites and open bites are described separately
   verify:
     authored: true
+- template: dn-canine-relation
+  skill: dent.anatomy
+  pace: recall
+  cases:
+  - q: In Class I canine relation, where does the maxillary canine sit?
+    o1: In the embrasure between the mandibular canine and first premolar
+    o2: Directly over the mandibular canine
+    o3: Between the mandibular premolars
+    o4: Lingual to the mandibular canine
+  - q: The maxillary canine sits mesial to that embrasure. What canine relation is that?
+    o1: Class II
+    o2: Class I
+    o3: Class III
+    o4: Normal
+  - q: Which Angle class often comes with an anterior crossbite?
+    o1: Class III
+    o2: Class I
+    o3: Class II division 1
+    o4: Class II division 2
+  prompt: '{{q}}'
+  parts:
+  - ask: Answer
+    label: v
+    choice: *id002
+    correct: '0'
+    explain: Canine relation is read alongside the molar relation, the basis of Angle's classes
+  verify:
+    authored: true
 - template: dn-crown-root-ratio
   skill: dent.anatomy
   pace: quick
@@ -146,6 +234,31 @@
   verify:
     expect:
       v: Rational(c, r)
+- template: dn-root-needed
+  skill: dent.anatomy
+  pace: quick
+  given:
+    c:
+      pick:
+      - 8
+      - 10
+      - 12
+    r:
+      pick:
+      - 1
+      - 1.5
+      - 2
+  prompt: An abutment's clinical crown measures {{c}} mm. How much root, in mm, must remain in bone for a crown-to-root ratio of 1:{{r}}?
+  parts:
+  - ask: Answer
+    label: v
+    tex: L_{root}
+    value: c*r
+    tol: 0.005
+    explain: 1:1.5 is a good ratio, 1:1 the usual minimum for an abutment; bone loss lengthens the crown and shortens the root
+  verify:
+    expect:
+      v: solve(Eq(c/x, 1/nsimplify(r)), x)[0]
 - template: dn-nerve-supply
   skill: dent.anatomy
   pace: recall
@@ -194,6 +307,34 @@
     explain: Sensation of the teeth and gingiva is all trigeminal; taste rides with VII and IX, and motor to the tongue is XII. Anesthetic choice and nerve-injury questions turn on these
   verify:
     authored: true
+- template: dn-block-coverage
+  skill: dent.anatomy
+  pace: recall
+  cases:
+  - q: Which block anaesthetises the palatal tissue from the canine forward?
+    o1: Nasopalatine
+    o2: Greater palatine
+    o3: PSA
+    o4: Infraorbital
+  - q: Which block anaesthetises palatal tissue posterior to the canine on one side?
+    o1: Greater palatine
+    o2: Nasopalatine
+    o3: Mental
+    o4: Buccal
+  - q: The IANB does not anaesthetise the buccal gingiva of mandibular molars. Which nerve needs its own block?
+    o1: Long buccal nerve
+    o2: Lingual nerve
+    o3: Mental nerve
+    o4: Mylohyoid nerve
+  prompt: '{{q}}'
+  parts:
+  - ask: Answer
+    label: v
+    choice: *id002
+    correct: '0'
+    explain: Know which nerve carries each area to know which block covers it
+  verify:
+    authored: true
 - template: dn-mastication-muscles
   skill: dent.anatomy
   pace: recall
@@ -225,6 +366,34 @@
     choice: *id001
     correct: '0'
     explain: 'The lateral pterygoid is the odd one: it opens, protrudes and moves the jaw side to side, and its spasm is a common TMD finding'
+  verify:
+    authored: true
+- template: dn-muscle-movement
+  skill: dent.anatomy
+  pace: recall
+  cases:
+  - q: Which three muscles close the jaw?
+    o1: Masseter, temporalis and medial pterygoid
+    o2: Lateral pterygoid, digastric and mylohyoid
+    o3: Buccinator, orbicularis oris and mentalis
+    o4: Digastric and geniohyoid only
+  - q: The mandible deviates to the left on protrusion. Which lateral pterygoid is weak or not working?
+    o1: The left (the right pulls the jaw toward the left)
+    o2: The right
+    o3: Both
+    o4: 'Neither: the masseter is at fault'
+  - q: Which muscle pulls the condyle forward when the mouth opens wide?
+    o1: Lateral pterygoid
+    o2: Masseter
+    o3: Temporalis
+    o4: Medial pterygoid
+  prompt: '{{q}}'
+  parts:
+  - ask: Answer
+    label: v
+    choice: *id002
+    correct: '0'
+    explain: Elevators close; the lateral pterygoids protrude and open; one side contracting swings the jaw to the other
   verify:
     authored: true
 - template: dn-ducts-landmarks
@@ -270,6 +439,34 @@
     explain: Parotid secretion dominates stimulated flow; the submandibular gland dominates at rest. A needle too far posterior in an IANB reaches the parotid and the facial nerve
   verify:
     authored: true
+- template: dn-landmark-locate
+  skill: dent.anatomy
+  pace: recall
+  cases:
+  - q: Where is the mental foramen usually found?
+    o1: Below the apices of the mandibular premolars
+    o2: Below the first molar's distal root
+    o3: At the midline
+    o4: Behind the third molar
+  - q: Which landmark covers the nasopalatine (incisive) foramen?
+    o1: The incisive papilla
+    o2: The palatine raphe only
+    o3: The fovea palatini
+    o4: The hamular notch
+  - q: Where is the infraorbital foramen in relation to the eye?
+    o1: About 1 cm below the infraorbital rim
+    o2: Above the eyebrow
+    o3: At the angle of the mandible
+    o4: Beside the nose tip
+  prompt: '{{q}}'
+  parts:
+  - ask: Answer
+    label: v
+    choice: *id002
+    correct: '0'
+    explain: Foramina mark where nerves emerge and where blocks are given
+  verify:
+    authored: true
 - template: dn-vessels-nodes
   skill: dent.anatomy
   pace: recall
@@ -306,6 +503,34 @@
     choice: *id001
     correct: '0'
     explain: 'Infection follows fascial planes and veins: the mylohyoid line decides sublingual versus submandibular spread, and bilateral submandibular, sublingual and submental involvement is Ludwig''s angina'
+  verify:
+    authored: true
+- template: dn-vessel-risk
+  skill: dent.anatomy
+  pace: recall
+  cases:
+  - q: A PSA injection given too deep causes a rapid swelling. Which vessels are usually hit?
+    o1: The pterygoid venous plexus
+    o2: The facial artery
+    o3: The lingual artery
+    o4: The carotid
+  - q: Which artery supplies the hard palate posterior to the canine?
+    o1: Greater palatine (from the maxillary artery)
+    o2: Lingual
+    o3: Facial
+    o4: Superior labial
+  - q: Why can dental infections spread to the cavernous sinus?
+    o1: Valveless facial and pterygoid veins connect to it
+    o2: Arteries carry pus upward
+    o3: Lymph drains there
+    o4: They cannot
+  prompt: '{{q}}'
+  parts:
+  - ask: Answer
+    label: v
+    choice: *id002
+    correct: '0'
+    explain: Venous connections without valves are why upper-face infections can spread intracranially
   verify:
     authored: true
 - template: dn-tissue-origin
@@ -351,6 +576,34 @@
     explain: Enamel is the only dental hard tissue from ectoderm and the only one that cannot be remade once the ameloblasts are lost at eruption. Rests of Malassez give rise to radicular cysts
   verify:
     authored: true
+- template: dn-supporting-origin
+  skill: dent.anatomy
+  pace: recall
+  cases:
+  - q: Which structure gives rise to cementum, PDL and alveolar bone lining the socket?
+    o1: The dental follicle (sac)
+    o2: The enamel organ
+    o3: The dental papilla
+    o4: The oral epithelium
+  - q: Which structure becomes the pulp?
+    o1: The dental papilla
+    o2: The dental follicle
+    o3: The enamel organ
+    o4: Hertwig's root sheath
+  - q: Remnants of Hertwig's root sheath in the PDL are called what?
+    o1: Rests of Malassez
+    o2: Rests of Serres
+    o3: Reduced enamel epithelium
+    o4: Odontoblasts
+  prompt: '{{q}}'
+  parts:
+  - ask: Answer
+    label: v
+    choice: *id002
+    correct: '0'
+    explain: Enamel organ → enamel; papilla → dentin and pulp; follicle → cementum, PDL and bone
+  verify:
+    authored: true
 - template: dn-tooth-anomalies
   skill: dent.biomed
   pace: recall
@@ -394,6 +647,34 @@
     explain: 'Which tissue is affected names the condition: enamel only (AI), dentin with pulp obliteration (DI), or the whole tooth in a region (regional odontodysplasia)'
   verify:
     authored: true
+- template: dn-anomaly-shape
+  skill: dent.anatomy
+  pace: recall
+  cases:
+  - q: Two teeth joined by cementum only, after root formation. What is it?
+    o1: Concrescence
+    o2: Fusion
+    o3: Gemination
+    o4: Dilaceration
+  - q: A tooth with an enlarged pulp chamber and short roots (bull-like). What is it?
+    o1: Taurodontism
+    o2: Dens in dente
+    o3: Dilaceration
+    o4: Concrescence
+  - q: An invagination of enamel into the crown, most often in maxillary lateral incisors. What is it?
+    o1: Dens invaginatus (dens in dente)
+    o2: Dens evaginatus
+    o3: Taurodontism
+    o4: Enamel pearl
+  prompt: '{{q}}'
+  parts:
+  - ask: Answer
+    label: v
+    choice: *id002
+    correct: '0'
+    explain: Fusion joins two tooth germs (count drops); gemination splits one (count normal)
+  verify:
+    authored: true
 - template: dn-clefts
   skill: dent.biomed
   pace: recall
@@ -425,6 +706,34 @@
     choice: *id001
     correct: '0'
     explain: The lip and primary palate form by weeks 6–7, the secondary palate by about week 12; isolated cleft palate is more often female and syndromic
+  verify:
+    authored: true
+- template: dn-cleft-timing
+  skill: dent.anatomy
+  pace: recall
+  cases:
+  - q: When in development does the lip normally fuse?
+    o1: Around weeks 4–7
+    o2: Around weeks 12–16
+    o3: After birth
+    o4: In the first week
+  - q: When do the palatal shelves normally fuse?
+    o1: Around weeks 8–12
+    o2: Around weeks 4–5
+    o3: In the third trimester
+    o4: After birth
+  - q: Which drug taken in early pregnancy is linked to orofacial clefts?
+    o1: Phenytoin (and some other anticonvulsants)
+    o2: Acetaminophen
+    o3: Penicillin
+    o4: Folic acid
+  prompt: '{{q}}'
+  parts:
+  - ask: Answer
+    label: v
+    choice: *id002
+    correct: '0'
+    explain: Clefts reflect failed fusion during these windows; folic acid lowers the risk
   verify:
     authored: true
 - template: dn-analgesics
@@ -470,6 +779,30 @@
     explain: NSAIDs inhibit COX and prostaglandin synthesis at the site of tissue injury, which is why they outperform opioids after extractions; opioids are a last resort for short courses
   verify:
     authored: true
+- template: dn-acetaminophen-tablets
+  skill: dent.pharm
+  pace: quick
+  given:
+    lim:
+      pick:
+      - 3
+      - 4
+    mg:
+      pick:
+      - 325
+      - 500
+  prompt: A patient's acetaminophen ceiling is {{lim}} g a day. How many {{mg}} mg tablets is that at most?
+  parts:
+  - ask: Answer
+    label: v
+    tex: N
+    value: floor(lim*1000/mg)
+    final: true
+    tol: 0.0001
+    explain: Count acetaminophen in combination products too; 3 g is the usual lower ceiling with liver disease or alcohol use
+  verify:
+    expect:
+      v: floor(Rational(lim*1000, mg))
 - template: dn-antibiotics
   skill: dent.pharm
   pace: recall
@@ -511,6 +844,34 @@
     choice: *id001
     correct: '0'
     explain: Most odontogenic infections are mixed streptococci and anaerobes, which penicillins cover; drainage and removing the source matter more than the drug
+  verify:
+    authored: true
+- template: dn-antibiotic-risks
+  skill: dent.pharm
+  pace: recall
+  cases:
+  - q: Which antibiotic most raises the risk of C. difficile colitis?
+    o1: Clindamycin
+    o2: Amoxicillin
+    o3: Penicillin VK
+    o4: Metronidazole
+  - q: Why is amoxicillin–clavulanate chosen over amoxicillin?
+    o1: Clavulanate blocks β-lactamases of resistant bacteria
+    o2: It is stronger against viruses
+    o3: It is cheaper
+    o4: It has no side effects
+  - q: Below what age are tetracyclines usually avoided?
+    o1: 8 years
+    o2: 18 years
+    o3: 2 years
+    o4: 65 years
+  prompt: '{{q}}'
+  parts:
+  - ask: Answer
+    label: v
+    choice: *id002
+    correct: '0'
+    explain: 'Choose for the organism and the patient: allergy, age, gut flora'
   verify:
     authored: true
 - template: dn-interactions
@@ -556,6 +917,34 @@
     explain: Ask what the drug does to bone, blood, blood pressure or glands, and the dental consequence follows
   verify:
     authored: true
+- template: dn-interaction-scenarios
+  skill: dent.pharm
+  pace: recall
+  cases:
+  - q: A patient on warfarin is prescribed metronidazole. What happens to the INR?
+    o1: 'It rises: bleeding risk increases'
+    o2: It falls
+    o3: No change
+    o4: Warfarin stops working
+  - q: Why limit epinephrine in a patient on a tricyclic antidepressant?
+    o1: The pressor effect is enhanced
+    o2: Tricyclics block local anaesthetics
+    o3: Epinephrine stops the antidepressant
+    o4: There is no reason
+  - q: A patient on oral bisphosphonates for osteoporosis for 2 years needs an extraction. What is the usual stance?
+    o1: 'Proceed with care: the MRONJ risk is low but should be discussed'
+    o2: Never extract
+    o3: Stop the drug for a year first
+    o4: No consent needed
+  prompt: '{{q}}'
+  parts:
+  - ask: Answer
+    label: v
+    choice: *id002
+    correct: '0'
+    explain: Interactions change dosing, timing or consent, rarely whether to treat at all
+  verify:
+    authored: true
 - template: dn-peds-amoxicillin
   skill: dent.pharm
   pace: quick
@@ -580,6 +969,31 @@
   verify:
     expect:
       v: Min(50*kg, 2000)
+- template: dn-suspension-volume
+  skill: dent.pharm
+  pace: quick
+  given:
+    kg:
+      pick:
+      - 10
+      - 15
+      - 20
+      - 45
+    c:
+      pick:
+      - 250
+      - 400
+  prompt: A child of {{kg}} kg needs amoxicillin 50 mg/kg (not over 2 g) as suspension containing {{c}} mg/5 mL. What volume, in mL?
+  parts:
+  - ask: Answer
+    label: v
+    tex: V
+    value: min(50*kg, 2000)/c*5
+    tol: 0.005
+    explain: Dose first, capped at the adult dose; then convert with the concentration
+  verify:
+    expect:
+      v: Min(50*kg, 2000)*5/nsimplify(c)
 - template: dn-half-life
   skill: dent.pharm
   pace: quick
@@ -606,6 +1020,32 @@
   verify:
     expect:
       v: 100*exp(-log(2)/h*t)
+- template: dn-time-to-fraction
+  skill: dent.pharm
+  pace: quick
+  given:
+    h:
+      pick:
+      - 2
+      - 4
+      - 6
+    f:
+      pick:
+      - 50
+      - 25
+      - 12.5
+      - 6.25
+  prompt: A drug has a half-life of {{h}} h. How long until only {{f}}% of a dose remains, in h?
+  parts:
+  - ask: Answer
+    label: v
+    tex: t
+    value: h*log(100/f)/log(2)
+    tol: 0.005
+    explain: About 4–5 half-lives clear most of a drug and set the time to steady state
+  verify:
+    expect:
+      v: nsimplify(h)*log(100/nsimplify(f), 2)
 - template: dn-oral-microbes
   skill: dent.biomed
   pace: recall
@@ -649,6 +1089,34 @@
     explain: S. mutans makes acid and glucans from sucrose; P. gingivalis has gingipains that degrade host proteins. Recurrent herpes labialis is reactivation from the trigeminal ganglion
   verify:
     authored: true
+- template: dn-organism-lesion
+  skill: dent.biomed
+  pace: recall
+  cases:
+  - q: Recurrent cold sores on the lip are usually caused by what?
+    o1: Herpes simplex virus 1
+    o2: Coxsackievirus A16
+    o3: Candida albicans
+    o4: Varicella-zoster virus
+  - q: White plaques that wipe off to leave a red base suggest which organism?
+    o1: Candida albicans
+    o2: Streptococcus mutans
+    o3: HPV
+    o4: Treponema pallidum
+  - q: Hand, foot and mouth disease is caused by what?
+    o1: Coxsackievirus A16 (enteroviruses)
+    o2: HSV-1
+    o3: Epstein–Barr virus
+    o4: Candida
+  prompt: '{{q}}'
+  parts:
+  - ask: Answer
+    label: v
+    choice: *id002
+    correct: '0'
+    explain: Many oral lesions point to one organism
+  verify:
+    authored: true
 - template: dn-exposure
   skill: dent.practice
   pace: recall
@@ -682,6 +1150,32 @@
     explain: 'Risk scales with viral load in blood: HBV e-antigen-positive blood carries far more virus than HIV-positive blood'
   verify:
     authored: true
+- template: dn-exposure-expected
+  skill: dent.practice
+  pace: quick
+  given:
+    n:
+      pick:
+      - 100
+      - 1000
+  cases:
+  - v: HBV (HBeAg-positive, unvaccinated worker)
+    r: 30
+  - v: HCV
+    r: 1.8
+  - v: HIV
+    r: 0.3
+  prompt: Average per-exposure transmission risks after a needlestick from a positive source are about {{r}}% for {{v}}. In {{n}} such exposures, how many infections are expected?
+  parts:
+  - ask: Answer
+    label: y
+    tex: E
+    value: n*r/100
+    tol: 0.005
+    explain: Risk ranks HBV ≫ HCV > HIV, which is why the HBV vaccine matters most
+  verify:
+    expect:
+      y: n*nsimplify(r)/100
 - template: dn-hypersensitivity
   skill: dent.biomed
   pace: recall
@@ -718,6 +1212,34 @@
     choice: *id001
     correct: '0'
     explain: 'Timing separates them: minutes for type I, days for type IV. Plasma cells dominate established periodontitis lesions, neutrophils the early one'
+  verify:
+    authored: true
+- template: dn-hypersensitivity-more
+  skill: dent.biomed
+  pace: recall
+  cases:
+  - q: Autoantibodies against desmosomes in pemphigus vulgaris are which hypersensitivity type?
+    o1: Type II (antibody against tissue)
+    o2: Type I
+    o3: Type III
+    o4: Type IV
+  - q: Immune complexes depositing in vessel walls cause which type?
+    o1: Type III
+    o2: Type I
+    o3: Type II
+    o4: Type IV
+  - q: A nickel allergy rash under an orthodontic appliance is which type?
+    o1: Type IV (delayed, T-cell)
+    o2: Type I
+    o3: Type II
+    o4: Type III
+  prompt: '{{q}}'
+  parts:
+  - ask: Answer
+    label: v
+    choice: *id002
+    correct: '0'
+    explain: I IgE; II antibody to cells or tissue; III immune complexes; IV T cells
   verify:
     authored: true
 - template: dn-soft-lesions
@@ -763,6 +1285,34 @@
     explain: Site, colour, whether it wipes off and the history narrow the list before biopsy; a white lesion that will not wipe off and has no cause needs a biopsy
   verify:
     authored: true
+- template: dn-lesion-site
+  skill: dent.biomed
+  pace: recall
+  cases:
+  - q: A painless, smooth, firm nodule on the buccal mucosa along the bite line. What is it most likely?
+    o1: Irritation fibroma
+    o2: Mucocele
+    o3: Ranula
+    o4: Pyogenic granuloma
+  - q: A bluish, fluctuant swelling on the lower lip after biting it. What is it?
+    o1: Mucocele
+    o2: Fibroma
+    o3: Hemangioma only
+    o4: Ranula
+  - q: A red, bleeding gingival growth in a pregnant patient. What is it?
+    o1: Pyogenic granuloma
+    o2: Fibroma
+    o3: Mucocele
+    o4: Squamous cell carcinoma
+  prompt: '{{q}}'
+  parts:
+  - ask: Answer
+    label: v
+    choice: *id002
+    correct: '0'
+    explain: Site, colour and history narrow a soft-tissue lesion quickly
+  verify:
+    authored: true
 - template: dn-cancer-risk
   skill: dent.biomed
   pace: recall
@@ -799,6 +1349,34 @@
     choice: *id001
     correct: '0'
     explain: Tobacco and alcohol act together on the floor of mouth and tongue; HPV drives a separate, rising oropharyngeal disease in younger non-smokers
+  verify:
+    authored: true
+- template: dn-cancer-site-risk
+  skill: dent.biomed
+  pace: recall
+  cases:
+  - q: Which red lesion carries the highest risk of dysplasia or carcinoma?
+    o1: Erythroplakia
+    o2: Leukoplakia
+    o3: Linea alba
+    o4: Fordyce granules
+  - q: Which site is a high-risk location for oral squamous cell carcinoma?
+    o1: Ventrolateral tongue and floor of mouth
+    o2: Hard palate
+    o3: Dorsal tongue
+    o4: Attached gingiva of incisors
+  - q: A white lesion that does not wipe off and has no clear cause. What is the next step?
+    o1: Biopsy
+    o2: Reassure and discharge
+    o3: Antifungals only
+    o4: Wait five years
+  prompt: '{{q}}'
+  parts:
+  - ask: Answer
+    label: v
+    choice: *id002
+    correct: '0'
+    explain: Red is riskier than white; unexplained persistent lesions get a biopsy
   verify:
     authored: true
 - template: dn-jaw-lesions
@@ -849,6 +1427,34 @@
     explain: 'Location relative to the tooth and the vitality test do most of the work: crown-associated, apex-associated, or unrelated to the teeth'
   verify:
     authored: true
+- template: dn-jaw-lesion-more
+  skill: dent.biomed
+  pace: recall
+  cases:
+  - q: A multilocular radiolucency in the posterior mandible of an adult. Which lesion is classic?
+    o1: Ameloblastoma
+    o2: Periapical granuloma
+    o3: Torus
+    o4: Condensing osteitis
+  - q: Periapical radiolucencies at vital mandibular incisors in a middle-aged woman. What is likely?
+    o1: Cemento-osseous dysplasia
+    o2: Periapical abscess
+    o3: Ameloblastoma
+    o4: Osteosarcoma
+  - q: A radiolucency around the crown of an unerupted tooth, attached at the CEJ. What is likely?
+    o1: Dentigerous cyst
+    o2: Radicular cyst
+    o3: Lateral periodontal cyst
+    o4: Stafne defect
+  prompt: '{{q}}'
+  parts:
+  - ask: Answer
+    label: v
+    choice: *id002
+    correct: '0'
+    explain: Test pulp vitality before treating a periapical radiolucency
+  verify:
+    authored: true
 - template: dn-vesiculobullous
   skill: dent.biomed
   pace: recall
@@ -885,6 +1491,34 @@
     choice: *id001
     correct: '0'
     explain: Intraepithelial blisters break at once and leave ragged erosions; subepithelial ones can stay intact. Recurrent herpes favours keratinised mucosa (palate, gingiva), aphthae the movable mucosa
+  verify:
+    authored: true
+- template: dn-blister-test
+  skill: dent.biomed
+  pace: recall
+  cases:
+  - q: Gentle rubbing of normal mucosa produces a blister (positive Nikolsky). Which disease is likely?
+    o1: Pemphigus vulgaris
+    o2: Lichen planus
+    o3: Aphthous ulcer
+    o4: Candidiasis
+  - q: Where does the split occur in mucous membrane pemphigoid?
+    o1: Below the epithelium (subepithelial)
+    o2: Within the epithelium
+    o3: In the dermis only
+    o4: In bone
+  - q: Target lesions on the skin with crusted lips after a drug or herpes infection suggest what?
+    o1: Erythema multiforme
+    o2: Pemphigus
+    o3: Pemphigoid
+    o4: Lichen planus
+  prompt: '{{q}}'
+  parts:
+  - ask: Answer
+    label: v
+    choice: *id002
+    correct: '0'
+    explain: 'Intraepithelial split: pemphigus; subepithelial: pemphigoid; targets: erythema multiforme'
   verify:
     authored: true
 - template: dn-kennedy
@@ -930,6 +1564,39 @@
     explain: The most posterior edentulous area decides the class; other spaces become modifications. Class IV has none because any additional space would be more posterior
   verify:
     authored: true
+- template: dn-kennedy-more
+  skill: dent.clinical
+  pace: recall
+  cases:
+  - q: A mandibular arch is missing all posterior teeth on both sides, plus one incisor. Which Kennedy class?
+    o1: Class I, modification 1
+    o2: Class IV
+    o3: Class II
+    o4: Class III, modification 1
+  - q: One side has a free-end posterior space; the other side is intact. Which class?
+    o1: Class II
+    o2: Class I
+    o3: Class III
+    o4: Class IV
+  - q: A single bounded space crossing the midline, all posterior teeth present. Which class?
+    o1: Class IV
+    o2: Class III
+    o3: Class I
+    o4: Class II
+  - q: A single bounded posterior space with teeth on both ends. Which class?
+    o1: Class III
+    o2: Class II
+    o3: Class IV
+    o4: Class I
+  prompt: '{{q}}'
+  parts:
+  - ask: Answer
+    label: v
+    choice: *id002
+    correct: '0'
+    explain: The most posterior edentulous area sets the class; others are modifications; Class IV has none
+  verify:
+    authored: true
 - template: dn-pediatric
   skill: dent.clinical
   pace: recall
@@ -971,6 +1638,34 @@
     choice: *id001
     correct: '0'
     explain: A distal shoe guides the erupting first molar into place; once it is in occlusion a band and loop is enough
+  verify:
+    authored: true
+- template: dn-space-maintainer
+  skill: dent.clinical
+  pace: recall
+  cases:
+  - q: A primary first molar is lost early on one side. Which space maintainer fits?
+    o1: Band and loop
+    o2: Distal shoe
+    o3: Lower lingual holding arch
+    o4: None ever
+  - q: A primary second molar is lost before the permanent first molar erupts. Which appliance guides the molar?
+    o1: Distal shoe
+    o2: Band and loop
+    o3: Nance appliance
+    o4: Retainer
+  - q: Primary molars are lost on both sides of the mandible after the permanent incisors erupt. Which appliance?
+    o1: Lower lingual holding arch
+    o2: Band and loop on each side
+    o3: Distal shoe
+    o4: Complete denture
+  prompt: '{{q}}'
+  parts:
+  - ask: Answer
+    label: v
+    choice: *id002
+    correct: '0'
+    explain: Choose by which tooth is lost, how many, and whether the guiding teeth have erupted
   verify:
     authored: true
 - template: dn-oral-surgery
@@ -1016,6 +1711,34 @@
     explain: 'Dry socket is lost clot, not infection: irrigate and dress it. Stopping anticoagulants for minor surgery usually risks more than it saves'
   verify:
     authored: true
+- template: dn-surgery-complication
+  skill: dent.clinical
+  pace: recall
+  cases:
+  - q: Severe throbbing pain 2–4 days after a mandibular molar extraction, with an empty socket. What is it?
+    o1: Alveolar osteitis (dry socket)
+    o2: Infection always needing antibiotics
+    o3: Normal healing
+    o4: Nerve injury
+  - q: How is a dry socket usually managed?
+    o1: Gentle irrigation and a medicated dressing, with analgesics
+    o2: Re-extraction
+    o3: Antibiotics alone
+    o4: Suturing the socket shut
+  - q: Numbness of the lower lip after a third molar extraction suggests injury to which nerve?
+    o1: Inferior alveolar
+    o2: Lingual
+    o3: Facial
+    o4: Buccal
+  prompt: '{{q}}'
+  parts:
+  - ask: Answer
+    label: v
+    choice: *id002
+    correct: '0'
+    explain: Dry socket is a clot problem, not usually an infection
+  verify:
+    authored: true
 - template: dn-periapical
   skill: dent.clinical
   pace: recall
@@ -1059,6 +1782,34 @@
     explain: Pulp tests tell vital from non-vital; percussion, palpation, swelling and sinus tracts describe the periapex. The AAE terms keep the two diagnoses separate
   verify:
     authored: true
+- template: dn-periapical-findings
+  skill: dent.clinical
+  pace: recall
+  cases:
+  - q: A sinus tract draining near a nonvital tooth, with little pain. Which diagnosis?
+    o1: Chronic apical abscess
+    o2: Symptomatic apical periodontitis
+    o3: Acute apical abscess
+    o4: Normal apical tissues
+  - q: A diffuse radiopacity around the apex of a tooth with chronic pulpitis. Which diagnosis?
+    o1: Condensing osteitis
+    o2: Ameloblastoma
+    o3: Periapical cyst
+    o4: Acute apical abscess
+  - q: Rapid-onset swelling and pain over a necrotic tooth. Which diagnosis?
+    o1: Acute apical abscess
+    o2: Chronic apical abscess
+    o3: Asymptomatic apical periodontitis
+    o4: Reversible pulpitis
+  prompt: '{{q}}'
+  parts:
+  - ask: Answer
+    label: v
+    choice: *id002
+    correct: '0'
+    explain: Pain, swelling, sinus tracts and radiographic change separate the apical diagnoses
+  verify:
+    authored: true
 - template: dn-bp-decision
   skill: dent.management
   pace: quick
@@ -1093,6 +1844,38 @@
   verify:
     choices:
       v: 2 if (s >= 180 or d >= 110) else (1 if (s >= 130 or d >= 80) else 0)
+- template: dn-bp-category
+  skill: dent.clinical
+  pace: quick
+  given:
+    s:
+      pick:
+      - 115
+      - 125
+      - 135
+      - 150
+      - 185
+    d:
+      pick:
+      - 75
+      - 85
+      - 95
+      - 125
+  prompt: A patient's blood pressure is {{s}}/{{d}} mmHg. Which AHA (2017) category is it?
+  parts:
+  - ask: Answer
+    label: v
+    choice:
+    - Normal
+    - Elevated
+    - Stage 1 hypertension
+    - Stage 2 hypertension
+    - Hypertensive crisis
+    correct: '(s > 180 or d > 120) ? 4 : ((s >= 140 or d >= 90) ? 3 : ((s >= 130 or d >= 80) ? 2 : (s >= 120 ? 1 : 0)))'
+    explain: The higher of the two numbers decides the category; a crisis needs immediate medical referral
+  verify:
+    choices:
+      v: 4 if (s > 180 or d > 120) else (3 if (s >= 140 or d >= 90) else (2 if (s >= 130 or d >= 80) else (1 if s >= 120 else 0)))
 - template: dn-emergency-doses
   skill: dent.management
   pace: recall
@@ -1136,6 +1919,28 @@
     explain: Epinephrine is the only first-line drug for anaphylaxis; antihistamines are adjuncts. Nitroglycerin is withheld with low blood pressure or recent PDE-5 inhibitors
   verify:
     authored: true
+- template: dn-epi-child-dose
+  skill: dent.clinical
+  pace: quick
+  given:
+    kg:
+      pick:
+      - 10
+      - 15
+      - 20
+      - 25
+      - 40
+  prompt: 'Anaphylaxis in a child of {{kg}} kg: epinephrine 0.01 mg/kg IM, not over 0.3 mg, from a 1 mg/mL ampule. What volume, in mL?'
+  parts:
+  - ask: Answer
+    label: v
+    tex: V
+    value: min(0.01*kg, 0.3)
+    tol: 0.005
+    explain: Children get 0.01 mg/kg up to the 0.3 mg adult auto-injector dose; 1 mg/mL means mg and mL are equal
+  verify:
+    expect:
+      v: Min(kg*Rational(1, 100), Rational(3, 10))/1
 - template: dn-lab-values
   skill: dent.management
   pace: recall
@@ -1179,6 +1984,36 @@
     explain: Lab values guide timing and local measures; anticoagulants are usually continued for routine dental surgery after discussion with the prescriber
   verify:
     authored: true
+- template: dn-anc
+  skill: dent.clinical
+  pace: quick
+  given:
+    w:
+      pick:
+      - 2.5
+      - 4
+      - 7
+    n:
+      pick:
+      - 20
+      - 40
+      - 60
+    b:
+      pick:
+      - 0
+      - 3
+      - 5
+  prompt: A patient's white count is {{w}} × 10³/μL with {{n}}% neutrophils and {{b}}% bands. What is the absolute neutrophil count, per μL?
+  parts:
+  - ask: Answer
+    label: v
+    tex: ANC
+    value: w*1000*(n + b)/100
+    tol: 0.005
+    explain: Below about 1000/μL, elective surgery is usually deferred because of infection risk
+  verify:
+    expect:
+      v: nsimplify(w)*1000*Rational(n, 100) + nsimplify(w)*1000*Rational(b, 100)
 - template: dn-ethics
   skill: dent.behavior
   pace: recall
@@ -1215,6 +2050,39 @@
     choice: *id001
     correct: '0'
     explain: The ADA Code names five principles; justice covers fair treatment and access, veracity covers honesty with patients and in advertising
+  verify:
+    authored: true
+- template: dn-ethics-principle
+  skill: dent.behavior
+  pace: recall
+  cases:
+  - q: A dentist explains all treatment options, including no treatment, and lets the patient choose. Which principle?
+    o1: Patient autonomy
+    o2: Justice
+    o3: Veracity
+    o4: Nonmaleficence
+  - q: A dentist refers a case beyond their skill. Which principle?
+    o1: Nonmaleficence (do no harm)
+    o2: Justice
+    o3: Autonomy
+    o4: Veracity
+  - q: A dentist does not refuse a patient because of HIV status. Which principle?
+    o1: Justice
+    o2: Beneficence
+    o3: Veracity
+    o4: Autonomy
+  - q: A dentist tells a patient about a broken file left in a canal. Which principle?
+    o1: Veracity
+    o2: Justice
+    o3: Autonomy
+    o4: Beneficence
+  prompt: '{{q}}'
+  parts:
+  - ask: Answer
+    label: v
+    choice: *id002
+    correct: '0'
+    explain: The ADA Code rests on autonomy, nonmaleficence, beneficence, justice and veracity
   verify:
     authored: true
 - template: dn-jurisprudence
@@ -1258,6 +2126,34 @@
     choice: *id001
     correct: '0'
     explain: 'Records are legal documents: corrections must stay visible. Mandated reporters need suspicion, not proof'
+  verify:
+    authored: true
+- template: dn-consent-scenario
+  skill: dent.behavior
+  pace: recall
+  cases:
+  - q: Which is required for informed consent?
+    o1: Diagnosis, proposed treatment, risks, benefits and alternatives (including none)
+    o2: Only the patient's signature
+    o3: Only the fee
+    o4: Only the risks
+  - q: Who consents for treatment of a 10-year-old (not emancipated)?
+    o1: A parent or legal guardian
+    o2: The child alone
+    o3: The dentist
+    o4: The school nurse
+  - q: A dentist suspects child abuse. What must they do?
+    o1: Report it to the authorities, as a mandated reporter
+    o2: Wait for proof
+    o3: Tell the parents only
+    o4: Nothing without consent
+  prompt: '{{q}}'
+  parts:
+  - ask: Answer
+    label: v
+    choice: *id002
+    correct: '0'
+    explain: Consent needs information and capacity; abuse reporting is required by law
   verify:
     authored: true
 - template: dn-nnt
@@ -1354,6 +2250,31 @@
     explain: 'Design limits what a study can claim: only randomisation controls unknown confounders'
   verify:
     authored: true
+- template: dn-nnt-sealant
+  skill: dent.practice
+  pace: quick
+  given:
+    c:
+      pick:
+      - 40
+      - 30
+      - 20
+    t:
+      pick:
+      - 10
+      - 5
+  prompt: A sealant programme lowers the risk of a carious lesion over three years from {{c}}% to {{t}}%. How many children must be treated to prevent one lesion (NNT)?
+  parts:
+  - ask: Answer
+    label: v
+    tex: NNT
+    value: ceil(100/(c - t))
+    final: true
+    tol: 0.0001
+    explain: NNT = 1/ARR, rounded up; a big relative reduction can still mean a large NNT when the event is rare
+  verify:
+    expect:
+      v: ceiling(1/(Rational(c, 100) - Rational(t, 100)))
 - template: dn-fluoride-supplement
   skill: dent.management
   pace: quick
@@ -1386,3 +2307,23 @@
   verify:
     expect:
       v: 0 if w > Rational(6, 10) else ((0 if age < 3 else (Rational(1, 4) if age < 6 else Rational(1, 2))) if w >= Rational(3, 10) else (Rational(1, 4) if age < 3 else (Rational(1, 2) if age < 6 else 1)))
+- template: dn-naf-fluoride
+  skill: dent.practice
+  pace: quick
+  given:
+    m:
+      pick:
+      - 0.55
+      - 1.1
+      - 2.2
+  prompt: How many mg of fluoride ion does a {{m}} mg sodium fluoride tablet deliver? (Na 22.99, F 19.00)
+  parts:
+  - ask: Answer
+    label: v
+    tex: m_F
+    value: m*19.00/(22.99 + 19.00)
+    tol: 0.005
+    explain: 'Fluoride is about 45% of NaF by mass: a 2.2 mg tablet gives 1.0 mg F⁻, the supplement dose for ages 6–16 in low-fluoride areas'
+  verify:
+    expect:
+      v: nsimplify(m)*Rational(1900, 100)/(Rational(2299, 100) + Rational(1900, 100))
