@@ -88,7 +88,7 @@ units:
         title: Can change occur at an instant?
         ced: "1.1"
         los:
-          - { id: A, std: [CHA-1.A], do: "Explain why an instantaneous rate of change has to be defined as a limit of average rates over shrinking intervals.", ek: ["Average rate = Δy/Δx over an interval; at a single instant Δx = 0, so the rate is what Δy/Δx approaches as Δx → 0."], p: [P2], drills: [ca-shrinking-average-rate] }
+          - { id: A, std: [CHA-1.A], do: "Explain why an instantaneous rate of change has to be defined as a limit of average rates over shrinking intervals.", ek: ["Average rate = Δy/Δx over an interval; at a single instant Δx = 0, so the rate is what Δy/Δx approaches as Δx → 0."], p: [P2], drills: [ca-shrinking-average-rate, "ca-secant-to-tangent"] }
       - n: 2
         title: Limits and limit notation
         ced: "1.2"
@@ -99,12 +99,12 @@ units:
         title: Estimating limits from graphs
         ced: "1.3"
         los:
-          - { id: A, std: [LIM-1.C], do: "Estimate one-sided and two-sided limits from a graph, including at holes and jumps.", ek: ["Follow the curve toward x = c from each side; an open circle or a filled dot elsewhere does not change the limit."], p: [P2], drills: [ca-limit-graph], needs: [CA-1.2.B] }
+          - { id: A, std: [LIM-1.C], do: "Estimate one-sided and two-sided limits from a graph, including at holes and jumps.", ek: ["Follow the curve toward x = c from each side; an open circle or a filled dot elsewhere does not change the limit."], p: [P2], drills: [ca-limit-graph, "ca-limit-from-formula"], needs: [CA-1.2.B] }
       - n: 4
         title: Estimating limits from tables
         ced: "1.4"
         los:
-          - { id: A, std: [LIM-1.C], do: "Estimate a limit from a table of values that approach c from both sides, and say when the table is not enough.", ek: ["Look for a common trend from left and right; a table can mislead if the sampled x-values miss oscillation."], p: [P2, P1], drills: [ca-limit-table], needs: [CA-1.2.B] }
+          - { id: A, std: [LIM-1.C], do: "Estimate a limit from a table of values that approach c from both sides, and say when the table is not enough.", ek: ["Look for a common trend from left and right; a table can mislead if the sampled x-values miss oscillation."], p: [P2, P1], drills: [ca-limit-table, "ca-limit-table-reverse"], needs: [CA-1.2.B] }
       - n: 5
         title: Limit laws
         ced: "1.5"
@@ -125,7 +125,7 @@ units:
         title: The squeeze theorem
         ced: "1.8"
         los:
-          - { id: A, std: [LIM-1.E], do: "Find a limit with the squeeze theorem after bounding the function between two functions with a common limit.", ek: ["g ≤ f ≤ h near c and lim g = lim h = L ⇒ lim f = L; −1 ≤ sin(anything) ≤ 1 is the usual bound."], p: [P3], drills: [ca-lim-squeeze], needs: [CA-1.5.A] }
+          - { id: A, std: [LIM-1.E], do: "Find a limit with the squeeze theorem after bounding the function between two functions with a common limit.", ek: ["g ≤ f ≤ h near c and lim g = lim h = L ⇒ lim f = L; −1 ≤ sin(anything) ≤ 1 is the usual bound."], p: [P3], drills: [ca-lim-squeeze, "ca-squeeze-bounds"], needs: [CA-1.5.A] }
       - n: 9
         title: Connecting representations of limits
         ced: "1.9"
@@ -135,7 +135,7 @@ units:
         title: Types of discontinuities
         ced: "1.10"
         los:
-          - { id: A, std: [LIM-2.A], do: "Classify a discontinuity as removable, jump or infinite from a graph or formula.", ek: ["Removable: limit exists but ≠ f(c) or f(c) undefined; jump: one-sided limits differ; infinite: a one-sided limit is ±∞."], p: [P2], drills: [ca-discontinuity-graph], needs: [CA-1.2.B] }
+          - { id: A, std: [LIM-2.A], do: "Classify a discontinuity as removable, jump or infinite from a graph or formula.", ek: ["Removable: limit exists but ≠ f(c) or f(c) undefined; jump: one-sided limits differ; infinite: a one-sided limit is ±∞."], p: [P2], drills: [ca-discontinuity-graph, "ca-discontinuity-formula"], needs: [CA-1.2.B] }
       - n: 11
         title: Continuity at a point
         ced: "1.11"
@@ -145,12 +145,12 @@ units:
         title: Continuity over an interval
         ced: "1.12"
         los:
-          - { id: A, std: [LIM-2.B], do: "State the intervals on which a function (including a piecewise one) is continuous.", ek: ["Polynomials, rational, power, exponential, log and trig functions are continuous on their domains; check a piecewise function at its break points."], p: [P3], drills: [ca-make-continuous], needs: [CA-1.11.A] }
+          - { id: A, std: [LIM-2.B], do: "State the intervals on which a function (including a piecewise one) is continuous.", ek: ["Polynomials, rational, power, exponential, log and trig functions are continuous on their domains; check a piecewise function at its break points."], p: [P3], drills: [ca-make-continuous, "ca-piecewise-continuous-check"], needs: [CA-1.11.A] }
       - n: 13
         title: Removing discontinuities
         ced: "1.13"
         los:
-          - { id: A, std: [LIM-2.C], do: "Remove a discontinuity: redefine f at a removable point, or solve for constants that make a piecewise function continuous at its break.", ek: ["Set f(c) = lim_(x→c) f(x); for a piecewise function, match the left and right limits at the break and f(c)."], p: [P1], drills: [ca-continuity-k], needs: [CA-1.11.A, CA-1.6.A] }
+          - { id: A, std: [LIM-2.C], do: "Remove a discontinuity: redefine f at a removable point, or solve for constants that make a piecewise function continuous at its break.", ek: ["Set f(c) = lim_(x→c) f(x); for a piecewise function, match the left and right limits at the break and f(c)."], p: [P1], drills: [ca-continuity-k, "ca-removable-value"], needs: [CA-1.11.A, CA-1.6.A] }
       - n: 14
         title: Infinite limits and vertical asymptotes
         ced: "1.14"
@@ -165,7 +165,7 @@ units:
         title: The Intermediate Value Theorem
         ced: "1.16"
         los:
-          - { id: A, std: [FUN-1.A], do: "Use the IVT to justify that a function takes a given value (or has a root) on an interval, after confirming continuity.", ek: ["f continuous on [a, b] and N between f(a) and f(b) ⇒ f(c) = N for some c in (a, b)."], p: [P3], drills: [ca-ivt], needs: [CA-1.12.A] }
+          - { id: A, std: [FUN-1.A], do: "Use the IVT to justify that a function takes a given value (or has a root) on an interval, after confirming continuity.", ek: ["f continuous on [a, b] and N between f(a) and f(b) ⇒ f(c) = N for some c in (a, b)."], p: [P3], drills: [ca-ivt, "ca-ivt-applies"], needs: [CA-1.12.A] }
 
   # ── 2 ────────────────────────────────────────────────────────────────────
   - id: derivative
@@ -178,24 +178,24 @@ units:
         title: Average and instantaneous rates of change
         ced: "2.1"
         los:
-          - { id: A, std: [CHA-2.A], do: "Calculate an average rate of change as the slope of a secant line.", ek: ["(f(b) − f(a))/(b − a), in units of output per unit input."], p: [P1], drills: [ca-avg-rate] }
+          - { id: A, std: [CHA-2.A], do: "Calculate an average rate of change as the slope of a secant line.", ek: ["(f(b) − f(a))/(b − a), in units of output per unit input."], p: [P1], drills: [ca-avg-rate, "ca-avg-rate-table"] }
           - { id: B, std: [CHA-2.B], do: "Express an instantaneous rate of change as the limit of a difference quotient.", ek: ["lim_(h→0) (f(a + h) − f(a))/h — the secant slope as the interval shrinks to a point."], p: [P2], drills: ["~ca-def-derivative", ca-difference-quotient-limit], needs: [CA-2.1.A, CA-1.1.A] }
       - n: 2
         title: The derivative and its notation
         ced: "2.2"
         los:
-          - { id: A, std: [CHA-2.B], do: "Compute a derivative from the limit definition (h-form or x → a form), and recognise a given difference-quotient limit as a derivative.", ek: ["f′(x) = lim_(h→0)(f(x+h) − f(x))/h; f′(a) = lim_(x→a)(f(x) − f(a))/(x − a); lim_(h→0)(sin(π/3 + h) − sin(π/3))/h is just cos(π/3)."], p: [P1, P2], drills: [ca-def-derivative], needs: [CA-2.1.B, CA-1.6.A] }
+          - { id: A, std: [CHA-2.B], do: "Compute a derivative from the limit definition (h-form or x → a form), and recognise a given difference-quotient limit as a derivative.", ek: ["f′(x) = lim_(h→0)(f(x+h) − f(x))/h; f′(a) = lim_(x→a)(f(x) − f(a))/(x − a); lim_(h→0)(sin(π/3 + h) − sin(π/3))/h is just cos(π/3)."], p: [P1, P2], drills: [ca-def-derivative, "ca-recognize-limit-derivative"], needs: [CA-2.1.B, CA-1.6.A] }
           - { id: B, std: [CHA-2.C], do: "Write the equation of the tangent line at a point, using f′, dy/dx or d/dx notation correctly.", ek: ["y − f(a) = f′(a)(x − a)."], p: [P4], drills: ["ca-tangent-line", "ca2-tangent-slope-where"], needs: [CA-2.2.A] }
       - n: 3
         title: Estimating derivatives at a point
         ced: "2.3"
         los:
-          - { id: A, std: [CHA-2.D], do: "Estimate a derivative at a point from a table or graph with a difference quotient.", ek: ["Use the closest bracketing data: (f(b) − f(a))/(b − a) estimates f′ between a and b; a symmetric quotient is usually best."], p: [P1, P2], drills: [ca-estimate-derivative], needs: [CA-2.1.A] }
+          - { id: A, std: [CHA-2.D], do: "Estimate a derivative at a point from a table or graph with a difference quotient.", ek: ["Use the closest bracketing data: (f(b) − f(a))/(b − a) estimates f′ between a and b; a symmetric quotient is usually best."], p: [P1, P2], drills: [ca-estimate-derivative, "ca-tangent-line-value"], needs: [CA-2.1.A] }
       - n: 4
         title: Differentiability and continuity
         ced: "2.4"
         los:
-          - { id: A, std: [FUN-2.A], do: "Identify where a function fails to be differentiable (discontinuity, corner, cusp, vertical tangent), including at the break of a piecewise function.", ek: ["Differentiable ⇒ continuous, not conversely; a piecewise function is differentiable at its break only if it is continuous there and the one-sided derivatives match."], p: [P3], drills: [ca-differentiability], needs: [CA-2.2.A, CA-1.13.A] }
+          - { id: A, std: [FUN-2.A], do: "Identify where a function fails to be differentiable (discontinuity, corner, cusp, vertical tangent), including at the break of a piecewise function.", ek: ["Differentiable ⇒ continuous, not conversely; a piecewise function is differentiable at its break only if it is continuous there and the one-sided derivatives match."], p: [P3], drills: [ca-differentiability, "ca-corner-cusp-pick"], needs: [CA-2.2.A, CA-1.13.A] }
       - n: 5
         title: The power rule
         ced: "2.5"
@@ -210,8 +210,8 @@ units:
         title: Derivatives of sin x, cos x, e^x and ln x
         ced: "2.7"
         los:
-          - { id: A, std: [FUN-3.A], do: "Differentiate sin x, cos x, e^x and ln x and combinations of them with the sum and constant-multiple rules.", ek: ["(sin x)′ = cos x, (cos x)′ = −sin x, (e^x)′ = e^x, (ln x)′ = 1/x."], p: [P1], drills: [ca-elementary-derivative], needs: [CA-2.6.A] }
-          - { id: B, std: [LIM-3.A], do: "Derive the derivative of sin x or e^x from the limit definition.", ek: ["sin(x+h) = sin x cos h + cos x sin h, then use sin h/h → 1 and (cos h − 1)/h → 0."], p: [P3], drills: [ca-derive-sin-exp], needs: [CA-2.2.A, CA-1.6.B] }
+          - { id: A, std: [FUN-3.A], do: "Differentiate sin x, cos x, e^x and ln x and combinations of them with the sum and constant-multiple rules.", ek: ["(sin x)′ = cos x, (cos x)′ = −sin x, (e^x)′ = e^x, (ln x)′ = 1/x."], p: [P1], drills: [ca-elementary-derivative, "ca-derivative-at-point"], needs: [CA-2.6.A] }
+          - { id: B, std: [LIM-3.A], do: "Derive the derivative of sin x or e^x from the limit definition.", ek: ["sin(x+h) = sin x cos h + cos x sin h, then use sin h/h → 1 and (cos h − 1)/h → 0."], p: [P3], drills: [ca-derive-sin-exp, "ca-sin-limit-value"], needs: [CA-2.2.A, CA-1.6.B] }
       - n: 8
         title: The product rule
         ced: "2.8"
@@ -226,7 +226,7 @@ units:
         title: Derivatives of tan, cot, sec and csc
         ced: "2.10"
         los:
-          - { id: A, std: [FUN-3.B], do: "Derive and use the derivatives of tan x, cot x, sec x and csc x.", ek: ["Write each as a quotient of sin and cos: (tan x)′ = sec²x, (sec x)′ = sec x tan x, (cot x)′ = −csc²x, (csc x)′ = −csc x cot x."], p: [P1], drills: [ca-trig-derivative], needs: [CA-2.9.A] }
+          - { id: A, std: [FUN-3.B], do: "Derive and use the derivatives of tan x, cot x, sec x and csc x.", ek: ["Write each as a quotient of sin and cos: (tan x)′ = sec²x, (sec x)′ = sec x tan x, (cot x)′ = −csc²x, (csc x)′ = −csc x cot x."], p: [P1], drills: [ca-trig-derivative, "ca-trig-derivative-value"], needs: [CA-2.9.A] }
 
   # ── 3 ────────────────────────────────────────────────────────────────────
   - id: composite
@@ -249,7 +249,7 @@ units:
         title: Derivatives of inverse functions
         ced: "3.3"
         los:
-          - { id: A, std: [FUN-3.E], do: "Find the derivative of an inverse function at a point from f, a table or a graph.", ek: ["If f(a) = b then (f⁻¹)′(b) = 1/f′(a) — reciprocal slope at the reflected point."], p: [P1, P2], drills: [ca-inverse-derivative], needs: [CA-3.1.A] }
+          - { id: A, std: [FUN-3.E], do: "Find the derivative of an inverse function at a point from f, a table or a graph.", ek: ["If f(a) = b then (f⁻¹)′(b) = 1/f′(a) — reciprocal slope at the reflected point."], p: [P1, P2], drills: [ca-inverse-derivative, "ca-inverse-derivative-table"], needs: [CA-3.1.A] }
       - n: 4
         title: Derivatives of inverse trig functions
         ced: "3.4"
@@ -259,8 +259,8 @@ units:
         title: Selecting procedures for derivatives
         ced: "3.5"
         los:
-          - { id: A, std: [FUN-3.A, FUN-3.B, FUN-3.C, FUN-3.D, FUN-3.E], do: "Choose and combine the differentiation rules a given expression needs, simplifying first when it helps.", ek: ["Read the outermost operation: sum → term by term, product → product rule, quotient → quotient rule (or rewrite), composition → chain rule."], p: [P1], drills: [ca-rules-combined], needs: [CA-3.1.A, CA-3.2.A, CA-3.4.A] }
-          - { id: B, std: [FUN-3.C], do: "Differentiate a variable power such as x^x or a messy product by logarithmic differentiation.", ek: ["Take ln of both sides, differentiate implicitly: y′ = y·(ln y)′. Beyond the CED, but used everywhere downstream."], p: [P1], drills: [ca-log-diff], needs: [CA-3.2.A] }
+          - { id: A, std: [FUN-3.A, FUN-3.B, FUN-3.C, FUN-3.D, FUN-3.E], do: "Choose and combine the differentiation rules a given expression needs, simplifying first when it helps.", ek: ["Read the outermost operation: sum → term by term, product → product rule, quotient → quotient rule (or rewrite), composition → chain rule."], p: [P1], drills: [ca-rules-combined, "ca-chain-at-point"], needs: [CA-3.1.A, CA-3.2.A, CA-3.4.A] }
+          - { id: B, std: [FUN-3.C], do: "Differentiate a variable power such as x^x or a messy product by logarithmic differentiation.", ek: ["Take ln of both sides, differentiate implicitly: y′ = y·(ln y)′. Beyond the CED, but used everywhere downstream."], p: [P1], drills: [ca-log-diff, "ca-exp-base-derivative"], needs: [CA-3.2.A] }
       - n: 6
         title: Higher-order derivatives
         ced: "3.6"
@@ -278,7 +278,7 @@ units:
         title: The derivative in context
         ced: "4.1"
         los:
-          - { id: A, std: [CHA-3.A], do: "Interpret f′(a) in context, with units, as the rate of change of the quantity at that input.", ek: ["Units of f′ = output units per input unit; sign says increasing or decreasing at that instant."], p: [P3, P4], drills: [ca-rate-units], needs: [CA-2.2.A] }
+          - { id: A, std: [CHA-3.A], do: "Interpret f′(a) in context, with units, as the rate of change of the quantity at that input.", ek: ["Units of f′ = output units per input unit; sign says increasing or decreasing at that instant."], p: [P3, P4], drills: [ca-rate-units, "ca-rate-interpret"], needs: [CA-2.2.A] }
       - n: 2
         title: Straight-line motion
         ced: "4.2"
@@ -304,7 +304,7 @@ units:
         ced: "4.6"
         los:
           - { id: A, std: [CHA-3.F], do: "Approximate a function value with the tangent-line approximation.", ek: ["f(x) ≈ f(a) + f′(a)(x − a) for x near a."], p: [P1], drills: [ca-linearization, ca2-linear-approx-root], needs: [CA-2.2.B] }
-          - { id: B, std: [CHA-3.F], do: "Decide whether a tangent-line approximation over- or under-estimates, from concavity.", ek: ["Concave up ⇒ tangent lies below ⇒ underestimate; concave down ⇒ overestimate."], p: [P3], drills: [ca-linearization-error], needs: [CA-4.6.A, CA-3.6.A] }
+          - { id: B, std: [CHA-3.F], do: "Decide whether a tangent-line approximation over- or under-estimates, from concavity.", ek: ["Concave up ⇒ tangent lies below ⇒ underestimate; concave down ⇒ overestimate."], p: [P3], drills: [ca-linearization-error, "ca-linearization-value"], needs: [CA-4.6.A, CA-3.6.A] }
       - n: 7
         title: L'Hospital's rule
         ced: "4.7"
@@ -328,7 +328,7 @@ units:
         title: Extreme Value Theorem and critical points
         ced: "5.2"
         los:
-          - { id: A, std: [FUN-1.C], do: "Decide whether the EVT guarantees absolute extrema on an interval, and find the critical points of a function.", ek: ["Continuous on a closed, bounded interval ⇒ absolute max and min exist; critical point: c in the domain with f′(c) = 0 or undefined — local extrema occur only there."], p: [P1, P3], drills: [ca-critical-points], needs: [CA-1.12.A, CA-3.5.A] }
+          - { id: A, std: [FUN-1.C], do: "Decide whether the EVT guarantees absolute extrema on an interval, and find the critical points of a function.", ek: ["Continuous on a closed, bounded interval ⇒ absolute max and min exist; critical point: c in the domain with f′(c) = 0 or undefined — local extrema occur only there."], p: [P1, P3], drills: [ca-critical-points, "ca-evt-guarantee"], needs: [CA-1.12.A, CA-3.5.A] }
       - n: 3
         title: Increasing and decreasing intervals
         ced: "5.3"
@@ -338,12 +338,12 @@ units:
         title: The first derivative test
         ced: "5.4"
         los:
-          - { id: A, std: [FUN-4.A], do: "Classify each critical point as a relative max, min or neither by the sign change of f′.", ek: ["f′ changes + to − ⇒ relative max; − to + ⇒ relative min; no change ⇒ neither."], p: [P3], drills: [ca-critical-points], needs: [CA-5.3.A] }
+          - { id: A, std: [FUN-4.A], do: "Classify each critical point as a relative max, min or neither by the sign change of f′.", ek: ["f′ changes + to − ⇒ relative max; − to + ⇒ relative min; no change ⇒ neither."], p: [P3], drills: [ca-critical-points, "ca-second-deriv-at-critical"], needs: [CA-5.3.A] }
       - n: 5
         title: The candidates test
         ced: "5.5"
         los:
-          - { id: A, std: [FUN-4.A], do: "Find absolute extrema on a closed interval by comparing f at critical points and endpoints.", ek: ["Largest value among the candidates is the absolute max, smallest the absolute min."], p: [P1, P3], drills: [ca-abs-extrema], needs: [CA-5.2.A] }
+          - { id: A, std: [FUN-4.A], do: "Find absolute extrema on a closed interval by comparing f at critical points and endpoints.", ek: ["Largest value among the candidates is the absolute max, smallest the absolute min."], p: [P1, P3], drills: [ca-abs-extrema, "ca-abs-max-value"], needs: [CA-5.2.A] }
       - n: 6
         title: Concavity and points of inflection
         ced: "5.6"
@@ -363,7 +363,7 @@ units:
         title: Connecting f, f′ and f″
         ced: "5.9"
         los:
-          - { id: A, std: [FUN-4.A], do: "Read the extrema, monotonicity, concavity and inflection points of f from a graph or table of f′ (or f″), and justify each claim.", ek: ["Justify from the derivative given, not from the shape of its graph: 'f′ changes from + to − at x = 2'."], p: [P2, P3], drills: [ca-read-derivative-graph], needs: [CA-5.8.A, CA-5.7.A] }
+          - { id: A, std: [FUN-4.A], do: "Read the extrema, monotonicity, concavity and inflection points of f from a graph or table of f′ (or f″), and justify each claim.", ek: ["Justify from the derivative given, not from the shape of its graph: 'f′ changes from + to − at x = 2'."], p: [P2, P3], drills: [ca-read-derivative-graph, "ca-concavity-from-fpp"], needs: [CA-5.8.A, CA-5.7.A] }
       - n: 10
         title: Setting up optimization problems
         ced: "5.10"
@@ -378,8 +378,8 @@ units:
         title: Behaviour of implicit relations
         ced: "5.12"
         los:
-          - { id: A, std: [FUN-4.D], do: "Find the points where an implicit curve has a horizontal or vertical tangent.", ek: ["dy/dx = N/D: horizontal where N = 0 (D ≠ 0), vertical where D = 0 (N ≠ 0); the point must lie on the curve."], p: [P1], drills: [ca-implicit-horizontal], needs: [CA-3.2.A] }
-          - { id: B, std: [FUN-4.E], do: "Use implicit dy/dx and d²y/dx² to classify extrema and concavity of an implicit curve at a point.", ek: ["At a point with dy/dx = 0, the sign of d²y/dx² gives max/min, as in the second derivative test."], p: [P3], drills: [ca-implicit-second-derivative], needs: [CA-5.12.A, CA-3.6.A, CA-5.7.A] }
+          - { id: A, std: [FUN-4.D], do: "Find the points where an implicit curve has a horizontal or vertical tangent.", ek: ["dy/dx = N/D: horizontal where N = 0 (D ≠ 0), vertical where D = 0 (N ≠ 0); the point must lie on the curve."], p: [P1], drills: [ca-implicit-horizontal, "ca-implicit-slope-point"], needs: [CA-3.2.A] }
+          - { id: B, std: [FUN-4.E], do: "Use implicit dy/dx and d²y/dx² to classify extrema and concavity of an implicit curve at a point.", ek: ["At a point with dy/dx = 0, the sign of d²y/dx² gives max/min, as in the second derivative test."], p: [P3], drills: [ca-implicit-second-derivative, "ca-implicit-concavity"], needs: [CA-5.12.A, CA-3.6.A, CA-5.7.A] }
 
   # ── 6 ────────────────────────────────────────────────────────────────────
   - id: integration
@@ -392,7 +392,7 @@ units:
         title: Accumulations of change
         ced: "6.1"
         los:
-          - { id: A, std: [CHA-4.A], do: "Interpret the area between a rate graph and the axis as accumulated change, with units and sign.", ek: ["rate × time = amount; area below the axis counts as negative change."], p: [P2, P4], drills: [ca-accumulation-graph], needs: [CA-4.1.A] }
+          - { id: A, std: [CHA-4.A], do: "Interpret the area between a rate graph and the axis as accumulated change, with units and sign.", ek: ["rate × time = amount; area below the axis counts as negative change."], p: [P2, P4], drills: [ca-accumulation-graph, "ca-net-change-rate"], needs: [CA-4.1.A] }
       - n: 2
         title: Riemann sums
         ced: "6.2"
@@ -403,7 +403,7 @@ units:
         title: Riemann sums, summation notation and the definite integral
         ced: "6.3"
         los:
-          - { id: A, std: [LIM-5.B, LIM-5.C], do: "Write a Riemann sum in sigma notation and convert between a limit of Riemann sums and a definite integral.", ek: ["Δx = (b − a)/n, x_k = a + kΔx; ∫_a^b f(x)dx = lim_(n→∞) Σ f(x_k)Δx — read b − a from Δx and a from x_k."], p: [P2, P4], drills: [ca-riemann-limit], needs: [CA-6.2.A] }
+          - { id: A, std: [LIM-5.B, LIM-5.C], do: "Write a Riemann sum in sigma notation and convert between a limit of Riemann sums and a definite integral.", ek: ["Δx = (b − a)/n, x_k = a + kΔx; ∫_a^b f(x)dx = lim_(n→∞) Σ f(x_k)Δx — read b − a from Δx and a from x_k."], p: [P2, P4], drills: [ca-riemann-limit, "ca-riemann-left-right"], needs: [CA-6.2.A] }
       - n: 4
         title: The Fundamental Theorem and accumulation functions
         ced: "6.4"
@@ -413,7 +413,7 @@ units:
         title: Behaviour of accumulation functions
         ced: "6.5"
         los:
-          - { id: A, std: [FUN-5.A], do: "Find where g(x) = ∫_a^x f(t)dt increases, has extrema and changes concavity, from the graph of f.", ek: ["g′ = f and g″ = f′: g rises where f > 0, peaks where f changes + to −, inflects at extrema of f."], p: [P2, P3], drills: [ca-read-derivative-graph], needs: [CA-6.4.A, CA-5.9.A] }
+          - { id: A, std: [FUN-5.A], do: "Find where g(x) = ∫_a^x f(t)dt increases, has extrema and changes concavity, from the graph of f.", ek: ["g′ = f and g″ = f′: g rises where f > 0, peaks where f changes + to −, inflects at extrema of f."], p: [P2, P3], drills: [ca-read-derivative-graph, "ca-ftc-g-prime"], needs: [CA-6.4.A, CA-5.9.A] }
       - n: 6
         title: Properties of definite integrals
         ced: "6.6"
@@ -463,7 +463,7 @@ units:
         title: Selecting techniques of antidifferentiation
         ced: "6.14"
         los:
-          - { id: A, std: [FUN-6.C, FUN-6.D, FUN-6.E, FUN-6.F], do: "Choose the antidifferentiation technique an integrand calls for: basic rule, substitution, division, completing the square, parts or partial fractions.", ek: ["Look for an inner function and its derivative first; then products of unlike types (parts); then rational functions (division, then partial fractions)."], p: [P1], drills: [ca-choose-technique], needs: [CA-6.10.A, CA-6.11.A, CA-6.12.A] }
+          - { id: A, std: [FUN-6.C, FUN-6.D, FUN-6.E, FUN-6.F], do: "Choose the antidifferentiation technique an integrand calls for: basic rule, substitution, division, completing the square, parts or partial fractions.", ek: ["Look for an inner function and its derivative first; then products of unlike types (parts); then rational functions (division, then partial fractions)."], p: [P1], drills: [ca-choose-technique, "ca-u-sub-value"], needs: [CA-6.10.A, CA-6.11.A, CA-6.12.A] }
 
   # ── 7 ────────────────────────────────────────────────────────────────────
   - id: diffeq
@@ -476,7 +476,7 @@ units:
         title: Modeling with differential equations
         ced: "7.1"
         los:
-          - { id: A, std: [FUN-7.A], do: "Write a differential equation from a verbal description of a rate (proportional to, inversely proportional to, …).", ek: ["'Rate of change of y is proportional to y' ⇒ dy/dt = ky; identify the dependent and independent variables first."], p: [P2], drills: [ca-write-de], needs: [CA-4.3.A] }
+          - { id: A, std: [FUN-7.A], do: "Write a differential equation from a verbal description of a rate (proportional to, inversely proportional to, …).", ek: ["'Rate of change of y is proportional to y' ⇒ dy/dt = ky; identify the dependent and independent variables first."], p: [P2], drills: [ca-write-de, "ca-de-verify-solution"], needs: [CA-4.3.A] }
       - n: 2
         title: Verifying solutions
         ced: "7.2"
@@ -486,28 +486,28 @@ units:
         title: Sketching slope fields
         ced: "7.3"
         los:
-          - { id: A, std: [FUN-7.C], do: "Sketch a slope field for dy/dx = f(x, y) at given points.", ek: ["At each grid point draw a short segment with slope f(x, y); slopes depend on x only, y only, or both."], p: [P2, P4], drills: [ca-slope-field-points], needs: [CA-7.2.A] }
+          - { id: A, std: [FUN-7.C], do: "Sketch a slope field for dy/dx = f(x, y) at given points.", ek: ["At each grid point draw a short segment with slope f(x, y); slopes depend on x only, y only, or both."], p: [P2, P4], drills: [ca-slope-field-points, "ca-slope-field-equilibrium"], needs: [CA-7.2.A] }
       - n: 4
         title: Reasoning with slope fields
         ced: "7.4"
         los:
-          - { id: A, std: [FUN-7.C], do: "Match a slope field to its differential equation and sketch the solution through a given point.", ek: ["Check where slopes are 0, where they are constant along vertical or horizontal lines, and their sign in each quadrant; solution curves follow the segments."], p: [P2], drills: [ca-slope-field-match], needs: [CA-7.3.A] }
+          - { id: A, std: [FUN-7.C], do: "Match a slope field to its differential equation and sketch the solution through a given point.", ek: ["Check where slopes are 0, where they are constant along vertical or horizontal lines, and their sign in each quadrant; solution curves follow the segments."], p: [P2], drills: [ca-slope-field-match, "ca-slope-field-feature"], needs: [CA-7.3.A] }
       - n: 5
         title: Euler's method (BC only)
         ced: "7.5"
         bc: true
         los:
-          - { id: A, std: [FUN-7.C], do: "Approximate a solution value with a few steps of Euler's method, and say whether it over- or under-estimates.", ek: ["y_(n+1) = y_n + h·f(x_n, y_n); concave-up solutions are underestimated (tangent-line steps lie below)."], p: [P1, P3], drills: [ca-euler-method], needs: [CA-7.4.A, CA-4.6.B] }
+          - { id: A, std: [FUN-7.C], do: "Approximate a solution value with a few steps of Euler's method, and say whether it over- or under-estimates.", ek: ["y_(n+1) = y_n + h·f(x_n, y_n); concave-up solutions are underestimated (tangent-line steps lie below)."], p: [P1, P3], drills: [ca-euler-method, "ca-euler-vs-exact"], needs: [CA-7.4.A, CA-4.6.B] }
       - n: 6
         title: Separation of variables — general solutions
         ced: "7.6"
         los:
-          - { id: A, std: [FUN-7.D], do: "Find the general solution of a separable differential equation.", ek: ["dy/dx = g(x)h(y) ⇒ ∫dy/h(y) = ∫g(x)dx + C; one constant is enough."], p: [P1], drills: [ca-separable-general], needs: [CA-6.9.A, CA-7.2.A] }
+          - { id: A, std: [FUN-7.D], do: "Find the general solution of a separable differential equation.", ek: ["dy/dx = g(x)h(y) ⇒ ∫dy/h(y) = ∫g(x)dx + C; one constant is enough."], p: [P1], drills: [ca-separable-general, "ca-separable-constant"], needs: [CA-6.9.A, CA-7.2.A] }
       - n: 7
         title: Separation of variables — particular solutions
         ced: "7.7"
         los:
-          - { id: A, std: [FUN-7.E], do: "Find the particular solution of a separable IVP, solve for y, and state its domain.", ek: ["Use the initial condition to find C before solving for y; the domain is the interval containing x₀ where the solution is defined."], p: [P1, P3], drills: [ca-separable-ivp], needs: [CA-7.6.A] }
+          - { id: A, std: [FUN-7.E], do: "Find the particular solution of a separable IVP, solve for y, and state its domain.", ek: ["Use the initial condition to find C before solving for y; the domain is the interval containing x₀ where the solution is defined."], p: [P1, P3], drills: [ca-separable-ivp, "ca-ivp-domain"], needs: [CA-7.6.A] }
       - n: 8
         title: Exponential models
         ced: "7.8"
@@ -541,7 +541,7 @@ units:
         title: Accumulation in applied contexts
         ced: "8.3"
         los:
-          - { id: A, std: [CHA-4.D, CHA-4.E], do: "Find an amount at a time from an initial amount plus the integral of a net rate (in − out), and interpret the integral in context with units.", ek: ["A(t) = A(0) + ∫_0^t (in − out) dt; ∫_a^b r(t)dt is net change, in rate units × time units."], p: [P1, P4], drills: [ca-net-change-tank], needs: [CA-6.7.A] }
+          - { id: A, std: [CHA-4.D, CHA-4.E], do: "Find an amount at a time from an initial amount plus the integral of a net rate (in − out), and interpret the integral in context with units.", ek: ["A(t) = A(0) + ∫_0^t (in − out) dt; ∫_a^b r(t)dt is net change, in rate units × time units."], p: [P1, P4], drills: [ca-net-change-tank, "ca-net-vs-total"], needs: [CA-6.7.A] }
       - n: 4
         title: Area between curves (functions of x)
         ced: "8.4"
@@ -551,22 +551,22 @@ units:
         title: Area between curves (functions of y)
         ced: "8.5"
         los:
-          - { id: A, std: [CHA-5.A], do: "Find the area between curves x = f(y), x = g(y) by integrating in y.", ek: ["A = ∫(right − left)dy; choose y when slicing in x would need two integrals."], p: [P1, P2], drills: [ca-area-between-y], needs: [CA-8.4.A] }
+          - { id: A, std: [CHA-5.A], do: "Find the area between curves x = f(y), x = g(y) by integrating in y.", ek: ["A = ∫(right − left)dy; choose y when slicing in x would need two integrals."], p: [P1, P2], drills: [ca-area-between-y, "ca-area-x-vs-y"], needs: [CA-8.4.A] }
       - n: 6
         title: Curves that intersect more than twice
         ced: "8.6"
         los:
-          - { id: A, std: [CHA-5.A], do: "Find the area enclosed by curves that cross several times by splitting the interval at each intersection.", ek: ["A = ∫|f − g|dx: the top curve changes at each crossing."], p: [P1], drills: [ca-area-crossings], needs: [CA-8.4.A] }
+          - { id: A, std: [CHA-5.A], do: "Find the area enclosed by curves that cross several times by splitting the interval at each intersection.", ek: ["A = ∫|f − g|dx: the top curve changes at each crossing."], p: [P1], drills: [ca-area-crossings, "ca-area-two-curves"], needs: [CA-8.4.A] }
       - n: 7
         title: Cross sections — squares and rectangles
         ced: "8.7"
         los:
-          - { id: A, std: [CHA-5.B], do: "Find the volume of a solid with square or rectangular cross sections perpendicular to an axis.", ek: ["V = ∫A(x)dx; side s = top − bottom ⇒ A = s² (or s·(given height))."], p: [P1, P2], drills: [ca-volume-squares], needs: [CA-8.4.A] }
+          - { id: A, std: [CHA-5.B], do: "Find the volume of a solid with square or rectangular cross sections perpendicular to an axis.", ek: ["V = ∫A(x)dx; side s = top − bottom ⇒ A = s² (or s·(given height))."], p: [P1, P2], drills: [ca-volume-squares, "ca-cross-section-squares-y"], needs: [CA-8.4.A] }
       - n: 8
         title: Cross sections — triangles and semicircles
         ced: "8.8"
         los:
-          - { id: A, std: [CHA-5.B], do: "Find the volume of a solid with triangular or semicircular cross sections.", ek: ["Equilateral: (√3/4)s²; isosceles right on a leg: s²/2; semicircle on diameter s: (π/8)s²."], p: [P1], drills: [ca-volume-semicircles], needs: [CA-8.7.A] }
+          - { id: A, std: [CHA-5.B], do: "Find the volume of a solid with triangular or semicircular cross sections.", ek: ["Equilateral: (√3/4)s²; isosceles right on a leg: s²/2; semicircle on diameter s: (π/8)s²."], p: [P1], drills: [ca-volume-semicircles, "ca-cross-section-triangles"], needs: [CA-8.7.A] }
       - n: 9
         title: Disc method about the x- or y-axis
         ced: "8.9"
@@ -576,27 +576,27 @@ units:
         title: Disc method about other axes
         ced: "8.10"
         los:
-          - { id: A, std: [CHA-5.C], do: "Find a disc-method volume about a horizontal or vertical line other than an axis.", ek: ["Revolving about y = k: R = |f(x) − k|."], p: [P1], drills: [ca-volume-disc-line], needs: [CA-8.9.A] }
+          - { id: A, std: [CHA-5.C], do: "Find a disc-method volume about a horizontal or vertical line other than an axis.", ek: ["Revolving about y = k: R = |f(x) − k|."], p: [P1], drills: [ca-volume-disc-line, "ca-disc-about-axis"], needs: [CA-8.9.A] }
       - n: 11
         title: Washer method about the x- or y-axis
         ced: "8.11"
         los:
-          - { id: A, std: [CHA-5.C], do: "Find the volume of a solid of revolution with a hole by washers about a coordinate axis.", ek: ["V = π∫(R² − r²)dx: outer radius squared minus inner radius squared, not (R − r)²."], p: [P1], drills: [ca-volume-washer], needs: [CA-8.9.A] }
+          - { id: A, std: [CHA-5.C], do: "Find the volume of a solid of revolution with a hole by washers about a coordinate axis.", ek: ["V = π∫(R² − r²)dx: outer radius squared minus inner radius squared, not (R − r)²."], p: [P1], drills: [ca-volume-washer, "ca-washer-setup"], needs: [CA-8.9.A] }
       - n: 12
         title: Washer method about other axes
         ced: "8.12"
         los:
-          - { id: A, std: [CHA-5.C], do: "Find a washer-method volume about a line other than an axis.", ek: ["Both radii are distances from the axis of revolution: R = |far curve − k|, r = |near curve − k|."], p: [P1], drills: [ca-volume-washer-line], needs: [CA-8.10.A, CA-8.11.A] }
+          - { id: A, std: [CHA-5.C], do: "Find a washer-method volume about a line other than an axis.", ek: ["Both radii are distances from the axis of revolution: R = |far curve − k|, r = |near curve − k|."], p: [P1], drills: [ca-volume-washer-line, "ca-washer-about-line-above"], needs: [CA-8.10.A, CA-8.11.A] }
       - n: 13
         title: Arc length and distance travelled (BC only)
         ced: "8.13"
         bc: true
         los:
-          - { id: A, std: [CHA-6.A], do: "Set up and evaluate the arc length of a smooth curve y = f(x).", ek: ["L = ∫_a^b √(1 + f′(x)²)dx."], p: [P1], drills: [ca-arc-length], needs: [CA-6.7.A] }
+          - { id: A, std: [CHA-6.A], do: "Set up and evaluate the arc length of a smooth curve y = f(x).", ek: ["L = ∫_a^b √(1 + f′(x)²)dx."], p: [P1], drills: [ca-arc-length, "ca-arc-length-line"], needs: [CA-6.7.A] }
       - n: 14
         title: Physical applications (beyond the CED)
         los:
-          - { id: A, std: [CHA-4.E], do: "Compute work done by a variable force or in pumping a fluid by slicing and integrating.", ek: ["W = ∫F(x)dx; pumping: W = ∫ρg·A(y)·(lift distance)dy."], p: [P1, P4], drills: [ca-work-spring], needs: [CA-8.3.A] }
+          - { id: A, std: [CHA-4.E], do: "Compute work done by a variable force or in pumping a fluid by slicing and integrating.", ek: ["W = ∫F(x)dx; pumping: W = ∫ρg·A(y)·(lift distance)dy."], p: [P1, P4], drills: [ca-work-spring, "ca-pumping-work"], needs: [CA-8.3.A] }
 
   # ── 9 ────────────────────────────────────────────────────────────────────
   - id: parametric
@@ -609,27 +609,27 @@ units:
         title: Derivatives of parametric equations
         ced: "9.1"
         los:
-          - { id: A, std: [CHA-3.G], do: "Find dy/dx and tangent lines for a parametric curve, including horizontal and vertical tangents.", ek: ["dy/dx = (dy/dt)/(dx/dt); horizontal where dy/dt = 0, vertical where dx/dt = 0."], p: [P1], drills: [ca-parametric-slope], needs: [CA-3.5.A, CA-2.2.B] }
+          - { id: A, std: [CHA-3.G], do: "Find dy/dx and tangent lines for a parametric curve, including horizontal and vertical tangents.", ek: ["dy/dx = (dy/dt)/(dx/dt); horizontal where dy/dt = 0, vertical where dx/dt = 0."], p: [P1], drills: [ca-parametric-slope, "ca-parametric-horizontal"], needs: [CA-3.5.A, CA-2.2.B] }
       - n: 2
         title: Second derivatives of parametric equations
         ced: "9.2"
         los:
-          - { id: A, std: [CHA-3.G], do: "Find d²y/dx² for a parametric curve and use it for concavity.", ek: ["d²y/dx² = (d/dt(dy/dx))/(dx/dt) — divide by dx/dt again, not by d²x/dt²."], p: [P1], drills: [ca-parametric-slope], needs: [CA-9.1.A] }
+          - { id: A, std: [CHA-3.G], do: "Find d²y/dx² for a parametric curve and use it for concavity.", ek: ["d²y/dx² = (d/dt(dy/dx))/(dx/dt) — divide by dx/dt again, not by d²x/dt²."], p: [P1], drills: [ca-parametric-slope, "ca-parametric-concavity"], needs: [CA-9.1.A] }
       - n: 3
         title: Arc length of parametric curves
         ced: "9.3"
         los:
-          - { id: A, std: [CHA-6.B], do: "Find the arc length of a parametric curve.", ek: ["L = ∫√((dx/dt)² + (dy/dt)²)dt."], p: [P1], drills: [ca-parametric-arc], needs: [CA-9.1.A, CA-8.13.A] }
+          - { id: A, std: [CHA-6.B], do: "Find the arc length of a parametric curve.", ek: ["L = ∫√((dx/dt)² + (dy/dt)²)dt."], p: [P1], drills: [ca-parametric-arc, "ca-speed-parametric"], needs: [CA-9.1.A, CA-8.13.A] }
       - n: 4
         title: Derivatives of vector-valued functions
         ced: "9.4"
         los:
-          - { id: A, std: [CHA-3.H], do: "Differentiate a vector-valued function to get velocity and acceleration vectors.", ek: ["r(t) = ⟨x(t), y(t)⟩ ⇒ v = ⟨x′, y′⟩, a = ⟨x″, y″⟩, componentwise."], p: [P1, P4], drills: [ca-vector-velocity], needs: [CA-9.1.A] }
+          - { id: A, std: [CHA-3.H], do: "Differentiate a vector-valued function to get velocity and acceleration vectors.", ek: ["r(t) = ⟨x(t), y(t)⟩ ⇒ v = ⟨x′, y′⟩, a = ⟨x″, y″⟩, componentwise."], p: [P1, P4], drills: [ca-vector-velocity, "ca-vector-acceleration"], needs: [CA-9.1.A] }
       - n: 5
         title: Integrating vector-valued functions
         ced: "9.5"
         los:
-          - { id: A, std: [FUN-8.A], do: "Integrate a velocity or acceleration vector with an initial condition to recover position.", ek: ["Integrate each component; one constant vector fixed by r(t₀)."], p: [P1], drills: [ca-vector-position], needs: [CA-9.4.A, CA-6.7.A] }
+          - { id: A, std: [FUN-8.A], do: "Integrate a velocity or acceleration vector with an initial condition to recover position.", ek: ["Integrate each component; one constant vector fixed by r(t₀)."], p: [P1], drills: [ca-vector-position, "ca-displacement-vector"], needs: [CA-9.4.A, CA-6.7.A] }
       - n: 6
         title: Motion with parametric and vector functions
         ced: "9.6"
@@ -639,8 +639,8 @@ units:
         title: Polar coordinates and their derivatives
         ced: "9.7"
         los:
-          - { id: A, std: [FUN-3.G], do: "Convert points and curves between polar and rectangular form.", ek: ["x = r cos θ, y = r sin θ, r² = x² + y², tan θ = y/x (watch the quadrant)."], p: [P2], drills: [ca-polar-convert] }
-          - { id: B, std: [FUN-3.G], do: "Find dy/dx for a polar curve and interpret dr/dθ.", ek: ["Treat θ as the parameter: x = r(θ)cos θ, y = r(θ)sin θ; dr/dθ > 0 ⇒ moving away from the pole."], p: [P1, P2], drills: [ca-polar-slope], needs: [CA-9.7.A, CA-9.1.A] }
+          - { id: A, std: [FUN-3.G], do: "Convert points and curves between polar and rectangular form.", ek: ["x = r cos θ, y = r sin θ, r² = x² + y², tan θ = y/x (watch the quadrant)."], p: [P2], drills: [ca-polar-convert, "ca-rect-to-polar"] }
+          - { id: B, std: [FUN-3.G], do: "Find dy/dx for a polar curve and interpret dr/dθ.", ek: ["Treat θ as the parameter: x = r(θ)cos θ, y = r(θ)sin θ; dr/dθ > 0 ⇒ moving away from the pole."], p: [P1, P2], drills: [ca-polar-slope, "ca-polar-slope-reason"], needs: [CA-9.7.A, CA-9.1.A] }
       - n: 8
         title: Area of a polar region
         ced: "9.8"
@@ -650,7 +650,7 @@ units:
         title: Area between two polar curves
         ced: "9.9"
         los:
-          - { id: A, std: [CHA-5.D], do: "Find the area inside one polar curve and outside another.", ek: ["A = ½∫(r_outer² − r_inner²)dθ between intersection angles."], p: [P1], drills: [ca-polar-between], needs: [CA-9.8.A] }
+          - { id: A, std: [CHA-5.D], do: "Find the area inside one polar curve and outside another.", ek: ["A = ½∫(r_outer² − r_inner²)dθ between intersection angles."], p: [P1], drills: [ca-polar-between, "ca-polar-area-petal"], needs: [CA-9.8.A] }
 
   # ── 10 ───────────────────────────────────────────────────────────────────
   - id: series
@@ -663,7 +663,7 @@ units:
         title: Convergent and divergent series
         ced: "10.1"
         los:
-          - { id: A, std: [LIM-7.A], do: "Define a series' sum as the limit of its partial sums and decide convergence from a partial-sum formula.", ek: ["S_n = a₁ + … + a_n; Σa_n converges to S ⇔ S_n → S. Telescoping series collapse S_n."], p: [P3, P4], drills: [ca-partial-sums], needs: [CA-1.15.A] }
+          - { id: A, std: [LIM-7.A], do: "Define a series' sum as the limit of its partial sums and decide convergence from a partial-sum formula.", ek: ["S_n = a₁ + … + a_n; Σa_n converges to S ⇔ S_n → S. Telescoping series collapse S_n."], p: [P3, P4], drills: [ca-partial-sums, "ca-telescoping-sum"], needs: [CA-1.15.A] }
       - n: 2
         title: Geometric series
         ced: "10.2"
@@ -673,12 +673,12 @@ units:
         title: The nth-term test
         ced: "10.3"
         los:
-          - { id: A, std: [LIM-7.A], do: "Show a series diverges with the nth-term test, and explain why the test can't prove convergence.", ek: ["a_n ↛ 0 ⇒ diverges; a_n → 0 says nothing (harmonic series)."], p: [P3], drills: [ca-nth-term-test], needs: [CA-10.1.A, CA-4.7.A] }
+          - { id: A, std: [LIM-7.A], do: "Show a series diverges with the nth-term test, and explain why the test can't prove convergence.", ek: ["a_n ↛ 0 ⇒ diverges; a_n → 0 says nothing (harmonic series)."], p: [P3], drills: [ca-nth-term-test, "ca-geometric-sum"], needs: [CA-10.1.A, CA-4.7.A] }
       - n: 4
         title: The integral test
         ced: "10.4"
         los:
-          - { id: A, std: [LIM-7.A], do: "Apply the integral test after checking positivity, continuity and decrease.", ek: ["f positive, continuous, decreasing, a_n = f(n) ⇒ Σa_n and ∫_1^∞ f dx converge or diverge together."], p: [P3], drills: [ca-integral-test], needs: [CA-10.3.A, CA-6.13.A] }
+          - { id: A, std: [LIM-7.A], do: "Apply the integral test after checking positivity, continuity and decrease.", ek: ["f positive, continuous, decreasing, a_n = f(n) ⇒ Σa_n and ∫_1^∞ f dx converge or diverge together."], p: [P3], drills: [ca-integral-test, "ca-p-series-pick"], needs: [CA-10.3.A, CA-6.13.A] }
       - n: 5
         title: Harmonic series and p-series
         ced: "10.5"
@@ -688,7 +688,7 @@ units:
         title: Comparison tests
         ced: "10.6"
         los:
-          - { id: A, std: [LIM-7.A], do: "Decide convergence with the direct or limit comparison test against a geometric or p-series.", ek: ["0 ≤ a_n ≤ b_n: Σb_n conv ⇒ Σa_n conv; lim a_n/b_n = c, 0 < c < ∞ ⇒ same behaviour."], p: [P3], drills: [ca-comparison-test], needs: [CA-10.5.A, CA-10.2.A] }
+          - { id: A, std: [LIM-7.A], do: "Decide convergence with the direct or limit comparison test against a geometric or p-series.", ek: ["0 ≤ a_n ≤ b_n: Σb_n conv ⇒ Σa_n conv; lim a_n/b_n = c, 0 < c < ∞ ⇒ same behaviour."], p: [P3], drills: [ca-comparison-test, "ca-limit-comparison-ratio"], needs: [CA-10.5.A, CA-10.2.A] }
       - n: 7
         title: The alternating series test
         ced: "10.7"
@@ -703,12 +703,12 @@ units:
         title: Absolute and conditional convergence
         ced: "10.9"
         los:
-          - { id: A, std: [LIM-7.A], do: "Classify a series as absolutely convergent, conditionally convergent or divergent.", ek: ["Σ|a_n| converges ⇒ absolute; Σa_n converges but Σ|a_n| doesn't ⇒ conditional (e.g. alternating harmonic)."], p: [P3], drills: [ca-absolute-conditional], needs: [CA-10.7.A, CA-10.6.A] }
+          - { id: A, std: [LIM-7.A], do: "Classify a series as absolutely convergent, conditionally convergent or divergent.", ek: ["Σ|a_n| converges ⇒ absolute; Σa_n converges but Σ|a_n| doesn't ⇒ conditional (e.g. alternating harmonic)."], p: [P3], drills: [ca-absolute-conditional, "ca-alternating-converge-pick"], needs: [CA-10.7.A, CA-10.6.A] }
       - n: 10
         title: Alternating series error bound
         ced: "10.10"
         los:
-          - { id: A, std: [LIM-7.B], do: "Bound the error of a partial sum of an alternating series.", ek: ["|S − S_n| ≤ b_(n+1), the first omitted term; the sign of the error is that of the first omitted term."], p: [P1, P3], drills: [ca-alternating-error], needs: [CA-10.7.A] }
+          - { id: A, std: [LIM-7.B], do: "Bound the error of a partial sum of an alternating series.", ek: ["|S − S_n| ≤ b_(n+1), the first omitted term; the sign of the error is that of the first omitted term."], p: [P1, P3], drills: [ca-alternating-error, "ca-alternating-terms-needed"], needs: [CA-10.7.A] }
       - n: 11
         title: Taylor polynomials
         ced: "10.11"
@@ -718,18 +718,18 @@ units:
         title: The Lagrange error bound
         ced: "10.12"
         los:
-          - { id: A, std: [LIM-8.C], do: "Bound the error of a Taylor approximation with the Lagrange error bound.", ek: ["|f(x) − P_n(x)| ≤ max|f^(n+1)|·|x − a|^(n+1)/(n + 1)!, max taken between a and x."], p: [P1, P3], drills: [ca-lagrange-bound], needs: [CA-10.11.A] }
+          - { id: A, std: [LIM-8.C], do: "Bound the error of a Taylor approximation with the Lagrange error bound.", ek: ["|f(x) − P_n(x)| ≤ max|f^(n+1)|·|x − a|^(n+1)/(n + 1)!, max taken between a and x."], p: [P1, P3], drills: [ca-lagrange-bound, "ca-lagrange-degree"], needs: [CA-10.11.A] }
       - n: 13
         title: Radius and interval of convergence
         ced: "10.13"
         los:
-          - { id: A, std: [LIM-8.D], do: "Find the radius and interval of convergence of a power series, testing each endpoint separately.", ek: ["Ratio test gives |x − a| < R; at x = a ± R the series is an ordinary series — use p-series, alternating or comparison tests."], p: [P1, P3], drills: [ca-radius-convergence], needs: [CA-10.8.A, CA-10.9.A] }
+          - { id: A, std: [LIM-8.D], do: "Find the radius and interval of convergence of a power series, testing each endpoint separately.", ek: ["Ratio test gives |x − a| < R; at x = a ± R the series is an ordinary series — use p-series, alternating or comparison tests."], p: [P1, P3], drills: [ca-radius-convergence, "ca-radius-ratio"], needs: [CA-10.8.A, CA-10.9.A] }
       - n: 14
         title: Taylor and Maclaurin series
         ced: "10.14"
         los:
           - { id: A, std: [LIM-8.E], do: "Write the Taylor or Maclaurin series of a function in sigma notation with its general term.", ek: ["Σ f^(n)(a)(x − a)^n/n!; e^x = Σx^n/n!, sin x = Σ(−1)^n x^(2n+1)/(2n+1)!, cos x = Σ(−1)^n x^(2n)/(2n)!, 1/(1 − x) = Σx^n."], p: [P1, P4], drills: ["ca-series-general-term", "ca2-maclaurin-coefficient"], needs: [CA-10.11.A, CA-10.13.A] }
-          - { id: B, std: [LIM-8.F], do: "Interpret a Taylor series: use it to evaluate a limit, a derivative value or a sum.", ek: ["Inside its interval of convergence the series equals the function; e.g. Σ1/n! = e."], p: [P2, P3], drills: [ca-series-use], needs: [CA-10.14.A] }
+          - { id: B, std: [LIM-8.F], do: "Interpret a Taylor series: use it to evaluate a limit, a derivative value or a sum.", ek: ["Inside its interval of convergence the series equals the function; e.g. Σ1/n! = e."], p: [P2, P3], drills: [ca-series-use, "ca-series-coefficient"], needs: [CA-10.14.A] }
       - n: 15
         title: Representing functions as power series
         ced: "10.15"
@@ -740,8 +740,8 @@ units:
         title: Complex exponentials (beyond the CED)
         los:
           - { id: A, std: [LIM-8.F, N-CN.B.4], do: "Derive Euler's formula from the Maclaurin series of e^x, cos x and sin x, and convert complex numbers between rectangular, polar and exponential form.", ek: ["Put x = iθ in Σx^n/n! and sort real and imaginary terms: e^(iθ) = cos θ + i sin θ; z = re^(iθ), r = |z|, θ = arg z."], p: [P2, P1], drills: [euler-rect, euler-polar, euler-re-im], needs: [CA-10.14.A, CA-9.7.A] }
-          - { id: B, std: [N-CN.B.5], do: "Compute powers and roots of a complex number with De Moivre's formula.", ek: ["(re^(iθ))^n = r^n e^(inθ); n distinct n-th roots spaced 2π/n apart."], p: [P1], drills: [euler-demoivre], needs: [CA-10.16.A] }
-          - { id: C, std: [N-CN.C.7], do: "Find the complex roots α ± βi of a real quadratic and write e^((α ± iβ)x) as e^(αx)(cos βx ± i sin βx).", ek: ["α = −b/2a, β = √(4ac − b²)/2a; complex roots of real polynomials come in conjugate pairs."], p: [P1], drills: [euler-quad-roots], needs: [CA-10.16.A] }
+          - { id: B, std: [N-CN.B.5], do: "Compute powers and roots of a complex number with De Moivre's formula.", ek: ["(re^(iθ))^n = r^n e^(inθ); n distinct n-th roots spaced 2π/n apart."], p: [P1], drills: [euler-demoivre, "ca-complex-modulus-power"], needs: [CA-10.16.A] }
+          - { id: C, std: [N-CN.C.7], do: "Find the complex roots α ± βi of a real quadratic and write e^((α ± iβ)x) as e^(αx)(cos βx ± i sin βx).", ek: ["α = −b/2a, β = √(4ac − b²)/2a; complex roots of real polynomials come in conjugate pairs."], p: [P1], drills: [euler-quad-roots, "ca-complex-root-real-part"], needs: [CA-10.16.A] }
 
   # ── 11 ───────────────────────────────────────────────────────────────────
   - id: vectors
@@ -754,34 +754,34 @@ units:
         title: Three-dimensional coordinates and vectors
         book: { stewart-8e: ["12.1", "12.2"] }
         los:
-          - { id: A, std: [ST-12.1, ST-12.2], do: "Compute distances and spheres in 3-D, and add, scale and normalise vectors in components.", ek: ["|P₁P₂| = √(Δx² + Δy² + Δz²); (x − h)² + (y − k)² + (z − l)² = r²; |v| = √(v·v), û = v/|v|."], p: [P1, P4], drills: [cm-distance-3d] }
+          - { id: A, std: [ST-12.1, ST-12.2], do: "Compute distances and spheres in 3-D, and add, scale and normalise vectors in components.", ek: ["|P₁P₂| = √(Δx² + Δy² + Δz²); (x − h)² + (y − k)² + (z − l)² = r²; |v| = √(v·v), û = v/|v|."], p: [P1, P4], drills: [cm-distance-3d, "cm-unit-vector-component"] }
       - n: 2
         title: The dot product
         book: { stewart-8e: ["12.3"] }
         los:
-          - { id: A, std: [ST-12.3], do: "Use the dot product for angles, orthogonality, projections and the work of a constant force.", ek: ["a·b = |a||b|cos θ, = 0 ⇔ perpendicular; proj_a b = (a·b/|a|²)a; W = F·D."], p: [P1], drills: [cm-dot-product], needs: [CA-11.1.A] }
+          - { id: A, std: [ST-12.3], do: "Use the dot product for angles, orthogonality, projections and the work of a constant force.", ek: ["a·b = |a||b|cos θ, = 0 ⇔ perpendicular; proj_a b = (a·b/|a|²)a; W = F·D."], p: [P1], drills: [cm-dot-product, "cm-projection-length"], needs: [CA-11.1.A] }
       - n: 3
         title: The cross product
         book: { stewart-8e: ["12.4"] }
         los:
-          - { id: A, std: [ST-12.4], do: "Compute a cross product as a 3×3 determinant and use it for a normal vector, parallelogram area or torque.", ek: ["a × b ⊥ both, |a × b| = |a||b|sin θ = parallelogram area; right-hand rule; b × a = −a × b."], p: [P1], drills: [cm-cross-product], needs: [CA-11.2.A] }
+          - { id: A, std: [ST-12.4], do: "Compute a cross product as a 3×3 determinant and use it for a normal vector, parallelogram area or torque.", ek: ["a × b ⊥ both, |a × b| = |a||b|sin θ = parallelogram area; right-hand rule; b × a = −a × b."], p: [P1], drills: [cm-cross-product, "cm-triangle-area"], needs: [CA-11.2.A] }
       - n: 4
         title: Lines and planes
         book: { stewart-8e: ["12.5"] }
         los:
-          - { id: A, std: [ST-12.5], do: "Write vector, parametric and symmetric equations of a line from a point and a direction or two points.", ek: ["r = r₀ + tv."], p: [P1, P4], drills: [cm-line-plane-hit], needs: [CA-11.1.A] }
-          - { id: B, std: [ST-12.5], do: "Write the equation of a plane from a point and normal, or from three points, and find the distance from a point to a plane.", ek: ["n·(r − r₀) = 0 ⇒ ax + by + cz = d; normal from (P₂ − P₁) × (P₃ − P₁); D = |ax₁ + by₁ + cz₁ − d|/|n|."], p: [P1], drills: [cm-plane], needs: [CA-11.3.A, CA-11.4.A] }
+          - { id: A, std: [ST-12.5], do: "Write vector, parametric and symmetric equations of a line from a point and a direction or two points.", ek: ["r = r₀ + tv."], p: [P1, P4], drills: [cm-line-plane-hit, "cm-line-distance-point"], needs: [CA-11.1.A] }
+          - { id: B, std: [ST-12.5], do: "Write the equation of a plane from a point and normal, or from three points, and find the distance from a point to a plane.", ek: ["n·(r − r₀) = 0 ⇒ ax + by + cz = d; normal from (P₂ − P₁) × (P₃ − P₁); D = |ax₁ + by₁ + cz₁ − d|/|n|."], p: [P1], drills: [cm-plane, "cm-plane-distance"], needs: [CA-11.3.A, CA-11.4.A] }
       - n: 5
         title: Cylinders and quadric surfaces
         book: { stewart-8e: ["12.6"] }
         los:
-          - { id: A, std: [ST-12.6], do: "Identify and sketch a quadric surface from its equation using traces.", ek: ["Set x, y or z constant and read the conic: ellipsoid, paraboloid, hyperboloid of one or two sheets, cone, cylinder."], p: [P2, P4], drills: [ca-quadric], needs: [CA-11.1.A] }
+          - { id: A, std: [ST-12.6], do: "Identify and sketch a quadric surface from its equation using traces.", ek: ["Set x, y or z constant and read the conic: ellipsoid, paraboloid, hyperboloid of one or two sheets, cone, cylinder."], p: [P2, P4], drills: [ca-quadric, "ca-quadric-traces"], needs: [CA-11.1.A] }
       - n: 6
         title: Vector functions and space curves
         book: { stewart-8e: ["13.1", "13.2", "13.3", "13.4"] }
         los:
-          - { id: A, std: [ST-13.2], do: "Differentiate and integrate a 3-D vector function and find the unit tangent and tangent line.", ek: ["Componentwise, as in the plane; T = r′/|r′|."], p: [P1], drills: [cm-vector-function], needs: [CA-9.5.A, CA-11.4.A] }
-          - { id: B, std: [ST-13.3, ST-13.4], do: "Find arc length, curvature, and the tangential and normal components of acceleration of a space curve.", ek: ["L = ∫|r′|dt; κ = |r′ × r″|/|r′|³; a_T = v·a/|v|, a_N = |v × a|/|v|."], p: [P1, P3], drills: [cm-helix], needs: [CA-11.6.A, CA-11.3.A, CA-9.6.A] }
+          - { id: A, std: [ST-13.2], do: "Differentiate and integrate a 3-D vector function and find the unit tangent and tangent line.", ek: ["Componentwise, as in the plane; T = r′/|r′|."], p: [P1], drills: [cm-vector-function, "cm-curve-speed"], needs: [CA-9.5.A, CA-11.4.A] }
+          - { id: B, std: [ST-13.3, ST-13.4], do: "Find arc length, curvature, and the tangential and normal components of acceleration of a space curve.", ek: ["L = ∫|r′|dt; κ = |r′ × r″|/|r′|³; a_T = v·a/|v|, a_N = |v × a|/|v|."], p: [P1, P3], drills: [cm-helix, "cm-circle-curvature"], needs: [CA-11.6.A, CA-11.3.A, CA-9.6.A] }
 
   # ── 12 ───────────────────────────────────────────────────────────────────
   - id: partials
@@ -824,7 +824,7 @@ units:
         book: { stewart-8e: ["14.7"] }
         los:
           - { id: A, std: [ST-14.7], do: "Find and classify the critical points of f(x, y) with the second derivatives test.", ek: ["∇f = 0; D = f_xx f_yy − f_xy²: D > 0, f_xx > 0 min; D > 0, f_xx < 0 max; D < 0 saddle; D = 0 inconclusive."], p: [P1, P3], drills: ["cm-critical-point", "mvd-classify", "mvd-critical-count"], needs: [CA-12.2.B, CA-5.7.A] }
-          - { id: B, std: [ST-14.7], do: "Find absolute extrema of f on a closed bounded region by checking interior critical points and the boundary.", ek: ["Parametrise each boundary piece and reduce to one-variable problems; compare all candidates (EVT in 2-D)."], p: [P1, P3], drills: [ca-extrema-region], needs: [CA-12.6.A, CA-5.5.A] }
+          - { id: B, std: [ST-14.7], do: "Find absolute extrema of f on a closed bounded region by checking interior critical points and the boundary.", ek: ["Parametrise each boundary piece and reduce to one-variable problems; compare all candidates (EVT in 2-D)."], p: [P1, P3], drills: [ca-extrema-region, "ca-critical-point-classify"], needs: [CA-12.6.A, CA-5.5.A] }
       - n: 7
         title: Lagrange multipliers
         book: { stewart-8e: ["14.8"] }
@@ -842,7 +842,7 @@ units:
         title: Double integrals over rectangles
         book: { stewart-8e: ["15.1", "15.2"] }
         los:
-          - { id: A, std: [ST-15.1, ST-15.2], do: "Evaluate a double integral over a rectangle as an iterated integral, in either order.", ek: ["Fubini: ∬_R f dA = ∫_a^b∫_c^d f dy dx = ∫_c^d∫_a^b f dx dy for continuous f; a double Riemann-sum limit."], p: [P1], drills: [cm-double-rect], needs: [CA-6.7.A, CA-6.3.A] }
+          - { id: A, std: [ST-15.1, ST-15.2], do: "Evaluate a double integral over a rectangle as an iterated integral, in either order.", ek: ["Fubini: ∬_R f dA = ∫_a^b∫_c^d f dy dx = ∫_c^d∫_a^b f dx dy for continuous f; a double Riemann-sum limit."], p: [P1], drills: [cm-double-rect, "cm-double-integral-order"], needs: [CA-6.7.A, CA-6.3.A] }
       - n: 2
         title: Double integrals over general regions
         book: { stewart-8e: ["15.3"] }
@@ -891,7 +891,7 @@ units:
         title: Vector fields
         book: { stewart-8e: ["16.1"] }
         los:
-          - { id: A, std: [ST-16.1], do: "Sketch or read a 2-D vector field and recognise a gradient field.", ek: ["F(x, y) = ⟨P, Q⟩ assigns an arrow to each point; F = ∇f is a gradient (conservative) field with potential f."], p: [P2], drills: [ca-vector-field-match], needs: [CA-12.5.A] }
+          - { id: A, std: [ST-16.1], do: "Sketch or read a 2-D vector field and recognise a gradient field.", ek: ["F(x, y) = ⟨P, Q⟩ assigns an arrow to each point; F = ∇f is a gradient (conservative) field with potential f."], p: [P2], drills: [ca-vector-field-match, "ca-gradient-field-check"], needs: [CA-12.5.A] }
       - n: 2
         title: Line integrals
         book: { stewart-8e: ["16.2"] }
@@ -936,7 +936,7 @@ units:
         book: { stewart-8e: ["16.9"] }
         los:
           - { id: A, std: [ST-16.9], do: "Use the divergence theorem to compute the outward flux through a closed surface as a volume integral, or the reverse.", ek: ["∯_S F·n dS = ∭_E ∇·F dV, n outward."], p: [P1, P3], drills: ["cm-divergence-theorem", "mvd-divergence-theorem", "mvd-divergence-curved"], needs: [CA-14.7.B, CA-14.5.A, CA-13.7.A] }
-          - { id: B, std: [ST-16.9], do: "Turn an integral balance on an arbitrary control volume into a differential conservation law with the divergence theorem.", ek: ["d/dt∭c dV = −∯N·n dS + ∭R dV for every volume ⇒ ∂c/∂t + ∇·N = R."], p: [P2, P3], drills: [ca-conservation-law], needs: [CA-14.9.A, CA-14.5.B] }
+          - { id: B, std: [ST-16.9], do: "Turn an integral balance on an arbitrary control volume into a differential conservation law with the divergence theorem.", ek: ["d/dt∭c dV = −∯N·n dS + ∭R dV for every volume ⇒ ∂c/∂t + ∇·N = R."], p: [P2, P3], drills: [ca-conservation-law, "ca-continuity-1d"], needs: [CA-14.9.A, CA-14.5.B] }
   - id: hyperbolic
     n: 15
     title: "Hyperbolic functions"
@@ -948,10 +948,10 @@ units:
         los:
           - { id: A, std: [ST-3.11], do: "Recognise sinh, cosh and tanh from their exponential definitions and evaluate them at ln a.", ek: ["cosh x = ½(eˣ + e⁻ˣ), sinh x = ½(eˣ − e⁻ˣ); eˣ = cosh x + sinh x."], p: [P1], drills: [hy-which-definition, hy-value-at-log, hy-tanh-value] }
           - { id: B, std: [ST-3.11], do: "Use cosh² − sinh² = 1 and the double-argument identities, and tell a true hyperbolic identity from a false one.", ek: ["Osborn's rule: flip the sign of any product of two sines."], p: [P1], drills: [hy-pythagorean, hy-identity-check, hy-double-argument] }
-          - { id: C, std: [ST-3.11], do: "Describe the graphs: parity, range and behaviour for small and large x.", ek: ["cosh ≥ 1 and even; sinh odd and unbounded; tanh odd and between −1 and 1."], p: [P1], drills: [hy-parity-and-range] }
+          - { id: C, std: [ST-3.11], do: "Describe the graphs: parity, range and behaviour for small and large x.", ek: ["cosh ≥ 1 and even; sinh odd and unbounded; tanh odd and between −1 and 1."], p: [P1], drills: [hy-parity-and-range, "hy-cosh-value"] }
       - n: 2
         title: "Calculus and uses"
         los:
           - { id: A, std: [ST-3.11], do: "Differentiate and integrate hyperbolic functions.", ek: ["sinh′ = cosh, cosh′ = sinh, tanh′ = sech²; no sign changes."], p: [P1], drills: [hy-derivative-which, hy-derivative-value, hy-integral] }
-          - { id: B, std: [ST-3.11], do: "Write an inverse hyperbolic function as a logarithm.", ek: ["sinh⁻¹ s = ln(s + √(s² + 1))."], p: [P1], drills: [hy-inverse-sinh] }
+          - { id: B, std: [ST-3.11], do: "Write an inverse hyperbolic function as a logarithm.", ek: ["sinh⁻¹ s = ln(s + √(s² + 1))."], p: [P1], drills: [hy-inverse-sinh, "hy-arcsinh-value"] }
           - { id: C, std: [ST-3.11], do: "Solve y″ = k²y with cosh and sinh, connect them to the circular functions, and say where each turns up.", ek: ["cos(ix) = cosh x; catenary, fins and slabs use cosh; saturating ratios use tanh."], p: [P1], drills: [hy-ode-solution, hy-circular-link, hy-where-used] }
