@@ -27,7 +27,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 | Fluid Mechanics | NCEES FE Chemical CBT Exam Specifications (effective July 2020) | exam-spec | read in full | pe-chemical, webwork-opl | — | 64 | 64 | 0 |
 | Graduate Chemical Engineering Core | UC Irvine Chemical and Biomolecular Engineering graduate core: CBE 200, 210, 220A, 220B and 240 (catalogue descriptions, 2025-26) | course | read in part | pe-chemical | — | 38 | 38 | 0 |
 | Heat Transfer | NCEES FE Chemical CBT Exam Specifications (effective July 2020) | exam-spec | read in full | fe-mechanical, ib-physics-2025, pe-chemical | — | 101 | 63 | 38 |
-| INBDE (Dentistry) | JCNDE, Domain of Dentistry (INBDE content domain), July 2018 | exam-spec | read in part | — | — | 57 | 57 | 0 |
+| INBDE (Dentistry) | JCNDE, Domain of Dentistry (INBDE content domain), July 2018 | exam-spec | read in part | — | — | 64 | 64 | 0 |
 | Information Systems | MSIS 2016 Global Competency Model | standard | read in full | — | — | 53 | 0 | 53 |
 | Advanced Inorganic Chemistry (Cotton & Wilkinson) | Cotton, Wilkinson, Murillo & Bochmann, Advanced Inorganic Chemistry, 6th ed. (1999): table of contents | textbook | read in part | icho-appendix-c, gre-chemistry | — | 55 | 0 | 55 |
 | Inorganic Chemistry | Regulations of the International Chemistry Olympiad, Appendices C and D (concepts, skills and factual knowledge) | exam-spec | read in full | icho-syllabus, gre-chemistry, usnco, ib-chemistry-2025 | — | 23 | 23 | 0 |
@@ -1502,7 +1502,7 @@ https://jcnde.ada.org/-/media/project/ada-organization/ada/jcnde/files/domain_of
 |---|---|---|---|---|
 | FK1 | Molecular, biochemical, cellular and systems-level development, structure and function | 11 | 11 | inbde (11) |
 | FK2 | Physics and chemistry of normal biology and pathobiology | 1 | 1 | inbde (1) |
-| FK3 | Physics and chemistry of technologies and materials (8.0%) | 9 | 9 | inbde (9) |
+| FK3 | Physics and chemistry of technologies and materials (8.0%) | 16 | 16 | inbde (16) |
 | FK4 | Genetic, congenital and developmental diseases | 5 | 5 | inbde (5) |
 | FK5 | Host defense mechanisms | 2 | 2 | inbde (2) |
 | FK6 | General and disease-specific pathology | 4 | 4 | inbde (4) |
@@ -1539,8 +1539,8 @@ https://jcnde.ada.org/-/media/project/ada-organization/ada/jcnde/files/domain_of
 | CC27 | Complications of therapeutic agents | 7 | 7 | inbde (7) |
 | CC28 | Endodontic diagnosis and procedures | 10 | 10 | inbde (10) |
 | CC29 | Edentulous and partially edentulous patients | 1 | 1 | inbde (1) |
-| CC30 | Restoring tooth function, structure and esthetics | 3 | 3 | inbde (3) |
-| CC31 | Prosthetic and implant procedures | 8 | 8 | inbde (8) |
+| CC30 | Restoring tooth function, structure and esthetics | 5 | 5 | inbde (5) |
+| CC31 | Prosthetic and implant procedures | 9 | 9 | inbde (9) |
 | CC32 | Oral surgical needs | 1 | 1 | inbde (1) |
 | CC33 | Oral surgical procedures | 1 | 1 | inbde (1) |
 | CC34 | Developmental or acquired occlusal problems | 6 | 6 | inbde (6) |

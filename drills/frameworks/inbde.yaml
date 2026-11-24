@@ -123,11 +123,15 @@ units:
         los:
           - { id: A, do: "Compute stress, elastic modulus and Vickers hardness, and compare restoratives with enamel and dentin.", ek: ["MPa = N/mm²; E = σ/ε; HV = 1.8544 F/d²."], p: [P1], drills: [dn-stress, dn-modulus, dn-vickers] }
           - { id: B, std: ["jcnde-domain:CC30"], do: "Compute flexural strength from a three-point bend test.", ek: ["σ = 3FL/(2bh²); ISO 4049 uses 2 × 2 mm bars on a 20 mm span."], p: [P1], drills: [dn-flexural-strength, dn-flexural-load] }
+          - { id: C, do: "Compute a probability of failure from Weibull statistics and read the Weibull modulus.", ek: ["P_f = 1 − exp(−(σ/σ₀)^m); a higher m means more reliable, less scattered strength."], p: [P1], drills: [dn-weibull-failure, dn-weibull-design-stress] }
       - n: 2
         title: "Resin composites and their polymerization"
         los:
           - { id: A, std: ["jcnde-domain:CC30"], do: "Compute radiant exposure, depth of cure, shrinkage, C-factor and water sorption.", ek: ["J/cm² = mW/cm² × s / 1000; depth = scraped length / 2; shrinkage = 1 − ρu/ρc."], p: [P1], drills: [dn-radiant-exposure, dn-depth-of-cure, dn-shrinkage, dn-c-factor, dn-water-sorption] }
           - { id: B, do: "Explain what each composite component does and how filler changes properties.", ek: ["Silane couples filler; camphorquinone absorbs blue light; oxygen inhibits the surface."], p: [P3], drills: [dn-composite-types, dn-composite-choice] }
+          - { id: C, std: ["jcnde-domain:CC30"], do: "Compute degree of conversion from FTIR peak ratios.", ek: ["DC = 1 − (A₁₆₃₈/A₁₆₀₈)cured ÷ (A₁₆₃₈/A₁₆₀₈)uncured; the aromatic band is the internal standard."], p: [P1], drills: [dn-degree-conversion, dn-ratio-for-dc] }
+          - { id: D, do: "Convert filler loading between weight and volume fractions.", ek: ["φ_v = (w/ρ_f) ÷ (w/ρ_f + (1 − w)/ρ_r)."], p: [P1], drills: [dn-filler-volume, dn-filler-weight] }
+          - { id: E, do: "Compute water solubility as ISO 4049 defines it and judge sorption and solubility against the limits.", ek: ["Solubility = (m₁ − m₃)/V; limits 40 µg/mm³ sorption and 7.5 µg/mm³ solubility."], p: [P1], drills: [dn-solubility, dn-max-mass-loss] }
       - n: 3
         title: "Thermal behaviour"
         los:
@@ -137,6 +141,9 @@ units:
         los:
           - { id: A, std: ["jcnde-domain:CC30"], do: "Explain the setting and properties of amalgam, glass ionomer, zinc phosphate and ZOE, and how etching works.", ek: ["High-copper removes γ₂; GI bonds and releases fluoride; eugenol inhibits resin."], p: [P3], drills: [dn-restoratives, dn-cement-choice] }
           - { id: B, std: ["jcnde-domain:CC31"], do: "Choose the surface treatment for bonding a ceramic restoration.", ek: ["Glass ceramics: HF + silane. Zirconia: air abrasion + MDP."], p: [P3], drills: [dn-ceramic-bonding, dn-ceramic-why] }
+          - { id: C, std: ["jcnde-domain:CC30"], do: "Classify adhesive systems and choose one for a situation.", ek: ["Etch-and-rinse (3- or 2-step), self-etch (2- or 1-step), universal; the hybrid layer; 10-MDP bonds chemically to hydroxyapatite and zirconia."], p: [P2, P3], drills: [dn-adhesive-class, dn-adhesive-scenario] }
+          - { id: D, do: "Compute bond strength from a shear or microtensile test.", ek: ["σ = F/A; microtensile beams are about 1 mm²."], p: [P1], drills: [dn-bond-strength, dn-load-for-strength] }
+          - { id: E, std: ["jcnde-domain:CC31"], do: "Compare zirconia and glass-ceramic classes by strength, translucency and bonding.", ek: ["3Y-TZP strongest and most opaque; 5Y more translucent, weaker; lithium disilicate is etchable with HF."], p: [P2, P3], drills: [dn-ceramic-class, dn-ceramic-scenario] }
       - n: 5
         title: "Alloys, gypsum and impression materials"
         los:

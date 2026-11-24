@@ -2,7 +2,7 @@
 
 Generated from `drills/frameworks/inbde.yaml` by `scripts/framework.mjs`. ● drilled · ◐ partly · ○ no drills yet.
 
-**57 learning objectives** in 13 units (57 core): 57 drilled, 0 partly, 0 with no drills. Core: 57 / 57 drilled.
+**64 learning objectives** in 13 units (64 core): 64 drilled, 0 partly, 0 with no drills. Core: 64 / 64 drilled.
 
 ## Big ideas
 
@@ -23,7 +23,7 @@ Generated from `drills/frameworks/inbde.yaml` by `scripts/framework.mjs`. ● dr
 | 1 · Diagnosis and Treatment Planning (36.2%) | core | — | 6 | 6 | 0 | 0 |
 | 2 · Oral Health Management (42.0%) | core | — | 5 | 5 | 0 | 0 |
 | 3 · Practice and Profession (21.8%) | core | — | 2 | 2 | 0 | 0 |
-| 4 · Dental materials (FK3, 8.0%) | core | — | 9 | 9 | 0 | 0 |
+| 4 · Dental materials (FK3, 8.0%) | core | — | 16 | 16 | 0 | 0 |
 | 5 · Dental anatomy and occlusion (FK1) | core | — | 4 | 4 | 0 | 0 |
 | 6 · Head and neck anatomy (FK1) | core | — | 4 | 4 | 0 | 0 |
 | 7 · Oral histology and development (FK1, FK4) | core | — | 3 | 3 | 0 | 0 |
@@ -139,6 +139,9 @@ Big ideas: MAT
 - ● **DN-4.1.B** (jcnde-domain:CC30) Compute flexural strength from a three-point bend test.
   - EK: σ = 3FL/(2bh²); ISO 4049 uses 2 × 2 mm bars on a 20 mm span.
   - P1 · drills: dn-flexural-strength, dn-flexural-load
+- ● **DN-4.1.C** Compute a probability of failure from Weibull statistics and read the Weibull modulus.
+  - EK: P_f = 1 − exp(−(σ/σ₀)^m); a higher m means more reliable, less scattered strength.
+  - P1 · drills: dn-weibull-failure, dn-weibull-design-stress
 
 ### 4.2 Resin composites and their polymerization
 
@@ -150,6 +153,15 @@ Big ideas: MAT
 - ● **DN-4.2.B** Explain what each composite component does and how filler changes properties.
   - EK: Silane couples filler; camphorquinone absorbs blue light; oxygen inhibits the surface.
   - P3 · drills: dn-composite-types, dn-composite-choice
+- ● **DN-4.2.C** (jcnde-domain:CC30) Compute degree of conversion from FTIR peak ratios.
+  - EK: DC = 1 − (A₁₆₃₈/A₁₆₀₈)cured ÷ (A₁₆₃₈/A₁₆₀₈)uncured; the aromatic band is the internal standard.
+  - P1 · drills: dn-degree-conversion, dn-ratio-for-dc
+- ● **DN-4.2.D** Convert filler loading between weight and volume fractions.
+  - EK: φ_v = (w/ρ_f) ÷ (w/ρ_f + (1 − w)/ρ_r).
+  - P1 · drills: dn-filler-volume, dn-filler-weight
+- ● **DN-4.2.E** Compute water solubility as ISO 4049 defines it and judge sorption and solubility against the limits.
+  - EK: Solubility = (m₁ − m₃)/V; limits 40 µg/mm³ sorption and 7.5 µg/mm³ solubility.
+  - P1 · drills: dn-solubility, dn-max-mass-loss
 
 ### 4.3 Thermal behaviour
 
@@ -169,6 +181,15 @@ Big ideas: MAT
 - ● **DN-4.4.B** (jcnde-domain:CC31) Choose the surface treatment for bonding a ceramic restoration.
   - EK: Glass ceramics: HF + silane. Zirconia: air abrasion + MDP.
   - P3 · drills: dn-ceramic-bonding, dn-ceramic-why
+- ● **DN-4.4.C** (jcnde-domain:CC30) Classify adhesive systems and choose one for a situation.
+  - EK: Etch-and-rinse (3- or 2-step), self-etch (2- or 1-step), universal; the hybrid layer; 10-MDP bonds chemically to hydroxyapatite and zirconia.
+  - P2 · P3 · drills: dn-adhesive-class, dn-adhesive-scenario
+- ● **DN-4.4.D** Compute bond strength from a shear or microtensile test.
+  - EK: σ = F/A; microtensile beams are about 1 mm².
+  - P1 · drills: dn-bond-strength, dn-load-for-strength
+- ● **DN-4.4.E** (jcnde-domain:CC31) Compare zirconia and glass-ceramic classes by strength, translucency and bonding.
+  - EK: 3Y-TZP strongest and most opaque; 5Y more translucent, weaker; lithium disilicate is etchable with HF.
+  - P2 · P3 · drills: dn-ceramic-class, dn-ceramic-scenario
 
 ### 4.5 Alloys, gypsum and impression materials
 
