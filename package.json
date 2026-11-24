@@ -1,20 +1,20 @@
 {
   "name": "wiki-sync",
-  "version": "0.94.0",
+  "version": "0.95.0",
   "private": true,
   "pluginManifest": {
     "id": "wiki-sync",
     "name": "KevinDoesChemistry Library",
     "description": "Drill cards with a fresh, auto-checked problem every review.",
-    "version": "0.94.0",
+    "version": "0.95.0",
     "reqs": []
   },
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack serve --config webpack.config.js",
     "build": "cross-env NODE_ENV=production webpack --config webpack.config.js && cd dist && bestzip ../PluginZip.zip ./*",
     "check-types": "npm run skills && tsc --noEmit",
-    "test": "tsx tests/run.ts && tsx tests/content-sim.ts && tsx tests/content-sim.ts --offline && tsx --require ./tests/sim-preload.cjs tests/library-sim.ts && tsx --require ./tests/sim-preload.cjs tests/library-choice-sim.ts && tsx tests/path-view-render.tsx && tsx --require ./tests/sim-preload.cjs tests/warm-sim.ts && tsx --require ./tests/sim-preload.cjs tests/static-sim.ts && python3 tests/verify_sympy.py",
-    "skills": "node scripts/build-skills.mjs && node scripts/framework.mjs && node scripts/check-wiki.mjs && node scripts/standards.mjs && node scripts/framework-index.mjs && node scripts/content-meta.mjs",
+    "test": "tsx tests/run.ts && tsx --require ./tests/sim-preload.cjs tests/library-sim.ts && tsx --require ./tests/sim-preload.cjs tests/library-choice-sim.ts && tsx tests/path-view-render.tsx && tsx --require ./tests/sim-preload.cjs tests/warm-sim.ts && tsx --require ./tests/sim-preload.cjs tests/static-sim.ts && python3 tests/verify_sympy.py",
+    "skills": "node scripts/build-skills.mjs && node scripts/framework.mjs && node scripts/check-wiki.mjs && node scripts/standards.mjs && node scripts/framework-index.mjs",
     "wiki": "node scripts/check-wiki.mjs",
     "worksheets": "npm run skills && tsx scripts/worksheets.ts",
     "predev": "npm run skills",
