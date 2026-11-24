@@ -45,14 +45,14 @@ Big ideas: EXACT
 
 - ● **CO-1.1.A** Compute the pH of a polyprotic acid or one of its salts from the full charge balance.
   - EK: Amphiprotic salts sit near ½(pKₐₙ + pKₐₙ₊₁).
-  - P1 · drills: co-polyprotic-ph
+  - P1 · drills: co-polyprotic-ph, co-phosphate-fraction
 - ● **CO-1.1.B** Compute a buffer's pH after strong acid is added.
   - EK: Convert base to acid mole for mole, then the equilibrium.
-  - P1 · drills: co-buffer-acid
+  - P1 · drills: co-buffer-acid, co-buffer-capacity-acid
 - ● **CO-1.1.C** Compute the solubility of a salt of a weak acid at fixed pH.
   - EK: s = [K_sp(1 + [H⁺]/Kₐ)²/4]^⅓ for CaF₂.
   - Needs: CO-1.1.A
-  - P1 · drills: co-solubility-ph
+  - P1 · drills: co-solubility-ph, co-solubility-ph-factor
 
 ### 1.2 Gas equilibria
 
@@ -60,11 +60,11 @@ Big ideas: EXACT
 
 - ● **CO-1.2.A** Convert K_c to K_p.
   - EK: K_p = K_c(RT)^Δn.
-  - P1 · drills: co-kp-kc
+  - P1 · drills: co-kp-kc, co-kc-from-kp
 - ● **CO-1.2.B** Compute the degree of dissociation at a given total pressure.
   - EK: α = √(K_p/(4P + K_p)) for N₂O₄.
   - Needs: CO-1.2.A
-  - P1 · drills: co-dissociation
+  - P1 · drills: co-dissociation, co-pressure-for-alpha
 
 ## Unit 2 · Electrochemistry and thermochemistry in depth
 
@@ -76,10 +76,10 @@ Big ideas: CYCLE
 
 - ● **CO-2.1.A** Compute E° of an insoluble-salt electrode from K_sp.
   - EK: E° = E°(Mⁿ⁺/M) + (RT/nF) ln K_sp.
-  - P1 · drills: co-e-from-ksp
+  - P1 · drills: co-e-from-ksp, co-ksp-from-e
 - ● **CO-2.1.B** Compute the mass deposited or the time needed in electrolysis.
   - EK: n = It/(zF).
-  - P1 · drills: co-electrolysis
+  - P1 · drills: co-electrolysis, co-current-needed
 
 ### 2.2 Thermochemistry
 
@@ -87,10 +87,10 @@ Big ideas: CYCLE
 
 - ● **CO-2.2.A** Close a Born–Haber cycle for the lattice enthalpy.
   - EK: ΔH_f = sublimation + IE + atomisation + EA + lattice.
-  - P1 · drills: co-born-haber
+  - P1 · drills: co-born-haber, co-lattice-compare
 - ● **CO-2.2.B** Estimate a reaction enthalpy from bond enthalpies.
   - EK: Σ broken − Σ formed.
-  - P1 · drills: co-bond-enthalpy
+  - P1 · drills: co-bond-enthalpy, co-bond-from-dh
 
 ## Unit 3 · Kinetics in depth
 
@@ -102,11 +102,11 @@ Big ideas: EXACT
 
 - ● **CO-3.1.A** Compute the time to reach a concentration for zero-, first- or second-order kinetics.
   - EK: Integrated rate laws.
-  - P1 · drills: co-integrated-rate
+  - P1 · drills: co-integrated-rate, co-half-life-scaling
 - ● **CO-3.1.B** Compute the daughter population in a two-step decay chain.
   - EK: Bateman equation.
   - Needs: CO-3.1.A
-  - P1 · drills: co-decay-chain
+  - P1 · drills: co-decay-chain, co-daughter-max-time
 
 ## Unit 4 · Solutions and spectra in depth
 
@@ -118,13 +118,13 @@ Big ideas: COUNT
 
 - ● **CO-4.1.A** Find the degree of dissociation from a freezing-point depression.
   - EK: i = 1 + α(ν − 1).
-  - P1 · drills: co-vant-hoff
+  - P1 · drills: co-vant-hoff, co-freezing-predict
 - ● **CO-4.1.B** Predict relative isotope-peak intensities for Cl and Br compounds.
   - EK: Binomial in the isotope fractions.
-  - P2 · drills: co-isotope-pattern
+  - P2 · drills: co-isotope-pattern, co-m2-ratio
 - ● **CO-4.1.C** Count the lines of a first-order NMR multiplet.
   - EK: (n + 1)(m + 1), collapsing when J are equal.
-  - P2 · drills: co-nmr-multiplicity
+  - P2 · drills: co-nmr-multiplicity, co-multiplet-centre
 
 ## Unit 5 · USNCO band 1: stoichiometry and solutions
 
@@ -136,19 +136,19 @@ Big ideas: EXACT
 
 - ● **CO-5.1.A** (usnco:1) Find a C:H ratio from combustion analysis.
   - EK: All C ends in CO₂ and all H in H₂O; compare moles.
-  - P1 · drills: co-combustion-ratio
+  - P1 · drills: co-combustion-ratio, co-co2-mass
 - ● **CO-5.1.B** (usnco:1) Find the water of crystallisation of a hydrate.
   - EK: n = (mass of water / 18.015) / (mass of anhydrous salt / M).
-  - P1 · drills: co-hydrate-n
+  - P1 · drills: co-hydrate-n, co-hydrate-percent
 - ● **CO-5.1.C** (usnco:1) Prepare a solution of given molality.
   - EK: Molality is moles of solute per kilogram of solvent.
-  - P1 · drills: co-molality-mass
+  - P1 · drills: co-molality-mass, co-molality-from-percent
 - ● **CO-5.1.D** (usnco:1) Find a product yield from a limiting reagent.
   - EK: Convert both reactants to moles of product; the smaller wins.
-  - P1 · drills: co-limiting-yield
+  - P1 · drills: co-limiting-yield, co-percent-yield
 - ● **CO-5.1.E** (usnco:1) Work a back titration.
   - EK: Excess reagent is titrated; what reacted is total minus excess.
-  - P1 · drills: co-back-titration
+  - P1 · drills: co-back-titration, co-antacid-naoh
 
 ## Unit 6 · USNCO band 2: descriptive chemistry and the laboratory
 
@@ -160,22 +160,22 @@ Big ideas: EXACT
 
 - ● **CO-6.1.A** (usnco:2) Know flame-test colours.
   - EK: Li crimson, Na yellow, K lilac, Ca orange-red, Sr red, Ba pale green, Cu blue-green.
-  - P1 · drills: co-flame-test
+  - P1 · drills: co-flame-test, co-flame-confusion
 - ● **CO-6.1.B** (usnco:2) Choose a reagent that tells two salts apart.
   - EK: Pick a reagent that gives a precipitate, gas or colour with one and not the other.
-  - P1 · drills: co-distinguish-salts
+  - P1 · drills: co-distinguish-salts, co-tell-apart
 - ● **CO-6.1.C** (usnco:2) Recall the colours of common precipitates and ions.
   - EK: AgCl white, AgBr cream, AgI yellow, PbI₂ bright yellow, Cu(OH)₂ blue, Fe(OH)₃ rust-brown, Fe(OH)₂ green, CuS and PbS black.
-  - P1 · drills: co-precipitate-colour
+  - P1 · drills: co-precipitate-colour, co-ppt-identify
 - ● **CO-6.1.D** (usnco:2) Choose a colorimeter wavelength.
   - EK: Measure at the colour the solution absorbs: the complement of the colour you see.
-  - P1 · drills: co-colorimeter-led
+  - P1 · drills: co-colorimeter-led, co-colour-complement
 - ● **CO-6.1.E** (usnco:2) Predict the direction of a laboratory error.
   - EK: Follow the error through the calculation: which measured quantity is too big or too small?
-  - P1 · drills: co-lab-error
+  - P1 · drills: co-lab-error, co-error-direction
 - ● **CO-6.1.F** (usnco:2) Correct a gas collected over water.
   - EK: p_gas = P_total − p_water; then n = pV/RT.
-  - P1 · drills: co-gas-over-water
+  - P1 · drills: co-gas-over-water, co-wet-gas-volume
 
 ## Unit 7 · USNCO band 3: states of matter
 
@@ -187,19 +187,19 @@ Big ideas: EXACT
 
 - ● **CO-7.1.A** (usnco:3) Find a density from a cubic unit cell.
   - EK: ρ = Z M / (N_A a³); Z = 1, 2, 4 for sc, bcc, fcc.
-  - P1 · drills: co-unit-cell-density
+  - P1 · drills: co-unit-cell-density, co-molar-mass-from-cell
 - ● **CO-7.1.B** (usnco:3) Give coordination numbers in common ionic structures.
   - EK: Rock salt 6:6; CsCl 8:8; zinc blende 4:4; fluorite Ca 8, F 4; rutile Ti 6, O 3.
-  - P1 · drills: co-coordination-structure
+  - P1 · drills: co-coordination-structure, co-structure-cn
 - ● **CO-7.1.C** (usnco:3) Find how much liquid remains when some evaporates into a closed flask.
   - EK: Vapour moles = P_vap V/RT; if less than the total, the rest stays liquid.
-  - P1 · drills: co-liquid-remaining
+  - P1 · drills: co-liquid-remaining, co-vapour-pressure-evap
 - ● **CO-7.1.D** (usnco:3) Use Graham's law.
   - EK: Effusion rate ∝ 1/√M.
-  - P1 · drills: co-graham
+  - P1 · drills: co-graham, co-graham-mass
 - ● **CO-7.1.E** (usnco:3) Rank substances by boiling or melting point.
   - EK: Ionic and network solids first; then hydrogen bonding; then dispersion, which grows with size and surface area.
-  - P1 · drills: co-boiling-rank
+  - P1 · drills: co-boiling-rank, co-mp-rank
 
 ## Unit 8 · USNCO band 4: thermodynamics
 
@@ -211,19 +211,19 @@ Big ideas: EXACT
 
 - ● **CO-8.1.A** (usnco:4) Find K from ΔH° and ΔS° at a temperature.
   - EK: ΔG° = ΔH° − TΔS°; K = e^{−ΔG°/RT}.
-  - P1 · drills: co-k-from-dh-ds
+  - P1 · drills: co-k-from-dh-ds, co-dg-from-k
 - ● **CO-8.1.B** (usnco:4) Find the temperature at which a reaction becomes spontaneous.
   - EK: T = ΔH°/ΔS° when both have the same sign.
-  - P1 · drills: co-crossover-temperature
+  - P1 · drills: co-crossover-temperature, co-ds-from-crossover
 - ● **CO-8.1.C** (usnco:4) Find an enthalpy of solution from calorimetry.
   - EK: q = m c ΔT absorbed by the solution; ΔH_soln = −q/n.
-  - P1 · drills: co-enthalpy-solution
+  - P1 · drills: co-enthalpy-solution, co-temp-change-solution
 - ● **CO-8.1.D** (usnco:4) Predict the sign of ΔS.
   - EK: More moles of gas, dissolving a solid, melting and mixing raise entropy; forming fewer, more ordered particles lowers it.
-  - P1 · drills: co-entropy-sign
+  - P1 · drills: co-entropy-sign, co-ds-sign-2
 - ● **CO-8.1.E** (usnco:4) Close a Hess's-law cycle.
   - EK: Reverse and scale the given reactions until they add to the target; do the same to their ΔH.
-  - P1 · drills: co-hess-cycle
+  - P1 · drills: co-hess-cycle, co-hf-from-hc
 
 ## Unit 9 · USNCO band 5: kinetics
 
@@ -235,19 +235,19 @@ Big ideas: EXACT
 
 - ● **CO-9.1.A** (usnco:5) Find a reaction order from initial-rate data.
   - EK: Order = log(rate ratio)/log(concentration ratio).
-  - P1 · drills: co-order-from-rates
+  - P1 · drills: co-order-from-rates, co-rate-predict
 - ● **CO-9.1.B** (usnco:5) Find the rate law from a mechanism with a fast pre-equilibrium.
   - EK: Rate = k₂K₁[...]: substitute the intermediate from the equilibrium.
-  - P1 · drills: co-preequilibrium-order
+  - P1 · drills: co-preequilibrium-order, co-mechanism-rate-law
 - ● **CO-9.1.C** (usnco:5) Find product fractions for parallel first-order reactions.
   - EK: Fraction of B = k_B/(k_B + k_C); with Arrhenius, the higher-Eₐ path grows with T.
-  - P1 · drills: co-parallel-arrhenius
+  - P1 · drills: co-parallel-arrhenius, co-equal-rate-temp
 - ● **CO-9.1.D** (usnco:5) Use a kinetic isotope effect.
   - EK: C–D bonds have lower zero-point energy than C–H, so breaking them in the rate-determining step is slower (k_H/k_D ≈ 2–7).
-  - P1 · drills: co-isotope-effect
+  - P1 · drills: co-isotope-effect, co-kie-from-freq
 - ● **CO-9.1.E** (usnco:5) Find the activity of a daughter after a decay chain reaches secular equilibrium.
   - EK: When the parent lives much longer, daughter activity equals parent activity.
-  - P1 · drills: co-secular-equilibrium
+  - P1 · drills: co-secular-equilibrium, co-daughter-halflife
 
 ## Unit 10 · USNCO band 6: equilibrium
 
@@ -259,19 +259,19 @@ Big ideas: EXACT
 
 - ● **CO-10.1.A** (usnco:6) Combine equilibrium constants.
   - EK: Reverse: 1/K; multiply by n: Kⁿ; add reactions: multiply K's.
-  - P1 · drills: co-combine-k
+  - P1 · drills: co-combine-k, co-k-reverse-scale
 - ● **CO-10.1.B** (usnco:6) Find pKa from a percent ionisation.
   - EK: Ka = c α²/(1 − α).
-  - P1 · drills: co-pka-from-ionisation
+  - P1 · drills: co-pka-from-ionisation, co-ionisation-from-pka
 - ● **CO-10.1.C** (usnco:6) Find a solubility enhanced by complex formation.
   - EK: AgCl + 2NH₃ ⇌ Ag(NH₃)₂⁺ + Cl⁻ with K = K_sp K_f; s ≈ √K [NH₃].
-  - P1 · drills: co-complex-solubility
+  - P1 · drills: co-complex-solubility, co-agcl-in-ammonia
 - ● **CO-10.1.D** (usnco:6) Write and use K for a heterogeneous equilibrium.
   - EK: Pure solids and liquids are left out of K.
-  - P1 · drills: co-heterogeneous-kp
+  - P1 · drills: co-heterogeneous-kp, co-carbonate-decomposed
 - ● **CO-10.1.E** (usnco:6) Find the pH at points of a diprotic titration.
   - EK: First half-equivalence: pH = pKa₁; first equivalence: (pKa₁ + pKa₂)/2; second half-equivalence: pKa₂.
-  - P1 · drills: co-diprotic-points
+  - P1 · drills: co-diprotic-points, co-first-equivalence-ph
 
 ## Unit 11 · USNCO band 7: oxidation–reduction and electrochemistry
 
@@ -283,19 +283,19 @@ Big ideas: EXACT
 
 - ● **CO-11.1.A** (usnco:7) Find an average oxidation state.
   - EK: Charge balance with the usual values for the other atoms.
-  - P1 · drills: co-average-ox-state
+  - P1 · drills: co-average-ox-state, co-mixed-valence-fraction
 - ● **CO-11.1.B** (usnco:7) Combine half-reaction potentials.
   - EK: Potentials do not add; ΔG = −nFE does: E₃ = (n₁E₁ + n₂E₂)/(n₁ + n₂).
-  - P1 · drills: co-combine-potentials
+  - P1 · drills: co-combine-potentials, co-disprop-potential
 - ● **CO-11.1.C** (usnco:7) Use the Nernst equation.
   - EK: E = E° − (RT/nF) ln Q.
-  - P1 · drills: co-nernst
+  - P1 · drills: co-nernst, co-ratio-from-emf
 - ● **CO-11.1.D** (usnco:7) Find K from a standard cell potential.
   - EK: ln K = nFE°/RT.
-  - P1 · drills: co-k-from-e
+  - P1 · drills: co-k-from-e, co-e-from-k
 - ● **CO-11.1.E** (usnco:7) Count electrons in a redox half-reaction.
   - EK: Change in oxidation state × atoms changed.
-  - P1 · drills: co-half-electrons
+  - P1 · drills: co-half-electrons, co-protons-in-half
 
 ## Unit 12 · USNCO band 8: atomic structure and periodicity
 
@@ -307,22 +307,22 @@ Big ideas: EXACT
 
 - ● **CO-12.1.A** (usnco:8) Identify a group from successive ionisation energies.
   - EK: The big jump comes after the last valence electron.
-  - P1 · drills: co-ionisation-jump
+  - P1 · drills: co-ionisation-jump, co-jump-position
 - ● **CO-12.1.B** (usnco:8) Count electrons with given quantum numbers.
   - EK: Each orbital holds 2; there are 2l + 1 orbitals per subshell and n² per shell.
-  - P1 · drills: co-quantum-count
+  - P1 · drills: co-quantum-count, co-max-electrons
 - ● **CO-12.1.C** (usnco:8) Explain anomalies in periodic trends.
   - EK: Half-filled and filled subshells resist adding or removing electrons.
-  - P1 · drills: co-trend-anomaly
+  - P1 · drills: co-trend-anomaly, co-anomaly-explain
 - ● **CO-12.1.D** (usnco:8) Find the wavelength of a hydrogen transition.
   - EK: 1/λ = R_H(1/n₁² − 1/n₂²), R_H = 1.097×10⁷ m⁻¹.
-  - P1 · drills: co-hydrogen-line
+  - P1 · drills: co-hydrogen-line, co-series-limit
 - ● **CO-12.1.E** (usnco:8) Count unpaired electrons in a transition-metal ion.
   - EK: Remove s electrons first, then put the d electrons into five orbitals by Hund's rule (free ion).
-  - P1 · drills: co-unpaired-ion
+  - P1 · drills: co-unpaired-ion, co-ion-moment
 - ● **CO-12.1.F** (usnco:8) Predict a radioactive decay mode.
   - EK: Neutron-rich nuclides β⁻ decay; proton-rich ones β⁺ or capture electrons; very heavy ones α decay.
-  - P1 · drills: co-decay-mode
+  - P1 · drills: co-decay-mode, co-daughter-z
 
 ## Unit 13 · USNCO band 9: bonding and molecular structure
 
@@ -334,19 +334,19 @@ Big ideas: EXACT
 
 - ● **CO-13.1.A** (usnco:9) Predict a VSEPR shape including lone pairs.
   - EK: Count electron domains, then name the shape from the atoms only.
-  - P1 · drills: co-vsepr-shape
+  - P1 · drills: co-vsepr-shape, co-lone-pairs-centre
 - ● **CO-13.1.B** (usnco:9) Count the stereoisomers of an octahedral complex.
   - EK: Enumerate arrangements up to rotation; mirror images count separately.
-  - P1 · drills: co-octahedral-isomers
+  - P1 · drills: co-octahedral-isomers, co-square-planar-isomers
 - ● **CO-13.1.C** (usnco:9) Find a bond order from a molecular-orbital diagram.
   - EK: Bond order = (bonding − antibonding)/2.
-  - P1 · drills: co-mo-bond-order
+  - P1 · drills: co-mo-bond-order, co-mo-unpaired
 - ● **CO-13.1.D** (usnco:9) Choose the most stable resonance arrangement or isomer by formal charge.
   - EK: Prefer formal charges near zero, with negative charge on the more electronegative atom.
-  - P1 · drills: co-formal-charge
+  - P1 · drills: co-formal-charge, co-formal-charge-atom
 - ● **CO-13.1.E** (usnco:9) Find a fractional bond order from resonance.
   - EK: Spread the π bonds over the equivalent positions: bond order = total bonds / positions.
-  - P1 · drills: co-resonance-bond-order
+  - P1 · drills: co-resonance-bond-order, co-bond-length-rank
 
 ## Unit 14 · USNCO band 10: organic chemistry, biochemistry and spectroscopy
 
@@ -358,22 +358,22 @@ Big ideas: EXACT
 
 - ● **CO-14.1.A** (usnco:10) Count structural isomers.
   - EK: Enumerate chains, then branches; include rings when the formula allows.
-  - P1 · drills: co-isomer-count
+  - P1 · drills: co-isomer-count, co-isomer-count-2
 - ● **CO-14.1.B** (usnco:10) Find the degree of unsaturation.
   - EK: DoU = (2C + 2 + N − H − X)/2: rings plus π bonds.
-  - P1 · drills: co-unsaturation
+  - P1 · drills: co-unsaturation, co-h-from-dou
 - ● **CO-14.1.C** (usnco:10) Assign an infrared band.
   - EK: O–H broad 3200–3550; C=O sharp near 1700; C≡N near 2250; C–H just below 3000 (sp³) or above (sp²).
-  - P1 · drills: co-ir-band
+  - P1 · drills: co-ir-band, co-ir-tell
 - ● **CO-14.1.D** (usnco:10) Count ¹H NMR environments.
   - EK: Equivalent hydrogens (by symmetry) give one signal.
-  - P1 · drills: co-nmr-environments
+  - P1 · drills: co-nmr-environments, co-nmr-env-2
 - ● **CO-14.1.E** (usnco:10) Identify the monomer of a polymer.
   - EK: Addition polymers repeat the alkene's carbons; condensation polymers lose a small molecule at each link.
-  - P1 · drills: co-monomer
+  - P1 · drills: co-monomer, co-polymer-from-monomer
 - ● **CO-14.1.F** (usnco:10) Find an amino acid's isoelectric point.
   - EK: pI is the average of the two pKa values on either side of the neutral form.
-  - P1 · drills: co-isoelectric
+  - P1 · drills: co-isoelectric, co-glycine-charge
 
 ## Unit 15 · USNCO Part II: multi-step problems
 
@@ -385,19 +385,19 @@ Big ideas: EXACT
 
 - ● **CO-15.1.A** (usnco:P2, usnco:6) Find a molar solubility with a common ion, then compare it with pure water.
   - EK: Ksp = s(s + c) ≈ s c when c ≫ s.
-  - P1 · drills: co-p2-common-ion
+  - P1 · drills: co-p2-common-ion, co-ksp-from-common-ion
 - ● **CO-15.1.B** (usnco:P2, usnco:7) Get ΔS° of a cell reaction from the temperature dependence of E°.
   - EK: ΔS° = nF(dE°/dT); ΔH° = ΔG° + TΔS°.
-  - P1 · drills: co-p2-cell-entropy
+  - P1 · drills: co-p2-cell-entropy, co-dedt-from-ds
 - ● **CO-15.1.C** (usnco:P2, usnco:4) Find ΔS° from ΔG° and calorimetric ΔH°.
   - EK: ΔG° = −RT ln K; ΔS° = (ΔH° − ΔG°)/T.
-  - P1 · drills: co-p2-entropy-from-k
+  - P1 · drills: co-p2-entropy-from-k, co-vant-hoff-k
 - ● **CO-15.1.D** (usnco:P2, usnco:1) Find a hydrate's water count from an iodometric titration.
   - EK: Cu²⁺ + I⁻ → CuI + ½I₂; I₂ + 2 S₂O₃²⁻: one thiosulfate per Cu.
-  - P1 · drills: co-p2-iodometric
+  - P1 · drills: co-p2-iodometric, co-iodometric-copper
 - ● **CO-15.1.E** (usnco:P2, usnco:3) Find a density and an oxidation state from a perovskite unit cell.
   - EK: ABO₃: A at the corners (1), B at the centre (1), O at the face centres (3).
-  - P1 · drills: co-p2-perovskite
+  - P1 · drills: co-p2-perovskite, co-tolerance-factor
 - ● **CO-15.1.F** (usnco:P2, usnco:8) Find a photon energy per mole for bond breaking.
   - EK: E = N_A hc/λ.
-  - P1 · drills: co-p2-photon-kj
+  - P1 · drills: co-p2-photon-kj, co-threshold-wavelength
