@@ -2,7 +2,7 @@
 
 Generated from `drills/frameworks/material-balances.yaml` by `scripts/framework.mjs`. ● drilled · ◐ partly · ○ no drills yet.
 
-**16 learning objectives** in 5 units (16 core): 16 drilled, 0 partly, 0 with no drills. Core: 16 / 16 drilled.
+**18 learning objectives** in 6 units (18 core): 18 drilled, 0 partly, 0 with no drills. Core: 18 / 18 drilled.
 
 ## Big ideas
 
@@ -25,6 +25,7 @@ Generated from `drills/frameworks/material-balances.yaml` by `scripts/framework.
 | 3 · Balances with reaction | core | — | 5 | 5 | 0 | 0 |
 | 4 · Energy balances | core | — | 3 | 3 | 0 | 0 |
 | 5 · Unsteady balances | core | — | 3 | 3 | 0 | 0 |
+| 6 · Multiunit balances and degrees of freedom | core | — | 2 | 2 | 0 | 0 |
 
 ## Unit 1 · Process variables
 
@@ -138,6 +139,21 @@ Big ideas: CONSERVE
 - ● **MB-5.2.A** (fe-chemical:8.D, webwork-opl:TH5.3, webwork-opl:MB5.5) Find the time to heat a batch at a constant heating rate.
   - EK: m cp dT/dt = Q; with no losses the temperature rises linearly.
   - P2 · drills: mb-tank-heating-time
+
+## Unit 6 · Multiunit balances and degrees of freedom
+
+Big ideas: CONSERVE
+
+### 6.1 Flowsheets
+
+
+
+- ● **MB-6.1.A** (webwork-opl:MB2.3) Solve a two-unit separation train.
+  - EK: Balance each unit in turn; a component's recovery multiplies through units in series.
+  - P1 · drills: mb-two-column
+- ● **MB-6.1.B** (webwork-opl:MB4.1) Count degrees of freedom for an energy balance.
+  - EK: DOF = unknowns − independent equations; the energy balance adds one equation and usually one unknown (Q or a temperature).
+  - P1 · drills: mb-energy-dof
 
 ## Drills not yet placed on the map
 

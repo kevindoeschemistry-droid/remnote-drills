@@ -20,7 +20,7 @@
   given: { c: { pick: [2, 3, 5, 10, 20] }, x0: { pick: [1, 2, 3] } }
   prompt: 'Take one Newton step toward the cube root of ${{c}}$, solving $f(x) = x^3 - {{c}} = 0$ from $x_0 = {{x0}}$. What is $x_1$?'
   parts:
-    - { ask: '$x_1$', label: r, tex: 'x_1', value: x0 - (x0^3 - c)/(3*x0^2), tol: 0.0001, explain: '$x_1 = x_0 - f(x_0)/f''(x_0)$, the root of the tangent line. Near a simple root the error squares each step: the number of correct digits roughly doubles' }
+    - { ask: '$x_1$', label: r, tex: 'x_1', value: x0 - (x0^3 - c)/(3*x0^2), tol: 0.005, explain: '$x_1 = x_0 - f(x_0)/f''(x_0)$, the root of the tangent line. Near a simple root the error squares each step: the number of correct digits roughly doubles' }
   verify: { expect: { r: "solve(Eq((x0**3 - c) + diff(x**3 - c, x).subs(x, x0)*(x - x0), 0), x)[0]" } }
 
 - template: nm-secant-step
@@ -29,7 +29,7 @@
   given: { c: { pick: [2, 3, 5, 7] }, x0: { pick: [1, 2] }, d: { pick: [1, 2] } }
   prompt: 'Solve $x^2 - {{c}} = 0$ by the secant method from $x_0 = {{x0}}$, $x_1 = {{x0 + d}}$. What is $x_2$?'
   parts:
-    - { ask: '$x_2$', label: r, tex: 'x_2', value: (x0 + d) - ((x0 + d)^2 - c)*d/(((x0 + d)^2 - c) - (x0^2 - c)), tol: 0.0001, explain: 'The secant replaces $f''$ by the slope through the last two points: $x_2 = x_1 - f(x_1)\dfrac{x_1 - x_0}{f(x_1) - f(x_0)}$. No derivative needed; convergence order about 1.6' }
+    - { ask: '$x_2$', label: r, tex: 'x_2', value: (x0 + d) - ((x0 + d)^2 - c)*d/(((x0 + d)^2 - c) - (x0^2 - c)), tol: 0.005, explain: 'The secant replaces $f''$ by the slope through the last two points: $x_2 = x_1 - f(x_1)\dfrac{x_1 - x_0}{f(x_1) - f(x_0)}$. No derivative needed; convergence order about 1.6' }
   verify: { expect: { r: "solve(Eq((x0**2 - c) + (((x0 + d)**2 - c) - (x0**2 - c))/d*(x - x0), 0), x)[0]" } }
 
 - template: nm-fixed-point
@@ -60,7 +60,7 @@
   require: ["f - c*p != 0"]
   prompt: 'Solve ${{a}}x + ({{b}})y = {{e}}$, $({{c}})x + {{d}}y = {{f}}$ by Jacobi iteration from $(x, y) = ({{p}}, {{q}})$. What is $y$ after one step?'
   parts:
-    - { ask: '$y_1$', label: r, tex: 'y_1', value: (f - c*p)/d, tol: 0.0001, explain: 'Jacobi solves each equation for its own diagonal unknown using only the old values: $y_1 = (f - c\,x_0)/d$. Diagonal dominance (here $|a| > |b|$, $|d| > |c|$) guarantees convergence' }
+    - { ask: '$y_1$', label: r, tex: 'y_1', value: (f - c*p)/d, tol: 0.005, explain: 'Jacobi solves each equation for its own diagonal unknown using only the old values: $y_1 = (f - c\,x_0)/d$. Diagonal dominance (here $|a| > |b|$, $|d| > |c|$) guarantees convergence' }
   verify: { expect: { r: "(Matrix([[a, 0], [0, d]]).inv()*(Matrix([e, f]) - Matrix([[0, b], [c, 0]])*Matrix([p, q])))[1]" } }
 
 - template: nm-gauss-seidel-step
@@ -70,7 +70,7 @@
   require: ["f - c*(e - b*q)/a != 0"]
   prompt: 'Solve ${{a}}x + ({{b}})y = {{e}}$, $({{c}})x + {{d}}y = {{f}}$ by Gauss–Seidel from $(x, y) = ({{p}}, {{q}})$, updating $x$ first. What is $y$ after one sweep?'
   parts:
-    - { ask: '$y_1$', label: r, tex: 'y_1', value: (f - c*(e - b*q)/a)/d, tol: 0.0001, explain: 'Gauss–Seidel uses each new value as soon as it has it: first $x_1 = (e - b\,y_0)/a$, then $y_1 = (f - c\,x_1)/d$. It usually converges about twice as fast as Jacobi' }
+    - { ask: '$y_1$', label: r, tex: 'y_1', value: (f - c*(e - b*q)/a)/d, tol: 0.005, explain: 'Gauss–Seidel uses each new value as soon as it has it: first $x_1 = (e - b\,y_0)/a$, then $y_1 = (f - c\,x_1)/d$. It usually converges about twice as fast as Jacobi' }
   verify: { expect: { r: "(Matrix([[a, 0], [c, d]]).inv()*(Matrix([e, f]) - Matrix([[0, b], [0, 0]])*Matrix([p, q])))[1]" } }
 
 - template: nm-diagonal-dominance
@@ -94,7 +94,7 @@
   require: ["y0*(t - 1)*(t - 2)/2 - y1*t*(t - 2) + y2*t*(t - 1)/2 != 0"]
   prompt: 'Fit the quadratic through $(0, {{y0}})$, $(1, {{y1}})$, $(2, {{y2}})$ and evaluate it at $x = {{t}}$.'
   parts:
-    - { ask: '$p({{t}})$', label: r, tex: 'p', value: y0*(t - 1)*(t - 2)/2 - y1*t*(t - 2) + y2*t*(t - 1)/2, tol: 0.0001, explain: 'Lagrange form: $p(x) = \sum y_i L_i(x)$ with $L_0 = \tfrac{(x-1)(x-2)}{2}$, $L_1 = -x(x-2)$, $L_2 = \tfrac{x(x-1)}{2}$. At $x = 3$ it is extrapolating, where interpolants are least trustworthy' }
+    - { ask: '$p({{t}})$', label: r, tex: 'p', value: y0*(t - 1)*(t - 2)/2 - y1*t*(t - 2) + y2*t*(t - 1)/2, tol: 0.005, explain: 'Lagrange form: $p(x) = \sum y_i L_i(x)$ with $L_0 = \tfrac{(x-1)(x-2)}{2}$, $L_1 = -x(x-2)$, $L_2 = \tfrac{x(x-1)}{2}$. At $x = 3$ it is extrapolating, where interpolants are least trustworthy' }
   verify: { expect: { r: "(Matrix([[1, 0, 0], [1, 1, 1], [1, 2, 4]]).inv()*Matrix([y0, y1, y2])).dot(Matrix([1, nsimplify(t), nsimplify(t)**2]))" } }
 
 - template: nm-simpson
@@ -103,7 +103,7 @@
   given: { a: { int: [-2, 3] }, b: { int: [-3, 3] }, c: { int: [-3, 4] }, d: { int: [1, 5] } }
   prompt: 'Apply Simpson''s rule with two panels ($h = 1$) to $\displaystyle\int_0^2 ({{a}}x^3 + ({{b}})x^2 + ({{c}})x + {{d}})\,dx$.'
   parts:
-    - { ask: 'Simpson estimate', label: r, tex: 'S', value: (d + 4*(a + b + c + d) + (8*a + 4*b + 2*c + d))/3, tol: 0.0001, explain: '$S = \tfrac h3\,(f_0 + 4f_1 + f_2)$. Simpson''s rule is exact for cubics, so this equals the true integral: its error term involves $f^{(4)}$' }
+    - { ask: 'Simpson estimate', label: r, tex: 'S', value: (d + 4*(a + b + c + d) + (8*a + 4*b + 2*c + d))/3, tol: 0.005, explain: '$S = \tfrac h3\,(f_0 + 4f_1 + f_2)$. Simpson''s rule is exact for cubics, so this equals the true integral: its error term involves $f^{(4)}$' }
   verify: { expect: { r: "integrate(a*x**3 + b*x**2 + c*x + d, (x, 0, 2))" } }
 
 - template: nm-trapezoid-scaling
@@ -112,7 +112,7 @@
   given: { E: { pick: [0.08, 0.012, 0.004, 0.3] }, m: { pick: [2, 3, 4, 10] } }
   prompt: 'The composite trapezoid rule on a smooth integrand has error ${{E}}$. Roughly what is the error with ${{m}}$ times as many panels?'
   parts:
-    - { ask: 'New error', label: r, tex: 'E''', value: E/m^2, tol: 0.001, explain: 'Trapezoid error goes as $h^2$: ${{m}}$ times the panels, ${{m}}^2$ times smaller error. Simpson goes as $h^4$, so the same refinement would buy ${{m}}^4$' }
+    - { ask: 'New error', label: r, tex: 'E''', value: E/m^2, tol: 0.005, explain: 'Trapezoid error goes as $h^2$: ${{m}}$ times the panels, ${{m}}^2$ times smaller error. Simpson goes as $h^4$, so the same refinement would buy ${{m}}^4$' }
   verify: { expect: { r: "nsimplify(E)*(Rational(1, 6)/(m*Symbol('n'))**2)/(Rational(1, 6)/Symbol('n')**2)" } }
 
 - template: nm-richardson
@@ -121,7 +121,7 @@
   given: { I: { int: [2, 9] }, k: { pick: [1, 2, 4, -1, -2] }, s: { pick: [0.1, 0.05, 0.02] } }
   prompt: 'A trapezoid estimate gives ${{I + k*s*4}}$ with step $h$ and ${{I + k*s}}$ with step $h/2$. What does Richardson extrapolation give?'
   parts:
-    - { ask: 'Extrapolated value', label: r, tex: 'I', value: (4*(I + k*s) - (I + k*s*4))/3, tol: 0.0001, explain: 'With error $\approx ch^2$, $T(h) = I + ch^2$ and $T(h/2) = I + ch^2/4$; eliminating $c$ gives $I \approx \dfrac{4T(h/2) - T(h)}{3}$. Repeated, this is Romberg integration' }
+    - { ask: 'Extrapolated value', label: r, tex: 'I', value: (4*(I + k*s) - (I + k*s*4))/3, tol: 0.005, explain: 'With error $\approx ch^2$, $T(h) = I + ch^2$ and $T(h/2) = I + ch^2/4$; eliminating $c$ gives $I \approx \dfrac{4T(h/2) - T(h)}{3}$. Repeated, this is Romberg integration' }
   verify: { expect: { r: "solve([Eq(x + Symbol('C'), I + k*nsimplify(s)*4), Eq(x + Symbol('C')/4, I + k*nsimplify(s))], [x, Symbol('C')])[x]" } }
 
 - template: nm-gauss-two-point
@@ -131,7 +131,7 @@
   require: ["b/3 + c != 0"]
   prompt: 'Use two-point Gauss–Legendre quadrature, $\int_{-1}^{1} f \approx f(-1/\sqrt3) + f(1/\sqrt3)$, on $f(x) = {{a}}x^3 + ({{b}})x^2 + ({{c}})$.'
   parts:
-    - { ask: 'Estimate', label: r, tex: 'G', value: 2*(b/3 + c), tol: 0.0001, explain: 'The odd term cancels between the two points; $x^2 = 1/3$ at both. Two well-placed points integrate every cubic exactly, as Simpson does with three' }
+    - { ask: 'Estimate', label: r, tex: 'G', value: 2*(b/3 + c), tol: 0.005, explain: 'The odd term cancels between the two points; $x^2 = 1/3$ at both. Two well-placed points integrate every cubic exactly, as Simpson does with three' }
   verify: { expect: { r: "integrate(a*x**3 + b*x**2 + c, (x, -1, 1))" } }
 
 # ── ODE steps (OPL DE6) ─────────────────────────────────────────────────────
@@ -142,7 +142,7 @@
   require: ["k*y0 + b != 0"]
   prompt: 'Take one Heun (improved Euler) step of size $h = {{h}}$ for $y'' = {{k}}y + ({{b}})$, $y(0) = {{y0}}$. What is $y_1$?'
   parts:
-    - { ask: '$y_1$', label: r, tex: 'y_1', value: y0 + h/2*((k*y0 + b) + (k*(y0 + h*(k*y0 + b)) + b)), tol: 0.0001, explain: 'Predict with Euler, $y^* = y_0 + hf(y_0)$, then average the slopes at both ends: $y_1 = y_0 + \tfrac h2[f(y_0) + f(y^*)]$. Second order: it matches the Taylor series through $h^2$' }
+    - { ask: '$y_1$', label: r, tex: 'y_1', value: y0 + h/2*((k*y0 + b) + (k*(y0 + h*(k*y0 + b)) + b)), tol: 0.005, explain: 'Predict with Euler, $y^* = y_0 + hf(y_0)$, then average the slopes at both ends: $y_1 = y_0 + \tfrac h2[f(y_0) + f(y^*)]$. Second order: it matches the Taylor series through $h^2$' }
   verify: { expect: { r: "series(y0*exp(k*x) + b*(exp(k*x) - 1)/k, x, 0, 3).removeO().subs(x, nsimplify(h))" } }
 
 - template: nm-rk4-step
@@ -151,7 +151,7 @@
   given: { k: { pick: [-2, -1, 1, 2] }, y0: { int: [1, 5] }, h: { pick: [0.1, 0.2, 0.5] } }
   prompt: 'One classical RK4 step of size $h = {{h}}$ for $y'' = {{k}}y$, $y(0) = {{y0}}$, multiplies $y$ by a factor. What is $y_1$?'
   parts:
-    - { ask: '$y_1$', label: r, tex: 'y_1', value: y0*(1 + k*h + (k*h)^2/2 + (k*h)^3/6 + (k*h)^4/24), tol: 0.000001, explain: 'For $y'' = \lambda y$ the four stages combine to $1 + z + z^2/2 + z^3/6 + z^4/24$ with $z = \lambda h$: the Taylor series of $e^z$ through fourth order. Error per step is $O(h^5)$' }
+    - { ask: '$y_1$', label: r, tex: 'y_1', value: y0*(1 + k*h + (k*h)^2/2 + (k*h)^3/6 + (k*h)^4/24), final: true, tol: 0.000001, explain: 'For $y'' = \lambda y$ the four stages combine to $1 + z + z^2/2 + z^3/6 + z^4/24$ with $z = \lambda h$: the Taylor series of $e^z$ through fourth order. Error per step is $O(h^5)$' }
   verify: { expect: { r: "y0*summation((k*nsimplify(h))**Symbol('j')/factorial(Symbol('j')), (Symbol('j'), 0, 4))" } }
 
 - template: nm-euler-stability
@@ -160,7 +160,7 @@
   given: { lam: { pick: [10, 20, 50, 100, 1000] } }
   prompt: 'Explicit Euler is used on $y'' = -{{lam}}\,y$. What is the largest step size $h$ for which the numerical solution does not blow up?'
   parts:
-    - { ask: '$h_{max}$', label: r, tex: 'h', value: 2/lam, tol: 0.0001, explain: 'Each step multiplies $y$ by $1 - \lambda h$; stability needs $|1 - \lambda h| \le 1$, so $h \le 2/\lambda$. A stiff system with one fast mode forces this tiny step on the whole solution, which is why implicit methods exist' }
+    - { ask: '$h_{max}$', label: r, tex: 'h', value: 2/lam, tol: 0.005, explain: 'Each step multiplies $y$ by $1 - \lambda h$; stability needs $|1 - \lambda h| \le 1$, so $h \le 2/\lambda$. A stiff system with one fast mode forces this tiny step on the whole solution, which is why implicit methods exist' }
   verify: { expect: { r: "solve(Eq(1 - lam*x, -1), x)[0]" } }
 
 - template: nm-euler-system
@@ -170,7 +170,7 @@
   require: ["u + h*(a*u + b*w) != 0"]
   prompt: 'Take one explicit Euler step of size ${{h}}$ for $u'' = {{a}}u + ({{b}})w$, $w'' = ({{c}})u + ({{d}})w$ from $(u, w) = ({{u}}, {{w}})$. What is the new $u$?'
   parts:
-    - { ask: '$u_1$', label: r, tex: 'u_1', value: u + h*(a*u + b*w), tol: 0.0001, explain: 'A system steps exactly like a scalar equation, every component from the old values: $\mathbf y_1 = (I + hA)\mathbf y_0$' }
+    - { ask: '$u_1$', label: r, tex: 'u_1', value: u + h*(a*u + b*w), tol: 0.005, explain: 'A system steps exactly like a scalar equation, every component from the old values: $\mathbf y_1 = (I + hA)\mathbf y_0$' }
   verify: { expect: { r: "((Matrix([[1, 0], [0, 1]]) + nsimplify(h)*Matrix([[a, b], [c, d]]))*Matrix([u, w]))[0]" } }
 
 # ── finite differences ──────────────────────────────────────────────────────
@@ -180,5 +180,5 @@
   given: { a: { pick: [-2, -1, 1, 2, 3] }, b: { int: [-3, 3] }, x0: { int: [-2, 2] }, h: { pick: [0.1, 0.2, 0.5] } }
   prompt: 'Estimate $f''({{x0}})$ for $f(x) = {{a}}x^3 + ({{b}})x^2$ with the central difference $\dfrac{f(x+h) - f(x-h)}{2h}$, $h = {{h}}$. By how much does the estimate exceed the true derivative?'
   parts:
-    - { ask: 'Error', label: r, tex: 'D_h - f''', value: a*h^2, tol: 0.0001, explain: 'The even Taylor terms cancel, leaving $\tfrac{h^2}{6}f''''''(x) = \tfrac{h^2}{6}\cdot 6a$. Quadratics are differentiated exactly, so ${{b}}$ drops out; halving $h$ quarters the error' }
+    - { ask: 'Error', label: r, tex: 'D_h - f''', value: a*h^2, tol: 0.005, explain: 'The even Taylor terms cancel, leaving $\tfrac{h^2}{6}f''''''(x) = \tfrac{h^2}{6}\cdot 6a$. Quadratics are differentiated exactly, so ${{b}}$ drops out; halving $h$ quarters the error' }
   verify: { expect: { r: "((a*(x0 + nsimplify(h))**3 + b*(x0 + nsimplify(h))**2) - (a*(x0 - nsimplify(h))**3 + b*(x0 - nsimplify(h))**2))/(2*nsimplify(h)) - diff(a*x**3 + b*x**2, x).subs(x, x0)" } }

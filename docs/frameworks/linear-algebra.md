@@ -2,7 +2,7 @@
 
 Generated from `drills/frameworks/linear-algebra.yaml` by `scripts/framework.mjs`. ● drilled · ◐ partly · ○ no drills yet.
 
-**42 learning objectives** in 8 units (42 core): 42 drilled, 0 partly, 0 with no drills. Core: 42 / 42 drilled.
+**54 learning objectives** in 9 units (54 core): 54 drilled, 0 partly, 0 with no drills. Core: 54 / 54 drilled.
 
 ## Big ideas
 
@@ -24,6 +24,7 @@ Generated from `drills/frameworks/linear-algebra.yaml` by `scripts/framework.mjs
 | 6 · Orthogonality and least squares | core | — | 5 | 5 | 0 | 0 |
 | 7 · Symmetric matrices and singular values | core | — | 5 | 5 | 0 | 0 |
 | 8 · Linear transformations | core | — | 5 | 5 | 0 | 0 |
+| 9 · Abstract vector spaces and special matrices | core | — | 12 | 12 | 0 | 0 |
 
 ## Unit 1 · Linear systems and independence
 
@@ -277,6 +278,56 @@ Big ideas: MAIN
 - ● **LA-8.2.B** (cupm-2015-la:4, lay-5e:4, webwork-opl:LA6.7, webwork-opl:LA9.3) Write the matrix of a map relative to a basis.
   - EK: Columns are the coordinates of T(b1), …, T(bn).
   - P1 · drills: la-matrix-relative-to-basis
+
+## Unit 9 · Abstract vector spaces and special matrices
+
+Big ideas: MAIN
+
+### 9.1 Abstract vector spaces
+
+
+
+- ● **LA-9.1.A** (webwork-opl:LA6.1, webwork-opl:LA6.5) Decide whether a set with its operations is a vector space.
+  - EK: Check the zero vector, closure under addition and under scaling; the rest of the axioms usually come free.
+  - P1 · drills: la-is-vector-space
+- ● **LA-9.1.B** (webwork-opl:LA6.2) Write a polynomial as a combination of other polynomials.
+  - EK: Match coefficients of each power and solve the linear system.
+  - P1 · drills: la-poly-combination
+- ● **LA-9.1.C** (webwork-opl:LA6.3) Decide whether a polynomial lies in the span of others.
+  - EK: In the span exactly when the coefficient system is consistent.
+  - P1 · drills: la-poly-span
+- ● **LA-9.1.D** (webwork-opl:LA6.4) Decide when polynomials are linearly dependent.
+  - EK: Dependent exactly when the matrix of their coefficient vectors is singular.
+  - P1 · drills: la-poly-dependence
+- ● **LA-9.1.E** (webwork-opl:LA6.8) Find the dimension of a standard space of matrices or polynomials.
+  - EK: Count the free entries: symmetric n(n+1)/2, skew n(n−1)/2, trace zero n² − 1, P_n has n + 1.
+  - P1 · drills: la-space-dimension
+- ● **LA-9.1.F** (webwork-opl:LA8.2) Compute an inner product of functions.
+  - EK: ⟨f, g⟩ = ∫ f g dx is an inner product on continuous functions.
+  - P1 · drills: la-function-inner-product
+
+### 9.2 Special matrices and applications
+
+
+
+- ● **LA-9.2.A** (webwork-opl:LA1.7) Balance a chemical equation from the null space of its composition matrix.
+  - EK: Each element gives one equation; the coefficients span the null space.
+  - P1 · drills: la-balance-combustion
+- ● **LA-9.2.B** (webwork-opl:LA2.7) Invert an elementary matrix.
+  - EK: The inverse undoes the row operation: add −k instead of k, divide instead of multiply, swap back.
+  - P1 · drills: la-elementary-inverse
+- ● **LA-9.2.C** (webwork-opl:LA2.8) Compute with complex matrix entries.
+  - EK: Arithmetic is ordinary arithmetic with i² = −1; conjugates pair up into real numbers.
+  - P1 · drills: la-complex-det
+- ● **LA-9.2.D** (webwork-opl:LA3.5) Compute a power of a Jordan block.
+  - EK: [[λ, 1], [0, λ]]ᵏ = [[λᵏ, kλᵏ⁻¹], [0, λᵏ]].
+  - P1 · drills: la-jordan-power
+- ● **LA-9.2.E** (webwork-opl:LA8.6) Use the properties of an orthogonal matrix.
+  - EK: Qᵀ Q = I, so Q⁻¹ = Qᵀ and lengths and angles are preserved.
+  - P1 · drills: la-orthogonal-inverse
+- ● **LA-9.2.F** (webwork-opl:LA9.6) Invert a linear transformation.
+  - EK: T is invertible exactly when its matrix is; T⁻¹ has the inverse matrix.
+  - P1 · drills: la-map-inverse
 
 ## Drills not yet placed on the map
 

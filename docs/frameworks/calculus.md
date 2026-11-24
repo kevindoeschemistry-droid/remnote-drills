@@ -2,7 +2,7 @@
 
 Generated from `drills/frameworks/calculus.yaml` by `scripts/framework.mjs`. ● drilled · ◐ partly · ○ no drills yet.
 
-**179 learning objectives** in 15 units (106 core): 179 drilled, 0 partly, 0 with no drills. Core: 106 / 106 drilled.
+**203 learning objectives** in 18 units (130 core): 203 drilled, 0 partly, 0 with no drills. Core: 130 / 130 drilled.
 
 ## Big ideas
 
@@ -36,6 +36,9 @@ Generated from `drills/frameworks/calculus.yaml` by `scripts/framework.mjs`. ●
 | 13 · Multiple integrals | extension | — | 9 | 9 | 0 | 0 |
 | 14 · Vector calculus | extension | — | 14 | 14 | 0 | 0 |
 | 15 · Hyperbolic functions | core | — | 6 | 6 | 0 | 0 |
+| 16 · Calculus in business, the sciences and probability | core | — | 7 | 7 | 0 | 0 |
+| 17 · More integration techniques and applications | core | — | 8 | 8 | 0 | 0 |
+| 18 · Sequences, series strategy, parametric and polar curves | core | — | 9 | 9 | 0 | 0 |
 
 ## Unit 1 · Limits and continuity
 
@@ -1524,6 +1527,120 @@ Big ideas: CHA
 - ● **CA-15.2.C** (ST-3.11) Solve y″ = k²y with cosh and sinh, connect them to the circular functions, and say where each turns up.
   - EK: cos(ix) = cosh x; catenary, fins and slabs use cosh; saturating ratios use tanh.
   - P1 · drills: hy-ode-solution, hy-circular-link, hy-where-used
+
+## Unit 16 · Calculus in business, the sciences and probability
+
+Big ideas: CHA
+
+### 16.1 Derivatives in context
+
+
+
+- ● **CA-16.1.A** (webwork-opl:CA3.3) Find a marginal cost or revenue as a derivative.
+  - EK: Marginal cost C′(q) approximates the cost of one more unit.
+  - P1 · drills: ca-marginal-cost
+- ● **CA-16.1.B** (webwork-opl:CA3.11) Maximise profit from revenue and cost functions.
+  - EK: Profit is maximal where marginal revenue equals marginal cost.
+  - P1 · drills: ca-max-profit
+- ● **CA-16.1.C** (webwork-opl:CA3.13) Optimise a model from the natural sciences.
+  - EK: Set the derivative to zero and check that the critical point is a maximum.
+  - P1 · drills: ca-peak-concentration
+- ● **CA-16.1.D** (webwork-opl:CA3.18) Compute a price elasticity of demand.
+  - EK: E = −(dq/dp)(p/q); |E| > 1 is elastic.
+  - P1 · drills: ca-elasticity
+
+### 16.2 Integrals in context
+
+
+
+- ● **CA-16.2.A** (webwork-opl:CA6.15) Find a consumer surplus.
+  - EK: CS = ∫₀^q₀ (demand price − market price) dq.
+  - P1 · drills: ca-consumer-surplus
+- ● **CA-16.2.B** (webwork-opl:CA6.16) Find cardiac output from a dye-dilution curve.
+  - EK: F = amount injected / ∫ c dt.
+  - P1 · drills: ca-cardiac-output
+- ● **CA-16.2.C** (webwork-opl:CA6.17) Use a probability density function.
+  - EK: A density integrates to 1; probabilities are areas under it.
+  - P1 · drills: ca-pdf-constant
+
+## Unit 17 · More integration techniques and applications
+
+Big ideas: CHA
+
+### 17.1 Techniques
+
+
+
+- ● **CA-17.1.A** (webwork-opl:CA5.5) Integrate a product of powers of sine and cosine.
+  - EK: With an odd power, save one factor and convert the rest; with even powers, use half-angle identities.
+  - P1 · drills: ca-trig-integral
+- ● **CA-17.1.B** (webwork-opl:CA5.8) Evaluate an integral by trigonometric substitution.
+  - EK: √(a² − x²): x = a sin θ; √(a² + x²): x = a tan θ; √(x² − a²): x = a sec θ.
+  - P1 · drills: ca-trig-substitution
+- ● **CA-17.1.C** (webwork-opl:CA5.9) Use an integral from a table.
+  - EK: Match the integrand to the table form, identify the constants, then substitute.
+  - P1 · drills: ca-integral-table
+- ● **CA-17.1.D** (webwork-opl:CA5.10) Use and check a computer algebra system's antiderivative.
+  - EK: Differentiate the CAS answer to check it, then apply the fundamental theorem.
+  - P1 · drills: ca-cas-antiderivative
+
+### 17.2 Volumes, surfaces and forces
+
+
+
+- ● **CA-17.2.A** (webwork-opl:CA6.6) Find a volume by cylindrical shells.
+  - EK: V = ∫ 2π (radius)(height) dx.
+  - P1 · drills: ca-shells
+- ● **CA-17.2.B** (webwork-opl:CA6.7) Find the same volume by two methods.
+  - EK: Discs or washers in one variable and shells in the other must agree.
+  - P1 · drills: ca-two-methods
+- ● **CA-17.2.C** (webwork-opl:CA6.9) Find the area of a surface of revolution.
+  - EK: S = ∫ 2π y √(1 + y′²) dx.
+  - P1 · drills: ca-surface-revolution
+- ● **CA-17.2.D** (webwork-opl:CA6.12) Find the hydrostatic force on a submerged plate by integration.
+  - EK: F = ∫ ρ g (depth) (width at that depth) d(depth).
+  - P1 · drills: ca-hydrostatic-triangle
+
+## Unit 18 · Sequences, series strategy, parametric and polar curves
+
+Big ideas: CHA
+
+### 18.1 Sequences and series
+
+
+
+- ● **CA-18.1.A** (webwork-opl:CA7.1) Find the limit of a sequence.
+  - EK: Divide by the highest power of n.
+  - P1 · drills: ca-sequence-limit
+- ● **CA-18.1.B** (webwork-opl:CA7.10) Apply the root test.
+  - EK: L = lim |aₙ|^(1/n); converges if L < 1, diverges if L > 1.
+  - P1 · drills: ca-root-test
+- ● **CA-18.1.C** (webwork-opl:CA7.13) Choose a convergence test for a series.
+  - EK: Look at the form: geometric, p-series, factorials (ratio), nth powers (root), alternating, or a comparison.
+  - P1 · drills: ca-series-strategy
+
+### 18.2 Parametric and polar curves
+
+
+
+- ● **CA-18.2.A** (webwork-opl:CA8.2) Eliminate the parameter.
+  - EK: Solve one equation for t and substitute into the other.
+  - P1 · drills: ca-eliminate-parameter
+- ● **CA-18.2.B** (webwork-opl:CA8.6) Find the area under a parametric curve.
+  - EK: A = ∫ y dx = ∫ y(t) x′(t) dt.
+  - P1 · drills: ca-parametric-area
+- ● **CA-18.2.C** (webwork-opl:CA8.7) Find a volume of revolution for a parametric curve.
+  - EK: V = ∫ π y² dx with dx = x′(t) dt.
+  - P1 · drills: ca-parametric-volume
+- ● **CA-18.2.D** (webwork-opl:CA8.8) Find a surface area of revolution for a parametric curve.
+  - EK: S = ∫ 2π y √(x′² + y′²) dt.
+  - P1 · drills: ca-parametric-surface
+- ● **CA-18.2.E** (webwork-opl:CA9.7) Find the arc length of a polar curve.
+  - EK: L = ∫ √(r² + (dr/dθ)²) dθ.
+  - P1 · drills: ca-polar-arc-length
+- ● **CA-18.2.F** (webwork-opl:MV2.2) Find the limit of a vector function.
+  - EK: Take the limit of each component.
+  - P1 · drills: ca-vector-limit
 
 ## Drills not yet placed on the map
 

@@ -2,7 +2,7 @@
 
 Generated from `drills/frameworks/fluid-mechanics.yaml` by `scripts/framework.mjs`. ● drilled · ◐ partly · ○ no drills yet.
 
-**30 learning objectives** in 10 units (30 core): 30 drilled, 0 partly, 0 with no drills. Core: 30 / 30 drilled.
+**64 learning objectives** in 13 units (64 core): 64 drilled, 0 partly, 0 with no drills. Core: 64 / 64 drilled.
 
 ## Big ideas
 
@@ -30,6 +30,9 @@ Generated from `drills/frameworks/fluid-mechanics.yaml` by `scripts/framework.mj
 | 8 · Viscous flow and differential analysis | core | — | 5 | 5 | 0 | 0 |
 | 9 · Dimensional analysis and drag | core | — | 4 | 4 | 0 | 0 |
 | 10 · Piping systems, pumps and submerged surfaces | core | — | 4 | 4 | 0 | 0 |
+| 11 · Kinematics, statics extras and differential analysis | core | — | 9 | 9 | 0 | 0 |
+| 12 · Boundary layers, potential flow and compressible flow | core | — | 19 | 19 | 0 | 0 |
+| 13 · Open-channel flow and turbines | core | — | 6 | 6 | 0 | 0 |
 
 ## Unit 1 · Properties and statics
 
@@ -235,3 +238,157 @@ Big ideas: HEAD
 - ● **FM-10.2.A** (webwork-opl:FM2.3) Find the hydrostatic force on a vertical plane gate.
   - EK: F = ρg h_c A, acting below the centroid.
   - P1 · drills: fm-gate-force
+
+## Unit 11 · Kinematics, statics extras and differential analysis
+
+Big ideas: HEAD
+
+### 11.1 Statics extras
+
+
+
+- ● **FM-11.1.A** (webwork-opl:FM2.4) Find the vertical force on a curved surface.
+  - EK: The vertical component equals the weight of fluid above the surface.
+  - P1 · drills: fm-curved-surface
+- ● **FM-11.1.B** (webwork-opl:FM2.5) Find pressure through layered fluids.
+  - EK: Add ρgh layer by layer.
+  - P1 · drills: fm-layered-pressure
+- ● **FM-11.1.C** (webwork-opl:FM2.7) Find the free surface of a liquid in rigid-body rotation.
+  - EK: The surface is a paraboloid; the rim stands ω²R²/2g above the centre.
+  - P1 · drills: fm-rotating-tank
+
+### 11.2 Kinematics
+
+
+
+- ● **FM-11.2.A** (webwork-opl:FM1.4) Find a streamline of a steady flow.
+  - EK: Along a streamline dy/dx = v/u; in steady flow streamlines, pathlines and streaklines coincide.
+  - P1 · drills: fm-streamline
+- ● **FM-11.2.B** (webwork-opl:FM4.1) Find the convective acceleration of a steady flow.
+  - EK: a = (V·∇)V; steady flow can still accelerate.
+  - P1 · drills: fm-convective-acceleration
+- ● **FM-11.2.C** (webwork-opl:FM4.5) Use a stream function.
+  - EK: u = ∂ψ/∂y, v = −∂ψ/∂x; ψ is constant along streamlines.
+  - P1 · drills: fm-stream-function
+- ● **FM-11.2.D** (webwork-opl:FM4.6) Compute vorticity.
+  - EK: ω_z = ∂v/∂x − ∂u/∂y; irrotational flow has ω = 0.
+  - P1 · drills: fm-vorticity
+- ● **FM-11.2.E** (webwork-opl:FM4.7) Get velocities from a velocity potential.
+  - EK: V = ∇φ in irrotational flow.
+  - P1 · drills: fm-velocity-potential
+- ● **FM-11.2.F** (webwork-opl:FM4.4) Find viscous dissipation.
+  - EK: In Couette flow, Φ = μ(du/dy)² per unit volume.
+  - P1 · drills: fm-viscous-dissipation
+
+## Unit 12 · Boundary layers, potential flow and compressible flow
+
+Big ideas: HEAD
+
+### 12.1 Similarity, angular momentum and diffusers
+
+
+
+- ● **FM-12.1.A** (webwork-opl:FM5.2) Compute a Froude number.
+  - EK: Fr = V/√(gL): inertia over gravity, the group for free-surface flows.
+  - P1 · drills: fm-froude
+- ● **FM-12.1.B** (webwork-opl:FM3.5) Find a torque from an angular-momentum balance.
+  - EK: T = ṁ r V_t for a jet leaving at radius r.
+  - P1 · drills: fm-sprinkler-torque
+- ● **FM-12.1.C** (webwork-opl:FM6.11) Find the ideal pressure recovery of a diffuser.
+  - EK: C_p = 1 − (A₁/A₂)² for frictionless incompressible flow.
+  - P1 · drills: fm-diffuser
+
+### 12.2 Boundary layers
+
+
+
+- ● **FM-12.2.A** (webwork-opl:FM7.1) Estimate a laminar boundary-layer thickness.
+  - EK: δ ≈ 5x/√Re_x (Blasius); the momentum-integral method gives 5.48.
+  - P1 · drills: fm-boundary-thickness
+- ● **FM-12.2.B** (webwork-opl:FM7.4) Predict the effect of a pressure gradient on a boundary layer.
+  - EK: Adverse (rising) pressure slows the near-wall fluid and can separate it.
+  - P1 · drills: fm-pressure-gradient
+
+### 12.3 Potential flow
+
+
+
+- ● **FM-12.3.A** (webwork-opl:FM8.1) Find the velocity induced by a source.
+  - EK: A 2-D source of strength m gives v_r = m/(2πr).
+  - P1 · drills: fm-source-velocity
+- ● **FM-12.3.B** (webwork-opl:FM8.2) Superpose a uniform stream and a source.
+  - EK: The stagnation point sits where the source's outflow cancels the stream: x = −m/(2πU).
+  - P1 · drills: fm-rankine-stagnation
+- ● **FM-12.3.C** (webwork-opl:FM8.3) Use the potential flow past a cylinder.
+  - EK: Surface speed 2U sin θ; C_p = 1 − 4 sin²θ.
+  - P1 · drills: fm-cylinder-cp
+- ● **FM-12.3.D** (webwork-opl:FM8.4) Use the Joukowski map.
+  - EK: z = ζ + a²/ζ maps the circle |ζ| = a onto a flat plate from −2a to 2a.
+  - P1 · drills: fm-joukowski
+- ● **FM-12.3.E** (webwork-opl:FM8.5) Use thin-airfoil theory.
+  - EK: c_l = 2πα (α in radians) for a thin symmetric airfoil.
+  - P1 · drills: fm-thin-airfoil
+- ● **FM-12.3.F** (webwork-opl:FM8.6) Use the potential flow past a sphere.
+  - EK: The surface speed peaks at 1.5U at the equator.
+  - P1 · drills: fm-sphere-speed
+
+### 12.4 Compressible flow
+
+
+
+- ● **FM-12.4.A** (webwork-opl:FM9.2) Find a stagnation temperature.
+  - EK: T₀ = T(1 + (k − 1)M²/2).
+  - P1 · drills: fm-stagnation-temperature
+- ● **FM-12.4.B** (webwork-opl:FM9.3) Use the area–Mach relation.
+  - EK: A/A* = (1/M)[(2/(k+1))(1 + (k−1)M²/2)]^((k+1)/(2(k−1))).
+  - P1 · drills: fm-area-mach
+- ● **FM-12.4.C** (webwork-opl:FM9.4) Find the choking pressure ratio of a nozzle.
+  - EK: P*/P₀ = (2/(k+1))^(k/(k−1)).
+  - P1 · drills: fm-critical-pressure
+- ● **FM-12.4.D** (webwork-opl:FM9.5) Find the Mach number behind a normal shock.
+  - EK: M₂² = (1 + (k−1)M₁²/2)/(kM₁² − (k−1)/2).
+  - P1 · drills: fm-normal-shock
+- ● **FM-12.4.E** (webwork-opl:FM9.6) Find a Mach angle.
+  - EK: sin μ = 1/M: the weakest oblique wave.
+  - P1 · drills: fm-mach-angle
+- ● **FM-12.4.F** (webwork-opl:FM9.7) Evaluate the Prandtl–Meyer function.
+  - EK: ν(M) = √((k+1)/(k−1)) atan√((k−1)(M²−1)/(k+1)) − atan√(M²−1).
+  - P1 · drills: fm-prandtl-meyer
+- ● **FM-12.4.G** (webwork-opl:FM9.8) Use Fanno flow (adiabatic duct with friction).
+  - EK: 4f̄L*/D = (1 − M²)/(kM²) + ((k+1)/(2k)) ln[(k+1)M²/(2 + (k−1)M²)].
+  - P1 · drills: fm-fanno
+- ● **FM-12.4.H** (webwork-opl:FM9.9) Use Rayleigh flow (frictionless duct with heat transfer).
+  - EK: T₀/T₀* = 2(k+1)M²(1 + (k−1)M²/2)/(1 + kM²)².
+  - P1 · drills: fm-rayleigh
+
+## Unit 13 · Open-channel flow and turbines
+
+Big ideas: HEAD
+
+### 13.1 Open channels
+
+
+
+- ● **FM-13.1.A** (webwork-opl:FM10.1) Find the critical depth of a rectangular channel.
+  - EK: y_c = (q²/g)^(1/3) with q the flow per unit width.
+  - P1 · drills: fm-critical-depth
+- ● **FM-13.1.B** (webwork-opl:FM10.2) Find uniform-flow velocity with Manning's equation.
+  - EK: V = (1/n) R^(2/3) S^(1/2) (SI); Chézy V = C√(RS).
+  - P1 · drills: fm-manning
+- ● **FM-13.1.C** (webwork-opl:FM10.3) Find the most efficient rectangular section.
+  - EK: For a given area, the best rectangle is twice as wide as deep: R = y/2.
+  - P1 · drills: fm-best-section
+- ● **FM-13.1.D** (webwork-opl:FM10.4) Read the slope of a gradually varied flow profile.
+  - EK: dy/dx = (S₀ − S_f)/(1 − Fr²).
+  - P1 · drills: fm-gradually-varied
+- ● **FM-13.1.E** (webwork-opl:FM10.5) Find the depth after a hydraulic jump.
+  - EK: y₂/y₁ = ½(−1 + √(1 + 8Fr₁²)).
+  - P1 · drills: fm-hydraulic-jump
+
+### 13.2 Turbines
+
+
+
+- ● **FM-13.2.A** (webwork-opl:FM11.4) Find the power of a hydraulic turbine.
+  - EK: P = ηρgQH; a Pelton wheel works best with buckets at half the jet speed.
+  - P1 · drills: fm-turbine-power

@@ -482,6 +482,59 @@
      ]
     }
    ]
+  },
+  {
+   "id": "multiunit",
+   "n": 6,
+   "title": "Multiunit balances and degrees of freedom",
+   "scope": "core",
+   "std": [
+    "webwork-opl:MB2.3",
+    "webwork-opl:MB4.1"
+   ],
+   "ideas": [
+    "CONSERVE"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "Flowsheets",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "webwork-opl:MB2.3"
+       ],
+       "do": "Solve a two-unit separation train.",
+       "ek": [
+        "Balance each unit in turn; a component's recovery multiplies through units in series."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "mb-two-column"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "webwork-opl:MB4.1"
+       ],
+       "do": "Count degrees of freedom for an energy balance.",
+       "ek": [
+        "DOF = unknowns − independent equations; the energy balance adds one equation and usually one unknown (Q or a temperature)."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "mb-energy-dof"
+       ]
+      }
+     ]
+    }
+   ]
   }
  ],
  "rows": [
@@ -654,6 +707,26 @@
    "status": "ok",
    "full": [
     "mb-tank-heating-time"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MB-6.1.A",
+   "unit": 6,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "mb-two-column"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MB-6.1.B",
+   "unit": 6,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "mb-energy-dof"
    ],
    "partial": []
   }

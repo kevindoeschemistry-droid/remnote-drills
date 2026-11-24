@@ -2,7 +2,7 @@
 
 Generated from `drills/frameworks/thermodynamics.yaml` by `scripts/framework.mjs`. ● drilled · ◐ partly · ○ no drills yet.
 
-**124 learning objectives** in 17 units (108 core): 124 drilled, 0 partly, 0 with no drills. Core: 108 / 108 drilled.
+**184 learning objectives** in 22 units (168 core): 184 drilled, 0 partly, 0 with no drills. Core: 168 / 168 drilled.
 
 ## Big ideas
 
@@ -43,6 +43,11 @@ Generated from `drills/frameworks/thermodynamics.yaml` by `scripts/framework.mjs
 | 15 · Binding, adsorption and cooperativity | extension | — | 7 | 7 | 0 | 0 |
 | 16 · Reaction rates and transition states | extension | — | 6 | 6 | 0 | 0 |
 | 17 · Electrolytes, polymers and simulation | extension | — | 3 | 3 | 0 | 0 |
+| 18 · Properties of pure substances and simple processes | core | — | 11 | 11 | 0 | 0 |
+| 19 · Control volumes, the second law and exergy | core | — | 11 | 11 | 0 | 0 |
+| 20 · Power and refrigeration cycles | core | — | 13 | 13 | 0 | 0 |
+| 21 · Moist air and air conditioning | core | — | 8 | 8 | 0 | 0 |
+| 22 · Combustion, reacting systems and liquid-phase fugacity | core | — | 17 | 17 | 0 | 0 |
 
 ## Unit 1 · Probability and counting states
 
@@ -740,6 +745,276 @@ Book: shell-2015 §22.1, §22.2, §22.3, §22.4, §22.5
 - ● **TD-17.3.A** Apply the Metropolis acceptance rule and compute an ensemble average from a sampled trajectory.
   - EK: acc = min(1, e^(−βΔE)); ⟨A⟩ = time average over equilibrated, decorrelated samples.
   - P2 · P4 · drills: td-metropolis
+
+## Unit 18 · Properties of pure substances and simple processes
+
+Big ideas: EQ
+
+### 18.1 Work and property tables
+
+
+
+- ● **TD-18.1.A** (webwork-opl:TH1.14, webwork-opl:TH1.15) Compute spring and electrical work.
+  - EK: Spring: W = ½k(x₂² − x₁²); electrical: W = VIt.
+  - P1 · drills: td-spring-work, td-electrical-work
+- ● **TD-18.1.B** (webwork-opl:TH2.4, webwork-opl:TH7.3) Read a compressed-liquid state.
+  - EK: h ≈ h_f(T) + v_f (P − P_sat(T)); otherwise treat it as saturated liquid at T.
+  - P1 · drills: td-compressed-liquid
+- ● **TD-18.1.C** (webwork-opl:TH2.5, webwork-opl:TH2.7) Use saturated-liquid and saturated-vapour properties.
+  - EK: At saturation, h_g = h_f + h_fg; the mass in a tank is V/v_g.
+  - P1 · drills: td-saturated-mass
+- ● **TD-18.1.D** (webwork-opl:TH2.6, webwork-opl:TH2.9) Find the quality and enthalpy of a two-phase mixture.
+  - EK: x = (h − h_f)/h_fg; h = h_f + x h_fg.
+  - P1 · drills: td-quality
+- ● **TD-18.1.E** (webwork-opl:TH2.8, webwork-opl:TH7.7) Interpolate in the superheated table.
+  - EK: Linear interpolation between neighbouring entries.
+  - P1 · drills: td-superheated-interp
+- ● **TD-18.1.F** (webwork-opl:TH2.3, webwork-opl:TH2.9) Find the heat to melt or boil a substance.
+  - EK: Q = m(c ΔT + latent heat).
+  - P1 · drills: td-ice-melt
+- ● **TD-18.1.G** (webwork-opl:TH2.16) Find the work of a polytropic process.
+  - EK: PVⁿ = const; W = (P₂V₂ − P₁V₁)/(1 − n) for n ≠ 1.
+  - P1 · drills: td-polytropic-work
+- ● **TD-18.1.H** (webwork-opl:TH2.17, webwork-opl:TH2.18, webwork-opl:TH7.11) Handle incompressible substances.
+  - EK: Δu = cΔT; Δh = cΔT + vΔP; Δs = c ln(T₂/T₁).
+  - P1 · drills: td-pump-enthalpy, td-incompressible-entropy
+
+### 18.2 Entropy of pure substances
+
+
+
+- ● **TD-18.2.A** (webwork-opl:TH7.1) Read entropy on a T–s diagram.
+  - EK: Area under a reversible path is the heat; an isentropic process is a vertical line.
+  - P1 · drills: td-ts-diagram
+- ● **TD-18.2.B** (webwork-opl:TH7.4, webwork-opl:TH7.5, webwork-opl:TH7.6, webwork-opl:TH7.8) Find the entropy of a saturated or two-phase state.
+  - EK: s = s_f + x s_fg; the entropy of vaporisation is h_fg/T_sat.
+  - P1 · drills: td-two-phase-entropy, td-boiling-entropy
+- ● **TD-18.2.C** (webwork-opl:TH7.2) Find the entropy change of heating a solid.
+  - EK: Δs = c ln(T₂/T₁) for a solid with constant c.
+  - P1 · drills: td-ice-entropy
+
+## Unit 19 · Control volumes, the second law and exergy
+
+Big ideas: EQ
+
+### 19.1 Flow work and devices
+
+
+
+- ● **TD-19.1.A** (webwork-opl:TH5.1) Compute flow work.
+  - EK: Flow work per unit mass = Pv.
+  - P1 · drills: td-flow-work
+- ● **TD-19.1.B** (webwork-opl:TH5.10) Analyse several devices together.
+  - EK: Write the balance for each device and add the powers.
+  - P1 · drills: td-net-power
+- ● **TD-19.1.C** (webwork-opl:TH7.17) Account for isentropic efficiency.
+  - EK: Turbine: η = (h₁ − h₂)/(h₁ − h₂ₛ); compressor: η = (h₂ₛ − h₁)/(h₂ − h₁).
+  - P1 · drills: td-compressor-efficiency
+
+### 19.2 The second law
+
+
+
+- ● **TD-19.2.A** (webwork-opl:TH6.2, webwork-opl:TH6.3) Recognise the Kelvin–Planck and Clausius statements.
+  - EK: No cycle turns heat from one reservoir entirely into work; none moves heat from cold to hot with no work.
+  - P1 · drills: td-second-law-statements
+- ● **TD-19.2.B** (webwork-opl:TH6.8) Use the thermodynamic temperature scale.
+  - EK: For a reversible engine Q_H/Q_L = T_H/T_L.
+  - P1 · drills: td-kelvin-scale
+
+### 19.3 Exergy
+
+
+
+- ● **TD-19.3.A** (webwork-opl:TH8.1) Find the exergy of a hot body.
+  - EK: X = m c[(T − T₀) − T₀ ln(T/T₀)].
+  - P1 · drills: td-exergy-block
+- ● **TD-19.3.B** (webwork-opl:TH8.2) Find the exergy carried by heat.
+  - EK: X_Q = Q(1 − T₀/T).
+  - P1 · drills: td-heat-exergy
+- ● **TD-19.3.C** (webwork-opl:TH8.3) Find the exergy destroyed in a process.
+  - EK: X_destroyed = T₀ S_gen.
+  - P1 · drills: td-exergy-destroyed
+- ● **TD-19.3.D** (webwork-opl:TH8.4) Compute flow exergy.
+  - EK: ψ = (h − h₀) − T₀(s − s₀) (ignoring kinetic and potential terms).
+  - P1 · drills: td-flow-exergy
+- ● **TD-19.3.E** (webwork-opl:TH8.5) Compute a second-law efficiency.
+  - EK: η_II = W_actual/W_reversible (or actual/maximum COP).
+  - P1 · drills: td-second-law-efficiency
+- ● **TD-19.3.F** (webwork-opl:TH8.6) Put a price on exergy destruction.
+  - EK: Cost rate = (exergy destroyed per second) × (price of energy).
+  - P1 · drills: td-thermoeconomics
+
+## Unit 20 · Power and refrigeration cycles
+
+Big ideas: EQ
+
+### 20.1 Vapour power cycles
+
+
+
+- ● **TD-20.1.A** (webwork-opl:TH9.1, webwork-opl:TH9.2) Find the efficiency of a Rankine cycle.
+  - EK: η = (w_turbine − w_pump)/q_in with q_in = h₁ − h₄.
+  - P1 · drills: td-rankine
+- ● **TD-20.1.B** (webwork-opl:TH9.3) Find the bleed fraction of an open feedwater heater.
+  - EK: y h_bleed + (1 − y) h_in = h_out (saturated liquid).
+  - P1 · drills: td-feedwater-heater
+
+### 20.2 Gas power cycles
+
+
+
+- ● **TD-20.2.A** (webwork-opl:TH10.1) Find the air-standard Otto efficiency.
+  - EK: η = 1 − r^(1−k).
+  - P1 · drills: td-otto
+- ● **TD-20.2.B** (webwork-opl:TH10.2) Find the air-standard Diesel efficiency.
+  - EK: η = 1 − r^(1−k)(r_c^k − 1)/(k(r_c − 1)).
+  - P1 · drills: td-diesel
+- ● **TD-20.2.C** (webwork-opl:TH10.3) Find the air-standard dual-cycle efficiency.
+  - EK: Heat is added partly at constant volume (pressure ratio r_p), partly at constant pressure (cutoff r_c).
+  - P1 · drills: td-dual
+- ● **TD-20.2.D** (webwork-opl:TH10.4) Find the efficiency of a regenerated Stirling or Ericsson cycle.
+  - EK: With perfect regeneration both reach the Carnot efficiency.
+  - P1 · drills: td-stirling-regenerated
+- ● **TD-20.2.E** (webwork-opl:TH10.5) Find the Brayton cycle efficiency.
+  - EK: η = 1 − r_p^((1−k)/k).
+  - P1 · drills: td-brayton
+- ● **TD-20.2.F** (webwork-opl:TH10.6) Find the efficiency of a Brayton cycle with ideal regeneration.
+  - EK: η = 1 − (T₁/T₃) r_p^((k−1)/k).
+  - P1 · drills: td-brayton-regen
+- ● **TD-20.2.G** (webwork-opl:TH10.7) Choose the intercooling pressure for minimum compressor work.
+  - EK: Two stages with intercooling to T₁: P_x = √(P₁P₂).
+  - P1 · drills: td-intercooling
+- ● **TD-20.2.H** (webwork-opl:TH10.8) Combine the efficiencies of a gas–steam cycle.
+  - EK: η = η_gas + η_steam − η_gas η_steam when the steam cycle runs on the gas cycle's rejected heat.
+  - P1 · drills: td-combined-cycle
+- ● **TD-20.2.I** (webwork-opl:TH10.9) Find the thrust of a turbojet.
+  - EK: F = ṁ(V_exit − V_inlet).
+  - P1 · drills: td-turbojet-thrust
+
+### 20.3 Refrigeration
+
+
+
+- ● **TD-20.3.A** (webwork-opl:TH11.1) Find the COP of a vapour-compression refrigerator.
+  - EK: COP_R = (h₁ − h₄)/(h₂ − h₁).
+  - P1 · drills: td-refrigeration-cop
+- ● **TD-20.3.B** (webwork-opl:TH11.2) Find the COP of a gas (reversed Brayton) refrigeration cycle.
+  - EK: COP = 1/(r_p^((k−1)/k) − 1).
+  - P1 · drills: td-gas-refrigeration
+
+## Unit 21 · Moist air and air conditioning
+
+Big ideas: EQ
+
+### 21.1 Moist-air properties
+
+
+
+- ● **TD-21.1.A** (webwork-opl:TH12.4) Find the humidity ratio from an adiabatic-saturation (wet-bulb) reading.
+  - EK: ω₁ = [c_p(T₂ − T₁) + ω₂h_fg₂]/(h_g₁ − h_f₂).
+  - P1 · drills: td-wet-bulb
+- ● **TD-21.1.B** (webwork-opl:TH12.6) Find a dew point.
+  - EK: T_dp is the saturation temperature at the vapour's partial pressure.
+  - P1 · drills: td-dew-point
+- ● **TD-21.1.C** (webwork-opl:TH12.7) Find the enthalpy of moist air.
+  - EK: h = 1.005T + ω(2501 + 1.82T) kJ per kg dry air, T in °C.
+  - P1 · drills: td-moist-enthalpy
+
+### 21.2 Air-conditioning processes
+
+
+
+- ● **TD-21.2.A** (webwork-opl:TH12.8, webwork-opl:TH12.10) Balance an air-conditioning process.
+  - EK: Dry air is conserved; water and energy balances fix the heat and the condensate.
+  - P1 · drills: td-dehumidify-water, td-ac-heat
+- ● **TD-21.2.B** (webwork-opl:TH12.9) Heat moist air at constant composition.
+  - EK: Simple heating: ω constant, Q = ṁ_a c_p,moist ΔT.
+  - P1 · drills: td-simple-heating
+- ● **TD-21.2.C** (webwork-opl:TH12.11, webwork-opl:TH12.14) Humidify air.
+  - EK: Water added = ṁ_a(ω₂ − ω₁).
+  - P1 · drills: td-humidify
+- ● **TD-21.2.D** (webwork-opl:TH12.12) Find the outlet temperature of an evaporative cooler.
+  - EK: The process is nearly at constant enthalpy (constant wet-bulb).
+  - P1 · drills: td-evaporative-cooling
+- ● **TD-21.2.E** (webwork-opl:TH12.13) Mix two moist air streams.
+  - EK: ω₃ = (ṁ₁ω₁ + ṁ₂ω₂)/(ṁ₁ + ṁ₂); h₃ likewise.
+  - P1 · drills: td-adiabatic-mixing
+
+## Unit 22 · Combustion, reacting systems and liquid-phase fugacity
+
+Big ideas: EQ
+
+### 22.1 Combustion and reacting systems
+
+
+
+- ● **TD-22.1.A** (webwork-opl:TH13.7) Estimate an adiabatic flame temperature.
+  - EK: Heat released heats the products: Σnᵢc_p,ᵢ(T − T₀) = LHV.
+  - P1 · drills: td-flame-temperature
+- ● **TD-22.1.B** (webwork-opl:TH13.8) Find a mixture's lower flammability limit.
+  - EK: Le Chatelier: LFL_mix = 1/Σ(yᵢ/LFLᵢ) with yᵢ the fuel-only fractions.
+  - P1 · drills: td-le-chatelier
+- ● **TD-22.1.C** (webwork-opl:TH13.10) Find the temperature rise of an adiabatic batch reactor.
+  - EK: ΔT_ad = (−ΔH_r) C₀ X / (ρ c_p).
+  - P1 · drills: td-batch-adiabatic-rise
+- ● **TD-22.1.D** (webwork-opl:TH13.11) Combine a reaction equilibrium with a phase equilibrium.
+  - EK: Over pure liquid A, p_A = P_sat; then p_B = K p_A for A(g) ⇌ B(g).
+  - P1 · drills: td-reaction-phase
+- ● **TD-22.1.E** (webwork-opl:TH13.13) Find the chemical exergy of a gas from its dilution.
+  - EK: Per mole, RT₀ ln(1/y_env) for a gas present at mole fraction y_env in the environment.
+  - P1 · drills: td-chemical-exergy
+
+### 22.2 Liquids and solids at high pressure
+
+
+
+- ● **TD-22.2.A** (webwork-opl:TH15.7) Estimate a saturated-liquid volume with the Rackett equation.
+  - EK: V_sat = V_c Z_c^((1 − T_r)^(2/7)).
+  - P1 · drills: td-rackett
+- ● **TD-22.2.B** (webwork-opl:TH15.12) Find the fugacity of a compressed liquid with the Poynting factor.
+  - EK: f = φ_sat P_sat exp[V_L(P − P_sat)/RT].
+  - P1 · drills: td-poynting-liquid
+- ● **TD-22.2.C** (webwork-opl:TH15.13) Find the Poynting factor for a solid.
+  - EK: Same integral with the solid's molar volume and the sublimation pressure.
+  - P1 · drills: td-poynting-solid
+
+### 22.3 Multicomponent equilibrium
+
+
+
+- ● **TD-22.3.A** (webwork-opl:TH16.5) Find the boiling pressure of two immiscible liquids.
+  - EK: Each liquid exerts its own vapour pressure: P = P₁sat + P₂sat.
+  - P1 · drills: td-immiscible-liquids
+- ● **TD-22.3.B** (webwork-opl:TH16.7) Find an ideal solid solubility.
+  - EK: ln x = −(ΔH_fus/R)(1/T − 1/T_m).
+  - P1 · drills: td-ideal-solubility
+- ● **TD-22.3.C** (webwork-opl:TH16.9) Apply van der Waals mixing rules.
+  - EK: a_mix = (Σyᵢ√aᵢ)², b_mix = Σyᵢbᵢ.
+  - P1 · drills: td-mixing-rule
+- ● **TD-22.3.D** (webwork-opl:TH16.10) Find a fugacity coefficient from the virial equation.
+  - EK: ln φ = BP/RT.
+  - P1 · drills: td-virial-fugacity
+
+### 22.4 Activity models
+
+
+
+- ● **TD-22.4.A** (webwork-opl:TH17.4) Use the van Laar model.
+  - EK: ln γ₁ = A₁₂(A₂₁x₂/(A₁₂x₁ + A₂₁x₂))².
+  - P1 · drills: td-van-laar
+- ● **TD-22.4.B** (webwork-opl:TH17.5) Use regular-solution (Scatchard–Hildebrand) theory.
+  - EK: ln γ₁ = V₁Φ₂²(δ₁ − δ₂)²/RT.
+  - P1 · drills: td-scatchard-hildebrand
+- ● **TD-22.4.C** (webwork-opl:TH17.9) Use Wilson's equation.
+  - EK: ln γ₁ = −ln(x₁ + Λ₁₂x₂) + x₂[Λ₁₂/(x₁ + Λ₁₂x₂) − Λ₂₁/(x₂ + Λ₂₁x₁)].
+  - P1 · drills: td-wilson
+- ● **TD-22.4.D** (webwork-opl:TH17.10) Use the NRTL model at infinite dilution.
+  - EK: ln γ₁^∞ = τ₂₁ + τ₁₂ exp(−ατ₁₂).
+  - P1 · drills: td-nrtl-infinite
+- ● **TD-22.4.E** (webwork-opl:TH17.7, webwork-opl:TH17.8, webwork-opl:TH17.11) Know what group-contribution and other activity models need.
+  - EK: UNIFAC: group volumes, areas and group interaction parameters; UNIQUAC: r and q plus binary energies; MOSCED: dispersion, polarity, induction and hydrogen-bond parameters.
+  - P1 · drills: td-activity-models
 
 ## Drills not yet placed on the map
 

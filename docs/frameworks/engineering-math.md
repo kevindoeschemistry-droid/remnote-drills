@@ -2,7 +2,7 @@
 
 Generated from `drills/frameworks/engineering-math.yaml` by `scripts/framework.mjs`. ● drilled · ◐ partly · ○ no drills yet.
 
-**136 learning objectives** in 12 units (132 core): 136 drilled, 0 partly, 0 with no drills. Core: 132 / 132 drilled.
+**155 learning objectives** in 14 units (151 core): 155 drilled, 0 partly, 0 with no drills. Core: 151 / 151 drilled.
 
 ## Big ideas
 
@@ -37,6 +37,8 @@ Generated from `drills/frameworks/engineering-math.yaml` by `scripts/framework.m
 | 10 · Partial differential equations | core | — | 23 | 23 | 0 | 0 |
 | 11 · Fourier integrals and transforms | extension | — | 2 | 2 | 0 | 0 |
 | 12 · Vector calculus for transport | extension | — | 2 | 2 | 0 | 0 |
+| 13 · More on ODEs: circuits, bifurcations, operators, existence | core | — | 5 | 5 | 0 | 0 |
+| 14 · Complex analysis | core | — | 14 | 14 | 0 | 0 |
 
 ## Unit 1 · The calculus and complex-number toolkit
 
@@ -814,6 +816,91 @@ Book: kreyszig-10e §9.7, §9.8, §9.9, §10.7, §10.9
   - EK: ∭∇·F dV = ∯F·n dA ⇒ ∂c/∂t + ∇·N = R.
   - P1 · drills: ca-conservation-law
 
+## Unit 13 · More on ODEs: circuits, bifurcations, operators, existence
+
+Big ideas: MODEL
+
+### 13.1 Applications and theory
+
+
+
+- ● **EM-13.1.A** (webwork-opl:DE2.9) Solve an RC circuit.
+  - EK: R q′ + q/C = E: the charge rises with time constant RC and the current decays.
+  - P1 · drills: em-rc-current
+- ● **EM-13.1.B** (webwork-opl:DE2.14) Locate a saddle-node bifurcation.
+  - EK: Equilibria appear or vanish where f(y) = 0 and f′(y) = 0 together.
+  - P1 · drills: em-bifurcation
+- ● **EM-13.1.C** (webwork-opl:DE3.12) Apply a differential operator.
+  - EK: L[e^{kx}] = p(k)e^{kx} for L = p(D) with constant coefficients.
+  - P1 · drills: em-operator-exponential
+- ● **EM-13.1.D** (webwork-opl:DE3.13) Find the interval on which a linear IVP is guaranteed a unique solution.
+  - EK: The largest open interval around x₀ on which all coefficients are continuous.
+  - P1 · drills: em-existence-interval
+- ● **EM-13.1.E** (webwork-opl:DE5.2) Verify that a vector function solves a linear system.
+  - EK: x = e^{λt}v solves x′ = Ax exactly when Av = λv.
+  - P1 · drills: em-system-verify
+
+## Unit 14 · Complex analysis
+
+Big ideas: MODEL
+
+### 14.1 Complex equations, regions and functions
+
+
+
+- ● **EM-14.1.A** (webwork-opl:CX2.1) Solve a linear equation in z.
+  - EK: Divide by multiplying top and bottom by the conjugate.
+  - P1 · drills: em-complex-linear
+- ● **EM-14.1.B** (webwork-opl:CX2.3) Solve a nonlinear equation in z.
+  - EK: Write the right side in polar form; z² = w has two roots ±√w.
+  - P1 · drills: em-complex-sqrt
+- ● **EM-14.1.C** (webwork-opl:CX3.1) Decide whether a point lies in a region of the plane.
+  - EK: |z − z₀| < r is the open disc of radius r about z₀.
+  - P1 · drills: em-complex-region
+- ● **EM-14.1.D** (webwork-opl:CX4.1) Find the image of a point under a complex map.
+  - EK: w = z² squares the modulus and doubles the argument.
+  - P1 · drills: em-complex-map
+- ● **EM-14.1.E** (webwork-opl:CX4.2) Evaluate a limit of a complex function.
+  - EK: A complex limit must agree from every direction; algebra works as for real limits.
+  - P1 · drills: em-complex-limit
+
+### 14.2 Analytic functions
+
+
+
+- ● **EM-14.2.A** (webwork-opl:CX5.1) Use the Cauchy–Riemann equations.
+  - EK: f = u + iv is analytic where uₓ = v_y and u_y = −vₓ.
+  - P1 · drills: em-cauchy-riemann
+- ● **EM-14.2.B** (webwork-opl:CX5.2) Test whether a function is harmonic.
+  - EK: u is harmonic when u_xx + u_yy = 0; real parts of analytic functions are.
+  - P1 · drills: em-harmonic
+- ● **EM-14.2.C** (webwork-opl:CX5.3) Recognise entire functions.
+  - EK: Entire = analytic at every point of the plane.
+  - P1 · drills: em-entire
+- ● **EM-14.2.D** (webwork-opl:CX5.4) Find a harmonic conjugate.
+  - EK: Integrate v_y = uₓ in y, then fix the function of x with vₓ = −u_y.
+  - P1 · drills: em-harmonic-conjugate
+
+### 14.3 Integration and series
+
+
+
+- ● **EM-14.3.A** (webwork-opl:CX7.1) Use Cauchy's integral formula.
+  - EK: ∮ f(z)/(z − z₀) dz = 2πi f(z₀) for z₀ inside the contour and f analytic.
+  - P1 · drills: em-cauchy-formula
+- ● **EM-14.3.B** (webwork-opl:CX8.1) Decide whether a complex sequence converges.
+  - EK: zⁿ → 0 when |z| < 1 and diverges when |z| > 1.
+  - P1 · drills: em-complex-sequence
+- ● **EM-14.3.C** (webwork-opl:CX8.2) Find a Taylor coefficient of an analytic function.
+  - EK: e^{az} = Σ aᵏ zᵏ / k!; 1/(1 − az) = Σ aᵏ zᵏ for |az| < 1.
+  - P1 · drills: em-complex-taylor
+- ● **EM-14.3.D** (webwork-opl:CX8.3, webwork-opl:CX8.5) Find a Laurent coefficient (a residue).
+  - EK: The coefficient of 1/(z − z₀) is the residue.
+  - P1 · drills: em-laurent-residue
+- ● **EM-14.3.E** (webwork-opl:CX8.4) Find the order of a zero.
+  - EK: The order is the power of the first nonzero term of the Taylor series.
+  - P1 · drills: em-zero-order
+
 ## Drills not yet placed on the map
 
 - ca2-u-sub-choice (calc.u-sub)
@@ -834,11 +921,14 @@ Book: kreyszig-10e §9.7, §9.8, §9.9, §10.7, §10.9
 - la-free-variables (la.row-reduction)
 - la-is-solution (la.row-reduction)
 - la-independence-parameter (la.independence)
+- la-poly-dependence (la.independence)
 - la-solve-with-inverse (la.inverse)
 - la-inverse-check (la.inverse)
 - la-invertible-matrix-theorem (la.inverse)
 - hs2-inverse-2x2 (la.inverse)
+- la-elementary-inverse (la.inverse)
 - la-det-triangular (la.determinant)
+- la-complex-det (la.determinant)
 - la-eigen-triangular (la.eigenvalues)
 - la-complex-eigen-modulus (la.eigenvalues)
 - mm-eigen-trace-det (la.eigenvalues)
@@ -846,9 +936,15 @@ Book: kreyszig-10e §9.7, §9.8, §9.9, §10.7, §10.9
 - la-distance (la.orthogonality)
 - la-orthogonal-complement (la.orthogonality)
 - la-qr-entry (la.orthogonality)
+- la-function-inner-product (la.orthogonality)
+- la-orthogonal-inverse (la.orthogonality)
 - la-symmetric-eigenvector (la.diagonalization)
+- la-jordan-power (la.diagonalization)
 - la-span-membership (la.span)
 - la-solution-set-shape (la.span)
+- la-poly-combination (la.span)
+- la-poly-span (la.span)
+- la-balance-combustion (la.span)
 - la-product-entry (la.matrix-ops)
 - la-product-size (la.matrix-ops)
 - la-lu-pivot (la.lu)
@@ -858,6 +954,8 @@ Book: kreyszig-10e §9.7, §9.8, §9.9, §10.7, §10.9
 - la-det-area (la.det-properties)
 - la-subspace-test (la.subspaces)
 - la-span-dimension (la.subspaces)
+- la-is-vector-space (la.subspaces)
+- la-space-dimension (la.subspaces)
 - la-coordinates (la.coordinates)
 - la-change-of-basis (la.coordinates)
 - la-map-from-basis-images (la.transformations)
@@ -865,6 +963,7 @@ Book: kreyszig-10e §9.7, §9.8, §9.9, §10.7, §10.9
 - la-one-to-one-onto (la.transformations)
 - la-kernel-dimension (la.transformations)
 - la-matrix-relative-to-basis (la.transformations)
+- la-map-inverse (la.transformations)
 - la-markov-steady-state (la.eigen-applications)
 - la-power-by-eigenvectors (la.eigen-applications)
 - la-quadratic-form-classify (la.quadratic-forms)
@@ -939,6 +1038,7 @@ Book: kreyszig-10e §9.7, §9.8, §9.9, §10.7, §10.9
 - mm-derivative-at-a-point (calc.derivative-rules)
 - mm-tangent-slope (calc.derivative-rules)
 - ca-derive-sin-exp (calc.derivative-rules)
+- ca-elasticity (calc.derivative-rules)
 - ca-chain-power (calc.chain-rule)
 - ca-chain-trig (calc.chain-rule)
 - ca-chain-exp (calc.chain-rule)
@@ -980,6 +1080,7 @@ Book: kreyszig-10e §9.7, §9.8, §9.9, §10.7, §10.9
 - ca-rate-of-rate (calc.rates)
 - ca-rate-units (calc.rates)
 - ca2-related-rate-scaling (calc.rates)
+- ca-marginal-cost (calc.rates)
 - ca-mvt (calc.extrema)
 - ca-critical-points (calc.extrema)
 - ca-abs-extrema (calc.extrema)
@@ -1001,6 +1102,8 @@ Book: kreyszig-10e §9.7, §9.8, §9.9, §10.7, §10.9
 - ca-decreasing-interval (calc.extrema)
 - ca-optimization-setup (calc.extrema)
 - ca2-concavity-meaning (calc.extrema)
+- ca-max-profit (calc.extrema)
+- ca-peak-concentration (calc.extrema)
 - ca-riemann-sums (calc.riemann-ftc)
 - ca-trapezoid-table (calc.riemann-ftc)
 - ca-ftc-derivative (calc.riemann-ftc)
@@ -1037,6 +1140,10 @@ Book: kreyszig-10e §9.7, §9.8, §9.9, §10.7, §10.9
 - mm-int-x-exp-square (calc.antiderivatives)
 - mm-int-sin-power-cos (calc.antiderivatives)
 - ca-choose-technique (calc.antiderivatives)
+- ca-trig-integral (calc.antiderivatives)
+- ca-trig-substitution (calc.antiderivatives)
+- ca-integral-table (calc.antiderivatives)
+- ca-cas-antiderivative (calc.antiderivatives)
 - ca-verify-solution (calc.diffeq)
 - ca-separable-general (calc.diffeq)
 - ca-separable-ivp (calc.diffeq)
@@ -1082,6 +1189,13 @@ Book: kreyszig-10e §9.7, §9.8, §9.9, §10.7, §10.9
 - ca-volume-disc-line (calc.integration-apps)
 - ca-volume-washer-line (calc.integration-apps)
 - ca2-average-value (calc.integration-apps)
+- ca-consumer-surplus (calc.integration-apps)
+- ca-cardiac-output (calc.integration-apps)
+- ca-pdf-constant (calc.integration-apps)
+- ca-shells (calc.integration-apps)
+- ca-two-methods (calc.integration-apps)
+- ca-surface-revolution (calc.integration-apps)
+- ca-hydrostatic-triangle (calc.integration-apps)
 - ca-parametric-slope (calc.parametric-polar)
 - ca-parametric-arc (calc.parametric-polar)
 - ca-vector-velocity (calc.parametric-polar)
@@ -1100,6 +1214,11 @@ Book: kreyszig-10e §9.7, §9.8, §9.9, §10.7, §10.9
 - ca-polar-slope-reason (calc.parametric-polar)
 - ca-planar-distance (calc.parametric-polar)
 - ca-polar-between (calc.parametric-polar)
+- ca-eliminate-parameter (calc.parametric-polar)
+- ca-parametric-area (calc.parametric-polar)
+- ca-parametric-volume (calc.parametric-polar)
+- ca-parametric-surface (calc.parametric-polar)
+- ca-polar-arc-length (calc.parametric-polar)
 - ca-partial-sums (calc.series)
 - ca-geometric-series (calc.series)
 - ca-nth-term-test (calc.series)
@@ -1119,6 +1238,9 @@ Book: kreyszig-10e §9.7, §9.8, §9.9, §10.7, §10.9
 - ca-integral-test (calc.series)
 - ca-comparison-test (calc.series)
 - ca2-geometric-series-sum (calc.series)
+- ca-sequence-limit (calc.series)
+- ca-root-test (calc.series)
+- ca-series-strategy (calc.series)
 - ca-taylor-exp (calc.taylor)
 - ca-taylor-ln (calc.taylor)
 - ca-taylor-coefficients (calc.taylor)
@@ -1148,6 +1270,7 @@ Book: kreyszig-10e §9.7, §9.8, §9.9, §10.7, §10.9
 - cm-vector-function (calc.vectors-3d)
 - cm-helix (calc.vectors-3d)
 - ca-quadric (calc.vectors-3d)
+- ca-vector-limit (calc.vectors-3d)
 - ca-critical-point-classify (calc.partials-apps)
 - cm-tangent-plane (calc.partials-apps)
 - cm-chain-rule (calc.partials-apps)

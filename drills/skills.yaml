@@ -69,6 +69,9 @@ skills:
   - { id: calc.by-parts, domain: calc, title: "Integration by parts", aliases: [calc-by-parts] }
   - { id: calc.partial-fractions, domain: calc, title: "Partial fractions", aliases: [calc-partial-fractions] }
   - { id: calc.complex-euler, domain: calc, title: "Complex roots & Euler's formula", aliases: [calc-complex-euler] }
+  - { id: cplx.functions, domain: calc, title: "Complex equations, regions, mappings and limits", short: "Complex functions", prereqs: [calc.complex-euler] }
+  - { id: cplx.analytic, domain: calc, title: "Analytic and harmonic functions: Cauchy–Riemann", short: "Analytic functions", prereqs: [cplx.functions] }
+  - { id: cplx.series, domain: calc, title: "Complex integration, Taylor and Laurent series, zeros and poles", short: "Complex series and integrals", prereqs: [cplx.analytic] }
   - { id: calc.sigma-shift, domain: calc, title: "Shifting summation indices", aliases: [calc-sigma-shift] }
   - { id: calc.multivariable, domain: calc, title: "Partial derivatives & exact differentials" }
 

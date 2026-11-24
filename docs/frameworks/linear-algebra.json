@@ -1047,6 +1047,227 @@
      ]
     }
    ]
+  },
+  {
+   "id": "abstract",
+   "n": 9,
+   "title": "Abstract vector spaces and special matrices",
+   "scope": "core",
+   "std": [
+    "webwork-opl:LA1.7",
+    "webwork-opl:LA2.7",
+    "webwork-opl:LA2.8"
+   ],
+   "ideas": [
+    "MAIN"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "Abstract vector spaces",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "webwork-opl:LA6.1",
+        "webwork-opl:LA6.5"
+       ],
+       "do": "Decide whether a set with its operations is a vector space.",
+       "ek": [
+        "Check the zero vector, closure under addition and under scaling; the rest of the axioms usually come free."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "la-is-vector-space"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "webwork-opl:LA6.2"
+       ],
+       "do": "Write a polynomial as a combination of other polynomials.",
+       "ek": [
+        "Match coefficients of each power and solve the linear system."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "la-poly-combination"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "webwork-opl:LA6.3"
+       ],
+       "do": "Decide whether a polynomial lies in the span of others.",
+       "ek": [
+        "In the span exactly when the coefficient system is consistent."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "la-poly-span"
+       ]
+      },
+      {
+       "id": "D",
+       "std": [
+        "webwork-opl:LA6.4"
+       ],
+       "do": "Decide when polynomials are linearly dependent.",
+       "ek": [
+        "Dependent exactly when the matrix of their coefficient vectors is singular."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "la-poly-dependence"
+       ]
+      },
+      {
+       "id": "E",
+       "std": [
+        "webwork-opl:LA6.8"
+       ],
+       "do": "Find the dimension of a standard space of matrices or polynomials.",
+       "ek": [
+        "Count the free entries: symmetric n(n+1)/2, skew n(n−1)/2, trace zero n² − 1, P_n has n + 1."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "la-space-dimension"
+       ]
+      },
+      {
+       "id": "F",
+       "std": [
+        "webwork-opl:LA8.2"
+       ],
+       "do": "Compute an inner product of functions.",
+       "ek": [
+        "⟨f, g⟩ = ∫ f g dx is an inner product on continuous functions."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "la-function-inner-product"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "title": "Special matrices and applications",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "webwork-opl:LA1.7"
+       ],
+       "do": "Balance a chemical equation from the null space of its composition matrix.",
+       "ek": [
+        "Each element gives one equation; the coefficients span the null space."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "la-balance-combustion"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "webwork-opl:LA2.7"
+       ],
+       "do": "Invert an elementary matrix.",
+       "ek": [
+        "The inverse undoes the row operation: add −k instead of k, divide instead of multiply, swap back."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "la-elementary-inverse"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "webwork-opl:LA2.8"
+       ],
+       "do": "Compute with complex matrix entries.",
+       "ek": [
+        "Arithmetic is ordinary arithmetic with i² = −1; conjugates pair up into real numbers."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "la-complex-det"
+       ]
+      },
+      {
+       "id": "D",
+       "std": [
+        "webwork-opl:LA3.5"
+       ],
+       "do": "Compute a power of a Jordan block.",
+       "ek": [
+        "[[λ, 1], [0, λ]]ᵏ = [[λᵏ, kλᵏ⁻¹], [0, λᵏ]]."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "la-jordan-power"
+       ]
+      },
+      {
+       "id": "E",
+       "std": [
+        "webwork-opl:LA8.6"
+       ],
+       "do": "Use the properties of an orthogonal matrix.",
+       "ek": [
+        "Qᵀ Q = I, so Q⁻¹ = Qᵀ and lengths and angles are preserved."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "la-orthogonal-inverse"
+       ]
+      },
+      {
+       "id": "F",
+       "std": [
+        "webwork-opl:LA9.6"
+       ],
+       "do": "Invert a linear transformation.",
+       "ek": [
+        "T is invertible exactly when its matrix is; T⁻¹ has the inverse matrix."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "la-map-inverse"
+       ]
+      }
+     ]
+    }
+   ]
   }
  ],
  "rows": [
@@ -1483,6 +1704,126 @@
    "status": "ok",
    "full": [
     "la-matrix-relative-to-basis"
+   ],
+   "partial": []
+  },
+  {
+   "code": "LA-9.1.A",
+   "unit": 9,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "la-is-vector-space"
+   ],
+   "partial": []
+  },
+  {
+   "code": "LA-9.1.B",
+   "unit": 9,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "la-poly-combination"
+   ],
+   "partial": []
+  },
+  {
+   "code": "LA-9.1.C",
+   "unit": 9,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "la-poly-span"
+   ],
+   "partial": []
+  },
+  {
+   "code": "LA-9.1.D",
+   "unit": 9,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "la-poly-dependence"
+   ],
+   "partial": []
+  },
+  {
+   "code": "LA-9.1.E",
+   "unit": 9,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "la-space-dimension"
+   ],
+   "partial": []
+  },
+  {
+   "code": "LA-9.1.F",
+   "unit": 9,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "la-function-inner-product"
+   ],
+   "partial": []
+  },
+  {
+   "code": "LA-9.2.A",
+   "unit": 9,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "la-balance-combustion"
+   ],
+   "partial": []
+  },
+  {
+   "code": "LA-9.2.B",
+   "unit": 9,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "la-elementary-inverse"
+   ],
+   "partial": []
+  },
+  {
+   "code": "LA-9.2.C",
+   "unit": 9,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "la-complex-det"
+   ],
+   "partial": []
+  },
+  {
+   "code": "LA-9.2.D",
+   "unit": 9,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "la-jordan-power"
+   ],
+   "partial": []
+  },
+  {
+   "code": "LA-9.2.E",
+   "unit": 9,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "la-orthogonal-inverse"
+   ],
+   "partial": []
+  },
+  {
+   "code": "LA-9.2.F",
+   "unit": 9,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "la-map-inverse"
    ],
    "partial": []
   }

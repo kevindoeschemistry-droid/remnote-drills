@@ -3339,6 +3339,367 @@
      ]
     }
    ]
+  },
+  {
+   "id": "ode-more",
+   "n": 13,
+   "title": "More on ODEs: circuits, bifurcations, operators, existence",
+   "scope": "core",
+   "std": [
+    "webwork-opl:DE2.14",
+    "webwork-opl:DE2.9",
+    "webwork-opl:DE3.12"
+   ],
+   "ideas": [
+    "MODEL"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "Applications and theory",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "webwork-opl:DE2.9"
+       ],
+       "do": "Solve an RC circuit.",
+       "ek": [
+        "R q′ + q/C = E: the charge rises with time constant RC and the current decays."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "em-rc-current"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "webwork-opl:DE2.14"
+       ],
+       "do": "Locate a saddle-node bifurcation.",
+       "ek": [
+        "Equilibria appear or vanish where f(y) = 0 and f′(y) = 0 together."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "em-bifurcation"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "webwork-opl:DE3.12"
+       ],
+       "do": "Apply a differential operator.",
+       "ek": [
+        "L[e^{kx}] = p(k)e^{kx} for L = p(D) with constant coefficients."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "em-operator-exponential"
+       ]
+      },
+      {
+       "id": "D",
+       "std": [
+        "webwork-opl:DE3.13"
+       ],
+       "do": "Find the interval on which a linear IVP is guaranteed a unique solution.",
+       "ek": [
+        "The largest open interval around x₀ on which all coefficients are continuous."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "em-existence-interval"
+       ]
+      },
+      {
+       "id": "E",
+       "std": [
+        "webwork-opl:DE5.2"
+       ],
+       "do": "Verify that a vector function solves a linear system.",
+       "ek": [
+        "x = e^{λt}v solves x′ = Ax exactly when Av = λv."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "em-system-verify"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "complex",
+   "n": 14,
+   "title": "Complex analysis",
+   "scope": "core",
+   "std": [
+    "webwork-opl:CX2.1",
+    "webwork-opl:CX2.3",
+    "webwork-opl:CX3.1"
+   ],
+   "ideas": [
+    "MODEL"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "Complex equations, regions and functions",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "webwork-opl:CX2.1"
+       ],
+       "do": "Solve a linear equation in z.",
+       "ek": [
+        "Divide by multiplying top and bottom by the conjugate."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "em-complex-linear"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "webwork-opl:CX2.3"
+       ],
+       "do": "Solve a nonlinear equation in z.",
+       "ek": [
+        "Write the right side in polar form; z² = w has two roots ±√w."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "em-complex-sqrt"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "webwork-opl:CX3.1"
+       ],
+       "do": "Decide whether a point lies in a region of the plane.",
+       "ek": [
+        "|z − z₀| < r is the open disc of radius r about z₀."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "em-complex-region"
+       ]
+      },
+      {
+       "id": "D",
+       "std": [
+        "webwork-opl:CX4.1"
+       ],
+       "do": "Find the image of a point under a complex map.",
+       "ek": [
+        "w = z² squares the modulus and doubles the argument."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "em-complex-map"
+       ]
+      },
+      {
+       "id": "E",
+       "std": [
+        "webwork-opl:CX4.2"
+       ],
+       "do": "Evaluate a limit of a complex function.",
+       "ek": [
+        "A complex limit must agree from every direction; algebra works as for real limits."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "em-complex-limit"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "title": "Analytic functions",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "webwork-opl:CX5.1"
+       ],
+       "do": "Use the Cauchy–Riemann equations.",
+       "ek": [
+        "f = u + iv is analytic where uₓ = v_y and u_y = −vₓ."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "em-cauchy-riemann"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "webwork-opl:CX5.2"
+       ],
+       "do": "Test whether a function is harmonic.",
+       "ek": [
+        "u is harmonic when u_xx + u_yy = 0; real parts of analytic functions are."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "em-harmonic"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "webwork-opl:CX5.3"
+       ],
+       "do": "Recognise entire functions.",
+       "ek": [
+        "Entire = analytic at every point of the plane."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "em-entire"
+       ]
+      },
+      {
+       "id": "D",
+       "std": [
+        "webwork-opl:CX5.4"
+       ],
+       "do": "Find a harmonic conjugate.",
+       "ek": [
+        "Integrate v_y = uₓ in y, then fix the function of x with vₓ = −u_y."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "em-harmonic-conjugate"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 3,
+     "title": "Integration and series",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "webwork-opl:CX7.1"
+       ],
+       "do": "Use Cauchy's integral formula.",
+       "ek": [
+        "∮ f(z)/(z − z₀) dz = 2πi f(z₀) for z₀ inside the contour and f analytic."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "em-cauchy-formula"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "webwork-opl:CX8.1"
+       ],
+       "do": "Decide whether a complex sequence converges.",
+       "ek": [
+        "zⁿ → 0 when |z| < 1 and diverges when |z| > 1."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "em-complex-sequence"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "webwork-opl:CX8.2"
+       ],
+       "do": "Find a Taylor coefficient of an analytic function.",
+       "ek": [
+        "e^{az} = Σ aᵏ zᵏ / k!; 1/(1 − az) = Σ aᵏ zᵏ for |az| < 1."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "em-complex-taylor"
+       ]
+      },
+      {
+       "id": "D",
+       "std": [
+        "webwork-opl:CX8.3",
+        "webwork-opl:CX8.5"
+       ],
+       "do": "Find a Laurent coefficient (a residue).",
+       "ek": [
+        "The coefficient of 1/(z − z₀) is the residue."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "em-laurent-residue"
+       ]
+      },
+      {
+       "id": "E",
+       "std": [
+        "webwork-opl:CX8.4"
+       ],
+       "do": "Find the order of a zero.",
+       "ek": [
+        "The order is the power of the first nonzero term of the Taylor series."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "em-zero-order"
+       ]
+      }
+     ]
+    }
+   ]
   }
  ],
  "rows": [
@@ -4875,6 +5236,196 @@
     "ca-conservation-law"
    ],
    "partial": []
+  },
+  {
+   "code": "EM-13.1.A",
+   "unit": 13,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "em-rc-current"
+   ],
+   "partial": []
+  },
+  {
+   "code": "EM-13.1.B",
+   "unit": 13,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "em-bifurcation"
+   ],
+   "partial": []
+  },
+  {
+   "code": "EM-13.1.C",
+   "unit": 13,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "em-operator-exponential"
+   ],
+   "partial": []
+  },
+  {
+   "code": "EM-13.1.D",
+   "unit": 13,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "em-existence-interval"
+   ],
+   "partial": []
+  },
+  {
+   "code": "EM-13.1.E",
+   "unit": 13,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "em-system-verify"
+   ],
+   "partial": []
+  },
+  {
+   "code": "EM-14.1.A",
+   "unit": 14,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "em-complex-linear"
+   ],
+   "partial": []
+  },
+  {
+   "code": "EM-14.1.B",
+   "unit": 14,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "em-complex-sqrt"
+   ],
+   "partial": []
+  },
+  {
+   "code": "EM-14.1.C",
+   "unit": 14,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "em-complex-region"
+   ],
+   "partial": []
+  },
+  {
+   "code": "EM-14.1.D",
+   "unit": 14,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "em-complex-map"
+   ],
+   "partial": []
+  },
+  {
+   "code": "EM-14.1.E",
+   "unit": 14,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "em-complex-limit"
+   ],
+   "partial": []
+  },
+  {
+   "code": "EM-14.2.A",
+   "unit": 14,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "em-cauchy-riemann"
+   ],
+   "partial": []
+  },
+  {
+   "code": "EM-14.2.B",
+   "unit": 14,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "em-harmonic"
+   ],
+   "partial": []
+  },
+  {
+   "code": "EM-14.2.C",
+   "unit": 14,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "em-entire"
+   ],
+   "partial": []
+  },
+  {
+   "code": "EM-14.2.D",
+   "unit": 14,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "em-harmonic-conjugate"
+   ],
+   "partial": []
+  },
+  {
+   "code": "EM-14.3.A",
+   "unit": 14,
+   "topic": 3,
+   "status": "ok",
+   "full": [
+    "em-cauchy-formula"
+   ],
+   "partial": []
+  },
+  {
+   "code": "EM-14.3.B",
+   "unit": 14,
+   "topic": 3,
+   "status": "ok",
+   "full": [
+    "em-complex-sequence"
+   ],
+   "partial": []
+  },
+  {
+   "code": "EM-14.3.C",
+   "unit": 14,
+   "topic": 3,
+   "status": "ok",
+   "full": [
+    "em-complex-taylor"
+   ],
+   "partial": []
+  },
+  {
+   "code": "EM-14.3.D",
+   "unit": 14,
+   "topic": 3,
+   "status": "ok",
+   "full": [
+    "em-laurent-residue"
+   ],
+   "partial": []
+  },
+  {
+   "code": "EM-14.3.E",
+   "unit": 14,
+   "topic": 3,
+   "status": "ok",
+   "full": [
+    "em-zero-order"
+   ],
+   "partial": []
   }
  ],
  "orphanTpl": [
@@ -4896,11 +5447,14 @@
   "la-free-variables",
   "la-is-solution",
   "la-independence-parameter",
+  "la-poly-dependence",
   "la-solve-with-inverse",
   "la-inverse-check",
   "la-invertible-matrix-theorem",
   "hs2-inverse-2x2",
+  "la-elementary-inverse",
   "la-det-triangular",
+  "la-complex-det",
   "la-eigen-triangular",
   "la-complex-eigen-modulus",
   "mm-eigen-trace-det",
@@ -4908,9 +5462,15 @@
   "la-distance",
   "la-orthogonal-complement",
   "la-qr-entry",
+  "la-function-inner-product",
+  "la-orthogonal-inverse",
   "la-symmetric-eigenvector",
+  "la-jordan-power",
   "la-span-membership",
   "la-solution-set-shape",
+  "la-poly-combination",
+  "la-poly-span",
+  "la-balance-combustion",
   "la-product-entry",
   "la-product-size",
   "la-lu-pivot",
@@ -4920,6 +5480,8 @@
   "la-det-area",
   "la-subspace-test",
   "la-span-dimension",
+  "la-is-vector-space",
+  "la-space-dimension",
   "la-coordinates",
   "la-change-of-basis",
   "la-map-from-basis-images",
@@ -4927,6 +5489,7 @@
   "la-one-to-one-onto",
   "la-kernel-dimension",
   "la-matrix-relative-to-basis",
+  "la-map-inverse",
   "la-markov-steady-state",
   "la-power-by-eigenvectors",
   "la-quadratic-form-classify",
@@ -5001,6 +5564,7 @@
   "mm-derivative-at-a-point",
   "mm-tangent-slope",
   "ca-derive-sin-exp",
+  "ca-elasticity",
   "ca-chain-power",
   "ca-chain-trig",
   "ca-chain-exp",
@@ -5042,6 +5606,7 @@
   "ca-rate-of-rate",
   "ca-rate-units",
   "ca2-related-rate-scaling",
+  "ca-marginal-cost",
   "ca-mvt",
   "ca-critical-points",
   "ca-abs-extrema",
@@ -5063,6 +5628,8 @@
   "ca-decreasing-interval",
   "ca-optimization-setup",
   "ca2-concavity-meaning",
+  "ca-max-profit",
+  "ca-peak-concentration",
   "ca-riemann-sums",
   "ca-trapezoid-table",
   "ca-ftc-derivative",
@@ -5099,6 +5666,10 @@
   "mm-int-x-exp-square",
   "mm-int-sin-power-cos",
   "ca-choose-technique",
+  "ca-trig-integral",
+  "ca-trig-substitution",
+  "ca-integral-table",
+  "ca-cas-antiderivative",
   "ca-verify-solution",
   "ca-separable-general",
   "ca-separable-ivp",
@@ -5144,6 +5715,13 @@
   "ca-volume-disc-line",
   "ca-volume-washer-line",
   "ca2-average-value",
+  "ca-consumer-surplus",
+  "ca-cardiac-output",
+  "ca-pdf-constant",
+  "ca-shells",
+  "ca-two-methods",
+  "ca-surface-revolution",
+  "ca-hydrostatic-triangle",
   "ca-parametric-slope",
   "ca-parametric-arc",
   "ca-vector-velocity",
@@ -5162,6 +5740,11 @@
   "ca-polar-slope-reason",
   "ca-planar-distance",
   "ca-polar-between",
+  "ca-eliminate-parameter",
+  "ca-parametric-area",
+  "ca-parametric-volume",
+  "ca-parametric-surface",
+  "ca-polar-arc-length",
   "ca-partial-sums",
   "ca-geometric-series",
   "ca-nth-term-test",
@@ -5181,6 +5764,9 @@
   "ca-integral-test",
   "ca-comparison-test",
   "ca2-geometric-series-sum",
+  "ca-sequence-limit",
+  "ca-root-test",
+  "ca-series-strategy",
   "ca-taylor-exp",
   "ca-taylor-ln",
   "ca-taylor-coefficients",
@@ -5210,6 +5796,7 @@
   "cm-vector-function",
   "cm-helix",
   "ca-quadric",
+  "ca-vector-limit",
   "ca-critical-point-classify",
   "cm-tangent-plane",
   "cm-chain-rule",

@@ -52,7 +52,7 @@
     - { geo: 'a wide slit between parallel plates', k: 1.5 }
   prompt: 'Fully developed laminar flow in {{geo}} has mean velocity ${{V}}$ m/s. What is the centreline velocity, in m/s?'
   parts:
-    - { ask: '$u_{max}$ (m/s)', label: r, tex: 'u_{max}', value: k*V, tol: 0.001, explain: 'The profile is a parabola. Averaged over a circle it gives $u_{max} = 2\bar u$; over a slit, $u_{max} = 1.5\bar u$. Turbulent profiles are much flatter (about $1.2\bar u$)' }
+    - { ask: '$u_{max}$ (m/s)', label: r, tex: 'u_{max}', value: k*V, tol: 0.005, explain: 'The profile is a parabola. Averaged over a circle it gives $u_{max} = 2\bar u$; over a slit, $u_{max} = 1.5\bar u$. Turbulent profiles are much flatter (about $1.2\bar u$)' }
   verify: { expect: { r: "nsimplify(V)*(1 - 0**2)/(integrate((1 - x**2)*2*x, (x, 0, 1)) if k == 2 else integrate(1 - x**2, (x, 0, 1)))" } }
 
 - template: fm-falling-film
@@ -70,7 +70,7 @@
   given: { a: { pick: [-3, -2, 2, 3, 4] }, b: { pick: [-2, -1, 1, 2] }, y0: { pick: [1, 2, 3] } }
   prompt: 'A steady incompressible 2-D flow has $u = {{a}}x + {{b}}y$ and $v = 0$ on the wall $y = 0$. Find $v$ at $y = {{y0}}$ (any $x$).'
   parts:
-    - { ask: '$v$', label: r, tex: 'v', value: -a*y0, tol: 0.0001, explain: 'Continuity: $\partial u/\partial x + \partial v/\partial y = 0$, so $\partial v/\partial y = -{{a}}$ and $v = -{{a}}y$. A flow that speeds up in $x$ must draw fluid in from $y$' }
+    - { ask: '$v$', label: r, tex: 'v', value: -a*y0, tol: 0.005, explain: 'Continuity: $\partial u/\partial x + \partial v/\partial y = 0$, so $\partial v/\partial y = -{{a}}$ and $v = -{{a}}y$. A flow that speeds up in $x$ must draw fluid in from $y$' }
   verify: { expect: { r: "integrate(-diff(a*Symbol('X') + b*x, Symbol('X')), (x, 0, y0))" } }
 
 - template: fm-entry-length
@@ -95,7 +95,7 @@
     - { q: 'the frequency f of a vibrating string depends on its length L, tension T and mass per length m', n: 4, k: 3 }
   prompt: 'If {{q}}, how many dimensionless groups does the Buckingham pi theorem give?'
   parts:
-    - { ask: 'Number of groups', label: r, tex: 'n - k', value: n - k, tol: 0.0001, explain: 'Count the variables (including the one you want), subtract the independent dimensions they use (M, L, T, and Θ when heat appears). The pendulum has one group, $T\sqrt{g/L}$, so the mass cannot matter' }
+    - { ask: 'Number of groups', label: r, tex: 'n - k', value: n - k, tol: 0.005, explain: 'Count the variables (including the one you want), subtract the independent dimensions they use (M, L, T, and Θ when heat appears). The pendulum has one group, $T\sqrt{g/L}$, so the mass cannot matter' }
   verify: { expect: { r: "solve(Eq(x + k, n), x)[0]" } }
 
 - template: fm-model-similarity
@@ -148,7 +148,7 @@
     - { q: 'shaft power', p: 3 }
   prompt: 'A centrifugal pump running at ${{N1}}$ rpm is changed to ${{f*N1}}$ rpm. By what factor does its {{q}} change?'
   parts:
-    - { ask: 'Factor', label: r, tex: 'k', value: f^p, tol: 0.001, explain: 'Affinity laws for one pump: $Q \propto N$, $H \propto N^2$, $P \propto N^3$. That cube is why a variable-speed drive saves so much energy compared with throttling' }
+    - { ask: 'Factor', label: r, tex: 'k', value: f^p, tol: 0.005, explain: 'Affinity laws for one pump: $Q \propto N$, $H \propto N^2$, $P \propto N^3$. That cube is why a variable-speed drive saves so much energy compared with throttling' }
   verify: { expect: { r: "(nsimplify(f)*N1)**p/N1**p" } }
 
 - template: fm-operating-point
@@ -157,7 +157,7 @@
   given: { H0: { pick: [40, 50, 60, 80] }, a: { pick: [200, 400, 500] }, Hs: { pick: [5, 10, 15, 20] }, b: { pick: [600, 800, 1000] } }
   prompt: 'A pump curve is $H = {{H0}} - {{a}}Q^2$ and the system curve is $H = {{Hs}} + {{b}}Q^2$ ($H$ in m, $Q$ in m³/s). At what flow does the system run, in m³/s?'
   parts:
-    - { ask: 'Q (m³/s)', label: r, tex: 'Q', value: sqrt((H0 - Hs)/(a + b)), tol: 0.001, explain: 'The operating point is where the head the pump supplies equals the head the system demands. $Q = \sqrt{(H_0 - H_s)/(a + b)}$; the static lift $H_s$ is spent before any flow begins' }
+    - { ask: 'Q (m³/s)', label: r, tex: 'Q', value: sqrt((H0 - Hs)/(a + b)), tol: 0.005, explain: 'The operating point is where the head the pump supplies equals the head the system demands. $Q = \sqrt{(H_0 - H_s)/(a + b)}$; the static lift $H_s$ is spent before any flow begins' }
   verify: { expect: { r: "Max(*solve(Eq(H0 - a*x**2, Hs + b*x**2), x))" } }
 
 # ── forces on submerged surfaces (OPL FM2.3) ────────────────────────────────
