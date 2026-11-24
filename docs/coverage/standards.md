@@ -102,7 +102,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 - **Separations**: Topics from FE Chemical area 10 and PE Chemical 6.B (both read in full); objectives and their order are ours.
 - **Speaking and Articulation**: A scoring rubric plus Toastmasters' competency list; unit order is ours.
 - **SQL**: Units 1–7 follow the sixteen topic groups of Oracle's 1Z0-071 exam, read through a restatement rather than Oracle's page. Unit 8 is a house list: no standard for analytic SQL was found.
-- **Statistics**: Units follow the revised AP Statistics course (2026-27), of which only the unit list was read. The objectives under each unit are a house list.
+- **Statistics**: Units 1-5 follow the AP Statistics CED effective fall 2026; all 150 of its learning objectives were read and each is cited by an objective here. Objective wording and grouping are ours.
 - **Structures from Memory**: Units follow the chapter list of Bruice's Organic Chemistry (a textbook, not a standard). The amino acids follow IUPAC-IUB 1983 Table 1. Which compounds to carry in each unit is a house list; the MCAT content outline names the same families and has not been opened.
 - **Swimming**: Rules and research papers; they say what is legal and why technique works, not what to learn in what order. Unit order is ours.
 - **Thermodynamics and Statistical Mechanics**: UCI CBE 240 publishes no syllabus. Classical units are anchored to fe-chemical; the statistical-mechanics units stand on the books.
