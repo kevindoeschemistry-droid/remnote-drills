@@ -112,6 +112,21 @@ def punch_count(folds, px, py):
     return sp.Integer(sum(1 for p in pts if image(p) == (sp.nsimplify(px), sp.nsimplify(py))))
 
 
+def pat_punch_half(folds, px, py, side):
+    """holes in the left (side -1) or right (side +1) half of the unfolded 4 x 4 sheet: map every cell through
+    the folds and keep those that land on the punched cell"""
+    pts = [(sp.Rational(2 * i + 1, 2), sp.Rational(2 * j + 1, 2)) for i in range(4) for j in range(4)]
+    def image(p):
+        for axis, line, s in folds:
+            v = p[int(axis)]
+            if (v - line) * int(s) > 0:
+                v = 2 * line - v
+            p = (v, p[1]) if int(axis) == 0 else (p[0], v)
+        return p
+    hit = [p for p in pts if image(p) == (sp.nsimplify(px), sp.nsimplify(py))]
+    return sp.Integer(sum(1 for p in hit if (p[0] - 2) * int(side) > 0))
+
+
 def net_opposite(cells, q):
     """index of the face opposite face q when the six-square net `cells` [(x, y)] is folded into a cube"""
     cells = [(int(x), int(y)) for x, y in cells]
@@ -566,7 +581,7 @@ def rank_code(values):
     return sp.Integer(int("".join(str(j + 1) for j in order)))
 
 
-BASE.update({"cube_tally": cube_tally, "punch_count": punch_count, "net_opposite": net_opposite, "rank_code": rank_code, "box_degeneracy": box_degeneracy, "huckel_chain": huckel_chain, "view_identify": view_identify, "keyhole_fit": keyhole_fit, "sph_L2": sph_L2, "fc_strongest": fc_strongest, "hf_energy": hf_energy, "hund_ground": hund_ground, "hund_choice": hund_choice, "mo_fill": mo_fill, "commutes": commutes, "view_missing": view_missing, "keyhole_pick": keyhole_pick, "prism_identify": prism_identify, "prism_keyhole": prism_keyhole, "pt_Z": pt_Z, "pt_group": pt_group, "pt_below": pt_below, "pt_config": pt_config, "pt_madelung": pt_madelung, "sn_e": sn_e, "pp_charge": pp_charge, "pp_baryon": pp_baryon, "pp_balance": pp_balance, "ra_chain": ra_chain, "basis_count": basis_count})
+BASE.update({"pat_punch_half": pat_punch_half, "cube_tally": cube_tally, "punch_count": punch_count, "net_opposite": net_opposite, "rank_code": rank_code, "box_degeneracy": box_degeneracy, "huckel_chain": huckel_chain, "view_identify": view_identify, "keyhole_fit": keyhole_fit, "sph_L2": sph_L2, "fc_strongest": fc_strongest, "hf_energy": hf_energy, "hund_ground": hund_ground, "hund_choice": hund_choice, "mo_fill": mo_fill, "commutes": commutes, "view_missing": view_missing, "keyhole_pick": keyhole_pick, "prism_identify": prism_identify, "prism_keyhole": prism_keyhole, "pt_Z": pt_Z, "pt_group": pt_group, "pt_below": pt_below, "pt_config": pt_config, "pt_madelung": pt_madelung, "sn_e": sn_e, "pp_charge": pp_charge, "pp_baryon": pp_baryon, "pp_balance": pp_balance, "ra_chain": ra_chain, "basis_count": basis_count})
 
 
 # ── accounting (fa-*): periodic inventory cost flow, written as a unit-by-unit queue ──

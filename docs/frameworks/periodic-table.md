@@ -34,10 +34,10 @@ Big ideas: POSITION
 
 - ● **PT-1.1.A** Give the atomic number of any main-group element.
   - EK: Noble gases at 2, 10, 18, 36, 54, 86, 118 anchor each row.
-  - P1 · drills: pt-number-main
+  - P1 · drills: pt-number-main, pt-element-from-z-main
 - ● **PT-1.1.B** Write the heavy p-block row from memory.
   - EK: Tl Pb Bi Po At Rn, 81 to 86.
-  - P2 · drills: pt-write-p-block-heavy
+  - P2 · drills: pt-write-p-block-heavy, pt-p6-next
 
 ## Unit 2 · The d block
 
@@ -49,10 +49,10 @@ Big ideas: POSITION, TRIADS
 
 - ● **PT-2.1.A** Give the atomic number of any transition metal.
   - EK: 3d 21-30, 4d 39-48, 5d 72-80, 6d 104-112.
-  - P1 · drills: pt-number-d-block
+  - P1 · drills: pt-number-d-block, pt-element-from-z-d
 - ● **PT-2.1.B** Give the group of any transition metal.
   - EK: Group number = s + d valence electrons.
-  - P1 · drills: pt-group-d-block
+  - P1 · drills: pt-group-d-block, pt-metal-in-group
 - ● **PT-2.1.C** Name the element below a given transition metal, and write a triad.
   - EK: Add 18, then 32; the lanthanoids sit between the 4d and 5d rows.
   - P1 · P2 · drills: pt-congener-below, pt-write-triad
@@ -66,7 +66,7 @@ Big ideas: POSITION, TRIADS
 
 - ● **PT-2.2.A** Give the d-electron count of a metal in a stated oxidation state.
   - EK: d count = group − oxidation state.
-  - P3 · drills: pt-d-electron-count
+  - P3 · drills: pt-d-electron-count, pt-ox-from-d
 
 ## Unit 3 · The f block
 
@@ -78,13 +78,13 @@ Big ideas: POSITION
 
 - ● **PT-3.1.A** Give the atomic number of any lanthanoid or actinoid.
   - EK: La 57 to Lu 71; Ac 89 to Lr 103.
-  - P1 · drills: pt-number-f-block
+  - P1 · drills: pt-number-f-block, pt-element-from-z-f
 - ● **PT-3.1.B** Write the lanthanoids and the actinoids from memory, in order.
   - EK: La Ce Pr Nd Pm Sm Eu Gd Tb Dy Ho Er Tm Yb Lu; Ac Th Pa U Np Pu Am Cm Bk Cf Es Fm Md No Lr.
   - P2 · drills: pt-write-lanthanoids, pt-write-actinoids
 - ● **PT-3.1.C** Give the 4f count of a trivalent lanthanoid ion.
   - EK: Ln³⁺ is [Xe]4fⁿ with n = Z − 57.
-  - P3 · drills: pt-f-electron-count
+  - P3 · drills: pt-f-electron-count, pt-ln-from-f
 
 ## Unit 4 · Ground-state electron configurations
 
@@ -99,10 +99,10 @@ Big ideas: POSITION
   - P1 · drills: pt-config-d-count, pt-config-s-count
 - ● **PT-4.1.B** Say whether an atom follows the filling order or is an exception.
   - EK: Ten exceptions in three rows; W is regular, Pd is 4d¹⁰ 5s⁰.
-  - P1 · drills: pt-config-anomaly
+  - P1 · drills: pt-config-anomaly, pt-unpaired-atom
 - ● **PT-4.1.C** Write the full configuration of a transition-metal atom with its noble-gas core.
   - EK: The 5d metals carry 4f¹⁴ in the core.
-  - P2 · drills: pt-config-write-d
+  - P2 · drills: pt-config-write-d, pt-config-pick-d
 
 ### 4.2 The f block
 
@@ -110,7 +110,7 @@ Big ideas: POSITION
 
 - ● **PT-4.2.A** Give the f-electron count of a lanthanoid or actinoid atom.
   - EK: Most are fⁿ s²; La, Ce, Gd, Lu and Ac to Np, Cm keep d electrons.
-  - P1 · drills: pt-config-f-count
+  - P1 · drills: pt-config-f-count, pt-atom-from-f
 - ● **PT-4.2.B** Write the full configuration of a lanthanoid or actinoid atom.
   - EK: Gd is 4f⁷ 5d¹ 6s²; Th is 6d² 7s² with no 5f electron.
-  - P2 · drills: pt-config-write-f
+  - P2 · drills: pt-config-write-f, pt-config-pick-f

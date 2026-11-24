@@ -2648,7 +2648,8 @@
         "P8"
        ],
        "drills": [
-        "pat-angle-ranking"
+        "pat-angle-ranking",
+        "pat-angle-largest"
        ]
       }
      ]
@@ -2668,7 +2669,8 @@
         "P7"
        ],
        "drills": [
-        "~pat-hole-punching"
+        "~pat-hole-punching",
+        "pat-punch-half"
        ]
       },
       {
@@ -2685,7 +2687,8 @@
         "DAT-4.4.A"
        ],
        "drills": [
-        "pat-hole-punching"
+        "pat-hole-punching",
+        "pat-punch-half"
        ]
       }
      ]
@@ -2705,7 +2708,8 @@
         "P7"
        ],
        "drills": [
-        "pat-cube-counting"
+        "pat-cube-counting",
+        "pat-cube-total"
        ]
       },
       {
@@ -2721,7 +2725,8 @@
         "DAT-4.5.A"
        ],
        "drills": [
-        "pat-cube-counting"
+        "pat-cube-counting",
+        "pat-cube-total"
        ]
       }
      ]
@@ -2741,7 +2746,8 @@
         "P7"
        ],
        "drills": [
-        "~pat-cube-net-opposite"
+        "~pat-cube-net-opposite",
+        "pat-net-adjacent"
        ]
       },
       {
@@ -2758,7 +2764,8 @@
         "DAT-4.6.A"
        ],
        "drills": [
-        "~pat-cube-net-opposite"
+        "~pat-cube-net-opposite",
+        "pat-net-adjacent"
        ]
       }
      ]
@@ -2906,7 +2913,9 @@
        "p": [
         "P8"
        ],
-       "drills": []
+       "drills": [
+        "dt-rc-full-passage"
+       ]
       }
      ]
     }
@@ -4924,7 +4933,8 @@
    "topic": 3,
    "status": "ok",
    "full": [
-    "pat-angle-ranking"
+    "pat-angle-ranking",
+    "pat-angle-largest"
    ],
    "partial": []
   },
@@ -4932,8 +4942,10 @@
    "code": "DAT-4.4.A",
    "unit": 4,
    "topic": 4,
-   "status": "partial",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "pat-punch-half"
+   ],
    "partial": [
     "pat-hole-punching"
    ]
@@ -4944,7 +4956,8 @@
    "topic": 4,
    "status": "ok",
    "full": [
-    "pat-hole-punching"
+    "pat-hole-punching",
+    "pat-punch-half"
    ],
    "partial": []
   },
@@ -4954,7 +4967,8 @@
    "topic": 5,
    "status": "ok",
    "full": [
-    "pat-cube-counting"
+    "pat-cube-counting",
+    "pat-cube-total"
    ],
    "partial": []
   },
@@ -4964,7 +4978,8 @@
    "topic": 5,
    "status": "ok",
    "full": [
-    "pat-cube-counting"
+    "pat-cube-counting",
+    "pat-cube-total"
    ],
    "partial": []
   },
@@ -4972,8 +4987,10 @@
    "code": "DAT-4.6.A",
    "unit": 4,
    "topic": 6,
-   "status": "partial",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "pat-net-adjacent"
+   ],
    "partial": [
     "pat-cube-net-opposite"
    ]
@@ -4982,8 +4999,10 @@
    "code": "DAT-4.6.B",
    "unit": 4,
    "topic": 6,
-   "status": "partial",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "pat-net-adjacent"
+   ],
    "partial": [
     "pat-cube-net-opposite"
    ]
@@ -5069,8 +5088,10 @@
    "code": "DAT-5.3.A",
    "unit": 5,
    "topic": 3,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "dt-rc-full-passage"
+   ],
    "partial": []
   },
   {
