@@ -29,7 +29,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 | Inorganic Chemistry | Regulations of the International Chemistry Olympiad, Appendices C and D (concepts, skills and factual knowledge) | exam-spec | read in full | icho-syllabus, gre-chemistry, usnco, ib-chemistry-2025 | — | 23 | 23 | 0 |
 | Linear Algebra | Lay, Lay & McDonald, Linear Algebra and Its Applications, 5th ed. (chapter list) | textbook | read in part | — | — | 10 | 10 | 0 |
 | Material and Energy Balances | NCEES FE Chemical CBT Exam Specifications (effective July 2020) | exam-spec | read in full | pe-chemical | — | 16 | 14 | 2 |
-| Polymers and Materials | Regulations of the International Chemistry Olympiad, Appendices C and D (concepts, skills and factual knowledge) | exam-spec | read in full | ib-chemistry-2025, fe-chemical, icho-syllabus | — | 6 | 6 | 0 |
+| Polymers and Materials | Regulations of the International Chemistry Olympiad, Appendices C and D (concepts, skills and factual knowledge) | exam-spec | read in full | ib-chemistry-2025, fe-chemical, icho-syllabus | — | 17 | 6 | 11 |
 | High School Mathematics (Common Core) | CCSS Mathematics Appendix A: high school course pathways | standard | read in full | — | — | 200 | 200 | 0 |
 | Mathematics K–8 (Common Core) | Common Core State Standards for Mathematics (2010) | standard | read through a crosswalk | — | — | 258 | 258 | 0 |
 | Mental Math | UIL Number Sense Problem Sequencing Charts (High School; A+ Junior High and Elementary, rev. 2016-17) with the Number Sense Handbook rules | exam-spec | read in full | sta-mtc, mit-18-03-coverup, mit-integration-bee | — | 84 | 81 | 3 |

@@ -624,6 +624,8 @@ from sepcalc import FUNCS as _SP  # noqa: E402
 _merge(_SP, "_SP")
 from olycalc import FUNCS as _OLY  # noqa: E402
 _merge(_OLY, "_OLY")
+from colcalc import FUNCS as _COL  # noqa: E402
+_merge(_COL, "_COL")
 _bad = _sql_tables(TEMPLATES)
 if _bad:
     raise SystemExit(f"SQL figures differ from tests/verify/sql.py TABLES: {_bad}")
