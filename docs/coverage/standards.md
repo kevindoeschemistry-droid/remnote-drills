@@ -20,7 +20,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 | Chemistry Olympiad | U.S. National Chemistry Olympiad: local and national exam format, multiple-choice topic bands and Part II | exam-spec | read in part | icho-appendix-c, icho-syllabus | — | 73 | 73 | 0 |
 | Chemistry (AP) | AP Chemistry Course and Exam Description (Fall 2024) | standard | read in part | ngss-hs, ib-chemistry-2025, usnco, icho-appendix-c, icho-syllabus, acs-accm, aamc-mcat-outline | — | 179 | 179 | 0 |
 | Computer Science | Computer Science Curricula 2023, Body of Knowledge | standard | read in full | — | — | 140 | 1 | 139 |
-| Dental Admission Test | Dental Admission Test 2026 Candidate Guide | exam-spec | read in full | ngss-hs, ib-chemistry-2025, usnco, icho-appendix-c | — | 183 | 183 | 0 |
+| Dental Admission Test | Dental Admission Test 2026 Candidate Guide | exam-spec | read in full | ngss-hs, ib-chemistry-2025, usnco, icho-appendix-c | — | 204 | 204 | 0 |
 | Earth and Space Science | Next Generation Science Standards, high school performance expectations (2013) | standard | read in part | ib-physics-2025, ib-biology-2025, gre-physics | — | 18 | 18 | 0 |
 | Electric Double Layers | Petsev, van Swol and Frink, Molecular Theory of Electric Double Layers (IOP Publishing, 2021) | textbook | read in part | — | — | 56 | 56 | 0 |
 | Applied Engineering Mathematics | Kreyszig, Advanced Engineering Mathematics, 10th ed. | textbook | read in full | fe-chemical, webwork-opl | — | 155 | 128 | 27 |
@@ -477,41 +477,41 @@ https://apcentral.collegeboard.org/media/pdf/ap-biology-course-and-exam-descript
 |---|---|---|---|---|
 | 1.1.a | Biology · Cell and Molecular Biology: Metabolism (photosynthesis, enzymology) | 3 | 3 | dat (3) |
 | 1.1.b | Biology · Cell and Molecular Biology: cellular processes (membrane transport, signal transduction) | 2 | 2 | dat (2) |
-| 1.1.c | Biology · Cell and Molecular Biology: thermodynamics | 1 | 1 | dat (1) |
+| 1.1.c | Biology · Cell and Molecular Biology: thermodynamics | 2 | 2 | dat (2) |
 | 1.1.d | Biology · Cell and Molecular Biology: mitosis/meiosis | 2 | 2 | dat (2) |
 | 1.1.e | Biology · Cell and Molecular Biology: cell structure and function | 2 | 2 | dat (2) |
-| 1.1.f | Biology · Cell and Molecular Biology: experimental cell biology | 1 | 1 | dat (1) |
-| 1.1.g | Biology · Cell and Molecular Biology: biomolecules | 1 | 1 | dat (1) |
-| 1.2.a | Biology · Diversity of Life: Viruses | 1 | 1 | dat (1) |
-| 1.2.b | Biology · Diversity of Life: Archaebacteria | 1 | 1 | dat (1) |
+| 1.1.f | Biology · Cell and Molecular Biology: experimental cell biology | 2 | 2 | dat (2) |
+| 1.1.g | Biology · Cell and Molecular Biology: biomolecules | 2 | 2 | dat (2) |
+| 1.2.a | Biology · Diversity of Life: Viruses | 2 | 2 | dat (2) |
+| 1.2.b | Biology · Diversity of Life: Archaebacteria | 2 | 2 | dat (2) |
 | 1.2.c | Biology · Diversity of Life: Eubacteria | 2 | 2 | dat (2) |
-| 1.2.d | Biology · Diversity of Life: Fungi | 1 | 1 | dat (1) |
-| 1.2.e | Biology · Diversity of Life: Protista | 1 | 1 | dat (1) |
-| 1.2.f | Biology · Diversity of Life: Plantae | 1 | 1 | dat (1) |
+| 1.2.d | Biology · Diversity of Life: Fungi | 2 | 2 | dat (2) |
+| 1.2.e | Biology · Diversity of Life: Protista | 2 | 2 | dat (2) |
+| 1.2.f | Biology · Diversity of Life: Plantae | 2 | 2 | dat (2) |
 | 1.2.g | Biology · Diversity of Life: Animalia | 2 | 2 | dat (2) |
-| 1.3.a | Biology · Structure and Function of Systems: Integumentary | 1 | 1 | dat (1) |
-| 1.3.b | Biology · Structure and Function of Systems: skeletal | 1 | 1 | dat (1) |
-| 1.3.c | Biology · Structure and Function of Systems: muscular | 1 | 1 | dat (1) |
+| 1.3.a | Biology · Structure and Function of Systems: Integumentary | 2 | 2 | dat (2) |
+| 1.3.b | Biology · Structure and Function of Systems: skeletal | 2 | 2 | dat (2) |
+| 1.3.c | Biology · Structure and Function of Systems: muscular | 2 | 2 | dat (2) |
 | 1.3.d | Biology · Structure and Function of Systems: circulatory | 2 | 2 | dat (2) |
-| 1.3.e | Biology · Structure and Function of Systems: immunological/lymphatic | 1 | 1 | dat (1) |
-| 1.3.f | Biology · Structure and Function of Systems: digestive | 1 | 1 | dat (1) |
+| 1.3.e | Biology · Structure and Function of Systems: immunological/lymphatic | 2 | 2 | dat (2) |
+| 1.3.f | Biology · Structure and Function of Systems: digestive | 2 | 2 | dat (2) |
 | 1.3.g | Biology · Structure and Function of Systems: respiratory | 2 | 2 | dat (2) |
-| 1.3.h | Biology · Structure and Function of Systems: urinary | 1 | 1 | dat (1) |
+| 1.3.h | Biology · Structure and Function of Systems: urinary | 2 | 2 | dat (2) |
 | 1.3.i | Biology · Structure and Function of Systems: nervous/sensory | 2 | 2 | dat (2) |
 | 1.3.j | Biology · Structure and Function of Systems: endocrine | 2 | 2 | dat (2) |
-| 1.3.k | Biology · Structure and Function of Systems: reproductive | 1 | 1 | dat (1) |
+| 1.3.k | Biology · Structure and Function of Systems: reproductive | 2 | 2 | dat (2) |
 | 1.4.a | Biology · Genetics: Molecular | 3 | 3 | dat (3) |
-| 1.4.b | Biology · Genetics: human | 1 | 1 | dat (1) |
+| 1.4.b | Biology · Genetics: human | 2 | 2 | dat (2) |
 | 1.4.c | Biology · Genetics: classical | 2 | 2 | dat (2) |
-| 1.4.d | Biology · Genetics: chromosomal | 1 | 1 | dat (1) |
+| 1.4.d | Biology · Genetics: chromosomal | 2 | 2 | dat (2) |
 | 1.4.e | Biology · Genetics: genetic technology | 1 | 1 | dat (1) |
-| 1.4.f | Biology · Genetics: developmental mechanisms | 1 | 1 | dat (1) |
-| 1.4.g | Biology · Genetics: genomics | 1 | 1 | dat (1) |
+| 1.4.f | Biology · Genetics: developmental mechanisms | 2 | 2 | dat (2) |
+| 1.4.g | Biology · Genetics: genomics | 2 | 2 | dat (2) |
 | 1.4.h | Biology · Genetics: gene expression | 2 | 2 | dat (2) |
-| 1.4.i | Biology · Genetics: epigenetics | 1 | 1 | dat (1) |
+| 1.4.i | Biology · Genetics: epigenetics | 2 | 2 | dat (2) |
 | 1.5.a | Biology · Evolution and Ecology: Natural selection | 2 | 2 | dat (2) |
 | 1.5.b | Biology · Evolution and Ecology: population genetics/speciation | 2 | 2 | dat (2) |
-| 1.5.c | Biology · Evolution and Ecology: animal behavior | 1 | 1 | dat (1) |
+| 1.5.c | Biology · Evolution and Ecology: animal behavior | 2 | 2 | dat (2) |
 | 1.5.d | Biology · Evolution and Ecology: population, community and ecosystem ecology | 3 | 3 | dat (3) |
 | 2.1.a | General Chemistry · Stoichiometry and General Concepts: Percent composition | 1 | 1 | dat (1) |
 | 2.1.b | General Chemistry · Stoichiometry and General Concepts: empirical formulae | 1 | 1 | dat (1) |

@@ -323,6 +323,60 @@
         "bi-cell-techniques",
         "dat-technique-result"
        ]
+      },
+      {
+       "id": "M",
+       "std": [
+        "ada-dat:1.1.c"
+       ],
+       "do": "Add free energies of coupled reactions and use ΔG = ΔG°′ + RT ln Q to decide whether a cellular step runs.",
+       "ek": [
+        "ΔG values of coupled reactions add; ATP hydrolysis gives about −30.5 kJ/mol under standard conditions; a reaction with ΔG°′ > 0 can still run when Q is small."
+       ],
+       "p": [
+        "P1",
+        "P2"
+       ],
+       "drills": [
+        "dat-coupled-dg",
+        "dat-dg-q"
+       ]
+      },
+      {
+       "id": "N",
+       "std": [
+        "ada-dat:1.1.f"
+       ],
+       "do": "Choose a microscope or stain for a cell-biology question and compute magnification and cell size.",
+       "ek": [
+        "Total magnification = objective × eyepiece; light microscopes resolve about 0.2 µm, electron microscopes about 1 nm; cell size ≈ field diameter ÷ cells across it."
+       ],
+       "p": [
+        "P1",
+        "P2"
+       ],
+       "drills": [
+        "dat-cell-size",
+        "dat-scope-pick"
+       ]
+      },
+      {
+       "id": "O",
+       "std": [
+        "ada-dat:1.1.g"
+       ],
+       "do": "Identify a biomolecule from a chemical test and count the waters released when monomers polymerize.",
+       "ek": [
+        "Benedict's: reducing sugars; biuret: peptide bonds; iodine: starch; Sudan/emulsion: lipids; n monomers joined by dehydration release n − 1 waters."
+       ],
+       "p": [
+        "P1",
+        "P2"
+       ],
+       "drills": [
+        "dat-dehydration-waters",
+        "dat-biomolecule-test"
+       ]
       }
      ]
     },
@@ -469,6 +523,96 @@
        "drills": [
         "bi-chordates",
         "dat-vertebrate-class"
+       ]
+      },
+      {
+       "id": "I",
+       "std": [
+        "ada-dat:1.2.a"
+       ],
+       "do": "Distinguish viruses, viroids and prions and compute a phage titer from a plaque count.",
+       "ek": [
+        "Viroids are naked RNA, prions misfolded protein; titer (PFU/mL) = plaques ÷ (dilution × volume plated)."
+       ],
+       "p": [
+        "P1",
+        "P2"
+       ],
+       "drills": [
+        "dat-phage-titer",
+        "dat-acellular-agents"
+       ]
+      },
+      {
+       "id": "J",
+       "std": [
+        "ada-dat:1.2.b"
+       ],
+       "do": "Match prokaryotic growth and habitats to Archaea or Bacteria and compute exponential growth from generation time.",
+       "ek": [
+        "Extreme halophiles, methanogens and many thermophiles are archaea; N = N₀ · 2^(t/g) during log phase."
+       ],
+       "p": [
+        "P1",
+        "P2"
+       ],
+       "drills": [
+        "dat-bacterial-growth",
+        "dat-prokaryote-habitat"
+       ]
+      },
+      {
+       "id": "K",
+       "std": [
+        "ada-dat:1.2.d"
+       ],
+       "do": "Place a fungus in its phylum and predict the effect of drugs or partnerships that act on fungal biology.",
+       "ek": [
+        "Zygomycetes (bread mold), ascomycetes (yeast, sac), basidiomycetes (mushrooms, club); ergosterol in the membrane is the antifungal target; mycorrhizae and lichens are mutualisms."
+       ],
+       "p": [
+        "P1",
+        "P2"
+       ],
+       "drills": [
+        "dat-fungal-phylum",
+        "dat-fungal-scenario"
+       ]
+      },
+      {
+       "id": "L",
+       "std": [
+        "ada-dat:1.2.e"
+       ],
+       "do": "Identify a protist by its locomotion, covering or disease and predict its physiology from its habitat.",
+       "ek": [
+        "Amoebae: pseudopodia; Paramecium: cilia and a contractile vacuole; Euglena: flagellum and chloroplasts; diatoms: silica; Plasmodium (apicomplexan) causes malaria."
+       ],
+       "p": [
+        "P1",
+        "P2"
+       ],
+       "drills": [
+        "dat-protist-id",
+        "dat-protist-scenario"
+       ]
+      },
+      {
+       "id": "M",
+       "std": [
+        "ada-dat:1.2.f"
+       ],
+       "do": "Relate plant tissues, transport and hormones to function and predict a plant's response to a stimulus.",
+       "ek": [
+        "Xylem carries water up by transpiration pull; phloem moves sugar source to sink; auxin drives phototropism, gibberellin stem growth, abscisic acid stomatal closure, ethylene ripening; C4 and CAM limit photorespiration."
+       ],
+       "p": [
+        "P1",
+        "P2"
+       ],
+       "drills": [
+        "dat-plant-hormone",
+        "dat-plant-transport"
        ]
       }
      ]
@@ -707,6 +851,132 @@
         "bi-menstrual-cycle",
         "bi-gametogenesis"
        ]
+      },
+      {
+       "id": "N",
+       "std": [
+        "ada-dat:1.3.a"
+       ],
+       "do": "Identify skin cells, glands and layers and predict how skin responds to heat, cold and injury.",
+       "ek": [
+        "Stratum basale divides; melanocytes make melanin; sebaceous glands oil hair, eccrine glands cool by sweat; vasodilation dumps heat, vasoconstriction keeps it."
+       ],
+       "p": [
+        "P1",
+        "P2"
+       ],
+       "drills": [
+        "dat-skin-cells",
+        "dat-skin-thermo"
+       ]
+      },
+      {
+       "id": "O",
+       "std": [
+        "ada-dat:1.3.b"
+       ],
+       "do": "Match bone and cartilage cells, tissue and joints to their roles.",
+       "ek": [
+        "Osteocytes sit in lacunae of osteons (Haversian systems); red marrow makes blood cells; hyaline cartilage covers joints, fibrocartilage in discs, elastic in the ear; synovial joints move freely."
+       ],
+       "p": [
+        "P1",
+        "P2"
+       ],
+       "drills": [
+        "dat-bone-tissue",
+        "dat-cartilage-joint"
+       ]
+      },
+      {
+       "id": "P",
+       "std": [
+        "ada-dat:1.3.c"
+       ],
+       "do": "Compare skeletal, cardiac and smooth muscle and predict force from motor-unit recruitment and summation.",
+       "ek": [
+        "Skeletal: striated, voluntary, multinucleate; cardiac: striated, intercalated discs, autorhythmic; smooth: unstriated, calmodulin; force rises by recruiting motor units and by summation to tetanus."
+       ],
+       "p": [
+        "P1",
+        "P2"
+       ],
+       "drills": [
+        "dat-muscle-types",
+        "dat-muscle-force"
+       ]
+      },
+      {
+       "id": "Q",
+       "std": [
+        "ada-dat:1.3.e"
+       ],
+       "do": "Match antibody classes, antigen presentation and immunization type to the immune response they give.",
+       "ek": [
+        "IgM first, IgG most abundant and crosses the placenta, IgA in secretions, IgE allergy; MHC I shows to CD8, MHC II to CD4; vaccines give active immunity, antibodies passed on give passive."
+       ],
+       "p": [
+        "P1",
+        "P2"
+       ],
+       "drills": [
+        "dat-antibody-class",
+        "dat-immunity-type"
+       ]
+      },
+      {
+       "id": "R",
+       "std": [
+        "ada-dat:1.3.f"
+       ],
+       "do": "Match gut hormones and absorption sites to their actions and follow fat digestion and absorption.",
+       "ek": [
+        "Gastrin raises acid; secretin brings bicarbonate; CCK releases bile and enzymes; most absorption in the small intestine, water and electrolytes also in the colon; fats leave as chylomicrons into lacteals."
+       ],
+       "p": [
+        "P1",
+        "P2"
+       ],
+       "drills": [
+        "dat-gut-hormone",
+        "dat-absorption-site"
+       ]
+      },
+      {
+       "id": "S",
+       "std": [
+        "ada-dat:1.3.h"
+       ],
+       "do": "Compute renal clearance from urine and plasma data and trace the renin–angiotensin–aldosterone response.",
+       "ek": [
+        "Clearance = U × V̇ ÷ P; inulin clearance equals GFR; low pressure → renin → angiotensin II → aldosterone and vasoconstriction."
+       ],
+       "p": [
+        "P1",
+        "P2"
+       ],
+       "drills": [
+        "dat-clearance",
+        "dat-raas"
+       ]
+      },
+      {
+       "id": "T",
+       "std": [
+        "ada-dat:1.3.k"
+       ],
+       "do": "Trace gametes through the reproductive tracts and match pregnancy hormones to their roles.",
+       "ek": [
+        "Sperm: seminiferous tubules → epididymis → vas deferens; fertilization in the oviduct; hCG keeps the corpus luteum; progesterone holds the endometrium; oxytocin drives labor."
+       ],
+       "p": [
+        "P1",
+        "P2"
+       ],
+       "drills": [
+        "dat-gamete-path",
+        "dat-pregnancy-hormone"
+       ]
       }
      ]
     },
@@ -934,6 +1204,96 @@
         "bi-development-stage",
         "bi-germ-layers"
        ]
+      },
+      {
+       "id": "M",
+       "std": [
+        "ada-dat:1.4.b"
+       ],
+       "do": "Compute the risk that a child inherits a human single-gene disorder and match disorders to inheritance modes.",
+       "ek": [
+        "Two carriers of an autosomal recessive: 1/4 affected, 2/3 of unaffected children are carriers; carrier mother of an X-linked recessive: 1/2 of sons affected."
+       ],
+       "p": [
+        "P1",
+        "P2"
+       ],
+       "drills": [
+        "dat-human-risk",
+        "dat-disorder-mode"
+       ]
+      },
+      {
+       "id": "N",
+       "std": [
+        "ada-dat:1.4.d"
+       ],
+       "do": "Name the karyotype of common aneuploidies and count chromosomes and chromatids through the cell cycle.",
+       "ek": [
+        "Down 47,+21; Turner 45,X; Klinefelter 47,XXY; a 2n cell has 2n chromosomes and 4n chromatids after S phase, n chromosomes with 2n chromatids after meiosis I."
+       ],
+       "p": [
+        "P1",
+        "P2"
+       ],
+       "drills": [
+        "dat-chromatid-count",
+        "dat-karyotype"
+       ]
+      },
+      {
+       "id": "O",
+       "std": [
+        "ada-dat:1.4.f"
+       ],
+       "do": "Order early development and predict the outcome of a change in induction, Hox genes or apoptosis.",
+       "ek": [
+        "Zygote → cleavage → morula → blastula (blastocyst) → gastrula; induction signals fate; Hox genes set body-axis identity; apoptosis sculpts digits."
+       ],
+       "p": [
+        "P1",
+        "P2"
+       ],
+       "drills": [
+        "dat-dev-order",
+        "dat-dev-scenario"
+       ]
+      },
+      {
+       "id": "P",
+       "std": [
+        "ada-dat:1.4.g"
+       ],
+       "do": "Estimate how often a sequence occurs by chance in a genome and compare genome features across organisms.",
+       "ek": [
+        "A specific n-base site appears about once every 4^n bases; prokaryotic genomes are compact with operons; eukaryotic genomes carry introns, repeats and much noncoding DNA."
+       ],
+       "p": [
+        "P1",
+        "P2"
+       ],
+       "drills": [
+        "dat-site-frequency",
+        "dat-genome-features"
+       ]
+      },
+      {
+       "id": "Q",
+       "std": [
+        "ada-dat:1.4.i"
+       ],
+       "do": "Predict Barr bodies and imprinted expression from a karyotype or parent of origin.",
+       "ek": [
+        "Barr bodies = number of X chromosomes − 1; imprinted genes are expressed from one parent's copy only (Prader–Willi paternal loss, Angelman maternal loss of 15q11–13)."
+       ],
+       "p": [
+        "P1",
+        "P2"
+       ],
+       "drills": [
+        "dat-barr-bodies",
+        "dat-imprinting"
+       ]
       }
      ]
     },
@@ -1083,6 +1443,24 @@
        "drills": [
         "bi-trophic-energy",
         "bi-biogeochemical"
+       ]
+      },
+      {
+       "id": "I",
+       "std": [
+        "ada-dat:1.5.c"
+       ],
+       "do": "Apply Hamilton's rule and classify social behaviors and communication signals.",
+       "ek": [
+        "An altruistic gene spreads when r · B > C; full siblings r = 1/2, half siblings 1/4, cousins 1/8; pheromones, the honeybee waggle dance and territorial displays are signals."
+       ],
+       "p": [
+        "P1",
+        "P2"
+       ],
+       "drills": [
+        "dat-hamilton",
+        "dat-social-behavior"
        ]
       }
      ]
@@ -3895,6 +4273,39 @@
    "partial": []
   },
   {
+   "code": "DAT-1.1.M",
+   "unit": 1,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "dat-coupled-dg",
+    "dat-dg-q"
+   ],
+   "partial": []
+  },
+  {
+   "code": "DAT-1.1.N",
+   "unit": 1,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "dat-cell-size",
+    "dat-scope-pick"
+   ],
+   "partial": []
+  },
+  {
+   "code": "DAT-1.1.O",
+   "unit": 1,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "dat-dehydration-waters",
+    "dat-biomolecule-test"
+   ],
+   "partial": []
+  },
+  {
    "code": "DAT-1.2.A",
    "unit": 1,
    "topic": 2,
@@ -3979,6 +4390,61 @@
    "full": [
     "bi-chordates",
     "dat-vertebrate-class"
+   ],
+   "partial": []
+  },
+  {
+   "code": "DAT-1.2.I",
+   "unit": 1,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "dat-phage-titer",
+    "dat-acellular-agents"
+   ],
+   "partial": []
+  },
+  {
+   "code": "DAT-1.2.J",
+   "unit": 1,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "dat-bacterial-growth",
+    "dat-prokaryote-habitat"
+   ],
+   "partial": []
+  },
+  {
+   "code": "DAT-1.2.K",
+   "unit": 1,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "dat-fungal-phylum",
+    "dat-fungal-scenario"
+   ],
+   "partial": []
+  },
+  {
+   "code": "DAT-1.2.L",
+   "unit": 1,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "dat-protist-id",
+    "dat-protist-scenario"
+   ],
+   "partial": []
+  },
+  {
+   "code": "DAT-1.2.M",
+   "unit": 1,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "dat-plant-hormone",
+    "dat-plant-transport"
    ],
    "partial": []
   },
@@ -4126,6 +4592,83 @@
    "partial": []
   },
   {
+   "code": "DAT-1.3.N",
+   "unit": 1,
+   "topic": 3,
+   "status": "ok",
+   "full": [
+    "dat-skin-cells",
+    "dat-skin-thermo"
+   ],
+   "partial": []
+  },
+  {
+   "code": "DAT-1.3.O",
+   "unit": 1,
+   "topic": 3,
+   "status": "ok",
+   "full": [
+    "dat-bone-tissue",
+    "dat-cartilage-joint"
+   ],
+   "partial": []
+  },
+  {
+   "code": "DAT-1.3.P",
+   "unit": 1,
+   "topic": 3,
+   "status": "ok",
+   "full": [
+    "dat-muscle-types",
+    "dat-muscle-force"
+   ],
+   "partial": []
+  },
+  {
+   "code": "DAT-1.3.Q",
+   "unit": 1,
+   "topic": 3,
+   "status": "ok",
+   "full": [
+    "dat-antibody-class",
+    "dat-immunity-type"
+   ],
+   "partial": []
+  },
+  {
+   "code": "DAT-1.3.R",
+   "unit": 1,
+   "topic": 3,
+   "status": "ok",
+   "full": [
+    "dat-gut-hormone",
+    "dat-absorption-site"
+   ],
+   "partial": []
+  },
+  {
+   "code": "DAT-1.3.S",
+   "unit": 1,
+   "topic": 3,
+   "status": "ok",
+   "full": [
+    "dat-clearance",
+    "dat-raas"
+   ],
+   "partial": []
+  },
+  {
+   "code": "DAT-1.3.T",
+   "unit": 1,
+   "topic": 3,
+   "status": "ok",
+   "full": [
+    "dat-gamete-path",
+    "dat-pregnancy-hormone"
+   ],
+   "partial": []
+  },
+  {
    "code": "DAT-1.4.A",
    "unit": 1,
    "topic": 4,
@@ -4261,6 +4804,61 @@
    "partial": []
   },
   {
+   "code": "DAT-1.4.M",
+   "unit": 1,
+   "topic": 4,
+   "status": "ok",
+   "full": [
+    "dat-human-risk",
+    "dat-disorder-mode"
+   ],
+   "partial": []
+  },
+  {
+   "code": "DAT-1.4.N",
+   "unit": 1,
+   "topic": 4,
+   "status": "ok",
+   "full": [
+    "dat-chromatid-count",
+    "dat-karyotype"
+   ],
+   "partial": []
+  },
+  {
+   "code": "DAT-1.4.O",
+   "unit": 1,
+   "topic": 4,
+   "status": "ok",
+   "full": [
+    "dat-dev-order",
+    "dat-dev-scenario"
+   ],
+   "partial": []
+  },
+  {
+   "code": "DAT-1.4.P",
+   "unit": 1,
+   "topic": 4,
+   "status": "ok",
+   "full": [
+    "dat-site-frequency",
+    "dat-genome-features"
+   ],
+   "partial": []
+  },
+  {
+   "code": "DAT-1.4.Q",
+   "unit": 1,
+   "topic": 4,
+   "status": "ok",
+   "full": [
+    "dat-barr-bodies",
+    "dat-imprinting"
+   ],
+   "partial": []
+  },
+  {
    "code": "DAT-1.5.A",
    "unit": 1,
    "topic": 5,
@@ -4345,6 +4943,17 @@
    "full": [
     "bi-trophic-energy",
     "bi-biogeochemical"
+   ],
+   "partial": []
+  },
+  {
+   "code": "DAT-1.5.I",
+   "unit": 1,
+   "topic": 5,
+   "status": "ok",
+   "full": [
+    "dat-hamilton",
+    "dat-social-behavior"
    ],
    "partial": []
   },

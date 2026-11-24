@@ -2,7 +2,7 @@
 
 Generated from `drills/frameworks/dat.yaml` by `scripts/framework.mjs`. ● drilled · ◐ partly · ○ no drills yet.
 
-**183 learning objectives** in 6 units (183 core): 183 drilled, 0 partly, 0 with no drills. Core: 183 / 183 drilled.
+**204 learning objectives** in 6 units (204 core): 204 drilled, 0 partly, 0 with no drills. Core: 204 / 204 drilled.
 
 ## Big ideas
 
@@ -28,7 +28,7 @@ Generated from `drills/frameworks/dat.yaml` by `scripts/framework.mjs`. ● dril
 
 | Unit | Scope | Est. weight | LOs | ● | ◐ | ○ |
 |---|---|---|---|---|---|---|
-| 1 · Biology | core | Biology: 40 of 100 Survey of the Natural Sciences items (Survey 90 min total) | 53 | 53 | 0 | 0 |
+| 1 · Biology | core | Biology: 40 of 100 Survey of the Natural Sciences items (Survey 90 min total) | 74 | 74 | 0 | 0 |
 | 2 · General Chemistry | core | General Chemistry: 30 of 100 Survey of the Natural Sciences items (periodic table provided) | 57 | 57 | 0 | 0 |
 | 3 · Organic Chemistry | core | Organic Chemistry: 30 of 100 Survey of the Natural Sciences items (new specifications, implemented April 2026) | 36 | 36 | 0 | 0 |
 | 4 · Perceptual Ability | core | Perceptual Ability: 90 items in 60 min, six parts (the guide gives no per-part counts) | 11 | 11 | 0 | 0 |
@@ -80,6 +80,15 @@ Big ideas: STRUCT, ENERGY, INFO, SYS
 - ● **DAT-1.1.L** (ada-dat:1.1.f) Choose the experimental technique that answers a cell-biology question and interpret its result.
   - EK: Differential centrifugation separates by size/density; SDS-PAGE by mass; fluorescent tags localize; radiolabel pulse-chase follows a pathway.
   - P2 · P5 · drills: bi-cell-techniques, dat-technique-result
+- ● **DAT-1.1.M** (ada-dat:1.1.c) Add free energies of coupled reactions and use ΔG = ΔG°′ + RT ln Q to decide whether a cellular step runs.
+  - EK: ΔG values of coupled reactions add; ATP hydrolysis gives about −30.5 kJ/mol under standard conditions; a reaction with ΔG°′ > 0 can still run when Q is small.
+  - P1 · P2 · drills: dat-coupled-dg, dat-dg-q
+- ● **DAT-1.1.N** (ada-dat:1.1.f) Choose a microscope or stain for a cell-biology question and compute magnification and cell size.
+  - EK: Total magnification = objective × eyepiece; light microscopes resolve about 0.2 µm, electron microscopes about 1 nm; cell size ≈ field diameter ÷ cells across it.
+  - P1 · P2 · drills: dat-cell-size, dat-scope-pick
+- ● **DAT-1.1.O** (ada-dat:1.1.g) Identify a biomolecule from a chemical test and count the waters released when monomers polymerize.
+  - EK: Benedict's: reducing sugars; biuret: peptide bonds; iodine: starch; Sudan/emulsion: lipids; n monomers joined by dehydration release n − 1 waters.
+  - P1 · P2 · drills: dat-dehydration-waters, dat-biomolecule-test
 
 ### 1.2 Diversity of Life
 
@@ -109,6 +118,21 @@ Big ideas: STRUCT, ENERGY, INFO, SYS
 - ● **DAT-1.2.H** (ada-dat:1.2.g) Identify the four chordate features and the traits that separate vertebrate classes.
   - EK: Notochord, dorsal hollow nerve cord, pharyngeal slits, post-anal tail; amniotic egg separates reptiles, birds and mammals from amphibians.
   - P1 · drills: bi-chordates, dat-vertebrate-class
+- ● **DAT-1.2.I** (ada-dat:1.2.a) Distinguish viruses, viroids and prions and compute a phage titer from a plaque count.
+  - EK: Viroids are naked RNA, prions misfolded protein; titer (PFU/mL) = plaques ÷ (dilution × volume plated).
+  - P1 · P2 · drills: dat-phage-titer, dat-acellular-agents
+- ● **DAT-1.2.J** (ada-dat:1.2.b) Match prokaryotic growth and habitats to Archaea or Bacteria and compute exponential growth from generation time.
+  - EK: Extreme halophiles, methanogens and many thermophiles are archaea; N = N₀ · 2^(t/g) during log phase.
+  - P1 · P2 · drills: dat-bacterial-growth, dat-prokaryote-habitat
+- ● **DAT-1.2.K** (ada-dat:1.2.d) Place a fungus in its phylum and predict the effect of drugs or partnerships that act on fungal biology.
+  - EK: Zygomycetes (bread mold), ascomycetes (yeast, sac), basidiomycetes (mushrooms, club); ergosterol in the membrane is the antifungal target; mycorrhizae and lichens are mutualisms.
+  - P1 · P2 · drills: dat-fungal-phylum, dat-fungal-scenario
+- ● **DAT-1.2.L** (ada-dat:1.2.e) Identify a protist by its locomotion, covering or disease and predict its physiology from its habitat.
+  - EK: Amoebae: pseudopodia; Paramecium: cilia and a contractile vacuole; Euglena: flagellum and chloroplasts; diatoms: silica; Plasmodium (apicomplexan) causes malaria.
+  - P1 · P2 · drills: dat-protist-id, dat-protist-scenario
+- ● **DAT-1.2.M** (ada-dat:1.2.f) Relate plant tissues, transport and hormones to function and predict a plant's response to a stimulus.
+  - EK: Xylem carries water up by transpiration pull; phloem moves sugar source to sink; auxin drives phototropism, gibberellin stem growth, abscisic acid stomatal closure, ethylene ripening; C4 and CAM limit photorespiration.
+  - P1 · P2 · drills: dat-plant-hormone, dat-plant-transport
 
 ### 1.3 Structure and Function of Systems
 
@@ -153,6 +177,27 @@ Big ideas: STRUCT, ENERGY, INFO, SYS
 - ● **DAT-1.3.M** (ada-dat:1.3.k) Sequence the menstrual cycle's hormone changes and compare spermatogenesis with oogenesis.
   - EK: Estrogen peak → LH surge → ovulation; corpus luteum makes progesterone; one oocyte plus polar bodies vs four sperm per meiosis.
   - P1 · P5 · drills: bi-menstrual-cycle, bi-gametogenesis
+- ● **DAT-1.3.N** (ada-dat:1.3.a) Identify skin cells, glands and layers and predict how skin responds to heat, cold and injury.
+  - EK: Stratum basale divides; melanocytes make melanin; sebaceous glands oil hair, eccrine glands cool by sweat; vasodilation dumps heat, vasoconstriction keeps it.
+  - P1 · P2 · drills: dat-skin-cells, dat-skin-thermo
+- ● **DAT-1.3.O** (ada-dat:1.3.b) Match bone and cartilage cells, tissue and joints to their roles.
+  - EK: Osteocytes sit in lacunae of osteons (Haversian systems); red marrow makes blood cells; hyaline cartilage covers joints, fibrocartilage in discs, elastic in the ear; synovial joints move freely.
+  - P1 · P2 · drills: dat-bone-tissue, dat-cartilage-joint
+- ● **DAT-1.3.P** (ada-dat:1.3.c) Compare skeletal, cardiac and smooth muscle and predict force from motor-unit recruitment and summation.
+  - EK: Skeletal: striated, voluntary, multinucleate; cardiac: striated, intercalated discs, autorhythmic; smooth: unstriated, calmodulin; force rises by recruiting motor units and by summation to tetanus.
+  - P1 · P2 · drills: dat-muscle-types, dat-muscle-force
+- ● **DAT-1.3.Q** (ada-dat:1.3.e) Match antibody classes, antigen presentation and immunization type to the immune response they give.
+  - EK: IgM first, IgG most abundant and crosses the placenta, IgA in secretions, IgE allergy; MHC I shows to CD8, MHC II to CD4; vaccines give active immunity, antibodies passed on give passive.
+  - P1 · P2 · drills: dat-antibody-class, dat-immunity-type
+- ● **DAT-1.3.R** (ada-dat:1.3.f) Match gut hormones and absorption sites to their actions and follow fat digestion and absorption.
+  - EK: Gastrin raises acid; secretin brings bicarbonate; CCK releases bile and enzymes; most absorption in the small intestine, water and electrolytes also in the colon; fats leave as chylomicrons into lacteals.
+  - P1 · P2 · drills: dat-gut-hormone, dat-absorption-site
+- ● **DAT-1.3.S** (ada-dat:1.3.h) Compute renal clearance from urine and plasma data and trace the renin–angiotensin–aldosterone response.
+  - EK: Clearance = U × V̇ ÷ P; inulin clearance equals GFR; low pressure → renin → angiotensin II → aldosterone and vasoconstriction.
+  - P1 · P2 · drills: dat-clearance, dat-raas
+- ● **DAT-1.3.T** (ada-dat:1.3.k) Trace gametes through the reproductive tracts and match pregnancy hormones to their roles.
+  - EK: Sperm: seminiferous tubules → epididymis → vas deferens; fertilization in the oviduct; hCG keeps the corpus luteum; progesterone holds the endometrium; oxytocin drives labor.
+  - P1 · P2 · drills: dat-gamete-path, dat-pregnancy-hormone
 
 ### 1.4 Genetics
 
@@ -197,6 +242,21 @@ Big ideas: STRUCT, ENERGY, INFO, SYS
 - ● **DAT-1.4.L** (ada-dat:1.4.f) Trace early development from fertilization through gastrulation and match germ layers to the tissues they form.
   - EK: Ectoderm: nervous system, epidermis; mesoderm: muscle, bone, blood, kidney; endoderm: gut and lung lining; Hox genes set the body axis.
   - P1 · drills: bi-development-stage, bi-germ-layers
+- ● **DAT-1.4.M** (ada-dat:1.4.b) Compute the risk that a child inherits a human single-gene disorder and match disorders to inheritance modes.
+  - EK: Two carriers of an autosomal recessive: 1/4 affected, 2/3 of unaffected children are carriers; carrier mother of an X-linked recessive: 1/2 of sons affected.
+  - P1 · P2 · drills: dat-human-risk, dat-disorder-mode
+- ● **DAT-1.4.N** (ada-dat:1.4.d) Name the karyotype of common aneuploidies and count chromosomes and chromatids through the cell cycle.
+  - EK: Down 47,+21; Turner 45,X; Klinefelter 47,XXY; a 2n cell has 2n chromosomes and 4n chromatids after S phase, n chromosomes with 2n chromatids after meiosis I.
+  - P1 · P2 · drills: dat-chromatid-count, dat-karyotype
+- ● **DAT-1.4.O** (ada-dat:1.4.f) Order early development and predict the outcome of a change in induction, Hox genes or apoptosis.
+  - EK: Zygote → cleavage → morula → blastula (blastocyst) → gastrula; induction signals fate; Hox genes set body-axis identity; apoptosis sculpts digits.
+  - P1 · P2 · drills: dat-dev-order, dat-dev-scenario
+- ● **DAT-1.4.P** (ada-dat:1.4.g) Estimate how often a sequence occurs by chance in a genome and compare genome features across organisms.
+  - EK: A specific n-base site appears about once every 4^n bases; prokaryotic genomes are compact with operons; eukaryotic genomes carry introns, repeats and much noncoding DNA.
+  - P1 · P2 · drills: dat-site-frequency, dat-genome-features
+- ● **DAT-1.4.Q** (ada-dat:1.4.i) Predict Barr bodies and imprinted expression from a karyotype or parent of origin.
+  - EK: Barr bodies = number of X chromosomes − 1; imprinted genes are expressed from one parent's copy only (Prader–Willi paternal loss, Angelman maternal loss of 15q11–13).
+  - P1 · P2 · drills: dat-barr-bodies, dat-imprinting
 
 ### 1.5 Evolution and Ecology
 
@@ -227,6 +287,9 @@ Big ideas: STRUCT, ENERGY, INFO, SYS
 - ● **DAT-1.5.H** (ada-dat:1.5.d) Calculate energy transfer across trophic levels and trace carbon and nitrogen through an ecosystem.
   - EK: About 10% of energy passes to each higher level; N2 fixation → nitrification → assimilation → denitrification.
   - P1 · P3 · drills: bi-trophic-energy, bi-biogeochemical
+- ● **DAT-1.5.I** (ada-dat:1.5.c) Apply Hamilton's rule and classify social behaviors and communication signals.
+  - EK: An altruistic gene spreads when r · B > C; full siblings r = 1/2, half siblings 1/4, cousins 1/8; pheromones, the honeybee waggle dance and territorial displays are signals.
+  - P1 · P2 · drills: dat-hamilton, dat-social-behavior
 
 ## Unit 2 · General Chemistry
 

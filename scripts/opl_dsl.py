@@ -12,7 +12,7 @@ class Q:
         t = {"template": self.name, "skill": self.skill, "pace": self.pace}
         if self.given: t["given"] = self.given
         if self.cases: t["cases"] = self.cases
-        if self.require: t["require"] = self.require
+        if self.require: t["require"] = [self.require] if isinstance(self.require, str) else self.require
         if self.let: t["let"] = self.let
         t["prompt"] = self.prompt
         fields = set(self.given or {}) | {k for c in (self.cases or []) for k in c} | set(self.let or {})
