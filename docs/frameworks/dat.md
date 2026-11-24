@@ -2,7 +2,7 @@
 
 Generated from `drills/frameworks/dat.yaml` by `scripts/framework.mjs`. ● drilled · ◐ partly · ○ no drills yet.
 
-**183 learning objectives** in 6 units (183 core): 178 drilled, 4 partly, 1 with no drills. Core: 178 / 183 drilled.
+**183 learning objectives** in 6 units (183 core): 179 drilled, 3 partly, 1 with no drills. Core: 179 / 183 drilled.
 
 ## Big ideas
 
@@ -28,7 +28,7 @@ Generated from `drills/frameworks/dat.yaml` by `scripts/framework.mjs`. ● dril
 
 | Unit | Scope | Est. weight | LOs | ● | ◐ | ○ |
 |---|---|---|---|---|---|---|
-| 1 · Biology | core | Biology: 40 of 100 Survey of the Natural Sciences items (Survey 90 min total) | 53 | 52 | 1 | 0 |
+| 1 · Biology | core | Biology: 40 of 100 Survey of the Natural Sciences items (Survey 90 min total) | 53 | 53 | 0 | 0 |
 | 2 · General Chemistry | core | General Chemistry: 30 of 100 Survey of the Natural Sciences items (periodic table provided) | 57 | 57 | 0 | 0 |
 | 3 · Organic Chemistry | core | Organic Chemistry: 30 of 100 Survey of the Natural Sciences items (new specifications, implemented April 2026) | 36 | 36 | 0 | 0 |
 | 4 · Perceptual Ability | core | Perceptual Ability: 90 items in 60 min, six parts (the guide gives no per-part counts) | 11 | 8 | 3 | 0 |
@@ -76,10 +76,10 @@ Big ideas: STRUCT, ENERGY, INFO, SYS
   - P1 · drills: bi-organelle-function, bi-prokaryote-eukaryote
 - ● **DAT-1.1.K** Identify cytoskeletal elements and cell junctions by structure and role.
   - EK: Microtubules (tubulin: spindle, cilia), microfilaments (actin: contraction, cleavage), intermediate filaments (keratin: strength); tight, gap and desmosome junctions.
-  - P1 · drills: bi-cytoskeleton
+  - P1 · drills: bi-cytoskeleton, dat-cytoskeleton-drugs
 - ● **DAT-1.1.L** Choose the experimental technique that answers a cell-biology question and interpret its result.
   - EK: Differential centrifugation separates by size/density; SDS-PAGE by mass; fluorescent tags localize; radiolabel pulse-chase follows a pathway.
-  - P2 · P5 · drills: bi-cell-techniques
+  - P2 · P5 · drills: bi-cell-techniques, dat-technique-result
 
 ### 1.2 Diversity of Life
 
@@ -87,28 +87,28 @@ Big ideas: STRUCT, ENERGY, INFO, SYS
 
 - ● **DAT-1.2.A** Describe virus structure and distinguish lytic, lysogenic and retroviral life cycles.
   - EK: Capsid around DNA or RNA, no metabolism; lysogenic phage integrates as a prophage; retroviruses use reverse transcriptase.
-  - P1 · drills: bi-virus-cycle
+  - P1 · drills: bi-virus-cycle, bi-virus-scenario
 - ● **DAT-1.2.B** Distinguish Archaea from Bacteria and Eukarya by membrane, wall and genetic machinery.
   - EK: Archaea: ether-linked lipids, no peptidoglycan, histones and eukaryote-like RNA polymerase.
-  - P1 · drills: bi-archaea
+  - P1 · drills: bi-archaea, bi-bacteria-classify
 - ● **DAT-1.2.C** Classify a bacterium by shape, Gram stain and metabolism, and name its modes of gene transfer.
   - EK: Gram+ thick peptidoglycan, Gram− thin wall plus outer LPS membrane; binary fission; transformation, transduction, conjugation.
   - P1 · P2 · drills: bi-bacteria-classify, bi-variation-source
 - ● **DAT-1.2.D** Identify the defining features and life cycle of fungi.
   - EK: Chitin walls, absorptive heterotrophs, hyphae/mycelium; haploid-dominant life cycle.
-  - P1 · drills: bi-fungi
+  - P1 · drills: bi-fungi, bi-kingdom-traits
 - ● **DAT-1.2.E** Place a described protist in its group and explain why Protista is not a natural clade.
   - EK: Eukaryotes that are not plants, animals or fungi (algae, amoebae, ciliates, Plasmodium); paraphyletic.
-  - P1 · P2 · drills: bi-protists
+  - P1 · P2 · drills: bi-protists, dat-protist-feature
 - ● **DAT-1.2.F** Order plant groups by key innovation and identify the dominant generation in each.
   - EK: Mosses (gametophyte-dominant, no vasculature) → ferns (vascular, sporophyte-dominant) → gymnosperms (seeds, pollen) → angiosperms (flowers, fruit, double fertilization).
-  - P1 · drills: bi-plant-groups
+  - P1 · drills: bi-plant-groups, bi-plant-innovation
 - ● **DAT-1.2.G** Classify an animal by symmetry, germ layers, body cavity and protostome/deuterostome development.
   - EK: Deuterostomes (echinoderms, chordates): blastopore becomes the anus, radial cleavage; protostomes: mouth, spiral cleavage.
-  - P1 · P2 · drills: bi-animal-body-plan
+  - P1 · P2 · drills: bi-animal-body-plan, bi-body-plan-classify
 - ● **DAT-1.2.H** Identify the four chordate features and the traits that separate vertebrate classes.
   - EK: Notochord, dorsal hollow nerve cord, pharyngeal slits, post-anal tail; amniotic egg separates reptiles, birds and mammals from amphibians.
-  - P1 · drills: bi-chordates
+  - P1 · drills: bi-chordates, dat-vertebrate-class
 
 ### 1.3 Structure and Function of Systems
 
@@ -116,28 +116,28 @@ Big ideas: STRUCT, ENERGY, INFO, SYS
 
 - ● **DAT-1.3.A** Describe the layers of the skin and their roles in protection and thermoregulation.
   - EK: Avascular epidermis (keratinocytes, melanocytes); dermis holds vessels, glands and receptors; sweat and vasodilation dump heat.
-  - P1 · drills: bi-skin
+  - P1 · drills: bi-skin, bi-calcium-bone
 - ● **DAT-1.3.B** Predict how bone remodeling and blood Ca2+ respond to PTH, calcitonin and vitamin D.
   - EK: Osteoblasts build, osteoclasts resorb; PTH and calcitriol raise blood Ca2+, calcitonin lowers it.
-  - P2 · drills: bi-calcium-bone
+  - P2 · drills: bi-calcium-bone, bi-skin
 - ● **DAT-1.3.C** Explain each step of the sliding-filament cycle and its dependence on Ca2+ and ATP.
   - EK: Ca2+ binds troponin, tropomyosin uncovers actin sites, myosin power stroke; ATP binding releases the head.
-  - P1 · P2 · drills: bi-sliding-filament
+  - P1 · P2 · drills: bi-sliding-filament, bi-contraction-predict
 - ● **DAT-1.3.D** Trace blood through the heart and vessels and identify which vessels carry oxygenated blood.
   - EK: RA → RV → pulmonary artery → lungs → pulmonary veins → LA → LV → aorta; arteries leave the heart regardless of O2 content.
-  - P1 · drills: bi-blood-path
+  - P1 · drills: bi-blood-path, bi-circulation-scenario
 - ● **DAT-1.3.E** Predict the direction a condition shifts the oxygen–hemoglobin dissociation curve.
   - EK: Right shift (lower affinity): ↑CO2, ↑H+, ↑temperature, ↑2,3-BPG; fetal Hb and CO shift left.
-  - P2 · P5 · drills: bi-oxygen-curve
+  - P2 · P5 · drills: bi-oxygen-curve, bi-bohr-predict
 - ● **DAT-1.3.F** Distinguish innate from adaptive immunity and match B, CD4+ and CD8+ cells to their actions.
   - EK: B cells make antibodies (humoral); CD8+ kill cells presenting on MHC I; CD4+ helpers recognize MHC II on APCs.
   - P1 · P2 · drills: bi-innate-adaptive, bi-lymphocytes
 - ● **DAT-1.3.G** Match a digestive enzyme to its source, substrate and site of action.
   - EK: Salivary amylase (mouth), pepsin (stomach), pancreatic trypsin, lipase and amylase (duodenum); bile emulsifies; absorption is in the small intestine.
-  - P1 · drills: bi-digestive-enzyme
+  - P1 · drills: bi-digestive-enzyme, bi-digestion-scenario
 - ● **DAT-1.3.H** Explain ventilation mechanics and how O2 and CO2 are exchanged and carried.
   - EK: Diaphragm contracts → thoracic volume up, pressure down → air in; exchange by diffusion in alveoli; most CO2 travels as HCO3−.
-  - P1 · P2 · drills: bi-ventilation
+  - P1 · P2 · drills: bi-ventilation, bi-breathing-control
 - ● **DAT-1.3.I** Assign filtration, reabsorption and concentration to nephron segments and predict the effect of ADH and aldosterone.
   - EK: Glomerulus filters; PCT reabsorbs most solute; loop of Henle builds the gradient; ADH inserts aquaporins in the collecting duct; aldosterone retains Na+.
   - P2 · drills: bi-nephron, bi-kidney-hormone
@@ -146,7 +146,7 @@ Big ideas: STRUCT, ENERGY, INFO, SYS
   - P1 · P2 · drills: bi-action-potential, bi-synapse
 - ● **DAT-1.3.K** Identify the receptor and structure responsible for a sensory function.
   - EK: Rods: dim light; cones: color; cochlear hair cells: hearing; semicircular canals and vestibule: balance.
-  - P1 · drills: bi-sensory-receptor
+  - P1 · drills: bi-sensory-receptor, bi-synapse
 - ● **DAT-1.3.L** Match a hormone to its gland and target action and predict a negative-feedback response.
   - EK: Peptide hormones use surface receptors, steroids act in the nucleus; hypothalamus → anterior pituitary → gland axes are damped by negative feedback.
   - P1 · P2 · drills: bi-gland-hormone, bi-hpa-feedback
@@ -167,7 +167,7 @@ Big ideas: STRUCT, ENERGY, INFO, SYS
 - ● **DAT-1.4.C** Predict the protein-level effect of a silent, missense, nonsense or frameshift mutation.
   - EK: Insertions or deletions not in multiples of 3 shift the reading frame; nonsense creates an early stop codon.
   - Needs: DAT-1.4.B
-  - P2 · drills: bi-mutation-type
+  - P2 · drills: bi-mutation-type, bi-mutation-predict
 - ● **DAT-1.4.D** Solve monohybrid, dihybrid and test crosses for genotype and phenotype ratios.
   - EK: Heterozygote cross 3:1; dihybrid 9:3:3:1; test cross with a heterozygote 1:1; multiply probabilities for independent genes.
   - P3 · drills: bi-monohybrid, bi-dihybrid
@@ -181,19 +181,19 @@ Big ideas: STRUCT, ENERGY, INFO, SYS
 - ● **DAT-1.4.G** Explain how nondisjunction causes aneuploidy and predict gametes from a meiosis I vs II error.
   - EK: An error in meiosis I gives all abnormal gametes; in meiosis II, half are normal; trisomy 21, XXY and XO are common results.
   - Needs: DAT-1.1.I
-  - P2 · drills: bi-nondisjunction
+  - P2 · drills: bi-nondisjunction, bi-nondisjunction-count
 - ● **DAT-1.4.H** Predict lac and trp operon expression under given nutrient conditions.
   - EK: Lac is inducible: lactose inactivates the repressor, low glucose raises cAMP–CAP; trp is repressible: tryptophan activates the repressor.
-  - P2 · drills: bi-operon
+  - P2 · drills: bi-operon, bi-operon-scenario
 - ● **DAT-1.4.I** Explain how chromatin modification and DNA methylation regulate eukaryotic genes heritably.
   - EK: Histone acetylation opens chromatin (on); DNA methylation of promoters silences; changes persist without altering sequence.
-  - P1 · P2 · drills: bi-eukaryote-regulation
+  - P1 · P2 · drills: bi-eukaryote-regulation, bi-epigenetic-predict
 - ● **DAT-1.4.J** Choose and interpret a genetic technology: PCR, restriction digest, gel electrophoresis, cloning, CRISPR or sequencing.
   - EK: PCR cycles denature–anneal–extend, doubling copies (2^n); smaller fragments run farther on a gel; Cas9 cuts where its guide RNA matches.
   - P2 · P5 · drills: bi-pcr, bi-gel-reading, bi-cloning
-- ◐ **DAT-1.4.K** Relate genome size to gene number and interpret genomic comparisons between species.
+- ● **DAT-1.4.K** Relate genome size to gene number and interpret genomic comparisons between species.
   - EK: Most eukaryotic DNA is noncoding; genome size does not track complexity; shared sequence measures relatedness.
-  - P2 · drills: ~bi-genome-organization
+  - P2 · drills: bi-genome-scenario, ~bi-genome-organization
 - ● **DAT-1.4.L** Trace early development from fertilization through gastrulation and match germ layers to the tissues they form.
   - EK: Ectoderm: nervous system, epidermis; mesoderm: muscle, bone, blood, kidney; endoderm: gut and lung lining; Hox genes set the body axis.
   - P1 · drills: bi-development-stage, bi-germ-layers
@@ -204,7 +204,7 @@ Big ideas: STRUCT, ENERGY, INFO, SYS
 
 - ● **DAT-1.5.A** Identify the type of selection from a change in a trait distribution.
   - EK: Directional shifts the mean; stabilizing narrows it; disruptive favors both extremes; selection acts on phenotype.
-  - P2 · P5 · drills: bi-selection-type
+  - P2 · P5 · drills: bi-selection-type, bi-selection-type-scenario
 - ● **DAT-1.5.B** Calculate allele and genotype frequencies with Hardy–Weinberg and state its assumptions.
   - EK: p + q = 1; p² + 2pq + q² = 1; no selection, mutation, migration or drift, random mating, large population.
   - Needs: DAT-1.4.D
@@ -217,7 +217,7 @@ Big ideas: STRUCT, ENERGY, INFO, SYS
   - P5 · drills: bi-structure-homology, bi-phylogeny-reading
 - ● **DAT-1.5.E** Classify an animal behavior as fixed action pattern, imprinting, habituation, classical or operant conditioning, or altruism.
   - EK: Innate behaviors need no learning; kin selection explains altruism toward relatives sharing genes.
-  - P1 · P2 · drills: bi-behavior-type
+  - P1 · P2 · drills: bi-behavior-type, bi-behavior-response
 - ● **DAT-1.5.F** Predict population growth under exponential and logistic models and contrast r- and K-strategists.
   - EK: dN/dt = rN(K − N)/K; growth is fastest at N = K/2; r-selected: many offspring, little care.
   - P2 · P5 · drills: bi-exponential-growth, bi-logistic-growth
@@ -238,13 +238,13 @@ Big ideas: STRUCT, ENERGY, DATA
 
 - ● **DAT-2.1.A** Calculate percent composition by mass from a formula.
   - EK: Mass % = (n × atomic mass of element) / molar mass × 100.
-  - P3 · drills: ac-mass-percent
+  - P3 · drills: ac-mass-percent, ac2-highest-percent
 - ● **DAT-2.1.B** Determine an empirical formula from mass data, then the molecular formula from molar mass.
   - EK: Convert to moles, divide by the smallest, clear fractions; molecular = empirical × (M / M_empirical).
   - P3 · drills: ac-empirical-formula, ac-molecular-formula
 - ● **DAT-2.1.C** Balance a chemical equation by inspection.
   - EK: Atoms of each element and total charge are conserved; balance pure elements last.
-  - P1 · drills: ac-balance-coefficient
+  - P1 · drills: ac-balance-coefficient, ac-unpaired-electrons
 - ● **DAT-2.1.D** Convert among mass, moles, particles and volume using molar mass, Avogadro's number and density.
   - EK: n = m / M; N = n × 6.02 × 10²³; ρ = m / V.
   - P3 · drills: ac-moles-of-element, ac-density-displacement
@@ -266,7 +266,7 @@ Big ideas: STRUCT, ENERGY, DATA
   - P3 · drills: ac-combined-gas, ph-ideal-gas-change
 - ● **DAT-2.2.C** Calculate partial pressures from mole fractions using Dalton's law.
   - EK: P_total = ΣP_i; P_i = X_i P_total.
-  - P3 · drills: ac-dalton-over-water
+  - P3 · drills: ac-dalton-over-water, ac2-mole-fraction-from-pressure
 - ● **DAT-2.2.D** Apply kinetic molecular theory to compare molecular speeds and effusion rates and predict deviations from ideality.
   - EK: Average KE ∝ T; rate₁/rate₂ = √(M₂/M₁); real gases deviate at high P and low T.
   - P2 · P3 · drills: pc-effusion, ac-kmt-statement, ac-real-gas
@@ -283,10 +283,10 @@ Big ideas: STRUCT, ENERGY, DATA
   - P3 · P5 · drills: ac-phase-diagram, ac-heating-curve
 - ● **DAT-2.3.C** Predict how temperature and IMF strength change vapor pressure and normal boiling point.
   - EK: Vapor pressure rises with T and falls with stronger IMFs; boiling occurs when vapor pressure equals external pressure.
-  - P2 · drills: ac-boiling-pressure
+  - P2 · drills: ac-boiling-pressure, ac-vapor-pressure-rank
 - ● **DAT-2.3.D** Classify a solid as ionic, molecular, covalent network or metallic and predict its properties.
   - EK: Network solids (diamond, SiO2) have the highest melting points; metals conduct as solids; ionic solids conduct only when molten or dissolved.
-  - P1 · P2 · drills: ac-solid-type
+  - P1 · P2 · drills: ac-solid-type, ac-solid-from-properties
 
 ### 2.4 Solutions
 
@@ -304,7 +304,7 @@ Big ideas: STRUCT, ENERGY, DATA
   - P2 · drills: ac-solubility-polar, ac-henry-law
 - ● **DAT-2.4.D** Calculate vapor-pressure lowering with Raoult's law.
   - EK: P_solution = X_solvent × P°_solvent.
-  - P3 · drills: ac-raoult
+  - P3 · drills: ac-raoult, th-so-raoult
 
 ### 2.5 Acids and Bases
 
@@ -312,7 +312,7 @@ Big ideas: STRUCT, ENERGY, DATA
 
 - ● **DAT-2.5.A** Identify Brønsted–Lowry acids, bases and conjugate pairs in a reaction.
   - EK: Acid donates H+, base accepts; a stronger acid has a weaker conjugate base.
-  - P1 · drills: ac-conjugate
+  - P1 · drills: ac-conjugate, ac2-conjugate-pick
 - ● **DAT-2.5.B** Calculate pH, pOH, [H+] and [OH−] for strong acids and bases without a calculator.
   - EK: pH = −log[H+]; pH + pOH = 14 at 25 °C; for [H+] = a × 10⁻ⁿ, pH is between n − 1 and n.
   - P3 · drills: ac-strong-acid-ph, ac-ph-poh
@@ -337,7 +337,7 @@ Big ideas: STRUCT, ENERGY, DATA
   - P1 · P2 · drills: ac-k-expression, ac-q-vs-k
 - ● **DAT-2.6.B** Predict the effect of a concentration, pressure or temperature change with Le Chatelier's principle.
   - EK: Only temperature changes K; added pressure favors fewer gas moles; heat acts as a product in exothermic reactions.
-  - P2 · drills: ac-le-chatelier
+  - P2 · drills: ac-le-chatelier, ac-dynamic-equilibrium
 - ● **DAT-2.6.C** Calculate molar solubility from Ksp, including the common-ion effect.
   - EK: For AB2: Ksp = 4s³; a common ion lowers solubility; precipitation occurs when Q > Ksp.
   - P3 · drills: ac-solubility-from-ksp, ac-common-ion
@@ -355,7 +355,7 @@ Big ideas: STRUCT, ENERGY, DATA
   - P3 · drills: ac-hess-combine, pc-hess, ac-bond-enthalpy
 - ● **DAT-2.7.B** Predict the sign of ΔS for a process.
   - EK: Entropy rises with more gas moles, solid → liquid → gas, dissolving, and higher T.
-  - P2 · drills: ac-entropy-sign
+  - P2 · drills: ac-entropy-sign, ac2-highest-entropy
 - ● **DAT-2.7.C** Determine spontaneity and the crossover temperature from ΔH and ΔS.
   - EK: ΔG = ΔH − TΔS; − ΔH, + ΔS always spontaneous; T_cross = ΔH/ΔS.
   - Needs: DAT-2.7.B
@@ -379,7 +379,7 @@ Big ideas: STRUCT, ENERGY, DATA
   - P3 · P5 · drills: pc-initial-rates, ac-rate-change
 - ● **DAT-2.8.B** Calculate the remaining amount or time from a first-order half-life.
   - EK: t½ = 0.693/k, independent of concentration; after n half-lives (½)ⁿ remains.
-  - P3 · drills: ac-first-order-half-life
+  - P3 · drills: ac-first-order-half-life, ac2-half-life-from-fraction
 - ● **DAT-2.8.C** Read Ea, ΔH and the effect of a catalyst from a reaction energy diagram, and predict how T changes the rate.
   - EK: k = A e^(−Ea/RT); catalysts lower Ea for both directions without changing ΔH or K.
   - P5 · P2 · drills: ac-energy-profile, ac-catalyst-effect, ac-arrhenius-plot
@@ -397,13 +397,13 @@ Big ideas: STRUCT, ENERGY, DATA
 - ● **DAT-2.9.B** Balance a redox equation in acidic or basic solution by half-reactions.
   - EK: Balance atoms, O with H2O, H with H+, charge with e−; in base add OH− to both sides to cancel H+.
   - Needs: DAT-2.9.A
-  - P1 · drills: ac-electrons-transferred
+  - P1 · drills: ac-electrons-transferred, ac-mass-mass
 - ● **DAT-2.9.C** Calculate E°cell from reduction potentials and identify anode, cathode and electron flow in galvanic and electrolytic cells.
   - EK: E°cell = E°cathode − E°anode; oxidation at the anode; electrons flow anode → cathode; galvanic E° > 0, electrolytic needs input.
   - P2 · P3 · drills: ac-spontaneous-redox, ac-galvanic-parts, ac-galvanic-electrolytic
 - ● **DAT-2.9.D** Calculate the mass plated or the current/time needed in electrolysis.
   - EK: n_e = It/F with F = 96 485 C/mol; moles metal = n_e / (electrons per ion).
-  - P3 · drills: ac-faraday
+  - P3 · drills: ac-faraday, ac2-faraday-time
 
 ### 2.10 Atomic and Molecular Structure
 
@@ -414,7 +414,7 @@ Big ideas: STRUCT, ENERGY, DATA
   - P1 · drills: pt-config-anomaly, ac-ion-d-count, pt-config-write-d
 - ● **DAT-2.10.B** Assign or validate a set of quantum numbers for an electron.
   - EK: n ≥ 1; ℓ = 0 … n − 1; m_ℓ = −ℓ … +ℓ; m_s = ±½.
-  - P1 · drills: ac-quantum-numbers-allowed
+  - P1 · drills: ac-quantum-numbers-allowed, ac-unpaired-electrons
 - ● **DAT-2.10.C** Draw a Lewis structure and use formal charge to choose the best one.
   - EK: FC = valence − nonbonding e− − ½ bonding e−; the best structure minimizes formal charges and puts negatives on electronegative atoms.
   - P1 · P5 · drills: ac-valence-electrons, ac-formal-charge
@@ -438,7 +438,7 @@ Big ideas: STRUCT, ENERGY, DATA
 
 - ● **DAT-2.11.A** Rank elements by atomic radius, ionization energy, electronegativity and electron affinity.
   - EK: Across a period Z_eff rises: radius falls, IE and EN rise; down a group radius rises, IE falls; cations smaller, anions larger.
-  - P1 · P2 · drills: ac-periodic-trend
+  - P1 · P2 · drills: ac-periodic-trend, ac-trend-explain
 - ● **DAT-2.11.B** Predict the typical ions, reactivity and compounds of alkali metals, alkaline-earth metals, halogens and noble gases.
   - EK: Group 1 forms +1 and reacts with water to give H2 and hydroxide; halogens form −1, reactivity falls down the group; noble gases are inert.
   - P1 · drills: ac-group-chemistry, ac-analogous-compound
@@ -452,13 +452,13 @@ Big ideas: STRUCT, ENERGY, DATA
 
 - ● **DAT-2.12.A** Balance a nuclear equation and identify the decay mode from the change in A and Z.
   - EK: α: A − 4, Z − 2; β−: Z + 1; β+ and electron capture: Z − 1; γ: no change; A and Z both conserved.
-  - P1 · drills: ac-nuclear-equation
+  - P1 · drills: ac-nuclear-equation, nu-fraction-remaining
 - ● **DAT-2.12.B** Calculate the remaining fraction or the elapsed time for radioactive decay.
   - EK: N = N₀(½)^(t/t½); decay is first order.
   - P3 · drills: nu-fraction-remaining, nu-time-to-decay
 - ● **DAT-2.12.C** Calculate binding energy from mass defect and compare nuclear stability.
   - EK: E = Δm c²; 1 u ≈ 931.5 MeV; binding energy per nucleon peaks near Fe-56.
-  - P3 · drills: nu-binding-energy
+  - P3 · drills: nu-binding-energy, nu-fraction-remaining
 
 ### 2.13 Laboratory
 
@@ -472,7 +472,7 @@ Big ideas: STRUCT, ENERGY, DATA
   - P2 · P3 · drills: ac-error-type, ac-percent-error
 - ● **DAT-2.13.C** Identify the correct safety procedure for a lab hazard.
   - EK: Add acid to water; work with volatiles in the fume hood; flush skin or eye exposure for 15 minutes.
-  - P1 · drills: ac-lab-safety
+  - P1 · drills: ac-lab-safety, dat-lab-hazard
 - ● **DAT-2.13.D** Extract a quantity from a plotted data set, such as a slope, intercept or best-fit value.
   - EK: Linearize first (ln[A] vs t for 1st order; 1/T vs ln k for Ea); the slope carries the physical constant.
   - P5 · drills: ac-arrhenius-plot, ac-calibration-curve
@@ -494,19 +494,19 @@ Big ideas: STRUCT, ENERGY, SPACE
   - P5 · drills: st-mech-e2-1, st-mech-acyl-substitution-1
 - ● **DAT-3.1.C** Draw resonance structures and pick the major contributor.
   - EK: Move only π and lone-pair electrons; the best contributor has full octets, fewest charges, and negative charge on the most electronegative atom.
-  - P5 · P2 · drills: or-resonance-major
+  - P5 · P2 · drills: or-resonance-major, dat-resonance-charge
 - ● **DAT-3.1.D** Predict the steps and selectivity of a free-radical halogenation.
   - EK: Initiation, propagation, termination; Br₂ is highly selective for the 3° hydrogen, Cl₂ much less so; radical stability 3° > 2° > 1°.
-  - P2 · drills: or-radical-halogenation
+  - P2 · drills: or-radical-halogenation, dat-radical-product-percent
 - ● **DAT-3.1.E** Predict the product of an electrophilic addition, including Markovnikov regiochemistry and carbocation rearrangements.
   - EK: H adds to the carbon with more H; a carbocation shifts H or CH₃ to become more substituted or resonance-stabilized.
   - P2 · drills: rx-predict-alkene-hbr, rx-predict-alkene-hydration, st-mech-hbr-addition-2
 - ● **DAT-3.1.F** Decide whether SN1, SN2, E1 or E2 operates from substrate, nucleophile/base, solvent and temperature.
   - EK: SN2: 1°, strong nucleophile, polar aprotic, inversion; SN1/E1: 3°, weak nucleophile, polar protic; E2: strong bulky base, anti-periplanar H; heat favors elimination.
-  - P2 · P6 · drills: or-substitution-or-elimination
+  - P2 · P6 · drills: or-substitution-or-elimination, dat-rate-doubling
 - ● **DAT-3.1.G** Predict the product of a Diels–Alder reaction, including stereochemistry.
   - EK: s-cis diene + dienophile → cyclohexene in one concerted step; dienophile substituents keep their cis/trans relationship; endo is favored.
-  - P2 · P7 · drills: rx-predict-cc-diels-alder
+  - P2 · P7 · drills: rx-predict-cc-diels-alder, rx-predict-cc-aldol-condensation
 - ● **DAT-3.1.H** Read a reaction coordinate diagram: count steps, locate intermediates and transition states, and find the rate-determining step.
   - EK: Peaks are transition states, valleys are intermediates; the highest barrier is rate-determining; Hammond: a TS resembles the species nearer in energy.
   - P5 · drills: ac-multistep-profile, ac-energy-profile
@@ -527,7 +527,7 @@ Big ideas: STRUCT, ENERGY, SPACE
   - P1 · P2 · drills: rx-predict-sub-pcc, rx-predict-sub-jones, rx-predict-sub-socl2, rx-predict-sub-tosylation
 - ● **DAT-3.2.D** Predict the regiochemistry and stereochemistry of ether cleavage and epoxide opening under acid and base.
   - EK: Base or strong nucleophile attacks the less hindered epoxide carbon; acid directs attack to the more substituted carbon; opening is anti.
-  - P2 · drills: or-epoxide-opening
+  - P2 · drills: or-epoxide-opening, dat-epoxide-stereo
 - ● **DAT-3.2.E** Predict the product of an electrophilic aromatic substitution from substituent directing effects.
   - EK: Activators (−OH, −NH₂, −R) and halogens direct ortho/para; deactivators (−NO₂, −C=O, −CN, −SO₃H) direct meta; halogens deactivate.
   - P1 · P2 · drills: or-directing-effect, rx-predict-aromatic-nitration-toluene, rx-predict-aromatic-bromination-nitrobenzene
@@ -546,7 +546,7 @@ Big ideas: STRUCT, ENERGY, SPACE
   - P2 · P6 · drills: rx-reagent-alkene-hydroboration, rx-reagent-carbonyl-grignard, rx-reagent-sub-pcc
 - ● **DAT-3.2.J** Predict which functional group reacts when a molecule carries several.
   - EK: NaBH₄ reduces aldehydes and ketones only; LiAlH₄ also reduces esters, acids and amides; protect an alcohol or carbonyl to spare it.
-  - P2 · P6 · drills: or-chemoselectivity
+  - P2 · P6 · drills: or-chemoselectivity, dat-reagent-choice
 
 ### 3.3 Acid–Base Chemistry
 
@@ -554,17 +554,17 @@ Big ideas: STRUCT, ENERGY, SPACE
 
 - ● **DAT-3.3.A** Rank compounds from different functional groups by acidity using pKa landmarks.
   - EK: ≈ pKa: HCl −7, RCOOH 5, phenol 10, H₂O 15.7, ROH 16–18, terminal alkyne 25, NH₃ 38, alkane 50.
-  - P1 · drills: or-pka-landmarks
+  - P1 · drills: or-pka-landmarks, dat-acid-base-keq
 - ● **DAT-3.3.B** Rank acids within a functional group by charge, atom size, electronegativity, resonance, induction, hybridization and sterics.
   - EK: A more stable conjugate base means a stronger acid: larger atom > more electronegative > resonance > induction (falls off with distance) > more s character.
-  - P2 · drills: or-acid-ranking-ario
+  - P2 · drills: or-acid-ranking-ario, dat-ka-ratio
 - ● **DAT-3.3.C** Predict the products and direction of an acid–base equilibrium.
   - EK: The equilibrium favors the side with the weaker acid (higher pKa); K ≈ 10^(pKa product acid − pKa reactant acid).
   - Needs: DAT-3.3.A
   - P2 · drills: or-acid-base-direction, or-acid-base-log-k
 - ● **DAT-3.3.D** Rank nitrogen and oxygen bases by basicity, including resonance and steric effects on amines.
   - EK: Alkylamines > NH₃ > aniline > amide; lone pairs in resonance or in sp orbitals are less basic.
-  - P2 · drills: or-amine-basicity
+  - P2 · drills: or-amine-basicity, dat-amine-protonated
 
 ### 3.4 Chemical and Physical Properties of Molecules
 
@@ -572,19 +572,19 @@ Big ideas: STRUCT, ENERGY, SPACE
 
 - ● **DAT-3.4.A** Rank organic compounds by boiling point, melting point and water solubility.
   - EK: H-bonding and molar mass raise bp; branching lowers bp but symmetry raises mp; small alcohols and acids are water-soluble.
-  - P2 · drills: or-boiling-solubility
+  - P2 · drills: or-boiling-solubility, dat-property-rank
 - ● **DAT-3.4.B** Choose and interpret a separation technique: TLC/column chromatography, acid–base extraction, recrystallization, distillation.
   - EK: On silica, polar compounds have lower Rf; acids move to aqueous NaHCO₃/NaOH as salts, amines to aqueous HCl; distill when bp differ by > 25 °C, otherwise fractional.
-  - P2 · P5 · drills: or-separation
+  - P2 · P5 · drills: or-separation, dat-extraction-layer
 - ● **DAT-3.4.C** Identify functional groups from characteristic IR absorptions.
   - EK: Broad O–H 3200–3550; acid O–H 2500–3300; C=O ~1700 (strong, sharp); N–H 3300–3500; C≡N/C≡C ~2100–2250.
-  - P1 · P5 · drills: or-ir-group
+  - P1 · P5 · drills: or-ir-group, dat-ir-where
 - ● **DAT-3.4.D** Interpret a ¹H NMR spectrum from chemical shift, integration and splitting.
   - EK: Shifts: alkyl 0.9–2, next to C=O 2–2.5, next to O 3.3–4, vinyl 4.5–6.5, aromatic 6.5–8, aldehyde 9–10, acid 10–12; n + 1 rule.
   - P5 · drills: nmr-multiplicity, nmr-downfield, or-h1-environments
 - ● **DAT-3.4.E** Count ¹³C NMR signals from molecular symmetry and assign shift regions.
   - EK: One signal per unique carbon environment; C=O 160–220, aromatic/alkene 100–150, C–O 50–90, alkyl 0–50.
-  - P5 · P7 · drills: or-c13-signals
+  - P5 · P7 · drills: or-c13-signals, dat-c13-shift
 - ● **DAT-3.4.F** Deduce a structure from a molecular formula and combined IR, ¹H and ¹³C NMR data.
   - EK: Degrees of unsaturation = (2C + 2 + N − H − X)/2; one ring or π bond each; a benzene ring counts 4.
   - Needs: DAT-3.4.C, DAT-3.4.D, DAT-3.4.E
@@ -597,7 +597,7 @@ Big ideas: STRUCT, ENERGY, SPACE
 - ● **DAT-3.5.A** Name a compound by IUPAC rules, or draw it from its name.
   - EK: Highest-priority group sets the suffix and lowest locant; longest chain containing it; substituents alphabetical; E/Z and R/S as prefixes.
   - Needs: DAT-3.5.B
-  - P1 · drills: or-iupac-name
+  - P1 · drills: or-iupac-name, dat-carbons-from-name
 - ● **DAT-3.5.B** Identify every functional group in a structure.
   - EK: Know alcohol, ether, aldehyde, ketone, acid, ester, amide, amine, nitrile, acid chloride, anhydride, epoxide, phenol, thiol, imine, enamine.
   - P1 · P5 · drills: st-name-an-ester, st-name-a-ketone, st-name-a-primary-amide
@@ -610,16 +610,16 @@ Big ideas: STRUCT, ENERGY, SPACE
   - P5 · P7 · drills: or-isomer-relationship, or-stereoisomer-maximum
 - ● **DAT-3.5.E** Pick the most stable Newman or chair conformation.
   - EK: Anti < gauche < eclipsed in energy; bulky chair substituents go equatorial; a ring flip swaps axial and equatorial.
-  - P7 · drills: or-conformation
+  - P7 · drills: or-conformation, dat-axial-equatorial
 - ● **DAT-3.5.F** Classify a ring as aromatic, antiaromatic or nonaromatic.
   - EK: Cyclic, planar, fully conjugated with 4n + 2 π electrons is aromatic; 4n is antiaromatic; count lone pairs only if they sit in the p system.
-  - P2 · drills: or-aromaticity
+  - P2 · drills: or-aromaticity, dat-pi-electron-count
 - ● **DAT-3.5.G** Compare bond lengths, bond angles and hybridization across a structure.
   - EK: More s character means shorter, stronger C–H bonds: sp 180°, sp² 120°, sp³ 109.5°; triple < double < single in length.
-  - P1 · drills: or-hybridization-geometry
+  - P1 · drills: or-hybridization-geometry, dat-bond-angle
 - ● **DAT-3.5.H** Rank carbocations, radicals, carbanions and alkenes by stability.
   - EK: Carbocations and radicals: allylic/benzylic ≈ 3° > 2° > 1° > methyl (hyperconjugation, resonance); carbanions the reverse; more substituted and trans alkenes are more stable.
-  - P2 · drills: or-stability-rank
+  - P2 · drills: or-stability-rank, dat-alkene-stability
 
 ## Unit 4 · Perceptual Ability
 
@@ -701,16 +701,16 @@ Big ideas: DATA
 
 - ● **DAT-5.1.A** Locate the passage sentence that answers a detail question and match it to the choice that restates it.
   - EK: Detail answers paraphrase the text; choices that copy its wording but change a qualifier, number or relationship are traps.
-  - P5 · P6 · drills: dt-rc-detail
+  - P5 · P6 · drills: dt-rc-detail, dat-rc-detail-2
 - ● **DAT-5.1.B** Identify the main idea of a passage or paragraph.
   - EK: The main idea covers the whole passage; choices that are true of one paragraph only are too narrow, ones that go beyond it too broad.
-  - P5 · P6 · drills: dt-rc-main-idea
+  - P5 · P6 · drills: dt-rc-main-idea, dat-rc-main-idea-2
 - ● **DAT-5.1.C** Infer the meaning of a technical term or phrase from its context in the passage.
   - EK: Passages define their terms nearby — by apposition, example or contrast; use the passage's meaning, not outside knowledge.
-  - P5 · drills: dt-rc-vocabulary
+  - P5 · drills: dt-rc-vocabulary, dat-rc-vocab-2
 - ● **DAT-5.1.D** Judge whether a statement is supported, contradicted or not addressed by the passage.
   - EK: Except/not and true-statement items require checking every choice against the text; 'not addressed' is not 'false'.
-  - P5 · P6 · drills: dt-rc-supported
+  - P5 · P6 · drills: dt-rc-supported, dat-rc-supported-2
 
 ### 5.2 Analyzing and inferring
 
@@ -718,13 +718,13 @@ Big ideas: DATA
 
 - ● **DAT-5.2.A** Draw an inference that follows necessarily from stated facts in the passage.
   - EK: A correct inference needs no outside facts and no extra assumption; reject extreme words (always, never, proves).
-  - P2 · P6 · drills: dt-rc-inference
+  - P2 · P6 · drills: dt-rc-inference, dat-rc-inference-2
 - ● **DAT-5.2.B** Identify the author's purpose, tone or attitude toward a claim.
   - EK: Scientific passages are mostly neutral-informative; tone choices like hostile or ecstatic are rarely right.
-  - P5 · P6 · drills: dt-rc-tone
+  - P5 · P6 · drills: dt-rc-tone, dat-rc-tone-2
 - ● **DAT-5.2.C** Trace a cause–effect sequence, comparison or chronology described in the passage.
   - EK: Map the passage's structure (who, what, when, why) as you read so sequence questions take seconds.
-  - P5 · drills: dt-rc-sequence
+  - P5 · drills: dt-rc-sequence, dat-rc-sequence-2
 
 ### 5.3 Passage strategy and timing
 
@@ -747,13 +747,13 @@ Big ideas: DATA
   - P4 · drills: alg-linear-eq, alg-quad-formula, k8-system
 - ● **DAT-6.1.B** Solve a linear or compound inequality and express its solution set.
   - EK: Multiplying or dividing by a negative flips the inequality sign.
-  - P4 · drills: alg-linear-ineq
+  - P4 · drills: alg-linear-ineq, hs2-inequality-test-value
 - ● **DAT-6.1.C** Simplify and evaluate expressions with exponents, roots and scientific notation.
   - EK: a^m a^n = a^(m+n); (a^m)^n = a^(mn); a^(−n) = 1/a^n; a^(1/n) = ⁿ√a.
   - P3 · P4 · drills: k8-int-exponents, k8-sci-notation, mm-exponent-laws
 - ● **DAT-6.1.D** Solve equations and inequalities with absolute value.
   - EK: |x| = a gives x = ±a; |x| < a gives −a < x < a; |x| > a gives x < −a or x > a.
-  - P4 · drills: dt-absolute-value
+  - P4 · drills: dt-absolute-value, dat-abs-interval
 - ● **DAT-6.1.E** Set up and solve a ratio or proportion, including direct and inverse variation.
   - EK: a/b = c/d ⇒ ad = bc; direct y = kx, inverse y = k/x; part-to-part vs part-to-whole ratios differ.
   - P3 · P4 · drills: mm-proportion, mm-variation, k8-prop-k
@@ -770,7 +770,7 @@ Big ideas: DATA
   - P5 · P4 · drills: k8-histogram-read, k8-two-way
 - ● **DAT-6.2.B** Decide whether the given statements are sufficient to answer a question, alone or together.
   - EK: Test each statement alone, then together; sufficiency means one determined value, not the value itself; don't compute what you only need to know exists.
-  - P2 · P6 · drills: dt-data-sufficiency
+  - P2 · P6 · drills: dt-data-sufficiency, dat-sufficiency-more
 
 ### 6.3 Quantitative Comparison
 
@@ -778,7 +778,7 @@ Big ideas: DATA
 
 - ● **DAT-6.3.A** Compare two quantities and decide which is greater, whether they are equal, or whether the relationship can't be determined.
   - EK: Try special cases (0, 1, negatives, fractions); if different cases give different orders, it can't be determined.
-  - P2 · P6 · drills: dt-quant-compare
+  - P2 · P6 · drills: dt-quant-compare, dat-quant-compare-2
 - ● **DAT-6.3.B** Simplify both sides identically to compare them without computing exact values.
   - EK: Add, subtract or multiply by a positive on both sides; multiplying by an unknown sign is not allowed.
   - Needs: DAT-6.3.A
@@ -799,7 +799,7 @@ Big ideas: DATA
   - P3 · P4 · drills: stats-center, k8-center-spread
 - ● **DAT-6.4.D** Find a weighted average or the combined mean of two groups.
   - EK: Combined mean = (n₁x̄₁ + n₂x̄₂)/(n₁ + n₂); it lies closer to the larger group's mean.
-  - P4 · drills: dt-weighted-average
+  - P4 · drills: dt-weighted-average, dat-weighted-reverse
 
 ### 6.5 Applied Mathematics (Word) Problems
 
@@ -813,7 +813,7 @@ Big ideas: DATA
   - P4 · drills: k8-percent-change, mm-sale-price, alg2-successive-percent
 - ● **DAT-6.5.C** Solve mixture and concentration problems.
   - EK: Amount of solute is conserved: c₁V₁ + c₂V₂ = c_f(V₁ + V₂).
-  - P2 · P4 · drills: dt-mixture
+  - P2 · P4 · drills: dt-mixture, dat-mixture-final
 - ● **DAT-6.5.D** Convert units and solve age, consecutive-integer and number-relationship problems by translating words into equations.
   - EK: Chain conversion factors so units cancel; define one variable, write every other quantity in terms of it.
   - P2 · P4 · drills: dt-consecutive, dt-age-problem, mm-unit-conversion
