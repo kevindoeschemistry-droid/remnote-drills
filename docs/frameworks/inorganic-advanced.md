@@ -44,14 +44,14 @@ Big ideas: COUNT
 
 - ● **IA-1.1.A** Classify acids and bases as hard, soft or borderline and predict which pairs bind.
   - EK: Hard prefers hard, soft prefers soft.
-  - P2 · P3 · drills: cw-hsab-class
+  - P2 · P3 · drills: cw-hsab-class, cw-hsab-predict
 - ● **IA-1.1.B** Combine Latimer-diagram steps through free energies.
   - EK: E = Σ nE / Σ n.
-  - P1 · drills: cw-latimer-skip
+  - P1 · drills: cw-latimer-skip, cw-latimer-missing
 - ● **IA-1.1.C** Decide from a Latimer diagram whether a species disproportionates.
   - EK: E_right > E_left: it disproportionates.
   - Needs: IA-1.1.B
-  - P1 · P3 · drills: cw-disproportionation
+  - P1 · P3 · drills: cw-disproportionation, cw-disprop-cases
 
 ## Unit 2 · Hydrogen (ch. 2)
 
@@ -63,10 +63,10 @@ Big ideas: TREND
 
 - ● **IA-2.1.A** Classify a hydride as saline, molecular or metallic.
   - EK: s-block saline; p-block molecular; many d-block interstitial.
-  - P2 · drills: cw-hydride-type
+  - P2 · drills: cw-hydride-type, cw-hydride-identify
 - ● **IA-2.1.B** Predict the shift of a vibration on deuteration from reduced masses.
   - EK: ν ∝ 1/√μ; X–D ≈ 0.73 × X–H.
-  - P1 · drills: cw-isotope-shift
+  - P1 · drills: cw-isotope-shift, cw-heavy-atom-shift
 
 ## Unit 3 · Groups 1 and 2 (ch. 3–4)
 
@@ -81,10 +81,10 @@ Big ideas: TREND
   - P1 · P2 · drills: cw-alkali-burn, cw-dioxygen-anion-ox
 - ● **IA-3.1.B** Rank the thermal stability of group 2 carbonates.
   - EK: Rises down the group as cations grow less polarising.
-  - P3 · drills: cw-carbonate-stability
+  - P3 · drills: cw-carbonate-stability, cw-group2-thermal
 - ● **IA-3.1.C** Use the diagonal relationship.
   - EK: Li–Mg, Be–Al, B–Si.
-  - P2 · drills: cw-diagonal
+  - P2 · drills: cw-diagonal, cw-diagonal-cases
 
 ## Unit 4 · Boron and group 13 (ch. 5–6)
 
@@ -96,10 +96,10 @@ Big ideas: COUNT, TREND
 
 - ● **IA-4.1.A** Classify a borane as closo, nido or arachno with Wade's rules.
   - EK: n+1, n+2, n+3 skeletal pairs.
-  - P1 · P3 · drills: cw-wade
+  - P1 · P3 · drills: cw-wade, cw-skeletal-pairs
 - ● **IA-4.1.B** Rank boron trihalide Lewis acidity and explain it by π donation.
   - EK: BF₃ < BCl₃ < BBr₃.
-  - P3 · drills: cw-bx3-acid
+  - P3 · drills: cw-bx3-acid, cw-bx3-consequence
 - ● **IA-4.1.C** Use the inert-pair effect, and find average oxidation states in mixed-valence group 13 compounds.
   - EK: Tl(I), Pb(II), Bi(III); GaCl₂ = Ga⁺[GaCl₄]⁻.
   - P1 · P2 · drills: cw-inert-pair, cw-group13-ox
@@ -117,7 +117,7 @@ Big ideas: COUNT
   - P1 · P2 · drills: cw-carbide-type, cw-fullerene-rings
 - ● **IA-5.1.B** Give bond orders of species isoelectronic with N₂.
   - EK: CO, CN⁻, NO⁺, C₂²⁻: 3.
-  - P1 · drills: cw-isoelectronic-bond-order
+  - P1 · drills: cw-isoelectronic-bond-order, cw-odd-electron-bond-order
 - ● **IA-5.1.C** Relate silicate structure to O:Si ratio, and predict group 14 shapes.
   - EK: O/Si = 4 − s/2; Sn(II) has a lone pair.
   - P1 · P3 · drills: cw-silicate-ratio, cw-group14-shape
@@ -135,10 +135,10 @@ Big ideas: COUNT
   - P1 · drills: cw-nitrogen-ox, cw-no-family
 - ● **IA-6.1.B** Give the basicity of phosphorus oxoacids.
   - EK: Only O–H is acidic: 1, 2, 3.
-  - P2 · drills: cw-p-oxoacid
+  - P2 · drills: cw-p-oxoacid, cw-ph-bonds
 - ● **IA-6.1.C** Predict shapes of group 15 halides and their ions.
   - EK: PCl₅ = [PCl₄]⁺[PCl₆]⁻.
-  - P3 · drills: cw-group15-shape
+  - P3 · drills: cw-group15-shape, cw-group15-lone-pairs
 
 ## Unit 7 · Oxygen and group 16 (ch. 11–12)
 
@@ -165,7 +165,7 @@ Big ideas: COUNT, TREND
 
 - ● **IA-8.1.A** Predict interhalogen and polyhalide shapes.
   - EK: ClF₃ T-shaped, I₃⁻ linear, ICl₄⁻ square planar.
-  - P3 · drills: cw-interhalogen-shape
+  - P3 · drills: cw-interhalogen-shape, cw-interhalogen-sn
 - ● **IA-8.1.B** Give halogen oxidation states in oxoanions and rank oxoacid strength.
   - EK: +1 to +7; HClO₄ strongest.
   - P1 · P3 · drills: cw-halogen-ox, cw-oxoacid-strength
@@ -207,7 +207,7 @@ Big ideas: COUNT
 - ● **IA-10.1.D** Predict whether a complex is labile or inert.
   - EK: d³ and low-spin d⁶ are inert.
   - Needs: IA-10.1.B
-  - P3 · drills: cw-labile-inert
+  - P3 · drills: cw-labile-inert, cw-lability-why
 
 ## Unit 11 · The first transition series (ch. 17)
 
@@ -222,7 +222,7 @@ Big ideas: COUNT, TREND
   - P2 · drills: cw-permanganate-product, cw-chromate-ph
 - ● **IA-11.1.B** Give oxidation states in first-row oxides and oxo ions, including mixed valence.
   - EK: Fe₃O₄ +8/3; VO²⁺ V(IV).
-  - P1 · drills: cw-first-row-ox
+  - P1 · drills: cw-first-row-ox, cw-oxo-d-count
 
 ### 11.2 Ti to Cu, metal by metal
 
@@ -230,31 +230,31 @@ Big ideas: COUNT, TREND
 
 - ● **IA-11.2.A** Recall the characteristic chemistry of titanium: production, key compounds and colours, uses and biological roles.
   - EK: Cotton & Wilkinson's section on titanium.
-  - P2 · drills: cw-ti-chemistry
+  - P2 · drills: cw-ti-chemistry, cw-ti-identify
 - ● **IA-11.2.B** Recall the characteristic chemistry of vanadium: production, key compounds and colours, uses and biological roles.
   - EK: Cotton & Wilkinson's section on vanadium.
-  - P2 · drills: cw-v-chemistry
+  - P2 · drills: cw-v-chemistry, cw-v-identify
 - ● **IA-11.2.C** Recall the characteristic chemistry of chromium: production, key compounds and colours, uses and biological roles.
   - EK: Cotton & Wilkinson's section on chromium.
-  - P2 · drills: cw-cr-chemistry
+  - P2 · drills: cw-cr-chemistry, cw-cr-identify
 - ● **IA-11.2.D** Recall the characteristic chemistry of manganese: production, key compounds and colours, uses and biological roles.
   - EK: Cotton & Wilkinson's section on manganese.
-  - P2 · drills: cw-mn-chemistry
+  - P2 · drills: cw-mn-chemistry, cw-mn-identify
 - ● **IA-11.2.E** Recall the characteristic chemistry of iron: production, key compounds and colours, uses and biological roles.
   - EK: Cotton & Wilkinson's section on iron.
-  - P2 · drills: cw-fe-chemistry
+  - P2 · drills: cw-fe-chemistry, cw-fe-identify
 - ● **IA-11.2.F** Recall the characteristic chemistry of cobalt: production, key compounds and colours, uses and biological roles.
   - EK: Cotton & Wilkinson's section on cobalt.
-  - P2 · drills: cw-co-chemistry
+  - P2 · drills: cw-co-chemistry, cw-co-identify
 - ● **IA-11.2.G** Recall the characteristic chemistry of nickel: production, key compounds and colours, uses and biological roles.
   - EK: Cotton & Wilkinson's section on nickel.
-  - P2 · drills: cw-ni-chemistry
+  - P2 · drills: cw-ni-chemistry, cw-ni-identify
 - ● **IA-11.2.H** Recall the characteristic chemistry of copper: production, key compounds and colours, uses and biological roles.
   - EK: Cotton & Wilkinson's section on copper.
-  - P2 · drills: cw-cu-chemistry
+  - P2 · drills: cw-cu-chemistry, cw-cu-identify
 - ● **IA-11.2.I** Give oxidation states in the series' high-valent oxides, oxoanions and fluorides.
   - EK: High states stabilise down a group.
-  - P1 · drills: cw-first-row-ox-2
+  - P1 · drills: cw-first-row-ox-2, cw-high-valent-d
 
 ## Unit 12 · The second and third transition series (ch. 18)
 
@@ -266,10 +266,10 @@ Big ideas: COUNT, TREND
 
 - ● **IA-12.1.A** Find metal–metal bond orders from d counts.
   - EK: σ²π⁴δ² is a quadruple bond.
-  - P1 · drills: cw-metal-metal-bond
+  - P1 · drills: cw-metal-metal-bond, cw-mm-after-redox
 - ● **IA-12.1.B** Explain the lanthanide contraction, low spin in 4d/5d, and the trans effect.
   - EK: Zr ≈ Hf; heavy complexes low spin; cisplatin route.
-  - P2 · P3 · drills: cw-heavy-tm-facts
+  - P2 · P3 · drills: cw-heavy-tm-facts, cw-heavy-tm-why
 
 ### 12.2 Zr to Au, pair by pair
 
@@ -277,31 +277,31 @@ Big ideas: COUNT, TREND
 
 - ● **IA-12.2.A** Recall the characteristic chemistry of zirconium and hafnium: production, key compounds and colours, uses and biological roles.
   - EK: Cotton & Wilkinson's section on zirconium and hafnium.
-  - P2 · drills: cw-zrhf-chemistry
+  - P2 · drills: cw-zrhf-chemistry, cw-zrhf-identify
 - ● **IA-12.2.B** Recall the characteristic chemistry of niobium and tantalum: production, key compounds and colours, uses and biological roles.
   - EK: Cotton & Wilkinson's section on niobium and tantalum.
-  - P2 · drills: cw-nbta-chemistry
+  - P2 · drills: cw-nbta-chemistry, cw-nbta-identify
 - ● **IA-12.2.C** Recall the characteristic chemistry of molybdenum and tungsten: production, key compounds and colours, uses and biological roles.
   - EK: Cotton & Wilkinson's section on molybdenum and tungsten.
-  - P2 · drills: cw-mow-chemistry
+  - P2 · drills: cw-mow-chemistry, cw-mow-identify
 - ● **IA-12.2.D** Recall the characteristic chemistry of technetium and rhenium: production, key compounds and colours, uses and biological roles.
   - EK: Cotton & Wilkinson's section on technetium and rhenium.
-  - P2 · drills: cw-tcre-chemistry
+  - P2 · drills: cw-tcre-chemistry, cw-tcre-identify
 - ● **IA-12.2.E** Recall the characteristic chemistry of ruthenium and osmium: production, key compounds and colours, uses and biological roles.
   - EK: Cotton & Wilkinson's section on ruthenium and osmium.
-  - P2 · drills: cw-ruos-chemistry
+  - P2 · drills: cw-ruos-chemistry, cw-ruos-identify
 - ● **IA-12.2.F** Recall the characteristic chemistry of rhodium and iridium: production, key compounds and colours, uses and biological roles.
   - EK: Cotton & Wilkinson's section on rhodium and iridium.
-  - P2 · drills: cw-rhir-chemistry
+  - P2 · drills: cw-rhir-chemistry, cw-rhir-identify
 - ● **IA-12.2.G** Recall the characteristic chemistry of palladium and platinum: production, key compounds and colours, uses and biological roles.
   - EK: Cotton & Wilkinson's section on palladium and platinum.
-  - P2 · drills: cw-pdpt-chemistry
+  - P2 · drills: cw-pdpt-chemistry, cw-pdpt-identify
 - ● **IA-12.2.H** Recall the characteristic chemistry of silver and gold: production, key compounds and colours, uses and biological roles.
   - EK: Cotton & Wilkinson's section on silver and gold.
-  - P2 · drills: cw-agau-chemistry
+  - P2 · drills: cw-agau-chemistry, cw-agau-identify
 - ● **IA-12.2.I** Give oxidation states in the series' high-valent oxides, oxoanions and fluorides.
   - EK: High states stabilise down a group.
-  - P1 · drills: cw-heavy-metal-ox
+  - P1 · drills: cw-heavy-metal-ox, cw-heavy-high-valent-d
 
 ## Unit 13 · Group 3, the lanthanides and the actinides (ch. 19–20)
 
@@ -313,11 +313,11 @@ Big ideas: COUNT
 
 - ● **IA-13.1.A** Count f electrons in lanthanide and actinide ions.
   - EK: Ln³⁺ 4fⁿ, n = Z − 57.
-  - P1 · drills: cw-f-count
+  - P1 · drills: cw-f-count, cw-ox-from-f
 - ● **IA-13.1.B** Compute a lanthanide ion's magnetic moment from its ground term.
   - EK: μ = g_J√(J(J+1)).
   - Needs: IA-13.1.A
-  - P1 · drills: cw-ln-moment
+  - P1 · drills: cw-ln-moment, cw-lande-g
 - ● **IA-13.1.C** Give characteristic oxidation states of lanthanides and actinides, and states in actinyl ions.
   - EK: Ce⁴⁺, Eu²⁺; U +6 as UO₂²⁺.
   - P1 · P2 · drills: cw-fblock-ox, cw-actinyl-ox
@@ -332,7 +332,7 @@ Big ideas: COUNT
 
 - ● **IA-14.1.A** Count valence electrons in organometallic complexes.
   - EK: 18 for carbonyls; 16 for square-planar d⁸.
-  - P1 · drills: cw-electron-count
+  - P1 · drills: cw-electron-count, cw-carbonyl-n
 - ● **IA-14.1.B** Follow electron count and oxidation state through oxidative addition and the other elementary steps.
   - EK: OA: +2 ox, +2 CN, +2 e.
   - Needs: IA-14.1.A

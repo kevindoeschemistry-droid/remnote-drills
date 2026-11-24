@@ -85,7 +85,7 @@ Related reports: [standards and how much of each was read](../coverage/standards
 
 | Framework | Code | Objectives | Drilled | Partly | Open | Types | Anchored on |
 |---|---|---:|---:|---:|---:|---:|---|
-| [Advanced Inorganic Chemistry (Cotton & Wilkinson)](inorganic-advanced.md) | IA | 55 | 55 | 0 | 0 | 1.3 | Cotton, Wilkinson, Murillo & Bochmann, Advanced Inorganic Chemistry, 6th ed. (1999): table of contents (textbook, read: part) |
+| [Advanced Inorganic Chemistry (Cotton & Wilkinson)](inorganic-advanced.md) | IA | 55 | 55 | 0 | 0 | 2.0 | Cotton, Wilkinson, Murillo & Bochmann, Advanced Inorganic Chemistry, 6th ed. (1999): table of contents (textbook, read: part) |
 | [Analytical Chemistry](analytical-chemistry.md) | AN | 18 | 18 | 0 | 0 | 2.0 | Regulations of the International Chemistry Olympiad, Appendices C and D (concepts, skills and factual knowledge) (exam-spec, read: full) |
 | [Anchor Quantities](anchor-quantities.md) | AQ | 14 | 14 | 0 | 0 | 1.1 | CODATA Recommended Values of the Fundamental Physical Constants: 2022 (NIST SP 961) (reference, read: part) |
 | [Biology (AP)](biology.md) | BI | 179 | 179 | 0 | 0 | 2.2 | AP Biology Course and Exam Description (2019) (standard, read: crosswalk) |
