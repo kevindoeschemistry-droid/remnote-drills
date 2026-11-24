@@ -9,6 +9,10 @@
 #                        approach (core requirements, heightened control measures, maximum
 #                        containment). Section titles read, not the text.
 #   bwc                  The Biological Weapons Convention (1972): its articles and institutions.
+#   cdc-ss1978           CDC, Principles of Epidemiology in Public Health Practice (3rd ed.): unit 7's
+#                        applied-epidemiology foundations follow its lessons 1, 3, 5 and 6.
+#   who-jee3             WHO Joint External Evaluation tool (3rd ed.): the 19 national capacities.
+#   ashrae-241           ASHRAE 241-2023: equivalent clean airflow per person.
 #
 # Scope: policy, governance and defence. Epidemic arithmetic, surveillance and diagnostics,
 # biosafety levels and containment, the BWC and export controls, DNA synthesis screening and
@@ -27,7 +31,7 @@ domains: [biosec]
 
 basis:
   primary: bluedot-biosecurity
-  also: [who-lbm4, bwc]
+  also: [who-lbm4, bwc, cdc-ss1978, who-jee3, ashrae-241]
   note: "Units follow the six units of BlueDot Impact's Biosecurity course (outline read Nov 2026); laboratory biosafety follows the WHO Laboratory Biosafety Manual's risk-based structure and the treaty items follow the BWC's articles. No curriculum standard for biosecurity exists; the objectives are a house list."
 
 big_ideas:
@@ -71,6 +75,35 @@ units:
         los:
           - { id: A, do: "Place landmark events in the history of pandemics and biological weapons.", ek: ["1918 influenza; smallpox eradication certified 1980; BWC 1972; Sverdlovsk 1979; the 2001 anthrax letters."], p: [P2], drills: [bs-history-facts, bs-history-order] }
           - { id: B, do: "Distinguish natural, accidental and deliberate biological risks and say what makes a risk catastrophic.", ek: ["Spillover, lab accident, misuse; transmissibility, severity and our ability to respond set the scale."], p: [P2, P3], drills: [bs-risk-source, bs-gcbr-features] }
+  - id: epidemiology
+    n: 7
+    title: "Applied epidemiology foundations"
+    scope: core
+    ideas: [GROWTH]
+    std: ["cdc-ss1978:L1", "cdc-ss1978:L3", "cdc-ss1978:L5", "cdc-ss1978:L6"]
+    topics:
+      - n: 1
+        title: "Disease occurrence"
+        los:
+          - { id: A, std: ["cdc-ss1978:L1"], do: "Name the links in the chain of infection and the stages of natural history, and say which measure breaks which link.", ek: ["Reservoir, portal of exit, transmission, portal of entry, susceptible host; incubation, latent and infectious periods."], p: [P2, P3], drills: [bs-chain-link, bs-natural-history] }
+          - { id: B, std: ["cdc-ss1978:L1", "cdc-ss1978:L4"], do: "Read an epidemic curve: point source, continuous or propagated, and the likely exposure time.", ek: ["Point source: one peak about one incubation period wide; exposure ≈ peak − median incubation."], p: [P1, P2], drills: [bs-exposure-from-peak, bs-epicurve-shape] }
+      - n: 2
+        title: "Measures of risk"
+        los:
+          - { id: A, std: ["cdc-ss1978:L3"], do: "Compute attack rates and secondary attack rates.", ek: ["Attack rate = cases ÷ population at risk; secondary attack rate counts contacts of primary cases only."], p: [P1], drills: [bs-attack-rate, bs-secondary-attack] }
+          - { id: B, std: ["cdc-ss1978:L3"], do: "Distinguish incidence from prevalence and relate them through duration.", ek: ["Prevalence ≈ incidence rate × mean duration (steady state)."], p: [P1, P2], drills: [bs-prevalence-from-incidence, bs-incidence-or-prevalence] }
+          - { id: C, std: ["cdc-ss1978:L3"], do: "Compute a risk ratio or an odds ratio from a 2 × 2 table and say which design gives which.", ek: ["Cohort: RR = (a/(a+b))/(c/(c+d)); case-control: OR = ad/bc."], p: [P1], drills: [bs-risk-ratio, bs-odds-ratio] }
+          - { id: D, std: ["cdc-ss1978:L3"], do: "Compute attributable risk and the population attributable fraction.", ek: ["AR% among exposed = (RR − 1)/RR; PAF = p(RR − 1)/(1 + p(RR − 1))."], p: [P1], drills: [bs-attributable-fraction-exposed, bs-paf] }
+      - n: 3
+        title: "Surveillance and outbreak investigation"
+        los:
+          - { id: A, std: ["cdc-ss1978:L6"], do: "Order the steps of an outbreak investigation and apply case definitions.", ek: ["Prepare, confirm the outbreak, verify the diagnosis, define and find cases, describe by time, place and person, hypothesise, test, control, communicate."], p: [P2, P3], drills: [bs-investigation-steps, bs-case-definition] }
+          - { id: B, std: ["cdc-ss1978:L5"], do: "Evaluate a surveillance system by sensitivity, predictive value and timeliness.", ek: ["Sensitivity = cases detected ÷ true cases; PVP = true cases ÷ cases reported."], p: [P1, P2], drills: [bs-surveillance-sensitivity, bs-surveillance-pvp] }
+      - n: 4
+        title: "Transmission dynamics"
+        los:
+          - { id: A, do: "Compute the final size of an epidemic and the effective reproduction number as susceptibles fall.", ek: ["Final size z solves z = 1 − e^{−R₀z}; R_eff = R₀ × susceptible fraction."], p: [P1], drills: [bs-final-size, bs-reff-susceptibles] }
+          - { id: B, do: "Explain superspreading with the dispersion parameter and compute the chance a case transmits to no one.", ek: ["Negative binomial offspring: P(0) = (1 + R/k)^{−k}; small k means most cases infect no one and a few infect many."], p: [P1, P2], drills: [bs-zero-offspring, bs-superspreading] }
   - id: prevent
     n: 2
     title: "Preventing engineered pandemics (Prevent)"
@@ -91,9 +124,15 @@ units:
           - { id: C, do: "Describe layered AI model safeguards and compute the residual risk through independent layers.", ek: ["Refusal training, input/output classifiers, evaluations, access controls; residual = product of each layer's miss rate."], p: [P1, P2], drills: [bs-layered-miss, bs-ai-safeguards] }
       - n: 3
         title: "Laboratory biosafety and biosecurity"
+
         los:
           - { id: A, std: ["who-lbm4:2", "who-lbm4:3", "who-lbm4:4", "who-lbm4:5"], do: "Use the WHO risk-based approach: inherent versus residual risk, core requirements, heightened control and maximum containment.", ek: ["Risk assessment decides the controls; core requirements apply everywhere."], p: [P2, P3], drills: [bs-lbm4-levels, bs-lbm4-scenario] }
           - { id: B, std: ["who-lbm4:3", "who-lbm4:4"], do: "Choose primary containment (biosafety cabinet class) and compute filter penetration.", ek: ["Class I protects worker and environment, II also the sample, III is gas-tight; HEPA ≥ 99.97% at the most penetrating size."], p: [P1, P3], drills: [bs-bsc-class, bs-hepa-series] }
+          - { id: C, std: ["who-lbm4:3"], do: "Compute decontamination by log reduction and D-values.", ek: ["N = N₀·10^{−t/D}; a 6-log kill takes six D-values."], p: [P1], drills: [bs-autoclave-time, bs-log-reduction] }
+      - n: 4
+        title: "National health security capacities"
+        los:
+          - { id: A, std: ["who-jee3:P7", "who-jee3:D2", "who-jee3:R2"], do: "Place a national capacity in its JEE technical area and pillar.", ek: ["Prevent P1–P8, Detect D1–D3, Respond R1–R5, plus points of entry, chemical and radiation events."], p: [P2], drills: [bs-jee-area, bs-jee-pillar] }
   - id: detect
     n: 3
     title: "Detecting early infections (Detect)"
@@ -107,6 +146,7 @@ units:
           - { id: A, do: "Match surveillance systems to what they see and name the IHR's notification duties.", ek: ["Syndromic, wastewater, metagenomic, clinical; IHR (2005) PHEIC and, since 2025, the pandemic emergency."], p: [P2], drills: [bs-surveillance-match, bs-ihr-facts] }
           - { id: B, do: "Compute how detection delay translates into cases.", ek: ["Cases at time t = initial × 2^{t/T_d}."], p: [P1], drills: [bs-detection-delay, bs-days-to-threshold] }
           - { id: C, do: "Compute the sequencing depth needed to see a target at a given relative abundance.", ek: ["Expected target reads = total reads × relative abundance."], p: [P1], drills: [bs-reads-needed, bs-abundance-growth] }
+          - { id: D, do: "Compute the probability that sequencing sees at least one target read.", ek: ["Reads are Poisson: P(≥ 1) = 1 − e^{−λ}; 95% needs λ ≈ 3."], p: [P1], drills: [bs-detect-prob, bs-depth-for-confidence] }
       - n: 2
         title: "Diagnostics"
         los:
@@ -123,6 +163,7 @@ units:
         los:
           - { id: A, do: "Estimate airborne infection risk with the Wells–Riley model and combine air-cleaning rates.", ek: ["P = 1 − exp(−Iqpt/Q); equivalent air changes add."], p: [P1], drills: [bs-wells-riley, bs-each-sum] }
           - { id: B, do: "Explain far-UVC, filtration and ventilation and compute clearance times.", ek: ["222 nm barely penetrates the skin's dead layer; 99% removal takes ln 100 / ACH hours."], p: [P1, P2], drills: [bs-clearance-time, bs-far-uvc] }
+          - { id: C, std: ["ashrae-241:5"], do: "Check a room against an equivalent clean airflow per person target.", ek: ["Total clean air = outdoor air + filtered recirculation × efficiency + air cleaners; ECA per person = total ÷ occupants."], p: [P1], drills: [bs-eca-per-person, bs-occupancy-limit] }
       - n: 2
         title: "PPE and social measures"
         los:
@@ -141,6 +182,7 @@ units:
           - { id: A, do: "Compute the vaccination coverage needed for herd protection given vaccine efficacy.", ek: ["V_c = (1 − 1/R₀)/E; above 100% means vaccination alone cannot stop spread."], p: [P1], drills: [bs-vaccine-coverage, bs-efficacy-needed] }
           - { id: B, do: "Compute vaccine efficacy from trial attack rates.", ek: ["VE = 1 − AR_vaccinated / AR_unvaccinated."], p: [P1], drills: [bs-ve-trial, bs-ve-expected-cases] }
           - { id: C, do: "Describe rapid countermeasure programmes: platforms, the 100 Days Mission, financing and trials.", ek: ["CEPI's goal: vaccines within 100 days of a threat; platform technologies; advance commitments."], p: [P2], drills: [bs-mcm-facts, bs-mcm-scenario] }
+          - { id: D, do: "Compute the number needed to vaccinate and the expected cases averted.", ek: ["NNV = 1/(AR_unvaccinated × VE)."], p: [P1], drills: [bs-nnv, bs-cases-averted] }
       - n: 2
         title: "Scale-up and governance"
         los:

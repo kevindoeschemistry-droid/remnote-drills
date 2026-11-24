@@ -127,6 +127,15 @@ def pat_punch_half(folds, px, py, side):
     return sp.Integer(sum(1 for p in hit if (p[0] - 2) * int(side) > 0))
 
 
+def bs_final_size(R0):
+    """final epidemic size z = 1 - exp(-R0 z), z > 0, by fixed-point iteration from z = 1"""
+    R0 = sp.nsimplify(R0)
+    z = sp.Float(1, 40)
+    for _ in range(4000):
+        z = 1 - sp.exp(-R0 * z)
+    return sp.nsimplify(z.evalf(30), rational=True)
+
+
 def net_opposite(cells, q):
     """index of the face opposite face q when the six-square net `cells` [(x, y)] is folded into a cube"""
     cells = [(int(x), int(y)) for x, y in cells]
@@ -581,7 +590,7 @@ def rank_code(values):
     return sp.Integer(int("".join(str(j + 1) for j in order)))
 
 
-BASE.update({"pat_punch_half": pat_punch_half, "cube_tally": cube_tally, "punch_count": punch_count, "net_opposite": net_opposite, "rank_code": rank_code, "box_degeneracy": box_degeneracy, "huckel_chain": huckel_chain, "view_identify": view_identify, "keyhole_fit": keyhole_fit, "sph_L2": sph_L2, "fc_strongest": fc_strongest, "hf_energy": hf_energy, "hund_ground": hund_ground, "hund_choice": hund_choice, "mo_fill": mo_fill, "commutes": commutes, "view_missing": view_missing, "keyhole_pick": keyhole_pick, "prism_identify": prism_identify, "prism_keyhole": prism_keyhole, "pt_Z": pt_Z, "pt_group": pt_group, "pt_below": pt_below, "pt_config": pt_config, "pt_madelung": pt_madelung, "sn_e": sn_e, "pp_charge": pp_charge, "pp_baryon": pp_baryon, "pp_balance": pp_balance, "ra_chain": ra_chain, "basis_count": basis_count})
+BASE.update({"bs_final_size": bs_final_size, "pat_punch_half": pat_punch_half, "cube_tally": cube_tally, "punch_count": punch_count, "net_opposite": net_opposite, "rank_code": rank_code, "box_degeneracy": box_degeneracy, "huckel_chain": huckel_chain, "view_identify": view_identify, "keyhole_fit": keyhole_fit, "sph_L2": sph_L2, "fc_strongest": fc_strongest, "hf_energy": hf_energy, "hund_ground": hund_ground, "hund_choice": hund_choice, "mo_fill": mo_fill, "commutes": commutes, "view_missing": view_missing, "keyhole_pick": keyhole_pick, "prism_identify": prism_identify, "prism_keyhole": prism_keyhole, "pt_Z": pt_Z, "pt_group": pt_group, "pt_below": pt_below, "pt_config": pt_config, "pt_madelung": pt_madelung, "sn_e": sn_e, "pp_charge": pp_charge, "pp_baryon": pp_baryon, "pp_balance": pp_balance, "ra_chain": ra_chain, "basis_count": basis_count})
 
 
 # ── accounting (fa-*): periodic inventory cost flow, written as a unit-by-unit queue ──

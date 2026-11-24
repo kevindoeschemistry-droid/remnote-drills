@@ -16,7 +16,10 @@
   "primary": "bluedot-biosecurity",
   "also": [
    "who-lbm4",
-   "bwc"
+   "bwc",
+   "cdc-ss1978",
+   "who-jee3",
+   "ashrae-241"
   ],
   "note": "Units follow the six units of BlueDot Impact's Biosecurity course (outline read Nov 2026); laboratory biosafety follows the WHO Laboratory Biosafety Manual's risk-based structure and the treaty items follow the BWC's articles. No curriculum standard for biosecurity exists; the objectives are a house list."
  },
@@ -148,6 +151,218 @@
        "drills": [
         "bs-risk-source",
         "bs-gcbr-features"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "epidemiology",
+   "n": 7,
+   "title": "Applied epidemiology foundations",
+   "scope": "core",
+   "ideas": [
+    "GROWTH"
+   ],
+   "std": [
+    "cdc-ss1978:L1",
+    "cdc-ss1978:L3",
+    "cdc-ss1978:L5",
+    "cdc-ss1978:L6"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "Disease occurrence",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "cdc-ss1978:L1"
+       ],
+       "do": "Name the links in the chain of infection and the stages of natural history, and say which measure breaks which link.",
+       "ek": [
+        "Reservoir, portal of exit, transmission, portal of entry, susceptible host; incubation, latent and infectious periods."
+       ],
+       "p": [
+        "P2",
+        "P3"
+       ],
+       "drills": [
+        "bs-chain-link",
+        "bs-natural-history"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "cdc-ss1978:L1",
+        "cdc-ss1978:L4"
+       ],
+       "do": "Read an epidemic curve: point source, continuous or propagated, and the likely exposure time.",
+       "ek": [
+        "Point source: one peak about one incubation period wide; exposure ≈ peak − median incubation."
+       ],
+       "p": [
+        "P1",
+        "P2"
+       ],
+       "drills": [
+        "bs-exposure-from-peak",
+        "bs-epicurve-shape"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "title": "Measures of risk",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "cdc-ss1978:L3"
+       ],
+       "do": "Compute attack rates and secondary attack rates.",
+       "ek": [
+        "Attack rate = cases ÷ population at risk; secondary attack rate counts contacts of primary cases only."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "bs-attack-rate",
+        "bs-secondary-attack"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "cdc-ss1978:L3"
+       ],
+       "do": "Distinguish incidence from prevalence and relate them through duration.",
+       "ek": [
+        "Prevalence ≈ incidence rate × mean duration (steady state)."
+       ],
+       "p": [
+        "P1",
+        "P2"
+       ],
+       "drills": [
+        "bs-prevalence-from-incidence",
+        "bs-incidence-or-prevalence"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "cdc-ss1978:L3"
+       ],
+       "do": "Compute a risk ratio or an odds ratio from a 2 × 2 table and say which design gives which.",
+       "ek": [
+        "Cohort: RR = (a/(a+b))/(c/(c+d)); case-control: OR = ad/bc."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "bs-risk-ratio",
+        "bs-odds-ratio"
+       ]
+      },
+      {
+       "id": "D",
+       "std": [
+        "cdc-ss1978:L3"
+       ],
+       "do": "Compute attributable risk and the population attributable fraction.",
+       "ek": [
+        "AR% among exposed = (RR − 1)/RR; PAF = p(RR − 1)/(1 + p(RR − 1))."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "bs-attributable-fraction-exposed",
+        "bs-paf"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 3,
+     "title": "Surveillance and outbreak investigation",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "cdc-ss1978:L6"
+       ],
+       "do": "Order the steps of an outbreak investigation and apply case definitions.",
+       "ek": [
+        "Prepare, confirm the outbreak, verify the diagnosis, define and find cases, describe by time, place and person, hypothesise, test, control, communicate."
+       ],
+       "p": [
+        "P2",
+        "P3"
+       ],
+       "drills": [
+        "bs-investigation-steps",
+        "bs-case-definition"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "cdc-ss1978:L5"
+       ],
+       "do": "Evaluate a surveillance system by sensitivity, predictive value and timeliness.",
+       "ek": [
+        "Sensitivity = cases detected ÷ true cases; PVP = true cases ÷ cases reported."
+       ],
+       "p": [
+        "P1",
+        "P2"
+       ],
+       "drills": [
+        "bs-surveillance-sensitivity",
+        "bs-surveillance-pvp"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 4,
+     "title": "Transmission dynamics",
+     "los": [
+      {
+       "id": "A",
+       "do": "Compute the final size of an epidemic and the effective reproduction number as susceptibles fall.",
+       "ek": [
+        "Final size z solves z = 1 − e^{−R₀z}; R_eff = R₀ × susceptible fraction."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "bs-final-size",
+        "bs-reff-susceptibles"
+       ]
+      },
+      {
+       "id": "B",
+       "do": "Explain superspreading with the dispersion parameter and compute the chance a case transmits to no one.",
+       "ek": [
+        "Negative binomial offspring: P(0) = (1 + R/k)^{−k}; small k means most cases infect no one and a few infect many."
+       ],
+       "p": [
+        "P1",
+        "P2"
+       ],
+       "drills": [
+        "bs-zero-offspring",
+        "bs-superspreading"
        ]
       }
      ]
@@ -300,6 +515,48 @@
         "bs-bsc-class",
         "bs-hepa-series"
        ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "who-lbm4:3"
+       ],
+       "do": "Compute decontamination by log reduction and D-values.",
+       "ek": [
+        "N = N₀·10^{−t/D}; a 6-log kill takes six D-values."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "bs-autoclave-time",
+        "bs-log-reduction"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 4,
+     "title": "National health security capacities",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "who-jee3:P7",
+        "who-jee3:D2",
+        "who-jee3:R2"
+       ],
+       "do": "Place a national capacity in its JEE technical area and pillar.",
+       "ek": [
+        "Prevent P1–P8, Detect D1–D3, Respond R1–R5, plus points of entry, chemical and radiation events."
+       ],
+       "p": [
+        "P2"
+       ],
+       "drills": [
+        "bs-jee-area",
+        "bs-jee-pillar"
+       ]
       }
      ]
     }
@@ -361,6 +618,20 @@
        "drills": [
         "bs-reads-needed",
         "bs-abundance-growth"
+       ]
+      },
+      {
+       "id": "D",
+       "do": "Compute the probability that sequencing sees at least one target read.",
+       "ek": [
+        "Reads are Poisson: P(≥ 1) = 1 − e^{−λ}; 95% needs λ ≈ 3."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "bs-detect-prob",
+        "bs-depth-for-confidence"
        ]
       }
      ]
@@ -431,6 +702,23 @@
        "drills": [
         "bs-clearance-time",
         "bs-far-uvc"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "ashrae-241:5"
+       ],
+       "do": "Check a room against an equivalent clean airflow per person target.",
+       "ek": [
+        "Total clean air = outdoor air + filtered recirculation × efficiency + air cleaners; ECA per person = total ÷ occupants."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "bs-eca-per-person",
+        "bs-occupancy-limit"
        ]
       }
      ]
@@ -530,6 +818,20 @@
        "drills": [
         "bs-mcm-facts",
         "bs-mcm-scenario"
+       ]
+      },
+      {
+       "id": "D",
+       "do": "Compute the number needed to vaccinate and the expected cases averted.",
+       "ek": [
+        "NNV = 1/(AR_unvaccinated × VE)."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "bs-nnv",
+        "bs-cases-averted"
        ]
       }
      ]
@@ -678,6 +980,116 @@
    "partial": []
   },
   {
+   "code": "BS-7.1.A",
+   "unit": 7,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "bs-chain-link",
+    "bs-natural-history"
+   ],
+   "partial": []
+  },
+  {
+   "code": "BS-7.1.B",
+   "unit": 7,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "bs-exposure-from-peak",
+    "bs-epicurve-shape"
+   ],
+   "partial": []
+  },
+  {
+   "code": "BS-7.2.A",
+   "unit": 7,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "bs-attack-rate",
+    "bs-secondary-attack"
+   ],
+   "partial": []
+  },
+  {
+   "code": "BS-7.2.B",
+   "unit": 7,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "bs-prevalence-from-incidence",
+    "bs-incidence-or-prevalence"
+   ],
+   "partial": []
+  },
+  {
+   "code": "BS-7.2.C",
+   "unit": 7,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "bs-risk-ratio",
+    "bs-odds-ratio"
+   ],
+   "partial": []
+  },
+  {
+   "code": "BS-7.2.D",
+   "unit": 7,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "bs-attributable-fraction-exposed",
+    "bs-paf"
+   ],
+   "partial": []
+  },
+  {
+   "code": "BS-7.3.A",
+   "unit": 7,
+   "topic": 3,
+   "status": "ok",
+   "full": [
+    "bs-investigation-steps",
+    "bs-case-definition"
+   ],
+   "partial": []
+  },
+  {
+   "code": "BS-7.3.B",
+   "unit": 7,
+   "topic": 3,
+   "status": "ok",
+   "full": [
+    "bs-surveillance-sensitivity",
+    "bs-surveillance-pvp"
+   ],
+   "partial": []
+  },
+  {
+   "code": "BS-7.4.A",
+   "unit": 7,
+   "topic": 4,
+   "status": "ok",
+   "full": [
+    "bs-final-size",
+    "bs-reff-susceptibles"
+   ],
+   "partial": []
+  },
+  {
+   "code": "BS-7.4.B",
+   "unit": 7,
+   "topic": 4,
+   "status": "ok",
+   "full": [
+    "bs-zero-offspring",
+    "bs-superspreading"
+   ],
+   "partial": []
+  },
+  {
    "code": "BS-2.1.A",
    "unit": 2,
    "topic": 1,
@@ -755,6 +1167,28 @@
    "partial": []
   },
   {
+   "code": "BS-2.3.C",
+   "unit": 2,
+   "topic": 3,
+   "status": "ok",
+   "full": [
+    "bs-autoclave-time",
+    "bs-log-reduction"
+   ],
+   "partial": []
+  },
+  {
+   "code": "BS-2.4.A",
+   "unit": 2,
+   "topic": 4,
+   "status": "ok",
+   "full": [
+    "bs-jee-area",
+    "bs-jee-pillar"
+   ],
+   "partial": []
+  },
+  {
    "code": "BS-3.1.A",
    "unit": 3,
    "topic": 1,
@@ -788,6 +1222,17 @@
    "partial": []
   },
   {
+   "code": "BS-3.1.D",
+   "unit": 3,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "bs-detect-prob",
+    "bs-depth-for-confidence"
+   ],
+   "partial": []
+  },
+  {
    "code": "BS-3.2.A",
    "unit": 3,
    "topic": 2,
@@ -817,6 +1262,17 @@
    "full": [
     "bs-clearance-time",
     "bs-far-uvc"
+   ],
+   "partial": []
+  },
+  {
+   "code": "BS-4.1.C",
+   "unit": 4,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "bs-eca-per-person",
+    "bs-occupancy-limit"
    ],
    "partial": []
   },
@@ -872,6 +1328,17 @@
    "full": [
     "bs-mcm-facts",
     "bs-mcm-scenario"
+   ],
+   "partial": []
+  },
+  {
+   "code": "BS-5.1.D",
+   "unit": 5,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "bs-nnv",
+    "bs-cases-averted"
    ],
    "partial": []
   },

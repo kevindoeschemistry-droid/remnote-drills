@@ -15,7 +15,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 | Anchor Quantities | CODATA Recommended Values of the Fundamental Physical Constants: 2022 (NIST SP 961) | reference | read in part | snapshot-key-numbers, francl-take-a-number, cfr-21-101-9 | acs-accm-pchem | 14 | 3 | 11 |
 | Basketball | USA Basketball Player Development Curriculum | standard | read in part | — | — | 88 | 0 | 88 |
 | Biology (AP) | AP Biology Course and Exam Description (2019) | standard | read through a crosswalk | iupac-aa-1983, ngss-hs, ib-biology-2025, icho-appendix-c, icho-syllabus, aamc-mcat-outline | — | 179 | 179 | 0 |
-| Biosecurity | BlueDot Impact, Biosecurity course (six units) | course | read in part | who-lbm4, bwc | — | 27 | 27 | 0 |
+| Biosecurity | BlueDot Impact, Biosecurity course (six units) | course | read in part | who-lbm4, bwc, cdc-ss1978, who-jee3, ashrae-241 | — | 42 | 42 | 0 |
 | Calculus | AP Calculus AB and BC Course and Exam Description | standard | read in full | webwork-opl | — | 203 | 203 | 0 |
 | Chemistry Olympiad | U.S. National Chemistry Olympiad: local and national exam format, multiple-choice topic bands and Part II | exam-spec | read in part | icho-appendix-c, icho-syllabus | — | 73 | 73 | 0 |
 | Chemistry (AP) | AP Chemistry Course and Exam Description (Fall 2024) | standard | read in part | ngss-hs, ib-chemistry-2025, usnco, icho-appendix-c, icho-syllabus, acs-accm, aamc-mcat-outline | — | 179 | 179 | 0 |
@@ -1576,10 +1576,10 @@ https://bluedot.org/courses/biosecurity
 | Item | Topic | Objectives | With a drill | Where |
 |---|---|---|---|---|
 | 1 | Building a pandemic-proof world | 5 | 5 | biosecurity (5) |
-| 2 | Preventing engineered pandemics (Prevent) | 7 | 7 | biosecurity (7) |
-| 3 | Detecting early infections (Detect) | 4 | 4 | biosecurity (4) |
-| 4 | Blocking transmission (Withstand) | 4 | 4 | biosecurity (4) |
-| 5 | Exiting the pandemic (Combat) | 5 | 5 | biosecurity (5) |
+| 2 | Preventing engineered pandemics (Prevent) | 9 | 9 | biosecurity (9) |
+| 3 | Detecting early infections (Detect) | 5 | 5 | biosecurity (5) |
+| 4 | Blocking transmission (Withstand) | 5 | 5 | biosecurity (5) |
+| 5 | Exiting the pandemic (Combat) | 6 | 6 | biosecurity (6) |
 | 6 | Contributing to biosecurity | 2 | 2 | biosecurity (2) |
 
 ## WHO Laboratory Biosafety Manual, 4th edition (2020)
@@ -1591,7 +1591,7 @@ https://www.who.int/publications/i/item/9789240011311
 | Item | Topic | Objectives | With a drill | Where |
 |---|---|---|---|---|
 | 2 | Risk assessment | 1 | 1 | biosecurity (1) |
-| 3 | Core requirements | 2 | 2 | biosecurity (2) |
+| 3 | Core requirements | 3 | 3 | biosecurity (3) |
 | 4 | Heightened control measures | 2 | 2 | biosecurity (2) |
 | 5 | Maximum containment measures | 1 | 1 | biosecurity (1) |
 | 6 | Transfer and transportation | — | — | **nothing yet** |
@@ -1613,6 +1613,59 @@ https://www.unoda.org/en/our-work/weapons-mass-destruction/biological-weapons/bi
 | VII | Assistance to a Party exposed to danger | — | — | **nothing yet** |
 | X | Peaceful use and exchange | — | — | **nothing yet** |
 | XII | Review conferences | 1 | 1 | biosecurity (1) |
+
+## CDC, Principles of Epidemiology in Public Health Practice, 3rd edition (Self-Study Course SS1978, 2006, updated 2012)
+
+https://archive.cdc.gov/www_cdc_gov/csels/dsepd/ss1978/index.html
+
+5 of 6 items have at least one objective answering to them.
+
+| Item | Topic | Objectives | With a drill | Where |
+|---|---|---|---|---|
+| L1 | Introduction to epidemiology (chain of infection, natural history, epidemic occurrence) | 12 | 12 | biosecurity (12) |
+| L2 | Summarizing data | — | — | **nothing yet** |
+| L3 | Measures of risk (frequency, association, public health impact) | 14 | 14 | biosecurity (14) |
+| L4 | Displaying public health data | 1 | 1 | biosecurity (1) |
+| L5 | Public health surveillance | 11 | 11 | biosecurity (11) |
+| L6 | Investigating an outbreak | 11 | 11 | biosecurity (11) |
+
+## WHO Joint External Evaluation tool, International Health Regulations (2005), 3rd edition (2022)
+
+https://www.who.int/publications/i/item/9789240051980
+
+3 of 19 items have at least one objective answering to them.
+
+| Item | Topic | Objectives | With a drill | Where |
+|---|---|---|---|---|
+| P1 | Legal instruments | — | — | **nothing yet** |
+| P2 | Financing | — | — | **nothing yet** |
+| P3 | IHR coordination, National IHR Focal Point functions and advocacy | — | — | **nothing yet** |
+| P4 | Antimicrobial resistance | — | — | **nothing yet** |
+| P5 | Zoonotic disease | — | — | **nothing yet** |
+| P6 | Food safety | — | — | **nothing yet** |
+| P7 | Biosafety and biosecurity | 1 | 1 | biosecurity (1) |
+| P8 | Immunization | — | — | **nothing yet** |
+| D1 | National laboratory system | — | — | **nothing yet** |
+| D2 | Surveillance | 1 | 1 | biosecurity (1) |
+| D3 | Human resources | — | — | **nothing yet** |
+| R1 | Health emergency management | — | — | **nothing yet** |
+| R2 | Linking public health and security authorities | 1 | 1 | biosecurity (1) |
+| R3 | Health services provision | — | — | **nothing yet** |
+| R4 | Infection prevention and control | — | — | **nothing yet** |
+| R5 | Risk communication and community engagement | — | — | **nothing yet** |
+| PoE | Points of entry and border health | — | — | **nothing yet** |
+| CE | Chemical events | — | — | **nothing yet** |
+| RE | Radiation emergencies | — | — | **nothing yet** |
+
+## ASHRAE Standard 241-2023, Control of Infectious Aerosols
+
+https://www.ashrae.org/technical-resources/bookstore/supplemental-files/supplemental-files-for-ansi-ashrae-standard-241-2023-control-of-infectious-aerosols
+
+1 of 1 items have at least one objective answering to them.
+
+| Item | Topic | Objectives | With a drill | Where |
+|---|---|---|---|---|
+| 5 | Equivalent clean airflow requirements (ECAi per person, Table 5-1) | 1 | 1 | biosecurity (1) |
 
 ## AAMC, What's on the MCAT Exam? content outline
 
