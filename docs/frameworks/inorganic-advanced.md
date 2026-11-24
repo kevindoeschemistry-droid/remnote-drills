@@ -2,7 +2,7 @@
 
 Generated from `drills/frameworks/inorganic-advanced.yaml` by `scripts/framework.mjs`. ● drilled · ◐ partly · ○ no drills yet.
 
-**23 learning objectives** in 9 units (23 core): 23 drilled, 0 partly, 0 with no drills. Core: 23 / 23 drilled.
+**37 learning objectives** in 14 units (37 core): 37 drilled, 0 partly, 0 with no drills. Core: 37 / 37 drilled.
 
 ## Big ideas
 
@@ -28,6 +28,11 @@ Generated from `drills/frameworks/inorganic-advanced.yaml` by `scripts/framework
 | 7 · Oxygen and group 16 (ch. 11–12) | core | — | 2 | 2 | 0 | 0 |
 | 8 · The halogens and the noble gases (ch. 13–14) | core | — | 3 | 3 | 0 | 0 |
 | 9 · Zinc, cadmium and mercury (ch. 15) | core | — | 1 | 1 | 0 | 0 |
+| 10 · Survey of the transition elements (ch. 16) | core | — | 4 | 4 | 0 | 0 |
+| 11 · The first transition series (ch. 17) | core | — | 2 | 2 | 0 | 0 |
+| 12 · The second and third transition series (ch. 18) | core | — | 2 | 2 | 0 | 0 |
+| 13 · Group 3, the lanthanides and the actinides (ch. 19–20) | core | — | 3 | 3 | 0 | 0 |
+| 14 · Reaction steps and homogeneous catalysis (ch. 21–22) | core | — | 3 | 3 | 0 | 0 |
 
 ## Unit 1 · Some cross-cutting topics (ch. 1)
 
@@ -179,6 +184,104 @@ Big ideas: TREND
 - ● **IA-9.1.A** Describe group 12 behaviour: Hg₂²⁺, amphoteric ZnO, colourless d¹⁰ compounds, and their oxidation states.
   - EK: Hg(I) is a dimer; d¹⁰ has no d–d colour.
   - P1 · P2 · drills: cw-group12-facts, cw-mercury-ox
+
+## Unit 10 · Survey of the transition elements (ch. 16)
+
+Big ideas: COUNT
+
+### 10.1 Electrons in d orbitals
+
+
+
+- ● **IA-10.1.A** Find the d count and the number of unpaired electrons of a complex.
+  - EK: dⁿ = group − oxidation state; fill t₂g/e_g by spin.
+  - P1 · drills: cw-d-count, cw-complex-unpaired
+- ● **IA-10.1.B** Compute spin-only moments and CFSE.
+  - EK: μ = √(n(n+2)); CFSE = −0.4 t₂g + 0.6 e_g.
+  - Needs: IA-10.1.A
+  - P1 · drills: cw-spin-only-moment, cw-cfse
+- ● **IA-10.1.C** Use the spectrochemical series and predict Jahn–Teller distortions.
+  - EK: I⁻ < … < CN⁻ < CO; uneven e_g distorts.
+  - Needs: IA-10.1.A
+  - P3 · drills: cw-spectrochemical, cw-jahn-teller
+- ● **IA-10.1.D** Predict whether a complex is labile or inert.
+  - EK: d³ and low-spin d⁶ are inert.
+  - Needs: IA-10.1.B
+  - P3 · drills: cw-labile-inert
+
+## Unit 11 · The first transition series (ch. 17)
+
+Big ideas: COUNT, TREND
+
+### 11.1 Ti to Cu
+
+
+
+- ● **IA-11.1.A** Give the products of permanganate by pH and the chromate–dichromate equilibrium.
+  - EK: Mn²⁺, MnO₂, MnO₄²⁻; acid orange, base yellow.
+  - P2 · drills: cw-permanganate-product, cw-chromate-ph
+- ● **IA-11.1.B** Give oxidation states in first-row oxides and oxo ions, including mixed valence.
+  - EK: Fe₃O₄ +8/3; VO²⁺ V(IV).
+  - P1 · drills: cw-first-row-ox
+
+## Unit 12 · The second and third transition series (ch. 18)
+
+Big ideas: COUNT, TREND
+
+### 12.1 Heavier metals
+
+
+
+- ● **IA-12.1.A** Find metal–metal bond orders from d counts.
+  - EK: σ²π⁴δ² is a quadruple bond.
+  - P1 · drills: cw-metal-metal-bond
+- ● **IA-12.1.B** Explain the lanthanide contraction, low spin in 4d/5d, and the trans effect.
+  - EK: Zr ≈ Hf; heavy complexes low spin; cisplatin route.
+  - P2 · P3 · drills: cw-heavy-tm-facts
+
+## Unit 13 · Group 3, the lanthanides and the actinides (ch. 19–20)
+
+Big ideas: COUNT
+
+### 13.1 f-block chemistry
+
+
+
+- ● **IA-13.1.A** Count f electrons in lanthanide and actinide ions.
+  - EK: Ln³⁺ 4fⁿ, n = Z − 57.
+  - P1 · drills: cw-f-count
+- ● **IA-13.1.B** Compute a lanthanide ion's magnetic moment from its ground term.
+  - EK: μ = g_J√(J(J+1)).
+  - Needs: IA-13.1.A
+  - P1 · drills: cw-ln-moment
+- ● **IA-13.1.C** Give characteristic oxidation states of lanthanides and actinides, and states in actinyl ions.
+  - EK: Ce⁴⁺, Eu²⁺; U +6 as UO₂²⁺.
+  - P1 · P2 · drills: cw-fblock-ox, cw-actinyl-ox
+
+## Unit 14 · Reaction steps and homogeneous catalysis (ch. 21–22)
+
+Big ideas: COUNT
+
+### 14.1 Electron counting and elementary steps
+
+
+
+- ● **IA-14.1.A** Count valence electrons in organometallic complexes.
+  - EK: 18 for carbonyls; 16 for square-planar d⁸.
+  - P1 · drills: cw-electron-count
+- ● **IA-14.1.B** Follow electron count and oxidation state through oxidative addition and the other elementary steps.
+  - EK: OA: +2 ox, +2 CN, +2 e.
+  - Needs: IA-14.1.A
+  - P1 · P2 · drills: cw-oxidative-addition, cw-reaction-step, cw-beta-hydride
+
+### 14.2 Catalytic cycles
+
+
+
+- ● **IA-14.2.A** Name the catalyst of the major industrial homogeneous processes and track electron counts round a cycle.
+  - EK: Monsanto, Wacker, Ziegler–Natta, Wilkinson, oxo, metathesis; 16/18 alternation.
+  - Needs: IA-14.1.B
+  - P1 · P2 · drills: cw-catalytic-process, cw-monsanto-count
 
 ## Drills not yet placed on the map
 

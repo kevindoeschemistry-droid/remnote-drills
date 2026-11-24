@@ -156,3 +156,89 @@ def cw_fact_pick(key, o1, o2, o3, o4):
 
 FUNCS = {f.__name__: f for f in [cw_shape_pick, cw_bond_order, cw_unpaired_mo, cw_wade, cw_silicate_ratio, cw_latimer,
                                  cw_isotope_ratio, cw_fullerene_hex, cw_fact_pick]}
+
+# ── transition elements, f block and organometallics ─────────────────────────
+GROUP_TM = {"Ti": 4, "V": 5, "Cr": 6, "Mn": 7, "Fe": 8, "Co": 9, "Ni": 10, "Cu": 11, "Zr": 4, "Mo": 6, "W": 6, "Re": 7,
+            "Ru": 8, "Os": 8, "Rh": 9, "Ir": 9, "Pd": 10, "Pt": 10, "Ta": 5, "Nb": 5, "Hf": 4}
+DONATE = {"CO": 2, "PR3": 2, "PPh3": 2, "NH3": 2, "H2O": 2, "Cl": 1, "Br": 1, "I": 1, "H": 1, "CH3": 1, "Cp": 5,
+          "C6H6": 6, "C2H4": 2, "NO": 3, "allyl": 3, "COD": 4, "CHR": 2, "Ph": 1, "acyl": 1}
+
+
+def cw_electron_count(M, ligs, q):
+    """neutral (covalent) method: group number + electrons each ligand brings as a neutral fragment − charge"""
+    tot = GROUP_TM[str(M)]
+    for part in str(ligs).split(","):
+        name, n = part.split(":")
+        tot += DONATE[name] * int(n)
+    return sp.Integer(tot - int(q))
+
+
+def cw_mm_bond(d1, d2):
+    """σ, π, π, δ, δ*, π*, π*, σ* filled in order by the metals' d electrons; bonding minus antibonding over 2"""
+    n = int(d1) + int(d2)
+    b = a = 0
+    for sign in (1, 1, 1, 1, -1, -1, -1, -1):
+        k = min(2, n)
+        n -= k
+        if sign > 0:
+            b += k
+        else:
+            a += k
+    return sp.Rational(b - a, 2)
+
+
+def _hund_f(n):
+    """S, L, J of f^n by Hund's rules"""
+    ml = [3, 2, 1, 0, -1, -2, -3]
+    up = min(n, 7)
+    down = n - up
+    S = sp.Rational(up - down, 2)
+    L = abs(sum(ml[:up]) + sum(ml[:down]))
+    J = abs(L - S) if n < 7 else L + S
+    return S, sp.Integer(L), J
+
+
+def cw_ln_moment(n):
+    """μ_eff = g_J √(J(J+1)) in Bohr magnetons for a free Ln³⁺ ion of configuration f^n"""
+    S, L, J = _hund_f(int(n))
+    g = 1 + (J * (J + 1) + S * (S + 1) - L * (L + 1)) / (2 * J * (J + 1))
+    return g * sp.sqrt(J * (J + 1))
+
+
+def cw_f_count(Z, q, series):
+    """electrons beyond the noble-gas core minus the charge, all in f for these ions: Ln (core Xe, 54, plus 5d¹6s² → 4f = Z−54−3 for Ln³⁺)"""
+    core = 54 if str(series) == "Ln" else 86
+    return sp.Integer(int(Z) - core - int(q))
+
+
+def cw_inert(d, spin):
+    """Taube: octahedral d³ and low-spin d⁶ are substitution-inert (big LFSE loss on the way to a 5- or 7-coordinate state)"""
+    d = int(d)
+    return sp.Integer(0 if d == 3 or (d == 6 and str(spin) == "low") or (d in (4, 5) and str(spin) == "low") else 1)
+
+
+def cw_jahn_teller(d, spin):
+    """strong distortion when the e_g pair is unevenly filled"""
+    d = int(d)
+    t2g = min(d, 6) if str(spin) == "low" else min(d, 3) + max(0, min(d - 5, 3))
+    eg = d - t2g
+    return sp.Integer(0 if eg % 2 == 1 else 1)
+
+
+CW_FACTS.update({
+    "spectro:strongest:I,Cl,H2O,NH3,CN": "CN⁻", "spectro:strongest:F,OH,en,CO": "CO", "spectro:weakest:I,F,NH3,CN": "I⁻",
+    "mn:acid": "Mn²⁺", "mn:neutral": "MnO₂", "mn:base": "MnO₄²⁻",
+    "cr:acid": "Orange Cr₂O₇²⁻", "cr:base": "Yellow CrO₄²⁻",
+    "radii:Zr,Hf": "Almost the same (lanthanide contraction)", "spin:4d5d": "Low spin",
+    "trans:cisplatin": "Start from PtCl₄²⁻ and add NH₃: Cl⁻ trans-directs the second NH₃ cis",
+    "ln:Ce": "+4", "ln:Eu": "+2", "ln:Yb": "+2", "ln:Tb": "+4", "ln:Sm": "+2",
+    "an:U": "+6", "an:Np": "+7", "an:Th": "+4", "an:Am": "+3",
+    "step:addH2": "Oxidative addition", "step:loseHH": "Reductive elimination", "step:COins": "Migratory insertion (1,1)",
+    "step:betaH": "β-Hydride elimination", "step:olefinins": "Migratory insertion (1,2)",
+    "cat:monsanto": "Rh with iodide (methanol carbonylation to acetic acid)", "cat:wacker": "Pd(II) with Cu(II) (ethene to acetaldehyde)",
+    "cat:ziegler": "TiCl₄ with AlEt₃ (alkene polymerisation)", "cat:wilkinson": "RhCl(PPh₃)₃ (alkene hydrogenation)",
+    "cat:hydroform": "Co or Rh carbonyls (alkene + CO + H₂ to aldehyde)", "cat:metathesis": "Ru or Mo alkylidenes (Grubbs, Schrock)",
+    "betaH:need": "A vacant site cis to the alkyl and a β hydrogen",
+})
+
+FUNCS.update({f.__name__: f for f in [cw_electron_count, cw_mm_bond, cw_ln_moment, cw_f_count, cw_inert, cw_jahn_teller]})

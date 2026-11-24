@@ -1,6 +1,6 @@
 # The path — start to finish
 
-Every framework in `requires` order; inside each, units and objectives in order, except that 155 objectives move up to sit just after the prerequisites they need. 3319 objectives in 45 frameworks.
+Every framework in `requires` order; inside each, units and objectives in order, except that 155 objectives move up to sit just after the prerequisites they need. 3333 objectives in 45 frameworks.
 
 | # | Framework | Track | Requires | LOs | Path position |
 |---|---|---|---|---|---|
@@ -26,29 +26,29 @@ Every framework in `requires` order; inside each, units and objectives in order,
 | 20 | Structures from Memory | science | chemistry | 12 | 1724–1735 |
 | 21 | Organic Reactions: Predict the Product | science | chemistry, structures | 25 | 1736–1760 |
 | 22 | Chemistry Olympiad | science | chemistry, inorganic-chemistry | 14 | 1761–1774 |
-| 23 | Advanced Inorganic Chemistry (Cotton & Wilkinson) | science | inorganic-chemistry | 23 | 1775–1797 |
-| 24 | AI Basics | computing | — | 19 | 1798–1816 |
-| 25 | SQL | computing | — | 40 | 1817–1856 |
-| 26 | Programming Foundations | computing | math-hs | 140 | 1857–1996 |
-| 27 | Computer Science | computing | programming | 140 | 1997–2136 |
-| 28 | Information Systems | computing | computer-science | 53 | 2137–2189 |
-| 29 | Heat Transfer | engineering | engineering-math, physics | 101 | 2190–2290 |
-| 30 | Thermodynamics and Statistical Mechanics | engineering | engineering-math, chemistry, physics | 124 | 2291–2414 |
-| 31 | Molecular Simulation | engineering | thermodynamics, programming | 106 | 2415–2520 |
-| 32 | Fluid Mechanics | engineering | engineering-math, physics | 15 | 2521–2535 |
-| 33 | Material and Energy Balances | engineering | chemistry | 16 | 2536–2551 |
-| 34 | Process Design, Economics and Safety | engineering | material-balances | 9 | 2552–2560 |
-| 35 | Chemical Reaction Engineering | engineering | material-balances | 46 | 2561–2606 |
-| 36 | Separations | engineering | material-balances, thermodynamics | 6 | 2987–2994 |
-| 37 | Financial Accounting (CPA FAR) | business | — | 26 | 2613–2638 |
-| 38 | Dental Admission Test | health | biology, chemistry | 183 | 2639–2821 |
-| 39 | INBDE (Dentistry) | health | — | 22 | 2822–2843 |
-| 40 | NCLEX-RN | health | — | 39 | 2844–2882 |
-| 41 | AI Safety | safety | programming, calculus | 104 | 2883–2986 |
-| 42 | Speaking and Articulation | communication | — | 69 | 2987–3055 |
-| 43 | Basketball | athletics | — | 88 | 3056–3143 |
-| 44 | Swimming | athletics | — | 88 | 3144–3231 |
-| 45 | Wushu | athletics | — | 88 | 3232–3319 |
+| 23 | Advanced Inorganic Chemistry (Cotton & Wilkinson) | science | inorganic-chemistry | 37 | 1775–1811 |
+| 24 | AI Basics | computing | — | 19 | 1812–1830 |
+| 25 | SQL | computing | — | 40 | 1831–1870 |
+| 26 | Programming Foundations | computing | math-hs | 140 | 1871–2010 |
+| 27 | Computer Science | computing | programming | 140 | 2011–2150 |
+| 28 | Information Systems | computing | computer-science | 53 | 2151–2203 |
+| 29 | Heat Transfer | engineering | engineering-math, physics | 101 | 2204–2304 |
+| 30 | Thermodynamics and Statistical Mechanics | engineering | engineering-math, chemistry, physics | 124 | 2305–2428 |
+| 31 | Molecular Simulation | engineering | thermodynamics, programming | 106 | 2429–2534 |
+| 32 | Fluid Mechanics | engineering | engineering-math, physics | 15 | 2535–2549 |
+| 33 | Material and Energy Balances | engineering | chemistry | 16 | 2550–2565 |
+| 34 | Process Design, Economics and Safety | engineering | material-balances | 9 | 2566–2574 |
+| 35 | Chemical Reaction Engineering | engineering | material-balances | 46 | 2575–2620 |
+| 36 | Separations | engineering | material-balances, thermodynamics | 6 | 3001–3008 |
+| 37 | Financial Accounting (CPA FAR) | business | — | 26 | 2627–2652 |
+| 38 | Dental Admission Test | health | biology, chemistry | 183 | 2653–2835 |
+| 39 | INBDE (Dentistry) | health | — | 22 | 2836–2857 |
+| 40 | NCLEX-RN | health | — | 39 | 2858–2896 |
+| 41 | AI Safety | safety | programming, calculus | 104 | 2897–3000 |
+| 42 | Speaking and Articulation | communication | — | 69 | 3001–3069 |
+| 43 | Basketball | athletics | — | 88 | 3070–3157 |
+| 44 | Swimming | athletics | — | 88 | 3158–3245 |
+| 45 | Wushu | athletics | — | 88 | 3246–3333 |
 
 ## Order problems (a prerequisite comes after the objective)
 

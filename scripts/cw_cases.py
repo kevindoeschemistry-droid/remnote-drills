@@ -366,9 +366,230 @@ T.append(ox_t("cw-mercury-ox", MG, [
     ("Hg₃²⁺", "Hg3", 2, "Hg", "2/3"), ("ZnO₂²⁻ as Zn(OH)₄²⁻", "ZnO4H4", -2, "Zn", 2),
 ], "Calomel is Hg(I) as the Hg₂²⁺ dimer; the formula HgCl would hide the Hg–Hg bond. Polymercury cations like Hg₃²⁺ carry fractional average states."))
 
+
+# ═════ Part 3–4: transition elements, f block, organometallic catalysis (ch. 16–22) ═════
+T2 = []
+TM, FB, OM = "inorg.transition", "inorg.f-block", "inorg.organometallic"
+
+
+def num_t(name, skill, cases, prompt, ask, explain, verify, tol=0.002):
+    return f"""- template: {name}
+  skill: {skill}
+  pace: quick
+  cases:
+{cases}
+  prompt: {q(prompt)}
+  parts:
+    - {{ ask: {q(ask)}, label: y, tex: 'n', value: n, tol: {tol}, explain: {q(explain)} }}
+  verify: {{ expect: {{ y: "{verify}" }} }}
+"""
+
+
+def rows(fields, data):
+    return "\n".join("    - { " + ", ".join(f"{k}: {q(v) if isinstance(v, str) else v}" for k, v in zip(fields, r)) + " }" for r in data)
+
+
+# ── 16 · survey of the transition elements ──
+T2.append(num_t("cw-d-count", TM, rows(["sp", "M", "lg", "ch", "n"], [
+    ("[Fe(CN)₆]⁴⁻", "Fe", "CN:6", -4, 6), ("[Fe(CN)₆]³⁻", "Fe", "CN:6", -3, 5), ("[Co(NH₃)₆]³⁺", "Co", "NH3:6", 3, 6),
+    ("[Cr(H₂O)₆]³⁺", "Cr", "H2O:6", 3, 3), ("[MnO₄]⁻ written as Mn with four O²⁻", "Mn", "ox:0,F:0", 7, 0),
+    ("[Ni(CN)₄]²⁻", "Ni", "CN:4", -2, 8), ("[CuCl₄]²⁻", "Cu", "Cl:4", -2, 9), ("[Ti(H₂O)₆]³⁺", "Ti", "H2O:6", 3, 1),
+    ("[V(CO)₆]", "V", "CO:6", 0, 5), ("[PtCl₂(NH₃)₂]", "Pt", "Cl:2,NH3:2", 0, 8)]),
+    "What is the dⁿ count of the metal in {{sp}}?", "d electrons",
+    "Find the oxidation state by charge balance (neutral ligands 0, halides and CN⁻ −1), then dⁿ = group number − oxidation state.",
+    "d_count(M, lg, ch)"))
+T2[-1] = T2[-1].replace("    - { sp: '[MnO₄]⁻ written as Mn with four O²⁻', M: 'Mn', lg: 'ox:0,F:0', ch: 7, n: 0 }\n", "")
+
+T2.append(num_t("cw-complex-unpaired", TM, rows(["sp", "M", "lg", "ch", "geo", "spn", "n"], [
+    ("[Fe(H₂O)₆]²⁺", "Fe", "H2O:6", 2, "oct", "high", 4), ("[Fe(CN)₆]³⁻", "Fe", "CN:6", -3, "oct", "low", 1),
+    ("[CoF₆]³⁻", "Co", "F:6", -3, "oct", "high", 4), ("[Mn(H₂O)₆]²⁺", "Mn", "H2O:6", 2, "oct", "high", 5),
+    ("[Cr(H₂O)₆]³⁺", "Cr", "H2O:6", 3, "oct", "high", 3), ("[Cu(H₂O)₆]²⁺", "Cu", "H2O:6", 2, "oct", "high", 1),
+    ("[NiCl₄]²⁻ (tetrahedral)", "Ni", "Cl:4", -2, "tet", "high", 2), ("[CoCl₄]²⁻ (tetrahedral)", "Co", "Cl:4", -2, "tet", "high", 3),
+    ("[Mn(CN)₆]⁴⁻", "Mn", "CN:6", -4, "oct", "low", 1)]),
+    "How many unpaired electrons does {{sp}} have?", "Unpaired electrons",
+    "Get dⁿ from the oxidation state, then fill t₂g and e_g (octahedral) or e and t₂ (tetrahedral): weak-field ligands give high spin, CN⁻ low spin, and tetrahedral complexes are always high spin.",
+    "unpaired(d_count(M, lg, ch), geo, spn)"))
+
+T2.append(num_t("cw-spin-only-moment", TM, rows(["sp", "d", "spn", "n"], [
+    ("an octahedral high-spin d⁵ ion", 5, "high", 35 ** 0.5), ("an octahedral low-spin d⁵ ion", 5, "low", 3 ** 0.5),
+    ("an octahedral d³ ion", 3, "high", 15 ** 0.5), ("an octahedral high-spin d⁶ ion", 6, "high", 24 ** 0.5),
+    ("an octahedral d⁹ ion", 9, "high", 3 ** 0.5), ("an octahedral d⁸ ion", 8, "high", 8 ** 0.5)]),
+    "What is the spin-only magnetic moment of {{sp}}, in Bohr magnetons?", "μ (BM)",
+    "μ_so = √(n(n + 2)) with n unpaired electrons: 1.73, 2.83, 3.87, 4.90, 5.92 for n = 1–5. First-row metals come close; orbital contributions push some higher (Co²⁺).",
+    "spin_only(d, 'oct', spn)", tol=0.0005))
+
+T2.append(num_t("cw-cfse", TM, rows(["sp", "d", "spn", "n"], [
+    ("high-spin octahedral d⁴", 4, "high", -0.6), ("low-spin octahedral d⁴", 4, "low", -1.6), ("high-spin octahedral d⁶", 6, "high", -0.4),
+    ("low-spin octahedral d⁶", 6, "low", -2.4), ("octahedral d³", 3, "high", -1.2), ("octahedral d⁸", 8, "high", -1.2),
+    ("high-spin octahedral d⁷", 7, "high", -0.8)]),
+    "What is the crystal-field stabilisation energy of a {{sp}} ion, in units of Δ_o (pairing energy aside)?", "CFSE (Δ_o)",
+    "Each t₂g electron counts −0.4Δ_o and each e_g electron +0.6Δ_o. d⁰, high-spin d⁵ and d¹⁰ get nothing, which shows in the double hump of hydration enthalpies across the first row.",
+    "cfse(d, 'oct', spn)"))
+
+T2.append(fact_t("cw-spectrochemical", TM, [
+    ("spectro:strongest:I,Cl,H2O,NH3,CN", "I⁻, Cl⁻, H₂O, NH₃ and CN⁻", "CN⁻", "I⁻", "H₂O", "NH₃"),
+    ("spectro:strongest:F,OH,en,CO", "F⁻, OH⁻, en and CO", "CO", "F⁻", "OH⁻", "en"),
+    ("spectro:weakest:I,F,NH3,CN", "I⁻, F⁻, NH₃ and CN⁻ (the weakest field)", "I⁻", "F⁻", "NH₃", "CN⁻"),
+], "In the spectrochemical series, which of {{f}} gives the strongest field, unless the weakest is asked?",
+    "I⁻ < Br⁻ < Cl⁻ < F⁻ < OH⁻ < H₂O < NH₃ < en < bpy < NO₂⁻ < CN⁻ < CO. π donors (halides) shrink Δ; π acceptors (CN⁻, CO) widen it."))
+
+T2.append("""- template: cw-jahn-teller
+  skill: inorg.transition
+  pace: recall
+  cases:
+    - { sp: 'Cu²⁺ (d⁹)', d: 9, spn: 'high', k: 0 }
+    - { sp: 'high-spin Cr²⁺ (d⁴)', d: 4, spn: 'high', k: 0 }
+    - { sp: 'high-spin Mn³⁺ (d⁴)', d: 4, spn: 'high', k: 0 }
+    - { sp: 'low-spin Co²⁺ (d⁷)', d: 7, spn: 'low', k: 0 }
+    - { sp: 'Cr³⁺ (d³)', d: 3, spn: 'high', k: 1 }
+    - { sp: 'high-spin Mn²⁺ (d⁵)', d: 5, spn: 'high', k: 1 }
+    - { sp: 'Ni²⁺ (d⁸)', d: 8, spn: 'high', k: 1 }
+    - { sp: 'low-spin Fe²⁺ (d⁶)', d: 6, spn: 'low', k: 1 }
+  prompt: 'Does an octahedral complex of {{sp}} show a strong Jahn–Teller distortion?'
+  parts:
+    - { ask: 'Distortion', label: a, choice: ["Yes: the e_g level is unevenly filled", "No: no strong distortion expected"], correct: k, explain: 'A degenerate, unevenly filled e_g set (one or three electrons) points straight at the ligands and drives a tetragonal elongation: d⁹, high-spin d⁴, low-spin d⁷. Uneven t₂g filling gives only weak effects' }
+  verify: { choices: { a: "cw_jahn_teller(d, spn)" } }
+""")
+
+T2.append("""- template: cw-labile-inert
+  skill: inorg.transition
+  pace: recall
+  cases:
+    - { sp: '[Cr(H₂O)₆]³⁺ (d³)', d: 3, spn: 'high', k: 0 }
+    - { sp: '[Co(NH₃)₆]³⁺ (low-spin d⁶)', d: 6, spn: 'low', k: 0 }
+    - { sp: '[Fe(H₂O)₆]²⁺ (high-spin d⁶)', d: 6, spn: 'high', k: 1 }
+    - { sp: '[Cu(H₂O)₆]²⁺ (d⁹)', d: 9, spn: 'high', k: 1 }
+    - { sp: '[Ni(H₂O)₆]²⁺ (d⁸)', d: 8, spn: 'high', k: 1 }
+    - { sp: '[Mn(H₂O)₆]²⁺ (high-spin d⁵)', d: 5, spn: 'high', k: 1 }
+  prompt: 'Is {{sp}} substitutionally inert or labile?'
+  parts:
+    - { ask: 'Kinetics', label: a, choice: ["Inert: ligand exchange takes hours or more", "Labile: exchange is fast"], correct: k, explain: 'Taube: d³ and low-spin d⁶ lose the most ligand-field stabilisation on the way to the transition state, so they swap ligands slowly. That is why Werner could separate Co(III) and Cr(III) isomers' }
+  verify: { choices: { a: "cw_inert(d, spn)" } }
+""")
+
+# ── 17 · first transition series ──
+T2.append(fact_t("cw-permanganate-product", TM, [
+    ("mn:acid", "in acid", "Mn²⁺", "MnO₂", "MnO₄²⁻", "Mn"),
+    ("mn:neutral", "in neutral solution", "MnO₂", "Mn²⁺", "MnO₄²⁻", "Mn"),
+    ("mn:base", "in strong base", "MnO₄²⁻", "Mn²⁺", "MnO₂", "Mn"),
+], "What does permanganate turn into when it acts as an oxidant {{f}}?",
+    "Five electrons in acid (to pale pink Mn²⁺), three near neutral (to brown MnO₂), one in strong base (to green manganate). The same reagent changes its electron count with pH."))
+
+T2.append(fact_t("cw-chromate-ph", TM, [
+    ("cr:acid", "acid", "Orange Cr₂O₇²⁻", "Yellow CrO₄²⁻", "Green Cr³⁺", "Blue CrO₅"),
+    ("cr:base", "base", "Yellow CrO₄²⁻", "Orange Cr₂O₇²⁻", "Green Cr³⁺", "Blue CrO₅"),
+], "Chromium(VI) is dissolved in {{f}}. What dominates?",
+    "2 CrO₄²⁻ + 2 H⁺ ⇌ Cr₂O₇²⁻ + H₂O: acid pushes right (orange), base left (yellow). Both are Cr(VI); no electrons change hands."))
+
+T2.append(ox_t("cw-first-row-ox", TM, [
+    ("VO²⁺ (vanadyl)", "VO", 2, "V", 4), ("FeO₄²⁻ (ferrate)", "FeO4", -2, "Fe", 6), ("Fe₃O₄ (magnetite)", "Fe3O4", 0, "Fe", "8/3"),
+    ("Co₃O₄", "Co3O4", 0, "Co", "8/3"), ("NiO(OH)", "NiO2H", 0, "Ni", 3), ("Cu₂O", "Cu2O", 0, "Cu", 1), ("TiO₂", "TiO2", 0, "Ti", 4),
+    ("CrO₅ (two peroxides; rule gives the average)", "CrO5", 0, "Cr", 10),
+], "Mixed-valence oxides average out: magnetite is Fe²⁺Fe³⁺₂O₄ (+8/3). Charge balance with O = −2 fails for peroxides: CrO₅ is really Cr(VI) with two O₂²⁻ groups, not Cr(+10)."))
+T2[-1] = T2[-1].replace("    - { sp: 'CrO₅ (two peroxides; rule gives the average)', fm: 'CrO5', ch: 0, el: 'Cr', n: 10.0 }\n", "")
+
+# ── 18 · second and third series ──
+T2.append(num_t("cw-metal-metal-bond", TM, rows(["sp", "d1", "d2", "n"], [
+    ("[Re₂Cl₈]²⁻ (two Re(III), d⁴)", 4, 4, 4), ("Mo₂(O₂CCH₃)₄ (two Mo(II), d⁴)", 4, 4, 4), ("Cr₂(O₂CCH₃)₄ (two Cr(II), d⁴)", 4, 4, 4),
+    ("Mo₂(NMe₂)₆ (two Mo(III), d³)", 3, 3, 3), ("[Os₂Cl₈]²⁻ (two Os(III), d⁵)", 5, 5, 3), ("Rh₂(O₂CCH₃)₄ (two Rh(II), d⁷)", 7, 7, 1)]),
+    "What is the metal–metal bond order in {{sp}}?", "Bond order",
+    "d–d overlap gives σ, two π and δ bonding orbitals, then δ*, π* and σ*. Eight d electrons fill σ²π⁴δ²: a quadruple bond, Cotton's [Re₂Cl₈]²⁻ (1964), held eclipsed by the δ bond.",
+    "cw_mm_bond(d1, d2)"))
+
+T2.append(fact_t("cw-heavy-tm-facts", TM, [
+    ("radii:Zr,Hf", "the radii of Zr and Hf", "Almost the same (lanthanide contraction)", "Hf is much larger", "Zr is much larger", "Hf is larger by the same step as Ti to Zr"),
+    ("spin:4d5d", "4d and 5d complexes, as a rule", "Low spin", "High spin", "Always diamagnetic", "Always tetrahedral"),
+    ("trans:cisplatin", "the synthesis of cis-[PtCl₂(NH₃)₂]", "Start from PtCl₄²⁻ and add NH₃: Cl⁻ trans-directs the second NH₃ cis", "Start from Pt(NH₃)₄²⁺ and add Cl⁻", "Heat trans-[PtCl₂(NH₃)₂]", "Any order gives the same isomer"),
+], "What is true of {{f}}?",
+    "The 4f shell fills between La and Hf and shields poorly, so Hf ends up the size of Zr and the two are hard to separate. Larger 4d and 5d orbitals give bigger splittings, so heavy complexes are low spin. Ligands trans to Cl⁻ are labilised more than those trans to NH₃: that trans effect decides cisplatin's geometry."))
+
+# ── 19–20 · lanthanides and actinides ──
+T2.append(num_t("cw-f-count", FB, rows(["sp", "Z", "ch", "sr", "n"], [
+    ("Ce³⁺", 58, 3, "Ln", 1), ("Nd³⁺", 60, 3, "Ln", 3), ("Gd³⁺", 64, 3, "Ln", 7), ("Eu²⁺", 63, 2, "Ln", 7), ("Yb²⁺", 70, 2, "Ln", 14),
+    ("Lu³⁺", 71, 3, "Ln", 14), ("Tb⁴⁺", 65, 4, "Ln", 7), ("U⁴⁺", 92, 4, "An", 2), ("Pu³⁺", 94, 3, "An", 5), ("Am³⁺", 95, 3, "An", 6),
+    ("Np in NpO₂⁺ (Np(V))", 93, 5, "An", 2)]),
+    "How many f electrons does {{sp}} have?", "f electrons",
+    "Ln³⁺ ions are [Xe]4fⁿ with n = Z − 57; An ions are [Rn]5fⁿ. f⁰, f⁷ and f¹⁴ are extra stable, which is why Ce⁴⁺, Eu²⁺, Tb⁴⁺ and Yb²⁺ exist.",
+    "cw_f_count(Z, ch, sr)"))
+
+def _gj(S, L, J):
+    return 1 + (J * (J + 1) + S * (S + 1) - L * (L + 1)) / (2 * J * (J + 1))
+
+LN_TERMS = [("Ce³⁺", "²F₅/₂", 1, 0.5, 3, 2.5), ("Pr³⁺", "³H₄", 2, 1, 5, 4), ("Nd³⁺", "⁴I₉/₂", 3, 1.5, 6, 4.5), ("Sm³⁺", "⁶H₅/₂", 5, 2.5, 5, 2.5),
+            ("Gd³⁺", "⁸S₇/₂", 7, 3.5, 0, 3.5), ("Tb³⁺", "⁷F₆", 8, 3, 3, 6), ("Dy³⁺", "⁶H₁₅/₂", 9, 2.5, 5, 7.5), ("Ho³⁺", "⁵I₈", 10, 2, 6, 8),
+            ("Er³⁺", "⁴I₁₅/₂", 11, 1.5, 6, 7.5), ("Tm³⁺", "³H₆", 12, 1, 5, 6), ("Yb³⁺", "²F₇/₂", 13, 0.5, 3, 3.5)]
+T2.append(num_t("cw-ln-moment", FB, rows(["sp", "term", "f", "n"], [(a, t, f, _gj(S, L, J) * (J * (J + 1)) ** 0.5) for a, t, f, S, L, J in LN_TERMS]),
+    "{{sp}} (4f^{{f}}, ground term {{term}}) has its moment from the whole J, since the 4f shell is shielded. What is μ_eff = g_J√(J(J + 1)), in BM?", "μ_eff (BM)",
+    "Lanthanide f electrons are buried under 5s and 5p, so ligands barely quench orbital momentum: use J, not the spin-only formula. g_J = 1 + [J(J+1) + S(S+1) − L(L+1)] / 2J(J+1). Dy³⁺ and Ho³⁺ reach about 10.6 BM.",
+    "cw_ln_moment(f)", tol=0.0005))
+
+T2.append(fact_t("cw-fblock-ox", FB, [
+    ("ln:Ce", "cerium (besides +3)", "+4", "+2", "+5", "+1"), ("ln:Eu", "europium (besides +3)", "+2", "+4", "+5", "+1"),
+    ("ln:Yb", "ytterbium (besides +3)", "+2", "+4", "+5", "+1"), ("ln:Tb", "terbium (besides +3)", "+4", "+2", "+5", "+1"),
+    ("an:U", "uranium (its highest common state)", "+6", "+3", "+4", "+8"), ("an:Np", "neptunium (its highest state)", "+7", "+3", "+5", "+8"),
+    ("an:Th", "thorium (its usual state)", "+4", "+3", "+2", "+6"), ("an:Am", "americium (its usual state in water)", "+3", "+6", "+4", "+2"),
+], "Which oxidation state is characteristic of {{f}}?",
+    "Lanthanides sit at +3, with +4 or +2 only where it reaches f⁰, f⁷ or f¹⁴. Early actinides behave like transition metals (5f is less shielded): U goes to +6 as uranyl, Np to +7, and only from Am on does +3 take over."))
+
+T2.append(ox_t("cw-actinyl-ox", FB, [
+    ("UO₂²⁺ (uranyl)", "UO2", 2, "U", 6), ("NpO₂⁺", "NpO2", 1, "Np", 5), ("PuO₂²⁺", "PuO2", 2, "Pu", 6), ("UF₆", "UF6", 0, "U", 6),
+    ("U₃O₈", "U3O8", 0, "U", "16/3"), ("ThO₂", "ThO2", 0, "Th", 4),
+], "Actinyl ions O=An=O are linear, with strong multiple bonds; equatorial ligands sit in a ring around them. U₃O₈ is mixed U(V)/U(VI)."))
+
+# ── 21–22 · organometallic reaction steps and catalysis ──
+T2.append(num_t("cw-electron-count", OM, rows(["sp", "M", "lg", "ch", "n"], [
+    ("Cr(CO)₆", "Cr", "CO:6", 0, 18), ("Fe(CO)₅", "Fe", "CO:5", 0, 18), ("Ni(CO)₄", "Ni", "CO:4", 0, 18), ("ferrocene, FeCp₂", "Fe", "Cp:2", 0, 18),
+    ("Cr(η⁶-C₆H₆)₂", "Cr", "C6H6:2", 0, 18), ("V(CO)₆", "V", "CO:6", 0, 17), ("[Mn(CO)₆]⁺", "Mn", "CO:6", 1, 18),
+    ("RhCl(PPh₃)₃ (Wilkinson's)", "Rh", "Cl:1,PPh3:3", 0, 16), ("IrCl(CO)(PPh₃)₂ (Vaska's)", "Ir", "Cl:1,CO:1,PPh3:2", 0, 16),
+    ("[PtCl₃(η²-C₂H₄)]⁻ (Zeise's anion)", "Pt", "Cl:3,C2H4:1", -1, 16), ("CpMn(CO)₃", "Mn", "Cp:1,CO:3", 0, 18)]),
+    "What is the valence electron count of {{sp}}?", "Electrons",
+    "Ionic method: dⁿ of the metal plus 2 per ligand pair (Cp⁻ 6, C₆H₆ 6, Cl⁻ 2). Neutral method: group number plus 1 per halide, 5 per Cp, 2 per CO. Both give 18 for stable carbonyls; square-planar d⁸ complexes (Rh(I), Ir(I), Pt(II)) are content with 16.",
+    "cw_electron_count(M, lg, ch)"))
+
+T2.append(num_t("cw-oxidative-addition", OM, rows(["sp", "M", "lg", "ch", "n"], [
+    ("IrCl(CO)(PPh₃)₂ + H₂", "Ir", "Cl:1,CO:1,PPh3:2,H:2", 0, 18), ("IrCl(CO)(PPh₃)₂ + CH₃I", "Ir", "Cl:1,CO:1,PPh3:2,CH3:1,I:1", 0, 18),
+    ("RhCl(PPh₃)₃ + H₂", "Rh", "Cl:1,PPh3:3,H:2", 0, 18), ("Pd(PPh₃)₂ + PhBr", "Pd", "PPh3:2,Ph:1,Br:1", 0, 16),
+    ("[Rh(CO)₂I₂]⁻ + CH₃I (Monsanto)", "Rh", "CO:2,I:3,CH3:1", -1, 18)]),
+    "What is the electron count of the product of the oxidative addition {{sp}}?", "Electrons",
+    "Oxidative addition breaks X–Y and adds both to the metal: oxidation state +2, coordination number +2, electron count +2 (16 → 18). Reductive elimination is the reverse and forms the product C–C or C–H bond.",
+    "cw_electron_count(M, lg, ch)"))
+
+T2.append(fact_t("cw-reaction-step", OM, [
+    ("step:addH2", "M + H₂ → M(H)₂, the metal's oxidation state rising by 2", "Oxidative addition", "Reductive elimination", "Migratory insertion (1,1)", "β-Hydride elimination"),
+    ("step:loseHH", "M(H)(R) → M + R–H, the oxidation state falling by 2", "Reductive elimination", "Oxidative addition", "Migratory insertion (1,2)", "β-Hydride elimination"),
+    ("step:COins", "M(CH₃)(CO) → M(COCH₃), forming an acyl", "Migratory insertion (1,1)", "Migratory insertion (1,2)", "Oxidative addition", "β-Hydride elimination"),
+    ("step:olefinins", "M(H)(CH₂=CH₂) → M(CH₂CH₃)", "Migratory insertion (1,2)", "Migratory insertion (1,1)", "Reductive elimination", "β-Hydride elimination"),
+    ("step:betaH", "M(CH₂CH₂R) → M(H)(CH₂=CHR)", "β-Hydride elimination", "Migratory insertion (1,2)", "Oxidative addition", "Reductive elimination"),
+], "Name the elementary step: {{f}}.",
+    "Catalytic cycles are built from a handful of steps: oxidative addition and reductive elimination change the oxidation state by 2; insertions and β-elimination change it by none, but open or fill a coordination site."))
+
+T2.append(fact_t("cw-beta-hydride", OM, [
+    ("betaH:need", "β-hydride elimination from a metal alkyl", "A vacant site cis to the alkyl and a β hydrogen", "An 18-electron metal", "A trans vacant site", "An α hydrogen only"),
+], "What does {{f}} need?",
+    "The β C–H swings in to the open cis site; without one, or without a β hydrogen (methyl, neopentyl, benzyl), the alkyl is far more stable. Chain growth in polymerisation stops this way."))
+
+T2.append(fact_t("cw-catalytic-process", OM, [
+    ("cat:monsanto", "the Monsanto acetic acid process", "Rh with iodide (methanol carbonylation to acetic acid)", "Pd(II) with Cu(II) (ethene to acetaldehyde)", "TiCl₄ with AlEt₃ (alkene polymerisation)", "Ru or Mo alkylidenes (Grubbs, Schrock)"),
+    ("cat:wacker", "the Wacker process", "Pd(II) with Cu(II) (ethene to acetaldehyde)", "Rh with iodide (methanol carbonylation to acetic acid)", "Co or Rh carbonyls (alkene + CO + H₂ to aldehyde)", "RhCl(PPh₃)₃ (alkene hydrogenation)"),
+    ("cat:ziegler", "Ziegler–Natta polymerisation", "TiCl₄ with AlEt₃ (alkene polymerisation)", "Pd(II) with Cu(II) (ethene to acetaldehyde)", "Ru or Mo alkylidenes (Grubbs, Schrock)", "Co or Rh carbonyls (alkene + CO + H₂ to aldehyde)"),
+    ("cat:wilkinson", "homogeneous hydrogenation of alkenes", "RhCl(PPh₃)₃ (alkene hydrogenation)", "TiCl₄ with AlEt₃ (alkene polymerisation)", "Pd(II) with Cu(II) (ethene to acetaldehyde)", "Rh with iodide (methanol carbonylation to acetic acid)"),
+    ("cat:hydroform", "hydroformylation (the oxo process)", "Co or Rh carbonyls (alkene + CO + H₂ to aldehyde)", "RhCl(PPh₃)₃ (alkene hydrogenation)", "Ru or Mo alkylidenes (Grubbs, Schrock)", "TiCl₄ with AlEt₃ (alkene polymerisation)"),
+    ("cat:metathesis", "olefin metathesis", "Ru or Mo alkylidenes (Grubbs, Schrock)", "Co or Rh carbonyls (alkene + CO + H₂ to aldehyde)", "Pd(II) with Cu(II) (ethene to acetaldehyde)", "TiCl₄ with AlEt₃ (alkene polymerisation)"),
+], "What catalyst runs {{f}}?",
+    "Each industrial cycle strings together the elementary steps: Monsanto is oxidative addition of CH₃I, CO insertion and reductive elimination of acetyl iodide; Wacker is nucleophilic attack on Pd-bound ethene with Cu reoxidising Pd(0)."))
+
+T2.append(num_t("cw-monsanto-count", OM, rows(["sp", "M", "lg", "ch", "n"], [
+    ("[Rh(CO)₂I₂]⁻, the resting catalyst", "Rh", "CO:2,I:2", -1, 16), ("[CH₃Rh(CO)₂I₃]⁻, after oxidative addition", "Rh", "CO:2,I:3,CH3:1", -1, 18),
+    ("[Rh(COCH₃)(CO)I₃]⁻, after CO insertion", "Rh", "CO:1,I:3,acyl:1", -1, 16), ("[Rh(COCH₃)(CO)₂I₃]⁻, after CO binds", "Rh", "CO:2,I:3,acyl:1", -1, 18)]),
+    "In the Monsanto cycle, what is the electron count of {{sp}}?", "Electrons",
+    "The cycle alternates 16 and 18 electrons (Tolman's rule): oxidative addition 16 → 18, migratory insertion 18 → 16, CO uptake 16 → 18, reductive elimination of CH₃COI 18 → 16.",
+    "cw_electron_count(M, lg, ch)"))
+
 if __name__ == "__main__":
     head = ("# Cotton & Wilkinson, Advanced Inorganic Chemistry 6e, chapters 1–15 (framework inorganic-advanced).\n"
             "# Generated by scripts/cw_cases.py: edit the script, not this file. Checked by tests/verify/cwcalc.py\n"
             "# (VSEPR, MO ladders, Wade, Euler, Latimer, CW_FACTS) and incalc's ox_state.\n\n")
     (ROOT / "cw-main-group.yaml").write_text(head + "\n".join(T))
-    print(f"wrote {len(T)} templates")
+    head2 = head.replace("chapters 1–15", "chapters 16–22")
+    (ROOT / "cw-transition.yaml").write_text(head2 + "\n".join(T2))
+    print(f"wrote {len(T)} + {len(T2)} templates")
