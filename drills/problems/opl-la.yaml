@@ -36,6 +36,38 @@
     explain: Ask whether the zero element is in the set and whether sums and multiples stay in it. Degree exactly 3 fails (the sum of x³ and −x³ is 0); invertible matrices miss the zero matrix; a nonhomogeneous condition (f(0) = 1, y″ + y = 1) fails closure.
   verify:
     authored: true
+- template: la-axiom-fails
+  skill: la.subspaces
+  pace: recall
+  cases:
+  - q: ℝ² with ordinary addition but c(x, y) = (cx, 0). Which axiom fails?
+    o1: 1·v = v
+    o2: Closure under addition
+    o3: Commutativity of addition
+    o4: The zero vector exists
+  - q: The positive reals with x ⊕ y = xy and c ⊙ x = xᶜ. Is it a vector space?
+    o1: 'Yes: the zero vector is 1'
+    o2: 'No: there is no zero vector'
+    o3: 'No: it is not closed under scaling'
+    o4: Only over the integers
+  - q: The polynomials with integer coefficients, over the reals. Which fails?
+    o1: Closure under scalar multiplication
+    o2: Closure under addition
+    o3: Existence of a zero
+    o4: Associativity
+  prompt: '{{q}}'
+  parts:
+  - ask: Answer
+    label: v
+    choice:
+    - '{{o1}}'
+    - '{{o2}}'
+    - '{{o3}}'
+    - '{{o4}}'
+    correct: '0'
+    explain: Check each axiom against the operations actually given, not the usual ones
+  verify:
+    authored: true
 - template: la-poly-combination
   skill: la.span
   pace: quick
@@ -65,6 +97,31 @@
   verify:
     expect:
       v: (Matrix([[1, 0, 1], [1, 1, 0], [0, 1, 1]]).inv()*Matrix([a + c, a + b, b + c]))[1]
+- template: la-poly-combo-2
+  skill: la.span
+  pace: quick
+  given:
+    a:
+      int:
+      - -6
+      - 6
+    b:
+      int:
+      - -6
+      - 6
+  require:
+  - a + b != 0
+  prompt: Write ${{a}} + {{b}}x = c_1(1 + x) + c_2(1 - x)$. What is $c_1$?
+  parts:
+  - ask: Answer
+    label: v
+    tex: c_1
+    value: (a + b)/2
+    tol: 0.005
+    explain: 'Match constants and x-coefficients: c₁ + c₂ = a and c₁ − c₂ = b'
+  verify:
+    expect:
+      v: Matrix([[1, 1], [1, -1]]).LUsolve(Matrix([a, b]))[0]
 - template: la-poly-span
   skill: la.span
   pace: quick
@@ -95,6 +152,36 @@
   verify:
     choices:
       v: 0 if Matrix([[1, 0], [0, 1], [1, 1]]).rank() == Matrix([[1, 0, a], [0, 1, b], [1, 1, a + b + e]]).rank() else 1
+- template: la-poly-span-h
+  skill: la.span
+  pace: quick
+  given:
+    a:
+      int:
+      - -4
+      - 4
+    b:
+      int:
+      - -4
+      - 4
+    c:
+      int:
+      - -4
+      - 4
+  require:
+  - a + c*b != 0
+  prompt: For which $h$ is $h + {{c}}x + x^2$ in the span of $x^2 + {{a}}$ and $x + {{b}}$?
+  parts:
+  - ask: Answer
+    label: v
+    tex: h
+    value: a + c*b
+    final: true
+    tol: 0.0001
+    explain: The x² and x coefficients force the weights 1 and c; the constant must then be a + cb
+  verify:
+    expect:
+      v: solve(Eq(Matrix([[1, 0, 1], [0, 1, c], [a, b, x]]).det(), 0), x)[0]
 - template: la-poly-dependence
   skill: la.independence
   pace: quick
@@ -120,6 +207,35 @@
   verify:
     expect:
       v: solve(Matrix([[1, a, 1], [0, 1, b], [1, x, 0]]).det(), x)[0]
+- template: la-poly-dependent-k
+  skill: la.independence
+  pace: quick
+  given:
+    a:
+      int:
+      - -4
+      - 4
+    b:
+      pick:
+      - -3
+      - -1
+      - 1
+      - 2
+      - 3
+  require:
+  - a != -1
+  prompt: For which $k$ are $1 + {{a}}x$, $x + {{b}}x^2$ and $1 + kx + {{b}}x^2$ linearly dependent?
+  parts:
+  - ask: Answer
+    label: v
+    tex: k
+    value: a + 1
+    final: true
+    tol: 0.0001
+    explain: The third is the sum of the first two exactly when k = a + 1
+  verify:
+    expect:
+      v: solve(Eq(Matrix([[1, a, 0], [0, 1, b], [1, x, b]]).det(), 0), x)[0]
 - template: la-space-dimension
   skill: la.subspaces
   pace: recall
@@ -150,6 +266,35 @@
   verify:
     expect:
       v: summation(Symbol('i'), (Symbol('i'), 1, n)) if kd in (0, 4) else (summation(Symbol('i') - 1, (Symbol('i'), 1, n)) if kd == 1 else (n**2 - 1 if kd == 2 else n + 1))
+- template: la-special-dim
+  skill: la.subspaces
+  pace: quick
+  given:
+    nn:
+      int:
+      - 2
+      - 6
+  cases:
+  - kind: symmetric
+    kd: 1
+  - kind: skew-symmetric
+    kd: 2
+  - kind: upper-triangular
+    kd: 1
+  - kind: trace-zero
+    kd: 3
+  prompt: What is the dimension of the space of {{kind}} {{nn}}×{{nn}} matrices?
+  parts:
+  - ask: Answer
+    label: v
+    tex: ''
+    value: 'kd == 1 ? nn*(nn + 1)/2 : (kd == 2 ? nn*(nn - 1)/2 : nn^2 - 1)'
+    final: true
+    tol: 0.0001
+    explain: 'Count free entries: the diagonal and one triangle, one triangle alone, or all but one diagonal entry'
+  verify:
+    expect:
+      v: Rational(nn*(nn + 1), 2) if kd == 1 else (Rational(nn*(nn - 1), 2) if kd == 2 else nn**2 - 1)
 - template: la-function-inner-product
   skill: la.orthogonality
   pace: quick
@@ -179,6 +324,25 @@
   verify:
     expect:
       v: integrate((a + b*x)*(c + x), (x, 0, 1))
+- template: la-orthogonal-shift
+  skill: la.orthogonality
+  pace: quick
+  given:
+    m:
+      int:
+      - 0
+      - 4
+  prompt: With $\langle f, g \rangle = \int_0^1 f g\,dx$, for which $k$ is $x^{ {{m}} }$ orthogonal to $x - k$?
+  parts:
+  - ask: Answer
+    label: v
+    tex: k
+    value: (m + 1)/(m + 2)
+    tol: 0.005
+    explain: 1/(m + 2) − k/(m + 1) = 0
+  verify:
+    expect:
+      v: solve(Eq(integrate(Symbol('t')**m*(Symbol('t') - x), (Symbol('t'), 0, 1)), 0), x)[0]
 - template: la-balance-combustion
   skill: la.span
   pace: quick
@@ -199,6 +363,25 @@
   verify:
     expect:
       v: (Matrix([[n, 0, -1, 0], [2*n + 2, 0, 0, -2], [0, 2, -2, -1]]).nullspace()[0][1]/Matrix([[n, 0, -1, 0], [2*n + 2, 0, 0, -2], [0, 2, -2, -1]]).nullspace()[0][0]).p
+- template: la-oxygen-coefficient
+  skill: la.span
+  pace: quick
+  given:
+    nc:
+      int:
+      - 1
+      - 8
+  prompt: Balance C{{nc}}H{{2*nc + 2}} + O₂ → CO₂ + H₂O with 1 for the alkane. What is the O₂ coefficient?
+  parts:
+  - ask: Answer
+    label: v
+    tex: ''
+    value: (3*nc + 1)/2
+    tol: 0.005
+    explain: 'Each C needs one O₂, each two H need half: n + (n + 1)/2'
+  verify:
+    expect:
+      v: Matrix([[nc, 0, -1, 0], [2*nc + 2, 0, 0, -2], [0, 2, -2, -1]]).nullspace()[0][1]/Matrix([[nc, 0, -1, 0], [2*nc + 2, 0, 0, -2], [0, 2, -2, -1]]).nullspace()[0][0]
 - template: la-elementary-inverse
   skill: la.inverse
   pace: recall
@@ -223,6 +406,32 @@
   verify:
     expect:
       v: Matrix([[1, 0, 0], [0, 1, 0], [k, 0, 1]]).inv()[2, 0]
+- template: la-elementary-power
+  skill: la.inverse
+  pace: quick
+  given:
+    k:
+      int:
+      - -4
+      - 4
+    m:
+      int:
+      - 2
+      - 6
+  require:
+  - k != 0
+  prompt: $E$ adds {{k}} times row 1 to row 3 (3×3). What is the (3, 1) entry of $E^{ {{m}} }$?
+  parts:
+  - ask: Answer
+    label: v
+    tex: ''
+    value: m*k
+    final: true
+    tol: 0.0001
+    explain: Repeating the row operation m times adds mk times row 1
+  verify:
+    expect:
+      v: (Matrix([[1, 0, 0], [0, 1, 0], [k, 0, 1]])**m)[2, 0]
 - template: la-complex-det
   skill: la.determinant
   pace: quick
@@ -256,6 +465,41 @@
   verify:
     expect:
       v: expand(Matrix([[a + b*I, c], [d, a - b*I]]).det())
+- template: la-complex-det-modulus
+  skill: la.determinant
+  pace: quick
+  given:
+    a:
+      int:
+      - -3
+      - 3
+    b:
+      int:
+      - 1
+      - 3
+    c:
+      int:
+      - -4
+      - 4
+    d:
+      int:
+      - -3
+      - 3
+    e:
+      int:
+      - 1
+      - 3
+  prompt: What is $|\det A|$ for $A = \begin{pmatrix} {{a}} + {{b}}i & {{c}} \\ 0 & {{d}} + {{e}}i \end{pmatrix}$?
+  parts:
+  - ask: Answer
+    label: v
+    tex: '|\det A|'
+    value: sqrt((a^2 + b^2)*(d^2 + e^2))
+    tol: 0.005
+    explain: 'Triangular: det is the product of the diagonal, and moduli multiply'
+  verify:
+    expect:
+      v: Abs(Matrix([[a + b*I, c], [0, d + e*I]]).det())
 - template: la-jordan-power
   skill: la.diagonalization
   pace: quick
@@ -281,6 +525,32 @@
   verify:
     expect:
       v: (Matrix([[l, 1], [0, l]])**k)[0, 1]
+- template: la-jordan-exp
+  skill: la.diagonalization
+  pace: quick
+  given:
+    l:
+      pick:
+      - -1
+      - -0.5
+      - 0.5
+      - 1
+    t:
+      pick:
+      - 0.5
+      - 1
+      - 2
+  prompt: $J = \begin{pmatrix} {{l}} & 1 \\ 0 & {{l}} \end{pmatrix}$. What is the (1, 2) entry of $e^{Jt}$ at $t = {{t}}$?
+  parts:
+  - ask: Answer
+    label: v
+    tex: ''
+    value: t*exp(l*t)
+    tol: 0.005
+    explain: 'e^{Jt} = e^{λt}(I + Nt) because N² = 0: the off-diagonal is te^{λt}'
+  verify:
+    expect:
+      v: (Matrix([[nsimplify(l), 1], [0, nsimplify(l)]])*nsimplify(t)).exp()[0, 1]
 - template: la-orthogonal-inverse
   skill: la.orthogonality
   pace: quick
@@ -311,6 +581,40 @@
   verify:
     expect:
       v: (Matrix([[p, -q], [q, p]])/n).inv()[0, 1]
+- template: la-orthogonal-norm
+  skill: la.orthogonality
+  pace: quick
+  given:
+    th:
+      pick:
+      - 30
+      - 45
+      - 120
+    p:
+      int:
+      - -4
+      - 4
+    q:
+      int:
+      - -4
+      - 4
+    r:
+      int:
+      - -4
+      - 4
+  require:
+  - p^2 + q^2 + r^2 > 0
+  prompt: $Q$ is the rotation by {{th}}° about the z-axis. What is $\|Q({{p}}, {{q}}, {{r}})\|$?
+  parts:
+  - ask: Answer
+    label: v
+    tex: \|Qx\|
+    value: sqrt(p^2 + q^2 + r^2)
+    tol: 0.005
+    explain: 'Orthogonal matrices preserve length: QᵀQ = I'
+  verify:
+    expect:
+      v: (Matrix([[cos(th*pi/180), -sin(th*pi/180), 0], [sin(th*pi/180), cos(th*pi/180), 0], [0, 0, 1]])*Matrix([p, q, r])).norm().simplify()
 - template: la-map-inverse
   skill: la.transformations
   pace: quick
@@ -353,3 +657,34 @@
   verify:
     expect:
       v: solve([Eq(a*x + b*Symbol('Y'), p), Eq(c*x + d*Symbol('Y'), q)], [x, Symbol('Y')])[x]
+- template: la-poly-map-inverse
+  skill: la.transformations
+  pace: quick
+  given:
+    k:
+      int:
+      - -4
+      - 4
+    p:
+      int:
+      - -6
+      - 6
+    q:
+      int:
+      - -6
+      - 6
+  require:
+  - p - k*q != 0
+  - k != 0
+  prompt: $T(a + bx) = (a + {{k}}b) + bx$ on $\mathbb{P}_1$. What is the constant term of $T^{-1}({{p}} + {{q}}x)$?
+  parts:
+  - ask: Answer
+    label: v
+    tex: ''
+    value: p - k*q
+    final: true
+    tol: 0.0001
+    explain: T's matrix is [[1, k], [0, 1]]; its inverse subtracts k times the x-coefficient
+  verify:
+    expect:
+      v: (Matrix([[1, k], [0, 1]]).inv()*Matrix([p, q]))[0]
