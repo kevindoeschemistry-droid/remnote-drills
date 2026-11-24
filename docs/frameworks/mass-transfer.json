@@ -1,0 +1,702 @@
+{
+ "id": "mass-transfer",
+ "title": "Mass Transfer",
+ "code": "MS",
+ "draft": 1,
+ "track": "engineering",
+ "requires": [
+  "heat-transfer",
+  "engineering-math"
+ ],
+ "level": 5,
+ "domains": [
+  "mass"
+ ],
+ "basis": {
+  "primary": "pe-chemical",
+  "note": "PE Chemical names mass transfer as one area with two lines (6.A fundamentals, 6.B applications). No published standard lists graduate mass transfer; the objectives are a house list on Bird, Stewart & Lightfoot's mass-transport chapters."
+ },
+ "big_ideas": [
+  {
+   "id": "FLUX",
+   "title": "Fluxes need a reference frame",
+   "text": "A diffusive flux is measured relative to a mean velocity; the total flux adds the bulk flow. Which one a problem fixes (stagnant B, equimolar counterdiffusion) decides the answer."
+  },
+  {
+   "id": "SCALE",
+   "title": "Time and length scales decide the regime",
+   "text": "L²/D, the Thiele modulus and the Biot and Sherwood numbers say which resistance controls before any equation is solved."
+  }
+ ],
+ "practices": [
+  {
+   "id": "P1",
+   "title": "Compute",
+   "text": "Carry a flux, coefficient or time to a number with units."
+  },
+  {
+   "id": "P2",
+   "title": "Scale",
+   "text": "Predict how a result changes when D, L, T or a flow changes, from the governing equation."
+  }
+ ],
+ "units": [
+  {
+   "id": "diffusivity",
+   "n": 1,
+   "title": "Diffusivities and fluxes",
+   "scope": "core",
+   "std": [
+    "pe-chemical:6.A"
+   ],
+   "ideas": [
+    "FLUX"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "Estimating diffusivities",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "pe-chemical:6.A"
+       ],
+       "do": "Scale a gas diffusivity with temperature and pressure.",
+       "ek": [
+        "Chapman–Enskog: D_AB ∝ T^{3/2}/(P σ² Ω_D); ignoring the collision integral, D ∝ T^{3/2}/P."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "ms-gas-diffusivity-scaling"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "pe-chemical:6.A"
+       ],
+       "do": "Scale a liquid diffusivity with temperature and viscosity.",
+       "ek": [
+        "Stokes–Einstein: D = kT/(6πμa), so D μ/T is constant."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "ms-liquid-diffusivity-scaling"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "pe-chemical:6.A"
+       ],
+       "do": "Estimate a Knudsen diffusivity and decide the regime.",
+       "ek": [
+        "D_K = (d/3)√(8RT/πM); Knudsen diffusion takes over when the pore is smaller than the mean free path."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "ms-knudsen"
+       ]
+      },
+      {
+       "id": "D",
+       "std": [
+        "pe-chemical:6.A"
+       ],
+       "do": "Find an effective diffusivity in a porous solid.",
+       "ek": [
+        "D_eff = D ε/τ."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "ms-effective-diffusivity"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "title": "Fluxes and reference frames",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "pe-chemical:6.A"
+       ],
+       "do": "Find the flux for diffusion through a stagnant gas.",
+       "ek": [
+        "N_A = (cD/L) ln[(1 − x_A2)/(1 − x_A1)] (Stefan tube)."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "ms-stagnant-film"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "pe-chemical:6.A"
+       ],
+       "do": "Compare stagnant-film and equimolar fluxes.",
+       "ek": [
+        "N_stagnant/N_equimolar = 1/x_B,lm."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "ms-bulk-flow-factor"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "steady",
+   "n": 2,
+   "title": "Steady diffusion with reaction and geometry",
+   "scope": "core",
+   "std": [
+    "pe-chemical:6.A",
+    "pe-chemical:6.B"
+   ],
+   "ideas": [
+    "FLUX"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "Shell balances",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "pe-chemical:6.A"
+       ],
+       "do": "Find the effectiveness factor of a catalyst slab.",
+       "ek": [
+        "η = tanh φ / φ with φ = L√(k/D_eff)."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "ms-effectiveness-slab"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "pe-chemical:6.A"
+       ],
+       "do": "Find the effectiveness factor of a spherical pellet.",
+       "ek": [
+        "η = (3/φ²)(φ coth φ − 1) with φ = R√(k/D_eff)."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "ms-effectiveness-sphere"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "pe-chemical:6.A"
+       ],
+       "do": "Find steady diffusion through a spherical shell.",
+       "ek": [
+        "Ẇ = 4πD(c₁ − c₂)/(1/r₁ − 1/r₂)."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "ms-spherical-shell"
+       ]
+      },
+      {
+       "id": "D",
+       "std": [
+        "pe-chemical:6.A"
+       ],
+       "do": "Find the lifetime of an evaporating droplet.",
+       "ek": [
+        "Quasi-steady, Sh = 2: d(d²)/dt is constant (the d² law)."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "ms-droplet-lifetime"
+       ]
+      },
+      {
+       "id": "E",
+       "std": [
+        "pe-chemical:6.B"
+       ],
+       "do": "Find the absorption coefficient into a falling film.",
+       "ek": [
+        "Penetration theory: k̄ = 2√(D/πt) with contact time t = L/v_max."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "ms-film-absorption"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "unsteady",
+   "n": 3,
+   "title": "Unsteady diffusion",
+   "scope": "core",
+   "std": [
+    "pe-chemical:6.A"
+   ],
+   "ideas": [
+    "FLUX"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "Time scales and transients",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "pe-chemical:6.A"
+       ],
+       "do": "Estimate a diffusion time from L²/D.",
+       "ek": [
+        "t ~ L²/D; penetration depth ~ √(4Dt)."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "ms-diffusion-time"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "pe-chemical:6.A"
+       ],
+       "do": "Find the amount absorbed by a semi-infinite medium.",
+       "ek": [
+        "M/A = 2c₀√(Dt/π)."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "ms-semi-infinite-uptake"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "pe-chemical:6.A"
+       ],
+       "do": "Find the slowest decay time of a slab.",
+       "ek": [
+        "Long-time behaviour: c ∝ exp(−π²Dt/(4L²)) for half-thickness L with fixed surfaces."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "ms-slab-time-constant"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "interphase",
+   "n": 4,
+   "title": "Interphase mass transfer",
+   "scope": "core",
+   "std": [
+    "pe-chemical:6.B"
+   ],
+   "ideas": [
+    "FLUX"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "Coefficients and resistances",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "pe-chemical:6.B"
+       ],
+       "do": "Combine film coefficients into an overall coefficient.",
+       "ek": [
+        "1/K_y = 1/k_y + m/k_x."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "ms-overall-coefficient"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "pe-chemical:6.B"
+       ],
+       "do": "Find the fraction of the resistance in the gas film.",
+       "ek": [
+        "Gas share = (1/k_y)/(1/k_y + m/k_x)."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "ms-resistance-fraction"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "pe-chemical:6.B"
+       ],
+       "do": "Use a sphere mass-transfer correlation.",
+       "ek": [
+        "Ranz–Marshall: Sh = 2 + 0.6 Re^{1/2} Sc^{1/3}."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "ms-ranz-marshall"
+       ]
+      },
+      {
+       "id": "D",
+       "std": [
+        "pe-chemical:6.B"
+       ],
+       "do": "Predict how k depends on D under each model.",
+       "ek": [
+        "Film theory: k ∝ D; penetration and surface renewal: k ∝ D^{1/2}; boundary layers: k ∝ D^{2/3}."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "ms-model-scaling"
+       ]
+      },
+      {
+       "id": "E",
+       "std": [
+        "pe-chemical:6.B"
+       ],
+       "do": "Find a packed-height from HTU and NTU.",
+       "ek": [
+        "Z = H_OG N_OG; for dilute systems with straight lines, N_OG = (y₁ − y₂)/Δy_lm."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "ms-htu-ntu"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "multicomponent",
+   "n": 5,
+   "title": "Multicomponent diffusion and membranes",
+   "scope": "core",
+   "std": [
+    "pe-chemical:6.A",
+    "pe-chemical:6.B"
+   ],
+   "ideas": [
+    "FLUX"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "Mixtures and membranes",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "pe-chemical:6.A"
+       ],
+       "do": "Find an effective diffusivity of A in a stagnant mixture.",
+       "ek": [
+        "D_Am = (1 − x_A)/Σ_{j≠A}(x_j/D_Aj) (Wilke)."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "ms-wilke-mixture"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "pe-chemical:6.B"
+       ],
+       "do": "Find a membrane flux and selectivity.",
+       "ek": [
+        "N = P Δp / ℓ; ideal selectivity = P_A/P_B."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "ms-membrane-flux"
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "rows": [
+  {
+   "code": "MS-1.1.A",
+   "unit": 1,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ms-gas-diffusivity-scaling"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MS-1.1.B",
+   "unit": 1,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ms-liquid-diffusivity-scaling"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MS-1.1.C",
+   "unit": 1,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ms-knudsen"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MS-1.1.D",
+   "unit": 1,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ms-effective-diffusivity"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MS-1.2.A",
+   "unit": 1,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "ms-stagnant-film"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MS-1.2.B",
+   "unit": 1,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "ms-bulk-flow-factor"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MS-2.1.A",
+   "unit": 2,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ms-effectiveness-slab"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MS-2.1.B",
+   "unit": 2,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ms-effectiveness-sphere"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MS-2.1.C",
+   "unit": 2,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ms-spherical-shell"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MS-2.1.D",
+   "unit": 2,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ms-droplet-lifetime"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MS-2.1.E",
+   "unit": 2,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ms-film-absorption"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MS-3.1.A",
+   "unit": 3,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ms-diffusion-time"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MS-3.1.B",
+   "unit": 3,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ms-semi-infinite-uptake"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MS-3.1.C",
+   "unit": 3,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ms-slab-time-constant"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MS-4.1.A",
+   "unit": 4,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ms-overall-coefficient"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MS-4.1.B",
+   "unit": 4,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ms-resistance-fraction"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MS-4.1.C",
+   "unit": 4,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ms-ranz-marshall"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MS-4.1.D",
+   "unit": 4,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ms-model-scaling"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MS-4.1.E",
+   "unit": 4,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ms-htu-ntu"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MS-5.1.A",
+   "unit": 5,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ms-wilke-mixture"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MS-5.1.B",
+   "unit": 5,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ms-membrane-flux"
+   ],
+   "partial": []
+  }
+ ],
+ "orphanTpl": []
+}

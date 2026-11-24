@@ -38,6 +38,7 @@ domains:
   - { id: meb, title: "Material and energy balances" }
   - { id: fm, title: "Fluid mechanics" }
   - { id: nm, title: "Numerical methods" }
+  - { id: mass, title: "Mass transfer" }
   - { id: cre, title: "Chemical reaction engineering" }
   - { id: dat, title: "Dental Admission Test" }
   - { id: nuc, title: "Nuclear science" }
@@ -610,6 +611,11 @@ skills:
   - { id: fm.similarity, domain: fm, title: "Dimensional analysis and similarity", short: "Dimensional analysis", prereqs: [fm.regimes] }
   - { id: fm.external, domain: fm, title: "External flow: drag and terminal velocity", short: "Drag", prereqs: [fm.similarity] }
   - { id: fm.piping, domain: fm, title: "Piping systems and pumps: parallel pipes, affinity laws, operating point", short: "Piping and pumps", prereqs: [fm.energy] }
+  # ── mass transfer (graduate) ────────────────────────────────────────────
+  - { id: mass.diffusivity, domain: mass, title: "Diffusivities: gases, liquids, Knudsen, porous solids, mixtures", short: "Diffusivities" }
+  - { id: mass.steady, domain: mass, title: "Steady diffusion: stagnant films, reaction, spheres, droplets, membranes", short: "Steady diffusion", prereqs: [mass.diffusivity] }
+  - { id: mass.unsteady, domain: mass, title: "Unsteady diffusion: time scales, semi-infinite uptake, slab modes", short: "Unsteady diffusion", prereqs: [mass.steady] }
+  - { id: mass.interphase, domain: mass, title: "Interphase mass transfer: overall coefficients, correlations, models, HTU–NTU", short: "Interphase transfer", prereqs: [mass.steady] }
   # ── numerical methods ───────────────────────────────────────────────────
   - { id: nm.roots, domain: nm, title: "Roots of equations: bisection, Newton, secant, fixed point", short: "Root finding" }
   - { id: nm.linear-iter, domain: nm, title: "Iterative linear solvers: Jacobi, Gauss–Seidel, diagonal dominance", short: "Iterative solvers" }

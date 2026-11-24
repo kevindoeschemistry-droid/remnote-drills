@@ -29,6 +29,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 | Advanced Inorganic Chemistry (Cotton & Wilkinson) | Cotton, Wilkinson, Murillo & Bochmann, Advanced Inorganic Chemistry, 6th ed. (1999): table of contents | textbook | read in part | icho-appendix-c, gre-chemistry | — | 55 | 0 | 55 |
 | Inorganic Chemistry | Regulations of the International Chemistry Olympiad, Appendices C and D (concepts, skills and factual knowledge) | exam-spec | read in full | icho-syllabus, gre-chemistry, usnco, ib-chemistry-2025 | — | 23 | 23 | 0 |
 | Linear Algebra | MAA CUPM Curriculum Guide 2015, Linear Algebra course report: core topics of a first course | standard | read in part | lay-5e, webwork-opl | lacsg-2 | 54 | 54 | 0 |
+| Mass Transfer | NCEES PE Chemical CBT Exam Specifications (effective January 2020) | exam-spec | read in full | — | — | 21 | 21 | 0 |
 | Material and Energy Balances | NCEES FE Chemical CBT Exam Specifications (effective July 2020) | exam-spec | read in full | pe-chemical, webwork-opl | — | 18 | 18 | 0 |
 | Polymers and Materials | Regulations of the International Chemistry Olympiad, Appendices C and D (concepts, skills and factual knowledge) | exam-spec | read in full | ib-chemistry-2025, fe-chemical, icho-syllabus | — | 17 | 6 | 11 |
 | High School Mathematics (Common Core) | CCSS Mathematics Appendix A: high school course pathways | standard | read in full | — | — | 200 | 200 | 0 |
@@ -74,6 +75,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 - **Advanced Inorganic Chemistry (Cotton & Wilkinson)**: Units follow the chapters of Cotton & Wilkinson 6e (table of contents read); the objectives are a house list on those chapters.
 - **Inorganic Chemistry**: Units 1, 2 and 4 follow IChO Appendix D's factual-knowledge list (read in full); coordination and solids follow its preparation-only topics and the GRE inorganic area. Objectives and their order are ours.
 - **Linear Algebra**: Units cover the six core-topic groups of the 2015 CUPM guide's first course in linear algebra (read through a summary, not the report's own pages), ordered by Lay's chapters. Unit 7 is second-course material by the guide's split. LACSG 2.0 is the newer standard and has not been read.
+- **Mass Transfer**: PE Chemical names mass transfer as one area with two lines (6.A fundamentals, 6.B applications). No published standard lists graduate mass transfer; the objectives are a house list on Bird, Stewart & Lightfoot's mass-transport chapters.
 - **Material and Energy Balances**: Topics from FE Chemical area 8, read in full. Objectives and their order are ours and follow the usual textbook sequence; unit 1 is assumed by the spec rather than listed.
 - **Polymers and Materials**: Polymer topics from IChO Appendix C (c22, a5), IB S2.4 and FE Chemical 4.D; a house list on those items.
 - **Mathematics K–8 (Common Core)**: Codes and wording checked against a state reprint; the CCSS site was blocked.
@@ -1861,8 +1863,8 @@ https://ncees.org/wp-content/uploads/2022/09/PE-Che_Jan2020-1.pdf
 | 5.A | Fundamentals | 7 | 7 | fluid-mechanics (7) |
 | 5.B | Applications | 3 | 3 | fluid-mechanics (3) |
 | **6** | **Mass transfer** (7–11 questions) | | | |
-| 6.A | Fundamentals | 6 | 6 | heat-transfer (6) |
-| 6.B | Applications | 6 | 6 | separations (6) |
+| 6.A | Fundamentals | 36 | 36 | heat-transfer (6), mass-transfer (30) |
+| 6.B | Applications | 25 | 25 | mass-transfer (19), separations (6) |
 | **7** | **Plant design and operation** (15–23 questions) | | | |
 | 7.A | Safety, health and environment | 3 | 3 | process-design (3) |
 | 7.B | Design | 5 | 5 | process-design (5) |

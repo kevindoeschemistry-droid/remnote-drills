@@ -39,8 +39,8 @@ class Q:
 
 
 class L:
-    def __init__(self, id, do, ek, opl, qs, p="P1"):
-        self.id, self.do, self.ek, self.opl, self.qs, self.p = id, do, ek, opl, qs, p
+    def __init__(self, id, do, ek, opl, qs, p="P1", std=None):
+        self.id, self.do, self.ek, self.opl, self.qs, self.p, self.std = id, do, ek, opl, qs, p, std or []
 
 
 class U:

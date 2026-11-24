@@ -23,13 +23,13 @@ def q(s):
 
 
 def unit_text(u, fw, idea):
-    stds = sorted({f"webwork-opl:{s}" for _, los in u.topics for lo in los for s in lo.opl})
+    stds = sorted({f"webwork-opl:{s}" for _, los in u.topics for lo in los for s in lo.opl} | {s for _, los in u.topics for lo in los for s in lo.std})
     out = [f"  - id: {u.uid}", f"    n: {u.n}", f"    title: {q(u.title)}", "    scope: core",
            f"    std: [{', '.join(q(s) for s in (u.std or stds[:3]))}]", f"    ideas: [{idea}]", "    topics:"]
     for tn, (tt, los) in enumerate(u.topics, 1):
         out += [f"      - n: {tn}", f"        title: {q(tt)}", "        los:"]
         for lo in los:
-            std = ", ".join(q(f"webwork-opl:{s}") for s in lo.opl)
+            std = ", ".join([q(f"webwork-opl:{s}") for s in lo.opl] + [q(s) for s in lo.std])
             dr = ", ".join(x.name for x in lo.qs)
             out.append(f"          - {{ id: {lo.id}, std: [{std}], do: {q(lo.do)}, ek: [{q(lo.ek)}], p: [{lo.p}], drills: [{dr}] }}")
     return "\n".join(out)
