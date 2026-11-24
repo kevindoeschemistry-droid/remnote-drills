@@ -56,16 +56,16 @@ units:
       - n: 1
         title: "Titration types"
         los:
-          - { id: A, do: "Compute a result from a back titration.", ek: ["Reagent added − reagent left = reagent used."], p: [P1], drills: [an-back-titration] }
-          - { id: B, do: "Compute a result from a permanganate titration.", ek: ["Ratio from electrons: MnO₄⁻ 5, Fe²⁺ 1, C₂O₄²⁻ 2."], p: [P1], needs: [IN-4.1.A], drills: [an-permanganate] }
-          - { id: C, do: "Compute water hardness from an EDTA titration.", ek: ["EDTA binds metal ions 1:1; report as mg CaCO₃ per L."], p: [P1], drills: [an-edta-hardness] }
-          - { id: D, do: "Compute chloride from a Mohr titration.", ek: ["Ag⁺ + Cl⁻ 1:1; chromate end point at neutral pH."], p: [P1], drills: [an-mohr] }
-          - { id: E, do: "Compute protein from a Kjeldahl determination.", ek: ["mol N = acid added − acid left; × factor (6.25)."], p: [P1], needs: [AN-1.1.A], drills: [an-kjeldahl] }
+          - { id: A, do: "Compute a result from a back titration.", ek: ["Reagent added − reagent left = reagent used."], p: [P1], drills: [an-back-titration, an-back-titration-volume] }
+          - { id: B, do: "Compute a result from a permanganate titration.", ek: ["Ratio from electrons: MnO₄⁻ 5, Fe²⁺ 1, C₂O₄²⁻ 2."], p: [P1], needs: [IN-4.1.A], drills: [an-permanganate, an-dichromate-for-permanganate] }
+          - { id: C, do: "Compute water hardness from an EDTA titration.", ek: ["EDTA binds metal ions 1:1; report as mg CaCO₃ per L."], p: [P1], drills: [an-edta-hardness, an-edta-volume] }
+          - { id: D, do: "Compute chloride from a Mohr titration.", ek: ["Ag⁺ + Cl⁻ 1:1; chromate end point at neutral pH."], p: [P1], drills: [an-mohr, an-argentometry-why] }
+          - { id: E, do: "Compute protein from a Kjeldahl determination.", ek: ["mol N = acid added − acid left; × factor (6.25)."], p: [P1], needs: [AN-1.1.A], drills: [an-kjeldahl, an-kjeldahl-ammonia] }
       - n: 2
         title: "Titration curves"
         los:
-          - { id: A, do: "Find the pH at any point of a weak-acid–strong-base titration.", ek: ["Start, buffer, equivalence (hydrolysis), excess base."], p: [P1], drills: [an-titration-ph] }
-          - { id: B, do: "Choose an indicator whose range brackets the equivalence pH.", ek: ["Weak acid + strong base: phenolphthalein."], p: [P2], needs: [AN-1.2.A], drills: [an-indicator] }
+          - { id: A, do: "Find the pH at any point of a weak-acid–strong-base titration.", ek: ["Start, buffer, equivalence (hydrolysis), excess base."], p: [P1], drills: [an-titration-ph, an-quarter-equivalence] }
+          - { id: B, do: "Choose an indicator whose range brackets the equivalence pH.", ek: ["Weak acid + strong base: phenolphthalein."], p: [P2], needs: [AN-1.2.A], drills: [an-indicator, an-indicator-titration] }
   - id: gravimetry
     n: 2
     title: "Gravimetric analysis"
@@ -76,7 +76,7 @@ units:
       - n: 1
         title: "Gravimetric factors"
         los:
-          - { id: A, do: "Compute a mass percent from the weight of a precipitate.", ek: ["Gravimetric factor from molar masses and element counts."], p: [P1], drills: [an-gravimetric] }
+          - { id: A, do: "Compute a mass percent from the weight of a precipitate.", ek: ["Gravimetric factor from molar masses and element counts."], p: [P1], drills: [an-gravimetric, an-gravimetric-expected] }
   - id: equilibria
     n: 3
     title: "Solubility equilibria in analysis"
@@ -87,8 +87,8 @@ units:
       - n: 1
         title: "Solubility"
         los:
-          - { id: A, do: "Compute a solubility with a common ion present.", ek: ["s(s + c) = K_sp."], p: [P1], drills: [an-common-ion] }
-          - { id: B, do: "Compute a solubility raised by complex formation.", ek: ["K = K_sp·β₂ for AgX + 2NH₃."], p: [P1], needs: [AN-3.1.A], drills: [an-complex-solubility] }
+          - { id: A, do: "Compute a solubility with a common ion present.", ek: ["s(s + c) = K_sp."], p: [P1], drills: [an-common-ion, an-common-ion-factor] }
+          - { id: B, do: "Compute a solubility raised by complex formation.", ek: ["K = K_sp·β₂ for AgX + 2NH₃."], p: [P1], needs: [AN-3.1.A], drills: [an-complex-solubility, an-complex-dissolve] }
   - id: separations
     n: 4
     title: "Separations"
@@ -99,8 +99,8 @@ units:
       - n: 1
         title: "Extraction and chromatography"
         los:
-          - { id: A, do: "Compute the fraction left after repeated extractions.", ek: ["q = [V_aq/(V_aq + D V_org)]ⁿ."], p: [P1], drills: [an-extraction] }
-          - { id: B, do: "Compute plate number, retention factor or resolution from a chromatogram.", ek: ["N = 16(t_R/W)², k = (t_R − t_M)/t_M, R_s = 2Δt_R/(W₁+W₂)."], p: [P1], drills: [an-chromatography] }
+          - { id: A, do: "Compute the fraction left after repeated extractions.", ek: ["q = [V_aq/(V_aq + D V_org)]ⁿ."], p: [P1], drills: [an-extraction, an-extractions-needed] }
+          - { id: B, do: "Compute plate number, retention factor or resolution from a chromatogram.", ek: ["N = 16(t_R/W)², k = (t_R − t_M)/t_M, R_s = 2Δt_R/(W₁+W₂)."], p: [P1], drills: [an-chromatography, an-resolution-length] }
   - id: measurement
     n: 5
     title: "Measurement, calibration and data"
@@ -111,12 +111,12 @@ units:
       - n: 1
         title: "Spectrophotometry and calibration"
         los:
-          - { id: A, do: "Resolve a two-component mixture by absorbance at two wavelengths.", ek: ["Absorbances add; solve two equations."], p: [P1], drills: [an-two-component] }
-          - { id: B, do: "Find a concentration by standard addition.", ek: ["c = A_x c_s V_s / [V_x (A_sp − A_x)]."], p: [P1], drills: [an-standard-addition] }
-          - { id: C, do: "Read an unknown off a least-squares calibration line.", ek: ["Slope and intercept from the sums."], p: [P1], drills: [an-calibration] }
+          - { id: A, do: "Resolve a two-component mixture by absorbance at two wavelengths.", ek: ["Absorbances add; solve two equations."], p: [P1], drills: [an-two-component, an-beer-reverse] }
+          - { id: B, do: "Find a concentration by standard addition.", ek: ["c = A_x c_s V_s / [V_x (A_sp − A_x)]."], p: [P1], drills: [an-standard-addition, an-spike-signal] }
+          - { id: C, do: "Read an unknown off a least-squares calibration line.", ek: ["Slope and intercept from the sums."], p: [P1], drills: [an-calibration, an-detection-limit] }
       - n: 2
         title: "Data and method choice"
         los:
-          - { id: A, do: "Apply Dixon's Q-test to a suspect replicate.", ek: ["Q = gap/range vs Q_crit."], p: [P3], drills: [an-q-test] }
-          - { id: B, do: "Propagate random uncertainty through a sum or a product.", ek: ["Absolute in quadrature for sums, relative for products."], p: [P1], drills: [an-uncertainty] }
-          - { id: C, do: "Choose an analytical technique for a stated question.", ek: ["Trace metals ICP-MS, volatiles GC, non-volatiles HPLC, water Karl Fischer."], p: [P2], drills: [an-instrument] }
+          - { id: A, do: "Apply Dixon's Q-test to a suspect replicate.", ek: ["Q = gap/range vs Q_crit."], p: [P3], drills: [an-q-test, an-q-value] }
+          - { id: B, do: "Propagate random uncertainty through a sum or a product.", ek: ["Absolute in quadrature for sums, relative for products."], p: [P1], drills: [an-uncertainty, an-uncertainty-product] }
+          - { id: C, do: "Choose an analytical technique for a stated question.", ek: ["Trace metals ICP-MS, volatiles GC, non-volatiles HPLC, water Karl Fischer."], p: [P2], drills: [an-instrument, an-technique-measures] }

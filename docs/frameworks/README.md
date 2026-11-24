@@ -86,13 +86,13 @@ Related reports: [standards and how much of each was read](../coverage/standards
 | Framework | Code | Objectives | Drilled | Partly | Open | Types | Anchored on |
 |---|---|---:|---:|---:|---:|---:|---|
 | [Advanced Inorganic Chemistry (Cotton & Wilkinson)](inorganic-advanced.md) | IA | 55 | 55 | 0 | 0 | 1.3 | Cotton, Wilkinson, Murillo & Bochmann, Advanced Inorganic Chemistry, 6th ed. (1999): table of contents (textbook, read: part) |
-| [Analytical Chemistry](analytical-chemistry.md) | AN | 18 | 18 | 0 | 0 | 1.0 | Regulations of the International Chemistry Olympiad, Appendices C and D (concepts, skills and factual knowledge) (exam-spec, read: full) |
+| [Analytical Chemistry](analytical-chemistry.md) | AN | 18 | 18 | 0 | 0 | 2.0 | Regulations of the International Chemistry Olympiad, Appendices C and D (concepts, skills and factual knowledge) (exam-spec, read: full) |
 | [Anchor Quantities](anchor-quantities.md) | AQ | 14 | 14 | 0 | 0 | 1.1 | CODATA Recommended Values of the Fundamental Physical Constants: 2022 (NIST SP 961) (reference, read: part) |
 | [Biology (AP)](biology.md) | BI | 179 | 179 | 0 | 0 | 2.2 | AP Biology Course and Exam Description (2019) (standard, read: crosswalk) |
 | [Chemistry (AP)](chemistry.md) | CH | 179 | 179 | 0 | 0 | 2.0 | AP Chemistry Course and Exam Description (Fall 2024) (standard, read: part) |
 | [Chemistry Olympiad](chemistry-olympiad.md) | CO | 73 | 73 | 0 | 0 | 1.0 | U.S. National Chemistry Olympiad: local and national exam format, multiple-choice topic bands and Part II (exam-spec, read: part) |
 | [Earth and Space Science](earth-space.md) | ES | 18 | 18 | 0 | 0 | 1.0 | Next Generation Science Standards, high school performance expectations (2013) (standard, read: part) |
-| [Inorganic Chemistry](inorganic-chemistry.md) | IN | 23 | 23 | 0 | 0 | 1.0 | Regulations of the International Chemistry Olympiad, Appendices C and D (concepts, skills and factual knowledge) (exam-spec, read: full) |
+| [Inorganic Chemistry](inorganic-chemistry.md) | IN | 23 | 23 | 0 | 0 | 2.0 | Regulations of the International Chemistry Olympiad, Appendices C and D (concepts, skills and factual knowledge) (exam-spec, read: full) |
 | [NGSS High School Science](ngss.md) | NG | 71 | 71 | 0 | 0 | 3.1 | Next Generation Science Standards, high school performance expectations (2013) (standard, read: part) |
 | [Nuclear Science and Reactor Theory](nuclear.md) | NU | 19 | 19 | 0 | 0 | 1.7 | NRC Generic Fundamentals Examination, reactor theory topics (PWR catalog 192001-192008) (exam-spec, read: part) |
 | [Organic Reactions: Predict the Product](organic-reactions.md) | OR | 25 | 25 | 0 | 0 | 4.7 | Bruice, Organic Chemistry, 8th edition (table of contents) (textbook, read: part) |
