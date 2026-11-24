@@ -2,7 +2,7 @@
 
 Generated from `drills/frameworks/inorganic-advanced.yaml` by `scripts/framework.mjs`. ● drilled · ◐ partly · ○ no drills yet.
 
-**37 learning objectives** in 14 units (37 core): 37 drilled, 0 partly, 0 with no drills. Core: 37 / 37 drilled.
+**55 learning objectives** in 14 units (55 core): 55 drilled, 0 partly, 0 with no drills. Core: 55 / 55 drilled.
 
 ## Big ideas
 
@@ -29,8 +29,8 @@ Generated from `drills/frameworks/inorganic-advanced.yaml` by `scripts/framework
 | 8 · The halogens and the noble gases (ch. 13–14) | core | — | 3 | 3 | 0 | 0 |
 | 9 · Zinc, cadmium and mercury (ch. 15) | core | — | 1 | 1 | 0 | 0 |
 | 10 · Survey of the transition elements (ch. 16) | core | — | 4 | 4 | 0 | 0 |
-| 11 · The first transition series (ch. 17) | core | — | 2 | 2 | 0 | 0 |
-| 12 · The second and third transition series (ch. 18) | core | — | 2 | 2 | 0 | 0 |
+| 11 · The first transition series (ch. 17) | core | — | 11 | 11 | 0 | 0 |
+| 12 · The second and third transition series (ch. 18) | core | — | 11 | 11 | 0 | 0 |
 | 13 · Group 3, the lanthanides and the actinides (ch. 19–20) | core | — | 3 | 3 | 0 | 0 |
 | 14 · Reaction steps and homogeneous catalysis (ch. 21–22) | core | — | 3 | 3 | 0 | 0 |
 
@@ -224,6 +224,38 @@ Big ideas: COUNT, TREND
   - EK: Fe₃O₄ +8/3; VO²⁺ V(IV).
   - P1 · drills: cw-first-row-ox
 
+### 11.2 Ti to Cu, metal by metal
+
+
+
+- ● **IA-11.2.A** Recall the characteristic chemistry of titanium: production, key compounds and colours, uses and biological roles.
+  - EK: Cotton & Wilkinson's section on titanium.
+  - P2 · drills: cw-ti-chemistry
+- ● **IA-11.2.B** Recall the characteristic chemistry of vanadium: production, key compounds and colours, uses and biological roles.
+  - EK: Cotton & Wilkinson's section on vanadium.
+  - P2 · drills: cw-v-chemistry
+- ● **IA-11.2.C** Recall the characteristic chemistry of chromium: production, key compounds and colours, uses and biological roles.
+  - EK: Cotton & Wilkinson's section on chromium.
+  - P2 · drills: cw-cr-chemistry
+- ● **IA-11.2.D** Recall the characteristic chemistry of manganese: production, key compounds and colours, uses and biological roles.
+  - EK: Cotton & Wilkinson's section on manganese.
+  - P2 · drills: cw-mn-chemistry
+- ● **IA-11.2.E** Recall the characteristic chemistry of iron: production, key compounds and colours, uses and biological roles.
+  - EK: Cotton & Wilkinson's section on iron.
+  - P2 · drills: cw-fe-chemistry
+- ● **IA-11.2.F** Recall the characteristic chemistry of cobalt: production, key compounds and colours, uses and biological roles.
+  - EK: Cotton & Wilkinson's section on cobalt.
+  - P2 · drills: cw-co-chemistry
+- ● **IA-11.2.G** Recall the characteristic chemistry of nickel: production, key compounds and colours, uses and biological roles.
+  - EK: Cotton & Wilkinson's section on nickel.
+  - P2 · drills: cw-ni-chemistry
+- ● **IA-11.2.H** Recall the characteristic chemistry of copper: production, key compounds and colours, uses and biological roles.
+  - EK: Cotton & Wilkinson's section on copper.
+  - P2 · drills: cw-cu-chemistry
+- ● **IA-11.2.I** Give oxidation states in the series' high-valent oxides, oxoanions and fluorides.
+  - EK: High states stabilise down a group.
+  - P1 · drills: cw-first-row-ox-2
+
 ## Unit 12 · The second and third transition series (ch. 18)
 
 Big ideas: COUNT, TREND
@@ -238,6 +270,38 @@ Big ideas: COUNT, TREND
 - ● **IA-12.1.B** Explain the lanthanide contraction, low spin in 4d/5d, and the trans effect.
   - EK: Zr ≈ Hf; heavy complexes low spin; cisplatin route.
   - P2 · P3 · drills: cw-heavy-tm-facts
+
+### 12.2 Zr to Au, pair by pair
+
+
+
+- ● **IA-12.2.A** Recall the characteristic chemistry of zirconium and hafnium: production, key compounds and colours, uses and biological roles.
+  - EK: Cotton & Wilkinson's section on zirconium and hafnium.
+  - P2 · drills: cw-zrhf-chemistry
+- ● **IA-12.2.B** Recall the characteristic chemistry of niobium and tantalum: production, key compounds and colours, uses and biological roles.
+  - EK: Cotton & Wilkinson's section on niobium and tantalum.
+  - P2 · drills: cw-nbta-chemistry
+- ● **IA-12.2.C** Recall the characteristic chemistry of molybdenum and tungsten: production, key compounds and colours, uses and biological roles.
+  - EK: Cotton & Wilkinson's section on molybdenum and tungsten.
+  - P2 · drills: cw-mow-chemistry
+- ● **IA-12.2.D** Recall the characteristic chemistry of technetium and rhenium: production, key compounds and colours, uses and biological roles.
+  - EK: Cotton & Wilkinson's section on technetium and rhenium.
+  - P2 · drills: cw-tcre-chemistry
+- ● **IA-12.2.E** Recall the characteristic chemistry of ruthenium and osmium: production, key compounds and colours, uses and biological roles.
+  - EK: Cotton & Wilkinson's section on ruthenium and osmium.
+  - P2 · drills: cw-ruos-chemistry
+- ● **IA-12.2.F** Recall the characteristic chemistry of rhodium and iridium: production, key compounds and colours, uses and biological roles.
+  - EK: Cotton & Wilkinson's section on rhodium and iridium.
+  - P2 · drills: cw-rhir-chemistry
+- ● **IA-12.2.G** Recall the characteristic chemistry of palladium and platinum: production, key compounds and colours, uses and biological roles.
+  - EK: Cotton & Wilkinson's section on palladium and platinum.
+  - P2 · drills: cw-pdpt-chemistry
+- ● **IA-12.2.H** Recall the characteristic chemistry of silver and gold: production, key compounds and colours, uses and biological roles.
+  - EK: Cotton & Wilkinson's section on silver and gold.
+  - P2 · drills: cw-agau-chemistry
+- ● **IA-12.2.I** Give oxidation states in the series' high-valent oxides, oxoanions and fluorides.
+  - EK: High states stabilise down a group.
+  - P1 · drills: cw-heavy-metal-ox
 
 ## Unit 13 · Group 3, the lanthanides and the actinides (ch. 19–20)
 

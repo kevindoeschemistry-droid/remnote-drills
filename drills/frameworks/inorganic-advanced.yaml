@@ -2,9 +2,9 @@
 #
 # Basis: the chapter list of Cotton, Wilkinson, Murillo & Bochmann, Advanced Inorganic Chemistry, 6th ed.
 # (1999), checked against a library catalogue's contents page. A textbook, not a curriculum standard:
-# the units follow its chapters (all 22), and the objectives under them are ours. Not drilled: the
-# per-element depth of chapters 17–18 (each metal's full chemistry), cluster chemistry beyond
-# Wade's rules, and catalytic mechanisms beyond electron counting and step names.
+# the units follow its chapters (all 22), and the objectives under them are ours. Chapters 17–18 also
+# go metal by metal (units 11–12, topic 2). Not drilled: cluster chemistry beyond Wade's rules and
+# catalytic mechanisms beyond electron counting and step names.
 id: inorganic-advanced
 title: Advanced Inorganic Chemistry (Cotton & Wilkinson)
 code: IA
@@ -167,6 +167,18 @@ units:
         los:
           - { id: A, do: "Give the products of permanganate by pH and the chromate–dichromate equilibrium.", ek: ["Mn²⁺, MnO₂, MnO₄²⁻; acid orange, base yellow."], p: [P2], drills: [cw-permanganate-product, cw-chromate-ph] }
           - { id: B, do: "Give oxidation states in first-row oxides and oxo ions, including mixed valence.", ek: ["Fe₃O₄ +8/3; VO²⁺ V(IV)."], p: [P1], drills: [cw-first-row-ox] }
+      - n: 2
+        title: "Ti to Cu, metal by metal"
+        los:
+          - { id: A, do: "Recall the characteristic chemistry of titanium: production, key compounds and colours, uses and biological roles.", ek: ["Cotton & Wilkinson's section on titanium."], p: [P2], drills: [cw-ti-chemistry] }
+          - { id: B, do: "Recall the characteristic chemistry of vanadium: production, key compounds and colours, uses and biological roles.", ek: ["Cotton & Wilkinson's section on vanadium."], p: [P2], drills: [cw-v-chemistry] }
+          - { id: C, do: "Recall the characteristic chemistry of chromium: production, key compounds and colours, uses and biological roles.", ek: ["Cotton & Wilkinson's section on chromium."], p: [P2], drills: [cw-cr-chemistry] }
+          - { id: D, do: "Recall the characteristic chemistry of manganese: production, key compounds and colours, uses and biological roles.", ek: ["Cotton & Wilkinson's section on manganese."], p: [P2], drills: [cw-mn-chemistry] }
+          - { id: E, do: "Recall the characteristic chemistry of iron: production, key compounds and colours, uses and biological roles.", ek: ["Cotton & Wilkinson's section on iron."], p: [P2], drills: [cw-fe-chemistry] }
+          - { id: F, do: "Recall the characteristic chemistry of cobalt: production, key compounds and colours, uses and biological roles.", ek: ["Cotton & Wilkinson's section on cobalt."], p: [P2], drills: [cw-co-chemistry] }
+          - { id: G, do: "Recall the characteristic chemistry of nickel: production, key compounds and colours, uses and biological roles.", ek: ["Cotton & Wilkinson's section on nickel."], p: [P2], drills: [cw-ni-chemistry] }
+          - { id: H, do: "Recall the characteristic chemistry of copper: production, key compounds and colours, uses and biological roles.", ek: ["Cotton & Wilkinson's section on copper."], p: [P2], drills: [cw-cu-chemistry] }
+          - { id: I, do: "Give oxidation states in the series' high-valent oxides, oxoanions and fluorides.", ek: ["High states stabilise down a group."], p: [P1], drills: [cw-first-row-ox-2] }
   - id: heavy-series
     n: 12
     title: "The second and third transition series (ch. 18)"
@@ -178,6 +190,18 @@ units:
         los:
           - { id: A, do: "Find metal–metal bond orders from d counts.", ek: ["σ²π⁴δ² is a quadruple bond."], p: [P1], drills: [cw-metal-metal-bond] }
           - { id: B, do: "Explain the lanthanide contraction, low spin in 4d/5d, and the trans effect.", ek: ["Zr ≈ Hf; heavy complexes low spin; cisplatin route."], p: [P2, P3], drills: [cw-heavy-tm-facts] }
+      - n: 2
+        title: "Zr to Au, pair by pair"
+        los:
+          - { id: A, do: "Recall the characteristic chemistry of zirconium and hafnium: production, key compounds and colours, uses and biological roles.", ek: ["Cotton & Wilkinson's section on zirconium and hafnium."], p: [P2], drills: [cw-zrhf-chemistry] }
+          - { id: B, do: "Recall the characteristic chemistry of niobium and tantalum: production, key compounds and colours, uses and biological roles.", ek: ["Cotton & Wilkinson's section on niobium and tantalum."], p: [P2], drills: [cw-nbta-chemistry] }
+          - { id: C, do: "Recall the characteristic chemistry of molybdenum and tungsten: production, key compounds and colours, uses and biological roles.", ek: ["Cotton & Wilkinson's section on molybdenum and tungsten."], p: [P2], drills: [cw-mow-chemistry] }
+          - { id: D, do: "Recall the characteristic chemistry of technetium and rhenium: production, key compounds and colours, uses and biological roles.", ek: ["Cotton & Wilkinson's section on technetium and rhenium."], p: [P2], drills: [cw-tcre-chemistry] }
+          - { id: E, do: "Recall the characteristic chemistry of ruthenium and osmium: production, key compounds and colours, uses and biological roles.", ek: ["Cotton & Wilkinson's section on ruthenium and osmium."], p: [P2], drills: [cw-ruos-chemistry] }
+          - { id: F, do: "Recall the characteristic chemistry of rhodium and iridium: production, key compounds and colours, uses and biological roles.", ek: ["Cotton & Wilkinson's section on rhodium and iridium."], p: [P2], drills: [cw-rhir-chemistry] }
+          - { id: G, do: "Recall the characteristic chemistry of palladium and platinum: production, key compounds and colours, uses and biological roles.", ek: ["Cotton & Wilkinson's section on palladium and platinum."], p: [P2], drills: [cw-pdpt-chemistry] }
+          - { id: H, do: "Recall the characteristic chemistry of silver and gold: production, key compounds and colours, uses and biological roles.", ek: ["Cotton & Wilkinson's section on silver and gold."], p: [P2], drills: [cw-agau-chemistry] }
+          - { id: I, do: "Give oxidation states in the series' high-valent oxides, oxoanions and fluorides.", ek: ["High states stabilise down a group."], p: [P1], drills: [cw-heavy-metal-ox] }
   - id: lanthanides-actinides
     n: 13
     title: "Group 3, the lanthanides and the actinides (ch. 19–20)"
