@@ -37,21 +37,29 @@ def _plate_vdw(A, x):
     return -A / (12 * mp.pi * x**2)
 
 
+def _tail(f, D):
+    """∫_D^∞ f(x) dx as ∫_0^1 f(D/t) D/t² dt: an O(1) interval whatever the length scale, so the
+    answer does not depend on the working precision another verifier module left behind"""
+    return mp.quad(lambda t: f(D / t) * D / t**2 if t > 0 else mp.mpf(0), [0, mp.mpf(1) / 2, 1])
+
+
 def col_vdw_spheres_kt(A, R, D):
     """two equal spheres: Derjaguin F = π R w(D) with w the plate energy per area; W = ∫_D^∞ F"""
-    A, R, D = mp.mpf(A), mp.mpf(R) * 1e-9, mp.mpf(D) * 1e-9
-    W = mp.quad(lambda x: mp.pi * R * _plate_vdw(A, x), [D, mp.inf])
-    return sp.Float(W / (KB * T), 25)
+    with mp.workdps(30):
+        A, R, D = mp.mpf(A), mp.mpf(R) / 10**9, mp.mpf(D) / 10**9
+        W = _tail(lambda x: mp.pi * R * _plate_vdw(A, x), D)
+        return sp.Float(W / (KB * T), 25)
 
 
 def col_edl_spheres_kt(R, psi_mV, ions, D):
     """weak-overlap, low-potential plates: w = 2εε0κψ0² e^{−κx}; spheres through Derjaguin as above"""
-    R, D = mp.mpf(R) * 1e-9, mp.mpf(D) * 1e-9
-    psi = mp.mpf(psi_mV) / 1000
-    kappa = 1 / (mp.mpf(col_debye_nm(ions)) * 1e-9)
-    w = lambda x: 2 * EPSR * EPS0 * kappa * psi**2 * mp.e ** (-kappa * x)
-    W = mp.quad(lambda x: mp.pi * R * w(x), [D, mp.inf])
-    return sp.Float(W / (KB * T), 25)
+    with mp.workdps(30):
+        R, D = mp.mpf(R) / 10**9, mp.mpf(D) / 10**9
+        psi = mp.mpf(psi_mV) / 1000
+        kappa = 1 / (mp.mpf(col_debye_nm(ions)) / 10**9)
+        w = lambda x: 2 * EPSR * EPS0 * kappa * psi**2 * mp.e ** (-kappa * x)
+        W = _tail(lambda x: mp.pi * R * w(x), D)
+        return sp.Float(W / (KB * T), 25)
 
 
 def _total(R, A, psi, kappa, D):
@@ -115,5 +123,15 @@ def col_fast_halflife(n0, eta):
     return sp.Float(t, 25)
 
 
-FUNCS = {f.__name__: f for f in [col_debye_nm, col_vdw_spheres_kt, col_edl_spheres_kt, col_barrier_kt, col_total_kt,
+def _at30(f):
+    """run at 30 digits whatever precision another verifier module left set (PR 65 failed on CI only)"""
+    def g(*a):
+        with mp.workdps(30):
+            return f(*a)
+    g.__name__ = f.__name__
+    g.__module__ = f.__module__
+    return g
+
+
+FUNCS = {f.__name__: _at30(f) for f in [col_debye_nm, col_vdw_spheres_kt, col_edl_spheres_kt, col_barrier_kt, col_total_kt,
                                  col_zeta_mV, col_grahame, col_stokes_einstein_um2s, col_fast_halflife]}
