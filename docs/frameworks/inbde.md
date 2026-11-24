@@ -2,7 +2,7 @@
 
 Generated from `drills/frameworks/inbde.yaml` by `scripts/framework.mjs`. ● drilled · ◐ partly · ○ no drills yet.
 
-**22 learning objectives** in 4 units (22 core): 22 drilled, 0 partly, 0 with no drills. Core: 22 / 22 drilled.
+**57 learning objectives** in 13 units (57 core): 57 drilled, 0 partly, 0 with no drills. Core: 57 / 57 drilled.
 
 ## Big ideas
 
@@ -24,6 +24,15 @@ Generated from `drills/frameworks/inbde.yaml` by `scripts/framework.mjs`. ● dr
 | 2 · Oral Health Management (42.0%) | core | — | 5 | 5 | 0 | 0 |
 | 3 · Practice and Profession (21.8%) | core | — | 2 | 2 | 0 | 0 |
 | 4 · Dental materials (FK3, 8.0%) | core | — | 9 | 9 | 0 | 0 |
+| 5 · Dental anatomy and occlusion (FK1) | core | — | 4 | 4 | 0 | 0 |
+| 6 · Head and neck anatomy (FK1) | core | — | 4 | 4 | 0 | 0 |
+| 7 · Oral histology and development (FK1, FK4) | core | — | 3 | 3 | 0 | 0 |
+| 8 · Pharmacology (FK8) | core | — | 5 | 5 | 0 | 0 |
+| 9 · Microbiology and host defence (FK5, FK7) | core | — | 3 | 3 | 0 | 0 |
+| 10 · Oral and general pathology (FK6, CC23) | core | — | 4 | 4 | 0 | 0 |
+| 11 · Clinical disciplines (CC17–CC38) | core | — | 4 | 4 | 0 | 0 |
+| 12 · Systemic disease and medical risk (CC1, CC8, CC16) | core | — | 3 | 3 | 0 | 0 |
+| 13 · Ethics, jurisprudence, behaviour and research (FK9, FK10) | core | — | 5 | 5 | 0 | 0 |
 
 ## Unit 1 · Diagnosis and Treatment Planning (36.2%)
 
@@ -171,3 +180,189 @@ Big ideas: MAT
 - ● **DN-4.5.B** (jcnde-domain:CC56) Mix gypsum at the right water/powder ratio and choose and handle impression materials.
   - EK: W/P 0.50 plaster, 0.30 stone, 0.24 die stone; pour alginate at once; PVS is the most stable.
   - P1 · P3 · drills: dn-gypsum-water, dn-impression
+
+## Unit 5 · Dental anatomy and occlusion (FK1)
+
+Big ideas: DX
+
+### 5.1 Tooth morphology and occlusion
+
+
+
+- ● **DN-5.1.A** (jcnde-domain:FK1, jcnde-domain:CC28) Recall root and canal numbers of permanent teeth.
+  - EK: Maxillary first molar 3 roots (MB often 2 canals); mandibular first molar 2 roots; maxillary first premolar usually 2.
+  - P3 · drills: dn-root-count
+- ● **DN-5.1.B** (jcnde-domain:FK1) Recall cusp and crown features that identify a tooth.
+  - EK: Mandibular first molar 5 cusps; maxillary first molar 4 plus Carabelli; mandibular second premolar may have 3.
+  - P3 · drills: dn-crown-features
+- ● **DN-5.1.C** (jcnde-domain:CC34) Classify occlusion by Angle's molar relationship.
+  - EK: Class I: MB cusp of the maxillary first molar in the buccal groove of the mandibular first molar; II: distal mandible; III: mesial mandible.
+  - P2 · drills: dn-angle-class
+- ● **DN-5.1.D** (jcnde-domain:CC31) Judge an abutment by its crown-to-root ratio.
+  - EK: Ideal 1:2; 2:3 is acceptable; 1:1 is the minimum for an abutment.
+  - P1 · drills: dn-crown-root-ratio
+
+## Unit 6 · Head and neck anatomy (FK1)
+
+Big ideas: DX
+
+### 6.1 Nerves, muscles, vessels and glands
+
+
+
+- ● **DN-6.1.A** (jcnde-domain:FK1, jcnde-domain:CC19) Name the nerve that supplies a structure.
+  - EK: Muscles of mastication: V3. Facial expression: VII. Taste anterior two-thirds: VII (chorda tympani); posterior third: IX. Tongue movement: XII.
+  - P3 · drills: dn-nerve-supply
+- ● **DN-6.1.B** (jcnde-domain:FK1, jcnde-domain:CC35) Know what each muscle of mastication does.
+  - EK: Masseter, temporalis, medial pterygoid close; lateral pterygoid opens and protrudes.
+  - P3 · drills: dn-mastication-muscles
+- ● **DN-6.1.C** (jcnde-domain:FK1, jcnde-domain:CC19) Locate salivary ducts and the landmarks of nerve blocks.
+  - EK: Parotid (Stensen) opposite the maxillary second molar; submandibular (Wharton) at the sublingual caruncle.
+  - P3 · drills: dn-ducts-landmarks
+- ● **DN-6.1.D** (jcnde-domain:FK1, jcnde-domain:CC18) Trace the arterial supply and lymph drainage of the mouth.
+  - EK: Teeth from branches of the maxillary artery; lower lip and floor drain to submental and submandibular nodes.
+  - P3 · drills: dn-vessels-nodes
+
+## Unit 7 · Oral histology and development (FK1, FK4)
+
+Big ideas: DX
+
+### 7.1 Tooth development, tissues and developmental anomalies
+
+
+
+- ● **DN-7.1.A** (jcnde-domain:FK1) Name the cell and germ layer behind each dental tissue.
+  - EK: Enamel from ameloblasts (ectoderm); dentin, pulp and cementum from ectomesenchyme (neural crest).
+  - P3 · drills: dn-tissue-origin
+- ● **DN-7.1.B** (jcnde-domain:FK4, jcnde-domain:CC5) Recognise developmental anomalies of teeth.
+  - EK: Amelogenesis imperfecta: enamel only. Dentinogenesis imperfecta: opalescent teeth, obliterated pulps, linked with osteogenesis imperfecta.
+  - P2 · drills: dn-tooth-anomalies
+- ● **DN-7.1.C** (jcnde-domain:FK4) Explain how clefts form.
+  - EK: Cleft lip: failed fusion of the medial nasal and maxillary processes. Cleft palate: failed fusion of the palatal shelves.
+  - P3 · drills: dn-clefts
+
+## Unit 8 · Pharmacology (FK8)
+
+Big ideas: DX
+
+### 8.1 Analgesics, antibiotics, interactions and dosing
+
+
+
+- ● **DN-8.1.A** (jcnde-domain:FK8, jcnde-domain:CC26) Recall analgesic choices and limits for dental pain.
+  - EK: Ibuprofen 400 mg ± acetaminophen 500–1000 mg beats opioids for most dental pain; acetaminophen ≤ 4 g/day (usual adult maximum).
+  - P3 · drills: dn-analgesics
+- ● **DN-8.1.B** (jcnde-domain:FK8, jcnde-domain:CC26, jcnde-domain:CC27) Choose antibiotics and know their dental side effects.
+  - EK: Amoxicillin first line; penicillin allergy: azithromycin or doxycycline (clindamycin no longer recommended for prophylaxis, AHA 2021).
+  - P3 · drills: dn-antibiotics
+- ● **DN-8.1.C** (jcnde-domain:FK8, jcnde-domain:CC27, jcnde-domain:CC8) Recognise drug interactions and complications that change dental care.
+  - EK: Epinephrine with nonselective β-blockers: hypertension and reflex bradycardia. Antiresorptives: MRONJ. Bisphosphonates and denosumab before extractions.
+  - P3 · drills: dn-interactions
+- ● **DN-8.1.D** (jcnde-domain:FK8, jcnde-domain:CC26) Calculate a weight-based pediatric antibiotic dose.
+  - EK: Endocarditis prophylaxis: amoxicillin 50 mg/kg, not above the adult 2 g.
+  - P1 · drills: dn-peds-amoxicillin
+- ● **DN-8.1.E** (jcnde-domain:FK8) Find how much drug remains after a number of half-lives.
+  - EK: Fraction left = (1/2)^{t/t½}; about 5 half-lives to clear 97%.
+  - P1 · drills: dn-half-life
+
+## Unit 9 · Microbiology and host defence (FK5, FK7)
+
+Big ideas: DX
+
+### 9.1 Oral microbes, infections, immunity and exposure
+
+
+
+- ● **DN-9.1.A** (jcnde-domain:FK7, jcnde-domain:CC21, jcnde-domain:CC22) Link oral diseases to their organisms.
+  - EK: Caries: S. mutans starts, lactobacilli advance. Periodontitis: the red complex (P. gingivalis, T. forsythia, T. denticola).
+  - P3 · drills: dn-oral-microbes
+- ● **DN-9.1.B** (jcnde-domain:FK7, jcnde-domain:CC51) Know bloodborne pathogen risk and the response to an exposure.
+  - EK: Percutaneous transmission risk, unvaccinated source-positive: HBV up to about 30%, HCV about 1.8%, HIV about 0.3%.
+  - P3 · drills: dn-exposure
+- ● **DN-9.1.C** (jcnde-domain:FK5) Classify hypersensitivity reactions met in dentistry.
+  - EK: Type I IgE (latex anaphylaxis, penicillin), IV T-cell (contact dermatitis to latex accelerators, nickel, methacrylates).
+  - P3 · drills: dn-hypersensitivity
+
+## Unit 10 · Oral and general pathology (FK6, CC23)
+
+Big ideas: DX
+
+### 10.1 Lesions by appearance and site
+
+
+
+- ● **DN-10.1.A** (jcnde-domain:FK6, jcnde-domain:CC23, jcnde-domain:CC5) Name a soft-tissue lesion from its description.
+  - EK: Mucocele: lower lip, after trauma. Ranula: floor of mouth. Fibroma: firm, smooth, on the bite line. Pyogenic granuloma: red, bleeds easily, often in pregnancy.
+  - P2 · drills: dn-soft-lesions
+- ● **DN-10.1.B** (jcnde-domain:FK6, jcnde-domain:CC23) Rank lesions by malignant risk and know oral cancer's usual sites.
+  - EK: Erythroplakia carries the highest risk; squamous cell carcinoma is most common on the lateral and ventral tongue and floor of mouth.
+  - P2 · drills: dn-cancer-risk
+- ● **DN-10.1.C** (jcnde-domain:FK6, jcnde-domain:CC7, jcnde-domain:CC23) Name a jaw lesion from its radiograph and location.
+  - EK: Dentigerous cyst around an unerupted crown; periapical cyst at a non-vital apex; ameloblastoma multilocular in the posterior mandible; OKC with Gorlin syndrome.
+  - P2 · drills: dn-jaw-lesions
+- ● **DN-10.1.D** (jcnde-domain:FK5, jcnde-domain:FK6, jcnde-domain:CC23) Tell the blistering diseases apart.
+  - EK: Pemphigus vulgaris: intraepithelial split, Nikolsky positive, desmoglein 3. Mucous membrane pemphigoid: subepithelial split, eye scarring risk.
+  - P2 · drills: dn-vesiculobullous
+
+## Unit 11 · Clinical disciplines (CC17–CC38)
+
+Big ideas: DX
+
+### 11.1 Periodontics, endodontics, prosthodontics, pediatrics, surgery and orthodontics
+
+
+
+- ● **DN-11.1.A** (jcnde-domain:CC29, jcnde-domain:CC31) Classify partially edentulous arches by Kennedy.
+  - EK: I bilateral distal extension; II unilateral distal extension; III bounded posterior; IV a single bounded anterior space crossing the midline.
+  - P2 · drills: dn-kennedy
+- ● **DN-11.1.B** (jcnde-domain:CC20, jcnde-domain:CC34, jcnde-domain:CC52) Choose pediatric pulp therapy and space maintenance.
+  - EK: Vital primary pulp exposure with healthy radicular pulp: pulpotomy. Necrotic primary pulp in a restorable tooth: pulpectomy. Early loss of a primary second molar: distal shoe if the first permanent molar has not erupted.
+  - P3 · drills: dn-pediatric
+- ● **DN-11.1.C** (jcnde-domain:CC17, jcnde-domain:CC32, jcnde-domain:CC33, jcnde-domain:CC8) Know common oral-surgery thresholds and complications.
+  - EK: Alveolar osteitis appears 2–4 days after extraction; usual INR limit for simple extractions about 3.5 (with local measures); ASA classes I–VI.
+  - P3 · drills: dn-oral-surgery
+- ● **DN-11.1.D** (jcnde-domain:CC20, jcnde-domain:CC28) Diagnose periapical conditions and choose endodontic treatment.
+  - EK: Symptomatic apical periodontitis: tender to percussion. Acute apical abscess: swelling. Condensing osteitis: radiopacity at the apex of an inflamed pulp.
+  - P2 · drills: dn-periapical
+
+## Unit 12 · Systemic disease and medical risk (CC1, CC8, CC16)
+
+Big ideas: DX
+
+### 12.1 Vital signs, labs and emergencies
+
+
+
+- ● **DN-12.1.A** (jcnde-domain:CC8, jcnde-domain:CC1) Decide whether to treat from blood pressure.
+  - EK: AHA 2017: stage 2 hypertension from 140/90; elective dental care is usually deferred at 180/110 or above.
+  - P2 · drills: dn-bp-decision
+- ● **DN-12.1.B** (jcnde-domain:CC16, jcnde-domain:FK8) Give the drug, dose and route for office emergencies.
+  - EK: Anaphylaxis: epinephrine 0.3 mg IM (adult; 0.15 mg child). Angina: nitroglycerin 0.4 mg sublingual every 5 min, up to 3. Hypoglycemia: 15–20 g fast sugar if conscious.
+  - P3 · drills: dn-emergency-doses
+- ● **DN-12.1.C** (jcnde-domain:CC7, jcnde-domain:CC8) Read lab values that change dental treatment.
+  - EK: INR target 2–3 for most warfarin patients; HbA1c above about 8% means poor control; platelets below about 50,000 need consultation before surgery.
+  - P3 · drills: dn-lab-values
+
+## Unit 13 · Ethics, jurisprudence, behaviour and research (FK9, FK10)
+
+Big ideas: DX
+
+### 13.1 Principles, consent, records and evidence
+
+
+
+- ● **DN-13.1.A** (jcnde-domain:FK9, jcnde-domain:CC45) Apply the ADA principles of ethics.
+  - EK: Autonomy, non-maleficence, beneficence, justice and veracity.
+  - P3 · drills: dn-ethics
+- ● **DN-13.1.B** (jcnde-domain:FK9, jcnde-domain:CC24, jcnde-domain:CC44, jcnde-domain:CC46) Know the rules for consent, records and reporting.
+  - EK: Informed consent: diagnosis, proposed treatment, risks, benefits, alternatives including no treatment. Suspected child abuse: report (mandated). Records: never alter; add a dated correction.
+  - P3 · drills: dn-jurisprudence
+- ● **DN-13.1.C** (jcnde-domain:FK10, jcnde-domain:CC41) Compute relative risk, odds ratio and number needed to treat.
+  - EK: RR = [a/(a+b)]/[c/(c+d)]; OR = ad/bc; NNT = 1/ARR.
+  - P1 · drills: dn-nnt, dn-odds-ratio
+- ● **DN-13.1.D** (jcnde-domain:FK10, jcnde-domain:CC41) Name the study design and the level of evidence.
+  - EK: Systematic reviews of RCTs at the top; then RCTs, cohort, case–control, case series, expert opinion.
+  - P3 · drills: dn-study-design
+- ● **DN-13.1.E** (jcnde-domain:CC21, jcnde-domain:CC52) Recommend fluoride supplements by age and water fluoride.
+  - EK: ADA 2010 schedule: water < 0.3 ppm: 0.25 mg (6 mo–3 y), 0.5 mg (3–6 y), 1.0 mg (6–16 y); 0.3–0.6 ppm: 0, 0.25, 0.5; above 0.6 ppm: none.
+  - P1 · drills: dn-fluoride-supplement

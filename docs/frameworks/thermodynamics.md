@@ -1018,6 +1018,13 @@ Big ideas: EQ
 
 ## Drills not yet placed on the map
 
+- gc-virial-residual-h (thermo.maxwell)
+- gc-vdw-critical (thermo.stability)
+- gc-peng-robinson-z (thermo.stability)
+- gc-margules-stability (thermo.stability)
+- gc-azeotrope (thermo.solutions)
+- gc-series-equilibria (thermo.chemical-equilibrium)
+- gc-vant-hoff-cp (thermo.chemical-equilibrium)
 - sm-stirling (stat.multiplicity)
 - aq-thermal-energy (stat.boltzmann)
 - aq-boltzmann-ratio (stat.boltzmann)

@@ -323,3 +323,12 @@ Big ideas: TIME
   - EK: Danckwerts closed–closed: q = √(1 + 4Da/Pe).
   - Needs: RE-8.2.B
   - P1 · drills: re-dispersion
+
+## Drills not yet placed on the map
+
+- gc-deactivation (cre.catalysis)
+- gc-cstr-slope (cre.nonisothermal)
+- gc-optimum-temperature (cre.nonisothermal)
+- gc-overall-effectiveness (cre.diffusion)
+- gc-hatta-enhancement (cre.diffusion)
+- gc-slurry-resistances (cre.diffusion)

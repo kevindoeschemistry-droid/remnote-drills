@@ -62,3 +62,9 @@ Big ideas: STAGE
 - ● **SP-2.1.B** Compute the water removed by an evaporator.
   - EK: Solids balance first.
   - P1 · drills: sp-evaporator
+
+## Drills not yet placed on the map
+
+- gc-rayleigh (sep.distillation)
+- gc-q-line-intersection (sep.distillation)
+- gc-min-absorbent (sep.absorption)

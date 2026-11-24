@@ -392,3 +392,15 @@ Big ideas: HEAD
 - ● **FM-13.2.A** (webwork-opl:FM11.4) Find the power of a hydraulic turbine.
   - EK: P = ηρgQH; a Pelton wheel works best with buckets at half the jet speed.
   - P1 · drills: fm-turbine-power
+
+## Drills not yet placed on the map
+
+- gc-annulus-flow (fm.viscous)
+- gc-couette-torque (fm.viscous)
+- gc-squeeze-film (fm.viscous)
+- gc-power-law-tube (fm.viscous)
+- gc-startup-time (fm.viscous)
+- gc-log-law (fm.similarity)
+- gc-blasius-drag (fm.external)
+- gc-cylinder-cp (fm.external)
+- gc-drop-drag (fm.external)

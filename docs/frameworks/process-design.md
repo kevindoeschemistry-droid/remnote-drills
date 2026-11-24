@@ -82,3 +82,13 @@ Big ideas: DYN
 - ● **PD-3.1.A** Compute the step response of a first-order process.
   - EK: y = KΔu(1 − e^(−t/τ)).
   - P1 · drills: pd-first-order
+
+## Drills not yet placed on the map
+
+- gc-first-order-time (design.control)
+- gc-overshoot (design.control)
+- gc-p-offset (design.control)
+- gc-ultimate-gain (design.control)
+- gc-ultimate-period (design.control)
+- gc-amplitude-ratio (design.control)
+- gc-fopdt-crossover (design.control)

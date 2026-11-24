@@ -136,3 +136,10 @@ Big ideas: FLUX
 - ● **MS-5.1.B** (pe-chemical:6.B) Find a membrane flux and selectivity.
   - EK: N = P Δp / ℓ; ideal selectivity = P_A/P_B.
   - P1 · drills: ms-membrane-flux
+
+## Drills not yet placed on the map
+
+- gc-ambipolar (mass.diffusivity)
+- gc-film-reaction-flux (mass.steady)
+- gc-taylor-dispersion (mass.unsteady)
+- gc-plate-mass (mass.interphase)

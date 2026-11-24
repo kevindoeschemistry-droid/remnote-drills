@@ -628,6 +628,8 @@ from colcalc import FUNCS as _COL  # noqa: E402
 _merge(_COL, "_COL")
 from cwcalc import FUNCS as _CW  # noqa: E402
 _merge(_CW, "_CW")
+from gccalc import FUNCS as _GC  # noqa: E402
+_merge(_GC, "_GC")
 _bad = _sql_tables(TEMPLATES)
 if _bad:
     raise SystemExit(f"SQL figures differ from tests/verify/sql.py TABLES: {_bad}")

@@ -23,8 +23,9 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 | Earth and Space Science | Next Generation Science Standards, high school performance expectations (2013) | standard | read in part | ib-physics-2025, ib-biology-2025, gre-physics | — | 18 | 18 | 0 |
 | Applied Engineering Mathematics | Kreyszig, Advanced Engineering Mathematics, 10th ed. | textbook | read in full | fe-chemical, webwork-opl | — | 155 | 128 | 27 |
 | Fluid Mechanics | NCEES FE Chemical CBT Exam Specifications (effective July 2020) | exam-spec | read in full | pe-chemical, webwork-opl | — | 64 | 64 | 0 |
+| Graduate Chemical Engineering Core | UC Irvine Chemical and Biomolecular Engineering graduate core: CBE 200, 210, 220A, 220B and 240 (catalogue descriptions, 2025-26) | course | read in part | pe-chemical | — | 38 | 38 | 0 |
 | Heat Transfer | NCEES FE Chemical CBT Exam Specifications (effective July 2020) | exam-spec | read in full | fe-mechanical, ib-physics-2025, pe-chemical | — | 101 | 63 | 38 |
-| INBDE (Dentistry) | JCNDE, Domain of Dentistry (INBDE content domain), July 2018 | exam-spec | read in part | — | — | 22 | 22 | 0 |
+| INBDE (Dentistry) | JCNDE, Domain of Dentistry (INBDE content domain), July 2018 | exam-spec | read in part | — | — | 57 | 57 | 0 |
 | Information Systems | MSIS 2016 Global Competency Model | standard | read in full | — | — | 53 | 0 | 53 |
 | Advanced Inorganic Chemistry (Cotton & Wilkinson) | Cotton, Wilkinson, Murillo & Bochmann, Advanced Inorganic Chemistry, 6th ed. (1999): table of contents | textbook | read in part | icho-appendix-c, gre-chemistry | — | 55 | 0 | 55 |
 | Inorganic Chemistry | Regulations of the International Chemistry Olympiad, Appendices C and D (concepts, skills and factual knowledge) | exam-spec | read in full | icho-syllabus, gre-chemistry, usnco, ib-chemistry-2025 | — | 23 | 23 | 0 |
@@ -71,6 +72,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 - **Earth and Space Science**: Units follow the NGSS HS ESS disciplinary core ideas (ESS1 Earth's place in the universe, ESS2 Earth's systems, ESS3 Earth and human activity), read in part. Objectives and their order are ours.
 - **Applied Engineering Mathematics**: UCI CBE 200 publishes no syllabus. The undergraduate part is anchored to fe-chemical; series, Sturm–Liouville, PDEs and transforms are past any exam spec and stand on the book.
 - **Fluid Mechanics**: Topics from FE Chemical area 6, read in full; units 7–10 extend past it on the WeBWorK OPL fluid-mechanics sections (read in full). Objectives and their order are ours; statics is assumed by the spec rather than listed.
+- **Graduate Chemical Engineering Core**: UCI's graduate core courses by catalogue description (read in part); no syllabus or past comprehensive exam was read, so the objectives are ours. PE Chemical is the nearest published exam and stops below this level.
 - **Heat Transfer**: Also crosswalked to the FE Mechanical spec and UCI MAE 120.
 - **INBDE (Dentistry)**: Units are the Domain of Dentistry's three clinical sections plus Foundation Knowledge area 3 (materials); objectives cite the clinical content area or FK they serve and are ours.
 - **Advanced Inorganic Chemistry (Cotton & Wilkinson)**: Units follow the chapters of Cotton & Wilkinson 6e (table of contents read); the objectives are a house list on those chapters.
@@ -114,6 +116,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 - **Chemistry (AP)**: standard, read in part
 - **Earth and Space Science**: standard, read in part
 - **Applied Engineering Mathematics**: textbook, read in full
+- **Graduate Chemical Engineering Core**: course, read in part
 - **INBDE (Dentistry)**: exam-spec, read in part
 - **Advanced Inorganic Chemistry (Cotton & Wilkinson)**: textbook, read in part
 - **Linear Algebra**: standard, read in part; should move to Linear Algebra Curriculum Study Group 2.0 recommendations (Stewart, Axler, Beezer et al.)
@@ -1487,33 +1490,75 @@ https://nclex.com/files/2026_RN_Test%20Plan_English-F.pdf
 
 https://jcnde.ada.org/-/media/project/ada-organization/ada/jcnde/files/domain_of_dentistry_july2018.pdf
 
-19 of 24 items have at least one objective answering to them.
+42 of 66 items have at least one objective answering to them.
 
 | Item | Topic | Objectives | With a drill | Where |
 |---|---|---|---|---|
-| FK1 | Molecular, biochemical, cellular and systems-level development, structure and function | 1 | 1 | inbde (1) |
+| FK1 | Molecular, biochemical, cellular and systems-level development, structure and function | 11 | 11 | inbde (11) |
 | FK2 | Physics and chemistry of normal biology and pathobiology | 1 | 1 | inbde (1) |
 | FK3 | Physics and chemistry of technologies and materials (8.0%) | 9 | 9 | inbde (9) |
-| FK4 | Genetic, congenital and developmental diseases | — | — | **nothing yet** |
-| FK5 | Host defense mechanisms | — | — | **nothing yet** |
-| FK6 | General and disease-specific pathology | — | — | **nothing yet** |
-| FK7 | Biology of microorganisms | — | — | **nothing yet** |
-| FK8 | Pharmacology | 1 | 1 | inbde (1) |
-| FK9 | Behavioral sciences, ethics and jurisprudence | — | — | **nothing yet** |
-| FK10 | Research methodology, analysis and informatics | 1 | 1 | inbde (1) |
+| FK4 | Genetic, congenital and developmental diseases | 5 | 5 | inbde (5) |
+| FK5 | Host defense mechanisms | 2 | 2 | inbde (2) |
+| FK6 | General and disease-specific pathology | 4 | 4 | inbde (4) |
+| FK7 | Biology of microorganisms | 2 | 2 | inbde (2) |
+| FK8 | Pharmacology | 7 | 7 | inbde (7) |
+| FK9 | Behavioral sciences, ethics and jurisprudence | 2 | 2 | inbde (2) |
+| FK10 | Research methodology, analysis and informatics | 3 | 3 | inbde (3) |
+| CC1 | Patient history and medical data | 4 | 4 | inbde (4) |
+| CC2 | Chief complaint and contributing factors | — | — | **nothing yet** |
+| CC3 | Head, neck and intraoral examination | — | — | **nothing yet** |
 | CC4 | Diagnosing and prognosing dental abnormalities and pathology | 1 | 1 | inbde (1) |
-| CC7 | Interpreting diagnostic results | 1 | 1 | inbde (1) |
+| CC5 | Normal findings versus those needing monitoring or treatment | 9 | 9 | inbde (9) |
+| CC6 | Predicting the most likely diagnostic result | — | — | **nothing yet** |
+| CC7 | Interpreting diagnostic results | 10 | 10 | inbde (10) |
+| CC8 | Systemic disease and its effect on dental care | 9 | 9 | inbde (9) |
+| CC9 | Oral and systemic health | — | — | **nothing yet** |
 | CC10 | Selecting diagnostic tools | 1 | 1 | inbde (1) |
-| CC16 | Medical emergencies | 1 | 1 | inbde (1) |
-| CC19 | Pain control during treatment | 2 | 2 | inbde (2) |
-| CC20 | Pulpal and periradicular diseases | 1 | 1 | inbde (1) |
-| CC21 | Managing caries | 2 | 2 | inbde (2) |
-| CC22 | Periodontal diseases | 1 | 1 | inbde (1) |
-| CC26 | Pharmacological agents | 1 | 1 | inbde (1) |
+| CC11 | Gathering information from varied sources | — | — | **nothing yet** |
+| CC12 | Comprehensive diagnosis and treatment plan | — | — | **nothing yet** |
+| CC13 | Explaining etiology, options and prognosis | — | — | **nothing yet** |
+| CC14 | Patient attributes, background and values across life stages | — | — | **nothing yet** |
+| CC15 | Communicating with patients (psychological, social, behavioural) | — | — | **nothing yet** |
+| CC16 | Medical emergencies | 5 | 5 | inbde (5) |
+| CC17 | Dental emergencies | 5 | 5 | inbde (5) |
+| CC18 | Acute pain, bleeding, trauma and infection of the orofacial complex | 5 | 5 | inbde (5) |
+| CC19 | Pain control during treatment | 8 | 8 | inbde (8) |
+| CC20 | Pulpal and periradicular diseases | 7 | 7 | inbde (7) |
+| CC21 | Managing caries | 12 | 12 | inbde (12) |
+| CC22 | Periodontal diseases | 5 | 5 | inbde (5) |
+| CC23 | Oral mucosal and osseous diseases | 8 | 8 | inbde (8) |
+| CC24 | Abuse and neglect | 6 | 6 | inbde (6) |
+| CC25 | Substance abuse | — | — | **nothing yet** |
+| CC26 | Pharmacological agents | 9 | 9 | inbde (9) |
+| CC27 | Complications of therapeutic agents | 7 | 7 | inbde (7) |
+| CC28 | Endodontic diagnosis and procedures | 10 | 10 | inbde (10) |
+| CC29 | Edentulous and partially edentulous patients | 1 | 1 | inbde (1) |
 | CC30 | Restoring tooth function, structure and esthetics | 3 | 3 | inbde (3) |
-| CC31 | Prosthetic and implant procedures | 2 | 2 | inbde (2) |
-| CC41 | Evaluating scientific literature | 1 | 1 | inbde (1) |
-| CC51 | Standard infection control | 1 | 1 | inbde (1) |
+| CC31 | Prosthetic and implant procedures | 8 | 8 | inbde (8) |
+| CC32 | Oral surgical needs | 1 | 1 | inbde (1) |
+| CC33 | Oral surgical procedures | 1 | 1 | inbde (1) |
+| CC34 | Developmental or acquired occlusal problems | 6 | 6 | inbde (6) |
+| CC35 | Temporomandibular disorders | 5 | 5 | inbde (5) |
+| CC36 | Modifying oral tissues for form, function and esthetics | — | — | **nothing yet** |
+| CC37 | Evaluating outcomes of comprehensive care | — | — | **nothing yet** |
+| CC38 | Oral esthetic needs | — | — | **nothing yet** |
+| CC39 | Emerging trends in health care | — | — | **nothing yet** |
+| CC40 | Social and economic trends in oral health care | — | — | **nothing yet** |
+| CC41 | Evaluating scientific literature | 8 | 8 | inbde (8) |
+| CC42 | Scope of practice, consultation and referral | — | — | **nothing yet** |
+| CC43 | Resources for care, management and development | — | — | **nothing yet** |
+| CC44 | Risk management, jurisprudence and ethics | 1 | 1 | inbde (1) |
+| CC45 | Ethical and jurisprudence issues | 1 | 1 | inbde (1) |
+| CC46 | Patient records | 1 | 1 | inbde (1) |
+| CC47 | Business and financial operations | — | — | **nothing yet** |
+| CC48 | Catastrophe preparedness | — | — | **nothing yet** |
+| CC49 | Managing allied dental personnel | — | — | **nothing yet** |
+| CC50 | Self-assessment | — | — | **nothing yet** |
+| CC51 | Standard infection control | 5 | 5 | inbde (5) |
+| CC52 | Prevention, intervention and education | 2 | 2 | inbde (2) |
+| CC53 | Collaboration for community health | — | — | **nothing yet** |
+| CC54 | Oral health care delivery for populations | — | — | **nothing yet** |
+| CC55 | Quality assurance and improvement | — | — | **nothing yet** |
 | CC56 | Communicating case design to laboratories | 2 | 2 | inbde (2) |
 
 ## AAMC, What's on the MCAT Exam? content outline
@@ -1732,6 +1777,20 @@ https://www.ibo.org/globalassets/new-structure/recognition/pdfs/dp_sciences_biol
 | D4.2 | Sustainability and change | 20 | 20 | biology (20) |
 | D4.3 | Climate change | 6 | 6 | earth-space (6) |
 
+## UC Irvine Chemical and Biomolecular Engineering graduate core: CBE 200, 210, 220A, 220B and 240 (catalogue descriptions, 2025-26)
+
+https://catalogue.uci.edu/allcourses/cbe/
+
+5 of 5 items have at least one objective answering to them.
+
+| Item | Topic | Objectives | With a drill | Where |
+|---|---|---|---|---|
+| 200 | Applied Engineering Mathematics I: analytical methods for transport, process dynamics and control, thermodynamics | 14 | 14 | graduate-chemical-engineering (14) |
+| 210 | Reaction Engineering: reactor stability, diffusion in heterogeneous catalysis, energy balances, optimal operation, dispersed-phase reactors | 12 | 12 | graduate-chemical-engineering (12) |
+| 220A | Transport Phenomena I: heat and mass transfer, scaling, time and length scales, steady and unsteady, convective transport | 12 | 12 | graduate-chemical-engineering (12) |
+| 220B | Transport Phenomena II: creeping and laminar flow, viscous and inviscid flow, Navier-Stokes, lubrication, boundary layers | 18 | 18 | graduate-chemical-engineering (18) |
+| 240 | Advanced Engineering Thermodynamics: equilibrium and stability, equations of state, real mixtures, phase and chemical equilibrium | 14 | 14 | graduate-chemical-engineering (14) |
+
 ## U.S. National Chemistry Olympiad: local and national exam format, multiple-choice topic bands and Part II
 
 https://www.acs.org/education/olympiad/prepare-for-exams/exam-information.html
@@ -1870,7 +1929,7 @@ https://ncees.org/wp-content/uploads/2022/09/PE-Che_Jan2020-1.pdf
 | 5.B | Applications | 3 | 3 | fluid-mechanics (3) |
 | **6** | **Mass transfer** (7–11 questions) | | | |
 | 6.A | Fundamentals | 36 | 36 | heat-transfer (6), mass-transfer (30) |
-| 6.B | Applications | 25 | 25 | mass-transfer (19), separations (6) |
+| 6.B | Applications | 31 | 31 | graduate-chemical-engineering (6), mass-transfer (19), separations (6) |
 | **7** | **Plant design and operation** (15–23 questions) | | | |
 | 7.A | Safety, health and environment | 3 | 3 | process-design (3) |
 | 7.B | Design | 5 | 5 | process-design (5) |
