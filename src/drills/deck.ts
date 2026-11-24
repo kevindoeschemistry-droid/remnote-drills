@@ -21,7 +21,8 @@
 // v0.2 / v0.3 layouts in place (synced id map + aliases keep every card).
 import type { RNPlugin, RichTextInterface } from "@remnote/plugin-sdk";
 import { DOMAINS, liveByDomain, placesFor, placeText, resolveSkill, Section, SOURCES, sourceLabel } from "./skills";
-import graphJson from "./skills.generated.json";
+import { graphData } from "./content";
+const graphJson = graphData();
 import { anchorKey, getAnchors } from "./anchors";
 
 export const DRILL_POWERUP = "odeDrill";

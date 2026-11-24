@@ -2,7 +2,8 @@
 // PDF inside its subject as "Author — Title (Ne)". Moves and renames only; never deletes.
 // Anchors and PDF links are keyed by rem id, so they survive the move and rename.
 import { BuiltInPowerupCodes, RNPlugin } from "@remnote/plugin-sdk";
-import graph from "./skills.generated.json";
+import { graphData } from "./content";
+const graph = graphData();
 import { SOURCES, Source } from "./skills";
 import { findOrCreateDocument, getBindings, plain, setBinding } from "./deck";
 import { findPdfFor } from "./anchors";

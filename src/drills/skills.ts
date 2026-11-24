@@ -3,7 +3,9 @@
 //   skills   — what can be drilled (book-agnostic; cards + streaks hang off these)
 //   sources  — textbooks: chapters/sections and the skills each one teaches
 //   courses  — which sources a course uses
-import graph from "./skills.generated.json";
+import { graphData, markApplied } from "./content";
+markApplied();
+const graph = graphData();
 
 export interface Domain {
   id: string;
