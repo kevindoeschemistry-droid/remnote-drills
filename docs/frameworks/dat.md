@@ -2,7 +2,7 @@
 
 Generated from `drills/frameworks/dat.yaml` by `scripts/framework.mjs`. ● drilled · ◐ partly · ○ no drills yet.
 
-**204 learning objectives** in 6 units (204 core): 204 drilled, 0 partly, 0 with no drills. Core: 204 / 204 drilled.
+**205 learning objectives** in 6 units (205 core): 205 drilled, 0 partly, 0 with no drills. Core: 205 / 205 drilled.
 
 ## Big ideas
 
@@ -28,7 +28,7 @@ Generated from `drills/frameworks/dat.yaml` by `scripts/framework.mjs`. ● dril
 
 | Unit | Scope | Est. weight | LOs | ● | ◐ | ○ |
 |---|---|---|---|---|---|---|
-| 1 · Biology | core | Biology: 40 of 100 Survey of the Natural Sciences items (Survey 90 min total) | 74 | 74 | 0 | 0 |
+| 1 · Biology | core | Biology: 40 of 100 Survey of the Natural Sciences items (Survey 90 min total) | 75 | 75 | 0 | 0 |
 | 2 · General Chemistry | core | General Chemistry: 30 of 100 Survey of the Natural Sciences items (periodic table provided) | 57 | 57 | 0 | 0 |
 | 3 · Organic Chemistry | core | Organic Chemistry: 30 of 100 Survey of the Natural Sciences items (new specifications, implemented April 2026) | 36 | 36 | 0 | 0 |
 | 4 · Perceptual Ability | core | Perceptual Ability: 90 items in 60 min, six parts (the guide gives no per-part counts) | 11 | 11 | 0 | 0 |
@@ -257,6 +257,9 @@ Big ideas: STRUCT, ENERGY, INFO, SYS
 - ● **DAT-1.4.Q** (ada-dat:1.4.i) Predict Barr bodies and imprinted expression from a karyotype or parent of origin.
   - EK: Barr bodies = number of X chromosomes − 1; imprinted genes are expressed from one parent's copy only (Prader–Willi paternal loss, Angelman maternal loss of 15q11–13).
   - P1 · P2 · drills: dat-barr-bodies, dat-imprinting
+- ● **DAT-1.4.R** (ada-dat:1.4.e) Compute PCR amplification and choose the blot or library that detects DNA, RNA or protein.
+  - EK: Each ideal PCR cycle doubles the target: N = N₀ · 2ⁿ; Southern blots detect DNA, Northern RNA, Western protein; a cDNA library holds only expressed genes, without introns.
+  - P1 · P2 · drills: dat-pcr-copies, dat-blot-pick
 
 ### 1.5 Evolution and Ecology
 

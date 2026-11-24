@@ -20,7 +20,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 | Chemistry Olympiad | U.S. National Chemistry Olympiad: local and national exam format, multiple-choice topic bands and Part II | exam-spec | read in part | icho-appendix-c, icho-syllabus | — | 73 | 73 | 0 |
 | Chemistry (AP) | AP Chemistry Course and Exam Description (Fall 2024) | standard | read in part | ngss-hs, ib-chemistry-2025, usnco, icho-appendix-c, icho-syllabus, acs-accm, aamc-mcat-outline | — | 179 | 179 | 0 |
 | Computer Science | Computer Science Curricula 2023, Body of Knowledge | standard | read in full | — | — | 140 | 1 | 139 |
-| Dental Admission Test | Dental Admission Test 2026 Candidate Guide | exam-spec | read in full | ngss-hs, ib-chemistry-2025, usnco, icho-appendix-c | — | 204 | 204 | 0 |
+| Dental Admission Test | Dental Admission Test 2026 Candidate Guide | exam-spec | read in full | ngss-hs, ib-chemistry-2025, usnco, icho-appendix-c | — | 205 | 205 | 0 |
 | Earth and Space Science | Next Generation Science Standards, high school performance expectations (2013) | standard | read in part | ib-physics-2025, ib-biology-2025, gre-physics | — | 18 | 18 | 0 |
 | Electric Double Layers | Petsev, van Swol and Frink, Molecular Theory of Electric Double Layers (IOP Publishing, 2021) | textbook | read in part | — | — | 56 | 56 | 0 |
 | Applied Engineering Mathematics | Kreyszig, Advanced Engineering Mathematics, 10th ed. | textbook | read in full | fe-chemical, webwork-opl | — | 155 | 128 | 27 |
@@ -504,7 +504,7 @@ https://apcentral.collegeboard.org/media/pdf/ap-biology-course-and-exam-descript
 | 1.4.b | Biology · Genetics: human | 2 | 2 | dat (2) |
 | 1.4.c | Biology · Genetics: classical | 2 | 2 | dat (2) |
 | 1.4.d | Biology · Genetics: chromosomal | 2 | 2 | dat (2) |
-| 1.4.e | Biology · Genetics: genetic technology | 1 | 1 | dat (1) |
+| 1.4.e | Biology · Genetics: genetic technology | 2 | 2 | dat (2) |
 | 1.4.f | Biology · Genetics: developmental mechanisms | 2 | 2 | dat (2) |
 | 1.4.g | Biology · Genetics: genomics | 2 | 2 | dat (2) |
 | 1.4.h | Biology · Genetics: gene expression | 2 | 2 | dat (2) |

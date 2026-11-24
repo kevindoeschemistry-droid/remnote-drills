@@ -54,6 +54,8 @@ OBJS = [
      "A specific n-base site appears about once every 4^n bases; prokaryotic genomes are compact with operons; eukaryotic genomes carry introns, repeats and much noncoding DNA."),
     ("DAT-1.4.Q", "1.4.i", "Predict Barr bodies and imprinted expression from a karyotype or parent of origin.",
      "Barr bodies = number of X chromosomes − 1; imprinted genes are expressed from one parent's copy only (Prader–Willi paternal loss, Angelman maternal loss of 15q11–13)."),
+    ("DAT-1.4.R", "1.4.e", "Compute PCR amplification and choose the blot or library that detects DNA, RNA or protein.",
+     "Each ideal PCR cycle doubles the target: N = N₀ · 2ⁿ; Southern blots detect DNA, Northern RNA, Western protein; a cDNA library holds only expressed genes, without introns."),
     ("DAT-1.5.I", "1.5.c", "Apply Hamilton's rule and classify social behaviors and communication signals.",
      "An altruistic gene spreads when r · B > C; full siblings r = 1/2, half siblings 1/4, cousins 1/8; pheromones, the honeybee waggle dance and territorial displays are signals."),
 ]
@@ -301,6 +303,16 @@ ADD = [
         ("A calico cat's patchy coat shows which process?", "Random X inactivation", "Genomic imprinting", "Incomplete dominance", "Codominance"),
         ("Methylating cytosines in a promoter usually does what?", "Silences the gene", "Activates the gene", "Mutates the sequence", "Removes histones"),
     ], "Imprinting silences one parent's copy; the sequence is unchanged, only its marks differ", pace="quick")),
+    # 1.4.R genetic technology
+    ("DAT-1.4.R", Q("dat-pcr-copies", MOLG, "A PCR starts with {{c0}} copies of a target and runs {{nc}} cycles at perfect efficiency. How many copies result?",
+        given={"c0": {"pick": [1, 10, 50]}, "nc": {"pick": [10, 20, 25, 30]}}, value="c0*2^nc", tex="N", final=True, verify="c0*Integer(2)**nc",
+        explain="Each cycle doubles every copy: N = N₀ · 2ⁿ (real reactions plateau as primers and nucleotides run low)")),
+    ("DAT-1.4.R", facts("dat-blot-pick", MOLG, [
+        ("Which method detects a specific mRNA in a tissue sample by size?", "Northern blot", "Southern blot", "Western blot", "ELISA"),
+        ("Which method detects a specific DNA fragment after a restriction digest?", "Southern blot", "Northern blot", "Western blot", "Mass spectrometry"),
+        ("Which method detects a specific protein with an antibody after gel separation?", "Western blot", "Northern blot", "Southern blot", "PCR"),
+        ("A eukaryotic gene must be expressed in E. coli, which cannot splice. What should be cloned?", "Its cDNA, made from mRNA by reverse transcriptase", "Its genomic DNA with introns", "Its promoter only", "Its tRNA"),
+    ], "Southern–DNA, Northern–RNA, Western–protein; cDNA lacks introns, so bacteria can express it", pace="quick")),
     # 1.5.I behavior
     ("DAT-1.5.I", Q("dat-hamilton", EVO, "A helping act costs the helper {{Cc}} offspring and gives a {{rel}} {{Bn}} extra offspring. By Hamilton's rule, what is r·B − C (positive means favoured)?",
         cases=[{"rel": "full sibling", "rn": 1, "rd": 2, "Bn": 3, "Cc": 1}, {"rel": "half sibling", "rn": 1, "rd": 4, "Bn": 3, "Cc": 1}, {"rel": "first cousin", "rn": 1, "rd": 8, "Bn": 4, "Cc": 1},

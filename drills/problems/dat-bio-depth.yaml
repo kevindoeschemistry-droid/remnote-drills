@@ -1278,6 +1278,66 @@
     explain: Imprinting silences one parent's copy; the sequence is unchanged, only its marks differ
   verify:
     authored: true
+- template: dat-pcr-copies
+  skill: bio.molecular-genetics
+  pace: quick
+  given:
+    c0:
+      pick:
+      - 1
+      - 10
+      - 50
+    nc:
+      pick:
+      - 10
+      - 20
+      - 25
+      - 30
+  prompt: A PCR starts with {{c0}} copies of a target and runs {{nc}} cycles at perfect efficiency. How many copies result?
+  parts:
+  - ask: Answer
+    label: v
+    tex: N
+    value: c0*2^nc
+    final: true
+    tol: 0.0001
+    explain: 'Each cycle doubles every copy: N = N₀ · 2ⁿ (real reactions plateau as primers and nucleotides run low)'
+  verify:
+    expect:
+      v: c0*Integer(2)**nc
+- template: dat-blot-pick
+  skill: bio.molecular-genetics
+  pace: quick
+  cases:
+  - q: Which method detects a specific mRNA in a tissue sample by size?
+    o1: Northern blot
+    o2: Southern blot
+    o3: Western blot
+    o4: ELISA
+  - q: Which method detects a specific DNA fragment after a restriction digest?
+    o1: Southern blot
+    o2: Northern blot
+    o3: Western blot
+    o4: Mass spectrometry
+  - q: Which method detects a specific protein with an antibody after gel separation?
+    o1: Western blot
+    o2: Northern blot
+    o3: Southern blot
+    o4: PCR
+  - q: A eukaryotic gene must be expressed in E. coli, which cannot splice. What should be cloned?
+    o1: Its cDNA, made from mRNA by reverse transcriptase
+    o2: Its genomic DNA with introns
+    o3: Its promoter only
+    o4: Its tRNA
+  prompt: '{{q}}'
+  parts:
+  - ask: Answer
+    label: v
+    choice: *id001
+    correct: '0'
+    explain: Southern–DNA, Northern–RNA, Western–protein; cDNA lacks introns, so bacteria can express it
+  verify:
+    authored: true
 - template: dat-hamilton
   skill: bio.evolution
   pace: quick

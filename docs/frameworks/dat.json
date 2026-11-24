@@ -1294,6 +1294,24 @@
         "dat-barr-bodies",
         "dat-imprinting"
        ]
+      },
+      {
+       "id": "R",
+       "std": [
+        "ada-dat:1.4.e"
+       ],
+       "do": "Compute PCR amplification and choose the blot or library that detects DNA, RNA or protein.",
+       "ek": [
+        "Each ideal PCR cycle doubles the target: N = N₀ · 2ⁿ; Southern blots detect DNA, Northern RNA, Western protein; a cDNA library holds only expressed genes, without introns."
+       ],
+       "p": [
+        "P1",
+        "P2"
+       ],
+       "drills": [
+        "dat-pcr-copies",
+        "dat-blot-pick"
+       ]
       }
      ]
     },
@@ -4855,6 +4873,17 @@
    "full": [
     "dat-barr-bodies",
     "dat-imprinting"
+   ],
+   "partial": []
+  },
+  {
+   "code": "DAT-1.4.R",
+   "unit": 1,
+   "topic": 4,
+   "status": "ok",
+   "full": [
+    "dat-pcr-copies",
+    "dat-blot-pick"
    ],
    "partial": []
   },
