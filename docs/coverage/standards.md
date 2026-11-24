@@ -14,7 +14,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 | Analytical Chemistry | Regulations of the International Chemistry Olympiad, Appendices C and D (concepts, skills and factual knowledge) | exam-spec | read in full | gre-chemistry, aamc-mcat-outline, usnco, icho-syllabus | acs-accm | 18 | 18 | 0 |
 | Anchor Quantities | CODATA Recommended Values of the Fundamental Physical Constants: 2022 (NIST SP 961) | reference | read in part | snapshot-key-numbers, francl-take-a-number, cfr-21-101-9 | acs-accm-pchem | 14 | 3 | 11 |
 | Basketball | USA Basketball Player Development Curriculum | standard | read in part | — | — | 88 | 0 | 88 |
-| Biology (AP) | AP Biology Course and Exam Description (2019) | standard | read through a crosswalk | iupac-aa-1983, ngss-hs, ib-biology-2025, icho-appendix-c, icho-syllabus, aamc-mcat-outline | — | 179 | 179 | 0 |
+| Biology (AP) | AP Biology Course and Exam Description (effective fall 2025) | standard | read in part | ap-biology, iupac-aa-1983, ngss-hs, ib-biology-2025, icho-appendix-c, icho-syllabus, aamc-mcat-outline | — | 179 | 179 | 0 |
 | Biosecurity | BlueDot Impact, Biosecurity course (six units) | course | read in part | who-lbm4, bwc, cdc-ss1978, who-jee3, ashrae-241 | — | 42 | 42 | 0 |
 | Calculus | AP Calculus AB and BC Course and Exam Description | standard | read in full | webwork-opl | — | 203 | 203 | 0 |
 | Chemistry Olympiad | U.S. National Chemistry Olympiad: local and national exam format, multiple-choice topic bands and Part II | exam-spec | read in part | icho-appendix-c, icho-syllabus | — | 73 | 73 | 0 |
@@ -68,10 +68,10 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 - **Analytical Chemistry**: Topics named by IChO Appendix C (read in full), the GRE Chemistry analytical area and MCAT 5C. The ACS analytical content map was not read; objectives and their order are ours.
 - **Anchor Quantities**: Values from CODATA 2022, standard atomic weights and 21 CFR 101.9. Which values to carry is a house list for units 1–4 and the SnapShot Key Numbers in Biology sheet for units 5–6. No chemistry standard for this was found; the ACS content maps have not been opened to check.
 - **Basketball**: Introductory level read in full, higher levels in overview only.
-- **Biology (AP)**: Read through a publisher's correlation table.
+- **Biology (AP)**: Topics cite the 2025 AP Biology CED learning objectives (all 97 read); objectives keep their 2019 codes, read through a publisher's correlation table.
 - **Biosecurity**: Units follow the six units of BlueDot Impact's Biosecurity course (outline read Nov 2026); laboratory biosafety follows the WHO Laboratory Biosafety Manual's risk-based structure and the treaty items follow the BWC's articles. No curriculum standard for biosecurity exists; the objectives are a house list.
 - **Chemistry Olympiad**: Topics from the USNCO bands (read in part) and IChO Appendix C (read in full), at national-exam depth; the items are a house list.
-- **Chemistry (AP)**: Objectives past Unit 2 are written from topic titles.
+- **Chemistry (AP)**: Every topic in units 1–9 cites its College Board learning objectives (92 of 92, read Nov 2026). Objectives past Unit 2 were first written from topic titles; check them against the LO text when revising.
 - **Earth and Space Science**: Units follow the NGSS HS ESS disciplinary core ideas (ESS1 Earth's place in the universe, ESS2 Earth's systems, ESS3 Earth and human activity), read in part. Objectives and their order are ours.
 - **Electric Double Layers**: A course textbook, not a curriculum standard: the units follow its chapters and the objectives are ours. Colloids and DLVO at the undergraduate level live in Polymers and Materials unit 3 (Israelachvili).
 - **Applied Engineering Mathematics**: UCI CBE 200 publishes no syllabus. The undergraduate part is anchored to fe-chemical; series, Sturm–Liouville, PDEs and transforms are past any exam spec and stand on the book.
@@ -115,7 +115,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 - **AI Safety**: course, read in full
 - **Anchor Quantities**: reference, read in part; should move to ACS Exams Institute Anchoring Concepts Content Map IV: Physical Chemistry (J. Chem. Educ. 2018, 95, 238)
 - **Basketball**: standard, read in part
-- **Biology (AP)**: standard, read through a crosswalk
+- **Biology (AP)**: standard, read in part
 - **Biosecurity**: course, read in part
 - **Chemistry Olympiad**: exam-spec, read in part
 - **Chemistry (AP)**: standard, read in part
@@ -259,6 +259,213 @@ https://ncees.org/wp-content/uploads/2022/09/FE-Che-CBT-specs.pdf
 | 17.D | Intellectual property | — | — | **nothing yet** |
 
 **Areas with nothing answering to them:** 3 Engineering Sciences; 11 Solids Handling; 17 Ethics and Professional Practice.
+
+## AP Chemistry Course and Exam Description (Fall 2024)
+
+https://apcentral.collegeboard.org/media/pdf/ap-chemistry-course-and-exam-description-effective-fall-2024.pdf
+
+92 of 92 items have at least one objective answering to them.
+
+| Item | Topic | Objectives | With a drill | Where |
+|---|---|---|---|---|
+| 1.1.A | Calculate quantities of a substance or its number of particles with dimensional analysis and the mole | 1 | 1 | chemistry (1) |
+| 1.2.A | Relate the mass spectrum of an element to the masses of its isotopes | 2 | 2 | chemistry (2) |
+| 1.3.A | Relate elemental composition by mass to the empirical formula of a pure substance | 4 | 4 | chemistry (4) |
+| 1.4.A | Relate elemental composition by mass to the composition of a mixture | 1 | 1 | chemistry (1) |
+| 1.5.A | Represent the ground-state electron configuration of an atom or ion with the Aufbau principle | 3 | 3 | chemistry (3) |
+| 1.6.A | Relate a photoelectron spectrum to electron configuration and electron–nucleus interactions | 1 | 1 | chemistry (1) |
+| 1.7.A | Relate trends in atomic properties to electronic structure and periodicity | 3 | 3 | chemistry (3) |
+| 1.8.A | Relate trends in reactivity of elements to periodicity | 2 | 2 | chemistry (2) |
+| 2.1.A | Relate the type of bonding to the properties of the elements in the bond | 1 | 1 | chemistry (1) |
+| 2.2.A | Represent potential energy against interatomic distance | 2 | 2 | chemistry (2) |
+| 2.3.A | Represent an ionic solid with a particulate model consistent with Coulomb's law | 1 | 1 | chemistry (1) |
+| 2.4.A | Represent a metallic solid or alloy with a model of its structure and interactions | 1 | 1 | chemistry (1) |
+| 2.5.A | Represent a molecule with a Lewis diagram | 2 | 2 | chemistry (2) |
+| 2.6.A | Represent resonance and formal charge in Lewis diagrams | 2 | 2 | chemistry (2) |
+| 2.7.A | Explain structural and electron properties of molecules from Lewis diagrams, VSEPR, bond order and polarity | 3 | 3 | chemistry (3) |
+| 3.1.A | Relate molecular structure to intermolecular force strength | 2 | 2 | chemistry (2) |
+| 3.2.A | Relate macroscopic properties of solids to particulate structure and interactions | 1 | 1 | chemistry (1) |
+| 3.3.A | Represent solid, liquid and gas phases with particulate models | 2 | 2 | chemistry (2) |
+| 3.4.A | Explain gas properties with the ideal gas law | 4 | 4 | chemistry (4) |
+| 3.5.A | Explain gas properties with kinetic molecular theory | 2 | 2 | chemistry (2) |
+| 3.6.A | Explain non-ideal gas behaviour from interparticle forces and volumes | 1 | 1 | chemistry (1) |
+| 3.7.A | Calculate solute particles, solution volume or molarity | 4 | 4 | chemistry (4) |
+| 3.8.A | Represent mixtures and concentrations with particulate models | 1 | 1 | chemistry (1) |
+| 3.9.A | Explain separation of mixtures from intermolecular interactions | 1 | 1 | chemistry (1) |
+| 3.10.A | Explain solubility in aqueous and nonaqueous solvents from interparticle interactions | 2 | 2 | chemistry (2) |
+| 3.11.A | Relate spectral regions to the transitions they cause | 1 | 1 | chemistry (1) |
+| 3.12.A | Relate photon properties to electronic transitions | 2 | 2 | chemistry (2) |
+| 3.13.A | Explain absorbance by concentration, path length and molar absorptivity (Beer–Lambert) | 1 | 1 | chemistry (1) |
+| 4.1.A | Identify evidence of chemical and physical change | 1 | 1 | chemistry (1) |
+| 4.2.A | Represent changes with balanced molecular or net ionic equations | 2 | 2 | chemistry (2) |
+| 4.3.A | Represent a reaction or process with a particulate model | 1 | 1 | chemistry (1) |
+| 4.4.A | Relate macroscopic characteristics to bond interactions in chemical and physical processes | 1 | 1 | chemistry (1) |
+| 4.5.A | Explain changes in reactant and product amounts with the balanced equation | 5 | 5 | chemistry (5) |
+| 4.6.A | Identify the equivalence point from titrant and analyte amounts | 1 | 1 | chemistry (1) |
+| 4.7.A | Classify a reaction as acid–base, redox or precipitation | 2 | 2 | chemistry (2) |
+| 4.8.A | Identify Brønsted–Lowry acids, bases and conjugate pairs | 1 | 1 | chemistry (1) |
+| 4.9.A | Represent a balanced redox reaction with half-reactions | 4 | 4 | chemistry (4) |
+| 5.1.A | Relate reaction rate to experimental parameters | 1 | 1 | chemistry (1) |
+| 5.2.A | Represent data with a consistent rate law | 2 | 2 | chemistry (2) |
+| 5.3.A | Identify a rate law from concentration–time data | 3 | 3 | chemistry (3) |
+| 5.4.A | Represent an elementary reaction's rate law from its stoichiometry | 1 | 1 | chemistry (1) |
+| 5.5.A | Relate an elementary reaction's rate to collision frequency, energy and orientation | 1 | 1 | chemistry (1) |
+| 5.6.A | Represent activation energy and energy change on an energy profile | 3 | 3 | chemistry (3) |
+| 5.7.A | Identify the components of a reaction mechanism | 1 | 1 | chemistry (1) |
+| 5.8.A | Identify the rate law of a mechanism whose first step is rate limiting | 1 | 1 | chemistry (1) |
+| 5.9.A | Identify the rate law of a mechanism whose first step is not rate limiting (pre-equilibrium) | 1 | 1 | chemistry (1) |
+| 5.10.A | Represent a multistep reaction's energy profile | 1 | 1 | chemistry (1) |
+| 5.11.A | Explain how a catalyst affects a reaction and its mechanism | 1 | 1 | chemistry (1) |
+| 6.1.A | Relate observations to energy changes in a transformation | 1 | 1 | chemistry (1) |
+| 6.2.A | Represent a transformation with an energy diagram | 1 | 1 | chemistry (1) |
+| 6.3.A | Explain thermal energy transfer by molecular collisions | 1 | 1 | chemistry (1) |
+| 6.4.A | Calculate heat from amount, heat capacity and temperature change | 3 | 3 | chemistry (3) |
+| 6.5.A | Calculate heat of a phase transition from moles and molar enthalpy | 2 | 2 | chemistry (2) |
+| 6.6.A | Calculate heat of reaction from moles and molar enthalpy of reaction | 1 | 1 | chemistry (1) |
+| 6.7.A | Calculate reaction enthalpy from bond enthalpies | 1 | 1 | chemistry (1) |
+| 6.8.A | Calculate reaction enthalpy from enthalpies of formation | 2 | 2 | chemistry (2) |
+| 6.9.A | Represent a process as a sequence of steps (Hess's law) | 1 | 1 | chemistry (1) |
+| 6.9.B | Relate a process's enthalpy to the sum of its steps | 1 | 1 | chemistry (1) |
+| 7.1.A | Relate reversible processes and equilibrium to observations | 1 | 1 | chemistry (1) |
+| 7.2.A | Relate the direction of a reversible reaction to forward and reverse rates | 1 | 1 | chemistry (1) |
+| 7.3.A | Represent Q and K expressions (Qc, Qp, Kc, Kp) | 2 | 2 | chemistry (2) |
+| 7.4.A | Calculate Kc or Kp from equilibrium data | 3 | 3 | chemistry (3) |
+| 7.5.A | Relate very large or small K to equilibrium concentrations | 1 | 1 | chemistry (1) |
+| 7.6.A | Represent a multistep process's overall K from its steps | 1 | 1 | chemistry (1) |
+| 7.7.A | Identify equilibrium concentrations or pressures from initial conditions and K | 2 | 2 | chemistry (2) |
+| 7.8.A | Represent a reversible reaction at equilibrium with a particulate model | 1 | 1 | chemistry (1) |
+| 7.9.A | Identify the response of an equilibrium to a stress (Le Châtelier) | 1 | 1 | chemistry (1) |
+| 7.10.A | Relate Q, K and the direction a reaction proceeds | 1 | 1 | chemistry (1) |
+| 7.11.A | Calculate a salt's solubility from Ksp | 3 | 3 | chemistry (3) |
+| 7.12.A | Identify solubility or Ksp with a common ion present | 1 | 1 | chemistry (1) |
+| 8.1.A | Calculate pH and pOH of neutral water from Kw | 1 | 1 | chemistry (1) |
+| 8.2.A | Calculate pH and pOH of strong acids and bases | 1 | 1 | chemistry (1) |
+| 8.3.A | Relate pH, pOH and species in a weak acid or base solution | 4 | 4 | chemistry (4) |
+| 8.4.A | Relate major species in mixtures of weak and strong acids and bases | 3 | 3 | chemistry (3) |
+| 8.5.A | Explain titration results for mono- and polyprotic acids or bases | 3 | 3 | chemistry (3) |
+| 8.6.A | Relate acid or base strength to molecular structure | 2 | 2 | chemistry (2) |
+| 8.7.A | Relate the predominant form at a given pH to pKa or pKb | 1 | 1 | chemistry (1) |
+| 8.8.A | Explain how buffers resist pH change | 1 | 1 | chemistry (1) |
+| 8.9.A | Identify buffer pH with the Henderson–Hasselbalch equation | 3 | 3 | chemistry (3) |
+| 8.10.A | Relate buffer capacity to the ratio of conjugate acid and base | 1 | 1 | chemistry (1) |
+| 8.11.A | Identify the qualitative effect of pH on a salt's solubility | 1 | 1 | chemistry (1) |
+| 9.1.A | Identify the sign and relative size of an entropy change | 1 | 1 | chemistry (1) |
+| 9.2.A | Calculate standard entropy change from absolute entropies | 1 | 1 | chemistry (1) |
+| 9.3.A | Judge thermodynamic favourability from ΔG° | 2 | 2 | chemistry (2) |
+| 9.4.A | Explain why a favoured reaction may not proceed at a measurable rate | 1 | 1 | chemistry (1) |
+| 9.5.A | Relate K, ΔG° and T to favourability | 3 | 3 | chemistry (3) |
+| 9.6.A | Relate a salt's solubility to the enthalpy and entropy of dissolution | 1 | 1 | chemistry (1) |
+| 9.7.A | Explain how external energy or coupled reactions drive unfavourable processes | 1 | 1 | chemistry (1) |
+| 9.8.A | Relate the components of an electrochemical cell to its operation | 2 | 2 | chemistry (2) |
+| 9.9.A | Judge a cell's favourability from its standard potential and half-reactions | 2 | 2 | chemistry (2) |
+| 9.10.A | Relate nonstandard conditions to changes in cell potential | 2 | 2 | chemistry (2) |
+| 9.11.A | Calculate charge flow from changes in amounts in an electrochemical cell | 1 | 1 | chemistry (1) |
+
+## AP Biology Course and Exam Description (effective fall 2025)
+
+https://apcentral.collegeboard.org/media/pdf/ap-biology-course-and-exam-description.pdf
+
+97 of 97 items have at least one objective answering to them.
+
+| Item | Topic | Objectives | With a drill | Where |
+|---|---|---|---|---|
+| 1.1.A | Explain how the properties of water that result from its polarity and hydrogen bonding affect its biological function | 2 | 2 | biology (2) |
+| 1.2.A | Describe the composition of macromolecules required by living organisms | 2 | 2 | biology (2) |
+| 1.3.A | Describe the chemical reactions that build and break biological macromolecules | 2 | 2 | biology (2) |
+| 1.4.A | Describe the structure and function of carbohydrates | 8 | 8 | biology (8) |
+| 1.5.A | Describe the structure and function of lipids | 8 | 8 | biology (8) |
+| 1.6.A | Describe the structure and function of DNA and RNA | 2 | 2 | biology (2) |
+| 1.7.A | Describe the structure and function of proteins | 8 | 8 | biology (8) |
+| 2.1.A | Explain how subcellular components and organelles contribute to the function of cells | 5 | 5 | biology (5) |
+| 2.2.A | Explain the effect of surface area-to-volume ratios on the exchange of materials with the environment | 3 | 3 | biology (3) |
+| 2.3.A | Describe the roles of the components of the cell membrane in maintaining the internal environment | 2 | 2 | biology (2) |
+| 2.3.B | Describe the fluid mosaic model of cell membranes | 2 | 2 | biology (2) |
+| 2.4.A | Explain how the structure of biological membranes influences selective permeability | 2 | 2 | biology (2) |
+| 2.4.B | Describe the role of the cell wall in maintaining cell structure and function | 2 | 2 | biology (2) |
+| 2.5.A | Describe the mechanisms that organisms use to maintain solute and water balance | 5 | 5 | biology (5) |
+| 2.5.B | Describe the mechanisms that organisms use to transport large molecules across the plasma membrane | 5 | 5 | biology (5) |
+| 2.6.A | Explain how the structure of a molecule affects its ability to pass through the plasma membrane | 4 | 4 | biology (4) |
+| 2.7.A | Explain how concentration gradients affect the movement of molecules across membranes | 3 | 3 | biology (3) |
+| 2.7.B | Explain how osmoregulatory mechanisms contribute to the health and survival of organisms | 3 | 3 | biology (3) |
+| 2.8.A | Describe the processes that allow ions and other molecules to move across membranes | 4 | 4 | biology (4) |
+| 2.9.A | Describe the membrane-bound structures of the eukaryotic cell | 2 | 2 | biology (2) |
+| 2.9.B | Explain how internal membranes and organelles contribute to compartmentalization of eukaryotic cell functions | 2 | 2 | biology (2) |
+| 2.10.A | Describe similarities and differences in compartmentalization between prokaryotic and eukaryotic cells | 2 | 2 | biology (2) |
+| 3.1.A | Explain how enzymes affect the rate of biological reactions | 3 | 3 | biology (3) |
+| 3.2.A | Explain how changes to the structure of an enzyme may affect its function | 3 | 3 | biology (3) |
+| 3.2.B | Explain how the cellular environment affects enzyme activity | 3 | 3 | biology (3) |
+| 3.3.A | Describe the role of energy in living organisms | 2 | 2 | biology (2) |
+| 3.3.B | Explain how shared, conserved processes and features support common ancestry for all organisms | 2 | 2 | biology (2) |
+| 3.4.A | Describe the photosynthetic processes and chloroplast features that capture and store energy | 4 | 4 | biology (4) |
+| 3.4.B | Explain how cells capture energy from light and transfer it to biological molecules | 4 | 4 | biology (4) |
+| 3.5.A | Describe the processes and mitochondrial features that use energy stored in macromolecules | 5 | 5 | biology (5) |
+| 3.5.B | Explain how cells obtain energy from biological macromolecules to power cellular functions | 5 | 5 | biology (5) |
+| 4.1.A | Describe the ways that cells can communicate with one another | 2 | 2 | biology (2) |
+| 4.1.B | Explain how cells communicate over short and long distances | 2 | 2 | biology (2) |
+| 4.2.A | Describe the components of a signal transduction pathway | 2 | 2 | biology (2) |
+| 4.2.B | Describe the role of the components of a signal transduction pathway in producing a cellular response | 2 | 2 | biology (2) |
+| 4.3.A | Describe the types of cellular responses elicited by a signal transduction pathway | 3 | 3 | biology (3) |
+| 4.3.B | Explain how a change in the structure of a signaling molecule affects the pathway | 3 | 3 | biology (3) |
+| 4.4.A | Explain how positive and negative feedback help maintain homeostasis | 3 | 3 | biology (3) |
+| 4.5.A | Describe the events that occur in the cell cycle | 3 | 3 | biology (3) |
+| 4.5.B | Explain how mitosis transmits chromosomes from one generation of cells to the next | 3 | 3 | biology (3) |
+| 4.6.A | Describe the role of checkpoints in regulating the cell cycle | 2 | 2 | biology (2) |
+| 4.6.B | Describe the effects of disruptions to the cell cycle on the cell or organism | 2 | 2 | biology (2) |
+| 5.1.A | Explain how meiosis transmits chromosomes from one generation to the next | 2 | 2 | biology (2) |
+| 5.1.B | Describe similarities and differences between mitosis and meiosis | 2 | 2 | biology (2) |
+| 5.2.A | Explain how meiosis generates genetic diversity | 1 | 1 | biology (1) |
+| 5.3.A | Explain the inheritance of genes and traits as described by Mendel's laws | 5 | 5 | biology (5) |
+| 5.4.A | Explain deviations from Mendel's model of inheritance | 6 | 6 | biology (6) |
+| 5.5.A | Explain how the same genotype can result in multiple phenotypes under different environments | 1 | 1 | biology (1) |
+| 6.1.A | Describe the structures involved in passing hereditary information between generations | 2 | 2 | biology (2) |
+| 6.1.B | Describe the characteristics of DNA that allow it to be used as hereditary material | 2 | 2 | biology (2) |
+| 6.2.A | Describe how genetic information is copied for transmission between generations | 3 | 3 | biology (3) |
+| 6.3.A | Describe how genetic information flows from DNA to RNA to protein | 2 | 2 | biology (2) |
+| 6.4.A | Explain how the phenotype of an organism is determined by its genotype | 2 | 2 | biology (2) |
+| 6.5.A | Describe the types of interactions that regulate gene expression | 2 | 2 | biology (2) |
+| 6.5.B | Explain how the location of regulatory sequences relates to their function | 2 | 2 | biology (2) |
+| 6.6.A | Explain how transcription factor binding to promoters affects gene expression and phenotype | 2 | 2 | biology (2) |
+| 6.6.B | Connect the regulation of gene expression to phenotypic differences in cells and organisms | 2 | 2 | biology (2) |
+| 6.7.A | Describe the various types of mutation | 3 | 3 | biology (3) |
+| 6.7.B | Explain how changes in genotype may result in changes in phenotype | 3 | 3 | biology (3) |
+| 6.7.C | Explain how alterations in DNA contribute to variation subject to natural selection | 3 | 3 | biology (3) |
+| 6.8.A | Explain the use of genetic engineering techniques in analyzing or manipulating DNA | 3 | 3 | biology (3) |
+| 7.1.A | Describe the causes of natural selection | 2 | 2 | biology (2) |
+| 7.1.B | Explain how natural selection affects populations | 2 | 2 | biology (2) |
+| 7.2.A | Describe the importance of phenotypic variation in a population | 1 | 1 | biology (1) |
+| 7.2.B | Explain how variation in molecules within cells connects to fitness | 1 | 1 | biology (1) |
+| 7.3.A | Explain how humans can affect diversity within a population | 2 | 2 | biology (2) |
+| 7.4.A | Explain how random occurrences affect the genetic makeup of a population | 3 | 3 | biology (3) |
+| 7.4.B | Describe the role of random processes in the evolution of specific populations | 3 | 3 | biology (3) |
+| 7.4.C | Describe the change in the genetic makeup of a population over time | 3 | 3 | biology (3) |
+| 7.5.A | Describe the conditions under which allele and genotype frequencies will change | 3 | 3 | biology (3) |
+| 7.6.A | Describe the types of data that provide evidence for evolution | 2 | 2 | biology (2) |
+| 7.6.B | Explain how morphological, biochemical and geological data show organisms have changed over time | 2 | 2 | biology (2) |
+| 7.7.A | Describe cellular and molecular evidence for common ancestry | 2 | 2 | biology (2) |
+| 7.8.A | Explain how evolution is an ongoing process in all living organisms | 1 | 1 | biology (1) |
+| 7.9.A | Describe the types of evidence used to infer evolutionary relationships | 3 | 3 | biology (3) |
+| 7.9.B | Explain how phylogenetic trees and cladograms infer relatedness | 3 | 3 | biology (3) |
+| 7.10.A | Describe the conditions under which new species may arise | 6 | 6 | biology (6) |
+| 7.10.B | Describe the rate of evolution and speciation under different ecological conditions | 6 | 6 | biology (6) |
+| 7.10.C | Explain the processes and mechanisms that drive speciation | 6 | 6 | biology (6) |
+| 7.11.A | Explain how genetic diversity affects a population's ability to withstand environmental pressures | 1 | 1 | biology (1) |
+| 7.12.A | Describe the evidence that supports models of the origin of life on Earth | 1 | 1 | biology (1) |
+| 8.1.A | Explain how behavioral and physiological responses relate to environmental change | 2 | 2 | biology (2) |
+| 8.1.B | Explain how behavioral responses affect fitness | 2 | 2 | biology (2) |
+| 8.2.A | Describe the strategies organisms use to acquire and use energy | 4 | 4 | biology (4) |
+| 8.2.B | Explain how energy flows and matter cycles through trophic levels | 4 | 4 | biology (4) |
+| 8.2.C | Explain how changes in energy availability affect populations, communities and ecosystems | 4 | 4 | biology (4) |
+| 8.2.D | Explain how autotrophs and heterotrophs enable the flow of energy within an ecosystem | 4 | 4 | biology (4) |
+| 8.3.A | Describe factors that influence the growth dynamics of populations | 2 | 2 | biology (2) |
+| 8.4.A | Explain how population density affects and is determined by resource availability | 2 | 2 | biology (2) |
+| 8.5.A | Describe the structure of a community by its species composition and diversity | 4 | 4 | biology (4) |
+| 8.5.B | Explain how interactions within and among populations influence community structure | 4 | 4 | biology (4) |
+| 8.6.A | Describe the relationship between ecosystem diversity and resilience | 2 | 2 | biology (2) |
+| 8.6.B | Explain how adding or removing an ecosystem component affects the ecosystem | 2 | 2 | biology (2) |
+| 8.7.A | Explain the interaction between the environment and variation in populations | 4 | 4 | biology (4) |
+| 8.7.B | Explain how invasive species affect ecosystem dynamics | 4 | 4 | biology (4) |
+| 8.7.C | Describe human activities that change ecosystem structure and dynamics | 4 | 4 | biology (4) |
+| 8.7.D | Explain how geological and meteorological activity changes ecosystem structure and dynamics | 4 | 4 | biology (4) |
 
 ## UIL Number Sense Problem Sequencing Charts (High School; A+ Junior High and Elementary, rev. 2016-17) with the Number Sense Handbook rules
 

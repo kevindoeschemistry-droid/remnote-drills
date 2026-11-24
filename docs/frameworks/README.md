@@ -89,7 +89,7 @@ Related reports: [standards and how much of each was read](../coverage/standards
 | [Advanced Inorganic Chemistry (Cotton & Wilkinson)](inorganic-advanced.md) | IA | 55 | 55 | 0 | 0 | 2.0 | Cotton, Wilkinson, Murillo & Bochmann, Advanced Inorganic Chemistry, 6th ed. (1999): table of contents (textbook, read: part) |
 | [Analytical Chemistry](analytical-chemistry.md) | AN | 18 | 18 | 0 | 0 | 2.0 | Regulations of the International Chemistry Olympiad, Appendices C and D (concepts, skills and factual knowledge) (exam-spec, read: full) |
 | [Anchor Quantities](anchor-quantities.md) | AQ | 14 | 14 | 0 | 0 | 2.0 | CODATA Recommended Values of the Fundamental Physical Constants: 2022 (NIST SP 961) (reference, read: part) |
-| [Biology (AP)](biology.md) | BI | 179 | 179 | 0 | 0 | 2.2 | AP Biology Course and Exam Description (2019) (standard, read: crosswalk) |
+| [Biology (AP)](biology.md) | BI | 179 | 179 | 0 | 0 | 2.2 | AP Biology Course and Exam Description (effective fall 2025) (standard, read: part) |
 | [Chemistry (AP)](chemistry.md) | CH | 179 | 179 | 0 | 0 | 2.0 | AP Chemistry Course and Exam Description (Fall 2024) (standard, read: part) |
 | [Chemistry Olympiad](chemistry-olympiad.md) | CO | 73 | 73 | 0 | 0 | 2.0 | U.S. National Chemistry Olympiad: local and national exam format, multiple-choice topic bands and Part II (exam-spec, read: part) |
 | [Earth and Space Science](earth-space.md) | ES | 18 | 18 | 0 | 0 | 1.0 | Next Generation Science Standards, high school performance expectations (2013) (standard, read: part) |
@@ -113,10 +113,10 @@ Related reports: [standards and how much of each was read](../coverage/standards
 - **Anchor Quantities:** Values from CODATA 2022, standard atomic weights and 21 CFR 101.9. Which values to carry is a house list for units 1–4 and the SnapShot Key Numbers in Biology sheet for units 5–6. No chemistry standard for this was found; the ACS content maps have not been opened to check.
 - **Applied Engineering Mathematics:** UCI CBE 200 publishes no syllabus. The undergraduate part is anchored to fe-chemical; series, Sturm–Liouville, PDEs and transforms are past any exam spec and stand on the book.
 - **Basketball:** Introductory level read in full, higher levels in overview only.
-- **Biology (AP):** Read through a publisher's correlation table.
+- **Biology (AP):** Topics cite the 2025 AP Biology CED learning objectives (all 97 read); objectives keep their 2019 codes, read through a publisher's correlation table.
 - **Biosecurity:** Units follow the six units of BlueDot Impact's Biosecurity course (outline read Nov 2026); laboratory biosafety follows the WHO Laboratory Biosafety Manual's risk-based structure and the treaty items follow the BWC's articles. No curriculum standard for biosecurity exists; the objectives are a house list.
 - **Chemical Reaction Engineering:** Topics from FE Chemical area 12, read in full. Objectives and their order are ours. Units 5–8 and the later letters of units 1–4 go beyond the FE spec on Fogler 5e's chapter order (a house list); the gaps are in the file header.
-- **Chemistry (AP):** Objectives past Unit 2 are written from topic titles.
+- **Chemistry (AP):** Every topic in units 1–9 cites its College Board learning objectives (92 of 92, read Nov 2026). Objectives past Unit 2 were first written from topic titles; check them against the LO text when revising.
 - **Chemistry Olympiad:** Topics from the USNCO bands (read in part) and IChO Appendix C (read in full), at national-exam depth; the items are a house list.
 - **Earth and Space Science:** Units follow the NGSS HS ESS disciplinary core ideas (ESS1 Earth's place in the universe, ESS2 Earth's systems, ESS3 Earth and human activity), read in part. Objectives and their order are ours.
 - **Electric Double Layers:** A course textbook, not a curriculum standard: the units follow its chapters and the objectives are ours. Colloids and DLVO at the undergraduate level live in Polymers and Materials unit 3 (Israelachvili).
