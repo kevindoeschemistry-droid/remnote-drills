@@ -676,7 +676,7 @@ units:
       - n: 4
         title: Blackbody radiation
         los:
-          - { id: A, std: ["P2 15.4"], do: "Find the peak wavelength of blackbody emission from the temperature, or the reverse.", ek: ["Wien: λ_max T = 2.898 × 10⁻³ m·K; hotter objects peak at shorter λ."], p: [2B, 2D], drills: [ht3-wien], needs: [PH-15.1.A, PH-9.1.B] }
+          - { id: A, std: ["P2 15.4"], do: "Find the peak wavelength of blackbody emission from the temperature, or the reverse.", ek: ["Wien: λ_max T = 2.898 × 10⁻³ m·K; hotter objects peak at shorter λ."], p: [2B, 2D], drills: [ht3-wien, ph-wien-temperature], needs: [PH-15.1.A, PH-9.1.B] }
           - { id: B, std: ["P2 15.4"], do: "Calculate the total power radiated by a hot surface.", ek: ["P = εσAT⁴ with T in kelvin; doubling T multiplies P by 16."], p: [2B, 2D], drills: [ht3-stefan, "ph-wien-scaling"], needs: [PH-15.4.A] }
       - n: 5
         title: The photoelectric effect
@@ -709,13 +709,13 @@ units:
       - n: 2
         title: Displacement, velocity and acceleration as derivatives
         los:
-          - { id: A, std: ["CM 1.2"], do: "Differentiate a position function to get velocity and acceleration as functions of time.", ek: ["v = dx/dt, a = dv/dt = d²x/dt²; turning points where v = 0."], p: [2A], drills: ["pc-velocity-from-position"], needs: [PH-1.3.A] }
-          - { id: B, std: ["CM 1.2", "CM 1.3"], do: "Integrate a time-dependent acceleration or velocity with initial conditions to get v(t) and x(t).", ek: ["v(t) = v₀ + ∫₀ᵗ a dt′, x(t) = x₀ + ∫₀ᵗ v dt′; the constant-a equations are the special case."], p: [2A, 2B], drills: ["pc-integrate-acceleration"], needs: [PH-16.2.A] }
-          - { id: C, std: ["CM 1.2"], do: "Find velocity as a function of position when acceleration depends on position or velocity.", ek: ["a = v dv/dx ⇒ ∫v dv = ∫a(x) dx; for a(v), separate dt = dv/a(v)."], p: [2A], drills: ["pc-velocity-of-position"], needs: [PH-16.2.B, PH-2.5.A] }
+          - { id: A, std: ["CM 1.2"], do: "Differentiate a position function to get velocity and acceleration as functions of time.", ek: ["v = dx/dt, a = dv/dt = d²x/dt²; turning points where v = 0."], p: [2A], drills: ["pc-velocity-from-position", ph-acceleration-from-position], needs: [PH-1.3.A] }
+          - { id: B, std: ["CM 1.2", "CM 1.3"], do: "Integrate a time-dependent acceleration or velocity with initial conditions to get v(t) and x(t).", ek: ["v(t) = v₀ + ∫₀ᵗ a dt′, x(t) = x₀ + ∫₀ᵗ v dt′; the constant-a equations are the special case."], p: [2A, 2B], drills: ["pc-integrate-acceleration", ph-position-from-acceleration], needs: [PH-16.2.A] }
+          - { id: C, std: ["CM 1.2"], do: "Find velocity as a function of position when acceleration depends on position or velocity.", ek: ["a = v dv/dx ⇒ ∫v dv = ∫a(x) dx; for a(v), separate dt = dv/a(v)."], p: [2A], drills: ["pc-velocity-of-position", ph-drag-half-distance], needs: [PH-16.2.B, PH-2.5.A] }
       - n: 5
         title: Motion in two or three dimensions
         los:
-          - { id: A, std: ["CM 1.5"], do: "Differentiate and integrate a vector position r(t) component by component.", ek: ["r = x î + y ĵ + z k̂; v = dr/dt and a = dv/dt act on each component independently."], p: [2A, 2B], drills: ["pc-vector-speed"], needs: [PH-16.2.A, PH-1.5.B] }
+          - { id: A, std: ["CM 1.5"], do: "Differentiate and integrate a vector position r(t) component by component.", ek: ["r = x î + y ĵ + z k̂; v = dr/dt and a = dv/dt act on each component independently."], p: [2A, 2B], drills: ["pc-vector-speed", ph-vector-acceleration], needs: [PH-16.2.A, PH-1.5.B] }
 
   # ── 17 · C: Mechanics Unit 2 ─────────────────────────────────────────────
   - id: c-dynamics
@@ -730,19 +730,19 @@ units:
       - n: 1
         title: Center of mass of continuous objects
         los:
-          - { id: A, std: ["CM 2.1"], do: "Calculate the center of mass of a rod or plate with nonuniform density by integration.", ek: ["x_cm = ∫x dm / ∫dm with dm = λ(x) dx (or σ dA); uniform symmetric objects have it at the geometric center."], p: [2A, 2B], drills: ["pc-rod-center-of-mass"], needs: [PH-2.1.B, PH-16.2.B] }
+          - { id: A, std: ["CM 2.1"], do: "Calculate the center of mass of a rod or plate with nonuniform density by integration.", ek: ["x_cm = ∫x dm / ∫dm with dm = λ(x) dx (or σ dA); uniform symmetric objects have it at the geometric center."], p: [2A, 2B], drills: ["pc-rod-center-of-mass", ph-rod-mass], needs: [PH-2.1.B, PH-16.2.B] }
       - n: 5
         title: Newton's second law with time-varying forces
         los:
-          - { id: A, std: ["CM 2.5"], do: "Find v(t) and x(t) for an object under a time-dependent net force.", ek: ["ΣF = dp/dt = m dv/dt for constant m; integrate F(t)/m for v(t)."], p: [2A], drills: ["pc-time-varying-force"], needs: [PH-2.5.A, PH-16.2.B, PH-4.2.A] }
+          - { id: A, std: ["CM 2.5"], do: "Find v(t) and x(t) for an object under a time-dependent net force.", ek: ["ΣF = dp/dt = m dv/dt for constant m; integrate F(t)/m for v(t)."], p: [2A], drills: ["pc-time-varying-force", ph-position-time-force], needs: [PH-2.5.A, PH-16.2.B, PH-4.2.A] }
       - n: 9
         title: Resistive forces
         los:
-          - { id: A, std: ["CM 2.9"], do: "Set up and solve the equation of motion for a falling object with linear drag, and find its terminal velocity.", ek: ["m dv/dt = mg − bv ⇒ v(t) = v_T(1 − e^(−t/τ)), v_T = mg/b, τ = m/b."], p: [2A, 2B, 1C], drills: ["~lin-const"], needs: [PH-17.5.A] }
+          - { id: A, std: ["CM 2.9"], do: "Set up and solve the equation of motion for a falling object with linear drag, and find its terminal velocity.", ek: ["m dv/dt = mg − bv ⇒ v(t) = v_T(1 − e^(−t/τ)), v_T = mg/b, τ = m/b."], p: [2A, 2B, 1C], drills: ["~lin-const", ph-drag-time-fraction], needs: [PH-17.5.A] }
       - n: 10
         title: Circular motion
         los:
-          - { id: A, std: ["CM 2.10"], do: "Resolve the acceleration of an object in nonuniform circular motion into tangential and radial parts.", ek: ["a_t = dv/dt, a_r = v²/r; |a| = √(a_t² + a_r²)."], p: [2A, 2B], drills: ["pc-tangential-radial"], needs: [PH-2.9.B, PH-16.2.A] }
+          - { id: A, std: ["CM 2.10"], do: "Resolve the acceleration of an object in nonuniform circular motion into tangential and radial parts.", ek: ["a_t = dv/dt, a_r = v²/r; |a| = √(a_t² + a_r²)."], p: [2A, 2B], drills: ["pc-tangential-radial", ph-acceleration-angle], needs: [PH-2.9.B, PH-16.2.A] }
 
   # ── 18 · C: Mechanics Unit 3 ─────────────────────────────────────────────
   - id: c-energy
@@ -756,16 +756,16 @@ units:
       - n: 2
         title: Work by a variable force
         los:
-          - { id: A, std: ["CM 3.2"], do: "Calculate the work done by a position-dependent force by integration.", ek: ["W = ∫F · dr = ∫F_x dx in 1-D; the spring's ½kx² is ∫kx dx."], p: [2A, 2B], drills: ["pc-variable-work"], needs: [PH-3.2.B, PH-16.2.B] }
+          - { id: A, std: ["CM 3.2"], do: "Calculate the work done by a position-dependent force by integration.", ek: ["W = ∫F · dr = ∫F_x dx in 1-D; the spring's ½kx² is ∫kx dx."], p: [2A, 2B], drills: ["pc-variable-work", ph-inverse-square-work], needs: [PH-3.2.B, PH-16.2.B] }
       - n: 3
         title: Potential energy and conservative forces
         los:
-          - { id: A, std: ["CM 3.3"], do: "Derive the potential energy function of a conservative force.", ek: ["ΔU = −∫F dx; gravity between masses gives U = −GMm/r with U(∞) = 0."], p: [2A], drills: ["pc-potential-from-force"], needs: [PH-3.3.B, PH-18.2.A] }
-          - { id: B, std: ["CM 3.3"], do: "Find the force from a potential energy function and locate and classify equilibria on a U(x) graph.", ek: ["F_x = −dU/dx; equilibrium where dU/dx = 0, stable at a minimum, unstable at a maximum; turning points where U = E."], p: [1C, 2A, 3B], drills: ["pc-force-from-potential"], needs: [PH-18.3.A] }
+          - { id: A, std: ["CM 3.3"], do: "Derive the potential energy function of a conservative force.", ek: ["ΔU = −∫F dx; gravity between masses gives U = −GMm/r with U(∞) = 0."], p: [2A], drills: ["pc-potential-from-force", ph-potential-two-forces], needs: [PH-3.3.B, PH-18.2.A] }
+          - { id: B, std: ["CM 3.3"], do: "Find the force from a potential energy function and locate and classify equilibria on a U(x) graph.", ek: ["F_x = −dU/dx; equilibrium where dU/dx = 0, stable at a minimum, unstable at a maximum; turning points where U = E."], p: [1C, 2A, 3B], drills: ["pc-force-from-potential", ph-equilibrium-cubic], needs: [PH-18.3.A] }
       - n: 5
         title: Power
         los:
-          - { id: A, std: ["CM 3.5"], do: "Calculate instantaneous power as a derivative and the work delivered by a time-varying power.", ek: ["P = dW/dt = F · v; W = ∫P dt."], p: [2A, 2B], drills: ["pc-power-integral"], needs: [PH-3.5.A, PH-18.2.A] }
+          - { id: A, std: ["CM 3.5"], do: "Calculate instantaneous power as a derivative and the work delivered by a time-varying power.", ek: ["P = dW/dt = F · v; W = ∫P dt."], p: [2A, 2B], drills: ["pc-power-integral", ph-power-from-work], needs: [PH-3.5.A, PH-18.2.A] }
 
   # ── 19 · C: Mechanics Unit 4 ─────────────────────────────────────────────
   - id: c-momentum
@@ -779,7 +779,7 @@ units:
       - n: 2
         title: Impulse of a time-varying force
         los:
-          - { id: A, std: ["CM 4.2"], do: "Calculate the impulse of a time-varying force by integration and the resulting velocity.", ek: ["J = ∫F dt = Δp; F = dp/dt."], p: [2A, 2B], drills: ["pc-impulse-integral"], needs: [PH-4.2.A, PH-16.2.B] }
+          - { id: A, std: ["CM 4.2"], do: "Calculate the impulse of a time-varying force by integration and the resulting velocity.", ek: ["J = ∫F dt = Δp; F = dp/dt."], p: [2A, 2B], drills: ["pc-impulse-integral", ph-average-force], needs: [PH-4.2.A, PH-16.2.B] }
 
   # ── 20 · C: Mechanics Unit 5 ─────────────────────────────────────────────
   - id: c-rotation
@@ -793,15 +793,15 @@ units:
       - n: 1
         title: Rotational kinematics as derivatives
         los:
-          - { id: A, std: ["CM 5.1"], do: "Differentiate and integrate θ(t), ω(t) and α(t) for nonconstant angular acceleration.", ek: ["ω = dθ/dt, α = dω/dt; integrate with initial conditions as in linear kinematics."], p: [2A], drills: ["pc-angular-calculus"], needs: [PH-5.1.A, PH-16.2.B] }
+          - { id: A, std: ["CM 5.1"], do: "Differentiate and integrate θ(t), ω(t) and α(t) for nonconstant angular acceleration.", ek: ["ω = dθ/dt, α = dω/dt; integrate with initial conditions as in linear kinematics."], p: [2A], drills: ["pc-angular-calculus", ph-angle-from-alpha], needs: [PH-5.1.A, PH-16.2.B] }
       - n: 3
         title: Torque as a cross product
         los:
-          - { id: A, std: ["CM 5.3"], do: "Compute torque as the cross product r × F from components.", ek: ["τ = r × F, |τ| = rF sin θ, direction by the right-hand rule along the rotation axis."], p: [2B], drills: ["pc-torque-cross"], needs: [PH-5.3.A, PH-1.5.A] }
+          - { id: A, std: ["CM 5.3"], do: "Compute torque as the cross product r × F from components.", ek: ["τ = r × F, |τ| = rF sin θ, direction by the right-hand rule along the rotation axis."], p: [2B], drills: ["pc-torque-cross", ph-torque-magnitude-3d], needs: [PH-5.3.A, PH-1.5.A] }
       - n: 4
         title: Rotational inertia by integration
         los:
-          - { id: A, std: ["CM 5.4"], do: "Derive the rotational inertia of a rod, ring or disk by integration.", ek: ["I = ∫r² dm; rod about center ML²/12, about end ML²/3, disk ½MR², ring MR²."], p: [2A], drills: ["pc-inertia-integral"], needs: [PH-5.4.B, PH-17.1.A] }
+          - { id: A, std: ["CM 5.4"], do: "Derive the rotational inertia of a rod, ring or disk by integration.", ek: ["I = ∫r² dm; rod about center ML²/12, about end ML²/3, disk ½MR², ring MR²."], p: [2A], drills: ["pc-inertia-integral", ph-rod-off-centre-inertia], needs: [PH-5.4.B, PH-17.1.A] }
 
   # ── 21 · C: Mechanics Unit 6 ─────────────────────────────────────────────
   - id: c-rotation-energy-momentum
@@ -815,11 +815,11 @@ units:
       - n: 3
         title: Angular momentum as a vector
         los:
-          - { id: A, std: ["CM 6.3"], do: "Compute angular momentum as r × p and apply τ_net = dL/dt.", ek: ["L = r × p for a particle, Iω for a rigid body about a symmetry axis; net torque is the rate of change of L."], p: [2A, 2B], drills: ["pc-torque-from-L"], needs: [PH-6.3.B, PH-20.3.A] }
+          - { id: A, std: ["CM 6.3"], do: "Compute angular momentum as r × p and apply τ_net = dL/dt.", ek: ["L = r × p for a particle, Iω for a rigid body about a symmetry axis; net torque is the rate of change of L."], p: [2A, 2B], drills: ["pc-torque-from-L", ph-angular-momentum-particle], needs: [PH-6.3.B, PH-20.3.A] }
       - n: 5
         title: Rolling with friction
         los:
-          - { id: A, std: ["CM 6.5"], do: "Find the acceleration and the static friction force for an object rolling without slipping down an incline.", ek: ["Ma = Mg sin θ − f, fR = Iα, a = Rα ⇒ a = g sin θ/(1 + I/MR²); rolling friction does no work."], p: [1A, 2A], drills: ["pc-rolling-friction"], needs: [PH-6.5.A, PH-5.6.A, PH-2.7.B] }
+          - { id: A, std: ["CM 6.5"], do: "Find the acceleration and the static friction force for an object rolling without slipping down an incline.", ek: ["Ma = Mg sin θ − f, fR = Iα, a = Rα ⇒ a = g sin θ/(1 + I/MR²); rolling friction does no work."], p: [1A, 2A], drills: ["pc-rolling-friction", ph-rolling-acceleration], needs: [PH-6.5.A, PH-5.6.A, PH-2.7.B] }
 
   # ── 22 · C: Mechanics Unit 7 ─────────────────────────────────────────────
   - id: c-oscillations
@@ -833,12 +833,12 @@ units:
       - n: 1
         title: SHM as a differential equation
         los:
-          - { id: A, std: ["CM 7.1", "CM 7.2"], do: "Derive the SHM differential equation from Newton's second law and read the angular frequency off it.", ek: ["F = −kx ⇒ d²x/dt² = −(k/m)x; any system of the form ẍ = −ω²x oscillates with ω."], p: [2A], drills: ["~spring-frequency"], needs: [PH-7.1.A, PH-16.2.A] }
+          - { id: A, std: ["CM 7.1", "CM 7.2"], do: "Derive the SHM differential equation from Newton's second law and read the angular frequency off it.", ek: ["F = −kx ⇒ d²x/dt² = −(k/m)x; any system of the form ẍ = −ω²x oscillates with ω."], p: [2A], drills: ["~spring-frequency", ph-spring-period-energy], needs: [PH-7.1.A, PH-16.2.A] }
           - { id: B, std: ["CM 7.3"], do: "Solve for amplitude and phase from initial position and velocity.", ek: ["x = A cos(ωt + φ); A = √(x₀² + (v₀/ω)²), tan φ = −v₀/(ωx₀)."], p: [2A, 2B], drills: [spring-undamped-ivp, spring-amplitude-phase], needs: [PH-22.1.A, PH-7.3.A] }
       - n: 5
         title: Simple and physical pendulums
         los:
-          - { id: A, std: ["CM 7.5"], do: "Derive the small-angle period of a physical pendulum from the rotational equation of motion.", ek: ["−mgd sin θ = Iθ̈, sin θ ≈ θ ⇒ T = 2π√(I/(mgd)); a point mass on a string gives back 2π√(L/g)."], p: [2A, 2B], drills: ["pc-physical-pendulum"], needs: [PH-22.1.A, PH-5.6.A, PH-7.2.B, PH-20.4.A] }
+          - { id: A, std: ["CM 7.5"], do: "Derive the small-angle period of a physical pendulum from the rotational equation of motion.", ek: ["−mgd sin θ = Iθ̈, sin θ ≈ θ ⇒ T = 2π√(I/(mgd)); a point mass on a string gives back 2π√(L/g)."], p: [2A, 2B], drills: ["pc-physical-pendulum", ph-rod-pivot-period], needs: [PH-22.1.A, PH-5.6.A, PH-7.2.B, PH-20.4.A] }
 
   # ── 23 · C: E&M Unit 8 ───────────────────────────────────────────────────
   - id: c-fields-gauss
@@ -853,7 +853,7 @@ units:
       - n: 4
         title: Electric fields of charge distributions
         los:
-          - { id: A, std: ["CEM 8.4"], do: "Calculate the electric field of a continuous charge distribution (rod, ring, arc) by integration.", ek: ["dE = k dq/r², dq = λ dl; integrate components and use symmetry to cancel some."], p: [1A, 2A], drills: ["pc-ring-field"], needs: [PH-10.3.A, PH-17.1.A] }
+          - { id: A, std: ["CEM 8.4"], do: "Calculate the electric field of a continuous charge distribution (rod, ring, arc) by integration.", ek: ["dE = k dq/r², dq = λ dl; integrate components and use symmetry to cancel some."], p: [1A, 2A], drills: ["pc-ring-field", ph-line-segment-field], needs: [PH-10.3.A, PH-17.1.A] }
       - n: 5
         title: Electric flux
         los:
@@ -861,8 +861,8 @@ units:
       - n: 6
         title: Gauss's law
         los:
-          - { id: A, std: ["CEM 8.6"], do: "Apply Gauss's law to find the field of a spherical, cylindrical or planar charge distribution.", ek: ["∮E · dA = Q_enc/ε₀; choose a surface where E is constant and parallel or perpendicular to dA."], p: [1A, 2A], drills: ["pc-gauss-sphere"], needs: [PH-23.5.A, PH-10.3.C] }
-          - { id: B, std: ["CEM 8.6"], do: "Find the field inside a sphere or cylinder with radially varying charge density.", ek: ["Q_enc = ∫ρ(r) dV with dV = 4πr²dr (sphere) or 2πrL dr (cylinder)."], p: [2A], drills: ["pc-gauss-nonuniform"], needs: [PH-23.6.A] }
+          - { id: A, std: ["CEM 8.6"], do: "Apply Gauss's law to find the field of a spherical, cylindrical or planar charge distribution.", ek: ["∮E · dA = Q_enc/ε₀; choose a surface where E is constant and parallel or perpendicular to dA."], p: [1A, 2A], drills: ["pc-gauss-sphere", ph-line-charge-field], needs: [PH-23.5.A, PH-10.3.C] }
+          - { id: B, std: ["CEM 8.6"], do: "Find the field inside a sphere or cylinder with radially varying charge density.", ek: ["Q_enc = ∫ρ(r) dV with dV = 4πr²dr (sphere) or 2πrL dr (cylinder)."], p: [2A], drills: ["pc-gauss-nonuniform", ph-cylinder-charge-nonuniform], needs: [PH-23.6.A] }
 
   # ── 24 · C: E&M Unit 9 ───────────────────────────────────────────────────
   - id: c-potential
@@ -876,9 +876,9 @@ units:
       - n: 2
         title: Electric potential from fields and distributions
         los:
-          - { id: A, std: ["CEM 9.2"], do: "Calculate a potential difference by integrating the electric field along a path.", ek: ["ΔV = −∫E · dr; path-independent because the electrostatic field is conservative."], p: [2A], drills: ["pc-potential-integral"], needs: [PH-10.5.B, PH-23.6.A, PH-18.3.A] }
-          - { id: B, std: ["CEM 9.2"], do: "Calculate the potential of a continuous charge distribution by integration.", ek: ["V = ∫k dq/r — a scalar integral, easier than the field."], p: [2A], drills: ["pc-ring-potential"], needs: [PH-10.5.A, PH-23.4.A] }
-          - { id: C, std: ["CEM 9.2"], do: "Find the electric field from a potential function.", ek: ["E_x = −∂V/∂x (each component); E points down the steepest potential slope."], p: [2A, 1C], drills: ["pc-field-from-potential"], needs: [PH-24.2.A, PH-18.3.B] }
+          - { id: A, std: ["CEM 9.2"], do: "Calculate a potential difference by integrating the electric field along a path.", ek: ["ΔV = −∫E · dr; path-independent because the electrostatic field is conservative."], p: [2A], drills: ["pc-potential-integral", ph-point-potential-difference], needs: [PH-10.5.B, PH-23.6.A, PH-18.3.A] }
+          - { id: B, std: ["CEM 9.2"], do: "Calculate the potential of a continuous charge distribution by integration.", ek: ["V = ∫k dq/r — a scalar integral, easier than the field."], p: [2A], drills: ["pc-ring-potential", ph-disk-potential], needs: [PH-10.5.A, PH-23.4.A] }
+          - { id: C, std: ["CEM 9.2"], do: "Find the electric field from a potential function.", ek: ["E_x = −∂V/∂x (each component); E points down the steepest potential slope."], p: [2A, 1C], drills: ["pc-field-from-potential", ph-field-2d-potential], needs: [PH-24.2.A, PH-18.3.B] }
 
   # ── 25 · C: E&M Unit 10 ──────────────────────────────────────────────────
   - id: c-conductors-capacitors
@@ -892,20 +892,20 @@ units:
       - n: 1
         title: Electrostatics with conductors
         los:
-          - { id: A, std: ["CEM 10.1"], do: "Find induced charges and fields for a charge inside or near a conducting shell.", ek: ["E = 0 in the conductor ⇒ a Gaussian surface in the metal encloses zero net charge; excess charge sits on surfaces."], p: [1A, 3B], drills: ["pc-shell-charges"], needs: [PH-10.3.C, PH-23.6.A] }
+          - { id: A, std: ["CEM 10.1"], do: "Find induced charges and fields for a charge inside or near a conducting shell.", ek: ["E = 0 in the conductor ⇒ a Gaussian surface in the metal encloses zero net charge; excess charge sits on surfaces."], p: [1A, 3B], drills: ["pc-shell-charges", ph-shell-outside-field], needs: [PH-10.3.C, PH-23.6.A] }
       - n: 2
         title: Redistribution of charge between conductors
         los:
-          - { id: A, std: ["CEM 10.2"], do: "Calculate how charge divides between connected conducting spheres.", ek: ["Connected conductors reach equal potential: kQ₁/R₁ = kQ₂/R₂ ⇒ Q ∝ R; total charge conserved."], p: [2A, 2B], drills: ["pc-spheres-sharing"], needs: [PH-25.1.A, PH-24.2.A] }
+          - { id: A, std: ["CEM 10.2"], do: "Calculate how charge divides between connected conducting spheres.", ek: ["Connected conductors reach equal potential: kQ₁/R₁ = kQ₂/R₂ ⇒ Q ∝ R; total charge conserved."], p: [2A, 2B], drills: ["pc-spheres-sharing", ph-sharing-density-ratio], needs: [PH-25.1.A, PH-24.2.A] }
       - n: 3
         title: Capacitors
         los:
-          - { id: A, std: ["CEM 10.3"], do: "Derive the capacitance of a parallel-plate, spherical or cylindrical capacitor.", ek: ["Find E by Gauss, ΔV = ∫E dr, then C = Q/ΔV; cylindrical C = 2πε₀L/ln(b/a)."], p: [2A], drills: ["pc-capacitance-geometry"], needs: [PH-10.6.A, PH-24.2.A] }
-          - { id: B, std: ["CEM 10.3"], do: "Calculate the energy stored in a field from its energy density.", ek: ["u = ½ε₀E²; U = ∫u dV, which reproduces ½CV² for a capacitor."], p: [2A, 2B], drills: ["pc-field-energy-density"], needs: [PH-25.3.A, PH-10.6.B] }
+          - { id: A, std: ["CEM 10.3"], do: "Derive the capacitance of a parallel-plate, spherical or cylindrical capacitor.", ek: ["Find E by Gauss, ΔV = ∫E dr, then C = Q/ΔV; cylindrical C = 2πε₀L/ln(b/a)."], p: [2A], drills: ["pc-capacitance-geometry", ph-isolated-sphere-capacitance], needs: [PH-10.6.A, PH-24.2.A] }
+          - { id: B, std: ["CEM 10.3"], do: "Calculate the energy stored in a field from its energy density.", ek: ["u = ½ε₀E²; U = ∫u dV, which reproduces ½CV² for a capacitor."], p: [2A, 2B], drills: ["pc-field-energy-density", ph-sphere-field-energy], needs: [PH-25.3.A, PH-10.6.B] }
       - n: 4
         title: Dielectrics
         los:
-          - { id: A, std: ["CEM 10.4"], do: "Predict how inserting a dielectric changes C, Q, V, E and U with the battery connected or disconnected.", ek: ["C = κC₀; connected: V fixed, Q and U rise by κ; isolated: Q fixed, V, E and U fall by κ."], p: [2C, 2D], drills: ["pc-dielectric-effect"], needs: [PH-25.3.A, PH-10.1.C] }
+          - { id: A, std: ["CEM 10.4"], do: "Predict how inserting a dielectric changes C, Q, V, E and U with the battery connected or disconnected.", ek: ["C = κC₀; connected: V fixed, Q and U rise by κ; isolated: Q fixed, V, E and U fall by κ."], p: [2C, 2D], drills: ["pc-dielectric-effect", ph-half-filled-gap], needs: [PH-25.3.A, PH-10.1.C] }
 
   # ── 26 · C: E&M Unit 11 ──────────────────────────────────────────────────
   - id: c-circuits
@@ -919,12 +919,12 @@ units:
       - n: 1
         title: Current as a rate and drift velocity
         los:
-          - { id: A, std: ["CEM 11.1"], do: "Calculate current from a charge function and relate it to drift velocity.", ek: ["I = dQ/dt; I = nqAv_d with n carriers per volume."], p: [2A, 2B], drills: ["pc-current-from-charge"], needs: [PH-11.1.A, PH-16.2.A] }
+          - { id: A, std: ["CEM 11.1"], do: "Calculate current from a charge function and relate it to drift velocity.", ek: ["I = dQ/dt; I = nqAv_d with n carriers per volume."], p: [2A, 2B], drills: ["pc-current-from-charge", ph-drift-velocity], needs: [PH-11.1.A, PH-16.2.A] }
       - n: 8
         title: RC circuits
         los:
-          - { id: A, std: ["CEM 11.8"], do: "Derive and solve the differential equation for a charging or discharging RC circuit.", ek: ["ε − IR − q/C = 0, I = dq/dt ⇒ q(t) = Cε(1 − e^(−t/RC)); discharge q = Q₀e^(−t/RC)."], p: [2A], drills: ["~lin-const"], needs: [PH-11.8.B, PH-11.6.A, PH-16.2.B] }
-          - { id: B, std: ["CEM 11.8"], do: "Calculate the time to reach a given charge or current fraction, and the energy dissipated in the resistor.", ek: ["t = τ ln(1/(1 − f)) charging; total heat on discharge = initial ½CV²."], p: [2B], drills: ["~model-decay"], needs: [PH-26.8.A] }
+          - { id: A, std: ["CEM 11.8"], do: "Derive and solve the differential equation for a charging or discharging RC circuit.", ek: ["ε − IR − q/C = 0, I = dq/dt ⇒ q(t) = Cε(1 − e^(−t/RC)); discharge q = Q₀e^(−t/RC)."], p: [2A], drills: ["~lin-const", ph-rc-current], needs: [PH-11.8.B, PH-11.6.A, PH-16.2.B] }
+          - { id: B, std: ["CEM 11.8"], do: "Calculate the time to reach a given charge or current fraction, and the energy dissipated in the resistor.", ek: ["t = τ ln(1/(1 − f)) charging; total heat on discharge = initial ½CV²."], p: [2B], drills: ["~model-decay", ph-rc-dissipated], needs: [PH-26.8.A] }
 
   # ── 27 · C: E&M Unit 12 ──────────────────────────────────────────────────
   - id: c-magnetic-fields
@@ -938,11 +938,11 @@ units:
       - n: 2
         title: Magnetic force as a cross product
         los:
-          - { id: A, std: ["CEM 12.2"], do: "Compute the magnetic force on a moving charge or current element as a cross product.", ek: ["F = qv × B; dF = I dl × B, integrated along a wire."], p: [2A, 2B], drills: ["pc-magnetic-cross"], needs: [PH-12.2.A, PH-20.3.A] }
+          - { id: A, std: ["CEM 12.2"], do: "Compute the magnetic force on a moving charge or current element as a cross product.", ek: ["F = qv × B; dF = I dl × B, integrated along a wire."], p: [2A, 2B], drills: ["pc-magnetic-cross", ph-cyclotron-radius], needs: [PH-12.2.A, PH-20.3.A] }
       - n: 3
         title: The Biot–Savart law
         los:
-          - { id: A, std: ["CEM 12.3"], do: "Apply the Biot–Savart law to find B at the center of a loop or arc, or on a loop's axis.", ek: ["dB = (μ₀/4π) I dl × r̂ / r²; center of a loop B = μ₀I/(2R)."], p: [2A], drills: ["pc-biot-savart-loop"], needs: [PH-12.3.A, PH-23.4.A] }
+          - { id: A, std: ["CEM 12.3"], do: "Apply the Biot–Savart law to find B at the center of a loop or arc, or on a loop's axis.", ek: ["dB = (μ₀/4π) I dl × r̂ / r²; center of a loop B = μ₀I/(2R)."], p: [2A], drills: ["pc-biot-savart-loop", ph-loop-axis-field], needs: [PH-12.3.A, PH-23.4.A] }
       - n: 4
         title: Ampère's law
         los:
@@ -961,23 +961,23 @@ units:
       - n: 1
         title: Magnetic flux of a nonuniform field
         los:
-          - { id: A, std: ["CEM 13.1"], do: "Calculate the magnetic flux through a loop in a nonuniform field (such as near a long wire) by integration.", ek: ["Φ_B = ∫B · dA; next to a wire, strips dA = L dr give Φ = (μ₀IL/2π) ln(b/a)."], p: [2A], drills: ["pc-flux-near-wire"], needs: [PH-12.4.A, PH-12.3.A, PH-16.2.B] }
+          - { id: A, std: ["CEM 13.1"], do: "Calculate the magnetic flux through a loop in a nonuniform field (such as near a long wire) by integration.", ek: ["Φ_B = ∫B · dA; next to a wire, strips dA = L dr give Φ = (μ₀IL/2π) ln(b/a)."], p: [2A], drills: ["pc-flux-near-wire", ph-flux-linear-field], needs: [PH-12.4.A, PH-12.3.A, PH-16.2.B] }
       - n: 2
         title: Faraday's law with derivatives
         los:
-          - { id: A, std: ["CEM 13.2"], do: "Calculate the instantaneous emf from a time-varying flux, including a rotating coil (generator).", ek: ["ε = −N dΦ_B/dt; coil rotating at ω: ε = NBAω sin ωt."], p: [2A, 2B], drills: ["pc-generator-emf"], needs: [PH-28.1.A, PH-12.4.C] }
+          - { id: A, std: ["CEM 13.2"], do: "Calculate the instantaneous emf from a time-varying flux, including a rotating coil (generator).", ek: ["ε = −N dΦ_B/dt; coil rotating at ω: ε = NBAω sin ωt."], p: [2A, 2B], drills: ["pc-generator-emf", ph-ramp-emf], needs: [PH-28.1.A, PH-12.4.C] }
       - n: 3
         title: Induced currents and magnetic forces
         los:
-          - { id: A, std: ["CEM 13.3"], do: "Solve for the velocity of a rod on rails slowed or driven by its induced current.", ek: ["Retarding force B²L²v/R ⇒ m dv/dt = −(B²L²/R)v, exponential decay; with a driving force it reaches a terminal speed."], p: [2A], drills: ["pc-rod-terminal-speed"], needs: [PH-28.2.A, PH-12.4.D, PH-17.9.A] }
+          - { id: A, std: ["CEM 13.3"], do: "Solve for the velocity of a rod on rails slowed or driven by its induced current.", ek: ["Retarding force B²L²v/R ⇒ m dv/dt = −(B²L²/R)v, exponential decay; with a driving force it reaches a terminal speed."], p: [2A], drills: ["pc-rod-terminal-speed", ph-rod-coasting], needs: [PH-28.2.A, PH-12.4.D, PH-17.9.A] }
       - n: 4
         title: Inductance
         los:
-          - { id: A, std: ["CEM 13.4"], do: "Calculate the self-inductance of a solenoid, the emf across an inductor and its stored energy.", ek: ["ε_L = −L dI/dt; solenoid L = μ₀N²A/ℓ; U = ½LI²."], p: [2A, 2B], drills: ["pc-solenoid-inductance"], needs: [PH-28.2.A, PH-27.4.A] }
+          - { id: A, std: ["CEM 13.4"], do: "Calculate the self-inductance of a solenoid, the emf across an inductor and its stored energy.", ek: ["ε_L = −L dI/dt; solenoid L = μ₀N²A/ℓ; U = ½LI²."], p: [2A, 2B], drills: ["pc-solenoid-inductance", ph-inductor-peak-emf], needs: [PH-28.2.A, PH-27.4.A] }
       - n: 5
         title: LR circuits
         los:
-          - { id: A, std: ["CEM 13.5"], do: "Derive and solve the current in an LR circuit after a switch closes or opens.", ek: ["ε − IR − L dI/dt = 0 ⇒ I = (ε/R)(1 − e^(−t/τ)), τ = L/R; an inductor resists sudden change in current."], p: [2A, 1C], drills: ["~lin-const"], needs: [PH-28.4.A, PH-26.8.A] }
+          - { id: A, std: ["CEM 13.5"], do: "Derive and solve the current in an LR circuit after a switch closes or opens.", ek: ["ε − IR − L dI/dt = 0 ⇒ I = (ε/R)(1 − e^(−t/τ)), τ = L/R; an inductor resists sudden change in current."], p: [2A, 1C], drills: ["~lin-const", ph-lr-time-fraction], needs: [PH-28.4.A, PH-26.8.A] }
       - n: 6
         title: LC circuits
         los:
@@ -994,14 +994,14 @@ units:
       - n: 1
         title: Kinematics of relativity
         los:
-          - { id: A, do: "Compute the time measured in the lab for a moving clock.", ek: ["Δt = γΔτ, γ = 1/√(1 − β²)."], p: [2A], drills: [ph-time-dilation] }
-          - { id: B, do: "Compute the length of a moving object along its motion.", ek: ["L = L₀/γ."], p: [2A], needs: [PH-29.1.A], drills: [ph-length-contraction] }
-          - { id: C, do: "Add velocities relativistically.", ek: ["w = (u + v)/(1 + uv/c²); rapidities add."], p: [2A], needs: [PH-29.1.A], drills: [ph-velocity-addition] }
-          - { id: D, do: "Compute the frequency received from a moving source.", ek: ["f = f₀√((1+β)/(1−β)) approaching."], p: [2A], needs: [PH-29.1.A], drills: [ph-rel-doppler] }
+          - { id: A, do: "Compute the time measured in the lab for a moving clock.", ek: ["Δt = γΔτ, γ = 1/√(1 − β²)."], p: [2A], drills: [ph-time-dilation, ph-speed-for-gamma] }
+          - { id: B, do: "Compute the length of a moving object along its motion.", ek: ["L = L₀/γ."], p: [2A], needs: [PH-29.1.A], drills: [ph-length-contraction, ph-speed-for-contraction] }
+          - { id: C, do: "Add velocities relativistically.", ek: ["w = (u + v)/(1 + uv/c²); rapidities add."], p: [2A], needs: [PH-29.1.A], drills: [ph-velocity-addition, ph-velocity-subtraction] }
+          - { id: D, do: "Compute the frequency received from a moving source.", ek: ["f = f₀√((1+β)/(1−β)) approaching."], p: [2A], needs: [PH-29.1.A], drills: [ph-rel-doppler, ph-speed-from-doppler] }
       - n: 2
         title: Dynamics of relativity
         los:
-          - { id: A, do: "Compute relativistic kinetic energy and momentum.", ek: ["K = (γ − 1)mc², p = γmv, E² = (pc)² + (mc²)²."], p: [2A], needs: [PH-29.1.A], drills: [ph-rel-energy] }
+          - { id: A, do: "Compute relativistic kinetic energy and momentum.", ek: ["K = (γ − 1)mc², p = γmv, E² = (pc)² + (mc²)²."], p: [2A], needs: [PH-29.1.A], drills: [ph-rel-energy, ph-speed-from-kinetic] }
   - id: lagrangian
     n: 30
     title: Lagrangian mechanics
@@ -1013,4 +1013,4 @@ units:
       - n: 1
         title: Euler–Lagrange equations
         los:
-          - { id: A, do: "Find an acceleration or small-oscillation frequency from L = T − V.", ek: ["d/dt(∂L/∂q̇) = ∂L/∂q; constraint forces never appear."], p: [2A, 1C], needs: [PH-6.1.A], drills: [ph-lagrangian] }
+          - { id: A, do: "Find an acceleration or small-oscillation frequency from L = T − V.", ek: ["d/dt(∂L/∂q̇) = ∂L/∂q; constraint forces never appear."], p: [2A, 1C], needs: [PH-6.1.A], drills: [ph-lagrangian, ph-atwood-lagrangian] }

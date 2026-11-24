@@ -63,17 +63,17 @@ units:
         title: "Tooth notation and development"
         los:
           - { id: A, std: ["jcnde-domain:CC56"], do: "Convert between Universal and FDI notation, permanent and primary.", ek: ["FDI: quadrant 1–4 (primary 5–8), then position from the midline."], p: [P1], drills: [dn-universal-fdi, dn-primary-fdi] }
-          - { id: B, std: ["jcnde-domain:FK1"], do: "Recall the primary and permanent eruption sequence.", ek: ["20 primary teeth by about 3; first molars at 6, second at 12."], p: [P3], drills: [dn-eruption] }
+          - { id: B, std: ["jcnde-domain:FK1"], do: "Recall the primary and permanent eruption sequence.", ek: ["20 primary teeth by about 3; first molars at 6, second at 12."], p: [P3], drills: [dn-eruption, dn-dentition-counts] }
       - n: 2
         title: "Caries, pulpal and periodontal diagnosis"
         los:
-          - { id: A, std: ["jcnde-domain:CC4", "jcnde-domain:CC21"], do: "Classify a lesion by G. V. Black's classes.", ek: ["I pits and fissures … VI cusp tips."], p: [P2], drills: [dn-black-class] }
-          - { id: B, std: ["jcnde-domain:CC20", "jcnde-domain:CC7"], do: "Make a pulpal diagnosis from thermal and electric tests.", ek: ["Lingering pain is irreversible; no response is necrosis."], p: [P2], drills: [dn-pulp-dx] }
+          - { id: A, std: ["jcnde-domain:CC4", "jcnde-domain:CC21"], do: "Classify a lesion by G. V. Black's classes.", ek: ["I pits and fissures … VI cusp tips."], p: [P2], drills: [dn-black-class, dn-black-class-more] }
+          - { id: B, std: ["jcnde-domain:CC20", "jcnde-domain:CC7"], do: "Make a pulpal diagnosis from thermal and electric tests.", ek: ["Lingering pain is irreversible; no response is necrosis."], p: [P2], drills: [dn-pulp-dx, dn-pulp-treatment] }
           - { id: C, std: ["jcnde-domain:CC22"], do: "Compute clinical attachment level and stage periodontitis by it.", ek: ["CAL from the CEJ; 1–2 mm stage I, 3–4 stage II, 5+ stage III or IV."], p: [P1, P2], drills: [dn-cal, dn-perio-stage] }
       - n: 3
         title: "Radiographs"
         los:
-          - { id: A, std: ["jcnde-domain:CC10"], do: "Localize objects with the SLOB rule and recognise angulation errors.", ek: ["Same lingual, opposite buccal; vertical errors elongate or foreshorten."], p: [P3], drills: [dn-radiography] }
+          - { id: A, std: ["jcnde-domain:CC10"], do: "Localize objects with the SLOB rule and recognise angulation errors.", ek: ["Same lingual, opposite buccal; vertical errors elongate or foreshorten."], p: [P3], drills: [dn-radiography, dn-slob-scenario] }
 
   - id: management
     n: 2
@@ -84,13 +84,13 @@ units:
       - n: 1
         title: "Medical emergencies and prophylaxis"
         los:
-          - { id: A, std: ["jcnde-domain:CC16"], do: "Give the first drug or action for common office emergencies.", ek: ["Syncope: supine, legs up. Anaphylaxis: IM epinephrine. Angina: nitroglycerin."], p: [P3], drills: [dn-emergency] }
-          - { id: B, std: ["jcnde-domain:CC26"], do: "Decide who needs antibiotic prophylaxis against endocarditis and with what.", ek: ["Prosthetic valves, previous IE, some congenital disease, transplant valvulopathy; amoxicillin 2 g."], p: [P3], drills: [dn-prophylaxis] }
+          - { id: A, std: ["jcnde-domain:CC16"], do: "Give the first drug or action for common office emergencies.", ek: ["Syncope: supine, legs up. Anaphylaxis: IM epinephrine. Angina: nitroglycerin."], p: [P3], drills: [dn-emergency, dn-emergency-more] }
+          - { id: B, std: ["jcnde-domain:CC26"], do: "Decide who needs antibiotic prophylaxis against endocarditis and with what.", ek: ["Prosthetic valves, previous IE, some congenital disease, transplant valvulopathy; amoxicillin 2 g."], p: [P3], drills: [dn-prophylaxis, dn-prophylaxis-regimen] }
       - n: 2
         title: "Local anesthesia"
         los:
           - { id: A, std: ["jcnde-domain:CC19"], do: "Calculate maximum cartridges by weight and by epinephrine limit.", ek: ["mg/mL = % × 10; 1.8 mL cartridges; 1:100,000 = 0.01 mg/mL."], p: [P1], drills: [dn-la-max, dn-epi-limit] }
-          - { id: B, std: ["jcnde-domain:CC19", "jcnde-domain:FK8"], do: "Explain local anesthetic action, metabolism and the role of vasoconstrictors.", ek: ["Uncharged base crosses the membrane; infection traps the cation; articaine is cleared in plasma."], p: [P3], drills: [dn-la-facts] }
+          - { id: B, std: ["jcnde-domain:CC19", "jcnde-domain:FK8"], do: "Explain local anesthetic action, metabolism and the role of vasoconstrictors.", ek: ["Uncharged base crosses the membrane; infection traps the cation; articaine is cleared in plasma."], p: [P3], drills: [dn-la-facts, dn-lidocaine-cartridges] }
       - n: 3
         title: "Caries prevention: fluoride"
         los:
@@ -109,7 +109,7 @@ units:
       - n: 2
         title: "Evaluating evidence and diagnostic tests"
         los:
-          - { id: A, std: ["jcnde-domain:CC41", "jcnde-domain:FK10"], do: "Compute sensitivity, specificity and predictive values from a 2×2 table.", ek: ["Sensitivity and specificity belong to the test; predictive values depend on prevalence."], p: [P1], drills: [dn-test-stats] }
+          - { id: A, std: ["jcnde-domain:CC41", "jcnde-domain:FK10"], do: "Compute sensitivity, specificity and predictive values from a 2×2 table.", ek: ["Sensitivity and specificity belong to the test; predictive values depend on prevalence."], p: [P1], drills: [dn-test-stats, dn-ppv-prevalence] }
 
   - id: materials
     n: 4
@@ -122,25 +122,25 @@ units:
         title: "Mechanical properties"
         los:
           - { id: A, do: "Compute stress, elastic modulus and Vickers hardness, and compare restoratives with enamel and dentin.", ek: ["MPa = N/mm²; E = σ/ε; HV = 1.8544 F/d²."], p: [P1], drills: [dn-stress, dn-modulus, dn-vickers] }
-          - { id: B, std: ["jcnde-domain:CC30"], do: "Compute flexural strength from a three-point bend test.", ek: ["σ = 3FL/(2bh²); ISO 4049 uses 2 × 2 mm bars on a 20 mm span."], p: [P1], drills: [dn-flexural-strength] }
+          - { id: B, std: ["jcnde-domain:CC30"], do: "Compute flexural strength from a three-point bend test.", ek: ["σ = 3FL/(2bh²); ISO 4049 uses 2 × 2 mm bars on a 20 mm span."], p: [P1], drills: [dn-flexural-strength, dn-flexural-load] }
       - n: 2
         title: "Resin composites and their polymerization"
         los:
           - { id: A, std: ["jcnde-domain:CC30"], do: "Compute radiant exposure, depth of cure, shrinkage, C-factor and water sorption.", ek: ["J/cm² = mW/cm² × s / 1000; depth = scraped length / 2; shrinkage = 1 − ρu/ρc."], p: [P1], drills: [dn-radiant-exposure, dn-depth-of-cure, dn-shrinkage, dn-c-factor, dn-water-sorption] }
-          - { id: B, do: "Explain what each composite component does and how filler changes properties.", ek: ["Silane couples filler; camphorquinone absorbs blue light; oxygen inhibits the surface."], p: [P3], drills: [dn-composite-types] }
+          - { id: B, do: "Explain what each composite component does and how filler changes properties.", ek: ["Silane couples filler; camphorquinone absorbs blue light; oxygen inhibits the surface."], p: [P3], drills: [dn-composite-types, dn-composite-choice] }
       - n: 3
         title: "Thermal behaviour"
         los:
-          - { id: A, do: "Compute the marginal gap from a thermal-expansion mismatch.", ek: ["ΔL = Δα·L·ΔT; tooth about 11.4 ppm/°C."], p: [P1], drills: [dn-thermal-gap] }
+          - { id: A, do: "Compute the marginal gap from a thermal-expansion mismatch.", ek: ["ΔL = Δα·L·ΔT; tooth about 11.4 ppm/°C."], p: [P1], drills: [dn-thermal-gap, dn-temperature-for-gap] }
       - n: 4
         title: "Cements, amalgam and adhesion"
         los:
-          - { id: A, std: ["jcnde-domain:CC30"], do: "Explain the setting and properties of amalgam, glass ionomer, zinc phosphate and ZOE, and how etching works.", ek: ["High-copper removes γ₂; GI bonds and releases fluoride; eugenol inhibits resin."], p: [P3], drills: [dn-restoratives] }
-          - { id: B, std: ["jcnde-domain:CC31"], do: "Choose the surface treatment for bonding a ceramic restoration.", ek: ["Glass ceramics: HF + silane. Zirconia: air abrasion + MDP."], p: [P3], drills: [dn-ceramic-bonding] }
+          - { id: A, std: ["jcnde-domain:CC30"], do: "Explain the setting and properties of amalgam, glass ionomer, zinc phosphate and ZOE, and how etching works.", ek: ["High-copper removes γ₂; GI bonds and releases fluoride; eugenol inhibits resin."], p: [P3], drills: [dn-restoratives, dn-cement-choice] }
+          - { id: B, std: ["jcnde-domain:CC31"], do: "Choose the surface treatment for bonding a ceramic restoration.", ek: ["Glass ceramics: HF + silane. Zirconia: air abrasion + MDP."], p: [P3], drills: [dn-ceramic-bonding, dn-ceramic-why] }
       - n: 5
         title: "Alloys, gypsum and impression materials"
         los:
-          - { id: A, std: ["jcnde-domain:CC31"], do: "Classify a casting alloy by noble-metal content.", ek: ["High noble ≥ 60% noble with ≥ 40% gold; noble ≥ 25%; silver is not noble."], p: [P1, P3], drills: [dn-noble-class] }
+          - { id: A, std: ["jcnde-domain:CC31"], do: "Classify a casting alloy by noble-metal content.", ek: ["High noble ≥ 60% noble with ≥ 40% gold; noble ≥ 25%; silver is not noble."], p: [P1, P3], drills: [dn-noble-class, dn-noble-total] }
           - { id: B, std: ["jcnde-domain:CC56"], do: "Mix gypsum at the right water/powder ratio and choose and handle impression materials.", ek: ["W/P 0.50 plaster, 0.30 stone, 0.24 die stone; pour alginate at once; PVS is the most stable."], p: [P1, P3], drills: [dn-gypsum-water, dn-impression] }
   # >>> opl-fill:dn-depth (generated by scripts/opl_fill.py; edit the spec)
   - id: dental-anatomy
@@ -153,10 +153,10 @@ units:
       - n: 1
         title: "Tooth morphology and occlusion"
         los:
-          - { id: A, std: ["jcnde-domain:FK1", "jcnde-domain:CC28"], do: "Recall root and canal numbers of permanent teeth.", ek: ["Maxillary first molar 3 roots (MB often 2 canals); mandibular first molar 2 roots; maxillary first premolar usually 2."], p: [P3], drills: [dn-root-count] }
-          - { id: B, std: ["jcnde-domain:FK1"], do: "Recall cusp and crown features that identify a tooth.", ek: ["Mandibular first molar 5 cusps; maxillary first molar 4 plus Carabelli; mandibular second premolar may have 3."], p: [P3], drills: [dn-crown-features] }
-          - { id: C, std: ["jcnde-domain:CC34"], do: "Classify occlusion by Angle's molar relationship.", ek: ["Class I: MB cusp of the maxillary first molar in the buccal groove of the mandibular first molar; II: distal mandible; III: mesial mandible."], p: [P2], drills: [dn-angle-class] }
-          - { id: D, std: ["jcnde-domain:CC31"], do: "Judge an abutment by its crown-to-root ratio.", ek: ["Ideal 1:2; 2:3 is acceptable; 1:1 is the minimum for an abutment."], p: [P1], drills: [dn-crown-root-ratio] }
+          - { id: A, std: ["jcnde-domain:FK1", "jcnde-domain:CC28"], do: "Recall root and canal numbers of permanent teeth.", ek: ["Maxillary first molar 3 roots (MB often 2 canals); mandibular first molar 2 roots; maxillary first premolar usually 2."], p: [P3], drills: [dn-root-count, dn-canal-counts] }
+          - { id: B, std: ["jcnde-domain:FK1"], do: "Recall cusp and crown features that identify a tooth.", ek: ["Mandibular first molar 5 cusps; maxillary first molar 4 plus Carabelli; mandibular second premolar may have 3."], p: [P3], drills: [dn-crown-features, dn-identify-tooth] }
+          - { id: C, std: ["jcnde-domain:CC34"], do: "Classify occlusion by Angle's molar relationship.", ek: ["Class I: MB cusp of the maxillary first molar in the buccal groove of the mandibular first molar; II: distal mandible; III: mesial mandible."], p: [P2], drills: [dn-angle-class, dn-canine-relation] }
+          - { id: D, std: ["jcnde-domain:CC31"], do: "Judge an abutment by its crown-to-root ratio.", ek: ["Ideal 1:2; 2:3 is acceptable; 1:1 is the minimum for an abutment."], p: [P1], drills: [dn-crown-root-ratio, dn-root-needed] }
   - id: head-neck
     n: 6
     title: "Head and neck anatomy (FK1)"
@@ -167,10 +167,10 @@ units:
       - n: 1
         title: "Nerves, muscles, vessels and glands"
         los:
-          - { id: A, std: ["jcnde-domain:FK1", "jcnde-domain:CC19"], do: "Name the nerve that supplies a structure.", ek: ["Muscles of mastication: V3. Facial expression: VII. Taste anterior two-thirds: VII (chorda tympani); posterior third: IX. Tongue movement: XII."], p: [P3], drills: [dn-nerve-supply] }
-          - { id: B, std: ["jcnde-domain:FK1", "jcnde-domain:CC35"], do: "Know what each muscle of mastication does.", ek: ["Masseter, temporalis, medial pterygoid close; lateral pterygoid opens and protrudes."], p: [P3], drills: [dn-mastication-muscles] }
-          - { id: C, std: ["jcnde-domain:FK1", "jcnde-domain:CC19"], do: "Locate salivary ducts and the landmarks of nerve blocks.", ek: ["Parotid (Stensen) opposite the maxillary second molar; submandibular (Wharton) at the sublingual caruncle."], p: [P3], drills: [dn-ducts-landmarks] }
-          - { id: D, std: ["jcnde-domain:FK1", "jcnde-domain:CC18"], do: "Trace the arterial supply and lymph drainage of the mouth.", ek: ["Teeth from branches of the maxillary artery; lower lip and floor drain to submental and submandibular nodes."], p: [P3], drills: [dn-vessels-nodes] }
+          - { id: A, std: ["jcnde-domain:FK1", "jcnde-domain:CC19"], do: "Name the nerve that supplies a structure.", ek: ["Muscles of mastication: V3. Facial expression: VII. Taste anterior two-thirds: VII (chorda tympani); posterior third: IX. Tongue movement: XII."], p: [P3], drills: [dn-nerve-supply, dn-block-coverage] }
+          - { id: B, std: ["jcnde-domain:FK1", "jcnde-domain:CC35"], do: "Know what each muscle of mastication does.", ek: ["Masseter, temporalis, medial pterygoid close; lateral pterygoid opens and protrudes."], p: [P3], drills: [dn-mastication-muscles, dn-muscle-movement] }
+          - { id: C, std: ["jcnde-domain:FK1", "jcnde-domain:CC19"], do: "Locate salivary ducts and the landmarks of nerve blocks.", ek: ["Parotid (Stensen) opposite the maxillary second molar; submandibular (Wharton) at the sublingual caruncle."], p: [P3], drills: [dn-ducts-landmarks, dn-landmark-locate] }
+          - { id: D, std: ["jcnde-domain:FK1", "jcnde-domain:CC18"], do: "Trace the arterial supply and lymph drainage of the mouth.", ek: ["Teeth from branches of the maxillary artery; lower lip and floor drain to submental and submandibular nodes."], p: [P3], drills: [dn-vessels-nodes, dn-vessel-risk] }
   - id: histology
     n: 7
     title: "Oral histology and development (FK1, FK4)"
@@ -181,9 +181,9 @@ units:
       - n: 1
         title: "Tooth development, tissues and developmental anomalies"
         los:
-          - { id: A, std: ["jcnde-domain:FK1"], do: "Name the cell and germ layer behind each dental tissue.", ek: ["Enamel from ameloblasts (ectoderm); dentin, pulp and cementum from ectomesenchyme (neural crest)."], p: [P3], drills: [dn-tissue-origin] }
-          - { id: B, std: ["jcnde-domain:FK4", "jcnde-domain:CC5"], do: "Recognise developmental anomalies of teeth.", ek: ["Amelogenesis imperfecta: enamel only. Dentinogenesis imperfecta: opalescent teeth, obliterated pulps, linked with osteogenesis imperfecta."], p: [P2], drills: [dn-tooth-anomalies] }
-          - { id: C, std: ["jcnde-domain:FK4"], do: "Explain how clefts form.", ek: ["Cleft lip: failed fusion of the medial nasal and maxillary processes. Cleft palate: failed fusion of the palatal shelves."], p: [P3], drills: [dn-clefts] }
+          - { id: A, std: ["jcnde-domain:FK1"], do: "Name the cell and germ layer behind each dental tissue.", ek: ["Enamel from ameloblasts (ectoderm); dentin, pulp and cementum from ectomesenchyme (neural crest)."], p: [P3], drills: [dn-tissue-origin, dn-supporting-origin] }
+          - { id: B, std: ["jcnde-domain:FK4", "jcnde-domain:CC5"], do: "Recognise developmental anomalies of teeth.", ek: ["Amelogenesis imperfecta: enamel only. Dentinogenesis imperfecta: opalescent teeth, obliterated pulps, linked with osteogenesis imperfecta."], p: [P2], drills: [dn-tooth-anomalies, dn-anomaly-shape] }
+          - { id: C, std: ["jcnde-domain:FK4"], do: "Explain how clefts form.", ek: ["Cleft lip: failed fusion of the medial nasal and maxillary processes. Cleft palate: failed fusion of the palatal shelves."], p: [P3], drills: [dn-clefts, dn-cleft-timing] }
   - id: pharmacology
     n: 8
     title: "Pharmacology (FK8)"
@@ -194,11 +194,11 @@ units:
       - n: 1
         title: "Analgesics, antibiotics, interactions and dosing"
         los:
-          - { id: A, std: ["jcnde-domain:FK8", "jcnde-domain:CC26"], do: "Recall analgesic choices and limits for dental pain.", ek: ["Ibuprofen 400 mg ± acetaminophen 500–1000 mg beats opioids for most dental pain; acetaminophen ≤ 4 g/day (usual adult maximum)."], p: [P3], drills: [dn-analgesics] }
-          - { id: B, std: ["jcnde-domain:FK8", "jcnde-domain:CC26", "jcnde-domain:CC27"], do: "Choose antibiotics and know their dental side effects.", ek: ["Amoxicillin first line; penicillin allergy: azithromycin or doxycycline (clindamycin no longer recommended for prophylaxis, AHA 2021)."], p: [P3], drills: [dn-antibiotics] }
-          - { id: C, std: ["jcnde-domain:FK8", "jcnde-domain:CC27", "jcnde-domain:CC8"], do: "Recognise drug interactions and complications that change dental care.", ek: ["Epinephrine with nonselective β-blockers: hypertension and reflex bradycardia. Antiresorptives: MRONJ. Bisphosphonates and denosumab before extractions."], p: [P3], drills: [dn-interactions] }
-          - { id: D, std: ["jcnde-domain:FK8", "jcnde-domain:CC26"], do: "Calculate a weight-based pediatric antibiotic dose.", ek: ["Endocarditis prophylaxis: amoxicillin 50 mg/kg, not above the adult 2 g."], p: [P1], drills: [dn-peds-amoxicillin] }
-          - { id: E, std: ["jcnde-domain:FK8"], do: "Find how much drug remains after a number of half-lives.", ek: ["Fraction left = (1/2)^{t/t½}; about 5 half-lives to clear 97%."], p: [P1], drills: [dn-half-life] }
+          - { id: A, std: ["jcnde-domain:FK8", "jcnde-domain:CC26"], do: "Recall analgesic choices and limits for dental pain.", ek: ["Ibuprofen 400 mg ± acetaminophen 500–1000 mg beats opioids for most dental pain; acetaminophen ≤ 4 g/day (usual adult maximum)."], p: [P3], drills: [dn-analgesics, dn-acetaminophen-tablets] }
+          - { id: B, std: ["jcnde-domain:FK8", "jcnde-domain:CC26", "jcnde-domain:CC27"], do: "Choose antibiotics and know their dental side effects.", ek: ["Amoxicillin first line; penicillin allergy: azithromycin or doxycycline (clindamycin no longer recommended for prophylaxis, AHA 2021)."], p: [P3], drills: [dn-antibiotics, dn-antibiotic-risks] }
+          - { id: C, std: ["jcnde-domain:FK8", "jcnde-domain:CC27", "jcnde-domain:CC8"], do: "Recognise drug interactions and complications that change dental care.", ek: ["Epinephrine with nonselective β-blockers: hypertension and reflex bradycardia. Antiresorptives: MRONJ. Bisphosphonates and denosumab before extractions."], p: [P3], drills: [dn-interactions, dn-interaction-scenarios] }
+          - { id: D, std: ["jcnde-domain:FK8", "jcnde-domain:CC26"], do: "Calculate a weight-based pediatric antibiotic dose.", ek: ["Endocarditis prophylaxis: amoxicillin 50 mg/kg, not above the adult 2 g."], p: [P1], drills: [dn-peds-amoxicillin, dn-suspension-volume] }
+          - { id: E, std: ["jcnde-domain:FK8"], do: "Find how much drug remains after a number of half-lives.", ek: ["Fraction left = (1/2)^{t/t½}; about 5 half-lives to clear 97%."], p: [P1], drills: [dn-half-life, dn-time-to-fraction] }
   - id: micro-immuno
     n: 9
     title: "Microbiology and host defence (FK5, FK7)"
@@ -209,9 +209,9 @@ units:
       - n: 1
         title: "Oral microbes, infections, immunity and exposure"
         los:
-          - { id: A, std: ["jcnde-domain:FK7", "jcnde-domain:CC21", "jcnde-domain:CC22"], do: "Link oral diseases to their organisms.", ek: ["Caries: S. mutans starts, lactobacilli advance. Periodontitis: the red complex (P. gingivalis, T. forsythia, T. denticola)."], p: [P3], drills: [dn-oral-microbes] }
-          - { id: B, std: ["jcnde-domain:FK7", "jcnde-domain:CC51"], do: "Know bloodborne pathogen risk and the response to an exposure.", ek: ["Percutaneous transmission risk, unvaccinated source-positive: HBV up to about 30%, HCV about 1.8%, HIV about 0.3%."], p: [P3], drills: [dn-exposure] }
-          - { id: C, std: ["jcnde-domain:FK5"], do: "Classify hypersensitivity reactions met in dentistry.", ek: ["Type I IgE (latex anaphylaxis, penicillin), IV T-cell (contact dermatitis to latex accelerators, nickel, methacrylates)."], p: [P3], drills: [dn-hypersensitivity] }
+          - { id: A, std: ["jcnde-domain:FK7", "jcnde-domain:CC21", "jcnde-domain:CC22"], do: "Link oral diseases to their organisms.", ek: ["Caries: S. mutans starts, lactobacilli advance. Periodontitis: the red complex (P. gingivalis, T. forsythia, T. denticola)."], p: [P3], drills: [dn-oral-microbes, dn-organism-lesion] }
+          - { id: B, std: ["jcnde-domain:FK7", "jcnde-domain:CC51"], do: "Know bloodborne pathogen risk and the response to an exposure.", ek: ["Percutaneous transmission risk, unvaccinated source-positive: HBV up to about 30%, HCV about 1.8%, HIV about 0.3%."], p: [P3], drills: [dn-exposure, dn-exposure-expected] }
+          - { id: C, std: ["jcnde-domain:FK5"], do: "Classify hypersensitivity reactions met in dentistry.", ek: ["Type I IgE (latex anaphylaxis, penicillin), IV T-cell (contact dermatitis to latex accelerators, nickel, methacrylates)."], p: [P3], drills: [dn-hypersensitivity, dn-hypersensitivity-more] }
   - id: oral-pathology
     n: 10
     title: "Oral and general pathology (FK6, CC23)"
@@ -222,10 +222,10 @@ units:
       - n: 1
         title: "Lesions by appearance and site"
         los:
-          - { id: A, std: ["jcnde-domain:FK6", "jcnde-domain:CC23", "jcnde-domain:CC5"], do: "Name a soft-tissue lesion from its description.", ek: ["Mucocele: lower lip, after trauma. Ranula: floor of mouth. Fibroma: firm, smooth, on the bite line. Pyogenic granuloma: red, bleeds easily, often in pregnancy."], p: [P2], drills: [dn-soft-lesions] }
-          - { id: B, std: ["jcnde-domain:FK6", "jcnde-domain:CC23"], do: "Rank lesions by malignant risk and know oral cancer's usual sites.", ek: ["Erythroplakia carries the highest risk; squamous cell carcinoma is most common on the lateral and ventral tongue and floor of mouth."], p: [P2], drills: [dn-cancer-risk] }
-          - { id: C, std: ["jcnde-domain:FK6", "jcnde-domain:CC7", "jcnde-domain:CC23"], do: "Name a jaw lesion from its radiograph and location.", ek: ["Dentigerous cyst around an unerupted crown; periapical cyst at a non-vital apex; ameloblastoma multilocular in the posterior mandible; OKC with Gorlin syndrome."], p: [P2], drills: [dn-jaw-lesions] }
-          - { id: D, std: ["jcnde-domain:FK5", "jcnde-domain:FK6", "jcnde-domain:CC23"], do: "Tell the blistering diseases apart.", ek: ["Pemphigus vulgaris: intraepithelial split, Nikolsky positive, desmoglein 3. Mucous membrane pemphigoid: subepithelial split, eye scarring risk."], p: [P2], drills: [dn-vesiculobullous] }
+          - { id: A, std: ["jcnde-domain:FK6", "jcnde-domain:CC23", "jcnde-domain:CC5"], do: "Name a soft-tissue lesion from its description.", ek: ["Mucocele: lower lip, after trauma. Ranula: floor of mouth. Fibroma: firm, smooth, on the bite line. Pyogenic granuloma: red, bleeds easily, often in pregnancy."], p: [P2], drills: [dn-soft-lesions, dn-lesion-site] }
+          - { id: B, std: ["jcnde-domain:FK6", "jcnde-domain:CC23"], do: "Rank lesions by malignant risk and know oral cancer's usual sites.", ek: ["Erythroplakia carries the highest risk; squamous cell carcinoma is most common on the lateral and ventral tongue and floor of mouth."], p: [P2], drills: [dn-cancer-risk, dn-cancer-site-risk] }
+          - { id: C, std: ["jcnde-domain:FK6", "jcnde-domain:CC7", "jcnde-domain:CC23"], do: "Name a jaw lesion from its radiograph and location.", ek: ["Dentigerous cyst around an unerupted crown; periapical cyst at a non-vital apex; ameloblastoma multilocular in the posterior mandible; OKC with Gorlin syndrome."], p: [P2], drills: [dn-jaw-lesions, dn-jaw-lesion-more] }
+          - { id: D, std: ["jcnde-domain:FK5", "jcnde-domain:FK6", "jcnde-domain:CC23"], do: "Tell the blistering diseases apart.", ek: ["Pemphigus vulgaris: intraepithelial split, Nikolsky positive, desmoglein 3. Mucous membrane pemphigoid: subepithelial split, eye scarring risk."], p: [P2], drills: [dn-vesiculobullous, dn-blister-test] }
   - id: clinical
     n: 11
     title: "Clinical disciplines (CC17–CC38)"
@@ -236,10 +236,10 @@ units:
       - n: 1
         title: "Periodontics, endodontics, prosthodontics, pediatrics, surgery and orthodontics"
         los:
-          - { id: A, std: ["jcnde-domain:CC29", "jcnde-domain:CC31"], do: "Classify partially edentulous arches by Kennedy.", ek: ["I bilateral distal extension; II unilateral distal extension; III bounded posterior; IV a single bounded anterior space crossing the midline."], p: [P2], drills: [dn-kennedy] }
-          - { id: B, std: ["jcnde-domain:CC20", "jcnde-domain:CC34", "jcnde-domain:CC52"], do: "Choose pediatric pulp therapy and space maintenance.", ek: ["Vital primary pulp exposure with healthy radicular pulp: pulpotomy. Necrotic primary pulp in a restorable tooth: pulpectomy. Early loss of a primary second molar: distal shoe if the first permanent molar has not erupted."], p: [P3], drills: [dn-pediatric] }
-          - { id: C, std: ["jcnde-domain:CC17", "jcnde-domain:CC32", "jcnde-domain:CC33", "jcnde-domain:CC8"], do: "Know common oral-surgery thresholds and complications.", ek: ["Alveolar osteitis appears 2–4 days after extraction; usual INR limit for simple extractions about 3.5 (with local measures); ASA classes I–VI."], p: [P3], drills: [dn-oral-surgery] }
-          - { id: D, std: ["jcnde-domain:CC20", "jcnde-domain:CC28"], do: "Diagnose periapical conditions and choose endodontic treatment.", ek: ["Symptomatic apical periodontitis: tender to percussion. Acute apical abscess: swelling. Condensing osteitis: radiopacity at the apex of an inflamed pulp."], p: [P2], drills: [dn-periapical] }
+          - { id: A, std: ["jcnde-domain:CC29", "jcnde-domain:CC31"], do: "Classify partially edentulous arches by Kennedy.", ek: ["I bilateral distal extension; II unilateral distal extension; III bounded posterior; IV a single bounded anterior space crossing the midline."], p: [P2], drills: [dn-kennedy, dn-kennedy-more] }
+          - { id: B, std: ["jcnde-domain:CC20", "jcnde-domain:CC34", "jcnde-domain:CC52"], do: "Choose pediatric pulp therapy and space maintenance.", ek: ["Vital primary pulp exposure with healthy radicular pulp: pulpotomy. Necrotic primary pulp in a restorable tooth: pulpectomy. Early loss of a primary second molar: distal shoe if the first permanent molar has not erupted."], p: [P3], drills: [dn-pediatric, dn-space-maintainer] }
+          - { id: C, std: ["jcnde-domain:CC17", "jcnde-domain:CC32", "jcnde-domain:CC33", "jcnde-domain:CC8"], do: "Know common oral-surgery thresholds and complications.", ek: ["Alveolar osteitis appears 2–4 days after extraction; usual INR limit for simple extractions about 3.5 (with local measures); ASA classes I–VI."], p: [P3], drills: [dn-oral-surgery, dn-surgery-complication] }
+          - { id: D, std: ["jcnde-domain:CC20", "jcnde-domain:CC28"], do: "Diagnose periapical conditions and choose endodontic treatment.", ek: ["Symptomatic apical periodontitis: tender to percussion. Acute apical abscess: swelling. Condensing osteitis: radiopacity at the apex of an inflamed pulp."], p: [P2], drills: [dn-periapical, dn-periapical-findings] }
   - id: systemic
     n: 12
     title: "Systemic disease and medical risk (CC1, CC8, CC16)"
@@ -250,9 +250,9 @@ units:
       - n: 1
         title: "Vital signs, labs and emergencies"
         los:
-          - { id: A, std: ["jcnde-domain:CC8", "jcnde-domain:CC1"], do: "Decide whether to treat from blood pressure.", ek: ["AHA 2017: stage 2 hypertension from 140/90; elective dental care is usually deferred at 180/110 or above."], p: [P2], drills: [dn-bp-decision] }
-          - { id: B, std: ["jcnde-domain:CC16", "jcnde-domain:FK8"], do: "Give the drug, dose and route for office emergencies.", ek: ["Anaphylaxis: epinephrine 0.3 mg IM (adult; 0.15 mg child). Angina: nitroglycerin 0.4 mg sublingual every 5 min, up to 3. Hypoglycemia: 15–20 g fast sugar if conscious."], p: [P3], drills: [dn-emergency-doses] }
-          - { id: C, std: ["jcnde-domain:CC7", "jcnde-domain:CC8"], do: "Read lab values that change dental treatment.", ek: ["INR target 2–3 for most warfarin patients; HbA1c above about 8% means poor control; platelets below about 50,000 need consultation before surgery."], p: [P3], drills: [dn-lab-values] }
+          - { id: A, std: ["jcnde-domain:CC8", "jcnde-domain:CC1"], do: "Decide whether to treat from blood pressure.", ek: ["AHA 2017: stage 2 hypertension from 140/90; elective dental care is usually deferred at 180/110 or above."], p: [P2], drills: [dn-bp-decision, dn-bp-category] }
+          - { id: B, std: ["jcnde-domain:CC16", "jcnde-domain:FK8"], do: "Give the drug, dose and route for office emergencies.", ek: ["Anaphylaxis: epinephrine 0.3 mg IM (adult; 0.15 mg child). Angina: nitroglycerin 0.4 mg sublingual every 5 min, up to 3. Hypoglycemia: 15–20 g fast sugar if conscious."], p: [P3], drills: [dn-emergency-doses, dn-epi-child-dose] }
+          - { id: C, std: ["jcnde-domain:CC7", "jcnde-domain:CC8"], do: "Read lab values that change dental treatment.", ek: ["INR target 2–3 for most warfarin patients; HbA1c above about 8% means poor control; platelets below about 50,000 need consultation before surgery."], p: [P3], drills: [dn-lab-values, dn-anc] }
   - id: behaviour-research
     n: 13
     title: "Ethics, jurisprudence, behaviour and research (FK9, FK10)"
@@ -263,9 +263,9 @@ units:
       - n: 1
         title: "Principles, consent, records and evidence"
         los:
-          - { id: A, std: ["jcnde-domain:FK9", "jcnde-domain:CC45"], do: "Apply the ADA principles of ethics.", ek: ["Autonomy, non-maleficence, beneficence, justice and veracity."], p: [P3], drills: [dn-ethics] }
-          - { id: B, std: ["jcnde-domain:FK9", "jcnde-domain:CC24", "jcnde-domain:CC44", "jcnde-domain:CC46"], do: "Know the rules for consent, records and reporting.", ek: ["Informed consent: diagnosis, proposed treatment, risks, benefits, alternatives including no treatment. Suspected child abuse: report (mandated). Records: never alter; add a dated correction."], p: [P3], drills: [dn-jurisprudence] }
+          - { id: A, std: ["jcnde-domain:FK9", "jcnde-domain:CC45"], do: "Apply the ADA principles of ethics.", ek: ["Autonomy, non-maleficence, beneficence, justice and veracity."], p: [P3], drills: [dn-ethics, dn-ethics-principle] }
+          - { id: B, std: ["jcnde-domain:FK9", "jcnde-domain:CC24", "jcnde-domain:CC44", "jcnde-domain:CC46"], do: "Know the rules for consent, records and reporting.", ek: ["Informed consent: diagnosis, proposed treatment, risks, benefits, alternatives including no treatment. Suspected child abuse: report (mandated). Records: never alter; add a dated correction."], p: [P3], drills: [dn-jurisprudence, dn-consent-scenario] }
           - { id: C, std: ["jcnde-domain:FK10", "jcnde-domain:CC41"], do: "Compute relative risk, odds ratio and number needed to treat.", ek: ["RR = [a/(a+b)]/[c/(c+d)]; OR = ad/bc; NNT = 1/ARR."], p: [P1], drills: [dn-nnt, dn-odds-ratio] }
-          - { id: D, std: ["jcnde-domain:FK10", "jcnde-domain:CC41"], do: "Name the study design and the level of evidence.", ek: ["Systematic reviews of RCTs at the top; then RCTs, cohort, case–control, case series, expert opinion."], p: [P3], drills: [dn-study-design] }
-          - { id: E, std: ["jcnde-domain:CC21", "jcnde-domain:CC52"], do: "Recommend fluoride supplements by age and water fluoride.", ek: ["ADA 2010 schedule: water < 0.3 ppm: 0.25 mg (6 mo–3 y), 0.5 mg (3–6 y), 1.0 mg (6–16 y); 0.3–0.6 ppm: 0, 0.25, 0.5; above 0.6 ppm: none."], p: [P1], drills: [dn-fluoride-supplement] }
+          - { id: D, std: ["jcnde-domain:FK10", "jcnde-domain:CC41"], do: "Name the study design and the level of evidence.", ek: ["Systematic reviews of RCTs at the top; then RCTs, cohort, case–control, case series, expert opinion."], p: [P3], drills: [dn-study-design, dn-nnt-sealant] }
+          - { id: E, std: ["jcnde-domain:CC21", "jcnde-domain:CC52"], do: "Recommend fluoride supplements by age and water fluoride.", ek: ["ADA 2010 schedule: water < 0.3 ppm: 0.25 mg (6 mo–3 y), 0.5 mg (3–6 y), 1.0 mg (6–16 y); 0.3–0.6 ppm: 0, 0.25, 0.5; above 0.6 ppm: none."], p: [P1], drills: [dn-fluoride-supplement, dn-naf-fluoride] }
   # <<< opl-fill:dn-depth

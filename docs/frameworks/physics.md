@@ -2,7 +2,7 @@
 
 Generated from `drills/frameworks/physics.yaml` by `scripts/framework.mjs`. ● drilled · ◐ partly · ○ no drills yet.
 
-**207 learning objectives** in 30 units (201 core): 202 drilled, 5 partly, 0 with no drills. Core: 196 / 201 drilled.
+**207 learning objectives** in 30 units (201 core): 207 drilled, 0 partly, 0 with no drills. Core: 201 / 201 drilled.
 
 ## Big ideas
 
@@ -46,18 +46,18 @@ Generated from `drills/frameworks/physics.yaml` by `scripts/framework.mjs`. ● 
 | 14 · Waves, sound and physical optics | core | — | 13 | 13 | 0 | 0 |
 | 15 · Modern physics | core | — | 11 | 11 | 0 | 0 |
 | 16 · Kinematics with calculus | core | — | 4 | 4 | 0 | 0 |
-| 17 · Dynamics with calculus | core | — | 4 | 3 | 1 | 0 |
+| 17 · Dynamics with calculus | core | — | 4 | 4 | 0 | 0 |
 | 18 · Work and energy with calculus | core | — | 4 | 4 | 0 | 0 |
 | 19 · Momentum with calculus | core | — | 1 | 1 | 0 | 0 |
 | 20 · Rotational dynamics with calculus | core | — | 3 | 3 | 0 | 0 |
 | 21 · Angular momentum and rolling with calculus | core | — | 2 | 2 | 0 | 0 |
-| 22 · Oscillations with calculus | core | — | 3 | 2 | 1 | 0 |
+| 22 · Oscillations with calculus | core | — | 3 | 3 | 0 | 0 |
 | 23 · Electric fields and Gauss's law | core | — | 4 | 4 | 0 | 0 |
 | 24 · Electric potential with calculus | core | — | 3 | 3 | 0 | 0 |
 | 25 · Conductors and capacitors | core | — | 5 | 5 | 0 | 0 |
-| 26 · Circuits with calculus | core | — | 3 | 1 | 2 | 0 |
+| 26 · Circuits with calculus | core | — | 3 | 3 | 0 | 0 |
 | 27 · Magnetic fields with calculus | core | — | 3 | 3 | 0 | 0 |
-| 28 · Electromagnetic induction | core | — | 6 | 5 | 1 | 0 |
+| 28 · Electromagnetic induction | core | — | 6 | 6 | 0 | 0 |
 | 29 · Special relativity | extension | — | 5 | 5 | 0 | 0 |
 | 30 · Lagrangian mechanics | extension | — | 1 | 1 | 0 | 0 |
 
@@ -1130,7 +1130,7 @@ Big ideas: QUANT, CONS
 - ● **PH-15.4.A** (P2 15.4) Find the peak wavelength of blackbody emission from the temperature, or the reverse.
   - EK: Wien: λ_max T = 2.898 × 10⁻³ m·K; hotter objects peak at shorter λ.
   - Needs: PH-15.1.A, PH-9.1.B
-  - 2B · 2D · drills: ht3-wien
+  - 2B · 2D · drills: ht3-wien, ph-wien-temperature
 - ● **PH-15.4.B** (P2 15.4) Calculate the total power radiated by a hot surface.
   - EK: P = εσAT⁴ with T in kelvin; doubling T multiplies P by 16.
   - Needs: PH-15.4.A
@@ -1187,15 +1187,15 @@ Big ideas: CHG
 - ● **PH-16.2.A** (CM 1.2) Differentiate a position function to get velocity and acceleration as functions of time.
   - EK: v = dx/dt, a = dv/dt = d²x/dt²; turning points where v = 0.
   - Needs: PH-1.3.A
-  - 2A · drills: pc-velocity-from-position
+  - 2A · drills: pc-velocity-from-position, ph-acceleration-from-position
 - ● **PH-16.2.B** (CM 1.2, CM 1.3) Integrate a time-dependent acceleration or velocity with initial conditions to get v(t) and x(t).
   - EK: v(t) = v₀ + ∫₀ᵗ a dt′, x(t) = x₀ + ∫₀ᵗ v dt′; the constant-a equations are the special case.
   - Needs: PH-16.2.A
-  - 2A · 2B · drills: pc-integrate-acceleration
+  - 2A · 2B · drills: pc-integrate-acceleration, ph-position-from-acceleration
 - ● **PH-16.2.C** (CM 1.2) Find velocity as a function of position when acceleration depends on position or velocity.
   - EK: a = v dv/dx ⇒ ∫v dv = ∫a(x) dx; for a(v), separate dt = dv/a(v).
   - Needs: PH-16.2.B, PH-2.5.A
-  - 2A · drills: pc-velocity-of-position
+  - 2A · drills: pc-velocity-of-position, ph-drag-half-distance
 
 ### 16.5 Motion in two or three dimensions
 
@@ -1204,7 +1204,7 @@ Big ideas: CHG
 - ● **PH-16.5.A** (CM 1.5) Differentiate and integrate a vector position r(t) component by component.
   - EK: r = x î + y ĵ + z k̂; v = dr/dt and a = dv/dt act on each component independently.
   - Needs: PH-16.2.A, PH-1.5.B
-  - 2A · 2B · drills: pc-vector-speed
+  - 2A · 2B · drills: pc-vector-speed, ph-vector-acceleration
 
 ## Unit 17 · Dynamics with calculus
 
@@ -1217,7 +1217,7 @@ Big ideas: INT, CHG
 - ● **PH-17.1.A** (CM 2.1) Calculate the center of mass of a rod or plate with nonuniform density by integration.
   - EK: x_cm = ∫x dm / ∫dm with dm = λ(x) dx (or σ dA); uniform symmetric objects have it at the geometric center.
   - Needs: PH-2.1.B, PH-16.2.B
-  - 2A · 2B · drills: pc-rod-center-of-mass
+  - 2A · 2B · drills: pc-rod-center-of-mass, ph-rod-mass
 
 ### 17.5 Newton's second law with time-varying forces
 
@@ -1226,16 +1226,16 @@ Big ideas: INT, CHG
 - ● **PH-17.5.A** (CM 2.5) Find v(t) and x(t) for an object under a time-dependent net force.
   - EK: ΣF = dp/dt = m dv/dt for constant m; integrate F(t)/m for v(t).
   - Needs: PH-2.5.A, PH-16.2.B, PH-4.2.A
-  - 2A · drills: pc-time-varying-force
+  - 2A · drills: pc-time-varying-force, ph-position-time-force
 
 ### 17.9 Resistive forces
 
 
 
-- ◐ **PH-17.9.A** (CM 2.9) Set up and solve the equation of motion for a falling object with linear drag, and find its terminal velocity.
+- ● **PH-17.9.A** (CM 2.9) Set up and solve the equation of motion for a falling object with linear drag, and find its terminal velocity.
   - EK: m dv/dt = mg − bv ⇒ v(t) = v_T(1 − e^(−t/τ)), v_T = mg/b, τ = m/b.
   - Needs: PH-17.5.A
-  - 2A · 2B · 1C · drills: ~lin-const
+  - 2A · 2B · 1C · drills: ph-drag-time-fraction, ~lin-const
 
 ### 17.10 Circular motion
 
@@ -1244,7 +1244,7 @@ Big ideas: INT, CHG
 - ● **PH-17.10.A** (CM 2.10) Resolve the acceleration of an object in nonuniform circular motion into tangential and radial parts.
   - EK: a_t = dv/dt, a_r = v²/r; |a| = √(a_t² + a_r²).
   - Needs: PH-2.9.B, PH-16.2.A
-  - 2A · 2B · drills: pc-tangential-radial
+  - 2A · 2B · drills: pc-tangential-radial, ph-acceleration-angle
 
 ## Unit 18 · Work and energy with calculus
 
@@ -1257,7 +1257,7 @@ Big ideas: CONS, CHG
 - ● **PH-18.2.A** (CM 3.2) Calculate the work done by a position-dependent force by integration.
   - EK: W = ∫F · dr = ∫F_x dx in 1-D; the spring's ½kx² is ∫kx dx.
   - Needs: PH-3.2.B, PH-16.2.B
-  - 2A · 2B · drills: pc-variable-work
+  - 2A · 2B · drills: pc-variable-work, ph-inverse-square-work
 
 ### 18.3 Potential energy and conservative forces
 
@@ -1266,11 +1266,11 @@ Big ideas: CONS, CHG
 - ● **PH-18.3.A** (CM 3.3) Derive the potential energy function of a conservative force.
   - EK: ΔU = −∫F dx; gravity between masses gives U = −GMm/r with U(∞) = 0.
   - Needs: PH-3.3.B, PH-18.2.A
-  - 2A · drills: pc-potential-from-force
+  - 2A · drills: pc-potential-from-force, ph-potential-two-forces
 - ● **PH-18.3.B** (CM 3.3) Find the force from a potential energy function and locate and classify equilibria on a U(x) graph.
   - EK: F_x = −dU/dx; equilibrium where dU/dx = 0, stable at a minimum, unstable at a maximum; turning points where U = E.
   - Needs: PH-18.3.A
-  - 1C · 2A · 3B · drills: pc-force-from-potential
+  - 1C · 2A · 3B · drills: pc-force-from-potential, ph-equilibrium-cubic
 
 ### 18.5 Power
 
@@ -1279,7 +1279,7 @@ Big ideas: CONS, CHG
 - ● **PH-18.5.A** (CM 3.5) Calculate instantaneous power as a derivative and the work delivered by a time-varying power.
   - EK: P = dW/dt = F · v; W = ∫P dt.
   - Needs: PH-3.5.A, PH-18.2.A
-  - 2A · 2B · drills: pc-power-integral
+  - 2A · 2B · drills: pc-power-integral, ph-power-from-work
 
 ## Unit 19 · Momentum with calculus
 
@@ -1292,7 +1292,7 @@ Big ideas: CONS, CHG
 - ● **PH-19.2.A** (CM 4.2) Calculate the impulse of a time-varying force by integration and the resulting velocity.
   - EK: J = ∫F dt = Δp; F = dp/dt.
   - Needs: PH-4.2.A, PH-16.2.B
-  - 2A · 2B · drills: pc-impulse-integral
+  - 2A · 2B · drills: pc-impulse-integral, ph-average-force
 
 ## Unit 20 · Rotational dynamics with calculus
 
@@ -1305,7 +1305,7 @@ Big ideas: CHG, INT
 - ● **PH-20.1.A** (CM 5.1) Differentiate and integrate θ(t), ω(t) and α(t) for nonconstant angular acceleration.
   - EK: ω = dθ/dt, α = dω/dt; integrate with initial conditions as in linear kinematics.
   - Needs: PH-5.1.A, PH-16.2.B
-  - 2A · drills: pc-angular-calculus
+  - 2A · drills: pc-angular-calculus, ph-angle-from-alpha
 
 ### 20.3 Torque as a cross product
 
@@ -1314,7 +1314,7 @@ Big ideas: CHG, INT
 - ● **PH-20.3.A** (CM 5.3) Compute torque as the cross product r × F from components.
   - EK: τ = r × F, |τ| = rF sin θ, direction by the right-hand rule along the rotation axis.
   - Needs: PH-5.3.A, PH-1.5.A
-  - 2B · drills: pc-torque-cross
+  - 2B · drills: pc-torque-cross, ph-torque-magnitude-3d
 
 ### 20.4 Rotational inertia by integration
 
@@ -1323,7 +1323,7 @@ Big ideas: CHG, INT
 - ● **PH-20.4.A** (CM 5.4) Derive the rotational inertia of a rod, ring or disk by integration.
   - EK: I = ∫r² dm; rod about center ML²/12, about end ML²/3, disk ½MR², ring MR².
   - Needs: PH-5.4.B, PH-17.1.A
-  - 2A · drills: pc-inertia-integral
+  - 2A · drills: pc-inertia-integral, ph-rod-off-centre-inertia
 
 ## Unit 21 · Angular momentum and rolling with calculus
 
@@ -1336,7 +1336,7 @@ Big ideas: CONS
 - ● **PH-21.3.A** (CM 6.3) Compute angular momentum as r × p and apply τ_net = dL/dt.
   - EK: L = r × p for a particle, Iω for a rigid body about a symmetry axis; net torque is the rate of change of L.
   - Needs: PH-6.3.B, PH-20.3.A
-  - 2A · 2B · drills: pc-torque-from-L
+  - 2A · 2B · drills: pc-torque-from-L, ph-angular-momentum-particle
 
 ### 21.5 Rolling with friction
 
@@ -1345,7 +1345,7 @@ Big ideas: CONS
 - ● **PH-21.5.A** (CM 6.5) Find the acceleration and the static friction force for an object rolling without slipping down an incline.
   - EK: Ma = Mg sin θ − f, fR = Iα, a = Rα ⇒ a = g sin θ/(1 + I/MR²); rolling friction does no work.
   - Needs: PH-6.5.A, PH-5.6.A, PH-2.7.B
-  - 1A · 2A · drills: pc-rolling-friction
+  - 1A · 2A · drills: pc-rolling-friction, ph-rolling-acceleration
 
 ## Unit 22 · Oscillations with calculus
 
@@ -1355,10 +1355,10 @@ Big ideas: CHG, WAVE
 
 
 
-- ◐ **PH-22.1.A** (CM 7.1, CM 7.2) Derive the SHM differential equation from Newton's second law and read the angular frequency off it.
+- ● **PH-22.1.A** (CM 7.1, CM 7.2) Derive the SHM differential equation from Newton's second law and read the angular frequency off it.
   - EK: F = −kx ⇒ d²x/dt² = −(k/m)x; any system of the form ẍ = −ω²x oscillates with ω.
   - Needs: PH-7.1.A, PH-16.2.A
-  - 2A · drills: ~spring-frequency
+  - 2A · drills: ph-spring-period-energy, ~spring-frequency
 - ● **PH-22.1.B** (CM 7.3) Solve for amplitude and phase from initial position and velocity.
   - EK: x = A cos(ωt + φ); A = √(x₀² + (v₀/ω)²), tan φ = −v₀/(ωx₀).
   - Needs: PH-22.1.A, PH-7.3.A
@@ -1371,7 +1371,7 @@ Big ideas: CHG, WAVE
 - ● **PH-22.5.A** (CM 7.5) Derive the small-angle period of a physical pendulum from the rotational equation of motion.
   - EK: −mgd sin θ = Iθ̈, sin θ ≈ θ ⇒ T = 2π√(I/(mgd)); a point mass on a string gives back 2π√(L/g).
   - Needs: PH-22.1.A, PH-5.6.A, PH-7.2.B, PH-20.4.A
-  - 2A · 2B · drills: pc-physical-pendulum
+  - 2A · 2B · drills: pc-physical-pendulum, ph-rod-pivot-period
 
 ## Unit 23 · Electric fields and Gauss's law
 
@@ -1384,7 +1384,7 @@ Big ideas: INT, CHG
 - ● **PH-23.4.A** (CEM 8.4) Calculate the electric field of a continuous charge distribution (rod, ring, arc) by integration.
   - EK: dE = k dq/r², dq = λ dl; integrate components and use symmetry to cancel some.
   - Needs: PH-10.3.A, PH-17.1.A
-  - 1A · 2A · drills: pc-ring-field
+  - 1A · 2A · drills: pc-ring-field, ph-line-segment-field
 
 ### 23.5 Electric flux
 
@@ -1402,11 +1402,11 @@ Big ideas: INT, CHG
 - ● **PH-23.6.A** (CEM 8.6) Apply Gauss's law to find the field of a spherical, cylindrical or planar charge distribution.
   - EK: ∮E · dA = Q_enc/ε₀; choose a surface where E is constant and parallel or perpendicular to dA.
   - Needs: PH-23.5.A, PH-10.3.C
-  - 1A · 2A · drills: pc-gauss-sphere
+  - 1A · 2A · drills: pc-gauss-sphere, ph-line-charge-field
 - ● **PH-23.6.B** (CEM 8.6) Find the field inside a sphere or cylinder with radially varying charge density.
   - EK: Q_enc = ∫ρ(r) dV with dV = 4πr²dr (sphere) or 2πrL dr (cylinder).
   - Needs: PH-23.6.A
-  - 2A · drills: pc-gauss-nonuniform
+  - 2A · drills: pc-gauss-nonuniform, ph-cylinder-charge-nonuniform
 
 ## Unit 24 · Electric potential with calculus
 
@@ -1419,15 +1419,15 @@ Big ideas: CONS, CHG
 - ● **PH-24.2.A** (CEM 9.2) Calculate a potential difference by integrating the electric field along a path.
   - EK: ΔV = −∫E · dr; path-independent because the electrostatic field is conservative.
   - Needs: PH-10.5.B, PH-23.6.A, PH-18.3.A
-  - 2A · drills: pc-potential-integral
+  - 2A · drills: pc-potential-integral, ph-point-potential-difference
 - ● **PH-24.2.B** (CEM 9.2) Calculate the potential of a continuous charge distribution by integration.
   - EK: V = ∫k dq/r — a scalar integral, easier than the field.
   - Needs: PH-10.5.A, PH-23.4.A
-  - 2A · drills: pc-ring-potential
+  - 2A · drills: pc-ring-potential, ph-disk-potential
 - ● **PH-24.2.C** (CEM 9.2) Find the electric field from a potential function.
   - EK: E_x = −∂V/∂x (each component); E points down the steepest potential slope.
   - Needs: PH-24.2.A, PH-18.3.B
-  - 2A · 1C · drills: pc-field-from-potential
+  - 2A · 1C · drills: pc-field-from-potential, ph-field-2d-potential
 
 ## Unit 25 · Conductors and capacitors
 
@@ -1440,7 +1440,7 @@ Big ideas: INT, CONS
 - ● **PH-25.1.A** (CEM 10.1) Find induced charges and fields for a charge inside or near a conducting shell.
   - EK: E = 0 in the conductor ⇒ a Gaussian surface in the metal encloses zero net charge; excess charge sits on surfaces.
   - Needs: PH-10.3.C, PH-23.6.A
-  - 1A · 3B · drills: pc-shell-charges
+  - 1A · 3B · drills: pc-shell-charges, ph-shell-outside-field
 
 ### 25.2 Redistribution of charge between conductors
 
@@ -1449,7 +1449,7 @@ Big ideas: INT, CONS
 - ● **PH-25.2.A** (CEM 10.2) Calculate how charge divides between connected conducting spheres.
   - EK: Connected conductors reach equal potential: kQ₁/R₁ = kQ₂/R₂ ⇒ Q ∝ R; total charge conserved.
   - Needs: PH-25.1.A, PH-24.2.A
-  - 2A · 2B · drills: pc-spheres-sharing
+  - 2A · 2B · drills: pc-spheres-sharing, ph-sharing-density-ratio
 
 ### 25.3 Capacitors
 
@@ -1458,11 +1458,11 @@ Big ideas: INT, CONS
 - ● **PH-25.3.A** (CEM 10.3) Derive the capacitance of a parallel-plate, spherical or cylindrical capacitor.
   - EK: Find E by Gauss, ΔV = ∫E dr, then C = Q/ΔV; cylindrical C = 2πε₀L/ln(b/a).
   - Needs: PH-10.6.A, PH-24.2.A
-  - 2A · drills: pc-capacitance-geometry
+  - 2A · drills: pc-capacitance-geometry, ph-isolated-sphere-capacitance
 - ● **PH-25.3.B** (CEM 10.3) Calculate the energy stored in a field from its energy density.
   - EK: u = ½ε₀E²; U = ∫u dV, which reproduces ½CV² for a capacitor.
   - Needs: PH-25.3.A, PH-10.6.B
-  - 2A · 2B · drills: pc-field-energy-density
+  - 2A · 2B · drills: pc-field-energy-density, ph-sphere-field-energy
 
 ### 25.4 Dielectrics
 
@@ -1471,7 +1471,7 @@ Big ideas: INT, CONS
 - ● **PH-25.4.A** (CEM 10.4) Predict how inserting a dielectric changes C, Q, V, E and U with the battery connected or disconnected.
   - EK: C = κC₀; connected: V fixed, Q and U rise by κ; isolated: Q fixed, V, E and U fall by κ.
   - Needs: PH-25.3.A, PH-10.1.C
-  - 2C · 2D · drills: pc-dielectric-effect
+  - 2C · 2D · drills: pc-dielectric-effect, ph-half-filled-gap
 
 ## Unit 26 · Circuits with calculus
 
@@ -1484,20 +1484,20 @@ Big ideas: CHG, CONS
 - ● **PH-26.1.A** (CEM 11.1) Calculate current from a charge function and relate it to drift velocity.
   - EK: I = dQ/dt; I = nqAv_d with n carriers per volume.
   - Needs: PH-11.1.A, PH-16.2.A
-  - 2A · 2B · drills: pc-current-from-charge
+  - 2A · 2B · drills: pc-current-from-charge, ph-drift-velocity
 
 ### 26.8 RC circuits
 
 
 
-- ◐ **PH-26.8.A** (CEM 11.8) Derive and solve the differential equation for a charging or discharging RC circuit.
+- ● **PH-26.8.A** (CEM 11.8) Derive and solve the differential equation for a charging or discharging RC circuit.
   - EK: ε − IR − q/C = 0, I = dq/dt ⇒ q(t) = Cε(1 − e^(−t/RC)); discharge q = Q₀e^(−t/RC).
   - Needs: PH-11.8.B, PH-11.6.A, PH-16.2.B
-  - 2A · drills: ~lin-const
-- ◐ **PH-26.8.B** (CEM 11.8) Calculate the time to reach a given charge or current fraction, and the energy dissipated in the resistor.
+  - 2A · drills: ph-rc-current, ~lin-const
+- ● **PH-26.8.B** (CEM 11.8) Calculate the time to reach a given charge or current fraction, and the energy dissipated in the resistor.
   - EK: t = τ ln(1/(1 − f)) charging; total heat on discharge = initial ½CV².
   - Needs: PH-26.8.A
-  - 2B · drills: ~model-decay
+  - 2B · drills: ph-rc-dissipated, ~model-decay
 
 ## Unit 27 · Magnetic fields with calculus
 
@@ -1510,7 +1510,7 @@ Big ideas: INT
 - ● **PH-27.2.A** (CEM 12.2) Compute the magnetic force on a moving charge or current element as a cross product.
   - EK: F = qv × B; dF = I dl × B, integrated along a wire.
   - Needs: PH-12.2.A, PH-20.3.A
-  - 2A · 2B · drills: pc-magnetic-cross
+  - 2A · 2B · drills: pc-magnetic-cross, ph-cyclotron-radius
 
 ### 27.3 The Biot–Savart law
 
@@ -1519,7 +1519,7 @@ Big ideas: INT
 - ● **PH-27.3.A** (CEM 12.3) Apply the Biot–Savart law to find B at the center of a loop or arc, or on a loop's axis.
   - EK: dB = (μ₀/4π) I dl × r̂ / r²; center of a loop B = μ₀I/(2R).
   - Needs: PH-12.3.A, PH-23.4.A
-  - 2A · drills: pc-biot-savart-loop
+  - 2A · drills: pc-biot-savart-loop, ph-loop-axis-field
 
 ### 27.4 Ampère's law
 
@@ -1541,7 +1541,7 @@ Big ideas: CHG, CONS
 - ● **PH-28.1.A** (CEM 13.1) Calculate the magnetic flux through a loop in a nonuniform field (such as near a long wire) by integration.
   - EK: Φ_B = ∫B · dA; next to a wire, strips dA = L dr give Φ = (μ₀IL/2π) ln(b/a).
   - Needs: PH-12.4.A, PH-12.3.A, PH-16.2.B
-  - 2A · drills: pc-flux-near-wire
+  - 2A · drills: pc-flux-near-wire, ph-flux-linear-field
 
 ### 28.2 Faraday's law with derivatives
 
@@ -1550,7 +1550,7 @@ Big ideas: CHG, CONS
 - ● **PH-28.2.A** (CEM 13.2) Calculate the instantaneous emf from a time-varying flux, including a rotating coil (generator).
   - EK: ε = −N dΦ_B/dt; coil rotating at ω: ε = NBAω sin ωt.
   - Needs: PH-28.1.A, PH-12.4.C
-  - 2A · 2B · drills: pc-generator-emf
+  - 2A · 2B · drills: pc-generator-emf, ph-ramp-emf
 
 ### 28.3 Induced currents and magnetic forces
 
@@ -1559,7 +1559,7 @@ Big ideas: CHG, CONS
 - ● **PH-28.3.A** (CEM 13.3) Solve for the velocity of a rod on rails slowed or driven by its induced current.
   - EK: Retarding force B²L²v/R ⇒ m dv/dt = −(B²L²/R)v, exponential decay; with a driving force it reaches a terminal speed.
   - Needs: PH-28.2.A, PH-12.4.D, PH-17.9.A
-  - 2A · drills: pc-rod-terminal-speed
+  - 2A · drills: pc-rod-terminal-speed, ph-rod-coasting
 
 ### 28.4 Inductance
 
@@ -1568,16 +1568,16 @@ Big ideas: CHG, CONS
 - ● **PH-28.4.A** (CEM 13.4) Calculate the self-inductance of a solenoid, the emf across an inductor and its stored energy.
   - EK: ε_L = −L dI/dt; solenoid L = μ₀N²A/ℓ; U = ½LI².
   - Needs: PH-28.2.A, PH-27.4.A
-  - 2A · 2B · drills: pc-solenoid-inductance
+  - 2A · 2B · drills: pc-solenoid-inductance, ph-inductor-peak-emf
 
 ### 28.5 LR circuits
 
 
 
-- ◐ **PH-28.5.A** (CEM 13.5) Derive and solve the current in an LR circuit after a switch closes or opens.
+- ● **PH-28.5.A** (CEM 13.5) Derive and solve the current in an LR circuit after a switch closes or opens.
   - EK: ε − IR − L dI/dt = 0 ⇒ I = (ε/R)(1 − e^(−t/τ)), τ = L/R; an inductor resists sudden change in current.
   - Needs: PH-28.4.A, PH-26.8.A
-  - 2A · 1C · drills: ~lin-const
+  - 2A · 1C · drills: ph-lr-time-fraction, ~lin-const
 
 ### 28.6 LC circuits
 
@@ -1598,19 +1598,19 @@ Big ideas: CONS
 
 - ● **PH-29.1.A** Compute the time measured in the lab for a moving clock.
   - EK: Δt = γΔτ, γ = 1/√(1 − β²).
-  - 2A · drills: ph-time-dilation
+  - 2A · drills: ph-time-dilation, ph-speed-for-gamma
 - ● **PH-29.1.B** Compute the length of a moving object along its motion.
   - EK: L = L₀/γ.
   - Needs: PH-29.1.A
-  - 2A · drills: ph-length-contraction
+  - 2A · drills: ph-length-contraction, ph-speed-for-contraction
 - ● **PH-29.1.C** Add velocities relativistically.
   - EK: w = (u + v)/(1 + uv/c²); rapidities add.
   - Needs: PH-29.1.A
-  - 2A · drills: ph-velocity-addition
+  - 2A · drills: ph-velocity-addition, ph-velocity-subtraction
 - ● **PH-29.1.D** Compute the frequency received from a moving source.
   - EK: f = f₀√((1+β)/(1−β)) approaching.
   - Needs: PH-29.1.A
-  - 2A · drills: ph-rel-doppler
+  - 2A · drills: ph-rel-doppler, ph-speed-from-doppler
 
 ### 29.2 Dynamics of relativity
 
@@ -1619,7 +1619,7 @@ Big ideas: CONS
 - ● **PH-29.2.A** Compute relativistic kinetic energy and momentum.
   - EK: K = (γ − 1)mc², p = γmv, E² = (pc)² + (mc²)².
   - Needs: PH-29.1.A
-  - 2A · drills: ph-rel-energy
+  - 2A · drills: ph-rel-energy, ph-speed-from-kinetic
 
 ## Unit 30 · Lagrangian mechanics (extension)
 
@@ -1632,4 +1632,4 @@ Big ideas: CONS, SYS
 - ● **PH-30.1.A** Find an acceleration or small-oscillation frequency from L = T − V.
   - EK: d/dt(∂L/∂q̇) = ∂L/∂q; constraint forces never appear.
   - Needs: PH-6.1.A
-  - 2A · 1C · drills: ph-lagrangian
+  - 2A · 1C · drills: ph-lagrangian, ph-atwood-lagrangian

@@ -1724,7 +1724,7 @@ https://ibo.org/globalassets/new-structure/recognition/pdfs/dp_sciences_physics_
 | D.1 | Gravitational fields | 17 | 17 | physics (17) |
 | D.2 | Electric and magnetic fields | 25 | 25 | physics (25) |
 | D.3 | Motion in electromagnetic fields | 10 | 10 | physics (10) |
-| D.4 | Induction (HL) | 6 | 5 | physics (6) |
+| D.4 | Induction (HL) | 6 | 6 | physics (6) |
 | E.1 | Structure of the atom | 11 | 11 | physics (11) |
 | E.2 | Quantum physics (HL) | 11 | 11 | physics (11) |
 | E.3 | Radioactive decay | 3 | 3 | nuclear (3) |
@@ -1974,8 +1974,8 @@ https://www.ets.org/gre/test-takers/subject-tests/about/content-structure.html
 
 | Item | Topic | Objectives | With a drill | Where |
 |---|---|---|---|---|
-| 1 | Classical mechanics | 9 | 8 | physics (9) |
-| 2 | Electromagnetism | 10 | 9 | physics (10) |
+| 1 | Classical mechanics | 9 | 9 | physics (9) |
+| 2 | Electromagnetism | 10 | 10 | physics (10) |
 | 3 | Optics and wave phenomena | 20 | 20 | physics (20) |
 | 4 | Thermodynamics and statistical mechanics | 8 | 8 | thermodynamics (8) |
 | 5 | Quantum mechanics | 20 | 20 | physical-chemistry (20) |
