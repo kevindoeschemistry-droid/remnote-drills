@@ -72,7 +72,7 @@ Related reports: [standards and how much of each was read](../coverage/standards
 | [High School Mathematics (Common Core)](math-hs.md) | MH | 200 | 200 | 0 | 0 | 2.4 | CCSS Mathematics Appendix A: high school course pathways (standard, read: full) |
 | [Linear Algebra](linear-algebra.md) | LA | 54 | 54 | 0 | 0 | 2.1 | MAA CUPM Curriculum Guide 2015, Linear Algebra course report: core topics of a first course (standard, read: part) |
 | [Mathematics K–8 (Common Core)](math-k8.md) | MK | 258 | 258 | 0 | 0 | 2.3 | Common Core State Standards for Mathematics (2010) (standard, read: crosswalk) |
-| [Mental Math](mental-math.md) | MM | 84 | 84 | 0 | 0 | 1.5 | UIL Number Sense Problem Sequencing Charts (High School; A+ Junior High and Elementary, rev. 2016-17) with the Number Sense Handbook rules (exam-spec, read: full) |
+| [Mental Math](mental-math.md) | MM | 84 | 84 | 0 | 0 | 2.2 | UIL Number Sense Problem Sequencing Charts (High School; A+ Junior High and Elementary, rev. 2016-17) with the Number Sense Handbook rules (exam-spec, read: full) |
 | [Statistics](statistics.md) | SS | 89 | 89 | 0 | 0 | 2.2 | AP Statistics revised course framework (2026-27) (standard, read: part) |
 
 ## Safety

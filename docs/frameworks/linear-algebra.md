@@ -332,3 +332,4 @@ Big ideas: MAIN
 ## Drills not yet placed on the map
 
 - hs2-inverse-2x2 (la.inverse)
+- mm-trace-of-square (la.eigenvalues)

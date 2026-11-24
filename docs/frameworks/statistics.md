@@ -455,6 +455,8 @@ Big ideas: MAIN
 - mm-subsets (stats.probability)
 - mm-two-dice (stats.probability)
 - mm-combinations (stats.probability)
+- mm-permutations (stats.probability)
+- mm-dice-sum-prob (stats.probability)
 - g68-simulation-design (stats.probability)
 - hs-events-as-sets (stats.probability)
 - hs-independence-in-words (stats.probability)
