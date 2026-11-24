@@ -616,6 +616,8 @@ skills:
   - { id: inorg.redox, domain: inorg, title: "Redox half-equations and iodometry", short: "Redox", prereqs: [inorg.p-block] }
   - { id: inorg.qualitative, domain: inorg, title: "Qualitative analysis: precipitates, amphoterism, ion tests", short: "Qualitative analysis", prereqs: [inorg.s-block] }
   - { id: inorg.solids, domain: inorg, title: "Solid state: unit cells, packing, density, Bragg", short: "Solids" }
+  - { id: inorg.cross-cutting, domain: inorg, title: "Cross-cutting inorganic topics: HSAB, Latimer and Frost diagrams, disproportionation", short: "Acids, bases and redox diagrams", prereqs: [inorg.redox] }
+  - { id: inorg.main-group, domain: inorg, title: "Main-group chemistry group by group: hydrides, oxides, clusters, shapes, oxidation states, periodic anomalies", short: "Main-group chemistry", prereqs: [inorg.p-block, inorg.s-block] }
   - { id: anal.titration, domain: anal, title: "Titrimetry: back, redox, EDTA, Mohr, Kjeldahl, titration curves", short: "Titrations", prereqs: [inorg.redox] }
   - { id: anal.gravimetry, domain: anal, title: "Gravimetric analysis", short: "Gravimetry" }
   - { id: anal.equilibria, domain: anal, title: "Solubility in analysis: common ions and complexes", short: "Solubility" }

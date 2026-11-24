@@ -1,0 +1,798 @@
+{
+ "id": "inorganic-advanced",
+ "title": "Advanced Inorganic Chemistry (Cotton & Wilkinson)",
+ "code": "IA",
+ "draft": 1,
+ "track": "science",
+ "requires": [
+  "inorganic-chemistry"
+ ],
+ "level": 5,
+ "domains": [
+  "inorg"
+ ],
+ "basis": {
+  "primary": "cotton-wilkinson-6e",
+  "also": [
+   "icho-appendix-c",
+   "gre-chemistry"
+  ],
+  "note": "Units follow the chapters of Cotton & Wilkinson 6e (table of contents read); the objectives are a house list on those chapters."
+ },
+ "big_ideas": [
+  {
+   "id": "COUNT",
+   "title": "Count electrons",
+   "text": "Shapes, bond orders, cluster types and oxidation states all come from counting valence electrons and placing them."
+  },
+  {
+   "id": "TREND",
+   "title": "Trends and their exceptions",
+   "text": "Size, charge and electronegativity change steadily across and down the table; the first row and the heaviest elements are where the named exceptions live."
+  }
+ ],
+ "practices": [
+  {
+   "id": "P1",
+   "title": "Compute",
+   "text": "Carry an electron count, oxidation state or energy to a number."
+  },
+  {
+   "id": "P2",
+   "title": "Recall",
+   "text": "Know the compound, the product, the structure."
+  },
+  {
+   "id": "P3",
+   "title": "Predict",
+   "text": "Use a model (VSEPR, MO, Wade, HSAB) to say what a species does."
+  }
+ ],
+ "units": [
+  {
+   "id": "cross-cutting",
+   "n": 1,
+   "title": "Some cross-cutting topics (ch. 1)",
+   "scope": "core",
+   "ideas": [
+    "COUNT"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "Acids, bases and redox diagrams",
+     "los": [
+      {
+       "id": "A",
+       "do": "Classify acids and bases as hard, soft or borderline and predict which pairs bind.",
+       "ek": [
+        "Hard prefers hard, soft prefers soft."
+       ],
+       "p": [
+        "P2",
+        "P3"
+       ],
+       "drills": [
+        "cw-hsab-class"
+       ]
+      },
+      {
+       "id": "B",
+       "do": "Combine Latimer-diagram steps through free energies.",
+       "ek": [
+        "E = Σ nE / Σ n."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "cw-latimer-skip"
+       ]
+      },
+      {
+       "id": "C",
+       "do": "Decide from a Latimer diagram whether a species disproportionates.",
+       "ek": [
+        "E_right > E_left: it disproportionates."
+       ],
+       "p": [
+        "P1",
+        "P3"
+       ],
+       "needs": [
+        "IA-1.1.B"
+       ],
+       "drills": [
+        "cw-disproportionation"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "hydrogen",
+   "n": 2,
+   "title": "Hydrogen (ch. 2)",
+   "scope": "core",
+   "ideas": [
+    "TREND"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "Hydrides and isotopes",
+     "los": [
+      {
+       "id": "A",
+       "do": "Classify a hydride as saline, molecular or metallic.",
+       "ek": [
+        "s-block saline; p-block molecular; many d-block interstitial."
+       ],
+       "p": [
+        "P2"
+       ],
+       "drills": [
+        "cw-hydride-type"
+       ]
+      },
+      {
+       "id": "B",
+       "do": "Predict the shift of a vibration on deuteration from reduced masses.",
+       "ek": [
+        "ν ∝ 1/√μ; X–D ≈ 0.73 × X–H."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "cw-isotope-shift"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "s-block",
+   "n": 3,
+   "title": "Groups 1 and 2 (ch. 3–4)",
+   "scope": "core",
+   "ideas": [
+    "TREND"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "Alkali and alkaline-earth metals",
+     "los": [
+      {
+       "id": "A",
+       "do": "Give the product of burning an alkali metal, and the oxidation state in oxides, peroxides and superoxides.",
+       "ek": [
+        "Li₂O, Na₂O₂, KO₂; O −2, −1, −½."
+       ],
+       "p": [
+        "P1",
+        "P2"
+       ],
+       "drills": [
+        "cw-alkali-burn",
+        "cw-dioxygen-anion-ox"
+       ]
+      },
+      {
+       "id": "B",
+       "do": "Rank the thermal stability of group 2 carbonates.",
+       "ek": [
+        "Rises down the group as cations grow less polarising."
+       ],
+       "p": [
+        "P3"
+       ],
+       "drills": [
+        "cw-carbonate-stability"
+       ]
+      },
+      {
+       "id": "C",
+       "do": "Use the diagonal relationship.",
+       "ek": [
+        "Li–Mg, Be–Al, B–Si."
+       ],
+       "p": [
+        "P2"
+       ],
+       "drills": [
+        "cw-diagonal"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "group-13",
+   "n": 4,
+   "title": "Boron and group 13 (ch. 5–6)",
+   "scope": "core",
+   "ideas": [
+    "COUNT",
+    "TREND"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "Boranes and group 13 compounds",
+     "los": [
+      {
+       "id": "A",
+       "do": "Classify a borane as closo, nido or arachno with Wade's rules.",
+       "ek": [
+        "n+1, n+2, n+3 skeletal pairs."
+       ],
+       "p": [
+        "P1",
+        "P3"
+       ],
+       "drills": [
+        "cw-wade"
+       ]
+      },
+      {
+       "id": "B",
+       "do": "Rank boron trihalide Lewis acidity and explain it by π donation.",
+       "ek": [
+        "BF₃ < BCl₃ < BBr₃."
+       ],
+       "p": [
+        "P3"
+       ],
+       "drills": [
+        "cw-bx3-acid"
+       ]
+      },
+      {
+       "id": "C",
+       "do": "Use the inert-pair effect, and find average oxidation states in mixed-valence group 13 compounds.",
+       "ek": [
+        "Tl(I), Pb(II), Bi(III); GaCl₂ = Ga⁺[GaCl₄]⁻."
+       ],
+       "p": [
+        "P1",
+        "P2"
+       ],
+       "drills": [
+        "cw-inert-pair",
+        "cw-group13-ox"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "group-14",
+   "n": 5,
+   "title": "Carbon and group 14 (ch. 7–8)",
+   "scope": "core",
+   "ideas": [
+    "COUNT"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "Carbon, silicon and their compounds",
+     "los": [
+      {
+       "id": "A",
+       "do": "Classify carbides and count fullerene rings.",
+       "ek": [
+        "Acetylides, methanides, covalent, interstitial; 12 pentagons always."
+       ],
+       "p": [
+        "P1",
+        "P2"
+       ],
+       "drills": [
+        "cw-carbide-type",
+        "cw-fullerene-rings"
+       ]
+      },
+      {
+       "id": "B",
+       "do": "Give bond orders of species isoelectronic with N₂.",
+       "ek": [
+        "CO, CN⁻, NO⁺, C₂²⁻: 3."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "cw-isoelectronic-bond-order"
+       ]
+      },
+      {
+       "id": "C",
+       "do": "Relate silicate structure to O:Si ratio, and predict group 14 shapes.",
+       "ek": [
+        "O/Si = 4 − s/2; Sn(II) has a lone pair."
+       ],
+       "p": [
+        "P1",
+        "P3"
+       ],
+       "drills": [
+        "cw-silicate-ratio",
+        "cw-group14-shape"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "group-15",
+   "n": 6,
+   "title": "Nitrogen and group 15 (ch. 9–10)",
+   "scope": "core",
+   "ideas": [
+    "COUNT"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "Nitrogen and phosphorus chemistry",
+     "los": [
+      {
+       "id": "A",
+       "do": "Give oxidation states of nitrogen across its oxides and hydrides, and bond orders of NO and its ions.",
+       "ek": [
+        "−3 to +5; NO 2.5, NO⁺ 3."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "cw-nitrogen-ox",
+        "cw-no-family"
+       ]
+      },
+      {
+       "id": "B",
+       "do": "Give the basicity of phosphorus oxoacids.",
+       "ek": [
+        "Only O–H is acidic: 1, 2, 3."
+       ],
+       "p": [
+        "P2"
+       ],
+       "drills": [
+        "cw-p-oxoacid"
+       ]
+      },
+      {
+       "id": "C",
+       "do": "Predict shapes of group 15 halides and their ions.",
+       "ek": [
+        "PCl₅ = [PCl₄]⁺[PCl₆]⁻."
+       ],
+       "p": [
+        "P3"
+       ],
+       "drills": [
+        "cw-group15-shape"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "group-16",
+   "n": 7,
+   "title": "Oxygen and group 16 (ch. 11–12)",
+   "scope": "core",
+   "ideas": [
+    "COUNT"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "Dioxygen, sulfur and its oxoanions",
+     "los": [
+      {
+       "id": "A",
+       "do": "Give bond orders and unpaired electrons of O₂ and its ions from MO theory.",
+       "ek": [
+        "O₂ 2 with two unpaired; superoxide 1.5; peroxide 1."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "cw-dioxygen-bond-order",
+        "cw-dioxygen-unpaired"
+       ]
+      },
+      {
+       "id": "B",
+       "do": "Predict shapes of group 16 compounds and oxidation states in sulfur oxoanions.",
+       "ek": [
+        "SF₄ seesaw; thiosulfate +2 average."
+       ],
+       "p": [
+        "P1",
+        "P3"
+       ],
+       "drills": [
+        "cw-group16-shape",
+        "cw-sulfur-ox"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "halogens-noble",
+   "n": 8,
+   "title": "The halogens and the noble gases (ch. 13–14)",
+   "scope": "core",
+   "ideas": [
+    "COUNT",
+    "TREND"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "Interhalogens, oxoacids and xenon compounds",
+     "los": [
+      {
+       "id": "A",
+       "do": "Predict interhalogen and polyhalide shapes.",
+       "ek": [
+        "ClF₃ T-shaped, I₃⁻ linear, ICl₄⁻ square planar."
+       ],
+       "p": [
+        "P3"
+       ],
+       "drills": [
+        "cw-interhalogen-shape"
+       ]
+      },
+      {
+       "id": "B",
+       "do": "Give halogen oxidation states in oxoanions and rank oxoacid strength.",
+       "ek": [
+        "+1 to +7; HClO₄ strongest."
+       ],
+       "p": [
+        "P1",
+        "P3"
+       ],
+       "drills": [
+        "cw-halogen-ox",
+        "cw-oxoacid-strength"
+       ]
+      },
+      {
+       "id": "C",
+       "do": "Predict shapes and oxidation states of xenon compounds.",
+       "ek": [
+        "XeF₂ linear, XeF₄ square planar; even states +2 to +8."
+       ],
+       "p": [
+        "P1",
+        "P3"
+       ],
+       "drills": [
+        "cw-xenon-shape",
+        "cw-xenon-ox"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "group-12",
+   "n": 9,
+   "title": "Zinc, cadmium and mercury (ch. 15)",
+   "scope": "core",
+   "ideas": [
+    "TREND"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "Group 12",
+     "los": [
+      {
+       "id": "A",
+       "do": "Describe group 12 behaviour: Hg₂²⁺, amphoteric ZnO, colourless d¹⁰ compounds, and their oxidation states.",
+       "ek": [
+        "Hg(I) is a dimer; d¹⁰ has no d–d colour."
+       ],
+       "p": [
+        "P1",
+        "P2"
+       ],
+       "drills": [
+        "cw-group12-facts",
+        "cw-mercury-ox"
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "rows": [
+  {
+   "code": "IA-1.1.A",
+   "unit": 1,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "cw-hsab-class"
+   ],
+   "partial": []
+  },
+  {
+   "code": "IA-1.1.B",
+   "unit": 1,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "cw-latimer-skip"
+   ],
+   "partial": []
+  },
+  {
+   "code": "IA-1.1.C",
+   "unit": 1,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "cw-disproportionation"
+   ],
+   "partial": []
+  },
+  {
+   "code": "IA-2.1.A",
+   "unit": 2,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "cw-hydride-type"
+   ],
+   "partial": []
+  },
+  {
+   "code": "IA-2.1.B",
+   "unit": 2,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "cw-isotope-shift"
+   ],
+   "partial": []
+  },
+  {
+   "code": "IA-3.1.A",
+   "unit": 3,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "cw-alkali-burn",
+    "cw-dioxygen-anion-ox"
+   ],
+   "partial": []
+  },
+  {
+   "code": "IA-3.1.B",
+   "unit": 3,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "cw-carbonate-stability"
+   ],
+   "partial": []
+  },
+  {
+   "code": "IA-3.1.C",
+   "unit": 3,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "cw-diagonal"
+   ],
+   "partial": []
+  },
+  {
+   "code": "IA-4.1.A",
+   "unit": 4,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "cw-wade"
+   ],
+   "partial": []
+  },
+  {
+   "code": "IA-4.1.B",
+   "unit": 4,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "cw-bx3-acid"
+   ],
+   "partial": []
+  },
+  {
+   "code": "IA-4.1.C",
+   "unit": 4,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "cw-inert-pair",
+    "cw-group13-ox"
+   ],
+   "partial": []
+  },
+  {
+   "code": "IA-5.1.A",
+   "unit": 5,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "cw-carbide-type",
+    "cw-fullerene-rings"
+   ],
+   "partial": []
+  },
+  {
+   "code": "IA-5.1.B",
+   "unit": 5,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "cw-isoelectronic-bond-order"
+   ],
+   "partial": []
+  },
+  {
+   "code": "IA-5.1.C",
+   "unit": 5,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "cw-silicate-ratio",
+    "cw-group14-shape"
+   ],
+   "partial": []
+  },
+  {
+   "code": "IA-6.1.A",
+   "unit": 6,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "cw-nitrogen-ox",
+    "cw-no-family"
+   ],
+   "partial": []
+  },
+  {
+   "code": "IA-6.1.B",
+   "unit": 6,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "cw-p-oxoacid"
+   ],
+   "partial": []
+  },
+  {
+   "code": "IA-6.1.C",
+   "unit": 6,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "cw-group15-shape"
+   ],
+   "partial": []
+  },
+  {
+   "code": "IA-7.1.A",
+   "unit": 7,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "cw-dioxygen-bond-order",
+    "cw-dioxygen-unpaired"
+   ],
+   "partial": []
+  },
+  {
+   "code": "IA-7.1.B",
+   "unit": 7,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "cw-group16-shape",
+    "cw-sulfur-ox"
+   ],
+   "partial": []
+  },
+  {
+   "code": "IA-8.1.A",
+   "unit": 8,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "cw-interhalogen-shape"
+   ],
+   "partial": []
+  },
+  {
+   "code": "IA-8.1.B",
+   "unit": 8,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "cw-halogen-ox",
+    "cw-oxoacid-strength"
+   ],
+   "partial": []
+  },
+  {
+   "code": "IA-8.1.C",
+   "unit": 8,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "cw-xenon-shape",
+    "cw-xenon-ox"
+   ],
+   "partial": []
+  },
+  {
+   "code": "IA-9.1.A",
+   "unit": 9,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "cw-group12-facts",
+    "cw-mercury-ox"
+   ],
+   "partial": []
+  }
+ ],
+ "orphanTpl": [
+  "in-flame-colour",
+  "in-s-block-oxygen",
+  "in-ox-state",
+  "in-oxoacid-name",
+  "in-oxide-character",
+  "in-disproportionation",
+  "in-d-count",
+  "in-spin-only",
+  "in-cfse",
+  "in-isomer-count",
+  "in-ion-colour",
+  "in-spectrochemical",
+  "in-half-electrons",
+  "in-iodometry",
+  "in-amphoteric",
+  "in-precipitate-colour",
+  "in-ion-test",
+  "in-cell-contents",
+  "in-coordination-number",
+  "in-packing",
+  "in-density",
+  "in-bragg",
+  "in-radius-ratio"
+ ]
+}
