@@ -51,7 +51,7 @@ Related reports: [standards and how much of each was read](../coverage/standards
 | [Numerical Methods](numerical-methods.md) | NM | 17 | 17 | 0 | 0 | 2.0 | NCEES FE Chemical CBT Exam Specifications (effective July 2020) (exam-spec, read: full) |
 | [Process Design, Economics and Safety](process-design.md) | PD | 9 | 9 | 0 | 0 | 2.0 | NCEES FE Chemical CBT Exam Specifications (effective July 2020) (exam-spec, read: full) |
 | [Separations](separations.md) | SP | 6 | 6 | 0 | 0 | 2.0 | NCEES FE Chemical CBT Exam Specifications (effective July 2020) (exam-spec, read: full) |
-| [Thermodynamics and Statistical Mechanics](thermodynamics.md) | TD | 184 | 184 | 0 | 0 | 1.1 | Dill & Bromberg, Molecular Driving Forces 2e; Shell, Thermodynamics and Statistical Mechanics (textbook, read: full) |
+| [Thermodynamics and Statistical Mechanics](thermodynamics.md) | TD | 184 | 184 | 0 | 0 | 2.0 | Dill & Bromberg, Molecular Driving Forces 2e; Shell, Thermodynamics and Statistical Mechanics (textbook, read: full) |
 | [Heat Transfer](heat-transfer.md) | HT | 101 | 100 | 1 | 0 | 2.2 | NCEES FE Chemical CBT Exam Specifications (effective July 2020) (exam-spec, read: full) |
 | [Molecular Simulation](molecular-simulation.md) | MD | 106 | 104 | 2 | 0 | 1.0 | LiveCoMS best-practice papers for molecular simulation (course, read: part) |
 

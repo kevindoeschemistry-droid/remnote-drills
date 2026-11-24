@@ -100,6 +100,36 @@
   verify:
     expect:
       v: nsimplify(hf) + nsimplify(vf)*(P - nsimplify(Ps))
+- template: td-compressed-liquid-h
+  skill: thermo.first-law
+  pace: quick
+  given:
+    P:
+      pick:
+      - 5
+      - 10
+      - 20
+  cases:
+  - T: 60
+    hf: 251.2
+    ps: 19.9
+  - T: 100
+    hf: 419.2
+    ps: 101.4
+  - T: 150
+    hf: 632.2
+    ps: 476.2
+  prompt: Water at {{T}} °C is compressed to {{P}} MPa. With v_f ≈ 0.001 m³/kg and h_f = {{hf}} kJ/kg at the same temperature, estimate h with the Poynting-type correction h ≈ h_f + v_f(P − P_sat), taking P_sat ≈ {{ps}} kPa.
+  parts:
+  - ask: Answer
+    label: v
+    tex: h
+    value: hf + 0.001*(P*1000 - ps)
+    tol: 0.005
+    explain: 'A liquid''s enthalpy barely depends on pressure: the vΔP term is a few kJ/kg even at 10 MPa'
+  verify:
+    expect:
+      v: nsimplify(hf) + Rational(1, 1000)*(P*1000 - nsimplify(ps))
 - template: td-saturated-mass
   skill: thermo.first-law
   pace: quick
@@ -170,6 +200,33 @@
   verify:
     expect:
       v: nsimplify(V)/nsimplify(vg)
+- template: td-saturated-volume-split
+  skill: thermo.first-law
+  pace: quick
+  given:
+    V:
+      pick:
+      - 0.1
+      - 0.5
+      - 1
+  cases:
+  - vf: 0.001043
+    vg: 1.694
+  - vf: 0.001091
+    vg: 0.3928
+  - vf: 0.001157
+    vg: 0.1274
+  prompt: A {{V}} m³ rigid tank holds saturated water at a state where v_f = {{vf}} and v_g = {{vg}} m³/kg. Half the volume is liquid. What mass of liquid, in kg?
+  parts:
+  - ask: Answer
+    label: v
+    tex: m_f
+    value: V/2/vf
+    tol: 0.005
+    explain: 'Volume fractions are not mass fractions: half the volume as liquid is almost all the mass'
+  verify:
+    expect:
+      v: nsimplify(V)/2/nsimplify(vf)
 - template: td-quality
   skill: thermo.first-law
   pace: quick
@@ -192,6 +249,31 @@
   verify:
     expect:
       v: solve(Eq(nsimplify(hf) + x*nsimplify(hfg), nsimplify(hf) + nsimplify(xq)*nsimplify(hfg)), x)[0]
+- template: td-quality-from-h
+  skill: thermo.first-law
+  pace: quick
+  given:
+    h:
+      pick:
+      - 1000
+      - 1500
+      - 2000
+  cases:
+  - hf: 419.17
+    hfg: 2256.4
+  - hf: 762.5
+    hfg: 2014.6
+  prompt: A two-phase mixture has h = {{h}} kJ/kg where h_f = {{hf}} and h_fg = {{hfg}} kJ/kg. What is the quality?
+  parts:
+  - ask: Answer
+    label: v
+    tex: x
+    value: (h - hf)/hfg
+    tol: 0.005
+    explain: h = h_f + x h_fg, read backwards
+  verify:
+    expect:
+      v: solve(Eq(nsimplify(hf) + x*nsimplify(hfg), h), x)[0]
 - template: td-superheated-interp
   skill: thermo.first-law
   pace: quick
@@ -247,6 +329,38 @@
   verify:
     expect:
       v: solve(Eq((x - nsimplify(h1))/(T - T1), (nsimplify(h2) - nsimplify(h1))/(T2 - T1)), x)[0]
+- template: td-interp-reverse
+  skill: thermo.first-law
+  pace: quick
+  given:
+    h1:
+      pick:
+      - 2961
+    T1:
+      pick:
+      - 250
+    h2:
+      pick:
+      - 3072
+    T2:
+      pick:
+      - 300
+    h:
+      pick:
+      - 2990
+      - 3010
+      - 3050
+  prompt: In a superheated table, h = {{h1}} kJ/kg at {{T1}} °C and {{h2}} kJ/kg at {{T2}} °C at the same pressure. At what temperature is h = {{h}} kJ/kg?
+  parts:
+  - ask: Answer
+    label: v
+    tex: T
+    value: T1 + (h - h1)*(T2 - T1)/(h2 - h1)
+    tol: 0.005
+    explain: 'Linear interpolation runs either way: here the property is known and the temperature is sought'
+  verify:
+    expect:
+      v: solve(Eq(h1 + (h2 - h1)*(x - T1)/(T2 - T1), h), x)[0]
 - template: td-ice-melt
   skill: thermo.first-law
   pace: quick
@@ -272,6 +386,26 @@
   verify:
     expect:
       v: m*(integrate(Rational(209, 100), (x, T, 0)) + Rational(3337, 10))
+- template: td-ice-to-steam
+  skill: thermo.first-law
+  pace: quick
+  given:
+    m:
+      pick:
+      - 0.1
+      - 0.5
+      - 1
+  prompt: How much heat, in kJ, turns {{m}} kg of ice at 0 °C into steam at 100 °C? (h_fus = 334, c_water = 4.18 kJ/kg·K, h_fg = 2257 kJ/kg)
+  parts:
+  - ask: Answer
+    label: v
+    tex: Q
+    value: m*(334 + 4.18*100 + 2257)
+    tol: 0.005
+    explain: 'Boiling dominates: about 3000 kJ/kg in all, three quarters of it latent heat of vaporisation'
+  verify:
+    expect:
+      v: nsimplify(m)*334 + integrate(nsimplify(m)*Rational(418, 100), (Symbol('TT'), 0, 100)) + nsimplify(m)*2257
 - template: td-polytropic-work
   skill: thermo.first-law
   pace: quick
@@ -306,6 +440,33 @@
   verify:
     expect:
       v: integrate(P1*nsimplify(V1)**nsimplify(n)/x**nsimplify(n), (x, nsimplify(V1), nsimplify(V2)))
+- template: td-isothermal-limit-work
+  skill: thermo.first-law
+  pace: quick
+  given:
+    P1:
+      pick:
+      - 200
+      - 500
+    V1:
+      pick:
+      - 0.1
+      - 0.2
+    V2:
+      pick:
+      - 0.3
+      - 0.5
+  prompt: A gas expands polytropically (PVⁿ = const) from {{P1}} kPa, {{V1}} m³ to {{V2}} m³ with n = 1, the isothermal case. What boundary work is done, in kJ?
+  parts:
+  - ask: Answer
+    label: v
+    tex: W_b
+    value: P1*V1*log(V2/V1)
+    tol: 0.005
+    explain: (P₂V₂ − P₁V₁)/(1 − n) is 0/0 at n = 1; the integral gives P₁V₁ ln(V₂/V₁)
+  verify:
+    expect:
+      v: integrate(P1*nsimplify(V1)/Symbol('vv'), (Symbol('vv'), nsimplify(V1), nsimplify(V2)))
 - template: td-pump-enthalpy
   skill: thermo.first-law
   pace: quick
@@ -386,6 +547,34 @@
     explain: $\delta q_{rev} = T\,ds$, so area means heat; no heat and no irreversibility means constant $s$
   verify:
     authored: true
+- template: td-ts-area-heat
+  skill: thermo.first-law
+  pace: quick
+  given:
+    T:
+      pick:
+      - 300
+      - 373
+      - 500
+    s1:
+      pick:
+      - 1.3
+      - 2
+    s2:
+      pick:
+      - 4
+      - 7.35
+  prompt: A reversible process moves at constant {{T}} K from s = {{s1}} to s = {{s2}} kJ/(kg·K). How much heat is absorbed per kg, the area under the T–s path?
+  parts:
+  - ask: Answer
+    label: v
+    tex: q
+    value: T*(s2 - s1)
+    tol: 0.005
+    explain: 'q_rev = ∫T ds: on a T–s diagram heat is area, as work is area on P–v'
+  verify:
+    expect:
+      v: integrate(T, (Symbol('ss'), nsimplify(s1), nsimplify(s2)))
 - template: td-two-phase-entropy
   skill: thermo.first-law
   pace: quick
@@ -454,6 +643,31 @@
   verify:
     expect:
       v: m*integrate(Rational(209, 100)/x, (x, nsimplify(T) + Rational(27315, 100), Rational(27315, 100)))
+- template: td-solid-heating-temp
+  skill: thermo.first-law
+  pace: quick
+  given:
+    m:
+      pick:
+      - 1
+      - 5
+      - 10
+    dS:
+      pick:
+      - 0.1
+      - 0.3
+      - 0.5
+  prompt: A {{m}} kg copper block (c = 0.385 kJ/kg·K) is heated from 300 K, gaining {{dS}} kJ/K of entropy. What is its final temperature, in K?
+  parts:
+  - ask: Answer
+    label: v
+    tex: T_2
+    value: 300*exp(dS/(m*0.385))
+    tol: 0.005
+    explain: ΔS = mc ln(T₂/T₁), inverted for T₂
+  verify:
+    expect:
+      v: 300*exp(nsimplify(dS)/(nsimplify(m)*Rational(385, 1000)))
 - template: td-flow-work
   skill: thermo.first-law
   pace: quick
@@ -479,6 +693,26 @@
   verify:
     expect:
       r: P*nsimplify(v)
+- template: td-flow-work-ideal
+  skill: thermo.first-law
+  pace: quick
+  given:
+    T:
+      pick:
+      - 300
+      - 500
+      - 800
+  prompt: What flow work, in kJ/kg, pushes air (R = 0.287 kJ/kg·K) into a device at {{T}} K? (Pv = RT)
+  parts:
+  - ask: Answer
+    label: v
+    tex: Pv
+    value: 0.287*T
+    tol: 0.005
+    explain: 'For an ideal gas the flow work Pv equals RT, independent of pressure: it is the difference between h and u'
+  verify:
+    expect:
+      v: Rational(287, 1000)*T
 - template: td-net-power
   skill: thermo.first-law
   pace: quick
@@ -535,6 +769,38 @@
   verify:
     expect:
       v: m*(nsimplify(h1) - nsimplify(h2)) + m*(nsimplify(h3) - nsimplify(h4))
+- template: td-turbine-mass-flow
+  skill: thermo.first-law
+  pace: quick
+  given:
+    W:
+      pick:
+      - 5
+      - 20
+      - 50
+    h1:
+      pick:
+      - 3230
+      - 3400
+    h2:
+      pick:
+      - 2400
+      - 2600
+    q:
+      pick:
+      - 0
+      - 20
+  prompt: A steam turbine must deliver {{W}} MW; the steam drops from h₁ = {{h1}} to h₂ = {{h2}} kJ/kg with heat loss {{q}} kJ/kg. What mass flow, in kg/s?
+  parts:
+  - ask: Answer
+    label: v
+    tex: \dot m
+    value: W*1000/(h1 - h2 - q)
+    tol: 0.005
+    explain: 'Ẇ = ṁ(h₁ − h₂) − Q̇_loss: heat losses raise the flow needed'
+  verify:
+    expect:
+      v: solve(Eq(x*(h1 - h2) - x*q, W*1000), x)[0]
 - template: td-compressor-efficiency
   skill: thermo.first-law
   pace: quick
@@ -565,6 +831,33 @@
   verify:
     expect:
       v: solve(Eq(nsimplify(eta), (T1*rp**Rational(2, 7) - T1)/(x - T1)), x)[0]
+- template: td-turbine-actual-exit
+  skill: thermo.first-law
+  pace: quick
+  given:
+    T1:
+      pick:
+      - 1000
+      - 1200
+    r:
+      pick:
+      - 5
+      - 10
+    eta:
+      pick:
+      - 0.85
+      - 0.9
+  prompt: Air enters a turbine at {{T1}} K with pressure ratio {{r}} (c_p = 1.005, k = 1.4) and isentropic efficiency {{eta}}. What is the actual exit temperature, in K?
+  parts:
+  - ask: Answer
+    label: v
+    tex: T_2
+    value: T1 - eta*T1*(1 - r^(-0.4/1.4))
+    tol: 0.005
+    explain: 'A turbine falls short of the isentropic drop: T₂ = T₁ − η(T₁ − T₂s). For a compressor the efficiency divides instead'
+  verify:
+    expect:
+      v: T1 - nsimplify(eta)*(T1 - T1*(1/Rational(r, 1))**Rational(2, 7))
 - template: td-second-law-statements
   skill: thermo.first-law
   pace: recall
@@ -586,6 +879,43 @@
     - No, it violates the second law
     correct: ans
     explain: 'Kelvin–Planck forbids a cycle that rejects no heat; Clausius forbids heat climbing a temperature without work. An engine is also capped by Carnot: here $1 - 300/600 = 0.5 \ge 0.4$, so the third case is fine'
+  verify:
+    authored: true
+- template: td-second-law-claims
+  skill: thermo.first-law
+  pace: recall
+  cases:
+  - q: A device takes heat from one reservoir and produces an equal amount of work, with no other effect. Which statement does it violate?
+    o1: Kelvin–Planck
+    o2: Clausius
+    o3: The first law
+    o4: None
+  - q: A refrigerator moves heat from cold to hot with no work input. Which statement does it violate?
+    o1: Clausius
+    o2: Kelvin–Planck
+    o3: The first law
+    o4: None
+  - q: An engine between 600 K and 300 K claims 40% efficiency. What does it violate?
+    o1: 'Nothing: Carnot allows 50%'
+    o2: Kelvin–Planck
+    o3: Clausius
+    o4: The first law
+  - q: An engine between 600 K and 300 K claims 60% efficiency. What does it violate?
+    o1: The second law (Carnot limit 50%)
+    o2: The first law
+    o3: Nothing
+    o4: The zeroth law
+  prompt: '{{q}}'
+  parts:
+  - ask: Answer
+    label: v
+    choice:
+    - '{{o1}}'
+    - '{{o2}}'
+    - '{{o3}}'
+    - '{{o4}}'
+    correct: '0'
+    explain: Either statement implies the other; checking a claimed efficiency against 1 − T_C/T_H is the practical test
   verify:
     authored: true
 - template: td-kelvin-scale
@@ -617,6 +947,31 @@
   verify:
     expect:
       v: solve(Eq(Rational(QH, QL), TH/x), x)[0]
+- template: td-carnot-cold-temp
+  skill: thermo.first-law
+  pace: quick
+  given:
+    Th:
+      pick:
+      - 500
+      - 800
+      - 1200
+    eta:
+      pick:
+      - 0.3
+      - 0.4
+      - 0.6
+  prompt: A reversible engine draws heat from a reservoir at {{Th}} K and has efficiency {{eta}}. What is the cold reservoir temperature, in K?
+  parts:
+  - ask: Answer
+    label: v
+    tex: T_C
+    value: Th*(1 - eta)
+    tol: 0.005
+    explain: The Kelvin scale is defined by Q_C/Q_H = T_C/T_H for reversible engines
+  verify:
+    expect:
+      v: solve(Eq(1 - x/Th, nsimplify(eta)), x)[0]
 - template: td-exergy-block
   skill: thermo.first-law
   pace: quick
@@ -642,6 +997,29 @@
   verify:
     expect:
       v: integrate(m*Rational(45, 100)*(1 - 300/x), (x, 300, T))
+- template: td-exergy-fraction
+  skill: thermo.first-law
+  pace: quick
+  given:
+    T:
+      pick:
+      - 400
+      - 600
+      - 1000
+    T0:
+      pick:
+      - 298
+  prompt: A body with constant heat capacity cools from {{T}} K to the {{T0}} K surroundings. What fraction of the heat it gives up could be turned into work?
+  parts:
+  - ask: Answer
+    label: v
+    tex: X/Q
+    value: 1 - T0*log(T/T0)/(T - T0)
+    tol: 0.005
+    explain: Each slice of heat dQ at temperature T is worth (1 − T₀/T)dQ; summing gives Q − T₀ΔS
+  verify:
+    expect:
+      v: integrate(1 - T0/Symbol('TT'), (Symbol('TT'), T0, T))/(T - T0)
 - template: td-heat-exergy
   skill: thermo.first-law
   pace: quick
@@ -668,6 +1046,30 @@
   verify:
     expect:
       v: solve(Eq(x/Q, 1 - Rational(298, T)), x)[0]
+- template: td-heat-exergy-temperature
+  skill: thermo.first-law
+  pace: quick
+  given:
+    f:
+      pick:
+      - 20
+      - 50
+      - 70
+    T0:
+      pick:
+      - 298
+      - 300
+  prompt: At what source temperature, in K, is {{f}}% of a heat flow available as work, with surroundings at {{T0}} K?
+  parts:
+  - ask: Answer
+    label: v
+    tex: T
+    value: T0/(1 - f/100)
+    tol: 0.005
+    explain: 'Heat at T carries exergy Q(1 − T₀/T): low-temperature heat is worth little'
+  verify:
+    expect:
+      v: solve(Eq(1 - T0/x, Rational(f, 100)), x)[0]
 - template: td-exergy-destroyed
   skill: thermo.first-law
   pace: quick
@@ -697,6 +1099,29 @@
   verify:
     expect:
       v: Q*(1 - nsimplify(TL)/TH) - Q*(1 - nsimplify(TL)/TL)
+- template: td-throttle-destruction
+  skill: thermo.first-law
+  pace: quick
+  given:
+    P1:
+      pick:
+      - 500
+      - 1000
+    P2:
+      pick:
+      - 100
+      - 200
+  prompt: Air (R = 0.287 kJ/kg·K) is throttled from {{P1}} to {{P2}} kPa at constant temperature. What exergy is destroyed per kg, in kJ/kg, with T₀ = 298 K?
+  parts:
+  - ask: Answer
+    label: v
+    tex: x_{dest}
+    value: 298*0.287*log(P1/P2)
+    tol: 0.005
+    explain: 'Gouy–Stodola: X_dest = T₀S_gen; an ideal-gas throttle keeps h and T but generates R ln(P₁/P₂)'
+  verify:
+    expect:
+      v: 298*integrate(Rational(287, 1000)/Symbol('pp'), (Symbol('pp'), P2, P1))
 - template: td-flow-exergy
   skill: thermo.first-law
   pace: quick
@@ -722,6 +1147,29 @@
   verify:
     expect:
       v: nsimplify(dh) - 298*nsimplify(ds)
+- template: td-flow-exergy-pressure
+  skill: thermo.first-law
+  pace: quick
+  given:
+    T0:
+      pick:
+      - 298
+    P:
+      pick:
+      - 300
+      - 700
+      - 1000
+  prompt: Compressed air is stored at the ambient {{T0}} K and {{P}} kPa (ambient 100 kPa). What is its flow exergy per kg, in kJ/kg? (R = 0.287)
+  parts:
+  - ask: Answer
+    label: v
+    tex: \psi
+    value: 0.287*T0*log(P/100)
+    tol: 0.005
+    explain: 'ψ = (h − h₀) − T₀(s − s₀): at ambient temperature only the entropy term survives'
+  verify:
+    expect:
+      v: -T0*(-Rational(287, 1000)*log(Rational(P, 100)))
 - template: td-second-law-efficiency
   skill: thermo.first-law
   pace: quick
@@ -747,6 +1195,35 @@
   verify:
     expect:
       v: nsimplify(eta)/(1 - Rational(300, TH))
+- template: td-heat-pump-second-law
+  skill: thermo.first-law
+  pace: quick
+  given:
+    cop:
+      pick:
+      - 2.5
+      - 3
+      - 4
+    Th:
+      pick:
+      - 293
+      - 295
+    Tc:
+      pick:
+      - 263
+      - 273
+      - 283
+  prompt: A heat pump with COP {{cop}} heats a house at {{Th}} K from outside air at {{Tc}} K. What is its second-law efficiency?
+  parts:
+  - ask: Answer
+    label: v
+    tex: \eta_{II}
+    value: cop/(Th/(Th - Tc))
+    tol: 0.005
+    explain: 'η_II = COP/COP_rev: the actual device against a reversible one working between the same temperatures'
+  verify:
+    expect:
+      v: nsimplify(cop)*(1 - Rational(Tc, Th))
 - template: td-thermoeconomics
   skill: thermo.first-law
   pace: quick
@@ -772,6 +1249,38 @@
   verify:
     expect:
       v: integrate(X*Rational(c, 100), (x, 0, 8760))
+- template: td-thermoeconomics-payback
+  skill: thermo.first-law
+  pace: quick
+  given:
+    X:
+      pick:
+      - 20
+      - 50
+      - 100
+    h:
+      pick:
+      - 4000
+      - 8000
+    c:
+      pick:
+      - 8
+      - 12
+    K:
+      pick:
+      - 50
+      - 100
+  prompt: An upgrade cuts exergy destruction by {{X}} kW in a plant running {{h}} h/yr with electricity at {{c}} cents/kWh. How many years does a {{K}}-thousand-dollar upgrade take to pay back?
+  parts:
+  - ask: Answer
+    label: v
+    tex: t
+    value: K*1000/(X*h*c/100)
+    tol: 0.005
+    explain: Destroyed exergy is lost work, priced at what that work would cost to buy
+  verify:
+    expect:
+      v: solve(Eq(x*X*h*Rational(c, 100), K*1000), x)[0]
 - template: td-rankine
   skill: thermo.first-law
   pace: quick
@@ -787,6 +1296,26 @@
   verify:
     expect:
       v: 1 - (nsimplify(h2) - nsimplify(h3))/(nsimplify(h1) - nsimplify(h4))
+- template: td-rankine-heat-rate
+  skill: thermo.first-law
+  pace: quick
+  given:
+    eta:
+      pick:
+      - 0.3
+      - 0.35
+      - 0.4
+  prompt: A Rankine plant has thermal efficiency {{eta}}. What is its heat rate, in kJ of fuel heat per kWh of electricity?
+  parts:
+  - ask: Answer
+    label: v
+    tex: HR
+    value: 3600/eta
+    tol: 0.005
+    explain: 1 kWh = 3600 kJ; heat rate is the inverse of efficiency in plant units
+  verify:
+    expect:
+      v: solve(Eq(3600/x, nsimplify(eta)), x)[0]
 - template: td-feedwater-heater
   skill: thermo.first-law
   pace: quick
@@ -823,6 +1352,34 @@
   verify:
     expect:
       v: solve(Eq(x*nsimplify(hb) + (1 - x)*nsimplify(hin), nsimplify(hout)), x)[0]
+- template: td-feedwater-bleed-rise
+  skill: thermo.first-law
+  pace: quick
+  given:
+    hb:
+      pick:
+      - 2700
+      - 2800
+      - 2900
+    hf:
+      pick:
+      - 192
+      - 250
+    ho:
+      pick:
+      - 604.7
+      - 721
+  prompt: An open feedwater heater mixes bled steam (h = {{hb}} kJ/kg) with feedwater (h = {{hf}} kJ/kg) to give saturated liquid at h = {{ho}} kJ/kg. Per kg leaving, how many kg of bled steam?
+  parts:
+  - ask: Answer
+    label: v
+    tex: y
+    value: (ho - hf)/(hb - hf)
+    tol: 0.005
+    explain: 'Energy balance on the mixer: a small bleed carries a lot of latent heat'
+  verify:
+    expect:
+      v: solve(Eq(x*hb + (1 - x)*hf, nsimplify(ho)), x)[0]
 - template: td-otto
   skill: thermo.first-law
   pace: quick
@@ -845,6 +1402,26 @@
   verify:
     expect:
       v: 1 - (2 - 1)/(2*rc**Rational(2, 5) - rc**Rational(2, 5))
+- template: td-otto-ratio-needed
+  skill: thermo.first-law
+  pace: quick
+  given:
+    eta:
+      pick:
+      - 0.5
+      - 0.55
+      - 0.6
+  prompt: What compression ratio gives an air-standard Otto cycle (k = 1.4) an efficiency of {{eta}}?
+  parts:
+  - ask: Answer
+    label: v
+    tex: r
+    value: (1 - eta)^(-1/0.4)
+    tol: 0.005
+    explain: η = 1 − r^{1−k}, inverted; knock limits petrol engines near r = 10
+  verify:
+    expect:
+      v: (1/(1 - nsimplify(eta)))**Rational(5, 2)
 - template: td-diesel
   skill: thermo.first-law
   pace: quick
@@ -870,6 +1447,31 @@
   verify:
     expect:
       v: 1 - (nsimplify(c)**Rational(7, 5) - 1)/(Rational(7, 5)*(r**Rational(2, 5)*nsimplify(c) - r**Rational(2, 5)))
+- template: td-diesel-vs-otto
+  skill: thermo.first-law
+  pace: quick
+  given:
+    r:
+      pick:
+      - 16
+      - 18
+      - 20
+    rc:
+      pick:
+      - 1.5
+      - 2
+      - 2.5
+  prompt: At compression ratio {{r}} and cutoff ratio {{rc}} (k = 1.4), by how many percentage points does the Diesel efficiency fall below the Otto efficiency?
+  parts:
+  - ask: Answer
+    label: v
+    tex: \Delta\eta
+    value: 100*(1/r^0.4)*((rc^1.4 - 1)/(1.4*(rc - 1)) - 1)
+    tol: 0.005
+    explain: At the same r the Diesel adds heat at constant pressure over the cutoff, which costs efficiency; its advantage is the higher r it can use
+  verify:
+    expect:
+      v: 100*((1 - Rational(1, r)**Rational(2, 5)) - (1 - Rational(1, r)**Rational(2, 5)*(nsimplify(rc)**Rational(7, 5) - 1)/(Rational(7, 5)*(nsimplify(rc) - 1))))
 - template: td-dual
   skill: thermo.first-law
   pace: quick
@@ -898,6 +1500,33 @@
   verify:
     expect:
       v: 1 - (nsimplify(rp)*nsimplify(c)**Rational(7, 5) - 1)/((r**Rational(2, 5)*nsimplify(rp) - r**Rational(2, 5)) + Rational(7, 5)*(r**Rational(2, 5)*nsimplify(rp)*nsimplify(c) - r**Rational(2, 5)*nsimplify(rp)))
+- template: td-dual-heat-split
+  skill: thermo.first-law
+  pace: quick
+  given:
+    T2:
+      pick:
+      - 800
+      - 900
+    T3:
+      pick:
+      - 1300
+      - 1500
+    T4:
+      pick:
+      - 1800
+      - 2000
+  prompt: In an air-standard dual cycle, air at {{T2}} K after compression is heated at constant volume to {{T3}} K, then at constant pressure to {{T4}} K (c_v = 0.718, c_p = 1.005). What is the heat added per kg, in kJ?
+  parts:
+  - ask: Answer
+    label: v
+    tex: q_{in}
+    value: 0.718*(T3 - T2) + 1.005*(T4 - T3)
+    tol: 0.005
+    explain: The dual cycle splits heat addition between an Otto-like and a Diesel-like step
+  verify:
+    expect:
+      v: integrate(Rational(718, 1000), (Symbol('TT'), T2, T3)) + integrate(Rational(1005, 1000), (Symbol('TT'), T3, T4))
 - template: td-stirling-regenerated
   skill: thermo.first-law
   pace: quick
@@ -922,6 +1551,32 @@
   verify:
     expect:
       v: (Symbol('R')*TH*log(2) - Symbol('R')*TL*log(2))/(Symbol('R')*TH*log(2))
+- template: td-stirling-without-regen
+  skill: thermo.first-law
+  pace: quick
+  given:
+    Th:
+      pick:
+      - 800
+      - 1000
+    Tc:
+      pick:
+      - 300
+    r:
+      pick:
+      - 2
+      - 4
+  prompt: A Stirling cycle on air (c_v = 0.718, R = 0.287 kJ/kg·K) runs between {{Th}} and {{Tc}} K with volume ratio {{r}}. Without a regenerator, what is its efficiency?
+  parts:
+  - ask: Answer
+    label: v
+    tex: \eta
+    value: 0.287*(Th - Tc)*log(r)/(0.287*Th*log(r) + 0.718*(Th - Tc))
+    tol: 0.005
+    explain: Without regeneration the constant-volume heating must come from the source, so efficiency falls well below Carnot
+  verify:
+    expect:
+      v: (Rational(287, 1000)*Th*log(r) - Rational(287, 1000)*Tc*log(r))/(Rational(287, 1000)*Th*log(r) + Rational(718, 1000)*(Th - Tc))
 - template: td-brayton
   skill: thermo.first-law
   pace: quick
@@ -944,6 +1599,26 @@
   verify:
     expect:
       v: 1 - (Symbol('T')*rp**Rational(2, 7) - Symbol('T'))/(Symbol('T')*rp**Rational(4, 7) - Symbol('T')*rp**Rational(2, 7))
+- template: td-brayton-ratio-needed
+  skill: thermo.first-law
+  pace: quick
+  given:
+    eta:
+      pick:
+      - 0.4
+      - 0.5
+      - 0.6
+  prompt: What pressure ratio gives an ideal Brayton cycle (k = 1.4) an efficiency of {{eta}}?
+  parts:
+  - ask: Answer
+    label: v
+    tex: r_p
+    value: (1 - eta)^(-1.4/0.4)
+    tol: 0.005
+    explain: η = 1 − r_p^{−(k−1)/k}, inverted
+  verify:
+    expect:
+      v: (1/(1 - nsimplify(eta)))**Rational(7, 2)
 - template: td-brayton-regen
   skill: thermo.first-law
   pace: quick
@@ -969,6 +1644,29 @@
   verify:
     expect:
       v: 1 - (300*rp**Rational(2, 7) - 300)/(T3 - T3/rp**Rational(2, 7))
+- template: td-regen-crossover
+  skill: thermo.first-law
+  pace: quick
+  given:
+    Tmin:
+      pick:
+      - 300
+    Tmax:
+      pick:
+      - 1000
+      - 1200
+      - 1500
+  prompt: A Brayton cycle runs from {{Tmin}} K to {{Tmax}} K (k = 1.4). Above what pressure ratio does ideal regeneration stop helping (compressor exit hotter than turbine exit)?
+  parts:
+  - ask: Answer
+    label: v
+    tex: r_p
+    value: (Tmax/Tmin)^(1.4/0.8)
+    tol: 0.005
+    explain: 'Regeneration needs T₄ > T₂: with T₂ = T_min r^{(k−1)/k} and T₄ = T_max r^{−(k−1)/k}, they cross at r = (T_max/T_min)^{k/2(k−1)}'
+  verify:
+    expect:
+      v: Max(*solve(Eq(Tmin*Symbol('rr'), Tmax/Symbol('rr')), Symbol('rr')))**Rational(7, 2)
 - template: td-intercooling
   skill: thermo.first-law
   pace: quick
@@ -993,6 +1691,29 @@
   verify:
     expect:
       v: Max(*solve(diff((x/P1)**Rational(2, 7) + (P2/x)**Rational(2, 7), x), x))
+- template: td-intercool-work-saving
+  skill: thermo.first-law
+  pace: quick
+  given:
+    T:
+      pick:
+      - 300
+    r:
+      pick:
+      - 9
+      - 16
+      - 25
+  prompt: Air at {{T}} K is compressed by a total ratio {{r}} (c_p = 1.005, k = 1.4). Two stages with perfect intercooling to {{T}} K at the optimum pressure save how much work per kg, in kJ, over one stage?
+  parts:
+  - ask: Answer
+    label: v
+    tex: \Delta w
+    value: 1.005*T*((r^(2/7) - 1) - 2*(r^(1/7) - 1))
+    tol: 0.005
+    explain: Equal stage ratios √r minimise the work; intercooling moves the process toward the isothermal limit
+  verify:
+    expect:
+      v: Rational(1005, 1000)*T*((Rational(r, 1)**Rational(2, 7) - 1) - 2*(sqrt(Rational(r, 1))**Rational(2, 7) - 1))
 - template: td-combined-cycle
   skill: thermo.first-law
   pace: quick
@@ -1018,6 +1739,29 @@
   verify:
     expect:
       v: (nsimplify(a) + nsimplify(b)*(1 - nsimplify(a)))
+- template: td-combined-cycle-bottom
+  skill: thermo.first-law
+  pace: quick
+  given:
+    eg:
+      pick:
+      - 0.35
+      - 0.4
+    ec:
+      pick:
+      - 0.55
+      - 0.6
+  prompt: A gas turbine has efficiency {{eg}}; its exhaust drives a steam cycle. What steam-cycle efficiency is needed for a combined efficiency of {{ec}}?
+  parts:
+  - ask: Answer
+    label: v
+    tex: \eta_s
+    value: (ec - eg)/(1 - eg)
+    tol: 0.005
+    explain: 'η = η_g + (1 − η_g)η_s: the bottoming cycle runs on what the topping cycle rejects'
+  verify:
+    expect:
+      v: solve(Eq(nsimplify(eg) + (1 - nsimplify(eg))*x, nsimplify(ec)), x)[0]
 - template: td-turbojet-thrust
   skill: thermo.first-law
   pace: quick
@@ -1047,6 +1791,30 @@
   verify:
     expect:
       v: solve(Eq(x*1000, m*V2 - m*V1), x)[0]
+- template: td-propulsive-efficiency
+  skill: thermo.first-law
+  pace: quick
+  given:
+    V:
+      pick:
+      - 200
+      - 250
+    Ve:
+      pick:
+      - 500
+      - 800
+      - 1000
+  prompt: A jet flies at {{V}} m/s with exhaust speed {{Ve}} m/s relative to the engine. What is its propulsive efficiency 2V/(V + V_e)?
+  parts:
+  - ask: Answer
+    label: v
+    tex: \eta_p
+    value: 2*V/(V + Ve)
+    tol: 0.005
+    explain: 'Thrust power over the kinetic energy added to the stream: big slow jets (high bypass) waste less'
+  verify:
+    expect:
+      v: (Ve - V)*V/((Ve**2 - V**2)/2)
 - template: td-refrigeration-cop
   skill: thermo.first-law
   pace: quick
@@ -1077,6 +1845,34 @@
   verify:
     expect:
       v: solve(Eq(x*(h2 - h1), h1 - h4), x)[0]
+- template: td-carnot-refrigerator-limit
+  skill: thermo.first-law
+  pace: quick
+  given:
+    Tc:
+      pick:
+      - -20
+      - -5
+      - 4
+    Th:
+      pick:
+      - 25
+      - 35
+    cop:
+      pick:
+      - 2
+      - 3
+  prompt: A refrigerator keeps {{Tc}} °C against {{Th}} °C surroundings and has COP {{cop}}. What fraction of the reversible COP is that?
+  parts:
+  - ask: Answer
+    label: v
+    tex: COP/COP_{rev}
+    value: cop/((Tc + 273.15)/(Th - Tc))
+    tol: 0.005
+    explain: COP_R,rev = T_L/(T_H − T_L); real vapour-compression units reach about half
+  verify:
+    expect:
+      v: nsimplify(cop)*(Th - Tc)/(Tc + Rational(27315, 100))
 - template: td-gas-refrigeration
   skill: thermo.first-law
   pace: quick
@@ -1098,6 +1894,26 @@
   verify:
     expect:
       v: (Symbol('T') - Symbol('T')/rp**Rational(2, 7))/((Symbol('T')*rp**Rational(2, 7) - Symbol('T')) - (Symbol('T') - Symbol('T')/rp**Rational(2, 7)))
+- template: td-gas-refrig-ratio
+  skill: thermo.first-law
+  pace: quick
+  given:
+    cop:
+      pick:
+      - 1
+      - 1.5
+      - 2
+  prompt: An ideal reversed-Brayton refrigerator (k = 1.4) must reach COP {{cop}}. What pressure ratio is needed?
+  parts:
+  - ask: Answer
+    label: v
+    tex: r_p
+    value: (1 + 1/cop)^3.5
+    tol: 0.005
+    explain: 'COP = 1/(r_p^{(k−1)/k} − 1): low ratios give better COP but little cooling per kg'
+  verify:
+    expect:
+      v: solve(Eq(1/(Symbol('rr') - 1), nsimplify(cop)), Symbol('rr'))[0]**Rational(7, 2)
 - template: td-wet-bulb
   skill: thermo.first-law
   pace: quick
@@ -1131,6 +1947,30 @@
   verify:
     expect:
       v: solve(Eq(Rational(1005, 1000)*T1 + x*nsimplify(hg1) + (nsimplify(w2) - x)*nsimplify(hf2), Rational(1005, 1000)*T2 + nsimplify(w2)*(nsimplify(hf2) + nsimplify(hfg2))), x)[0]
+- template: td-humidity-ratio-pv
+  skill: thermo.solutions
+  pace: quick
+  given:
+    P:
+      pick:
+      - 101.325
+      - 90
+    pv:
+      pick:
+      - 1
+      - 2
+      - 3
+  prompt: Moist air at {{P}} kPa has water vapour partial pressure {{pv}} kPa. What is the humidity ratio, in kg water/kg dry air?
+  parts:
+  - ask: Answer
+    label: v
+    tex: \omega
+    value: 0.622*pv/(P - pv)
+    tol: 0.005
+    explain: ω = (M_w/M_a)p_v/(P − p_v) = 0.622 p_v/(P − p_v)
+  verify:
+    expect:
+      v: Rational(622, 1000)*(nsimplify(pv)/nsimplify(P))/(1 - nsimplify(pv)/nsimplify(P))
 - template: td-dew-point
   skill: thermo.first-law
   pace: quick
@@ -1158,6 +1998,33 @@
   verify:
     expect:
       v: solve(Eq(Rational(1762, 100)*x/(Rational(24312, 100) + x), log(nsimplify(phi)) + Rational(1762, 100)*T/(Rational(24312, 100) + T)), x)[0]
+- template: td-relative-humidity
+  skill: thermo.solutions
+  pace: quick
+  given:
+    pv:
+      pick:
+      - 1
+      - 1.5
+      - 2
+  cases:
+  - T: 20
+    ps: 2.339
+  - T: 25
+    ps: 3.17
+  - T: 30
+    ps: 4.247
+  prompt: Air at {{T}} °C (P_sat = {{ps}} kPa) has vapour partial pressure {{pv}} kPa. What is the relative humidity, in %?
+  parts:
+  - ask: Answer
+    label: v
+    tex: \phi
+    value: 100*pv/ps
+    tol: 0.005
+    explain: φ = p_v/P_sat(T); cooling at fixed p_v raises φ until it hits 100% at the dew point
+  verify:
+    expect:
+      v: 100*nsimplify(pv)/nsimplify(ps)
 - template: td-moist-enthalpy
   skill: thermo.first-law
   pace: quick
@@ -1185,6 +2052,31 @@
   verify:
     expect:
       v: integrate(Rational(1005, 1000), (x, 0, T)) + nsimplify(w)*(2501 + integrate(Rational(182, 100), (x, 0, T)))
+- template: td-moist-enthalpy-reverse
+  skill: thermo.solutions
+  pace: quick
+  given:
+    T:
+      pick:
+      - 20
+      - 25
+      - 30
+    h:
+      pick:
+      - 50
+      - 60
+      - 70
+  prompt: Moist air at {{T}} °C has h = {{h}} kJ/kg dry air. Using h = 1.005T + ω(2501 + 1.82T), what is ω?
+  parts:
+  - ask: Answer
+    label: v
+    tex: \omega
+    value: (h - 1.005*T)/(2501 + 1.82*T)
+    tol: 0.005
+    explain: Most of moist air's enthalpy is the latent heat carried by its vapour
+  verify:
+    expect:
+      v: solve(Eq(Rational(1005, 1000)*T + x*(2501 + Rational(182, 100)*T), h), x)[0]
 - template: td-dehumidify-water
   skill: thermo.first-law
   pace: quick
@@ -1284,6 +2176,35 @@
   verify:
     expect:
       v: nsimplify(ma)*((Rational(1005, 1000)*T2 + nsimplify(w)*(2501 + Rational(182, 100)*T2)) - (Rational(1005, 1000)*T1 + nsimplify(w)*(2501 + Rational(182, 100)*T1)))
+- template: td-heating-rh-drop
+  skill: thermo.solutions
+  pace: quick
+  given:
+    phi:
+      pick:
+      - 60
+      - 80
+      - 100
+  cases:
+  - T1: 10
+    p1: 1.228
+    T2: 25
+    p2: 3.17
+  - T1: 5
+    p1: 0.8726
+    T2: 22
+    p2: 2.645
+  prompt: Air at {{T1}} °C and {{phi}}% RH (P_sat = {{p1}} kPa) is heated to {{T2}} °C (P_sat = {{p2}} kPa) without adding water. What is the new RH, in %?
+  parts:
+  - ask: Answer
+    label: v
+    tex: \phi_2
+    value: phi*p1/p2
+    tol: 0.005
+    explain: 'p_v stays fixed while P_sat rises: winter heating dries indoor air'
+  verify:
+    expect:
+      v: phi*nsimplify(p1)/nsimplify(p2)
 - template: td-humidify
   skill: thermo.first-law
   pace: quick
@@ -1314,6 +2235,34 @@
   verify:
     expect:
       v: solve(Eq(nsimplify(ma)*nsimplify(w1) + x/3600, nsimplify(ma)*nsimplify(w2)), x)[0]
+- template: td-humidify-water-rate
+  skill: thermo.solutions
+  pace: quick
+  given:
+    m:
+      pick:
+      - 1
+      - 2
+      - 5
+    w1:
+      pick:
+      - 0.003
+      - 0.005
+    w2:
+      pick:
+      - 0.008
+      - 0.01
+  prompt: '{{m}} kg/s of dry air must go from ω = {{w1}} to ω = {{w2}}. How much water, in g/s, must be added?'
+  parts:
+  - ask: Answer
+    label: v
+    tex: \dot m_w
+    value: m*(w2 - w1)*1000
+    tol: 0.005
+    explain: Water balance on the dry-air basis
+  verify:
+    expect:
+      v: solve(Eq(m*nsimplify(w1) + x/1000, m*nsimplify(w2)), x)[0]
 - template: td-evaporative-cooling
   skill: thermo.first-law
   pace: quick
@@ -1343,6 +2292,29 @@
   verify:
     expect:
       v: solve(Eq(Rational(1005, 1000)*x + nsimplify(w2)*(2501 + Rational(182, 100)*x), Rational(1005, 1000)*T1 + nsimplify(w1)*(2501 + Rational(182, 100)*T1)), x)[0]
+- template: td-evaporative-water
+  skill: thermo.solutions
+  pace: quick
+  given:
+    T1:
+      pick:
+      - 35
+      - 40
+    T2:
+      pick:
+      - 22
+      - 25
+  prompt: An evaporative cooler drops air from {{T1}} °C to {{T2}} °C. Using c_p ≈ 1.005 kJ/kg·K and h_fg ≈ 2450 kJ/kg, how much does ω rise, in g/kg dry air?
+  parts:
+  - ask: Answer
+    label: v
+    tex: \Delta\omega
+    value: 1.005*(T1 - T2)/2450*1000
+    tol: 0.005
+    explain: 'Adiabatic saturation: the sensible heat lost evaporates water, so enthalpy is nearly constant'
+  verify:
+    expect:
+      v: solve(Eq(Rational(1005, 1000)*(T1 - T2), x/1000*2450), x)[0]
 - template: td-adiabatic-mixing
   skill: thermo.first-law
   pace: quick
@@ -1377,6 +2349,33 @@
   verify:
     expect:
       v: solve(Eq((m1 + m2)*x, m1*nsimplify(w1) + m2*nsimplify(w2)), x)[0]
+- template: td-mixing-ratio-needed
+  skill: thermo.solutions
+  pace: quick
+  given:
+    w1:
+      pick:
+      - 0.004
+    w2:
+      pick:
+      - 0.016
+      - 0.02
+    w:
+      pick:
+      - 0.008
+      - 0.01
+      - 0.012
+  prompt: Two airstreams with ω₁ = {{w1}} and ω₂ = {{w2}} mix adiabatically. What fraction of the dry air must come from stream 1 for a mixture with ω = {{w}}?
+  parts:
+  - ask: Answer
+    label: v
+    tex: f_1
+    value: (w2 - w)/(w2 - w1)
+    tol: 0.005
+    explain: 'The mixed state lies on the straight line between the two on the psychrometric chart: a lever rule'
+  verify:
+    expect:
+      v: solve(Eq(x*nsimplify(w1) + (1 - x)*nsimplify(w2), nsimplify(w)), x)[0]
 - template: td-flame-temperature
   skill: thermo.first-law
   pace: quick
@@ -1398,6 +2397,30 @@
   verify:
     expect:
       v: solve(Eq((54 + 86 + Rational(752, 100)*ex/100*33 + 2*(Rational(ex, 100) - 1)*35)*(x - 298), 802000), x)[0]
+- template: td-flame-temp-excess-air
+  skill: thermo.first-law
+  pace: quick
+  given:
+    q:
+      pick:
+      - 45000
+      - 50000
+    mp:
+      pick:
+      - 18
+      - 25
+      - 35
+  prompt: A fuel releases {{q}} kJ per kg of fuel; the products of combustion have mass {{mp}} kg per kg fuel and mean c_p = 1.2 kJ/kg·K. With reactants at 298 K, what is the adiabatic flame temperature, in K?
+  parts:
+  - ask: Answer
+    label: v
+    tex: T_{ad}
+    value: 298 + q/(mp*1.2)
+    tol: 0.005
+    explain: More excess air means more product mass to heat, so a lower flame temperature
+  verify:
+    expect:
+      v: solve(Eq(integrate(mp*Rational(12, 10), (Symbol('TT'), 298, x)), q), x)[0]
 - template: td-le-chatelier
   skill: thermo.first-law
   pace: quick
@@ -1419,6 +2442,26 @@
   verify:
     expect:
       v: 1/(Rational(y, 100)/5 + (1 - Rational(y, 100))/Rational(21, 10))
+- template: td-upper-limit-mixture
+  skill: thermo.solutions
+  pace: quick
+  given:
+    y1:
+      pick:
+      - 20
+      - 50
+      - 80
+  prompt: A fuel gas is {{y1}}% methane (LFL 5.0%) and the rest propane (LFL 2.1%). What is the mixture's lower flammability limit, in %?
+  parts:
+  - ask: Answer
+    label: v
+    tex: LFL
+    value: 100/(y1/5 + (100 - y1)/2.1)
+    tol: 0.005
+    explain: 'Le Chatelier''s rule: fractions of each limit add to one at the mixture''s limit'
+  verify:
+    expect:
+      v: solve(Eq(Rational(y1, 100)*x/5 + (1 - Rational(y1, 100))*x/Rational(21, 10), 1), x)[0]
 - template: td-batch-adiabatic-rise
   skill: thermo.first-law
   pace: quick
@@ -1449,6 +2492,36 @@
   verify:
     expect:
       v: solve(Eq(rc*x, dH*C0), x)[0]
+- template: td-batch-conversion-limit
+  skill: thermo.first-law
+  pace: quick
+  given:
+    dT:
+      pick:
+      - 150
+      - 250
+      - 400
+    Tmax:
+      pick:
+      - 450
+      - 500
+    T0:
+      pick:
+      - 300
+      - 350
+  require:
+  - Tmax - T0 < dT
+  prompt: An adiabatic batch reactor heats {{dT}} K per unit conversion. If the contents must stay below {{Tmax}} K, starting at {{T0}} K, what is the largest conversion allowed?
+  parts:
+  - ask: Answer
+    label: v
+    tex: X_{max}
+    value: (Tmax - T0)/dT
+    tol: 0.005
+    explain: 'T = T₀ + ΔT_ad X: the adiabatic temperature rise is the runaway hazard'
+  verify:
+    expect:
+      v: solve(Eq(T0 + dT*x, Tmax), x)[0]
 - template: td-reaction-phase
   skill: thermo.chemical-equilibrium
   pace: quick
@@ -1475,6 +2548,31 @@
   verify:
     expect:
       v: solve(Eq(x/Ps, nsimplify(K)), x)[0]
+- template: td-vapour-k-shift
+  skill: thermo.chemical-equilibrium
+  pace: quick
+  given:
+    K:
+      pick:
+      - 0.5
+      - 2
+      - 10
+    pB:
+      pick:
+      - 0.1
+      - 0.5
+      - 1
+  prompt: A gas-phase reaction A(g) ⇌ B(g) has K = {{K}}. If B is withdrawn as a liquid with vapour pressure {{pB}} bar, what partial pressure of A (bar) coexists at equilibrium with pure liquid B?
+  parts:
+  - ask: Answer
+    label: v
+    tex: p_A
+    value: pB/K
+    tol: 0.005
+    explain: With pure liquid B present, p_B is pinned at its vapour pressure, so the gas-phase K fixes p_A
+  verify:
+    expect:
+      v: solve(Eq(nsimplify(pB)/x, nsimplify(K)), x)[0]
 - template: td-chemical-exergy
   skill: thermo.first-law
   pace: quick
@@ -1495,6 +2593,29 @@
   verify:
     expect:
       v: integrate(Rational(8314, 1000)*298/x, (x, nsimplify(y), 1))/1000
+- template: td-separation-work
+  skill: thermo.solutions
+  pace: quick
+  given:
+    y:
+      pick:
+      - 420
+      - 1000
+      - 100000
+    T:
+      pick:
+      - 298
+  prompt: What is the minimum work, in kJ/mol of CO₂, to extract CO₂ from air at {{y}} ppm to pure CO₂ at the same T ({{T}} K) and P?
+  parts:
+  - ask: Answer
+    label: v
+    tex: w_{min}
+    value: -8.314*T*log(y*1e-6)/1000
+    tol: 0.005
+    explain: 'The chemical exergy of a dilute species: about 19 kJ/mol for CO₂ from air, far less from flue gas'
+  verify:
+    expect:
+      v: -Rational(8314, 1000)*T*log(Rational(y, 10**6))/1000
 - template: td-rackett
   skill: thermo.phase-equilibrium
   pace: quick
@@ -1525,6 +2646,34 @@
   verify:
     expect:
       v: Vc*exp(log(nsimplify(Zc))*(1 - nsimplify(Tr))**Rational(2, 7))
+- template: td-rackett-zra
+  skill: thermo.solutions
+  pace: quick
+  given:
+    Vc:
+      pick:
+      - 190
+      - 255
+    Zc:
+      pick:
+      - 0.27
+      - 0.29
+    Tr:
+      pick:
+      - 0.5
+      - 0.7
+      - 0.9
+  prompt: A liquid has V_c = {{Vc}} cm³/mol and Z_c = {{Zc}}. What is its Rackett saturated-liquid volume at T_r = {{Tr}}, V = V_c Z_c^{(1 − T_r)^{2/7}}?
+  parts:
+  - ask: Answer
+    label: v
+    tex: V_{sat}
+    value: Vc*Zc^((1 - Tr)^(2/7))
+    tol: 0.005
+    explain: At T_r = 1 the liquid volume equals V_c; it shrinks toward V_cZ_c at low temperature
+  verify:
+    expect:
+      v: exp(log(Vc) + (1 - nsimplify(Tr))**Rational(2, 7)*log(nsimplify(Zc)))
 - template: td-poynting-liquid
   skill: thermo.phase-equilibrium
   pace: quick
@@ -1560,6 +2709,34 @@
   verify:
     expect:
       v: nsimplify(Ps)*exp(integrate(V/(Rational(8314, 100)*T), (x, nsimplify(Ps), P)))
+- template: td-poynting-pressure
+  skill: thermo.solutions
+  pace: quick
+  given:
+    v:
+      pick:
+      - 18
+      - 100
+    T:
+      pick:
+      - 298
+      - 350
+    f:
+      pick:
+      - 1.01
+      - 1.05
+      - 1.1
+  prompt: A liquid with v = {{v}} cm³/mol at {{T}} K. At what excess pressure above P_sat, in MPa, does the Poynting factor reach {{f}}?
+  parts:
+  - ask: Answer
+    label: r
+    tex: P - P^{sat}
+    value: log(f)*8.314*T/(v*1e-6)/1e6
+    tol: 0.005
+    explain: exp(vΔP/RT) is close to 1 until tens of MPa for small molecules
+  verify:
+    expect:
+      r: solve(Eq(nsimplify(v)/10**6*x*10**6/(Rational(8314, 1000)*T), log(nsimplify(f))), x)[0]
 - template: td-poynting-solid
   skill: thermo.phase-equilibrium
   pace: quick
@@ -1590,6 +2767,29 @@
   verify:
     expect:
       v: exp(integrate(V/(Rational(8314, 100)*T), (x, 0, P)))
+- template: td-poynting-comparison
+  skill: thermo.solutions
+  pace: quick
+  given:
+    vs:
+      pick:
+      - 10
+      - 50
+    vl:
+      pick:
+      - 18
+      - 100
+  prompt: At the same pressure rise and temperature, a solid has molar volume {{vs}} cm³/mol and a liquid {{vl}} cm³/mol. What is the ratio of their ln(Poynting factor)?
+  parts:
+  - ask: Answer
+    label: v
+    tex: \ln F_s/\ln F_l
+    value: vs/vl
+    tol: 0.005
+    explain: 'ln F = vΔP/RT: the correction scales with molar volume alone'
+  verify:
+    expect:
+      v: (nsimplify(vs)*Symbol('dP')/Symbol('RT'))/(nsimplify(vl)*Symbol('dP')/Symbol('RT'))
 - template: td-immiscible-liquids
   skill: thermo.solutions
   pace: quick
@@ -1615,6 +2815,29 @@
   verify:
     expect:
       v: solve(Eq(x*(p1 + p2), p2), x)[0]
+- template: td-immiscible-composition
+  skill: thermo.solutions
+  pace: quick
+  given:
+    p1:
+      pick:
+      - 20
+      - 40
+    p2:
+      pick:
+      - 60
+      - 80
+  prompt: Two immiscible liquids boil together where P₁* = {{p1}} kPa and P₂* = {{p2}} kPa. What is the mole fraction of 1 in the vapour?
+  parts:
+  - ask: Answer
+    label: v
+    tex: y_1
+    value: p1/(p1 + p2)
+    tol: 0.005
+    explain: 'Each pure phase exerts its full vapour pressure: steam distillation carries over a high-boiling oil in a fixed ratio'
+  verify:
+    expect:
+      v: Rational(p1, 1)/(p1 + p2)
 - template: td-ideal-solubility
   skill: thermo.solutions
   pace: quick
@@ -1644,6 +2867,34 @@
   verify:
     expect:
       v: solve(Eq(log(x), -dH*1000/Rational(8314, 1000)*(Rational(1, T) - Rational(1, Tm))), x)[0]
+- template: td-ideal-solubility-temperature
+  skill: thermo.solutions
+  pace: quick
+  given:
+    Tm:
+      pick:
+      - 350
+      - 400
+    dh:
+      pick:
+      - 15
+      - 25
+    xs:
+      pick:
+      - 0.1
+      - 0.3
+      - 0.5
+  prompt: A solid melts at {{Tm}} K with Δh_fus = {{dh}} kJ/mol. At what temperature does its ideal solubility reach x = {{xs}}? (R = 8.314)
+  parts:
+  - ask: Answer
+    label: v
+    tex: T
+    value: 1/(1/Tm - 8.314*log(xs)/(dh*1000))
+    tol: 0.005
+    explain: 'ln x = −(Δh_fus/R)(1/T − 1/T_m): ideal solubility depends only on the solute'
+  verify:
+    expect:
+      v: solve(Eq(log(nsimplify(xs)), -dh*1000/Rational(8314, 1000)*(1/Symbol('TT') - Rational(1, Tm))), Symbol('TT'))[0]
 - template: td-mixing-rule
   skill: thermo.phase-equilibrium
   pace: quick
@@ -1674,6 +2925,34 @@
   verify:
     expect:
       v: nsimplify(y)**2*nsimplify(a1) + 2*nsimplify(y)*(1 - nsimplify(y))*sqrt(nsimplify(a1)*nsimplify(a2)) + (1 - nsimplify(y))**2*nsimplify(a2)
+- template: td-b-mix
+  skill: thermo.solutions
+  pace: quick
+  given:
+    b1:
+      pick:
+      - 0.0387
+      - 0.0427
+    b2:
+      pick:
+      - 0.0318
+      - 0.0571
+    y:
+      pick:
+      - 0.2
+      - 0.5
+      - 0.8
+  prompt: Two gases have vdW b₁ = {{b1}} and b₂ = {{b2}} L/mol. What is b_mix for y₁ = {{y}}?
+  parts:
+  - ask: Answer
+    label: v
+    tex: b_{mix}
+    value: y*b1 + (1 - y)*b2
+    tol: 0.005
+    explain: b mixes linearly (the arithmetic cross term reduces the quadratic rule to Σ y_ib_i); a uses the geometric mean
+  verify:
+    expect:
+      v: nsimplify(y)**2*nsimplify(b1) + 2*nsimplify(y)*(1 - nsimplify(y))*(nsimplify(b1) + nsimplify(b2))/2 + (1 - nsimplify(y))**2*nsimplify(b2)
 - template: td-virial-fugacity
   skill: thermo.phase-equilibrium
   pace: quick
@@ -1705,6 +2984,33 @@
   verify:
     expect:
       v: exp(integrate(B/(Rational(8314, 100)*T), (x, 0, P)))
+- template: td-virial-pressure-for-phi
+  skill: thermo.phase-equilibrium
+  pace: quick
+  given:
+    B:
+      pick:
+      - -300
+      - -150
+    T:
+      pick:
+      - 300
+      - 350
+    phi:
+      pick:
+      - 0.9
+      - 0.95
+  prompt: A gas has B = {{B}} cm³/mol at {{T}} K. At what pressure, in bar, does the truncated virial give φ = {{phi}}?
+  parts:
+  - ask: Answer
+    label: v
+    tex: P
+    value: log(phi)*8.314*T/(B*1e-6)/1e5
+    tol: 0.005
+    explain: 'ln φ = BP/RT: φ falls below 1 linearly in P where attraction dominates'
+  verify:
+    expect:
+      v: solve(Eq(nsimplify(B)/10**6*x*10**5/(Rational(8314, 1000)*T), log(nsimplify(phi))), x)[0]
 - template: td-van-laar
   skill: thermo.solutions
   pace: quick
@@ -1735,6 +3041,30 @@
   verify:
     expect:
       v: 'diff((Symbol(''n1'') + Symbol(''n2''))*nsimplify(a)*nsimplify(b)*(Symbol(''n1'')/(Symbol(''n1'') + Symbol(''n2'')))*(Symbol(''n2'')/(Symbol(''n1'') + Symbol(''n2'')))/(nsimplify(a)*Symbol(''n1'')/(Symbol(''n1'') + Symbol(''n2'')) + nsimplify(b)*Symbol(''n2'')/(Symbol(''n1'') + Symbol(''n2''))), Symbol(''n1'')).subs({Symbol(''n1''): nsimplify(x1), Symbol(''n2''): 1 - nsimplify(x1)})'
+- template: td-van-laar-infinite
+  skill: thermo.solutions
+  pace: quick
+  given:
+    a:
+      pick:
+      - 0.5
+      - 1
+      - 1.5
+    b:
+      pick:
+      - 0.8
+      - 2
+  prompt: A van Laar model has A₁₂ = {{a}} and A₂₁ = {{b}}. What is γ₂ at infinite dilution in component 1?
+  parts:
+  - ask: Answer
+    label: v
+    tex: \gamma_2^\infty
+    value: exp(b)
+    tol: 0.005
+    explain: ln γ₂ = A₂₁[A₁₂x₁/(A₁₂x₁ + A₂₁x₂)]² → A₂₁ as x₂ → 0
+  verify:
+    expect:
+      v: limit(exp(nsimplify(b)*(nsimplify(a)*(1 - Symbol('q'))/(nsimplify(a)*(1 - Symbol('q')) + nsimplify(b)*Symbol('q')))**2), Symbol('q'), 0)
 - template: td-scatchard-hildebrand
   skill: thermo.solutions
   pace: quick
@@ -1774,6 +3104,30 @@
   verify:
     expect:
       v: V*nsimplify(F)**2*(d1 - d2)**2/(Rational(8314, 1000)*T)
+- template: td-hildebrand-match
+  skill: thermo.solutions
+  pace: quick
+  given:
+    d:
+      pick:
+      - 18
+      - 20
+    g:
+      pick:
+      - 0.1
+      - 0.5
+      - 1
+  prompt: A solute has solubility parameter {{d}} (J/cm³)^½. Among solvents differing by Δδ, what Δδ keeps ln γ below {{g}} for v = 100 cm³/mol at 298 K (dilute, φ₂ ≈ 1)?
+  parts:
+  - ask: Answer
+    label: v
+    tex: \Delta\delta
+    value: sqrt(g*8.314*298/100)
+    tol: 0.005
+    explain: 'ln γ = v(δ₁ − δ₂)²φ²/RT: like dissolves like, measured in δ'
+  verify:
+    expect:
+      v: Max(*solve(Eq(100*x**2/(Rational(8314, 1000)*298), nsimplify(g)), x))
 - template: td-wilson
   skill: thermo.solutions
   pace: quick
@@ -1804,6 +3158,26 @@
   verify:
     expect:
       v: 'diff(-Symbol(''n1'')*log(Symbol(''n1'')/(Symbol(''n1'') + Symbol(''n2'')) + nsimplify(L12)*Symbol(''n2'')/(Symbol(''n1'') + Symbol(''n2''))) - Symbol(''n2'')*log(Symbol(''n2'')/(Symbol(''n1'') + Symbol(''n2'')) + nsimplify(L21)*Symbol(''n1'')/(Symbol(''n1'') + Symbol(''n2''))), Symbol(''n1'')).subs({Symbol(''n1''): nsimplify(x1), Symbol(''n2''): 1 - nsimplify(x1)})'
+- template: td-wilson-symmetric
+  skill: thermo.solutions
+  pace: quick
+  given:
+    L:
+      pick:
+      - 0.3
+      - 0.5
+      - 0.8
+  prompt: For Wilson's equation with Λ₁₂ = Λ₂₁ = {{L}}, what is ln γ₁ at infinite dilution (x₁ → 0)?
+  parts:
+  - ask: Answer
+    label: v
+    tex: \ln\gamma_1^\infty
+    value: -log(L) + 1 - L
+    tol: 0.005
+    explain: ln γ₁^∞ = −ln Λ₁₂ + 1 − Λ₂₁; Wilson cannot produce liquid–liquid splitting
+  verify:
+    expect:
+      v: limit(-log(Symbol('q') + nsimplify(L)*(1 - Symbol('q'))) + (1 - Symbol('q'))*(nsimplify(L)/(Symbol('q') + nsimplify(L)*(1 - Symbol('q'))) - nsimplify(L)/(1 - Symbol('q') + nsimplify(L)*Symbol('q'))), Symbol('q'), 0)
 - template: td-nrtl-infinite
   skill: thermo.solutions
   pace: quick
@@ -1834,6 +3208,30 @@
   verify:
     expect:
       v: limit(diff((Symbol('n1') + Symbol('n2'))*(Symbol('n1')/(Symbol('n1') + Symbol('n2')))*(Symbol('n2')/(Symbol('n1') + Symbol('n2')))*(nsimplify(t21)*exp(-nsimplify(al)*nsimplify(t21))/(Symbol('n1')/(Symbol('n1') + Symbol('n2')) + Symbol('n2')/(Symbol('n1') + Symbol('n2'))*exp(-nsimplify(al)*nsimplify(t21))) + nsimplify(t12)*exp(-nsimplify(al)*nsimplify(t12))/(Symbol('n2')/(Symbol('n1') + Symbol('n2')) + Symbol('n1')/(Symbol('n1') + Symbol('n2'))*exp(-nsimplify(al)*nsimplify(t12)))), Symbol('n1')).subs(Symbol('n2'), 1), Symbol('n1'), 0)
+- template: td-nrtl-gamma2-inf
+  skill: thermo.solutions
+  pace: quick
+  given:
+    t12:
+      pick:
+      - 0.5
+      - 1
+      - 1.5
+    t21:
+      pick:
+      - 0.2
+      - 0.8
+  prompt: For NRTL with τ₁₂ = {{t12}}, τ₂₁ = {{t21}} and α = 0.3, what is ln γ₂ at infinite dilution?
+  parts:
+  - ask: Answer
+    label: v
+    tex: \ln\gamma_2^\infty
+    value: t12 + t21*exp(-0.3*t21)
+    tol: 0.005
+    explain: By symmetry with γ₁^∞ = τ₂₁ + τ₁₂ exp(−ατ₁₂), swapping the indices
+  verify:
+    expect:
+      v: nsimplify(t12) + nsimplify(t21)*exp(-Rational(3, 10)*nsimplify(t21))
 - template: td-activity-models
   skill: thermo.solutions
   pace: recall
@@ -1854,5 +3252,42 @@
     - MOSCED
     correct: ans
     explain: UNIFAC is UNIQUAC built from groups instead of molecules, so it predicts unmeasured pairs. MOSCED extends regular-solution theory with polar and hydrogen-bonding terms
+  verify:
+    authored: true
+- template: td-model-pick
+  skill: thermo.solutions
+  pace: recall
+  cases:
+  - q: Which activity model predicts γ from molecular structure groups, with no mixture data?
+    o1: UNIFAC
+    o2: Margules
+    o3: Wilson
+    o4: van Laar
+  - q: Which model cannot describe liquid–liquid phase splitting?
+    o1: Wilson
+    o2: NRTL
+    o3: UNIQUAC
+    o4: Margules with large A
+  - q: Which model needs only pure-component properties (molar volume and δ)?
+    o1: Regular solution (Scatchard–Hildebrand)
+    o2: NRTL
+    o3: Wilson
+    o4: UNIQUAC
+  - q: Which model has a non-randomness parameter α?
+    o1: NRTL
+    o2: Wilson
+    o3: van Laar
+    o4: UNIFAC
+  prompt: '{{q}}'
+  parts:
+  - ask: Answer
+    label: v
+    choice:
+    - '{{o1}}'
+    - '{{o2}}'
+    - '{{o3}}'
+    - '{{o4}}'
+    correct: '0'
+    explain: Choice of model follows from what data exist and whether the system splits into two liquids
   verify:
     authored: true
