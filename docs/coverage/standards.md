@@ -201,9 +201,9 @@ https://ncees.org/wp-content/uploads/2022/09/FE-Che-CBT-specs.pdf
 | 8.E | Recycle and bypass | 2 | 2 | material-balances (2) |
 | 8.F | Reactive systems (combustion) | 10 | 10 | material-balances (10) |
 | **9** | **Heat Transfer** (8–12 questions) | | | |
-| 9.A | Conductive | 17 | 15 | heat-transfer (17) |
-| 9.B | Convective (natural and forced) | 25 | 24 | heat-transfer (25) |
-| 9.C | Radiation | 14 | 13 | heat-transfer (14) |
+| 9.A | Conductive | 17 | 17 | heat-transfer (17) |
+| 9.B | Convective (natural and forced) | 25 | 25 | heat-transfer (25) |
+| 9.C | Radiation | 14 | 14 | heat-transfer (14) |
 | 9.D | Heat-transfer coefficients (overall, local, fouling) | 14 | 14 | heat-transfer (14) |
 | 9.E | Equipment design (double pipe, shell and tube, LMTD, NTU) | 6 | 6 | heat-transfer (6) |
 | **10** | **Mass Transfer and Separation** (8–12 questions) | | | |
@@ -1708,7 +1708,7 @@ https://ibo.org/globalassets/new-structure/recognition/pdfs/dp_sciences_physics_
 | A.3 | Work, energy and power | 10 | 10 | physics (10) |
 | A.4 | Rigid body mechanics (HL) | 16 | 16 | physics (16) |
 | A.5 | Galilean and special relativity (HL) | 5 | 5 | physics (5) |
-| B.1 | Thermal energy transfers | 19 | 18 | heat-transfer (7), physics (12) |
+| B.1 | Thermal energy transfers | 19 | 19 | heat-transfer (7), physics (12) |
 | B.2 | Greenhouse effect | 7 | 7 | earth-space (7) |
 | B.3 | Gas laws | 12 | 12 | physics (12) |
 | B.4 | Thermodynamics (HL) | 19 | 19 | physics (12), thermodynamics (7) |
@@ -1919,7 +1919,7 @@ https://ncees.org/wp-content/uploads/2022/09/PE-Che_Jan2020-1.pdf
 | 2.B | Chemical equilibria | 7 | 7 | thermodynamics (7) |
 | 2.C | Phase equilibria | 18 | 18 | thermodynamics (18) |
 | **3** | **Heat transfer** (9–14 questions) | | | |
-| 3.A | Fundamentals | 9 | 8 | heat-transfer (9) |
+| 3.A | Fundamentals | 9 | 9 | heat-transfer (9) |
 | 3.B | Applications | 7 | 6 | heat-transfer (7) |
 | **4** | **Chemical reaction engineering** (6–10 questions) | | | |
 | 4.A | Fundamentals | 10 | 10 | reaction-engineering (10) |
