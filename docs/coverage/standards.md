@@ -15,21 +15,22 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 | Anchor Quantities | CODATA Recommended Values of the Fundamental Physical Constants: 2022 (NIST SP 961) | reference | read in part | snapshot-key-numbers, francl-take-a-number, cfr-21-101-9 | acs-accm-pchem | 14 | 3 | 11 |
 | Basketball | USA Basketball Player Development Curriculum | standard | read in part | — | — | 88 | 0 | 88 |
 | Biology (AP) | AP Biology Course and Exam Description (2019) | standard | read through a crosswalk | iupac-aa-1983, ngss-hs, ib-biology-2025, icho-appendix-c, icho-syllabus, aamc-mcat-outline | — | 179 | 179 | 0 |
-| Calculus | AP Calculus AB and BC Course and Exam Description | standard | read in full | — | — | 179 | 179 | 0 |
+| Calculus | AP Calculus AB and BC Course and Exam Description | standard | read in full | webwork-opl | — | 203 | 203 | 0 |
 | Chemistry Olympiad | U.S. National Chemistry Olympiad: local and national exam format and multiple-choice topics | exam-spec | read in part | icho-appendix-c, icho-syllabus | — | 14 | 14 | 0 |
 | Chemistry (AP) | AP Chemistry Course and Exam Description (Fall 2024) | standard | read in part | ngss-hs, ib-chemistry-2025, usnco, icho-appendix-c, icho-syllabus, acs-accm, aamc-mcat-outline | — | 179 | 179 | 0 |
-| Computer Science | Computer Science Curricula 2023, Body of Knowledge | standard | read in full | — | — | 140 | 0 | 140 |
+| Computer Science | Computer Science Curricula 2023, Body of Knowledge | standard | read in full | — | — | 140 | 1 | 139 |
 | Dental Admission Test | Dental Admission Test 2026 Candidate Guide | exam-spec | read in full | ngss-hs, ib-chemistry-2025, usnco, icho-appendix-c | — | 183 | 72 | 111 |
 | Earth and Space Science | Next Generation Science Standards, high school performance expectations (2013) | standard | read in part | ib-physics-2025, ib-biology-2025, gre-physics | — | 18 | 18 | 0 |
-| Applied Engineering Mathematics | Kreyszig, Advanced Engineering Mathematics, 10th ed. | textbook | read in full | fe-chemical | — | 136 | 83 | 53 |
-| Fluid Mechanics | NCEES FE Chemical CBT Exam Specifications (effective July 2020) | exam-spec | read in full | pe-chemical | — | 15 | 15 | 0 |
+| Applied Engineering Mathematics | Kreyszig, Advanced Engineering Mathematics, 10th ed. | textbook | read in full | fe-chemical, webwork-opl | — | 155 | 128 | 27 |
+| Fluid Mechanics | NCEES FE Chemical CBT Exam Specifications (effective July 2020) | exam-spec | read in full | pe-chemical, webwork-opl | — | 64 | 64 | 0 |
 | Heat Transfer | NCEES FE Chemical CBT Exam Specifications (effective July 2020) | exam-spec | read in full | fe-mechanical, ib-physics-2025, pe-chemical | — | 101 | 63 | 38 |
 | INBDE (Dentistry) | JCNDE, Domain of Dentistry (INBDE content domain), July 2018 | exam-spec | read in part | — | — | 22 | 22 | 0 |
 | Information Systems | MSIS 2016 Global Competency Model | standard | read in full | — | — | 53 | 0 | 53 |
-| Advanced Inorganic Chemistry (Cotton & Wilkinson) | Cotton, Wilkinson, Murillo & Bochmann, Advanced Inorganic Chemistry, 6th ed. (1999): table of contents | textbook | read in part | icho-appendix-c, gre-chemistry | — | 37 | 0 | 37 |
+| Advanced Inorganic Chemistry (Cotton & Wilkinson) | Cotton, Wilkinson, Murillo & Bochmann, Advanced Inorganic Chemistry, 6th ed. (1999): table of contents | textbook | read in part | icho-appendix-c, gre-chemistry | — | 55 | 0 | 55 |
 | Inorganic Chemistry | Regulations of the International Chemistry Olympiad, Appendices C and D (concepts, skills and factual knowledge) | exam-spec | read in full | icho-syllabus, gre-chemistry, usnco, ib-chemistry-2025 | — | 23 | 23 | 0 |
-| Linear Algebra | Lay, Lay & McDonald, Linear Algebra and Its Applications, 5th ed. (chapter list) | textbook | read in part | — | — | 10 | 10 | 0 |
-| Material and Energy Balances | NCEES FE Chemical CBT Exam Specifications (effective July 2020) | exam-spec | read in full | pe-chemical | — | 16 | 14 | 2 |
+| Linear Algebra | MAA CUPM Curriculum Guide 2015, Linear Algebra course report: core topics of a first course | standard | read in part | lay-5e, webwork-opl | lacsg-2 | 54 | 54 | 0 |
+| Mass Transfer | NCEES PE Chemical CBT Exam Specifications (effective January 2020) | exam-spec | read in full | — | — | 21 | 21 | 0 |
+| Material and Energy Balances | NCEES FE Chemical CBT Exam Specifications (effective July 2020) | exam-spec | read in full | pe-chemical, webwork-opl | — | 18 | 18 | 0 |
 | Polymers and Materials | Regulations of the International Chemistry Olympiad, Appendices C and D (concepts, skills and factual knowledge) | exam-spec | read in full | ib-chemistry-2025, fe-chemical, icho-syllabus | — | 17 | 6 | 11 |
 | High School Mathematics (Common Core) | CCSS Mathematics Appendix A: high school course pathways | standard | read in full | — | — | 200 | 200 | 0 |
 | Mathematics K–8 (Common Core) | Common Core State Standards for Mathematics (2010) | standard | read through a crosswalk | — | — | 258 | 258 | 0 |
@@ -37,21 +38,22 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 | Molecular Simulation | LiveCoMS best-practice papers for molecular simulation | course | read in part | — | — | 106 | 0 | 106 |
 | NCLEX-RN | NCLEX-RN Test Plan, effective April 2026 | exam-spec | read in part | — | — | 39 | 39 | 0 |
 | Nuclear Science and Reactor Theory | NRC Generic Fundamentals Examination, reactor theory topics (PWR catalog 192001-192008) | exam-spec | read in part | doe-hdbk-1019, ngss-hs, ib-physics-2025, icho-appendix-c, aamc-mcat-outline, gre-physics | — | 19 | 19 | 0 |
+| Numerical Methods | NCEES FE Chemical CBT Exam Specifications (effective July 2020) | exam-spec | read in full | webwork-opl | — | 17 | 17 | 0 |
 | Organic Reactions: Predict the Product | Bruice, Organic Chemistry, 8th edition (table of contents) | textbook | read in part | ib-chemistry-2025, icho-appendix-c, icho-syllabus, acs-accm, aamc-mcat-outline, gre-chemistry | — | 25 | 24 | 1 |
 | Particle Physics | AQA AS and A-level Physics (7407/7408), section 3.2 Particles and radiation | standard | read in part | openstax-university-physics, gre-physics | — | 13 | 12 | 1 |
 | The Periodic Table from Memory | IUPAC Periodic Table of the Elements (release of 4 May 2022) | reference | read in part | ngss-hs, ib-chemistry-2025, icho-appendix-c | — | 15 | 15 | 0 |
-| Physical Chemistry | Engel & Reid, Physical Chemistry, 3rd ed. (through the wiki's drill pages) | textbook | read in part | fe-chemical, usnco, icho-appendix-c, icho-syllabus, gre-physics, gre-chemistry | acs-accm-pchem | 141 | 111 | 30 |
+| Physical Chemistry | Engel & Reid, Physical Chemistry, 3rd ed. (through the wiki's drill pages) | textbook | read in part | fe-chemical, usnco, icho-appendix-c, icho-syllabus, gre-physics, gre-chemistry | acs-accm-pchem | 141 | 113 | 28 |
 | Physics (AP) | AP Physics 1, 2 and C Course and Exam Descriptions | standard | read in part | ngss-hs, ib-physics-2025, aamc-mcat-outline, gre-physics | — | 207 | 207 | 0 |
 | Process Design, Economics and Safety | NCEES FE Chemical CBT Exam Specifications (effective July 2020) | exam-spec | read in full | pe-chemical | — | 9 | 9 | 0 |
 | Programming Foundations | AP Computer Science A Course and Exam Description (Fall 2025) | standard | read in full | — | — | 140 | 140 | 0 |
-| Chemical Reaction Engineering | NCEES FE Chemical CBT Exam Specifications (effective July 2020) | exam-spec | read in full | icho-appendix-c, pe-chemical | — | 46 | 32 | 14 |
+| Chemical Reaction Engineering | NCEES FE Chemical CBT Exam Specifications (effective July 2020) | exam-spec | read in full | icho-appendix-c, pe-chemical | — | 46 | 33 | 13 |
 | Separations | NCEES FE Chemical CBT Exam Specifications (effective July 2020) | exam-spec | read in full | pe-chemical | — | 6 | 6 | 0 |
 | Speaking and Articulation | Competent Speaker Speech Evaluation Form, 2nd ed. | rubric | read in full | toastmasters-pathways | — | 69 | 0 | 69 |
 | SQL | Oracle Database SQL, exam 1Z0-071: exam topics | exam-spec | read through a crosswalk | — | — | 40 | 37 | 3 |
-| Statistics | AP Statistics revised course framework (2026-27) | standard | read in part | — | — | 13 | 13 | 0 |
+| Statistics | AP Statistics revised course framework (2026-27) | standard | read in part | webwork-opl | — | 89 | 89 | 0 |
 | Structures from Memory | Bruice, Organic Chemistry, 8th edition (table of contents) | textbook | read in part | iupac-aa-1983, ib-chemistry-2025, ib-biology-2025, icho-appendix-c, icho-syllabus, acs-accm, aamc-mcat-outline | — | 12 | 12 | 0 |
 | Swimming | World Aquatics swimming rules (with USA Swimming and USMS stroke rules) | rulebook | read in full | — | asca-certification | 88 | 0 | 88 |
-| Thermodynamics and Statistical Mechanics | Dill & Bromberg, Molecular Driving Forces 2e; Shell, Thermodynamics and Statistical Mechanics | textbook | read in full | fe-chemical, ib-physics-2025, icho-appendix-c, icho-syllabus, pe-chemical, gre-physics | — | 124 | 76 | 48 |
+| Thermodynamics and Statistical Mechanics | Dill & Bromberg, Molecular Driving Forces 2e; Shell, Thermodynamics and Statistical Mechanics | textbook | read in full | fe-chemical, ib-physics-2025, icho-appendix-c, icho-syllabus, pe-chemical, gre-physics, webwork-opl | — | 184 | 143 | 41 |
 | Wushu | IWUF Wushu Taolu Competition Rules and Judging Methods (2024) | rulebook | read through a crosswalk | — | duanwei | 88 | 0 | 88 |
 
 ### Notes
@@ -67,12 +69,13 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 - **Chemistry (AP)**: Objectives past Unit 2 are written from topic titles.
 - **Earth and Space Science**: Units follow the NGSS HS ESS disciplinary core ideas (ESS1 Earth's place in the universe, ESS2 Earth's systems, ESS3 Earth and human activity), read in part. Objectives and their order are ours.
 - **Applied Engineering Mathematics**: UCI CBE 200 publishes no syllabus. The undergraduate part is anchored to fe-chemical; series, Sturm–Liouville, PDEs and transforms are past any exam spec and stand on the book.
-- **Fluid Mechanics**: Topics from FE Chemical area 6, read in full. Objectives and their order are ours; statics is assumed by the spec rather than listed. The framework stops at what a one-question drill can carry: no Moody chart, pump curves or differential analysis yet.
+- **Fluid Mechanics**: Topics from FE Chemical area 6, read in full; units 7–10 extend past it on the WeBWorK OPL fluid-mechanics sections (read in full). Objectives and their order are ours; statics is assumed by the spec rather than listed.
 - **Heat Transfer**: Also crosswalked to the FE Mechanical spec and UCI MAE 120.
 - **INBDE (Dentistry)**: Units are the Domain of Dentistry's three clinical sections plus Foundation Knowledge area 3 (materials); objectives cite the clinical content area or FK they serve and are ours.
 - **Advanced Inorganic Chemistry (Cotton & Wilkinson)**: Units follow the chapters of Cotton & Wilkinson 6e (table of contents read); the objectives are a house list on those chapters.
 - **Inorganic Chemistry**: Units 1, 2 and 4 follow IChO Appendix D's factual-knowledge list (read in full); coordination and solids follow its preparation-only topics and the GRE inorganic area. Objectives and their order are ours.
-- **Linear Algebra**: Units follow the chapters of Lay's Linear Algebra and Its Applications (a textbook, not a standard). A published curriculum standard has not been looked for yet.
+- **Linear Algebra**: Units cover the six core-topic groups of the 2015 CUPM guide's first course in linear algebra (read through a summary, not the report's own pages), ordered by Lay's chapters. Unit 7 is second-course material by the guide's split. LACSG 2.0 is the newer standard and has not been read.
+- **Mass Transfer**: PE Chemical names mass transfer as one area with two lines (6.A fundamentals, 6.B applications). No published standard lists graduate mass transfer; the objectives are a house list on Bird, Stewart & Lightfoot's mass-transport chapters.
 - **Material and Energy Balances**: Topics from FE Chemical area 8, read in full. Objectives and their order are ours and follow the usual textbook sequence; unit 1 is assumed by the spec rather than listed.
 - **Polymers and Materials**: Polymer topics from IChO Appendix C (c22, a5), IB S2.4 and FE Chemical 4.D; a house list on those items.
 - **Mathematics K–8 (Common Core)**: Codes and wording checked against a state reprint; the CCSS site was blocked.
@@ -80,6 +83,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 - **Molecular Simulation**: No standard exists for this subject; triangulated from best-practice papers, textbooks and the Hayes group tutorial.
 - **NCLEX-RN**: Units are the test plan's eight Client Needs subcategories (with their weights); topics group its related-content items; the objectives are ours.
 - **Nuclear Science and Reactor Theory**: Reactor-theory units follow the NRC Generic Fundamentals Examination topic list (read in part). Nuclear physics and shielding follow the DOE fundamentals handbook's first module (read in part). Health-physics standards for the radiation-protection unit have not been looked at.
+- **Numerical Methods**: FE Chemical names numerical methods as one item (1.D) and the WeBWorK OPL names a few methods; no published standard lists a numerical-methods course, so the objectives are a house list on Chapra & Canale's part order.
 - **Organic Reactions: Predict the Product**: Families follow the reaction chapters of Bruice's Organic Chemistry (a textbook, not a standard; chapter titles 2-17 from memory). The reactions and substrates in each are a house list. Every product is mass-balanced against its reactant by the generator; regiochemistry and stereochemistry were checked by eye.
 - **Particle Physics**: Objectives follow AQA A-level Physics section 3.2 (Particles and radiation), read in this session. The Lorentz-factor items go beyond it and rest on a university textbook chapter.
 - **The Periodic Table from Memory**: Content from the IUPAC table (release note read; element list cross-checked in the verifier). Which parts to know by heart is a house decision from Kevin's organometallics course.
@@ -110,7 +114,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 - **Applied Engineering Mathematics**: textbook, read in full
 - **INBDE (Dentistry)**: exam-spec, read in part
 - **Advanced Inorganic Chemistry (Cotton & Wilkinson)**: textbook, read in part
-- **Linear Algebra**: textbook, read in part
+- **Linear Algebra**: standard, read in part; should move to Linear Algebra Curriculum Study Group 2.0 recommendations (Stewart, Axler, Beezer et al.)
 - **Mathematics K–8 (Common Core)**: standard, read through a crosswalk
 - **Molecular Simulation**: course, read in part
 - **NCLEX-RN**: exam-spec, read in part
@@ -140,8 +144,8 @@ https://ncees.org/wp-content/uploads/2022/09/FE-Che-CBT-specs.pdf
 | 1.A | Analytic geometry, logarithms, trigonometry | — | — | **nothing yet** |
 | 1.B | Calculus | 6 | 6 | engineering-math (6) |
 | 1.C | Differential equations | 66 | 66 | engineering-math (66) |
-| 1.D | Numerical methods | 17 | 17 | engineering-math (17) |
-| 1.E | Algebra, matrices, systems of equations | 11 | 11 | engineering-math (11) |
+| 1.D | Numerical methods | 34 | 34 | engineering-math (17), numerical-methods (17) |
+| 1.E | Algebra, matrices, systems of equations | 17 | 17 | engineering-math (11), numerical-methods (6) |
 | 1.F | Accuracy, precision, significant figures | — | — | **nothing yet** |
 | **2** | **Probability and Statistics** (4–6 questions) | | | |
 | 2.A | Probability distributions | 7 | 7 | thermodynamics (7) |
@@ -172,7 +176,7 @@ https://ncees.org/wp-content/uploads/2022/09/FE-Che-CBT-specs.pdf
 | 6.D | Bernoulli equation | 4 | 4 | fluid-mechanics (4) |
 | 6.E | Laminar and turbulent flow | 5 | 5 | fluid-mechanics (5) |
 | 6.F | Flow measurement | 4 | 4 | fluid-mechanics (4) |
-| 6.G | Pumps, turbines, compressors, vacuum systems | 5 | 5 | fluid-mechanics (5) |
+| 6.G | Pumps, turbines, compressors, vacuum systems | 9 | 9 | fluid-mechanics (9) |
 | 6.H | Compressible flow and non-Newtonian fluids | 4 | 4 | fluid-mechanics (4) |
 | **7** | **Thermodynamics** (8–12 questions) | | | |
 | 7.A | Properties of pure components and mixtures | 15 | 15 | physical-chemistry (4), thermodynamics (11) |
@@ -549,6 +553,805 @@ https://apcentral.collegeboard.org/courses/ap-statistics
 | 4 | Inference for Quantitative Data: Means | 2 | 2 | statistics (2) |
 | 5 | Regression Analysis | 2 | 2 | statistics (2) |
 
+## WeBWorK Open Problem Library taxonomy (Taxonomy2): subject, chapter and section
+
+https://github.com/openwebwork/webwork-open-problem-library/blob/main/OpenProblemLibrary/Taxonomy2
+
+678 of 678 items have at least one objective answering to them.
+
+| Item | Topic | Objectives | With a drill | Where |
+|---|---|---|---|---|
+| **CA1** | **Calculus - single variable: Limits and continuity** | | | |
+| CA1.1 | Motivational applications (estimation) | 1 | 1 | calculus (1) |
+| CA1.2 | Finding limits using graphs | 1 | 1 | calculus (1) |
+| CA1.3 | Rules of limits - basic | 1 | 1 | calculus (1) |
+| CA1.4 | Evaluating limits - factoring | 1 | 1 | calculus (1) |
+| CA1.5 | Evaluating limits - rationalizing | 1 | 1 | calculus (1) |
+| CA1.6 | Evaluating limits - rational expressions | 1 | 1 | calculus (1) |
+| CA1.7 | Evaluating limits - trigonometric | 1 | 1 | calculus (1) |
+| CA1.8 | Squeeze theorem | 1 | 1 | calculus (1) |
+| CA1.9 | One-sided limits - concept of | 1 | 1 | calculus (1) |
+| CA1.10 | Continuity - concept of | 2 | 2 | calculus (2) |
+| CA1.11 | Continuity - classifying discontinuities | 2 | 2 | calculus (2) |
+| CA1.12 | Continuity - intermediate value theorem | 1 | 1 | calculus (1) |
+| CA1.13 | Infinite limits and vertical asymptotes | 1 | 1 | calculus (1) |
+| CA1.14 | Limits at infinity, horizontal and oblique asymptotes | 1 | 1 | calculus (1) |
+| CA1.15 | Estimating limits numerically | 1 | 1 | calculus (1) |
+| CA1.16 | Applications - instantaneous rate of change | 1 | 1 | calculus (1) |
+| CA1.17 | Applications - tangent lines and slopes | 1 | 1 | calculus (1) |
+| CA1.18 | Applications - finding all asymptotes | 2 | 2 | calculus (2) |
+| CA1.19 | Applications - other | 1 | 1 | calculus (1) |
+| CA1.20 | Definitions and existence (conceptual) | 1 | 1 | calculus (1) |
+| **CA2** | **Calculus - single variable: Differentiation** | | | |
+| CA2.1 | Definition of the derivative | 1 | 1 | calculus (1) |
+| CA2.2 | Conceptual understanding of derivatives | 2 | 2 | calculus (2) |
+| CA2.3 | Derivatives of polynomials and power functions | 2 | 2 | calculus (2) |
+| CA2.4 | Product rule (without trigonometric functions) | 1 | 1 | calculus (1) |
+| CA2.5 | Product rule (with trigonometric functions) | 1 | 1 | calculus (1) |
+| CA2.6 | Quotient rule (without trigonometric functions) | 1 | 1 | calculus (1) |
+| CA2.7 | Quotient rule (with trigonometric functions) | 2 | 2 | calculus (2) |
+| CA2.8 | Derivatives of trigonometric functions | 2 | 2 | calculus (2) |
+| CA2.9 | Derivatives of exponential functions | 1 | 1 | calculus (1) |
+| CA2.10 | Derivatives of logarithmic functions | 1 | 1 | calculus (1) |
+| CA2.11 | Derivatives of inverse functions | 1 | 1 | calculus (1) |
+| CA2.12 | Derivatives of inverse trigonometric functions | 1 | 1 | calculus (1) |
+| CA2.13 | Hyperbolic functions | 2 | 2 | calculus (2) |
+| CA2.14 | Derivatives of hyperbolic functions | 1 | 1 | calculus (1) |
+| CA2.15 | Chain rule (without trigonometric functions) | 1 | 1 | calculus (1) |
+| CA2.16 | Chain rule (with trigonometric functions) | 1 | 1 | calculus (1) |
+| CA2.17 | Higher-order derivatives | 1 | 1 | calculus (1) |
+| CA2.18 | Derivatives involving multiple rules (no product, quotient, or chain rule) | 1 | 1 | calculus (1) |
+| CA2.19 | Derivatives involving multiple rules (no chain rule) | 1 | 1 | calculus (1) |
+| CA2.20 | Derivatives involving multiple rules (all rules) | 1 | 1 | calculus (1) |
+| CA2.21 | Logarithmic differentiation | 1 | 1 | calculus (1) |
+| CA2.22 | Implicit differentiation | 1 | 1 | calculus (1) |
+| **CA3** | **Calculus - single variable: Applications of differentiation** | | | |
+| CA3.1 | Mean value theorem | 1 | 1 | calculus (1) |
+| CA3.2 | Rates of change - general | 1 | 1 | calculus (1) |
+| CA3.3 | Rates of change - business and economics | 1 | 1 | calculus (1) |
+| CA3.4 | Rates of change - engineering and physics | 1 | 1 | calculus (1) |
+| CA3.5 | Rates of change - natural and social sciences | 1 | 1 | calculus (1) |
+| CA3.6 | Increasing/decreasing functions and local extrema | 2 | 2 | calculus (2) |
+| CA3.7 | Concavity and points of inflection | 2 | 2 | calculus (2) |
+| CA3.8 | Global extrema | 2 | 2 | calculus (2) |
+| CA3.9 | Summary of curve sketching | 2 | 2 | calculus (2) |
+| CA3.10 | Optimization - general | 2 | 2 | calculus (2) |
+| CA3.11 | Optimization - business and economics | 8 | 8 | calculus (8) |
+| CA3.12 | Optimization - engineering and physics | 1 | 1 | calculus (1) |
+| CA3.13 | Optimization - natural and social sciences | 8 | 8 | calculus (8) |
+| CA3.14 | Linear approximation and differentials | 2 | 2 | calculus (2) |
+| CA3.15 | Related rates | 2 | 2 | calculus (2) |
+| CA3.16 | Indeterminate forms and L'Hopital's rule | 2 | 2 | calculus (2) |
+| CA3.17 | Newton's method | 5 | 5 | numerical-methods (5) |
+| CA3.18 | Elasticity of demand | 8 | 8 | calculus (8) |
+| **CA4** | **Calculus - single variable: Integrals** | | | |
+| CA4.1 | Conceptual understanding of integration | 1 | 1 | calculus (1) |
+| CA4.2 | Antiderivatives (without trigonometric functions) | 1 | 1 | calculus (1) |
+| CA4.3 | Antiderivatives (with trigonometric functions) | 1 | 1 | calculus (1) |
+| CA4.4 | Indefinite integrals (without trigonometric functions) | 1 | 1 | calculus (1) |
+| CA4.5 | Indefinite integrals (with trigonometric functions) | 1 | 1 | calculus (1) |
+| CA4.6 | Riemann sums | 3 | 3 | calculus (3) |
+| CA4.7 | Definite integrals (without trigonometric functions) | 2 | 2 | calculus (2) |
+| CA4.8 | Definite integrals (with trigonometric functions) | 1 | 1 | calculus (1) |
+| CA4.9 | Fundamental theorem of calculus | 2 | 2 | calculus (2) |
+| CA4.10 | Improper integrals | 1 | 1 | calculus (1) |
+| **CA5** | **Calculus - single variable: Techniques of integration** | | | |
+| CA5.1 | Substitution (without trigonometric functions) | 2 | 2 | calculus (1), engineering-math (1) |
+| CA5.2 | Substitution (with trigonometric functions) | 1 | 1 | calculus (1) |
+| CA5.3 | Integration by parts (without trigonometric functions) | 2 | 2 | calculus (1), engineering-math (1) |
+| CA5.4 | Integration by parts (with trigonometric functions) | 1 | 1 | calculus (1) |
+| CA5.5 | Trigonometric integrals | 9 | 9 | calculus (9) |
+| CA5.6 | Hyperbolic functions | 1 | 1 | calculus (1) |
+| CA5.7 | Partial fractions | 3 | 3 | calculus (2), engineering-math (1) |
+| CA5.8 | Trigonometric substitution | 9 | 9 | calculus (9) |
+| CA5.9 | Tables of integrals | 1 | 1 | calculus (1) |
+| CA5.10 | Computer algebra system | 9 | 9 | calculus (9) |
+| CA5.11 | Mixed techniques | 1 | 1 | calculus (1) |
+| CA5.12 | Challenging integrals | 1 | 1 | calculus (1) |
+| CA5.13 | Approximation | 10 | 10 | calculus (1), numerical-methods (9) |
+| **CA6** | **Calculus - single variable: Applications of integration** | | | |
+| CA6.1 | Average value of a function | 1 | 1 | calculus (1) |
+| CA6.2 | Areas between curves | 3 | 3 | calculus (3) |
+| CA6.3 | Volumes by slices | 2 | 2 | calculus (2) |
+| CA6.4 | Volumes by disks | 2 | 2 | calculus (2) |
+| CA6.5 | Volumes by washers | 2 | 2 | calculus (2) |
+| CA6.6 | Volumes by cylindrical shells | 1 | 1 | calculus (1) |
+| CA6.7 | Volumes by multiple methods | 1 | 1 | calculus (1) |
+| CA6.8 | Arc length | 1 | 1 | calculus (1) |
+| CA6.9 | Surfaces of revolution | 1 | 1 | calculus (1) |
+| CA6.10 | Distance, velocity, acceleration | 1 | 1 | calculus (1) |
+| CA6.11 | Work | 1 | 1 | calculus (1) |
+| CA6.12 | Hydrostatic pressure | 1 | 1 | calculus (1) |
+| CA6.13 | Center of gravity | 1 | 1 | calculus (1) |
+| CA6.14 | Other physics and engineering applications | 1 | 1 | calculus (1) |
+| CA6.15 | Economics | 1 | 1 | calculus (1) |
+| CA6.16 | Biology | 1 | 1 | calculus (1) |
+| CA6.17 | Probability and statistics | 1 | 1 | calculus (1) |
+| **CA7** | **Calculus - single variable: Infinite sequences and series** | | | |
+| CA7.1 | Limit of a sequence | 10 | 10 | calculus (10) |
+| CA7.2 | Series notation | 1 | 1 | calculus (1) |
+| CA7.3 | Partial sums | 1 | 1 | calculus (1) |
+| CA7.4 | Taylor polynomials | 1 | 1 | calculus (1) |
+| CA7.5 | Geometric | 1 | 1 | calculus (1) |
+| CA7.6 | Test for divergence | 1 | 1 | calculus (1) |
+| CA7.7 | Comparison tests | 1 | 1 | calculus (1) |
+| CA7.8 | Integral test | 2 | 2 | calculus (2) |
+| CA7.9 | Ratio test | 1 | 1 | calculus (1) |
+| CA7.10 | Root test | 10 | 10 | calculus (10) |
+| CA7.11 | Alternating series test | 2 | 2 | calculus (2) |
+| CA7.12 | Absolute and conditional convergence | 1 | 1 | calculus (1) |
+| CA7.13 | Strategy for testing series | 10 | 10 | calculus (10) |
+| CA7.14 | Interval of convergence of a power series | 1 | 1 | calculus (1) |
+| CA7.15 | Maclaurin series | 1 | 1 | calculus (1) |
+| CA7.16 | Taylor series | 2 | 2 | calculus (2) |
+| CA7.17 | Power series | 2 | 2 | calculus (2) |
+| CA7.18 | Representations of functions as series | 1 | 1 | calculus (1) |
+| CA7.19 | Applications of Taylor polynomials | 1 | 1 | calculus (1) |
+| CA7.20 | Fourier series | 3 | 3 | engineering-math (3) |
+| **CA8** | **Calculus - single variable: Parametric** | | | |
+| CA8.1 | Curves | 1 | 1 | calculus (1) |
+| CA8.2 | Eliminating the parameter | 1 | 1 | calculus (1) |
+| CA8.3 | Tangents, velocity, and speed | 2 | 2 | calculus (2) |
+| CA8.4 | Higher order derivatives | 1 | 1 | calculus (1) |
+| CA8.5 | Arc length | 1 | 1 | calculus (1) |
+| CA8.6 | Area | 1 | 1 | calculus (1) |
+| CA8.7 | Volumes of revolution | 1 | 1 | calculus (1) |
+| CA8.8 | Surface area of surfaces of revolution | 1 | 1 | calculus (1) |
+| **CA9** | **Calculus - single variable: Polar** | | | |
+| CA9.5 | Tangents | 1 | 1 | calculus (1) |
+| CA9.6 | Area | 2 | 2 | calculus (2) |
+| CA9.7 | Arc length | 1 | 1 | calculus (1) |
+| CA9.8 | Other applications | 1 | 1 | calculus (1) |
+| **MV2** | **Calculus - multivariable: Calculus of vector valued functions** | | | |
+| MV2.1 | Parameterized curves | 1 | 1 | calculus (1) |
+| MV2.2 | Limits and continuity | 1 | 1 | calculus (1) |
+| MV2.3 | Derivatives | 1 | 1 | calculus (1) |
+| MV2.4 | Integrals | 1 | 1 | calculus (1) |
+| MV2.5 | Arc length and curvature | 1 | 1 | calculus (1) |
+| MV2.6 | Frames, motions, and other applications | 1 | 1 | calculus (1) |
+| **MV3** | **Calculus - multivariable: Concepts for multivariable functions** | | | |
+| MV3.1 | Notation, domain, and range | 1 | 1 | calculus (1) |
+| MV3.2 | Surfaces | 1 | 1 | calculus (1) |
+| MV3.3 | Quadratic surfaces | 1 | 1 | calculus (1) |
+| MV3.4 | Surfaces in other coordinate systems | 2 | 2 | calculus (2) |
+| MV3.5 | Parameterized surfaces | 1 | 1 | calculus (1) |
+| MV3.6 | Traces, contours, and level sets | 1 | 1 | calculus (1) |
+| **MV4** | **Calculus - multivariable: Differentiation of multivariable functions** | | | |
+| MV4.1 | Limits and continuity | 1 | 1 | calculus (1) |
+| MV4.2 | Partial derivatives | 2 | 2 | calculus (2) |
+| MV4.3 | Chain rule | 2 | 2 | calculus (2) |
+| MV4.4 | Differentiability, linearization and tangent planes | 1 | 1 | calculus (1) |
+| MV4.5 | Directional derivatives and the gradient | 2 | 2 | calculus (2) |
+| MV4.6 | Extreme values and optimization | 2 | 2 | calculus (2) |
+| MV4.7 | Lagrange multipliers and constrained optimization | 1 | 1 | calculus (1) |
+| **MV5** | **Calculus - multivariable: Integration of multivariable functions** | | | |
+| MV5.1 | Double integrals over rectangles | 1 | 1 | calculus (1) |
+| MV5.2 | Iterated integrals and Fubini's theorem | 1 | 1 | calculus (1) |
+| MV5.3 | Double integrals over general regions | 2 | 2 | calculus (2) |
+| MV5.4 | Double integrals in polar | 1 | 1 | calculus (1) |
+| MV5.5 | Triple integrals | 1 | 1 | calculus (1) |
+| MV5.6 | Change of variable | 1 | 1 | calculus (1) |
+| MV5.7 | Triple integrals in cylindrical and spherical | 2 | 2 | calculus (2) |
+| MV5.8 | Applications of double integrals | 1 | 1 | calculus (1) |
+| MV5.9 | Applications of triple integrals | 1 | 1 | calculus (1) |
+| **MV6** | **Calculus - multivariable: Vector fields** | | | |
+| MV6.1 | Graphs, flows lines, and level surfaces | 1 | 1 | calculus (1) |
+| MV6.2 | Identifying extrema from graphs | 1 | 1 | calculus (1) |
+| **MV7** | **Calculus - multivariable: Vector calculus** | | | |
+| MV7.1 | Derivatives | 1 | 1 | calculus (1) |
+| MV7.2 | Line integrals | 2 | 2 | calculus (2) |
+| MV7.3 | Conservative vector fields | 2 | 2 | calculus (2) |
+| MV7.4 | Applications of line integrals | 1 | 1 | calculus (1) |
+| MV7.5 | Curl and divergence | 2 | 2 | calculus (2) |
+| MV7.6 | Surface integrals of scalar fields | 1 | 1 | calculus (1) |
+| MV7.7 | Surface integrals of vector fields | 1 | 1 | calculus (1) |
+| **MV8** | **Calculus - multivariable: Fundamental theorems** | | | |
+| MV8.1 | Line integrals | 1 | 1 | calculus (1) |
+| MV8.2 | Green's theorem | 1 | 1 | calculus (1) |
+| MV8.3 | Stokes' theorem | 1 | 1 | calculus (1) |
+| MV8.4 | Divergence theorem | 1 | 1 | calculus (1) |
+| **DE1** | **Differential equations: Introductory concepts** | | | |
+| DE1.1 | Verification of solutions | 2 | 2 | calculus (1), engineering-math (1) |
+| DE1.2 | Classifications of differential equations | 2 | 2 | engineering-math (2) |
+| **DE2** | **Differential equations: First order differential equations** | | | |
+| DE2.1 | Linear | 2 | 2 | engineering-math (2) |
+| DE2.2 | Exact | 2 | 2 | engineering-math (2) |
+| DE2.3 | Separable | 3 | 3 | calculus (2), engineering-math (1) |
+| DE2.4 | Substitutions | 2 | 2 | engineering-math (2) |
+| DE2.5 | Equilibrium points and phase lines | 1 | 1 | engineering-math (1) |
+| DE2.6 | Applications - exponential growth & decay | 2 | 2 | calculus (1), engineering-math (1) |
+| DE2.7 | Applications - logistic | 2 | 2 | calculus (1), engineering-math (1) |
+| DE2.8 | Applications - mixing problems | 1 | 1 | engineering-math (1) |
+| DE2.9 | Applications - circuits | 6 | 6 | engineering-math (6) |
+| DE2.10 | Applications - Newton's law of cooling | 1 | 1 | engineering-math (1) |
+| DE2.11 | Applications - other | 1 | 1 | calculus (1) |
+| DE2.12 | Direction fields | 3 | 3 | calculus (2), engineering-math (1) |
+| DE2.13 | Integrating factor | 2 | 2 | engineering-math (2) |
+| DE2.14 | Bifurcations | 6 | 6 | engineering-math (6) |
+| DE2.15 | Existence and uniqueness | 1 | 1 | engineering-math (1) |
+| **DE3** | **Differential equations: Higher order differential equations** | | | |
+| DE3.1 | Reduction of order | 1 | 1 | engineering-math (1) |
+| DE3.2 | Applications | 3 | 3 | engineering-math (3) |
+| DE3.3 | Linear, constant coefficients, homogeneous | 2 | 2 | engineering-math (2) |
+| DE3.4 | Linear, constant coefficients, homogeneous (distinct real roots) | 1 | 1 | engineering-math (1) |
+| DE3.5 | Linear, constant coefficients, homogeneous (repeated roots) | 1 | 1 | engineering-math (1) |
+| DE3.6 | Linear, constant coefficients, homogeneous (complex roots) | 2 | 2 | engineering-math (2) |
+| DE3.7 | Euler equations | 2 | 2 | engineering-math (2) |
+| DE3.8 | Undetermined coefficients | 2 | 2 | engineering-math (2) |
+| DE3.9 | Variation of parameters | 1 | 1 | engineering-math (1) |
+| DE3.10 | Boundary value problems | 1 | 1 | engineering-math (1) |
+| DE3.11 | Linear independence | 2 | 2 | engineering-math (2) |
+| DE3.12 | Differential operators | 6 | 6 | engineering-math (6) |
+| DE3.13 | Existence and uniqueness | 1 | 1 | engineering-math (1) |
+| **DE4** | **Differential equations: Laplace transforms** | | | |
+| DE4.1 | Applications and solving differential equations | 2 | 2 | engineering-math (2) |
+| DE4.2 | Basic transformations | 1 | 1 | engineering-math (1) |
+| DE4.3 | Inverse transformations | 1 | 1 | engineering-math (1) |
+| DE4.4 | Convolutions | 3 | 3 | engineering-math (3) |
+| DE4.5 | Impulse functions | 1 | 1 | engineering-math (1) |
+| DE4.6 | Step functions | 2 | 2 | engineering-math (2) |
+| DE4.7 | Shift functions | 2 | 2 | engineering-math (2) |
+| **DE5** | **Differential equations: Systems of differential equations** | | | |
+| DE5.1 | Matrix notation for systems | 2 | 2 | engineering-math (2) |
+| DE5.2 | Verification of solutions | 1 | 1 | engineering-math (1) |
+| DE5.3 | Applications | 1 | 1 | engineering-math (1) |
+| DE5.4 | Distinct real eigenvalues | 2 | 2 | engineering-math (2) |
+| DE5.5 | Complex eigenvalues | 1 | 1 | engineering-math (1) |
+| DE5.6 | Repeated eigenvalues | 1 | 1 | engineering-math (1) |
+| DE5.7 | Reduction to first order systems | 1 | 1 | engineering-math (1) |
+| DE5.8 | Nonhomogeneous systems | 1 | 1 | engineering-math (1) |
+| DE5.9 | Phase planes | 3 | 3 | engineering-math (3) |
+| DE5.10 | Nonlinear systems | 2 | 2 | engineering-math (2) |
+| **DE6** | **Differential equations: Numerical methods** | | | |
+| DE6.1 | Euler | 7 | 7 | calculus (1), engineering-math (1), numerical-methods (5) |
+| DE6.2 | Runge-Kutta | 6 | 6 | numerical-methods (6) |
+| DE6.3 | Systems | 5 | 5 | numerical-methods (5) |
+| **DE7** | **Differential equations: Series solutions** | | | |
+| DE7.1 | Ordinary point | 3 | 3 | engineering-math (3) |
+| DE7.2 | Singular point | 4 | 4 | engineering-math (4) |
+| DE7.3 | Bessel functions | 2 | 2 | engineering-math (2) |
+| **DE8** | **Differential equations: Partial differential equations** | | | |
+| DE8.1 | Classification | 1 | 1 | engineering-math (1) |
+| DE8.2 | Verification of solutions | 1 | 1 | engineering-math (1) |
+| DE8.3 | Heat equation | 2 | 2 | engineering-math (2) |
+| DE8.4 | Wave equation | 2 | 2 | engineering-math (2) |
+| DE8.5 | Laplace's equation | 1 | 1 | engineering-math (1) |
+| DE8.6 | Other separable equations | 1 | 1 | engineering-math (1) |
+| DE8.7 | Fourier series | 2 | 2 | engineering-math (2) |
+| DE8.8 | Inhomogeneous equations | 1 | 1 | engineering-math (1) |
+| **LA1** | **Linear algebra: Systems of linear equations** | | | |
+| LA1.1 | Systems with 2 variables | 2 | 2 | linear-algebra (1), math-hs (1) |
+| LA1.2 | Systems with 3 variables | 1 | 1 | linear-algebra (1) |
+| LA1.3 | Systems with 4 or more variables | 1 | 1 | linear-algebra (1) |
+| LA1.4 | Matrix-vector forms | 2 | 2 | linear-algebra (1), math-hs (1) |
+| LA1.5 | Vector equations | 1 | 1 | linear-algebra (1) |
+| LA1.6 | Augmented matrices | 1 | 1 | linear-algebra (1) |
+| LA1.7 | Applications | 13 | 13 | linear-algebra (13) |
+| **LA2** | **Linear algebra: Matrices** | | | |
+| LA2.1 | Matrix algebra | 2 | 2 | linear-algebra (2) |
+| LA2.2 | Row operations | 2 | 2 | linear-algebra (2) |
+| LA2.3 | Echelon form | 1 | 1 | linear-algebra (1) |
+| LA2.4 | Rank | 1 | 1 | linear-algebra (1) |
+| LA2.5 | Transpose and trace | 1 | 1 | linear-algebra (1) |
+| LA2.6 | Inverses | 2 | 2 | linear-algebra (2) |
+| LA2.7 | Elementary matrices | 13 | 13 | linear-algebra (13) |
+| LA2.8 | Complex entries | 13 | 13 | linear-algebra (13) |
+| LA2.9 | Markov chains | 1 | 1 | linear-algebra (1) |
+| **LA3** | **Linear algebra: Matrix factorizations** | | | |
+| LA3.1 | Diagonalization | 1 | 1 | linear-algebra (1) |
+| LA3.2 | LU factorization | 2 | 2 | linear-algebra (2) |
+| LA3.3 | QR factorization | 1 | 1 | linear-algebra (1) |
+| LA3.4 | Singular value decomposition | 2 | 2 | linear-algebra (2) |
+| LA3.5 | Jordan form | 1 | 1 | linear-algebra (1) |
+| **LA4** | **Linear algebra: Euclidean spaces** | | | |
+| LA4.1 | Vectors | 1 | 1 | linear-algebra (1) |
+| LA4.2 | Linear combinations | 1 | 1 | linear-algebra (1) |
+| LA4.3 | Span | 1 | 1 | linear-algebra (1) |
+| LA4.4 | Linear independence | 1 | 1 | linear-algebra (1) |
+| LA4.5 | Subspaces | 1 | 1 | linear-algebra (1) |
+| LA4.6 | Basis and dimension | 1 | 1 | linear-algebra (1) |
+| LA4.7 | Row, column, and null spaces | 1 | 1 | linear-algebra (1) |
+| LA4.8 | Coordinate vectors and change of basis | 2 | 2 | linear-algebra (2) |
+| **LA6** | **Linear algebra: Abstract vector spaces** | | | |
+| LA6.1 | Definition and properties | 1 | 1 | linear-algebra (1) |
+| LA6.2 | Linear combinations | 1 | 1 | linear-algebra (1) |
+| LA6.3 | Span | 1 | 1 | linear-algebra (1) |
+| LA6.4 | Linear independence | 1 | 1 | linear-algebra (1) |
+| LA6.5 | Subspaces | 1 | 1 | linear-algebra (1) |
+| LA6.6 | Basis and dimension | 1 | 1 | linear-algebra (1) |
+| LA6.7 | Coordinate vectors and change of basis | 1 | 1 | linear-algebra (1) |
+| LA6.8 | Examples | 1 | 1 | linear-algebra (1) |
+| **LA7** | **Linear algebra: Eigenvalues and eigenvectors** | | | |
+| LA7.1 | Computing eigenvalues and eigenvectors | 1 | 1 | linear-algebra (1) |
+| LA7.2 | Properties | 2 | 2 | linear-algebra (2) |
+| LA7.3 | Complex eigenvalues and eigenvectors | 1 | 1 | linear-algebra (1) |
+| LA7.4 | Quadratic forms | 2 | 2 | linear-algebra (2) |
+| LA7.5 | Applications | 1 | 1 | linear-algebra (1) |
+| **LA8** | **Linear algebra: Inner products** | | | |
+| LA8.1 | Computing with dot products | 1 | 1 | linear-algebra (1) |
+| LA8.2 | Computing with inner products | 1 | 1 | linear-algebra (1) |
+| LA8.3 | Orthogonal and orthonormal sets | 1 | 1 | linear-algebra (1) |
+| LA8.4 | Projection and distance | 4 | 4 | linear-algebra (4) |
+| LA8.5 | Gram-Schmidt process | 1 | 1 | linear-algebra (1) |
+| LA8.6 | Orthogonal matrices | 1 | 1 | linear-algebra (1) |
+| LA8.7 | Applications | 1 | 1 | linear-algebra (1) |
+| **LA9** | **Linear algebra: Linear transformations** | | | |
+| LA9.1 | Properties | 1 | 1 | linear-algebra (1) |
+| LA9.2 | Evaluating linear transformations | 1 | 1 | linear-algebra (1) |
+| LA9.3 | Associated matrices | 2 | 2 | linear-algebra (2) |
+| LA9.4 | One-to-one and onto | 1 | 1 | linear-algebra (1) |
+| LA9.5 | Kernel and image | 1 | 1 | linear-algebra (1) |
+| LA9.6 | Inverses | 1 | 1 | linear-algebra (1) |
+| **LA10** | **Linear algebra: Determinants** | | | |
+| LA10.1 | Computing determinants | 1 | 1 | linear-algebra (1) |
+| LA10.2 | Properties | 2 | 2 | linear-algebra (2) |
+| LA10.3 | Applications | 1 | 1 | linear-algebra (1) |
+| **PB1** | **Probability: Sample Space** | | | |
+| PB1.1 | Outcomes & events | 1 | 1 | math-hs (1) |
+| PB1.2 | Probability: direct computation, inclusion/exclusion | 1 | 1 | statistics (1) |
+| PB1.3 | Conditional probability -- direct | 2 | 2 | math-hs (1), statistics (1) |
+| PB1.4 | Independence | 2 | 2 | math-hs (1), statistics (1) |
+| PB1.5 | Bayes theorem -- inverse probability | 2 | 2 | computer-science (1), math-hs (1) |
+| PB1.6 | Odds | 20 | 20 | statistics (20) |
+| **PB2** | **Probability: Random variables** | | | |
+| PB2.1 | Expectation | 2 | 2 | math-hs (1), statistics (1) |
+| PB2.2 | Variance, standard deviation | 1 | 1 | statistics (1) |
+| PB2.3 | Median, mode | 20 | 20 | statistics (20) |
+| PB2.4 | Discrete: probability mass function | 1 | 1 | math-hs (1) |
+| PB2.5 | Continuous: density function, cumulative distribution function | 20 | 20 | statistics (20) |
+| PB2.6 | Generating function | 1 | 1 | statistics (1) |
+| **PB3** | **Probability: Discrete distributions** | | | |
+| PB3.1 | Bernoulli | 1 | 1 | statistics (1) |
+| PB3.2 | Binomial | 1 | 1 | statistics (1) |
+| PB3.3 | Normal approximation to binomial | 1 | 1 | statistics (1) |
+| PB3.4 | Geometric | 1 | 1 | statistics (1) |
+| PB3.5 | Negative binomial | 1 | 1 | statistics (1) |
+| PB3.6 | Poisson | 1 | 1 | statistics (1) |
+| PB3.7 | Hypergeometric | 1 | 1 | statistics (1) |
+| PB3.8 | Multinomial | 1 | 1 | statistics (1) |
+| **PB4** | **Probability: Continuous distributions** | | | |
+| PB4.1 | Uniform | 1 | 1 | statistics (1) |
+| PB4.2 | Exponential | 1 | 1 | statistics (1) |
+| PB4.3 | Gaussian normal | 2 | 2 | math-hs (1), statistics (1) |
+| PB4.4 | Application of a normal distribution | 1 | 1 | statistics (1) |
+| PB4.5 | Weibull | 1 | 1 | statistics (1) |
+| PB4.6 | Gamma | 1 | 1 | statistics (1) |
+| PB4.7 | Other distribution | 1 | 1 | statistics (1) |
+| **PB5** | **Probability: Laws, theory** | | | |
+| PB5.1 | Chebychev's inequality | 1 | 1 | statistics (1) |
+| PB5.2 | Weak law of large numbers | 1 | 1 | statistics (1) |
+| PB5.3 | Central limit theorem | 1 | 1 | statistics (1) |
+| **PB6** | **Probability: Several variables** | | | |
+| PB6.1 | Joint distribution | 1 | 1 | statistics (1) |
+| PB6.2 | Marginal distributions | 1 | 1 | statistics (1) |
+| PB6.3 | Covariance & correlation | 1 | 1 | statistics (1) |
+| **PB7** | **Probability: Stochastic process** | | | |
+| PB7.1 | Markov chain | 1 | 1 | linear-algebra (1) |
+| PB7.2 | M/M/1 queue | 1 | 1 | statistics (1) |
+| **ST1** | **Statistics: Experimental design** | | | |
+| ST1.1 | Concepts | 2 | 2 | math-hs (1), statistics (1) |
+| **ST2** | **Statistics: Sample survey methods** | | | |
+| ST2.1 | Concepts | 2 | 2 | math-hs (2) |
+| ST2.2 | Ratio estimators | 6 | 6 | statistics (6) |
+| ST2.3 | Regression estimators | 6 | 6 | statistics (6) |
+| ST2.4 | Stratified sampling | 6 | 6 | statistics (6) |
+| ST2.5 | Cluster sampling | 1 | 1 | statistics (1) |
+| ST2.6 | Sampling bias | 1 | 1 | statistics (1) |
+| ST2.7 | Capture-recapture method | 1 | 1 | statistics (1) |
+| ST2.8 | Response bias | 1 | 1 | statistics (1) |
+| ST2.9 | Sampling for a proportion | 1 | 1 | statistics (1) |
+| **ST3** | **Statistics: Exploratory data analysis/descriptive statistics** | | | |
+| ST3.1 | Classifying data | 1 | 1 | math-hs (1) |
+| ST3.2 | Summary statistics | 2 | 2 | math-hs (1), statistics (1) |
+| ST3.3 | Graphical representations | 1 | 1 | math-hs (1) |
+| ST3.4 | Description of distributions | 1 | 1 | math-hs (1) |
+| ST3.5 | Summarizing data in tables | 1 | 1 | math-hs (1) |
+| **ST4** | **Statistics: Sampling distributions** | | | |
+| ST4.1 | Sample mean | 1 | 1 | statistics (1) |
+| ST4.2 | Sample proportion | 1 | 1 | statistics (1) |
+| ST4.3 | General | 1 | 1 | math-hs (1) |
+| ST4.4 | Simulation | 1 | 1 | math-hs (1) |
+| **ST5** | **Statistics: Confidence intervals** | | | |
+| ST5.1 | Concepts | 1 | 1 | statistics (1) |
+| ST5.2 | One sample mean - z | 17 | 17 | statistics (17) |
+| ST5.3 | One sample mean - t | 1 | 1 | statistics (1) |
+| ST5.4 | One sample proportion | 1 | 1 | statistics (1) |
+| ST5.5 | Two sample proportion | 17 | 17 | statistics (17) |
+| ST5.6 | Paired samples | 17 | 17 | statistics (17) |
+| ST5.7 | Independent samples - z | 1 | 1 | statistics (1) |
+| ST5.8 | Independent samples - t | 1 | 1 | statistics (1) |
+| ST5.9 | Variance | 1 | 1 | statistics (1) |
+| **ST6** | **Statistics: Hypothesis tests** | | | |
+| ST6.1 | Concepts | 1 | 1 | statistics (1) |
+| ST6.2 | One sample mean - z | 1 | 1 | statistics (1) |
+| ST6.3 | One sample mean - t | 1 | 1 | statistics (1) |
+| ST6.4 | One sample proportion | 1 | 1 | statistics (1) |
+| ST6.5 | Two sample proportion | 1 | 1 | statistics (1) |
+| ST6.6 | Paired samples | 1 | 1 | statistics (1) |
+| ST6.7 | Independent samples - z | 1 | 1 | statistics (1) |
+| ST6.8 | Independent samples - t | 1 | 1 | statistics (1) |
+| ST6.9 | Type I/type II errors and power | 1 | 1 | statistics (1) |
+| ST6.10 | One sample variance | 1 | 1 | statistics (1) |
+| ST6.11 | Chi-squared test for independence | 1 | 1 | statistics (1) |
+| ST6.12 | Chi-squared test for goodness of fit | 1 | 1 | statistics (1) |
+| ST6.13 | Fisher's exact test | 1 | 1 | statistics (1) |
+| ST6.14 | Two sample variances | 1 | 1 | statistics (1) |
+| ST6.15 | One-way ANOVA | 1 | 1 | statistics (1) |
+| ST6.16 | Multi-way ANOVA | 1 | 1 | statistics (1) |
+| **ST7** | **Statistics: Simple linear regression** | | | |
+| ST7.1 | Correlation | 1 | 1 | statistics (1) |
+| ST7.2 | Regression | 2 | 2 | math-hs (1), statistics (1) |
+| ST7.3 | Prediction | 1 | 1 | statistics (1) |
+| ST7.4 | Residuals | 1 | 1 | statistics (1) |
+| ST7.5 | Hypothesis tests | 1 | 1 | statistics (1) |
+| ST7.6 | Confidence intervals | 1 | 1 | statistics (1) |
+| ST7.7 | Diagnostics | 1 | 1 | statistics (1) |
+| **ST8** | **Statistics: Nonparametric methods** | | | |
+| ST8.1 | Sign test | 9 | 9 | statistics (9) |
+| ST8.2 | Rank sum test | 9 | 9 | statistics (9) |
+| ST8.3 | Signed rank test | 1 | 1 | statistics (1) |
+| ST8.4 | Runs test | 1 | 1 | statistics (1) |
+| ST8.5 | Kruskal-Wallis test | 1 | 1 | statistics (1) |
+| ST8.6 | Kolmogorov-Smirnov test | 1 | 1 | statistics (1) |
+| ST8.7 | Permutation/randomization methods | 1 | 1 | math-hs (1) |
+| ST8.8 | Confidence intervals | 1 | 1 | statistics (1) |
+| ST8.9 | Relative efficiency | 1 | 1 | statistics (1) |
+| **ST9** | **Statistics: Bayesian inference** | | | |
+| ST9.1 | Choice of prior | 1 | 1 | statistics (1) |
+| ST9.2 | Improper priors | 1 | 1 | statistics (1) |
+| ST9.3 | Posterior distribution | 1 | 1 | statistics (1) |
+| ST9.4 | Credibility intervals | 1 | 1 | statistics (1) |
+| ST9.5 | Hypothesis tests | 1 | 1 | statistics (1) |
+| **ST10** | **Statistics: Time series** | | | |
+| ST10.1 | Descriptive methods | 8 | 8 | statistics (8) |
+| ST10.2 | Autocorrelation | 8 | 8 | statistics (8) |
+| ST10.3 | Runs test | 17 | 17 | statistics (17) |
+| ST10.4 | Seasonal variation | 1 | 1 | statistics (1) |
+| ST10.5 | ARIMA models | 1 | 1 | statistics (1) |
+| ST10.6 | Forecasting | 1 | 1 | statistics (1) |
+| ST10.7 | Frequency domain | 1 | 1 | statistics (1) |
+| **ST11** | **Statistics: Point estimation** | | | |
+| ST11.1 | Biasedness | 10 | 10 | statistics (10) |
+| ST11.2 | Consistency | 10 | 10 | statistics (10) |
+| ST11.3 | Sufficiency | 10 | 10 | statistics (10) |
+| ST11.4 | Maximum likelihood estimation | 1 | 1 | statistics (1) |
+| **ST12** | **Statistics: Multiple regression** | | | |
+| ST12.1 | Nonlinear regression | 13 | 13 | statistics (13) |
+| ST12.2 | Indicator variables | 13 | 13 | statistics (13) |
+| ST12.3 | Parameter estimates | 13 | 13 | statistics (13) |
+| ST12.4 | Confidence intervals | 1 | 1 | statistics (1) |
+| ST12.5 | Hypothesis tests | 2 | 2 | statistics (2) |
+| ST12.6 | Multiple selection | 1 | 1 | statistics (1) |
+| ST12.7 | Model selection | 1 | 1 | statistics (1) |
+| **ST13** | **Statistics: Generalized linear methods** | | | |
+| ST13.1 | Logistic regression | 1 | 1 | statistics (1) |
+| ST13.2 | Loglinear for contingency tables | 1 | 1 | statistics (1) |
+| ST13.3 | Ordinal regression | 1 | 1 | statistics (1) |
+| **CX1** | **Complex analysis: Arithmetic** | | | |
+| CX1.1 | Conversion to a + bi form | 1 | 1 | engineering-math (1) |
+| CX1.2 | Addition/subtraction | 1 | 1 | engineering-math (1) |
+| CX1.3 | Multiplication | 1 | 1 | engineering-math (1) |
+| CX1.4 | Complex conjugates | 1 | 1 | engineering-math (1) |
+| CX1.5 | Division | 1 | 1 | engineering-math (1) |
+| CX1.6 | Multiple operations | 1 | 1 | engineering-math (1) |
+| CX1.7 | Modulus/norm | 1 | 1 | engineering-math (1) |
+| CX1.8 | Conversion to/from polar form | 1 | 1 | engineering-math (1) |
+| CX1.9 | Powers and roots | 2 | 2 | calculus (1), engineering-math (1) |
+| **CX2** | **Complex analysis: Complex equations** | | | |
+| CX2.1 | Linear | 15 | 15 | engineering-math (15) |
+| CX2.2 | Quadratic | 2 | 2 | calculus (1), engineering-math (1) |
+| CX2.3 | Non-linear | 15 | 15 | engineering-math (15) |
+| **CX3** | **Complex analysis: Complex plane** | | | |
+| CX3.1 | Regions and domains | 15 | 15 | engineering-math (15) |
+| **CX4** | **Complex analysis: Complex functions** | | | |
+| CX4.1 | Complex functions as mappings | 1 | 1 | engineering-math (1) |
+| CX4.2 | Limits | 1 | 1 | engineering-math (1) |
+| **CX5** | **Complex analysis: Analytic functions** | | | |
+| CX5.1 | Differentiability and analyticity | 1 | 1 | engineering-math (1) |
+| CX5.2 | Harmonic functions | 1 | 1 | engineering-math (1) |
+| CX5.3 | Entire functions | 1 | 1 | engineering-math (1) |
+| CX5.4 | Applications | 1 | 1 | engineering-math (1) |
+| **CX6** | **Complex analysis: Elementary functions** | | | |
+| CX6.1 | Exponential function | 1 | 1 | calculus (1) |
+| **CX7** | **Complex analysis: Integration in the complex plane** | | | |
+| CX7.1 | Cauchy's theorem | 1 | 1 | engineering-math (1) |
+| **CX8** | **Complex analysis: Series and residues** | | | |
+| CX8.1 | Sequences | 1 | 1 | engineering-math (1) |
+| CX8.2 | Taylor series | 1 | 1 | engineering-math (1) |
+| CX8.3 | Laurent series | 1 | 1 | engineering-math (1) |
+| CX8.4 | Zeroes and poles | 1 | 1 | engineering-math (1) |
+| CX8.5 | Residues | 2 | 2 | engineering-math (2) |
+| **TH1** | **Thermodynamics: Definitions** | | | |
+| TH1.2 | Systems | 1 | 1 | physics (1) |
+| TH1.5 | Chemical composition | 1 | 1 | material-balances (1) |
+| TH1.6 | Specific volume and density | 1 | 1 | fluid-mechanics (1) |
+| TH1.7 | Equilibrium | 1 | 1 | thermodynamics (1) |
+| TH1.8 | Energy | 1 | 1 | physics (1) |
+| TH1.9 | Internal energy | 1 | 1 | physical-chemistry (1) |
+| TH1.10 | Enthalpy | 2 | 2 | physical-chemistry (2) |
+| TH1.11 | Work: mechanical | 1 | 1 | physical-chemistry (1) |
+| TH1.12 | Work: boundary | 3 | 3 | physical-chemistry (2), thermodynamics (1) |
+| TH1.13 | Work: shaft | 1 | 1 | thermodynamics (1) |
+| TH1.14 | Work: spring | 12 | 12 | thermodynamics (12) |
+| TH1.15 | Work: electrical | 12 | 12 | thermodynamics (12) |
+| **TH2** | **Thermodynamics: Properties** | | | |
+| TH2.1 | Gibbs phase rule | 2 | 2 | physical-chemistry (1), thermodynamics (1) |
+| TH2.2 | Phase diagrams | 1 | 1 | thermodynamics (1) |
+| TH2.3 | Pure substances: solids | 1 | 1 | thermodynamics (1) |
+| TH2.4 | Pure substances: compressed liquid | 1 | 1 | thermodynamics (1) |
+| TH2.5 | Pure substances: saturated liquid | 1 | 1 | thermodynamics (1) |
+| TH2.6 | Pure substances: two-phase mixture | 1 | 1 | thermodynamics (1) |
+| TH2.7 | Pure substances: saturated vapour | 1 | 1 | thermodynamics (1) |
+| TH2.8 | Pure substances: superheated vapour | 1 | 1 | thermodynamics (1) |
+| TH2.9 | Pure substances: phase change processes | 3 | 3 | material-balances (1), thermodynamics (2) |
+| TH2.10 | Specific heat: cv | 2 | 2 | physical-chemistry (1), thermodynamics (1) |
+| TH2.11 | Specific heat: cp | 1 | 1 | physical-chemistry (1) |
+| TH2.12 | Ideal gas: ideal gas law | 1 | 1 | physical-chemistry (1) |
+| TH2.13 | Ideal gas: change in internal energy | 1 | 1 | thermodynamics (1) |
+| TH2.14 | Ideal gas: change in enthalpy | 1 | 1 | physical-chemistry (1) |
+| TH2.15 | Compressibility factor | 2 | 2 | physical-chemistry (1), thermodynamics (1) |
+| TH2.16 | Polytropic process | 12 | 12 | thermodynamics (12) |
+| TH2.17 | Incompressible substance: change in internal energy | 1 | 1 | thermodynamics (1) |
+| TH2.18 | Incompressible substance: change in enthalpy | 1 | 1 | thermodynamics (1) |
+| **TH3** | **Thermodynamics: First law: closed systems** | | | |
+| TH3.1 | First law: closed systems | 5 | 5 | physics (1), thermodynamics (4) |
+| **TH4** | **Thermodynamics: Continuity: open systems** | | | |
+| TH4.1 | Mass and volume flow rate | 1 | 1 | material-balances (1) |
+| TH4.2 | Steady-state | 1 | 1 | material-balances (1) |
+| TH4.3 | Transient | 1 | 1 | material-balances (1) |
+| **TH5** | **Thermodynamics: First law: open systems** | | | |
+| TH5.1 | Flow work | 12 | 12 | thermodynamics (12) |
+| TH5.2 | Steady-state | 1 | 1 | thermodynamics (1) |
+| TH5.3 | Transient | 1 | 1 | material-balances (1) |
+| TH5.4 | Steady flow devices: nozzles and diffusers | 1 | 1 | thermodynamics (1) |
+| TH5.5 | Steady flow devices: turbines | 1 | 1 | thermodynamics (1) |
+| TH5.6 | Steady flow devices: compressors and pumps | 2 | 2 | fluid-mechanics (1), thermodynamics (1) |
+| TH5.7 | Steady flow devices: heat exchangers | 1 | 1 | heat-transfer (1) |
+| TH5.8 | Steady flow devices: throttling devices | 1 | 1 | thermodynamics (1) |
+| TH5.9 | Steady flow devices: mixing chambers | 1 | 1 | material-balances (1) |
+| TH5.10 | Steady flow devices: multiple devices | 12 | 12 | thermodynamics (12) |
+| **TH6** | **Thermodynamics: Second law** | | | |
+| TH6.1 | Efficiency and coefficient of performance | 2 | 2 | physics (1), thermodynamics (1) |
+| TH6.2 | Kelvin-Planck statement | 12 | 12 | thermodynamics (12) |
+| TH6.3 | Clausius statement | 1 | 1 | thermodynamics (1) |
+| TH6.4 | Reversible and irreversible process | 1 | 1 | thermodynamics (1) |
+| TH6.5 | Carnot corollaries | 1 | 1 | thermodynamics (1) |
+| TH6.6 | Carnot cycle: heat engine | 2 | 2 | physical-chemistry (1), thermodynamics (1) |
+| TH6.7 | Carnot cycle: refrigeration and heat pump | 1 | 1 | thermodynamics (1) |
+| TH6.8 | Thermodynamic temperature scale | 1 | 1 | thermodynamics (1) |
+| **TH7** | **Thermodynamics: Entropy** | | | |
+| TH7.1 | Property diagrams involving entropy | 1 | 1 | thermodynamics (1) |
+| TH7.2 | Pure substance: solids | 1 | 1 | thermodynamics (1) |
+| TH7.3 | Pure substance: compressed liquid | 1 | 1 | thermodynamics (1) |
+| TH7.4 | Pure substance: saturated liquid | 1 | 1 | thermodynamics (1) |
+| TH7.5 | Pure substance: two-phase mixture | 1 | 1 | thermodynamics (1) |
+| TH7.6 | Pure substance: saturated vapour | 1 | 1 | thermodynamics (1) |
+| TH7.7 | Pure substance: superheated vapour | 1 | 1 | thermodynamics (1) |
+| TH7.8 | Pure substance: phase change processes | 2 | 2 | physical-chemistry (1), thermodynamics (1) |
+| TH7.9 | T dS equations | 1 | 1 | thermodynamics (1) |
+| TH7.10 | Ideal gas: change in entropy | 2 | 2 | physical-chemistry (2) |
+| TH7.11 | Incompressible substance: change in entropy | 1 | 1 | thermodynamics (1) |
+| TH7.12 | Internally reversible processes | 1 | 1 | thermodynamics (1) |
+| TH7.13 | Directionality of processes | 1 | 1 | thermodynamics (1) |
+| TH7.14 | Entropy balance: closed systems | 1 | 1 | thermodynamics (1) |
+| TH7.15 | Entropy balance: open systems | 1 | 1 | thermodynamics (1) |
+| TH7.16 | Isentropic processes | 2 | 2 | physical-chemistry (1), thermodynamics (1) |
+| TH7.17 | Isentropic efficiencies | 1 | 1 | thermodynamics (1) |
+| TH7.18 | Entropy of mixing and solution | 1 | 1 | thermodynamics (1) |
+| **TH8** | **Thermodynamics: Exergy** | | | |
+| TH8.1 | Exergy of a system | 1 | 1 | thermodynamics (1) |
+| TH8.2 | Exergy transfer by heat, work and mass | 1 | 1 | thermodynamics (1) |
+| TH8.3 | Exergy balance: closed system | 1 | 1 | thermodynamics (1) |
+| TH8.4 | Exergy balance: open system | 1 | 1 | thermodynamics (1) |
+| TH8.5 | Exergetic efficiency | 1 | 1 | thermodynamics (1) |
+| TH8.6 | Thermoeconomics | 1 | 1 | thermodynamics (1) |
+| **TH9** | **Thermodynamics: Vapour power cycles** | | | |
+| TH9.1 | Rankine cycle | 1 | 1 | thermodynamics (1) |
+| TH9.2 | Rankine cycle: superheat, reheat and supercritical | 1 | 1 | thermodynamics (1) |
+| TH9.3 | Rankine cycle: regeneration | 1 | 1 | thermodynamics (1) |
+| **TH10** | **Thermodynamics: Gas power cycles** | | | |
+| TH10.1 | Otto cycle: air standard | 14 | 14 | thermodynamics (14) |
+| TH10.2 | Diesel cycle: air standard | 14 | 14 | thermodynamics (14) |
+| TH10.3 | Dual cycle: air standard | 14 | 14 | thermodynamics (14) |
+| TH10.4 | Stirling and Ericsson cycles | 1 | 1 | thermodynamics (1) |
+| TH10.5 | Brayton cycle: air standard | 1 | 1 | thermodynamics (1) |
+| TH10.6 | Brayton cycle: regeneration | 1 | 1 | thermodynamics (1) |
+| TH10.7 | Brayton cycle: regeneration, reheat and intercooling | 1 | 1 | thermodynamics (1) |
+| TH10.8 | Combined gas-vapour cycles | 1 | 1 | thermodynamics (1) |
+| TH10.9 | Aircraft turbine engines | 1 | 1 | thermodynamics (1) |
+| **TH11** | **Thermodynamics: Refrigeration and heat pump cycles** | | | |
+| TH11.1 | Vapour refrigeration and heat pump cycles | 1 | 1 | thermodynamics (1) |
+| TH11.2 | Gas refrigeration cycles | 1 | 1 | thermodynamics (1) |
+| **TH12** | **Thermodynamics: Ideal gas mixtures and psychrometrics** | | | |
+| TH12.1 | Describing mixture composition | 1 | 1 | material-balances (1) |
+| TH12.2 | Pressure, specific volume, temperature | 1 | 1 | physical-chemistry (1) |
+| TH12.3 | Internal energy, enthalpy, entropy | 1 | 1 | thermodynamics (1) |
+| TH12.4 | Wet-bulb and dry-bulb temperatures | 1 | 1 | thermodynamics (1) |
+| TH12.5 | Specific and relative humidity of air | 1 | 1 | separations (1) |
+| TH12.6 | Dew point temperature | 1 | 1 | thermodynamics (1) |
+| TH12.7 | Psychrometric chart | 1 | 1 | thermodynamics (1) |
+| TH12.8 | Air conditioning process: mass and energy balance | 1 | 1 | thermodynamics (1) |
+| TH12.9 | Air conditioning process: conditioning moist air at constant composition | 1 | 1 | thermodynamics (1) |
+| TH12.10 | Air conditioning process: dehumidification | 9 | 9 | thermodynamics (9) |
+| TH12.11 | Air conditioning process: humidification | 9 | 9 | thermodynamics (9) |
+| TH12.12 | Air conditioning process: evaporative cooling | 9 | 9 | thermodynamics (9) |
+| TH12.13 | Air conditioning process: adiabatic mixing of two moist air streams | 1 | 1 | thermodynamics (1) |
+| TH12.14 | Air conditioning process: wet cooling towers | 1 | 1 | thermodynamics (1) |
+| **TH13** | **Thermodynamics: Reaction and combustion** | | | |
+| TH13.1 | Stoichiometry | 2 | 2 | material-balances (2) |
+| TH13.2 | Equilibrium constant | 2 | 2 | physical-chemistry (1), thermodynamics (1) |
+| TH13.3 | Heats of reaction | 2 | 2 | material-balances (1), physical-chemistry (1) |
+| TH13.4 | Heats of formation | 2 | 2 | material-balances (1), physical-chemistry (1) |
+| TH13.5 | Heats of combustion and heating value | 1 | 0 | physical-chemistry (1) |
+| TH13.6 | Incomplete combustion | 1 | 1 | material-balances (1) |
+| TH13.7 | Adiabatic flame temperature | 1 | 1 | thermodynamics (1) |
+| TH13.8 | Explosion limits | 1 | 1 | thermodynamics (1) |
+| TH13.9 | Reactive energy balances: steady-state | 1 | 1 | reaction-engineering (1) |
+| TH13.10 | Reactive energy balances: transient | 18 | 18 | thermodynamics (18) |
+| TH13.11 | Simultaneous reaction and phase equilibria | 18 | 18 | thermodynamics (18) |
+| TH13.12 | Entropy balance | 1 | 1 | physical-chemistry (1) |
+| TH13.13 | Chemical exergy | 18 | 18 | thermodynamics (18) |
+| TH13.14 | Helmholtz free energy | 1 | 1 | thermodynamics (1) |
+| TH13.15 | Gibbs free energy | 2 | 2 | physical-chemistry (1), thermodynamics (1) |
+| **TH14** | **Thermodynamics: Departure functions** | | | |
+| TH14.1 | Internal energy departure function | 1 | 1 | thermodynamics (1) |
+| TH14.2 | Entropy departure function | 1 | 1 | thermodynamics (1) |
+| TH14.3 | Other departure functions | 1 | 1 | thermodynamics (1) |
+| **TH15** | **Thermodynamics: Phase equilibrium of pure substances** | | | |
+| TH15.1 | PVT behavior of pure substances | 2 | 2 | thermodynamics (2) |
+| TH15.2 | Clausius-Clapeyron equation | 2 | 2 | thermodynamics (2) |
+| TH15.3 | Vapour pressure estimation | 2 | 2 | physical-chemistry (1), thermodynamics (1) |
+| TH15.4 | Virial equation of state | 2 | 2 | thermodynamics (2) |
+| TH15.5 | Cubic equations of state | 2 | 2 | physical-chemistry (1), thermodynamics (1) |
+| TH15.6 | Generalized correlations for gases | 2 | 2 | physical-chemistry (1), thermodynamics (1) |
+| TH15.7 | Generalized correlations for liquids | 1 | 1 | thermodynamics (1) |
+| TH15.8 | Maxwell relations | 2 | 2 | thermodynamics (2) |
+| TH15.9 | Gibbs-Duhem equation | 2 | 1 | physical-chemistry (1), thermodynamics (1) |
+| TH15.10 | Fugacity and the fugacity coefficient | 2 | 2 | physical-chemistry (1), thermodynamics (1) |
+| TH15.11 | Calculating gas fugacity | 1 | 1 | thermodynamics (1) |
+| TH15.12 | Calculating liquid fugacity | 1 | 1 | thermodynamics (1) |
+| TH15.13 | Calculating solid fugacity | 1 | 1 | thermodynamics (1) |
+| **TH16** | **Thermodynamics: Multicomponent phase equilibrium** | | | |
+| TH16.1 | Energy changes due to mixing and solution | 1 | 1 | thermodynamics (1) |
+| TH16.2 | Binary vapour-liquid equilibrium (VLE) | 2 | 2 | thermodynamics (2) |
+| TH16.3 | Dew point and bubble point | 1 | 1 | thermodynamics (1) |
+| TH16.4 | Multicomponent vapour-liquid equilibrium (VLE) | 2 | 2 | separations (1), thermodynamics (1) |
+| TH16.5 | Vapour-liquid-liquid equilibrium (VLLE) | 1 | 1 | thermodynamics (1) |
+| TH16.6 | Miscibility and liquid-liquid equilibrium (LLE) | 1 | 1 | thermodynamics (1) |
+| TH16.7 | Solubility and solid-liquid equilibrium (SLE) | 1 | 1 | thermodynamics (1) |
+| TH16.8 | Adsorption and solid-gas or solid-vapour equilibrium (SVE) | 1 | 1 | thermodynamics (1) |
+| TH16.9 | Mixing rules for equations of state | 1 | 1 | thermodynamics (1) |
+| TH16.10 | Fugacity and chemical potential from an equation of state | 1 | 1 | thermodynamics (1) |
+| **TH17** | **Thermodynamics: Activity models** | | | |
+| TH17.1 | Excess properties | 1 | 1 | thermodynamics (1) |
+| TH17.2 | Redlich-Kister and Margules models | 1 | 1 | thermodynamics (1) |
+| TH17.3 | Partial molar properties | 1 | 1 | thermodynamics (1) |
+| TH17.4 | van Laar model | 1 | 1 | thermodynamics (1) |
+| TH17.5 | Scatchard-Hildebrand theory | 1 | 1 | thermodynamics (1) |
+| TH17.6 | Flory-Huggins model | 1 | 1 | thermodynamics (1) |
+| TH17.7 | MOSCED and SSCED theories | 1 | 1 | thermodynamics (1) |
+| TH17.8 | UNIFAC | 1 | 1 | thermodynamics (1) |
+| TH17.9 | Wilson's equation | 1 | 1 | thermodynamics (1) |
+| TH17.10 | NRTL | 1 | 1 | thermodynamics (1) |
+| TH17.11 | UNIQUAC | 1 | 1 | thermodynamics (1) |
+| **TH18** | **Thermodynamics: Electrolyte solutions** | | | |
+| TH18.1 | Colligative properties | 3 | 3 | physical-chemistry (2), thermodynamics (1) |
+| TH18.2 | Speciation and dissociation constants | 2 | 2 | physical-chemistry (2) |
+| TH18.3 | Redox reactions | 2 | 2 | physical-chemistry (1), thermodynamics (1) |
+| **FM1** | **Fluid mechanics: Definitions** | | | |
+| FM1.2 | Thermodynamic properties of a fluid | 1 | 1 | fluid-mechanics (1) |
+| FM1.3 | Viscosity and other secondary properties | 3 | 3 | fluid-mechanics (2), physical-chemistry (1) |
+| FM1.4 | Streamlines, streaklines and pathlines | 10 | 10 | fluid-mechanics (10) |
+| **FM2** | **Fluid mechanics: Pressure distributions** | | | |
+| FM2.1 | Hydrostatic pressure | 2 | 2 | fluid-mechanics (1), physics (1) |
+| FM2.2 | Manometers | 1 | 1 | fluid-mechanics (1) |
+| FM2.3 | Hydrostatic forces: plane surfaces | 1 | 1 | fluid-mechanics (1) |
+| FM2.4 | Hydrostatic forces: curved surfaces | 10 | 10 | fluid-mechanics (10) |
+| FM2.5 | Hydrostatic forces: layered fluids | 10 | 10 | fluid-mechanics (10) |
+| FM2.6 | Buoyancy and stability | 2 | 2 | fluid-mechanics (1), physics (1) |
+| FM2.7 | Pressure distribution in rigid-body motion | 1 | 1 | fluid-mechanics (1) |
+| **FM3** | **Fluid mechanics: Integral relations for a control volume** | | | |
+| FM3.1 | Reynolds transport theorem | 1 | 1 | calculus (1) |
+| FM3.2 | Continuity | 1 | 1 | fluid-mechanics (1) |
+| FM3.3 | Linear momentum | 4 | 4 | fluid-mechanics (4) |
+| FM3.4 | Bernoulli's equation | 3 | 3 | fluid-mechanics (2), physics (1) |
+| FM3.5 | Angular momentum | 20 | 20 | fluid-mechanics (20) |
+| FM3.6 | Energy | 1 | 1 | fluid-mechanics (1) |
+| **FM4** | **Fluid mechanics: Differential relations for fluid flow** | | | |
+| FM4.1 | Acceleration field | 1 | 1 | fluid-mechanics (1) |
+| FM4.2 | Continuity | 2 | 2 | engineering-math (1), fluid-mechanics (1) |
+| FM4.3 | Linear momentum | 7 | 7 | fluid-mechanics (7) |
+| FM4.4 | Energy | 1 | 1 | fluid-mechanics (1) |
+| FM4.5 | Stream function | 1 | 1 | fluid-mechanics (1) |
+| FM4.6 | Vorticity | 1 | 1 | fluid-mechanics (1) |
+| FM4.7 | Velocity potential | 1 | 1 | fluid-mechanics (1) |
+| **FM5** | **Fluid mechanics: Dimensional analysis and similarity** | | | |
+| FM5.1 | Buckingham Pi theorem | 5 | 5 | fluid-mechanics (5) |
+| FM5.2 | Nondimensionalization of the fluid flow equations | 20 | 20 | fluid-mechanics (20) |
+| FM5.3 | Scaling and similarity | 1 | 1 | fluid-mechanics (1) |
+| **FM6** | **Fluid mechanics: Viscous flow in ducts** | | | |
+| FM6.1 | Entry length | 1 | 1 | fluid-mechanics (1) |
+| FM6.2 | Laminar fully developed pipe flow | 7 | 7 | fluid-mechanics (7) |
+| FM6.3 | Turbulent pipe flow | 1 | 1 | fluid-mechanics (1) |
+| FM6.4 | Pressure head loss: major loss and friction factor | 1 | 1 | fluid-mechanics (1) |
+| FM6.5 | Pressure head loss: minor losses | 1 | 1 | fluid-mechanics (1) |
+| FM6.6 | Moody chart | 1 | 1 | fluid-mechanics (1) |
+| FM6.7 | Energy equation | 1 | 1 | fluid-mechanics (1) |
+| FM6.8 | Pumps and fans | 3 | 3 | fluid-mechanics (3) |
+| FM6.9 | Noncircular ducts | 1 | 1 | fluid-mechanics (1) |
+| FM6.10 | Multiple-pipe systems | 5 | 5 | fluid-mechanics (5) |
+| FM6.11 | Diffuser performance | 20 | 20 | fluid-mechanics (20) |
+| **FM7** | **Fluid mechanics: Flow past immersed bodies** | | | |
+| FM7.1 | Momentum integral estimates | 1 | 1 | fluid-mechanics (1) |
+| FM7.2 | Boundary layers | 1 | 1 | heat-transfer (1) |
+| FM7.3 | Flat plate boundary layer | 2 | 2 | heat-transfer (2) |
+| FM7.4 | Boundary layers with pressure gradients | 1 | 1 | fluid-mechanics (1) |
+| FM7.5 | Forces on objects immersed in a flow | 6 | 6 | fluid-mechanics (6) |
+| **FM8** | **Fluid mechanics: Potential flow** | | | |
+| FM8.1 | Elementary solutions | 1 | 1 | fluid-mechanics (1) |
+| FM8.2 | Superposition | 1 | 1 | fluid-mechanics (1) |
+| FM8.3 | Flow past closed-body shapes | 1 | 1 | fluid-mechanics (1) |
+| FM8.4 | Conformal mapping | 1 | 1 | fluid-mechanics (1) |
+| FM8.5 | Airfoil theory | 1 | 1 | fluid-mechanics (1) |
+| FM8.6 | Axisymmetric flow | 1 | 1 | fluid-mechanics (1) |
+| **FM9** | **Fluid mechanics: Compressible flow** | | | |
+| FM9.1 | Speed of sound | 1 | 1 | fluid-mechanics (1) |
+| FM9.2 | Adiabatic and isentropic steady flow | 1 | 1 | fluid-mechanics (1) |
+| FM9.3 | Isentropic flow with area change | 1 | 1 | fluid-mechanics (1) |
+| FM9.4 | Converging and diverging nozzles | 1 | 1 | fluid-mechanics (1) |
+| FM9.5 | Shock waves: normal | 1 | 1 | fluid-mechanics (1) |
+| FM9.6 | Shock waves: oblique | 1 | 1 | fluid-mechanics (1) |
+| FM9.7 | Prandtl-Meyer expansion waves | 1 | 1 | fluid-mechanics (1) |
+| FM9.8 | Compressible duct flow with friction | 1 | 1 | fluid-mechanics (1) |
+| FM9.9 | Frictionless duct flow with heat transfer | 1 | 1 | fluid-mechanics (1) |
+| **FM10** | **Fluid mechanics: Open-channel flow** | | | |
+| FM10.1 | Specific energy and critical depth | 7 | 7 | fluid-mechanics (7) |
+| FM10.2 | Uniform flow and the Chezy equations | 7 | 7 | fluid-mechanics (7) |
+| FM10.3 | Efficient uniform-flow channels | 7 | 7 | fluid-mechanics (7) |
+| FM10.4 | Gradually-varied flow | 1 | 1 | fluid-mechanics (1) |
+| FM10.5 | Hydraulic jump | 1 | 1 | fluid-mechanics (1) |
+| FM10.6 | Flow measurement and control by weirs | 1 | 1 | fluid-mechanics (1) |
+| **FM11** | **Fluid mechanics: Turbomachinery** | | | |
+| FM11.1 | Pumps | 1 | 1 | fluid-mechanics (1) |
+| FM11.2 | Pumps: performance curves | 1 | 1 | fluid-mechanics (1) |
+| FM11.3 | Pumps: scaling laws and specific speed | 5 | 5 | fluid-mechanics (5) |
+| FM11.4 | Turbines | 1 | 1 | fluid-mechanics (1) |
+| **MB2** | **Material and energy balances: Material balances on non-reactive processes** | | | |
+| MB2.1 | Degree of freedom analysis | 1 | 1 | material-balances (1) |
+| MB2.2 | Single unit | 1 | 1 | material-balances (1) |
+| MB2.3 | Multiunit | 3 | 3 | material-balances (3) |
+| MB2.4 | Recycle, purge and bypass | 1 | 1 | material-balances (1) |
+| **MB3** | **Material and energy balances: Material balances on reactive processes** | | | |
+| MB3.1 | Chemical reaction stoichiometry | 2 | 2 | material-balances (2) |
+| MB3.2 | Degree of freedom analysis | 1 | 1 | material-balances (1) |
+| MB3.3 | Reactive balances | 3 | 3 | material-balances (3) |
+| MB3.4 | Recycle, purge and bypass | 1 | 1 | material-balances (1) |
+| **MB4** | **Material and energy balances: Energy balances** | | | |
+| MB4.1 | Degree of freedom analysis | 3 | 3 | material-balances (3) |
+| MB4.5 | Coupled material and energy balances | 2 | 2 | material-balances (2) |
+| **MB5** | **Material and energy balances: Transient processes** | | | |
+| MB5.1 | Transient non-reactive material balances | 2 | 2 | material-balances (2) |
+| MB5.2 | Transient reactive material balances | 1 | 1 | engineering-math (1) |
+| MB5.5 | Transient coupled material and energy balances | 1 | 1 | material-balances (1) |
+
+**Areas with nothing answering to them:** none.
+
+## MAA CUPM Curriculum Guide 2015, Linear Algebra course report: core topics of a first course
+
+https://www.amstat.org/docs/default-source/amstat-documents/cupmguide_print.pdf
+
+7 of 7 items have at least one objective answering to them.
+
+| Item | Topic | Objectives | With a drill | Where |
+|---|---|---|---|---|
+| 1 | Matrices and linear systems (operations, echelon form, inverses, LU) | 23 | 23 | linear-algebra (23) |
+| 2 | Determinants (properties, geometric meaning) | 7 | 7 | linear-algebra (7) |
+| 3 | Vector spaces (subspaces, independence, basis, dimension, rank-nullity) | 7 | 7 | linear-algebra (7) |
+| 4 | Linear transformations (matrix representation, change of basis, kernel and range) | 12 | 12 | linear-algebra (12) |
+| 5 | Eigenvalues and eigenvectors (computation, diagonalization) | 8 | 8 | linear-algebra (8) |
+| 6 | Inner products (norms, orthogonality, orthogonal bases, Gram-Schmidt) | 8 | 8 | linear-algebra (8) |
+| second | Second course: spectral theorem, SVD, quadratic and bilinear forms | 9 | 9 | linear-algebra (9) |
+
 ## Lay, Lay & McDonald, Linear Algebra and Its Applications, 5th ed. (chapter list)
 
 
@@ -557,13 +1360,13 @@ https://apcentral.collegeboard.org/courses/ap-statistics
 
 | Item | Topic | Objectives | With a drill | Where |
 |---|---|---|---|---|
-| 1 | Linear Equations in Linear Algebra | 4 | 4 | linear-algebra (4) |
-| 2 | Matrix Algebra | 2 | 2 | linear-algebra (2) |
-| 3 | Determinants | 2 | 2 | linear-algebra (2) |
-| 4 | Vector Spaces | 2 | 2 | linear-algebra (2) |
-| 5 | Eigenvalues and Eigenvectors | 4 | 4 | linear-algebra (4) |
-| 6 | Orthogonality and Least Squares | 4 | 4 | linear-algebra (4) |
-| 7 | Symmetric Matrices and Quadratic Forms | 2 | 2 | linear-algebra (2) |
+| 1 | Linear Equations in Linear Algebra | 17 | 17 | linear-algebra (17) |
+| 2 | Matrix Algebra | 14 | 14 | linear-algebra (14) |
+| 3 | Determinants | 8 | 8 | linear-algebra (8) |
+| 4 | Vector Spaces | 17 | 17 | linear-algebra (17) |
+| 5 | Eigenvalues and Eigenvectors | 10 | 10 | linear-algebra (10) |
+| 6 | Orthogonality and Least Squares | 10 | 10 | linear-algebra (10) |
+| 7 | Symmetric Matrices and Quadratic Forms | 10 | 10 | linear-algebra (10) |
 
 ## AQA AS and A-level Physics (7407/7408), section 3.2 Particles and radiation
 
@@ -1057,11 +1860,11 @@ https://ncees.org/wp-content/uploads/2022/09/PE-Che_Jan2020-1.pdf
 | 4.A | Fundamentals | 10 | 10 | reaction-engineering (10) |
 | 4.B | Applications | 8 | 8 | reaction-engineering (8) |
 | **5** | **Fluids** (10–16 questions) | | | |
-| 5.A | Fundamentals | 5 | 5 | fluid-mechanics (5) |
+| 5.A | Fundamentals | 7 | 7 | fluid-mechanics (7) |
 | 5.B | Applications | 3 | 3 | fluid-mechanics (3) |
 | **6** | **Mass transfer** (7–11 questions) | | | |
-| 6.A | Fundamentals | 6 | 6 | heat-transfer (6) |
-| 6.B | Applications | 6 | 6 | separations (6) |
+| 6.A | Fundamentals | 36 | 36 | heat-transfer (6), mass-transfer (30) |
+| 6.B | Applications | 25 | 25 | mass-transfer (19), separations (6) |
 | **7** | **Plant design and operation** (15–23 questions) | | | |
 | 7.A | Safety, health and environment | 3 | 3 | process-design (3) |
 | 7.B | Design | 5 | 5 | process-design (5) |

@@ -576,7 +576,7 @@ Big ideas: INT, CONS
   - EK: P = F⊥/A; P_abs = P_gauge + P_atm, P_atm ≈ 1.01 × 10⁵ Pa.
   - Needs: PH-2.2.B
   - 2B · drills: ph-pressure-gauge, ph-heel-pressure
-- ● **PH-8.2.B** (P1 8.2) Calculate the pressure at a depth in a static fluid.
+- ● **PH-8.2.B** (P1 8.2, webwork-opl:FM2.1) Calculate the pressure at a depth in a static fluid.
   - EK: P = P₀ + ρgh; depends on depth only, not on the container's shape.
   - Needs: PH-8.2.A, PH-8.1.A
   - 2B · 2D · drills: ph-pressure-at-depth, ph-depth-for-pressure
@@ -585,7 +585,7 @@ Big ideas: INT, CONS
 
 
 
-- ● **PH-8.3.A** (P1 8.3) Calculate the buoyant force on an object and decide whether it floats, and how deep.
+- ● **PH-8.3.A** (P1 8.3, webwork-opl:FM2.6) Calculate the buoyant force on an object and decide whether it floats, and how deep.
   - EK: F_b = ρ_fluid V_displaced g (Archimedes); a floating object displaces its own weight, fraction submerged = ρ_obj/ρ_fluid.
   - Needs: PH-8.2.B, PH-2.4.A
   - 1A · 2A · 2B · drills: ph-floating-fraction, ph-apparent-weight
@@ -601,7 +601,7 @@ Big ideas: INT, CONS
 - ● **PH-8.4.A** (P1 8.4) Apply the continuity equation to find a flow speed or volume flow rate.
   - EK: Incompressible flow: A₁v₁ = A₂v₂ = volume flow rate; narrower pipe ⇒ faster flow.
   - 2B · 2D · drills: ph-continuity, ph-nozzle-speed-scaling
-- ● **PH-8.4.B** (P1 8.4) Apply Bernoulli's equation to find a pressure or speed, including efflux from a tank.
+- ● **PH-8.4.B** (P1 8.4, webwork-opl:FM3.4) Apply Bernoulli's equation to find a pressure or speed, including efflux from a tank.
   - EK: P + ½ρv² + ρgy is constant along a streamline (energy per volume); open tank drain v = √(2gh).
   - Needs: PH-8.4.A, PH-8.2.B, PH-3.4.A
   - 2A · 2B · drills: ph-bernoulli, sc-torricelli-head
@@ -653,7 +653,7 @@ Big ideas: CONS, SYS
   - EK: W_on = −∫P dV = −(area under P–V) for expansion; isobaric W = −PΔV, isochoric W = 0.
   - Needs: PH-9.2.A, PH-3.2.B
   - 1C · 2B · drills: ph-isobaric-work, ~th-fl-isobaric
-- ● **PH-9.4.C** (P2 9.4.B) Apply the first law to find Q, W or ΔU for each type of process.
+- ● **PH-9.4.C** (P2 9.4.B, webwork-opl:TH1.2, webwork-opl:TH1.8, webwork-opl:TH3.1) Apply the first law to find Q, W or ΔU for each type of process.
   - EK: ΔU = Q + W (W on the gas); isothermal ΔU = 0, adiabatic Q = 0, isochoric W = 0.
   - Needs: PH-9.4.A, PH-9.4.B, PH-9.3.A
   - 2A · 2B · drills: ph-first-law-heat, ~th-fl-isochoric, ~th-fl-isobaric
@@ -683,7 +683,7 @@ Big ideas: CONS, SYS
   - EK: The total entropy of an isolated system never decreases; spontaneous heat flow and mixing raise it.
   - Needs: PH-9.3.A
   - 3B · 3C · drills: ph-entropy-direction, ph-entropy-of-transfer
-- ● **PH-9.6.B** (P2 9.6) Calculate the efficiency of a heat engine and compare it with the Carnot limit.
+- ● **PH-9.6.B** (P2 9.6, webwork-opl:TH6.1) Calculate the efficiency of a heat engine and compare it with the Carnot limit.
   - EK: e = W/Q_H = 1 − Q_C/Q_H ≤ 1 − T_C/T_H (kelvin); bridge to engineering thermodynamics — check against the current CED.
   - Needs: PH-9.6.A, PH-9.4.D
   - 2B · 2C · drills: ph-engine-efficiency, sc-carnot-efficiency

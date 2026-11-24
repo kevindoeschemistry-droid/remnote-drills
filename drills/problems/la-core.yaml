@@ -1,0 +1,470 @@
+# Linear algebra on the CUPM core (2015 MAA guide, linear algebra course report): the topics a first
+# course is expected to reach that the Lay chapter drills did not, and second question types for
+# the objectives that had one. One question each; numeric keys are recomputed by sympy from the
+# printed matrix along another route (rank, LU, QR, eigenvalues, nullspace) where one exists.
+
+# ── linear systems (CUPM 1) ─────────────────────────────────────────────────
+- template: la-solution-type
+  skill: la.row-reduction
+  pace: recall
+  given: { a: { int: [-3, 3] }, b: { int: [-3, 3] }, c: { int: [-4, 4] }, d: { int: [-3, 3] }, e: { int: [-4, 4] }, f: { pick: [0, 0, 1, 2, -1] }, g: { pick: [0, 0, 3, -2, 1] } }
+  prompt: 'An augmented matrix has echelon form $\left(\begin{array}{ccc|c} 1 & {{a}} & {{b}} & {{c}} \\ 0 & 1 & {{d}} & {{e}} \\ 0 & 0 & {{f}} & {{g}} \end{array}\right)$. How many solutions does the system have?'
+  parts:
+    - ask: 'Solutions'
+      label: a
+      choice: ["Exactly one", "Infinitely many", "None"]
+      correct: "f != 0 ? 0 : (g == 0 ? 1 : 2)"
+      explain: 'Read the last row. A pivot in every variable column means one solution. A row $0 = 0$ leaves a free variable, so infinitely many. A row $0 = c$ with $c \neq 0$ is a contradiction: no solution'
+  verify: { choices: { a: "0 if Matrix([[1, a, b], [0, 1, d], [0, 0, f]]).rank() == 3 else (1 if Matrix([[1, a, b], [0, 1, d], [0, 0, f]]).rank() == Matrix([[1, a, b, c], [0, 1, d, e], [0, 0, f, g]]).rank() else 2)" } }
+
+- template: la-free-variables
+  skill: la.row-reduction
+  pace: recall
+  given: { a: { int: [-3, 3] }, b: { int: [-3, 3] }, c: { int: [-3, 3] }, d: { int: [-3, 3] }, e: { pick: [0, 0, 1] } }
+  prompt: 'The coefficient matrix of a consistent system row-reduces to $\begin{pmatrix} 1 & 0 & {{a}} & {{b}} \\ 0 & 1 & {{c}} & {{d}} \\ 0 & 0 & {{e}} & 0 \end{pmatrix}$. How many free variables does the solution have?'
+  parts:
+    - { ask: 'Free variables', label: v, tex: 'n_{free}', value: "e == 0 ? 2 : 1", tol: 0.005, explain: 'Free variables are the columns without a pivot: four columns minus the number of pivots' }
+  verify: { expect: { v: "4 - Matrix([[1, 0, a, b], [0, 1, c, d], [0, 0, e, 0]]).rank()" } }
+
+- template: la-is-solution
+  skill: la.row-reduction
+  pace: quick
+  given: { a: { int: [-3, 3] }, b: { int: [-3, 3] }, c: { int: [1, 3] }, d: { int: [-2, 2] }, s: { int: [-2, 3] }, t: { int: [-2, 2] }, u: { int: [-2, 2] }, e: { pick: [0, 0, 1, -1] } }
+  require: ["a != 0", "d != 0"]
+  prompt: 'Is $(x_1, x_2, x_3) = ({{s}}, {{t}}, {{u}})$ a solution of $\;{{a}}x_1 + {{b}}x_2 + x_3 = {{a*s + b*t + u}},\; {{c}}x_1 - x_2 + {{d}}x_3 = {{c*s - t + d*u + e}}$?'
+  parts:
+    - ask: 'Solution?'
+      label: a
+      choice: ["Yes", "No"]
+      correct: "e == 0 ? 0 : 1"
+      explain: 'Substitute into every equation. The first gives ${{a*s + b*t + u}}$; the second gives ${{c*s - t + d*u}}$. One failed equation is enough to reject the point'
+  verify: { choices: { a: "0 if Matrix([[a, b, 1], [c, -1, d]])*Matrix([s, t, u]) == Matrix([a*s + b*t + u, c*s - t + d*u + e]) else 1" } }
+
+- template: la-independence-parameter
+  skill: la.independence
+  pace: quick
+  given: { a: { int: [-4, 4] }, b: { int: [-4, 4] } }
+  require: ["a != 0", "b != 0"]
+  prompt: 'For which $h$ are $\begin{pmatrix} 1 \\ {{a}} \end{pmatrix}$ and $\begin{pmatrix} {{b}} \\ h \end{pmatrix}$ linearly dependent?'
+  parts:
+    - { ask: '$h$', label: v, tex: 'h', value: a*b, tol: 0.005, explain: 'Two vectors in the plane are dependent exactly when one is a multiple of the other, which is when the determinant $h - {{a}}\cdot{{b}}$ is zero' }
+  verify: { expect: { v: "solve(Matrix([[1, b], [a, x]]).det(), x)[0]" } }
+
+- template: la-span-membership
+  skill: la.span
+  pace: quick
+  given: { a: { int: [-3, 3] }, b: { int: [-3, 3] }, c: { int: [-3, 3] }, s: { int: [-2, 3] }, t: { int: [-2, 3] }, e: { pick: [0, 0, 1, -2] } }
+  require: ["s != 0"]
+  prompt: 'Is $\begin{pmatrix} {{s}} \\ {{s*a + t}} \\ {{s*b + t*c + e}} \end{pmatrix}$ in the span of $\begin{pmatrix} 1 \\ {{a}} \\ {{b}} \end{pmatrix}$ and $\begin{pmatrix} 0 \\ 1 \\ {{c}} \end{pmatrix}$?'
+  parts:
+    - ask: 'In the span?'
+      label: a
+      choice: ["Yes", "No"]
+      correct: "e == 0 ? 0 : 1"
+      explain: 'Solve $x_1v_1 + x_2v_2 = b$. The first entry forces $x_1 = {{s}}$, the second then forces $x_2 = {{t}}$; the third entry is the test. In general: $b$ is in the span exactly when the augmented matrix has no pivot in its last column'
+  verify: { choices: { a: "0 if Matrix([[1, 0], [a, 1], [b, c]]).rank() == Matrix([[1, 0, s], [a, 1, s*a + t], [b, c, s*b + t*c + e]]).rank() else 1" } }
+
+- template: la-solution-set-shape
+  skill: la.span
+  pace: recall
+  given: { k: { pick: [0, 1, 2] }, n: { pick: [3, 4, 5] } }
+  prompt: '$A$ has ${{n}}$ columns, $Ax = b$ with $b \neq 0$ is consistent, and $\dim \operatorname{Nul} A = {{k}}$. What is the solution set of $Ax = b$?'
+  parts:
+    - ask: 'Solution set'
+      label: a
+      choice: ["A single point", "A line not through the origin", "A plane not through the origin"]
+      correct: k
+      explain: 'Every solution is one particular solution plus a solution of $Ax = 0$, so the solution set is $\operatorname{Nul} A$ shifted off the origin. It has the dimension of the null space; it misses the origin because $A0 = 0 \neq b$'
+  verify: { authored: true }
+
+# ── matrix algebra (CUPM 1) ─────────────────────────────────────────────────
+- template: la-product-entry
+  skill: la.matrix-ops
+  pace: quick
+  given: { a1: { int: [-3, 4] }, a2: { int: [-3, 4] }, a3: { int: [-3, 4] }, b1: { int: [-3, 4] }, b2: { int: [-3, 4] }, b3: { int: [-3, 4] } }
+  require: ["a1*b1 + a2*b2 + a3*b3 != 0"]
+  prompt: '$A = \begin{pmatrix} {{a1}} & {{a2}} & {{a3}} \\ 2 & 0 & 1 \end{pmatrix}$, $B = \begin{pmatrix} 1 & {{b1}} \\ 0 & {{b2}} \\ -1 & {{b3}} \end{pmatrix}$. Find the entry of $AB$ in row 1, column 2.'
+  parts:
+    - { ask: '$(AB)_{12}$', label: v, tex: '(AB)_{12}', value: a1*b1 + a2*b2 + a3*b3, tol: 0.005, explain: 'Row 1 of $A$ dotted with column 2 of $B$: ${{a1}}\cdot{{b1}} + {{a2}}\cdot{{b2}} + {{a3}}\cdot{{b3}}$. Nothing else in either matrix enters' }
+  verify: { expect: { v: "(Matrix([[a1, a2, a3], [2, 0, 1]])*Matrix([[1, b1], [0, b2], [-1, b3]]))[0, 1]" } }
+
+- template: la-product-size
+  skill: la.matrix-ops
+  pace: recall
+  given: { m: { int: [2, 6] }, n: { int: [2, 6] }, p: { int: [2, 6] } }
+  require: ["m != p"]
+  prompt: '$A$ is ${{m}} \times {{n}}$ and $B$ is ${{n}} \times {{p}}$. How many rows does $B^{T}A^{T}$ have?'
+  parts:
+    - { ask: 'Rows', label: v, tex: 'r', value: p, tol: 0.005, explain: '$B^TA^T = (AB)^T$. $AB$ is ${{m}} \times {{p}}$, so its transpose is ${{p}} \times {{m}}$. The reversed order is what makes the inner sizes match' }
+  verify: { expect: { v: "(Matrix.ones(m, n)*Matrix.ones(n, p)).T.shape[0]" } }
+
+- template: la-solve-with-inverse
+  skill: la.inverse
+  pace: quick
+  given: { a: { int: [-3, 3] }, b: { int: [-3, 3] }, c: { int: [-3, 3] }, d: { int: [-3, 3] }, p: { int: [-4, 4] }, q: { int: [-4, 4] } }
+  require: ["a*d - b*c != 0", "a*p + b*q != 0"]
+  prompt: '$A^{-1} = \begin{pmatrix} {{a}} & {{b}} \\ {{c}} & {{d}} \end{pmatrix}$. Solve $Ax = \begin{pmatrix} {{p}} \\ {{q}} \end{pmatrix}$: what is $x_1$?'
+  parts:
+    - { ask: '$x_1$', label: v, tex: 'x_1', value: a*p + b*q, tol: 0.005, explain: '$x = A^{-1}b$, so $x_1$ is row 1 of $A^{-1}$ dotted with $b$: ${{a}}\cdot{{p}} + {{b}}\cdot{{q}}$. No need to find $A$ itself' }
+  verify: { expect: { v: "Matrix([[a, b], [c, d]]).inv().LUsolve(Matrix([p, q]))[0]" } }
+
+- template: la-inverse-check
+  skill: la.inverse
+  pace: quick
+  given: { a: { int: [1, 4] }, b: { int: [-3, 3] }, c: { int: [-3, 3] }, e: { pick: [0, 0, 1] } }
+  require: ["b != 0", "c != 0", "a*(b*c + 1) != 0"]
+  let: { d: b*c + 1, bb: "e == 0 ? -b : b" }
+  prompt: 'Is $\begin{pmatrix} {{d}} & {{bb}} \\ {{-c}} & {{a}} \end{pmatrix}$ the inverse of $\begin{pmatrix} {{a}} & {{b}} \\ {{c}} & {{d}} \end{pmatrix}$? (Hint: compute the determinant first.)'
+  parts:
+    - ask: 'Inverse?'
+      label: a
+      choice: ["Yes", "No"]
+      correct: "a*d - b*c == 1 and e == 0 ? 0 : 1"
+      explain: 'The determinant is ${{a}}\cdot{{d}} - {{b}}\cdot{{c}} = {{a*d - b*c}}$. The inverse is $\dfrac{1}{\det}$ times the matrix with the diagonal swapped and the off-diagonal negated. Check by multiplying: the product must be $I$'
+  verify: { choices: { a: "0 if Matrix([[a, b], [c, b*c + 1]])*Matrix([[b*c + 1, -b if e == 0 else b], [-c, a]]) == Matrix([[1, 0], [0, 1]]) else 1" } }
+
+- template: la-lu-pivot
+  skill: la.lu
+  pace: quick
+  given: { a: { int: [1, 4] }, b: { int: [-4, 4] }, k: { pick: [-3, -2, -1, 2, 3] }, c: { int: [-5, 5] } }
+  require: ["c - k*b != 0"]
+  prompt: 'Factor $A = \begin{pmatrix} {{a}} & {{b}} \\ {{k*a}} & {{c}} \end{pmatrix} = LU$ with $L$ unit lower triangular. What is $u_{22}$?'
+  parts:
+    - { ask: '$u_{22}$', label: v, tex: 'u_{22}', value: c - k*b, tol: 0.005, explain: 'The multiplier is $\ell_{21} = {{k*a}}/{{a}} = {{k}}$; it goes into $L$. Subtracting ${{k}}$ times row 1 from row 2 leaves $u_{22} = {{c}} - ({{k}})({{b}})$' }
+  verify: { expect: { v: "Matrix([[a, b], [k*a, c]]).LUdecomposition()[1][1, 1]" } }
+
+- template: la-lu-forward
+  skill: la.lu
+  pace: quick
+  given: { l: { pick: [-3, -2, -1, 2, 3, 4] }, b1: { int: [-4, 5] }, b2: { int: [-6, 6] }, m: { int: [-2, 2] } }
+  require: ["b2 - l*b1 != 0"]
+  prompt: 'With $A = LU$ and $L = \begin{pmatrix} 1 & 0 & 0 \\ {{l}} & 1 & 0 \\ {{m}} & 2 & 1 \end{pmatrix}$, the first step of solving $Ax = b$ is $Ly = b$. For $b = ({{b1}}, {{b2}}, 0)$, find $y_2$.'
+  parts:
+    - { ask: '$y_2$', label: v, tex: 'y_2', value: b2 - l*b1, tol: 0.005, explain: 'Forward substitution: $y_1 = {{b1}}$, then ${{l}}y_1 + y_2 = {{b2}}$. Then $Ux = y$ by back substitution. The factorisation is reused for every new $b$' }
+  verify: { expect: { v: "Matrix([[1, 0, 0], [l, 1, 0], [m, 2, 1]]).LUsolve(Matrix([b1, b2, 0]))[1]" } }
+
+- template: la-invertible-matrix-theorem
+  skill: la.inverse
+  pace: recall
+  cases:
+    - { q: 'Ax = 0 has only the trivial solution.', ans: 0 }
+    - { q: 'The columns of A span Rⁿ.', ans: 0 }
+    - { q: 'A has n pivot positions.', ans: 0 }
+    - { q: 'Aᵀ is invertible.', ans: 0 }
+    - { q: 'The map x ↦ Ax is one-to-one.', ans: 0 }
+    - { q: 'det A = 0.', ans: 1 }
+    - { q: '0 is an eigenvalue of A.', ans: 1 }
+    - { q: 'Ax = b has infinitely many solutions for some b.', ans: 1 }
+    - { q: 'rank A = n − 1.', ans: 1 }
+    - { q: 'The rows of A are linearly dependent.', ans: 1 }
+  prompt: '$A$ is $n \times n$. If {{q}}, is $A$ invertible?'
+  parts:
+    - ask: 'Invertible?'
+      label: a
+      choice: ["Yes, necessarily", "No, it cannot be"]
+      correct: ans
+      explain: 'The invertible matrix theorem: for a square matrix, invertible, n pivots, independent columns, columns span, only the trivial solution of Ax = 0, one-to-one, onto, det ≠ 0 and 0 not an eigenvalue all stand or fall together. Any statement that one of them fails means A is singular'
+  verify: { authored: true }
+
+# ── determinants (CUPM 2) ───────────────────────────────────────────────────
+- template: la-det-triangular
+  skill: la.determinant
+  pace: recall
+  given: { a: { pick: [-3, -2, -1, 2, 3, 4] }, b: { int: [-5, 5] }, c: { pick: [-2, -1, 2, 3, 5] }, d: { int: [-5, 5] }, e: { int: [-5, 5] }, f: { pick: [-2, -1, 1, 2, 4] } }
+  prompt: 'Find $\det \begin{pmatrix} {{a}} & {{b}} & {{d}} \\ 0 & {{c}} & {{e}} \\ 0 & 0 & {{f}} \end{pmatrix}$ by inspection.'
+  parts:
+    - { ask: 'Determinant', label: v, tex: '\det', value: a*c*f, final: true, tol: 0.0001, explain: 'A triangular matrix has determinant equal to the product of its diagonal: ${{a}}\cdot{{c}}\cdot{{f}}$. The entries above the diagonal never matter. Row reduction to triangular form is how large determinants are found' }
+  verify: { expect: { v: "Matrix([[a, b, d], [0, c, e], [0, 0, f]]).det()" } }
+
+- template: la-det-properties
+  skill: la.det-properties
+  pace: quick
+  given: { d: { pick: [-3, -2, 2, 3, 5] }, k: { pick: [-2, 2, 3] }, n: { pick: [2, 3] } }
+  prompt: '$A$ is ${{n}} \times {{n}}$ with $\det A = {{d}}$. Find $\det\!\left({{k}}A^{T}A^{-1}A\right)$.'
+  parts:
+    - { ask: 'Determinant', label: v, tex: '\det', value: k^n*d, tol: 0.005, explain: '$A^TA^{-1}A$ has determinant $d\cdot\dfrac1d\cdot d = d$; the scalar ${{k}}$ multiplies each of the ${{n}}$ rows, so it comes out as ${{k}}^{ {{n}} }$. The trap is writing ${{k}}d$' }
+  verify: { expect: { v: "(k*Matrix.diag(*([d] + [1]*(n - 1))).T*Matrix.diag(*([d] + [1]*(n - 1))).inv()*Matrix.diag(*([d] + [1]*(n - 1)))).det()" } }
+
+- template: la-det-row-ops
+  skill: la.det-properties
+  pace: quick
+  given: { d: { pick: [-4, -2, 2, 3, 5] }, k: { pick: [-3, -2, 2, 3, 4] }, m: { int: [-4, 4] } }
+  require: ["m != 0"]
+  prompt: '$\det A = {{d}}$ ($3 \times 3$). $B$ is made by swapping rows 1 and 2, multiplying the new row 2 by ${{k}}$, then adding ${{m}}$ times row 1 to row 3. Find $\det B$.'
+  parts:
+    - { ask: '$\det B$', label: v, tex: '\det B', value: -k*d, tol: 0.005, explain: 'A swap flips the sign, scaling a row scales the determinant by the same factor, and adding a multiple of one row to another changes nothing: $-{{k}}\cdot{{d}}$' }
+  verify: { expect: { v: "(Matrix([[1, 0, 0], [0, 1, 0], [m, 0, 1]])*Matrix([[1, 0, 0], [0, k, 0], [0, 0, 1]])*Matrix([[0, 1, 0], [1, 0, 0], [0, 0, 1]])*Matrix([[d, 1, 2], [0, 1, 3], [0, 0, 1]])).det()" } }
+
+- template: la-det-area
+  skill: la.det-properties
+  pace: quick
+  given: { a: { int: [-3, 4] }, b: { int: [-3, 3] }, c: { int: [-3, 3] }, d: { int: [-3, 4] }, R: { pick: [2, 3, 5, 10] } }
+  require: ["a*d - b*c != 0"]
+  prompt: '$T(x) = \begin{pmatrix} {{a}} & {{b}} \\ {{c}} & {{d}} \end{pmatrix}x$ maps a region of area ${{R}}$. What is the area of its image?'
+  parts:
+    - { ask: 'Area', label: v, tex: 'A', value: abs(a*d - b*c)*R, tol: 0.005, explain: 'A linear map scales every area by $|\det|$, here $|{{a*d - b*c}}|$. A negative determinant only flips orientation' }
+  verify: { expect: { v: "Abs(Matrix([[a, b], [c, d]]).det())*R" } }
+
+# ── vector spaces (CUPM 3) ──────────────────────────────────────────────────
+- template: la-row-space-reverse
+  skill: la.rank
+  pace: recall
+  given: { m: { int: [3, 7] }, n: { int: [4, 9] }, k: { int: [1, 4] } }
+  require: ["n > k", "m >= n - k"]
+  prompt: '$A$ is ${{m}} \times {{n}}$ and $\dim \operatorname{Nul} A = {{k}}$. What is $\dim \operatorname{Row} A$?'
+  parts:
+    - { ask: '$\dim \operatorname{Row} A$', label: v, tex: '\dim\operatorname{Row}A', value: n - k, tol: 0.005, explain: 'Row rank equals column rank equals rank, and rank + nullity = number of columns: ${{n}} - {{k}}$' }
+  verify: { expect: { v: "solve(Eq(x + k, n), x)[0]" } }
+
+- template: la-subspace-test
+  skill: la.subspaces
+  pace: recall
+  cases:
+    - { q: 'all x with $x_1 + 2x_2 - x_3 = 0$', ans: 0 }
+    - { q: 'all x with $x_3 = 3x_1$', ans: 0 }
+    - { q: 'the span of (1, 2, 0) and (0, 1, 1)', ans: 0 }
+    - { q: 'the null space of a 2 × 3 matrix', ans: 0 }
+    - { q: 'all x with $x_1 + x_2 = 1$', ans: 1 }
+    - { q: 'all x with $x_1x_2 = 0$', ans: 1 }
+    - { q: 'all x with $x_1 \ge 0$', ans: 1 }
+    - { q: 'all vectors $(t, 2t, t^2)$', ans: 1 }
+    - { q: 'all x with $|x_1| = |x_2|$', ans: 1 }
+  prompt: 'Is {{q}} a subspace of $\mathbb{R}^3$?'
+  parts:
+    - ask: 'Subspace?'
+      label: a
+      choice: ["Yes", "No"]
+      correct: ans
+      explain: 'Three checks: contains 0, closed under addition, closed under scaling. Solution sets of homogeneous linear equations and spans always pass. A constant on the right misses 0; products, squares, absolute values and inequalities break closure'
+  verify: { authored: true }
+
+- template: la-span-dimension
+  skill: la.subspaces
+  pace: quick
+  given: { a: { int: [-3, 3] }, b: { int: [-3, 3] }, c: { int: [-3, 3] }, d: { int: [-3, 3] }, s: { pick: [-2, -1, 1, 2, 3] }, t: { pick: [-2, -1, 1, 2] }, e: { pick: [0, 0, 1, 2] } }
+  prompt: 'What is the dimension of the span of $\begin{pmatrix} 1 \\ {{a}} \\ 0 \\ {{b}} \end{pmatrix}, \begin{pmatrix} 0 \\ 1 \\ {{c}} \\ {{d}} \end{pmatrix}, \begin{pmatrix} {{s}} \\ {{s*a + t}} \\ {{t*c + e}} \\ {{s*b + t*d}} \end{pmatrix}$?'
+  parts:
+    - { ask: 'Dimension', label: v, tex: '\dim', value: "e == 0 ? 2 : 3", tol: 0.005, explain: 'The first two are independent. The third is ${{s}}v_1 + {{t}}v_2$ in its first two entries; check whether the remaining entries agree. Dimension counts only the independent vectors' }
+  verify: { expect: { v: "Matrix([[1, a, 0, b], [0, 1, c, d], [s, s*a + t, t*c + e, s*b + t*d]]).rank()" } }
+
+- template: la-coordinates
+  skill: la.coordinates
+  pace: quick
+  given: { a: { int: [1, 3] }, b: { int: [-2, 2] }, c: { int: [-2, 2] }, d: { int: [1, 3] }, s: { int: [-3, 3] }, t: { int: [-3, 3] } }
+  require: ["a*d - b*c != 0", "t != 0"]
+  prompt: '$\mathcal{B} = \left\{ \begin{pmatrix} {{a}} \\ {{c}} \end{pmatrix}, \begin{pmatrix} {{b}} \\ {{d}} \end{pmatrix} \right\}$. Find the second $\mathcal{B}$-coordinate of $x = \begin{pmatrix} {{s*a + t*b}} \\ {{s*c + t*d}} \end{pmatrix}$.'
+  parts:
+    - { ask: '$[x]_{\mathcal{B},2}$', label: v, tex: 'c_2', value: t, tol: 0.005, explain: 'Solve $c_1b_1 + c_2b_2 = x$, that is $P_{\mathcal{B}}[x]_{\mathcal{B}} = x$: $c_1 = {{s}}$, $c_2 = {{t}}$. Coordinates are the weights, not the entries' }
+  verify: { expect: { v: "Matrix([[a, b], [c, d]]).LUsolve(Matrix([s*a + t*b, s*c + t*d]))[1]" } }
+
+- template: la-change-of-basis
+  skill: la.coordinates
+  pace: quick
+  given: { a: { int: [1, 3] }, b: { int: [-2, 2] }, c: { int: [-2, 2] }, d: { int: [1, 3] }, s: { int: [-3, 3] }, t: { int: [-3, 3] } }
+  require: ["a*d - b*c != 0", "s*c + t*d != 0"]
+  prompt: 'In the basis $\mathcal{B} = \left\{ \begin{pmatrix} {{a}} \\ {{c}} \end{pmatrix}, \begin{pmatrix} {{b}} \\ {{d}} \end{pmatrix} \right\}$, $[x]_{\mathcal{B}} = \begin{pmatrix} {{s}} \\ {{t}} \end{pmatrix}$. What is the second standard coordinate of $x$?'
+  parts:
+    - { ask: '$x_2$', label: v, tex: 'x_2', value: s*c + t*d, tol: 0.005, explain: '$x = P_{\mathcal{B}}[x]_{\mathcal{B}} = {{s}}b_1 + {{t}}b_2$: the change-of-coordinates matrix has the basis vectors as columns. Going the other way needs $P_{\mathcal{B}}^{-1}$' }
+  verify: { expect: { v: "(Matrix([[a, b], [c, d]])*Matrix([s, t]))[1]" } }
+
+# ── linear transformations (CUPM 4) ─────────────────────────────────────────
+- template: la-map-from-basis-images
+  skill: la.transformations
+  pace: quick
+  given: { a: { int: [-3, 3] }, b: { int: [-3, 3] }, c: { int: [-3, 3] }, d: { int: [-3, 3] }, s: { int: [-3, 3] }, t: { int: [-3, 3] } }
+  require: ["a*s + b*t != 0", "s != 0", "t != 0"]
+  prompt: 'A linear map $T: \mathbb{R}^2 \to \mathbb{R}^2$ has $T(e_1) = \begin{pmatrix} {{a}} \\ {{c}} \end{pmatrix}$ and $T(e_2) = \begin{pmatrix} {{b}} \\ {{d}} \end{pmatrix}$. Find the first entry of $T\begin{pmatrix} {{s}} \\ {{t}} \end{pmatrix}$.'
+  parts:
+    - { ask: 'First entry', label: v, tex: 'T(x)_1', value: a*s + b*t, tol: 0.005, explain: 'Linearity: $T(x) = {{s}}T(e_1) + {{t}}T(e_2)$. That is why the standard matrix has $T(e_1)$ and $T(e_2)$ as its columns' }
+  verify: { expect: { v: "(s*Matrix([a, c]) + t*Matrix([b, d]))[0]" } }
+
+- template: la-composition
+  skill: la.transformations
+  pace: quick
+  given: { k: { pick: [-3, -2, 2, 3, 4] }, m: { pick: [-2, 2, 3, 5] }, a: { int: [-4, 4] }, b: { int: [-4, 4] } }
+  require: ["a != 0", "b != 0"]
+  prompt: '$T$ rotates the plane 90° counterclockwise; then $S$ multiplies $x$-coordinates by ${{k}}$ and $y$-coordinates by ${{m}}$. Find $(S \circ T)\begin{pmatrix} {{a}} \\ {{b}} \end{pmatrix}$, first entry.'
+  parts:
+    - { ask: 'First entry', label: v, tex: '(S\circ T)(x)_1', value: -k*b, tol: 0.005, explain: 'Rotation sends $(x, y)$ to $(-y, x)$, so $({{a}}, {{b}})$ goes to $({{-b}}, {{a}})$; then the $x$-coordinate is scaled by ${{k}}$. As matrices, $S \circ T$ is $ST$: the map applied first stands on the right' }
+  verify: { expect: { v: "(Matrix([[k, 0], [0, m]])*Matrix([[0, -1], [1, 0]])*Matrix([a, b]))[0]" } }
+
+- template: la-one-to-one-onto
+  skill: la.transformations
+  pace: recall
+  given: { m: { int: [2, 5] }, n: { int: [2, 5] }, r: { int: [1, 5] } }
+  require: ["r <= m", "r <= n"]
+  prompt: '$A$ is ${{m}} \times {{n}}$ with rank ${{r}}$. Is $x \mapsto Ax$ one-to-one, onto, both or neither?'
+  parts:
+    - ask: 'The map is'
+      label: a
+      choice: ["One-to-one only", "Onto only", "Both", "Neither"]
+      correct: "r == n and r == m ? 2 : (r == n ? 0 : (r == m ? 1 : 3))"
+      explain: 'One-to-one means no free variables: a pivot in every column, rank = n. Onto $\mathbb{R}^m$ means a pivot in every row, rank = m. Both needs a square invertible matrix'
+  verify: { choices: { a: "2 if (r == n and r == m) else (0 if r == n else (1 if r == m else 3))" } }
+
+- template: la-kernel-dimension
+  skill: la.transformations
+  pace: quick
+  given: { n: { int: [3, 7] }, k: { pick: [1, 2, 3] } }
+  require: ["k <= n"]
+  prompt: '$T(p) = p^{({{k}})}$ (the ${{k}}$-th derivative) maps $\mathbb{P}_{ {{n}} }$, the polynomials of degree at most ${{n}}$, to itself. What is the dimension of the range of $T$?'
+  parts:
+    - { ask: '$\dim \operatorname{Range} T$', label: v, tex: '\dim\operatorname{Range}T', value: n + 1 - k, tol: 0.005, explain: '$\dim \mathbb{P}_{ {{n}} } = {{n + 1}}$. The kernel is the polynomials of degree below ${{k}}$, dimension ${{k}}$. Rank–nullity: ${{n + 1}} - {{k}}$' }
+  verify: { expect: { v: "solve(Eq(x + k, n + 1), x)[0]" } }
+
+- template: la-matrix-relative-to-basis
+  skill: la.transformations
+  pace: quick
+  given: { a: { int: [-4, 4] }, b: { int: [-4, 4] }, c: { int: [-3, 3] }, h: { pick: [1, 2, -1] } }
+  require: ["b + 2*h*c != 0", "c != 0"]
+  prompt: '$T(p)(x) = p(x + {{h}})$ on $\mathbb{P}_2$ with basis $\{1, x, x^2\}$. For $p = {{a}} + {{b}}x + {{c}}x^2$, what is the $x$-coordinate (the middle entry) of $[T(p)]$?'
+  parts:
+    - { ask: 'Coefficient of $x$', label: v, tex: 'c_x', value: b + 2*h*c, tol: 0.005, explain: '$[T] = \begin{pmatrix} 1 & {{h}} & {{h^2}} \\ 0 & 1 & {{2*h}} \\ 0 & 0 & 1 \end{pmatrix}$, whose columns are $T(1), T(x), T(x^2)$ in coordinates. Row 2 times $({{a}}, {{b}}, {{c}})$ gives ${{b}} + {{2*h}}\cdot{{c}}$' }
+  verify: { expect: { v: "expand(a + b*(x + h) + c*(x + h)**2).coeff(x, 1)" } }
+
+# ── eigenvalues (CUPM 5) ────────────────────────────────────────────────────
+- template: la-eigen-triangular
+  skill: la.eigenvalues
+  pace: recall
+  given: { a: { int: [-4, 5] }, b: { int: [-5, 5] }, c: { int: [-4, 5] }, d: { int: [-5, 5] }, e: { int: [-5, 5] }, f: { int: [-4, 5] } }
+  require: ["a != c", "c != f", "a != f", "max(a, c, f) != 0"]
+  prompt: 'What is the largest eigenvalue of $\begin{pmatrix} {{a}} & {{b}} & {{d}} \\ 0 & {{c}} & {{e}} \\ 0 & 0 & {{f}} \end{pmatrix}$?'
+  parts:
+    - { ask: 'Largest eigenvalue', label: v, tex: '\lambda_{max}', value: "max(a, c, f)", tol: 0.005, explain: 'For a triangular matrix $\det(A - \lambda I)$ is the product of the diagonal entries minus $\lambda$, so the eigenvalues are the diagonal entries. Row reduction changes eigenvalues, so this only works on a matrix that is already triangular' }
+  verify: { expect: { v: "Max(*Matrix([[a, b, d], [0, c, e], [0, 0, f]]).eigenvals().keys())" } }
+
+- template: la-complex-eigen-modulus
+  skill: la.eigenvalues
+  pace: quick
+  cases:
+    - { a: 3, b: 4 }
+    - { a: 4, b: -3 }
+    - { a: -5, b: 12 }
+    - { a: 6, b: 8 }
+    - { a: -8, b: -6 }
+    - { a: 1, b: 1 }
+    - { a: 1, b: -2 }
+    - { a: 0.6, b: 0.8 }
+  prompt: '$A = \begin{pmatrix} {{a}} & {{-b}} \\ {{b}} & {{a}} \end{pmatrix}$ has complex eigenvalues. By what factor does $A$ scale every vector it rotates, i.e. what is $|\lambda|$?'
+  parts:
+    - { ask: '$|\lambda|$', label: v, tex: '|\lambda|', value: sqrt(a^2 + b^2), tol: 0.005, explain: 'The eigenvalues are ${{a}} \pm {{abs(b)}}i$. A matrix of this form is a rotation through $\arg\lambda$ times a scaling by $|\lambda| = \sqrt{a^2 + b^2}$; powers of $A$ grow or decay as $|\lambda|^k$' }
+  verify: { expect: { v: "sqrt(Matrix([[nsimplify(a), -nsimplify(b)], [nsimplify(b), nsimplify(a)]]).det())" } }
+
+- template: la-markov-steady-state
+  skill: la.eigen-applications
+  pace: quick
+  given: { p: { pick: [1, 2, 3, 4, 5] }, q: { pick: [1, 2, 3, 4, 6] } }
+  prompt: 'A two-state Markov chain has transition matrix $P = \begin{pmatrix} {{1 - p/10}} & {{q/10}} \\ {{p/10}} & {{1 - q/10}} \end{pmatrix}$ (columns sum to 1). In the long run, what fraction of the time is spent in state 1?'
+  parts:
+    - { ask: 'Fraction', label: v, tex: 'q_1', value: q/(p + q), tol: 0.005, explain: 'The steady state is the eigenvector for $\lambda = 1$, scaled so its entries sum to 1. Balance the flows: ${{p/10}}q_1 = {{q/10}}q_2$, so $q_1 = \dfrac{ {{q/10}} }{ {{p/10}} + {{q/10}} }$' }
+  verify: { expect: { v: "(Matrix([[1 - Rational(p, 10), Rational(q, 10)], [Rational(p, 10), 1 - Rational(q, 10)]]) - Matrix([[1, 0], [0, 1]])).nullspace()[0][0]/((Matrix([[1 - Rational(p, 10), Rational(q, 10)], [Rational(p, 10), 1 - Rational(q, 10)]]) - Matrix([[1, 0], [0, 1]])).nullspace()[0][0] + (Matrix([[1 - Rational(p, 10), Rational(q, 10)], [Rational(p, 10), 1 - Rational(q, 10)]]) - Matrix([[1, 0], [0, 1]])).nullspace()[0][1])" } }
+
+- template: la-power-by-eigenvectors
+  skill: la.eigen-applications
+  pace: quick
+  given: { l1: { pick: [2, 3, -2] }, l2: { pick: [-1, 1, 0.5] }, c1: { int: [-2, 3] }, c2: { int: [-3, 3] }, k: { int: [2, 4] } }
+  require: ["c1 != 0", "c2 != 0", "c1*l1^k + c2*l2^k != 0"]
+  prompt: '$A\begin{pmatrix} 1 \\ 1 \end{pmatrix} = {{l1}}\begin{pmatrix} 1 \\ 1 \end{pmatrix}$ and $A\begin{pmatrix} 1 \\ -1 \end{pmatrix} = {{l2}}\begin{pmatrix} 1 \\ -1 \end{pmatrix}$. Find the first entry of $A^{ {{k}} }\begin{pmatrix} {{c1 + c2}} \\ {{c1 - c2}} \end{pmatrix}$.'
+  parts:
+    - { ask: 'First entry', label: v, tex: '(A^kx)_1', value: c1*l1^k + c2*l2^k, tol: 0.005, explain: 'Write $x = {{c1}}v_1 + {{c2}}v_2$. Each eigenvector is only scaled: $A^{ {{k}} }x = {{c1}}({{l1}})^{ {{k}} }v_1 + {{c2}}({{l2}})^{ {{k}} }v_2$. No matrix powers needed' }
+  verify: { expect: { v: "((Matrix([[1, 1], [1, -1]])*Matrix([[nsimplify(l1), 0], [0, nsimplify(l2)]])*Matrix([[1, 1], [1, -1]]).inv())**k*Matrix([c1 + c2, c1 - c2]))[0]" } }
+
+# ── inner products and orthogonality (CUPM 6) ───────────────────────────────
+- template: la-distance
+  skill: la.orthogonality
+  pace: quick
+  cases:
+    - { p: 1, q: 2, r: 2, n: 3 }
+    - { p: 2, q: 3, r: 6, n: 7 }
+    - { p: 1, q: 4, r: 8, n: 9 }
+    - { p: 4, q: 4, r: 7, n: 9 }
+    - { p: 2, q: 6, r: 9, n: 11 }
+  given: { a: { int: [-3, 3] }, b: { int: [-3, 3] }, c: { int: [-3, 3] }, s: { pick: [1, -1] } }
+  prompt: 'Find the distance between $u = ({{a}}, {{b}}, {{c}})$ and $v = ({{a + s*p}}, {{b - s*q}}, {{c + r}})$.'
+  parts:
+    - { ask: '$\lVert u - v \rVert$', label: v, tex: 'd', value: n, tol: 0.005, explain: '$u - v = ({{-s*p}}, {{s*q}}, {{-r}})$, and $\lVert u - v\rVert = \sqrt{ {{p^2}} + {{q^2}} + {{r^2}} } = {{n}}$' }
+  verify: { expect: { v: "sqrt((Matrix([a, b, c]) - Matrix([a + s*p, b - s*q, c + r])).dot(Matrix([a, b, c]) - Matrix([a + s*p, b - s*q, c + r])))" } }
+
+- template: la-orthogonal-complement
+  skill: la.orthogonality
+  pace: quick
+  given: { a: { int: [-4, 4] }, b: { int: [-4, 4] }, c: { int: [-3, 3] } }
+  require: ["a*c + b != 0"]
+  prompt: '$W$ is the line spanned by $(1, {{a}}, {{b}})$. For which $h$ is $(h, {{c}}, 1)$ in $W^{\perp}$?'
+  parts:
+    - { ask: '$h$', label: v, tex: 'h', value: -(a*c + b), tol: 0.005, explain: '$W^\perp$ is everything orthogonal to the spanning vector: $h + {{a}}\cdot{{c}} + {{b}} = 0$. For a line in $\mathbb{R}^3$ that is a plane, of dimension $3 - 1 = 2$' }
+  verify: { expect: { v: "solve(Eq(Matrix([1, a, b]).dot(Matrix([x, c, 1])), 0), x)[0]" } }
+
+- template: la-qr-entry
+  skill: la.orthogonality
+  pace: quick
+  cases:
+    - { p: 3, q: 4 }
+    - { p: 4, q: 3 }
+    - { p: 5, q: 12 }
+    - { p: -3, q: 4 }
+    - { p: 8, q: 6 }
+  given: { u: { int: [-4, 5] }, w: { int: [-4, 5] } }
+  require: ["p*u + q*w != 0"]
+  prompt: '$A = \begin{pmatrix} {{p}} & {{u}} \\ {{q}} & {{w}} \end{pmatrix} = QR$ by Gram–Schmidt, with $R$ upper triangular and positive diagonal. Find $r_{12}$.'
+  parts:
+    - { ask: '$r_{12}$', label: v, tex: 'r_{12}', value: (p*u + q*w)/sqrt(p^2 + q^2), tol: 0.005, explain: '$q_1 = a_1/\lVert a_1\rVert$ with $\lVert a_1\rVert = {{sqrt(p^2 + q^2)}} = r_{11}$. Then $r_{12} = q_1 \cdot a_2 = \dfrac{ {{p*u + q*w}} }{ {{sqrt(p^2 + q^2)}} }$, the component of $a_2$ along $q_1$' }
+  verify: { expect: { v: "Matrix([[p, u], [q, w]]).QRdecomposition()[1][0, 1]" } }
+
+# ── symmetric matrices, quadratic forms, SVD ────────────────────────────────
+- template: la-symmetric-eigenvector
+  skill: la.diagonalization
+  pace: quick
+  given: { p: { pick: [1, 2, 3, -1, -2] }, q: { pick: [1, 2, 3, 4, -3] }, l1: { int: [-3, 4] }, l2: { int: [-3, 4] } }
+  require: ["l1 != l2"]
+  prompt: 'A symmetric $2 \times 2$ matrix has eigenvector $({{p}}, {{q}})$ for $\lambda = {{l1}}$. Its eigenvector for $\lambda = {{l2}}$ is a multiple of $(h, 1)$. Find $h$.'
+  parts:
+    - { ask: '$h$', label: v, tex: 'h', value: -q/p, tol: 0.005, explain: 'Eigenvectors of a symmetric matrix for different eigenvalues are orthogonal: ${{p}}h + {{q}} = 0$. In the plane there is only one orthogonal direction, so the second eigenvector is fixed without knowing the matrix' }
+  verify: { expect: { v: "solve(Eq((Integer(l1)*Matrix([p, q])*Matrix([p, q]).T + Integer(l2)*Matrix([-q, p])*Matrix([-q, p]).T)*Matrix([x, 1]), Integer(l2)*(p**2 + q**2)*Matrix([x, 1])), x)[x]" } }
+
+- template: la-quadratic-form-classify
+  skill: la.quadratic-forms
+  pace: quick
+  given: { a: { pick: [-4, -3, -2, -1, 1, 2, 3, 4] }, b: { int: [-3, 3] }, c: { pick: [-5, -3, -2, -1, 1, 2, 3, 5] } }
+  require: ["a*c - b^2 != 0"]
+  prompt: 'Classify $Q(x) = {{a}}x_1^2 + ({{2*b}})x_1x_2 + ({{c}})x_2^2$.'
+  parts:
+    - ask: '$Q$ is'
+      label: a
+      choice: ["Positive definite", "Negative definite", "Indefinite"]
+      correct: "a*c - b^2 < 0 ? 2 : (a > 0 ? 0 : 1)"
+      explain: 'The matrix is $\begin{pmatrix} {{a}} & {{b}} \\ {{b}} & {{c}} \end{pmatrix}$ (half the cross coefficient off the diagonal). Its eigenvalues decide: both positive, both negative, or mixed signs. For $2 \times 2$: $\det < 0$ means mixed; $\det > 0$ means the sign of $a$'
+  verify: { choices: { a: "0 if Min(*Matrix([[a, b], [b, c]]).eigenvals().keys()) > 0 else (1 if Max(*Matrix([[a, b], [b, c]]).eigenvals().keys()) < 0 else 2)" } }
+
+- template: la-quadratic-form-max
+  skill: la.quadratic-forms
+  pace: quick
+  given: { a: { int: [-3, 5] }, b: { pick: [-3, -2, -1, 1, 2, 3, 4] } }
+  require: ["a + abs(b) != 0"]
+  prompt: 'What is the largest value of $Q(x) = {{a}}x_1^2 + ({{2*b}})x_1x_2 + {{a}}x_2^2$ on the unit circle $\lVert x \rVert = 1$?'
+  parts:
+    - { ask: 'Maximum', label: v, tex: 'Q_{max}', value: a + abs(b), tol: 0.005, explain: 'On unit vectors, $x^TAx$ ranges between the smallest and largest eigenvalue of $A$, reached at the eigenvectors. Here $A = \begin{pmatrix} {{a}} & {{b}} \\ {{b}} & {{a}} \end{pmatrix}$ has eigenvalues ${{a}} \pm {{abs(b)}}$, at $(1, \pm 1)/\sqrt2$' }
+  verify: { expect: { v: "Max(*Matrix([[a, b], [b, a]]).eigenvals().keys())" } }
+
+- template: la-condition-number
+  skill: la.svd
+  pace: quick
+  given: { s1: { pick: [10, 12, 20, 30] }, s2: { pick: [4, 5, 6] }, s3: { pick: [0.5, 1, 2] } }
+  prompt: '$A = \begin{pmatrix} 0 & {{s1}} & 0 \\ {{s2}} & 0 & 0 \\ 0 & 0 & {{-s3}} \end{pmatrix}$. What is its condition number $\sigma_{max}/\sigma_{min}$?'
+  parts:
+    - { ask: '$\kappa$', label: v, tex: '\kappa', value: s1/s3, tol: 0.005, explain: 'Singular values are lengths, so signs and the order of the columns do not matter: here ${{s1}}, {{s2}}, {{s3}}$. $\kappa = {{s1}}/{{s3}}$. A large condition number means small errors in $b$ can become large errors in $x$' }
+  verify: { expect: { v: "Max(*Matrix([[0, s1, 0], [s2, 0, 0], [0, 0, -nsimplify(s3)]]).singular_values())/Min(*Matrix([[0, s1, 0], [s2, 0, 0], [0, 0, -nsimplify(s3)]]).singular_values())" } }
+
+- template: la-rank-one-singular-value
+  skill: la.svd
+  pace: quick
+  cases:
+    - { p: 3, q: 4 }
+    - { p: 1, q: 2 }
+    - { p: 8, q: 6 }
+    - { p: 5, q: 12 }
+  given: { m: { pick: [1, 2, 3] }, s: { pick: [1, -1] } }
+  prompt: '$A = uv^{T}$ with $u = ({{p}}, {{s*q}})$ and $v = ({{m}}, {{-m}}, {{m}}, {{-m}})$. What is its nonzero singular value?'
+  parts:
+    - { ask: '$\sigma_1$', label: v, tex: '\sigma_1', value: sqrt(p^2 + q^2)*2*m, tol: 0.005, explain: 'A rank-one matrix $uv^T$ has one nonzero singular value, $\lVert u\rVert\,\lVert v\rVert = {{sqrt(p^2 + q^2)}}\cdot{{2*m}}$: it sends $v/\lVert v\rVert$ to $\lVert v\rVert u$' }
+  verify: { expect: { v: "Max(*(Matrix([p, s*q])*Matrix([m, -m, m, -m]).T).singular_values())" } }

@@ -272,7 +272,9 @@
      "los": [
       {
        "id": "A",
-       "std": "A-CED.A.1",
+       "std": [
+        "A-CED.A.1"
+       ],
        "do": "Write and solve a one-variable linear equation or inequality that represents a word problem.",
        "ek": [
         "Name the unknown, translate each sentence into a relation, solve, then check the answer in the words."
@@ -808,7 +810,10 @@
       },
       {
        "id": "B",
-       "std": "A-REI.C.6",
+       "std": [
+        "A-REI.C.6",
+        "webwork-opl:LA1.1"
+       ],
        "do": "Solve a system of two linear equations exactly by substitution or elimination.",
        "ek": [
         "Eliminate one variable to get a one-variable equation, solve, then back-substitute."
@@ -905,7 +910,11 @@
      "los": [
       {
        "id": "A",
-       "std": "S-ID.A.1",
+       "std": [
+        "S-ID.A.1",
+        "webwork-opl:ST3.1",
+        "webwork-opl:ST3.3"
+       ],
        "do": "Represent data with plots on the real number line: dot plots, histograms and box plots.",
        "ek": [
         "A box plot shows the five-number summary: minimum, Q1, median, Q3, maximum."
@@ -923,7 +932,10 @@
       },
       {
        "id": "B",
-       "std": "S-ID.A.2",
+       "std": [
+        "S-ID.A.2",
+        "webwork-opl:ST3.2"
+       ],
        "do": "Compare the center (median, mean) and spread (interquartile range, standard deviation) of two or more data sets, using statistics suited to their shape.",
        "ek": [
         "Skewed data or outliers → median and IQR; roughly symmetric → mean and standard deviation."
@@ -942,7 +954,10 @@
       },
       {
        "id": "C",
-       "std": "S-ID.A.3",
+       "std": [
+        "S-ID.A.3",
+        "webwork-opl:ST3.4"
+       ],
        "do": "Interpret differences in shape, center and spread in context, accounting for possible effects of extreme data points (outliers).",
        "ek": [
         "An outlier lies more than 1.5·IQR beyond a quartile; it moves the mean and SD much more than the median and IQR."
@@ -967,7 +982,10 @@
      "los": [
       {
        "id": "A",
-       "std": "S-ID.B.5",
+       "std": [
+        "S-ID.B.5",
+        "webwork-opl:ST3.5"
+       ],
        "do": "Summarise categorical data for two categories in two-way frequency tables and interpret joint, marginal and conditional relative frequencies.",
        "ek": [
         "Joint = cell / grand total; marginal = row or column total / grand total; conditional = cell / its row or column total."
@@ -983,7 +1001,10 @@
       },
       {
        "id": "B",
-       "std": "S-ID.B.6a",
+       "std": [
+        "S-ID.B.6a",
+        "webwork-opl:ST7.2"
+       ],
        "do": "Fit a function (linear, quadratic or exponential) to data on two quantitative variables in a scatter plot and use it to solve problems in the context of the data.",
        "ek": [
         "Pick the family from the shape of the scatter and the context, then use technology to fit its parameters."
@@ -2623,7 +2644,10 @@
      "los": [
       {
        "id": "A",
-       "std": "S-CP.A.1",
+       "std": [
+        "S-CP.A.1",
+        "webwork-opl:PB1.1"
+       ],
        "do": "Describe events as subsets of a sample space using characteristics of the outcomes, or as unions, intersections or complements of other events.",
        "ek": [
         "'Or' is union, 'and' is intersection, 'not' is complement; P(not A) = 1 − P(A)."
@@ -2659,7 +2683,10 @@
       },
       {
        "id": "C",
-       "std": "S-CP.A.3",
+       "std": [
+        "S-CP.A.3",
+        "webwork-opl:PB1.4"
+       ],
        "do": "Interpret the conditional probability of A given B as P(A and B)/P(B), and independence as P(A|B) = P(A).",
        "ek": [
         "Conditioning on B shrinks the sample space to B."
@@ -2721,7 +2748,10 @@
      "los": [
       {
        "id": "A",
-       "std": "S-CP.B.6",
+       "std": [
+        "S-CP.B.6",
+        "webwork-opl:PB1.3"
+       ],
        "do": "Find the conditional probability of A given B as the fraction of B's outcomes that also belong to A, and interpret it in terms of the model.",
        "ek": [
         "P(A|B) = |A ∩ B| / |B| in a uniform model."
@@ -2821,7 +2851,10 @@
       },
       {
        "id": "B",
-       "std": "S-MD.B.7",
+       "std": [
+        "S-MD.B.7",
+        "webwork-opl:PB1.5"
+       ],
        "do": "(+) Analyse decisions and strategies using probability concepts, e.g. product testing, medical testing, pulling a hockey goalie at the end of a game.",
        "ek": [
         "A positive result on a test for a rare condition is often a false positive: P(condition | positive) ≪ P(positive | condition)."
@@ -3462,7 +3495,10 @@
      "los": [
       {
        "id": "A",
-       "std": "S-ID.A.4",
+       "std": [
+        "S-ID.A.4",
+        "webwork-opl:PB4.3"
+       ],
        "do": "Use the mean and standard deviation of a data set to fit it to a normal distribution and estimate population percentages, recognising when that is not appropriate.",
        "ek": [
         "68–95–99.7 rule; z = (x − μ)/σ; skewed or multimodal data are not normal."
@@ -3488,7 +3524,10 @@
      "los": [
       {
        "id": "A",
-       "std": "S-IC.A.1",
+       "std": [
+        "S-IC.A.1",
+        "webwork-opl:ST4.3"
+       ],
        "do": "Explain statistics as a process for making inferences about population parameters from a random sample of that population.",
        "ek": [
         "A statistic describes the sample, a parameter the population; random sampling makes the sample representative."
@@ -3533,7 +3572,11 @@
      "los": [
       {
        "id": "A",
-       "std": "S-IC.B.3",
+       "std": [
+        "S-IC.B.3",
+        "webwork-opl:ST1.1",
+        "webwork-opl:ST2.1"
+       ],
        "do": "Recognise the purposes of and differences among sample surveys, experiments and observational studies, and explain how randomisation relates to each.",
        "ek": [
         "Random sampling supports generalising to a population; random assignment supports cause-and-effect."
@@ -3552,7 +3595,10 @@
       },
       {
        "id": "B",
-       "std": "S-IC.B.4",
+       "std": [
+        "S-IC.B.4",
+        "webwork-opl:ST2.1"
+       ],
        "do": "Use data from a sample survey to estimate a population mean or proportion, and develop a margin of error through simulation models for random sampling.",
        "ek": [
         "Margin of error ≈ 2 standard deviations of the simulated sampling distribution."
@@ -3574,7 +3620,11 @@
       },
       {
        "id": "C",
-       "std": "S-IC.B.5",
+       "std": [
+        "S-IC.B.5",
+        "webwork-opl:ST4.4",
+        "webwork-opl:ST8.7"
+       ],
        "do": "Use data from a randomised experiment to compare two treatments, and use simulation to decide whether differences between parameters are significant.",
        "ek": [
         "Re-randomise the group labels many times; if the observed difference is rare, it is significant."
@@ -4369,7 +4419,10 @@
      "los": [
       {
        "id": "A",
-       "std": "A-REI.C.8",
+       "std": [
+        "A-REI.C.8",
+        "webwork-opl:LA1.4"
+       ],
        "do": "(+) Represent a system of linear equations as a single matrix equation Ax = b in a vector variable.",
        "ek": [
         "Rows of A hold the coefficients, x the unknowns, b the constants."
@@ -4506,7 +4559,10 @@
       },
       {
        "id": "B",
-       "std": "S-MD.A.2",
+       "std": [
+        "S-MD.A.2",
+        "webwork-opl:PB2.1"
+       ],
        "do": "(+) Calculate the expected value of a random variable and interpret it as the mean of the probability distribution.",
        "ek": [
         "E[X] = Σ x·P(X = x)."
@@ -4525,7 +4581,10 @@
       },
       {
        "id": "C",
-       "std": "S-MD.A.3",
+       "std": [
+        "S-MD.A.3",
+        "webwork-opl:PB2.4"
+       ],
        "do": "(+) Develop a theoretical probability distribution and find the expected value, e.g. the number of correct answers from guessing on a multiple-choice test.",
        "ek": [
         "Binomial: P(X = k) = C(n, k)p^k(1 − p)^(n−k), E[X] = np."
@@ -6970,11 +7029,87 @@
   "hy-ode-solution",
   "hy-circular-link",
   "hy-where-used",
+  "st-moving-average",
+  "st-ar1-acf",
+  "st-runs-variance",
+  "st-seasonal-index",
+  "st-ar1-variance",
+  "st-exp-smoothing",
+  "st-periodogram",
   "g68-scatter-association",
   "g68-trend-line-judge",
+  "st-residual-diagnostics",
+  "st-linearised-fit",
+  "st-indicator",
+  "st-multiple-predict",
+  "st-adjusted-r2",
+  "st-aic",
+  "st-logistic",
+  "st-ordinal",
   "g68-simulation-design",
+  "st-odds",
+  "st-chebyshev",
+  "st-joint-missing",
+  "st-conjugate-prior",
+  "st-improper-prior",
+  "st-beta-posterior",
+  "st-normal-posterior",
+  "st-bayes-factor",
+  "st-mgf-mean",
+  "st-covariance-table",
+  "st-mm1-wait",
+  "st-variance-bias",
+  "st-mse",
+  "st-sufficient",
+  "st-mle-exponential",
+  "st-median-exponential",
+  "st-pdf-interval",
+  "st-normal-approx",
+  "st-negative-binomial",
+  "st-poisson",
+  "st-hypergeometric",
+  "st-multinomial",
+  "st-uniform-variance",
+  "st-exponential-survival",
+  "st-weibull",
+  "st-gamma-variance",
+  "st-beta-mean",
+  "st-lln-sample-size",
+  "st-ratio-estimator",
+  "st-regression-estimator",
+  "st-stratified-mean",
+  "st-cluster-total",
+  "st-capture-recapture",
   "sx-standard-error-mean",
   "sx-margin-and-sample-size",
+  "st-z-interval",
+  "st-two-prop-margin",
+  "st-paired-margin",
+  "st-two-z-margin",
+  "st-welch-t",
+  "st-variance-interval",
+  "st-z-test",
+  "st-two-prop-z",
+  "st-paired-t",
+  "st-two-z",
+  "st-power",
+  "st-chi-variance",
+  "st-fisher-table",
+  "st-f-variances",
+  "st-anova-f",
+  "st-twoway-df",
+  "st-slope-t",
+  "st-slope-interval",
+  "st-overall-f",
+  "st-loglinear-expected",
+  "st-sign-test",
+  "st-rank-sum-mean",
+  "st-signed-rank-mean",
+  "st-runs-mean",
+  "st-kruskal-wallis",
+  "st-ks-statistic",
+  "st-median-interval",
+  "st-relative-efficiency",
   "sx-sample-size-needed",
   "sx-t-statistic",
   "sx-degrees-of-freedom",

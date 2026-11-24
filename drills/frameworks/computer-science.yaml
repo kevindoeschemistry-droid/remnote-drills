@@ -115,7 +115,7 @@ units:
         book: { cs2023: [MSF-Probability, MSF-Statistics] }
         los:
           - { id: A, do: "Compute an expected count (collisions, comparisons, hits) using linearity of expectation over indicator variables.", ek: ["E[ΣX_i] = ΣE[X_i] even when the X_i are dependent; E[indicator] = P(event)."], p: [P2], drills: ["cs-expected-collisions"] }
-          - { id: B, do: "Apply Bayes' rule to a detector or classifier scenario and find the probability an alert is real.", ek: ["P(A|B) = P(B|A)P(A)/P(B); a low base rate makes most positives false even for an accurate test."], p: [P2, P7], drills: ["cs-bayes-alert"] }
+          - { id: B, std: ["webwork-opl:PB1.5"], do: "Apply Bayes' rule to a detector or classifier scenario and find the probability an alert is real.", ek: ["P(A|B) = P(B|A)P(A)/P(B); a low base rate makes most positives false even for an accurate test."], p: [P2, P7], drills: ["cs-bayes-alert"] }
           - { id: C, do: "Compute the mean, standard deviation and a confidence interval from repeated benchmark runs, and decide whether two configurations differ.", ek: ["CI ≈ x̄ ± t·s/√n; overlapping intervals do not prove no difference; report variance, not one run."], p: [P2, P6], drills: [] }
 
   # ── 2 ────────────────────────────────────────────────────────────────────

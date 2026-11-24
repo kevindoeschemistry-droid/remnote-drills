@@ -115,6 +115,10 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "webwork-opl:TH2.12",
+        "webwork-opl:TH12.2"
+       ],
        "do": "Calculate the pressure, volume, amount or temperature of an ideal gas from the other three.",
        "ek": [
         "PV = nRT with T in kelvin; R = 8.314 J/mol·K = 0.08314 L·bar/mol·K."
@@ -143,6 +147,10 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "webwork-opl:TH1.11",
+        "webwork-opl:TH1.12"
+       ],
        "do": "Calculate the work of an expansion or compression against a constant external pressure.",
        "ek": [
         "w = −P_ext ΔV; work done on the system is positive, so expansion gives w < 0."
@@ -156,6 +164,9 @@
       },
       {
        "id": "B",
+       "std": [
+        "webwork-opl:TH1.12"
+       ],
        "do": "Calculate the work and heat of a reversible isothermal expansion of an ideal gas.",
        "ek": [
         "w = −nRT ln(V₂/V₁); ΔU = 0 for an ideal gas at constant T, so q = −w."
@@ -170,6 +181,10 @@
       },
       {
        "id": "C",
+       "std": [
+        "webwork-opl:TH1.9",
+        "webwork-opl:TH2.10"
+       ],
        "do": "Calculate the heat and internal-energy change for heating at constant volume.",
        "ek": [
         "q_V = ΔU = nC_V ΔT; no P–V work is done."
@@ -183,6 +198,11 @@
       },
       {
        "id": "D",
+       "std": [
+        "webwork-opl:TH1.10",
+        "webwork-opl:TH2.11",
+        "webwork-opl:TH2.14"
+       ],
        "do": "Calculate the heat and enthalpy change for heating at constant pressure.",
        "ek": [
         "q_P = ΔH = nC_P ΔT; C_P − C_V = R for an ideal gas."
@@ -196,6 +216,9 @@
       },
       {
        "id": "E",
+       "std": [
+        "webwork-opl:TH7.16"
+       ],
        "do": "Calculate the final temperature and the work of a reversible adiabatic expansion.",
        "ek": [
         "T₁V₁^(γ−1) = T₂V₂^(γ−1) with γ = C_P/C_V; q = 0, so w = ΔU = nC_V ΔT."
@@ -220,6 +243,9 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "webwork-opl:TH1.10"
+       ],
        "do": "Convert between ΔH and ΔU for a process that changes the moles of gas.",
        "ek": [
         "ΔH = ΔU + Δn_gas RT; condensed phases contribute almost nothing to Δ(PV)."
@@ -260,6 +286,9 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "webwork-opl:TH13.5"
+       ],
        "do": "Convert a constant-volume (bomb calorimeter) reaction energy into a reaction enthalpy.",
        "ek": [
         "A bomb measures q_V = ΔU; ΔH = ΔU + Δn_gas RT, with Δn counted from the balanced equation."
@@ -273,6 +302,10 @@
       },
       {
        "id": "B",
+       "std": [
+        "webwork-opl:TH13.3",
+        "webwork-opl:TH13.4"
+       ],
        "do": "Calculate a standard reaction enthalpy from standard enthalpies of formation.",
        "ek": [
         "ΔH°_rxn = Σ ν ΔH°_f(products) − Σ ν ΔH°_f(reactants); elements in their standard states are zero."
@@ -325,6 +358,9 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "webwork-opl:TH6.6"
+       ],
        "do": "Calculate the efficiency of a Carnot engine and the work it delivers from a given heat input.",
        "ek": [
         "η = 1 − T_C/T_H = w/q_H, temperatures in kelvin; no engine between the same reservoirs does better."
@@ -352,6 +388,9 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "webwork-opl:TH7.10"
+       ],
        "do": "Calculate the entropy change of an ideal gas that expands isothermally.",
        "ek": [
         "ΔS = nR ln(V₂/V₁) = nR ln(P₁/P₂); a state function, so the path need not be reversible."
@@ -365,6 +404,9 @@
       },
       {
        "id": "B",
+       "std": [
+        "webwork-opl:TH7.10"
+       ],
        "do": "Calculate the entropy change for heating at constant pressure.",
        "ek": [
         "ΔS = nC_P ln(T₂/T₁) for constant C_P; kelvin inside the logarithm."
@@ -378,6 +420,9 @@
       },
       {
        "id": "C",
+       "std": [
+        "webwork-opl:TH7.8"
+       ],
        "do": "Calculate the entropy change of a phase transition at its transition temperature.",
        "ek": [
         "ΔS_tr = ΔH_tr/T_tr; Trouton's rule puts ΔS_vap near 85–88 J/mol·K for many liquids."
@@ -391,6 +436,9 @@
       },
       {
        "id": "D",
+       "std": [
+        "webwork-opl:TH13.12"
+       ],
        "do": "Calculate a standard reaction entropy from absolute molar entropies.",
        "ek": [
         "ΔS°_rxn = Σ ν S°(products) − Σ ν S°(reactants); the third law fixes S° on an absolute scale."
@@ -431,6 +479,9 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "webwork-opl:TH13.15"
+       ],
        "do": "Calculate ΔG from ΔH and ΔS and decide whether a process is spontaneous at a given temperature.",
        "ek": [
         "ΔG = ΔH − TΔS; spontaneous at constant T and P when ΔG < 0; the sign flips at T = ΔH/ΔS."
@@ -469,6 +520,9 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "webwork-opl:TH13.2"
+       ],
        "do": "Calculate an equilibrium constant from a standard reaction Gibbs energy, and the reverse.",
        "ek": [
         "ΔG° = −RT ln K; a negative ΔG° gives K > 1."
@@ -524,6 +578,9 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "webwork-opl:TH2.15"
+       ],
        "do": "Calculate the compression factor of a gas and say whether attraction or repulsion dominates.",
        "ek": [
         "Z = PV_m/RT; Z < 1 means attractions dominate, Z > 1 repulsions."
@@ -537,6 +594,9 @@
       },
       {
        "id": "B",
+       "std": [
+        "webwork-opl:TH15.5"
+       ],
        "do": "Calculate the pressure of a gas from the van der Waals equation.",
        "ek": [
         "P = RT/(V_m − b) − a/V_m²; b is excluded volume, a measures attraction."
@@ -550,6 +610,9 @@
       },
       {
        "id": "C",
+       "std": [
+        "webwork-opl:TH15.6"
+       ],
        "do": "Calculate reduced variables and use corresponding states to compare gases.",
        "ek": [
         "T_r = T/T_c, P_r = P/P_c; gases at the same reduced state have about the same Z."
@@ -564,6 +627,9 @@
       },
       {
        "id": "D",
+       "std": [
+        "webwork-opl:TH15.10"
+       ],
        "do": "Calculate a fugacity from a fugacity coefficient and relate it to chemical potential.",
        "ek": [
         "f = φP; μ = μ° + RT ln(f/P°); φ → 1 as P → 0."
@@ -607,6 +673,9 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "webwork-opl:TH2.1"
+       ],
        "do": "Apply the Gibbs phase rule to count the degrees of freedom of a system.",
        "ek": [
         "F = C − P + 2; a pure substance at its triple point has F = 0."
@@ -620,6 +689,9 @@
       },
       {
        "id": "B",
+       "std": [
+        "webwork-opl:TH15.3"
+       ],
        "do": "Calculate a vapour pressure, a boiling temperature or an enthalpy of vaporisation from the Clausius–Clapeyron equation.",
        "ek": [
         "ln(P₂/P₁) = −(ΔH_vap/R)(1/T₂ − 1/T₁); assumes an ideal vapour and constant ΔH_vap."
@@ -703,6 +775,9 @@
       },
       {
        "id": "C",
+       "std": [
+        "webwork-opl:TH15.9"
+       ],
        "do": "Use the Gibbs–Duhem equation to relate changes in the chemical potentials of two components.",
        "ek": [
         "x₁ dμ₁ + x₂ dμ₂ = 0 at constant T and P."
@@ -728,6 +803,9 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "webwork-opl:TH18.1"
+       ],
        "do": "Calculate a boiling-point elevation or freezing-point depression from molality.",
        "ek": [
         "ΔT_b = K_b m and ΔT_f = K_f m; depends on the amount of solute, not what it is."
@@ -741,6 +819,9 @@
       },
       {
        "id": "B",
+       "std": [
+        "webwork-opl:TH18.1"
+       ],
        "do": "Calculate an osmotic pressure, or a molar mass from a measured osmotic pressure.",
        "ek": [
         "Π = cRT with c in mol/m³ (or mol/L with R = 0.08314 L·bar/mol·K)."
@@ -817,6 +898,9 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "webwork-opl:TH18.2"
+       ],
        "do": "Calculate the ionic strength of an electrolyte solution.",
        "ek": [
         "I = ½ Σ m_i z_i²; a 1:1 salt gives I = m, a 2:1 salt I = 3m."
@@ -844,6 +928,9 @@
       },
       {
        "id": "C",
+       "std": [
+        "webwork-opl:TH18.2"
+       ],
        "do": "Estimate a mean activity coefficient with the Debye–Hückel limiting law.",
        "ek": [
         "log₁₀ γ_± = −A|z₊z₋|√I with A = 0.509 in water at 298 K; valid only at low I."
@@ -926,6 +1013,9 @@
       },
       {
        "id": "C",
+       "std": [
+        "webwork-opl:TH18.3"
+       ],
        "do": "Calculate a cell potential away from standard conditions with the Nernst equation.",
        "ek": [
         "E = E° − (RT/nF) ln Q; at 298 K, RT/F = 0.02569 V."
@@ -2610,6 +2700,9 @@
       },
       {
        "id": "D",
+       "std": [
+        "webwork-opl:FM1.3"
+       ],
        "do": "Calculate a shear stress from a viscosity and a velocity gradient.",
        "ek": [
         "τ = η du/dz; for a gas η = ⅓ρv̄λ, which rises with temperature."

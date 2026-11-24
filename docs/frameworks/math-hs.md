@@ -239,7 +239,7 @@ Big ideas: FUNC, MODEL, EQUIV
   - EK: The solution is the intersection point; parallel lines give no solution, coincident lines infinitely many.
   - Needs: MH-2.3.B
   - MP5 · drills: hs-system-graph, hs2-intersection-meaning, mm-sum-and-difference, ~k8-system
-- ● **MH-2.7.B** (A-REI.C.6) Solve a system of two linear equations exactly by substitution or elimination.
+- ● **MH-2.7.B** (A-REI.C.6, webwork-opl:LA1.1) Solve a system of two linear equations exactly by substitution or elimination.
   - EK: Eliminate one variable to get a one-variable equation, solve, then back-substitute.
   - Needs: MH-2.7.A, MH-1.3.B
   - MP6 · MP7 · drills: k8-system, mm-system-sum
@@ -264,14 +264,14 @@ Big ideas: DATA, MODEL
 
 
 
-- ● **MH-3.1.A** (S-ID.A.1) Represent data with plots on the real number line: dot plots, histograms and box plots.
+- ● **MH-3.1.A** (S-ID.A.1, webwork-opl:ST3.1, webwork-opl:ST3.3) Represent data with plots on the real number line: dot plots, histograms and box plots.
   - EK: A box plot shows the five-number summary: minimum, Q1, median, Q3, maximum.
   - MP5 · MP6 · drills: k8-histogram-read, k8-box-plot, ~k8-dot-plot, ~k8-box-plot
-- ● **MH-3.1.B** (S-ID.A.2) Compare the center (median, mean) and spread (interquartile range, standard deviation) of two or more data sets, using statistics suited to their shape.
+- ● **MH-3.1.B** (S-ID.A.2, webwork-opl:ST3.2) Compare the center (median, mean) and spread (interquartile range, standard deviation) of two or more data sets, using statistics suited to their shape.
   - EK: Skewed data or outliers → median and IQR; roughly symmetric → mean and standard deviation.
   - Needs: MH-3.1.A
   - MP2 · MP3 · drills: stats-center, sx-linear-transform
-- ● **MH-3.1.C** (S-ID.A.3) Interpret differences in shape, center and spread in context, accounting for possible effects of extreme data points (outliers).
+- ● **MH-3.1.C** (S-ID.A.3, webwork-opl:ST3.4) Interpret differences in shape, center and spread in context, accounting for possible effects of extreme data points (outliers).
   - EK: An outlier lies more than 1.5·IQR beyond a quartile; it moves the mean and SD much more than the median and IQR.
   - Needs: MH-3.1.B
   - MP2 · MP3 · drills: stats-outlier, hs2-outlier-effect
@@ -280,10 +280,10 @@ Big ideas: DATA, MODEL
 
 
 
-- ● **MH-3.2.A** (S-ID.B.5) Summarise categorical data for two categories in two-way frequency tables and interpret joint, marginal and conditional relative frequencies.
+- ● **MH-3.2.A** (S-ID.B.5, webwork-opl:ST3.5) Summarise categorical data for two categories in two-way frequency tables and interpret joint, marginal and conditional relative frequencies.
   - EK: Joint = cell / grand total; marginal = row or column total / grand total; conditional = cell / its row or column total.
   - MP2 · MP6 · drills: stats-two-way, hs2-two-way-marginal
-- ● **MH-3.2.B** (S-ID.B.6a) Fit a function (linear, quadratic or exponential) to data on two quantitative variables in a scatter plot and use it to solve problems in the context of the data.
+- ● **MH-3.2.B** (S-ID.B.6a, webwork-opl:ST7.2) Fit a function (linear, quadratic or exponential) to data on two quantitative variables in a scatter plot and use it to solve problems in the context of the data.
   - EK: Pick the family from the shape of the scatter and the context, then use technology to fit its parameters.
   - Needs: MH-2.5.A
   - MP4 · MP5 · drills: stats-regression, hs2-model-type
@@ -727,14 +727,14 @@ Big ideas: DATA
 
 
 
-- ● **MH-11.1.A** (S-CP.A.1) Describe events as subsets of a sample space using characteristics of the outcomes, or as unions, intersections or complements of other events.
+- ● **MH-11.1.A** (S-CP.A.1, webwork-opl:PB1.1) Describe events as subsets of a sample space using characteristics of the outcomes, or as unions, intersections or complements of other events.
   - EK: 'Or' is union, 'and' is intersection, 'not' is complement; P(not A) = 1 − P(A).
   - MP6 · drills: hs-events-as-sets, mm-subsets, ~stats-addition
 - ● **MH-11.1.B** (S-CP.A.2) Decide whether two events are independent using the fact that A and B are independent exactly when P(A and B) = P(A)·P(B).
   - EK: Independent ⇔ P(A ∩ B) = P(A)P(B).
   - Needs: MH-11.1.A
   - MP3 · MP6 · drills: stats-independence, hs2-independence-check, ~sm-atleast
-- ● **MH-11.1.C** (S-CP.A.3) Interpret the conditional probability of A given B as P(A and B)/P(B), and independence as P(A|B) = P(A).
+- ● **MH-11.1.C** (S-CP.A.3, webwork-opl:PB1.4) Interpret the conditional probability of A given B as P(A and B)/P(B), and independence as P(A|B) = P(A).
   - EK: Conditioning on B shrinks the sample space to B.
   - Needs: MH-11.1.B
   - MP2 · drills: stats-independence, stats-conditional
@@ -751,7 +751,7 @@ Big ideas: DATA
 
 
 
-- ● **MH-11.2.A** (S-CP.B.6) Find the conditional probability of A given B as the fraction of B's outcomes that also belong to A, and interpret it in terms of the model.
+- ● **MH-11.2.A** (S-CP.B.6, webwork-opl:PB1.3) Find the conditional probability of A given B as the fraction of B's outcomes that also belong to A, and interpret it in terms of the model.
   - EK: P(A|B) = |A ∩ B| / |B| in a uniform model.
   - Needs: MH-11.1.C
   - MP2 · drills: stats-conditional, hs2-conditional-table
@@ -776,7 +776,7 @@ Big ideas: DATA
   - EK: A procedure is fair when every option has equal probability.
   - Needs: MH-11.1.A
   - MP4 · drills: hs-fair-decision, hs2-fair-decision
-- ● **MH-11.3.B** (S-MD.B.7) (+) Analyse decisions and strategies using probability concepts, e.g. product testing, medical testing, pulling a hockey goalie at the end of a game.
+- ● **MH-11.3.B** (S-MD.B.7, webwork-opl:PB1.5) (+) Analyse decisions and strategies using probability concepts, e.g. product testing, medical testing, pulling a hockey goalie at the end of a game.
   - EK: A positive result on a test for a rare condition is often a false positive: P(condition | positive) ≪ P(positive | condition).
   - Needs: MH-11.2.C
   - MP4 · MP3 · drills: stats-bayes, hs2-positive-predictive
@@ -954,7 +954,7 @@ Big ideas: DATA, MODEL
 
 
 
-- ● **MH-15.1.A** (S-ID.A.4) Use the mean and standard deviation of a data set to fit it to a normal distribution and estimate population percentages, recognising when that is not appropriate.
+- ● **MH-15.1.A** (S-ID.A.4, webwork-opl:PB4.3) Use the mean and standard deviation of a data set to fit it to a normal distribution and estimate population percentages, recognising when that is not appropriate.
   - EK: 68–95–99.7 rule; z = (x − μ)/σ; skewed or multimodal data are not normal.
   - Needs: MH-3.1.C
   - MP4 · MP5 · drills: stats-normal, sx-z-score, sx-empirical-rule
@@ -963,7 +963,7 @@ Big ideas: DATA, MODEL
 
 
 
-- ● **MH-15.2.A** (S-IC.A.1) Explain statistics as a process for making inferences about population parameters from a random sample of that population.
+- ● **MH-15.2.A** (S-IC.A.1, webwork-opl:ST4.3) Explain statistics as a process for making inferences about population parameters from a random sample of that population.
   - EK: A statistic describes the sample, a parameter the population; random sampling makes the sample representative.
   - Needs: MH-15.1.A
   - MP3 · drills: sx-sampling-bias, ~k8-sampling
@@ -976,15 +976,15 @@ Big ideas: DATA, MODEL
 
 
 
-- ● **MH-15.3.A** (S-IC.B.3) Recognise the purposes of and differences among sample surveys, experiments and observational studies, and explain how randomisation relates to each.
+- ● **MH-15.3.A** (S-IC.B.3, webwork-opl:ST1.1, webwork-opl:ST2.1) Recognise the purposes of and differences among sample surveys, experiments and observational studies, and explain how randomisation relates to each.
   - EK: Random sampling supports generalising to a population; random assignment supports cause-and-effect.
   - Needs: MH-15.2.A, MH-3.3.C
   - MP3 · drills: hs-study-type, sx-experiment-design
-- ● **MH-15.3.B** (S-IC.B.4) Use data from a sample survey to estimate a population mean or proportion, and develop a margin of error through simulation models for random sampling.
+- ● **MH-15.3.B** (S-IC.B.4, webwork-opl:ST2.1) Use data from a sample survey to estimate a population mean or proportion, and develop a margin of error through simulation models for random sampling.
   - EK: Margin of error ≈ 2 standard deviations of the simulated sampling distribution.
   - Needs: MH-15.3.A, MH-15.1.A
   - MP4 · MP5 · drills: stats-margin, sx-proportion-margin, sx-confidence-meaning, sx-standard-error-proportion
-- ● **MH-15.3.C** (S-IC.B.5) Use data from a randomised experiment to compare two treatments, and use simulation to decide whether differences between parameters are significant.
+- ● **MH-15.3.C** (S-IC.B.5, webwork-opl:ST4.4, webwork-opl:ST8.7) Use data from a randomised experiment to compare two treatments, and use simulation to decide whether differences between parameters are significant.
   - EK: Re-randomise the group labels many times; if the observed difference is rare, it is significant.
   - Needs: MH-15.3.B
   - MP4 · MP5 · drills: hs-model-consistent, sx-proportion-z-statistic
@@ -1198,7 +1198,7 @@ Big ideas: NUM, XFORM
 
 
 
-- ● **MH-19.5.A** (A-REI.C.8) (+) Represent a system of linear equations as a single matrix equation Ax = b in a vector variable.
+- ● **MH-19.5.A** (A-REI.C.8, webwork-opl:LA1.4) (+) Represent a system of linear equations as a single matrix equation Ax = b in a vector variable.
   - EK: Rows of A hold the coefficients, x the unknowns, b the constants.
   - Needs: MH-19.4.F, MH-2.7.B
   - MP7 · drills: hs-system-as-matrix-equation, hs2-matrix-equation-dims, ~la-system
@@ -1236,11 +1236,11 @@ Big ideas: DATA, MODEL
   - EK: A probability distribution lists each value with its probability; the probabilities sum to 1.
   - Needs: MH-11.1.A
   - MP4 · MP6 · drills: hs2-random-variable, ~stats-expected, ~hs-empirical-distribution
-- ● **MH-21.1.B** (S-MD.A.2) (+) Calculate the expected value of a random variable and interpret it as the mean of the probability distribution.
+- ● **MH-21.1.B** (S-MD.A.2, webwork-opl:PB2.1) (+) Calculate the expected value of a random variable and interpret it as the mean of the probability distribution.
   - EK: E[X] = Σ x·P(X = x).
   - Needs: MH-21.1.A
   - MP6 · drills: stats-expected, sx-sum-of-independent, sx-geometric-wait
-- ● **MH-21.1.C** (S-MD.A.3) (+) Develop a theoretical probability distribution and find the expected value, e.g. the number of correct answers from guessing on a multiple-choice test.
+- ● **MH-21.1.C** (S-MD.A.3, webwork-opl:PB2.4) (+) Develop a theoretical probability distribution and find the expected value, e.g. the number of correct answers from guessing on a multiple-choice test.
   - EK: Binomial: P(X = k) = C(n, k)p^k(1 − p)^(n−k), E[X] = np.
   - Needs: MH-21.1.B, MH-11.2.D
   - MP4 · MP7 · drills: stats-expected, sx-binomial-probability, sx-binomial-spread, ~sm-binom
@@ -1285,11 +1285,87 @@ Big ideas: DATA, MODEL
 - hy-ode-solution (trig.hyperbolic)
 - hy-circular-link (trig.hyperbolic)
 - hy-where-used (trig.hyperbolic)
+- st-moving-average (stats.descriptive)
+- st-ar1-acf (stats.descriptive)
+- st-runs-variance (stats.descriptive)
+- st-seasonal-index (stats.descriptive)
+- st-ar1-variance (stats.descriptive)
+- st-exp-smoothing (stats.descriptive)
+- st-periodogram (stats.descriptive)
 - g68-scatter-association (stats.bivariate)
 - g68-trend-line-judge (stats.bivariate)
+- st-residual-diagnostics (stats.bivariate)
+- st-linearised-fit (stats.bivariate)
+- st-indicator (stats.bivariate)
+- st-multiple-predict (stats.bivariate)
+- st-adjusted-r2 (stats.bivariate)
+- st-aic (stats.bivariate)
+- st-logistic (stats.bivariate)
+- st-ordinal (stats.bivariate)
 - g68-simulation-design (stats.probability)
+- st-odds (stats.probability)
+- st-chebyshev (stats.probability)
+- st-joint-missing (stats.probability)
+- st-conjugate-prior (stats.probability)
+- st-improper-prior (stats.probability)
+- st-beta-posterior (stats.probability)
+- st-normal-posterior (stats.probability)
+- st-bayes-factor (stats.probability)
+- st-mgf-mean (stats.expected-value)
+- st-covariance-table (stats.expected-value)
+- st-mm1-wait (stats.expected-value)
+- st-variance-bias (stats.expected-value)
+- st-mse (stats.expected-value)
+- st-sufficient (stats.expected-value)
+- st-mle-exponential (stats.expected-value)
+- st-median-exponential (stats.distributions)
+- st-pdf-interval (stats.distributions)
+- st-normal-approx (stats.distributions)
+- st-negative-binomial (stats.distributions)
+- st-poisson (stats.distributions)
+- st-hypergeometric (stats.distributions)
+- st-multinomial (stats.distributions)
+- st-uniform-variance (stats.distributions)
+- st-exponential-survival (stats.distributions)
+- st-weibull (stats.distributions)
+- st-gamma-variance (stats.distributions)
+- st-beta-mean (stats.distributions)
+- st-lln-sample-size (stats.sampling)
+- st-ratio-estimator (stats.sampling)
+- st-regression-estimator (stats.sampling)
+- st-stratified-mean (stats.sampling)
+- st-cluster-total (stats.sampling)
+- st-capture-recapture (stats.sampling)
 - sx-standard-error-mean (stats.sampling)
 - sx-margin-and-sample-size (stats.sampling)
+- st-z-interval (stats.inference)
+- st-two-prop-margin (stats.inference)
+- st-paired-margin (stats.inference)
+- st-two-z-margin (stats.inference)
+- st-welch-t (stats.inference)
+- st-variance-interval (stats.inference)
+- st-z-test (stats.inference)
+- st-two-prop-z (stats.inference)
+- st-paired-t (stats.inference)
+- st-two-z (stats.inference)
+- st-power (stats.inference)
+- st-chi-variance (stats.inference)
+- st-fisher-table (stats.inference)
+- st-f-variances (stats.inference)
+- st-anova-f (stats.inference)
+- st-twoway-df (stats.inference)
+- st-slope-t (stats.inference)
+- st-slope-interval (stats.inference)
+- st-overall-f (stats.inference)
+- st-loglinear-expected (stats.inference)
+- st-sign-test (stats.inference)
+- st-rank-sum-mean (stats.inference)
+- st-signed-rank-mean (stats.inference)
+- st-runs-mean (stats.inference)
+- st-kruskal-wallis (stats.inference)
+- st-ks-statistic (stats.inference)
+- st-median-interval (stats.inference)
+- st-relative-efficiency (stats.inference)
 - sx-sample-size-needed (stats.inference)
 - sx-t-statistic (stats.inference)
 - sx-degrees-of-freedom (stats.inference)

@@ -12,7 +12,10 @@
   "calc"
  ],
  "basis": {
-  "primary": "ap-calculus"
+  "primary": "ap-calculus",
+  "also": [
+   "webwork-opl"
+  ]
  },
  "big_ideas": [
   {
@@ -73,7 +76,8 @@
       {
        "id": "A",
        "std": [
-        "CHA-1.A"
+        "CHA-1.A",
+        "webwork-opl:CA1.1"
        ],
        "do": "Explain why an instantaneous rate of change has to be defined as a limit of average rates over shrinking intervals.",
        "ek": [
@@ -97,7 +101,8 @@
       {
        "id": "A",
        "std": [
-        "LIM-1.A"
+        "LIM-1.A",
+        "webwork-opl:CA1.20"
        ],
        "do": "Read and write limit statements in symbols and words, including one-sided limits.",
        "ek": [
@@ -114,7 +119,8 @@
       {
        "id": "B",
        "std": [
-        "LIM-1.B"
+        "LIM-1.B",
+        "webwork-opl:CA1.9"
        ],
        "do": "Decide whether a limit exists by comparing the two one-sided limits.",
        "ek": [
@@ -141,7 +147,8 @@
       {
        "id": "A",
        "std": [
-        "LIM-1.C"
+        "LIM-1.C",
+        "webwork-opl:CA1.2"
        ],
        "do": "Estimate one-sided and two-sided limits from a graph, including at holes and jumps.",
        "ek": [
@@ -168,7 +175,8 @@
       {
        "id": "A",
        "std": [
-        "LIM-1.C"
+        "LIM-1.C",
+        "webwork-opl:CA1.15"
        ],
        "do": "Estimate a limit from a table of values that approach c from both sides, and say when the table is not enough.",
        "ek": [
@@ -196,7 +204,8 @@
       {
        "id": "A",
        "std": [
-        "LIM-1.D"
+        "LIM-1.D",
+        "webwork-opl:CA1.3"
        ],
        "do": "Find limits of sums, products, quotients and compositions from the limits of their parts, and by direct substitution at points of an elementary function's domain.",
        "ek": [
@@ -220,7 +229,9 @@
       {
        "id": "A",
        "std": [
-        "LIM-1.E"
+        "LIM-1.E",
+        "webwork-opl:CA1.4",
+        "webwork-opl:CA1.5"
        ],
        "do": "Evaluate a 0/0 limit by factoring and cancelling, or by multiplying by a conjugate to clear a radical.",
        "ek": [
@@ -240,7 +251,8 @@
       {
        "id": "B",
        "std": [
-        "LIM-1.E"
+        "LIM-1.E",
+        "webwork-opl:CA1.7"
        ],
        "do": "Evaluate trig limits by rewriting them in terms of sin x / x → 1 and (1 − cos x)/x → 0.",
        "ek": [
@@ -268,7 +280,8 @@
        "id": "A",
        "std": [
         "LIM-1.D",
-        "LIM-1.E"
+        "LIM-1.E",
+        "webwork-opl:CA1.6"
        ],
        "do": "Choose a limit procedure from the form the expression takes at c: substitute, factor, rationalize, use a trig identity, or recognise a nonzero/0 infinite limit.",
        "ek": [
@@ -296,7 +309,8 @@
       {
        "id": "A",
        "std": [
-        "LIM-1.E"
+        "LIM-1.E",
+        "webwork-opl:CA1.8"
        ],
        "do": "Find a limit with the squeeze theorem after bounding the function between two functions with a common limit.",
        "ek": [
@@ -324,7 +338,8 @@
        "id": "A",
        "std": [
         "LIM-1.C",
-        "LIM-1.D"
+        "LIM-1.D",
+        "webwork-opl:CA1.19"
        ],
        "do": "Find the same limit from a graph, a table and a formula, and resolve disagreements between them.",
        "ek": [
@@ -354,7 +369,8 @@
       {
        "id": "A",
        "std": [
-        "LIM-2.A"
+        "LIM-2.A",
+        "webwork-opl:CA1.11"
        ],
        "do": "Classify a discontinuity as removable, jump or infinite from a graph or formula.",
        "ek": [
@@ -381,7 +397,8 @@
       {
        "id": "A",
        "std": [
-        "LIM-2.A"
+        "LIM-2.A",
+        "webwork-opl:CA1.10"
        ],
        "do": "Prove or disprove continuity at a point by checking the three conditions.",
        "ek": [
@@ -408,7 +425,8 @@
       {
        "id": "A",
        "std": [
-        "LIM-2.B"
+        "LIM-2.B",
+        "webwork-opl:CA1.10"
        ],
        "do": "State the intervals on which a function (including a piecewise one) is continuous.",
        "ek": [
@@ -435,7 +453,8 @@
       {
        "id": "A",
        "std": [
-        "LIM-2.C"
+        "LIM-2.C",
+        "webwork-opl:CA1.11"
        ],
        "do": "Remove a discontinuity: redefine f at a removable point, or solve for constants that make a piecewise function continuous at its break.",
        "ek": [
@@ -463,7 +482,9 @@
       {
        "id": "A",
        "std": [
-        "LIM-2.D"
+        "LIM-2.D",
+        "webwork-opl:CA1.13",
+        "webwork-opl:CA1.18"
        ],
        "do": "Find vertical asymptotes and the sign of the infinite one-sided limits at each.",
        "ek": [
@@ -491,7 +512,9 @@
       {
        "id": "A",
        "std": [
-        "LIM-2.D"
+        "LIM-2.D",
+        "webwork-opl:CA1.14",
+        "webwork-opl:CA1.18"
        ],
        "do": "Find limits at ±∞ and horizontal asymptotes of rational and radical expressions, and of expressions mixing exponentials, powers and logs.",
        "ek": [
@@ -516,7 +539,8 @@
       {
        "id": "A",
        "std": [
-        "FUN-1.A"
+        "FUN-1.A",
+        "webwork-opl:CA1.12"
        ],
        "do": "Use the IVT to justify that a function takes a given value (or has a root) on an interval, after confirming continuity.",
        "ek": [
@@ -573,7 +597,8 @@
       {
        "id": "B",
        "std": [
-        "CHA-2.B"
+        "CHA-2.B",
+        "webwork-opl:CA1.16"
        ],
        "do": "Express an instantaneous rate of change as the limit of a difference quotient.",
        "ek": [
@@ -601,7 +626,8 @@
       {
        "id": "A",
        "std": [
-        "CHA-2.B"
+        "CHA-2.B",
+        "webwork-opl:CA2.1"
        ],
        "do": "Compute a derivative from the limit definition (h-form or x → a form), and recognise a given difference-quotient limit as a derivative.",
        "ek": [
@@ -623,7 +649,8 @@
       {
        "id": "B",
        "std": [
-        "CHA-2.C"
+        "CHA-2.C",
+        "webwork-opl:CA1.17"
        ],
        "do": "Write the equation of the tangent line at a point, using f′, dy/dx or d/dx notation correctly.",
        "ek": [
@@ -650,7 +677,8 @@
       {
        "id": "A",
        "std": [
-        "CHA-2.D"
+        "CHA-2.D",
+        "webwork-opl:CA2.2"
        ],
        "do": "Estimate a derivative at a point from a table or graph with a difference quotient.",
        "ek": [
@@ -678,7 +706,8 @@
       {
        "id": "A",
        "std": [
-        "FUN-2.A"
+        "FUN-2.A",
+        "webwork-opl:CA2.2"
        ],
        "do": "Identify where a function fails to be differentiable (discontinuity, corner, cusp, vertical tangent), including at the break of a piecewise function.",
        "ek": [
@@ -706,7 +735,8 @@
       {
        "id": "A",
        "std": [
-        "FUN-3.A"
+        "FUN-3.A",
+        "webwork-opl:CA2.3"
        ],
        "do": "Differentiate x^n for any real n, rewriting roots and reciprocals as powers first.",
        "ek": [
@@ -736,7 +766,8 @@
       {
        "id": "A",
        "std": [
-        "FUN-3.A"
+        "FUN-3.A",
+        "webwork-opl:CA2.3"
        ],
        "do": "Differentiate polynomials and sums of power terms term by term.",
        "ek": [
@@ -763,7 +794,10 @@
       {
        "id": "A",
        "std": [
-        "FUN-3.A"
+        "FUN-3.A",
+        "webwork-opl:CA2.8",
+        "webwork-opl:CA2.9",
+        "webwork-opl:CA2.10"
        ],
        "do": "Differentiate sin x, cos x, e^x and ln x and combinations of them with the sum and constant-multiple rules.",
        "ek": [
@@ -811,7 +845,9 @@
       {
        "id": "A",
        "std": [
-        "FUN-3.B"
+        "FUN-3.B",
+        "webwork-opl:CA2.4",
+        "webwork-opl:CA2.5"
        ],
        "do": "Differentiate a product, from a formula or from given values of f, g, f′, g′.",
        "ek": [
@@ -839,7 +875,9 @@
       {
        "id": "A",
        "std": [
-        "FUN-3.B"
+        "FUN-3.B",
+        "webwork-opl:CA2.6",
+        "webwork-opl:CA2.7"
        ],
        "do": "Differentiate a quotient, from a formula or from given values.",
        "ek": [
@@ -866,7 +904,9 @@
       {
        "id": "A",
        "std": [
-        "FUN-3.B"
+        "FUN-3.B",
+        "webwork-opl:CA2.7",
+        "webwork-opl:CA2.8"
        ],
        "do": "Derive and use the derivatives of tan x, cot x, sec x and csc x.",
        "ek": [
@@ -904,7 +944,9 @@
       {
        "id": "A",
        "std": [
-        "FUN-3.C"
+        "FUN-3.C",
+        "webwork-opl:CA2.15",
+        "webwork-opl:CA2.16"
        ],
        "do": "Differentiate a composite function with the chain rule — nested compositions, b^x and log_b x, and from tables or graphs of f, g and their derivatives.",
        "ek": [
@@ -936,7 +978,8 @@
       {
        "id": "A",
        "std": [
-        "FUN-3.D"
+        "FUN-3.D",
+        "webwork-opl:CA2.22"
        ],
        "do": "Find dy/dx for an implicitly defined relation and the slope or tangent line at a point on it.",
        "ek": [
@@ -964,7 +1007,8 @@
       {
        "id": "A",
        "std": [
-        "FUN-3.E"
+        "FUN-3.E",
+        "webwork-opl:CA2.11"
        ],
        "do": "Find the derivative of an inverse function at a point from f, a table or a graph.",
        "ek": [
@@ -992,7 +1036,8 @@
       {
        "id": "A",
        "std": [
-        "FUN-3.E"
+        "FUN-3.E",
+        "webwork-opl:CA2.12"
        ],
        "do": "Differentiate arcsin, arccos and arctan (and compositions with them).",
        "ek": [
@@ -1023,7 +1068,10 @@
         "FUN-3.B",
         "FUN-3.C",
         "FUN-3.D",
-        "FUN-3.E"
+        "FUN-3.E",
+        "webwork-opl:CA2.18",
+        "webwork-opl:CA2.19",
+        "webwork-opl:CA2.20"
        ],
        "do": "Choose and combine the differentiation rules a given expression needs, simplifying first when it helps.",
        "ek": [
@@ -1045,7 +1093,8 @@
       {
        "id": "B",
        "std": [
-        "FUN-3.C"
+        "FUN-3.C",
+        "webwork-opl:CA2.21"
        ],
        "do": "Differentiate a variable power such as x^x or a messy product by logarithmic differentiation.",
        "ek": [
@@ -1072,7 +1121,8 @@
       {
        "id": "A",
        "std": [
-        "FUN-3.F"
+        "FUN-3.F",
+        "webwork-opl:CA2.17"
        ],
        "do": "Compute second and higher derivatives, including d²y/dx² of an implicit relation.",
        "ek": [
@@ -1112,7 +1162,8 @@
       {
        "id": "A",
        "std": [
-        "CHA-3.A"
+        "CHA-3.A",
+        "webwork-opl:CA3.2"
        ],
        "do": "Interpret f′(a) in context, with units, as the rate of change of the quantity at that input.",
        "ek": [
@@ -1140,7 +1191,8 @@
       {
        "id": "A",
        "std": [
-        "CHA-3.B"
+        "CHA-3.B",
+        "webwork-opl:CA3.4"
        ],
        "do": "Find velocity, acceleration and speed from position, and decide when the particle moves left/right or speeds up/slows down.",
        "ek": [
@@ -1168,7 +1220,8 @@
       {
        "id": "A",
        "std": [
-        "CHA-3.C"
+        "CHA-3.C",
+        "webwork-opl:CA3.5"
        ],
        "do": "Interpret first and second derivatives of applied quantities (cost, population, temperature, volume) in context.",
        "ek": [
@@ -1196,7 +1249,8 @@
       {
        "id": "A",
        "std": [
-        "CHA-3.D"
+        "CHA-3.D",
+        "webwork-opl:CA3.15"
        ],
        "do": "Differentiate an equation linking several quantities with respect to time to relate their rates.",
        "ek": [
@@ -1223,7 +1277,8 @@
       {
        "id": "A",
        "std": [
-        "CHA-3.E"
+        "CHA-3.E",
+        "webwork-opl:CA3.15"
        ],
        "do": "Solve a related-rates problem: draw, relate the quantities with geometry, differentiate, then substitute the instant's values.",
        "ek": [
@@ -1252,7 +1307,8 @@
       {
        "id": "A",
        "std": [
-        "CHA-3.F"
+        "CHA-3.F",
+        "webwork-opl:CA3.14"
        ],
        "do": "Approximate a function value with the tangent-line approximation.",
        "ek": [
@@ -1272,7 +1328,8 @@
       {
        "id": "B",
        "std": [
-        "CHA-3.F"
+        "CHA-3.F",
+        "webwork-opl:CA3.14"
        ],
        "do": "Decide whether a tangent-line approximation over- or under-estimates, from concavity.",
        "ek": [
@@ -1300,7 +1357,8 @@
       {
        "id": "A",
        "std": [
-        "LIM-4.A"
+        "LIM-4.A",
+        "webwork-opl:CA3.16"
        ],
        "do": "Evaluate a 0/0 or ∞/∞ limit with L'Hospital's rule after confirming the form.",
        "ek": [
@@ -1321,7 +1379,8 @@
       {
        "id": "B",
        "std": [
-        "LIM-4.A"
+        "LIM-4.A",
+        "webwork-opl:CA3.16"
        ],
        "do": "Rewrite 0·∞, ∞ − ∞, 1^∞, 0⁰ and ∞⁰ forms as a quotient (or take a log) and apply L'Hospital's rule.",
        "ek": [
@@ -1359,7 +1418,8 @@
       {
        "id": "A",
        "std": [
-        "FUN-1.B"
+        "FUN-1.B",
+        "webwork-opl:CA3.1"
        ],
        "do": "Verify the MVT hypotheses and find or justify a point where the instantaneous rate equals the average rate.",
        "ek": [
@@ -1387,7 +1447,8 @@
       {
        "id": "A",
        "std": [
-        "FUN-1.C"
+        "FUN-1.C",
+        "webwork-opl:CA3.8"
        ],
        "do": "Decide whether the EVT guarantees absolute extrema on an interval, and find the critical points of a function.",
        "ek": [
@@ -1416,7 +1477,8 @@
       {
        "id": "A",
        "std": [
-        "FUN-4.A"
+        "FUN-4.A",
+        "webwork-opl:CA3.6"
        ],
        "do": "Find the intervals where a function increases or decreases with a sign chart of f′.",
        "ek": [
@@ -1444,7 +1506,8 @@
       {
        "id": "A",
        "std": [
-        "FUN-4.A"
+        "FUN-4.A",
+        "webwork-opl:CA3.6"
        ],
        "do": "Classify each critical point as a relative max, min or neither by the sign change of f′.",
        "ek": [
@@ -1471,7 +1534,8 @@
       {
        "id": "A",
        "std": [
-        "FUN-4.A"
+        "FUN-4.A",
+        "webwork-opl:CA3.8"
        ],
        "do": "Find absolute extrema on a closed interval by comparing f at critical points and endpoints.",
        "ek": [
@@ -1499,7 +1563,8 @@
       {
        "id": "A",
        "std": [
-        "FUN-4.A"
+        "FUN-4.A",
+        "webwork-opl:CA3.7"
        ],
        "do": "Find intervals of concavity and points of inflection from the sign of f″.",
        "ek": [
@@ -1528,7 +1593,8 @@
       {
        "id": "A",
        "std": [
-        "FUN-4.A"
+        "FUN-4.A",
+        "webwork-opl:CA3.7"
        ],
        "do": "Classify a critical point with f′(c) = 0 using the sign of f″(c), and say when the test fails.",
        "ek": [
@@ -1556,7 +1622,8 @@
       {
        "id": "A",
        "std": [
-        "FUN-4.A"
+        "FUN-4.A",
+        "webwork-opl:CA3.9"
        ],
        "do": "Sketch the graph of f′ from the graph of f, and a possible f from the graph of f′.",
        "ek": [
@@ -1585,7 +1652,8 @@
       {
        "id": "A",
        "std": [
-        "FUN-4.A"
+        "FUN-4.A",
+        "webwork-opl:CA3.9"
        ],
        "do": "Read the extrema, monotonicity, concavity and inflection points of f from a graph or table of f′ (or f″), and justify each claim.",
        "ek": [
@@ -1614,7 +1682,8 @@
       {
        "id": "A",
        "std": [
-        "FUN-4.B"
+        "FUN-4.B",
+        "webwork-opl:CA3.10"
        ],
        "do": "Translate an optimization situation into a function of one variable with its feasible domain.",
        "ek": [
@@ -1642,7 +1711,9 @@
       {
        "id": "A",
        "std": [
-        "FUN-4.C"
+        "FUN-4.C",
+        "webwork-opl:CA3.10",
+        "webwork-opl:CA3.12"
        ],
        "do": "Solve an optimization problem and justify that the answer is the absolute extremum.",
        "ek": [
@@ -1732,7 +1803,8 @@
       {
        "id": "A",
        "std": [
-        "CHA-4.A"
+        "CHA-4.A",
+        "webwork-opl:CA4.1"
        ],
        "do": "Interpret the area between a rate graph and the axis as accumulated change, with units and sign.",
        "ek": [
@@ -1760,7 +1832,9 @@
       {
        "id": "A",
        "std": [
-        "LIM-5.A"
+        "LIM-5.A",
+        "webwork-opl:CA4.6",
+        "webwork-opl:CA5.13"
        ],
        "do": "Approximate a definite integral with left, right, midpoint or trapezoidal sums from a formula or a table with unequal subintervals.",
        "ek": [
@@ -1782,7 +1856,8 @@
       {
        "id": "B",
        "std": [
-        "LIM-5.A"
+        "LIM-5.A",
+        "webwork-opl:CA4.6"
        ],
        "do": "Decide whether a Riemann or trapezoidal sum over- or under-estimates from monotonicity or concavity.",
        "ek": [
@@ -1812,7 +1887,8 @@
        "id": "A",
        "std": [
         "LIM-5.B",
-        "LIM-5.C"
+        "LIM-5.C",
+        "webwork-opl:CA4.6"
        ],
        "do": "Write a Riemann sum in sigma notation and convert between a limit of Riemann sums and a definite integral.",
        "ek": [
@@ -1840,7 +1916,8 @@
       {
        "id": "A",
        "std": [
-        "FUN-5.A"
+        "FUN-5.A",
+        "webwork-opl:CA4.9"
        ],
        "do": "Differentiate an accumulation function, including variable upper and lower limits.",
        "ek": [
@@ -1868,7 +1945,8 @@
       {
        "id": "A",
        "std": [
-        "FUN-5.A"
+        "FUN-5.A",
+        "webwork-opl:CA4.9"
        ],
        "do": "Find where g(x) = ∫_a^x f(t)dt increases, has extrema and changes concavity, from the graph of f.",
        "ek": [
@@ -1897,7 +1975,8 @@
       {
        "id": "A",
        "std": [
-        "FUN-6.A"
+        "FUN-6.A",
+        "webwork-opl:CA4.7"
        ],
        "do": "Evaluate definite integrals from geometry (areas of triangles, rectangles, circles) and the properties of integrals.",
        "ek": [
@@ -1925,7 +2004,9 @@
       {
        "id": "A",
        "std": [
-        "FUN-6.B"
+        "FUN-6.B",
+        "webwork-opl:CA4.7",
+        "webwork-opl:CA4.8"
        ],
        "do": "Evaluate a definite integral with an antiderivative, or find a function value from f(a) plus an integral of f′.",
        "ek": [
@@ -1953,7 +2034,11 @@
       {
        "id": "A",
        "std": [
-        "FUN-6.C"
+        "FUN-6.C",
+        "webwork-opl:CA4.2",
+        "webwork-opl:CA4.3",
+        "webwork-opl:CA4.4",
+        "webwork-opl:CA4.5"
        ],
        "do": "Find indefinite integrals of power, exponential, trig, 1/x and inverse-trig-form integrands, rewriting the integrand first when needed.",
        "ek": [
@@ -1982,7 +2067,9 @@
       {
        "id": "A",
        "std": [
-        "FUN-6.D"
+        "FUN-6.D",
+        "webwork-opl:CA5.1",
+        "webwork-opl:CA5.2"
        ],
        "do": "Evaluate indefinite and definite integrals by u-substitution, changing the limits to u-values for a definite integral.",
        "ek": [
@@ -2044,7 +2131,8 @@
       {
        "id": "A",
        "std": [
-        "FUN-6.E"
+        "FUN-6.E",
+        "webwork-opl:CA5.3"
        ],
        "do": "Evaluate an integral by parts, choosing u by LIATE, including log and inverse-trig integrands.",
        "ek": [
@@ -2066,7 +2154,8 @@
       {
        "id": "B",
        "std": [
-        "FUN-6.E"
+        "FUN-6.E",
+        "webwork-opl:CA5.4"
        ],
        "do": "Evaluate integrals that need repeated parts (tabular) or that cycle back to themselves (e^ax·trig).",
        "ek": [
@@ -2094,7 +2183,8 @@
       {
        "id": "A",
        "std": [
-        "FUN-6.F"
+        "FUN-6.F",
+        "webwork-opl:CA5.7"
        ],
        "do": "Decompose a rational function with distinct linear factors into partial fractions and integrate it.",
        "ek": [
@@ -2115,7 +2205,8 @@
       {
        "id": "B",
        "std": [
-        "FUN-6.F"
+        "FUN-6.F",
+        "webwork-opl:CA5.7"
        ],
        "do": "Decompose and integrate with repeated linear factors, irreducible quadratic factors or an improper fraction (beyond the CED).",
        "ek": [
@@ -2145,7 +2236,8 @@
       {
        "id": "A",
        "std": [
-        "LIM-6.A"
+        "LIM-6.A",
+        "webwork-opl:CA4.10"
        ],
        "do": "Evaluate an improper integral — infinite interval or unbounded integrand — as a limit, or show it diverges.",
        "ek": [
@@ -2179,7 +2271,9 @@
         "FUN-6.C",
         "FUN-6.D",
         "FUN-6.E",
-        "FUN-6.F"
+        "FUN-6.F",
+        "webwork-opl:CA5.11",
+        "webwork-opl:CA5.12"
        ],
        "do": "Choose the antidifferentiation technique an integrand calls for: basic rule, substitution, division, completing the square, parts or partial fractions.",
        "ek": [
@@ -2220,7 +2314,8 @@
       {
        "id": "A",
        "std": [
-        "FUN-7.A"
+        "FUN-7.A",
+        "webwork-opl:DE2.11"
        ],
        "do": "Write a differential equation from a verbal description of a rate (proportional to, inversely proportional to, …).",
        "ek": [
@@ -2247,7 +2342,8 @@
       {
        "id": "A",
        "std": [
-        "FUN-7.B"
+        "FUN-7.B",
+        "webwork-opl:DE1.1"
        ],
        "do": "Verify that a function solves a differential equation by substituting it and its derivatives.",
        "ek": [
@@ -2275,7 +2371,8 @@
       {
        "id": "A",
        "std": [
-        "FUN-7.C"
+        "FUN-7.C",
+        "webwork-opl:DE2.12"
        ],
        "do": "Sketch a slope field for dy/dx = f(x, y) at given points.",
        "ek": [
@@ -2303,7 +2400,8 @@
       {
        "id": "A",
        "std": [
-        "FUN-7.C"
+        "FUN-7.C",
+        "webwork-opl:DE2.12"
        ],
        "do": "Match a slope field to its differential equation and sketch the solution through a given point.",
        "ek": [
@@ -2331,7 +2429,8 @@
       {
        "id": "A",
        "std": [
-        "FUN-7.C"
+        "FUN-7.C",
+        "webwork-opl:DE6.1"
        ],
        "do": "Approximate a solution value with a few steps of Euler's method, and say whether it over- or under-estimates.",
        "ek": [
@@ -2360,7 +2459,8 @@
       {
        "id": "A",
        "std": [
-        "FUN-7.D"
+        "FUN-7.D",
+        "webwork-opl:DE2.3"
        ],
        "do": "Find the general solution of a separable differential equation.",
        "ek": [
@@ -2388,7 +2488,8 @@
       {
        "id": "A",
        "std": [
-        "FUN-7.E"
+        "FUN-7.E",
+        "webwork-opl:DE2.3"
        ],
        "do": "Find the particular solution of a separable IVP, solve for y, and state its domain.",
        "ek": [
@@ -2417,7 +2518,8 @@
        "id": "A",
        "std": [
         "FUN-7.F",
-        "FUN-7.G"
+        "FUN-7.G",
+        "webwork-opl:DE2.6"
        ],
        "do": "Solve dy/dt = ky, apply it to growth, decay and Newton cooling, and find a doubling time, half-life or time to reach a value.",
        "ek": [
@@ -2447,7 +2549,8 @@
       {
        "id": "A",
        "std": [
-        "FUN-7.H"
+        "FUN-7.H",
+        "webwork-opl:DE2.7"
        ],
        "do": "Find the carrying capacity, the long-run limit and the population at which growth is fastest from a logistic differential equation.",
        "ek": [
@@ -2488,7 +2591,8 @@
       {
        "id": "A",
        "std": [
-        "CHA-4.B"
+        "CHA-4.B",
+        "webwork-opl:CA6.1"
        ],
        "do": "Find the average value of a function on an interval.",
        "ek": [
@@ -2515,7 +2619,8 @@
       {
        "id": "A",
        "std": [
-        "CHA-4.C"
+        "CHA-4.C",
+        "webwork-opl:CA6.10"
        ],
        "do": "Find displacement, total distance and position at a time from a velocity function.",
        "ek": [
@@ -2545,7 +2650,8 @@
        "id": "A",
        "std": [
         "CHA-4.D",
-        "CHA-4.E"
+        "CHA-4.E",
+        "webwork-opl:CA6.14"
        ],
        "do": "Find an amount at a time from an initial amount plus the integral of a net rate (in − out), and interpret the integral in context with units.",
        "ek": [
@@ -2573,7 +2679,8 @@
       {
        "id": "A",
        "std": [
-        "CHA-5.A"
+        "CHA-5.A",
+        "webwork-opl:CA6.2"
        ],
        "do": "Find the area between two curves y = f(x), y = g(x), finding the limits from their intersections.",
        "ek": [
@@ -2600,7 +2707,8 @@
       {
        "id": "A",
        "std": [
-        "CHA-5.A"
+        "CHA-5.A",
+        "webwork-opl:CA6.2"
        ],
        "do": "Find the area between curves x = f(y), x = g(y) by integrating in y.",
        "ek": [
@@ -2628,7 +2736,8 @@
       {
        "id": "A",
        "std": [
-        "CHA-5.A"
+        "CHA-5.A",
+        "webwork-opl:CA6.2"
        ],
        "do": "Find the area enclosed by curves that cross several times by splitting the interval at each intersection.",
        "ek": [
@@ -2655,7 +2764,8 @@
       {
        "id": "A",
        "std": [
-        "CHA-5.B"
+        "CHA-5.B",
+        "webwork-opl:CA6.3"
        ],
        "do": "Find the volume of a solid with square or rectangular cross sections perpendicular to an axis.",
        "ek": [
@@ -2683,7 +2793,8 @@
       {
        "id": "A",
        "std": [
-        "CHA-5.B"
+        "CHA-5.B",
+        "webwork-opl:CA6.3"
        ],
        "do": "Find the volume of a solid with triangular or semicircular cross sections.",
        "ek": [
@@ -2710,7 +2821,8 @@
       {
        "id": "A",
        "std": [
-        "CHA-5.C"
+        "CHA-5.C",
+        "webwork-opl:CA6.4"
        ],
        "do": "Find the volume of a solid of revolution about a coordinate axis by discs.",
        "ek": [
@@ -2737,7 +2849,8 @@
       {
        "id": "A",
        "std": [
-        "CHA-5.C"
+        "CHA-5.C",
+        "webwork-opl:CA6.4"
        ],
        "do": "Find a disc-method volume about a horizontal or vertical line other than an axis.",
        "ek": [
@@ -2764,7 +2877,8 @@
       {
        "id": "A",
        "std": [
-        "CHA-5.C"
+        "CHA-5.C",
+        "webwork-opl:CA6.5"
        ],
        "do": "Find the volume of a solid of revolution with a hole by washers about a coordinate axis.",
        "ek": [
@@ -2791,7 +2905,8 @@
       {
        "id": "A",
        "std": [
-        "CHA-5.C"
+        "CHA-5.C",
+        "webwork-opl:CA6.5"
        ],
        "do": "Find a washer-method volume about a line other than an axis.",
        "ek": [
@@ -2820,7 +2935,8 @@
       {
        "id": "A",
        "std": [
-        "CHA-6.A"
+        "CHA-6.A",
+        "webwork-opl:CA6.8"
        ],
        "do": "Set up and evaluate the arc length of a smooth curve y = f(x).",
        "ek": [
@@ -2846,7 +2962,8 @@
       {
        "id": "A",
        "std": [
-        "CHA-4.E"
+        "CHA-4.E",
+        "webwork-opl:CA6.11"
        ],
        "do": "Compute work done by a variable force or in pumping a fluid by slicing and integrating.",
        "ek": [
@@ -2886,7 +3003,9 @@
       {
        "id": "A",
        "std": [
-        "CHA-3.G"
+        "CHA-3.G",
+        "webwork-opl:CA8.1",
+        "webwork-opl:CA8.3"
        ],
        "do": "Find dy/dx and tangent lines for a parametric curve, including horizontal and vertical tangents.",
        "ek": [
@@ -2914,7 +3033,8 @@
       {
        "id": "A",
        "std": [
-        "CHA-3.G"
+        "CHA-3.G",
+        "webwork-opl:CA8.4"
        ],
        "do": "Find d²y/dx² for a parametric curve and use it for concavity.",
        "ek": [
@@ -2941,7 +3061,8 @@
       {
        "id": "A",
        "std": [
-        "CHA-6.B"
+        "CHA-6.B",
+        "webwork-opl:CA8.5"
        ],
        "do": "Find the arc length of a parametric curve.",
        "ek": [
@@ -3025,7 +3146,8 @@
       {
        "id": "A",
        "std": [
-        "FUN-8.B"
+        "FUN-8.B",
+        "webwork-opl:CA8.3"
        ],
        "do": "Find speed, displacement and total distance for planar motion given by vectors.",
        "ek": [
@@ -3054,7 +3176,8 @@
       {
        "id": "A",
        "std": [
-        "FUN-3.G"
+        "FUN-3.G",
+        "webwork-opl:CA9.8"
        ],
        "do": "Convert points and curves between polar and rectangular form.",
        "ek": [
@@ -3071,7 +3194,8 @@
       {
        "id": "B",
        "std": [
-        "FUN-3.G"
+        "FUN-3.G",
+        "webwork-opl:CA9.5"
        ],
        "do": "Find dy/dx for a polar curve and interpret dr/dθ.",
        "ek": [
@@ -3100,7 +3224,8 @@
       {
        "id": "A",
        "std": [
-        "CHA-5.D"
+        "CHA-5.D",
+        "webwork-opl:CA9.6"
        ],
        "do": "Find the area enclosed by a single polar curve, finding the θ-limits from where r = 0 or the curve closes.",
        "ek": [
@@ -3128,7 +3253,8 @@
       {
        "id": "A",
        "std": [
-        "CHA-5.D"
+        "CHA-5.D",
+        "webwork-opl:CA9.6"
        ],
        "do": "Find the area inside one polar curve and outside another.",
        "ek": [
@@ -3167,7 +3293,9 @@
       {
        "id": "A",
        "std": [
-        "LIM-7.A"
+        "LIM-7.A",
+        "webwork-opl:CA7.2",
+        "webwork-opl:CA7.3"
        ],
        "do": "Define a series' sum as the limit of its partial sums and decide convergence from a partial-sum formula.",
        "ek": [
@@ -3195,7 +3323,8 @@
       {
        "id": "A",
        "std": [
-        "LIM-7.A"
+        "LIM-7.A",
+        "webwork-opl:CA7.5"
        ],
        "do": "Decide whether a geometric series converges and find its sum.",
        "ek": [
@@ -3222,7 +3351,8 @@
       {
        "id": "A",
        "std": [
-        "LIM-7.A"
+        "LIM-7.A",
+        "webwork-opl:CA7.6"
        ],
        "do": "Show a series diverges with the nth-term test, and explain why the test can't prove convergence.",
        "ek": [
@@ -3250,7 +3380,8 @@
       {
        "id": "A",
        "std": [
-        "LIM-7.A"
+        "LIM-7.A",
+        "webwork-opl:CA7.8"
        ],
        "do": "Apply the integral test after checking positivity, continuity and decrease.",
        "ek": [
@@ -3278,7 +3409,8 @@
       {
        "id": "A",
        "std": [
-        "LIM-7.A"
+        "LIM-7.A",
+        "webwork-opl:CA7.8"
        ],
        "do": "Decide convergence of a p-series and recognise the harmonic series.",
        "ek": [
@@ -3305,7 +3437,8 @@
       {
        "id": "A",
        "std": [
-        "LIM-7.A"
+        "LIM-7.A",
+        "webwork-opl:CA7.7"
        ],
        "do": "Decide convergence with the direct or limit comparison test against a geometric or p-series.",
        "ek": [
@@ -3333,7 +3466,8 @@
       {
        "id": "A",
        "std": [
-        "LIM-7.A"
+        "LIM-7.A",
+        "webwork-opl:CA7.11"
        ],
        "do": "Show an alternating series converges by checking that |a_n| decreases to 0.",
        "ek": [
@@ -3360,7 +3494,8 @@
       {
        "id": "A",
        "std": [
-        "LIM-7.A"
+        "LIM-7.A",
+        "webwork-opl:CA7.9"
        ],
        "do": "Apply the ratio test, especially to series with factorials or exponentials.",
        "ek": [
@@ -3388,7 +3523,8 @@
       {
        "id": "A",
        "std": [
-        "LIM-7.A"
+        "LIM-7.A",
+        "webwork-opl:CA7.12"
        ],
        "do": "Classify a series as absolutely convergent, conditionally convergent or divergent.",
        "ek": [
@@ -3416,7 +3552,8 @@
       {
        "id": "A",
        "std": [
-        "LIM-7.B"
+        "LIM-7.B",
+        "webwork-opl:CA7.11"
        ],
        "do": "Bound the error of a partial sum of an alternating series.",
        "ek": [
@@ -3445,7 +3582,8 @@
        "id": "A",
        "std": [
         "LIM-8.A",
-        "LIM-8.B"
+        "LIM-8.B",
+        "webwork-opl:CA7.4"
        ],
        "do": "Build the nth-degree Taylor polynomial about x = a and use it to approximate a function value (or read derivatives off its coefficients).",
        "ek": [
@@ -3476,7 +3614,8 @@
       {
        "id": "A",
        "std": [
-        "LIM-8.C"
+        "LIM-8.C",
+        "webwork-opl:CA7.19"
        ],
        "do": "Bound the error of a Taylor approximation with the Lagrange error bound.",
        "ek": [
@@ -3504,7 +3643,8 @@
       {
        "id": "A",
        "std": [
-        "LIM-8.D"
+        "LIM-8.D",
+        "webwork-opl:CA7.14"
        ],
        "do": "Find the radius and interval of convergence of a power series, testing each endpoint separately.",
        "ek": [
@@ -3533,7 +3673,9 @@
       {
        "id": "A",
        "std": [
-        "LIM-8.E"
+        "LIM-8.E",
+        "webwork-opl:CA7.15",
+        "webwork-opl:CA7.16"
        ],
        "do": "Write the Taylor or Maclaurin series of a function in sigma notation with its general term.",
        "ek": [
@@ -3555,7 +3697,8 @@
       {
        "id": "B",
        "std": [
-        "LIM-8.F"
+        "LIM-8.F",
+        "webwork-opl:CA7.16"
        ],
        "do": "Interpret a Taylor series: use it to evaluate a limit, a derivative value or a sum.",
        "ek": [
@@ -3583,7 +3726,9 @@
       {
        "id": "A",
        "std": [
-        "LIM-8.G"
+        "LIM-8.G",
+        "webwork-opl:CA7.17",
+        "webwork-opl:CA7.18"
        ],
        "do": "Build a power series for a new function by substitution, multiplication, or term-by-term differentiation or integration of a known series.",
        "ek": [
@@ -3603,7 +3748,8 @@
       {
        "id": "B",
        "std": [
-        "LIM-8.G"
+        "LIM-8.G",
+        "webwork-opl:CA7.17"
        ],
        "do": "Shift a summation index so two power series start at the same index and carry the same power of x, then combine them.",
        "ek": [
@@ -3634,7 +3780,8 @@
        "id": "A",
        "std": [
         "LIM-8.F",
-        "N-CN.B.4"
+        "N-CN.B.4",
+        "webwork-opl:CX6.1"
        ],
        "do": "Derive Euler's formula from the Maclaurin series of e^x, cos x and sin x, and convert complex numbers between rectangular, polar and exponential form.",
        "ek": [
@@ -3657,7 +3804,8 @@
       {
        "id": "B",
        "std": [
-        "N-CN.B.5"
+        "N-CN.B.5",
+        "webwork-opl:CX1.9"
        ],
        "do": "Compute powers and roots of a complex number with De Moivre's formula.",
        "ek": [
@@ -3677,7 +3825,8 @@
       {
        "id": "C",
        "std": [
-        "N-CN.C.7"
+        "N-CN.C.7",
+        "webwork-opl:CX2.2"
        ],
        "do": "Find the complex roots α ± βi of a real quadratic and write e^((α ± iβ)x) as e^(αx)(cos βx ± i sin βx).",
        "ek": [
@@ -3722,7 +3871,8 @@
        "id": "A",
        "std": [
         "ST-12.1",
-        "ST-12.2"
+        "ST-12.2",
+        "webwork-opl:MV3.2"
        ],
        "do": "Compute distances and spheres in 3-D, and add, scale and normalise vectors in components.",
        "ek": [
@@ -3813,7 +3963,8 @@
       {
        "id": "A",
        "std": [
-        "ST-12.5"
+        "ST-12.5",
+        "webwork-opl:MV2.1"
        ],
        "do": "Write vector, parametric and symmetric equations of a line from a point and a direction or two points.",
        "ek": [
@@ -3866,7 +4017,8 @@
       {
        "id": "A",
        "std": [
-        "ST-12.6"
+        "ST-12.6",
+        "webwork-opl:MV3.3"
        ],
        "do": "Identify and sketch a quadric surface from its equation using traces.",
        "ek": [
@@ -3901,7 +4053,9 @@
       {
        "id": "A",
        "std": [
-        "ST-13.2"
+        "ST-13.2",
+        "webwork-opl:MV2.3",
+        "webwork-opl:MV2.4"
        ],
        "do": "Differentiate and integrate a 3-D vector function and find the unit tangent and tangent line.",
        "ek": [
@@ -3923,7 +4077,9 @@
        "id": "B",
        "std": [
         "ST-13.3",
-        "ST-13.4"
+        "ST-13.4",
+        "webwork-opl:MV2.5",
+        "webwork-opl:MV2.6"
        ],
        "do": "Find arc length, curvature, and the tangential and normal components of acceleration of a space curve.",
        "ek": [
@@ -3971,7 +4127,9 @@
       {
        "id": "A",
        "std": [
-        "ST-14.1"
+        "ST-14.1",
+        "webwork-opl:MV3.1",
+        "webwork-opl:MV3.6"
        ],
        "do": "Find the domain of a function of two or three variables and sketch its level curves or describe its level surfaces.",
        "ek": [
@@ -3991,7 +4149,8 @@
       {
        "id": "B",
        "std": [
-        "ST-14.2"
+        "ST-14.2",
+        "webwork-opl:MV4.1"
        ],
        "do": "Show a two-variable limit does not exist by approaching along two paths that give different values.",
        "ek": [
@@ -4023,7 +4182,8 @@
       {
        "id": "A",
        "std": [
-        "ST-14.3"
+        "ST-14.3",
+        "webwork-opl:MV4.2"
        ],
        "do": "Compute first partial derivatives and interpret each as a slope with the other variables held fixed.",
        "ek": [
@@ -4045,7 +4205,8 @@
       {
        "id": "B",
        "std": [
-        "ST-14.3"
+        "ST-14.3",
+        "webwork-opl:MV4.2"
        ],
        "do": "Compute second and mixed partial derivatives and use Clairaut's theorem.",
        "ek": [
@@ -4076,7 +4237,8 @@
       {
        "id": "A",
        "std": [
-        "ST-14.4"
+        "ST-14.4",
+        "webwork-opl:MV4.4"
        ],
        "do": "Write the tangent plane to z = f(x, y), and estimate a change or a propagated error with the total differential.",
        "ek": [
@@ -4109,7 +4271,8 @@
       {
        "id": "A",
        "std": [
-        "ST-14.5"
+        "ST-14.5",
+        "webwork-opl:MV4.3"
        ],
        "do": "Apply the chain rule to a function of intermediate variables, drawing the dependency tree.",
        "ek": [
@@ -4131,7 +4294,8 @@
       {
        "id": "B",
        "std": [
-        "ST-14.5"
+        "ST-14.5",
+        "webwork-opl:MV4.3"
        ],
        "do": "Find dy/dx or ∂z/∂x for an implicitly defined function with partial derivatives.",
        "ek": [
@@ -4164,7 +4328,8 @@
       {
        "id": "A",
        "std": [
-        "ST-14.6"
+        "ST-14.6",
+        "webwork-opl:MV4.5"
        ],
        "do": "Compute the gradient and the directional derivative in a given direction.",
        "ek": [
@@ -4186,7 +4351,8 @@
       {
        "id": "B",
        "std": [
-        "ST-14.6"
+        "ST-14.6",
+        "webwork-opl:MV4.5"
        ],
        "do": "Use the gradient to find the direction and rate of steepest ascent and the tangent plane to a level surface.",
        "ek": [
@@ -4222,7 +4388,9 @@
       {
        "id": "A",
        "std": [
-        "ST-14.7"
+        "ST-14.7",
+        "webwork-opl:MV4.6",
+        "webwork-opl:MV6.2"
        ],
        "do": "Find and classify the critical points of f(x, y) with the second derivatives test.",
        "ek": [
@@ -4245,7 +4413,8 @@
       {
        "id": "B",
        "std": [
-        "ST-14.7"
+        "ST-14.7",
+        "webwork-opl:MV4.6"
        ],
        "do": "Find absolute extrema of f on a closed bounded region by checking interior critical points and the boundary.",
        "ek": [
@@ -4278,7 +4447,8 @@
       {
        "id": "A",
        "std": [
-        "ST-14.8"
+        "ST-14.8",
+        "webwork-opl:MV4.7"
        ],
        "do": "Optimise f subject to a constraint g = k with Lagrange multipliers, and interpret λ.",
        "ek": [
@@ -4327,7 +4497,9 @@
        "id": "A",
        "std": [
         "ST-15.1",
-        "ST-15.2"
+        "ST-15.2",
+        "webwork-opl:MV5.1",
+        "webwork-opl:MV5.2"
        ],
        "do": "Evaluate a double integral over a rectangle as an iterated integral, in either order.",
        "ek": [
@@ -4359,7 +4531,8 @@
       {
        "id": "A",
        "std": [
-        "ST-15.3"
+        "ST-15.3",
+        "webwork-opl:MV5.3"
        ],
        "do": "Set up a double integral over a region bounded by curves as type I or type II, and evaluate it.",
        "ek": [
@@ -4382,7 +4555,8 @@
       {
        "id": "B",
        "std": [
-        "ST-15.3"
+        "ST-15.3",
+        "webwork-opl:MV5.3"
        ],
        "do": "Reverse the order of integration by redrawing the region.",
        "ek": [
@@ -4414,7 +4588,8 @@
       {
        "id": "A",
        "std": [
-        "ST-15.4"
+        "ST-15.4",
+        "webwork-opl:MV5.4"
        ],
        "do": "Convert a double integral over a disc, annulus or polar region to polar coordinates and evaluate it.",
        "ek": [
@@ -4448,7 +4623,9 @@
       {
        "id": "A",
        "std": [
-        "ST-15.5"
+        "ST-15.5",
+        "webwork-opl:CA6.13",
+        "webwork-opl:MV5.8"
        ],
        "do": "Compute the mass, centre of mass and moments of inertia of a lamina, and the average value of f over a region.",
        "ek": [
@@ -4483,7 +4660,9 @@
       {
        "id": "A",
        "std": [
-        "ST-15.7"
+        "ST-15.7",
+        "webwork-opl:MV5.5",
+        "webwork-opl:MV5.9"
        ],
        "do": "Set up and evaluate a triple integral over a solid bounded by surfaces, and use it for volume or mass.",
        "ek": [
@@ -4520,7 +4699,9 @@
       {
        "id": "A",
        "std": [
-        "ST-15.8"
+        "ST-15.8",
+        "webwork-opl:MV3.4",
+        "webwork-opl:MV5.7"
        ],
        "do": "Evaluate a triple integral in cylindrical coordinates for solids with an axis of symmetry.",
        "ek": [
@@ -4553,7 +4734,9 @@
       {
        "id": "A",
        "std": [
-        "ST-15.9"
+        "ST-15.9",
+        "webwork-opl:MV3.4",
+        "webwork-opl:MV5.7"
        ],
        "do": "Evaluate a triple integral in spherical coordinates for balls, cones and shells.",
        "ek": [
@@ -4585,7 +4768,8 @@
       {
        "id": "A",
        "std": [
-        "ST-15.10"
+        "ST-15.10",
+        "webwork-opl:MV5.6"
        ],
        "do": "Change variables in a double or triple integral with the Jacobian determinant.",
        "ek": [
@@ -4631,7 +4815,8 @@
       {
        "id": "A",
        "std": [
-        "ST-16.1"
+        "ST-16.1",
+        "webwork-opl:MV6.1"
        ],
        "do": "Sketch or read a 2-D vector field and recognise a gradient field.",
        "ek": [
@@ -4662,7 +4847,8 @@
       {
        "id": "A",
        "std": [
-        "ST-16.2"
+        "ST-16.2",
+        "webwork-opl:MV7.2"
        ],
        "do": "Evaluate a scalar line integral ∫_C f ds along a parametrised curve.",
        "ek": [
@@ -4683,7 +4869,9 @@
       {
        "id": "B",
        "std": [
-        "ST-16.2"
+        "ST-16.2",
+        "webwork-opl:MV7.2",
+        "webwork-opl:MV7.4"
        ],
        "do": "Evaluate the work or circulation ∫_C F·dr along a curve.",
        "ek": [
@@ -4715,7 +4903,8 @@
       {
        "id": "A",
        "std": [
-        "ST-16.3"
+        "ST-16.3",
+        "webwork-opl:MV7.3"
        ],
        "do": "Test whether a 2-D field P i + Q j (or a differential P dx + Q dy) is conservative.",
        "ek": [
@@ -4736,7 +4925,9 @@
       {
        "id": "B",
        "std": [
-        "ST-16.3"
+        "ST-16.3",
+        "webwork-opl:MV7.3",
+        "webwork-opl:MV8.1"
        ],
        "do": "Find a potential function and evaluate a line integral of a conservative field from endpoint values.",
        "ek": [
@@ -4768,7 +4959,8 @@
       {
        "id": "A",
        "std": [
-        "ST-16.4"
+        "ST-16.4",
+        "webwork-opl:MV8.2"
        ],
        "do": "Convert a line integral around a closed plane curve into a double integral with Green's theorem, or the reverse (including areas).",
        "ek": [
@@ -4803,7 +4995,9 @@
       {
        "id": "A",
        "std": [
-        "ST-16.5"
+        "ST-16.5",
+        "webwork-opl:MV7.1",
+        "webwork-opl:MV7.5"
        ],
        "do": "Compute the divergence, curl and Laplacian of a vector or scalar field.",
        "ek": [
@@ -4827,7 +5021,8 @@
       {
        "id": "B",
        "std": [
-        "ST-16.5"
+        "ST-16.5",
+        "webwork-opl:MV7.5"
        ],
        "do": "Interpret divergence as net outflow per volume and curl as local rotation, and use curl F = 0 to test a 3-D field for being conservative.",
        "ek": [
@@ -4860,7 +5055,8 @@
       {
        "id": "A",
        "std": [
-        "ST-16.6"
+        "ST-16.6",
+        "webwork-opl:MV3.5"
        ],
        "do": "Parametrise a surface (graph, cylinder, sphere, cone) and compute its area.",
        "ek": [
@@ -4894,7 +5090,8 @@
       {
        "id": "A",
        "std": [
-        "ST-16.7"
+        "ST-16.7",
+        "webwork-opl:MV7.6"
        ],
        "do": "Evaluate a surface integral ∬_S f dS of a scalar function.",
        "ek": [
@@ -4914,7 +5111,8 @@
       {
        "id": "B",
        "std": [
-        "ST-16.7"
+        "ST-16.7",
+        "webwork-opl:MV7.7"
        ],
        "do": "Compute the flux ∬_S F·n dS of a vector field through an oriented surface.",
        "ek": [
@@ -4947,7 +5145,8 @@
       {
        "id": "A",
        "std": [
-        "ST-16.8"
+        "ST-16.8",
+        "webwork-opl:MV8.3"
        ],
        "do": "Use Stokes' theorem to trade a circulation around a closed curve for the flux of the curl through a surface it bounds, or the reverse.",
        "ek": [
@@ -4983,7 +5182,8 @@
       {
        "id": "A",
        "std": [
-        "ST-16.9"
+        "ST-16.9",
+        "webwork-opl:MV8.4"
        ],
        "do": "Use the divergence theorem to compute the outward flux through a closed surface as a volume integral, or the reverse.",
        "ek": [
@@ -5007,7 +5207,8 @@
       {
        "id": "B",
        "std": [
-        "ST-16.9"
+        "ST-16.9",
+        "webwork-opl:FM3.1"
        ],
        "do": "Turn an integral balance on an arbitrary control volume into a differential conservation law with the divergence theorem.",
        "ek": [
@@ -5046,7 +5247,8 @@
       {
        "id": "A",
        "std": [
-        "ST-3.11"
+        "ST-3.11",
+        "webwork-opl:CA2.13"
        ],
        "do": "Recognise sinh, cosh and tanh from their exponential definitions and evaluate them at ln a.",
        "ek": [
@@ -5064,7 +5266,8 @@
       {
        "id": "B",
        "std": [
-        "ST-3.11"
+        "ST-3.11",
+        "webwork-opl:CA2.13"
        ],
        "do": "Use cosh² − sinh² = 1 and the double-argument identities, and tell a true hyperbolic identity from a false one.",
        "ek": [
@@ -5105,7 +5308,9 @@
       {
        "id": "A",
        "std": [
-        "ST-3.11"
+        "ST-3.11",
+        "webwork-opl:CA2.14",
+        "webwork-opl:CA5.6"
        ],
        "do": "Differentiate and integrate hyperbolic functions.",
        "ek": [
@@ -5153,6 +5358,474 @@
         "hy-ode-solution",
         "hy-circular-link",
         "hy-where-used"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "applied-fields",
+   "n": 16,
+   "title": "Calculus in business, the sciences and probability",
+   "scope": "core",
+   "std": [
+    "webwork-opl:CA3.11",
+    "webwork-opl:CA3.13",
+    "webwork-opl:CA3.18"
+   ],
+   "ideas": [
+    "CHA"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "Derivatives in context",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "webwork-opl:CA3.3"
+       ],
+       "do": "Find a marginal cost or revenue as a derivative.",
+       "ek": [
+        "Marginal cost C′(q) approximates the cost of one more unit."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "ca-marginal-cost"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "webwork-opl:CA3.11"
+       ],
+       "do": "Maximise profit from revenue and cost functions.",
+       "ek": [
+        "Profit is maximal where marginal revenue equals marginal cost."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "ca-max-profit"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "webwork-opl:CA3.13"
+       ],
+       "do": "Optimise a model from the natural sciences.",
+       "ek": [
+        "Set the derivative to zero and check that the critical point is a maximum."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "ca-peak-concentration"
+       ]
+      },
+      {
+       "id": "D",
+       "std": [
+        "webwork-opl:CA3.18"
+       ],
+       "do": "Compute a price elasticity of demand.",
+       "ek": [
+        "E = −(dq/dp)(p/q); |E| > 1 is elastic."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "ca-elasticity"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "title": "Integrals in context",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "webwork-opl:CA6.15"
+       ],
+       "do": "Find a consumer surplus.",
+       "ek": [
+        "CS = ∫₀^q₀ (demand price − market price) dq."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "ca-consumer-surplus"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "webwork-opl:CA6.16"
+       ],
+       "do": "Find cardiac output from a dye-dilution curve.",
+       "ek": [
+        "F = amount injected / ∫ c dt."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "ca-cardiac-output"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "webwork-opl:CA6.17"
+       ],
+       "do": "Use a probability density function.",
+       "ek": [
+        "A density integrates to 1; probabilities are areas under it."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "ca-pdf-constant"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "more-integration",
+   "n": 17,
+   "title": "More integration techniques and applications",
+   "scope": "core",
+   "std": [
+    "webwork-opl:CA5.10",
+    "webwork-opl:CA5.5",
+    "webwork-opl:CA5.8"
+   ],
+   "ideas": [
+    "CHA"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "Techniques",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "webwork-opl:CA5.5"
+       ],
+       "do": "Integrate a product of powers of sine and cosine.",
+       "ek": [
+        "With an odd power, save one factor and convert the rest; with even powers, use half-angle identities."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "ca-trig-integral"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "webwork-opl:CA5.8"
+       ],
+       "do": "Evaluate an integral by trigonometric substitution.",
+       "ek": [
+        "√(a² − x²): x = a sin θ; √(a² + x²): x = a tan θ; √(x² − a²): x = a sec θ."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "ca-trig-substitution"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "webwork-opl:CA5.9"
+       ],
+       "do": "Use an integral from a table.",
+       "ek": [
+        "Match the integrand to the table form, identify the constants, then substitute."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "ca-integral-table"
+       ]
+      },
+      {
+       "id": "D",
+       "std": [
+        "webwork-opl:CA5.10"
+       ],
+       "do": "Use and check a computer algebra system's antiderivative.",
+       "ek": [
+        "Differentiate the CAS answer to check it, then apply the fundamental theorem."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "ca-cas-antiderivative"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "title": "Volumes, surfaces and forces",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "webwork-opl:CA6.6"
+       ],
+       "do": "Find a volume by cylindrical shells.",
+       "ek": [
+        "V = ∫ 2π (radius)(height) dx."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "ca-shells"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "webwork-opl:CA6.7"
+       ],
+       "do": "Find the same volume by two methods.",
+       "ek": [
+        "Discs or washers in one variable and shells in the other must agree."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "ca-two-methods"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "webwork-opl:CA6.9"
+       ],
+       "do": "Find the area of a surface of revolution.",
+       "ek": [
+        "S = ∫ 2π y √(1 + y′²) dx."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "ca-surface-revolution"
+       ]
+      },
+      {
+       "id": "D",
+       "std": [
+        "webwork-opl:CA6.12"
+       ],
+       "do": "Find the hydrostatic force on a submerged plate by integration.",
+       "ek": [
+        "F = ∫ ρ g (depth) (width at that depth) d(depth)."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "ca-hydrostatic-triangle"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "sequences-curves",
+   "n": 18,
+   "title": "Sequences, series strategy, parametric and polar curves",
+   "scope": "core",
+   "std": [
+    "webwork-opl:CA7.1",
+    "webwork-opl:CA7.10",
+    "webwork-opl:CA7.13"
+   ],
+   "ideas": [
+    "CHA"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "Sequences and series",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "webwork-opl:CA7.1"
+       ],
+       "do": "Find the limit of a sequence.",
+       "ek": [
+        "Divide by the highest power of n."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "ca-sequence-limit"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "webwork-opl:CA7.10"
+       ],
+       "do": "Apply the root test.",
+       "ek": [
+        "L = lim |aₙ|^(1/n); converges if L < 1, diverges if L > 1."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "ca-root-test"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "webwork-opl:CA7.13"
+       ],
+       "do": "Choose a convergence test for a series.",
+       "ek": [
+        "Look at the form: geometric, p-series, factorials (ratio), nth powers (root), alternating, or a comparison."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "ca-series-strategy"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "title": "Parametric and polar curves",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "webwork-opl:CA8.2"
+       ],
+       "do": "Eliminate the parameter.",
+       "ek": [
+        "Solve one equation for t and substitute into the other."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "ca-eliminate-parameter"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "webwork-opl:CA8.6"
+       ],
+       "do": "Find the area under a parametric curve.",
+       "ek": [
+        "A = ∫ y dx = ∫ y(t) x′(t) dt."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "ca-parametric-area"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "webwork-opl:CA8.7"
+       ],
+       "do": "Find a volume of revolution for a parametric curve.",
+       "ek": [
+        "V = ∫ π y² dx with dx = x′(t) dt."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "ca-parametric-volume"
+       ]
+      },
+      {
+       "id": "D",
+       "std": [
+        "webwork-opl:CA8.8"
+       ],
+       "do": "Find a surface area of revolution for a parametric curve.",
+       "ek": [
+        "S = ∫ 2π y √(x′² + y′²) dt."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "ca-parametric-surface"
+       ]
+      },
+      {
+       "id": "E",
+       "std": [
+        "webwork-opl:CA9.7"
+       ],
+       "do": "Find the arc length of a polar curve.",
+       "ek": [
+        "L = ∫ √(r² + (dr/dθ)²) dθ."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "ca-polar-arc-length"
+       ]
+      },
+      {
+       "id": "F",
+       "std": [
+        "webwork-opl:MV2.2"
+       ],
+       "do": "Find the limit of a vector function.",
+       "ek": [
+        "Take the limit of each component."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "ca-vector-limit"
        ]
       }
      ]
@@ -7208,6 +7881,246 @@
     "hy-ode-solution",
     "hy-circular-link",
     "hy-where-used"
+   ],
+   "partial": []
+  },
+  {
+   "code": "CA-16.1.A",
+   "unit": 16,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ca-marginal-cost"
+   ],
+   "partial": []
+  },
+  {
+   "code": "CA-16.1.B",
+   "unit": 16,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ca-max-profit"
+   ],
+   "partial": []
+  },
+  {
+   "code": "CA-16.1.C",
+   "unit": 16,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ca-peak-concentration"
+   ],
+   "partial": []
+  },
+  {
+   "code": "CA-16.1.D",
+   "unit": 16,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ca-elasticity"
+   ],
+   "partial": []
+  },
+  {
+   "code": "CA-16.2.A",
+   "unit": 16,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "ca-consumer-surplus"
+   ],
+   "partial": []
+  },
+  {
+   "code": "CA-16.2.B",
+   "unit": 16,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "ca-cardiac-output"
+   ],
+   "partial": []
+  },
+  {
+   "code": "CA-16.2.C",
+   "unit": 16,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "ca-pdf-constant"
+   ],
+   "partial": []
+  },
+  {
+   "code": "CA-17.1.A",
+   "unit": 17,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ca-trig-integral"
+   ],
+   "partial": []
+  },
+  {
+   "code": "CA-17.1.B",
+   "unit": 17,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ca-trig-substitution"
+   ],
+   "partial": []
+  },
+  {
+   "code": "CA-17.1.C",
+   "unit": 17,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ca-integral-table"
+   ],
+   "partial": []
+  },
+  {
+   "code": "CA-17.1.D",
+   "unit": 17,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ca-cas-antiderivative"
+   ],
+   "partial": []
+  },
+  {
+   "code": "CA-17.2.A",
+   "unit": 17,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "ca-shells"
+   ],
+   "partial": []
+  },
+  {
+   "code": "CA-17.2.B",
+   "unit": 17,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "ca-two-methods"
+   ],
+   "partial": []
+  },
+  {
+   "code": "CA-17.2.C",
+   "unit": 17,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "ca-surface-revolution"
+   ],
+   "partial": []
+  },
+  {
+   "code": "CA-17.2.D",
+   "unit": 17,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "ca-hydrostatic-triangle"
+   ],
+   "partial": []
+  },
+  {
+   "code": "CA-18.1.A",
+   "unit": 18,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ca-sequence-limit"
+   ],
+   "partial": []
+  },
+  {
+   "code": "CA-18.1.B",
+   "unit": 18,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ca-root-test"
+   ],
+   "partial": []
+  },
+  {
+   "code": "CA-18.1.C",
+   "unit": 18,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ca-series-strategy"
+   ],
+   "partial": []
+  },
+  {
+   "code": "CA-18.2.A",
+   "unit": 18,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "ca-eliminate-parameter"
+   ],
+   "partial": []
+  },
+  {
+   "code": "CA-18.2.B",
+   "unit": 18,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "ca-parametric-area"
+   ],
+   "partial": []
+  },
+  {
+   "code": "CA-18.2.C",
+   "unit": 18,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "ca-parametric-volume"
+   ],
+   "partial": []
+  },
+  {
+   "code": "CA-18.2.D",
+   "unit": 18,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "ca-parametric-surface"
+   ],
+   "partial": []
+  },
+  {
+   "code": "CA-18.2.E",
+   "unit": 18,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "ca-polar-arc-length"
+   ],
+   "partial": []
+  },
+  {
+   "code": "CA-18.2.F",
+   "unit": 18,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "ca-vector-limit"
    ],
    "partial": []
   }

@@ -1,0 +1,172 @@
+# Fluid mechanics past the FE spec: control-volume momentum, viscous flows solved from the Navier–Stokes
+# equations, dimensional analysis, drag, piping systems and pumps, and forces on submerged surfaces.
+# Sections follow the WeBWorK OPL fluid-mechanics chapters (FM2–FM11). One question each, SI units,
+# g = 9.81 m/s² stated where used. Each numeric key is recomputed by the verifier along another route:
+# the velocity profile integrated, the force balance solved, the head-loss equality solved, the
+# pressure integrated over the surface.
+
+# ── control-volume momentum (OPL FM3.3) ─────────────────────────────────────
+- template: fm-jet-plate
+  skill: fm.momentum
+  pace: quick
+  given: { v: { pick: [5, 10, 15, 20] }, d: { pick: [2, 3, 5] } }
+  prompt: 'A water jet ($\rho = 1000$ kg/m³), ${{d}}$ cm across, hits a fixed flat plate head-on at ${{v}}$ m/s and spreads out sideways. What force does it put on the plate, in N?'
+  parts:
+    - { ask: 'Force (N)', label: r, tex: 'F', value: 1000*pi*(d/100)^2/4*v^2, tol: 0.01, explain: 'Momentum in, none out in the jet direction: $F = \dot m v = \rho A v^2$, with $A = \pi d^2/4$. Doubling the speed quadruples the force' }
+  verify: { expect: { r: "solve(Eq(x, 1000*pi*(Rational(d, 100))**2/4*v*(v - 0)), x)[0]" } }
+
+- template: fm-vane-force
+  skill: fm.momentum
+  pace: quick
+  given: { m: { pick: [2, 5, 10, 20] }, v: { pick: [10, 15, 20, 30] }, th: { pick: [60, 90, 120, 180] } }
+  prompt: 'A jet of ${{m}}$ kg/s at ${{v}}$ m/s is turned through ${{th}}°$ by a fixed vane, without losing speed. What is the force on the vane in the original jet direction, in N?'
+  parts:
+    - { ask: '$F_x$ (N)', label: r, tex: 'F_x', value: m*v*(1 - cos(th*pi/180)), tol: 0.01, explain: '$F_x = \dot m (v_{in,x} - v_{out,x}) = \dot m v(1 - \cos\theta)$. A 180° turn doubles the force of a flat plate: the fluid''s momentum is reversed, not just stopped' }
+  verify: { expect: { r: "m*(Matrix([v, 0]) - v*Matrix([cos(th*pi/180), sin(th*pi/180)]))[0]" } }
+
+# ── viscous flows from the Navier–Stokes equations (OPL FM4, FM6.1–6.2) ─────
+- template: fm-couette-force
+  skill: fm.viscous
+  pace: quick
+  given: { mu: { pick: [0.05, 0.1, 0.3, 0.8] }, U: { pick: [0.5, 1, 2, 3] }, h: { pick: [0.5, 1, 2] }, A: { pick: [0.1, 0.25, 0.5] } }
+  prompt: 'A plate of area ${{A}}$ m² slides at ${{U}}$ m/s over an oil film ${{h}}$ mm thick ($\mu = {{mu}}$ Pa·s) on a fixed surface. What force keeps it moving, in N?'
+  parts:
+    - { ask: 'Force (N)', label: r, tex: 'F', value: mu*U/(h/1000)*A, tol: 0.01, explain: 'Couette flow: the profile is linear, $u = Uy/h$, so $\tau = \mu U/h$ everywhere in the gap and $F = \tau A$' }
+  verify: { expect: { r: "nsimplify(mu)*diff(nsimplify(U)*x/(nsimplify(h)/1000), x)*nsimplify(A)" } }
+
+- template: fm-poiseuille-flow
+  skill: fm.viscous
+  pace: quick
+  given: { R: { pick: [1, 2, 5] }, dP: { pick: [100, 500, 1000, 2000] }, L: { pick: [1, 2, 5] }, mu: { pick: [0.001, 0.01, 0.1] } }
+  prompt: 'Laminar flow in a tube of radius ${{R}}$ mm and length ${{L}}$ m under a pressure drop of ${{dP}}$ Pa, $\mu = {{mu}}$ Pa·s. What is the volumetric flow rate, in mL/s?'
+  parts:
+    - { ask: 'Q (mL/s)', label: r, tex: 'Q', value: pi*(R/1000)^4*dP/(8*mu*L)*1000000, tol: 0.01, explain: 'Hagen–Poiseuille: $Q = \dfrac{\pi R^4\Delta P}{8\mu L}$. The fourth power is the point: halve the radius and the flow drops 16-fold' }
+  verify: { expect: { r: "integrate(nsimplify(dP)/(4*nsimplify(mu)*L)*((Rational(R, 1000))**2 - x**2)*2*pi*x, (x, 0, Rational(R, 1000)))*1000000" } }
+
+- template: fm-poiseuille-max-velocity
+  skill: fm.viscous
+  pace: recall
+  given: { V: { pick: [0.2, 0.5, 1, 1.5, 3] } }
+  cases:
+    - { geo: 'a circular tube', k: 2 }
+    - { geo: 'a wide slit between parallel plates', k: 1.5 }
+  prompt: 'Fully developed laminar flow in {{geo}} has mean velocity ${{V}}$ m/s. What is the centreline velocity, in m/s?'
+  parts:
+    - { ask: '$u_{max}$ (m/s)', label: r, tex: 'u_{max}', value: k*V, tol: 0.005, explain: 'The profile is a parabola. Averaged over a circle it gives $u_{max} = 2\bar u$; over a slit, $u_{max} = 1.5\bar u$. Turbulent profiles are much flatter (about $1.2\bar u$)' }
+  verify: { expect: { r: "nsimplify(V)*(1 - 0**2)/(integrate((1 - x**2)*2*x, (x, 0, 1)) if k == 2 else integrate(1 - x**2, (x, 0, 1)))" } }
+
+- template: fm-falling-film
+  skill: fm.viscous
+  pace: quick
+  given: { d: { pick: [0.2, 0.5, 1] }, mu: { pick: [0.001, 0.01, 0.05] }, rho: { pick: [800, 1000, 1200] } }
+  prompt: 'A liquid film ${{d}}$ mm thick runs down a vertical wall ($\rho = {{rho}}$ kg/m³, $\mu = {{mu}}$ Pa·s, $g = 9.81$). What is its mean velocity, in mm/s?'
+  parts:
+    - { ask: 'Mean velocity (mm/s)', label: r, tex: '\bar u', value: rho*9.81*(d/1000)^2/(3*mu)*1000, tol: 0.01, explain: 'Bird, Stewart & Lightfoot 2.2: gravity balanced by shear gives a half-parabola with zero stress at the free surface, $u_{max} = \rho g\delta^2/2\mu$ and $\bar u = \rho g\delta^2/3\mu$' }
+  verify: { expect: { r: "integrate(rho*Rational(981, 100)*(nsimplify(d)/1000)**2/(2*nsimplify(mu))*(1 - x**2), (x, 0, 1))*1000" } }
+
+- template: fm-continuity-2d
+  skill: fm.viscous
+  pace: quick
+  given: { a: { pick: [-3, -2, 2, 3, 4] }, b: { pick: [-2, -1, 1, 2] }, y0: { pick: [1, 2, 3] } }
+  prompt: 'A steady incompressible 2-D flow has $u = {{a}}x + {{b}}y$ and $v = 0$ on the wall $y = 0$. Find $v$ at $y = {{y0}}$ (any $x$).'
+  parts:
+    - { ask: '$v$', label: r, tex: 'v', value: -a*y0, tol: 0.005, explain: 'Continuity: $\partial u/\partial x + \partial v/\partial y = 0$, so $\partial v/\partial y = -{{a}}$ and $v = -{{a}}y$. A flow that speeds up in $x$ must draw fluid in from $y$' }
+  verify: { expect: { r: "integrate(-diff(a*Symbol('X') + b*x, Symbol('X')), (x, 0, y0))" } }
+
+- template: fm-entry-length
+  skill: fm.viscous
+  pace: quick
+  given: { Re: { pick: [300, 500, 1000, 1500, 2000] }, D: { pick: [1, 2, 5, 10] } }
+  prompt: 'Laminar flow at $Re = {{Re}}$ enters a tube of diameter ${{D}}$ cm. Using $L_e \approx 0.05\,Re\,D$, how far downstream, in m, is the flow fully developed?'
+  parts:
+    - { ask: '$L_e$ (m)', label: r, tex: 'L_e', value: 0.05*Re*D/100, tol: 0.01, explain: 'Laminar entry lengths are long: tens to hundreds of diameters. Turbulent flow develops in roughly $10$–$60$ diameters, so most turbulent pipes can ignore it' }
+  verify: { expect: { r: "Rational(5, 100)*Re*Rational(D, 100)" } }
+
+# ── dimensional analysis and drag (OPL FM5, FM7) ────────────────────────────
+- template: fm-pi-count
+  skill: fm.similarity
+  pace: recall
+  cases:
+    - { q: 'drag F on a sphere depends on ρ, μ, V and D', n: 5, k: 3 }
+    - { q: 'pressure drop ΔP in a pipe depends on ρ, μ, V, D, L and roughness ε', n: 7, k: 3 }
+    - { q: 'pump head gH depends on flow Q, speed N, diameter D, ρ and μ', n: 6, k: 3 }
+    - { q: 'period T of a pendulum depends on its length L, mass m and g', n: 4, k: 3 }
+    - { q: 'heat transfer coefficient h depends on k, ρ, μ, c_p, V and D', n: 7, k: 4 }
+    - { q: 'the frequency f of a vibrating string depends on its length L, tension T and mass per length m', n: 4, k: 3 }
+  prompt: 'If {{q}}, how many dimensionless groups does the Buckingham pi theorem give?'
+  parts:
+    - { ask: 'Number of groups', label: r, tex: 'n - k', value: n - k, tol: 0.005, explain: 'Count the variables (including the one you want), subtract the independent dimensions they use (M, L, T, and Θ when heat appears). The pendulum has one group, $T\sqrt{g/L}$, so the mass cannot matter' }
+  verify: { expect: { r: "solve(Eq(x + k, n), x)[0]" } }
+
+- template: fm-model-similarity
+  skill: fm.similarity
+  pace: quick
+  given: { s: { pick: [5, 10, 20, 25] }, V: { pick: [2, 3, 5, 10] } }
+  cases:
+    - { fl: 'water to water', nr: 1 }
+    - { fl: 'water (prototype) to a fluid with five times the kinematic viscosity (model)', nr: 5 }
+  prompt: 'A 1:{{s}} scale model is tested to match the Reynolds number of a prototype moving at ${{V}}$ m/s, going from {{fl}}. What speed must the model run at, in m/s?'
+  parts:
+    - { ask: 'Model speed (m/s)', label: r, tex: 'V_m', value: V*s*nr, tol: 0.01, explain: '$Re = VL/\nu$ must match: $V_m = V_p\dfrac{L_p}{L_m}\dfrac{\nu_m}{\nu_p}$. Small models in the same fluid need impractically high speeds, which is why model tests often give up exact Reynolds matching' }
+  verify: { expect: { r: "solve(Eq(x*1/(nr*Symbol('nu')), V*s/Symbol('nu')), x)[0]" } }
+
+- template: fm-drag-force
+  skill: fm.external
+  pace: quick
+  given: { CD: { pick: [0.3, 0.47, 1.0, 1.2] }, V: { pick: [10, 20, 30] }, A: { pick: [0.5, 1, 2] } }
+  prompt: 'A body with drag coefficient $C_D = {{CD}}$ and frontal area ${{A}}$ m² moves at ${{V}}$ m/s through air ($\rho = 1.2$ kg/m³). What is the drag force, in N?'
+  parts:
+    - { ask: 'Drag (N)', label: r, tex: 'F_D', value: 0.5*1.2*V^2*CD*A, tol: 0.01, explain: '$F_D = C_D\cdot\tfrac12\rho V^2\cdot A$: the coefficient scales the dynamic pressure acting on the frontal area. Power to overcome drag is $F_DV \propto V^3$' }
+  verify: { expect: { r: "solve(Eq(nsimplify(CD), x/(Rational(1, 2)*Rational(6, 5)*V**2*nsimplify(A))), x)[0]" } }
+
+- template: fm-stokes-terminal
+  skill: fm.external
+  pace: quick
+  given: { d: { pick: [10, 20, 50, 100] }, rp: { pick: [1500, 2500, 7800] }, mu: { pick: [0.001, 0.01] } }
+  prompt: 'A sphere ${{d}}$ µm across, density ${{rp}}$ kg/m³, settles in water ($\rho = 1000$ kg/m³, $\mu = {{mu}}$ Pa·s, $g = 9.81$). Assuming Stokes drag, what is its terminal velocity, in mm/s?'
+  parts:
+    - { ask: '$v_t$ (mm/s)', label: r, tex: 'v_t', value: (rp - 1000)*9.81*(d/1000000)^2/(18*mu)*1000, tol: 0.01, explain: 'Weight minus buoyancy equals Stokes drag $3\pi\mu dv$: $v_t = \dfrac{(\rho_p - \rho)gd^2}{18\mu}$. Check $Re = \rho v d/\mu < 1$ afterwards, or Stokes does not apply' }
+  verify: { expect: { r: "solve(Eq((rp - 1000)*Rational(981, 100)*pi*(Rational(d, 1000000))**3/6, 3*pi*nsimplify(mu)*Rational(d, 1000000)*x/1000), x)[0]" } }
+
+# ── piping systems and pumps (OPL FM6.10, FM11.3, FM6.8) ────────────────────
+- template: fm-parallel-pipes
+  skill: fm.piping
+  pace: quick
+  given: { r: { pick: [2, 1.5, 0.5] }, l: { pick: [1, 2, 4] } }
+  prompt: 'Two pipes run in parallel between the same two points with the same friction factor. Pipe B has ${{r}}$ times the diameter and ${{l}}$ times the length of pipe A. What is $Q_B/Q_A$?'
+  parts:
+    - { ask: '$Q_B/Q_A$', label: v, tex: 'Q_B/Q_A', value: r^2.5/sqrt(l), tol: 0.01, explain: 'Parallel pipes share the head loss. With $h_f = f\dfrac{L}{D}\dfrac{v^2}{2g}$ and $v = 4Q/\pi D^2$, $h_f \propto LQ^2/D^5$, so $Q \propto D^{5/2}/\sqrt L$' }
+  verify: { expect: { v: "Max(*solve(Eq(l*x**2/nsimplify(r)**5, 1), x))" } }
+
+- template: fm-pump-affinity
+  skill: fm.piping
+  pace: quick
+  given: { N1: { pick: [1200, 1800, 3600] }, f: { pick: [0.5, 0.75, 1.25, 1.5] } }
+  cases:
+    - { q: 'flow rate', p: 1 }
+    - { q: 'head', p: 2 }
+    - { q: 'shaft power', p: 3 }
+  prompt: 'A centrifugal pump running at ${{N1}}$ rpm is changed to ${{f*N1}}$ rpm. By what factor does its {{q}} change?'
+  parts:
+    - { ask: 'Factor', label: r, tex: 'k', value: f^p, tol: 0.005, explain: 'Affinity laws for one pump: $Q \propto N$, $H \propto N^2$, $P \propto N^3$. That cube is why a variable-speed drive saves so much energy compared with throttling' }
+  verify: { expect: { r: "(nsimplify(f)*N1)**p/N1**p" } }
+
+- template: fm-operating-point
+  skill: fm.piping
+  pace: quick
+  given: { H0: { pick: [40, 50, 60, 80] }, a: { pick: [200, 400, 500] }, Hs: { pick: [5, 10, 15, 20] }, b: { pick: [600, 800, 1000] } }
+  prompt: 'A pump curve is $H = {{H0}} - {{a}}Q^2$ and the system curve is $H = {{Hs}} + {{b}}Q^2$ ($H$ in m, $Q$ in m³/s). At what flow does the system run, in m³/s?'
+  parts:
+    - { ask: 'Q (m³/s)', label: r, tex: 'Q', value: sqrt((H0 - Hs)/(a + b)), tol: 0.005, explain: 'The operating point is where the head the pump supplies equals the head the system demands. $Q = \sqrt{(H_0 - H_s)/(a + b)}$; the static lift $H_s$ is spent before any flow begins' }
+  verify: { expect: { r: "Max(*solve(Eq(H0 - a*x**2, Hs + b*x**2), x))" } }
+
+# ── forces on submerged surfaces (OPL FM2.3) ────────────────────────────────
+- template: fm-gate-force
+  skill: fm.statics
+  pace: quick
+  given: { w: { pick: [1, 2, 3] }, h: { pick: [1, 2, 3, 4] }, t: { pick: [0, 1, 2] } }
+  require: ["h > 0"]
+  prompt: 'A vertical rectangular gate ${{w}}$ m wide and ${{h}}$ m tall has its top edge ${{t}}$ m below the surface of water ($\rho = 1000$ kg/m³, $g = 9.81$). What is the total water force on it, in kN?'
+  parts:
+    - { ask: 'Force (kN)', label: r, tex: 'F', value: 1000*9.81*(t + h/2)*w*h/1000, tol: 0.01, explain: 'Pressure grows linearly with depth, so the force is the pressure at the centroid times the area: $F = \rho g h_c A$ with $h_c = {{t}} + {{h}}/2$. It acts lower than the centroid, at the centre of pressure' }
+  verify: { expect: { r: "integrate(1000*Rational(981, 100)*x*w, (x, t, t + h))/1000" } }

@@ -585,6 +585,116 @@ T2.append(num_t("cw-monsanto-count", OM, rows(["sp", "M", "lg", "ch", "n"], [
     "The cycle alternates 16 and 18 electrons (Tolman's rule): oxidative addition 16 → 18, migratory insertion 18 → 16, CO uptake 16 → 18, reductive elimination of CH₃COI 18 → 16.",
     "cw_electron_count(M, lg, ch)"))
 
+
+# ═════ chapters 17–18 metal by metal ═════
+# Facts entered once: the verifier's CW_FACTS copy of these keys was generated from this table, so it
+# checks only that the shuffled answer lands on the right option, not the fact itself.
+# (metal group label, skill unit, [(key, question, right, w1, w2, w3), ...])
+ELEM = [
+ ("ti", "Titanium", [
+  ("ti:kroll", "How is titanium metal made industrially (the Kroll process)?", "Reduce TiCl₄ with Mg", "Reduce TiO₂ with carbon", "Electrolyse aqueous TiCl₃", "Roast TiS₂ in air"),
+  ("ti:pigment", "Which titanium compound is the world's main white pigment?", "TiO₂", "TiCl₄", "Ti₂O₃", "TiN"),
+  ("ti:aq3", "What colour is [Ti(H₂O)₆]³⁺, and why?", "Violet: one d–d transition of its single d electron", "Colourless: d⁰", "Yellow: charge transfer", "Green: two d–d bands"),
+ ]),
+ ("v", "Vanadium", [
+  ("v:contact", "Which vanadium compound catalyses SO₂ → SO₃ in the contact process?", "V₂O₅", "VCl₄", "VO", "V(CO)₆"),
+  ("v:VO2+", "What colour is the vanadyl ion VO²⁺ in water?", "Blue", "Yellow", "Violet", "Green"),
+  ("v:V2+", "What colour is V²⁺ in water?", "Violet", "Blue", "Yellow", "Green"),
+  ("v:VO2plus", "What colour is the dioxovanadium(V) ion VO₂⁺ in water?", "Yellow", "Blue", "Violet", "Green"),
+ ]),
+ ("cr", "Chromium", [
+  ("cr:acetate", "What is unusual about chromium(II) acetate, Cr₂(O₂CCH₃)₄(H₂O)₂?", "A Cr–Cr quadruple bond makes it red and nearly diamagnetic", "It is a Cr(VI) peroxide", "It is tetrahedral and blue", "It is a liquid at room temperature"),
+  ("cr:chromyl", "Heating a chloride with K₂Cr₂O₇ and conc. H₂SO₄ gives red-brown vapour. What is it?", "CrO₂Cl₂ (chromyl chloride)", "Cl₂", "CrCl₃", "HCl"),
+  ("cr:aq3", "What is the colour and lability of [Cr(H₂O)₆]³⁺?", "Violet and substitution-inert (d³)", "Green and labile", "Orange and labile", "Colourless and inert"),
+ ]),
+ ("mn", "Manganese", [
+  ("mn:pink", "Why is [Mn(H₂O)₆]²⁺ only very pale pink?", "High-spin d⁵: every d–d transition is spin-forbidden", "d⁰: no d electrons", "It absorbs only in the infrared", "It is a strong charge-transfer absorber"),
+  ("mn:psii", "Which manganese cluster oxidises water in photosynthesis?", "The Mn₄CaO₅ cluster of photosystem II", "MnO₄⁻ in the chloroplast", "Mn(CO)₅ in photosystem I", "MnO₂ in the thylakoid membrane"),
+  ("mn:battery", "Which manganese compound is the cathode of an ordinary alkaline battery?", "MnO₂", "KMnO₄", "MnCl₂", "Mn₂O₇"),
+ ]),
+ ("fe", "Iron", [
+  ("fe:haber", "What is the catalyst of the Haber–Bosch ammonia synthesis?", "Iron (promoted with K₂O and Al₂O₃)", "Platinum gauze", "V₂O₅", "Nickel"),
+  ("fe:prussian", "What is Prussian blue?", "Fe(III) hexacyanoferrate(II), Fe₄[Fe(CN)₆]₃", "Fe(CN)₂", "FeSCN²⁺", "Fe₃O₄"),
+  ("fe:heme", "In which oxidation state does heme iron bind O₂ in haemoglobin?", "Fe(II)", "Fe(III)", "Fe(IV)", "Fe(0)"),
+  ("fe:aq3", "Why are solutions of Fe³⁺ salts acidic?", "Small, highly charged Fe³⁺ polarises bound water: [Fe(H₂O)₆]³⁺ is a weak acid", "Fe³⁺ releases H₂", "The anion is always an acid", "Fe³⁺ oxidises water to H⁺ and O₂"),
+ ]),
+ ("co", "Cobalt", [
+  ("co:b12", "Which vitamin contains cobalt?", "B₁₂ (cobalamin)", "B₁ (thiamine)", "C (ascorbic acid)", "D (calciferol)"),
+  ("co:humidity", "Why does blue cobalt chloride paper turn pink in damp air?", "Tetrahedral [CoCl₄]²⁻ (blue) becomes octahedral [Co(H₂O)₆]²⁺ (pink)", "Co(II) is oxidised to Co(III)", "The paper bleaches", "Co(III) is reduced to Co(II)"),
+  ("co:battery", "Which cobalt compound is the classic lithium-ion battery cathode?", "LiCoO₂", "CoCl₂", "Co(CO)₄", "CoSO₄"),
+ ]),
+ ("ni", "Nickel", [
+  ("ni:mond", "How does the Mond process purify nickel?", "Ni + 4 CO forms volatile Ni(CO)₄, which decomposes on heating", "Electrolysis of NiSO₄", "Reduction of NiO with H₂", "Zone refining"),
+  ("ni:dmg", "What does dimethylglyoxime give with Ni²⁺ in ammonia?", "A red precipitate of square-planar Ni(dmgH)₂", "A blue solution", "A green precipitate of Ni(OH)₂", "No reaction"),
+  ("ni:raney", "What is Raney nickel used for?", "Catalytic hydrogenation", "Electroplating", "Pigment", "Coinage"),
+ ]),
+ ("cu", "Copper", [
+  ("cu:disprop", "What happens to Cu⁺ in water?", "It disproportionates to Cu and Cu²⁺", "It is stable indefinitely", "It is oxidised by water to Cu²⁺ and H₂", "It forms Cu₂²⁺ dimers"),
+  ("cu:ammine", "What forms when excess ammonia is added to aqueous Cu²⁺?", "Deep-blue [Cu(NH₃)₄(H₂O)₂]²⁺", "A pale green precipitate that stays", "Colourless [Cu(NH₃)₂]⁺", "Black CuO"),
+  ("cu:fehling", "What red solid forms in a positive Fehling's test?", "Cu₂O", "CuO", "Cu(OH)₂", "CuS"),
+  ("cu:hemocyanin", "Which O₂ carrier in molluscs and arthropods uses copper?", "Haemocyanin", "Haemoglobin", "Myoglobin", "Hemerythrin"),
+ ]),
+ ("zrhf", "Zirconium and hafnium", [
+  ("zr:clad", "Why is zirconium alloy used for nuclear fuel cladding?", "It absorbs very few neutrons and resists corrosion", "It absorbs neutrons strongly", "It is radioactive", "It is cheap and soft"),
+  ("hf:rods", "Why is hafnium used in reactor control rods?", "It absorbs neutrons strongly", "It reflects neutrons", "It moderates neutrons", "It is a fuel"),
+  ("zr:zirconia", "What stabilises cubic zirconia at room temperature?", "Adding Y₂O₃ or CaO", "Adding carbon", "Quenching in water", "Adding HfO₂"),
+ ]),
+ ("nbta", "Niobium and tantalum", [
+  ("ta:capacitor", "Why is tantalum used in small capacitors?", "Its anodised Ta₂O₅ film is a thin, stable dielectric", "It is a superconductor at room temperature", "It is magnetic", "It is a liquid metal"),
+  ("nb:magnet", "Which niobium alloy winds most MRI superconducting magnets?", "Nb–Ti", "Nb–Fe", "Nb₂O₅", "Nb–Cu"),
+  ("nbta:twins", "Why are Nb and Ta so hard to separate?", "The lanthanide contraction makes them almost the same size", "They form the same alloy", "Ta is radioactive", "They are not found together"),
+ ]),
+ ("mow", "Molybdenum and tungsten", [
+  ("mo:nitrogenase", "Which metal besides iron is in the usual cofactor of nitrogenase?", "Molybdenum", "Tungsten", "Copper", "Cobalt"),
+  ("mo:mos2", "Why is MoS₂ a dry lubricant?", "Layers held by van der Waals forces slide over each other", "It melts at low temperature", "It is a liquid crystal", "It absorbs oil"),
+  ("w:melting", "Which metal has the highest melting point?", "Tungsten", "Molybdenum", "Rhenium", "Osmium"),
+  ("w:keggin", "What is [PW₁₂O₄₀]³⁻?", "A Keggin polyoxometalate", "A tungsten carbonyl", "A tungsten cluster hydride", "A tungsten bronze"),
+ ]),
+ ("tcre", "Technetium and rhenium", [
+  ("tc:99m", "Why is ⁹⁹ᵐTc the workhorse of nuclear-medicine imaging?", "A 6-hour half-life and a clean 140 keV gamma ray", "It emits alpha particles", "It is stable", "It decays in seconds"),
+  ("re:perrhenate", "How does ReO₄⁻ compare with MnO₄⁻ as an oxidant?", "Much weaker: high oxidation states are more stable down a group", "Much stronger", "About the same", "ReO₄⁻ does not exist"),
+  ("re:reforming", "Where is rhenium used industrially?", "With Pt in petroleum-reforming catalysts", "In steel pigments", "As a neutron absorber", "In fertiliser"),
+ ]),
+ ("ruos", "Ruthenium and osmium", [
+  ("os:oso4", "What does OsO₄ do to an alkene?", "Adds two OH groups on the same face (cis-dihydroxylation)", "Cleaves it to carboxylic acids", "Hydrogenates it", "Polymerises it"),
+  ("ru:photoredox", "What makes [Ru(bpy)₃]²⁺ useful in photoredox chemistry?", "A long-lived MLCT excited state that both oxidises and reduces", "It is colourless", "It is paramagnetic", "It is a strong acid"),
+  ("os:max", "What is the highest oxidation state of osmium, seen in OsO₄?", "+8", "+6", "+4", "+10"),
+ ]),
+ ("rhir", "Rhodium and iridium", [
+  ("rh:converter", "What does rhodium do in a car's three-way catalytic converter?", "Reduces NOₓ to N₂", "Oxidises CO only", "Removes sulfur", "Stores oxygen"),
+  ("ir:cativa", "Which process makes acetic acid with an iridium catalyst?", "The Cativa process", "The Wacker process", "The Mond process", "The Kroll process"),
+  ("rhir:vaska", "What is Vaska's complex known for?", "Reversible oxidative addition of O₂, H₂ and CH₃I to Ir(I)", "Being an 18-electron Ir(III) hydride", "Catalysing olefin metathesis", "Being tetrahedral"),
+ ]),
+ ("pdpt", "Palladium and platinum", [
+  ("pd:h2", "What is unusual about palladium and hydrogen?", "Pd absorbs hundreds of times its volume of H₂ and lets it diffuse through", "Pd does not react with hydrogen at all", "Pd forms ionic PdH₂", "Pd burns in hydrogen"),
+  ("pd:coupling", "Which reactions are catalysed by Pd(0)/Pd(II) cycles and won the 2010 Nobel Prize?", "Cross-couplings (Heck, Suzuki, Negishi)", "Olefin metathesis", "Ziegler–Natta polymerisation", "Hydroformylation"),
+  ("pt:ostwald", "Which process oxidises ammonia over Pt–Rh gauze?", "The Ostwald process (nitric acid)", "The Haber process", "The contact process", "The Solvay process"),
+  ("pt:cisplatin", "Why is cisplatin an anticancer drug?", "It binds adjacent guanines in DNA and kinks it", "It oxidises tumour cells", "It blocks iron uptake", "It releases chlorine"),
+ ]),
+ ("agau", "Silver and gold", [
+  ("au:cyanide", "How is gold extracted from low-grade ore?", "Leached as [Au(CN)₂]⁻ with cyanide and air", "Dissolved in nitric acid", "Smelted with carbon", "Electrolysed from AuCl"),
+  ("au:aquaregia", "What does aqua regia turn gold into?", "[AuCl₄]⁻", "Au(NO₃)₃", "AuCl", "Au₂O₃"),
+  ("ag:photo", "What role did silver bromide play in film photography?", "Light reduces AgBr grains, seeding a developable silver image", "It is the dye", "It fixes the image", "It is the plastic base"),
+  ("au:linear", "What geometry does gold(I) usually take?", "Linear, two-coordinate", "Tetrahedral", "Octahedral", "Square planar"),
+ ]),
+]
+
+T3 = []
+for g, name, rows3 in ELEM:
+    T3.append(fact_t(f"cw-{g}-chemistry", TM, rows3, "{{f}}",
+        f"{name}: the chemistry Cotton & Wilkinson single out — industrial use, characteristic compounds and colours, and where the metal turns up in biology."))
+
+T3.append(ox_t("cw-heavy-metal-ox", TM, [
+    ("RuO₄", "RuO4", 0, "Ru", 8), ("OsO₄", "OsO4", 0, "Os", 8), ("ReO₄⁻", "ReO4", -1, "Re", 7), ("TcO₄⁻", "TcO4", -1, "Tc", 7),
+    ("MoO₃", "MoO3", 0, "Mo", 6), ("WO₄²⁻", "WO4", -2, "W", 6), ("Nb₂O₅", "Nb2O5", 0, "Nb", 5), ("IrF₆", "IrF6", 0, "Ir", 6),
+    ("PtF₆", "PtF6", 0, "Pt", 6), ("[AuCl₄]⁻", "AuCl4", -1, "Au", 3), ("AgF₂", "AgF2", 0, "Ag", 2), ("[PdCl₄]²⁻", "PdCl4", -2, "Pd", 2),
+], "Down a group, high oxidation states become more stable: Fe never reaches +8 but Ru and Os do; MnO₄⁻ is a fierce oxidant and ReO₄⁻ a mild one. PtF₆ is strong enough to oxidise O₂ and Xe."))
+
+T3.append(ox_t("cw-first-row-ox-2", TM, [
+    ("K₂FeO₄", "K2FeO4", 0, "Fe", 6), ("CoF₃", "CoF3", 0, "Co", 3), ("K₃[CuF₆]", "K3CuF6", 0, "Cu", 3), ("Mn₂O₇", "Mn2O7", 0, "Mn", 7),
+    ("CrO₃", "CrO3", 0, "Cr", 6), ("V₂O₅", "V2O5", 0, "V", 5), ("TiCl₄", "TiCl4", 0, "Ti", 4), ("NiF₆²⁻", "NiF6", -2, "Ni", 4),
+], "The highest states of the first series fall after Mn: +4 for Ti, +5 V, +6 Cr, +7 Mn, +6 Fe (ferrate), +3 to +4 for Co, Ni and Cu, and only with F or O."))
+
 if __name__ == "__main__":
     head = ("# Cotton & Wilkinson, Advanced Inorganic Chemistry 6e, chapters 1–15 (framework inorganic-advanced).\n"
             "# Generated by scripts/cw_cases.py: edit the script, not this file. Checked by tests/verify/cwcalc.py\n"
@@ -592,4 +702,5 @@ if __name__ == "__main__":
     (ROOT / "cw-main-group.yaml").write_text(head + "\n".join(T))
     head2 = head.replace("chapters 1–15", "chapters 16–22")
     (ROOT / "cw-transition.yaml").write_text(head2 + "\n".join(T2))
-    print(f"wrote {len(T)} + {len(T2)} templates")
+    (ROOT / "cw-elements.yaml").write_text(head2.replace("chapters 16–22", "chapters 17–18, metal by metal") + "\n".join(T3))
+    print(f"wrote {len(T)} + {len(T2)} + {len(T3)} templates")

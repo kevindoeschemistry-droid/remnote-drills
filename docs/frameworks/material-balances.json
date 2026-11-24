@@ -14,7 +14,8 @@
  "basis": {
   "primary": "fe-chemical",
   "also": [
-   "pe-chemical"
+   "pe-chemical",
+   "webwork-opl"
   ],
   "note": "Topics from FE Chemical area 8, read in full. Objectives and their order are ours and follow the usual textbook sequence; unit 1 is assumed by the spec rather than listed."
  },
@@ -68,6 +69,10 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "webwork-opl:TH1.5",
+        "webwork-opl:TH12.1"
+       ],
        "do": "Convert between mass fractions and mole fractions, and find the average molar mass of a mixture.",
        "ek": [
         "Take 100 g or 1 mol as a basis; the average molar mass is the mole-fraction-weighted mean."
@@ -82,6 +87,9 @@
       },
       {
        "id": "B",
+       "std": [
+        "webwork-opl:TH4.1"
+       ],
        "do": "Convert a volumetric flow of a liquid or an ideal gas to a molar flow.",
        "ek": [
         "Liquid: density then molar mass. Gas: n = PV/RT, with T in kelvin."
@@ -120,7 +128,9 @@
       {
        "id": "A",
        "std": [
-        "fe-chemical:8.A"
+        "fe-chemical:8.A",
+        "webwork-opl:TH4.2",
+        "webwork-opl:MB2.2"
        ],
        "do": "Solve a mixer, a separator and an evaporator with a total balance and one component balance.",
        "ek": [
@@ -140,7 +150,9 @@
       {
        "id": "B",
        "std": [
-        "fe-chemical:8.A"
+        "fe-chemical:8.A",
+        "webwork-opl:MB2.1",
+        "webwork-opl:MB3.2"
        ],
        "do": "Count degrees of freedom and say whether a balance problem is specified.",
        "ek": [
@@ -163,7 +175,8 @@
       {
        "id": "A",
        "std": [
-        "fe-chemical:8.E"
+        "fe-chemical:8.E",
+        "webwork-opl:MB2.4"
        ],
        "do": "Balance a mixing point to find a recycle flow, and explain what recycle, bypass and purge are for.",
        "ek": [
@@ -203,7 +216,9 @@
       {
        "id": "A",
        "std": [
-        "fe-chemical:8.F"
+        "fe-chemical:8.F",
+        "webwork-opl:TH13.1",
+        "webwork-opl:MB3.1"
        ],
        "do": "Identify the limiting reactant and compute percent excess.",
        "ek": [
@@ -220,7 +235,10 @@
       {
        "id": "B",
        "std": [
-        "fe-chemical:8.F"
+        "fe-chemical:8.F",
+        "webwork-opl:TH13.1",
+        "webwork-opl:MB3.1",
+        "webwork-opl:MB3.3"
        ],
        "do": "Use conversion or the extent of reaction to find every outlet flow.",
        "ek": [
@@ -237,7 +255,8 @@
       {
        "id": "C",
        "std": [
-        "fe-chemical:8.F"
+        "fe-chemical:8.F",
+        "webwork-opl:MB3.3"
        ],
        "do": "Apply selectivity and yield to parallel reactions.",
        "ek": [
@@ -254,7 +273,8 @@
        "id": "D",
        "std": [
         "fe-chemical:8.E",
-        "fe-chemical:8.F"
+        "fe-chemical:8.F",
+        "webwork-opl:MB3.4"
        ],
        "do": "Relate single-pass conversion, overall conversion and recycle flow for a reactor with recycle.",
        "ek": [
@@ -277,7 +297,9 @@
       {
        "id": "A",
        "std": [
-        "fe-chemical:8.F"
+        "fe-chemical:8.F",
+        "webwork-opl:TH13.6",
+        "webwork-opl:MB3.3"
        ],
        "do": "Find the theoretical air for a fuel and the dry flue-gas composition at a given excess air.",
        "ek": [
@@ -315,7 +337,9 @@
       {
        "id": "A",
        "std": [
-        "fe-chemical:8.C"
+        "fe-chemical:8.C",
+        "webwork-opl:TH2.9",
+        "webwork-opl:MB4.5"
        ],
        "do": "Compute a heat duty from sensible and latent heat, and the steam needed to supply it.",
        "ek": [
@@ -333,7 +357,9 @@
       {
        "id": "B",
        "std": [
-        "fe-chemical:8.C"
+        "fe-chemical:8.C",
+        "webwork-opl:TH5.9",
+        "webwork-opl:MB4.5"
        ],
        "do": "Find the outlet temperature of an adiabatic mixer.",
        "ek": [
@@ -356,7 +382,9 @@
        "id": "A",
        "std": [
         "fe-chemical:8.C",
-        "fe-chemical:7.H"
+        "fe-chemical:7.H",
+        "webwork-opl:TH13.3",
+        "webwork-opl:TH13.4"
        ],
        "do": "Compute a standard heat of reaction from heats of formation.",
        "ek": [
@@ -393,7 +421,9 @@
       {
        "id": "A",
        "std": [
-        "fe-chemical:8.B"
+        "fe-chemical:8.B",
+        "webwork-opl:TH4.3",
+        "webwork-opl:MB5.1"
        ],
        "do": "Find the time to fill or drain a tank at constant flows.",
        "ek": [
@@ -409,7 +439,8 @@
       {
        "id": "B",
        "std": [
-        "fe-chemical:8.B"
+        "fe-chemical:8.B",
+        "webwork-opl:MB5.1"
        ],
        "do": "Model the washout of a stirred tank and use its time constant.",
        "ek": [
@@ -433,7 +464,9 @@
       {
        "id": "A",
        "std": [
-        "fe-chemical:8.D"
+        "fe-chemical:8.D",
+        "webwork-opl:TH5.3",
+        "webwork-opl:MB5.5"
        ],
        "do": "Find the time to heat a batch at a constant heating rate.",
        "ek": [
@@ -444,6 +477,59 @@
        ],
        "drills": [
         "mb-tank-heating-time"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "multiunit",
+   "n": 6,
+   "title": "Multiunit balances and degrees of freedom",
+   "scope": "core",
+   "std": [
+    "webwork-opl:MB2.3",
+    "webwork-opl:MB4.1"
+   ],
+   "ideas": [
+    "CONSERVE"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "Flowsheets",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "webwork-opl:MB2.3"
+       ],
+       "do": "Solve a two-unit separation train.",
+       "ek": [
+        "Balance each unit in turn; a component's recovery multiplies through units in series."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "mb-two-column"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "webwork-opl:MB4.1"
+       ],
+       "do": "Count degrees of freedom for an energy balance.",
+       "ek": [
+        "DOF = unknowns − independent equations; the energy balance adds one equation and usually one unknown (Q or a temperature)."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "mb-energy-dof"
        ]
       }
      ]
@@ -621,6 +707,26 @@
    "status": "ok",
    "full": [
     "mb-tank-heating-time"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MB-6.1.A",
+   "unit": 6,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "mb-two-column"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MB-6.1.B",
+   "unit": 6,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "mb-energy-dof"
    ],
    "partial": []
   }

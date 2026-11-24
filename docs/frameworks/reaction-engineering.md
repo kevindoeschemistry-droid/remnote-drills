@@ -234,7 +234,7 @@ Big ideas: BALANCE
 
 
 
-- ● **RE-6.1.A** Relate temperature and conversion in an adiabatic reactor.
+- ● **RE-6.1.A** (webwork-opl:TH13.9) Relate temperature and conversion in an adiabatic reactor.
   - EK: T = T₀ + (−ΔH)X/ΣΘC_p.
   - Needs: RE-2.3.A
   - P1 · drills: re-adiabatic-T

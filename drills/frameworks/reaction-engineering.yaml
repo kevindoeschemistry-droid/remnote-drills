@@ -162,7 +162,7 @@ units:
       - n: 1
         title: "Adiabatic operation"
         los:
-          - { id: A, do: "Relate temperature and conversion in an adiabatic reactor.", ek: ["T = T₀ + (−ΔH)X/ΣΘC_p."], p: [P1], needs: [RE-2.3.A], drills: [re-adiabatic-T] }
+          - { id: A, std: ["webwork-opl:TH13.9"], do: "Relate temperature and conversion in an adiabatic reactor.", ek: ["T = T₀ + (−ΔH)X/ΣΘC_p."], p: [P1], needs: [RE-2.3.A], drills: [re-adiabatic-T] }
           - { id: B, do: "Find the adiabatic equilibrium conversion of a reversible exothermic reaction.", ek: ["Intersect X_EB(T) with X_e(T) = K/(1 + K), K from van 't Hoff."], p: [P1], needs: [RE-6.1.A, RE-1.1.C], drills: [re-adiabatic-xe] }
       - n: 2
         title: "CSTR steady states"

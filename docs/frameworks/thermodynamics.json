@@ -21,7 +21,8 @@
    "icho-appendix-c",
    "icho-syllabus",
    "pe-chemical",
-   "gre-physics"
+   "gre-physics",
+   "webwork-opl"
   ],
   "note": "UCI CBE 240 publishes no syllabus. Classical units are anchored to fe-chemical; the statistical-mechanics units stand on the books."
  },
@@ -351,6 +352,9 @@
       },
       {
        "id": "B",
+       "std": [
+        "webwork-opl:TH1.7"
+       ],
        "do": "Derive equality of T, P and μ by maximising total entropy over exchange of U, V and N.",
        "ek": [
         "∂S/∂U = 1/T, ∂S/∂V = P/T, ∂S/∂N = −μ/T must match across the wall."
@@ -448,6 +452,9 @@
       },
       {
        "id": "E",
+       "std": [
+        "webwork-opl:TH15.9"
+       ],
        "do": "Apply the Gibbs–Duhem equation to relate changes in the intensive variables.",
        "ek": [
         "S dT − V dP + N dμ = 0; at fixed T, dμ = v dP."
@@ -498,6 +505,10 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "webwork-opl:TH1.12",
+        "webwork-opl:TH3.1"
+       ],
        "do": "Calculate q, w and ΔU for a reversible isothermal ideal-gas process.",
        "ek": [
         "ΔU = 0; w = −nRT ln(V₂/V₁) = −q."
@@ -511,6 +522,9 @@
       },
       {
        "id": "B",
+       "std": [
+        "webwork-opl:TH3.1"
+       ],
        "do": "Calculate q, w and ΔU for a reversible isobaric ideal-gas process.",
        "ek": [
         "w = −PΔV = −nRΔT; q = nC_pΔT."
@@ -524,6 +538,10 @@
       },
       {
        "id": "C",
+       "std": [
+        "webwork-opl:TH2.13",
+        "webwork-opl:TH3.1"
+       ],
        "do": "Calculate q, w and ΔU for a constant-volume ideal-gas process.",
        "ek": [
         "w = 0; q = ΔU = nC_vΔT."
@@ -537,6 +555,11 @@
       },
       {
        "id": "D",
+       "std": [
+        "webwork-opl:TH3.1",
+        "webwork-opl:TH7.12",
+        "webwork-opl:TH7.16"
+       ],
        "do": "Find the final state of a reversible adiabatic ideal-gas process.",
        "ek": [
         "TV^(γ−1) constant; C_v = 3R/2 monatomic, 5R/2 diatomic (no vibration)."
@@ -563,6 +586,11 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "webwork-opl:TH6.4",
+        "webwork-opl:TH7.13",
+        "webwork-opl:TH7.14"
+       ],
        "do": "Calculate the total entropy change of system plus bath for an irreversible process and decide whether it can occur.",
        "ek": [
         "ΔS_bath = −q/T_bath; ΔS_tot ≥ 0, equal only when reversible."
@@ -577,6 +605,12 @@
       },
       {
        "id": "B",
+       "std": [
+        "webwork-opl:TH6.1",
+        "webwork-opl:TH6.5",
+        "webwork-opl:TH6.6",
+        "webwork-opl:TH6.7"
+       ],
        "do": "Calculate the maximum efficiency or coefficient of performance of a cycle between two reservoirs.",
        "ek": [
         "η_max = 1 − T_C/T_H from ΔS_tot = 0."
@@ -601,6 +635,15 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "webwork-opl:TH1.13",
+        "webwork-opl:TH5.2",
+        "webwork-opl:TH5.4",
+        "webwork-opl:TH5.5",
+        "webwork-opl:TH5.6",
+        "webwork-opl:TH5.8",
+        "webwork-opl:TH7.15"
+       ],
        "do": "Apply steady-flow energy and entropy balances to a turbine, compressor, nozzle or throttle.",
        "ek": [
         "Δh = q + w_s per unit mass; throttling is isenthalpic; Δs ≥ q/T."
@@ -749,6 +792,9 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "webwork-opl:TH13.14"
+       ],
        "do": "Derive P, S, μ or U from a given F(T, V, N) or G(T, P, N).",
        "ek": [
         "P = −(∂F/∂V)_T, S = −(∂F/∂T)_V, μ = (∂F/∂N)_{T,V}."
@@ -806,6 +852,9 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "webwork-opl:TH15.8"
+       ],
        "do": "Identify the Maxwell relation that equals a given partial derivative.",
        "ek": [
         "Cross-derivatives of the potential whose natural variables are the two held fixed: (∂S/∂V)_T = (∂P/∂T)_V from F."
@@ -822,6 +871,10 @@
       },
       {
        "id": "B",
+       "std": [
+        "webwork-opl:TH7.9",
+        "webwork-opl:TH15.8"
+       ],
        "do": "Evaluate an entropy derivative from an equation of state through a Maxwell relation.",
        "ek": [
         "(∂S/∂V)_T = (∂P/∂T)_V; (∂S/∂P)_T = −(∂V/∂T)_P."
@@ -959,6 +1012,9 @@
       },
       {
        "id": "C",
+       "std": [
+        "webwork-opl:TH15.1"
+       ],
        "do": "Test whether a homogeneous van der Waals state is mechanically stable.",
        "ek": [
         "Stable ⇔ (∂P/∂V)_T < 0 ⇔ κ_T > 0."
@@ -1002,6 +1058,10 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "webwork-opl:TH15.1",
+        "webwork-opl:TH15.5"
+       ],
        "do": "Find the critical constants of a cubic equation of state.",
        "ek": [
         "(∂P/∂V)_T = (∂²P/∂V²)_T = 0; vdW: T_c = 8a/27Rb, V_c = 3b, P_c = a/27b²."
@@ -1117,6 +1177,13 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "webwork-opl:TH2.15",
+        "webwork-opl:TH14.1",
+        "webwork-opl:TH14.2",
+        "webwork-opl:TH14.3",
+        "webwork-opl:TH15.4"
+       ],
        "do": "Calculate Z and residual (departure) properties from a virial or cubic equation of state.",
        "ek": [
         "Z = PV/RT = 1 + B/V + …; h − h^ig = ∫[T(∂P/∂T)_V − P]dV + RT(Z − 1)."
@@ -1131,6 +1198,10 @@
       },
       {
        "id": "B",
+       "std": [
+        "webwork-opl:TH15.10",
+        "webwork-opl:TH15.11"
+       ],
        "do": "Calculate a fugacity coefficient from a virial or cubic equation of state.",
        "ek": [
         "ln φ = ∫₀^P (Z − 1) dP/P; truncated virial: ln φ = BP/RT."
@@ -1145,6 +1216,9 @@
       },
       {
        "id": "C",
+       "std": [
+        "webwork-opl:TH15.4"
+       ],
        "do": "Relate the second virial coefficient to the intermolecular pair potential.",
        "ek": [
         "B(T) = −2πN_A ∫(e^(−βu(r)) − 1) r² dr; B < 0 when attraction dominates."
@@ -1158,6 +1232,9 @@
       },
       {
        "id": "D",
+       "std": [
+        "webwork-opl:TH15.6"
+       ],
        "do": "Estimate properties of a gas or gas mixture by corresponding states and mixing rules.",
        "ek": [
         "Z = f(T_r, P_r, ω); a_mix = ΣΣ y_iy_j √(a_ia_j)(1 − k_ij), b_mix = Σ y_ib_i."
@@ -1208,6 +1285,10 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "webwork-opl:TH2.1",
+        "webwork-opl:TH2.2"
+       ],
        "do": "State the conditions for phase coexistence and apply the Gibbs phase rule to a phase diagram.",
        "ek": [
         "T, P, μ_i equal in every phase; F = C − π + 2."
@@ -1236,6 +1317,9 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "webwork-opl:TH15.2"
+       ],
        "do": "Calculate the slope of a coexistence curve from the Clapeyron equation.",
        "ek": [
         "dP/dT = Δh/(TΔv)."
@@ -1249,6 +1333,10 @@
       },
       {
        "id": "B",
+       "std": [
+        "webwork-opl:TH15.2",
+        "webwork-opl:TH15.3"
+       ],
        "do": "Estimate a vapor pressure at a new temperature with the integrated Clausius–Clapeyron equation.",
        "ek": [
         "ln(P₂/P₁) = −(Δh_vap/R)(1/T₂ − 1/T₁); ideal vapor, v_liq ≪ v_vap, constant Δh."
@@ -1348,6 +1436,10 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "webwork-opl:TH7.18",
+        "webwork-opl:TH12.3"
+       ],
        "do": "Calculate the entropy of ideal mixing.",
        "ek": [
         "ΔS_mix = −nR Σ x_i ln x_i (from lattice counting)."
@@ -1364,6 +1456,9 @@
       },
       {
        "id": "B",
+       "std": [
+        "webwork-opl:TH16.1"
+       ],
        "do": "Calculate the Gibbs energy of ideal mixing.",
        "ek": [
         "ΔG_mix = nRT Σ x_i ln x_i; ΔH_mix = ΔV_mix = 0."
@@ -1392,6 +1487,9 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "webwork-opl:TH17.3"
+       ],
        "do": "Calculate partial molar properties from a total property, e.g. by the tangent-intercept method.",
        "ek": [
         "v̄_i = (∂V/∂n_i)_{T,P,n_j}; V = Σ n_i v̄_i."
@@ -1442,6 +1540,9 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "webwork-opl:TH16.2"
+       ],
        "do": "Calculate total pressure and vapor composition of an ideal solution with Raoult's law.",
        "ek": [
         "p_i = x_iP_i*; P = Σ x_iP_i*; y_i = p_i/P."
@@ -1468,6 +1569,10 @@
       },
       {
        "id": "C",
+       "std": [
+        "webwork-opl:TH16.3",
+        "webwork-opl:TH16.4"
+       ],
        "do": "Perform bubble-point, dew-point and isothermal flash calculations for a multicomponent mixture.",
        "ek": [
         "K_i = y_i/x_i; flash: Σ z_i(K_i − 1)/[1 + β(K_i − 1)] = 0 (Rachford–Rice)."
@@ -1500,6 +1605,10 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "webwork-opl:TH17.1",
+        "webwork-opl:TH17.2"
+       ],
        "do": "Calculate activity coefficients from an excess-Gibbs-energy model (regular solution, Margules).",
        "ek": [
         "G^ex/n = W x_Ax_B ⇒ RT ln γ_A = W x_B²."
@@ -1531,6 +1640,9 @@
       },
       {
        "id": "C",
+       "std": [
+        "webwork-opl:TH16.2"
+       ],
        "do": "Calculate VLE with modified Raoult's law and identify an azeotrope.",
        "ek": [
         "y_iP = x_iγ_iP_i*; at an azeotrope x_i = y_i and γ_A P_A* = γ_B P_B*."
@@ -1561,6 +1673,9 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "webwork-opl:TH18.1"
+       ],
        "do": "Calculate boiling-point elevation, freezing-point depression or osmotic pressure of a dilute solution.",
        "ek": [
         "ΔT_b = RT_b²x_B/Δh_vap; ΔT_f = RT_f²x_B/Δh_fus; Π = c_BRT (van 't Hoff)."
@@ -1636,6 +1751,9 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "webwork-opl:TH13.2"
+       ],
        "do": "Calculate K from ΔG°.",
        "ek": [
         "K = exp(−ΔG°/RT); standard state fixes the units of each activity."
@@ -1649,6 +1767,9 @@
       },
       {
        "id": "B",
+       "std": [
+        "webwork-opl:TH13.15"
+       ],
        "do": "Calculate ΔG° from K.",
        "ek": [
         "ΔG° = −RT ln K."
@@ -2086,6 +2207,9 @@
       },
       {
        "id": "B",
+       "std": [
+        "webwork-opl:TH2.10"
+       ],
        "do": "Calculate C_V of a diatomic gas with classical translation and rotation and quantum vibration.",
        "ek": [
         "C_V,m = 5R/2 + R x²eˣ/(eˣ − 1)², x = θ_vib/T."
@@ -2465,6 +2589,9 @@
       },
       {
        "id": "B",
+       "std": [
+        "webwork-opl:TH16.8"
+       ],
        "do": "Find the gas pressure that gives a target Langmuir coverage.",
        "ek": [
         "θ = KP/(1 + KP) ⇒ P = θ/[K(1 − θ)]."
@@ -2711,6 +2838,9 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "webwork-opl:TH18.3"
+       ],
        "do": "Calculate an equilibrium potential with the Nernst equation and a mean ionic activity coefficient with Debye–Hückel.",
        "ek": [
         "E = E° − (RT/zF) ln Q; ln γ± = −A|z₊z₋|√I (dilute limit)."
@@ -2738,6 +2868,10 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "webwork-opl:TH16.6",
+        "webwork-opl:TH17.6"
+       ],
        "do": "Calculate the Flory–Huggins free energy of mixing and the critical χ for a polymer solution.",
        "ek": [
         "ΔG_mix/k_BT = (φ/N) ln φ + (1 − φ) ln(1 − φ) + χφ(1 − φ); χ_c = ½(1 + 1/√N)²."
@@ -2780,6 +2914,1151 @@
        ],
        "drills": [
         "td-metropolis"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "properties",
+   "n": 18,
+   "title": "Properties of pure substances and simple processes",
+   "scope": "core",
+   "std": [
+    "webwork-opl:TH1.14",
+    "webwork-opl:TH1.15",
+    "webwork-opl:TH2.16"
+   ],
+   "ideas": [
+    "EQ"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "Work and property tables",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "webwork-opl:TH1.14",
+        "webwork-opl:TH1.15"
+       ],
+       "do": "Compute spring and electrical work.",
+       "ek": [
+        "Spring: W = ½k(x₂² − x₁²); electrical: W = VIt."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "td-spring-work",
+        "td-electrical-work"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "webwork-opl:TH2.4",
+        "webwork-opl:TH7.3"
+       ],
+       "do": "Read a compressed-liquid state.",
+       "ek": [
+        "h ≈ h_f(T) + v_f (P − P_sat(T)); otherwise treat it as saturated liquid at T."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "td-compressed-liquid"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "webwork-opl:TH2.5",
+        "webwork-opl:TH2.7"
+       ],
+       "do": "Use saturated-liquid and saturated-vapour properties.",
+       "ek": [
+        "At saturation, h_g = h_f + h_fg; the mass in a tank is V/v_g."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "td-saturated-mass"
+       ]
+      },
+      {
+       "id": "D",
+       "std": [
+        "webwork-opl:TH2.6",
+        "webwork-opl:TH2.9"
+       ],
+       "do": "Find the quality and enthalpy of a two-phase mixture.",
+       "ek": [
+        "x = (h − h_f)/h_fg; h = h_f + x h_fg."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "td-quality"
+       ]
+      },
+      {
+       "id": "E",
+       "std": [
+        "webwork-opl:TH2.8",
+        "webwork-opl:TH7.7"
+       ],
+       "do": "Interpolate in the superheated table.",
+       "ek": [
+        "Linear interpolation between neighbouring entries."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "td-superheated-interp"
+       ]
+      },
+      {
+       "id": "F",
+       "std": [
+        "webwork-opl:TH2.3",
+        "webwork-opl:TH2.9"
+       ],
+       "do": "Find the heat to melt or boil a substance.",
+       "ek": [
+        "Q = m(c ΔT + latent heat)."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "td-ice-melt"
+       ]
+      },
+      {
+       "id": "G",
+       "std": [
+        "webwork-opl:TH2.16"
+       ],
+       "do": "Find the work of a polytropic process.",
+       "ek": [
+        "PVⁿ = const; W = (P₂V₂ − P₁V₁)/(1 − n) for n ≠ 1."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "td-polytropic-work"
+       ]
+      },
+      {
+       "id": "H",
+       "std": [
+        "webwork-opl:TH2.17",
+        "webwork-opl:TH2.18",
+        "webwork-opl:TH7.11"
+       ],
+       "do": "Handle incompressible substances.",
+       "ek": [
+        "Δu = cΔT; Δh = cΔT + vΔP; Δs = c ln(T₂/T₁)."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "td-pump-enthalpy",
+        "td-incompressible-entropy"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "title": "Entropy of pure substances",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "webwork-opl:TH7.1"
+       ],
+       "do": "Read entropy on a T–s diagram.",
+       "ek": [
+        "Area under a reversible path is the heat; an isentropic process is a vertical line."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "td-ts-diagram"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "webwork-opl:TH7.4",
+        "webwork-opl:TH7.5",
+        "webwork-opl:TH7.6",
+        "webwork-opl:TH7.8"
+       ],
+       "do": "Find the entropy of a saturated or two-phase state.",
+       "ek": [
+        "s = s_f + x s_fg; the entropy of vaporisation is h_fg/T_sat."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "td-two-phase-entropy",
+        "td-boiling-entropy"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "webwork-opl:TH7.2"
+       ],
+       "do": "Find the entropy change of heating a solid.",
+       "ek": [
+        "Δs = c ln(T₂/T₁) for a solid with constant c."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "td-ice-entropy"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "control-volumes",
+   "n": 19,
+   "title": "Control volumes, the second law and exergy",
+   "scope": "core",
+   "std": [
+    "webwork-opl:TH5.1",
+    "webwork-opl:TH5.10",
+    "webwork-opl:TH6.2"
+   ],
+   "ideas": [
+    "EQ"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "Flow work and devices",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "webwork-opl:TH5.1"
+       ],
+       "do": "Compute flow work.",
+       "ek": [
+        "Flow work per unit mass = Pv."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "td-flow-work"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "webwork-opl:TH5.10"
+       ],
+       "do": "Analyse several devices together.",
+       "ek": [
+        "Write the balance for each device and add the powers."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "td-net-power"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "webwork-opl:TH7.17"
+       ],
+       "do": "Account for isentropic efficiency.",
+       "ek": [
+        "Turbine: η = (h₁ − h₂)/(h₁ − h₂ₛ); compressor: η = (h₂ₛ − h₁)/(h₂ − h₁)."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "td-compressor-efficiency"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "title": "The second law",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "webwork-opl:TH6.2",
+        "webwork-opl:TH6.3"
+       ],
+       "do": "Recognise the Kelvin–Planck and Clausius statements.",
+       "ek": [
+        "No cycle turns heat from one reservoir entirely into work; none moves heat from cold to hot with no work."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "td-second-law-statements"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "webwork-opl:TH6.8"
+       ],
+       "do": "Use the thermodynamic temperature scale.",
+       "ek": [
+        "For a reversible engine Q_H/Q_L = T_H/T_L."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "td-kelvin-scale"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 3,
+     "title": "Exergy",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "webwork-opl:TH8.1"
+       ],
+       "do": "Find the exergy of a hot body.",
+       "ek": [
+        "X = m c[(T − T₀) − T₀ ln(T/T₀)]."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "td-exergy-block"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "webwork-opl:TH8.2"
+       ],
+       "do": "Find the exergy carried by heat.",
+       "ek": [
+        "X_Q = Q(1 − T₀/T)."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "td-heat-exergy"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "webwork-opl:TH8.3"
+       ],
+       "do": "Find the exergy destroyed in a process.",
+       "ek": [
+        "X_destroyed = T₀ S_gen."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "td-exergy-destroyed"
+       ]
+      },
+      {
+       "id": "D",
+       "std": [
+        "webwork-opl:TH8.4"
+       ],
+       "do": "Compute flow exergy.",
+       "ek": [
+        "ψ = (h − h₀) − T₀(s − s₀) (ignoring kinetic and potential terms)."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "td-flow-exergy"
+       ]
+      },
+      {
+       "id": "E",
+       "std": [
+        "webwork-opl:TH8.5"
+       ],
+       "do": "Compute a second-law efficiency.",
+       "ek": [
+        "η_II = W_actual/W_reversible (or actual/maximum COP)."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "td-second-law-efficiency"
+       ]
+      },
+      {
+       "id": "F",
+       "std": [
+        "webwork-opl:TH8.6"
+       ],
+       "do": "Put a price on exergy destruction.",
+       "ek": [
+        "Cost rate = (exergy destroyed per second) × (price of energy)."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "td-thermoeconomics"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "cycles",
+   "n": 20,
+   "title": "Power and refrigeration cycles",
+   "scope": "core",
+   "std": [
+    "webwork-opl:TH10.1",
+    "webwork-opl:TH10.2",
+    "webwork-opl:TH10.3"
+   ],
+   "ideas": [
+    "EQ"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "Vapour power cycles",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "webwork-opl:TH9.1",
+        "webwork-opl:TH9.2"
+       ],
+       "do": "Find the efficiency of a Rankine cycle.",
+       "ek": [
+        "η = (w_turbine − w_pump)/q_in with q_in = h₁ − h₄."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "td-rankine"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "webwork-opl:TH9.3"
+       ],
+       "do": "Find the bleed fraction of an open feedwater heater.",
+       "ek": [
+        "y h_bleed + (1 − y) h_in = h_out (saturated liquid)."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "td-feedwater-heater"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "title": "Gas power cycles",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "webwork-opl:TH10.1"
+       ],
+       "do": "Find the air-standard Otto efficiency.",
+       "ek": [
+        "η = 1 − r^(1−k)."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "td-otto"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "webwork-opl:TH10.2"
+       ],
+       "do": "Find the air-standard Diesel efficiency.",
+       "ek": [
+        "η = 1 − r^(1−k)(r_c^k − 1)/(k(r_c − 1))."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "td-diesel"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "webwork-opl:TH10.3"
+       ],
+       "do": "Find the air-standard dual-cycle efficiency.",
+       "ek": [
+        "Heat is added partly at constant volume (pressure ratio r_p), partly at constant pressure (cutoff r_c)."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "td-dual"
+       ]
+      },
+      {
+       "id": "D",
+       "std": [
+        "webwork-opl:TH10.4"
+       ],
+       "do": "Find the efficiency of a regenerated Stirling or Ericsson cycle.",
+       "ek": [
+        "With perfect regeneration both reach the Carnot efficiency."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "td-stirling-regenerated"
+       ]
+      },
+      {
+       "id": "E",
+       "std": [
+        "webwork-opl:TH10.5"
+       ],
+       "do": "Find the Brayton cycle efficiency.",
+       "ek": [
+        "η = 1 − r_p^((1−k)/k)."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "td-brayton"
+       ]
+      },
+      {
+       "id": "F",
+       "std": [
+        "webwork-opl:TH10.6"
+       ],
+       "do": "Find the efficiency of a Brayton cycle with ideal regeneration.",
+       "ek": [
+        "η = 1 − (T₁/T₃) r_p^((k−1)/k)."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "td-brayton-regen"
+       ]
+      },
+      {
+       "id": "G",
+       "std": [
+        "webwork-opl:TH10.7"
+       ],
+       "do": "Choose the intercooling pressure for minimum compressor work.",
+       "ek": [
+        "Two stages with intercooling to T₁: P_x = √(P₁P₂)."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "td-intercooling"
+       ]
+      },
+      {
+       "id": "H",
+       "std": [
+        "webwork-opl:TH10.8"
+       ],
+       "do": "Combine the efficiencies of a gas–steam cycle.",
+       "ek": [
+        "η = η_gas + η_steam − η_gas η_steam when the steam cycle runs on the gas cycle's rejected heat."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "td-combined-cycle"
+       ]
+      },
+      {
+       "id": "I",
+       "std": [
+        "webwork-opl:TH10.9"
+       ],
+       "do": "Find the thrust of a turbojet.",
+       "ek": [
+        "F = ṁ(V_exit − V_inlet)."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "td-turbojet-thrust"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 3,
+     "title": "Refrigeration",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "webwork-opl:TH11.1"
+       ],
+       "do": "Find the COP of a vapour-compression refrigerator.",
+       "ek": [
+        "COP_R = (h₁ − h₄)/(h₂ − h₁)."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "td-refrigeration-cop"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "webwork-opl:TH11.2"
+       ],
+       "do": "Find the COP of a gas (reversed Brayton) refrigeration cycle.",
+       "ek": [
+        "COP = 1/(r_p^((k−1)/k) − 1)."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "td-gas-refrigeration"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "psychrometrics",
+   "n": 21,
+   "title": "Moist air and air conditioning",
+   "scope": "core",
+   "std": [
+    "webwork-opl:TH12.10",
+    "webwork-opl:TH12.11",
+    "webwork-opl:TH12.12"
+   ],
+   "ideas": [
+    "EQ"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "Moist-air properties",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "webwork-opl:TH12.4"
+       ],
+       "do": "Find the humidity ratio from an adiabatic-saturation (wet-bulb) reading.",
+       "ek": [
+        "ω₁ = [c_p(T₂ − T₁) + ω₂h_fg₂]/(h_g₁ − h_f₂)."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "td-wet-bulb"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "webwork-opl:TH12.6"
+       ],
+       "do": "Find a dew point.",
+       "ek": [
+        "T_dp is the saturation temperature at the vapour's partial pressure."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "td-dew-point"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "webwork-opl:TH12.7"
+       ],
+       "do": "Find the enthalpy of moist air.",
+       "ek": [
+        "h = 1.005T + ω(2501 + 1.82T) kJ per kg dry air, T in °C."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "td-moist-enthalpy"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "title": "Air-conditioning processes",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "webwork-opl:TH12.8",
+        "webwork-opl:TH12.10"
+       ],
+       "do": "Balance an air-conditioning process.",
+       "ek": [
+        "Dry air is conserved; water and energy balances fix the heat and the condensate."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "td-dehumidify-water",
+        "td-ac-heat"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "webwork-opl:TH12.9"
+       ],
+       "do": "Heat moist air at constant composition.",
+       "ek": [
+        "Simple heating: ω constant, Q = ṁ_a c_p,moist ΔT."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "td-simple-heating"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "webwork-opl:TH12.11",
+        "webwork-opl:TH12.14"
+       ],
+       "do": "Humidify air.",
+       "ek": [
+        "Water added = ṁ_a(ω₂ − ω₁)."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "td-humidify"
+       ]
+      },
+      {
+       "id": "D",
+       "std": [
+        "webwork-opl:TH12.12"
+       ],
+       "do": "Find the outlet temperature of an evaporative cooler.",
+       "ek": [
+        "The process is nearly at constant enthalpy (constant wet-bulb)."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "td-evaporative-cooling"
+       ]
+      },
+      {
+       "id": "E",
+       "std": [
+        "webwork-opl:TH12.13"
+       ],
+       "do": "Mix two moist air streams.",
+       "ek": [
+        "ω₃ = (ṁ₁ω₁ + ṁ₂ω₂)/(ṁ₁ + ṁ₂); h₃ likewise."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "td-adiabatic-mixing"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "reacting",
+   "n": 22,
+   "title": "Combustion, reacting systems and liquid-phase fugacity",
+   "scope": "core",
+   "std": [
+    "webwork-opl:TH13.10",
+    "webwork-opl:TH13.11",
+    "webwork-opl:TH13.13"
+   ],
+   "ideas": [
+    "EQ"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "Combustion and reacting systems",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "webwork-opl:TH13.7"
+       ],
+       "do": "Estimate an adiabatic flame temperature.",
+       "ek": [
+        "Heat released heats the products: Σnᵢc_p,ᵢ(T − T₀) = LHV."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "td-flame-temperature"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "webwork-opl:TH13.8"
+       ],
+       "do": "Find a mixture's lower flammability limit.",
+       "ek": [
+        "Le Chatelier: LFL_mix = 1/Σ(yᵢ/LFLᵢ) with yᵢ the fuel-only fractions."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "td-le-chatelier"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "webwork-opl:TH13.10"
+       ],
+       "do": "Find the temperature rise of an adiabatic batch reactor.",
+       "ek": [
+        "ΔT_ad = (−ΔH_r) C₀ X / (ρ c_p)."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "td-batch-adiabatic-rise"
+       ]
+      },
+      {
+       "id": "D",
+       "std": [
+        "webwork-opl:TH13.11"
+       ],
+       "do": "Combine a reaction equilibrium with a phase equilibrium.",
+       "ek": [
+        "Over pure liquid A, p_A = P_sat; then p_B = K p_A for A(g) ⇌ B(g)."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "td-reaction-phase"
+       ]
+      },
+      {
+       "id": "E",
+       "std": [
+        "webwork-opl:TH13.13"
+       ],
+       "do": "Find the chemical exergy of a gas from its dilution.",
+       "ek": [
+        "Per mole, RT₀ ln(1/y_env) for a gas present at mole fraction y_env in the environment."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "td-chemical-exergy"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "title": "Liquids and solids at high pressure",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "webwork-opl:TH15.7"
+       ],
+       "do": "Estimate a saturated-liquid volume with the Rackett equation.",
+       "ek": [
+        "V_sat = V_c Z_c^((1 − T_r)^(2/7))."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "td-rackett"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "webwork-opl:TH15.12"
+       ],
+       "do": "Find the fugacity of a compressed liquid with the Poynting factor.",
+       "ek": [
+        "f = φ_sat P_sat exp[V_L(P − P_sat)/RT]."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "td-poynting-liquid"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "webwork-opl:TH15.13"
+       ],
+       "do": "Find the Poynting factor for a solid.",
+       "ek": [
+        "Same integral with the solid's molar volume and the sublimation pressure."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "td-poynting-solid"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 3,
+     "title": "Multicomponent equilibrium",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "webwork-opl:TH16.5"
+       ],
+       "do": "Find the boiling pressure of two immiscible liquids.",
+       "ek": [
+        "Each liquid exerts its own vapour pressure: P = P₁sat + P₂sat."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "td-immiscible-liquids"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "webwork-opl:TH16.7"
+       ],
+       "do": "Find an ideal solid solubility.",
+       "ek": [
+        "ln x = −(ΔH_fus/R)(1/T − 1/T_m)."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "td-ideal-solubility"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "webwork-opl:TH16.9"
+       ],
+       "do": "Apply van der Waals mixing rules.",
+       "ek": [
+        "a_mix = (Σyᵢ√aᵢ)², b_mix = Σyᵢbᵢ."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "td-mixing-rule"
+       ]
+      },
+      {
+       "id": "D",
+       "std": [
+        "webwork-opl:TH16.10"
+       ],
+       "do": "Find a fugacity coefficient from the virial equation.",
+       "ek": [
+        "ln φ = BP/RT."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "td-virial-fugacity"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 4,
+     "title": "Activity models",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "webwork-opl:TH17.4"
+       ],
+       "do": "Use the van Laar model.",
+       "ek": [
+        "ln γ₁ = A₁₂(A₂₁x₂/(A₁₂x₁ + A₂₁x₂))²."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "td-van-laar"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "webwork-opl:TH17.5"
+       ],
+       "do": "Use regular-solution (Scatchard–Hildebrand) theory.",
+       "ek": [
+        "ln γ₁ = V₁Φ₂²(δ₁ − δ₂)²/RT."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "td-scatchard-hildebrand"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "webwork-opl:TH17.9"
+       ],
+       "do": "Use Wilson's equation.",
+       "ek": [
+        "ln γ₁ = −ln(x₁ + Λ₁₂x₂) + x₂[Λ₁₂/(x₁ + Λ₁₂x₂) − Λ₂₁/(x₂ + Λ₂₁x₁)]."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "td-wilson"
+       ]
+      },
+      {
+       "id": "D",
+       "std": [
+        "webwork-opl:TH17.10"
+       ],
+       "do": "Use the NRTL model at infinite dilution.",
+       "ek": [
+        "ln γ₁^∞ = τ₂₁ + τ₁₂ exp(−ατ₁₂)."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "td-nrtl-infinite"
+       ]
+      },
+      {
+       "id": "E",
+       "std": [
+        "webwork-opl:TH17.7",
+        "webwork-opl:TH17.8",
+        "webwork-opl:TH17.11"
+       ],
+       "do": "Know what group-contribution and other activity models need.",
+       "ek": [
+        "UNIFAC: group volumes, areas and group interaction parameters; UNIQUAC: r and q plus binary energies; MOSCED: dispersion, polarity, induction and hydrogen-bond parameters."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "td-activity-models"
        ]
       }
      ]
@@ -4043,6 +5322,610 @@
    "status": "ok",
    "full": [
     "td-metropolis"
+   ],
+   "partial": []
+  },
+  {
+   "code": "TD-18.1.A",
+   "unit": 18,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "td-spring-work",
+    "td-electrical-work"
+   ],
+   "partial": []
+  },
+  {
+   "code": "TD-18.1.B",
+   "unit": 18,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "td-compressed-liquid"
+   ],
+   "partial": []
+  },
+  {
+   "code": "TD-18.1.C",
+   "unit": 18,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "td-saturated-mass"
+   ],
+   "partial": []
+  },
+  {
+   "code": "TD-18.1.D",
+   "unit": 18,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "td-quality"
+   ],
+   "partial": []
+  },
+  {
+   "code": "TD-18.1.E",
+   "unit": 18,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "td-superheated-interp"
+   ],
+   "partial": []
+  },
+  {
+   "code": "TD-18.1.F",
+   "unit": 18,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "td-ice-melt"
+   ],
+   "partial": []
+  },
+  {
+   "code": "TD-18.1.G",
+   "unit": 18,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "td-polytropic-work"
+   ],
+   "partial": []
+  },
+  {
+   "code": "TD-18.1.H",
+   "unit": 18,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "td-pump-enthalpy",
+    "td-incompressible-entropy"
+   ],
+   "partial": []
+  },
+  {
+   "code": "TD-18.2.A",
+   "unit": 18,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "td-ts-diagram"
+   ],
+   "partial": []
+  },
+  {
+   "code": "TD-18.2.B",
+   "unit": 18,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "td-two-phase-entropy",
+    "td-boiling-entropy"
+   ],
+   "partial": []
+  },
+  {
+   "code": "TD-18.2.C",
+   "unit": 18,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "td-ice-entropy"
+   ],
+   "partial": []
+  },
+  {
+   "code": "TD-19.1.A",
+   "unit": 19,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "td-flow-work"
+   ],
+   "partial": []
+  },
+  {
+   "code": "TD-19.1.B",
+   "unit": 19,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "td-net-power"
+   ],
+   "partial": []
+  },
+  {
+   "code": "TD-19.1.C",
+   "unit": 19,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "td-compressor-efficiency"
+   ],
+   "partial": []
+  },
+  {
+   "code": "TD-19.2.A",
+   "unit": 19,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "td-second-law-statements"
+   ],
+   "partial": []
+  },
+  {
+   "code": "TD-19.2.B",
+   "unit": 19,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "td-kelvin-scale"
+   ],
+   "partial": []
+  },
+  {
+   "code": "TD-19.3.A",
+   "unit": 19,
+   "topic": 3,
+   "status": "ok",
+   "full": [
+    "td-exergy-block"
+   ],
+   "partial": []
+  },
+  {
+   "code": "TD-19.3.B",
+   "unit": 19,
+   "topic": 3,
+   "status": "ok",
+   "full": [
+    "td-heat-exergy"
+   ],
+   "partial": []
+  },
+  {
+   "code": "TD-19.3.C",
+   "unit": 19,
+   "topic": 3,
+   "status": "ok",
+   "full": [
+    "td-exergy-destroyed"
+   ],
+   "partial": []
+  },
+  {
+   "code": "TD-19.3.D",
+   "unit": 19,
+   "topic": 3,
+   "status": "ok",
+   "full": [
+    "td-flow-exergy"
+   ],
+   "partial": []
+  },
+  {
+   "code": "TD-19.3.E",
+   "unit": 19,
+   "topic": 3,
+   "status": "ok",
+   "full": [
+    "td-second-law-efficiency"
+   ],
+   "partial": []
+  },
+  {
+   "code": "TD-19.3.F",
+   "unit": 19,
+   "topic": 3,
+   "status": "ok",
+   "full": [
+    "td-thermoeconomics"
+   ],
+   "partial": []
+  },
+  {
+   "code": "TD-20.1.A",
+   "unit": 20,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "td-rankine"
+   ],
+   "partial": []
+  },
+  {
+   "code": "TD-20.1.B",
+   "unit": 20,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "td-feedwater-heater"
+   ],
+   "partial": []
+  },
+  {
+   "code": "TD-20.2.A",
+   "unit": 20,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "td-otto"
+   ],
+   "partial": []
+  },
+  {
+   "code": "TD-20.2.B",
+   "unit": 20,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "td-diesel"
+   ],
+   "partial": []
+  },
+  {
+   "code": "TD-20.2.C",
+   "unit": 20,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "td-dual"
+   ],
+   "partial": []
+  },
+  {
+   "code": "TD-20.2.D",
+   "unit": 20,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "td-stirling-regenerated"
+   ],
+   "partial": []
+  },
+  {
+   "code": "TD-20.2.E",
+   "unit": 20,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "td-brayton"
+   ],
+   "partial": []
+  },
+  {
+   "code": "TD-20.2.F",
+   "unit": 20,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "td-brayton-regen"
+   ],
+   "partial": []
+  },
+  {
+   "code": "TD-20.2.G",
+   "unit": 20,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "td-intercooling"
+   ],
+   "partial": []
+  },
+  {
+   "code": "TD-20.2.H",
+   "unit": 20,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "td-combined-cycle"
+   ],
+   "partial": []
+  },
+  {
+   "code": "TD-20.2.I",
+   "unit": 20,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "td-turbojet-thrust"
+   ],
+   "partial": []
+  },
+  {
+   "code": "TD-20.3.A",
+   "unit": 20,
+   "topic": 3,
+   "status": "ok",
+   "full": [
+    "td-refrigeration-cop"
+   ],
+   "partial": []
+  },
+  {
+   "code": "TD-20.3.B",
+   "unit": 20,
+   "topic": 3,
+   "status": "ok",
+   "full": [
+    "td-gas-refrigeration"
+   ],
+   "partial": []
+  },
+  {
+   "code": "TD-21.1.A",
+   "unit": 21,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "td-wet-bulb"
+   ],
+   "partial": []
+  },
+  {
+   "code": "TD-21.1.B",
+   "unit": 21,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "td-dew-point"
+   ],
+   "partial": []
+  },
+  {
+   "code": "TD-21.1.C",
+   "unit": 21,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "td-moist-enthalpy"
+   ],
+   "partial": []
+  },
+  {
+   "code": "TD-21.2.A",
+   "unit": 21,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "td-dehumidify-water",
+    "td-ac-heat"
+   ],
+   "partial": []
+  },
+  {
+   "code": "TD-21.2.B",
+   "unit": 21,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "td-simple-heating"
+   ],
+   "partial": []
+  },
+  {
+   "code": "TD-21.2.C",
+   "unit": 21,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "td-humidify"
+   ],
+   "partial": []
+  },
+  {
+   "code": "TD-21.2.D",
+   "unit": 21,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "td-evaporative-cooling"
+   ],
+   "partial": []
+  },
+  {
+   "code": "TD-21.2.E",
+   "unit": 21,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "td-adiabatic-mixing"
+   ],
+   "partial": []
+  },
+  {
+   "code": "TD-22.1.A",
+   "unit": 22,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "td-flame-temperature"
+   ],
+   "partial": []
+  },
+  {
+   "code": "TD-22.1.B",
+   "unit": 22,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "td-le-chatelier"
+   ],
+   "partial": []
+  },
+  {
+   "code": "TD-22.1.C",
+   "unit": 22,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "td-batch-adiabatic-rise"
+   ],
+   "partial": []
+  },
+  {
+   "code": "TD-22.1.D",
+   "unit": 22,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "td-reaction-phase"
+   ],
+   "partial": []
+  },
+  {
+   "code": "TD-22.1.E",
+   "unit": 22,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "td-chemical-exergy"
+   ],
+   "partial": []
+  },
+  {
+   "code": "TD-22.2.A",
+   "unit": 22,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "td-rackett"
+   ],
+   "partial": []
+  },
+  {
+   "code": "TD-22.2.B",
+   "unit": 22,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "td-poynting-liquid"
+   ],
+   "partial": []
+  },
+  {
+   "code": "TD-22.2.C",
+   "unit": 22,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "td-poynting-solid"
+   ],
+   "partial": []
+  },
+  {
+   "code": "TD-22.3.A",
+   "unit": 22,
+   "topic": 3,
+   "status": "ok",
+   "full": [
+    "td-immiscible-liquids"
+   ],
+   "partial": []
+  },
+  {
+   "code": "TD-22.3.B",
+   "unit": 22,
+   "topic": 3,
+   "status": "ok",
+   "full": [
+    "td-ideal-solubility"
+   ],
+   "partial": []
+  },
+  {
+   "code": "TD-22.3.C",
+   "unit": 22,
+   "topic": 3,
+   "status": "ok",
+   "full": [
+    "td-mixing-rule"
+   ],
+   "partial": []
+  },
+  {
+   "code": "TD-22.3.D",
+   "unit": 22,
+   "topic": 3,
+   "status": "ok",
+   "full": [
+    "td-virial-fugacity"
+   ],
+   "partial": []
+  },
+  {
+   "code": "TD-22.4.A",
+   "unit": 22,
+   "topic": 4,
+   "status": "ok",
+   "full": [
+    "td-van-laar"
+   ],
+   "partial": []
+  },
+  {
+   "code": "TD-22.4.B",
+   "unit": 22,
+   "topic": 4,
+   "status": "ok",
+   "full": [
+    "td-scatchard-hildebrand"
+   ],
+   "partial": []
+  },
+  {
+   "code": "TD-22.4.C",
+   "unit": 22,
+   "topic": 4,
+   "status": "ok",
+   "full": [
+    "td-wilson"
+   ],
+   "partial": []
+  },
+  {
+   "code": "TD-22.4.D",
+   "unit": 22,
+   "topic": 4,
+   "status": "ok",
+   "full": [
+    "td-nrtl-infinite"
+   ],
+   "partial": []
+  },
+  {
+   "code": "TD-22.4.E",
+   "unit": 22,
+   "topic": 4,
+   "status": "ok",
+   "full": [
+    "td-activity-models"
    ],
    "partial": []
   }

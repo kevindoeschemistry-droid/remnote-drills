@@ -37,6 +37,8 @@ domains:
   - { id: orgo, title: "Organic chemistry" }
   - { id: meb, title: "Material and energy balances" }
   - { id: fm, title: "Fluid mechanics" }
+  - { id: nm, title: "Numerical methods" }
+  - { id: mass, title: "Mass transfer" }
   - { id: cre, title: "Chemical reaction engineering" }
   - { id: dat, title: "Dental Admission Test" }
   - { id: nuc, title: "Nuclear science" }
@@ -68,6 +70,9 @@ skills:
   - { id: calc.by-parts, domain: calc, title: "Integration by parts", aliases: [calc-by-parts] }
   - { id: calc.partial-fractions, domain: calc, title: "Partial fractions", aliases: [calc-partial-fractions] }
   - { id: calc.complex-euler, domain: calc, title: "Complex roots & Euler's formula", aliases: [calc-complex-euler] }
+  - { id: cplx.functions, domain: calc, title: "Complex equations, regions, mappings and limits", short: "Complex functions", prereqs: [calc.complex-euler] }
+  - { id: cplx.analytic, domain: calc, title: "Analytic and harmonic functions: Cauchy–Riemann", short: "Analytic functions", prereqs: [cplx.functions] }
+  - { id: cplx.series, domain: calc, title: "Complex integration, Taylor and Laurent series, zeros and poles", short: "Complex series and integrals", prereqs: [cplx.analytic] }
   - { id: calc.sigma-shift, domain: calc, title: "Shifting summation indices", aliases: [calc-sigma-shift] }
   - { id: calc.multivariable, domain: calc, title: "Partial derivatives & exact differentials" }
 
@@ -134,6 +139,16 @@ skills:
   - { id: la.orthogonality, domain: la, title: "Orthogonality, projection and Gram–Schmidt", short: "Orthogonality" }
   - { id: la.least-squares, domain: la, title: "Least squares and the normal equations", short: "Least squares" }
   - { id: la.diagonalization, domain: la, title: "Diagonalisation, symmetric matrices and singular values", short: "Diagonalisation" }
+  - { id: la.span, domain: la, title: "Vector equations, span and solution sets", short: "Span" }
+  - { id: la.matrix-ops, domain: la, title: "Matrix products, transposes and sizes", short: "Matrix operations" }
+  - { id: la.lu, domain: la, title: "LU factorisation", short: "LU" }
+  - { id: la.det-properties, domain: la, title: "Determinant properties: row operations, products, area and volume", short: "Determinant properties" }
+  - { id: la.subspaces, domain: la, title: "Subspaces, bases and dimension", short: "Subspaces" }
+  - { id: la.coordinates, domain: la, title: "Coordinates and change of basis", short: "Coordinates" }
+  - { id: la.transformations, domain: la, title: "Linear transformations: standard matrix, composition, kernel and range", short: "Linear maps" }
+  - { id: la.eigen-applications, domain: la, title: "Eigenvectors at work: powers, Markov chains, complex eigenvalues", short: "Eigen applications" }
+  - { id: la.quadratic-forms, domain: la, title: "Quadratic forms and constrained optimisation", short: "Quadratic forms" }
+  - { id: la.svd, domain: la, title: "The singular value decomposition and condition number", short: "SVD" }
 
   # ── second-order & higher linear ODEs ───────────────────────────────────
   - id: ode2.characteristic
@@ -591,6 +606,23 @@ skills:
   - { id: fm.energy, domain: fm, title: "Mechanical energy balance: friction, fittings and pumps", short: "Friction and pumps", prereqs: [fm.bernoulli, fm.regimes] }
   - { id: fm.measurement, domain: fm, title: "Flow measurement", short: "Flow measurement", prereqs: [fm.bernoulli] }
   - { id: fm.compressible, domain: fm, title: "Compressible flow and non-Newtonian fluids", short: "Compressible and non-Newtonian", prereqs: [fm.regimes] }
+  - { id: fm.momentum, domain: fm, title: "Control-volume momentum: jets, vanes and bends", short: "Momentum balances", prereqs: [fm.bernoulli] }
+  - { id: fm.viscous, domain: fm, title: "Viscous flows from the Navier–Stokes equations: Couette, Poiseuille, films, continuity", short: "Viscous flow", prereqs: [fm.regimes] }
+  - { id: fm.similarity, domain: fm, title: "Dimensional analysis and similarity", short: "Dimensional analysis", prereqs: [fm.regimes] }
+  - { id: fm.external, domain: fm, title: "External flow: drag and terminal velocity", short: "Drag", prereqs: [fm.similarity] }
+  - { id: fm.piping, domain: fm, title: "Piping systems and pumps: parallel pipes, affinity laws, operating point", short: "Piping and pumps", prereqs: [fm.energy] }
+  # ── mass transfer (graduate) ────────────────────────────────────────────
+  - { id: mass.diffusivity, domain: mass, title: "Diffusivities: gases, liquids, Knudsen, porous solids, mixtures", short: "Diffusivities" }
+  - { id: mass.steady, domain: mass, title: "Steady diffusion: stagnant films, reaction, spheres, droplets, membranes", short: "Steady diffusion", prereqs: [mass.diffusivity] }
+  - { id: mass.unsteady, domain: mass, title: "Unsteady diffusion: time scales, semi-infinite uptake, slab modes", short: "Unsteady diffusion", prereqs: [mass.steady] }
+  - { id: mass.interphase, domain: mass, title: "Interphase mass transfer: overall coefficients, correlations, models, HTU–NTU", short: "Interphase transfer", prereqs: [mass.steady] }
+  # ── numerical methods ───────────────────────────────────────────────────
+  - { id: nm.roots, domain: nm, title: "Roots of equations: bisection, Newton, secant, fixed point", short: "Root finding" }
+  - { id: nm.linear-iter, domain: nm, title: "Iterative linear solvers: Jacobi, Gauss–Seidel, diagonal dominance", short: "Iterative solvers" }
+  - { id: nm.interp, domain: nm, title: "Polynomial interpolation", short: "Interpolation" }
+  - { id: nm.quadrature, domain: nm, title: "Numerical integration: trapezoid, Simpson, Richardson, Gauss", short: "Quadrature" }
+  - { id: nm.ode, domain: nm, title: "ODE steps: Heun, RK4, systems and stability", short: "ODE methods", prereqs: [nm.roots] }
+  - { id: nm.diff, domain: nm, title: "Finite-difference derivatives and their error", short: "Finite differences" }
 
   # ── chemical reaction engineering ────────────────────────────────────────
   - { id: cre.rate-laws, domain: cre, title: "Rate laws, order and half-life", short: "Rate laws and order" }
