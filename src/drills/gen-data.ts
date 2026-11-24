@@ -18,7 +18,8 @@
 //   figure:   a drawing          { type: plot | numberline | grid | bars | table, … }   see fig-data.ts
 //   {{=expr}}                    prints an expression the same way, e.g. $f(x) = {{=a*x^n + b}}$
 //   verify:   the independent check (tests/verify/data.py): never reused here
-import graph from "./skills.generated.json";
+import { graphData } from "./content";
+const graph = graphData();
 import { math } from "./check";
 import { fmt, u } from "./gen-heat";
 import { require_ } from "./reject";

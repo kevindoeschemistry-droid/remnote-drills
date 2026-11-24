@@ -1,6 +1,8 @@
 // What a drill card or panel practices: a skill ("ode1.separable") or a learning objective
 // ("lo:CA-6.9.A"), which draws only from the templates the curriculum map lists for it.
-import loDrills from "./lo-drills.generated.json";
+import { loDrillsData, markApplied } from "./content";
+markApplied();
+const loDrills = loDrillsData();
 import { isLive, resolveSkill } from "./skills";
 
 export interface LoDrill {

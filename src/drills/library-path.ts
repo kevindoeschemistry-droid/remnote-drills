@@ -16,7 +16,9 @@
 // Ids live in synced storage per framework ("library.map.<id>"), so re-running is cheap and
 // idempotent: it only creates what's missing and fixes text that changed in the YAML.
 import type { RNPlugin, RichTextInterface } from "@remnote/plugin-sdk";
-import lib from "./path.generated.json";
+import { pathData, markApplied } from "./content";
+markApplied();
+const lib = pathData();
 import { BACK, DRILL_POWERUP, DRILL_SLOT, plain } from "./deck";
 import { ALL_SKILLS } from "./skills";
 import { LO_DRILLS } from "./target";
