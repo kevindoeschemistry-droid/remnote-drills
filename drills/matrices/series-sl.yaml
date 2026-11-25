@@ -1,0 +1,19 @@
+# Series solutions, Fourier series and Sturm–Liouville (Engineering Math units 6 and 9): every
+# expansion against every boundary condition and point type.
+id: series-sl
+title: "Series, Fourier and Sturm–Liouville: every expansion against every condition"
+why: "Dirichlet ends and ordinary points are the homework default; periodic ends, jumps and regular singular points are the exam's."
+cells:
+  - { cell: "Power series · classify the point, radius", drills: [series-classify-point, series-radius] }
+  - { cell: "Power series · recurrence and first terms at an ordinary point", drills: [series-recurrence, series-recurrence-airy, series-terms, series-terms-airy] }
+  - { cell: "Frobenius · indicial roots and which case", drills: [frobenius-indicial, frobenius-case, em-frobenius-first-solution] }
+  - { cell: "Special functions · Legendre and Bessel", drills: [spec-legendre-n, em-legendre-eval, em-legendre-expansion, spec-bessel-order, spec-bessel-scaled, spec-bessel-independent, spec-identify] }
+  - { cell: "Fourier series · period 2π and 2L", drills: [fs-step, fs-sawtooth, fs-parabola, fs-abs, fs-period-2l] }
+  - { cell: "Fourier series · half-range sine and cosine", drills: [fs-half-range, em-fourier-cosine-sine] }
+  - { cell: "Fourier series · value at a jump, Parseval", drills: [fs-jump-value, fs-parseval] }
+  - { cell: "Fourier series · periodic forcing of an oscillator", drills: [em-fourier-forced-response] }
+  - { cell: "Sturm–Liouville · form and classification", drills: [sl-form, sl-classify] }
+  - { cell: "Sturm–Liouville · Dirichlet, Neumann, mixed ends", drills: [sl-eigenvalues, sl-eigenfunctions, pde-eigen-condition] }
+  - { cell: "Sturm–Liouville · periodic ends", drills: [sl-periodic-eigen, sl-periodic-facts] }
+  - { cell: "Sturm–Liouville · shifted problem, negative eigenvalues", drills: [sl-shift-eigenvalues, sl-shift-eigenfunctions, sl-shift-negative] }
+  - { cell: "Orthogonality and eigenfunction expansion", drills: [em-orthogonality, mt-sine-coefficient-constant] }

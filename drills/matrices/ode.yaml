@@ -1,0 +1,37 @@
+# First- and second-order ODEs (Engineering Math units 2–4, 6): every solution method against the
+# conditions an exam can put on it. Written Nov 2026 alongside the PDE grid; the open cells were
+# filled the same day by scripts/second_specs/em5.py.
+id: ode
+title: "ODEs: every method against every condition"
+why: "Homework shows each method on its friendliest forcing. An exam can switch the forcing off halfway, let the tank fill, or set a boundary-value problem with no solution."
+cells:
+  # first order
+  - { cell: "First order · separable", drills: [sep-exp-growth, sep-exp-split, sep-over-y, sep-over-y2, sep-y-squared] }
+  - { cell: "First order · substitution (homogeneous, y = ux, linear argument)", drills: [sub-arctan, sub-exp, sub-linear-square, sub-ratio, sub-square] }
+  - { cell: "First order · exact, and made exact by an integrating factor", drills: [exact-exy, exact-ivp, exact-poly, exact-trans, if-factor-x, if-factor-y, if-solve, if-test] }
+  - { cell: "First order · linear, smooth forcing", drills: [lin-const, lin-exp, lin-gauss, lin-power, lin-resonant, lin-trig] }
+  - { cell: "First order · linear, forcing switched on or off", drills: [lin-switch-off, lin-switch-on] }
+  - { cell: "First order · Bernoulli", drills: [bern-const, bern-exp, bern-power] }
+  - { cell: "First order · which method? (recognise the type)", drills: [recog-bernoulli, recog-exact, recog-linear, recog-separable, recog-substitution, em-classify-ode] }
+  - { cell: "First order · existence, uniqueness, phase line", drills: [em-existence, em-phase-line, em-bifurcation] }
+  - { cell: "Modelling · decay, cooling, logistic, RC", drills: [model-decay, model-cooling, model-logistic, em-rc-current] }
+  - { cell: "Modelling · mixing tank, constant volume", drills: [model-mixing] }
+  - { cell: "Modelling · mixing tank, changing volume", drills: [model-tank-growing, model-tank-overflow] }
+  # second order
+  - { cell: "Second order homogeneous · distinct, repeated, complex roots", drills: [char-distinct, char-repeated, char-complex, char-ivp] }
+  - { cell: "Second order · Euler–Cauchy", drills: [ec-distinct, ec-double, ec-complex, ec-ivp, ec-roots] }
+  - { cell: "Second order · reduction of order", drills: [red-const, red-euler, red-exp, red-gauss, red-trig] }
+  - { cell: "Second order · Wronskian and independence", drills: [wr-exps, wr-powers, wr-repeated, wr-trig, wr-dependent, em-existence-interval] }
+  - { cell: "Second order · boundary-value problem (none, one or infinitely many)", drills: [bvp-unique, bvp-how-many] }
+  - { cell: "Nonhomogeneous · undetermined coefficients, no resonance", drills: [uc-exp, uc-poly, uc-trig, uc-general] }
+  - { cell: "Nonhomogeneous · undetermined coefficients with resonance", drills: [uc-resonance, mm-particular-form] }
+  - { cell: "Nonhomogeneous · variation of parameters", drills: [vop-double, vop-euler, vop-general, vop-trig] }
+  - { cell: "Oscillators · free, damped, forced, resonance, beats", drills: [spring-undamped-ivp, spring-under-ivp, spring-over-ivp, spring-critical-ivp, forced-steady, forced-resonance, forced-beats, em-rlc] }
+  # higher order
+  - { cell: "Higher order · constant coefficients", drills: [hi-distinct, hi-repeated, hi-complex, hi-ivp, hi-roots] }
+  - { cell: "Higher order · Euler–Cauchy", drills: [hi-ec-roots, hi-ec-solution] }
+  - { cell: "Higher order · undetermined coefficients, trial form with repeated roots", drills: [em-undetermined-third, hi-trial-form, hi-trial-coefficient] }
+  # systems
+  - { cell: "Systems · real, complex, repeated eigenvalues", drills: [sys-eigen, sys-general, sys-ivp, sys-complex, sys-complex-ivp, sys-repeated] }
+  - { cell: "Systems · nonhomogeneous", drills: [em-nonhomog-system] }
+  - { cell: "Systems · phase portrait, stability, nonlinear critical points", drills: [phase-matrix, phase-stability, phase-equations, phase-ode2, em-phase-portrait, em-nonlinear-critical] }

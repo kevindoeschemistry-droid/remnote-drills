@@ -628,6 +628,21 @@
        "needs": [
         "EM-2.4.A"
        ]
+      },
+      {
+       "id": "D",
+       "std": [],
+       "do": "Solve a first-order linear ODE whose forcing switches on or off at a given time.",
+       "ek": [
+        "Solve on each interval and carry y across the switch: the solution is continuous even where the forcing jumps."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "lin-switch-off",
+        "lin-switch-on"
+       ]
       }
      ]
     },
@@ -739,6 +754,21 @@
        ],
        "drills": [
         "em-phase-line"
+       ]
+      },
+      {
+       "id": "E",
+       "std": [],
+       "do": "Model a mixing tank whose volume changes because inflow and outflow differ.",
+       "ek": [
+        "V(t) = V₀ + (q_in − q_out)t; x′ = c_in q_in − q_out x/V(t) is linear with a variable coefficient."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "model-tank-growing",
+        "model-tank-overflow"
        ]
       }
      ]
@@ -909,6 +939,21 @@
        ],
        "needs": [
         "EM-3.2.A"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [],
+       "do": "Solve a second-order boundary-value problem and decide whether it has none, one or infinitely many solutions.",
+       "ek": [
+        "Fit the general solution to the two boundary values; the system is singular exactly when the boundary points sit at zeros of the homogeneous solution."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "bvp-unique",
+        "bvp-how-many"
        ]
       }
      ]
@@ -1262,6 +1307,21 @@
        "needs": [
         "EM-4.1.B"
        ]
+      },
+      {
+       "id": "D",
+       "std": [],
+       "do": "Find the roots of the auxiliary equation of a third-order Euler–Cauchy ODE.",
+       "ek": [
+        "Try y = x^m: x^m factors out of every term, leaving m(m − 1)(m − 2) + a m(m − 1) + b m + c = 0."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "hi-ec-roots",
+        "hi-ec-solution"
+       ]
       }
      ]
     },
@@ -1293,6 +1353,21 @@
        "needs": [
         "EM-3.5.A",
         "EM-4.1.C"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [],
+       "do": "Write the form of a particular solution of a higher-order ODE, multiplying by x as often as the root repeats.",
+       "ek": [
+        "A forcing term whose exponent matches a characteristic root of multiplicity k needs x^k times the usual trial."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "hi-trial-form",
+        "hi-trial-coefficient"
        ]
       }
      ]
@@ -2015,6 +2090,21 @@
         "transfer-poles",
         "transfer-stable"
        ]
+      },
+      {
+       "id": "C",
+       "std": [],
+       "do": "Find f(0⁺) and f(∞) from F(s) with the initial- and final-value theorems, and say when the final-value theorem fails.",
+       "ek": [
+        "f(0⁺) = lim s→∞ sF(s); f(∞) = lim s→0 sF(s), valid only if every pole of sF(s) lies in the open left half-plane."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "lt-final-value",
+        "lt-initial-value"
+       ]
       }
      ]
     },
@@ -2081,6 +2171,21 @@
        "needs": [
         "EM-7.3.A",
         "EM-7.4.A"
+       ]
+      },
+      {
+       "id": "D",
+       "std": [],
+       "do": "Transform a periodic function with the one-period formula.",
+       "ek": [
+        "L{f} = ∫₀ᵀ e^(−st) f(t) dt ÷ (1 − e^(−sT))."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "lt-square-wave",
+        "lt-sawtooth"
        ]
       }
      ]
@@ -2561,6 +2666,21 @@
         "EM-9.1.A",
         "EM-3.6.A"
        ]
+      },
+      {
+       "id": "E",
+       "std": [],
+       "do": "Find what a Fourier series converges to at a jump, and sum a series of coefficients with Parseval's identity.",
+       "ek": [
+        "At a jump the series gives the average of the one-sided limits; Parseval: a₀²/2 + Σ(aₙ² + bₙ²) = (1/π)∫f² over a period (period 2π, a₀ the full constant)."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "fs-jump-value",
+        "fs-parseval"
+       ]
       }
      ]
     },
@@ -2652,6 +2772,21 @@
        ],
        "needs": [
         "EM-9.2.C"
+       ]
+      },
+      {
+       "id": "F",
+       "std": [],
+       "do": "Find the eigenvalues and eigenfunctions of y″ + λy = 0 with periodic boundary conditions.",
+       "ek": [
+        "y(−L) = y(L), y′(−L) = y′(L): λ₀ = 0 with a constant, then λₙ = (nπ/L)² each with two eigenfunctions cos and sin."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "sl-periodic-eigen",
+        "sl-periodic-facts"
        ]
       }
      ]
@@ -3277,6 +3412,51 @@
         "em-fourier-transform-value",
         "em-fourier-derivative-rule"
        ]
+      },
+      {
+       "id": "C",
+       "std": [],
+       "do": "Compute Fourier transforms of the Gaussian and the rectangular pulse.",
+       "ek": [
+        "With f̂(w) = (1/√2π)∫f e^(−iwx)dx: e^(−ax²) → e^(−w²/4a)/√(2a); a pulse of height 1 on |x| < b → √(2/π) sin(bw)/w."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "ft-gaussian",
+        "ft-rect"
+       ]
+      },
+      {
+       "id": "D",
+       "std": [],
+       "do": "Use the shift, scaling and convolution properties of the Fourier transform.",
+       "ek": [
+        "f(x − c) → e^(−iwc)f̂; f(bx) → f̂(w/b)/|b|; f∗g → √(2π) f̂ ĝ."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "ft-scaling",
+        "ft-properties"
+       ]
+      },
+      {
+       "id": "E",
+       "std": [],
+       "do": "Solve the heat equation on an infinite line by Fourier transform and read the spreading Gaussian.",
+       "ek": [
+        "A point release Q spreads as u = Q e^(−x²/4κt)/√(4πκt): the peak falls as t^(−1/2) and the variance grows as 2κt."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "ft-heat-peak",
+        "ft-heat-spread"
+       ]
       }
      ]
     }
@@ -3334,6 +3514,51 @@
        ],
        "drills": [
         "ca-conservation-law"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [],
+       "do": "Compute the Laplacian of a radial function in cylindrical and spherical coordinates.",
+       "ek": [
+        "Cylindrical: (1/r)(r f′)′; spherical: (1/r²)(r² f′)′; for f = rⁿ these are n² r^(n−2) and n(n + 1) r^(n−2)."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "vc-laplacian-radial",
+        "vc-harmonic-radial"
+       ]
+      },
+      {
+       "id": "D",
+       "std": [],
+       "do": "Solve steady radial conduction or diffusion in a cylindrical or spherical shell.",
+       "ek": [
+        "Cylinder: T = A ln r + B; sphere: T = A/r + B; fit the inner and outer values."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "vc-shell-temperature",
+        "vc-shell-heat"
+       ]
+      },
+      {
+       "id": "E",
+       "std": [],
+       "do": "Compute the divergence of a radial field in cylindrical and spherical coordinates.",
+       "ek": [
+        "∇·(F(r) e_r) = (1/r)(rF)′ in a cylinder and (1/r²)(r²F)′ in a sphere."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "vc-div-radial",
+        "vc-flux-conservation"
        ]
       }
      ]
@@ -3964,6 +4189,17 @@
    "partial": []
   },
   {
+   "code": "EM-2.4.D",
+   "unit": 2,
+   "topic": 4,
+   "status": "ok",
+   "full": [
+    "lin-switch-off",
+    "lin-switch-on"
+   ],
+   "partial": []
+  },
+  {
    "code": "EM-2.5.A",
    "unit": 2,
    "topic": 5,
@@ -4015,6 +4251,17 @@
    "status": "ok",
    "full": [
     "em-phase-line"
+   ],
+   "partial": []
+  },
+  {
+   "code": "EM-2.6.E",
+   "unit": 2,
+   "topic": 6,
+   "status": "ok",
+   "full": [
+    "model-tank-growing",
+    "model-tank-overflow"
    ],
    "partial": []
   },
@@ -4087,6 +4334,17 @@
    "status": "ok",
    "full": [
     "char-ivp"
+   ],
+   "partial": []
+  },
+  {
+   "code": "EM-3.2.C",
+   "unit": 3,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "bvp-unique",
+    "bvp-how-many"
    ],
    "partial": []
   },
@@ -4268,6 +4526,17 @@
    "partial": []
   },
   {
+   "code": "EM-4.1.D",
+   "unit": 4,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "hi-ec-roots",
+    "hi-ec-solution"
+   ],
+   "partial": []
+  },
+  {
    "code": "EM-4.2.A",
    "unit": 4,
    "topic": 2,
@@ -4278,6 +4547,17 @@
    "partial": [
     "uc-general"
    ]
+  },
+  {
+   "code": "EM-4.2.B",
+   "unit": 4,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "hi-trial-form",
+    "hi-trial-coefficient"
+   ],
+   "partial": []
   },
   {
    "code": "EM-5.1.A",
@@ -4598,6 +4878,17 @@
    "partial": []
   },
   {
+   "code": "EM-7.3.C",
+   "unit": 7,
+   "topic": 3,
+   "status": "ok",
+   "full": [
+    "lt-final-value",
+    "lt-initial-value"
+   ],
+   "partial": []
+  },
+  {
    "code": "EM-7.4.A",
    "unit": 7,
    "topic": 4,
@@ -4626,6 +4917,17 @@
    "full": [
     "step-ivp-on",
     "step-ivp-pulse"
+   ],
+   "partial": []
+  },
+  {
+   "code": "EM-7.4.D",
+   "unit": 7,
+   "topic": 4,
+   "status": "ok",
+   "full": [
+    "lt-square-wave",
+    "lt-sawtooth"
    ],
    "partial": []
   },
@@ -4853,6 +5155,17 @@
    "partial": []
   },
   {
+   "code": "EM-9.1.E",
+   "unit": 9,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "fs-jump-value",
+    "fs-parseval"
+   ],
+   "partial": []
+  },
+  {
    "code": "EM-9.2.A",
    "unit": 9,
    "topic": 2,
@@ -4901,6 +5214,17 @@
     "sl-shift-eigenvalues",
     "sl-shift-eigenfunctions",
     "sl-shift-negative"
+   ],
+   "partial": []
+  },
+  {
+   "code": "EM-9.2.F",
+   "unit": 9,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "sl-periodic-eigen",
+    "sl-periodic-facts"
    ],
    "partial": []
   },
@@ -5214,6 +5538,39 @@
    "partial": []
   },
   {
+   "code": "EM-11.1.C",
+   "unit": 11,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ft-gaussian",
+    "ft-rect"
+   ],
+   "partial": []
+  },
+  {
+   "code": "EM-11.1.D",
+   "unit": 11,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ft-scaling",
+    "ft-properties"
+   ],
+   "partial": []
+  },
+  {
+   "code": "EM-11.1.E",
+   "unit": 11,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ft-heat-peak",
+    "ft-heat-spread"
+   ],
+   "partial": []
+  },
+  {
    "code": "EM-12.1.A",
    "unit": 12,
    "topic": 1,
@@ -5234,6 +5591,39 @@
    "status": "ok",
    "full": [
     "ca-conservation-law"
+   ],
+   "partial": []
+  },
+  {
+   "code": "EM-12.1.C",
+   "unit": 12,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "vc-laplacian-radial",
+    "vc-harmonic-radial"
+   ],
+   "partial": []
+  },
+  {
+   "code": "EM-12.1.D",
+   "unit": 12,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "vc-shell-temperature",
+    "vc-shell-heat"
+   ],
+   "partial": []
+  },
+  {
+   "code": "EM-12.1.E",
+   "unit": 12,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "vc-div-radial",
+    "vc-flux-conservation"
    ],
    "partial": []
   },
