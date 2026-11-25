@@ -458,6 +458,30 @@
      "title": "Data and method choice",
      "los": [
       {
+       "id": "C",
+       "std": [
+        "acs-accm-inorganic:IX.C.2",
+        "acs-accm-inorganic:IX.E.2",
+        "acs-accm-analytical:VI.A.1",
+        "acs-accm-analytical:VI.B.1",
+        "acs-accm-analytical:IX.D.5",
+        "acs-accm-analytical:IX.H.4",
+        "acs-accm-analytical:X.A.1",
+        "acs-accm-analytical:X.B.1"
+       ],
+       "do": "Choose an analytical technique for a stated question.",
+       "ek": [
+        "Trace metals ICP-MS, volatiles GC, non-volatiles HPLC, water Karl Fischer."
+       ],
+       "p": [
+        "P2"
+       ],
+       "drills": [
+        "an-instrument",
+        "an-technique-measures"
+       ]
+      },
+      {
        "id": "A",
        "std": [
         "acs-accm-analytical:IX.F.2",
@@ -492,30 +516,6 @@
        "drills": [
         "an-uncertainty",
         "an-uncertainty-product"
-       ]
-      },
-      {
-       "id": "C",
-       "std": [
-        "acs-accm-inorganic:IX.C.2",
-        "acs-accm-inorganic:IX.E.2",
-        "acs-accm-analytical:VI.A.1",
-        "acs-accm-analytical:VI.B.1",
-        "acs-accm-analytical:IX.D.5",
-        "acs-accm-analytical:IX.H.4",
-        "acs-accm-analytical:X.A.1",
-        "acs-accm-analytical:X.B.1"
-       ],
-       "do": "Choose an analytical technique for a stated question.",
-       "ek": [
-        "Trace metals ICP-MS, volatiles GC, non-volatiles HPLC, water Karl Fischer."
-       ],
-       "p": [
-        "P2"
-       ],
-       "drills": [
-        "an-instrument",
-        "an-technique-measures"
        ]
       }
      ]
@@ -1178,6 +1178,17 @@
    "partial": []
   },
   {
+   "code": "AN-5.2.C",
+   "unit": 5,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "an-instrument",
+    "an-technique-measures"
+   ],
+   "partial": []
+  },
+  {
    "code": "AN-5.2.A",
    "unit": 5,
    "topic": 2,
@@ -1196,17 +1207,6 @@
    "full": [
     "an-uncertainty",
     "an-uncertainty-product"
-   ],
-   "partial": []
-  },
-  {
-   "code": "AN-5.2.C",
-   "unit": 5,
-   "topic": 2,
-   "status": "ok",
-   "full": [
-    "an-instrument",
-    "an-technique-measures"
    ],
    "partial": []
   },

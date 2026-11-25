@@ -37,41 +37,41 @@ Big ideas: MAIN
 
 
 
-- ● **SS-1.1.A** (ap-statistics-2026:1, webwork-opl:ST3.2, ap-statistics-2026:1.7.A, ap-statistics-2026:1.7.B, ap-statistics-2026:1.7.D, ap-statistics-2026:1.7.E, ap-statistics-2026:1.8.A) Find and compare measures of centre and spread, and flag outliers.
-  - EK: Mean and SD are pulled by extremes; median and IQR are not.
-  - P1 · drills: stats-center, stats-outlier, mm-mean-focus, mm-median
-- ● **SS-1.1.B** (ap-statistics-2026:1, webwork-opl:PB4.3, webwork-opl:PB4.4, ap-statistics-2026:1.9.D, ap-statistics-2026:1.9.E, ap-statistics-2026:2.11.C, ap-statistics-2026:2.11.D, ap-statistics-2026:2.11.E, ap-statistics-2026:2.11.F) Standardise a value and use the normal model.
-  - EK: z = (x − μ)/σ; 68-95-99.7.
-  - P1 · drills: sx-z-score, sx-empirical-rule, stats-normal
+- ● **SS-1.1.E** (ap-statistics-2026:1.2.A, ap-statistics-2026:1.2.B, ap-statistics-2026:1.2.C, ap-statistics-2026:1.1.A) Classify variables and tell parameters from statistics.
+  - EK: Categorical vs quantitative (discrete counts, continuous measures); a parameter describes a population, a statistic a sample.
+  - P1 · drills: st-variable-type, st-param-statistic
 - ● **SS-1.1.C** (ap-statistics-2026:1.5.A, ap-statistics-2026:1.6.A, ap-statistics-2026:1.6.B, ap-statistics-2026:1.7.F, ap-statistics-2026:1.8.B, ap-statistics-2026:1.9.A, ap-statistics-2026:1.9.B, ap-statistics-2026:1.9.C) Describe a distribution's shape and pick the centre and spread that suit it.
   - EK: Skewed right: mean > median; skewed or with outliers, report median and IQR; symmetric, mean and SD.
   - P1 · drills: st-shape-from-summary, st-add-outlier
 - ● **SS-1.1.D** (ap-statistics-2026:1.7.C) Find summary statistics after a change of units.
   - EK: For y = a + bx: centre and position become a + b·(value); spread (SD, IQR, range) becomes |b|·(value).
   - P1 · drills: st-units-mean, st-units-iqr
-- ● **SS-1.1.E** (ap-statistics-2026:1.2.A, ap-statistics-2026:1.2.B, ap-statistics-2026:1.2.C, ap-statistics-2026:1.1.A) Classify variables and tell parameters from statistics.
-  - EK: Categorical vs quantitative (discrete counts, continuous measures); a parameter describes a population, a statistic a sample.
-  - P1 · drills: st-variable-type, st-param-statistic
 - ● **SS-1.1.F** (ap-statistics-2026:1.3.A, ap-statistics-2026:1.3.B, ap-statistics-2026:1.4.A, ap-statistics-2026:1.4.B, ap-statistics-2026:1.4.C) Summarise one categorical variable with relative frequencies and the right graph.
   - EK: Relative frequency = count ÷ total; bar charts compare categories; pie charts need parts of one whole.
   - P1 · drills: st-relative-frequency, st-categorical-graph
+- ● **SS-1.1.A** (ap-statistics-2026:1, webwork-opl:ST3.2, ap-statistics-2026:1.7.A, ap-statistics-2026:1.7.B, ap-statistics-2026:1.7.D, ap-statistics-2026:1.7.E, ap-statistics-2026:1.8.A) Find and compare measures of centre and spread, and flag outliers.
+  - EK: Mean and SD are pulled by extremes; median and IQR are not.
+  - P1 · drills: stats-center, stats-outlier, mm-mean-focus, mm-median
+- ● **SS-1.1.B** (ap-statistics-2026:1, webwork-opl:PB4.3, webwork-opl:PB4.4, ap-statistics-2026:1.9.D, ap-statistics-2026:1.9.E, ap-statistics-2026:2.11.C, ap-statistics-2026:2.11.D, ap-statistics-2026:2.11.E, ap-statistics-2026:2.11.F) Standardise a value and use the normal model.
+  - EK: z = (x − μ)/σ; 68-95-99.7.
+  - P1 · drills: sx-z-score, sx-empirical-rule, stats-normal
 
 ### 1.2 Collecting data
 
 
 
-- ● **SS-1.2.A** (ap-statistics-2026:1, webwork-opl:ST2.6, webwork-opl:ST2.8, ap-statistics-2026:1.12.A) Identify the source of bias in a sampling method.
-  - EK: Undercoverage, voluntary response, nonresponse, convenience, wording.
-  - P1 · drills: sx-sampling-bias, hs-study-type
-- ● **SS-1.2.B** (ap-statistics-2026:1, webwork-opl:ST1.1, ap-statistics-2026:1.13.A, ap-statistics-2026:1.13.B) Explain the purpose of random assignment, control, blinding and blocking.
-  - EK: Random sampling generalises; random assignment supports cause.
-  - P1 · drills: sx-experiment-design, hs-evaluate-report
 - ● **SS-1.2.C** (ap-statistics-2026:1.1.B, ap-statistics-2026:1.10.A, ap-statistics-2026:1.10.B, ap-statistics-2026:1.10.C, ap-statistics-2026:1.10.D, ap-statistics-2026:1.10.E, ap-statistics-2026:1.13.C, ap-statistics-2026:1.13.D) Classify a study and state the scope of its conclusions.
   - EK: Random sampling lets results generalise to the population; random assignment lets them show cause; an observational study shows association only.
   - P1 · drills: st-study-classify, st-scope-inference
 - ● **SS-1.2.D** (ap-statistics-2026:1.11.A, ap-statistics-2026:1.11.B) Identify a sampling method and judge when it fits.
   - EK: SRS, stratified (sample within groups), cluster (take whole groups), systematic (every kth), convenience.
   - P1 · drills: st-sampling-method, st-systematic-interval
+- ● **SS-1.2.A** (ap-statistics-2026:1, webwork-opl:ST2.6, webwork-opl:ST2.8, ap-statistics-2026:1.12.A) Identify the source of bias in a sampling method.
+  - EK: Undercoverage, voluntary response, nonresponse, convenience, wording.
+  - P1 · drills: sx-sampling-bias, hs-study-type
+- ● **SS-1.2.B** (ap-statistics-2026:1, webwork-opl:ST1.1, ap-statistics-2026:1.13.A, ap-statistics-2026:1.13.B) Explain the purpose of random assignment, control, blinding and blocking.
+  - EK: Random sampling generalises; random assignment supports cause.
+  - P1 · drills: sx-experiment-design, hs-evaluate-report
 
 ## Unit 2 · Probability, random variables and distributions
 
@@ -81,29 +81,20 @@ Big ideas: MAIN
 
 
 
-- ● **SS-2.1.A** (ap-statistics-2026:2, webwork-opl:PB1.2, webwork-opl:PB1.3, webwork-opl:PB1.4, ap-statistics-2026:2.4.A, ap-statistics-2026:2.5.A, ap-statistics-2026:2.6.A, ap-statistics-2026:2.7.A) Apply the addition and multiplication rules, conditional probability and independence.
-  - EK: P(A or B) = P(A) + P(B) − P(A and B); P(A and B) = P(A)P(B|A).
-  - P1 · drills: stats-addition, stats-mult-rule, stats-conditional, stats-independence, stats-bayes, stats-two-way
 - ● **SS-2.1.B** (ap-statistics-2026:2.1.A, ap-statistics-2026:2.1.B, ap-statistics-2026:2.2.A, ap-statistics-2026:2.2.B, ap-statistics-2026:2.2.C) Read joint, marginal and conditional percentages from a two-way table and judge association.
   - EK: Conditional % = cell ÷ its row (or column) total; variables are associated when the conditional distributions differ.
   - P1 · drills: st-conditional-pct, st-association
 - ● **SS-2.1.C** (ap-statistics-2026:2.3.A, ap-statistics-2026:2.10.D, ap-statistics-2026:2.12.A) Estimate a probability from a simulation and design one.
   - EK: Estimated probability = successes ÷ trials; assign random digits in proportion to each outcome's probability.
   - P1 · drills: st-sim-estimate, st-sim-design
+- ● **SS-2.1.A** (ap-statistics-2026:2, webwork-opl:PB1.2, webwork-opl:PB1.3, webwork-opl:PB1.4, ap-statistics-2026:2.4.A, ap-statistics-2026:2.5.A, ap-statistics-2026:2.6.A, ap-statistics-2026:2.7.A) Apply the addition and multiplication rules, conditional probability and independence.
+  - EK: P(A or B) = P(A) + P(B) − P(A and B); P(A and B) = P(A)P(B|A).
+  - P1 · drills: stats-addition, stats-mult-rule, stats-conditional, stats-independence, stats-bayes, stats-two-way
 
 ### 2.2 Random variables
 
 
 
-- ● **SS-2.2.A** (ap-statistics-2026:2, webwork-opl:PB2.1, webwork-opl:PB2.2, ap-statistics-2026:2.9.A) Find the mean of a discrete random variable and of a linear transformation, and the spread of a sum.
-  - EK: Means add; variances of independent variables add.
-  - P1 · drills: stats-expected, stats-insurance, sx-linear-transform, sx-sum-of-independent
-- ● **SS-2.2.B** (ap-statistics-2026:2, webwork-opl:PB3.1, webwork-opl:PB3.2, webwork-opl:PB3.4, ap-statistics-2026:2.10.B, ap-statistics-2026:2.10.E) Use the binomial and geometric distributions.
-  - EK: Binomial: mean np, SD √(np(1−p)); geometric wait 1/p.
-  - P1 · drills: sx-binomial-probability, sx-binomial-spread, sx-geometric-wait
-- ● **SS-2.2.C** (ap-statistics-2026:2, webwork-opl:PB5.3, webwork-opl:ST4.1, webwork-opl:ST4.2, ap-statistics-2026:3.2.A, ap-statistics-2026:4.1.A) Find the standard deviation of a sample mean and of a sample proportion.
-  - EK: σ/√n and √(p(1−p)/n).
-  - P1 · drills: sx-standard-error-mean, sx-standard-error-proportion, sx-margin-and-sample-size
 - ● **SS-2.2.D** (ap-statistics-2026:2.8.A, ap-statistics-2026:2.9.B) Build a discrete probability distribution and interpret its mean.
   - EK: Probabilities lie in [0, 1] and sum to 1; the mean is the long-run average outcome.
   - P1 · drills: st-missing-prob, st-ev-interpret
@@ -119,6 +110,15 @@ Big ideas: MAIN
 - ● **SS-2.2.H** (ap-statistics-2026:2.11.A, ap-statistics-2026:2.11.B) Describe a normal distribution and recover its mean and SD from facts about it.
   - EK: Symmetric, unimodal, mean = median; the inflection points sit one SD from the mean.
   - P1 · drills: st-normal-from-facts, st-normal-describe
+- ● **SS-2.2.A** (ap-statistics-2026:2, webwork-opl:PB2.1, webwork-opl:PB2.2, ap-statistics-2026:2.9.A) Find the mean of a discrete random variable and of a linear transformation, and the spread of a sum.
+  - EK: Means add; variances of independent variables add.
+  - P1 · drills: stats-expected, stats-insurance, sx-linear-transform, sx-sum-of-independent
+- ● **SS-2.2.B** (ap-statistics-2026:2, webwork-opl:PB3.1, webwork-opl:PB3.2, webwork-opl:PB3.4, ap-statistics-2026:2.10.B, ap-statistics-2026:2.10.E) Use the binomial and geometric distributions.
+  - EK: Binomial: mean np, SD √(np(1−p)); geometric wait 1/p.
+  - P1 · drills: sx-binomial-probability, sx-binomial-spread, sx-geometric-wait
+- ● **SS-2.2.C** (ap-statistics-2026:2, webwork-opl:PB5.3, webwork-opl:ST4.1, webwork-opl:ST4.2, ap-statistics-2026:3.2.A, ap-statistics-2026:4.1.A) Find the standard deviation of a sample mean and of a sample proportion.
+  - EK: σ/√n and √(p(1−p)/n).
+  - P1 · drills: sx-standard-error-mean, sx-standard-error-proportion, sx-margin-and-sample-size
 
 ## Unit 3 · Inference for categorical data: proportions
 
@@ -128,15 +128,6 @@ Big ideas: MAIN
 
 
 
-- ● **SS-3.1.A** (ap-statistics-2026:3, webwork-opl:ST2.9, webwork-opl:ST5.1, webwork-opl:ST5.4, ap-statistics-2026:3.3.C, ap-statistics-2026:3.3.D, ap-statistics-2026:3.4.C) Build and interpret a confidence interval for a proportion and choose a sample size.
-  - EK: p̂ ± z*√(p̂(1−p̂)/n).
-  - P1 · drills: sx-proportion-margin, sx-sample-size-needed, sx-confidence-meaning, stats-margin
-- ● **SS-3.1.B** (ap-statistics-2026:3, webwork-opl:ST6.1, webwork-opl:ST6.4, ap-statistics-2026:3.7.A, ap-statistics-2026:3.7.B) Carry out a z test for a proportion and state the conclusion.
-  - EK: Use p₀ in the standard error; reject when p < α.
-  - P1 · drills: sx-proportion-z-statistic, sx-p-value-decision, sx-error-types
-- ● **SS-3.1.C** (ap-statistics-2026:3, webwork-opl:ST6.11, webwork-opl:ST6.12, ap-statistics-2026:3.15.A, ap-statistics-2026:3.15.B) Compute expected counts and the chi-square statistic for a table.
-  - EK: E = row × column / total; χ² = Σ(O − E)²/E.
-  - P1 · drills: sx-chi-square-expected, sx-chi-square-term, sx-degrees-of-freedom
 - ● **SS-3.1.D** (ap-statistics-2026:3.3.A, ap-statistics-2026:3.5.A, ap-statistics-2026:3.10.A, ap-statistics-2026:3.12.A, ap-statistics-2026:3.14.B, ap-statistics-2026:4.2.B, ap-statistics-2026:4.4.A, ap-statistics-2026:4.7.A, ap-statistics-2026:4.9.A) Choose the inference procedure for a study.
   - EK: One or two groups; proportion or mean; paired or independent; one categorical variable vs two (goodness of fit, homogeneity, independence).
   - P1 · drills: st-choose-procedure, st-parameter-name
@@ -155,6 +146,15 @@ Big ideas: MAIN
 - ● **SS-3.1.I** (ap-statistics-2026:3.14.A) Find chi-square degrees of freedom and describe the distribution.
   - EK: Goodness of fit: k − 1; two-way table: (r − 1)(c − 1); chi-square is right-skewed, mean = df.
   - P1 · drills: st-chisq-df, st-chisq-shape
+- ● **SS-3.1.A** (ap-statistics-2026:3, webwork-opl:ST2.9, webwork-opl:ST5.1, webwork-opl:ST5.4, ap-statistics-2026:3.3.C, ap-statistics-2026:3.3.D, ap-statistics-2026:3.4.C) Build and interpret a confidence interval for a proportion and choose a sample size.
+  - EK: p̂ ± z*√(p̂(1−p̂)/n).
+  - P1 · drills: sx-proportion-margin, sx-sample-size-needed, sx-confidence-meaning, stats-margin
+- ● **SS-3.1.B** (ap-statistics-2026:3, webwork-opl:ST6.1, webwork-opl:ST6.4, ap-statistics-2026:3.7.A, ap-statistics-2026:3.7.B) Carry out a z test for a proportion and state the conclusion.
+  - EK: Use p₀ in the standard error; reject when p < α.
+  - P1 · drills: sx-proportion-z-statistic, sx-p-value-decision, sx-error-types
+- ● **SS-3.1.C** (ap-statistics-2026:3, webwork-opl:ST6.11, webwork-opl:ST6.12, ap-statistics-2026:3.15.A, ap-statistics-2026:3.15.B) Compute expected counts and the chi-square statistic for a table.
+  - EK: E = row × column / total; χ² = Σ(O − E)²/E.
+  - P1 · drills: sx-chi-square-expected, sx-chi-square-term, sx-degrees-of-freedom
 
 ## Unit 4 · Inference for quantitative data: means
 
@@ -164,15 +164,15 @@ Big ideas: MAIN
 
 
 
-- ● **SS-4.1.A** (ap-statistics-2026:4, webwork-opl:ST5.3, webwork-opl:ST6.3, ap-statistics-2026:4.5.A) Compute a t statistic and its degrees of freedom.
-  - EK: t = (x̄ − μ₀)/(s/√n), df = n − 1.
-  - P1 · drills: sx-t-statistic, sx-degrees-of-freedom
 - ● **SS-4.1.B** (ap-statistics-2026:4.2.A, ap-statistics-2026:4.2.D, ap-statistics-2026:4.2.E, ap-statistics-2026:4.3.C) Compute a t interval's margin of error and see how n changes it.
   - EK: ME = t*·s/√n with df = n − 1; quadrupling n halves the margin.
   - P1 · drills: st-t-margin, st-t-resize
 - ● **SS-4.1.C** (ap-statistics-2026:4.6.A, ap-statistics-2026:4.7.C, ap-statistics-2026:4.7.D, ap-statistics-2026:4.10.A) Compute the standard error and t statistic for two independent means.
   - EK: SE = √(s₁²/n₁ + s₂²/n₂); t = (x̄₁ − x̄₂)/SE; conservative df = min(n₁, n₂) − 1.
   - P1 · drills: st-two-sample-t, st-conservative-df
+- ● **SS-4.1.A** (ap-statistics-2026:4, webwork-opl:ST5.3, webwork-opl:ST6.3, ap-statistics-2026:4.5.A) Compute a t statistic and its degrees of freedom.
+  - EK: t = (x̄ − μ₀)/(s/√n), df = n − 1.
+  - P1 · drills: sx-t-statistic, sx-degrees-of-freedom
 
 ## Unit 5 · Regression analysis
 
@@ -182,12 +182,12 @@ Big ideas: MAIN
 
 
 
-- ● **SS-5.1.A** (ap-statistics-2026:5, webwork-opl:ST7.1, webwork-opl:ST7.2, webwork-opl:ST7.3, webwork-opl:ST7.4, ap-statistics-2026:5.2.A, ap-statistics-2026:5.3.A, ap-statistics-2026:5.4.A, ap-statistics-2026:5.5.A, ap-statistics-2026:5.5.B) Find and interpret a correlation, a regression line, a residual and r².
-  - EK: b = r·s_y/s_x; r² is the share of variation explained.
-  - P1 · drills: stats-correlation, stats-regression, stats-residual, sx-r-squared, sx-slope-from-correlation, hs-trend-line
 - ● **SS-5.1.B** (ap-statistics-2026:5.1.A, ap-statistics-2026:5.1.B, ap-statistics-2026:5.1.C, ap-statistics-2026:5.4.B, ap-statistics-2026:5.4.C) Describe a scatterplot and read residuals and residual plots.
   - EK: Direction, form, strength, unusual points; residual = y − ŷ; a curved residual plot says a line is the wrong model.
   - P1 · drills: st-scatter-describe, st-residual
+- ● **SS-5.1.A** (ap-statistics-2026:5, webwork-opl:ST7.1, webwork-opl:ST7.2, webwork-opl:ST7.3, webwork-opl:ST7.4, ap-statistics-2026:5.2.A, ap-statistics-2026:5.3.A, ap-statistics-2026:5.4.A, ap-statistics-2026:5.5.A, ap-statistics-2026:5.5.B) Find and interpret a correlation, a regression line, a residual and r².
+  - EK: b = r·s_y/s_x; r² is the share of variation explained.
+  - P1 · drills: stats-correlation, stats-regression, stats-residual, sx-r-squared, sx-slope-from-correlation, hs-trend-line
 
 ## Unit 6 · Probability models
 
@@ -359,15 +359,15 @@ Big ideas: MAIN
 
 
 
+- ● **SS-9.1.C** (webwork-opl:ST7.7) Read a residual plot.
+  - EK: Residuals should be a patternless band around zero.
+  - P1 · drills: st-residual-diagnostics, st-residual-pattern
 - ● **SS-9.1.A** (webwork-opl:ST7.5, webwork-opl:ST12.5) Test a regression slope.
   - EK: t = b/SE_b with n − 2 df.
   - P1 · drills: st-slope-t, st-t-from-r
 - ● **SS-9.1.B** (webwork-opl:ST7.6, webwork-opl:ST12.4) Build an interval for a regression coefficient.
   - EK: b ± t* SE_b.
   - P1 · drills: st-slope-interval, st-se-from-interval
-- ● **SS-9.1.C** (webwork-opl:ST7.7) Read a residual plot.
-  - EK: Residuals should be a patternless band around zero.
-  - P1 · drills: st-residual-diagnostics, st-residual-pattern
 - ● **SS-9.1.D** (webwork-opl:ST12.1) Fit an exponential model by linearising.
   - EK: y = a e^{bx} ⇔ ln y = ln a + bx.
   - P1 · drills: st-linearised-fit, st-growth-percent
@@ -409,6 +409,9 @@ Big ideas: MAIN
 
 
 
+- ● **SS-10.1.H** (webwork-opl:ST8.9) Know the relative efficiency of rank tests.
+  - EK: Against the t test on normal data, the sign test has ARE 2/π ≈ 0.64 and the Wilcoxon 3/π ≈ 0.95.
+  - P1 · drills: st-relative-efficiency, st-efficiency-facts
 - ● **SS-10.1.A** (webwork-opl:ST8.1) Find a sign-test p-value.
   - EK: Under H₀ the count of + signs is Binomial(n, ½).
   - P1 · drills: st-sign-test, st-sign-z
@@ -430,9 +433,6 @@ Big ideas: MAIN
 - ● **SS-10.1.G** (webwork-opl:ST8.8) Find the coverage of an order-statistic interval for a median.
   - EK: (x₍ₖ₎, x₍ₙ₋ₖ₊₁₎) covers the median with probability 1 − 2P(Bin(n, ½) ≤ k − 1).
   - P1 · drills: st-median-interval, st-median-beyond-max
-- ● **SS-10.1.H** (webwork-opl:ST8.9) Know the relative efficiency of rank tests.
-  - EK: Against the t test on normal data, the sign test has ARE 2/π ≈ 0.64 and the Wilcoxon 3/π ≈ 0.95.
-  - P1 · drills: st-relative-efficiency, st-efficiency-facts
 
 ## Unit 11 · Bayesian inference and point estimation
 
@@ -462,15 +462,15 @@ Big ideas: MAIN
 
 
 
+- ● **SS-11.2.C** (webwork-opl:ST11.3) Identify a sufficient statistic.
+  - EK: By factorisation, Σxᵢ is sufficient for the Poisson, exponential and Bernoulli families.
+  - P1 · drills: st-sufficient, st-sufficient-which
 - ● **SS-11.2.A** (webwork-opl:ST11.1) Find the bias of an estimator.
   - EK: Bias = E[θ̂] − θ; the 1/n variance estimator has bias −σ²/n.
   - P1 · drills: st-variance-bias, st-bias-mean-square
 - ● **SS-11.2.B** (webwork-opl:ST11.2) Find the mean squared error of an estimator.
   - EK: MSE = bias² + variance; consistent when both go to 0.
   - P1 · drills: st-mse, st-mse-shrunk
-- ● **SS-11.2.C** (webwork-opl:ST11.3) Identify a sufficient statistic.
-  - EK: By factorisation, Σxᵢ is sufficient for the Poisson, exponential and Bernoulli families.
-  - P1 · drills: st-sufficient, st-sufficient-which
 - ● **SS-11.2.D** (webwork-opl:ST11.4) Find a maximum likelihood estimate.
   - EK: Maximise the log-likelihood; for the exponential, λ̂ = 1/x̄.
   - P1 · drills: st-mle-exponential, st-mle-geometric

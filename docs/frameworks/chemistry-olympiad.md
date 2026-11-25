@@ -43,12 +43,12 @@ Big ideas: EXACT
 
 
 
-- ● **CO-1.1.A** (acs-accm-analytical:VIII.F.5) Compute the pH of a polyprotic acid or one of its salts from the full charge balance.
-  - EK: Amphiprotic salts sit near ½(pKₐₙ + pKₐₙ₊₁).
-  - P1 · drills: co-phosphate-fraction, co-polyprotic-ph
 - ● **CO-1.1.B** Compute a buffer's pH after strong acid is added.
   - EK: Convert base to acid mole for mole, then the equilibrium.
   - P1 · drills: co-buffer-acid, co-buffer-capacity-acid
+- ● **CO-1.1.A** (acs-accm-analytical:VIII.F.5) Compute the pH of a polyprotic acid or one of its salts from the full charge balance.
+  - EK: Amphiprotic salts sit near ½(pKₐₙ + pKₐₙ₊₁).
+  - P1 · drills: co-phosphate-fraction, co-polyprotic-ph
 - ● **CO-1.1.C** Compute the solubility of a salt of a weak acid at fixed pH.
   - EK: s = [K_sp(1 + [H⁺]/Kₐ)²/4]^⅓ for CaF₂.
   - Needs: CO-1.1.A
@@ -185,21 +185,21 @@ Big ideas: EXACT
 
 
 
-- ● **CO-7.1.A** (usnco:3) Find a density from a cubic unit cell.
-  - EK: ρ = Z M / (N_A a³); Z = 1, 2, 4 for sc, bcc, fcc.
-  - P1 · drills: co-unit-cell-density, co-molar-mass-from-cell
 - ● **CO-7.1.B** (usnco:3) Give coordination numbers in common ionic structures.
   - EK: Rock salt 6:6; CsCl 8:8; zinc blende 4:4; fluorite Ca 8, F 4; rutile Ti 6, O 3.
   - P1 · drills: co-coordination-structure, co-structure-cn
+- ● **CO-7.1.E** (usnco:3) Rank substances by boiling or melting point.
+  - EK: Ionic and network solids first; then hydrogen bonding; then dispersion, which grows with size and surface area.
+  - P1 · drills: co-boiling-rank, co-mp-rank
+- ● **CO-7.1.A** (usnco:3) Find a density from a cubic unit cell.
+  - EK: ρ = Z M / (N_A a³); Z = 1, 2, 4 for sc, bcc, fcc.
+  - P1 · drills: co-unit-cell-density, co-molar-mass-from-cell
 - ● **CO-7.1.C** (usnco:3) Find how much liquid remains when some evaporates into a closed flask.
   - EK: Vapour moles = P_vap V/RT; if less than the total, the rest stays liquid.
   - P1 · drills: co-liquid-remaining, co-vapour-pressure-evap
 - ● **CO-7.1.D** (usnco:3) Use Graham's law.
   - EK: Effusion rate ∝ 1/√M.
   - P1 · drills: co-graham, co-graham-mass
-- ● **CO-7.1.E** (usnco:3) Rank substances by boiling or melting point.
-  - EK: Ionic and network solids first; then hydrogen bonding; then dispersion, which grows with size and surface area.
-  - P1 · drills: co-boiling-rank, co-mp-rank
 
 ## Unit 8 · USNCO band 4: thermodynamics
 
@@ -209,6 +209,9 @@ Big ideas: EXACT
 
 
 
+- ● **CO-8.1.D** (usnco:4) Predict the sign of ΔS.
+  - EK: More moles of gas, dissolving a solid, melting and mixing raise entropy; forming fewer, more ordered particles lowers it.
+  - P1 · drills: co-entropy-sign, co-ds-sign-2
 - ● **CO-8.1.A** (usnco:4) Find K from ΔH° and ΔS° at a temperature.
   - EK: ΔG° = ΔH° − TΔS°; K = e^{−ΔG°/RT}.
   - P1 · drills: co-k-from-dh-ds, co-dg-from-k
@@ -218,9 +221,6 @@ Big ideas: EXACT
 - ● **CO-8.1.C** (usnco:4) Find an enthalpy of solution from calorimetry.
   - EK: q = m c ΔT absorbed by the solution; ΔH_soln = −q/n.
   - P1 · drills: co-enthalpy-solution, co-temp-change-solution
-- ● **CO-8.1.D** (usnco:4) Predict the sign of ΔS.
-  - EK: More moles of gas, dissolving a solid, melting and mixing raise entropy; forming fewer, more ordered particles lowers it.
-  - P1 · drills: co-entropy-sign, co-ds-sign-2
 - ● **CO-8.1.E** (usnco:4) Close a Hess's-law cycle.
   - EK: Reverse and scale the given reactions until they add to the target; do the same to their ΔH.
   - P1 · drills: co-hess-cycle, co-hf-from-hc
@@ -305,15 +305,15 @@ Big ideas: EXACT
 
 
 
+- ● **CO-12.1.C** (usnco:8) Explain anomalies in periodic trends.
+  - EK: Half-filled and filled subshells resist adding or removing electrons.
+  - P1 · drills: co-trend-anomaly, co-anomaly-explain
 - ● **CO-12.1.A** (usnco:8) Identify a group from successive ionisation energies.
   - EK: The big jump comes after the last valence electron.
   - P1 · drills: co-ionisation-jump, co-jump-position
 - ● **CO-12.1.B** (usnco:8) Count electrons with given quantum numbers.
   - EK: Each orbital holds 2; there are 2l + 1 orbitals per subshell and n² per shell.
   - P1 · drills: co-quantum-count, co-max-electrons
-- ● **CO-12.1.C** (usnco:8) Explain anomalies in periodic trends.
-  - EK: Half-filled and filled subshells resist adding or removing electrons.
-  - P1 · drills: co-trend-anomaly, co-anomaly-explain
 - ● **CO-12.1.D** (usnco:8) Find the wavelength of a hydrogen transition.
   - EK: 1/λ = R_H(1/n₁² − 1/n₂²), R_H = 1.097×10⁷ m⁻¹.
   - P1 · drills: co-hydrogen-line, co-series-limit
@@ -356,21 +356,21 @@ Big ideas: EXACT
 
 
 
+- ● **CO-14.1.C** (usnco:10, acs-accm-analytical:I.B.1, acs-accm-analytical:II.F.1, acs-accm-analytical:III.F.1) Assign an infrared band.
+  - EK: O–H broad 3200–3550; C=O sharp near 1700; C≡N near 2250; C–H just below 3000 (sp³) or above (sp²).
+  - P1 · drills: co-ir-band, co-ir-tell
+- ● **CO-14.1.E** (usnco:10) Identify the monomer of a polymer.
+  - EK: Addition polymers repeat the alkene's carbons; condensation polymers lose a small molecule at each link.
+  - P1 · drills: co-monomer, co-polymer-from-monomer
 - ● **CO-14.1.A** (usnco:10) Count structural isomers.
   - EK: Enumerate chains, then branches; include rings when the formula allows.
   - P1 · drills: co-isomer-count, co-isomer-count-2
 - ● **CO-14.1.B** (usnco:10) Find the degree of unsaturation.
   - EK: DoU = (2C + 2 + N − H − X)/2: rings plus π bonds.
   - P1 · drills: co-unsaturation, co-h-from-dou
-- ● **CO-14.1.C** (usnco:10, acs-accm-analytical:I.B.1, acs-accm-analytical:II.F.1, acs-accm-analytical:III.F.1) Assign an infrared band.
-  - EK: O–H broad 3200–3550; C=O sharp near 1700; C≡N near 2250; C–H just below 3000 (sp³) or above (sp²).
-  - P1 · drills: co-ir-band, co-ir-tell
 - ● **CO-14.1.D** (usnco:10, acs-accm-organic:III.D.2, acs-accm-analytical:I.A.3, acs-accm-analytical:III.D.1) Count ¹H NMR environments.
   - EK: Equivalent hydrogens (by symmetry) give one signal.
   - P1 · drills: co-nmr-environments, co-nmr-env-2
-- ● **CO-14.1.E** (usnco:10) Identify the monomer of a polymer.
-  - EK: Addition polymers repeat the alkene's carbons; condensation polymers lose a small molecule at each link.
-  - P1 · drills: co-monomer, co-polymer-from-monomer
 - ● **CO-14.1.F** (usnco:10) Find an amino acid's isoelectric point.
   - EK: pI is the average of the two pKa values on either side of the neutral form.
   - P1 · drills: co-isoelectric, co-glycine-charge

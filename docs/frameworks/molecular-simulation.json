@@ -1737,6 +1737,26 @@
      "title": "Convergence and analysis",
      "los": [
       {
+       "id": "C",
+       "std": [
+        "alchemistry-wiki:BP",
+        "livecoms-afe:8.3",
+        "livecoms-afe:8.4",
+        "livecoms-afe:8.5"
+       ],
+       "do": "Choose and cross-check estimators and read the diagnostics: overlap, forward–reverse drift and estimator disagreement.",
+       "ek": [
+        "Prefer TI, BAR or MBAR; EXP is biased; first off-diagonal overlap at least 0.03; estimators disagreeing by more than 1 kcal/mol, or forward–reverse by more than 1 kT, means not converged."
+       ],
+       "p": [
+        "P5"
+       ],
+       "drills": [
+        "fe-overlap-pick",
+        "fe-estimators"
+       ]
+      },
+      {
        "id": "A",
        "std": [
         "livecoms-afe:7.2.5",
@@ -1773,26 +1793,6 @@
        ]
       },
       {
-       "id": "C",
-       "std": [
-        "alchemistry-wiki:BP",
-        "livecoms-afe:8.3",
-        "livecoms-afe:8.4",
-        "livecoms-afe:8.5"
-       ],
-       "do": "Choose and cross-check estimators and read the diagnostics: overlap, forward–reverse drift and estimator disagreement.",
-       "ek": [
-        "Prefer TI, BAR or MBAR; EXP is biased; first off-diagonal overlap at least 0.03; estimators disagreeing by more than 1 kcal/mol, or forward–reverse by more than 1 kT, means not converged."
-       ],
-       "p": [
-        "P5"
-       ],
-       "drills": [
-        "fe-overlap-pick",
-        "fe-estimators"
-       ]
-      },
-      {
        "id": "D",
        "std": [
         "alchemistry-wiki:BP",
@@ -1817,6 +1817,24 @@
      "n": 3,
      "title": "Verify and report",
      "los": [
+      {
+       "id": "C",
+       "std": [
+        "livecoms-afe:8.6",
+        "livecoms-afe:7.2.6"
+       ],
+       "do": "Diagnose common failures from their symptoms.",
+       "ek": [
+        "Ligand leaving the site, inconsistent estimators, poor replica mixing, slow torsions, rough ΔG(λ), drift, and starting-pose dependence; wrong binding modes are common."
+       ],
+       "p": [
+        "P5"
+       ],
+       "drills": [
+        "fe-diagnose",
+        "fe-binding-mode"
+       ]
+      },
       {
        "id": "A",
        "std": [
@@ -1851,24 +1869,6 @@
        "drills": [
         "fe-mue",
         "fe-reporting"
-       ]
-      },
-      {
-       "id": "C",
-       "std": [
-        "livecoms-afe:8.6",
-        "livecoms-afe:7.2.6"
-       ],
-       "do": "Diagnose common failures from their symptoms.",
-       "ek": [
-        "Ligand leaving the site, inconsistent estimators, poor replica mixing, slow torsions, rough ΔG(λ), drift, and starting-pose dependence; wrong binding modes are common."
-       ],
-       "p": [
-        "P5"
-       ],
-       "drills": [
-        "fe-diagnose",
-        "fe-binding-mode"
        ]
       }
      ]
@@ -3602,6 +3602,17 @@
    "partial": []
   },
   {
+   "code": "MD-17.2.C",
+   "unit": 17,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "fe-overlap-pick",
+    "fe-estimators"
+   ],
+   "partial": []
+  },
+  {
    "code": "MD-17.2.A",
    "unit": 17,
    "topic": 2,
@@ -3624,17 +3635,6 @@
    "partial": []
   },
   {
-   "code": "MD-17.2.C",
-   "unit": 17,
-   "topic": 2,
-   "status": "ok",
-   "full": [
-    "fe-overlap-pick",
-    "fe-estimators"
-   ],
-   "partial": []
-  },
-  {
    "code": "MD-17.2.D",
    "unit": 17,
    "topic": 2,
@@ -3642,6 +3642,17 @@
    "full": [
     "fe-leg-error",
     "fe-repeat-se"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MD-17.3.C",
+   "unit": 17,
+   "topic": 3,
+   "status": "ok",
+   "full": [
+    "fe-diagnose",
+    "fe-binding-mode"
    ],
    "partial": []
   },
@@ -3664,17 +3675,6 @@
    "full": [
     "fe-mue",
     "fe-reporting"
-   ],
-   "partial": []
-  },
-  {
-   "code": "MD-17.3.C",
-   "unit": 17,
-   "topic": 3,
-   "status": "ok",
-   "full": [
-    "fe-diagnose",
-    "fe-binding-mode"
    ],
    "partial": []
   },

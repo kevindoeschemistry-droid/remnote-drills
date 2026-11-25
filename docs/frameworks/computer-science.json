@@ -212,6 +212,21 @@
      },
      "los": [
       {
+       "id": "C",
+       "do": "Compute the mean, standard deviation and a confidence interval from repeated benchmark runs, and decide whether two configurations differ.",
+       "ek": [
+        "CI ≈ x̄ ± t·s/√n; overlapping intervals do not prove no difference; report variance, not one run."
+       ],
+       "p": [
+        "P2",
+        "P6"
+       ],
+       "drills": [
+        "cs-bench-ci",
+        "cs-bench-practice"
+       ]
+      },
+      {
        "id": "A",
        "do": "Compute an expected count (collisions, comparisons, hits) using linearity of expectation over indicator variables.",
        "ek": [
@@ -241,21 +256,6 @@
        "drills": [
         "cs-bayes-alert",
         "cs-false-alerts"
-       ]
-      },
-      {
-       "id": "C",
-       "do": "Compute the mean, standard deviation and a confidence interval from repeated benchmark runs, and decide whether two configurations differ.",
-       "ek": [
-        "CI ≈ x̄ ± t·s/√n; overlapping intervals do not prove no difference; report variance, not one run."
-       ],
-       "p": [
-        "P2",
-        "P6"
-       ],
-       "drills": [
-        "cs-bench-ci",
-        "cs-bench-practice"
        ]
       }
      ]
@@ -707,20 +707,6 @@
      },
      "los": [
       {
-       "id": "A",
-       "do": "Trace the array after k passes of insertion, selection or bubble sort, a quicksort partition, or a merge step.",
-       "ek": [
-        "Insertion sort keeps a sorted prefix; selection places the k-th smallest at pass k; Lomuto/Hoare partitions differ in pivot placement."
-       ],
-       "p": [
-        "P3"
-       ],
-       "drills": [
-        "pr-sort-pass",
-        "cs-bubble-swaps"
-       ]
-      },
-      {
        "id": "B",
        "do": "Pick a sort for a scenario by worst-case time, stability, extra space and adaptivity, and explain when counting or radix sort beats Ω(n log n).",
        "ek": [
@@ -736,6 +722,20 @@
        "drills": [
         "cs-sort-pick",
         "cs-sort-facts"
+       ]
+      },
+      {
+       "id": "A",
+       "do": "Trace the array after k passes of insertion, selection or bubble sort, a quicksort partition, or a merge step.",
+       "ek": [
+        "Insertion sort keeps a sorted prefix; selection places the k-th smallest at pass k; Lomuto/Hoare partitions differ in pivot placement."
+       ],
+       "p": [
+        "P3"
+       ],
+       "drills": [
+        "pr-sort-pass",
+        "cs-bubble-swaps"
        ]
       }
      ]
@@ -791,20 +791,6 @@
      },
      "los": [
       {
-       "id": "A",
-       "do": "Fill a DP table (LCS, edit distance, 0/1 knapsack, coin-change count) and read off the optimum and one optimal solution.",
-       "ek": [
-        "Each cell is a subproblem combined from already-filled cells; traceback through choices recovers the solution."
-       ],
-       "p": [
-        "P3"
-       ],
-       "drills": [
-        "cs-dp",
-        "cs-knapsack-coins"
-       ]
-      },
-      {
        "id": "B",
        "do": "Write the state, recurrence and base cases for a described optimisation problem and give its time and space.",
        "ek": [
@@ -817,6 +803,20 @@
        "drills": [
         "cs-dp-design",
         "cs-dp-cells"
+       ]
+      },
+      {
+       "id": "A",
+       "do": "Fill a DP table (LCS, edit distance, 0/1 knapsack, coin-change count) and read off the optimum and one optimal solution.",
+       "ek": [
+        "Each cell is a subproblem combined from already-filled cells; traceback through choices recovers the solution."
+       ],
+       "p": [
+        "P3"
+       ],
+       "drills": [
+        "cs-dp",
+        "cs-knapsack-coins"
        ]
       }
      ]
@@ -874,6 +874,21 @@
      },
      "los": [
       {
+       "id": "B",
+       "do": "Run Bellman–Ford to find distances or detect a negative cycle, and explain why Dijkstra fails with negative edges.",
+       "ek": [
+        "V − 1 rounds of relaxing every edge; an improvement in round V means a negative cycle."
+       ],
+       "p": [
+        "P3",
+        "P6"
+       ],
+       "drills": [
+        "cs-bellman-dist",
+        "cs-neg-cycle"
+       ]
+      },
+      {
        "id": "A",
        "do": "Trace Dijkstra's distance array and settled set after k extractions.",
        "ek": [
@@ -888,21 +903,6 @@
        "drills": [
         "cs-shortest-path",
         "cs-dijkstra-order"
-       ]
-      },
-      {
-       "id": "B",
-       "do": "Run Bellman–Ford to find distances or detect a negative cycle, and explain why Dijkstra fails with negative edges.",
-       "ek": [
-        "V − 1 rounds of relaxing every edge; an improvement in round V means a negative cycle."
-       ],
-       "p": [
-        "P3",
-        "P6"
-       ],
-       "drills": [
-        "cs-bellman-dist",
-        "cs-neg-cycle"
        ]
       },
       {
@@ -946,20 +946,6 @@
      },
      "los": [
       {
-       "id": "A",
-       "do": "Trace a DFA or NFA on an input string and decide whether it accepts.",
-       "ek": [
-        "A DFA has exactly one transition per symbol; an NFA accepts if any path does; every NFA has an equivalent DFA."
-       ],
-       "p": [
-        "P3"
-       ],
-       "drills": [
-        "cs-dfa",
-        "cs-subset-states"
-       ]
-      },
-      {
        "id": "B",
        "do": "Write a regular expression or DFA for a described language, or argue it is not regular.",
        "ek": [
@@ -986,6 +972,20 @@
        "drills": [
         "cs-cfg-steps",
         "cs-ambiguity"
+       ]
+      },
+      {
+       "id": "A",
+       "do": "Trace a DFA or NFA on an input string and decide whether it accepts.",
+       "ek": [
+        "A DFA has exactly one transition per symbol; an NFA accepts if any path does; every NFA has an equivalent DFA."
+       ],
+       "p": [
+        "P3"
+       ],
+       "drills": [
+        "cs-dfa",
+        "cs-subset-states"
        ]
       }
      ]
@@ -1206,20 +1206,6 @@
      },
      "los": [
       {
-       "id": "A",
-       "do": "Compute availability from MTBF and MTTR, and for components in series or redundant parallel; convert nines to downtime per year.",
-       "ek": [
-        "A = MTBF/(MTBF + MTTR); series multiply A; parallel 1 − Π(1 − A_i); 99.9% ≈ 8.8 h/yr down."
-       ],
-       "p": [
-        "P2"
-       ],
-       "drills": [
-        "cs-availability",
-        "cs-replicas-needed"
-       ]
-      },
-      {
        "id": "B",
        "do": "Write pre- and postconditions for a function and decide whether a given Hoare triple holds.",
        "ek": [
@@ -1234,6 +1220,20 @@
        "drills": [
         "cs-wp-assign",
         "cs-hoare"
+       ]
+      },
+      {
+       "id": "A",
+       "do": "Compute availability from MTBF and MTTR, and for components in series or redundant parallel; convert nines to downtime per year.",
+       "ek": [
+        "A = MTBF/(MTBF + MTTR); series multiply A; parallel 1 − Π(1 − A_i); 99.9% ≈ 8.8 h/yr down."
+       ],
+       "p": [
+        "P2"
+       ],
+       "drills": [
+        "cs-availability",
+        "cs-replicas-needed"
        ]
       }
      ]
@@ -1319,21 +1319,6 @@
        ]
       },
       {
-       "id": "B",
-       "do": "Predict the result of an outer join, a comparison with NULL, or an aggregate over a column containing NULLs.",
-       "ek": [
-        "NULL = NULL is unknown, not true; COUNT(*) counts rows, COUNT(col) skips NULLs; LEFT JOIN keeps unmatched left rows with NULLs."
-       ],
-       "p": [
-        "P3"
-       ],
-       "drills": [
-        "sq-join-count",
-        "sq-null-trap",
-        "sq-aggregate"
-       ]
-      },
-      {
        "id": "C",
        "do": "Write a query using a correlated subquery, CTE or window function (rank, running total, top-n per group).",
        "ek": [
@@ -1349,6 +1334,21 @@
         "sq-window",
         "sq-top-per-group",
         "sq-subquery-count"
+       ]
+      },
+      {
+       "id": "B",
+       "do": "Predict the result of an outer join, a comparison with NULL, or an aggregate over a column containing NULLs.",
+       "ek": [
+        "NULL = NULL is unknown, not true; COUNT(*) counts rows, COUNT(col) skips NULLs; LEFT JOIN keeps unmatched left rows with NULLs."
+       ],
+       "p": [
+        "P3"
+       ],
+       "drills": [
+        "sq-join-count",
+        "sq-null-trap",
+        "sq-aggregate"
        ]
       }
      ]
@@ -1425,21 +1425,6 @@
      },
      "los": [
       {
-       "id": "A",
-       "do": "Name the anomaly (dirty read, non-repeatable read, phantom, lost update, write skew) in a described interleaving and the weakest isolation level that prevents it.",
-       "ek": [
-        "READ COMMITTED stops dirty reads; REPEATABLE READ stops non-repeatable reads; SERIALIZABLE stops phantoms and write skew."
-       ],
-       "p": [
-        "P3",
-        "P6"
-       ],
-       "drills": [
-        "cs-isolation-anomaly",
-        "cs-isolation-levels"
-       ]
-      },
-      {
        "id": "B",
        "do": "Decide whether a schedule is conflict-serializable by drawing its precedence graph, and give an equivalent serial order.",
        "ek": [
@@ -1455,6 +1440,21 @@
        "drills": [
         "cs-conflict-serial",
         "cs-2pl"
+       ]
+      },
+      {
+       "id": "A",
+       "do": "Name the anomaly (dirty read, non-repeatable read, phantom, lost update, write skew) in a described interleaving and the weakest isolation level that prevents it.",
+       "ek": [
+        "READ COMMITTED stops dirty reads; REPEATABLE READ stops non-repeatable reads; SERIALIZABLE stops phantoms and write skew."
+       ],
+       "p": [
+        "P3",
+        "P6"
+       ],
+       "drills": [
+        "cs-isolation-anomaly",
+        "cs-isolation-levels"
        ]
       }
      ]
@@ -1920,20 +1920,6 @@
      },
      "los": [
       {
-       "id": "A",
-       "do": "Compute the maximum file size for an inode with given direct, single-, double- and triple-indirect pointers.",
-       "ek": [
-        "Pointers per block = block size / pointer size; max = (direct + p + p² + p³) × block size."
-       ],
-       "p": [
-        "P2"
-       ],
-       "drills": [
-        "cs-inode-size",
-        "cs-direct-single"
-       ]
-      },
-      {
        "id": "B",
        "do": "Decide whether a user can read, write or execute a file from its Unix permission bits, owner and group (e.g. chmod 754).",
        "ek": [
@@ -1945,6 +1931,20 @@
        "drills": [
         "cs-unix-perm",
         "cs-chmod-octal"
+       ]
+      },
+      {
+       "id": "A",
+       "do": "Compute the maximum file size for an inode with given direct, single-, double- and triple-indirect pointers.",
+       "ek": [
+        "Pointers per block = block size / pointer size; max = (direct + p + p² + p³) × block size."
+       ],
+       "p": [
+        "P2"
+       ],
+       "drills": [
+        "cs-inode-size",
+        "cs-direct-single"
        ]
       }
      ]
@@ -2104,6 +2104,23 @@
      },
      "los": [
       {
+       "id": "C",
+       "do": "Compute a router's table after one round of distance-vector updates, or by link-state Dijkstra.",
+       "ek": [
+        "DV: D_x(y) = min_v (c(x,v) + D_v(y)); link-state floods topology then runs Dijkstra locally."
+       ],
+       "p": [
+        "P3"
+       ],
+       "needs": [
+        "CS-4.5.A"
+       ],
+       "drills": [
+        "cs-dv-update",
+        "cs-routing"
+       ]
+      },
+      {
        "id": "A",
        "do": "Compute the network address, broadcast address, usable host range and host count for an IPv4 CIDR block, or subnet it into k pieces — auto-checked.",
        "ek": [
@@ -2135,23 +2152,6 @@
        "drills": [
         "cs-longest-prefix",
         "cs-prefix-size"
-       ]
-      },
-      {
-       "id": "C",
-       "do": "Compute a router's table after one round of distance-vector updates, or by link-state Dijkstra.",
-       "ek": [
-        "DV: D_x(y) = min_v (c(x,v) + D_v(y)); link-state floods topology then runs Dijkstra locally."
-       ],
-       "p": [
-        "P3"
-       ],
-       "needs": [
-        "CS-4.5.A"
-       ],
-       "drills": [
-        "cs-dv-update",
-        "cs-routing"
        ]
       }
      ]
@@ -2596,6 +2596,35 @@
      },
      "los": [
       {
+       "id": "B",
+       "do": "Diagnose under- or overfitting from training and validation curves and choose a remedy.",
+       "ek": [
+        "High train and val error ⇒ bias; low train, high val ⇒ variance; regularise, add data or simplify for variance."
+       ],
+       "p": [
+        "P6"
+       ],
+       "drills": [
+        "cs-fit-diagnose",
+        "cs-fit-diagnose-2"
+       ]
+      },
+      {
+       "id": "D",
+       "do": "Classify a point by k-NN, or compute the information gain or Gini decrease of a decision-tree split.",
+       "ek": [
+        "Entropy H = −Σ p log₂ p; gain = H(parent) − weighted H(children); Gini = 1 − Σ p²."
+       ],
+       "p": [
+        "P3",
+        "P2"
+       ],
+       "drills": [
+        "cs-gini-gain",
+        "cs-info-gain"
+       ]
+      },
+      {
        "id": "A",
        "do": "Compute accuracy, precision, recall and F1 from a confusion matrix and pick the metric a scenario needs.",
        "ek": [
@@ -2608,20 +2637,6 @@
        "drills": [
         "cs-f1",
         "cs-f1-from-pr"
-       ]
-      },
-      {
-       "id": "B",
-       "do": "Diagnose under- or overfitting from training and validation curves and choose a remedy.",
-       "ek": [
-        "High train and val error ⇒ bias; low train, high val ⇒ variance; regularise, add data or simplify for variance."
-       ],
-       "p": [
-        "P6"
-       ],
-       "drills": [
-        "cs-fit-diagnose",
-        "cs-fit-diagnose-2"
        ]
       },
       {
@@ -2639,21 +2654,6 @@
        "drills": [
         "ab-gd-step",
         "cs-gd-mse"
-       ]
-      },
-      {
-       "id": "D",
-       "do": "Classify a point by k-NN, or compute the information gain or Gini decrease of a decision-tree split.",
-       "ek": [
-        "Entropy H = −Σ p log₂ p; gain = H(parent) − weighted H(children); Gini = 1 − Σ p²."
-       ],
-       "p": [
-        "P3",
-        "P2"
-       ],
-       "drills": [
-        "cs-gini-gain",
-        "cs-info-gain"
        ]
       }
      ]
@@ -2736,6 +2736,20 @@
      },
      "los": [
       {
+       "id": "B",
+       "do": "Compute strong- and weak-scaling efficiency from timings and explain the gap with Amdahl and Gustafson.",
+       "ek": [
+        "Efficiency = S/p; Gustafson: scaled speedup = p − α(p − 1) when the problem grows with p."
+       ],
+       "p": [
+        "P2"
+       ],
+       "drills": [
+        "cs-strong-eff",
+        "cs-gustafson"
+       ]
+      },
+      {
        "id": "A",
        "do": "Compute work, span and parallelism of a task DAG and bound the runtime on p processors.",
        "ek": [
@@ -2750,20 +2764,6 @@
        "drills": [
         "cs-work-span",
         "cs-brent"
-       ]
-      },
-      {
-       "id": "B",
-       "do": "Compute strong- and weak-scaling efficiency from timings and explain the gap with Amdahl and Gustafson.",
-       "ek": [
-        "Efficiency = S/p; Gustafson: scaled speedup = p − α(p − 1) when the problem grows with p."
-       ],
-       "p": [
-        "P2"
-       ],
-       "drills": [
-        "cs-strong-eff",
-        "cs-gustafson"
        ]
       }
      ]
@@ -3356,6 +3356,17 @@
    "partial": []
   },
   {
+   "code": "CS-1.4.C",
+   "unit": 1,
+   "topic": 4,
+   "status": "ok",
+   "full": [
+    "cs-bench-ci",
+    "cs-bench-practice"
+   ],
+   "partial": []
+  },
+  {
    "code": "CS-1.4.A",
    "unit": 1,
    "topic": 4,
@@ -3374,17 +3385,6 @@
    "full": [
     "cs-bayes-alert",
     "cs-false-alerts"
-   ],
-   "partial": []
-  },
-  {
-   "code": "CS-1.4.C",
-   "unit": 1,
-   "topic": 4,
-   "status": "ok",
-   "full": [
-    "cs-bench-ci",
-    "cs-bench-practice"
    ],
    "partial": []
   },
@@ -3587,17 +3587,6 @@
    "partial": []
   },
   {
-   "code": "CS-4.1.A",
-   "unit": 4,
-   "topic": 1,
-   "status": "ok",
-   "full": [
-    "pr-sort-pass",
-    "cs-bubble-swaps"
-   ],
-   "partial": []
-  },
-  {
    "code": "CS-4.1.B",
    "unit": 4,
    "topic": 1,
@@ -3605,6 +3594,17 @@
    "full": [
     "cs-sort-pick",
     "cs-sort-facts"
+   ],
+   "partial": []
+  },
+  {
+   "code": "CS-4.1.A",
+   "unit": 4,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "pr-sort-pass",
+    "cs-bubble-swaps"
    ],
    "partial": []
   },
@@ -3631,17 +3631,6 @@
    "partial": []
   },
   {
-   "code": "CS-4.3.A",
-   "unit": 4,
-   "topic": 3,
-   "status": "ok",
-   "full": [
-    "cs-dp",
-    "cs-knapsack-coins"
-   ],
-   "partial": []
-  },
-  {
    "code": "CS-4.3.B",
    "unit": 4,
    "topic": 3,
@@ -3649,6 +3638,17 @@
    "full": [
     "cs-dp-design",
     "cs-dp-cells"
+   ],
+   "partial": []
+  },
+  {
+   "code": "CS-4.3.A",
+   "unit": 4,
+   "topic": 3,
+   "status": "ok",
+   "full": [
+    "cs-dp",
+    "cs-knapsack-coins"
    ],
    "partial": []
   },
@@ -3675,17 +3675,6 @@
    "partial": []
   },
   {
-   "code": "CS-4.5.A",
-   "unit": 4,
-   "topic": 5,
-   "status": "ok",
-   "full": [
-    "cs-shortest-path",
-    "cs-dijkstra-order"
-   ],
-   "partial": []
-  },
-  {
    "code": "CS-4.5.B",
    "unit": 4,
    "topic": 5,
@@ -3697,6 +3686,17 @@
    "partial": []
   },
   {
+   "code": "CS-4.5.A",
+   "unit": 4,
+   "topic": 5,
+   "status": "ok",
+   "full": [
+    "cs-shortest-path",
+    "cs-dijkstra-order"
+   ],
+   "partial": []
+  },
+  {
    "code": "CS-4.5.C",
    "unit": 4,
    "topic": 5,
@@ -3704,17 +3704,6 @@
    "full": [
     "cs-mst",
     "cs-mst-props"
-   ],
-   "partial": []
-  },
-  {
-   "code": "CS-5.1.A",
-   "unit": 5,
-   "topic": 1,
-   "status": "ok",
-   "full": [
-    "cs-dfa",
-    "cs-subset-states"
    ],
    "partial": []
   },
@@ -3737,6 +3726,17 @@
    "full": [
     "cs-cfg-steps",
     "cs-ambiguity"
+   ],
+   "partial": []
+  },
+  {
+   "code": "CS-5.1.A",
+   "unit": 5,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "cs-dfa",
+    "cs-subset-states"
    ],
    "partial": []
   },
@@ -3840,17 +3840,6 @@
    "partial": []
   },
   {
-   "code": "CS-6.5.A",
-   "unit": 6,
-   "topic": 5,
-   "status": "ok",
-   "full": [
-    "cs-availability",
-    "cs-replicas-needed"
-   ],
-   "partial": []
-  },
-  {
    "code": "CS-6.5.B",
    "unit": 6,
    "topic": 5,
@@ -3858,6 +3847,17 @@
    "full": [
     "cs-wp-assign",
     "cs-hoare"
+   ],
+   "partial": []
+  },
+  {
+   "code": "CS-6.5.A",
+   "unit": 6,
+   "topic": 5,
+   "status": "ok",
+   "full": [
+    "cs-availability",
+    "cs-replicas-needed"
    ],
    "partial": []
   },
@@ -3895,18 +3895,6 @@
    "partial": []
   },
   {
-   "code": "CS-7.2.B",
-   "unit": 7,
-   "topic": 2,
-   "status": "ok",
-   "full": [
-    "sq-join-count",
-    "sq-null-trap",
-    "sq-aggregate"
-   ],
-   "partial": []
-  },
-  {
    "code": "CS-7.2.C",
    "unit": 7,
    "topic": 2,
@@ -3915,6 +3903,18 @@
     "sq-window",
     "sq-top-per-group",
     "sq-subquery-count"
+   ],
+   "partial": []
+  },
+  {
+   "code": "CS-7.2.B",
+   "unit": 7,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "sq-join-count",
+    "sq-null-trap",
+    "sq-aggregate"
    ],
    "partial": []
   },
@@ -3952,17 +3952,6 @@
    "partial": []
   },
   {
-   "code": "CS-7.4.A",
-   "unit": 7,
-   "topic": 4,
-   "status": "ok",
-   "full": [
-    "cs-isolation-anomaly",
-    "cs-isolation-levels"
-   ],
-   "partial": []
-  },
-  {
    "code": "CS-7.4.B",
    "unit": 7,
    "topic": 4,
@@ -3970,6 +3959,17 @@
    "full": [
     "cs-conflict-serial",
     "cs-2pl"
+   ],
+   "partial": []
+  },
+  {
+   "code": "CS-7.4.A",
+   "unit": 7,
+   "topic": 4,
+   "status": "ok",
+   "full": [
+    "cs-isolation-anomaly",
+    "cs-isolation-levels"
    ],
    "partial": []
   },
@@ -4194,17 +4194,6 @@
    "partial": []
   },
   {
-   "code": "CS-9.5.A",
-   "unit": 9,
-   "topic": 5,
-   "status": "ok",
-   "full": [
-    "cs-inode-size",
-    "cs-direct-single"
-   ],
-   "partial": []
-  },
-  {
    "code": "CS-9.5.B",
    "unit": 9,
    "topic": 5,
@@ -4212,6 +4201,17 @@
    "full": [
     "cs-unix-perm",
     "cs-chmod-octal"
+   ],
+   "partial": []
+  },
+  {
+   "code": "CS-9.5.A",
+   "unit": 9,
+   "topic": 5,
+   "status": "ok",
+   "full": [
+    "cs-inode-size",
+    "cs-direct-single"
    ],
    "partial": []
   },
@@ -4282,6 +4282,17 @@
    "partial": []
   },
   {
+   "code": "CS-10.4.C",
+   "unit": 10,
+   "topic": 4,
+   "status": "ok",
+   "full": [
+    "cs-dv-update",
+    "cs-routing"
+   ],
+   "partial": []
+  },
+  {
    "code": "CS-10.4.A",
    "unit": 10,
    "topic": 4,
@@ -4300,17 +4311,6 @@
    "full": [
     "cs-longest-prefix",
     "cs-prefix-size"
-   ],
-   "partial": []
-  },
-  {
-   "code": "CS-10.4.C",
-   "unit": 10,
-   "topic": 4,
-   "status": "ok",
-   "full": [
-    "cs-dv-update",
-    "cs-routing"
    ],
    "partial": []
   },
@@ -4513,17 +4513,6 @@
    "partial": []
   },
   {
-   "code": "CS-13.2.A",
-   "unit": 13,
-   "topic": 2,
-   "status": "ok",
-   "full": [
-    "cs-f1",
-    "cs-f1-from-pr"
-   ],
-   "partial": []
-  },
-  {
    "code": "CS-13.2.B",
    "unit": 13,
    "topic": 2,
@@ -4535,17 +4524,6 @@
    "partial": []
   },
   {
-   "code": "CS-13.2.C",
-   "unit": 13,
-   "topic": 2,
-   "status": "ok",
-   "full": [
-    "ab-gd-step",
-    "cs-gd-mse"
-   ],
-   "partial": []
-  },
-  {
    "code": "CS-13.2.D",
    "unit": 13,
    "topic": 2,
@@ -4553,6 +4531,28 @@
    "full": [
     "cs-gini-gain",
     "cs-info-gain"
+   ],
+   "partial": []
+  },
+  {
+   "code": "CS-13.2.A",
+   "unit": 13,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "cs-f1",
+    "cs-f1-from-pr"
+   ],
+   "partial": []
+  },
+  {
+   "code": "CS-13.2.C",
+   "unit": 13,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "ab-gd-step",
+    "cs-gd-mse"
    ],
    "partial": []
   },
@@ -4579,17 +4579,6 @@
    "partial": []
   },
   {
-   "code": "CS-14.1.A",
-   "unit": 14,
-   "topic": 1,
-   "status": "ok",
-   "full": [
-    "cs-work-span",
-    "cs-brent"
-   ],
-   "partial": []
-  },
-  {
    "code": "CS-14.1.B",
    "unit": 14,
    "topic": 1,
@@ -4597,6 +4586,17 @@
    "full": [
     "cs-strong-eff",
     "cs-gustafson"
+   ],
+   "partial": []
+  },
+  {
+   "code": "CS-14.1.A",
+   "unit": 14,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "cs-work-span",
+    "cs-brent"
    ],
    "partial": []
   },

@@ -153,25 +153,6 @@
      ],
      "los": [
       {
-       "id": "A",
-       "std": [
-        "8.EE.A.3",
-        "8.EE.A.4",
-        "N-Q.A.1"
-       ],
-       "do": "Write quantities in scientific notation and convert between SI prefixes (p, n, μ, m, c, k, M, G).",
-       "ek": [
-        "Each prefix is a power of ten; moving the decimal changes the exponent by the same count."
-       ],
-       "p": [
-        "P5"
-       ],
-       "drills": [
-        "ac-si-prefix",
-        "ac2-largest-length"
-       ]
-      },
-      {
        "id": "B",
        "std": [
         "N-Q.A.3"
@@ -186,26 +167,6 @@
        "drills": [
         "ac-sig-figs",
         "ac-sig-figs-product"
-       ]
-      },
-      {
-       "id": "C",
-       "std": [
-        "N-Q.A.3",
-        "acs-accm-general:IX.G.1",
-        "acs-accm-inorganic:IX.E.1"
-       ],
-       "do": "Distinguish accuracy from precision and calculate percent error.",
-       "ek": [
-        "Accuracy = closeness to the true value; precision = agreement among repeats; % error = |measured − true|/true × 100."
-       ],
-       "p": [
-        "P2",
-        "P4"
-       ],
-       "drills": [
-        "ac-percent-error",
-        "ac2-percent-error-reverse"
        ]
       },
       {
@@ -226,6 +187,45 @@
        "drills": [
         "ph-density",
         "ac-density-displacement"
+       ]
+      },
+      {
+       "id": "A",
+       "std": [
+        "8.EE.A.3",
+        "8.EE.A.4",
+        "N-Q.A.1"
+       ],
+       "do": "Write quantities in scientific notation and convert between SI prefixes (p, n, μ, m, c, k, M, G).",
+       "ek": [
+        "Each prefix is a power of ten; moving the decimal changes the exponent by the same count."
+       ],
+       "p": [
+        "P5"
+       ],
+       "drills": [
+        "ac-si-prefix",
+        "ac2-largest-length"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "N-Q.A.3",
+        "acs-accm-general:IX.G.1",
+        "acs-accm-inorganic:IX.E.1"
+       ],
+       "do": "Distinguish accuracy from precision and calculate percent error.",
+       "ek": [
+        "Accuracy = closeness to the true value; precision = agreement among repeats; % error = |measured − true|/true × 100."
+       ],
+       "p": [
+        "P2",
+        "P4"
+       ],
+       "drills": [
+        "ac-percent-error",
+        "ac2-percent-error-reverse"
        ]
       },
       {
@@ -337,6 +337,23 @@
      ],
      "los": [
       {
+       "id": "B",
+       "std": [
+        "acs-accm-general:I.E.3"
+       ],
+       "do": "Use the picometre size of atoms to see why a mole is so large.",
+       "ek": [
+        "Atoms are about 100–300 pm across; a millimetre holds millions of them in a row, so a visible sample holds ~10²³."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "ch-atoms-in-a-line",
+        "ch-mole-of-marbles"
+       ]
+      },
+      {
        "id": "A",
        "std": [
         "SPQ-1.A",
@@ -356,23 +373,6 @@
        ],
        "needs": [
         "CH-0.4.C"
-       ]
-      },
-      {
-       "id": "B",
-       "std": [
-        "acs-accm-general:I.E.3"
-       ],
-       "do": "Use the picometre size of atoms to see why a mole is so large.",
-       "ek": [
-        "Atoms are about 100–300 pm across; a millimetre holds millions of them in a row, so a visible sample holds ~10²³."
-       ],
-       "p": [
-        "P1"
-       ],
-       "drills": [
-        "ch-atoms-in-a-line",
-        "ch-mole-of-marbles"
        ]
       }
      ]
@@ -766,29 +766,6 @@
        ]
       },
       {
-       "id": "B",
-       "std": [
-        "SAP-1.A",
-        "acs-accm-general:I.B.3",
-        "acs-accm-inorganic:I.B.5",
-        "acs-accm-analytical:I.B.2"
-       ],
-       "do": "Draw an orbital (box) diagram, count unpaired electrons, and predict paramagnetism or diamagnetism.",
-       "ek": [
-        "Hund: fill degenerate orbitals singly with parallel spins first; any unpaired electron ⇒ paramagnetic."
-       ],
-       "p": [
-        "P1"
-       ],
-       "drills": [
-        "ac-unpaired-electrons",
-        "ac-paramagnetic-pick"
-       ],
-       "needs": [
-        "CH-1.5.A"
-       ]
-      },
-      {
        "id": "C",
        "std": [
         "SAP-1.A",
@@ -807,6 +784,29 @@
        "drills": [
         "ac-coulomb-compare",
         "qm-slater-zeff"
+       ],
+       "needs": [
+        "CH-1.5.A"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "SAP-1.A",
+        "acs-accm-general:I.B.3",
+        "acs-accm-inorganic:I.B.5",
+        "acs-accm-analytical:I.B.2"
+       ],
+       "do": "Draw an orbital (box) diagram, count unpaired electrons, and predict paramagnetism or diamagnetism.",
+       "ek": [
+        "Hund: fill degenerate orbitals singly with parallel spins first; any unpaired electron ⇒ paramagnetic."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "ac-unpaired-electrons",
+        "ac-paramagnetic-pick"
        ],
        "needs": [
         "CH-1.5.A"
@@ -1431,29 +1431,6 @@
        ]
       },
       {
-       "id": "B",
-       "std": [
-        "SAP-4.C",
-        "acs-accm-general:IV.C.2",
-        "acs-accm-organic:II.A.2"
-       ],
-       "do": "Decide whether a molecule is polar from its shape and bond dipoles.",
-       "ek": [
-        "Polar bonds in a symmetric shape cancel (CO₂, CCl₄); lone pairs or unlike atoms usually break the symmetry."
-       ],
-       "p": [
-        "P6"
-       ],
-       "drills": [
-        "ac-polarity",
-        "ac2-nonpolar-pick"
-       ],
-       "needs": [
-        "CH-2.7.A",
-        "CH-2.1.A"
-       ]
-      },
-      {
        "id": "C",
        "std": [
         "SAP-4.C",
@@ -1476,6 +1453,29 @@
        ],
        "needs": [
         "CH-2.7.A"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "SAP-4.C",
+        "acs-accm-general:IV.C.2",
+        "acs-accm-organic:II.A.2"
+       ],
+       "do": "Decide whether a molecule is polar from its shape and bond dipoles.",
+       "ek": [
+        "Polar bonds in a symmetric shape cancel (CO₂, CCl₄); lone pairs or unlike atoms usually break the symmetry."
+       ],
+       "p": [
+        "P6"
+       ],
+       "drills": [
+        "ac-polarity",
+        "ac2-nonpolar-pick"
+       ],
+       "needs": [
+        "CH-2.7.A",
+        "CH-2.1.A"
        ]
       }
      ]
@@ -2516,6 +2516,23 @@
      ],
      "los": [
       {
+       "id": "F",
+       "std": [
+        "acs-accm-general:III.H.3"
+       ],
+       "do": "Find the mass of an element that can be recovered from an ore or mineral sample.",
+       "ek": [
+        "Mass of element = mass of ore × fraction of mineral × (mass of element in one formula unit ÷ formula mass)."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "ch-metal-from-ore",
+        "ch-ore-needed"
+       ]
+      },
+      {
        "id": "A",
        "std": [
         "SPQ-4.A",
@@ -2625,23 +2642,6 @@
        "needs": [
         "CH-4.5.A",
         "CH-3.4.A"
-       ]
-      },
-      {
-       "id": "F",
-       "std": [
-        "acs-accm-general:III.H.3"
-       ],
-       "do": "Find the mass of an element that can be recovered from an ore or mineral sample.",
-       "ek": [
-        "Mass of element = mass of ore × fraction of mineral × (mass of element in one formula unit ÷ formula mass)."
-       ],
-       "p": [
-        "P1"
-       ],
-       "drills": [
-        "ch-metal-from-ore",
-        "ch-ore-needed"
        ]
       }
      ]
@@ -3105,6 +3105,23 @@
      ],
      "los": [
       {
+       "id": "B",
+       "std": [
+        "acs-accm-general:VII.A.3"
+       ],
+       "do": "Explain and quantify how dividing a solid raises its surface area and its reaction rate.",
+       "ek": [
+        "Cutting a cube into n³ smaller cubes multiplies the exposed area by n; a surface reaction speeds up in proportion."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "ch-surface-area-cut",
+        "ch-surface-area-facts"
+       ]
+      },
+      {
        "id": "A",
        "std": [
         "TRA-4.B",
@@ -3125,23 +3142,6 @@
        "needs": [
         "CH-3.5.A",
         "CH-5.1.A"
-       ]
-      },
-      {
-       "id": "B",
-       "std": [
-        "acs-accm-general:VII.A.3"
-       ],
-       "do": "Explain and quantify how dividing a solid raises its surface area and its reaction rate.",
-       "ek": [
-        "Cutting a cube into n³ smaller cubes multiplies the exposed area by n; a surface reaction speeds up in proportion."
-       ],
-       "p": [
-        "P1"
-       ],
-       "drills": [
-        "ch-surface-area-cut",
-        "ch-surface-area-facts"
        ]
       }
      ]
@@ -4130,6 +4130,23 @@
      ],
      "los": [
       {
+       "id": "B",
+       "std": [
+        "acs-accm-general:VIII.G.3"
+       ],
+       "do": "Find the fraction of a protein bound to its ligand from the dissociation constant.",
+       "ek": [
+        "P + L ⇌ PL with K_d = [P][L]/[PL]; with ligand in excess, the fraction bound is [L]/(K_d + [L]): half bound when [L] = K_d."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "ch-fraction-bound",
+        "ch-ligand-for-fraction"
+       ]
+      },
+      {
        "id": "A",
        "std": [
         "TRA-7.C",
@@ -4150,23 +4167,6 @@
        ],
        "needs": [
         "CH-7.4.A"
-       ]
-      },
-      {
-       "id": "B",
-       "std": [
-        "acs-accm-general:VIII.G.3"
-       ],
-       "do": "Find the fraction of a protein bound to its ligand from the dissociation constant.",
-       "ek": [
-        "P + L ⇌ PL with K_d = [P][L]/[PL]; with ligand in excess, the fraction bound is [L]/(K_d + [L]): half bound when [L] = K_d."
-       ],
-       "p": [
-        "P1"
-       ],
-       "drills": [
-        "ch-fraction-bound",
-        "ch-ligand-for-fraction"
        ]
       }
      ]
@@ -5704,17 +5704,6 @@
    "partial": []
   },
   {
-   "code": "CH-0.2.A",
-   "unit": 0,
-   "topic": 2,
-   "status": "ok",
-   "full": [
-    "ac-si-prefix",
-    "ac2-largest-length"
-   ],
-   "partial": []
-  },
-  {
    "code": "CH-0.2.B",
    "unit": 0,
    "topic": 2,
@@ -5726,17 +5715,6 @@
    "partial": []
   },
   {
-   "code": "CH-0.2.C",
-   "unit": 0,
-   "topic": 2,
-   "status": "ok",
-   "full": [
-    "ac-percent-error",
-    "ac2-percent-error-reverse"
-   ],
-   "partial": []
-  },
-  {
    "code": "CH-0.2.D",
    "unit": 0,
    "topic": 2,
@@ -5744,6 +5722,28 @@
    "full": [
     "ph-density",
     "ac-density-displacement"
+   ],
+   "partial": []
+  },
+  {
+   "code": "CH-0.2.A",
+   "unit": 0,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "ac-si-prefix",
+    "ac2-largest-length"
+   ],
+   "partial": []
+  },
+  {
+   "code": "CH-0.2.C",
+   "unit": 0,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "ac-percent-error",
+    "ac2-percent-error-reverse"
    ],
    "partial": []
   },
@@ -5792,17 +5792,6 @@
    "partial": []
   },
   {
-   "code": "CH-0.5.A",
-   "unit": 0,
-   "topic": 5,
-   "status": "ok",
-   "full": [
-    "ac-molar-mass",
-    "ac2-identify-metal"
-   ],
-   "partial": []
-  },
-  {
    "code": "CH-0.5.B",
    "unit": 0,
    "topic": 5,
@@ -5810,6 +5799,17 @@
    "full": [
     "ch-atoms-in-a-line",
     "ch-mole-of-marbles"
+   ],
+   "partial": []
+  },
+  {
+   "code": "CH-0.5.A",
+   "unit": 0,
+   "topic": 5,
+   "status": "ok",
+   "full": [
+    "ac-molar-mass",
+    "ac2-identify-metal"
    ],
    "partial": []
   },
@@ -5970,17 +5970,6 @@
    "partial": []
   },
   {
-   "code": "CH-1.5.B",
-   "unit": 1,
-   "topic": 5,
-   "status": "ok",
-   "full": [
-    "ac-unpaired-electrons",
-    "ac-paramagnetic-pick"
-   ],
-   "partial": []
-  },
-  {
    "code": "CH-1.5.C",
    "unit": 1,
    "topic": 5,
@@ -5988,6 +5977,17 @@
    "full": [
     "ac-coulomb-compare",
     "qm-slater-zeff"
+   ],
+   "partial": []
+  },
+  {
+   "code": "CH-1.5.B",
+   "unit": 1,
+   "topic": 5,
+   "status": "ok",
+   "full": [
+    "ac-unpaired-electrons",
+    "ac-paramagnetic-pick"
    ],
    "partial": []
   },
@@ -6212,17 +6212,6 @@
    "partial": []
   },
   {
-   "code": "CH-2.7.B",
-   "unit": 2,
-   "topic": 7,
-   "status": "ok",
-   "full": [
-    "ac-polarity",
-    "ac2-nonpolar-pick"
-   ],
-   "partial": []
-  },
-  {
    "code": "CH-2.7.C",
    "unit": 2,
    "topic": 7,
@@ -6230,6 +6219,17 @@
    "full": [
     "qm-hybridisation",
     "ac-sigma-pi"
+   ],
+   "partial": []
+  },
+  {
+   "code": "CH-2.7.B",
+   "unit": 2,
+   "topic": 7,
+   "status": "ok",
+   "full": [
+    "ac-polarity",
+    "ac2-nonpolar-pick"
    ],
    "partial": []
   },
@@ -6597,6 +6597,17 @@
    "partial": []
   },
   {
+   "code": "CH-4.5.F",
+   "unit": 4,
+   "topic": 5,
+   "status": "ok",
+   "full": [
+    "ch-metal-from-ore",
+    "ch-ore-needed"
+   ],
+   "partial": []
+  },
+  {
    "code": "CH-4.5.A",
    "unit": 4,
    "topic": 5,
@@ -6648,17 +6659,6 @@
    "full": [
     "ac-gas-stoich",
     "ac-gas-volume-stp"
-   ],
-   "partial": []
-  },
-  {
-   "code": "CH-4.5.F",
-   "unit": 4,
-   "topic": 5,
-   "status": "ok",
-   "full": [
-    "ch-metal-from-ore",
-    "ch-ore-needed"
    ],
    "partial": []
   },
@@ -6829,17 +6829,6 @@
    "partial": []
   },
   {
-   "code": "CH-5.5.A",
-   "unit": 5,
-   "topic": 5,
-   "status": "ok",
-   "full": [
-    "ac-collision-factor",
-    "ac-arrhenius-fraction"
-   ],
-   "partial": []
-  },
-  {
    "code": "CH-5.5.B",
    "unit": 5,
    "topic": 5,
@@ -6847,6 +6836,17 @@
    "full": [
     "ch-surface-area-cut",
     "ch-surface-area-facts"
+   ],
+   "partial": []
+  },
+  {
+   "code": "CH-5.5.A",
+   "unit": 5,
+   "topic": 5,
+   "status": "ok",
+   "full": [
+    "ac-collision-factor",
+    "ac-arrhenius-fraction"
    ],
    "partial": []
   },
@@ -7193,17 +7193,6 @@
    "partial": []
   },
   {
-   "code": "CH-7.5.A",
-   "unit": 7,
-   "topic": 5,
-   "status": "ok",
-   "full": [
-    "ac-size-of-k",
-    "ac-k-size-percent"
-   ],
-   "partial": []
-  },
-  {
    "code": "CH-7.5.B",
    "unit": 7,
    "topic": 5,
@@ -7211,6 +7200,17 @@
    "full": [
     "ch-fraction-bound",
     "ch-ligand-for-fraction"
+   ],
+   "partial": []
+  },
+  {
+   "code": "CH-7.5.A",
+   "unit": 7,
+   "topic": 5,
+   "status": "ok",
+   "full": [
+    "ac-size-of-k",
+    "ac-k-size-percent"
    ],
    "partial": []
   },

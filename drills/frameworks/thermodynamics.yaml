@@ -698,9 +698,9 @@ units:
       - n: 4
         title: "Activity models"
         los:
+          - { id: E, std: ["webwork-opl:TH17.7", "webwork-opl:TH17.8", "webwork-opl:TH17.11"], do: "Know what group-contribution and other activity models need.", ek: ["UNIFAC: group volumes, areas and group interaction parameters; UNIQUAC: r and q plus binary energies; MOSCED: dispersion, polarity, induction and hydrogen-bond parameters."], p: [P1], drills: [td-activity-models, td-model-pick] }
           - { id: A, std: ["webwork-opl:TH17.4"], do: "Use the van Laar model.", ek: ["ln γ₁ = A₁₂(A₂₁x₂/(A₁₂x₁ + A₂₁x₂))²."], p: [P1], drills: [td-van-laar, td-van-laar-infinite] }
           - { id: B, std: ["webwork-opl:TH17.5"], do: "Use regular-solution (Scatchard–Hildebrand) theory.", ek: ["ln γ₁ = V₁Φ₂²(δ₁ − δ₂)²/RT."], p: [P1], drills: [td-scatchard-hildebrand, td-hildebrand-match] }
           - { id: C, std: ["webwork-opl:TH17.9"], do: "Use Wilson's equation.", ek: ["ln γ₁ = −ln(x₁ + Λ₁₂x₂) + x₂[Λ₁₂/(x₁ + Λ₁₂x₂) − Λ₂₁/(x₂ + Λ₂₁x₁)]."], p: [P1], drills: [td-wilson, td-wilson-symmetric] }
           - { id: D, std: ["webwork-opl:TH17.10"], do: "Use the NRTL model at infinite dilution.", ek: ["ln γ₁^∞ = τ₂₁ + τ₁₂ exp(−ατ₁₂)."], p: [P1], drills: [td-nrtl-infinite, td-nrtl-gamma2-inf] }
-          - { id: E, std: ["webwork-opl:TH17.7", "webwork-opl:TH17.8", "webwork-opl:TH17.11"], do: "Know what group-contribution and other activity models need.", ek: ["UNIFAC: group volumes, areas and group interaction parameters; UNIQUAC: r and q plus binary energies; MOSCED: dispersion, polarity, induction and hydrogen-bond parameters."], p: [P1], drills: [td-activity-models, td-model-pick] }
   # <<< opl-fill:opl-td

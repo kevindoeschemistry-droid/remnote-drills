@@ -76,8 +76,8 @@ units:
       - n: 2
         title: "Oxides and oxoacids"
         los:
-          - { id: A, std: ["icho-appendix-c:d4", "acs-accm-general:IX.C.1", "acs-accm-analytical:IX.B.1"], do: "Name a halogen, sulfur or nitrogen oxoacid from its formula.", ek: ["hypo-…-ous, -ous, -ic, per-…-ic in order of oxidation state."], p: [P2], needs: [IN-2.1.A], drills: [in-oxoacid-name, in-oxoacid-state] }
           - { id: B, std: ["icho-appendix-c:d3", "acs-accm-inorganic:I.C.3", "acs-accm-inorganic:III.G.5", "acs-accm-inorganic:V.E.3"], do: "Classify an oxide as acidic, basic, amphoteric or neutral.", ek: ["Metal oxides basic, non-metal oxides acidic, Al/Be/Zn amphoteric, CO/NO/N₂O neutral."], p: [P2, P3], drills: [in-oxide-character, in-oxide-trend] }
+          - { id: A, std: ["icho-appendix-c:d4", "acs-accm-general:IX.C.1", "acs-accm-analytical:IX.B.1"], do: "Name a halogen, sulfur or nitrogen oxoacid from its formula.", ek: ["hypo-…-ous, -ous, -ic, per-…-ic in order of oxidation state."], p: [P2], needs: [IN-2.1.A], drills: [in-oxoacid-name, in-oxoacid-state] }
   - id: coordination
     n: 3
     title: "The d block and coordination compounds"
@@ -88,15 +88,15 @@ units:
       - n: 1
         title: "Counting and splitting"
         los:
+          - { id: D, std: ["acs-accm-inorganic:III.A.2", "acs-accm-inorganic:III.F.1"], do: "Rank ligands by the size of the splitting they cause.", ek: ["I⁻ < Br⁻ < Cl⁻ < F⁻ < OH⁻ < H₂O < NH₃ < en < NO₂⁻ < CN⁻ < CO."], p: [P2], drills: [in-spectrochemical, in-spectro-consequence] }
           - { id: A, do: "Find the metal's d-electron count in a complex.", ek: ["dⁿ = group − oxidation state."], p: [P1], needs: [IN-2.1.A], drills: [in-d-count, in-ox-from-d] }
           - { id: B, std: ["acs-accm-inorganic:I.B.5", "acs-accm-inorganic:IX.D.7"], do: "Give the spin-only magnetic moment of a high- or low-spin complex.", ek: ["μ = √(n(n+2)) μ_B."], p: [P1], needs: [IN-3.1.A], drills: [in-spin-only, in-unpaired-from-moment] }
           - { id: C, std: ["acs-accm-inorganic:II.A.2", "acs-accm-inorganic:II.C.3"], do: "Compute the crystal-field stabilisation energy of an octahedral ion.", ek: ["−0.4Δ_o per t₂g electron, +0.6Δ_o per e_g electron."], p: [P1], needs: [IN-3.1.A], drills: [in-cfse, in-cfse-gain] }
-          - { id: D, std: ["acs-accm-inorganic:III.A.2", "acs-accm-inorganic:III.F.1"], do: "Rank ligands by the size of the splitting they cause.", ek: ["I⁻ < Br⁻ < Cl⁻ < F⁻ < OH⁻ < H₂O < NH₃ < en < NO₂⁻ < CN⁻ < CO."], p: [P2], drills: [in-spectrochemical, in-spectro-consequence] }
       - n: 2
         title: "Structure and colour"
         los:
-          - { id: A, std: ["icho-appendix-c:a1", "acs-accm-inorganic:III.E.2"], do: "Count the stereoisomers of an octahedral or square-planar complex.", ek: ["Geometric isomers by trans pairs, then check each for chirality."], p: [P3], drills: [in-isomer-type, in-isomer-count] }
           - { id: B, std: ["icho-appendix-c:d6", "acs-accm-inorganic:III.A.2", "acs-accm-inorganic:IX.D.2", "acs-accm-inorganic:X.A.3"], do: "Name the colour of a common transition-metal ion or oxoanion in water.", ek: ["Colour is the complement of the light absorbed; d⁰ and d¹⁰ are colourless unless charge transfer."], p: [P2], drills: [in-ion-colour, in-colour-identify] }
+          - { id: A, std: ["icho-appendix-c:a1", "acs-accm-inorganic:III.E.2"], do: "Count the stereoisomers of an octahedral or square-planar complex.", ek: ["Geometric isomers by trans pairs, then check each for chirality."], p: [P3], drills: [in-isomer-type, in-isomer-count] }
   - id: redox-qual
     n: 4
     title: "Redox and qualitative analysis"

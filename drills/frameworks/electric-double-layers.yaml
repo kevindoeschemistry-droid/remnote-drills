@@ -47,10 +47,10 @@ units:
       - n: 1
         title: "Charges, fields and the double-layer concept"
         los:
+          - { id: D, std: ["petsev-edl:1"], do: "Place electrolyte models in the book's hierarchy.", ek: ["Primitive: ions in a dielectric continuum. Semi-primitive: explicit neutral solvent spheres. Civilized: explicit dipolar solvent."], p: [P2], drills: [el-model-hierarchy, el-model-capabilities] }
           - { id: A, std: ["petsev-edl:1"], do: "Compute the Coulomb force between ions in a dielectric.", ek: ["F = z₁z₂e²/(4πεε₀r²); water's ε ≈ 78 cuts it about 80-fold."], p: [P1], drills: [el-coulomb-force, el-coulomb-kt-distance] }
           - { id: B, std: ["petsev-edl:1"], do: "Relate surface charge to the field at the surface and treat the Helmholtz layer as a capacitor.", ek: ["Gauss: E = σ/(εε₀) at a charged wall; Helmholtz: C = εε₀/d."], p: [P1], drills: [el-helmholtz-capacitance, el-surface-field] }
           - { id: C, std: ["petsev-edl:1"], do: "Use the Schulze–Hardy rule.", ek: ["Critical coagulation concentration ∝ z⁻⁶ for highly charged particles, ∝ z⁻² at low potential."], p: [P1], drills: [el-schulze-hardy, el-ccc-predict] }
-          - { id: D, std: ["petsev-edl:1"], do: "Place electrolyte models in the book's hierarchy.", ek: ["Primitive: ions in a dielectric continuum. Semi-primitive: explicit neutral solvent spheres. Civilized: explicit dipolar solvent."], p: [P2], drills: [el-model-hierarchy, el-model-capabilities] }
       - n: 2
         title: "Charge regulation and adsorption"
         los:
@@ -96,9 +96,9 @@ units:
       - n: 1
         title: "Integral equations"
         los:
+          - { id: C, std: ["petsev-edl:4"], do: "Recognise the common closures.", ek: ["PY: c = g(1 − e^{βφ}). HNC: c = h − ln y (i.e. g − 1 − ln y). MSA: g = 0 inside the core, c = −βφ outside."], p: [P2], drills: [el-closures, el-closure-forms] }
           - { id: A, std: ["petsev-edl:4"], do: "Use the Ornstein–Zernike equation in Fourier space.", ek: ["ĥ = ĉ/(1 − ρĉ); S(0) = 1/(1 − ρĉ(0)) is the reduced compressibility."], p: [P1], drills: [el-oz-structure-factor, el-direct-correlation-from-s] }
           - { id: B, std: ["petsev-edl:4"], do: "Compare the hard-sphere equations of state.", ek: ["PY virial (1 + 2η + 3η²)/(1 − η)²; PY compressibility (1 + η + η²)/(1 − η)³; Carnahan–Starling (1 + η + η² − η³)/(1 − η)³."], p: [P1], drills: [el-hs-pressure, el-cs-vs-py-virial] }
-          - { id: C, std: ["petsev-edl:4"], do: "Recognise the common closures.", ek: ["PY: c = g(1 − e^{βφ}). HNC: c = h − ln y (i.e. g − 1 − ln y). MSA: g = 0 inside the core, c = −βφ outside."], p: [P2], drills: [el-closures, el-closure-forms] }
           - { id: D, std: ["petsev-edl:4"], do: "Compute packing fraction from number density and diameter.", ek: ["η = πρd³/6; ξ₃ for mixtures."], p: [P1], drills: [el-packing-fraction, el-diameter-from-packing] }
       - n: 2
         title: "Virial, perturbation and mean-field theory"
@@ -127,10 +127,10 @@ units:
       - n: 2
         title: "Classical DFT for electrolytes"
         los:
+          - { id: D, std: ["petsev-edl:7"], do: "Know what fundamental-measure theory weights.", ek: ["n₃ is the local packing fraction (volume weight θ(R − |r|)), n₂ the surface weight δ(R − |r|), n₁ and n₀ scaled versions, plus vector weights."], p: [P2], drills: [el-fmt-weights, el-fmt-measures] }
           - { id: A, std: ["petsev-edl:7"], do: "Compute the Bjerrum length and Debye length from it.", ek: ["λ_B = e²/(4πεε₀kT) ≈ 0.71 nm in water; κ² = 4πλ_BΣz_i²ρ_i."], p: [P1], drills: [el-bjerrum, el-debye-from-bjerrum] }
           - { id: B, std: ["petsev-edl:7"], do: "Apply the contact theorem at a charged wall.", ek: ["kTΣρ_i(0) = p_b + σ²/(2εε₀); for an ideal 1:1 bulk p_b = 2ρ₀kT."], p: [P1], drills: [el-contact-theorem, el-contact-theorem-sigma] }
           - { id: C, std: ["petsev-edl:7"], do: "Evaluate the Carnahan–Starling hard-sphere free energy.", ek: ["βf_ex = η(4 − 3η)/(1 − η)² per particle."], p: [P1], drills: [el-cs-free-energy, el-cs-chemical-potential] }
-          - { id: D, std: ["petsev-edl:7"], do: "Know what fundamental-measure theory weights.", ek: ["n₃ is the local packing fraction (volume weight θ(R − |r|)), n₂ the surface weight δ(R − |r|), n₁ and n₀ scaled versions, plus vector weights."], p: [P2], drills: [el-fmt-weights, el-fmt-measures] }
           - { id: E, std: ["petsev-edl:7"], do: "Compute the MSA screening parameter.", ek: ["Restricted primitive model: 2Γd = √(1 + 2κd) − 1; Γ → κ/2 at low density."], p: [P1], drills: [el-msa-gamma, el-msa-ratio] }
           - { id: F, std: ["petsev-edl:7"], do: "Model a charge-regulating surface with Langmuir site equilibria.", ek: ["Fraction of sites bound: θ = ρ_F(r_s)/(ρ_F(r_s) + K)."], p: [P1], drills: [el-site-binding, el-site-binding-k] }
   - id: el-molecular

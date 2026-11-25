@@ -779,6 +779,20 @@
      "title": "Countermeasures",
      "los": [
       {
+       "id": "C",
+       "do": "Describe rapid countermeasure programmes: platforms, the 100 Days Mission, financing and trials.",
+       "ek": [
+        "CEPI's goal: vaccines within 100 days of a threat; platform technologies; advance commitments."
+       ],
+       "p": [
+        "P2"
+       ],
+       "drills": [
+        "bs-mcm-facts",
+        "bs-mcm-scenario"
+       ]
+      },
+      {
        "id": "A",
        "do": "Compute the vaccination coverage needed for herd protection given vaccine efficacy.",
        "ek": [
@@ -807,20 +821,6 @@
        ]
       },
       {
-       "id": "C",
-       "do": "Describe rapid countermeasure programmes: platforms, the 100 Days Mission, financing and trials.",
-       "ek": [
-        "CEPI's goal: vaccines within 100 days of a threat; platform technologies; advance commitments."
-       ],
-       "p": [
-        "P2"
-       ],
-       "drills": [
-        "bs-mcm-facts",
-        "bs-mcm-scenario"
-       ]
-      },
-      {
        "id": "D",
        "do": "Compute the number needed to vaccinate and the expected cases averted.",
        "ek": [
@@ -841,20 +841,6 @@
      "title": "Scale-up and governance",
      "los": [
       {
-       "id": "A",
-       "do": "Compute manufacturing and delivery rates needed to cover a population in time.",
-       "ek": [
-        "Doses per day = population × doses per person ÷ days."
-       ],
-       "p": [
-        "P1"
-       ],
-       "drills": [
-        "bs-doses-per-day",
-        "bs-campaign-days"
-       ]
-      },
-      {
        "id": "B",
        "do": "Name the global health governance instruments and who decides what.",
        "ek": [
@@ -866,6 +852,20 @@
        "drills": [
         "bs-governance-facts",
         "bs-who-decides"
+       ]
+      },
+      {
+       "id": "A",
+       "do": "Compute manufacturing and delivery rates needed to cover a population in time.",
+       "ek": [
+        "Doses per day = population × doses per person ÷ days."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "bs-doses-per-day",
+        "bs-campaign-days"
        ]
       }
      ]
@@ -1299,6 +1299,17 @@
    "partial": []
   },
   {
+   "code": "BS-5.1.C",
+   "unit": 5,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "bs-mcm-facts",
+    "bs-mcm-scenario"
+   ],
+   "partial": []
+  },
+  {
    "code": "BS-5.1.A",
    "unit": 5,
    "topic": 1,
@@ -1321,17 +1332,6 @@
    "partial": []
   },
   {
-   "code": "BS-5.1.C",
-   "unit": 5,
-   "topic": 1,
-   "status": "ok",
-   "full": [
-    "bs-mcm-facts",
-    "bs-mcm-scenario"
-   ],
-   "partial": []
-  },
-  {
    "code": "BS-5.1.D",
    "unit": 5,
    "topic": 1,
@@ -1343,17 +1343,6 @@
    "partial": []
   },
   {
-   "code": "BS-5.2.A",
-   "unit": 5,
-   "topic": 2,
-   "status": "ok",
-   "full": [
-    "bs-doses-per-day",
-    "bs-campaign-days"
-   ],
-   "partial": []
-  },
-  {
    "code": "BS-5.2.B",
    "unit": 5,
    "topic": 2,
@@ -1361,6 +1350,17 @@
    "full": [
     "bs-governance-facts",
     "bs-who-decides"
+   ],
+   "partial": []
+  },
+  {
+   "code": "BS-5.2.A",
+   "unit": 5,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "bs-doses-per-day",
+    "bs-campaign-days"
    ],
    "partial": []
   },

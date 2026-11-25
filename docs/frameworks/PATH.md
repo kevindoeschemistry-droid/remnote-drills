@@ -1,6 +1,6 @@
 # The path — start to finish
 
-Every framework in `requires` order; inside each, units and objectives in order, except that 159 objectives move up to sit just after the prerequisites they need. 4295 objectives in 53 frameworks.
+Every framework in `requires` order; inside each, units and objectives in order, except that 157 objectives move up to sit just after the prerequisites they need. 4295 objectives in 53 frameworks.
 
 | # | Framework | Track | Requires | LOs | Path position |
 |---|---|---|---|---|---|

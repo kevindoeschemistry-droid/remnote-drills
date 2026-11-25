@@ -208,6 +208,12 @@ Big ideas: INT, SYS
 
 
 
+- ● **PH-2.6.C** (P1 2.6.C, P1 2.6.D, CM 2.6.C, CM 2.6.D) Find apparent weight in an accelerating frame and tell inertial from gravitational mass.
+  - EK: A scale reads the normal force: N = m(g + a) with a positive upward; in free fall N = 0 (weightless) though gravity still acts; inertial and gravitational mass are equal to high precision.
+  - 2B · drills: ph-elevator-scale, ph-weightless
+- ● **PH-2.6.D** (P1 2.6.B, CM 2.6.B, CM 2.6.E) Decide when g is constant and find g above a planet or inside a uniform sphere.
+  - EK: Outside: g = GM/r², nearly constant when the height is small next to the radius; inside a uniform sphere g = GMr/R³, growing linearly from zero at the centre.
+  - 2B · drills: ph-g-altitude, ph-g-inside
 - ● **PH-2.6.A** (P1 2.6.A, CM 2.6.A) Calculate the gravitational force between two masses with Newton's law of gravitation.
   - EK: F = Gm₁m₂/r², r center to center; doubling r quarters F.
   - 2B · 2D · drills: ph-gravitation-force, ph-gravity-distance-scaling
@@ -215,12 +221,6 @@ Big ideas: INT, SYS
   - EK: g = GM/r²; weight mg is the gravitational force, and g is also the free-fall acceleration.
   - Needs: PH-2.6.A
   - 2A · 2B · drills: ph-g-at-altitude, ph-g-planet-scaling
-- ● **PH-2.6.C** (P1 2.6.C, P1 2.6.D, CM 2.6.C, CM 2.6.D) Find apparent weight in an accelerating frame and tell inertial from gravitational mass.
-  - EK: A scale reads the normal force: N = m(g + a) with a positive upward; in free fall N = 0 (weightless) though gravity still acts; inertial and gravitational mass are equal to high precision.
-  - 2B · drills: ph-elevator-scale, ph-weightless
-- ● **PH-2.6.D** (P1 2.6.B, CM 2.6.B, CM 2.6.E) Decide when g is constant and find g above a planet or inside a uniform sphere.
-  - EK: Outside: g = GM/r², nearly constant when the height is small next to the radius; inside a uniform sphere g = GMr/R³, growing linearly from zero at the centre.
-  - 2B · drills: ph-g-altitude, ph-g-inside
 
 ### 2.7 Kinetic and static friction
 
@@ -239,13 +239,13 @@ Big ideas: INT, SYS
 
 
 
+- ● **PH-2.8.B** (CM 2.8.B) Combine springs in series and in parallel.
+  - EK: Parallel: k = k₁ + k₂ (same stretch); series: 1/k = 1/k₁ + 1/k₂ (same force).
+  - 2B · drills: ph-springs-combine, ph-spring-cut
 - ● **PH-2.8.A** (P1 2.8.A, CM 2.8.A) Apply Hooke's law to find a spring force, stretch or spring constant, including k from a force–extension graph.
   - EK: F_s = −kΔx, restoring toward equilibrium; k is the slope of F vs Δx.
   - Needs: PH-2.4.A
   - 1B · 2B · drills: ph-hooke, ph-springs-combined
-- ● **PH-2.8.B** (CM 2.8.B) Combine springs in series and in parallel.
-  - EK: Parallel: k = k₁ + k₂ (same stretch); series: 1/k = 1/k₁ + 1/k₂ (same force).
-  - 2B · drills: ph-springs-combine, ph-spring-cut
 
 ### 2.9 Circular motion
 

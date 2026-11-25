@@ -170,6 +170,23 @@
      "title": "Hazards",
      "los": [
       {
+       "id": "C",
+       "std": [
+        "fe-chemical:16.C"
+       ],
+       "do": "State what a HAZOP guide word means.",
+       "ek": [
+        "NO, MORE, LESS, REVERSE, AS WELL AS, PART OF, OTHER THAN."
+       ],
+       "p": [
+        "P2"
+       ],
+       "drills": [
+        "pd-hazop",
+        "pd-hazop-word"
+       ]
+      },
+      {
        "id": "A",
        "std": [
         "fe-chemical:16.A"
@@ -201,23 +218,6 @@
        "drills": [
         "pd-tlv-mixture",
         "pd-tlv-allowance"
-       ]
-      },
-      {
-       "id": "C",
-       "std": [
-        "fe-chemical:16.C"
-       ],
-       "do": "State what a HAZOP guide word means.",
-       "ek": [
-        "NO, MORE, LESS, REVERSE, AS WELL AS, PART OF, OTHER THAN."
-       ],
-       "p": [
-        "P2"
-       ],
-       "drills": [
-        "pd-hazop",
-        "pd-hazop-word"
        ]
       }
      ]
@@ -317,6 +317,17 @@
    "partial": []
   },
   {
+   "code": "PD-2.1.C",
+   "unit": 2,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "pd-hazop",
+    "pd-hazop-word"
+   ],
+   "partial": []
+  },
+  {
    "code": "PD-2.1.A",
    "unit": 2,
    "topic": 1,
@@ -335,17 +346,6 @@
    "full": [
     "pd-tlv-mixture",
     "pd-tlv-allowance"
-   ],
-   "partial": []
-  },
-  {
-   "code": "PD-2.1.C",
-   "unit": 2,
-   "topic": 1,
-   "status": "ok",
-   "full": [
-    "pd-hazop",
-    "pd-hazop-word"
    ],
    "partial": []
   },

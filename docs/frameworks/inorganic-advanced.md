@@ -77,15 +77,15 @@ Big ideas: TREND
 
 
 
-- ● **IA-3.1.A** (acs-accm-general:V.E.1, acs-accm-inorganic:III.G.1) Give the product of burning an alkali metal, and the oxidation state in oxides, peroxides and superoxides.
-  - EK: Li₂O, Na₂O₂, KO₂; O −2, −1, −½.
-  - P1 · P2 · drills: cw-alkali-burn, cw-dioxygen-anion-ox
 - ● **IA-3.1.B** Rank the thermal stability of group 2 carbonates.
   - EK: Rises down the group as cations grow less polarising.
   - P3 · drills: cw-carbonate-stability, cw-group2-thermal
 - ● **IA-3.1.C** (acs-accm-inorganic:III.G.2) Use the diagonal relationship.
   - EK: Li–Mg, Be–Al, B–Si.
   - P2 · drills: cw-diagonal, cw-diagonal-cases
+- ● **IA-3.1.A** (acs-accm-general:V.E.1, acs-accm-inorganic:III.G.1) Give the product of burning an alkali metal, and the oxidation state in oxides, peroxides and superoxides.
+  - EK: Li₂O, Na₂O₂, KO₂; O −2, −1, −½.
+  - P1 · P2 · drills: cw-alkali-burn, cw-dioxygen-anion-ox
 
 ## Unit 4 · Boron and group 13 (ch. 5–6)
 
@@ -95,12 +95,12 @@ Big ideas: COUNT, TREND
 
 
 
-- ● **IA-4.1.A** (acs-accm-inorganic:II.A.4, acs-accm-inorganic:III.A.4, acs-accm-inorganic:III.B.2) Classify a borane as closo, nido or arachno with Wade's rules.
-  - EK: n+1, n+2, n+3 skeletal pairs.
-  - P1 · P3 · drills: cw-wade, cw-skeletal-pairs
 - ● **IA-4.1.B** Rank boron trihalide Lewis acidity and explain it by π donation.
   - EK: BF₃ < BCl₃ < BBr₃.
   - P3 · drills: cw-bx3-acid, cw-bx3-consequence
+- ● **IA-4.1.A** (acs-accm-inorganic:II.A.4, acs-accm-inorganic:III.A.4, acs-accm-inorganic:III.B.2) Classify a borane as closo, nido or arachno with Wade's rules.
+  - EK: n+1, n+2, n+3 skeletal pairs.
+  - P1 · P3 · drills: cw-wade, cw-skeletal-pairs
 - ● **IA-4.1.C** (acs-accm-inorganic:III.G.4) Use the inert-pair effect, and find average oxidation states in mixed-valence group 13 compounds.
   - EK: Tl(I), Pb(II), Bi(III); GaCl₂ = Ga⁺[GaCl₄]⁻.
   - P1 · P2 · drills: cw-inert-pair, cw-group13-ox
@@ -197,14 +197,14 @@ Big ideas: COUNT
 - ● **IA-10.1.A** Find the d count and the number of unpaired electrons of a complex.
   - EK: dⁿ = group − oxidation state; fill t₂g/e_g by spin.
   - P1 · drills: cw-d-count, cw-complex-unpaired
-- ● **IA-10.1.B** (acs-accm-inorganic:II.C.3) Compute spin-only moments and CFSE.
-  - EK: μ = √(n(n+2)); CFSE = −0.4 t₂g + 0.6 e_g.
-  - Needs: IA-10.1.A
-  - P1 · drills: cw-spin-only-moment, cw-cfse
 - ● **IA-10.1.C** (acs-accm-inorganic:II.E.5) Use the spectrochemical series and predict Jahn–Teller distortions.
   - EK: I⁻ < … < CN⁻ < CO; uneven e_g distorts.
   - Needs: IA-10.1.A
   - P3 · drills: cw-spectrochemical, cw-jahn-teller
+- ● **IA-10.1.B** (acs-accm-inorganic:II.C.3) Compute spin-only moments and CFSE.
+  - EK: μ = √(n(n+2)); CFSE = −0.4 t₂g + 0.6 e_g.
+  - Needs: IA-10.1.A
+  - P1 · drills: cw-spin-only-moment, cw-cfse
 - ● **IA-10.1.D** (acs-accm-inorganic:VI.B.3, acs-accm-inorganic:VI.D.4, acs-accm-inorganic:VII.A.1) Predict whether a complex is labile or inert.
   - EK: d³ and low-spin d⁶ are inert.
   - Needs: IA-10.1.B
@@ -265,12 +265,12 @@ Big ideas: COUNT, TREND
 
 
 
-- ● **IA-12.1.A** Find metal–metal bond orders from d counts.
-  - EK: σ²π⁴δ² is a quadruple bond.
-  - P1 · drills: cw-metal-metal-bond, cw-mm-after-redox
 - ● **IA-12.1.B** (acs-accm-inorganic:III.G.3, acs-accm-inorganic:V.F.8) Explain the lanthanide contraction, low spin in 4d/5d, and the trans effect.
   - EK: Zr ≈ Hf; heavy complexes low spin; cisplatin route.
   - P2 · P3 · drills: cw-heavy-tm-facts, cw-heavy-tm-why
+- ● **IA-12.1.A** Find metal–metal bond orders from d counts.
+  - EK: σ²π⁴δ² is a quadruple bond.
+  - P1 · drills: cw-metal-metal-bond, cw-mm-after-redox
 
 ### 12.2 Zr to Au, pair by pair
 

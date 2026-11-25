@@ -66,12 +66,12 @@ Big ideas: MATH
 
 
 
-- ● **AB-3.1.A** (harper-carroll-academy:3) Compute a neuron's output with ReLU or sigmoid.
-  - EK: Weighted sum plus bias, then the activation.
-  - P1 · drills: ab-neuron, ab-sigmoid
 - ● **AB-3.1.B** (harper-carroll-academy:3) Name the parts of a network and say why activations must be nonlinear.
   - EK: Parameters, forward pass, backpropagation; stacked linear layers collapse to one.
   - P2 · drills: ab-activation, ab-network-parts
+- ● **AB-3.1.A** (harper-carroll-academy:3) Compute a neuron's output with ReLU or sigmoid.
+  - EK: Weighted sum plus bias, then the activation.
+  - P1 · drills: ab-neuron, ab-sigmoid
 - ● **AB-3.1.C** (harper-carroll-academy:3) Count the parameters of a fully connected layer or small network.
   - EK: Each neuron: one weight per input plus a bias.
   - P1 · drills: ab-params-layer, ab-params-net

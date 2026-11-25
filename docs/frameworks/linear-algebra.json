@@ -54,6 +54,24 @@
      "title": "Row reduction",
      "los": [
       {
+       "id": "E",
+       "std": [
+        "cupm-2023-la:E2",
+        "cupm-2023-la:E9"
+       ],
+       "do": "Decide independence by counting: rank, the number of vectors and the dimension of the space.",
+       "ek": [
+        "More than n vectors in Rⁿ are always dependent; n vectors in Rⁿ are independent exactly when the matrix they form has nonzero determinant (rank n)."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "la-indep-det",
+        "la-indep-count"
+       ]
+      },
+      {
        "id": "A",
        "std": [
         "lay-5e:1",
@@ -131,24 +149,6 @@
         "la-free-variables",
         "la-min-free-vars"
        ]
-      },
-      {
-       "id": "E",
-       "std": [
-        "cupm-2023-la:E2",
-        "cupm-2023-la:E9"
-       ],
-       "do": "Decide independence by counting: rank, the number of vectors and the dimension of the space.",
-       "ek": [
-        "More than n vectors in Rⁿ are always dependent; n vectors in Rⁿ are independent exactly when the matrix they form has nonzero determinant (rank n)."
-       ],
-       "p": [
-        "P1"
-       ],
-       "drills": [
-        "la-indep-det",
-        "la-indep-count"
-       ]
       }
      ]
     },
@@ -156,6 +156,24 @@
      "n": 2,
      "title": "Vector equations and span",
      "los": [
+      {
+       "id": "C",
+       "std": [
+        "cupm-2023-la:E3",
+        "cupm-2023-la:E5"
+       ],
+       "do": "Describe a span geometrically and find its dimension.",
+       "ek": [
+        "The span of vectors in R³ is a point, a line, a plane or all of R³, as its dimension (the rank) is 0, 1, 2 or 3."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "la-span-dim",
+        "la-span-shape"
+       ]
+      },
       {
        "id": "A",
        "std": [
@@ -196,24 +214,6 @@
        "drills": [
         "la-solution-set-shape",
         "la-solution-set-dim"
-       ]
-      },
-      {
-       "id": "C",
-       "std": [
-        "cupm-2023-la:E3",
-        "cupm-2023-la:E5"
-       ],
-       "do": "Describe a span geometrically and find its dimension.",
-       "ek": [
-        "The span of vectors in R³ is a point, a line, a plane or all of R³, as its dimension (the rank) is 0, 1, 2 or 3."
-       ],
-       "p": [
-        "P1"
-       ],
-       "drills": [
-        "la-span-dim",
-        "la-span-shape"
        ]
       }
      ]
@@ -782,6 +782,24 @@
      "title": "Projections",
      "los": [
       {
+       "id": "C",
+       "std": [
+        "cupm-2023-la:E11",
+        "cupm-2023-la:E10"
+       ],
+       "do": "Fit a least-squares line with the normal equations and read its residuals.",
+       "ek": [
+        "Solve AᵀA c = Aᵀy for c = (b, m); the residual vector is orthogonal to every column of A, so its entries sum to zero when an intercept is fitted."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "la-lsq-slope",
+        "la-lsq-residual-sum"
+       ]
+      },
+      {
        "id": "A",
        "std": [
         "lay-5e:6",
@@ -823,24 +841,6 @@
        "drills": [
         "la-least-squares-slope",
         "la-least-squares-facts"
-       ]
-      },
-      {
-       "id": "C",
-       "std": [
-        "cupm-2023-la:E11",
-        "cupm-2023-la:E10"
-       ],
-       "do": "Fit a least-squares line with the normal equations and read its residuals.",
-       "ek": [
-        "Solve AᵀA c = Aᵀy for c = (b, m); the residual vector is orthogonal to every column of A, so its entries sum to zero when an intercept is fitted."
-       ],
-       "p": [
-        "P1"
-       ],
-       "drills": [
-        "la-lsq-slope",
-        "la-lsq-residual-sum"
        ]
       }
      ]
@@ -1026,27 +1026,6 @@
      "title": "The singular value decomposition",
      "los": [
       {
-       "id": "A",
-       "std": [
-        "lacsg-2:F4",
-        "cupm-2015-la:second",
-        "lay-5e:7",
-        "webwork-opl:LA3.4",
-        "cupm-2023-la:O3"
-       ],
-       "do": "Find the condition number from the singular values.",
-       "ek": [
-        "κ = σ_max / σ_min."
-       ],
-       "p": [
-        "P1"
-       ],
-       "drills": [
-        "la-condition-number",
-        "la-cond-diag"
-       ]
-      },
-      {
        "id": "B",
        "std": [
         "lacsg-2:F4",
@@ -1082,6 +1061,27 @@
        "drills": [
         "la-pinv-entry",
         "la-pinv-diag"
+       ]
+      },
+      {
+       "id": "A",
+       "std": [
+        "lacsg-2:F4",
+        "cupm-2015-la:second",
+        "lay-5e:7",
+        "webwork-opl:LA3.4",
+        "cupm-2023-la:O3"
+       ],
+       "do": "Find the condition number from the singular values.",
+       "ek": [
+        "κ = σ_max / σ_min."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "la-condition-number",
+        "la-cond-diag"
        ]
       }
      ]
@@ -1178,6 +1178,27 @@
      "title": "Kernel, range and other bases",
      "los": [
       {
+       "id": "C",
+       "std": [
+        "lacsg-2:S6",
+        "lacsg-2:F1",
+        "cupm-2023-la:E6",
+        "cupm-2023-la:E7",
+        "cupm-2023-la:E8"
+       ],
+       "do": "Find the eigenvalues and eigenvectors of a linear operator on a function space.",
+       "ek": [
+        "Apply the operator to a basis (monomials, exponentials): T(p) = λp makes p an eigenvector; the matrix of D on polynomials is nilpotent, so its only eigenvalue is 0."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "la-operator-eigen",
+        "la-derivative-nilpotent"
+       ]
+      },
+      {
        "id": "A",
        "std": [
         "cupm-2015-la:4",
@@ -1220,27 +1241,6 @@
        "drills": [
         "la-matrix-relative-to-basis",
         "la-shift-matrix-entry"
-       ]
-      },
-      {
-       "id": "C",
-       "std": [
-        "lacsg-2:S6",
-        "lacsg-2:F1",
-        "cupm-2023-la:E6",
-        "cupm-2023-la:E7",
-        "cupm-2023-la:E8"
-       ],
-       "do": "Find the eigenvalues and eigenvectors of a linear operator on a function space.",
-       "ek": [
-        "Apply the operator to a basis (monomials, exponentials): T(p) = λp makes p an eigenvector; the matrix of D on polynomials is nilpotent, so its only eigenvalue is 0."
-       ],
-       "p": [
-        "P1"
-       ],
-       "drills": [
-        "la-operator-eigen",
-        "la-derivative-nilpotent"
        ]
       }
      ]
@@ -1500,6 +1500,17 @@
  ],
  "rows": [
   {
+   "code": "LA-1.1.E",
+   "unit": 1,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "la-indep-det",
+    "la-indep-count"
+   ],
+   "partial": []
+  },
+  {
    "code": "LA-1.1.A",
    "unit": 1,
    "topic": 1,
@@ -1544,13 +1555,13 @@
    "partial": []
   },
   {
-   "code": "LA-1.1.E",
+   "code": "LA-1.2.C",
    "unit": 1,
-   "topic": 1,
+   "topic": 2,
    "status": "ok",
    "full": [
-    "la-indep-det",
-    "la-indep-count"
+    "la-span-dim",
+    "la-span-shape"
    ],
    "partial": []
   },
@@ -1573,17 +1584,6 @@
    "full": [
     "la-solution-set-shape",
     "la-solution-set-dim"
-   ],
-   "partial": []
-  },
-  {
-   "code": "LA-1.2.C",
-   "unit": 1,
-   "topic": 2,
-   "status": "ok",
-   "full": [
-    "la-span-dim",
-    "la-span-shape"
    ],
    "partial": []
   },
@@ -1824,6 +1824,17 @@
    "partial": []
   },
   {
+   "code": "LA-6.1.C",
+   "unit": 6,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "la-lsq-slope",
+    "la-lsq-residual-sum"
+   ],
+   "partial": []
+  },
+  {
    "code": "LA-6.1.A",
    "unit": 6,
    "topic": 1,
@@ -1843,17 +1854,6 @@
    "full": [
     "la-least-squares-slope",
     "la-least-squares-facts"
-   ],
-   "partial": []
-  },
-  {
-   "code": "LA-6.1.C",
-   "unit": 6,
-   "topic": 1,
-   "status": "ok",
-   "full": [
-    "la-lsq-slope",
-    "la-lsq-residual-sum"
    ],
    "partial": []
   },
@@ -1935,17 +1935,6 @@
    "partial": []
   },
   {
-   "code": "LA-7.3.A",
-   "unit": 7,
-   "topic": 3,
-   "status": "ok",
-   "full": [
-    "la-condition-number",
-    "la-cond-diag"
-   ],
-   "partial": []
-  },
-  {
    "code": "LA-7.3.B",
    "unit": 7,
    "topic": 3,
@@ -1964,6 +1953,17 @@
    "full": [
     "la-pinv-entry",
     "la-pinv-diag"
+   ],
+   "partial": []
+  },
+  {
+   "code": "LA-7.3.A",
+   "unit": 7,
+   "topic": 3,
+   "status": "ok",
+   "full": [
+    "la-condition-number",
+    "la-cond-diag"
    ],
    "partial": []
   },
@@ -2001,6 +2001,17 @@
    "partial": []
   },
   {
+   "code": "LA-8.2.C",
+   "unit": 8,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "la-operator-eigen",
+    "la-derivative-nilpotent"
+   ],
+   "partial": []
+  },
+  {
    "code": "LA-8.2.A",
    "unit": 8,
    "topic": 2,
@@ -2019,17 +2030,6 @@
    "full": [
     "la-matrix-relative-to-basis",
     "la-shift-matrix-entry"
-   ],
-   "partial": []
-  },
-  {
-   "code": "LA-8.2.C",
-   "unit": 8,
-   "topic": 2,
-   "status": "ok",
-   "full": [
-    "la-operator-eigen",
-    "la-derivative-nilpotent"
    ],
    "partial": []
   },

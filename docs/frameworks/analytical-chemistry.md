@@ -130,15 +130,15 @@ Big ideas: ERROR
 
 
 
+- ● **AN-5.2.C** (acs-accm-inorganic:IX.C.2, acs-accm-inorganic:IX.E.2, acs-accm-analytical:VI.A.1, acs-accm-analytical:VI.B.1, acs-accm-analytical:IX.D.5, acs-accm-analytical:IX.H.4, acs-accm-analytical:X.A.1, acs-accm-analytical:X.B.1) Choose an analytical technique for a stated question.
+  - EK: Trace metals ICP-MS, volatiles GC, non-volatiles HPLC, water Karl Fischer.
+  - P2 · drills: an-instrument, an-technique-measures
 - ● **AN-5.2.A** (acs-accm-analytical:IX.F.2, acs-accm-analytical:IX.F.5) Apply Dixon's Q-test to a suspect replicate.
   - EK: Q = gap/range vs Q_crit.
   - P3 · drills: an-q-test, an-q-value
 - ● **AN-5.2.B** (acs-accm-inorganic:IX.F.1, acs-accm-analytical:IX.F.2, acs-accm-analytical:IX.F.4) Propagate random uncertainty through a sum or a product.
   - EK: Absolute in quadrature for sums, relative for products.
   - P1 · drills: an-uncertainty, an-uncertainty-product
-- ● **AN-5.2.C** (acs-accm-inorganic:IX.C.2, acs-accm-inorganic:IX.E.2, acs-accm-analytical:VI.A.1, acs-accm-analytical:VI.B.1, acs-accm-analytical:IX.D.5, acs-accm-analytical:IX.H.4, acs-accm-analytical:X.A.1, acs-accm-analytical:X.B.1) Choose an analytical technique for a stated question.
-  - EK: Trace metals ICP-MS, volatiles GC, non-volatiles HPLC, water Karl Fischer.
-  - P2 · drills: an-instrument, an-technique-measures
 
 ## Unit 6 · Instrumental methods and quality (extension)
 

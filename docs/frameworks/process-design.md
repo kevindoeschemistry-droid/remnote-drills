@@ -61,15 +61,15 @@ Big ideas: LAYERS
 
 
 
+- ● **PD-2.1.C** (fe-chemical:16.C) State what a HAZOP guide word means.
+  - EK: NO, MORE, LESS, REVERSE, AS WELL AS, PART OF, OTHER THAN.
+  - P2 · drills: pd-hazop, pd-hazop-word
 - ● **PD-2.1.A** (fe-chemical:16.A) Compute the lower flammable limit of a fuel mixture.
   - EK: Le Chatelier: 1/Σ(yᵢ/LFLᵢ).
   - P1 · drills: pd-lfl-mixture, pd-flammable-check
 - ● **PD-2.1.B** (fe-chemical:16.B) Judge a mixed exposure against its limits.
   - EK: Σ Cᵢ/TLVᵢ ≤ 1.
   - P2 · drills: pd-tlv-mixture, pd-tlv-allowance
-- ● **PD-2.1.C** (fe-chemical:16.C) State what a HAZOP guide word means.
-  - EK: NO, MORE, LESS, REVERSE, AS WELL AS, PART OF, OTHER THAN.
-  - P2 · drills: pd-hazop, pd-hazop-word
 
 ## Unit 3 · Process dynamics
 

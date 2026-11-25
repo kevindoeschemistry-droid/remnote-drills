@@ -193,25 +193,6 @@
      "title": "Alkali and alkaline-earth metals",
      "los": [
       {
-       "id": "A",
-       "std": [
-        "acs-accm-general:V.E.1",
-        "acs-accm-inorganic:III.G.1"
-       ],
-       "do": "Give the product of burning an alkali metal, and the oxidation state in oxides, peroxides and superoxides.",
-       "ek": [
-        "Li₂O, Na₂O₂, KO₂; O −2, −1, −½."
-       ],
-       "p": [
-        "P1",
-        "P2"
-       ],
-       "drills": [
-        "cw-alkali-burn",
-        "cw-dioxygen-anion-ox"
-       ]
-      },
-      {
        "id": "B",
        "do": "Rank the thermal stability of group 2 carbonates.",
        "ek": [
@@ -241,6 +222,25 @@
         "cw-diagonal",
         "cw-diagonal-cases"
        ]
+      },
+      {
+       "id": "A",
+       "std": [
+        "acs-accm-general:V.E.1",
+        "acs-accm-inorganic:III.G.1"
+       ],
+       "do": "Give the product of burning an alkali metal, and the oxidation state in oxides, peroxides and superoxides.",
+       "ek": [
+        "Li₂O, Na₂O₂, KO₂; O −2, −1, −½."
+       ],
+       "p": [
+        "P1",
+        "P2"
+       ],
+       "drills": [
+        "cw-alkali-burn",
+        "cw-dioxygen-anion-ox"
+       ]
       }
      ]
     }
@@ -261,6 +261,20 @@
      "title": "Boranes and group 13 compounds",
      "los": [
       {
+       "id": "B",
+       "do": "Rank boron trihalide Lewis acidity and explain it by π donation.",
+       "ek": [
+        "BF₃ < BCl₃ < BBr₃."
+       ],
+       "p": [
+        "P3"
+       ],
+       "drills": [
+        "cw-bx3-acid",
+        "cw-bx3-consequence"
+       ]
+      },
+      {
        "id": "A",
        "std": [
         "acs-accm-inorganic:II.A.4",
@@ -278,20 +292,6 @@
        "drills": [
         "cw-wade",
         "cw-skeletal-pairs"
-       ]
-      },
-      {
-       "id": "B",
-       "do": "Rank boron trihalide Lewis acidity and explain it by π donation.",
-       "ek": [
-        "BF₃ < BCl₃ < BBr₃."
-       ],
-       "p": [
-        "P3"
-       ],
-       "drills": [
-        "cw-bx3-acid",
-        "cw-bx3-consequence"
        ]
       },
       {
@@ -632,26 +632,6 @@
        ]
       },
       {
-       "id": "B",
-       "std": [
-        "acs-accm-inorganic:II.C.3"
-       ],
-       "do": "Compute spin-only moments and CFSE.",
-       "ek": [
-        "μ = √(n(n+2)); CFSE = −0.4 t₂g + 0.6 e_g."
-       ],
-       "p": [
-        "P1"
-       ],
-       "needs": [
-        "IA-10.1.A"
-       ],
-       "drills": [
-        "cw-spin-only-moment",
-        "cw-cfse"
-       ]
-      },
-      {
        "id": "C",
        "std": [
         "acs-accm-inorganic:II.E.5"
@@ -669,6 +649,26 @@
        "drills": [
         "cw-spectrochemical",
         "cw-jahn-teller"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "acs-accm-inorganic:II.C.3"
+       ],
+       "do": "Compute spin-only moments and CFSE.",
+       "ek": [
+        "μ = √(n(n+2)); CFSE = −0.4 t₂g + 0.6 e_g."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "IA-10.1.A"
+       ],
+       "drills": [
+        "cw-spin-only-moment",
+        "cw-cfse"
        ]
       },
       {
@@ -899,20 +899,6 @@
      "title": "Heavier metals",
      "los": [
       {
-       "id": "A",
-       "do": "Find metal–metal bond orders from d counts.",
-       "ek": [
-        "σ²π⁴δ² is a quadruple bond."
-       ],
-       "p": [
-        "P1"
-       ],
-       "drills": [
-        "cw-metal-metal-bond",
-        "cw-mm-after-redox"
-       ]
-      },
-      {
        "id": "B",
        "std": [
         "acs-accm-inorganic:III.G.3",
@@ -929,6 +915,20 @@
        "drills": [
         "cw-heavy-tm-facts",
         "cw-heavy-tm-why"
+       ]
+      },
+      {
+       "id": "A",
+       "do": "Find metal–metal bond orders from d counts.",
+       "ek": [
+        "σ²π⁴δ² is a quadruple bond."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "cw-metal-metal-bond",
+        "cw-mm-after-redox"
        ]
       }
      ]
@@ -1793,17 +1793,6 @@
    "partial": []
   },
   {
-   "code": "IA-3.1.A",
-   "unit": 3,
-   "topic": 1,
-   "status": "ok",
-   "full": [
-    "cw-alkali-burn",
-    "cw-dioxygen-anion-ox"
-   ],
-   "partial": []
-  },
-  {
    "code": "IA-3.1.B",
    "unit": 3,
    "topic": 1,
@@ -1826,13 +1815,13 @@
    "partial": []
   },
   {
-   "code": "IA-4.1.A",
-   "unit": 4,
+   "code": "IA-3.1.A",
+   "unit": 3,
    "topic": 1,
    "status": "ok",
    "full": [
-    "cw-wade",
-    "cw-skeletal-pairs"
+    "cw-alkali-burn",
+    "cw-dioxygen-anion-ox"
    ],
    "partial": []
   },
@@ -1844,6 +1833,17 @@
    "full": [
     "cw-bx3-acid",
     "cw-bx3-consequence"
+   ],
+   "partial": []
+  },
+  {
+   "code": "IA-4.1.A",
+   "unit": 4,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "cw-wade",
+    "cw-skeletal-pairs"
    ],
    "partial": []
   },
@@ -2002,17 +2002,6 @@
    "partial": []
   },
   {
-   "code": "IA-10.1.B",
-   "unit": 10,
-   "topic": 1,
-   "status": "ok",
-   "full": [
-    "cw-spin-only-moment",
-    "cw-cfse"
-   ],
-   "partial": []
-  },
-  {
    "code": "IA-10.1.C",
    "unit": 10,
    "topic": 1,
@@ -2020,6 +2009,17 @@
    "full": [
     "cw-spectrochemical",
     "cw-jahn-teller"
+   ],
+   "partial": []
+  },
+  {
+   "code": "IA-10.1.B",
+   "unit": 10,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "cw-spin-only-moment",
+    "cw-cfse"
    ],
    "partial": []
   },
@@ -2156,17 +2156,6 @@
    "partial": []
   },
   {
-   "code": "IA-12.1.A",
-   "unit": 12,
-   "topic": 1,
-   "status": "ok",
-   "full": [
-    "cw-metal-metal-bond",
-    "cw-mm-after-redox"
-   ],
-   "partial": []
-  },
-  {
    "code": "IA-12.1.B",
    "unit": 12,
    "topic": 1,
@@ -2174,6 +2163,17 @@
    "full": [
     "cw-heavy-tm-facts",
     "cw-heavy-tm-why"
+   ],
+   "partial": []
+  },
+  {
+   "code": "IA-12.1.A",
+   "unit": 12,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "cw-metal-metal-bond",
+    "cw-mm-after-redox"
    ],
    "partial": []
   },

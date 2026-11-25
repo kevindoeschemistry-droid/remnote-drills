@@ -448,15 +448,15 @@ Big ideas: SAMPLE, WORK
 
 
 
+- ● **MD-17.2.C** (alchemistry-wiki:BP, livecoms-afe:8.3, livecoms-afe:8.4, livecoms-afe:8.5) Choose and cross-check estimators and read the diagnostics: overlap, forward–reverse drift and estimator disagreement.
+  - EK: Prefer TI, BAR or MBAR; EXP is biased; first off-diagonal overlap at least 0.03; estimators disagreeing by more than 1 kcal/mol, or forward–reverse by more than 1 kT, means not converged.
+  - P5 · drills: fe-overlap-pick, fe-estimators
 - ● **MD-17.2.A** (livecoms-afe:7.2.5, livecoms-afe:8.1, livecoms-afe:8.2) Detect equilibration and decorrelate data: count effectively uncorrelated samples per state.
   - EK: Discard the early part; N_eff = (T − t₀)/g; aim for at least about 50 per state; if T is not about 20 times t₀, the run is short.
   - P5 · drills: fe-neff, fe-equil-detect
 - ● **MD-17.2.B** (livecoms-afe:7.2.5) Plan what to save: the energies each estimator needs and how often to write them.
   - EK: TI needs dU/dλ, EXP one-direction ΔU, BAR both neighbours, MBAR every state; write roughly every 50–100 steps; set the target uncertainty before running.
   - P5 · drills: fe-frames, fe-what-to-save
-- ● **MD-17.2.C** (alchemistry-wiki:BP, livecoms-afe:8.3, livecoms-afe:8.4, livecoms-afe:8.5) Choose and cross-check estimators and read the diagnostics: overlap, forward–reverse drift and estimator disagreement.
-  - EK: Prefer TI, BAR or MBAR; EXP is biased; first off-diagonal overlap at least 0.03; estimators disagreeing by more than 1 kcal/mol, or forward–reverse by more than 1 kT, means not converged.
-  - P5 · drills: fe-overlap-pick, fe-estimators
 - ● **MD-17.2.D** (alchemistry-wiki:BP, livecoms-afe:8.4, livecoms-afe:8.7) Compute an uncertainty from independent repeats and combine the uncertainties of independent legs.
   - EK: The gold standard is independent copies and their standard error; an estimator's own error assumes uncorrelated data and usually underestimates; independent legs add in quadrature.
   - P5 · drills: fe-leg-error, fe-repeat-se
@@ -465,15 +465,15 @@ Big ideas: SAMPLE, WORK
 
 
 
+- ● **MD-17.3.C** (livecoms-afe:8.6, livecoms-afe:7.2.6) Diagnose common failures from their symptoms.
+  - EK: Ligand leaving the site, inconsistent estimators, poor replica mixing, slow torsions, rough ΔG(λ), drift, and starting-pose dependence; wrong binding modes are common.
+  - P5 · drills: fe-diagnose, fe-binding-mode
 - ● **MD-17.3.A** (alchemistry-wiki:BP, livecoms-afe:8.5, livecoms-afe:12) Verify a result: alternate cycles, cycle closure, repeat spread against the error bar, and the checklist's red flags.
   - EK: Results from different cycles should agree; repeats should differ by about what their error bars allow; standard error above 1 kcal/mol or |ΔΔG| above about 15 kcal/mol is suspect.
   - P5 · drills: fe-repeat-consistent, fe-cycle-closure-3
 - ● **MD-17.3.B** (livecoms-afe:8.7) Report a benchmark the way the field expects: replicates, MUE and RMSE, correlation and ranking statistics, and honest plots.
   - EK: At least three replicates; RMSE and MUE for relative results (correlation depends on sign convention); bootstrap statistics; equal axes with 1 and 2 kcal/mol bands.
   - P5 · drills: fe-mue, fe-reporting
-- ● **MD-17.3.C** (livecoms-afe:8.6, livecoms-afe:7.2.6) Diagnose common failures from their symptoms.
-  - EK: Ligand leaving the site, inconsistent estimators, poor replica mixing, slow torsions, rough ΔG(λ), drift, and starting-pose dependence; wrong binding modes are common.
-  - P5 · drills: fe-diagnose, fe-binding-mode
 
 ## Unit 10 · λ dynamics and multisite λ dynamics
 

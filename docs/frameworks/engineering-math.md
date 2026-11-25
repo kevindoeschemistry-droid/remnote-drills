@@ -145,6 +145,9 @@ Book: kreyszig-10e §1.4
 
 Book: kreyszig-10e §1.5
 
+- ● **EM-2.4.D** () Solve a first-order linear ODE whose forcing switches on or off at a given time.
+  - EK: Solve on each interval and carry y across the switch: the solution is continuous even where the forcing jumps.
+  - P1 · drills: lin-switch-off, lin-switch-on
 - ● **EM-2.4.A** (webwork-opl:DE2.1) Solve a linear first-order ODE with an integrating factor, including IVPs and forcing that matches e^(−∫p).
   - EK: y′ + py = r ⇒ y = e^(−h)[∫e^h r dx + c], h = ∫p dx.
   - Needs: EM-1.1.A
@@ -157,9 +160,6 @@ Book: kreyszig-10e §1.5
   - EK: y′ + py = g y^a ⇒ u′ + (1−a)p u = (1−a)g.
   - Needs: EM-2.4.A
   - P2 · P3 · drills: bern-const, bern-power, bern-exp
-- ● **EM-2.4.D** () Solve a first-order linear ODE whose forcing switches on or off at a given time.
-  - EK: Solve on each interval and carry y across the switch: the solution is continuous even where the forcing jumps.
-  - P1 · drills: lin-switch-off, lin-switch-on
 
 ### 2.5 Choosing a first-order method
 
@@ -173,6 +173,9 @@ Book: kreyszig-10e §1.3, §1.4, §1.5
 
 Book: kreyszig-10e §1.3, §1.5
 
+- ● **EM-2.6.E** () Model a mixing tank whose volume changes because inflow and outflow differ.
+  - EK: V(t) = V₀ + (q_in − q_out)t; x′ = c_in q_in − q_out x/V(t) is linear with a variable coefficient.
+  - P1 · drills: model-tank-growing, model-tank-overflow
 - ● **EM-2.6.A** (webwork-opl:DE2.8, webwork-opl:MB5.2) Set up and solve a mixing-tank balance for concentration or mass of solute.
   - EK: dm/dt = (rate in) − (rate out), rate out = (m/V)·Q_out.
   - P1 · P3 · drills: model-mixing
@@ -185,9 +188,6 @@ Book: kreyszig-10e §1.3, §1.5
 - ● **EM-2.6.D** (webwork-opl:DE2.5) Find and classify the equilibria of an autonomous ODE y′ = f(y) from a phase line.
   - EK: f(y*) = 0; stable if f′(y*) < 0.
   - P6 · drills: em-phase-line
-- ● **EM-2.6.E** () Model a mixing tank whose volume changes because inflow and outflow differ.
-  - EK: V(t) = V₀ + (q_in − q_out)t; x′ = c_in q_in − q_out x/V(t) is linear with a variable coefficient.
-  - P1 · drills: model-tank-growing, model-tank-overflow
 
 ### 2.7 Existence and uniqueness
 
@@ -219,6 +219,9 @@ Book: kreyszig-10e §2.1, §2.6
 
 Book: kreyszig-10e §2.2, §2.3
 
+- ● **EM-3.2.C** () Solve a second-order boundary-value problem and decide whether it has none, one or infinitely many solutions.
+  - EK: Fit the general solution to the two boundary values; the system is singular exactly when the boundary points sit at zeros of the homogeneous solution.
+  - P1 · drills: bvp-unique, bvp-how-many
 - ● **EM-3.2.A** (webwork-opl:DE3.3, webwork-opl:DE3.4, webwork-opl:DE3.5, webwork-opl:DE3.6) Write the general solution of ay″ + by′ + cy = 0 for each of the three root cases of the characteristic equation.
   - EK: Distinct real: e^(λ₁x), e^(λ₂x); double: e^(λx), xe^(λx); complex α ± iβ: e^(αx)cos βx, e^(αx)sin βx.
   - Needs: EM-1.2.C
@@ -227,9 +230,6 @@ Book: kreyszig-10e §2.2, §2.3
   - EK: Two conditions y(x_0), y′(x_0) fix c_1, c_2.
   - Needs: EM-3.2.A
   - P4 · drills: char-ivp
-- ● **EM-3.2.C** () Solve a second-order boundary-value problem and decide whether it has none, one or infinitely many solutions.
-  - EK: Fit the general solution to the two boundary values; the system is singular exactly when the boundary points sit at zeros of the homogeneous solution.
-  - P1 · drills: bvp-unique, bvp-how-many
 
 ### 3.3 Euler–Cauchy equations
 
@@ -302,6 +302,9 @@ Big ideas: LIN, EIG
 
 Book: kreyszig-10e §3.1, §3.2
 
+- ● **EM-4.1.D** () Find the roots of the auxiliary equation of a third-order Euler–Cauchy ODE.
+  - EK: Try y = x^m: x^m factors out of every term, leaving m(m − 1)(m − 2) + a m(m − 1) + b m + c = 0.
+  - P1 · drills: hi-ec-roots, hi-ec-solution
 - ● **EM-4.1.A** (webwork-opl:DE3.11) Test n functions for linear independence with the n×n Wronskian.
   - EK: Rows are f, f′, …, f^(n−1); expand by cofactors.
   - Needs: EM-3.1.C, EM-8.3.A
@@ -313,21 +316,18 @@ Book: kreyszig-10e §3.1, §3.2
   - EK: A root of multiplicity k gives e^(λx), xe^(λx), …, x^(k−1)e^(λx).
   - Needs: EM-4.1.B
   - P3 · P4 · drills: hi-distinct, hi-repeated, hi-complex, hi-ivp
-- ● **EM-4.1.D** () Find the roots of the auxiliary equation of a third-order Euler–Cauchy ODE.
-  - EK: Try y = x^m: x^m factors out of every term, leaving m(m − 1)(m − 2) + a m(m − 1) + b m + c = 0.
-  - P1 · drills: hi-ec-roots, hi-ec-solution
 
 ### 4.2 Nonhomogeneous higher-order equations
 
 Book: kreyszig-10e §3.3
 
+- ● **EM-4.2.B** () Write the form of a particular solution of a higher-order ODE, multiplying by x as often as the root repeats.
+  - EK: A forcing term whose exponent matches a characteristic root of multiplicity k needs x^k times the usual trial.
+  - P1 · drills: hi-trial-form, hi-trial-coefficient
 - ● **EM-4.2.A** (webwork-opl:DE3.8) Find a particular solution of an n-th order ODE by undetermined coefficients or variation of parameters.
   - EK: Same modification rule; variation of parameters uses Cramer's rule with W_k/W.
   - Needs: EM-3.5.A, EM-4.1.C
   - P3 · drills: em-undetermined-third, ~uc-general
-- ● **EM-4.2.B** () Write the form of a particular solution of a higher-order ODE, multiplying by x as often as the root repeats.
-  - EK: A forcing term whose exponent matches a characteristic root of multiplicity k needs x^k times the usual trial.
-  - P1 · drills: hi-trial-form, hi-trial-coefficient
 
 ## Unit 5 · Systems of ODEs, phase plane and stability
 
@@ -372,15 +372,15 @@ Book: kreyszig-10e §4.3
 
 Book: kreyszig-10e §4.3, §4.4
 
+- ● **EM-5.3.C** (webwork-opl:DE5.9) Sketch a phase portrait with eigenvector directions and trajectory orientation.
+  - EK: Trajectories leave along the fast-growing eigenvector and approach along the slow-decaying one.
+  - P6 · drills: em-phase-portrait
 - ● **EM-5.3.A** (webwork-opl:DE5.9) Classify the critical point of a linear 2×2 system (node, saddle, centre, spiral) from its eigenvalues or from trace and determinant.
   - EK: p = tr A, q = det A, Δ = p² − 4q: q < 0 saddle; q > 0, Δ ≥ 0 node; Δ < 0 spiral (p ≠ 0) or centre (p = 0).
   - P2 · P6 · drills: phase-matrix, phase-equations, phase-ode2
 - ● **EM-5.3.B** (webwork-opl:DE5.9) Decide whether a critical point is stable, asymptotically stable or unstable.
   - EK: Asymptotically stable ⇔ p < 0, q > 0; centre is stable, not asymptotically.
   - P6 · drills: phase-stability
-- ● **EM-5.3.C** (webwork-opl:DE5.9) Sketch a phase portrait with eigenvector directions and trajectory orientation.
-  - EK: Trajectories leave along the fast-growing eigenvector and approach along the slow-decaying one.
-  - P6 · drills: em-phase-portrait
 
 ### 5.4 Nonlinear systems
 
@@ -493,6 +493,9 @@ Book: kreyszig-10e §6.1, §6.4
 
 Book: kreyszig-10e §6.2
 
+- ● **EM-7.3.C** () Find f(0⁺) and f(∞) from F(s) with the initial- and final-value theorems, and say when the final-value theorem fails.
+  - EK: f(0⁺) = lim s→∞ sF(s); f(∞) = lim s→0 sF(s), valid only if every pole of sF(s) lies in the open left half-plane.
+  - P1 · drills: lt-final-value, lt-initial-value
 - ● **EM-7.3.A** (webwork-opl:DE4.1) Solve a constant-coefficient IVP by transforming, solving the subsidiary equation and inverting.
   - EK: L{y′} = sY − y(0); L{y″} = s²Y − sy(0) − y′(0); initial conditions enter automatically.
   - Needs: EM-7.2.A
@@ -500,14 +503,14 @@ Book: kreyszig-10e §6.2
 - ● **EM-7.3.B** Identify the transfer function of a linear system and relate its poles to stability and damping.
   - EK: Q(s) = Y/R with zero ICs = 1/(as² + bs + c); poles in the left half-plane ⇔ decay.
   - P6 · drills: transfer-g, transfer-poles, transfer-stable
-- ● **EM-7.3.C** () Find f(0⁺) and f(∞) from F(s) with the initial- and final-value theorems, and say when the final-value theorem fails.
-  - EK: f(0⁺) = lim s→∞ sF(s); f(∞) = lim s→0 sF(s), valid only if every pole of sF(s) lies in the open left half-plane.
-  - P1 · drills: lt-final-value, lt-initial-value
 
 ### 7.4 Unit step and t-shifting
 
 Book: kreyszig-10e §6.3
 
+- ● **EM-7.4.D** () Transform a periodic function with the one-period formula.
+  - EK: L{f} = ∫₀ᵀ e^(−st) f(t) dt ÷ (1 − e^(−sT)).
+  - P1 · drills: lt-square-wave, lt-sawtooth
 - ● **EM-7.4.A** (webwork-opl:DE4.6) Write a piecewise function with unit step functions and transform it.
   - EK: f = f₁ + (f₂ − f₁)u(t − a) + …; L{f(t − a)u(t − a)} = e^(−as)F(s).
   - P1 · P3 · drills: shift-t-forward, shift-piecewise
@@ -518,9 +521,6 @@ Book: kreyszig-10e §6.3
   - EK: Transform the step-written forcing; the solution is piecewise with continuous y and y′.
   - Needs: EM-7.3.A, EM-7.4.A
   - P1 · P3 · drills: step-ivp-on, step-ivp-pulse, em-chain-laplace-pulse
-- ● **EM-7.4.D** () Transform a periodic function with the one-period formula.
-  - EK: L{f} = ∫₀ᵀ e^(−st) f(t) dt ÷ (1 − e^(−sT)).
-  - P1 · drills: lt-square-wave, lt-sawtooth
 
 ### 7.5 Impulses and the Dirac delta
 
@@ -634,6 +634,9 @@ Big ideas: EIG, TRANS, LIN
 
 Book: kreyszig-10e §11.1, §11.2
 
+- ● **EM-9.1.E** () Find what a Fourier series converges to at a jump, and sum a series of coefficients with Parseval's identity.
+  - EK: At a jump the series gives the average of the one-sided limits; Parseval: a₀²/2 + Σ(aₙ² + bₙ²) = (1/π)∫f² over a period (period 2π, a₀ the full constant).
+  - P1 · drills: fs-jump-value, fs-parseval
 - ● **EM-9.1.A** (webwork-opl:CA7.20, webwork-opl:DE8.7) Compute the Fourier coefficients of a 2π-periodic function given on one period.
   - EK: a₀ = (1/2π)∫f, a_n = (1/π)∫f cos nx, b_n = (1/π)∫f sin nx over (−π, π).
   - Needs: EM-1.1.B
@@ -648,14 +651,14 @@ Book: kreyszig-10e §11.1, §11.2
   - EK: Solve term by term; the term with nω nearest ω₀ dominates.
   - Needs: EM-9.1.A, EM-3.6.A
   - P3 · P6 · drills: em-fourier-forced-response
-- ● **EM-9.1.E** () Find what a Fourier series converges to at a jump, and sum a series of coefficients with Parseval's identity.
-  - EK: At a jump the series gives the average of the one-sided limits; Parseval: a₀²/2 + Σ(aₙ² + bₙ²) = (1/π)∫f² over a period (period 2π, a₀ the full constant).
-  - P1 · drills: fs-jump-value, fs-parseval
 
 ### 9.2 Sturm–Liouville problems
 
 Book: kreyszig-10e §11.5
 
+- ● **EM-9.2.F** () Find the eigenvalues and eigenfunctions of y″ + λy = 0 with periodic boundary conditions.
+  - EK: y(−L) = y(L), y′(−L) = y′(L): λ₀ = 0 with a constant, then λₙ = (nπ/L)² each with two eigenfunctions cos and sin.
+  - P1 · drills: sl-periodic-eigen, sl-periodic-facts
 - ● **EM-9.2.A** Rewrite a second-order eigenvalue ODE in Sturm–Liouville form and identify p, q and r.
   - EK: (py′)′ + (q + λr)y = 0; multiply by the integrating factor e^(∫a₁/a₂)/a₂ when needed.
   - P2 · drills: sl-form
@@ -674,9 +677,6 @@ Book: kreyszig-10e §11.5
   - EK: Set μ = λ + c, solve as 9.2.C, then λ = μ − c.
   - Needs: EM-9.2.C
   - P3 · P4 · drills: sl-shift-eigenvalues, sl-shift-eigenfunctions, sl-shift-negative
-- ● **EM-9.2.F** () Find the eigenvalues and eigenfunctions of y″ + λy = 0 with periodic boundary conditions.
-  - EK: y(−L) = y(L), y′(−L) = y′(L): λ₀ = 0 with a constant, then λₙ = (nπ/L)² each with two eigenfunctions cos and sin.
-  - P1 · drills: sl-periodic-eigen, sl-periodic-facts
 
 ### 9.3 Orthogonality and eigenfunction expansions
 
@@ -712,22 +712,18 @@ Big ideas: EIG, TRANS, MODEL
 
 Book: kreyszig-10e §12.1, §12.3
 
-- ● **EM-10.1.A** (webwork-opl:DE1.2, webwork-opl:DE8.1, webwork-opl:DE8.2) Classify a second-order linear PDE as elliptic, parabolic or hyperbolic and verify a solution.
-  - EK: Au_xx + 2Bu_xy + Cu_yy: AC − B² > 0 elliptic, = 0 parabolic, < 0 hyperbolic.
-  - P2 · drills: pde-classify, pde-verify
 - ● **EM-10.1.B** Substitute u = X(x)T(t) (or X(x)Y(y)), split into two ODEs with a separation constant, and decide the constant's sign from the boundary conditions.
   - EK: Only the sign that gives sines and cosines can meet two zero boundary conditions nontrivially.
   - Needs: EM-3.1.A
   - P2 · drills: mt-separate, mt-sign-of-constant, mt-ode-solution
+- ● **EM-10.1.A** (webwork-opl:DE1.2, webwork-opl:DE8.1, webwork-opl:DE8.2) Classify a second-order linear PDE as elliptic, parabolic or hyperbolic and verify a solution.
+  - EK: Au_xx + 2Bu_xy + Cu_yy: AC − B² > 0 elliptic, = 0 parabolic, < 0 hyperbolic.
+  - P2 · drills: pde-classify, pde-verify
 
 ### 10.2 Heat equation by separation of variables
 
 Book: kreyszig-10e §12.5, §12.6
 
-- ● **EM-10.2.A** Separate u = F(x)G(t) in the heat equation and find each mode's decay rate.
-  - EK: F″ + kF = 0 (an S–L problem), G′ + c²kG = 0 ⇒ G = e^(−c²λ_n t).
-  - Needs: EM-9.2.C, EM-10.1.B
-  - P2 · P3 · drills: pde-rates, mt-heat-time-constant
 - ● **EM-10.2.D** Find the eigenvalues and eigenfunctions for Dirichlet, Neumann, mixed and convective (Robin) ends.
   - EK: Dirichlet sin(nπx/L); Neumann cos(nπx/L) with n = 0; mixed sin((2n−1)πx/2L); Robin: a transcendental condition such as λ tan λL = h.
   - Needs: EM-10.1.B
@@ -736,6 +732,10 @@ Book: kreyszig-10e §12.5, §12.6
   - EK: b_n = (2/L)∫ f sin(nπx/L) dx; a constant start has odd modes only, 4U/nπ.
   - Needs: EM-9.1.C, EM-10.2.D
   - P3 · drills: mt-coefficient-formula, mt-sine-coefficient-constant, mt-sine-coefficient-linear
+- ● **EM-10.2.A** Separate u = F(x)G(t) in the heat equation and find each mode's decay rate.
+  - EK: F″ + kF = 0 (an S–L problem), G′ + c²kG = 0 ⇒ G = e^(−c²λ_n t).
+  - Needs: EM-9.2.C, EM-10.1.B
+  - P2 · P3 · drills: pde-rates, mt-heat-time-constant
 - ● **EM-10.2.B** (webwork-opl:DE8.3) Solve the heat equation on a finite rod with Dirichlet or insulated ends by Fourier series.
   - EK: Dirichlet ⇒ sine series; insulated ⇒ cosine series with a constant term (the mean).
   - Needs: EM-10.2.A, EM-10.2.E
@@ -794,6 +794,9 @@ Book: kreyszig-10e §12.6, §12.10, §12.11
 
 Book: kreyszig-10e §12.7, §12.12
 
+- ● **EM-10.5.D** () Write the heat kernel as the Green's function of the diffusion equation and use images for a fixed or insulated end.
+  - EK: G = e^(−(x−x₀)²/4κt)/√(4πκt) on the line; on x > 0 subtract the mirror image for u(0) = 0, add it for an insulated end.
+  - P1 · drills: gf-image-fixed, gf-image-insulated
 - ● **EM-10.5.A** Solve a PDE on a semi-infinite or infinite domain by Laplace or Fourier transform.
   - EK: Transform out t (Laplace) or x (Fourier) to get an ODE in the other variable; bounded at infinity keeps e^(−√s x).
   - Needs: EM-7.1.A
@@ -806,9 +809,6 @@ Book: kreyszig-10e §12.7, §12.12
   - EK: Finite domain with homogeneous BCs: separate. Nonzero BCs: shift first. Semi-infinite: transform. Messy geometry or data: finite differences.
   - Needs: EM-10.5.B, EM-10.2.C
   - P2 · drills: pde-method-choice
-- ● **EM-10.5.D** () Write the heat kernel as the Green's function of the diffusion equation and use images for a fixed or insulated end.
-  - EK: G = e^(−(x−x₀)²/4κt)/√(4πκt) on the line; on x > 0 subtract the mirror image for u(0) = 0, add it for an insulated end.
-  - P1 · drills: gf-image-fixed, gf-image-insulated
 
 ### 10.6 Finite differences for PDEs
 
@@ -879,9 +879,6 @@ Big ideas: MODEL
 
 Book: kreyszig-10e §9.7, §9.8, §9.9, §10.7, §10.9
 
-- ● **EM-12.1.A** Compute the gradient, divergence, curl and Laplacian of a field in Cartesian coordinates.
-  - EK: ∇f, ∇·v, ∇×v, ∇²f = ∇·∇f.
-  - P3 · drills: cm-gradient, cm-div-curl, cm-laplacian, ~mv-partial
 - ● **EM-12.1.B** (webwork-opl:FM4.2) Derive a differential conservation equation from an integral balance with the divergence theorem.
   - EK: ∭∇·F dV = ∯F·n dA ⇒ ∂c/∂t + ∇·N = R.
   - P1 · drills: ca-conservation-law
@@ -894,6 +891,9 @@ Book: kreyszig-10e §9.7, §9.8, §9.9, §10.7, §10.9
 - ● **EM-12.1.E** () Compute the divergence of a radial field in cylindrical and spherical coordinates.
   - EK: ∇·(F(r) e_r) = (1/r)(rF)′ in a cylinder and (1/r²)(r²F)′ in a sphere.
   - P1 · drills: vc-div-radial, vc-flux-conservation
+- ● **EM-12.1.A** Compute the gradient, divergence, curl and Laplacian of a field in Cartesian coordinates.
+  - EK: ∇f, ∇·v, ∇×v, ∇²f = ∇·∇f.
+  - P3 · drills: cm-gradient, cm-div-curl, cm-laplacian, ~mv-partial
 
 ## Unit 13 · More on ODEs: circuits, bifurcations, operators, existence
 
@@ -927,15 +927,15 @@ Big ideas: MODEL
 
 
 
+- ● **EM-14.1.C** (webwork-opl:CX3.1) Decide whether a point lies in a region of the plane.
+  - EK: |z − z₀| < r is the open disc of radius r about z₀.
+  - P1 · drills: em-complex-region
 - ● **EM-14.1.A** (webwork-opl:CX2.1) Solve a linear equation in z.
   - EK: Divide by multiplying top and bottom by the conjugate.
   - P1 · drills: em-complex-linear
 - ● **EM-14.1.B** (webwork-opl:CX2.3) Solve a nonlinear equation in z.
   - EK: Write the right side in polar form; z² = w has two roots ±√w.
   - P1 · drills: em-complex-sqrt
-- ● **EM-14.1.C** (webwork-opl:CX3.1) Decide whether a point lies in a region of the plane.
-  - EK: |z − z₀| < r is the open disc of radius r about z₀.
-  - P1 · drills: em-complex-region
 - ● **EM-14.1.D** (webwork-opl:CX4.1) Find the image of a point under a complex map.
   - EK: w = z² squares the modulus and doubles the argument.
   - P1 · drills: em-complex-map
@@ -947,15 +947,15 @@ Big ideas: MODEL
 
 
 
+- ● **EM-14.2.C** (webwork-opl:CX5.3) Recognise entire functions.
+  - EK: Entire = analytic at every point of the plane.
+  - P1 · drills: em-entire
 - ● **EM-14.2.A** (webwork-opl:CX5.1) Use the Cauchy–Riemann equations.
   - EK: f = u + iv is analytic where uₓ = v_y and u_y = −vₓ.
   - P1 · drills: em-cauchy-riemann
 - ● **EM-14.2.B** (webwork-opl:CX5.2) Test whether a function is harmonic.
   - EK: u is harmonic when u_xx + u_yy = 0; real parts of analytic functions are.
   - P1 · drills: em-harmonic
-- ● **EM-14.2.C** (webwork-opl:CX5.3) Recognise entire functions.
-  - EK: Entire = analytic at every point of the plane.
-  - P1 · drills: em-entire
 - ● **EM-14.2.D** (webwork-opl:CX5.4) Find a harmonic conjugate.
   - EK: Integrate v_y = uₓ in y, then fix the function of x with vₓ = −u_y.
   - P1 · drills: em-harmonic-conjugate
@@ -964,12 +964,12 @@ Big ideas: MODEL
 
 
 
-- ● **EM-14.3.A** (webwork-opl:CX7.1) Use Cauchy's integral formula.
-  - EK: ∮ f(z)/(z − z₀) dz = 2πi f(z₀) for z₀ inside the contour and f analytic.
-  - P1 · drills: em-cauchy-formula
 - ● **EM-14.3.B** (webwork-opl:CX8.1) Decide whether a complex sequence converges.
   - EK: zⁿ → 0 when |z| < 1 and diverges when |z| > 1.
   - P1 · drills: em-complex-sequence
+- ● **EM-14.3.A** (webwork-opl:CX7.1) Use Cauchy's integral formula.
+  - EK: ∮ f(z)/(z − z₀) dz = 2πi f(z₀) for z₀ inside the contour and f analytic.
+  - P1 · drills: em-cauchy-formula
 - ● **EM-14.3.C** (webwork-opl:CX8.2) Find a Taylor coefficient of an analytic function.
   - EK: e^{az} = Σ aᵏ zᵏ / k!; 1/(1 − az) = Σ aᵏ zᵏ for |az| < 1.
   - P1 · drills: em-complex-taylor

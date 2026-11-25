@@ -116,9 +116,9 @@ units:
       - n: 2
         title: "Data and method choice"
         los:
+          - { id: C, std: ["acs-accm-inorganic:IX.C.2", "acs-accm-inorganic:IX.E.2", "acs-accm-analytical:VI.A.1", "acs-accm-analytical:VI.B.1", "acs-accm-analytical:IX.D.5", "acs-accm-analytical:IX.H.4", "acs-accm-analytical:X.A.1", "acs-accm-analytical:X.B.1"], do: "Choose an analytical technique for a stated question.", ek: ["Trace metals ICP-MS, volatiles GC, non-volatiles HPLC, water Karl Fischer."], p: [P2], drills: [an-instrument, an-technique-measures] }
           - { id: A, std: ["acs-accm-analytical:IX.F.2", "acs-accm-analytical:IX.F.5"], do: "Apply Dixon's Q-test to a suspect replicate.", ek: ["Q = gap/range vs Q_crit."], p: [P3], drills: [an-q-test, an-q-value] }
           - { id: B, std: ["acs-accm-inorganic:IX.F.1", "acs-accm-analytical:IX.F.2", "acs-accm-analytical:IX.F.4"], do: "Propagate random uncertainty through a sum or a product.", ek: ["Absolute in quadrature for sums, relative for products."], p: [P1], drills: [an-uncertainty, an-uncertainty-product] }
-          - { id: C, std: ["acs-accm-inorganic:IX.C.2", "acs-accm-inorganic:IX.E.2", "acs-accm-analytical:VI.A.1", "acs-accm-analytical:VI.B.1", "acs-accm-analytical:IX.D.5", "acs-accm-analytical:IX.H.4", "acs-accm-analytical:X.A.1", "acs-accm-analytical:X.B.1"], do: "Choose an analytical technique for a stated question.", ek: ["Trace metals ICP-MS, volatiles GC, non-volatiles HPLC, water Karl Fischer."], p: [P2], drills: [an-instrument, an-technique-measures] }
   - id: instrumental
     n: 6
     title: "Instrumental methods and quality"

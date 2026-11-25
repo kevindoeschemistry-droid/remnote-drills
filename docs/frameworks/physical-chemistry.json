@@ -263,25 +263,6 @@
      },
      "los": [
       {
-       "id": "A",
-       "std": [
-        "webwork-opl:TH1.10",
-        "acs-accm-pchem:VI.G.8",
-        "acs-accm-pchem:VI.G.7"
-       ],
-       "do": "Convert between ΔH and ΔU for a process that changes the moles of gas.",
-       "ek": [
-        "ΔH = ΔU + Δn_gas RT; condensed phases contribute almost nothing to Δ(PV)."
-       ],
-       "p": [
-        "P3"
-       ],
-       "drills": [
-        "pc-du-from-dh",
-        "pc-dh-du"
-       ]
-      },
-      {
        "id": "B",
        "std": [
         "acs-accm-pchem:VI.A.1",
@@ -300,6 +281,25 @@
        "drills": [
         "pc-system-types",
         "pc-du-signs"
+       ]
+      },
+      {
+       "id": "A",
+       "std": [
+        "webwork-opl:TH1.10",
+        "acs-accm-pchem:VI.G.8",
+        "acs-accm-pchem:VI.G.7"
+       ],
+       "do": "Convert between ΔH and ΔU for a process that changes the moles of gas.",
+       "ek": [
+        "ΔH = ΔU + Δn_gas RT; condensed phases contribute almost nothing to Δ(PV)."
+       ],
+       "p": [
+        "P3"
+       ],
+       "drills": [
+        "pc-du-from-dh",
+        "pc-dh-du"
        ]
       }
      ]
@@ -601,6 +601,27 @@
      },
      "los": [
       {
+       "id": "C",
+       "std": [
+        "acs-accm-pchem:V.A.1",
+        "acs-accm-pchem:V.A.2",
+        "acs-accm-pchem:VIII.A.1",
+        "acs-accm-pchem:VIII.B.2",
+        "acs-accm-pchem:VIII.G.1"
+       ],
+       "do": "Use the extent of reaction and convert between chemical and biochemical standard states.",
+       "ek": [
+        "nᵢ = nᵢ⁰ + νᵢξ; ΔG°′ (pH 7) = ΔG° + ν(H⁺)·RT ln 10⁻⁷ for a reaction producing ν protons."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "pc-extent",
+        "pc-biochem-standard"
+       ]
+      },
+      {
        "id": "A",
        "std": [
         "webwork-opl:TH13.2",
@@ -637,27 +658,6 @@
        "drills": [
         "th-ce-vant-hoff",
         "sc-equilibrium-constant-temperature"
-       ]
-      },
-      {
-       "id": "C",
-       "std": [
-        "acs-accm-pchem:V.A.1",
-        "acs-accm-pchem:V.A.2",
-        "acs-accm-pchem:VIII.A.1",
-        "acs-accm-pchem:VIII.B.2",
-        "acs-accm-pchem:VIII.G.1"
-       ],
-       "do": "Use the extent of reaction and convert between chemical and biochemical standard states.",
-       "ek": [
-        "nᵢ = nᵢ⁰ + νᵢξ; ΔG°′ (pH 7) = ΔG° + ν(H⁺)·RT ln 10⁻⁷ for a reaction producing ν protons."
-       ],
-       "p": [
-        "P1"
-       ],
-       "drills": [
-        "pc-extent",
-        "pc-biochem-standard"
        ]
       }
      ]
@@ -796,64 +796,6 @@
      },
      "los": [
       {
-       "id": "A",
-       "std": [
-        "webwork-opl:TH2.1",
-        "acs-accm-pchem:VIII.F.1",
-        "acs-accm-pchem:IV.D.2",
-        "acs-accm-pchem:X.D.1"
-       ],
-       "do": "Apply the Gibbs phase rule to count the degrees of freedom of a system.",
-       "ek": [
-        "F = C − P + 2; a pure substance at its triple point has F = 0."
-       ],
-       "p": [
-        "P3"
-       ],
-       "drills": [
-        "pc-max-phases",
-        "pc-phase-rule"
-       ]
-      },
-      {
-       "id": "B",
-       "std": [
-        "webwork-opl:TH15.3",
-        "acs-accm-pchem:IV.D.5",
-        "acs-accm-pchem:IV.D.3"
-       ],
-       "do": "Calculate a vapour pressure, a boiling temperature or an enthalpy of vaporisation from the Clausius–Clapeyron equation.",
-       "ek": [
-        "ln(P₂/P₁) = −(ΔH_vap/R)(1/T₂ − 1/T₁); assumes an ideal vapour and constant ΔH_vap."
-       ],
-       "p": [
-        "P3"
-       ],
-       "drills": [
-        "th-pe-cc-pressure",
-        "th-pe-cc-enthalpy",
-        "th-pe-cc-temperature",
-        "sc-vapour-pressure-ten-degrees"
-       ]
-      },
-      {
-       "id": "C",
-       "std": [
-        "acs-accm-pchem:IV.D.4"
-       ],
-       "do": "Calculate the pressure difference across a curved liquid surface.",
-       "ek": [
-        "ΔP = 2γ/r for a droplet or a bubble in a liquid; smaller radius, larger excess pressure."
-       ],
-       "p": [
-        "P3"
-       ],
-       "drills": [
-        "pc-bubble-pressure",
-        "pc-laplace-pressure"
-       ]
-      },
-      {
        "id": "D",
        "std": [
         "acs-accm-pchem:IV.A.1",
@@ -941,6 +883,64 @@
        "drills": [
         "pc-surface-fraction",
         "pc-nanoscale"
+       ]
+      },
+      {
+       "id": "A",
+       "std": [
+        "webwork-opl:TH2.1",
+        "acs-accm-pchem:VIII.F.1",
+        "acs-accm-pchem:IV.D.2",
+        "acs-accm-pchem:X.D.1"
+       ],
+       "do": "Apply the Gibbs phase rule to count the degrees of freedom of a system.",
+       "ek": [
+        "F = C − P + 2; a pure substance at its triple point has F = 0."
+       ],
+       "p": [
+        "P3"
+       ],
+       "drills": [
+        "pc-max-phases",
+        "pc-phase-rule"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "webwork-opl:TH15.3",
+        "acs-accm-pchem:IV.D.5",
+        "acs-accm-pchem:IV.D.3"
+       ],
+       "do": "Calculate a vapour pressure, a boiling temperature or an enthalpy of vaporisation from the Clausius–Clapeyron equation.",
+       "ek": [
+        "ln(P₂/P₁) = −(ΔH_vap/R)(1/T₂ − 1/T₁); assumes an ideal vapour and constant ΔH_vap."
+       ],
+       "p": [
+        "P3"
+       ],
+       "drills": [
+        "th-pe-cc-pressure",
+        "th-pe-cc-enthalpy",
+        "th-pe-cc-temperature",
+        "sc-vapour-pressure-ten-degrees"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "acs-accm-pchem:IV.D.4"
+       ],
+       "do": "Calculate the pressure difference across a curved liquid surface.",
+       "ek": [
+        "ΔP = 2γ/r for a droplet or a bubble in a liquid; smaller radius, larger excess pressure."
+       ],
+       "p": [
+        "P3"
+       ],
+       "drills": [
+        "pc-bubble-pressure",
+        "pc-laplace-pressure"
        ]
       }
      ]
@@ -1353,6 +1353,29 @@
      },
      "los": [
       {
+       "id": "E",
+       "std": [
+        "acs-accm-pchem:I.G.2",
+        "acs-accm-pchem:IX.D.4",
+        "acs-accm-pchem:VI.I.1",
+        "acs-accm-pchem:I.F.1",
+        "acs-accm-organic:I.D.2",
+        "acs-accm-analytical:I.G.2",
+        "acs-accm-analytical:IX.D.4"
+       ],
+       "do": "Compute mass-spectrometry m/z values and nuclear energies from mass changes.",
+       "ek": [
+        "[M + zH]ᶻ⁺ appears at (M + z·1.00728)/z; E = Δm·c², about 931.5 MeV per u."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "pc-ms-mz",
+        "pc-mass-energy"
+       ]
+      },
+      {
        "id": "A",
        "std": [
         "acs-accm-pchem:I.D.1",
@@ -1420,29 +1443,6 @@
        "drills": [
         "pc-series-limit",
         "pc-bohr"
-       ]
-      },
-      {
-       "id": "E",
-       "std": [
-        "acs-accm-pchem:I.G.2",
-        "acs-accm-pchem:IX.D.4",
-        "acs-accm-pchem:VI.I.1",
-        "acs-accm-pchem:I.F.1",
-        "acs-accm-organic:I.D.2",
-        "acs-accm-analytical:I.G.2",
-        "acs-accm-analytical:IX.D.4"
-       ],
-       "do": "Compute mass-spectrometry m/z values and nuclear energies from mass changes.",
-       "ek": [
-        "[M + zH]ᶻ⁺ appears at (M + z·1.00728)/z; E = Δm·c², about 931.5 MeV per u."
-       ],
-       "p": [
-        "P1"
-       ],
-       "drills": [
-        "pc-ms-mz",
-        "pc-mass-energy"
        ]
       }
      ]
@@ -1944,6 +1944,47 @@
      },
      "los": [
       {
+       "id": "E",
+       "std": [
+        "acs-accm-pchem:VII.A.4",
+        "acs-accm-pchem:I.A.3",
+        "acs-accm-organic:I.A.1",
+        "acs-accm-inorganic:I.A.2",
+        "acs-accm-analytical:I.B.1",
+        "acs-accm-analytical:II.F.1"
+       ],
+       "do": "Predict isotope shifts in vibrational frequencies and estimate a kinetic isotope effect.",
+       "ek": [
+        "ν ∝ √(k/μ), so C–D vibrates near ν(C–H)/√2; a primary KIE ≈ exp(Δ(ZPE)/k_BT), about 7 at room temperature for C–H/C–D."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "pc-isotope-shift",
+        "pc-kie"
+       ]
+      },
+      {
+       "id": "F",
+       "std": [
+        "acs-accm-pchem:III.F.2",
+        "acs-accm-pchem:III.A.1",
+        "acs-accm-inorganic:II.D.2"
+       ],
+       "do": "Assign infrared bands to functional groups and compare stretches by force constant.",
+       "ek": [
+        "O–H ≈ 3300 cm⁻¹ (broad), C–H ≈ 2900, C≡N ≈ 2250, C=O ≈ 1700, C–O ≈ 1100; at fixed μ, ν ∝ √k."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "pc-ir-group",
+        "pc-force-constant-ratio"
+       ]
+      },
+      {
        "id": "A",
        "std": [
         "acs-accm-pchem:II.F.2",
@@ -2015,47 +2056,6 @@
        "drills": [
         "pc-spontaneous-ratio",
         "qm-einstein-coefficients"
-       ]
-      },
-      {
-       "id": "E",
-       "std": [
-        "acs-accm-pchem:VII.A.4",
-        "acs-accm-pchem:I.A.3",
-        "acs-accm-organic:I.A.1",
-        "acs-accm-inorganic:I.A.2",
-        "acs-accm-analytical:I.B.1",
-        "acs-accm-analytical:II.F.1"
-       ],
-       "do": "Predict isotope shifts in vibrational frequencies and estimate a kinetic isotope effect.",
-       "ek": [
-        "ν ∝ √(k/μ), so C–D vibrates near ν(C–H)/√2; a primary KIE ≈ exp(Δ(ZPE)/k_BT), about 7 at room temperature for C–H/C–D."
-       ],
-       "p": [
-        "P1"
-       ],
-       "drills": [
-        "pc-isotope-shift",
-        "pc-kie"
-       ]
-      },
-      {
-       "id": "F",
-       "std": [
-        "acs-accm-pchem:III.F.2",
-        "acs-accm-pchem:III.A.1",
-        "acs-accm-inorganic:II.D.2"
-       ],
-       "do": "Assign infrared bands to functional groups and compare stretches by force constant.",
-       "ek": [
-        "O–H ≈ 3300 cm⁻¹ (broad), C–H ≈ 2900, C≡N ≈ 2250, C=O ≈ 1700, C–O ≈ 1100; at fixed μ, ν ∝ √k."
-       ],
-       "p": [
-        "P1"
-       ],
-       "drills": [
-        "pc-ir-group",
-        "pc-force-constant-ratio"
        ]
       }
      ]
@@ -2225,6 +2225,26 @@
      },
      "los": [
       {
+       "id": "D",
+       "std": [
+        "acs-accm-pchem:I.D.2",
+        "acs-accm-pchem:I.D.4",
+        "acs-accm-pchem:III.D.3",
+        "acs-accm-pchem:I.G.3"
+       ],
+       "do": "Apply atomic selection rules and parity to decide whether a transition is allowed.",
+       "ek": [
+        "One-electron electric-dipole transitions need Δl = ±1 (parity must change), ΔS = 0, ΔJ = 0, ±1 (not 0 → 0)."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "pc-atomic-selection",
+        "pc-allowed-count"
+       ]
+      },
+      {
        "id": "A",
        "std": [
         "acs-accm-pchem:I.B.2",
@@ -2278,26 +2298,6 @@
         "pc-spin-orbit-constant",
         "qm-lande-interval"
        ]
-      },
-      {
-       "id": "D",
-       "std": [
-        "acs-accm-pchem:I.D.2",
-        "acs-accm-pchem:I.D.4",
-        "acs-accm-pchem:III.D.3",
-        "acs-accm-pchem:I.G.3"
-       ],
-       "do": "Apply atomic selection rules and parity to decide whether a transition is allowed.",
-       "ek": [
-        "One-electron electric-dipole transitions need Δl = ±1 (parity must change), ΔS = 0, ΔJ = 0, ±1 (not 0 → 0)."
-       ],
-       "p": [
-        "P1"
-       ],
-       "drills": [
-        "pc-atomic-selection",
-        "pc-allowed-count"
-       ]
       }
      ]
     }
@@ -2327,6 +2327,42 @@
       ]
      },
      "los": [
+      {
+       "id": "E",
+       "std": [
+        "acs-accm-pchem:II.A.1",
+        "acs-accm-pchem:II.A.3"
+       ],
+       "do": "Build a molecular Hamiltonian's Coulomb terms and state what the Born–Oppenheimer approximation separates.",
+       "ek": [
+        "For N nuclei and n electrons: n(n − 1)/2 electron–electron, nN electron–nucleus and N(N − 1)/2 nucleus–nucleus terms; BO fixes the nuclei while solving for electrons."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "pc-hamiltonian-terms",
+        "pc-born-oppenheimer"
+       ]
+      },
+      {
+       "id": "F",
+       "std": [
+        "acs-accm-pchem:III.D.1",
+        "acs-accm-pchem:II.F.3"
+       ],
+       "do": "Find the spin multiplicity and term symbol of a diatomic's ground state from its MO filling.",
+       "ek": [
+        "2S + 1 from the unpaired electrons in the highest occupied MOs; Σ/Π from Λ, g/u from inversion, ± from reflection: O₂ is ³Σg⁻, N₂ ¹Σg⁺."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "pc-diatomic-multiplicity",
+        "pc-term-symbol"
+       ]
+      },
       {
        "id": "A",
        "std": [
@@ -2401,42 +2437,6 @@
        "drills": [
         "pc-bond-order-change",
         "qm-bond-order"
-       ]
-      },
-      {
-       "id": "E",
-       "std": [
-        "acs-accm-pchem:II.A.1",
-        "acs-accm-pchem:II.A.3"
-       ],
-       "do": "Build a molecular Hamiltonian's Coulomb terms and state what the Born–Oppenheimer approximation separates.",
-       "ek": [
-        "For N nuclei and n electrons: n(n − 1)/2 electron–electron, nN electron–nucleus and N(N − 1)/2 nucleus–nucleus terms; BO fixes the nuclei while solving for electrons."
-       ],
-       "p": [
-        "P1"
-       ],
-       "drills": [
-        "pc-hamiltonian-terms",
-        "pc-born-oppenheimer"
-       ]
-      },
-      {
-       "id": "F",
-       "std": [
-        "acs-accm-pchem:III.D.1",
-        "acs-accm-pchem:II.F.3"
-       ],
-       "do": "Find the spin multiplicity and term symbol of a diatomic's ground state from its MO filling.",
-       "ek": [
-        "2S + 1 from the unpaired electrons in the highest occupied MOs; Σ/Π from Λ, g/u from inversion, ± from reflection: O₂ is ³Σg⁻, N₂ ¹Σg⁺."
-       ],
-       "p": [
-        "P1"
-       ],
-       "drills": [
-        "pc-diatomic-multiplicity",
-        "pc-term-symbol"
        ]
       }
      ]
@@ -2606,6 +2606,27 @@
      },
      "los": [
       {
+       "id": "E",
+       "std": [
+        "acs-accm-pchem:VI.C.2",
+        "acs-accm-pchem:VI.C.4",
+        "acs-accm-pchem:II.D.1",
+        "acs-accm-pchem:II.D.2",
+        "acs-accm-inorganic:V.F.10"
+       ],
+       "do": "Compute photon counts and quantum yields, and say how light breaks bonds.",
+       "ek": [
+        "Photons = Pt/(hc/λ); Φ = molecules reacted ÷ photons absorbed; Φ > 1 signals a chain; photolysis is usually homolytic."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "pc-quantum-yield",
+        "pc-photochem"
+       ]
+      },
+      {
        "id": "A",
        "std": [
         "acs-accm-pchem:IX.D.1",
@@ -2680,27 +2701,6 @@
         "pc-stokes-energy",
         "qm-stokes-shift"
        ]
-      },
-      {
-       "id": "E",
-       "std": [
-        "acs-accm-pchem:VI.C.2",
-        "acs-accm-pchem:VI.C.4",
-        "acs-accm-pchem:II.D.1",
-        "acs-accm-pchem:II.D.2",
-        "acs-accm-inorganic:V.F.10"
-       ],
-       "do": "Compute photon counts and quantum yields, and say how light breaks bonds.",
-       "ek": [
-        "Photons = Pt/(hc/λ); Φ = molecules reacted ÷ photons absorbed; Φ > 1 signals a chain; photolysis is usually homolytic."
-       ],
-       "p": [
-        "P1"
-       ],
-       "drills": [
-        "pc-quantum-yield",
-        "pc-photochem"
-       ]
       }
      ]
     }
@@ -2768,25 +2768,6 @@
        ]
       },
       {
-       "id": "C",
-       "std": [
-        "acs-accm-pchem:III.D.2"
-       ],
-       "do": "Reduce a representation with a character table.",
-       "ek": [
-        "n_i = (1/h) Σ χ(R) χ_i(R) over all operations."
-       ],
-       "p": [
-        "P2",
-        "P5"
-       ],
-       "drills": [
-        "gt-operation-product",
-        "gt-reduce-c2v",
-        "gt-reduce-c3v"
-       ]
-      },
-      {
        "id": "D",
        "std": [
         "acs-accm-pchem:III.D.2"
@@ -2823,6 +2804,25 @@
        ],
        "drills": [
         "gt-ir-raman"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "acs-accm-pchem:III.D.2"
+       ],
+       "do": "Reduce a representation with a character table.",
+       "ek": [
+        "n_i = (1/h) Σ χ(R) χ_i(R) over all operations."
+       ],
+       "p": [
+        "P2",
+        "P5"
+       ],
+       "drills": [
+        "gt-operation-product",
+        "gt-reduce-c2v",
+        "gt-reduce-c3v"
        ]
       },
       {
@@ -3577,6 +3577,32 @@
      },
      "los": [
       {
+       "id": "C",
+       "std": [
+        "acs-accm-pchem:VII.A.1",
+        "acs-accm-pchem:IX.A.2",
+        "acs-accm-pchem:IX.E.1",
+        "acs-accm-pchem:IX.F.1",
+        "acs-accm-pchem:IX.F.2",
+        "acs-accm-pchem:IX.F.3",
+        "acs-accm-pchem:V.C.2",
+        "acs-accm-pchem:VII.C.6",
+        "acs-accm-pchem:IX.D.2",
+        "acs-accm-pchem:IX.G.1"
+       ],
+       "do": "Choose a kinetic method for the time scale and isolate one reactant to get pseudo-first-order data.",
+       "ek": [
+        "With [B]₀ ≫ [A]₀, rate = k′[A] with k′ = k[B]₀; stopped flow reaches milliseconds, relaxation and flash photolysis microseconds, femtosecond lasers bond vibrations."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "pc-pseudo-first",
+        "pc-kinetic-method"
+       ]
+      },
+      {
        "id": "A",
        "std": [
         "acs-accm-pchem:VII.B.1",
@@ -3613,32 +3639,6 @@
         "pc-first-order",
         "pc-second-order"
        ]
-      },
-      {
-       "id": "C",
-       "std": [
-        "acs-accm-pchem:VII.A.1",
-        "acs-accm-pchem:IX.A.2",
-        "acs-accm-pchem:IX.E.1",
-        "acs-accm-pchem:IX.F.1",
-        "acs-accm-pchem:IX.F.2",
-        "acs-accm-pchem:IX.F.3",
-        "acs-accm-pchem:V.C.2",
-        "acs-accm-pchem:VII.C.6",
-        "acs-accm-pchem:IX.D.2",
-        "acs-accm-pchem:IX.G.1"
-       ],
-       "do": "Choose a kinetic method for the time scale and isolate one reactant to get pseudo-first-order data.",
-       "ek": [
-        "With [B]₀ ≫ [A]₀, rate = k′[A] with k′ = k[B]₀; stopped flow reaches milliseconds, relaxation and flash photolysis microseconds, femtosecond lasers bond vibrations."
-       ],
-       "p": [
-        "P1"
-       ],
-       "drills": [
-        "pc-pseudo-first",
-        "pc-kinetic-method"
-       ]
       }
      ]
     },
@@ -3653,6 +3653,39 @@
       ]
      },
      "los": [
+      {
+       "id": "D",
+       "std": [
+        "acs-accm-pchem:VII.E.1",
+        "acs-accm-pchem:VII.E.2",
+        "acs-accm-pchem:V.F.4",
+        "acs-accm-pchem:V.G.1",
+        "acs-accm-pchem:VII.F.1",
+        "acs-accm-pchem:VI.B.1",
+        "acs-accm-pchem:VI.C.1",
+        "acs-accm-pchem:V.B.1",
+        "acs-accm-pchem:V.B.2",
+        "acs-accm-pchem:V.B.3",
+        "acs-accm-pchem:V.D.1",
+        "acs-accm-pchem:X.D.2",
+        "acs-accm-pchem:V.F.3",
+        "acs-accm-general:VII.F.1",
+        "acs-accm-organic:V.E.2",
+        "acs-accm-organic:VII.F.1",
+        "acs-accm-inorganic:VII.F.1"
+       ],
+       "do": "Quantify how a catalyst or a higher temperature speeds a reaction, and tell kinetic from thermodynamic control.",
+       "ek": [
+        "Lowering Eₐ by ΔEₐ multiplies k by exp(ΔEₐ/RT); a catalyst leaves K and the products unchanged; the fraction of collisions above Eₐ goes as exp(−Eₐ/RT)."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "pc-catalyst-speedup",
+        "pc-control"
+       ]
+      },
       {
        "id": "A",
        "std": [
@@ -3707,39 +3740,6 @@
         "td-eyring-half-life",
         "sm-rate-eyring"
        ]
-      },
-      {
-       "id": "D",
-       "std": [
-        "acs-accm-pchem:VII.E.1",
-        "acs-accm-pchem:VII.E.2",
-        "acs-accm-pchem:V.F.4",
-        "acs-accm-pchem:V.G.1",
-        "acs-accm-pchem:VII.F.1",
-        "acs-accm-pchem:VI.B.1",
-        "acs-accm-pchem:VI.C.1",
-        "acs-accm-pchem:V.B.1",
-        "acs-accm-pchem:V.B.2",
-        "acs-accm-pchem:V.B.3",
-        "acs-accm-pchem:V.D.1",
-        "acs-accm-pchem:X.D.2",
-        "acs-accm-pchem:V.F.3",
-        "acs-accm-general:VII.F.1",
-        "acs-accm-organic:V.E.2",
-        "acs-accm-organic:VII.F.1",
-        "acs-accm-inorganic:VII.F.1"
-       ],
-       "do": "Quantify how a catalyst or a higher temperature speeds a reaction, and tell kinetic from thermodynamic control.",
-       "ek": [
-        "Lowering Eₐ by ΔEₐ multiplies k by exp(ΔEₐ/RT); a catalyst leaves K and the products unchanged; the fraction of collisions above Eₐ goes as exp(−Eₐ/RT)."
-       ],
-       "p": [
-        "P1"
-       ],
-       "drills": [
-        "pc-catalyst-speedup",
-        "pc-control"
-       ]
       }
      ]
     },
@@ -3759,6 +3759,26 @@
       ]
      },
      "los": [
+      {
+       "id": "I",
+       "std": [
+        "acs-accm-pchem:VIII.G.2",
+        "acs-accm-pchem:III.H.1",
+        "acs-accm-inorganic:V.D.5",
+        "acs-accm-inorganic:VII.E.2"
+       ],
+       "do": "Use the Langmuir isotherm to find surface coverage, or the pressure for a target coverage.",
+       "ek": [
+        "θ = KP/(1 + KP); half coverage at P = 1/K; heterogeneous rates follow the coverage of the adsorbed reactant."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "pc-langmuir",
+        "pc-langmuir-pressure"
+       ]
+      },
       {
        "id": "A",
        "std": [
@@ -3908,26 +3928,6 @@
         "pc-initiation-from-chain",
         "kn-chain-length"
        ]
-      },
-      {
-       "id": "I",
-       "std": [
-        "acs-accm-pchem:VIII.G.2",
-        "acs-accm-pchem:III.H.1",
-        "acs-accm-inorganic:V.D.5",
-        "acs-accm-inorganic:VII.E.2"
-       ],
-       "do": "Use the Langmuir isotherm to find surface coverage, or the pressure for a target coverage.",
-       "ek": [
-        "θ = KP/(1 + KP); half coverage at P = 1/K; heterogeneous rates follow the coverage of the adsorbed reactant."
-       ],
-       "p": [
-        "P1"
-       ],
-       "drills": [
-        "pc-langmuir",
-        "pc-langmuir-pressure"
-       ]
       }
      ]
     }
@@ -4002,17 +4002,6 @@
    "partial": []
   },
   {
-   "code": "PC-1.3.A",
-   "unit": 1,
-   "topic": 3,
-   "status": "ok",
-   "full": [
-    "pc-du-from-dh",
-    "pc-dh-du"
-   ],
-   "partial": []
-  },
-  {
    "code": "PC-1.3.B",
    "unit": 1,
    "topic": 3,
@@ -4020,6 +4009,17 @@
    "full": [
     "pc-system-types",
     "pc-du-signs"
+   ],
+   "partial": []
+  },
+  {
+   "code": "PC-1.3.A",
+   "unit": 1,
+   "topic": 3,
+   "status": "ok",
+   "full": [
+    "pc-du-from-dh",
+    "pc-dh-du"
    ],
    "partial": []
   },
@@ -4135,6 +4135,17 @@
    "partial": []
   },
   {
+   "code": "PC-4.2.C",
+   "unit": 4,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "pc-extent",
+    "pc-biochem-standard"
+   ],
+   "partial": []
+  },
+  {
    "code": "PC-4.2.A",
    "unit": 4,
    "topic": 2,
@@ -4153,17 +4164,6 @@
    "full": [
     "th-ce-vant-hoff",
     "sc-equilibrium-constant-temperature"
-   ],
-   "partial": []
-  },
-  {
-   "code": "PC-4.2.C",
-   "unit": 4,
-   "topic": 2,
-   "status": "ok",
-   "full": [
-    "pc-extent",
-    "pc-biochem-standard"
    ],
    "partial": []
   },
@@ -4212,41 +4212,6 @@
    "partial": []
   },
   {
-   "code": "PC-6.1.A",
-   "unit": 6,
-   "topic": 1,
-   "status": "ok",
-   "full": [
-    "pc-max-phases",
-    "pc-phase-rule"
-   ],
-   "partial": []
-  },
-  {
-   "code": "PC-6.1.B",
-   "unit": 6,
-   "topic": 1,
-   "status": "ok",
-   "full": [
-    "th-pe-cc-pressure",
-    "th-pe-cc-enthalpy",
-    "th-pe-cc-temperature",
-    "sc-vapour-pressure-ten-degrees"
-   ],
-   "partial": []
-  },
-  {
-   "code": "PC-6.1.C",
-   "unit": 6,
-   "topic": 1,
-   "status": "ok",
-   "full": [
-    "pc-bubble-pressure",
-    "pc-laplace-pressure"
-   ],
-   "partial": []
-  },
-  {
    "code": "PC-6.1.D",
    "unit": 6,
    "topic": 1,
@@ -4287,6 +4252,41 @@
    "full": [
     "pc-surface-fraction",
     "pc-nanoscale"
+   ],
+   "partial": []
+  },
+  {
+   "code": "PC-6.1.A",
+   "unit": 6,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "pc-max-phases",
+    "pc-phase-rule"
+   ],
+   "partial": []
+  },
+  {
+   "code": "PC-6.1.B",
+   "unit": 6,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "th-pe-cc-pressure",
+    "th-pe-cc-enthalpy",
+    "th-pe-cc-temperature",
+    "sc-vapour-pressure-ten-degrees"
+   ],
+   "partial": []
+  },
+  {
+   "code": "PC-6.1.C",
+   "unit": 6,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "pc-bubble-pressure",
+    "pc-laplace-pressure"
    ],
    "partial": []
   },
@@ -4458,6 +4458,17 @@
    "partial": []
   },
   {
+   "code": "PC-10.1.E",
+   "unit": 10,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "pc-ms-mz",
+    "pc-mass-energy"
+   ],
+   "partial": []
+  },
+  {
    "code": "PC-10.1.A",
    "unit": 10,
    "topic": 1,
@@ -4498,17 +4509,6 @@
    "full": [
     "pc-series-limit",
     "pc-bohr"
-   ],
-   "partial": []
-  },
-  {
-   "code": "PC-10.1.E",
-   "unit": 10,
-   "topic": 1,
-   "status": "ok",
-   "full": [
-    "pc-ms-mz",
-    "pc-mass-energy"
    ],
    "partial": []
   },
@@ -4733,6 +4733,28 @@
    "partial": []
   },
   {
+   "code": "PC-13.1.E",
+   "unit": 13,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "pc-isotope-shift",
+    "pc-kie"
+   ],
+   "partial": []
+  },
+  {
+   "code": "PC-13.1.F",
+   "unit": 13,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "pc-ir-group",
+    "pc-force-constant-ratio"
+   ],
+   "partial": []
+  },
+  {
    "code": "PC-13.1.A",
    "unit": 13,
    "topic": 1,
@@ -4775,28 +4797,6 @@
    "full": [
     "pc-spontaneous-ratio",
     "qm-einstein-coefficients"
-   ],
-   "partial": []
-  },
-  {
-   "code": "PC-13.1.E",
-   "unit": 13,
-   "topic": 1,
-   "status": "ok",
-   "full": [
-    "pc-isotope-shift",
-    "pc-kie"
-   ],
-   "partial": []
-  },
-  {
-   "code": "PC-13.1.F",
-   "unit": 13,
-   "topic": 1,
-   "status": "ok",
-   "full": [
-    "pc-ir-group",
-    "pc-force-constant-ratio"
    ],
    "partial": []
   },
@@ -4867,6 +4867,17 @@
    "partial": []
   },
   {
+   "code": "PC-14.3.D",
+   "unit": 14,
+   "topic": 3,
+   "status": "ok",
+   "full": [
+    "pc-atomic-selection",
+    "pc-allowed-count"
+   ],
+   "partial": []
+  },
+  {
    "code": "PC-14.3.A",
    "unit": 14,
    "topic": 3,
@@ -4900,13 +4911,24 @@
    "partial": []
   },
   {
-   "code": "PC-14.3.D",
-   "unit": 14,
-   "topic": 3,
+   "code": "PC-15.1.E",
+   "unit": 15,
+   "topic": 1,
    "status": "ok",
    "full": [
-    "pc-atomic-selection",
-    "pc-allowed-count"
+    "pc-hamiltonian-terms",
+    "pc-born-oppenheimer"
+   ],
+   "partial": []
+  },
+  {
+   "code": "PC-15.1.F",
+   "unit": 15,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "pc-diatomic-multiplicity",
+    "pc-term-symbol"
    ],
    "partial": []
   },
@@ -4952,28 +4974,6 @@
    "full": [
     "pc-bond-order-change",
     "qm-bond-order"
-   ],
-   "partial": []
-  },
-  {
-   "code": "PC-15.1.E",
-   "unit": 15,
-   "topic": 1,
-   "status": "ok",
-   "full": [
-    "pc-hamiltonian-terms",
-    "pc-born-oppenheimer"
-   ],
-   "partial": []
-  },
-  {
-   "code": "PC-15.1.F",
-   "unit": 15,
-   "topic": 1,
-   "status": "ok",
-   "full": [
-    "pc-diatomic-multiplicity",
-    "pc-term-symbol"
    ],
    "partial": []
   },
@@ -5042,6 +5042,17 @@
    ]
   },
   {
+   "code": "PC-16.1.E",
+   "unit": 16,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "pc-quantum-yield",
+    "pc-photochem"
+   ],
+   "partial": []
+  },
+  {
    "code": "PC-16.1.A",
    "unit": 16,
    "topic": 1,
@@ -5087,17 +5098,6 @@
    "partial": []
   },
   {
-   "code": "PC-16.1.E",
-   "unit": 16,
-   "topic": 1,
-   "status": "ok",
-   "full": [
-    "pc-quantum-yield",
-    "pc-photochem"
-   ],
-   "partial": []
-  },
-  {
    "code": "PC-17.1.A",
    "unit": 17,
    "topic": 1,
@@ -5120,18 +5120,6 @@
    "partial": []
   },
   {
-   "code": "PC-17.1.C",
-   "unit": 17,
-   "topic": 1,
-   "status": "ok",
-   "full": [
-    "gt-operation-product",
-    "gt-reduce-c2v",
-    "gt-reduce-c3v"
-   ],
-   "partial": []
-  },
-  {
    "code": "PC-17.1.D",
    "unit": 17,
    "topic": 1,
@@ -5149,6 +5137,18 @@
    "status": "ok",
    "full": [
     "gt-ir-raman"
+   ],
+   "partial": []
+  },
+  {
+   "code": "PC-17.1.C",
+   "unit": 17,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "gt-operation-product",
+    "gt-reduce-c2v",
+    "gt-reduce-c3v"
    ],
    "partial": []
   },
@@ -5509,6 +5509,17 @@
    "partial": []
   },
   {
+   "code": "PC-22.1.C",
+   "unit": 22,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "pc-pseudo-first",
+    "pc-kinetic-method"
+   ],
+   "partial": []
+  },
+  {
    "code": "PC-22.1.A",
    "unit": 22,
    "topic": 1,
@@ -5531,13 +5542,13 @@
    "partial": []
   },
   {
-   "code": "PC-22.1.C",
+   "code": "PC-22.2.D",
    "unit": 22,
-   "topic": 1,
+   "topic": 2,
    "status": "ok",
    "full": [
-    "pc-pseudo-first",
-    "pc-kinetic-method"
+    "pc-catalyst-speedup",
+    "pc-control"
    ],
    "partial": []
   },
@@ -5575,13 +5586,13 @@
    "partial": []
   },
   {
-   "code": "PC-22.2.D",
+   "code": "PC-22.3.I",
    "unit": 22,
-   "topic": 2,
+   "topic": 3,
    "status": "ok",
    "full": [
-    "pc-catalyst-speedup",
-    "pc-control"
+    "pc-langmuir",
+    "pc-langmuir-pressure"
    ],
    "partial": []
   },
@@ -5671,17 +5682,6 @@
    "full": [
     "pc-initiation-from-chain",
     "kn-chain-length"
-   ],
-   "partial": []
-  },
-  {
-   "code": "PC-22.3.I",
-   "unit": 22,
-   "topic": 3,
-   "status": "ok",
-   "full": [
-    "pc-langmuir",
-    "pc-langmuir-pressure"
    ],
    "partial": []
   }

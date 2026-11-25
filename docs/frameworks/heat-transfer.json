@@ -1207,21 +1207,6 @@
        ]
       },
       {
-       "id": "B",
-       "do": "Find the surface heat flux, and the contact temperature when two semi-infinite solids touch.",
-       "ek": [
-        "q''_s = k(T_s − T_i)/√(παt); T_s = (√(kρc)_A T_A + √(kρc)_B T_B)/(√(kρc)_A + √(kρc)_B)."
-       ],
-       "p": [
-        "P4",
-        "P6"
-       ],
-       "drills": [
-        "ht-erf-flux",
-        "ht-erf-contact"
-       ]
-      },
-      {
        "id": "C",
        "do": "Find the temperature in a semi-infinite solid with a constant surface heat flux or with convection at the surface.",
        "ek": [
@@ -1236,6 +1221,21 @@
        ],
        "needs": [
         "HT-7.3.A"
+       ]
+      },
+      {
+       "id": "B",
+       "do": "Find the surface heat flux, and the contact temperature when two semi-infinite solids touch.",
+       "ek": [
+        "q''_s = k(T_s − T_i)/√(παt); T_s = (√(kρc)_A T_A + √(kρc)_B T_B)/(√(kρc)_A + √(kρc)_B)."
+       ],
+       "p": [
+        "P4",
+        "P6"
+       ],
+       "drills": [
+        "ht-erf-flux",
+        "ht-erf-contact"
        ]
       }
      ]
@@ -2383,6 +2383,24 @@
        ]
       },
       {
+       "id": "D",
+       "do": "Solve transient diffusion into a semi-infinite solid (carburizing, doping) with the error-function solution.",
+       "ek": [
+        "(C − C_s)/(C_i − C_s) = erf(x/2√(Dt)); depth scales with √(Dt)."
+       ],
+       "p": [
+        "P4"
+       ],
+       "drills": [
+        "ht-mass-erf-time",
+        "ht-erf-concentration"
+       ],
+       "needs": [
+        "HT-7.3.A",
+        "HT-14.1.A"
+       ]
+      },
+      {
        "id": "B",
        "do": "Calculate evaporation through a stagnant gas column (Stefan flow).",
        "ek": [
@@ -2409,24 +2427,6 @@
        "drills": [
         "ht3-reaction",
         "ht-reaction-penetration"
-       ]
-      },
-      {
-       "id": "D",
-       "do": "Solve transient diffusion into a semi-infinite solid (carburizing, doping) with the error-function solution.",
-       "ek": [
-        "(C − C_s)/(C_i − C_s) = erf(x/2√(Dt)); depth scales with √(Dt)."
-       ],
-       "p": [
-        "P4"
-       ],
-       "drills": [
-        "ht-mass-erf-time",
-        "ht-erf-concentration"
-       ],
-       "needs": [
-        "HT-7.3.A",
-        "HT-14.1.A"
        ]
       }
      ]
@@ -3051,17 +3051,6 @@
    "partial": []
   },
   {
-   "code": "HT-7.3.B",
-   "unit": 7,
-   "topic": 3,
-   "status": "ok",
-   "full": [
-    "ht-erf-flux",
-    "ht-erf-contact"
-   ],
-   "partial": []
-  },
-  {
    "code": "HT-7.3.C",
    "unit": 7,
    "topic": 3,
@@ -3069,6 +3058,17 @@
    "full": [
     "ht-erf-const-flux",
     "ht-erf-convection"
+   ],
+   "partial": []
+  },
+  {
+   "code": "HT-7.3.B",
+   "unit": 7,
+   "topic": 3,
+   "status": "ok",
+   "full": [
+    "ht-erf-flux",
+    "ht-erf-contact"
    ],
    "partial": []
   },
@@ -3561,6 +3561,17 @@
    "partial": []
   },
   {
+   "code": "HT-14.1.D",
+   "unit": 14,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ht-mass-erf-time",
+    "ht-erf-concentration"
+   ],
+   "partial": []
+  },
+  {
    "code": "HT-14.1.B",
    "unit": 14,
    "topic": 1,
@@ -3579,17 +3590,6 @@
    "full": [
     "ht3-reaction",
     "ht-reaction-penetration"
-   ],
-   "partial": []
-  },
-  {
-   "code": "HT-14.1.D",
-   "unit": 14,
-   "topic": 1,
-   "status": "ok",
-   "full": [
-    "ht-mass-erf-time",
-    "ht-erf-concentration"
    ],
    "partial": []
   },

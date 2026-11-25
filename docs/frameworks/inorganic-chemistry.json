@@ -190,6 +190,27 @@
      "title": "Oxides and oxoacids",
      "los": [
       {
+       "id": "B",
+       "std": [
+        "icho-appendix-c:d3",
+        "acs-accm-inorganic:I.C.3",
+        "acs-accm-inorganic:III.G.5",
+        "acs-accm-inorganic:V.E.3"
+       ],
+       "do": "Classify an oxide as acidic, basic, amphoteric or neutral.",
+       "ek": [
+        "Metal oxides basic, non-metal oxides acidic, Al/Be/Zn amphoteric, CO/NO/N₂O neutral."
+       ],
+       "p": [
+        "P2",
+        "P3"
+       ],
+       "drills": [
+        "in-oxide-character",
+        "in-oxide-trend"
+       ]
+      },
+      {
        "id": "A",
        "std": [
         "icho-appendix-c:d4",
@@ -209,27 +230,6 @@
        "drills": [
         "in-oxoacid-name",
         "in-oxoacid-state"
-       ]
-      },
-      {
-       "id": "B",
-       "std": [
-        "icho-appendix-c:d3",
-        "acs-accm-inorganic:I.C.3",
-        "acs-accm-inorganic:III.G.5",
-        "acs-accm-inorganic:V.E.3"
-       ],
-       "do": "Classify an oxide as acidic, basic, amphoteric or neutral.",
-       "ek": [
-        "Metal oxides basic, non-metal oxides acidic, Al/Be/Zn amphoteric, CO/NO/N₂O neutral."
-       ],
-       "p": [
-        "P2",
-        "P3"
-       ],
-       "drills": [
-        "in-oxide-character",
-        "in-oxide-trend"
        ]
       }
      ]
@@ -255,6 +255,24 @@
      "n": 1,
      "title": "Counting and splitting",
      "los": [
+      {
+       "id": "D",
+       "std": [
+        "acs-accm-inorganic:III.A.2",
+        "acs-accm-inorganic:III.F.1"
+       ],
+       "do": "Rank ligands by the size of the splitting they cause.",
+       "ek": [
+        "I⁻ < Br⁻ < Cl⁻ < F⁻ < OH⁻ < H₂O < NH₃ < en < NO₂⁻ < CN⁻ < CO."
+       ],
+       "p": [
+        "P2"
+       ],
+       "drills": [
+        "in-spectrochemical",
+        "in-spectro-consequence"
+       ]
+      },
       {
        "id": "A",
        "do": "Find the metal's d-electron count in a complex.",
@@ -313,24 +331,6 @@
         "in-cfse",
         "in-cfse-gain"
        ]
-      },
-      {
-       "id": "D",
-       "std": [
-        "acs-accm-inorganic:III.A.2",
-        "acs-accm-inorganic:III.F.1"
-       ],
-       "do": "Rank ligands by the size of the splitting they cause.",
-       "ek": [
-        "I⁻ < Br⁻ < Cl⁻ < F⁻ < OH⁻ < H₂O < NH₃ < en < NO₂⁻ < CN⁻ < CO."
-       ],
-       "p": [
-        "P2"
-       ],
-       "drills": [
-        "in-spectrochemical",
-        "in-spectro-consequence"
-       ]
       }
      ]
     },
@@ -338,24 +338,6 @@
      "n": 2,
      "title": "Structure and colour",
      "los": [
-      {
-       "id": "A",
-       "std": [
-        "icho-appendix-c:a1",
-        "acs-accm-inorganic:III.E.2"
-       ],
-       "do": "Count the stereoisomers of an octahedral or square-planar complex.",
-       "ek": [
-        "Geometric isomers by trans pairs, then check each for chirality."
-       ],
-       "p": [
-        "P3"
-       ],
-       "drills": [
-        "in-isomer-type",
-        "in-isomer-count"
-       ]
-      },
       {
        "id": "B",
        "std": [
@@ -374,6 +356,24 @@
        "drills": [
         "in-ion-colour",
         "in-colour-identify"
+       ]
+      },
+      {
+       "id": "A",
+       "std": [
+        "icho-appendix-c:a1",
+        "acs-accm-inorganic:III.E.2"
+       ],
+       "do": "Count the stereoisomers of an octahedral or square-planar complex.",
+       "ek": [
+        "Geometric isomers by trans pairs, then check each for chirality."
+       ],
+       "p": [
+        "P3"
+       ],
+       "drills": [
+        "in-isomer-type",
+        "in-isomer-count"
        ]
       }
      ]
@@ -701,6 +701,17 @@
    "partial": []
   },
   {
+   "code": "IN-2.2.B",
+   "unit": 2,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "in-oxide-character",
+    "in-oxide-trend"
+   ],
+   "partial": []
+  },
+  {
    "code": "IN-2.2.A",
    "unit": 2,
    "topic": 2,
@@ -712,13 +723,13 @@
    "partial": []
   },
   {
-   "code": "IN-2.2.B",
-   "unit": 2,
-   "topic": 2,
+   "code": "IN-3.1.D",
+   "unit": 3,
+   "topic": 1,
    "status": "ok",
    "full": [
-    "in-oxide-character",
-    "in-oxide-trend"
+    "in-spectrochemical",
+    "in-spectro-consequence"
    ],
    "partial": []
   },
@@ -756,13 +767,13 @@
    "partial": []
   },
   {
-   "code": "IN-3.1.D",
+   "code": "IN-3.2.B",
    "unit": 3,
-   "topic": 1,
+   "topic": 2,
    "status": "ok",
    "full": [
-    "in-spectrochemical",
-    "in-spectro-consequence"
+    "in-ion-colour",
+    "in-colour-identify"
    ],
    "partial": []
   },
@@ -774,17 +785,6 @@
    "full": [
     "in-isomer-type",
     "in-isomer-count"
-   ],
-   "partial": []
-  },
-  {
-   "code": "IN-3.2.B",
-   "unit": 3,
-   "topic": 2,
-   "status": "ok",
-   "full": [
-    "in-ion-colour",
-    "in-colour-identify"
    ],
    "partial": []
   },

@@ -76,8 +76,8 @@ units:
       - n: 1
         title: "Neurons and layers"
         los:
-          - { id: A, std: ["harper-carroll-academy:3"], do: "Compute a neuron's output with ReLU or sigmoid.", ek: ["Weighted sum plus bias, then the activation."], p: [P1], drills: [ab-neuron, ab-sigmoid] }
           - { id: B, std: ["harper-carroll-academy:3"], do: "Name the parts of a network and say why activations must be nonlinear.", ek: ["Parameters, forward pass, backpropagation; stacked linear layers collapse to one."], p: [P2], drills: [ab-activation, ab-network-parts] }
+          - { id: A, std: ["harper-carroll-academy:3"], do: "Compute a neuron's output with ReLU or sigmoid.", ek: ["Weighted sum plus bias, then the activation."], p: [P1], drills: [ab-neuron, ab-sigmoid] }
           - { id: C, std: ["harper-carroll-academy:3"], do: "Count the parameters of a fully connected layer or small network.", ek: ["Each neuron: one weight per input plus a bias."], p: [P1], drills: [ab-params-layer, ab-params-net] }
   - id: llms
     n: 4

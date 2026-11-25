@@ -34,6 +34,9 @@ Big ideas: MAIN
 
 
 
+- ● **LA-1.1.E** (cupm-2023-la:E2, cupm-2023-la:E9) Decide independence by counting: rank, the number of vectors and the dimension of the space.
+  - EK: More than n vectors in Rⁿ are always dependent; n vectors in Rⁿ are independent exactly when the matrix they form has nonzero determinant (rank n).
+  - P1 · drills: la-indep-det, la-indep-count
 - ● **LA-1.1.A** (lay-5e:1, webwork-opl:LA1.1, webwork-opl:LA1.2, webwork-opl:LA2.2, cupm-2023-la:E1) Solve a linear system by row reduction.
   - EK: Pivots give the basic variables; a row 0 = c means no solution.
   - P1 · drills: la-system, la-is-solution
@@ -46,23 +49,20 @@ Big ideas: MAIN
 - ● **LA-1.1.D** (cupm-2015-la:1, webwork-opl:LA1.3, cupm-2023-la:E1) Count the free variables of a consistent system.
   - EK: Free variables are the non-pivot columns.
   - P1 · drills: la-free-variables, la-min-free-vars
-- ● **LA-1.1.E** (cupm-2023-la:E2, cupm-2023-la:E9) Decide independence by counting: rank, the number of vectors and the dimension of the space.
-  - EK: More than n vectors in Rⁿ are always dependent; n vectors in Rⁿ are independent exactly when the matrix they form has nonzero determinant (rank n).
-  - P1 · drills: la-indep-det, la-indep-count
 
 ### 1.2 Vector equations and span
 
 
 
+- ● **LA-1.2.C** (cupm-2023-la:E3, cupm-2023-la:E5) Describe a span geometrically and find its dimension.
+  - EK: The span of vectors in R³ is a point, a line, a plane or all of R³, as its dimension (the rank) is 0, 1, 2 or 3.
+  - P1 · drills: la-span-dim, la-span-shape
 - ● **LA-1.2.A** (cupm-2015-la:1, lay-5e:1, webwork-opl:LA1.5, webwork-opl:LA4.2, webwork-opl:LA4.3, cupm-2023-la:E3) Decide whether a vector is in the span of others.
   - EK: b is in the span exactly when [v1 … vk | b] has no pivot in the last column.
   - P1 · drills: la-span-membership, la-span-h
 - ● **LA-1.2.B** (cupm-2015-la:1, lay-5e:1, cupm-2023-la:E5, cupm-2023-la:E1) Describe the solution set of Ax = b as a shifted null space.
   - EK: Every solution is a particular solution plus a solution of Ax = 0.
   - P1 · drills: la-solution-set-shape, la-solution-set-dim
-- ● **LA-1.2.C** (cupm-2023-la:E3, cupm-2023-la:E5) Describe a span geometrically and find its dimension.
-  - EK: The span of vectors in R³ is a point, a line, a plane or all of R³, as its dimension (the rank) is 0, 1, 2 or 3.
-  - P1 · drills: la-span-dim, la-span-shape
 
 ## Unit 2 · Matrix algebra
 
@@ -201,15 +201,15 @@ Big ideas: MAIN
 
 
 
+- ● **LA-6.1.C** (cupm-2023-la:E11, cupm-2023-la:E10) Fit a least-squares line with the normal equations and read its residuals.
+  - EK: Solve AᵀA c = Aᵀy for c = (b, m); the residual vector is orthogonal to every column of A, so its entries sum to zero when an intercept is fitted.
+  - P1 · drills: la-lsq-slope, la-lsq-residual-sum
 - ● **LA-6.1.A** (lay-5e:6, webwork-opl:LA8.1, webwork-opl:LA8.3, webwork-opl:LA8.4, webwork-opl:LA8.5, cupm-2023-la:E10, cupm-2023-la:O2) Test orthogonality, project one vector on another and take a Gram–Schmidt step.
   - EK: proj = (u·v / v·v) v.
   - P1 · drills: la-orthogonal-check, la-projection-scalar, la-gram-schmidt-step
 - ● **LA-6.1.B** (lay-5e:6, webwork-opl:LA8.4, webwork-opl:LA8.7, cupm-2023-la:E11) Set up and solve a least-squares problem.
   - EK: AᵀAx = Aᵀb.
   - P1 · drills: la-least-squares-slope, la-least-squares-facts
-- ● **LA-6.1.C** (cupm-2023-la:E11, cupm-2023-la:E10) Fit a least-squares line with the normal equations and read its residuals.
-  - EK: Solve AᵀA c = Aᵀy for c = (b, m); the residual vector is orthogonal to every column of A, so its entries sum to zero when an intercept is fitted.
-  - P1 · drills: la-lsq-slope, la-lsq-residual-sum
 
 ### 6.2 Length, complements and QR
 
@@ -255,15 +255,15 @@ Big ideas: MAIN
 
 
 
-- ● **LA-7.3.A** (lacsg-2:F4, cupm-2015-la:second, lay-5e:7, webwork-opl:LA3.4, cupm-2023-la:O3) Find the condition number from the singular values.
-  - EK: κ = σ_max / σ_min.
-  - P1 · drills: la-condition-number, la-cond-diag
 - ● **LA-7.3.B** (lacsg-2:F4, cupm-2023-la:O3) Find the error of the best low-rank approximation from the singular values.
   - EK: Eckart–Young: the best rank-k approximation drops σ_(k+1), …; its 2-norm error is σ_(k+1), its Frobenius error √(σ_(k+1)² + …).
   - P1 · drills: la-rank1-error, la-frob-error
 - ● **LA-7.3.C** (lacsg-2:S5, lacsg-2:F4, cupm-2023-la:E11, cupm-2023-la:O3) Use the pseudo-inverse to get the least-squares solution of a full-column-rank system.
   - EK: A⁺ = (AᵀA)⁻¹Aᵀ when the columns are independent; x = A⁺b solves the normal equations; A⁺ inverts each nonzero singular value.
   - P1 · drills: la-pinv-entry, la-pinv-diag
+- ● **LA-7.3.A** (lacsg-2:F4, cupm-2015-la:second, lay-5e:7, webwork-opl:LA3.4, cupm-2023-la:O3) Find the condition number from the singular values.
+  - EK: κ = σ_max / σ_min.
+  - P1 · drills: la-condition-number, la-cond-diag
 
 ## Unit 8 · Linear transformations
 
@@ -287,15 +287,15 @@ Big ideas: MAIN
 
 
 
+- ● **LA-8.2.C** (lacsg-2:S6, lacsg-2:F1, cupm-2023-la:E6, cupm-2023-la:E7, cupm-2023-la:E8) Find the eigenvalues and eigenvectors of a linear operator on a function space.
+  - EK: Apply the operator to a basis (monomials, exponentials): T(p) = λp makes p an eigenvector; the matrix of D on polynomials is nilpotent, so its only eigenvalue is 0.
+  - P1 · drills: la-operator-eigen, la-derivative-nilpotent
 - ● **LA-8.2.A** (cupm-2015-la:4, lay-5e:4, webwork-opl:LA6.6, webwork-opl:LA9.5, cupm-2023-la:E6, cupm-2023-la:E7) Find the dimensions of the kernel and range of a map on a function space.
   - EK: Rank–nullity holds for any linear map on a finite-dimensional space.
   - P1 · drills: la-kernel-dimension, la-derivative-range
 - ● **LA-8.2.B** (lacsg-2:F1, cupm-2015-la:4, lay-5e:4, webwork-opl:LA6.7, webwork-opl:LA9.3, cupm-2023-la:E6, cupm-2023-la:E9) Write the matrix of a map relative to a basis.
   - EK: Columns are the coordinates of T(b1), …, T(bn).
   - P1 · drills: la-matrix-relative-to-basis, la-shift-matrix-entry
-- ● **LA-8.2.C** (lacsg-2:S6, lacsg-2:F1, cupm-2023-la:E6, cupm-2023-la:E7, cupm-2023-la:E8) Find the eigenvalues and eigenvectors of a linear operator on a function space.
-  - EK: Apply the operator to a basis (monomials, exponentials): T(p) = λp makes p an eigenvector; the matrix of D on polynomials is nilpotent, so its only eigenvalue is 0.
-  - P1 · drills: la-operator-eigen, la-derivative-nilpotent
 
 ## Unit 9 · Abstract vector spaces and special matrices
 

@@ -290,8 +290,8 @@ units:
         fe: [me-D]
         los:
           - { id: A, do: "Find temperature at a depth and time, the depth reached, or the time needed, after a sudden surface temperature change.", ek: ["(T − T_s)/(T_i − T_s) = erf(x/2√(αt)); valid while the far side hasn't felt it."], p: [P3, P4], drills: ["ht-erf-temp", "ht-erf-depth", "ht-erf-time", "sc-diffusion-time-length"] }
-          - { id: B, do: "Find the surface heat flux, and the contact temperature when two semi-infinite solids touch.", ek: ["q''_s = k(T_s − T_i)/√(παt); T_s = (√(kρc)_A T_A + √(kρc)_B T_B)/(√(kρc)_A + √(kρc)_B)."], p: [P4, P6], drills: [ht-erf-flux, ht-erf-contact] }
           - { id: C, do: "Find the temperature in a semi-infinite solid with a constant surface heat flux or with convection at the surface.", ek: ["Flux: T − T_i = (2q″√(αt/π)/k)e^(−x²/4αt) − (q″x/k)erfc(x/2√αt). Convection: erfc η − exp(hx/k + h²αt/k²)erfc(η + h√αt/k); h → ∞ recovers the fixed surface."], p: [P4], drills: [ht-erf-const-flux, ht-erf-convection], needs: [HT-7.3.A] }
+          - { id: B, do: "Find the surface heat flux, and the contact temperature when two semi-infinite solids touch.", ek: ["q''_s = k(T_s − T_i)/√(παt); T_s = (√(kρc)_A T_A + √(kρc)_B T_B)/(√(kρc)_A + √(kρc)_B)."], p: [P4, P6], drills: [ht-erf-flux, ht-erf-contact] }
       - n: 4
         title: Multidimensional transient effects
         book: { incropera-8e: ["5.8"] }
@@ -518,9 +518,9 @@ units:
         fe: []
         los:
           - { id: A, do: "Calculate a diffusive flux in a stationary medium with Fick's law, including membranes and solubility.", ek: ["N_A = −D_AB dC_A/dx; at an interface C = S·p."], p: [P4], drills: [ht3-fick, ht3-membrane] }
+          - { id: D, do: "Solve transient diffusion into a semi-infinite solid (carburizing, doping) with the error-function solution.", ek: ["(C − C_s)/(C_i − C_s) = erf(x/2√(Dt)); depth scales with √(Dt)."], p: [P4], drills: [ht-mass-erf-time, ht-erf-concentration], needs: [HT-7.3.A, HT-14.1.A] }
           - { id: B, do: "Calculate evaporation through a stagnant gas column (Stefan flow).", ek: ["N_A = (CD_AB/L) ln[(1 − x_A,L)/(1 − x_A,0)]."], p: [P2, P4], drills: [ht3-stefan-flow, ht-bulk-flow-ratio] }
           - { id: C, do: "Solve diffusion with a homogeneous reaction.", ek: ["D d²C/dx² − k₁C = 0 ⇒ cosh/sinh profile, like a fin."], p: [P2], drills: [ht3-reaction, ht-reaction-penetration] }
-          - { id: D, do: "Solve transient diffusion into a semi-infinite solid (carburizing, doping) with the error-function solution.", ek: ["(C − C_s)/(C_i − C_s) = erf(x/2√(Dt)); depth scales with √(Dt)."], p: [P4], drills: [ht-mass-erf-time, ht-erf-concentration], needs: [HT-7.3.A, HT-14.1.A] }
       - n: 2
         title: Convective mass transfer and the analogy
         book: { incropera-8e: ["6.7", "7.8"] }

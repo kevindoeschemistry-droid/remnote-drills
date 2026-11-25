@@ -66,9 +66,9 @@ units:
       - n: 1
         title: "Hazards"
         los:
+          - { id: C, std: ["fe-chemical:16.C"], do: "State what a HAZOP guide word means.", ek: ["NO, MORE, LESS, REVERSE, AS WELL AS, PART OF, OTHER THAN."], p: [P2], drills: [pd-hazop, pd-hazop-word] }
           - { id: A, std: ["fe-chemical:16.A"], do: "Compute the lower flammable limit of a fuel mixture.", ek: ["Le Chatelier: 1/Σ(yᵢ/LFLᵢ)."], p: [P1], drills: [pd-lfl-mixture, pd-flammable-check] }
           - { id: B, std: ["fe-chemical:16.B"], do: "Judge a mixed exposure against its limits.", ek: ["Σ Cᵢ/TLVᵢ ≤ 1."], p: [P2], drills: [pd-tlv-mixture, pd-tlv-allowance] }
-          - { id: C, std: ["fe-chemical:16.C"], do: "State what a HAZOP guide word means.", ek: ["NO, MORE, LESS, REVERSE, AS WELL AS, PART OF, OTHER THAN."], p: [P2], drills: [pd-hazop, pd-hazop-word] }
   - id: control
     n: 3
     title: "Process dynamics"

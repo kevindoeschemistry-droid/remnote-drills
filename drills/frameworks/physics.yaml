@@ -187,10 +187,10 @@ units:
       - n: 6
         title: Gravitational force
         los:
-          - { id: A, std: ["P1 2.6.A", "CM 2.6.A"], do: "Calculate the gravitational force between two masses with Newton's law of gravitation.", ek: ["F = Gm₁m₂/r², r center to center; doubling r quarters F."], p: [2B, 2D], drills: ["ph-gravitation-force", "ph-gravity-distance-scaling"] }
-          - { id: B, std: ["P1 2.6.A", "CM 2.6.A"], do: "Calculate the gravitational field strength g at a planet's surface or at altitude.", ek: ["g = GM/r²; weight mg is the gravitational force, and g is also the free-fall acceleration."], p: [2A, 2B], drills: ["ph-g-at-altitude", "ph-g-planet-scaling"], needs: [PH-2.6.A] }
           - { id: C, std: ["P1 2.6.C", "P1 2.6.D", "CM 2.6.C", "CM 2.6.D"], do: "Find apparent weight in an accelerating frame and tell inertial from gravitational mass.", ek: ["A scale reads the normal force: N = m(g + a) with a positive upward; in free fall N = 0 (weightless) though gravity still acts; inertial and gravitational mass are equal to high precision."], p: [2B], drills: [ph-elevator-scale, ph-weightless] }
           - { id: D, std: ["P1 2.6.B", "CM 2.6.B", "CM 2.6.E"], do: "Decide when g is constant and find g above a planet or inside a uniform sphere.", ek: ["Outside: g = GM/r², nearly constant when the height is small next to the radius; inside a uniform sphere g = GMr/R³, growing linearly from zero at the centre."], p: [2B], drills: [ph-g-altitude, ph-g-inside] }
+          - { id: A, std: ["P1 2.6.A", "CM 2.6.A"], do: "Calculate the gravitational force between two masses with Newton's law of gravitation.", ek: ["F = Gm₁m₂/r², r center to center; doubling r quarters F."], p: [2B, 2D], drills: ["ph-gravitation-force", "ph-gravity-distance-scaling"] }
+          - { id: B, std: ["P1 2.6.A", "CM 2.6.A"], do: "Calculate the gravitational field strength g at a planet's surface or at altitude.", ek: ["g = GM/r²; weight mg is the gravitational force, and g is also the free-fall acceleration."], p: [2A, 2B], drills: ["ph-g-at-altitude", "ph-g-planet-scaling"], needs: [PH-2.6.A] }
       - n: 7
         title: Kinetic and static friction
         los:
@@ -199,8 +199,8 @@ units:
       - n: 8
         title: Spring forces
         los:
-          - { id: A, std: ["P1 2.8.A", "CM 2.8.A"], do: "Apply Hooke's law to find a spring force, stretch or spring constant, including k from a force–extension graph.", ek: ["F_s = −kΔx, restoring toward equilibrium; k is the slope of F vs Δx."], p: [1B, 2B], drills: ["ph-hooke", "ph-springs-combined"], needs: [PH-2.4.A] }
           - { id: B, std: ["CM 2.8.B"], do: "Combine springs in series and in parallel.", ek: ["Parallel: k = k₁ + k₂ (same stretch); series: 1/k = 1/k₁ + 1/k₂ (same force)."], p: [2B], drills: [ph-springs-combine, ph-spring-cut] }
+          - { id: A, std: ["P1 2.8.A", "CM 2.8.A"], do: "Apply Hooke's law to find a spring force, stretch or spring constant, including k from a force–extension graph.", ek: ["F_s = −kΔx, restoring toward equilibrium; k is the slope of F vs Δx."], p: [1B, 2B], drills: ["ph-hooke", "ph-springs-combined"], needs: [PH-2.4.A] }
       - n: 9
         title: Circular motion
         los:

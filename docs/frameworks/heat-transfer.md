@@ -317,13 +317,13 @@ Book: incropera-8e §5.7 · FE: me-D
 - ● **HT-7.3.A** Find temperature at a depth and time, the depth reached, or the time needed, after a sudden surface temperature change.
   - EK: (T − T_s)/(T_i − T_s) = erf(x/2√(αt)); valid while the far side hasn't felt it.
   - P3 · P4 · drills: ht-erf-temp, ht-erf-depth, ht-erf-time, sc-diffusion-time-length
-- ● **HT-7.3.B** Find the surface heat flux, and the contact temperature when two semi-infinite solids touch.
-  - EK: q''_s = k(T_s − T_i)/√(παt); T_s = (√(kρc)_A T_A + √(kρc)_B T_B)/(√(kρc)_A + √(kρc)_B).
-  - P4 · P6 · drills: ht-erf-flux, ht-erf-contact
 - ● **HT-7.3.C** Find the temperature in a semi-infinite solid with a constant surface heat flux or with convection at the surface.
   - EK: Flux: T − T_i = (2q″√(αt/π)/k)e^(−x²/4αt) − (q″x/k)erfc(x/2√αt). Convection: erfc η − exp(hx/k + h²αt/k²)erfc(η + h√αt/k); h → ∞ recovers the fixed surface.
   - Needs: HT-7.3.A
   - P4 · drills: ht-erf-const-flux, ht-erf-convection
+- ● **HT-7.3.B** Find the surface heat flux, and the contact temperature when two semi-infinite solids touch.
+  - EK: q''_s = k(T_s − T_i)/√(παt); T_s = (√(kρc)_A T_A + √(kρc)_B T_B)/(√(kρc)_A + √(kρc)_B).
+  - P4 · P6 · drills: ht-erf-flux, ht-erf-contact
 
 ### 7.4 Multidimensional transient effects
 
@@ -605,16 +605,16 @@ Book: incropera-8e §14.1, §14.2, §14.3, §14.4, §14.5, §14.6
 - ● **HT-14.1.A** Calculate a diffusive flux in a stationary medium with Fick's law, including membranes and solubility.
   - EK: N_A = −D_AB dC_A/dx; at an interface C = S·p.
   - P4 · drills: ht3-fick, ht3-membrane
+- ● **HT-14.1.D** Solve transient diffusion into a semi-infinite solid (carburizing, doping) with the error-function solution.
+  - EK: (C − C_s)/(C_i − C_s) = erf(x/2√(Dt)); depth scales with √(Dt).
+  - Needs: HT-7.3.A, HT-14.1.A
+  - P4 · drills: ht-mass-erf-time, ht-erf-concentration
 - ● **HT-14.1.B** Calculate evaporation through a stagnant gas column (Stefan flow).
   - EK: N_A = (CD_AB/L) ln[(1 − x_A,L)/(1 − x_A,0)].
   - P2 · P4 · drills: ht3-stefan-flow, ht-bulk-flow-ratio
 - ● **HT-14.1.C** Solve diffusion with a homogeneous reaction.
   - EK: D d²C/dx² − k₁C = 0 ⇒ cosh/sinh profile, like a fin.
   - P2 · drills: ht3-reaction, ht-reaction-penetration
-- ● **HT-14.1.D** Solve transient diffusion into a semi-infinite solid (carburizing, doping) with the error-function solution.
-  - EK: (C − C_s)/(C_i − C_s) = erf(x/2√(Dt)); depth scales with √(Dt).
-  - Needs: HT-7.3.A, HT-14.1.A
-  - P4 · drills: ht-mass-erf-time, ht-erf-concentration
 
 ### 14.2 Convective mass transfer and the analogy
 

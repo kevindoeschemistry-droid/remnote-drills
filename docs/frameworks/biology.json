@@ -273,63 +273,6 @@
        ]
       },
       {
-       "id": "B",
-       "std": [
-        "SYI-1.B"
-       ],
-       "do": "Classify an amino acid side chain as nonpolar, polar or charged and predict where it sits in a folded soluble protein.",
-       "ek": [
-        "Nonpolar R groups bury in the core; polar and charged ones face water."
-       ],
-       "p": [
-        "P1",
-        "P2"
-       ],
-       "drills": [
-        "bi-side-chain",
-        "bi-side-chain-placement"
-       ],
-       "needs": [
-        "BI-1.4.A",
-        "BI-1.1.A"
-       ]
-      },
-      {
-       "id": "C",
-       "std": [
-        "SYI-1.B"
-       ],
-       "do": "Distinguish saturated fats, unsaturated fats, phospholipids and steroids by structure and physical property.",
-       "ek": [
-        "cis double bonds kink tails so fats stay liquid; phospholipids are amphipathic; steroids are four fused rings."
-       ],
-       "p": [
-        "P1",
-        "P2"
-       ],
-       "drills": [
-        "bi-lipid-types",
-        "bi-lipid-scenario"
-       ]
-      },
-      {
-       "id": "D",
-       "std": [
-        "SYI-1.B"
-       ],
-       "do": "Tell structural from storage polysaccharides by linkage and branching.",
-       "ek": [
-        "Cellulose β(1→4) straight chains H-bond into fibres; starch and glycogen α(1→4) with α(1→6) branches are compact and easy to hydrolyse."
-       ],
-       "p": [
-        "P1"
-       ],
-       "drills": [
-        "bi-polysaccharide",
-        "bi-polysaccharide-scenario"
-       ]
-      },
-      {
        "id": "E",
        "std": [
         "iupac-aa-1983:3AA-1"
@@ -386,6 +329,63 @@
        ],
        "needs": [
         "BI-1.4.A"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "SYI-1.B"
+       ],
+       "do": "Classify an amino acid side chain as nonpolar, polar or charged and predict where it sits in a folded soluble protein.",
+       "ek": [
+        "Nonpolar R groups bury in the core; polar and charged ones face water."
+       ],
+       "p": [
+        "P1",
+        "P2"
+       ],
+       "drills": [
+        "bi-side-chain",
+        "bi-side-chain-placement"
+       ],
+       "needs": [
+        "BI-1.4.A",
+        "BI-1.1.A"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "SYI-1.B"
+       ],
+       "do": "Distinguish saturated fats, unsaturated fats, phospholipids and steroids by structure and physical property.",
+       "ek": [
+        "cis double bonds kink tails so fats stay liquid; phospholipids are amphipathic; steroids are four fused rings."
+       ],
+       "p": [
+        "P1",
+        "P2"
+       ],
+       "drills": [
+        "bi-lipid-types",
+        "bi-lipid-scenario"
+       ]
+      },
+      {
+       "id": "D",
+       "std": [
+        "SYI-1.B"
+       ],
+       "do": "Tell structural from storage polysaccharides by linkage and branching.",
+       "ek": [
+        "Cellulose β(1→4) straight chains H-bond into fibres; starch and glycogen α(1→4) with α(1→6) branches are compact and easy to hydrolyse."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "bi-polysaccharide",
+        "bi-polysaccharide-scenario"
        ]
       }
      ]
@@ -4754,39 +4754,6 @@
    "partial": []
   },
   {
-   "code": "BI-1.4.B",
-   "unit": 1,
-   "topic": 4,
-   "status": "ok",
-   "full": [
-    "bi-side-chain",
-    "bi-side-chain-placement"
-   ],
-   "partial": []
-  },
-  {
-   "code": "BI-1.4.C",
-   "unit": 1,
-   "topic": 4,
-   "status": "ok",
-   "full": [
-    "bi-lipid-types",
-    "bi-lipid-scenario"
-   ],
-   "partial": []
-  },
-  {
-   "code": "BI-1.4.D",
-   "unit": 1,
-   "topic": 4,
-   "status": "ok",
-   "full": [
-    "bi-polysaccharide",
-    "bi-polysaccharide-scenario"
-   ],
-   "partial": []
-  },
-  {
    "code": "BI-1.4.E",
    "unit": 1,
    "topic": 4,
@@ -4832,6 +4799,39 @@
     "aa-name-trp",
     "aa-draw-pro",
     "aa-name-pro"
+   ],
+   "partial": []
+  },
+  {
+   "code": "BI-1.4.B",
+   "unit": 1,
+   "topic": 4,
+   "status": "ok",
+   "full": [
+    "bi-side-chain",
+    "bi-side-chain-placement"
+   ],
+   "partial": []
+  },
+  {
+   "code": "BI-1.4.C",
+   "unit": 1,
+   "topic": 4,
+   "status": "ok",
+   "full": [
+    "bi-lipid-types",
+    "bi-lipid-scenario"
+   ],
+   "partial": []
+  },
+  {
+   "code": "BI-1.4.D",
+   "unit": 1,
+   "topic": 4,
+   "status": "ok",
+   "full": [
+    "bi-polysaccharide",
+    "bi-polysaccharide-scenario"
    ],
    "partial": []
   },

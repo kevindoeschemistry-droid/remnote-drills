@@ -764,6 +764,20 @@
      "title": "Resin composites and their polymerization",
      "los": [
       {
+       "id": "B",
+       "do": "Explain what each composite component does and how filler changes properties.",
+       "ek": [
+        "Silane couples filler; camphorquinone absorbs blue light; oxygen inhibits the surface."
+       ],
+       "p": [
+        "P3"
+       ],
+       "drills": [
+        "dn-composite-types",
+        "dn-composite-choice"
+       ]
+      },
+      {
        "id": "A",
        "std": [
         "jcnde-domain:CC30"
@@ -781,20 +795,6 @@
         "dn-shrinkage",
         "dn-c-factor",
         "dn-water-sorption"
-       ]
-      },
-      {
-       "id": "B",
-       "do": "Explain what each composite component does and how filler changes properties.",
-       "ek": [
-        "Silane couples filler; camphorquinone absorbs blue light; oxygen inhibits the surface."
-       ],
-       "p": [
-        "P3"
-       ],
-       "drills": [
-        "dn-composite-types",
-        "dn-composite-choice"
        ]
       },
       {
@@ -921,20 +921,6 @@
        ]
       },
       {
-       "id": "D",
-       "do": "Compute bond strength from a shear or microtensile test.",
-       "ek": [
-        "σ = F/A; microtensile beams are about 1 mm²."
-       ],
-       "p": [
-        "P1"
-       ],
-       "drills": [
-        "dn-bond-strength",
-        "dn-load-for-strength"
-       ]
-      },
-      {
        "id": "E",
        "std": [
         "jcnde-domain:CC31"
@@ -951,6 +937,20 @@
         "dn-ceramic-class",
         "dn-ceramic-scenario"
        ]
+      },
+      {
+       "id": "D",
+       "do": "Compute bond strength from a shear or microtensile test.",
+       "ek": [
+        "σ = F/A; microtensile beams are about 1 mm²."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "dn-bond-strength",
+        "dn-load-for-strength"
+       ]
       }
      ]
     },
@@ -958,24 +958,6 @@
      "n": 5,
      "title": "Alloys, gypsum and impression materials",
      "los": [
-      {
-       "id": "A",
-       "std": [
-        "jcnde-domain:CC31"
-       ],
-       "do": "Classify a casting alloy by noble-metal content.",
-       "ek": [
-        "High noble ≥ 60% noble with ≥ 40% gold; noble ≥ 25%; silver is not noble."
-       ],
-       "p": [
-        "P1",
-        "P3"
-       ],
-       "drills": [
-        "dn-noble-class",
-        "dn-noble-total"
-       ]
-      },
       {
        "id": "B",
        "std": [
@@ -992,6 +974,24 @@
        "drills": [
         "dn-gypsum-water",
         "dn-impression"
+       ]
+      },
+      {
+       "id": "A",
+       "std": [
+        "jcnde-domain:CC31"
+       ],
+       "do": "Classify a casting alloy by noble-metal content.",
+       "ek": [
+        "High noble ≥ 60% noble with ≥ 40% gold; noble ≥ 25%; silver is not noble."
+       ],
+       "p": [
+        "P1",
+        "P3"
+       ],
+       "drills": [
+        "dn-noble-class",
+        "dn-noble-total"
        ]
       }
      ]
@@ -1276,24 +1276,6 @@
      "title": "Analgesics, antibiotics, interactions and dosing",
      "los": [
       {
-       "id": "A",
-       "std": [
-        "jcnde-domain:FK8",
-        "jcnde-domain:CC26"
-       ],
-       "do": "Recall analgesic choices and limits for dental pain.",
-       "ek": [
-        "Ibuprofen 400 mg ± acetaminophen 500–1000 mg beats opioids for most dental pain; acetaminophen ≤ 4 g/day (usual adult maximum)."
-       ],
-       "p": [
-        "P3"
-       ],
-       "drills": [
-        "dn-analgesics",
-        "dn-acetaminophen-tablets"
-       ]
-      },
-      {
        "id": "B",
        "std": [
         "jcnde-domain:FK8",
@@ -1329,6 +1311,24 @@
        "drills": [
         "dn-interactions",
         "dn-interaction-scenarios"
+       ]
+      },
+      {
+       "id": "A",
+       "std": [
+        "jcnde-domain:FK8",
+        "jcnde-domain:CC26"
+       ],
+       "do": "Recall analgesic choices and limits for dental pain.",
+       "ek": [
+        "Ibuprofen 400 mg ± acetaminophen 500–1000 mg beats opioids for most dental pain; acetaminophen ≤ 4 g/day (usual adult maximum)."
+       ],
+       "p": [
+        "P3"
+       ],
+       "drills": [
+        "dn-analgesics",
+        "dn-acetaminophen-tablets"
        ]
       },
       {
@@ -1408,6 +1408,23 @@
        ]
       },
       {
+       "id": "C",
+       "std": [
+        "jcnde-domain:FK5"
+       ],
+       "do": "Classify hypersensitivity reactions met in dentistry.",
+       "ek": [
+        "Type I IgE (latex anaphylaxis, penicillin), IV T-cell (contact dermatitis to latex accelerators, nickel, methacrylates)."
+       ],
+       "p": [
+        "P3"
+       ],
+       "drills": [
+        "dn-hypersensitivity",
+        "dn-hypersensitivity-more"
+       ]
+      },
+      {
        "id": "B",
        "std": [
         "jcnde-domain:FK7",
@@ -1423,23 +1440,6 @@
        "drills": [
         "dn-exposure",
         "dn-exposure-expected"
-       ]
-      },
-      {
-       "id": "C",
-       "std": [
-        "jcnde-domain:FK5"
-       ],
-       "do": "Classify hypersensitivity reactions met in dentistry.",
-       "ek": [
-        "Type I IgE (latex anaphylaxis, penicillin), IV T-cell (contact dermatitis to latex accelerators, nickel, methacrylates)."
-       ],
-       "p": [
-        "P3"
-       ],
-       "drills": [
-        "dn-hypersensitivity",
-        "dn-hypersensitivity-more"
        ]
       }
      ]
@@ -2197,6 +2197,17 @@
    "partial": []
   },
   {
+   "code": "DN-4.2.B",
+   "unit": 4,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "dn-composite-types",
+    "dn-composite-choice"
+   ],
+   "partial": []
+  },
+  {
    "code": "DN-4.2.A",
    "unit": 4,
    "topic": 2,
@@ -2207,17 +2218,6 @@
     "dn-shrinkage",
     "dn-c-factor",
     "dn-water-sorption"
-   ],
-   "partial": []
-  },
-  {
-   "code": "DN-4.2.B",
-   "unit": 4,
-   "topic": 2,
-   "status": "ok",
-   "full": [
-    "dn-composite-types",
-    "dn-composite-choice"
    ],
    "partial": []
   },
@@ -2299,17 +2299,6 @@
    "partial": []
   },
   {
-   "code": "DN-4.4.D",
-   "unit": 4,
-   "topic": 4,
-   "status": "ok",
-   "full": [
-    "dn-bond-strength",
-    "dn-load-for-strength"
-   ],
-   "partial": []
-  },
-  {
    "code": "DN-4.4.E",
    "unit": 4,
    "topic": 4,
@@ -2321,13 +2310,13 @@
    "partial": []
   },
   {
-   "code": "DN-4.5.A",
+   "code": "DN-4.4.D",
    "unit": 4,
-   "topic": 5,
+   "topic": 4,
    "status": "ok",
    "full": [
-    "dn-noble-class",
-    "dn-noble-total"
+    "dn-bond-strength",
+    "dn-load-for-strength"
    ],
    "partial": []
   },
@@ -2339,6 +2328,17 @@
    "full": [
     "dn-gypsum-water",
     "dn-impression"
+   ],
+   "partial": []
+  },
+  {
+   "code": "DN-4.5.A",
+   "unit": 4,
+   "topic": 5,
+   "status": "ok",
+   "full": [
+    "dn-noble-class",
+    "dn-noble-total"
    ],
    "partial": []
   },
@@ -2464,17 +2464,6 @@
    "partial": []
   },
   {
-   "code": "DN-8.1.A",
-   "unit": 8,
-   "topic": 1,
-   "status": "ok",
-   "full": [
-    "dn-analgesics",
-    "dn-acetaminophen-tablets"
-   ],
-   "partial": []
-  },
-  {
    "code": "DN-8.1.B",
    "unit": 8,
    "topic": 1,
@@ -2493,6 +2482,17 @@
    "full": [
     "dn-interactions",
     "dn-interaction-scenarios"
+   ],
+   "partial": []
+  },
+  {
+   "code": "DN-8.1.A",
+   "unit": 8,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "dn-analgesics",
+    "dn-acetaminophen-tablets"
    ],
    "partial": []
   },
@@ -2530,17 +2530,6 @@
    "partial": []
   },
   {
-   "code": "DN-9.1.B",
-   "unit": 9,
-   "topic": 1,
-   "status": "ok",
-   "full": [
-    "dn-exposure",
-    "dn-exposure-expected"
-   ],
-   "partial": []
-  },
-  {
    "code": "DN-9.1.C",
    "unit": 9,
    "topic": 1,
@@ -2548,6 +2537,17 @@
    "full": [
     "dn-hypersensitivity",
     "dn-hypersensitivity-more"
+   ],
+   "partial": []
+  },
+  {
+   "code": "DN-9.1.B",
+   "unit": 9,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "dn-exposure",
+    "dn-exposure-expected"
    ],
    "partial": []
   },

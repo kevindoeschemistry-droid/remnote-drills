@@ -382,24 +382,6 @@
        ]
       },
       {
-       "id": "B",
-       "do": "Size a PFR for a gas-phase reaction with a change in moles, first or second order.",
-       "ek": [
-        "C_A = C_A0(1 − X)/(1 + εX) inside the design integral."
-       ],
-       "p": [
-        "P1"
-       ],
-       "needs": [
-        "RE-2.3.A",
-        "RE-1.3.C"
-       ],
-       "drills": [
-        "re-pfr-gas-eps",
-        "re-epsilon-volume-ratio"
-       ]
-      },
-      {
        "id": "C",
        "do": "Size reactors in series (CSTR then PFR) from the Levenspiel plot.",
        "ek": [
@@ -415,6 +397,24 @@
        "drills": [
         "re-cstr-then-pfr",
         "re-pfr-then-cstr"
+       ]
+      },
+      {
+       "id": "B",
+       "do": "Size a PFR for a gas-phase reaction with a change in moles, first or second order.",
+       "ek": [
+        "C_A = C_A0(1 − X)/(1 + εX) inside the design integral."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "RE-2.3.A",
+        "RE-1.3.C"
+       ],
+       "drills": [
+        "re-pfr-gas-eps",
+        "re-epsilon-volume-ratio"
        ]
       }
      ]
@@ -1247,17 +1247,6 @@
    "partial": []
   },
   {
-   "code": "RE-2.3.B",
-   "unit": 2,
-   "topic": 3,
-   "status": "ok",
-   "full": [
-    "re-pfr-gas-eps",
-    "re-epsilon-volume-ratio"
-   ],
-   "partial": []
-  },
-  {
    "code": "RE-2.3.C",
    "unit": 2,
    "topic": 3,
@@ -1265,6 +1254,17 @@
    "full": [
     "re-cstr-then-pfr",
     "re-pfr-then-cstr"
+   ],
+   "partial": []
+  },
+  {
+   "code": "RE-2.3.B",
+   "unit": 2,
+   "topic": 3,
+   "status": "ok",
+   "full": [
+    "re-pfr-gas-eps",
+    "re-epsilon-volume-ratio"
    ],
    "partial": []
   },

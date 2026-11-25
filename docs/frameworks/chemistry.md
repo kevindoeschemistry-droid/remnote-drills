@@ -54,18 +54,18 @@ Big ideas: SPQ
 
 
 
-- ● **CH-0.2.A** (8.EE.A.3, 8.EE.A.4, N-Q.A.1) Write quantities in scientific notation and convert between SI prefixes (p, n, μ, m, c, k, M, G).
-  - EK: Each prefix is a power of ten; moving the decimal changes the exponent by the same count.
-  - P5 · drills: ac-si-prefix, ac2-largest-length
 - ● **CH-0.2.B** (N-Q.A.3) Count significant figures in a measurement and round a calculated result correctly for × ÷ and for + −.
   - EK: × ÷: keep the fewest significant figures; + −: keep the fewest decimal places; exact counts and defined constants don't limit.
   - P5 · drills: ac-sig-figs, ac-sig-figs-product
-- ● **CH-0.2.C** (N-Q.A.3, acs-accm-general:IX.G.1, acs-accm-inorganic:IX.E.1) Distinguish accuracy from precision and calculate percent error.
-  - EK: Accuracy = closeness to the true value; precision = agreement among repeats; % error = |measured − true|/true × 100.
-  - P2 · P4 · drills: ac-percent-error, ac2-percent-error-reverse
 - ● **CH-0.2.D** (N-Q.A.1, A-CED.A.4, acs-accm-general:I.D.3, acs-accm-general:IX.B.2) Calculate density, mass or volume from the other two, including volume by water displacement.
   - EK: ρ = m/V; 1 mL = 1 cm³; water ≈ 1.00 g/mL near room temperature.
   - P5 · drills: ph-density, ac-density-displacement
+- ● **CH-0.2.A** (8.EE.A.3, 8.EE.A.4, N-Q.A.1) Write quantities in scientific notation and convert between SI prefixes (p, n, μ, m, c, k, M, G).
+  - EK: Each prefix is a power of ten; moving the decimal changes the exponent by the same count.
+  - P5 · drills: ac-si-prefix, ac2-largest-length
+- ● **CH-0.2.C** (N-Q.A.3, acs-accm-general:IX.G.1, acs-accm-inorganic:IX.E.1) Distinguish accuracy from precision and calculate percent error.
+  - EK: Accuracy = closeness to the true value; precision = agreement among repeats; % error = |measured − true|/true × 100.
+  - P2 · P4 · drills: ac-percent-error, ac2-percent-error-reverse
 - ● **CH-0.2.E** (N-Q.A.1) Convert temperatures among °C, K and °F.
   - EK: K = °C + 273.15; °F = 1.8·°C + 32; gas laws and thermodynamics need kelvin.
   - P5 · drills: ac-temperature-convert, ac2-hotter
@@ -94,13 +94,13 @@ Big ideas: SPQ
 
 
 
+- ● **CH-0.5.B** (acs-accm-general:I.E.3) Use the picometre size of atoms to see why a mole is so large.
+  - EK: Atoms are about 100–300 pm across; a millimetre holds millions of them in a row, so a visible sample holds ~10²³.
+  - P1 · drills: ch-atoms-in-a-line, ch-mole-of-marbles
 - ● **CH-0.5.A** (SPQ-1.A, acs-accm-general:I.E.1, acs-accm-general:X.B.1) Explain the mole as a count of particles and compute a compound's molar mass from its formula.
   - EK: 1 mol = 6.022 × 10²³ particles; molar mass in g/mol = sum of atomic masses × subscripts.
   - Needs: CH-0.4.C
   - P5 · drills: ac-molar-mass, ac2-identify-metal
-- ● **CH-0.5.B** (acs-accm-general:I.E.3) Use the picometre size of atoms to see why a mole is so large.
-  - EK: Atoms are about 100–300 pm across; a millimetre holds millions of them in a row, so a visible sample holds ~10²³.
-  - P1 · drills: ch-atoms-in-a-line, ch-mole-of-marbles
 
 ### 0.6 Laboratory practice and safety
 
@@ -186,14 +186,14 @@ Big ideas: SPQ, SAP
   - EK: Fill by Aufbau order (1s 2s 2p 3s 3p 4s 3d 4p …), two electrons per orbital; cations of transition metals lose ns before (n−1)d.
   - Needs: CH-0.4.A
   - P1 · drills: pt-config-write-d, pt-config-s-count, ac-ion-d-count
-- ● **CH-1.5.B** (SAP-1.A, acs-accm-general:I.B.3, acs-accm-inorganic:I.B.5, acs-accm-analytical:I.B.2) Draw an orbital (box) diagram, count unpaired electrons, and predict paramagnetism or diamagnetism.
-  - EK: Hund: fill degenerate orbitals singly with parallel spins first; any unpaired electron ⇒ paramagnetic.
-  - Needs: CH-1.5.A
-  - P1 · drills: ac-unpaired-electrons, ac-paramagnetic-pick
 - ● **CH-1.5.C** (SAP-1.A, acs-accm-general:I.B.1, acs-accm-general:I.C.2, acs-accm-inorganic:I.B.3, acs-accm-inorganic:I.B.4) Compare the attraction of an electron to the nucleus using Coulomb's law with nuclear charge, shielding and distance.
   - EK: F ∝ q₁q₂/r²; Z_eff ≈ Z − core electrons; outer, well-shielded electrons are held least tightly.
   - Needs: CH-1.5.A
   - P6 · drills: ac-coulomb-compare, qm-slater-zeff
+- ● **CH-1.5.B** (SAP-1.A, acs-accm-general:I.B.3, acs-accm-inorganic:I.B.5, acs-accm-analytical:I.B.2) Draw an orbital (box) diagram, count unpaired electrons, and predict paramagnetism or diamagnetism.
+  - EK: Hund: fill degenerate orbitals singly with parallel spins first; any unpaired electron ⇒ paramagnetic.
+  - Needs: CH-1.5.A
+  - P1 · drills: ac-unpaired-electrons, ac-paramagnetic-pick
 
 ### 1.6 Photoelectron spectroscopy
 
@@ -337,14 +337,14 @@ Big ideas: SAP
   - EK: 2–6 domains ⇒ linear, trigonal planar, tetrahedral, trigonal bipyramidal, octahedral; lone pairs squeeze angles (109.5° → 107° → 104.5°).
   - Needs: CH-2.5.B
   - P1 · drills: ac-vsepr-shape, ac2-hybridization
-- ● **CH-2.7.B** (SAP-4.C, acs-accm-general:IV.C.2, acs-accm-organic:II.A.2) Decide whether a molecule is polar from its shape and bond dipoles.
-  - EK: Polar bonds in a symmetric shape cancel (CO₂, CCl₄); lone pairs or unlike atoms usually break the symmetry.
-  - Needs: CH-2.7.A, CH-2.1.A
-  - P6 · drills: ac-polarity, ac2-nonpolar-pick
 - ● **CH-2.7.C** (SAP-4.C, acs-accm-general:II.C.3, acs-accm-general:II.F.1, acs-accm-organic:II.E.1, acs-accm-inorganic:II.C.1, acs-accm-inorganic:II.F.2) Assign the hybridization of a central atom and count σ and π bonds.
   - EK: 2, 3, 4, 5, 6 domains ⇒ sp, sp², sp³, sp³d, sp³d²; a single bond is σ, a double σ + π, a triple σ + 2π.
   - Needs: CH-2.7.A
   - P1 · drills: qm-hybridisation, ac-sigma-pi
+- ● **CH-2.7.B** (SAP-4.C, acs-accm-general:IV.C.2, acs-accm-organic:II.A.2) Decide whether a molecule is polar from its shape and bond dipoles.
+  - EK: Polar bonds in a symmetric shape cancel (CO₂, CCl₄); lone pairs or unlike atoms usually break the symmetry.
+  - Needs: CH-2.7.A, CH-2.1.A
+  - P6 · drills: ac-polarity, ac2-nonpolar-pick
 
 ### 2.8 Molecular orbital theory for diatomics
 
@@ -585,6 +585,9 @@ Big ideas: TRA, SPQ
 
 
 
+- ● **CH-4.5.F** (acs-accm-general:III.H.3) Find the mass of an element that can be recovered from an ore or mineral sample.
+  - EK: Mass of element = mass of ore × fraction of mineral × (mass of element in one formula unit ÷ formula mass).
+  - P1 · drills: ch-metal-from-ore, ch-ore-needed
 - ● **CH-4.5.A** (SPQ-4.A, acs-accm-general:V.A.2, acs-accm-general:V.A.3) Calculate the mass of a product or reactant from the mass of another, through the mole ratio.
   - EK: grams A → mol A → (coefficient ratio) → mol B → grams B.
   - Needs: CH-4.1.A, CH-1.1.A
@@ -605,9 +608,6 @@ Big ideas: TRA, SPQ
   - EK: Convert gas P, V, T to moles with n = PV/RT, then use the mole ratio; equal volumes of gases at the same T, P ⇒ equal moles.
   - Needs: CH-4.5.A, CH-3.4.A
   - P5 · drills: ac-gas-stoich, ac-gas-volume-stp
-- ● **CH-4.5.F** (acs-accm-general:III.H.3) Find the mass of an element that can be recovered from an ore or mineral sample.
-  - EK: Mass of element = mass of ore × fraction of mineral × (mass of element in one formula unit ÷ formula mass).
-  - P1 · drills: ch-metal-from-ore, ch-ore-needed
 
 ### 4.6 Introduction to titration
 
@@ -717,13 +717,13 @@ Big ideas: TRA, ENE
 
 
 
+- ● **CH-5.5.B** (acs-accm-general:VII.A.3) Explain and quantify how dividing a solid raises its surface area and its reaction rate.
+  - EK: Cutting a cube into n³ smaller cubes multiplies the exposed area by n; a surface reaction speeds up in proportion.
+  - P1 · drills: ch-surface-area-cut, ch-surface-area-facts
 - ● **CH-5.5.A** (TRA-4.B, acs-accm-general:VII.D.1, acs-accm-organic:IV.C.1) Explain rate in terms of collision frequency, orientation and the fraction of collisions with energy above E_a.
   - EK: Raising T shifts the Maxwell–Boltzmann tail past E_a, so a small T rise greatly increases the effective collisions.
   - Needs: CH-3.5.A, CH-5.1.A
   - P6 · drills: ac-collision-factor, ac-arrhenius-fraction
-- ● **CH-5.5.B** (acs-accm-general:VII.A.3) Explain and quantify how dividing a solid raises its surface area and its reaction rate.
-  - EK: Cutting a cube into n³ smaller cubes multiplies the exposed area by n; a surface reaction speeds up in proportion.
-  - P1 · drills: ch-surface-area-cut, ch-surface-area-facts
 
 ### 5.6 Reaction energy profile
 
@@ -965,13 +965,13 @@ Big ideas: TRA, SPQ
 
 
 
+- ● **CH-7.5.B** (acs-accm-general:VIII.G.3) Find the fraction of a protein bound to its ligand from the dissociation constant.
+  - EK: P + L ⇌ PL with K_d = [P][L]/[PL]; with ligand in excess, the fraction bound is [L]/(K_d + [L]): half bound when [L] = K_d.
+  - P1 · drills: ch-fraction-bound, ch-ligand-for-fraction
 - ● **CH-7.5.A** (TRA-7.C, acs-accm-general:VIII.D.1, acs-accm-organic:VIII.A.1, acs-accm-inorganic:VIII.G.1) Judge from the size of K whether reactants or products are favored at equilibrium.
   - EK: K ≫ 1 ⇒ products favored; K ≪ 1 ⇒ reactants favored.
   - Needs: CH-7.4.A
   - P6 · drills: ac-size-of-k, ac-k-size-percent
-- ● **CH-7.5.B** (acs-accm-general:VIII.G.3) Find the fraction of a protein bound to its ligand from the dissociation constant.
-  - EK: P + L ⇌ PL with K_d = [P][L]/[PL]; with ligand in excess, the fraction bound is [L]/(K_d + [L]): half bound when [L] = K_d.
-  - P1 · drills: ch-fraction-bound, ch-ligand-for-fraction
 
 ### 7.6 Properties of the equilibrium constant
 

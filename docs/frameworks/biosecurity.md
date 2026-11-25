@@ -228,15 +228,15 @@ Big ideas: GROWTH, LAYERS
 
 
 
+- ● **BS-5.1.C** Describe rapid countermeasure programmes: platforms, the 100 Days Mission, financing and trials.
+  - EK: CEPI's goal: vaccines within 100 days of a threat; platform technologies; advance commitments.
+  - P2 · drills: bs-mcm-facts, bs-mcm-scenario
 - ● **BS-5.1.A** Compute the vaccination coverage needed for herd protection given vaccine efficacy.
   - EK: V_c = (1 − 1/R₀)/E; above 100% means vaccination alone cannot stop spread.
   - P1 · drills: bs-vaccine-coverage, bs-efficacy-needed
 - ● **BS-5.1.B** Compute vaccine efficacy from trial attack rates.
   - EK: VE = 1 − AR_vaccinated / AR_unvaccinated.
   - P1 · drills: bs-ve-trial, bs-ve-expected-cases
-- ● **BS-5.1.C** Describe rapid countermeasure programmes: platforms, the 100 Days Mission, financing and trials.
-  - EK: CEPI's goal: vaccines within 100 days of a threat; platform technologies; advance commitments.
-  - P2 · drills: bs-mcm-facts, bs-mcm-scenario
 - ● **BS-5.1.D** Compute the number needed to vaccinate and the expected cases averted.
   - EK: NNV = 1/(AR_unvaccinated × VE).
   - P1 · drills: bs-nnv, bs-cases-averted
@@ -245,12 +245,12 @@ Big ideas: GROWTH, LAYERS
 
 
 
-- ● **BS-5.2.A** Compute manufacturing and delivery rates needed to cover a population in time.
-  - EK: Doses per day = population × doses per person ÷ days.
-  - P1 · drills: bs-doses-per-day, bs-campaign-days
 - ● **BS-5.2.B** Name the global health governance instruments and who decides what.
   - EK: IHR (2005) and its 2024 amendments; the WHO Pandemic Agreement (2025); the Director-General declares a PHEIC on Emergency Committee advice.
   - P2 · drills: bs-governance-facts, bs-who-decides
+- ● **BS-5.2.A** Compute manufacturing and delivery rates needed to cover a population in time.
+  - EK: Doses per day = population × doses per person ÷ days.
+  - P1 · drills: bs-doses-per-day, bs-campaign-days
 
 ## Unit 6 · Contributing to biosecurity
 

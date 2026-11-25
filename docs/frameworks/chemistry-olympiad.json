@@ -74,6 +74,20 @@
      "title": "Acid–base and solubility",
      "los": [
       {
+       "id": "B",
+       "do": "Compute a buffer's pH after strong acid is added.",
+       "ek": [
+        "Convert base to acid mole for mole, then the equilibrium."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "co-buffer-acid",
+        "co-buffer-capacity-acid"
+       ]
+      },
+      {
        "id": "A",
        "std": [
         "acs-accm-analytical:VIII.F.5"
@@ -88,20 +102,6 @@
        "drills": [
         "co-phosphate-fraction",
         "co-polyprotic-ph"
-       ]
-      },
-      {
-       "id": "B",
-       "do": "Compute a buffer's pH after strong acid is added.",
-       "ek": [
-        "Convert base to acid mole for mole, then the equilibrium."
-       ],
-       "p": [
-        "P1"
-       ],
-       "drills": [
-        "co-buffer-acid",
-        "co-buffer-capacity-acid"
        ]
       },
       {
@@ -610,23 +610,6 @@
      "title": "Gases, liquids and solids",
      "los": [
       {
-       "id": "A",
-       "std": [
-        "usnco:3"
-       ],
-       "do": "Find a density from a cubic unit cell.",
-       "ek": [
-        "ρ = Z M / (N_A a³); Z = 1, 2, 4 for sc, bcc, fcc."
-       ],
-       "p": [
-        "P1"
-       ],
-       "drills": [
-        "co-unit-cell-density",
-        "co-molar-mass-from-cell"
-       ]
-      },
-      {
        "id": "B",
        "std": [
         "usnco:3"
@@ -641,6 +624,40 @@
        "drills": [
         "co-coordination-structure",
         "co-structure-cn"
+       ]
+      },
+      {
+       "id": "E",
+       "std": [
+        "usnco:3"
+       ],
+       "do": "Rank substances by boiling or melting point.",
+       "ek": [
+        "Ionic and network solids first; then hydrogen bonding; then dispersion, which grows with size and surface area."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "co-boiling-rank",
+        "co-mp-rank"
+       ]
+      },
+      {
+       "id": "A",
+       "std": [
+        "usnco:3"
+       ],
+       "do": "Find a density from a cubic unit cell.",
+       "ek": [
+        "ρ = Z M / (N_A a³); Z = 1, 2, 4 for sc, bcc, fcc."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "co-unit-cell-density",
+        "co-molar-mass-from-cell"
        ]
       },
       {
@@ -676,23 +693,6 @@
         "co-graham",
         "co-graham-mass"
        ]
-      },
-      {
-       "id": "E",
-       "std": [
-        "usnco:3"
-       ],
-       "do": "Rank substances by boiling or melting point.",
-       "ek": [
-        "Ionic and network solids first; then hydrogen bonding; then dispersion, which grows with size and surface area."
-       ],
-       "p": [
-        "P1"
-       ],
-       "drills": [
-        "co-boiling-rank",
-        "co-mp-rank"
-       ]
       }
      ]
     }
@@ -714,6 +714,23 @@
      "n": 1,
      "title": "Thermodynamics",
      "los": [
+      {
+       "id": "D",
+       "std": [
+        "usnco:4"
+       ],
+       "do": "Predict the sign of ΔS.",
+       "ek": [
+        "More moles of gas, dissolving a solid, melting and mixing raise entropy; forming fewer, more ordered particles lowers it."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "co-entropy-sign",
+        "co-ds-sign-2"
+       ]
+      },
       {
        "id": "A",
        "std": [
@@ -763,23 +780,6 @@
        "drills": [
         "co-enthalpy-solution",
         "co-temp-change-solution"
-       ]
-      },
-      {
-       "id": "D",
-       "std": [
-        "usnco:4"
-       ],
-       "do": "Predict the sign of ΔS.",
-       "ek": [
-        "More moles of gas, dissolving a solid, melting and mixing raise entropy; forming fewer, more ordered particles lowers it."
-       ],
-       "p": [
-        "P1"
-       ],
-       "drills": [
-        "co-entropy-sign",
-        "co-ds-sign-2"
        ]
       },
       {
@@ -1138,6 +1138,23 @@
      "title": "Atomic structure",
      "los": [
       {
+       "id": "C",
+       "std": [
+        "usnco:8"
+       ],
+       "do": "Explain anomalies in periodic trends.",
+       "ek": [
+        "Half-filled and filled subshells resist adding or removing electrons."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "co-trend-anomaly",
+        "co-anomaly-explain"
+       ]
+      },
+      {
        "id": "A",
        "std": [
         "usnco:8"
@@ -1169,23 +1186,6 @@
        "drills": [
         "co-quantum-count",
         "co-max-electrons"
-       ]
-      },
-      {
-       "id": "C",
-       "std": [
-        "usnco:8"
-       ],
-       "do": "Explain anomalies in periodic trends.",
-       "ek": [
-        "Half-filled and filled subshells resist adding or removing electrons."
-       ],
-       "p": [
-        "P1"
-       ],
-       "drills": [
-        "co-trend-anomaly",
-        "co-anomaly-explain"
        ]
       },
       {
@@ -1365,6 +1365,43 @@
      "title": "Organic and biochemistry",
      "los": [
       {
+       "id": "C",
+       "std": [
+        "usnco:10",
+        "acs-accm-analytical:I.B.1",
+        "acs-accm-analytical:II.F.1",
+        "acs-accm-analytical:III.F.1"
+       ],
+       "do": "Assign an infrared band.",
+       "ek": [
+        "O–H broad 3200–3550; C=O sharp near 1700; C≡N near 2250; C–H just below 3000 (sp³) or above (sp²)."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "co-ir-band",
+        "co-ir-tell"
+       ]
+      },
+      {
+       "id": "E",
+       "std": [
+        "usnco:10"
+       ],
+       "do": "Identify the monomer of a polymer.",
+       "ek": [
+        "Addition polymers repeat the alkene's carbons; condensation polymers lose a small molecule at each link."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "co-monomer",
+        "co-polymer-from-monomer"
+       ]
+      },
+      {
        "id": "A",
        "std": [
         "usnco:10"
@@ -1399,26 +1436,6 @@
        ]
       },
       {
-       "id": "C",
-       "std": [
-        "usnco:10",
-        "acs-accm-analytical:I.B.1",
-        "acs-accm-analytical:II.F.1",
-        "acs-accm-analytical:III.F.1"
-       ],
-       "do": "Assign an infrared band.",
-       "ek": [
-        "O–H broad 3200–3550; C=O sharp near 1700; C≡N near 2250; C–H just below 3000 (sp³) or above (sp²)."
-       ],
-       "p": [
-        "P1"
-       ],
-       "drills": [
-        "co-ir-band",
-        "co-ir-tell"
-       ]
-      },
-      {
        "id": "D",
        "std": [
         "usnco:10",
@@ -1436,23 +1453,6 @@
        "drills": [
         "co-nmr-environments",
         "co-nmr-env-2"
-       ]
-      },
-      {
-       "id": "E",
-       "std": [
-        "usnco:10"
-       ],
-       "do": "Identify the monomer of a polymer.",
-       "ek": [
-        "Addition polymers repeat the alkene's carbons; condensation polymers lose a small molecule at each link."
-       ],
-       "p": [
-        "P1"
-       ],
-       "drills": [
-        "co-monomer",
-        "co-polymer-from-monomer"
        ]
       },
       {
@@ -1609,17 +1609,6 @@
  ],
  "rows": [
   {
-   "code": "CO-1.1.A",
-   "unit": 1,
-   "topic": 1,
-   "status": "ok",
-   "full": [
-    "co-phosphate-fraction",
-    "co-polyprotic-ph"
-   ],
-   "partial": []
-  },
-  {
    "code": "CO-1.1.B",
    "unit": 1,
    "topic": 1,
@@ -1627,6 +1616,17 @@
    "full": [
     "co-buffer-acid",
     "co-buffer-capacity-acid"
+   ],
+   "partial": []
+  },
+  {
+   "code": "CO-1.1.A",
+   "unit": 1,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "co-phosphate-fraction",
+    "co-polyprotic-ph"
    ],
    "partial": []
   },
@@ -1884,17 +1884,6 @@
    "partial": []
   },
   {
-   "code": "CO-7.1.A",
-   "unit": 7,
-   "topic": 1,
-   "status": "ok",
-   "full": [
-    "co-unit-cell-density",
-    "co-molar-mass-from-cell"
-   ],
-   "partial": []
-  },
-  {
    "code": "CO-7.1.B",
    "unit": 7,
    "topic": 1,
@@ -1902,6 +1891,28 @@
    "full": [
     "co-coordination-structure",
     "co-structure-cn"
+   ],
+   "partial": []
+  },
+  {
+   "code": "CO-7.1.E",
+   "unit": 7,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "co-boiling-rank",
+    "co-mp-rank"
+   ],
+   "partial": []
+  },
+  {
+   "code": "CO-7.1.A",
+   "unit": 7,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "co-unit-cell-density",
+    "co-molar-mass-from-cell"
    ],
    "partial": []
   },
@@ -1928,13 +1939,13 @@
    "partial": []
   },
   {
-   "code": "CO-7.1.E",
-   "unit": 7,
+   "code": "CO-8.1.D",
+   "unit": 8,
    "topic": 1,
    "status": "ok",
    "full": [
-    "co-boiling-rank",
-    "co-mp-rank"
+    "co-entropy-sign",
+    "co-ds-sign-2"
    ],
    "partial": []
   },
@@ -1968,17 +1979,6 @@
    "full": [
     "co-enthalpy-solution",
     "co-temp-change-solution"
-   ],
-   "partial": []
-  },
-  {
-   "code": "CO-8.1.D",
-   "unit": 8,
-   "topic": 1,
-   "status": "ok",
-   "full": [
-    "co-entropy-sign",
-    "co-ds-sign-2"
    ],
    "partial": []
   },
@@ -2159,6 +2159,17 @@
    "partial": []
   },
   {
+   "code": "CO-12.1.C",
+   "unit": 12,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "co-trend-anomaly",
+    "co-anomaly-explain"
+   ],
+   "partial": []
+  },
+  {
    "code": "CO-12.1.A",
    "unit": 12,
    "topic": 1,
@@ -2177,17 +2188,6 @@
    "full": [
     "co-quantum-count",
     "co-max-electrons"
-   ],
-   "partial": []
-  },
-  {
-   "code": "CO-12.1.C",
-   "unit": 12,
-   "topic": 1,
-   "status": "ok",
-   "full": [
-    "co-trend-anomaly",
-    "co-anomaly-explain"
    ],
    "partial": []
   },
@@ -2280,6 +2280,28 @@
    "partial": []
   },
   {
+   "code": "CO-14.1.C",
+   "unit": 14,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "co-ir-band",
+    "co-ir-tell"
+   ],
+   "partial": []
+  },
+  {
+   "code": "CO-14.1.E",
+   "unit": 14,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "co-monomer",
+    "co-polymer-from-monomer"
+   ],
+   "partial": []
+  },
+  {
    "code": "CO-14.1.A",
    "unit": 14,
    "topic": 1,
@@ -2302,17 +2324,6 @@
    "partial": []
   },
   {
-   "code": "CO-14.1.C",
-   "unit": 14,
-   "topic": 1,
-   "status": "ok",
-   "full": [
-    "co-ir-band",
-    "co-ir-tell"
-   ],
-   "partial": []
-  },
-  {
    "code": "CO-14.1.D",
    "unit": 14,
    "topic": 1,
@@ -2320,17 +2331,6 @@
    "full": [
     "co-nmr-environments",
     "co-nmr-env-2"
-   ],
-   "partial": []
-  },
-  {
-   "code": "CO-14.1.E",
-   "unit": 14,
-   "topic": 1,
-   "status": "ok",
-   "full": [
-    "co-monomer",
-    "co-polymer-from-monomer"
    ],
    "partial": []
   },

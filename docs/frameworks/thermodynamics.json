@@ -4139,6 +4139,25 @@
      "title": "Activity models",
      "los": [
       {
+       "id": "E",
+       "std": [
+        "webwork-opl:TH17.7",
+        "webwork-opl:TH17.8",
+        "webwork-opl:TH17.11"
+       ],
+       "do": "Know what group-contribution and other activity models need.",
+       "ek": [
+        "UNIFAC: group volumes, areas and group interaction parameters; UNIQUAC: r and q plus binary energies; MOSCED: dispersion, polarity, induction and hydrogen-bond parameters."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "td-activity-models",
+        "td-model-pick"
+       ]
+      },
+      {
        "id": "A",
        "std": [
         "webwork-opl:TH17.4"
@@ -4204,25 +4223,6 @@
        "drills": [
         "td-nrtl-infinite",
         "td-nrtl-gamma2-inf"
-       ]
-      },
-      {
-       "id": "E",
-       "std": [
-        "webwork-opl:TH17.7",
-        "webwork-opl:TH17.8",
-        "webwork-opl:TH17.11"
-       ],
-       "do": "Know what group-contribution and other activity models need.",
-       "ek": [
-        "UNIFAC: group volumes, areas and group interaction parameters; UNIQUAC: r and q plus binary energies; MOSCED: dispersion, polarity, induction and hydrogen-bond parameters."
-       ],
-       "p": [
-        "P1"
-       ],
-       "drills": [
-        "td-activity-models",
-        "td-model-pick"
        ]
       }
      ]
@@ -6203,6 +6203,17 @@
    "partial": []
   },
   {
+   "code": "TD-22.4.E",
+   "unit": 22,
+   "topic": 4,
+   "status": "ok",
+   "full": [
+    "td-activity-models",
+    "td-model-pick"
+   ],
+   "partial": []
+  },
+  {
    "code": "TD-22.4.A",
    "unit": 22,
    "topic": 4,
@@ -6243,17 +6254,6 @@
    "full": [
     "td-nrtl-infinite",
     "td-nrtl-gamma2-inf"
-   ],
-   "partial": []
-  },
-  {
-   "code": "TD-22.4.E",
-   "unit": 22,
-   "topic": 4,
-   "status": "ok",
-   "full": [
-    "td-activity-models",
-    "td-model-pick"
    ],
    "partial": []
   }

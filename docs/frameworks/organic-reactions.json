@@ -549,6 +549,23 @@
      "title": "Electrophilic substitution and side-chain reactions",
      "los": [
       {
+       "id": "D",
+       "std": [
+        "acs-accm-organic:V.D.2"
+       ],
+       "do": "Predict nucleophilic aromatic substitution: when it happens and where.",
+       "ek": [
+        "SNAr needs a leaving group with strong withdrawing groups (NO₂) ortho or para to it to stabilise the Meisenheimer complex; F is the best leaving group here. Without them, a strong base can go by benzyne."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "or-snar",
+        "or-snar-2"
+       ]
+      },
+      {
        "id": "A",
        "std": [
         "bruice-8e:18",
@@ -612,23 +629,6 @@
         "rx-predict-aromatic-benzylic-bromination",
         "rx-reagent-aromatic-benzylic-bromination"
        ]
-      },
-      {
-       "id": "D",
-       "std": [
-        "acs-accm-organic:V.D.2"
-       ],
-       "do": "Predict nucleophilic aromatic substitution: when it happens and where.",
-       "ek": [
-        "SNAr needs a leaving group with strong withdrawing groups (NO₂) ortho or para to it to stabilise the Meisenheimer complex; F is the best leaving group here. Without them, a strong base can go by benzyne."
-       ],
-       "p": [
-        "P1"
-       ],
-       "drills": [
-        "or-snar",
-        "or-snar-2"
-       ]
       }
      ]
     }
@@ -689,6 +689,61 @@
      "title": "The four patterns",
      "los": [
       {
+       "id": "E",
+       "std": [
+        "acs-accm-organic:VII.C.3",
+        "acs-accm-organic:I.B.2",
+        "acs-accm-organic:I.B.3"
+       ],
+       "do": "Read a step's curved arrows: name the nucleophilic and electrophilic atoms and the formal charges that result.",
+       "ek": [
+        "An arrow starts at a lone pair or a bond and ends at an atom or bond; the atom that gains a bond from a lone pair loses formal negative charge, the donor gains positive."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "or-arrow-read",
+        "or-arrow-sites"
+       ]
+      },
+      {
+       "id": "F",
+       "std": [
+        "acs-accm-organic:VII.C.1",
+        "acs-accm-organic:VIII.G.1"
+       ],
+       "do": "Put the steps of an acid- or base-catalysed carbonyl mechanism in order.",
+       "ek": [
+        "Acid catalysis: protonate, add, deprotonate, protonate, eliminate, deprotonate (PADPED for Fischer esterification and acetal formation)."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "or-mech-order",
+        "or-mech-intermediate"
+       ]
+      },
+      {
+       "id": "G",
+       "std": [
+        "acs-accm-organic:V.D.1",
+        "acs-accm-organic:VII.F.2"
+       ],
+       "do": "Predict carbocation rearrangements by hydride and alkyl shifts.",
+       "ek": [
+        "A 1,2-hydride or 1,2-methyl shift happens when it turns a 1° or 2° cation into a more stable 2° or 3° (or resonance-stabilised) one; ring expansion relieves strain."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "or-rearrangement",
+        "or-rearrangement-2"
+       ]
+      },
+      {
        "id": "A",
        "std": [
         "acs-accm-organic:VII.C.3",
@@ -746,61 +801,6 @@
        "drills": [
         "st-mech-acyl-substitution-1",
         "st-mech-acyl-substitution-2"
-       ]
-      },
-      {
-       "id": "E",
-       "std": [
-        "acs-accm-organic:VII.C.3",
-        "acs-accm-organic:I.B.2",
-        "acs-accm-organic:I.B.3"
-       ],
-       "do": "Read a step's curved arrows: name the nucleophilic and electrophilic atoms and the formal charges that result.",
-       "ek": [
-        "An arrow starts at a lone pair or a bond and ends at an atom or bond; the atom that gains a bond from a lone pair loses formal negative charge, the donor gains positive."
-       ],
-       "p": [
-        "P1"
-       ],
-       "drills": [
-        "or-arrow-read",
-        "or-arrow-sites"
-       ]
-      },
-      {
-       "id": "F",
-       "std": [
-        "acs-accm-organic:VII.C.1",
-        "acs-accm-organic:VIII.G.1"
-       ],
-       "do": "Put the steps of an acid- or base-catalysed carbonyl mechanism in order.",
-       "ek": [
-        "Acid catalysis: protonate, add, deprotonate, protonate, eliminate, deprotonate (PADPED for Fischer esterification and acetal formation)."
-       ],
-       "p": [
-        "P1"
-       ],
-       "drills": [
-        "or-mech-order",
-        "or-mech-intermediate"
-       ]
-      },
-      {
-       "id": "G",
-       "std": [
-        "acs-accm-organic:V.D.1",
-        "acs-accm-organic:VII.F.2"
-       ],
-       "do": "Predict carbocation rearrangements by hydride and alkyl shifts.",
-       "ek": [
-        "A 1,2-hydride or 1,2-methyl shift happens when it turns a 1° or 2° cation into a more stable 2° or 3° (or resonance-stabilised) one; ring expansion relieves strain."
-       ],
-       "p": [
-        "P1"
-       ],
-       "drills": [
-        "or-rearrangement",
-        "or-rearrangement-2"
        ]
       }
      ]
@@ -1395,6 +1395,17 @@
    "partial": []
   },
   {
+   "code": "OR-6.1.D",
+   "unit": 6,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "or-snar",
+    "or-snar-2"
+   ],
+   "partial": []
+  },
+  {
    "code": "OR-6.1.A",
    "unit": 6,
    "topic": 1,
@@ -1438,17 +1449,6 @@
    "partial": []
   },
   {
-   "code": "OR-6.1.D",
-   "unit": 6,
-   "topic": 1,
-   "status": "ok",
-   "full": [
-    "or-snar",
-    "or-snar-2"
-   ],
-   "partial": []
-  },
-  {
    "code": "OR-7.1.A",
    "unit": 7,
    "topic": 1,
@@ -1458,6 +1458,39 @@
     "rx-reagent-cc-aldol-condensation",
     "rx-predict-cc-diels-alder",
     "rx-reagent-cc-diels-alder"
+   ],
+   "partial": []
+  },
+  {
+   "code": "OR-8.1.E",
+   "unit": 8,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "or-arrow-read",
+    "or-arrow-sites"
+   ],
+   "partial": []
+  },
+  {
+   "code": "OR-8.1.F",
+   "unit": 8,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "or-mech-order",
+    "or-mech-intermediate"
+   ],
+   "partial": []
+  },
+  {
+   "code": "OR-8.1.G",
+   "unit": 8,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "or-rearrangement",
+    "or-rearrangement-2"
    ],
    "partial": []
   },
@@ -1502,39 +1535,6 @@
    "full": [
     "st-mech-acyl-substitution-1",
     "st-mech-acyl-substitution-2"
-   ],
-   "partial": []
-  },
-  {
-   "code": "OR-8.1.E",
-   "unit": 8,
-   "topic": 1,
-   "status": "ok",
-   "full": [
-    "or-arrow-read",
-    "or-arrow-sites"
-   ],
-   "partial": []
-  },
-  {
-   "code": "OR-8.1.F",
-   "unit": 8,
-   "topic": 1,
-   "status": "ok",
-   "full": [
-    "or-mech-order",
-    "or-mech-intermediate"
-   ],
-   "partial": []
-  },
-  {
-   "code": "OR-8.1.G",
-   "unit": 8,
-   "topic": 1,
-   "status": "ok",
-   "full": [
-    "or-rearrangement",
-    "or-rearrangement-2"
    ],
    "partial": []
   },

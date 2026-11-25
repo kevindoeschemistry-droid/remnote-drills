@@ -71,9 +71,9 @@ units:
       - n: 1
         title: "Alkali and alkaline-earth metals"
         los:
-          - { id: A, std: ["acs-accm-general:V.E.1", "acs-accm-inorganic:III.G.1"], do: "Give the product of burning an alkali metal, and the oxidation state in oxides, peroxides and superoxides.", ek: ["Li₂O, Na₂O₂, KO₂; O −2, −1, −½."], p: [P1, P2], drills: [cw-alkali-burn, cw-dioxygen-anion-ox] }
           - { id: B, do: "Rank the thermal stability of group 2 carbonates.", ek: ["Rises down the group as cations grow less polarising."], p: [P3], drills: [cw-carbonate-stability, cw-group2-thermal] }
           - { id: C, std: ["acs-accm-inorganic:III.G.2"], do: "Use the diagonal relationship.", ek: ["Li–Mg, Be–Al, B–Si."], p: [P2], drills: [cw-diagonal, cw-diagonal-cases] }
+          - { id: A, std: ["acs-accm-general:V.E.1", "acs-accm-inorganic:III.G.1"], do: "Give the product of burning an alkali metal, and the oxidation state in oxides, peroxides and superoxides.", ek: ["Li₂O, Na₂O₂, KO₂; O −2, −1, −½."], p: [P1, P2], drills: [cw-alkali-burn, cw-dioxygen-anion-ox] }
   - id: group-13
     n: 4
     title: "Boron and group 13 (ch. 5–6)"
@@ -83,8 +83,8 @@ units:
       - n: 1
         title: "Boranes and group 13 compounds"
         los:
-          - { id: A, std: ["acs-accm-inorganic:II.A.4", "acs-accm-inorganic:III.A.4", "acs-accm-inorganic:III.B.2"], do: "Classify a borane as closo, nido or arachno with Wade's rules.", ek: ["n+1, n+2, n+3 skeletal pairs."], p: [P1, P3], drills: [cw-wade, cw-skeletal-pairs] }
           - { id: B, do: "Rank boron trihalide Lewis acidity and explain it by π donation.", ek: ["BF₃ < BCl₃ < BBr₃."], p: [P3], drills: [cw-bx3-acid, cw-bx3-consequence] }
+          - { id: A, std: ["acs-accm-inorganic:II.A.4", "acs-accm-inorganic:III.A.4", "acs-accm-inorganic:III.B.2"], do: "Classify a borane as closo, nido or arachno with Wade's rules.", ek: ["n+1, n+2, n+3 skeletal pairs."], p: [P1, P3], drills: [cw-wade, cw-skeletal-pairs] }
           - { id: C, std: ["acs-accm-inorganic:III.G.4"], do: "Use the inert-pair effect, and find average oxidation states in mixed-valence group 13 compounds.", ek: ["Tl(I), Pb(II), Bi(III); GaCl₂ = Ga⁺[GaCl₄]⁻."], p: [P1, P2], drills: [cw-inert-pair, cw-group13-ox] }
   - id: group-14
     n: 5
@@ -153,8 +153,8 @@ units:
         title: "Electrons in d orbitals"
         los:
           - { id: A, do: "Find the d count and the number of unpaired electrons of a complex.", ek: ["dⁿ = group − oxidation state; fill t₂g/e_g by spin."], p: [P1], drills: [cw-d-count, cw-complex-unpaired] }
-          - { id: B, std: ["acs-accm-inorganic:II.C.3"], do: "Compute spin-only moments and CFSE.", ek: ["μ = √(n(n+2)); CFSE = −0.4 t₂g + 0.6 e_g."], p: [P1], needs: [IA-10.1.A], drills: [cw-spin-only-moment, cw-cfse] }
           - { id: C, std: ["acs-accm-inorganic:II.E.5"], do: "Use the spectrochemical series and predict Jahn–Teller distortions.", ek: ["I⁻ < … < CN⁻ < CO; uneven e_g distorts."], p: [P3], needs: [IA-10.1.A], drills: [cw-spectrochemical, cw-jahn-teller] }
+          - { id: B, std: ["acs-accm-inorganic:II.C.3"], do: "Compute spin-only moments and CFSE.", ek: ["μ = √(n(n+2)); CFSE = −0.4 t₂g + 0.6 e_g."], p: [P1], needs: [IA-10.1.A], drills: [cw-spin-only-moment, cw-cfse] }
           - { id: D, std: ["acs-accm-inorganic:VI.B.3", "acs-accm-inorganic:VI.D.4", "acs-accm-inorganic:VII.A.1"], do: "Predict whether a complex is labile or inert.", ek: ["d³ and low-spin d⁶ are inert."], p: [P3], needs: [IA-10.1.B], drills: [cw-labile-inert, cw-lability-why] }
   - id: first-series
     n: 11
@@ -188,8 +188,8 @@ units:
       - n: 1
         title: "Heavier metals"
         los:
-          - { id: A, do: "Find metal–metal bond orders from d counts.", ek: ["σ²π⁴δ² is a quadruple bond."], p: [P1], drills: [cw-metal-metal-bond, cw-mm-after-redox] }
           - { id: B, std: ["acs-accm-inorganic:III.G.3", "acs-accm-inorganic:V.F.8"], do: "Explain the lanthanide contraction, low spin in 4d/5d, and the trans effect.", ek: ["Zr ≈ Hf; heavy complexes low spin; cisplatin route."], p: [P2, P3], drills: [cw-heavy-tm-facts, cw-heavy-tm-why] }
+          - { id: A, do: "Find metal–metal bond orders from d counts.", ek: ["σ²π⁴δ² is a quadruple bond."], p: [P1], drills: [cw-metal-metal-bond, cw-mm-after-redox] }
       - n: 2
         title: "Zr to Au, pair by pair"
         los:
