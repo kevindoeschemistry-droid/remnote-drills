@@ -47,7 +47,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 | Particle Physics | AQA AS and A-level Physics (7407/7408), section 3.2 Particles and radiation | standard | read in part | openstax-university-physics, gre-physics | — | 13 | 12 | 1 |
 | The Periodic Table from Memory | IUPAC Periodic Table of the Elements (release of 4 May 2022) | reference | read in part | ngss-hs, ib-chemistry-2025, icho-appendix-c | — | 15 | 15 | 0 |
 | Physical Chemistry | ACS Exams Institute Anchoring Concepts Content Map: Physical Chemistry (Holme, Reed, Raker & Murphy, J. Chem. Educ. 2018, 95, 238) | standard | read in full | engel-reid-3e, fe-chemical, usnco, icho-appendix-c, icho-syllabus, gre-physics, gre-chemistry | — | 158 | 158 | 0 |
-| Physics (AP) | AP Physics 1, 2 and C Course and Exam Descriptions | standard | read in part | ngss-hs, ib-physics-2025, aamc-mcat-outline, gre-physics | — | 207 | 207 | 0 |
+| Physics (AP) | AP Physics 1, 2, C: Mechanics and C: Electricity and Magnetism Course and Exam Descriptions (effective fall 2024) | standard | read in part | ngss-hs, ib-physics-2025, aamc-mcat-outline, gre-physics | — | 211 | 211 | 0 |
 | Process Design, Economics and Safety | NCEES FE Chemical CBT Exam Specifications (effective July 2020) | exam-spec | read in full | pe-chemical | — | 9 | 9 | 0 |
 | Programming Foundations | AP Computer Science A Course and Exam Description (Fall 2025) | standard | read in full | — | — | 140 | 140 | 0 |
 | Chemical Reaction Engineering | NCEES FE Chemical CBT Exam Specifications (effective July 2020) | exam-spec | read in full | icho-appendix-c, pe-chemical | — | 46 | 33 | 13 |
@@ -358,6 +358,254 @@ https://apcentral.collegeboard.org/media/pdf/ap-chemistry-course-and-exam-descri
 | 9.9.A | Judge a cell's favourability from its standard potential and half-reactions | 2 | 2 | chemistry (2) |
 | 9.10.A | Relate nonstandard conditions to changes in cell potential | 2 | 2 | chemistry (2) |
 | 9.11.A | Calculate charge flow from changes in amounts in an electrochemical cell | 1 | 1 | chemistry (1) |
+
+## AP Physics 1, 2, C: Mechanics and C: Electricity and Magnetism Course and Exam Descriptions (effective fall 2024)
+
+https://apcentral.collegeboard.org/courses/ap-physics/revisions-2024-25
+
+239 of 239 items have at least one objective answering to them.
+
+| Item | Topic | Objectives | With a drill | Where |
+|---|---|---|---|---|
+| P1 1.1.A | Scalars and vectors by magnitude and direction | 1 | 1 | physics (1) |
+| P1 1.1.B | Adding vectors along one axis | 1 | 1 | physics (1) |
+| P1 1.2.A | Change in position (displacement) | 1 | 1 | physics (1) |
+| P1 1.2.B | Average velocity and acceleration | 1 | 1 | physics (1) |
+| P1 1.3.A | Representing motion with diagrams, graphs and equations | 4 | 4 | physics (4) |
+| P1 1.4.A | An observer's reference frame | 1 | 1 | physics (1) |
+| P1 1.4.B | Converting measurements between inertial frames | 2 | 2 | physics (2) |
+| P1 1.5.A | Resolving vectors into perpendicular components | 1 | 1 | physics (1) |
+| P1 1.5.B | Two-dimensional motion by components | 3 | 3 | physics (3) |
+| P1 2.1.A | Properties of interacting systems | 1 | 1 | physics (1) |
+| P1 2.1.B | Locating a system's center of mass | 1 | 1 | physics (1) |
+| P1 2.2.A | Forces as interactions between objects | 1 | 1 | physics (1) |
+| P1 2.2.B | Free-body diagrams | 1 | 1 | physics (1) |
+| P1 2.3.A | Newton's third-law force pairs | 1 | 1 | physics (1) |
+| P1 2.4.A | When velocity stays constant | 1 | 1 | physics (1) |
+| P1 2.5.A | What changes a system's velocity | 3 | 3 | physics (3) |
+| P1 2.6.A | Gravitational force between two masses | 2 | 2 | physics (2) |
+| P1 2.6.B | When gravitational force is constant | 1 | 1 | physics (1) |
+| P1 2.6.C | Apparent weight versus gravitational force | 1 | 1 | physics (1) |
+| P1 2.6.D | Inertial and gravitational mass | 1 | 1 | physics (1) |
+| P1 2.7.A | Kinetic friction | 2 | 2 | physics (2) |
+| P1 2.7.B | Static friction | 2 | 2 | physics (2) |
+| P1 2.8.A | Force of an ideal spring | 1 | 1 | physics (1) |
+| P1 2.9.A | Motion in circular paths | 3 | 3 | physics (3) |
+| P1 2.9.B | Circular orbits and Kepler's third law | 3 | 3 | physics (3) |
+| P1 3.1.A | Translational kinetic energy | 1 | 1 | physics (1) |
+| P1 3.2.A | Work done by forces | 3 | 3 | physics (3) |
+| P1 3.3.A | Potential energy of systems | 2 | 2 | physics (2) |
+| P1 3.4.A | Energy types in a system | 4 | 4 | physics (4) |
+| P1 3.4.B | Conservation of mechanical energy | 4 | 4 | physics (4) |
+| P1 3.4.C | How the choice of system changes energy accounting | 4 | 4 | physics (4) |
+| P1 3.5.A | Power as energy transfer rate | 1 | 1 | physics (1) |
+| P1 4.1.A | Linear momentum | 1 | 1 | physics (1) |
+| P1 4.2.A | Impulse | 1 | 1 | physics (1) |
+| P1 4.2.B | Impulse and momentum change | 1 | 1 | physics (1) |
+| P1 4.3.A | Conservation of momentum | 2 | 2 | physics (2) |
+| P1 4.3.B | How the choice of system changes momentum accounting | 2 | 2 | physics (2) |
+| P1 4.4.A | Elastic and inelastic collisions | 4 | 4 | physics (4) |
+| P1 5.1.A | Rotational displacement, velocity and acceleration | 1 | 1 | physics (1) |
+| P1 5.2.A | Linear motion of points on rotating objects | 1 | 1 | physics (1) |
+| P1 5.3.A | Torques on rigid systems | 1 | 1 | physics (1) |
+| P1 5.3.B | Torques on force diagrams | 1 | 1 | physics (1) |
+| P1 5.4.A | Rotational inertia about an axis | 2 | 2 | physics (2) |
+| P1 5.4.B | Rotational inertia about offset axes (parallel axis) | 2 | 2 | physics (2) |
+| P1 5.5.A | Rotational equilibrium | 1 | 1 | physics (1) |
+| P1 5.6.A | Changing angular velocity (rotational second law) | 2 | 2 | physics (2) |
+| P1 6.1.A | Rotational kinetic energy | 1 | 1 | physics (1) |
+| P1 6.2.A | Work done by torques | 1 | 1 | physics (1) |
+| P1 6.3.A | Angular momentum | 2 | 2 | physics (2) |
+| P1 6.3.B | Angular impulse | 2 | 2 | physics (2) |
+| P1 6.3.C | Angular impulse and change in angular momentum | 2 | 2 | physics (2) |
+| P1 6.4.A | Conservation of angular momentum | 1 | 1 | physics (1) |
+| P1 6.4.B | How the choice of system changes angular momentum accounting | 1 | 1 | physics (1) |
+| P1 6.5.A | Kinetic energy of rolling objects | 1 | 1 | physics (1) |
+| P1 6.5.B | Rolling without slipping | 1 | 1 | physics (1) |
+| P1 6.5.C | Rolling while slipping | 1 | 1 | physics (1) |
+| P1 6.6.A | Two gravitationally interacting objects (orbits) | 4 | 4 | physics (4) |
+| P1 7.1.A | Characteristics of simple harmonic motion | 1 | 1 | physics (1) |
+| P1 7.2.A | Frequency and period of oscillation | 2 | 2 | physics (2) |
+| P1 7.3.A | Position, velocity and acceleration in SHM | 1 | 1 | physics (1) |
+| P1 7.4.A | Energy of an oscillator | 1 | 1 | physics (1) |
+| P1 8.1.A | Properties of fluids (density) | 1 | 1 | physics (1) |
+| P1 8.2.A | Pressure from a force | 2 | 2 | physics (2) |
+| P1 8.2.B | Pressure in a fluid | 2 | 2 | physics (2) |
+| P1 8.3.A | What changes a fluid's velocity | 2 | 2 | physics (2) |
+| P1 8.3.B | Buoyant force | 2 | 2 | physics (2) |
+| P1 8.4.A | Mass conservation in incompressible flow (continuity) | 2 | 2 | physics (2) |
+| P1 8.4.B | Energy conservation in fluid flow (Bernoulli) | 2 | 2 | physics (2) |
+| P2 9.1.A | Gas pressure from molecular motion | 1 | 1 | physics (1) |
+| P2 9.1.B | Temperature from molecular motion | 1 | 1 | physics (1) |
+| P2 9.2.A | Ideal gas properties | 1 | 1 | physics (1) |
+| P2 9.3.A | Energy transfer by temperature difference | 1 | 1 | physics (1) |
+| P2 9.4.A | Internal energy | 1 | 1 | physics (1) |
+| P2 9.4.B | Thermodynamic processes | 3 | 3 | physics (3) |
+| P2 9.5.A | Energy to change temperature (specific heat) | 1 | 1 | physics (1) |
+| P2 9.5.B | Rate of conductive energy transfer | 1 | 1 | physics (1) |
+| P2 9.6.A | Entropy change | 2 | 2 | physics (2) |
+| P2 10.1.A | Electric force between charges | 2 | 2 | physics (2) |
+| P2 10.1.B | Electric and gravitational forces compared | 1 | 1 | physics (1) |
+| P2 10.1.C | Electric permittivity | 1 | 1 | physics (1) |
+| P2 10.2.A | Conservation of charge | 1 | 1 | physics (1) |
+| P2 10.3.A | Electric field of charge configurations | 3 | 3 | physics (3) |
+| P2 10.3.B | Electric fields of conductors and insulators | 2 | 2 | physics (2) |
+| P2 10.4.A | Electric potential energy | 1 | 1 | physics (1) |
+| P2 10.5.A | Electric potential of charge configurations | 2 | 2 | physics (2) |
+| P2 10.5.B | Potential and field related | 2 | 2 | physics (2) |
+| P2 10.6.A | Parallel-plate capacitors | 2 | 2 | physics (2) |
+| P2 10.7.A | Energy changes across potential differences | 1 | 1 | physics (1) |
+| P2 11.1.A | Charge flow (current) | 1 | 1 | physics (1) |
+| P2 11.2.A | Simple circuits | 1 | 1 | physics (1) |
+| P2 11.3.A | Resistance from geometry and resistivity | 2 | 2 | physics (2) |
+| P2 11.3.B | Electrical characteristics of circuit elements | 2 | 2 | physics (2) |
+| P2 11.4.A | Electric power | 1 | 1 | physics (1) |
+| P2 11.5.A | Equivalent resistance | 3 | 3 | physics (3) |
+| P2 11.5.B | Circuits with resistive wires and real batteries | 3 | 3 | physics (3) |
+| P2 11.5.C | Measuring current and potential difference | 3 | 3 | physics (3) |
+| P2 11.6.A | Kirchhoff's loop rule | 2 | 2 | physics (2) |
+| P2 11.7.A | Kirchhoff's junction rule | 2 | 2 | physics (2) |
+| P2 11.8.A | Equivalent capacitance | 2 | 2 | physics (2) |
+| P2 11.8.B | RC circuits | 2 | 2 | physics (2) |
+| P2 12.1.A | Properties of magnetic fields | 1 | 1 | physics (1) |
+| P2 12.1.B | Magnetism from dipole alignment | 1 | 1 | physics (1) |
+| P2 12.1.C | Magnetic permeability | 1 | 1 | physics (1) |
+| P2 12.2.A | Magnetic fields of moving charges | 3 | 3 | physics (3) |
+| P2 12.2.B | Magnetic force on moving charges | 3 | 3 | physics (3) |
+| P2 12.3.A | Magnetic fields of current-carrying wires | 2 | 2 | physics (2) |
+| P2 12.3.B | Forces on current-carrying wires | 2 | 2 | physics (2) |
+| P2 12.4.A | Induced emf from changing flux | 4 | 4 | physics (4) |
+| P2 13.1.A | Light as rays | 1 | 1 | physics (1) |
+| P2 13.1.B | Reflection | 1 | 1 | physics (1) |
+| P2 13.2.A | Images formed by mirrors | 2 | 2 | physics (2) |
+| P2 13.3.A | Refraction | 2 | 2 | physics (2) |
+| P2 13.4.A | Images formed by lenses | 2 | 2 | physics (2) |
+| P2 14.1.A | Properties of waves and pulses | 1 | 1 | physics (1) |
+| P2 14.2.A | Periodic waves | 2 | 2 | physics (2) |
+| P2 14.3.A | Waves at boundaries; polarization | 2 | 2 | physics (2) |
+| P2 14.4.A | Electromagnetic waves | 1 | 1 | physics (1) |
+| P2 14.5.A | Doppler effect | 1 | 1 | physics (1) |
+| P2 14.6.A | Superposition of waves | 3 | 3 | physics (3) |
+| P2 14.6.B | Standing waves | 3 | 3 | physics (3) |
+| P2 14.7.A | Single-opening diffraction | 1 | 1 | physics (1) |
+| P2 14.8.A | Double-slit and grating interference | 1 | 1 | physics (1) |
+| P2 14.9.A | Thin-film interference | 1 | 1 | physics (1) |
+| P2 15.1.A | Wave–particle duality | 2 | 2 | physics (2) |
+| P2 15.2.A | The Bohr atom | 1 | 1 | physics (1) |
+| P2 15.3.A | Emission and absorption of photons by atoms | 1 | 1 | physics (1) |
+| P2 15.4.A | Blackbody radiation | 2 | 2 | physics (2) |
+| P2 15.5.A | The photoelectric effect | 1 | 1 | physics (1) |
+| P2 15.6.A | Compton scattering | 1 | 1 | physics (1) |
+| P2 15.7.A | Constraints on nuclear interactions | 1 | 1 | physics (1) |
+| P2 15.7.B | Radioactive decay of a sample | 1 | 1 | physics (1) |
+| P2 15.8.A | Types of nuclear decay | 2 | 2 | physics (2) |
+| CM 1.1.A | Scalars and vectors | 1 | 1 | physics (1) |
+| CM 1.2.A | Change in position | 4 | 4 | physics (4) |
+| CM 1.2.B | Average velocity and acceleration | 4 | 4 | physics (4) |
+| CM 1.2.C | Instantaneous position, velocity and acceleration (calculus) | 3 | 3 | physics (3) |
+| CM 1.3.A | Representing motion | 5 | 5 | physics (5) |
+| CM 1.4.A | An observer's reference frame | 1 | 1 | physics (1) |
+| CM 1.4.B | Motion across inertial frames | 2 | 2 | physics (2) |
+| CM 1.5.A | Motion in two or three dimensions | 2 | 2 | physics (2) |
+| CM 2.1.A | Properties of interacting systems | 2 | 2 | physics (2) |
+| CM 2.1.B | Center of mass (including continuous objects) | 2 | 2 | physics (2) |
+| CM 2.2.A | Forces as interactions | 1 | 1 | physics (1) |
+| CM 2.2.B | Free-body diagrams | 1 | 1 | physics (1) |
+| CM 2.3.A | Newton's third law | 1 | 1 | physics (1) |
+| CM 2.4.A | Constant velocity | 1 | 1 | physics (1) |
+| CM 2.5.A | Changing velocity (second law) | 4 | 4 | physics (4) |
+| CM 2.6.A | Gravitational force between masses | 2 | 2 | physics (2) |
+| CM 2.6.B | When gravitational force is constant | 1 | 1 | physics (1) |
+| CM 2.6.C | Apparent weight | 1 | 1 | physics (1) |
+| CM 2.6.D | Inertial and gravitational mass | 1 | 1 | physics (1) |
+| CM 2.6.E | Gravity of uniform spherical distributions | 1 | 1 | physics (1) |
+| CM 2.7.A | Kinetic friction | 2 | 2 | physics (2) |
+| CM 2.7.B | Static friction | 2 | 2 | physics (2) |
+| CM 2.8.A | Ideal spring force | 1 | 1 | physics (1) |
+| CM 2.8.B | Equivalent spring constant | 1 | 1 | physics (1) |
+| CM 2.9.A | Velocity-dependent resistive forces | 1 | 1 | physics (1) |
+| CM 2.10.A | Circular motion | 4 | 4 | physics (4) |
+| CM 2.10.B | Circular orbits and Kepler's third law | 4 | 4 | physics (4) |
+| CM 3.1.A | Translational kinetic energy | 1 | 1 | physics (1) |
+| CM 3.2.A | Work (including variable forces) | 4 | 4 | physics (4) |
+| CM 3.3.A | Potential energy and conservative forces | 4 | 4 | physics (4) |
+| CM 3.4.A | Energy types in a system | 4 | 4 | physics (4) |
+| CM 3.4.B | Conservation of mechanical energy | 4 | 4 | physics (4) |
+| CM 3.4.C | Choice of system and energy | 4 | 4 | physics (4) |
+| CM 3.5.A | Power | 2 | 2 | physics (2) |
+| CM 4.1.A | Linear momentum | 1 | 1 | physics (1) |
+| CM 4.2.A | Impulse (time-varying force) | 2 | 2 | physics (2) |
+| CM 4.2.B | Impulse and momentum change | 2 | 2 | physics (2) |
+| CM 4.3.A | Conservation of momentum | 2 | 2 | physics (2) |
+| CM 4.3.B | Choice of system and momentum | 2 | 2 | physics (2) |
+| CM 4.4.A | Elastic and inelastic collisions | 4 | 4 | physics (4) |
+| CM 5.1.A | Angular kinematics (calculus) | 2 | 2 | physics (2) |
+| CM 5.2.A | Linear motion of rotating points | 1 | 1 | physics (1) |
+| CM 5.3.A | Identifying torques | 2 | 2 | physics (2) |
+| CM 5.3.B | Describing torques (cross product) | 2 | 2 | physics (2) |
+| CM 5.4.A | Rotational inertia (by integration) | 3 | 3 | physics (3) |
+| CM 5.4.B | Parallel-axis theorem | 3 | 3 | physics (3) |
+| CM 5.5.A | Rotational equilibrium | 1 | 1 | physics (1) |
+| CM 5.6.A | Rotational second law | 2 | 2 | physics (2) |
+| CM 6.1.A | Rotational kinetic energy | 1 | 1 | physics (1) |
+| CM 6.2.A | Work done by torques | 1 | 1 | physics (1) |
+| CM 6.3.A | Angular momentum | 3 | 3 | physics (3) |
+| CM 6.3.B | Angular impulse | 3 | 3 | physics (3) |
+| CM 6.3.C | Angular impulse and change in angular momentum | 3 | 3 | physics (3) |
+| CM 6.4.A | Conservation of angular momentum | 1 | 1 | physics (1) |
+| CM 6.4.B | Choice of system and angular momentum | 1 | 1 | physics (1) |
+| CM 6.5.A | Kinetic energy of rolling objects | 2 | 2 | physics (2) |
+| CM 6.5.B | Rolling without slipping | 2 | 2 | physics (2) |
+| CM 6.5.C | Rolling while slipping | 2 | 2 | physics (2) |
+| CM 6.6.A | Orbiting satellites | 4 | 4 | physics (4) |
+| CM 7.1.A | Characteristics of SHM | 2 | 2 | physics (2) |
+| CM 7.2.A | Frequency and period of SHM | 3 | 3 | physics (3) |
+| CM 7.3.A | Position, velocity and acceleration in SHM | 2 | 2 | physics (2) |
+| CM 7.4.A | Energy of SHM | 1 | 1 | physics (1) |
+| CM 7.5.A | Simple and physical pendulums | 1 | 1 | physics (1) |
+| CEM 8.1.A | Electric force between charges | 2 | 2 | physics (2) |
+| CEM 8.1.B | Electric and gravitational forces compared | 1 | 1 | physics (1) |
+| CEM 8.1.C | Electric permittivity | 1 | 1 | physics (1) |
+| CEM 8.2.A | Conservation of charge | 1 | 1 | physics (1) |
+| CEM 8.3.A | Electric field of charged objects | 3 | 3 | physics (3) |
+| CEM 8.3.B | Fields of conductors and insulators | 2 | 2 | physics (2) |
+| CEM 8.4.A | Fields of continuous charge distributions | 1 | 1 | physics (1) |
+| CEM 8.5.A | Electric flux | 1 | 1 | physics (1) |
+| CEM 8.6.A | Gauss's law | 2 | 2 | physics (2) |
+| CEM 9.1.A | Electric potential energy | 1 | 1 | physics (1) |
+| CEM 9.2.A | Electric potential of charge configurations | 5 | 5 | physics (5) |
+| CEM 9.2.B | Potential and field related (calculus) | 5 | 5 | physics (5) |
+| CEM 9.3.A | Energy changes across potential differences | 1 | 1 | physics (1) |
+| CEM 10.1.A | Charge distribution on conductors | 1 | 1 | physics (1) |
+| CEM 10.2.A | Charge sharing between touching conductors | 1 | 1 | physics (1) |
+| CEM 10.3.A | Parallel-plate capacitors | 4 | 4 | physics (4) |
+| CEM 10.4.A | Dielectrics | 1 | 1 | physics (1) |
+| CEM 11.1.A | Current | 2 | 2 | physics (2) |
+| CEM 11.2.A | Simple circuits | 1 | 1 | physics (1) |
+| CEM 11.3.A | Resistance from geometry | 2 | 2 | physics (2) |
+| CEM 11.3.B | Circuit element characteristics | 2 | 2 | physics (2) |
+| CEM 11.4.A | Electric power | 1 | 1 | physics (1) |
+| CEM 11.5.A | Equivalent resistance | 3 | 3 | physics (3) |
+| CEM 11.5.B | Resistive wires and real batteries | 3 | 3 | physics (3) |
+| CEM 11.5.C | Measuring current and potential difference | 3 | 3 | physics (3) |
+| CEM 11.6.A | Kirchhoff's loop rule | 2 | 2 | physics (2) |
+| CEM 11.7.A | Kirchhoff's junction rule | 2 | 2 | physics (2) |
+| CEM 11.8.A | Equivalent capacitance | 4 | 4 | physics (4) |
+| CEM 11.8.B | RC circuits (time dependence) | 4 | 4 | physics (4) |
+| CEM 12.1.A | Properties of magnetic fields | 1 | 1 | physics (1) |
+| CEM 12.1.B | Magnetism from dipole alignment | 1 | 1 | physics (1) |
+| CEM 12.1.C | Magnetic permeability | 1 | 1 | physics (1) |
+| CEM 12.2.A | Fields of moving charges | 4 | 4 | physics (4) |
+| CEM 12.2.B | Force on moving charges | 4 | 4 | physics (4) |
+| CEM 12.3.A | Fields of currents (Biot–Savart) | 3 | 3 | physics (3) |
+| CEM 12.3.B | Forces on current-carrying wires | 3 | 3 | physics (3) |
+| CEM 12.4.A | Ampère's law | 1 | 1 | physics (1) |
+| CEM 13.1.A | Magnetic flux | 1 | 1 | physics (1) |
+| CEM 13.2.A | Induced emf (Faraday, Lenz) | 5 | 5 | physics (5) |
+| CEM 13.3.A | Forces from induced currents | 1 | 1 | physics (1) |
+| CEM 13.4.A | Inductance | 1 | 1 | physics (1) |
+| CEM 13.5.A | LR circuits | 1 | 1 | physics (1) |
+| CEM 13.6.A | LC circuits | 1 | 1 | physics (1) |
 
 ## AP Biology Course and Exam Description (effective fall 2025)
 
@@ -2196,9 +2444,9 @@ https://students-residents.aamc.org/mcatexam
 | 1B | Gene to protein | 19 | 19 | biology (19) |
 | 1C | Heredity and genetic diversity | 15 | 15 | biology (15) |
 | 1D | Bioenergetics and fuel metabolism | 18 | 18 | biology (18) |
-| 4A | Motion, forces, work, energy, equilibrium | 27 | 27 | physics (27) |
+| 4A | Motion, forces, work, energy, equilibrium | 30 | 30 | physics (30) |
 | 4B | Fluids in circulation and gas exchange | 7 | 7 | physics (7) |
-| 4C | Electrochemistry and circuits | 30 | 30 | chemistry (18), physics (12) |
+| 4C | Electrochemistry and circuits | 31 | 31 | chemistry (18), physics (13) |
 | 4D | Light and sound with matter | 20 | 20 | physics (20) |
 | 4E | Atoms, nuclear decay, electronic structure | 24 | 24 | chemistry (21), nuclear (3) |
 | 5A | Water and solutions | 48 | 48 | chemistry (48) |
@@ -2428,7 +2676,7 @@ https://educate.iowa.gov/pk-12/standards/academics/science/high-school
 | PS1-6 | Changing conditions to shift equilibrium toward product | 19 | 19 | chemistry (18), ngss (1) |
 | PS1-7 | Conservation of atoms and mass in reactions (mathematical) | 19 | 19 | chemistry (18), ngss (1) |
 | PS1-8 | Fission, fusion and radioactive decay | 7 | 7 | dat (3), ngss (1), nuclear (3) |
-| PS2-1 | Newton's second law from data | 24 | 24 | ngss (7), physics (17) |
+| PS2-1 | Newton's second law from data | 27 | 27 | ngss (7), physics (20) |
 | PS2-2 | Conservation of momentum | 15 | 15 | ngss (7), physics (8) |
 | PS2-3 | Design a device that reduces collision force | 7 | 7 | ngss (7) |
 | PS2-4 | Newton's gravitation and Coulomb's law | 16 | 16 | ngss (1), physics (15) |
@@ -2532,7 +2780,7 @@ https://ibo.org/globalassets/new-structure/recognition/pdfs/dp_sciences_physics_
 | Item | Topic | Objectives | With a drill | Where |
 |---|---|---|---|---|
 | A.1 | Kinematics | 13 | 13 | physics (13) |
-| A.2 | Forces and momentum | 25 | 25 | physics (25) |
+| A.2 | Forces and momentum | 28 | 28 | physics (28) |
 | A.3 | Work, energy and power | 10 | 10 | physics (10) |
 | A.4 | Rigid body mechanics (HL) | 16 | 16 | physics (16) |
 | A.5 | Galilean and special relativity (HL) | 5 | 5 | physics (5) |
@@ -2540,13 +2788,13 @@ https://ibo.org/globalassets/new-structure/recognition/pdfs/dp_sciences_physics_
 | B.2 | Greenhouse effect | 7 | 7 | earth-space (7) |
 | B.3 | Gas laws | 12 | 12 | physics (12) |
 | B.4 | Thermodynamics (HL) | 19 | 19 | physics (12), thermodynamics (7) |
-| B.5 | Current and circuits | 12 | 12 | physics (12) |
+| B.5 | Current and circuits | 13 | 13 | physics (13) |
 | C.1 | Simple harmonic motion | 5 | 5 | physics (5) |
 | C.2 | Wave model | 13 | 13 | physics (13) |
 | C.3 | Wave phenomena | 20 | 20 | physics (20) |
 | C.4 | Standing waves and resonance | 13 | 13 | physics (13) |
 | C.5 | Doppler effect | 13 | 13 | physics (13) |
-| D.1 | Gravitational fields | 17 | 17 | physics (17) |
+| D.1 | Gravitational fields | 20 | 20 | physics (20) |
 | D.2 | Electric and magnetic fields | 25 | 25 | physics (25) |
 | D.3 | Motion in electromagnetic fields | 10 | 10 | physics (10) |
 | D.4 | Induction (HL) | 6 | 6 | physics (6) |
