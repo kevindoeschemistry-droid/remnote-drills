@@ -86,6 +86,27 @@ def py_pick(code, options):
     return hits[0]
 
 
+def js_run(body: str) -> str:
+    """stdout of a JavaScript snippet run by node (the event loop drains before exit)"""
+    key = "js:" + hashlib.sha1(body.encode()).hexdigest()
+    if key not in _CACHE:
+        with tempfile.TemporaryDirectory() as d:
+            Path(d, "snippet.js").write_text(body)
+            out, err, rc = _run(["node", "snippet.js"], d)
+            if rc != 0:
+                raise RuntimeError(f"node failed:\n{body}\n{err[-2000:]}")
+        _CACHE[key] = out
+    return _CACHE[key]
+
+
+def js_pick(code, options):
+    got = _show(js_run(code))
+    hits = [i for i, o in enumerate(options) if str(o) == got]
+    if len(hits) != 1:
+        raise ValueError(f"node printed {got!r}, options {options}")
+    return hits[0]
+
+
 def sh_run(setup: str, cmds: str) -> str:
     """stdout of `cmds` run by bash in a fresh directory after `setup` (not shown) has made its files;
     git commands get a throwaway identity and no global config"""
@@ -133,7 +154,7 @@ def c_lines(body: str) -> int:
     return sp.Integer(len(_CACHE[key].splitlines()))
 
 
-FUNCS = {"c_lines": c_lines, "sh_out": sh_out, "sh_pick": sh_pick, "java_out": java_out, "java_ret": java_ret, "java_pick": java_pick, "py_out": py_out, "py_pick": py_pick}
+FUNCS = {"js_pick": js_pick, "c_lines": c_lines, "sh_out": sh_out, "sh_pick": sh_pick, "java_out": java_out, "java_ret": java_ret, "java_pick": java_pick, "py_out": py_out, "py_pick": py_pick}
 
 
 def check(p, H):
