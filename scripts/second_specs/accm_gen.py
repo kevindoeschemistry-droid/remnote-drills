@@ -117,7 +117,7 @@ ADD = [
     ("CH-0.6.E", Q("ch-inverse-square", "gchem.measurement", "A point source gives {{d1}} µSv/h at {{r1}} m. What is the dose rate at {{r2}} m?",
         given={"d1": {"pick": [40, 100, 400]}, "r1": {"pick": [0.5, 1]}, "r2": {"pick": [2, 3, 4]}}, value="d1*(r1/r2)^2", tex="\\dot D",
         verify="d1*(nsimplify(r1)/r2)**2", explain="Intensity spreads over 4πr²: doubling the distance quarters the dose rate")),
-    ("CH-0.6.E", Q("ch-half-value-layers", "gchem.measurement", "A source gives {{d0}} µSv/h unshielded. The shield's half-value layer is {{hvl}} cm. What dose do you receive in {{t}} h behind {{x}} cm of it?",
-        given={"d0": {"pick": [80, 200]}, "hvl": {"pick": [0.5, 1, 2]}, "t": {"pick": [0.5, 2]}, "x": {"pick": [1, 2, 4]}}, value="d0*0.5^(x/hvl)*t", tex="D",
-        verify="d0*Rational(1, 2)**(x/nsimplify(hvl))*nsimplify(t)", explain="Each half-value layer halves the rate; dose = rate × time (time, distance, shielding)")),
+    ("CH-0.6.E", Q("ch-half-value-layers", "gchem.measurement", "A source gives {{d0}} µSv/h unshielded. The shield's half-value layer is {{hvl}} cm. What dose do you receive in {{t}} h behind {{th}} cm of it?",
+        given={"d0": {"pick": [80, 200]}, "hvl": {"pick": [0.5, 1, 2]}, "t": {"pick": [0.5, 2]}, "th": {"pick": [1, 2, 4]}}, value="d0*0.5^(th/hvl)*t", tex="D",
+        verify="d0*Rational(1, 2)**(th/nsimplify(hvl))*nsimplify(t)", explain="Each half-value layer halves the rate; dose = rate × time (time, distance, shielding)")),
 ]

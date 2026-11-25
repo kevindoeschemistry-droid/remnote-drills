@@ -519,19 +519,19 @@
       pick:
       - 0.5
       - 2
-    x:
+    th:
       pick:
       - 1
       - 2
       - 4
-  prompt: A source gives {{d0}} µSv/h unshielded. The shield's half-value layer is {{hvl}} cm. What dose do you receive in {{t}} h behind {{x}} cm of it?
+  prompt: A source gives {{d0}} µSv/h unshielded. The shield's half-value layer is {{hvl}} cm. What dose do you receive in {{t}} h behind {{th}} cm of it?
   parts:
   - ask: Answer
     label: v
     tex: D
-    value: d0*0.5^(x/hvl)*t
+    value: d0*0.5^(th/hvl)*t
     tol: 0.005
     explain: Each half-value layer halves the rate; dose = rate × time (time, distance, shielding)
   verify:
     expect:
-      v: d0*Rational(1, 2)**(x/nsimplify(hvl))*nsimplify(t)
+      v: d0*Rational(1, 2)**(th/nsimplify(hvl))*nsimplify(t)
