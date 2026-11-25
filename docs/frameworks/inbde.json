@@ -177,6 +177,89 @@
        ]
       }
      ]
+    },
+    {
+     "n": 4,
+     "title": "Assessment, communication and planning",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "jcnde-domain:CC2",
+        "jcnde-domain:CC3",
+        "jcnde-domain:CC11",
+        "jcnde-domain:FK1"
+       ],
+       "do": "Take a chief complaint and history, and run a head-and-neck and intraoral examination in order.",
+       "ek": [
+        "Record the complaint in the patient's words and characterise pain (onset, location, quality, duration, triggers, relief); examine extraorally (asymmetry, nodes, TMJ, glands) before intraorally."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "dn-history-exam",
+        "dn-pain-history"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "jcnde-domain:CC6",
+        "jcnde-domain:CC12"
+       ],
+       "do": "Predict a test result from the history and order the phases of a treatment plan.",
+       "ek": [
+        "Plan in phases: systemic, urgent (acute), disease control, definitive (restorative/prosthetic), maintenance."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "dn-plan-phase",
+        "dn-predict-result"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "jcnde-domain:CC13",
+        "jcnde-domain:CC14",
+        "jcnde-domain:CC15",
+        "jcnde-domain:FK9"
+       ],
+       "do": "Communicate options and adapt care to the patient's age, needs and values.",
+       "ek": [
+        "Explain etiology, alternatives (including no treatment), risks and prognosis; use open questions and reflective listening; tell-show-do for children; plan for xerostomia and dexterity in older adults."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "dn-informed-consent",
+        "dn-patient-adapt"
+       ]
+      },
+      {
+       "id": "D",
+       "std": [
+        "jcnde-domain:CC9",
+        "jcnde-domain:FK2",
+        "jcnde-domain:FK6"
+       ],
+       "do": "Relate oral disease to systemic disease and convert HbA1c to an estimated average glucose.",
+       "ek": [
+        "Periodontitis and diabetes worsen each other; eAG (mg/dL) = 28.7 × HbA1c − 46.7 (ADAG); A1c ≥ 6.5% is diagnostic for diabetes."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "dn-eag",
+        "dn-oral-systemic"
+       ]
+      }
+     ]
     }
    ]
   },
@@ -293,6 +376,146 @@
        ]
       }
      ]
+    },
+    {
+     "n": 4,
+     "title": "Patient management beyond the procedure",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "jcnde-domain:CC25",
+        "jcnde-domain:FK8"
+       ],
+       "do": "Recognise substance use that changes dental care and total an opioid prescription in morphine milligram equivalents.",
+       "ek": [
+        "MME/day = mg per dose × doses per day × conversion factor (codeine 0.15, hydrocodone 1, oxycodone 1.5, CDC 2022); avoid epinephrine within 24 h of cocaine use."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "dn-mme",
+        "dn-substance-use"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "jcnde-domain:CC36",
+        "jcnde-domain:CC38",
+        "jcnde-domain:FK1"
+       ],
+       "do": "Use proportion and the supracrestal attachment to plan esthetic and soft-tissue changes.",
+       "ek": [
+        "Seen from the front, central : lateral : canine widths follow roughly 1.618 : 1 : 0.618; keep about 3 mm from the restorative margin to bone (about 2 mm of attached tissue plus the sulcus)."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "dn-golden-proportion",
+        "dn-esthetic-tissue"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "jcnde-domain:CC37",
+        "jcnde-domain:FK10"
+       ],
+       "do": "Evaluate treatment outcomes and convert survival over years into an annual failure rate.",
+       "ek": [
+        "AFR = 1 − S^(1/years); recall intervals follow risk (often 3–6 months for high caries or periodontal risk)."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "dn-afr",
+        "dn-outcome"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 5,
+     "title": "Chemistry of the mouth and host defence",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "jcnde-domain:FK2",
+        "jcnde-domain:CC21"
+       ],
+       "do": "Relate plaque pH to enamel and root demineralisation, and fluoride to the critical pH.",
+       "ek": [
+        "Hydroxyapatite dissolves below about pH 5.5, fluorapatite below about 4.5, root dentin near 6.2–6.7; each sugar exposure drops plaque pH for 20–40 minutes (Stephan curve)."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "dn-critical-ph",
+        "dn-ph-hplus"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "jcnde-domain:FK2",
+        "jcnde-domain:FK1"
+       ],
+       "do": "Use the bicarbonate buffer to compute salivary pH and explain how flow changes it.",
+       "ek": [
+        "pH = 6.1 + log([HCO₃⁻]/(0.03·P_CO₂)); stimulated saliva carries more bicarbonate and buffers better."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "dn-saliva-ph",
+        "dn-saliva-function"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "jcnde-domain:FK5",
+        "jcnde-domain:CC22"
+       ],
+       "do": "Match the host's defences to the stages of gingival and periodontal disease.",
+       "ek": [
+        "Neutrophils dominate the early lesion; T cells, then B and plasma cells, the established and advanced lesions; secretory IgA and lysozyme defend saliva; host enzymes (MMPs) and RANKL drive tissue and bone loss."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "dn-perio-immune",
+        "dn-host-modulation"
+       ]
+      },
+      {
+       "id": "D",
+       "std": [
+        "jcnde-domain:FK5",
+        "jcnde-domain:FK7",
+        "jcnde-domain:CC51"
+       ],
+       "do": "Interpret immunisation and exposure tests for dental personnel.",
+       "ek": [
+        "Anti-HBs ≥ 10 mIU/mL after the hepatitis B series means protection; a non-responder repeats the series once; post-exposure HIV prophylaxis should start within hours (ideally under 2, at most 72)."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "dn-hbv-titer",
+        "dn-needlestick-risk"
+       ]
+      }
+     ]
     }
    ]
   },
@@ -348,6 +571,124 @@
        "drills": [
         "dn-test-stats",
         "dn-ppv-prevalence"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 3,
+     "title": "Practice, team and community",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "jcnde-domain:CC42",
+        "jcnde-domain:CC50",
+        "jcnde-domain:FK9"
+       ],
+       "do": "Recognise the limits of general practice and refer, and assess one's own competence.",
+       "ek": [
+        "Refer when the case exceeds training or equipment; the referring dentist still owes follow-up; continuing education and outcome audit drive self-assessment."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "dn-referral",
+        "dn-scope"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "jcnde-domain:CC43",
+        "jcnde-domain:CC47",
+        "jcnde-domain:FK9"
+       ],
+       "do": "Read practice finances and meet OSHA and HIPAA duties.",
+       "ek": [
+        "Overhead % = expenses ÷ collections; collection ratio = collected ÷ produced; HIPAA protects health information; OSHA's bloodborne pathogens standard protects staff."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "dn-overhead",
+        "dn-osha-hipaa"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "jcnde-domain:CC48"
+       ],
+       "do": "Plan for emergencies and disasters in the practice.",
+       "ek": [
+        "Written plan with roles, evacuation and communication, data backup off site, and drills; dentists may help identify victims through dental records."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "dn-disaster-plan",
+        "dn-office-preparedness"
+       ]
+      },
+      {
+       "id": "D",
+       "std": [
+        "jcnde-domain:CC49",
+        "jcnde-domain:FK9"
+       ],
+       "do": "Delegate to allied dental personnel at the right level of supervision.",
+       "ek": [
+        "Direct supervision: dentist present and checks; general: dentist authorised but need not be present; the allowed duties are set by each state's practice act."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "dn-supervision",
+        "dn-delegation"
+       ]
+      },
+      {
+       "id": "E",
+       "std": [
+        "jcnde-domain:CC53",
+        "jcnde-domain:CC54",
+        "jcnde-domain:CC39",
+        "jcnde-domain:CC40",
+        "jcnde-domain:FK10"
+       ],
+       "do": "Measure a population's caries and choose community programmes.",
+       "ek": [
+        "DMFT = decayed + missing + filled teeth; community water fluoridation at 0.7 mg/L (USPHS 2015); school sealant programmes; teledentistry and silver diamine fluoride widen access."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "dn-dmft",
+        "dn-community"
+       ]
+      },
+      {
+       "id": "F",
+       "std": [
+        "jcnde-domain:CC55",
+        "jcnde-domain:FK7"
+       ],
+       "do": "Apply quality assurance: audit, compare against a standard and fix the process.",
+       "ek": [
+        "Plan–Do–Study–Act cycles; weekly biological (spore) testing of sterilisers; a failed spore test means retest, recall loads and repair."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "dn-spore-rate",
+        "dn-quality"
        ]
       }
      ]
@@ -1558,6 +1899,50 @@
    "partial": []
   },
   {
+   "code": "DN-1.4.A",
+   "unit": 1,
+   "topic": 4,
+   "status": "ok",
+   "full": [
+    "dn-history-exam",
+    "dn-pain-history"
+   ],
+   "partial": []
+  },
+  {
+   "code": "DN-1.4.B",
+   "unit": 1,
+   "topic": 4,
+   "status": "ok",
+   "full": [
+    "dn-plan-phase",
+    "dn-predict-result"
+   ],
+   "partial": []
+  },
+  {
+   "code": "DN-1.4.C",
+   "unit": 1,
+   "topic": 4,
+   "status": "ok",
+   "full": [
+    "dn-informed-consent",
+    "dn-patient-adapt"
+   ],
+   "partial": []
+  },
+  {
+   "code": "DN-1.4.D",
+   "unit": 1,
+   "topic": 4,
+   "status": "ok",
+   "full": [
+    "dn-eag",
+    "dn-oral-systemic"
+   ],
+   "partial": []
+  },
+  {
    "code": "DN-2.1.A",
    "unit": 2,
    "topic": 1,
@@ -1613,6 +1998,83 @@
    "partial": []
   },
   {
+   "code": "DN-2.4.A",
+   "unit": 2,
+   "topic": 4,
+   "status": "ok",
+   "full": [
+    "dn-mme",
+    "dn-substance-use"
+   ],
+   "partial": []
+  },
+  {
+   "code": "DN-2.4.B",
+   "unit": 2,
+   "topic": 4,
+   "status": "ok",
+   "full": [
+    "dn-golden-proportion",
+    "dn-esthetic-tissue"
+   ],
+   "partial": []
+  },
+  {
+   "code": "DN-2.4.C",
+   "unit": 2,
+   "topic": 4,
+   "status": "ok",
+   "full": [
+    "dn-afr",
+    "dn-outcome"
+   ],
+   "partial": []
+  },
+  {
+   "code": "DN-2.5.A",
+   "unit": 2,
+   "topic": 5,
+   "status": "ok",
+   "full": [
+    "dn-critical-ph",
+    "dn-ph-hplus"
+   ],
+   "partial": []
+  },
+  {
+   "code": "DN-2.5.B",
+   "unit": 2,
+   "topic": 5,
+   "status": "ok",
+   "full": [
+    "dn-saliva-ph",
+    "dn-saliva-function"
+   ],
+   "partial": []
+  },
+  {
+   "code": "DN-2.5.C",
+   "unit": 2,
+   "topic": 5,
+   "status": "ok",
+   "full": [
+    "dn-perio-immune",
+    "dn-host-modulation"
+   ],
+   "partial": []
+  },
+  {
+   "code": "DN-2.5.D",
+   "unit": 2,
+   "topic": 5,
+   "status": "ok",
+   "full": [
+    "dn-hbv-titer",
+    "dn-needlestick-risk"
+   ],
+   "partial": []
+  },
+  {
    "code": "DN-3.1.A",
    "unit": 3,
    "topic": 1,
@@ -1631,6 +2093,72 @@
    "full": [
     "dn-test-stats",
     "dn-ppv-prevalence"
+   ],
+   "partial": []
+  },
+  {
+   "code": "DN-3.3.A",
+   "unit": 3,
+   "topic": 3,
+   "status": "ok",
+   "full": [
+    "dn-referral",
+    "dn-scope"
+   ],
+   "partial": []
+  },
+  {
+   "code": "DN-3.3.B",
+   "unit": 3,
+   "topic": 3,
+   "status": "ok",
+   "full": [
+    "dn-overhead",
+    "dn-osha-hipaa"
+   ],
+   "partial": []
+  },
+  {
+   "code": "DN-3.3.C",
+   "unit": 3,
+   "topic": 3,
+   "status": "ok",
+   "full": [
+    "dn-disaster-plan",
+    "dn-office-preparedness"
+   ],
+   "partial": []
+  },
+  {
+   "code": "DN-3.3.D",
+   "unit": 3,
+   "topic": 3,
+   "status": "ok",
+   "full": [
+    "dn-supervision",
+    "dn-delegation"
+   ],
+   "partial": []
+  },
+  {
+   "code": "DN-3.3.E",
+   "unit": 3,
+   "topic": 3,
+   "status": "ok",
+   "full": [
+    "dn-dmft",
+    "dn-community"
+   ],
+   "partial": []
+  },
+  {
+   "code": "DN-3.3.F",
+   "unit": 3,
+   "topic": 3,
+   "status": "ok",
+   "full": [
+    "dn-spore-rate",
+    "dn-quality"
    ],
    "partial": []
   },

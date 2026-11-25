@@ -1,6 +1,6 @@
 # The path — start to finish
 
-Every framework in `requires` order; inside each, units and objectives in order, except that 155 objectives move up to sit just after the prerequisites they need. 4035 objectives in 51 frameworks.
+Every framework in `requires` order; inside each, units and objectives in order, except that 155 objectives move up to sit just after the prerequisites they need. 4052 objectives in 51 frameworks.
 
 | # | Framework | Track | Requires | LOs | Path position |
 |---|---|---|---|---|---|
@@ -40,21 +40,21 @@ Every framework in `requires` order; inside each, units and objectives in order,
 | 34 | Numerical Methods | engineering | calculus, linear-algebra | 17 | 2959–2975 |
 | 35 | Process Design, Economics and Safety | engineering | material-balances | 9 | 2976–2984 |
 | 36 | Chemical Reaction Engineering | engineering | material-balances | 46 | 2985–3030 |
-| 37 | Separations | engineering | material-balances, thermodynamics | 6 | 3703–3710 |
+| 37 | Separations | engineering | material-balances, thermodynamics | 6 | 3720–3727 |
 | 38 | Mass Transfer | engineering | heat-transfer, engineering-math | 21 | 3037–3057 |
 | 39 | Electric Double Layers | engineering | materials, thermodynamics | 56 | 3058–3113 |
 | 40 | Graduate Chemical Engineering Core | engineering | fluid-mechanics, heat-transfer, mass-transfer, thermodynamics, reaction-engineering, process-design, engineering-math | 38 | 3114–3151 |
 | 41 | Financial Accounting (CPA FAR) | business | — | 26 | 3152–3177 |
 | 42 | Dental Admission Test | health | biology, chemistry | 205 | 3178–3382 |
 | 43 | NGSS High School Science | science | chemistry, physics, biology, earth-space, nuclear, dat | 71 | 3383–3453 |
-| 44 | INBDE (Dentistry) | health | — | 64 | 3454–3517 |
-| 45 | NCLEX-RN | health | — | 39 | 3518–3556 |
-| 46 | AI Safety | safety | programming, calculus | 104 | 3557–3660 |
-| 47 | Biosecurity | safety | biology, statistics | 42 | 3661–3702 |
-| 48 | Speaking and Articulation | communication | — | 69 | 3703–3771 |
-| 49 | Basketball | athletics | — | 88 | 3772–3859 |
-| 50 | Swimming | athletics | — | 88 | 3860–3947 |
-| 51 | Wushu | athletics | — | 88 | 3948–4035 |
+| 44 | INBDE (Dentistry) | health | — | 81 | 3454–3534 |
+| 45 | NCLEX-RN | health | — | 39 | 3535–3573 |
+| 46 | AI Safety | safety | programming, calculus | 104 | 3574–3677 |
+| 47 | Biosecurity | safety | biology, statistics | 42 | 3678–3719 |
+| 48 | Speaking and Articulation | communication | — | 69 | 3720–3788 |
+| 49 | Basketball | athletics | — | 88 | 3789–3876 |
+| 50 | Swimming | athletics | — | 88 | 3877–3964 |
+| 51 | Wushu | athletics | — | 88 | 3965–4052 |
 
 ## Order problems (a prerequisite comes after the objective)
 

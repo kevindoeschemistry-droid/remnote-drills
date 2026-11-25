@@ -27,7 +27,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 | Fluid Mechanics | NCEES FE Chemical CBT Exam Specifications (effective July 2020) | exam-spec | read in full | pe-chemical, webwork-opl | — | 64 | 64 | 0 |
 | Graduate Chemical Engineering Core | UC Irvine Chemical and Biomolecular Engineering graduate core: CBE 200, 210, 220A, 220B and 240 (catalogue descriptions, 2025-26) | course | read in part | pe-chemical | — | 38 | 38 | 0 |
 | Heat Transfer | NCEES FE Chemical CBT Exam Specifications (effective July 2020) | exam-spec | read in full | fe-mechanical, ib-physics-2025, pe-chemical | — | 101 | 63 | 38 |
-| INBDE (Dentistry) | JCNDE, Domain of Dentistry (INBDE content domain), July 2018 | exam-spec | read in part | — | — | 64 | 64 | 0 |
+| INBDE (Dentistry) | JCNDE, Domain of Dentistry (INBDE content domain), July 2018 | exam-spec | read in full | — | — | 81 | 81 | 0 |
 | Information Systems | MSIS 2016 Global Competency Model | standard | read in full | — | — | 53 | 0 | 53 |
 | Advanced Inorganic Chemistry (Cotton & Wilkinson) | Cotton, Wilkinson, Murillo & Bochmann, Advanced Inorganic Chemistry, 6th ed. (1999): table of contents | textbook | read in part | icho-appendix-c, gre-chemistry | — | 55 | 0 | 55 |
 | Inorganic Chemistry | Regulations of the International Chemistry Olympiad, Appendices C and D (concepts, skills and factual knowledge) | exam-spec | read in full | icho-syllabus, gre-chemistry, usnco, ib-chemistry-2025 | — | 23 | 23 | 0 |
@@ -123,7 +123,6 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 - **Electric Double Layers**: textbook, read in part
 - **Applied Engineering Mathematics**: textbook, read in full
 - **Graduate Chemical Engineering Core**: course, read in part
-- **INBDE (Dentistry)**: exam-spec, read in part
 - **Advanced Inorganic Chemistry (Cotton & Wilkinson)**: textbook, read in part
 - **Linear Algebra**: standard, read in part
 - **Mathematics K–8 (Common Core)**: standard, read through a crosswalk
@@ -2014,45 +2013,45 @@ https://nclex.com/files/2026_RN_Test%20Plan_English-F.pdf
 
 https://jcnde.ada.org/-/media/project/ada-organization/ada/jcnde/files/domain_of_dentistry_july2018.pdf
 
-42 of 66 items have at least one objective answering to them.
+66 of 66 items have at least one objective answering to them.
 
 | Item | Topic | Objectives | With a drill | Where |
 |---|---|---|---|---|
-| FK1 | Molecular, biochemical, cellular and systems-level development, structure and function | 11 | 11 | inbde (11) |
-| FK2 | Physics and chemistry of normal biology and pathobiology | 1 | 1 | inbde (1) |
+| FK1 | Molecular, biochemical, cellular and systems-level development, structure and function | 14 | 14 | inbde (14) |
+| FK2 | Physics and chemistry of normal biology and pathobiology | 4 | 4 | inbde (4) |
 | FK3 | Physics and chemistry of technologies and materials (8.0%) | 16 | 16 | inbde (16) |
 | FK4 | Genetic, congenital and developmental diseases | 5 | 5 | inbde (5) |
-| FK5 | Host defense mechanisms | 2 | 2 | inbde (2) |
-| FK6 | General and disease-specific pathology | 4 | 4 | inbde (4) |
-| FK7 | Biology of microorganisms | 2 | 2 | inbde (2) |
-| FK8 | Pharmacology | 7 | 7 | inbde (7) |
-| FK9 | Behavioral sciences, ethics and jurisprudence | 2 | 2 | inbde (2) |
-| FK10 | Research methodology, analysis and informatics | 3 | 3 | inbde (3) |
+| FK5 | Host defense mechanisms | 4 | 4 | inbde (4) |
+| FK6 | General and disease-specific pathology | 5 | 5 | inbde (5) |
+| FK7 | Biology of microorganisms | 4 | 4 | inbde (4) |
+| FK8 | Pharmacology | 8 | 8 | inbde (8) |
+| FK9 | Behavioral sciences, ethics and jurisprudence | 6 | 6 | inbde (6) |
+| FK10 | Research methodology, analysis and informatics | 5 | 5 | inbde (5) |
 | CC1 | Patient history and medical data | 4 | 4 | inbde (4) |
-| CC2 | Chief complaint and contributing factors | — | — | **nothing yet** |
-| CC3 | Head, neck and intraoral examination | — | — | **nothing yet** |
+| CC2 | Chief complaint and contributing factors | 1 | 1 | inbde (1) |
+| CC3 | Head, neck and intraoral examination | 1 | 1 | inbde (1) |
 | CC4 | Diagnosing and prognosing dental abnormalities and pathology | 1 | 1 | inbde (1) |
 | CC5 | Normal findings versus those needing monitoring or treatment | 9 | 9 | inbde (9) |
-| CC6 | Predicting the most likely diagnostic result | — | — | **nothing yet** |
+| CC6 | Predicting the most likely diagnostic result | 1 | 1 | inbde (1) |
 | CC7 | Interpreting diagnostic results | 10 | 10 | inbde (10) |
 | CC8 | Systemic disease and its effect on dental care | 9 | 9 | inbde (9) |
-| CC9 | Oral and systemic health | — | — | **nothing yet** |
+| CC9 | Oral and systemic health | 1 | 1 | inbde (1) |
 | CC10 | Selecting diagnostic tools | 1 | 1 | inbde (1) |
-| CC11 | Gathering information from varied sources | — | — | **nothing yet** |
-| CC12 | Comprehensive diagnosis and treatment plan | — | — | **nothing yet** |
-| CC13 | Explaining etiology, options and prognosis | — | — | **nothing yet** |
-| CC14 | Patient attributes, background and values across life stages | — | — | **nothing yet** |
-| CC15 | Communicating with patients (psychological, social, behavioural) | — | — | **nothing yet** |
+| CC11 | Gathering information from varied sources | 1 | 1 | inbde (1) |
+| CC12 | Comprehensive diagnosis and treatment plan | 1 | 1 | inbde (1) |
+| CC13 | Explaining etiology, options and prognosis | 1 | 1 | inbde (1) |
+| CC14 | Patient attributes, background and values across life stages | 1 | 1 | inbde (1) |
+| CC15 | Communicating with patients (psychological, social, behavioural) | 1 | 1 | inbde (1) |
 | CC16 | Medical emergencies | 5 | 5 | inbde (5) |
 | CC17 | Dental emergencies | 5 | 5 | inbde (5) |
 | CC18 | Acute pain, bleeding, trauma and infection of the orofacial complex | 5 | 5 | inbde (5) |
 | CC19 | Pain control during treatment | 8 | 8 | inbde (8) |
 | CC20 | Pulpal and periradicular diseases | 7 | 7 | inbde (7) |
-| CC21 | Managing caries | 12 | 12 | inbde (12) |
-| CC22 | Periodontal diseases | 5 | 5 | inbde (5) |
+| CC21 | Managing caries | 13 | 13 | inbde (13) |
+| CC22 | Periodontal diseases | 6 | 6 | inbde (6) |
 | CC23 | Oral mucosal and osseous diseases | 8 | 8 | inbde (8) |
 | CC24 | Abuse and neglect | 6 | 6 | inbde (6) |
-| CC25 | Substance abuse | — | — | **nothing yet** |
+| CC25 | Substance abuse | 1 | 1 | inbde (1) |
 | CC26 | Pharmacological agents | 9 | 9 | inbde (9) |
 | CC27 | Complications of therapeutic agents | 7 | 7 | inbde (7) |
 | CC28 | Endodontic diagnosis and procedures | 10 | 10 | inbde (10) |
@@ -2063,26 +2062,26 @@ https://jcnde.ada.org/-/media/project/ada-organization/ada/jcnde/files/domain_of
 | CC33 | Oral surgical procedures | 1 | 1 | inbde (1) |
 | CC34 | Developmental or acquired occlusal problems | 6 | 6 | inbde (6) |
 | CC35 | Temporomandibular disorders | 5 | 5 | inbde (5) |
-| CC36 | Modifying oral tissues for form, function and esthetics | — | — | **nothing yet** |
-| CC37 | Evaluating outcomes of comprehensive care | — | — | **nothing yet** |
-| CC38 | Oral esthetic needs | — | — | **nothing yet** |
-| CC39 | Emerging trends in health care | — | — | **nothing yet** |
-| CC40 | Social and economic trends in oral health care | — | — | **nothing yet** |
+| CC36 | Modifying oral tissues for form, function and esthetics | 1 | 1 | inbde (1) |
+| CC37 | Evaluating outcomes of comprehensive care | 1 | 1 | inbde (1) |
+| CC38 | Oral esthetic needs | 1 | 1 | inbde (1) |
+| CC39 | Emerging trends in health care | 1 | 1 | inbde (1) |
+| CC40 | Social and economic trends in oral health care | 1 | 1 | inbde (1) |
 | CC41 | Evaluating scientific literature | 8 | 8 | inbde (8) |
-| CC42 | Scope of practice, consultation and referral | — | — | **nothing yet** |
-| CC43 | Resources for care, management and development | — | — | **nothing yet** |
+| CC42 | Scope of practice, consultation and referral | 1 | 1 | inbde (1) |
+| CC43 | Resources for care, management and development | 1 | 1 | inbde (1) |
 | CC44 | Risk management, jurisprudence and ethics | 1 | 1 | inbde (1) |
 | CC45 | Ethical and jurisprudence issues | 1 | 1 | inbde (1) |
 | CC46 | Patient records | 1 | 1 | inbde (1) |
-| CC47 | Business and financial operations | — | — | **nothing yet** |
-| CC48 | Catastrophe preparedness | — | — | **nothing yet** |
-| CC49 | Managing allied dental personnel | — | — | **nothing yet** |
-| CC50 | Self-assessment | — | — | **nothing yet** |
-| CC51 | Standard infection control | 5 | 5 | inbde (5) |
+| CC47 | Business and financial operations | 1 | 1 | inbde (1) |
+| CC48 | Catastrophe preparedness | 1 | 1 | inbde (1) |
+| CC49 | Managing allied dental personnel | 1 | 1 | inbde (1) |
+| CC50 | Self-assessment | 1 | 1 | inbde (1) |
+| CC51 | Standard infection control | 6 | 6 | inbde (6) |
 | CC52 | Prevention, intervention and education | 2 | 2 | inbde (2) |
-| CC53 | Collaboration for community health | — | — | **nothing yet** |
-| CC54 | Oral health care delivery for populations | — | — | **nothing yet** |
-| CC55 | Quality assurance and improvement | — | — | **nothing yet** |
+| CC53 | Collaboration for community health | 1 | 1 | inbde (1) |
+| CC54 | Oral health care delivery for populations | 1 | 1 | inbde (1) |
+| CC55 | Quality assurance and improvement | 1 | 1 | inbde (1) |
 | CC56 | Communicating case design to laboratories | 2 | 2 | inbde (2) |
 
 ## BlueDot Impact, Biosecurity course (six units)
