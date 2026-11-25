@@ -43,9 +43,9 @@ Big ideas: EXACT
 
 
 
-- ● **CO-1.1.A** Compute the pH of a polyprotic acid or one of its salts from the full charge balance.
+- ● **CO-1.1.A** (acs-accm-analytical:VIII.F.5) Compute the pH of a polyprotic acid or one of its salts from the full charge balance.
   - EK: Amphiprotic salts sit near ½(pKₐₙ + pKₐₙ₊₁).
-  - P1 · drills: co-polyprotic-ph, co-phosphate-fraction
+  - P1 · drills: co-phosphate-fraction, co-polyprotic-ph
 - ● **CO-1.1.B** Compute a buffer's pH after strong acid is added.
   - EK: Convert base to acid mole for mole, then the equilibrium.
   - P1 · drills: co-buffer-acid, co-buffer-capacity-acid
@@ -87,7 +87,7 @@ Big ideas: CYCLE
 
 - ● **CO-2.2.A** Close a Born–Haber cycle for the lattice enthalpy.
   - EK: ΔH_f = sublimation + IE + atomisation + EA + lattice.
-  - P1 · drills: co-born-haber, co-lattice-compare
+  - P1 · drills: co-lattice-compare, co-born-haber
 - ● **CO-2.2.B** Estimate a reaction enthalpy from bond enthalpies.
   - EK: Σ broken − Σ formed.
   - P1 · drills: co-bond-enthalpy, co-bond-from-dh
@@ -122,7 +122,7 @@ Big ideas: COUNT
 - ● **CO-4.1.B** Predict relative isotope-peak intensities for Cl and Br compounds.
   - EK: Binomial in the isotope fractions.
   - P2 · drills: co-isotope-pattern, co-m2-ratio
-- ● **CO-4.1.C** Count the lines of a first-order NMR multiplet.
+- ● **CO-4.1.C** (acs-accm-analytical:I.A.3) Count the lines of a first-order NMR multiplet.
   - EK: (n + 1)(m + 1), collapsing when J are equal.
   - P2 · drills: co-nmr-multiplicity, co-multiplet-centre
 
@@ -238,7 +238,7 @@ Big ideas: EXACT
   - P1 · drills: co-order-from-rates, co-rate-predict
 - ● **CO-9.1.B** (usnco:5) Find the rate law from a mechanism with a fast pre-equilibrium.
   - EK: Rate = k₂K₁[...]: substitute the intermediate from the equilibrium.
-  - P1 · drills: co-preequilibrium-order, co-mechanism-rate-law
+  - P1 · drills: co-mechanism-rate-law, co-preequilibrium-order
 - ● **CO-9.1.C** (usnco:5) Find product fractions for parallel first-order reactions.
   - EK: Fraction of B = k_B/(k_B + k_C); with Arrhenius, the higher-Eₐ path grows with T.
   - P1 · drills: co-parallel-arrhenius, co-equal-rate-temp
@@ -287,10 +287,10 @@ Big ideas: EXACT
 - ● **CO-11.1.B** (usnco:7) Combine half-reaction potentials.
   - EK: Potentials do not add; ΔG = −nFE does: E₃ = (n₁E₁ + n₂E₂)/(n₁ + n₂).
   - P1 · drills: co-combine-potentials, co-disprop-potential
-- ● **CO-11.1.C** (usnco:7) Use the Nernst equation.
+- ● **CO-11.1.C** (usnco:7, acs-accm-analytical:VI.E.1) Use the Nernst equation.
   - EK: E = E° − (RT/nF) ln Q.
   - P1 · drills: co-nernst, co-ratio-from-emf
-- ● **CO-11.1.D** (usnco:7) Find K from a standard cell potential.
+- ● **CO-11.1.D** (usnco:7, acs-accm-analytical:VIII.F.1, acs-accm-analytical:VIII.G.5) Find K from a standard cell potential.
   - EK: ln K = nFE°/RT.
   - P1 · drills: co-k-from-e, co-e-from-k
 - ● **CO-11.1.E** (usnco:7) Count electrons in a redox half-reaction.
@@ -346,7 +346,7 @@ Big ideas: EXACT
   - P1 · drills: co-formal-charge, co-formal-charge-atom
 - ● **CO-13.1.E** (usnco:9) Find a fractional bond order from resonance.
   - EK: Spread the π bonds over the equivalent positions: bond order = total bonds / positions.
-  - P1 · drills: co-resonance-bond-order, co-bond-length-rank
+  - P1 · drills: co-bond-length-rank, co-resonance-bond-order
 
 ## Unit 14 · USNCO band 10: organic chemistry, biochemistry and spectroscopy
 
@@ -362,10 +362,10 @@ Big ideas: EXACT
 - ● **CO-14.1.B** (usnco:10) Find the degree of unsaturation.
   - EK: DoU = (2C + 2 + N − H − X)/2: rings plus π bonds.
   - P1 · drills: co-unsaturation, co-h-from-dou
-- ● **CO-14.1.C** (usnco:10) Assign an infrared band.
+- ● **CO-14.1.C** (usnco:10, acs-accm-analytical:I.B.1, acs-accm-analytical:II.F.1, acs-accm-analytical:III.F.1) Assign an infrared band.
   - EK: O–H broad 3200–3550; C=O sharp near 1700; C≡N near 2250; C–H just below 3000 (sp³) or above (sp²).
   - P1 · drills: co-ir-band, co-ir-tell
-- ● **CO-14.1.D** (usnco:10) Count ¹H NMR environments.
+- ● **CO-14.1.D** (usnco:10, acs-accm-organic:III.D.2, acs-accm-analytical:I.A.3, acs-accm-analytical:III.D.1) Count ¹H NMR environments.
   - EK: Equivalent hydrogens (by symmetry) give one signal.
   - P1 · drills: co-nmr-environments, co-nmr-env-2
 - ● **CO-14.1.E** (usnco:10) Identify the monomer of a polymer.
@@ -385,19 +385,19 @@ Big ideas: EXACT
 
 - ● **CO-15.1.A** (usnco:P2, usnco:6) Find a molar solubility with a common ion, then compare it with pure water.
   - EK: Ksp = s(s + c) ≈ s c when c ≫ s.
-  - P1 · drills: co-p2-common-ion, co-ksp-from-common-ion
+  - P1 · drills: co-ksp-from-common-ion, co-p2-common-ion
 - ● **CO-15.1.B** (usnco:P2, usnco:7) Get ΔS° of a cell reaction from the temperature dependence of E°.
   - EK: ΔS° = nF(dE°/dT); ΔH° = ΔG° + TΔS°.
-  - P1 · drills: co-p2-cell-entropy, co-dedt-from-ds
+  - P1 · drills: co-dedt-from-ds, co-p2-cell-entropy
 - ● **CO-15.1.C** (usnco:P2, usnco:4) Find ΔS° from ΔG° and calorimetric ΔH°.
   - EK: ΔG° = −RT ln K; ΔS° = (ΔH° − ΔG°)/T.
-  - P1 · drills: co-p2-entropy-from-k, co-vant-hoff-k
+  - P1 · drills: co-vant-hoff-k, co-p2-entropy-from-k
 - ● **CO-15.1.D** (usnco:P2, usnco:1) Find a hydrate's water count from an iodometric titration.
   - EK: Cu²⁺ + I⁻ → CuI + ½I₂; I₂ + 2 S₂O₃²⁻: one thiosulfate per Cu.
-  - P1 · drills: co-p2-iodometric, co-iodometric-copper
+  - P1 · drills: co-iodometric-copper, co-p2-iodometric
 - ● **CO-15.1.E** (usnco:P2, usnco:3) Find a density and an oxidation state from a perovskite unit cell.
   - EK: ABO₃: A at the corners (1), B at the centre (1), O at the face centres (3).
-  - P1 · drills: co-p2-perovskite, co-tolerance-factor
+  - P1 · drills: co-tolerance-factor, co-p2-perovskite
 - ● **CO-15.1.F** (usnco:P2, usnco:8) Find a photon energy per mole for bond breaking.
   - EK: E = N_A hc/λ.
-  - P1 · drills: co-p2-photon-kj, co-threshold-wavelength
+  - P1 · drills: co-threshold-wavelength, co-p2-photon-kj

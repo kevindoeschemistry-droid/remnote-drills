@@ -17,7 +17,8 @@
   "also": [
    "icho-appendix-c",
    "icho-syllabus",
-   "acs-accm-organic"
+   "acs-accm-organic",
+   "acs-accm-analytical"
   ],
   "note": "Topics from the USNCO bands (read in part) and IChO Appendix C (read in full), at national-exam depth; the items are a house list."
  },
@@ -74,6 +75,9 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "acs-accm-analytical:VIII.F.5"
+       ],
        "do": "Compute the pH of a polyprotic acid or one of its salts from the full charge balance.",
        "ek": [
         "Amphiprotic salts sit near ½(pKₐₙ + pKₐₙ₊₁)."
@@ -82,8 +86,8 @@
         "P1"
        ],
        "drills": [
-        "co-polyprotic-ph",
-        "co-phosphate-fraction"
+        "co-phosphate-fraction",
+        "co-polyprotic-ph"
        ]
       },
       {
@@ -221,8 +225,8 @@
         "P1"
        ],
        "drills": [
-        "co-born-haber",
-        "co-lattice-compare"
+        "co-lattice-compare",
+        "co-born-haber"
        ]
       },
       {
@@ -343,6 +347,9 @@
       },
       {
        "id": "C",
+       "std": [
+        "acs-accm-analytical:I.A.3"
+       ],
        "do": "Count the lines of a first-order NMR multiplet.",
        "ek": [
         "(n + 1)(m + 1), collapsing when J are equal."
@@ -842,8 +849,8 @@
         "P1"
        ],
        "drills": [
-        "co-preequilibrium-order",
-        "co-mechanism-rate-law"
+        "co-mechanism-rate-law",
+        "co-preequilibrium-order"
        ]
       },
       {
@@ -1059,7 +1066,8 @@
       {
        "id": "C",
        "std": [
-        "usnco:7"
+        "usnco:7",
+        "acs-accm-analytical:VI.E.1"
        ],
        "do": "Use the Nernst equation.",
        "ek": [
@@ -1076,7 +1084,9 @@
       {
        "id": "D",
        "std": [
-        "usnco:7"
+        "usnco:7",
+        "acs-accm-analytical:VIII.F.1",
+        "acs-accm-analytical:VIII.G.5"
        ],
        "do": "Find K from a standard cell potential.",
        "ek": [
@@ -1330,8 +1340,8 @@
         "P1"
        ],
        "drills": [
-        "co-resonance-bond-order",
-        "co-bond-length-rank"
+        "co-bond-length-rank",
+        "co-resonance-bond-order"
        ]
       }
      ]
@@ -1391,7 +1401,10 @@
       {
        "id": "C",
        "std": [
-        "usnco:10"
+        "usnco:10",
+        "acs-accm-analytical:I.B.1",
+        "acs-accm-analytical:II.F.1",
+        "acs-accm-analytical:III.F.1"
        ],
        "do": "Assign an infrared band.",
        "ek": [
@@ -1408,7 +1421,10 @@
       {
        "id": "D",
        "std": [
-        "usnco:10"
+        "usnco:10",
+        "acs-accm-organic:III.D.2",
+        "acs-accm-analytical:I.A.3",
+        "acs-accm-analytical:III.D.1"
        ],
        "do": "Count ¹H NMR environments.",
        "ek": [
@@ -1492,8 +1508,8 @@
         "P1"
        ],
        "drills": [
-        "co-p2-common-ion",
-        "co-ksp-from-common-ion"
+        "co-ksp-from-common-ion",
+        "co-p2-common-ion"
        ]
       },
       {
@@ -1510,8 +1526,8 @@
         "P1"
        ],
        "drills": [
-        "co-p2-cell-entropy",
-        "co-dedt-from-ds"
+        "co-dedt-from-ds",
+        "co-p2-cell-entropy"
        ]
       },
       {
@@ -1528,8 +1544,8 @@
         "P1"
        ],
        "drills": [
-        "co-p2-entropy-from-k",
-        "co-vant-hoff-k"
+        "co-vant-hoff-k",
+        "co-p2-entropy-from-k"
        ]
       },
       {
@@ -1546,8 +1562,8 @@
         "P1"
        ],
        "drills": [
-        "co-p2-iodometric",
-        "co-iodometric-copper"
+        "co-iodometric-copper",
+        "co-p2-iodometric"
        ]
       },
       {
@@ -1564,8 +1580,8 @@
         "P1"
        ],
        "drills": [
-        "co-p2-perovskite",
-        "co-tolerance-factor"
+        "co-tolerance-factor",
+        "co-p2-perovskite"
        ]
       },
       {
@@ -1582,8 +1598,8 @@
         "P1"
        ],
        "drills": [
-        "co-p2-photon-kj",
-        "co-threshold-wavelength"
+        "co-threshold-wavelength",
+        "co-p2-photon-kj"
        ]
       }
      ]
@@ -1598,8 +1614,8 @@
    "topic": 1,
    "status": "ok",
    "full": [
-    "co-polyprotic-ph",
-    "co-phosphate-fraction"
+    "co-phosphate-fraction",
+    "co-polyprotic-ph"
    ],
    "partial": []
   },
@@ -1675,8 +1691,8 @@
    "topic": 2,
    "status": "ok",
    "full": [
-    "co-born-haber",
-    "co-lattice-compare"
+    "co-lattice-compare",
+    "co-born-haber"
    ],
    "partial": []
   },
@@ -1994,8 +2010,8 @@
    "topic": 1,
    "status": "ok",
    "full": [
-    "co-preequilibrium-order",
-    "co-mechanism-rate-law"
+    "co-mechanism-rate-law",
+    "co-preequilibrium-order"
    ],
    "partial": []
   },
@@ -2258,8 +2274,8 @@
    "topic": 1,
    "status": "ok",
    "full": [
-    "co-resonance-bond-order",
-    "co-bond-length-rank"
+    "co-bond-length-rank",
+    "co-resonance-bond-order"
    ],
    "partial": []
   },
@@ -2335,8 +2351,8 @@
    "topic": 1,
    "status": "ok",
    "full": [
-    "co-p2-common-ion",
-    "co-ksp-from-common-ion"
+    "co-ksp-from-common-ion",
+    "co-p2-common-ion"
    ],
    "partial": []
   },
@@ -2346,8 +2362,8 @@
    "topic": 1,
    "status": "ok",
    "full": [
-    "co-p2-cell-entropy",
-    "co-dedt-from-ds"
+    "co-dedt-from-ds",
+    "co-p2-cell-entropy"
    ],
    "partial": []
   },
@@ -2357,8 +2373,8 @@
    "topic": 1,
    "status": "ok",
    "full": [
-    "co-p2-entropy-from-k",
-    "co-vant-hoff-k"
+    "co-vant-hoff-k",
+    "co-p2-entropy-from-k"
    ],
    "partial": []
   },
@@ -2368,8 +2384,8 @@
    "topic": 1,
    "status": "ok",
    "full": [
-    "co-p2-iodometric",
-    "co-iodometric-copper"
+    "co-iodometric-copper",
+    "co-p2-iodometric"
    ],
    "partial": []
   },
@@ -2379,8 +2395,8 @@
    "topic": 1,
    "status": "ok",
    "full": [
-    "co-p2-perovskite",
-    "co-tolerance-factor"
+    "co-tolerance-factor",
+    "co-p2-perovskite"
    ],
    "partial": []
   },
@@ -2390,8 +2406,8 @@
    "topic": 1,
    "status": "ok",
    "full": [
-    "co-p2-photon-kj",
-    "co-threshold-wavelength"
+    "co-threshold-wavelength",
+    "co-p2-photon-kj"
    ],
    "partial": []
   }

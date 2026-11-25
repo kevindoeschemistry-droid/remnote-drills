@@ -1,6 +1,6 @@
 """Write new objectives from a second-spec module's OBJS (code, [std items], do, ek) into its framework file, after the
 last objective of their topic, and add a module's EXISTING {code: [std items]} citations to objectives already there.
-Idempotent. Usage: python3 scripts/insert_objs.py st3"""
+NEEDS {code: [codes]} adds prerequisites; UNIT_ORDER [unit ids] reorders unit blocks without renumbering. Idempotent. Usage: python3 scripts/insert_objs.py st3"""
 import glob, importlib, os, re, sys
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(ROOT, "scripts")); sys.path.insert(0, os.path.join(ROOT, "scripts/second_specs"))
@@ -58,7 +58,37 @@ for code, std in getattr(mod, "EXISTING", {}).items():
     for i, uu, tt, x in walk(L):
         if (uu, tt, x) == (u, t, lo):
             m = re.search(r"std: \[([^\]]*)\]", L[i])
+            if not m:  # no std yet: add one after the id
+                L[i] = L[i].replace(f"id: {lo},", f"id: {lo}, std: [],", 1)
+                m = re.search(r"std: \[([^\]]*)\]", L[i])
             have = [s.strip().strip('"') for s in m.group(1).split(",") if s.strip()]
             have += [s for s in std if s not in have]
             L[i] = L[i][:m.start()] + f'std: [{", ".join(q(s) for s in have)}]' + L[i][m.end():]
+# NEEDS {code: [prerequisite codes]}: add-only prerequisites, which the path's topological sort honours
+fw_code = None
+for code, need in getattr(mod, "NEEDS", {}).items():
+    u, t, lo = code.split("-", 1)[1].split(".")
+    for i, uu, tt, x in walk(L):
+        if (uu, tt, x) != (u, t, lo): continue
+        m = re.search(r"needs: \[([^\]]*)\]", L[i])
+        if not m:
+            L[i] = re.sub(r"(, drills: \[)", r", needs: [], drills: [", L[i], count=1)
+            m = re.search(r"needs: \[([^\]]*)\]", L[i])
+        have = [s.strip() for s in m.group(1).split(",") if s.strip()]
+        have += [n for n in need if n not in have]
+        L[i] = L[i][:m.start()] + f"needs: [{', '.join(have)}]" + L[i][m.end():]
+        break
+    else:
+        sys.exit(f"NEEDS: {code} not found")
+# UNIT_ORDER [unit ids]: reorder whole unit blocks in the file (codes keep their n, so card ids are unchanged)
+order = getattr(mod, "UNIT_ORDER", None)
+if order:
+    start = L.index("units:") + 1
+    blocks, cur = {}, None
+    for ln in L[start:]:
+        m = re.match(r"^  - id: (\S+)", ln)
+        if m: cur = m.group(1); blocks[cur] = []
+        if cur: blocks[cur].append(ln)
+    assert sorted(order) == sorted(blocks), (order, list(blocks))
+    L = L[:start] + [ln for uid in order for ln in blocks[uid]]
 open(path, "w").write("\n".join(L))

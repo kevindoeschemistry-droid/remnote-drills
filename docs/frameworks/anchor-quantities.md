@@ -82,7 +82,7 @@ Big ideas: SCALE
 
 
 
-- ● **AQ-3.2.A** (acs-accm-pchem:IX.D.1, acs-accm-pchem:I.D.1) Estimate a photon's energy from its wavelength, and an infrared wavelength from a wavenumber.
+- ● **AQ-3.2.A** (acs-accm-pchem:IX.D.1, acs-accm-pchem:I.D.1, acs-accm-analytical:I.D.1, acs-accm-analytical:I.D.4) Estimate a photon's energy from its wavelength, and an infrared wavelength from a wavenumber.
   - EK: E(eV) ≈ 1240/λ(nm); λ(µm) = 10⁴/ν̃(cm⁻¹).
   - P2 · drills: aq-photon-energy, aq-wavenumber-wavelength
 

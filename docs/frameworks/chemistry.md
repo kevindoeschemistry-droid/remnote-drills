@@ -65,7 +65,7 @@ Big ideas: SPQ
   - P2 · P4 · drills: ac-percent-error, ac2-percent-error-reverse
 - ● **CH-0.2.D** (N-Q.A.1, A-CED.A.4, acs-accm-general:I.D.3, acs-accm-general:IX.B.2) Calculate density, mass or volume from the other two, including volume by water displacement.
   - EK: ρ = m/V; 1 mL = 1 cm³; water ≈ 1.00 g/mL near room temperature.
-  - P5 · drills: ac-density-displacement, ph-density
+  - P5 · drills: ph-density, ac-density-displacement
 - ● **CH-0.2.E** (N-Q.A.1) Convert temperatures among °C, K and °F.
   - EK: K = °C + 273.15; °F = 1.8·°C + 32; gas laws and thermodynamics need kelvin.
   - P5 · drills: ac-temperature-convert, ac2-hotter
@@ -86,7 +86,7 @@ Big ideas: SPQ
 - ● **CH-0.4.A** (SAP-1.A, acs-accm-general:I.A.1, acs-accm-inorganic:I.A.1) Count protons, neutrons and electrons from a nuclide symbol for an atom or ion.
   - EK: Z = protons; A = protons + neutrons; electrons = Z − charge.
   - P1 · drills: ac-nuclide-count, nu-neutron-number
-- ● **CH-0.4.C** (SAP-2.B, acs-accm-general:IX.C.1, acs-accm-inorganic:I.C.3) Use periodic-table position (group, metal or nonmetal) to name, and write formulas for, binary ionic, polyatomic ionic, binary molecular compounds and common acids.
+- ● **CH-0.4.C** (SAP-2.B, acs-accm-general:IX.C.1, acs-accm-inorganic:I.C.3, acs-accm-analytical:IX.B.1) Use periodic-table position (group, metal or nonmetal) to name, and write formulas for, binary ionic, polyatomic ionic, binary molecular compounds and common acids.
   - EK: Metals left of the staircase form cations, nonmetals anions. Ionic: cation then anion, charges balance, Roman numeral for variable-charge metals; molecular: Greek prefixes; -ate → -ic acid, -ite → -ous acid.
   - P1 · drills: ac-ionic-formula, ac2-atoms-in-formula
 
@@ -109,13 +109,13 @@ Big ideas: SPQ
 - ● **CH-0.6.A** (acs-accm-general:IX.F.1, acs-accm-general:IX.G.2, acs-accm-organic:IX.F) Classify an error as random or systematic, predict its direction, and choose a procedure that limits it.
   - EK: Systematic errors push every result one way (a mis-zeroed balance, a wet sample); random errors scatter both ways and shrink with replicates; blanks and calibration remove systematic ones.
   - P1 · drills: ch-error-type, ch-systematic-direction
-- ● **CH-0.6.B** (acs-accm-general:IX.G.3, acs-accm-organic:IX.E, acs-accm-inorganic:IX.F.2) Keep a laboratory record that others can verify.
+- ● **CH-0.6.B** (acs-accm-general:IX.G.3, acs-accm-organic:IX.E, acs-accm-inorganic:IX.F.2, acs-accm-analytical:IX.E.1) Keep a laboratory record that others can verify.
   - EK: Write directly in a bound notebook in ink, date every entry, cross out mistakes with one line instead of erasing, and record conditions and raw data.
   - P1 · drills: ch-notebook, ch-procedure-design
-- ● **CH-0.6.C** (acs-accm-general:IX.H.1, acs-accm-general:IX.H.2, acs-accm-general:IX.H.4, acs-accm-inorganic:IX.G.4) Choose the safety equipment and handling for a hazard, reading GHS pictograms and safety data sheets.
+- ● **CH-0.6.C** (acs-accm-general:IX.H.1, acs-accm-general:IX.H.2, acs-accm-general:IX.H.4, acs-accm-inorganic:IX.G.4, acs-accm-analytical:IX.G.2) Choose the safety equipment and handling for a hazard, reading GHS pictograms and safety data sheets.
   - EK: Goggles always; fume hood for volatile or toxic substances; know the eyewash, shower and extinguisher; GHS pictograms and SDS sections name the hazard and the response.
   - P1 · drills: ch-safety-equipment, ch-ghs-pictograms
-- ● **CH-0.6.D** (acs-accm-general:IX.H.3) Dispose of laboratory waste by category.
+- ● **CH-0.6.D** (acs-accm-general:IX.H.3, acs-accm-analytical:IX.G.1) Dispose of laboratory waste by category.
   - EK: Separate halogenated from non-halogenated solvents, keep oxidisers apart from organics, neutralise or collect acids and bases, never pour heavy metals or organics down the drain.
   - P1 · drills: ch-waste, ch-waste-2
 - ● **CH-0.6.E** (acs-accm-general:IX.H.5) Reduce radiation dose with time, distance and shielding.
@@ -143,7 +143,7 @@ Big ideas: SPQ, SAP
   - EK: Average mass = Σ (fractional abundance × isotope mass).
   - Needs: CH-0.4.A
   - P5 · drills: ac-average-atomic-mass, ac2-abundant-isotope
-- ● **CH-1.2.B** (SPQ-1.B, acs-accm-general:I.A.2, acs-accm-general:IX.E.4, acs-accm-organic:IX.D) Read isotopes and relative abundances off a mass spectrum, or find two isotopes' abundances from the average mass.
+- ● **CH-1.2.B** (SPQ-1.B, acs-accm-general:I.A.2, acs-accm-general:IX.E.4, acs-accm-organic:IX.D, acs-accm-analytical:I.A.1) Read isotopes and relative abundances off a mass spectrum, or find two isotopes' abundances from the average mass.
   - EK: Peak position = isotope mass; peak height ∝ abundance; with two isotopes, x·m₁ + (1 − x)·m₂ = average.
   - Needs: CH-1.2.A
   - P4 · P5 · drills: ac-isotope-abundance, ac-average-atomic-mass
@@ -186,7 +186,7 @@ Big ideas: SPQ, SAP
   - EK: Fill by Aufbau order (1s 2s 2p 3s 3p 4s 3d 4p …), two electrons per orbital; cations of transition metals lose ns before (n−1)d.
   - Needs: CH-0.4.A
   - P1 · drills: pt-config-write-d, pt-config-s-count, ac-ion-d-count
-- ● **CH-1.5.B** (SAP-1.A, acs-accm-general:I.B.3, acs-accm-inorganic:I.B.5) Draw an orbital (box) diagram, count unpaired electrons, and predict paramagnetism or diamagnetism.
+- ● **CH-1.5.B** (SAP-1.A, acs-accm-general:I.B.3, acs-accm-inorganic:I.B.5, acs-accm-analytical:I.B.2) Draw an orbital (box) diagram, count unpaired electrons, and predict paramagnetism or diamagnetism.
   - EK: Hund: fill degenerate orbitals singly with parallel spins first; any unpaired electron ⇒ paramagnetic.
   - Needs: CH-1.5.A
   - P1 · drills: ac-unpaired-electrons, ac-paramagnetic-pick
@@ -247,7 +247,7 @@ Big ideas: SPQ, SAP
 
 
 
-- ● **CH-1.10.A** (DAT-GC Nuclear Reactions, acs-accm-general:I.F.2, acs-accm-organic:I.F, acs-accm-inorganic:I.F.1) Balance a nuclear equation for alpha, beta-minus, positron, electron-capture and gamma processes.
+- ● **CH-1.10.A** (DAT-GC Nuclear Reactions, acs-accm-general:I.F.2, acs-accm-organic:I.F, acs-accm-inorganic:I.F.1, acs-accm-analytical:I.F.1) Balance a nuclear equation for alpha, beta-minus, positron, electron-capture and gamma processes.
   - EK: Mass numbers and atomic numbers each sum equally on both sides; α = ⁴₂He, β⁻ = ⁰₋₁e, β⁺ = ⁰₊₁e.
   - Needs: CH-0.4.A
   - P3 · drills: ac-nuclear-equation, nu-decay-daughter
@@ -333,7 +333,7 @@ Big ideas: SAP
 
 
 
-- ● **CH-2.7.A** (SAP-4.C, acs-accm-general:III.B.3, acs-accm-organic:III.B.1, acs-accm-inorganic:III.B.1) Predict electron-domain geometry, molecular shape and approximate bond angles with VSEPR.
+- ● **CH-2.7.A** (SAP-4.C, acs-accm-general:III.B.3, acs-accm-organic:III.B.1, acs-accm-inorganic:III.B.1, acs-accm-analytical:III.B.1) Predict electron-domain geometry, molecular shape and approximate bond angles with VSEPR.
   - EK: 2–6 domains ⇒ linear, trigonal planar, tetrahedral, trigonal bipyramidal, octahedral; lone pairs squeeze angles (109.5° → 107° → 104.5°).
   - Needs: CH-2.5.B
   - P1 · drills: ac-vsepr-shape, ac2-hybridization
@@ -344,7 +344,7 @@ Big ideas: SAP
 - ● **CH-2.7.C** (SAP-4.C, acs-accm-general:II.C.3, acs-accm-general:II.F.1, acs-accm-organic:II.E.1, acs-accm-inorganic:II.C.1, acs-accm-inorganic:II.F.2) Assign the hybridization of a central atom and count σ and π bonds.
   - EK: 2, 3, 4, 5, 6 domains ⇒ sp, sp², sp³, sp³d, sp³d²; a single bond is σ, a double σ + π, a triple σ + 2π.
   - Needs: CH-2.7.A
-  - P1 · drills: ac-sigma-pi, qm-hybridisation
+  - P1 · drills: qm-hybridisation, ac-sigma-pi
 
 ### 2.8 Molecular orbital theory for diatomics
 
@@ -353,7 +353,7 @@ Big ideas: SAP
 - ● **CH-2.8.A** (DAT-GC Atomic and Molecular Structure (quantum theory), acs-accm-general:II.E.1, acs-accm-organic:II.E.3, acs-accm-inorganic:II.B.1, acs-accm-inorganic:II.E.1, acs-accm-inorganic:II.E.2, acs-accm-inorganic:X.D.2) Fill a molecular-orbital diagram for a period-2 diatomic or ion and find its bond order and magnetism.
   - EK: Bond order = ½(bonding − antibonding e⁻); O₂ has two unpaired π* electrons (paramagnetic); σ2p/π2p order flips after N₂.
   - Needs: CH-2.6.B, CH-1.5.B
-  - P1 · P5 · drills: qm-bond-order, qm-paramagnetism
+  - P1 · P5 · drills: qm-paramagnetism, qm-bond-order
 
 ## Unit 3 · Intermolecular forces and properties
 
@@ -445,15 +445,15 @@ Big ideas: SAP, SPQ
   - EK: M = mol solute / L solution.
   - Needs: CH-1.1.A
   - P5 · drills: ac-molarity, ac2-dilution-volume
-- ● **CH-3.7.B** (SPQ-3.A, acs-accm-general:IX.F.2) Calculate the result of a dilution and describe how to prepare a solution of given concentration.
+- ● **CH-3.7.B** (SPQ-3.A, acs-accm-general:IX.F.2, acs-accm-analytical:I.E.3) Calculate the result of a dilution and describe how to prepare a solution of given concentration.
   - EK: Moles of solute are unchanged by adding solvent: M₁V₁ = M₂V₂; dissolve, then fill to the mark in a volumetric flask.
   - Needs: CH-3.7.A
-  - P2 · P5 · drills: ac-dilution, sc-dilution
+  - P2 · P5 · drills: sc-dilution, ac-dilution
 - ● **CH-3.7.C** (SPQ-3.A, acs-accm-general:IV.D.1) Calculate each ion's concentration in a solution of a strong electrolyte.
   - EK: 0.10 M CaCl₂ ⇒ 0.10 M Ca²⁺ and 0.20 M Cl⁻.
   - Needs: CH-3.7.A, CH-0.4.C
   - P5 · drills: ac-ion-concentration, ac2-most-ions
-- ● **CH-3.7.D** (SPQ-3.A, acs-accm-general:IV.D.3) Convert among molarity, molality, mass percent, mole fraction and ppm.
+- ● **CH-3.7.D** (SPQ-3.A, acs-accm-general:IV.D.3, acs-accm-analytical:I.E.2) Convert among molarity, molality, mass percent, mole fraction and ppm.
   - EK: m = mol solute / kg solvent; converting molarity ↔ molality needs the solution's density.
   - Needs: CH-3.7.A, CH-0.2.D
   - P5 · drills: ac-molality-convert, ac-mole-fraction
@@ -471,7 +471,7 @@ Big ideas: SAP, SPQ
 
 
 
-- ● **CH-3.9.A** (SPQ-3.C, acs-accm-general:IX.A.2) Explain a chromatography or distillation separation, and compute R_f, from differences in intermolecular forces.
+- ● **CH-3.9.A** (SPQ-3.C, acs-accm-general:IX.A.2, acs-accm-analytical:IV.C.1) Explain a chromatography or distillation separation, and compute R_f, from differences in intermolecular forces.
   - EK: A component that interacts more with the stationary phase travels less (lower R_f); distillation separates by volatility.
   - Needs: CH-3.1.B
   - P4 · P6 · drills: ac-rf-value, ac2-rf-distance
@@ -480,7 +480,7 @@ Big ideas: SAP, SPQ
 
 
 
-- ● **CH-3.10.A** (SPQ-3.C, acs-accm-general:IV.D.2, acs-accm-organic:VI.E.1, acs-accm-inorganic:IV.E.1) Predict relative solubility in polar and nonpolar solvents from solute–solvent interactions.
+- ● **CH-3.10.A** (SPQ-3.C, acs-accm-general:IV.D.2, acs-accm-organic:VI.E.1, acs-accm-inorganic:IV.E.1, acs-accm-analytical:IV.D.1) Predict relative solubility in polar and nonpolar solvents from solute–solvent interactions.
   - EK: 'Like dissolves like': dissolving is favored when solute–solvent attractions rival solute–solute and solvent–solvent ones.
   - Needs: CH-3.1.A
   - P6 · drills: ac-solubility-polar, ac-miscible-pick
@@ -509,13 +509,13 @@ Big ideas: SAP, SPQ
 - ● **CH-3.12.B** (SAP-8.B, DAT-GC Atomic and Molecular Structure (quantum theory), acs-accm-general:IX.E.3, acs-accm-inorganic:I.D.1) Calculate the energy and wavelength of a hydrogen-atom transition, and relate emission lines to energy levels.
   - EK: E_n = −2.18 × 10⁻¹⁸ J / n²; ΔE = photon energy; emission drops to lower n.
   - Needs: CH-3.12.A
-  - P5 · drills: pc-bohr, ph-hydrogen-line
+  - P5 · drills: ph-hydrogen-line, pc-bohr
 
 ### 3.13 Beer–Lambert law
 
 
 
-- ● **CH-3.13.A** (SAP-8.C, acs-accm-general:IX.G.4) Calculate a concentration from absorbance, directly or from a calibration curve.
+- ● **CH-3.13.A** (SAP-8.C, acs-accm-general:IX.G.4, acs-accm-analytical:I.D.1, acs-accm-analytical:I.D.3) Calculate a concentration from absorbance, directly or from a calibration curve.
   - EK: A = εbc; at fixed λ and path, A ∝ c, so the calibration line's slope is εb.
   - Needs: CH-3.7.A
   - P3 · P5 · drills: ac-calibration-curve, pc-beer-lambert
@@ -554,7 +554,7 @@ Big ideas: TRA, SPQ
 
 
 
-- ● **CH-4.2.A** (TRA-1.B, acs-accm-general:V.F.1) Predict whether a precipitate forms on mixing two ionic solutions, using solubility rules.
+- ● **CH-4.2.A** (TRA-1.B, acs-accm-general:V.F.1, acs-accm-analytical:V.F.1, acs-accm-analytical:IX.H.1) Predict whether a precipitate forms on mixing two ionic solutions, using solubility rules.
   - EK: Always soluble: Group 1, NH₄⁺, NO₃⁻ (AP's minimum); DAT adds halides (except Ag⁺, Pb²⁺, Hg₂²⁺), sulfates (except Ba, Sr, Pb, Ca), mostly insoluble carbonates, phosphates, hydroxides.
   - Needs: CH-4.1.A
   - P6 · drills: ac-precipitate-forms, ac2-precipitating-ion
@@ -613,7 +613,7 @@ Big ideas: TRA, SPQ
 
 
 
-- ● **CH-4.6.A** (SPQ-4.B) Calculate an unknown concentration or sample purity from titration data at the equivalence point.
+- ● **CH-4.6.A** (SPQ-4.B, acs-accm-analytical:I.E.1, acs-accm-analytical:V.A.1) Calculate an unknown concentration or sample purity from titration data at the equivalence point.
   - EK: At equivalence, moles titrant × (ratio) = moles analyte; endpoint is where the indicator changes.
   - Needs: CH-4.5.D
   - P5 · drills: ac-titration-concentration, ac2-titrant-volume
@@ -681,7 +681,7 @@ Big ideas: TRA, ENE
 - ● **CH-5.2.A** (TRA-3.B, acs-accm-general:VII.B.1, acs-accm-general:IX.B.3, acs-accm-inorganic:VII.B.1) Determine reaction orders and the rate constant, with its units, from initial-rates data.
   - EK: Compare two runs where only one concentration changes: rate ratio = (conc ratio)^order; k has units M^(1−n)·s⁻¹ for overall order n.
   - Needs: CH-5.1.A
-  - P4 · P5 · drills: pc-initial-rates, ac-rate-constant-units
+  - P4 · P5 · drills: ac-rate-constant-units, pc-initial-rates
 - ● **CH-5.2.C** (TRA-3.B, acs-accm-general:IX.D.1) Predict the change in rate when one or more concentrations change.
   - EK: Second order in A: doubling [A] quadruples the rate; zero order: no change.
   - Needs: CH-5.2.A
@@ -917,7 +917,7 @@ Big ideas: TRA, SPQ
 
 
 
-- ● **CH-7.1.A** (TRA-6.A, acs-accm-general:VIII.A.1, acs-accm-general:VIII.B.1, acs-accm-organic:VIII.B.1, acs-accm-inorganic:VIII.B.1) Explain dynamic equilibrium and identify when it is reached on a concentration-vs-time graph.
+- ● **CH-7.1.A** (TRA-6.A, acs-accm-general:VIII.A.1, acs-accm-general:VIII.B.1, acs-accm-organic:VIII.B.1, acs-accm-inorganic:VIII.B.1, acs-accm-analytical:VIII.B.1) Explain dynamic equilibrium and identify when it is reached on a concentration-vs-time graph.
   - EK: At equilibrium forward rate = reverse rate; concentrations stop changing but need not be equal.
   - Needs: CH-5.1.A
   - P4 · drills: ac-dynamic-equilibrium, ac-equilibrium-graph-read
@@ -952,7 +952,7 @@ Big ideas: TRA, SPQ
   - EK: Substitute equilibrium (not initial) values into the K expression.
   - Needs: CH-7.3.A
   - P5 · drills: ac-k-from-concentrations, ac-k-reverse-multiply
-- ● **CH-7.4.B** (TRA-7.B) Use an ICE table with initial amounts and one equilibrium amount to find K.
+- ● **CH-7.4.B** (TRA-7.B, acs-accm-analytical:VIII.C.1) Use an ICE table with initial amounts and one equilibrium amount to find K.
   - EK: Changes follow the coefficients: −ax, −bx, +cx; one known equilibrium value fixes x.
   - Needs: CH-7.4.A
   - P5 · drills: ac-ice-k, ac-ice-equilibrium-amount
@@ -977,7 +977,7 @@ Big ideas: TRA, SPQ
 
 
 
-- ● **CH-7.6.A** (TRA-7.D, acs-accm-general:VIII.D.2, acs-accm-general:VIII.D.3) Find K for a reversed, scaled or summed reaction.
+- ● **CH-7.6.A** (TRA-7.D, acs-accm-general:VIII.D.2, acs-accm-general:VIII.D.3, acs-accm-analytical:VIII.D.4, acs-accm-analytical:VIII.D.5) Find K for a reversed, scaled or summed reaction.
   - EK: Reverse ⇒ 1/K; multiply by n ⇒ Kⁿ; add reactions ⇒ multiply their K's.
   - Needs: CH-7.3.A
   - P5 · drills: ac-k-manipulate, ac2-k-powers
@@ -1008,7 +1008,7 @@ Big ideas: TRA, SPQ
 
 
 
-- ● **CH-7.9.A** (TRA-8.A, acs-accm-general:VIII.E.1, acs-accm-inorganic:VIII.E.1) Predict the shift caused by adding or removing a species, changing volume or pressure, changing temperature, adding an inert gas, or adding a catalyst.
+- ● **CH-7.9.A** (TRA-8.A, acs-accm-general:VIII.E.1, acs-accm-inorganic:VIII.E.1, acs-accm-analytical:VIII.E.1) Predict the shift caused by adding or removing a species, changing volume or pressure, changing temperature, adding an inert gas, or adding a catalyst.
   - EK: The system shifts to counteract the stress; smaller volume favors fewer gas moles; heat acts as a reactant (endothermic) or product (exothermic); inert gas at constant V and catalysts cause no shift.
   - Needs: CH-7.3.B, CH-6.1.A
   - P6 · drills: ac-le-chatelier, ac2-volume-shift
@@ -1030,11 +1030,11 @@ Big ideas: TRA, SPQ
   - EK: MₐXᵦ(s) ⇌ aM + bX: K_sp = (as)ᵃ(bs)ᵇ; for AB₂, K_sp = 4s³.
   - Needs: CH-7.3.A
   - P5 · drills: ac-ksp-from-solubility, ac-solubility-from-ksp
-- ● **CH-7.11.B** (SPQ-5.A) Calculate molar solubility in g/L or mol/L from K_sp, and compare solubilities of salts with different ion ratios.
+- ● **CH-7.11.B** (SPQ-5.A, acs-accm-analytical:VIII.D.3) Calculate molar solubility in g/L or mol/L from K_sp, and compare solubilities of salts with different ion ratios.
   - EK: Compare K_sp directly only for salts with the same ion ratio; otherwise compare s.
   - Needs: CH-7.11.A
   - P5 · drills: ac-solubility-from-ksp, ac2-more-soluble
-- ● **CH-7.11.C** (SPQ-5.A) Predict whether a precipitate forms on mixing solutions by comparing Q_sp with K_sp.
+- ● **CH-7.11.C** (SPQ-5.A, acs-accm-analytical:V.F.1) Predict whether a precipitate forms on mixing solutions by comparing Q_sp with K_sp.
   - EK: Use concentrations after mixing (diluted); Q_sp > K_sp ⇒ precipitate forms.
   - Needs: CH-7.11.A, CH-3.7.B
   - P5 · P6 · drills: ac-precipitation-qsp, ac-common-ion
@@ -1074,7 +1074,7 @@ Big ideas: SAP, TRA, SPQ
 
 
 
-- ● **CH-8.3.A** (SAP-9.C, acs-accm-general:VIII.G.1) Calculate the pH and percent ionization of a weak acid from K_a and its concentration.
+- ● **CH-8.3.A** (SAP-9.C, acs-accm-general:VIII.G.1, acs-accm-analytical:VIII.D.1, acs-accm-analytical:VIII.G.4) Calculate the pH and percent ionization of a weak acid from K_a and its concentration.
   - EK: [H₃O⁺] ≈ √(K_a·C) when ionization < 5%; % ionization = [H₃O⁺]/C × 100, and it rises on dilution.
   - Needs: CH-8.1.A, CH-7.7.A
   - P5 · drills: ac-weak-acid-ph, ac2-percent-ionization
@@ -1086,7 +1086,7 @@ Big ideas: SAP, TRA, SPQ
   - EK: [H₃O⁺] = 10^(−pH) is x in the ICE table; K_a = x²/(C − x).
   - Needs: CH-8.3.A
   - P5 · drills: ac-ka-from-ph, ac-ph-from-percent-ionized
-- ● **CH-8.3.D** (SAP-9.C) Convert between K_a of an acid and K_b of its conjugate base.
+- ● **CH-8.3.D** (SAP-9.C, acs-accm-analytical:VIII.D.4) Convert between K_a of an acid and K_b of its conjugate base.
   - EK: K_a·K_b = K_w; pK_a + pK_b = 14 at 25 °C; stronger acid ⇒ weaker conjugate base.
   - Needs: CH-8.3.B
   - P5 · drills: ac-ka-kb, ac2-strongest-conj-base
@@ -1116,7 +1116,7 @@ Big ideas: SAP, TRA, SPQ
   - EK: Start: weak acid; before: buffer; half-equivalence: pH = pK_a; equivalence: conjugate base only; after: excess strong base.
   - Needs: CH-8.4.C, CH-4.6.A
   - P5 · drills: ac-equivalence-ph, ac-half-equivalence, ac-equivalence-volume
-- ● **CH-8.5.B** (SAP-9.E) Read a titration curve to find the equivalence volume, pK_a and the analyte's strength, and choose a suitable indicator.
+- ● **CH-8.5.B** (SAP-9.E, acs-accm-analytical:V.C.1, acs-accm-analytical:VIII.A.1, acs-accm-analytical:X.D.2) Read a titration curve to find the equivalence volume, pK_a and the analyte's strength, and choose a suitable indicator.
   - EK: Weak acid–strong base equivalence pH > 7; pick an indicator whose pK_a (color change) brackets the equivalence pH.
   - Needs: CH-8.5.A
   - P4 · drills: ac-indicator-choice, ac2-ka-half-equivalence
@@ -1151,7 +1151,7 @@ Big ideas: SAP, TRA, SPQ
 
 
 
-- ● **CH-8.8.A** (SAP-10.B, acs-accm-general:VIII.G.2) Explain how a buffer resists pH change, writing the net ionic reaction with an added strong acid or base.
+- ● **CH-8.8.A** (SAP-10.B, acs-accm-general:VIII.G.2, acs-accm-analytical:VIII.E.3) Explain how a buffer resists pH change, writing the net ionic reaction with an added strong acid or base.
   - EK: Added H₃O⁺ is consumed by A⁻; added OH⁻ is consumed by HA; the ratio [A⁻]/[HA] barely changes.
   - Needs: CH-8.4.B
   - P3 · P6 · drills: ac-buffer-reaction, ac-buffer-ph-change
@@ -1160,7 +1160,7 @@ Big ideas: SAP, TRA, SPQ
 
 
 
-- ● **CH-8.9.A** (SAP-10.C) Calculate a buffer's pH with the Henderson–Hasselbalch equation.
+- ● **CH-8.9.A** (SAP-10.C, acs-accm-analytical:I.G.1, acs-accm-analytical:VIII.E.3) Calculate a buffer's pH with the Henderson–Hasselbalch equation.
   - EK: pH = pK_a + log([A⁻]/[HA]); mole ratio works as well as concentration ratio.
   - Needs: CH-8.8.A, CH-8.7.A
   - P5 · drills: ac-henderson, ac-henderson-reverse
@@ -1274,7 +1274,7 @@ Big ideas: ENE, TRA
 
 
 
-- ● **CH-9.8.A** (ENE-6.A, acs-accm-general:VI.C.3, acs-accm-general:VI.F.2, acs-accm-inorganic:VI.C.1) Label a galvanic cell's anode and cathode, electron and ion flow, salt bridge, and write its cell notation.
+- ● **CH-9.8.A** (ENE-6.A, acs-accm-general:VI.C.3, acs-accm-general:VI.F.2, acs-accm-inorganic:VI.C.1, acs-accm-analytical:VI.C.1) Label a galvanic cell's anode and cathode, electron and ion flow, salt bridge, and write its cell notation.
   - EK: Oxidation at the anode, reduction at the cathode; electrons flow anode → cathode through the wire; anode ‖ cathode in notation.
   - Needs: CH-4.9.C
   - P1 · drills: ac-galvanic-parts, ac2-cell-potential
@@ -1287,11 +1287,11 @@ Big ideas: ENE, TRA
 
 
 
-- ● **CH-9.9.A** (ENE-6.B, acs-accm-inorganic:V.E.1) Calculate E°_cell from standard reduction potentials and predict whether a redox reaction is spontaneous.
+- ● **CH-9.9.A** (ENE-6.B, acs-accm-inorganic:V.E.1, acs-accm-analytical:VI.E.1) Calculate E°_cell from standard reduction potentials and predict whether a redox reaction is spontaneous.
   - EK: E°_cell = E°_cathode − E°_anode; don't multiply E° by coefficients; E° > 0 ⇒ spontaneous.
   - Needs: CH-9.8.A
   - P5 · drills: ac-spontaneous-redox, pc-cell-potential
-- ● **CH-9.9.B** (ENE-6.B, acs-accm-general:VIII.F.2, acs-accm-inorganic:VI.E.1, acs-accm-inorganic:VIII.F.1) Convert among E°_cell, ΔG° and K.
+- ● **CH-9.9.B** (ENE-6.B, acs-accm-general:VIII.F.2, acs-accm-inorganic:VI.E.1, acs-accm-inorganic:VIII.F.1, acs-accm-analytical:VIII.F.2, acs-accm-analytical:VIII.F.4) Convert among E°_cell, ΔG° and K.
   - EK: ΔG° = −nFE°; F = 96 485 C/mol e⁻; E° = (RT/nF) ln K.
   - Needs: CH-9.9.A, CH-9.5.B
   - P5 · drills: ac-dg-from-e, pc-cell-equilibrium-constant
@@ -1300,7 +1300,7 @@ Big ideas: ENE, TRA
 
 
 
-- ● **CH-9.10.A** (ENE-6.C) Predict qualitatively whether changing concentrations raises or lowers the cell potential, and why a battery dies.
+- ● **CH-9.10.A** (ENE-6.C, acs-accm-analytical:VI.F.1) Predict qualitatively whether changing concentrations raises or lowers the cell potential, and why a battery dies.
   - EK: Q < 1 ⇒ E > E°; as the cell runs Q → K and E → 0.
   - Needs: CH-9.9.B, CH-7.3.B
   - P6 · drills: ac-concentration-effect, ac2-nernst
@@ -1313,7 +1313,7 @@ Big ideas: ENE, TRA
 
 
 
-- ● **CH-9.11.A** (ENE-6.D, acs-accm-general:VI.E.1, acs-accm-inorganic:VI.F.2) Calculate the mass deposited, current or time in electrolysis with Faraday's law.
+- ● **CH-9.11.A** (ENE-6.D, acs-accm-general:VI.E.1, acs-accm-inorganic:VI.F.2, acs-accm-analytical:VI.E.1, acs-accm-analytical:VII.A.1) Calculate the mass deposited, current or time in electrolysis with Faraday's law.
   - EK: charge = I·t; mol e⁻ = charge/F; half-reaction gives mol e⁻ per mol product.
   - Needs: CH-9.8.B, CH-1.1.A
   - P5 · drills: ac-faraday, ac2-faraday-time
@@ -1322,7 +1322,7 @@ Big ideas: ENE, TRA
 
 
 
-- ● **CH-9.12.A** (graduate thermodynamics bridge (van 't Hoff)) Find ΔH° from K at two temperatures, or K at a new temperature, with the van 't Hoff equation.
+- ● **CH-9.12.A** (graduate thermodynamics bridge (van 't Hoff), acs-accm-analytical:VIII.F.3) Find ΔH° from K at two temperatures, or K at a new temperature, with the van 't Hoff equation.
   - EK: ln(K₂/K₁) = −(ΔH°/R)(1/T₂ − 1/T₁): endothermic ⇒ K rises with T.
   - Needs: CH-9.5.A, CH-7.10.A
   - P5 · drills: th-ce-vant-hoff, ac-vant-hoff-direction

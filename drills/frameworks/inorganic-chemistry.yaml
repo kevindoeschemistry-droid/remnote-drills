@@ -20,7 +20,7 @@ domains: [inorg]
 
 basis:
   primary: icho-appendix-c
-  also: [icho-syllabus, gre-chemistry, usnco, ib-chemistry-2025, acs-accm-general, acs-accm-inorganic]
+  also: [icho-syllabus, gre-chemistry, usnco, ib-chemistry-2025, acs-accm-general, acs-accm-inorganic, acs-accm-analytical]
   note: "Units 1, 2 and 4 follow IChO Appendix D's factual-knowledge list (read in full); coordination and solids follow its preparation-only topics and the GRE inorganic area. Objectives and their order are ours."
 
 big_ideas:
@@ -72,11 +72,11 @@ units:
         title: "Oxidation states"
         los:
           - { id: A, std: ["ib-chemistry-2025:R3.2", "acs-accm-inorganic:I.B.6"], do: "Find the oxidation state (or average) of an element in a formula or ion.", ek: ["Fix F, group 1–2, H and O by rule; charge balance gives the rest."], p: [P1], drills: [in-ox-state, in-ion-charge] }
-          - { id: B, std: ["icho-appendix-c:d5"], do: "Find the ratio of atoms reduced to atoms oxidised in a disproportionation.", ek: ["Electrons lost = electrons gained."], p: [P1], needs: [IN-2.1.A], drills: [in-disproportionation, in-disprop-which] }
+          - { id: B, std: ["icho-appendix-c:d5"], do: "Find the ratio of atoms reduced to atoms oxidised in a disproportionation.", ek: ["Electrons lost = electrons gained."], p: [P1], needs: [IN-2.1.A], drills: [in-disprop-which, in-disproportionation] }
       - n: 2
         title: "Oxides and oxoacids"
         los:
-          - { id: A, std: ["icho-appendix-c:d4", "acs-accm-general:IX.C.1"], do: "Name a halogen, sulfur or nitrogen oxoacid from its formula.", ek: ["hypo-…-ous, -ous, -ic, per-…-ic in order of oxidation state."], p: [P2], needs: [IN-2.1.A], drills: [in-oxoacid-name, in-oxoacid-state] }
+          - { id: A, std: ["icho-appendix-c:d4", "acs-accm-general:IX.C.1", "acs-accm-analytical:IX.B.1"], do: "Name a halogen, sulfur or nitrogen oxoacid from its formula.", ek: ["hypo-…-ous, -ous, -ic, per-…-ic in order of oxidation state."], p: [P2], needs: [IN-2.1.A], drills: [in-oxoacid-name, in-oxoacid-state] }
           - { id: B, std: ["icho-appendix-c:d3", "acs-accm-inorganic:I.C.3", "acs-accm-inorganic:III.G.5", "acs-accm-inorganic:V.E.3"], do: "Classify an oxide as acidic, basic, amphoteric or neutral.", ek: ["Metal oxides basic, non-metal oxides acidic, Al/Be/Zn amphoteric, CO/NO/N₂O neutral."], p: [P2, P3], drills: [in-oxide-character, in-oxide-trend] }
   - id: coordination
     n: 3
@@ -95,7 +95,7 @@ units:
       - n: 2
         title: "Structure and colour"
         los:
-          - { id: A, std: ["icho-appendix-c:a1", "acs-accm-inorganic:III.E.2"], do: "Count the stereoisomers of an octahedral or square-planar complex.", ek: ["Geometric isomers by trans pairs, then check each for chirality."], p: [P3], drills: [in-isomer-count, in-isomer-type] }
+          - { id: A, std: ["icho-appendix-c:a1", "acs-accm-inorganic:III.E.2"], do: "Count the stereoisomers of an octahedral or square-planar complex.", ek: ["Geometric isomers by trans pairs, then check each for chirality."], p: [P3], drills: [in-isomer-type, in-isomer-count] }
           - { id: B, std: ["icho-appendix-c:d6", "acs-accm-inorganic:III.A.2", "acs-accm-inorganic:IX.D.2", "acs-accm-inorganic:X.A.3"], do: "Name the colour of a common transition-metal ion or oxoanion in water.", ek: ["Colour is the complement of the light absorbed; d⁰ and d¹⁰ are colourless unless charge transfer."], p: [P2], drills: [in-ion-colour, in-colour-identify] }
   - id: redox-qual
     n: 4
@@ -133,4 +133,4 @@ units:
       - n: 2
         title: "Diffraction"
         los:
-          - { id: A, std: ["icho-appendix-c:a1", "acs-accm-inorganic:I.D.2", "acs-accm-inorganic:IX.A.3", "acs-accm-inorganic:IX.D.6"], do: "Apply Bragg's law with cubic plane spacings.", ek: ["nλ = 2d sin θ; d = a/√(h²+k²+l²)."], p: [P1], drills: [in-bragg, in-bragg-edge] }
+          - { id: A, std: ["icho-appendix-c:a1", "acs-accm-inorganic:I.D.2", "acs-accm-inorganic:IX.A.3", "acs-accm-inorganic:IX.D.6", "acs-accm-analytical:III.H.1"], do: "Apply Bragg's law with cubic plane spacings.", ek: ["nλ = 2d sin θ; d = a/√(h²+k²+l²)."], p: [P1], drills: [in-bragg, in-bragg-edge] }

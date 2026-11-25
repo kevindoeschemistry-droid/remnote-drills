@@ -16,7 +16,7 @@ domains: [biochem]
 
 basis:
   primary: asbmb-core-2013
-  also: [asbmb-cert, aamc-mcat-outline]
+  also: [asbmb-cert, aamc-mcat-outline, acs-accm-analytical]
   note: "Concepts and statements from ASBMB (core concepts paper and exam objectives); the objective list is ours."
 
 big_ideas:
@@ -55,61 +55,62 @@ units:
       - n: 1
         title: "Buffers and protonation"
         los:
-          - { id: A, std: [], do: "Compute buffer pH or the base:acid ratio of a biological buffer with the Henderson–Hasselbalch equation.", ek: ["pH = pKa + log([A⁻]/[HA]); phosphate (pKa 6.86) and bicarbonate (6.1) buffer cells and blood."], p: [P1], drills: [bc-hh-ph, bc-blood-ratio] }
-          - { id: B, std: [], do: "Compute the fraction of an ionisable side chain protonated at a given pH.", ek: ["f(HA) = 1/(1 + 10^(pH − pKa)); His (pKa ≈ 6.0) switches near physiological pH."], p: [P1], drills: [bc-fraction-protonated, bc-shifted-pka] }
+          - { id: A, std: ["asbmb-core-2013:3.1", "asbmb-core-2013:3.3"], do: "Compute buffer pH or the base:acid ratio of a biological buffer with the Henderson–Hasselbalch equation.", ek: ["pH = pKa + log([A⁻]/[HA]); phosphate (pKa 6.86) and bicarbonate (6.1) buffer cells and blood."], p: [P1], drills: [bc-hh-ph, bc-blood-ratio] }
+          - { id: B, std: ["asbmb-core-2013:3.1"], do: "Compute the fraction of an ionisable side chain protonated at a given pH.", ek: ["f(HA) = 1/(1 + 10^(pH − pKa)); His (pKa ≈ 6.0) switches near physiological pH."], p: [P1], drills: [bc-fraction-protonated, bc-shifted-pka] }
       - n: 2
         title: "Amino-acid and peptide charge"
         los:
           - { id: A, std: ["aamc-mcat-outline:1A"], do: "Find the isoelectric point of an amino acid from its pKa values.", ek: ["pI = average of the two pKa values flanking the neutral species."], p: [P1], drills: [bc-pi, bc-pi-glycine] }
-          - { id: B, std: ["aamc-mcat-outline:1A"], do: "Compute the net charge of a peptide at a given pH from its ionisable groups.", ek: ["Sum fractional charges: +1/(1 + 10^(pH − pKa)) for basic groups, −1/(1 + 10^(pKa − pH)) for acidic ones."], p: [P1], drills: [bc-peptide-charge, bc-charge-direction] }
+          - { id: B, std: ["aamc-mcat-outline:1A", "asbmb-core-2013:5.2"], do: "Compute the net charge of a peptide at a given pH from its ionisable groups.", ek: ["Sum fractional charges: +1/(1 + 10^(pH − pKa)) for basic groups, −1/(1 + 10^(pKa − pH)) for acidic ones."], p: [P1], drills: [bc-peptide-charge, bc-charge-direction] }
   - id: proteins
     n: 2
     title: "Protein structure and folding"
-    std: ["asbmb-core-2013:T15", "asbmb-core-2013:T16", "asbmb-cert:2.1", "asbmb-cert:2.3", "asbmb-cert:1.3", "aamc-mcat-outline:1A"]
+    std: ["asbmb-core-2013:5.1", "asbmb-core-2013:5.2", "asbmb-cert:2.1", "asbmb-cert:2.3", "asbmb-cert:1.3", "aamc-mcat-outline:1A"]
     scope: core
     ideas: [STRUCTURE, ENERGY]
     topics:
       - n: 1
         title: "Levels of structure"
         los:
-          - { id: A, std: ["asbmb-cert:2.1"], do: "Relate secondary-structure geometry to length: residues per turn and rise per residue.", ek: ["α-helix: 3.6 residues/turn, 1.5 Å rise per residue (5.4 Å pitch); β-strand: about 3.3–3.5 Å per residue."], p: [P1], drills: [bc-helix-length, bc-helix-turns] }
-          - { id: B, std: ["asbmb-cert:2.3"], do: "Identify the interactions that stabilise a structure and predict the effect of a substitution.", ek: ["Hydrophobic burial, hydrogen bonds, salt bridges, disulfides; Pro breaks helices, Gly adds flexibility."], p: [P2], drills: [bc-interactions, bc-structure-levels] }
+          - { id: A, std: ["asbmb-cert:2.1", "asbmb-core-2013:5.1"], do: "Relate secondary-structure geometry to length: residues per turn and rise per residue.", ek: ["α-helix: 3.6 residues/turn, 1.5 Å rise per residue (5.4 Å pitch); β-strand: about 3.3–3.5 Å per residue."], p: [P1], drills: [bc-helix-length, bc-helix-turns] }
+          - { id: B, std: ["asbmb-cert:2.3", "asbmb-core-2013:5.2"], do: "Identify the interactions that stabilise a structure and predict the effect of a substitution.", ek: ["Hydrophobic burial, hydrogen bonds, salt bridges, disulfides; Pro breaks helices, Gly adds flexibility."], p: [P2], drills: [bc-interactions, bc-structure-levels] }
       - n: 2
         title: "Folding thermodynamics"
         los:
-          - { id: A, std: ["asbmb-core-2013:T16", "asbmb-cert:1.3"], do: "Compute ΔG of folding, the melting temperature and the fraction folded for a two-state protein.", ek: ["ΔG_unf = ΔH(1 − T/Tm) (ΔCp neglected); K_fold = e^(−ΔG_fold/RT); f_folded = K/(1 + K)."], p: [P1], drills: [bc-fold-fraction, bc-fold-dg] }
-          - { id: B, std: ["asbmb-core-2013:T16", "asbmb-cert:2.3"], do: "Convert a mutation's ΔΔG into a change in stability, folding equilibrium constant or fraction unfolded.", ek: ["ΔΔG > 0 destabilises; each 5.7 kJ/mol at 298 K is a factor of 10 in K."], p: [P1], drills: [bc-ddg-fraction, bc-ddg-k-factor] }
-          - { id: C, std: ["asbmb-cert:1.3"], do: "Explain the hydrophobic effect and why folding is not a random search.", ek: ["Burying nonpolar groups releases ordered water (entropy gain); Levinthal: a random search would take astronomically long, so folding follows a funnel."], p: [P2], drills: [bc-hydrophobic, bc-levinthal] }
+          - { id: A, std: ["asbmb-core-2013:5.2", "asbmb-cert:1.3", "asbmb-core-2013:5.5"], do: "Compute ΔG of folding, the melting temperature and the fraction folded for a two-state protein.", ek: ["ΔG_unf = ΔH(1 − T/Tm) (ΔCp neglected); K_fold = e^(−ΔG_fold/RT); f_folded = K/(1 + K)."], p: [P1], drills: [bc-fold-fraction, bc-fold-dg] }
+          - { id: B, std: ["asbmb-core-2013:5.2", "asbmb-cert:2.3"], do: "Convert a mutation's ΔΔG into a change in stability, folding equilibrium constant or fraction unfolded.", ek: ["ΔΔG > 0 destabilises; each 5.7 kJ/mol at 298 K is a factor of 10 in K."], p: [P1], drills: [bc-ddg-fraction, bc-ddg-k-factor] }
+          - { id: C, std: ["asbmb-cert:1.3", "asbmb-core-2013:5.2", "asbmb-core-2013:5.5"], do: "Explain the hydrophobic effect and why folding is not a random search.", ek: ["Burying nonpolar groups releases ordered water (entropy gain); Levinthal: a random search would take astronomically long, so folding follows a funnel."], p: [P2], drills: [bc-hydrophobic, bc-levinthal] }
+          - { id: D, std: ["asbmb-core-2013:5.6"], do: "Recognise intrinsically disordered proteins from their composition and say how they still function.", ek: ["Few hydrophobic residues and high net charge keep a chain unfolded; disordered regions bind by folding on contact, often to many partners, and are common in signalling."], p: [P1], drills: [bc-idp-facts, bc-idp-charge] }
   - id: binding
     n: 3
     title: "Binding, cooperativity and allostery"
-    std: ["asbmb-core-2013:T17", "asbmb-core-2013:T18", "asbmb-cert:2.2", "aamc-mcat-outline:1A"]
+    std: ["asbmb-core-2013:5.3", "asbmb-core-2013:5.7", "asbmb-cert:2.2", "aamc-mcat-outline:1A"]
     scope: core
     ideas: [STRUCTURE]
     topics:
       - n: 1
         title: "Affinity"
         los:
-          - { id: A, std: ["asbmb-core-2013:T17"], do: "Compute fractional saturation and the binding free energy from K_d.", ek: ["θ = [L]/(K_d + [L]); ΔG°_bind = RT ln K_d (with K_d in M)."], p: [P1], drills: [bc-theta, bc-dg-bind] }
-          - { id: B, std: ["asbmb-core-2013:T17"], do: "Compute the ΔΔG of binding between two variants from their K_d values.", ek: ["ΔΔG = RT ln(K_d,mut/K_d,wt); a 10-fold loss is +5.7 kJ/mol at 298 K."], p: [P1], drills: [bc-ddg-bind, bc-kd-from-ddg] }
+          - { id: A, std: ["asbmb-core-2013:5.3", "asbmb-core-2013:5.4"], do: "Compute fractional saturation and the binding free energy from K_d.", ek: ["θ = [L]/(K_d + [L]); ΔG°_bind = RT ln K_d (with K_d in M)."], p: [P1], drills: [bc-theta, bc-dg-bind] }
+          - { id: B, std: ["asbmb-core-2013:5.3", "asbmb-core-2013:5.4"], do: "Compute the ΔΔG of binding between two variants from their K_d values.", ek: ["ΔΔG = RT ln(K_d,mut/K_d,wt); a 10-fold loss is +5.7 kJ/mol at 298 K."], p: [P1], drills: [bc-ddg-bind, bc-kd-from-ddg] }
       - n: 2
         title: "Cooperativity and allostery"
         los:
-          - { id: A, std: ["asbmb-core-2013:T18"], do: "Use the Hill equation and read cooperativity from n_H.", ek: ["θ = Lⁿ/(K₀.₅ⁿ + Lⁿ); going from 10% to 90% saturation needs an 81^(1/n)-fold change in [L]."], p: [P1], drills: [bc-hill-theta, bc-hill-range] }
-          - { id: B, std: ["asbmb-core-2013:T18", "asbmb-cert:1.1"], do: "Explain haemoglobin's cooperativity and its regulation by H⁺, CO₂ and 2,3-BPG.", ek: ["T and R states; the Bohr effect and BPG stabilise T, lowering affinity to unload O₂ in tissues; myoglobin binds hyperbolically."], p: [P2], drills: [bc-hemoglobin, bc-allostery-models] }
+          - { id: A, std: ["asbmb-core-2013:5.7", "asbmb-core-2013:5.4"], do: "Use the Hill equation and read cooperativity from n_H.", ek: ["θ = Lⁿ/(K₀.₅ⁿ + Lⁿ); going from 10% to 90% saturation needs an 81^(1/n)-fold change in [L]."], p: [P1], drills: [bc-hill-theta, bc-hill-range] }
+          - { id: B, std: ["asbmb-core-2013:5.7", "asbmb-cert:1.1"], do: "Explain haemoglobin's cooperativity and its regulation by H⁺, CO₂ and 2,3-BPG.", ek: ["T and R states; the Bohr effect and BPG stabilise T, lowering affinity to unload O₂ in tissues; myoglobin binds hyperbolically."], p: [P2], drills: [bc-hemoglobin, bc-allostery-models] }
   - id: enzymes
     n: 4
     title: "Enzymes"
-    std: ["asbmb-core-2013:T5", "asbmb-cert:1.5", "asbmb-cert:2.4", "aamc-mcat-outline:5E"]
+    std: ["asbmb-core-2013:2.2", "asbmb-cert:1.5", "asbmb-cert:2.4", "aamc-mcat-outline:5E"]
     scope: core
     ideas: [ENERGY]
     topics:
       - n: 1
         title: "Michaelis–Menten kinetics"
         los:
-          - { id: A, std: ["asbmb-core-2013:T5", "asbmb-cert:2.4"], do: "Compute an initial rate from V_max, K_M and [S].", ek: ["v = V_max[S]/(K_M + [S]); v = V_max/2 at [S] = K_M."], p: [P1], drills: [bc-mm-rate, bc-mm-s-for-v] }
-          - { id: B, std: ["asbmb-core-2013:T5"], do: "Compute k_cat and catalytic efficiency and compare with the diffusion limit.", ek: ["k_cat = V_max/[E]_T; k_cat/K_M approaches 10⁸–10⁹ M⁻¹ s⁻¹ for diffusion-limited enzymes."], p: [P1], drills: [bc-kcat, bc-efficiency] }
-          - { id: C, std: ["asbmb-core-2013:T5", "asbmb-cert:2.4"], do: "Read K_M and V_max from a Lineweaver–Burk plot.", ek: ["1/v = (K_M/V_max)(1/[S]) + 1/V_max: y-intercept 1/V_max, x-intercept −1/K_M."], p: [P1], drills: [bc-lb-km, bc-lb-vmax] }
+          - { id: A, std: ["asbmb-core-2013:2.2", "asbmb-cert:2.4", "acs-accm-analytical:VII.E.1"], do: "Compute an initial rate from V_max, K_M and [S].", ek: ["v = V_max[S]/(K_M + [S]); v = V_max/2 at [S] = K_M."], p: [P1], drills: [bc-mm-rate, bc-mm-s-for-v] }
+          - { id: B, std: ["asbmb-core-2013:2.2"], do: "Compute k_cat and catalytic efficiency and compare with the diffusion limit.", ek: ["k_cat = V_max/[E]_T; k_cat/K_M approaches 10⁸–10⁹ M⁻¹ s⁻¹ for diffusion-limited enzymes."], p: [P1], drills: [bc-kcat, bc-efficiency] }
+          - { id: C, std: ["asbmb-core-2013:2.2", "asbmb-cert:2.4", "acs-accm-analytical:X.A.2"], do: "Read K_M and V_max from a Lineweaver–Burk plot.", ek: ["1/v = (K_M/V_max)(1/[S]) + 1/V_max: y-intercept 1/V_max, x-intercept −1/K_M."], p: [P1], drills: [bc-lb-km, bc-lb-vmax] }
       - n: 2
         title: "Inhibition"
         los:
@@ -123,20 +124,20 @@ units:
   - id: bioenergetics
     n: 5
     title: "Bioenergetics"
-    std: ["asbmb-core-2013:T6", "asbmb-core-2013:T7", "asbmb-cert:1.4", "aamc-mcat-outline:1D"]
+    std: ["asbmb-core-2013:2.3", "asbmb-core-2013:2.4", "asbmb-cert:1.4", "aamc-mcat-outline:1D"]
     scope: core
     ideas: [ENERGY]
     topics:
       - n: 1
         title: "Free energy in the cell"
         los:
-          - { id: A, std: ["asbmb-core-2013:T6"], do: "Compute ΔG of ATP hydrolysis at cellular concentrations from ΔG°′ and the mass-action ratio.", ek: ["ΔG = ΔG°′ + RT ln([ADP][Pi]/[ATP]); ΔG°′ = −30.5 kJ/mol, cellular ΔG about −50 to −60."], p: [P1], drills: [bc-atp-dg, bc-atp-ratio-needed] }
-          - { id: B, std: ["asbmb-core-2013:T7", "asbmb-cert:1.4"], do: "Find the overall ΔG°′ and K′ of a coupled reaction.", ek: ["ΔG°′ values add; K′ = e^(−ΔG°′/RT) multiplies."], p: [P1], drills: [bc-coupled-dg, bc-coupling-k] }
+          - { id: A, std: ["asbmb-core-2013:2.3"], do: "Compute ΔG of ATP hydrolysis at cellular concentrations from ΔG°′ and the mass-action ratio.", ek: ["ΔG = ΔG°′ + RT ln([ADP][Pi]/[ATP]); ΔG°′ = −30.5 kJ/mol, cellular ΔG about −50 to −60."], p: [P1], drills: [bc-atp-dg, bc-atp-ratio-needed] }
+          - { id: B, std: ["asbmb-core-2013:2.4", "asbmb-cert:1.4"], do: "Find the overall ΔG°′ and K′ of a coupled reaction.", ek: ["ΔG°′ values add; K′ = e^(−ΔG°′/RT) multiplies."], p: [P1], drills: [bc-coupled-dg, bc-coupling-k] }
       - n: 2
         title: "Redox and chemiosmosis"
         los:
-          - { id: A, std: ["asbmb-core-2013:T6"], do: "Compute ΔG°′ of an electron transfer from standard reduction potentials.", ek: ["ΔG°′ = −nFΔE°′; NADH → O₂ (ΔE°′ = 1.14 V) releases about 220 kJ/mol."], p: [P1], drills: [bc-redox-dg, bc-redox-atp] }
-          - { id: B, std: ["asbmb-core-2013:T8"], do: "Compute the proton-motive force and the free energy per proton moved into the matrix.", ek: ["Δp = Δψ − (2.303RT/F)ΔpH (pH_in − pH_out); ΔG per H⁺ = −FΔp."], p: [P1], drills: [bc-pmf, bc-pmf-dg] }
+          - { id: A, std: ["asbmb-core-2013:2.3", "asbmb-core-2013:2.1"], do: "Compute ΔG°′ of an electron transfer from standard reduction potentials.", ek: ["ΔG°′ = −nFΔE°′; NADH → O₂ (ΔE°′ = 1.14 V) releases about 220 kJ/mol."], p: [P1], drills: [bc-redox-dg, bc-redox-atp] }
+          - { id: B, std: ["asbmb-core-2013:3.2", "asbmb-core-2013:2.1"], do: "Compute the proton-motive force and the free energy per proton moved into the matrix.", ek: ["Δp = Δψ − (2.303RT/F)ΔpH (pH_in − pH_out); ΔG per H⁺ = −FΔp."], p: [P1], drills: [bc-pmf, bc-pmf-dg] }
   - id: membranes
     n: 6
     title: "Membranes and transport"
@@ -147,57 +148,57 @@ units:
       - n: 1
         title: "Transport energetics"
         los:
-          - { id: A, std: [], do: "Compute the Nernst equilibrium potential of an ion.", ek: ["E = (RT/zF) ln([out]/[in]); about 61.5/z mV per decade at 37 °C."], p: [P1], drills: [bc-nernst, bc-nernst-ratio] }
-          - { id: B, std: ["asbmb-core-2013:T8"], do: "Compute the free energy of moving a charged solute across a membrane.", ek: ["ΔG = RT ln(c_in/c_out) + zFΔψ (Δψ = ψ_in − ψ_out)."], p: [P1], drills: [bc-transport-dg, bc-glucose-gradient] }
+          - { id: A, std: ["asbmb-core-2013:2.1"], do: "Compute the Nernst equilibrium potential of an ion.", ek: ["E = (RT/zF) ln([out]/[in]); about 61.5/z mV per decade at 37 °C."], p: [P1], drills: [bc-nernst, bc-nernst-ratio] }
+          - { id: B, std: ["asbmb-core-2013:3.2", "asbmb-core-2013:2.1"], do: "Compute the free energy of moving a charged solute across a membrane.", ek: ["ΔG = RT ln(c_in/c_out) + zFΔψ (Δψ = ψ_in − ψ_out)."], p: [P1], drills: [bc-transport-dg, bc-glucose-gradient] }
           - { id: C, std: ["asbmb-cert:2.1"], do: "Distinguish channels, carriers and pumps, and predict how lipid composition changes fluidity.", ek: ["Unsaturated and shorter chains raise fluidity; cholesterol buffers it; pumps use ATP, secondary transporters use gradients."], p: [P2], drills: [bc-membranes, bc-membranes-2] }
   - id: metabolism
     n: 7
     title: "Metabolism"
-    std: ["asbmb-core-2013:T6", "asbmb-core-2013:T9", "asbmb-cert:1.1", "asbmb-cert:1.2", "aamc-mcat-outline:1D"]
+    std: ["asbmb-core-2013:2.3", "asbmb-core-2013:3.5", "asbmb-cert:1.1", "asbmb-cert:1.2", "aamc-mcat-outline:1D"]
     scope: core
     ideas: [ENERGY, REGULATION]
     topics:
       - n: 1
         title: "Glycolysis and gluconeogenesis"
         los:
-          - { id: A, std: ["asbmb-cert:1.1"], do: "Account for the ATP and NADH of glycolysis and name its control points.", ek: ["Net 2 ATP and 2 NADH per glucose; hexokinase, PFK-1 (the committed step) and pyruvate kinase are irreversible and regulated."], p: [P1], drills: [bc-glycolysis-atp, bc-glycolysis-control] }
-          - { id: B, std: ["asbmb-cert:1.1", "asbmb-cert:1.2"], do: "Explain how gluconeogenesis bypasses glycolysis's irreversible steps and what it costs.", ek: ["Pyruvate carboxylase + PEPCK, fructose-1,6-bisphosphatase, glucose-6-phosphatase; 4 ATP + 2 GTP + 2 NADH per glucose."], p: [P2], drills: [bc-gluconeogenesis, bc-gng-cost] }
+          - { id: A, std: ["asbmb-cert:1.1", "asbmb-core-2013:3.4"], do: "Account for the ATP and NADH of glycolysis and name its control points.", ek: ["Net 2 ATP and 2 NADH per glucose; hexokinase, PFK-1 (the committed step) and pyruvate kinase are irreversible and regulated."], p: [P1], drills: [bc-glycolysis-atp, bc-glycolysis-control] }
+          - { id: B, std: ["asbmb-cert:1.1", "asbmb-cert:1.2", "asbmb-core-2013:3.4"], do: "Explain how gluconeogenesis bypasses glycolysis's irreversible steps and what it costs.", ek: ["Pyruvate carboxylase + PEPCK, fructose-1,6-bisphosphatase, glucose-6-phosphatase; 4 ATP + 2 GTP + 2 NADH per glucose."], p: [P2], drills: [bc-gluconeogenesis, bc-gng-cost] }
       - n: 2
         title: "Oxidative metabolism"
         los:
-          - { id: A, std: ["asbmb-core-2013:T6"], do: "Compute the ATP yield of complete glucose oxidation from P/O ratios.", ek: ["10 NADH and 2 FADH₂ per glucose (with the shuttle); 2.5 ATP/NADH and 1.5 ATP/FADH₂ give about 30–32 ATP."], p: [P1], drills: [bc-glucose-atp, bc-tca] }
+          - { id: A, std: ["asbmb-core-2013:2.3"], do: "Compute the ATP yield of complete glucose oxidation from P/O ratios.", ek: ["10 NADH and 2 FADH₂ per glucose (with the shuttle); 2.5 ATP/NADH and 1.5 ATP/FADH₂ give about 30–32 ATP."], p: [P1], drills: [bc-glucose-atp, bc-tca] }
           - { id: B, std: ["asbmb-cert:1.2"], do: "Compute the ATP yield of β-oxidation of a saturated fatty acid.", ek: ["C_n: n/2 − 1 rounds (each FADH₂ + NADH), n/2 acetyl-CoA (10 ATP each), minus 2 for activation; palmitate gives 106."], p: [P1], drills: [bc-beta-ox, bc-beta-rounds] }
       - n: 3
         title: "Regulation and nitrogen"
         los:
-          - { id: A, std: ["asbmb-core-2013:T9", "asbmb-cert:1.1"], do: "Predict how insulin, glucagon and allosteric effectors regulate fuel metabolism.", ek: ["Insulin: storage (glycogen synthesis, glycolysis); glucagon: mobilisation via cAMP/PKA; F2,6BP couples hormone state to PFK-1."], p: [P2], drills: [bc-hormones, bc-regulation-levels] }
-          - { id: B, std: [], do: "Account for the cost and logic of nitrogen disposal through the urea cycle.", ek: ["Urea carries two N (one from NH₄⁺ via carbamoyl phosphate, one from aspartate); 4 high-energy phosphate bonds per urea."], p: [P2], drills: [bc-urea-cost, bc-urea] }
+          - { id: A, std: ["asbmb-core-2013:3.5", "asbmb-cert:1.1", "asbmb-core-2013:3.6"], do: "Predict how insulin, glucagon and allosteric effectors regulate fuel metabolism.", ek: ["Insulin: storage (glycogen synthesis, glycolysis); glucagon: mobilisation via cAMP/PKA; F2,6BP couples hormone state to PFK-1."], p: [P2], drills: [bc-hormones, bc-regulation-levels] }
+          - { id: B, std: ["asbmb-core-2013:3.4"], do: "Account for the cost and logic of nitrogen disposal through the urea cycle.", ek: ["Urea carries two N (one from NH₄⁺ via carbamoyl phosphate, one from aspartate); 4 high-energy phosphate bonds per urea."], p: [P2], drills: [bc-urea-cost, bc-urea] }
   - id: nucleic-acids
     n: 8
     title: "Nucleic acids and information flow"
-    std: ["asbmb-core-2013:T11", "asbmb-core-2013:T12", "asbmb-core-2013:T13", "asbmb-core-2013:T14", "asbmb-cert:3.1", "asbmb-cert:3.2", "asbmb-cert:3.3", "aamc-mcat-outline:1B", "aamc-mcat-outline:1C"]
+    std: ["asbmb-core-2013:4.1", "asbmb-core-2013:4.2", "asbmb-core-2013:4.3", "asbmb-core-2013:4.4", "asbmb-cert:3.1", "asbmb-cert:3.2", "asbmb-cert:3.3", "aamc-mcat-outline:1B", "aamc-mcat-outline:1C"]
     scope: core
     ideas: [INFORMATION]
     topics:
       - n: 1
         title: "DNA structure"
         los:
-          - { id: A, std: ["asbmb-core-2013:T12"], do: "Use Chargaff's rules to find base composition.", ek: ["In double-stranded DNA, A = T and G = C, so %G = (100 − 2·%A)/2."], p: [P1], drills: [bc-chargaff, bc-gc-content] }
-          - { id: B, std: ["asbmb-core-2013:T12"], do: "Estimate a short duplex's melting temperature and say why GC content raises it.", ek: ["Wallace rule for short oligos: Tm ≈ 2(A + T) + 4(G + C) °C; GC pairs stack more strongly (and have three H-bonds)."], p: [P1], drills: [bc-wallace, bc-dna-tm] }
+          - { id: A, std: ["asbmb-core-2013:4.2", "asbmb-core-2013:4.1"], do: "Use Chargaff's rules to find base composition.", ek: ["In double-stranded DNA, A = T and G = C, so %G = (100 − 2·%A)/2."], p: [P1], drills: [bc-chargaff, bc-gc-content] }
+          - { id: B, std: ["asbmb-core-2013:4.2"], do: "Estimate a short duplex's melting temperature and say why GC content raises it.", ek: ["Wallace rule for short oligos: Tm ≈ 2(A + T) + 4(G + C) °C; GC pairs stack more strongly (and have three H-bonds)."], p: [P1], drills: [bc-wallace, bc-dna-tm] }
       - n: 2
         title: "Mutation and fidelity"
         los:
-          - { id: A, std: ["asbmb-cert:3.1", "asbmb-core-2013:T4"], do: "Predict a mutation's effect on the protein: silent, missense, nonsense or frameshift.", ek: ["An insertion or deletion that is not a multiple of 3 shifts the reading frame downstream."], p: [P2], drills: [bc-frameshift, bc-mutation-type] }
-          - { id: B, std: ["asbmb-core-2013:T14"], do: "Compute the expected number of replication errors per genome from the error rate.", ek: ["Errors = genome length × error rate per base; proofreading and mismatch repair bring E. coli to ~10⁻¹⁰ per base."], p: [P1], drills: [bc-replication-errors, bc-fidelity] }
+          - { id: A, std: ["asbmb-cert:3.1", "asbmb-core-2013:1.5"], do: "Predict a mutation's effect on the protein: silent, missense, nonsense or frameshift.", ek: ["An insertion or deletion that is not a multiple of 3 shifts the reading frame downstream."], p: [P2], drills: [bc-frameshift, bc-mutation-type] }
+          - { id: B, std: ["asbmb-core-2013:4.4"], do: "Compute the expected number of replication errors per genome from the error rate.", ek: ["Errors = genome length × error rate per base; proofreading and mismatch repair bring E. coli to ~10⁻¹⁰ per base."], p: [P1], drills: [bc-replication-errors, bc-fidelity] }
       - n: 3
         title: "Expression and its measurement"
         los:
-          - { id: A, std: ["asbmb-cert:3.2", "asbmb-cert:3.3"], do: "Predict gene-expression changes from regulatory logic (lac operon, activators, repressors).", ek: ["lac is expressed when lactose is present (repressor off) and glucose is low (cAMP–CAP on)."], p: [P2], drills: [bc-lac-operon, bc-eukaryote-expression] }
-          - { id: B, std: [], do: "Compute PCR amplification and a qPCR fold change by the ΔΔCt method.", ek: ["Copies = N₀·2ⁿ at full efficiency; fold change = 2^(−ΔΔCt)."], p: [P1], drills: [bc-pcr, bc-ddct] }
+          - { id: A, std: ["asbmb-cert:3.2", "asbmb-cert:3.3", "asbmb-core-2013:4.2"], do: "Predict gene-expression changes from regulatory logic (lac operon, activators, repressors).", ek: ["lac is expressed when lactose is present (repressor off) and glucose is low (cAMP–CAP on)."], p: [P2], drills: [bc-lac-operon, bc-eukaryote-expression] }
+          - { id: B, std: ["asbmb-core-2013:4.3"], do: "Compute PCR amplification and a qPCR fold change by the ΔΔCt method.", ek: ["Copies = N₀·2ⁿ at full efficiency; fold change = 2^(−ΔΔCt)."], p: [P1], drills: [bc-pcr, bc-ddct] }
   - id: signalling
     n: 9
     title: "Signalling and regulation"
-    std: ["asbmb-cert:3.5", "asbmb-core-2013:T9"]
+    std: ["asbmb-cert:3.5", "asbmb-core-2013:3.5"]
     scope: core
     ideas: [REGULATION]
     topics:
@@ -216,26 +217,26 @@ units:
       - n: 1
         title: "Quantitation and size"
         los:
-          - { id: A, std: [], do: "Compute protein concentration from A₂₈₀ with the Beer–Lambert law.", ek: ["A = εcl; ε₂₈₀ ≈ 5500·nW + 1490·nY + 125·(cystines) M⁻¹ cm⁻¹."], p: [P1], drills: [bc-a280, bc-a280-mg] }
+          - { id: A, std: ["acs-accm-analytical:I.D.3"], do: "Compute protein concentration from A₂₈₀ with the Beer–Lambert law.", ek: ["A = εcl; ε₂₈₀ ≈ 5500·nW + 1490·nY + 125·(cystines) M⁻¹ cm⁻¹."], p: [P1], drills: [bc-a280, bc-a280-mg] }
           - { id: B, std: [], do: "Estimate a protein's molar mass from SDS-PAGE mobility against standards.", ek: ["log M is linear in relative mobility over the gel's range."], p: [P1], drills: [bc-sds-mw, bc-sds-facts] }
       - n: 2
         title: "Purification"
         los:
           - { id: A, std: [], do: "Compute specific activity, fold purification and yield from a purification table.", ek: ["Specific activity = units/mg; fold = SA/SA_crude; yield = units/units_crude."], p: [P1], drills: [bc-purification, bc-yield] }
-          - { id: B, std: [], do: "Choose a separation (ion exchange, gel filtration, affinity) from a protein's pI, size or binding.", ek: ["Below its pI a protein is positive and binds a cation exchanger; gel filtration elutes large proteins first."], p: [P2], drills: [bc-separation-choice, bc-separation-choice-2] }
+          - { id: B, std: ["acs-accm-analytical:IV.B.1"], do: "Choose a separation (ion exchange, gel filtration, affinity) from a protein's pI, size or binding.", ek: ["Below its pI a protein is positive and binds a cation exchanger; gel filtration elutes large proteins first."], p: [P2], drills: [bc-separation-choice, bc-separation-choice-2] }
   - id: evolution
     n: 11
     title: "Evolution and homeostasis"
-    std: ["asbmb-core-2013:T1", "asbmb-core-2013:T2", "asbmb-core-2013:T3", "asbmb-core-2013:T4", "asbmb-core-2013:T8", "asbmb-core-2013:T10", "asbmb-cert:2.5", "asbmb-cert:3.4", "asbmb-cert:1.6"]
+    std: ["asbmb-core-2013:1.1", "asbmb-core-2013:1.3", "asbmb-core-2013:1.4", "asbmb-core-2013:1.5", "asbmb-core-2013:3.2", "asbmb-core-2013:3.6", "asbmb-cert:2.5", "asbmb-cert:3.4", "asbmb-cert:1.6"]
     scope: core
     ideas: [INFORMATION, REGULATION]
     topics:
       - n: 1
         title: "Molecular evolution"
         los:
-          - { id: A, std: ["asbmb-core-2013:T2", "asbmb-core-2013:T3"], do: "Estimate divergence time from sequence differences with a molecular clock.", ek: ["t = d/(2r): differences accumulate along both lineages."], p: [P1], drills: [bc-mol-clock, bc-mol-clock-2] }
-          - { id: B, std: ["asbmb-cert:2.5", "asbmb-core-2013:T4"], do: "Judge homology from sequence identity and explain conserved function with changed sequence.", ek: ["Above ~30–40% identity over a full domain, proteins are very likely homologous; active-site residues are conserved more than surface ones."], p: [P2], drills: [bc-identity, bc-homology] }
+          - { id: A, std: ["asbmb-core-2013:1.3", "asbmb-core-2013:1.4", "asbmb-core-2013:1.2"], do: "Estimate divergence time from sequence differences with a molecular clock.", ek: ["t = d/(2r): differences accumulate along both lineages."], p: [P1], drills: [bc-mol-clock, bc-mol-clock-2] }
+          - { id: B, std: ["asbmb-cert:2.5", "asbmb-core-2013:1.5", "asbmb-core-2013:1.2"], do: "Judge homology from sequence identity and explain conserved function with changed sequence.", ek: ["Above ~30–40% identity over a full domain, proteins are very likely homologous; active-site residues are conserved more than surface ones."], p: [P2], drills: [bc-identity, bc-homology] }
       - n: 2
         title: "Steady state and control"
         los:
-          - { id: A, std: ["asbmb-core-2013:T8", "asbmb-core-2013:T10"], do: "Use the mass-action ratio to tell near-equilibrium steps from regulated, far-from-equilibrium ones.", ek: ["Q/K′ ≈ 1 means near equilibrium (not a control point); Q/K′ ≪ 1 means large negative ΔG, a likely control point."], p: [P1], drills: [bc-mass-action, bc-steady-state] }
+          - { id: A, std: ["asbmb-core-2013:3.2", "asbmb-core-2013:3.6", "asbmb-core-2013:3.3"], do: "Use the mass-action ratio to tell near-equilibrium steps from regulated, far-from-equilibrium ones.", ek: ["Q/K′ ≈ 1 means near equilibrium (not a control point); Q/K′ ≪ 1 means large negative ΔG, a likely control point."], p: [P1], drills: [bc-mass-action, bc-steady-state] }

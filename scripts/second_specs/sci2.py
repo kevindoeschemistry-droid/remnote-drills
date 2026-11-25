@@ -364,3 +364,10 @@ for code, q in ADD:
         for c in q.cases:
             ok = A[c["don"]] <= A[c["rec"]] and (c["drh"] == 0 or c["rrh"] == 1)
             c["abo_k"] = 0 if ok else 1
+
+# Ramp (Nov 2026): a nursing second type that asks one remembered fact is a 10-second recall item, so scripts/ramp.py
+# can put it ahead of items that apply it. Scenario judgments (priority, delegation, legal, communication) stay quick.
+JUDGE = {"nr-priority-2", "nr-delegation-2", "nr-legal-2", "nr-comm-2"}
+for _, q in ADD:
+    if q.name.startswith("nr-") and q.verify == "authored" and q.prompt == "{{q}}" and q.name not in JUDGE:
+        q.pace = "recall"

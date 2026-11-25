@@ -58,7 +58,7 @@ Book: engel-reid-3e §1.4
 
 - ● **PC-1.1.A** (webwork-opl:TH2.12, webwork-opl:TH12.2, acs-accm-pchem:IV.A.4, acs-accm-pchem:VI.G.4, acs-accm-pchem:X.A.3, acs-accm-pchem:X.D.5) Calculate the pressure, volume, amount or temperature of an ideal gas from the other three.
   - EK: PV = nRT with T in kelvin; R = 8.314 J/mol·K = 0.08314 L·bar/mol·K.
-  - P3 · drills: pc-ideal-gas, pc-gas-density
+  - P3 · drills: pc-gas-density, pc-ideal-gas
 
 ### 1.2 Work and heat along a path
 
@@ -66,19 +66,19 @@ Book: engel-reid-3e §2.8, §2.8, §2.5, §3.4, §2.11
 
 - ● **PC-1.2.A** (webwork-opl:TH1.11, webwork-opl:TH1.12, acs-accm-pchem:VI.G.6, acs-accm-pchem:VI.G.3) Calculate the work of an expansion or compression against a constant external pressure.
   - EK: w = −P_ext ΔV; work done on the system is positive, so expansion gives w < 0.
-  - P3 · drills: pc-work-irrev, pc-volume-from-work
+  - P3 · drills: pc-volume-from-work, pc-work-irrev
 - ● **PC-1.2.B** (webwork-opl:TH1.12, acs-accm-pchem:VI.G.3, acs-accm-pchem:VI.G.6, acs-accm-pchem:VI.G.2) Calculate the work and heat of a reversible isothermal expansion of an ideal gas.
   - EK: w = −nRT ln(V₂/V₁); ΔU = 0 for an ideal gas at constant T, so q = −w.
   - P3 · drills: th-fl-isothermal, sc-isothermal-work-ratio
 - ● **PC-1.2.C** (webwork-opl:TH1.9, webwork-opl:TH2.10, acs-accm-pchem:VI.G.7, acs-accm-pchem:VI.G.2) Calculate the heat and internal-energy change for heating at constant volume.
   - EK: q_V = ΔU = nC_V ΔT; no P–V work is done.
-  - P3 · drills: th-fl-isochoric, td-isochoric-pressure
+  - P3 · drills: td-isochoric-pressure, th-fl-isochoric
 - ● **PC-1.2.D** (webwork-opl:TH1.10, webwork-opl:TH2.11, webwork-opl:TH2.14, acs-accm-pchem:VI.G.8) Calculate the heat and enthalpy change for heating at constant pressure.
   - EK: q_P = ΔH = nC_P ΔT; C_P − C_V = R for an ideal gas.
-  - P3 · drills: th-fl-isobaric, td-isobaric-dh
+  - P3 · drills: td-isobaric-dh, th-fl-isobaric
 - ● **PC-1.2.E** (webwork-opl:TH7.16, acs-accm-pchem:VI.G.3, acs-accm-pchem:VI.G.5) Calculate the final temperature and the work of a reversible adiabatic expansion.
   - EK: T₁V₁^(γ−1) = T₂V₂^(γ−1) with γ = C_P/C_V; q = 0, so w = ΔU = nC_V ΔT.
-  - P3 · drills: th-fl-adiabatic, td-adiabatic-work
+  - P3 · drills: td-adiabatic-work, th-fl-adiabatic
 
 ### 1.3 Enthalpy and internal energy
 
@@ -86,10 +86,10 @@ Book: engel-reid-3e §2.9
 
 - ● **PC-1.3.A** (webwork-opl:TH1.10, acs-accm-pchem:VI.G.8, acs-accm-pchem:VI.G.7) Convert between ΔH and ΔU for a process that changes the moles of gas.
   - EK: ΔH = ΔU + Δn_gas RT; condensed phases contribute almost nothing to Δ(PV).
-  - P3 · drills: pc-dh-du, pc-du-from-dh
+  - P3 · drills: pc-du-from-dh, pc-dh-du
 - ● **PC-1.3.B** (acs-accm-pchem:VI.A.1, acs-accm-pchem:VI.A.2, acs-accm-pchem:VI.A.3, acs-accm-pchem:VI.B.2, acs-accm-pchem:VI.G.10) Keep first-law books: choose the system, sign q and w, and find ΔU.
   - EK: ΔU = q + w with q > 0 into the system and w > 0 done on it; open, closed and isolated systems differ in what crosses; thermodynamics is silent on rates.
-  - P1 · drills: pc-du-signs, pc-system-types
+  - P1 · drills: pc-system-types, pc-du-signs
 
 ## Unit 2 · Thermochemistry
 
@@ -104,10 +104,10 @@ Book: engel-reid-3e §4.2, §4.3, §4.4
   - P3 · drills: pc-bomb-calorimeter, ~pc-dh-du
 - ● **PC-2.1.B** (webwork-opl:TH13.3, webwork-opl:TH13.4, acs-accm-pchem:VI.G.9, acs-accm-pchem:VI.D.1, acs-accm-pchem:IV.E.4) Calculate a standard reaction enthalpy from standard enthalpies of formation.
   - EK: ΔH°_rxn = Σ ν ΔH°_f(products) − Σ ν ΔH°_f(reactants); elements in their standard states are zero.
-  - P3 · drills: pc-hess, pc-hess-combine
+  - P3 · drills: pc-hess-combine, pc-hess
 - ● **PC-2.1.C** (acs-accm-pchem:VI.G.5, acs-accm-pchem:VI.G.9) Correct a reaction enthalpy to a different temperature with Kirchhoff's law.
   - EK: ΔH(T₂) = ΔH(T₁) + ΔC_P (T₂ − T₁) when ΔC_P is constant over the range.
-  - P3 · drills: pc-kirchhoff, pc-dcp-from-two
+  - P3 · drills: pc-dcp-from-two, pc-kirchhoff
 
 ## Unit 3 · Entropy and the second and third laws
 
@@ -119,7 +119,7 @@ Book: engel-reid-3e §5.2
 
 - ● **PC-3.1.A** (webwork-opl:TH6.6, acs-accm-pchem:VI.F.1, acs-accm-pchem:VI.F.2, acs-accm-pchem:VI.H.4) Calculate the efficiency of a Carnot engine and the work it delivers from a given heat input.
   - EK: η = 1 − T_C/T_H = w/q_H, temperatures in kelvin; no engine between the same reservoirs does better.
-  - P3 · drills: pc-carnot, pc-carnot-rejected
+  - P3 · drills: pc-carnot-rejected, pc-carnot
 
 ### 3.2 Entropy changes
 
@@ -127,16 +127,16 @@ Book: engel-reid-3e §5.4, §5.4, §5.4, §5.10
 
 - ● **PC-3.2.A** (webwork-opl:TH7.10, acs-accm-pchem:VI.H.2, acs-accm-pchem:VI.H.3) Calculate the entropy change of an ideal gas that expands isothermally.
   - EK: ΔS = nR ln(V₂/V₁) = nR ln(P₁/P₂); a state function, so the path need not be reversible.
-  - P3 · drills: pc-ds-expansion, pc-volume-from-ds
+  - P3 · drills: pc-volume-from-ds, pc-ds-expansion
 - ● **PC-3.2.B** (webwork-opl:TH7.10, acs-accm-pchem:VI.H.2) Calculate the entropy change for heating at constant pressure.
   - EK: ΔS = nC_P ln(T₂/T₁) for constant C_P; kelvin inside the logarithm.
-  - P3 · drills: pc-ds-heating, pc-temperature-from-ds
+  - P3 · drills: pc-temperature-from-ds, pc-ds-heating
 - ● **PC-3.2.C** (webwork-opl:TH7.8, acs-accm-pchem:VI.H.2, acs-accm-pchem:IV.D.1) Calculate the entropy change of a phase transition at its transition temperature.
   - EK: ΔS_tr = ΔH_tr/T_tr; Trouton's rule puts ΔS_vap near 85–88 J/mol·K for many liquids.
-  - P3 · drills: pc-ds-phase, pc-trouton-boiling
+  - P3 · drills: pc-trouton-boiling, pc-ds-phase
 - ● **PC-3.2.D** (webwork-opl:TH13.12, acs-accm-pchem:VI.H.7, acs-accm-pchem:III.H.3, acs-accm-general:VI.H.3) Calculate a standard reaction entropy from absolute molar entropies.
   - EK: ΔS°_rxn = Σ ν S°(products) − Σ ν S°(reactants); the third law fixes S° on an absolute scale.
-  - P2 · P5 · drills: pc-reaction-entropy, pc-reaction-entropy-t
+  - P2 · P5 · drills: pc-reaction-entropy-t, pc-reaction-entropy
 
 ## Unit 4 · Gibbs energy and chemical equilibrium
 
@@ -148,10 +148,10 @@ Book: engel-reid-3e §6.1, §6.3
 
 - ● **PC-4.1.A** (webwork-opl:TH13.15, acs-accm-pchem:VI.H.6, acs-accm-pchem:VI.H.1) Calculate ΔG from ΔH and ΔS and decide whether a process is spontaneous at a given temperature.
   - EK: ΔG = ΔH − TΔS; spontaneous at constant T and P when ΔG < 0; the sign flips at T = ΔH/ΔS.
-  - P3 · drills: pc-dg, pc-crossover-t
+  - P3 · drills: pc-crossover-t, pc-dg
 - ● **PC-4.1.B** (acs-accm-pchem:VI.H.6, acs-accm-pchem:VI.G.5) Calculate the change in Gibbs energy of an ideal gas with pressure.
   - EK: G(P) = G° + nRT ln(P/P°), so ΔG = nRT ln(P₂/P₁) at constant T.
-  - P3 · drills: pc-g-pressure, pc-pressure-for-dg
+  - P3 · drills: pc-pressure-for-dg, pc-g-pressure
 
 ### 4.2 The equilibrium constant
 
@@ -159,7 +159,7 @@ Book: engel-reid-3e §6.7, §6.10
 
 - ● **PC-4.2.A** (webwork-opl:TH13.2, acs-accm-pchem:VIII.F.2, acs-accm-pchem:VIII.D.1, acs-accm-pchem:VIII.D.2, acs-accm-pchem:VIII.C.1) Calculate an equilibrium constant from a standard reaction Gibbs energy, and the reverse.
   - EK: ΔG° = −RT ln K; a negative ΔG° gives K > 1.
-  - P3 · drills: th-ce-k, td-k-temperature-free
+  - P3 · drills: td-k-temperature-free, th-ce-k
 - ● **PC-4.2.B** (acs-accm-pchem:VIII.E.2, acs-accm-pchem:VIII.E.1) Calculate how an equilibrium constant shifts with temperature using the van't Hoff equation.
   - EK: ln(K₂/K₁) = −(ΔH°/R)(1/T₂ − 1/T₁); K rises with T for an endothermic reaction.
   - P3 · drills: th-ce-vant-hoff, sc-equilibrium-constant-temperature
@@ -177,16 +177,16 @@ Book: engel-reid-3e §7.3, §7.2, §7.4, §7.5
 
 - ● **PC-5.1.A** (webwork-opl:TH2.15, acs-accm-pchem:IV.A.5, acs-accm-pchem:IV.A.2) Calculate the compression factor of a gas and say whether attraction or repulsion dominates.
   - EK: Z = PV_m/RT; Z < 1 means attractions dominate, Z > 1 repulsions.
-  - P3 · drills: pc-compression-z, pc-volume-from-z
+  - P3 · drills: pc-volume-from-z, pc-compression-z
 - ● **PC-5.1.B** (webwork-opl:TH15.5, acs-accm-pchem:IV.A.5, acs-accm-pchem:IV.A.2) Calculate the pressure of a gas from the van der Waals equation.
   - EK: P = RT/(V_m − b) − a/V_m²; b is excluded volume, a measures attraction.
-  - P3 · drills: pc-vdw, pc-boyle-vdw
+  - P3 · drills: pc-boyle-vdw, pc-vdw
 - ● **PC-5.1.C** (webwork-opl:TH15.6, acs-accm-pchem:IV.A.5, acs-accm-pchem:IV.D.7) Calculate reduced variables and use corresponding states to compare gases.
   - EK: T_r = T/T_c, P_r = P/P_c; gases at the same reduced state have about the same Z.
-  - P2 · P5 · drills: pc-reduced-temperature, pc-vdw-critical-t
+  - P2 · P5 · drills: pc-vdw-critical-t, pc-reduced-temperature
 - ● **PC-5.1.D** (webwork-opl:TH15.10, acs-accm-pchem:VIII.C.3, acs-accm-pchem:IV.D.1) Calculate a fugacity from a fugacity coefficient and relate it to chemical potential.
   - EK: f = φP; μ = μ° + RT ln(f/P°); φ → 1 as P → 0.
-  - P2 · P5 · drills: pc-fugacity-potential, pc-mu-from-phi
+  - P2 · P5 · drills: pc-mu-from-phi, pc-fugacity-potential
 
 ## Unit 6 · Phase equilibria of pure substances
 
@@ -198,20 +198,20 @@ Book: engel-reid-3e §8.3, §8.6, §8.8
 
 - ● **PC-6.1.A** (webwork-opl:TH2.1, acs-accm-pchem:VIII.F.1, acs-accm-pchem:IV.D.2, acs-accm-pchem:X.D.1) Apply the Gibbs phase rule to count the degrees of freedom of a system.
   - EK: F = C − P + 2; a pure substance at its triple point has F = 0.
-  - P3 · drills: pc-phase-rule, pc-max-phases
+  - P3 · drills: pc-max-phases, pc-phase-rule
 - ● **PC-6.1.B** (webwork-opl:TH15.3, acs-accm-pchem:IV.D.5, acs-accm-pchem:IV.D.3) Calculate a vapour pressure, a boiling temperature or an enthalpy of vaporisation from the Clausius–Clapeyron equation.
   - EK: ln(P₂/P₁) = −(ΔH_vap/R)(1/T₂ − 1/T₁); assumes an ideal vapour and constant ΔH_vap.
   - P3 · drills: th-pe-cc-pressure, th-pe-cc-enthalpy, th-pe-cc-temperature, sc-vapour-pressure-ten-degrees
 - ● **PC-6.1.C** (acs-accm-pchem:IV.D.4) Calculate the pressure difference across a curved liquid surface.
   - EK: ΔP = 2γ/r for a droplet or a bubble in a liquid; smaller radius, larger excess pressure.
-  - P3 · drills: pc-laplace-pressure, pc-bubble-pressure
+  - P3 · drills: pc-bubble-pressure, pc-laplace-pressure
 - ● **PC-6.1.D** (acs-accm-pchem:IV.A.1, acs-accm-pchem:IV.A.2, acs-accm-pchem:IV.A.3, acs-accm-pchem:IV.C.2, acs-accm-pchem:IV.C.3, acs-accm-pchem:IV.C.5) Read a Lennard-Jones potential and scale dispersion energies with distance and polarisability.
   - EK: V = 4ε[(σ/r)¹² − (σ/r)⁶]: zero at σ, minimum −ε at 2^(1/6)σ; London energy ∝ −α₁α₂/r⁶.
   - P1 · drills: pc-lj-minimum, pc-london-scale
 - ● **PC-6.1.E** (acs-accm-pchem:IV.C.1, acs-accm-pchem:IV.C.4, acs-accm-pchem:IV.C.6, acs-accm-pchem:IV.C.7, acs-accm-pchem:IV.B.1, acs-accm-pchem:IV.B.2, acs-accm-pchem:IV.B.3, acs-accm-pchem:IV.E.3) Classify the interactions between molecules and inside biomolecules, and how they scale with distance.
   - EK: Ion–ion ∝ 1/r, ion–dipole 1/r², dipole–dipole (fixed) 1/r³, rotating dipoles and dispersion 1/r⁶; the hydrophobic effect drives folding and micelles.
   - P1 · drills: pc-imf-type, pc-dipole-scale
-- ● **PC-6.1.F** (acs-accm-pchem:IX.A.1, acs-accm-pchem:III.H.2, acs-accm-pchem:III.H.4, acs-accm-pchem:II.G.1, acs-accm-general:II.G.2, acs-accm-inorganic:II.G.2, acs-accm-inorganic:X.A.2) Use Bragg's law and cubic lattice spacings, and explain conduction in metals and semiconductors by bands.
+- ● **PC-6.1.F** (acs-accm-pchem:IX.A.1, acs-accm-pchem:III.H.2, acs-accm-pchem:III.H.4, acs-accm-pchem:II.G.1, acs-accm-general:II.G.2, acs-accm-inorganic:II.G.2, acs-accm-inorganic:X.A.2, acs-accm-analytical:III.H.1) Use Bragg's law and cubic lattice spacings, and explain conduction in metals and semiconductors by bands.
   - EK: nλ = 2d sin θ; cubic d_hkl = a/√(h² + k² + l²); a band gap sets whether a solid conducts.
   - P1 · drills: pc-bragg, pc-bands
 - ● **PC-6.1.G** (acs-accm-pchem:V.F.2, acs-accm-pchem:IX.C.2, acs-accm-inorganic:III.H.4, acs-accm-inorganic:X.A.1) Estimate the share of atoms at a nanoparticle's surface and explain size-dependent properties.
@@ -228,10 +228,10 @@ Book: engel-reid-3e §9.3, §9.4, §9.5
 
 - ● **PC-7.1.A** (acs-accm-pchem:IV.D.6, acs-accm-pchem:VIII.C.2) Calculate partial and total vapour pressures above an ideal solution.
   - EK: p_i = x_i P_i*; the total is the mole-fraction-weighted sum.
-  - P3 · drills: th-so-raoult, td-bubble-from-dew
+  - P3 · drills: td-bubble-from-dew, th-so-raoult
 - ● **PC-7.1.B** (acs-accm-pchem:X.D.1) Apply the lever rule to find the amounts of two phases in a two-phase region.
   - EK: n_α(z − z_α) = n_β(z_β − z); the phase nearer the overall composition is the larger one.
-  - P2 · P5 · drills: pc-lever-rule, pc-overall-composition
+  - P2 · P5 · drills: pc-overall-composition, pc-lever-rule
 - ● **PC-7.1.C** (webwork-opl:TH15.9, acs-accm-pchem:VIII.F.1, acs-accm-pchem:VIII.C.2) Use the Gibbs–Duhem equation to relate changes in the chemical potentials of two components.
   - EK: x₁ dμ₁ + x₂ dμ₂ = 0 at constant T and P.
   - P3 · drills: pc-gibbs-duhem-dmu, ~th-fe-gibbs-duhem
@@ -242,10 +242,10 @@ Book: engel-reid-3e §9.7, §9.8
 
 - ● **PC-7.2.A** (webwork-opl:TH18.1, acs-accm-pchem:VIII.F.1) Calculate a boiling-point elevation or freezing-point depression from molality.
   - EK: ΔT_b = K_b m and ΔT_f = K_f m; depends on the amount of solute, not what it is.
-  - P3 · drills: pc-colligative, pc-molar-mass-freezing
+  - P3 · drills: pc-molar-mass-freezing, pc-colligative
 - ● **PC-7.2.B** (webwork-opl:TH18.1, acs-accm-pchem:VIII.F.1) Calculate an osmotic pressure, or a molar mass from a measured osmotic pressure.
   - EK: Π = cRT with c in mol/m³ (or mol/L with R = 0.08314 L·bar/mol·K).
-  - P3 · drills: pc-osmotic, pc-osmotic-column
+  - P3 · drills: pc-osmotic-column, pc-osmotic
 
 ### 7.3 Real solutions
 
@@ -256,7 +256,7 @@ Book: engel-reid-3e §9.11, §9.12
   - P3 · drills: pc-pressure-from-gamma, ~th-so-activity
 - ● **PC-7.3.B** (acs-accm-pchem:IV.D.8) Calculate the partial pressure or solubility of a dilute solute with Henry's law.
   - EK: p_A = k_H x_A; Henry for the dilute solute, Raoult for the solvent.
-  - P3 · drills: th-so-henry, td-henry-pressure
+  - P3 · drills: td-henry-pressure, th-so-henry
 
 ## Unit 8 · Electrolyte solutions
 
@@ -266,18 +266,18 @@ Big ideas: SPONT
 
 Book: engel-reid-3e §10.1, §10.3, §10.4, §10.5
 
-- ● **PC-8.1.A** (webwork-opl:TH18.2, acs-accm-pchem:IV.E.2) Calculate the ionic strength of an electrolyte solution.
+- ● **PC-8.1.A** (webwork-opl:TH18.2, acs-accm-pchem:IV.E.2, acs-accm-analytical:I.G.3) Calculate the ionic strength of an electrolyte solution.
   - EK: I = ½ Σ m_i z_i²; a 1:1 salt gives I = m, a 2:1 salt I = 3m.
-  - P3 · drills: pc-ionic-strength, pc-molarity-from-i
+  - P3 · drills: pc-molarity-from-i, pc-ionic-strength
 - ● **PC-8.1.B** (acs-accm-pchem:IV.E.2, acs-accm-pchem:VIII.C.3) Calculate a mean ionic molality and a mean ionic activity.
   - EK: m_± = (m₊^ν₊ m₋^ν₋)^(1/ν); a_± = γ_± m_±/m°.
-  - P2 · P5 · drills: pc-mean-ionic-molality, pc-nu-pm-factor
-- ● **PC-8.1.C** (webwork-opl:TH18.2, acs-accm-pchem:IV.E.2, acs-accm-pchem:IV.D.8) Estimate a mean activity coefficient with the Debye–Hückel limiting law.
+  - P2 · P5 · drills: pc-nu-pm-factor, pc-mean-ionic-molality
+- ● **PC-8.1.C** (webwork-opl:TH18.2, acs-accm-pchem:IV.E.2, acs-accm-pchem:IV.D.8, acs-accm-analytical:I.G.3, acs-accm-analytical:II.A.1, acs-accm-analytical:IV.A.1) Estimate a mean activity coefficient with the Debye–Hückel limiting law.
   - EK: log₁₀ γ_± = −A|z₊z₋|√I with A = 0.509 in water at 298 K; valid only at low I.
-  - P3 · drills: pc-debye-huckel, pc-i-from-gamma
+  - P3 · drills: pc-i-from-gamma, pc-debye-huckel
 - ● **PC-8.1.D** (acs-accm-pchem:VIII.C.3, acs-accm-pchem:IV.E.2) Calculate the solubility of a sparingly soluble salt, with and without activity corrections.
   - EK: K_sp = a₊a₋ = (γ_± m/m°)² for a 1:1 salt; added inert salt lowers γ_± and raises solubility.
-  - P2 · P5 · drills: pc-solubility-activity, pc-solubility-ab2
+  - P2 · P5 · drills: pc-solubility-ab2, pc-solubility-activity
 
 ## Unit 9 · Electrochemical cells
 
@@ -289,16 +289,16 @@ Book: engel-reid-3e §11.5, §11.6, §11.4, §11.7
 
 - ● **PC-9.1.A** (acs-accm-pchem:VI.E.2, acs-accm-pchem:IX.D.3) Calculate a standard cell potential from two standard reduction potentials.
   - EK: E°_cell = E°_cathode − E°_anode; potentials are intensive and are never multiplied by stoichiometric coefficients.
-  - P3 · drills: pc-cell-potential, pc-unknown-half
+  - P3 · drills: pc-unknown-half, pc-cell-potential
 - ● **PC-9.1.B** (acs-accm-pchem:VI.E.2, acs-accm-pchem:VI.C.3) Calculate the standard reaction Gibbs energy from a standard cell potential.
   - EK: ΔG° = −nFE°; a positive E° means a spontaneous cell reaction.
-  - P3 · drills: pc-cell-potential, pc-e-from-dg
+  - P3 · drills: pc-e-from-dg, pc-cell-potential
 - ● **PC-9.1.C** (webwork-opl:TH18.3, acs-accm-pchem:VI.E.2, acs-accm-pchem:V.F.1) Calculate a cell potential away from standard conditions with the Nernst equation.
   - EK: E = E° − (RT/nF) ln Q; at 298 K, RT/F = 0.02569 V.
-  - P3 · drills: pc-nernst, pc-nernst-ratio
+  - P3 · drills: pc-nernst-ratio, pc-nernst
 - ● **PC-9.1.D** (acs-accm-pchem:VIII.F.2, acs-accm-pchem:VI.E.2) Calculate an equilibrium constant from a standard cell potential.
   - EK: ln K = nFE°/RT; at equilibrium E = 0 and Q = K.
-  - P2 · P5 · drills: pc-cell-equilibrium-constant, pc-e-from-k
+  - P2 · P5 · drills: pc-e-from-k, pc-cell-equilibrium-constant
 
 ## Unit 10 · From classical to quantum mechanics
 
@@ -310,17 +310,17 @@ Book: engel-reid-3e §12.3, §12.4, §12.5, §12.7
 
 - ● **PC-10.1.A** (acs-accm-pchem:I.D.1, acs-accm-pchem:IX.D.1) Calculate the energy of a photon, or of n quanta, from a frequency or a wavelength.
   - EK: E = hν = hc/λ; h = 6.626 × 10⁻³⁴ J·s.
-  - P3 · drills: pc-photon, pc-photon-rate
+  - P3 · drills: pc-photon-rate, pc-photon
 - ● **PC-10.1.B** (acs-accm-pchem:I.D.1) Calculate the kinetic energy of a photoelectron and the threshold frequency of a metal.
   - EK: KE = hν − Φ; no electrons below ν₀ = Φ/h however intense the light.
-  - P3 · drills: pc-photoelectric, pc-threshold-wavelength
+  - P3 · drills: pc-threshold-wavelength, pc-photoelectric
 - ● **PC-10.1.C** (acs-accm-pchem:I.B.1) Calculate the de Broglie wavelength of a moving particle.
   - EK: λ = h/p = h/mv; only noticeable when λ is comparable to the size of the system.
-  - P3 · drills: pc-de-broglie, pc-voltage-for-wavelength
+  - P3 · drills: pc-voltage-for-wavelength, pc-de-broglie
 - ● **PC-10.1.D** (acs-accm-pchem:I.D.3, acs-accm-pchem:I.A.1) Calculate hydrogen energy levels and the wavelength of a transition between them.
   - EK: E_n = −13.6 eV/n²; ΔE = 13.6 eV (1/n₁² − 1/n₂²) = hc/λ.
-  - P3 · drills: pc-bohr, pc-series-limit
-- ● **PC-10.1.E** (acs-accm-pchem:I.G.2, acs-accm-pchem:IX.D.4, acs-accm-pchem:VI.I.1, acs-accm-pchem:I.F.1, acs-accm-organic:I.D.2) Compute mass-spectrometry m/z values and nuclear energies from mass changes.
+  - P3 · drills: pc-series-limit, pc-bohr
+- ● **PC-10.1.E** (acs-accm-pchem:I.G.2, acs-accm-pchem:IX.D.4, acs-accm-pchem:VI.I.1, acs-accm-pchem:I.F.1, acs-accm-organic:I.D.2, acs-accm-analytical:I.G.2, acs-accm-analytical:IX.D.4) Compute mass-spectrometry m/z values and nuclear energies from mass changes.
   - EK: [M + zH]ᶻ⁺ appears at (M + z·1.00728)/z; E = Δm·c², about 931.5 MeV per u.
   - P1 · drills: pc-ms-mz, pc-mass-energy
 
@@ -334,13 +334,13 @@ Book: engel-reid-3e §13.5, §13.6, §13.7
 
 - ● **PC-11.1.A** (acs-accm-pchem:X.A.2) Test whether a function is an eigenfunction of an operator and find the eigenvalue.
   - EK: Âψ = aψ; applying the operator must return the same function times a constant.
-  - P2 · P5 · drills: qm-eigenvalue, pc-second-derivative-eigen
+  - P2 · P5 · drills: pc-second-derivative-eigen, qm-eigenvalue
 - ● **PC-11.1.B** (acs-accm-pchem:I.B.4) Show that two wavefunctions are orthogonal and normalise a wavefunction.
   - EK: ∫ψ_m*ψ_n dτ = δ_mn; eigenfunctions of a Hermitian operator with different eigenvalues are orthogonal.
   - P2 · P5 · drills: qm-orthogonality, qm-normalization-constant
 - ● **PC-11.1.C** (acs-accm-pchem:X.A.2) Expand a function in a complete set of eigenfunctions and compute a coefficient.
   - EK: f = Σ c_n ψ_n with c_n = ∫ψ_n* f dτ.
-  - P2 · P5 · drills: qm-expansion-coefficient, pc-expansion-probability
+  - P2 · P5 · drills: pc-expansion-probability, qm-expansion-coefficient
 
 ### 11.2 Measurement
 
@@ -351,10 +351,10 @@ Book: engel-reid-3e §14.1, §14.4, §14.5
   - P2 · P5 · drills: qm-pib-probability, qm-superposition-probability
 - ● **PC-11.2.B** (acs-accm-pchem:X.A.1) Calculate the expectation value of an observable.
   - EK: ⟨A⟩ = ∫ψ*Âψ dτ; equals the eigenvalue when ψ is an eigenfunction of Â.
-  - P2 · P5 · drills: qm-expectation-energy, pc-x2-expectation
+  - P2 · P5 · drills: pc-x2-expectation, qm-expectation-energy
 - ● **PC-11.2.C** (acs-accm-pchem:I.D.5) Write the time dependence of a superposition and say when a probability density changes with time.
   - EK: Each term carries e^(−iE_n t/ħ); a single eigenstate is stationary, a superposition beats at (E_m − E_n)/h.
-  - P2 · P5 · drills: qm-time-dependence, pc-beat-period
+  - P2 · P5 · drills: pc-beat-period, qm-time-dependence
 
 ### 11.3 Commutation and uncertainty
 
@@ -365,7 +365,7 @@ Book: engel-reid-3e §17.1, §17.3
   - P2 · P5 · drills: qm-commutator, qm-compatible-observables
 - ● **PC-11.3.B** (acs-accm-pchem:I.B.1) Estimate the minimum uncertainty in momentum or position from the uncertainty principle.
   - EK: Δx Δp_x ≥ ħ/2.
-  - P3 · drills: pc-uncertainty, pc-min-dx
+  - P3 · drills: pc-min-dx, pc-uncertainty
 
 ## Unit 12 · Model systems: box, oscillator and rotor
 
@@ -377,16 +377,16 @@ Book: engel-reid-3e §15.2, §15.2, §15.3, §16.3
 
 - ● **PC-12.1.A** (acs-accm-pchem:X.A.4) Calculate particle-in-a-box energy levels and the wavelength of a transition between them.
   - EK: E_n = n²h²/8mL²; spacing grows with n and shrinks as the box or the mass gets larger.
-  - P3 · drills: pc-pib-energy, pc-box-from-wavelength
+  - P3 · drills: pc-box-from-wavelength, pc-pib-energy
 - ● **PC-12.1.B** (acs-accm-pchem:I.B.4, acs-accm-pchem:X.D.4, acs-accm-inorganic:I.B.1, acs-accm-inorganic:X.D.4) Use the particle-in-a-box wavefunction to locate nodes and compute a probability.
   - EK: ψ_n = √(2/L) sin(nπx/L); n − 1 interior nodes.
   - P2 · P5 · drills: qm-pib-node, qm-pib-probability
 - ● **PC-12.1.C** (acs-accm-pchem:X.A.4) Calculate energies and degeneracies for a particle in a three-dimensional box.
   - EK: E = (h²/8m)(n_x²/a² + n_y²/b² + n_z²/c²); a cube makes permutations of the quantum numbers degenerate.
-  - P2 · P5 · drills: qm-3d-box-degeneracy, pc-rect-box-energy
+  - P2 · P5 · drills: pc-rect-box-energy, qm-3d-box-degeneracy
 - ● **PC-12.1.D** (acs-accm-pchem:X.A.4, acs-accm-pchem:III.A.2) Estimate the absorption wavelength of a conjugated molecule with the free-electron model.
   - EK: Fill levels two electrons at a time; ΔE(HOMO→LUMO) = (2n + 1)h²/8m_eL².
-  - P3 · drills: qm-free-electron-absorption, pc-chain-from-color
+  - P3 · drills: pc-chain-from-color, qm-free-electron-absorption
 
 ### 12.2 Finite wells and tunnelling
 
@@ -394,13 +394,13 @@ Book: engel-reid-3e §16.1, §16.5, §16.6
 
 - ● **PC-12.2.A** (acs-accm-pchem:X.A.1) Calculate the decay constant of a wavefunction inside a classically forbidden region.
   - EK: ψ ∝ e^(−κx) with κ = √(2m(V₀ − E))/ħ.
-  - P2 · P5 · drills: qm-tunnelling-decay-constant, pc-penetration-depth
+  - P2 · P5 · drills: pc-penetration-depth, qm-tunnelling-decay-constant
 - ● **PC-12.2.B** (acs-accm-pchem:X.A.1) Estimate the transmission probability through a barrier.
   - EK: T ≈ e^(−2κL); exponentially sensitive to width, mass and barrier height.
-  - P2 · P5 · drills: qm-tunnelling-probability, pc-barrier-width
+  - P2 · P5 · drills: pc-barrier-width, qm-tunnelling-probability
 - ● **PC-12.2.C** (acs-accm-pchem:X.A.1) Compare tunnelling probabilities when the mass or the barrier width changes.
   - EK: Electrons tunnel far more readily than protons; an STM current falls about tenfold per ångström.
-  - P2 · P5 · drills: qm-tunnelling-compare, pc-tunnel-height
+  - P2 · P5 · drills: pc-tunnel-height, qm-tunnelling-compare
 
 ### 12.3 Vibration and rotation
 
@@ -408,19 +408,19 @@ Book: engel-reid-3e §18.3, §18:rotation-2d, §18.5, §18.6, §18:spherical-har
 
 - ● **PC-12.3.A** (acs-accm-pchem:II.C.2, acs-accm-pchem:II.F.2) Calculate the vibrational frequency, level spacing and zero-point energy of a harmonic oscillator.
   - EK: E_v = (v + ½)hν with ν = (1/2π)√(k/μ); zero-point energy ½hν.
-  - P3 · drills: pc-harmonic, pc-zpe-molar
+  - P3 · drills: pc-zpe-molar, pc-harmonic
 - ● **PC-12.3.B** (acs-accm-pchem:X.A.4) Calculate the energy levels of a particle on a ring.
   - EK: E_m = m²ħ²/2I, m = 0, ±1, ±2, …; all levels except m = 0 are doubly degenerate.
-  - P2 · P5 · drills: qm-ring-transition, pc-ring-wavelength
+  - P2 · P5 · drills: pc-ring-wavelength, qm-ring-transition
 - ● **PC-12.3.C** (acs-accm-pchem:III.A.3) Calculate the moment of inertia, rotational levels and level spacings of a diatomic rigid rotor.
   - EK: E_J = J(J + 1)ħ²/2I with I = μr²; each level is (2J + 1)-fold degenerate.
-  - P3 · drills: pc-rigid-rotor, pc-rotational-line
+  - P3 · drills: pc-rotational-line, pc-rigid-rotor
 - ● **PC-12.3.D** (acs-accm-pchem:I.B.1) Calculate the magnitude and z-component of an angular momentum from its quantum numbers.
   - EK: |L| = √(J(J + 1)) ħ; L_z = m_J ħ.
-  - P2 · P5 · drills: qm-angular-momentum-magnitude, pc-angular-momentum-angle
+  - P2 · P5 · drills: pc-angular-momentum-angle, qm-angular-momentum-magnitude
 - ● **PC-12.3.E** (acs-accm-pchem:I.B.1) Identify the eigenvalues of L̂² and L̂_z for a spherical harmonic.
   - EK: L̂²Y_l^m = l(l + 1)ħ²Y_l^m; L̂_zY_l^m = mħY_l^m.
-  - P2 · P5 · drills: qm-spherical-harmonic-eigenvalue, pc-harmonic-count
+  - P2 · P5 · drills: pc-harmonic-count, qm-spherical-harmonic-eigenvalue
 
 ## Unit 13 · Vibrational and rotational spectroscopy
 
@@ -435,14 +435,14 @@ Book: engel-reid-3e §19.3, §19.4, §19.6, §19:einstein
   - P3 · drills: pc-force-constant, ~pc-harmonic
 - ● **PC-13.1.B** (acs-accm-pchem:III.D.2, acs-accm-pchem:III.A.2) Apply selection rules to decide whether a vibration or rotation absorbs.
   - EK: Δv = ±1 with a changing dipole; ΔJ = ±1 with a permanent dipole.
-  - P2 · P5 · drills: qm-selection-rules, pc-mode-count
+  - P2 · P5 · drills: pc-mode-count, qm-selection-rules
 - ● **PC-13.1.C** (acs-accm-pchem:III.A.3, acs-accm-pchem:III.C.2) Calculate a bond length from the spacing of lines in a rotational spectrum.
   - EK: Lines at 2B̃(J + 1), spaced 2B̃, with B̃ = h/8π²cI.
   - P3 · drills: pc-rotational-constant, ~pc-rigid-rotor
 - ● **PC-13.1.D** (acs-accm-pchem:I.D.5) Relate the Einstein coefficients for absorption, stimulated emission and spontaneous emission.
   - EK: B₁₂ = B₂₁; A₂₁/B₂₁ = 8πhν³/c³, so spontaneous emission dominates at high frequency.
-  - P2 · P5 · drills: qm-einstein-coefficients, pc-spontaneous-ratio
-- ● **PC-13.1.E** (acs-accm-pchem:VII.A.4, acs-accm-pchem:I.A.3, acs-accm-organic:I.A.1, acs-accm-inorganic:I.A.2) Predict isotope shifts in vibrational frequencies and estimate a kinetic isotope effect.
+  - P2 · P5 · drills: pc-spontaneous-ratio, qm-einstein-coefficients
+- ● **PC-13.1.E** (acs-accm-pchem:VII.A.4, acs-accm-pchem:I.A.3, acs-accm-organic:I.A.1, acs-accm-inorganic:I.A.2, acs-accm-analytical:I.B.1, acs-accm-analytical:II.F.1) Predict isotope shifts in vibrational frequencies and estimate a kinetic isotope effect.
   - EK: ν ∝ √(k/μ), so C–D vibrates near ν(C–H)/√2; a primary KIE ≈ exp(Δ(ZPE)/k_BT), about 7 at room temperature for C–H/C–D.
   - P1 · drills: pc-isotope-shift, pc-kie
 - ● **PC-13.1.F** (acs-accm-pchem:III.F.2, acs-accm-pchem:III.A.1, acs-accm-inorganic:II.D.2) Assign infrared bands to functional groups and compare stretches by force constant.
@@ -459,13 +459,13 @@ Book: engel-reid-3e §20.3, §20.4, §20:radial-prob
 
 - ● **PC-14.1.A** (acs-accm-pchem:I.A.1, acs-accm-pchem:I.G.1) Calculate hydrogen-like energy levels and ionisation energies.
   - EK: E_n = −13.606 eV Z²/n².
-  - P3 · drills: qm-hydrogenlike-ionization, pc-hydrogenlike-transition
+  - P3 · drills: pc-hydrogenlike-transition, qm-hydrogenlike-ionization
 - ● **PC-14.1.B** (acs-accm-pchem:I.B.1, acs-accm-pchem:I.C.1) List the allowed quantum numbers and count the orbitals in a shell.
   - EK: l = 0 … n − 1, m_l = −l … l; n² orbitals and 2n² electrons per shell.
-  - P2 · P5 · drills: qm-orbitals-in-shell, pc-radial-nodes
+  - P2 · P5 · drills: pc-radial-nodes, qm-orbitals-in-shell
 - ● **PC-14.1.C** (acs-accm-pchem:I.C.2, acs-accm-pchem:X.D.4) Find the most probable radius from a radial distribution function.
   - EK: P(r) = r²|R(r)|²; for 1s the maximum is at a₀.
-  - P2 · P5 · drills: qm-most-probable-radius, pc-mean-radius
+  - P2 · P5 · drills: pc-mean-radius, qm-most-probable-radius
 
 ### 14.2 Many-electron atoms
 
@@ -473,10 +473,10 @@ Book: engel-reid-3e §21.4, §21.6, §21:hf-scf
 
 - ● **PC-14.2.A** (acs-accm-pchem:II.E.2) Use the variational principle to judge and improve a trial wavefunction.
   - EK: ⟨E⟩_trial ≥ E₀ for any trial function; lower is better.
-  - P2 · P5 · drills: qm-variational-principle, pc-gaussian-variational
+  - P2 · P5 · drills: pc-gaussian-variational, qm-variational-principle
 - ● **PC-14.2.B** (acs-accm-pchem:III.G.1, acs-accm-pchem:I.C.1) Estimate an effective nuclear charge with Slater's rules.
   - EK: Z_eff = Z − σ; same-shell electrons shield about 0.35, the shell below 0.85, deeper shells 1.00.
-  - P2 · P5 · drills: qm-slater-zeff, pc-slater-orbital-energy
+  - P2 · P5 · drills: pc-slater-orbital-energy, qm-slater-zeff
 - ● **PC-14.2.C** (acs-accm-pchem:II.E.1, acs-accm-pchem:II.B.2, acs-accm-pchem:I.B.3) Describe how the Hartree–Fock energy is built from one-electron, Coulomb and exchange terms.
   - EK: E_HF = Σ h_i + Σ(2J_ij − K_ij); it is not the sum of orbital energies.
   - P2 · P5 · drills: qm-hf-closed-shell-energy, qm-hf-two-electron-energy
@@ -493,7 +493,7 @@ Book: engel-reid-3e §22.1, §22:config-energy, §22.3
   - P2 · P5 · drills: qm-ground-term, qm-ground-level-j
 - ● **PC-14.3.C** (acs-accm-pchem:I.B.2) Calculate the spin–orbit splitting between levels of a term.
   - EK: ΔE = ½A[J(J + 1) − L(L + 1) − S(S + 1)].
-  - P2 · P5 · drills: qm-lande-interval, pc-spin-orbit-constant
+  - P2 · P5 · drills: pc-spin-orbit-constant, qm-lande-interval
 - ● **PC-14.3.D** (acs-accm-pchem:I.D.2, acs-accm-pchem:I.D.4, acs-accm-pchem:III.D.3, acs-accm-pchem:I.G.3) Apply atomic selection rules and parity to decide whether a transition is allowed.
   - EK: One-electron electric-dipole transitions need Δl = ±1 (parity must change), ΔS = 0, ΔJ = 0, ±1 (not 0 → 0).
   - P1 · drills: pc-atomic-selection, pc-allowed-count
@@ -508,16 +508,16 @@ Book: engel-reid-3e §23:h2-plus, §23.3, §23:homonuclear, §23.7
 
 - ● **PC-15.1.A** (acs-accm-pchem:II.B.2, acs-accm-pchem:II.E.3) Calculate the bonding and antibonding energies of H₂⁺ from the LCAO integrals.
   - EK: E_± = (H_AA ± H_AB)/(1 ± S_AB).
-  - P2 · P5 · drills: qm-lcao-bonding-energy, pc-lcao-gap
+  - P2 · P5 · drills: pc-lcao-gap, qm-lcao-bonding-energy
 - ● **PC-15.1.B** (acs-accm-pchem:II.E.3, acs-accm-pchem:II.B.1) Explain why the antibonding orbital is raised more than the bonding orbital is lowered.
   - EK: ψ_± = (ψ_A ± ψ_B)/√(2(1 ± S)); the overlap S makes the splitting asymmetric.
   - P2 · P5 · drills: pc-antibonding-asymmetry, ~qm-lcao-bonding-energy
 - ● **PC-15.1.C** (acs-accm-pchem:II.E.3, acs-accm-pchem:II.F.1) Fill a molecular-orbital diagram for a homonuclear diatomic and predict magnetism.
   - EK: Fill in energy order, two per orbital, Hund's rule in degenerate pairs; unpaired electrons mean paramagnetic.
-  - P2 · P5 · drills: qm-paramagnetism, pc-unpaired-diatomic
+  - P2 · P5 · drills: pc-unpaired-diatomic, qm-paramagnetism
 - ● **PC-15.1.D** (acs-accm-pchem:II.F.1, acs-accm-pchem:II.F.2) Calculate a bond order and use it to rank bond length and strength.
   - EK: Bond order = (n_bonding − n_antibonding)/2; higher order, shorter and stronger bond.
-  - P2 · P5 · drills: qm-bond-order, pc-bond-order-change
+  - P2 · P5 · drills: pc-bond-order-change, qm-bond-order
 - ● **PC-15.1.E** (acs-accm-pchem:II.A.1, acs-accm-pchem:II.A.3) Build a molecular Hamiltonian's Coulomb terms and state what the Born–Oppenheimer approximation separates.
   - EK: For N nuclei and n electrons: n(n − 1)/2 electron–electron, nN electron–nucleus and N(N − 1)/2 nucleus–nucleus terms; BO fixes the nuclei while solving for electrons.
   - P1 · drills: pc-hamiltonian-terms, pc-born-oppenheimer
@@ -537,7 +537,7 @@ Book: engel-reid-3e §24.2, §24.5, §24:huckel
   - P2 · P5 · drills: ~qm-walsh-ah2
 - ● **PC-15.2.C** (acs-accm-pchem:II.E.1) Calculate Hückel π-orbital energies and the π-electron energy of a conjugated chain.
   - EK: E_k = α + 2β cos(kπ/(N + 1)), k = 1 … N; β is negative.
-  - P2 · P5 · drills: qm-huckel-chain, pc-polyene-gap
+  - P2 · P5 · drills: pc-polyene-gap, qm-huckel-chain
 
 ### 15.3 Computational chemistry
 
@@ -548,7 +548,7 @@ Book: engel-reid-3e §26:hf, §26:pes, §26:post-hf
   - P2 · P5 · drills: qm-hf-two-electron-energy
 - ● **PC-15.3.B** (acs-accm-pchem:III.C.3, acs-accm-pchem:III.C.1, acs-accm-pchem:V.B.4, acs-accm-general:III.C, acs-accm-organic:III.C.1, acs-accm-inorganic:III.C.1) Classify stationary points on a potential-energy surface.
   - EK: All first derivatives vanish; a minimum has no negative curvatures, a transition state exactly one.
-  - P2 · P5 · drills: qm-stationary-point, pc-hessian-classify
+  - P2 · P5 · drills: pc-hessian-classify, qm-stationary-point
 - ● **PC-15.3.C** (acs-accm-pchem:II.A.2, acs-accm-pchem:II.E.1) Calculate a correlation energy and rank methods by the correlation they recover.
   - EK: E_corr = E_exact − E_HF, always negative; HF < MP2 < CCSD(T) toward the exact answer.
   - P2 · P5 · drills: pc-correlation-recovered, ~qm-correlation-energy
@@ -564,15 +564,15 @@ Book: engel-reid-3e §25.1, §25.5, §25:franck-condon, §25.7
 - ● **PC-16.1.A** (acs-accm-pchem:IX.D.1, acs-accm-pchem:III.A.2) Convert between the energy, wavelength and wavenumber of an electronic transition.
   - EK: ΔE = hν = hc/λ = hcν̃.
   - P3 · drills: pc-ev-from-wavenumber, ~pc-photon
-- ● **PC-16.1.B** (acs-accm-pchem:IX.D.1, acs-accm-pchem:VII.A.3) Calculate an absorbance, a concentration or a molar absorption coefficient.
+- ● **PC-16.1.B** (acs-accm-pchem:IX.D.1, acs-accm-pchem:VII.A.3, acs-accm-analytical:I.D.3, acs-accm-analytical:II.E.1, acs-accm-analytical:V.B.1) Calculate an absorbance, a concentration or a molar absorption coefficient.
   - EK: A = εcl = −log₁₀(I/I₀).
-  - P3 · drills: pc-beer-lambert, pc-transmittance
+  - P3 · drills: pc-transmittance, pc-beer-lambert
 - ● **PC-16.1.C** (acs-accm-pchem:II.C.1, acs-accm-pchem:II.C.3) Use the Franck–Condon principle to predict which vibronic band is strongest.
   - EK: Transitions are vertical; intensity follows the overlap |⟨χ_v′|χ_v⟩|².
-  - P2 · P5 · drills: qm-franck-condon-strongest, pc-zero-zero-overlap
+  - P2 · P5 · drills: pc-zero-zero-overlap, qm-franck-condon-strongest
 - ● **PC-16.1.D** (acs-accm-pchem:IX.D.1) Calculate a Stokes shift and explain why emission is at longer wavelength than absorption.
   - EK: Vibrational relaxation in the excited state comes first, so λ_em > λ_abs.
-  - P2 · P5 · drills: qm-stokes-shift, pc-stokes-energy
+  - P2 · P5 · drills: pc-stokes-energy, qm-stokes-shift
 - ● **PC-16.1.E** (acs-accm-pchem:VI.C.2, acs-accm-pchem:VI.C.4, acs-accm-pchem:II.D.1, acs-accm-pchem:II.D.2, acs-accm-inorganic:V.F.10) Compute photon counts and quantum yields, and say how light breaks bonds.
   - EK: Photons = Pt/(hc/λ); Φ = molecules reacted ÷ photons absorbed; Φ > 1 signals a chain; photolysis is usually homolytic.
   - P1 · drills: pc-quantum-yield, pc-photochem
@@ -600,7 +600,7 @@ Book: engel-reid-3e §27:symmetry, §27:point-groups, §27:character-tables, §2
 - ● **PC-17.1.E** (acs-accm-pchem:III.D.2, acs-accm-organic:III.D.1, acs-accm-inorganic:II.E.4, acs-accm-inorganic:III.D.3, acs-accm-inorganic:III.D.4) Decide from symmetry whether a mode is IR active, Raman active or both.
   - EK: IR active if it transforms like x, y or z; Raman active like a quadratic; mutually exclusive with an inversion centre.
   - P2 · P5 · drills: gt-ir-raman
-- ● **PC-17.1.F** (acs-accm-pchem:III.E.1, acs-accm-organic:III.E.5, acs-accm-organic:IX.C.2) Use optical rotation to find specific rotation and enantiomeric excess.
+- ● **PC-17.1.F** (acs-accm-pchem:III.E.1, acs-accm-organic:III.E.5, acs-accm-organic:IX.C.2, acs-accm-analytical:III.E.1) Use optical rotation to find specific rotation and enantiomeric excess.
   - EK: [α] = α/(l·c) with l in dm and c in g/mL; ee = [α]_obs/[α]_pure × 100%.
   - P1 · drills: pc-specific-rotation, pc-ee
 
@@ -614,16 +614,16 @@ Book: engel-reid-3e §28:larmor, §28:chemical-shift, §28:shielding, §28:spin-
 
 - ● **PC-18.1.A** (acs-accm-pchem:I.A.2) Calculate the Larmor frequency of a nucleus in a given field.
   - EK: ν₀ = γB₀/2π; for ¹H, 42.58 MHz per tesla.
-  - P3 · drills: pc-larmor, pc-field-for-frequency
+  - P3 · drills: pc-field-for-frequency, pc-larmor
 - ● **PC-18.1.B** (acs-accm-pchem:I.A.2) Convert between a frequency offset in hertz and a chemical shift in ppm.
   - EK: δ = (ν_sample − ν_ref)/ν_ref × 10⁶; the ppm value does not depend on the field.
-  - P3 · drills: pc-chemical-shift, pc-hz-other-field
+  - P3 · drills: pc-hz-other-field, pc-chemical-shift
 - ● **PC-18.1.C** (acs-accm-pchem:I.A.2) Relate shielding to chemical shift and predict which nuclei appear downfield.
   - EK: Electron-withdrawing neighbours deshield, giving a larger δ.
   - P2 · P5 · drills: nmr-downfield
 - ● **PC-18.1.D** (acs-accm-pchem:I.A.2) Predict the multiplicity of a signal from the n + 1 rule.
   - EK: n equivalent spin-½ neighbours split a signal into n + 1 lines with Pascal's-triangle intensities.
-  - P2 · P5 · drills: nmr-multiplicity, pc-two-set-splitting
+  - P2 · P5 · drills: pc-two-set-splitting, nmr-multiplicity
 - ● **PC-18.1.E** (acs-accm-pchem:I.A.2) Estimate a three-bond coupling constant from a dihedral angle.
   - EK: ³J = A − B cos φ + C cos² φ (Karplus); largest near 0° and 180°.
   - P2 · P5 · drills: nmr-karplus
@@ -638,10 +638,10 @@ Book: engel-reid-3e §29.2, §29:stirling, §29:distributions
 
 - ● **PC-19.1.A** (acs-accm-pchem:X.C.2, acs-accm-pchem:VI.H.2) Count the microstates of a configuration.
   - EK: W = N!/(a₀! a₁! a₂! …).
-  - P3 · drills: sm-anagram, td-multinomial-probability
+  - P3 · drills: td-multinomial-probability, sm-anagram
 - ● **PC-19.1.B** (acs-accm-pchem:X.B.1) Apply Stirling's approximation to the logarithm of a large factorial.
   - EK: ln N! ≈ N ln N − N.
-  - P2 · P5 · drills: sm-stirling, pc-stirling-error
+  - P2 · P5 · drills: pc-stirling-error, sm-stirling
 - ● **PC-19.1.C** (acs-accm-pchem:X.C.1) Calculate the mean and variance of a distribution.
   - EK: ⟨x⟩ = ∫x f(x) dx; σ² = ⟨x²⟩ − ⟨x⟩².
   - P3 · drills: pc-discrete-variance, ~sm-fl-exact
@@ -655,7 +655,7 @@ Book: engel-reid-3e §30:microstates, §30:beta, §30.2
   - P3 · drills: pc-log-w-from-s, ~sm-two-state
 - ● **PC-19.2.B** (acs-accm-pchem:X.C.2, acs-accm-pchem:X.D.3) Calculate the population ratio of two levels at a given temperature.
   - EK: n_i/n_j = (g_i/g_j) e^(−Δε/k_BT); β = 1/k_BT.
-  - P3 · drills: sm-bz-ratio, td-boltzmann-degenerate
+  - P3 · drills: td-boltzmann-degenerate, sm-bz-ratio
 - ● **PC-19.2.C** (acs-accm-pchem:X.C.2, acs-accm-pchem:X.C.1) Calculate a partition function and the fraction of molecules in each level.
   - EK: q = Σ g_j e^(−ε_j/k_BT); P_i = g_i e^(−ε_i/k_BT)/q.
   - P3 · drills: sm-pf-q, sm-bz-fraction
@@ -670,22 +670,22 @@ Book: engel-reid-3e §31.4, §31.5, §31:rot-poly, §31.7, §31:electronic, §31
 
 - ● **PC-20.1.A** (acs-accm-pchem:X.C.1) Calculate a translational partition function.
   - EK: q_trans = V(2πmk_BT/h²)^(3/2) = V/Λ³.
-  - P3 · drills: sm-ig-qtrans, td-qtrans-scaling
+  - P3 · drills: td-qtrans-scaling, sm-ig-qtrans
 - ● **PC-20.1.B** (acs-accm-pchem:X.C.1, acs-accm-pchem:III.A.3) Calculate the rotational partition function of a diatomic molecule.
   - EK: q_rot = T/(σθ_rot) when T ≫ θ_rot; σ = 2 for a homonuclear diatomic.
-  - P3 · drills: sm-ig-qrot, td-symmetry-number
+  - P3 · drills: td-symmetry-number, sm-ig-qrot
 - ● **PC-20.1.C** (acs-accm-pchem:X.C.1) Calculate the rotational partition function of a polyatomic molecule.
   - EK: Linear: T/(σΘ); nonlinear: (√π/σ)(T³/Θ_AΘ_BΘ_C)^(1/2).
-  - P2 · P5 · drills: sm-rotational-partition-nonlinear, pc-qrot-poly-scaling
+  - P2 · P5 · drills: pc-qrot-poly-scaling, sm-rotational-partition-nonlinear
 - ● **PC-20.1.D** (acs-accm-pchem:X.C.1) Calculate a vibrational partition function.
   - EK: q_vib = 1/(1 − e^(−θ_vib/T)) measured from the ground level.
-  - P3 · drills: sm-ig-qvib, td-vibrational-population
+  - P3 · drills: td-vibrational-population, sm-ig-qvib
 - ● **PC-20.1.E** (acs-accm-pchem:X.C.2) Calculate an electronic partition function from level degeneracies and energies.
   - EK: q_el = Σ g_i e^(−ε_i/k_BT) ≈ g₀ when the first excited level is far above k_BT.
-  - P2 · P5 · drills: sm-electronic-partition, pc-no-upper-fraction
+  - P2 · P5 · drills: pc-no-upper-fraction, sm-electronic-partition
 - ● **PC-20.1.F** (acs-accm-pchem:X.C.1, acs-accm-pchem:VI.E.1) Use equipartition to predict a molar heat capacity.
   - EK: ½RT per quadratic degree of freedom per mole; vibrations count only when T ≫ θ_vib.
-  - P3 · drills: sm-cv-equipartition, td-equipartition-cp
+  - P3 · drills: td-equipartition-cp, sm-cv-equipartition
 
 ### 20.2 Thermodynamic functions from the partition function
 
@@ -696,7 +696,7 @@ Book: engel-reid-3e §32:energy, §32.3, §32.4, §32.6, §32:residual-entropy
   - P3 · drills: pc-vib-thermal-energy, ~sm-pf-u-two-level
 - ● **PC-20.2.B** (acs-accm-pchem:X.C.1) Calculate the vibrational contribution to a heat capacity.
   - EK: C_V,vib/R = u²e^(−u)/(1 − e^(−u))² with u = θ_vib/T.
-  - P3 · drills: sm-cv-einstein, td-einstein-temperature-from-cv
+  - P3 · drills: td-einstein-temperature-from-cv, sm-cv-einstein
 - ● **PC-20.2.C** (acs-accm-pchem:X.C.1, acs-accm-pchem:VI.H.2) Calculate an entropy from a partition function.
   - EK: S = k_B ln Q + U/T.
   - P3 · drills: pc-vib-entropy, ~sm-pf-s-two-level
@@ -705,7 +705,7 @@ Book: engel-reid-3e §32:energy, §32.3, §32.4, §32.6, §32:residual-entropy
   - P3 · drills: pc-vib-helmholtz, ~sm-pf-f
 - ● **PC-20.2.E** (acs-accm-pchem:VI.H.7, acs-accm-pchem:III.H.3, acs-accm-general:VI.H.3) Calculate the residual entropy of a crystal with orientational disorder.
   - EK: S₀ = R ln W₀ per mole, W₀ being the number of equally likely orientations.
-  - P3 · drills: pc-residual-entropy, pc-w-from-residual
+  - P3 · drills: pc-w-from-residual, pc-residual-entropy
 
 ## Unit 21 · Kinetic theory of gases and transport
 
@@ -717,19 +717,19 @@ Book: engel-reid-3e §33:maxwell, §33:speeds, §33:effusion, §33:collisions, �
 
 - ● **PC-21.1.A** (acs-accm-pchem:VII.D.2, acs-accm-pchem:X.A.3) Use the Maxwell speed distribution to compare speeds at different temperatures and masses.
   - EK: f(v) = 4π(m/2πk_BT)^(3/2) v² e^(−mv²/2k_BT); broader and faster for high T or low mass.
-  - P2 · P5 · drills: kt-maxwell-compare, pc-rms-ratio
+  - P2 · P5 · drills: pc-rms-ratio, kt-maxwell-compare
 - ● **PC-21.1.B** (acs-accm-pchem:VII.D.2) Calculate the most probable, mean and root-mean-square speeds of a gas.
   - EK: v_mp = √(2RT/M), v̄ = √(8RT/πM), v_rms = √(3RT/M), with M in kg/mol.
-  - P3 · drills: pc-speeds, pc-matching-temperature
+  - P3 · drills: pc-matching-temperature, pc-speeds
 - ● **PC-21.1.C** (acs-accm-pchem:X.A.3) Calculate a ratio of effusion rates, or a molar mass from one.
   - EK: r₁/r₂ = √(M₂/M₁).
-  - P3 · drills: pc-effusion, pc-effusion-time
+  - P3 · drills: pc-effusion-time, pc-effusion
 - ● **PC-21.1.D** (acs-accm-pchem:VII.D.3) Calculate the collision frequency of a molecule in a gas.
   - EK: z = √2 σ v̄ (N/V) with σ = πd².
-  - P2 · P5 · drills: kt-collision-frequency, pc-collision-scaling
+  - P2 · P5 · drills: pc-collision-scaling, kt-collision-frequency
 - ● **PC-21.1.E** (acs-accm-pchem:VII.D.3) Calculate the mean free path of a gas molecule.
   - EK: λ = v̄/z = k_BT/(√2 σP).
-  - P3 · drills: pc-mean-free-path, pc-pressure-for-mfp
+  - P3 · drills: pc-pressure-for-mfp, pc-mean-free-path
 
 ### 21.2 Transport
 
@@ -737,16 +737,16 @@ Book: engel-reid-3e §34:ficks-first, §34:ficks-second, §34:thermal-conduction
 
 - ● **PC-21.2.A** (acs-accm-pchem:X.A.3) Calculate a diffusive flux from a concentration gradient.
   - EK: J = −D dC/dx; flux runs down the gradient.
-  - P2 · P5 · drills: tr-fick-flux, pc-gradient-for-flux
+  - P2 · P5 · drills: pc-gradient-for-flux, tr-fick-flux
 - ● **PC-21.2.B** (acs-accm-pchem:X.A.3) Estimate how far a species diffuses in a given time.
   - EK: ∂C/∂t = D ∂²C/∂x²; x_rms = √(2Dt) in one dimension.
-  - P3 · drills: pc-diffusion-distance, pc-diffusion-time
+  - P3 · drills: pc-diffusion-time, pc-diffusion-distance
 - ● **PC-21.2.C** (acs-accm-pchem:VI.G.1) Calculate a conductive heat flux from a temperature gradient.
   - EK: J_q = −κ dT/dx.
   - P3 · drills: pc-conductivity-from-flux, ~ht-cond
 - ● **PC-21.2.D** (webwork-opl:FM1.3, acs-accm-pchem:IV.D.4) Calculate a shear stress from a viscosity and a velocity gradient.
   - EK: τ = η du/dz; for a gas η = ⅓ρv̄λ, which rises with temperature.
-  - P2 · P5 · drills: tr-shear-stress, pc-gradient-from-stress
+  - P2 · P5 · drills: pc-gradient-from-stress, tr-shear-stress
 
 ## Unit 22 · Chemical kinetics
 
@@ -758,7 +758,7 @@ Book: engel-reid-3e §35:rate-laws, §35:integrated
 
 - ● **PC-22.1.A** (acs-accm-pchem:VII.B.1, acs-accm-pchem:VII.B.2, acs-accm-pchem:IX.E.1) Determine reaction orders and a rate constant from initial-rate data.
   - EK: rate = k[A]^m[B]^n; compare runs that change one concentration at a time.
-  - P3 · drills: pc-initial-rates, pc-rate-prediction
+  - P3 · drills: pc-rate-prediction, pc-initial-rates
 - ● **PC-22.1.B** (acs-accm-pchem:VII.B.1, acs-accm-pchem:VII.B.3, acs-accm-pchem:VII.A.5) Use an integrated rate law to find a concentration, a time or a half-life.
   - EK: First order: [A] = [A]₀e^(−kt), t½ = ln 2/k. Second order: 1/[A] = 1/[A]₀ + kt.
   - P3 · drills: pc-first-order, pc-second-order
@@ -775,10 +775,10 @@ Book: engel-reid-3e §35:arrhenius, §35:collision-theory, §35:eyring
   - P3 · drills: sm-rate-ea, sm-rate-k2
 - ● **PC-22.2.B** (acs-accm-pchem:VII.D.4, acs-accm-pchem:VII.D.1) Estimate a rate constant from collision theory and interpret the steric factor.
   - EK: k = pZ_AB e^(−E_a/RT); p < 1 accounts for orientation.
-  - P2 · P5 · drills: kn-steric-factor, pc-energetic-fraction
+  - P2 · P5 · drills: pc-energetic-fraction, kn-steric-factor
 - ● **PC-22.2.C** (acs-accm-pchem:VII.D.4, acs-accm-pchem:VII.D.1) Calculate a rate constant from an activation Gibbs energy with the Eyring equation.
   - EK: k = (k_BT/h) e^(−ΔG‡/RT); k_BT/h ≈ 6.2 × 10¹² s⁻¹ at 298 K.
-  - P3 · drills: sm-rate-eyring, td-eyring-half-life
+  - P3 · drills: td-eyring-half-life, sm-rate-eyring
 - ● **PC-22.2.D** (acs-accm-pchem:VII.E.1, acs-accm-pchem:VII.E.2, acs-accm-pchem:V.F.4, acs-accm-pchem:V.G.1, acs-accm-pchem:VII.F.1, acs-accm-pchem:VI.B.1, acs-accm-pchem:VI.C.1, acs-accm-pchem:V.B.1, acs-accm-pchem:V.B.2, acs-accm-pchem:V.B.3, acs-accm-pchem:V.D.1, acs-accm-pchem:X.D.2, acs-accm-pchem:V.F.3, acs-accm-general:VII.F.1, acs-accm-organic:V.E.2, acs-accm-organic:VII.F.1, acs-accm-inorganic:VII.F.1) Quantify how a catalyst or a higher temperature speeds a reaction, and tell kinetic from thermodynamic control.
   - EK: Lowering Eₐ by ΔEₐ multiplies k by exp(ΔEₐ/RT); a catalyst leaves K and the products unchanged; the fraction of collisions above Eₐ goes as exp(−Eₐ/RT).
   - P1 · drills: pc-catalyst-speedup, pc-control
@@ -789,28 +789,28 @@ Book: engel-reid-3e §35:reversible, §35:parallel, §35:sequential, §34:steady
 
 - ● **PC-22.3.A** (acs-accm-pchem:VIII.B.1, acs-accm-pchem:VII.A.2) Calculate concentrations as a reversible first-order reaction approaches equilibrium.
   - EK: [A](t) = [A]_eq + ([A]₀ − [A]_eq)e^(−(k₁ + k₋₁)t); K = k₁/k₋₁.
-  - P2 · P5 · drills: kn-reversible-first-order, pc-reversible-halfway
+  - P2 · P5 · drills: pc-reversible-halfway, kn-reversible-first-order
 - ● **PC-22.3.B** (acs-accm-pchem:VII.C.1) Calculate the product ratio and overall decay of parallel first-order reactions.
   - EK: [A] = [A]₀e^(−(k₁ + k₂)t); [B]/[C] = k₁/k₂ at all times.
-  - P3 · drills: pc-parallel, pc-parallel-time
+  - P3 · drills: pc-parallel-time, pc-parallel
 - ● **PC-22.3.C** (acs-accm-pchem:VII.C.5) Calculate the concentration and time of the maximum of an intermediate in A → B → C.
   - EK: [B] = k₁[A]₀/(k₂ − k₁) (e^(−k₁t) − e^(−k₂t)); t_max = ln(k₁/k₂)/(k₁ − k₂).
   - P2 · P5 · drills: pc-intermediate-max-time, ~kn-intermediate-maximum
 - ● **PC-22.3.D** (acs-accm-pchem:VII.C.3, acs-accm-pchem:VII.C.5, acs-accm-inorganic:VII.C.2) Apply the steady-state approximation to derive a rate law.
   - EK: Set d[I]/dt ≈ 0 for a reactive intermediate and solve for [I].
-  - P2 · P5 · drills: kn-steady-state-rate, pc-steady-state-keff
+  - P2 · P5 · drills: pc-steady-state-keff, kn-steady-state-rate
 - ● **PC-22.3.E** (acs-accm-pchem:VII.C.3, acs-accm-pchem:VII.C.4) Apply the pre-equilibrium approximation to a mechanism with a fast first step.
   - EK: The fast step stays at equilibrium: [I] = K[A][B], so rate = k₂K[A][B].
-  - P2 · P5 · drills: kn-pre-equilibrium, pc-pre-equilibrium-ea
+  - P2 · P5 · drills: pc-pre-equilibrium-ea, kn-pre-equilibrium
 - ● **PC-22.3.F** (acs-accm-pchem:VII.C.2, acs-accm-pchem:VII.C.3) Use the Lindemann mechanism to explain the pressure dependence of a unimolecular rate.
   - EK: rate = k_a k_b[A]²/(k₋ₐ[A] + k_b): first order at high pressure, second order at low.
-  - P2 · P5 · drills: kn-lindemann, pc-lindemann-half
-- ● **PC-22.3.G** (acs-accm-pchem:VII.E.3, acs-accm-pchem:VII.C.8) Calculate an enzyme rate from the Michaelis–Menten equation, and V_max and K_M from data.
+  - P2 · P5 · drills: pc-lindemann-half, kn-lindemann
+- ● **PC-22.3.G** (acs-accm-pchem:VII.E.3, acs-accm-pchem:VII.C.8, acs-accm-analytical:X.A.2) Calculate an enzyme rate from the Michaelis–Menten equation, and V_max and K_M from data.
   - EK: v = V_max[S]/(K_M + [S]); v = V_max/2 when [S] = K_M.
-  - P3 · drills: pc-michaelis, pc-substrate-for-fraction
+  - P3 · drills: pc-substrate-for-fraction, pc-michaelis
 - ● **PC-22.3.H** (acs-accm-pchem:VII.C.3, acs-accm-pchem:VII.C.7) Calculate a steady-state radical concentration and a kinetic chain length.
   - EK: [R·]_ss = √(R_i/k_t); chain length = propagation rate / initiation rate.
-  - P2 · P5 · drills: kn-chain-length, pc-initiation-from-chain
+  - P2 · P5 · drills: pc-initiation-from-chain, kn-chain-length
 - ● **PC-22.3.I** (acs-accm-pchem:VIII.G.2, acs-accm-pchem:III.H.1, acs-accm-inorganic:V.D.5, acs-accm-inorganic:VII.E.2) Use the Langmuir isotherm to find surface coverage, or the pressure for a target coverage.
   - EK: θ = KP/(1 + KP); half coverage at P = 1/K; heterogeneous rates follow the coverage of the adsorbed reactant.
   - P1 · drills: pc-langmuir, pc-langmuir-pressure

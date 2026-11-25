@@ -64,7 +64,7 @@ Big ideas: EXPONENTIAL
   - P1 · drills: nu-inverse-square, nu-distance-for-rate
 - ● **NU-2.1.B** (doe-hdbk-1019:1) Compute gamma attenuation from a linear attenuation coefficient or a half-value layer, and choose a shield for each kind of radiation.
   - EK: I = I₀e^(−μx); HVL = ln 2 / μ; paper for alpha, plastic for beta, dense for gamma, hydrogen for neutrons.
-  - P1 · P2 · drills: nu-half-value-layers, nu-attenuation-coefficient, nu-shielding-choice
+  - P1 · P2 · drills: nu-shielding-choice, nu-half-value-layers, nu-attenuation-coefficient
 
 ### 2.2 Dose
 
@@ -84,7 +84,7 @@ Big ideas: BALANCE, DELAYED
 
 - ● **NU-3.1.A** (doe-hdbk-1019:2) Compute a macroscopic cross section and a mean free path.
   - EK: Σ = Nσ; mean free path = 1/Σ.
-  - P1 · drills: nu-macroscopic-cross-section, nu-mean-free-path
+  - P1 · drills: nu-mean-free-path, nu-macroscopic-cross-section
 
 ### 3.2 Prompt, delayed and thermal neutrons
 
@@ -104,7 +104,7 @@ Big ideas: BALANCE, DELAYED
 
 - ● **NU-4.1.A** (nrc-gfe:192002) Compute k-effective from the six factors and classify the state of a core.
   - EK: k_eff = ε L_f p L_t f η; subcritical, critical, delayed supercritical, prompt critical.
-  - P1 · P2 · drills: nu-six-factor, nu-criticality-state
+  - P1 · P2 · drills: nu-criticality-state, nu-six-factor
 - ● **NU-4.1.B** (nrc-gfe:192002) Convert k-effective to reactivity.
   - EK: ρ = (k − 1)/k; 1 pcm = 10⁻⁵; one dollar is ρ = β.
   - P1 · drills: nu-reactivity-pcm, nu-k-from-rho
@@ -150,7 +150,7 @@ Big ideas: BALANCE
 
 - ● **NU-6.2.A** Relate thermal power to fuel consumed, and state the size of decay heat after shutdown.
   - EK: About 200 MeV per fission, so about 1 g of U-235 per megawatt-day; decay heat starts at 6–7% of full power.
-  - P1 · P3 · drills: nu-fuel-consumption, nu-decay-heat
+  - P1 · P3 · drills: nu-decay-heat, nu-fuel-consumption
 
 ## Unit 7 · Radioactivity in practice
 
@@ -163,15 +163,15 @@ Big ideas: EXPONENTIAL
 - ● **NU-7.1.A** (doe-hdbk-1019:1) Follow a nuclide through a sequence of alpha and beta decays and count the decays in a series.
   - EK: Alpha: Z − 2, A − 4. Beta-minus: Z + 1. Only alphas change A.
   - P1 · drills: ra-decay-chain, ra-count-alphas
-- ● **NU-7.1.B** (doe-hdbk-1019:1) Calculate an activity from a mass and a half-life, and convert between becquerels and curies.
+- ● **NU-7.1.B** (doe-hdbk-1019:1, acs-accm-analytical:I.F.1) Calculate an activity from a mass and a half-life, and convert between becquerels and curies.
   - EK: A = λN; 1 Ci = 3.7 × 10¹⁰ Bq.
-  - P1 · P3 · drills: ra-activity-from-mass, ra-becquerel-curie
+  - P1 · P3 · drills: ra-becquerel-curie, ra-activity-from-mass
 - ● **NU-7.1.C** (doe-hdbk-1019:1) Date a sample from its remaining activity and find an effective half-life in the body.
   - EK: t = T ln(1/f)/ln 2; removal rates add.
   - P1 · drills: ra-carbon-dating, ra-effective-half-life
 - ● **NU-7.1.D** (doe-hdbk-1019:1) Calculate a Q-value from a mass difference and describe secular equilibrium.
   - EK: 931.5 MeV per u; at equilibrium parent and daughter activities are equal.
-  - P1 · P2 · drills: ra-q-value, ra-secular-equilibrium
+  - P1 · P2 · drills: ra-secular-equilibrium, ra-q-value
 
 ## Drills not yet placed on the map
 

@@ -18,7 +18,8 @@
    "icho-appendix-c",
    "gre-chemistry",
    "acs-accm-general",
-   "acs-accm-organic"
+   "acs-accm-organic",
+   "acs-accm-analytical"
   ],
   "note": "Since Nov 2026 the primary basis is the ACS inorganic content map (read in full); every articulation is answered (scripts/accm_maps.py), unit 15 holding the principles the chapter units did not reach. Units follow the chapters of Cotton & Wilkinson 6e (table of contents read); the objectives are a house list on those chapters."
  },
@@ -119,8 +120,8 @@
         "IA-1.1.B"
        ],
        "drills": [
-        "cw-disproportionation",
-        "cw-disprop-cases"
+        "cw-disprop-cases",
+        "cw-disproportionation"
        ]
       }
      ]
@@ -382,8 +383,8 @@
         "P3"
        ],
        "drills": [
-        "cw-silicate-ratio",
-        "cw-group14-shape"
+        "cw-group14-shape",
+        "cw-silicate-ratio"
        ]
       }
      ]
@@ -545,8 +546,8 @@
         "P3"
        ],
        "drills": [
-        "cw-halogen-ox",
-        "cw-oxoacid-strength"
+        "cw-oxoacid-strength",
+        "cw-halogen-ox"
        ]
       },
       {
@@ -1180,9 +1181,9 @@
         "IA-14.1.A"
        ],
        "drills": [
-        "cw-oxidative-addition",
         "cw-reaction-step",
-        "cw-beta-hydride"
+        "cw-beta-hydride",
+        "cw-oxidative-addition"
        ]
       }
      ]
@@ -1549,7 +1550,8 @@
        "std": [
         "acs-accm-inorganic:VIII.F.3",
         "acs-accm-inorganic:VIII.D.1",
-        "acs-accm-inorganic:VIII.C.1"
+        "acs-accm-inorganic:VIII.C.1",
+        "acs-accm-analytical:VIII.D.6"
        ],
        "do": "Combine stepwise formation constants and find the fraction of each complex at a given ligand concentration.",
        "ek": [
@@ -1665,7 +1667,8 @@
       {
        "id": "C",
        "std": [
-        "acs-accm-inorganic:IX.D.3"
+        "acs-accm-inorganic:IX.D.3",
+        "acs-accm-analytical:I.A.3"
        ],
        "do": "Predict multiplets in multinuclear NMR from spin I and the number of equivalent coupled nuclei.",
        "ek": [
@@ -1685,7 +1688,10 @@
         "acs-accm-inorganic:VIII.G.4",
         "acs-accm-inorganic:IX.A.1",
         "acs-accm-inorganic:IX.A.4",
-        "acs-accm-inorganic:V.C.1"
+        "acs-accm-inorganic:V.C.1",
+        "acs-accm-analytical:I.G.2",
+        "acs-accm-analytical:III.H.2",
+        "acs-accm-analytical:IX.D.3"
        ],
        "do": "Use an ion-selective electrode's Nernstian response, and choose a microscopy or luminescence technique.",
        "ek": [
@@ -1759,8 +1765,8 @@
    "topic": 1,
    "status": "ok",
    "full": [
-    "cw-disproportionation",
-    "cw-disprop-cases"
+    "cw-disprop-cases",
+    "cw-disproportionation"
    ],
    "partial": []
   },
@@ -1880,8 +1886,8 @@
    "topic": 1,
    "status": "ok",
    "full": [
-    "cw-silicate-ratio",
-    "cw-group14-shape"
+    "cw-group14-shape",
+    "cw-silicate-ratio"
    ],
    "partial": []
   },
@@ -1957,8 +1963,8 @@
    "topic": 1,
    "status": "ok",
    "full": [
-    "cw-halogen-ox",
-    "cw-oxoacid-strength"
+    "cw-oxoacid-strength",
+    "cw-halogen-ox"
    ],
    "partial": []
   },
@@ -2320,9 +2326,9 @@
    "topic": 1,
    "status": "ok",
    "full": [
-    "cw-oxidative-addition",
     "cw-reaction-step",
-    "cw-beta-hydride"
+    "cw-beta-hydride",
+    "cw-oxidative-addition"
    ],
    "partial": []
   },

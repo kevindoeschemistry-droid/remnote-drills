@@ -28,7 +28,7 @@ domains: [nuc]
 
 basis:
   primary: nrc-gfe
-  also: [doe-hdbk-1019, ngss-hs, ib-physics-2025, icho-appendix-c, aamc-mcat-outline, gre-physics]
+  also: [doe-hdbk-1019, ngss-hs, ib-physics-2025, icho-appendix-c, aamc-mcat-outline, gre-physics, acs-accm-analytical]
   note: "Reactor-theory units follow the NRC Generic Fundamentals Examination topic list (read in part). Nuclear physics and shielding follow the DOE fundamentals handbook's first module (read in part). Health-physics standards for the radiation-protection unit have not been looked at."
 
 big_ideas:
@@ -81,7 +81,7 @@ units:
         title: "Distance and shielding"
         los:
           - { id: A, std: ["doe-hdbk-1019:1"], do: "Apply the inverse-square law to a point source.", ek: ["Dose rate × r² is constant."], p: [P1], drills: [nu-inverse-square, nu-distance-for-rate] }
-          - { id: B, std: ["doe-hdbk-1019:1"], do: "Compute gamma attenuation from a linear attenuation coefficient or a half-value layer, and choose a shield for each kind of radiation.", ek: ["I = I₀e^(−μx); HVL = ln 2 / μ; paper for alpha, plastic for beta, dense for gamma, hydrogen for neutrons."], p: [P1, P2], drills: [nu-half-value-layers, nu-attenuation-coefficient, nu-shielding-choice] }
+          - { id: B, std: ["doe-hdbk-1019:1"], do: "Compute gamma attenuation from a linear attenuation coefficient or a half-value layer, and choose a shield for each kind of radiation.", ek: ["I = I₀e^(−μx); HVL = ln 2 / μ; paper for alpha, plastic for beta, dense for gamma, hydrogen for neutrons."], p: [P1, P2], drills: [nu-shielding-choice, nu-half-value-layers, nu-attenuation-coefficient] }
       - n: 2
         title: "Dose"
         los:
@@ -96,7 +96,7 @@ units:
       - n: 1
         title: "Cross sections"
         los:
-          - { id: A, std: ["doe-hdbk-1019:2"], do: "Compute a macroscopic cross section and a mean free path.", ek: ["Σ = Nσ; mean free path = 1/Σ."], p: [P1], drills: [nu-macroscopic-cross-section, nu-mean-free-path] }
+          - { id: A, std: ["doe-hdbk-1019:2"], do: "Compute a macroscopic cross section and a mean free path.", ek: ["Σ = Nσ; mean free path = 1/Σ."], p: [P1], drills: [nu-mean-free-path, nu-macroscopic-cross-section] }
       - n: 2
         title: "Prompt, delayed and thermal neutrons"
         los:
@@ -111,7 +111,7 @@ units:
       - n: 1
         title: "k-effective"
         los:
-          - { id: A, std: ["nrc-gfe:192002"], do: "Compute k-effective from the six factors and classify the state of a core.", ek: ["k_eff = ε L_f p L_t f η; subcritical, critical, delayed supercritical, prompt critical."], p: [P1, P2], drills: [nu-six-factor, nu-criticality-state] }
+          - { id: A, std: ["nrc-gfe:192002"], do: "Compute k-effective from the six factors and classify the state of a core.", ek: ["k_eff = ε L_f p L_t f η; subcritical, critical, delayed supercritical, prompt critical."], p: [P1, P2], drills: [nu-criticality-state, nu-six-factor] }
           - { id: B, std: ["nrc-gfe:192002"], do: "Convert k-effective to reactivity.", ek: ["ρ = (k − 1)/k; 1 pcm = 10⁻⁵; one dollar is ρ = β."], p: [P1], drills: [nu-reactivity-pcm, nu-k-from-rho] }
       - n: 2
         title: "Subcritical multiplication"
@@ -143,7 +143,7 @@ units:
       - n: 2
         title: "Energy"
         los:
-          - { id: A, do: "Relate thermal power to fuel consumed, and state the size of decay heat after shutdown.", ek: ["About 200 MeV per fission, so about 1 g of U-235 per megawatt-day; decay heat starts at 6–7% of full power."], p: [P1, P3], drills: [nu-fuel-consumption, nu-decay-heat] }
+          - { id: A, do: "Relate thermal power to fuel consumed, and state the size of decay heat after shutdown.", ek: ["About 200 MeV per fission, so about 1 g of U-235 per megawatt-day; decay heat starts at 6–7% of full power."], p: [P1, P3], drills: [nu-decay-heat, nu-fuel-consumption] }
   - id: radioactivity
     n: 7
     title: "Radioactivity in practice"
@@ -155,6 +155,6 @@ units:
         title: "Chains, activity and dating"
         los:
           - { id: A, std: ["doe-hdbk-1019:1"], do: "Follow a nuclide through a sequence of alpha and beta decays and count the decays in a series.", ek: ["Alpha: Z − 2, A − 4. Beta-minus: Z + 1. Only alphas change A."], p: [P1], drills: [ra-decay-chain, ra-count-alphas] }
-          - { id: B, std: ["doe-hdbk-1019:1"], do: "Calculate an activity from a mass and a half-life, and convert between becquerels and curies.", ek: ["A = λN; 1 Ci = 3.7 × 10¹⁰ Bq."], p: [P1, P3], drills: [ra-activity-from-mass, ra-becquerel-curie] }
+          - { id: B, std: ["doe-hdbk-1019:1", "acs-accm-analytical:I.F.1"], do: "Calculate an activity from a mass and a half-life, and convert between becquerels and curies.", ek: ["A = λN; 1 Ci = 3.7 × 10¹⁰ Bq."], p: [P1, P3], drills: [ra-becquerel-curie, ra-activity-from-mass] }
           - { id: C, std: ["doe-hdbk-1019:1"], do: "Date a sample from its remaining activity and find an effective half-life in the body.", ek: ["t = T ln(1/f)/ln 2; removal rates add."], p: [P1], drills: [ra-carbon-dating, ra-effective-half-life] }
-          - { id: D, std: ["doe-hdbk-1019:1"], do: "Calculate a Q-value from a mass difference and describe secular equilibrium.", ek: ["931.5 MeV per u; at equilibrium parent and daughter activities are equal."], p: [P1, P2], drills: [ra-q-value, ra-secular-equilibrium] }
+          - { id: D, std: ["doe-hdbk-1019:1"], do: "Calculate a Q-value from a mass difference and describe secular equilibrium.", ek: ["931.5 MeV per u; at equilibrium parent and daughter activities are equal."], p: [P1, P2], drills: [ra-secular-equilibrium, ra-q-value] }
