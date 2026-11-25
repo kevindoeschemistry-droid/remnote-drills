@@ -31,7 +31,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 | Information Systems | MSIS 2016 Global Competency Model | standard | read in full | — | — | 53 | 0 | 53 |
 | Advanced Inorganic Chemistry (Cotton & Wilkinson) | Cotton, Wilkinson, Murillo & Bochmann, Advanced Inorganic Chemistry, 6th ed. (1999): table of contents | textbook | read in part | icho-appendix-c, gre-chemistry | — | 55 | 0 | 55 |
 | Inorganic Chemistry | Regulations of the International Chemistry Olympiad, Appendices C and D (concepts, skills and factual knowledge) | exam-spec | read in full | icho-syllabus, gre-chemistry, usnco, ib-chemistry-2025 | — | 23 | 23 | 0 |
-| Linear Algebra | MAA CUPM Curriculum Guide 2015, Linear Algebra course report: core topics of a first course | standard | read in part | lay-5e, webwork-opl, lacsg-2 | — | 57 | 57 | 0 |
+| Linear Algebra | MAA CUPM Linear Algebra Course Area Report (August 17, 2023) | standard | read in full | cupm-2015-la, lay-5e, webwork-opl, lacsg-2 | — | 60 | 60 | 0 |
 | Mass Transfer | NCEES PE Chemical CBT Exam Specifications (effective January 2020) | exam-spec | read in full | — | — | 21 | 21 | 0 |
 | Material and Energy Balances | NCEES FE Chemical CBT Exam Specifications (effective July 2020) | exam-spec | read in full | pe-chemical, webwork-opl | — | 18 | 18 | 0 |
 | Polymers and Materials | Regulations of the International Chemistry Olympiad, Appendices C and D (concepts, skills and factual knowledge) | exam-spec | read in full | ib-chemistry-2025, fe-chemical, icho-syllabus | — | 17 | 6 | 11 |
@@ -81,7 +81,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 - **INBDE (Dentistry)**: Units are the Domain of Dentistry's three clinical sections plus Foundation Knowledge area 3 (materials); objectives cite the clinical content area or FK they serve and are ours.
 - **Advanced Inorganic Chemistry (Cotton & Wilkinson)**: Units follow the chapters of Cotton & Wilkinson 6e (table of contents read); the objectives are a house list on those chapters.
 - **Inorganic Chemistry**: Units 1, 2 and 4 follow IChO Appendix D's factual-knowledge list (read in full); coordination and solids follow its preparation-only topics and the GRE inorganic area. Objectives and their order are ours.
-- **Linear Algebra**: Units cover the six core-topic groups of the 2015 CUPM guide's first course in linear algebra (read through a summary, not the report's own pages), ordered by Lay's chapters. Unit 7 is second-course material by the guide's split. LACSG 2.0 (read through the 2022 AMS Notices survey) is cited where it adds emphasis: linear maps, compositions and inverses, diagonalization and the SVD in a first course; factorizations, inner products, the spectral theorem, pseudo-inverses, operators and Jordan form in a second.
+- **Linear Algebra**: Anchored on the MAA CUPM 2023 linear algebra course report (read in full): every essential and optional core topic is cited by objectives here. Units keep Lay's order; determinants and LU, which the 2023 list leaves out, rest on Lay and the 2015 guide.
 - **Mass Transfer**: PE Chemical names mass transfer as one area with two lines (6.A fundamentals, 6.B applications). No published standard lists graduate mass transfer; the objectives are a house list on Bird, Stewart & Lightfoot's mass-transport chapters.
 - **Material and Energy Balances**: Topics from FE Chemical area 8, read in full. Objectives and their order are ours and follow the usual textbook sequence; unit 1 is assumed by the spec rather than listed.
 - **Polymers and Materials**: Polymer topics from IChO Appendix C (c22, a5), IB S2.4 and FE Chemical 4.D; a house list on those items.
@@ -124,7 +124,6 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 - **Applied Engineering Mathematics**: textbook, read in full
 - **Graduate Chemical Engineering Core**: course, read in part
 - **Advanced Inorganic Chemistry (Cotton & Wilkinson)**: textbook, read in part
-- **Linear Algebra**: standard, read in part
 - **Mathematics K–8 (Common Core)**: standard, read through a crosswalk
 - **Molecular Simulation**: course, read in part
 - **NCLEX-RN**: exam-spec, read in part
@@ -2093,6 +2092,30 @@ https://github.com/openwebwork/webwork-open-problem-library/blob/main/OpenProble
 
 **Areas with nothing answering to them:** none.
 
+## MAA CUPM Linear Algebra Course Area Report (August 17, 2023)
+
+https://www.maa.org/sites/default/files/Linear%20Algebra%20-%20Course%20Area%20Report%20%28Aug%2017%202023%29.pdf
+
+15 of 15 items have at least one objective answering to them.
+
+| Item | Topic | Objectives | With a drill | Where |
+|---|---|---|---|---|
+| E1 | Solving linear systems by Gaussian elimination | 4 | 4 | linear-algebra (4) |
+| E2 | Linear independence | 3 | 3 | linear-algebra (3) |
+| E3 | Span of a set of vectors | 3 | 3 | linear-algebra (3) |
+| E4 | Matrix algebra: addition, multiplication, inversion | 7 | 7 | linear-algebra (7) |
+| E5 | Rⁿ as a vector space: column, row and null spaces | 6 | 6 | linear-algebra (6) |
+| E6 | Linear transformations | 7 | 7 | linear-algebra (7) |
+| E7 | Abstract vector spaces | 7 | 7 | linear-algebra (7) |
+| E8 | Eigenvalues and eigenvectors | 6 | 6 | linear-algebra (6) |
+| E9 | Basis, dimension, change of basis; diagonalisation | 9 | 9 | linear-algebra (9) |
+| E10 | Dot product and orthogonality | 4 | 4 | linear-algebra (4) |
+| E11 | Least squares | 3 | 3 | linear-algebra (3) |
+| O1 | Optional: abstract inner products and orthogonality | 1 | 1 | linear-algebra (1) |
+| O2 | Optional: Gram–Schmidt orthogonalisation | 2 | 2 | linear-algebra (2) |
+| O3 | Optional: the singular value decomposition | 4 | 4 | linear-algebra (4) |
+| O4 | Optional: symmetric matrices and orthogonal diagonalisation | 4 | 4 | linear-algebra (4) |
+
 ## MAA CUPM Curriculum Guide 2015, Linear Algebra course report: core topics of a first course
 
 https://www.amstat.org/docs/default-source/amstat-documents/cupmguide_print.pdf
@@ -2101,12 +2124,12 @@ https://www.amstat.org/docs/default-source/amstat-documents/cupmguide_print.pdf
 
 | Item | Topic | Objectives | With a drill | Where |
 |---|---|---|---|---|
-| 1 | Matrices and linear systems (operations, echelon form, inverses, LU) | 23 | 23 | linear-algebra (23) |
+| 1 | Matrices and linear systems (operations, echelon form, inverses, LU) | 25 | 25 | linear-algebra (25) |
 | 2 | Determinants (properties, geometric meaning) | 7 | 7 | linear-algebra (7) |
 | 3 | Vector spaces (subspaces, independence, basis, dimension, rank-nullity) | 7 | 7 | linear-algebra (7) |
 | 4 | Linear transformations (matrix representation, change of basis, kernel and range) | 13 | 13 | linear-algebra (13) |
 | 5 | Eigenvalues and eigenvectors (computation, diagonalization) | 8 | 8 | linear-algebra (8) |
-| 6 | Inner products (norms, orthogonality, orthogonal bases, Gram-Schmidt) | 8 | 8 | linear-algebra (8) |
+| 6 | Inner products (norms, orthogonality, orthogonal bases, Gram-Schmidt) | 9 | 9 | linear-algebra (9) |
 | second | Second course: spectral theorem, SVD, quadratic and bilinear forms | 11 | 11 | linear-algebra (11) |
 
 ## Linear Algebra Curriculum Study Group 2.0 recommendations (Stewart, Axler, Beezer et al.)
@@ -2137,12 +2160,12 @@ https://www.ams.org/notices/202205/rnoti-p806.pdf
 
 | Item | Topic | Objectives | With a drill | Where |
 |---|---|---|---|---|
-| 1 | Linear Equations in Linear Algebra | 18 | 18 | linear-algebra (18) |
+| 1 | Linear Equations in Linear Algebra | 20 | 20 | linear-algebra (20) |
 | 2 | Matrix Algebra | 14 | 14 | linear-algebra (14) |
 | 3 | Determinants | 8 | 8 | linear-algebra (8) |
 | 4 | Vector Spaces | 18 | 18 | linear-algebra (18) |
 | 5 | Eigenvalues and Eigenvectors | 10 | 10 | linear-algebra (10) |
-| 6 | Orthogonality and Least Squares | 10 | 10 | linear-algebra (10) |
+| 6 | Orthogonality and Least Squares | 11 | 11 | linear-algebra (11) |
 | 7 | Symmetric Matrices and Quadratic Forms | 12 | 12 | linear-algebra (12) |
 
 ## AQA AS and A-level Physics (7407/7408), section 3.2 Particles and radiation

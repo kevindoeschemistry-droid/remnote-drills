@@ -77,8 +77,12 @@ UNITS = [U(9, "abstract", "Abstract vector spaces and special matrices", [
 ])]
 
 # LACSG 2.0 citations (read through the AMS Notices survey, 2022): objective id within each topic -> items
-_LACSG = {("Abstract vector spaces", "A"): ["lacsg-2:S1"], ("Abstract vector spaces", "F"): ["lacsg-2:S3"],
-          ("Special matrices and applications", "D"): ["lacsg-2:S7"], ("Special matrices and applications", "F"): ["lacsg-2:F2"]}
+_LACSG = {("Abstract vector spaces", "A"): ["lacsg-2:S1", "cupm-2023-la:E7"], ("Abstract vector spaces", "B"): ["cupm-2023-la:E7"],
+          ("Abstract vector spaces", "C"): ["cupm-2023-la:E7", "cupm-2023-la:E3"], ("Abstract vector spaces", "D"): ["cupm-2023-la:E7", "cupm-2023-la:E2"],
+          ("Abstract vector spaces", "E"): ["cupm-2023-la:E7", "cupm-2023-la:E9"], ("Abstract vector spaces", "F"): ["lacsg-2:S3", "cupm-2023-la:O1"],
+          ("Special matrices and applications", "A"): ["cupm-2023-la:E5"], ("Special matrices and applications", "B"): ["cupm-2023-la:E4"],
+          ("Special matrices and applications", "D"): ["lacsg-2:S7"], ("Special matrices and applications", "E"): ["cupm-2023-la:O4"],
+          ("Special matrices and applications", "F"): ["lacsg-2:F2", "cupm-2023-la:E6"]}
 for _u in UNITS:
     for _t, _los in _u.topics:
         for _lo in _los:

@@ -12,13 +12,14 @@
   "la"
  ],
  "basis": {
-  "primary": "cupm-2015-la",
+  "primary": "cupm-2023-la",
   "also": [
+   "cupm-2015-la",
    "lay-5e",
    "webwork-opl",
    "lacsg-2"
   ],
-  "note": "Units cover the six core-topic groups of the 2015 CUPM guide's first course in linear algebra (read through a summary, not the report's own pages), ordered by Lay's chapters. Unit 7 is second-course material by the guide's split. LACSG 2.0 (read through the 2022 AMS Notices survey) is cited where it adds emphasis: linear maps, compositions and inverses, diagonalization and the SVD in a first course; factorizations, inner products, the spectral theorem, pseudo-inverses, operators and Jordan form in a second."
+  "note": "Anchored on the MAA CUPM 2023 linear algebra course report (read in full): every essential and optional core topic is cited by objectives here. Units keep Lay's order; determinants and LU, which the 2023 list leaves out, rest on Lay and the 2015 guide."
  },
  "big_ideas": [
   {
@@ -58,7 +59,8 @@
         "lay-5e:1",
         "webwork-opl:LA1.1",
         "webwork-opl:LA1.2",
-        "webwork-opl:LA2.2"
+        "webwork-opl:LA2.2",
+        "cupm-2023-la:E1"
        ],
        "do": "Solve a linear system by row reduction.",
        "ek": [
@@ -76,7 +78,8 @@
        "id": "B",
        "std": [
         "lay-5e:1",
-        "webwork-opl:LA4.4"
+        "webwork-opl:LA4.4",
+        "cupm-2023-la:E2"
        ],
        "do": "Decide whether a set of vectors is linearly independent.",
        "ek": [
@@ -95,7 +98,8 @@
        "std": [
         "cupm-2015-la:1",
         "webwork-opl:LA1.6",
-        "webwork-opl:LA2.3"
+        "webwork-opl:LA2.3",
+        "cupm-2023-la:E1"
        ],
        "do": "Read the number of solutions off an echelon form.",
        "ek": [
@@ -113,7 +117,8 @@
        "id": "D",
        "std": [
         "cupm-2015-la:1",
-        "webwork-opl:LA1.3"
+        "webwork-opl:LA1.3",
+        "cupm-2023-la:E1"
        ],
        "do": "Count the free variables of a consistent system.",
        "ek": [
@@ -125,6 +130,24 @@
        "drills": [
         "la-free-variables",
         "la-min-free-vars"
+       ]
+      },
+      {
+       "id": "E",
+       "std": [
+        "cupm-2023-la:E2",
+        "cupm-2023-la:E9"
+       ],
+       "do": "Decide independence by counting: rank, the number of vectors and the dimension of the space.",
+       "ek": [
+        "More than n vectors in Rⁿ are always dependent; n vectors in Rⁿ are independent exactly when the matrix they form has nonzero determinant (rank n)."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "la-indep-det",
+        "la-indep-count"
        ]
       }
      ]
@@ -140,7 +163,8 @@
         "lay-5e:1",
         "webwork-opl:LA1.5",
         "webwork-opl:LA4.2",
-        "webwork-opl:LA4.3"
+        "webwork-opl:LA4.3",
+        "cupm-2023-la:E3"
        ],
        "do": "Decide whether a vector is in the span of others.",
        "ek": [
@@ -158,7 +182,9 @@
        "id": "B",
        "std": [
         "cupm-2015-la:1",
-        "lay-5e:1"
+        "lay-5e:1",
+        "cupm-2023-la:E5",
+        "cupm-2023-la:E1"
        ],
        "do": "Describe the solution set of Ax = b as a shifted null space.",
        "ek": [
@@ -170,6 +196,24 @@
        "drills": [
         "la-solution-set-shape",
         "la-solution-set-dim"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "cupm-2023-la:E3",
+        "cupm-2023-la:E5"
+       ],
+       "do": "Describe a span geometrically and find its dimension.",
+       "ek": [
+        "The span of vectors in R³ is a point, a line, a plane or all of R³, as its dimension (the rank) is 0, 1, 2 or 3."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "la-span-dim",
+        "la-span-shape"
        ]
       }
      ]
@@ -197,7 +241,8 @@
        "id": "A",
        "std": [
         "lay-5e:2",
-        "webwork-opl:LA2.6"
+        "webwork-opl:LA2.6",
+        "cupm-2023-la:E4"
        ],
        "do": "Find the inverse of a 2 × 2 matrix.",
        "ek": [
@@ -215,7 +260,8 @@
        "id": "B",
        "std": [
         "cupm-2015-la:1",
-        "webwork-opl:LA1.4"
+        "webwork-opl:LA1.4",
+        "cupm-2023-la:E4"
        ],
        "do": "Solve Ax = b with a known inverse.",
        "ek": [
@@ -234,7 +280,8 @@
        "std": [
         "cupm-2015-la:1",
         "lay-5e:2",
-        "webwork-opl:LA2.6"
+        "webwork-opl:LA2.6",
+        "cupm-2023-la:E4"
        ],
        "do": "Use the invertible matrix theorem.",
        "ek": [
@@ -259,7 +306,8 @@
        "std": [
         "cupm-2015-la:1",
         "lay-5e:2",
-        "webwork-opl:LA2.1"
+        "webwork-opl:LA2.1",
+        "cupm-2023-la:E4"
        ],
        "do": "Compute one entry of a product without computing the rest.",
        "ek": [
@@ -279,7 +327,8 @@
         "cupm-2015-la:1",
         "lay-5e:2",
         "webwork-opl:LA2.1",
-        "webwork-opl:LA2.5"
+        "webwork-opl:LA2.5",
+        "cupm-2023-la:E4"
        ],
        "do": "Track sizes through products and transposes.",
        "ek": [
@@ -468,7 +517,9 @@
        "std": [
         "lay-5e:4",
         "webwork-opl:LA2.4",
-        "webwork-opl:LA4.7"
+        "webwork-opl:LA4.7",
+        "cupm-2023-la:E5",
+        "cupm-2023-la:E9"
        ],
        "do": "Find the rank of a matrix and use the rank theorem.",
        "ek": [
@@ -494,7 +545,8 @@
        "std": [
         "cupm-2015-la:3",
         "lay-5e:4",
-        "webwork-opl:LA4.5"
+        "webwork-opl:LA4.5",
+        "cupm-2023-la:E5"
        ],
        "do": "Decide whether a set is a subspace.",
        "ek": [
@@ -513,7 +565,9 @@
        "std": [
         "cupm-2015-la:3",
         "lay-5e:4",
-        "webwork-opl:LA4.6"
+        "webwork-opl:LA4.6",
+        "cupm-2023-la:E9",
+        "cupm-2023-la:E5"
        ],
        "do": "Find the dimension of a span.",
        "ek": [
@@ -538,7 +592,8 @@
        "std": [
         "cupm-2015-la:4",
         "lay-5e:4",
-        "webwork-opl:LA4.8"
+        "webwork-opl:LA4.8",
+        "cupm-2023-la:E9"
        ],
        "do": "Find the coordinates of a vector in a basis.",
        "ek": [
@@ -557,7 +612,8 @@
        "std": [
         "cupm-2015-la:4",
         "lay-5e:4",
-        "webwork-opl:LA4.8"
+        "webwork-opl:LA4.8",
+        "cupm-2023-la:E9"
        ],
        "do": "Convert coordinates back to the standard basis.",
        "ek": [
@@ -596,7 +652,8 @@
        "id": "A",
        "std": [
         "lay-5e:5",
-        "webwork-opl:LA7.1"
+        "webwork-opl:LA7.1",
+        "cupm-2023-la:E8"
        ],
        "do": "Find the eigenvalues and eigenvectors of a 2 × 2 matrix.",
        "ek": [
@@ -618,7 +675,9 @@
         "lacsg-2:F3",
         "lay-5e:5",
         "webwork-opl:LA3.1",
-        "webwork-opl:LA7.2"
+        "webwork-opl:LA7.2",
+        "cupm-2023-la:E8",
+        "cupm-2023-la:E9"
        ],
        "do": "Decide whether a matrix is diagonalisable and use the diagonal form.",
        "ek": [
@@ -644,7 +703,9 @@
        "std": [
         "cupm-2015-la:5",
         "lay-5e:5",
-        "webwork-opl:LA7.5"
+        "webwork-opl:LA7.5",
+        "cupm-2023-la:E8",
+        "cupm-2023-la:E9"
        ],
        "do": "Compute Aᵏx by expanding x in eigenvectors.",
        "ek": [
@@ -664,7 +725,8 @@
         "cupm-2015-la:5",
         "lay-5e:5",
         "webwork-opl:LA2.9",
-        "webwork-opl:PB7.1"
+        "webwork-opl:PB7.1",
+        "cupm-2023-la:E8"
        ],
        "do": "Find the steady state of a Markov chain.",
        "ek": [
@@ -683,7 +745,8 @@
        "std": [
         "cupm-2015-la:5",
         "lay-5e:5",
-        "webwork-opl:LA7.3"
+        "webwork-opl:LA7.3",
+        "cupm-2023-la:E8"
        ],
        "do": "Read a complex eigenvalue as a rotation and a scaling.",
        "ek": [
@@ -725,7 +788,9 @@
         "webwork-opl:LA8.1",
         "webwork-opl:LA8.3",
         "webwork-opl:LA8.4",
-        "webwork-opl:LA8.5"
+        "webwork-opl:LA8.5",
+        "cupm-2023-la:E10",
+        "cupm-2023-la:O2"
        ],
        "do": "Test orthogonality, project one vector on another and take a Gram–Schmidt step.",
        "ek": [
@@ -745,7 +810,8 @@
        "std": [
         "lay-5e:6",
         "webwork-opl:LA8.4",
-        "webwork-opl:LA8.7"
+        "webwork-opl:LA8.7",
+        "cupm-2023-la:E11"
        ],
        "do": "Set up and solve a least-squares problem.",
        "ek": [
@@ -757,6 +823,24 @@
        "drills": [
         "la-least-squares-slope",
         "la-least-squares-facts"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "cupm-2023-la:E11",
+        "cupm-2023-la:E10"
+       ],
+       "do": "Fit a least-squares line with the normal equations and read its residuals.",
+       "ek": [
+        "Solve AᵀA c = Aᵀy for c = (b, m); the residual vector is orthogonal to every column of A, so its entries sum to zero when an intercept is fitted."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "la-lsq-slope",
+        "la-lsq-residual-sum"
        ]
       }
      ]
@@ -771,7 +855,8 @@
         "cupm-2015-la:6",
         "lay-5e:6",
         "webwork-opl:LA4.1",
-        "webwork-opl:LA8.4"
+        "webwork-opl:LA8.4",
+        "cupm-2023-la:E10"
        ],
        "do": "Find lengths and distances.",
        "ek": [
@@ -790,7 +875,8 @@
        "std": [
         "cupm-2015-la:6",
         "lay-5e:6",
-        "webwork-opl:LA8.4"
+        "webwork-opl:LA8.4",
+        "cupm-2023-la:E10"
        ],
        "do": "Find vectors in an orthogonal complement.",
        "ek": [
@@ -810,7 +896,8 @@
         "lacsg-2:S2",
         "cupm-2015-la:6",
         "lay-5e:6",
-        "webwork-opl:LA3.3"
+        "webwork-opl:LA3.3",
+        "cupm-2023-la:O2"
        ],
        "do": "Find an entry of the QR factorisation.",
        "ek": [
@@ -850,7 +937,8 @@
        "std": [
         "lacsg-2:F4",
         "lay-5e:7",
-        "webwork-opl:LA3.4"
+        "webwork-opl:LA3.4",
+        "cupm-2023-la:O3"
        ],
        "do": "Find a singular value of a small matrix.",
        "ek": [
@@ -870,7 +958,8 @@
         "lacsg-2:S4",
         "cupm-2015-la:second",
         "lay-5e:7",
-        "webwork-opl:LA7.2"
+        "webwork-opl:LA7.2",
+        "cupm-2023-la:O4"
        ],
        "do": "Use orthogonality of a symmetric matrix's eigenvectors.",
        "ek": [
@@ -895,7 +984,8 @@
        "std": [
         "cupm-2015-la:second",
         "lay-5e:7",
-        "webwork-opl:LA7.4"
+        "webwork-opl:LA7.4",
+        "cupm-2023-la:O4"
        ],
        "do": "Classify a quadratic form.",
        "ek": [
@@ -914,7 +1004,8 @@
        "std": [
         "cupm-2015-la:second",
         "lay-5e:7",
-        "webwork-opl:LA7.4"
+        "webwork-opl:LA7.4",
+        "cupm-2023-la:O4"
        ],
        "do": "Find the extreme values of a quadratic form on the unit sphere.",
        "ek": [
@@ -940,7 +1031,8 @@
         "lacsg-2:F4",
         "cupm-2015-la:second",
         "lay-5e:7",
-        "webwork-opl:LA3.4"
+        "webwork-opl:LA3.4",
+        "cupm-2023-la:O3"
        ],
        "do": "Find the condition number from the singular values.",
        "ek": [
@@ -957,7 +1049,8 @@
       {
        "id": "B",
        "std": [
-        "lacsg-2:F4"
+        "lacsg-2:F4",
+        "cupm-2023-la:O3"
        ],
        "do": "Find the error of the best low-rank approximation from the singular values.",
        "ek": [
@@ -975,7 +1068,9 @@
        "id": "C",
        "std": [
         "lacsg-2:S5",
-        "lacsg-2:F4"
+        "lacsg-2:F4",
+        "cupm-2023-la:E11",
+        "cupm-2023-la:O3"
        ],
        "do": "Use the pseudo-inverse to get the least-squares solution of a full-column-rank system.",
        "ek": [
@@ -1018,7 +1113,8 @@
         "cupm-2015-la:4",
         "lay-5e:1",
         "webwork-opl:LA9.1",
-        "webwork-opl:LA9.2"
+        "webwork-opl:LA9.2",
+        "cupm-2023-la:E6"
        ],
        "do": "Build a map from the images of the basis vectors.",
        "ek": [
@@ -1039,7 +1135,9 @@
         "lacsg-2:F1",
         "cupm-2015-la:4",
         "lay-5e:2",
-        "webwork-opl:LA9.3"
+        "webwork-opl:LA9.3",
+        "cupm-2023-la:E6",
+        "cupm-2023-la:E4"
        ],
        "do": "Compose linear maps as matrix products.",
        "ek": [
@@ -1058,7 +1156,8 @@
        "std": [
         "cupm-2015-la:4",
         "lay-5e:1",
-        "webwork-opl:LA9.4"
+        "webwork-opl:LA9.4",
+        "cupm-2023-la:E6"
        ],
        "do": "Decide whether a map is one-to-one or onto from its rank.",
        "ek": [
@@ -1084,7 +1183,9 @@
         "cupm-2015-la:4",
         "lay-5e:4",
         "webwork-opl:LA6.6",
-        "webwork-opl:LA9.5"
+        "webwork-opl:LA9.5",
+        "cupm-2023-la:E6",
+        "cupm-2023-la:E7"
        ],
        "do": "Find the dimensions of the kernel and range of a map on a function space.",
        "ek": [
@@ -1105,7 +1206,9 @@
         "cupm-2015-la:4",
         "lay-5e:4",
         "webwork-opl:LA6.7",
-        "webwork-opl:LA9.3"
+        "webwork-opl:LA9.3",
+        "cupm-2023-la:E6",
+        "cupm-2023-la:E9"
        ],
        "do": "Write the matrix of a map relative to a basis.",
        "ek": [
@@ -1123,7 +1226,10 @@
        "id": "C",
        "std": [
         "lacsg-2:S6",
-        "lacsg-2:F1"
+        "lacsg-2:F1",
+        "cupm-2023-la:E6",
+        "cupm-2023-la:E7",
+        "cupm-2023-la:E8"
        ],
        "do": "Find the eigenvalues and eigenvectors of a linear operator on a function space.",
        "ek": [
@@ -1164,7 +1270,8 @@
        "std": [
         "webwork-opl:LA6.1",
         "webwork-opl:LA6.5",
-        "lacsg-2:S1"
+        "lacsg-2:S1",
+        "cupm-2023-la:E7"
        ],
        "do": "Decide whether a set with its operations is a vector space.",
        "ek": [
@@ -1181,7 +1288,8 @@
       {
        "id": "B",
        "std": [
-        "webwork-opl:LA6.2"
+        "webwork-opl:LA6.2",
+        "cupm-2023-la:E7"
        ],
        "do": "Write a polynomial as a combination of other polynomials.",
        "ek": [
@@ -1198,7 +1306,9 @@
       {
        "id": "C",
        "std": [
-        "webwork-opl:LA6.3"
+        "webwork-opl:LA6.3",
+        "cupm-2023-la:E7",
+        "cupm-2023-la:E3"
        ],
        "do": "Decide whether a polynomial lies in the span of others.",
        "ek": [
@@ -1215,7 +1325,9 @@
       {
        "id": "D",
        "std": [
-        "webwork-opl:LA6.4"
+        "webwork-opl:LA6.4",
+        "cupm-2023-la:E7",
+        "cupm-2023-la:E2"
        ],
        "do": "Decide when polynomials are linearly dependent.",
        "ek": [
@@ -1232,7 +1344,9 @@
       {
        "id": "E",
        "std": [
-        "webwork-opl:LA6.8"
+        "webwork-opl:LA6.8",
+        "cupm-2023-la:E7",
+        "cupm-2023-la:E9"
        ],
        "do": "Find the dimension of a standard space of matrices or polynomials.",
        "ek": [
@@ -1250,7 +1364,8 @@
        "id": "F",
        "std": [
         "webwork-opl:LA8.2",
-        "lacsg-2:S3"
+        "lacsg-2:S3",
+        "cupm-2023-la:O1"
        ],
        "do": "Compute an inner product of functions.",
        "ek": [
@@ -1273,7 +1388,8 @@
       {
        "id": "A",
        "std": [
-        "webwork-opl:LA1.7"
+        "webwork-opl:LA1.7",
+        "cupm-2023-la:E5"
        ],
        "do": "Balance a chemical equation from the null space of its composition matrix.",
        "ek": [
@@ -1290,7 +1406,8 @@
       {
        "id": "B",
        "std": [
-        "webwork-opl:LA2.7"
+        "webwork-opl:LA2.7",
+        "cupm-2023-la:E4"
        ],
        "do": "Invert an elementary matrix.",
        "ek": [
@@ -1342,7 +1459,8 @@
       {
        "id": "E",
        "std": [
-        "webwork-opl:LA8.6"
+        "webwork-opl:LA8.6",
+        "cupm-2023-la:O4"
        ],
        "do": "Use the properties of an orthogonal matrix.",
        "ek": [
@@ -1360,7 +1478,8 @@
        "id": "F",
        "std": [
         "webwork-opl:LA9.6",
-        "lacsg-2:F2"
+        "lacsg-2:F2",
+        "cupm-2023-la:E6"
        ],
        "do": "Invert a linear transformation.",
        "ek": [
@@ -1425,6 +1544,17 @@
    "partial": []
   },
   {
+   "code": "LA-1.1.E",
+   "unit": 1,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "la-indep-det",
+    "la-indep-count"
+   ],
+   "partial": []
+  },
+  {
    "code": "LA-1.2.A",
    "unit": 1,
    "topic": 2,
@@ -1443,6 +1573,17 @@
    "full": [
     "la-solution-set-shape",
     "la-solution-set-dim"
+   ],
+   "partial": []
+  },
+  {
+   "code": "LA-1.2.C",
+   "unit": 1,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "la-span-dim",
+    "la-span-shape"
    ],
    "partial": []
   },
@@ -1702,6 +1843,17 @@
    "full": [
     "la-least-squares-slope",
     "la-least-squares-facts"
+   ],
+   "partial": []
+  },
+  {
+   "code": "LA-6.1.C",
+   "unit": 6,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "la-lsq-slope",
+    "la-lsq-residual-sum"
    ],
    "partial": []
   },
