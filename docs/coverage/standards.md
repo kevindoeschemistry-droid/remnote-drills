@@ -51,7 +51,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 | Physics (AP) | AP Physics 1, 2, C: Mechanics and C: Electricity and Magnetism Course and Exam Descriptions (effective fall 2024) | standard | read in part | ngss-hs, ib-physics-2025, aamc-mcat-outline, gre-physics | — | 211 | 211 | 0 |
 | Process Design, Economics and Safety | NCEES FE Chemical CBT Exam Specifications (effective July 2020) | exam-spec | read in full | pe-chemical | — | 9 | 9 | 0 |
 | Programming Foundations | AP Computer Science A Course and Exam Description (Fall 2025) | standard | read in full | — | — | 140 | 140 | 0 |
-| Computational Protein Design | PyRosetta Jupyter Notebooks (RosettaCommons), taught as JHU 545.614 / 540.414 | course | read in part | rosetta-ref15, dl4proteins, kuhlman-bradley, jhu-545614 | — | 42 | 42 | 0 |
+| Computational Protein Design | PyRosetta Jupyter Notebooks (RosettaCommons), taught as JHU 545.614 / 540.414 | course | read in part | rosetta-ref15, dl4proteins, kuhlman-bradley, jhu-545614 | — | 51 | 51 | 0 |
 | Chemical Reaction Engineering | NCEES FE Chemical CBT Exam Specifications (effective July 2020) | exam-spec | read in full | icho-appendix-c, pe-chemical | — | 46 | 33 | 13 |
 | Separations | NCEES FE Chemical CBT Exam Specifications (effective July 2020) | exam-spec | read in full | pe-chemical | — | 6 | 6 | 0 |
 | Speaking and Articulation | Competent Speaker Speech Evaluation Form, 2nd ed. | rubric | read in full | toastmasters-pathways | — | 69 | 0 | 69 |
@@ -3880,21 +3880,21 @@ https://doi.org/10.33011/livecoms.2.1.18378
 
 https://github.com/RosettaCommons/PyRosetta.notebooks
 
-19 of 33 items have at least one objective answering to them.
+30 of 33 items have at least one objective answering to them.
 
 | Item | Topic | Objectives | With a drill | Where |
 |---|---|---|---|---|
 | 1 | Getting started | — | — | **nothing yet** |
-| 2 | Introduction to PyRosetta: poses, residues, geometry, visualisation | — | — | **nothing yet** |
+| 2 | Introduction to PyRosetta: poses, residues, geometry, visualisation | 2 | 2 | protein-design (2) |
 | 2.1 | Pose basics | 6 | 6 | protein-design (6) |
 | 2.2 | Working with pose residues | 5 | 5 | protein-design (5) |
 | 2.4 | Spatial features of a pose | 1 | 1 | protein-design (1) |
 | 2.5 | Protein geometry | 6 | 6 | protein-design (6) |
-| 3 | Energy score functions | — | — | **nothing yet** |
+| 3 | Energy score functions | 1 | 1 | protein-design (1) |
 | 4.1 | Basic folding algorithm | 6 | 6 | protein-design (6) |
 | 4.2 | Low-resolution scoring and fragments | 2 | 2 | protein-design (2) |
 | 5.1 | High-resolution movers | 5 | 5 | protein-design (5) |
-| 5.2 | Refinement protocol | — | — | **nothing yet** |
+| 5.2 | Refinement protocol | 1 | 1 | protein-design (1) |
 | 6.1 | Side-chain conformations and Dunbrack energies | 2 | 2 | protein-design (2) |
 | 6.2 | Packing and relax | 6 | 6 | protein-design (6) |
 | 6.3 | Design with a resfile and FastRelax | 8 | 8 | protein-design (8) |
@@ -3906,17 +3906,17 @@ https://github.com/RosettaCommons/PyRosetta.notebooks
 | 7.1 | Fourier-transform-based docking | 5 | 5 | protein-design (5) |
 | 7.2 | Docking moves | 6 | 6 | protein-design (6) |
 | 8.1 | Global ligand docking | 5 | 5 | protein-design (5) |
-| 8.2 | Ligand docking with a Cartesian score function | — | — | **nothing yet** |
-| 9.1 | Loop modelling with generalised kinematic closure | — | — | **nothing yet** |
-| 10 | Symmetry | — | — | **nothing yet** |
-| 11 | Working with density | — | — | **nothing yet** |
-| 12.1 | Antibody framework modelling | — | — | **nothing yet** |
-| 12.2 | Antibody design | — | — | **nothing yet** |
+| 8.2 | Ligand docking with a Cartesian score function | 1 | 1 | protein-design (1) |
+| 9.1 | Loop modelling with generalised kinematic closure | 10 | 10 | protein-design (10) |
+| 10 | Symmetry | 10 | 10 | protein-design (10) |
+| 11 | Working with density | 10 | 10 | protein-design (10) |
+| 12.1 | Antibody framework modelling | 10 | 10 | protein-design (10) |
+| 12.2 | Antibody design | 10 | 10 | protein-design (10) |
 | 13 | Carbohydrates | — | — | **nothing yet** |
 | 14 | RNA | — | — | **nothing yet** |
-| 15.1 | Setting up a membrane protein | — | — | **nothing yet** |
+| 15.1 | Setting up a membrane protein | 10 | 10 | protein-design (10) |
 | 15.2 | Predicting ΔΔG of single point mutations | 5 | 5 | protein-design (5) |
-| 16 | Running in parallel and reproducible distribution | — | — | **nothing yet** |
+| 16 | Running in parallel and reproducible distribution | 11 | 11 | protein-design (11) |
 
 ## Alford et al., The Rosetta all-atom energy function for macromolecular modeling and design, JCTC 13 (2017) 3031
 
@@ -3964,7 +3964,7 @@ https://doi.org/10.1038/s41580-019-0163-x
 | 2 | Navigating energy landscapes: minimisation, Monte Carlo, molecular dynamics | 5 | 5 | protein-design (5) |
 | 3 | Folding forces, energy functions and multi-resolution modelling | 5 | 5 | protein-design (5) |
 | 4 | Structure prediction: templates, fragments, coevolution, deep learning | 7 | 7 | protein-design (7) |
-| 5 | Protein design: de novo, template-based, sequence optimisation, negative and multi-state, interfaces, ligands | 22 | 22 | protein-design (22) |
+| 5 | Protein design: de novo, template-based, sequence optimisation, negative and multi-state, interfaces, ligands | 25 | 25 | protein-design (25) |
 | 6 | Validating computational predictions | 7 | 7 | protein-design (7) |
 | 7 | Applications and open challenges | 5 | 5 | protein-design (5) |
 
@@ -3972,12 +3972,12 @@ https://doi.org/10.1038/s41580-019-0163-x
 
 https://ep.jhu.edu/courses/545614-computational-protein-structure-prediction-and-design/
 
-0 of 5 items have at least one objective answering to them.
+5 of 5 items have at least one objective answering to them.
 
 | Item | Topic | Objectives | With a drill | Where |
 |---|---|---|---|---|
-| T1 | Protein folding and docking | — | — | **nothing yet** |
-| T2 | Design of ligand-binding sites | — | — | **nothing yet** |
-| T3 | Design of turns and folds | — | — | **nothing yet** |
-| T4 | Design of protein interfaces | — | — | **nothing yet** |
-| T5 | Structure, biophysics, optimisation and informatics underlying the field | — | — | **nothing yet** |
+| T1 | Protein folding and docking | 2 | 2 | protein-design (2) |
+| T2 | Design of ligand-binding sites | 1 | 1 | protein-design (1) |
+| T3 | Design of turns and folds | 2 | 2 | protein-design (2) |
+| T4 | Design of protein interfaces | 1 | 1 | protein-design (1) |
+| T5 | Structure, biophysics, optimisation and informatics underlying the field | 3 | 3 | protein-design (3) |

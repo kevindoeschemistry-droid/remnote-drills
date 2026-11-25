@@ -78,7 +78,8 @@
        "id": "A",
        "std": [
         "pyrosetta-notebooks:2.4",
-        "pyrosetta-notebooks:2.5"
+        "pyrosetta-notebooks:2.5",
+        "jhu-545614:T5"
        ],
        "do": "Name the backbone and side-chain dihedrals and say which are free, which are nearly fixed, and which regions of the Ramachandran plot the common secondary structures occupy.",
        "ek": [
@@ -175,7 +176,8 @@
        "id": "A",
        "std": [
         "pyrosetta-notebooks:2.1",
-        "pyrosetta-notebooks:2.2"
+        "pyrosetta-notebooks:2.2",
+        "pyrosetta-notebooks:2"
        ],
        "do": "Describe what a Pose holds and how residues are addressed, and distinguish pose numbering from PDB numbering.",
        "ek": [
@@ -217,7 +219,8 @@
        "std": [
         "pyrosetta-notebooks:4.2",
         "pyrosetta-notebooks:5.1",
-        "kuhlman-bradley:3"
+        "kuhlman-bradley:3",
+        "pyrosetta-notebooks:2"
        ],
        "do": "Contrast the centroid and full-atom representations and say which stage of a protocol uses each.",
        "ek": [
@@ -275,7 +278,9 @@
        "id": "A",
        "std": [
         "rosetta-ref15:form",
-        "rosetta-ref15:table"
+        "rosetta-ref15:table",
+        "jhu-545614:T5",
+        "pyrosetta-notebooks:3"
        ],
        "do": "Name the main energy terms and classify each as physics-based or knowledge-based.",
        "ek": [
@@ -416,7 +421,8 @@
        "id": "A",
        "std": [
         "kuhlman-bradley:2",
-        "pyrosetta-notebooks:4.1"
+        "pyrosetta-notebooks:4.1",
+        "jhu-545614:T5"
        ],
        "do": "State the Metropolis rule and explain why uphill moves are accepted at all.",
        "ek": [
@@ -456,7 +462,8 @@
       {
        "id": "A",
        "std": [
-        "pyrosetta-notebooks:6.2"
+        "pyrosetta-notebooks:6.2",
+        "jhu-545614:T1"
        ],
        "do": "Describe what the packer does, and how packing, minimisation and relax differ.",
        "ek": [
@@ -656,7 +663,8 @@
        "id": "A",
        "std": [
         "pyrosetta-notebooks:7.1",
-        "pyrosetta-notebooks:7.2"
+        "pyrosetta-notebooks:7.2",
+        "jhu-545614:T1"
        ],
        "do": "Describe the two stages of docking and what a funnel plot shows.",
        "ek": [
@@ -674,7 +682,8 @@
        "id": "B",
        "std": [
         "pyrosetta-notebooks:7.2",
-        "rosetta-ref15:guidance"
+        "rosetta-ref15:guidance",
+        "pyrosetta-notebooks:8.2"
        ],
        "do": "Compute a binding or interface energy from component scores.",
        "ek": [
@@ -698,7 +707,8 @@
        "id": "A",
        "std": [
         "pyrosetta-notebooks:8.1",
-        "kuhlman-bradley:5"
+        "kuhlman-bradley:5",
+        "jhu-545614:T2"
        ],
        "do": "Lay out how a ligand-binding pocket is designed and why designed enzymes fall short of natural ones.",
        "ek": [
@@ -715,7 +725,8 @@
       {
        "id": "B",
        "std": [
-        "kuhlman-bradley:5"
+        "kuhlman-bradley:5",
+        "jhu-545614:T4"
        ],
        "do": "Choose one-sided or two-sided interface design for a stated problem and say what makes it hard.",
        "ek": [
@@ -758,7 +769,8 @@
        "std": [
         "pyrosetta-notebooks:6.6",
         "pyrosetta-notebooks:6.7",
-        "kuhlman-bradley:5"
+        "kuhlman-bradley:5",
+        "jhu-545614:T3"
        ],
        "do": "Contrast the routes to a de novo backbone: fragment assembly, distance constraints and parametric equations.",
        "ek": [
@@ -799,7 +811,8 @@
        "id": "A",
        "std": [
         "pyrosetta-notebooks:6.5",
-        "kuhlman-bradley:5"
+        "kuhlman-bradley:5",
+        "jhu-545614:T3"
        ],
        "do": "Say why buried hydrogen-bond networks are designed before the rest of the sequence.",
        "ek": [
@@ -1072,6 +1085,201 @@
        "drills": [
         "cpd-open-problems",
         "cpd-failure-diagnose"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "specialised",
+   "n": 10,
+   "title": "Specialised modelling and scale",
+   "std": [
+    "pyrosetta-notebooks:9.1",
+    "pyrosetta-notebooks:10",
+    "pyrosetta-notebooks:11",
+    "pyrosetta-notebooks:12.1",
+    "pyrosetta-notebooks:12.2",
+    "pyrosetta-notebooks:15.1",
+    "pyrosetta-notebooks:16"
+   ],
+   "scope": "extension",
+   "ideas": [
+    "SEARCH",
+    "TEST"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "Loops, symmetry and density",
+     "los": [
+      {
+       "id": "C",
+       "std": [
+        "pyrosetta-notebooks:11"
+       ],
+       "do": "Say what fitting a model into electron density adds to a purely computational score, and what it cannot fix.",
+       "ek": [
+        "Density is experimental evidence that restrains the model, scored alongside the energy function; it cannot rescue a region the map does not resolve, where confidence stays low whatever the score says."
+       ],
+       "p": [
+        "P2"
+       ],
+       "drills": [
+        "cpd-density",
+        "cpd-density-2"
+       ]
+      },
+      {
+       "id": "D",
+       "std": [
+        "pyrosetta-notebooks:5.2"
+       ],
+       "do": "Order the stages of a refinement protocol and say what each stage is allowed to move.",
+       "ek": [
+        "Refinement alternates small backbone perturbations, side-chain repacking and minimisation under the all-atom function, usually with the repulsive weight ramped, so the structure settles without escaping the starting fold."
+       ],
+       "p": [
+        "P2"
+       ],
+       "drills": [
+        "cpd-refine-stages",
+        "cpd-refine-diagnose"
+       ]
+      },
+      {
+       "id": "A",
+       "std": [
+        "pyrosetta-notebooks:9.1",
+        "kuhlman-bradley:5"
+       ],
+       "do": "Say what a loop-closure method must guarantee and why loops are modelled separately from the rest of a structure.",
+       "ek": [
+        "A rebuilt loop must still join the fixed flanking residues, so closure is a constraint, not a preference; kinematic closure solves for the dihedrals that close the gap, and loops are irregular and flexible, which is why they are rebuilt rather than threaded."
+       ],
+       "p": [
+        "P2"
+       ],
+       "drills": [
+        "cpd-loop-closure",
+        "cpd-loop-dof"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "pyrosetta-notebooks:10"
+       ],
+       "do": "Describe what a symmetric model fixes and count the independent degrees of freedom symmetry removes.",
+       "ek": [
+        "One asymmetric unit plus a symmetry definition generates the rest, so the energy and the moves apply to the unit and are replicated; n copies of an m-residue chain under exact symmetry leave one chain's degrees of freedom instead of n."
+       ],
+       "p": [
+        "P2"
+       ],
+       "drills": [
+        "cpd-symmetry",
+        "cpd-symmetry-dof"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "title": "Antibodies and membrane proteins",
+     "los": [
+      {
+       "id": "B",
+       "std": [
+        "pyrosetta-notebooks:12.2",
+        "kuhlman-bradley:5"
+       ],
+       "do": "Say what antibody design optimises and why it is a one-sided problem.",
+       "ek": [
+        "Design chooses CDR sequence and length against a chosen epitope on a target that cannot be changed, so it combines one-sided interface design with flexible-loop modelling: the two hardest cases in the field at once."
+       ],
+       "p": [
+        "P2"
+       ],
+       "drills": [
+        "cpd-antibody-design",
+        "cpd-antibody-design-2"
+       ]
+      },
+      {
+       "id": "A",
+       "std": [
+        "pyrosetta-notebooks:12.1",
+        "kuhlman-bradley:5"
+       ],
+       "do": "Describe how an antibody structure is modelled from its framework and loops, and which loop is the hard one.",
+       "ek": [
+        "The variable domains' frameworks are conserved enough to graft from templates by canonical class; the six complementarity-determining loops are modelled on top, and CDR H3 is the longest, most variable and least predictable."
+       ],
+       "p": [
+        "P2"
+       ],
+       "drills": [
+        "cpd-antibody-model",
+        "cpd-cdr-count"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "pyrosetta-notebooks:15.1"
+       ],
+       "do": "Set up a membrane protein in a bilayer and say what the energy function must change.",
+       "ek": [
+        "The protein is embedded with its hydrophobic span across the membrane and its orientation and depth fixed relative to the bilayer; the solvation term must treat the membrane interior as nonpolar, so a water-based function would misscore buried polar residues."
+       ],
+       "p": [
+        "P2"
+       ],
+       "drills": [
+        "cpd-membrane",
+        "cpd-tm-span"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 3,
+     "title": "Running at scale, reproducibly",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "pyrosetta-notebooks:16"
+       ],
+       "do": "Distinguish the three ways a design campaign is parallelised and match each to its job.",
+       "ek": [
+        "Independent decoys of one protocol (embarrassingly parallel), one protocol distributed across workers, and many protocols over many inputs; a scan is the first, a large generative pipeline the third."
+       ],
+       "p": [
+        "P2"
+       ],
+       "drills": [
+        "cpd-parallel-kind",
+        "cpd-parallel-time"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "pyrosetta-notebooks:16"
+       ],
+       "do": "State what a run must record for a design to be reproducible, and compute the decoy count a campaign needs.",
+       "ek": [
+        "The random seed, the protocol version, the input structure and every option, kept with the output; decoys scale as inputs × protocols × decoys per input, and the lowest-scoring decoy of too small a set is just noise."
+       ],
+       "p": [
+        "P2"
+       ],
+       "drills": [
+        "cpd-decoys",
+        "cpd-reproducible"
        ]
       }
      ]
@@ -1539,6 +1747,105 @@
    "full": [
     "cpd-open-problems",
     "cpd-failure-diagnose"
+   ],
+   "partial": []
+  },
+  {
+   "code": "CPD-10.1.C",
+   "unit": 10,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "cpd-density",
+    "cpd-density-2"
+   ],
+   "partial": []
+  },
+  {
+   "code": "CPD-10.1.D",
+   "unit": 10,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "cpd-refine-stages",
+    "cpd-refine-diagnose"
+   ],
+   "partial": []
+  },
+  {
+   "code": "CPD-10.1.A",
+   "unit": 10,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "cpd-loop-closure",
+    "cpd-loop-dof"
+   ],
+   "partial": []
+  },
+  {
+   "code": "CPD-10.1.B",
+   "unit": 10,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "cpd-symmetry",
+    "cpd-symmetry-dof"
+   ],
+   "partial": []
+  },
+  {
+   "code": "CPD-10.2.B",
+   "unit": 10,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "cpd-antibody-design",
+    "cpd-antibody-design-2"
+   ],
+   "partial": []
+  },
+  {
+   "code": "CPD-10.2.A",
+   "unit": 10,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "cpd-antibody-model",
+    "cpd-cdr-count"
+   ],
+   "partial": []
+  },
+  {
+   "code": "CPD-10.2.C",
+   "unit": 10,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "cpd-membrane",
+    "cpd-tm-span"
+   ],
+   "partial": []
+  },
+  {
+   "code": "CPD-10.3.A",
+   "unit": 10,
+   "topic": 3,
+   "status": "ok",
+   "full": [
+    "cpd-parallel-kind",
+    "cpd-parallel-time"
+   ],
+   "partial": []
+  },
+  {
+   "code": "CPD-10.3.B",
+   "unit": 10,
+   "topic": 3,
+   "status": "ok",
+   "full": [
+    "cpd-decoys",
+    "cpd-reproducible"
    ],
    "partial": []
   }
