@@ -46,10 +46,10 @@ units:
       - n: 1
         title: "Molar mass and growth"
         los:
-          - { id: A, do: "Compute M_n, M_w and dispersity from a chain distribution.", ek: ["M_n = ΣnM/Σn; M_w = ΣnM²/ΣnM."], p: [P1], drills: [mt-molar-mass-averages] }
-          - { id: B, do: "Compute the degree of polymerisation of a step-growth polymer.", ek: ["X_n = (1 + r)/(1 + r − 2rp)."], p: [P1], needs: [MT-1.1.A], drills: [mt-carothers] }
-          - { id: C, do: "Classify a polymer as chain-growth or step-growth.", ek: ["Vinyl polymers chain; polyesters, polyamides step."], p: [P2], drills: [mt-growth-type] }
-          - { id: D, do: "Classify a polymer as thermoplastic or thermoset.", ek: ["Cross-linked networks do not melt."], p: [P2], drills: [mt-thermoset] }
+          - { id: A, do: "Compute M_n, M_w and dispersity from a chain distribution.", ek: ["M_n = ΣnM/Σn; M_w = ΣnM²/ΣnM."], p: [P1], drills: [mt-molar-mass-averages, mt-blend-mn] }
+          - { id: B, do: "Compute the degree of polymerisation of a step-growth polymer.", ek: ["X_n = (1 + r)/(1 + r − 2rp)."], p: [P1], needs: [MT-1.1.A], drills: [mt-carothers, mt-carothers-reverse] }
+          - { id: C, do: "Classify a polymer as chain-growth or step-growth.", ek: ["Vinyl polymers chain; polyesters, polyamides step."], p: [P2], drills: [mt-growth-type, mt-growth-evidence] }
+          - { id: D, do: "Classify a polymer as thermoplastic or thermoset.", ek: ["Cross-linked networks do not melt."], p: [P2], drills: [mt-thermoset, mt-thermoset-evidence] }
   - id: solids
     n: 2
     title: "Properties of solids"
@@ -60,8 +60,8 @@ units:
       - n: 1
         title: "Mechanical and electronic"
         los:
-          - { id: A, do: "Compute Young's modulus from a tensile test.", ek: ["E = (F/A)/(ΔL/L₀)."], p: [P1], drills: [mt-youngs-modulus] }
-          - { id: B, do: "Relate a semiconductor's band gap to the wavelength it absorbs or emits.", ek: ["λ = hc/E_g."], p: [P1], drills: [mt-band-gap] }
+          - { id: A, do: "Compute Young's modulus from a tensile test.", ek: ["E = (F/A)/(ΔL/L₀)."], p: [P1], drills: [mt-youngs-modulus, mt-elongation] }
+          - { id: B, do: "Relate a semiconductor's band gap to the wavelength it absorbs or emits.", ek: ["λ = hc/E_g."], p: [P1], drills: [mt-band-gap, mt-gap-from-emission] }
   - id: colloids
     n: 3
     title: "Colloids and DLVO theory"
@@ -72,23 +72,23 @@ units:
         title: "The electrical double layer"
         los:
           - { id: A, do: "Compute the Debye length from the ionic strength, and say how salt and valence change it.", ek: ["κ⁻¹ = √(εkT/2N_Ae²I); 0.304/√I nm for 1:1 salt at 25 °C."], p: [P1], drills: [col-debye-length, col-debye-scaling, col-debye-valence] }
-          - { id: B, do: "Relate surface charge to surface potential with the Grahame equation.", ek: ["σ = √(8εkTn∞) sinh(eψ₀/2kT); σ ≈ εκψ₀ at low potential."], p: [P1], needs: [MT-3.1.A], drills: [col-grahame] }
+          - { id: B, do: "Relate surface charge to surface potential with the Grahame equation.", ek: ["σ = √(8εkTn∞) sinh(eψ₀/2kT); σ ≈ εκψ₀ at low potential."], p: [P1], needs: [MT-3.1.A], drills: [col-grahame, col-grahame-scale] }
           - { id: C, do: "Find a zeta potential from electrophoretic mobility and judge stability from it.", ek: ["Smoluchowski μ = εζ/η (κa ≫ 1); Hückel μ = 2εζ/3η (κa ≪ 1); |ζ| > 30 mV usually stable."], p: [P1, P2], needs: [MT-3.1.A], drills: [col-zeta-from-mobility, col-huckel-or-smoluchowski, col-zeta-stability] }
       - n: 2
         title: "Van der Waals forces between bodies"
         los:
           - { id: A, do: "Compute the van der Waals energy of spheres and plates from the Hamaker constant, and state its distance law.", ek: ["Spheres −AR/12D; sphere–wall −AR/6D; plates −A/12πD² per area (Derjaguin)."], p: [P1], drills: [col-vdw-spheres, col-vdw-distance-law] }
-          - { id: B, do: "Estimate a Hamaker constant across a medium with the combining rule.", ek: ["A₁₃₁ ≈ (√A₁₁ − √A₃₃)²."], p: [P1], needs: [MT-3.2.A], drills: [col-hamaker-combining] }
+          - { id: B, do: "Estimate a Hamaker constant across a medium with the combining rule.", ek: ["A₁₃₁ ≈ (√A₁₁ − √A₃₃)²."], p: [P1], needs: [MT-3.2.A], drills: [col-hamaker-combining, col-hamaker-same] }
       - n: 3
         title: "DLVO theory"
         los:
-          - { id: A, do: "Compute the double-layer repulsion between spheres in the weak-overlap, low-potential limit.", ek: ["W = 2πεRψ₀²e^(−κD) for equal spheres."], p: [P1], needs: [MT-3.1.A], drills: [col-edl-repulsion] }
+          - { id: A, do: "Compute the double-layer repulsion between spheres in the weak-overlap, low-potential limit.", ek: ["W = 2πεRψ₀²e^(−κD) for equal spheres."], p: [P1], needs: [MT-3.1.A], drills: [col-edl-repulsion, col-edl-decay] }
           - { id: B, do: "Add attraction and repulsion into the DLVO curve, find the barrier, and read its minima.", ek: ["Primary minimum, barrier, secondary minimum; barriers above ~15–20 kT give stability."], p: [P1, P2], needs: [MT-3.3.A, MT-3.2.A], drills: [col-dlvo-total, col-dlvo-barrier, col-secondary-minimum] }
           - { id: C, do: "Predict how salt, valence, surface potential and Hamaker constant change stability, including the Schulze–Hardy rule.", ek: ["CCC where W = 0 and dW/dD = 0; c_ccc ∝ z⁻⁶ at high potential."], p: [P2], needs: [MT-3.3.B], drills: [col-salt-effect, col-schulze-hardy, col-ccc-condition] }
       - n: 4
         title: "Kinetics of aggregation and forces beyond DLVO"
         los:
-          - { id: A, do: "Compute a Brownian diffusion coefficient with Stokes–Einstein.", ek: ["D = kT/6πηa."], p: [P1], drills: [col-stokes-einstein] }
-          - { id: B, do: "Compute the half-life of rapid (barrierless) coagulation.", ek: ["k_f = 4kT/3η; t½ = 3η/4kTN₀."], p: [P1], needs: [MT-3.4.A], drills: [col-fast-coagulation] }
-          - { id: C, do: "Recognise steric, depletion, bridging and hydration forces that DLVO leaves out.", ek: ["Polymers and solvent structure add terms DLVO lacks."], p: [P2], needs: [MT-3.3.B], drills: [col-beyond-dlvo] }
+          - { id: A, do: "Compute a Brownian diffusion coefficient with Stokes–Einstein.", ek: ["D = kT/6πηa."], p: [P1], drills: [col-stokes-einstein, col-diffusion-time] }
+          - { id: B, do: "Compute the half-life of rapid (barrierless) coagulation.", ek: ["k_f = 4kT/3η; t½ = 3η/4kTN₀."], p: [P1], needs: [MT-3.4.A], drills: [col-fast-coagulation, col-coag-scale] }
+          - { id: C, do: "Recognise steric, depletion, bridging and hydration forces that DLVO leaves out.", ek: ["Polymers and solvent structure add terms DLVO lacks."], p: [P2], needs: [MT-3.3.B], drills: [col-beyond-dlvo, col-nondlvo-scenario] }
 

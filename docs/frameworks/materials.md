@@ -32,17 +32,17 @@ Big ideas: CHAINS
 
 - ● **MT-1.1.A** Compute M_n, M_w and dispersity from a chain distribution.
   - EK: M_n = ΣnM/Σn; M_w = ΣnM²/ΣnM.
-  - P1 · drills: mt-molar-mass-averages
+  - P1 · drills: mt-molar-mass-averages, mt-blend-mn
 - ● **MT-1.1.B** Compute the degree of polymerisation of a step-growth polymer.
   - EK: X_n = (1 + r)/(1 + r − 2rp).
   - Needs: MT-1.1.A
-  - P1 · drills: mt-carothers
+  - P1 · drills: mt-carothers, mt-carothers-reverse
 - ● **MT-1.1.C** Classify a polymer as chain-growth or step-growth.
   - EK: Vinyl polymers chain; polyesters, polyamides step.
-  - P2 · drills: mt-growth-type
+  - P2 · drills: mt-growth-type, mt-growth-evidence
 - ● **MT-1.1.D** Classify a polymer as thermoplastic or thermoset.
   - EK: Cross-linked networks do not melt.
-  - P2 · drills: mt-thermoset
+  - P2 · drills: mt-thermoset, mt-thermoset-evidence
 
 ## Unit 2 · Properties of solids
 
@@ -54,10 +54,10 @@ Big ideas: PROPS
 
 - ● **MT-2.1.A** Compute Young's modulus from a tensile test.
   - EK: E = (F/A)/(ΔL/L₀).
-  - P1 · drills: mt-youngs-modulus
+  - P1 · drills: mt-youngs-modulus, mt-elongation
 - ● **MT-2.1.B** Relate a semiconductor's band gap to the wavelength it absorbs or emits.
   - EK: λ = hc/E_g.
-  - P1 · drills: mt-band-gap
+  - P1 · drills: mt-band-gap, mt-gap-from-emission
 
 ## Unit 3 · Colloids and DLVO theory (extension)
 
@@ -73,7 +73,7 @@ Big ideas: PROPS
 - ● **MT-3.1.B** Relate surface charge to surface potential with the Grahame equation.
   - EK: σ = √(8εkTn∞) sinh(eψ₀/2kT); σ ≈ εκψ₀ at low potential.
   - Needs: MT-3.1.A
-  - P1 · drills: col-grahame
+  - P1 · drills: col-grahame, col-grahame-scale
 - ● **MT-3.1.C** Find a zeta potential from electrophoretic mobility and judge stability from it.
   - EK: Smoluchowski μ = εζ/η (κa ≫ 1); Hückel μ = 2εζ/3η (κa ≪ 1); |ζ| > 30 mV usually stable.
   - Needs: MT-3.1.A
@@ -89,7 +89,7 @@ Big ideas: PROPS
 - ● **MT-3.2.B** Estimate a Hamaker constant across a medium with the combining rule.
   - EK: A₁₃₁ ≈ (√A₁₁ − √A₃₃)².
   - Needs: MT-3.2.A
-  - P1 · drills: col-hamaker-combining
+  - P1 · drills: col-hamaker-combining, col-hamaker-same
 
 ### 3.3 DLVO theory
 
@@ -98,7 +98,7 @@ Big ideas: PROPS
 - ● **MT-3.3.A** Compute the double-layer repulsion between spheres in the weak-overlap, low-potential limit.
   - EK: W = 2πεRψ₀²e^(−κD) for equal spheres.
   - Needs: MT-3.1.A
-  - P1 · drills: col-edl-repulsion
+  - P1 · drills: col-edl-repulsion, col-edl-decay
 - ● **MT-3.3.B** Add attraction and repulsion into the DLVO curve, find the barrier, and read its minima.
   - EK: Primary minimum, barrier, secondary minimum; barriers above ~15–20 kT give stability.
   - Needs: MT-3.3.A, MT-3.2.A
@@ -114,12 +114,12 @@ Big ideas: PROPS
 
 - ● **MT-3.4.A** Compute a Brownian diffusion coefficient with Stokes–Einstein.
   - EK: D = kT/6πηa.
-  - P1 · drills: col-stokes-einstein
+  - P1 · drills: col-stokes-einstein, col-diffusion-time
 - ● **MT-3.4.B** Compute the half-life of rapid (barrierless) coagulation.
   - EK: k_f = 4kT/3η; t½ = 3η/4kTN₀.
   - Needs: MT-3.4.A
-  - P1 · drills: col-fast-coagulation
+  - P1 · drills: col-fast-coagulation, col-coag-scale
 - ● **MT-3.4.C** Recognise steric, depletion, bridging and hydration forces that DLVO leaves out.
   - EK: Polymers and solvent structure add terms DLVO lacks.
   - Needs: MT-3.3.B
-  - P2 · drills: col-beyond-dlvo
+  - P2 · drills: col-beyond-dlvo, col-nondlvo-scenario

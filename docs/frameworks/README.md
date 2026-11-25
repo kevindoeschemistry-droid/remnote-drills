@@ -99,7 +99,7 @@ Related reports: [standards and how much of each was read](../coverage/standards
 | [Organic Reactions: Predict the Product](organic-reactions.md) | OR | 25 | 25 | 0 | 0 | 5.0 | Bruice, Organic Chemistry, 8th edition (table of contents) (textbook, read: part) |
 | [Particle Physics](particle-physics.md) | PP | 13 | 13 | 0 | 0 | 1.4 | AQA AS and A-level Physics (7407/7408), section 3.2 Particles and radiation (standard, read: part) |
 | [Physics (AP)](physics.md) | PH | 211 | 211 | 0 | 0 | 2.0 | AP Physics 1, 2, C: Mechanics and C: Electricity and Magnetism Course and Exam Descriptions (effective fall 2024) (standard, read: part) |
-| [Polymers and Materials](materials.md) | MT | 17 | 17 | 0 | 0 | 1.5 | Regulations of the International Chemistry Olympiad, Appendices C and D (concepts, skills and factual knowledge) (exam-spec, read: full) |
+| [Polymers and Materials](materials.md) | MT | 17 | 17 | 0 | 0 | 2.2 | Regulations of the International Chemistry Olympiad, Appendices C and D (concepts, skills and factual knowledge) (exam-spec, read: full) |
 | [Structures from Memory](structures.md) | ST | 12 | 12 | 0 | 0 | 22.5 | Bruice, Organic Chemistry, 8th edition (table of contents) (textbook, read: part) |
 | [The Periodic Table from Memory](periodic-table.md) | PT | 15 | 15 | 0 | 0 | 2.1 | IUPAC Periodic Table of the Elements (release of 4 May 2022) (reference, read: part) |
 | [Physical Chemistry](physical-chemistry.md) | PC | 158 | 156 | 2 | 0 | 2.0 | ACS Exams Institute Anchoring Concepts Content Map: Physical Chemistry (Holme, Reed, Raker & Murphy, J. Chem. Educ. 2018, 95, 238) (standard, read: full) |
