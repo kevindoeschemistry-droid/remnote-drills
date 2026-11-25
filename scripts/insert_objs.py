@@ -34,7 +34,7 @@ for code, std, do, ek in getattr(mod, "OBJS", []):
         hits = [(last[-1] + 3, "")]
     if lo in [x for _, x in hits]: continue
     L = open(path).read().split("\n")
-    L.insert(hits[-1][0] + 1, f'          - {{ id: {lo}, std: [{", ".join(q(s) for s in std)}], do: {q(do)}, ek: [{q(ek)}], p: [P1], drills: [] }}')
+    L.insert(hits[-1][0] + 1, f'          - {{ id: {lo}, std: [{", ".join(q(s) for s in std)}], do: {q(do)}, ek: [{q(ek)}], p: [{getattr(mod, "PRACTICE", "P1")}], drills: [] }}')
     open(path, "w").write("\n".join(L))
 L = open(path).read().split("\n")
 for code, std in getattr(mod, "EXISTING", {}).items():
