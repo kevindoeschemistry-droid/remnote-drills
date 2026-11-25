@@ -68,6 +68,8 @@ domains:
   - { id: md, title: "Molecular simulation" }
   - { id: compchem, title: "Computational chemistry" }
   - { id: cpd, title: "Computational protein design" }
+  - { id: wushu, title: "Wushu" }
+  - { id: swim, title: "Swimming" }
 
 skills:
   # ── prerequisites ────────────────────────────────────────────────────────
@@ -854,6 +856,10 @@ skills:
   - { id: design.denovo, domain: cpd, title: "De novo backbones, hydrogen-bond networks and negative design", short: "De novo design", prereqs: [design.sequence] }
   - { id: design.ml, domain: cpd, title: "Learned structure prediction, inverse folding and diffusion design", short: "Deep learning for design", prereqs: [design.representation] }
   - { id: design.validation, domain: cpd, title: "Testing designs and choosing between a score and a free energy", short: "Validation", prereqs: [design.sequence] }
+  - { id: wushu.judging, domain: wushu, title: "Taolu judging: score structure, panel marks and the Duanwei ladder", short: "Wushu judging" }
+  - { id: swim.rules, domain: swim, title: "World Aquatics rules, legal strokes and disqualifications", short: "Swim rules" }
+  - { id: swim.pacing, domain: swim, title: "Race analysis: pace, splits, stroke rate and distance per cycle", short: "Race analysis" }
+  - { id: swim.training, domain: swim, title: "Training science: CSS, intervals, volume and taper", short: "Swim training" }
   - { id: compchem.methods, domain: compchem, title: "Electronic structure in practice: basis sets, cost, units, choosing a method", short: "Electronic-structure methods", prereqs: [quantum.bonding] }
   - { id: nurs.management, domain: nurs, title: "Management of care: priorities, delegation, legal and ethical practice", short: "Management of care" }
   - { id: nurs.safety, domain: nurs, title: "Safety and infection prevention: precautions, PPE, restraints, error prevention", short: "Safety and infection control" }

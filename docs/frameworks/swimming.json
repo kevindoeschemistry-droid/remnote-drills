@@ -5,7 +5,9 @@
  "draft": 1,
  "track": "athletics",
  "requires": [],
- "domains": [],
+ "domains": [
+  "swim"
+ ],
  "basis": {
   "primary": "world-aquatics-rules",
   "wanted": [
@@ -936,7 +938,10 @@
        "p": [
         "P3"
        ],
-       "drills": []
+       "drills": [
+        "sw-legal-call",
+        "sw-legal-call-2"
+       ]
       },
       {
        "id": "B",
@@ -948,7 +953,10 @@
         "P3",
         "P4"
        ],
-       "drills": []
+       "drills": [
+        "sw-relay-exchange",
+        "sw-exchange-diff"
+       ]
       },
       {
        "id": "C",
@@ -959,7 +967,10 @@
        "p": [
         "P4"
        ],
-       "drills": []
+       "drills": [
+        "sw-relay-gain",
+        "sw-relay-total"
+       ]
       }
      ]
     },
@@ -984,7 +995,10 @@
        "p": [
         "P3"
        ],
-       "drills": []
+       "drills": [
+        "sw-dq-authority",
+        "sw-dq-process"
+       ]
       }
      ]
     }
@@ -1020,7 +1034,10 @@
        "p": [
         "P4"
        ],
-       "drills": []
+       "drills": [
+        "sw-pace-100",
+        "sw-velocity"
+       ]
       },
       {
        "id": "B",
@@ -1031,7 +1048,10 @@
        "p": [
         "P4"
        ],
-       "drills": []
+       "drills": [
+        "sw-split-diff",
+        "sw-split-classify"
+       ]
       },
       {
        "id": "C",
@@ -1045,7 +1065,10 @@
        "needs": [
         "SW-7.1.A"
        ],
-       "drills": []
+       "drills": [
+        "sw-clean-velocity",
+        "sw-start-segment"
+       ]
       }
      ]
     },
@@ -1067,7 +1090,39 @@
        "p": [
         "P4"
        ],
-       "drills": []
+       "drills": [
+        "sw-dps",
+        "sw-stroke-rate"
+       ]
+      },
+      {
+       "id": "C",
+       "do": "Compute stroke index (v × DPS) and compare the efficiency of two swims at different speeds.",
+       "ek": [
+        "SI = v·DPS (m²/s); higher SI at the same speed means more distance per cycle."
+       ],
+       "p": [
+        "P4"
+       ],
+       "drills": [
+        "sw-stroke-index",
+        "sw-si-compare"
+       ]
+      },
+      {
+       "id": "D",
+       "do": "Predict the new velocity when SR or DPS changes by a given percentage, and the trade-off needed to hold pace.",
+       "ek": [
+        "(1 + Δv) = (1 + ΔSR)(1 + ΔDPS); +5% SR with −5% DPS ≈ −0.25% speed."
+       ],
+       "p": [
+        "P4",
+        "P6"
+       ],
+       "drills": [
+        "sw-sr-dps-tradeoff",
+        "sw-dps-needed"
+       ]
       },
       {
        "id": "B",
@@ -1083,29 +1138,6 @@
         "SW-7.2.A"
        ],
        "drills": []
-      },
-      {
-       "id": "C",
-       "do": "Compute stroke index (v × DPS) and compare the efficiency of two swims at different speeds.",
-       "ek": [
-        "SI = v·DPS (m²/s); higher SI at the same speed means more distance per cycle."
-       ],
-       "p": [
-        "P4"
-       ],
-       "drills": []
-      },
-      {
-       "id": "D",
-       "do": "Predict the new velocity when SR or DPS changes by a given percentage, and the trade-off needed to hold pace.",
-       "ek": [
-        "(1 + Δv) = (1 + ΔSR)(1 + ΔDPS); +5% SR with −5% DPS ≈ −0.25% speed."
-       ],
-       "p": [
-        "P4",
-        "P6"
-       ],
-       "drills": []
       }
      ]
     },
@@ -1119,16 +1151,18 @@
      },
      "los": [
       {
-       "id": "A",
-       "do": "Choose a pacing profile for a 100 and 200 fly and justify it from energy supply and drag.",
+       "id": "C",
+       "do": "Diagnose a pacing error from a split sheet (dying third 50, flat middle, too-easy start) and prescribe the change.",
        "ek": [
-        "Going out too fast spends glycolytic capacity early and drives acidosis; since power ∝ v³, uneven pace costs more energy than even pace for the same average speed."
+        "Compare each split to the plan; the largest drop-off shows where effort or technique broke."
        ],
        "p": [
-        "P2",
-        "P6"
+        "P5"
        ],
-       "drills": []
+       "drills": [
+        "sw-pacing-diagnose",
+        "sw-pacing-fix"
+       ]
       },
       {
        "id": "B",
@@ -1143,16 +1177,20 @@
        "needs": [
         "SW-7.1.B"
        ],
-       "drills": []
+       "drills": [
+        "sw-target-splits",
+        "sw-back-half"
+       ]
       },
       {
-       "id": "C",
-       "do": "Diagnose a pacing error from a split sheet (dying third 50, flat middle, too-easy start) and prescribe the change.",
+       "id": "A",
+       "do": "Choose a pacing profile for a 100 and 200 fly and justify it from energy supply and drag.",
        "ek": [
-        "Compare each split to the plan; the largest drop-off shows where effort or technique broke."
+        "Going out too fast spends glycolytic capacity early and drives acidosis; since power ∝ v³, uneven pace costs more energy than even pace for the same average speed."
        ],
        "p": [
-        "P5"
+        "P2",
+        "P6"
        ],
        "drills": []
       }
@@ -1271,6 +1309,20 @@
      },
      "los": [
       {
+       "id": "C",
+       "do": "Explain what CSS approximates and its limits, including for butterfly.",
+       "ek": [
+        "CSS approximates MLSS within a few %; it overestimates for poorly paced trials and is stroke-specific — test fly separately."
+       ],
+       "p": [
+        "P2"
+       ],
+       "drills": [
+        "sw-css-limits",
+        "sw-css-use"
+       ]
+      },
+      {
        "id": "A",
        "do": "Compute CSS (m/s and pace per 100) from 400 and 200 time-trial times.",
        "ek": [
@@ -1279,7 +1331,10 @@
        "p": [
         "P4"
        ],
-       "drills": []
+       "drills": [
+        "sw-css",
+        "sw-css-pace"
+       ]
       },
       {
        "id": "B",
@@ -1293,18 +1348,10 @@
        "needs": [
         "SW-9.1.A"
        ],
-       "drills": []
-      },
-      {
-       "id": "C",
-       "do": "Explain what CSS approximates and its limits, including for butterfly.",
-       "ek": [
-        "CSS approximates MLSS within a few %; it overestimates for poorly paced trials and is stroke-specific — test fly separately."
-       ],
-       "p": [
-        "P2"
-       ],
-       "drills": []
+       "drills": [
+        "sw-css-zone",
+        "sw-zone-time"
+       ]
       }
      ]
     },
@@ -1323,17 +1370,6 @@
      },
      "los": [
       {
-       "id": "A",
-       "do": "Compute rest per repeat, work:rest ratio and total set time from a set's distance, send-off and swim times.",
-       "ek": [
-        "Rest = send-off − swim time; set time = repeats × send-off; W:R = swim/rest."
-       ],
-       "p": [
-        "P4"
-       ],
-       "drills": []
-      },
-      {
        "id": "B",
        "do": "Classify a described set (e.g. 10×100 @ threshold on :15 rest; 6×50 max on 3:00) into its training category.",
        "ek": [
@@ -1343,7 +1379,10 @@
         "P3",
         "P6"
        ],
-       "drills": []
+       "drills": [
+        "sw-set-type",
+        "sw-set-volume"
+       ]
       },
       {
        "id": "C",
@@ -1354,7 +1393,24 @@
        "p": [
         "P2"
        ],
-       "drills": []
+       "drills": [
+        "sw-rest-decides",
+        "sw-set-time"
+       ]
+      },
+      {
+       "id": "A",
+       "do": "Compute rest per repeat, work:rest ratio and total set time from a set's distance, send-off and swim times.",
+       "ek": [
+        "Rest = send-off − swim time; set time = repeats × send-off; W:R = swim/rest."
+       ],
+       "p": [
+        "P4"
+       ],
+       "drills": [
+        "sw-rest-interval",
+        "sw-work-rest"
+       ]
       }
      ]
     },
@@ -1371,17 +1427,6 @@
      },
      "los": [
       {
-       "id": "A",
-       "do": "Lay out a season into macro-, meso- and microcycles around a target meet.",
-       "ek": [
-        "General prep → specific prep → competition → taper; volume peaks before intensity peaks."
-       ],
-       "p": [
-        "P6"
-       ],
-       "drills": []
-      },
-      {
        "id": "B",
        "do": "Compute a week's volume by training category and compare it with a recommended balance.",
        "ek": [
@@ -1389,6 +1434,20 @@
        ],
        "p": [
         "P4",
+        "P6"
+       ],
+       "drills": [
+        "sw-week-volume",
+        "sw-volume-share"
+       ]
+      },
+      {
+       "id": "A",
+       "do": "Lay out a season into macro-, meso- and microcycles around a target meet.",
+       "ek": [
+        "General prep → specific prep → competition → taper; volume peaks before intensity peaks."
+       ],
+       "p": [
         "P6"
        ],
        "drills": []
@@ -1413,7 +1472,10 @@
        "p": [
         "P6"
        ],
-       "drills": []
+       "drills": [
+        "sw-taper-rules",
+        "sw-taper-weeks"
+       ]
       },
       {
        "id": "B",
@@ -1427,7 +1489,10 @@
        "needs": [
         "SW-9.4.A"
        ],
-       "drills": []
+       "drills": [
+        "sw-taper-volume",
+        "sw-taper-daily"
+       ]
       }
      ]
     }
@@ -2116,64 +2181,110 @@
    "code": "SW-6.1.A",
    "unit": 6,
    "topic": 1,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "sw-legal-call",
+    "sw-legal-call-2"
+   ],
    "partial": []
   },
   {
    "code": "SW-6.1.B",
    "unit": 6,
    "topic": 1,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "sw-relay-exchange",
+    "sw-exchange-diff"
+   ],
    "partial": []
   },
   {
    "code": "SW-6.1.C",
    "unit": 6,
    "topic": 1,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "sw-relay-gain",
+    "sw-relay-total"
+   ],
    "partial": []
   },
   {
    "code": "SW-6.2.A",
    "unit": 6,
    "topic": 2,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "sw-dq-authority",
+    "sw-dq-process"
+   ],
    "partial": []
   },
   {
    "code": "SW-7.1.A",
    "unit": 7,
    "topic": 1,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "sw-pace-100",
+    "sw-velocity"
+   ],
    "partial": []
   },
   {
    "code": "SW-7.1.B",
    "unit": 7,
    "topic": 1,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "sw-split-diff",
+    "sw-split-classify"
+   ],
    "partial": []
   },
   {
    "code": "SW-7.1.C",
    "unit": 7,
    "topic": 1,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "sw-clean-velocity",
+    "sw-start-segment"
+   ],
    "partial": []
   },
   {
    "code": "SW-7.2.A",
    "unit": 7,
    "topic": 2,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "sw-dps",
+    "sw-stroke-rate"
+   ],
+   "partial": []
+  },
+  {
+   "code": "SW-7.2.C",
+   "unit": 7,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "sw-stroke-index",
+    "sw-si-compare"
+   ],
+   "partial": []
+  },
+  {
+   "code": "SW-7.2.D",
+   "unit": 7,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "sw-sr-dps-tradeoff",
+    "sw-dps-needed"
+   ],
    "partial": []
   },
   {
@@ -2185,39 +2296,29 @@
    "partial": []
   },
   {
-   "code": "SW-7.2.C",
-   "unit": 7,
-   "topic": 2,
-   "status": "gap",
-   "full": [],
-   "partial": []
-  },
-  {
-   "code": "SW-7.2.D",
-   "unit": 7,
-   "topic": 2,
-   "status": "gap",
-   "full": [],
-   "partial": []
-  },
-  {
-   "code": "SW-7.3.A",
+   "code": "SW-7.3.C",
    "unit": 7,
    "topic": 3,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "sw-pacing-diagnose",
+    "sw-pacing-fix"
+   ],
    "partial": []
   },
   {
    "code": "SW-7.3.B",
    "unit": 7,
    "topic": 3,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "sw-target-splits",
+    "sw-back-half"
+   ],
    "partial": []
   },
   {
-   "code": "SW-7.3.C",
+   "code": "SW-7.3.A",
    "unit": 7,
    "topic": 3,
    "status": "gap",
@@ -2257,51 +2358,80 @@
    "partial": []
   },
   {
+   "code": "SW-9.1.C",
+   "unit": 9,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "sw-css-limits",
+    "sw-css-use"
+   ],
+   "partial": []
+  },
+  {
    "code": "SW-9.1.A",
    "unit": 9,
    "topic": 1,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "sw-css",
+    "sw-css-pace"
+   ],
    "partial": []
   },
   {
    "code": "SW-9.1.B",
    "unit": 9,
    "topic": 1,
-   "status": "gap",
-   "full": [],
-   "partial": []
-  },
-  {
-   "code": "SW-9.1.C",
-   "unit": 9,
-   "topic": 1,
-   "status": "gap",
-   "full": [],
-   "partial": []
-  },
-  {
-   "code": "SW-9.2.A",
-   "unit": 9,
-   "topic": 2,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "sw-css-zone",
+    "sw-zone-time"
+   ],
    "partial": []
   },
   {
    "code": "SW-9.2.B",
    "unit": 9,
    "topic": 2,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "sw-set-type",
+    "sw-set-volume"
+   ],
    "partial": []
   },
   {
    "code": "SW-9.2.C",
    "unit": 9,
    "topic": 2,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "sw-rest-decides",
+    "sw-set-time"
+   ],
+   "partial": []
+  },
+  {
+   "code": "SW-9.2.A",
+   "unit": 9,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "sw-rest-interval",
+    "sw-work-rest"
+   ],
+   "partial": []
+  },
+  {
+   "code": "SW-9.3.B",
+   "unit": 9,
+   "topic": 3,
+   "status": "ok",
+   "full": [
+    "sw-week-volume",
+    "sw-volume-share"
+   ],
    "partial": []
   },
   {
@@ -2313,27 +2443,25 @@
    "partial": []
   },
   {
-   "code": "SW-9.3.B",
-   "unit": 9,
-   "topic": 3,
-   "status": "gap",
-   "full": [],
-   "partial": []
-  },
-  {
    "code": "SW-9.4.A",
    "unit": 9,
    "topic": 4,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "sw-taper-rules",
+    "sw-taper-weeks"
+   ],
    "partial": []
   },
   {
    "code": "SW-9.4.B",
    "unit": 9,
    "topic": 4,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "sw-taper-volume",
+    "sw-taper-daily"
+   ],
    "partial": []
   },
   {

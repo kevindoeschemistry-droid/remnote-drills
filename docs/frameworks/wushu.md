@@ -2,7 +2,7 @@
 
 Generated from `drills/frameworks/wushu.yaml` by `scripts/framework.mjs`. ● drilled · ◐ partly · ○ no drills yet.
 
-**88 learning objectives** in 11 units (84 core): 0 drilled, 0 partly, 88 with no drills. Core: 0 / 84 drilled.
+**88 learning objectives** in 11 units (84 core): 4 drilled, 0 partly, 84 with no drills. Core: 4 / 84 drilled.
 
 ## Big ideas
 
@@ -32,11 +32,11 @@ Generated from `drills/frameworks/wushu.yaml` by `scripts/framework.mjs`. ● dr
 | 4 · Taijiquan | core | — | 5 | 0 | 0 | 5 |
 | 5 · Weapons (qi xie 器械) | core | — | 8 | 0 | 0 | 8 |
 | 6 · Jumps, balances and difficulty elements (nandu 难度) | core | — | 11 | 0 | 0 | 11 |
-| 7 · Judging and scoring | core | — | 9 | 0 | 0 | 9 |
+| 7 · Judging and scoring | core | — | 9 | 3 | 0 | 6 |
 | 8 · Performance and choreography | core | — | 10 | 0 | 0 | 10 |
 | 9 · Biomechanics and injury prevention | core | — | 12 | 0 | 0 | 12 |
 | 10 · Sanda basics | extension | — | 4 | 0 | 0 | 4 |
-| 11 · History and the Duanwei ladder | core | — | 6 | 0 | 0 | 6 |
+| 11 · History and the Duanwei ladder | core | — | 6 | 1 | 0 | 5 |
 
 ## Unit 1 · Foundations (jibengong)
 
@@ -311,13 +311,13 @@ Big ideas: SCORE
 
 Book: iwuf-2024 §Arts. on scoring, judge groups; iwuf-2019t §B
 
-- ○ **WS-7.1.A** State how a 10-point score splits for events with and without difficulty and which judge group awards each part.
+- ● **WS-7.1.A** State how a 10-point score splits for events with and without difficulty and which judge group awards each part.
   - EK: With difficulty: A quality of movement 5 · B overall performance 3 · C difficulty 2 (1.4 + 0.6). Without difficulty (2024): A 7, B 3.
-  - P3
-- ○ **WS-7.1.B** Apply the panel rules to a set of raw judge marks and compute the A and B scores.
+  - P3 · drills: ws-score-split, ws-panel-roles
+- ● **WS-7.1.B** Apply the panel rules to a set of raw judge marks and compute the A and B scores.
   - EK: A: 3 judges, a deduction stands only if ≥ 2 confirm it. B: 5 judges, drop high and low, average the middle 3, truncate (not round) to three decimals.
   - Needs: WS-7.1.A
-  - P3
+  - P3 · drills: ws-panel-average, ws-panel-spread
 
 ### 7.2 Quality of movement (A) deductions
 
@@ -339,14 +339,14 @@ Book: iwuf-2019t §A·CQ, A·NQ, A·TJ, A 70–79; iwuf-2019x §Tbl 2-1-6
 
 Book: iwuf-2019t §B bands, §A 80–85; iwuf-2024 §head judge time deductions
 
+- ● **WS-7.3.C** Compute the head judge's time deduction for a routine of given length and event.
+  - EK: Changquan, nanquan, weapons: adult optional 1:20–1:35; 0.1 per started 2 s outside. Taiji, group: 0.1 per started 5 s outside.
+  - P3 · drills: ws-time-deduction, ws-final-score
 - ○ **WS-7.3.A** Place a described performance into a B band and grade, justifying it with the criteria.
   - EK: Criteria: power, coordination, rhythm, style, choreography, music. Bands (difficulty events): superior 2.51–3.00 · average 1.91–2.50 · inferior 1.01–1.90, each split into three grades.
   - P2 · P3
 - ○ **WS-7.3.B** Assign the choreography code and value for a described structural or content fault.
   - EK: 80 missing/extra/altered technique — 0.1 or 0.2 · 81 missing/extra step — 0.1 · 82 missing nanquan vocalisation — 0.2 · 83 static pause > 3 s — 0.1 · 84 facing averted > 45° (changquan) or > 90° (taiji) — 0.1 · 85 no music or music with lyrics — 0.5.
-  - P3
-- ○ **WS-7.3.C** Compute the head judge's time deduction for a routine of given length and event.
-  - EK: Changquan, nanquan, weapons: adult optional 1:20–1:35; 0.1 per started 2 s outside. Taiji, group: 0.1 per started 5 s outside.
   - P3
 - ○ **WS-7.3.D** Compare the 2005 and 2019 rule tables for a code and explain why a drill must name its edition.
   - EK: 2003 revision introduced nandu (2 of 10 points), first used at the 2005 Worlds; codes were renumbered and criteria tightened by 2019; 2024 widened 'other errors' to 0.05–0.3.
@@ -512,9 +512,9 @@ Book: wiki-sport §History
 
 Book: duanwei §levels, §evaluation, §textbook series, §badge names
 
-- ○ **WS-11.2.A** Name a duan from its number or badge and give its tier.
+- ● **WS-11.2.A** Name a duan from its number or badge and give its tier.
   - EK: Primary 1–3: blue, silver, gold eagle (青鹰 银鹰 金鹰) · Middle 4–6: blue, silver, gold tiger · Advanced 7–9: blue, silver, gold dragon; three pre-duan levels below.
-  - P1
+  - P1 · drills: ws-duanwei-tiers, ws-duanwei-use
 - ○ **WS-11.2.B** State what each Duanwei level examines and what is added at each step.
   - EK: Evaluation: ethics and etiquette, theory, technique, skill. Each level's form goes solo → partner → applications; content builds 1 punching · 2 kicks · 3 grasping · 4 positioning · 5 wrestling · 6 all combined; high duan adds theory and contribution.
   - P1

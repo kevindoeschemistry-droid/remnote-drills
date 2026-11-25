@@ -1,12 +1,12 @@
 # The path — start to finish
 
-Every framework in `requires` order; inside each, units and objectives in order, except that 157 objectives move up to sit just after the prerequisites they need. 4304 objectives in 53 frameworks.
+Every framework in `requires` order; inside each, units and objectives in order, except that 159 objectives move up to sit just after the prerequisites they need. 4304 objectives in 53 frameworks.
 
 | # | Framework | Track | Requires | LOs | Path position |
 |---|---|---|---|---|---|
 | 1 | Mathematics K–8 (Common Core) | math | — | 258 | 1–258 |
-| 2 | High School Mathematics (Common Core) | math | math-k8 | 200 | 259–458 |
-| 3 | Mental Math | math | math-k8 | 84 | 459–542 |
+| 2 | Mental Math | math | math-k8 | 84 | 259–342 |
+| 3 | High School Mathematics (Common Core) | math | math-k8, mental-math | 200 | 343–542 |
 | 4 | Calculus | math | math-hs | 203 | 543–745 |
 | 5 | Applied Engineering Mathematics | math | calculus | 178 | 746–923 |
 | 6 | Statistics | math | math-hs | 111 | 924–1034 |
@@ -42,7 +42,7 @@ Every framework in `requires` order; inside each, units and objectives in order,
 | 36 | Numerical Methods | engineering | calculus, linear-algebra | 17 | 3183–3199 |
 | 37 | Process Design, Economics and Safety | engineering | material-balances | 9 | 3200–3208 |
 | 38 | Chemical Reaction Engineering | engineering | material-balances | 46 | 3209–3254 |
-| 39 | Separations | engineering | material-balances, thermodynamics | 6 | 3972–3979 |
+| 39 | Separations | engineering | material-balances, thermodynamics | 6 | 3255–3260 |
 | 40 | Mass Transfer | engineering | heat-transfer, engineering-math | 21 | 3261–3281 |
 | 41 | Electric Double Layers | engineering | materials, thermodynamics | 56 | 3282–3337 |
 | 42 | Graduate Chemical Engineering Core | engineering | fluid-mechanics, heat-transfer, mass-transfer, thermodynamics, reaction-engineering, process-design, engineering-math | 38 | 3338–3375 |
@@ -57,8 +57,3 @@ Every framework in `requires` order; inside each, units and objectives in order,
 | 51 | Basketball | athletics | — | 88 | 4041–4128 |
 | 52 | Swimming | athletics | — | 88 | 4129–4216 |
 | 53 | Wushu | athletics | — | 88 | 4217–4304 |
-
-## Order problems (a prerequisite comes after the objective)
-
-- MH-1.4.A needs MM-1.5.F, which comes later
-- SP-1.1.C needs SP-1.1.A, which comes later

@@ -64,7 +64,7 @@ code: WS
 draft: 1
 track: athletics
 requires: []
-domains: []
+domains: [wushu]
 
 basis:
   primary: iwuf-taolu-2024
@@ -286,8 +286,8 @@ units:
         title: Score structure and judge panels
         book: { iwuf-2024: ["Arts. on scoring, judge groups"], iwuf-2019t: ["B"] }
         los:
-          - { id: A, do: "State how a 10-point score splits for events with and without difficulty and which judge group awards each part.", ek: ["With difficulty: A quality of movement 5 · B overall performance 3 · C difficulty 2 (1.4 + 0.6). Without difficulty (2024): A 7, B 3."], p: [P3], drills: [] }
-          - { id: B, do: "Apply the panel rules to a set of raw judge marks and compute the A and B scores.", ek: ["A: 3 judges, a deduction stands only if ≥ 2 confirm it. B: 5 judges, drop high and low, average the middle 3, truncate (not round) to three decimals."], p: [P3], needs: [WS-7.1.A], drills: [] }
+          - { id: A, do: "State how a 10-point score splits for events with and without difficulty and which judge group awards each part.", ek: ["With difficulty: A quality of movement 5 · B overall performance 3 · C difficulty 2 (1.4 + 0.6). Without difficulty (2024): A 7, B 3."], p: [P3], drills: [ws-score-split, ws-panel-roles] }
+          - { id: B, do: "Apply the panel rules to a set of raw judge marks and compute the A and B scores.", ek: ["A: 3 judges, a deduction stands only if ≥ 2 confirm it. B: 5 judges, drop high and low, average the middle 3, truncate (not round) to three decimals."], p: [P3], needs: [WS-7.1.A], drills: [ws-panel-average, ws-panel-spread] }
       - n: 2
         title: Quality of movement (A) deductions
         book: { iwuf-2019t: ["A·CQ, A·NQ, A·TJ, A 70–79"], iwuf-2019x: ["Tbl 2-1-6"] }
@@ -299,9 +299,9 @@ units:
         title: Overall performance (B) and choreography
         book: { iwuf-2019t: ["B bands", "A 80–85"], iwuf-2024: ["head judge time deductions"] }
         los:
+          - { id: C, do: "Compute the head judge's time deduction for a routine of given length and event.", ek: ["Changquan, nanquan, weapons: adult optional 1:20–1:35; 0.1 per started 2 s outside. Taiji, group: 0.1 per started 5 s outside."], p: [P3], drills: [ws-time-deduction, ws-final-score] }
           - { id: A, do: "Place a described performance into a B band and grade, justifying it with the criteria.", ek: ["Criteria: power, coordination, rhythm, style, choreography, music. Bands (difficulty events): superior 2.51–3.00 · average 1.91–2.50 · inferior 1.01–1.90, each split into three grades."], p: [P2, P3], drills: [] }
           - { id: B, do: "Assign the choreography code and value for a described structural or content fault.", ek: ["80 missing/extra/altered technique — 0.1 or 0.2 · 81 missing/extra step — 0.1 · 82 missing nanquan vocalisation — 0.2 · 83 static pause > 3 s — 0.1 · 84 facing averted > 45° (changquan) or > 90° (taiji) — 0.1 · 85 no music or music with lyrics — 0.5."], p: [P3], drills: [] }
-          - { id: C, do: "Compute the head judge's time deduction for a routine of given length and event.", ek: ["Changquan, nanquan, weapons: adult optional 1:20–1:35; 0.1 per started 2 s outside. Taiji, group: 0.1 per started 5 s outside."], p: [P3], drills: [] }
           - { id: D, do: "Compare the 2005 and 2019 rule tables for a code and explain why a drill must name its edition.", ek: ["2003 revision introduced nandu (2 of 10 points), first used at the 2005 Worlds; codes were renumbered and criteria tightened by 2019; 2024 widened 'other errors' to 0.05–0.3."], p: [P3, P4], drills: [] }
 
   # ── 8 ────────────────────────────────────────────────────────────────────
@@ -407,7 +407,7 @@ units:
         title: The Duanwei ranking system
         book: { duanwei: ["levels", "evaluation", "textbook series", "badge names"] }
         los:
-          - { id: A, do: "Name a duan from its number or badge and give its tier.", ek: ["Primary 1–3: blue, silver, gold eagle (青鹰 银鹰 金鹰) · Middle 4–6: blue, silver, gold tiger · Advanced 7–9: blue, silver, gold dragon; three pre-duan levels below."], p: [P1], drills: [] }
+          - { id: A, do: "Name a duan from its number or badge and give its tier.", ek: ["Primary 1–3: blue, silver, gold eagle (青鹰 银鹰 金鹰) · Middle 4–6: blue, silver, gold tiger · Advanced 7–9: blue, silver, gold dragon; three pre-duan levels below."], p: [P1], drills: [ws-duanwei-tiers, ws-duanwei-use] }
           - { id: B, do: "State what each Duanwei level examines and what is added at each step.", ek: ["Evaluation: ethics and etiquette, theory, technique, skill. Each level's form goes solo → partner → applications; content builds 1 punching · 2 kicks · 3 grasping · 4 positioning · 5 wrestling · 6 all combined; high duan adds theory and contribution."], p: [P1], drills: [] }
           - { id: C, do: "Map a goal (teaching, theory, a specific style) to the Duanwei textbook series and the duan that would test it.", ek: ["4 theory books (ethics and etiquette, history, introduction, exam Q&A), 20 style books (changquan, Shaolin, taiji styles, xingyi, bagua, bajiquan…), 3 weapon courses (jianshu, duangun, erjiegun). Middle duan assumes ability to teach."], p: [P6], drills: [] }
           - { id: D, do: "Perform the baoquan li salute correctly and explain its meaning in wude (martial ethics).", ek: ["Right fist covered by left palm at chest height; part of the etiquette Duanwei examines."], p: [P5, P1], drills: [] }
