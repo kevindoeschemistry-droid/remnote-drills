@@ -16,7 +16,7 @@ domains: [materials]
 
 basis:
   primary: icho-appendix-c
-  also: [ib-chemistry-2025, fe-chemical, icho-syllabus]
+  also: [ib-chemistry-2025, fe-chemical, icho-syllabus, acs-accm-general, acs-accm-inorganic, acs-accm-organic]
   note: "Polymer topics from IChO Appendix C (c22, a5), IB S2.4 and FE Chemical 4.D; a house list on those items."
 
 big_ideas:
@@ -46,9 +46,9 @@ units:
       - n: 1
         title: "Molar mass and growth"
         los:
-          - { id: A, do: "Compute M_n, M_w and dispersity from a chain distribution.", ek: ["M_n = ΣnM/Σn; M_w = ΣnM²/ΣnM."], p: [P1], drills: [mt-molar-mass-averages, mt-blend-mn] }
+          - { id: A, std: ["acs-accm-inorganic:X.C.1"], do: "Compute M_n, M_w and dispersity from a chain distribution.", ek: ["M_n = ΣnM/Σn; M_w = ΣnM²/ΣnM."], p: [P1], drills: [mt-molar-mass-averages, mt-blend-mn] }
           - { id: B, do: "Compute the degree of polymerisation of a step-growth polymer.", ek: ["X_n = (1 + r)/(1 + r − 2rp)."], p: [P1], needs: [MT-1.1.A], drills: [mt-carothers, mt-carothers-reverse] }
-          - { id: C, do: "Classify a polymer as chain-growth or step-growth.", ek: ["Vinyl polymers chain; polyesters, polyamides step."], p: [P2], drills: [mt-growth-type, mt-growth-evidence] }
+          - { id: C, std: ["acs-accm-general:III.H.2", "acs-accm-organic:III.A.3", "acs-accm-inorganic:IV.B.2"], do: "Classify a polymer as chain-growth or step-growth.", ek: ["Vinyl polymers chain; polyesters, polyamides step."], p: [P2], drills: [mt-growth-type, mt-growth-evidence] }
           - { id: D, do: "Classify a polymer as thermoplastic or thermoset.", ek: ["Cross-linked networks do not melt."], p: [P2], drills: [mt-thermoset, mt-thermoset-evidence] }
   - id: solids
     n: 2
@@ -61,7 +61,7 @@ units:
         title: "Mechanical and electronic"
         los:
           - { id: A, do: "Compute Young's modulus from a tensile test.", ek: ["E = (F/A)/(ΔL/L₀)."], p: [P1], drills: [mt-youngs-modulus, mt-elongation] }
-          - { id: B, do: "Relate a semiconductor's band gap to the wavelength it absorbs or emits.", ek: ["λ = hc/E_g."], p: [P1], drills: [mt-band-gap, mt-gap-from-emission] }
+          - { id: B, std: ["acs-accm-general:V.G.1", "acs-accm-inorganic:II.G.2"], do: "Relate a semiconductor's band gap to the wavelength it absorbs or emits.", ek: ["λ = hc/E_g."], p: [P1], drills: [mt-band-gap, mt-gap-from-emission] }
   - id: colloids
     n: 3
     title: "Colloids and DLVO theory"
@@ -71,7 +71,7 @@ units:
       - n: 1
         title: "The electrical double layer"
         los:
-          - { id: A, do: "Compute the Debye length from the ionic strength, and say how salt and valence change it.", ek: ["κ⁻¹ = √(εkT/2N_Ae²I); 0.304/√I nm for 1:1 salt at 25 °C."], p: [P1], drills: [col-debye-length, col-debye-scaling, col-debye-valence] }
+          - { id: A, std: ["acs-accm-inorganic:IV.E.2"], do: "Compute the Debye length from the ionic strength, and say how salt and valence change it.", ek: ["κ⁻¹ = √(εkT/2N_Ae²I); 0.304/√I nm for 1:1 salt at 25 °C."], p: [P1], drills: [col-debye-length, col-debye-scaling, col-debye-valence] }
           - { id: B, do: "Relate surface charge to surface potential with the Grahame equation.", ek: ["σ = √(8εkTn∞) sinh(eψ₀/2kT); σ ≈ εκψ₀ at low potential."], p: [P1], needs: [MT-3.1.A], drills: [col-grahame, col-grahame-scale] }
           - { id: C, do: "Find a zeta potential from electrophoretic mobility and judge stability from it.", ek: ["Smoluchowski μ = εζ/η (κa ≫ 1); Hückel μ = 2εζ/3η (κa ≪ 1); |ζ| > 30 mV usually stable."], p: [P1, P2], needs: [MT-3.1.A], drills: [col-zeta-from-mobility, col-huckel-or-smoluchowski, col-zeta-stability] }
       - n: 2

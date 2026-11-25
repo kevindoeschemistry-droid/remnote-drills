@@ -55,17 +55,17 @@ Big ideas: PE
   - Needs: CH-6.10.B, CH-6.2.A, CH-6.5.B, CH-6.7.A
   - P1 · drills: pc-dh-du, ac-energy-diagram, ac-heating-curve, ac-bond-enthalpy
 - ● **NG-1.1.E** (ngss-hs:PS1-5) PS1-5: Temperature and concentration effects on reaction rate.
-  - EK: Practised through: CH-5.1.A, CH-5.2.A, CH-5.3.A, CH-5.6.C.
-  - Needs: CH-5.1.A, CH-5.2.A, CH-5.3.A, CH-5.6.C
-  - P1 · drills: ac-rate-coefficients, pc-initial-rates, ac-zero-order, sm-rate-k2
+  - EK: Practised through: CH-5.1.A, CH-5.2.A, CH-5.3.A, CH-5.5.B.
+  - Needs: CH-5.1.A, CH-5.2.A, CH-5.3.A, CH-5.5.B
+  - P1 · drills: ac-rate-coefficients, pc-initial-rates, ac-zero-order, ch-surface-area-cut
 - ● **NG-1.1.F** (ngss-hs:PS1-6) PS1-6: Changing conditions to shift equilibrium toward product.
   - EK: Practised through: CH-7.9.A, CH-7.1.A, CH-7.10.A, CH-7.3.B.
   - Needs: CH-7.9.A, CH-7.1.A, CH-7.10.A, CH-7.3.B
   - P1 · drills: ac-le-chatelier, ac-dynamic-equilibrium, ac-le-chatelier-k, ac-q-vs-k
 - ● **NG-1.1.G** (ngss-hs:PS1-7) PS1-7: Conservation of atoms and mass in reactions (mathematical).
-  - EK: Practised through: CH-4.5.A, CH-4.5.D, CH-4.7.B, CH-4.9.C.
-  - Needs: CH-4.5.A, CH-4.5.D, CH-4.7.B, CH-4.9.C
-  - P1 · drills: ac-mass-mass, ac-solution-stoich, ac-predict-products, ac-electrons-transferred
+  - EK: Practised through: CH-4.5.A, CH-4.5.D, CH-4.5.F, CH-4.7.B.
+  - Needs: CH-4.5.A, CH-4.5.D, CH-4.5.F, CH-4.7.B
+  - P1 · drills: ac-mass-mass, ac-solution-stoich, ch-metal-from-ore, ac-predict-products
 - ● **NG-1.1.H** (ngss-hs:PS1-8) PS1-8: Fission, fusion and radioactive decay.
   - EK: Practised through: DAT-2.12.B, DAT-2.12.A, DAT-2.12.C, NU-1.1.A.
   - Needs: DAT-2.12.B, DAT-2.12.A, DAT-2.12.C, NU-1.1.A

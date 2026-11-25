@@ -18,7 +18,9 @@
    "gre-chemistry",
    "aamc-mcat-outline",
    "usnco",
-   "icho-syllabus"
+   "icho-syllabus",
+   "acs-accm-general",
+   "acs-accm-inorganic"
   ],
   "wanted": [
    "acs-accm"
@@ -266,6 +268,9 @@
       },
       {
        "id": "B",
+       "std": [
+        "acs-accm-inorganic:VIII.C.1"
+       ],
        "do": "Compute a solubility raised by complex formation.",
        "ek": [
         "K = K_sp·β₂ for AgX + 2NH₃."
@@ -382,6 +387,9 @@
       },
       {
        "id": "C",
+       "std": [
+        "acs-accm-general:IX.G.4"
+       ],
        "do": "Read an unknown off a least-squares calibration line.",
        "ek": [
         "Slope and intercept from the sums."
@@ -416,6 +424,9 @@
       },
       {
        "id": "B",
+       "std": [
+        "acs-accm-inorganic:IX.F.1"
+       ],
        "do": "Propagate random uncertainty through a sum or a product.",
        "ek": [
         "Absolute in quadrature for sums, relative for products."
@@ -430,6 +441,10 @@
       },
       {
        "id": "C",
+       "std": [
+        "acs-accm-inorganic:IX.C.2",
+        "acs-accm-inorganic:IX.E.2"
+       ],
        "do": "Choose an analytical technique for a stated question.",
        "ek": [
         "Trace metals ICP-MS, volatiles GC, non-volatiles HPLC, water Karl Fischer."

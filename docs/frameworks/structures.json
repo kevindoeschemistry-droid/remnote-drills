@@ -18,7 +18,9 @@
    "icho-appendix-c",
    "icho-syllabus",
    "acs-accm",
-   "aamc-mcat-outline"
+   "aamc-mcat-outline",
+   "acs-accm-general",
+   "acs-accm-organic"
   ],
   "note": "Units follow the chapter list of Bruice's Organic Chemistry (a textbook, not a standard). The amino acids follow IUPAC-IUB 1983 Table 1. Which compounds to carry in each unit is a house list; the MCAT content outline names the same families and has not been opened."
  },
@@ -68,6 +70,11 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "acs-accm-general:III.F.1",
+        "acs-accm-organic:II.A.1",
+        "acs-accm-organic:III.A.1"
+       ],
        "do": "Draw and name the common functional groups, with R for the rest of the molecule.",
        "ek": [
         "Start here: every larger structure is these groups on a carbon skeleton."
@@ -354,7 +361,8 @@
       {
        "id": "A",
        "std": [
-        "20"
+        "20",
+        "acs-accm-organic:V.C.2"
        ],
        "do": "Draw the Fischer projections of the common D-aldoses and of D-fructose, tell epimers apart, and draw the Haworth rings of glucose, galactose, ribose and deoxyribose.",
        "ek": [

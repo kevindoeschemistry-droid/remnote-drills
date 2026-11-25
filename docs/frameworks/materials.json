@@ -17,7 +17,10 @@
   "also": [
    "ib-chemistry-2025",
    "fe-chemical",
-   "icho-syllabus"
+   "icho-syllabus",
+   "acs-accm-general",
+   "acs-accm-inorganic",
+   "acs-accm-organic"
   ],
   "note": "Polymer topics from IChO Appendix C (c22, a5), IB S2.4 and FE Chemical 4.D; a house list on those items."
  },
@@ -68,6 +71,9 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "acs-accm-inorganic:X.C.1"
+       ],
        "do": "Compute M_n, M_w and dispersity from a chain distribution.",
        "ek": [
         "M_n = ΣnM/Σn; M_w = ΣnM²/ΣnM."
@@ -99,6 +105,11 @@
       },
       {
        "id": "C",
+       "std": [
+        "acs-accm-general:III.H.2",
+        "acs-accm-organic:III.A.3",
+        "acs-accm-inorganic:IV.B.2"
+       ],
        "do": "Classify a polymer as chain-growth or step-growth.",
        "ek": [
         "Vinyl polymers chain; polyesters, polyamides step."
@@ -162,6 +173,10 @@
       },
       {
        "id": "B",
+       "std": [
+        "acs-accm-general:V.G.1",
+        "acs-accm-inorganic:II.G.2"
+       ],
        "do": "Relate a semiconductor's band gap to the wavelength it absorbs or emits.",
        "ek": [
         "λ = hc/E_g."
@@ -193,6 +208,9 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "acs-accm-inorganic:IV.E.2"
+       ],
        "do": "Compute the Debye length from the ionic strength, and say how salt and valence change it.",
        "ek": [
         "κ⁻¹ = √(εkT/2N_Ae²I); 0.304/√I nm for 1:1 salt at 25 °C."

@@ -18,7 +18,10 @@
    "icho-appendix-c",
    "icho-syllabus",
    "acs-accm",
-   "aamc-mcat-outline"
+   "aamc-mcat-outline",
+   "acs-accm-general",
+   "acs-accm-inorganic",
+   "acs-accm-organic"
   ],
   "note": "Every topic in units 1–9 cites its College Board learning objectives (92 of 92, read Nov 2026). Objectives past Unit 2 were first written from topic titles; check them against the LO text when revising."
  },
@@ -103,7 +106,9 @@
       {
        "id": "A",
        "std": [
-        "SPQ-2.B"
+        "SPQ-2.B",
+        "acs-accm-general:III.A.3",
+        "acs-accm-general:IX.A.1"
        ],
        "do": "Classify a sample as an element, compound, homogeneous mixture or heterogeneous mixture from a description or particle diagram.",
        "ek": [
@@ -120,7 +125,8 @@
       {
        "id": "B",
        "std": [
-        "TRA-1.D"
+        "TRA-1.D",
+        "acs-accm-general:I.D.3"
        ],
        "do": "Sort properties and changes into physical and chemical.",
        "ek": [
@@ -184,7 +190,9 @@
       {
        "id": "C",
        "std": [
-        "N-Q.A.3"
+        "N-Q.A.3",
+        "acs-accm-general:IX.G.1",
+        "acs-accm-inorganic:IX.E.1"
        ],
        "do": "Distinguish accuracy from precision and calculate percent error.",
        "ek": [
@@ -203,7 +211,9 @@
        "id": "D",
        "std": [
         "N-Q.A.1",
-        "A-CED.A.4"
+        "A-CED.A.4",
+        "acs-accm-general:I.D.3",
+        "acs-accm-general:IX.B.2"
        ],
        "do": "Calculate density, mass or volume from the other two, including volume by water displacement.",
        "ek": [
@@ -279,7 +289,9 @@
       {
        "id": "A",
        "std": [
-        "SAP-1.A"
+        "SAP-1.A",
+        "acs-accm-general:I.A.1",
+        "acs-accm-inorganic:I.A.1"
        ],
        "do": "Count protons, neutrons and electrons from a nuclide symbol for an atom or ion.",
        "ek": [
@@ -296,7 +308,9 @@
       {
        "id": "C",
        "std": [
-        "SAP-2.B"
+        "SAP-2.B",
+        "acs-accm-general:IX.C.1",
+        "acs-accm-inorganic:I.C.3"
        ],
        "do": "Use periodic-table position (group, metal or nonmetal) to name, and write formulas for, binary ionic, polyatomic ionic, binary molecular compounds and common acids.",
        "ek": [
@@ -323,7 +337,9 @@
       {
        "id": "A",
        "std": [
-        "SPQ-1.A"
+        "SPQ-1.A",
+        "acs-accm-general:I.E.1",
+        "acs-accm-general:X.B.1"
        ],
        "do": "Explain the mole as a count of particles and compute a compound's molar mass from its formula.",
        "ek": [
@@ -338,6 +354,121 @@
        ],
        "needs": [
         "CH-0.4.C"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "acs-accm-general:I.E.3"
+       ],
+       "do": "Use the picometre size of atoms to see why a mole is so large.",
+       "ek": [
+        "Atoms are about 100–300 pm across; a millimetre holds millions of them in a row, so a visible sample holds ~10²³."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "ch-atoms-in-a-line",
+        "ch-mole-of-marbles"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 6,
+     "title": "Laboratory practice and safety",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "acs-accm-general:IX.F.1",
+        "acs-accm-general:IX.G.2",
+        "acs-accm-organic:IX.F"
+       ],
+       "do": "Classify an error as random or systematic, predict its direction, and choose a procedure that limits it.",
+       "ek": [
+        "Systematic errors push every result one way (a mis-zeroed balance, a wet sample); random errors scatter both ways and shrink with replicates; blanks and calibration remove systematic ones."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "ch-error-type",
+        "ch-systematic-direction"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "acs-accm-general:IX.G.3",
+        "acs-accm-organic:IX.E",
+        "acs-accm-inorganic:IX.F.2"
+       ],
+       "do": "Keep a laboratory record that others can verify.",
+       "ek": [
+        "Write directly in a bound notebook in ink, date every entry, cross out mistakes with one line instead of erasing, and record conditions and raw data."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "ch-notebook",
+        "ch-procedure-design"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "acs-accm-general:IX.H.1",
+        "acs-accm-general:IX.H.2",
+        "acs-accm-general:IX.H.4",
+        "acs-accm-inorganic:IX.G.4"
+       ],
+       "do": "Choose the safety equipment and handling for a hazard, reading GHS pictograms and safety data sheets.",
+       "ek": [
+        "Goggles always; fume hood for volatile or toxic substances; know the eyewash, shower and extinguisher; GHS pictograms and SDS sections name the hazard and the response."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "ch-safety-equipment",
+        "ch-ghs-pictograms"
+       ]
+      },
+      {
+       "id": "D",
+       "std": [
+        "acs-accm-general:IX.H.3"
+       ],
+       "do": "Dispose of laboratory waste by category.",
+       "ek": [
+        "Separate halogenated from non-halogenated solvents, keep oxidisers apart from organics, neutralise or collect acids and bases, never pour heavy metals or organics down the drain."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "ch-waste",
+        "ch-waste-2"
+       ]
+      },
+      {
+       "id": "E",
+       "std": [
+        "acs-accm-general:IX.H.5"
+       ],
+       "do": "Reduce radiation dose with time, distance and shielding.",
+       "ek": [
+        "Dose rate falls with the square of the distance from a point source; each half-value layer of shielding halves it; dose = rate × time."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "ch-inverse-square",
+        "ch-half-value-layers"
        ]
       }
      ]
@@ -383,7 +514,9 @@
       {
        "id": "A",
        "std": [
-        "SPQ-1.A"
+        "SPQ-1.A",
+        "acs-accm-general:I.E.2",
+        "acs-accm-inorganic:X.B.1"
        ],
        "do": "Convert among mass, moles and number of particles of a compound or of one element inside it.",
        "ek": [
@@ -417,7 +550,8 @@
       {
        "id": "A",
        "std": [
-        "SPQ-1.B"
+        "SPQ-1.B",
+        "acs-accm-general:I.A.2"
        ],
        "do": "Calculate an element's average atomic mass from its isotopes' masses and abundances.",
        "ek": [
@@ -437,7 +571,10 @@
       {
        "id": "B",
        "std": [
-        "SPQ-1.B"
+        "SPQ-1.B",
+        "acs-accm-general:I.A.2",
+        "acs-accm-general:IX.E.4",
+        "acs-accm-organic:IX.D"
        ],
        "do": "Read isotopes and relative abundances off a mass spectrum, or find two isotopes' abundances from the average mass.",
        "ek": [
@@ -491,7 +628,8 @@
       {
        "id": "B",
        "std": [
-        "SPQ-2.A"
+        "SPQ-2.A",
+        "acs-accm-general:III.A.1"
        ],
        "do": "Determine an empirical formula from mass-percent or mass data.",
        "ek": [
@@ -532,7 +670,8 @@
       {
        "id": "D",
        "std": [
-        "SPQ-2.A"
+        "SPQ-2.A",
+        "acs-accm-inorganic:IX.D.1"
        ],
        "do": "Find an empirical formula from combustion-analysis masses of CO₂ and H₂O.",
        "ek": [
@@ -599,7 +738,10 @@
       {
        "id": "A",
        "std": [
-        "SAP-1.A"
+        "SAP-1.A",
+        "acs-accm-general:I.B.1",
+        "acs-accm-general:I.B.3",
+        "acs-accm-inorganic:I.G.1"
        ],
        "do": "Write full and noble-gas ground-state electron configurations for atoms and ions.",
        "ek": [
@@ -620,7 +762,9 @@
       {
        "id": "B",
        "std": [
-        "SAP-1.A"
+        "SAP-1.A",
+        "acs-accm-general:I.B.3",
+        "acs-accm-inorganic:I.B.5"
        ],
        "do": "Draw an orbital (box) diagram, count unpaired electrons, and predict paramagnetism or diamagnetism.",
        "ek": [
@@ -640,7 +784,11 @@
       {
        "id": "C",
        "std": [
-        "SAP-1.A"
+        "SAP-1.A",
+        "acs-accm-general:I.B.1",
+        "acs-accm-general:I.C.2",
+        "acs-accm-inorganic:I.B.3",
+        "acs-accm-inorganic:I.B.4"
        ],
        "do": "Compare the attraction of an electron to the nucleus using Coulomb's law with nuclear charge, shielding and distance.",
        "ek": [
@@ -706,7 +854,11 @@
       {
        "id": "A",
        "std": [
-        "SAP-2.A"
+        "SAP-2.A",
+        "acs-accm-general:I.C.1",
+        "acs-accm-general:I.C.2",
+        "acs-accm-inorganic:I.C.1",
+        "acs-accm-inorganic:X.D.1"
        ],
        "do": "Rank atoms by radius, first ionization energy, electron affinity and electronegativity, and justify with Z_eff and shell number.",
        "ek": [
@@ -746,7 +898,10 @@
       {
        "id": "D",
        "std": [
-        "SAP-2.A"
+        "SAP-2.A",
+        "acs-accm-general:I.G.1",
+        "acs-accm-general:I.G.2",
+        "acs-accm-inorganic:I.G.2"
        ],
        "do": "Compare ion sizes with their parent atoms and rank an isoelectronic series.",
        "ek": [
@@ -779,7 +934,8 @@
       {
        "id": "A",
        "std": [
-        "SAP-2.B"
+        "SAP-2.B",
+        "acs-accm-general:I.G.1"
        ],
        "do": "Predict an element's common ion charge and the formula of the ionic compound two elements form.",
        "ek": [
@@ -800,7 +956,10 @@
       {
        "id": "B",
        "std": [
-        "SAP-2.B"
+        "SAP-2.B",
+        "acs-accm-general:I.C.3",
+        "acs-accm-inorganic:I.C.2",
+        "acs-accm-inorganic:III.G.1"
        ],
        "do": "Predict the formula or reactivity of an unfamiliar compound from an analogous compound of a same-group element.",
        "ek": [
@@ -832,7 +991,10 @@
       {
        "id": "A",
        "std": [
-        "DAT-GC Atomic and Molecular Structure (quantum theory)"
+        "DAT-GC Atomic and Molecular Structure (quantum theory)",
+        "acs-accm-general:I.B.2",
+        "acs-accm-inorganic:I.B.1",
+        "acs-accm-inorganic:I.B.2"
        ],
        "do": "Assign quantum numbers n, l, m_l, m_s, decide whether a set is allowed, and count the orbitals and electrons in a subshell or shell.",
        "ek": [
@@ -863,7 +1025,10 @@
       {
        "id": "A",
        "std": [
-        "DAT-GC Nuclear Reactions"
+        "DAT-GC Nuclear Reactions",
+        "acs-accm-general:I.F.2",
+        "acs-accm-organic:I.F",
+        "acs-accm-inorganic:I.F.1"
        ],
        "do": "Balance a nuclear equation for alpha, beta-minus, positron, electron-capture and gamma processes.",
        "ek": [
@@ -883,7 +1048,8 @@
       {
        "id": "C",
        "std": [
-        "DAT-GC Nuclear Reactions"
+        "DAT-GC Nuclear Reactions",
+        "acs-accm-general:I.F.3"
        ],
        "do": "Calculate the amount remaining, or the elapsed time, after a whole number of half-lives.",
        "ek": [
@@ -903,7 +1069,10 @@
       {
        "id": "D",
        "std": [
-        "DAT-GC Nuclear Reactions"
+        "DAT-GC Nuclear Reactions",
+        "acs-accm-general:VI.I.1",
+        "acs-accm-organic:VI.I",
+        "acs-accm-inorganic:VI.I.1"
        ],
        "do": "Calculate a nucleus's mass defect and binding energy per nucleon.",
        "ek": [
@@ -957,7 +1126,10 @@
       {
        "id": "A",
        "std": [
-        "SAP-3.A"
+        "SAP-3.A",
+        "acs-accm-general:II.A.2",
+        "acs-accm-general:II.A.3",
+        "acs-accm-inorganic:II.A.1"
        ],
        "do": "Classify a bond as nonpolar covalent, polar covalent, ionic or metallic from the elements and their electronegativity difference, and mark partial charges.",
        "ek": [
@@ -987,7 +1159,10 @@
       {
        "id": "A",
        "std": [
-        "SAP-3.B"
+        "SAP-3.B",
+        "acs-accm-general:II.C.1",
+        "acs-accm-general:II.C.2",
+        "acs-accm-organic:II.C.1"
        ],
        "do": "Read bond length and bond energy from a potential-energy vs internuclear-distance curve, and compare curves for different bonds.",
        "ek": [
@@ -1004,7 +1179,11 @@
       {
        "id": "B",
        "std": [
-        "SAP-3.B"
+        "SAP-3.B",
+        "acs-accm-general:II.A.1",
+        "acs-accm-inorganic:II.B.3",
+        "acs-accm-inorganic:II.C.2",
+        "acs-accm-inorganic:VI.E.2"
        ],
        "do": "Rank ionic compounds by lattice energy using Coulomb's law.",
        "ek": [
@@ -1038,7 +1217,9 @@
       {
        "id": "A",
        "std": [
-        "SAP-3.C"
+        "SAP-3.C",
+        "acs-accm-general:II.A.1",
+        "acs-accm-inorganic:II.A.3"
        ],
        "do": "Represent an ionic solid as a lattice and use it to explain high melting point, brittleness and conductivity only when molten or dissolved.",
        "ek": [
@@ -1072,7 +1253,10 @@
       {
        "id": "A",
        "std": [
-        "SAP-3.D"
+        "SAP-3.D",
+        "acs-accm-general:II.G.1",
+        "acs-accm-organic:II.G",
+        "acs-accm-inorganic:II.G.1"
        ],
        "do": "Explain metallic conductivity, malleability and luster with the electron-sea model, and classify an alloy as interstitial or substitutional from atomic radii.",
        "ek": [
@@ -1105,7 +1289,10 @@
       {
        "id": "A",
        "std": [
-        "SAP-4.A"
+        "SAP-4.A",
+        "acs-accm-general:II.B.1",
+        "acs-accm-general:II.B.2",
+        "acs-accm-general:III.B.2"
        ],
        "do": "Draw the Lewis structure of a molecule or polyatomic ion that obeys the octet rule.",
        "ek": [
@@ -1125,7 +1312,8 @@
       {
        "id": "B",
        "std": [
-        "SAP-4.A"
+        "SAP-4.A",
+        "acs-accm-inorganic:II.F.1"
        ],
        "do": "Draw Lewis structures for octet exceptions: incomplete octets, expanded octets and odd-electron species.",
        "ek": [
@@ -1179,7 +1367,8 @@
       {
        "id": "B",
        "std": [
-        "SAP-4.B"
+        "SAP-4.B",
+        "acs-accm-general:II.F.1"
        ],
        "do": "Draw all resonance structures of a species and calculate the average bond order.",
        "ek": [
@@ -1212,7 +1401,10 @@
       {
        "id": "A",
        "std": [
-        "SAP-4.C"
+        "SAP-4.C",
+        "acs-accm-general:III.B.3",
+        "acs-accm-organic:III.B.1",
+        "acs-accm-inorganic:III.B.1"
        ],
        "do": "Predict electron-domain geometry, molecular shape and approximate bond angles with VSEPR.",
        "ek": [
@@ -1232,7 +1424,9 @@
       {
        "id": "B",
        "std": [
-        "SAP-4.C"
+        "SAP-4.C",
+        "acs-accm-general:IV.C.2",
+        "acs-accm-organic:II.A.2"
        ],
        "do": "Decide whether a molecule is polar from its shape and bond dipoles.",
        "ek": [
@@ -1253,7 +1447,12 @@
       {
        "id": "C",
        "std": [
-        "SAP-4.C"
+        "SAP-4.C",
+        "acs-accm-general:II.C.3",
+        "acs-accm-general:II.F.1",
+        "acs-accm-organic:II.E.1",
+        "acs-accm-inorganic:II.C.1",
+        "acs-accm-inorganic:II.F.2"
        ],
        "do": "Assign the hybridization of a central atom and count σ and π bonds.",
        "ek": [
@@ -1284,7 +1483,13 @@
       {
        "id": "A",
        "std": [
-        "DAT-GC Atomic and Molecular Structure (quantum theory)"
+        "DAT-GC Atomic and Molecular Structure (quantum theory)",
+        "acs-accm-general:II.E.1",
+        "acs-accm-organic:II.E.3",
+        "acs-accm-inorganic:II.B.1",
+        "acs-accm-inorganic:II.E.1",
+        "acs-accm-inorganic:II.E.2",
+        "acs-accm-inorganic:X.D.2"
        ],
        "do": "Fill a molecular-orbital diagram for a period-2 diatomic or ion and find its bond order and magnetism.",
        "ek": [
@@ -1344,7 +1549,11 @@
       {
        "id": "A",
        "std": [
-        "SAP-5.A"
+        "SAP-5.A",
+        "acs-accm-general:IV.C.1",
+        "acs-accm-organic:IV.A.3",
+        "acs-accm-inorganic:IV.B.1",
+        "acs-accm-inorganic:IV.C.1"
        ],
        "do": "Identify every intermolecular force present between particles: London dispersion, dipole–dipole, hydrogen bonding, ion–dipole.",
        "ek": [
@@ -1364,7 +1573,10 @@
       {
        "id": "B",
        "std": [
-        "SAP-5.A"
+        "SAP-5.A",
+        "acs-accm-general:IV.A.2",
+        "acs-accm-inorganic:IV.A.1",
+        "acs-accm-inorganic:IV.D.2"
        ],
        "do": "Rank substances by boiling point, vapor pressure, viscosity or surface tension from their intermolecular forces.",
        "ek": [
@@ -1397,7 +1609,10 @@
       {
        "id": "A",
        "std": [
-        "SAP-5.B"
+        "SAP-5.B",
+        "acs-accm-general:III.H.1",
+        "acs-accm-organic:III.G",
+        "acs-accm-inorganic:IV.D.1"
        ],
        "do": "Classify a solid as ionic, molecular, covalent-network or metallic and predict its melting point, hardness and conductivity.",
        "ek": [
@@ -1432,7 +1647,8 @@
       {
        "id": "B",
        "std": [
-        "SAP-6.A"
+        "SAP-6.A",
+        "acs-accm-general:VIII.A.1"
        ],
        "do": "Explain vapor pressure and boiling as an IMF-versus-kinetic-energy balance, and why boiling point changes with external pressure.",
        "ek": [
@@ -1452,7 +1668,9 @@
       {
        "id": "C",
        "std": [
-        "SAP-6.A"
+        "SAP-6.A",
+        "acs-accm-inorganic:IV.D.3",
+        "acs-accm-inorganic:X.D.6"
        ],
        "do": "Read a phase diagram: identify phases, the triple point, the critical point and normal melting and boiling points, and trace a path.",
        "ek": [
@@ -1485,7 +1703,9 @@
       {
        "id": "A",
        "std": [
-        "SAP-7.A"
+        "SAP-7.A",
+        "acs-accm-general:IV.A.1",
+        "acs-accm-general:X.E.1"
        ],
        "do": "Solve PV = nRT for any variable with consistent units and the matching value of R.",
        "ek": [
@@ -1579,7 +1799,11 @@
       {
        "id": "A",
        "std": [
-        "SAP-7.B"
+        "SAP-7.B",
+        "acs-accm-general:I.D.2",
+        "acs-accm-general:X.A.1",
+        "acs-accm-general:X.C.1",
+        "acs-accm-organic:X.C"
        ],
        "do": "State the postulates of kinetic molecular theory and interpret Maxwell–Boltzmann speed distributions at different temperatures and molar masses.",
        "ek": [
@@ -1632,7 +1856,8 @@
       {
        "id": "A",
        "std": [
-        "SAP-7.C"
+        "SAP-7.C",
+        "acs-accm-general:IV.A.1"
        ],
        "do": "Predict when and in which direction a real gas deviates from ideal behavior, and explain the van der Waals a and b terms.",
        "ek": [
@@ -1666,7 +1891,8 @@
       {
        "id": "A",
        "std": [
-        "SPQ-3.A"
+        "SPQ-3.A",
+        "acs-accm-general:IV.D.3"
        ],
        "do": "Calculate molarity, moles of solute or solution volume from the other two.",
        "ek": [
@@ -1686,7 +1912,8 @@
       {
        "id": "B",
        "std": [
-        "SPQ-3.A"
+        "SPQ-3.A",
+        "acs-accm-general:IX.F.2"
        ],
        "do": "Calculate the result of a dilution and describe how to prepare a solution of given concentration.",
        "ek": [
@@ -1707,7 +1934,8 @@
       {
        "id": "C",
        "std": [
-        "SPQ-3.A"
+        "SPQ-3.A",
+        "acs-accm-general:IV.D.1"
        ],
        "do": "Calculate each ion's concentration in a solution of a strong electrolyte.",
        "ek": [
@@ -1728,7 +1956,8 @@
       {
        "id": "D",
        "std": [
-        "SPQ-3.A"
+        "SPQ-3.A",
+        "acs-accm-general:IV.D.3"
        ],
        "do": "Convert among molarity, molality, mass percent, mole fraction and ppm.",
        "ek": [
@@ -1762,7 +1991,9 @@
       {
        "id": "A",
        "std": [
-        "SPQ-3.B"
+        "SPQ-3.B",
+        "acs-accm-general:IX.B.1",
+        "acs-accm-general:X.A.2"
        ],
        "do": "Draw a particle diagram of a solution with correct solute ratios and solvent orientation around ions.",
        "ek": [
@@ -1797,7 +2028,8 @@
       {
        "id": "A",
        "std": [
-        "SPQ-3.C"
+        "SPQ-3.C",
+        "acs-accm-general:IX.A.2"
        ],
        "do": "Explain a chromatography or distillation separation, and compute R_f, from differences in intermolecular forces.",
        "ek": [
@@ -1831,7 +2063,10 @@
       {
        "id": "A",
        "std": [
-        "SPQ-3.C"
+        "SPQ-3.C",
+        "acs-accm-general:IV.D.2",
+        "acs-accm-organic:VI.E.1",
+        "acs-accm-inorganic:IV.E.1"
        ],
        "do": "Predict relative solubility in polar and nonpolar solvents from solute–solvent interactions.",
        "ek": [
@@ -1884,7 +2119,9 @@
       {
        "id": "A",
        "std": [
-        "SAP-8.A"
+        "SAP-8.A",
+        "acs-accm-general:I.D.1",
+        "acs-accm-inorganic:IX.D.5"
        ],
        "do": "Match a region of the electromagnetic spectrum to the molecular or electronic transition it causes.",
        "ek": [
@@ -1917,7 +2154,8 @@
       {
        "id": "A",
        "std": [
-        "SAP-8.B"
+        "SAP-8.B",
+        "acs-accm-general:I.D.1"
        ],
        "do": "Calculate a photon's energy, frequency or wavelength, per photon or per mole.",
        "ek": [
@@ -1938,7 +2176,9 @@
        "id": "B",
        "std": [
         "SAP-8.B",
-        "DAT-GC Atomic and Molecular Structure (quantum theory)"
+        "DAT-GC Atomic and Molecular Structure (quantum theory)",
+        "acs-accm-general:IX.E.3",
+        "acs-accm-inorganic:I.D.1"
        ],
        "do": "Calculate the energy and wavelength of a hydrogen-atom transition, and relate emission lines to energy levels.",
        "ek": [
@@ -1971,7 +2211,8 @@
       {
        "id": "A",
        "std": [
-        "SAP-8.C"
+        "SAP-8.C",
+        "acs-accm-general:IX.G.4"
        ],
        "do": "Calculate a concentration from absorbance, directly or from a calibration curve.",
        "ek": [
@@ -2101,7 +2342,9 @@
       {
        "id": "A",
        "std": [
-        "TRA-1.A"
+        "TRA-1.A",
+        "acs-accm-general:I.F.1",
+        "acs-accm-general:V.A.1"
        ],
        "do": "Identify evidence of a chemical reaction and balance a chemical equation by inspection.",
        "ek": [
@@ -2136,7 +2379,8 @@
       {
        "id": "A",
        "std": [
-        "TRA-1.B"
+        "TRA-1.B",
+        "acs-accm-general:V.F.1"
        ],
        "do": "Predict whether a precipitate forms on mixing two ionic solutions, using solubility rules.",
        "ek": [
@@ -2156,7 +2400,8 @@
       {
        "id": "B",
        "std": [
-        "TRA-1.B"
+        "TRA-1.B",
+        "acs-accm-inorganic:V.D.4"
        ],
        "do": "Write the molecular, complete ionic and net ionic equations for a reaction in solution.",
        "ek": [
@@ -2187,7 +2432,10 @@
       {
        "id": "A",
        "std": [
-        "TRA-1.C"
+        "TRA-1.C",
+        "acs-accm-general:V.B.1",
+        "acs-accm-general:V.C.1",
+        "acs-accm-general:X.A.2"
        ],
        "do": "Translate between a particle diagram of a reaction and its balanced equation, including which reactant is left over.",
        "ek": [
@@ -2218,7 +2466,8 @@
       {
        "id": "A",
        "std": [
-        "TRA-1.D"
+        "TRA-1.D",
+        "acs-accm-general:IV.A.3"
        ],
        "do": "Classify a process (dissolving, melting, ionization, combustion) as physical or chemical from whether bonds or interparticle forces change.",
        "ek": [
@@ -2252,7 +2501,9 @@
       {
        "id": "A",
        "std": [
-        "SPQ-4.A"
+        "SPQ-4.A",
+        "acs-accm-general:V.A.2",
+        "acs-accm-general:V.A.3"
        ],
        "do": "Calculate the mass of a product or reactant from the mass of another, through the mole ratio.",
        "ek": [
@@ -2273,7 +2524,8 @@
       {
        "id": "B",
        "std": [
-        "SPQ-4.A"
+        "SPQ-4.A",
+        "acs-accm-general:V.C.1"
        ],
        "do": "Identify the limiting reactant, the theoretical yield and the amount of excess reactant left.",
        "ek": [
@@ -2293,7 +2545,13 @@
       {
        "id": "C",
        "std": [
-        "SPQ-4.A"
+        "SPQ-4.A",
+        "acs-accm-general:V.F.2",
+        "acs-accm-general:IX.E.1",
+        "acs-accm-organic:I.E.1",
+        "acs-accm-organic:V.A.2",
+        "acs-accm-organic:X.B.1",
+        "acs-accm-inorganic:I.E.1"
        ],
        "do": "Calculate percent yield from actual and theoretical yield.",
        "ek": [
@@ -2351,6 +2609,23 @@
         "CH-4.5.A",
         "CH-3.4.A"
        ]
+      },
+      {
+       "id": "F",
+       "std": [
+        "acs-accm-general:III.H.3"
+       ],
+       "do": "Find the mass of an element that can be recovered from an ore or mineral sample.",
+       "ek": [
+        "Mass of element = mass of ore × fraction of mineral × (mass of element in one formula unit ÷ formula mass)."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "ch-metal-from-ore",
+        "ch-ore-needed"
+       ]
       }
      ]
     },
@@ -2402,7 +2677,8 @@
       {
        "id": "A",
        "std": [
-        "TRA-2.A"
+        "TRA-2.A",
+        "acs-accm-general:V.D.2"
        ],
        "do": "Classify a reaction as precipitation, acid–base or redox (including synthesis, decomposition, combustion, single and double replacement).",
        "ek": [
@@ -2422,7 +2698,10 @@
       {
        "id": "B",
        "std": [
-        "TRA-2.A"
+        "TRA-2.A",
+        "acs-accm-general:V.D.1",
+        "acs-accm-general:IX.E.2",
+        "acs-accm-organic:VI.F.1"
        ],
        "do": "Predict the products of combustion, synthesis, decomposition and double-replacement reactions.",
        "ek": [
@@ -2455,7 +2734,8 @@
       {
        "id": "A",
        "std": [
-        "TRA-2.B"
+        "TRA-2.B",
+        "acs-accm-general:V.D.3"
        ],
        "do": "Identify Brønsted–Lowry acids, bases and conjugate pairs, and write the proton-transfer equation.",
        "ek": [
@@ -2508,7 +2788,9 @@
       {
        "id": "B",
        "std": [
-        "TRA-2.C"
+        "TRA-2.C",
+        "acs-accm-general:V.D.2",
+        "acs-accm-inorganic:V.D.2"
        ],
        "do": "Identify the species oxidized and reduced and the oxidizing and reducing agents.",
        "ek": [
@@ -2528,7 +2810,8 @@
       {
        "id": "C",
        "std": [
-        "TRA-2.C"
+        "TRA-2.C",
+        "acs-accm-inorganic:V.A.1"
        ],
        "do": "Balance a redox equation by half-reactions in acidic or basic solution.",
        "ek": [
@@ -2604,7 +2887,9 @@
       {
        "id": "A",
        "std": [
-        "TRA-3.A"
+        "TRA-3.A",
+        "acs-accm-general:VII.A.1",
+        "acs-accm-general:VII.A.2"
        ],
        "do": "Express a reaction's rate from the rate of change of any reactant or product, using the coefficients.",
        "ek": [
@@ -2637,7 +2922,10 @@
       {
        "id": "A",
        "std": [
-        "TRA-3.B"
+        "TRA-3.B",
+        "acs-accm-general:VII.B.1",
+        "acs-accm-general:IX.B.3",
+        "acs-accm-inorganic:VII.B.1"
        ],
        "do": "Determine reaction orders and the rate constant, with its units, from initial-rates data.",
        "ek": [
@@ -2658,7 +2946,8 @@
       {
        "id": "C",
        "std": [
-        "TRA-3.B"
+        "TRA-3.B",
+        "acs-accm-general:IX.D.1"
        ],
        "do": "Predict the change in rate when one or more concentrations change.",
        "ek": [
@@ -2712,7 +3001,9 @@
       {
        "id": "B",
        "std": [
-        "TRA-3.C"
+        "TRA-3.C",
+        "acs-accm-general:X.D.2",
+        "acs-accm-organic:X.D"
        ],
        "do": "Identify reaction order from which plot ([A], ln[A] or 1/[A] vs t) is linear, and read k from its slope.",
        "ek": [
@@ -2797,7 +3088,9 @@
       {
        "id": "A",
        "std": [
-        "TRA-4.B"
+        "TRA-4.B",
+        "acs-accm-general:VII.D.1",
+        "acs-accm-organic:IV.C.1"
        ],
        "do": "Explain rate in terms of collision frequency, orientation and the fraction of collisions with energy above E_a.",
        "ek": [
@@ -2813,6 +3106,23 @@
        "needs": [
         "CH-3.5.A",
         "CH-5.1.A"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "acs-accm-general:VII.A.3"
+       ],
+       "do": "Explain and quantify how dividing a solid raises its surface area and its reaction rate.",
+       "ek": [
+        "Cutting a cube into n³ smaller cubes multiplies the exposed area by n; a surface reaction speeds up in proportion."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "ch-surface-area-cut",
+        "ch-surface-area-facts"
        ]
       }
      ]
@@ -2831,7 +3141,11 @@
       {
        "id": "A",
        "std": [
-        "TRA-4.C"
+        "TRA-4.C",
+        "acs-accm-general:VII.D.2",
+        "acs-accm-general:X.D.1",
+        "acs-accm-organic:VI.B.1",
+        "acs-accm-inorganic:VII.C.1"
        ],
        "do": "Label a reaction energy profile with the transition state, forward and reverse E_a, and ΔH.",
        "ek": [
@@ -2853,7 +3167,9 @@
        "id": "B",
        "std": [
         "TRA-4.C",
-        "DAT-GC Chemical Kinetics (activation energy)"
+        "DAT-GC Chemical Kinetics (activation energy)",
+        "acs-accm-general:VII.B.2",
+        "acs-accm-inorganic:VI.B.1"
        ],
        "do": "Find the activation energy from rate constants at two temperatures (Arrhenius).",
        "ek": [
@@ -2904,7 +3220,9 @@
       {
        "id": "A",
        "std": [
-        "TRA-5.A"
+        "TRA-5.A",
+        "acs-accm-general:VII.C.1",
+        "acs-accm-general:VII.C.2"
        ],
        "do": "Check that a proposed mechanism sums to the overall equation, and identify intermediates and catalysts in it.",
        "ek": [
@@ -2996,7 +3314,8 @@
       {
        "id": "A",
        "std": [
-        "TRA-5.D"
+        "TRA-5.D",
+        "acs-accm-inorganic:X.D.9"
        ],
        "do": "Read a multistep energy profile: count steps, locate intermediates, and pick the rate-determining step.",
        "ek": [
@@ -3030,7 +3349,11 @@
       {
        "id": "A",
        "std": [
-        "ENE-1.A"
+        "ENE-1.A",
+        "acs-accm-general:VII.E.1",
+        "acs-accm-general:VII.E.2",
+        "acs-accm-organic:VII.E.1",
+        "acs-accm-inorganic:VII.E.1"
        ],
        "do": "Explain how a catalyst (homogeneous, heterogeneous or enzyme) speeds a reaction, and what it leaves unchanged.",
        "ek": [
@@ -3147,7 +3470,9 @@
       {
        "id": "A",
        "std": [
-        "ENE-2.C"
+        "ENE-2.C",
+        "acs-accm-general:VI.A.1",
+        "acs-accm-general:X.C.2"
        ],
        "do": "Explain heat flow between objects at the particle level until thermal equilibrium.",
        "ek": [
@@ -3182,7 +3507,8 @@
       {
        "id": "A",
        "std": [
-        "ENE-2.D"
+        "ENE-2.D",
+        "acs-accm-general:VI.C.1"
        ],
        "do": "Calculate heat, mass, specific heat or temperature change with q = mcΔT.",
        "ek": [
@@ -3220,7 +3546,9 @@
       {
        "id": "C",
        "std": [
-        "ENE-2.D"
+        "ENE-2.D",
+        "acs-accm-general:VI.C.2",
+        "acs-accm-inorganic:VI.C.2"
        ],
        "do": "Calculate ΔH per mole of reaction from coffee-cup calorimetry data.",
        "ek": [
@@ -3343,7 +3671,14 @@
       {
        "id": "A",
        "std": [
-        "ENE-3.A"
+        "ENE-3.A",
+        "acs-accm-general:II.D.1",
+        "acs-accm-general:VI.D.1",
+        "acs-accm-organic:V.B.1",
+        "acs-accm-organic:VI.D.1",
+        "acs-accm-organic:VI.G.1",
+        "acs-accm-inorganic:VI.D.2",
+        "acs-accm-inorganic:VI.G.1"
        ],
        "do": "Estimate ΔH of reaction from average bond enthalpies.",
        "ek": [
@@ -3377,7 +3712,8 @@
       {
        "id": "A",
        "std": [
-        "ENE-3.B"
+        "ENE-3.B",
+        "acs-accm-general:III.A.2"
        ],
        "do": "Write the formation reaction of a compound from its elements in their standard states.",
        "ek": [
@@ -3397,7 +3733,8 @@
       {
        "id": "B",
        "std": [
-        "ENE-3.B"
+        "ENE-3.B",
+        "acs-accm-organic:VI.A.1"
        ],
        "do": "Calculate ΔH°_rxn from standard enthalpies of formation.",
        "ek": [
@@ -3432,7 +3769,9 @@
        "id": "A",
        "std": [
         "ENE-3.C",
-        "ENE-3.D"
+        "ENE-3.D",
+        "acs-accm-general:VI.G.1",
+        "acs-accm-general:VI.G.2"
        ],
        "do": "Combine given reactions (reversing and scaling them) to find ΔH of a target reaction.",
        "ek": [
@@ -3463,7 +3802,9 @@
       {
        "id": "A",
        "std": [
-        "DAT-GC Thermodynamics and Thermochemistry (laws of thermodynamics)"
+        "DAT-GC Thermodynamics and Thermochemistry (laws of thermodynamics)",
+        "acs-accm-general:VI.A.2",
+        "acs-accm-general:VI.F.1"
        ],
        "do": "Calculate ΔU from heat and work with correct sign conventions, including pressure–volume work.",
        "ek": [
@@ -3484,7 +3825,8 @@
       {
        "id": "B",
        "std": [
-        "DAT-GC Thermodynamics and Thermochemistry (laws of thermodynamics)"
+        "DAT-GC Thermodynamics and Thermochemistry (laws of thermodynamics)",
+        "acs-accm-general:VI.A.4"
        ],
        "do": "Convert between ΔH and ΔU for a reaction that changes the moles of gas.",
        "ek": [
@@ -3570,7 +3912,11 @@
       {
        "id": "A",
        "std": [
-        "TRA-6.A"
+        "TRA-6.A",
+        "acs-accm-general:VIII.A.1",
+        "acs-accm-general:VIII.B.1",
+        "acs-accm-organic:VIII.B.1",
+        "acs-accm-inorganic:VIII.B.1"
        ],
        "do": "Explain dynamic equilibrium and identify when it is reached on a concentration-vs-time graph.",
        "ek": [
@@ -3765,7 +4111,10 @@
       {
        "id": "A",
        "std": [
-        "TRA-7.C"
+        "TRA-7.C",
+        "acs-accm-general:VIII.D.1",
+        "acs-accm-organic:VIII.A.1",
+        "acs-accm-inorganic:VIII.G.1"
        ],
        "do": "Judge from the size of K whether reactants or products are favored at equilibrium.",
        "ek": [
@@ -3780,6 +4129,23 @@
        ],
        "needs": [
         "CH-7.4.A"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "acs-accm-general:VIII.G.3"
+       ],
+       "do": "Find the fraction of a protein bound to its ligand from the dissociation constant.",
+       "ek": [
+        "P + L ⇌ PL with K_d = [P][L]/[PL]; with ligand in excess, the fraction bound is [L]/(K_d + [L]): half bound when [L] = K_d."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "ch-fraction-bound",
+        "ch-ligand-for-fraction"
        ]
       }
      ]
@@ -3798,7 +4164,9 @@
       {
        "id": "A",
        "std": [
-        "TRA-7.D"
+        "TRA-7.D",
+        "acs-accm-general:VIII.D.2",
+        "acs-accm-general:VIII.D.3"
        ],
        "do": "Find K for a reversed, scaled or summed reaction.",
        "ek": [
@@ -3831,7 +4199,8 @@
       {
        "id": "A",
        "std": [
-        "TRA-7.E"
+        "TRA-7.E",
+        "acs-accm-general:VIII.C.1"
        ],
        "do": "Find equilibrium concentrations from K and initial amounts with an ICE table and the small-x approximation, and check the approximation.",
        "ek": [
@@ -3914,7 +4283,9 @@
       {
        "id": "A",
        "std": [
-        "TRA-8.A"
+        "TRA-8.A",
+        "acs-accm-general:VIII.E.1",
+        "acs-accm-inorganic:VIII.E.1"
        ],
        "do": "Predict the shift caused by adding or removing a species, changing volume or pressure, changing temperature, adding an inert gas, or adding a catalyst.",
        "ek": [
@@ -3981,7 +4352,9 @@
       {
        "id": "A",
        "std": [
-        "SPQ-5.A"
+        "SPQ-5.A",
+        "acs-accm-general:VIII.C.2",
+        "acs-accm-inorganic:VIII.C.1"
        ],
        "do": "Write a K_sp expression and calculate K_sp from molar solubility.",
        "ek": [
@@ -4181,7 +4554,8 @@
       {
        "id": "A",
        "std": [
-        "SAP-9.C"
+        "SAP-9.C",
+        "acs-accm-general:VIII.G.1"
        ],
        "do": "Calculate the pH and percent ionization of a weak acid from K_a and its concentration.",
        "ek": [
@@ -4426,7 +4800,10 @@
       {
        "id": "A",
        "std": [
-        "SAP-9.F"
+        "SAP-9.F",
+        "acs-accm-general:III.F.2",
+        "acs-accm-inorganic:VI.D.3",
+        "acs-accm-inorganic:VIII.F.2"
        ],
        "do": "Rank acid strength from molecular structure: H–X bond strength and polarity, oxyacid O count, electronegativity of the central atom, and conjugate-base resonance.",
        "ek": [
@@ -4449,7 +4826,11 @@
        "id": "B",
        "std": [
         "SAP-9.F",
-        "DAT-GC Acids and Bases (strength)"
+        "DAT-GC Acids and Bases (strength)",
+        "acs-accm-general:V.D.3",
+        "acs-accm-inorganic:II.B.2",
+        "acs-accm-inorganic:III.A.1",
+        "acs-accm-inorganic:V.D.1"
        ],
        "do": "Identify Lewis acids and bases, including metal ions and electron-deficient molecules.",
        "ek": [
@@ -4483,7 +4864,9 @@
       {
        "id": "A",
        "std": [
-        "SAP-10.A"
+        "SAP-10.A",
+        "acs-accm-inorganic:VIII.G.3",
+        "acs-accm-inorganic:X.D.6"
        ],
        "do": "Predict the predominant protonation form of an acid at a given pH from its pK_a.",
        "ek": [
@@ -4516,7 +4899,8 @@
       {
        "id": "A",
        "std": [
-        "SAP-10.B"
+        "SAP-10.B",
+        "acs-accm-general:VIII.G.2"
        ],
        "do": "Explain how a buffer resists pH change, writing the net ionic reaction with an added strong acid or base.",
        "ek": [
@@ -4716,7 +5100,9 @@
       {
        "id": "A",
        "std": [
-        "ENE-4.A"
+        "ENE-4.A",
+        "acs-accm-general:VI.H.1",
+        "acs-accm-organic:VI.H"
        ],
        "do": "Predict the sign of ΔS for a process from changes in phase, moles of gas, mixing, dissolution and temperature.",
        "ek": [
@@ -4784,7 +5170,9 @@
       {
        "id": "A",
        "std": [
-        "ENE-4.C"
+        "ENE-4.C",
+        "acs-accm-general:VI.H.2",
+        "acs-accm-inorganic:VI.H.2"
        ],
        "do": "Calculate ΔG° from ΔH° and ΔS°, or from standard free energies of formation.",
        "ek": [
@@ -4805,7 +5193,9 @@
       {
        "id": "B",
        "std": [
-        "ENE-4.C"
+        "ENE-4.C",
+        "acs-accm-general:VI.H.2",
+        "acs-accm-inorganic:VI.A.1"
        ],
        "do": "Decide from the signs of ΔH and ΔS at which temperatures a process is favorable, and find the crossover temperature.",
        "ek": [
@@ -4836,7 +5226,9 @@
       {
        "id": "A",
        "std": [
-        "ENE-4.D"
+        "ENE-4.D",
+        "acs-accm-general:VI.B.1",
+        "acs-accm-general:VI.H.4"
        ],
        "do": "Explain why a thermodynamically favorable process can be too slow to observe.",
        "ek": [
@@ -4871,7 +5263,10 @@
       {
        "id": "A",
        "std": [
-        "ENE-5.A"
+        "ENE-5.A",
+        "acs-accm-general:VIII.F.1",
+        "acs-accm-organic:VIII.F",
+        "acs-accm-inorganic:VI.A.2"
        ],
        "do": "Calculate K from ΔG°.",
        "ek": [
@@ -4948,7 +5343,9 @@
       {
        "id": "A",
        "std": [
-        "SPQ-5.D"
+        "SPQ-5.D",
+        "acs-accm-general:IV.E.1",
+        "acs-accm-inorganic:IV.E.3"
        ],
        "do": "Explain whether a salt dissolves from the enthalpy (lattice vs hydration) and entropy changes of dissolution.",
        "ek": [
@@ -5015,7 +5412,10 @@
       {
        "id": "A",
        "std": [
-        "ENE-6.A"
+        "ENE-6.A",
+        "acs-accm-general:VI.C.3",
+        "acs-accm-general:VI.F.2",
+        "acs-accm-inorganic:VI.C.1"
        ],
        "do": "Label a galvanic cell's anode and cathode, electron and ion flow, salt bridge, and write its cell notation.",
        "ek": [
@@ -5035,7 +5435,8 @@
       {
        "id": "B",
        "std": [
-        "ENE-6.A"
+        "ENE-6.A",
+        "acs-accm-inorganic:VI.F.1"
        ],
        "do": "Distinguish galvanic from electrolytic cells by the sign of ΔG and the electrode charges.",
        "ek": [
@@ -5069,7 +5470,8 @@
       {
        "id": "A",
        "std": [
-        "ENE-6.B"
+        "ENE-6.B",
+        "acs-accm-inorganic:V.E.1"
        ],
        "do": "Calculate E°_cell from standard reduction potentials and predict whether a redox reaction is spontaneous.",
        "ek": [
@@ -5089,7 +5491,10 @@
       {
        "id": "B",
        "std": [
-        "ENE-6.B"
+        "ENE-6.B",
+        "acs-accm-general:VIII.F.2",
+        "acs-accm-inorganic:VI.E.1",
+        "acs-accm-inorganic:VIII.F.1"
        ],
        "do": "Convert among E°_cell, ΔG° and K.",
        "ek": [
@@ -5178,7 +5583,9 @@
       {
        "id": "A",
        "std": [
-        "ENE-6.D"
+        "ENE-6.D",
+        "acs-accm-general:VI.E.1",
+        "acs-accm-inorganic:VI.F.2"
        ],
        "do": "Calculate the mass deposited, current or time in electrolysis with Faraday's law.",
        "ek": [
@@ -5349,6 +5756,72 @@
    "full": [
     "ac-molar-mass",
     "ac2-identify-metal"
+   ],
+   "partial": []
+  },
+  {
+   "code": "CH-0.5.B",
+   "unit": 0,
+   "topic": 5,
+   "status": "ok",
+   "full": [
+    "ch-atoms-in-a-line",
+    "ch-mole-of-marbles"
+   ],
+   "partial": []
+  },
+  {
+   "code": "CH-0.6.A",
+   "unit": 0,
+   "topic": 6,
+   "status": "ok",
+   "full": [
+    "ch-error-type",
+    "ch-systematic-direction"
+   ],
+   "partial": []
+  },
+  {
+   "code": "CH-0.6.B",
+   "unit": 0,
+   "topic": 6,
+   "status": "ok",
+   "full": [
+    "ch-notebook",
+    "ch-procedure-design"
+   ],
+   "partial": []
+  },
+  {
+   "code": "CH-0.6.C",
+   "unit": 0,
+   "topic": 6,
+   "status": "ok",
+   "full": [
+    "ch-safety-equipment",
+    "ch-ghs-pictograms"
+   ],
+   "partial": []
+  },
+  {
+   "code": "CH-0.6.D",
+   "unit": 0,
+   "topic": 6,
+   "status": "ok",
+   "full": [
+    "ch-waste",
+    "ch-waste-2"
+   ],
+   "partial": []
+  },
+  {
+   "code": "CH-0.6.E",
+   "unit": 0,
+   "topic": 6,
+   "status": "ok",
+   "full": [
+    "ch-inverse-square",
+    "ch-half-value-layers"
    ],
    "partial": []
   },
@@ -6136,6 +6609,17 @@
    "partial": []
   },
   {
+   "code": "CH-4.5.F",
+   "unit": 4,
+   "topic": 5,
+   "status": "ok",
+   "full": [
+    "ch-metal-from-ore",
+    "ch-ore-needed"
+   ],
+   "partial": []
+  },
+  {
    "code": "CH-4.6.A",
    "unit": 4,
    "topic": 6,
@@ -6309,6 +6793,17 @@
    "full": [
     "ac-collision-factor",
     "ac-arrhenius-fraction"
+   ],
+   "partial": []
+  },
+  {
+   "code": "CH-5.5.B",
+   "unit": 5,
+   "topic": 5,
+   "status": "ok",
+   "full": [
+    "ch-surface-area-cut",
+    "ch-surface-area-facts"
    ],
    "partial": []
   },
@@ -6662,6 +7157,17 @@
    "full": [
     "ac-size-of-k",
     "ac-k-size-percent"
+   ],
+   "partial": []
+  },
+  {
+   "code": "CH-7.5.B",
+   "unit": 7,
+   "topic": 5,
+   "status": "ok",
+   "full": [
+    "ch-fraction-bound",
+    "ch-ligand-for-fraction"
    ],
    "partial": []
   },

@@ -27,7 +27,7 @@ domains: []
 
 basis:
   primary: codata-2022
-  also: [snapshot-key-numbers, francl-take-a-number, cfr-21-101-9, acs-accm-pchem]
+  also: [snapshot-key-numbers, francl-take-a-number, cfr-21-101-9, acs-accm-pchem, acs-accm-general]
   note: "Values from CODATA 2022, standard atomic weights and 21 CFR 101.9. Which values to carry is a house list for units 1–4 and the SnapShot Key Numbers in Biology sheet for units 5–6. No chemistry standard lists these values; the ACS Physical Chemistry content map (read) asks for the mole-scale and Boltzmann reasoning they serve, and AQ objectives cite those articulations."
 
 big_ideas:
@@ -83,7 +83,7 @@ units:
       - n: 1
         title: "Conversions"
         los:
-          - { id: A, std: ["acs-accm-pchem:I.D.1"], do: "Recall the conversions among eV, kJ/mol, kcal/mol, cm⁻¹ and hartree, and hc in eV·nm.", ek: ["1 eV ≈ 96.5 kJ/mol ≈ 23.06 kcal/mol ≈ 8066 cm⁻¹; 1 E_h ≈ 27.2 eV ≈ 627.5 kcal/mol; hc ≈ 1240 eV·nm."], p: [P1], drills: [aq-energy-conversion, aq-ev-to-nm] }
+          - { id: A, std: ["acs-accm-pchem:I.D.1", "acs-accm-general:VI.A.3"], do: "Recall the conversions among eV, kJ/mol, kcal/mol, cm⁻¹ and hartree, and hc in eV·nm.", ek: ["1 eV ≈ 96.5 kJ/mol ≈ 23.06 kcal/mol ≈ 8066 cm⁻¹; 1 E_h ≈ 27.2 eV ≈ 627.5 kcal/mol; hc ≈ 1240 eV·nm."], p: [P1], drills: [aq-energy-conversion, aq-ev-to-nm] }
       - n: 2
         title: "Photons"
         los:

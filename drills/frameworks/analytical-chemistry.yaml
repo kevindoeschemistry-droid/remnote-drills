@@ -19,7 +19,7 @@ domains: [anal]
 
 basis:
   primary: icho-appendix-c
-  also: [gre-chemistry, aamc-mcat-outline, usnco, icho-syllabus]
+  also: [gre-chemistry, aamc-mcat-outline, usnco, icho-syllabus, acs-accm-general, acs-accm-inorganic]
   wanted: [acs-accm]
   note: "Topics named by IChO Appendix C (read in full), the GRE Chemistry analytical area and MCAT 5C. The ACS analytical content map was not read; objectives and their order are ours."
 
@@ -88,7 +88,7 @@ units:
         title: "Solubility"
         los:
           - { id: A, do: "Compute a solubility with a common ion present.", ek: ["s(s + c) = K_sp."], p: [P1], drills: [an-common-ion, an-common-ion-factor] }
-          - { id: B, do: "Compute a solubility raised by complex formation.", ek: ["K = K_sp·β₂ for AgX + 2NH₃."], p: [P1], needs: [AN-3.1.A], drills: [an-complex-solubility, an-complex-dissolve] }
+          - { id: B, std: ["acs-accm-inorganic:VIII.C.1"], do: "Compute a solubility raised by complex formation.", ek: ["K = K_sp·β₂ for AgX + 2NH₃."], p: [P1], needs: [AN-3.1.A], drills: [an-complex-solubility, an-complex-dissolve] }
   - id: separations
     n: 4
     title: "Separations"
@@ -113,10 +113,10 @@ units:
         los:
           - { id: A, do: "Resolve a two-component mixture by absorbance at two wavelengths.", ek: ["Absorbances add; solve two equations."], p: [P1], drills: [an-two-component, an-beer-reverse] }
           - { id: B, do: "Find a concentration by standard addition.", ek: ["c = A_x c_s V_s / [V_x (A_sp − A_x)]."], p: [P1], drills: [an-standard-addition, an-spike-signal] }
-          - { id: C, do: "Read an unknown off a least-squares calibration line.", ek: ["Slope and intercept from the sums."], p: [P1], drills: [an-calibration, an-detection-limit] }
+          - { id: C, std: ["acs-accm-general:IX.G.4"], do: "Read an unknown off a least-squares calibration line.", ek: ["Slope and intercept from the sums."], p: [P1], drills: [an-calibration, an-detection-limit] }
       - n: 2
         title: "Data and method choice"
         los:
           - { id: A, do: "Apply Dixon's Q-test to a suspect replicate.", ek: ["Q = gap/range vs Q_crit."], p: [P3], drills: [an-q-test, an-q-value] }
-          - { id: B, do: "Propagate random uncertainty through a sum or a product.", ek: ["Absolute in quadrature for sums, relative for products."], p: [P1], drills: [an-uncertainty, an-uncertainty-product] }
-          - { id: C, do: "Choose an analytical technique for a stated question.", ek: ["Trace metals ICP-MS, volatiles GC, non-volatiles HPLC, water Karl Fischer."], p: [P2], drills: [an-instrument, an-technique-measures] }
+          - { id: B, std: ["acs-accm-inorganic:IX.F.1"], do: "Propagate random uncertainty through a sum or a product.", ek: ["Absolute in quadrature for sums, relative for products."], p: [P1], drills: [an-uncertainty, an-uncertainty-product] }
+          - { id: C, std: ["acs-accm-inorganic:IX.C.2", "acs-accm-inorganic:IX.E.2"], do: "Choose an analytical technique for a stated question.", ek: ["Trace metals ICP-MS, volatiles GC, non-volatiles HPLC, water Karl Fischer."], p: [P2], drills: [an-instrument, an-technique-measures] }

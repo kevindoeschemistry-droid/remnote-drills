@@ -32,7 +32,7 @@ Big ideas: POSITION
 
 
 
-- ● **PT-1.1.A** Give the atomic number of any main-group element.
+- ● **PT-1.1.A** (acs-accm-general:I.A.1, acs-accm-inorganic:I.A.1) Give the atomic number of any main-group element.
   - EK: Noble gases at 2, 10, 18, 36, 54, 86, 118 anchor each row.
   - P1 · drills: pt-number-main, pt-element-from-z-main
 - ● **PT-1.1.B** Write the heavy p-block row from memory.
@@ -64,7 +64,7 @@ Big ideas: POSITION, TRIADS
 
 
 
-- ● **PT-2.2.A** Give the d-electron count of a metal in a stated oxidation state.
+- ● **PT-2.2.A** (acs-accm-inorganic:I.B.6) Give the d-electron count of a metal in a stated oxidation state.
   - EK: d count = group − oxidation state.
   - P3 · drills: pt-d-electron-count, pt-ox-from-d
 
@@ -100,7 +100,7 @@ Big ideas: POSITION
 - ● **PT-4.1.B** Say whether an atom follows the filling order or is an exception.
   - EK: Ten exceptions in three rows; W is regular, Pd is 4d¹⁰ 5s⁰.
   - P1 · drills: pt-config-anomaly, pt-unpaired-atom
-- ● **PT-4.1.C** Write the full configuration of a transition-metal atom with its noble-gas core.
+- ● **PT-4.1.C** (acs-accm-general:I.B.3) Write the full configuration of a transition-metal atom with its noble-gas core.
   - EK: The 5d metals carry 4f¹⁴ in the core.
   - P2 · drills: pt-config-write-d, pt-config-pick-d
 

@@ -102,7 +102,7 @@ Big ideas: SYI, ENE, IST
 
 
 
-- ● **BI-1.5.A** (SYI-1.C) Describe the four levels of protein structure and the interactions that hold each.
+- ● **BI-1.5.A** (SYI-1.C, acs-accm-general:IV.B.1, acs-accm-organic:IV.B.2, acs-accm-inorganic:IV.B.3) Describe the four levels of protein structure and the interactions that hold each.
   - EK: 1°: peptide bonds; 2°: backbone H-bonds (α helix, β sheet); 3°: R-group interactions incl. disulfides; 4°: multiple subunits.
   - Needs: BI-1.4.B
   - P1 · drills: bi-protein-levels, bi-structure-level
@@ -180,7 +180,7 @@ Big ideas: SYI, ENE, EVO
 
 
 
-- ● **BI-2.4.A** (ENE-2.A) Explain how amphipathic phospholipids self-assemble into a bilayer and what embedded proteins add.
+- ● **BI-2.4.A** (ENE-2.A, acs-accm-organic:IV.B.1) Explain how amphipathic phospholipids self-assemble into a bilayer and what embedded proteins add.
   - EK: Hydrophilic heads face water, hydrophobic tails face each other; proteins transport, receive signals, anchor and recognise.
   - Needs: BI-1.4.C
   - P1 · drills: bi-bilayer, bi-bilayer-scenario

@@ -593,6 +593,9 @@ skills:
   - { id: orgo.enolate-reactions, domain: orgo, title: "Carbon–carbon bond formation: aldol, Claisen, Diels–Alder", short: "C–C bond formation", prereqs: [orgo.carbonyl-reactions] }
   - { id: orgo.reasoning, domain: orgo, title: "Organic reasoning rules: unsaturation, acid–base direction, aromaticity, oxidation level, SN/E", short: "Organic reasoning", prereqs: [orgo.functional-groups] }
   - { id: orgo.structure, domain: orgo, title: "Naming, stereochemistry, isomers, conformations, hybridization and stability", short: "Structure and stereochemistry" }
+  - { id: orgo.physical, domain: orgo, title: "Physical organic chemistry: conformational equilibria, control, rate laws, radicals, Hammett, pericyclic rules", short: "Physical organic", prereqs: [orgo.reasoning] }
+  - { id: orgo.practice, domain: orgo, title: "Synthesis and lab practice: yields, equivalents, green metrics, chemical tests, reaction types", short: "Synthesis practice", prereqs: [orgo.functional-groups] }
+  - { id: orgo.organometallic, domain: orgo, title: "Organometallic reagents and Pd catalysis", short: "Organometallics", prereqs: [orgo.carbonyl-reactions] }
   - { id: orgo.spectroscopy, domain: orgo, title: "IR and NMR spectroscopy: functional groups, signal counts, structure from data", short: "Spectroscopy" }
 
   # ── material and energy balances ─────────────────────────────────────────
