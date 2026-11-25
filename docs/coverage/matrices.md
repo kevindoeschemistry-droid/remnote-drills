@@ -61,7 +61,7 @@ A homework set shows one geometry and one boundary condition per method. The fin
 
 Most homework inputs are smooth or a single step; periodic inputs and the limit theorems are the cells left out.
 
-14 of 14 cells have drills; 0 are open.
+16 of 16 cells have drills; 0 are open.
 
 | Cell | Drills | Open |
 |---|---|---|
@@ -79,6 +79,8 @@ Most homework inputs are smooth or a single step; periodic inputs and the limit 
 | Transfer function, poles, stability | `transfer-g`, `transfer-poles`, `transfer-stable` |  |
 | Initial- and final-value theorems | `lt-initial-value`, `lt-final-value` |  |
 | On a PDE | `pde-lt-steps`, `pde-lt-erfc-value` (the PDE side lives in the pde-1d grid) |  |
+| Exam-length · two tanks in series (time constant, both outputs, pole) | `em-chain-tank-cascade` |  |
+| Exam-length · rectangular pulse from Y(s) to y after the pulse | `em-chain-laplace-pulse` |  |
 
 ## Multivariable calculus: every method against every shape it is asked on
 
@@ -158,7 +160,7 @@ One drilled shape per method is recall of that shape. The exam picks the region,
 
 Homework shows each method on its friendliest forcing. An exam can switch the forcing off halfway, let the tank fill, or set a boundary-value problem with no solution.
 
-26 of 26 cells have drills; 0 are open.
+29 of 29 cells have drills; 0 are open.
 
 | Cell | Drills | Open |
 |---|---|---|
@@ -188,12 +190,15 @@ Homework shows each method on its friendliest forcing. An exam can switch the fo
 | Systems · real, complex, repeated eigenvalues | `sys-eigen`, `sys-general`, `sys-ivp`, `sys-complex`, `sys-complex-ivp`, `sys-repeated` |  |
 | Systems · nonhomogeneous | `em-nonhomog-system` |  |
 | Systems · phase portrait, stability, nonlinear critical points | `phase-matrix`, `phase-stability`, `phase-equations`, `phase-ode2`, `em-phase-portrait`, `em-nonlinear-critical` |  |
+| Exam-length · forced damped oscillator (ω₀, amplitude, phase, resonance) | `em-chain-forced-oscillator` |  |
+| Exam-length · 2×2 system from eigenvalues to x(t) | `em-chain-system` |  |
+| Exam-length · power series to a closed form | `em-chain-power-series` |  |
 
 ## 1-D PDEs: every method against every condition
 
 A homework set shows one cell of each row. The exam can ask any cell.
 
-24 of 24 cells have drills; 0 are open.
+25 of 25 cells have drills; 0 are open.
 
 | Cell | Drills | Open |
 |---|---|---|
@@ -221,6 +226,7 @@ A homework set shows one cell of each row. The exam can ask any cell.
 | Finite differences · explicit step and stability | `mt-explicit-step`, `mt-explicit-stability`, `mt-amplification` |  |
 | Finite differences · nonzero or flux boundary nodes | `pde-fd-ghost`, `ht-fd-boundary-node` |  |
 | Finite differences · implicit and Crank–Nicolson | `pde-fd-implicit`, `mt-amplification` |  |
+| Exam-length · nonzero ends from steady state to u(L/2, t) | `em-chain-heat-nonzero` |  |
 
 ## Reaction engineering: every reactor method against every condition
 

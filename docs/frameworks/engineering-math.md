@@ -283,7 +283,7 @@ Book: kreyszig-10e §2.8, §2.9
 
 - ● **EM-3.6.A** Find the steady-state response of a damped oscillator to sinusoidal forcing and its amplitude.
   - EK: y_p = a cos ωt + b sin ωt; amplitude C*(ω) = F₀/√((k − mω²)² + c²ω²); the transient dies out.
-  - P3 · P6 · drills: forced-steady, forced-amplitude
+  - P3 · P6 · drills: forced-steady, forced-amplitude, em-chain-forced-oscillator
 - ● **EM-3.6.B** Recognise undamped resonance and beats and write the resulting solution.
   - EK: ω = ω₀, c = 0 ⇒ t sin ω₀t growth; ω near ω₀ ⇒ beats with envelope frequency |ω − ω₀|/2.
   - P6 · drills: forced-resonance, forced-beats
@@ -355,7 +355,7 @@ Book: kreyszig-10e §4.3
 - ● **EM-5.2.B** (webwork-opl:DE5.4) Write the general solution of a 2×2 system with real distinct eigenvalues and fit an IVP.
   - EK: y = c₁x⁽¹⁾e^(λ₁t) + c₂x⁽²⁾e^(λ₂t).
   - Needs: EM-5.2.A
-  - P3 · P4 · drills: sys-general, sys-ivp
+  - P3 · P4 · drills: sys-general, sys-ivp, em-chain-system
 - ● **EM-5.2.C** (webwork-opl:DE5.5) Write real solutions of a 2×2 system with complex eigenvalues and fit an IVP.
   - EK: Take real and imaginary parts of x e^((α+iβ)t).
   - Needs: EM-5.2.A, EM-1.2.A
@@ -429,7 +429,7 @@ Book: kreyszig-10e §5.1
 - ● **EM-6.2.B** (webwork-opl:DE7.1) Generate the first terms of the series solution from the recurrence and initial values.
   - EK: a₀ = y(0), a₁ = y′(0); even and odd coefficients often split into two basis series.
   - Needs: EM-6.2.A
-  - P3 · P4 · drills: series-terms, series-terms-airy
+  - P3 · P4 · drills: series-terms, series-terms-airy, em-chain-power-series
 
 ### 6.3 Frobenius method
 
@@ -517,7 +517,7 @@ Book: kreyszig-10e §6.3
 - ● **EM-7.4.C** (webwork-opl:DE4.6) Solve an IVP with switched or piecewise forcing.
   - EK: Transform the step-written forcing; the solution is piecewise with continuous y and y′.
   - Needs: EM-7.3.A, EM-7.4.A
-  - P1 · P3 · drills: step-ivp-on, step-ivp-pulse
+  - P1 · P3 · drills: step-ivp-on, step-ivp-pulse, em-chain-laplace-pulse
 - ● **EM-7.4.D** () Transform a periodic function with the one-period formula.
   - EK: L{f} = ∫₀ᵀ e^(−st) f(t) dt ÷ (1 − e^(−sT)).
   - P1 · drills: lt-square-wave, lt-sawtooth
@@ -555,7 +555,7 @@ Book: kreyszig-10e §6.6, §6.7
 - ● **EM-7.7.B** (webwork-opl:DE4.1) Solve a linear system of ODEs by Laplace transform.
   - EK: Transform each equation, solve the algebraic system (Cramer), invert each component.
   - Needs: EM-7.3.A
-  - P3 · drills: lsys-ivp, lsys-forced
+  - P3 · drills: lsys-ivp, lsys-forced, em-chain-tank-cascade
 
 ## Unit 8 · Linear algebra for ODEs
 
@@ -729,7 +729,7 @@ Book: kreyszig-10e §12.5, §12.6
 - ● **EM-10.2.C** (webwork-opl:DE8.3) Solve the heat equation with nonzero fixed ends by subtracting the steady state.
   - EK: u = u_s(x) + v; u_s linear; v satisfies zero BCs with v(x, 0) = f − u_s.
   - Needs: EM-10.2.B
-  - P2 · P3 · drills: pde-steady, pde-shift-concepts, pde-steady-state-value, pde-shifted-initial-condition, pde-shifted-sine-coefficient
+  - P2 · P3 · drills: pde-steady, pde-shift-concepts, pde-steady-state-value, pde-shifted-initial-condition, pde-shifted-sine-coefficient, em-chain-heat-nonzero
 - ● **EM-10.2.F** Find the steady state with a flux or insulated end, and handle a flux boundary in the transient problem.
   - EK: −k u'(L) = q″ fixes the slope; with insulated ends the steady state is the initial mean.
   - Needs: EM-10.2.C

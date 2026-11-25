@@ -49,3 +49,31 @@ class U:
         self.n, self.uid, self.title, self.topics, self.std = n, uid, title, topics, std or []
 
 
+
+
+class QP(Q):
+    """one template with several chained parts (an exam-length problem). parts: list of dicts with
+    label, ask, tex, value, verify, explain and optional tol/final. Pace defaults to workout."""
+    def __init__(self, name, skill, prompt, parts, given=None, cases=None, let=None, require=None, pace="workout"):
+        Q.__init__(self, name, skill, prompt, given=given, cases=cases, let=let, require=require, pace=pace)
+        self.parts = parts
+
+    def to_yaml(self):
+        t = {"template": self.name, "skill": self.skill, "pace": self.pace}
+        if self.given: t["given"] = self.given
+        if self.cases: t["cases"] = self.cases
+        if self.require: t["require"] = [self.require] if isinstance(self.require, str) else self.require
+        if self.let: t["let"] = self.let
+        t["prompt"] = self.prompt
+        fields = set(self.given or {}) | {k for c in (self.cases or []) for k in c} | set(self.let or {})
+        parts, expect = [], {}
+        for p in self.parts:
+            if p["label"] in fields: raise SystemExit(f"{self.name}: part label {p['label']} collides with a field")
+            q = {"ask": p["ask"], "label": p["label"], "tex": p.get("tex", p["label"]), "value": p["value"]}
+            if p.get("final"): q["final"] = True
+            q["tol"] = p.get("tol", 0.0001) if p.get("final") else max(p.get("tol", 0.0001), 0.005)
+            q["explain"] = p.get("explain", "")
+            parts.append(q); expect[p["label"]] = p["verify"]
+        t["parts"] = parts
+        t["verify"] = {"expect": expect}
+        return t
