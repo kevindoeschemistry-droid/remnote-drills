@@ -48,10 +48,10 @@ Big ideas: SCALE
 
 
 
-- ● **AQ-2.1.A** Recall RT and k_BT at 25 °C in kJ/mol, kcal/mol, meV, cm⁻¹ and pN·nm.
+- ● **AQ-2.1.A** (acs-accm-pchem:X.C.2) Recall RT and k_BT at 25 °C in kJ/mol, kcal/mol, meV, cm⁻¹ and pN·nm.
   - EK: RT ≈ 2.48 kJ/mol ≈ 0.593 kcal/mol; k_BT ≈ 25.7 meV ≈ 207 cm⁻¹ ≈ 4.1 pN·nm.
   - P1 · drills: aq-thermal-energy, aq-rt-at-t
-- ● **AQ-2.1.B** Estimate a Boltzmann population ratio for a gap of a few k_BT.
+- ● **AQ-2.1.B** (acs-accm-pchem:X.D.3, acs-accm-pchem:X.C.2) Estimate a Boltzmann population ratio for a gap of a few k_BT.
   - EK: N₂/N₁ = e^(−ΔE/k_BT): 0.37, 0.14, 0.05 for 1, 2, 3 k_BT.
   - P2 · drills: aq-boltzmann-ratio, aq-gap-for-ratio
 
@@ -59,10 +59,10 @@ Big ideas: SCALE
 
 
 
-- ● **AQ-2.2.A** Recall the free-energy cost of a factor of ten in an equilibrium constant.
+- ● **AQ-2.2.A** (acs-accm-pchem:VIII.F.2, acs-accm-pchem:VIII.D.1) Recall the free-energy cost of a factor of ten in an equilibrium constant.
   - EK: RT ln 10 ≈ 5.7 kJ/mol ≈ 1.36 kcal/mol at 25 °C.
   - P1 · drills: aq-factor-of-ten, aq-dg-for-factor
-- ● **AQ-2.2.B** Convert a standard free energy to the order of magnitude of K in one step.
+- ● **AQ-2.2.B** (acs-accm-pchem:VIII.F.2, acs-accm-pchem:VIII.D.1) Convert a standard free energy to the order of magnitude of K in one step.
   - EK: log₁₀K = −ΔG°/(5.7 kJ/mol).
   - P2 · drills: aq-free-energy-to-K, aq-k-to-dg
 
@@ -74,7 +74,7 @@ Big ideas: SCALE
 
 
 
-- ● **AQ-3.1.A** Recall the conversions among eV, kJ/mol, kcal/mol, cm⁻¹ and hartree, and hc in eV·nm.
+- ● **AQ-3.1.A** (acs-accm-pchem:I.D.1) Recall the conversions among eV, kJ/mol, kcal/mol, cm⁻¹ and hartree, and hc in eV·nm.
   - EK: 1 eV ≈ 96.5 kJ/mol ≈ 23.06 kcal/mol ≈ 8066 cm⁻¹; 1 E_h ≈ 27.2 eV ≈ 627.5 kcal/mol; hc ≈ 1240 eV·nm.
   - P1 · drills: aq-energy-conversion, aq-ev-to-nm
 
@@ -82,7 +82,7 @@ Big ideas: SCALE
 
 
 
-- ● **AQ-3.2.A** Estimate a photon's energy from its wavelength, and an infrared wavelength from a wavenumber.
+- ● **AQ-3.2.A** (acs-accm-pchem:IX.D.1, acs-accm-pchem:I.D.1) Estimate a photon's energy from its wavelength, and an infrared wavelength from a wavenumber.
   - EK: E(eV) ≈ 1240/λ(nm); λ(µm) = 10⁴/ν̃(cm⁻¹).
   - P2 · drills: aq-photon-energy, aq-wavenumber-wavelength
 
@@ -94,7 +94,7 @@ Big ideas: FEEL, SCALE
 
 
 
-- ● **AQ-4.1.A** Recall the molarity of water, the molar volume of a gas, the number density of a 1 M solution, and the Avogadro and Faraday constants.
+- ● **AQ-4.1.A** (acs-accm-pchem:I.E.1, acs-accm-pchem:X.B.1) Recall the molarity of water, the molar volume of a gas, the number density of a 1 M solution, and the Avogadro and Faraday constants.
   - EK: Water 55.5 M; 22.4 L/mol at 0 °C and 24.5 L/mol at 25 °C; 1 M = 0.6 nm⁻³; N_A = 6.022×10²³; F = 96 485 C/mol.
   - P1 · drills: aq-amounts, aq-moles-in-flask
 
@@ -102,10 +102,10 @@ Big ideas: FEEL, SCALE
 
 
 
-- ● **AQ-4.2.A** Recall the atomic masses of the common elements.
+- ● **AQ-4.2.A** (acs-accm-pchem:I.E.1) Recall the atomic masses of the common elements.
   - EK: H 1, C 12, N 14, O 16, Na 23, P 31, S 32, Cl 35.5, K 39, Ca 40, Fe 56.
   - P1 · drills: aq-atomic-mass, aq-element-from-mass
-- ● **AQ-4.2.B** Add up the molar mass of a small molecule in the head.
+- ● **AQ-4.2.B** (acs-accm-pchem:I.E.1) Add up the molar mass of a small molecule in the head.
   - EK: Round each atom to the nearest unit (half unit for Cl).
   - P2 · drills: aq-molar-mass, aq-mass-percent
 
@@ -117,7 +117,7 @@ Big ideas: SCALE
 
 
 
-- ● **AQ-5.1.A** Recall the lengths of common bonds and the sizes of water, DNA, a protein, a membrane and a bacterium.
+- ● **AQ-5.1.A** (acs-accm-pchem:IV.A.1) Recall the lengths of common bonds and the sizes of water, DNA, a protein, a membrane and a bacterium.
   - EK: Bonds 100–150 pm (C–C 154 pm); water 0.3 nm; DNA 2 nm wide, 0.34 nm per base pair; protein 3–6 nm; membrane 4–10 nm; E. coli 2–4 µm.
   - P1 · drills: aq-lengths, aq-dna-length
 

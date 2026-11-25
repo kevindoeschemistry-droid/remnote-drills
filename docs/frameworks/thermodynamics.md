@@ -1032,6 +1032,8 @@ Big ideas: EQ
 - gc-parallel-equilibria (thermo.chemical-equilibrium)
 - gc-vant-hoff-cp (thermo.chemical-equilibrium)
 - gc-k-equals-one (thermo.chemical-equilibrium)
+- pc-extent (thermo.chemical-equilibrium)
+- pc-biochem-standard (thermo.chemical-equilibrium)
 - pc-discrete-variance (stat.probability)
 - sm-stirling (stat.multiplicity)
 - pc-stirling-error (stat.multiplicity)

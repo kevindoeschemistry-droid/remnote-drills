@@ -24,8 +24,16 @@ for code, std, do, ek in getattr(mod, "OBJS", []):
     u, t, lo = code.split("-", 1)[1].split(".")
     L = open(path).read().split("\n")
     hits = [(i, x) for i, uu, tt, x in walk(L) if (uu, tt) == (u, t)]
-    if not hits: sys.exit(f"{code}: topic not found")
+    if not hits:
+        # a new topic: OBJS may name it in TOPICS {"u.t": title}; it goes after the unit's last objective
+        title = getattr(mod, "TOPICS", {}).get(f"{u}.{t}")
+        last = [i for i, uu, tt, x in walk(L) if uu == u]
+        if not title or not last: sys.exit(f"{code}: topic not found and no TOPICS title for {u}.{t}")
+        L[last[-1] + 1:last[-1] + 1] = [f"      - n: {t}", f"        title: {q(title)}", "        los:"]
+        open(path, "w").write("\n".join(L))
+        hits = [(last[-1] + 3, "")]
     if lo in [x for _, x in hits]: continue
+    L = open(path).read().split("\n")
     L.insert(hits[-1][0] + 1, f'          - {{ id: {lo}, std: [{", ".join(q(s) for s in std)}], do: {q(do)}, ek: [{q(ek)}], p: [P1], drills: [] }}')
     open(path, "w").write("\n".join(L))
 L = open(path).read().split("\n")

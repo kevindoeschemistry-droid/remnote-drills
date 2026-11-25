@@ -2,7 +2,7 @@
 
 Generated from `drills/frameworks/inbde.yaml` by `scripts/framework.mjs`. ● drilled · ◐ partly · ○ no drills yet.
 
-**64 learning objectives** in 13 units (64 core): 64 drilled, 0 partly, 0 with no drills. Core: 64 / 64 drilled.
+**81 learning objectives** in 13 units (81 core): 81 drilled, 0 partly, 0 with no drills. Core: 81 / 81 drilled.
 
 ## Big ideas
 
@@ -20,9 +20,9 @@ Generated from `drills/frameworks/inbde.yaml` by `scripts/framework.mjs`. ● dr
 
 | Unit | Scope | Est. weight | LOs | ● | ◐ | ○ |
 |---|---|---|---|---|---|---|
-| 1 · Diagnosis and Treatment Planning (36.2%) | core | — | 6 | 6 | 0 | 0 |
-| 2 · Oral Health Management (42.0%) | core | — | 5 | 5 | 0 | 0 |
-| 3 · Practice and Profession (21.8%) | core | — | 2 | 2 | 0 | 0 |
+| 1 · Diagnosis and Treatment Planning (36.2%) | core | — | 10 | 10 | 0 | 0 |
+| 2 · Oral Health Management (42.0%) | core | — | 12 | 12 | 0 | 0 |
+| 3 · Practice and Profession (21.8%) | core | — | 8 | 8 | 0 | 0 |
 | 4 · Dental materials (FK3, 8.0%) | core | — | 16 | 16 | 0 | 0 |
 | 5 · Dental anatomy and occlusion (FK1) | core | — | 4 | 4 | 0 | 0 |
 | 6 · Head and neck anatomy (FK1) | core | — | 4 | 4 | 0 | 0 |
@@ -71,6 +71,23 @@ Big ideas: DX
   - EK: Same lingual, opposite buccal; vertical errors elongate or foreshorten.
   - P3 · drills: dn-radiography, dn-slob-scenario
 
+### 1.4 Assessment, communication and planning
+
+
+
+- ● **DN-1.4.A** (jcnde-domain:CC2, jcnde-domain:CC3, jcnde-domain:CC11, jcnde-domain:FK1) Take a chief complaint and history, and run a head-and-neck and intraoral examination in order.
+  - EK: Record the complaint in the patient's words and characterise pain (onset, location, quality, duration, triggers, relief); examine extraorally (asymmetry, nodes, TMJ, glands) before intraorally.
+  - P1 · drills: dn-history-exam, dn-pain-history
+- ● **DN-1.4.B** (jcnde-domain:CC6, jcnde-domain:CC12) Predict a test result from the history and order the phases of a treatment plan.
+  - EK: Plan in phases: systemic, urgent (acute), disease control, definitive (restorative/prosthetic), maintenance.
+  - P1 · drills: dn-plan-phase, dn-predict-result
+- ● **DN-1.4.C** (jcnde-domain:CC13, jcnde-domain:CC14, jcnde-domain:CC15, jcnde-domain:FK9) Communicate options and adapt care to the patient's age, needs and values.
+  - EK: Explain etiology, alternatives (including no treatment), risks and prognosis; use open questions and reflective listening; tell-show-do for children; plan for xerostomia and dexterity in older adults.
+  - P1 · drills: dn-informed-consent, dn-patient-adapt
+- ● **DN-1.4.D** (jcnde-domain:CC9, jcnde-domain:FK2, jcnde-domain:FK6) Relate oral disease to systemic disease and convert HbA1c to an estimated average glucose.
+  - EK: Periodontitis and diabetes worsen each other; eAG (mg/dL) = 28.7 × HbA1c − 46.7 (ADAG); A1c ≥ 6.5% is diagnostic for diabetes.
+  - P1 · drills: dn-eag, dn-oral-systemic
+
 ## Unit 2 · Oral Health Management (42.0%)
 
 Big ideas: SAFE
@@ -105,6 +122,37 @@ Big ideas: SAFE
   - EK: F is 45% of NaF; 1% = 10,000 ppm; PTD 5 mg F/kg.
   - P1 · drills: dn-fluoride-ppm, dn-fluoride-ptd
 
+### 2.4 Patient management beyond the procedure
+
+
+
+- ● **DN-2.4.A** (jcnde-domain:CC25, jcnde-domain:FK8) Recognise substance use that changes dental care and total an opioid prescription in morphine milligram equivalents.
+  - EK: MME/day = mg per dose × doses per day × conversion factor (codeine 0.15, hydrocodone 1, oxycodone 1.5, CDC 2022); avoid epinephrine within 24 h of cocaine use.
+  - P1 · drills: dn-mme, dn-substance-use
+- ● **DN-2.4.B** (jcnde-domain:CC36, jcnde-domain:CC38, jcnde-domain:FK1) Use proportion and the supracrestal attachment to plan esthetic and soft-tissue changes.
+  - EK: Seen from the front, central : lateral : canine widths follow roughly 1.618 : 1 : 0.618; keep about 3 mm from the restorative margin to bone (about 2 mm of attached tissue plus the sulcus).
+  - P1 · drills: dn-golden-proportion, dn-esthetic-tissue
+- ● **DN-2.4.C** (jcnde-domain:CC37, jcnde-domain:FK10) Evaluate treatment outcomes and convert survival over years into an annual failure rate.
+  - EK: AFR = 1 − S^(1/years); recall intervals follow risk (often 3–6 months for high caries or periodontal risk).
+  - P1 · drills: dn-afr, dn-outcome
+
+### 2.5 Chemistry of the mouth and host defence
+
+
+
+- ● **DN-2.5.A** (jcnde-domain:FK2, jcnde-domain:CC21) Relate plaque pH to enamel and root demineralisation, and fluoride to the critical pH.
+  - EK: Hydroxyapatite dissolves below about pH 5.5, fluorapatite below about 4.5, root dentin near 6.2–6.7; each sugar exposure drops plaque pH for 20–40 minutes (Stephan curve).
+  - P1 · drills: dn-critical-ph, dn-ph-hplus
+- ● **DN-2.5.B** (jcnde-domain:FK2, jcnde-domain:FK1) Use the bicarbonate buffer to compute salivary pH and explain how flow changes it.
+  - EK: pH = 6.1 + log([HCO₃⁻]/(0.03·P_CO₂)); stimulated saliva carries more bicarbonate and buffers better.
+  - P1 · drills: dn-saliva-ph, dn-saliva-function
+- ● **DN-2.5.C** (jcnde-domain:FK5, jcnde-domain:CC22) Match the host's defences to the stages of gingival and periodontal disease.
+  - EK: Neutrophils dominate the early lesion; T cells, then B and plasma cells, the established and advanced lesions; secretory IgA and lysozyme defend saliva; host enzymes (MMPs) and RANKL drive tissue and bone loss.
+  - P1 · drills: dn-perio-immune, dn-host-modulation
+- ● **DN-2.5.D** (jcnde-domain:FK5, jcnde-domain:FK7, jcnde-domain:CC51) Interpret immunisation and exposure tests for dental personnel.
+  - EK: Anti-HBs ≥ 10 mIU/mL after the hepatitis B series means protection; a non-responder repeats the series once; post-exposure HIV prophylaxis should start within hours (ideally under 2, at most 72).
+  - P1 · drills: dn-hbv-titer, dn-needlestick-risk
+
 ## Unit 3 · Practice and Profession (21.8%)
 
 Big ideas: SAFE
@@ -124,6 +172,29 @@ Big ideas: SAFE
 - ● **DN-3.2.A** (jcnde-domain:CC41, jcnde-domain:FK10) Compute sensitivity, specificity and predictive values from a 2×2 table.
   - EK: Sensitivity and specificity belong to the test; predictive values depend on prevalence.
   - P1 · drills: dn-test-stats, dn-ppv-prevalence
+
+### 3.3 Practice, team and community
+
+
+
+- ● **DN-3.3.A** (jcnde-domain:CC42, jcnde-domain:CC50, jcnde-domain:FK9) Recognise the limits of general practice and refer, and assess one's own competence.
+  - EK: Refer when the case exceeds training or equipment; the referring dentist still owes follow-up; continuing education and outcome audit drive self-assessment.
+  - P1 · drills: dn-referral, dn-scope
+- ● **DN-3.3.B** (jcnde-domain:CC43, jcnde-domain:CC47, jcnde-domain:FK9) Read practice finances and meet OSHA and HIPAA duties.
+  - EK: Overhead % = expenses ÷ collections; collection ratio = collected ÷ produced; HIPAA protects health information; OSHA's bloodborne pathogens standard protects staff.
+  - P1 · drills: dn-overhead, dn-osha-hipaa
+- ● **DN-3.3.C** (jcnde-domain:CC48) Plan for emergencies and disasters in the practice.
+  - EK: Written plan with roles, evacuation and communication, data backup off site, and drills; dentists may help identify victims through dental records.
+  - P1 · drills: dn-disaster-plan, dn-office-preparedness
+- ● **DN-3.3.D** (jcnde-domain:CC49, jcnde-domain:FK9) Delegate to allied dental personnel at the right level of supervision.
+  - EK: Direct supervision: dentist present and checks; general: dentist authorised but need not be present; the allowed duties are set by each state's practice act.
+  - P1 · drills: dn-supervision, dn-delegation
+- ● **DN-3.3.E** (jcnde-domain:CC53, jcnde-domain:CC54, jcnde-domain:CC39, jcnde-domain:CC40, jcnde-domain:FK10) Measure a population's caries and choose community programmes.
+  - EK: DMFT = decayed + missing + filled teeth; community water fluoridation at 0.7 mg/L (USPHS 2015); school sealant programmes; teledentistry and silver diamine fluoride widen access.
+  - P1 · drills: dn-dmft, dn-community
+- ● **DN-3.3.F** (jcnde-domain:CC55, jcnde-domain:FK7) Apply quality assurance: audit, compare against a standard and fix the process.
+  - EK: Plan–Do–Study–Act cycles; weekly biological (spore) testing of sterilisers; a failed spore test means retest, recall loads and repair.
+  - P1 · drills: dn-spore-rate, dn-quality
 
 ## Unit 4 · Dental materials (FK3, 8.0%)
 

@@ -12,7 +12,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 | AI Basics | Harper Carroll, Academy: free AI course (10 modules, 90 lessons) | course | read in part | — | — | 19 | 19 | 0 |
 | AI Safety | BlueDot Impact course syllabi (Technical AI Safety, Governance, AGI Strategy) | course | read in full | — | — | 104 | 0 | 104 |
 | Analytical Chemistry | Regulations of the International Chemistry Olympiad, Appendices C and D (concepts, skills and factual knowledge) | exam-spec | read in full | gre-chemistry, aamc-mcat-outline, usnco, icho-syllabus | acs-accm | 18 | 18 | 0 |
-| Anchor Quantities | CODATA Recommended Values of the Fundamental Physical Constants: 2022 (NIST SP 961) | reference | read in part | snapshot-key-numbers, francl-take-a-number, cfr-21-101-9 | acs-accm-pchem | 14 | 3 | 11 |
+| Anchor Quantities | CODATA Recommended Values of the Fundamental Physical Constants: 2022 (NIST SP 961) | reference | read in part | snapshot-key-numbers, francl-take-a-number, cfr-21-101-9, acs-accm-pchem | — | 14 | 12 | 2 |
 | Basketball | USA Basketball Player Development Curriculum | standard | read in part | — | — | 88 | 0 | 88 |
 | Biology (AP) | AP Biology Course and Exam Description (effective fall 2025) | standard | read in part | ap-biology, iupac-aa-1983, ngss-hs, ib-biology-2025, icho-appendix-c, icho-syllabus, aamc-mcat-outline | — | 179 | 179 | 0 |
 | Biosecurity | BlueDot Impact, Biosecurity course (six units) | course | read in part | who-lbm4, bwc, cdc-ss1978, who-jee3, ashrae-241 | — | 42 | 42 | 0 |
@@ -27,7 +27,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 | Fluid Mechanics | NCEES FE Chemical CBT Exam Specifications (effective July 2020) | exam-spec | read in full | pe-chemical, webwork-opl | — | 64 | 64 | 0 |
 | Graduate Chemical Engineering Core | UC Irvine Chemical and Biomolecular Engineering graduate core: CBE 200, 210, 220A, 220B and 240 (catalogue descriptions, 2025-26) | course | read in part | pe-chemical | — | 38 | 38 | 0 |
 | Heat Transfer | NCEES FE Chemical CBT Exam Specifications (effective July 2020) | exam-spec | read in full | fe-mechanical, ib-physics-2025, pe-chemical | — | 101 | 63 | 38 |
-| INBDE (Dentistry) | JCNDE, Domain of Dentistry (INBDE content domain), July 2018 | exam-spec | read in part | — | — | 64 | 64 | 0 |
+| INBDE (Dentistry) | JCNDE, Domain of Dentistry (INBDE content domain), July 2018 | exam-spec | read in full | — | — | 81 | 81 | 0 |
 | Information Systems | MSIS 2016 Global Competency Model | standard | read in full | — | — | 53 | 0 | 53 |
 | Advanced Inorganic Chemistry (Cotton & Wilkinson) | Cotton, Wilkinson, Murillo & Bochmann, Advanced Inorganic Chemistry, 6th ed. (1999): table of contents | textbook | read in part | icho-appendix-c, gre-chemistry | — | 55 | 0 | 55 |
 | Inorganic Chemistry | Regulations of the International Chemistry Olympiad, Appendices C and D (concepts, skills and factual knowledge) | exam-spec | read in full | icho-syllabus, gre-chemistry, usnco, ib-chemistry-2025 | — | 23 | 23 | 0 |
@@ -46,7 +46,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 | Organic Reactions: Predict the Product | Bruice, Organic Chemistry, 8th edition (table of contents) | textbook | read in part | ib-chemistry-2025, icho-appendix-c, icho-syllabus, acs-accm, aamc-mcat-outline, gre-chemistry | — | 25 | 24 | 1 |
 | Particle Physics | AQA AS and A-level Physics (7407/7408), section 3.2 Particles and radiation | standard | read in part | openstax-university-physics, gre-physics | — | 13 | 12 | 1 |
 | The Periodic Table from Memory | IUPAC Periodic Table of the Elements (release of 4 May 2022) | reference | read in part | ngss-hs, ib-chemistry-2025, icho-appendix-c | — | 15 | 15 | 0 |
-| Physical Chemistry | Engel & Reid, Physical Chemistry, 3rd ed. (through the wiki's drill pages) | textbook | read in part | fe-chemical, usnco, icho-appendix-c, icho-syllabus, gre-physics, gre-chemistry | acs-accm-pchem | 141 | 113 | 28 |
+| Physical Chemistry | ACS Exams Institute Anchoring Concepts Content Map: Physical Chemistry (Holme, Reed, Raker & Murphy, J. Chem. Educ. 2018, 95, 238) | standard | read in full | engel-reid-3e, fe-chemical, usnco, icho-appendix-c, icho-syllabus, gre-physics, gre-chemistry | — | 158 | 158 | 0 |
 | Physics (AP) | AP Physics 1, 2 and C Course and Exam Descriptions | standard | read in part | ngss-hs, ib-physics-2025, aamc-mcat-outline, gre-physics | — | 207 | 207 | 0 |
 | Process Design, Economics and Safety | NCEES FE Chemical CBT Exam Specifications (effective July 2020) | exam-spec | read in full | pe-chemical | — | 9 | 9 | 0 |
 | Programming Foundations | AP Computer Science A Course and Exam Description (Fall 2025) | standard | read in full | — | — | 140 | 140 | 0 |
@@ -66,7 +66,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 - **AI Basics**: Units follow the ten modules of Harper Carroll's free Academy course. Only her module titles were readable, so the objectives under them are a house list.
 - **AI Safety**: No accredited standard exists; course syllabi and lab frameworks are the closest thing.
 - **Analytical Chemistry**: Topics named by IChO Appendix C (read in full), the GRE Chemistry analytical area and MCAT 5C. The ACS analytical content map was not read; objectives and their order are ours.
-- **Anchor Quantities**: Values from CODATA 2022, standard atomic weights and 21 CFR 101.9. Which values to carry is a house list for units 1–4 and the SnapShot Key Numbers in Biology sheet for units 5–6. No chemistry standard for this was found; the ACS content maps have not been opened to check.
+- **Anchor Quantities**: Values from CODATA 2022, standard atomic weights and 21 CFR 101.9. Which values to carry is a house list for units 1–4 and the SnapShot Key Numbers in Biology sheet for units 5–6. No chemistry standard lists these values; the ACS Physical Chemistry content map (read) asks for the mole-scale and Boltzmann reasoning they serve, and AQ objectives cite those articulations.
 - **Basketball**: Introductory level read in full, higher levels in overview only.
 - **Biology (AP)**: Topics cite the 2025 AP Biology CED learning objectives (all 97 read); objectives keep their 2019 codes, read through a publisher's correlation table.
 - **Biosecurity**: Units follow the six units of BlueDot Impact's Biosecurity course (outline read Nov 2026); laboratory biosafety follows the WHO Laboratory Biosafety Manual's risk-based structure and the treaty items follow the BWC's articles. No curriculum standard for biosecurity exists; the objectives are a house list.
@@ -95,7 +95,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 - **Organic Reactions: Predict the Product**: Families follow the reaction chapters of Bruice's Organic Chemistry (a textbook, not a standard; chapter titles 2-17 from memory). The reactions and substrates in each are a house list. Every product is mass-balanced against its reactant by the generator; regiochemistry and stereochemistry were checked by eye.
 - **Particle Physics**: Objectives follow AQA A-level Physics section 3.2 (Particles and radiation), read in this session. The Lorentz-factor items go beyond it and rest on a university textbook chapter.
 - **The Periodic Table from Memory**: Content from the IUPAC table (release note read; element list cross-checked in the verifier). Which parts to know by heart is a house decision from Kevin's organometallics course.
-- **Physical Chemistry**: Textbook-shaped until the ACS content map is read. Thermodynamics and kinetics units are anchored to fe-chemical; quantum and spectroscopy have no outside anchor yet.
+- **Physical Chemistry**: Anchored on the ACS Physical Chemistry content map (read in full): objectives cite its subdisciplinary articulations, through scripts/accm_pchem.py. Units keep Engel & Reid's order; the map's articulations no objective answers are listed in docs/coverage/standards.md.
 - **Physics (AP)**: Objective codes read for a few units only.
 - **Process Design, Economics and Safety**: Topics from FE Chemical areas 13, 15, 16 and PE Chemical area 7 (read in full); objectives and their order are ours.
 - **Chemical Reaction Engineering**: Topics from FE Chemical area 12, read in full. Objectives and their order are ours. Units 5–8 and the later letters of units 1–4 go beyond the FE spec on Fogler 5e's chapter order (a house list); the gaps are in the file header.
@@ -113,7 +113,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 - **Financial Accounting (CPA FAR)**: exam-spec, read in part
 - **AI Basics**: course, read in part
 - **AI Safety**: course, read in full
-- **Anchor Quantities**: reference, read in part; should move to ACS Exams Institute Anchoring Concepts Content Map IV: Physical Chemistry (J. Chem. Educ. 2018, 95, 238)
+- **Anchor Quantities**: reference, read in part
 - **Basketball**: standard, read in part
 - **Biology (AP)**: standard, read in part
 - **Biosecurity**: course, read in part
@@ -123,7 +123,6 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 - **Electric Double Layers**: textbook, read in part
 - **Applied Engineering Mathematics**: textbook, read in full
 - **Graduate Chemical Engineering Core**: course, read in part
-- **INBDE (Dentistry)**: exam-spec, read in part
 - **Advanced Inorganic Chemistry (Cotton & Wilkinson)**: textbook, read in part
 - **Linear Algebra**: standard, read in part
 - **Mathematics K–8 (Common Core)**: standard, read through a crosswalk
@@ -134,7 +133,6 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 - **Organic Reactions: Predict the Product**: textbook, read in part
 - **Particle Physics**: standard, read in part
 - **The Periodic Table from Memory**: reference, read in part
-- **Physical Chemistry**: textbook, read in part; should move to ACS Exams Institute Anchoring Concepts Content Map IV: Physical Chemistry (J. Chem. Educ. 2018, 95, 238)
 - **Physics (AP)**: standard, read in part
 - **Speaking and Articulation**: rubric, read in full
 - **SQL**: exam-spec, read through a crosswalk
@@ -192,12 +190,12 @@ https://ncees.org/wp-content/uploads/2022/09/FE-Che-CBT-specs.pdf
 | 6.H | Compressible flow and non-Newtonian fluids | 4 | 4 | fluid-mechanics (4) |
 | **7** | **Thermodynamics** (8–12 questions) | | | |
 | 7.A | Properties of pure components and mixtures | 15 | 15 | physical-chemistry (4), thermodynamics (11) |
-| 7.B | Property data and phase diagrams | 9 | 9 | physical-chemistry (3), thermodynamics (6) |
-| 7.C | First and second laws | 31 | 31 | physical-chemistry (12), thermodynamics (19) |
-| 7.D | Processes (isothermal, adiabatic, isentropic, phase change) | 14 | 14 | physical-chemistry (7), thermodynamics (7) |
+| 7.B | Property data and phase diagrams | 13 | 13 | physical-chemistry (7), thermodynamics (6) |
+| 7.C | First and second laws | 32 | 32 | physical-chemistry (13), thermodynamics (19) |
+| 7.D | Processes (isothermal, adiabatic, isentropic, phase change) | 15 | 15 | physical-chemistry (8), thermodynamics (7) |
 | 7.E | Cycles and efficiencies | 5 | 5 | physical-chemistry (5) |
-| 7.F | Phase equilibrium (fugacity, activity, Raoult's law) | 28 | 28 | physical-chemistry (10), thermodynamics (18) |
-| 7.G | Chemical equilibrium | 11 | 11 | physical-chemistry (4), thermodynamics (7) |
+| 7.F | Phase equilibrium (fugacity, activity, Raoult's law) | 32 | 32 | physical-chemistry (14), thermodynamics (18) |
+| 7.G | Chemical equilibrium | 12 | 12 | physical-chemistry (5), thermodynamics (7) |
 | 7.H | Heats of reaction and mixing | 23 | 23 | material-balances (1), physical-chemistry (3), thermodynamics (19) |
 | **8** | **Material/Energy Balances** (10–15 questions) | | | |
 | 8.A | Steady-state mass balance | 5 | 5 | material-balances (5) |
@@ -224,12 +222,12 @@ https://ncees.org/wp-content/uploads/2022/09/FE-Che-CBT-specs.pdf
 | 11.B | Processing (crushing, grinding, crystallization) | — | — | **nothing yet** |
 | 11.C | Transport and storage | — | — | **nothing yet** |
 | **12** | **Chemical Reaction Engineering** (7–11 questions) | | | |
-| 12.A | Reaction rates and order | 25 | 25 | physical-chemistry (13), reaction-engineering (12) |
-| 12.B | Rate constants (Arrhenius) | 30 | 30 | physical-chemistry (13), reaction-engineering (11), thermodynamics (6) |
+| 12.A | Reaction rates and order | 28 | 28 | physical-chemistry (16), reaction-engineering (12) |
+| 12.B | Rate constants (Arrhenius) | 33 | 33 | physical-chemistry (16), reaction-engineering (11), thermodynamics (6) |
 | 12.C | Conversion, yield, selectivity | 15 | 15 | reaction-engineering (15) |
-| 12.D | Reaction types (series, parallel, homogeneous, heterogeneous, biological) | 20 | 20 | physical-chemistry (13), reaction-engineering (7) |
+| 12.D | Reaction types (series, parallel, homogeneous, heterogeneous, biological) | 23 | 23 | physical-chemistry (16), reaction-engineering (7) |
 | 12.E | Reactor types (batch, CSTR, PFR, semibatch) | 11 | 11 | reaction-engineering (11) |
-| 12.F | Catalysis | 17 | 17 | physical-chemistry (13), reaction-engineering (4) |
+| 12.F | Catalysis | 20 | 20 | physical-chemistry (16), reaction-engineering (4) |
 | **13** | **Economics** (4–6 questions) | | | |
 | 13.A | Time value of money | 5 | 5 | process-design (5) |
 | 13.B | Economic analyses | 5 | 5 | process-design (5) |
@@ -2015,45 +2013,45 @@ https://nclex.com/files/2026_RN_Test%20Plan_English-F.pdf
 
 https://jcnde.ada.org/-/media/project/ada-organization/ada/jcnde/files/domain_of_dentistry_july2018.pdf
 
-42 of 66 items have at least one objective answering to them.
+66 of 66 items have at least one objective answering to them.
 
 | Item | Topic | Objectives | With a drill | Where |
 |---|---|---|---|---|
-| FK1 | Molecular, biochemical, cellular and systems-level development, structure and function | 11 | 11 | inbde (11) |
-| FK2 | Physics and chemistry of normal biology and pathobiology | 1 | 1 | inbde (1) |
+| FK1 | Molecular, biochemical, cellular and systems-level development, structure and function | 14 | 14 | inbde (14) |
+| FK2 | Physics and chemistry of normal biology and pathobiology | 4 | 4 | inbde (4) |
 | FK3 | Physics and chemistry of technologies and materials (8.0%) | 16 | 16 | inbde (16) |
 | FK4 | Genetic, congenital and developmental diseases | 5 | 5 | inbde (5) |
-| FK5 | Host defense mechanisms | 2 | 2 | inbde (2) |
-| FK6 | General and disease-specific pathology | 4 | 4 | inbde (4) |
-| FK7 | Biology of microorganisms | 2 | 2 | inbde (2) |
-| FK8 | Pharmacology | 7 | 7 | inbde (7) |
-| FK9 | Behavioral sciences, ethics and jurisprudence | 2 | 2 | inbde (2) |
-| FK10 | Research methodology, analysis and informatics | 3 | 3 | inbde (3) |
+| FK5 | Host defense mechanisms | 4 | 4 | inbde (4) |
+| FK6 | General and disease-specific pathology | 5 | 5 | inbde (5) |
+| FK7 | Biology of microorganisms | 4 | 4 | inbde (4) |
+| FK8 | Pharmacology | 8 | 8 | inbde (8) |
+| FK9 | Behavioral sciences, ethics and jurisprudence | 6 | 6 | inbde (6) |
+| FK10 | Research methodology, analysis and informatics | 5 | 5 | inbde (5) |
 | CC1 | Patient history and medical data | 4 | 4 | inbde (4) |
-| CC2 | Chief complaint and contributing factors | — | — | **nothing yet** |
-| CC3 | Head, neck and intraoral examination | — | — | **nothing yet** |
+| CC2 | Chief complaint and contributing factors | 1 | 1 | inbde (1) |
+| CC3 | Head, neck and intraoral examination | 1 | 1 | inbde (1) |
 | CC4 | Diagnosing and prognosing dental abnormalities and pathology | 1 | 1 | inbde (1) |
 | CC5 | Normal findings versus those needing monitoring or treatment | 9 | 9 | inbde (9) |
-| CC6 | Predicting the most likely diagnostic result | — | — | **nothing yet** |
+| CC6 | Predicting the most likely diagnostic result | 1 | 1 | inbde (1) |
 | CC7 | Interpreting diagnostic results | 10 | 10 | inbde (10) |
 | CC8 | Systemic disease and its effect on dental care | 9 | 9 | inbde (9) |
-| CC9 | Oral and systemic health | — | — | **nothing yet** |
+| CC9 | Oral and systemic health | 1 | 1 | inbde (1) |
 | CC10 | Selecting diagnostic tools | 1 | 1 | inbde (1) |
-| CC11 | Gathering information from varied sources | — | — | **nothing yet** |
-| CC12 | Comprehensive diagnosis and treatment plan | — | — | **nothing yet** |
-| CC13 | Explaining etiology, options and prognosis | — | — | **nothing yet** |
-| CC14 | Patient attributes, background and values across life stages | — | — | **nothing yet** |
-| CC15 | Communicating with patients (psychological, social, behavioural) | — | — | **nothing yet** |
+| CC11 | Gathering information from varied sources | 1 | 1 | inbde (1) |
+| CC12 | Comprehensive diagnosis and treatment plan | 1 | 1 | inbde (1) |
+| CC13 | Explaining etiology, options and prognosis | 1 | 1 | inbde (1) |
+| CC14 | Patient attributes, background and values across life stages | 1 | 1 | inbde (1) |
+| CC15 | Communicating with patients (psychological, social, behavioural) | 1 | 1 | inbde (1) |
 | CC16 | Medical emergencies | 5 | 5 | inbde (5) |
 | CC17 | Dental emergencies | 5 | 5 | inbde (5) |
 | CC18 | Acute pain, bleeding, trauma and infection of the orofacial complex | 5 | 5 | inbde (5) |
 | CC19 | Pain control during treatment | 8 | 8 | inbde (8) |
 | CC20 | Pulpal and periradicular diseases | 7 | 7 | inbde (7) |
-| CC21 | Managing caries | 12 | 12 | inbde (12) |
-| CC22 | Periodontal diseases | 5 | 5 | inbde (5) |
+| CC21 | Managing caries | 13 | 13 | inbde (13) |
+| CC22 | Periodontal diseases | 6 | 6 | inbde (6) |
 | CC23 | Oral mucosal and osseous diseases | 8 | 8 | inbde (8) |
 | CC24 | Abuse and neglect | 6 | 6 | inbde (6) |
-| CC25 | Substance abuse | — | — | **nothing yet** |
+| CC25 | Substance abuse | 1 | 1 | inbde (1) |
 | CC26 | Pharmacological agents | 9 | 9 | inbde (9) |
 | CC27 | Complications of therapeutic agents | 7 | 7 | inbde (7) |
 | CC28 | Endodontic diagnosis and procedures | 10 | 10 | inbde (10) |
@@ -2064,26 +2062,26 @@ https://jcnde.ada.org/-/media/project/ada-organization/ada/jcnde/files/domain_of
 | CC33 | Oral surgical procedures | 1 | 1 | inbde (1) |
 | CC34 | Developmental or acquired occlusal problems | 6 | 6 | inbde (6) |
 | CC35 | Temporomandibular disorders | 5 | 5 | inbde (5) |
-| CC36 | Modifying oral tissues for form, function and esthetics | — | — | **nothing yet** |
-| CC37 | Evaluating outcomes of comprehensive care | — | — | **nothing yet** |
-| CC38 | Oral esthetic needs | — | — | **nothing yet** |
-| CC39 | Emerging trends in health care | — | — | **nothing yet** |
-| CC40 | Social and economic trends in oral health care | — | — | **nothing yet** |
+| CC36 | Modifying oral tissues for form, function and esthetics | 1 | 1 | inbde (1) |
+| CC37 | Evaluating outcomes of comprehensive care | 1 | 1 | inbde (1) |
+| CC38 | Oral esthetic needs | 1 | 1 | inbde (1) |
+| CC39 | Emerging trends in health care | 1 | 1 | inbde (1) |
+| CC40 | Social and economic trends in oral health care | 1 | 1 | inbde (1) |
 | CC41 | Evaluating scientific literature | 8 | 8 | inbde (8) |
-| CC42 | Scope of practice, consultation and referral | — | — | **nothing yet** |
-| CC43 | Resources for care, management and development | — | — | **nothing yet** |
+| CC42 | Scope of practice, consultation and referral | 1 | 1 | inbde (1) |
+| CC43 | Resources for care, management and development | 1 | 1 | inbde (1) |
 | CC44 | Risk management, jurisprudence and ethics | 1 | 1 | inbde (1) |
 | CC45 | Ethical and jurisprudence issues | 1 | 1 | inbde (1) |
 | CC46 | Patient records | 1 | 1 | inbde (1) |
-| CC47 | Business and financial operations | — | — | **nothing yet** |
-| CC48 | Catastrophe preparedness | — | — | **nothing yet** |
-| CC49 | Managing allied dental personnel | — | — | **nothing yet** |
-| CC50 | Self-assessment | — | — | **nothing yet** |
-| CC51 | Standard infection control | 5 | 5 | inbde (5) |
+| CC47 | Business and financial operations | 1 | 1 | inbde (1) |
+| CC48 | Catastrophe preparedness | 1 | 1 | inbde (1) |
+| CC49 | Managing allied dental personnel | 1 | 1 | inbde (1) |
+| CC50 | Self-assessment | 1 | 1 | inbde (1) |
+| CC51 | Standard infection control | 6 | 6 | inbde (6) |
 | CC52 | Prevention, intervention and education | 2 | 2 | inbde (2) |
-| CC53 | Collaboration for community health | — | — | **nothing yet** |
-| CC54 | Oral health care delivery for populations | — | — | **nothing yet** |
-| CC55 | Quality assurance and improvement | — | — | **nothing yet** |
+| CC53 | Collaboration for community health | 1 | 1 | inbde (1) |
+| CC54 | Oral health care delivery for populations | 1 | 1 | inbde (1) |
+| CC55 | Quality assurance and improvement | 1 | 1 | inbde (1) |
 | CC56 | Communicating case design to laboratories | 2 | 2 | inbde (2) |
 
 ## BlueDot Impact, Biosecurity course (six units)
@@ -2208,6 +2206,211 @@ https://students-residents.aamc.org/mcatexam
 | 5C | Separation and purification | 2 | 2 | analytical-chemistry (2) |
 | 5D | Biologically relevant molecules | 14 | 14 | organic-reactions (7), structures (7) |
 | 5E | Chemical thermodynamics and kinetics | 32 | 32 | chemistry (32) |
+
+## ACS Exams Institute Anchoring Concepts Content Map: Physical Chemistry (Holme, Reed, Raker & Murphy, J. Chem. Educ. 2018, 95, 238)
+
+https://pubs.acs.org/doi/10.1021/acs.jchemed.7b00531
+
+191 of 196 items have at least one objective answering to them.
+
+| Item | Topic | Objectives | With a drill | Where |
+|---|---|---|---|---|
+| I.A.1 | Nuclear charge Z in atomic energy levels; hydrogen-like ions | 2 | 2 | physical-chemistry (2) |
+| I.A.2 | Nuclear spin and the NMR experiment | 5 | 5 | physical-chemistry (5) |
+| I.A.3 | Isotopic mass: reduced mass and mass spectra | 2 | 2 | physical-chemistry (2) |
+| I.B.1 | Atomic wavefunctions and quantum numbers | 5 | 5 | physical-chemistry (5) |
+| I.B.2 | Atomic term symbols and spin–orbit coupling | 3 | 2 | physical-chemistry (3) |
+| I.B.3 | The Pauli principle and antisymmetric wavefunctions | 2 | 1 | physical-chemistry (2) |
+| I.B.4 | |ψ|² as probability; normalisation | 3 | 3 | physical-chemistry (3) |
+| I.C.1 | Periodicity explained by the quantum atom | 2 | 2 | physical-chemistry (2) |
+| I.C.2 | Shells as an approximation; radial functions move out with n | 1 | 1 | physical-chemistry (1) |
+| I.D.1 | Spectra as the evidence for quantised energy | 4 | 4 | anchor-quantities (2), physical-chemistry (2) |
+| I.D.2 | Selection rules for electronic transitions | 1 | 1 | physical-chemistry (1) |
+| I.D.3 | Atomic spectra described by quantum mechanics | 1 | 1 | physical-chemistry (1) |
+| I.D.4 | Atomic spectra described by atomic wavefunctions | 1 | 1 | physical-chemistry (1) |
+| I.D.5 | Time-dependent wavefunctions for light–matter interaction | 2 | 2 | physical-chemistry (2) |
+| I.E.1 | Matching microscopic models to macroscopic measurements | 3 | 3 | anchor-quantities (3) |
+| I.F.1 | Atomic number changes in nuclear reactions | 1 | 1 | physical-chemistry (1) |
+| I.G.1 | Ionisation energy and electron affinity from wavefunctions | 1 | 1 | physical-chemistry (1) |
+| I.G.2 | Ion formation in mass spectrometry | 1 | 1 | physical-chemistry (1) |
+| I.G.3 | Ion electronic structure built from the neutral atom's | 1 | 1 | physical-chemistry (1) |
+| II.A.1 | Coulomb terms make up the Hamiltonian's potential energy | 1 | 1 | physical-chemistry (1) |
+| II.A.2 | Electron correlation energy | 1 | 1 | physical-chemistry (1) |
+| II.A.3 | The Born–Oppenheimer approximation | 1 | 1 | physical-chemistry (1) |
+| II.B.1 | Electron build-up between nuclei forms a bond | 1 | 1 | physical-chemistry (1) |
+| II.B.2 | Overlap, Coulomb and exchange integrals | 3 | 3 | physical-chemistry (3) |
+| II.C.1 | Potential energy curves for bonding | 1 | 1 | physical-chemistry (1) |
+| II.C.2 | Model potentials (harmonic, Morse) for bonds and vibrations | 1 | 1 | physical-chemistry (1) |
+| II.C.3 | Bound and repulsive excited states | 1 | 1 | physical-chemistry (1) |
+| II.D.1 | Energy for bond breaking from collisions or light | 1 | 1 | physical-chemistry (1) |
+| II.D.2 | Homolytic and heterolytic bond breaking | 1 | 1 | physical-chemistry (1) |
+| II.E.1 | Computational models of many-electron systems | 4 | 4 | physical-chemistry (4) |
+| II.E.2 | Variational and perturbation approximations | 1 | 1 | physical-chemistry (1) |
+| II.E.3 | Bonding and antibonding molecular orbitals | 3 | 3 | physical-chemistry (3) |
+| II.F.1 | Several MOs between nuclei; multiple bonds | 2 | 2 | physical-chemistry (2) |
+| II.F.2 | Vibrational frequency, force constant and bond order | 3 | 3 | physical-chemistry (3) |
+| II.F.3 | Bond order from the computed electron density | 1 | 1 | physical-chemistry (1) |
+| II.G.1 | Electron-sea and band models of metals | 1 | 1 | physical-chemistry (1) |
+| III.A.1 | Measured properties depend on structure | 1 | 1 | physical-chemistry (1) |
+| III.A.2 | Electronic, vibrational and rotational levels and spectra | 3 | 3 | physical-chemistry (3) |
+| III.A.3 | Moment of inertia, rotational constant and isotope effects in spectra | 4 | 4 | physical-chemistry (4) |
+| III.B.1 | Molecular shape sets the point group | 2 | 2 | physical-chemistry (2) |
+| III.B.2 | Hybridisation and local geometry | 1 | 1 | physical-chemistry (1) |
+| III.B.3 | Shape from the lowest-energy molecular wavefunction | 1 | 0 | physical-chemistry (1) |
+| III.C.1 | Geometry optimisation by energy minimisation | 1 | 1 | physical-chemistry (1) |
+| III.C.2 | Spectra as checks on computation | 1 | 1 | physical-chemistry (1) |
+| III.C.3 | Energies of non-minimum geometries (surfaces, transition states) | 1 | 1 | physical-chemistry (1) |
+| III.D.1 | Molecular term symbols and symmetry | 1 | 1 | physical-chemistry (1) |
+| III.D.2 | Group theory, symmetry and selection rules | 4 | 4 | physical-chemistry (4) |
+| III.D.3 | Parity of electronic wavefunctions | 1 | 1 | physical-chemistry (1) |
+| III.E.1 | Chirality and optical rotation | 1 | 1 | physical-chemistry (1) |
+| III.F.1 | Fragment-based computational methods | — | — | **nothing yet** |
+| III.F.2 | Characteristic group vibrations | 1 | 1 | physical-chemistry (1) |
+| III.G.1 | Atomic property patterns from the quantum atom | 1 | 1 | physical-chemistry (1) |
+| III.H.1 | Surface sites in heterogeneous catalysis | 1 | 1 | physical-chemistry (1) |
+| III.H.2 | Unit cells and lattice planes | 1 | 1 | physical-chemistry (1) |
+| III.H.3 | Perfect crystals at 0 K have zero entropy | 2 | 2 | physical-chemistry (2) |
+| III.H.4 | Measured physical properties of solids | 1 | 1 | physical-chemistry (1) |
+| IV.A.1 | The van der Waals radius as a length scale | 2 | 2 | anchor-quantities (1), physical-chemistry (1) |
+| IV.A.2 | Repulsive terms in intermolecular potentials | 3 | 3 | physical-chemistry (3) |
+| IV.A.3 | Gases: weak forces and large separations | 1 | 1 | physical-chemistry (1) |
+| IV.A.4 | The ideal gas as the no-interaction limit | 1 | 1 | physical-chemistry (1) |
+| IV.A.5 | Equations of state from particle interactions | 3 | 3 | physical-chemistry (3) |
+| IV.B.1 | Non-covalent forces shape proteins | 1 | 1 | physical-chemistry (1) |
+| IV.B.2 | Hydrophilic and hydrophobic regions | 1 | 1 | physical-chemistry (1) |
+| IV.B.3 | Bilayers and micelles from lipid interactions | 1 | 1 | physical-chemistry (1) |
+| IV.C.1 | Bond dipoles from electronegativity differences | 1 | 1 | physical-chemistry (1) |
+| IV.C.2 | Polarisability and intermolecular forces | 1 | 1 | physical-chemistry (1) |
+| IV.C.3 | The London formula for dispersion | 1 | 1 | physical-chemistry (1) |
+| IV.C.4 | Induced dipoles in an external field | 1 | 1 | physical-chemistry (1) |
+| IV.C.5 | Instantaneous dipoles | 1 | 1 | physical-chemistry (1) |
+| IV.C.6 | Dipole alignment between neighbours | 1 | 1 | physical-chemistry (1) |
+| IV.C.7 | Hydrogen bonding | 1 | 1 | physical-chemistry (1) |
+| IV.D.1 | Phase equilibrium: equal chemical potentials | 2 | 2 | physical-chemistry (2) |
+| IV.D.2 | One-component phase diagrams | 1 | 1 | physical-chemistry (1) |
+| IV.D.3 | Sizes of fusion, vaporisation and sublimation enthalpies | 1 | 1 | physical-chemistry (1) |
+| IV.D.4 | Vapour pressure, viscosity and surface tension from forces | 2 | 2 | physical-chemistry (2) |
+| IV.D.5 | The Clausius–Clapeyron equation | 1 | 1 | physical-chemistry (1) |
+| IV.D.6 | Miscibility of liquids | 1 | 1 | physical-chemistry (1) |
+| IV.D.7 | Supercritical fluids | 1 | 1 | physical-chemistry (1) |
+| IV.D.8 | Non-ideal solutions | 3 | 3 | physical-chemistry (3) |
+| IV.E.1 | Solvent effects on reactions | — | — | **nothing yet** |
+| IV.E.2 | Ion solvation energetics | 4 | 4 | physical-chemistry (4) |
+| IV.E.3 | Solvation as an energy source for endothermic dissolution | 1 | 1 | physical-chemistry (1) |
+| IV.E.4 | Formation enthalpies differ between phases | 1 | 1 | physical-chemistry (1) |
+| V.A.1 | Stoichiometry in equilibrium and rate expressions | 1 | 1 | physical-chemistry (1) |
+| V.A.2 | The extent of reaction ξ | 1 | 1 | physical-chemistry (1) |
+| V.B.1 | Reactions as bond breaking and forming | 1 | 1 | physical-chemistry (1) |
+| V.B.2 | Net reaction energy from bonds broken and formed | 1 | 1 | physical-chemistry (1) |
+| V.B.3 | Reaction energy diagrams along one coordinate | 1 | 1 | physical-chemistry (1) |
+| V.B.4 | Potential energy surfaces versus schematic diagrams | 1 | 1 | physical-chemistry (1) |
+| V.C.1 | The Arrhenius equation and activation energy | 1 | 1 | physical-chemistry (1) |
+| V.C.2 | Molecular-beam and spectroscopic views of reactions | 1 | 1 | physical-chemistry (1) |
+| V.D.1 | Molecularity | 1 | 1 | physical-chemistry (1) |
+| V.E | Periodic trends in designing reactions | — | — | **nothing yet** |
+| V.F.1 | Conditions change chemical potential and equilibrium position | 1 | 1 | physical-chemistry (1) |
+| V.F.2 | Nanoscale reactivity versus bulk | 1 | 1 | physical-chemistry (1) |
+| V.F.3 | Pressure effects on reactions | 1 | 1 | physical-chemistry (1) |
+| V.F.4 | Catalysts do not change the products | 1 | 1 | physical-chemistry (1) |
+| V.G.1 | Catalysis acts under kinetic, not thermodynamic, control | 1 | 1 | physical-chemistry (1) |
+| VI.A.1 | System, surroundings and boundaries | 1 | 1 | physical-chemistry (1) |
+| VI.A.2 | Energy conservation between system and surroundings | 1 | 1 | physical-chemistry (1) |
+| VI.A.3 | Endothermic and exothermic processes | 1 | 1 | physical-chemistry (1) |
+| VI.A.4 | Calorimetry | 1 | 1 | physical-chemistry (1) |
+| VI.B.1 | Energy input to overcome activation energy | 1 | 1 | physical-chemistry (1) |
+| VI.B.2 | Kinetically stable mixtures need initiation | 1 | 1 | physical-chemistry (1) |
+| VI.C.1 | Heat raises the fraction of energetic collisions | 1 | 1 | physical-chemistry (1) |
+| VI.C.2 | Photochemical initiation | 1 | 1 | physical-chemistry (1) |
+| VI.C.3 | Electrical energy driving or produced by reactions | 1 | 1 | physical-chemistry (1) |
+| VI.C.4 | Chemiluminescence | 1 | 1 | physical-chemistry (1) |
+| VI.D.1 | Exo- or endothermic from bonds broken and formed | 1 | 1 | physical-chemistry (1) |
+| VI.E.1 | Electronic, vibrational and rotational potential energy | 1 | 1 | physical-chemistry (1) |
+| VI.E.2 | Electrochemical work | 4 | 4 | physical-chemistry (4) |
+| VI.F.1 | Second-law limit on engine efficiency | 1 | 1 | physical-chemistry (1) |
+| VI.F.2 | Waste heat in converting heat to work | 1 | 1 | physical-chemistry (1) |
+| VI.G.1 | Heat flow to thermal equilibrium | 1 | 1 | physical-chemistry (1) |
+| VI.G.2 | The first law in mathematical form | 2 | 2 | physical-chemistry (2) |
+| VI.G.3 | Isothermal, adiabatic, isobaric and isochoric processes | 3 | 3 | physical-chemistry (3) |
+| VI.G.4 | T, P, V and composition as measurable variables | 1 | 1 | physical-chemistry (1) |
+| VI.G.5 | Partial-derivative relations among properties | 3 | 3 | physical-chemistry (3) |
+| VI.G.6 | Work and heat change internal energy | 2 | 2 | physical-chemistry (2) |
+| VI.G.7 | ΔU measured at constant volume | 3 | 3 | physical-chemistry (3) |
+| VI.G.8 | Enthalpy H = U + PV and heat at constant pressure | 3 | 3 | physical-chemistry (3) |
+| VI.G.9 | State functions and path independence (Hess's law) | 2 | 2 | physical-chemistry (2) |
+| VI.G.10 | Thermodynamics says nothing about rates | 1 | 1 | physical-chemistry (1) |
+| VI.H.1 | Spontaneous change disperses energy | 1 | 1 | physical-chemistry (1) |
+| VI.H.2 | Entropy as a state function, statistical and thermal | 6 | 6 | physical-chemistry (6) |
+| VI.H.3 | Entropy of an isolated system rises | 1 | 1 | physical-chemistry (1) |
+| VI.H.4 | Work is ordered energy; making it has an entropy cost | 1 | 1 | physical-chemistry (1) |
+| VI.H.5 | Helmholtz energy at constant T and V | 1 | 1 | physical-chemistry (1) |
+| VI.H.6 | Gibbs energy at constant T and P | 2 | 2 | physical-chemistry (2) |
+| VI.H.7 | The third law and absolute entropy | 2 | 2 | physical-chemistry (2) |
+| VI.I.1 | Nuclear energy from mass change, E = mc² | 1 | 1 | physical-chemistry (1) |
+| VII.A.1 | Matching measurement time scale to reaction time scale | 1 | 1 | physical-chemistry (1) |
+| VII.A.2 | Relaxation methods for fast kinetics | 1 | 1 | physical-chemistry (1) |
+| VII.A.3 | Spectroscopic monitoring of concentration | 1 | 1 | physical-chemistry (1) |
+| VII.A.4 | Kinetic isotope effects | 1 | 1 | physical-chemistry (1) |
+| VII.A.5 | Rates change as a reaction proceeds | 1 | 1 | physical-chemistry (1) |
+| VII.B.1 | Integer orders and integrated rate laws | 2 | 2 | physical-chemistry (2) |
+| VII.B.2 | Absolute and relative rates from data | 1 | 1 | physical-chemistry (1) |
+| VII.B.3 | Half-life | 1 | 1 | physical-chemistry (1) |
+| VII.B.4 | Temperature dependence and the Arrhenius rate constant | 1 | 1 | physical-chemistry (1) |
+| VII.C.1 | Elementary steps sum to the overall reaction | 1 | 1 | physical-chemistry (1) |
+| VII.C.2 | Molecularity of elementary steps | 1 | 1 | physical-chemistry (1) |
+| VII.C.3 | Rate law derived from a mechanism | 4 | 4 | physical-chemistry (4) |
+| VII.C.4 | Rate-determining steps | 1 | 1 | physical-chemistry (1) |
+| VII.C.5 | Intermediates and their lifetimes | 2 | 2 | physical-chemistry (2) |
+| VII.C.6 | State-to-state kinetics | 1 | 1 | physical-chemistry (1) |
+| VII.C.7 | Atmospheric mechanisms | 1 | 1 | physical-chemistry (1) |
+| VII.C.8 | Cyclic biochemical kinetics | 1 | 1 | physical-chemistry (1) |
+| VII.D.1 | The activated complex and activation energy | 2 | 2 | physical-chemistry (2) |
+| VII.D.2 | The Maxwell–Boltzmann speed distribution | 2 | 2 | physical-chemistry (2) |
+| VII.D.3 | Collision rates and mean free path | 2 | 2 | physical-chemistry (2) |
+| VII.D.4 | Collision theory and transition-state theory | 2 | 2 | physical-chemistry (2) |
+| VII.E.1 | Catalysts open a lower-barrier mechanism | 1 | 1 | physical-chemistry (1) |
+| VII.E.2 | Homogeneous and heterogeneous catalysis | 1 | 1 | physical-chemistry (1) |
+| VII.E.3 | Enzyme catalysis | 1 | 1 | physical-chemistry (1) |
+| VII.F.1 | Kinetic versus thermodynamic control | 1 | 1 | physical-chemistry (1) |
+| VIII.A.1 | Changes can run forward or in reverse | 1 | 1 | physical-chemistry (1) |
+| VIII.B.1 | Dynamic equilibrium | 1 | 1 | physical-chemistry (1) |
+| VIII.B.2 | Practically irreversible reactions | 1 | 1 | physical-chemistry (1) |
+| VIII.C.1 | Equilibrium at minimum Gibbs energy | 1 | 1 | physical-chemistry (1) |
+| VIII.C.2 | Equal chemical potentials at equilibrium | 2 | 2 | physical-chemistry (2) |
+| VIII.C.3 | K in terms of activities and fugacities | 4 | 4 | physical-chemistry (4) |
+| VIII.D.1 | Magnitude of K | 3 | 3 | anchor-quantities (2), physical-chemistry (1) |
+| VIII.D.2 | Product- or reactant-favoured from ΔG° | 1 | 1 | physical-chemistry (1) |
+| VIII.E.1 | Perturbations through chemical potential | 1 | 1 | physical-chemistry (1) |
+| VIII.E.2 | Temperature changes K (van 't Hoff) | 1 | 1 | physical-chemistry (1) |
+| VIII.F.1 | Relations derived from equal chemical potentials (colligative, phase rule) | 4 | 4 | physical-chemistry (4) |
+| VIII.F.2 | K from ΔG° | 4 | 4 | anchor-quantities (2), physical-chemistry (2) |
+| VIII.G.1 | Equilibria in biochemical systems | 1 | 1 | physical-chemistry (1) |
+| VIII.G.2 | Adsorption equilibria at surfaces | 1 | 1 | physical-chemistry (1) |
+| IX.A.1 | Diffraction needs wavelength comparable to spacing | 1 | 1 | physical-chemistry (1) |
+| IX.A.2 | Observation method sensitive to the kinetic time scale | 1 | 1 | physical-chemistry (1) |
+| IX.B | Nomenclature | — | — | **nothing yet** |
+| IX.C.1 | Laser control of state-to-state photochemistry | — | — | **nothing yet** |
+| IX.C.2 | Controlled synthesis of nanomaterials | 1 | 1 | physical-chemistry (1) |
+| IX.D.1 | Light–molecule interaction as a measurement | 5 | 5 | anchor-quantities (1), physical-chemistry (4) |
+| IX.D.2 | Controlling and measuring temperature | 1 | 1 | physical-chemistry (1) |
+| IX.D.3 | Electrochemical experiments | 1 | 1 | physical-chemistry (1) |
+| IX.D.4 | Mass spectrometry | 1 | 1 | physical-chemistry (1) |
+| IX.E.1 | Isolating variables (pseudo-order and controls) | 2 | 2 | physical-chemistry (2) |
+| IX.F.1 | Laser pulse lengths and delays for fast reactions | 1 | 1 | physical-chemistry (1) |
+| IX.F.2 | Designing experiments to catch intermediates | 1 | 1 | physical-chemistry (1) |
+| IX.F.3 | Using data to refine models (fitting, linearising) | 1 | 1 | physical-chemistry (1) |
+| IX.G.1 | Vacuum and laser hazards | 1 | 1 | physical-chemistry (1) |
+| X.A.1 | Probabilities from quantum models become observations | 6 | 6 | physical-chemistry (6) |
+| X.A.2 | Deriving model equations mathematically | 2 | 2 | physical-chemistry (2) |
+| X.A.3 | The kinetic model of gases | 5 | 5 | physical-chemistry (5) |
+| X.A.4 | Simple models for quick insight | 4 | 4 | physical-chemistry (4) |
+| X.B.1 | Mole-sized ensembles make fluctuations negligible | 2 | 2 | anchor-quantities (1), physical-chemistry (1) |
+| X.C.1 | Statistical mechanics links particles to bulk properties | 12 | 12 | physical-chemistry (12) |
+| X.C.2 | Probabilistic occupation of energy states | 6 | 6 | anchor-quantities (2), physical-chemistry (4) |
+| X.D.1 | Phase diagrams | 2 | 2 | physical-chemistry (2) |
+| X.D.2 | Potential energy diagrams | 1 | 1 | physical-chemistry (1) |
+| X.D.3 | Temperature and the Boltzmann distribution, graphically | 2 | 2 | anchor-quantities (1), physical-chemistry (1) |
+| X.D.4 | Orbitals drawn from probability | 2 | 2 | physical-chemistry (2) |
+| X.D.5 | Graphs of relations among T, P, V and n | 1 | 1 | physical-chemistry (1) |
 
 ## Next Generation Science Standards, high school performance expectations (2013)
 
@@ -2454,7 +2657,7 @@ https://www.acs.org/education/olympiad/prepare-for-exams/exam-information.html
 | 2 | Descriptive chemistry and laboratory (Q7-12) | 21 | 21 | chemistry-olympiad (12), dat (4), inorganic-chemistry (5) |
 | 3 | States of matter (Q13-18) | 55 | 55 | chemistry-olympiad (20), chemistry (27), dat (8) |
 | 4 | Thermodynamics (Q19-24) | 61 | 61 | chemistry-olympiad (21), chemistry (34), dat (6) |
-| 5 | Kinetics (Q25-30) | 45 | 45 | chemistry-olympiad (12), chemistry (16), dat (4), physical-chemistry (13) |
+| 5 | Kinetics (Q25-30) | 48 | 48 | chemistry-olympiad (12), chemistry (16), dat (4), physical-chemistry (16) |
 | 6 | Equilibrium (Q31-36) | 64 | 64 | chemistry-olympiad (16), chemistry (39), dat (9) |
 | 7 | Oxidation-reduction (Q37-42) | 37 | 37 | chemistry-olympiad (15), chemistry (18), dat (4) |
 | 8 | Atomic structure and periodicity (Q43-48; from the 2025 national exam) | 13 | 13 | chemistry-olympiad (13) |
@@ -2494,12 +2697,12 @@ https://www.pianetachimica.it/olimpiadi/41icho/IChOsyllabus.pdf
 | c21 | Hydrophilic and hydrophobic groups, micelles | — | — | **nothing yet** |
 | c22 | Polymers: chain growth, polyaddition, polycondensation | 4 | 4 | materials (4) |
 | a1 | Prep only: advanced VSEPR, inorganic stereochemistry, solid state and Bragg | 14 | 14 | inorganic-chemistry (14) |
-| a2 | Prep only: integrated rate laws, Arrhenius, steady state, collision theory | 21 | 21 | chemistry-olympiad (2), physical-chemistry (13), reaction-engineering (6) |
-| a3 | Prep only: phase diagrams and Clausius-Clapeyron | 9 | 9 | physical-chemistry (3), thermodynamics (6) |
+| a2 | Prep only: integrated rate laws, Arrhenius, steady state, collision theory | 24 | 24 | chemistry-olympiad (2), physical-chemistry (16), reaction-engineering (6) |
+| a3 | Prep only: phase diagrams and Clausius-Clapeyron | 13 | 13 | physical-chemistry (7), thermodynamics (6) |
 | a4 | Prep only: stereoselective reactions, conformations, advanced aromatic substitution | 3 | 3 | organic-reactions (3) |
 | a5 | Prep only: advanced polymers and supramolecular chemistry | 4 | 4 | materials (4) |
 | a6 | Prep only: biochemistry (amino acids, proteins, enzymes, carbohydrates, nucleic acids) | 23 | 23 | biology (16), structures (7) |
-| a7 | Prep only: complex solubility, Schrodinger equation, simple MO theory | 25 | 24 | analytical-chemistry (2), chemistry-olympiad (5), physical-chemistry (18) |
+| a7 | Prep only: complex solubility, Schrodinger equation, simple MO theory | 27 | 26 | analytical-chemistry (2), chemistry-olympiad (5), physical-chemistry (20) |
 | a8 | Prep only: mass spectrometry and NMR | 8 | 8 | chemistry-olympiad (3), physical-chemistry (5) |
 | a9 | Prep only: advanced synthesis and analysis techniques | 3 | 3 | analytical-chemistry (3) |
 | d1 | Facts: s-block reactions and flame colours | 4 | 4 | inorganic-chemistry (4) |
@@ -2527,9 +2730,9 @@ https://www.pw.live/olympiad/exams/icho-syllabus
 | 3 | Chemical calculations | 18 | 18 | chemistry (18) |
 | 4 | Periodic trends | 21 | 21 | chemistry (21) |
 | 5 | Inorganic chemistry | 6 | 6 | inorganic-chemistry (6) |
-| 6 | Physical chemistry | 14 | 14 | physical-chemistry (7), thermodynamics (7) |
-| 7 | Chemical kinetics | 29 | 29 | chemistry (16), physical-chemistry (13) |
-| 8 | Spectroscopy | 13 | 13 | physical-chemistry (13) |
+| 6 | Physical chemistry | 15 | 15 | physical-chemistry (8), thermodynamics (7) |
+| 7 | Chemical kinetics | 32 | 32 | chemistry (16), physical-chemistry (16) |
+| 8 | Spectroscopy | 16 | 16 | physical-chemistry (16) |
 | 9 | Organic chemistry | 11 | 11 | organic-reactions (11) |
 | 10 | Polymers | 4 | 4 | materials (4) |
 | 11 | Biochemistry | 23 | 23 | biology (16), structures (7) |
@@ -2601,7 +2804,7 @@ https://www.ets.org/gre/test-takers/subject-tests/about/content-structure.html
 | 3 | Optics and wave phenomena | 20 | 20 | physics (20) |
 | 4 | Thermodynamics and statistical mechanics | 8 | 8 | thermodynamics (8) |
 | 5 | Quantum mechanics | 20 | 20 | physical-chemistry (20) |
-| 6 | Atomic physics | 20 | 19 | physical-chemistry (9), physics (11) |
+| 6 | Atomic physics | 21 | 20 | physical-chemistry (10), physics (11) |
 | 7 | Special relativity | 5 | 5 | physics (5) |
 | 8 | Laboratory methods | — | — | **nothing yet** |
 | 9 | Specialized topics | 6 | 6 | nuclear (3), particle-physics (3) |
@@ -2617,4 +2820,4 @@ https://www.ets.org/gre/score-users/subject-test-changes.html
 | AN | Analytical chemistry | 14 | 14 | analytical-chemistry (14) |
 | IN | Inorganic chemistry | 14 | 14 | inorganic-chemistry (14) |
 | OR | Organic chemistry | 7 | 7 | organic-reactions (7) |
-| PH | Physical chemistry | 7 | 7 | physical-chemistry (7) |
+| PH | Physical chemistry | 8 | 8 | physical-chemistry (8) |
