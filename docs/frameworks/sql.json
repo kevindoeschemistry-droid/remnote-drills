@@ -73,7 +73,8 @@
         "P3"
        ],
        "drills": [
-        "sq-statement-kind"
+        "sq-statement-kind",
+        "sq-commit-kind"
        ]
       },
       {
@@ -89,7 +90,8 @@
         "P2"
        ],
        "drills": [
-        "sq-keys"
+        "sq-keys",
+        "sq-fk-behaviour"
        ]
       }
      ]
@@ -128,7 +130,8 @@
         "P1"
        ],
        "drills": [
-        "sq-distinct-rows"
+        "sq-distinct-rows",
+        "sq-count-distinct"
        ]
       },
       {
@@ -203,7 +206,8 @@
         "P3"
        ],
        "drills": [
-        "sq-substitution"
+        "sq-substitution",
+        "sq-substitution-2"
        ]
       }
      ]
@@ -253,7 +257,8 @@
         "P1"
        ],
        "drills": [
-        "sq-number-fn"
+        "sq-number-fn",
+        "sq-round-trunc-2"
        ]
       },
       {
@@ -292,7 +297,8 @@
         "P1"
        ],
        "drills": [
-        "sq-null-fn"
+        "sq-null-fn",
+        "sq-null-fn-agg"
        ]
       },
       {
@@ -308,7 +314,8 @@
         "P1"
        ],
        "drills": [
-        "sq-case-decode"
+        "sq-case-decode",
+        "sq-case-count"
        ]
       },
       {
@@ -360,7 +367,8 @@
         "P1"
        ],
        "drills": [
-        "sq-aggregate"
+        "sq-aggregate",
+        "sq-avg-nulls"
        ]
       },
       {
@@ -463,7 +471,8 @@
         "P3"
        ],
        "drills": [
-        "sq-oracle-plus"
+        "sq-oracle-plus",
+        "sq-plus-ansi"
        ]
       }
      ]
@@ -485,7 +494,8 @@
         "P1"
        ],
        "drills": [
-        "sq-subquery-count"
+        "sq-subquery-count",
+        "sq-scalar-sub"
        ]
       },
       {
@@ -501,7 +511,8 @@
         "P3"
        ],
        "drills": [
-        "sq-subquery-error"
+        "sq-subquery-error",
+        "sq-subquery-rules"
        ]
       },
       {
@@ -517,7 +528,8 @@
         "P1"
        ],
        "drills": [
-        "sq-correlated-dml"
+        "sq-correlated-dml",
+        "sq-correlated-after"
        ]
       }
      ]
@@ -539,7 +551,8 @@
         "P1"
        ],
        "drills": [
-        "sq-set-count"
+        "sq-set-count",
+        "sq-set-sum"
        ]
       },
       {
@@ -555,7 +568,8 @@
         "P3"
        ],
        "drills": [
-        "sq-set-rules"
+        "sq-set-rules",
+        "sq-set-rules-2"
        ]
       }
      ]
@@ -588,7 +602,8 @@
         "P1"
        ],
        "drills": [
-        "sq-dml-after"
+        "sq-dml-after",
+        "sq-dml-after-2"
        ]
       },
       {
@@ -627,7 +642,8 @@
         "P1"
        ],
        "drills": [
-        "sq-transaction"
+        "sq-transaction",
+        "sq-transaction-2"
        ]
       }
      ]
@@ -876,7 +892,8 @@
         "SQ-3.1.A"
        ],
        "drills": [
-        "sq-window"
+        "sq-window",
+        "sq-window-2"
        ]
       },
       {
@@ -889,7 +906,8 @@
         "P1"
        ],
        "drills": [
-        "sq-top-per-group"
+        "sq-top-per-group",
+        "sq-top-n-2"
        ]
       },
       {
@@ -902,7 +920,8 @@
         "P1"
        ],
        "drills": [
-        "sq-star-agg"
+        "sq-star-agg",
+        "sq-star-2"
        ]
       }
      ]
@@ -917,7 +936,8 @@
    "topic": 1,
    "status": "ok",
    "full": [
-    "sq-statement-kind"
+    "sq-statement-kind",
+    "sq-commit-kind"
    ],
    "partial": []
   },
@@ -927,7 +947,8 @@
    "topic": 1,
    "status": "ok",
    "full": [
-    "sq-keys"
+    "sq-keys",
+    "sq-fk-behaviour"
    ],
    "partial": []
   },
@@ -948,7 +969,8 @@
    "topic": 2,
    "status": "ok",
    "full": [
-    "sq-distinct-rows"
+    "sq-distinct-rows",
+    "sq-count-distinct"
    ],
    "partial": []
   },
@@ -992,7 +1014,8 @@
    "topic": 3,
    "status": "ok",
    "full": [
-    "sq-substitution"
+    "sq-substitution",
+    "sq-substitution-2"
    ],
    "partial": []
   },
@@ -1013,7 +1036,8 @@
    "topic": 1,
    "status": "ok",
    "full": [
-    "sq-number-fn"
+    "sq-number-fn",
+    "sq-round-trunc-2"
    ],
    "partial": []
   },
@@ -1034,7 +1058,8 @@
    "topic": 2,
    "status": "ok",
    "full": [
-    "sq-null-fn"
+    "sq-null-fn",
+    "sq-null-fn-agg"
    ],
    "partial": []
   },
@@ -1044,7 +1069,8 @@
    "topic": 2,
    "status": "ok",
    "full": [
-    "sq-case-decode"
+    "sq-case-decode",
+    "sq-case-count"
    ],
    "partial": []
   },
@@ -1065,7 +1091,8 @@
    "topic": 1,
    "status": "ok",
    "full": [
-    "sq-aggregate"
+    "sq-aggregate",
+    "sq-avg-nulls"
    ],
    "partial": []
   },
@@ -1119,7 +1146,8 @@
    "topic": 1,
    "status": "ok",
    "full": [
-    "sq-oracle-plus"
+    "sq-oracle-plus",
+    "sq-plus-ansi"
    ],
    "partial": []
   },
@@ -1129,7 +1157,8 @@
    "topic": 2,
    "status": "ok",
    "full": [
-    "sq-subquery-count"
+    "sq-subquery-count",
+    "sq-scalar-sub"
    ],
    "partial": []
   },
@@ -1139,7 +1168,8 @@
    "topic": 2,
    "status": "ok",
    "full": [
-    "sq-subquery-error"
+    "sq-subquery-error",
+    "sq-subquery-rules"
    ],
    "partial": []
   },
@@ -1149,7 +1179,8 @@
    "topic": 2,
    "status": "ok",
    "full": [
-    "sq-correlated-dml"
+    "sq-correlated-dml",
+    "sq-correlated-after"
    ],
    "partial": []
   },
@@ -1159,7 +1190,8 @@
    "topic": 3,
    "status": "ok",
    "full": [
-    "sq-set-count"
+    "sq-set-count",
+    "sq-set-sum"
    ],
    "partial": []
   },
@@ -1169,7 +1201,8 @@
    "topic": 3,
    "status": "ok",
    "full": [
-    "sq-set-rules"
+    "sq-set-rules",
+    "sq-set-rules-2"
    ],
    "partial": []
   },
@@ -1179,7 +1212,8 @@
    "topic": 1,
    "status": "ok",
    "full": [
-    "sq-dml-after"
+    "sq-dml-after",
+    "sq-dml-after-2"
    ],
    "partial": []
   },
@@ -1200,7 +1234,8 @@
    "topic": 2,
    "status": "ok",
    "full": [
-    "sq-transaction"
+    "sq-transaction",
+    "sq-transaction-2"
    ],
    "partial": []
   },
@@ -1312,7 +1347,8 @@
    "topic": 1,
    "status": "ok",
    "full": [
-    "sq-window"
+    "sq-window",
+    "sq-window-2"
    ],
    "partial": []
   },
@@ -1322,7 +1358,8 @@
    "topic": 1,
    "status": "ok",
    "full": [
-    "sq-top-per-group"
+    "sq-top-per-group",
+    "sq-top-n-2"
    ],
    "partial": []
   },
@@ -1332,7 +1369,8 @@
    "topic": 1,
    "status": "ok",
    "full": [
-    "sq-star-agg"
+    "sq-star-agg",
+    "sq-star-2"
    ],
    "partial": []
   }

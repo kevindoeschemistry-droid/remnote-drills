@@ -35,7 +35,7 @@ Related reports: [standards and how much of each was read](../coverage/standards
 | [AI Basics](ai-basics.md) | AB | 19 | 19 | 0 | 0 | 2.2 | Harper Carroll, Academy: free AI course (10 modules, 90 lessons) (course, read: part) |
 | [Computer Science](computer-science.md) | CS | 140 | 140 | 0 | 0 | 2.0 | Computer Science Curricula 2023, Body of Knowledge (standard, read: full) |
 | [Programming Foundations](programming.md) | PR | 140 | 140 | 0 | 0 | 2.0 | AP Computer Science A Course and Exam Description (Fall 2025) (standard, read: full) |
-| [SQL](sql.md) | SQ | 40 | 40 | 0 | 0 | 1.6 | Oracle Database SQL, exam 1Z0-071: exam topics (exam-spec, read: crosswalk) |
+| [SQL](sql.md) | SQ | 40 | 40 | 0 | 0 | 2.1 | Oracle Database SQL, exam 1Z0-071: exam topics (exam-spec, read: crosswalk) |
 | [Information Systems](information-systems.md) | IS | 53 | 0 | 0 | 53 | – | MSIS 2016 Global Competency Model (standard, read: full) |
 
 ## Engineering
@@ -61,7 +61,7 @@ Related reports: [standards and how much of each was read](../coverage/standards
 |---|---|---:|---:|---:|---:|---:|---|
 | [Dental Admission Test](dat.md) | DAT | 205 | 205 | 0 | 0 | 2.2 | Dental Admission Test 2026 Candidate Guide (exam-spec, read: full) |
 | [INBDE (Dentistry)](inbde.md) | DN | 81 | 81 | 0 | 0 | 2.0 | JCNDE, Domain of Dentistry (INBDE content domain), July 2018 (exam-spec, read: full) |
-| [NCLEX-RN](nclex-rn.md) | NR | 39 | 39 | 0 | 0 | 1.3 | NCLEX-RN Test Plan, effective April 2026 (exam-spec, read: part) |
+| [NCLEX-RN](nclex-rn.md) | NR | 39 | 39 | 0 | 0 | 2.1 | NCLEX-RN Test Plan, effective April 2026 (exam-spec, read: part) |
 
 ## Math
 
@@ -93,12 +93,12 @@ Related reports: [standards and how much of each was read](../coverage/standards
 | [Biology (AP)](biology.md) | BI | 179 | 179 | 0 | 0 | 2.2 | AP Biology Course and Exam Description (effective fall 2025) (standard, read: part) |
 | [Chemistry (AP)](chemistry.md) | CH | 188 | 188 | 0 | 0 | 2.0 | AP Chemistry Course and Exam Description (Fall 2024) (standard, read: part) |
 | [Chemistry Olympiad](chemistry-olympiad.md) | CO | 73 | 73 | 0 | 0 | 2.0 | U.S. National Chemistry Olympiad: local and national exam format, multiple-choice topic bands and Part II (exam-spec, read: part) |
-| [Earth and Space Science](earth-space.md) | ES | 18 | 18 | 0 | 0 | 1.0 | Next Generation Science Standards, high school performance expectations (2013) (standard, read: part) |
+| [Earth and Space Science](earth-space.md) | ES | 18 | 18 | 0 | 0 | 2.0 | Next Generation Science Standards, high school performance expectations (2013) (standard, read: part) |
 | [Inorganic Chemistry](inorganic-chemistry.md) | IN | 23 | 23 | 0 | 0 | 2.0 | Regulations of the International Chemistry Olympiad, Appendices C and D (concepts, skills and factual knowledge) (exam-spec, read: full) |
 | [NGSS High School Science](ngss.md) | NG | 71 | 71 | 0 | 0 | 3.1 | Next Generation Science Standards, high school performance expectations (2013) (standard, read: part) |
-| [Nuclear Science and Reactor Theory](nuclear.md) | NU | 19 | 19 | 0 | 0 | 1.7 | NRC Generic Fundamentals Examination, reactor theory topics (PWR catalog 192001-192008) (exam-spec, read: part) |
+| [Nuclear Science and Reactor Theory](nuclear.md) | NU | 19 | 19 | 0 | 0 | 2.1 | NRC Generic Fundamentals Examination, reactor theory topics (PWR catalog 192001-192008) (exam-spec, read: part) |
 | [Organic Reactions: Predict the Product](organic-reactions.md) | OR | 46 | 46 | 0 | 0 | 3.7 | ACS Exams Institute Anchoring Concepts Content Map: Organic Chemistry (Raker, Holme & Murphy, J. Chem. Educ. 2013, 90, 1443) (standard, read: full) |
-| [Particle Physics](particle-physics.md) | PP | 13 | 13 | 0 | 0 | 1.4 | AQA AS and A-level Physics (7407/7408), section 3.2 Particles and radiation (standard, read: part) |
+| [Particle Physics](particle-physics.md) | PP | 13 | 13 | 0 | 0 | 2.0 | AQA AS and A-level Physics (7407/7408), section 3.2 Particles and radiation (standard, read: part) |
 | [Physics (AP)](physics.md) | PH | 211 | 211 | 0 | 0 | 2.0 | AP Physics 1, 2, C: Mechanics and C: Electricity and Magnetism Course and Exam Descriptions (effective fall 2024) (standard, read: part) |
 | [Polymers and Materials](materials.md) | MT | 17 | 17 | 0 | 0 | 2.2 | Regulations of the International Chemistry Olympiad, Appendices C and D (concepts, skills and factual knowledge) (exam-spec, read: full) |
 | [Structures from Memory](structures.md) | ST | 12 | 12 | 0 | 0 | 22.5 | Bruice, Organic Chemistry, 8th edition (table of contents) (textbook, read: part) |
