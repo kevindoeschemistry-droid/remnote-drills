@@ -29,6 +29,7 @@ domains:
   - { id: alg,     title: "Algebra & functions" }
   - { id: geo,     title: "Geometry" }
   - { id: biosec,  title: "Biosecurity" }
+  - { id: ais,     title: "AI safety" }
   - { id: trig,    title: "Trigonometry" }
   - { id: stats,   title: "Statistics & probability" }
   - { id: pchem,   title: "Physical chemistry: thermodynamics" }
@@ -857,6 +858,16 @@ skills:
   - { id: edl.molecular, domain: edl, title: "Molecular structure of the double layer: solvent, solvation, surface interactions, valency and ion size", short: "Molecular EDL structure", prereqs: [edl.dft] }
   - { id: edl.simulation, domain: edl, title: "Simulation and numerics: Monte Carlo, Widom insertion, plasmas, Picard and Newton solvers, Nernst–Planck", short: "Simulation and numerics" }
   # ── biosecurity (policy and defence) ────────────────────────────────────
+  - { id: ais.foundations, domain: ais, title: "ML foundations for safety: transformers, scaling and compute, post-training", short: "ML foundations" }
+  - { id: ais.alignment, domain: ais, title: "Alignment problems and techniques: reward hacking, misgeneralisation, scheming, oversight, robustness", short: "Alignment" }
+  - { id: ais.interp, domain: ais, title: "Interpretability: superposition, SAEs, circuits, patching, probes and steering", short: "Interpretability" }
+  - { id: ais.evals, domain: ais, title: "Evaluation science: validity, contamination, statistics, elicitation and reporting", short: "Eval science" }
+  - { id: ais.dangerous-caps, domain: ais, title: "Dangerous-capability evaluation and red-teaming methodology (no hazardous content)", short: "Dangerous-capability evals" }
+  - { id: ais.control, domain: ais, title: "AI control, monitoring, layered defences and weight security", short: "Control and security" }
+  - { id: ais.frameworks, domain: ais, title: "Frontier safety frameworks (RSP, Preparedness, FSF) and safety cases", short: "Safety frameworks" }
+  - { id: ais.governance, domain: ais, title: "AI regulation, standards, compute governance and international coordination", short: "Governance" }
+  - { id: ais.strategy, domain: ais, title: "AI strategy, forecasting, takeoff and threat models", short: "Strategy and forecasting" }
+  - { id: ais.agentic, domain: ais, title: "Agentic and multi-agent risk: prompt injection, least privilege, distributed attacks", short: "Agentic risk" }
   - { id: biosec.epidemiology, domain: biosec, title: "Epidemic arithmetic: R, growth, doubling, thresholds, fatality ratios", short: "Epidemic arithmetic" }
   - { id: biosec.landscape, domain: biosec, title: "Biological risk landscape and history", short: "Threat landscape" }
   - { id: biosec.prevent, domain: biosec, title: "Prevention: the BWC, export controls, synthesis screening, dual-use oversight, AI safeguards", short: "Prevent" }

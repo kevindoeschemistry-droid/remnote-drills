@@ -106,7 +106,10 @@
        "p": [
         "P1"
        ],
-       "drills": []
+       "drills": [
+        "ais-residual-stream",
+        "ais-temperature-ratio"
+       ]
       },
       {
        "id": "B",
@@ -117,7 +120,10 @@
        "p": [
         "P4"
        ],
-       "drills": []
+       "drills": [
+        "ais-param-count",
+        "ais-param-scaling"
+       ]
       }
      ]
     },
@@ -145,7 +151,10 @@
        "p": [
         "P4"
        ],
-       "drills": []
+       "drills": [
+        "ais-6nd",
+        "ais-chip-days"
+       ]
       },
       {
        "id": "B",
@@ -159,7 +168,10 @@
        "needs": [
         "AIS-1.2.A"
        ],
-       "drills": []
+       "drills": [
+        "ais-chinchilla-n",
+        "ais-chinchilla-tokens"
+       ]
       },
       {
        "id": "C",
@@ -172,7 +184,10 @@
         "P4",
         "P5"
        ],
-       "drills": []
+       "drills": [
+        "ais-power-law-loss",
+        "ais-emergence"
+       ]
       },
       {
        "id": "D",
@@ -184,7 +199,10 @@
         "P4",
         "P6"
        ],
-       "drills": []
+       "drills": [
+        "ais-effective-compute",
+        "ais-effective-doubling"
+       ]
       }
      ]
     },
@@ -213,7 +231,10 @@
        "p": [
         "P1"
        ],
-       "drills": []
+       "drills": [
+        "ais-rlhf-pipeline",
+        "ais-rlhf-failure"
+       ]
       },
       {
        "id": "B",
@@ -224,7 +245,10 @@
        "p": [
         "P4"
        ],
-       "drills": []
+       "drills": [
+        "ais-bradley-terry",
+        "ais-bt-gap"
+       ]
       },
       {
        "id": "C",
@@ -235,7 +259,10 @@
        "p": [
         "P1"
        ],
-       "drills": []
+       "drills": [
+        "ais-rlhf-dpo",
+        "ais-feedback-tradeoffs"
+       ]
       },
       {
        "id": "D",
@@ -247,7 +274,10 @@
         "P1",
         "P3"
        ],
-       "drills": []
+       "drills": [
+        "ais-reasoning-models",
+        "ais-test-time-compute"
+       ]
       }
      ]
     }
@@ -287,7 +317,10 @@
        "p": [
         "P1"
        ],
-       "drills": []
+       "drills": [
+        "ais-failure-classify",
+        "ais-failure-classify-2"
+       ]
       },
       {
        "id": "B",
@@ -300,7 +333,10 @@
         "P1",
         "P6"
        ],
-       "drills": []
+       "drills": [
+        "ais-goodhart",
+        "ais-goodhart-2"
+       ]
       },
       {
        "id": "C",
@@ -312,7 +348,10 @@
         "P1",
         "P3"
        ],
-       "drills": []
+       "drills": [
+        "ais-reward-hack-transcript",
+        "ais-reward-hack-mitigate"
+       ]
       }
      ]
     },
@@ -334,7 +373,10 @@
        "p": [
         "P1"
        ],
-       "drills": []
+       "drills": [
+        "ais-goal-vs-cap-misgen",
+        "ais-misgen-tests"
+       ]
       },
       {
        "id": "B",
@@ -345,7 +387,10 @@
        "p": [
         "P1"
        ],
-       "drills": []
+       "drills": [
+        "ais-outer-inner",
+        "ais-outer-inner-2"
+       ]
       }
      ]
     },
@@ -371,7 +416,10 @@
         "P1",
         "P3"
        ],
-       "drills": []
+       "drills": [
+        "ais-sycophancy-test",
+        "ais-flip-rate"
+       ]
       },
       {
        "id": "B",
@@ -382,7 +430,10 @@
        "p": [
         "P1"
        ],
-       "drills": []
+       "drills": [
+        "ais-confab-syco-deception",
+        "ais-honesty-evidence"
+       ]
       }
      ]
     },
@@ -414,7 +465,10 @@
         "P1",
         "P2"
        ],
-       "drills": []
+       "drills": [
+        "ais-scheming-preconditions",
+        "ais-scheming-evidence"
+       ]
       },
       {
        "id": "B",
@@ -425,7 +479,10 @@
        "p": [
         "P2"
        ],
-       "drills": []
+       "drills": [
+        "ais-instrumental",
+        "ais-corrigibility"
+       ]
       },
       {
        "id": "C",
@@ -437,7 +494,10 @@
         "P1",
         "P3"
        ],
-       "drills": []
+       "drills": [
+        "ais-eval-awareness",
+        "ais-sandbag-design"
+       ]
       }
      ]
     }
@@ -478,7 +538,10 @@
        "needs": [
         "AIS-1.3.A"
        ],
-       "drills": []
+       "drills": [
+        "ais-training-choice",
+        "ais-training-limits"
+       ]
       },
       {
        "id": "B",
@@ -489,7 +552,10 @@
        "p": [
         "P2"
        ],
-       "drills": []
+       "drills": [
+        "ais-open-weight-refusals",
+        "ais-open-weight-2"
+       ]
       }
      ]
     },
@@ -511,7 +577,10 @@
        "p": [
         "P1"
        ],
-       "drills": []
+       "drills": [
+        "ais-oversight-match",
+        "ais-oversight-why"
+       ]
       },
       {
        "id": "B",
@@ -523,7 +592,10 @@
        "p": [
         "P3"
        ],
-       "drills": []
+       "drills": [
+        "ais-debate-condition",
+        "ais-debate-gain"
+       ]
       }
      ]
     },
@@ -545,7 +617,10 @@
        "p": [
         "P4"
        ],
-       "drills": []
+       "drills": [
+        "ais-pgr",
+        "ais-pgr-reverse"
+       ]
       },
       {
        "id": "B",
@@ -556,7 +631,10 @@
        "p": [
         "P6"
        ],
-       "drills": []
+       "drills": [
+        "ais-w2s-analogy",
+        "ais-w2s-2"
+       ]
       }
      ]
     },
@@ -584,7 +662,10 @@
        "p": [
         "P1"
        ],
-       "drills": []
+       "drills": [
+        "ais-jailbreak-mechanism",
+        "ais-jailbreak-defence"
+       ]
       },
       {
        "id": "B",
@@ -595,7 +676,10 @@
        "p": [
         "P3"
        ],
-       "drills": []
+       "drills": [
+        "ais-classifier-layers",
+        "ais-effort-ratio"
+       ]
       }
      ]
     }
@@ -631,7 +715,10 @@
        "p": [
         "P1"
        ],
-       "drills": []
+       "drills": [
+        "ais-superposition",
+        "ais-superposition-2"
+       ]
       },
       {
        "id": "B",
@@ -642,7 +729,10 @@
        "p": [
         "P6"
        ],
-       "drills": []
+       "drills": [
+        "ais-toy-superposition",
+        "ais-feature-density"
+       ]
       }
      ]
     },
@@ -667,7 +757,10 @@
        "p": [
         "P1"
        ],
-       "drills": []
+       "drills": [
+        "ais-sae-objective",
+        "ais-sae-2"
+       ]
       },
       {
        "id": "B",
@@ -679,7 +772,10 @@
         "P3",
         "P4"
        ],
-       "drills": []
+       "drills": [
+        "ais-sae-fve",
+        "ais-sae-ce-gap"
+       ]
       }
      ]
     },
@@ -704,7 +800,10 @@
        "p": [
         "P1"
        ],
-       "drills": []
+       "drills": [
+        "ais-induction",
+        "ais-induction-2"
+       ]
       },
       {
        "id": "B",
@@ -716,7 +815,10 @@
         "P3",
         "P4"
        ],
-       "drills": []
+       "drills": [
+        "ais-patching-recovered",
+        "ais-patching-design"
+       ]
       },
       {
        "id": "C",
@@ -728,7 +830,10 @@
         "P1",
         "P3"
        ],
-       "drills": []
+       "drills": [
+        "ais-evidence-type",
+        "ais-evidence-type-2"
+       ]
       }
      ]
     },
@@ -754,7 +859,10 @@
         "P3",
         "P4"
        ],
-       "drills": []
+       "drills": [
+        "ais-probe-selectivity",
+        "ais-probe-design"
+       ]
       },
       {
        "id": "B",
@@ -765,7 +873,10 @@
        "p": [
         "P1"
        ],
-       "drills": []
+       "drills": [
+        "ais-steering",
+        "ais-steering-mean"
+       ]
       },
       {
        "id": "C",
@@ -779,7 +890,10 @@
        "needs": [
         "AIS-4.3.C"
        ],
-       "drills": []
+       "drills": [
+        "ais-interp-safety-case",
+        "ais-interp-audit"
+       ]
       }
      ]
     }
@@ -819,7 +933,10 @@
        "p": [
         "P1"
        ],
-       "drills": []
+       "drills": [
+        "ais-eval-classify",
+        "ais-capability-propensity"
+       ]
       },
       {
        "id": "B",
@@ -831,7 +948,10 @@
         "P2",
         "P3"
        ],
-       "drills": []
+       "drills": [
+        "ais-threat-model",
+        "ais-threat-model-2"
+       ]
       }
      ]
     },
@@ -856,7 +976,10 @@
        "p": [
         "P3"
        ],
-       "drills": []
+       "drills": [
+        "ais-validity-flaw",
+        "ais-validity-flaw-2"
+       ]
       },
       {
        "id": "B",
@@ -867,7 +990,10 @@
        "p": [
         "P3"
        ],
-       "drills": []
+       "drills": [
+        "ais-contamination",
+        "ais-contam-gap"
+       ]
       },
       {
        "id": "C",
@@ -879,7 +1005,10 @@
         "P3",
         "P2"
        ],
-       "drills": []
+       "drills": [
+        "ais-mcq-limits",
+        "ais-mcq-chance"
+       ]
       }
      ]
     },
@@ -904,7 +1033,10 @@
        "p": [
         "P4"
        ],
-       "drills": []
+       "drills": [
+        "ais-pass-at-k",
+        "ais-pass-at-k-naive"
+       ]
       },
       {
        "id": "B",
@@ -916,7 +1048,10 @@
         "P4",
         "P3"
        ],
-       "drills": []
+       "drills": [
+        "ais-score-ci",
+        "ais-two-model-z"
+       ]
       },
       {
        "id": "C",
@@ -928,7 +1063,10 @@
         "P4",
         "P3"
        ],
-       "drills": []
+       "drills": [
+        "ais-cohen-kappa",
+        "ais-grader-reliability"
+       ]
       },
       {
        "id": "D",
@@ -940,7 +1078,10 @@
         "P4",
         "P3"
        ],
-       "drills": []
+       "drills": [
+        "ais-sample-size",
+        "ais-sample-size-scale"
+       ]
       }
      ]
     },
@@ -968,7 +1109,10 @@
        "p": [
         "P3"
        ],
-       "drills": []
+       "drills": [
+        "ais-elicitation-levers",
+        "ais-elicitation-2"
+       ]
       },
       {
        "id": "B",
@@ -980,7 +1124,10 @@
         "P4",
         "P5"
        ],
-       "drills": []
+       "drills": [
+        "ais-elicitation-gap",
+        "ais-margin"
+       ]
       },
       {
        "id": "C",
@@ -994,7 +1141,10 @@
        "needs": [
         "AIS-2.4.C"
        ],
-       "drills": []
+       "drills": [
+        "ais-sandbag-check",
+        "ais-sandbag-check-2"
+       ]
       }
      ]
     },
@@ -1026,7 +1176,10 @@
         "P6",
         "P3"
        ],
-       "drills": []
+       "drills": [
+        "ais-briefing",
+        "ais-briefing-2"
+       ]
       },
       {
        "id": "B",
@@ -1037,7 +1190,10 @@
        "p": [
         "P3"
        ],
-       "drills": []
+       "drills": [
+        "ais-card-critique",
+        "ais-card-critique-2"
+       ]
       }
      ]
     }
@@ -1082,7 +1238,10 @@
         "P5",
         "P2"
        ],
-       "drills": []
+       "drills": [
+        "ais-actor-tier",
+        "ais-actor-tier-2"
+       ]
       },
       {
        "id": "B",
@@ -1094,7 +1253,10 @@
         "P5",
         "P2"
        ],
-       "drills": []
+       "drills": [
+        "ais-tracking-criteria",
+        "ais-tracking-criteria-2"
+       ]
       }
      ]
     },
@@ -1126,7 +1288,10 @@
        "needs": [
         "AIS-5.1.B"
        ],
-       "drills": []
+       "drills": [
+        "ais-uplift-design",
+        "ais-uplift-design-2"
+       ]
       },
       {
        "id": "B",
@@ -1140,7 +1305,10 @@
        "needs": [
         "AIS-5.3.B"
        ],
-       "drills": []
+       "drills": [
+        "ais-uplift-rr",
+        "ais-uplift-diff"
+       ]
       },
       {
        "id": "C",
@@ -1151,7 +1319,10 @@
        "p": [
         "P3"
        ],
-       "drills": []
+       "drills": [
+        "ais-uplift-flaw",
+        "ais-uplift-flaw-2"
+       ]
       }
      ]
     },
@@ -1182,7 +1353,10 @@
        "p": [
         "P4"
        ],
-       "drills": []
+       "drills": [
+        "ais-horizon-project",
+        "ais-horizon-cross"
+       ]
       },
       {
        "id": "B",
@@ -1196,7 +1370,10 @@
        "needs": [
         "AIS-2.1.C"
        ],
-       "drills": []
+       "drills": [
+        "ais-agentic-harness",
+        "ais-agentic-harness-2"
+       ]
       }
      ]
     },
@@ -1229,7 +1406,10 @@
         "P3",
         "P2"
        ],
-       "drills": []
+       "drills": [
+        "ais-redteam-plan",
+        "ais-redteam-plan-2"
+       ]
       },
       {
        "id": "B",
@@ -1241,7 +1421,10 @@
         "P1",
         "P3"
        ],
-       "drills": []
+       "drills": [
+        "ais-redteam-types",
+        "ais-redteam-types-2"
+       ]
       },
       {
        "id": "C",
@@ -1255,7 +1438,10 @@
        "needs": [
         "AIS-5.3.B"
        ],
-       "drills": []
+       "drills": [
+        "ais-harmful-rate",
+        "ais-wilson"
+       ]
       },
       {
        "id": "D",
@@ -1267,7 +1453,10 @@
         "P6",
         "P5"
        ],
-       "drills": []
+       "drills": [
+        "ais-disclosure",
+        "ais-disclosure-2"
+       ]
       }
      ]
     }
@@ -1306,7 +1495,10 @@
         "P1",
         "P6"
        ],
-       "drills": []
+       "drills": [
+        "ais-control-protocol",
+        "ais-control-concepts"
+       ]
       },
       {
        "id": "B",
@@ -1317,7 +1509,10 @@
        "p": [
         "P4"
        ],
-       "drills": []
+       "drills": [
+        "ais-catch-prob",
+        "ais-audit-needed"
+       ]
       },
       {
        "id": "C",
@@ -1329,7 +1524,10 @@
         "P1",
         "P6"
        ],
-       "drills": []
+       "drills": [
+        "ais-cot-monitor",
+        "ais-cot-monitor-2"
+       ]
       }
      ]
     },
@@ -1361,7 +1559,10 @@
         "P2",
         "P6"
        ],
-       "drills": []
+       "drills": [
+        "ais-kill-chain",
+        "ais-kill-chain-2"
+       ]
       },
       {
        "id": "B",
@@ -1372,7 +1573,10 @@
        "p": [
         "P4"
        ],
-       "drills": []
+       "drills": [
+        "ais-layered-risk",
+        "ais-correlated-layers"
+       ]
       }
      ]
     },
@@ -1401,7 +1605,10 @@
         "P1",
         "P2"
        ],
-       "drills": []
+       "drills": [
+        "ais-weight-security",
+        "ais-weight-security-2"
+       ]
       },
       {
        "id": "B",
@@ -1415,7 +1622,10 @@
        "needs": [
         "AIS-3.1.B"
        ],
-       "drills": []
+       "drills": [
+        "ais-stolen-weights",
+        "ais-stolen-weights-2"
+       ]
       }
      ]
     }
@@ -1462,7 +1672,10 @@
        "p": [
         "P5"
        ],
-       "drills": []
+       "drills": [
+        "ais-framework-compare",
+        "ais-framework-compare-2"
+       ]
       },
       {
        "id": "B",
@@ -1474,7 +1687,10 @@
         "P5",
         "P6"
        ],
-       "drills": []
+       "drills": [
+        "ais-framework-evaluate",
+        "ais-framework-evaluate-2"
+       ]
       }
      ]
     },
@@ -1501,7 +1717,10 @@
        "p": [
         "P5"
        ],
-       "drills": []
+       "drills": [
+        "ais-rsp-trigger",
+        "ais-rsp-trigger-2"
+       ]
       },
       {
        "id": "B",
@@ -1513,7 +1732,10 @@
         "P5",
         "P6"
        ],
-       "drills": []
+       "drills": [
+        "ais-rsp-accountability",
+        "ais-rsp-accountability-2"
+       ]
       }
      ]
     },
@@ -1538,7 +1760,10 @@
        "p": [
         "P5"
        ],
-       "drills": []
+       "drills": [
+        "ais-pf-level",
+        "ais-pf-level-2"
+       ]
       },
       {
        "id": "B",
@@ -1550,7 +1775,10 @@
         "P1",
         "P5"
        ],
-       "drills": []
+       "drills": [
+        "ais-safeguard-map",
+        "ais-safeguard-map-2"
+       ]
       },
       {
        "id": "C",
@@ -1562,7 +1790,10 @@
         "P5",
         "P6"
        ],
-       "drills": []
+       "drills": [
+        "ais-marginal-risk",
+        "ais-marginal-risk-2"
+       ]
       }
      ]
     },
@@ -1587,7 +1818,10 @@
        "p": [
         "P5"
        ],
-       "drills": []
+       "drills": [
+        "ais-fsf-ccl",
+        "ais-fsf-ccl-2"
+       ]
       }
      ]
     },
@@ -1616,7 +1850,10 @@
         "P1",
         "P5"
        ],
-       "drills": []
+       "drills": [
+        "ais-safety-case-type",
+        "ais-safety-case-type-2"
+       ]
       },
       {
        "id": "B",
@@ -1631,7 +1868,10 @@
        "needs": [
         "AIS-5.4.A"
        ],
-       "drills": []
+       "drills": [
+        "ais-safety-case-flaw",
+        "ais-safety-case-flaw-2"
+       ]
       }
      ]
     }
@@ -1672,7 +1912,10 @@
        "needs": [
         "AIS-1.2.A"
        ],
-       "drills": []
+       "drills": [
+        "ais-eu-gpai-class",
+        "ais-eu-margin"
+       ]
       },
       {
        "id": "B",
@@ -1683,7 +1926,10 @@
        "p": [
         "P5"
        ],
-       "drills": []
+       "drills": [
+        "ais-gpai-duty",
+        "ais-gpai-duty-2"
+       ]
       },
       {
        "id": "C",
@@ -1694,7 +1940,10 @@
        "p": [
         "P5"
        ],
-       "drills": []
+       "drills": [
+        "ais-gpai-timeline",
+        "ais-gpai-open-source"
+       ]
       }
      ]
     },
@@ -1717,7 +1966,10 @@
        "p": [
         "P5"
        ],
-       "drills": []
+       "drills": [
+        "ais-rmf-functions",
+        "ais-rmf-functions-2"
+       ]
       },
       {
        "id": "B",
@@ -1728,7 +1980,10 @@
        "p": [
         "P5"
        ],
-       "drills": []
+       "drills": [
+        "ais-gai-profile",
+        "ais-gai-profile-2"
+       ]
       }
      ]
     },
@@ -1756,7 +2011,10 @@
        "p": [
         "P6"
        ],
-       "drills": []
+       "drills": [
+        "ais-compute-lever",
+        "ais-compute-lever-2"
+       ]
       },
       {
        "id": "B",
@@ -1771,7 +2029,10 @@
        "needs": [
         "AIS-1.2.A"
        ],
-       "drills": []
+       "drills": [
+        "ais-cluster-compute",
+        "ais-days-to-threshold"
+       ]
       },
       {
        "id": "C",
@@ -1785,7 +2046,10 @@
        "needs": [
         "AIS-1.2.D"
        ],
-       "drills": []
+       "drills": [
+        "ais-threshold-drift",
+        "ais-threshold-weakness"
+       ]
       }
      ]
     },
@@ -1819,7 +2083,10 @@
         "P1",
         "P6"
        ],
-       "drills": []
+       "drills": [
+        "ais-coordination-problem",
+        "ais-coordination-2"
+       ]
       },
       {
        "id": "B",
@@ -1830,7 +2097,10 @@
        "p": [
         "P5"
        ],
-       "drills": []
+       "drills": [
+        "ais-summit-track",
+        "ais-summit-track-2"
+       ]
       },
       {
        "id": "C",
@@ -1841,7 +2111,10 @@
        "p": [
         "P6"
        ],
-       "drills": []
+       "drills": [
+        "ais-evidence-dilemma",
+        "ais-evidence-dilemma-2"
+       ]
       }
      ]
     },
@@ -1871,7 +2144,10 @@
        "p": [
         "P6"
        ],
-       "drills": []
+       "drills": [
+        "ais-who-can-act",
+        "ais-who-can-act-2"
+       ]
       },
       {
        "id": "B",
@@ -1882,7 +2158,10 @@
        "p": [
         "P6"
        ],
-       "drills": []
+       "drills": [
+        "ais-open-weights",
+        "ais-open-weights-2"
+       ]
       }
      ]
     }
@@ -1925,7 +2204,10 @@
         "AIS-1.2.D",
         "AIS-6.3.A"
        ],
-       "drills": []
+       "drills": [
+        "ais-benchmark-trend",
+        "ais-timeline-bottlenecks"
+       ]
       },
       {
        "id": "B",
@@ -1936,7 +2218,10 @@
        "p": [
         "P4"
        ],
-       "drills": []
+       "drills": [
+        "ais-brier",
+        "ais-brier-constant"
+       ]
       }
      ]
     },
@@ -1971,7 +2256,10 @@
         "P2",
         "P5"
        ],
-       "drills": []
+       "drills": [
+        "ais-takeoff",
+        "ais-rd-multiplier"
+       ]
       }
      ]
     },
@@ -2008,7 +2296,10 @@
         "P1",
         "P2"
        ],
-       "drills": []
+       "drills": [
+        "ais-risk-taxonomy",
+        "ais-risk-taxonomy-2"
+       ]
       },
       {
        "id": "B",
@@ -2020,7 +2311,10 @@
         "P2",
         "P6"
        ],
-       "drills": []
+       "drills": [
+        "ais-threat-model-compare",
+        "ais-threat-model-compare-2"
+       ]
       },
       {
        "id": "C",
@@ -2031,7 +2325,10 @@
        "p": [
         "P6"
        ],
-       "drills": []
+       "drills": [
+        "ais-transition-strategy",
+        "ais-transition-strategy-2"
+       ]
       },
       {
        "id": "D",
@@ -2042,7 +2339,10 @@
        "p": [
         "P6"
        ],
-       "drills": []
+       "drills": [
+        "ais-itn-score",
+        "ais-theory-of-change"
+       ]
       }
      ]
     }
@@ -2078,7 +2378,10 @@
        "needs": [
         "AIS-4.3.A"
        ],
-       "drills": []
+       "drills": [
+        "ais-qk-ov",
+        "ais-qk-ov-2"
+       ]
       },
       {
        "id": "B",
@@ -2089,7 +2392,10 @@
        "p": [
         "P4"
        ],
-       "drills": []
+       "drills": [
+        "ais-dla",
+        "ais-dla-limits"
+       ]
       }
      ]
     }
@@ -2130,7 +2436,10 @@
         "P1",
         "P2"
        ],
-       "drills": []
+       "drills": [
+        "ais-agent-injection",
+        "ais-agent-injection-2"
+       ]
       },
       {
        "id": "B",
@@ -2144,7 +2453,10 @@
        "needs": [
         "AIS-7.1.A"
        ],
-       "drills": []
+       "drills": [
+        "ais-distributed-attack",
+        "ais-split-threshold"
+       ]
       }
      ]
     }
@@ -2156,832 +2468,1144 @@
    "code": "AIS-1.1.A",
    "unit": 1,
    "topic": 1,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ais-residual-stream",
+    "ais-temperature-ratio"
+   ],
    "partial": []
   },
   {
    "code": "AIS-1.1.B",
    "unit": 1,
    "topic": 1,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ais-param-count",
+    "ais-param-scaling"
+   ],
    "partial": []
   },
   {
    "code": "AIS-1.2.A",
    "unit": 1,
    "topic": 2,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ais-6nd",
+    "ais-chip-days"
+   ],
    "partial": []
   },
   {
    "code": "AIS-1.2.B",
    "unit": 1,
    "topic": 2,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ais-chinchilla-n",
+    "ais-chinchilla-tokens"
+   ],
    "partial": []
   },
   {
    "code": "AIS-1.2.C",
    "unit": 1,
    "topic": 2,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ais-power-law-loss",
+    "ais-emergence"
+   ],
    "partial": []
   },
   {
    "code": "AIS-1.2.D",
    "unit": 1,
    "topic": 2,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ais-effective-compute",
+    "ais-effective-doubling"
+   ],
    "partial": []
   },
   {
    "code": "AIS-1.3.A",
    "unit": 1,
    "topic": 3,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ais-rlhf-pipeline",
+    "ais-rlhf-failure"
+   ],
    "partial": []
   },
   {
    "code": "AIS-1.3.B",
    "unit": 1,
    "topic": 3,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ais-bradley-terry",
+    "ais-bt-gap"
+   ],
    "partial": []
   },
   {
    "code": "AIS-1.3.C",
    "unit": 1,
    "topic": 3,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ais-rlhf-dpo",
+    "ais-feedback-tradeoffs"
+   ],
    "partial": []
   },
   {
    "code": "AIS-1.3.D",
    "unit": 1,
    "topic": 3,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ais-reasoning-models",
+    "ais-test-time-compute"
+   ],
    "partial": []
   },
   {
    "code": "AIS-2.1.A",
    "unit": 2,
    "topic": 1,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ais-failure-classify",
+    "ais-failure-classify-2"
+   ],
    "partial": []
   },
   {
    "code": "AIS-2.1.B",
    "unit": 2,
    "topic": 1,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ais-goodhart",
+    "ais-goodhart-2"
+   ],
    "partial": []
   },
   {
    "code": "AIS-2.1.C",
    "unit": 2,
    "topic": 1,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ais-reward-hack-transcript",
+    "ais-reward-hack-mitigate"
+   ],
    "partial": []
   },
   {
    "code": "AIS-2.2.A",
    "unit": 2,
    "topic": 2,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ais-goal-vs-cap-misgen",
+    "ais-misgen-tests"
+   ],
    "partial": []
   },
   {
    "code": "AIS-2.2.B",
    "unit": 2,
    "topic": 2,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ais-outer-inner",
+    "ais-outer-inner-2"
+   ],
    "partial": []
   },
   {
    "code": "AIS-2.3.A",
    "unit": 2,
    "topic": 3,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ais-sycophancy-test",
+    "ais-flip-rate"
+   ],
    "partial": []
   },
   {
    "code": "AIS-2.3.B",
    "unit": 2,
    "topic": 3,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ais-confab-syco-deception",
+    "ais-honesty-evidence"
+   ],
    "partial": []
   },
   {
    "code": "AIS-2.4.A",
    "unit": 2,
    "topic": 4,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ais-scheming-preconditions",
+    "ais-scheming-evidence"
+   ],
    "partial": []
   },
   {
    "code": "AIS-2.4.B",
    "unit": 2,
    "topic": 4,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ais-instrumental",
+    "ais-corrigibility"
+   ],
    "partial": []
   },
   {
    "code": "AIS-2.4.C",
    "unit": 2,
    "topic": 4,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ais-eval-awareness",
+    "ais-sandbag-design"
+   ],
    "partial": []
   },
   {
    "code": "AIS-3.1.A",
    "unit": 3,
    "topic": 1,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ais-training-choice",
+    "ais-training-limits"
+   ],
    "partial": []
   },
   {
    "code": "AIS-3.1.B",
    "unit": 3,
    "topic": 1,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ais-open-weight-refusals",
+    "ais-open-weight-2"
+   ],
    "partial": []
   },
   {
    "code": "AIS-3.2.A",
    "unit": 3,
    "topic": 2,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ais-oversight-match",
+    "ais-oversight-why"
+   ],
    "partial": []
   },
   {
    "code": "AIS-3.2.B",
    "unit": 3,
    "topic": 2,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ais-debate-condition",
+    "ais-debate-gain"
+   ],
    "partial": []
   },
   {
    "code": "AIS-3.3.A",
    "unit": 3,
    "topic": 3,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ais-pgr",
+    "ais-pgr-reverse"
+   ],
    "partial": []
   },
   {
    "code": "AIS-3.3.B",
    "unit": 3,
    "topic": 3,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ais-w2s-analogy",
+    "ais-w2s-2"
+   ],
    "partial": []
   },
   {
    "code": "AIS-3.4.A",
    "unit": 3,
    "topic": 4,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ais-jailbreak-mechanism",
+    "ais-jailbreak-defence"
+   ],
    "partial": []
   },
   {
    "code": "AIS-3.4.B",
    "unit": 3,
    "topic": 4,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ais-classifier-layers",
+    "ais-effort-ratio"
+   ],
    "partial": []
   },
   {
    "code": "AIS-4.1.A",
    "unit": 4,
    "topic": 1,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ais-superposition",
+    "ais-superposition-2"
+   ],
    "partial": []
   },
   {
    "code": "AIS-4.1.B",
    "unit": 4,
    "topic": 1,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ais-toy-superposition",
+    "ais-feature-density"
+   ],
    "partial": []
   },
   {
    "code": "AIS-4.2.A",
    "unit": 4,
    "topic": 2,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ais-sae-objective",
+    "ais-sae-2"
+   ],
    "partial": []
   },
   {
    "code": "AIS-4.2.B",
    "unit": 4,
    "topic": 2,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ais-sae-fve",
+    "ais-sae-ce-gap"
+   ],
    "partial": []
   },
   {
    "code": "AIS-4.3.A",
    "unit": 4,
    "topic": 3,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ais-induction",
+    "ais-induction-2"
+   ],
    "partial": []
   },
   {
    "code": "AIS-4.3.B",
    "unit": 4,
    "topic": 3,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ais-patching-recovered",
+    "ais-patching-design"
+   ],
    "partial": []
   },
   {
    "code": "AIS-4.3.C",
    "unit": 4,
    "topic": 3,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ais-evidence-type",
+    "ais-evidence-type-2"
+   ],
    "partial": []
   },
   {
    "code": "AIS-4.4.A",
    "unit": 4,
    "topic": 4,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ais-probe-selectivity",
+    "ais-probe-design"
+   ],
    "partial": []
   },
   {
    "code": "AIS-4.4.B",
    "unit": 4,
    "topic": 4,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ais-steering",
+    "ais-steering-mean"
+   ],
    "partial": []
   },
   {
    "code": "AIS-4.4.C",
    "unit": 4,
    "topic": 4,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ais-interp-safety-case",
+    "ais-interp-audit"
+   ],
    "partial": []
   },
   {
    "code": "AIS-5.1.A",
    "unit": 5,
    "topic": 1,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ais-eval-classify",
+    "ais-capability-propensity"
+   ],
    "partial": []
   },
   {
    "code": "AIS-5.1.B",
    "unit": 5,
    "topic": 1,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ais-threat-model",
+    "ais-threat-model-2"
+   ],
    "partial": []
   },
   {
    "code": "AIS-5.2.A",
    "unit": 5,
    "topic": 2,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ais-validity-flaw",
+    "ais-validity-flaw-2"
+   ],
    "partial": []
   },
   {
    "code": "AIS-5.2.B",
    "unit": 5,
    "topic": 2,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ais-contamination",
+    "ais-contam-gap"
+   ],
    "partial": []
   },
   {
    "code": "AIS-5.2.C",
    "unit": 5,
    "topic": 2,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ais-mcq-limits",
+    "ais-mcq-chance"
+   ],
    "partial": []
   },
   {
    "code": "AIS-5.3.A",
    "unit": 5,
    "topic": 3,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ais-pass-at-k",
+    "ais-pass-at-k-naive"
+   ],
    "partial": []
   },
   {
    "code": "AIS-5.3.B",
    "unit": 5,
    "topic": 3,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ais-score-ci",
+    "ais-two-model-z"
+   ],
    "partial": []
   },
   {
    "code": "AIS-5.3.C",
    "unit": 5,
    "topic": 3,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ais-cohen-kappa",
+    "ais-grader-reliability"
+   ],
    "partial": []
   },
   {
    "code": "AIS-5.3.D",
    "unit": 5,
    "topic": 3,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ais-sample-size",
+    "ais-sample-size-scale"
+   ],
    "partial": []
   },
   {
    "code": "AIS-5.4.A",
    "unit": 5,
    "topic": 4,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ais-elicitation-levers",
+    "ais-elicitation-2"
+   ],
    "partial": []
   },
   {
    "code": "AIS-5.4.B",
    "unit": 5,
    "topic": 4,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ais-elicitation-gap",
+    "ais-margin"
+   ],
    "partial": []
   },
   {
    "code": "AIS-5.4.C",
    "unit": 5,
    "topic": 4,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ais-sandbag-check",
+    "ais-sandbag-check-2"
+   ],
    "partial": []
   },
   {
    "code": "AIS-5.5.A",
    "unit": 5,
    "topic": 5,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ais-briefing",
+    "ais-briefing-2"
+   ],
    "partial": []
   },
   {
    "code": "AIS-5.5.B",
    "unit": 5,
    "topic": 5,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ais-card-critique",
+    "ais-card-critique-2"
+   ],
    "partial": []
   },
   {
    "code": "AIS-6.1.A",
    "unit": 6,
    "topic": 1,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ais-actor-tier",
+    "ais-actor-tier-2"
+   ],
    "partial": []
   },
   {
    "code": "AIS-6.1.B",
    "unit": 6,
    "topic": 1,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ais-tracking-criteria",
+    "ais-tracking-criteria-2"
+   ],
    "partial": []
   },
   {
    "code": "AIS-6.2.A",
    "unit": 6,
    "topic": 2,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ais-uplift-design",
+    "ais-uplift-design-2"
+   ],
    "partial": []
   },
   {
    "code": "AIS-6.2.B",
    "unit": 6,
    "topic": 2,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ais-uplift-rr",
+    "ais-uplift-diff"
+   ],
    "partial": []
   },
   {
    "code": "AIS-6.2.C",
    "unit": 6,
    "topic": 2,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ais-uplift-flaw",
+    "ais-uplift-flaw-2"
+   ],
    "partial": []
   },
   {
    "code": "AIS-6.3.A",
    "unit": 6,
    "topic": 3,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ais-horizon-project",
+    "ais-horizon-cross"
+   ],
    "partial": []
   },
   {
    "code": "AIS-6.3.B",
    "unit": 6,
    "topic": 3,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ais-agentic-harness",
+    "ais-agentic-harness-2"
+   ],
    "partial": []
   },
   {
    "code": "AIS-6.4.A",
    "unit": 6,
    "topic": 4,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ais-redteam-plan",
+    "ais-redteam-plan-2"
+   ],
    "partial": []
   },
   {
    "code": "AIS-6.4.B",
    "unit": 6,
    "topic": 4,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ais-redteam-types",
+    "ais-redteam-types-2"
+   ],
    "partial": []
   },
   {
    "code": "AIS-6.4.C",
    "unit": 6,
    "topic": 4,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ais-harmful-rate",
+    "ais-wilson"
+   ],
    "partial": []
   },
   {
    "code": "AIS-6.4.D",
    "unit": 6,
    "topic": 4,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ais-disclosure",
+    "ais-disclosure-2"
+   ],
    "partial": []
   },
   {
    "code": "AIS-7.1.A",
    "unit": 7,
    "topic": 1,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ais-control-protocol",
+    "ais-control-concepts"
+   ],
    "partial": []
   },
   {
    "code": "AIS-7.1.B",
    "unit": 7,
    "topic": 1,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ais-catch-prob",
+    "ais-audit-needed"
+   ],
    "partial": []
   },
   {
    "code": "AIS-7.1.C",
    "unit": 7,
    "topic": 1,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ais-cot-monitor",
+    "ais-cot-monitor-2"
+   ],
    "partial": []
   },
   {
    "code": "AIS-7.2.A",
    "unit": 7,
    "topic": 2,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ais-kill-chain",
+    "ais-kill-chain-2"
+   ],
    "partial": []
   },
   {
    "code": "AIS-7.2.B",
    "unit": 7,
    "topic": 2,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ais-layered-risk",
+    "ais-correlated-layers"
+   ],
    "partial": []
   },
   {
    "code": "AIS-7.3.A",
    "unit": 7,
    "topic": 3,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ais-weight-security",
+    "ais-weight-security-2"
+   ],
    "partial": []
   },
   {
    "code": "AIS-7.3.B",
    "unit": 7,
    "topic": 3,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ais-stolen-weights",
+    "ais-stolen-weights-2"
+   ],
    "partial": []
   },
   {
    "code": "AIS-8.1.A",
    "unit": 8,
    "topic": 1,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ais-framework-compare",
+    "ais-framework-compare-2"
+   ],
    "partial": []
   },
   {
    "code": "AIS-8.1.B",
    "unit": 8,
    "topic": 1,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ais-framework-evaluate",
+    "ais-framework-evaluate-2"
+   ],
    "partial": []
   },
   {
    "code": "AIS-8.2.A",
    "unit": 8,
    "topic": 2,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ais-rsp-trigger",
+    "ais-rsp-trigger-2"
+   ],
    "partial": []
   },
   {
    "code": "AIS-8.2.B",
    "unit": 8,
    "topic": 2,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ais-rsp-accountability",
+    "ais-rsp-accountability-2"
+   ],
    "partial": []
   },
   {
    "code": "AIS-8.3.A",
    "unit": 8,
    "topic": 3,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ais-pf-level",
+    "ais-pf-level-2"
+   ],
    "partial": []
   },
   {
    "code": "AIS-8.3.B",
    "unit": 8,
    "topic": 3,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ais-safeguard-map",
+    "ais-safeguard-map-2"
+   ],
    "partial": []
   },
   {
    "code": "AIS-8.3.C",
    "unit": 8,
    "topic": 3,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ais-marginal-risk",
+    "ais-marginal-risk-2"
+   ],
    "partial": []
   },
   {
    "code": "AIS-8.4.A",
    "unit": 8,
    "topic": 4,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ais-fsf-ccl",
+    "ais-fsf-ccl-2"
+   ],
    "partial": []
   },
   {
    "code": "AIS-8.5.A",
    "unit": 8,
    "topic": 5,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ais-safety-case-type",
+    "ais-safety-case-type-2"
+   ],
    "partial": []
   },
   {
    "code": "AIS-8.5.B",
    "unit": 8,
    "topic": 5,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ais-safety-case-flaw",
+    "ais-safety-case-flaw-2"
+   ],
    "partial": []
   },
   {
    "code": "AIS-9.1.A",
    "unit": 9,
    "topic": 1,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ais-eu-gpai-class",
+    "ais-eu-margin"
+   ],
    "partial": []
   },
   {
    "code": "AIS-9.1.B",
    "unit": 9,
    "topic": 1,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ais-gpai-duty",
+    "ais-gpai-duty-2"
+   ],
    "partial": []
   },
   {
    "code": "AIS-9.1.C",
    "unit": 9,
    "topic": 1,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ais-gpai-timeline",
+    "ais-gpai-open-source"
+   ],
    "partial": []
   },
   {
    "code": "AIS-9.2.A",
    "unit": 9,
    "topic": 2,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ais-rmf-functions",
+    "ais-rmf-functions-2"
+   ],
    "partial": []
   },
   {
    "code": "AIS-9.2.B",
    "unit": 9,
    "topic": 2,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ais-gai-profile",
+    "ais-gai-profile-2"
+   ],
    "partial": []
   },
   {
    "code": "AIS-9.3.A",
    "unit": 9,
    "topic": 3,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ais-compute-lever",
+    "ais-compute-lever-2"
+   ],
    "partial": []
   },
   {
    "code": "AIS-9.3.B",
    "unit": 9,
    "topic": 3,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ais-cluster-compute",
+    "ais-days-to-threshold"
+   ],
    "partial": []
   },
   {
    "code": "AIS-9.3.C",
    "unit": 9,
    "topic": 3,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ais-threshold-drift",
+    "ais-threshold-weakness"
+   ],
    "partial": []
   },
   {
    "code": "AIS-9.4.A",
    "unit": 9,
    "topic": 4,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ais-coordination-problem",
+    "ais-coordination-2"
+   ],
    "partial": []
   },
   {
    "code": "AIS-9.4.B",
    "unit": 9,
    "topic": 4,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ais-summit-track",
+    "ais-summit-track-2"
+   ],
    "partial": []
   },
   {
    "code": "AIS-9.4.C",
    "unit": 9,
    "topic": 4,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ais-evidence-dilemma",
+    "ais-evidence-dilemma-2"
+   ],
    "partial": []
   },
   {
    "code": "AIS-9.5.A",
    "unit": 9,
    "topic": 5,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ais-who-can-act",
+    "ais-who-can-act-2"
+   ],
    "partial": []
   },
   {
    "code": "AIS-9.5.B",
    "unit": 9,
    "topic": 5,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ais-open-weights",
+    "ais-open-weights-2"
+   ],
    "partial": []
   },
   {
    "code": "AIS-10.1.A",
    "unit": 10,
    "topic": 1,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ais-benchmark-trend",
+    "ais-timeline-bottlenecks"
+   ],
    "partial": []
   },
   {
    "code": "AIS-10.1.B",
    "unit": 10,
    "topic": 1,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ais-brier",
+    "ais-brier-constant"
+   ],
    "partial": []
   },
   {
    "code": "AIS-10.2.A",
    "unit": 10,
    "topic": 2,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ais-takeoff",
+    "ais-rd-multiplier"
+   ],
    "partial": []
   },
   {
    "code": "AIS-10.3.A",
    "unit": 10,
    "topic": 3,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ais-risk-taxonomy",
+    "ais-risk-taxonomy-2"
+   ],
    "partial": []
   },
   {
    "code": "AIS-10.3.B",
    "unit": 10,
    "topic": 3,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ais-threat-model-compare",
+    "ais-threat-model-compare-2"
+   ],
    "partial": []
   },
   {
    "code": "AIS-10.3.C",
    "unit": 10,
    "topic": 3,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ais-transition-strategy",
+    "ais-transition-strategy-2"
+   ],
    "partial": []
   },
   {
    "code": "AIS-10.3.D",
    "unit": 10,
    "topic": 3,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ais-itn-score",
+    "ais-theory-of-change"
+   ],
    "partial": []
   },
   {
    "code": "AIS-11.1.A",
    "unit": 11,
    "topic": 1,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ais-qk-ov",
+    "ais-qk-ov-2"
+   ],
    "partial": []
   },
   {
    "code": "AIS-11.1.B",
    "unit": 11,
    "topic": 1,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ais-dla",
+    "ais-dla-limits"
+   ],
    "partial": []
   },
   {
    "code": "AIS-12.1.A",
    "unit": 12,
    "topic": 1,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ais-agent-injection",
+    "ais-agent-injection-2"
+   ],
    "partial": []
   },
   {
    "code": "AIS-12.1.B",
    "unit": 12,
    "topic": 1,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ais-distributed-attack",
+    "ais-split-threshold"
+   ],
    "partial": []
   }
  ],
