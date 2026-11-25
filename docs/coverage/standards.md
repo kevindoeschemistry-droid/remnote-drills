@@ -11,16 +11,16 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 | Financial Accounting (CPA FAR) | Uniform CPA Examination Blueprints: Financial Accounting and Reporting (FAR) | exam-spec | read in part | — | — | 26 | 26 | 0 |
 | AI Basics | Harper Carroll, Academy: free AI course (10 modules, 90 lessons) | course | read in part | — | — | 19 | 19 | 0 |
 | AI Safety | BlueDot Impact course syllabi (Technical AI Safety, Governance, AGI Strategy) | course | read in full | — | — | 104 | 0 | 104 |
-| Analytical Chemistry | Regulations of the International Chemistry Olympiad, Appendices C and D (concepts, skills and factual knowledge) | exam-spec | read in full | gre-chemistry, aamc-mcat-outline, usnco, icho-syllabus | acs-accm | 18 | 18 | 0 |
-| Anchor Quantities | CODATA Recommended Values of the Fundamental Physical Constants: 2022 (NIST SP 961) | reference | read in part | snapshot-key-numbers, francl-take-a-number, cfr-21-101-9, acs-accm-pchem | — | 14 | 12 | 2 |
+| Analytical Chemistry | Regulations of the International Chemistry Olympiad, Appendices C and D (concepts, skills and factual knowledge) | exam-spec | read in full | gre-chemistry, aamc-mcat-outline, usnco, icho-syllabus, acs-accm-general, acs-accm-inorganic | acs-accm | 18 | 18 | 0 |
+| Anchor Quantities | CODATA Recommended Values of the Fundamental Physical Constants: 2022 (NIST SP 961) | reference | read in part | snapshot-key-numbers, francl-take-a-number, cfr-21-101-9, acs-accm-pchem, acs-accm-general | — | 14 | 12 | 2 |
 | Basketball | USA Basketball Player Development Curriculum | standard | read in part | — | — | 88 | 0 | 88 |
-| Biology (AP) | AP Biology Course and Exam Description (effective fall 2025) | standard | read in part | ap-biology, iupac-aa-1983, ngss-hs, ib-biology-2025, icho-appendix-c, icho-syllabus, aamc-mcat-outline | — | 179 | 179 | 0 |
+| Biology (AP) | AP Biology Course and Exam Description (effective fall 2025) | standard | read in part | ap-biology, iupac-aa-1983, ngss-hs, ib-biology-2025, icho-appendix-c, icho-syllabus, aamc-mcat-outline, acs-accm-general, acs-accm-inorganic, acs-accm-organic | — | 179 | 179 | 0 |
 | Biosecurity | BlueDot Impact, Biosecurity course (six units) | course | read in part | who-lbm4, bwc, cdc-ss1978, who-jee3, ashrae-241 | — | 42 | 42 | 0 |
 | Calculus | AP Calculus AB and BC Course and Exam Description | standard | read in full | webwork-opl | — | 203 | 203 | 0 |
-| Chemistry Olympiad | U.S. National Chemistry Olympiad: local and national exam format, multiple-choice topic bands and Part II | exam-spec | read in part | icho-appendix-c, icho-syllabus | — | 73 | 73 | 0 |
-| Chemistry (AP) | AP Chemistry Course and Exam Description (Fall 2024) | standard | read in part | ngss-hs, ib-chemistry-2025, usnco, icho-appendix-c, icho-syllabus, acs-accm, aamc-mcat-outline | — | 179 | 179 | 0 |
+| Chemistry Olympiad | U.S. National Chemistry Olympiad: local and national exam format, multiple-choice topic bands and Part II | exam-spec | read in part | icho-appendix-c, icho-syllabus, acs-accm-organic | — | 73 | 73 | 0 |
+| Chemistry (AP) | AP Chemistry Course and Exam Description (Fall 2024) | standard | read in part | ngss-hs, ib-chemistry-2025, usnco, icho-appendix-c, icho-syllabus, acs-accm, aamc-mcat-outline, acs-accm-general, acs-accm-inorganic, acs-accm-organic | — | 188 | 188 | 0 |
 | Computer Science | Computer Science Curricula 2023, Body of Knowledge | standard | read in full | — | — | 140 | 1 | 139 |
-| Dental Admission Test | Dental Admission Test 2026 Candidate Guide | exam-spec | read in full | ngss-hs, ib-chemistry-2025, usnco, icho-appendix-c | — | 205 | 205 | 0 |
+| Dental Admission Test | Dental Admission Test 2026 Candidate Guide | exam-spec | read in full | ngss-hs, ib-chemistry-2025, usnco, icho-appendix-c, acs-accm-general, acs-accm-organic | — | 205 | 205 | 0 |
 | Earth and Space Science | Next Generation Science Standards, high school performance expectations (2013) | standard | read in part | ib-physics-2025, ib-biology-2025, gre-physics | — | 18 | 18 | 0 |
 | Electric Double Layers | Petsev, van Swol and Frink, Molecular Theory of Electric Double Layers (IOP Publishing, 2021) | textbook | read in part | — | — | 56 | 56 | 0 |
 | Applied Engineering Mathematics | Kreyszig, Advanced Engineering Mathematics, 10th ed. | textbook | read in full | fe-chemical, webwork-opl | — | 178 | 135 | 43 |
@@ -29,12 +29,12 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 | Heat Transfer | NCEES FE Chemical CBT Exam Specifications (effective July 2020) | exam-spec | read in full | fe-mechanical, ib-physics-2025, pe-chemical | — | 101 | 63 | 38 |
 | INBDE (Dentistry) | JCNDE, Domain of Dentistry (INBDE content domain), July 2018 | exam-spec | read in full | — | — | 81 | 81 | 0 |
 | Information Systems | MSIS 2016 Global Competency Model | standard | read in full | — | — | 53 | 0 | 53 |
-| Advanced Inorganic Chemistry (Cotton & Wilkinson) | Cotton, Wilkinson, Murillo & Bochmann, Advanced Inorganic Chemistry, 6th ed. (1999): table of contents | textbook | read in part | icho-appendix-c, gre-chemistry | — | 55 | 0 | 55 |
-| Inorganic Chemistry | Regulations of the International Chemistry Olympiad, Appendices C and D (concepts, skills and factual knowledge) | exam-spec | read in full | icho-syllabus, gre-chemistry, usnco, ib-chemistry-2025 | — | 23 | 23 | 0 |
+| Advanced Inorganic Chemistry (Cotton & Wilkinson) | ACS Exams Institute Anchoring Concepts Content Map: Inorganic Chemistry (Marek, Raker, Holme & Murphy, J. Chem. Educ. 2018, 95, 233) | standard | read in full | cotton-wilkinson-6e, icho-appendix-c, gre-chemistry, acs-accm-general, acs-accm-organic | — | 80 | 51 | 29 |
+| Inorganic Chemistry | Regulations of the International Chemistry Olympiad, Appendices C and D (concepts, skills and factual knowledge) | exam-spec | read in full | icho-syllabus, gre-chemistry, usnco, ib-chemistry-2025, acs-accm-general, acs-accm-inorganic | — | 23 | 23 | 0 |
 | Linear Algebra | MAA CUPM Linear Algebra Course Area Report (August 17, 2023) | standard | read in full | cupm-2015-la, lay-5e, webwork-opl, lacsg-2 | — | 60 | 60 | 0 |
 | Mass Transfer | NCEES PE Chemical CBT Exam Specifications (effective January 2020) | exam-spec | read in full | — | — | 21 | 21 | 0 |
 | Material and Energy Balances | NCEES FE Chemical CBT Exam Specifications (effective July 2020) | exam-spec | read in full | pe-chemical, webwork-opl | — | 18 | 18 | 0 |
-| Polymers and Materials | Regulations of the International Chemistry Olympiad, Appendices C and D (concepts, skills and factual knowledge) | exam-spec | read in full | ib-chemistry-2025, fe-chemical, icho-syllabus | — | 17 | 6 | 11 |
+| Polymers and Materials | Regulations of the International Chemistry Olympiad, Appendices C and D (concepts, skills and factual knowledge) | exam-spec | read in full | ib-chemistry-2025, fe-chemical, icho-syllabus, acs-accm-general, acs-accm-inorganic, acs-accm-organic | — | 17 | 7 | 10 |
 | High School Mathematics (Common Core) | CCSS Mathematics Appendix A: high school course pathways | standard | read in full | — | — | 200 | 200 | 0 |
 | Mathematics K–8 (Common Core) | Common Core State Standards for Mathematics (2010) | standard | read through a crosswalk | — | — | 258 | 258 | 0 |
 | Mental Math | UIL Number Sense Problem Sequencing Charts (High School; A+ Junior High and Elementary, rev. 2016-17) with the Number Sense Handbook rules | exam-spec | read in full | sta-mtc, mit-18-03-coverup, mit-integration-bee | — | 84 | 81 | 3 |
@@ -43,10 +43,10 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 | NGSS High School Science | Next Generation Science Standards, high school performance expectations (2013) | standard | read in part | — | — | 71 | 71 | 0 |
 | Nuclear Science and Reactor Theory | NRC Generic Fundamentals Examination, reactor theory topics (PWR catalog 192001-192008) | exam-spec | read in part | doe-hdbk-1019, ngss-hs, ib-physics-2025, icho-appendix-c, aamc-mcat-outline, gre-physics | — | 19 | 19 | 0 |
 | Numerical Methods | NCEES FE Chemical CBT Exam Specifications (effective July 2020) | exam-spec | read in full | webwork-opl | — | 17 | 17 | 0 |
-| Organic Reactions: Predict the Product | Bruice, Organic Chemistry, 8th edition (table of contents) | textbook | read in part | ib-chemistry-2025, icho-appendix-c, icho-syllabus, acs-accm, aamc-mcat-outline, gre-chemistry | — | 25 | 24 | 1 |
+| Organic Reactions: Predict the Product | ACS Exams Institute Anchoring Concepts Content Map: Organic Chemistry (Raker, Holme & Murphy, J. Chem. Educ. 2013, 90, 1443) | standard | read in full | bruice-8e, ib-chemistry-2025, icho-appendix-c, icho-syllabus, acs-accm, aamc-mcat-outline, gre-chemistry, acs-accm-general, acs-accm-inorganic | — | 46 | 42 | 4 |
 | Particle Physics | AQA AS and A-level Physics (7407/7408), section 3.2 Particles and radiation | standard | read in part | openstax-university-physics, gre-physics | — | 13 | 12 | 1 |
-| The Periodic Table from Memory | IUPAC Periodic Table of the Elements (release of 4 May 2022) | reference | read in part | ngss-hs, ib-chemistry-2025, icho-appendix-c | — | 15 | 15 | 0 |
-| Physical Chemistry | ACS Exams Institute Anchoring Concepts Content Map: Physical Chemistry (Holme, Reed, Raker & Murphy, J. Chem. Educ. 2018, 95, 238) | standard | read in full | engel-reid-3e, fe-chemical, usnco, icho-appendix-c, icho-syllabus, gre-physics, gre-chemistry | — | 158 | 158 | 0 |
+| The Periodic Table from Memory | IUPAC Periodic Table of the Elements (release of 4 May 2022) | reference | read in part | ngss-hs, ib-chemistry-2025, icho-appendix-c, acs-accm-general, acs-accm-inorganic | — | 15 | 15 | 0 |
+| Physical Chemistry | ACS Exams Institute Anchoring Concepts Content Map: Physical Chemistry (Holme, Reed, Raker & Murphy, J. Chem. Educ. 2018, 95, 238) | standard | read in full | engel-reid-3e, fe-chemical, usnco, icho-appendix-c, icho-syllabus, gre-physics, gre-chemistry, acs-accm-general, acs-accm-inorganic, acs-accm-organic | — | 158 | 158 | 0 |
 | Physics (AP) | AP Physics 1, 2, C: Mechanics and C: Electricity and Magnetism Course and Exam Descriptions (effective fall 2024) | standard | read in part | ngss-hs, ib-physics-2025, aamc-mcat-outline, gre-physics | — | 211 | 211 | 0 |
 | Process Design, Economics and Safety | NCEES FE Chemical CBT Exam Specifications (effective July 2020) | exam-spec | read in full | pe-chemical | — | 9 | 9 | 0 |
 | Programming Foundations | AP Computer Science A Course and Exam Description (Fall 2025) | standard | read in full | — | — | 140 | 140 | 0 |
@@ -55,7 +55,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 | Speaking and Articulation | Competent Speaker Speech Evaluation Form, 2nd ed. | rubric | read in full | toastmasters-pathways | — | 69 | 0 | 69 |
 | SQL | Oracle Database SQL, exam 1Z0-071: exam topics | exam-spec | read through a crosswalk | — | — | 40 | 37 | 3 |
 | Statistics | AP Statistics Course and Exam Description (effective fall 2026) | standard | read in part | webwork-opl | — | 111 | 111 | 0 |
-| Structures from Memory | Bruice, Organic Chemistry, 8th edition (table of contents) | textbook | read in part | iupac-aa-1983, ib-chemistry-2025, ib-biology-2025, icho-appendix-c, icho-syllabus, acs-accm, aamc-mcat-outline | — | 12 | 12 | 0 |
+| Structures from Memory | Bruice, Organic Chemistry, 8th edition (table of contents) | textbook | read in part | iupac-aa-1983, ib-chemistry-2025, ib-biology-2025, icho-appendix-c, icho-syllabus, acs-accm, aamc-mcat-outline, acs-accm-general, acs-accm-organic | — | 12 | 12 | 0 |
 | Swimming | World Aquatics swimming rules (with USA Swimming and USMS stroke rules) | rulebook | read in full | — | asca-certification | 88 | 0 | 88 |
 | Thermodynamics and Statistical Mechanics | Dill & Bromberg, Molecular Driving Forces 2e; Shell, Thermodynamics and Statistical Mechanics | textbook | read in full | fe-chemical, ib-physics-2025, icho-appendix-c, icho-syllabus, pe-chemical, gre-physics, webwork-opl | — | 184 | 143 | 41 |
 | Wushu | IWUF Wushu Taolu Competition Rules and Judging Methods (2024) | rulebook | read through a crosswalk | — | duanwei | 88 | 0 | 88 |
@@ -79,7 +79,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 - **Graduate Chemical Engineering Core**: UCI's graduate core courses by catalogue description (read in part); no syllabus or past comprehensive exam was read, so the objectives are ours. PE Chemical is the nearest published exam and stops below this level.
 - **Heat Transfer**: Also crosswalked to the FE Mechanical spec and UCI MAE 120.
 - **INBDE (Dentistry)**: Units are the Domain of Dentistry's three clinical sections plus Foundation Knowledge area 3 (materials); objectives cite the clinical content area or FK they serve and are ours.
-- **Advanced Inorganic Chemistry (Cotton & Wilkinson)**: Units follow the chapters of Cotton & Wilkinson 6e (table of contents read); the objectives are a house list on those chapters.
+- **Advanced Inorganic Chemistry (Cotton & Wilkinson)**: Since Nov 2026 the primary basis is the ACS inorganic content map (read in full); every articulation is answered (scripts/accm_maps.py), unit 15 holding the principles the chapter units did not reach. Units follow the chapters of Cotton & Wilkinson 6e (table of contents read); the objectives are a house list on those chapters.
 - **Inorganic Chemistry**: Units 1, 2 and 4 follow IChO Appendix D's factual-knowledge list (read in full); coordination and solids follow its preparation-only topics and the GRE inorganic area. Objectives and their order are ours.
 - **Linear Algebra**: Anchored on the MAA CUPM 2023 linear algebra course report (read in full): every essential and optional core topic is cited by objectives here. Units keep Lay's order; determinants and LU, which the 2023 list leaves out, rest on Lay and the 2015 guide.
 - **Mass Transfer**: PE Chemical names mass transfer as one area with two lines (6.A fundamentals, 6.B applications). No published standard lists graduate mass transfer; the objectives are a house list on Bird, Stewart & Lightfoot's mass-transport chapters.
@@ -92,7 +92,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 - **NGSS High School Science**: One objective per high-school performance expectation. The PE statements were read; the evidence statements were not. Drills for PEs taught elsewhere are drawn from the subject frameworks; the engineering and design PEs have their own items.
 - **Nuclear Science and Reactor Theory**: Reactor-theory units follow the NRC Generic Fundamentals Examination topic list (read in part). Nuclear physics and shielding follow the DOE fundamentals handbook's first module (read in part). Health-physics standards for the radiation-protection unit have not been looked at.
 - **Numerical Methods**: FE Chemical names numerical methods as one item (1.D) and the WeBWorK OPL names a few methods; no published standard lists a numerical-methods course, so the objectives are a house list on Chapra & Canale's part order.
-- **Organic Reactions: Predict the Product**: Families follow the reaction chapters of Bruice's Organic Chemistry (a textbook, not a standard; chapter titles 2-17 from memory). The reactions and substrates in each are a house list. Every product is mass-balanced against its reactant by the generator; regiochemistry and stereochemistry were checked by eye.
+- **Organic Reactions: Predict the Product**: Since Nov 2026 the primary basis is the ACS organic content map (read in full); every articulation is answered (scripts/accm_maps.py), with units 9 (physical organic, practice) and 10 (organometallics) added for those nothing reached. Families follow the reaction chapters of Bruice's Organic Chemistry (a textbook, not a standard; chapter titles 2-17 from memory). The reactions and substrates in each are a house list. Every product is mass-balanced against its reactant by the generator; regiochemistry and stereochemistry were checked by eye.
 - **Particle Physics**: Objectives follow AQA A-level Physics section 3.2 (Particles and radiation), read in this session. The Lorentz-factor items go beyond it and rest on a university textbook chapter.
 - **The Periodic Table from Memory**: Content from the IUPAC table (release note read; element list cross-checked in the verifier). Which parts to know by heart is a house decision from Kevin's organometallics course.
 - **Physical Chemistry**: Anchored on the ACS Physical Chemistry content map (read in full): objectives cite its subdisciplinary articulations, through scripts/accm_pchem.py. Units keep Engel & Reid's order; the map's articulations no objective answers are listed in docs/coverage/standards.md.
@@ -123,13 +123,11 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 - **Electric Double Layers**: textbook, read in part
 - **Applied Engineering Mathematics**: textbook, read in full
 - **Graduate Chemical Engineering Core**: course, read in part
-- **Advanced Inorganic Chemistry (Cotton & Wilkinson)**: textbook, read in part
 - **Mathematics K–8 (Common Core)**: standard, read through a crosswalk
 - **Molecular Simulation**: course, read in part
 - **NCLEX-RN**: exam-spec, read in part
 - **NGSS High School Science**: standard, read in part
 - **Nuclear Science and Reactor Theory**: exam-spec, read in part
-- **Organic Reactions: Predict the Product**: textbook, read in part
 - **Particle Physics**: standard, read in part
 - **The Periodic Table from Memory**: reference, read in part
 - **Physics (AP)**: standard, read in part
@@ -297,7 +295,7 @@ https://apcentral.collegeboard.org/media/pdf/ap-chemistry-course-and-exam-descri
 | 4.2.A | Represent changes with balanced molecular or net ionic equations | 2 | 2 | chemistry (2) |
 | 4.3.A | Represent a reaction or process with a particulate model | 1 | 1 | chemistry (1) |
 | 4.4.A | Relate macroscopic characteristics to bond interactions in chemical and physical processes | 1 | 1 | chemistry (1) |
-| 4.5.A | Explain changes in reactant and product amounts with the balanced equation | 5 | 5 | chemistry (5) |
+| 4.5.A | Explain changes in reactant and product amounts with the balanced equation | 6 | 6 | chemistry (6) |
 | 4.6.A | Identify the equivalence point from titrant and analyte amounts | 1 | 1 | chemistry (1) |
 | 4.7.A | Classify a reaction as acid–base, redox or precipitation | 2 | 2 | chemistry (2) |
 | 4.8.A | Identify Brønsted–Lowry acids, bases and conjugate pairs | 1 | 1 | chemistry (1) |
@@ -306,7 +304,7 @@ https://apcentral.collegeboard.org/media/pdf/ap-chemistry-course-and-exam-descri
 | 5.2.A | Represent data with a consistent rate law | 2 | 2 | chemistry (2) |
 | 5.3.A | Identify a rate law from concentration–time data | 3 | 3 | chemistry (3) |
 | 5.4.A | Represent an elementary reaction's rate law from its stoichiometry | 1 | 1 | chemistry (1) |
-| 5.5.A | Relate an elementary reaction's rate to collision frequency, energy and orientation | 1 | 1 | chemistry (1) |
+| 5.5.A | Relate an elementary reaction's rate to collision frequency, energy and orientation | 2 | 2 | chemistry (2) |
 | 5.6.A | Represent activation energy and energy change on an energy profile | 3 | 3 | chemistry (3) |
 | 5.7.A | Identify the components of a reaction mechanism | 1 | 1 | chemistry (1) |
 | 5.8.A | Identify the rate law of a mechanism whose first step is rate limiting | 1 | 1 | chemistry (1) |
@@ -327,7 +325,7 @@ https://apcentral.collegeboard.org/media/pdf/ap-chemistry-course-and-exam-descri
 | 7.2.A | Relate the direction of a reversible reaction to forward and reverse rates | 1 | 1 | chemistry (1) |
 | 7.3.A | Represent Q and K expressions (Qc, Qp, Kc, Kp) | 2 | 2 | chemistry (2) |
 | 7.4.A | Calculate Kc or Kp from equilibrium data | 3 | 3 | chemistry (3) |
-| 7.5.A | Relate very large or small K to equilibrium concentrations | 1 | 1 | chemistry (1) |
+| 7.5.A | Relate very large or small K to equilibrium concentrations | 2 | 2 | chemistry (2) |
 | 7.6.A | Represent a multistep process's overall K from its steps | 1 | 1 | chemistry (1) |
 | 7.7.A | Identify equilibrium concentrations or pressures from initial conditions and K | 2 | 2 | chemistry (2) |
 | 7.8.A | Represent a reversible reaction at equilibrium with a particulate model | 1 | 1 | chemistry (1) |
@@ -1093,7 +1091,7 @@ https://www.pearson.com/en-us/subject-catalog/p/organic-chemistry/P200000006995/
 
 | Item | Topic | Objectives | With a drill | Where |
 |---|---|---|---|---|
-| 18 | Benzene and substituted benzenes | 7 | 7 | organic-reactions (6), structures (1) |
+| 18 | Benzene and substituted benzenes | 8 | 8 | organic-reactions (7), structures (1) |
 | 19 | Amines and heterocyclic compounds | 1 | 1 | structures (1) |
 | 20 | Carbohydrates | 1 | 1 | structures (1) |
 | 21 | Amino acids, peptides and proteins | 3 | 3 | structures (3) |
@@ -2476,7 +2474,7 @@ https://students-residents.aamc.org/mcatexam
 | 5B | Molecules and intermolecular interactions | 27 | 27 | chemistry (27) |
 | 5C | Separation and purification | 2 | 2 | analytical-chemistry (2) |
 | 5D | Biologically relevant molecules | 14 | 14 | organic-reactions (7), structures (7) |
-| 5E | Chemical thermodynamics and kinetics | 32 | 32 | chemistry (32) |
+| 5E | Chemical thermodynamics and kinetics | 33 | 33 | chemistry (33) |
 
 ## ACS Exams Institute Anchoring Concepts Content Map: Physical Chemistry (Holme, Reed, Raker & Murphy, J. Chem. Educ. 2018, 95, 238)
 
@@ -2692,12 +2690,12 @@ https://educate.iowa.gov/pk-12/standards/academics/science/high-school
 | Item | Topic | Objectives | With a drill | Where |
 |---|---|---|---|---|
 | PS1-1 | Periodic patterns of outer electrons predict properties | 32 | 32 | chemistry (21), ngss (9), periodic-table (2) |
-| PS1-2 | Reaction outcomes from outer electrons and periodic trends | 48 | 48 | chemistry (39), ngss (9) |
+| PS1-2 | Reaction outcomes from outer electrons and periodic trends | 49 | 49 | chemistry (40), ngss (9) |
 | PS1-3 | Bulk properties infer strength of electrical forces between particles | 36 | 36 | chemistry (27), ngss (9) |
 | PS1-4 | Bond energy changes account for energy released or absorbed | 17 | 17 | chemistry (16), ngss (1) |
-| PS1-5 | Temperature and concentration effects on reaction rate | 17 | 17 | chemistry (16), ngss (1) |
-| PS1-6 | Changing conditions to shift equilibrium toward product | 19 | 19 | chemistry (18), ngss (1) |
-| PS1-7 | Conservation of atoms and mass in reactions (mathematical) | 19 | 19 | chemistry (18), ngss (1) |
+| PS1-5 | Temperature and concentration effects on reaction rate | 18 | 18 | chemistry (17), ngss (1) |
+| PS1-6 | Changing conditions to shift equilibrium toward product | 20 | 20 | chemistry (19), ngss (1) |
+| PS1-7 | Conservation of atoms and mass in reactions (mathematical) | 20 | 20 | chemistry (19), ngss (1) |
 | PS1-8 | Fission, fusion and radioactive decay | 7 | 7 | dat (3), ngss (1), nuclear (3) |
 | PS2-1 | Newton's second law from data | 27 | 27 | ngss (7), physics (20) |
 | PS2-2 | Conservation of momentum | 15 | 15 | ngss (7), physics (8) |
@@ -2771,7 +2769,7 @@ https://www.ibo.org/globalassets/new-structure/recognition/pdfs/dp_sciences_chem
 
 | Item | Topic | Objectives | With a drill | Where |
 |---|---|---|---|---|
-| S1.1 | Particulate nature of matter | 11 | 11 | chemistry (11) |
+| S1.1 | Particulate nature of matter | 17 | 17 | chemistry (17) |
 | S1.2 | The nuclear atom | 21 | 21 | chemistry (21) |
 | S1.3 | Electron configurations | 26 | 26 | chemistry (21), periodic-table (5) |
 | S1.4 | The mole | 26 | 26 | chemistry (21), dat (5) |
@@ -2786,13 +2784,13 @@ https://www.ibo.org/globalassets/new-structure/recognition/pdfs/dp_sciences_chem
 | R1.2 | Energy cycles in reactions | 16 | 16 | chemistry (16) |
 | R1.3 | Energy from fuels | — | — | **nothing yet** |
 | R1.4 | Entropy and spontaneity (HL) | 18 | 18 | chemistry (18) |
-| R2.1 | How much? The amount of chemical change | 18 | 18 | chemistry (18) |
-| R2.2 | How fast? The rate of chemical change | 16 | 16 | chemistry (16) |
-| R2.3 | How far? The extent of chemical change | 18 | 18 | chemistry (18) |
+| R2.1 | How much? The amount of chemical change | 19 | 19 | chemistry (19) |
+| R2.2 | How fast? The rate of chemical change | 17 | 17 | chemistry (17) |
+| R2.3 | How far? The extent of chemical change | 19 | 19 | chemistry (19) |
 | R3.1 | Proton transfer reactions | 21 | 21 | chemistry (21) |
 | R3.2 | Electron transfer reactions | 19 | 19 | chemistry (18), inorganic-chemistry (1) |
 | R3.3 | Electron sharing reactions | — | — | **nothing yet** |
-| R3.4 | Electron-pair sharing reactions | 12 | 12 | dat (8), organic-reactions (4) |
+| R3.4 | Electron-pair sharing reactions | 15 | 15 | dat (8), organic-reactions (7) |
 
 ## IB Diploma Programme Physics, first assessment 2025 (subject brief topic list)
 
@@ -2924,12 +2922,12 @@ https://www.acs.org/education/olympiad/prepare-for-exams/exam-information.html
 
 | Item | Topic | Objectives | With a drill | Where |
 |---|---|---|---|---|
-| 1 | Stoichiometry and solutions (Q1-6) | 56 | 56 | analytical-chemistry (7), chemistry-olympiad (22), chemistry (18), dat (9) |
+| 1 | Stoichiometry and solutions (Q1-6) | 57 | 57 | analytical-chemistry (7), chemistry-olympiad (22), chemistry (19), dat (9) |
 | 2 | Descriptive chemistry and laboratory (Q7-12) | 21 | 21 | chemistry-olympiad (12), dat (4), inorganic-chemistry (5) |
 | 3 | States of matter (Q13-18) | 55 | 55 | chemistry-olympiad (20), chemistry (27), dat (8) |
 | 4 | Thermodynamics (Q19-24) | 61 | 61 | chemistry-olympiad (21), chemistry (34), dat (6) |
-| 5 | Kinetics (Q25-30) | 48 | 48 | chemistry-olympiad (12), chemistry (16), dat (4), physical-chemistry (16) |
-| 6 | Equilibrium (Q31-36) | 64 | 64 | chemistry-olympiad (16), chemistry (39), dat (9) |
+| 5 | Kinetics (Q25-30) | 49 | 49 | chemistry-olympiad (12), chemistry (17), dat (4), physical-chemistry (16) |
+| 6 | Equilibrium (Q31-36) | 65 | 65 | chemistry-olympiad (16), chemistry (40), dat (9) |
 | 7 | Oxidation-reduction (Q37-42) | 37 | 37 | chemistry-olympiad (15), chemistry (18), dat (4) |
 | 8 | Atomic structure and periodicity (Q43-48; from the 2025 national exam) | 13 | 13 | chemistry-olympiad (13) |
 | 9 | Bonding and molecular structure (Q49-54; from the 2025 national exam) | 10 | 10 | chemistry-olympiad (10) |
@@ -2945,17 +2943,17 @@ https://www.pianetachimica.it/olimpiadi/41icho/IChOsyllabus.pdf
 
 | Item | Topic | Objectives | With a drill | Where |
 |---|---|---|---|---|
-| c1 | Experimental error and significant figures | 17 | 17 | analytical-chemistry (6), chemistry (11) |
+| c1 | Experimental error and significant figures | 23 | 23 | analytical-chemistry (6), chemistry (17) |
 | c2 | Nucleons, isotopes, decay and nuclear reactions | 8 | 8 | chemistry-olympiad (2), dat (3), nuclear (3) |
 | c3 | Quantum numbers, orbitals, configurations | 26 | 26 | chemistry (21), periodic-table (5) |
 | c4 | Periodic trends | 24 | 24 | chemistry (21), dat (3) |
 | c5 | Bond types, intermolecular forces, simple VSEPR | 40 | 40 | chemistry (40) |
-| c6 | Stoichiometry, mole, concentration | 23 | 23 | chemistry (18), dat (5) |
-| c7 | Equilibrium and Le Chatelier | 23 | 23 | chemistry-olympiad (5), chemistry (18) |
+| c6 | Stoichiometry, mole, concentration | 24 | 24 | chemistry (19), dat (5) |
+| c7 | Equilibrium and Le Chatelier | 24 | 24 | chemistry-olympiad (5), chemistry (19) |
 | c8 | Acid-base, pH, buffers, hydrolysis | 31 | 31 | chemistry-olympiad (5), chemistry (21), dat (5) |
-| c9 | Solubility constants and complexation | 25 | 25 | analytical-chemistry (2), chemistry-olympiad (5), chemistry (18) |
+| c9 | Solubility constants and complexation | 26 | 26 | analytical-chemistry (2), chemistry-olympiad (5), chemistry (19) |
 | c10 | Electrochemistry: EMF, Nernst, electrolysis, Faraday | 26 | 26 | chemistry-olympiad (4), chemistry (18), physical-chemistry (4) |
-| c11 | Rates, rate laws, catalysis, energy profiles | 16 | 16 | chemistry (16) |
+| c11 | Rates, rate laws, catalysis, energy profiles | 17 | 17 | chemistry (17) |
 | c12 | Thermodynamics: enthalpy, Hess, entropy, Gibbs | 38 | 38 | chemistry-olympiad (4), chemistry (34) |
 | c13 | Ideal gases and partial pressures | 31 | 31 | chemistry (27), dat (4) |
 | c14 | Titrations: direct, back, redox, complexometric, precipitation | 28 | 28 | analytical-chemistry (7), chemistry (21) |
@@ -2963,14 +2961,14 @@ https://www.pianetachimica.it/olimpiadi/41icho/IChOsyllabus.pdf
 | c16 | Qualitative inorganic analysis and flame tests | 6 | 6 | inorganic-chemistry (6) |
 | c17 | Lambert-Beer law | 33 | 33 | analytical-chemistry (6), chemistry (27) |
 | c18 | Organic structure, nomenclature, hybridization | 11 | 11 | organic-reactions (7), structures (4) |
-| c19 | Delocalization, resonance, aromaticity | 3 | 3 | organic-reactions (3) |
+| c19 | Delocalization, resonance, aromaticity | 4 | 4 | organic-reactions (4) |
 | c20 | Isomerism and stereochemistry | 13 | 13 | dat (6), organic-reactions (7) |
 | c21 | Hydrophilic and hydrophobic groups, micelles | — | — | **nothing yet** |
 | c22 | Polymers: chain growth, polyaddition, polycondensation | 4 | 4 | materials (4) |
 | a1 | Prep only: advanced VSEPR, inorganic stereochemistry, solid state and Bragg | 14 | 14 | inorganic-chemistry (14) |
 | a2 | Prep only: integrated rate laws, Arrhenius, steady state, collision theory | 24 | 24 | chemistry-olympiad (2), physical-chemistry (16), reaction-engineering (6) |
 | a3 | Prep only: phase diagrams and Clausius-Clapeyron | 13 | 13 | physical-chemistry (7), thermodynamics (6) |
-| a4 | Prep only: stereoselective reactions, conformations, advanced aromatic substitution | 3 | 3 | organic-reactions (3) |
+| a4 | Prep only: stereoselective reactions, conformations, advanced aromatic substitution | 4 | 4 | organic-reactions (4) |
 | a5 | Prep only: advanced polymers and supramolecular chemistry | 4 | 4 | materials (4) |
 | a6 | Prep only: biochemistry (amino acids, proteins, enzymes, carbohydrates, nucleic acids) | 23 | 23 | biology (16), structures (7) |
 | a7 | Prep only: complex solubility, Schrodinger equation, simple MO theory | 27 | 26 | analytical-chemistry (2), chemistry-olympiad (5), physical-chemistry (20) |
@@ -2998,13 +2996,13 @@ https://www.pw.live/olympiad/exams/icho-syllabus
 |---|---|---|---|---|
 | 1 | The atom | 21 | 21 | chemistry (21) |
 | 2 | Chemical bonding | 13 | 13 | chemistry (13) |
-| 3 | Chemical calculations | 18 | 18 | chemistry (18) |
+| 3 | Chemical calculations | 19 | 19 | chemistry (19) |
 | 4 | Periodic trends | 21 | 21 | chemistry (21) |
 | 5 | Inorganic chemistry | 6 | 6 | inorganic-chemistry (6) |
 | 6 | Physical chemistry | 15 | 15 | physical-chemistry (8), thermodynamics (7) |
-| 7 | Chemical kinetics | 32 | 32 | chemistry (16), physical-chemistry (16) |
+| 7 | Chemical kinetics | 33 | 33 | chemistry (17), physical-chemistry (16) |
 | 8 | Spectroscopy | 16 | 16 | physical-chemistry (16) |
-| 9 | Organic chemistry | 11 | 11 | organic-reactions (11) |
+| 9 | Organic chemistry | 14 | 14 | organic-reactions (14) |
 | 10 | Polymers | 4 | 4 | materials (4) |
 | 11 | Biochemistry | 23 | 23 | biology (16), structures (7) |
 | 12 | Analytical chemistry | 7 | 7 | analytical-chemistry (7) |
@@ -3021,11 +3019,11 @@ https://curriculumalignment.ucf.edu/wp-content/uploads/sites/10/2017/08/2013_Org
 | II | Bonding | 13 | 13 | chemistry (13) |
 | III | Structure and function | 17 | 17 | chemistry (13), structures (4) |
 | IV | Intermolecular interactions | 27 | 27 | chemistry (27) |
-| V | Chemical reactions | 25 | 25 | chemistry (18), organic-reactions (7) |
+| V | Chemical reactions | 26 | 26 | chemistry (19), organic-reactions (7) |
 | VI | Energy and thermodynamics | 34 | 34 | chemistry (34) |
-| VII | Kinetics | 16 | 16 | chemistry (16) |
-| VIII | Equilibrium | 39 | 39 | chemistry (39) |
-| IX | Experiments, measurement and data | 11 | 11 | chemistry (11) |
+| VII | Kinetics | 17 | 17 | chemistry (17) |
+| VIII | Equilibrium | 40 | 40 | chemistry (40) |
+| IX | Experiments, measurement and data | 17 | 17 | chemistry (17) |
 | X | Visualization | — | — | **nothing yet** |
 
 ## NCEES PE Chemical CBT Exam Specifications (effective January 2020)
@@ -3092,3 +3090,478 @@ https://www.ets.org/gre/score-users/subject-test-changes.html
 | IN | Inorganic chemistry | 14 | 14 | inorganic-chemistry (14) |
 | OR | Organic chemistry | 7 | 7 | organic-reactions (7) |
 | PH | Physical chemistry | 8 | 8 | physical-chemistry (8) |
+
+## ACS Exams Institute Anchoring Concepts Content Map: General Chemistry (Holme, Luxford & Murphy, J. Chem. Educ. 2015, 92, 1115)
+
+https://pubs.acs.org/doi/10.1021/ed500712k
+
+143 of 143 items have at least one objective answering to them.
+
+| Item | Topic | Objectives | With a drill | Where |
+|---|---|---|---|---|
+| I.A.1 | Atomic number identifies the element; element symbols | 2 | 2 | chemistry (1), periodic-table (1) |
+| I.A.2 | Isotopes: same Z, different mass; weighted average atomic mass | 2 | 2 | chemistry (2) |
+| I.B.1 | Core and valence electrons in a neutral atom | 2 | 2 | chemistry (2) |
+| I.B.2 | Orbitals as wavefunctions labelled by quantum numbers | 1 | 1 | chemistry (1) |
+| I.B.3 | Electron configurations of atoms and ions | 3 | 3 | chemistry (2), periodic-table (1) |
+| I.C.1 | Periodic trends in radius, ionisation energy, electron affinity | 1 | 1 | chemistry (1) |
+| I.C.2 | Effective nuclear charge explains the trends | 2 | 2 | chemistry (2) |
+| I.C.3 | Periodic trends in the reactivity of elements | 2 | 2 | chemistry (1), inorganic-chemistry (1) |
+| I.D.1 | Wavelength and frequency of light; which region probes what | 2 | 2 | chemistry (2) |
+| I.D.2 | Kinetic molecular theory links particles to bulk behaviour | 1 | 1 | chemistry (1) |
+| I.D.3 | Bulk properties and qualitative trends used to classify matter | 2 | 2 | chemistry (2) |
+| I.E.1 | The mole and Avogadro's number from the relative mass scale | 1 | 1 | chemistry (1) |
+| I.E.2 | Mole conversions: mass, amount, number of particles | 1 | 1 | chemistry (1) |
+| I.E.3 | Atoms are picometre-sized, so N_A is enormous | 1 | 1 | chemistry (1) |
+| I.F.1 | Mass is conserved because atoms are | 1 | 1 | chemistry (1) |
+| I.F.2 | Nuclear equations follow changes of identity | 1 | 1 | chemistry (1) |
+| I.F.3 | Radioactivity measurements identify and quantify isotopes | 1 | 1 | chemistry (1) |
+| I.G.1 | Anions gain electrons, cations lose them | 2 | 2 | chemistry (2) |
+| I.G.2 | Ions behave differently from their parent atoms | 1 | 1 | chemistry (1) |
+| II.A.1 | Ionic bonding as Coulomb attraction | 2 | 2 | chemistry (2) |
+| II.A.2 | Telling covalent from ionic bonding by the elements | 1 | 1 | chemistry (1) |
+| II.A.3 | The ionic–polar–nonpolar continuum | 1 | 1 | chemistry (1) |
+| II.B.1 | Valence-shell electrons form bonds | 1 | 1 | chemistry (1) |
+| II.B.2 | Covalent bonds as shared electron pairs | 1 | 1 | chemistry (1) |
+| II.C.1 | A stable bond lowers the energy | 1 | 1 | chemistry (1) |
+| II.C.2 | Potential energy against internuclear distance | 1 | 1 | chemistry (1) |
+| II.C.3 | Valence bond theory: overlap of wavefunctions | 1 | 1 | chemistry (1) |
+| II.D.1 | Bond dissociation energy | 1 | 1 | chemistry (1) |
+| II.E.1 | Molecular orbitals built from atomic orbitals | 1 | 1 | chemistry (1) |
+| II.F.1 | Single, double and triple bonds as one, two, three shared pairs | 2 | 2 | chemistry (2) |
+| II.G.1 | Electron-sea model of metals | 1 | 1 | chemistry (1) |
+| II.G.2 | Band model of metals | 1 | 1 | physical-chemistry (1) |
+| III.A.1 | Compounds have fixed atom ratios | 1 | 1 | chemistry (1) |
+| III.A.2 | Elements that exist as small molecules | 1 | 1 | chemistry (1) |
+| III.A.3 | Pure substances versus mixtures | 1 | 1 | chemistry (1) |
+| III.B.1 | Isomers: same formula, different arrangement | 1 | 1 | dat (1) |
+| III.B.2 | Lewis structures for connectivity | 1 | 1 | chemistry (1) |
+| III.B.3 | VSEPR with Lewis structures predicts shape | 1 | 1 | chemistry (1) |
+| III.C | Computed structures of whole molecules | 1 | 1 | physical-chemistry (1) |
+| III.D | Symmetry and molecular interactions | 1 | 1 | physical-chemistry (1) |
+| III.E | Chirality | 1 | 1 | dat (1) |
+| III.F.1 | Formulas written to show functional groups | 1 | 1 | structures (1) |
+| III.F.2 | Functional groups and acid–base strength | 1 | 1 | chemistry (1) |
+| III.G.1 | Atom and ion sizes set how solids pack | 1 | 1 | inorganic-chemistry (1) |
+| III.H.1 | Metallic, ionic and network solids | 1 | 1 | chemistry (1) |
+| III.H.2 | Macromolecules understood from their repeat units | 1 | 1 | materials (1) |
+| III.H.3 | Getting an element out of the compounds that hold it | 1 | 1 | chemistry (1) |
+| IV.A.1 | Weak forces make gases; ideal-gas models | 2 | 2 | chemistry (2) |
+| IV.A.2 | Properties set by intermolecular forces | 1 | 1 | chemistry (1) |
+| IV.A.3 | Overcoming only intermolecular forces is a physical change | 1 | 1 | chemistry (1) |
+| IV.B.1 | Nonbonding forces within one macromolecule | 1 | 1 | biology (1) |
+| IV.C.1 | Dispersion, dipole–dipole and hydrogen bonding | 1 | 1 | chemistry (1) |
+| IV.C.2 | Permanent dipoles from shape and bond dipoles | 1 | 1 | chemistry (1) |
+| IV.D.1 | Electrolytes and nonelectrolytes | 1 | 1 | chemistry (1) |
+| IV.D.2 | Solute–solvent forces govern solutions | 1 | 1 | chemistry (1) |
+| IV.D.3 | Concentration calculations | 2 | 2 | chemistry (2) |
+| IV.E.1 | Enthalpy and entropy of solution | 1 | 1 | chemistry (1) |
+| V.A.1 | Balancing equations | 1 | 1 | chemistry (1) |
+| V.A.2 | Mass conservation observed in reactions | 1 | 1 | chemistry (1) |
+| V.A.3 | Stoichiometry from the balanced equation | 1 | 1 | chemistry (1) |
+| V.B.1 | Structures showing which bonds change | 2 | 2 | chemistry (1), dat (1) |
+| V.C.1 | Particle pictures of reactions and limiting reactants | 2 | 2 | chemistry (2) |
+| V.D.1 | Synthesis, decomposition and double displacement | 1 | 1 | chemistry (1) |
+| V.D.2 | Redox reactions, including combustion | 2 | 2 | chemistry (2) |
+| V.D.3 | Acid–base neutralisation and its definitions | 2 | 2 | chemistry (2) |
+| V.E.1 | Periodic trends in reactions with water and oxygen | 2 | 2 | inorganic-advanced (1), inorganic-chemistry (1) |
+| V.F.1 | Precipitation for qualitative analysis of ions | 2 | 2 | chemistry (1), inorganic-chemistry (1) |
+| V.F.2 | Limiting reactants and percent yield | 1 | 1 | chemistry (1) |
+| V.G.1 | Synthesis of modern materials | 1 | 1 | materials (1) |
+| VI.A.1 | Kinetic versus potential energy in reactions | 1 | 1 | chemistry (1) |
+| VI.A.2 | Energy change as heat and work | 1 | 1 | chemistry (1) |
+| VI.A.3 | Consistent energy units | 1 | 1 | anchor-quantities (1) |
+| VI.A.4 | Internal energy versus enthalpy | 1 | 1 | chemistry (1) |
+| VI.B.1 | Stable until initiated: energy input to start a reaction | 1 | 1 | chemistry (1) |
+| VI.C.1 | Heat measured through temperature change | 1 | 1 | chemistry (1) |
+| VI.C.2 | Enthalpy of reaction as heat at constant pressure | 1 | 1 | chemistry (1) |
+| VI.C.3 | Electrochemistry separates oxidation from reduction | 1 | 1 | chemistry (1) |
+| VI.D.1 | Bonds broken and formed decide the net energy | 1 | 1 | chemistry (1) |
+| VI.E.1 | Charge moving through an external circuit | 1 | 1 | chemistry (1) |
+| VI.F.1 | Pressure–volume work in engines | 1 | 1 | chemistry (1) |
+| VI.F.2 | Batteries harness chemical change | 1 | 1 | chemistry (1) |
+| VI.G.1 | State functions | 1 | 1 | chemistry (1) |
+| VI.G.2 | Hess's law | 1 | 1 | chemistry (1) |
+| VI.H.1 | Spontaneous change raises the entropy of the universe | 1 | 1 | chemistry (1) |
+| VI.H.2 | Gibbs energy and spontaneity | 2 | 2 | chemistry (2) |
+| VI.H.3 | Zero entropy of a perfect crystal at 0 K | 2 | 2 | physical-chemistry (2) |
+| VI.H.4 | Spontaneous does not mean fast | 1 | 1 | chemistry (1) |
+| VI.I.1 | Nuclear energy from mass conversion | 1 | 1 | chemistry (1) |
+| VII.A.1 | A rate defined independently of the species followed | 1 | 1 | chemistry (1) |
+| VII.A.2 | Rate as change in concentration with time | 1 | 1 | chemistry (1) |
+| VII.A.3 | Surface area of solids and reaction rate | 1 | 1 | chemistry (1) |
+| VII.B.1 | Reaction order from the rate law's exponents | 1 | 1 | chemistry (1) |
+| VII.B.2 | Temperature dependence through the Arrhenius model | 1 | 1 | chemistry (1) |
+| VII.C.1 | Overall stoichiometry is not the mechanism | 1 | 1 | chemistry (1) |
+| VII.C.2 | Mechanisms whose steps sum to the overall reaction | 1 | 1 | chemistry (1) |
+| VII.D.1 | Collision theory: energy and orientation | 1 | 1 | chemistry (1) |
+| VII.D.2 | Activation energy | 1 | 1 | chemistry (1) |
+| VII.E.1 | What a catalyst is | 1 | 1 | chemistry (1) |
+| VII.E.2 | Catalysis through a lower-barrier pathway | 1 | 1 | chemistry (1) |
+| VII.F.1 | Kinetic versus thermodynamic control | 2 | 2 | organic-reactions (1), physical-chemistry (1) |
+| VIII.A.1 | Phase changes as reversible, dynamic equilibria | 2 | 2 | chemistry (2) |
+| VIII.B.1 | Equal forward and reverse rates in phase and chemical equilibria | 1 | 1 | chemistry (1) |
+| VIII.C.1 | Equilibrium amounts from K and the starting state | 1 | 1 | chemistry (1) |
+| VIII.C.2 | Solubility equilibria of ionic solids | 1 | 1 | chemistry (1) |
+| VIII.D.1 | Large or small K and which side is favoured | 1 | 1 | chemistry (1) |
+| VIII.D.2 | The reverse reaction has 1/K | 1 | 1 | chemistry (1) |
+| VIII.D.3 | K for a sum of reactions is the product of the K's | 1 | 1 | chemistry (1) |
+| VIII.E.1 | Le Châtelier's principle | 1 | 1 | chemistry (1) |
+| VIII.F.1 | K and the Gibbs energy change | 1 | 1 | chemistry (1) |
+| VIII.F.2 | Cell potential and the Gibbs energy change | 1 | 1 | chemistry (1) |
+| VIII.G.1 | Acid–base reactions as equilibria | 1 | 1 | chemistry (1) |
+| VIII.G.2 | How buffers resist pH change | 1 | 1 | chemistry (1) |
+| VIII.G.3 | Protein–ligand binding as an equilibrium | 1 | 1 | chemistry (1) |
+| IX.A.1 | Homogeneous and heterogeneous mixtures | 1 | 1 | chemistry (1) |
+| IX.A.2 | Separating mixtures by distillation and chromatography | 1 | 1 | chemistry (1) |
+| IX.B.1 | Lab observations read through particle models | 1 | 1 | chemistry (1) |
+| IX.B.2 | Derived quantities such as density | 1 | 1 | chemistry (1) |
+| IX.B.3 | Measuring reaction rates in the lab | 1 | 1 | chemistry (1) |
+| IX.C.1 | Naming compounds by class | 2 | 2 | chemistry (1), inorganic-chemistry (1) |
+| IX.D.1 | Controlling a reaction through concentration | 1 | 1 | chemistry (1) |
+| IX.E.1 | Mass measurements and percent yield | 1 | 1 | chemistry (1) |
+| IX.E.2 | Making a product or releasing energy in the lab | 1 | 1 | chemistry (1) |
+| IX.E.3 | Line spectra as evidence for the quantum atom | 1 | 1 | chemistry (1) |
+| IX.E.4 | Mass spectra show isotopes | 1 | 1 | chemistry (1) |
+| IX.F.1 | Designing procedures that limit measurement error | 1 | 1 | chemistry (1) |
+| IX.F.2 | Preparing solutions of known concentration | 1 | 1 | chemistry (1) |
+| IX.G.1 | Accuracy and precision | 1 | 1 | chemistry (1) |
+| IX.G.2 | Random and systematic error | 1 | 1 | chemistry (1) |
+| IX.G.3 | Recording observations properly | 1 | 1 | chemistry (1) |
+| IX.G.4 | Calibration against known samples | 2 | 2 | analytical-chemistry (1), chemistry (1) |
+| IX.H.1 | Safety equipment in the laboratory | 1 | 1 | chemistry (1) |
+| IX.H.2 | Chemical hazards and how to handle them | 1 | 1 | chemistry (1) |
+| IX.H.3 | Disposing of chemical waste | 1 | 1 | chemistry (1) |
+| IX.H.4 | Continual awareness of hazard and risk | 1 | 1 | chemistry (1) |
+| IX.H.5 | Working safely with radioactive material | 1 | 1 | chemistry (1) |
+| X.A.1 | Kinetic molecular theory as a bridge between scales | 1 | 1 | chemistry (1) |
+| X.A.2 | Symbolic, macroscopic and particle representations | 2 | 2 | chemistry (2) |
+| X.B.1 | The mole defined by carbon-12 | 1 | 1 | chemistry (1) |
+| X.C.1 | The Boltzmann distribution as a distribution function | 1 | 1 | chemistry (1) |
+| X.C.2 | Bulk observables driven by molecular-scale gradients | 1 | 1 | chemistry (1) |
+| X.D.1 | Energy profiles carry kinetic and thermodynamic information | 1 | 1 | chemistry (1) |
+| X.D.2 | Linearising data (ln, 1/x) to read a relationship | 1 | 1 | chemistry (1) |
+| X.E.1 | Rearranging equations to isolate a variable | 1 | 1 | chemistry (1) |
+
+## ACS Exams Institute Anchoring Concepts Content Map: Organic Chemistry (Raker, Holme & Murphy, J. Chem. Educ. 2013, 90, 1443)
+
+https://pubs.acs.org/doi/10.1021/ed400175w
+
+104 of 104 items have at least one objective answering to them.
+
+| Item | Topic | Objectives | With a drill | Where |
+|---|---|---|---|---|
+| I.A.1 | Isotopes in MS, NMR and kinetic isotope effects | 1 | 1 | physical-chemistry (1) |
+| I.B.1 | Electrons and the relative stability of resonance forms | 1 | 1 | dat (1) |
+| I.B.2 | Electrophiles attack electron-rich sites | 3 | 3 | dat (1), organic-reactions (2) |
+| I.B.3 | Nucleophiles attack electron-poor sites | 3 | 3 | dat (1), organic-reactions (2) |
+| I.C.1 | Valence periodicity behind nucleophilicity and pKa trends | 1 | 1 | dat (1) |
+| I.C.2 | Periodic trends in bond strength and length | 1 | 1 | dat (1) |
+| I.D.1 | How organic chemistry's discoveries were made | 1 | 1 | organic-reactions (1) |
+| I.D.2 | Structure elucidation by UV, IR, NMR and MS | 3 | 3 | dat (2), physical-chemistry (1) |
+| I.E.1 | Molar equivalents, limiting reagents and percent yield | 2 | 2 | chemistry (1), organic-reactions (1) |
+| I.F | Atoms keep their identity outside nuclear reactions | 1 | 1 | chemistry (1) |
+| I.G.1 | Polar metal–carbon bonds as strong bases and nucleophiles | 2 | 2 | organic-reactions (2) |
+| II.A.1 | Covalent bonding; primary to quaternary carbons | 1 | 1 | structures (1) |
+| II.A.2 | Bond dipoles from unequal sharing | 1 | 1 | chemistry (1) |
+| II.B.1 | Bond energy set by the nuclei and electrons shared | 1 | 1 | dat (1) |
+| II.C.1 | Filling low-energy orbitals lowers the energy | 1 | 1 | chemistry (1) |
+| II.C.2 | Conjugation and aromatic stabilisation | 2 | 2 | dat (1), organic-reactions (1) |
+| II.D.1 | Homolysis and bond dissociation energy | 1 | 1 | organic-reactions (1) |
+| II.E.1 | Hybridisation, resonance and MO theory | 2 | 2 | chemistry (1), dat (1) |
+| II.E.2 | Orbital symmetry in cycloadditions | 2 | 2 | organic-reactions (2) |
+| II.E.3 | Bonding, nonbonding and antibonding MOs; conservation of orbitals | 1 | 1 | chemistry (1) |
+| II.F.1 | Sigma and pi bonds; lengths and strengths | 1 | 1 | dat (1) |
+| II.F.2 | Free rotation about single bonds, none about double bonds | 1 | 1 | dat (1) |
+| II.G | Metallic bonding | 1 | 1 | chemistry (1) |
+| III.A.1 | Functional groups set physical properties | 2 | 2 | dat (1), structures (1) |
+| III.A.2 | Stereocentres and chirality | 2 | 2 | dat (1), organic-reactions (1) |
+| III.A.3 | Polymers and carbon allotropes | 2 | 2 | inorganic-advanced (1), materials (1) |
+| III.B.1 | Shape and polarity from VSEPR | 1 | 1 | chemistry (1) |
+| III.B.2 | Shape and stereochemistry | 1 | 1 | dat (1) |
+| III.C.1 | Molecular modelling programs | 1 | 1 | physical-chemistry (1) |
+| III.D.1 | Spectroscopy and molecular symmetry | 1 | 1 | physical-chemistry (1) |
+| III.D.2 | Symmetry-equivalent nuclei in NMR | 1 | 1 | dat (1) |
+| III.E.1 | Enantiomers and diastereomers | 1 | 1 | dat (1) |
+| III.E.2 | Regio- and stereospecific versus selective reactions | 1 | 1 | organic-reactions (1) |
+| III.E.3 | Stereochemistry carried from reactant to product | 2 | 2 | dat (2) |
+| III.E.4 | 3-D structure decides transition states and isomeric products | 1 | 1 | organic-reactions (1) |
+| III.E.5 | Optical activity; separating diastereomers | 1 | 1 | physical-chemistry (1) |
+| III.F.1 | Reactivity follows functional-group structure | 1 | 1 | dat (1) |
+| III.G | Extended solid-state structures | 1 | 1 | chemistry (1) |
+| IV.A.1 | Intermolecular forces in spectra and physical properties | 1 | 1 | dat (1) |
+| IV.A.2 | Forces behind solubility, melting and boiling, solvent effects | 2 | 2 | dat (2) |
+| IV.A.3 | Hydrogen bonding | 1 | 1 | chemistry (1) |
+| IV.B.1 | Surfactants and micelles | 1 | 1 | biology (1) |
+| IV.B.2 | Forces in polymer, protein and DNA structure | 1 | 1 | biology (1) |
+| IV.C.1 | Intermolecular forces in collisions | 1 | 1 | chemistry (1) |
+| IV.D.1 | Choosing a solvent by its forces | 1 | 1 | dat (1) |
+| IV.D.2 | Solvent choice and green chemistry | 1 | 1 | organic-reactions (1) |
+| IV.E.1 | Solvent choice in organic reactions | 1 | 1 | dat (1) |
+| IV.E.2 | Solvent polarity can switch mechanism and product | 2 | 2 | dat (1), organic-reactions (1) |
+| V.A.1 | Reagents written over the arrow; unbalanced organic equations | 1 | 1 | dat (1) |
+| V.A.2 | Reaction yields | 2 | 2 | chemistry (1), organic-reactions (1) |
+| V.A.3 | Lab techniques for yield and purity | 1 | 1 | dat (1) |
+| V.A.4 | Multistep synthesis | 1 | 1 | dat (1) |
+| V.B.1 | Bond-making and breaking energetics in synthesis | 1 | 1 | chemistry (1) |
+| V.C.1 | Visualising molecules reacting | 1 | 1 | dat (1) |
+| V.C.2 | Representations of organic structure | 2 | 2 | dat (1), structures (1) |
+| V.D.1 | Addition, elimination, rearrangement, substitution, redox | 2 | 2 | organic-reactions (2) |
+| V.D.2 | SN1, SN2, E1, E2, electrophilic and nucleophilic aromatic substitution | 3 | 3 | organic-reactions (3) |
+| V.D.3 | Radical reactions | 2 | 2 | dat (1), organic-reactions (1) |
+| V.D.4 | Greener reaction conditions | 1 | 1 | organic-reactions (1) |
+| V.E.1 | Reactivity organised by functional group | 3 | 3 | organic-reactions (3) |
+| V.E.2 | Control by time, temperature, catalyst and solvent | 2 | 2 | dat (1), physical-chemistry (1) |
+| V.F.1 | Reagents that control regio- and stereochemistry | 2 | 2 | dat (1), organic-reactions (1) |
+| V.F.2 | Reagents that control regiochemistry | 1 | 1 | organic-reactions (1) |
+| VI.A.1 | Thermodynamics of energy change | 1 | 1 | chemistry (1) |
+| VI.A.2 | Reaction energy diagrams | 1 | 1 | dat (1) |
+| VI.B.1 | Activation energy | 1 | 1 | chemistry (1) |
+| VI.C.1 | Heat and light as energy sources | 1 | 1 | dat (1) |
+| VI.C.2 | Thermal versus photochemical pericyclic reactions | 1 | 1 | organic-reactions (1) |
+| VI.D.1 | Net energy from bonds broken and formed | 1 | 1 | chemistry (1) |
+| VI.E.1 | Solvation by dipole and induced-dipole forces | 1 | 1 | chemistry (1) |
+| VI.F.1 | Combustion of hydrocarbons | 1 | 1 | chemistry (1) |
+| VI.G.1 | Reaction enthalpy from bond energies | 1 | 1 | chemistry (1) |
+| VI.H | Entropy and dispersal | 1 | 1 | chemistry (1) |
+| VI.I | Nuclear energy scales | 1 | 1 | chemistry (1) |
+| VII.A.1 | Fast and slow reactions decide the product | 1 | 1 | organic-reactions (1) |
+| VII.B.1 | Rate laws as clues to substitution and elimination mechanisms | 1 | 1 | organic-reactions (1) |
+| VII.C.1 | Elementary steps behind functional-group reactivity | 2 | 2 | dat (1), organic-reactions (1) |
+| VII.C.2 | Polar and polarisable bonds dictate reactivity | 1 | 1 | dat (1) |
+| VII.C.3 | Curved arrows from nucleophile to electrophile | 3 | 3 | dat (1), organic-reactions (2) |
+| VII.D.1 | Transition-state theory for SN2 | 1 | 1 | organic-reactions (1) |
+| VII.E.1 | Catalysts lower the activation energy | 1 | 1 | chemistry (1) |
+| VII.F.1 | Kinetic versus thermodynamic control | 2 | 2 | organic-reactions (1), physical-chemistry (1) |
+| VII.F.2 | Intermediates, resonance and hyperconjugation in that control | 3 | 3 | dat (1), organic-reactions (2) |
+| VIII.A.1 | Equilibrium position limits product | 2 | 2 | chemistry (1), organic-reactions (1) |
+| VIII.B.1 | Reversible reactions reach equilibrium | 1 | 1 | chemistry (1) |
+| VIII.C.1 | Equilibria seen by energy diagram, conformational analysis or instrument | 2 | 2 | dat (1), organic-reactions (1) |
+| VIII.C.2 | pKa as a protonation equilibrium | 2 | 2 | dat (1), organic-reactions (1) |
+| VIII.D.1 | Large K strongly favours products | 1 | 1 | organic-reactions (1) |
+| VIII.E.1 | Le Châtelier's principle to drive a reaction | 1 | 1 | organic-reactions (1) |
+| VIII.F | Thermodynamic treatment of equilibrium | 1 | 1 | chemistry (1) |
+| VIII.G.1 | Protonation equilibria in acid catalysis | 2 | 2 | dat (1), organic-reactions (1) |
+| IX.A.1 | Chemical tests for functional groups | 1 | 1 | organic-reactions (1) |
+| IX.A.2 | Instrumental data: X-ray, NMR, IR, MS, EPR | 1 | 1 | dat (1) |
+| IX.A.3 | Wet tests against instrumental methods | 1 | 1 | organic-reactions (1) |
+| IX.B.1 | Systematic nomenclature | 1 | 1 | dat (1) |
+| IX.C.1 | Data confirm the intended product | 1 | 1 | dat (1) |
+| IX.C.2 | Measuring stereochemical outcome | 1 | 1 | physical-chemistry (1) |
+| IX.D | Measurement by mass, charge or interaction with light | 1 | 1 | chemistry (1) |
+| IX.E | Verifiable observations and controls | 1 | 1 | chemistry (1) |
+| IX.F | Experimental design for sound inference | 1 | 1 | chemistry (1) |
+| X.A.1 | Spectroscopic and physical probes in the organic lab | 2 | 2 | dat (2) |
+| X.B.1 | Lab yields explained by molecular models | 1 | 1 | chemistry (1) |
+| X.C | Statistics behind macroscopic properties | 1 | 1 | chemistry (1) |
+| X.D | Graphical quantitative reasoning | 1 | 1 | chemistry (1) |
+
+## ACS Exams Institute Anchoring Concepts Content Map: Inorganic Chemistry (Marek, Raker, Holme & Murphy, J. Chem. Educ. 2018, 95, 233)
+
+https://pubs.acs.org/doi/10.1021/acs.jchemed.7b00498
+
+201 of 201 items have at least one objective answering to them.
+
+| Item | Topic | Objectives | With a drill | Where |
+|---|---|---|---|---|
+| I.A.1 | Atomic number identifies the element | 2 | 2 | chemistry (1), periodic-table (1) |
+| I.A.2 | Uses of isotopes in inorganic chemistry | 2 | 2 | inorganic-advanced (1), physical-chemistry (1) |
+| I.B.1 | Quantum mechanics of electrons in atoms | 2 | 2 | chemistry (1), physical-chemistry (1) |
+| I.B.2 | Quantum numbers give orbital size, shape and orientation | 1 | 1 | chemistry (1) |
+| I.B.3 | Coulomb terms in configuration energies | 2 | 2 | chemistry (1), inorganic-advanced (1) |
+| I.B.4 | Shielding and penetration | 2 | 2 | chemistry (1), inorganic-advanced (1) |
+| I.B.5 | Magnetism from electron spin | 3 | 3 | chemistry (1), inorganic-advanced (1), inorganic-chemistry (1) |
+| I.B.6 | Oxidation states and their stability | 2 | 2 | inorganic-chemistry (1), periodic-table (1) |
+| I.C.1 | Effective nuclear charge and periodic trends | 2 | 2 | chemistry (1), inorganic-advanced (1) |
+| I.C.2 | Group similarities in reactivity, structure and formula | 1 | 1 | chemistry (1) |
+| I.C.3 | Metal, nonmetal or metalloid behaviour from position | 2 | 2 | chemistry (1), inorganic-chemistry (1) |
+| I.D.1 | Atomic spectroscopy probes energy levels | 1 | 1 | chemistry (1) |
+| I.D.2 | X-ray diffraction of powders and single crystals | 1 | 1 | inorganic-chemistry (1) |
+| I.E.1 | Stoichiometry, equivalents and percent yield | 1 | 1 | chemistry (1) |
+| I.F.1 | Kinds of nuclear reaction | 1 | 1 | chemistry (1) |
+| I.G.1 | Forming cations and anions; which electrons leave | 1 | 1 | chemistry (1) |
+| I.G.2 | Isoelectronic series | 2 | 2 | chemistry (1), inorganic-advanced (1) |
+| II.A.1 | Orbital energies decide the bond type | 1 | 1 | chemistry (1) |
+| II.A.2 | Crystal field theory | 1 | 1 | inorganic-chemistry (1) |
+| II.A.3 | Ionic bonding by electron transfer | 1 | 1 | chemistry (1) |
+| II.A.4 | Electron-counting rules | 2 | 2 | inorganic-advanced (2) |
+| II.B.1 | Bond order and bond strength | 2 | 2 | chemistry (1), inorganic-advanced (1) |
+| II.B.2 | Dative bonds in coordination compounds | 1 | 1 | chemistry (1) |
+| II.B.3 | Electrostatic cohesion of ionic compounds | 1 | 1 | chemistry (1) |
+| II.C.1 | Overlap sets bond strength | 1 | 1 | chemistry (1) |
+| II.C.2 | Lattice energy | 2 | 2 | chemistry (1), inorganic-advanced (1) |
+| II.C.3 | Ligand field stabilisation energy | 3 | 3 | inorganic-advanced (2), inorganic-chemistry (1) |
+| II.D.1 | Bond dissociation enthalpy rises with bond order | 1 | 1 | inorganic-advanced (1) |
+| II.D.2 | Vibrational frequency rises with bond order | 1 | 1 | physical-chemistry (1) |
+| II.E.1 | MOs from orbitals of matching symmetry | 1 | 1 | chemistry (1) |
+| II.E.2 | Orbital interactions set MO energies | 1 | 1 | chemistry (1) |
+| II.E.3 | Molecular electron configurations | 1 | 1 | inorganic-advanced (1) |
+| II.E.4 | Symmetry-adapted MOs of polyatomics | 1 | 1 | physical-chemistry (1) |
+| II.E.5 | Ligand field theory as MO theory of complexes | 1 | 1 | inorganic-advanced (1) |
+| II.F.1 | Lewis structures | 1 | 1 | chemistry (1) |
+| II.F.2 | Valence bond theory | 1 | 1 | chemistry (1) |
+| II.F.3 | Bond strength and length against bond order | 1 | 1 | inorganic-advanced (1) |
+| II.G.1 | Electron-sea model | 1 | 1 | chemistry (1) |
+| II.G.2 | Band theory of conductivity | 3 | 3 | inorganic-advanced (1), materials (1), physical-chemistry (1) |
+| II.G.3 | p–n junctions and their uses | 1 | 1 | inorganic-advanced (1) |
+| II.G.4 | BCS theory of superconductivity | 1 | 1 | inorganic-advanced (1) |
+| III.A.1 | Coordination compounds as Lewis acid–base adducts | 1 | 1 | chemistry (1) |
+| III.A.2 | Properties set by the coordination environment | 2 | 2 | inorganic-chemistry (2) |
+| III.A.3 | Organometallic compounds | 1 | 1 | inorganic-advanced (1) |
+| III.A.4 | Cluster compounds | 1 | 1 | inorganic-advanced (1) |
+| III.A.5 | Chains and layers in Si, P and S chemistry | 1 | 1 | inorganic-advanced (1) |
+| III.B.1 | VSEPR | 2 | 2 | chemistry (1), inorganic-advanced (1) |
+| III.B.2 | Wade's rules for clusters | 1 | 1 | inorganic-advanced (1) |
+| III.C.1 | Computed geometries by energy minimisation | 1 | 1 | physical-chemistry (1) |
+| III.D.1 | Point groups | 2 | 2 | inorganic-advanced (1), physical-chemistry (1) |
+| III.D.2 | Space groups | 1 | 1 | inorganic-advanced (1) |
+| III.D.3 | Representations of orbitals and vibrations | 1 | 1 | physical-chemistry (1) |
+| III.D.4 | Symmetry in interpreting spectra | 1 | 1 | physical-chemistry (1) |
+| III.D.5 | Properties read from symmetry (polarity, chirality) | 1 | 1 | inorganic-advanced (1) |
+| III.E.1 | Coordination numbers and geometries | 2 | 2 | inorganic-advanced (1), inorganic-chemistry (1) |
+| III.E.2 | Stereoisomers of complexes | 1 | 1 | inorganic-chemistry (1) |
+| III.E.3 | Polymorphism | 1 | 1 | inorganic-advanced (1) |
+| III.E.4 | Chiral catalysts | 1 | 1 | inorganic-advanced (1) |
+| III.E.5 | Constitutional isomers of complexes (linkage, ionisation, hydrate, coordination) | 1 | 1 | inorganic-advanced (1) |
+| III.E.6 | Separating and resolving isomers | 1 | 1 | inorganic-advanced (1) |
+| III.F.1 | Classes of ligands | 3 | 3 | inorganic-advanced (2), inorganic-chemistry (1) |
+| III.F.2 | The isolobal analogy | 1 | 1 | inorganic-advanced (1) |
+| III.F.3 | Steric and electronic effects of ligands | 1 | 1 | inorganic-advanced (1) |
+| III.G.1 | Group formulas of oxides, hydrides and halides | 2 | 2 | chemistry (1), inorganic-advanced (1) |
+| III.G.2 | The diagonal relationship | 1 | 1 | inorganic-advanced (1) |
+| III.G.3 | The lanthanide contraction | 1 | 1 | inorganic-advanced (1) |
+| III.G.4 | The inert-pair effect | 1 | 1 | inorganic-advanced (1) |
+| III.G.5 | Metal and nonmetal compounds compared | 2 | 2 | inorganic-advanced (1), inorganic-chemistry (1) |
+| III.G.6 | Interhalogen trends | 1 | 1 | inorganic-advanced (1) |
+| III.G.7 | Isoelectronic groups form analogous structures | 1 | 1 | inorganic-advanced (1) |
+| III.H.1 | Packing motifs of extended solids | 1 | 1 | inorganic-chemistry (1) |
+| III.H.2 | Ionic structures as filled holes | 1 | 1 | inorganic-chemistry (1) |
+| III.H.3 | Defects and interstitials | 1 | 1 | inorganic-advanced (1) |
+| III.H.4 | Nanomaterials of 0 to 3 dimensions | 2 | 2 | inorganic-advanced (1), physical-chemistry (1) |
+| III.H.5 | Allotropes of the p-block | 1 | 1 | inorganic-advanced (1) |
+| III.H.6 | Layered solids | 1 | 1 | inorganic-advanced (1) |
+| III.H.7 | Silicate structures | 1 | 1 | inorganic-advanced (1) |
+| III.H.8 | Perovskite-related superconductors | 1 | 1 | inorganic-advanced (1) |
+| IV.A.1 | Dispersion trends in halogen and noble-gas boiling points | 1 | 1 | chemistry (1) |
+| IV.A.2 | Self-assembly by intermolecular forces | 1 | 1 | inorganic-advanced (1) |
+| IV.B.1 | Hydrogen bonding between metal centres and ligands | 1 | 1 | chemistry (1) |
+| IV.B.2 | Forces between domains of block copolymers | 1 | 1 | materials (1) |
+| IV.B.3 | Hydrogen bonding in biomolecule structure | 1 | 1 | biology (1) |
+| IV.C.1 | Dispersion, dipole–dipole and hydrogen bonding | 1 | 1 | chemistry (1) |
+| IV.D.1 | Solid properties from intermolecular forces | 1 | 1 | chemistry (1) |
+| IV.D.2 | Bulk properties from intermolecular forces | 1 | 1 | chemistry (1) |
+| IV.D.3 | Phase diagrams | 1 | 1 | chemistry (1) |
+| IV.E.1 | Intermolecular forces in solution formation | 1 | 1 | chemistry (1) |
+| IV.E.2 | Forces at surfaces and nanoparticles | 1 | 1 | materials (1) |
+| IV.E.3 | Solvation in reactions | 1 | 1 | chemistry (1) |
+| V.A.1 | Balancing redox equations in acid, base or neutral solution | 2 | 2 | chemistry (1), inorganic-chemistry (1) |
+| V.B.1 | Frontier-orbital energies decide whether and how reactions go | 2 | 2 | inorganic-advanced (1), organic-reactions (1) |
+| V.C.1 | Scanning probe microscopy of surface reactions | 1 | 1 | inorganic-advanced (1) |
+| V.D.1 | Acid–base models (Brønsted, Lewis, Lux–Flood, solvent system) | 3 | 3 | chemistry (1), inorganic-advanced (2) |
+| V.D.2 | Redox as electron transfer | 2 | 2 | chemistry (1), inorganic-advanced (1) |
+| V.D.3 | Organometallic reaction classes by electron count | 1 | 1 | inorganic-advanced (1) |
+| V.D.4 | Metathesis (double displacement) | 1 | 1 | chemistry (1) |
+| V.D.5 | Heterogeneous reactions at surfaces | 1 | 1 | physical-chemistry (1) |
+| V.D.6 | Condensation reactions | 1 | 1 | inorganic-advanced (1) |
+| V.E.1 | Periodic trends in reduction potentials | 1 | 1 | chemistry (1) |
+| V.E.2 | Hydration enthalpies and LFSE | 1 | 1 | inorganic-advanced (1) |
+| V.E.3 | Periodic trends in acid–base properties | 2 | 2 | inorganic-advanced (1), inorganic-chemistry (1) |
+| V.F.1 | Controlling reactions by sterics, pH, solvent, particle size | 1 | 1 | inorganic-advanced (1) |
+| V.F.2 | Metal catalysts, homogeneous and heterogeneous | 1 | 1 | inorganic-advanced (1) |
+| V.F.3 | Metals in biochemistry | 2 | 2 | inorganic-advanced (2) |
+| V.F.4 | Chiral catalysts and stereocontrol | 1 | 1 | inorganic-advanced (1) |
+| V.F.5 | Acid–base behaviour in nonaqueous solvents | 1 | 1 | inorganic-advanced (1) |
+| V.F.6 | Superacids | 1 | 1 | inorganic-advanced (1) |
+| V.F.7 | Fluorine and other strong oxidants in synthesis | 1 | 1 | inorganic-advanced (1) |
+| V.F.8 | The trans effect and trans influence in synthesis | 2 | 2 | inorganic-advanced (2) |
+| V.F.9 | Hard–soft acid–base control of products | 1 | 1 | inorganic-advanced (1) |
+| V.F.10 | Photochemical reactions | 1 | 1 | physical-chemistry (1) |
+| V.G.1 | Solid-state properties depend on synthesis conditions | 1 | 1 | inorganic-advanced (1) |
+| V.G.2 | Air-, water- and light-sensitive techniques | 1 | 1 | inorganic-advanced (1) |
+| V.G.3 | Coordination chemistry in SAMs and MOFs | 1 | 1 | inorganic-advanced (1) |
+| VI.A.1 | Negative ΔG for spontaneous processes | 1 | 1 | chemistry (1) |
+| VI.A.2 | Equilibrium between states from their ΔG | 1 | 1 | chemistry (1) |
+| VI.A.3 | Born–Haber cycles | 1 | 1 | inorganic-advanced (1) |
+| VI.B.1 | Activation energy and rate | 1 | 1 | chemistry (1) |
+| VI.B.2 | Fluxional molecules | 1 | 1 | inorganic-advanced (1) |
+| VI.B.3 | LFSE and substitution barriers | 2 | 2 | inorganic-advanced (2) |
+| VI.C.1 | Chemical energy converted to other forms | 1 | 1 | chemistry (1) |
+| VI.C.2 | Measuring or estimating energy differences | 1 | 1 | chemistry (1) |
+| VI.D.1 | Bond dissociation in Born–Haber cycles | 1 | 1 | inorganic-advanced (1) |
+| VI.D.2 | Bond energies and activation energy | 1 | 1 | chemistry (1) |
+| VI.D.3 | Proton gain enthalpies and acid–base strength | 1 | 1 | chemistry (1) |
+| VI.D.4 | Metal and ligand identity in complex energetics | 1 | 1 | inorganic-advanced (1) |
+| VI.E.1 | Cell potential and ΔG | 1 | 1 | chemistry (1) |
+| VI.E.2 | Electrostatics in complex formation | 1 | 1 | chemistry (1) |
+| VI.F.1 | Galvanic and electrolytic cells | 1 | 1 | chemistry (1) |
+| VI.F.2 | Devices converting electrical energy | 1 | 1 | chemistry (1) |
+| VI.G.1 | Reaction enthalpy from bond energies | 1 | 1 | chemistry (1) |
+| VI.H.1 | Entropy-driven reactions (chelate effect) | 1 | 1 | inorganic-advanced (1) |
+| VI.H.2 | ΔG = ΔH − TΔS | 1 | 1 | chemistry (1) |
+| VI.I.1 | Nuclear energy levels, fission and fusion | 1 | 1 | chemistry (1) |
+| VII.A.1 | Inert and labile complexes | 1 | 1 | inorganic-advanced (1) |
+| VII.A.2 | Fluxionality on different time scales | 1 | 1 | inorganic-advanced (1) |
+| VII.B.1 | Rate measurements under varied conditions | 1 | 1 | chemistry (1) |
+| VII.C.1 | Activated complexes and transition states | 2 | 2 | chemistry (1), inorganic-advanced (1) |
+| VII.C.2 | The steady-state approximation | 1 | 1 | physical-chemistry (1) |
+| VII.C.3 | Inner- and outer-sphere electron transfer | 1 | 1 | inorganic-advanced (1) |
+| VII.C.4 | Associative, dissociative and interchange substitution | 1 | 1 | inorganic-advanced (1) |
+| VII.C.5 | Mechanisms of fluxional rearrangement (Berry pseudorotation) | 1 | 1 | inorganic-advanced (1) |
+| VII.C.6 | The kinetic chelate effect | 1 | 1 | inorganic-advanced (1) |
+| VII.D.1 | Solvent cages and outer-sphere pre-association | 1 | 1 | inorganic-advanced (1) |
+| VII.E.1 | Catalysts reshape the energy surface | 1 | 1 | chemistry (1) |
+| VII.E.2 | Heterogeneous catalyst structure and selectivity | 1 | 1 | physical-chemistry (1) |
+| VII.F.1 | Kinetic versus thermodynamic products | 1 | 1 | physical-chemistry (1) |
+| VIII.A.1 | Microscopic reversibility | 1 | 1 | inorganic-advanced (1) |
+| VIII.B.1 | Equilibrium as a dynamic steady state | 1 | 1 | chemistry (1) |
+| VIII.C.1 | Standard equilibrium constants (formation, Ksp, Ka) | 3 | 3 | analytical-chemistry (1), chemistry (1), inorganic-advanced (1) |
+| VIII.D.1 | Equilibrium constants showing periodic trends (Irving–Williams) | 1 | 1 | inorganic-advanced (1) |
+| VIII.D.2 | HSAB and the size of K | 1 | 1 | inorganic-advanced (1) |
+| VIII.E.1 | Le Châtelier in industrial processes | 1 | 1 | chemistry (1) |
+| VIII.F.1 | K with ΔG, ΔH, ΔS and E° | 1 | 1 | chemistry (1) |
+| VIII.F.2 | Proton affinity and Brønsted acidity | 1 | 1 | chemistry (1) |
+| VIII.F.3 | Thermodynamics of complex formation (stepwise and overall β) | 2 | 2 | inorganic-advanced (2) |
+| VIII.G.1 | Equilibrium constants for reactivity | 1 | 1 | chemistry (1) |
+| VIII.G.2 | The levelling effect | 1 | 1 | inorganic-advanced (1) |
+| VIII.G.3 | Speciation with pH and conditions | 1 | 1 | chemistry (1) |
+| VIII.G.4 | Chemical sensors from equilibria | 1 | 1 | inorganic-advanced (1) |
+| IX.A.1 | Microscopy from macroscopic to atomic | 1 | 1 | inorganic-advanced (1) |
+| IX.A.2 | Observing fluxional processes spectroscopically | 1 | 1 | inorganic-advanced (1) |
+| IX.A.3 | Structure from bulk measurements | 1 | 1 | inorganic-chemistry (1) |
+| IX.A.4 | Fluorescence and phosphorescence time scales | 1 | 1 | inorganic-advanced (1) |
+| IX.B.1 | Naming coordination and organometallic compounds | 1 | 1 | inorganic-advanced (1) |
+| IX.B.2 | Prototype crystal structures and hole filling | 1 | 1 | inorganic-chemistry (1) |
+| IX.B.3 | Named catalysts and industrial processes | 1 | 1 | inorganic-advanced (1) |
+| IX.C.1 | Synthesis parameters shape the product | 1 | 1 | inorganic-advanced (1) |
+| IX.C.2 | Analysis for identity and purity | 1 | 1 | analytical-chemistry (1) |
+| IX.D.1 | Formula from combined analyses | 1 | 1 | chemistry (1) |
+| IX.D.2 | UV–visible spectra of valence transitions | 2 | 2 | inorganic-advanced (1), inorganic-chemistry (1) |
+| IX.D.3 | Multinuclear NMR | 1 | 1 | inorganic-advanced (1) |
+| IX.D.4 | Quantitative redox analysis | 1 | 1 | inorganic-chemistry (1) |
+| IX.D.5 | Which radiation probes which transition | 1 | 1 | chemistry (1) |
+| IX.D.6 | X-ray, electron and neutron diffraction | 1 | 1 | inorganic-chemistry (1) |
+| IX.D.7 | Magnetic susceptibility measurements | 2 | 2 | inorganic-advanced (1), inorganic-chemistry (1) |
+| IX.D.8 | Conductivity against temperature | 1 | 1 | inorganic-advanced (1) |
+| IX.E.1 | Purity and comparison with standards | 1 | 1 | chemistry (1) |
+| IX.E.2 | Conditions affect measured values | 1 | 1 | analytical-chemistry (1) |
+| IX.F.1 | Precision limited by equipment and execution | 1 | 1 | analytical-chemistry (1) |
+| IX.F.2 | Reporting experimental conditions | 1 | 1 | chemistry (1) |
+| IX.G.1 | Handling light-, air- and moisture-sensitive compounds | 1 | 1 | inorganic-advanced (1) |
+| IX.G.2 | High- and low-pressure hazards | 1 | 1 | inorganic-advanced (1) |
+| IX.G.3 | Cryogen hazards | 1 | 1 | inorganic-advanced (1) |
+| IX.G.4 | Using safety data resources | 1 | 1 | chemistry (1) |
+| IX.G.5 | Green chemical methods | 1 | 1 | organic-reactions (1) |
+| X.A.1 | Bulk properties of nano- and macromaterials from interactions | 1 | 1 | physical-chemistry (1) |
+| X.A.2 | Band theory as MO theory at the macroscale | 1 | 1 | physical-chemistry (1) |
+| X.A.3 | Ligand field theory explains what complexes look like | 2 | 2 | inorganic-advanced (1), inorganic-chemistry (1) |
+| X.B.1 | Avogadro's number between grams and amu | 1 | 1 | chemistry (1) |
+| X.C.1 | Particle size distributions | 1 | 1 | materials (1) |
+| X.D.1 | Plots of periodic trends | 1 | 1 | chemistry (1) |
+| X.D.2 | MO diagrams | 1 | 1 | chemistry (1) |
+| X.D.3 | 3-D drawings for symmetry | 1 | 1 | physical-chemistry (1) |
+| X.D.4 | Orbital drawings | 1 | 1 | physical-chemistry (1) |
+| X.D.5 | Latimer, Pourbaix, Frost and Ellingham diagrams | 2 | 2 | inorganic-advanced (2) |
+| X.D.6 | Phase and distribution (speciation) diagrams | 2 | 2 | chemistry (2) |
+| X.D.7 | Tanabe–Sugano and Orgel diagrams | 1 | 1 | inorganic-advanced (1) |
+| X.D.8 | Unit-cell and plan drawings | 1 | 1 | inorganic-chemistry (1) |
+| X.D.9 | Energy profiles for kinetics | 1 | 1 | chemistry (1) |

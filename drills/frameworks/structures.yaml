@@ -28,7 +28,7 @@ domains: []
 
 basis:
   primary: bruice-8e
-  also: [iupac-aa-1983, ib-chemistry-2025, ib-biology-2025, icho-appendix-c, icho-syllabus, acs-accm, aamc-mcat-outline]
+  also: [iupac-aa-1983, ib-chemistry-2025, ib-biology-2025, icho-appendix-c, icho-syllabus, acs-accm, aamc-mcat-outline, acs-accm-general, acs-accm-organic]
   note: "Units follow the chapter list of Bruice's Organic Chemistry (a textbook, not a standard). The amino acids follow IUPAC-IUB 1983 Table 1. Which compounds to carry in each unit is a house list; the MCAT content outline names the same families and has not been opened."
 
 big_ideas:
@@ -58,7 +58,7 @@ units:
       - n: 1
         title: "Functional groups"
         los:
-          - { id: A, do: "Draw and name the common functional groups, with R for the rest of the molecule.", ek: ["Start here: every larger structure is these groups on a carbon skeleton."], p: [P1, P2], drills: [st-draw-an-alcohol, st-name-an-alcohol, st-draw-a-thiol, st-name-a-thiol, st-draw-an-ether, st-name-an-ether, st-draw-a-primary-amine, st-name-a-primary-amine, st-draw-an-aldehyde, st-name-an-aldehyde, st-draw-a-ketone, st-name-a-ketone, st-draw-a-carboxylic-acid, st-name-a-carboxylic-acid, st-draw-an-ester, st-name-an-ester, st-draw-a-primary-amide, st-name-a-primary-amide, st-draw-an-acyl-chloride, st-name-an-acyl-chloride, st-draw-an-acid-anhydride, st-name-an-acid-anhydride, st-draw-a-thioester, st-name-a-thioester, st-draw-a-nitrile, st-name-a-nitrile, st-draw-a-phosphate-ester, st-name-a-phosphate-ester] }
+          - { id: A, std: ["acs-accm-general:III.F.1", "acs-accm-organic:II.A.1", "acs-accm-organic:III.A.1"], do: "Draw and name the common functional groups, with R for the rest of the molecule.", ek: ["Start here: every larger structure is these groups on a carbon skeleton."], p: [P1, P2], drills: [st-draw-an-alcohol, st-name-an-alcohol, st-draw-a-thiol, st-name-a-thiol, st-draw-an-ether, st-name-an-ether, st-draw-a-primary-amine, st-name-a-primary-amine, st-draw-an-aldehyde, st-name-an-aldehyde, st-draw-a-ketone, st-name-a-ketone, st-draw-a-carboxylic-acid, st-name-a-carboxylic-acid, st-draw-an-ester, st-name-an-ester, st-draw-a-primary-amide, st-name-a-primary-amide, st-draw-an-acyl-chloride, st-name-an-acyl-chloride, st-draw-an-acid-anhydride, st-name-an-acid-anhydride, st-draw-a-thioester, st-name-a-thioester, st-draw-a-nitrile, st-name-a-nitrile, st-draw-a-phosphate-ester, st-name-a-phosphate-ester] }
       - n: 2
         title: "Benzene derivatives and heterocycles"
         los:
@@ -85,7 +85,7 @@ units:
       - n: 2
         title: "Sugars"
         los:
-          - { id: A, std: ["20"], do: "Draw the Fischer projections of the common D-aldoses and of D-fructose, tell epimers apart, and draw the Haworth rings of glucose, galactose, ribose and deoxyribose.", ek: ["D means the OH on the lowest stereocentre points right. Glucose is right-left-right-right. Closing the ring: right in Fischer is down in Haworth; alpha puts the C-1 OH opposite the CH2OH."], p: [P1, P2], drills: [st-draw-d-glyceraldehyde, st-name-d-glyceraldehyde, st-draw-d-ribose, st-name-d-ribose, st-draw-2-deoxy-d-ribose, st-name-2-deoxy-d-ribose, st-draw-d-glucose, st-name-d-glucose, st-draw-d-galactose, st-name-d-galactose, st-draw-d-mannose, st-name-d-mannose, st-draw-d-fructose, st-name-d-fructose, st-draw-alpha-d-glucopyranose, st-name-alpha-d-glucopyranose, st-draw-beta-d-glucopyranose, st-name-beta-d-glucopyranose, st-draw-beta-d-galactopyranose, st-name-beta-d-galactopyranose, st-draw-beta-d-ribofuranose, st-name-beta-d-ribofuranose, st-draw-2-deoxy-beta-d-ribofuranose, st-name-2-deoxy-beta-d-ribofuranose] }
+          - { id: A, std: ["20", "acs-accm-organic:V.C.2"], do: "Draw the Fischer projections of the common D-aldoses and of D-fructose, tell epimers apart, and draw the Haworth rings of glucose, galactose, ribose and deoxyribose.", ek: ["D means the OH on the lowest stereocentre points right. Glucose is right-left-right-right. Closing the ring: right in Fischer is down in Haworth; alpha puts the C-1 OH opposite the CH2OH."], p: [P1, P2], drills: [st-draw-d-glyceraldehyde, st-name-d-glyceraldehyde, st-draw-d-ribose, st-name-d-ribose, st-draw-2-deoxy-d-ribose, st-name-2-deoxy-d-ribose, st-draw-d-glucose, st-name-d-glucose, st-draw-d-galactose, st-name-d-galactose, st-draw-d-mannose, st-name-d-mannose, st-draw-d-fructose, st-name-d-fructose, st-draw-alpha-d-glucopyranose, st-name-alpha-d-glucopyranose, st-draw-beta-d-glucopyranose, st-name-beta-d-glucopyranose, st-draw-beta-d-galactopyranose, st-name-beta-d-galactopyranose, st-draw-beta-d-ribofuranose, st-name-beta-d-ribofuranose, st-draw-2-deoxy-beta-d-ribofuranose, st-name-2-deoxy-beta-d-ribofuranose] }
       - n: 3
         title: "Bases, nucleosides and ATP"
         los:

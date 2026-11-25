@@ -30,14 +30,14 @@ Big ideas: CHAINS
 
 
 
-- ● **MT-1.1.A** Compute M_n, M_w and dispersity from a chain distribution.
+- ● **MT-1.1.A** (acs-accm-inorganic:X.C.1) Compute M_n, M_w and dispersity from a chain distribution.
   - EK: M_n = ΣnM/Σn; M_w = ΣnM²/ΣnM.
   - P1 · drills: mt-molar-mass-averages, mt-blend-mn
 - ● **MT-1.1.B** Compute the degree of polymerisation of a step-growth polymer.
   - EK: X_n = (1 + r)/(1 + r − 2rp).
   - Needs: MT-1.1.A
   - P1 · drills: mt-carothers, mt-carothers-reverse
-- ● **MT-1.1.C** Classify a polymer as chain-growth or step-growth.
+- ● **MT-1.1.C** (acs-accm-general:III.H.2, acs-accm-organic:III.A.3, acs-accm-inorganic:IV.B.2) Classify a polymer as chain-growth or step-growth.
   - EK: Vinyl polymers chain; polyesters, polyamides step.
   - P2 · drills: mt-growth-type, mt-growth-evidence
 - ● **MT-1.1.D** Classify a polymer as thermoplastic or thermoset.
@@ -55,7 +55,7 @@ Big ideas: PROPS
 - ● **MT-2.1.A** Compute Young's modulus from a tensile test.
   - EK: E = (F/A)/(ΔL/L₀).
   - P1 · drills: mt-youngs-modulus, mt-elongation
-- ● **MT-2.1.B** Relate a semiconductor's band gap to the wavelength it absorbs or emits.
+- ● **MT-2.1.B** (acs-accm-general:V.G.1, acs-accm-inorganic:II.G.2) Relate a semiconductor's band gap to the wavelength it absorbs or emits.
   - EK: λ = hc/E_g.
   - P1 · drills: mt-band-gap, mt-gap-from-emission
 
@@ -67,7 +67,7 @@ Big ideas: PROPS
 
 
 
-- ● **MT-3.1.A** Compute the Debye length from the ionic strength, and say how salt and valence change it.
+- ● **MT-3.1.A** (acs-accm-inorganic:IV.E.2) Compute the Debye length from the ionic strength, and say how salt and valence change it.
   - EK: κ⁻¹ = √(εkT/2N_Ae²I); 0.304/√I nm for 1:1 salt at 25 °C.
   - P1 · drills: col-debye-length, col-debye-scaling, col-debye-valence
 - ● **MT-3.1.B** Relate surface charge to surface potential with the Grahame equation.

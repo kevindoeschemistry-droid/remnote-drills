@@ -30,7 +30,7 @@ Big ideas: COLD, FAMILY
 
 
 
-- ● **ST-1.1.A** Draw and name the common functional groups, with R for the rest of the molecule.
+- ● **ST-1.1.A** (acs-accm-general:III.F.1, acs-accm-organic:II.A.1, acs-accm-organic:III.A.1) Draw and name the common functional groups, with R for the rest of the molecule.
   - EK: Start here: every larger structure is these groups on a carbon skeleton.
   - P1 · P2 · drills: st-draw-an-alcohol, st-name-an-alcohol, st-draw-a-thiol, st-name-a-thiol, st-draw-an-ether, st-name-an-ether, st-draw-a-primary-amine, st-name-a-primary-amine, st-draw-an-aldehyde, st-name-an-aldehyde, st-draw-a-ketone, st-name-a-ketone, st-draw-a-carboxylic-acid, st-name-a-carboxylic-acid, st-draw-an-ester, st-name-an-ester, st-draw-a-primary-amide, st-name-a-primary-amide, st-draw-an-acyl-chloride, st-name-an-acyl-chloride, st-draw-an-acid-anhydride, st-name-an-acid-anhydride, st-draw-a-thioester, st-name-a-thioester, st-draw-a-nitrile, st-name-a-nitrile, st-draw-a-phosphate-ester, st-name-a-phosphate-ester
 
@@ -74,7 +74,7 @@ Big ideas: COLD, FAMILY
 
 
 
-- ● **ST-2.2.A** (20) Draw the Fischer projections of the common D-aldoses and of D-fructose, tell epimers apart, and draw the Haworth rings of glucose, galactose, ribose and deoxyribose.
+- ● **ST-2.2.A** (20, acs-accm-organic:V.C.2) Draw the Fischer projections of the common D-aldoses and of D-fructose, tell epimers apart, and draw the Haworth rings of glucose, galactose, ribose and deoxyribose.
   - EK: D means the OH on the lowest stereocentre points right. Glucose is right-left-right-right. Closing the ring: right in Fischer is down in Haworth; alpha puts the C-1 OH opposite the CH2OH.
   - P1 · P2 · drills: st-draw-d-glyceraldehyde, st-name-d-glyceraldehyde, st-draw-d-ribose, st-name-d-ribose, st-draw-2-deoxy-d-ribose, st-name-2-deoxy-d-ribose, st-draw-d-glucose, st-name-d-glucose, st-draw-d-galactose, st-name-d-galactose, st-draw-d-mannose, st-name-d-mannose, st-draw-d-fructose, st-name-d-fructose, st-draw-alpha-d-glucopyranose, st-name-alpha-d-glucopyranose, st-draw-beta-d-glucopyranose, st-name-beta-d-glucopyranose, st-draw-beta-d-galactopyranose, st-name-beta-d-galactopyranose, st-draw-beta-d-ribofuranose, st-name-beta-d-ribofuranose, st-draw-2-deoxy-beta-d-ribofuranose, st-name-2-deoxy-beta-d-ribofuranose
 

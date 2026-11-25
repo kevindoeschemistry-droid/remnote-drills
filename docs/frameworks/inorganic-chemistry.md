@@ -38,7 +38,7 @@ Big ideas: TREND
 - ● **IN-1.1.A** (icho-appendix-c:d1) Name the flame colour of a group 1 or 2 element (and copper).
   - EK: Li crimson, Na yellow, K lilac, Ca orange-red, Sr crimson, Ba apple green, Cu blue-green.
   - P2 · drills: in-flame-colour, in-flame-identify
-- ● **IN-1.1.B** (icho-appendix-c:d1) Give the product of burning an s-block metal in oxygen.
+- ● **IN-1.1.B** (icho-appendix-c:d1, acs-accm-general:I.C.3, acs-accm-general:V.E.1) Give the product of burning an s-block metal in oxygen.
   - EK: Li oxide, Na peroxide, K/Rb/Cs superoxide; group 2 oxides.
   - P2 · P3 · drills: in-s-block-oxygen, in-oxide-type
 
@@ -50,7 +50,7 @@ Big ideas: COUNT, TREND
 
 
 
-- ● **IN-2.1.A** (ib-chemistry-2025:R3.2) Find the oxidation state (or average) of an element in a formula or ion.
+- ● **IN-2.1.A** (ib-chemistry-2025:R3.2, acs-accm-inorganic:I.B.6) Find the oxidation state (or average) of an element in a formula or ion.
   - EK: Fix F, group 1–2, H and O by rule; charge balance gives the rest.
   - P1 · drills: in-ox-state, in-ion-charge
 - ● **IN-2.1.B** (icho-appendix-c:d5) Find the ratio of atoms reduced to atoms oxidised in a disproportionation.
@@ -62,11 +62,11 @@ Big ideas: COUNT, TREND
 
 
 
-- ● **IN-2.2.A** (icho-appendix-c:d4) Name a halogen, sulfur or nitrogen oxoacid from its formula.
+- ● **IN-2.2.A** (icho-appendix-c:d4, acs-accm-general:IX.C.1) Name a halogen, sulfur or nitrogen oxoacid from its formula.
   - EK: hypo-…-ous, -ous, -ic, per-…-ic in order of oxidation state.
   - Needs: IN-2.1.A
   - P2 · drills: in-oxoacid-name, in-oxoacid-state
-- ● **IN-2.2.B** (icho-appendix-c:d3) Classify an oxide as acidic, basic, amphoteric or neutral.
+- ● **IN-2.2.B** (icho-appendix-c:d3, acs-accm-inorganic:I.C.3, acs-accm-inorganic:III.G.5, acs-accm-inorganic:V.E.3) Classify an oxide as acidic, basic, amphoteric or neutral.
   - EK: Metal oxides basic, non-metal oxides acidic, Al/Be/Zn amphoteric, CO/NO/N₂O neutral.
   - P2 · P3 · drills: in-oxide-character, in-oxide-trend
 
@@ -82,15 +82,15 @@ Big ideas: COUNT, SPLIT
   - EK: dⁿ = group − oxidation state.
   - Needs: IN-2.1.A
   - P1 · drills: in-d-count, in-ox-from-d
-- ● **IN-3.1.B** Give the spin-only magnetic moment of a high- or low-spin complex.
+- ● **IN-3.1.B** (acs-accm-inorganic:I.B.5, acs-accm-inorganic:IX.D.7) Give the spin-only magnetic moment of a high- or low-spin complex.
   - EK: μ = √(n(n+2)) μ_B.
   - Needs: IN-3.1.A
   - P1 · drills: in-spin-only, in-unpaired-from-moment
-- ● **IN-3.1.C** Compute the crystal-field stabilisation energy of an octahedral ion.
+- ● **IN-3.1.C** (acs-accm-inorganic:II.A.2, acs-accm-inorganic:II.C.3) Compute the crystal-field stabilisation energy of an octahedral ion.
   - EK: −0.4Δ_o per t₂g electron, +0.6Δ_o per e_g electron.
   - Needs: IN-3.1.A
   - P1 · drills: in-cfse, in-cfse-gain
-- ● **IN-3.1.D** Rank ligands by the size of the splitting they cause.
+- ● **IN-3.1.D** (acs-accm-inorganic:III.A.2, acs-accm-inorganic:III.F.1) Rank ligands by the size of the splitting they cause.
   - EK: I⁻ < Br⁻ < Cl⁻ < F⁻ < OH⁻ < H₂O < NH₃ < en < NO₂⁻ < CN⁻ < CO.
   - P2 · drills: in-spectrochemical, in-spectro-consequence
 
@@ -98,10 +98,10 @@ Big ideas: COUNT, SPLIT
 
 
 
-- ● **IN-3.2.A** (icho-appendix-c:a1) Count the stereoisomers of an octahedral or square-planar complex.
+- ● **IN-3.2.A** (icho-appendix-c:a1, acs-accm-inorganic:III.E.2) Count the stereoisomers of an octahedral or square-planar complex.
   - EK: Geometric isomers by trans pairs, then check each for chirality.
   - P3 · drills: in-isomer-count, in-isomer-type
-- ● **IN-3.2.B** (icho-appendix-c:d6) Name the colour of a common transition-metal ion or oxoanion in water.
+- ● **IN-3.2.B** (icho-appendix-c:d6, acs-accm-inorganic:III.A.2, acs-accm-inorganic:IX.D.2, acs-accm-inorganic:X.A.3) Name the colour of a common transition-metal ion or oxoanion in water.
   - EK: Colour is the complement of the light absorbed; d⁰ and d¹⁰ are colourless unless charge transfer.
   - P2 · drills: in-ion-colour, in-colour-identify
 
@@ -113,11 +113,11 @@ Big ideas: COUNT, TREND
 
 
 
-- ● **IN-4.1.A** (icho-appendix-c:d8) Count the electrons in a half-equation.
+- ● **IN-4.1.A** (icho-appendix-c:d8, acs-accm-inorganic:V.A.1) Count the electrons in a half-equation.
   - EK: Change in oxidation state × atoms changing.
   - Needs: IN-2.1.A
   - P1 · drills: in-half-electrons, in-redox-ratio
-- ● **IN-4.1.B** (icho-appendix-c:d9) Find an oxidant's concentration from an iodometric titration.
+- ● **IN-4.1.B** (icho-appendix-c:d9, acs-accm-inorganic:IX.D.4) Find an oxidant's concentration from an iodometric titration.
   - EK: One thiosulfate per electron from the oxidant to its final reduced form.
   - Needs: IN-4.1.A
   - P1 · drills: in-iodometry, in-thiosulfate-volume
@@ -132,7 +132,7 @@ Big ideas: COUNT, TREND
 - ● **IN-4.2.B** (icho-appendix-c:d10) Name the colour of a common precipitate.
   - EK: AgCl white, AgBr cream, AgI yellow; Cu(OH)₂ blue; Fe(OH)₃ red-brown.
   - P2 · drills: in-precipitate-colour, in-precipitate-identify
-- ● **IN-4.2.C** (icho-appendix-c:d10, icho-appendix-c:c16) Choose the test that identifies a common ion.
+- ● **IN-4.2.C** (icho-appendix-c:d10, icho-appendix-c:c16, acs-accm-general:V.F.1) Choose the test that identifies a common ion.
   - EK: Acidify before BaCl₂ or AgNO₃; Fe³⁺ with SCN⁻; NH₄⁺ with warm NaOH.
   - Needs: IN-4.2.B
   - P2 · drills: in-ion-test, in-test-result
@@ -145,14 +145,14 @@ Big ideas: PACK
 
 
 
-- ● **IN-5.1.A** Count the atoms or ions in a cubic unit cell.
+- ● **IN-5.1.A** (acs-accm-inorganic:X.D.8) Count the atoms or ions in a cubic unit cell.
   - EK: Corner 1/8, edge 1/4, face 1/2, body 1.
   - P1 · drills: in-cell-contents, in-sites-count
-- ● **IN-5.1.B** Give the coordination number in a metal or ionic structure.
+- ● **IN-5.1.B** (acs-accm-inorganic:III.E.1, acs-accm-inorganic:IX.B.2) Give the coordination number in a metal or ionic structure.
   - EK: sc 6, bcc 8, fcc 12; NaCl 6, CsCl 8, ZnS 4, CaF₂ 8:4.
   - Needs: IN-5.1.A
   - P2 · drills: in-coordination-number, in-structure-from-cn
-- ● **IN-5.1.C** Compute the packing fraction of a cubic lattice.
+- ● **IN-5.1.C** (acs-accm-inorganic:III.H.1) Compute the packing fraction of a cubic lattice.
   - EK: Z(4/3)πr³/a³ with r where spheres touch.
   - Needs: IN-5.1.A
   - P1 · drills: in-packing, in-radius-from-edge
@@ -160,7 +160,7 @@ Big ideas: PACK
   - EK: ρ = ZM/(N_A a³).
   - Needs: IN-5.1.A
   - P1 · drills: in-density, in-edge-from-density
-- ● **IN-5.1.E** Predict a coordination number from the radius ratio.
+- ● **IN-5.1.E** (acs-accm-general:III.G.1, acs-accm-inorganic:III.H.2) Predict a coordination number from the radius ratio.
   - EK: 0.225, 0.414, 0.732 thresholds.
   - Needs: IN-5.1.B
   - P3 · drills: in-radius-ratio, in-ratio-limit
@@ -169,18 +169,50 @@ Big ideas: PACK
 
 
 
-- ● **IN-5.2.A** (icho-appendix-c:a1) Apply Bragg's law with cubic plane spacings.
+- ● **IN-5.2.A** (icho-appendix-c:a1, acs-accm-inorganic:I.D.2, acs-accm-inorganic:IX.A.3, acs-accm-inorganic:IX.D.6) Apply Bragg's law with cubic plane spacings.
   - EK: nλ = 2d sin θ; d = a/√(h²+k²+l²).
   - P1 · drills: in-bragg, in-bragg-edge
 
 ## Drills not yet placed on the map
 
+- ia-werner-agcl (inorg.coordination)
+- ia-isomer-type (inorg.coordination)
+- ia-naming (inorg.coordination)
+- ia-formula-from-name (inorg.coordination)
+- ia-trans-effect (inorg.coordination)
+- ia-trans-effect-2 (inorg.coordination)
+- ia-chelate-ddg (inorg.coordination)
+- ia-chelate-origin (inorg.coordination)
+- ia-beta-from-k (inorg.coordination)
+- ia-alpha-ml (inorg.coordination)
+- ia-born-haber-lattice (inorg.solids)
+- ia-born-haber-formation (inorg.solids)
+- ia-wustite-ox (inorg.solids)
+- ia-wustite-fe3 (inorg.solids)
+- ia-doping (inorg.solids)
+- ia-intrinsic-factor (inorg.solids)
+- ia-superconductors (inorg.solids)
+- ia-solids-facts (inorg.solids)
+- ia-frameworks (inorg.solids)
+- ia-synthesis-conditions (inorg.solids)
 - cw-hsab-class (inorg.cross-cutting)
 - cw-latimer-skip (inorg.cross-cutting)
 - cw-disproportionation (inorg.cross-cutting)
 - cw-hsab-predict (inorg.cross-cutting)
 - cw-latimer-missing (inorg.cross-cutting)
 - cw-disprop-cases (inorg.cross-cutting)
+- ia-slater-main (inorg.cross-cutting)
+- ia-slater-4s (inorg.cross-cutting)
+- ia-pg-polar (inorg.cross-cutting)
+- ia-pg-chiral (inorg.cross-cutting)
+- ia-levelling (inorg.cross-cutting)
+- ia-superacids (inorg.cross-cutting)
+- ia-nmr-lines (inorg.cross-cutting)
+- ia-nmr-intensity (inorg.cross-cutting)
+- ia-ise-response (inorg.cross-cutting)
+- ia-microscopy-luminescence (inorg.cross-cutting)
+- ia-air-free (inorg.cross-cutting)
+- ia-air-free-2 (inorg.cross-cutting)
 - cw-hydride-type (inorg.main-group)
 - cw-isotope-shift (inorg.main-group)
 - cw-alkali-burn (inorg.main-group)
@@ -273,6 +305,18 @@ Big ideas: PACK
 - cw-first-row-ox (inorg.transition)
 - cw-metal-metal-bond (inorg.transition)
 - cw-heavy-tm-facts (inorg.transition)
+- ia-eigen-wilkins (inorg.transition)
+- ia-substitution-mech (inorg.transition)
+- ia-marcus-cross (inorg.transition)
+- ia-inner-outer (inorg.transition)
+- ia-coalescence-k (inorg.transition)
+- ia-coalescence-dg (inorg.transition)
+- ia-lfse-hydrated (inorg.transition)
+- ia-hydration-hump (inorg.transition)
+- ia-delta-from-lambda (inorg.transition)
+- ia-dd-rules (inorg.transition)
+- ia-mu-from-chi (inorg.transition)
+- ia-unpaired-from-chiT (inorg.transition)
 - cw-ox-from-f (inorg.f-block)
 - cw-lande-g (inorg.f-block)
 - cw-f-count (inorg.f-block)
@@ -286,3 +330,9 @@ Big ideas: PACK
 - cw-beta-hydride (inorg.organometallic)
 - cw-catalytic-process (inorg.organometallic)
 - cw-monsanto-count (inorg.organometallic)
+- ia-isolobal-short (inorg.organometallic)
+- ia-isolobal-partner (inorg.organometallic)
+- ia-tolman (inorg.organometallic)
+- ia-ligand-electronic (inorg.organometallic)
+- ia-ee-from-ddg (inorg.organometallic)
+- ia-ddg-for-ee (inorg.organometallic)

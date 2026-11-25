@@ -551,29 +551,29 @@ Big ideas: STRUCT, ENERGY, SPACE
 
 
 
-- ● **DAT-3.1.A** (ada-dat:3.1.a) Predict the product of a step from its curved arrows, telling two-electron arrows from fishhooks.
+- ● **DAT-3.1.A** (ada-dat:3.1.a, acs-accm-general:V.B.1, acs-accm-organic:V.C.1) Predict the product of a step from its curved arrows, telling two-electron arrows from fishhooks.
   - EK: Double-headed arrows move electron pairs and fishhooks move single electrons, always from the electron source to the electron sink.
   - P5 · drills: st-mech-sn2-1, st-mech-hbr-addition-1, or-radical-halogenation
-- ● **DAT-3.1.B** (ada-dat:3.1.a) Draw the curved arrows that convert given reactants into given products.
+- ● **DAT-3.1.B** (ada-dat:3.1.a, acs-accm-organic:VII.C.3) Draw the curved arrows that convert given reactants into given products.
   - EK: Start arrows at lone pairs or bonds, end at an atom or bond; count formal charges before and after.
   - Needs: DAT-3.1.A
   - P5 · drills: st-mech-e2-1, st-mech-acyl-substitution-1
-- ● **DAT-3.1.C** (ada-dat:3.1.a) Draw resonance structures and pick the major contributor.
+- ● **DAT-3.1.C** (ada-dat:3.1.a, acs-accm-organic:I.B.1) Draw resonance structures and pick the major contributor.
   - EK: Move only π and lone-pair electrons; the best contributor has full octets, fewest charges, and negative charge on the most electronegative atom.
   - P5 · P2 · drills: or-resonance-major, dat-resonance-charge
-- ● **DAT-3.1.D** (ada-dat:3.1.a) Predict the steps and selectivity of a free-radical halogenation.
+- ● **DAT-3.1.D** (ada-dat:3.1.a, acs-accm-organic:V.D.3, acs-accm-organic:VI.C.1) Predict the steps and selectivity of a free-radical halogenation.
   - EK: Initiation, propagation, termination; Br₂ is highly selective for the 3° hydrogen, Cl₂ much less so; radical stability 3° > 2° > 1°.
   - P2 · drills: or-radical-halogenation, dat-radical-product-percent
-- ● **DAT-3.1.E** (ada-dat:3.1.a) Predict the product of an electrophilic addition, including Markovnikov regiochemistry and carbocation rearrangements.
+- ● **DAT-3.1.E** (ada-dat:3.1.a, acs-accm-organic:I.B.2) Predict the product of an electrophilic addition, including Markovnikov regiochemistry and carbocation rearrangements.
   - EK: H adds to the carbon with more H; a carbocation shifts H or CH₃ to become more substituted or resonance-stabilized.
   - P2 · drills: rx-predict-alkene-hbr, rx-predict-alkene-hydration, st-mech-hbr-addition-2
-- ● **DAT-3.1.F** (ada-dat:3.1.a) Decide whether SN1, SN2, E1 or E2 operates from substrate, nucleophile/base, solvent and temperature.
+- ● **DAT-3.1.F** (ada-dat:3.1.a, acs-accm-organic:I.B.3, acs-accm-organic:IV.A.2, acs-accm-organic:IV.D.1, acs-accm-organic:IV.E.1, acs-accm-organic:IV.E.2, acs-accm-organic:V.E.2) Decide whether SN1, SN2, E1 or E2 operates from substrate, nucleophile/base, solvent and temperature.
   - EK: SN2: 1°, strong nucleophile, polar aprotic, inversion; SN1/E1: 3°, weak nucleophile, polar protic; E2: strong bulky base, anti-periplanar H; heat favors elimination.
   - P2 · P6 · drills: or-substitution-or-elimination, dat-rate-doubling
-- ● **DAT-3.1.G** (ada-dat:3.1.a) Predict the product of a Diels–Alder reaction, including stereochemistry.
+- ● **DAT-3.1.G** (ada-dat:3.1.a, acs-accm-organic:III.E.3) Predict the product of a Diels–Alder reaction, including stereochemistry.
   - EK: s-cis diene + dienophile → cyclohexene in one concerted step; dienophile substituents keep their cis/trans relationship; endo is favored.
   - P2 · P7 · drills: rx-predict-cc-diels-alder, rx-predict-cc-aldol-condensation
-- ● **DAT-3.1.H** (ada-dat:3.1.b) Read a reaction coordinate diagram: count steps, locate intermediates and transition states, and find the rate-determining step.
+- ● **DAT-3.1.H** (ada-dat:3.1.b, acs-accm-organic:VI.A.2, acs-accm-organic:VII.C.1) Read a reaction coordinate diagram: count steps, locate intermediates and transition states, and find the rate-determining step.
   - EK: Peaks are transition states, valleys are intermediates; the highest barrier is rate-determining; Hammond: a TS resembles the species nearer in energy.
   - P5 · drills: ac-multistep-profile, ac-energy-profile
 
@@ -581,11 +581,11 @@ Big ideas: STRUCT, ENERGY, SPACE
 
 
 
-- ● **DAT-3.2.A** (ada-dat:3.2.a) Predict the substitution or elimination product, including stereochemistry and Zaitsev vs Hofmann regiochemistry.
+- ● **DAT-3.2.A** (ada-dat:3.2.a, acs-accm-organic:III.E.3) Predict the substitution or elimination product, including stereochemistry and Zaitsev vs Hofmann regiochemistry.
   - EK: SN2 inverts, SN1 racemizes; small bases give the more substituted alkene, bulky bases (t-BuO⁻) the less substituted one.
   - Needs: DAT-3.1.F
   - P2 · drills: rx-predict-sub-e2-zaitsev, rx-predict-sub-e2-hofmann, rx-predict-sub-williamson
-- ● **DAT-3.2.B** (ada-dat:3.2.a) Predict the product of an alkene or alkyne reaction: HX, hydration, hydroboration–oxidation, halogenation, hydrogenation, ozonolysis.
+- ● **DAT-3.2.B** (ada-dat:3.2.a, acs-accm-organic:V.F.1) Predict the product of an alkene or alkyne reaction: HX, hydration, hydroboration–oxidation, halogenation, hydrogenation, ozonolysis.
   - EK: Hydroboration is anti-Markovnikov and syn; X₂ adds anti; Lindlar gives cis alkene, Na/NH₃ trans; ozonolysis cleaves C=C to carbonyls.
   - P1 · P2 · drills: rx-predict-alkene-hydroboration, rx-predict-alkene-bromination, rx-predict-alkyne-lindlar, rx-predict-alkyne-hydration
 - ● **DAT-3.2.C** (ada-dat:3.2.a) Predict the product of an alcohol reaction: oxidation, conversion to a halide or sulfonate, dehydration.
@@ -606,11 +606,11 @@ Big ideas: STRUCT, ENERGY, SPACE
 - ● **DAT-3.2.H** (ada-dat:3.2.a) Predict the product of an alpha-carbonyl reaction: enolate alkylation, aldol, Claisen, haloform.
   - EK: LDA at low T forms the kinetic (less substituted) enolate; aldol makes a β-hydroxy carbonyl that dehydrates to an enone with heat.
   - P2 · drills: rx-predict-carbonyl-lda-alkylation, rx-predict-cc-aldol-condensation, rx-predict-acyl-claisen
-- ● **DAT-3.2.I** (ada-dat:3.2.b, ada-dat:3.2.c) Plan a two-step or multi-step synthesis by working backward from the target.
+- ● **DAT-3.2.I** (ada-dat:3.2.b, ada-dat:3.2.c, acs-accm-organic:V.A.1, acs-accm-organic:V.A.4) Plan a two-step or multi-step synthesis by working backward from the target.
   - EK: Disconnect the bond formed last; track carbon count and functional-group changes; reject routes with wrong regio- or stereochemistry.
   - Needs: DAT-3.2.B, DAT-3.2.C, DAT-3.2.G
   - P2 · P6 · drills: rx-reagent-alkene-hydroboration, rx-reagent-carbonyl-grignard, rx-reagent-sub-pcc
-- ● **DAT-3.2.J** (ada-dat:3.2.d) Predict which functional group reacts when a molecule carries several.
+- ● **DAT-3.2.J** (ada-dat:3.2.d, acs-accm-organic:III.F.1, acs-accm-organic:VII.C.2) Predict which functional group reacts when a molecule carries several.
   - EK: NaBH₄ reduces aldehydes and ketones only; LiAlH₄ also reduces esters, acids and amides; protect an alcohol or carbonyl to spare it.
   - P2 · P6 · drills: or-chemoselectivity, dat-reagent-choice
 
@@ -618,13 +618,13 @@ Big ideas: STRUCT, ENERGY, SPACE
 
 
 
-- ● **DAT-3.3.A** (ada-dat:3.3.a) Rank compounds from different functional groups by acidity using pKa landmarks.
+- ● **DAT-3.3.A** (ada-dat:3.3.a, acs-accm-organic:VIII.C.2) Rank compounds from different functional groups by acidity using pKa landmarks.
   - EK: ≈ pKa: HCl −7, RCOOH 5, phenol 10, H₂O 15.7, ROH 16–18, terminal alkyne 25, NH₃ 38, alkane 50.
   - P1 · drills: or-pka-landmarks, dat-acid-base-keq
-- ● **DAT-3.3.B** (ada-dat:3.3.b) Rank acids within a functional group by charge, atom size, electronegativity, resonance, induction, hybridization and sterics.
+- ● **DAT-3.3.B** (ada-dat:3.3.b, acs-accm-organic:I.C.1) Rank acids within a functional group by charge, atom size, electronegativity, resonance, induction, hybridization and sterics.
   - EK: A more stable conjugate base means a stronger acid: larger atom > more electronegative > resonance > induction (falls off with distance) > more s character.
   - P2 · drills: or-acid-ranking-ario, dat-ka-ratio
-- ● **DAT-3.3.C** (ada-dat:3.3.c) Predict the products and direction of an acid–base equilibrium.
+- ● **DAT-3.3.C** (ada-dat:3.3.c, acs-accm-organic:VIII.G.1) Predict the products and direction of an acid–base equilibrium.
   - EK: The equilibrium favors the side with the weaker acid (higher pKa); K ≈ 10^(pKa product acid − pKa reactant acid).
   - Needs: DAT-3.3.A
   - P2 · drills: or-acid-base-direction, or-acid-base-log-k
@@ -636,22 +636,22 @@ Big ideas: STRUCT, ENERGY, SPACE
 
 
 
-- ● **DAT-3.4.A** (ada-dat:3.4.a) Rank organic compounds by boiling point, melting point and water solubility.
+- ● **DAT-3.4.A** (ada-dat:3.4.a, acs-accm-organic:III.A.1, acs-accm-organic:IV.A.1, acs-accm-organic:IV.A.2) Rank organic compounds by boiling point, melting point and water solubility.
   - EK: H-bonding and molar mass raise bp; branching lowers bp but symmetry raises mp; small alcohols and acids are water-soluble.
   - P2 · drills: or-boiling-solubility, dat-property-rank
-- ● **DAT-3.4.B** (ada-dat:3.4.b) Choose and interpret a separation technique: TLC/column chromatography, acid–base extraction, recrystallization, distillation.
+- ● **DAT-3.4.B** (ada-dat:3.4.b, acs-accm-organic:V.A.3, acs-accm-organic:X.A.1) Choose and interpret a separation technique: TLC/column chromatography, acid–base extraction, recrystallization, distillation.
   - EK: On silica, polar compounds have lower Rf; acids move to aqueous NaHCO₃/NaOH as salts, amines to aqueous HCl; distill when bp differ by > 25 °C, otherwise fractional.
   - P2 · P5 · drills: or-separation, dat-extraction-layer
-- ● **DAT-3.4.C** (ada-dat:3.4.c) Identify functional groups from characteristic IR absorptions.
+- ● **DAT-3.4.C** (ada-dat:3.4.c, acs-accm-organic:I.D.2) Identify functional groups from characteristic IR absorptions.
   - EK: Broad O–H 3200–3550; acid O–H 2500–3300; C=O ~1700 (strong, sharp); N–H 3300–3500; C≡N/C≡C ~2100–2250.
   - P1 · P5 · drills: or-ir-group, dat-ir-where
-- ● **DAT-3.4.D** (ada-dat:3.4.c) Interpret a ¹H NMR spectrum from chemical shift, integration and splitting.
+- ● **DAT-3.4.D** (ada-dat:3.4.c, acs-accm-organic:I.D.2) Interpret a ¹H NMR spectrum from chemical shift, integration and splitting.
   - EK: Shifts: alkyl 0.9–2, next to C=O 2–2.5, next to O 3.3–4, vinyl 4.5–6.5, aromatic 6.5–8, aldehyde 9–10, acid 10–12; n + 1 rule.
   - P5 · drills: nmr-multiplicity, nmr-downfield, or-h1-environments
-- ● **DAT-3.4.E** (ada-dat:3.4.c) Count ¹³C NMR signals from molecular symmetry and assign shift regions.
+- ● **DAT-3.4.E** (ada-dat:3.4.c, acs-accm-organic:III.D.2) Count ¹³C NMR signals from molecular symmetry and assign shift regions.
   - EK: One signal per unique carbon environment; C=O 160–220, aromatic/alkene 100–150, C–O 50–90, alkyl 0–50.
   - P5 · P7 · drills: or-c13-signals, dat-c13-shift
-- ● **DAT-3.4.F** (ada-dat:3.4.c) Deduce a structure from a molecular formula and combined IR, ¹H and ¹³C NMR data.
+- ● **DAT-3.4.F** (ada-dat:3.4.c, acs-accm-organic:IX.A.2, acs-accm-organic:IX.C.1, acs-accm-organic:X.A.1) Deduce a structure from a molecular formula and combined IR, ¹H and ¹³C NMR data.
   - EK: Degrees of unsaturation = (2C + 2 + N − H − X)/2; one ring or π bond each; a benzene ring counts 4.
   - Needs: DAT-3.4.C, DAT-3.4.D, DAT-3.4.E
   - P5 · P6 · drills: or-structure-from-data, or-degrees-of-unsaturation
@@ -660,30 +660,30 @@ Big ideas: STRUCT, ENERGY, SPACE
 
 
 
-- ● **DAT-3.5.A** (ada-dat:3.5.a) Name a compound by IUPAC rules, or draw it from its name.
+- ● **DAT-3.5.A** (ada-dat:3.5.a, acs-accm-organic:IX.B.1) Name a compound by IUPAC rules, or draw it from its name.
   - EK: Highest-priority group sets the suffix and lowest locant; longest chain containing it; substituents alphabetical; E/Z and R/S as prefixes.
   - Needs: DAT-3.5.B
   - P1 · drills: or-iupac-name, dat-carbons-from-name
 - ● **DAT-3.5.B** (ada-dat:3.5.a) Identify every functional group in a structure.
   - EK: Know alcohol, ether, aldehyde, ketone, acid, ester, amide, amine, nitrile, acid chloride, anhydride, epoxide, phenol, thiol, imine, enamine.
   - P1 · P5 · drills: st-name-an-ester, st-name-a-ketone, st-name-a-primary-amide
-- ● **DAT-3.5.C** (ada-dat:3.5.b) Assign R/S configuration to a stereocenter and identify chiral molecules.
+- ● **DAT-3.5.C** (ada-dat:3.5.b, acs-accm-general:III.E, acs-accm-organic:III.A.2) Assign R/S configuration to a stereocenter and identify chiral molecules.
   - EK: Rank by atomic number (CIP), lowest priority to the back, trace 1→2→3; if the lowest points forward, reverse the answer.
   - P5 · P7 · drills: or-rs-from-arrangement, or-cip-priority
-- ● **DAT-3.5.D** (ada-dat:3.5.b) Classify a pair of structures as identical, enantiomers, diastereomers, meso or constitutional isomers.
+- ● **DAT-3.5.D** (ada-dat:3.5.b, acs-accm-general:III.B.1, acs-accm-organic:III.B.2, acs-accm-organic:III.E.1) Classify a pair of structures as identical, enantiomers, diastereomers, meso or constitutional isomers.
   - EK: Enantiomers invert every stereocenter, diastereomers some; meso has stereocenters and an internal mirror plane; max 2ⁿ stereoisomers.
   - Needs: DAT-3.5.C
   - P5 · P7 · drills: or-isomer-relationship, or-stereoisomer-maximum
-- ● **DAT-3.5.E** (ada-dat:3.5.b) Pick the most stable Newman or chair conformation.
+- ● **DAT-3.5.E** (ada-dat:3.5.b, acs-accm-organic:II.F.2, acs-accm-organic:V.C.2, acs-accm-organic:VIII.C.1) Pick the most stable Newman or chair conformation.
   - EK: Anti < gauche < eclipsed in energy; bulky chair substituents go equatorial; a ring flip swaps axial and equatorial.
   - P7 · drills: or-conformation, dat-axial-equatorial
-- ● **DAT-3.5.F** (ada-dat:3.5.c) Classify a ring as aromatic, antiaromatic or nonaromatic.
+- ● **DAT-3.5.F** (ada-dat:3.5.c, acs-accm-organic:II.C.2) Classify a ring as aromatic, antiaromatic or nonaromatic.
   - EK: Cyclic, planar, fully conjugated with 4n + 2 π electrons is aromatic; 4n is antiaromatic; count lone pairs only if they sit in the p system.
   - P2 · drills: or-aromaticity, dat-pi-electron-count
-- ● **DAT-3.5.G** (ada-dat:3.5.c) Compare bond lengths, bond angles and hybridization across a structure.
+- ● **DAT-3.5.G** (ada-dat:3.5.c, acs-accm-organic:I.C.2, acs-accm-organic:II.B.1, acs-accm-organic:II.E.1, acs-accm-organic:II.F.1) Compare bond lengths, bond angles and hybridization across a structure.
   - EK: More s character means shorter, stronger C–H bonds: sp 180°, sp² 120°, sp³ 109.5°; triple < double < single in length.
   - P1 · drills: or-hybridization-geometry, dat-bond-angle
-- ● **DAT-3.5.H** (ada-dat:3.5.c) Rank carbocations, radicals, carbanions and alkenes by stability.
+- ● **DAT-3.5.H** (ada-dat:3.5.c, acs-accm-organic:VII.F.2) Rank carbocations, radicals, carbanions and alkenes by stability.
   - EK: Carbocations and radicals: allylic/benzylic ≈ 3° > 2° > 1° > methyl (hyperconjugation, resonance); carbanions the reverse; more substituted and trans alkenes are more stable.
   - P2 · drills: or-stability-rank, dat-alkene-stability
 

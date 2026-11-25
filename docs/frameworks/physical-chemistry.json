@@ -23,7 +23,10 @@
    "icho-appendix-c",
    "icho-syllabus",
    "gre-physics",
-   "gre-chemistry"
+   "gre-chemistry",
+   "acs-accm-general",
+   "acs-accm-inorganic",
+   "acs-accm-organic"
   ],
   "note": "Anchored on the ACS Physical Chemistry content map (read in full): objectives cite its subdisciplinary articulations, through scripts/accm_pchem.py. Units keep Engel & Reid's order; the map's articulations no objective answers are listed in docs/coverage/standards.md."
  },
@@ -505,7 +508,8 @@
        "std": [
         "webwork-opl:TH13.12",
         "acs-accm-pchem:VI.H.7",
-        "acs-accm-pchem:III.H.3"
+        "acs-accm-pchem:III.H.3",
+        "acs-accm-general:VI.H.3"
        ],
        "do": "Calculate a standard reaction entropy from absolute molar entropies.",
        "ek": [
@@ -900,7 +904,10 @@
         "acs-accm-pchem:IX.A.1",
         "acs-accm-pchem:III.H.2",
         "acs-accm-pchem:III.H.4",
-        "acs-accm-pchem:II.G.1"
+        "acs-accm-pchem:II.G.1",
+        "acs-accm-general:II.G.2",
+        "acs-accm-inorganic:II.G.2",
+        "acs-accm-inorganic:X.A.2"
        ],
        "do": "Use Bragg's law and cubic lattice spacings, and explain conduction in metals and semiconductors by bands.",
        "ek": [
@@ -918,7 +925,9 @@
        "id": "G",
        "std": [
         "acs-accm-pchem:V.F.2",
-        "acs-accm-pchem:IX.C.2"
+        "acs-accm-pchem:IX.C.2",
+        "acs-accm-inorganic:III.H.4",
+        "acs-accm-inorganic:X.A.1"
        ],
        "do": "Estimate the share of atoms at a nanoparticle's surface and explain size-dependent properties.",
        "ek": [
@@ -1413,7 +1422,8 @@
         "acs-accm-pchem:I.G.2",
         "acs-accm-pchem:IX.D.4",
         "acs-accm-pchem:VI.I.1",
-        "acs-accm-pchem:I.F.1"
+        "acs-accm-pchem:I.F.1",
+        "acs-accm-organic:I.D.2"
        ],
        "do": "Compute mass-spectrometry m/z values and nuclear energies from mass changes.",
        "ek": [
@@ -1673,7 +1683,9 @@
        "id": "B",
        "std": [
         "acs-accm-pchem:I.B.4",
-        "acs-accm-pchem:X.D.4"
+        "acs-accm-pchem:X.D.4",
+        "acs-accm-inorganic:I.B.1",
+        "acs-accm-inorganic:X.D.4"
        ],
        "do": "Use the particle-in-a-box wavefunction to locate nodes and compute a probability.",
        "ek": [
@@ -2001,7 +2013,9 @@
        "id": "E",
        "std": [
         "acs-accm-pchem:VII.A.4",
-        "acs-accm-pchem:I.A.3"
+        "acs-accm-pchem:I.A.3",
+        "acs-accm-organic:I.A.1",
+        "acs-accm-inorganic:I.A.2"
        ],
        "do": "Predict isotope shifts in vibrational frequencies and estimate a kinetic isotope effect.",
        "ek": [
@@ -2019,7 +2033,8 @@
        "id": "F",
        "std": [
         "acs-accm-pchem:III.F.2",
-        "acs-accm-pchem:III.A.1"
+        "acs-accm-pchem:III.A.1",
+        "acs-accm-inorganic:II.D.2"
        ],
        "do": "Assign infrared bands to functional groups and compare stretches by force constant.",
        "ek": [
@@ -2515,7 +2530,10 @@
        "std": [
         "acs-accm-pchem:III.C.3",
         "acs-accm-pchem:III.C.1",
-        "acs-accm-pchem:V.B.4"
+        "acs-accm-pchem:V.B.4",
+        "acs-accm-general:III.C",
+        "acs-accm-organic:III.C.1",
+        "acs-accm-inorganic:III.C.1"
        ],
        "do": "Classify stationary points on a potential-energy surface.",
        "ek": [
@@ -2656,7 +2674,8 @@
         "acs-accm-pchem:VI.C.2",
         "acs-accm-pchem:VI.C.4",
         "acs-accm-pchem:II.D.1",
-        "acs-accm-pchem:II.D.2"
+        "acs-accm-pchem:II.D.2",
+        "acs-accm-inorganic:V.F.10"
        ],
        "do": "Compute photon counts and quantum yields, and say how light breaks bonds.",
        "ek": [
@@ -2699,7 +2718,8 @@
       {
        "id": "A",
        "std": [
-        "acs-accm-pchem:III.B.1"
+        "acs-accm-pchem:III.B.1",
+        "acs-accm-inorganic:X.D.3"
        ],
        "do": "Identify the symmetry elements of a molecule.",
        "ek": [
@@ -2717,7 +2737,9 @@
       {
        "id": "B",
        "std": [
-        "acs-accm-pchem:III.B.1"
+        "acs-accm-pchem:III.B.1",
+        "acs-accm-general:III.D",
+        "acs-accm-inorganic:III.D.1"
        ],
        "do": "Assign a molecule to its point group.",
        "ek": [
@@ -2772,7 +2794,11 @@
       {
        "id": "E",
        "std": [
-        "acs-accm-pchem:III.D.2"
+        "acs-accm-pchem:III.D.2",
+        "acs-accm-organic:III.D.1",
+        "acs-accm-inorganic:II.E.4",
+        "acs-accm-inorganic:III.D.3",
+        "acs-accm-inorganic:III.D.4"
        ],
        "do": "Decide from symmetry whether a mode is IR active, Raman active or both.",
        "ek": [
@@ -2789,7 +2815,9 @@
       {
        "id": "F",
        "std": [
-        "acs-accm-pchem:III.E.1"
+        "acs-accm-pchem:III.E.1",
+        "acs-accm-organic:III.E.5",
+        "acs-accm-organic:IX.C.2"
        ],
        "do": "Use optical rotation to find specific rotation and enantiomeric excess.",
        "ek": [
@@ -3285,7 +3313,8 @@
        "id": "E",
        "std": [
         "acs-accm-pchem:VI.H.7",
-        "acs-accm-pchem:III.H.3"
+        "acs-accm-pchem:III.H.3",
+        "acs-accm-general:VI.H.3"
        ],
        "do": "Calculate the residual entropy of a crystal with orientational disorder.",
        "ek": [
@@ -3680,7 +3709,11 @@
         "acs-accm-pchem:V.B.3",
         "acs-accm-pchem:V.D.1",
         "acs-accm-pchem:X.D.2",
-        "acs-accm-pchem:V.F.3"
+        "acs-accm-pchem:V.F.3",
+        "acs-accm-general:VII.F.1",
+        "acs-accm-organic:V.E.2",
+        "acs-accm-organic:VII.F.1",
+        "acs-accm-inorganic:VII.F.1"
        ],
        "do": "Quantify how a catalyst or a higher temperature speeds a reaction, and tell kinetic from thermodynamic control.",
        "ek": [
@@ -3770,7 +3803,8 @@
        "id": "D",
        "std": [
         "acs-accm-pchem:VII.C.3",
-        "acs-accm-pchem:VII.C.5"
+        "acs-accm-pchem:VII.C.5",
+        "acs-accm-inorganic:VII.C.2"
        ],
        "do": "Apply the steady-state approximation to derive a rate law.",
        "ek": [
@@ -3864,7 +3898,9 @@
        "id": "I",
        "std": [
         "acs-accm-pchem:VIII.G.2",
-        "acs-accm-pchem:III.H.1"
+        "acs-accm-pchem:III.H.1",
+        "acs-accm-inorganic:V.D.5",
+        "acs-accm-inorganic:VII.E.2"
        ],
        "do": "Use the Langmuir isotherm to find surface coverage, or the pressure for a target coverage.",
        "ek": [

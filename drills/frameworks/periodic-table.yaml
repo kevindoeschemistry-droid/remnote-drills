@@ -22,7 +22,7 @@ domains: [ptable]
 
 basis:
   primary: iupac-periodic-table
-  also: [ngss-hs, ib-chemistry-2025, icho-appendix-c]
+  also: [ngss-hs, ib-chemistry-2025, icho-appendix-c, acs-accm-general, acs-accm-inorganic]
   note: "Content from the IUPAC table (release note read; element list cross-checked in the verifier). Which parts to know by heart is a house decision from Kevin's organometallics course."
 
 big_ideas:
@@ -55,7 +55,7 @@ units:
       - n: 1
         title: "Symbols and numbers"
         los:
-          - { id: A, do: "Give the atomic number of any main-group element.", ek: ["Noble gases at 2, 10, 18, 36, 54, 86, 118 anchor each row."], p: [P1], drills: ["pt-number-main", pt-element-from-z-main] }
+          - { id: A, std: ["acs-accm-general:I.A.1", "acs-accm-inorganic:I.A.1"], do: "Give the atomic number of any main-group element.", ek: ["Noble gases at 2, 10, 18, 36, 54, 86, 118 anchor each row."], p: [P1], drills: ["pt-number-main", pt-element-from-z-main] }
           - { id: B, do: "Write the heavy p-block row from memory.", ek: ["Tl Pb Bi Po At Rn, 81 to 86."], p: [P2], drills: ["pt-write-p-block-heavy", pt-p6-next] }
   - id: d-block
     n: 2
@@ -74,7 +74,7 @@ units:
       - n: 2
         title: "Electron counts"
         los:
-          - { id: A, do: "Give the d-electron count of a metal in a stated oxidation state.", ek: ["d count = group − oxidation state."], p: [P3], drills: ["pt-d-electron-count", pt-ox-from-d] }
+          - { id: A, std: ["acs-accm-inorganic:I.B.6"], do: "Give the d-electron count of a metal in a stated oxidation state.", ek: ["d count = group − oxidation state."], p: [P3], drills: ["pt-d-electron-count", pt-ox-from-d] }
   - id: f-block
     n: 3
     title: "The f block"
@@ -100,7 +100,7 @@ units:
         los:
           - { id: A, do: "Give the d and s electron counts of any 3d, 4d or 5d atom.", ek: ["Regular: ns² (n−1)dⁿ. Exceptions: Cr, Cu; Nb, Mo, Ru, Rh, Pd, Ag; Pt, Au."], p: [P1], drills: ["pt-config-d-count", "pt-config-s-count"] }
           - { id: B, do: "Say whether an atom follows the filling order or is an exception.", ek: ["Ten exceptions in three rows; W is regular, Pd is 4d¹⁰ 5s⁰."], p: [P1], drills: ["pt-config-anomaly", pt-unpaired-atom] }
-          - { id: C, do: "Write the full configuration of a transition-metal atom with its noble-gas core.", ek: ["The 5d metals carry 4f¹⁴ in the core."], p: [P2], drills: ["pt-config-write-d", pt-config-pick-d] }
+          - { id: C, std: ["acs-accm-general:I.B.3"], do: "Write the full configuration of a transition-metal atom with its noble-gas core.", ek: ["The 5d metals carry 4f¹⁴ in the core."], p: [P2], drills: ["pt-config-write-d", pt-config-pick-d] }
       - n: 2
         title: "The f block"
         los:

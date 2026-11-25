@@ -50,7 +50,7 @@ domains: []
 
 basis:
   primary: ap-biology-2025
-  also: [ap-biology, iupac-aa-1983, ngss-hs, ib-biology-2025, icho-appendix-c, icho-syllabus, aamc-mcat-outline]
+  also: [ap-biology, iupac-aa-1983, ngss-hs, ib-biology-2025, icho-appendix-c, icho-syllabus, aamc-mcat-outline, acs-accm-general, acs-accm-inorganic, acs-accm-organic]
   note: "Topics cite the 2025 AP Biology CED learning objectives (all 97 read); objectives keep their 2019 codes, read through a publisher's correlation table."
 
 big_ideas:
@@ -128,7 +128,7 @@ units:
         title: Structure and function of biological macromolecules
         std: ["ap-biology-2025:1.4.A", "ap-biology-2025:1.5.A", "ap-biology-2025:1.7.A"]
         los:
-          - { id: A, std: [SYI-1.C], do: "Describe the four levels of protein structure and the interactions that hold each.", ek: ["1°: peptide bonds; 2°: backbone H-bonds (α helix, β sheet); 3°: R-group interactions incl. disulfides; 4°: multiple subunits."], p: [P1], drills: ["bi-protein-levels", bi-structure-level], needs: [BI-1.4.B] }
+          - { id: A, std: ["SYI-1.C", "acs-accm-general:IV.B.1", "acs-accm-organic:IV.B.2", "acs-accm-inorganic:IV.B.3"], do: "Describe the four levels of protein structure and the interactions that hold each.", ek: ["1°: peptide bonds; 2°: backbone H-bonds (α helix, β sheet); 3°: R-group interactions incl. disulfides; 4°: multiple subunits."], p: [P1], drills: ["bi-protein-levels", bi-structure-level], needs: [BI-1.4.B] }
           - { id: B, std: [SYI-1.C], do: "Predict how substituting one monomer changes a polymer's structure and function.", ek: ["Swapping a charged for a nonpolar residue (Glu→Val in hemoglobin) can change folding, binding and aggregation."], p: [P6], drills: ["bi-monomer-substitution", bi-substitution-predict], needs: [BI-1.5.A] }
           - { id: C, std: [SYI-1.C], do: "Identify the directionality of proteins (N→C) and nucleic acids (5′→3′) and why polymers grow at one end only.", ek: ["New nucleotides add to the 3′-OH; new amino acids add to the C-terminus."], p: [P1], drills: ["bi-directionality", bi-direction-scenario] }
       - n: 6
@@ -171,7 +171,7 @@ units:
         title: Plasma membranes
         std: ["ap-biology-2025:2.3.A", "ap-biology-2025:2.3.B"]
         los:
-          - { id: A, std: [ENE-2.A], do: "Explain how amphipathic phospholipids self-assemble into a bilayer and what embedded proteins add.", ek: ["Hydrophilic heads face water, hydrophobic tails face each other; proteins transport, receive signals, anchor and recognise."], p: [P1], drills: ["bi-bilayer", bi-bilayer-scenario], needs: [BI-1.4.C] }
+          - { id: A, std: ["ENE-2.A", "acs-accm-organic:IV.B.1"], do: "Explain how amphipathic phospholipids self-assemble into a bilayer and what embedded proteins add.", ek: ["Hydrophilic heads face water, hydrophobic tails face each other; proteins transport, receive signals, anchor and recognise."], p: [P1], drills: ["bi-bilayer", bi-bilayer-scenario], needs: [BI-1.4.C] }
           - { id: B, std: [ENE-2.B], do: "Describe the fluid mosaic model and predict how temperature, unsaturation and cholesterol change fluidity.", ek: ["Unsaturated tails and higher temperature raise fluidity; cholesterol buffers it both ways."], p: [P1, P2], drills: ["bi-membrane-fluidity", bi-fluidity-predict], needs: [BI-2.4.A] }
       - n: 5
         title: Membrane permeability

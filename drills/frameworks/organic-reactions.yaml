@@ -24,9 +24,9 @@ level: 4
 domains: []
 
 basis:
-  primary: bruice-8e
-  also: [ib-chemistry-2025, icho-appendix-c, icho-syllabus, acs-accm, aamc-mcat-outline, gre-chemistry]
-  note: "Families follow the reaction chapters of Bruice's Organic Chemistry (a textbook, not a standard; chapter titles 2-17 from memory). The reactions and substrates in each are a house list. Every product is mass-balanced against its reactant by the generator; regiochemistry and stereochemistry were checked by eye."
+  primary: acs-accm-organic
+  also: [bruice-8e, ib-chemistry-2025, icho-appendix-c, icho-syllabus, acs-accm, aamc-mcat-outline, gre-chemistry, acs-accm-general, acs-accm-inorganic]
+  note: "Since Nov 2026 the primary basis is the ACS organic content map (read in full); every articulation is answered (scripts/accm_maps.py), with units 9 (physical organic, practice) and 10 (organometallics) added for those nothing reached. Families follow the reaction chapters of Bruice's Organic Chemistry (a textbook, not a standard; chapter titles 2-17 from memory). The reactions and substrates in each are a house list. Every product is mass-balanced against its reactant by the generator; regiochemistry and stereochemistry were checked by eye."
 
 big_ideas:
   - id: RULES
@@ -62,14 +62,14 @@ units:
         title: "Counting"
         los:
           - { id: A, do: "Find the degrees of unsaturation from a molecular formula.", ek: ["U = ½(2C + 2 + N − H − X); each is a ring or a π bond."], p: [P3], drills: ["or-degrees-of-unsaturation", co-h-from-dou] }
-          - { id: B, do: "Give the maximum number of stereoisomers from the number of stereocentres.", ek: ["2ⁿ, fewer when there is a meso form."], p: [P3], drills: ["or-stereoisomer-maximum", or-centres-from-max] }
+          - { id: B, std: ["acs-accm-organic:III.A.2"], do: "Give the maximum number of stereoisomers from the number of stereocentres.", ek: ["2ⁿ, fewer when there is a meso form."], p: [P3], drills: ["or-stereoisomer-maximum", or-centres-from-max] }
           - { id: C, do: "Assign the oxidation state of a carbon and say whether a step is an oxidation or a reduction.", ek: ["Bonds to H count −1, bonds to O, N or halogen +1, bonds to C zero."], p: [P3], drills: ["or-oxidation-level", or-carbon-ox-group] }
       - n: 2
         title: "Direction and site"
         los:
-          - { id: A, do: "Predict which side an acid–base equilibrium favours from two pKa values, and its equilibrium constant.", ek: ["Toward the weaker acid; K = 10^(pKa of product acid − pKa of starting acid)."], p: [P3], drills: ["or-acid-base-direction", "or-acid-base-log-k"] }
-          - { id: B, do: "Decide whether a ring is aromatic, antiaromatic or neither.", ek: ["Cyclic, planar, a p orbital on every atom, then 4n + 2 or 4n π electrons."], p: [P3], drills: ["or-aromaticity", dat-pi-electron-count] }
-          - { id: C, do: "Choose between SN2, E2 and SN1/E1 from the substrate and the reagent.", ek: ["Strong or weak reagent first, then how hindered the carbon is, then how bulky the base."], p: [P3], drills: ["or-substitution-or-elimination", dat-rate-doubling] }
+          - { id: A, std: ["acs-accm-organic:VIII.C.2", "acs-accm-organic:VIII.D.1"], do: "Predict which side an acid–base equilibrium favours from two pKa values, and its equilibrium constant.", ek: ["Toward the weaker acid; K = 10^(pKa of product acid − pKa of starting acid)."], p: [P3], drills: ["or-acid-base-direction", "or-acid-base-log-k"] }
+          - { id: B, std: ["acs-accm-organic:II.C.2"], do: "Decide whether a ring is aromatic, antiaromatic or neither.", ek: ["Cyclic, planar, a p orbital on every atom, then 4n + 2 or 4n π electrons."], p: [P3], drills: ["or-aromaticity", dat-pi-electron-count] }
+          - { id: C, std: ["acs-accm-organic:I.B.3", "acs-accm-organic:IV.E.2", "acs-accm-organic:V.D.2"], do: "Choose between SN2, E2 and SN1/E1 from the substrate and the reagent.", ek: ["Strong or weak reagent first, then how hindered the carbon is, then how bulky the base."], p: [P3], drills: ["or-substitution-or-elimination", dat-rate-doubling] }
           - { id: D, do: "Say where a substituent directs the next electrophile on a benzene ring and whether it speeds or slows the ring.", ek: ["Donors direct ortho/para and activate; acceptors direct meta and deactivate; halogens direct ortho/para but deactivate."], p: [P3], drills: ["or-directing-effect", or-activator-rank] }
   - id: alkenes-alkynes
     n: 2
@@ -81,8 +81,8 @@ units:
       - n: 1
         title: "Additions to alkenes"
         los:
-          - { id: A, do: "Predict the product of adding HX or water to an alkene, with and without Markovnikov orientation.", ek: ["The proton goes where it leaves the more stable carbocation; peroxides and boranes reverse the orientation."], p: [P1, P2], drills: ["rx-predict-alkene-hbr", "rx-reagent-alkene-hbr", "rx-predict-alkene-hbr-peroxide", "rx-reagent-alkene-hbr-peroxide", "rx-predict-alkene-hydration", "rx-reagent-alkene-hydration", "rx-predict-alkene-hydroboration", "rx-reagent-alkene-hydroboration"] }
-          - { id: B, do: "Predict the product of halogenation, halohydrin formation, hydrogenation, epoxidation, dihydroxylation and ozonolysis.", ek: ["Know which additions are syn and which anti, and that ozonolysis cuts the C=C."], p: [P1, P2], drills: ["rx-predict-alkene-bromination", "rx-reagent-alkene-bromination", "rx-predict-alkene-bromohydrin", "rx-reagent-alkene-bromohydrin", "rx-predict-alkene-hydrogenation", "rx-reagent-alkene-hydrogenation", "rx-predict-alkene-epoxidation", "rx-reagent-alkene-epoxidation", "rx-predict-alkene-dihydroxylation", "rx-reagent-alkene-dihydroxylation", "rx-predict-alkene-ozonolysis", "rx-reagent-alkene-ozonolysis"] }
+          - { id: A, std: ["acs-accm-organic:I.B.2", "acs-accm-organic:V.F.2"], do: "Predict the product of adding HX or water to an alkene, with and without Markovnikov orientation.", ek: ["The proton goes where it leaves the more stable carbocation; peroxides and boranes reverse the orientation."], p: [P1, P2], drills: ["rx-predict-alkene-hbr", "rx-reagent-alkene-hbr", "rx-predict-alkene-hbr-peroxide", "rx-reagent-alkene-hbr-peroxide", "rx-predict-alkene-hydration", "rx-reagent-alkene-hydration", "rx-predict-alkene-hydroboration", "rx-reagent-alkene-hydroboration"] }
+          - { id: B, std: ["acs-accm-organic:V.F.1"], do: "Predict the product of halogenation, halohydrin formation, hydrogenation, epoxidation, dihydroxylation and ozonolysis.", ek: ["Know which additions are syn and which anti, and that ozonolysis cuts the C=C."], p: [P1, P2], drills: ["rx-predict-alkene-bromination", "rx-reagent-alkene-bromination", "rx-predict-alkene-bromohydrin", "rx-reagent-alkene-bromohydrin", "rx-predict-alkene-hydrogenation", "rx-reagent-alkene-hydrogenation", "rx-predict-alkene-epoxidation", "rx-reagent-alkene-epoxidation", "rx-predict-alkene-dihydroxylation", "rx-reagent-alkene-dihydroxylation", "rx-predict-alkene-ozonolysis", "rx-reagent-alkene-ozonolysis"] }
       - n: 2
         title: "Alkynes"
         los:
@@ -97,8 +97,8 @@ units:
       - n: 1
         title: "Substitution, elimination and oxidation"
         los:
-          - { id: A, do: "Predict the product of converting an alcohol to a halide, a tosylate or an ether, and of oxidising it.", ek: ["PBr₃, SOCl₂ and TsCl make leaving groups; PCC stops at the aldehyde, chromic acid goes to the acid."], p: [P1, P2], drills: ["rx-predict-sub-pbr3", "rx-reagent-sub-pbr3", "rx-predict-sub-socl2", "rx-reagent-sub-socl2", "rx-predict-sub-tosylation", "rx-reagent-sub-tosylation", "rx-predict-sub-pcc", "rx-reagent-sub-pcc", "rx-predict-sub-jones", "rx-reagent-sub-jones", "rx-predict-sub-jones-secondary", "rx-reagent-sub-jones-secondary", "rx-predict-sub-williamson", "rx-reagent-sub-williamson"] }
-          - { id: B, do: "Predict the substitution or elimination product of an alkyl halide, including Zaitsev against Hofmann, and of a Grignard reagent with CO₂.", ek: ["A small base gives the more substituted alkene, a bulky one the less substituted."], p: [P1, P2], drills: ["rx-predict-sub-cyanide", "rx-reagent-sub-cyanide", "rx-predict-sub-e2-zaitsev", "rx-reagent-sub-e2-zaitsev", "rx-predict-sub-e2-hofmann", "rx-reagent-sub-e2-hofmann", "rx-predict-sub-grignard-co2", "rx-reagent-sub-grignard-co2"] }
+          - { id: A, std: ["acs-accm-organic:V.E.1"], do: "Predict the product of converting an alcohol to a halide, a tosylate or an ether, and of oxidising it.", ek: ["PBr₃, SOCl₂ and TsCl make leaving groups; PCC stops at the aldehyde, chromic acid goes to the acid."], p: [P1, P2], drills: ["rx-predict-sub-pbr3", "rx-reagent-sub-pbr3", "rx-predict-sub-socl2", "rx-reagent-sub-socl2", "rx-predict-sub-tosylation", "rx-reagent-sub-tosylation", "rx-predict-sub-pcc", "rx-reagent-sub-pcc", "rx-predict-sub-jones", "rx-reagent-sub-jones", "rx-predict-sub-jones-secondary", "rx-reagent-sub-jones-secondary", "rx-predict-sub-williamson", "rx-reagent-sub-williamson"] }
+          - { id: B, std: ["acs-accm-organic:III.E.4"], do: "Predict the substitution or elimination product of an alkyl halide, including Zaitsev against Hofmann, and of a Grignard reagent with CO₂.", ek: ["A small base gives the more substituted alkene, a bulky one the less substituted."], p: [P1, P2], drills: ["rx-predict-sub-cyanide", "rx-reagent-sub-cyanide", "rx-predict-sub-e2-zaitsev", "rx-reagent-sub-e2-zaitsev", "rx-predict-sub-e2-hofmann", "rx-reagent-sub-e2-hofmann", "rx-predict-sub-grignard-co2", "rx-reagent-sub-grignard-co2"] }
   - id: carbonyls
     n: 4
     title: "Aldehydes and ketones"
@@ -109,7 +109,7 @@ units:
       - n: 1
         title: "Additions to the carbonyl group and reactions next to it"
         los:
-          - { id: A, do: "Predict the product of adding a hydride, a Grignard reagent or a Wittig ylide to a ketone.", ek: ["Nucleophiles add to the carbonyl carbon; a Wittig puts C=C exactly where C=O was."], p: [P1, P2], drills: ["rx-predict-carbonyl-nabh4", "rx-reagent-carbonyl-nabh4", "rx-predict-carbonyl-grignard", "rx-reagent-carbonyl-grignard", "rx-predict-carbonyl-wittig", "rx-reagent-carbonyl-wittig"] }
+          - { id: A, std: ["acs-accm-organic:I.G.1", "acs-accm-organic:V.E.1"], do: "Predict the product of adding a hydride, a Grignard reagent or a Wittig ylide to a ketone.", ek: ["Nucleophiles add to the carbonyl carbon; a Wittig puts C=C exactly where C=O was."], p: [P1, P2], drills: ["rx-predict-carbonyl-nabh4", "rx-reagent-carbonyl-nabh4", "rx-predict-carbonyl-grignard", "rx-reagent-carbonyl-grignard", "rx-predict-carbonyl-wittig", "rx-reagent-carbonyl-wittig"] }
           - { id: B, do: "Predict the product of a ketone with a diol, an amine, and under reductive amination or Wolff–Kishner conditions.", ek: ["Acetals protect; imines form with primary amines; C=O can be taken down to CH₂."], p: [P1, P2], drills: ["rx-predict-carbonyl-acetal", "rx-reagent-carbonyl-acetal", "rx-predict-carbonyl-imine", "rx-reagent-carbonyl-imine", "rx-predict-carbonyl-reductive-amination", "rx-reagent-carbonyl-reductive-amination", "rx-predict-carbonyl-wolff-kishner", "rx-reagent-carbonyl-wolff-kishner"] }
           - { id: C, do: "Predict the product of alkylating a ketone through its enolate.", ek: ["LDA makes the enolate completely; the α-carbon is the nucleophile."], p: [P1, P2], drills: ["rx-predict-carbonyl-lda-alkylation", "rx-reagent-carbonyl-lda-alkylation"] }
   - id: acyl
@@ -122,7 +122,7 @@ units:
       - n: 1
         title: "Acyl substitution and reduction"
         los:
-          - { id: A, do: "Predict the product of interconverting acids, acyl chlorides, esters and amides.", ek: ["Addition then elimination; a more reactive derivative can make a less reactive one, not the reverse."], p: [P1, P2], drills: ["rx-predict-acyl-acid-chloride", "rx-reagent-acyl-acid-chloride", "rx-predict-acyl-fischer", "rx-reagent-acyl-fischer", "rx-predict-acyl-amide", "rx-reagent-acyl-amide", "rx-predict-acyl-saponification", "rx-reagent-acyl-saponification"] }
+          - { id: A, std: ["acs-accm-organic:V.E.1"], do: "Predict the product of interconverting acids, acyl chlorides, esters and amides.", ek: ["Addition then elimination; a more reactive derivative can make a less reactive one, not the reverse."], p: [P1, P2], drills: ["rx-predict-acyl-acid-chloride", "rx-reagent-acyl-acid-chloride", "rx-predict-acyl-fischer", "rx-reagent-acyl-fischer", "rx-predict-acyl-amide", "rx-reagent-acyl-amide", "rx-predict-acyl-saponification", "rx-reagent-acyl-saponification"] }
           - { id: B, do: "Predict the product of reducing an ester or an amide, of adding excess Grignard reagent to an ester, and of a Claisen condensation.", ek: ["LiAlH₄ takes an ester to a primary alcohol and an amide to an amine; two equivalents of Grignard give a tertiary alcohol."], p: [P1, P2], drills: ["rx-predict-acyl-lah-ester", "rx-reagent-acyl-lah-ester", "rx-predict-acyl-grignard-ester", "rx-reagent-acyl-grignard-ester", "rx-predict-acyl-lah-amide", "rx-reagent-acyl-lah-amide", "rx-predict-acyl-claisen", "rx-reagent-acyl-claisen"] }
   - id: aromatics
     n: 6
@@ -134,9 +134,10 @@ units:
       - n: 1
         title: "Electrophilic substitution and side-chain reactions"
         los:
-          - { id: A, std: ["bruice-8e:18"], do: "Predict the product of brominating, nitrating and acylating benzene.", ek: ["Substitution, not addition: the ring gets its aromaticity back."], p: [P1, P2], drills: ["rx-predict-aromatic-bromination", "rx-reagent-aromatic-bromination", "rx-predict-aromatic-nitration", "rx-reagent-aromatic-nitration", "rx-predict-aromatic-acylation", "rx-reagent-aromatic-acylation"] }
+          - { id: A, std: ["bruice-8e:18", "acs-accm-organic:V.D.2"], do: "Predict the product of brominating, nitrating and acylating benzene.", ek: ["Substitution, not addition: the ring gets its aromaticity back."], p: [P1, P2], drills: ["rx-predict-aromatic-bromination", "rx-reagent-aromatic-bromination", "rx-predict-aromatic-nitration", "rx-reagent-aromatic-nitration", "rx-predict-aromatic-acylation", "rx-reagent-aromatic-acylation"] }
           - { id: B, std: ["bruice-8e:18"], do: "Predict where a second substituent goes on a substituted benzene.", ek: ["Donors: ortho and para. Acceptors: meta."], p: [P1, P2], drills: ["rx-predict-aromatic-nitration-toluene", "rx-reagent-aromatic-nitration-toluene", "rx-predict-aromatic-bromination-nitrobenzene", "rx-reagent-aromatic-bromination-nitrobenzene"] }
           - { id: C, std: ["bruice-8e:18"], do: "Predict the product of reducing a nitro group and of oxidising or brominating a benzylic position.", ek: ["Nitro to amino; any benzylic C–H side chain to CO₂H; NBS brominates the benzylic carbon."], p: [P1, P2], drills: ["rx-predict-aromatic-nitro-reduction", "rx-reagent-aromatic-nitro-reduction", "rx-predict-aromatic-side-chain-oxidation", "rx-reagent-aromatic-side-chain-oxidation", "rx-predict-aromatic-benzylic-bromination", "rx-reagent-aromatic-benzylic-bromination"] }
+          - { id: D, std: ["acs-accm-organic:V.D.2"], do: "Predict nucleophilic aromatic substitution: when it happens and where.", ek: ["SNAr needs a leaving group with strong withdrawing groups (NO₂) ortho or para to it to stabilise the Meisenheimer complex; F is the best leaving group here. Without them, a strong base can go by benzyne."], p: [P1], drills: [or-snar, or-snar-2] }
   - id: cc-bonds
     n: 7
     title: "Making carbon–carbon bonds"
@@ -146,7 +147,7 @@ units:
       - n: 1
         title: "Condensations and cycloadditions"
         los:
-          - { id: A, do: "Predict the product of an aldol condensation and of a Diels–Alder reaction.", ek: ["Aldol: new C=C between the α and β carbons. Diels–Alder: a cyclohexene, with the dienophile's geometry kept."], p: [P1, P2], drills: ["rx-predict-cc-aldol-condensation", "rx-reagent-cc-aldol-condensation", "rx-predict-cc-diels-alder", "rx-reagent-cc-diels-alder"] }
+          - { id: A, std: ["acs-accm-organic:II.E.2"], do: "Predict the product of an aldol condensation and of a Diels–Alder reaction.", ek: ["Aldol: new C=C between the α and β carbons. Diels–Alder: a cyclohexene, with the dienophile's geometry kept."], p: [P1, P2], drills: ["rx-predict-cc-aldol-condensation", "rx-reagent-cc-aldol-condensation", "rx-predict-cc-diels-alder", "rx-reagent-cc-diels-alder"] }
   - id: mechanisms
     n: 8
     title: "Mechanisms with curved arrows"
@@ -157,7 +158,50 @@ units:
       - n: 1
         title: "The four patterns"
         los:
-          - { id: A, do: "Draw the SN2 mechanism: both arrows and the products.", ek: ["Backside attack and loss of the leaving group in one step; inversion."], p: [P1], drills: ["st-mech-sn2-1", or-sn2-requirements] }
+          - { id: A, std: ["acs-accm-organic:VII.C.3", "acs-accm-organic:VII.D.1"], do: "Draw the SN2 mechanism: both arrows and the products.", ek: ["Backside attack and loss of the leaving group in one step; inversion."], p: [P1], drills: ["st-mech-sn2-1", or-sn2-requirements] }
           - { id: B, do: "Draw the E2 mechanism: three arrows and the products.", ek: ["Base to H, C–H electrons to the π bond, leaving group out; anti-periplanar."], p: [P1], drills: ["st-mech-e2-1", or-e2-requirements] }
           - { id: C, do: "Draw the two steps of electrophilic addition of HX to an alkene, with the carbocation.", ek: ["The π bond takes the proton to give the more stable cation; the halide then adds."], p: [P1], drills: ["st-mech-hbr-addition-1", "st-mech-hbr-addition-2"] }
           - { id: D, do: "Draw the two steps of nucleophilic acyl substitution, with the tetrahedral intermediate.", ek: ["Addition to C=O, then elimination of the leaving group."], p: [P1], drills: ["st-mech-acyl-substitution-1", "st-mech-acyl-substitution-2"] }
+          - { id: E, std: ["acs-accm-organic:VII.C.3", "acs-accm-organic:I.B.2", "acs-accm-organic:I.B.3"], do: "Read a step's curved arrows: name the nucleophilic and electrophilic atoms and the formal charges that result.", ek: ["An arrow starts at a lone pair or a bond and ends at an atom or bond; the atom that gains a bond from a lone pair loses formal negative charge, the donor gains positive."], p: [P1], drills: [or-arrow-read, or-arrow-sites] }
+          - { id: F, std: ["acs-accm-organic:VII.C.1", "acs-accm-organic:VIII.G.1"], do: "Put the steps of an acid- or base-catalysed carbonyl mechanism in order.", ek: ["Acid catalysis: protonate, add, deprotonate, protonate, eliminate, deprotonate (PADPED for Fischer esterification and acetal formation)."], p: [P1], drills: [or-mech-order, or-mech-intermediate] }
+          - { id: G, std: ["acs-accm-organic:V.D.1", "acs-accm-organic:VII.F.2"], do: "Predict carbocation rearrangements by hydride and alkyl shifts.", ek: ["A 1,2-hydride or 1,2-methyl shift happens when it turns a 1° or 2° cation into a more stable 2° or 3° (or resonance-stabilised) one; ring expansion relieves strain."], p: [P1], drills: [or-rearrangement, or-rearrangement-2] }
+  - id: physical-organic
+    n: 9
+    title: "Physical organic chemistry and practice"
+    std: []
+    scope: extension
+    ideas: [RULES]
+    topics:
+      - n: 1
+        title: "Physical organic chemistry"
+        los:
+          - { id: A, std: ["acs-accm-organic:VIII.C.1"], do: "Find the axial–equatorial ratio of a substituted cyclohexane from its A-value, or the A-value from the ratio.", ek: ["K = [equatorial]/[axial] = e^(A/RT); at 25 °C, 7.3 kJ/mol (tert-butyl ~20 kJ/mol) puts nearly everything equatorial."], p: [P1], drills: [or-a-value-ratio, or-a-value-from-ratio] }
+          - { id: B, std: ["acs-accm-organic:III.E.2"], do: "Classify a reaction as regioselective, regiospecific, stereoselective or stereospecific.", ek: ["Specific: different stereoisomeric starting materials give different stereoisomeric products (anti addition, SN2 inversion). Selective: one product forms in excess of the others."], p: [P1], drills: [or-specific-selective, or-specific-selective-2] }
+          - { id: C, std: ["acs-accm-organic:VII.F.1", "acs-accm-organic:VII.F.2", "acs-accm-organic:VII.A.1", "acs-accm-general:VII.F.1"], do: "Predict kinetic and thermodynamic products and compute a product ratio from a free-energy difference.", ek: ["Low temperature, irreversible: the lower barrier wins (1,2-addition to a diene); high temperature, reversible: the more stable product wins (1,4). Ratio = e^(ΔΔG/RT)."], p: [P1], drills: [or-control-ratio, or-diene-control] }
+          - { id: D, std: ["acs-accm-organic:VII.B.1"], do: "Use a rate law to tell SN1 from SN2 and predict how the rate changes with concentrations.", ek: ["SN2: rate = k[RX][Nu]; SN1: rate = k[RX], independent of the nucleophile."], p: [P1], drills: [or-rate-law-factor, or-rate-law-mechanism] }
+          - { id: E, std: ["acs-accm-organic:II.D.1", "acs-accm-organic:V.D.3"], do: "Estimate the enthalpy of a radical step from bond energies and the product ratio of a radical halogenation.", ek: ["ΔH = Σ bonds broken − Σ bonds formed; product share ∝ (number of H) × (relative reactivity), about 1 : 3.8 : 5 for Cl· at 1°, 2°, 3° and 1 : 82 : 1600 for Br·."], p: [P1], drills: [or-radical-step-dh, or-halogenation-share] }
+          - { id: F, std: [], do: "Use the Hammett equation log(k/k₀) = ρσ to predict or interpret substituent effects.", ek: ["σ > 0 for withdrawing groups; ρ > 0 when negative charge builds in the transition state (ester hydrolysis), ρ < 0 when positive charge builds."], p: [P1], drills: [or-hammett-rate, or-hammett-rho] }
+          - { id: G, std: ["acs-accm-organic:II.E.2", "acs-accm-organic:VI.C.2", "acs-accm-inorganic:V.B.1"], do: "Apply the Woodward–Hoffmann rules to electrocyclic reactions and cycloadditions, thermal or photochemical.", ek: ["Electrocyclic: 4n electrons conrotatory thermally, 4n + 2 disrotatory; light reverses both. Suprafacial cycloaddition is thermally allowed for 4n + 2 electrons ([4 + 2]), photochemically for 4n ([2 + 2])."], p: [P1], drills: [or-electrocyclic-mode, or-cycloaddition-allowed] }
+      - n: 2
+        title: "Synthesis and laboratory practice"
+        los:
+          - { id: A, std: ["acs-accm-organic:IV.D.2", "acs-accm-organic:V.D.4", "acs-accm-inorganic:IX.G.5"], do: "Compute atom economy and E-factor, and choose the greener reagent or solvent.", ek: ["Atom economy = M(product)/Σ M(reactants) × 100%; E-factor = mass of waste ÷ mass of product; catalytic and addition reactions score best."], p: [P1], drills: [or-atom-economy, or-e-factor] }
+          - { id: B, std: ["acs-accm-organic:I.E.1", "acs-accm-organic:V.A.2"], do: "Work with molar equivalents, the limiting reagent and the overall yield of a multistep synthesis.", ek: ["Equivalents = mol reagent ÷ mol substrate; overall yield = product of the step yields, so long linear routes lose most of the material."], p: [P1], drills: [or-overall-yield, or-equivalents-mass] }
+          - { id: C, std: ["acs-accm-organic:VIII.E.1", "acs-accm-organic:VIII.A.1"], do: "Compute the equilibrium yield of a Fischer esterification and say how to drive it further.", ek: ["K ≈ 4 for acid + alcohol ⇌ ester + water; excess alcohol or removing water (Dean–Stark, drying agent) pushes it on."], p: [P1], drills: [or-fischer-yield, or-drive-equilibrium] }
+          - { id: D, std: ["acs-accm-organic:IX.A.1", "acs-accm-organic:IX.A.3"], do: "Choose and read a classical chemical test for a functional group.", ek: ["Tollens (aldehydes, silver mirror), 2,4-DNP (aldehydes and ketones, orange solid), iodoform (methyl ketones, yellow solid), Br₂ decolourised (alkenes), Lucas (3° alcohol turns cloudy fastest), FeCl₃ (phenols, violet)."], p: [P1], drills: [or-chem-tests, or-wet-vs-instrument] }
+          - { id: E, std: ["acs-accm-organic:I.D.1"], do: "Place landmark discoveries in organic chemistry and say what each showed.", ek: ["Wöhler's urea (1828) blurred organic and inorganic; Pasteur's tartrate crystals (1848) revealed molecular chirality; Kekulé's benzene (1865); van 't Hoff and Le Bel's tetrahedral carbon (1874)."], p: [P1], drills: [or-history, or-history-2] }
+          - { id: F, std: ["acs-accm-organic:V.D.1"], do: "Classify a transformation as addition, elimination, substitution, rearrangement, oxidation or reduction.", ek: ["Compare formulas: addition gains atoms across a π bond, elimination loses a small molecule, substitution swaps one group, rearrangement keeps the formula, redox changes H/O count at carbon."], p: [P1], drills: [or-reaction-type, or-reaction-type-2] }
+  - id: organometallic
+    n: 10
+    title: "Organometallic reagents and catalysis"
+    std: []
+    scope: extension
+    ideas: [REAGENT]
+    topics:
+      - n: 1
+        title: "Organometallic reagents and Pd catalysis"
+        los:
+          - { id: A, std: ["acs-accm-organic:I.G.1"], do: "Use organolithium and Grignard reagents as strong bases and nucleophiles, counting the equivalents acidic hydrogens consume.", ek: ["R–MgX and R–Li are carbanion-like: every O–H, N–H, S–H or terminal alkyne C–H destroys one equivalent before any C=O addition; D₂O puts D where the metal was."], p: [P1], drills: [or-grignard-equivalents, or-organometal-base] }
+          - { id: B, std: [], do: "Choose between Grignard, organolithium and Gilman (cuprate) reagents for 1,2- or 1,4-addition and for coupling.", ek: ["Hard RLi and RMgX add 1,2 to enones; soft R₂CuLi adds 1,4 (conjugate) and couples with alkyl and vinyl halides; cuprates stop at the ketone with acid chlorides."], p: [P1], drills: [or-cuprate, or-reagent-choice] }
+          - { id: C, std: [], do: "Name a Pd-catalysed cross-coupling from its partners and track Pd's oxidation state and electron count around the cycle.", ek: ["Suzuki (boronic acid), Stille (stannane), Negishi (organozinc), Heck (alkene), Sonogashira (terminal alkyne, Cu co-catalyst), Buchwald–Hartwig (amine); Pd(0) → oxidative addition Pd(II) → transmetalation → reductive elimination back to Pd(0)."], p: [P1], drills: [or-coupling-name, or-pd-cycle] }
+          - { id: D, std: [], do: "Predict products of olefin metathesis, homogeneous hydrogenation and hydroformylation.", ek: ["Metathesis swaps alkylidene halves (ring-closing gives a ring plus ethylene); Wilkinson's catalyst hydrogenates the least hindered alkene syn; hydroformylation adds H and CHO across C=C."], p: [P1], drills: [or-metathesis, or-catalysis-facts] }

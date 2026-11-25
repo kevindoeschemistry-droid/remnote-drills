@@ -87,7 +87,7 @@ Big ideas: EQ
 - ● **AN-3.1.A** Compute a solubility with a common ion present.
   - EK: s(s + c) = K_sp.
   - P1 · drills: an-common-ion, an-common-ion-factor
-- ● **AN-3.1.B** Compute a solubility raised by complex formation.
+- ● **AN-3.1.B** (acs-accm-inorganic:VIII.C.1) Compute a solubility raised by complex formation.
   - EK: K = K_sp·β₂ for AgX + 2NH₃.
   - Needs: AN-3.1.A
   - P1 · drills: an-complex-solubility, an-complex-dissolve
@@ -121,7 +121,7 @@ Big ideas: ERROR
 - ● **AN-5.1.B** Find a concentration by standard addition.
   - EK: c = A_x c_s V_s / [V_x (A_sp − A_x)].
   - P1 · drills: an-standard-addition, an-spike-signal
-- ● **AN-5.1.C** Read an unknown off a least-squares calibration line.
+- ● **AN-5.1.C** (acs-accm-general:IX.G.4) Read an unknown off a least-squares calibration line.
   - EK: Slope and intercept from the sums.
   - P1 · drills: an-calibration, an-detection-limit
 
@@ -132,9 +132,9 @@ Big ideas: ERROR
 - ● **AN-5.2.A** Apply Dixon's Q-test to a suspect replicate.
   - EK: Q = gap/range vs Q_crit.
   - P3 · drills: an-q-test, an-q-value
-- ● **AN-5.2.B** Propagate random uncertainty through a sum or a product.
+- ● **AN-5.2.B** (acs-accm-inorganic:IX.F.1) Propagate random uncertainty through a sum or a product.
   - EK: Absolute in quadrature for sums, relative for products.
   - P1 · drills: an-uncertainty, an-uncertainty-product
-- ● **AN-5.2.C** Choose an analytical technique for a stated question.
+- ● **AN-5.2.C** (acs-accm-inorganic:IX.C.2, acs-accm-inorganic:IX.E.2) Choose an analytical technique for a stated question.
   - EK: Trace metals ICP-MS, volatiles GC, non-volatiles HPLC, water Karl Fischer.
   - P2 · drills: an-instrument, an-technique-measures

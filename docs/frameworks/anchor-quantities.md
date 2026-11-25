@@ -74,7 +74,7 @@ Big ideas: SCALE
 
 
 
-- ● **AQ-3.1.A** (acs-accm-pchem:I.D.1) Recall the conversions among eV, kJ/mol, kcal/mol, cm⁻¹ and hartree, and hc in eV·nm.
+- ● **AQ-3.1.A** (acs-accm-pchem:I.D.1, acs-accm-general:VI.A.3) Recall the conversions among eV, kJ/mol, kcal/mol, cm⁻¹ and hartree, and hc in eV·nm.
   - EK: 1 eV ≈ 96.5 kJ/mol ≈ 23.06 kcal/mol ≈ 8066 cm⁻¹; 1 E_h ≈ 27.2 eV ≈ 627.5 kcal/mol; hc ≈ 1240 eV·nm.
   - P1 · drills: aq-energy-conversion, aq-ev-to-nm
 

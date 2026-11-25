@@ -134,7 +134,7 @@ Book: engel-reid-3e §5.4, §5.4, §5.4, §5.10
 - ● **PC-3.2.C** (webwork-opl:TH7.8, acs-accm-pchem:VI.H.2, acs-accm-pchem:IV.D.1) Calculate the entropy change of a phase transition at its transition temperature.
   - EK: ΔS_tr = ΔH_tr/T_tr; Trouton's rule puts ΔS_vap near 85–88 J/mol·K for many liquids.
   - P3 · drills: pc-ds-phase, pc-trouton-boiling
-- ● **PC-3.2.D** (webwork-opl:TH13.12, acs-accm-pchem:VI.H.7, acs-accm-pchem:III.H.3) Calculate a standard reaction entropy from absolute molar entropies.
+- ● **PC-3.2.D** (webwork-opl:TH13.12, acs-accm-pchem:VI.H.7, acs-accm-pchem:III.H.3, acs-accm-general:VI.H.3) Calculate a standard reaction entropy from absolute molar entropies.
   - EK: ΔS°_rxn = Σ ν S°(products) − Σ ν S°(reactants); the third law fixes S° on an absolute scale.
   - P2 · P5 · drills: pc-reaction-entropy, pc-reaction-entropy-t
 
@@ -211,10 +211,10 @@ Book: engel-reid-3e §8.3, §8.6, §8.8
 - ● **PC-6.1.E** (acs-accm-pchem:IV.C.1, acs-accm-pchem:IV.C.4, acs-accm-pchem:IV.C.6, acs-accm-pchem:IV.C.7, acs-accm-pchem:IV.B.1, acs-accm-pchem:IV.B.2, acs-accm-pchem:IV.B.3, acs-accm-pchem:IV.E.3) Classify the interactions between molecules and inside biomolecules, and how they scale with distance.
   - EK: Ion–ion ∝ 1/r, ion–dipole 1/r², dipole–dipole (fixed) 1/r³, rotating dipoles and dispersion 1/r⁶; the hydrophobic effect drives folding and micelles.
   - P1 · drills: pc-imf-type, pc-dipole-scale
-- ● **PC-6.1.F** (acs-accm-pchem:IX.A.1, acs-accm-pchem:III.H.2, acs-accm-pchem:III.H.4, acs-accm-pchem:II.G.1) Use Bragg's law and cubic lattice spacings, and explain conduction in metals and semiconductors by bands.
+- ● **PC-6.1.F** (acs-accm-pchem:IX.A.1, acs-accm-pchem:III.H.2, acs-accm-pchem:III.H.4, acs-accm-pchem:II.G.1, acs-accm-general:II.G.2, acs-accm-inorganic:II.G.2, acs-accm-inorganic:X.A.2) Use Bragg's law and cubic lattice spacings, and explain conduction in metals and semiconductors by bands.
   - EK: nλ = 2d sin θ; cubic d_hkl = a/√(h² + k² + l²); a band gap sets whether a solid conducts.
   - P1 · drills: pc-bragg, pc-bands
-- ● **PC-6.1.G** (acs-accm-pchem:V.F.2, acs-accm-pchem:IX.C.2) Estimate the share of atoms at a nanoparticle's surface and explain size-dependent properties.
+- ● **PC-6.1.G** (acs-accm-pchem:V.F.2, acs-accm-pchem:IX.C.2, acs-accm-inorganic:III.H.4, acs-accm-inorganic:X.A.1) Estimate the share of atoms at a nanoparticle's surface and explain size-dependent properties.
   - EK: Fraction in an outer shell of thickness t: 1 − (1 − t/R)³; small particles melt lower, and quantum dots absorb at shorter wavelength as they shrink.
   - P1 · drills: pc-surface-fraction, pc-nanoscale
 
@@ -320,7 +320,7 @@ Book: engel-reid-3e §12.3, §12.4, §12.5, §12.7
 - ● **PC-10.1.D** (acs-accm-pchem:I.D.3, acs-accm-pchem:I.A.1) Calculate hydrogen energy levels and the wavelength of a transition between them.
   - EK: E_n = −13.6 eV/n²; ΔE = 13.6 eV (1/n₁² − 1/n₂²) = hc/λ.
   - P3 · drills: pc-bohr, pc-series-limit
-- ● **PC-10.1.E** (acs-accm-pchem:I.G.2, acs-accm-pchem:IX.D.4, acs-accm-pchem:VI.I.1, acs-accm-pchem:I.F.1) Compute mass-spectrometry m/z values and nuclear energies from mass changes.
+- ● **PC-10.1.E** (acs-accm-pchem:I.G.2, acs-accm-pchem:IX.D.4, acs-accm-pchem:VI.I.1, acs-accm-pchem:I.F.1, acs-accm-organic:I.D.2) Compute mass-spectrometry m/z values and nuclear energies from mass changes.
   - EK: [M + zH]ᶻ⁺ appears at (M + z·1.00728)/z; E = Δm·c², about 931.5 MeV per u.
   - P1 · drills: pc-ms-mz, pc-mass-energy
 
@@ -378,7 +378,7 @@ Book: engel-reid-3e §15.2, §15.2, §15.3, §16.3
 - ● **PC-12.1.A** (acs-accm-pchem:X.A.4) Calculate particle-in-a-box energy levels and the wavelength of a transition between them.
   - EK: E_n = n²h²/8mL²; spacing grows with n and shrinks as the box or the mass gets larger.
   - P3 · drills: pc-pib-energy, pc-box-from-wavelength
-- ● **PC-12.1.B** (acs-accm-pchem:I.B.4, acs-accm-pchem:X.D.4) Use the particle-in-a-box wavefunction to locate nodes and compute a probability.
+- ● **PC-12.1.B** (acs-accm-pchem:I.B.4, acs-accm-pchem:X.D.4, acs-accm-inorganic:I.B.1, acs-accm-inorganic:X.D.4) Use the particle-in-a-box wavefunction to locate nodes and compute a probability.
   - EK: ψ_n = √(2/L) sin(nπx/L); n − 1 interior nodes.
   - P2 · P5 · drills: qm-pib-node, qm-pib-probability
 - ● **PC-12.1.C** (acs-accm-pchem:X.A.4) Calculate energies and degeneracies for a particle in a three-dimensional box.
@@ -442,10 +442,10 @@ Book: engel-reid-3e §19.3, §19.4, §19.6, §19:einstein
 - ● **PC-13.1.D** (acs-accm-pchem:I.D.5) Relate the Einstein coefficients for absorption, stimulated emission and spontaneous emission.
   - EK: B₁₂ = B₂₁; A₂₁/B₂₁ = 8πhν³/c³, so spontaneous emission dominates at high frequency.
   - P2 · P5 · drills: qm-einstein-coefficients, pc-spontaneous-ratio
-- ● **PC-13.1.E** (acs-accm-pchem:VII.A.4, acs-accm-pchem:I.A.3) Predict isotope shifts in vibrational frequencies and estimate a kinetic isotope effect.
+- ● **PC-13.1.E** (acs-accm-pchem:VII.A.4, acs-accm-pchem:I.A.3, acs-accm-organic:I.A.1, acs-accm-inorganic:I.A.2) Predict isotope shifts in vibrational frequencies and estimate a kinetic isotope effect.
   - EK: ν ∝ √(k/μ), so C–D vibrates near ν(C–H)/√2; a primary KIE ≈ exp(Δ(ZPE)/k_BT), about 7 at room temperature for C–H/C–D.
   - P1 · drills: pc-isotope-shift, pc-kie
-- ● **PC-13.1.F** (acs-accm-pchem:III.F.2, acs-accm-pchem:III.A.1) Assign infrared bands to functional groups and compare stretches by force constant.
+- ● **PC-13.1.F** (acs-accm-pchem:III.F.2, acs-accm-pchem:III.A.1, acs-accm-inorganic:II.D.2) Assign infrared bands to functional groups and compare stretches by force constant.
   - EK: O–H ≈ 3300 cm⁻¹ (broad), C–H ≈ 2900, C≡N ≈ 2250, C=O ≈ 1700, C–O ≈ 1100; at fixed μ, ν ∝ √k.
   - P1 · drills: pc-ir-group, pc-force-constant-ratio
 
@@ -546,7 +546,7 @@ Book: engel-reid-3e §26:hf, §26:pes, §26:post-hf
 - ● **PC-15.3.A** (acs-accm-pchem:II.E.1, acs-accm-pchem:II.B.2) Compute a Hartree–Fock energy from given one- and two-electron integrals.
   - EK: E_HF = Σ h_i + ½ Σ(J_ij − K_ij) over spin orbitals.
   - P2 · P5 · drills: qm-hf-two-electron-energy
-- ● **PC-15.3.B** (acs-accm-pchem:III.C.3, acs-accm-pchem:III.C.1, acs-accm-pchem:V.B.4) Classify stationary points on a potential-energy surface.
+- ● **PC-15.3.B** (acs-accm-pchem:III.C.3, acs-accm-pchem:III.C.1, acs-accm-pchem:V.B.4, acs-accm-general:III.C, acs-accm-organic:III.C.1, acs-accm-inorganic:III.C.1) Classify stationary points on a potential-energy surface.
   - EK: All first derivatives vanish; a minimum has no negative curvatures, a transition state exactly one.
   - P2 · P5 · drills: qm-stationary-point, pc-hessian-classify
 - ● **PC-15.3.C** (acs-accm-pchem:II.A.2, acs-accm-pchem:II.E.1) Calculate a correlation energy and rank methods by the correlation they recover.
@@ -573,7 +573,7 @@ Book: engel-reid-3e §25.1, §25.5, §25:franck-condon, §25.7
 - ● **PC-16.1.D** (acs-accm-pchem:IX.D.1) Calculate a Stokes shift and explain why emission is at longer wavelength than absorption.
   - EK: Vibrational relaxation in the excited state comes first, so λ_em > λ_abs.
   - P2 · P5 · drills: qm-stokes-shift, pc-stokes-energy
-- ● **PC-16.1.E** (acs-accm-pchem:VI.C.2, acs-accm-pchem:VI.C.4, acs-accm-pchem:II.D.1, acs-accm-pchem:II.D.2) Compute photon counts and quantum yields, and say how light breaks bonds.
+- ● **PC-16.1.E** (acs-accm-pchem:VI.C.2, acs-accm-pchem:VI.C.4, acs-accm-pchem:II.D.1, acs-accm-pchem:II.D.2, acs-accm-inorganic:V.F.10) Compute photon counts and quantum yields, and say how light breaks bonds.
   - EK: Photons = Pt/(hc/λ); Φ = molecules reacted ÷ photons absorbed; Φ > 1 signals a chain; photolysis is usually homolytic.
   - P1 · drills: pc-quantum-yield, pc-photochem
 
@@ -585,10 +585,10 @@ Big ideas: SPEC
 
 Book: engel-reid-3e §27:symmetry, §27:point-groups, §27:character-tables, §27:normal-modes, §27:selection-rules
 
-- ● **PC-17.1.A** (acs-accm-pchem:III.B.1) Identify the symmetry elements of a molecule.
+- ● **PC-17.1.A** (acs-accm-pchem:III.B.1, acs-accm-inorganic:X.D.3) Identify the symmetry elements of a molecule.
   - EK: E, C_n, σ, i, S_n; every molecule has at least E.
   - P2 · P5 · drills: gt-group-order, gt-mirror-planes
-- ● **PC-17.1.B** (acs-accm-pchem:III.B.1) Assign a molecule to its point group.
+- ● **PC-17.1.B** (acs-accm-pchem:III.B.1, acs-accm-general:III.D, acs-accm-inorganic:III.D.1) Assign a molecule to its point group.
   - EK: Work down the flow chart: linear? high symmetry? principal axis? perpendicular C₂? mirror planes?
   - P2 · P5 · drills: gt-point-group-common, gt-point-group-more
 - ● **PC-17.1.C** (acs-accm-pchem:III.D.2) Reduce a representation with a character table.
@@ -597,10 +597,10 @@ Book: engel-reid-3e §27:symmetry, §27:point-groups, §27:character-tables, §2
 - ● **PC-17.1.D** (acs-accm-pchem:III.D.2) Count the normal modes of a molecule and find their symmetries.
   - EK: 3N − 6 for nonlinear, 3N − 5 for linear molecules.
   - P2 · P5 · drills: gt-normal-modes, gt-modes-symmetry
-- ● **PC-17.1.E** (acs-accm-pchem:III.D.2) Decide from symmetry whether a mode is IR active, Raman active or both.
+- ● **PC-17.1.E** (acs-accm-pchem:III.D.2, acs-accm-organic:III.D.1, acs-accm-inorganic:II.E.4, acs-accm-inorganic:III.D.3, acs-accm-inorganic:III.D.4) Decide from symmetry whether a mode is IR active, Raman active or both.
   - EK: IR active if it transforms like x, y or z; Raman active like a quadratic; mutually exclusive with an inversion centre.
   - P2 · P5 · drills: gt-ir-raman
-- ● **PC-17.1.F** (acs-accm-pchem:III.E.1) Use optical rotation to find specific rotation and enantiomeric excess.
+- ● **PC-17.1.F** (acs-accm-pchem:III.E.1, acs-accm-organic:III.E.5, acs-accm-organic:IX.C.2) Use optical rotation to find specific rotation and enantiomeric excess.
   - EK: [α] = α/(l·c) with l in dm and c in g/mL; ee = [α]_obs/[α]_pure × 100%.
   - P1 · drills: pc-specific-rotation, pc-ee
 
@@ -703,7 +703,7 @@ Book: engel-reid-3e §32:energy, §32.3, §32.4, §32.6, §32:residual-entropy
 - ● **PC-20.2.D** (acs-accm-pchem:X.C.1, acs-accm-pchem:VI.H.5) Calculate a Helmholtz energy from a partition function.
   - EK: A = −k_BT ln Q.
   - P3 · drills: pc-vib-helmholtz, ~sm-pf-f
-- ● **PC-20.2.E** (acs-accm-pchem:VI.H.7, acs-accm-pchem:III.H.3) Calculate the residual entropy of a crystal with orientational disorder.
+- ● **PC-20.2.E** (acs-accm-pchem:VI.H.7, acs-accm-pchem:III.H.3, acs-accm-general:VI.H.3) Calculate the residual entropy of a crystal with orientational disorder.
   - EK: S₀ = R ln W₀ per mole, W₀ being the number of equally likely orientations.
   - P3 · drills: pc-residual-entropy, pc-w-from-residual
 
@@ -779,7 +779,7 @@ Book: engel-reid-3e §35:arrhenius, §35:collision-theory, §35:eyring
 - ● **PC-22.2.C** (acs-accm-pchem:VII.D.4, acs-accm-pchem:VII.D.1) Calculate a rate constant from an activation Gibbs energy with the Eyring equation.
   - EK: k = (k_BT/h) e^(−ΔG‡/RT); k_BT/h ≈ 6.2 × 10¹² s⁻¹ at 298 K.
   - P3 · drills: sm-rate-eyring, td-eyring-half-life
-- ● **PC-22.2.D** (acs-accm-pchem:VII.E.1, acs-accm-pchem:VII.E.2, acs-accm-pchem:V.F.4, acs-accm-pchem:V.G.1, acs-accm-pchem:VII.F.1, acs-accm-pchem:VI.B.1, acs-accm-pchem:VI.C.1, acs-accm-pchem:V.B.1, acs-accm-pchem:V.B.2, acs-accm-pchem:V.B.3, acs-accm-pchem:V.D.1, acs-accm-pchem:X.D.2, acs-accm-pchem:V.F.3) Quantify how a catalyst or a higher temperature speeds a reaction, and tell kinetic from thermodynamic control.
+- ● **PC-22.2.D** (acs-accm-pchem:VII.E.1, acs-accm-pchem:VII.E.2, acs-accm-pchem:V.F.4, acs-accm-pchem:V.G.1, acs-accm-pchem:VII.F.1, acs-accm-pchem:VI.B.1, acs-accm-pchem:VI.C.1, acs-accm-pchem:V.B.1, acs-accm-pchem:V.B.2, acs-accm-pchem:V.B.3, acs-accm-pchem:V.D.1, acs-accm-pchem:X.D.2, acs-accm-pchem:V.F.3, acs-accm-general:VII.F.1, acs-accm-organic:V.E.2, acs-accm-organic:VII.F.1, acs-accm-inorganic:VII.F.1) Quantify how a catalyst or a higher temperature speeds a reaction, and tell kinetic from thermodynamic control.
   - EK: Lowering Eₐ by ΔEₐ multiplies k by exp(ΔEₐ/RT); a catalyst leaves K and the products unchanged; the fraction of collisions above Eₐ goes as exp(−Eₐ/RT).
   - P1 · drills: pc-catalyst-speedup, pc-control
 
@@ -796,7 +796,7 @@ Book: engel-reid-3e §35:reversible, §35:parallel, §35:sequential, §34:steady
 - ● **PC-22.3.C** (acs-accm-pchem:VII.C.5) Calculate the concentration and time of the maximum of an intermediate in A → B → C.
   - EK: [B] = k₁[A]₀/(k₂ − k₁) (e^(−k₁t) − e^(−k₂t)); t_max = ln(k₁/k₂)/(k₁ − k₂).
   - P2 · P5 · drills: pc-intermediate-max-time, ~kn-intermediate-maximum
-- ● **PC-22.3.D** (acs-accm-pchem:VII.C.3, acs-accm-pchem:VII.C.5) Apply the steady-state approximation to derive a rate law.
+- ● **PC-22.3.D** (acs-accm-pchem:VII.C.3, acs-accm-pchem:VII.C.5, acs-accm-inorganic:VII.C.2) Apply the steady-state approximation to derive a rate law.
   - EK: Set d[I]/dt ≈ 0 for a reactive intermediate and solve for [I].
   - P2 · P5 · drills: kn-steady-state-rate, pc-steady-state-keff
 - ● **PC-22.3.E** (acs-accm-pchem:VII.C.3, acs-accm-pchem:VII.C.4) Apply the pre-equilibrium approximation to a mechanism with a fast first step.
@@ -811,7 +811,7 @@ Book: engel-reid-3e §35:reversible, §35:parallel, §35:sequential, §34:steady
 - ● **PC-22.3.H** (acs-accm-pchem:VII.C.3, acs-accm-pchem:VII.C.7) Calculate a steady-state radical concentration and a kinetic chain length.
   - EK: [R·]_ss = √(R_i/k_t); chain length = propagation rate / initiation rate.
   - P2 · P5 · drills: kn-chain-length, pc-initiation-from-chain
-- ● **PC-22.3.I** (acs-accm-pchem:VIII.G.2, acs-accm-pchem:III.H.1) Use the Langmuir isotherm to find surface coverage, or the pressure for a target coverage.
+- ● **PC-22.3.I** (acs-accm-pchem:VIII.G.2, acs-accm-pchem:III.H.1, acs-accm-inorganic:V.D.5, acs-accm-inorganic:VII.E.2) Use the Langmuir isotherm to find surface coverage, or the pressure for a target coverage.
   - EK: θ = KP/(1 + KP); half coverage at P = 1/K; heterogeneous rates follow the coverage of the adsorbed reactant.
   - P1 · drills: pc-langmuir, pc-langmuir-pressure
 

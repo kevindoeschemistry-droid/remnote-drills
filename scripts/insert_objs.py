@@ -28,6 +28,22 @@ for code, std, do, ek in getattr(mod, "OBJS", []):
         # a new topic: OBJS may name it in TOPICS {"u.t": title}; it goes after the unit's last objective
         title = getattr(mod, "TOPICS", {}).get(f"{u}.{t}")
         last = [i for i, uu, tt, x in walk(L) if uu == u]
+        unit = getattr(mod, "UNITS", {}).get(u)
+        if not last and unit and title:
+            # a new unit: UNITS {"u": (id, title, [ideas], [std])}; appended at the end of the file (units: is last)
+            uid, utitle, ideas, ustd = unit
+            while L and not L[-1].strip(): L.pop()
+            L += [f"  - id: {uid}", f"    n: {u}", f"    title: {q(utitle)}", f"    std: [{', '.join(q(s) for s in ustd)}]",
+                  "    scope: extension", f"    ideas: [{', '.join(ideas)}]", "    topics:",
+                  f"      - n: {t}", f"        title: {q(title)}", "        los:", ""]
+            open(path, "w").write("\n".join(L))
+            L = open(path).read().split("\n")
+            last = [len(L) - 5]  # so the topic is added after this unit's (empty) los line below
+            hits = [(len(L) - 2, "")]
+            if lo in [x for _, x in hits]: continue
+            L.insert(hits[-1][0] + 1, f'          - {{ id: {lo}, std: [{", ".join(q(s) for s in std)}], do: {q(do)}, ek: [{q(ek)}], p: [{getattr(mod, "PRACTICE", "P1")}], drills: [] }}')
+            open(path, "w").write("\n".join(L))
+            continue
         if not title or not last: sys.exit(f"{code}: topic not found and no TOPICS title for {u}.{t}")
         L[last[-1] + 1:last[-1] + 1] = [f"      - n: {t}", f"        title: {q(title)}", "        los:"]
         open(path, "w").write("\n".join(L))

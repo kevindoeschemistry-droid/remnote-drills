@@ -12,12 +12,15 @@
   "inorg"
  ],
  "basis": {
-  "primary": "cotton-wilkinson-6e",
+  "primary": "acs-accm-inorganic",
   "also": [
+   "cotton-wilkinson-6e",
    "icho-appendix-c",
-   "gre-chemistry"
+   "gre-chemistry",
+   "acs-accm-general",
+   "acs-accm-organic"
   ],
-  "note": "Units follow the chapters of Cotton & Wilkinson 6e (table of contents read); the objectives are a house list on those chapters."
+  "note": "Since Nov 2026 the primary basis is the ACS inorganic content map (read in full); every articulation is answered (scripts/accm_maps.py), unit 15 holding the principles the chapter units did not reach. Units follow the chapters of Cotton & Wilkinson 6e (table of contents read); the objectives are a house list on those chapters."
  },
  "big_ideas": [
   {
@@ -64,6 +67,11 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "acs-accm-inorganic:V.D.1",
+        "acs-accm-inorganic:V.F.9",
+        "acs-accm-inorganic:VIII.D.2"
+       ],
        "do": "Classify acids and bases as hard, soft or borderline and predict which pairs bind.",
        "ek": [
         "Hard prefers hard, soft prefers soft."
@@ -79,6 +87,9 @@
       },
       {
        "id": "B",
+       "std": [
+        "acs-accm-inorganic:X.D.5"
+       ],
        "do": "Combine Latimer-diagram steps through free energies.",
        "ek": [
         "E = Σ nE / Σ n."
@@ -93,6 +104,9 @@
       },
       {
        "id": "C",
+       "std": [
+        "acs-accm-inorganic:X.D.5"
+       ],
        "do": "Decide from a Latimer diagram whether a species disproportionates.",
        "ek": [
         "E_right > E_left: it disproportionates."
@@ -128,6 +142,9 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "acs-accm-inorganic:III.G.5"
+       ],
        "do": "Classify a hydride as saline, molecular or metallic.",
        "ek": [
         "s-block saline; p-block molecular; many d-block interstitial."
@@ -142,6 +159,9 @@
       },
       {
        "id": "B",
+       "std": [
+        "acs-accm-inorganic:I.A.2"
+       ],
        "do": "Predict the shift of a vibration on deuteration from reduced masses.",
        "ek": [
         "ν ∝ 1/√μ; X–D ≈ 0.73 × X–H."
@@ -173,6 +193,10 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "acs-accm-general:V.E.1",
+        "acs-accm-inorganic:III.G.1"
+       ],
        "do": "Give the product of burning an alkali metal, and the oxidation state in oxides, peroxides and superoxides.",
        "ek": [
         "Li₂O, Na₂O₂, KO₂; O −2, −1, −½."
@@ -202,6 +226,9 @@
       },
       {
        "id": "C",
+       "std": [
+        "acs-accm-inorganic:III.G.2"
+       ],
        "do": "Use the diagonal relationship.",
        "ek": [
         "Li–Mg, Be–Al, B–Si."
@@ -234,6 +261,11 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "acs-accm-inorganic:II.A.4",
+        "acs-accm-inorganic:III.A.4",
+        "acs-accm-inorganic:III.B.2"
+       ],
        "do": "Classify a borane as closo, nido or arachno with Wade's rules.",
        "ek": [
         "n+1, n+2, n+3 skeletal pairs."
@@ -263,6 +295,9 @@
       },
       {
        "id": "C",
+       "std": [
+        "acs-accm-inorganic:III.G.4"
+       ],
        "do": "Use the inert-pair effect, and find average oxidation states in mixed-valence group 13 compounds.",
        "ek": [
         "Tl(I), Pb(II), Bi(III); GaCl₂ = Ga⁺[GaCl₄]⁻."
@@ -295,6 +330,10 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "acs-accm-organic:III.A.3",
+        "acs-accm-inorganic:III.H.5"
+       ],
        "do": "Classify carbides and count fullerene rings.",
        "ek": [
         "Acetylides, methanides, covalent, interstitial; 12 pentagons always."
@@ -310,6 +349,12 @@
       },
       {
        "id": "B",
+       "std": [
+        "acs-accm-inorganic:I.G.2",
+        "acs-accm-inorganic:II.D.1",
+        "acs-accm-inorganic:II.F.3",
+        "acs-accm-inorganic:III.G.7"
+       ],
        "do": "Give bond orders of species isoelectronic with N₂.",
        "ek": [
         "CO, CN⁻, NO⁺, C₂²⁻: 3."
@@ -324,6 +369,10 @@
       },
       {
        "id": "C",
+       "std": [
+        "acs-accm-inorganic:III.A.5",
+        "acs-accm-inorganic:III.H.7"
+       ],
        "do": "Relate silicate structure to O:Si ratio, and predict group 14 shapes.",
        "ek": [
         "O/Si = 4 − s/2; Sn(II) has a lone pair."
@@ -415,6 +464,10 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "acs-accm-inorganic:II.B.1",
+        "acs-accm-inorganic:II.E.3"
+       ],
        "do": "Give bond orders and unpaired electrons of O₂ and its ions from MO theory.",
        "ek": [
         "O₂ 2 with two unpaired; superoxide 1.5; peroxide 1."
@@ -462,6 +515,10 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "acs-accm-inorganic:III.B.1",
+        "acs-accm-inorganic:III.G.6"
+       ],
        "do": "Predict interhalogen and polyhalide shapes.",
        "ek": [
         "ClF₃ T-shaped, I₃⁻ linear, ICl₄⁻ square planar."
@@ -476,6 +533,9 @@
       },
       {
        "id": "B",
+       "std": [
+        "acs-accm-inorganic:V.E.3"
+       ],
        "do": "Give halogen oxidation states in oxoanions and rank oxoacid strength.",
        "ek": [
         "+1 to +7; HClO₄ strongest."
@@ -491,6 +551,9 @@
       },
       {
        "id": "C",
+       "std": [
+        "acs-accm-inorganic:V.F.7"
+       ],
        "do": "Predict shapes and oxidation states of xenon compounds.",
        "ek": [
         "XeF₂ linear, XeF₄ square planar; even states +2 to +8."
@@ -569,6 +632,9 @@
       },
       {
        "id": "B",
+       "std": [
+        "acs-accm-inorganic:II.C.3"
+       ],
        "do": "Compute spin-only moments and CFSE.",
        "ek": [
         "μ = √(n(n+2)); CFSE = −0.4 t₂g + 0.6 e_g."
@@ -586,6 +652,9 @@
       },
       {
        "id": "C",
+       "std": [
+        "acs-accm-inorganic:II.E.5"
+       ],
        "do": "Use the spectrochemical series and predict Jahn–Teller distortions.",
        "ek": [
         "I⁻ < … < CN⁻ < CO; uneven e_g distorts."
@@ -603,6 +672,11 @@
       },
       {
        "id": "D",
+       "std": [
+        "acs-accm-inorganic:VI.B.3",
+        "acs-accm-inorganic:VI.D.4",
+        "acs-accm-inorganic:VII.A.1"
+       ],
        "do": "Predict whether a complex is labile or inert.",
        "ek": [
         "d³ and low-spin d⁶ are inert."
@@ -638,6 +712,9 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "acs-accm-inorganic:V.D.6"
+       ],
        "do": "Give the products of permanganate by pH and the chromate–dichromate equilibrium.",
        "ek": [
         "Mn²⁺, MnO₂, MnO₄²⁻; acid orange, base yellow."
@@ -728,6 +805,9 @@
       },
       {
        "id": "E",
+       "std": [
+        "acs-accm-inorganic:V.F.3"
+       ],
        "do": "Recall the characteristic chemistry of iron: production, key compounds and colours, uses and biological roles.",
        "ek": [
         "Cotton & Wilkinson's section on iron."
@@ -742,6 +822,9 @@
       },
       {
        "id": "F",
+       "std": [
+        "acs-accm-inorganic:V.F.3"
+       ],
        "do": "Recall the characteristic chemistry of cobalt: production, key compounds and colours, uses and biological roles.",
        "ek": [
         "Cotton & Wilkinson's section on cobalt."
@@ -830,6 +913,10 @@
       },
       {
        "id": "B",
+       "std": [
+        "acs-accm-inorganic:III.G.3",
+        "acs-accm-inorganic:V.F.8"
+       ],
        "do": "Explain the lanthanide contraction, low spin in 4d/5d, and the trans effect.",
        "ek": [
         "Zr ≈ Hf; heavy complexes low spin; cisplatin route."
@@ -1057,6 +1144,11 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "acs-accm-inorganic:II.A.4",
+        "acs-accm-inorganic:III.A.3",
+        "acs-accm-inorganic:III.F.1"
+       ],
        "do": "Count valence electrons in organometallic complexes.",
        "ek": [
         "18 for carbonyls; 16 for square-planar d⁸."
@@ -1071,6 +1163,11 @@
       },
       {
        "id": "B",
+       "std": [
+        "acs-accm-inorganic:V.B.1",
+        "acs-accm-inorganic:V.D.3",
+        "acs-accm-inorganic:VIII.A.1"
+       ],
        "do": "Follow electron count and oxidation state through oxidative addition and the other elementary steps.",
        "ek": [
         "OA: +2 ox, +2 CN, +2 e."
@@ -1096,6 +1193,10 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "acs-accm-inorganic:V.F.2",
+        "acs-accm-inorganic:IX.B.3"
+       ],
        "do": "Name the catalyst of the major industrial homogeneous processes and track electron counts round a cycle.",
        "ek": [
         "Monsanto, Wacker, Ziegler–Natta, Wilkinson, oxo, metathesis; 16/18 alternation."
@@ -1110,6 +1211,518 @@
        "drills": [
         "cw-catalytic-process",
         "cw-monsanto-count"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "accm-principles",
+   "n": 15,
+   "title": "Inorganic principles across the ACS content map",
+   "std": [],
+   "scope": "extension",
+   "ideas": [
+    "COUNT",
+    "TREND"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "Structure, bonding and symmetry",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "acs-accm-inorganic:I.B.4",
+        "acs-accm-inorganic:I.B.3",
+        "acs-accm-inorganic:I.C.1"
+       ],
+       "do": "Estimate the effective nuclear charge on a valence electron with Slater's rules.",
+       "ek": [
+        "S = 0.35 per other electron in the same (ns, np) group, 0.85 per electron in shell n − 1, 1.00 per electron deeper; for an ns electron of a d-block atom the (n − 1)d electrons count 0.85."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "ia-slater-main",
+        "ia-slater-4s"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "acs-accm-inorganic:III.D.5",
+        "acs-accm-inorganic:III.D.1"
+       ],
+       "do": "Decide from a molecule's point group whether it can be polar and whether it can be chiral.",
+       "ek": [
+        "Polar only in C₁, Cₛ, Cₙ and Cₙᵥ; chiral only when there is no improper axis (C₁, Cₙ, Dₙ)."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "ia-pg-polar",
+        "ia-pg-chiral"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "acs-accm-inorganic:III.F.2"
+       ],
+       "do": "Find an organometallic fragment's isolobal organic partner from its electron count.",
+       "ek": [
+        "A fragment one electron short of 18 (Mn(CO)₅, CpFe(CO)₂) is isolobal with CH₃ (one short of 8); two short with CH₂; three short with CH."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "ia-isolobal-short",
+        "ia-isolobal-partner"
+       ]
+      },
+      {
+       "id": "D",
+       "std": [
+        "acs-accm-inorganic:III.F.3",
+        "acs-accm-inorganic:III.F.1"
+       ],
+       "do": "Compare ligands by steric bulk (cone angle) and by donor or acceptor strength.",
+       "ek": [
+        "Tolman cone angle grows PMe₃ < PPh₃ < PCy₃ < P(t-Bu)₃; stronger π-acceptors (CO, PF₃, phosphites) raise the ν(CO) of the other carbonyls."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "ia-tolman",
+        "ia-ligand-electronic"
+       ]
+      },
+      {
+       "id": "E",
+       "std": [
+        "acs-accm-inorganic:III.E.5",
+        "acs-accm-inorganic:III.E.6",
+        "acs-accm-inorganic:III.E.1"
+       ],
+       "do": "Identify constitutional isomers of complexes and use precipitation or conductivity to tell them apart.",
+       "ek": [
+        "Ionisation, hydrate, linkage and coordination isomers; only ions outside the coordination sphere precipitate with Ag⁺ or Ba²⁺ (Werner's evidence)."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "ia-werner-agcl",
+        "ia-isomer-type"
+       ]
+      },
+      {
+       "id": "F",
+       "std": [
+        "acs-accm-inorganic:IX.B.1"
+       ],
+       "do": "Name a coordination compound and write the formula from a name.",
+       "ek": [
+        "Ligands alphabetically before the metal; anionic ligands end in -o; the metal takes -ate in an anionic complex, with its oxidation state in Roman numerals."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "ia-naming",
+        "ia-formula-from-name"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "title": "Solids and materials",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "acs-accm-inorganic:VI.A.3",
+        "acs-accm-inorganic:VI.D.1",
+        "acs-accm-inorganic:II.C.2"
+       ],
+       "do": "Find a lattice enthalpy or an enthalpy of formation from a Born–Haber cycle.",
+       "ek": [
+        "ΔH_f = ΔH_sub + IE + ½D + ΔH_eg + ΔH_lattice (lattice formation from gaseous ions, negative)."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "ia-born-haber-lattice",
+        "ia-born-haber-formation"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "acs-accm-inorganic:III.H.3"
+       ],
+       "do": "Relate point defects and nonstoichiometry to composition and oxidation state.",
+       "ek": [
+        "Schottky: cation–anion vacancy pairs; Frenkel: an ion moved to an interstitial site; in Fe₁₋ₓO each missing Fe²⁺ is balanced by two Fe³⁺."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "ia-wustite-ox",
+        "ia-wustite-fe3"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "acs-accm-inorganic:II.G.3",
+        "acs-accm-inorganic:IX.D.8",
+        "acs-accm-inorganic:II.G.2"
+       ],
+       "do": "Classify doped semiconductors and predict how conductivity changes with temperature.",
+       "ek": [
+        "Group 15 dopants in Si give n-type, group 13 p-type; intrinsic carriers grow as e^(−E_g/2kT), so semiconductors conduct better when hot while metals conduct worse."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "ia-doping",
+        "ia-intrinsic-factor"
+       ]
+      },
+      {
+       "id": "D",
+       "std": [
+        "acs-accm-inorganic:II.G.4",
+        "acs-accm-inorganic:III.H.8",
+        "acs-accm-inorganic:III.E.3",
+        "acs-accm-inorganic:III.H.6",
+        "acs-accm-inorganic:III.D.2"
+       ],
+       "do": "Recall superconductors, perovskites, polymorphs, layered solids and crystal systems.",
+       "ek": [
+        "Below T_c resistance vanishes and fields are expelled (Meissner); Cooper pairs (BCS) in conventional ones; YBa₂Cu₃O₇ is a layered perovskite; 7 crystal systems, 14 Bravais lattices, 230 space groups."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "ia-superconductors",
+        "ia-solids-facts"
+       ]
+      },
+      {
+       "id": "E",
+       "std": [
+        "acs-accm-inorganic:V.G.3",
+        "acs-accm-inorganic:IV.A.2",
+        "acs-accm-inorganic:III.H.4",
+        "acs-accm-inorganic:V.G.1",
+        "acs-accm-inorganic:V.F.1",
+        "acs-accm-inorganic:IX.C.1"
+       ],
+       "do": "Describe framework, self-assembled and nanoscale materials and how synthesis sets their properties.",
+       "ek": [
+        "MOFs join metal nodes with organic linkers into porous crystals; thiols on gold self-assemble into monolayers; quantum dots' band gaps widen as they shrink."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "ia-frameworks",
+        "ia-synthesis-conditions"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 3,
+     "title": "Reactions, mechanisms and equilibria",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "acs-accm-inorganic:VII.C.4",
+        "acs-accm-inorganic:VII.D.1",
+        "acs-accm-inorganic:VII.C.1",
+        "acs-accm-inorganic:VI.B.3"
+       ],
+       "do": "Assign a substitution mechanism (A, D, Iₐ, I_d) and compute a rate through an outer-sphere pre-equilibrium.",
+       "ek": [
+        "Eigen–Wilkins: k_obs = K_os k_i [L]; a negative volume of activation and dependence on the entering ligand point to association; square-planar d⁸ is associative."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "ia-eigen-wilkins",
+        "ia-substitution-mech"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "acs-accm-inorganic:VII.C.3",
+        "acs-accm-inorganic:V.D.2"
+       ],
+       "do": "Tell inner- from outer-sphere electron transfer and estimate a cross rate with the Marcus relation.",
+       "ek": [
+        "Inner sphere needs a bridging ligand that is transferred (Taube: Cl from Co to Cr); outer sphere keeps both coordination shells; k₁₂ ≈ √(k₁₁k₂₂K₁₂)."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "ia-marcus-cross",
+        "ia-inner-outer"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "acs-accm-inorganic:V.F.8"
+       ],
+       "do": "Use the trans effect to plan the synthesis of a square-planar isomer.",
+       "ek": [
+        "Trans effect order roughly CO, CN⁻ > PR₃ > I⁻ > Br⁻ > Cl⁻ > NH₃ > H₂O; [PtCl₄]²⁻ + 2 NH₃ gives cis-platin, [Pt(NH₃)₄]²⁺ + 2 Cl⁻ gives the trans isomer."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "ia-trans-effect",
+        "ia-trans-effect-2"
+       ]
+      },
+      {
+       "id": "D",
+       "std": [
+        "acs-accm-inorganic:VI.H.1",
+        "acs-accm-inorganic:VII.C.6",
+        "acs-accm-inorganic:VIII.F.3"
+       ],
+       "do": "Quantify the chelate effect and explain its entropic and kinetic origins.",
+       "ek": [
+        "Chelates release more free ligands (entropy gain) and, once one end binds, the other is held near the metal; ΔΔG = −RT ln 10 · Δlog β."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "ia-chelate-ddg",
+        "ia-chelate-origin"
+       ]
+      },
+      {
+       "id": "E",
+       "std": [
+        "acs-accm-inorganic:VI.B.2",
+        "acs-accm-inorganic:VII.A.2",
+        "acs-accm-inorganic:VII.C.5",
+        "acs-accm-inorganic:IX.A.2"
+       ],
+       "do": "Compute the barrier of a fluxional process from NMR coalescence.",
+       "ek": [
+        "At coalescence k = πΔν/√2; ΔG‡ = RT ln(k_B T/(h k)); Berry pseudorotation exchanges axial and equatorial sites of a trigonal bipyramid."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "ia-coalescence-k",
+        "ia-coalescence-dg"
+       ]
+      },
+      {
+       "id": "F",
+       "std": [
+        "acs-accm-inorganic:VIII.F.3",
+        "acs-accm-inorganic:VIII.D.1",
+        "acs-accm-inorganic:VIII.C.1"
+       ],
+       "do": "Combine stepwise formation constants and find the fraction of each complex at a given ligand concentration.",
+       "ek": [
+        "β_n = K₁K₂…K_n; α_ML = β₁[L]/(1 + β₁[L] + β₂[L]² + …); Irving–Williams: Mn < Fe < Co < Ni < Cu > Zn."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "ia-beta-from-k",
+        "ia-alpha-ml"
+       ]
+      },
+      {
+       "id": "G",
+       "std": [
+        "acs-accm-inorganic:VIII.G.2",
+        "acs-accm-inorganic:V.F.5",
+        "acs-accm-inorganic:V.F.6",
+        "acs-accm-inorganic:V.D.1"
+       ],
+       "do": "Predict acid–base behaviour in nonaqueous solvents, levelling and superacids.",
+       "ek": [
+        "The strongest acid that can exist in a solvent is its lyonium ion; acids stronger than that are levelled; differentiating solvents (acetic acid) separate them; superacids have H₀ below −12."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "ia-levelling",
+        "ia-superacids"
+       ]
+      },
+      {
+       "id": "H",
+       "std": [
+        "acs-accm-inorganic:V.F.4",
+        "acs-accm-inorganic:III.E.4"
+       ],
+       "do": "Relate a chiral catalyst's selectivity to the free-energy difference of the competing transition states.",
+       "ek": [
+        "er = e^(ΔΔG‡/RT), ee = (er − 1)/(er + 1); about 11 kJ/mol at 25 °C gives 98% ee."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "ia-ee-from-ddg",
+        "ia-ddg-for-ee"
+       ]
+      },
+      {
+       "id": "I",
+       "std": [
+        "acs-accm-inorganic:V.E.2",
+        "acs-accm-inorganic:II.C.3"
+       ],
+       "do": "Use LFSE to explain the double hump in hydration enthalpies of first-row M²⁺ ions.",
+       "ek": [
+        "High-spin octahedral LFSE (in Δ_o): 0, −0.4, −0.8, −1.2, −0.6, 0, −0.4, −0.8, −1.2, −0.6, 0 for d⁰–d¹⁰; d⁰, d⁵ and d¹⁰ lie on the baseline."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "ia-lfse-hydrated",
+        "ia-hydration-hump"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 4,
+     "title": "Spectroscopy and measurement",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "acs-accm-inorganic:IX.D.2",
+        "acs-accm-inorganic:X.D.7",
+        "acs-accm-inorganic:X.A.3"
+       ],
+       "do": "Find Δ_o from a d–d absorption and apply the selection rules and Tanabe–Sugano reading of d–d spectra.",
+       "ek": [
+        "For d¹, Δ_o = hc/λ_max (ν̃ = 10⁷/λ in cm⁻¹); Laporte-forbidden d–d bands are weak, spin-forbidden ones weaker; Tanabe–Sugano diagrams map band energies to Δ_o/B."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "ia-delta-from-lambda",
+        "ia-dd-rules"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "acs-accm-inorganic:IX.D.7",
+        "acs-accm-inorganic:I.B.5"
+       ],
+       "do": "Compute an effective magnetic moment from a measured susceptibility and infer the number of unpaired electrons.",
+       "ek": [
+        "μ_eff = 2.828 √(χ_M T) (cgs) ≈ √(8χ_M T); spin-only μ = √(n(n + 2))."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "ia-mu-from-chi",
+        "ia-unpaired-from-chiT"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "acs-accm-inorganic:IX.D.3"
+       ],
+       "do": "Predict multiplets in multinuclear NMR from spin I and the number of equivalent coupled nuclei.",
+       "ek": [
+        "Lines = 2nI + 1: three ¹⁹F split ³¹P into a 1:3:3:1 quartet; deuterium (I = 1) splits ¹³C of CDCl₃ into a 1:1:1 triplet."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "ia-nmr-lines",
+        "ia-nmr-intensity"
+       ]
+      },
+      {
+       "id": "D",
+       "std": [
+        "acs-accm-inorganic:VIII.G.4",
+        "acs-accm-inorganic:IX.A.1",
+        "acs-accm-inorganic:IX.A.4",
+        "acs-accm-inorganic:V.C.1"
+       ],
+       "do": "Use an ion-selective electrode's Nernstian response, and choose a microscopy or luminescence technique.",
+       "ek": [
+        "ΔE = (RT ln 10/zF)·Δlog a, 59.16/z mV per decade at 25 °C; fluorescence is spin-allowed and fast (ns), phosphorescence spin-forbidden and slow; STM and AFM reach atoms."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "ia-ise-response",
+        "ia-microscopy-luminescence"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 5,
+     "title": "Technique and safety",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "acs-accm-inorganic:IX.G.1",
+        "acs-accm-inorganic:IX.G.2",
+        "acs-accm-inorganic:IX.G.3",
+        "acs-accm-inorganic:V.G.2"
+       ],
+       "do": "Choose the technique and precautions for air-sensitive, pressurised and cryogenic work.",
+       "ek": [
+        "Schlenk line or glovebox under N₂ or Ar; never seal a cryogen in a closed vessel; liquid N₂ can condense O₂; check pressure ratings and use blast shields."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "ia-air-free",
+        "ia-air-free-2"
        ]
       }
      ]
@@ -1721,6 +2334,281 @@
    "full": [
     "cw-catalytic-process",
     "cw-monsanto-count"
+   ],
+   "partial": []
+  },
+  {
+   "code": "IA-15.1.A",
+   "unit": 15,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ia-slater-main",
+    "ia-slater-4s"
+   ],
+   "partial": []
+  },
+  {
+   "code": "IA-15.1.B",
+   "unit": 15,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ia-pg-polar",
+    "ia-pg-chiral"
+   ],
+   "partial": []
+  },
+  {
+   "code": "IA-15.1.C",
+   "unit": 15,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ia-isolobal-short",
+    "ia-isolobal-partner"
+   ],
+   "partial": []
+  },
+  {
+   "code": "IA-15.1.D",
+   "unit": 15,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ia-tolman",
+    "ia-ligand-electronic"
+   ],
+   "partial": []
+  },
+  {
+   "code": "IA-15.1.E",
+   "unit": 15,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ia-werner-agcl",
+    "ia-isomer-type"
+   ],
+   "partial": []
+  },
+  {
+   "code": "IA-15.1.F",
+   "unit": 15,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ia-naming",
+    "ia-formula-from-name"
+   ],
+   "partial": []
+  },
+  {
+   "code": "IA-15.2.A",
+   "unit": 15,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "ia-born-haber-lattice",
+    "ia-born-haber-formation"
+   ],
+   "partial": []
+  },
+  {
+   "code": "IA-15.2.B",
+   "unit": 15,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "ia-wustite-ox",
+    "ia-wustite-fe3"
+   ],
+   "partial": []
+  },
+  {
+   "code": "IA-15.2.C",
+   "unit": 15,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "ia-doping",
+    "ia-intrinsic-factor"
+   ],
+   "partial": []
+  },
+  {
+   "code": "IA-15.2.D",
+   "unit": 15,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "ia-superconductors",
+    "ia-solids-facts"
+   ],
+   "partial": []
+  },
+  {
+   "code": "IA-15.2.E",
+   "unit": 15,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "ia-frameworks",
+    "ia-synthesis-conditions"
+   ],
+   "partial": []
+  },
+  {
+   "code": "IA-15.3.A",
+   "unit": 15,
+   "topic": 3,
+   "status": "ok",
+   "full": [
+    "ia-eigen-wilkins",
+    "ia-substitution-mech"
+   ],
+   "partial": []
+  },
+  {
+   "code": "IA-15.3.B",
+   "unit": 15,
+   "topic": 3,
+   "status": "ok",
+   "full": [
+    "ia-marcus-cross",
+    "ia-inner-outer"
+   ],
+   "partial": []
+  },
+  {
+   "code": "IA-15.3.C",
+   "unit": 15,
+   "topic": 3,
+   "status": "ok",
+   "full": [
+    "ia-trans-effect",
+    "ia-trans-effect-2"
+   ],
+   "partial": []
+  },
+  {
+   "code": "IA-15.3.D",
+   "unit": 15,
+   "topic": 3,
+   "status": "ok",
+   "full": [
+    "ia-chelate-ddg",
+    "ia-chelate-origin"
+   ],
+   "partial": []
+  },
+  {
+   "code": "IA-15.3.E",
+   "unit": 15,
+   "topic": 3,
+   "status": "ok",
+   "full": [
+    "ia-coalescence-k",
+    "ia-coalescence-dg"
+   ],
+   "partial": []
+  },
+  {
+   "code": "IA-15.3.F",
+   "unit": 15,
+   "topic": 3,
+   "status": "ok",
+   "full": [
+    "ia-beta-from-k",
+    "ia-alpha-ml"
+   ],
+   "partial": []
+  },
+  {
+   "code": "IA-15.3.G",
+   "unit": 15,
+   "topic": 3,
+   "status": "ok",
+   "full": [
+    "ia-levelling",
+    "ia-superacids"
+   ],
+   "partial": []
+  },
+  {
+   "code": "IA-15.3.H",
+   "unit": 15,
+   "topic": 3,
+   "status": "ok",
+   "full": [
+    "ia-ee-from-ddg",
+    "ia-ddg-for-ee"
+   ],
+   "partial": []
+  },
+  {
+   "code": "IA-15.3.I",
+   "unit": 15,
+   "topic": 3,
+   "status": "ok",
+   "full": [
+    "ia-lfse-hydrated",
+    "ia-hydration-hump"
+   ],
+   "partial": []
+  },
+  {
+   "code": "IA-15.4.A",
+   "unit": 15,
+   "topic": 4,
+   "status": "ok",
+   "full": [
+    "ia-delta-from-lambda",
+    "ia-dd-rules"
+   ],
+   "partial": []
+  },
+  {
+   "code": "IA-15.4.B",
+   "unit": 15,
+   "topic": 4,
+   "status": "ok",
+   "full": [
+    "ia-mu-from-chi",
+    "ia-unpaired-from-chiT"
+   ],
+   "partial": []
+  },
+  {
+   "code": "IA-15.4.C",
+   "unit": 15,
+   "topic": 4,
+   "status": "ok",
+   "full": [
+    "ia-nmr-lines",
+    "ia-nmr-intensity"
+   ],
+   "partial": []
+  },
+  {
+   "code": "IA-15.4.D",
+   "unit": 15,
+   "topic": 4,
+   "status": "ok",
+   "full": [
+    "ia-ise-response",
+    "ia-microscopy-luminescence"
+   ],
+   "partial": []
+  },
+  {
+   "code": "IA-15.5.A",
+   "unit": 15,
+   "topic": 5,
+   "status": "ok",
+   "full": [
+    "ia-air-free",
+    "ia-air-free-2"
    ],
    "partial": []
   }

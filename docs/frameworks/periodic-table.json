@@ -16,7 +16,9 @@
   "also": [
    "ngss-hs",
    "ib-chemistry-2025",
-   "icho-appendix-c"
+   "icho-appendix-c",
+   "acs-accm-general",
+   "acs-accm-inorganic"
   ],
   "note": "Content from the IUPAC table (release note read; element list cross-checked in the verifier). Which parts to know by heart is a house decision from Kevin's organometallics course."
  },
@@ -69,6 +71,10 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "acs-accm-general:I.A.1",
+        "acs-accm-inorganic:I.A.1"
+       ],
        "do": "Give the atomic number of any main-group element.",
        "ek": [
         "Noble gases at 2, 10, 18, 36, 54, 86, 118 anchor each row."
@@ -184,6 +190,9 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "acs-accm-inorganic:I.B.6"
+       ],
        "do": "Give the d-electron count of a metal in a stated oxidation state.",
        "ek": [
         "d count = group − oxidation state."
@@ -309,6 +318,9 @@
       },
       {
        "id": "C",
+       "std": [
+        "acs-accm-general:I.B.3"
+       ],
        "do": "Write the full configuration of a transition-metal atom with its noble-gas core.",
        "ek": [
         "The 5d metals carry 4f¹⁴ in the core."
