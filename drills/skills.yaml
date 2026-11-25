@@ -68,6 +68,7 @@ domains:
   - { id: md, title: "Molecular simulation" }
   - { id: compchem, title: "Computational chemistry" }
   - { id: cpd, title: "Computational protein design" }
+  - { id: qchem, title: "Electronic structure" }
   - { id: wushu, title: "Wushu" }
   - { id: swim, title: "Swimming" }
 
@@ -856,6 +857,12 @@ skills:
   - { id: design.denovo, domain: cpd, title: "De novo backbones, hydrogen-bond networks and negative design", short: "De novo design", prereqs: [design.sequence] }
   - { id: design.ml, domain: cpd, title: "Learned structure prediction, inverse folding and diffusion design", short: "Deep learning for design", prereqs: [design.representation] }
   - { id: design.validation, domain: cpd, title: "Testing designs and choosing between a score and a free energy", short: "Validation", prereqs: [design.sequence] }
+  - { id: qchem.orbitals, domain: qchem, title: "Electron counts, determinants, spin states and method labels", short: "Orbitals and references" }
+  - { id: qchem.hartree-fock, domain: qchem, title: "The SCF procedure, its energy pieces, convergence and what it misses", short: "Hartree-Fock", prereqs: [qchem.orbitals] }
+  - { id: qchem.basis, domain: qchem, title: "Basis-set composition, polarisation and diffuse functions, convergence and superposition error", short: "Basis sets", prereqs: [qchem.hartree-fock] }
+  - { id: qchem.correlation, domain: qchem, title: "Perturbation theory, coupled cluster, configuration interaction and interaction-energy decomposition", short: "Correlation methods", prereqs: [qchem.basis] }
+  - { id: qchem.dft, domain: qchem, title: "Functional families, exact exchange, dispersion corrections and numerical grids", short: "Density functional theory", prereqs: [qchem.hartree-fock] }
+  - { id: qchem.properties, domain: qchem, title: "Geometries, frequencies, derived properties and reporting a calculation", short: "Geometries and properties", prereqs: [qchem.correlation] }
   - { id: wushu.judging, domain: wushu, title: "Taolu judging: score structure, panel marks and the Duanwei ladder", short: "Wushu judging" }
   - { id: swim.rules, domain: swim, title: "World Aquatics rules, legal strokes and disqualifications", short: "Swim rules" }
   - { id: swim.pacing, domain: swim, title: "Race analysis: pace, splits, stroke rate and distance per cycle", short: "Race analysis" }

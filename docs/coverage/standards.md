@@ -24,6 +24,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 | Dental Admission Test | Dental Admission Test 2026 Candidate Guide | exam-spec | read in full | ngss-hs, ib-chemistry-2025, usnco, icho-appendix-c, acs-accm-general, acs-accm-organic | — | 205 | 205 | 0 |
 | Earth and Space Science | Next Generation Science Standards, high school performance expectations (2013) | standard | read in part | ib-physics-2025, ib-biology-2025, gre-physics | — | 18 | 18 | 0 |
 | Electric Double Layers | Petsev, van Swol and Frink, Molecular Theory of Electric Double Layers (IOP Publishing, 2021) | textbook | read in part | — | — | 56 | 56 | 0 |
+| Electronic Structure | Psi4NumPy interactive tutorials (Smith et al., JCTC 14 (2018) 3504) | course | read in part | molssi-qm-tools, szabo-ostlund | — | 30 | 30 | 0 |
 | Applied Engineering Mathematics | Kreyszig, Advanced Engineering Mathematics, 10th ed. | textbook | read in full | fe-chemical, webwork-opl | — | 178 | 135 | 43 |
 | Fluid Mechanics | NCEES FE Chemical CBT Exam Specifications (effective July 2020) | exam-spec | read in full | pe-chemical, webwork-opl | — | 64 | 64 | 0 |
 | Graduate Chemical Engineering Core | UC Irvine Chemical and Biomolecular Engineering graduate core: CBE 200, 210, 220A, 220B and 240 (catalogue descriptions, 2025-26) | course | read in part | pe-chemical | — | 38 | 38 | 0 |
@@ -77,6 +78,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 - **Chemistry (AP)**: Every topic in units 1–9 cites its College Board learning objectives (92 of 92, read Nov 2026). Objectives past Unit 2 were first written from topic titles; check them against the LO text when revising.
 - **Earth and Space Science**: Units follow the NGSS HS ESS disciplinary core ideas (ESS1 Earth's place in the universe, ESS2 Earth's systems, ESS3 Earth and human activity), read in part. Objectives and their order are ours.
 - **Electric Double Layers**: A course textbook, not a curriculum standard: the units follow its chapters and the objectives are ours. Colloids and DLVO at the undergraduate level live in Polymers and Materials unit 3 (Israelachvili).
+- **Electronic Structure**: No accredited standard exists at this level. The Psi4NumPy modules are the closest published curriculum and the MolSSI lesson fixes the practical units; Szabo & Ostlund is a theory reference only. Objectives are ours.
 - **Applied Engineering Mathematics**: UCI CBE 200 publishes no syllabus. The undergraduate part is anchored to fe-chemical; series, Sturm–Liouville, PDEs and transforms are past any exam spec and stand on the book.
 - **Fluid Mechanics**: Topics from FE Chemical area 6, read in full; units 7–10 extend past it on the WeBWorK OPL fluid-mechanics sections (read in full). Objectives and their order are ours; statics is assumed by the spec rather than listed.
 - **Graduate Chemical Engineering Core**: UCI's graduate core courses by catalogue description (read in part); no syllabus or past comprehensive exam was read, so the objectives are ours. PE Chemical is the nearest published exam and stops below this level.
@@ -125,6 +127,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 - **Chemistry (AP)**: standard, read in part
 - **Earth and Space Science**: standard, read in part
 - **Electric Double Layers**: textbook, read in part
+- **Electronic Structure**: course, read in part
 - **Applied Engineering Mathematics**: textbook, read in full
 - **Graduate Chemical Engineering Core**: course, read in part
 - **Mathematics K–8 (Common Core)**: standard, read through a crosswalk
@@ -3981,3 +3984,63 @@ https://ep.jhu.edu/courses/545614-computational-protein-structure-prediction-and
 | T3 | Design of turns and folds | 2 | 2 | protein-design (2) |
 | T4 | Design of protein interfaces | 1 | 1 | protein-design (1) |
 | T5 | Structure, biophysics, optimisation and informatics underlying the field | 3 | 3 | protein-design (3) |
+
+## Psi4NumPy interactive tutorials (Smith et al., JCTC 14 (2018) 3504)
+
+https://github.com/psi4/psi4numpy
+
+8 of 19 items have at least one objective answering to them.
+
+| Item | Topic | Objectives | With a drill | Where |
+|---|---|---|---|---|
+| 01 | Psi4NumPy basics: molecules, wavefunctions and integrals | 7 | 7 | electronic-structure (7) |
+| 03 | Hartree-Fock (module group) | 13 | 13 | electronic-structure (13) |
+| 03a | Restricted Hartree-Fock | — | — | **nothing yet** |
+| 03b | Direct inversion of the iterative subspace | — | — | **nothing yet** |
+| 03c | Unrestricted Hartree-Fock | — | — | **nothing yet** |
+| 03d | Restricted open-shell Hartree-Fock | — | — | **nothing yet** |
+| 04 | Density functional theory (module group) | 9 | 9 | electronic-structure (9) |
+| 04a | Density functional theory: grids and quadrature | — | — | **nothing yet** |
+| 04b | LDA kernel | — | — | **nothing yet** |
+| 04c | GGA and meta-GGA kernels | — | — | **nothing yet** |
+| 04d | VV10 non-local correlation | — | — | **nothing yet** |
+| 04e | DFT with exact exchange | — | — | **nothing yet** |
+| 05 | Moller-Plesset perturbation theory (module group) | 9 | 9 | electronic-structure (9) |
+| 05a | Conventional MP2 | — | — | **nothing yet** |
+| 05b | Density-fitted MP2 | — | — | **nothing yet** |
+| 06 | Molecular properties: dipoles, polarisabilities and response | 8 | 8 | electronic-structure (8) |
+| 07 | Symmetry-adapted perturbation theory | 8 | 8 | electronic-structure (8) |
+| 08 | CEPA0 and coupled-cluster doubles | 9 | 9 | electronic-structure (9) |
+| 11 | One- and two-electron integrals and density fitting | 7 | 7 | electronic-structure (7) |
+
+## MolSSI Education, Quantum Mechanics Tools (lesson)
+
+https://education.molssi.org/qm-tools/
+
+5 of 7 items have at least one objective answering to them.
+
+| Item | Topic | Objectives | With a drill | Where |
+|---|---|---|---|---|
+| 1 | Geometry optimisation | 7 | 7 | electronic-structure (7) |
+| 2 | Intramolecular potential energy surfaces | 7 | 7 | electronic-structure (7) |
+| 3 | Intermolecular potential energy surfaces | 7 | 7 | electronic-structure (7) |
+| 4 | Basis-set convergence of geometries | 9 | 9 | electronic-structure (9) |
+| 5 | Basis-set convergence of vibrational frequencies | 7 | 7 | electronic-structure (7) |
+| 6 | Standard redox potentials | — | — | **nothing yet** |
+| 7 | Version control for computational projects | — | — | **nothing yet** |
+
+## Szabo & Ostlund, Modern Quantum Chemistry (Dover, 1996)
+
+https://store.doverpublications.com/products/9780486691862
+
+0 of 7 items have at least one objective answering to them.
+
+| Item | Topic | Objectives | With a drill | Where |
+|---|---|---|---|---|
+| 1 | Mathematical review and notation | — | — | **nothing yet** |
+| 2 | Many-electron wavefunctions and operators | — | — | **nothing yet** |
+| 3 | The Hartree-Fock approximation | — | — | **nothing yet** |
+| 4 | Configuration interaction | — | — | **nothing yet** |
+| 5 | Pair and coupled-pair theories | — | — | **nothing yet** |
+| 6 | Many-body perturbation theory | — | — | **nothing yet** |
+| 7 | The one-particle Green's function | — | — | **nothing yet** |

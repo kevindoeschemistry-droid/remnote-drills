@@ -1,0 +1,166 @@
+# Electronic Structure — curriculum framework (draft 1, for Kevin's markup)
+#
+# The method side of computational chemistry: what a Hartree-Fock, post-Hartree-Fock or DFT calculation is,
+# what each approximation costs, and how to read and report one. Molecular Simulation (MD) keeps the
+# classical-dynamics and free-energy side; Protein Design (CPD) keeps the structure-prediction side. The three
+# meet when a design decision needs a quantum number: a barrier, a charge or a spectroscopic property.
+#
+# Basis: the Psi4NumPy tutorial modules (module list read; published as a JCTC paper and used as a teaching
+# set) as primary, with MolSSI's Quantum Mechanics Tools lesson (read in full) as also. Szabo & Ostlund is
+# listed as the theory reference but is never cited on an item, since its chapters were written from memory.
+# No accredited standard covers this subject at graduate level, so the objectives and their order are a house
+# list; the ramp runs counting and notation -> Hartree-Fock -> basis sets -> correlation -> DFT -> properties.
+#
+# Relativistic methods, multireference methods (CASSCF, MRCI) and periodic DFT are out of scope for draft 1
+# and are named as such rather than half-covered.
+id: electronic-structure
+title: Electronic Structure
+code: QC
+draft: 1
+track: science
+requires: [chemistry, molecular-simulation]
+level: 5
+domains: [qchem]
+
+basis:
+  primary: psi4numpy-tutorials
+  also: [molssi-qm-tools, szabo-ostlund]
+  note: "No accredited standard exists at this level. The Psi4NumPy modules are the closest published curriculum and the MolSSI lesson fixes the practical units; Szabo & Ostlund is a theory reference only. Objectives are ours."
+
+big_ideas:
+  - id: APPROX
+    title: "Every method is an approximation with a name"
+    text: "A calculation is a Hamiltonian, a wavefunction model and a basis. Quoting a result without all three says nothing."
+  - id: SCALE
+    title: "Cost decides what is possible"
+    text: "Formal cost grows as a power of system size, and the exponent is the first thing that rules a method in or out."
+  - id: CONVERGE
+    title: "Two limits, not one"
+    text: "A result converges in the basis and in the treatment of correlation. Improving one while the other lags is wasted effort."
+
+practices:
+  - id: P1
+    title: Compute
+    text: "Carry the calculation to a number with units, and say what it does not settle."
+  - id: P2
+    title: Decide
+    text: "Choose a method, basis or protocol for a stated problem, and name the failure it avoids."
+
+units:
+  - id: orbitals
+    n: 1
+    title: "Orbitals, determinants and notation"
+    std: ["psi4numpy-tutorials:01"]
+    scope: core
+    ideas: [APPROX]
+    topics:
+      - n: 1
+        title: "Counting the problem"
+        los:
+          - { id: B, std: ["psi4numpy-tutorials:01"], do: "Read a method and basis label and say what each part fixes.", ek: ["A label such as CCSD(T)/cc-pVTZ names the correlation treatment and the basis separately; neither alone defines the calculation, and the geometry it was run at is a third choice."], p: [P2], drills: [qc-label-parts, qc-label-read] }
+          - { id: A, std: ["psi4numpy-tutorials:01"], do: "Count electrons, occupied and virtual orbitals, and determinants for a closed-shell molecule in a given basis.", ek: ["A closed-shell molecule with N electrons fills N/2 spatial orbitals; a basis of K functions gives K spatial orbitals, so K - N/2 are virtual. Excitation counts come from choosing occupied and virtual pairs."], p: [P1], drills: [qc-orbital-count, qc-double-excitations] }
+      - n: 2
+        title: "Spin and reference"
+        los:
+          - { id: A, std: ["psi4numpy-tutorials:03"], do: "Distinguish restricted, unrestricted and restricted open-shell references and say when each is used.", ek: ["RHF pairs spatial orbitals for closed shells; UHF lets alpha and beta differ, which allows spin contamination; ROHF keeps a pure spin state at the cost of flexibility."], p: [P2], drills: [qc-reference-pick, qc-unpaired] }
+          - { id: B, std: ["psi4numpy-tutorials:03"], do: "Compute the expected value of S squared for a given multiplicity and judge spin contamination from a reported value.", ek: ["For a pure state, S squared equals S(S+1) with S = (multiplicity - 1)/2: 0 for a singlet, 0.75 for a doublet, 2 for a triplet. A UHF value well above that is contaminated."], p: [P1], drills: [qc-s-squared, qc-contamination-read] }
+  - id: hartree-fock
+    n: 2
+    title: "The Hartree-Fock method"
+    std: ["psi4numpy-tutorials:03", "psi4numpy-tutorials:11"]
+    scope: core
+    ideas: [APPROX, CONVERGE]
+    topics:
+      - n: 1
+        title: "The SCF procedure"
+        los:
+          - { id: A, std: ["psi4numpy-tutorials:03"], do: "Put the steps of an SCF cycle in order and say what makes it self-consistent.", ek: ["Build the core Hamiltonian and overlap, guess a density, build the Fock matrix from it, solve the generalised eigenvalue problem, form a new density, repeat until the density and energy stop changing."], p: [P2], drills: [qc-scf-order, qc-scf-pieces] }
+          - { id: B, std: ["psi4numpy-tutorials:03"], do: "Compute the Hartree-Fock energy from its one- and two-electron pieces and the nuclear repulsion.", ek: ["The electronic energy is a trace over the density with the core and Fock matrices; the total adds the nuclear repulsion, which is a pure geometry term."], p: [P1], drills: [qc-total-energy, qc-electronic-from-total] }
+      - n: 2
+        title: "What Hartree-Fock misses"
+        los:
+          - { id: A, std: ["psi4numpy-tutorials:03", "psi4numpy-tutorials:05"], do: "Define correlation energy and say which correlation Hartree-Fock already includes.", ek: ["Correlation energy is the exact non-relativistic energy minus the Hartree-Fock energy, always negative. Hartree-Fock includes exchange, and so same-spin (Fermi) correlation, but no opposite-spin (Coulomb) correlation."], p: [P2], drills: [qc-correlation-def, qc-correlation-kinds] }
+          - { id: B, std: ["psi4numpy-tutorials:03"], do: "Compute a correlation energy or a percentage recovered from reported total energies.", ek: ["E_corr = E_method - E_HF; the fraction recovered compares a method's correlation energy with a reference such as a complete-basis coupled-cluster value."], p: [P1], drills: [qc-corr-fraction, qc-corr-energy] }
+      - n: 3
+        title: "Convergence in practice"
+        los:
+          - { id: A, std: ["psi4numpy-tutorials:03"], do: "Diagnose an SCF that will not converge and name the usual remedies.", ek: ["Oscillation points at near-degenerate orbitals or a poor guess: DIIS acceleration, level shifting, damping, a better initial guess, or converging a simpler basis or method first."], p: [P2], drills: [qc-scf-fail, qc-guess-matters] }
+          - { id: B, std: ["psi4numpy-tutorials:11"], do: "Count the two-electron integrals a basis implies and say why screening and density fitting matter.", ek: ["There are about K^4/8 unique two-electron integrals for K basis functions once permutational symmetry is used; screening discards negligible ones and density fitting replaces the four-index set with a smaller three-index one."], p: [P1], drills: [qc-integral-count, qc-integral-growth] }
+  - id: basis
+    n: 3
+    title: "Basis sets"
+    std: ["molssi-qm-tools:4"]
+    scope: core
+    ideas: [CONVERGE, SCALE]
+    topics:
+      - n: 1
+        title: "Reading a basis-set name"
+        los:
+          - { id: A, std: ["molssi-qm-tools:4"], do: "Read a basis-set name and say what it adds: split valence, polarisation, diffuse functions, and the correlation-consistent series.", ek: ["A split-valence set gives valence orbitals more than one function; polarisation functions add higher angular momentum for bonding flexibility; diffuse functions matter for anions and weak interactions; cc-pVXZ is a series designed to converge smoothly."], p: [P2], drills: [qc-basis-name, qc-basis-pick] }
+          - { id: B, std: ["molssi-qm-tools:4"], do: "Count basis functions for a molecule in a stated basis.", ek: ["Count per atom and sum: a minimal basis gives one function per occupied atomic orbital, and each added shell contributes its own degeneracy (3 for p, 5 or 6 for d)."], p: [P1], drills: [qc-basis-functions, qc-shell-functions] }
+      - n: 2
+        title: "Converging and correcting"
+        los:
+          - { id: A, std: ["molssi-qm-tools:4"], do: "Judge from a series of results whether a property has converged in the basis.", ek: ["A property is converged when successive members of a systematic series change by less than the accuracy wanted; geometries converge faster than energies, and interaction energies slowest."], p: [P1], drills: [qc-basis-converge, qc-extrapolate-change] }
+          - { id: B, std: ["molssi-qm-tools:4"], do: "Compute a counterpoise-corrected interaction energy and explain basis-set superposition error.", ek: ["In a small basis each monomer borrows functions from its partner, over-binding the complex; the counterpoise correction recomputes each monomer in the full dimer basis and subtracts the difference."], p: [P1], drills: [qc-counterpoise, qc-bsse-why] }
+  - id: correlation
+    n: 4
+    title: "Correlation methods"
+    std: ["psi4numpy-tutorials:05", "psi4numpy-tutorials:08", "psi4numpy-tutorials:07"]
+    scope: core
+    ideas: [APPROX, SCALE]
+    topics:
+      - n: 1
+        title: "Perturbation theory"
+        los:
+          - { id: A, std: ["psi4numpy-tutorials:05"], do: "State what MP2 adds and when perturbation theory is the wrong tool.", ek: ["MP2 adds the leading double-excitation correction from the Hartree-Fock reference. It fails where the reference is poor: small gaps, bond breaking, diradicals, and transition metals."], p: [P2], drills: [qc-mp2-limits, qc-mp2-scaling-use] }
+          - { id: B, std: ["psi4numpy-tutorials:05"], do: "Compute an MP2 correlation contribution from given orbital energies and integrals for one excitation.", ek: ["Each doubly-excited amplitude contributes a term whose numerator is the integral squared and whose denominator is the sum of occupied minus virtual orbital energies, so small gaps make large contributions."], p: [P1], drills: [qc-mp2-term, qc-mp2-contribution] }
+      - n: 2
+        title: "Coupled cluster and configuration interaction"
+        los:
+          - { id: A, std: ["psi4numpy-tutorials:08"], do: "Order the common correlation methods by cost and accuracy, and say what CCSD(T) means.", ek: ["MP2, then CCSD, then CCSD(T), which adds a perturbative triples correction and is the usual accuracy reference for single-reference molecules."], p: [P2], drills: [qc-cc-order, qc-method-ladder] }
+          - { id: B, std: ["psi4numpy-tutorials:08"], do: "Compute how much longer a calculation takes when the system grows, from a method's formal scaling.", ek: ["Formal cost scales as a power of basis size: about the fourth power for Hartree-Fock, the fifth for MP2, the sixth for CCSD and the seventh for CCSD(T). The ratio of two sizes raised to that power is the slowdown."], p: [P1], drills: [qc-scaling-ratio, qc-basis-for-cost] }
+      - n: 3
+        title: "Interactions"
+        los:
+          - { id: A, std: ["psi4numpy-tutorials:07"], do: "Say what a symmetry-adapted perturbation theory decomposition gives that a total interaction energy does not.", ek: ["It splits the interaction into electrostatics, exchange, induction and dispersion, so two complexes with the same binding energy can be told apart by what binds them."], p: [P2], drills: [qc-sapt-why, qc-sapt-levels] }
+          - { id: B, std: ["psi4numpy-tutorials:07"], do: "Attribute a described interaction to the dominant SAPT component.", ek: ["A hydrogen bond is electrostatics-dominated; two nonpolar rings stacking is dispersion-dominated; a polar molecule beside a polarisable one gains induction."], p: [P2], drills: [qc-sapt-attribute, qc-sapt-total] }
+  - id: dft
+    n: 5
+    title: "Density functional theory"
+    std: ["psi4numpy-tutorials:04"]
+    scope: core
+    ideas: [APPROX, SCALE]
+    topics:
+      - n: 1
+        title: "What a functional is"
+        los:
+          - { id: A, std: ["psi4numpy-tutorials:04"], do: "Place a functional on the rungs from local density through generalised gradient to hybrid and double hybrid, and say what each rung adds.", ek: ["LDA uses the density; GGA adds its gradient; meta-GGA adds the kinetic-energy density; a hybrid mixes in exact exchange; a double hybrid adds perturbative correlation."], p: [P2], drills: [qc-functional-rungs, qc-functional-pick] }
+          - { id: B, std: ["psi4numpy-tutorials:04"], do: "Compute the exchange mixture a hybrid applies from its stated fraction of exact exchange.", ek: ["A hybrid replaces a stated fraction of the functional's exchange with Hartree-Fock exchange; range-separated hybrids make that fraction depend on distance."], p: [P1], drills: [qc-hybrid-mix, qc-exchange-fraction] }
+      - n: 2
+        title: "Practice and pitfalls"
+        los:
+          - { id: A, std: ["psi4numpy-tutorials:04"], do: "Name what DFT handles poorly and the correction usually applied.", ek: ["Plain functionals miss long-range dispersion, so an empirical correction is added; self-interaction error distorts charge-transfer states and barriers, which range-separated hybrids reduce."], p: [P2], drills: [qc-dft-pitfalls, qc-dispersion-share] }
+          - { id: B, std: ["psi4numpy-tutorials:04"], do: "Compute an integration-grid or a dispersion-corrected energy from stated components.", ek: ["The total is the functional's energy plus the dispersion correction, which is a sum of damped pairwise terms; a grid too coarse adds noise that looks like a real energy difference."], p: [P1], drills: [qc-dispersion-total, qc-grid-and-noise] }
+  - id: properties
+    n: 6
+    title: "Geometry, frequencies and properties"
+    std: ["molssi-qm-tools:1", "molssi-qm-tools:2", "molssi-qm-tools:3", "molssi-qm-tools:5", "psi4numpy-tutorials:06"]
+    scope: core
+    ideas: [CONVERGE]
+    topics:
+      - n: 1
+        title: "Geometry optimisation"
+        los:
+          - { id: A, std: ["molssi-qm-tools:1"], do: "State what an optimiser converges on and how a minimum is told from a saddle point.", ek: ["The gradient goes to zero at any stationary point; the Hessian's eigenvalues decide which it is, and a frequency calculation reports one imaginary frequency for a transition state."], p: [P2], drills: [qc-stationary-points, qc-opt-practice] }
+          - { id: B, std: ["molssi-qm-tools:2", "molssi-qm-tools:3"], do: "Read a potential energy surface scan for a bond length, angle or intermolecular distance and extract the minimum and the well depth.", ek: ["Scanning one coordinate while relaxing or fixing the rest gives a curve whose minimum is the equilibrium value and whose depth below the separated limit is the binding energy."], p: [P1], drills: [qc-well-depth, qc-equilibrium-scan] }
+      - n: 2
+        title: "Frequencies and thermochemistry"
+        los:
+          - { id: A, std: ["psi4numpy-tutorials:06"], do: "Compute a zero-point vibrational energy from a set of harmonic frequencies.", ek: ["ZPE is half the sum of h times each harmonic frequency; a nonlinear molecule of n atoms has 3n - 6 modes and a linear one 3n - 5."], p: [P1], drills: [qc-zpe, qc-mode-count] }
+          - { id: B, std: ["molssi-qm-tools:5", "psi4numpy-tutorials:06"], do: "Compute a reaction energy or a standard potential from computed energies and say what corrections it needs.", ek: ["A reaction energy is the sum of products minus reactants, corrected for zero-point energy and thermal terms; an electrode potential divides the free-energy change by minus the electrons times the Faraday constant and needs a reference."], p: [P1], drills: [qc-reaction-energy, qc-potential-from-dg] }
+      - n: 3
+        title: "Choosing and reporting"
+        los:
+          - { id: B, std: ["psi4numpy-tutorials:01"], do: "State what a reported result must include to be reproducible.", ek: ["Method, basis, geometry (or that it was optimised at the same level), any dispersion correction and solvation model, the program and its version, and for a transition state the imaginary frequency."], p: [P2], drills: [qc-report-reproducible, qc-report-missing] }
+          - { id: A, std: ["psi4numpy-tutorials:04", "psi4numpy-tutorials:08", "molssi-qm-tools:4"], do: "Choose a method and basis for a stated problem and defend both choices.", ek: ["Match the treatment to the chemistry and the basis to the property: geometries tolerate small bases, interaction energies do not; a multireference problem rules out single-reference methods whatever the basis."], p: [P2], drills: [qc-method-choice, qc-cost-decision] }

@@ -1,0 +1,17 @@
+# The Psi4NumPy interactive tutorial modules (psi4/psi4numpy), read as a module list in Nov 2026 and mapped
+# to the qchem.* skills of the Electronic Structure framework (QC). Modules 02, 09, 10 and 12 and up are not
+# drilled here. Chapter numbers follow the module numbering, not a book.
+id: psi4numpy
+title: "Psi4NumPy interactive tutorials"
+short: "Psi4NumPy"
+year: 2018
+field: computational-chemistry
+chapters:
+  - { n: 1, title: "Psi4NumPy basics: molecules, wavefunctions and integrals", skills: [qchem.orbitals] }
+  - { n: 3, title: "Hartree-Fock: RHF, DIIS, UHF and ROHF", skills: [qchem.hartree-fock] }
+  - { n: 11, title: "One- and two-electron integrals and density fitting", skills: [qchem.basis] }
+  - { n: 5, title: "Moller-Plesset perturbation theory", skills: [qchem.correlation] }
+  - { n: 8, title: "CEPA0 and coupled-cluster doubles", skills: [qchem.correlation] }
+  - { n: 4, title: "Density functional theory: grids, kernels and exact exchange", skills: [qchem.dft] }
+  - { n: 6, title: "Molecular properties and response", skills: [qchem.properties] }
+  - { n: 7, title: "Symmetry-adapted perturbation theory", skills: [qchem.correlation] }
