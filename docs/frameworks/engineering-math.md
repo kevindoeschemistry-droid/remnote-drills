@@ -2,7 +2,7 @@
 
 Generated from `drills/frameworks/engineering-math.yaml` by `scripts/framework.mjs`. ● drilled · ◐ partly · ○ no drills yet.
 
-**155 learning objectives** in 14 units (151 core): 155 drilled, 0 partly, 0 with no drills. Core: 151 / 151 drilled.
+**170 learning objectives** in 14 units (160 core): 170 drilled, 0 partly, 0 with no drills. Core: 160 / 160 drilled.
 
 ## Big ideas
 
@@ -26,17 +26,17 @@ Generated from `drills/frameworks/engineering-math.yaml` by `scripts/framework.m
 | Unit | Scope | Est. weight | LOs | ● | ◐ | ○ |
 |---|---|---|---|---|---|---|
 | 1 · The calculus and complex-number toolkit | core | review | 10 | 10 | 0 | 0 |
-| 2 · First-order ODEs | core | 15–20% | 17 | 17 | 0 | 0 |
-| 3 · Second-order linear ODEs | core | 20–25% | 18 | 18 | 0 | 0 |
-| 4 · Higher-order linear ODEs | core | 5% | 4 | 4 | 0 | 0 |
+| 2 · First-order ODEs | core | 15–20% | 19 | 19 | 0 | 0 |
+| 3 · Second-order linear ODEs | core | 20–25% | 19 | 19 | 0 | 0 |
+| 4 · Higher-order linear ODEs | core | 5% | 6 | 6 | 0 | 0 |
 | 5 · Systems of ODEs, phase plane and stability | core | 15–20% | 13 | 13 | 0 | 0 |
 | 6 · Series solutions and special functions | core | 15% | 11 | 11 | 0 | 0 |
-| 7 · Laplace transforms | core | 15% | 14 | 14 | 0 | 0 |
+| 7 · Laplace transforms | core | 15% | 16 | 16 | 0 | 0 |
 | 8 · Linear algebra for ODEs | core | as needed | 11 | 11 | 0 | 0 |
-| 9 · Fourier series and Sturm–Liouville boundary-value problems | core | 10–15% | 11 | 11 | 0 | 0 |
+| 9 · Fourier series and Sturm–Liouville boundary-value problems | core | 10–15% | 13 | 13 | 0 | 0 |
 | 10 · Partial differential equations | core | — | 23 | 23 | 0 | 0 |
-| 11 · Fourier integrals and transforms | extension | — | 2 | 2 | 0 | 0 |
-| 12 · Vector calculus for transport | extension | — | 2 | 2 | 0 | 0 |
+| 11 · Fourier integrals and transforms | extension | — | 5 | 5 | 0 | 0 |
+| 12 · Vector calculus for transport | extension | — | 5 | 5 | 0 | 0 |
 | 13 · More on ODEs: circuits, bifurcations, operators, existence | core | — | 5 | 5 | 0 | 0 |
 | 14 · Complex analysis | core | — | 14 | 14 | 0 | 0 |
 
@@ -157,6 +157,9 @@ Book: kreyszig-10e §1.5
   - EK: y′ + py = g y^a ⇒ u′ + (1−a)p u = (1−a)g.
   - Needs: EM-2.4.A
   - P2 · P3 · drills: bern-const, bern-power, bern-exp
+- ● **EM-2.4.D** () Solve a first-order linear ODE whose forcing switches on or off at a given time.
+  - EK: Solve on each interval and carry y across the switch: the solution is continuous even where the forcing jumps.
+  - P1 · drills: lin-switch-off, lin-switch-on
 
 ### 2.5 Choosing a first-order method
 
@@ -182,6 +185,9 @@ Book: kreyszig-10e §1.3, §1.5
 - ● **EM-2.6.D** (webwork-opl:DE2.5) Find and classify the equilibria of an autonomous ODE y′ = f(y) from a phase line.
   - EK: f(y*) = 0; stable if f′(y*) < 0.
   - P6 · drills: em-phase-line
+- ● **EM-2.6.E** () Model a mixing tank whose volume changes because inflow and outflow differ.
+  - EK: V(t) = V₀ + (q_in − q_out)t; x′ = c_in q_in − q_out x/V(t) is linear with a variable coefficient.
+  - P1 · drills: model-tank-growing, model-tank-overflow
 
 ### 2.7 Existence and uniqueness
 
@@ -221,6 +227,9 @@ Book: kreyszig-10e §2.2, §2.3
   - EK: Two conditions y(x_0), y′(x_0) fix c_1, c_2.
   - Needs: EM-3.2.A
   - P4 · drills: char-ivp
+- ● **EM-3.2.C** () Solve a second-order boundary-value problem and decide whether it has none, one or infinitely many solutions.
+  - EK: Fit the general solution to the two boundary values; the system is singular exactly when the boundary points sit at zeros of the homogeneous solution.
+  - P1 · drills: bvp-unique, bvp-how-many
 
 ### 3.3 Euler–Cauchy equations
 
@@ -304,6 +313,9 @@ Book: kreyszig-10e §3.1, §3.2
   - EK: A root of multiplicity k gives e^(λx), xe^(λx), …, x^(k−1)e^(λx).
   - Needs: EM-4.1.B
   - P3 · P4 · drills: hi-distinct, hi-repeated, hi-complex, hi-ivp
+- ● **EM-4.1.D** () Find the roots of the auxiliary equation of a third-order Euler–Cauchy ODE.
+  - EK: Try y = x^m: x^m factors out of every term, leaving m(m − 1)(m − 2) + a m(m − 1) + b m + c = 0.
+  - P1 · drills: hi-ec-roots, hi-ec-solution
 
 ### 4.2 Nonhomogeneous higher-order equations
 
@@ -313,6 +325,9 @@ Book: kreyszig-10e §3.3
   - EK: Same modification rule; variation of parameters uses Cramer's rule with W_k/W.
   - Needs: EM-3.5.A, EM-4.1.C
   - P3 · drills: em-undetermined-third, ~uc-general
+- ● **EM-4.2.B** () Write the form of a particular solution of a higher-order ODE, multiplying by x as often as the root repeats.
+  - EK: A forcing term whose exponent matches a characteristic root of multiplicity k needs x^k times the usual trial.
+  - P1 · drills: hi-trial-form, hi-trial-coefficient
 
 ## Unit 5 · Systems of ODEs, phase plane and stability
 
@@ -485,6 +500,9 @@ Book: kreyszig-10e §6.2
 - ● **EM-7.3.B** Identify the transfer function of a linear system and relate its poles to stability and damping.
   - EK: Q(s) = Y/R with zero ICs = 1/(as² + bs + c); poles in the left half-plane ⇔ decay.
   - P6 · drills: transfer-g, transfer-poles, transfer-stable
+- ● **EM-7.3.C** () Find f(0⁺) and f(∞) from F(s) with the initial- and final-value theorems, and say when the final-value theorem fails.
+  - EK: f(0⁺) = lim s→∞ sF(s); f(∞) = lim s→0 sF(s), valid only if every pole of sF(s) lies in the open left half-plane.
+  - P1 · drills: lt-final-value, lt-initial-value
 
 ### 7.4 Unit step and t-shifting
 
@@ -500,6 +518,9 @@ Book: kreyszig-10e §6.3
   - EK: Transform the step-written forcing; the solution is piecewise with continuous y and y′.
   - Needs: EM-7.3.A, EM-7.4.A
   - P1 · P3 · drills: step-ivp-on, step-ivp-pulse
+- ● **EM-7.4.D** () Transform a periodic function with the one-period formula.
+  - EK: L{f} = ∫₀ᵀ e^(−st) f(t) dt ÷ (1 − e^(−sT)).
+  - P1 · drills: lt-square-wave, lt-sawtooth
 
 ### 7.5 Impulses and the Dirac delta
 
@@ -627,6 +648,9 @@ Book: kreyszig-10e §11.1, §11.2
   - EK: Solve term by term; the term with nω nearest ω₀ dominates.
   - Needs: EM-9.1.A, EM-3.6.A
   - P3 · P6 · drills: em-fourier-forced-response
+- ● **EM-9.1.E** () Find what a Fourier series converges to at a jump, and sum a series of coefficients with Parseval's identity.
+  - EK: At a jump the series gives the average of the one-sided limits; Parseval: a₀²/2 + Σ(aₙ² + bₙ²) = (1/π)∫f² over a period (period 2π, a₀ the full constant).
+  - P1 · drills: fs-jump-value, fs-parseval
 
 ### 9.2 Sturm–Liouville problems
 
@@ -650,6 +674,9 @@ Book: kreyszig-10e §11.5
   - EK: Set μ = λ + c, solve as 9.2.C, then λ = μ − c.
   - Needs: EM-9.2.C
   - P3 · P4 · drills: sl-shift-eigenvalues, sl-shift-eigenfunctions, sl-shift-negative
+- ● **EM-9.2.F** () Find the eigenvalues and eigenfunctions of y″ + λy = 0 with periodic boundary conditions.
+  - EK: y(−L) = y(L), y′(−L) = y′(L): λ₀ = 0 with a constant, then λₙ = (nπ/L)² each with two eigenfunctions cos and sin.
+  - P1 · drills: sl-periodic-eigen, sl-periodic-facts
 
 ### 9.3 Orthogonality and eigenfunction expansions
 
@@ -800,6 +827,15 @@ Book: kreyszig-10e §11.7, §11.8, §11.9
 - ● **EM-11.1.B** Compute a Fourier transform and use its derivative property to turn an ODE into algebra.
   - EK: F{f′} = iwF{f}; F{e^(−ax²)} is Gaussian.
   - P3 · drills: em-fourier-transform-value, em-fourier-derivative-rule
+- ● **EM-11.1.C** () Compute Fourier transforms of the Gaussian and the rectangular pulse.
+  - EK: With f̂(w) = (1/√2π)∫f e^(−iwx)dx: e^(−ax²) → e^(−w²/4a)/√(2a); a pulse of height 1 on |x| < b → √(2/π) sin(bw)/w.
+  - P1 · drills: ft-gaussian, ft-rect
+- ● **EM-11.1.D** () Use the shift, scaling and convolution properties of the Fourier transform.
+  - EK: f(x − c) → e^(−iwc)f̂; f(bx) → f̂(w/b)/|b|; f∗g → √(2π) f̂ ĝ.
+  - P1 · drills: ft-scaling, ft-properties
+- ● **EM-11.1.E** () Solve the heat equation on an infinite line by Fourier transform and read the spreading Gaussian.
+  - EK: A point release Q spreads as u = Q e^(−x²/4κt)/√(4πκt): the peak falls as t^(−1/2) and the variance grows as 2κt.
+  - P1 · drills: ft-heat-peak, ft-heat-spread
 
 ## Unit 12 · Vector calculus for transport (extension)
 
@@ -815,6 +851,15 @@ Book: kreyszig-10e §9.7, §9.8, §9.9, §10.7, §10.9
 - ● **EM-12.1.B** (webwork-opl:FM4.2) Derive a differential conservation equation from an integral balance with the divergence theorem.
   - EK: ∭∇·F dV = ∯F·n dA ⇒ ∂c/∂t + ∇·N = R.
   - P1 · drills: ca-conservation-law
+- ● **EM-12.1.C** () Compute the Laplacian of a radial function in cylindrical and spherical coordinates.
+  - EK: Cylindrical: (1/r)(r f′)′; spherical: (1/r²)(r² f′)′; for f = rⁿ these are n² r^(n−2) and n(n + 1) r^(n−2).
+  - P1 · drills: vc-laplacian-radial, vc-harmonic-radial
+- ● **EM-12.1.D** () Solve steady radial conduction or diffusion in a cylindrical or spherical shell.
+  - EK: Cylinder: T = A ln r + B; sphere: T = A/r + B; fit the inner and outer values.
+  - P1 · drills: vc-shell-temperature, vc-shell-heat
+- ● **EM-12.1.E** () Compute the divergence of a radial field in cylindrical and spherical coordinates.
+  - EK: ∇·(F(r) e_r) = (1/r)(rF)′ in a cylinder and (1/r²)(r²F)′ in a sphere.
+  - P1 · drills: vc-div-radial, vc-flux-conservation
 
 ## Unit 13 · More on ODEs: circuits, bifurcations, operators, existence
 

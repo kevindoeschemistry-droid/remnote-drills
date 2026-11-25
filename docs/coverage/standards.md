@@ -23,7 +23,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 | Dental Admission Test | Dental Admission Test 2026 Candidate Guide | exam-spec | read in full | ngss-hs, ib-chemistry-2025, usnco, icho-appendix-c | — | 205 | 205 | 0 |
 | Earth and Space Science | Next Generation Science Standards, high school performance expectations (2013) | standard | read in part | ib-physics-2025, ib-biology-2025, gre-physics | — | 18 | 18 | 0 |
 | Electric Double Layers | Petsev, van Swol and Frink, Molecular Theory of Electric Double Layers (IOP Publishing, 2021) | textbook | read in part | — | — | 56 | 56 | 0 |
-| Applied Engineering Mathematics | Kreyszig, Advanced Engineering Mathematics, 10th ed. | textbook | read in full | fe-chemical, webwork-opl | — | 155 | 128 | 27 |
+| Applied Engineering Mathematics | Kreyszig, Advanced Engineering Mathematics, 10th ed. | textbook | read in full | fe-chemical, webwork-opl | — | 170 | 135 | 35 |
 | Fluid Mechanics | NCEES FE Chemical CBT Exam Specifications (effective July 2020) | exam-spec | read in full | pe-chemical, webwork-opl | — | 64 | 64 | 0 |
 | Graduate Chemical Engineering Core | UC Irvine Chemical and Biomolecular Engineering graduate core: CBE 200, 210, 220A, 220B and 240 (catalogue descriptions, 2025-26) | course | read in part | pe-chemical | — | 38 | 38 | 0 |
 | Heat Transfer | NCEES FE Chemical CBT Exam Specifications (effective July 2020) | exam-spec | read in full | fe-mechanical, ib-physics-2025, pe-chemical | — | 101 | 63 | 38 |
@@ -152,8 +152,8 @@ https://ncees.org/wp-content/uploads/2022/09/FE-Che-CBT-specs.pdf
 | **1** | **Mathematics** (6–9 questions) | | | |
 | 1.A | Analytic geometry, logarithms, trigonometry | — | — | **nothing yet** |
 | 1.B | Calculus | 6 | 6 | engineering-math (6) |
-| 1.C | Differential equations | 66 | 66 | engineering-math (66) |
-| 1.D | Numerical methods | 34 | 34 | engineering-math (17), numerical-methods (17) |
+| 1.C | Differential equations | 73 | 73 | engineering-math (73) |
+| 1.D | Numerical methods | 36 | 36 | engineering-math (19), numerical-methods (17) |
 | 1.E | Algebra, matrices, systems of equations | 17 | 17 | engineering-math (11), numerical-methods (6) |
 | 1.F | Accuracy, precision, significant figures | — | — | **nothing yet** |
 | **2** | **Probability and Statistics** (4–6 questions) | | | |
@@ -239,7 +239,7 @@ https://ncees.org/wp-content/uploads/2022/09/FE-Che-CBT-specs.pdf
 | 14.D | Design and optimization | — | — | **nothing yet** |
 | 14.E | Design standards | — | — | **nothing yet** |
 | **15** | **Process Control** (4–6 questions) | | | |
-| 15.A | Dynamics (first and second order, time constants, stability) | 46 | 46 | engineering-math (45), process-design (1) |
+| 15.A | Dynamics (first and second order, time constants, stability) | 49 | 49 | engineering-math (48), process-design (1) |
 | 15.B | Control strategies | — | — | **nothing yet** |
 | 15.C | Loop design and hardware | — | — | **nothing yet** |
 | **16** | **Safety, Health, and Environment** (5–8 questions) | | | |

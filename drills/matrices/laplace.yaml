@@ -1,0 +1,19 @@
+# Laplace transforms (Engineering Math unit 7): every move against every kind of input.
+id: laplace
+title: "Laplace transforms: every move against every input"
+why: "Most homework inputs are smooth or a single step; periodic inputs and the limit theorems are the cells left out."
+cells:
+  - { cell: "Forward transform · table functions", drills: [lt-power, lt-trig, lt-hyperbolic, lt-linear, lt-identity] }
+  - { cell: "Inverse · distinct, repeated and complex poles", drills: [ilt-distinct, ilt-repeated, ilt-complex, ilt-quadratic, ilt-three] }
+  - { cell: "s-shifting (multiply by e^at)", drills: [shift-s-forward, shift-s-inverse] }
+  - { cell: "t-shifting · unit step, piecewise input", drills: [shift-t-forward, shift-t-inverse, shift-piecewise] }
+  - { cell: "IVP · smooth input", drills: [livp-const, livp-exp, livp-real, livp-complex, livp-double] }
+  - { cell: "IVP · switched input or pulse", drills: [step-ivp-on, step-ivp-pulse] }
+  - { cell: "IVP · impulse (delta) input", drills: [delta-ivp, delta-response] }
+  - { cell: "IVP · periodic input (one-period formula)", drills: [lt-square-wave, lt-sawtooth] }
+  - { cell: "Multiplication by t", drills: [tmul-forward, tmul-inverse] }
+  - { cell: "Convolution and integral equations", drills: [conv-compute, conv-inverse, conv-transform, conv-volterra] }
+  - { cell: "Systems of ODEs", drills: [lsys-ivp, lsys-forced] }
+  - { cell: "Transfer function, poles, stability", drills: [transfer-g, transfer-poles, transfer-stable] }
+  - { cell: "Initial- and final-value theorems", drills: [lt-initial-value, lt-final-value] }
+  - { cell: "On a PDE", drills: [pde-lt-steps, pde-lt-erfc-value], note: "the PDE side lives in the pde-1d grid" }

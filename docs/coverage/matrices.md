@@ -57,6 +57,29 @@ A homework set shows one geometry and one boundary condition per method. The fin
 | Mass diffusion · transient (erf), semi-infinite | `ht-mass-erf-time` |  |
 | Convective mass transfer · analogy, Sherwood, evaporation | `ht3-mc-analogy`, `ht3-mc-sherwood`, `ht3-mc-evap` |  |
 
+## Laplace transforms: every move against every input
+
+Most homework inputs are smooth or a single step; periodic inputs and the limit theorems are the cells left out.
+
+14 of 14 cells have drills; 0 are open.
+
+| Cell | Drills | Open |
+|---|---|---|
+| Forward transform · table functions | `lt-power`, `lt-trig`, `lt-hyperbolic`, `lt-linear`, `lt-identity` |  |
+| Inverse · distinct, repeated and complex poles | `ilt-distinct`, `ilt-repeated`, `ilt-complex`, `ilt-quadratic`, `ilt-three` |  |
+| s-shifting (multiply by e^at) | `shift-s-forward`, `shift-s-inverse` |  |
+| t-shifting · unit step, piecewise input | `shift-t-forward`, `shift-t-inverse`, `shift-piecewise` |  |
+| IVP · smooth input | `livp-const`, `livp-exp`, `livp-real`, `livp-complex`, `livp-double` |  |
+| IVP · switched input or pulse | `step-ivp-on`, `step-ivp-pulse` |  |
+| IVP · impulse (delta) input | `delta-ivp`, `delta-response` |  |
+| IVP · periodic input (one-period formula) | `lt-square-wave`, `lt-sawtooth` |  |
+| Multiplication by t | `tmul-forward`, `tmul-inverse` |  |
+| Convolution and integral equations | `conv-compute`, `conv-inverse`, `conv-transform`, `conv-volterra` |  |
+| Systems of ODEs | `lsys-ivp`, `lsys-forced` |  |
+| Transfer function, poles, stability | `transfer-g`, `transfer-poles`, `transfer-stable` |  |
+| Initial- and final-value theorems | `lt-initial-value`, `lt-final-value` |  |
+| On a PDE | `pde-lt-steps`, `pde-lt-erfc-value` (the PDE side lives in the pde-1d grid) |  |
+
 ## Multivariable calculus: every method against every shape it is asked on
 
 One drilled shape per method is recall of that shape. The exam picks the region, curve or surface.
@@ -130,6 +153,41 @@ One drilled shape per method is recall of that shape. The exam picks the region,
 | Stokes · swap a curved surface (hemisphere) for its boundary or a flat cap | `mvd-stokes-surface` |  |
 | Orientation · which way each theorem needs | `mvd-orientation` |  |
 | Choosing the theorem | `mvd-which-theorem` |  |
+
+## ODEs: every method against every condition
+
+Homework shows each method on its friendliest forcing. An exam can switch the forcing off halfway, let the tank fill, or set a boundary-value problem with no solution.
+
+26 of 26 cells have drills; 0 are open.
+
+| Cell | Drills | Open |
+|---|---|---|
+| First order · separable | `sep-exp-growth`, `sep-exp-split`, `sep-over-y`, `sep-over-y2`, `sep-y-squared` |  |
+| First order · substitution (homogeneous, y = ux, linear argument) | `sub-arctan`, `sub-exp`, `sub-linear-square`, `sub-ratio`, `sub-square` |  |
+| First order · exact, and made exact by an integrating factor | `exact-exy`, `exact-ivp`, `exact-poly`, `exact-trans`, `if-factor-x`, `if-factor-y`, `if-solve`, `if-test` |  |
+| First order · linear, smooth forcing | `lin-const`, `lin-exp`, `lin-gauss`, `lin-power`, `lin-resonant`, `lin-trig` |  |
+| First order · linear, forcing switched on or off | `lin-switch-off`, `lin-switch-on` |  |
+| First order · Bernoulli | `bern-const`, `bern-exp`, `bern-power` |  |
+| First order · which method? (recognise the type) | `recog-bernoulli`, `recog-exact`, `recog-linear`, `recog-separable`, `recog-substitution`, `em-classify-ode` |  |
+| First order · existence, uniqueness, phase line | `em-existence`, `em-phase-line`, `em-bifurcation` |  |
+| Modelling · decay, cooling, logistic, RC | `model-decay`, `model-cooling`, `model-logistic`, `em-rc-current` |  |
+| Modelling · mixing tank, constant volume | `model-mixing` |  |
+| Modelling · mixing tank, changing volume | `model-tank-growing`, `model-tank-overflow` |  |
+| Second order homogeneous · distinct, repeated, complex roots | `char-distinct`, `char-repeated`, `char-complex`, `char-ivp` |  |
+| Second order · Euler–Cauchy | `ec-distinct`, `ec-double`, `ec-complex`, `ec-ivp`, `ec-roots` |  |
+| Second order · reduction of order | `red-const`, `red-euler`, `red-exp`, `red-gauss`, `red-trig` |  |
+| Second order · Wronskian and independence | `wr-exps`, `wr-powers`, `wr-repeated`, `wr-trig`, `wr-dependent`, `em-existence-interval` |  |
+| Second order · boundary-value problem (none, one or infinitely many) | `bvp-unique`, `bvp-how-many` |  |
+| Nonhomogeneous · undetermined coefficients, no resonance | `uc-exp`, `uc-poly`, `uc-trig`, `uc-general` |  |
+| Nonhomogeneous · undetermined coefficients with resonance | `uc-resonance`, `mm-particular-form` |  |
+| Nonhomogeneous · variation of parameters | `vop-double`, `vop-euler`, `vop-general`, `vop-trig` |  |
+| Oscillators · free, damped, forced, resonance, beats | `spring-undamped-ivp`, `spring-under-ivp`, `spring-over-ivp`, `spring-critical-ivp`, `forced-steady`, `forced-resonance`, `forced-beats`, `em-rlc` |  |
+| Higher order · constant coefficients | `hi-distinct`, `hi-repeated`, `hi-complex`, `hi-ivp`, `hi-roots` |  |
+| Higher order · Euler–Cauchy | `hi-ec-roots`, `hi-ec-solution` |  |
+| Higher order · undetermined coefficients, trial form with repeated roots | `em-undetermined-third`, `hi-trial-form`, `hi-trial-coefficient` |  |
+| Systems · real, complex, repeated eigenvalues | `sys-eigen`, `sys-general`, `sys-ivp`, `sys-complex`, `sys-complex-ivp`, `sys-repeated` |  |
+| Systems · nonhomogeneous | `em-nonhomog-system` |  |
+| Systems · phase portrait, stability, nonlinear critical points | `phase-matrix`, `phase-stability`, `phase-equations`, `phase-ode2`, `em-phase-portrait`, `em-nonlinear-critical` |  |
 
 ## 1-D PDEs: every method against every condition
 
@@ -205,4 +263,26 @@ Homework shows one reactor under one condition. A final can pair any design equa
 | RTD · moments from pulse data, F(t) of ideal tanks | `re-rtd-moments`, `re-tanks-F` |  |
 | Nonideal · segregation, tanks in series, dispersion | `re-segregation`, `re-tis-model`, `re-dispersion` |  |
 | Nonideal · maximum mixedness for non-first-order kinetics |  | not built |
+
+## Series, Fourier and Sturm–Liouville: every expansion against every condition
+
+Dirichlet ends and ordinary points are the homework default; periodic ends, jumps and regular singular points are the exam's.
+
+13 of 13 cells have drills; 0 are open.
+
+| Cell | Drills | Open |
+|---|---|---|
+| Power series · classify the point, radius | `series-classify-point`, `series-radius` |  |
+| Power series · recurrence and first terms at an ordinary point | `series-recurrence`, `series-recurrence-airy`, `series-terms`, `series-terms-airy` |  |
+| Frobenius · indicial roots and which case | `frobenius-indicial`, `frobenius-case`, `em-frobenius-first-solution` |  |
+| Special functions · Legendre and Bessel | `spec-legendre-n`, `em-legendre-eval`, `em-legendre-expansion`, `spec-bessel-order`, `spec-bessel-scaled`, `spec-bessel-independent`, `spec-identify` |  |
+| Fourier series · period 2π and 2L | `fs-step`, `fs-sawtooth`, `fs-parabola`, `fs-abs`, `fs-period-2l` |  |
+| Fourier series · half-range sine and cosine | `fs-half-range`, `em-fourier-cosine-sine` |  |
+| Fourier series · value at a jump, Parseval | `fs-jump-value`, `fs-parseval` |  |
+| Fourier series · periodic forcing of an oscillator | `em-fourier-forced-response` |  |
+| Sturm–Liouville · form and classification | `sl-form`, `sl-classify` |  |
+| Sturm–Liouville · Dirichlet, Neumann, mixed ends | `sl-eigenvalues`, `sl-eigenfunctions`, `pde-eigen-condition` |  |
+| Sturm–Liouville · periodic ends | `sl-periodic-eigen`, `sl-periodic-facts` |  |
+| Sturm–Liouville · shifted problem, negative eigenvalues | `sl-shift-eigenvalues`, `sl-shift-eigenfunctions`, `sl-shift-negative` |  |
+| Orthogonality and eigenfunction expansion | `em-orthogonality`, `mt-sine-coefficient-constant` |  |
 
