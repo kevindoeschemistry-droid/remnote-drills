@@ -61,7 +61,7 @@ OBJS = [
     ("NR-2.2.C", R("SIPC.3", "SIPC.5", "SIPC.7"), "Apply ergonomic, home-safety and equipment-safety principles.", "Wide base of support and lift with the legs; remove throw rugs, add grab bars and lighting; inspect equipment and tag faulty items."),
     ("NR-3.1.C", R("HPM.1"), "Recognise normal changes of aging and tell them from disease.", "Expected: presbyopia, presbycusis, slower reaction time, less skin elasticity; acute confusion is not normal aging."),
     ("NR-3.3.B", R("HPM.9"), "Use physical assessment techniques in the right order and read common findings.", "Inspection, palpation, percussion, auscultation; the abdomen is auscultated before palpation."),
-    ("NR-3.4.A", R("HPM.4", "HPM.5"), "Recommend screenings and preventive care at the usual ages.", "Screening schedules follow USPSTF-style guidance (usual): colorectal from 45, cervical from 21, mammography by age 40–50 depending on guideline."),
+    ("NR-3.4.A", R("HPM.4", "HPM.5"), "Recommend screenings and preventive care at the usual ages.", "Screening schedules follow USPSTF-style guidance (usual): colorectal from 45, cervical from 21 under USPSTF and ACOG (ACS 2020 says 25), mammography by age 40–50 depending on guideline."),
     ("NR-3.4.B", R("HPM.6", "HPM.7", "HPM.8"), "Assess high-risk behaviors and support lifestyle change and self-care.", "Pack-years = packs/day × years; motivational interviewing; teach-back confirms self-care teaching."),
     ("NR-4.2.B", R("PSY.5", "PSY.13", "PSY.14"), "Intervene in a crisis and support stress management and support systems.", "Crisis care is short-term and directive: ensure safety first, then problem-solve; ask directly about suicide."),
     ("NR-4.3.A", R("PSY.2", "PSY.10", "PSY.16"), "Use behavioral interventions and a therapeutic environment for mental-health conditions.", "Set clear limits; reduce stimulation for mania; orient to reality, don't argue with delusions; least restrictive intervention."),
@@ -167,7 +167,7 @@ ADD = [
     ]], choice=MC, correct="0", verify="authored", explain="Air sounds hollow, solid organs and fluid sound dull")),
     ("NR-3.4.A", Q("nr-screening", NH, "{{q}}", cases=[{"q": q, "o1": a, "o2": b, "o3": c, "o4": d} for q, a, b, c, d in [
         ("Average-risk colorectal cancer screening usually begins at age:", "45", "30", "60", "70"),
-        ("Cervical cancer screening for average-risk people usually begins at age:", "21", "16", "30", "40"),
+        ("Cervical cancer screening for average-risk people begins at what age under USPSTF and ACOG guidance (the ACS 2020 guideline instead says 25)?", "21", "16", "30", "40"),
         ("Primary prevention examples include:", "Immunization and seat-belt use", "Mammography", "Cardiac rehabilitation", "Dialysis"),
         ("Secondary prevention (early detection) includes:", "Screening tests such as mammography", "Immunization", "Rehabilitation", "Hand washing"),
         ("Tertiary prevention includes:", "Rehabilitation after a stroke", "Immunization", "Screening", "Health education for well people"),

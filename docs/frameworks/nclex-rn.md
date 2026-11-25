@@ -146,7 +146,7 @@ Big ideas: CUES
 
 
 - ● **NR-3.4.A** (ncsbn-nclex-rn:HPM.4, ncsbn-nclex-rn:HPM.5) Recommend screenings and preventive care at the usual ages.
-  - EK: Screening schedules follow USPSTF-style guidance (usual): colorectal from 45, cervical from 21, mammography by age 40–50 depending on guideline.
+  - EK: Screening schedules follow USPSTF-style guidance (usual): colorectal from 45, cervical from 21 under USPSTF and ACOG (ACS 2020 says 25), mammography by age 40–50 depending on guideline.
   - P4 · drills: nr-screening, nr-prevention-level
 - ● **NR-3.4.B** (ncsbn-nclex-rn:HPM.6, ncsbn-nclex-rn:HPM.7, ncsbn-nclex-rn:HPM.8) Assess high-risk behaviors and support lifestyle change and self-care.
   - EK: Pack-years = packs/day × years; motivational interviewing; teach-back confirms self-care teaching.
