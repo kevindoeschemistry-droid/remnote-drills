@@ -637,7 +637,7 @@
     explain: 81-fold for a non-cooperative binder; cooperativity sharpens the switch
   verify:
     expect:
-      v: solve(Eq(Symbol('rr')**nsimplify(n), 81), Symbol('rr'))[0]
+      v: Integer(9)**(2/nsimplify(n))
 - template: bc-hemoglobin
   skill: biochem.binding
   pace: quick

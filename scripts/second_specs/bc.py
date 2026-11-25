@@ -211,7 +211,7 @@ ADD = [
         given={"K": {"pick": [26, 10]}, "n": {"pick": [1, 2.8]}, "L": {"pick": [5, 26, 100]}}, value="L^n/(K^n + L^n)", tex="\\theta",
         verify="1/(1 + (Rational(K, L))**nsimplify(n))", explain="Haemoglobin: n ≈ 2.8, P₅₀ ≈ 26 torr")),
     ("BC-3.2.A", Q("bc-hill-range", B, "With Hill coefficient n = {{n}}, by what factor must [L] rise to go from 10% to 90% saturation?",
-        given={"n": {"pick": [1, 2, 2.8, 4]}}, value="81^(1/n)", tex="\\times", verify="solve(Eq(Symbol('rr')**nsimplify(n), 81), Symbol('rr'))[0]",
+        given={"n": {"pick": [1, 2, 2.8, 4]}}, value="81^(1/n)", tex="\\times", verify="Integer(9)**(2/nsimplify(n))",
         explain="81-fold for a non-cooperative binder; cooperativity sharpens the switch")),
     ("BC-3.2.B", facts("bc-hemoglobin", B, [
         ("In exercising muscle, lower pH and higher CO₂ make haemoglobin:", "Release O₂ more readily (Bohr effect)", "Bind O₂ more tightly", "Unchanged", "Lose its haem"),
