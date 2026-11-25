@@ -67,6 +67,7 @@ domains:
   - { id: csci, title: "Computer science" }
   - { id: md, title: "Molecular simulation" }
   - { id: compchem, title: "Computational chemistry" }
+  - { id: cpd, title: "Computational protein design" }
 
 skills:
   # ── prerequisites ────────────────────────────────────────────────────────
@@ -844,6 +845,15 @@ skills:
   - { id: md.free-energy, domain: md, title: "Alchemical free energies: FEP, TI, BAR/MBAR, schedules and thermodynamic cycles", short: "Free-energy methods", prereqs: [md.statmech, md.analysis] }
   - { id: md.lambda, domain: md, title: "λ dynamics, MSλD and ALF in practice", short: "λ dynamics and ALF", prereqs: [md.free-energy] }
   - { id: md.workflow, domain: md, title: "Engines, clusters, scripts and reproducibility", short: "Workflow" }
+  - { id: design.structure, domain: cpd, title: "Protein geometry, dihedrals and rotamers", short: "Geometry and rotamers" }
+  - { id: design.representation, domain: cpd, title: "Poses, numbering and coarse-grained versus all-atom models", short: "Representation", prereqs: [design.structure] }
+  - { id: design.energy, domain: cpd, title: "All-atom energy terms, weights, reference energies and reading a score", short: "Energy function", prereqs: [design.representation] }
+  - { id: design.sampling, domain: cpd, title: "Monte Carlo, annealing, packing, minimisation and relax", short: "Sampling and packing", prereqs: [design.energy] }
+  - { id: design.sequence, domain: cpd, title: "Design specifications, mutational scans and sequence optimisation", short: "Sequence design", prereqs: [design.sampling] }
+  - { id: design.interfaces, domain: cpd, title: "Docking, interface energies and binding-site design", short: "Interfaces and ligands", prereqs: [design.sequence] }
+  - { id: design.denovo, domain: cpd, title: "De novo backbones, hydrogen-bond networks and negative design", short: "De novo design", prereqs: [design.sequence] }
+  - { id: design.ml, domain: cpd, title: "Learned structure prediction, inverse folding and diffusion design", short: "Deep learning for design", prereqs: [design.representation] }
+  - { id: design.validation, domain: cpd, title: "Testing designs and choosing between a score and a free energy", short: "Validation", prereqs: [design.sequence] }
   - { id: compchem.methods, domain: compchem, title: "Electronic structure in practice: basis sets, cost, units, choosing a method", short: "Electronic-structure methods", prereqs: [quantum.bonding] }
   - { id: nurs.management, domain: nurs, title: "Management of care: priorities, delegation, legal and ethical practice", short: "Management of care" }
   - { id: nurs.safety, domain: nurs, title: "Safety and infection prevention: precautions, PPE, restraints, error prevention", short: "Safety and infection control" }

@@ -1,6 +1,6 @@
 # The path — start to finish
 
-Every framework in `requires` order; inside each, units and objectives in order, except that 159 objectives move up to sit just after the prerequisites they need. 4238 objectives in 52 frameworks.
+Every framework in `requires` order; inside each, units and objectives in order, except that 159 objectives move up to sit just after the prerequisites they need. 4295 objectives in 53 frameworks.
 
 | # | Framework | Track | Requires | LOs | Path position |
 |---|---|---|---|---|---|
@@ -35,27 +35,28 @@ Every framework in `requires` order; inside each, units and objectives in order,
 | 29 | Information Systems | computing | computer-science | 53 | 2591–2643 |
 | 30 | Heat Transfer | engineering | engineering-math, physics | 101 | 2644–2744 |
 | 31 | Thermodynamics and Statistical Mechanics | engineering | engineering-math, chemistry, physics | 184 | 2745–2928 |
-| 32 | Molecular Simulation | engineering | thermodynamics, programming | 106 | 2929–3034 |
-| 33 | Fluid Mechanics | engineering | engineering-math, physics | 64 | 3035–3098 |
-| 34 | Material and Energy Balances | engineering | chemistry | 18 | 3099–3116 |
-| 35 | Numerical Methods | engineering | calculus, linear-algebra | 17 | 3117–3133 |
-| 36 | Process Design, Economics and Safety | engineering | material-balances | 9 | 3134–3142 |
-| 37 | Chemical Reaction Engineering | engineering | material-balances | 46 | 3143–3188 |
-| 38 | Separations | engineering | material-balances, thermodynamics | 6 | 3906–3913 |
-| 39 | Mass Transfer | engineering | heat-transfer, engineering-math | 21 | 3195–3215 |
-| 40 | Electric Double Layers | engineering | materials, thermodynamics | 56 | 3216–3271 |
-| 41 | Graduate Chemical Engineering Core | engineering | fluid-mechanics, heat-transfer, mass-transfer, thermodynamics, reaction-engineering, process-design, engineering-math | 38 | 3272–3309 |
-| 42 | Financial Accounting (CPA FAR) | business | — | 26 | 3310–3335 |
-| 43 | Dental Admission Test | health | biology, chemistry | 205 | 3336–3540 |
-| 44 | NGSS High School Science | science | chemistry, physics, biology, earth-space, nuclear, dat | 71 | 3541–3611 |
-| 45 | INBDE (Dentistry) | health | — | 81 | 3612–3692 |
-| 46 | NCLEX-RN | health | — | 67 | 3693–3759 |
-| 47 | AI Safety | safety | programming, calculus | 104 | 3760–3863 |
-| 48 | Biosecurity | safety | biology, statistics | 42 | 3864–3905 |
-| 49 | Speaking and Articulation | communication | — | 69 | 3906–3974 |
-| 50 | Basketball | athletics | — | 88 | 3975–4062 |
-| 51 | Swimming | athletics | — | 88 | 4063–4150 |
-| 52 | Wushu | athletics | — | 88 | 4151–4238 |
+| 32 | Molecular Simulation | engineering | thermodynamics, programming | 121 | 2929–3049 |
+| 33 | Computational Protein Design | science | biochemistry, molecular-simulation | 42 | 3050–3091 |
+| 34 | Fluid Mechanics | engineering | engineering-math, physics | 64 | 3092–3155 |
+| 35 | Material and Energy Balances | engineering | chemistry | 18 | 3156–3173 |
+| 36 | Numerical Methods | engineering | calculus, linear-algebra | 17 | 3174–3190 |
+| 37 | Process Design, Economics and Safety | engineering | material-balances | 9 | 3191–3199 |
+| 38 | Chemical Reaction Engineering | engineering | material-balances | 46 | 3200–3245 |
+| 39 | Separations | engineering | material-balances, thermodynamics | 6 | 3963–3970 |
+| 40 | Mass Transfer | engineering | heat-transfer, engineering-math | 21 | 3252–3272 |
+| 41 | Electric Double Layers | engineering | materials, thermodynamics | 56 | 3273–3328 |
+| 42 | Graduate Chemical Engineering Core | engineering | fluid-mechanics, heat-transfer, mass-transfer, thermodynamics, reaction-engineering, process-design, engineering-math | 38 | 3329–3366 |
+| 43 | Financial Accounting (CPA FAR) | business | — | 26 | 3367–3392 |
+| 44 | Dental Admission Test | health | biology, chemistry | 205 | 3393–3597 |
+| 45 | NGSS High School Science | science | chemistry, physics, biology, earth-space, nuclear, dat | 71 | 3598–3668 |
+| 46 | INBDE (Dentistry) | health | — | 81 | 3669–3749 |
+| 47 | NCLEX-RN | health | — | 67 | 3750–3816 |
+| 48 | AI Safety | safety | programming, calculus | 104 | 3817–3920 |
+| 49 | Biosecurity | safety | biology, statistics | 42 | 3921–3962 |
+| 50 | Speaking and Articulation | communication | — | 69 | 3963–4031 |
+| 51 | Basketball | athletics | — | 88 | 4032–4119 |
+| 52 | Swimming | athletics | — | 88 | 4120–4207 |
+| 53 | Wushu | athletics | — | 88 | 4208–4295 |
 
 ## Order problems (a prerequisite comes after the objective)
 

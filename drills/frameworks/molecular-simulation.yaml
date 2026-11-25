@@ -67,6 +67,7 @@ domains: []
 
 basis:
   primary: livecoms
+  also: [livecoms-afe, alchemistry-wiki]
   note: "No standard exists for this subject; triangulated from best-practice papers, textbooks and the Hayes group tutorial."
 
 big_ideas:
@@ -113,7 +114,6 @@ practices:
     text: Write and debug engine scripts and job files, run them on the cluster, and keep every input needed to reproduce the result.
 
 units:
-  # ── 1 ────────────────────────────────────────────────────────────────────
   - id: statmech
     n: 1
     title: Statistical mechanics for simulation
@@ -282,6 +282,23 @@ units:
           - { id: A, do: "Distinguish statistical uncertainty from sampling error that no error bar reveals, and detect insufficient sampling from drift, rare transitions and disagreement between independent runs.", ek: ["Checks can rule out good sampling but never prove it. Independent runs from diverse starts that disagree beyond their error bars signal unvisited states ('dark uncertainty')."], p: [P5], drills: ["md-dark-uncertainty"] }
 
   # ── 8 ────────────────────────────────────────────────────────────────────
+  - id: fe-foundations
+    n: 16
+    title: "Free-energy foundations and expectations"
+    std: ["alchemistry-wiki:FUND", "livecoms-afe:1", "livecoms-afe:3", "livecoms-afe:4"]
+    scope: extension
+    ideas: [PATH, ALCH]
+    topics:
+      - n: 1
+        title: "Words and ideas"
+        los:
+          - { id: A, std: ["alchemistry-wiki:FUND", "livecoms-afe:1", "livecoms-afe:3"], do: "Define the vocabulary of alchemical free energies: end states, λ, decoupling versus annihilation, and phase-space overlap.", ek: ["Alchemical intermediates are unphysical states that bridge two physical end states; only free-energy differences are defined; neighbouring states must overlap in phase space."], p: [P5], drills: [fe-vocab, fe-vocab-2] }
+          - { id: B, std: ["livecoms-afe:4"], do: "State the accuracy and reproducibility to expect from alchemical calculations and convert an energy error into a fold error in K.", ek: ["Favourable cases reach about 1–2 kcal/mol RMS error; 1.36 kcal/mol is a tenfold change in K at 298 K; repeat 2–3 times, ideally from different starting coordinates."], p: [P5], drills: [fe-error-fold, fe-expect] }
+      - n: 2
+        title: "Is the calculation worth running?"
+        los:
+          - { id: A, std: ["livecoms-afe:4.5", "livecoms-afe:4.6"], do: "Estimate the compute a free-energy campaign needs, and decide when a pilot study or an experiment is the better use of time.", ek: ["Typical calculations use 20–40 or more λ states per leg; GPU throughput is a few hundred ns/day; run a small pilot before committing."], p: [P5], drills: [fe-campaign-cost, fe-worth-it] }
+          - { id: B, std: ["livecoms-afe:5.3", "livecoms-afe:7.1.1"], do: "Design a perturbation network: star maps, denser networks with cycles, and how many independent cycles a network has.", ek: ["A star map links each ligand to one hub (N − 1 edges); a connected network with E edges on N ligands has E − N + 1 independent cycles for closure checks."], p: [P5], drills: [fe-network-cycles, fe-network] }
   - id: fe-theory
     n: 8
     title: Free-energy theory and estimators
@@ -345,6 +362,34 @@ units:
           - { id: B, do: "Match simulation conditions (pH, salt, temperature, construct, protonation) to the experiment being reproduced.", ek: ["The T4 lysozyme sites were measured at pH 3.0 (L99, M106, F153) and 5.4 (V149), so two folded-state setups are needed."], p: [P1, P2], drills: ["md-match-conditions"] }
 
   # ── 10 ───────────────────────────────────────────────────────────────────
+  - id: fe-practice
+    n: 17
+    title: "Free-energy practice: protocol, convergence and reporting"
+    std: ["alchemistry-wiki:BP", "livecoms-afe:7", "livecoms-afe:8", "livecoms-afe:12"]
+    scope: extension
+    ideas: [SAMPLE, WORK]
+    topics:
+      - n: 1
+        title: "Protocol choices"
+        los:
+          - { id: A, std: ["alchemistry-wiki:BP", "livecoms-afe:7.2.3"], do: "Apply the pathway rules: soft-core for Lennard-Jones, never charges without LJ, fewest insertions, and electrostatics off before LJ.", ek: ["Use soft-core when LJ is removed (α = 0.5 unless there is a reason not to); remove charges before LJ or soften Coulomb faster; prefer mutating atoms to inserting them."], p: [P5], drills: [fe-path-rules, fe-path-rules-2] }
+          - { id: B, std: ["livecoms-afe:7.1.1", "livecoms-afe:12"], do: "Make the relative-calculation choices: topology, atom mapping, constraints on transformed bonds and perturbation size.", ek: ["Single, dual or hybrid topology; keep transformations to about 1–5 heavy atoms; don't constrain bonds to transforming atoms (use about a 1 fs step); ring breaking is hard."], p: [P5], drills: [fe-relative-choices, fe-topology-pick] }
+          - { id: C, std: ["livecoms-afe:7.1.2", "livecoms-afe:7.2.1", "livecoms-afe:7.2.2"], do: "Make the absolute-calculation choices: restraint type, the standard state, weak binders and net charge changes.", ek: ["Harmonic, flat-bottom (does not restrain rotation) or Boresch (all six rigid-body degrees of freedom); correct to 1 M; net charge changes need co-alchemical ions or corrections."], p: [P5], drills: [fe-restraints, fe-charge-weak] }
+          - { id: D, std: ["alchemistry-wiki:BP", "livecoms-afe:7.2.4"], do: "Choose a sampling scheme and equilibrate correctly at every λ.", ek: ["Independent fixed-λ runs, Hamiltonian replica exchange (recommended), single-replica λ moves, or nonequilibrium switching; equilibrate each λ separately and for equal lengths."], p: [P5], drills: [fe-sampling-scheme, fe-equilibrate] }
+      - n: 2
+        title: "Convergence and analysis"
+        los:
+          - { id: A, std: ["livecoms-afe:7.2.5", "livecoms-afe:8.1", "livecoms-afe:8.2"], do: "Detect equilibration and decorrelate data: count effectively uncorrelated samples per state.", ek: ["Discard the early part; N_eff = (T − t₀)/g; aim for at least about 50 per state; if T is not about 20 times t₀, the run is short."], p: [P5], drills: [fe-neff, fe-equil-detect] }
+          - { id: B, std: ["livecoms-afe:7.2.5"], do: "Plan what to save: the energies each estimator needs and how often to write them.", ek: ["TI needs dU/dλ, EXP one-direction ΔU, BAR both neighbours, MBAR every state; write roughly every 50–100 steps; set the target uncertainty before running."], p: [P5], drills: [fe-frames, fe-what-to-save] }
+          - { id: C, std: ["alchemistry-wiki:BP", "livecoms-afe:8.3", "livecoms-afe:8.4", "livecoms-afe:8.5"], do: "Choose and cross-check estimators and read the diagnostics: overlap, forward–reverse drift and estimator disagreement.", ek: ["Prefer TI, BAR or MBAR; EXP is biased; first off-diagonal overlap at least 0.03; estimators disagreeing by more than 1 kcal/mol, or forward–reverse by more than 1 kT, means not converged."], p: [P5], drills: [fe-overlap-pick, fe-estimators] }
+          - { id: D, std: ["alchemistry-wiki:BP", "livecoms-afe:8.4", "livecoms-afe:8.7"], do: "Compute an uncertainty from independent repeats and combine the uncertainties of independent legs.", ek: ["The gold standard is independent copies and their standard error; an estimator's own error assumes uncorrelated data and usually underestimates; independent legs add in quadrature."], p: [P5], drills: [fe-leg-error, fe-repeat-se] }
+      - n: 3
+        title: "Verify and report"
+        los:
+          - { id: A, std: ["alchemistry-wiki:BP", "livecoms-afe:8.5", "livecoms-afe:12"], do: "Verify a result: alternate cycles, cycle closure, repeat spread against the error bar, and the checklist's red flags.", ek: ["Results from different cycles should agree; repeats should differ by about what their error bars allow; standard error above 1 kcal/mol or |ΔΔG| above about 15 kcal/mol is suspect."], p: [P5], drills: [fe-repeat-consistent, fe-cycle-closure-3] }
+          - { id: B, std: ["livecoms-afe:8.7"], do: "Report a benchmark the way the field expects: replicates, MUE and RMSE, correlation and ranking statistics, and honest plots.", ek: ["At least three replicates; RMSE and MUE for relative results (correlation depends on sign convention); bootstrap statistics; equal axes with 1 and 2 kcal/mol bands."], p: [P5], drills: [fe-mue, fe-reporting] }
+          - { id: C, std: ["livecoms-afe:8.6", "livecoms-afe:7.2.6"], do: "Diagnose common failures from their symptoms.", ek: ["Ligand leaving the site, inconsistent estimators, poor replica mixing, slow torsions, rough ΔG(λ), drift, and starting-pose dependence; wrong binding modes are common."], p: [P5], drills: [fe-diagnose, fe-binding-mode] }
+
   - id: lambda
     n: 10
     title: λ dynamics and multisite λ dynamics

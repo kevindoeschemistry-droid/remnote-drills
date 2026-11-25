@@ -39,7 +39,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 | High School Mathematics (Common Core) | CCSS Mathematics Appendix A: high school course pathways | standard | read in full | — | — | 200 | 200 | 0 |
 | Mathematics K–8 (Common Core) | Common Core State Standards for Mathematics (2010) | standard | read through a crosswalk | — | — | 258 | 258 | 0 |
 | Mental Math | UIL Number Sense Problem Sequencing Charts (High School; A+ Junior High and Elementary, rev. 2016-17) with the Number Sense Handbook rules | exam-spec | read in full | sta-mtc, mit-18-03-coverup, mit-integration-bee | — | 84 | 81 | 3 |
-| Molecular Simulation | LiveCoMS best-practice papers for molecular simulation | course | read in part | — | — | 106 | 0 | 106 |
+| Molecular Simulation | LiveCoMS best-practice papers for molecular simulation | course | read in part | livecoms-afe, alchemistry-wiki | — | 121 | 15 | 106 |
 | NCLEX-RN | NCLEX-RN Test Plan, effective April 2026 | exam-spec | read in part | — | — | 67 | 67 | 0 |
 | NGSS High School Science | Next Generation Science Standards, high school performance expectations (2013) | standard | read in part | — | — | 71 | 71 | 0 |
 | Nuclear Science and Reactor Theory | NRC Generic Fundamentals Examination, reactor theory topics (PWR catalog 192001-192008) | exam-spec | read in part | doe-hdbk-1019, ngss-hs, ib-physics-2025, icho-appendix-c, aamc-mcat-outline, gre-physics, acs-accm-analytical | — | 19 | 19 | 0 |
@@ -51,6 +51,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 | Physics (AP) | AP Physics 1, 2, C: Mechanics and C: Electricity and Magnetism Course and Exam Descriptions (effective fall 2024) | standard | read in part | ngss-hs, ib-physics-2025, aamc-mcat-outline, gre-physics | — | 211 | 211 | 0 |
 | Process Design, Economics and Safety | NCEES FE Chemical CBT Exam Specifications (effective July 2020) | exam-spec | read in full | pe-chemical | — | 9 | 9 | 0 |
 | Programming Foundations | AP Computer Science A Course and Exam Description (Fall 2025) | standard | read in full | — | — | 140 | 140 | 0 |
+| Computational Protein Design | PyRosetta Jupyter Notebooks (RosettaCommons), taught as JHU 545.614 / 540.414 | course | read in part | rosetta-ref15, dl4proteins, kuhlman-bradley, jhu-545614 | — | 42 | 42 | 0 |
 | Chemical Reaction Engineering | NCEES FE Chemical CBT Exam Specifications (effective July 2020) | exam-spec | read in full | icho-appendix-c, pe-chemical | — | 46 | 33 | 13 |
 | Separations | NCEES FE Chemical CBT Exam Specifications (effective July 2020) | exam-spec | read in full | pe-chemical | — | 6 | 6 | 0 |
 | Speaking and Articulation | Competent Speaker Speech Evaluation Form, 2nd ed. | rubric | read in full | toastmasters-pathways | — | 69 | 0 | 69 |
@@ -100,6 +101,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 - **Physical Chemistry**: Anchored on the ACS Physical Chemistry content map (read in full): objectives cite its subdisciplinary articulations, through scripts/accm_pchem.py. Units keep Engel & Reid's order; the map's articulations no objective answers are listed in docs/coverage/standards.md.
 - **Physics (AP)**: Objective codes read for a few units only.
 - **Process Design, Economics and Safety**: Topics from FE Chemical areas 13, 15, 16 and PE Chemical area 7 (read in full); objectives and their order are ours.
+- **Computational Protein Design**: No accredited standard exists. The notebook workshops are the closest published curriculum; the energy-function paper, the deep-learning workshops and the review fix the content of the later units. Objectives are ours.
 - **Chemical Reaction Engineering**: Topics from FE Chemical area 12, read in full. Objectives and their order are ours. Units 5–8 and the later letters of units 1–4 go beyond the FE spec on Fogler 5e's chapter order (a house list); the gaps are in the file header.
 - **Separations**: Topics from FE Chemical area 10 and PE Chemical 6.B (both read in full); objectives and their order are ours.
 - **Speaking and Articulation**: A scoring rubric plus Toastmasters' competency list; unit order is ours.
@@ -133,6 +135,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 - **Particle Physics**: standard, read in part
 - **The Periodic Table from Memory**: reference, read in part
 - **Physics (AP)**: standard, read in part
+- **Computational Protein Design**: course, read in part
 - **Speaking and Articulation**: rubric, read in full
 - **SQL**: exam-spec, read through a crosswalk
 - **Statistics**: standard, read in part
@@ -3827,3 +3830,154 @@ https://pubs.acs.org/doi/10.1021/acs.jchemed.9b00856
 | X.D.1 | Calibration functions and linear dynamic range | 3 | 3 | analytical-chemistry (3) |
 | X.D.2 | Reading spectra, chromatograms and voltammograms | 2 | 2 | analytical-chemistry (1), chemistry (1) |
 | X.D.3 | Derivative and log plots; removing outliers | 1 | 1 | analytical-chemistry (1) |
+
+## Alchemistry.org wiki (free energy methods)
+
+https://alchemistry.org/wiki/Main_Page
+
+2 of 3 items have at least one objective answering to them.
+
+| Item | Topic | Objectives | With a drill | Where |
+|---|---|---|---|---|
+| FUND | Free energy fundamentals: definitions, differences only, phase-space overlap | 5 | 5 | molecular-simulation (5) |
+| BP | Best practices: setup, pathways, running, analysis, verification | 16 | 16 | molecular-simulation (16) |
+| EX | Example calculations: ethanol solvation, toluene→phenol in T4 lysozyme, absolute toluene binding | — | — | **nothing yet** |
+
+## Mey et al., Best Practices for Alchemical Free Energy Calculations, LiveCoMS 2 (2020) 18378
+
+https://doi.org/10.33011/livecoms.2.1.18378
+
+24 of 24 items have at least one objective answering to them.
+
+| Item | Topic | Objectives | With a drill | Where |
+|---|---|---|---|---|
+| 1 | What alchemical methods are | 5 | 5 | molecular-simulation (5) |
+| 3 | Why alchemical calculations work | 5 | 5 | molecular-simulation (5) |
+| 4 | What to expect: accuracy, reproducibility, suitability, cost | 5 | 5 | molecular-simulation (5) |
+| 4.5 | Cost | 1 | 1 | molecular-simulation (1) |
+| 4.6 | Exploratory pilot studies | 1 | 1 | molecular-simulation (1) |
+| 5.3 | Input setup and scale; perturbation maps | 1 | 1 | molecular-simulation (1) |
+| 7 | Choosing a protocol | 11 | 11 | molecular-simulation (11) |
+| 7.1.1 | Relative-only choices: topology, mapping, rings, maps, constraints | 2 | 2 | molecular-simulation (2) |
+| 7.1.2 | Absolute-only requirements: standard state and restraints | 1 | 1 | molecular-simulation (1) |
+| 7.2.1 | Weak binders | 1 | 1 | molecular-simulation (1) |
+| 7.2.2 | Net charge changes | 1 | 1 | molecular-simulation (1) |
+| 7.2.3 | Alchemical pathway and soft-core | 1 | 1 | molecular-simulation (1) |
+| 7.2.4 | Sampling schemes | 1 | 1 | molecular-simulation (1) |
+| 7.2.5 | Run length and saved data | 2 | 2 | molecular-simulation (2) |
+| 7.2.6 | Binding modes | 1 | 1 | molecular-simulation (1) |
+| 8 | Analysis | 11 | 11 | molecular-simulation (11) |
+| 8.1 | Equilibration detection | 1 | 1 | molecular-simulation (1) |
+| 8.2 | Decorrelation | 1 | 1 | molecular-simulation (1) |
+| 8.3 | Estimators | 1 | 1 | molecular-simulation (1) |
+| 8.4 | Uncertainty | 2 | 2 | molecular-simulation (2) |
+| 8.5 | Simulation quality: overlap and cycle closure | 2 | 2 | molecular-simulation (2) |
+| 8.6 | Common problems | 1 | 1 | molecular-simulation (1) |
+| 8.7 | Reporting | 2 | 2 | molecular-simulation (2) |
+| 12 | Checklist | 13 | 13 | molecular-simulation (13) |
+
+## PyRosetta Jupyter Notebooks (RosettaCommons), taught as JHU 545.614 / 540.414
+
+https://github.com/RosettaCommons/PyRosetta.notebooks
+
+19 of 33 items have at least one objective answering to them.
+
+| Item | Topic | Objectives | With a drill | Where |
+|---|---|---|---|---|
+| 1 | Getting started | — | — | **nothing yet** |
+| 2 | Introduction to PyRosetta: poses, residues, geometry, visualisation | — | — | **nothing yet** |
+| 2.1 | Pose basics | 6 | 6 | protein-design (6) |
+| 2.2 | Working with pose residues | 5 | 5 | protein-design (5) |
+| 2.4 | Spatial features of a pose | 1 | 1 | protein-design (1) |
+| 2.5 | Protein geometry | 6 | 6 | protein-design (6) |
+| 3 | Energy score functions | — | — | **nothing yet** |
+| 4.1 | Basic folding algorithm | 6 | 6 | protein-design (6) |
+| 4.2 | Low-resolution scoring and fragments | 2 | 2 | protein-design (2) |
+| 5.1 | High-resolution movers | 5 | 5 | protein-design (5) |
+| 5.2 | Refinement protocol | — | — | **nothing yet** |
+| 6.1 | Side-chain conformations and Dunbrack energies | 2 | 2 | protein-design (2) |
+| 6.2 | Packing and relax | 6 | 6 | protein-design (6) |
+| 6.3 | Design with a resfile and FastRelax | 8 | 8 | protein-design (8) |
+| 6.4 | Protein design 2 | 7 | 7 | protein-design (7) |
+| 6.5 | Hydrogen-bond networks before design | 5 | 5 | protein-design (5) |
+| 6.6 | De novo parametric backbone design | 6 | 6 | protein-design (6) |
+| 6.7 | De novo protein design | 5 | 5 | protein-design (5) |
+| 6.8 | Point mutation scan | 8 | 8 | protein-design (8) |
+| 7.1 | Fourier-transform-based docking | 5 | 5 | protein-design (5) |
+| 7.2 | Docking moves | 6 | 6 | protein-design (6) |
+| 8.1 | Global ligand docking | 5 | 5 | protein-design (5) |
+| 8.2 | Ligand docking with a Cartesian score function | — | — | **nothing yet** |
+| 9.1 | Loop modelling with generalised kinematic closure | — | — | **nothing yet** |
+| 10 | Symmetry | — | — | **nothing yet** |
+| 11 | Working with density | — | — | **nothing yet** |
+| 12.1 | Antibody framework modelling | — | — | **nothing yet** |
+| 12.2 | Antibody design | — | — | **nothing yet** |
+| 13 | Carbohydrates | — | — | **nothing yet** |
+| 14 | RNA | — | — | **nothing yet** |
+| 15.1 | Setting up a membrane protein | — | — | **nothing yet** |
+| 15.2 | Predicting ΔΔG of single point mutations | 5 | 5 | protein-design (5) |
+| 16 | Running in parallel and reproducible distribution | — | — | **nothing yet** |
+
+## Alford et al., The Rosetta all-atom energy function for macromolecular modeling and design, JCTC 13 (2017) 3031
+
+https://doi.org/10.1021/acs.jctc.7b00125
+
+6 of 6 items have at least one objective answering to them.
+
+| Item | Topic | Objectives | With a drill | Where |
+|---|---|---|---|---|
+| form | The score as a weighted linear sum of terms | 8 | 8 | protein-design (8) |
+| table | The terms and their published weights | 8 | 8 | protein-design (8) |
+| ref | Per-amino-acid reference energies and their role in design | 9 | 9 | protein-design (9) |
+| units | Units: parameterisation in kcal/mol rather than arbitrary energy units | 8 | 8 | protein-design (8) |
+| guidance | Interpreting energies: per-term decomposition, residue and atom-pair tables, ΔΔG of mutation, interface energies | 5 | 5 | protein-design (5) |
+| fa_dun | Backbone-dependent rotamer energy | 1 | 1 | protein-design (1) |
+
+## Chungyoun et al., DL4Proteins Jupyter Notebooks (Gray lab), arXiv 2511.02128
+
+https://arxiv.org/abs/2511.02128
+
+7 of 10 items have at least one objective answering to them.
+
+| Item | Topic | Objectives | With a drill | Where |
+|---|---|---|---|---|
+| WS01 | Neural networks from scratch | — | — | **nothing yet** |
+| WS02 | Neural networks in a framework | — | — | **nothing yet** |
+| WS03 | Convolutional networks | — | — | **nothing yet** |
+| WS04 | Language models for text and protein sequences | 7 | 7 | protein-design (7) |
+| WS05 | Language-model embeddings and transfer learning | 1 | 1 | protein-design (1) |
+| WS06 | Structure prediction as a black box: inputs and confidence metrics | 8 | 8 | protein-design (8) |
+| WS07 | Graph neural networks for proteins | 7 | 7 | protein-design (7) |
+| WS08 | Denoising diffusion models | 7 | 7 | protein-design (7) |
+| WS09 | End-to-end design: diffusion, inverse folding and structure prediction | 9 | 9 | protein-design (9) |
+| WS10 | All-atom diffusion for small-molecule binders | 7 | 7 | protein-design (7) |
+
+## Kuhlman & Bradley, Advances in protein structure prediction and design, Nat Rev Mol Cell Biol 20 (2019) 681
+
+https://doi.org/10.1038/s41580-019-0163-x
+
+6 of 7 items have at least one objective answering to them.
+
+| Item | Topic | Objectives | With a drill | Where |
+|---|---|---|---|---|
+| 1 | Introduction: prediction and the inverse problem | — | — | **nothing yet** |
+| 2 | Navigating energy landscapes: minimisation, Monte Carlo, molecular dynamics | 5 | 5 | protein-design (5) |
+| 3 | Folding forces, energy functions and multi-resolution modelling | 5 | 5 | protein-design (5) |
+| 4 | Structure prediction: templates, fragments, coevolution, deep learning | 7 | 7 | protein-design (7) |
+| 5 | Protein design: de novo, template-based, sequence optimisation, negative and multi-state, interfaces, ligands | 22 | 22 | protein-design (22) |
+| 6 | Validating computational predictions | 7 | 7 | protein-design (7) |
+| 7 | Applications and open challenges | 5 | 5 | protein-design (5) |
+
+## Johns Hopkins 545.614 Computational Protein Structure Prediction and Design (course topic list)
+
+https://ep.jhu.edu/courses/545614-computational-protein-structure-prediction-and-design/
+
+0 of 5 items have at least one objective answering to them.
+
+| Item | Topic | Objectives | With a drill | Where |
+|---|---|---|---|---|
+| T1 | Protein folding and docking | — | — | **nothing yet** |
+| T2 | Design of ligand-binding sites | — | — | **nothing yet** |
+| T3 | Design of turns and folds | — | — | **nothing yet** |
+| T4 | Design of protein interfaces | — | — | **nothing yet** |
+| T5 | Structure, biophysics, optimisation and informatics underlying the field | — | — | **nothing yet** |
