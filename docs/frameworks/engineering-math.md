@@ -2,7 +2,7 @@
 
 Generated from `drills/frameworks/engineering-math.yaml` by `scripts/framework.mjs`. ● drilled · ◐ partly · ○ no drills yet.
 
-**170 learning objectives** in 14 units (160 core): 170 drilled, 0 partly, 0 with no drills. Core: 160 / 160 drilled.
+**178 learning objectives** in 14 units (164 core): 178 drilled, 0 partly, 0 with no drills. Core: 164 / 164 drilled.
 
 ## Big ideas
 
@@ -33,9 +33,9 @@ Generated from `drills/frameworks/engineering-math.yaml` by `scripts/framework.m
 | 6 · Series solutions and special functions | core | 15% | 11 | 11 | 0 | 0 |
 | 7 · Laplace transforms | core | 15% | 16 | 16 | 0 | 0 |
 | 8 · Linear algebra for ODEs | core | as needed | 11 | 11 | 0 | 0 |
-| 9 · Fourier series and Sturm–Liouville boundary-value problems | core | 10–15% | 13 | 13 | 0 | 0 |
-| 10 · Partial differential equations | core | — | 23 | 23 | 0 | 0 |
-| 11 · Fourier integrals and transforms | extension | — | 5 | 5 | 0 | 0 |
+| 9 · Fourier series and Sturm–Liouville boundary-value problems | core | 10–15% | 16 | 16 | 0 | 0 |
+| 10 · Partial differential equations | core | — | 24 | 24 | 0 | 0 |
+| 11 · Fourier integrals and transforms | extension | — | 9 | 9 | 0 | 0 |
 | 12 · Vector calculus for transport | extension | — | 5 | 5 | 0 | 0 |
 | 13 · More on ODEs: circuits, bifurcations, operators, existence | core | — | 5 | 5 | 0 | 0 |
 | 14 · Complex analysis | core | — | 14 | 14 | 0 | 0 |
@@ -283,7 +283,7 @@ Book: kreyszig-10e §2.8, §2.9
 
 - ● **EM-3.6.A** Find the steady-state response of a damped oscillator to sinusoidal forcing and its amplitude.
   - EK: y_p = a cos ωt + b sin ωt; amplitude C*(ω) = F₀/√((k − mω²)² + c²ω²); the transient dies out.
-  - P3 · P6 · drills: forced-steady, forced-amplitude
+  - P3 · P6 · drills: forced-steady, forced-amplitude, em-chain-forced-oscillator
 - ● **EM-3.6.B** Recognise undamped resonance and beats and write the resulting solution.
   - EK: ω = ω₀, c = 0 ⇒ t sin ω₀t growth; ω near ω₀ ⇒ beats with envelope frequency |ω − ω₀|/2.
   - P6 · drills: forced-resonance, forced-beats
@@ -355,7 +355,7 @@ Book: kreyszig-10e §4.3
 - ● **EM-5.2.B** (webwork-opl:DE5.4) Write the general solution of a 2×2 system with real distinct eigenvalues and fit an IVP.
   - EK: y = c₁x⁽¹⁾e^(λ₁t) + c₂x⁽²⁾e^(λ₂t).
   - Needs: EM-5.2.A
-  - P3 · P4 · drills: sys-general, sys-ivp
+  - P3 · P4 · drills: sys-general, sys-ivp, em-chain-system
 - ● **EM-5.2.C** (webwork-opl:DE5.5) Write real solutions of a 2×2 system with complex eigenvalues and fit an IVP.
   - EK: Take real and imaginary parts of x e^((α+iβ)t).
   - Needs: EM-5.2.A, EM-1.2.A
@@ -429,7 +429,7 @@ Book: kreyszig-10e §5.1
 - ● **EM-6.2.B** (webwork-opl:DE7.1) Generate the first terms of the series solution from the recurrence and initial values.
   - EK: a₀ = y(0), a₁ = y′(0); even and odd coefficients often split into two basis series.
   - Needs: EM-6.2.A
-  - P3 · P4 · drills: series-terms, series-terms-airy
+  - P3 · P4 · drills: series-terms, series-terms-airy, em-chain-power-series
 
 ### 6.3 Frobenius method
 
@@ -517,7 +517,7 @@ Book: kreyszig-10e §6.3
 - ● **EM-7.4.C** (webwork-opl:DE4.6) Solve an IVP with switched or piecewise forcing.
   - EK: Transform the step-written forcing; the solution is piecewise with continuous y and y′.
   - Needs: EM-7.3.A, EM-7.4.A
-  - P1 · P3 · drills: step-ivp-on, step-ivp-pulse
+  - P1 · P3 · drills: step-ivp-on, step-ivp-pulse, em-chain-laplace-pulse
 - ● **EM-7.4.D** () Transform a periodic function with the one-period formula.
   - EK: L{f} = ∫₀ᵀ e^(−st) f(t) dt ÷ (1 − e^(−sT)).
   - P1 · drills: lt-square-wave, lt-sawtooth
@@ -555,7 +555,7 @@ Book: kreyszig-10e §6.6, §6.7
 - ● **EM-7.7.B** (webwork-opl:DE4.1) Solve a linear system of ODEs by Laplace transform.
   - EK: Transform each equation, solve the algebraic system (Cramer), invert each component.
   - Needs: EM-7.3.A
-  - P3 · drills: lsys-ivp, lsys-forced
+  - P3 · drills: lsys-ivp, lsys-forced, em-chain-tank-cascade
 
 ## Unit 8 · Linear algebra for ODEs
 
@@ -690,6 +690,20 @@ Book: kreyszig-10e §11.5, §11.6
   - Needs: EM-9.3.A
   - P3 · drills: em-legendre-expansion
 
+### 9.4 Green's functions
+
+
+
+- ● **EM-9.4.A** () Build the Green's function of y″ = f with y(0) = y(L) = 0 and use it to solve for a given f.
+  - EK: G(x, s) = x(s − L)/L for x < s and s(x − L)/L for x > s: continuous at x = s, slope jumps by 1, zero at both ends; y = ∫G f ds.
+  - P1 · drills: gf-string-value, gf-string-solve
+- ● **EM-9.4.B** () Build the Green's function of y″ + k²y = f with fixed ends from the homogeneous solutions and the jump condition.
+  - EK: G = −sin(kx_<) sin(k(L − x_>))/(k sin kL); it fails to exist exactly when kL = nπ, an eigenvalue of the homogeneous problem.
+  - P1 · drills: gf-helmholtz-value, gf-existence
+- ● **EM-9.4.C** () Solve a forced initial-value problem by convolving the forcing with the impulse response.
+  - EK: For y″ + ω²y = f, g(t) = sin(ωt)/ω; for τy′ + y = f, g(t) = e^(−t/τ)/τ; y = ∫₀ᵗ g(t − u) f(u) du from rest.
+  - P1 · drills: gf-oscillator-step, gf-lag-ramp
+
 ## Unit 10 · Partial differential equations
 
 Big ideas: EIG, TRANS, MODEL
@@ -729,7 +743,7 @@ Book: kreyszig-10e §12.5, §12.6
 - ● **EM-10.2.C** (webwork-opl:DE8.3) Solve the heat equation with nonzero fixed ends by subtracting the steady state.
   - EK: u = u_s(x) + v; u_s linear; v satisfies zero BCs with v(x, 0) = f − u_s.
   - Needs: EM-10.2.B
-  - P2 · P3 · drills: pde-steady, pde-shift-concepts, pde-steady-state-value, pde-shifted-initial-condition, pde-shifted-sine-coefficient
+  - P2 · P3 · drills: pde-steady, pde-shift-concepts, pde-steady-state-value, pde-shifted-initial-condition, pde-shifted-sine-coefficient, em-chain-heat-nonzero
 - ● **EM-10.2.F** Find the steady state with a flux or insulated end, and handle a flux boundary in the transient problem.
   - EK: −k u'(L) = q″ fixes the slope; with insulated ends the steady state is the initial mean.
   - Needs: EM-10.2.C
@@ -792,6 +806,9 @@ Book: kreyszig-10e §12.7, §12.12
   - EK: Finite domain with homogeneous BCs: separate. Nonzero BCs: shift first. Semi-infinite: transform. Messy geometry or data: finite differences.
   - Needs: EM-10.5.B, EM-10.2.C
   - P2 · drills: pde-method-choice
+- ● **EM-10.5.D** () Write the heat kernel as the Green's function of the diffusion equation and use images for a fixed or insulated end.
+  - EK: G = e^(−(x−x₀)²/4κt)/√(4πκt) on the line; on x > 0 subtract the mirror image for u(0) = 0, add it for an insulated end.
+  - P1 · drills: gf-image-fixed, gf-image-insulated
 
 ### 10.6 Finite differences for PDEs
 
@@ -836,6 +853,23 @@ Book: kreyszig-10e §11.7, §11.8, §11.9
 - ● **EM-11.1.E** () Solve the heat equation on an infinite line by Fourier transform and read the spreading Gaussian.
   - EK: A point release Q spreads as u = Q e^(−x²/4κt)/√(4πκt): the peak falls as t^(−1/2) and the variance grows as 2κt.
   - P1 · drills: ft-heat-peak, ft-heat-spread
+- ● **EM-11.1.F** () Convolve functions directly and through the Fourier transform: Gaussians, pulses, and an initial profile spreading by diffusion.
+  - EK: Gaussian widths add in quadrature (σ² = σ₁² + σ₂²); two pulses give a triangle; u(x, t) = u₀ ∗ heat kernel, so σ² grows by 2κt.
+  - P1 · drills: fc-gaussians, fc-pulses, fc-heat-spread
+
+### 11.2 Random walks and the diffusion limit
+
+
+
+- ● **EM-11.2.A** () Compute end-point probabilities and moments of a 1-D random walk, with or without bias.
+  - EK: N steps of ±a: P(m) = C(N, (N + m)/2)/2^N; ⟨x⟩ = Na(2p − 1), Var x = 4Np(1 − p)a², so ⟨x²⟩ = Na² when unbiased.
+  - P1 · drills: rw-endpoint, rw-biased-msd
+- ● **EM-11.2.B** () Take the diffusion limit of a random walk: D from step length and time, and the time to diffuse a distance.
+  - EK: D = a²/(2Δt) in 1-D; ⟨x²⟩ = 2Dt, and ⟨r²⟩ = 2dDt in d dimensions; t ~ L²/(2D).
+  - P1 · drills: rw-diffusivity, rw-diffuse-time
+- ● **EM-11.2.C** () Use the Gaussian limit of the walk to find the fraction of walkers past a distance, and add the variances of successive stages.
+  - EK: P(x, t) = e^(−x²/4Dt)/√(4πDt); fraction beyond |x| > ℓ is erfc(ℓ/√(4Dt)); independent stages convolve, so variances add.
+  - P1 · drills: rw-tail, rw-stages
 
 ## Unit 12 · Vector calculus for transport (extension)
 

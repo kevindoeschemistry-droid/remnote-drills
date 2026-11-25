@@ -331,6 +331,8 @@ skills:
     levels: { 1: [sl-shift-eigenvalues, sl-shift-eigenfunctions, sl-shift-negative] }
 
   - { id: bvp.fourier-series, domain: bvp, title: "Fourier series coefficients" }
+  - { id: bvp.green, domain: bvp, title: "Green's functions and impulse responses", short: "Green's functions", prereqs: [bvp.sl-eigenvalues, laplace.convolution] }
+  - { id: pde.random-walk, domain: pde, title: "Random walks and the diffusion limit", short: "Random walks", prereqs: [pde.separation] }
   - { id: pde.separation, domain: pde, title: "Separation of variables (heat & wave equations)", prereqs: [bvp.sl-eigenfunctions, bvp.fourier-series] }
   - { id: pde.classify, domain: pde, title: "Classify a PDE; check a solution", kind: classify }
   - { id: pde.dalembert, domain: pde, title: "d'Alembert: the infinite string" }

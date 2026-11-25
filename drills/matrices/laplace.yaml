@@ -17,3 +17,6 @@ cells:
   - { cell: "Transfer function, poles, stability", drills: [transfer-g, transfer-poles, transfer-stable] }
   - { cell: "Initial- and final-value theorems", drills: [lt-initial-value, lt-final-value] }
   - { cell: "On a PDE", drills: [pde-lt-steps, pde-lt-erfc-value], note: "the PDE side lives in the pde-1d grid" }
+  - { cell: "Exam-length · two tanks in series (time constant, both outputs, pole)", drills: [em-chain-tank-cascade] }
+  - { cell: "Exam-length · rectangular pulse from Y(s) to y after the pulse", drills: [em-chain-laplace-pulse] }
+  - { cell: "Impulse response · forced IVP as a convolution with g(t)", drills: [gf-oscillator-step, gf-lag-ramp, conv-compute] }

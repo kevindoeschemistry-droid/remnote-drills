@@ -35,3 +35,7 @@ cells:
   - { cell: "Systems · real, complex, repeated eigenvalues", drills: [sys-eigen, sys-general, sys-ivp, sys-complex, sys-complex-ivp, sys-repeated] }
   - { cell: "Systems · nonhomogeneous", drills: [em-nonhomog-system] }
   - { cell: "Systems · phase portrait, stability, nonlinear critical points", drills: [phase-matrix, phase-stability, phase-equations, phase-ode2, em-phase-portrait, em-nonlinear-critical] }
+  # exam-length chains: one setup, several parts that feed each other
+  - { cell: "Exam-length · forced damped oscillator (ω₀, amplitude, phase, resonance)", drills: [em-chain-forced-oscillator] }
+  - { cell: "Exam-length · 2×2 system from eigenvalues to x(t)", drills: [em-chain-system] }
+  - { cell: "Exam-length · power series to a closed form", drills: [em-chain-power-series] }
