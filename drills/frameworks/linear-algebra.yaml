@@ -4,7 +4,7 @@
 #   cupm-2015-la  the MAA CUPM 2015 guide's core topics for a first course (six groups), read through a
 #                 summary of the print guide (read: part). Units 1-6 and 8 sit on its groups 1-6.
 #   lay-5e        a textbook's chapter list, kept beside it as the order of the units.
-#   lacsg-2       the LACSG 2.0 recommendations, wanted: not reached.
+#   lacsg-2       the LACSG 2.0 recommendations, read through the AMS Notices survey (2022).
 # Unit 7 (symmetric matrices, quadratic forms, SVD) is beyond the CUPM first course; the guide puts the
 # spectral theorem and the SVD in its second course. Unit 8 (linear transformations) was added after the
 # others, so its number does not follow Lay's order; objective codes are never renumbered.
@@ -21,9 +21,8 @@ domains: [la]
 
 basis:
   primary: cupm-2015-la
-  also: [lay-5e, webwork-opl]
-  wanted: [lacsg-2]
-  note: "Units cover the six core-topic groups of the 2015 CUPM guide's first course in linear algebra (read through a summary, not the report's own pages), ordered by Lay's chapters. Unit 7 is second-course material by the guide's split. LACSG 2.0 is the newer standard and has not been read."
+  also: [lay-5e, webwork-opl, lacsg-2]
+  note: "Units cover the six core-topic groups of the 2015 CUPM guide's first course in linear algebra (read through a summary, not the report's own pages), ordered by Lay's chapters. Unit 7 is second-course material by the guide's split. LACSG 2.0 (read through the 2022 AMS Notices survey) is cited where it adds emphasis: linear maps, compositions and inverses, diagonalization and the SVD in a first course; factorizations, inner products, the spectral theorem, pseudo-inverses, operators and Jordan form in a second."
 
 big_ideas:
   - id: MAIN
@@ -76,7 +75,7 @@ units:
       - n: 3
         title: "LU factorisation"
         los:
-          - { id: A, std: ["cupm-2015-la:1", "lay-5e:2", "webwork-opl:LA3.2"], do: "Factor a matrix as LU.", ek: ["The multipliers of row reduction go below the diagonal of L; U is the echelon form."], p: [P1], drills: ["la-lu-pivot", la-det-from-lu] }
+          - { id: A, std: ["lacsg-2:S2", "cupm-2015-la:1", "lay-5e:2", "webwork-opl:LA3.2"], do: "Factor a matrix as LU.", ek: ["The multipliers of row reduction go below the diagonal of L; U is the echelon form."], p: [P1], drills: ["la-lu-pivot", la-det-from-lu] }
           - { id: B, std: ["cupm-2015-la:1", "lay-5e:2", "webwork-opl:LA3.2"], do: "Solve with LU by forward and back substitution.", ek: ["Ly = b, then Ux = y."], p: [P1], drills: ["la-lu-forward", la-forward-step] }
   - id: determinants
     n: 3
@@ -127,7 +126,7 @@ units:
         title: "The eigenvalue problem"
         los:
           - { id: A, std: ["lay-5e:5", "webwork-opl:LA7.1"], do: "Find the eigenvalues and eigenvectors of a 2 × 2 matrix.", ek: ["Sum of eigenvalues = trace, product = determinant."], p: [P1], drills: ["la-eigenvalues", "la-eigenvector", "mm-eigen-trace-det", "la-eigen-triangular"] }
-          - { id: B, std: ["lay-5e:5", "webwork-opl:LA3.1", "webwork-opl:LA7.2"], do: "Decide whether a matrix is diagonalisable and use the diagonal form.", ek: ["n independent eigenvectors; powers act on the eigenvalues."], p: [P1], drills: ["la-diagonalizable-facts", "la-trace-of-power", "em-diagonalise"] }
+          - { id: B, std: ["lacsg-2:F3", "lay-5e:5", "webwork-opl:LA3.1", "webwork-opl:LA7.2"], do: "Decide whether a matrix is diagonalisable and use the diagonal form.", ek: ["n independent eigenvectors; powers act on the eigenvalues."], p: [P1], drills: ["la-diagonalizable-facts", "la-trace-of-power", "em-diagonalise"] }
       - n: 2
         title: "Eigenvectors at work"
         los:
@@ -151,7 +150,7 @@ units:
         los:
           - { id: A, std: ["cupm-2015-la:6", "lay-5e:6", "webwork-opl:LA4.1", "webwork-opl:LA8.4"], do: "Find lengths and distances.", ek: ["‖u − v‖ = √((u − v)·(u − v))."], p: [P1], drills: ["la-distance", la-cos-angle] }
           - { id: B, std: ["cupm-2015-la:6", "lay-5e:6", "webwork-opl:LA8.4"], do: "Find vectors in an orthogonal complement.", ek: ["W⊥ is everything orthogonal to a spanning set of W."], p: [P1], drills: ["la-orthogonal-complement", la-perp-h] }
-          - { id: C, std: ["cupm-2015-la:6", "lay-5e:6", "webwork-opl:LA3.3"], do: "Find an entry of the QR factorisation.", ek: ["r_ii = length after removing earlier directions; r_ij = q_i · a_j."], p: [P1], drills: ["la-qr-entry", la-qr-r11] }
+          - { id: C, std: ["lacsg-2:S2", "cupm-2015-la:6", "lay-5e:6", "webwork-opl:LA3.3"], do: "Find an entry of the QR factorisation.", ek: ["r_ii = length after removing earlier directions; r_ij = q_i · a_j."], p: [P1], drills: ["la-qr-entry", la-qr-r11] }
   - id: symmetric
     n: 7
     title: "Symmetric matrices and singular values"
@@ -162,8 +161,8 @@ units:
       - n: 1
         title: "Singular values"
         los:
-          - { id: A, std: ["lay-5e:7", "webwork-opl:LA3.4"], do: "Find a singular value of a small matrix.", ek: ["Singular values are the square roots of the eigenvalues of AᵀA."], p: [P1], drills: ["la-singular-value", "la-rank-one-singular-value"] }
-          - { id: B, std: ["cupm-2015-la:second", "lay-5e:7", "webwork-opl:LA7.2"], do: "Use orthogonality of a symmetric matrix's eigenvectors.", ek: ["Different eigenvalues, orthogonal eigenvectors."], p: [P1], drills: ["la-symmetric-eigenvector", la-symmetric-larger-eig] }
+          - { id: A, std: ["lacsg-2:F4", "lay-5e:7", "webwork-opl:LA3.4"], do: "Find a singular value of a small matrix.", ek: ["Singular values are the square roots of the eigenvalues of AᵀA."], p: [P1], drills: ["la-singular-value", "la-rank-one-singular-value"] }
+          - { id: B, std: ["lacsg-2:S4", "cupm-2015-la:second", "lay-5e:7", "webwork-opl:LA7.2"], do: "Use orthogonality of a symmetric matrix's eigenvectors.", ek: ["Different eigenvalues, orthogonal eigenvectors."], p: [P1], drills: ["la-symmetric-eigenvector", la-symmetric-larger-eig] }
       - n: 2
         title: "Quadratic forms"
         los:
@@ -172,7 +171,9 @@ units:
       - n: 3
         title: "The singular value decomposition"
         los:
-          - { id: A, std: ["cupm-2015-la:second", "lay-5e:7", "webwork-opl:LA3.4"], do: "Find the condition number from the singular values.", ek: ["κ = σ_max / σ_min."], p: [P1], drills: ["la-condition-number", la-cond-diag] }
+          - { id: A, std: ["lacsg-2:F4", "cupm-2015-la:second", "lay-5e:7", "webwork-opl:LA3.4"], do: "Find the condition number from the singular values.", ek: ["κ = σ_max / σ_min."], p: [P1], drills: ["la-condition-number", la-cond-diag] }
+          - { id: B, std: ["lacsg-2:F4"], do: "Find the error of the best low-rank approximation from the singular values.", ek: ["Eckart–Young: the best rank-k approximation drops σ_(k+1), …; its 2-norm error is σ_(k+1), its Frobenius error √(σ_(k+1)² + …)."], p: [P1], drills: [la-rank1-error, la-frob-error] }
+          - { id: C, std: ["lacsg-2:S5", "lacsg-2:F4"], do: "Use the pseudo-inverse to get the least-squares solution of a full-column-rank system.", ek: ["A⁺ = (AᵀA)⁻¹Aᵀ when the columns are independent; x = A⁺b solves the normal equations; A⁺ inverts each nonzero singular value."], p: [P1], drills: [la-pinv-entry, la-pinv-diag] }
   - id: transformations
     n: 8
     title: "Linear transformations"
@@ -183,14 +184,15 @@ units:
       - n: 1
         title: "The matrix of a linear map"
         los:
-          - { id: A, std: ["cupm-2015-la:4", "lay-5e:1", "webwork-opl:LA9.1", "webwork-opl:LA9.2"], do: "Build a map from the images of the basis vectors.", ek: ["The columns of the standard matrix are T(e1), …, T(en)."], p: [P1], drills: ["la-map-from-basis-images", la-rotate-point] }
-          - { id: B, std: ["cupm-2015-la:4", "lay-5e:2", "webwork-opl:LA9.3"], do: "Compose linear maps as matrix products.", ek: ["S ∘ T has matrix ST: the first map stands on the right."], p: [P1], drills: ["la-composition", la-composition-order] }
+          - { id: A, std: ["lacsg-2:F1", "cupm-2015-la:4", "lay-5e:1", "webwork-opl:LA9.1", "webwork-opl:LA9.2"], do: "Build a map from the images of the basis vectors.", ek: ["The columns of the standard matrix are T(e1), …, T(en)."], p: [P1], drills: ["la-map-from-basis-images", la-rotate-point] }
+          - { id: B, std: ["lacsg-2:F2", "lacsg-2:F1", "cupm-2015-la:4", "lay-5e:2", "webwork-opl:LA9.3"], do: "Compose linear maps as matrix products.", ek: ["S ∘ T has matrix ST: the first map stands on the right."], p: [P1], drills: ["la-composition", la-composition-order] }
           - { id: C, std: ["cupm-2015-la:4", "lay-5e:1", "webwork-opl:LA9.4"], do: "Decide whether a map is one-to-one or onto from its rank.", ek: ["One-to-one: rank = number of columns; onto: rank = number of rows."], p: [P1], drills: ["la-one-to-one-onto", la-rank-onto] }
       - n: 2
         title: "Kernel, range and other bases"
         los:
           - { id: A, std: ["cupm-2015-la:4", "lay-5e:4", "webwork-opl:LA6.6", "webwork-opl:LA9.5"], do: "Find the dimensions of the kernel and range of a map on a function space.", ek: ["Rank–nullity holds for any linear map on a finite-dimensional space."], p: [P1], drills: ["la-kernel-dimension", la-derivative-range] }
-          - { id: B, std: ["cupm-2015-la:4", "lay-5e:4", "webwork-opl:LA6.7", "webwork-opl:LA9.3"], do: "Write the matrix of a map relative to a basis.", ek: ["Columns are the coordinates of T(b1), …, T(bn)."], p: [P1], drills: ["la-matrix-relative-to-basis", la-shift-matrix-entry] }
+          - { id: B, std: ["lacsg-2:F1", "cupm-2015-la:4", "lay-5e:4", "webwork-opl:LA6.7", "webwork-opl:LA9.3"], do: "Write the matrix of a map relative to a basis.", ek: ["Columns are the coordinates of T(b1), …, T(bn)."], p: [P1], drills: ["la-matrix-relative-to-basis", la-shift-matrix-entry] }
+          - { id: C, std: ["lacsg-2:S6", "lacsg-2:F1"], do: "Find the eigenvalues and eigenvectors of a linear operator on a function space.", ek: ["Apply the operator to a basis (monomials, exponentials): T(p) = λp makes p an eigenvector; the matrix of D on polynomials is nilpotent, so its only eigenvalue is 0."], p: [P1], drills: [la-operator-eigen, la-derivative-nilpotent] }
   # >>> opl-fill:opl-la (generated by scripts/opl_fill.py; edit the spec)
   - id: abstract
     n: 9
@@ -202,19 +204,19 @@ units:
       - n: 1
         title: "Abstract vector spaces"
         los:
-          - { id: A, std: ["webwork-opl:LA6.1", "webwork-opl:LA6.5"], do: "Decide whether a set with its operations is a vector space.", ek: ["Check the zero vector, closure under addition and under scaling; the rest of the axioms usually come free."], p: [P1], drills: [la-is-vector-space, la-axiom-fails] }
+          - { id: A, std: ["webwork-opl:LA6.1", "webwork-opl:LA6.5", "lacsg-2:S1"], do: "Decide whether a set with its operations is a vector space.", ek: ["Check the zero vector, closure under addition and under scaling; the rest of the axioms usually come free."], p: [P1], drills: [la-is-vector-space, la-axiom-fails] }
           - { id: B, std: ["webwork-opl:LA6.2"], do: "Write a polynomial as a combination of other polynomials.", ek: ["Match coefficients of each power and solve the linear system."], p: [P1], drills: [la-poly-combination, la-poly-combo-2] }
           - { id: C, std: ["webwork-opl:LA6.3"], do: "Decide whether a polynomial lies in the span of others.", ek: ["In the span exactly when the coefficient system is consistent."], p: [P1], drills: [la-poly-span, la-poly-span-h] }
           - { id: D, std: ["webwork-opl:LA6.4"], do: "Decide when polynomials are linearly dependent.", ek: ["Dependent exactly when the matrix of their coefficient vectors is singular."], p: [P1], drills: [la-poly-dependence, la-poly-dependent-k] }
           - { id: E, std: ["webwork-opl:LA6.8"], do: "Find the dimension of a standard space of matrices or polynomials.", ek: ["Count the free entries: symmetric n(n+1)/2, skew n(n−1)/2, trace zero n² − 1, P_n has n + 1."], p: [P1], drills: [la-space-dimension, la-special-dim] }
-          - { id: F, std: ["webwork-opl:LA8.2"], do: "Compute an inner product of functions.", ek: ["⟨f, g⟩ = ∫ f g dx is an inner product on continuous functions."], p: [P1], drills: [la-function-inner-product, la-orthogonal-shift] }
+          - { id: F, std: ["webwork-opl:LA8.2", "lacsg-2:S3"], do: "Compute an inner product of functions.", ek: ["⟨f, g⟩ = ∫ f g dx is an inner product on continuous functions."], p: [P1], drills: [la-function-inner-product, la-orthogonal-shift] }
       - n: 2
         title: "Special matrices and applications"
         los:
           - { id: A, std: ["webwork-opl:LA1.7"], do: "Balance a chemical equation from the null space of its composition matrix.", ek: ["Each element gives one equation; the coefficients span the null space."], p: [P1], drills: [la-balance-combustion, la-oxygen-coefficient] }
           - { id: B, std: ["webwork-opl:LA2.7"], do: "Invert an elementary matrix.", ek: ["The inverse undoes the row operation: add −k instead of k, divide instead of multiply, swap back."], p: [P1], drills: [la-elementary-inverse, la-elementary-power] }
           - { id: C, std: ["webwork-opl:LA2.8"], do: "Compute with complex matrix entries.", ek: ["Arithmetic is ordinary arithmetic with i² = −1; conjugates pair up into real numbers."], p: [P1], drills: [la-complex-det, la-complex-det-modulus] }
-          - { id: D, std: ["webwork-opl:LA3.5"], do: "Compute a power of a Jordan block.", ek: ["[[λ, 1], [0, λ]]ᵏ = [[λᵏ, kλᵏ⁻¹], [0, λᵏ]]."], p: [P1], drills: [la-jordan-power, la-jordan-exp] }
+          - { id: D, std: ["webwork-opl:LA3.5", "lacsg-2:S7"], do: "Compute a power of a Jordan block.", ek: ["[[λ, 1], [0, λ]]ᵏ = [[λᵏ, kλᵏ⁻¹], [0, λᵏ]]."], p: [P1], drills: [la-jordan-power, la-jordan-exp] }
           - { id: E, std: ["webwork-opl:LA8.6"], do: "Use the properties of an orthogonal matrix.", ek: ["Qᵀ Q = I, so Q⁻¹ = Qᵀ and lengths and angles are preserved."], p: [P1], drills: [la-orthogonal-inverse, la-orthogonal-norm] }
-          - { id: F, std: ["webwork-opl:LA9.6"], do: "Invert a linear transformation.", ek: ["T is invertible exactly when its matrix is; T⁻¹ has the inverse matrix."], p: [P1], drills: [la-map-inverse, la-poly-map-inverse] }
+          - { id: F, std: ["webwork-opl:LA9.6", "lacsg-2:F2"], do: "Invert a linear transformation.", ek: ["T is invertible exactly when its matrix is; T⁻¹ has the inverse matrix."], p: [P1], drills: [la-map-inverse, la-poly-map-inverse] }
   # <<< opl-fill:opl-la

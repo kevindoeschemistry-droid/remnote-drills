@@ -31,7 +31,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 | Information Systems | MSIS 2016 Global Competency Model | standard | read in full | — | — | 53 | 0 | 53 |
 | Advanced Inorganic Chemistry (Cotton & Wilkinson) | Cotton, Wilkinson, Murillo & Bochmann, Advanced Inorganic Chemistry, 6th ed. (1999): table of contents | textbook | read in part | icho-appendix-c, gre-chemistry | — | 55 | 0 | 55 |
 | Inorganic Chemistry | Regulations of the International Chemistry Olympiad, Appendices C and D (concepts, skills and factual knowledge) | exam-spec | read in full | icho-syllabus, gre-chemistry, usnco, ib-chemistry-2025 | — | 23 | 23 | 0 |
-| Linear Algebra | MAA CUPM Curriculum Guide 2015, Linear Algebra course report: core topics of a first course | standard | read in part | lay-5e, webwork-opl | lacsg-2 | 54 | 54 | 0 |
+| Linear Algebra | MAA CUPM Curriculum Guide 2015, Linear Algebra course report: core topics of a first course | standard | read in part | lay-5e, webwork-opl, lacsg-2 | — | 57 | 57 | 0 |
 | Mass Transfer | NCEES PE Chemical CBT Exam Specifications (effective January 2020) | exam-spec | read in full | — | — | 21 | 21 | 0 |
 | Material and Energy Balances | NCEES FE Chemical CBT Exam Specifications (effective July 2020) | exam-spec | read in full | pe-chemical, webwork-opl | — | 18 | 18 | 0 |
 | Polymers and Materials | Regulations of the International Chemistry Olympiad, Appendices C and D (concepts, skills and factual knowledge) | exam-spec | read in full | ib-chemistry-2025, fe-chemical, icho-syllabus | — | 17 | 6 | 11 |
@@ -54,7 +54,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 | Separations | NCEES FE Chemical CBT Exam Specifications (effective July 2020) | exam-spec | read in full | pe-chemical | — | 6 | 6 | 0 |
 | Speaking and Articulation | Competent Speaker Speech Evaluation Form, 2nd ed. | rubric | read in full | toastmasters-pathways | — | 69 | 0 | 69 |
 | SQL | Oracle Database SQL, exam 1Z0-071: exam topics | exam-spec | read through a crosswalk | — | — | 40 | 37 | 3 |
-| Statistics | AP Statistics revised course framework (2026-27) | standard | read in part | webwork-opl | — | 89 | 89 | 0 |
+| Statistics | AP Statistics Course and Exam Description (effective fall 2026) | standard | read in part | webwork-opl | — | 111 | 111 | 0 |
 | Structures from Memory | Bruice, Organic Chemistry, 8th edition (table of contents) | textbook | read in part | iupac-aa-1983, ib-chemistry-2025, ib-biology-2025, icho-appendix-c, icho-syllabus, acs-accm, aamc-mcat-outline | — | 12 | 12 | 0 |
 | Swimming | World Aquatics swimming rules (with USA Swimming and USMS stroke rules) | rulebook | read in full | — | asca-certification | 88 | 0 | 88 |
 | Thermodynamics and Statistical Mechanics | Dill & Bromberg, Molecular Driving Forces 2e; Shell, Thermodynamics and Statistical Mechanics | textbook | read in full | fe-chemical, ib-physics-2025, icho-appendix-c, icho-syllabus, pe-chemical, gre-physics, webwork-opl | — | 184 | 143 | 41 |
@@ -81,7 +81,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 - **INBDE (Dentistry)**: Units are the Domain of Dentistry's three clinical sections plus Foundation Knowledge area 3 (materials); objectives cite the clinical content area or FK they serve and are ours.
 - **Advanced Inorganic Chemistry (Cotton & Wilkinson)**: Units follow the chapters of Cotton & Wilkinson 6e (table of contents read); the objectives are a house list on those chapters.
 - **Inorganic Chemistry**: Units 1, 2 and 4 follow IChO Appendix D's factual-knowledge list (read in full); coordination and solids follow its preparation-only topics and the GRE inorganic area. Objectives and their order are ours.
-- **Linear Algebra**: Units cover the six core-topic groups of the 2015 CUPM guide's first course in linear algebra (read through a summary, not the report's own pages), ordered by Lay's chapters. Unit 7 is second-course material by the guide's split. LACSG 2.0 is the newer standard and has not been read.
+- **Linear Algebra**: Units cover the six core-topic groups of the 2015 CUPM guide's first course in linear algebra (read through a summary, not the report's own pages), ordered by Lay's chapters. Unit 7 is second-course material by the guide's split. LACSG 2.0 (read through the 2022 AMS Notices survey) is cited where it adds emphasis: linear maps, compositions and inverses, diagonalization and the SVD in a first course; factorizations, inner products, the spectral theorem, pseudo-inverses, operators and Jordan form in a second.
 - **Mass Transfer**: PE Chemical names mass transfer as one area with two lines (6.A fundamentals, 6.B applications). No published standard lists graduate mass transfer; the objectives are a house list on Bird, Stewart & Lightfoot's mass-transport chapters.
 - **Material and Energy Balances**: Topics from FE Chemical area 8, read in full. Objectives and their order are ours and follow the usual textbook sequence; unit 1 is assumed by the spec rather than listed.
 - **Polymers and Materials**: Polymer topics from IChO Appendix C (c22, a5), IB S2.4 and FE Chemical 4.D; a house list on those items.
@@ -102,7 +102,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 - **Separations**: Topics from FE Chemical area 10 and PE Chemical 6.B (both read in full); objectives and their order are ours.
 - **Speaking and Articulation**: A scoring rubric plus Toastmasters' competency list; unit order is ours.
 - **SQL**: Units 1–7 follow the sixteen topic groups of Oracle's 1Z0-071 exam, read through a restatement rather than Oracle's page. Unit 8 is a house list: no standard for analytic SQL was found.
-- **Statistics**: Units follow the revised AP Statistics course (2026-27), of which only the unit list was read. The objectives under each unit are a house list.
+- **Statistics**: Units 1-5 follow the AP Statistics CED effective fall 2026; all 150 of its learning objectives were read and each is cited by an objective here. Objective wording and grouping are ours.
 - **Structures from Memory**: Units follow the chapter list of Bruice's Organic Chemistry (a textbook, not a standard). The amino acids follow IUPAC-IUB 1983 Table 1. Which compounds to carry in each unit is a house list; the MCAT content outline names the same families and has not been opened.
 - **Swimming**: Rules and research papers; they say what is legal and why technique works, not what to learn in what order. Unit order is ours.
 - **Thermodynamics and Statistical Mechanics**: UCI CBE 240 publishes no syllabus. Classical units are anchored to fe-chemical; the statistical-mechanics units stand on the books.
@@ -125,7 +125,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 - **Graduate Chemical Engineering Core**: course, read in part
 - **INBDE (Dentistry)**: exam-spec, read in part
 - **Advanced Inorganic Chemistry (Cotton & Wilkinson)**: textbook, read in part
-- **Linear Algebra**: standard, read in part; should move to Linear Algebra Curriculum Study Group 2.0 recommendations (Stewart, Axler, Beezer et al.)
+- **Linear Algebra**: standard, read in part
 - **Mathematics K–8 (Common Core)**: standard, read through a crosswalk
 - **Molecular Simulation**: course, read in part
 - **NCLEX-RN**: exam-spec, read in part
@@ -900,19 +900,169 @@ https://iupac.org/what-we-do/periodic-table-of-elements/
 | d | d block, groups 3-12 | 5 | 5 | periodic-table (5) |
 | f | Lanthanoids and actinoids | 3 | 3 | periodic-table (3) |
 
-## AP Statistics revised course framework (2026-27)
+## AP Statistics Course and Exam Description (effective fall 2026)
 
-https://apcentral.collegeboard.org/courses/ap-statistics
+https://apcentral.collegeboard.org/media/pdf/ap-statistics-course-and-exam-description-effective-fall-2026.pdf
 
-5 of 5 items have at least one objective answering to them.
+155 of 155 items have at least one objective answering to them.
 
 | Item | Topic | Objectives | With a drill | Where |
 |---|---|---|---|---|
-| 1 | Exploring One-Variable Data and Collecting Data | 8 | 8 | statistics (8) |
-| 2 | Probability, Random Variables, and Probability Distributions | 8 | 8 | statistics (8) |
-| 3 | Inference for Categorical Data: Proportions | 6 | 6 | statistics (6) |
-| 4 | Inference for Quantitative Data: Means | 2 | 2 | statistics (2) |
-| 5 | Regression Analysis | 2 | 2 | statistics (2) |
+| 1 | Exploring One-Variable Data and Collecting Data | 14 | 14 | statistics (14) |
+| 2 | Probability, Random Variables, and Probability Distributions | 15 | 15 | statistics (15) |
+| 3 | Inference for Categorical Data: Proportions | 12 | 12 | statistics (12) |
+| 4 | Inference for Quantitative Data: Means | 4 | 4 | statistics (4) |
+| 5 | Regression Analysis | 3 | 3 | statistics (3) |
+| 1.1.A | Identify components within a statistical study | 1 | 1 | statistics (1) |
+| 1.1.B | Determine an investigative question within a statistical study | 1 | 1 | statistics (1) |
+| 1.2.A | Identify observational units, variables, parameters and statistics | 1 | 1 | statistics (1) |
+| 1.2.B | Identify types of variables | 1 | 1 | statistics (1) |
+| 1.2.C | Identify types of quantitative variables | 1 | 1 | statistics (1) |
+| 1.3.A | Construct tables for one categorical variable | 1 | 1 | statistics (1) |
+| 1.3.B | Describe categorical tables with summary statistics | 1 | 1 | statistics (1) |
+| 1.4.A | Construct graphs for one categorical variable | 1 | 1 | statistics (1) |
+| 1.4.B | Justify a claim using categorical graphs | 1 | 1 | statistics (1) |
+| 1.4.C | Compare categorical tables and graphs | 1 | 1 | statistics (1) |
+| 1.5.A | Construct graphs for one quantitative variable | 1 | 1 | statistics (1) |
+| 1.6.A | Describe distributions of quantitative graphs | 1 | 1 | statistics (1) |
+| 1.6.B | Justify a claim using quantitative distributions | 1 | 1 | statistics (1) |
+| 1.7.A | Calculate measures of center and position | 1 | 1 | statistics (1) |
+| 1.7.B | Calculate measures of variability | 1 | 1 | statistics (1) |
+| 1.7.C | Calculate summary statistics under different units of measurement | 1 | 1 | statistics (1) |
+| 1.7.D | Calculate outliers | 1 | 1 | statistics (1) |
+| 1.7.E | Compare quantitative summary statistics | 1 | 1 | statistics (1) |
+| 1.7.F | Justify the choice of a summary statistic | 1 | 1 | statistics (1) |
+| 1.8.A | Construct graphs of summary statistics | 1 | 1 | statistics (1) |
+| 1.8.B | Describe summary-statistic graphs with the mean–median relationship | 1 | 1 | statistics (1) |
+| 1.9.A | Compare quantitative graphs | 1 | 1 | statistics (1) |
+| 1.9.B | Compare graphs of summary statistics | 1 | 1 | statistics (1) |
+| 1.9.C | Justify a claim using several quantitative representations | 1 | 1 | statistics (1) |
+| 1.9.D | Calculate z-scores with population parameters | 1 | 1 | statistics (1) |
+| 1.9.E | Compare z-scores as measures of relative position | 1 | 1 | statistics (1) |
+| 1.10.A | Determine the components of an investigative question | 1 | 1 | statistics (1) |
+| 1.10.B | Identify a census | 1 | 1 | statistics (1) |
+| 1.10.C | Identify an experiment | 1 | 1 | statistics (1) |
+| 1.10.D | Identify an observational study | 1 | 1 | statistics (1) |
+| 1.10.E | Justify the appropriateness of generalizations | 1 | 1 | statistics (1) |
+| 1.11.A | Identify a sampling method from a study description | 1 | 1 | statistics (1) |
+| 1.11.B | Justify the appropriateness of a sampling method | 1 | 1 | statistics (1) |
+| 1.12.A | Identify potential sources of sampling bias | 1 | 1 | statistics (1) |
+| 1.13.A | Identify elements of a well-designed experiment | 1 | 1 | statistics (1) |
+| 1.13.B | Identify experimental designs | 1 | 1 | statistics (1) |
+| 1.13.C | Justify the appropriateness of an experimental design | 1 | 1 | statistics (1) |
+| 1.13.D | Justify conclusions from a well-designed experiment | 1 | 1 | statistics (1) |
+| 2.1.A | Compare tables and graphs for two categorical variables | 1 | 1 | statistics (1) |
+| 2.1.B | Justify a claim using two-variable categorical tables and graphs | 1 | 1 | statistics (1) |
+| 2.2.A | Calculate summary statistics from two-way tables | 1 | 1 | statistics (1) |
+| 2.2.B | Compare summary statistics for two categorical variables | 1 | 1 | statistics (1) |
+| 2.2.C | Justify a claim using two-way summary statistics | 1 | 1 | statistics (1) |
+| 2.3.A | Estimate probabilities using simulation | 1 | 1 | statistics (1) |
+| 2.4.A | Calculate probabilities of events and complements | 1 | 1 | statistics (1) |
+| 2.5.A | Justify mutually exclusive events using joint probability | 1 | 1 | statistics (1) |
+| 2.6.A | Calculate conditional probabilities | 1 | 1 | statistics (1) |
+| 2.7.A | Calculate probabilities for independent events and unions | 1 | 1 | statistics (1) |
+| 2.8.A | Construct a probability distribution for a discrete random variable | 1 | 1 | statistics (1) |
+| 2.9.A | Calculate the mean and standard deviation of a discrete random variable | 1 | 1 | statistics (1) |
+| 2.9.B | Interpret the mean and standard deviation of a discrete random variable | 1 | 1 | statistics (1) |
+| 2.10.A | Justify whether a random variable is binomial | 1 | 1 | statistics (1) |
+| 2.10.B | Calculate the mean and standard deviation of a binomial distribution | 1 | 1 | statistics (1) |
+| 2.10.C | Interpret binomial mean, standard deviation and probabilities | 1 | 1 | statistics (1) |
+| 2.10.D | Estimate binomial probabilities from simulation data | 1 | 1 | statistics (1) |
+| 2.10.E | Calculate binomial probabilities | 1 | 1 | statistics (1) |
+| 2.11.A | Describe a normal distribution | 1 | 1 | statistics (1) |
+| 2.11.B | Calculate the mean and standard deviation of a normal distribution | 1 | 1 | statistics (1) |
+| 2.11.C | Calculate percentages with the empirical rule | 1 | 1 | statistics (1) |
+| 2.11.D | Calculate probabilities for intervals of a normal distribution | 1 | 1 | statistics (1) |
+| 2.11.E | Calculate intervals and areas of a normal distribution | 1 | 1 | statistics (1) |
+| 2.11.F | Compare measures of relative position | 1 | 1 | statistics (1) |
+| 2.12.A | Describe sampling distributions with simulations | 1 | 1 | statistics (1) |
+| 3.1.A | Justify whether an estimator is unbiased | 1 | 1 | statistics (1) |
+| 3.1.B | Calculate estimates of a population parameter | 1 | 1 | statistics (1) |
+| 3.2.A | Calculate the mean and SD of a sample proportion's sampling distribution | 1 | 1 | statistics (1) |
+| 3.2.B | Justify conditions for the sampling distribution of a sample proportion | 1 | 1 | statistics (1) |
+| 3.2.C | Interpret the sampling distribution of a sample proportion | 1 | 1 | statistics (1) |
+| 3.3.A | Identify the confidence interval procedure for a proportion | 1 | 1 | statistics (1) |
+| 3.3.B | Verify conditions for a one-proportion interval | 1 | 1 | statistics (1) |
+| 3.3.C | Calculate a confidence interval for a proportion | 1 | 1 | statistics (1) |
+| 3.3.D | Calculate standard error and margin of error for a proportion | 1 | 1 | statistics (1) |
+| 3.4.A | Interpret a confidence interval in context | 1 | 1 | statistics (1) |
+| 3.4.B | Justify a claim based on a confidence interval | 1 | 1 | statistics (1) |
+| 3.4.C | Relate sample size, width, confidence level and margin of error | 1 | 1 | statistics (1) |
+| 3.5.A | Identify the testing method for a proportion | 1 | 1 | statistics (1) |
+| 3.5.B | Identify null and alternative hypotheses | 1 | 1 | statistics (1) |
+| 3.5.C | Verify conditions for a one-proportion test | 1 | 1 | statistics (1) |
+| 3.6.A | Interpret the p-value of a test for a proportion | 1 | 1 | statistics (1) |
+| 3.7.A | Calculate the test statistic and p-value for a proportion | 1 | 1 | statistics (1) |
+| 3.7.B | Justify a claim based on test results | 1 | 1 | statistics (1) |
+| 3.8.A | Identify Type I and Type II errors | 1 | 1 | statistics (1) |
+| 3.8.B | Calculate probabilities of Type I and Type II errors | 1 | 1 | statistics (1) |
+| 3.8.C | Identify factors affecting error probabilities | 1 | 1 | statistics (1) |
+| 3.8.D | Interpret Type I and Type II errors | 1 | 1 | statistics (1) |
+| 3.9.A | Calculate the mean and SD of the difference of sample proportions | 1 | 1 | statistics (1) |
+| 3.9.B | Justify conditions for the difference of sample proportions | 1 | 1 | statistics (1) |
+| 3.9.C | Interpret the sampling distribution of the difference of proportions | 1 | 1 | statistics (1) |
+| 3.10.A | Identify the interval procedure for a difference of proportions | 1 | 1 | statistics (1) |
+| 3.10.B | Verify conditions for a two-proportion interval | 1 | 1 | statistics (1) |
+| 3.10.C | Calculate a two-proportion confidence interval | 1 | 1 | statistics (1) |
+| 3.10.D | Calculate standard error and margin of error for a difference of proportions | 1 | 1 | statistics (1) |
+| 3.11.A | Interpret a two-proportion interval in context | 1 | 1 | statistics (1) |
+| 3.11.B | Justify a claim based on a two-proportion interval | 1 | 1 | statistics (1) |
+| 3.12.A | Identify the testing method for a difference of proportions | 1 | 1 | statistics (1) |
+| 3.12.B | Identify hypotheses for a difference of proportions | 1 | 1 | statistics (1) |
+| 3.12.C | Verify conditions for a two-proportion test | 1 | 1 | statistics (1) |
+| 3.13.A | Calculate the test statistic and p-value for two proportions | 1 | 1 | statistics (1) |
+| 3.13.B | Interpret the p-value of a two-proportion test | 1 | 1 | statistics (1) |
+| 3.13.C | Justify a claim based on a two-proportion test | 1 | 1 | statistics (1) |
+| 3.14.A | Describe chi-square distributions | 1 | 1 | statistics (1) |
+| 3.14.B | Identify the appropriate chi-square test | 1 | 1 | statistics (1) |
+| 3.14.C | Identify hypotheses for a chi-square test | 1 | 1 | statistics (1) |
+| 3.14.D | Verify conditions for a chi-square test | 1 | 1 | statistics (1) |
+| 3.15.A | Calculate expected counts | 1 | 1 | statistics (1) |
+| 3.15.B | Calculate the chi-square statistic and p-value | 1 | 1 | statistics (1) |
+| 3.15.C | Interpret the p-value of a chi-square test | 1 | 1 | statistics (1) |
+| 3.15.D | Justify a claim based on a chi-square test | 1 | 1 | statistics (1) |
+| 4.1.A | Calculate the mean and SD of a sample mean's sampling distribution | 1 | 1 | statistics (1) |
+| 4.1.B | Justify conditions for the sampling distribution of a sample mean | 1 | 1 | statistics (1) |
+| 4.1.C | Interpret the sampling distribution of a sample mean | 1 | 1 | statistics (1) |
+| 4.2.A | Describe t-distributions | 1 | 1 | statistics (1) |
+| 4.2.B | Identify the interval procedure and parameter for a mean | 1 | 1 | statistics (1) |
+| 4.2.C | Verify conditions for a t-interval | 1 | 1 | statistics (1) |
+| 4.2.D | Calculate a confidence interval for a mean or mean difference | 1 | 1 | statistics (1) |
+| 4.2.E | Calculate standard error and margin of error for a t-interval | 1 | 1 | statistics (1) |
+| 4.3.A | Interpret a t-interval in context | 1 | 1 | statistics (1) |
+| 4.3.B | Justify a claim based on a t-interval | 1 | 1 | statistics (1) |
+| 4.3.C | Relate sample size, width, confidence level and margin of error for a mean | 1 | 1 | statistics (1) |
+| 4.4.A | Identify the testing method and parameter for a mean | 1 | 1 | statistics (1) |
+| 4.4.B | Identify hypotheses for a mean | 1 | 1 | statistics (1) |
+| 4.4.C | Verify conditions for a t-test | 1 | 1 | statistics (1) |
+| 4.5.A | Calculate the test statistic and p-value for a mean | 1 | 1 | statistics (1) |
+| 4.5.B | Interpret the p-value of a t-test | 1 | 1 | statistics (1) |
+| 4.5.C | Justify a claim based on a t-test | 1 | 1 | statistics (1) |
+| 4.6.A | Calculate the mean and SD of the difference of sample means | 1 | 1 | statistics (1) |
+| 4.6.B | Justify conditions for the difference of sample means | 1 | 1 | statistics (1) |
+| 4.6.C | Interpret the sampling distribution of the difference of means | 1 | 1 | statistics (1) |
+| 4.7.A | Identify the interval procedure for a difference of means | 1 | 1 | statistics (1) |
+| 4.7.B | Verify conditions for a two-sample t-interval | 1 | 1 | statistics (1) |
+| 4.7.C | Calculate a two-sample t-interval | 1 | 1 | statistics (1) |
+| 4.7.D | Calculate standard error and margin of error for a two-sample interval | 1 | 1 | statistics (1) |
+| 4.8.A | Interpret a two-sample t-interval | 1 | 1 | statistics (1) |
+| 4.8.B | Justify a claim based on a two-sample t-interval | 1 | 1 | statistics (1) |
+| 4.9.A | Identify the testing method for a difference of means | 1 | 1 | statistics (1) |
+| 4.9.B | Identify hypotheses for a difference of means | 1 | 1 | statistics (1) |
+| 4.9.C | Verify conditions for a two-sample t-test | 1 | 1 | statistics (1) |
+| 4.10.A | Calculate the test statistic and p-value for two means | 1 | 1 | statistics (1) |
+| 4.10.B | Interpret the p-value of a two-sample t-test | 1 | 1 | statistics (1) |
+| 4.10.C | Justify a claim based on a two-sample t-test | 1 | 1 | statistics (1) |
+| 5.1.A | Construct scatterplots | 1 | 1 | statistics (1) |
+| 5.1.B | Describe scatterplots | 1 | 1 | statistics (1) |
+| 5.1.C | Justify claims using scatterplots | 1 | 1 | statistics (1) |
+| 5.2.A | Interpret correlation for linear relationships | 1 | 1 | statistics (1) |
+| 5.3.A | Predict responses with a linear regression model | 1 | 1 | statistics (1) |
+| 5.4.A | Calculate residuals | 1 | 1 | statistics (1) |
+| 5.4.B | Interpret residuals | 1 | 1 | statistics (1) |
+| 5.4.C | Describe association using residual plots | 1 | 1 | statistics (1) |
+| 5.5.A | Calculate least-squares regression coefficients | 1 | 1 | statistics (1) |
+| 5.5.B | Interpret least-squares regression coefficients | 1 | 1 | statistics (1) |
 
 ## WeBWorK Open Problem Library taxonomy (Taxonomy2): subject, chapter and section
 
@@ -1708,10 +1858,30 @@ https://www.amstat.org/docs/default-source/amstat-documents/cupmguide_print.pdf
 | 1 | Matrices and linear systems (operations, echelon form, inverses, LU) | 23 | 23 | linear-algebra (23) |
 | 2 | Determinants (properties, geometric meaning) | 7 | 7 | linear-algebra (7) |
 | 3 | Vector spaces (subspaces, independence, basis, dimension, rank-nullity) | 7 | 7 | linear-algebra (7) |
-| 4 | Linear transformations (matrix representation, change of basis, kernel and range) | 12 | 12 | linear-algebra (12) |
+| 4 | Linear transformations (matrix representation, change of basis, kernel and range) | 13 | 13 | linear-algebra (13) |
 | 5 | Eigenvalues and eigenvectors (computation, diagonalization) | 8 | 8 | linear-algebra (8) |
 | 6 | Inner products (norms, orthogonality, orthogonal bases, Gram-Schmidt) | 8 | 8 | linear-algebra (8) |
-| second | Second course: spectral theorem, SVD, quadratic and bilinear forms | 9 | 9 | linear-algebra (9) |
+| second | Second course: spectral theorem, SVD, quadratic and bilinear forms | 11 | 11 | linear-algebra (11) |
+
+## Linear Algebra Curriculum Study Group 2.0 recommendations (Stewart, Axler, Beezer et al.)
+
+https://www.ams.org/notices/202205/rnoti-p806.pdf
+
+11 of 11 items have at least one objective answering to them.
+
+| Item | Topic | Objectives | With a drill | Where |
+|---|---|---|---|---|
+| F1 | First course: linear maps | 4 | 4 | linear-algebra (4) |
+| F2 | First course: compositions and inverses of linear maps | 2 | 2 | linear-algebra (2) |
+| F3 | First course: diagonalization | 1 | 1 | linear-algebra (1) |
+| F4 | First course: the singular value decomposition | 4 | 4 | linear-algebra (4) |
+| S1 | Second course: abstract treatment of vector spaces | 1 | 1 | linear-algebra (1) |
+| S2 | Second course: matrix factorizations | 2 | 2 | linear-algebra (2) |
+| S3 | Second course: inner product spaces | 1 | 1 | linear-algebra (1) |
+| S4 | Second course: finite-dimensional spectral theorem | 1 | 1 | linear-algebra (1) |
+| S5 | Second course: pseudo-inverses | 1 | 1 | linear-algebra (1) |
+| S6 | Second course: operators | 1 | 1 | linear-algebra (1) |
+| S7 | Second course: Jordan form | 1 | 1 | linear-algebra (1) |
 
 ## Lay, Lay & McDonald, Linear Algebra and Its Applications, 5th ed. (chapter list)
 
@@ -1721,13 +1891,13 @@ https://www.amstat.org/docs/default-source/amstat-documents/cupmguide_print.pdf
 
 | Item | Topic | Objectives | With a drill | Where |
 |---|---|---|---|---|
-| 1 | Linear Equations in Linear Algebra | 17 | 17 | linear-algebra (17) |
+| 1 | Linear Equations in Linear Algebra | 18 | 18 | linear-algebra (18) |
 | 2 | Matrix Algebra | 14 | 14 | linear-algebra (14) |
 | 3 | Determinants | 8 | 8 | linear-algebra (8) |
-| 4 | Vector Spaces | 17 | 17 | linear-algebra (17) |
+| 4 | Vector Spaces | 18 | 18 | linear-algebra (18) |
 | 5 | Eigenvalues and Eigenvectors | 10 | 10 | linear-algebra (10) |
 | 6 | Orthogonality and Least Squares | 10 | 10 | linear-algebra (10) |
-| 7 | Symmetric Matrices and Quadratic Forms | 10 | 10 | linear-algebra (10) |
+| 7 | Symmetric Matrices and Quadratic Forms | 12 | 12 | linear-algebra (12) |
 
 ## AQA AS and A-level Physics (7407/7408), section 3.2 Particles and radiation
 

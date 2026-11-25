@@ -16,7 +16,7 @@
   "also": [
    "webwork-opl"
   ],
-  "note": "Units follow the revised AP Statistics course (2026-27), of which only the unit list was read. The objectives under each unit are a house list."
+  "note": "Units 1-5 follow the AP Statistics CED effective fall 2026; all 150 of its learning objectives were read and each is cited by an objective here. Objective wording and grouping are ours."
  },
  "big_ideas": [
   {
@@ -53,7 +53,12 @@
        "id": "A",
        "std": [
         "ap-statistics-2026:1",
-        "webwork-opl:ST3.2"
+        "webwork-opl:ST3.2",
+        "ap-statistics-2026:1.7.A",
+        "ap-statistics-2026:1.7.B",
+        "ap-statistics-2026:1.7.D",
+        "ap-statistics-2026:1.7.E",
+        "ap-statistics-2026:1.8.A"
        ],
        "do": "Find and compare measures of centre and spread, and flag outliers.",
        "ek": [
@@ -74,7 +79,13 @@
        "std": [
         "ap-statistics-2026:1",
         "webwork-opl:PB4.3",
-        "webwork-opl:PB4.4"
+        "webwork-opl:PB4.4",
+        "ap-statistics-2026:1.9.D",
+        "ap-statistics-2026:1.9.E",
+        "ap-statistics-2026:2.11.C",
+        "ap-statistics-2026:2.11.D",
+        "ap-statistics-2026:2.11.E",
+        "ap-statistics-2026:2.11.F"
        ],
        "do": "Standardise a value and use the normal model.",
        "ek": [
@@ -88,6 +99,88 @@
         "sx-empirical-rule",
         "stats-normal"
        ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "ap-statistics-2026:1.5.A",
+        "ap-statistics-2026:1.6.A",
+        "ap-statistics-2026:1.6.B",
+        "ap-statistics-2026:1.7.F",
+        "ap-statistics-2026:1.8.B",
+        "ap-statistics-2026:1.9.A",
+        "ap-statistics-2026:1.9.B",
+        "ap-statistics-2026:1.9.C"
+       ],
+       "do": "Describe a distribution's shape and pick the centre and spread that suit it.",
+       "ek": [
+        "Skewed right: mean > median; skewed or with outliers, report median and IQR; symmetric, mean and SD."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "st-shape-from-summary",
+        "st-add-outlier"
+       ]
+      },
+      {
+       "id": "D",
+       "std": [
+        "ap-statistics-2026:1.7.C"
+       ],
+       "do": "Find summary statistics after a change of units.",
+       "ek": [
+        "For y = a + bx: centre and position become a + b·(value); spread (SD, IQR, range) becomes |b|·(value)."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "st-units-mean",
+        "st-units-iqr"
+       ]
+      },
+      {
+       "id": "E",
+       "std": [
+        "ap-statistics-2026:1.2.A",
+        "ap-statistics-2026:1.2.B",
+        "ap-statistics-2026:1.2.C",
+        "ap-statistics-2026:1.1.A"
+       ],
+       "do": "Classify variables and tell parameters from statistics.",
+       "ek": [
+        "Categorical vs quantitative (discrete counts, continuous measures); a parameter describes a population, a statistic a sample."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "st-variable-type",
+        "st-param-statistic"
+       ]
+      },
+      {
+       "id": "F",
+       "std": [
+        "ap-statistics-2026:1.3.A",
+        "ap-statistics-2026:1.3.B",
+        "ap-statistics-2026:1.4.A",
+        "ap-statistics-2026:1.4.B",
+        "ap-statistics-2026:1.4.C"
+       ],
+       "do": "Summarise one categorical variable with relative frequencies and the right graph.",
+       "ek": [
+        "Relative frequency = count ÷ total; bar charts compare categories; pie charts need parts of one whole."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "st-relative-frequency",
+        "st-categorical-graph"
+       ]
       }
      ]
     },
@@ -100,7 +193,8 @@
        "std": [
         "ap-statistics-2026:1",
         "webwork-opl:ST2.6",
-        "webwork-opl:ST2.8"
+        "webwork-opl:ST2.8",
+        "ap-statistics-2026:1.12.A"
        ],
        "do": "Identify the source of bias in a sampling method.",
        "ek": [
@@ -118,7 +212,9 @@
        "id": "B",
        "std": [
         "ap-statistics-2026:1",
-        "webwork-opl:ST1.1"
+        "webwork-opl:ST1.1",
+        "ap-statistics-2026:1.13.A",
+        "ap-statistics-2026:1.13.B"
        ],
        "do": "Explain the purpose of random assignment, control, blinding and blocking.",
        "ek": [
@@ -130,6 +226,48 @@
        "drills": [
         "sx-experiment-design",
         "hs-evaluate-report"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "ap-statistics-2026:1.1.B",
+        "ap-statistics-2026:1.10.A",
+        "ap-statistics-2026:1.10.B",
+        "ap-statistics-2026:1.10.C",
+        "ap-statistics-2026:1.10.D",
+        "ap-statistics-2026:1.10.E",
+        "ap-statistics-2026:1.13.C",
+        "ap-statistics-2026:1.13.D"
+       ],
+       "do": "Classify a study and state the scope of its conclusions.",
+       "ek": [
+        "Random sampling lets results generalise to the population; random assignment lets them show cause; an observational study shows association only."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "st-study-classify",
+        "st-scope-inference"
+       ]
+      },
+      {
+       "id": "D",
+       "std": [
+        "ap-statistics-2026:1.11.A",
+        "ap-statistics-2026:1.11.B"
+       ],
+       "do": "Identify a sampling method and judge when it fits.",
+       "ek": [
+        "SRS, stratified (sample within groups), cluster (take whole groups), systematic (every kth), convenience."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "st-sampling-method",
+        "st-systematic-interval"
        ]
       }
      ]
@@ -158,7 +296,11 @@
         "ap-statistics-2026:2",
         "webwork-opl:PB1.2",
         "webwork-opl:PB1.3",
-        "webwork-opl:PB1.4"
+        "webwork-opl:PB1.4",
+        "ap-statistics-2026:2.4.A",
+        "ap-statistics-2026:2.5.A",
+        "ap-statistics-2026:2.6.A",
+        "ap-statistics-2026:2.7.A"
        ],
        "do": "Apply the addition and multiplication rules, conditional probability and independence.",
        "ek": [
@@ -175,6 +317,46 @@
         "stats-bayes",
         "stats-two-way"
        ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "ap-statistics-2026:2.1.A",
+        "ap-statistics-2026:2.1.B",
+        "ap-statistics-2026:2.2.A",
+        "ap-statistics-2026:2.2.B",
+        "ap-statistics-2026:2.2.C"
+       ],
+       "do": "Read joint, marginal and conditional percentages from a two-way table and judge association.",
+       "ek": [
+        "Conditional % = cell ÷ its row (or column) total; variables are associated when the conditional distributions differ."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "st-conditional-pct",
+        "st-association"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "ap-statistics-2026:2.3.A",
+        "ap-statistics-2026:2.10.D",
+        "ap-statistics-2026:2.12.A"
+       ],
+       "do": "Estimate a probability from a simulation and design one.",
+       "ek": [
+        "Estimated probability = successes ÷ trials; assign random digits in proportion to each outcome's probability."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "st-sim-estimate",
+        "st-sim-design"
+       ]
       }
      ]
     },
@@ -187,7 +369,8 @@
        "std": [
         "ap-statistics-2026:2",
         "webwork-opl:PB2.1",
-        "webwork-opl:PB2.2"
+        "webwork-opl:PB2.2",
+        "ap-statistics-2026:2.9.A"
        ],
        "do": "Find the mean of a discrete random variable and of a linear transformation, and the spread of a sum.",
        "ek": [
@@ -209,7 +392,9 @@
         "ap-statistics-2026:2",
         "webwork-opl:PB3.1",
         "webwork-opl:PB3.2",
-        "webwork-opl:PB3.4"
+        "webwork-opl:PB3.4",
+        "ap-statistics-2026:2.10.B",
+        "ap-statistics-2026:2.10.E"
        ],
        "do": "Use the binomial and geometric distributions.",
        "ek": [
@@ -230,7 +415,9 @@
         "ap-statistics-2026:2",
         "webwork-opl:PB5.3",
         "webwork-opl:ST4.1",
-        "webwork-opl:ST4.2"
+        "webwork-opl:ST4.2",
+        "ap-statistics-2026:3.2.A",
+        "ap-statistics-2026:4.1.A"
        ],
        "do": "Find the standard deviation of a sample mean and of a sample proportion.",
        "ek": [
@@ -243,6 +430,102 @@
         "sx-standard-error-mean",
         "sx-standard-error-proportion",
         "sx-margin-and-sample-size"
+       ]
+      },
+      {
+       "id": "D",
+       "std": [
+        "ap-statistics-2026:2.8.A",
+        "ap-statistics-2026:2.9.B"
+       ],
+       "do": "Build a discrete probability distribution and interpret its mean.",
+       "ek": [
+        "Probabilities lie in [0, 1] and sum to 1; the mean is the long-run average outcome."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "st-missing-prob",
+        "st-ev-interpret"
+       ]
+      },
+      {
+       "id": "E",
+       "std": [
+        "ap-statistics-2026:2.10.A",
+        "ap-statistics-2026:2.10.C"
+       ],
+       "do": "Decide whether a setting is binomial and find P(at least one).",
+       "ek": [
+        "Binary outcomes, independent trials, fixed n, same p; P(X ≥ 1) = 1 − (1 − p)ⁿ."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "st-binomial-check",
+        "st-at-least-one"
+       ]
+      },
+      {
+       "id": "F",
+       "std": [
+        "ap-statistics-2026:3.2.B",
+        "ap-statistics-2026:3.2.C",
+        "ap-statistics-2026:4.1.B",
+        "ap-statistics-2026:4.1.C",
+        "ap-statistics-2026:3.9.B",
+        "ap-statistics-2026:3.9.C",
+        "ap-statistics-2026:4.6.B",
+        "ap-statistics-2026:4.6.C"
+       ],
+       "do": "Check the conditions for a sampling distribution and describe its shape.",
+       "ek": [
+        "10% condition (n ≤ N/10); large counts np, n(1 − p) ≥ 10; for means, normal population or n ≥ 30 (CLT)."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "st-ten-percent",
+        "st-clt-conditions"
+       ]
+      },
+      {
+       "id": "G",
+       "std": [
+        "ap-statistics-2026:3.1.A",
+        "ap-statistics-2026:3.1.B"
+       ],
+       "do": "Tell biased from unbiased estimators and compute a point estimate.",
+       "ek": [
+        "An estimator is unbiased when its sampling distribution is centred on the parameter; p̂ and x̄ are unbiased."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "st-unbiased",
+        "st-point-estimate"
+       ]
+      },
+      {
+       "id": "H",
+       "std": [
+        "ap-statistics-2026:2.11.A",
+        "ap-statistics-2026:2.11.B"
+       ],
+       "do": "Describe a normal distribution and recover its mean and SD from facts about it.",
+       "ek": [
+        "Symmetric, unimodal, mean = median; the inflection points sit one SD from the mean."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "st-normal-from-facts",
+        "st-normal-describe"
        ]
       }
      ]
@@ -271,7 +554,10 @@
         "ap-statistics-2026:3",
         "webwork-opl:ST2.9",
         "webwork-opl:ST5.1",
-        "webwork-opl:ST5.4"
+        "webwork-opl:ST5.4",
+        "ap-statistics-2026:3.3.C",
+        "ap-statistics-2026:3.3.D",
+        "ap-statistics-2026:3.4.C"
        ],
        "do": "Build and interpret a confidence interval for a proportion and choose a sample size.",
        "ek": [
@@ -292,7 +578,9 @@
        "std": [
         "ap-statistics-2026:3",
         "webwork-opl:ST6.1",
-        "webwork-opl:ST6.4"
+        "webwork-opl:ST6.4",
+        "ap-statistics-2026:3.7.A",
+        "ap-statistics-2026:3.7.B"
        ],
        "do": "Carry out a z test for a proportion and state the conclusion.",
        "ek": [
@@ -312,7 +600,9 @@
        "std": [
         "ap-statistics-2026:3",
         "webwork-opl:ST6.11",
-        "webwork-opl:ST6.12"
+        "webwork-opl:ST6.12",
+        "ap-statistics-2026:3.15.A",
+        "ap-statistics-2026:3.15.B"
        ],
        "do": "Compute expected counts and the chi-square statistic for a table.",
        "ek": [
@@ -325,6 +615,151 @@
         "sx-chi-square-expected",
         "sx-chi-square-term",
         "sx-degrees-of-freedom"
+       ]
+      },
+      {
+       "id": "D",
+       "std": [
+        "ap-statistics-2026:3.3.A",
+        "ap-statistics-2026:3.5.A",
+        "ap-statistics-2026:3.10.A",
+        "ap-statistics-2026:3.12.A",
+        "ap-statistics-2026:3.14.B",
+        "ap-statistics-2026:4.2.B",
+        "ap-statistics-2026:4.4.A",
+        "ap-statistics-2026:4.7.A",
+        "ap-statistics-2026:4.9.A"
+       ],
+       "do": "Choose the inference procedure for a study.",
+       "ek": [
+        "One or two groups; proportion or mean; paired or independent; one categorical variable vs two (goodness of fit, homogeneity, independence)."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "st-choose-procedure",
+        "st-parameter-name"
+       ]
+      },
+      {
+       "id": "E",
+       "std": [
+        "ap-statistics-2026:3.3.B",
+        "ap-statistics-2026:3.5.B",
+        "ap-statistics-2026:3.5.C",
+        "ap-statistics-2026:3.10.B",
+        "ap-statistics-2026:3.12.B",
+        "ap-statistics-2026:3.12.C",
+        "ap-statistics-2026:3.14.C",
+        "ap-statistics-2026:3.14.D",
+        "ap-statistics-2026:4.2.C",
+        "ap-statistics-2026:4.4.B",
+        "ap-statistics-2026:4.4.C",
+        "ap-statistics-2026:4.7.B",
+        "ap-statistics-2026:4.9.B",
+        "ap-statistics-2026:4.9.C"
+       ],
+       "do": "State hypotheses about a parameter and check the conditions for the procedure.",
+       "ek": [
+        "H₀ names a parameter value (or no difference); conditions are random, 10%, and large counts or normal/large sample."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "st-hypotheses",
+        "st-large-counts"
+       ]
+      },
+      {
+       "id": "F",
+       "std": [
+        "ap-statistics-2026:3.4.A",
+        "ap-statistics-2026:3.4.B",
+        "ap-statistics-2026:3.6.A",
+        "ap-statistics-2026:3.11.A",
+        "ap-statistics-2026:3.11.B",
+        "ap-statistics-2026:3.13.B",
+        "ap-statistics-2026:3.13.C",
+        "ap-statistics-2026:3.15.C",
+        "ap-statistics-2026:3.15.D",
+        "ap-statistics-2026:4.3.A",
+        "ap-statistics-2026:4.3.B",
+        "ap-statistics-2026:4.5.B",
+        "ap-statistics-2026:4.5.C",
+        "ap-statistics-2026:4.8.A",
+        "ap-statistics-2026:4.8.B",
+        "ap-statistics-2026:4.10.B",
+        "ap-statistics-2026:4.10.C"
+       ],
+       "do": "Interpret a p-value or a confidence interval and draw the conclusion.",
+       "ek": [
+        "The p-value is the chance of a result this extreme if H₀ is true; reject H₀ when p < α; a value outside the interval is implausible."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "st-pvalue-interpret",
+        "st-ci-midpoint"
+       ]
+      },
+      {
+       "id": "G",
+       "std": [
+        "ap-statistics-2026:3.8.A",
+        "ap-statistics-2026:3.8.B",
+        "ap-statistics-2026:3.8.C",
+        "ap-statistics-2026:3.8.D"
+       ],
+       "do": "Identify Type I and Type II errors and their probabilities.",
+       "ek": [
+        "Type I rejects a true H₀ (probability α); Type II fails to reject a false H₀ (probability β = 1 − power)."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "st-error-type",
+        "st-error-prob"
+       ]
+      },
+      {
+       "id": "H",
+       "std": [
+        "ap-statistics-2026:3.9.A",
+        "ap-statistics-2026:3.10.C",
+        "ap-statistics-2026:3.10.D",
+        "ap-statistics-2026:3.13.A"
+       ],
+       "do": "Find the standard error and interval for a difference of two proportions.",
+       "ek": [
+        "SE = √(p̂₁(1 − p̂₁)/n₁ + p̂₂(1 − p̂₂)/n₂); interval = (p̂₁ − p̂₂) ± z*·SE."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "st-two-prop-se",
+        "st-two-prop-ci"
+       ]
+      },
+      {
+       "id": "I",
+       "std": [
+        "ap-statistics-2026:3.14.A"
+       ],
+       "do": "Find chi-square degrees of freedom and describe the distribution.",
+       "ek": [
+        "Goodness of fit: k − 1; two-way table: (r − 1)(c − 1); chi-square is right-skewed, mean = df."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "st-chisq-df",
+        "st-chisq-shape"
        ]
       }
      ]
@@ -352,7 +787,8 @@
        "std": [
         "ap-statistics-2026:4",
         "webwork-opl:ST5.3",
-        "webwork-opl:ST6.3"
+        "webwork-opl:ST6.3",
+        "ap-statistics-2026:4.5.A"
        ],
        "do": "Compute a t statistic and its degrees of freedom.",
        "ek": [
@@ -364,6 +800,46 @@
        "drills": [
         "sx-t-statistic",
         "sx-degrees-of-freedom"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "ap-statistics-2026:4.2.A",
+        "ap-statistics-2026:4.2.D",
+        "ap-statistics-2026:4.2.E",
+        "ap-statistics-2026:4.3.C"
+       ],
+       "do": "Compute a t interval's margin of error and see how n changes it.",
+       "ek": [
+        "ME = t*·s/√n with df = n − 1; quadrupling n halves the margin."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "st-t-margin",
+        "st-t-resize"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "ap-statistics-2026:4.6.A",
+        "ap-statistics-2026:4.7.C",
+        "ap-statistics-2026:4.7.D",
+        "ap-statistics-2026:4.10.A"
+       ],
+       "do": "Compute the standard error and t statistic for two independent means.",
+       "ek": [
+        "SE = √(s₁²/n₁ + s₂²/n₂); t = (x̄₁ − x̄₂)/SE; conservative df = min(n₁, n₂) − 1."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "st-two-sample-t",
+        "st-conservative-df"
        ]
       }
      ]
@@ -393,7 +869,12 @@
         "webwork-opl:ST7.1",
         "webwork-opl:ST7.2",
         "webwork-opl:ST7.3",
-        "webwork-opl:ST7.4"
+        "webwork-opl:ST7.4",
+        "ap-statistics-2026:5.2.A",
+        "ap-statistics-2026:5.3.A",
+        "ap-statistics-2026:5.4.A",
+        "ap-statistics-2026:5.5.A",
+        "ap-statistics-2026:5.5.B"
        ],
        "do": "Find and interpret a correlation, a regression line, a residual and r².",
        "ek": [
@@ -409,6 +890,27 @@
         "sx-r-squared",
         "sx-slope-from-correlation",
         "hs-trend-line"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "ap-statistics-2026:5.1.A",
+        "ap-statistics-2026:5.1.B",
+        "ap-statistics-2026:5.1.C",
+        "ap-statistics-2026:5.4.B",
+        "ap-statistics-2026:5.4.C"
+       ],
+       "do": "Describe a scatterplot and read residuals and residual plots.",
+       "ek": [
+        "Direction, form, strength, unusual points; residual = y − ŷ; a curved residual plot says a line is the wrong model."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "st-scatter-describe",
+        "st-residual"
        ]
       }
      ]
@@ -1924,6 +2426,50 @@
    "partial": []
   },
   {
+   "code": "SS-1.1.C",
+   "unit": 1,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "st-shape-from-summary",
+    "st-add-outlier"
+   ],
+   "partial": []
+  },
+  {
+   "code": "SS-1.1.D",
+   "unit": 1,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "st-units-mean",
+    "st-units-iqr"
+   ],
+   "partial": []
+  },
+  {
+   "code": "SS-1.1.E",
+   "unit": 1,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "st-variable-type",
+    "st-param-statistic"
+   ],
+   "partial": []
+  },
+  {
+   "code": "SS-1.1.F",
+   "unit": 1,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "st-relative-frequency",
+    "st-categorical-graph"
+   ],
+   "partial": []
+  },
+  {
    "code": "SS-1.2.A",
    "unit": 1,
    "topic": 2,
@@ -1946,6 +2492,28 @@
    "partial": []
   },
   {
+   "code": "SS-1.2.C",
+   "unit": 1,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "st-study-classify",
+    "st-scope-inference"
+   ],
+   "partial": []
+  },
+  {
+   "code": "SS-1.2.D",
+   "unit": 1,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "st-sampling-method",
+    "st-systematic-interval"
+   ],
+   "partial": []
+  },
+  {
    "code": "SS-2.1.A",
    "unit": 2,
    "topic": 1,
@@ -1957,6 +2525,28 @@
     "stats-independence",
     "stats-bayes",
     "stats-two-way"
+   ],
+   "partial": []
+  },
+  {
+   "code": "SS-2.1.B",
+   "unit": 2,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "st-conditional-pct",
+    "st-association"
+   ],
+   "partial": []
+  },
+  {
+   "code": "SS-2.1.C",
+   "unit": 2,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "st-sim-estimate",
+    "st-sim-design"
    ],
    "partial": []
   },
@@ -1998,6 +2588,61 @@
    "partial": []
   },
   {
+   "code": "SS-2.2.D",
+   "unit": 2,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "st-missing-prob",
+    "st-ev-interpret"
+   ],
+   "partial": []
+  },
+  {
+   "code": "SS-2.2.E",
+   "unit": 2,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "st-binomial-check",
+    "st-at-least-one"
+   ],
+   "partial": []
+  },
+  {
+   "code": "SS-2.2.F",
+   "unit": 2,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "st-ten-percent",
+    "st-clt-conditions"
+   ],
+   "partial": []
+  },
+  {
+   "code": "SS-2.2.G",
+   "unit": 2,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "st-unbiased",
+    "st-point-estimate"
+   ],
+   "partial": []
+  },
+  {
+   "code": "SS-2.2.H",
+   "unit": 2,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "st-normal-from-facts",
+    "st-normal-describe"
+   ],
+   "partial": []
+  },
+  {
    "code": "SS-3.1.A",
    "unit": 3,
    "topic": 1,
@@ -2035,6 +2680,72 @@
    "partial": []
   },
   {
+   "code": "SS-3.1.D",
+   "unit": 3,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "st-choose-procedure",
+    "st-parameter-name"
+   ],
+   "partial": []
+  },
+  {
+   "code": "SS-3.1.E",
+   "unit": 3,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "st-hypotheses",
+    "st-large-counts"
+   ],
+   "partial": []
+  },
+  {
+   "code": "SS-3.1.F",
+   "unit": 3,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "st-pvalue-interpret",
+    "st-ci-midpoint"
+   ],
+   "partial": []
+  },
+  {
+   "code": "SS-3.1.G",
+   "unit": 3,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "st-error-type",
+    "st-error-prob"
+   ],
+   "partial": []
+  },
+  {
+   "code": "SS-3.1.H",
+   "unit": 3,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "st-two-prop-se",
+    "st-two-prop-ci"
+   ],
+   "partial": []
+  },
+  {
+   "code": "SS-3.1.I",
+   "unit": 3,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "st-chisq-df",
+    "st-chisq-shape"
+   ],
+   "partial": []
+  },
+  {
    "code": "SS-4.1.A",
    "unit": 4,
    "topic": 1,
@@ -2042,6 +2753,28 @@
    "full": [
     "sx-t-statistic",
     "sx-degrees-of-freedom"
+   ],
+   "partial": []
+  },
+  {
+   "code": "SS-4.1.B",
+   "unit": 4,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "st-t-margin",
+    "st-t-resize"
+   ],
+   "partial": []
+  },
+  {
+   "code": "SS-4.1.C",
+   "unit": 4,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "st-two-sample-t",
+    "st-conservative-df"
    ],
    "partial": []
   },
@@ -2057,6 +2790,17 @@
     "sx-r-squared",
     "sx-slope-from-correlation",
     "hs-trend-line"
+   ],
+   "partial": []
+  },
+  {
+   "code": "SS-5.1.B",
+   "unit": 5,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "st-scatter-describe",
+    "st-residual"
    ],
    "partial": []
   },

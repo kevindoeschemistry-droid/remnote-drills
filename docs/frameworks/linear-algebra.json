@@ -15,12 +15,10 @@
   "primary": "cupm-2015-la",
   "also": [
    "lay-5e",
-   "webwork-opl"
-  ],
-  "wanted": [
+   "webwork-opl",
    "lacsg-2"
   ],
-  "note": "Units cover the six core-topic groups of the 2015 CUPM guide's first course in linear algebra (read through a summary, not the report's own pages), ordered by Lay's chapters. Unit 7 is second-course material by the guide's split. LACSG 2.0 is the newer standard and has not been read."
+  "note": "Units cover the six core-topic groups of the 2015 CUPM guide's first course in linear algebra (read through a summary, not the report's own pages), ordered by Lay's chapters. Unit 7 is second-course material by the guide's split. LACSG 2.0 (read through the 2022 AMS Notices survey) is cited where it adds emphasis: linear maps, compositions and inverses, diagonalization and the SVD in a first course; factorizations, inner products, the spectral theorem, pseudo-inverses, operators and Jordan form in a second."
  },
  "big_ideas": [
   {
@@ -304,6 +302,7 @@
       {
        "id": "A",
        "std": [
+        "lacsg-2:S2",
         "cupm-2015-la:1",
         "lay-5e:2",
         "webwork-opl:LA3.2"
@@ -616,6 +615,7 @@
       {
        "id": "B",
        "std": [
+        "lacsg-2:F3",
         "lay-5e:5",
         "webwork-opl:LA3.1",
         "webwork-opl:LA7.2"
@@ -807,6 +807,7 @@
       {
        "id": "C",
        "std": [
+        "lacsg-2:S2",
         "cupm-2015-la:6",
         "lay-5e:6",
         "webwork-opl:LA3.3"
@@ -847,6 +848,7 @@
       {
        "id": "A",
        "std": [
+        "lacsg-2:F4",
         "lay-5e:7",
         "webwork-opl:LA3.4"
        ],
@@ -865,6 +867,7 @@
       {
        "id": "B",
        "std": [
+        "lacsg-2:S4",
         "cupm-2015-la:second",
         "lay-5e:7",
         "webwork-opl:LA7.2"
@@ -934,6 +937,7 @@
       {
        "id": "A",
        "std": [
+        "lacsg-2:F4",
         "cupm-2015-la:second",
         "lay-5e:7",
         "webwork-opl:LA3.4"
@@ -948,6 +952,41 @@
        "drills": [
         "la-condition-number",
         "la-cond-diag"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "lacsg-2:F4"
+       ],
+       "do": "Find the error of the best low-rank approximation from the singular values.",
+       "ek": [
+        "Eckart–Young: the best rank-k approximation drops σ_(k+1), …; its 2-norm error is σ_(k+1), its Frobenius error √(σ_(k+1)² + …)."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "la-rank1-error",
+        "la-frob-error"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "lacsg-2:S5",
+        "lacsg-2:F4"
+       ],
+       "do": "Use the pseudo-inverse to get the least-squares solution of a full-column-rank system.",
+       "ek": [
+        "A⁺ = (AᵀA)⁻¹Aᵀ when the columns are independent; x = A⁺b solves the normal equations; A⁺ inverts each nonzero singular value."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "la-pinv-entry",
+        "la-pinv-diag"
        ]
       }
      ]
@@ -975,6 +1014,7 @@
       {
        "id": "A",
        "std": [
+        "lacsg-2:F1",
         "cupm-2015-la:4",
         "lay-5e:1",
         "webwork-opl:LA9.1",
@@ -995,6 +1035,8 @@
       {
        "id": "B",
        "std": [
+        "lacsg-2:F2",
+        "lacsg-2:F1",
         "cupm-2015-la:4",
         "lay-5e:2",
         "webwork-opl:LA9.3"
@@ -1059,6 +1101,7 @@
       {
        "id": "B",
        "std": [
+        "lacsg-2:F1",
         "cupm-2015-la:4",
         "lay-5e:4",
         "webwork-opl:LA6.7",
@@ -1074,6 +1117,24 @@
        "drills": [
         "la-matrix-relative-to-basis",
         "la-shift-matrix-entry"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "lacsg-2:S6",
+        "lacsg-2:F1"
+       ],
+       "do": "Find the eigenvalues and eigenvectors of a linear operator on a function space.",
+       "ek": [
+        "Apply the operator to a basis (monomials, exponentials): T(p) = λp makes p an eigenvector; the matrix of D on polynomials is nilpotent, so its only eigenvalue is 0."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "la-operator-eigen",
+        "la-derivative-nilpotent"
        ]
       }
      ]
@@ -1102,7 +1163,8 @@
        "id": "A",
        "std": [
         "webwork-opl:LA6.1",
-        "webwork-opl:LA6.5"
+        "webwork-opl:LA6.5",
+        "lacsg-2:S1"
        ],
        "do": "Decide whether a set with its operations is a vector space.",
        "ek": [
@@ -1187,7 +1249,8 @@
       {
        "id": "F",
        "std": [
-        "webwork-opl:LA8.2"
+        "webwork-opl:LA8.2",
+        "lacsg-2:S3"
        ],
        "do": "Compute an inner product of functions.",
        "ek": [
@@ -1261,7 +1324,8 @@
       {
        "id": "D",
        "std": [
-        "webwork-opl:LA3.5"
+        "webwork-opl:LA3.5",
+        "lacsg-2:S7"
        ],
        "do": "Compute a power of a Jordan block.",
        "ek": [
@@ -1295,7 +1359,8 @@
       {
        "id": "F",
        "std": [
-        "webwork-opl:LA9.6"
+        "webwork-opl:LA9.6",
+        "lacsg-2:F2"
        ],
        "do": "Invert a linear transformation.",
        "ek": [
@@ -1729,6 +1794,28 @@
    "partial": []
   },
   {
+   "code": "LA-7.3.B",
+   "unit": 7,
+   "topic": 3,
+   "status": "ok",
+   "full": [
+    "la-rank1-error",
+    "la-frob-error"
+   ],
+   "partial": []
+  },
+  {
+   "code": "LA-7.3.C",
+   "unit": 7,
+   "topic": 3,
+   "status": "ok",
+   "full": [
+    "la-pinv-entry",
+    "la-pinv-diag"
+   ],
+   "partial": []
+  },
+  {
    "code": "LA-8.1.A",
    "unit": 8,
    "topic": 1,
@@ -1780,6 +1867,17 @@
    "full": [
     "la-matrix-relative-to-basis",
     "la-shift-matrix-entry"
+   ],
+   "partial": []
+  },
+  {
+   "code": "LA-8.2.C",
+   "unit": 8,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "la-operator-eigen",
+    "la-derivative-nilpotent"
    ],
    "partial": []
   },
