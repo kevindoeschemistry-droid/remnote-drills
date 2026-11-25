@@ -2,7 +2,7 @@
 
 Generated from `drills/frameworks/engineering-math.yaml` by `scripts/framework.mjs`. ● drilled · ◐ partly · ○ no drills yet.
 
-**170 learning objectives** in 14 units (160 core): 170 drilled, 0 partly, 0 with no drills. Core: 160 / 160 drilled.
+**178 learning objectives** in 14 units (164 core): 178 drilled, 0 partly, 0 with no drills. Core: 164 / 164 drilled.
 
 ## Big ideas
 
@@ -33,9 +33,9 @@ Generated from `drills/frameworks/engineering-math.yaml` by `scripts/framework.m
 | 6 · Series solutions and special functions | core | 15% | 11 | 11 | 0 | 0 |
 | 7 · Laplace transforms | core | 15% | 16 | 16 | 0 | 0 |
 | 8 · Linear algebra for ODEs | core | as needed | 11 | 11 | 0 | 0 |
-| 9 · Fourier series and Sturm–Liouville boundary-value problems | core | 10–15% | 13 | 13 | 0 | 0 |
-| 10 · Partial differential equations | core | — | 23 | 23 | 0 | 0 |
-| 11 · Fourier integrals and transforms | extension | — | 5 | 5 | 0 | 0 |
+| 9 · Fourier series and Sturm–Liouville boundary-value problems | core | 10–15% | 16 | 16 | 0 | 0 |
+| 10 · Partial differential equations | core | — | 24 | 24 | 0 | 0 |
+| 11 · Fourier integrals and transforms | extension | — | 9 | 9 | 0 | 0 |
 | 12 · Vector calculus for transport | extension | — | 5 | 5 | 0 | 0 |
 | 13 · More on ODEs: circuits, bifurcations, operators, existence | core | — | 5 | 5 | 0 | 0 |
 | 14 · Complex analysis | core | — | 14 | 14 | 0 | 0 |
@@ -690,6 +690,20 @@ Book: kreyszig-10e §11.5, §11.6
   - Needs: EM-9.3.A
   - P3 · drills: em-legendre-expansion
 
+### 9.4 Green's functions
+
+
+
+- ● **EM-9.4.A** () Build the Green's function of y″ = f with y(0) = y(L) = 0 and use it to solve for a given f.
+  - EK: G(x, s) = x(s − L)/L for x < s and s(x − L)/L for x > s: continuous at x = s, slope jumps by 1, zero at both ends; y = ∫G f ds.
+  - P1 · drills: gf-string-value, gf-string-solve
+- ● **EM-9.4.B** () Build the Green's function of y″ + k²y = f with fixed ends from the homogeneous solutions and the jump condition.
+  - EK: G = −sin(kx_<) sin(k(L − x_>))/(k sin kL); it fails to exist exactly when kL = nπ, an eigenvalue of the homogeneous problem.
+  - P1 · drills: gf-helmholtz-value, gf-existence
+- ● **EM-9.4.C** () Solve a forced initial-value problem by convolving the forcing with the impulse response.
+  - EK: For y″ + ω²y = f, g(t) = sin(ωt)/ω; for τy′ + y = f, g(t) = e^(−t/τ)/τ; y = ∫₀ᵗ g(t − u) f(u) du from rest.
+  - P1 · drills: gf-oscillator-step, gf-lag-ramp
+
 ## Unit 10 · Partial differential equations
 
 Big ideas: EIG, TRANS, MODEL
@@ -792,6 +806,9 @@ Book: kreyszig-10e §12.7, §12.12
   - EK: Finite domain with homogeneous BCs: separate. Nonzero BCs: shift first. Semi-infinite: transform. Messy geometry or data: finite differences.
   - Needs: EM-10.5.B, EM-10.2.C
   - P2 · drills: pde-method-choice
+- ● **EM-10.5.D** () Write the heat kernel as the Green's function of the diffusion equation and use images for a fixed or insulated end.
+  - EK: G = e^(−(x−x₀)²/4κt)/√(4πκt) on the line; on x > 0 subtract the mirror image for u(0) = 0, add it for an insulated end.
+  - P1 · drills: gf-image-fixed, gf-image-insulated
 
 ### 10.6 Finite differences for PDEs
 
@@ -836,6 +853,23 @@ Book: kreyszig-10e §11.7, §11.8, §11.9
 - ● **EM-11.1.E** () Solve the heat equation on an infinite line by Fourier transform and read the spreading Gaussian.
   - EK: A point release Q spreads as u = Q e^(−x²/4κt)/√(4πκt): the peak falls as t^(−1/2) and the variance grows as 2κt.
   - P1 · drills: ft-heat-peak, ft-heat-spread
+- ● **EM-11.1.F** () Convolve functions directly and through the Fourier transform: Gaussians, pulses, and an initial profile spreading by diffusion.
+  - EK: Gaussian widths add in quadrature (σ² = σ₁² + σ₂²); two pulses give a triangle; u(x, t) = u₀ ∗ heat kernel, so σ² grows by 2κt.
+  - P1 · drills: fc-gaussians, fc-pulses, fc-heat-spread
+
+### 11.2 Random walks and the diffusion limit
+
+
+
+- ● **EM-11.2.A** () Compute end-point probabilities and moments of a 1-D random walk, with or without bias.
+  - EK: N steps of ±a: P(m) = C(N, (N + m)/2)/2^N; ⟨x⟩ = Na(2p − 1), Var x = 4Np(1 − p)a², so ⟨x²⟩ = Na² when unbiased.
+  - P1 · drills: rw-endpoint, rw-biased-msd
+- ● **EM-11.2.B** () Take the diffusion limit of a random walk: D from step length and time, and the time to diffuse a distance.
+  - EK: D = a²/(2Δt) in 1-D; ⟨x²⟩ = 2Dt, and ⟨r²⟩ = 2dDt in d dimensions; t ~ L²/(2D).
+  - P1 · drills: rw-diffusivity, rw-diffuse-time
+- ● **EM-11.2.C** () Use the Gaussian limit of the walk to find the fraction of walkers past a distance, and add the variances of successive stages.
+  - EK: P(x, t) = e^(−x²/4Dt)/√(4πDt); fraction beyond |x| > ℓ is erfc(ℓ/√(4Dt)); independent stages convolve, so variances add.
+  - P1 · drills: rw-tail, rw-stages
 
 ## Unit 12 · Vector calculus for transport (extension)
 

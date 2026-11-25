@@ -61,7 +61,7 @@ A homework set shows one geometry and one boundary condition per method. The fin
 
 Most homework inputs are smooth or a single step; periodic inputs and the limit theorems are the cells left out.
 
-16 of 16 cells have drills; 0 are open.
+17 of 17 cells have drills; 0 are open.
 
 | Cell | Drills | Open |
 |---|---|---|
@@ -81,6 +81,7 @@ Most homework inputs are smooth or a single step; periodic inputs and the limit 
 | On a PDE | `pde-lt-steps`, `pde-lt-erfc-value` (the PDE side lives in the pde-1d grid) |  |
 | Exam-length · two tanks in series (time constant, both outputs, pole) | `em-chain-tank-cascade` |  |
 | Exam-length · rectangular pulse from Y(s) to y after the pulse | `em-chain-laplace-pulse` |  |
+| Impulse response · forced IVP as a convolution with g(t) | `gf-oscillator-step`, `gf-lag-ramp`, `conv-compute` |  |
 
 ## Multivariable calculus: every method against every shape it is asked on
 
@@ -198,7 +199,7 @@ Homework shows each method on its friendliest forcing. An exam can switch the fo
 
 A homework set shows one cell of each row. The exam can ask any cell.
 
-25 of 25 cells have drills; 0 are open.
+30 of 30 cells have drills; 0 are open.
 
 | Cell | Drills | Open |
 |---|---|---|
@@ -227,6 +228,11 @@ A homework set shows one cell of each row. The exam can ask any cell.
 | Finite differences · nonzero or flux boundary nodes | `pde-fd-ghost`, `ht-fd-boundary-node` |  |
 | Finite differences · implicit and Crank–Nicolson | `pde-fd-implicit`, `mt-amplification` |  |
 | Exam-length · nonzero ends from steady state to u(L/2, t) | `em-chain-heat-nonzero` |  |
+| Infinite line · heat kernel as the Green's function | `ft-heat-peak`, `ft-heat-spread` |  |
+| Half-line · method of images (fixed or insulated end) | `gf-image-fixed`, `gf-image-insulated` |  |
+| Fourier convolution · Gaussians, pulses, an initial profile spreading | `fc-gaussians`, `fc-pulses`, `fc-heat-spread` |  |
+| Random walk · end-point probability and moments | `rw-endpoint`, `rw-biased-msd` |  |
+| Random walk · diffusion limit, tails, stages adding in variance | `rw-diffusivity`, `rw-diffuse-time`, `rw-tail`, `rw-stages` |  |
 
 ## Reaction engineering: every reactor method against every condition
 
@@ -274,7 +280,7 @@ Homework shows one reactor under one condition. A final can pair any design equa
 
 Dirichlet ends and ordinary points are the homework default; periodic ends, jumps and regular singular points are the exam's.
 
-13 of 13 cells have drills; 0 are open.
+15 of 15 cells have drills; 0 are open.
 
 | Cell | Drills | Open |
 |---|---|---|
@@ -291,4 +297,6 @@ Dirichlet ends and ordinary points are the homework default; periodic ends, jump
 | Sturm–Liouville · periodic ends | `sl-periodic-eigen`, `sl-periodic-facts` |  |
 | Sturm–Liouville · shifted problem, negative eigenvalues | `sl-shift-eigenvalues`, `sl-shift-eigenfunctions`, `sl-shift-negative` |  |
 | Orthogonality and eigenfunction expansion | `em-orthogonality`, `mt-sine-coefficient-constant` |  |
+| Green's function · y″ = f with fixed ends (build it, then solve) | `gf-string-value`, `gf-string-solve` |  |
+| Green's function · y″ + k²y = f, and when it fails to exist | `gf-helmholtz-value`, `gf-existence` |  |
 

@@ -39,3 +39,8 @@ cells:
   - { cell: "Finite differences · nonzero or flux boundary nodes", drills: [pde-fd-ghost, ht-fd-boundary-node] }
   - { cell: "Finite differences · implicit and Crank–Nicolson", drills: [pde-fd-implicit, mt-amplification] }
   - { cell: "Exam-length · nonzero ends from steady state to u(L/2, t)", drills: [em-chain-heat-nonzero] }
+  - { cell: "Infinite line · heat kernel as the Green's function", drills: [ft-heat-peak, ft-heat-spread] }
+  - { cell: "Half-line · method of images (fixed or insulated end)", drills: [gf-image-fixed, gf-image-insulated] }
+  - { cell: "Fourier convolution · Gaussians, pulses, an initial profile spreading", drills: [fc-gaussians, fc-pulses, fc-heat-spread] }
+  - { cell: "Random walk · end-point probability and moments", drills: [rw-endpoint, rw-biased-msd] }
+  - { cell: "Random walk · diffusion limit, tails, stages adding in variance", drills: [rw-diffusivity, rw-diffuse-time, rw-tail, rw-stages] }

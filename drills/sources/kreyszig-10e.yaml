@@ -78,7 +78,7 @@ chapters:
           wiki: textbooks/kreyszig-advanced-engineering-mathematics/ch06-derivative }
       - { ref: "6.3", title: "Unit Step Function (Heaviside Function). Second Shifting Theorem (t-Shifting)", skills: [laplace.step-ivp],
           wiki: textbooks/kreyszig-advanced-engineering-mathematics/ch06-heaviside }
-      - { ref: "6.4", title: "Short Impulses. Dirac's Delta Function. Partial Fractions", skills: [laplace.delta] }
+      - { ref: "6.4", title: "Short Impulses. Dirac's Delta Function. Partial Fractions", skills: [laplace.delta, bvp.green] }
       - { ref: "6.6", title: "Differentiation and Integration of Transforms. ODEs with Variable Coefficients", skills: [laplace.t-multiply] }
       - { ref: "6.7", title: "Systems of ODEs", skills: [laplace.systems] }
   - n: 11
@@ -99,6 +99,7 @@ chapters:
           wiki: textbooks/kreyszig-advanced-engineering-mathematics/ch12-wave }
       - { ref: "12.6", title: "Heat Equation: Solution by Fourier Series. Steady Two-Dimensional Heat Problems. Dirichlet Problem", skills: [pde.laplace-rect],
           wiki: textbooks/kreyszig-advanced-engineering-mathematics/ch12-laplace-equation }
+      - { ref: "12.7", title: "Heat Equation: Modeling Very Long Bars. Solution by Fourier Integrals and Transforms", skills: [pde.random-walk] }
   # chapters 13-16 (complex analysis): titles from memory, not checked against the published contents
   - n: 13
     title: "Complex Numbers and Functions. Complex Differentiation"

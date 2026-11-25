@@ -2836,6 +2836,57 @@
        ]
       }
      ]
+    },
+    {
+     "n": 4,
+     "title": "Green's functions",
+     "los": [
+      {
+       "id": "A",
+       "std": [],
+       "do": "Build the Green's function of y″ = f with y(0) = y(L) = 0 and use it to solve for a given f.",
+       "ek": [
+        "G(x, s) = x(s − L)/L for x < s and s(x − L)/L for x > s: continuous at x = s, slope jumps by 1, zero at both ends; y = ∫G f ds."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "gf-string-value",
+        "gf-string-solve"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [],
+       "do": "Build the Green's function of y″ + k²y = f with fixed ends from the homogeneous solutions and the jump condition.",
+       "ek": [
+        "G = −sin(kx_<) sin(k(L − x_>))/(k sin kL); it fails to exist exactly when kL = nπ, an eigenvalue of the homogeneous problem."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "gf-helmholtz-value",
+        "gf-existence"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [],
+       "do": "Solve a forced initial-value problem by convolving the forcing with the impulse response.",
+       "ek": [
+        "For y″ + ω²y = f, g(t) = sin(ωt)/ω; for τy′ + y = f, g(t) = e^(−t/τ)/τ; y = ∫₀ᵗ g(t − u) f(u) du from rest."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "gf-oscillator-step",
+        "gf-lag-ramp"
+       ]
+      }
+     ]
     }
    ]
   },
@@ -3288,6 +3339,21 @@
         "EM-10.5.B",
         "EM-10.2.C"
        ]
+      },
+      {
+       "id": "D",
+       "std": [],
+       "do": "Write the heat kernel as the Green's function of the diffusion equation and use images for a fixed or insulated end.",
+       "ek": [
+        "G = e^(−(x−x₀)²/4κt)/√(4πκt) on the line; on x > 0 subtract the mirror image for u(0) = 0, add it for an insulated end."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "gf-image-fixed",
+        "gf-image-insulated"
+       ]
       }
      ]
     },
@@ -3462,6 +3528,73 @@
        "drills": [
         "ft-heat-peak",
         "ft-heat-spread"
+       ]
+      },
+      {
+       "id": "F",
+       "std": [],
+       "do": "Convolve functions directly and through the Fourier transform: Gaussians, pulses, and an initial profile spreading by diffusion.",
+       "ek": [
+        "Gaussian widths add in quadrature (σ² = σ₁² + σ₂²); two pulses give a triangle; u(x, t) = u₀ ∗ heat kernel, so σ² grows by 2κt."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "fc-gaussians",
+        "fc-pulses",
+        "fc-heat-spread"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "title": "Random walks and the diffusion limit",
+     "los": [
+      {
+       "id": "A",
+       "std": [],
+       "do": "Compute end-point probabilities and moments of a 1-D random walk, with or without bias.",
+       "ek": [
+        "N steps of ±a: P(m) = C(N, (N + m)/2)/2^N; ⟨x⟩ = Na(2p − 1), Var x = 4Np(1 − p)a², so ⟨x²⟩ = Na² when unbiased."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "rw-endpoint",
+        "rw-biased-msd"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [],
+       "do": "Take the diffusion limit of a random walk: D from step length and time, and the time to diffuse a distance.",
+       "ek": [
+        "D = a²/(2Δt) in 1-D; ⟨x²⟩ = 2Dt, and ⟨r²⟩ = 2dDt in d dimensions; t ~ L²/(2D)."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "rw-diffusivity",
+        "rw-diffuse-time"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [],
+       "do": "Use the Gaussian limit of the walk to find the fraction of walkers past a distance, and add the variances of successive stages.",
+       "ek": [
+        "P(x, t) = e^(−x²/4Dt)/√(4πDt); fraction beyond |x| > ℓ is erfc(ℓ/√(4Dt)); independent stages convolve, so variances add."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "rw-tail",
+        "rw-stages"
        ]
       }
      ]
@@ -5260,6 +5393,39 @@
    "partial": []
   },
   {
+   "code": "EM-9.4.A",
+   "unit": 9,
+   "topic": 4,
+   "status": "ok",
+   "full": [
+    "gf-string-value",
+    "gf-string-solve"
+   ],
+   "partial": []
+  },
+  {
+   "code": "EM-9.4.B",
+   "unit": 9,
+   "topic": 4,
+   "status": "ok",
+   "full": [
+    "gf-helmholtz-value",
+    "gf-existence"
+   ],
+   "partial": []
+  },
+  {
+   "code": "EM-9.4.C",
+   "unit": 9,
+   "topic": 4,
+   "status": "ok",
+   "full": [
+    "gf-oscillator-step",
+    "gf-lag-ramp"
+   ],
+   "partial": []
+  },
+  {
    "code": "EM-10.1.A",
    "unit": 10,
    "topic": 1,
@@ -5486,6 +5652,17 @@
    "partial": []
   },
   {
+   "code": "EM-10.5.D",
+   "unit": 10,
+   "topic": 5,
+   "status": "ok",
+   "full": [
+    "gf-image-fixed",
+    "gf-image-insulated"
+   ],
+   "partial": []
+  },
+  {
    "code": "EM-10.6.A",
    "unit": 10,
    "topic": 6,
@@ -5579,6 +5756,51 @@
    "full": [
     "ft-heat-peak",
     "ft-heat-spread"
+   ],
+   "partial": []
+  },
+  {
+   "code": "EM-11.1.F",
+   "unit": 11,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "fc-gaussians",
+    "fc-pulses",
+    "fc-heat-spread"
+   ],
+   "partial": []
+  },
+  {
+   "code": "EM-11.2.A",
+   "unit": 11,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "rw-endpoint",
+    "rw-biased-msd"
+   ],
+   "partial": []
+  },
+  {
+   "code": "EM-11.2.B",
+   "unit": 11,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "rw-diffusivity",
+    "rw-diffuse-time"
+   ],
+   "partial": []
+  },
+  {
+   "code": "EM-11.2.C",
+   "unit": 11,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "rw-tail",
+    "rw-stages"
    ],
    "partial": []
   },
