@@ -313,7 +313,7 @@ Book: dill-bromberg-2e §24; shell-2015 §9.4, §9.5
 - ● **TD-7.2.A** (webwork-opl:TH2.15, webwork-opl:TH14.1, webwork-opl:TH14.2, webwork-opl:TH14.3, webwork-opl:TH15.4) Calculate Z and residual (departure) properties from a virial or cubic equation of state.
   - EK: Z = PV/RT = 1 + B/V + …; h − h^ig = ∫[T(∂P/∂T)_V − P]dV + RT(Z − 1).
   - P3 · P5 · drills: td-virial, td-z-from-virial-b
-- ● **TD-7.2.B** (webwork-opl:TH15.10, webwork-opl:TH15.11) Calculate a fugacity coefficient from a virial or cubic equation of state.
+- ● **TD-7.2.B** (webwork-opl:TH15.10, webwork-opl:TH15.11, aiche-bok:T.BAL) Calculate a fugacity coefficient from a virial or cubic equation of state.
   - EK: ln φ = ∫₀^P (Z − 1) dP/P; truncated virial: ln φ = BP/RT.
   - P3 · P5 · drills: td-virial, td-fugacity-from-phi
 - ● **TD-7.2.C** (webwork-opl:TH15.4) Relate the second virial coefficient to the intermolecular pair potential.
@@ -392,7 +392,7 @@ Book: dill-bromberg-2e §9; shell-2015 §12.8, §12.9
 
 Book: dill-bromberg-2e §15, §16; shell-2015 §12.2, §13.1, §13.2, §13.3, §13.4, §13.5
 
-- ● **TD-9.3.A** (webwork-opl:TH16.2) Calculate total pressure and vapor composition of an ideal solution with Raoult's law.
+- ● **TD-9.3.A** (webwork-opl:TH16.2, aiche-bok:T.EQ) Calculate total pressure and vapor composition of an ideal solution with Raoult's law.
   - EK: p_i = x_iP_i*; P = Σ x_iP_i*; y_i = p_i/P.
   - P5 · drills: th-so-raoult, td-bubble-from-dew
 - ● **TD-9.3.B** Calculate the solubility of a dilute solute from Henry's law.
@@ -413,7 +413,7 @@ Book: dill-bromberg-2e §15; shell-2015 §12.6, §12.7, §13.6, §13.7
   - EK: ΔG_mix/nRT = Σ x ln x + χ x_Ax_B; unstable for χ > 2 (upper critical point at χ = 2, x = ½).
   - Needs: TD-6.1.A
   - P4 · P6 · drills: td-regular-solution-tc, td-chi-from-w
-- ● **TD-9.4.C** (webwork-opl:TH16.2) Calculate VLE with modified Raoult's law and identify an azeotrope.
+- ● **TD-9.4.C** (webwork-opl:TH16.2, aiche-bok:T.EQ) Calculate VLE with modified Raoult's law and identify an azeotrope.
   - EK: y_iP = x_iγ_iP_i*; at an azeotrope x_i = y_i and γ_A P_A* = γ_B P_B*.
   - P5 · P6 · drills: td-azeotrope, td-relative-volatility-modified
 
@@ -958,7 +958,7 @@ Big ideas: EQ
 - ● **TD-22.1.C** (webwork-opl:TH13.10) Find the temperature rise of an adiabatic batch reactor.
   - EK: ΔT_ad = (−ΔH_r) C₀ X / (ρ c_p).
   - P1 · drills: td-batch-adiabatic-rise, td-batch-conversion-limit
-- ● **TD-22.1.D** (webwork-opl:TH13.11) Combine a reaction equilibrium with a phase equilibrium.
+- ● **TD-22.1.D** (webwork-opl:TH13.11, aiche-bok:T.EQ) Combine a reaction equilibrium with a phase equilibrium.
   - EK: Over pure liquid A, p_A = P_sat; then p_B = K p_A for A(g) ⇌ B(g).
   - P1 · drills: td-reaction-phase, td-vapour-k-shift
 - ● **TD-22.1.E** (webwork-opl:TH13.13) Find the chemical exergy of a gas from its dilution.

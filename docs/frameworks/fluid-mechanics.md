@@ -106,10 +106,10 @@ Big ideas: HEAD
 
 
 
-- ● **FM-4.2.A** (fe-chemical:6.C, fe-chemical:6.G, webwork-opl:TH5.6, webwork-opl:FM3.6, webwork-opl:FM6.7, webwork-opl:FM6.8, webwork-opl:FM11.1) Find the head a pump must supply and the power it draws.
+- ● **FM-4.2.A** (fe-chemical:6.C, fe-chemical:6.G, webwork-opl:TH5.6, webwork-opl:FM3.6, webwork-opl:FM6.7, webwork-opl:FM6.8, webwork-opl:FM11.1, aiche-bok:T.FLOW) Find the head a pump must supply and the power it draws.
   - EK: Pump head = lift + losses (+ pressure and velocity changes); shaft power = ρgQH/η.
   - P1 · P3 · drills: fm-pump-head, fm-pump-power, sc-pump-power-flow
-- ● **FM-4.2.B** (fe-chemical:6.G, webwork-opl:FM6.8, webwork-opl:FM11.2) Explain cavitation and NPSH, and what pumps in series and in parallel do.
+- ● **FM-4.2.B** (fe-chemical:6.G, webwork-opl:FM6.8, webwork-opl:FM11.2, aiche-bok:T.FLOW) Explain cavitation and NPSH, and what pumps in series and in parallel do.
   - EK: Available NPSH must exceed required; series adds head, parallel adds flow.
   - P2 · drills: fm-pump-concepts, fm-npsh-available
 
@@ -224,10 +224,10 @@ Big ideas: HEAD
 - ● **FM-10.1.A** (webwork-opl:FM6.10) Split flow between parallel pipes.
   - EK: Parallel pipes share the head loss; Q ∝ D^(5/2)/√L at equal f.
   - P1 · drills: fm-parallel-pipes, fm-laminar-split
-- ● **FM-10.1.B** (webwork-opl:FM11.3) Scale a pump with the affinity laws.
+- ● **FM-10.1.B** (webwork-opl:FM11.3, aiche-bok:T.SU) Scale a pump with the affinity laws.
   - EK: Q ∝ N, H ∝ N², P ∝ N³.
   - P1 · drills: fm-pump-affinity, fm-affinity-speed
-- ● **FM-10.1.C** (webwork-opl:FM6.8) Find the operating point of a pump and a system.
+- ● **FM-10.1.C** (webwork-opl:FM6.8, aiche-bok:T.FLOW) Find the operating point of a pump and a system.
   - EK: Pump head = system head.
   - P1 · drills: fm-operating-point, fm-operating-power
 

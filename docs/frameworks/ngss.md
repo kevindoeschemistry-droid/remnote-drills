@@ -50,6 +50,10 @@ Big ideas: PE
   - EK: Practised through: CH-3.1.A, CH-3.1.B, CH-3.9.A, CH-3.10.A.
   - Needs: CH-3.1.A, CH-3.1.B, CH-3.9.A, CH-3.10.A
   - P1 · drills: ac-imf-identify, ac-boiling-rank, ac-rf-value, ac-solubility-polar
+- ● **NG-1.1.E** (ngss-hs:PS1-5) PS1-5: Temperature and concentration effects on reaction rate.
+  - EK: Practised through: CH-5.1.A, CH-5.2.A, CH-5.3.A, CH-5.5.B.
+  - Needs: CH-5.1.A, CH-5.2.A, CH-5.3.A, CH-5.5.B
+  - P1 · drills: ac-rate-coefficients, ac-rate-constant-units, ac-zero-order, ch-surface-area-cut
 - ● **NG-1.1.F** (ngss-hs:PS1-6) PS1-6: Changing conditions to shift equilibrium toward product.
   - EK: Practised through: CH-7.9.A, CH-7.1.A, CH-7.10.A, CH-7.3.B.
   - Needs: CH-7.9.A, CH-7.1.A, CH-7.10.A, CH-7.3.B
@@ -66,10 +70,6 @@ Big ideas: PE
   - EK: Practised through: CH-6.10.B, CH-6.2.A, CH-6.5.B, CH-6.7.A.
   - Needs: CH-6.10.B, CH-6.2.A, CH-6.5.B, CH-6.7.A
   - P1 · drills: pc-dh-du, ac-energy-diagram, ac-heating-curve, ac-bond-enthalpy
-- ● **NG-1.1.E** (ngss-hs:PS1-5) PS1-5: Temperature and concentration effects on reaction rate.
-  - EK: Practised through: CH-5.1.A, CH-5.2.A, CH-5.3.A, CH-5.5.B.
-  - Needs: CH-5.1.A, CH-5.2.A, CH-5.3.A, CH-5.5.B
-  - P1 · drills: ac-rate-coefficients, pc-initial-rates, ac-zero-order, ch-surface-area-cut
 
 ## Unit 2 · PS2 · Motion and stability: forces and interactions
 
@@ -152,7 +152,7 @@ Big ideas: PE
 - ● **NG-4.1.D** (ngss-hs:PS4-4) PS4-4: Effects of radiation frequency on matter.
   - EK: Practised through: NU-2.1.B, NU-2.1.A, NU-2.2.A.
   - Needs: NU-2.1.B, NU-2.1.A, NU-2.2.A
-  - P1 · drills: nu-half-value-layers, nu-inverse-square, nu-equivalent-dose
+  - P1 · drills: nu-shielding-choice, nu-inverse-square, nu-equivalent-dose
 - ● **NG-4.1.E** (ngss-hs:PS4-5) PS4-5: Devices that use waves to transmit and capture information.
   - EK: Practised here; no subject framework reaches it yet.
   - P2 · drills: ng-wave-device

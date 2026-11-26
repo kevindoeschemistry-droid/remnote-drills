@@ -3298,6 +3298,9 @@
       },
       {
        "id": "A",
+       "std": [
+        "cheme-grad-core:MM.5"
+       ],
        "do": "Solve a PDE on a semi-infinite or infinite domain by Laplace or Fourier transform.",
        "ek": [
         "Transform out t (Laplace) or x (Fourier) to get an ODE in the other variable; bounded at infinity keeps e^(−√s x)."
@@ -3318,7 +3321,8 @@
       {
        "id": "B",
        "std": [
-        "webwork-opl:CX8.5"
+        "webwork-opl:CX8.5",
+        "cheme-grad-core:MM.5"
        ],
        "do": "Solve a finite rod by Laplace transform and invert by residues: the poles are the eigenvalues.",
        "ek": [
@@ -3473,6 +3477,9 @@
       },
       {
        "id": "B",
+       "std": [
+        "cheme-grad-core:MM.5"
+       ],
        "do": "Compute a Fourier transform and use its derivative property to turn an ODE into algebra.",
        "ek": [
         "F{f′} = iwF{f}; F{e^(−ax²)} is Gaussian."
@@ -3517,7 +3524,9 @@
       },
       {
        "id": "E",
-       "std": [],
+       "std": [
+        "cheme-grad-core:MM.5"
+       ],
        "do": "Solve the heat equation on an infinite line by Fourier transform and read the spreading Gaussian.",
        "ek": [
         "A point release Q spreads as u = Q e^(−x²/4κt)/√(4πκt): the peak falls as t^(−1/2) and the variance grows as 2κt."
@@ -3999,7 +4008,8 @@
       {
        "id": "A",
        "std": [
-        "webwork-opl:CX7.1"
+        "webwork-opl:CX7.1",
+        "cheme-grad-core:MM.5"
        ],
        "do": "Use Cauchy's integral formula.",
        "ek": [
@@ -4032,7 +4042,8 @@
        "id": "D",
        "std": [
         "webwork-opl:CX8.3",
-        "webwork-opl:CX8.5"
+        "webwork-opl:CX8.5",
+        "cheme-grad-core:MM.5"
        ],
        "do": "Find a Laurent coefficient (a residue).",
        "ek": [

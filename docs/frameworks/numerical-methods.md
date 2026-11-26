@@ -124,3 +124,12 @@ Big ideas: ERR, STAB
 - ● **NM-5.1.A** (fe-chemical:1.D) Find the error of a central-difference derivative.
   - EK: Error = (h²/6) f‴: second order.
   - P1 · drills: nm-central-difference-error, nm-forward-difference-error
+
+## Drills not yet placed on the map
+
+- gc-condition-digits (nm.linear-iter)
+- gc-residual-vs-error (nm.linear-iter)
+- gc-stiff-step (nm.ode)
+- gc-stiffness-ratio (nm.ode)
+- gc-optimal-step (nm.diff)
+- gc-observed-order (nm.diff)

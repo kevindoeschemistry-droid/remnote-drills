@@ -44,7 +44,7 @@ Big ideas: MONEY
 - ● **PD-1.1.A** Convert a nominal rate to an effective annual rate.
   - EK: (1 + r/m)^m − 1.
   - P1 · drills: pd-effective-rate, pd-nominal-from-effective
-- ● **PD-1.1.B** Compute a project's net present value.
+- ● **PD-1.1.B** (icheme-level-f:A2.7) Compute a project's net present value.
   - EK: NPV = −I + A(P/A,i,n) + S(1+i)⁻ⁿ.
   - Needs: PD-1.1.A
   - P1 · drills: pd-npv, pd-capital-recovery
@@ -71,13 +71,13 @@ Big ideas: LAYERS
 
 
 
-- ● **PD-2.1.C** (fe-chemical:16.C) State what a HAZOP guide word means.
+- ● **PD-2.1.C** (fe-chemical:16.C, icheme-level-f:A2.6) State what a HAZOP guide word means.
   - EK: NO, MORE, LESS, REVERSE, AS WELL AS, PART OF, OTHER THAN.
   - P2 · drills: pd-hazop, pd-hazop-word
-- ● **PD-2.1.A** (fe-chemical:16.A) Compute the lower flammable limit of a fuel mixture.
+- ● **PD-2.1.A** (fe-chemical:16.A, aiche-bok:X.SAFE) Compute the lower flammable limit of a fuel mixture.
   - EK: Le Chatelier: 1/Σ(yᵢ/LFLᵢ).
   - P1 · drills: pd-lfl-mixture, pd-flammable-check
-- ● **PD-2.1.B** (fe-chemical:16.B) Judge a mixed exposure against its limits.
+- ● **PD-2.1.B** (fe-chemical:16.B, aiche-bok:X.SAFE) Judge a mixed exposure against its limits.
   - EK: Σ Cᵢ/TLVᵢ ≤ 1.
   - P2 · drills: pd-tlv-mixture, pd-tlv-allowance
 
@@ -153,13 +153,13 @@ Big ideas: DOCS
 
 
 
-- ● **PD-5.1.A** (fe-chemical:14.A) State what a block flow diagram, a process flow diagram and a P&ID each show
+- ● **PD-5.1.A** (fe-chemical:14.A, cheme-grad-core:PS.3, aiche-bok:T.DES) State what a block flow diagram, a process flow diagram and a P&ID each show
   - EK: A block flow diagram shows the blocks and the streams between them; a process flow diagram adds the major equipment, its tags and a stream table of flows, compositions and conditions; a P&ID adds every line with its size and material, every valve and instrument, and the interlocks, and it is the document the plant is built and operated from.
   - P2 · drills: pd-which-drawing, pd-drawing-detail-count
-- ● **PD-5.1.B** (fe-chemical:14.A) Read a stream table and compute the missing entry from the balance
+- ● **PD-5.1.B** (fe-chemical:14.A, cheme-grad-core:PS.3, aiche-bok:T.BAL) Read a stream table and compute the missing entry from the balance
   - EK: A stream table is a material balance written out, so a missing flow or composition follows from closing the balance round the unit it belongs to; an entry that does not close is an error in the table, not a property of the process.
   - P1 · drills: pd-stream-close, pd-stream-composition
-- ● **PD-5.1.C** (fe-chemical:14.A) State what an instrument tag's letters mean and what a control loop on a P&ID consists of
+- ● **PD-5.1.C** (fe-chemical:14.A, aiche-bok:T.INST) State what an instrument tag's letters mean and what a control loop on a P&ID consists of
   - EK: An instrument tag's first letter is the measured variable and the following letters are the function, so FIC is a flow indicating controller and LT a level transmitter; a loop on the drawing is a transmitter, a controller and a final control element sharing one tag number.
   - P2 · drills: pd-instrument-tag, pd-loop-count
 
@@ -167,16 +167,16 @@ Big ideas: DOCS
 
 
 
-- ● **PD-5.2.A** (fe-chemical:14.B) Scale an equipment cost with the six-tenths rule and a cost index
+- ● **PD-5.2.A** (fe-chemical:14.B, aiche-bok:T.DES, aiche-bok:T.SU) Scale an equipment cost with the six-tenths rule and a cost index
   - EK: Capacity scaling uses an exponent near 0.6 because cost follows surface and capacity follows volume, and a cost from another year is brought forward by the ratio of cost indices; the two corrections are independent and both are needed.
   - P1 · drills: pd-six-tenths, pd-cost-index
-- ● **PD-5.2.B** (fe-chemical:14.B) Compute an installed cost from a bare-module or Lang factor and state what it covers
+- ● **PD-5.2.B** (fe-chemical:14.B, aiche-bok:T.DES) Compute an installed cost from a bare-module or Lang factor and state what it covers
   - EK: A factor multiplies purchased equipment cost to cover installation, piping, instruments, electrical, structures and indirect costs, so a quoted equipment price is a fraction of the capital a plant needs; the factor depends on whether the plant handles fluids, solids or both.
   - P1 · drills: pd-bare-module, pd-factor-from-total
-- ● **PD-5.2.C** (fe-chemical:14.D) State what an estimate class claims and compute a contingency from a stated accuracy band
+- ● **PD-5.2.C** (fe-chemical:14.D, icheme-level-f:A2.7) State what an estimate class claims and compute a contingency from a stated accuracy band
   - EK: An estimate's class states both the design definition behind it and the accuracy range it claims, which widens as definition falls; contingency is money for what is known to be missing at that definition, not for scope that has not been decided.
   - P1 · drills: pd-contingency, pd-estimate-class
-- ● **PD-5.2.D** (fe-chemical:14.E) State what a design standard or code fixes and who is bound by it
+- ● **PD-5.2.D** (fe-chemical:14.E, aiche-bok:X.SAFE) State what a design standard or code fixes and who is bound by it
   - EK: A code such as the pressure-vessel code is adopted into law by a jurisdiction and fixes minimum requirements for design, fabrication, inspection and stamping, so a vessel's thickness is not purely the designer's choice; a standard such as a pump or flange standard fixes dimensions so that parts from different makers interchange.
   - P2 · drills: pd-code-vs-standard, pd-thickness-code
 
@@ -188,7 +188,7 @@ Big ideas: LAYERS
 
 
 
-- ● **PD-6.1.A** (fe-chemical:16.D) State the accumulation a relief device may allow above the maximum allowable working pressure
+- ● **PD-6.1.A** (fe-chemical:16.D, icheme-level-f:A2.6, aiche-bok:X.SAFE) State the accumulation a relief device may allow above the maximum allowable working pressure
   - EK: A single relief device is set at or below the maximum allowable working pressure and the accumulated pressure may reach 110 per cent of it for a non-fire case, 116 per cent where multiple devices are installed and 121 per cent for the fire case; those are the numbers that separate a protected vessel from a burst one.
   - P1 · drills: pd-accumulation, pd-accumulation-which
 - ● **PD-6.1.B** (fe-chemical:16.D) Size a vapour relief area from the printed sizing equation and the stated coefficients
@@ -197,7 +197,7 @@ Big ideas: LAYERS
 - ● **PD-6.1.C** (fe-chemical:16.D) Compute the fire-case relief duty from the printed wetted-area correlation
   - EK: The fire case takes heat input from the wetted area of the vessel, so the relief load is the heat absorbed divided by the latent heat of the contents: a vessel's worst relief case is often a fire outside it rather than any process upset.
   - P1 · drills: pd-fire-relief, pd-fire-insulation-credit
-- ● **PD-6.1.D** (fe-chemical:16.D) Choose between a relief valve, a rupture disc and both in series for a stated duty
+- ● **PD-6.1.D** (fe-chemical:16.D, icheme-level-f:A2.6) Choose between a relief valve, a rupture disc and both in series for a stated duty
   - EK: A relief valve recloses and can be tested, a rupture disc opens fully, does not reclose and tolerates corrosive or polymerising service, and the two in series protect the valve while still relieving; a disc's burst pressure carries a manufacturing tolerance that the set pressure must allow for.
   - P2 · drills: pd-valve-or-disc, pd-disc-tolerance
 
@@ -216,13 +216,13 @@ Big ideas: LAYERS
 
 
 
-- ● **PD-6.3.A** (fe-chemical:16.F) Compute the adiabatic temperature rise of a runaway and the time to maximum rate
+- ● **PD-6.3.A** (fe-chemical:16.F, icheme-level-f:A2.6) Compute the adiabatic temperature rise of a runaway and the time to maximum rate
   - EK: The adiabatic temperature rise is the heat of reaction over the heat capacity, and it is a property of the charge rather than of the vessel, so a reaction whose adiabatic rise exceeds the margin to the vessel's limit cannot be made safe by cooling alone.
   - P1 · drills: pd-adiabatic-rise, pd-margin-to-limit
-- ● **PD-6.3.B** (fe-chemical:16.F) State which reactivity hazards a stated material pairing creates
+- ● **PD-6.3.B** (fe-chemical:16.F, icheme-level-f:A2.6) State which reactivity hazards a stated material pairing creates
   - EK: Incompatible pairings generate heat, gas or a toxic product on mixing, so segregation, bunding and separate transfer lines are design decisions, and a compatibility chart is consulted before a drain or a vent is shared.
   - P2 · drills: pd-incompatible, pd-segregation-pairs
-- ● **PD-6.3.C** (fe-chemical:16.E) Compute a waste-minimisation or treatment duty from a stated discharge limit
+- ● **PD-6.3.C** (fe-chemical:16.E, icheme-level-f:A2.7) Compute a waste-minimisation or treatment duty from a stated discharge limit
   - EK: A discharge limit is a concentration or a load, so meeting it is either removing material or reducing the volume it is carried in; the cheapest route is almost always not generating it, since every treated stream is paid for twice.
   - P1 · drills: pd-waste-dilution-limit, pd-waste-load-reduction
 
@@ -234,32 +234,32 @@ Big ideas: DUTY
 
 
 
-- ● **PD-7.1.A** (nspe-ethics:C1, nspe-ethics:R1) State which duty governs when a stated situation puts the public's safety against another obligation
+- ● **PD-7.1.A** (nspe-ethics:C1, nspe-ethics:R1, icheme-level-f:A2.7) State which duty governs when a stated situation puts the public's safety against another obligation
   - EK: The canons are ordered: the public's safety, health and welfare is held paramount, so where loyalty to an employer, a contract or the engineer's own interest conflicts with it, the public's interest wins and the route is to escalate rather than to go along.
   - P2 · drills: pd-paramount, pd-report-violation
-- ● **PD-7.1.B** (nspe-ethics:C2, nspe-ethics:R2) Decide whether a stated assignment or signature is within an engineer's competence
-  - EK: An engineer accepts and seals only work in their own field of competence, and on a large project seals only the technical segments they prepared or directly supervised, which is why a stamp is a professional claim and not a formality.
-  - P2 · drills: pd-competence-scope, pd-seal-segments
 - ● **PD-7.1.C** (nspe-ethics:C4, nspe-ethics:R4, nspe-ethics:O5) Identify the conflict of interest in a stated arrangement and what disclosure it requires
   - EK: A conflict of interest is disclosed to all affected parties rather than privately managed, double compensation for the same work needs everyone's consent, and gifts or commissions from suppliers are refused because the test is influence, not whether the decision in fact changed.
   - P2 · drills: pd-coi, pd-coi-scenario
 - ● **PD-7.1.D** (nspe-ethics:O4, nspe-ethics:R1) Decide what a stated piece of client or employer information may be used for
   - EK: Confidential information is not disclosed without consent and is not used to win other work or to act against the former client, which binds an engineer after leaving as well as while employed.
   - P2 · drills: pd-confidential-use, pd-confidential-scenario
+- ● **PD-7.1.B** (nspe-ethics:C2, nspe-ethics:R2) Decide whether a stated assignment or signature is within an engineer's competence
+  - EK: An engineer accepts and seals only work in their own field of competence, and on a large project seals only the technical segments they prepared or directly supervised, which is why a stamp is a professional claim and not a formality.
+  - P2 · drills: pd-competence-scope, pd-seal-segments
 
 ### 7.2 Agreements and intellectual property
 
 
 
-- ● **PD-7.2.A** (fe-chemical:17.B) State what makes an agreement binding and which term in a stated contract carries the risk
+- ● **PD-7.2.C** (nspe-ethics:O9) Decide who owns a stated design or work product and who must be credited
+  - EK: Work produced in employment generally belongs to the employer and a client's designs stay the client's, so ownership is settled in advance in writing; credit is a separate duty from ownership and is given to whoever did the work.
+  - P2 · drills: pd-ownership, pd-ownership-scenario
+- ● **PD-7.2.A** (fe-chemical:17.B, icheme-level-f:A2.7) State what makes an agreement binding and which term in a stated contract carries the risk
   - EK: An agreement needs an offer, acceptance and consideration between parties competent to contract for a lawful purpose; the terms that carry the engineering risk are scope, the standard of care, indemnity and limitation of liability, and a signed scope decides what extra work is a change order.
   - P2 · drills: pd-contract-basics, pd-change-order
 - ● **PD-7.2.B** (fe-chemical:17.D) Choose the intellectual-property protection a stated creation needs and state its term
   - EK: A utility patent protects an invention for twenty years from filing in exchange for publishing it, a copyright protects an expression without registration, a trademark protects a mark in use indefinitely while it is used, and a trade secret lasts only while it is kept secret, which is why publishing destroys it.
   - P2 · drills: pd-ip-kind, pd-patent-expiry
-- ● **PD-7.2.C** (nspe-ethics:O9) Decide who owns a stated design or work product and who must be credited
-  - EK: Work produced in employment generally belongs to the employer and a client's designs stay the client's, so ownership is settled in advance in writing; credit is a separate duty from ownership and is given to whoever did the work.
-  - P2 · drills: pd-ownership, pd-ownership-scenario
 
 ## Unit 8 · Measurement, uncertainty and project selection (extension)
 
@@ -283,13 +283,13 @@ Big ideas: DOCS
 
 
 
-- ● **PD-8.2.A** (fe-chemical:13.C) Compute the expected monetary value of a stated decision under uncertainty
+- ● **PD-8.2.A** (fe-chemical:13.C, cheme-grad-core:PS.3) Compute the expected monetary value of a stated decision under uncertainty
   - EK: The expected value weights each outcome by its probability, which ranks decisions but says nothing about the spread, so a decision whose downside cannot be survived is not chosen on expected value alone.
   - P1 · drills: pd-expected-value, pd-breakeven-probability
 - ● **PD-8.2.B** (fe-chemical:13.C) Compute how far a stated economic conclusion moves when one input is varied
   - EK: A sensitivity analysis varies one input at a time to find which assumption the answer rests on, which is usually the price or the capacity rather than the capital cost.
   - P1 · drills: pd-sensitivity, pd-sensitivity-breakeven
-- ● **PD-8.2.C** (fe-chemical:13.D) Rank stated projects by net present value, payback and rate of return, and say where the rankings differ
+- ● **PD-8.2.C** (fe-chemical:13.D, cheme-grad-core:PS.3, aiche-bok:T.OPT) Rank stated projects by net present value, payback and rate of return, and say where the rankings differ
   - EK: Net present value ranks by money created at the firm's own discount rate, payback ignores everything after it and prefers quick small projects, and rate of return is dimensionless and so ignores size; where they disagree, net present value is the one that answers the firm's question.
   - P2 · drills: pd-ranking-criteria, pd-payback-vs-npv
 
@@ -336,13 +336,13 @@ Big ideas: DYN
 
 
 
-- ● **PD-10.1.A** (fe-chemical:15.B) Choose feedback, feedforward, cascade or ratio control for a stated problem
+- ● **PD-10.1.A** (fe-chemical:15.B, aiche-bok:T.OPT) Choose feedback, feedforward, cascade or ratio control for a stated problem
   - EK: Feedback acts on the error and so always acts late; feedforward acts on a measured disturbance before the output moves but needs a model and leaves no correction for what it did not measure; cascade puts a fast inner loop inside a slow outer one; ratio holds one flow proportional to another.
   - P2 · drills: fe-strategy-pick, fe-cascade-speed
 - ● **PD-10.1.B** (fe-chemical:15.B) State what each of the three controller actions contributes and what it costs
   - EK: Proportional action is immediate but leaves an offset, integral action removes the offset but adds lag and can wind up, and derivative action anticipates but amplifies measurement noise; a noisy flow loop is therefore usually proportional-integral rather than three-term.
   - P2 · drills: fe-pid-terms, fe-reset-time
-- ● **PD-10.1.C** (fe-chemical:15.B) Compute the offset a stated proportional-only loop leaves, and the gain that would halve it
+- ● **PD-10.1.C** (fe-chemical:15.B, aiche-bok:T.OPT) Compute the offset a stated proportional-only loop leaves, and the gain that would halve it
   - EK: Proportional-only offset is the load change divided by one plus the loop gain, so halving the offset means doubling one plus the gain: the offset can be made small but never zero without integral action.
   - P1 · drills: fe-p-offset, fe-gain-for-offset
 
@@ -350,13 +350,13 @@ Big ideas: DYN
 
 
 
-- ● **PD-10.2.A** (fe-chemical:15.C) Compute a control valve's flow coefficient for a stated duty
+- ● **PD-10.2.A** (fe-chemical:15.C, aiche-bok:T.INST) Compute a control valve's flow coefficient for a stated duty
   - EK: A valve's coefficient relates flow to the square root of its pressure drop over specific gravity, so a valve is sized at the flow it must pass with the drop actually available, and a valve taking too little of the system's drop loses authority over the flow.
   - P1 · drills: fe-valve-cv, fe-valve-authority
-- ● **PD-10.2.B** (fe-chemical:15.C) Choose a valve characteristic and a failure position for a stated service
+- ● **PD-10.2.B** (fe-chemical:15.C, aiche-bok:T.INST) Choose a valve characteristic and a failure position for a stated service
   - EK: A linear characteristic suits a loop where most of the drop is across the valve and an equal-percentage one where the line takes most of it, so the installed characteristic is what matters; the failure position is chosen from what is safe on air loss, which is why a fuel valve fails closed and a cooling-water valve fails open.
   - P2 · drills: fe-valve-characteristic, fe-installed-gain
-- ● **PD-10.2.C** (fe-chemical:15.C) Convert between a stated transmitter range, its signal and the engineering value
+- ● **PD-10.2.C** (fe-chemical:15.C, aiche-bok:T.INST) Convert between a stated transmitter range, its signal and the engineering value
   - EK: A transmitter maps its calibrated range linearly onto its output span, so a reading is converted by the fraction of span; getting the range wrong is the commonest reason a loop controls to the wrong value while looking healthy.
   - P1 · drills: fe-transmitter-span, fe-transmitter-signal
 

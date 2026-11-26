@@ -107,8 +107,8 @@ units:
       - n: 2
         title: "Pumps"
         los:
-          - { id: A, std: ["fe-chemical:6.C", "fe-chemical:6.G", "webwork-opl:TH5.6", "webwork-opl:FM3.6", "webwork-opl:FM6.7", "webwork-opl:FM6.8", "webwork-opl:FM11.1"], do: "Find the head a pump must supply and the power it draws.", ek: ["Pump head = lift + losses (+ pressure and velocity changes); shaft power = ρgQH/η."], p: [P1, P3], drills: [fm-pump-head, fm-pump-power, sc-pump-power-flow] }
-          - { id: B, std: ["fe-chemical:6.G", "webwork-opl:FM6.8", "webwork-opl:FM11.2"], do: "Explain cavitation and NPSH, and what pumps in series and in parallel do.", ek: ["Available NPSH must exceed required; series adds head, parallel adds flow."], p: [P2], drills: [fm-pump-concepts, fm-npsh-available] }
+          - { id: A, std: ["fe-chemical:6.C", "fe-chemical:6.G", "webwork-opl:TH5.6", "webwork-opl:FM3.6", "webwork-opl:FM6.7", "webwork-opl:FM6.8", "webwork-opl:FM11.1", "aiche-bok:T.FLOW"], do: "Find the head a pump must supply and the power it draws.", ek: ["Pump head = lift + losses (+ pressure and velocity changes); shaft power = ρgQH/η."], p: [P1, P3], drills: [fm-pump-head, fm-pump-power, sc-pump-power-flow] }
+          - { id: B, std: ["fe-chemical:6.G", "webwork-opl:FM6.8", "webwork-opl:FM11.2", "aiche-bok:T.FLOW"], do: "Explain cavitation and NPSH, and what pumps in series and in parallel do.", ek: ["Available NPSH must exceed required; series adds head, parallel adds flow."], p: [P2], drills: [fm-pump-concepts, fm-npsh-available] }
   - id: measurement
     n: 5
     title: "Flow measurement"
@@ -191,8 +191,8 @@ units:
         title: "Networks and pumps"
         los:
           - { id: A, std: ["webwork-opl:FM6.10"], do: "Split flow between parallel pipes.", ek: ["Parallel pipes share the head loss; Q ∝ D^(5/2)/√L at equal f."], p: [P1], drills: [fm-parallel-pipes, fm-laminar-split] }
-          - { id: B, std: ["webwork-opl:FM11.3"], do: "Scale a pump with the affinity laws.", ek: ["Q ∝ N, H ∝ N², P ∝ N³."], p: [P1], drills: [fm-pump-affinity, fm-affinity-speed] }
-          - { id: C, std: ["webwork-opl:FM6.8"], do: "Find the operating point of a pump and a system.", ek: ["Pump head = system head."], p: [P1], drills: [fm-operating-point, fm-operating-power] }
+          - { id: B, std: ["webwork-opl:FM11.3", "aiche-bok:T.SU"], do: "Scale a pump with the affinity laws.", ek: ["Q ∝ N, H ∝ N², P ∝ N³."], p: [P1], drills: [fm-pump-affinity, fm-affinity-speed] }
+          - { id: C, std: ["webwork-opl:FM6.8", "aiche-bok:T.FLOW"], do: "Find the operating point of a pump and a system.", ek: ["Pump head = system head."], p: [P1], drills: [fm-operating-point, fm-operating-power] }
       - n: 2
         title: "Submerged surfaces"
         los:

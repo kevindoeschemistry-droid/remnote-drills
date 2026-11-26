@@ -134,6 +134,31 @@
        ]
       },
       {
+       "id": "E",
+       "std": [
+        "ngss-hs:PS1-5"
+       ],
+       "do": "PS1-5: Temperature and concentration effects on reaction rate.",
+       "ek": [
+        "Practised through: CH-5.1.A, CH-5.2.A, CH-5.3.A, CH-5.5.B."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "ac-rate-coefficients",
+        "ac-rate-constant-units",
+        "ac-zero-order",
+        "ch-surface-area-cut"
+       ],
+       "needs": [
+        "CH-5.1.A",
+        "CH-5.2.A",
+        "CH-5.3.A",
+        "CH-5.5.B"
+       ]
+      },
+      {
        "id": "F",
        "std": [
         "ngss-hs:PS1-6"
@@ -231,31 +256,6 @@
         "CH-6.2.A",
         "CH-6.5.B",
         "CH-6.7.A"
-       ]
-      },
-      {
-       "id": "E",
-       "std": [
-        "ngss-hs:PS1-5"
-       ],
-       "do": "PS1-5: Temperature and concentration effects on reaction rate.",
-       "ek": [
-        "Practised through: CH-5.1.A, CH-5.2.A, CH-5.3.A, CH-5.5.B."
-       ],
-       "p": [
-        "P1"
-       ],
-       "drills": [
-        "ac-rate-coefficients",
-        "pc-initial-rates",
-        "ac-zero-order",
-        "ch-surface-area-cut"
-       ],
-       "needs": [
-        "CH-5.1.A",
-        "CH-5.2.A",
-        "CH-5.3.A",
-        "CH-5.5.B"
        ]
       }
      ]
@@ -651,7 +651,7 @@
         "P1"
        ],
        "drills": [
-        "nu-half-value-layers",
+        "nu-shielding-choice",
         "nu-inverse-square",
         "nu-equivalent-dose"
        ],
@@ -1956,6 +1956,19 @@
    "partial": []
   },
   {
+   "code": "NG-1.1.E",
+   "unit": 1,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ac-rate-coefficients",
+    "ac-rate-constant-units",
+    "ac-zero-order",
+    "ch-surface-area-cut"
+   ],
+   "partial": []
+  },
+  {
    "code": "NG-1.1.F",
    "unit": 1,
    "topic": 1,
@@ -2004,19 +2017,6 @@
     "ac-energy-diagram",
     "ac-heating-curve",
     "ac-bond-enthalpy"
-   ],
-   "partial": []
-  },
-  {
-   "code": "NG-1.1.E",
-   "unit": 1,
-   "topic": 1,
-   "status": "ok",
-   "full": [
-    "ac-rate-coefficients",
-    "pc-initial-rates",
-    "ac-zero-order",
-    "ch-surface-area-cut"
    ],
    "partial": []
   },
@@ -2196,7 +2196,7 @@
    "topic": 1,
    "status": "ok",
    "full": [
-    "nu-half-value-layers",
+    "nu-shielding-choice",
     "nu-inverse-square",
     "nu-equivalent-dose"
    ],

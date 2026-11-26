@@ -47,6 +47,8 @@ EXTRA = {}
 for f in sorted(glob.glob(os.path.join(ROOT, "scripts/second_specs/*.py"))):
     n = "second_" + os.path.basename(f)[:-3]
     sp2 = importlib.util.spec_from_file_location(n, f); m2 = importlib.util.module_from_spec(sp2); sp2.loader.exec_module(m2)
+    if not hasattr(m2, "ADD"):
+        continue  # a thin wrapper for insert_objs (fe3_mt and friends): objectives only, no items of its own
     for code, qq in m2.ADD:
         EXTRA.setdefault(code, []).append(qq)
 
