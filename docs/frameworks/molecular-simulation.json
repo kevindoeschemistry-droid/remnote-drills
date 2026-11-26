@@ -10,12 +10,14 @@
  ],
  "domains": [],
  "basis": {
-  "primary": "livecoms",
+  "primary": "hayes-orientation",
   "also": [
+   "livecoms",
    "livecoms-afe",
-   "alchemistry-wiki"
+   "alchemistry-wiki",
+   "hayes-lambda-examples"
   ],
-  "note": "No standard exists for this subject; triangulated from best-practice papers, textbooks and the Hayes group tutorial."
+  "note": "No accredited standard exists for this subject. Kevin's own group's orientation repository is the closest thing to a curriculum for the work he will actually do, and it was read in full, so it is primary; the best-practice papers and the alchemistry wiki fix the parts it assumes."
  },
  "big_ideas": [
   {
@@ -304,7 +306,8 @@
         "P6"
        ],
        "drills": [
-        "md-charmm-files"
+        "md-charmm-files",
+        "mdh-which-file"
        ]
       },
       {
@@ -345,7 +348,8 @@
         "P2"
        ],
        "drills": [
-        "md-force-field-fitting"
+        "md-force-field-fitting",
+        "mdh-param-origin"
        ]
       },
       {
@@ -359,7 +363,8 @@
         "P5"
        ],
        "drills": [
-        "md-cgenff-penalty"
+        "md-cgenff-penalty",
+        "mdh-penalty-decide"
        ]
       }
      ]
@@ -730,7 +735,8 @@
         "P5"
        ],
        "drills": [
-        "md-periodic-artifacts"
+        "md-periodic-artifacts",
+        "mdh-pbc-artifacts"
        ]
       }
      ]
@@ -888,7 +894,8 @@
         "P6"
        ],
        "drills": [
-        "md-solution-builder"
+        "md-solution-builder",
+        "mdh-box-edge"
        ]
       }
      ]
@@ -923,7 +930,8 @@
         "P3"
        ],
        "drills": [
-        "md-prep-order"
+        "md-prep-order",
+        "mdh-stage-purpose"
        ]
       },
       {
@@ -950,7 +958,8 @@
         "P5"
        ],
        "drills": [
-        "md-equilibration-done"
+        "md-equilibration-done",
+        "mdh-equil-signal"
        ]
       }
      ]
@@ -1087,7 +1096,8 @@
         "P5"
        ],
        "drills": [
-        "md-bootstrap"
+        "md-bootstrap",
+        "mdh-bootstrap-width"
        ]
       }
      ]
@@ -1118,7 +1128,8 @@
         "P5"
        ],
        "drills": [
-        "md-dark-uncertainty"
+        "md-dark-uncertainty",
+        "mdh-hidden-error"
        ]
       }
      ]
@@ -1371,7 +1382,8 @@
         "P3"
        ],
        "drills": [
-        "md-bar-mbar"
+        "md-bar-mbar",
+        "mdh-bar-shift"
        ]
       },
       {
@@ -1384,7 +1396,8 @@
         "P3"
        ],
        "drills": [
-        "md-bar-mbar"
+        "md-bar-mbar",
+        "mdh-mbar-relations"
        ]
       },
       {
@@ -1400,7 +1413,8 @@
         "MD-8.3.B"
        ],
        "drills": [
-        "md-overlap-matrix"
+        "md-overlap-matrix",
+        "mdh-overlap-worst"
        ]
       }
      ]
@@ -1428,7 +1442,8 @@
         "P3"
        ],
        "drills": [
-        "md-lambda-schedule"
+        "md-lambda-schedule",
+        "mdh-schedule-order"
        ]
       },
       {
@@ -1441,7 +1456,8 @@
         "P3"
        ],
        "drills": [
-        "md-soft-core"
+        "md-soft-core",
+        "mdh-softcore-finite"
        ]
       },
       {
@@ -1455,7 +1471,8 @@
         "P3"
        ],
        "drills": [
-        "md-topology-kinds"
+        "md-topology-kinds",
+        "mdh-topology-kinds"
        ]
       }
      ]
@@ -1559,7 +1576,8 @@
         "P1"
        ],
        "drills": [
-        "md-double-decoupling"
+        "md-double-decoupling",
+        "mdh-double-decoupling-terms"
        ]
       },
       {
@@ -1587,7 +1605,8 @@
         "P3"
        ],
        "drills": [
-        "md-relative-or-absolute"
+        "md-relative-or-absolute",
+        "mdh-relative-or-absolute"
        ]
       }
      ]
@@ -1630,7 +1649,8 @@
         "P2"
        ],
        "drills": [
-        "md-match-conditions"
+        "md-match-conditions",
+        "mdh-protonation-count"
        ]
       }
      ]
@@ -1912,7 +1932,8 @@
         "P3"
        ],
        "drills": [
-        "md-lambda-hamiltonian"
+        "md-lambda-hamiltonian",
+        "mdh-lambda-extended"
        ]
       },
       {
@@ -1928,7 +1949,8 @@
         "MD-10.1.A"
        ],
        "drills": [
-        "md-msld-potential"
+        "md-msld-potential",
+        "mdh-msld-scaling"
        ]
       },
       {
@@ -2019,7 +2041,8 @@
         "P3"
        ],
        "drills": [
-        "md-alf-bias-terms"
+        "md-alf-bias-terms",
+        "mdh-bias-roles"
        ]
       },
       {
@@ -2036,7 +2059,8 @@
         "MD-10.1.C"
        ],
        "drills": [
-        "md-bias-pairs"
+        "md-bias-pairs",
+        "mdh-bias-count-scheme"
        ]
       }
      ]
@@ -2085,7 +2109,8 @@
         "P5"
        ],
        "drills": [
-        "md-unsampled-result"
+        "md-unsampled-result",
+        "mdh-nan-result"
        ]
       }
      ]
@@ -2128,7 +2153,8 @@
         "P3"
        ],
        "drills": [
-        "md-alf-cycle"
+        "md-alf-cycle",
+        "mdh-alf-cycle"
        ]
       },
       {
@@ -2141,7 +2167,8 @@
         "P5"
        ],
        "drills": [
-        "md-flattening-converged"
+        "md-flattening-converged",
+        "mdh-flat-converged"
        ]
       }
      ]
@@ -2171,7 +2198,8 @@
         "P4"
        ],
        "drills": [
-        "md-alf-steps"
+        "md-alf-steps",
+        "mdh-flat-steps"
        ]
       },
       {
@@ -2202,7 +2230,8 @@
         "MD-10.1.C"
        ],
        "drills": [
-        "md-alf-info"
+        "md-alf-info",
+        "mdh-nblocks-from-mutations"
        ]
       },
       {
@@ -2215,7 +2244,8 @@
         "P3"
        ],
        "drills": [
-        "md-alf-choices"
+        "md-alf-choices",
+        "mdh-alf-options"
        ]
       },
       {
@@ -2234,7 +2264,8 @@
        ],
        "drills": [
         "md-ddg-fold-error",
-        "md-ddg-significance"
+        "md-ddg-significance",
+        "mdh-ddg-uncertainty"
        ]
       }
      ]
@@ -2259,7 +2290,8 @@
         "P6"
        ],
        "drills": [
-        "md-alchemical-definitions"
+        "md-alchemical-definitions",
+        "mdh-alchemical-definitions"
        ]
       },
       {
@@ -2275,7 +2307,8 @@
         "MD-11.3.A"
        ],
        "drills": [
-        "md-prep-directory"
+        "md-prep-directory",
+        "mdh-prep-assembly"
        ]
       }
      ]
@@ -2375,7 +2408,8 @@
         "P5"
        ],
        "drills": [
-        "md-clustering"
+        "md-clustering",
+        "mdh-cluster-population"
        ]
       },
       {
@@ -2420,7 +2454,8 @@
         "P6"
        ],
        "drills": [
-        "md-trajectory-loading"
+        "md-trajectory-loading",
+        "mdh-traj-handling"
        ]
       }
      ]
@@ -2458,7 +2493,8 @@
         "P6"
        ],
        "drills": [
-        "md-slurm"
+        "md-slurm",
+        "mdh-slurm-time"
        ]
       },
       {
@@ -2473,7 +2509,8 @@
        ],
        "drills": [
         "md-gpu-cost",
-        "md-throughput-needed"
+        "md-throughput-needed",
+        "mdh-gpu-cost"
        ]
       }
      ]
@@ -2505,7 +2542,8 @@
         "P6"
        ],
        "drills": [
-        "md-engine-choice"
+        "md-engine-choice",
+        "mdh-engine-choice"
        ]
       },
       {
@@ -2521,7 +2559,8 @@
         "MD-4.2.B"
        ],
        "drills": [
-        "md-blade-commands"
+        "md-blade-commands",
+        "mdh-blade-commands"
        ]
       },
       {
@@ -2534,7 +2573,8 @@
         "P6"
        ],
        "drills": [
-        "md-openmm"
+        "md-openmm",
+        "mdh-openmm-equivalent"
        ]
       }
      ]
@@ -2560,7 +2600,8 @@
         "P6"
        ],
        "drills": [
-        "md-charmm-script"
+        "md-charmm-script",
+        "mdh-charmm-script-syntax"
        ]
       }
      ]
@@ -2591,7 +2632,8 @@
         "P6"
        ],
        "drills": [
-        "md-reproducibility"
+        "md-reproducibility",
+        "mdh-reproducibility-record"
        ]
       },
       {
@@ -2606,7 +2648,8 @@
        ],
        "drills": [
         "md-trajectory-storage",
-        "md-frames-for-storage"
+        "md-frames-for-storage",
+        "mdh-traj-storage"
        ]
       },
       {
@@ -2619,7 +2662,8 @@
         "P6"
        ],
        "drills": [
-        "md-alf-cleanup"
+        "md-alf-cleanup",
+        "mdh-alf-cleanup"
        ]
       }
      ]
@@ -2658,7 +2702,8 @@
         "P3"
        ],
        "drills": [
-        "md-intersite-coupling"
+        "md-intersite-coupling",
+        "mdh-intersite-coupling"
        ]
       },
       {
@@ -2674,7 +2719,8 @@
         "MD-10.1.C"
        ],
        "drills": [
-        "md-estimator-choice"
+        "md-estimator-choice",
+        "mdh-potts-estimator"
        ]
       },
       {
@@ -2688,7 +2734,8 @@
         "P3"
        ],
        "drills": [
-        "md-partition-mutations"
+        "md-partition-mutations",
+        "mdh-partition-sites"
        ]
       }
      ]
@@ -2721,7 +2768,8 @@
         "P5"
        ],
        "drills": [
-        "md-charge-change"
+        "md-charge-change",
+        "mdh-charge-change"
        ]
       },
       {
@@ -2734,7 +2782,8 @@
         "P3"
        ],
        "drills": [
-        "md-replica-exchange"
+        "md-replica-exchange",
+        "mdh-when-rex"
        ]
       },
       {
@@ -2747,7 +2796,8 @@
         "P2"
        ],
        "drills": [
-        "md-proline-glycine"
+        "md-proline-glycine",
+        "mdh-pro-gly"
        ]
       }
      ]
@@ -2778,7 +2828,8 @@
         "P1"
        ],
        "drills": [
-        "cc-basis-function-count"
+        "cc-basis-function-count",
+        "qc-shell-functions"
        ]
       },
       {
@@ -2930,7 +2981,8 @@
    "topic": 2,
    "status": "ok",
    "full": [
-    "md-charmm-files"
+    "md-charmm-files",
+    "mdh-which-file"
    ],
    "partial": []
   },
@@ -2951,7 +3003,8 @@
    "topic": 3,
    "status": "ok",
    "full": [
-    "md-force-field-fitting"
+    "md-force-field-fitting",
+    "mdh-param-origin"
    ],
    "partial": []
   },
@@ -2961,7 +3014,8 @@
    "topic": 3,
    "status": "ok",
    "full": [
-    "md-cgenff-penalty"
+    "md-cgenff-penalty",
+    "mdh-penalty-decide"
    ],
    "partial": []
   },
@@ -3126,7 +3180,8 @@
    "topic": 1,
    "status": "ok",
    "full": [
-    "md-periodic-artifacts"
+    "md-periodic-artifacts",
+    "mdh-pbc-artifacts"
    ],
    "partial": []
   },
@@ -3202,7 +3257,8 @@
    "topic": 1,
    "status": "ok",
    "full": [
-    "md-solution-builder"
+    "md-solution-builder",
+    "mdh-box-edge"
    ],
    "partial": []
   },
@@ -3212,7 +3268,8 @@
    "topic": 2,
    "status": "ok",
    "full": [
-    "md-prep-order"
+    "md-prep-order",
+    "mdh-stage-purpose"
    ],
    "partial": []
   },
@@ -3233,7 +3290,8 @@
    "topic": 2,
    "status": "ok",
    "full": [
-    "md-equilibration-done"
+    "md-equilibration-done",
+    "mdh-equil-signal"
    ],
    "partial": []
   },
@@ -3299,7 +3357,8 @@
    "topic": 2,
    "status": "ok",
    "full": [
-    "md-bootstrap"
+    "md-bootstrap",
+    "mdh-bootstrap-width"
    ],
    "partial": []
   },
@@ -3309,7 +3368,8 @@
    "topic": 3,
    "status": "ok",
    "full": [
-    "md-dark-uncertainty"
+    "md-dark-uncertainty",
+    "mdh-hidden-error"
    ],
    "partial": []
   },
@@ -3418,7 +3478,8 @@
    "topic": 3,
    "status": "ok",
    "full": [
-    "md-bar-mbar"
+    "md-bar-mbar",
+    "mdh-bar-shift"
    ],
    "partial": []
   },
@@ -3428,7 +3489,8 @@
    "topic": 3,
    "status": "ok",
    "full": [
-    "md-bar-mbar"
+    "md-bar-mbar",
+    "mdh-mbar-relations"
    ],
    "partial": []
   },
@@ -3438,7 +3500,8 @@
    "topic": 3,
    "status": "ok",
    "full": [
-    "md-overlap-matrix"
+    "md-overlap-matrix",
+    "mdh-overlap-worst"
    ],
    "partial": []
   },
@@ -3448,7 +3511,8 @@
    "topic": 4,
    "status": "ok",
    "full": [
-    "md-lambda-schedule"
+    "md-lambda-schedule",
+    "mdh-schedule-order"
    ],
    "partial": []
   },
@@ -3458,7 +3522,8 @@
    "topic": 4,
    "status": "ok",
    "full": [
-    "md-soft-core"
+    "md-soft-core",
+    "mdh-softcore-finite"
    ],
    "partial": []
   },
@@ -3468,7 +3533,8 @@
    "topic": 4,
    "status": "ok",
    "full": [
-    "md-topology-kinds"
+    "md-topology-kinds",
+    "mdh-topology-kinds"
    ],
    "partial": []
   },
@@ -3511,7 +3577,8 @@
    "topic": 2,
    "status": "ok",
    "full": [
-    "md-double-decoupling"
+    "md-double-decoupling",
+    "mdh-double-decoupling-terms"
    ],
    "partial": []
   },
@@ -3532,7 +3599,8 @@
    "topic": 2,
    "status": "ok",
    "full": [
-    "md-relative-or-absolute"
+    "md-relative-or-absolute",
+    "mdh-relative-or-absolute"
    ],
    "partial": []
   },
@@ -3553,7 +3621,8 @@
    "topic": 3,
    "status": "ok",
    "full": [
-    "md-match-conditions"
+    "md-match-conditions",
+    "mdh-protonation-count"
    ],
    "partial": []
   },
@@ -3684,7 +3753,8 @@
    "topic": 1,
    "status": "ok",
    "full": [
-    "md-lambda-hamiltonian"
+    "md-lambda-hamiltonian",
+    "mdh-lambda-extended"
    ],
    "partial": []
   },
@@ -3694,7 +3764,8 @@
    "topic": 1,
    "status": "ok",
    "full": [
-    "md-msld-potential"
+    "md-msld-potential",
+    "mdh-msld-scaling"
    ],
    "partial": []
   },
@@ -3737,7 +3808,8 @@
    "topic": 3,
    "status": "ok",
    "full": [
-    "md-alf-bias-terms"
+    "md-alf-bias-terms",
+    "mdh-bias-roles"
    ],
    "partial": []
   },
@@ -3747,7 +3819,8 @@
    "topic": 3,
    "status": "ok",
    "full": [
-    "md-bias-pairs"
+    "md-bias-pairs",
+    "mdh-bias-count-scheme"
    ],
    "partial": []
   },
@@ -3768,7 +3841,8 @@
    "topic": 4,
    "status": "ok",
    "full": [
-    "md-unsampled-result"
+    "md-unsampled-result",
+    "mdh-nan-result"
    ],
    "partial": []
   },
@@ -3778,7 +3852,8 @@
    "topic": 1,
    "status": "ok",
    "full": [
-    "md-alf-cycle"
+    "md-alf-cycle",
+    "mdh-alf-cycle"
    ],
    "partial": []
   },
@@ -3788,7 +3863,8 @@
    "topic": 1,
    "status": "ok",
    "full": [
-    "md-flattening-converged"
+    "md-flattening-converged",
+    "mdh-flat-converged"
    ],
    "partial": []
   },
@@ -3798,7 +3874,8 @@
    "topic": 2,
    "status": "ok",
    "full": [
-    "md-alf-steps"
+    "md-alf-steps",
+    "mdh-flat-steps"
    ],
    "partial": []
   },
@@ -3819,7 +3896,8 @@
    "topic": 2,
    "status": "ok",
    "full": [
-    "md-alf-info"
+    "md-alf-info",
+    "mdh-nblocks-from-mutations"
    ],
    "partial": []
   },
@@ -3829,7 +3907,8 @@
    "topic": 2,
    "status": "ok",
    "full": [
-    "md-alf-choices"
+    "md-alf-choices",
+    "mdh-alf-options"
    ],
    "partial": []
   },
@@ -3840,7 +3919,8 @@
    "status": "ok",
    "full": [
     "md-ddg-fold-error",
-    "md-ddg-significance"
+    "md-ddg-significance",
+    "mdh-ddg-uncertainty"
    ],
    "partial": []
   },
@@ -3850,7 +3930,8 @@
    "topic": 3,
    "status": "ok",
    "full": [
-    "md-alchemical-definitions"
+    "md-alchemical-definitions",
+    "mdh-alchemical-definitions"
    ],
    "partial": []
   },
@@ -3860,7 +3941,8 @@
    "topic": 3,
    "status": "ok",
    "full": [
-    "md-prep-directory"
+    "md-prep-directory",
+    "mdh-prep-assembly"
    ],
    "partial": []
   },
@@ -3903,7 +3985,8 @@
    "topic": 2,
    "status": "ok",
    "full": [
-    "md-clustering"
+    "md-clustering",
+    "mdh-cluster-population"
    ],
    "partial": []
   },
@@ -3924,7 +4007,8 @@
    "topic": 3,
    "status": "ok",
    "full": [
-    "md-trajectory-loading"
+    "md-trajectory-loading",
+    "mdh-traj-handling"
    ],
    "partial": []
   },
@@ -3934,7 +4018,8 @@
    "topic": 1,
    "status": "ok",
    "full": [
-    "md-slurm"
+    "md-slurm",
+    "mdh-slurm-time"
    ],
    "partial": []
   },
@@ -3945,7 +4030,8 @@
    "status": "ok",
    "full": [
     "md-gpu-cost",
-    "md-throughput-needed"
+    "md-throughput-needed",
+    "mdh-gpu-cost"
    ],
    "partial": []
   },
@@ -3955,7 +4041,8 @@
    "topic": 2,
    "status": "ok",
    "full": [
-    "md-engine-choice"
+    "md-engine-choice",
+    "mdh-engine-choice"
    ],
    "partial": []
   },
@@ -3965,7 +4052,8 @@
    "topic": 2,
    "status": "ok",
    "full": [
-    "md-blade-commands"
+    "md-blade-commands",
+    "mdh-blade-commands"
    ],
    "partial": []
   },
@@ -3975,7 +4063,8 @@
    "topic": 2,
    "status": "ok",
    "full": [
-    "md-openmm"
+    "md-openmm",
+    "mdh-openmm-equivalent"
    ],
    "partial": []
   },
@@ -3985,7 +4074,8 @@
    "topic": 3,
    "status": "ok",
    "full": [
-    "md-charmm-script"
+    "md-charmm-script",
+    "mdh-charmm-script-syntax"
    ],
    "partial": []
   },
@@ -3995,7 +4085,8 @@
    "topic": 4,
    "status": "ok",
    "full": [
-    "md-reproducibility"
+    "md-reproducibility",
+    "mdh-reproducibility-record"
    ],
    "partial": []
   },
@@ -4006,7 +4097,8 @@
    "status": "ok",
    "full": [
     "md-trajectory-storage",
-    "md-frames-for-storage"
+    "md-frames-for-storage",
+    "mdh-traj-storage"
    ],
    "partial": []
   },
@@ -4016,7 +4108,8 @@
    "topic": 4,
    "status": "ok",
    "full": [
-    "md-alf-cleanup"
+    "md-alf-cleanup",
+    "mdh-alf-cleanup"
    ],
    "partial": []
   },
@@ -4026,7 +4119,8 @@
    "topic": 1,
    "status": "ok",
    "full": [
-    "md-intersite-coupling"
+    "md-intersite-coupling",
+    "mdh-intersite-coupling"
    ],
    "partial": []
   },
@@ -4036,7 +4130,8 @@
    "topic": 1,
    "status": "ok",
    "full": [
-    "md-estimator-choice"
+    "md-estimator-choice",
+    "mdh-potts-estimator"
    ],
    "partial": []
   },
@@ -4046,7 +4141,8 @@
    "topic": 1,
    "status": "ok",
    "full": [
-    "md-partition-mutations"
+    "md-partition-mutations",
+    "mdh-partition-sites"
    ],
    "partial": []
   },
@@ -4056,7 +4152,8 @@
    "topic": 2,
    "status": "ok",
    "full": [
-    "md-charge-change"
+    "md-charge-change",
+    "mdh-charge-change"
    ],
    "partial": []
   },
@@ -4066,7 +4163,8 @@
    "topic": 2,
    "status": "ok",
    "full": [
-    "md-replica-exchange"
+    "md-replica-exchange",
+    "mdh-when-rex"
    ],
    "partial": []
   },
@@ -4076,7 +4174,8 @@
    "topic": 2,
    "status": "ok",
    "full": [
-    "md-proline-glycine"
+    "md-proline-glycine",
+    "mdh-pro-gly"
    ],
    "partial": []
   },
@@ -4086,7 +4185,8 @@
    "topic": 1,
    "status": "ok",
    "full": [
-    "cc-basis-function-count"
+    "cc-basis-function-count",
+    "qc-shell-functions"
    ],
    "partial": []
   },

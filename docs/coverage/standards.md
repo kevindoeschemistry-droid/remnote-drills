@@ -40,7 +40,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 | High School Mathematics (Common Core) | CCSS Mathematics Appendix A: high school course pathways | standard | read in full | — | — | 200 | 200 | 0 |
 | Mathematics K–8 (Common Core) | Common Core State Standards for Mathematics (2010) | standard | read through a crosswalk | — | — | 258 | 258 | 0 |
 | Mental Math | UIL Number Sense Problem Sequencing Charts (High School; A+ Junior High and Elementary, rev. 2016-17) with the Number Sense Handbook rules | exam-spec | read in full | sta-mtc, mit-18-03-coverup, mit-integration-bee | — | 84 | 81 | 3 |
-| Molecular Simulation | LiveCoMS best-practice papers for molecular simulation | course | read in part | livecoms-afe, alchemistry-wiki | — | 121 | 15 | 106 |
+| Molecular Simulation | Hayes Group New Student Orientation (RyanHayes-Lab/Orientation) | course | read in full | livecoms, livecoms-afe, alchemistry-wiki, hayes-lambda-examples | — | 121 | 15 | 106 |
 | NCLEX-RN | NCLEX-RN Test Plan, effective April 2026 | exam-spec | read in part | — | — | 67 | 67 | 0 |
 | NGSS High School Science | Next Generation Science Standards, high school performance expectations (2013) | standard | read in part | — | — | 71 | 71 | 0 |
 | Nuclear Science and Reactor Theory | NRC Generic Fundamentals Examination, reactor theory topics (PWR catalog 192001-192008) | exam-spec | read in part | doe-hdbk-1019, ngss-hs, ib-physics-2025, icho-appendix-c, aamc-mcat-outline, gre-physics, acs-accm-analytical | — | 19 | 19 | 0 |
@@ -92,7 +92,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 - **Polymers and Materials**: Polymer topics from IChO Appendix C (c22, a5), IB S2.4 and FE Chemical 4.D; a house list on those items.
 - **Mathematics K–8 (Common Core)**: Codes and wording checked against a state reprint; the CCSS site was blocked.
 - **Mental Math**: Topic list and order from the UIL high-school chart. The short-cut techniques and the estimation topic are a house list. Unit 6 goes past the chart: the cover-up items follow an MIT 18.03 course note and the one-a-minute integration pace follows the MIT Integration Bee qualifier; which results belong in unit 6 is a house list. Pace comes from the UIL rules (7.5 s a problem) and the English multiplication tables check (6 s a fact).
-- **Molecular Simulation**: No standard exists for this subject; triangulated from best-practice papers, textbooks and the Hayes group tutorial.
+- **Molecular Simulation**: No accredited standard exists for this subject. Kevin's own group's orientation repository is the closest thing to a curriculum for the work he will actually do, and it was read in full, so it is primary; the best-practice papers and the alchemistry wiki fix the parts it assumes.
 - **NCLEX-RN**: Units are the test plan's eight Client Needs subcategories (with their weights); topics group its related-content items; the objectives are ours.
 - **NGSS High School Science**: One objective per high-school performance expectation. The PE statements were read; the evidence statements were not. Drills for PEs taught elsewhere are drawn from the subject frameworks; the engineering and design PEs have their own items.
 - **Nuclear Science and Reactor Theory**: Reactor-theory units follow the NRC Generic Fundamentals Examination topic list (read in part). Nuclear physics and shielding follow the DOE fundamentals handbook's first module (read in part). Health-physics standards for the radiation-protection unit have not been looked at.
@@ -131,7 +131,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 - **Applied Engineering Mathematics**: textbook, read in full
 - **Graduate Chemical Engineering Core**: course, read in part
 - **Mathematics K–8 (Common Core)**: standard, read through a crosswalk
-- **Molecular Simulation**: course, read in part
+- **Molecular Simulation**: course, read in full
 - **NCLEX-RN**: exam-spec, read in part
 - **NGSS High School Science**: standard, read in part
 - **Nuclear Science and Reactor Theory**: exam-spec, read in part
@@ -4044,3 +4044,38 @@ https://store.doverpublications.com/products/9780486691862
 | 5 | Pair and coupled-pair theories | — | — | **nothing yet** |
 | 6 | Many-body perturbation theory | — | — | **nothing yet** |
 | 7 | The one-particle Green's function | — | — | **nothing yet** |
+
+## Hayes Group New Student Orientation (RyanHayes-Lab/Orientation)
+
+https://github.com/RyanHayes-Lab/Orientation
+
+0 of 13 items have at least one objective answering to them.
+
+| Item | Topic | Objectives | With a drill | Where |
+|---|---|---|---|---|
+| EXP | Expectations: group goals, values, hours, group meeting, publication and conference norms | — | — | **nothing yet** |
+| START | Startup: cluster, Slack and office access | — | — | **nothing yet** |
+| CL1 | Cluster: bash and linux, logging in to hpc3, the shell-novice tutorial | — | — | **nothing yet** |
+| CL2 | Cluster: lab storage — home, CRSP and BeeGFS quotas, group paths, permissions and the sticky bit | — | — | **nothing yet** |
+| CL3 | Cluster: ssh keys | — | — | **nothing yet** |
+| CL4 | Cluster: the SLURM queue — login versus compute nodes, interactive jobs and sbatch, and the options -p, -A, --time, --gres, --mem | — | — | **nothing yet** |
+| LIT | Literature: the foundational λ-dynamics, MSλD, ALF, implicit-constraint and BLaDE papers, and the large-sequence-space applications | — | — | **nothing yet** |
+| TUT1 | Tutorial 1: molecular dynamics in CHARMM — running CHARMM, CHARMM-GUI setup, propka protonation, periodic boundaries, ions, and BLaDE equilibration and production | — | — | **nothing yet** |
+| TUT2 | Tutorial 2: multisite λ dynamics — system.inp against step5_production.inp, alchemical_definitions.inp, toppar soft link, the aa_stream patch/select/delete/blocksetup streams, and alf_info.py | — | — | **nothing yet** |
+| TUT3 | Tutorial 3: adaptive landscape flattening — runflat, runprod and postprocess, the flattening and production schedules, best practice for loss, bias and implicit constraints, and cleanup | — | — | **nothing yet** |
+| TUT4 | Tutorial 4: CHARMM scripting and engines — titles, set/calc, @ and @@, ? values, stream, if/goto, and the standard, DOMDEC, BLaDE and OpenMM engines | — | — | **nothing yet** |
+| INST | Installation: CHARMM and pyCHARMM builds, ALF, conda, and the module set used on hpc3 | — | — | **nothing yet** |
+| ETC | Etcetera: conferences and other useful links | — | — | **nothing yet** |
+
+## RyanHayes-Lab/lambda-dynamics-examples (example run files)
+
+https://github.com/RyanHayes-Lab/lambda-dynamics-examples
+
+0 of 4 items have at least one objective answering to them.
+
+| Item | Topic | Objectives | With a drill | Where |
+|---|---|---|---|---|
+| SYS | The four example systems: benzene-derivative solvation, p38 ligand binding, protein G site-saturation folding, T4 lysozyme side-chain mutation | — | — | **nothing yet** |
+| PREP | The per-system prep directory: alf_info.py, nsubs, nblocks, ncentral, nreps, toppar and the build scripts | — | — | **nothing yet** |
+| TMPL | The templates directory: subsetAll.sh job chaining with SLURM dependencies, runflat.sh, runprod.sh, postprocess.sh, msld_flat.inp and msld_prod.inp | — | — | **nothing yet** |
+| LIN | Telling nonlinear from linearized ALF by the lmalf key, and the 8–9 substituent limit of linearized ALF | — | — | **nothing yet** |
