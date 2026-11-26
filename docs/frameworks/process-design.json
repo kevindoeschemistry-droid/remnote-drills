@@ -16,7 +16,8 @@
   "also": [
    "pe-chemical",
    "nspe-ethics",
-   "osha-psm"
+   "osha-psm",
+   "aiche-bok"
   ],
   "note": "Topics from FE Chemical areas 11, 13, 14, 15, 16 and 17 and PE Chemical area 7 (read in full); objectives and their order are ours. The professional-practice unit rests on the NSPE Code of Ethics (read in full) and the safety-management unit on 29 CFR 1910.119 (paragraph titles read). Particle technology has no published curriculum of its own, so that unit is a house list on the FE spec items."
  },
@@ -100,6 +101,9 @@
       },
       {
        "id": "B",
+       "std": [
+        "icheme-level-f:A2.7"
+       ],
        "do": "Compute a project's net present value.",
        "ek": [
         "NPV = −I + A(P/A,i,n) + S(1+i)⁻ⁿ."
@@ -189,7 +193,8 @@
       {
        "id": "C",
        "std": [
-        "fe-chemical:16.C"
+        "fe-chemical:16.C",
+        "icheme-level-f:A2.6"
        ],
        "do": "State what a HAZOP guide word means.",
        "ek": [
@@ -206,7 +211,8 @@
       {
        "id": "A",
        "std": [
-        "fe-chemical:16.A"
+        "fe-chemical:16.A",
+        "aiche-bok:X.SAFE"
        ],
        "do": "Compute the lower flammable limit of a fuel mixture.",
        "ek": [
@@ -223,7 +229,8 @@
       {
        "id": "B",
        "std": [
-        "fe-chemical:16.B"
+        "fe-chemical:16.B",
+        "aiche-bok:X.SAFE"
        ],
        "do": "Judge a mixed exposure against its limits.",
        "ek": [
@@ -519,7 +526,9 @@
       {
        "id": "A",
        "std": [
-        "fe-chemical:14.A"
+        "fe-chemical:14.A",
+        "cheme-grad-core:PS.3",
+        "aiche-bok:T.DES"
        ],
        "do": "State what a block flow diagram, a process flow diagram and a P&ID each show",
        "ek": [
@@ -536,7 +545,9 @@
       {
        "id": "B",
        "std": [
-        "fe-chemical:14.A"
+        "fe-chemical:14.A",
+        "cheme-grad-core:PS.3",
+        "aiche-bok:T.BAL"
        ],
        "do": "Read a stream table and compute the missing entry from the balance",
        "ek": [
@@ -553,7 +564,8 @@
       {
        "id": "C",
        "std": [
-        "fe-chemical:14.A"
+        "fe-chemical:14.A",
+        "aiche-bok:T.INST"
        ],
        "do": "State what an instrument tag's letters mean and what a control loop on a P&ID consists of",
        "ek": [
@@ -576,7 +588,9 @@
       {
        "id": "A",
        "std": [
-        "fe-chemical:14.B"
+        "fe-chemical:14.B",
+        "aiche-bok:T.DES",
+        "aiche-bok:T.SU"
        ],
        "do": "Scale an equipment cost with the six-tenths rule and a cost index",
        "ek": [
@@ -593,7 +607,8 @@
       {
        "id": "B",
        "std": [
-        "fe-chemical:14.B"
+        "fe-chemical:14.B",
+        "aiche-bok:T.DES"
        ],
        "do": "Compute an installed cost from a bare-module or Lang factor and state what it covers",
        "ek": [
@@ -610,7 +625,8 @@
       {
        "id": "C",
        "std": [
-        "fe-chemical:14.D"
+        "fe-chemical:14.D",
+        "icheme-level-f:A2.7"
        ],
        "do": "State what an estimate class claims and compute a contingency from a stated accuracy band",
        "ek": [
@@ -627,7 +643,8 @@
       {
        "id": "D",
        "std": [
-        "fe-chemical:14.E"
+        "fe-chemical:14.E",
+        "aiche-bok:X.SAFE"
        ],
        "do": "State what a design standard or code fixes and who is bound by it",
        "ek": [
@@ -666,7 +683,9 @@
       {
        "id": "A",
        "std": [
-        "fe-chemical:16.D"
+        "fe-chemical:16.D",
+        "icheme-level-f:A2.6",
+        "aiche-bok:X.SAFE"
        ],
        "do": "State the accumulation a relief device may allow above the maximum allowable working pressure",
        "ek": [
@@ -717,7 +736,8 @@
       {
        "id": "D",
        "std": [
-        "fe-chemical:16.D"
+        "fe-chemical:16.D",
+        "icheme-level-f:A2.6"
        ],
        "do": "Choose between a relief valve, a rupture disc and both in series for a stated duty",
        "ek": [
@@ -780,7 +800,8 @@
       {
        "id": "A",
        "std": [
-        "fe-chemical:16.F"
+        "fe-chemical:16.F",
+        "icheme-level-f:A2.6"
        ],
        "do": "Compute the adiabatic temperature rise of a runaway and the time to maximum rate",
        "ek": [
@@ -797,7 +818,8 @@
       {
        "id": "B",
        "std": [
-        "fe-chemical:16.F"
+        "fe-chemical:16.F",
+        "icheme-level-f:A2.6"
        ],
        "do": "State which reactivity hazards a stated material pairing creates",
        "ek": [
@@ -814,7 +836,8 @@
       {
        "id": "C",
        "std": [
-        "fe-chemical:16.E"
+        "fe-chemical:16.E",
+        "icheme-level-f:A2.7"
        ],
        "do": "Compute a waste-minimisation or treatment duty from a stated discharge limit",
        "ek": [
@@ -855,7 +878,8 @@
        "id": "A",
        "std": [
         "nspe-ethics:C1",
-        "nspe-ethics:R1"
+        "nspe-ethics:R1",
+        "icheme-level-f:A2.7"
        ],
        "do": "State which duty governs when a stated situation puts the public's safety against another obligation",
        "ek": [
@@ -867,24 +891,6 @@
        "drills": [
         "pd-paramount",
         "pd-report-violation"
-       ]
-      },
-      {
-       "id": "B",
-       "std": [
-        "nspe-ethics:C2",
-        "nspe-ethics:R2"
-       ],
-       "do": "Decide whether a stated assignment or signature is within an engineer's competence",
-       "ek": [
-        "An engineer accepts and seals only work in their own field of competence, and on a large project seals only the technical segments they prepared or directly supervised, which is why a stamp is a professional claim and not a formality."
-       ],
-       "p": [
-        "P2"
-       ],
-       "drills": [
-        "pd-competence-scope",
-        "pd-seal-segments"
        ]
       },
       {
@@ -923,6 +929,24 @@
         "pd-confidential-use",
         "pd-confidential-scenario"
        ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "nspe-ethics:C2",
+        "nspe-ethics:R2"
+       ],
+       "do": "Decide whether a stated assignment or signature is within an engineer's competence",
+       "ek": [
+        "An engineer accepts and seals only work in their own field of competence, and on a large project seals only the technical segments they prepared or directly supervised, which is why a stamp is a professional claim and not a formality."
+       ],
+       "p": [
+        "P2"
+       ],
+       "drills": [
+        "pd-competence-scope",
+        "pd-seal-segments"
+       ]
       }
      ]
     },
@@ -931,9 +955,27 @@
      "title": "Agreements and intellectual property",
      "los": [
       {
+       "id": "C",
+       "std": [
+        "nspe-ethics:O9"
+       ],
+       "do": "Decide who owns a stated design or work product and who must be credited",
+       "ek": [
+        "Work produced in employment generally belongs to the employer and a client's designs stay the client's, so ownership is settled in advance in writing; credit is a separate duty from ownership and is given to whoever did the work."
+       ],
+       "p": [
+        "P2"
+       ],
+       "drills": [
+        "pd-ownership",
+        "pd-ownership-scenario"
+       ]
+      },
+      {
        "id": "A",
        "std": [
-        "fe-chemical:17.B"
+        "fe-chemical:17.B",
+        "icheme-level-f:A2.7"
        ],
        "do": "State what makes an agreement binding and which term in a stated contract carries the risk",
        "ek": [
@@ -962,23 +1004,6 @@
        "drills": [
         "pd-ip-kind",
         "pd-patent-expiry"
-       ]
-      },
-      {
-       "id": "C",
-       "std": [
-        "nspe-ethics:O9"
-       ],
-       "do": "Decide who owns a stated design or work product and who must be credited",
-       "ek": [
-        "Work produced in employment generally belongs to the employer and a client's designs stay the client's, so ownership is settled in advance in writing; credit is a separate duty from ownership and is given to whoever did the work."
-       ],
-       "p": [
-        "P2"
-       ],
-       "drills": [
-        "pd-ownership",
-        "pd-ownership-scenario"
        ]
       }
      ]
@@ -1063,7 +1088,8 @@
       {
        "id": "A",
        "std": [
-        "fe-chemical:13.C"
+        "fe-chemical:13.C",
+        "cheme-grad-core:PS.3"
        ],
        "do": "Compute the expected monetary value of a stated decision under uncertainty",
        "ek": [
@@ -1097,7 +1123,9 @@
       {
        "id": "C",
        "std": [
-        "fe-chemical:13.D"
+        "fe-chemical:13.D",
+        "cheme-grad-core:PS.3",
+        "aiche-bok:T.OPT"
        ],
        "do": "Rank stated projects by net present value, payback and rate of return, and say where the rankings differ",
        "ek": [
@@ -1284,7 +1312,8 @@
       {
        "id": "A",
        "std": [
-        "fe-chemical:15.B"
+        "fe-chemical:15.B",
+        "aiche-bok:T.OPT"
        ],
        "do": "Choose feedback, feedforward, cascade or ratio control for a stated problem",
        "ek": [
@@ -1318,7 +1347,8 @@
       {
        "id": "C",
        "std": [
-        "fe-chemical:15.B"
+        "fe-chemical:15.B",
+        "aiche-bok:T.OPT"
        ],
        "do": "Compute the offset a stated proportional-only loop leaves, and the gain that would halve it",
        "ek": [
@@ -1341,7 +1371,8 @@
       {
        "id": "A",
        "std": [
-        "fe-chemical:15.C"
+        "fe-chemical:15.C",
+        "aiche-bok:T.INST"
        ],
        "do": "Compute a control valve's flow coefficient for a stated duty",
        "ek": [
@@ -1358,7 +1389,8 @@
       {
        "id": "B",
        "std": [
-        "fe-chemical:15.C"
+        "fe-chemical:15.C",
+        "aiche-bok:T.INST"
        ],
        "do": "Choose a valve characteristic and a failure position for a stated service",
        "ek": [
@@ -1375,7 +1407,8 @@
       {
        "id": "C",
        "std": [
-        "fe-chemical:15.C"
+        "fe-chemical:15.C",
+        "aiche-bok:T.INST"
        ],
        "do": "Convert between a stated transmitter range, its signal and the engineering value",
        "ek": [
@@ -1803,17 +1836,6 @@
    "partial": []
   },
   {
-   "code": "PD-7.1.B",
-   "unit": 7,
-   "topic": 1,
-   "status": "ok",
-   "full": [
-    "pd-competence-scope",
-    "pd-seal-segments"
-   ],
-   "partial": []
-  },
-  {
    "code": "PD-7.1.C",
    "unit": 7,
    "topic": 1,
@@ -1836,6 +1858,28 @@
    "partial": []
   },
   {
+   "code": "PD-7.1.B",
+   "unit": 7,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "pd-competence-scope",
+    "pd-seal-segments"
+   ],
+   "partial": []
+  },
+  {
+   "code": "PD-7.2.C",
+   "unit": 7,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "pd-ownership",
+    "pd-ownership-scenario"
+   ],
+   "partial": []
+  },
+  {
    "code": "PD-7.2.A",
    "unit": 7,
    "topic": 2,
@@ -1854,17 +1898,6 @@
    "full": [
     "pd-ip-kind",
     "pd-patent-expiry"
-   ],
-   "partial": []
-  },
-  {
-   "code": "PD-7.2.C",
-   "unit": 7,
-   "topic": 2,
-   "status": "ok",
-   "full": [
-    "pd-ownership",
-    "pd-ownership-scenario"
    ],
    "partial": []
   },

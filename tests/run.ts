@@ -129,7 +129,7 @@ expectPlace("ht.transient-one-term", "Incropera 8e §5.5–5.6");
 expectPlace("stat.partition-function", "Dill & Bromberg 2e Ch 10");
 expectPlace("stat.partition-function", "Shell Ch 16");
 if (primaryPlace("stat.partition-function", "shell-2015")?.source.id !== "shell-2015") fail("preferred source not honoured");
-if (SOURCES.length !== 55) fail(`expected 55 sources, got ${SOURCES.length}`);
+if (SOURCES.length !== 56) fail(`expected 56 sources, got ${SOURCES.length}`);
 expectPlace("k8.fractions", "Prealgebra 2e Ch 4");
 expectPlace("trig.identities", "Algebra & Trig 2e §9.2");
 

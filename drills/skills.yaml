@@ -40,6 +40,7 @@ domains:
   - { id: meb, title: "Material and energy balances" }
   - { id: fm, title: "Fluid mechanics" }
   - { id: nm, title: "Numerical methods" }
+  - { id: gc, title: "Graduate ChemE methods past Kreyszig" }
   - { id: mass, title: "Mass transfer" }
   - { id: ngss, title: "NGSS high school science" }
   - { id: cre, title: "Chemical reaction engineering" }
@@ -951,3 +952,7 @@ skills:
   - { id: biosec.withstand, domain: biosec, title: "Withstanding transmission: ventilation, far-UVC, respirators, testing and isolation", short: "Withstand", prereqs: [biosec.epidemiology] }
   - { id: biosec.combat, domain: biosec, title: "Countermeasures: vaccine coverage and efficacy, rapid MCMs, scale-up, governance", short: "Combat", prereqs: [biosec.epidemiology] }
   - { id: biosec.practice, domain: biosec, title: "Working responsibly: information hazards and layered defence", short: "Practice" }
+  - { id: gc.scaling, domain: gc, title: "Scaling and non-dimensionalisation", short: "Scaling", prereqs: [pde.separation] }
+  - { id: gc.perturbation, domain: gc, title: "Perturbation and asymptotic methods", short: "Perturbation", prereqs: [gc.scaling] }
+  - { id: gc.similarity, domain: gc, title: "Similarity solutions and combination of variables", short: "Similarity", prereqs: [gc.scaling] }
+  - { id: gc.eigen, domain: gc, title: "Eigenfunction expansions in curvilinear geometry", short: "Curvilinear eigenfunctions", prereqs: [bvp.sl-eigenfunctions] }

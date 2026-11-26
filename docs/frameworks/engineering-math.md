@@ -797,11 +797,11 @@ Book: kreyszig-10e §12.7, §12.12
 - ● **EM-10.5.D** () Write the heat kernel as the Green's function of the diffusion equation and use images for a fixed or insulated end.
   - EK: G = e^(−(x−x₀)²/4κt)/√(4πκt) on the line; on x > 0 subtract the mirror image for u(0) = 0, add it for an insulated end.
   - P1 · drills: gf-image-fixed, gf-image-insulated
-- ● **EM-10.5.A** Solve a PDE on a semi-infinite or infinite domain by Laplace or Fourier transform.
+- ● **EM-10.5.A** (cheme-grad-core:MM.5) Solve a PDE on a semi-infinite or infinite domain by Laplace or Fourier transform.
   - EK: Transform out t (Laplace) or x (Fourier) to get an ODE in the other variable; bounded at infinity keeps e^(−√s x).
   - Needs: EM-7.1.A
   - P3 · drills: em-semi-infinite-heat, pde-lt-steps, pde-lt-decay-rate, pde-lt-erfc-value
-- ● **EM-10.5.B** (webwork-opl:CX8.5) Solve a finite rod by Laplace transform and invert by residues: the poles are the eigenvalues.
+- ● **EM-10.5.B** (webwork-opl:CX8.5, cheme-grad-core:MM.5) Solve a finite rod by Laplace transform and invert by residues: the poles are the eigenvalues.
   - EK: Residue at s = 0 is the steady state; s_n = −(nπ/L)² rebuild the Fourier series.
   - Needs: EM-10.5.A, EM-10.2.B
   - P3 · P4 · drills: pde-lt-finite-rod-amplitude, pde-lt-pole-is-eigenvalue, pde-lt-residues
@@ -841,7 +841,7 @@ Book: kreyszig-10e §11.7, §11.8, §11.9
 - ● **EM-11.1.A** Represent a non-periodic function by its Fourier integral, or its cosine or sine transform.
   - EK: Limit L → ∞ of the Fourier series; even ⇒ cosine transform, odd ⇒ sine.
   - P3 · drills: em-fourier-cosine-sine
-- ● **EM-11.1.B** Compute a Fourier transform and use its derivative property to turn an ODE into algebra.
+- ● **EM-11.1.B** (cheme-grad-core:MM.5) Compute a Fourier transform and use its derivative property to turn an ODE into algebra.
   - EK: F{f′} = iwF{f}; F{e^(−ax²)} is Gaussian.
   - P3 · drills: em-fourier-transform-value, em-fourier-derivative-rule
 - ● **EM-11.1.C** () Compute Fourier transforms of the Gaussian and the rectangular pulse.
@@ -850,7 +850,7 @@ Book: kreyszig-10e §11.7, §11.8, §11.9
 - ● **EM-11.1.D** () Use the shift, scaling and convolution properties of the Fourier transform.
   - EK: f(x − c) → e^(−iwc)f̂; f(bx) → f̂(w/b)/|b|; f∗g → √(2π) f̂ ĝ.
   - P1 · drills: ft-scaling, ft-properties
-- ● **EM-11.1.E** () Solve the heat equation on an infinite line by Fourier transform and read the spreading Gaussian.
+- ● **EM-11.1.E** (cheme-grad-core:MM.5) Solve the heat equation on an infinite line by Fourier transform and read the spreading Gaussian.
   - EK: A point release Q spreads as u = Q e^(−x²/4κt)/√(4πκt): the peak falls as t^(−1/2) and the variance grows as 2κt.
   - P1 · drills: ft-heat-peak, ft-heat-spread
 - ● **EM-11.1.F** () Convolve functions directly and through the Fourier transform: Gaussians, pulses, and an initial profile spreading by diffusion.
@@ -967,13 +967,13 @@ Big ideas: MODEL
 - ● **EM-14.3.B** (webwork-opl:CX8.1) Decide whether a complex sequence converges.
   - EK: zⁿ → 0 when |z| < 1 and diverges when |z| > 1.
   - P1 · drills: em-complex-sequence
-- ● **EM-14.3.A** (webwork-opl:CX7.1) Use Cauchy's integral formula.
+- ● **EM-14.3.A** (webwork-opl:CX7.1, cheme-grad-core:MM.5) Use Cauchy's integral formula.
   - EK: ∮ f(z)/(z − z₀) dz = 2πi f(z₀) for z₀ inside the contour and f analytic.
   - P1 · drills: em-cauchy-formula
 - ● **EM-14.3.C** (webwork-opl:CX8.2) Find a Taylor coefficient of an analytic function.
   - EK: e^{az} = Σ aᵏ zᵏ / k!; 1/(1 − az) = Σ aᵏ zᵏ for |az| < 1.
   - P1 · drills: em-complex-taylor
-- ● **EM-14.3.D** (webwork-opl:CX8.3, webwork-opl:CX8.5) Find a Laurent coefficient (a residue).
+- ● **EM-14.3.D** (webwork-opl:CX8.3, webwork-opl:CX8.5, cheme-grad-core:MM.5) Find a Laurent coefficient (a residue).
   - EK: The coefficient of 1/(z − z₀) is the residue.
   - P1 · drills: em-laurent-residue
 - ● **EM-14.3.E** (webwork-opl:CX8.4) Find the order of a zero.

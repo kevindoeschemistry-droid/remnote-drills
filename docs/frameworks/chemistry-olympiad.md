@@ -238,7 +238,7 @@ Big ideas: EXACT
   - P1 · drills: co-order-from-rates, co-rate-predict
 - ● **CO-9.1.B** (usnco:5) Find the rate law from a mechanism with a fast pre-equilibrium.
   - EK: Rate = k₂K₁[...]: substitute the intermediate from the equilibrium.
-  - P1 · drills: co-mechanism-rate-law, co-preequilibrium-order
+  - P1 · drills: co-preequilibrium-order, co-mechanism-rate-law
 - ● **CO-9.1.C** (usnco:5) Find product fractions for parallel first-order reactions.
   - EK: Fraction of B = k_B/(k_B + k_C); with Arrhenius, the higher-Eₐ path grows with T.
   - P1 · drills: co-parallel-arrhenius, co-equal-rate-temp
@@ -346,7 +346,7 @@ Big ideas: EXACT
   - P1 · drills: co-formal-charge, co-formal-charge-atom
 - ● **CO-13.1.E** (usnco:9) Find a fractional bond order from resonance.
   - EK: Spread the π bonds over the equivalent positions: bond order = total bonds / positions.
-  - P1 · drills: co-bond-length-rank, co-resonance-bond-order
+  - P1 · drills: co-resonance-bond-order, co-bond-length-rank
 
 ## Unit 14 · USNCO band 10: organic chemistry, biochemistry and spectroscopy
 
@@ -385,19 +385,19 @@ Big ideas: EXACT
 
 - ● **CO-15.1.A** (usnco:P2, usnco:6) Find a molar solubility with a common ion, then compare it with pure water.
   - EK: Ksp = s(s + c) ≈ s c when c ≫ s.
-  - P1 · drills: co-ksp-from-common-ion, co-p2-common-ion
+  - P1 · drills: co-p2-common-ion, co-ksp-from-common-ion
 - ● **CO-15.1.B** (usnco:P2, usnco:7) Get ΔS° of a cell reaction from the temperature dependence of E°.
   - EK: ΔS° = nF(dE°/dT); ΔH° = ΔG° + TΔS°.
-  - P1 · drills: co-dedt-from-ds, co-p2-cell-entropy
+  - P1 · drills: co-p2-cell-entropy, co-dedt-from-ds
 - ● **CO-15.1.C** (usnco:P2, usnco:4) Find ΔS° from ΔG° and calorimetric ΔH°.
   - EK: ΔG° = −RT ln K; ΔS° = (ΔH° − ΔG°)/T.
-  - P1 · drills: co-vant-hoff-k, co-p2-entropy-from-k
+  - P1 · drills: co-p2-entropy-from-k, co-vant-hoff-k
 - ● **CO-15.1.D** (usnco:P2, usnco:1) Find a hydrate's water count from an iodometric titration.
   - EK: Cu²⁺ + I⁻ → CuI + ½I₂; I₂ + 2 S₂O₃²⁻: one thiosulfate per Cu.
-  - P1 · drills: co-iodometric-copper, co-p2-iodometric
+  - P1 · drills: co-p2-iodometric, co-iodometric-copper
 - ● **CO-15.1.E** (usnco:P2, usnco:3) Find a density and an oxidation state from a perovskite unit cell.
   - EK: ABO₃: A at the corners (1), B at the centre (1), O at the face centres (3).
-  - P1 · drills: co-tolerance-factor, co-p2-perovskite
+  - P1 · drills: co-p2-perovskite, co-tolerance-factor
 - ● **CO-15.1.F** (usnco:P2, usnco:8) Find a photon energy per mole for bond breaking.
   - EK: E = N_A hc/λ.
-  - P1 · drills: co-threshold-wavelength, co-p2-photon-kj
+  - P1 · drills: co-p2-photon-kj, co-threshold-wavelength

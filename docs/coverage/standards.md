@@ -25,9 +25,9 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 | Earth and Space Science | Next Generation Science Standards, high school performance expectations (2013) | standard | read in part | ib-physics-2025, ib-biology-2025, gre-physics | — | 18 | 18 | 0 |
 | Electric Double Layers | Petsev, van Swol and Frink, Molecular Theory of Electric Double Layers (IOP Publishing, 2021) | textbook | read in part | — | — | 56 | 56 | 0 |
 | Electronic Structure | Psi4NumPy interactive tutorials (Smith et al., JCTC 14 (2018) 3504) | course | read in part | molssi-qm-tools, szabo-ostlund | — | 30 | 30 | 0 |
-| Applied Engineering Mathematics | Kreyszig, Advanced Engineering Mathematics, 10th ed. | textbook | read in full | fe-chemical, webwork-opl | — | 178 | 135 | 43 |
+| Applied Engineering Mathematics | Kreyszig, Advanced Engineering Mathematics, 10th ed. | textbook | read in full | fe-chemical, webwork-opl | — | 178 | 138 | 40 |
 | Fluid Mechanics | NCEES FE Chemical CBT Exam Specifications (effective July 2020) | exam-spec | read in full | pe-chemical, webwork-opl | — | 64 | 64 | 0 |
-| Graduate Chemical Engineering Core | UC Irvine Chemical and Biomolecular Engineering graduate core: CBE 200, 210, 220A, 220B and 240 (catalogue descriptions, 2025-26) | course | read in part | pe-chemical | — | 38 | 38 | 0 |
+| Graduate Chemical Engineering Core | Graduate chemical engineering core curriculum (crosswalk of fifteen departments' published requirements) | course | read in full | icheme-level-f, uci-cbe-core, pe-chemical | — | 50 | 50 | 0 |
 | Heat Transfer | NCEES FE Chemical CBT Exam Specifications (effective July 2020) | exam-spec | read in full | fe-mechanical, ib-physics-2025, pe-chemical | — | 101 | 63 | 38 |
 | INBDE (Dentistry) | JCNDE, Domain of Dentistry (INBDE content domain), July 2018 | exam-spec | read in full | — | — | 81 | 81 | 0 |
 | Information Systems | MSIS 2016 Global Competency Model | standard | read in full | — | — | 53 | 0 | 53 |
@@ -50,7 +50,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 | The Periodic Table from Memory | IUPAC Periodic Table of the Elements (release of 4 May 2022) | reference | read in part | ngss-hs, ib-chemistry-2025, icho-appendix-c, acs-accm-general, acs-accm-inorganic | — | 15 | 15 | 0 |
 | Physical Chemistry | ACS Exams Institute Anchoring Concepts Content Map: Physical Chemistry (Holme, Reed, Raker & Murphy, J. Chem. Educ. 2018, 95, 238) | standard | read in full | engel-reid-3e, fe-chemical, usnco, icho-appendix-c, icho-syllabus, gre-physics, gre-chemistry, acs-accm-general, acs-accm-inorganic, acs-accm-organic, acs-accm-analytical | — | 158 | 158 | 0 |
 | Physics (AP) | AP Physics 1, 2, C: Mechanics and C: Electricity and Magnetism Course and Exam Descriptions (effective fall 2024) | standard | read in part | ngss-hs, ib-physics-2025, aamc-mcat-outline, gre-physics | — | 211 | 211 | 0 |
-| Process Design, Economics and Safety | NCEES FE Chemical CBT Exam Specifications (effective July 2020) | exam-spec | read in full | pe-chemical, nspe-ethics, osha-psm | — | 62 | 62 | 0 |
+| Process Design, Economics and Safety | NCEES FE Chemical CBT Exam Specifications (effective July 2020) | exam-spec | read in full | pe-chemical, nspe-ethics, osha-psm, aiche-bok | — | 62 | 62 | 0 |
 | Programming Foundations | AP Computer Science A Course and Exam Description (Fall 2025) | standard | read in full | — | — | 140 | 140 | 0 |
 | Computational Protein Design | PyRosetta Jupyter Notebooks (RosettaCommons), taught as JHU 545.614 / 540.414 | course | read in part | rosetta-ref15, dl4proteins, kuhlman-bradley, jhu-545614 | — | 51 | 51 | 0 |
 | Chemical Reaction Engineering | NCEES FE Chemical CBT Exam Specifications (effective July 2020) | exam-spec | read in full | icho-appendix-c, pe-chemical | — | 52 | 39 | 13 |
@@ -81,7 +81,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 - **Electronic Structure**: No accredited standard exists at this level. The Psi4NumPy modules are the closest published curriculum and the MolSSI lesson fixes the practical units; Szabo & Ostlund is a theory reference only. Objectives are ours.
 - **Applied Engineering Mathematics**: UCI CBE 200 publishes no syllabus. The undergraduate part is anchored to fe-chemical; series, Sturm–Liouville, PDEs and transforms are past any exam spec and stand on the book.
 - **Fluid Mechanics**: Topics from FE Chemical area 6, read in full; units 7–10 extend past it on the WeBWorK OPL fluid-mechanics sections (read in full). Objectives and their order are ours; statics is assumed by the spec rather than listed.
-- **Graduate Chemical Engineering Core**: UCI's graduate core courses by catalogue description (read in part); no syllabus or past comprehensive exam was read, so the objectives are ours. PE Chemical is the nearest published exam and stops below this level.
+- **Graduate Chemical Engineering Core**: No body publishes an itemised graduate chemical engineering content standard, so the primary basis is our own crosswalk of fifteen departments' published core-course requirements, each read in full. IChemE Level F carries the level this framework sits at: its outcomes are the same principles on more complex problems with the limits of the assumptions interrogated. UCI's catalogue descriptions, which this framework used to rest on alone, are now one department among the fifteen. PE Chemical is the nearest published exam and stops below this level, and FE Chemical closes the undergraduate layer that several departments' qualifying exams actually test.
 - **Heat Transfer**: Also crosswalked to the FE Mechanical spec and UCI MAE 120.
 - **INBDE (Dentistry)**: Units are the Domain of Dentistry's three clinical sections plus Foundation Knowledge area 3 (materials); objectives cite the clinical content area or FK they serve and are ours.
 - **Advanced Inorganic Chemistry (Cotton & Wilkinson)**: Since Nov 2026 the primary basis is the ACS inorganic content map (read in full); every articulation is answered (scripts/accm_maps.py), unit 15 holding the principles the chapter units did not reach. Units follow the chapters of Cotton & Wilkinson 6e (table of contents read); the objectives are a house list on those chapters.
@@ -129,7 +129,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 - **Electric Double Layers**: textbook, read in part
 - **Electronic Structure**: course, read in part
 - **Applied Engineering Mathematics**: textbook, read in full
-- **Graduate Chemical Engineering Core**: course, read in part
+- **Graduate Chemical Engineering Core**: course, read in full
 - **Mathematics K–8 (Common Core)**: standard, read through a crosswalk
 - **Molecular Simulation**: course, read in full
 - **NCLEX-RN**: exam-spec, read in part
@@ -2998,11 +2998,11 @@ https://catalogue.uci.edu/allcourses/cbe/
 
 | Item | Topic | Objectives | With a drill | Where |
 |---|---|---|---|---|
-| 200 | Applied Engineering Mathematics I: analytical methods for transport, process dynamics and control, thermodynamics | 14 | 14 | graduate-chemical-engineering (14) |
-| 210 | Reaction Engineering: reactor stability, diffusion in heterogeneous catalysis, energy balances, optimal operation, dispersed-phase reactors | 12 | 12 | graduate-chemical-engineering (12) |
-| 220A | Transport Phenomena I: heat and mass transfer, scaling, time and length scales, steady and unsteady, convective transport | 12 | 12 | graduate-chemical-engineering (12) |
-| 220B | Transport Phenomena II: creeping and laminar flow, viscous and inviscid flow, Navier-Stokes, lubrication, boundary layers | 18 | 18 | graduate-chemical-engineering (18) |
-| 240 | Advanced Engineering Thermodynamics: equilibrium and stability, equations of state, real mixtures, phase and chemical equilibrium | 14 | 14 | graduate-chemical-engineering (14) |
+| 200 | Applied Engineering Mathematics I: analytical methods for transport, process dynamics and control, thermodynamics | 7 | 7 | graduate-chemical-engineering (7) |
+| 210 | Reaction Engineering: reactor stability, diffusion in heterogeneous catalysis, energy balances, optimal operation, dispersed-phase reactors | 6 | 6 | graduate-chemical-engineering (6) |
+| 220A | Transport Phenomena I: heat and mass transfer, scaling, time and length scales, steady and unsteady, convective transport | 6 | 6 | graduate-chemical-engineering (6) |
+| 220B | Transport Phenomena II: creeping and laminar flow, viscous and inviscid flow, Navier-Stokes, lubrication, boundary layers | 9 | 9 | graduate-chemical-engineering (9) |
+| 240 | Advanced Engineering Thermodynamics: equilibrium and stability, equations of state, real mixtures, phase and chemical equilibrium | 7 | 7 | graduate-chemical-engineering (7) |
 
 ## U.S. National Chemistry Olympiad: local and national exam format, multiple-choice topic bands and Part II
 
@@ -3142,7 +3142,7 @@ https://ncees.org/wp-content/uploads/2022/09/PE-Che_Jan2020-1.pdf
 | 5.B | Applications | 3 | 3 | fluid-mechanics (3) |
 | **6** | **Mass transfer** (7–11 questions) | | | |
 | 6.A | Fundamentals | 36 | 36 | heat-transfer (6), mass-transfer (30) |
-| 6.B | Applications | 31 | 31 | graduate-chemical-engineering (6), mass-transfer (19), separations (6) |
+| 6.B | Applications | 28 | 28 | graduate-chemical-engineering (3), mass-transfer (19), separations (6) |
 | **7** | **Plant design and operation** (15–23 questions) | | | |
 | 7.A | Safety, health and environment | 3 | 3 | process-design (3) |
 | 7.B | Design | 5 | 5 | process-design (5) |
@@ -3240,6 +3240,381 @@ https://www.asbmb.org/education/certification-exam
 | 3.3 | Information storage and flow: objective 3 | 7 | 7 | biochemistry (7) |
 | 3.4 | Information storage and flow: objective 4 | 3 | 3 | biochemistry (3) |
 | 3.5 | Information storage and flow: objective 5 | 4 | 4 | biochemistry (4) |
+
+## Alchemistry.org wiki (free energy methods)
+
+https://alchemistry.org/wiki/Main_Page
+
+2 of 3 items have at least one objective answering to them.
+
+| Item | Topic | Objectives | With a drill | Where |
+|---|---|---|---|---|
+| FUND | Free energy fundamentals: definitions, differences only, phase-space overlap | 5 | 5 | molecular-simulation (5) |
+| BP | Best practices: setup, pathways, running, analysis, verification | 16 | 16 | molecular-simulation (16) |
+| EX | Example calculations: ethanol solvation, toluene→phenol in T4 lysozyme, absolute toluene binding | — | — | **nothing yet** |
+
+## Mey et al., Best Practices for Alchemical Free Energy Calculations, LiveCoMS 2 (2020) 18378
+
+https://doi.org/10.33011/livecoms.2.1.18378
+
+24 of 24 items have at least one objective answering to them.
+
+| Item | Topic | Objectives | With a drill | Where |
+|---|---|---|---|---|
+| 1 | What alchemical methods are | 5 | 5 | molecular-simulation (5) |
+| 3 | Why alchemical calculations work | 5 | 5 | molecular-simulation (5) |
+| 4 | What to expect: accuracy, reproducibility, suitability, cost | 5 | 5 | molecular-simulation (5) |
+| 4.5 | Cost | 1 | 1 | molecular-simulation (1) |
+| 4.6 | Exploratory pilot studies | 1 | 1 | molecular-simulation (1) |
+| 5.3 | Input setup and scale; perturbation maps | 1 | 1 | molecular-simulation (1) |
+| 7 | Choosing a protocol | 11 | 11 | molecular-simulation (11) |
+| 7.1.1 | Relative-only choices: topology, mapping, rings, maps, constraints | 2 | 2 | molecular-simulation (2) |
+| 7.1.2 | Absolute-only requirements: standard state and restraints | 1 | 1 | molecular-simulation (1) |
+| 7.2.1 | Weak binders | 1 | 1 | molecular-simulation (1) |
+| 7.2.2 | Net charge changes | 1 | 1 | molecular-simulation (1) |
+| 7.2.3 | Alchemical pathway and soft-core | 1 | 1 | molecular-simulation (1) |
+| 7.2.4 | Sampling schemes | 1 | 1 | molecular-simulation (1) |
+| 7.2.5 | Run length and saved data | 2 | 2 | molecular-simulation (2) |
+| 7.2.6 | Binding modes | 1 | 1 | molecular-simulation (1) |
+| 8 | Analysis | 11 | 11 | molecular-simulation (11) |
+| 8.1 | Equilibration detection | 1 | 1 | molecular-simulation (1) |
+| 8.2 | Decorrelation | 1 | 1 | molecular-simulation (1) |
+| 8.3 | Estimators | 1 | 1 | molecular-simulation (1) |
+| 8.4 | Uncertainty | 2 | 2 | molecular-simulation (2) |
+| 8.5 | Simulation quality: overlap and cycle closure | 2 | 2 | molecular-simulation (2) |
+| 8.6 | Common problems | 1 | 1 | molecular-simulation (1) |
+| 8.7 | Reporting | 2 | 2 | molecular-simulation (2) |
+| 12 | Checklist | 13 | 13 | molecular-simulation (13) |
+
+## PyRosetta Jupyter Notebooks (RosettaCommons), taught as JHU 545.614 / 540.414
+
+https://github.com/RosettaCommons/PyRosetta.notebooks
+
+30 of 33 items have at least one objective answering to them.
+
+| Item | Topic | Objectives | With a drill | Where |
+|---|---|---|---|---|
+| 1 | Getting started | — | — | **nothing yet** |
+| 2 | Introduction to PyRosetta: poses, residues, geometry, visualisation | 2 | 2 | protein-design (2) |
+| 2.1 | Pose basics | 6 | 6 | protein-design (6) |
+| 2.2 | Working with pose residues | 5 | 5 | protein-design (5) |
+| 2.4 | Spatial features of a pose | 1 | 1 | protein-design (1) |
+| 2.5 | Protein geometry | 6 | 6 | protein-design (6) |
+| 3 | Energy score functions | 1 | 1 | protein-design (1) |
+| 4.1 | Basic folding algorithm | 6 | 6 | protein-design (6) |
+| 4.2 | Low-resolution scoring and fragments | 2 | 2 | protein-design (2) |
+| 5.1 | High-resolution movers | 5 | 5 | protein-design (5) |
+| 5.2 | Refinement protocol | 1 | 1 | protein-design (1) |
+| 6.1 | Side-chain conformations and Dunbrack energies | 2 | 2 | protein-design (2) |
+| 6.2 | Packing and relax | 6 | 6 | protein-design (6) |
+| 6.3 | Design with a resfile and FastRelax | 8 | 8 | protein-design (8) |
+| 6.4 | Protein design 2 | 7 | 7 | protein-design (7) |
+| 6.5 | Hydrogen-bond networks before design | 5 | 5 | protein-design (5) |
+| 6.6 | De novo parametric backbone design | 6 | 6 | protein-design (6) |
+| 6.7 | De novo protein design | 5 | 5 | protein-design (5) |
+| 6.8 | Point mutation scan | 8 | 8 | protein-design (8) |
+| 7.1 | Fourier-transform-based docking | 5 | 5 | protein-design (5) |
+| 7.2 | Docking moves | 6 | 6 | protein-design (6) |
+| 8.1 | Global ligand docking | 5 | 5 | protein-design (5) |
+| 8.2 | Ligand docking with a Cartesian score function | 1 | 1 | protein-design (1) |
+| 9.1 | Loop modelling with generalised kinematic closure | 10 | 10 | protein-design (10) |
+| 10 | Symmetry | 10 | 10 | protein-design (10) |
+| 11 | Working with density | 10 | 10 | protein-design (10) |
+| 12.1 | Antibody framework modelling | 10 | 10 | protein-design (10) |
+| 12.2 | Antibody design | 10 | 10 | protein-design (10) |
+| 13 | Carbohydrates | — | — | **nothing yet** |
+| 14 | RNA | — | — | **nothing yet** |
+| 15.1 | Setting up a membrane protein | 10 | 10 | protein-design (10) |
+| 15.2 | Predicting ΔΔG of single point mutations | 5 | 5 | protein-design (5) |
+| 16 | Running in parallel and reproducible distribution | 11 | 11 | protein-design (11) |
+
+## Alford et al., The Rosetta all-atom energy function for macromolecular modeling and design, JCTC 13 (2017) 3031
+
+https://doi.org/10.1021/acs.jctc.7b00125
+
+6 of 6 items have at least one objective answering to them.
+
+| Item | Topic | Objectives | With a drill | Where |
+|---|---|---|---|---|
+| form | The score as a weighted linear sum of terms | 8 | 8 | protein-design (8) |
+| table | The terms and their published weights | 8 | 8 | protein-design (8) |
+| ref | Per-amino-acid reference energies and their role in design | 9 | 9 | protein-design (9) |
+| units | Units: parameterisation in kcal/mol rather than arbitrary energy units | 8 | 8 | protein-design (8) |
+| guidance | Interpreting energies: per-term decomposition, residue and atom-pair tables, ΔΔG of mutation, interface energies | 5 | 5 | protein-design (5) |
+| fa_dun | Backbone-dependent rotamer energy | 1 | 1 | protein-design (1) |
+
+## Chungyoun et al., DL4Proteins Jupyter Notebooks (Gray lab), arXiv 2511.02128
+
+https://arxiv.org/abs/2511.02128
+
+7 of 10 items have at least one objective answering to them.
+
+| Item | Topic | Objectives | With a drill | Where |
+|---|---|---|---|---|
+| WS01 | Neural networks from scratch | — | — | **nothing yet** |
+| WS02 | Neural networks in a framework | — | — | **nothing yet** |
+| WS03 | Convolutional networks | — | — | **nothing yet** |
+| WS04 | Language models for text and protein sequences | 7 | 7 | protein-design (7) |
+| WS05 | Language-model embeddings and transfer learning | 1 | 1 | protein-design (1) |
+| WS06 | Structure prediction as a black box: inputs and confidence metrics | 8 | 8 | protein-design (8) |
+| WS07 | Graph neural networks for proteins | 7 | 7 | protein-design (7) |
+| WS08 | Denoising diffusion models | 7 | 7 | protein-design (7) |
+| WS09 | End-to-end design: diffusion, inverse folding and structure prediction | 9 | 9 | protein-design (9) |
+| WS10 | All-atom diffusion for small-molecule binders | 7 | 7 | protein-design (7) |
+
+## Kuhlman & Bradley, Advances in protein structure prediction and design, Nat Rev Mol Cell Biol 20 (2019) 681
+
+https://doi.org/10.1038/s41580-019-0163-x
+
+6 of 7 items have at least one objective answering to them.
+
+| Item | Topic | Objectives | With a drill | Where |
+|---|---|---|---|---|
+| 1 | Introduction: prediction and the inverse problem | — | — | **nothing yet** |
+| 2 | Navigating energy landscapes: minimisation, Monte Carlo, molecular dynamics | 5 | 5 | protein-design (5) |
+| 3 | Folding forces, energy functions and multi-resolution modelling | 5 | 5 | protein-design (5) |
+| 4 | Structure prediction: templates, fragments, coevolution, deep learning | 7 | 7 | protein-design (7) |
+| 5 | Protein design: de novo, template-based, sequence optimisation, negative and multi-state, interfaces, ligands | 25 | 25 | protein-design (25) |
+| 6 | Validating computational predictions | 7 | 7 | protein-design (7) |
+| 7 | Applications and open challenges | 5 | 5 | protein-design (5) |
+
+## Johns Hopkins 545.614 Computational Protein Structure Prediction and Design (course topic list)
+
+https://ep.jhu.edu/courses/545614-computational-protein-structure-prediction-and-design/
+
+5 of 5 items have at least one objective answering to them.
+
+| Item | Topic | Objectives | With a drill | Where |
+|---|---|---|---|---|
+| T1 | Protein folding and docking | 2 | 2 | protein-design (2) |
+| T2 | Design of ligand-binding sites | 1 | 1 | protein-design (1) |
+| T3 | Design of turns and folds | 2 | 2 | protein-design (2) |
+| T4 | Design of protein interfaces | 1 | 1 | protein-design (1) |
+| T5 | Structure, biophysics, optimisation and informatics underlying the field | 3 | 3 | protein-design (3) |
+
+## Psi4NumPy interactive tutorials (Smith et al., JCTC 14 (2018) 3504)
+
+https://github.com/psi4/psi4numpy
+
+19 of 19 items have at least one objective answering to them.
+
+| Item | Topic | Objectives | With a drill | Where |
+|---|---|---|---|---|
+| 01 | Psi4NumPy basics: molecules, wavefunctions and integrals | 7 | 7 | electronic-structure (7) |
+| 03 | Hartree-Fock (module group) | 13 | 13 | electronic-structure (13) |
+| 03a | Restricted Hartree-Fock | 2 | 2 | electronic-structure (2) |
+| 03b | Direct inversion of the iterative subspace | 2 | 2 | electronic-structure (2) |
+| 03c | Unrestricted Hartree-Fock | 2 | 2 | electronic-structure (2) |
+| 03d | Restricted open-shell Hartree-Fock | 1 | 1 | electronic-structure (1) |
+| 04 | Density functional theory (module group) | 9 | 9 | electronic-structure (9) |
+| 04a | Density functional theory: grids and quadrature | 1 | 1 | electronic-structure (1) |
+| 04b | LDA kernel | 1 | 1 | electronic-structure (1) |
+| 04c | GGA and meta-GGA kernels | 1 | 1 | electronic-structure (1) |
+| 04d | VV10 non-local correlation | 1 | 1 | electronic-structure (1) |
+| 04e | DFT with exact exchange | 1 | 1 | electronic-structure (1) |
+| 05 | Moller-Plesset perturbation theory (module group) | 9 | 9 | electronic-structure (9) |
+| 05a | Conventional MP2 | 2 | 2 | electronic-structure (2) |
+| 05b | Density-fitted MP2 | 1 | 1 | electronic-structure (1) |
+| 06 | Molecular properties: dipoles, polarisabilities and response | 8 | 8 | electronic-structure (8) |
+| 07 | Symmetry-adapted perturbation theory | 8 | 8 | electronic-structure (8) |
+| 08 | CEPA0 and coupled-cluster doubles | 9 | 9 | electronic-structure (9) |
+| 11 | One- and two-electron integrals and density fitting | 7 | 7 | electronic-structure (7) |
+
+## MolSSI Education, Quantum Mechanics Tools (lesson)
+
+https://education.molssi.org/qm-tools/
+
+5 of 7 items have at least one objective answering to them.
+
+| Item | Topic | Objectives | With a drill | Where |
+|---|---|---|---|---|
+| 1 | Geometry optimisation | 7 | 7 | electronic-structure (7) |
+| 2 | Intramolecular potential energy surfaces | 7 | 7 | electronic-structure (7) |
+| 3 | Intermolecular potential energy surfaces | 7 | 7 | electronic-structure (7) |
+| 4 | Basis-set convergence of geometries | 9 | 9 | electronic-structure (9) |
+| 5 | Basis-set convergence of vibrational frequencies | 7 | 7 | electronic-structure (7) |
+| 6 | Standard redox potentials | — | — | **nothing yet** |
+| 7 | Version control for computational projects | — | — | **nothing yet** |
+
+## Szabo & Ostlund, Modern Quantum Chemistry (Dover, 1996)
+
+https://store.doverpublications.com/products/9780486691862
+
+0 of 7 items have at least one objective answering to them.
+
+| Item | Topic | Objectives | With a drill | Where |
+|---|---|---|---|---|
+| 1 | Mathematical review and notation | — | — | **nothing yet** |
+| 2 | Many-electron wavefunctions and operators | — | — | **nothing yet** |
+| 3 | The Hartree-Fock approximation | — | — | **nothing yet** |
+| 4 | Configuration interaction | — | — | **nothing yet** |
+| 5 | Pair and coupled-pair theories | — | — | **nothing yet** |
+| 6 | Many-body perturbation theory | — | — | **nothing yet** |
+| 7 | The one-particle Green's function | — | — | **nothing yet** |
+
+## Hayes Group New Student Orientation (RyanHayes-Lab/Orientation)
+
+https://github.com/RyanHayes-Lab/Orientation
+
+9 of 13 items have at least one objective answering to them.
+
+| Item | Topic | Objectives | With a drill | Where |
+|---|---|---|---|---|
+| EXP | Expectations: group goals, values, hours, group meeting, publication and conference norms | — | — | **nothing yet** |
+| START | Startup: cluster, Slack and office access | — | — | **nothing yet** |
+| CL1 | Cluster: bash and linux, logging in to hpc3, the shell-novice tutorial | 1 | 1 | molecular-simulation (1) |
+| CL2 | Cluster: lab storage — home, CRSP and BeeGFS quotas, group paths, permissions and the sticky bit | 2 | 2 | molecular-simulation (2) |
+| CL3 | Cluster: ssh keys | — | — | **nothing yet** |
+| CL4 | Cluster: the SLURM queue — login versus compute nodes, interactive jobs and sbatch, and the options -p, -A, --time, --gres, --mem | 2 | 2 | molecular-simulation (2) |
+| LIT | Literature: the foundational λ-dynamics, MSλD, ALF, implicit-constraint and BLaDE papers, and the large-sequence-space applications | 5 | 5 | molecular-simulation (5) |
+| TUT1 | Tutorial 1: molecular dynamics in CHARMM — running CHARMM, CHARMM-GUI setup, propka protonation, periodic boundaries, ions, and BLaDE equilibration and production | 6 | 6 | molecular-simulation (6) |
+| TUT2 | Tutorial 2: multisite λ dynamics — system.inp against step5_production.inp, alchemical_definitions.inp, toppar soft link, the aa_stream patch/select/delete/blocksetup streams, and alf_info.py | 4 | 4 | molecular-simulation (4) |
+| TUT3 | Tutorial 3: adaptive landscape flattening — runflat, runprod and postprocess, the flattening and production schedules, best practice for loss, bias and implicit constraints, and cleanup | 9 | 9 | molecular-simulation (9) |
+| TUT4 | Tutorial 4: CHARMM scripting and engines — titles, set/calc, @ and @@, ? values, stream, if/goto, and the standard, DOMDEC, BLaDE and OpenMM engines | 2 | 2 | molecular-simulation (2) |
+| INST | Installation: CHARMM and pyCHARMM builds, ALF, conda, and the module set used on hpc3 | 1 | 1 | molecular-simulation (1) |
+| ETC | Etcetera: conferences and other useful links | — | — | **nothing yet** |
+
+## RyanHayes-Lab/lambda-dynamics-examples (example run files)
+
+https://github.com/RyanHayes-Lab/lambda-dynamics-examples
+
+4 of 4 items have at least one objective answering to them.
+
+| Item | Topic | Objectives | With a drill | Where |
+|---|---|---|---|---|
+| SYS | The four example systems: benzene-derivative solvation, p38 ligand binding, protein G site-saturation folding, T4 lysozyme side-chain mutation | 2 | 2 | molecular-simulation (2) |
+| PREP | The per-system prep directory: alf_info.py, nsubs, nblocks, ncentral, nreps, toppar and the build scripts | 2 | 2 | molecular-simulation (2) |
+| TMPL | The templates directory: subsetAll.sh job chaining with SLURM dependencies, runflat.sh, runprod.sh, postprocess.sh, msld_flat.inp and msld_prod.inp | 3 | 3 | molecular-simulation (3) |
+| LIN | Telling nonlinear from linearized ALF by the lmalf key, and the 8–9 substituent limit of linearized ALF | 2 | 2 | molecular-simulation (2) |
+
+## NSPE Code of Ethics for Engineers (as revised July 2019)
+
+https://www.nspe.org/career-growth/nspe-code-ethics-engineers
+
+9 of 20 items have at least one objective answering to them.
+
+| Item | Topic | Objectives | With a drill | Where |
+|---|---|---|---|---|
+| C1 | Hold the public's safety, health and welfare paramount | 1 | 1 | process-design (1) |
+| C2 | Work only in areas of competence | 1 | 1 | process-design (1) |
+| C3 | Make public statements objectively and truthfully | — | — | **nothing yet** |
+| C4 | Act as a faithful agent or trustee for each employer and client | 1 | 1 | process-design (1) |
+| C5 | Avoid deceptive acts | — | — | **nothing yet** |
+| C6 | Conduct oneself honourably, lawfully and so as to serve the profession | — | — | **nothing yet** |
+| R1 | Rules of practice: public safety — escalate an overridden judgment, approve only conforming documents, keep information confidential, refuse fraudulent ventures, do not aid unlicensed practice, report violations | 2 | 2 | process-design (2) |
+| R2 | Rules of practice: competence — accept and seal only work one is qualified for, and only one's own technical segments | 1 | 1 | process-design (1) |
+| R3 | Rules of practice: objective statements — complete and honest reports, opinions grounded in fact and expertise, interested parties disclosed | — | — | **nothing yet** |
+| R4 | Rules of practice: faithful agency — disclose conflicts of interest, no double compensation without consent, no improper payments, recuse from decisions involving one's own firm | 1 | 1 | process-design (1) |
+| R5 | Rules of practice: avoiding deception — no misstated qualifications or responsibility, no improper inducements to win work | — | — | **nothing yet** |
+| O1 | Professional obligations: integrity — admit errors, warn of likely failure, disclose outside work, treat all fairly | — | — | **nothing yet** |
+| O2 | Professional obligations: the public interest — civic involvement, public education, sustainability, continuing development, never seal non-conforming plans | — | — | **nothing yet** |
+| O3 | Professional obligations: no public deception — no material misstatement or omission, no false authorship | — | — | **nothing yet** |
+| O4 | Professional obligations: confidentiality — client and employer information, and not exploiting project knowledge without consent | 1 | 1 | process-design (1) |
+| O5 | Professional obligations: independence — gifts and commissions must not influence a professional decision | 1 | 1 | process-design (1) |
+| O6 | Professional obligations: fair competition — no unfair criticism of peers, no compromising contingency arrangements, limits on outside work | — | — | **nothing yet** |
+| O7 | Professional obligations: respect for peers — no malicious harm to reputation, report misconduct, review limits in private practice | — | — | **nothing yet** |
+| O8 | Professional obligations: accountability — personal responsibility for one's work, registration laws, no concealment behind an entity | — | — | **nothing yet** |
+| O9 | Professional obligations: credit and ownership — credit those responsible, respect client-owned designs, settle intellectual-property ownership in advance | 1 | 1 | process-design (1) |
+
+## 29 CFR 1910.119, Process safety management of highly hazardous chemicals
+
+https://www.osha.gov/laws-regs/regulations/standardnumber/1910/1910.119
+
+0 of 15 items have at least one objective answering to them.
+
+| Item | Topic | Objectives | With a drill | Where |
+|---|---|---|---|---|
+| b | Application and definitions: which processes are covered | — | — | **nothing yet** |
+| c | Employee participation | — | — | **nothing yet** |
+| d | Process safety information | — | — | **nothing yet** |
+| e | Process hazard analysis, and the methodologies it may use | — | — | **nothing yet** |
+| f | Operating procedures | — | — | **nothing yet** |
+| g | Training | — | — | **nothing yet** |
+| h | Contractors | — | — | **nothing yet** |
+| i | Pre-startup safety review | — | — | **nothing yet** |
+| j | Mechanical integrity | — | — | **nothing yet** |
+| k | Hot work permit | — | — | **nothing yet** |
+| l | Management of change | — | — | **nothing yet** |
+| m | Incident investigation | — | — | **nothing yet** |
+| n | Emergency planning and response | — | — | **nothing yet** |
+| o | Compliance audits | — | — | **nothing yet** |
+| p | Trade secrets | — | — | **nothing yet** |
+
+## NCAA Men's Basketball Rules (2025-26 rules book and the approved rules changes)
+
+https://ncaaorg.s3.amazonaws.com/championships/sports/basketball/rules/men/2025-26PRMBB_RulesChanges.pdf
+
+0 of 2 items have at least one objective answering to them.
+
+| Item | Topic | Objectives | With a drill | Where |
+|---|---|---|---|---|
+| CH | Rules changes for 2025-26: coach's challenge, foul continuation, Flagrant 1, shot-clock operation | — | — | **nothing yet** |
+| TOC | Rules book structure: the articles on the clock, violations, fouls, penalties and officiating mechanics | — | — | **nothing yet** |
+
+## Graduate chemical engineering core curriculum (crosswalk of fifteen departments' published requirements)
+
+https://www.cheme.engineering.cmu.edu/education/graduate-programs/phd/phd-requirements.html
+
+23 of 23 items have at least one objective answering to them.
+
+| Item | Topic | Objectives | With a drill | Where |
+|---|---|---|---|---|
+| MM | Mathematical methods / applied mathematics for chemical engineers (15 of 15) | 13 | 13 | graduate-chemical-engineering (13) |
+| MM.1 | Scaling and non-dimensionalisation; which terms a limit lets you drop | 15 | 15 | graduate-chemical-engineering (15) |
+| MM.2 | Perturbation and asymptotic methods; regular and singular limits, boundary layers | 15 | 15 | graduate-chemical-engineering (15) |
+| MM.3 | Similarity solutions and combination of variables | 2 | 2 | graduate-chemical-engineering (2) |
+| MM.4 | Eigenfunction expansions and Sturm-Liouville problems in non-Cartesian geometry | 2 | 2 | graduate-chemical-engineering (2) |
+| MM.5 | Integral transforms and complex-variable methods | 6 | 6 | engineering-math (6) |
+| MM.6 | Numerical and computer methods, and the limits of standard commercial software | 3 | 3 | graduate-chemical-engineering (3) |
+| TR | Advanced / intermediate transport phenomena (14 of 15) | 30 | 30 | graduate-chemical-engineering (30) |
+| TR.1 | Equations of change for multicomponent, multiphase systems | 12 | 12 | graduate-chemical-engineering (12) |
+| TR.2 | Creeping, laminar, viscous and inviscid flow; lubrication and boundary layers | 18 | 18 | graduate-chemical-engineering (18) |
+| TR.3 | Coupled transport with chemical reaction | 12 | 12 | graduate-chemical-engineering (12) |
+| TH | Advanced chemical engineering thermodynamics (14 of 15) | 14 | 14 | graduate-chemical-engineering (14) |
+| TH.1 | Equilibrium and stability criteria | 14 | 14 | graduate-chemical-engineering (14) |
+| TH.2 | Equations of state and real mixtures; phase and chemical equilibria | 14 | 14 | graduate-chemical-engineering (14) |
+| TH.3 | Classical and statistical thermodynamics of real fluids | 7 | 7 | graduate-chemical-engineering (7) |
+| KN | Advanced kinetics and reactor design (11 of 15) | 12 | 12 | graduate-chemical-engineering (12) |
+| KN.1 | Reactor stability and multiplicity | 12 | 12 | graduate-chemical-engineering (12) |
+| KN.2 | Diffusion in heterogeneous catalysis; catalysis and surface processes | 12 | 12 | graduate-chemical-engineering (12) |
+| KN.3 | Optimal operation and dispersed-phase reactors | 6 | 6 | graduate-chemical-engineering (6) |
+| PS | Advanced process systems engineering (1 of 15; Carnegie Mellon) | 20 | 20 | graduate-chemical-engineering (20) |
+| PS.1 | Process dynamics, measurement and control | 14 | 14 | graduate-chemical-engineering (14) |
+| PS.2 | Separations past the graphical constructions | 6 | 6 | graduate-chemical-engineering (6) |
+| PS.3 | Process modelling, systems thinking and optimisation | 4 | 4 | process-design (4) |
+
+## IChemE Accreditation of Chemical Engineering Programmes, Appendix A Level F (advanced / Other Master's)
+
+https://www.icheme.org/media/26729/university-accreditation-guide.pdf
+
+7 of 7 items have at least one objective answering to them.
+
+| Item | Topic | Objectives | With a drill | Where |
+|---|---|---|---|---|
+| A1 | Level F: comprehensive mathematics and science, shown by application to complex problems | 1 | 1 | graduate-chemical-engineering (1) |
+| A2.2 | Level F fundamentals: the same underlying principles on more complex problems, with the limits of the assumptions critically evaluated | 35 | 35 | graduate-chemical-engineering (35) |
+| A2.3 | Level F modelling: select and adapt computational and analytical techniques; recognise the limits of standard commercial software | 3 | 3 | graduate-chemical-engineering (3) |
+| A2.4 | Level F process and product technology: complex and novel unit operations, and problems with conflicting requirements | 12 | 12 | graduate-chemical-engineering (12) |
+| A2.5 | Level F systems: combine and adapt systems thinking for complex and novel processes | 14 | 14 | graduate-chemical-engineering (14) |
+| A2.6 | Level F process safety: the same principles with systems thinking on more complex problems; limits of current and emerging technology | 5 | 5 | process-design (5) |
+| A2.7 | Level F sustainability, economics and ethics applied to novel and complex situations with conflicting requirements | 5 | 5 | process-design (5) |
+
+## AIChE Body of Knowledge for Chemical Engineers (2022 matrix)
+
+https://www.aiche.org/sites/default/files/docs/pages/aiche_body_of_knowledge_2022.pdf
+
+8 of 8 items have at least one objective answering to them.
+
+| Item | Topic | Objectives | With a drill | Where |
+|---|---|---|---|---|
+| T.BAL | Energy balances involving the first and second law; heat balances with and without reactions | 2 | 2 | process-design (1), thermodynamics (1) |
+| T.EQ | Equilibria, chemical and phase | 3 | 3 | thermodynamics (3) |
+| T.FLOW | Fluid flow; pump and compressor sizing and selection; packed beds | 3 | 3 | fluid-mechanics (3) |
+| T.DES | Plant design: flow configuration and optimisation | 3 | 3 | process-design (3) |
+| T.INST | Plant design: instrumentation | 4 | 4 | process-design (4) |
+| T.OPT | Plant operations and optimisation | 3 | 3 | process-design (3) |
+| T.SU | Plant scale-up | 2 | 2 | fluid-mechanics (1), process-design (1) |
+| X.SAFE | Cross-functional: safety analyses, modelling, procedural policies and regulations | 4 | 4 | process-design (4) |
 
 ## ACS Exams Institute Anchoring Concepts Content Map: General Chemistry (Holme, Luxford & Murphy, J. Chem. Educ. 2015, 92, 1115)
 
@@ -3833,313 +4208,3 @@ https://pubs.acs.org/doi/10.1021/acs.jchemed.9b00856
 | X.D.1 | Calibration functions and linear dynamic range | 3 | 3 | analytical-chemistry (3) |
 | X.D.2 | Reading spectra, chromatograms and voltammograms | 2 | 2 | analytical-chemistry (1), chemistry (1) |
 | X.D.3 | Derivative and log plots; removing outliers | 1 | 1 | analytical-chemistry (1) |
-
-## Alchemistry.org wiki (free energy methods)
-
-https://alchemistry.org/wiki/Main_Page
-
-2 of 3 items have at least one objective answering to them.
-
-| Item | Topic | Objectives | With a drill | Where |
-|---|---|---|---|---|
-| FUND | Free energy fundamentals: definitions, differences only, phase-space overlap | 5 | 5 | molecular-simulation (5) |
-| BP | Best practices: setup, pathways, running, analysis, verification | 16 | 16 | molecular-simulation (16) |
-| EX | Example calculations: ethanol solvation, toluene→phenol in T4 lysozyme, absolute toluene binding | — | — | **nothing yet** |
-
-## Mey et al., Best Practices for Alchemical Free Energy Calculations, LiveCoMS 2 (2020) 18378
-
-https://doi.org/10.33011/livecoms.2.1.18378
-
-24 of 24 items have at least one objective answering to them.
-
-| Item | Topic | Objectives | With a drill | Where |
-|---|---|---|---|---|
-| 1 | What alchemical methods are | 5 | 5 | molecular-simulation (5) |
-| 3 | Why alchemical calculations work | 5 | 5 | molecular-simulation (5) |
-| 4 | What to expect: accuracy, reproducibility, suitability, cost | 5 | 5 | molecular-simulation (5) |
-| 4.5 | Cost | 1 | 1 | molecular-simulation (1) |
-| 4.6 | Exploratory pilot studies | 1 | 1 | molecular-simulation (1) |
-| 5.3 | Input setup and scale; perturbation maps | 1 | 1 | molecular-simulation (1) |
-| 7 | Choosing a protocol | 11 | 11 | molecular-simulation (11) |
-| 7.1.1 | Relative-only choices: topology, mapping, rings, maps, constraints | 2 | 2 | molecular-simulation (2) |
-| 7.1.2 | Absolute-only requirements: standard state and restraints | 1 | 1 | molecular-simulation (1) |
-| 7.2.1 | Weak binders | 1 | 1 | molecular-simulation (1) |
-| 7.2.2 | Net charge changes | 1 | 1 | molecular-simulation (1) |
-| 7.2.3 | Alchemical pathway and soft-core | 1 | 1 | molecular-simulation (1) |
-| 7.2.4 | Sampling schemes | 1 | 1 | molecular-simulation (1) |
-| 7.2.5 | Run length and saved data | 2 | 2 | molecular-simulation (2) |
-| 7.2.6 | Binding modes | 1 | 1 | molecular-simulation (1) |
-| 8 | Analysis | 11 | 11 | molecular-simulation (11) |
-| 8.1 | Equilibration detection | 1 | 1 | molecular-simulation (1) |
-| 8.2 | Decorrelation | 1 | 1 | molecular-simulation (1) |
-| 8.3 | Estimators | 1 | 1 | molecular-simulation (1) |
-| 8.4 | Uncertainty | 2 | 2 | molecular-simulation (2) |
-| 8.5 | Simulation quality: overlap and cycle closure | 2 | 2 | molecular-simulation (2) |
-| 8.6 | Common problems | 1 | 1 | molecular-simulation (1) |
-| 8.7 | Reporting | 2 | 2 | molecular-simulation (2) |
-| 12 | Checklist | 13 | 13 | molecular-simulation (13) |
-
-## PyRosetta Jupyter Notebooks (RosettaCommons), taught as JHU 545.614 / 540.414
-
-https://github.com/RosettaCommons/PyRosetta.notebooks
-
-30 of 33 items have at least one objective answering to them.
-
-| Item | Topic | Objectives | With a drill | Where |
-|---|---|---|---|---|
-| 1 | Getting started | — | — | **nothing yet** |
-| 2 | Introduction to PyRosetta: poses, residues, geometry, visualisation | 2 | 2 | protein-design (2) |
-| 2.1 | Pose basics | 6 | 6 | protein-design (6) |
-| 2.2 | Working with pose residues | 5 | 5 | protein-design (5) |
-| 2.4 | Spatial features of a pose | 1 | 1 | protein-design (1) |
-| 2.5 | Protein geometry | 6 | 6 | protein-design (6) |
-| 3 | Energy score functions | 1 | 1 | protein-design (1) |
-| 4.1 | Basic folding algorithm | 6 | 6 | protein-design (6) |
-| 4.2 | Low-resolution scoring and fragments | 2 | 2 | protein-design (2) |
-| 5.1 | High-resolution movers | 5 | 5 | protein-design (5) |
-| 5.2 | Refinement protocol | 1 | 1 | protein-design (1) |
-| 6.1 | Side-chain conformations and Dunbrack energies | 2 | 2 | protein-design (2) |
-| 6.2 | Packing and relax | 6 | 6 | protein-design (6) |
-| 6.3 | Design with a resfile and FastRelax | 8 | 8 | protein-design (8) |
-| 6.4 | Protein design 2 | 7 | 7 | protein-design (7) |
-| 6.5 | Hydrogen-bond networks before design | 5 | 5 | protein-design (5) |
-| 6.6 | De novo parametric backbone design | 6 | 6 | protein-design (6) |
-| 6.7 | De novo protein design | 5 | 5 | protein-design (5) |
-| 6.8 | Point mutation scan | 8 | 8 | protein-design (8) |
-| 7.1 | Fourier-transform-based docking | 5 | 5 | protein-design (5) |
-| 7.2 | Docking moves | 6 | 6 | protein-design (6) |
-| 8.1 | Global ligand docking | 5 | 5 | protein-design (5) |
-| 8.2 | Ligand docking with a Cartesian score function | 1 | 1 | protein-design (1) |
-| 9.1 | Loop modelling with generalised kinematic closure | 10 | 10 | protein-design (10) |
-| 10 | Symmetry | 10 | 10 | protein-design (10) |
-| 11 | Working with density | 10 | 10 | protein-design (10) |
-| 12.1 | Antibody framework modelling | 10 | 10 | protein-design (10) |
-| 12.2 | Antibody design | 10 | 10 | protein-design (10) |
-| 13 | Carbohydrates | — | — | **nothing yet** |
-| 14 | RNA | — | — | **nothing yet** |
-| 15.1 | Setting up a membrane protein | 10 | 10 | protein-design (10) |
-| 15.2 | Predicting ΔΔG of single point mutations | 5 | 5 | protein-design (5) |
-| 16 | Running in parallel and reproducible distribution | 11 | 11 | protein-design (11) |
-
-## Alford et al., The Rosetta all-atom energy function for macromolecular modeling and design, JCTC 13 (2017) 3031
-
-https://doi.org/10.1021/acs.jctc.7b00125
-
-6 of 6 items have at least one objective answering to them.
-
-| Item | Topic | Objectives | With a drill | Where |
-|---|---|---|---|---|
-| form | The score as a weighted linear sum of terms | 8 | 8 | protein-design (8) |
-| table | The terms and their published weights | 8 | 8 | protein-design (8) |
-| ref | Per-amino-acid reference energies and their role in design | 9 | 9 | protein-design (9) |
-| units | Units: parameterisation in kcal/mol rather than arbitrary energy units | 8 | 8 | protein-design (8) |
-| guidance | Interpreting energies: per-term decomposition, residue and atom-pair tables, ΔΔG of mutation, interface energies | 5 | 5 | protein-design (5) |
-| fa_dun | Backbone-dependent rotamer energy | 1 | 1 | protein-design (1) |
-
-## Chungyoun et al., DL4Proteins Jupyter Notebooks (Gray lab), arXiv 2511.02128
-
-https://arxiv.org/abs/2511.02128
-
-7 of 10 items have at least one objective answering to them.
-
-| Item | Topic | Objectives | With a drill | Where |
-|---|---|---|---|---|
-| WS01 | Neural networks from scratch | — | — | **nothing yet** |
-| WS02 | Neural networks in a framework | — | — | **nothing yet** |
-| WS03 | Convolutional networks | — | — | **nothing yet** |
-| WS04 | Language models for text and protein sequences | 7 | 7 | protein-design (7) |
-| WS05 | Language-model embeddings and transfer learning | 1 | 1 | protein-design (1) |
-| WS06 | Structure prediction as a black box: inputs and confidence metrics | 8 | 8 | protein-design (8) |
-| WS07 | Graph neural networks for proteins | 7 | 7 | protein-design (7) |
-| WS08 | Denoising diffusion models | 7 | 7 | protein-design (7) |
-| WS09 | End-to-end design: diffusion, inverse folding and structure prediction | 9 | 9 | protein-design (9) |
-| WS10 | All-atom diffusion for small-molecule binders | 7 | 7 | protein-design (7) |
-
-## Kuhlman & Bradley, Advances in protein structure prediction and design, Nat Rev Mol Cell Biol 20 (2019) 681
-
-https://doi.org/10.1038/s41580-019-0163-x
-
-6 of 7 items have at least one objective answering to them.
-
-| Item | Topic | Objectives | With a drill | Where |
-|---|---|---|---|---|
-| 1 | Introduction: prediction and the inverse problem | — | — | **nothing yet** |
-| 2 | Navigating energy landscapes: minimisation, Monte Carlo, molecular dynamics | 5 | 5 | protein-design (5) |
-| 3 | Folding forces, energy functions and multi-resolution modelling | 5 | 5 | protein-design (5) |
-| 4 | Structure prediction: templates, fragments, coevolution, deep learning | 7 | 7 | protein-design (7) |
-| 5 | Protein design: de novo, template-based, sequence optimisation, negative and multi-state, interfaces, ligands | 25 | 25 | protein-design (25) |
-| 6 | Validating computational predictions | 7 | 7 | protein-design (7) |
-| 7 | Applications and open challenges | 5 | 5 | protein-design (5) |
-
-## Johns Hopkins 545.614 Computational Protein Structure Prediction and Design (course topic list)
-
-https://ep.jhu.edu/courses/545614-computational-protein-structure-prediction-and-design/
-
-5 of 5 items have at least one objective answering to them.
-
-| Item | Topic | Objectives | With a drill | Where |
-|---|---|---|---|---|
-| T1 | Protein folding and docking | 2 | 2 | protein-design (2) |
-| T2 | Design of ligand-binding sites | 1 | 1 | protein-design (1) |
-| T3 | Design of turns and folds | 2 | 2 | protein-design (2) |
-| T4 | Design of protein interfaces | 1 | 1 | protein-design (1) |
-| T5 | Structure, biophysics, optimisation and informatics underlying the field | 3 | 3 | protein-design (3) |
-
-## Psi4NumPy interactive tutorials (Smith et al., JCTC 14 (2018) 3504)
-
-https://github.com/psi4/psi4numpy
-
-19 of 19 items have at least one objective answering to them.
-
-| Item | Topic | Objectives | With a drill | Where |
-|---|---|---|---|---|
-| 01 | Psi4NumPy basics: molecules, wavefunctions and integrals | 7 | 7 | electronic-structure (7) |
-| 03 | Hartree-Fock (module group) | 13 | 13 | electronic-structure (13) |
-| 03a | Restricted Hartree-Fock | 2 | 2 | electronic-structure (2) |
-| 03b | Direct inversion of the iterative subspace | 2 | 2 | electronic-structure (2) |
-| 03c | Unrestricted Hartree-Fock | 2 | 2 | electronic-structure (2) |
-| 03d | Restricted open-shell Hartree-Fock | 1 | 1 | electronic-structure (1) |
-| 04 | Density functional theory (module group) | 9 | 9 | electronic-structure (9) |
-| 04a | Density functional theory: grids and quadrature | 1 | 1 | electronic-structure (1) |
-| 04b | LDA kernel | 1 | 1 | electronic-structure (1) |
-| 04c | GGA and meta-GGA kernels | 1 | 1 | electronic-structure (1) |
-| 04d | VV10 non-local correlation | 1 | 1 | electronic-structure (1) |
-| 04e | DFT with exact exchange | 1 | 1 | electronic-structure (1) |
-| 05 | Moller-Plesset perturbation theory (module group) | 9 | 9 | electronic-structure (9) |
-| 05a | Conventional MP2 | 2 | 2 | electronic-structure (2) |
-| 05b | Density-fitted MP2 | 1 | 1 | electronic-structure (1) |
-| 06 | Molecular properties: dipoles, polarisabilities and response | 8 | 8 | electronic-structure (8) |
-| 07 | Symmetry-adapted perturbation theory | 8 | 8 | electronic-structure (8) |
-| 08 | CEPA0 and coupled-cluster doubles | 9 | 9 | electronic-structure (9) |
-| 11 | One- and two-electron integrals and density fitting | 7 | 7 | electronic-structure (7) |
-
-## MolSSI Education, Quantum Mechanics Tools (lesson)
-
-https://education.molssi.org/qm-tools/
-
-5 of 7 items have at least one objective answering to them.
-
-| Item | Topic | Objectives | With a drill | Where |
-|---|---|---|---|---|
-| 1 | Geometry optimisation | 7 | 7 | electronic-structure (7) |
-| 2 | Intramolecular potential energy surfaces | 7 | 7 | electronic-structure (7) |
-| 3 | Intermolecular potential energy surfaces | 7 | 7 | electronic-structure (7) |
-| 4 | Basis-set convergence of geometries | 9 | 9 | electronic-structure (9) |
-| 5 | Basis-set convergence of vibrational frequencies | 7 | 7 | electronic-structure (7) |
-| 6 | Standard redox potentials | — | — | **nothing yet** |
-| 7 | Version control for computational projects | — | — | **nothing yet** |
-
-## Szabo & Ostlund, Modern Quantum Chemistry (Dover, 1996)
-
-https://store.doverpublications.com/products/9780486691862
-
-0 of 7 items have at least one objective answering to them.
-
-| Item | Topic | Objectives | With a drill | Where |
-|---|---|---|---|---|
-| 1 | Mathematical review and notation | — | — | **nothing yet** |
-| 2 | Many-electron wavefunctions and operators | — | — | **nothing yet** |
-| 3 | The Hartree-Fock approximation | — | — | **nothing yet** |
-| 4 | Configuration interaction | — | — | **nothing yet** |
-| 5 | Pair and coupled-pair theories | — | — | **nothing yet** |
-| 6 | Many-body perturbation theory | — | — | **nothing yet** |
-| 7 | The one-particle Green's function | — | — | **nothing yet** |
-
-## Hayes Group New Student Orientation (RyanHayes-Lab/Orientation)
-
-https://github.com/RyanHayes-Lab/Orientation
-
-9 of 13 items have at least one objective answering to them.
-
-| Item | Topic | Objectives | With a drill | Where |
-|---|---|---|---|---|
-| EXP | Expectations: group goals, values, hours, group meeting, publication and conference norms | — | — | **nothing yet** |
-| START | Startup: cluster, Slack and office access | — | — | **nothing yet** |
-| CL1 | Cluster: bash and linux, logging in to hpc3, the shell-novice tutorial | 1 | 1 | molecular-simulation (1) |
-| CL2 | Cluster: lab storage — home, CRSP and BeeGFS quotas, group paths, permissions and the sticky bit | 2 | 2 | molecular-simulation (2) |
-| CL3 | Cluster: ssh keys | — | — | **nothing yet** |
-| CL4 | Cluster: the SLURM queue — login versus compute nodes, interactive jobs and sbatch, and the options -p, -A, --time, --gres, --mem | 2 | 2 | molecular-simulation (2) |
-| LIT | Literature: the foundational λ-dynamics, MSλD, ALF, implicit-constraint and BLaDE papers, and the large-sequence-space applications | 5 | 5 | molecular-simulation (5) |
-| TUT1 | Tutorial 1: molecular dynamics in CHARMM — running CHARMM, CHARMM-GUI setup, propka protonation, periodic boundaries, ions, and BLaDE equilibration and production | 6 | 6 | molecular-simulation (6) |
-| TUT2 | Tutorial 2: multisite λ dynamics — system.inp against step5_production.inp, alchemical_definitions.inp, toppar soft link, the aa_stream patch/select/delete/blocksetup streams, and alf_info.py | 4 | 4 | molecular-simulation (4) |
-| TUT3 | Tutorial 3: adaptive landscape flattening — runflat, runprod and postprocess, the flattening and production schedules, best practice for loss, bias and implicit constraints, and cleanup | 9 | 9 | molecular-simulation (9) |
-| TUT4 | Tutorial 4: CHARMM scripting and engines — titles, set/calc, @ and @@, ? values, stream, if/goto, and the standard, DOMDEC, BLaDE and OpenMM engines | 2 | 2 | molecular-simulation (2) |
-| INST | Installation: CHARMM and pyCHARMM builds, ALF, conda, and the module set used on hpc3 | 1 | 1 | molecular-simulation (1) |
-| ETC | Etcetera: conferences and other useful links | — | — | **nothing yet** |
-
-## RyanHayes-Lab/lambda-dynamics-examples (example run files)
-
-https://github.com/RyanHayes-Lab/lambda-dynamics-examples
-
-4 of 4 items have at least one objective answering to them.
-
-| Item | Topic | Objectives | With a drill | Where |
-|---|---|---|---|---|
-| SYS | The four example systems: benzene-derivative solvation, p38 ligand binding, protein G site-saturation folding, T4 lysozyme side-chain mutation | 2 | 2 | molecular-simulation (2) |
-| PREP | The per-system prep directory: alf_info.py, nsubs, nblocks, ncentral, nreps, toppar and the build scripts | 2 | 2 | molecular-simulation (2) |
-| TMPL | The templates directory: subsetAll.sh job chaining with SLURM dependencies, runflat.sh, runprod.sh, postprocess.sh, msld_flat.inp and msld_prod.inp | 3 | 3 | molecular-simulation (3) |
-| LIN | Telling nonlinear from linearized ALF by the lmalf key, and the 8–9 substituent limit of linearized ALF | 2 | 2 | molecular-simulation (2) |
-
-## NSPE Code of Ethics for Engineers (as revised July 2019)
-
-https://www.nspe.org/career-growth/nspe-code-ethics-engineers
-
-9 of 20 items have at least one objective answering to them.
-
-| Item | Topic | Objectives | With a drill | Where |
-|---|---|---|---|---|
-| C1 | Hold the public's safety, health and welfare paramount | 1 | 1 | process-design (1) |
-| C2 | Work only in areas of competence | 1 | 1 | process-design (1) |
-| C3 | Make public statements objectively and truthfully | — | — | **nothing yet** |
-| C4 | Act as a faithful agent or trustee for each employer and client | 1 | 1 | process-design (1) |
-| C5 | Avoid deceptive acts | — | — | **nothing yet** |
-| C6 | Conduct oneself honourably, lawfully and so as to serve the profession | — | — | **nothing yet** |
-| R1 | Rules of practice: public safety — escalate an overridden judgment, approve only conforming documents, keep information confidential, refuse fraudulent ventures, do not aid unlicensed practice, report violations | 2 | 2 | process-design (2) |
-| R2 | Rules of practice: competence — accept and seal only work one is qualified for, and only one's own technical segments | 1 | 1 | process-design (1) |
-| R3 | Rules of practice: objective statements — complete and honest reports, opinions grounded in fact and expertise, interested parties disclosed | — | — | **nothing yet** |
-| R4 | Rules of practice: faithful agency — disclose conflicts of interest, no double compensation without consent, no improper payments, recuse from decisions involving one's own firm | 1 | 1 | process-design (1) |
-| R5 | Rules of practice: avoiding deception — no misstated qualifications or responsibility, no improper inducements to win work | — | — | **nothing yet** |
-| O1 | Professional obligations: integrity — admit errors, warn of likely failure, disclose outside work, treat all fairly | — | — | **nothing yet** |
-| O2 | Professional obligations: the public interest — civic involvement, public education, sustainability, continuing development, never seal non-conforming plans | — | — | **nothing yet** |
-| O3 | Professional obligations: no public deception — no material misstatement or omission, no false authorship | — | — | **nothing yet** |
-| O4 | Professional obligations: confidentiality — client and employer information, and not exploiting project knowledge without consent | 1 | 1 | process-design (1) |
-| O5 | Professional obligations: independence — gifts and commissions must not influence a professional decision | 1 | 1 | process-design (1) |
-| O6 | Professional obligations: fair competition — no unfair criticism of peers, no compromising contingency arrangements, limits on outside work | — | — | **nothing yet** |
-| O7 | Professional obligations: respect for peers — no malicious harm to reputation, report misconduct, review limits in private practice | — | — | **nothing yet** |
-| O8 | Professional obligations: accountability — personal responsibility for one's work, registration laws, no concealment behind an entity | — | — | **nothing yet** |
-| O9 | Professional obligations: credit and ownership — credit those responsible, respect client-owned designs, settle intellectual-property ownership in advance | 1 | 1 | process-design (1) |
-
-## 29 CFR 1910.119, Process safety management of highly hazardous chemicals
-
-https://www.osha.gov/laws-regs/regulations/standardnumber/1910/1910.119
-
-0 of 15 items have at least one objective answering to them.
-
-| Item | Topic | Objectives | With a drill | Where |
-|---|---|---|---|---|
-| b | Application and definitions: which processes are covered | — | — | **nothing yet** |
-| c | Employee participation | — | — | **nothing yet** |
-| d | Process safety information | — | — | **nothing yet** |
-| e | Process hazard analysis, and the methodologies it may use | — | — | **nothing yet** |
-| f | Operating procedures | — | — | **nothing yet** |
-| g | Training | — | — | **nothing yet** |
-| h | Contractors | — | — | **nothing yet** |
-| i | Pre-startup safety review | — | — | **nothing yet** |
-| j | Mechanical integrity | — | — | **nothing yet** |
-| k | Hot work permit | — | — | **nothing yet** |
-| l | Management of change | — | — | **nothing yet** |
-| m | Incident investigation | — | — | **nothing yet** |
-| n | Emergency planning and response | — | — | **nothing yet** |
-| o | Compliance audits | — | — | **nothing yet** |
-| p | Trade secrets | — | — | **nothing yet** |
-
-## NCAA Men's Basketball Rules (2025-26 rules book and the approved rules changes)
-
-https://ncaaorg.s3.amazonaws.com/championships/sports/basketball/rules/men/2025-26PRMBB_RulesChanges.pdf
-
-0 of 2 items have at least one objective answering to them.
-
-| Item | Topic | Objectives | With a drill | Where |
-|---|---|---|---|---|
-| CH | Rules changes for 2025-26: coach's challenge, foul continuation, Flagrant 1, shot-clock operation | — | — | **nothing yet** |
-| TOC | Rules book structure: the articles on the clock, violations, fouls, penalties and officiating mechanics | — | — | **nothing yet** |

@@ -1,0 +1,14 @@
+# The mathematical-methods course every one of the fifteen departments in cheme-grad-core requires, written as a
+# source so the gc.* skills have a home. This is NOT a book: no graduate methods text was read. The "chapters" are
+# the MM items of the crosswalk, which were themselves taken from those departments' own course descriptions. The
+# canonical texts in this area are well known, but since none was read none is claimed here.
+id: cheme-grad-methods
+title: "Graduate chemical engineering mathematical methods (course areas)"
+short: "Grad ChemE methods"
+year: 2026
+field: chemical engineering
+chapters:
+  - { n: 1, title: "Scaling and non-dimensionalisation; which terms a limit lets you drop", skills: [gc.scaling] }
+  - { n: 2, title: "Perturbation and asymptotic methods; regular and singular limits, boundary layers", skills: [gc.perturbation] }
+  - { n: 3, title: "Similarity solutions and combination of variables", skills: [gc.similarity] }
+  - { n: 4, title: "Eigenfunction expansions and Sturm-Liouville problems in non-Cartesian geometry", skills: [gc.eigen] }

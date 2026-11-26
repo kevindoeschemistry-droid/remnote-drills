@@ -7,7 +7,21 @@ import mpmath as mp
 from opl_dsl import Q, L, U
 
 FW, FILE, IDEA = "GC", "gc-core", "SOLVE"
-S = lambda c: [f"uci-cbe-core:{c}"]
+M = lambda *c: [f"cheme-grad-core:{x}" for x in c]   # the crosswalk, now primary
+F = lambda *c: [f"icheme-level-f:{x}" for x in c]    # the level, not the topic
+
+# Units 1-6 were written when UCI's catalogue descriptions were the whole basis, so each cited one course. The
+# rebase keeps the UCI citation (it is one of the fifteen departments) and adds the crosswalk item the course
+# answers, plus the IChemE Level F outcome that sets the level. Citations live here rather than in a cite script
+# because opl_fill.py regenerates this framework's block and would drop anything written into the YAML.
+_CW = {
+    "220B": M("TR", "TR.2") + F("A2.2"),                 # momentum transport
+    "220A": M("TR", "TR.1", "TR.3") + F("A2.2"),         # heat and mass transport
+    "240": M("TH", "TH.1", "TH.2", "TH.3") + F("A2.2"),  # advanced thermodynamics
+    "210": M("KN", "KN.1", "KN.2", "KN.3") + F("A2.4"),  # advanced kinetics and reactor design
+    "200": M("PS", "PS.1") + F("A2.5"),                  # process dynamics and control
+}
+S = lambda c: [f"uci-cbe-core:{c}"] + _CW[c]
 
 mp.mp.dps = 30
 _R = mp.mpf("8.314462618")
@@ -41,7 +55,7 @@ for tau in (1, 5, 10):
         FOP.append({"tau": tau, "th": th, "wu": float((lo + hi) / 2)})
 
 UNITS = [
-U(1, "gc-momentum", "Momentum transport (CBE 220B)", [("Viscous, creeping and inviscid flow", [
+U(1, "gc-momentum", "Momentum transport", [("Viscous, creeping and inviscid flow", [
     L("A", "Find the flow rate in an annulus from the Navier–Stokes equation in cylindrical coordinates.", "Solve (1/r)(r v′)′ = −(ΔP/L)/μ with no slip on both walls.", [], [
         Q("gc-annulus-flow", "fm.viscous", "Water ($\\mu = {{mu}}$ mPa·s) flows under a pressure gradient of {{G}} Pa/m through the annulus between a rod of radius {{k}}R and a pipe of radius R = {{Rc}} cm. What is the volumetric flow rate, in mL/s?",
           given={"mu": {"pick": [0.89, 1.0]}, "G": {"pick": [50, 100, 200]}, "k": {"pick": [0.25, 0.5, 0.75]}, "Rc": {"pick": [1, 2]}},
@@ -86,7 +100,7 @@ U(1, "gc-momentum", "Momentum transport (CBE 220B)", [("Viscous, creeping and in
           given={"lam": {"pick": [0, 0.01, 0.5, 1, 5]}}, value="3*(1 + lam)/(2 + 3*lam)", tex="U/U_s", verify="6*pi/(2*pi*(2 + 3*nsimplify(lam))/(1 + nsimplify(lam)))",
           explain="Internal circulation lets the interface move, cutting drag; a gas bubble (λ = 0) falls 1.5 times faster. Traces of surfactant immobilise the surface and bring it back to Stokes")], std=S("220B")),
 ])]),
-U(2, "gc-transport", "Heat and mass transport (CBE 220A)", [("Scaling, unsteady and convective transport", [
+U(2, "gc-transport", "Heat and mass transport", [("Scaling, unsteady and convective transport", [
     L("A", "Find the Taylor dispersion coefficient.", "K = D + U²a²/(48D) for laminar flow in a tube of radius a.", [], [
         Q("gc-taylor-dispersion", "mass.unsteady", "A solute (D = {{Dm}} × 10⁻⁹ m²/s) is carried at mean speed U through a capillary of radius {{a}} μm. At what U, in mm/s, does Taylor dispersion double the effective diffusivity?",
           given={"Dm": {"pick": [0.5, 1, 2]}, "a": {"pick": [50, 100, 250]}}, value="sqrt(48)*Dm*1e-9/(a*1e-6)*1000", tex="U",
@@ -120,7 +134,7 @@ U(2, "gc-transport", "Heat and mass transport (CBE 220A)", [("Scaling, unsteady 
           verify="integrate(Rational(332, 1000)*sqrt(U*Symbol('q', positive=True)/Rational(15, 10**6))*(Rational(15, 10**6)/Rational(61, 10**7))**Rational(1, 3)*Rational(61, 10**7)/Symbol('q', positive=True), (Symbol('q', positive=True), 0, Rational(L, 100)))/Rational(L, 100)*1000",
           explain="The heat–mass analogy: Sc replaces Pr. The local coefficient falls as $x^{-1/2}$, so the leading edge does most of the transfer")], std=S("220A")),
 ])]),
-U(3, "gc-thermo", "Advanced thermodynamics (CBE 240)", [("Equations of state, mixtures and equilibria", [
+U(3, "gc-thermo", "Advanced thermodynamics", [("Equations of state, mixtures and equilibria", [
     L("A", "Find a van der Waals critical temperature from its constants.", "dP/dV = d²P/dV² = 0 gives T_c = 8a/(27Rb).", [], [
         Q("gc-vdw-critical", "thermo.stability", "{{g}} has van der Waals constants a = {{a}} Pa·m⁶/mol² and b = {{b}} × 10⁻⁵ m³/mol. What critical temperature does the equation predict, in K? ($R = 8.314$)",
           cases=[{"g": "CO₂", "a": 0.3640, "b": 4.267}, {"g": "Methane", "a": 0.2283, "b": 4.278}, {"g": "Water", "a": 0.5536, "b": 3.049}, {"g": "Nitrogen", "a": 0.1370, "b": 3.870}],
@@ -159,7 +173,7 @@ U(3, "gc-thermo", "Advanced thermodynamics (CBE 240)", [("Equations of state, mi
           verify="solve(Eq(log(nsimplify(r)) + nsimplify(A)*(1 - x)**2 - nsimplify(A)*x**2, 0), x)[0]",
           explain="With ln γ₁ = A x₂² and ln γ₂ = A x₁², the condition is linear in x₁. Positive deviations (A > 0) give a maximum-pressure azeotrope when A exceeds |ln(P₁/P₂)|")], std=S("240")),
 ])]),
-U(4, "gc-reactors", "Reaction engineering (CBE 210)", [("Stability, catalysis, optimisation and dispersed phases", [
+U(4, "gc-reactors", "Advanced kinetics and reactor design", [("Stability, catalysis, optimisation and dispersed phases", [
     L("A", "Judge the stability of a CSTR steady state by the slope condition.", "Stable when the heat-removal line is steeper than the heat-generation curve: dR/dT > dG/dT.", [], [
         Q("gc-cstr-slope", "cre.nonisothermal", "At a steady state of a first-order exothermic CSTR, $k\\tau$ = {{kt}}, the adiabatic rise $\\Delta T_{ad}$ = {{J}} K, $E_a$ = {{Ea}} kJ/mol and T = {{T}} K. The heat-removal line R(T) has slope {{Rs}} (in G's units). Is the steady state stable?",
           given={"kt": {"pick": [0.2, 1, 4]}, "J": {"pick": [100, 200, 300]}, "Ea": {"pick": [60, 90]}, "T": {"pick": [350, 400]}, "Rs": {"pick": [1, 1.5, 2.5]}},
@@ -194,7 +208,7 @@ U(4, "gc-reactors", "Reaction engineering (CBE 210)", [("Stability, catalysis, o
           value="1 - exp(-(k/kd)*(1 - exp(-kd*t)))", tex="X", verify="1 - exp(-integrate(nsimplify(k)*exp(-nsimplify(kd)*Symbol('tt')), (Symbol('tt'), 0, t)))",
           explain="Conversion levels off at 1 − e^{−k/k_d} however long you wait: once the catalyst is dead, time buys nothing")], std=S("210")),
 ])]),
-U(5, "gc-control", "Process dynamics and control (CBE 200)", [("Responses, stability and tuning", [
+U(5, "gc-control", "Process dynamics and control", [("Responses, stability and tuning", [
     L("A", "Find a time from a first-order step response.", "y = KM(1 − e^{−t/τ}); 63.2% at τ, 95% at 3τ, 99% at 4.6τ.", [], [
         Q("gc-first-order-time", "design.control", "A first-order process with τ = {{tau}} min gets a step input. How long, in minutes, until the output has made {{p}}% of its final change?",
           given={"tau": {"pick": [2, 5, 12]}, "p": {"pick": [50, 90, 95, 99]}}, value="-tau*log(1 - p/100)", tex="t",
@@ -227,24 +241,97 @@ U(5, "gc-control", "Process dynamics and control (CBE 200)", [("Responses, stabi
           cases=FOP, value="wu", tex="\\omega_u", verify="gc_fopdt_wu(tau, th)",
           explain="Dead time adds lag without lowering the amplitude, so it limits how hard the loop can be pushed: the ultimate gain is $\\sqrt{1 + \\omega_u^2\\tau^2}/K$")], std=S("200")),
 ])]),
-U(6, "gc-separations", "Separations past the McCabe–Thiele diagram", [("Batch distillation and absorption", [
+U(6, "gc-separations", "Separations past the graphical constructions", [("Batch distillation and absorption", [
     L("A", "Find what remains in a Rayleigh batch distillation.", "ln(W₀/W) = ∫ dx/(y − x) from x to x₀; with constant α it has a closed form.", [], [
         Q("gc-rayleigh", "sep.distillation", "A still holds a binary with relative volatility α = {{al}} at light-key mole fraction {{x0}}. Simple batch distillation continues until the liquid is at {{x1}}. What fraction of the original charge remains?",
           given={"al": {"pick": [1.5, 2.5, 4]}, "x0": {"pick": [0.5, 0.6]}, "x1": {"pick": [0.1, 0.2, 0.3]}},
           value="exp(-(log(x0/x1) + al*log((1 - x1)/(1 - x0)))/(al - 1))", tex="W/W_0", verify="gc_rayleigh(al, x0, x1)",
-          explain="Each bit of vapour leaves richer than the liquid, so the pot strips the light key gradually; a small α needs most of the charge boiled off")], std=["pe-chemical:6.B"]),
+          explain="Each bit of vapour leaves richer than the liquid, so the pot strips the light key gradually; a small α needs most of the charge boiled off")], std=["pe-chemical:6.B"] + M("PS", "PS.2") + F("A2.4")),
     L("B", "Find the minimum absorbent rate.", "(L/G)_min = (y_in − y_out)/(x*_out − x_in), x*_out = y_in/m for a dilute linear system.", [], [
         Q("gc-min-absorbent", "sep.absorption", "A gas with {{yin}}% solute is scrubbed to {{yout}}% with solute-free liquid; equilibrium is y = {{m}}x. What is the minimum L/G?",
           given={"yin": {"pick": [2, 5]}, "yout": {"pick": [0.1, 0.25, 0.5]}, "m": {"pick": [0.5, 1.2, 2]}}, value="(yin - yout)/100/(yin/100/m)", tex="(L/G)_{min}",
           verify="solve(Eq(x*(nsimplify(yin)/100/nsimplify(m)), (nsimplify(yin) - nsimplify(yout))/100), x)[0]",
-          explain="At minimum flow the liquid leaving is in equilibrium with the gas entering: a pinch at the rich end and infinitely many stages. Practice uses 1.2–1.5 times the minimum")], std=["pe-chemical:6.B"]),
+          explain="At minimum flow the liquid leaving is in equilibrium with the gas entering: a pinch at the rich end and infinitely many stages. Practice uses 1.2–1.5 times the minimum")], std=["pe-chemical:6.B"] + M("PS", "PS.2") + F("A2.4")),
     L("C", "Find where the feed line meets the rectifying line.", "q-line y = qx/(q − 1) − z/(q − 1); rectifying line y = Rx/(R + 1) + x_D/(R + 1).", [], [
         Q("gc-q-line-intersection", "sep.distillation", "A column runs at reflux ratio R = {{R}} with distillate $x_D$ = {{xd}}. The feed (z = {{z}}) is {{f}}% vapour by moles. At what x do the q-line and the rectifying line cross?",
           given={"R": {"pick": [1.5, 2, 3]}, "xd": {"pick": [0.9, 0.95]}, "z": {"pick": [0.4, 0.5]}, "f": {"pick": [25, 50, 75]}},
           value="(z/(1 - f/100 - 1) + xd/(R + 1))/((1 - f/100)/(1 - f/100 - 1) - R/(R + 1))", tex="x",
           verify="solve(Eq((1 - Rational(f, 100))*x/(-Rational(f, 100)) - nsimplify(z)/(-Rational(f, 100)), nsimplify(R)*x/(nsimplify(R) + 1) + nsimplify(xd)/(nsimplify(R) + 1)), x)[0]",
-          explain="q is the liquid fraction of the feed (1 − vapour fraction). Saturated liquid (q = 1) gives a vertical q-line at x = z; saturated vapour a horizontal one at y = z")], std=["pe-chemical:6.B"]),
+          explain="q is the liquid fraction of the feed (1 − vapour fraction). Saturated liquid (q = 1) gives a vertical q-line at x = z; saturated vapour a horizontal one at y = z")], std=["pe-chemical:6.B"] + M("PS", "PS.2") + F("A2.4")),
 ])]),
+U(7, "gc-methods", "Mathematical methods past Kreyszig", [
+    ("Scaling and asymptotics", [
+    L("A", "Scale a convection-diffusion problem and say which term the limit drops.", "Pe = UL/D weighs convection against diffusion; at large Pe the diffusive term survives only in a thin layer, so dropping it everywhere is wrong at the boundary.", [], [
+        Q("gc-peclet-drop", "gc.scaling", "A channel of length {{L}} cm carries a solution at {{U}} cm/s; the solute diffusivity is {{D}}e-5 cm²/s. What is the Péclet number UL/D?",
+          given={"L": {"pick": [2, 10, 50]}, "U": {"pick": [0.05, 0.4, 2]}, "D": {"pick": [1, 5]}},
+          value="U*L/(D*1e-5)", tex="Pe",
+          verify="nsimplify(U)*L/(D*Rational(1, 100000))",
+          explain="Pe compares convection with diffusion over the whole length. Large Pe does not license dropping diffusion outright: it confines it to a boundary layer, which is the distinction between a regular and a singular limit")], std=M("MM", "MM.1") + F("A1", "A2.2")),
+    L("B", "Find the length at which two transport mechanisms balance.", "Setting Pe = 1 gives the crossover length L = D/U: below it diffusion wins, above it convection does.", [], [
+        Q("gc-crossover-length", "gc.scaling", "A solute of diffusivity {{D}}e-5 cm²/s sits in a flow of {{U}} cm/s. Below what length, in micrometres, does diffusion carry more than convection?",
+          given={"D": {"pick": [1, 2, 8]}, "U": {"pick": [0.01, 0.1, 1]}},
+          value="D*1e-5/U*1e4", tex="L", verify="D*Rational(1, 100000)/nsimplify(U)*10000",
+          explain="The crossover length is where the dimensionless group is one. Every scaling argument is this: a group of order one marks the length, time or concentration at which the physics changes hands")], std=M("MM.1")),
+    L("C", "Get a boundary-layer thickness from the scaling alone.", "Balancing convection along the plate with diffusion across it gives δ/L ~ Re^(-1/2), without solving anything.", [], [
+        Q("gc-bl-scaling", "gc.scaling", "Flow over a plate of length {{L}} cm has Re_L = {{Re}}. From the scaling δ/L ~ Re^(-1/2), how thick is the momentum boundary layer at the trailing edge, in millimetres?",
+          given={"L": {"pick": [5, 20, 100]}, "Re": {"pick": [400, 10000, 250000]}},
+          value="L*Re^(-1/2)*10", tex="\\delta",
+          verify="L*Re**Rational(-1, 2)*10",
+          explain="Scaling gets the exponent and the order of magnitude for free; the Blasius solution only fixes the constant (δ ≈ 5.0 L/√Re). Knowing which part needs the full solution is the point")], std=M("MM.1", "MM.2") + F("A2.2")),
+    L("D", "Find the first correction from a regular perturbation.", "For x² + εx − 1 = 0, writing x = x₀ + εx₁ + … gives x₀ = 1 and x₁ = −1/2, so x ≈ 1 − ε/2.", [], [
+        Q("gc-regular-perturbation", "gc.perturbation", "The root near 1 of $x^2 + \\varepsilon x - 1 = 0$ is expanded as $x = x_0 + \\varepsilon x_1 + O(\\varepsilon^2)$. For ε = {{ep}}, what does the two-term expansion give?",
+          given={"ep": {"pick": [0.02, 0.1, 0.25]}},
+          value="1 - ep/2", tex="x", verify="1 - nsimplify(ep)/2",
+          explain="A regular perturbation works because the ε → 0 problem has the same character as the full one. The exact root is $(-\\varepsilon + \\sqrt{\\varepsilon^2 + 4})/2$, so the error is $O(\\varepsilon^2)$")], std=M("MM.2")),
+    L("E", "Size the inner layer of a singular perturbation.", "For εy″ + y′ + y = 0 the highest derivative is lost at ε = 0, so a layer of thickness O(ε) carries the dropped boundary condition.", [], [
+        Q("gc-singular-layer", "gc.perturbation", "In $\\varepsilon y'' + y' + y = 0$ on $0 \\le x \\le 1$ with ε = {{ep}}, the inner variable is $X = x/\\varepsilon$. Over what fraction of the domain, as a percentage, does the inner layer span three inner units?",
+          given={"ep": {"pick": [0.001, 0.01, 0.05]}},
+          value="3*ep*100", tex="\\%", verify="3*nsimplify(ep)*100",
+          explain="Setting ε = 0 drops the second derivative and with it one boundary condition, which is the signature of a singular limit. The lost condition is recovered in a layer whose thickness is the ε that multiplies the highest derivative")], std=M("MM.2") + F("A2.2")),
+    ]),
+    ("Similarity and eigenfunction expansions", [
+    L("A", "Find a penetration depth from the similarity variable.", "Diffusion into a half-space depends on x and t only through η = x/√(4Dt), so the depth grows as √(4Dt).", [], [
+        Q("gc-penetration-depth", "gc.similarity", "A species of diffusivity {{D}}e-5 cm²/s diffuses into a quiescent half-space for {{tm}} minutes. Taking the penetration depth as √(4Dt), how deep is it in millimetres?",
+          given={"D": {"pick": [1, 3, 9]}, "tm": {"pick": [1, 10, 60]}},
+          value="sqrt(4*D*1e-5*tm*60)*10", tex="\\delta",
+          verify="sqrt(4*D*Rational(1, 100000)*tm*60)*10",
+          explain="Two variables collapse into one because the half-space has no length scale of its own. The depth going as √t, not t, is the whole content of the similarity solution")], std=M("MM.3")),
+    L("B", "Say when a semi-infinite solution stops being valid.", "The similarity solution assumes the far boundary is never felt; it fails once √(4Dt) reaches the slab's half-thickness, at t = h²/(4D).", [], [
+        Q("gc-similarity-fails", "gc.similarity", "A slab of half-thickness {{h}} mm has diffusivity {{D}}e-5 cm²/s. Beyond what time, in seconds, does the semi-infinite similarity solution stop applying?",
+          given={"h": {"pick": [0.5, 2, 10]}, "D": {"pick": [1, 4]}},
+          value="(h/10)^2/(4*D*1e-5)", tex="t", verify="(nsimplify(h)/10)**2/(4*D*Rational(1, 100000))",
+          explain="Every similarity solution rests on there being no length scale to compare with. This is the assumption IChemE Level F asks to be checked: past this time the slab is finite and an eigenfunction expansion takes over")], std=M("MM.3") + F("A2.2")),
+    L("C", "Find the slowest decay mode in a non-Cartesian geometry.", "A sphere's eigenvalues are λ_n = nπ/R exactly, so the slowest mode decays as exp(−π²Dt/R²) — unlike a cylinder, whose eigenvalues are Bessel zeros.", [], [
+        Q("gc-sphere-slowest-mode", "gc.eigen", "A sphere of radius {{R}} mm with diffusivity {{D}}e-5 cm²/s is released into a bath. What is the time constant $R^2/(\\pi^2 D)$ of its slowest mode, in seconds?",
+          given={"R": {"pick": [1, 5, 20]}, "D": {"pick": [1, 6]}},
+          value="(R/10)^2/(pi^2*D*1e-5)", tex="\\tau",
+          verify="(nsimplify(R)/10)**2/(pi**2*D*Rational(1, 100000))",
+          explain="In a sphere the substitution u = rc turns the problem Cartesian, so the eigenvalues are nπ/R in closed form. A cylinder has no such luck: its eigenvalues are the zeros of J₀, which have to be looked up or computed")], std=M("MM.4")),
+    L("D", "Decide how many terms an expansion needs.", "Successive terms decay as exp(−n²π²Fo), so the second term is exp(−3π²Fo) of the first: past Fo ≈ 0.2 one term is enough.", [], [
+        Q("gc-one-term-error", "gc.eigen", "In a slab's eigenfunction expansion the terms carry $\\exp(-n^2\\pi^2 Fo/4)$. At Fo = {{fo}}, what is the ratio of the second term's exponential to the first's?",
+          given={"fo": {"pick": [0.1, 0.5, 2]}},
+          value="exp(-8*pi^2*fo/4)", tex="ratio",
+          verify="exp(-8*pi**2*nsimplify(fo)/4)",
+          explain="The series is its own error estimate. Early in the transient every term matters and the series converges slowly, which is exactly when the similarity solution is the right tool instead")], std=M("MM.4") + F("A2.3")),
+    ]),
+    ("Numerical methods and the limits of the software", [
+    L("A", "Find the step an explicit solver is held to by stiffness.", "Forward Euler is stable only for Δt < 2/|λ_max|, so a stiff system is limited by its fastest mode however slowly the answer evolves.", [], [
+        Q("gc-stiff-step", "nm.ode", "A linear system has eigenvalues −{{lf}} and −{{ls}} per second. What is the largest forward-Euler step, in milliseconds, that stays stable?",
+          given={"lf": {"pick": [500, 5000, 100000]}, "ls": {"pick": [0.1, 1]}},
+          value="2/lf*1000", tex="\\Delta t", verify="Rational(2, lf)*1000",
+          explain="The slow mode sets how long you must integrate and the fast one sets how small each step may be; their ratio is the stiffness. This is why a stiff problem needs an implicit solver rather than a smaller tolerance")], std=M("MM.6") + F("A2.3")),
+    L("B", "Say how many digits an ill-conditioned solve loses.", "A relative perturbation is amplified by the condition number, so about log₁₀ κ of the available digits are gone.", [], [
+        Q("gc-condition-digits", "nm.linear-iter", "A linear system has condition number 1e{{k}} and the arithmetic carries about 16 significant digits. Roughly how many correct digits remain in the solution?",
+          given={"k": {"pick": [2, 6, 11]}},
+          value="16 - k", tex="digits", final=True, verify="16 - k",
+          explain="The solver did not fail and will report no error: it returns a full set of digits, most of them meaningless. Recognising that a result is conditioning-limited rather than wrong is the Level F skill, since the software cannot tell you")], std=M("MM.6") + F("A2.3")),
+    L("C", "Balance truncation against round-off in a difference.", "A forward difference has error O(h) + O(ε/h), minimised near h ≈ √ε, so the best achievable accuracy is about √ε, not ε.", [], [
+        Q("gc-optimal-step", "nm.diff", "A forward difference is evaluated in arithmetic with machine epsilon 1e-{{e}}. At roughly what step h, as a power of ten (give the exponent), is the total error least?",
+          given={"e": {"pick": [8, 12, 16]}},
+          value="-e/2", tex="\\log_{10} h", verify="-Rational(e, 2)",
+          explain="Shrinking h past this point makes the answer worse, which surprises people who expect smaller steps to be strictly better. A central difference has error O(h²) + O(ε/h) and does better, at h ≈ ε^(1/3)")], std=M("MM.6")),
+    ]),
+]),
 ]
 
 # ── second question types (Nov 2026), keyed (unit, topic, LO) ───────────────────────────────────────────
@@ -403,6 +490,48 @@ SECOND = {
                    given={"f": {"pick": [10, 25, 50, 75, 90]}}, value="(1 - f/100)/((1 - f/100) - 1)", tex="q/(q-1)",
                    verify="solve(Eq(x*((1 - Rational(f, 100)) - 1), 1 - Rational(f, 100)), x)[0]",
                    explain="q = 1 − vapour fraction; the q-line is vertical for saturated liquid, horizontal for saturated vapour, and negative in between"),
+    (7, 1, "A"): Q("gc-peclet-which-term", "gc.scaling", "At Pe = {{pe}}, what is the ratio of the diffusive term to the convective term in the scaled equation?",
+                   given={"pe": {"pick": [0.02, 1, 300, 20000]}}, value="1/pe", tex="ratio",
+                   verify="1/nsimplify(pe)", explain="One over Pe multiplies the diffusive term once the equation is scaled on the channel length. A tiny coefficient on the highest derivative is the warning that the limit is singular, not regular"),
+    (7, 1, "B"): Q("gc-crossover-velocity", "gc.scaling", "Over a length of {{L}} micrometres, above what velocity, in cm/s, does convection beat diffusion for a solute of diffusivity {{D}}e-5 cm²/s?",
+                   given={"L": {"pick": [10, 200, 5000]}, "D": {"pick": [1, 2, 8]}}, value="D*1e-5/(L*1e-4)", tex="U",
+                   verify="D*Rational(1, 100000)/(L*Rational(1, 10000))", explain="The same balance read the other way. In a microchannel the crossover velocity is high enough that diffusion often wins, which is why mixing there has to be engineered"),
+    (7, 1, "C"): Q("gc-thermal-bl-ratio", "gc.scaling", "At Pr = {{pr}}, what is the ratio of the thermal to the momentum boundary-layer thickness, taking $\\delta_T/\\delta \\sim Pr^{-1/3}$?",
+                   given={"pr": {"pick": [0.01, 0.7, 7, 1000]}}, value="pr^(-1/3)", tex="\\delta_T/\\delta",
+                   verify="nsimplify(pr)**Rational(-1, 3)", explain="A liquid metal (small Pr) carries heat far outside the momentum layer; an oil (large Pr) keeps it well inside. The exponent comes from the scaling, not from a correlation"),
+    (7, 1, "D"): Q("gc-perturbation-error", "gc.perturbation", "For $x^2 + \\varepsilon x - 1 = 0$ at ε = {{ep}}, by how much does the two-term expansion $1 - \\varepsilon/2$ differ from the exact root $(-\\varepsilon + \\sqrt{\\varepsilon^2 + 4})/2$?",
+                   given={"ep": {"pick": [0.02, 0.1, 0.25]}}, value="abs(1 - ep/2 - (-ep + sqrt(ep^2 + 4))/2)", tex="error",
+                   verify="Abs(1 - nsimplify(ep)/2 - (-nsimplify(ep) + sqrt(nsimplify(ep)**2 + 4))/2)",
+                   explain="The error falls as ε², so halving ε quarters it. Checking an expansion against a case you can solve exactly is how you learn to trust it where you cannot"),
+    (7, 1, "E"): Q("gc-layer-gradient", "gc.perturbation", "An inner layer of thickness ε = {{ep}} (dimensionless) carries a unit change in y. What is the gradient dy/dx across it?",
+                   given={"ep": {"pick": [0.001, 0.01, 0.05]}}, value="1/ep", tex="dy/dx", final=True,
+                   verify="1/nsimplify(ep)", explain="Thin layers mean steep gradients, which is why a uniform mesh resolves a singular problem badly: the grid has to be refined where the layer is, and knowing where that is comes from the scaling rather than from the solver"),
+    (7, 2, "A"): Q("gc-penetration-time", "gc.similarity", "How long, in seconds, does a species of diffusivity {{D}}e-5 cm²/s take to penetrate {{dm}} mm, taking the depth as √(4Dt)?",
+                   given={"D": {"pick": [1, 3, 9]}, "dm": {"pick": [0.1, 1, 5]}}, value="(dm/10)^2/(4*D*1e-5)", tex="t",
+                   verify="(nsimplify(dm)/10)**2/(4*D*Rational(1, 100000))", explain="Time goes as depth squared, so ten times the depth costs a hundred times the wait. That scaling is why diffusion-limited processes are run thin"),
+    (7, 2, "B"): Q("gc-fourier-at-validity", "gc.similarity", "A slab of half-thickness h has diffusivity D. At the moment √(4Dt) first reaches h, what is the Fourier number $Dt/h^2$?",
+                   given={"z1": {"pick": [1]}}, value="1/4", tex="Fo", final=True, verify="Rational(1, 4)",
+                   explain="The semi-infinite and one-term treatments meet near Fo of a few tenths: below it the series needs many terms and similarity is easier, above it one term suffices. Neither description is good at Fo ≈ 0.25, which is where numerical work earns its place"),
+    (7, 2, "C"): Q("gc-sphere-vs-slab-mode", "gc.eigen", "A sphere of radius R and a slab of half-thickness R share a diffusivity. What is the ratio of the slab's slowest time constant to the sphere's?",
+                   given={"z1": {"pick": [1]}}, value="4", tex="ratio", final=True, verify="Integer(4)",
+                   explain="The slab's slowest eigenvalue is π/(2R) and the sphere's is π/R, and the time constant goes as the inverse square, so the slab is four times slower. More surface per unit volume empties faster"),
+    (7, 2, "D"): Q("gc-terms-needed", "gc.eigen", "Terms in a slab expansion carry $\\exp(-n^2\\pi^2 Fo/4)$. At Fo = {{fo}}, what is the smallest n whose exponential falls below {{tolp}}% of the first term's?",
+                   given={"fo": {"pick": [0.01, 0.05]}, "tolp": {"pick": [1, 5]}},
+                   value="ceil(sqrt(1 - 4*log(tolp/100)/(pi^2*fo)))", tex="n", final=True,
+                   verify="ceiling(sqrt(1 - 4*log(Rational(tolp, 100))/(pi**2*nsimplify(fo))))",
+                   explain="Early in a transient the series needs many terms, and a one-term formula applied there is simply wrong. Asking how many terms a tolerance costs is the habit that stops that"),
+    (7, 3, "A"): Q("gc-stiffness-ratio", "nm.ode", "A system has eigenvalues −{{lf}} and −{{ls}} per second. How many forward-Euler steps does covering three slow time constants take, at the stability limit?",
+                   given={"lf": {"pick": [500, 5000, 100000]}, "ls": {"pick": [0.1, 1]}},
+                   value="3/ls/(2/lf)", tex="steps", final=True, verify="Rational(3, 2)*Rational(lf, 1)/nsimplify(ls)",
+                   explain="The step count is three halves of the stiffness ratio, so a ratio of 1e5 means millions of steps for an answer that is nearly constant. That is the whole case for implicit methods"),
+    (7, 3, "B"): Q("gc-residual-vs-error", "nm.linear-iter", "A solve returns a relative residual of 1e-{{r}} on a system with condition number 1e{{k}}. What is the bound on the relative error in the solution, as a power of ten (give the exponent)?",
+                   given={"r": {"pick": [10, 12, 14]}, "k": {"pick": [2, 6, 11]}}, value="k - r", tex="exponent", final=True,
+                   verify="k - r", explain="A small residual does not mean a small error: the condition number sits between them. Software reports the residual because it can compute it, and reports nothing about the error because it cannot"),
+    (7, 3, "C"): Q("gc-observed-order", "nm.diff", "Halving the step takes the error from {{e1}}e-4 to {{e2}}e-5. What is the observed order of convergence?",
+                   given={"e1": {"pick": [4, 8]}, "e2": {"pick": [1, 2, 10]}},
+                   value="log(e1*1e-4/(e2*1e-5))/log(2)", tex="p",
+                   verify="log(e1*Rational(1, 10000)/(e2*Rational(1, 100000)))/log(2)",
+                   explain="Measuring the order on two grids checks the implementation against the method's claim. An order that comes out below the advertised one usually means a boundary condition is only first-order accurate"),
 }
 for u in UNITS:
     for tn, (_, los) in enumerate(u.topics, 1):

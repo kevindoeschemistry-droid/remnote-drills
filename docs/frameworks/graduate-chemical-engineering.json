@@ -18,11 +18,13 @@
   "gc"
  ],
  "basis": {
-  "primary": "uci-cbe-core",
+  "primary": "cheme-grad-core",
   "also": [
+   "icheme-level-f",
+   "uci-cbe-core",
    "pe-chemical"
   ],
-  "note": "UCI's graduate core courses by catalogue description (read in part); no syllabus or past comprehensive exam was read, so the objectives are ours. PE Chemical is the nearest published exam and stops below this level."
+  "note": "No body publishes an itemised graduate chemical engineering content standard, so the primary basis is our own crosswalk of fifteen departments' published core-course requirements, each read in full. IChemE Level F carries the level this framework sits at: its outcomes are the same principles on more complex problems with the limits of the assumptions interrogated. UCI's catalogue descriptions, which this framework used to rest on alone, are now one department among the fifteen. PE Chemical is the nearest published exam and stops below this level, and FE Chemical closes the undergraduate layer that several departments' qualifying exams actually test."
  },
  "big_ideas": [
   {
@@ -52,10 +54,12 @@
   {
    "id": "gc-momentum",
    "n": 1,
-   "title": "Momentum transport (CBE 220B)",
+   "title": "Momentum transport",
    "scope": "core",
    "std": [
-    "uci-cbe-core:220B"
+    "cheme-grad-core:TR",
+    "cheme-grad-core:TR.2",
+    "icheme-level-f:A2.2"
    ],
    "ideas": [
     "SOLVE"
@@ -68,7 +72,10 @@
       {
        "id": "A",
        "std": [
-        "uci-cbe-core:220B"
+        "uci-cbe-core:220B",
+        "cheme-grad-core:TR",
+        "cheme-grad-core:TR.2",
+        "icheme-level-f:A2.2"
        ],
        "do": "Find the flow rate in an annulus from the Navier–Stokes equation in cylindrical coordinates.",
        "ek": [
@@ -85,7 +92,10 @@
       {
        "id": "B",
        "std": [
-        "uci-cbe-core:220B"
+        "uci-cbe-core:220B",
+        "cheme-grad-core:TR",
+        "cheme-grad-core:TR.2",
+        "icheme-level-f:A2.2"
        ],
        "do": "Find the torque in circular Couette flow.",
        "ek": [
@@ -102,7 +112,10 @@
       {
        "id": "C",
        "std": [
-        "uci-cbe-core:220B"
+        "uci-cbe-core:220B",
+        "cheme-grad-core:TR",
+        "cheme-grad-core:TR.2",
+        "icheme-level-f:A2.2"
        ],
        "do": "Find the force in a squeeze film from lubrication theory.",
        "ek": [
@@ -119,7 +132,10 @@
       {
        "id": "D",
        "std": [
-        "uci-cbe-core:220B"
+        "uci-cbe-core:220B",
+        "cheme-grad-core:TR",
+        "cheme-grad-core:TR.2",
+        "icheme-level-f:A2.2"
        ],
        "do": "Find the friction drag of a laminar boundary layer.",
        "ek": [
@@ -136,7 +152,10 @@
       {
        "id": "E",
        "std": [
-        "uci-cbe-core:220B"
+        "uci-cbe-core:220B",
+        "cheme-grad-core:TR",
+        "cheme-grad-core:TR.2",
+        "icheme-level-f:A2.2"
        ],
        "do": "Find the pressure on a cylinder in potential flow.",
        "ek": [
@@ -153,7 +172,10 @@
       {
        "id": "F",
        "std": [
-        "uci-cbe-core:220B"
+        "uci-cbe-core:220B",
+        "cheme-grad-core:TR",
+        "cheme-grad-core:TR.2",
+        "icheme-level-f:A2.2"
        ],
        "do": "Find the flow rate of a power-law fluid in a tube.",
        "ek": [
@@ -170,7 +192,10 @@
       {
        "id": "G",
        "std": [
-        "uci-cbe-core:220B"
+        "uci-cbe-core:220B",
+        "cheme-grad-core:TR",
+        "cheme-grad-core:TR.2",
+        "icheme-level-f:A2.2"
        ],
        "do": "Find the start-up time of viscous flow.",
        "ek": [
@@ -187,7 +212,10 @@
       {
        "id": "H",
        "std": [
-        "uci-cbe-core:220B"
+        "uci-cbe-core:220B",
+        "cheme-grad-core:TR",
+        "cheme-grad-core:TR.2",
+        "icheme-level-f:A2.2"
        ],
        "do": "Use the turbulent log law.",
        "ek": [
@@ -204,7 +232,10 @@
       {
        "id": "I",
        "std": [
-        "uci-cbe-core:220B"
+        "uci-cbe-core:220B",
+        "cheme-grad-core:TR",
+        "cheme-grad-core:TR.2",
+        "icheme-level-f:A2.2"
        ],
        "do": "Compare the fall of a drop with that of a rigid sphere.",
        "ek": [
@@ -225,10 +256,12 @@
   {
    "id": "gc-transport",
    "n": 2,
-   "title": "Heat and mass transport (CBE 220A)",
+   "title": "Heat and mass transport",
    "scope": "core",
    "std": [
-    "uci-cbe-core:220A"
+    "cheme-grad-core:TR",
+    "cheme-grad-core:TR.1",
+    "cheme-grad-core:TR.3"
    ],
    "ideas": [
     "SOLVE"
@@ -241,7 +274,11 @@
       {
        "id": "A",
        "std": [
-        "uci-cbe-core:220A"
+        "uci-cbe-core:220A",
+        "cheme-grad-core:TR",
+        "cheme-grad-core:TR.1",
+        "cheme-grad-core:TR.3",
+        "icheme-level-f:A2.2"
        ],
        "do": "Find the Taylor dispersion coefficient.",
        "ek": [
@@ -258,7 +295,11 @@
       {
        "id": "B",
        "std": [
-        "uci-cbe-core:220A"
+        "uci-cbe-core:220A",
+        "cheme-grad-core:TR",
+        "cheme-grad-core:TR.1",
+        "cheme-grad-core:TR.3",
+        "icheme-level-f:A2.2"
        ],
        "do": "Find the temperature rise from viscous heating.",
        "ek": [
@@ -275,7 +316,11 @@
       {
        "id": "C",
        "std": [
-        "uci-cbe-core:220A"
+        "uci-cbe-core:220A",
+        "cheme-grad-core:TR",
+        "cheme-grad-core:TR.1",
+        "cheme-grad-core:TR.3",
+        "icheme-level-f:A2.2"
        ],
        "do": "Find a freezing time from the quasi-steady Stefan problem.",
        "ek": [
@@ -292,7 +337,11 @@
       {
        "id": "D",
        "std": [
-        "uci-cbe-core:220A"
+        "uci-cbe-core:220A",
+        "cheme-grad-core:TR",
+        "cheme-grad-core:TR.1",
+        "cheme-grad-core:TR.3",
+        "icheme-level-f:A2.2"
        ],
        "do": "Find the diffusion coefficient of a salt (ambipolar diffusion).",
        "ek": [
@@ -309,7 +358,11 @@
       {
        "id": "E",
        "std": [
-        "uci-cbe-core:220A"
+        "uci-cbe-core:220A",
+        "cheme-grad-core:TR",
+        "cheme-grad-core:TR.1",
+        "cheme-grad-core:TR.3",
+        "icheme-level-f:A2.2"
        ],
        "do": "Find a flux with a surface reaction that changes the moles.",
        "ek": [
@@ -326,7 +379,11 @@
       {
        "id": "F",
        "std": [
-        "uci-cbe-core:220A"
+        "uci-cbe-core:220A",
+        "cheme-grad-core:TR",
+        "cheme-grad-core:TR.1",
+        "cheme-grad-core:TR.3",
+        "icheme-level-f:A2.2"
        ],
        "do": "Find an average mass-transfer coefficient on a flat plate.",
        "ek": [
@@ -347,10 +404,12 @@
   {
    "id": "gc-thermo",
    "n": 3,
-   "title": "Advanced thermodynamics (CBE 240)",
+   "title": "Advanced thermodynamics",
    "scope": "core",
    "std": [
-    "uci-cbe-core:240"
+    "cheme-grad-core:TH",
+    "cheme-grad-core:TH.1",
+    "cheme-grad-core:TH.2"
    ],
    "ideas": [
     "SOLVE"
@@ -363,7 +422,12 @@
       {
        "id": "A",
        "std": [
-        "uci-cbe-core:240"
+        "uci-cbe-core:240",
+        "cheme-grad-core:TH",
+        "cheme-grad-core:TH.1",
+        "cheme-grad-core:TH.2",
+        "cheme-grad-core:TH.3",
+        "icheme-level-f:A2.2"
        ],
        "do": "Find a van der Waals critical temperature from its constants.",
        "ek": [
@@ -380,7 +444,12 @@
       {
        "id": "B",
        "std": [
-        "uci-cbe-core:240"
+        "uci-cbe-core:240",
+        "cheme-grad-core:TH",
+        "cheme-grad-core:TH.1",
+        "cheme-grad-core:TH.2",
+        "cheme-grad-core:TH.3",
+        "icheme-level-f:A2.2"
        ],
        "do": "Find a compressibility factor from the Peng–Robinson equation.",
        "ek": [
@@ -397,7 +466,12 @@
       {
        "id": "C",
        "std": [
-        "uci-cbe-core:240"
+        "uci-cbe-core:240",
+        "cheme-grad-core:TH",
+        "cheme-grad-core:TH.1",
+        "cheme-grad-core:TH.2",
+        "cheme-grad-core:TH.3",
+        "icheme-level-f:A2.2"
        ],
        "do": "Decide whether a mixture splits into two liquids.",
        "ek": [
@@ -414,7 +488,12 @@
       {
        "id": "D",
        "std": [
-        "uci-cbe-core:240"
+        "uci-cbe-core:240",
+        "cheme-grad-core:TH",
+        "cheme-grad-core:TH.1",
+        "cheme-grad-core:TH.2",
+        "cheme-grad-core:TH.3",
+        "icheme-level-f:A2.2"
        ],
        "do": "Find a residual enthalpy from the virial equation.",
        "ek": [
@@ -431,7 +510,12 @@
       {
        "id": "E",
        "std": [
-        "uci-cbe-core:240"
+        "uci-cbe-core:240",
+        "cheme-grad-core:TH",
+        "cheme-grad-core:TH.1",
+        "cheme-grad-core:TH.2",
+        "cheme-grad-core:TH.3",
+        "icheme-level-f:A2.2"
        ],
        "do": "Solve simultaneous chemical equilibria.",
        "ek": [
@@ -448,7 +532,12 @@
       {
        "id": "F",
        "std": [
-        "uci-cbe-core:240"
+        "uci-cbe-core:240",
+        "cheme-grad-core:TH",
+        "cheme-grad-core:TH.1",
+        "cheme-grad-core:TH.2",
+        "cheme-grad-core:TH.3",
+        "icheme-level-f:A2.2"
        ],
        "do": "Integrate the van 't Hoff equation with a heat-capacity change.",
        "ek": [
@@ -465,7 +554,12 @@
       {
        "id": "G",
        "std": [
-        "uci-cbe-core:240"
+        "uci-cbe-core:240",
+        "cheme-grad-core:TH",
+        "cheme-grad-core:TH.1",
+        "cheme-grad-core:TH.2",
+        "cheme-grad-core:TH.3",
+        "icheme-level-f:A2.2"
        ],
        "do": "Locate an azeotrope.",
        "ek": [
@@ -486,10 +580,12 @@
   {
    "id": "gc-reactors",
    "n": 4,
-   "title": "Reaction engineering (CBE 210)",
+   "title": "Advanced kinetics and reactor design",
    "scope": "core",
    "std": [
-    "uci-cbe-core:210"
+    "cheme-grad-core:KN",
+    "cheme-grad-core:KN.1",
+    "cheme-grad-core:KN.2"
    ],
    "ideas": [
     "SOLVE"
@@ -502,7 +598,12 @@
       {
        "id": "A",
        "std": [
-        "uci-cbe-core:210"
+        "uci-cbe-core:210",
+        "cheme-grad-core:KN",
+        "cheme-grad-core:KN.1",
+        "cheme-grad-core:KN.2",
+        "cheme-grad-core:KN.3",
+        "icheme-level-f:A2.4"
        ],
        "do": "Judge the stability of a CSTR steady state by the slope condition.",
        "ek": [
@@ -519,7 +620,12 @@
       {
        "id": "B",
        "std": [
-        "uci-cbe-core:210"
+        "uci-cbe-core:210",
+        "cheme-grad-core:KN",
+        "cheme-grad-core:KN.1",
+        "cheme-grad-core:KN.2",
+        "cheme-grad-core:KN.3",
+        "icheme-level-f:A2.4"
        ],
        "do": "Find the optimum temperature for a reversible exothermic reaction.",
        "ek": [
@@ -536,7 +642,12 @@
       {
        "id": "C",
        "std": [
-        "uci-cbe-core:210"
+        "uci-cbe-core:210",
+        "cheme-grad-core:KN",
+        "cheme-grad-core:KN.1",
+        "cheme-grad-core:KN.2",
+        "cheme-grad-core:KN.3",
+        "icheme-level-f:A2.4"
        ],
        "do": "Combine internal and external resistances into an overall effectiveness.",
        "ek": [
@@ -553,7 +664,12 @@
       {
        "id": "D",
        "std": [
-        "uci-cbe-core:210"
+        "uci-cbe-core:210",
+        "cheme-grad-core:KN",
+        "cheme-grad-core:KN.1",
+        "cheme-grad-core:KN.2",
+        "cheme-grad-core:KN.3",
+        "icheme-level-f:A2.4"
        ],
        "do": "Find an enhancement factor for gas absorption with reaction.",
        "ek": [
@@ -570,7 +686,12 @@
       {
        "id": "E",
        "std": [
-        "uci-cbe-core:210"
+        "uci-cbe-core:210",
+        "cheme-grad-core:KN",
+        "cheme-grad-core:KN.1",
+        "cheme-grad-core:KN.2",
+        "cheme-grad-core:KN.3",
+        "icheme-level-f:A2.4"
        ],
        "do": "Find the overall rate in a slurry reactor from resistances in series.",
        "ek": [
@@ -587,7 +708,12 @@
       {
        "id": "F",
        "std": [
-        "uci-cbe-core:210"
+        "uci-cbe-core:210",
+        "cheme-grad-core:KN",
+        "cheme-grad-core:KN.1",
+        "cheme-grad-core:KN.2",
+        "cheme-grad-core:KN.3",
+        "icheme-level-f:A2.4"
        ],
        "do": "Find a conversion with a decaying catalyst.",
        "ek": [
@@ -608,10 +734,12 @@
   {
    "id": "gc-control",
    "n": 5,
-   "title": "Process dynamics and control (CBE 200)",
+   "title": "Process dynamics and control",
    "scope": "core",
    "std": [
-    "uci-cbe-core:200"
+    "cheme-grad-core:PS",
+    "cheme-grad-core:PS.1",
+    "icheme-level-f:A2.5"
    ],
    "ideas": [
     "SOLVE"
@@ -624,7 +752,10 @@
       {
        "id": "A",
        "std": [
-        "uci-cbe-core:200"
+        "uci-cbe-core:200",
+        "cheme-grad-core:PS",
+        "cheme-grad-core:PS.1",
+        "icheme-level-f:A2.5"
        ],
        "do": "Find a time from a first-order step response.",
        "ek": [
@@ -641,7 +772,10 @@
       {
        "id": "B",
        "std": [
-        "uci-cbe-core:200"
+        "uci-cbe-core:200",
+        "cheme-grad-core:PS",
+        "cheme-grad-core:PS.1",
+        "icheme-level-f:A2.5"
        ],
        "do": "Find the overshoot of an underdamped second-order process.",
        "ek": [
@@ -658,7 +792,10 @@
       {
        "id": "C",
        "std": [
-        "uci-cbe-core:200"
+        "uci-cbe-core:200",
+        "cheme-grad-core:PS",
+        "cheme-grad-core:PS.1",
+        "icheme-level-f:A2.5"
        ],
        "do": "Find the offset under proportional control.",
        "ek": [
@@ -675,7 +812,10 @@
       {
        "id": "D",
        "std": [
-        "uci-cbe-core:200"
+        "uci-cbe-core:200",
+        "cheme-grad-core:PS",
+        "cheme-grad-core:PS.1",
+        "icheme-level-f:A2.5"
        ],
        "do": "Find the ultimate gain of a third-order process.",
        "ek": [
@@ -692,7 +832,10 @@
       {
        "id": "E",
        "std": [
-        "uci-cbe-core:200"
+        "uci-cbe-core:200",
+        "cheme-grad-core:PS",
+        "cheme-grad-core:PS.1",
+        "icheme-level-f:A2.5"
        ],
        "do": "Find the ultimate period, then a Ziegler–Nichols setting.",
        "ek": [
@@ -709,7 +852,10 @@
       {
        "id": "F",
        "std": [
-        "uci-cbe-core:200"
+        "uci-cbe-core:200",
+        "cheme-grad-core:PS",
+        "cheme-grad-core:PS.1",
+        "icheme-level-f:A2.5"
        ],
        "do": "Find an amplitude ratio from the frequency response.",
        "ek": [
@@ -726,7 +872,10 @@
       {
        "id": "G",
        "std": [
-        "uci-cbe-core:200"
+        "uci-cbe-core:200",
+        "cheme-grad-core:PS",
+        "cheme-grad-core:PS.1",
+        "icheme-level-f:A2.5"
        ],
        "do": "Find the crossover frequency of a first-order-plus-dead-time process.",
        "ek": [
@@ -747,10 +896,12 @@
   {
    "id": "gc-separations",
    "n": 6,
-   "title": "Separations past the McCabe–Thiele diagram",
+   "title": "Separations past the graphical constructions",
    "scope": "core",
    "std": [
-    "pe-chemical:6.B"
+    "cheme-grad-core:PS",
+    "cheme-grad-core:PS.2",
+    "icheme-level-f:A2.4"
    ],
    "ideas": [
     "SOLVE"
@@ -763,7 +914,10 @@
       {
        "id": "A",
        "std": [
-        "pe-chemical:6.B"
+        "pe-chemical:6.B",
+        "cheme-grad-core:PS",
+        "cheme-grad-core:PS.2",
+        "icheme-level-f:A2.4"
        ],
        "do": "Find what remains in a Rayleigh batch distillation.",
        "ek": [
@@ -780,7 +934,10 @@
       {
        "id": "B",
        "std": [
-        "pe-chemical:6.B"
+        "pe-chemical:6.B",
+        "cheme-grad-core:PS",
+        "cheme-grad-core:PS.2",
+        "icheme-level-f:A2.4"
        ],
        "do": "Find the minimum absorbent rate.",
        "ek": [
@@ -797,7 +954,10 @@
       {
        "id": "C",
        "std": [
-        "pe-chemical:6.B"
+        "pe-chemical:6.B",
+        "cheme-grad-core:PS",
+        "cheme-grad-core:PS.2",
+        "icheme-level-f:A2.4"
        ],
        "do": "Find where the feed line meets the rectifying line.",
        "ek": [
@@ -809,6 +969,254 @@
        "drills": [
         "gc-q-line-intersection",
         "gc-q-line-slope"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "gc-methods",
+   "n": 7,
+   "title": "Mathematical methods past Kreyszig",
+   "scope": "core",
+   "std": [
+    "cheme-grad-core:MM",
+    "cheme-grad-core:MM.1",
+    "cheme-grad-core:MM.2"
+   ],
+   "ideas": [
+    "SOLVE"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "Scaling and asymptotics",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "cheme-grad-core:MM",
+        "cheme-grad-core:MM.1",
+        "icheme-level-f:A1",
+        "icheme-level-f:A2.2"
+       ],
+       "do": "Scale a convection-diffusion problem and say which term the limit drops.",
+       "ek": [
+        "Pe = UL/D weighs convection against diffusion; at large Pe the diffusive term survives only in a thin layer, so dropping it everywhere is wrong at the boundary."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "gc-peclet-drop",
+        "gc-peclet-which-term"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "cheme-grad-core:MM.1"
+       ],
+       "do": "Find the length at which two transport mechanisms balance.",
+       "ek": [
+        "Setting Pe = 1 gives the crossover length L = D/U: below it diffusion wins, above it convection does."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "gc-crossover-length",
+        "gc-crossover-velocity"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "cheme-grad-core:MM.1",
+        "cheme-grad-core:MM.2",
+        "icheme-level-f:A2.2"
+       ],
+       "do": "Get a boundary-layer thickness from the scaling alone.",
+       "ek": [
+        "Balancing convection along the plate with diffusion across it gives δ/L ~ Re^(-1/2), without solving anything."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "gc-bl-scaling",
+        "gc-thermal-bl-ratio"
+       ]
+      },
+      {
+       "id": "D",
+       "std": [
+        "cheme-grad-core:MM.2"
+       ],
+       "do": "Find the first correction from a regular perturbation.",
+       "ek": [
+        "For x² + εx − 1 = 0, writing x = x₀ + εx₁ + … gives x₀ = 1 and x₁ = −1/2, so x ≈ 1 − ε/2."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "gc-regular-perturbation",
+        "gc-perturbation-error"
+       ]
+      },
+      {
+       "id": "E",
+       "std": [
+        "cheme-grad-core:MM.2",
+        "icheme-level-f:A2.2"
+       ],
+       "do": "Size the inner layer of a singular perturbation.",
+       "ek": [
+        "For εy″ + y′ + y = 0 the highest derivative is lost at ε = 0, so a layer of thickness O(ε) carries the dropped boundary condition."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "gc-singular-layer",
+        "gc-layer-gradient"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "title": "Similarity and eigenfunction expansions",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "cheme-grad-core:MM.3"
+       ],
+       "do": "Find a penetration depth from the similarity variable.",
+       "ek": [
+        "Diffusion into a half-space depends on x and t only through η = x/√(4Dt), so the depth grows as √(4Dt)."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "gc-penetration-depth",
+        "gc-penetration-time"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "cheme-grad-core:MM.3",
+        "icheme-level-f:A2.2"
+       ],
+       "do": "Say when a semi-infinite solution stops being valid.",
+       "ek": [
+        "The similarity solution assumes the far boundary is never felt; it fails once √(4Dt) reaches the slab's half-thickness, at t = h²/(4D)."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "gc-similarity-fails",
+        "gc-fourier-at-validity"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "cheme-grad-core:MM.4"
+       ],
+       "do": "Find the slowest decay mode in a non-Cartesian geometry.",
+       "ek": [
+        "A sphere's eigenvalues are λ_n = nπ/R exactly, so the slowest mode decays as exp(−π²Dt/R²) — unlike a cylinder, whose eigenvalues are Bessel zeros."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "gc-sphere-slowest-mode",
+        "gc-sphere-vs-slab-mode"
+       ]
+      },
+      {
+       "id": "D",
+       "std": [
+        "cheme-grad-core:MM.4",
+        "icheme-level-f:A2.3"
+       ],
+       "do": "Decide how many terms an expansion needs.",
+       "ek": [
+        "Successive terms decay as exp(−n²π²Fo), so the second term is exp(−3π²Fo) of the first: past Fo ≈ 0.2 one term is enough."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "gc-one-term-error",
+        "gc-terms-needed"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 3,
+     "title": "Numerical methods and the limits of the software",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "cheme-grad-core:MM.6",
+        "icheme-level-f:A2.3"
+       ],
+       "do": "Find the step an explicit solver is held to by stiffness.",
+       "ek": [
+        "Forward Euler is stable only for Δt < 2/|λ_max|, so a stiff system is limited by its fastest mode however slowly the answer evolves."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "gc-stiff-step",
+        "gc-stiffness-ratio"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "cheme-grad-core:MM.6",
+        "icheme-level-f:A2.3"
+       ],
+       "do": "Say how many digits an ill-conditioned solve loses.",
+       "ek": [
+        "A relative perturbation is amplified by the condition number, so about log₁₀ κ of the available digits are gone."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "gc-condition-digits",
+        "gc-residual-vs-error"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "cheme-grad-core:MM.6"
+       ],
+       "do": "Balance truncation against round-off in a difference.",
+       "ek": [
+        "A forward difference has error O(h) + O(ε/h), minimised near h ≈ √ε, so the best achievable accuracy is about √ε, not ε."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "gc-optimal-step",
+        "gc-observed-order"
        ]
       }
      ]
@@ -1232,6 +1640,138 @@
    "full": [
     "gc-q-line-intersection",
     "gc-q-line-slope"
+   ],
+   "partial": []
+  },
+  {
+   "code": "GC-7.1.A",
+   "unit": 7,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "gc-peclet-drop",
+    "gc-peclet-which-term"
+   ],
+   "partial": []
+  },
+  {
+   "code": "GC-7.1.B",
+   "unit": 7,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "gc-crossover-length",
+    "gc-crossover-velocity"
+   ],
+   "partial": []
+  },
+  {
+   "code": "GC-7.1.C",
+   "unit": 7,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "gc-bl-scaling",
+    "gc-thermal-bl-ratio"
+   ],
+   "partial": []
+  },
+  {
+   "code": "GC-7.1.D",
+   "unit": 7,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "gc-regular-perturbation",
+    "gc-perturbation-error"
+   ],
+   "partial": []
+  },
+  {
+   "code": "GC-7.1.E",
+   "unit": 7,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "gc-singular-layer",
+    "gc-layer-gradient"
+   ],
+   "partial": []
+  },
+  {
+   "code": "GC-7.2.A",
+   "unit": 7,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "gc-penetration-depth",
+    "gc-penetration-time"
+   ],
+   "partial": []
+  },
+  {
+   "code": "GC-7.2.B",
+   "unit": 7,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "gc-similarity-fails",
+    "gc-fourier-at-validity"
+   ],
+   "partial": []
+  },
+  {
+   "code": "GC-7.2.C",
+   "unit": 7,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "gc-sphere-slowest-mode",
+    "gc-sphere-vs-slab-mode"
+   ],
+   "partial": []
+  },
+  {
+   "code": "GC-7.2.D",
+   "unit": 7,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "gc-one-term-error",
+    "gc-terms-needed"
+   ],
+   "partial": []
+  },
+  {
+   "code": "GC-7.3.A",
+   "unit": 7,
+   "topic": 3,
+   "status": "ok",
+   "full": [
+    "gc-stiff-step",
+    "gc-stiffness-ratio"
+   ],
+   "partial": []
+  },
+  {
+   "code": "GC-7.3.B",
+   "unit": 7,
+   "topic": 3,
+   "status": "ok",
+   "full": [
+    "gc-condition-digits",
+    "gc-residual-vs-error"
+   ],
+   "partial": []
+  },
+  {
+   "code": "GC-7.3.C",
+   "unit": 7,
+   "topic": 3,
+   "status": "ok",
+   "full": [
+    "gc-optimal-step",
+    "gc-observed-order"
    ],
    "partial": []
   }

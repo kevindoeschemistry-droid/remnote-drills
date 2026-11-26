@@ -2198,3 +2198,550 @@
   verify:
     expect:
       v: solve(Eq(x*((1 - Rational(f, 100)) - 1), 1 - Rational(f, 100)), x)[0]
+- template: gc-peclet-drop
+  skill: gc.scaling
+  pace: quick
+  given:
+    L:
+      pick:
+      - 2
+      - 10
+      - 50
+    U:
+      pick:
+      - 0.05
+      - 0.4
+      - 2
+    D:
+      pick:
+      - 1
+      - 5
+  prompt: A channel of length {{L}} cm carries a solution at {{U}} cm/s; the solute diffusivity is {{D}}e-5 cm²/s. What is the Péclet number UL/D?
+  parts:
+  - ask: Answer
+    label: v
+    tex: Pe
+    value: U*L/(D*1e-5)
+    tol: 0.005
+    explain: 'Pe compares convection with diffusion over the whole length. Large Pe does not license dropping diffusion outright: it confines it to a boundary layer, which is the distinction between a regular and a singular limit'
+  verify:
+    expect:
+      v: nsimplify(U)*L/(D*Rational(1, 100000))
+- template: gc-peclet-which-term
+  skill: gc.scaling
+  pace: quick
+  given:
+    pe:
+      pick:
+      - 0.02
+      - 1
+      - 300
+      - 20000
+  prompt: At Pe = {{pe}}, what is the ratio of the diffusive term to the convective term in the scaled equation?
+  parts:
+  - ask: Answer
+    label: v
+    tex: ratio
+    value: 1/pe
+    tol: 0.005
+    explain: One over Pe multiplies the diffusive term once the equation is scaled on the channel length. A tiny coefficient on the highest derivative is the warning that the limit is singular, not regular
+  verify:
+    expect:
+      v: 1/nsimplify(pe)
+- template: gc-crossover-length
+  skill: gc.scaling
+  pace: quick
+  given:
+    D:
+      pick:
+      - 1
+      - 2
+      - 8
+    U:
+      pick:
+      - 0.01
+      - 0.1
+      - 1
+  prompt: A solute of diffusivity {{D}}e-5 cm²/s sits in a flow of {{U}} cm/s. Below what length, in micrometres, does diffusion carry more than convection?
+  parts:
+  - ask: Answer
+    label: v
+    tex: L
+    value: D*1e-5/U*1e4
+    tol: 0.005
+    explain: 'The crossover length is where the dimensionless group is one. Every scaling argument is this: a group of order one marks the length, time or concentration at which the physics changes hands'
+  verify:
+    expect:
+      v: D*Rational(1, 100000)/nsimplify(U)*10000
+- template: gc-crossover-velocity
+  skill: gc.scaling
+  pace: quick
+  given:
+    L:
+      pick:
+      - 10
+      - 200
+      - 5000
+    D:
+      pick:
+      - 1
+      - 2
+      - 8
+  prompt: Over a length of {{L}} micrometres, above what velocity, in cm/s, does convection beat diffusion for a solute of diffusivity {{D}}e-5 cm²/s?
+  parts:
+  - ask: Answer
+    label: v
+    tex: U
+    value: D*1e-5/(L*1e-4)
+    tol: 0.005
+    explain: The same balance read the other way. In a microchannel the crossover velocity is high enough that diffusion often wins, which is why mixing there has to be engineered
+  verify:
+    expect:
+      v: D*Rational(1, 100000)/(L*Rational(1, 10000))
+- template: gc-bl-scaling
+  skill: gc.scaling
+  pace: quick
+  given:
+    L:
+      pick:
+      - 5
+      - 20
+      - 100
+    Re:
+      pick:
+      - 400
+      - 10000
+      - 250000
+  prompt: Flow over a plate of length {{L}} cm has Re_L = {{Re}}. From the scaling δ/L ~ Re^(-1/2), how thick is the momentum boundary layer at the trailing edge, in millimetres?
+  parts:
+  - ask: Answer
+    label: v
+    tex: \delta
+    value: L*Re^(-1/2)*10
+    tol: 0.005
+    explain: Scaling gets the exponent and the order of magnitude for free; the Blasius solution only fixes the constant (δ ≈ 5.0 L/√Re). Knowing which part needs the full solution is the point
+  verify:
+    expect:
+      v: L*Re**Rational(-1, 2)*10
+- template: gc-thermal-bl-ratio
+  skill: gc.scaling
+  pace: quick
+  given:
+    pr:
+      pick:
+      - 0.01
+      - 0.7
+      - 7
+      - 1000
+  prompt: At Pr = {{pr}}, what is the ratio of the thermal to the momentum boundary-layer thickness, taking $\delta_T/\delta \sim Pr^{-1/3}$?
+  parts:
+  - ask: Answer
+    label: v
+    tex: \delta_T/\delta
+    value: pr^(-1/3)
+    tol: 0.005
+    explain: A liquid metal (small Pr) carries heat far outside the momentum layer; an oil (large Pr) keeps it well inside. The exponent comes from the scaling, not from a correlation
+  verify:
+    expect:
+      v: nsimplify(pr)**Rational(-1, 3)
+- template: gc-regular-perturbation
+  skill: gc.perturbation
+  pace: quick
+  given:
+    ep:
+      pick:
+      - 0.02
+      - 0.1
+      - 0.25
+  prompt: The root near 1 of $x^2 + \varepsilon x - 1 = 0$ is expanded as $x = x_0 + \varepsilon x_1 + O(\varepsilon^2)$. For ε = {{ep}}, what does the two-term expansion give?
+  parts:
+  - ask: Answer
+    label: v
+    tex: x
+    value: 1 - ep/2
+    tol: 0.005
+    explain: A regular perturbation works because the ε → 0 problem has the same character as the full one. The exact root is $(-\varepsilon + \sqrt{\varepsilon^2 + 4})/2$, so the error is $O(\varepsilon^2)$
+  verify:
+    expect:
+      v: 1 - nsimplify(ep)/2
+- template: gc-perturbation-error
+  skill: gc.perturbation
+  pace: quick
+  given:
+    ep:
+      pick:
+      - 0.02
+      - 0.1
+      - 0.25
+  prompt: For $x^2 + \varepsilon x - 1 = 0$ at ε = {{ep}}, by how much does the two-term expansion $1 - \varepsilon/2$ differ from the exact root $(-\varepsilon + \sqrt{\varepsilon^2 + 4})/2$?
+  parts:
+  - ask: Answer
+    label: v
+    tex: error
+    value: abs(1 - ep/2 - (-ep + sqrt(ep^2 + 4))/2)
+    tol: 0.005
+    explain: The error falls as ε², so halving ε quarters it. Checking an expansion against a case you can solve exactly is how you learn to trust it where you cannot
+  verify:
+    expect:
+      v: Abs(1 - nsimplify(ep)/2 - (-nsimplify(ep) + sqrt(nsimplify(ep)**2 + 4))/2)
+- template: gc-singular-layer
+  skill: gc.perturbation
+  pace: quick
+  given:
+    ep:
+      pick:
+      - 0.001
+      - 0.01
+      - 0.05
+  prompt: In $\varepsilon y'' + y' + y = 0$ on $0 \le x \le 1$ with ε = {{ep}}, the inner variable is $X = x/\varepsilon$. Over what fraction of the domain, as a percentage, does the inner layer span three inner units?
+  parts:
+  - ask: Answer
+    label: v
+    tex: \%
+    value: 3*ep*100
+    tol: 0.005
+    explain: Setting ε = 0 drops the second derivative and with it one boundary condition, which is the signature of a singular limit. The lost condition is recovered in a layer whose thickness is the ε that multiplies the highest derivative
+  verify:
+    expect:
+      v: 3*nsimplify(ep)*100
+- template: gc-layer-gradient
+  skill: gc.perturbation
+  pace: quick
+  given:
+    ep:
+      pick:
+      - 0.001
+      - 0.01
+      - 0.05
+  prompt: An inner layer of thickness ε = {{ep}} (dimensionless) carries a unit change in y. What is the gradient dy/dx across it?
+  parts:
+  - ask: Answer
+    label: v
+    tex: dy/dx
+    value: 1/ep
+    final: true
+    tol: 0.0001
+    explain: 'Thin layers mean steep gradients, which is why a uniform mesh resolves a singular problem badly: the grid has to be refined where the layer is, and knowing where that is comes from the scaling rather than from the solver'
+  verify:
+    expect:
+      v: 1/nsimplify(ep)
+- template: gc-penetration-depth
+  skill: gc.similarity
+  pace: quick
+  given:
+    D:
+      pick:
+      - 1
+      - 3
+      - 9
+    tm:
+      pick:
+      - 1
+      - 10
+      - 60
+  prompt: A species of diffusivity {{D}}e-5 cm²/s diffuses into a quiescent half-space for {{tm}} minutes. Taking the penetration depth as √(4Dt), how deep is it in millimetres?
+  parts:
+  - ask: Answer
+    label: v
+    tex: \delta
+    value: sqrt(4*D*1e-5*tm*60)*10
+    tol: 0.005
+    explain: Two variables collapse into one because the half-space has no length scale of its own. The depth going as √t, not t, is the whole content of the similarity solution
+  verify:
+    expect:
+      v: sqrt(4*D*Rational(1, 100000)*tm*60)*10
+- template: gc-penetration-time
+  skill: gc.similarity
+  pace: quick
+  given:
+    D:
+      pick:
+      - 1
+      - 3
+      - 9
+    dm:
+      pick:
+      - 0.1
+      - 1
+      - 5
+  prompt: How long, in seconds, does a species of diffusivity {{D}}e-5 cm²/s take to penetrate {{dm}} mm, taking the depth as √(4Dt)?
+  parts:
+  - ask: Answer
+    label: v
+    tex: t
+    value: (dm/10)^2/(4*D*1e-5)
+    tol: 0.005
+    explain: Time goes as depth squared, so ten times the depth costs a hundred times the wait. That scaling is why diffusion-limited processes are run thin
+  verify:
+    expect:
+      v: (nsimplify(dm)/10)**2/(4*D*Rational(1, 100000))
+- template: gc-similarity-fails
+  skill: gc.similarity
+  pace: quick
+  given:
+    h:
+      pick:
+      - 0.5
+      - 2
+      - 10
+    D:
+      pick:
+      - 1
+      - 4
+  prompt: A slab of half-thickness {{h}} mm has diffusivity {{D}}e-5 cm²/s. Beyond what time, in seconds, does the semi-infinite similarity solution stop applying?
+  parts:
+  - ask: Answer
+    label: v
+    tex: t
+    value: (h/10)^2/(4*D*1e-5)
+    tol: 0.005
+    explain: 'Every similarity solution rests on there being no length scale to compare with. This is the assumption IChemE Level F asks to be checked: past this time the slab is finite and an eigenfunction expansion takes over'
+  verify:
+    expect:
+      v: (nsimplify(h)/10)**2/(4*D*Rational(1, 100000))
+- template: gc-fourier-at-validity
+  skill: gc.similarity
+  pace: quick
+  given:
+    z1:
+      pick:
+      - 1
+  prompt: A slab of half-thickness h has diffusivity D. At the moment √(4Dt) first reaches h, what is the Fourier number $Dt/h^2$?
+  parts:
+  - ask: Answer
+    label: v
+    tex: Fo
+    value: 1/4
+    final: true
+    tol: 0.0001
+    explain: 'The semi-infinite and one-term treatments meet near Fo of a few tenths: below it the series needs many terms and similarity is easier, above it one term suffices. Neither description is good at Fo ≈ 0.25, which is where numerical work earns its place'
+  verify:
+    expect:
+      v: Rational(1, 4)
+- template: gc-sphere-slowest-mode
+  skill: gc.eigen
+  pace: quick
+  given:
+    R:
+      pick:
+      - 1
+      - 5
+      - 20
+    D:
+      pick:
+      - 1
+      - 6
+  prompt: A sphere of radius {{R}} mm with diffusivity {{D}}e-5 cm²/s is released into a bath. What is the time constant $R^2/(\pi^2 D)$ of its slowest mode, in seconds?
+  parts:
+  - ask: Answer
+    label: v
+    tex: \tau
+    value: (R/10)^2/(pi^2*D*1e-5)
+    tol: 0.005
+    explain: 'In a sphere the substitution u = rc turns the problem Cartesian, so the eigenvalues are nπ/R in closed form. A cylinder has no such luck: its eigenvalues are the zeros of J₀, which have to be looked up or computed'
+  verify:
+    expect:
+      v: (nsimplify(R)/10)**2/(pi**2*D*Rational(1, 100000))
+- template: gc-sphere-vs-slab-mode
+  skill: gc.eigen
+  pace: quick
+  given:
+    z1:
+      pick:
+      - 1
+  prompt: A sphere of radius R and a slab of half-thickness R share a diffusivity. What is the ratio of the slab's slowest time constant to the sphere's?
+  parts:
+  - ask: Answer
+    label: v
+    tex: ratio
+    value: '4'
+    final: true
+    tol: 0.0001
+    explain: The slab's slowest eigenvalue is π/(2R) and the sphere's is π/R, and the time constant goes as the inverse square, so the slab is four times slower. More surface per unit volume empties faster
+  verify:
+    expect:
+      v: Integer(4)
+- template: gc-one-term-error
+  skill: gc.eigen
+  pace: quick
+  given:
+    fo:
+      pick:
+      - 0.1
+      - 0.5
+      - 2
+  prompt: In a slab's eigenfunction expansion the terms carry $\exp(-n^2\pi^2 Fo/4)$. At Fo = {{fo}}, what is the ratio of the second term's exponential to the first's?
+  parts:
+  - ask: Answer
+    label: v
+    tex: ratio
+    value: exp(-8*pi^2*fo/4)
+    tol: 0.005
+    explain: The series is its own error estimate. Early in the transient every term matters and the series converges slowly, which is exactly when the similarity solution is the right tool instead
+  verify:
+    expect:
+      v: exp(-8*pi**2*nsimplify(fo)/4)
+- template: gc-terms-needed
+  skill: gc.eigen
+  pace: quick
+  given:
+    fo:
+      pick:
+      - 0.01
+      - 0.05
+    tolp:
+      pick:
+      - 1
+      - 5
+  prompt: Terms in a slab expansion carry $\exp(-n^2\pi^2 Fo/4)$. At Fo = {{fo}}, what is the smallest n whose exponential falls below {{tolp}}% of the first term's?
+  parts:
+  - ask: Answer
+    label: v
+    tex: n
+    value: ceil(sqrt(1 - 4*log(tolp/100)/(pi^2*fo)))
+    final: true
+    tol: 0.0001
+    explain: Early in a transient the series needs many terms, and a one-term formula applied there is simply wrong. Asking how many terms a tolerance costs is the habit that stops that
+  verify:
+    expect:
+      v: ceiling(sqrt(1 - 4*log(Rational(tolp, 100))/(pi**2*nsimplify(fo))))
+- template: gc-stiff-step
+  skill: nm.ode
+  pace: quick
+  given:
+    lf:
+      pick:
+      - 500
+      - 5000
+      - 100000
+    ls:
+      pick:
+      - 0.1
+      - 1
+  prompt: A linear system has eigenvalues −{{lf}} and −{{ls}} per second. What is the largest forward-Euler step, in milliseconds, that stays stable?
+  parts:
+  - ask: Answer
+    label: v
+    tex: \Delta t
+    value: 2/lf*1000
+    tol: 0.005
+    explain: The slow mode sets how long you must integrate and the fast one sets how small each step may be; their ratio is the stiffness. This is why a stiff problem needs an implicit solver rather than a smaller tolerance
+  verify:
+    expect:
+      v: Rational(2, lf)*1000
+- template: gc-stiffness-ratio
+  skill: nm.ode
+  pace: quick
+  given:
+    lf:
+      pick:
+      - 500
+      - 5000
+      - 100000
+    ls:
+      pick:
+      - 0.1
+      - 1
+  prompt: A system has eigenvalues −{{lf}} and −{{ls}} per second. How many forward-Euler steps does covering three slow time constants take, at the stability limit?
+  parts:
+  - ask: Answer
+    label: v
+    tex: steps
+    value: 3/ls/(2/lf)
+    final: true
+    tol: 0.0001
+    explain: The step count is three halves of the stiffness ratio, so a ratio of 1e5 means millions of steps for an answer that is nearly constant. That is the whole case for implicit methods
+  verify:
+    expect:
+      v: Rational(3, 2)*Rational(lf, 1)/nsimplify(ls)
+- template: gc-condition-digits
+  skill: nm.linear-iter
+  pace: quick
+  given:
+    k:
+      pick:
+      - 2
+      - 6
+      - 11
+  prompt: A linear system has condition number 1e{{k}} and the arithmetic carries about 16 significant digits. Roughly how many correct digits remain in the solution?
+  parts:
+  - ask: Answer
+    label: v
+    tex: digits
+    value: 16 - k
+    final: true
+    tol: 0.0001
+    explain: 'The solver did not fail and will report no error: it returns a full set of digits, most of them meaningless. Recognising that a result is conditioning-limited rather than wrong is the Level F skill, since the software cannot tell you'
+  verify:
+    expect:
+      v: 16 - k
+- template: gc-residual-vs-error
+  skill: nm.linear-iter
+  pace: quick
+  given:
+    r:
+      pick:
+      - 10
+      - 12
+      - 14
+    k:
+      pick:
+      - 2
+      - 6
+      - 11
+  prompt: A solve returns a relative residual of 1e-{{r}} on a system with condition number 1e{{k}}. What is the bound on the relative error in the solution, as a power of ten (give the exponent)?
+  parts:
+  - ask: Answer
+    label: v
+    tex: exponent
+    value: k - r
+    final: true
+    tol: 0.0001
+    explain: 'A small residual does not mean a small error: the condition number sits between them. Software reports the residual because it can compute it, and reports nothing about the error because it cannot'
+  verify:
+    expect:
+      v: k - r
+- template: gc-optimal-step
+  skill: nm.diff
+  pace: quick
+  given:
+    e:
+      pick:
+      - 8
+      - 12
+      - 16
+  prompt: A forward difference is evaluated in arithmetic with machine epsilon 1e-{{e}}. At roughly what step h, as a power of ten (give the exponent), is the total error least?
+  parts:
+  - ask: Answer
+    label: v
+    tex: \log_{10} h
+    value: -e/2
+    tol: 0.005
+    explain: Shrinking h past this point makes the answer worse, which surprises people who expect smaller steps to be strictly better. A central difference has error O(h²) + O(ε/h) and does better, at h ≈ ε^(1/3)
+  verify:
+    expect:
+      v: -Rational(e, 2)
+- template: gc-observed-order
+  skill: nm.diff
+  pace: quick
+  given:
+    e1:
+      pick:
+      - 4
+      - 8
+    e2:
+      pick:
+      - 1
+      - 2
+      - 10
+  prompt: Halving the step takes the error from {{e1}}e-4 to {{e2}}e-5. What is the observed order of convergence?
+  parts:
+  - ask: Answer
+    label: v
+    tex: p
+    value: log(e1*1e-4/(e2*1e-5))/log(2)
+    tol: 0.005
+    explain: Measuring the order on two grids checks the implementation against the method's claim. An order that comes out below the advertised one usually means a boundary condition is only first-order accurate
+  verify:
+    expect:
+      v: log(e1*Rational(1, 10000)/(e2*Rational(1, 100000)))/log(2)

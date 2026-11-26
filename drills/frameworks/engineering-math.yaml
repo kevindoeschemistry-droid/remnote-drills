@@ -527,8 +527,8 @@ units:
         book: { kreyszig-10e: ["12.7", "12.12"] }
         los:
           - { id: D, std: [], do: "Write the heat kernel as the Green's function of the diffusion equation and use images for a fixed or insulated end.", ek: ["G = e^(−(x−x₀)²/4κt)/√(4πκt) on the line; on x > 0 subtract the mirror image for u(0) = 0, add it for an insulated end."], p: [P1], drills: [gf-image-fixed, gf-image-insulated] }
-          - { id: A, do: "Solve a PDE on a semi-infinite or infinite domain by Laplace or Fourier transform.", ek: ["Transform out t (Laplace) or x (Fourier) to get an ODE in the other variable; bounded at infinity keeps e^(−√s x)."], p: [P3], drills: [em-semi-infinite-heat, pde-lt-steps, pde-lt-decay-rate, pde-lt-erfc-value], needs: [EM-7.1.A] }
-          - { id: B, std: ["webwork-opl:CX8.5"], do: "Solve a finite rod by Laplace transform and invert by residues: the poles are the eigenvalues.", ek: ["Residue at s = 0 is the steady state; s_n = −(nπ/L)² rebuild the Fourier series."], p: [P3, P4], drills: [pde-lt-finite-rod-amplitude, pde-lt-pole-is-eigenvalue, pde-lt-residues], needs: [EM-10.5.A, EM-10.2.B] }
+          - { id: A, std: ["cheme-grad-core:MM.5"], do: "Solve a PDE on a semi-infinite or infinite domain by Laplace or Fourier transform.", ek: ["Transform out t (Laplace) or x (Fourier) to get an ODE in the other variable; bounded at infinity keeps e^(−√s x)."], p: [P3], drills: [em-semi-infinite-heat, pde-lt-steps, pde-lt-decay-rate, pde-lt-erfc-value], needs: [EM-7.1.A] }
+          - { id: B, std: ["webwork-opl:CX8.5", "cheme-grad-core:MM.5"], do: "Solve a finite rod by Laplace transform and invert by residues: the poles are the eigenvalues.", ek: ["Residue at s = 0 is the steady state; s_n = −(nπ/L)² rebuild the Fourier series."], p: [P3, P4], drills: [pde-lt-finite-rod-amplitude, pde-lt-pole-is-eigenvalue, pde-lt-residues], needs: [EM-10.5.A, EM-10.2.B] }
           - { id: C, do: "Choose the method for a PDE problem: separation, shift, transform or numerics.", ek: ["Finite domain with homogeneous BCs: separate. Nonzero BCs: shift first. Semi-infinite: transform. Messy geometry or data: finite differences."], p: [P2], drills: [pde-method-choice], needs: [EM-10.5.B, EM-10.2.C] }
       - n: 6
         title: Finite differences for PDEs
@@ -550,10 +550,10 @@ units:
         book: { kreyszig-10e: ["11.7", "11.8", "11.9"] }
         los:
           - { id: A, do: "Represent a non-periodic function by its Fourier integral, or its cosine or sine transform.", ek: ["Limit L → ∞ of the Fourier series; even ⇒ cosine transform, odd ⇒ sine."], p: [P3], drills: [em-fourier-cosine-sine] }
-          - { id: B, do: "Compute a Fourier transform and use its derivative property to turn an ODE into algebra.", ek: ["F{f′} = iwF{f}; F{e^(−ax²)} is Gaussian."], p: [P3], drills: [em-fourier-transform-value, em-fourier-derivative-rule] }
+          - { id: B, std: ["cheme-grad-core:MM.5"], do: "Compute a Fourier transform and use its derivative property to turn an ODE into algebra.", ek: ["F{f′} = iwF{f}; F{e^(−ax²)} is Gaussian."], p: [P3], drills: [em-fourier-transform-value, em-fourier-derivative-rule] }
           - { id: C, std: [], do: "Compute Fourier transforms of the Gaussian and the rectangular pulse.", ek: ["With f̂(w) = (1/√2π)∫f e^(−iwx)dx: e^(−ax²) → e^(−w²/4a)/√(2a); a pulse of height 1 on |x| < b → √(2/π) sin(bw)/w."], p: [P1], drills: [ft-gaussian, ft-rect] }
           - { id: D, std: [], do: "Use the shift, scaling and convolution properties of the Fourier transform.", ek: ["f(x − c) → e^(−iwc)f̂; f(bx) → f̂(w/b)/|b|; f∗g → √(2π) f̂ ĝ."], p: [P1], drills: [ft-scaling, ft-properties] }
-          - { id: E, std: [], do: "Solve the heat equation on an infinite line by Fourier transform and read the spreading Gaussian.", ek: ["A point release Q spreads as u = Q e^(−x²/4κt)/√(4πκt): the peak falls as t^(−1/2) and the variance grows as 2κt."], p: [P1], drills: [ft-heat-peak, ft-heat-spread] }
+          - { id: E, std: ["cheme-grad-core:MM.5"], do: "Solve the heat equation on an infinite line by Fourier transform and read the spreading Gaussian.", ek: ["A point release Q spreads as u = Q e^(−x²/4κt)/√(4πκt): the peak falls as t^(−1/2) and the variance grows as 2κt."], p: [P1], drills: [ft-heat-peak, ft-heat-spread] }
           - { id: F, std: [], do: "Convolve functions directly and through the Fourier transform: Gaussians, pulses, and an initial profile spreading by diffusion.", ek: ["Gaussian widths add in quadrature (σ² = σ₁² + σ₂²); two pulses give a triangle; u(x, t) = u₀ ∗ heat kernel, so σ² grows by 2κt."], p: [P1], drills: [fc-gaussians, fc-pulses, fc-heat-spread] }
       - n: 2
         title: "Random walks and the diffusion limit"
@@ -619,8 +619,8 @@ units:
         title: "Integration and series"
         los:
           - { id: B, std: ["webwork-opl:CX8.1"], do: "Decide whether a complex sequence converges.", ek: ["zⁿ → 0 when |z| < 1 and diverges when |z| > 1."], p: [P1], drills: [em-complex-sequence] }
-          - { id: A, std: ["webwork-opl:CX7.1"], do: "Use Cauchy's integral formula.", ek: ["∮ f(z)/(z − z₀) dz = 2πi f(z₀) for z₀ inside the contour and f analytic."], p: [P1], drills: [em-cauchy-formula] }
+          - { id: A, std: ["webwork-opl:CX7.1", "cheme-grad-core:MM.5"], do: "Use Cauchy's integral formula.", ek: ["∮ f(z)/(z − z₀) dz = 2πi f(z₀) for z₀ inside the contour and f analytic."], p: [P1], drills: [em-cauchy-formula] }
           - { id: C, std: ["webwork-opl:CX8.2"], do: "Find a Taylor coefficient of an analytic function.", ek: ["e^{az} = Σ aᵏ zᵏ / k!; 1/(1 − az) = Σ aᵏ zᵏ for |az| < 1."], p: [P1], drills: [em-complex-taylor] }
-          - { id: D, std: ["webwork-opl:CX8.3", "webwork-opl:CX8.5"], do: "Find a Laurent coefficient (a residue).", ek: ["The coefficient of 1/(z − z₀) is the residue."], p: [P1], drills: [em-laurent-residue] }
+          - { id: D, std: ["webwork-opl:CX8.3", "webwork-opl:CX8.5", "cheme-grad-core:MM.5"], do: "Find a Laurent coefficient (a residue).", ek: ["The coefficient of 1/(z − z₀) is the residue."], p: [P1], drills: [em-laurent-residue] }
           - { id: E, std: ["webwork-opl:CX8.4"], do: "Find the order of a zero.", ek: ["The order is the power of the first nonzero term of the Taylor series."], p: [P1], drills: [em-zero-order] }
   # <<< opl-fill:opl-em
