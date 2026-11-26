@@ -41,7 +41,7 @@ Big ideas: EXPONENTIAL
   - P1 · drills: nu-neutron-number, nu-decay-daughter
 - ● **NU-1.1.B** (doe-hdbk-1019:1) Turn a mass defect into a binding energy per nucleon.
   - EK: 1 u = 931.5 MeV; the curve peaks near iron at about 8.8 MeV per nucleon.
-  - P1 · P3 · drills: nu-binding-energy
+  - P1 · P3 · drills: nu-binding-energy, nu-defect-from-b
 
 ### 1.2 The decay law
 
@@ -61,7 +61,7 @@ Big ideas: EXPONENTIAL
 
 - ● **NU-2.1.A** (doe-hdbk-1019:1) Apply the inverse-square law to a point source.
   - EK: Dose rate × r² is constant.
-  - P1 · drills: nu-inverse-square
+  - P1 · drills: nu-inverse-square, nu-distance-for-rate
 - ● **NU-2.1.B** (doe-hdbk-1019:1) Compute gamma attenuation from a linear attenuation coefficient or a half-value layer, and choose a shield for each kind of radiation.
   - EK: I = I₀e^(−μx); HVL = ln 2 / μ; paper for alpha, plastic for beta, dense for gamma, hydrogen for neutrons.
   - P1 · P2 · drills: nu-half-value-layers, nu-attenuation-coefficient, nu-shielding-choice
@@ -72,7 +72,7 @@ Big ideas: EXPONENTIAL
 
 - ● **NU-2.2.A** Convert an absorbed dose to an equivalent dose.
   - EK: H (Sv) = w_R × D (Gy); w_R is 1 for photons and betas, 20 for alphas.
-  - P1 · drills: nu-equivalent-dose
+  - P1 · drills: nu-equivalent-dose, nu-effective-dose
 
 ## Unit 3 · Neutrons
 
@@ -107,7 +107,7 @@ Big ideas: BALANCE, DELAYED
   - P1 · P2 · drills: nu-six-factor, nu-criticality-state
 - ● **NU-4.1.B** (nrc-gfe:192002) Convert k-effective to reactivity.
   - EK: ρ = (k − 1)/k; 1 pcm = 10⁻⁵; one dollar is ρ = β.
-  - P1 · drills: nu-reactivity-pcm
+  - P1 · drills: nu-reactivity-pcm, nu-k-from-rho
 
 ### 4.2 Subcritical multiplication
 
@@ -115,7 +115,7 @@ Big ideas: BALANCE, DELAYED
 
 - ● **NU-4.2.A** (nrc-gfe:192003) Find the multiplication of a source in a subcritical core.
   - EK: M = 1/(1 − k); 1/M falls to zero at criticality.
-  - P1 · drills: nu-subcritical-multiplication
+  - P1 · drills: nu-subcritical-multiplication, nu-count-ratio
 
 ## Unit 5 · Kinetics
 
@@ -139,10 +139,10 @@ Big ideas: BALANCE
 
 - ● **NU-6.1.A** (nrc-gfe:192004, nrc-gfe:192005, nrc-gfe:192007) Predict the sign of the reactivity change from temperature, control rods, boron, burnup and burnable poisons.
   - EK: More absorption or less fuel is negative; removing an absorber is positive; fuel and moderator temperature feedback are negative by design.
-  - P2 · drills: nu-reactivity-effects
+  - P2 · drills: nu-reactivity-effects, nu-reactivity-2
 - ● **NU-6.1.B** (nrc-gfe:192006) Describe how xenon-135 and samarium-149 are produced and removed, and what xenon does after a shutdown.
   - EK: Xenon comes mostly from iodine-135, is removed by burnup and decay, and peaks about ten hours after shutdown.
-  - P2 · P3 · drills: nu-xenon-facts
+  - P2 · P3 · drills: nu-xenon-facts, nu-iodine-left
 
 ### 6.2 Energy
 

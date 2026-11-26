@@ -54,20 +54,20 @@ units:
       - n: 1
         title: "Orbits"
         los:
-          - { id: A, std: ["ngss-hs:ESS1-4"], do: "Compute an orbital period from the central mass and radius.", ek: ["T = 2π√(a³/GM)."], p: [P1], drills: [es-kepler] }
-          - { id: B, std: ["ngss-hs:ESS1-4"], do: "Compute an escape speed.", ek: ["v = √(2GM/R)."], p: [P1], needs: [ES-1.1.A], drills: [es-escape] }
+          - { id: A, std: ["ngss-hs:ESS1-4"], do: "Compute an orbital period from the central mass and radius.", ek: ["T = 2π√(a³/GM)."], p: [P1], drills: [es-kepler, es-kepler-scale] }
+          - { id: B, std: ["ngss-hs:ESS1-4"], do: "Compute an escape speed.", ek: ["v = √(2GM/R)."], p: [P1], needs: [ES-1.1.A], drills: [es-escape, es-escape-circular] }
       - n: 2
         title: "Stars"
         los:
-          - { id: A, std: ["ngss-hs:ESS1-1"], do: "Find a star's peak wavelength from its temperature.", ek: ["λ_max = b/T."], p: [P1], drills: [es-wien] }
-          - { id: B, std: ["ngss-hs:ESS1-1"], do: "Compute a star's luminosity from its radius and temperature.", ek: ["L = 4πR²σT⁴."], p: [P1], needs: [ES-1.2.A], drills: [es-luminosity] }
-          - { id: C, std: ["ngss-hs:ESS1-1"], do: "Scale a main-sequence lifetime with mass.", ek: ["t ∝ M/L ∝ M⁻²·⁵."], p: [P1], needs: [ES-1.2.B], drills: [es-star-life] }
-          - { id: D, std: ["ngss-hs:ESS1-1", "ngss-hs:ESS1-3"], do: "Compute the energy released by a fusion step.", ek: ["Q = Δm c², 931.5 MeV per u."], p: [P1], drills: [es-fusion-energy] }
+          - { id: A, std: ["ngss-hs:ESS1-1"], do: "Find a star's peak wavelength from its temperature.", ek: ["λ_max = b/T."], p: [P1], drills: [es-wien, es-wien-reverse] }
+          - { id: B, std: ["ngss-hs:ESS1-1"], do: "Compute a star's luminosity from its radius and temperature.", ek: ["L = 4πR²σT⁴."], p: [P1], needs: [ES-1.2.A], drills: [es-luminosity, es-luminosity-ratio] }
+          - { id: C, std: ["ngss-hs:ESS1-1"], do: "Scale a main-sequence lifetime with mass.", ek: ["t ∝ M/L ∝ M⁻²·⁵."], p: [P1], needs: [ES-1.2.B], drills: [es-star-life, es-star-life-mass] }
+          - { id: D, std: ["ngss-hs:ESS1-1", "ngss-hs:ESS1-3"], do: "Compute the energy released by a fusion step.", ek: ["Q = Δm c², 931.5 MeV per u."], p: [P1], drills: [es-fusion-energy, es-fusion-fraction] }
       - n: 3
         title: "Cosmology"
         los:
-          - { id: A, std: ["ngss-hs:ESS1-2"], do: "Apply Hubble's law and estimate the Hubble time.", ek: ["v = H₀d; t ≈ 1/H₀."], p: [P1], drills: [es-hubble] }
-          - { id: B, std: ["ngss-hs:ESS1-3"], do: "Say where an element was made.", ek: ["Big Bang, stellar fusion, neutron capture, spallation."], p: [P2], needs: [ES-1.2.D], drills: [es-element-origin] }
+          - { id: A, std: ["ngss-hs:ESS1-2"], do: "Apply Hubble's law and estimate the Hubble time.", ek: ["v = H₀d; t ≈ 1/H₀."], p: [P1], drills: [es-hubble, es-hubble-distance] }
+          - { id: B, std: ["ngss-hs:ESS1-3"], do: "Say where an element was made.", ek: ["Big Bang, stellar fusion, neutron capture, spallation."], p: [P2], needs: [ES-1.2.D], drills: [es-element-origin, es-nucleosynthesis] }
   - id: interior
     n: 2
     title: "Earth's interior and history"
@@ -78,13 +78,13 @@ units:
       - n: 1
         title: "Plates and the interior"
         los:
-          - { id: A, std: ["ngss-hs:ESS2-1", "ngss-hs:ESS1-5"], do: "Classify a plate boundary.", ek: ["Divergent, convergent, transform."], p: [P2], drills: [es-plate-boundary] }
-          - { id: B, std: ["ngss-hs:ESS2-3"], do: "Say which seismic waves cross a region of the interior.", ek: ["S waves cannot cross liquid: the outer-core shadow."], p: [P2], drills: [es-seismic] }
+          - { id: A, std: ["ngss-hs:ESS2-1", "ngss-hs:ESS1-5"], do: "Classify a plate boundary.", ek: ["Divergent, convergent, transform."], p: [P2], drills: [es-plate-boundary, es-boundary-features] }
+          - { id: B, std: ["ngss-hs:ESS2-3"], do: "Say which seismic waves cross a region of the interior.", ek: ["S waves cannot cross liquid: the outer-core shadow."], p: [P2], drills: [es-seismic, es-shadow-zone] }
       - n: 2
         title: "Dating"
         los:
-          - { id: A, std: ["ngss-hs:ESS1-5", "ngss-hs:ESS1-6"], do: "Compute an age from a daughter-to-parent ratio.", ek: ["t = (t½/ln 2) ln(1 + D/P)."], p: [P1], drills: [es-radiometric] }
-          - { id: B, std: ["ngss-hs:ESS1-6"], do: "Choose a dating method for a sample.", ek: ["¹⁴C to 50 ky; K–Ar volcanic; U–Pb oldest."], p: [P2], needs: [ES-2.2.A], drills: [es-dating-method] }
+          - { id: A, std: ["ngss-hs:ESS1-5", "ngss-hs:ESS1-6"], do: "Compute an age from a daughter-to-parent ratio.", ek: ["t = (t½/ln 2) ln(1 + D/P)."], p: [P1], drills: [es-radiometric, es-daughter-ratio] }
+          - { id: B, std: ["ngss-hs:ESS1-6"], do: "Choose a dating method for a sample.", ek: ["¹⁴C to 50 ky; K–Ar volcanic; U–Pb oldest."], p: [P2], needs: [ES-2.2.A], drills: [es-dating-method, es-dating-range] }
   - id: climate
     n: 3
     title: "Earth's systems and climate"
@@ -95,14 +95,14 @@ units:
       - n: 1
         title: "Energy balance"
         los:
-          - { id: A, std: ["ngss-hs:ESS2-4", "ib-physics-2025:B.2"], do: "Compute a planet's radiative-equilibrium temperature.", ek: ["T_e = [S(1 − α)/4σ]^¼."], p: [P1], drills: [es-equilibrium-temp] }
-          - { id: B, std: ["ib-physics-2025:B.2"], do: "Compute the surface temperature under one absorbing layer.", ek: ["T_s = 2^¼ T_e."], p: [P1], needs: [ES-3.1.A], drills: [es-one-layer] }
-          - { id: C, std: ["ngss-hs:ESS3-5", "ib-biology-2025:D4.3"], do: "Estimate equilibrium warming from a CO₂ change.", ek: ["ΔF = 5.35 ln(C/C₀); ΔT = λΔF."], p: [P1], needs: [ES-3.1.A], drills: [es-co2-forcing] }
-          - { id: D, std: ["ngss-hs:ESS2-2"], do: "Say whether a climate feedback amplifies or damps warming.", ek: ["Ice-albedo and water vapour positive; Planck and weathering negative."], p: [P2], drills: [es-feedback] }
+          - { id: A, std: ["ngss-hs:ESS2-4", "ib-physics-2025:B.2"], do: "Compute a planet's radiative-equilibrium temperature.", ek: ["T_e = [S(1 − α)/4σ]^¼."], p: [P1], drills: [es-equilibrium-temp, es-albedo-change] }
+          - { id: B, std: ["ib-physics-2025:B.2"], do: "Compute the surface temperature under one absorbing layer.", ek: ["T_s = 2^¼ T_e."], p: [P1], needs: [ES-3.1.A], drills: [es-one-layer, es-layer-ratio] }
+          - { id: C, std: ["ngss-hs:ESS3-5", "ib-biology-2025:D4.3"], do: "Estimate equilibrium warming from a CO₂ change.", ek: ["ΔF = 5.35 ln(C/C₀); ΔT = λΔF."], p: [P1], needs: [ES-3.1.A], drills: [es-co2-forcing, es-co2-for-warming] }
+          - { id: D, std: ["ngss-hs:ESS2-2"], do: "Say whether a climate feedback amplifies or damps warming.", ek: ["Ice-albedo and water vapour positive; Planck and weathering negative."], p: [P2], drills: [es-feedback, es-feedback-gain] }
       - n: 2
         title: "Carbon cycle"
         los:
-          - { id: A, std: ["ngss-hs:ESS2-6", "ngss-hs:ESS3-6"], do: "Convert between ppm CO₂ and gigatonnes of carbon.", ek: ["≈ 2.13 GtC per ppm."], p: [P1], drills: [es-carbon-mass] }
+          - { id: A, std: ["ngss-hs:ESS2-6", "ngss-hs:ESS3-6"], do: "Convert between ppm CO₂ and gigatonnes of carbon.", ek: ["≈ 2.13 GtC per ppm."], p: [P1], drills: [es-carbon-mass, es-c-to-co2] }
   - id: resources
     n: 4
     title: "Earth and human activity"
@@ -113,4 +113,4 @@ units:
       - n: 1
         title: "Growth"
         los:
-          - { id: A, std: ["ngss-hs:ESS3-3"], do: "Compute a doubling time from a growth rate.", ek: ["t = ln 2/ln(1 + r) ≈ 70/%."], p: [P1], drills: [es-doubling] }
+          - { id: A, std: ["ngss-hs:ESS3-3"], do: "Compute a doubling time from a growth rate.", ek: ["t = ln 2/ln(1 + r) ≈ 70/%."], p: [P1], drills: [es-doubling, es-growth-for-doubling] }

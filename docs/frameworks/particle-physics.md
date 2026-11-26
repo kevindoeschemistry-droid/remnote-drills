@@ -32,10 +32,10 @@ Big ideas: ZOO
 
 - ● **PP-1.1.A** (aqa-7408-particles:3.2.1.6) Find the charge of a hadron from its quark content.
   - EK: u, c, t: +2/3; d, s, b: −1/3; antiquarks opposite.
-  - P1 · drills: pp-hadron-charge
+  - P1 · drills: pp-hadron-charge, pp-quark-content
 - ● **PP-1.1.B** (aqa-7408-particles:3.2.1.5) Classify a hadron as a baryon, an antibaryon or a meson.
   - EK: Three quarks, three antiquarks, or a quark and an antiquark.
-  - P2 · drills: pp-hadron-type
+  - P2 · drills: pp-hadron-type, pp-hadron-props
 
 ### 1.2 Forces
 
@@ -43,7 +43,7 @@ Big ideas: ZOO
 
 - ● **PP-1.2.A** (aqa-7408-particles:3.2.1.4) Name the carrier of each interaction and the interaction behind a given process.
   - EK: Photon, W and Z, gluon; only the weak force changes flavour.
-  - P2 · drills: pp-force-carrier
+  - P2 · drills: pp-force-carrier, pp-yukawa-range
 
 ## Unit 2 · Conservation laws and energy
 
@@ -55,7 +55,7 @@ Big ideas: CONSERVE
 
 - ● **PP-2.1.A** (aqa-7408-particles:3.2.1.7) Check charge, baryon number and lepton numbers in a reaction or decay.
   - EK: Each balances separately; electron and muon lepton numbers are counted apart.
-  - P2 · drills: pp-conservation
+  - P2 · drills: pp-conservation, pp-forbidden-by
 
 ### 2.2 Mass and energy
 
@@ -74,13 +74,13 @@ Big ideas: CONSERVE
 
 - ● **PP-2.3.A** (aqa-7408-particles:3.2.1.6) Find the strangeness of a hadron and say which interactions conserve it.
   - EK: s quark −1, anti-s +1; conserved by the strong interaction, changed by one in weak decays.
-  - P1 · P2 · drills: pp-strangeness
+  - P1 · P2 · drills: pp-strangeness, pp-delta-s
 - ● **PP-2.3.B** (aqa-7408-particles:3.2.1.7) State the quark change in beta-minus decay, beta-plus decay and electron capture.
   - EK: β⁻: d → u. β⁺ and electron capture: u → d. Only the weak interaction changes flavour.
   - P2 · drills: pp-quark-change, ra-decay-chain
 - ● **PP-2.3.C** (aqa-7408-particles:3.2.1.1) Calculate the specific charge of a particle or nucleus.
   - EK: Specific charge = charge ÷ mass, in C/kg.
-  - P1 · drills: pp-specific-charge
+  - P1 · drills: pp-specific-charge, pp-specific-ratio
 
 ## Unit 3 · Electromagnetic radiation and quantum phenomena
 
@@ -95,10 +95,10 @@ Big ideas: CONSERVE
   - P1 · drills: ph-photoelectric, ph-photon-energy
 - ● **PP-3.1.B** (aqa-7408-particles:3.2.2.2) Convert between electronvolts and joules and find the energy an electron gains through a potential difference.
   - EK: 1 eV = 1.60 × 10⁻¹⁹ J; an electron through V volts gains V eV.
-  - P1 · drills: ph-accelerated-electron
+  - P1 · drills: ph-accelerated-electron, pp-electron-speed
 - ● **PP-3.1.C** (aqa-7408-particles:3.2.2.3) Relate a spectral line to the energy difference between two levels.
   - EK: hf = E₁ − E₂.
   - P1 · drills: ph-hydrogen-line, ph-bohr-level
 - ● **PP-3.1.D** (aqa-7408-particles:3.2.2.4) Calculate a de Broglie wavelength and say how diffraction changes with momentum.
   - EK: λ = h/mv; more momentum, shorter wavelength, less spreading.
-  - P1 · drills: ph-de-broglie
+  - P1 · drills: ph-de-broglie, pp-electron-lambda

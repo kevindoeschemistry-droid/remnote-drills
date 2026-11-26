@@ -39,10 +39,10 @@ Big ideas: SETS,
 
 - ● **SQ-1.1.A** (oracle-1z0-071:1) Classify a statement as DML, DDL, DCL or transaction control.
   - EK: TRUNCATE, RENAME and COMMENT are DDL; MERGE is DML.
-  - P3 · drills: sq-statement-kind
+  - P3 · drills: sq-statement-kind, sq-commit-kind
 - ● **SQ-1.1.B** (oracle-1z0-071:1) Identify primary keys, foreign keys and self-references in a schema.
   - EK: A foreign key may be null and may point into its own table.
-  - P2 · drills: sq-keys
+  - P2 · drills: sq-keys, sq-fk-behaviour
 
 ### 1.2 SELECT
 
@@ -53,7 +53,7 @@ Big ideas: SETS,
   - P1 · drills: sq-select-expr, sq-null-arith
 - ● **SQ-1.2.B** (oracle-1z0-071:2) Count the rows DISTINCT returns over one or more columns.
   - EK: DISTINCT covers the whole select list; all NULLs are one value.
-  - P1 · drills: sq-distinct-rows
+  - P1 · drills: sq-distinct-rows, sq-count-distinct
 - ● **SQ-1.2.C** (oracle-1z0-071:2) Use aliases, concatenation and the q-quote correctly, including Oracle's treatment of empty strings.
   - EK: Aliases exist only from SELECT onward; '' is NULL; || ignores NULL.
   - P1 · P3 · drills: sq-alias-legal, sq-concat, sq-oracle-empty-string
@@ -70,7 +70,7 @@ Big ideas: SETS,
   - P1 · drills: sq-order-first, sq-fetch-rows
 - ● **SQ-1.3.C** (oracle-1z0-071:3) Say how &, &&, DEFINE and VERIFY behave.
   - EK: && prompts once and defines the variable for the session.
-  - P3 · drills: sq-substitution
+  - P3 · drills: sq-substitution, sq-substitution-2
 
 ## Unit 2 · Functions
 
@@ -85,7 +85,7 @@ Big ideas:
   - P1 · drills: sq-char-number, sq-char-text
 - ● **SQ-2.1.B** (oracle-1z0-071:4) Evaluate ROUND, TRUNC and MOD, including negative places and negative numbers.
   - EK: ROUND halves away from zero; MOD takes the dividend's sign.
-  - P1 · drills: sq-number-fn
+  - P1 · drills: sq-number-fn, sq-round-trunc-2
 - ● **SQ-2.1.C** (oracle-1z0-071:4) Do date arithmetic and evaluate MONTHS_BETWEEN, ADD_MONTHS, LAST_DAY and NEXT_DAY.
   - EK: DATE − DATE is days; month-ends stay month-ends.
   - P1 · drills: sq-date-number, sq-date-text
@@ -96,10 +96,10 @@ Big ideas:
 
 - ● **SQ-2.2.A** (oracle-1z0-071:5) Evaluate NVL, NVL2, NULLIF and COALESCE.
   - EK: COALESCE returns its first non-null argument.
-  - P1 · drills: sq-null-fn
+  - P1 · drills: sq-null-fn, sq-null-fn-agg
 - ● **SQ-2.2.B** (oracle-1z0-071:5) Evaluate CASE and DECODE.
   - EK: DECODE matches NULL to NULL; CASE with no ELSE gives NULL.
-  - P1 · drills: sq-case-decode
+  - P1 · drills: sq-case-decode, sq-case-count
 - ● **SQ-2.2.C** (oracle-1z0-071:5) Read TO_CHAR and TO_NUMBER format models and say when Oracle converts implicitly.
   - EK: Too-narrow models print #; strings compared with dates use NLS_DATE_FORMAT.
   - P1 · P3 · drills: sq-to-char, sq-implicit
@@ -114,7 +114,7 @@ Big ideas: SETS,
 
 - ● **SQ-3.1.A** (oracle-1z0-071:6) Evaluate COUNT, SUM, AVG, MIN and MAX on a column with NULLs.
   - EK: COUNT(*) counts rows; everything else skips NULLs.
-  - P1 · drills: sq-aggregate
+  - P1 · drills: sq-aggregate, sq-avg-nulls
 - ● **SQ-3.1.B** (oracle-1z0-071:6) Count the groups a GROUP BY … HAVING query returns and evaluate a nested group function.
   - EK: WHERE filters rows before grouping, HAVING groups after.
   - P1 · drills: sq-group-rows, sq-group-nested
@@ -138,7 +138,7 @@ Big ideas: SETS,
   - P1 · drills: sq-self-join, sq-nonequi
 - ● **SQ-4.1.C** (oracle-1z0-071:7) Translate Oracle's (+) outer-join notation to ANSI syntax.
   - EK: (+) marks the side that may be missing.
-  - P3 · drills: sq-oracle-plus
+  - P3 · drills: sq-oracle-plus, sq-plus-ansi
 
 ### 4.2 Subqueries
 
@@ -146,13 +146,13 @@ Big ideas: SETS,
 
 - ● **SQ-4.2.A** (oracle-1z0-071:8) Count the rows of a query with a single-row, multiple-row (IN, ANY, ALL), correlated or EXISTS subquery.
   - EK: > ALL is above the maximum; a correlated subquery reruns per row.
-  - P1 · drills: sq-subquery-count
+  - P1 · drills: sq-subquery-count, sq-scalar-sub
 - ● **SQ-4.2.B** (oracle-1z0-071:8) Say whether a subquery comparison runs, returns nothing or fails.
   - EK: = with a multi-row subquery raises ORA-01427.
-  - P3 · drills: sq-subquery-error
+  - P3 · drills: sq-subquery-error, sq-subquery-rules
 - ● **SQ-4.2.C** (oracle-1z0-071:8) Predict the result of a correlated UPDATE or DELETE.
   - EK: The subquery sees the table as the statement began.
-  - P1 · drills: sq-correlated-dml
+  - P1 · drills: sq-correlated-dml, sq-correlated-after
 
 ### 4.3 Set operators
 
@@ -160,10 +160,10 @@ Big ideas: SETS,
 
 - ● **SQ-4.3.A** (oracle-1z0-071:9) Count the rows of UNION, UNION ALL, INTERSECT and MINUS.
   - EK: Only UNION ALL keeps duplicates.
-  - P1 · drills: sq-set-count
+  - P1 · drills: sq-set-count, sq-set-sum
 - ● **SQ-4.3.B** (oracle-1z0-071:9) State the rules for compound queries: matching columns, names, ORDER BY and precedence.
   - EK: Names from the first query; ORDER BY once at the end; equal precedence.
-  - P3 · drills: sq-set-rules
+  - P3 · drills: sq-set-rules, sq-set-rules-2
 
 ## Unit 5 · Changing data
 
@@ -175,7 +175,7 @@ Big ideas: STATE
 
 - ● **SQ-5.1.A** (oracle-1z0-071:10) Predict a table after INSERT, UPDATE or DELETE.
   - EK: No WHERE means every row; omitted columns get their default.
-  - P1 · drills: sq-dml-after
+  - P1 · drills: sq-dml-after, sq-dml-after-2
 - ● **SQ-5.1.B** (oracle-1z0-071:10) Predict the result of MERGE and of a multitable INSERT ALL or INSERT FIRST.
   - EK: INSERT FIRST stops at the first true WHEN.
   - P1 · drills: sq-merge, sq-multi-insert
@@ -186,7 +186,7 @@ Big ideas: STATE
 
 - ● **SQ-5.2.A** (oracle-1z0-071:10) Trace COMMIT, ROLLBACK, SAVEPOINT and implicit commits through a session.
   - EK: ROLLBACK TO keeps the transaction open; DDL commits.
-  - P1 · drills: sq-transaction
+  - P1 · drills: sq-transaction, sq-transaction-2
 
 ## Unit 6 · Schema objects
 
@@ -264,10 +264,10 @@ Big ideas: SETS
 - ● **SQ-8.1.A** Evaluate ROW_NUMBER, RANK, DENSE_RANK, LAG and running or partitioned aggregates.
   - EK: PARTITION BY restarts; RANK leaves gaps after ties.
   - Needs: SQ-3.1.A
-  - P1 · drills: sq-window
+  - P1 · drills: sq-window, sq-window-2
 - ● **SQ-8.1.B** Predict the rows of a top-n-per-group or paging query built on a window function.
   - EK: Number in an inline view, filter outside it.
-  - P1 · drills: sq-top-per-group
+  - P1 · drills: sq-top-per-group, sq-top-n-2
 - ● **SQ-8.1.C** Evaluate an aggregation over a star schema: fact joined to dimensions, filtered and grouped.
   - EK: Compute the measure per fact row, then sum.
-  - P1 · drills: sq-star-agg
+  - P1 · drills: sq-star-agg, sq-star-2

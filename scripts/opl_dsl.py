@@ -5,7 +5,7 @@ class Q:
     """one template (one question)"""
     def __init__(self, name, skill, prompt, value=None, ask="Answer", tex="x", tol=0.0001, explain="", verify=None,
                  given=None, cases=None, let=None, require=None, pace="quick", choice=None, correct=None,
-                 final=False, label="v"):
+                 final=False, label="v", figure=None):
         self.__dict__.update(locals()); del self.__dict__["self"]
 
     def to_yaml(self):
@@ -14,6 +14,7 @@ class Q:
         if self.cases: t["cases"] = self.cases
         if self.require: t["require"] = [self.require] if isinstance(self.require, str) else self.require
         if self.let: t["let"] = self.let
+        if self.figure: t["figure"] = self.figure
         t["prompt"] = self.prompt
         fields = set(self.given or {}) | {k for c in (self.cases or []) for k in c} | set(self.let or {})
         if self.label in fields:

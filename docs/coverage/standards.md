@@ -14,6 +14,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 | Analytical Chemistry | Regulations of the International Chemistry Olympiad, Appendices C and D (concepts, skills and factual knowledge) | exam-spec | read in full | gre-chemistry, aamc-mcat-outline, usnco, icho-syllabus, acs-accm-general, acs-accm-inorganic | acs-accm | 18 | 18 | 0 |
 | Anchor Quantities | CODATA Recommended Values of the Fundamental Physical Constants: 2022 (NIST SP 961) | reference | read in part | snapshot-key-numbers, francl-take-a-number, cfr-21-101-9, acs-accm-pchem, acs-accm-general | — | 14 | 12 | 2 |
 | Basketball | USA Basketball Player Development Curriculum | standard | read in part | — | — | 88 | 0 | 88 |
+| Biochemistry | ASBMB core concepts for biochemistry and molecular biology (Tansey et al., BAMBED 41:289, 2013) | standard | read in part | asbmb-cert, aamc-mcat-outline | — | 48 | 48 | 0 |
 | Biology (AP) | AP Biology Course and Exam Description (effective fall 2025) | standard | read in part | ap-biology, iupac-aa-1983, ngss-hs, ib-biology-2025, icho-appendix-c, icho-syllabus, aamc-mcat-outline, acs-accm-general, acs-accm-inorganic, acs-accm-organic | — | 179 | 179 | 0 |
 | Biosecurity | BlueDot Impact, Biosecurity course (six units) | course | read in part | who-lbm4, bwc, cdc-ss1978, who-jee3, ashrae-241 | — | 42 | 42 | 0 |
 | Calculus | AP Calculus AB and BC Course and Exam Description | standard | read in full | webwork-opl | — | 203 | 203 | 0 |
@@ -68,6 +69,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 - **Analytical Chemistry**: Topics named by IChO Appendix C (read in full), the GRE Chemistry analytical area and MCAT 5C. The ACS analytical content map was not read; objectives and their order are ours.
 - **Anchor Quantities**: Values from CODATA 2022, standard atomic weights and 21 CFR 101.9. Which values to carry is a house list for units 1–4 and the SnapShot Key Numbers in Biology sheet for units 5–6. No chemistry standard lists these values; the ACS Physical Chemistry content map (read) asks for the mole-scale and Boltzmann reasoning they serve, and AQ objectives cite those articulations.
 - **Basketball**: Introductory level read in full, higher levels in overview only.
+- **Biochemistry**: Concepts and statements from ASBMB (core concepts paper and exam objectives); the objective list is ours.
 - **Biology (AP)**: Topics cite the 2025 AP Biology CED learning objectives (all 97 read); objectives keep their 2019 codes, read through a publisher's correlation table.
 - **Biosecurity**: Units follow the six units of BlueDot Impact's Biosecurity course (outline read Nov 2026); laboratory biosafety follows the WHO Laboratory Biosafety Manual's risk-based structure and the treaty items follow the BWC's articles. No curriculum standard for biosecurity exists; the objectives are a house list.
 - **Chemistry Olympiad**: Topics from the USNCO bands (read in part) and IChO Appendix C (read in full), at national-exam depth; the items are a house list.
@@ -115,6 +117,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 - **AI Safety**: course, read in full
 - **Anchor Quantities**: reference, read in part
 - **Basketball**: standard, read in part
+- **Biochemistry**: standard, read in part
 - **Biology (AP)**: standard, read in part
 - **Biosecurity**: course, read in part
 - **Chemistry Olympiad**: exam-spec, read in part
@@ -2461,20 +2464,20 @@ https://students-residents.aamc.org/mcatexam
 
 | Item | Topic | Objectives | With a drill | Where |
 |---|---|---|---|---|
-| 1A | Proteins and amino acids | 23 | 23 | biology (16), structures (7) |
-| 1B | Gene to protein | 19 | 19 | biology (19) |
-| 1C | Heredity and genetic diversity | 15 | 15 | biology (15) |
-| 1D | Bioenergetics and fuel metabolism | 18 | 18 | biology (18) |
+| 1A | Proteins and amino acids | 34 | 34 | biochemistry (11), biology (16), structures (7) |
+| 1B | Gene to protein | 25 | 25 | biochemistry (6), biology (19) |
+| 1C | Heredity and genetic diversity | 21 | 21 | biochemistry (6), biology (15) |
+| 1D | Bioenergetics and fuel metabolism | 28 | 28 | biochemistry (10), biology (18) |
 | 4A | Motion, forces, work, energy, equilibrium | 30 | 30 | physics (30) |
 | 4B | Fluids in circulation and gas exchange | 7 | 7 | physics (7) |
 | 4C | Electrochemistry and circuits | 31 | 31 | chemistry (18), physics (13) |
 | 4D | Light and sound with matter | 20 | 20 | physics (20) |
 | 4E | Atoms, nuclear decay, electronic structure | 24 | 24 | chemistry (21), nuclear (3) |
-| 5A | Water and solutions | 48 | 48 | chemistry (48) |
+| 5A | Water and solutions | 55 | 55 | biochemistry (7), chemistry (48) |
 | 5B | Molecules and intermolecular interactions | 27 | 27 | chemistry (27) |
-| 5C | Separation and purification | 2 | 2 | analytical-chemistry (2) |
+| 5C | Separation and purification | 6 | 6 | analytical-chemistry (2), biochemistry (4) |
 | 5D | Biologically relevant molecules | 14 | 14 | organic-reactions (7), structures (7) |
-| 5E | Chemical thermodynamics and kinetics | 33 | 33 | chemistry (33) |
+| 5E | Chemical thermodynamics and kinetics | 40 | 40 | biochemistry (7), chemistry (33) |
 
 ## ACS Exams Institute Anchoring Concepts Content Map: Physical Chemistry (Holme, Reed, Raker & Murphy, J. Chem. Educ. 2018, 95, 238)
 
@@ -3565,3 +3568,55 @@ https://pubs.acs.org/doi/10.1021/acs.jchemed.7b00498
 | X.D.7 | Tanabe–Sugano and Orgel diagrams | 1 | 1 | inorganic-advanced (1) |
 | X.D.8 | Unit-cell and plan drawings | 1 | 1 | inorganic-chemistry (1) |
 | X.D.9 | Energy profiles for kinetics | 1 | 1 | chemistry (1) |
+
+## ASBMB core concepts for biochemistry and molecular biology (Tansey et al., BAMBED 41:289, 2013)
+
+https://doi.org/10.1002/bmb.20727
+
+18 of 18 items have at least one objective answering to them.
+
+| Item | Topic | Objectives | With a drill | Where |
+|---|---|---|---|---|
+| T1 | Evolution: statement 1 | 3 | 3 | biochemistry (3) |
+| T2 | Evolution: statement 2 | 4 | 4 | biochemistry (4) |
+| T3 | Evolution: statement 3 | 4 | 4 | biochemistry (4) |
+| T4 | Evolution: statement 4 | 5 | 5 | biochemistry (5) |
+| T5 | Matter and energy transformation: statement 1 | 10 | 10 | biochemistry (10) |
+| T6 | Matter and energy transformation: statement 2 | 13 | 13 | biochemistry (13) |
+| T7 | Matter and energy transformation: statement 3 | 5 | 5 | biochemistry (5) |
+| T8 | Homeostasis: statement 1 | 6 | 6 | biochemistry (6) |
+| T9 | Homeostasis: statement 2 | 9 | 9 | biochemistry (9) |
+| T10 | Homeostasis: statement 3 | 4 | 4 | biochemistry (4) |
+| T11 | Biological information: statement 1 | 6 | 6 | biochemistry (6) |
+| T12 | Biological information: statement 2 | 8 | 8 | biochemistry (8) |
+| T13 | Biological information: statement 3 | 6 | 6 | biochemistry (6) |
+| T14 | Biological information: statement 4 | 7 | 7 | biochemistry (7) |
+| T15 | Macromolecular structure and function: statement 1 | 5 | 5 | biochemistry (5) |
+| T16 | Macromolecular structure and function: statement 2 | 7 | 7 | biochemistry (7) |
+| T17 | Macromolecular structure and function: statement 3 | 6 | 6 | biochemistry (6) |
+| T18 | Macromolecular structure and function: statement 4 | 6 | 6 | biochemistry (6) |
+
+## ASBMB accreditation and certification exam: foundational concepts and learning objectives
+
+https://www.asbmb.org/education/certification-exam
+
+16 of 16 items have at least one objective answering to them.
+
+| Item | Topic | Objectives | With a drill | Where |
+|---|---|---|---|---|
+| 1.1 | Energy and metabolism: objective 1 | 10 | 10 | biochemistry (10) |
+| 1.2 | Energy and metabolism: objective 2 | 8 | 8 | biochemistry (8) |
+| 1.3 | Energy and metabolism: objective 3 | 7 | 7 | biochemistry (7) |
+| 1.4 | Energy and metabolism: objective 4 | 5 | 5 | biochemistry (5) |
+| 1.5 | Energy and metabolism: objective 5 | 8 | 8 | biochemistry (8) |
+| 1.6 | Energy and metabolism: objective 6 | 3 | 3 | biochemistry (3) |
+| 2.1 | Macromolecular structure and function: objective 1 | 10 | 10 | biochemistry (10) |
+| 2.2 | Macromolecular structure and function: objective 2 | 4 | 4 | biochemistry (4) |
+| 2.3 | Macromolecular structure and function: objective 3 | 7 | 7 | biochemistry (7) |
+| 2.4 | Macromolecular structure and function: objective 4 | 12 | 12 | biochemistry (12) |
+| 2.5 | Macromolecular structure and function: objective 5 | 4 | 4 | biochemistry (4) |
+| 3.1 | Information storage and flow: objective 1 | 7 | 7 | biochemistry (7) |
+| 3.2 | Information storage and flow: objective 2 | 7 | 7 | biochemistry (7) |
+| 3.3 | Information storage and flow: objective 3 | 7 | 7 | biochemistry (7) |
+| 3.4 | Information storage and flow: objective 4 | 3 | 3 | biochemistry (3) |
+| 3.5 | Information storage and flow: objective 5 | 4 | 4 | biochemistry (4) |
