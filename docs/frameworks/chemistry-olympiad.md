@@ -2,7 +2,7 @@
 
 Generated from `drills/frameworks/chemistry-olympiad.yaml` by `scripts/framework.mjs`. ● drilled · ◐ partly · ○ no drills yet.
 
-**73 learning objectives** in 15 units (73 core): 73 drilled, 0 partly, 0 with no drills. Core: 73 / 73 drilled.
+**92 learning objectives** in 16 units (73 core): 92 drilled, 0 partly, 0 with no drills. Core: 73 / 73 drilled.
 
 ## Big ideas
 
@@ -34,6 +34,7 @@ Generated from `drills/frameworks/chemistry-olympiad.yaml` by `scripts/framework
 | 13 · USNCO band 9: bonding and molecular structure | core | — | 5 | 5 | 0 | 0 |
 | 14 · USNCO band 10: organic chemistry, biochemistry and spectroscopy | core | — | 6 | 6 | 0 | 0 |
 | 15 · USNCO Part II: multi-step problems | core | — | 6 | 6 | 0 | 0 |
+| 16 · Camp-level steps | extension | — | 19 | 19 | 0 | 0 |
 
 ## Unit 1 · Equilibria in depth
 
@@ -401,3 +402,84 @@ Big ideas: EXACT
 - ● **CO-15.1.F** (usnco:P2, usnco:8) Find a photon energy per mole for bond breaking.
   - EK: E = N_A hc/λ.
   - P1 · drills: co-p2-photon-kj, co-threshold-wavelength
+
+## Unit 16 · Camp-level steps (extension)
+
+Big ideas: EXACT, COUNT
+
+### 16.1 Electrochemical and equilibrium steps
+
+
+
+- ● **CO-16.1.A** (usnco:P2, usnco:7) Read the number of electrons transferred from an electrode's slope per decade.
+  - EK: At 25 °C a Nernstian electrode moves 59.16/n mV for each tenfold change in concentration, so the slope gives n before any chemistry is assumed.
+  - P1 · drills: co-slope-electrons, co-decade-shift
+- ● **CO-16.1.B** (usnco:P2, usnco:6) Find an acid's K_a from the shift in an ion-selective electrode's potential with pH.
+  - EK: The electrode sees only the free anion; the shift from its strong-base reading gives the free fraction α = 10^(−ΔE/59.16), and K_a = [H⁺]α/(1 − α).
+  - P1 · drills: co-ka-from-shift, co-free-fraction
+- ● **CO-16.1.C** (usnco:P2, usnco:6) Find the solubility of two sparingly soluble salts of weak acids sharing a cation.
+  - EK: The cation balances both anions in all their forms: [M⁺]² = K_spA(1 + [H⁺]/K_A) + K_spB(1 + [H⁺]/K_B).
+  - P1 · drills: co-two-salt-solubility, co-two-salt-ratio
+- ● **CO-16.1.D** (usnco:P2, usnco:1) Find two anions from the successive end points of one silver titration.
+  - EK: Cyanide first takes silver as Ag(CN)₂⁻ (one Ag⁺ per two CN⁻), then precipitates as AgCN, and only then does chloride precipitate, so the volumes between end points count each anion.
+  - P1 · drills: co-cyanide-first-endpoint, co-chloride-third-endpoint
+- ● **CO-16.1.E** (usnco:P2, usnco:7) Find the cell emf at the equivalence point of a precipitation titration.
+  - EK: At the equivalence point of a 1:1 salt [Ag⁺] = √K_sp, and the silver electrode reads E° + 0.05916 log[Ag⁺] against the reference.
+  - P1 · drills: co-equivalence-emf, co-silver-from-emf
+
+### 16.2 Solids, rates and stoichiometric steps
+
+
+
+- ● **CO-16.2.A** (usnco:P2, usnco:3) Find the vacancy fraction of a nonstoichiometric oxide from the share of cations oxidised.
+  - EK: With the anion lattice intact, charge balance fixes the cation count: for Cu₂₋ₓO with a fraction f of copper as Cu²⁺, (2 − x)(1 + f) = 2.
+  - P1 · drills: co-vacancy-x, co-vacancy-percent
+- ● **CO-16.2.B** (usnco:P2, usnco:4) Find the temperature at which two solid phases exchange stability from formation data.
+  - EK: Build ΔH° and ΔS° of the interconversion from the formation values, then T = ΔH°/ΔS°; with three phases, each pair has its own boundary.
+  - P1 · drills: co-phase-boundary, co-phase-dg
+- ● **CO-16.2.C** (usnco:P2, usnco:5) Find a rate constant from the time a limiting reagent takes to vanish at constant rate.
+  - EK: A straight concentration–time line means zero order in the limiting reagent: the rate is its initial concentration over the reaction time, and the other species give the rate law.
+  - P1 · drills: co-reaction-time-rate, co-reaction-time-k
+- ● **CO-16.2.D** (usnco:P2, usnco:5) Find the overall activation energy of a chain reaction from its composite rate constant.
+  - EK: Activation energies combine the way the rate constants do: a product adds them, a quotient subtracts them, and a square root halves them.
+  - P1 · drills: co-composite-ea, co-composite-ea-half
+- ● **CO-16.2.E** (usnco:P2, usnco:1) Identify the metal of a chloride hydrate from a silver titration.
+  - EK: Silver counts chloride; mass per mole of chloride times the chlorides per formula is the formula mass, and what is left after chloride and water is the metal.
+  - P1 · drills: co-hydrate-metal, co-mass-per-chloride
+
+### 16.3 Inorganic steps
+
+
+
+- ● **CO-16.3.A** (usnco:P2, usnco:9) Count valence electrons of carbonyl and nitrosyl complexes and spot the 17-electron ones.
+  - EK: Neutral counting: the metal's group number, two per CO, three per linear NO, minus the charge. Seventeen-electron fragments either dimerise through a metal–metal bond or are easily reduced.
+  - P1 · drills: co-carbonyl-count, co-nitrosyl-count
+- ● **CO-16.3.B** (usnco:P2, usnco:9) Find the metal–metal bonds a carbonyl cluster needs and say what light does to them.
+  - EK: Metal–metal bonds = (18 × metals − total electrons)/2. The M–M σ bond is the weakest in the molecule, and UV light promotes σ → σ*, breaking it into two 17-electron radicals.
+  - P1 · drills: co-metal-metal-bonds, co-metal-metal-light
+- ● **CO-16.3.C** (usnco:P2, usnco:2) Predict the chemistry of nitrogen fluorides: where they form, what stabilises NF₄⁺ and how it hydrolyses.
+  - EK: Fluorination is an oxidation, so NF₃ forms at the anode; NF₄⁺ needs a strong fluoride acceptor to hold the counter-ion, and with water it gives back NF₃ and oxidises water to O₂.
+  - P1 · drills: co-nitrogen-fluorides, co-nf4-oxygen
+- ● **CO-16.3.D** (usnco:P2, usnco:2) Write the products of reactions that are not simple exchange: disproportionation, hydrolysis and redox in base.
+  - EK: Copper(I) disproportionates in non-complexing acid, acyl chlorides hydrolyse to HCl and the acid (oxalyl chloride falls apart to CO and CO₂), and permanganate in strong base stops at green manganate.
+  - P1 · drills: co-not-simple-exchange, co-disproportionation-mass
+
+### 16.4 Organic steps
+
+
+
+- ● **CO-16.4.B** (usnco:P2, usnco:10) Rank substituents by the CIP rules and assign R or S.
+  - EK: Rank by atomic number at the first point of difference, counting multiple bonds as duplicated atoms; with the lowest group pointing away, 1 → 2 → 3 clockwise is R.
+  - P1 · drills: co-cip-priority, co-r-or-s
+- ● **CO-16.4.C** (usnco:P2, usnco:10) Read a Fischer projection: its geometry, what moves are allowed, and D or L.
+  - EK: Horizontal bonds come toward the viewer and vertical bonds go back. A 180° turn in the plane keeps the configuration; swapping two groups inverts it. D means the OH on the highest-numbered stereocentre is on the right.
+  - P1 · drills: co-fischer-rules, co-fischer-r-or-s
+- ● **CO-16.4.A** (usnco:P2, usnco:10) Work back from ozonolysis fragments to the alkene.
+  - EK: Each C=C carbon becomes a carbonyl: with oxidative work-up =CH– gives an acid, =C< a ketone and =CH₂ carbon dioxide. One fragment carrying both carbonyls means the double bond was in a ring.
+  - P1 · drills: co-ozonolysis-back, co-ozonolysis-carbons
+- ● **CO-16.4.D** (usnco:P2, usnco:10) Predict the product of a Birch reduction and where a substituent ends up.
+  - EK: Sodium in liquid ammonia with an alcohol gives the non-conjugated 1,4-diene. An electron-donating group ends on a double-bond carbon, an electron-withdrawing group on an sp³ carbon.
+  - P1 · drills: co-birch, co-birch-sodium
+- ● **CO-16.4.E** (usnco:P2, usnco:10) Carry phenol to aspirin and say why each step goes where it does.
+  - EK: Phenoxide, not phenol, is nucleophilic enough to attack CO₂ (Kolbe–Schmitt), giving the ortho acid on acidification; acetic anhydride then acetylates the phenol oxygen.
+  - P1 · drills: co-phenol-to-aspirin, co-aspirin-yield

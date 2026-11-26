@@ -18,7 +18,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 | Biology (AP) | AP Biology Course and Exam Description (effective fall 2025) | standard | read in part | ap-biology, iupac-aa-1983, ngss-hs, ib-biology-2025, icho-appendix-c, icho-syllabus, aamc-mcat-outline, acs-accm-general, acs-accm-inorganic, acs-accm-organic | — | 179 | 179 | 0 |
 | Biosecurity | BlueDot Impact, Biosecurity course (six units) | course | read in part | who-lbm4, bwc, cdc-ss1978, who-jee3, ashrae-241 | — | 64 | 64 | 0 |
 | Calculus | AP Calculus AB and BC Course and Exam Description | standard | read in full | webwork-opl | — | 203 | 203 | 0 |
-| Chemistry Olympiad | U.S. National Chemistry Olympiad: local and national exam format, multiple-choice topic bands and Part II | exam-spec | read in part | icho-appendix-c, icho-syllabus, acs-accm-organic, acs-accm-analytical | — | 73 | 73 | 0 |
+| Chemistry Olympiad | U.S. National Chemistry Olympiad: local and national exam format, multiple-choice topic bands and Part II | exam-spec | read in part | icho-appendix-c, icho-syllabus, acs-accm-organic, acs-accm-analytical | — | 92 | 92 | 0 |
 | Chemistry (AP) | AP Chemistry Course and Exam Description (Fall 2024) | standard | read in part | ngss-hs, ib-chemistry-2025, usnco, icho-appendix-c, icho-syllabus, acs-accm, aamc-mcat-outline, acs-accm-general, acs-accm-inorganic, acs-accm-organic, acs-accm-analytical | — | 188 | 188 | 0 |
 | Computer Science | Computer Science Curricula 2023, Body of Knowledge | standard | read in full | — | — | 140 | 1 | 139 |
 | Dental Admission Test | Dental Admission Test 2026 Candidate Guide | exam-spec | read in full | ngss-hs, ib-chemistry-2025, usnco, icho-appendix-c, acs-accm-general, acs-accm-organic | — | 205 | 205 | 0 |
@@ -3012,17 +3012,17 @@ https://www.acs.org/education/olympiad/prepare-for-exams/exam-information.html
 
 | Item | Topic | Objectives | With a drill | Where |
 |---|---|---|---|---|
-| 1 | Stoichiometry and solutions (Q1-6) | 57 | 57 | analytical-chemistry (7), chemistry-olympiad (22), chemistry (19), dat (9) |
-| 2 | Descriptive chemistry and laboratory (Q7-12) | 21 | 21 | chemistry-olympiad (12), dat (4), inorganic-chemistry (5) |
-| 3 | States of matter (Q13-18) | 55 | 55 | chemistry-olympiad (20), chemistry (27), dat (8) |
-| 4 | Thermodynamics (Q19-24) | 61 | 61 | chemistry-olympiad (21), chemistry (34), dat (6) |
-| 5 | Kinetics (Q25-30) | 49 | 49 | chemistry-olympiad (12), chemistry (17), dat (4), physical-chemistry (16) |
-| 6 | Equilibrium (Q31-36) | 65 | 65 | chemistry-olympiad (16), chemistry (40), dat (9) |
-| 7 | Oxidation-reduction (Q37-42) | 37 | 37 | chemistry-olympiad (15), chemistry (18), dat (4) |
+| 1 | Stoichiometry and solutions (Q1-6) | 59 | 59 | analytical-chemistry (7), chemistry-olympiad (24), chemistry (19), dat (9) |
+| 2 | Descriptive chemistry and laboratory (Q7-12) | 23 | 23 | chemistry-olympiad (14), dat (4), inorganic-chemistry (5) |
+| 3 | States of matter (Q13-18) | 56 | 56 | chemistry-olympiad (21), chemistry (27), dat (8) |
+| 4 | Thermodynamics (Q19-24) | 62 | 62 | chemistry-olympiad (22), chemistry (34), dat (6) |
+| 5 | Kinetics (Q25-30) | 51 | 51 | chemistry-olympiad (14), chemistry (17), dat (4), physical-chemistry (16) |
+| 6 | Equilibrium (Q31-36) | 67 | 67 | chemistry-olympiad (18), chemistry (40), dat (9) |
+| 7 | Oxidation-reduction (Q37-42) | 39 | 39 | chemistry-olympiad (17), chemistry (18), dat (4) |
 | 8 | Atomic structure and periodicity (Q43-48; from the 2025 national exam) | 13 | 13 | chemistry-olympiad (13) |
-| 9 | Bonding and molecular structure (Q49-54; from the 2025 national exam) | 10 | 10 | chemistry-olympiad (10) |
-| 10 | Organic chemistry, biochemistry and spectroscopy (Q55-60; from the 2025 national exam) | 12 | 12 | chemistry-olympiad (12) |
-| P2 | National Part II: eight written multi-part problems | 6 | 6 | chemistry-olympiad (6) |
+| 9 | Bonding and molecular structure (Q49-54; from the 2025 national exam) | 12 | 12 | chemistry-olympiad (12) |
+| 10 | Organic chemistry, biochemistry and spectroscopy (Q55-60; from the 2025 national exam) | 17 | 17 | chemistry-olympiad (17) |
+| P2 | National Part II: eight written multi-part problems | 44 | 44 | chemistry-olympiad (44) |
 | P3 | National Part III: laboratory practical | — | — | **nothing yet** |
 
 ## Regulations of the International Chemistry Olympiad, Appendices C and D (concepts, skills and factual knowledge)
