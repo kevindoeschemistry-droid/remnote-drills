@@ -55,7 +55,7 @@ units:
       - n: 1
         title: "Titration types"
         los:
-          - { id: A, std: ["acs-accm-analytical:V.A.1", "acs-accm-analytical:V.D.1", "acs-accm-analytical:VIII.D.2", "acs-accm-analytical:IX.C.1"], do: "Compute a result from a back titration.", ek: ["Reagent added − reagent left = reagent used."], p: [P1], drills: [an-back-titration, an-back-titration-volume] }
+          - { id: A, std: ["acs-accm-analytical:V.A.1", "acs-accm-analytical:V.D.1", "acs-accm-analytical:VIII.D.2", "acs-accm-analytical:IX.C.1", "fe-chemical:5.C"], do: "Compute a result from a back titration.", ek: ["Reagent added − reagent left = reagent used."], p: [P1], drills: [an-back-titration, an-back-titration-volume] }
           - { id: B, std: ["acs-accm-analytical:V.D.1"], do: "Compute a result from a permanganate titration.", ek: ["Ratio from electrons: MnO₄⁻ 5, Fe²⁺ 1, C₂O₄²⁻ 2."], p: [P1], needs: [IN-4.1.A], drills: [an-permanganate, an-dichromate-for-permanganate] }
           - { id: C, std: ["acs-accm-analytical:V.D.1"], do: "Compute water hardness from an EDTA titration.", ek: ["EDTA binds metal ions 1:1; report as mg CaCO₃ per L."], p: [P1], drills: [an-edta-hardness, an-edta-volume] }
           - { id: D, std: ["acs-accm-analytical:V.D.1"], do: "Compute chloride from a Mohr titration.", ek: ["Ag⁺ + Cl⁻ 1:1; chromate end point at neutral pH."], p: [P1], drills: [an-argentometry-why, an-mohr] }
@@ -75,7 +75,7 @@ units:
       - n: 1
         title: "Gravimetric factors"
         los:
-          - { id: A, std: ["acs-accm-analytical:I.E.1", "acs-accm-analytical:IX.D.1"], do: "Compute a mass percent from the weight of a precipitate.", ek: ["Gravimetric factor from molar masses and element counts."], p: [P1], drills: [an-gravimetric, an-gravimetric-expected] }
+          - { id: A, std: ["acs-accm-analytical:I.E.1", "acs-accm-analytical:IX.D.1", "fe-chemical:5.C"], do: "Compute a mass percent from the weight of a precipitate.", ek: ["Gravimetric factor from molar masses and element counts."], p: [P1], drills: [an-gravimetric, an-gravimetric-expected] }
   - id: equilibria
     n: 3
     title: "Solubility equilibria in analysis"
@@ -129,7 +129,7 @@ units:
       - n: 1
         title: "Spectroscopy"
         los:
-          - { id: A, std: ["acs-accm-analytical:I.D.2", "acs-accm-analytical:I.D.5", "acs-accm-analytical:II.E.1", "acs-accm-analytical:VII.A.1"], do: "Trace the paths an excited molecule takes back to the ground state and tell fluorescence from phosphorescence.", ek: ["Internal conversion and vibrational relaxation are radiationless; fluorescence keeps spin (ns), phosphorescence follows intersystem crossing (ms–s); emission is red-shifted."], p: [P1], drills: [an-jablonski, an-fluor-linear] }
+          - { id: A, std: ["acs-accm-analytical:I.D.2", "acs-accm-analytical:I.D.5", "acs-accm-analytical:II.E.1", "acs-accm-analytical:VII.A.1", "fe-chemical:5.C"], do: "Trace the paths an excited molecule takes back to the ground state and tell fluorescence from phosphorescence.", ek: ["Internal conversion and vibrational relaxation are radiationless; fluorescence keeps spin (ns), phosphorescence follows intersystem crossing (ms–s); emission is red-shifted."], p: [P1], drills: [an-jablonski, an-fluor-linear] }
           - { id: B, std: ["acs-accm-analytical:I.D.2", "acs-accm-analytical:I.D.3"], do: "Convert between transmittance and absorbance and find the concentration where Beer's law holds.", ek: ["A = −log T; 10% T is A = 1; A = εbc is linear for dilute solutions (about A < 1)."], p: [P1], drills: [an-t-to-a, an-max-conc] }
           - { id: C, std: ["acs-accm-analytical:I.B.2", "acs-accm-analytical:III.D.1"], do: "Decide IR and Raman activity from symmetry and count EPR hyperfine lines.", ek: ["IR needs a dipole change, Raman a polarizability change; for a centrosymmetric molecule no mode is both. n equivalent nuclei of spin I split an EPR line into 2nI + 1."], p: [P1], drills: [an-epr-lines, an-ir-raman] }
           - { id: D, std: ["acs-accm-analytical:I.A.2", "acs-accm-analytical:I.C.1", "acs-accm-analytical:I.D.4", "acs-accm-analytical:III.G.1", "acs-accm-analytical:IX.D.2", "acs-accm-analytical:IX.H.3"], do: "Choose the spectrometer components, wavelength and corrections, and anticipate interferences.", ek: ["Measure at λmax; continuum versus line sources; dispersive versus multichannel detection; background subtraction; chemically similar elements interfere; XRF lines scale with Z²."], p: [P1], drills: [an-spec-choice, an-moseley-ratio] }

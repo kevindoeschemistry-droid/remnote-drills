@@ -61,7 +61,7 @@ units:
       - n: 1
         title: "Counting"
         los:
-          - { id: A, do: "Find the degrees of unsaturation from a molecular formula.", ek: ["U = ½(2C + 2 + N − H − X); each is a ring or a π bond."], p: [P3], drills: ["or-degrees-of-unsaturation", co-h-from-dou] }
+          - { id: A, std: ["fe-chemical:5.B"], do: "Find the degrees of unsaturation from a molecular formula.", ek: ["U = ½(2C + 2 + N − H − X); each is a ring or a π bond."], p: [P3], drills: ["or-degrees-of-unsaturation", co-h-from-dou] }
           - { id: B, std: ["acs-accm-organic:III.A.2"], do: "Give the maximum number of stereoisomers from the number of stereocentres.", ek: ["2ⁿ, fewer when there is a meso form."], p: [P3], drills: ["or-stereoisomer-maximum", or-centres-from-max] }
           - { id: C, do: "Assign the oxidation state of a carbon and say whether a step is an oxidation or a reduction.", ek: ["Bonds to H count −1, bonds to O, N or halogen +1, bonds to C zero."], p: [P3], drills: ["or-oxidation-level", or-carbon-ox-group] }
       - n: 2
@@ -81,7 +81,7 @@ units:
       - n: 1
         title: "Additions to alkenes"
         los:
-          - { id: A, std: ["acs-accm-organic:I.B.2", "acs-accm-organic:V.F.2"], do: "Predict the product of adding HX or water to an alkene, with and without Markovnikov orientation.", ek: ["The proton goes where it leaves the more stable carbocation; peroxides and boranes reverse the orientation."], p: [P1, P2], drills: ["rx-predict-alkene-hbr", "rx-reagent-alkene-hbr", "rx-predict-alkene-hbr-peroxide", "rx-reagent-alkene-hbr-peroxide", "rx-predict-alkene-hydration", "rx-reagent-alkene-hydration", "rx-predict-alkene-hydroboration", "rx-reagent-alkene-hydroboration"] }
+          - { id: A, std: ["acs-accm-organic:I.B.2", "acs-accm-organic:V.F.2", "fe-chemical:5.B"], do: "Predict the product of adding HX or water to an alkene, with and without Markovnikov orientation.", ek: ["The proton goes where it leaves the more stable carbocation; peroxides and boranes reverse the orientation."], p: [P1, P2], drills: ["rx-predict-alkene-hbr", "rx-reagent-alkene-hbr", "rx-predict-alkene-hbr-peroxide", "rx-reagent-alkene-hbr-peroxide", "rx-predict-alkene-hydration", "rx-reagent-alkene-hydration", "rx-predict-alkene-hydroboration", "rx-reagent-alkene-hydroboration"] }
           - { id: B, std: ["acs-accm-organic:V.F.1"], do: "Predict the product of halogenation, halohydrin formation, hydrogenation, epoxidation, dihydroxylation and ozonolysis.", ek: ["Know which additions are syn and which anti, and that ozonolysis cuts the C=C."], p: [P1, P2], drills: ["rx-predict-alkene-bromination", "rx-reagent-alkene-bromination", "rx-predict-alkene-bromohydrin", "rx-reagent-alkene-bromohydrin", "rx-predict-alkene-hydrogenation", "rx-reagent-alkene-hydrogenation", "rx-predict-alkene-epoxidation", "rx-reagent-alkene-epoxidation", "rx-predict-alkene-dihydroxylation", "rx-reagent-alkene-dihydroxylation", "rx-predict-alkene-ozonolysis", "rx-reagent-alkene-ozonolysis"] }
       - n: 2
         title: "Alkynes"
@@ -135,7 +135,7 @@ units:
         title: "Electrophilic substitution and side-chain reactions"
         los:
           - { id: D, std: ["acs-accm-organic:V.D.2"], do: "Predict nucleophilic aromatic substitution: when it happens and where.", ek: ["SNAr needs a leaving group with strong withdrawing groups (NO₂) ortho or para to it to stabilise the Meisenheimer complex; F is the best leaving group here. Without them, a strong base can go by benzyne."], p: [P1], drills: [or-snar, or-snar-2] }
-          - { id: A, std: ["bruice-8e:18", "acs-accm-organic:V.D.2"], do: "Predict the product of brominating, nitrating and acylating benzene.", ek: ["Substitution, not addition: the ring gets its aromaticity back."], p: [P1, P2], drills: ["rx-predict-aromatic-bromination", "rx-reagent-aromatic-bromination", "rx-predict-aromatic-nitration", "rx-reagent-aromatic-nitration", "rx-predict-aromatic-acylation", "rx-reagent-aromatic-acylation"] }
+          - { id: A, std: ["bruice-8e:18", "acs-accm-organic:V.D.2", "fe-chemical:5.B"], do: "Predict the product of brominating, nitrating and acylating benzene.", ek: ["Substitution, not addition: the ring gets its aromaticity back."], p: [P1, P2], drills: ["rx-predict-aromatic-bromination", "rx-reagent-aromatic-bromination", "rx-predict-aromatic-nitration", "rx-reagent-aromatic-nitration", "rx-predict-aromatic-acylation", "rx-reagent-aromatic-acylation"] }
           - { id: B, std: ["bruice-8e:18"], do: "Predict where a second substituent goes on a substituted benzene.", ek: ["Donors: ortho and para. Acceptors: meta."], p: [P1, P2], drills: ["rx-predict-aromatic-nitration-toluene", "rx-reagent-aromatic-nitration-toluene", "rx-predict-aromatic-bromination-nitrobenzene", "rx-reagent-aromatic-bromination-nitrobenzene"] }
           - { id: C, std: ["bruice-8e:18"], do: "Predict the product of reducing a nitro group and of oxidising or brominating a benzylic position.", ek: ["Nitro to amino; any benzylic C–H side chain to CO₂H; NBS brominates the benzylic carbon."], p: [P1, P2], drills: ["rx-predict-aromatic-nitro-reduction", "rx-reagent-aromatic-nitro-reduction", "rx-predict-aromatic-side-chain-oxidation", "rx-reagent-aromatic-side-chain-oxidation", "rx-predict-aromatic-benzylic-bromination", "rx-reagent-aromatic-benzylic-bromination"] }
   - id: cc-bonds

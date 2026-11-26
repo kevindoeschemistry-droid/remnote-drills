@@ -1574,7 +1574,7 @@ Big ideas: CHA
 - ● **CA-17.1.A** (webwork-opl:CA5.5) Integrate a product of powers of sine and cosine.
   - EK: With an odd power, save one factor and convert the rest; with even powers, use half-angle identities.
   - P1 · drills: ca-trig-integral
-- ● **CA-17.1.B** (webwork-opl:CA5.8) Evaluate an integral by trigonometric substitution.
+- ● **CA-17.1.B** (webwork-opl:CA5.8, fe-chemical:1.A) Evaluate an integral by trigonometric substitution.
   - EK: √(a² − x²): x = a sin θ; √(a² + x²): x = a tan θ; √(x² − a²): x = a sec θ.
   - P1 · drills: ca-trig-substitution
 - ● **CA-17.1.C** (webwork-opl:CA5.9) Use an integral from a table.

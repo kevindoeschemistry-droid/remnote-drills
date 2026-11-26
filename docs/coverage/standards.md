@@ -36,7 +36,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 | Linear Algebra | MAA CUPM Linear Algebra Course Area Report (August 17, 2023) | standard | read in full | cupm-2015-la, lay-5e, webwork-opl, lacsg-2 | — | 60 | 60 | 0 |
 | Mass Transfer | NCEES PE Chemical CBT Exam Specifications (effective January 2020) | exam-spec | read in full | — | — | 21 | 21 | 0 |
 | Material and Energy Balances | NCEES FE Chemical CBT Exam Specifications (effective July 2020) | exam-spec | read in full | pe-chemical, webwork-opl | — | 18 | 18 | 0 |
-| Polymers and Materials | Regulations of the International Chemistry Olympiad, Appendices C and D (concepts, skills and factual knowledge) | exam-spec | read in full | ib-chemistry-2025, fe-chemical, icho-syllabus, acs-accm-general, acs-accm-inorganic, acs-accm-organic | — | 17 | 7 | 10 |
+| Polymers and Materials | Regulations of the International Chemistry Olympiad, Appendices C and D (concepts, skills and factual knowledge) | exam-spec | read in full | ib-chemistry-2025, fe-chemical, icho-syllabus, acs-accm-general, acs-accm-inorganic, acs-accm-organic | — | 25 | 15 | 10 |
 | High School Mathematics (Common Core) | CCSS Mathematics Appendix A: high school course pathways | standard | read in full | — | — | 200 | 200 | 0 |
 | Mathematics K–8 (Common Core) | Common Core State Standards for Mathematics (2010) | standard | read through a crosswalk | — | — | 258 | 258 | 0 |
 | Mental Math | UIL Number Sense Problem Sequencing Charts (High School; A+ Junior High and Elementary, rev. 2016-17) with the Number Sense Handbook rules | exam-spec | read in full | sta-mtc, mit-18-03-coverup, mit-integration-bee | — | 84 | 81 | 3 |
@@ -50,10 +50,10 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 | The Periodic Table from Memory | IUPAC Periodic Table of the Elements (release of 4 May 2022) | reference | read in part | ngss-hs, ib-chemistry-2025, icho-appendix-c, acs-accm-general, acs-accm-inorganic | — | 15 | 15 | 0 |
 | Physical Chemistry | ACS Exams Institute Anchoring Concepts Content Map: Physical Chemistry (Holme, Reed, Raker & Murphy, J. Chem. Educ. 2018, 95, 238) | standard | read in full | engel-reid-3e, fe-chemical, usnco, icho-appendix-c, icho-syllabus, gre-physics, gre-chemistry, acs-accm-general, acs-accm-inorganic, acs-accm-organic, acs-accm-analytical | — | 158 | 158 | 0 |
 | Physics (AP) | AP Physics 1, 2, C: Mechanics and C: Electricity and Magnetism Course and Exam Descriptions (effective fall 2024) | standard | read in part | ngss-hs, ib-physics-2025, aamc-mcat-outline, gre-physics | — | 211 | 211 | 0 |
-| Process Design, Economics and Safety | NCEES FE Chemical CBT Exam Specifications (effective July 2020) | exam-spec | read in full | pe-chemical | — | 9 | 9 | 0 |
+| Process Design, Economics and Safety | NCEES FE Chemical CBT Exam Specifications (effective July 2020) | exam-spec | read in full | pe-chemical, nspe-ethics, osha-psm | — | 62 | 62 | 0 |
 | Programming Foundations | AP Computer Science A Course and Exam Description (Fall 2025) | standard | read in full | — | — | 140 | 140 | 0 |
 | Computational Protein Design | PyRosetta Jupyter Notebooks (RosettaCommons), taught as JHU 545.614 / 540.414 | course | read in part | rosetta-ref15, dl4proteins, kuhlman-bradley, jhu-545614 | — | 51 | 51 | 0 |
-| Chemical Reaction Engineering | NCEES FE Chemical CBT Exam Specifications (effective July 2020) | exam-spec | read in full | icho-appendix-c, pe-chemical | — | 46 | 33 | 13 |
+| Chemical Reaction Engineering | NCEES FE Chemical CBT Exam Specifications (effective July 2020) | exam-spec | read in full | icho-appendix-c, pe-chemical | — | 52 | 39 | 13 |
 | Separations | NCEES FE Chemical CBT Exam Specifications (effective July 2020) | exam-spec | read in full | pe-chemical | — | 6 | 6 | 0 |
 | Speaking and Articulation | Competent Speaker Speech Evaluation Form, 2nd ed. | rubric | read in full | toastmasters-pathways | — | 69 | 0 | 69 |
 | SQL | Oracle Database SQL, exam 1Z0-071: exam topics | exam-spec | read through a crosswalk | — | — | 40 | 37 | 3 |
@@ -102,7 +102,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 - **The Periodic Table from Memory**: Content from the IUPAC table (release note read; element list cross-checked in the verifier). Which parts to know by heart is a house decision from Kevin's organometallics course.
 - **Physical Chemistry**: Anchored on the ACS Physical Chemistry content map (read in full): objectives cite its subdisciplinary articulations, through scripts/accm_pchem.py. Units keep Engel & Reid's order; the map's articulations no objective answers are listed in docs/coverage/standards.md.
 - **Physics (AP)**: Objective codes read for a few units only.
-- **Process Design, Economics and Safety**: Topics from FE Chemical areas 13, 15, 16 and PE Chemical area 7 (read in full); objectives and their order are ours.
+- **Process Design, Economics and Safety**: Topics from FE Chemical areas 11, 13, 14, 15, 16 and 17 and PE Chemical area 7 (read in full); objectives and their order are ours. The professional-practice unit rests on the NSPE Code of Ethics (read in full) and the safety-management unit on 29 CFR 1910.119 (paragraph titles read). Particle technology has no published curriculum of its own, so that unit is a house list on the FE spec items.
 - **Computational Protein Design**: No accredited standard exists. The notebook workshops are the closest published curriculum; the energy-function paper, the deep-learning workshops and the review fix the content of the later units. Objectives are ours.
 - **Chemical Reaction Engineering**: Topics from FE Chemical area 12, read in full. Objectives and their order are ours. Units 5–8 and the later letters of units 1–4 go beyond the FE spec on Fogler 5e's chapter order (a house list); the gaps are in the file header.
 - **Separations**: Topics from FE Chemical area 10 and PE Chemical 6.B (both read in full); objectives and their order are ours.
@@ -151,39 +151,39 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 
 https://ncees.org/wp-content/uploads/2022/09/FE-Che-CBT-specs.pdf
 
-52 of 88 items have at least one objective answering to them.
+88 of 88 items have at least one objective answering to them.
 
 | Item | Topic | Objectives | With a drill | Where |
 |---|---|---|---|---|
 | **1** | **Mathematics** (6–9 questions) | | | |
-| 1.A | Analytic geometry, logarithms, trigonometry | — | — | **nothing yet** |
+| 1.A | Analytic geometry, logarithms, trigonometry | 5 | 5 | calculus (1), math-hs (4) |
 | 1.B | Calculus | 6 | 6 | engineering-math (6) |
 | 1.C | Differential equations | 73 | 73 | engineering-math (73) |
 | 1.D | Numerical methods | 36 | 36 | engineering-math (19), numerical-methods (17) |
 | 1.E | Algebra, matrices, systems of equations | 17 | 17 | engineering-math (11), numerical-methods (6) |
-| 1.F | Accuracy, precision, significant figures | — | — | **nothing yet** |
+| 1.F | Accuracy, precision, significant figures | 9 | 9 | process-design (9) |
 | **2** | **Probability and Statistics** (4–6 questions) | | | |
 | 2.A | Probability distributions | 7 | 7 | thermodynamics (7) |
-| 2.B | Expected value in decisions | — | — | **nothing yet** |
-| 2.C | Hypothesis testing and experimental design | — | — | **nothing yet** |
-| 2.D | Central tendency and dispersion | — | — | **nothing yet** |
-| 2.E | Regression and curve fitting | — | — | **nothing yet** |
-| 2.F | Statistical control limits | — | — | **nothing yet** |
+| 2.B | Expected value in decisions | 8 | 8 | process-design (8) |
+| 2.C | Hypothesis testing and experimental design | 8 | 8 | process-design (8) |
+| 2.D | Central tendency and dispersion | 8 | 8 | process-design (8) |
+| 2.E | Regression and curve fitting | 8 | 8 | process-design (8) |
+| 2.F | Statistical control limits | 10 | 10 | process-design (10) |
 | **3** | **Engineering Sciences** (4–6 questions) | | | |
-| 3.A | Basic dynamics | — | — | **nothing yet** |
-| 3.B | Work, energy, power | — | — | **nothing yet** |
-| 3.C | Electricity and circuit laws | — | — | **nothing yet** |
+| 3.A | Basic dynamics | 5 | 5 | physics (5) |
+| 3.B | Work, energy, power | 4 | 4 | physics (4) |
+| 3.C | Electricity and circuit laws | 3 | 3 | physics (3) |
 | **4** | **Materials Science** (4–6 questions) | | | |
-| 4.A | Chemical, mechanical and physical properties | 2 | 2 | materials (2) |
-| 4.B | Material types and compatibility | — | — | **nothing yet** |
-| 4.C | Corrosion mechanisms and control | — | — | **nothing yet** |
+| 4.A | Chemical, mechanical and physical properties | 10 | 10 | materials (10) |
+| 4.B | Material types and compatibility | 11 | 11 | materials (11) |
+| 4.C | Corrosion mechanisms and control | 13 | 13 | materials (13) |
 | 4.D | Polymers, ceramics, composites | 4 | 4 | materials (4) |
 | **5** | **Chemistry and Biology** (7–11 questions) | | | |
 | 5.A | Inorganic chemistry (acids and bases, redox, pH, electrochemistry) | 4 | 4 | physical-chemistry (4) |
-| 5.B | Organic chemistry | — | — | **nothing yet** |
-| 5.C | Analytical chemistry | — | — | **nothing yet** |
-| 5.D | Biochemistry, microbiology, molecular biology | — | — | **nothing yet** |
-| 5.E | Bioprocessing | — | — | **nothing yet** |
+| 5.B | Organic chemistry | 3 | 3 | organic-reactions (3) |
+| 5.C | Analytical chemistry | 3 | 3 | analytical-chemistry (3) |
+| 5.D | Biochemistry, microbiology, molecular biology | 3 | 3 | biochemistry (3) |
+| 5.E | Bioprocessing | 12 | 12 | reaction-engineering (12) |
 | **6** | **Fluid Mechanics/Dynamics** (8–12 questions) | | | |
 | 6.A | Fluid properties | 5 | 5 | fluid-mechanics (5) |
 | 6.B | Dimensionless numbers | 4 | 4 | fluid-mechanics (4) |
@@ -217,15 +217,15 @@ https://ncees.org/wp-content/uploads/2022/09/FE-Che-CBT-specs.pdf
 | 9.E | Equipment design (double pipe, shell and tube, LMTD, NTU) | 6 | 6 | heat-transfer (6) |
 | **10** | **Mass Transfer and Separation** (8–12 questions) | | | |
 | 10.A | Molecular diffusion | 9 | 9 | physical-chemistry (9) |
-| 10.B | Convective mass transfer | — | — | **nothing yet** |
+| 10.B | Convective mass transfer | 2 | 2 | mass-transfer (2) |
 | 10.C | Separation systems | 4 | 4 | separations (4) |
 | 10.D | Equilibrium stage methods | 4 | 4 | separations (4) |
-| 10.E | Continuous contact methods | — | — | **nothing yet** |
+| 10.E | Continuous contact methods | 2 | 2 | mass-transfer (1), separations (1) |
 | 10.F | Humidification, drying, evaporation | 2 | 2 | separations (2) |
 | **11** | **Solids Handling** (3–5 questions) | | | |
-| 11.A | Particle properties | — | — | **nothing yet** |
-| 11.B | Processing (crushing, grinding, crystallization) | — | — | **nothing yet** |
-| 11.C | Transport and storage | — | — | **nothing yet** |
+| 11.A | Particle properties | 15 | 15 | process-design (15) |
+| 11.B | Processing (crushing, grinding, crystallization) | 15 | 15 | process-design (15) |
+| 11.C | Transport and storage | 14 | 14 | process-design (14) |
 | **12** | **Chemical Reaction Engineering** (7–11 questions) | | | |
 | 12.A | Reaction rates and order | 28 | 28 | physical-chemistry (16), reaction-engineering (12) |
 | 12.B | Rate constants (Arrhenius) | 33 | 33 | physical-chemistry (16), reaction-engineering (11), thermodynamics (6) |
@@ -236,32 +236,32 @@ https://ncees.org/wp-content/uploads/2022/09/FE-Che-CBT-specs.pdf
 | **13** | **Economics** (4–6 questions) | | | |
 | 13.A | Time value of money | 5 | 5 | process-design (5) |
 | 13.B | Economic analyses | 5 | 5 | process-design (5) |
-| 13.C | Uncertainty | — | — | **nothing yet** |
-| 13.D | Project selection | — | — | **nothing yet** |
+| 13.C | Uncertainty | 8 | 8 | process-design (8) |
+| 13.D | Project selection | 7 | 7 | process-design (7) |
 | **14** | **Process Design** (7–11 questions) | | | |
-| 14.A | PFDs and P&IDs | — | — | **nothing yet** |
-| 14.B | Equipment selection, sizing, scale-up | — | — | **nothing yet** |
+| 14.A | PFDs and P&IDs | 10 | 10 | process-design (10) |
+| 14.B | Equipment selection, sizing, scale-up | 9 | 9 | process-design (9) |
 | 14.C | Cost estimation | 5 | 5 | process-design (5) |
-| 14.D | Design and optimization | — | — | **nothing yet** |
-| 14.E | Design standards | — | — | **nothing yet** |
+| 14.D | Design and optimization | 8 | 8 | process-design (8) |
+| 14.E | Design standards | 8 | 8 | process-design (8) |
 | **15** | **Process Control** (4–6 questions) | | | |
 | 15.A | Dynamics (first and second order, time constants, stability) | 49 | 49 | engineering-math (48), process-design (1) |
-| 15.B | Control strategies | — | — | **nothing yet** |
-| 15.C | Loop design and hardware | — | — | **nothing yet** |
+| 15.B | Control strategies | 9 | 9 | process-design (9) |
+| 15.C | Loop design and hardware | 9 | 9 | process-design (9) |
 | **16** | **Safety, Health, and Environment** (5–8 questions) | | | |
 | 16.A | Hazardous material properties | 4 | 4 | process-design (4) |
 | 16.B | Industrial hygiene | 4 | 4 | process-design (4) |
 | 16.C | Process safety and risk | 4 | 4 | process-design (4) |
-| 16.D | Over- and underpressure protection | — | — | **nothing yet** |
-| 16.E | Waste minimization, treatment, regulation | — | — | **nothing yet** |
-| 16.F | Reactivity hazards | — | — | **nothing yet** |
+| 16.D | Over- and underpressure protection | 14 | 14 | process-design (14) |
+| 16.E | Waste minimization, treatment, regulation | 11 | 11 | process-design (11) |
+| 16.F | Reactivity hazards | 11 | 11 | process-design (11) |
 | **17** | **Ethics and Professional Practice** (3–5 questions) | | | |
-| 17.A | Codes of ethics | — | — | **nothing yet** |
-| 17.B | Agreements and contract law | — | — | **nothing yet** |
-| 17.C | Public health, safety, and welfare | — | — | **nothing yet** |
-| 17.D | Intellectual property | — | — | **nothing yet** |
+| 17.A | Codes of ethics | 7 | 7 | process-design (7) |
+| 17.B | Agreements and contract law | 8 | 8 | process-design (8) |
+| 17.C | Public health, safety, and welfare | 7 | 7 | process-design (7) |
+| 17.D | Intellectual property | 8 | 8 | process-design (8) |
 
-**Areas with nothing answering to them:** 3 Engineering Sciences; 11 Solids Handling; 17 Ethics and Professional Practice.
+**Areas with nothing answering to them:** none.
 
 ## AP Chemistry Course and Exam Description (Fall 2024)
 
@@ -864,7 +864,7 @@ https://apcentral.collegeboard.org/media/pdf/ap-biology-course-and-exam-descript
 
 https://www.uiltexas.org/academics/stem/number-sense
 
-67 of 158 items have at least one objective answering to them.
+158 of 158 items have at least one objective answering to them.
 
 | Item | Topic | Objectives | With a drill | Where |
 |---|---|---|---|---|
@@ -941,106 +941,106 @@ https://www.uiltexas.org/academics/stem/number-sense
 | H5.9 | Definite integration | 1 | 1 | mental-math (1) |
 | H5.10 | Inverse functions | 1 | 1 | mental-math (1) |
 | **J1** | **Junior high, problems 1–20** | | | |
-| J1.1 | Four operations on whole numbers, fractions, decimals | — | — | **nothing yet** |
-| J1.2 | Order of operations | — | — | **nothing yet** |
-| J1.3 | Distributive property | — | — | **nothing yet** |
-| J1.4 | Comparing fractions and decimals | — | — | **nothing yet** |
-| J1.5 | Multiplication short-cuts | — | — | **nothing yet** |
-| J1.6 | Squaring numbers | — | — | **nothing yet** |
-| J1.7 | Roman numerals | — | — | **nothing yet** |
-| J1.8 | Mean, median, mode | — | — | **nothing yet** |
-| J1.9 | Sums of a finite series of whole numbers | — | — | **nothing yet** |
+| J1.1 | Four operations on whole numbers, fractions, decimals | 2 | 2 | mental-math (2) |
+| J1.2 | Order of operations | 1 | 1 | mental-math (1) |
+| J1.3 | Distributive property | 1 | 1 | mental-math (1) |
+| J1.4 | Comparing fractions and decimals | 1 | 1 | mental-math (1) |
+| J1.5 | Multiplication short-cuts | 4 | 4 | mental-math (4) |
+| J1.6 | Squaring numbers | 2 | 2 | mental-math (2) |
+| J1.7 | Roman numerals | 1 | 1 | mental-math (1) |
+| J1.8 | Mean, median, mode | 1 | 1 | mental-math (1) |
+| J1.9 | Sums of a finite series of whole numbers | 1 | 1 | mental-math (1) |
 | **J2** | **Junior high, problems 21–40** | | | |
-| J2.1 | Four operations on mixed numbers and integers | — | — | **nothing yet** |
-| J2.2 | More multiplication short-cuts | — | — | **nothing yet** |
-| J2.3 | Percent problems | — | — | **nothing yet** |
-| J2.4 | Conversions (English/metric, length, area, capacity, time) | — | — | **nothing yet** |
-| J2.5 | Consumer problems | — | — | **nothing yet** |
-| J2.6 | Substitution | — | — | **nothing yet** |
-| J2.7 | Simple equations | — | — | **nothing yet** |
-| J2.8 | Square and cube roots | — | — | **nothing yet** |
-| J2.9 | GCD and LCM | — | — | **nothing yet** |
-| J2.10 | Number theory (primes and divisors) | — | — | **nothing yet** |
-| J2.11 | Perimeter and area of square, rectangle, circle | — | — | **nothing yet** |
-| J2.12 | Ratio and proportion | — | — | **nothing yet** |
-| J2.13 | Inverses | — | — | **nothing yet** |
-| J2.14 | Multiplying by 101 and 111 | — | — | **nothing yet** |
+| J2.1 | Four operations on mixed numbers and integers | 2 | 2 | mental-math (2) |
+| J2.2 | More multiplication short-cuts | 4 | 4 | mental-math (4) |
+| J2.3 | Percent problems | 1 | 1 | mental-math (1) |
+| J2.4 | Conversions (English/metric, length, area, capacity, time) | 1 | 1 | mental-math (1) |
+| J2.5 | Consumer problems | 1 | 1 | mental-math (1) |
+| J2.6 | Substitution | 1 | 1 | mental-math (1) |
+| J2.7 | Simple equations | 1 | 1 | mental-math (1) |
+| J2.8 | Square and cube roots | 1 | 1 | mental-math (1) |
+| J2.9 | GCD and LCM | 1 | 1 | mental-math (1) |
+| J2.10 | Number theory (primes and divisors) | 1 | 1 | mental-math (1) |
+| J2.11 | Perimeter and area of square, rectangle, circle | 1 | 1 | mental-math (1) |
+| J2.12 | Ratio and proportion | 1 | 1 | mental-math (1) |
+| J2.13 | Inverses | 1 | 1 | mental-math (1) |
+| J2.14 | Multiplying by 101 and 111 | 1 | 1 | mental-math (1) |
 | **J3** | **Junior high, problems 41–60** | | | |
-| J3.1 | Sets | — | — | **nothing yet** |
-| J3.2 | Word problems | — | — | **nothing yet** |
-| J3.3 | Pythagorean theorem | — | — | **nothing yet** |
-| J3.4 | Sequences | — | — | **nothing yet** |
-| J3.5 | Volume and surface area of a rectangular solid | — | — | **nothing yet** |
-| J3.6 | Base systems: conversions and basic operations | — | — | **nothing yet** |
-| J3.7 | Area of parallelogram, rhombus, trapezoid, circle | — | — | **nothing yet** |
-| J3.8 | Inequalities | — | — | **nothing yet** |
-| J3.9 | Basic geometry facts | — | — | **nothing yet** |
-| J3.10 | Remainder problems | — | — | **nothing yet** |
+| J3.1 | Sets | 1 | 1 | mental-math (1) |
+| J3.2 | Word problems | 1 | 1 | mental-math (1) |
+| J3.3 | Pythagorean theorem | 1 | 1 | mental-math (1) |
+| J3.4 | Sequences | 1 | 1 | mental-math (1) |
+| J3.5 | Volume and surface area of a rectangular solid | 1 | 1 | mental-math (1) |
+| J3.6 | Base systems: conversions and basic operations | 1 | 1 | mental-math (1) |
+| J3.7 | Area of parallelogram, rhombus, trapezoid, circle | 1 | 1 | mental-math (1) |
+| J3.8 | Inequalities | 1 | 1 | mental-math (1) |
+| J3.9 | Basic geometry facts | 2 | 2 | mental-math (2) |
+| J3.10 | Remainder problems | 1 | 1 | mental-math (1) |
 | **J4** | **Junior high, problems 61–80** | | | |
-| J4.1 | Repeating decimals | — | — | **nothing yet** |
-| J4.2 | More number theory | — | — | **nothing yet** |
-| J4.3 | Powers of numbers | — | — | **nothing yet** |
-| J4.4 | Volume of cylinder, cone, sphere | — | — | **nothing yet** |
-| J4.5 | Sequences and series | — | — | **nothing yet** |
-| J4.6 | Factorial | — | — | **nothing yet** |
-| J4.7 | Coordinate geometry | — | — | **nothing yet** |
-| J4.8 | Probability and odds | — | — | **nothing yet** |
-| J4.9 | Advanced percent problems | — | — | **nothing yet** |
-| J4.10 | More remainder problems | — | — | **nothing yet** |
-| J4.11 | More multiplication short-cuts | — | — | **nothing yet** |
+| J4.1 | Repeating decimals | 1 | 1 | mental-math (1) |
+| J4.2 | More number theory | 1 | 1 | mental-math (1) |
+| J4.3 | Powers of numbers | 1 | 1 | mental-math (1) |
+| J4.4 | Volume of cylinder, cone, sphere | 1 | 1 | mental-math (1) |
+| J4.5 | Sequences and series | 1 | 1 | mental-math (1) |
+| J4.6 | Factorial | 1 | 1 | mental-math (1) |
+| J4.7 | Coordinate geometry | 1 | 1 | mental-math (1) |
+| J4.8 | Probability and odds | 1 | 1 | mental-math (1) |
+| J4.9 | Advanced percent problems | 1 | 1 | mental-math (1) |
+| J4.10 | More remainder problems | 1 | 1 | mental-math (1) |
+| J4.11 | More multiplication short-cuts | 4 | 4 | mental-math (4) |
 | **E1** | **Elementary, problems 1–20** | | | |
-| E1.1 | Four operations on whole numbers | — | — | **nothing yet** |
-| E1.2 | Place value | — | — | **nothing yet** |
-| E1.3 | Rounding whole numbers | — | — | **nothing yet** |
-| E1.4 | Multiplication short-cuts | — | — | **nothing yet** |
-| E1.5 | Remainder problems | — | — | **nothing yet** |
-| E1.6 | Even and odd numbers | — | — | **nothing yet** |
-| E1.7 | Expanded notation | — | — | **nothing yet** |
-| E1.8 | Sums with regrouping | — | — | **nothing yet** |
-| E1.9 | Differences with regrouping | — | — | **nothing yet** |
-| E1.10 | Roman numerals | — | — | **nothing yet** |
+| E1.1 | Four operations on whole numbers | 2 | 2 | math-k8 (2) |
+| E1.2 | Place value | 2 | 2 | math-k8 (2) |
+| E1.3 | Rounding whole numbers | 2 | 2 | math-k8 (2) |
+| E1.4 | Multiplication short-cuts | 4 | 4 | mental-math (4) |
+| E1.5 | Remainder problems | 1 | 1 | mental-math (1) |
+| E1.6 | Even and odd numbers | 1 | 1 | math-k8 (1) |
+| E1.7 | Expanded notation | 2 | 2 | math-k8 (2) |
+| E1.8 | Sums with regrouping | 1 | 1 | math-k8 (1) |
+| E1.9 | Differences with regrouping | 1 | 1 | math-k8 (1) |
+| E1.10 | Roman numerals | 1 | 1 | mental-math (1) |
 | **E2** | **Elementary, problems 21–40** | | | |
-| E2.1 | Adding and subtracting fractions with common denominators | — | — | **nothing yet** |
-| E2.2 | Four operations on decimals | — | — | **nothing yet** |
-| E2.3 | Comparing decimals and fractions | — | — | **nothing yet** |
-| E2.4 | Conversions among fraction, decimal, percent | — | — | **nothing yet** |
-| E2.5 | Order of operations | — | — | **nothing yet** |
-| E2.6 | More multiplication short-cuts | — | — | **nothing yet** |
-| E2.7 | Ratio and proportion | — | — | **nothing yet** |
-| E2.8 | Consumer problems | — | — | **nothing yet** |
-| E2.9 | Prime numbers | — | — | **nothing yet** |
-| E2.10 | GCD and LCM | — | — | **nothing yet** |
-| E2.11 | Conversions of length, measurement, time | — | — | **nothing yet** |
+| E2.1 | Adding and subtracting fractions with common denominators | 2 | 2 | math-k8 (2) |
+| E2.2 | Four operations on decimals | 1 | 1 | math-k8 (1) |
+| E2.3 | Comparing decimals and fractions | 1 | 1 | mental-math (1) |
+| E2.4 | Conversions among fraction, decimal, percent | 1 | 1 | mental-math (1) |
+| E2.5 | Order of operations | 1 | 1 | mental-math (1) |
+| E2.6 | More multiplication short-cuts | 4 | 4 | mental-math (4) |
+| E2.7 | Ratio and proportion | 1 | 1 | mental-math (1) |
+| E2.8 | Consumer problems | 1 | 1 | mental-math (1) |
+| E2.9 | Prime numbers | 1 | 1 | mental-math (1) |
+| E2.10 | GCD and LCM | 1 | 1 | mental-math (1) |
+| E2.11 | Conversions of length, measurement, time | 2 | 2 | math-k8 (1), mental-math (1) |
 | **E3** | **Elementary, problems 41–60** | | | |
-| E3.1 | Four operations on fractions and mixed numbers | — | — | **nothing yet** |
-| E3.2 | Substitution | — | — | **nothing yet** |
-| E3.3 | Perimeter and area of square, rectangle, triangle | — | — | **nothing yet** |
-| E3.4 | Radius and diameter of a circle | — | — | **nothing yet** |
-| E3.5 | Powers and roots | — | — | **nothing yet** |
-| E3.6 | Simple equations | — | — | **nothing yet** |
-| E3.7 | Sequences | — | — | **nothing yet** |
-| E3.8 | Sets | — | — | **nothing yet** |
-| E3.9 | Word problems | — | — | **nothing yet** |
-| E3.10 | Volume of cube and rectangular box | — | — | **nothing yet** |
-| E3.11 | Right triangles | — | — | **nothing yet** |
-| E3.12 | More multiplication short-cuts | — | — | **nothing yet** |
-| E3.13 | Base conversions | — | — | **nothing yet** |
+| E3.1 | Four operations on fractions and mixed numbers | 2 | 2 | mental-math (2) |
+| E3.2 | Substitution | 1 | 1 | mental-math (1) |
+| E3.3 | Perimeter and area of square, rectangle, triangle | 2 | 2 | math-k8 (2) |
+| E3.4 | Radius and diameter of a circle | 1 | 1 | mental-math (1) |
+| E3.5 | Powers and roots | 2 | 2 | mental-math (2) |
+| E3.6 | Simple equations | 1 | 1 | mental-math (1) |
+| E3.7 | Sequences | 1 | 1 | mental-math (1) |
+| E3.8 | Sets | 1 | 1 | mental-math (1) |
+| E3.9 | Word problems | 1 | 1 | mental-math (1) |
+| E3.10 | Volume of cube and rectangular box | 1 | 1 | math-k8 (1) |
+| E3.11 | Right triangles | 1 | 1 | mental-math (1) |
+| E3.12 | More multiplication short-cuts | 4 | 4 | mental-math (4) |
+| E3.13 | Base conversions | 1 | 1 | mental-math (1) |
 | **E4** | **Elementary, problems 61–80** | | | |
-| E4.1 | Four operations on integers | — | — | **nothing yet** |
-| E4.2 | Inverses | — | — | **nothing yet** |
-| E4.3 | Basic geometry facts | — | — | **nothing yet** |
-| E4.4 | More area problems | — | — | **nothing yet** |
-| E4.5 | Squaring two-digit numbers | — | — | **nothing yet** |
-| E4.6 | More multiplication short-cuts | — | — | **nothing yet** |
-| E4.7 | More powers and roots | — | — | **nothing yet** |
-| E4.8 | More consumer problems | — | — | **nothing yet** |
-| E4.9 | Inequalities | — | — | **nothing yet** |
-| E4.10 | Probability | — | — | **nothing yet** |
-| E4.11 | Area of parallelogram, rhombus, trapezoid | — | — | **nothing yet** |
-| E4.12 | Number-line coordinate geometry | — | — | **nothing yet** |
-| E4.13 | More percent problems | — | — | **nothing yet** |
+| E4.1 | Four operations on integers | 2 | 2 | mental-math (2) |
+| E4.2 | Inverses | 1 | 1 | mental-math (1) |
+| E4.3 | Basic geometry facts | 1 | 1 | math-k8 (1) |
+| E4.4 | More area problems | 1 | 1 | math-k8 (1) |
+| E4.5 | Squaring two-digit numbers | 2 | 2 | mental-math (2) |
+| E4.6 | More multiplication short-cuts | 2 | 2 | mental-math (2) |
+| E4.7 | More powers and roots | 1 | 1 | mental-math (1) |
+| E4.8 | More consumer problems | 1 | 1 | mental-math (1) |
+| E4.9 | Inequalities | 1 | 1 | mental-math (1) |
+| E4.10 | Probability | 1 | 1 | mental-math (1) |
+| E4.11 | Area of parallelogram, rhombus, trapezoid | 1 | 1 | mental-math (1) |
+| E4.12 | Number-line coordinate geometry | 1 | 1 | mental-math (1) |
+| E4.13 | More percent problems | 1 | 1 | mental-math (1) |
 
-**Areas with nothing answering to them:** J1 Junior high, problems 1–20; J2 Junior high, problems 21–40; J3 Junior high, problems 41–60; J4 Junior high, problems 61–80; E1 Elementary, problems 1–20; E2 Elementary, problems 21–40; E3 Elementary, problems 41–60; E4 Elementary, problems 61–80.
+**Areas with nothing answering to them:** none.
 
 ## Moran, Phillips & Milo, SnapShot: Key Numbers in Biology (Cell 141, 2010)
 
@@ -4079,3 +4079,56 @@ https://github.com/RyanHayes-Lab/lambda-dynamics-examples
 | PREP | The per-system prep directory: alf_info.py, nsubs, nblocks, ncentral, nreps, toppar and the build scripts | 2 | 2 | molecular-simulation (2) |
 | TMPL | The templates directory: subsetAll.sh job chaining with SLURM dependencies, runflat.sh, runprod.sh, postprocess.sh, msld_flat.inp and msld_prod.inp | 3 | 3 | molecular-simulation (3) |
 | LIN | Telling nonlinear from linearized ALF by the lmalf key, and the 8–9 substituent limit of linearized ALF | 2 | 2 | molecular-simulation (2) |
+
+## NSPE Code of Ethics for Engineers (as revised July 2019)
+
+https://www.nspe.org/career-growth/nspe-code-ethics-engineers
+
+9 of 20 items have at least one objective answering to them.
+
+| Item | Topic | Objectives | With a drill | Where |
+|---|---|---|---|---|
+| C1 | Hold the public's safety, health and welfare paramount | 1 | 1 | process-design (1) |
+| C2 | Work only in areas of competence | 1 | 1 | process-design (1) |
+| C3 | Make public statements objectively and truthfully | — | — | **nothing yet** |
+| C4 | Act as a faithful agent or trustee for each employer and client | 1 | 1 | process-design (1) |
+| C5 | Avoid deceptive acts | — | — | **nothing yet** |
+| C6 | Conduct oneself honourably, lawfully and so as to serve the profession | — | — | **nothing yet** |
+| R1 | Rules of practice: public safety — escalate an overridden judgment, approve only conforming documents, keep information confidential, refuse fraudulent ventures, do not aid unlicensed practice, report violations | 2 | 2 | process-design (2) |
+| R2 | Rules of practice: competence — accept and seal only work one is qualified for, and only one's own technical segments | 1 | 1 | process-design (1) |
+| R3 | Rules of practice: objective statements — complete and honest reports, opinions grounded in fact and expertise, interested parties disclosed | — | — | **nothing yet** |
+| R4 | Rules of practice: faithful agency — disclose conflicts of interest, no double compensation without consent, no improper payments, recuse from decisions involving one's own firm | 1 | 1 | process-design (1) |
+| R5 | Rules of practice: avoiding deception — no misstated qualifications or responsibility, no improper inducements to win work | — | — | **nothing yet** |
+| O1 | Professional obligations: integrity — admit errors, warn of likely failure, disclose outside work, treat all fairly | — | — | **nothing yet** |
+| O2 | Professional obligations: the public interest — civic involvement, public education, sustainability, continuing development, never seal non-conforming plans | — | — | **nothing yet** |
+| O3 | Professional obligations: no public deception — no material misstatement or omission, no false authorship | — | — | **nothing yet** |
+| O4 | Professional obligations: confidentiality — client and employer information, and not exploiting project knowledge without consent | 1 | 1 | process-design (1) |
+| O5 | Professional obligations: independence — gifts and commissions must not influence a professional decision | 1 | 1 | process-design (1) |
+| O6 | Professional obligations: fair competition — no unfair criticism of peers, no compromising contingency arrangements, limits on outside work | — | — | **nothing yet** |
+| O7 | Professional obligations: respect for peers — no malicious harm to reputation, report misconduct, review limits in private practice | — | — | **nothing yet** |
+| O8 | Professional obligations: accountability — personal responsibility for one's work, registration laws, no concealment behind an entity | — | — | **nothing yet** |
+| O9 | Professional obligations: credit and ownership — credit those responsible, respect client-owned designs, settle intellectual-property ownership in advance | 1 | 1 | process-design (1) |
+
+## 29 CFR 1910.119, Process safety management of highly hazardous chemicals
+
+https://www.osha.gov/laws-regs/regulations/standardnumber/1910/1910.119
+
+0 of 15 items have at least one objective answering to them.
+
+| Item | Topic | Objectives | With a drill | Where |
+|---|---|---|---|---|
+| b | Application and definitions: which processes are covered | — | — | **nothing yet** |
+| c | Employee participation | — | — | **nothing yet** |
+| d | Process safety information | — | — | **nothing yet** |
+| e | Process hazard analysis, and the methodologies it may use | — | — | **nothing yet** |
+| f | Operating procedures | — | — | **nothing yet** |
+| g | Training | — | — | **nothing yet** |
+| h | Contractors | — | — | **nothing yet** |
+| i | Pre-startup safety review | — | — | **nothing yet** |
+| j | Mechanical integrity | — | — | **nothing yet** |
+| k | Hot work permit | — | — | **nothing yet** |
+| l | Management of change | — | — | **nothing yet** |
+| m | Incident investigation | — | — | **nothing yet** |
+| n | Emergency planning and response | — | — | **nothing yet** |
+| o | Compliance audits | — | — | **nothing yet** |
+| p | Trade secrets | — | — | **nothing yet** |

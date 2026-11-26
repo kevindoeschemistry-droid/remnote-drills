@@ -1,4 +1,5 @@
-"""Write new objectives from a second-spec module's OBJS (code, [std items], do, ek) into its framework file, after the
+"""Write new objectives from a second-spec module's OBJS (code, [std items], do, ek, and optionally a practice id)
+into its framework file, after the
 last objective of their topic, and add a module's EXISTING {code: [std items]} citations to objectives already there.
 NEEDS {code: [codes]} adds prerequisites; UNIT_ORDER [unit ids] reorders unit blocks without renumbering. Idempotent. Usage: python3 scripts/insert_objs.py st3"""
 import glob, importlib, os, re, sys
@@ -20,7 +21,10 @@ def walk(L):
         if m: yield i, un, tn, m.group(1)
 
 
-for code, std, do, ek in getattr(mod, "OBJS", []):
+for entry in getattr(mod, "OBJS", []):
+    # a 5th element overrides the module's PRACTICE for that objective
+    code, std, do, ek = entry[:4]
+    prac = entry[4] if len(entry) > 4 else getattr(mod, "PRACTICE", "P1")
     u, t, lo = code.split("-", 1)[1].split(".")
     L = open(path).read().split("\n")
     hits = [(i, x) for i, uu, tt, x in walk(L) if (uu, tt) == (u, t)]
@@ -41,7 +45,7 @@ for code, std, do, ek in getattr(mod, "OBJS", []):
             last = [len(L) - 5]  # so the topic is added after this unit's (empty) los line below
             hits = [(len(L) - 2, "")]
             if lo in [x for _, x in hits]: continue
-            L.insert(hits[-1][0] + 1, f'          - {{ id: {lo}, std: [{", ".join(q(s) for s in std)}], do: {q(do)}, ek: [{q(ek)}], p: [{getattr(mod, "PRACTICE", "P1")}], drills: [] }}')
+            L.insert(hits[-1][0] + 1, f'          - {{ id: {lo}, std: [{", ".join(q(s) for s in std)}], do: {q(do)}, ek: [{q(ek)}], p: [{prac}], drills: [] }}')
             open(path, "w").write("\n".join(L))
             continue
         if not title or not last: sys.exit(f"{code}: topic not found and no TOPICS title for {u}.{t}")
@@ -50,7 +54,7 @@ for code, std, do, ek in getattr(mod, "OBJS", []):
         hits = [(last[-1] + 3, "")]
     if lo in [x for _, x in hits]: continue
     L = open(path).read().split("\n")
-    L.insert(hits[-1][0] + 1, f'          - {{ id: {lo}, std: [{", ".join(q(s) for s in std)}], do: {q(do)}, ek: [{q(ek)}], p: [{getattr(mod, "PRACTICE", "P1")}], drills: [] }}')
+    L.insert(hits[-1][0] + 1, f'          - {{ id: {lo}, std: [{", ".join(q(s) for s in std)}], do: {q(do)}, ek: [{q(ek)}], p: [{prac}], drills: [] }}')
     open(path, "w").write("\n".join(L))
 L = open(path).read().split("\n")
 for code, std in getattr(mod, "EXISTING", {}).items():

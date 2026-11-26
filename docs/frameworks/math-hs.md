@@ -569,7 +569,7 @@ Big ideas: XFORM, MODEL
   - EK: sin θ = cos(90° − θ): the side opposite one acute angle is adjacent to the other.
   - Needs: MH-7.3.A
   - MP7 · drills: geo-trig-ratio, hs2-cofunction
-- ● **MH-7.3.C** (G-SRT.C.8) Use trigonometric ratios and the Pythagorean theorem to solve right triangles in applied problems.
+- ● **MH-7.3.C** (G-SRT.C.8, fe-chemical:1.A) Use trigonometric ratios and the Pythagorean theorem to solve right triangles in applied problems.
   - EK: For a side, pick the ratio that links the known side to the unknown; for an angle, use the inverse ratio.
   - Needs: MH-7.3.A, MH-7.2.A, MH-1.1.A
   - MP4 · MP5 · drills: geo-right-trig, mm-pythagorean-triple
@@ -881,7 +881,7 @@ Big ideas: FUNC, XFORM, MODEL
 
 
 
-- ● **MH-13.1.A** (F-TF.A.1) Understand radian measure of an angle as the length of the arc on the unit circle it subtends, and convert between degrees and radians.
+- ● **MH-13.1.A** (F-TF.A.1, fe-chemical:1.A) Understand radian measure of an angle as the length of the arc on the unit circle it subtends, and convert between degrees and radians.
   - EK: π radians = 180°; θ = s/r.
   - Needs: MH-10.2.A
   - MP6 · drills: trig-deg-rad, hs2-arc-radians
@@ -916,7 +916,7 @@ Big ideas: FUNC, MODEL
 
 
 
-- ● **MH-14.1.A** (F-LE.A.4) Express the solution of ab^(ct) = d as a logarithm (base 2, 10 or e) and evaluate it with technology.
+- ● **MH-14.1.A** (F-LE.A.4, fe-chemical:1.A) Express the solution of ab^(ct) = d as a logarithm (base 2, 10 or e) and evaluate it with technology.
   - EK: log_b x = y ⇔ b^y = x; t = log_b(d/a)/c.
   - Needs: MH-4.2.C, MH-5.3.D
   - MP7 · MP5 · drills: alg-exp-solve, mm-log-exact, alg2-log-estimate
@@ -1048,7 +1048,7 @@ Big ideas: FUNC, XFORM
 
 
 
-- ● **MH-17.1.A** (F-TF.A.3) (+) Use 30-60-90 and 45-45-90 triangles to find exact sine, cosine and tangent of π/6, π/4, π/3, and the unit circle to extend them to π − x, π + x and 2π − x.
+- ● **MH-17.1.A** (F-TF.A.3, fe-chemical:1.A) (+) Use 30-60-90 and 45-45-90 triangles to find exact sine, cosine and tangent of π/6, π/4, π/3, and the unit circle to extend them to π − x, π + x and 2π − x.
   - EK: sin(π/6) = 1/2, sin(π/4) = √2/2, sin(π/3) = √3/2; the reference angle and quadrant give the rest.
   - Needs: MH-13.1.B, MH-7.3.A
   - MP7 · drills: trig-exact, dr-unit-circle, mm-trig-exact

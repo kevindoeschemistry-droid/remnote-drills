@@ -106,10 +106,10 @@ Big ideas: FLUX
 
 
 
-- ● **MS-4.1.A** (pe-chemical:6.B) Combine film coefficients into an overall coefficient.
+- ● **MS-4.1.A** (pe-chemical:6.B, fe-chemical:10.B) Combine film coefficients into an overall coefficient.
   - EK: 1/K_y = 1/k_y + m/k_x.
   - P1 · drills: ms-overall-coefficient, ms-liquid-coefficient-reverse
-- ● **MS-4.1.B** (pe-chemical:6.B) Find the fraction of the resistance in the gas film.
+- ● **MS-4.1.B** (pe-chemical:6.B, fe-chemical:10.B) Find the fraction of the resistance in the gas film.
   - EK: Gas share = (1/k_y)/(1/k_y + m/k_x).
   - P1 · drills: ms-resistance-fraction, ms-controlling-film
 - ● **MS-4.1.C** (pe-chemical:6.B) Use a sphere mass-transfer correlation.
@@ -118,7 +118,7 @@ Big ideas: FLUX
 - ● **MS-4.1.D** (pe-chemical:6.B) Predict how k depends on D under each model.
   - EK: Film theory: k ∝ D; penetration and surface renewal: k ∝ D^{1/2}; boundary layers: k ∝ D^{2/3}.
   - P1 · drills: ms-model-scaling, ms-model-exponent
-- ● **MS-4.1.E** (pe-chemical:6.B) Find a packed-height from HTU and NTU.
+- ● **MS-4.1.E** (pe-chemical:6.B, fe-chemical:10.E) Find a packed-height from HTU and NTU.
   - EK: Z = H_OG N_OG; for dilute systems with straight lines, N_OG = (y₁ − y₂)/Δy_lm.
   - P1 · drills: ms-htu-ntu, ms-colburn-ntu
 
