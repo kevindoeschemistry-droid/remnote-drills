@@ -5,9 +5,14 @@
  "draft": 1,
  "track": "athletics",
  "requires": [],
- "domains": [],
+ "domains": [
+  "bb"
+ ],
  "basis": {
   "primary": "usab-pdc",
+  "also": [
+   "ncaa-mbb-rules"
+  ],
   "note": "Introductory level read in full, higher levels in overview only."
  },
  "big_ideas": [
@@ -95,18 +100,6 @@
      },
      "los": [
       {
-       "id": "A",
-       "do": "Identify spacing errors in a described or diagrammed half-court set (two players in one help zone, empty corner, crowded lane) and name the fix.",
-       "ek": [
-        "Spacing sets help distance; teaching starts at ~12 ft apart (a lane width) and widens to 15–18 ft and the three-point line as range grows.",
-        "A filled corner forces the low helper to choose between the rim and a corner three."
-       ],
-       "p": [
-        "P1"
-       ],
-       "drills": []
-      },
-      {
        "id": "B",
        "do": "Given a 5-out, 4-out-1-in or 3-out-2-in alignment and a drive, choose which defender must help and which offensive player is left open.",
        "ek": [
@@ -116,7 +109,25 @@
         "P1",
         "P2"
        ],
-       "drills": []
+       "drills": [
+        "bb-who-helps",
+        "bb-alignment-pick"
+       ]
+      },
+      {
+       "id": "A",
+       "do": "Identify spacing errors in a described or diagrammed half-court set (two players in one help zone, empty corner, crowded lane) and name the fix.",
+       "ek": [
+        "Spacing sets help distance; teaching starts at ~12 ft apart (a lane width) and widens to 15–18 ft and the three-point line as range grows.",
+        "A filled corner forces the low helper to choose between the rim and a corner three."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "bb-spacing-error",
+        "bb-spacing-help"
+       ]
       },
       {
        "id": "C",
@@ -127,7 +138,10 @@
        "p": [
         "P2"
        ],
-       "drills": []
+       "drills": [
+        "bb-spacing-move",
+        "bb-spacing-distance"
+       ]
       }
      ]
     },
@@ -141,18 +155,6 @@
      },
      "los": [
       {
-       "id": "A",
-       "do": "Name the ways an offense creates an advantage (ball screen, post touch, isolation, off-ball screen, transition, offensive rebound) and pick which fits a given personnel group.",
-       "ek": [
-        "Advantage = a defender out of position or a numbers edge; it is created on-ball, off-ball or in the open floor."
-       ],
-       "p": [
-        "P1",
-        "P2"
-       ],
-       "drills": []
-      },
-      {
        "id": "B",
        "do": "Given a described catch, choose the triple-threat read: shoot if the closeout is late, drive the high foot if the defender is close, pass if help has arrived.",
        "ek": [
@@ -162,7 +164,25 @@
         "P1",
         "P2"
        ],
-       "drills": []
+       "drills": [
+        "bb-triple-threat",
+        "bb-read-cost"
+       ]
+      },
+      {
+       "id": "A",
+       "do": "Name the ways an offense creates an advantage (ball screen, post touch, isolation, off-ball screen, transition, offensive rebound) and pick which fits a given personnel group.",
+       "ek": [
+        "Advantage = a defender out of position or a numbers edge; it is created on-ball, off-ball or in the open floor."
+       ],
+       "p": [
+        "P1",
+        "P2"
+       ],
+       "drills": [
+        "bb-advantage-sources",
+        "bb-advantage-decay"
+       ]
       },
       {
        "id": "C",
@@ -174,7 +194,10 @@
         "P1",
         "P2"
        ],
-       "drills": []
+       "drills": [
+        "bb-mismatch-value",
+        "bb-mismatch-find"
+       ]
       }
      ]
     },
@@ -197,7 +220,10 @@
        "needs": [
         "BB-1.2.B"
        ],
-       "drills": []
+       "drills": [
+        "bb-kick-read",
+        "bb-extra-pass-value"
+       ]
       },
       {
        "id": "B",
@@ -209,7 +235,10 @@
         "P1",
         "P5"
        ],
-       "drills": []
+       "drills": [
+        "bb-good-vs-quick",
+        "bb-shot-quality"
+       ]
       }
      ]
     },
@@ -232,19 +261,10 @@
         "P1",
         "P2"
        ],
-       "drills": []
-      },
-      {
-       "id": "B",
-       "do": "Choose when to backdoor, basket-cut or relocate when a defender denies or turns his head.",
-       "ek": [
-        "Denial or ball-watching opens the backdoor; a cut must create a passing lane, not fill one already used."
-       ],
-       "p": [
-        "P1",
-        "P2"
-       ],
-       "drills": []
+       "drills": [
+        "bb-off-ball-screen-read",
+        "bb-screener-counter"
+       ]
       },
       {
        "id": "C",
@@ -256,7 +276,25 @@
         "P1",
         "P2"
        ],
-       "drills": []
+       "drills": [
+        "bb-post-entry",
+        "bb-post-counter"
+       ]
+      },
+      {
+       "id": "B",
+       "do": "Choose when to backdoor, basket-cut or relocate when a defender denies or turns his head.",
+       "ek": [
+        "Denial or ball-watching opens the backdoor; a cut must create a passing lane, not fill one already used."
+       ],
+       "p": [
+        "P1",
+        "P2"
+       ],
+       "drills": [
+        "bb-backdoor-trigger",
+        "bb-cut-cost"
+       ]
       }
      ]
     },
@@ -275,7 +313,10 @@
         "P2",
         "P6"
        ],
-       "drills": []
+       "drills": [
+        "bb-transition-lanes",
+        "bb-lane-roles"
+       ]
       },
       {
        "id": "B",
@@ -287,7 +328,10 @@
         "P1",
         "P2"
        ],
-       "drills": []
+       "drills": [
+        "bb-break-decisions",
+        "bb-break-advantage"
+       ]
       },
       {
        "id": "C",
@@ -298,7 +342,10 @@
        "p": [
         "P2"
        ],
-       "drills": []
+       "drills": [
+        "bb-push-or-not",
+        "bb-push-triggers"
+       ]
       }
      ]
     }
@@ -328,7 +375,10 @@
        "p": [
         "P1"
        ],
-       "drills": []
+       "drills": [
+        "bb-screen-type",
+        "bb-screen-purpose"
+       ]
       },
       {
        "id": "B",
@@ -340,7 +390,10 @@
         "P1",
         "P2"
        ],
-       "drills": []
+       "drills": [
+        "bb-handler-setup",
+        "bb-reject-value"
+       ]
       }
      ]
     },
@@ -366,7 +419,10 @@
        "needs": [
         "BB-4.1.A"
        ],
-       "drills": []
+       "drills": [
+        "bb-drop-read-value",
+        "bb-drop-identify"
+       ]
       },
       {
        "id": "B",
@@ -381,7 +437,10 @@
        "needs": [
         "BB-4.1.A"
        ],
-       "drills": []
+       "drills": [
+        "bb-blitz-read",
+        "bb-blitz-numbers"
+       ]
       },
       {
        "id": "C",
@@ -396,7 +455,10 @@
        "needs": [
         "BB-4.1.A"
        ],
-       "drills": []
+       "drills": [
+        "bb-switch-attack",
+        "bb-switch-mismatch-rate"
+       ]
       },
       {
        "id": "D",
@@ -411,7 +473,10 @@
        "needs": [
         "BB-4.1.A"
        ],
-       "drills": []
+       "drills": [
+        "bb-ice-counter",
+        "bb-ice-reject-value"
+       ]
       }
      ]
     },
@@ -426,6 +491,20 @@
      },
      "los": [
       {
+       "id": "B",
+       "do": "Choose the screener's action — roll, short-roll, pop, slip or ghost — given his skills and the coverage.",
+       "ek": [
+        "Roll vs level/hedge, pop vs drop, slip vs switch or hard hedge, short-roll vs blitz."
+       ],
+       "p": [
+        "P2"
+       ],
+       "drills": [
+        "bb-screener-action",
+        "bb-screener-mistake"
+       ]
+      },
+      {
        "id": "A",
        "do": "Given which defender tags the roller, choose the pass: lob, pocket, kick to the tagger's man, or skip to the opposite corner.",
        "ek": [
@@ -435,18 +514,10 @@
         "P1",
         "P2"
        ],
-       "drills": []
-      },
-      {
-       "id": "B",
-       "do": "Choose the screener's action — roll, short-roll, pop, slip or ghost — given his skills and the coverage.",
-       "ek": [
-        "Roll vs level/hedge, pop vs drop, slip vs switch or hard hedge, short-roll vs blitz."
-       ],
-       "p": [
-        "P2"
-       ],
-       "drills": []
+       "drills": [
+        "bb-tagger-read",
+        "bb-tag-rotation-count"
+       ]
       }
      ]
     }
@@ -472,6 +543,20 @@
      },
      "los": [
       {
+       "id": "B",
+       "do": "Choose the direction to force the ball (baseline, middle, weak hand) for a given scheme and scouting report, and justify it.",
+       "ek": [
+        "Forcing baseline needs a low helper waiting; forcing middle relies on bodies in the gaps. Either way, take away the strength."
+       ],
+       "p": [
+        "P2"
+       ],
+       "drills": [
+        "bb-force-team-rule",
+        "bb-force-consequence"
+       ]
+      },
+      {
        "id": "A",
        "do": "Place each defender correctly given where the ball is — on-ball, one pass away (deny or gap), two passes away (help side).",
        "ek": [
@@ -481,18 +566,10 @@
        "p": [
         "P1"
        ],
-       "drills": []
-      },
-      {
-       "id": "B",
-       "do": "Choose the direction to force the ball (baseline, middle, weak hand) for a given scheme and scouting report, and justify it.",
-       "ek": [
-        "Forcing baseline needs a low helper waiting; forcing middle relies on bodies in the gaps. Either way, take away the strength."
-       ],
-       "p": [
-        "P2"
-       ],
-       "drills": []
+       "drills": [
+        "bb-defensive-position",
+        "bb-help-distance"
+       ]
       }
      ]
     },
@@ -506,6 +583,20 @@
      },
      "los": [
       {
+       "id": "B",
+       "do": "Identify the low man on a described possession and his job when the ball is driven or a roller dives.",
+       "ek": [
+        "Low man = deepest weak-side defender; he protects the rim or tags the roller, and the help behind him zones the two weak-side shooters."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "bb-low-man",
+        "bb-low-man-cost"
+       ]
+      },
+      {
        "id": "A",
        "do": "Given a described drive or post touch, name who helps, who rotates to the helper's man, and who is left (the X-out or sink-and-fill).",
        "ek": [
@@ -515,18 +606,10 @@
         "P1",
         "P2"
        ],
-       "drills": []
-      },
-      {
-       "id": "B",
-       "do": "Identify the low man on a described possession and his job when the ball is driven or a roller dives.",
-       "ek": [
-        "Low man = deepest weak-side defender; he protects the rim or tags the roller, and the help behind him zones the two weak-side shooters."
-       ],
-       "p": [
-        "P1"
-       ],
-       "drills": []
+       "drills": [
+        "bb-rotation-passes",
+        "bb-rotation-last-closeout"
+       ]
       },
       {
        "id": "C",
@@ -538,7 +621,10 @@
         "P2",
         "P5"
        ],
-       "drills": []
+       "drills": [
+        "bb-stunt-dig-help",
+        "bb-help-tradeoff"
+       ]
       }
      ]
     },
@@ -557,7 +643,10 @@
         "P1",
         "P2"
        ],
-       "drills": []
+       "drills": [
+        "bb-closeout-type",
+        "bb-closeout-reach"
+       ]
       }
      ]
     },
@@ -575,7 +664,10 @@
        "p": [
         "P2"
        ],
-       "drills": []
+       "drills": [
+        "bb-box-out",
+        "bb-rebound-share"
+       ]
       },
       {
        "id": "B",
@@ -586,7 +678,10 @@
        "p": [
         "P2"
        ],
-       "drills": []
+       "drills": [
+        "bb-transition-defense",
+        "bb-transition-points-allowed"
+       ]
       }
      ]
     }
@@ -634,7 +729,10 @@
        "p": [
         "P1"
        ],
-       "drills": []
+       "drills": [
+        "bb-coverage-id-2",
+        "bb-coverage-cue"
+       ]
       },
       {
        "id": "B",
@@ -649,7 +747,10 @@
        "needs": [
         "BB-4.1.A"
        ],
-       "drills": []
+       "drills": [
+        "bb-coverage-tradeoff",
+        "bb-coverage-cost"
+       ]
       }
      ]
     },
@@ -662,6 +763,20 @@
       ]
      },
      "los": [
+      {
+       "id": "B",
+       "do": "Choose the over/under/through route for the on-ball defender given the ball-handler's shooting range.",
+       "ek": [
+        "Under a non-shooter, over a shooter; going under a pull-up shooter concedes the three."
+       ],
+       "p": [
+        "P2"
+       ],
+       "drills": [
+        "bb-on-ball-route",
+        "bb-route-mismatch"
+       ]
+      },
       {
        "id": "A",
        "do": "Given a described ball-handler, screener and your two defenders, choose the coverage and justify it (an auto-checked pick).",
@@ -676,18 +791,10 @@
        "needs": [
         "BB-4.1.B"
        ],
-       "drills": []
-      },
-      {
-       "id": "B",
-       "do": "Choose the over/under/through route for the on-ball defender given the ball-handler's shooting range.",
-       "ek": [
-        "Under a non-shooter, over a shooter; going under a pull-up shooter concedes the three."
-       ],
-       "p": [
-        "P2"
-       ],
-       "drills": []
+       "drills": [
+        "bb-coverage-choice",
+        "bb-coverage-breakeven"
+       ]
       },
       {
        "id": "C",
@@ -701,7 +808,10 @@
        "needs": [
         "BB-3.2.B"
        ],
-       "drills": []
+       "drills": [
+        "bb-weakside-help",
+        "bb-xout-count"
+       ]
       }
      ]
     }
@@ -731,7 +841,24 @@
        "p": [
         "P1"
        ],
-       "drills": []
+       "drills": [
+        "bb-zone-id",
+        "bb-zone-cue"
+       ]
+      },
+      {
+       "id": "C",
+       "do": "Name the weak spots of each standard zone.",
+       "ek": [
+        "2-3: high post, short corner, skip to corners; 1-3-1: corners and baseline; 3-2: the low blocks."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "bb-zone-weak-spots",
+        "bb-zone-gap-cause"
+       ]
       },
       {
        "id": "B",
@@ -743,18 +870,10 @@
         "P2",
         "P5"
        ],
-       "drills": []
-      },
-      {
-       "id": "C",
-       "do": "Name the weak spots of each standard zone.",
-       "ek": [
-        "2-3: high post, short corner, skip to corners; 1-3-1: corners and baseline; 3-2: the low blocks."
-       ],
-       "p": [
-        "P1"
-       ],
-       "drills": []
+       "drills": [
+        "bb-man-or-zone",
+        "bb-zone-value"
+       ]
       }
      ]
     },
@@ -774,7 +893,10 @@
         "P1",
         "P2"
        ],
-       "drills": []
+       "drills": [
+        "bb-zone-attack",
+        "bb-zone-shift-time"
+       ]
       }
      ]
     },
@@ -797,7 +919,10 @@
        "p": [
         "P1"
        ],
-       "drills": []
+       "drills": [
+        "bb-press-id",
+        "bb-press-purpose"
+       ]
       },
       {
        "id": "B",
@@ -809,7 +934,10 @@
         "P1",
         "P2"
        ],
-       "drills": []
+       "drills": [
+        "bb-press-outlet",
+        "bb-press-value"
+       ]
       }
      ]
     }
@@ -847,7 +975,10 @@
         "P3",
         "P4"
        ],
-       "drills": []
+       "drills": [
+        "bb-two-for-one",
+        "bb-two-for-one-window"
+       ]
       },
       {
        "id": "B",
@@ -860,7 +991,10 @@
         "P3",
         "P4"
        ],
-       "drills": []
+       "drills": [
+        "bb-run-clock",
+        "bb-foul-now"
+       ]
       },
       {
        "id": "C",
@@ -872,7 +1006,10 @@
         "P2",
         "P4"
        ],
-       "drills": []
+       "drills": [
+        "bb-last-shot-timing",
+        "bb-rebound-window"
+       ]
       }
      ]
     },
@@ -905,7 +1042,10 @@
         "P2",
         "P5"
        ],
-       "drills": []
+       "drills": [
+        "bb-foul-up-three",
+        "bb-foul-or-defend"
+       ]
       },
       {
        "id": "B",
@@ -917,7 +1057,10 @@
         "P4",
         "P2"
        ],
-       "drills": []
+       "drills": [
+        "bb-three-vs-two",
+        "bb-which-is-better"
+       ]
       },
       {
        "id": "C",
@@ -930,7 +1073,10 @@
         "P3",
         "P4"
        ],
-       "drills": []
+       "drills": [
+        "bb-whom-to-foul",
+        "bb-one-and-one"
+       ]
       },
       {
        "id": "D",
@@ -942,7 +1088,10 @@
         "P2",
         "P3"
        ],
-       "drills": []
+       "drills": [
+        "bb-foul-to-give",
+        "bb-foul-to-give-use"
+       ]
       }
      ]
     },
@@ -971,7 +1120,10 @@
         "P2",
         "P3"
        ],
-       "drills": []
+       "drills": [
+        "bb-timeout-or-play",
+        "bb-timeout-value"
+       ]
       },
       {
        "id": "B",
@@ -982,7 +1134,10 @@
        "p": [
         "P3"
        ],
-       "drills": []
+       "drills": [
+        "bb-timeout-allotment",
+        "bb-timeout-rules"
+       ]
       }
      ]
     },
@@ -1008,7 +1163,10 @@
         "P2",
         "P6"
        ],
-       "drills": []
+       "drills": [
+        "bb-oob-choice",
+        "bb-oob-options"
+       ]
       },
       {
        "id": "B",
@@ -1020,7 +1178,10 @@
         "P2",
         "P3"
        ],
-       "drills": []
+       "drills": [
+        "bb-inbound-feasible",
+        "bb-inbound-time"
+       ]
       },
       {
        "id": "C",
@@ -1031,7 +1192,10 @@
        "p": [
         "P2"
        ],
-       "drills": []
+       "drills": [
+        "bb-defend-inbound",
+        "bb-deny-vs-guard"
+       ]
       }
      ]
     }
@@ -1070,7 +1234,10 @@
        "p": [
         "P3"
        ],
-       "drills": []
+       "drills": [
+        "bb-shot-clock-reset",
+        "bb-shot-clock-time"
+       ]
       },
       {
        "id": "B",
@@ -1081,7 +1248,10 @@
        "p": [
         "P3"
        ],
-       "drills": []
+       "drills": [
+        "bb-violation-id",
+        "bb-count-violation"
+       ]
       }
      ]
     },
@@ -1112,7 +1282,10 @@
        "p": [
         "P3"
        ],
-       "drills": []
+       "drills": [
+        "bb-bonus-throws",
+        "bb-bonus-expected"
+       ]
       },
       {
        "id": "B",
@@ -1123,7 +1296,10 @@
        "p": [
         "P3"
        ],
-       "drills": []
+       "drills": [
+        "bb-shooting-foul-throws",
+        "bb-and-one-value"
+       ]
       },
       {
        "id": "C",
@@ -1135,7 +1311,10 @@
         "P3",
         "P1"
        ],
-       "drills": []
+       "drills": [
+        "bb-unsportsmanlike",
+        "bb-unsportsmanlike-cost"
+       ]
       }
      ]
     },
@@ -1161,7 +1340,10 @@
         "P3",
         "P1"
        ],
-       "drills": []
+       "drills": [
+        "bb-block-charge",
+        "bb-restricted-arc"
+       ]
       },
       {
        "id": "B",
@@ -1172,7 +1354,10 @@
        "p": [
         "P3"
        ],
-       "drills": []
+       "drills": [
+        "bb-goaltending",
+        "bb-goaltending-award"
+       ]
       },
       {
        "id": "C",
@@ -1184,7 +1369,10 @@
         "P1",
         "P5"
        ],
-       "drills": []
+       "drills": [
+        "bb-mechanics",
+        "bb-crew-areas"
+       ]
       }
      ]
     }
@@ -1224,7 +1412,10 @@
        "p": [
         "P4"
        ],
-       "drills": []
+       "drills": [
+        "bb-possessions",
+        "bb-pace"
+       ]
       },
       {
        "id": "B",
@@ -1238,7 +1429,10 @@
        "needs": [
         "BB-8.1.A"
        ],
-       "drills": []
+       "drills": [
+        "bb-offensive-rating",
+        "bb-net-rating"
+       ]
       },
       {
        "id": "C",
@@ -1252,7 +1446,10 @@
        "needs": [
         "BB-8.1.B"
        ],
-       "drills": []
+       "drills": [
+        "bb-per-game-trap",
+        "bb-why-per-possession"
+       ]
       }
      ]
     },
@@ -1277,7 +1474,10 @@
        "p": [
         "P4"
        ],
-       "drills": []
+       "drills": [
+        "bb-efg",
+        "bb-efg-gap"
+       ]
       },
       {
        "id": "B",
@@ -1288,7 +1488,10 @@
        "p": [
         "P4"
        ],
-       "drills": []
+       "drills": [
+        "bb-ts",
+        "bb-true-attempts"
+       ]
       },
       {
        "id": "C",
@@ -1304,7 +1507,10 @@
         "BB-8.2.A",
         "BB-8.2.B"
        ],
-       "drills": []
+       "drills": [
+        "bb-which-measure",
+        "bb-efficiency-gap"
+       ]
       }
      ]
     },
@@ -1332,7 +1538,10 @@
        "needs": [
         "BB-8.2.A"
        ],
-       "drills": []
+       "drills": [
+        "bb-turnover-rate",
+        "bb-orb-pct"
+       ]
       },
       {
        "id": "B",
@@ -1347,7 +1556,10 @@
        "needs": [
         "BB-8.3.A"
        ],
-       "drills": []
+       "drills": [
+        "bb-four-factors-weight",
+        "bb-decisive-factor"
+       ]
       },
       {
        "id": "C",
@@ -1362,7 +1574,10 @@
        "needs": [
         "BB-8.3.B"
        ],
-       "drills": []
+       "drills": [
+        "bb-factor-emphasis",
+        "bb-emphasis-gain"
+       ]
       }
      ]
     },
@@ -1381,7 +1596,10 @@
        "p": [
         "P4"
        ],
-       "drills": []
+       "drills": [
+        "bb-expected-points",
+        "bb-shot-comparison"
+       ]
       },
       {
        "id": "B",
@@ -1396,7 +1614,10 @@
        "needs": [
         "BB-8.4.A"
        ],
-       "drills": []
+       "drills": [
+        "bb-breakeven-three",
+        "bb-breakeven-use"
+       ]
       },
       {
        "id": "C",
@@ -1411,7 +1632,10 @@
        "needs": [
         "BB-8.4.A"
        ],
-       "drills": []
+       "drills": [
+        "bb-shot-with-orb",
+        "bb-quick-vs-work"
+       ]
       }
      ]
     },
@@ -1433,7 +1657,10 @@
        "p": [
         "P5"
        ],
-       "drills": []
+       "drills": [
+        "bb-sample-size",
+        "bb-attempts-needed"
+       ]
       },
       {
        "id": "B",
@@ -1444,7 +1671,10 @@
        "p": [
         "P5"
        ],
-       "drills": []
+       "drills": [
+        "bb-selection-bias",
+        "bb-lineup-minutes"
+       ]
       }
      ]
     }
@@ -1479,7 +1709,10 @@
         "BB-3.3.A",
         "BB-4.2.A"
        ],
-       "drills": []
+       "drills": [
+        "bb-player-key",
+        "bb-force-direction"
+       ]
       },
       {
        "id": "B",
@@ -1491,7 +1724,10 @@
         "P1",
         "P2"
        ],
-       "drills": []
+       "drills": [
+        "bb-help-budget",
+        "bb-help-rules"
+       ]
       }
      ]
     },
@@ -1513,7 +1749,10 @@
        "p": [
         "P1"
        ],
-       "drills": []
+       "drills": [
+        "bb-base-offense-id",
+        "bb-ato-tendency"
+       ]
       },
       {
        "id": "B",
@@ -1529,7 +1768,10 @@
         "BB-4.1.A",
         "BB-2.2.A"
        ],
-       "drills": []
+       "drills": [
+        "bb-coverage-id",
+        "bb-coverage-counter"
+       ]
       },
       {
        "id": "C",
@@ -1544,7 +1786,10 @@
        "needs": [
         "BB-8.1.B"
        ],
-       "drills": []
+       "drills": [
+        "bb-self-scout-ppp",
+        "bb-ppp-sample"
+       ]
       }
      ]
     }
@@ -1580,7 +1825,10 @@
         "P1",
         "P6"
        ],
-       "drills": []
+       "drills": [
+        "bb-usab-level",
+        "bb-level-mix"
+       ]
       },
       {
        "id": "B",
@@ -1591,7 +1839,10 @@
        "p": [
         "P6"
        ],
-       "drills": []
+       "drills": [
+        "bb-training-ratio",
+        "bb-position-policy"
+       ]
       },
       {
        "id": "C",
@@ -1602,7 +1853,10 @@
        "p": [
         "P6"
        ],
-       "drills": []
+       "drills": [
+        "bb-concept-sequence",
+        "bb-sequence-count"
+       ]
       }
      ]
     },
@@ -1620,7 +1874,10 @@
        "p": [
         "P6"
        ],
-       "drills": []
+       "drills": [
+        "bb-small-sided-drill",
+        "bb-drill-reps"
+       ]
       },
       {
        "id": "B",
@@ -1631,7 +1888,10 @@
        "p": [
         "P6"
        ],
-       "drills": []
+       "drills": [
+        "bb-practice-blocks",
+        "bb-progression-time"
+       ]
       },
       {
        "id": "C",
@@ -1642,7 +1902,10 @@
        "p": [
         "P6"
        ],
-       "drills": []
+       "drills": [
+        "bb-teaching-cue",
+        "bb-cue-check"
+       ]
       }
      ]
     },
@@ -1661,7 +1924,10 @@
         "P5",
         "P6"
        ],
-       "drills": []
+       "drills": [
+        "bb-decision-eval",
+        "bb-read-vs-make"
+       ]
       },
       {
        "id": "B",
@@ -1676,7 +1942,10 @@
        "needs": [
         "BB-8.3.A"
        ],
-       "drills": []
+       "drills": [
+        "bb-season-goal",
+        "bb-season-goals"
+       ]
       }
      ]
     }
@@ -1685,707 +1954,971 @@
  ],
  "rows": [
   {
-   "code": "BB-1.1.A",
-   "unit": 1,
-   "topic": 1,
-   "status": "gap",
-   "full": [],
-   "partial": []
-  },
-  {
    "code": "BB-1.1.B",
    "unit": 1,
    "topic": 1,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "bb-who-helps",
+    "bb-alignment-pick"
+   ],
+   "partial": []
+  },
+  {
+   "code": "BB-1.1.A",
+   "unit": 1,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "bb-spacing-error",
+    "bb-spacing-help"
+   ],
    "partial": []
   },
   {
    "code": "BB-1.1.C",
    "unit": 1,
    "topic": 1,
-   "status": "gap",
-   "full": [],
-   "partial": []
-  },
-  {
-   "code": "BB-1.2.A",
-   "unit": 1,
-   "topic": 2,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "bb-spacing-move",
+    "bb-spacing-distance"
+   ],
    "partial": []
   },
   {
    "code": "BB-1.2.B",
    "unit": 1,
    "topic": 2,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "bb-triple-threat",
+    "bb-read-cost"
+   ],
+   "partial": []
+  },
+  {
+   "code": "BB-1.2.A",
+   "unit": 1,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "bb-advantage-sources",
+    "bb-advantage-decay"
+   ],
    "partial": []
   },
   {
    "code": "BB-1.2.C",
    "unit": 1,
    "topic": 2,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "bb-mismatch-value",
+    "bb-mismatch-find"
+   ],
    "partial": []
   },
   {
    "code": "BB-1.3.A",
    "unit": 1,
    "topic": 3,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "bb-kick-read",
+    "bb-extra-pass-value"
+   ],
    "partial": []
   },
   {
    "code": "BB-1.3.B",
    "unit": 1,
    "topic": 3,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "bb-good-vs-quick",
+    "bb-shot-quality"
+   ],
    "partial": []
   },
   {
    "code": "BB-1.4.A",
    "unit": 1,
    "topic": 4,
-   "status": "gap",
-   "full": [],
-   "partial": []
-  },
-  {
-   "code": "BB-1.4.B",
-   "unit": 1,
-   "topic": 4,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "bb-off-ball-screen-read",
+    "bb-screener-counter"
+   ],
    "partial": []
   },
   {
    "code": "BB-1.4.C",
    "unit": 1,
    "topic": 4,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "bb-post-entry",
+    "bb-post-counter"
+   ],
+   "partial": []
+  },
+  {
+   "code": "BB-1.4.B",
+   "unit": 1,
+   "topic": 4,
+   "status": "ok",
+   "full": [
+    "bb-backdoor-trigger",
+    "bb-cut-cost"
+   ],
    "partial": []
   },
   {
    "code": "BB-1.5.A",
    "unit": 1,
    "topic": 5,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "bb-transition-lanes",
+    "bb-lane-roles"
+   ],
    "partial": []
   },
   {
    "code": "BB-1.5.B",
    "unit": 1,
    "topic": 5,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "bb-break-decisions",
+    "bb-break-advantage"
+   ],
    "partial": []
   },
   {
    "code": "BB-1.5.C",
    "unit": 1,
    "topic": 5,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "bb-push-or-not",
+    "bb-push-triggers"
+   ],
    "partial": []
   },
   {
    "code": "BB-2.1.A",
    "unit": 2,
    "topic": 1,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "bb-screen-type",
+    "bb-screen-purpose"
+   ],
    "partial": []
   },
   {
    "code": "BB-2.1.B",
    "unit": 2,
    "topic": 1,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "bb-handler-setup",
+    "bb-reject-value"
+   ],
    "partial": []
   },
   {
    "code": "BB-2.2.A",
    "unit": 2,
    "topic": 2,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "bb-drop-read-value",
+    "bb-drop-identify"
+   ],
    "partial": []
   },
   {
    "code": "BB-2.2.B",
    "unit": 2,
    "topic": 2,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "bb-blitz-read",
+    "bb-blitz-numbers"
+   ],
    "partial": []
   },
   {
    "code": "BB-2.2.C",
    "unit": 2,
    "topic": 2,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "bb-switch-attack",
+    "bb-switch-mismatch-rate"
+   ],
    "partial": []
   },
   {
    "code": "BB-2.2.D",
    "unit": 2,
    "topic": 2,
-   "status": "gap",
-   "full": [],
-   "partial": []
-  },
-  {
-   "code": "BB-2.3.A",
-   "unit": 2,
-   "topic": 3,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "bb-ice-counter",
+    "bb-ice-reject-value"
+   ],
    "partial": []
   },
   {
    "code": "BB-2.3.B",
    "unit": 2,
    "topic": 3,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "bb-screener-action",
+    "bb-screener-mistake"
+   ],
    "partial": []
   },
   {
-   "code": "BB-3.1.A",
-   "unit": 3,
-   "topic": 1,
-   "status": "gap",
-   "full": [],
+   "code": "BB-2.3.A",
+   "unit": 2,
+   "topic": 3,
+   "status": "ok",
+   "full": [
+    "bb-tagger-read",
+    "bb-tag-rotation-count"
+   ],
    "partial": []
   },
   {
    "code": "BB-3.1.B",
    "unit": 3,
    "topic": 1,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "bb-force-team-rule",
+    "bb-force-consequence"
+   ],
    "partial": []
   },
   {
-   "code": "BB-3.2.A",
+   "code": "BB-3.1.A",
    "unit": 3,
-   "topic": 2,
-   "status": "gap",
-   "full": [],
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "bb-defensive-position",
+    "bb-help-distance"
+   ],
    "partial": []
   },
   {
    "code": "BB-3.2.B",
    "unit": 3,
    "topic": 2,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "bb-low-man",
+    "bb-low-man-cost"
+   ],
+   "partial": []
+  },
+  {
+   "code": "BB-3.2.A",
+   "unit": 3,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "bb-rotation-passes",
+    "bb-rotation-last-closeout"
+   ],
    "partial": []
   },
   {
    "code": "BB-3.2.C",
    "unit": 3,
    "topic": 2,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "bb-stunt-dig-help",
+    "bb-help-tradeoff"
+   ],
    "partial": []
   },
   {
    "code": "BB-3.3.A",
    "unit": 3,
    "topic": 3,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "bb-closeout-type",
+    "bb-closeout-reach"
+   ],
    "partial": []
   },
   {
    "code": "BB-3.4.A",
    "unit": 3,
    "topic": 4,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "bb-box-out",
+    "bb-rebound-share"
+   ],
    "partial": []
   },
   {
    "code": "BB-3.4.B",
    "unit": 3,
    "topic": 4,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "bb-transition-defense",
+    "bb-transition-points-allowed"
+   ],
    "partial": []
   },
   {
    "code": "BB-4.1.A",
    "unit": 4,
    "topic": 1,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "bb-coverage-id-2",
+    "bb-coverage-cue"
+   ],
    "partial": []
   },
   {
    "code": "BB-4.1.B",
    "unit": 4,
    "topic": 1,
-   "status": "gap",
-   "full": [],
-   "partial": []
-  },
-  {
-   "code": "BB-4.2.A",
-   "unit": 4,
-   "topic": 2,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "bb-coverage-tradeoff",
+    "bb-coverage-cost"
+   ],
    "partial": []
   },
   {
    "code": "BB-4.2.B",
    "unit": 4,
    "topic": 2,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "bb-on-ball-route",
+    "bb-route-mismatch"
+   ],
+   "partial": []
+  },
+  {
+   "code": "BB-4.2.A",
+   "unit": 4,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "bb-coverage-choice",
+    "bb-coverage-breakeven"
+   ],
    "partial": []
   },
   {
    "code": "BB-4.2.C",
    "unit": 4,
    "topic": 2,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "bb-weakside-help",
+    "bb-xout-count"
+   ],
    "partial": []
   },
   {
    "code": "BB-5.1.A",
    "unit": 5,
    "topic": 1,
-   "status": "gap",
-   "full": [],
-   "partial": []
-  },
-  {
-   "code": "BB-5.1.B",
-   "unit": 5,
-   "topic": 1,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "bb-zone-id",
+    "bb-zone-cue"
+   ],
    "partial": []
   },
   {
    "code": "BB-5.1.C",
    "unit": 5,
    "topic": 1,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "bb-zone-weak-spots",
+    "bb-zone-gap-cause"
+   ],
+   "partial": []
+  },
+  {
+   "code": "BB-5.1.B",
+   "unit": 5,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "bb-man-or-zone",
+    "bb-zone-value"
+   ],
    "partial": []
   },
   {
    "code": "BB-5.2.A",
    "unit": 5,
    "topic": 2,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "bb-zone-attack",
+    "bb-zone-shift-time"
+   ],
    "partial": []
   },
   {
    "code": "BB-5.3.A",
    "unit": 5,
    "topic": 3,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "bb-press-id",
+    "bb-press-purpose"
+   ],
    "partial": []
   },
   {
    "code": "BB-5.3.B",
    "unit": 5,
    "topic": 3,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "bb-press-outlet",
+    "bb-press-value"
+   ],
    "partial": []
   },
   {
    "code": "BB-6.1.A",
    "unit": 6,
    "topic": 1,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "bb-two-for-one",
+    "bb-two-for-one-window"
+   ],
    "partial": []
   },
   {
    "code": "BB-6.1.B",
    "unit": 6,
    "topic": 1,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "bb-run-clock",
+    "bb-foul-now"
+   ],
    "partial": []
   },
   {
    "code": "BB-6.1.C",
    "unit": 6,
    "topic": 1,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "bb-last-shot-timing",
+    "bb-rebound-window"
+   ],
    "partial": []
   },
   {
    "code": "BB-6.2.A",
    "unit": 6,
    "topic": 2,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "bb-foul-up-three",
+    "bb-foul-or-defend"
+   ],
    "partial": []
   },
   {
    "code": "BB-6.2.B",
    "unit": 6,
    "topic": 2,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "bb-three-vs-two",
+    "bb-which-is-better"
+   ],
    "partial": []
   },
   {
    "code": "BB-6.2.C",
    "unit": 6,
    "topic": 2,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "bb-whom-to-foul",
+    "bb-one-and-one"
+   ],
    "partial": []
   },
   {
    "code": "BB-6.2.D",
    "unit": 6,
    "topic": 2,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "bb-foul-to-give",
+    "bb-foul-to-give-use"
+   ],
    "partial": []
   },
   {
    "code": "BB-6.3.A",
    "unit": 6,
    "topic": 3,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "bb-timeout-or-play",
+    "bb-timeout-value"
+   ],
    "partial": []
   },
   {
    "code": "BB-6.3.B",
    "unit": 6,
    "topic": 3,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "bb-timeout-allotment",
+    "bb-timeout-rules"
+   ],
    "partial": []
   },
   {
    "code": "BB-6.4.A",
    "unit": 6,
    "topic": 4,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "bb-oob-choice",
+    "bb-oob-options"
+   ],
    "partial": []
   },
   {
    "code": "BB-6.4.B",
    "unit": 6,
    "topic": 4,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "bb-inbound-feasible",
+    "bb-inbound-time"
+   ],
    "partial": []
   },
   {
    "code": "BB-6.4.C",
    "unit": 6,
    "topic": 4,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "bb-defend-inbound",
+    "bb-deny-vs-guard"
+   ],
    "partial": []
   },
   {
    "code": "BB-7.1.A",
    "unit": 7,
    "topic": 1,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "bb-shot-clock-reset",
+    "bb-shot-clock-time"
+   ],
    "partial": []
   },
   {
    "code": "BB-7.1.B",
    "unit": 7,
    "topic": 1,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "bb-violation-id",
+    "bb-count-violation"
+   ],
    "partial": []
   },
   {
    "code": "BB-7.2.A",
    "unit": 7,
    "topic": 2,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "bb-bonus-throws",
+    "bb-bonus-expected"
+   ],
    "partial": []
   },
   {
    "code": "BB-7.2.B",
    "unit": 7,
    "topic": 2,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "bb-shooting-foul-throws",
+    "bb-and-one-value"
+   ],
    "partial": []
   },
   {
    "code": "BB-7.2.C",
    "unit": 7,
    "topic": 2,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "bb-unsportsmanlike",
+    "bb-unsportsmanlike-cost"
+   ],
    "partial": []
   },
   {
    "code": "BB-7.3.A",
    "unit": 7,
    "topic": 3,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "bb-block-charge",
+    "bb-restricted-arc"
+   ],
    "partial": []
   },
   {
    "code": "BB-7.3.B",
    "unit": 7,
    "topic": 3,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "bb-goaltending",
+    "bb-goaltending-award"
+   ],
    "partial": []
   },
   {
    "code": "BB-7.3.C",
    "unit": 7,
    "topic": 3,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "bb-mechanics",
+    "bb-crew-areas"
+   ],
    "partial": []
   },
   {
    "code": "BB-8.1.A",
    "unit": 8,
    "topic": 1,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "bb-possessions",
+    "bb-pace"
+   ],
    "partial": []
   },
   {
    "code": "BB-8.1.B",
    "unit": 8,
    "topic": 1,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "bb-offensive-rating",
+    "bb-net-rating"
+   ],
    "partial": []
   },
   {
    "code": "BB-8.1.C",
    "unit": 8,
    "topic": 1,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "bb-per-game-trap",
+    "bb-why-per-possession"
+   ],
    "partial": []
   },
   {
    "code": "BB-8.2.A",
    "unit": 8,
    "topic": 2,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "bb-efg",
+    "bb-efg-gap"
+   ],
    "partial": []
   },
   {
    "code": "BB-8.2.B",
    "unit": 8,
    "topic": 2,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "bb-ts",
+    "bb-true-attempts"
+   ],
    "partial": []
   },
   {
    "code": "BB-8.2.C",
    "unit": 8,
    "topic": 2,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "bb-which-measure",
+    "bb-efficiency-gap"
+   ],
    "partial": []
   },
   {
    "code": "BB-8.3.A",
    "unit": 8,
    "topic": 3,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "bb-turnover-rate",
+    "bb-orb-pct"
+   ],
    "partial": []
   },
   {
    "code": "BB-8.3.B",
    "unit": 8,
    "topic": 3,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "bb-four-factors-weight",
+    "bb-decisive-factor"
+   ],
    "partial": []
   },
   {
    "code": "BB-8.3.C",
    "unit": 8,
    "topic": 3,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "bb-factor-emphasis",
+    "bb-emphasis-gain"
+   ],
    "partial": []
   },
   {
    "code": "BB-8.4.A",
    "unit": 8,
    "topic": 4,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "bb-expected-points",
+    "bb-shot-comparison"
+   ],
    "partial": []
   },
   {
    "code": "BB-8.4.B",
    "unit": 8,
    "topic": 4,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "bb-breakeven-three",
+    "bb-breakeven-use"
+   ],
    "partial": []
   },
   {
    "code": "BB-8.4.C",
    "unit": 8,
    "topic": 4,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "bb-shot-with-orb",
+    "bb-quick-vs-work"
+   ],
    "partial": []
   },
   {
    "code": "BB-8.5.A",
    "unit": 8,
    "topic": 5,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "bb-sample-size",
+    "bb-attempts-needed"
+   ],
    "partial": []
   },
   {
    "code": "BB-8.5.B",
    "unit": 8,
    "topic": 5,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "bb-selection-bias",
+    "bb-lineup-minutes"
+   ],
    "partial": []
   },
   {
    "code": "BB-9.1.A",
    "unit": 9,
    "topic": 1,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "bb-player-key",
+    "bb-force-direction"
+   ],
    "partial": []
   },
   {
    "code": "BB-9.1.B",
    "unit": 9,
    "topic": 1,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "bb-help-budget",
+    "bb-help-rules"
+   ],
    "partial": []
   },
   {
    "code": "BB-9.2.A",
    "unit": 9,
    "topic": 2,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "bb-base-offense-id",
+    "bb-ato-tendency"
+   ],
    "partial": []
   },
   {
    "code": "BB-9.2.B",
    "unit": 9,
    "topic": 2,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "bb-coverage-id",
+    "bb-coverage-counter"
+   ],
    "partial": []
   },
   {
    "code": "BB-9.2.C",
    "unit": 9,
    "topic": 2,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "bb-self-scout-ppp",
+    "bb-ppp-sample"
+   ],
    "partial": []
   },
   {
    "code": "BB-10.1.A",
    "unit": 10,
    "topic": 1,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "bb-usab-level",
+    "bb-level-mix"
+   ],
    "partial": []
   },
   {
    "code": "BB-10.1.B",
    "unit": 10,
    "topic": 1,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "bb-training-ratio",
+    "bb-position-policy"
+   ],
    "partial": []
   },
   {
    "code": "BB-10.1.C",
    "unit": 10,
    "topic": 1,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "bb-concept-sequence",
+    "bb-sequence-count"
+   ],
    "partial": []
   },
   {
    "code": "BB-10.2.A",
    "unit": 10,
    "topic": 2,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "bb-small-sided-drill",
+    "bb-drill-reps"
+   ],
    "partial": []
   },
   {
    "code": "BB-10.2.B",
    "unit": 10,
    "topic": 2,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "bb-practice-blocks",
+    "bb-progression-time"
+   ],
    "partial": []
   },
   {
    "code": "BB-10.2.C",
    "unit": 10,
    "topic": 2,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "bb-teaching-cue",
+    "bb-cue-check"
+   ],
    "partial": []
   },
   {
    "code": "BB-10.3.A",
    "unit": 10,
    "topic": 3,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "bb-decision-eval",
+    "bb-read-vs-make"
+   ],
    "partial": []
   },
   {
    "code": "BB-10.3.B",
    "unit": 10,
    "topic": 3,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "bb-season-goal",
+    "bb-season-goals"
+   ],
    "partial": []
   }
  ],

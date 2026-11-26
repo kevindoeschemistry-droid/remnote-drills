@@ -13,7 +13,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 | AI Safety | BlueDot Impact course syllabi (Technical AI Safety, Governance, AGI Strategy) | course | read in full | — | — | 104 | 0 | 104 |
 | Analytical Chemistry | ACS Exams Institute Anchoring Concepts Content Map: Analytical Chemistry (Holme, Bauer, Trate, Reed, Raker & Murphy, J. Chem. Educ. 2020, ed9b00856) | standard | read in full | icho-appendix-c, gre-chemistry, aamc-mcat-outline, usnco, icho-syllabus, acs-accm-general, acs-accm-inorganic | — | 42 | 42 | 0 |
 | Anchor Quantities | CODATA Recommended Values of the Fundamental Physical Constants: 2022 (NIST SP 961) | reference | read in part | snapshot-key-numbers, francl-take-a-number, cfr-21-101-9, acs-accm-pchem, acs-accm-general, acs-accm-analytical | — | 14 | 12 | 2 |
-| Basketball | USA Basketball Player Development Curriculum | standard | read in part | — | — | 88 | 0 | 88 |
+| Basketball | USA Basketball Player Development Curriculum | standard | read in part | ncaa-mbb-rules | — | 88 | 0 | 88 |
 | Biochemistry | ASBMB core concepts for biochemistry and molecular biology (Tansey et al., BAMBED 41:289, 2013) | standard | read in full | asbmb-cert, aamc-mcat-outline, acs-accm-analytical | — | 49 | 49 | 0 |
 | Biology (AP) | AP Biology Course and Exam Description (effective fall 2025) | standard | read in part | ap-biology, iupac-aa-1983, ngss-hs, ib-biology-2025, icho-appendix-c, icho-syllabus, aamc-mcat-outline, acs-accm-general, acs-accm-inorganic, acs-accm-organic | — | 179 | 179 | 0 |
 | Biosecurity | BlueDot Impact, Biosecurity course (six units) | course | read in part | who-lbm4, bwc, cdc-ss1978, who-jee3, ashrae-241 | — | 64 | 64 | 0 |
@@ -4132,3 +4132,14 @@ https://www.osha.gov/laws-regs/regulations/standardnumber/1910/1910.119
 | n | Emergency planning and response | — | — | **nothing yet** |
 | o | Compliance audits | — | — | **nothing yet** |
 | p | Trade secrets | — | — | **nothing yet** |
+
+## NCAA Men's Basketball Rules (2025-26 rules book and the approved rules changes)
+
+https://ncaaorg.s3.amazonaws.com/championships/sports/basketball/rules/men/2025-26PRMBB_RulesChanges.pdf
+
+0 of 2 items have at least one objective answering to them.
+
+| Item | Topic | Objectives | With a drill | Where |
+|---|---|---|---|---|
+| CH | Rules changes for 2025-26: coach's challenge, foul continuation, Flagrant 1, shot-clock operation | — | — | **nothing yet** |
+| TOC | Rules book structure: the articles on the clock, violations, fouls, penalties and officiating mechanics | — | — | **nothing yet** |
