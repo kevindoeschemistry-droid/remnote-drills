@@ -70,6 +70,7 @@ domains:
   - { id: cpd, title: "Computational protein design" }
   - { id: qchem, title: "Electronic structure" }
   - { id: is, title: "Information systems" }
+  - { id: speak, title: "Speaking" }
   - { id: wushu, title: "Wushu" }
   - { id: swim, title: "Swimming" }
 
@@ -880,6 +881,17 @@ skills:
   - { id: is.assurance, domain: is, title: "Risk, continuity and assurance", short: "Risk scoring and treatment, ALE and ROSI, RTO and RPO, controls and audit", prereqs: [is.infrastructure] }
   - { id: is.innovation, domain: is, title: "Innovation and digital business", short: "Adoption models, change models, diffusion, business models, unit economics", prereqs: [is.strategy] }
   - { id: is.ethics, domain: is, title: "Ethics, privacy and sustainability", short: "Which regime applies, impact assessments, ethical reasoning, lifetime carbon", prereqs: [is.data] }
+  - { id: speak.voice, domain: speak, title: "Breath, voice and diction", short: "Breath support, volume, articulation and writing for the ear" }
+  - { id: speak.pace, domain: speak, title: "Pace, pauses and fillers", short: "Words per minute, deliberate pauses, filler rates and how to cut them", prereqs: [speak.voice] }
+  - { id: speak.presence, domain: speak, title: "Vocal variety and presence", short: "Intonation, stress, eye contact, stance and cutting hedges", prereqs: [speak.pace] }
+  - { id: speak.structure, domain: speak, title: "Structure", short: "Answer first, PREP and SCQA, signposting and endings", prereqs: [speak.pace] }
+  - { id: speak.impromptu, domain: speak, title: "Impromptu speaking", short: "Table topics, question handling, STAR answers and introductions", prereqs: [speak.structure] }
+  - { id: speak.explain, domain: speak, title: "Explaining technical ideas", short: "Audience modelling, concrete to abstract, analogies, checks, numbers and figures", prereqs: [speak.structure] }
+  - { id: speak.persuade, domain: speak, title: "Persuasion and storytelling", short: "Motivated sequence, objections, the ask, and story shape", prereqs: [speak.structure] }
+  - { id: speak.listen, domain: speak, title: "Listening and conversation", short: "Paraphrase, follow-ups, short contributions and disagreeing well", prereqs: [speak.presence] }
+  - { id: speak.review, domain: speak, title: "Feedback and self-review", short: "Measuring a recording, competency scoring, targets and evaluations", prereqs: [speak.pace] }
+  - { id: speak.longform, domain: speak, title: "Long-form talks", short: "Segmenting a lecture, keyword outlines and fitting a time slot", prereqs: [speak.structure] }
+  - { id: speak.mediated, domain: speak, title: "Remote and recorded speaking", short: "Camera and microphone setup, and handling lag", prereqs: [speak.presence] }
   - { id: wushu.judging, domain: wushu, title: "Taolu judging: score structure, panel marks and the Duanwei ladder", short: "Wushu judging" }
   - { id: swim.rules, domain: swim, title: "World Aquatics rules, legal strokes and disqualifications", short: "Swim rules" }
   - { id: swim.pacing, domain: swim, title: "Race analysis: pace, splits, stroke rate and distance per cycle", short: "Race analysis" }
