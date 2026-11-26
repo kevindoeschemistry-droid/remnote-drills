@@ -40,7 +40,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 | High School Mathematics (Common Core) | CCSS Mathematics Appendix A: high school course pathways | standard | read in full | — | — | 200 | 200 | 0 |
 | Mathematics K–8 (Common Core) | Common Core State Standards for Mathematics (2010) | standard | read through a crosswalk | — | — | 258 | 258 | 0 |
 | Mental Math | UIL Number Sense Problem Sequencing Charts (High School; A+ Junior High and Elementary, rev. 2016-17) with the Number Sense Handbook rules | exam-spec | read in full | sta-mtc, mit-18-03-coverup, mit-integration-bee | — | 84 | 81 | 3 |
-| Molecular Simulation | Hayes Group New Student Orientation (RyanHayes-Lab/Orientation) | course | read in full | livecoms, livecoms-afe, alchemistry-wiki, hayes-lambda-examples | — | 121 | 15 | 106 |
+| Molecular Simulation | Hayes Group New Student Orientation (RyanHayes-Lab/Orientation) | course | read in full | livecoms, livecoms-afe, alchemistry-wiki, hayes-lambda-examples | — | 121 | 50 | 71 |
 | NCLEX-RN | NCLEX-RN Test Plan, effective April 2026 | exam-spec | read in part | — | — | 67 | 67 | 0 |
 | NGSS High School Science | Next Generation Science Standards, high school performance expectations (2013) | standard | read in part | — | — | 71 | 71 | 0 |
 | Nuclear Science and Reactor Theory | NRC Generic Fundamentals Examination, reactor theory topics (PWR catalog 192001-192008) | exam-spec | read in part | doe-hdbk-1019, ngss-hs, ib-physics-2025, icho-appendix-c, aamc-mcat-outline, gre-physics, acs-accm-analytical | — | 19 | 19 | 0 |
@@ -3989,25 +3989,25 @@ https://ep.jhu.edu/courses/545614-computational-protein-structure-prediction-and
 
 https://github.com/psi4/psi4numpy
 
-8 of 19 items have at least one objective answering to them.
+19 of 19 items have at least one objective answering to them.
 
 | Item | Topic | Objectives | With a drill | Where |
 |---|---|---|---|---|
 | 01 | Psi4NumPy basics: molecules, wavefunctions and integrals | 7 | 7 | electronic-structure (7) |
 | 03 | Hartree-Fock (module group) | 13 | 13 | electronic-structure (13) |
-| 03a | Restricted Hartree-Fock | — | — | **nothing yet** |
-| 03b | Direct inversion of the iterative subspace | — | — | **nothing yet** |
-| 03c | Unrestricted Hartree-Fock | — | — | **nothing yet** |
-| 03d | Restricted open-shell Hartree-Fock | — | — | **nothing yet** |
+| 03a | Restricted Hartree-Fock | 2 | 2 | electronic-structure (2) |
+| 03b | Direct inversion of the iterative subspace | 2 | 2 | electronic-structure (2) |
+| 03c | Unrestricted Hartree-Fock | 2 | 2 | electronic-structure (2) |
+| 03d | Restricted open-shell Hartree-Fock | 1 | 1 | electronic-structure (1) |
 | 04 | Density functional theory (module group) | 9 | 9 | electronic-structure (9) |
-| 04a | Density functional theory: grids and quadrature | — | — | **nothing yet** |
-| 04b | LDA kernel | — | — | **nothing yet** |
-| 04c | GGA and meta-GGA kernels | — | — | **nothing yet** |
-| 04d | VV10 non-local correlation | — | — | **nothing yet** |
-| 04e | DFT with exact exchange | — | — | **nothing yet** |
+| 04a | Density functional theory: grids and quadrature | 1 | 1 | electronic-structure (1) |
+| 04b | LDA kernel | 1 | 1 | electronic-structure (1) |
+| 04c | GGA and meta-GGA kernels | 1 | 1 | electronic-structure (1) |
+| 04d | VV10 non-local correlation | 1 | 1 | electronic-structure (1) |
+| 04e | DFT with exact exchange | 1 | 1 | electronic-structure (1) |
 | 05 | Moller-Plesset perturbation theory (module group) | 9 | 9 | electronic-structure (9) |
-| 05a | Conventional MP2 | — | — | **nothing yet** |
-| 05b | Density-fitted MP2 | — | — | **nothing yet** |
+| 05a | Conventional MP2 | 2 | 2 | electronic-structure (2) |
+| 05b | Density-fitted MP2 | 1 | 1 | electronic-structure (1) |
 | 06 | Molecular properties: dipoles, polarisabilities and response | 8 | 8 | electronic-structure (8) |
 | 07 | Symmetry-adapted perturbation theory | 8 | 8 | electronic-structure (8) |
 | 08 | CEPA0 and coupled-cluster doubles | 9 | 9 | electronic-structure (9) |
@@ -4049,33 +4049,33 @@ https://store.doverpublications.com/products/9780486691862
 
 https://github.com/RyanHayes-Lab/Orientation
 
-0 of 13 items have at least one objective answering to them.
+9 of 13 items have at least one objective answering to them.
 
 | Item | Topic | Objectives | With a drill | Where |
 |---|---|---|---|---|
 | EXP | Expectations: group goals, values, hours, group meeting, publication and conference norms | — | — | **nothing yet** |
 | START | Startup: cluster, Slack and office access | — | — | **nothing yet** |
-| CL1 | Cluster: bash and linux, logging in to hpc3, the shell-novice tutorial | — | — | **nothing yet** |
-| CL2 | Cluster: lab storage — home, CRSP and BeeGFS quotas, group paths, permissions and the sticky bit | — | — | **nothing yet** |
+| CL1 | Cluster: bash and linux, logging in to hpc3, the shell-novice tutorial | 1 | 1 | molecular-simulation (1) |
+| CL2 | Cluster: lab storage — home, CRSP and BeeGFS quotas, group paths, permissions and the sticky bit | 2 | 2 | molecular-simulation (2) |
 | CL3 | Cluster: ssh keys | — | — | **nothing yet** |
-| CL4 | Cluster: the SLURM queue — login versus compute nodes, interactive jobs and sbatch, and the options -p, -A, --time, --gres, --mem | — | — | **nothing yet** |
-| LIT | Literature: the foundational λ-dynamics, MSλD, ALF, implicit-constraint and BLaDE papers, and the large-sequence-space applications | — | — | **nothing yet** |
-| TUT1 | Tutorial 1: molecular dynamics in CHARMM — running CHARMM, CHARMM-GUI setup, propka protonation, periodic boundaries, ions, and BLaDE equilibration and production | — | — | **nothing yet** |
-| TUT2 | Tutorial 2: multisite λ dynamics — system.inp against step5_production.inp, alchemical_definitions.inp, toppar soft link, the aa_stream patch/select/delete/blocksetup streams, and alf_info.py | — | — | **nothing yet** |
-| TUT3 | Tutorial 3: adaptive landscape flattening — runflat, runprod and postprocess, the flattening and production schedules, best practice for loss, bias and implicit constraints, and cleanup | — | — | **nothing yet** |
-| TUT4 | Tutorial 4: CHARMM scripting and engines — titles, set/calc, @ and @@, ? values, stream, if/goto, and the standard, DOMDEC, BLaDE and OpenMM engines | — | — | **nothing yet** |
-| INST | Installation: CHARMM and pyCHARMM builds, ALF, conda, and the module set used on hpc3 | — | — | **nothing yet** |
+| CL4 | Cluster: the SLURM queue — login versus compute nodes, interactive jobs and sbatch, and the options -p, -A, --time, --gres, --mem | 2 | 2 | molecular-simulation (2) |
+| LIT | Literature: the foundational λ-dynamics, MSλD, ALF, implicit-constraint and BLaDE papers, and the large-sequence-space applications | 5 | 5 | molecular-simulation (5) |
+| TUT1 | Tutorial 1: molecular dynamics in CHARMM — running CHARMM, CHARMM-GUI setup, propka protonation, periodic boundaries, ions, and BLaDE equilibration and production | 6 | 6 | molecular-simulation (6) |
+| TUT2 | Tutorial 2: multisite λ dynamics — system.inp against step5_production.inp, alchemical_definitions.inp, toppar soft link, the aa_stream patch/select/delete/blocksetup streams, and alf_info.py | 4 | 4 | molecular-simulation (4) |
+| TUT3 | Tutorial 3: adaptive landscape flattening — runflat, runprod and postprocess, the flattening and production schedules, best practice for loss, bias and implicit constraints, and cleanup | 9 | 9 | molecular-simulation (9) |
+| TUT4 | Tutorial 4: CHARMM scripting and engines — titles, set/calc, @ and @@, ? values, stream, if/goto, and the standard, DOMDEC, BLaDE and OpenMM engines | 2 | 2 | molecular-simulation (2) |
+| INST | Installation: CHARMM and pyCHARMM builds, ALF, conda, and the module set used on hpc3 | 1 | 1 | molecular-simulation (1) |
 | ETC | Etcetera: conferences and other useful links | — | — | **nothing yet** |
 
 ## RyanHayes-Lab/lambda-dynamics-examples (example run files)
 
 https://github.com/RyanHayes-Lab/lambda-dynamics-examples
 
-0 of 4 items have at least one objective answering to them.
+4 of 4 items have at least one objective answering to them.
 
 | Item | Topic | Objectives | With a drill | Where |
 |---|---|---|---|---|
-| SYS | The four example systems: benzene-derivative solvation, p38 ligand binding, protein G site-saturation folding, T4 lysozyme side-chain mutation | — | — | **nothing yet** |
-| PREP | The per-system prep directory: alf_info.py, nsubs, nblocks, ncentral, nreps, toppar and the build scripts | — | — | **nothing yet** |
-| TMPL | The templates directory: subsetAll.sh job chaining with SLURM dependencies, runflat.sh, runprod.sh, postprocess.sh, msld_flat.inp and msld_prod.inp | — | — | **nothing yet** |
-| LIN | Telling nonlinear from linearized ALF by the lmalf key, and the 8–9 substituent limit of linearized ALF | — | — | **nothing yet** |
+| SYS | The four example systems: benzene-derivative solvation, p38 ligand binding, protein G site-saturation folding, T4 lysozyme side-chain mutation | 2 | 2 | molecular-simulation (2) |
+| PREP | The per-system prep directory: alf_info.py, nsubs, nblocks, ncentral, nreps, toppar and the build scripts | 2 | 2 | molecular-simulation (2) |
+| TMPL | The templates directory: subsetAll.sh job chaining with SLURM dependencies, runflat.sh, runprod.sh, postprocess.sh, msld_flat.inp and msld_prod.inp | 3 | 3 | molecular-simulation (3) |
+| LIN | Telling nonlinear from linearized ALF by the lmalf key, and the 8–9 substituent limit of linearized ALF | 2 | 2 | molecular-simulation (2) |

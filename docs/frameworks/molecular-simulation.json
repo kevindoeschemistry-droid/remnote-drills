@@ -297,6 +297,9 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "hayes-orientation:TUT2"
+       ],
        "do": "Explain what RTF, PRM, PSF, CRD and toppar.str files each contain and which ones CHARMM reads in what order.",
        "ek": [
         "RTF: atoms, types, charges, connectivity and patches per residue (which terms exist); PRM: the constants in those terms; PSF: the generated list of atoms, bonds, angles, dihedrals of this system; CRD: coordinates; toppar.str streams the RTF/PRM set."
@@ -726,6 +729,9 @@
       },
       {
        "id": "C",
+       "std": [
+        "hayes-orientation:TUT1"
+       ],
        "do": "Explain why periodic artifacts are smaller than vacuum-interface artifacts and name the cases where they are not.",
        "ek": [
         "A droplet's surface distorts the solute; images avoid it. Artifacts grow with net charge, small boxes, and solutes that expand (unfolded chains need a fixed, larger box, e.g. 40 Å for the pentapeptides)."
@@ -885,6 +891,9 @@
       },
       {
        "id": "D",
+       "std": [
+        "hayes-orientation:TUT1"
+       ],
        "do": "Build a solvated, ionized protein box in CHARMM-GUI Solution Builder at the experimental temperature, pH and salt, deciding which crystallographic components and termini to keep.",
        "ek": [
         "Keep crystallographic waters for the folded protein (pockets refill slowly); drop BME/Cl⁻ additives unless relevant; set temperature to the experiment (often 298.15 K, not the 303.15 K default)."
@@ -921,6 +930,9 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "hayes-orientation:TUT1"
+       ],
        "do": "Order the preparation stages — minimize, assign velocities, restrained NVT, NPT, production — and justify each stage.",
        "ek": [
         "Minimize to remove clashes; relax solvent at constant volume with solute restrained; then relax volume at constant pressure; NVT production at a set density needs NPT equilibration first."
@@ -950,6 +962,9 @@
       },
       {
        "id": "C",
+       "std": [
+        "hayes-orientation:TUT1"
+       ],
        "do": "Decide when equilibration is complete from time series of energy, temperature, pressure, density and RMSD, and discard the burn-in.",
        "ek": [
         "No drift and fluctuation about a stable mean in several observables; if unsure, extend. Analyse only the production portion, applying the cut uniformly."
@@ -1508,6 +1523,9 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "hayes-lambda-examples:SYS"
+       ],
        "do": "Close a thermodynamic cycle to compute a relative binding ΔΔG from alchemical legs in complex and solvent — numeric rep.",
        "ek": [
         "ΔΔG_bind = ΔG_bind(B) − ΔG_bind(A) = ΔG_complex(A→B) − ΔG_solvent(A→B); the physical binding legs are never simulated."
@@ -1526,6 +1544,9 @@
       },
       {
        "id": "B",
+       "std": [
+        "hayes-lambda-examples:SYS"
+       ],
        "do": "Compute a mutational folding ΔΔG from alchemical legs in the folded protein and an unfolded-state peptide model, and state its sign convention — numeric rep.",
        "ek": [
         "ΔΔG_fold = ΔG_alch(folded) − ΔG_alch(unfolded); positive = destabilizing. The capped pentapeptide (mutating residue ± 2) models a locally solvated unfolded state and ignores nonlocal contacts."
@@ -1640,6 +1661,9 @@
       },
       {
        "id": "B",
+       "std": [
+        "hayes-orientation:TUT1"
+       ],
        "do": "Match simulation conditions (pH, salt, temperature, construct, protonation) to the experiment being reproduced.",
        "ek": [
         "The T4 lysozyme sites were measured at pH 3.0 (L99, M106, F153) and 5.4 (V149), so two folded-state setups are needed."
@@ -1924,6 +1948,9 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "hayes-orientation:LIT"
+       ],
        "do": "Write the λ-dynamics extended Hamiltonian and explain how treating λ as a particle samples several alchemical states in one simulation.",
        "ek": [
         "H = K(x) + ½ m_λ λ̇² + U(x, λ); λ moves under −∂U/∂λ with a fictitious mass, so its population over time reflects relative free energies."
@@ -1938,6 +1965,9 @@
       },
       {
        "id": "B",
+       "std": [
+        "hayes-orientation:TUT2"
+       ],
        "do": "Write the MSλD potential for several sites and substituents and identify which terms scale with λ.",
        "ek": [
         "U = U₀ + Σ_s Σ_i λ_si U_si + Σ λ_si λ_tj U_si,tj (s ≠ t); Σ_i λ_si = 1 and λ_si ≥ 0 at each site; the environment U₀ is unscaled; substituents at one site don't see each other."
@@ -2033,6 +2063,9 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "hayes-orientation:TUT3"
+       ],
        "do": "Identify the role of each ALF bias term — fixed φ (b), quadratic ψ (c), endpoint χ (x) and ω (s), and the newer t and u terms — on the alchemical landscape.",
        "ek": [
         "φ offsets each substituent's free energy (≈ −ΔG) so all endpoints are equally populated; ψ_ij/4 changes the barrier between substituents; χ/ω shape the region near endpoints; bcxstu2026 adds t and u terms for many substituents."
@@ -2047,6 +2080,9 @@
       },
       {
        "id": "B",
+       "std": [
+        "hayes-orientation:TUT3"
+       ],
        "do": "Calculate the number of pairwise bias potentials a block setup must allocate for a given nblocks and bias scheme — numeric rep.",
        "ek": [
         "Pairs = nblocks(nblocks − 1)/2; bcxs2018 uses 5 potentials per pair, bcxstu2026 uses 9 (ldbi count)."
@@ -2101,6 +2137,9 @@
       },
       {
        "id": "B",
+       "std": [
+        "hayes-orientation:TUT3"
+       ],
        "do": "Interpret nan or very noisy entries in Result.txt as unsampled substituents and decide whether to refine biases before extending production.",
        "ek": [
         "A histogram estimator needs every end state visited; unvisited substituents mean biases are not yet converged — run another production of the same length first."
@@ -2145,6 +2184,9 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "hayes-orientation:TUT3"
+       ],
        "do": "Describe one ALF cycle — run MD, reweight recent runs, compute 1-D and 2-D free-energy profiles, fit bias changes, write the next variables file — and why changes are capped.",
        "ek": [
         "WHAM/MBAR combine several recent runs at different biases; a linear model of profile response feeds a quadratic penalty on deviations from flat. Only the bottom few kcal/mol of a basin is sampled, so updates are limited to a few kcal/mol."
@@ -2159,6 +2201,9 @@
       },
       {
        "id": "B",
+       "std": [
+        "hayes-orientation:TUT3"
+       ],
        "do": "Judge from PlotFreeEnergy5 profiles whether flattening has converged enough to start production.",
        "ek": [
         "Sampling should extend across every profile with no large unsampled gaps; perfect flatness isn't required, thermodynamic accessibility is."
@@ -2189,6 +2234,10 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "hayes-orientation:TUT3",
+        "hayes-lambda-examples:TMPL"
+       ],
        "do": "Plan the flattening schedule and convert it to step counts at a given timestep — numeric rep.",
        "ek": [
         "initialize; ~100 runflat cycles of 100 ps (200 for arginine), equilibration = ¼ of each run (25 ps + 75 ps, so the sampling-steps argument is 3× the equilibration one); then ~10 cycles of 1 ns. At 2 fs, 25 ps = 12 500 steps."
@@ -2204,6 +2253,9 @@
       },
       {
        "id": "B",
+       "std": [
+        "hayes-lambda-examples:TMPL"
+       ],
        "do": "Plan a production ramp of independent trials extended by factors of 4–5 to a target length, and total its simulation time — numeric rep.",
        "ek": [
         "5 trials (a–e) each round, e.g. 5 → 20 → 100 ns. Typical totals: solvation 10–20 ns; well-behaved protein point mutations 40 ns; hard or multiple mutations 100 ns; massive spaces 400 ns."
@@ -2219,6 +2271,10 @@
       },
       {
        "id": "C",
+       "std": [
+        "hayes-orientation:TUT3",
+        "hayes-lambda-examples:PREP"
+       ],
        "do": "Write alf_info.py for a system: name, nsubs, nblocks, temp, enginepath, nreps, and optional q, loss, bias and impcons keys.",
        "ek": [
         "name must match prep/name.inp; nblocks = Σ nsubs; nreps = 1 without replica exchange; q lists each substituent's net charge."
@@ -2236,6 +2292,10 @@
       },
       {
        "id": "D",
+       "std": [
+        "hayes-orientation:TUT3",
+        "hayes-lambda-examples:LIN"
+       ],
        "do": "Choose loss function, bias scheme and implicit constraint for a described system — choice rep.",
        "ek": [
         "Defaults linear2018 / bcxs2018 / fnex2011 are no longer best practice: use nonlinear2024 loss and fnpwise2026; bcxs2018 for ~2 substituents, bcxstu2026 for ~20 (with matching blocksetup.inp edits)."
@@ -2250,6 +2310,9 @@
       },
       {
        "id": "E",
+       "std": [
+        "hayes-orientation:TUT3"
+       ],
        "do": "Compute ΔΔG_fold with its uncertainty from Result.txt values in the folded and unfolded ensembles — numeric rep.",
        "ek": [
         "ΔΔG = dG(folded) − dG(unfolded) per mutant relative to native; combine the two legs' errors in quadrature."
@@ -2281,6 +2344,9 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "hayes-orientation:TUT2"
+       ],
        "do": "Edit alchemical_definitions.inp for a mutation set: site resids, substituent sequence codes, segids and terminal variables.",
        "ek": [
         "s1seq1 = 0 is the native residue; further entries are one-letter codes (h/b/j = HSD/HSE/HSP); nterres/cterres = first and last resid of the chain (1–162 folded, site ± 2 unfolded)."
@@ -2296,6 +2362,10 @@
       },
       {
        "id": "B",
+       "std": [
+        "hayes-orientation:TUT2",
+        "hayes-lambda-examples:PREP"
+       ],
        "do": "Assemble a prep directory — system.inp adapted from step5_production.inp, toppar soft link, aa_stream patch/select/delete/blocksetup streams, nbond.str, alf_info.py — and test it with RunSetup.",
        "ek": [
         "DIMENS must be in the first script CHARMM reads, so it is removed from system.inp; patchloop adds alchemical atoms, selectloop names them, deleteloop removes spurious angles/dihedrals, blocksetup applies λ scaling and biases."
@@ -2485,6 +2555,10 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "hayes-orientation:CL4",
+        "hayes-lambda-examples:TMPL"
+       ],
        "do": "Write a SLURM script for a GPU CHARMM job with partition, account, time limit, GPU request and memory, and submit or debug it without using the login node.",
        "ek": [
         "-p free-gpu or gpu; -A rhayes1_lab_gpu on paid partitions only; --time in minutes; --gres=gpu:1 (a GPU partition alone gives no GPU); --mem only after an OOM; srun --pty for interactive debugging; --array=1-4%1 runs chained segments one at a time."
@@ -2499,6 +2573,9 @@
       },
       {
        "id": "B",
+       "std": [
+        "hayes-orientation:CL4"
+       ],
        "do": "Estimate GPU-hours and cost for a simulation campaign from throughput in ns/day, and choose free vs paid partitions — numeric rep.",
        "ek": [
         "GPU-h = 24 × total ns / (ns/day); paid gpu is $0.32 per GPU-hour; free-gpu costs nothing but jobs are preempted (ALF tolerates restarts)."
@@ -2533,6 +2610,9 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "hayes-orientation:TUT4"
+       ],
        "do": "Choose an engine — CHARMM standard, DOMDEC, BLaDE, OpenMM — for a described job — choice rep.",
        "ek": [
         "Standard CHARMM is CPU and slow; DOMDEC GPU is ~5× slower than BLaDE; BLaDE runs MSλD 5–8× faster than DOMDEC; OpenMM is fast for plain MD but does not run λ dynamics within CHARMM."
@@ -2548,6 +2628,9 @@
       },
       {
        "id": "B",
+       "std": [
+        "hayes-orientation:TUT1"
+       ],
        "do": "Write BLaDE NVT and NPT dynamics commands and state BLaDE's restrictions.",
        "ek": [
         "Add 'blade' to ENER/MINI/DYNA; NPT adds 'prmc iprs 100 pref 1 prdv 100'; set friction with 'scalar fbeta set 0.1 sele all end'. Langevin or NVE only, MC barostat only, H-bond constraints only, one GPU per OpenMP thread, no MPI."
@@ -2592,6 +2675,10 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "hayes-orientation:CL1",
+        "hayes-orientation:TUT4"
+       ],
        "do": "Read and write CHARMM scripts using titles, set/calc, @ and @@ variables, ? system values, stream, if/goto loops, bomlev and stop, and find the right documentation section.",
        "ek": [
         "Titles start with * and end at a lone *; ! starts comments; CHARMM is case-insensitive but file paths aren't (quote them). Key docs: BLOCK, CONSTRAINTS (SHAKE, restraints), Ewald, nonbonded, CRYSTAL and IMAGE."
@@ -2624,6 +2711,9 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "hayes-orientation:INST"
+       ],
        "do": "Record everything needed to reproduce a run: force-field and engine versions, protonation states, box and ions, seeds, all scripts under version control, and unprocessed data.",
        "ek": [
         "A result without its inputs and analysis scripts can't be checked; document the full uncertainty procedure too."
@@ -2638,6 +2728,9 @@
       },
       {
        "id": "B",
+       "std": [
+        "hayes-orientation:CL2"
+       ],
        "do": "Estimate trajectory storage from atom count, save interval and simulation length — numeric rep.",
        "ek": [
         "DCD stores single-precision x, y, z: 12 bytes per atom per frame; frames = steps / nsavc."
@@ -2654,6 +2747,9 @@
       },
       {
        "id": "C",
+       "std": [
+        "hayes-orientation:CL2"
+       ],
        "do": "Clean up a finished ALF project, separating disposable intermediates from data that must be kept.",
        "ek": [
         "run*/output, analysis*/data, Energy, Lambda and slurm logs are disposable; keep alchemical trajectories (run*/res) of published work; spatial DCDs may go after publication."
@@ -2708,6 +2804,9 @@
       },
       {
        "id": "B",
+       "std": [
+        "hayes-orientation:LIT"
+       ],
        "do": "Choose between the histogram estimator and the Potts-model estimator (likelihood vs pseudolikelihood) for a given chemical-space size — choice rep.",
        "ek": [
         "Histograms need every end state visited (~100–500 states max); Potts keeps one- and two-site terms only; LM below ~10⁶ end states, PLM above."
@@ -2725,6 +2824,9 @@
       },
       {
        "id": "C",
+       "std": [
+        "hayes-lambda-examples:LIN"
+       ],
        "do": "Partition a mutation set across sites and systems to respect substituent-per-site limits — choice rep.",
        "ek": [
         "The ALF README advises ≤ 6 substituents per site (9 the tested ceiling); split larger sets across systems sharing a reference substituent. Newer constraints and biases (2024–2026) extend this to dozens."
@@ -2759,6 +2861,9 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "hayes-orientation:LIT"
+       ],
        "do": "Correct a charge-changing perturbation: explain its PME finite-size errors and apply ALF's discrete solvent correction with the q key.",
        "ek": [
         "Net-charge changes in a neutral PME box introduce artifacts; the discrete solvent correction is the largest computable term; alternatives include co-alchemical ions."
@@ -2774,6 +2879,9 @@
       },
       {
        "id": "B",
+       "std": [
+        "hayes-orientation:LIT"
+       ],
        "do": "Explain when a site needs replica exchange (e.g. A42, A98, M102 in T4 lysozyme) and how biasing-potential replica exchange helps.",
        "ek": [
         "Some sites have slow coupled conformational and alchemical barriers; replicas with offset biases exchange to cross them. Replica runs need nreps > 1 and working MPI on the cluster."
@@ -2788,6 +2896,9 @@
       },
       {
        "id": "C",
+       "std": [
+        "hayes-orientation:LIT"
+       ],
        "do": "Explain why proline and glycine mutations need a dedicated alchemical strategy.",
        "ek": [
         "Proline bonds its side chain back to the backbone N and glycine lacks Cβ, so backbone terms (CMAP, ring closure) differ between substituents; Hayes & Brooks 2021 give the workaround."

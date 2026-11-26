@@ -97,7 +97,7 @@ Book: livecoms-md-basics §3.5, §4.1; allen-tildesley §Ch 1; molssi-mmtools §
 
 Book: orientation §Tutorial 2, §Tutorial 4.3
 
-- ● **MD-2.2.A** Explain what RTF, PRM, PSF, CRD and toppar.str files each contain and which ones CHARMM reads in what order.
+- ● **MD-2.2.A** (hayes-orientation:TUT2) Explain what RTF, PRM, PSF, CRD and toppar.str files each contain and which ones CHARMM reads in what order.
   - EK: RTF: atoms, types, charges, connectivity and patches per residue (which terms exist); PRM: the constants in those terms; PSF: the generated list of atoms, bonds, angles, dihedrals of this system; CRD: coordinates; toppar.str streams the RTF/PRM set.
   - P2 · P6 · drills: md-charmm-files, mdh-which-file
 - ● **MD-2.2.B** Map a residue's chemical state to its CHARMM36 name or patch: ASPP, GLUP, HSD/HSE/HSP, LSN, NTER/CTER, ACE/CT3 — choice rep.
@@ -199,7 +199,7 @@ Book: livecoms-md-basics §4.2; orientation §Tutorial 1.2, §Tutorial 2; allen-
 - ● **MD-5.1.B** Size a solvent box from the solute's extent and edge distance and compare atom counts for cubic, truncated-octahedral and rhombic-dodecahedral cells — numeric rep.
   - EK: Cube side = d_max + 2 × edge (10 Å is standard; more for highly charged solutes like RNA). For the same image distance d: V_cube = d³, V_oct ≈ 0.770 d³ (23% fewer atoms), V_RD ≈ 0.707 d³ (29% fewer). Water ≈ 0.0334 molecules/Å³.
   - P2 · P4 · drills: md-box-waters, md-octahedron-savings
-- ● **MD-5.1.C** Explain why periodic artifacts are smaller than vacuum-interface artifacts and name the cases where they are not.
+- ● **MD-5.1.C** (hayes-orientation:TUT1) Explain why periodic artifacts are smaller than vacuum-interface artifacts and name the cases where they are not.
   - EK: A droplet's surface distorts the solute; images avoid it. Artifacts grow with net charge, small boxes, and solutes that expand (unfolded chains need a fixed, larger box, e.g. 40 Å for the pentapeptides).
   - P2 · P5 · drills: md-periodic-artifacts, mdh-pbc-artifacts
 
@@ -235,7 +235,7 @@ Book: orientation §Tutorial 1.2; livecoms-md-basics §4.3.1; livecoms-afe §5.1
 - ● **MD-6.1.C** Calculate the number of counterions and salt ion pairs needed to neutralize a box and reach a target concentration — numeric rep.
   - EK: N_pairs ≈ c(M) × V(Å³) × 6.022 × 10⁻⁴; neutralize the net solute charge first. Mimic the experiment; otherwise ~150 mM (Na⁺ extracellular, K⁺ intracellular).
   - P2 · P4 · drills: cc-neutralising-ions, md-salt-from-count
-- ● **MD-6.1.D** Build a solvated, ionized protein box in CHARMM-GUI Solution Builder at the experimental temperature, pH and salt, deciding which crystallographic components and termini to keep.
+- ● **MD-6.1.D** (hayes-orientation:TUT1) Build a solvated, ionized protein box in CHARMM-GUI Solution Builder at the experimental temperature, pH and salt, deciding which crystallographic components and termini to keep.
   - EK: Keep crystallographic waters for the folded protein (pockets refill slowly); drop BME/Cl⁻ additives unless relevant; set temperature to the experiment (often 298.15 K, not the 303.15 K default).
   - P2 · P6 · drills: md-solution-builder, mdh-box-edge
 
@@ -243,13 +243,13 @@ Book: orientation §Tutorial 1.2; livecoms-md-basics §4.3.1; livecoms-afe §5.1
 
 Book: livecoms-md-basics §4.3.2, §4.3.3, §4.3.4, §4.3.5; livecoms-uq §4.1, §5; orientation §Tutorial 1.2
 
-- ● **MD-6.2.A** Order the preparation stages — minimize, assign velocities, restrained NVT, NPT, production — and justify each stage.
+- ● **MD-6.2.A** (hayes-orientation:TUT1) Order the preparation stages — minimize, assign velocities, restrained NVT, NPT, production — and justify each stage.
   - EK: Minimize to remove clashes; relax solvent at constant volume with solute restrained; then relax volume at constant pressure; NVT production at a set density needs NPT equilibration first.
   - P1 · P3 · drills: md-prep-order, mdh-stage-purpose
 - ● **MD-6.2.B** Calculate the per-component velocity spread or RMS speed of an atom drawn from a Maxwell–Boltzmann distribution — numeric rep.
   - EK: σ_v = √(k_BT/m) per Cartesian component; v_rms = √(3k_BT/m).
   - P4 · drills: md-maxwell-spread, md-temperature-from-rms
-- ● **MD-6.2.C** Decide when equilibration is complete from time series of energy, temperature, pressure, density and RMSD, and discard the burn-in.
+- ● **MD-6.2.C** (hayes-orientation:TUT1) Decide when equilibration is complete from time series of energy, temperature, pressure, density and RMSD, and discard the burn-in.
   - EK: No drift and fluctuation about a stable mean in several observables; if unsure, extend. Analyse only the production portion, applying the cut uniformly.
   - P5 · drills: md-equilibration-done, mdh-equil-signal
 
@@ -387,11 +387,11 @@ Big ideas: PATH, BOLTZ
 
 Book: livecoms-afe §3.2, §7.1; orientation §Tutorial 1, §Tutorial 3.2; alf-readme §Best Practices
 
-- ● **MD-9.1.A** Close a thermodynamic cycle to compute a relative binding ΔΔG from alchemical legs in complex and solvent — numeric rep.
+- ● **MD-9.1.A** (hayes-lambda-examples:SYS) Close a thermodynamic cycle to compute a relative binding ΔΔG from alchemical legs in complex and solvent — numeric rep.
   - EK: ΔΔG_bind = ΔG_bind(B) − ΔG_bind(A) = ΔG_complex(A→B) − ΔG_solvent(A→B); the physical binding legs are never simulated.
   - Needs: MD-1.2.B
   - P1 · P4 · drills: md-relative-binding, md-solvent-leg
-- ● **MD-9.1.B** Compute a mutational folding ΔΔG from alchemical legs in the folded protein and an unfolded-state peptide model, and state its sign convention — numeric rep.
+- ● **MD-9.1.B** (hayes-lambda-examples:SYS) Compute a mutational folding ΔΔG from alchemical legs in the folded protein and an unfolded-state peptide model, and state its sign convention — numeric rep.
   - EK: ΔΔG_fold = ΔG_alch(folded) − ΔG_alch(unfolded); positive = destabilizing. The capped pentapeptide (mutating residue ± 2) models a locally solvated unfolded state and ignores nonlocal contacts.
   - P1 · P4 · drills: md-folding-ddg, md-stability-fold
 - ● **MD-9.1.C** Compute cycle-closure errors in a perturbation network and use them to flag unreliable edges — numeric rep.
@@ -419,7 +419,7 @@ Book: livecoms-afe §4.1, §4.3, §5.1, §5.4
 - ● **MD-9.3.A** Convert between K_d and ΔG° and between fold-changes and ΔΔG, and judge a prediction against expected accuracy — numeric rep.
   - EK: ΔG° = RT ln(K_d/1 M); a 10× change in K_d is 1.36 kcal/mol at 298 K; ~1–2 kcal/mol RMS error is typical in favourable cases.
   - P4 · P5 · drills: cc-kd-to-free-energy, md-fold-change-from-ddg
-- ● **MD-9.3.B** Match simulation conditions (pH, salt, temperature, construct, protonation) to the experiment being reproduced.
+- ● **MD-9.3.B** (hayes-orientation:TUT1) Match simulation conditions (pH, salt, temperature, construct, protonation) to the experiment being reproduced.
   - EK: The T4 lysozyme sites were measured at pH 3.0 (L99, M106, F153) and 5.4 (V149), so two folded-state setups are needed.
   - P1 · P2 · drills: md-match-conditions, mdh-protonation-count
 
@@ -483,10 +483,10 @@ Big ideas: ALCH, PATH, BOLTZ
 
 Book: hayes2017-alf §Methods; hayes2021-blade §2; orientation §Tutorial 2, §Literature
 
-- ● **MD-10.1.A** Write the λ-dynamics extended Hamiltonian and explain how treating λ as a particle samples several alchemical states in one simulation.
+- ● **MD-10.1.A** (hayes-orientation:LIT) Write the λ-dynamics extended Hamiltonian and explain how treating λ as a particle samples several alchemical states in one simulation.
   - EK: H = K(x) + ½ m_λ λ̇² + U(x, λ); λ moves under −∂U/∂λ with a fictitious mass, so its population over time reflects relative free energies.
   - P3 · drills: md-lambda-hamiltonian, mdh-lambda-extended
-- ● **MD-10.1.B** Write the MSλD potential for several sites and substituents and identify which terms scale with λ.
+- ● **MD-10.1.B** (hayes-orientation:TUT2) Write the MSλD potential for several sites and substituents and identify which terms scale with λ.
   - EK: U = U₀ + Σ_s Σ_i λ_si U_si + Σ λ_si λ_tj U_si,tj (s ≠ t); Σ_i λ_si = 1 and λ_si ≥ 0 at each site; the environment U₀ is unscaled; substituents at one site don't see each other.
   - Needs: MD-10.1.A
   - P3 · drills: md-msld-potential, mdh-msld-scaling
@@ -510,10 +510,10 @@ Book: hayes2017-alf §Methods; orientation §Tutorial 2, §Literature
 
 Book: hayes2017-alf §Methods; alf-readme §Best Practices; orientation §Tutorial 2
 
-- ● **MD-10.3.A** Identify the role of each ALF bias term — fixed φ (b), quadratic ψ (c), endpoint χ (x) and ω (s), and the newer t and u terms — on the alchemical landscape.
+- ● **MD-10.3.A** (hayes-orientation:TUT3) Identify the role of each ALF bias term — fixed φ (b), quadratic ψ (c), endpoint χ (x) and ω (s), and the newer t and u terms — on the alchemical landscape.
   - EK: φ offsets each substituent's free energy (≈ −ΔG) so all endpoints are equally populated; ψ_ij/4 changes the barrier between substituents; χ/ω shape the region near endpoints; bcxstu2026 adds t and u terms for many substituents.
   - P3 · drills: md-alf-bias-terms, mdh-bias-roles
-- ● **MD-10.3.B** Calculate the number of pairwise bias potentials a block setup must allocate for a given nblocks and bias scheme — numeric rep.
+- ● **MD-10.3.B** (hayes-orientation:TUT3) Calculate the number of pairwise bias potentials a block setup must allocate for a given nblocks and bias scheme — numeric rep.
   - EK: Pairs = nblocks(nblocks − 1)/2; bcxs2018 uses 5 potentials per pair, bcxstu2026 uses 9 (ldbi count).
   - Needs: MD-10.1.C
   - P4 · P6 · drills: md-bias-pairs, mdh-bias-count-scheme
@@ -526,7 +526,7 @@ Book: hayes2017-alf §Methods; alf-readme §Best Practices; orientation §Tutori
   - EK: ΔG_i→j = −k_BT ln(P_j/P_i) − (φ_j − φ_i), with P counted only where λ > λ_c (0.99 in production; 0.8 in older work).
   - Needs: MD-1.2.B, MD-10.3.A
   - P4 · drills: md-populations-to-dg, md-dg-to-populations
-- ● **MD-10.4.B** Interpret nan or very noisy entries in Result.txt as unsampled substituents and decide whether to refine biases before extending production.
+- ● **MD-10.4.B** (hayes-orientation:TUT3) Interpret nan or very noisy entries in Result.txt as unsampled substituents and decide whether to refine biases before extending production.
   - EK: A histogram estimator needs every end state visited; unvisited substituents mean biases are not yet converged — run another production of the same length first.
   - P5 · drills: md-unsampled-result, mdh-nan-result
 
@@ -538,10 +538,10 @@ Big ideas: ALCH, SAMPLE, WORK
 
 Book: alf-readme §Algorithms; hayes2017-alf §Methods; orientation §Tutorial 3
 
-- ● **MD-11.1.A** Describe one ALF cycle — run MD, reweight recent runs, compute 1-D and 2-D free-energy profiles, fit bias changes, write the next variables file — and why changes are capped.
+- ● **MD-11.1.A** (hayes-orientation:TUT3) Describe one ALF cycle — run MD, reweight recent runs, compute 1-D and 2-D free-energy profiles, fit bias changes, write the next variables file — and why changes are capped.
   - EK: WHAM/MBAR combine several recent runs at different biases; a linear model of profile response feeds a quadratic penalty on deviations from flat. Only the bottom few kcal/mol of a basin is sampled, so updates are limited to a few kcal/mol.
   - P3 · drills: md-alf-cycle, mdh-alf-cycle
-- ● **MD-11.1.B** Judge from PlotFreeEnergy5 profiles whether flattening has converged enough to start production.
+- ● **MD-11.1.B** (hayes-orientation:TUT3) Judge from PlotFreeEnergy5 profiles whether flattening has converged enough to start production.
   - EK: Sampling should extend across every profile with no large unsampled gaps; perfect flatness isn't required, thermodynamic accessibility is.
   - P5 · drills: md-flattening-converged, mdh-flat-converged
 
@@ -549,20 +549,20 @@ Book: alf-readme §Algorithms; hayes2017-alf §Methods; orientation §Tutorial 3
 
 Book: alf-readme §Best Practices, §Input Specification; orientation §Tutorial 3.2, §Tutorial 3.3
 
-- ● **MD-11.2.A** Plan the flattening schedule and convert it to step counts at a given timestep — numeric rep.
+- ● **MD-11.2.A** (hayes-orientation:TUT3, hayes-lambda-examples:TMPL) Plan the flattening schedule and convert it to step counts at a given timestep — numeric rep.
   - EK: initialize; ~100 runflat cycles of 100 ps (200 for arginine), equilibration = ¼ of each run (25 ps + 75 ps, so the sampling-steps argument is 3× the equilibration one); then ~10 cycles of 1 ns. At 2 fs, 25 ps = 12 500 steps.
   - P3 · P4 · drills: md-alf-steps, mdh-flat-steps
-- ● **MD-11.2.B** Plan a production ramp of independent trials extended by factors of 4–5 to a target length, and total its simulation time — numeric rep.
+- ● **MD-11.2.B** (hayes-lambda-examples:TMPL) Plan a production ramp of independent trials extended by factors of 4–5 to a target length, and total its simulation time — numeric rep.
   - EK: 5 trials (a–e) each round, e.g. 5 → 20 → 100 ns. Typical totals: solvation 10–20 ns; well-behaved protein point mutations 40 ns; hard or multiple mutations 100 ns; massive spaces 400 ns.
   - P3 · P4 · drills: md-production-ramp, md-ramp-stages
-- ● **MD-11.2.C** Write alf_info.py for a system: name, nsubs, nblocks, temp, enginepath, nreps, and optional q, loss, bias and impcons keys.
+- ● **MD-11.2.C** (hayes-orientation:TUT3, hayes-lambda-examples:PREP) Write alf_info.py for a system: name, nsubs, nblocks, temp, enginepath, nreps, and optional q, loss, bias and impcons keys.
   - EK: name must match prep/name.inp; nblocks = Σ nsubs; nreps = 1 without replica exchange; q lists each substituent's net charge.
   - Needs: MD-10.1.C
   - P6 · drills: md-alf-info, mdh-nblocks-from-mutations
-- ● **MD-11.2.D** Choose loss function, bias scheme and implicit constraint for a described system — choice rep.
+- ● **MD-11.2.D** (hayes-orientation:TUT3, hayes-lambda-examples:LIN) Choose loss function, bias scheme and implicit constraint for a described system — choice rep.
   - EK: Defaults linear2018 / bcxs2018 / fnex2011 are no longer best practice: use nonlinear2024 loss and fnpwise2026; bcxs2018 for ~2 substituents, bcxstu2026 for ~20 (with matching blocksetup.inp edits).
   - P3 · drills: md-alf-choices, mdh-alf-options
-- ● **MD-11.2.E** Compute ΔΔG_fold with its uncertainty from Result.txt values in the folded and unfolded ensembles — numeric rep.
+- ● **MD-11.2.E** (hayes-orientation:TUT3) Compute ΔΔG_fold with its uncertainty from Result.txt values in the folded and unfolded ensembles — numeric rep.
   - EK: ΔΔG = dG(folded) − dG(unfolded) per mutant relative to native; combine the two legs' errors in quadrature.
   - Needs: MD-9.1.B, MD-7.2.C
   - P4 · P5 · drills: md-ddg-fold-error, md-ddg-significance, mdh-ddg-uncertainty
@@ -571,10 +571,10 @@ Book: alf-readme §Best Practices, §Input Specification; orientation §Tutorial
 
 Book: orientation §Tutorial 2
 
-- ● **MD-11.3.A** Edit alchemical_definitions.inp for a mutation set: site resids, substituent sequence codes, segids and terminal variables.
+- ● **MD-11.3.A** (hayes-orientation:TUT2) Edit alchemical_definitions.inp for a mutation set: site resids, substituent sequence codes, segids and terminal variables.
   - EK: s1seq1 = 0 is the native residue; further entries are one-letter codes (h/b/j = HSD/HSE/HSP); nterres/cterres = first and last resid of the chain (1–162 folded, site ± 2 unfolded).
   - P2 · P6 · drills: md-alchemical-definitions, mdh-alchemical-definitions
-- ● **MD-11.3.B** Assemble a prep directory — system.inp adapted from step5_production.inp, toppar soft link, aa_stream patch/select/delete/blocksetup streams, nbond.str, alf_info.py — and test it with RunSetup.
+- ● **MD-11.3.B** (hayes-orientation:TUT2, hayes-lambda-examples:PREP) Assemble a prep directory — system.inp adapted from step5_production.inp, toppar soft link, aa_stream patch/select/delete/blocksetup streams, nbond.str, alf_info.py — and test it with RunSetup.
   - EK: DIMENS must be in the first script CHARMM reads, so it is removed from system.inp; patchloop adds alchemical atoms, selectloop names them, deleteloop removes spurious angles/dihedrals, blocksetup applies λ scaling and biases.
   - Needs: MD-11.3.A
   - P6 · drills: md-prep-directory, mdh-prep-assembly
@@ -625,10 +625,10 @@ Big ideas: WORK, DYN
 
 Book: orientation §Cluster SLURM, §Tutorial 1.1, §Tutorial 3.2
 
-- ● **MD-13.1.A** Write a SLURM script for a GPU CHARMM job with partition, account, time limit, GPU request and memory, and submit or debug it without using the login node.
+- ● **MD-13.1.A** (hayes-orientation:CL4, hayes-lambda-examples:TMPL) Write a SLURM script for a GPU CHARMM job with partition, account, time limit, GPU request and memory, and submit or debug it without using the login node.
   - EK: -p free-gpu or gpu; -A rhayes1_lab_gpu on paid partitions only; --time in minutes; --gres=gpu:1 (a GPU partition alone gives no GPU); --mem only after an OOM; srun --pty for interactive debugging; --array=1-4%1 runs chained segments one at a time.
   - P6 · drills: md-slurm, mdh-slurm-time
-- ● **MD-13.1.B** Estimate GPU-hours and cost for a simulation campaign from throughput in ns/day, and choose free vs paid partitions — numeric rep.
+- ● **MD-13.1.B** (hayes-orientation:CL4) Estimate GPU-hours and cost for a simulation campaign from throughput in ns/day, and choose free vs paid partitions — numeric rep.
   - EK: GPU-h = 24 × total ns / (ns/day); paid gpu is $0.32 per GPU-hour; free-gpu costs nothing but jobs are preempted (ALF tolerates restarts).
   - P4 · P6 · drills: md-gpu-cost, md-throughput-needed, mdh-gpu-cost
 
@@ -636,10 +636,10 @@ Book: orientation §Cluster SLURM, §Tutorial 1.1, §Tutorial 3.2
 
 Book: orientation §Tutorial 4.2; hayes2021-blade §2, §3; blade-doc §BLaDE
 
-- ● **MD-13.2.A** Choose an engine — CHARMM standard, DOMDEC, BLaDE, OpenMM — for a described job — choice rep.
+- ● **MD-13.2.A** (hayes-orientation:TUT4) Choose an engine — CHARMM standard, DOMDEC, BLaDE, OpenMM — for a described job — choice rep.
   - EK: Standard CHARMM is CPU and slow; DOMDEC GPU is ~5× slower than BLaDE; BLaDE runs MSλD 5–8× faster than DOMDEC; OpenMM is fast for plain MD but does not run λ dynamics within CHARMM.
   - P3 · P6 · drills: md-engine-choice, mdh-engine-choice
-- ● **MD-13.2.B** Write BLaDE NVT and NPT dynamics commands and state BLaDE's restrictions.
+- ● **MD-13.2.B** (hayes-orientation:TUT1) Write BLaDE NVT and NPT dynamics commands and state BLaDE's restrictions.
   - EK: Add 'blade' to ENER/MINI/DYNA; NPT adds 'prmc iprs 100 pref 1 prdv 100'; set friction with 'scalar fbeta set 0.1 sele all end'. Langevin or NVE only, MC barostat only, H-bond constraints only, one GPU per OpenMP thread, no MPI.
   - Needs: MD-4.2.B
   - P6 · drills: md-blade-commands, mdh-blade-commands
@@ -651,7 +651,7 @@ Book: orientation §Tutorial 4.2; hayes2021-blade §2, §3; blade-doc §BLaDE
 
 Book: orientation §Tutorial 1.1, §Tutorial 4.1, §Tutorial 4.3
 
-- ● **MD-13.3.A** Read and write CHARMM scripts using titles, set/calc, @ and @@ variables, ? system values, stream, if/goto loops, bomlev and stop, and find the right documentation section.
+- ● **MD-13.3.A** (hayes-orientation:CL1, hayes-orientation:TUT4) Read and write CHARMM scripts using titles, set/calc, @ and @@ variables, ? system values, stream, if/goto loops, bomlev and stop, and find the right documentation section.
   - EK: Titles start with * and end at a lone *; ! starts comments; CHARMM is case-insensitive but file paths aren't (quote them). Key docs: BLOCK, CONSTRAINTS (SHAKE, restraints), Ewald, nonbonded, CRYSTAL and IMAGE.
   - P6 · drills: md-charmm-script, mdh-charmm-script-syntax
 
@@ -659,13 +659,13 @@ Book: orientation §Tutorial 1.1, §Tutorial 4.1, §Tutorial 4.3
 
 Book: livecoms-uq §2; orientation §Tutorial 1.2, §Tutorial 3.4; molssi-mmtools §Git and GitHub
 
-- ● **MD-13.4.A** Record everything needed to reproduce a run: force-field and engine versions, protonation states, box and ions, seeds, all scripts under version control, and unprocessed data.
+- ● **MD-13.4.A** (hayes-orientation:INST) Record everything needed to reproduce a run: force-field and engine versions, protonation states, box and ions, seeds, all scripts under version control, and unprocessed data.
   - EK: A result without its inputs and analysis scripts can't be checked; document the full uncertainty procedure too.
   - P6 · drills: md-reproducibility, mdh-reproducibility-record
-- ● **MD-13.4.B** Estimate trajectory storage from atom count, save interval and simulation length — numeric rep.
+- ● **MD-13.4.B** (hayes-orientation:CL2) Estimate trajectory storage from atom count, save interval and simulation length — numeric rep.
   - EK: DCD stores single-precision x, y, z: 12 bytes per atom per frame; frames = steps / nsavc.
   - P4 · P6 · drills: md-trajectory-storage, md-frames-for-storage, mdh-traj-storage
-- ● **MD-13.4.C** Clean up a finished ALF project, separating disposable intermediates from data that must be kept.
+- ● **MD-13.4.C** (hayes-orientation:CL2) Clean up a finished ALF project, separating disposable intermediates from data that must be kept.
   - EK: run*/output, analysis*/data, Energy, Lambda and slurm logs are disposable; keep alchemical trajectories (run*/res) of published work; spatial DCDs may go after publication.
   - P6 · drills: md-alf-cleanup, mdh-alf-cleanup
 
@@ -680,11 +680,11 @@ Book: alf-readme §Best Practices; orientation §Literature
 - ● **MD-14.1.A** Decide whether intersite coupling biases are needed and set ntersite for flattening and postprocessing.
   - EK: Default [0,0] ignores coupling; with significant coupling use [0,1] in short runflat cycles and [2,1] in postprocess (adjusting only c intersite biases).
   - P3 · drills: md-intersite-coupling, mdh-intersite-coupling
-- ● **MD-14.1.B** Choose between the histogram estimator and the Potts-model estimator (likelihood vs pseudolikelihood) for a given chemical-space size — choice rep.
+- ● **MD-14.1.B** (hayes-orientation:LIT) Choose between the histogram estimator and the Potts-model estimator (likelihood vs pseudolikelihood) for a given chemical-space size — choice rep.
   - EK: Histograms need every end state visited (~100–500 states max); Potts keeps one- and two-site terms only; LM below ~10⁶ end states, PLM above.
   - Needs: MD-10.1.C
   - P3 · drills: md-estimator-choice, mdh-potts-estimator
-- ● **MD-14.1.C** Partition a mutation set across sites and systems to respect substituent-per-site limits — choice rep.
+- ● **MD-14.1.C** (hayes-lambda-examples:LIN) Partition a mutation set across sites and systems to respect substituent-per-site limits — choice rep.
   - EK: The ALF README advises ≤ 6 substituents per site (9 the tested ceiling); split larger sets across systems sharing a reference substituent. Newer constraints and biases (2024–2026) extend this to dozens.
   - P1 · P3 · drills: md-partition-mutations, mdh-partition-sites
 
@@ -692,13 +692,13 @@ Book: alf-readme §Best Practices; orientation §Literature
 
 Book: alf-readme §Best Practices; orientation §Tutorial 1, §Tutorial 3.3, §Literature; livecoms-afe §7.2.2
 
-- ● **MD-14.2.A** Correct a charge-changing perturbation: explain its PME finite-size errors and apply ALF's discrete solvent correction with the q key.
+- ● **MD-14.2.A** (hayes-orientation:LIT) Correct a charge-changing perturbation: explain its PME finite-size errors and apply ALF's discrete solvent correction with the q key.
   - EK: Net-charge changes in a neutral PME box introduce artifacts; the discrete solvent correction is the largest computable term; alternatives include co-alchemical ions.
   - P3 · P5 · drills: md-charge-change, mdh-charge-change
-- ● **MD-14.2.B** Explain when a site needs replica exchange (e.g. A42, A98, M102 in T4 lysozyme) and how biasing-potential replica exchange helps.
+- ● **MD-14.2.B** (hayes-orientation:LIT) Explain when a site needs replica exchange (e.g. A42, A98, M102 in T4 lysozyme) and how biasing-potential replica exchange helps.
   - EK: Some sites have slow coupled conformational and alchemical barriers; replicas with offset biases exchange to cross them. Replica runs need nreps > 1 and working MPI on the cluster.
   - P3 · drills: md-replica-exchange, mdh-when-rex
-- ● **MD-14.2.C** Explain why proline and glycine mutations need a dedicated alchemical strategy.
+- ● **MD-14.2.C** (hayes-orientation:LIT) Explain why proline and glycine mutations need a dedicated alchemical strategy.
   - EK: Proline bonds its side chain back to the backbone N and glycine lacks Cβ, so backbone terms (CMAP, ring closure) differ between substituents; Hayes & Brooks 2021 give the workaround.
   - P2 · drills: md-proline-glycine, mdh-pro-gly
 
