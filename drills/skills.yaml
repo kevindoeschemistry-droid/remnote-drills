@@ -69,6 +69,9 @@ domains:
   - { id: compchem, title: "Computational chemistry" }
   - { id: cpd, title: "Computational protein design" }
   - { id: qchem, title: "Electronic structure" }
+  - { id: is, title: "Information systems" }
+  - { id: speak, title: "Speaking" }
+  - { id: bb, title: "Basketball" }
   - { id: wushu, title: "Wushu" }
   - { id: swim, title: "Swimming" }
 
@@ -871,6 +874,35 @@ skills:
   - { id: qchem.correlation, domain: qchem, title: "Perturbation theory, coupled cluster, configuration interaction and interaction-energy decomposition", short: "Correlation methods", prereqs: [qchem.basis] }
   - { id: qchem.dft, domain: qchem, title: "Functional families, exact exchange, dispersion corrections and numerical grids", short: "Density functional theory", prereqs: [qchem.hartree-fock] }
   - { id: qchem.properties, domain: qchem, title: "Geometries, frequencies, derived properties and reporting a calculation", short: "Geometries and properties", prereqs: [qchem.correlation] }
+  - { id: is.strategy, domain: is, title: "IS strategy and governance", short: "Strategic role, investment appraisal, decision rights and frameworks" }
+  - { id: is.architecture, domain: is, title: "Enterprise architecture", short: "Domains and method, application portfolio, integration styles, cloud migration", prereqs: [is.strategy] }
+  - { id: is.development, domain: is, title: "Systems analysis and delivery", short: "Process and requirements modelling, scheduling, earned value, deployment", prereqs: [is.strategy] }
+  - { id: is.data, domain: is, title: "Data and analytics management", short: "Data quality and stewardship, star schemas, ingestion, analytics for decisions", prereqs: [is.architecture] }
+  - { id: is.infrastructure, domain: is, title: "Infrastructure and service operations", short: "Sizing and sourcing, service management, SLAs, vendor selection", prereqs: [is.architecture] }
+  - { id: is.assurance, domain: is, title: "Risk, continuity and assurance", short: "Risk scoring and treatment, ALE and ROSI, RTO and RPO, controls and audit", prereqs: [is.infrastructure] }
+  - { id: is.innovation, domain: is, title: "Innovation and digital business", short: "Adoption models, change models, diffusion, business models, unit economics", prereqs: [is.strategy] }
+  - { id: is.ethics, domain: is, title: "Ethics, privacy and sustainability", short: "Which regime applies, impact assessments, ethical reasoning, lifetime carbon", prereqs: [is.data] }
+  - { id: speak.voice, domain: speak, title: "Breath, voice and diction", short: "Breath support, volume, articulation and writing for the ear" }
+  - { id: speak.pace, domain: speak, title: "Pace, pauses and fillers", short: "Words per minute, deliberate pauses, filler rates and how to cut them", prereqs: [speak.voice] }
+  - { id: speak.presence, domain: speak, title: "Vocal variety and presence", short: "Intonation, stress, eye contact, stance and cutting hedges", prereqs: [speak.pace] }
+  - { id: speak.structure, domain: speak, title: "Structure", short: "Answer first, PREP and SCQA, signposting and endings", prereqs: [speak.pace] }
+  - { id: speak.impromptu, domain: speak, title: "Impromptu speaking", short: "Table topics, question handling, STAR answers and introductions", prereqs: [speak.structure] }
+  - { id: speak.explain, domain: speak, title: "Explaining technical ideas", short: "Audience modelling, concrete to abstract, analogies, checks, numbers and figures", prereqs: [speak.structure] }
+  - { id: speak.persuade, domain: speak, title: "Persuasion and storytelling", short: "Motivated sequence, objections, the ask, and story shape", prereqs: [speak.structure] }
+  - { id: speak.listen, domain: speak, title: "Listening and conversation", short: "Paraphrase, follow-ups, short contributions and disagreeing well", prereqs: [speak.presence] }
+  - { id: speak.review, domain: speak, title: "Feedback and self-review", short: "Measuring a recording, competency scoring, targets and evaluations", prereqs: [speak.pace] }
+  - { id: speak.longform, domain: speak, title: "Long-form talks", short: "Segmenting a lecture, keyword outlines and fitting a time slot", prereqs: [speak.structure] }
+  - { id: speak.mediated, domain: speak, title: "Remote and recorded speaking", short: "Camera and microphone setup, and handling lag", prereqs: [speak.presence] }
+  - { id: bb.offense, domain: bb, title: "Offensive principles", short: "Spacing, advantage creation, drive-and-kick, screens, transition" }
+  - { id: bb.pnr-offense, domain: bb, title: "Ball-screen offense", short: "Screen types, set-up, reads against each coverage, screener actions", prereqs: [bb.offense] }
+  - { id: bb.defense, domain: bb, title: "Defensive principles", short: "Positioning, help and rotation, closeouts, rebounding, transition defence" }
+  - { id: bb.pnr-defense, domain: bb, title: "Ball-screen defence", short: "Coverages, what each concedes, routes and weak-side help", prereqs: [bb.defense] }
+  - { id: bb.zone-press, domain: bb, title: "Zone, man and press", short: "Zone shapes and weak spots, zone attack, press shapes and outlets", prereqs: [bb.defense] }
+  - { id: bb.situational, domain: bb, title: "Situational basketball", short: "Clock and score, fouling decisions, timeouts, out-of-bounds sets", prereqs: [bb.offense] }
+  - { id: bb.rules, domain: bb, title: "Rules and officiating", short: "Shot clock, violations, free throws, block/charge, mechanics" }
+  - { id: bb.analytics, domain: bb, title: "Analytics", short: "Possessions and ratings, shooting efficiency, four factors, shot value, samples" }
+  - { id: bb.scouting, domain: bb, title: "Scouting and film study", short: "Player and team keys, coverage identification, self-scouting", prereqs: [bb.defense] }
+  - { id: bb.development, domain: bb, title: "Practice design and development", short: "Levels, progression, drill design, cues, evaluation" }
   - { id: wushu.judging, domain: wushu, title: "Taolu judging: score structure, panel marks and the Duanwei ladder", short: "Wushu judging" }
   - { id: swim.rules, domain: swim, title: "World Aquatics rules, legal strokes and disqualifications", short: "Swim rules" }
   - { id: swim.pacing, domain: swim, title: "Race analysis: pace, splits, stroke rate and distance per cycle", short: "Race analysis" }

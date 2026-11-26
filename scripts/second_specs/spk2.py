@@ -1,0 +1,225 @@
+"""Speaking, units 7-11: persuasion and storytelling, listening and conversation, feedback and self-review, long-form
+talks, and remote and recorded speaking. Two question types for every objective, on the same principle as spk1.py: a
+card holds the target and the measurement, and the rep itself stays in the practice log.
+"""
+from opl_dsl import Q
+
+FILE, FRAMEWORK, PRACTICE = "spk-core-2", "speaking", "P1"
+MC = ["{{o1}}", "{{o2}}", "{{o3}}", "{{o4}}"]
+PE, LI, RV, LF, MD = ("speak.persuade", "speak.listen", "speak.review", "speak.longform", "speak.mediated")
+
+
+def facts(name, skill, rows, explain):
+    return Q(name, skill, "{{q}}", pace="recall",
+             cases=[{"q": q, "o1": a, "o2": b, "o3": c, "o4": d} for q, a, b, c, d in rows],
+             choice=MC, correct="0", verify="authored", explain=explain)
+
+
+ADD = [
+ # ── unit 7 persuade ────────────────────────────────────────────────
+ ("SPK-7.1.A", facts("spk-monroe-steps", PE, [
+     ("Monroe's motivated sequence runs:", "Attention, need, satisfaction, visualisation, action", "Attention, action, need, satisfaction", "Need, attention, action, visualisation", "Situation, complication, question, answer"),
+     ("The visualisation step does what?", "Shows the listener what the world looks like once the proposal is adopted", "Restates the need", "Gives the evidence", "Makes the ask"),
+     ("Skipping the need step produces:", "A solution to a problem the listener has not accepted exists", "A shorter pitch", "A clearer ask", "A stronger close"),
+     ("The action step must be:", "Specific enough that the listener knows what to do next", "Inspirational", "Optional", "A summary"),
+     ("Monroe's sequence differs from SCQA by:", "Ending in an ask for action rather than in an answer to a question", "Being longer", "Having no need step", "Being for written use"),
+ ], "Five steps, and the two most often dropped are need at the front and a specific action at the end")),
+ ("SPK-7.1.A", Q("spk-monroe-timing", PE, "A {{dur}}-second pitch gives attention {{a1}} and action {{a2}} seconds. How long is left for need, satisfaction and visualisation each (seconds)?",
+     given={"dur": {"pick": [120, 180]}, "a1": {"pick": [10, 15, 20]}, "a2": {"pick": [10, 15, 25]}},
+     require=["dur > a1 + a2 + 30"], value="(dur - a1 - a2)/3", tex="seconds",
+     verify="Rational(dur - a1 - a2, 3)",
+     explain="The three middle steps carry the argument and get most of the time; a pitch that spends a third of itself on attention has no room to establish the need")),
+ ("SPK-7.1.B", facts("spk-objection-first", PE, [
+     ("Naming the strongest objection before the listener raises it does what?", "Shows you have considered it, and lets you answer it on your terms", "Weakens the case", "Wastes time", "Invites more objections"),
+     ("Waiting for the objection costs:", "The chance to frame it, since the listener's version will be the hardest one", "Nothing", "Only time", "Credibility only in writing"),
+     ("The objection worth naming is:", "The strongest one, not the easiest to answer", "The most likely", "The one you can rebut", "All of them"),
+     ("Naming an objection and not answering it:", "Leaves it standing with your endorsement", "Shows honesty", "Is better than silence", "Is acceptable"),
+ ], "Name the strongest, answer it, and do not raise one you cannot address")),
+ ("SPK-7.1.C", Q("spk-ask-specificity", PE, "An ask names who, what and by when. Of {{nq}} recorded asks, {{nc}} name all three. What percentage were incomplete?",
+     given={"nq": {"pick": [6, 15, 40]}, "nc": {"pick": [1, 7, 25]}},
+     require=["nc < nq"], value="100*(nq - nc)/nq", tex="\\%", verify="100*Rational(nq - nc, nq)",
+     explain="An ask missing any of who, what or by when is heard as a wish; counting the complete ones on a recording is how a vague close becomes visible")),
+ ("SPK-7.2.A", facts("spk-story-shape", PE, [
+     ("The five parts of a short story are:", "A person, a goal, an obstacle, a turn and a point", "A beginning, a middle and an end", "Situation, complication, resolution", "Hook, body, close"),
+     ("A story with no obstacle is:", "A report, which carries none of a story's hold on attention", "Still a story", "Shorter and better", "A case study"),
+     ("The turn is:", "The moment the situation changes, which is what the listener remembers", "The conclusion", "The lesson", "The introduction"),
+     ("A story with no stated point:", "Leaves each listener to draw their own, usually not yours", "Is more powerful", "Is complete", "Respects the audience"),
+     ("A 90-second story spends most of its time on:", "The obstacle and the turn", "The setup", "The point", "The person"),
+ ], "Five parts, and the obstacle is what separates a story from an anecdote")),
+ ("SPK-7.2.A", Q("spk-story-pacing", PE, "A 90-second story spends {{sp}} seconds on setup, {{ob}} on the obstacle and turn, and the rest on the point. How long is the point (seconds)?",
+     given={"sp": {"pick": [15, 20, 30]}, "ob": {"pick": [40, 50, 60]}},
+     require=["sp + ob < 90"], value="90 - sp - ob", tex="seconds", final=True, verify="90 - sp - ob",
+     explain="The point is one or two sentences at the end; a story that reaches ninety seconds with the point still to come has spent its setup budget")),
+ ("SPK-7.2.B", facts("spk-story-opening", PE, [
+     ("A story opening a lesson must be:", "Connected explicitly to the content that follows", "Entertaining", "Personal", "Short"),
+     ("An unconnected opening story costs:", "The attention it earned, because the listener files it separately", "Nothing", "Only time", "Credibility"),
+     ("The connection is best made:", "Immediately after the story, in one sentence", "At the end of the lesson", "Before the story", "Not at all"),
+     ("A case rather than a personal story is preferable when:", "The listener needs to see the idea working in their own setting", "The speaker has no story", "Time is short", "The audience is senior"),
+ ], "The story buys attention; the sentence after it is what converts attention into the lesson")),
+ # ── unit 8 listen ─────────────────────────────────────────────────
+ ("SPK-8.1.A", facts("spk-paraphrase", LI, [
+     ("A good paraphrase is:", "One sentence naming their concern, offered for confirmation", "A repetition of their words", "A summary of everything said", "An interpretation of their motive"),
+     ("Confirming the paraphrase matters because:", "If it is wrong you find out before answering the wrong question", "It is polite", "It buys time", "It shows listening"),
+     ("Repeating someone's words verbatim is weaker than paraphrasing because:", "It does not show whether you understood them", "It is slower", "It is impolite", "It sounds mechanical"),
+     ("Paraphrasing their motive rather than their point:", "Reads as an accusation, however accurate", "Is deeper listening", "Is more useful", "Is standard"),
+ ], "One sentence on their point, confirmed: not their words, and not their motive")),
+ ("SPK-8.1.A", Q("spk-paraphrase-length", LI, "A {{nw}}-word contribution is paraphrased in one sentence of {{ps}} words. What compression is that (factor)?",
+     given={"nw": {"pick": [60, 140, 300]}, "ps": {"pick": [8, 14, 20]}},
+     value="nw/ps", tex="\\times", verify="Rational(nw, ps)",
+     explain="A paraphrase compresses by an order of magnitude, which is why it is a test of understanding: you cannot compress what you have not understood")),
+ ("SPK-8.1.B", facts("spk-followup-question", LI, [
+     ("A follow-up that builds does what?", "Takes their last point further rather than introducing yours", "Changes the subject politely", "Summarises", "Challenges"),
+     ("The commonest failure in conversation is:", "Waiting to say a prepared point rather than responding to what was said", "Interrupting", "Speaking too long", "Asking too many questions"),
+     ("A question beginning 'what makes you say that' does what?", "Asks for the reasoning behind the point, which is where the disagreement usually is", "Challenges them", "Buys time", "Changes the subject"),
+     ("A follow-up that introduces a new topic:", "Ends the thread, whatever its merits", "Deepens the conversation", "Is a follow-up", "Shows engagement"),
+ ], "Build on the last point: the test is whether your question could have been asked before they spoke")),
+ ("SPK-8.2.A", Q("spk-contribution-words", LI, "A 30-second meeting contribution at {{wp}} words a minute holds how many words?",
+     given={"wp": {"pick": [140, 150, 160]}}, value="wp/2", tex="words", verify="Rational(wp, 2)",
+     explain="Seventy or eighty words is three or four sentences: connect, point, reason. Writing a contribution to that budget is what keeps a meeting turn from becoming a speech")),
+ ("SPK-8.2.A", facts("spk-contribution-shape", LI, [
+     ("A short meeting contribution opens by:", "Connecting to what was just said", "Stating your point", "Giving context", "Naming the speaker"),
+     ("Thirty seconds is the budget because:", "Beyond it a contribution becomes a speech and the discussion stops", "It is polite", "It is conventional", "Attention fails"),
+     ("The connection at the start does what?", "Shows the contribution belongs to this discussion rather than to your agenda", "Flatters the previous speaker", "Buys time", "Fills a gap"),
+     ("A contribution with no reason:", "Is a vote, not an argument, so it cannot persuade anyone", "Is efficient", "Is appropriate in meetings", "Is fine if the point is clear"),
+ ], "Connect, point, reason, in half a minute: the connection is what distinguishes a contribution from an interruption")),
+ ("SPK-8.2.C", facts("spk-disagree-shape", LI, [
+     ("The four parts of disagreeing well are:", "Acknowledge, position, reason, proposal", "Soften, hedge, disagree, apologise", "Agree, then disagree", "Question, challenge, propose"),
+     ("Acknowledging first does what?", "Shows what you are disagreeing with, so the disagreement is about the substance", "Softens the blow", "Delays the point", "Is polite only"),
+     ("Hedging the position:", "Leaves everyone unsure whether you disagreed at all", "Is diplomatic", "Is appropriate with seniors", "Shortens the turn"),
+     ("Ending with a proposal does what?", "Turns a disagreement into a decision the group can make", "Softens it", "Extends the turn", "Claims authority"),
+     ("Acknowledging without agreeing means:", "Stating their point accurately before giving yours", "Conceding partly", "Agreeing then reversing", "Flattering"),
+ ], "Acknowledge, position, reason, proposal: the hedge belongs to none of the four parts")),
+ ("SPK-8.2.C", Q("spk-disagree-length", LI, "A disagreement with four parts of {{ns}} sentences each at {{nw}} words a sentence, at {{wp}} words a minute, takes how long (seconds)?",
+     given={"ns": {"pick": [1, 2]}, "nw": {"pick": [12, 18]}, "wp": {"pick": [140, 150]}},
+     value="4*ns*nw/wp*60", tex="seconds", verify="4*ns*Rational(nw, wp)*60",
+     explain="All four parts fit in well under a minute, which is the answer to the worry that disagreeing properly takes too long")),
+ # ── unit 9 review ────────────────────────────────────────────────
+ ("SPK-9.1.A", Q("spk-four-numbers", RV, "A 60-second rep gives {{nw}} words, {{nf}} fillers and reaches its point at {{tp}} seconds. What is the words-per-minute figure?",
+     given={"nw": {"pick": [120, 145, 180]}, "nf": {"pick": [1, 4, 9]}, "tp": {"pick": [4, 12, 30]}},
+     value="nw", tex="wpm", final=True, verify="nw",
+     explain="At exactly a minute the word count is the rate, which is why the sixty-second rep is the measurement unit: four numbers come off one recording with no arithmetic")),
+ ("SPK-9.1.A", facts("spk-which-four", RV, [
+     ("The four numbers logged from a rep are:", "Words per minute, fillers a minute, seconds to the point, and longest unbroken stretch", "Words, sentences, pauses, fillers", "Volume, pitch, rate, pauses", "Length, fillers, eye contact, gestures"),
+     ("Logging numbers rather than impressions matters because:", "An impression of a recording changes with the speaker's mood; a number does not", "Numbers are objective about quality", "It is faster", "It is required"),
+     ("Seconds to the point is included because:", "It is the structural measure that correlates most with how an answer was received", "It is easy to measure", "It is conventional", "It measures pace"),
+     ("The longest unbroken stretch measures:", "Whether deliberate pauses are actually being taken", "Breath support", "Pace", "Structure"),
+ ], "Four numbers, two about delivery and two about structure, all readable off one transcript")),
+ ("SPK-9.1.B", Q("spk-nca-score", RV, "Eight competencies are each scored 1 to 3. A recording scores {{n1}} threes, {{n2}} twos and the rest ones. What is the total?",
+     given={"n1": {"pick": [0, 2, 5]}, "n2": {"pick": [1, 3, 6]}},
+     require=["n1 + n2 <= 8"], value="3*n1 + 2*n2 + (8 - n1 - n2)", tex="total", final=True,
+     verify="3*n1 + 2*n2 + (8 - n1 - n2)",
+     explain="The scale runs 8 to 24, so a middling recording scores around 16; the useful output is not the total but which competency scored lowest")),
+ ("SPK-9.1.B", facts("spk-lowest-competency", RV, [
+     ("The purpose of scoring eight competencies is:", "To find the lowest one, which is the next thing to practise", "To track the total over time", "To compare speakers", "To certify"),
+     ("Working on the highest-scoring competency:", "Buys the least improvement for the effort", "Consolidates strength", "Is good practice", "Is faster"),
+     ("A total that rises while the lowest score does not:", "Means the practice went to what was already strong", "Is good progress", "Is expected", "Cannot happen"),
+ ], "The lowest score is the instruction; the total is just a record")),
+ ("SPK-9.1.C", Q("spk-target-blocks", RV, "A practice block runs {{bl}} minutes with reps of {{rl}} seconds and {{gp}} seconds of review each. How many reps fit?",
+     given={"bl": {"pick": [10, 20, 30]}, "rl": {"pick": [60, 90]}, "gp": {"pick": [30, 60, 120]}},
+     value="floor(bl*60/(rl + gp))", tex="reps", final=True,
+     verify="floor(Rational(bl*60, rl + gp))",
+     explain="Review takes as long as the rep or longer, so a twenty-minute block holds fewer reps than it looks; one measurable target per block is what makes the few reps count")),
+ ("SPK-9.2.A", facts("spk-evaluation-shape", RV, [
+     ("A spoken evaluation gives:", "One specific commend, one specific recommend, and one thing to try next time", "A list of everything noticed", "A score", "Encouragement"),
+     ("'That was great' as a commend is weak because:", "The speaker cannot repeat what they do not know they did", "It is insincere", "It is too short", "It is impolite"),
+     ("A recommend should be:", "One thing, specific and actionable in the next rep", "Everything that could improve", "The most serious fault", "General advice"),
+     ("Giving five recommends:", "Means none of them is acted on", "Is thorough", "Is more useful", "Is appropriate for beginners"),
+ ], "One of each, specific enough to be repeated or changed: the discipline is in the count as much as the content")),
+ ("SPK-9.2.B", facts("spk-criterion-rating", RV, [
+     ("Rating a delivery on Vocal Variety looks at:", "Whether pitch, volume and rate moved with the meaning", "Whether the voice was loud", "Whether the speaker sounded confident", "The pace"),
+     ("Rating on Clarity looks at:", "Whether words and endings were intelligible and the structure followable", "Whether the content was correct", "Volume", "Eye contact"),
+     ("Rating on Body Language looks at:", "Stance, gesture and whether movement was motivated", "Attractiveness", "Clothing", "Height"),
+     ("Rating a criterion the recording does not show:", "Is not done; the criterion is marked not assessable", "Is estimated", "Is scored low", "Is scored average"),
+ ], "Each criterion has its own evidence, and a criterion with no evidence in the recording is not scored")),
+ # ── unit 10 longform ─────────────────────────────────────────────
+ ("SPK-10.1.A", Q("spk-lecture-segments", LF, "A {{mn}}-minute lecture is planned as segments of {{sl}} minutes, each with its own point, example and check. How many segments?",
+     given={"mn": {"pick": [50, 75, 90]}, "sl": {"pick": [10, 12, 15]}},
+     value="floor(mn/sl)", tex="segments", final=True, verify="floor(Rational(mn, sl))",
+     explain="Segmenting at ten to fifteen minutes matches how long attention holds without a change; each segment needing its own check is what makes the count a design constraint rather than a guideline")),
+ ("SPK-10.1.A", facts("spk-segment-parts", LF, [
+     ("Each lecture segment needs:", "Its own point, example and check", "Its own slides", "A summary", "A story"),
+     ("Segmenting helps attention because:", "A change of activity resets it, and the check is the change", "Shorter is easier", "It fills time", "It paces the speaker"),
+     ("A 50-minute lecture delivered as one continuous explanation:", "Loses most of the audience partway, whatever its quality", "Is efficient", "Suits advanced audiences", "Is conventional"),
+     ("The check at the end of a segment serves two purposes:", "Resetting attention and finding out whether the segment worked", "Filling time and pacing", "Testing and grading", "Review and summary"),
+ ], "Point, example, check, repeated: the check does double duty as the attention reset")),
+ ("SPK-10.1.B", facts("spk-keyword-outline", LF, [
+     ("A keyword outline differs from a script by:", "Holding the structure and the key phrases, not the sentences", "Being shorter", "Being handwritten", "Having no detail"),
+     ("Delivering from a script costs:", "Eye contact and the ability to respond to the room", "Nothing", "Only naturalness", "Accuracy"),
+     ("A keyword outline is riskiest for:", "The exact wording of a definition or a quotation, which is written out in full", "The structure", "The examples", "The timing"),
+     ("Reading a script while trying to look up produces:", "Lost place and broken sentences, worse than either alternative", "A good compromise", "Natural delivery", "Better eye contact"),
+ ], "Keywords for structure, full text only for wording that must be exact")),
+ ("SPK-10.1.C", Q("spk-fit-slot", LF, "A talk of {{nw}} words at a measured {{wp}} words a minute fits a {{sl}}-minute slot at what percentage of the slot, if 90 per cent is the target?",
+     given={"nw": {"pick": [2400, 4500, 7000]}, "wp": {"pick": [130, 150, 165]}, "sl": {"pick": [20, 45, 60]}},
+     value="100*nw/wp/sl", tex="\\%", verify="100*Rational(nw, wp)/nsimplify(sl)",
+     explain="Fitting to ninety per cent of the slot leaves room for the questions and the overrun that always happens; a talk written to a hundred per cent is a talk that overruns")),
+ ("SPK-10.1.C", Q("spk-cut-words", LF, "A talk runs {{nw}} words at {{wp}} words a minute against a {{sl}}-minute slot targeted at 90 per cent. How many words must be cut?",
+     given={"nw": {"pick": [2400, 4500, 7000]}, "wp": {"pick": [130, 150, 165]}, "sl": {"pick": [20, 45, 60]}},
+     require=["nw > wp*sl*0.9"], value="nw - wp*sl*0.9", tex="words",
+     verify="nsimplify(nw) - nsimplify(wp)*nsimplify(sl)*Rational(9, 10)",
+     explain="Cutting to a word count is the only reliable way to fit a slot, because cutting by feel removes the parts the speaker is least attached to rather than the parts the talk needs least")),
+ # ── unit 11 mediated ─────────────────────────────────────────────
+ ("SPK-11.1.A", facts("spk-remote-setup", MD, [
+     ("The camera should be:", "At eye level, so the speaker looks at the listener rather than down at them", "Above eye level", "Below eye level", "Anywhere steady"),
+     ("The light should be:", "In front of the speaker, not behind", "Behind, for depth", "Overhead only", "Unimportant"),
+     ("A microphone is best placed:", "About 15 to 30 centimetres away, off the direct breath path", "As close as possible", "Across the room", "On the desk surface"),
+     ("A laptop microphone across a desk gives:", "Room reverberation and keyboard noise, which cost intelligibility more than any delivery fault", "Adequate sound", "Better sound than a headset", "No difference"),
+     ("Looking at the camera rather than the faces on screen:", "Is what the listener experiences as eye contact", "Is unnatural and avoidable", "Matters only for recordings", "Is impossible"),
+ ], "Lens at eye level, light in front, microphone close: the setup costs nothing per talk and outranks delivery")),
+ ("SPK-11.1.A", Q("spk-mic-distance", MD, "Sound intensity falls with the square of distance. Moving a microphone from {{d1}} to {{d2}} cm changes the direct-sound level by what factor?",
+     given={"d1": {"pick": [20, 30]}, "d2": {"pick": [60, 100, 150]}},
+     require=["d2 > d1"], value="(d1/d2)^2", tex="\\times", verify="Rational(d1, d2)**2",
+     explain="Direct sound falls with the square of distance while room reverberation does not, so moving the microphone away costs intelligibility twice: less signal and the same reflected noise")),
+ ("SPK-11.1.B", facts("spk-remote-lag", MD, [
+     ("A clear falling ending matters more on a remote call because:", "The listener cannot read the visual cues that normally mark a finished turn", "The audio is worse", "The lag is variable", "Turns are longer"),
+     ("A pause before answering on a remote call should be:", "Long enough to let the lag resolve, so you do not speak over the other person", "The same as in person", "Shorter than in person", "Avoided"),
+     ("Talking over someone on a laggy call usually means:", "Both stop, and the turn has to be renegotiated", "A minor interruption", "Nothing", "The louder one continues"),
+     ("Handing the turn over explicitly on a remote call:", "Removes the ambiguity the lag creates", "Is unnecessary", "Sounds formal", "Slows the meeting"),
+ ], "The lag removes the cues that manage turns, so the endings and the hand-offs have to be explicit")),
+ ("SPK-11.1.B", Q("spk-lag-wait", MD, "A round-trip lag of {{lg}} ms means waiting how long after the other person appears to stop, to be sure they have (seconds), allowing a safety factor of {{sf}}?",
+     given={"lg": {"pick": [120, 300, 600]}, "sf": {"pick": [2, 3]}},
+     value="lg*sf/1000", tex="seconds", verify="Rational(lg*sf, 1000)",
+     explain="A few hundred milliseconds doubled is still under a second, which is the practical answer: a deliberate short pause before answering costs almost nothing and prevents most collisions")),
+]
+
+# Second types for the objectives above that carry one.
+ADD += [
+ ("SPK-7.1.B", Q("spk-objection-budget", PE, "A {{dur}}-second recommendation spends {{ob}} seconds naming and answering the strongest objection. What percentage of the turn is that?",
+     given={"dur": {"pick": [60, 120, 180]}, "ob": {"pick": [10, 20, 40]}},
+     require=["ob < dur"], value="100*ob/dur", tex="\\%", verify="100*Rational(ob, dur)",
+     explain="A fifth of the turn spent on the strongest objection is usually well spent, because the alternative is spending the whole Q&A on it with the framing chosen by someone else")),
+ ("SPK-7.1.C", facts("spk-ask-parts", PE, [
+     ("A specific ask names:", "Who does what, by when", "What is needed", "Why it matters", "The cost"),
+     ("'Let me know what you think' as an ask:", "Names no action, so nothing happens", "Is appropriately open", "Invites discussion", "Is sufficient"),
+     ("The easiest ask is one that:", "The listener can act on without needing anyone else's approval", "Costs least", "Takes least time", "Is most important"),
+     ("An ask with no date:", "Is deferred indefinitely, since everything with a date outranks it", "Is flexible", "Is polite", "Is fine for small asks"),
+ ], "Who, what, by when, and within the listener's own authority: four properties, all of them checkable")),
+ ("SPK-7.2.B", Q("spk-story-share", PE, "A {{mn}}-minute lesson opens with a {{st}}-second story. What percentage of the lesson is the story?",
+     given={"mn": {"pick": [15, 30, 50]}, "st": {"pick": [45, 90, 180]}},
+     value="100*st/(mn*60)", tex="\\%", verify="100*Rational(st, mn*60)",
+     explain="A story is worth a few per cent of a lesson, and the sentence connecting it to the content is what earns that: an unconnected story at five per cent is five per cent wasted")),
+ ("SPK-8.1.B", Q("spk-build-rate", LI, "In a conversation of {{nt}} turns, {{nb}} build on the previous point. What percentage changed the subject?",
+     given={"nt": {"pick": [10, 24, 40]}, "nb": {"pick": [3, 15, 32]}},
+     require=["nb < nt"], value="100*(nt - nb)/nt", tex="\\%", verify="100*Rational(nt - nb, nt)",
+     explain="Counting building turns on a transcript is the measurement behind 'good listener': a conversation where most turns change the subject is two people waiting to speak")),
+ ("SPK-9.1.C", facts("spk-one-target", RV, [
+     ("One measurable target per practice block is used because:", "Two targets at once means neither is attended to while speaking", "It is simpler to record", "Blocks are short", "It is conventional"),
+     ("A good target is:", "A number the speaker can check immediately after the rep", "An improvement in confidence", "A better structure", "More variety"),
+     ("'Be clearer' as a target fails because:", "Nothing in the recording settles whether it was met", "It is too ambitious", "It is too easy", "It is vague but workable"),
+     ("The target changes when:", "It has been met in consecutive blocks, which is what the log is for", "Each session", "When it is boring", "Monthly"),
+ ], "One number, checkable off the recording, held until it is met twice")),
+ ("SPK-9.2.A", Q("spk-evaluation-time", RV, "A {{mn}}-minute evaluation gives a commend, a recommend and a thing to try. How long is each, with {{op}} seconds of framing (seconds)?",
+     given={"mn": {"pick": [2, 3]}, "op": {"pick": [10, 20, 30]}},
+     require=["mn*60 > op + 30"], value="(mn*60 - op)/3", tex="seconds",
+     verify="Rational(mn*60 - op, 3)",
+     explain="Thirty to fifty seconds each is enough to be specific about one thing, which is why the count is three rather than everything noticed")),
+ ("SPK-9.2.B", Q("spk-criterion-spread", RV, "Six criteria are rated 1 to 5, scoring {{a}}, {{b}}, {{c}}, {{d}}, {{e2}} and {{f}}. What is the gap between the highest and the lowest?",
+     given={"a": {"pick": [1, 3, 5]}, "b": {"pick": [2, 4]}, "c": {"pick": [1, 5]}, "d": {"pick": [3, 4]}, "e2": {"pick": [2, 5]}, "f": {"pick": [1, 4]}},
+     value="max(a, max(b, max(c, max(d, max(e2, f))))) - min(a, min(b, min(c, min(d, min(e2, f)))))",
+     tex="points", final=True,
+     verify="Max(a, b, c, d, e2, f) - Min(a, b, c, d, e2, f)",
+     explain="A wide spread says the practice has been uneven, and the lowest criterion is where the next block goes; a narrow spread at a low level is a different problem from a wide one")),
+ ("SPK-10.1.B", Q("spk-outline-density", LF, "A {{mn}}-minute talk is outlined with {{nk}} keywords. How many seconds does each keyword cover?",
+     given={"mn": {"pick": [20, 45, 60]}, "nk": {"pick": [15, 40, 90]}},
+     value="mn*60/nk", tex="seconds", verify="Rational(mn*60, nk)",
+     explain="Twenty to forty seconds a keyword is about right: denser and it is a script, sparser and the speaker loses the thread between keywords")),
+]

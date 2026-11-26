@@ -13,10 +13,10 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 | AI Safety | BlueDot Impact course syllabi (Technical AI Safety, Governance, AGI Strategy) | course | read in full | — | — | 104 | 0 | 104 |
 | Analytical Chemistry | ACS Exams Institute Anchoring Concepts Content Map: Analytical Chemistry (Holme, Bauer, Trate, Reed, Raker & Murphy, J. Chem. Educ. 2020, ed9b00856) | standard | read in full | icho-appendix-c, gre-chemistry, aamc-mcat-outline, usnco, icho-syllabus, acs-accm-general, acs-accm-inorganic | — | 42 | 42 | 0 |
 | Anchor Quantities | CODATA Recommended Values of the Fundamental Physical Constants: 2022 (NIST SP 961) | reference | read in part | snapshot-key-numbers, francl-take-a-number, cfr-21-101-9, acs-accm-pchem, acs-accm-general, acs-accm-analytical | — | 14 | 12 | 2 |
-| Basketball | USA Basketball Player Development Curriculum | standard | read in part | — | — | 88 | 0 | 88 |
+| Basketball | USA Basketball Player Development Curriculum | standard | read in part | ncaa-mbb-rules | — | 88 | 0 | 88 |
 | Biochemistry | ASBMB core concepts for biochemistry and molecular biology (Tansey et al., BAMBED 41:289, 2013) | standard | read in full | asbmb-cert, aamc-mcat-outline, acs-accm-analytical | — | 49 | 49 | 0 |
 | Biology (AP) | AP Biology Course and Exam Description (effective fall 2025) | standard | read in part | ap-biology, iupac-aa-1983, ngss-hs, ib-biology-2025, icho-appendix-c, icho-syllabus, aamc-mcat-outline, acs-accm-general, acs-accm-inorganic, acs-accm-organic | — | 179 | 179 | 0 |
-| Biosecurity | BlueDot Impact, Biosecurity course (six units) | course | read in part | who-lbm4, bwc, cdc-ss1978, who-jee3, ashrae-241 | — | 42 | 42 | 0 |
+| Biosecurity | BlueDot Impact, Biosecurity course (six units) | course | read in part | who-lbm4, bwc, cdc-ss1978, who-jee3, ashrae-241 | — | 64 | 64 | 0 |
 | Calculus | AP Calculus AB and BC Course and Exam Description | standard | read in full | webwork-opl | — | 203 | 203 | 0 |
 | Chemistry Olympiad | U.S. National Chemistry Olympiad: local and national exam format, multiple-choice topic bands and Part II | exam-spec | read in part | icho-appendix-c, icho-syllabus, acs-accm-organic, acs-accm-analytical | — | 73 | 73 | 0 |
 | Chemistry (AP) | AP Chemistry Course and Exam Description (Fall 2024) | standard | read in part | ngss-hs, ib-chemistry-2025, usnco, icho-appendix-c, icho-syllabus, acs-accm, aamc-mcat-outline, acs-accm-general, acs-accm-inorganic, acs-accm-organic, acs-accm-analytical | — | 188 | 188 | 0 |
@@ -2476,18 +2476,18 @@ https://www.who.int/publications/i/item/9789240011311
 
 https://www.unoda.org/en/our-work/weapons-mass-destruction/biological-weapons/biological-weapons-convention
 
-3 of 9 items have at least one objective answering to them.
+9 of 9 items have at least one objective answering to them.
 
 | Item | Topic | Objectives | With a drill | Where |
 |---|---|---|---|---|
 | I | Never develop, produce, stockpile, acquire or retain biological agents, toxins or their means of delivery for hostile purposes | 1 | 1 | biosecurity (1) |
-| II | Destroy or divert existing stocks | — | — | **nothing yet** |
-| III | No transfer or assistance | — | — | **nothing yet** |
+| II | Destroy or divert existing stocks | 23 | 23 | biosecurity (23) |
+| III | No transfer or assistance | 1 | 1 | biosecurity (1) |
 | IV | National implementation measures | 1 | 1 | biosecurity (1) |
-| V | Consultation and cooperation | — | — | **nothing yet** |
-| VI | Complaints to the Security Council | — | — | **nothing yet** |
-| VII | Assistance to a Party exposed to danger | — | — | **nothing yet** |
-| X | Peaceful use and exchange | — | — | **nothing yet** |
+| V | Consultation and cooperation | 1 | 1 | biosecurity (1) |
+| VI | Complaints to the Security Council | 1 | 1 | biosecurity (1) |
+| VII | Assistance to a Party exposed to danger | 1 | 1 | biosecurity (1) |
+| X | Peaceful use and exchange | 23 | 23 | biosecurity (23) |
 | XII | Review conferences | 1 | 1 | biosecurity (1) |
 
 ## CDC, Principles of Epidemiology in Public Health Practice, 3rd edition (Self-Study Course SS1978, 2006, updated 2012)
@@ -2509,29 +2509,29 @@ https://archive.cdc.gov/www_cdc_gov/csels/dsepd/ss1978/index.html
 
 https://www.who.int/publications/i/item/9789240051980
 
-3 of 19 items have at least one objective answering to them.
+19 of 19 items have at least one objective answering to them.
 
 | Item | Topic | Objectives | With a drill | Where |
 |---|---|---|---|---|
-| P1 | Legal instruments | — | — | **nothing yet** |
-| P2 | Financing | — | — | **nothing yet** |
-| P3 | IHR coordination, National IHR Focal Point functions and advocacy | — | — | **nothing yet** |
-| P4 | Antimicrobial resistance | — | — | **nothing yet** |
-| P5 | Zoonotic disease | — | — | **nothing yet** |
-| P6 | Food safety | — | — | **nothing yet** |
+| P1 | Legal instruments | 23 | 23 | biosecurity (23) |
+| P2 | Financing | 1 | 1 | biosecurity (1) |
+| P3 | IHR coordination, National IHR Focal Point functions and advocacy | 1 | 1 | biosecurity (1) |
+| P4 | Antimicrobial resistance | 2 | 2 | biosecurity (2) |
+| P5 | Zoonotic disease | 1 | 1 | biosecurity (1) |
+| P6 | Food safety | 2 | 2 | biosecurity (2) |
 | P7 | Biosafety and biosecurity | 1 | 1 | biosecurity (1) |
-| P8 | Immunization | — | — | **nothing yet** |
-| D1 | National laboratory system | — | — | **nothing yet** |
+| P8 | Immunization | 1 | 1 | biosecurity (1) |
+| D1 | National laboratory system | 24 | 24 | biosecurity (24) |
 | D2 | Surveillance | 1 | 1 | biosecurity (1) |
-| D3 | Human resources | — | — | **nothing yet** |
-| R1 | Health emergency management | — | — | **nothing yet** |
+| D3 | Human resources | 1 | 1 | biosecurity (1) |
+| R1 | Health emergency management | 23 | 23 | biosecurity (23) |
 | R2 | Linking public health and security authorities | 1 | 1 | biosecurity (1) |
-| R3 | Health services provision | — | — | **nothing yet** |
-| R4 | Infection prevention and control | — | — | **nothing yet** |
-| R5 | Risk communication and community engagement | — | — | **nothing yet** |
-| PoE | Points of entry and border health | — | — | **nothing yet** |
-| CE | Chemical events | — | — | **nothing yet** |
-| RE | Radiation emergencies | — | — | **nothing yet** |
+| R3 | Health services provision | 1 | 1 | biosecurity (1) |
+| R4 | Infection prevention and control | 1 | 1 | biosecurity (1) |
+| R5 | Risk communication and community engagement | 1 | 1 | biosecurity (1) |
+| PoE | Points of entry and border health | 1 | 1 | biosecurity (1) |
+| CE | Chemical events | 1 | 1 | biosecurity (1) |
+| RE | Radiation emergencies | 2 | 2 | biosecurity (2) |
 
 ## ASHRAE Standard 241-2023, Control of Infectious Aerosols
 
@@ -4132,3 +4132,14 @@ https://www.osha.gov/laws-regs/regulations/standardnumber/1910/1910.119
 | n | Emergency planning and response | — | — | **nothing yet** |
 | o | Compliance audits | — | — | **nothing yet** |
 | p | Trade secrets | — | — | **nothing yet** |
+
+## NCAA Men's Basketball Rules (2025-26 rules book and the approved rules changes)
+
+https://ncaaorg.s3.amazonaws.com/championships/sports/basketball/rules/men/2025-26PRMBB_RulesChanges.pdf
+
+0 of 2 items have at least one objective answering to them.
+
+| Item | Topic | Objectives | With a drill | Where |
+|---|---|---|---|---|
+| CH | Rules changes for 2025-26: coach's challenge, foul continuation, Flagrant 1, shot-clock operation | — | — | **nothing yet** |
+| TOC | Rules book structure: the articles on the clock, violations, fouls, penalties and officiating mechanics | — | — | **nothing yet** |
