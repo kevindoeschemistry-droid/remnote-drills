@@ -62,8 +62,8 @@ units:
       - n: 2
         title: "Spin and reference"
         los:
-          - { id: A, std: ["psi4numpy-tutorials:03"], do: "Distinguish restricted, unrestricted and restricted open-shell references and say when each is used.", ek: ["RHF pairs spatial orbitals for closed shells; UHF lets alpha and beta differ, which allows spin contamination; ROHF keeps a pure spin state at the cost of flexibility."], p: [P2], drills: [qc-reference-pick, qc-unpaired] }
-          - { id: B, std: ["psi4numpy-tutorials:03"], do: "Compute the expected value of S squared for a given multiplicity and judge spin contamination from a reported value.", ek: ["For a pure state, S squared equals S(S+1) with S = (multiplicity - 1)/2: 0 for a singlet, 0.75 for a doublet, 2 for a triplet. A UHF value well above that is contaminated."], p: [P1], drills: [qc-s-squared, qc-contamination-read] }
+          - { id: A, std: ["psi4numpy-tutorials:03", "psi4numpy-tutorials:03c", "psi4numpy-tutorials:03d"], do: "Distinguish restricted, unrestricted and restricted open-shell references and say when each is used.", ek: ["RHF pairs spatial orbitals for closed shells; UHF lets alpha and beta differ, which allows spin contamination; ROHF keeps a pure spin state at the cost of flexibility."], p: [P2], drills: [qc-reference-pick, qc-unpaired] }
+          - { id: B, std: ["psi4numpy-tutorials:03", "psi4numpy-tutorials:03c"], do: "Compute the expected value of S squared for a given multiplicity and judge spin contamination from a reported value.", ek: ["For a pure state, S squared equals S(S+1) with S = (multiplicity - 1)/2: 0 for a singlet, 0.75 for a doublet, 2 for a triplet. A UHF value well above that is contaminated."], p: [P1], drills: [qc-s-squared, qc-contamination-read] }
   - id: hartree-fock
     n: 2
     title: "The Hartree-Fock method"
@@ -74,8 +74,8 @@ units:
       - n: 1
         title: "The SCF procedure"
         los:
-          - { id: A, std: ["psi4numpy-tutorials:03"], do: "Put the steps of an SCF cycle in order and say what makes it self-consistent.", ek: ["Build the core Hamiltonian and overlap, guess a density, build the Fock matrix from it, solve the generalised eigenvalue problem, form a new density, repeat until the density and energy stop changing."], p: [P2], drills: [qc-scf-order, qc-scf-pieces] }
-          - { id: B, std: ["psi4numpy-tutorials:03"], do: "Compute the Hartree-Fock energy from its one- and two-electron pieces and the nuclear repulsion.", ek: ["The electronic energy is a trace over the density with the core and Fock matrices; the total adds the nuclear repulsion, which is a pure geometry term."], p: [P1], drills: [qc-total-energy, qc-electronic-from-total] }
+          - { id: A, std: ["psi4numpy-tutorials:03", "psi4numpy-tutorials:03a"], do: "Put the steps of an SCF cycle in order and say what makes it self-consistent.", ek: ["Build the core Hamiltonian and overlap, guess a density, build the Fock matrix from it, solve the generalised eigenvalue problem, form a new density, repeat until the density and energy stop changing."], p: [P2], drills: [qc-scf-order, qc-scf-pieces] }
+          - { id: B, std: ["psi4numpy-tutorials:03", "psi4numpy-tutorials:03a"], do: "Compute the Hartree-Fock energy from its one- and two-electron pieces and the nuclear repulsion.", ek: ["The electronic energy is a trace over the density with the core and Fock matrices; the total adds the nuclear repulsion, which is a pure geometry term."], p: [P1], drills: [qc-total-energy, qc-electronic-from-total] }
       - n: 2
         title: "What Hartree-Fock misses"
         los:
@@ -84,8 +84,8 @@ units:
       - n: 3
         title: "Convergence in practice"
         los:
-          - { id: A, std: ["psi4numpy-tutorials:03"], do: "Diagnose an SCF that will not converge and name the usual remedies.", ek: ["Oscillation points at near-degenerate orbitals or a poor guess: DIIS acceleration, level shifting, damping, a better initial guess, or converging a simpler basis or method first."], p: [P2], drills: [qc-scf-fail, qc-guess-matters] }
-          - { id: B, std: ["psi4numpy-tutorials:11"], do: "Count the two-electron integrals a basis implies and say why screening and density fitting matter.", ek: ["There are about K^4/8 unique two-electron integrals for K basis functions once permutational symmetry is used; screening discards negligible ones and density fitting replaces the four-index set with a smaller three-index one."], p: [P1], drills: [qc-integral-count, qc-integral-growth] }
+          - { id: A, std: ["psi4numpy-tutorials:03", "psi4numpy-tutorials:03b"], do: "Diagnose an SCF that will not converge and name the usual remedies.", ek: ["Oscillation points at near-degenerate orbitals or a poor guess: DIIS acceleration, level shifting, damping, a better initial guess, or converging a simpler basis or method first."], p: [P2], drills: [qc-scf-fail, qc-guess-matters] }
+          - { id: B, std: ["psi4numpy-tutorials:11", "psi4numpy-tutorials:03b"], do: "Count the two-electron integrals a basis implies and say why screening and density fitting matter.", ek: ["There are about K^4/8 unique two-electron integrals for K basis functions once permutational symmetry is used; screening discards negligible ones and density fitting replaces the four-index set with a smaller three-index one."], p: [P1], drills: [qc-integral-count, qc-integral-growth] }
   - id: basis
     n: 3
     title: "Basis sets"
@@ -113,8 +113,8 @@ units:
       - n: 1
         title: "Perturbation theory"
         los:
-          - { id: A, std: ["psi4numpy-tutorials:05"], do: "State what MP2 adds and when perturbation theory is the wrong tool.", ek: ["MP2 adds the leading double-excitation correction from the Hartree-Fock reference. It fails where the reference is poor: small gaps, bond breaking, diradicals, and transition metals."], p: [P2], drills: [qc-mp2-limits, qc-mp2-scaling-use] }
-          - { id: B, std: ["psi4numpy-tutorials:05"], do: "Compute an MP2 correlation contribution from given orbital energies and integrals for one excitation.", ek: ["Each doubly-excited amplitude contributes a term whose numerator is the integral squared and whose denominator is the sum of occupied minus virtual orbital energies, so small gaps make large contributions."], p: [P1], drills: [qc-mp2-term, qc-mp2-contribution] }
+          - { id: A, std: ["psi4numpy-tutorials:05", "psi4numpy-tutorials:05a", "psi4numpy-tutorials:05b"], do: "State what MP2 adds and when perturbation theory is the wrong tool.", ek: ["MP2 adds the leading double-excitation correction from the Hartree-Fock reference. It fails where the reference is poor: small gaps, bond breaking, diradicals, and transition metals."], p: [P2], drills: [qc-mp2-limits, qc-mp2-scaling-use] }
+          - { id: B, std: ["psi4numpy-tutorials:05", "psi4numpy-tutorials:05a"], do: "Compute an MP2 correlation contribution from given orbital energies and integrals for one excitation.", ek: ["Each doubly-excited amplitude contributes a term whose numerator is the integral squared and whose denominator is the sum of occupied minus virtual orbital energies, so small gaps make large contributions."], p: [P1], drills: [qc-mp2-term, qc-mp2-contribution] }
       - n: 2
         title: "Coupled cluster and configuration interaction"
         los:
@@ -135,13 +135,13 @@ units:
       - n: 1
         title: "What a functional is"
         los:
-          - { id: A, std: ["psi4numpy-tutorials:04"], do: "Place a functional on the rungs from local density through generalised gradient to hybrid and double hybrid, and say what each rung adds.", ek: ["LDA uses the density; GGA adds its gradient; meta-GGA adds the kinetic-energy density; a hybrid mixes in exact exchange; a double hybrid adds perturbative correlation."], p: [P2], drills: [qc-functional-rungs, qc-functional-pick] }
-          - { id: B, std: ["psi4numpy-tutorials:04"], do: "Compute the exchange mixture a hybrid applies from its stated fraction of exact exchange.", ek: ["A hybrid replaces a stated fraction of the functional's exchange with Hartree-Fock exchange; range-separated hybrids make that fraction depend on distance."], p: [P1], drills: [qc-hybrid-mix, qc-exchange-fraction] }
+          - { id: A, std: ["psi4numpy-tutorials:04", "psi4numpy-tutorials:04b", "psi4numpy-tutorials:04c"], do: "Place a functional on the rungs from local density through generalised gradient to hybrid and double hybrid, and say what each rung adds.", ek: ["LDA uses the density; GGA adds its gradient; meta-GGA adds the kinetic-energy density; a hybrid mixes in exact exchange; a double hybrid adds perturbative correlation."], p: [P2], drills: [qc-functional-rungs, qc-functional-pick] }
+          - { id: B, std: ["psi4numpy-tutorials:04", "psi4numpy-tutorials:04e"], do: "Compute the exchange mixture a hybrid applies from its stated fraction of exact exchange.", ek: ["A hybrid replaces a stated fraction of the functional's exchange with Hartree-Fock exchange; range-separated hybrids make that fraction depend on distance."], p: [P1], drills: [qc-hybrid-mix, qc-exchange-fraction] }
       - n: 2
         title: "Practice and pitfalls"
         los:
-          - { id: A, std: ["psi4numpy-tutorials:04"], do: "Name what DFT handles poorly and the correction usually applied.", ek: ["Plain functionals miss long-range dispersion, so an empirical correction is added; self-interaction error distorts charge-transfer states and barriers, which range-separated hybrids reduce."], p: [P2], drills: [qc-dft-pitfalls, qc-dispersion-share] }
-          - { id: B, std: ["psi4numpy-tutorials:04"], do: "Compute an integration-grid or a dispersion-corrected energy from stated components.", ek: ["The total is the functional's energy plus the dispersion correction, which is a sum of damped pairwise terms; a grid too coarse adds noise that looks like a real energy difference."], p: [P1], drills: [qc-dispersion-total, qc-grid-and-noise] }
+          - { id: A, std: ["psi4numpy-tutorials:04", "psi4numpy-tutorials:04d"], do: "Name what DFT handles poorly and the correction usually applied.", ek: ["Plain functionals miss long-range dispersion, so an empirical correction is added; self-interaction error distorts charge-transfer states and barriers, which range-separated hybrids reduce."], p: [P2], drills: [qc-dft-pitfalls, qc-dispersion-share] }
+          - { id: B, std: ["psi4numpy-tutorials:04", "psi4numpy-tutorials:04a"], do: "Compute an integration-grid or a dispersion-corrected energy from stated components.", ek: ["The total is the functional's energy plus the dispersion correction, which is a sum of damped pairwise terms; a grid too coarse adds noise that looks like a real energy difference."], p: [P1], drills: [qc-dispersion-total, qc-grid-and-noise] }
   - id: properties
     n: 6
     title: "Geometry, frequencies and properties"

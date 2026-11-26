@@ -45,10 +45,10 @@ Big ideas: APPROX
 
 
 
-- ● **QC-1.2.A** (psi4numpy-tutorials:03) Distinguish restricted, unrestricted and restricted open-shell references and say when each is used.
+- ● **QC-1.2.A** (psi4numpy-tutorials:03, psi4numpy-tutorials:03c, psi4numpy-tutorials:03d) Distinguish restricted, unrestricted and restricted open-shell references and say when each is used.
   - EK: RHF pairs spatial orbitals for closed shells; UHF lets alpha and beta differ, which allows spin contamination; ROHF keeps a pure spin state at the cost of flexibility.
   - P2 · drills: qc-reference-pick, qc-unpaired
-- ● **QC-1.2.B** (psi4numpy-tutorials:03) Compute the expected value of S squared for a given multiplicity and judge spin contamination from a reported value.
+- ● **QC-1.2.B** (psi4numpy-tutorials:03, psi4numpy-tutorials:03c) Compute the expected value of S squared for a given multiplicity and judge spin contamination from a reported value.
   - EK: For a pure state, S squared equals S(S+1) with S = (multiplicity - 1)/2: 0 for a singlet, 0.75 for a doublet, 2 for a triplet. A UHF value well above that is contaminated.
   - P1 · drills: qc-s-squared, qc-contamination-read
 
@@ -60,10 +60,10 @@ Big ideas: APPROX, CONVERGE
 
 
 
-- ● **QC-2.1.A** (psi4numpy-tutorials:03) Put the steps of an SCF cycle in order and say what makes it self-consistent.
+- ● **QC-2.1.A** (psi4numpy-tutorials:03, psi4numpy-tutorials:03a) Put the steps of an SCF cycle in order and say what makes it self-consistent.
   - EK: Build the core Hamiltonian and overlap, guess a density, build the Fock matrix from it, solve the generalised eigenvalue problem, form a new density, repeat until the density and energy stop changing.
   - P2 · drills: qc-scf-order, qc-scf-pieces
-- ● **QC-2.1.B** (psi4numpy-tutorials:03) Compute the Hartree-Fock energy from its one- and two-electron pieces and the nuclear repulsion.
+- ● **QC-2.1.B** (psi4numpy-tutorials:03, psi4numpy-tutorials:03a) Compute the Hartree-Fock energy from its one- and two-electron pieces and the nuclear repulsion.
   - EK: The electronic energy is a trace over the density with the core and Fock matrices; the total adds the nuclear repulsion, which is a pure geometry term.
   - P1 · drills: qc-total-energy, qc-electronic-from-total
 
@@ -82,10 +82,10 @@ Big ideas: APPROX, CONVERGE
 
 
 
-- ● **QC-2.3.A** (psi4numpy-tutorials:03) Diagnose an SCF that will not converge and name the usual remedies.
+- ● **QC-2.3.A** (psi4numpy-tutorials:03, psi4numpy-tutorials:03b) Diagnose an SCF that will not converge and name the usual remedies.
   - EK: Oscillation points at near-degenerate orbitals or a poor guess: DIIS acceleration, level shifting, damping, a better initial guess, or converging a simpler basis or method first.
   - P2 · drills: qc-scf-fail, qc-guess-matters
-- ● **QC-2.3.B** (psi4numpy-tutorials:11) Count the two-electron integrals a basis implies and say why screening and density fitting matter.
+- ● **QC-2.3.B** (psi4numpy-tutorials:11, psi4numpy-tutorials:03b) Count the two-electron integrals a basis implies and say why screening and density fitting matter.
   - EK: There are about K^4/8 unique two-electron integrals for K basis functions once permutational symmetry is used; screening discards negligible ones and density fitting replaces the four-index set with a smaller three-index one.
   - P1 · drills: qc-integral-count, qc-integral-growth
 
@@ -123,10 +123,10 @@ Big ideas: APPROX, SCALE
 
 
 
-- ● **QC-4.1.A** (psi4numpy-tutorials:05) State what MP2 adds and when perturbation theory is the wrong tool.
+- ● **QC-4.1.A** (psi4numpy-tutorials:05, psi4numpy-tutorials:05a, psi4numpy-tutorials:05b) State what MP2 adds and when perturbation theory is the wrong tool.
   - EK: MP2 adds the leading double-excitation correction from the Hartree-Fock reference. It fails where the reference is poor: small gaps, bond breaking, diradicals, and transition metals.
   - P2 · drills: qc-mp2-limits, qc-mp2-scaling-use
-- ● **QC-4.1.B** (psi4numpy-tutorials:05) Compute an MP2 correlation contribution from given orbital energies and integrals for one excitation.
+- ● **QC-4.1.B** (psi4numpy-tutorials:05, psi4numpy-tutorials:05a) Compute an MP2 correlation contribution from given orbital energies and integrals for one excitation.
   - EK: Each doubly-excited amplitude contributes a term whose numerator is the integral squared and whose denominator is the sum of occupied minus virtual orbital energies, so small gaps make large contributions.
   - P1 · drills: qc-mp2-term, qc-mp2-contribution
 
@@ -160,10 +160,10 @@ Big ideas: APPROX, SCALE
 
 
 
-- ● **QC-5.1.A** (psi4numpy-tutorials:04) Place a functional on the rungs from local density through generalised gradient to hybrid and double hybrid, and say what each rung adds.
+- ● **QC-5.1.A** (psi4numpy-tutorials:04, psi4numpy-tutorials:04b, psi4numpy-tutorials:04c) Place a functional on the rungs from local density through generalised gradient to hybrid and double hybrid, and say what each rung adds.
   - EK: LDA uses the density; GGA adds its gradient; meta-GGA adds the kinetic-energy density; a hybrid mixes in exact exchange; a double hybrid adds perturbative correlation.
   - P2 · drills: qc-functional-rungs, qc-functional-pick
-- ● **QC-5.1.B** (psi4numpy-tutorials:04) Compute the exchange mixture a hybrid applies from its stated fraction of exact exchange.
+- ● **QC-5.1.B** (psi4numpy-tutorials:04, psi4numpy-tutorials:04e) Compute the exchange mixture a hybrid applies from its stated fraction of exact exchange.
   - EK: A hybrid replaces a stated fraction of the functional's exchange with Hartree-Fock exchange; range-separated hybrids make that fraction depend on distance.
   - P1 · drills: qc-hybrid-mix, qc-exchange-fraction
 
@@ -171,10 +171,10 @@ Big ideas: APPROX, SCALE
 
 
 
-- ● **QC-5.2.A** (psi4numpy-tutorials:04) Name what DFT handles poorly and the correction usually applied.
+- ● **QC-5.2.A** (psi4numpy-tutorials:04, psi4numpy-tutorials:04d) Name what DFT handles poorly and the correction usually applied.
   - EK: Plain functionals miss long-range dispersion, so an empirical correction is added; self-interaction error distorts charge-transfer states and barriers, which range-separated hybrids reduce.
   - P2 · drills: qc-dft-pitfalls, qc-dispersion-share
-- ● **QC-5.2.B** (psi4numpy-tutorials:04) Compute an integration-grid or a dispersion-corrected energy from stated components.
+- ● **QC-5.2.B** (psi4numpy-tutorials:04, psi4numpy-tutorials:04a) Compute an integration-grid or a dispersion-corrected energy from stated components.
   - EK: The total is the functional's energy plus the dispersion correction, which is a sum of damped pairwise terms; a grid too coarse adds noise that looks like a real energy difference.
   - P1 · drills: qc-dispersion-total, qc-grid-and-noise
 
